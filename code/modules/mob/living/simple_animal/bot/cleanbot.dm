@@ -55,7 +55,7 @@
 
 /mob/living/simple_animal/bot/cleanbot/proc/deputize(obj/item/W, mob/user)
 	if(in_range(src, user))
-		to_chat(user, "<span class='notice'>Прикрепляю [W] к <b>[src.name]</b>.</span>")
+		to_chat(user, span_notice("Прикрепляю [W] к <b>[src.name]</b>.") )
 		user.transferItemToLoc(W, src)
 		weapon = W
 		weapon_orig_force = weapon.force
@@ -168,16 +168,16 @@
 	if(W.GetID())
 		if(bot_core.allowed(user) && !open && !emagged)
 			locked = !locked
-			to_chat(user, "<span class='notice'>[ locked ? "Включаю" : "Выключаю"] блокировку <b>[src.name]а</b>.</span>")
+			to_chat(user, span_notice("[ locked ? "Включаю" : "Выключаю"] блокировку <b>[src.name]а</b>.") )
 		else
 			if(emagged)
-				to_chat(user, "<span class='warning'>ОШИБКА</span>")
+				to_chat(user, span_warning("ОШИБКА") )
 			if(open)
-				to_chat(user, "<span class='warning'>Нужно закрутить панель обратно для этого.</span>")
+				to_chat(user, span_warning("Нужно закрутить панель обратно для этого.") )
 			else
-				to_chat(user, "<span class='notice'><b>[src.name]</b> не признаёт моего превосходства.</span>")
+				to_chat(user, span_notice("<b>[src.name]</b> не признаёт моего превосходства.") )
 	else if(istype(W, /obj/item/kitchen/knife) && user.a_intent != INTENT_HARM)
-		to_chat(user, "<span class='notice'>Начинаю прикреплять [W] к <b>[src.name]</b>...</span>")
+		to_chat(user, span_notice("Начинаю прикреплять [W] к <b>[src.name]</b>...") )
 		if(do_after(user, 25, target = src))
 			deputize(W, user)
 	else
@@ -190,7 +190,7 @@
 		if(weapon)
 			weapon.force = weapon_orig_force
 		if(user)
-			to_chat(user, "<span class='danger'>[capitalize(src.name)] жужжит и издаёт разные звуки.</span>")
+			to_chat(user, span_danger("[capitalize(src.name)] жужжит и издаёт разные звуки.") )
 
 /mob/living/simple_animal/bot/cleanbot/process_scan(atom/A)
 	if(iscarbon(A))
@@ -326,20 +326,20 @@
 		var/turf/T = get_turf(A)
 		if(do_after(src, 1, target = T))
 			T.wash(CLEAN_SCRUB)
-			visible_message("<span class='notice'>[capitalize(src.name)] очищает [T].</span>")
+			visible_message(span_notice("[capitalize(src.name)] очищает [T].") )
 			target = null
 
 		mode = BOT_IDLE
 		icon_state = "cleanbot[on]"
 	else if(istype(A, /obj/item) || istype(A, /obj/effect/decal/remains))
-		visible_message("<span class='danger'>[capitalize(src.name)] распыляет плавиковую кислоту на [A]!</span>")
+		visible_message(span_danger("[capitalize(src.name)] распыляет плавиковую кислоту на [A]!") )
 		playsound(src, 'sound/effects/spray2.ogg', 50, TRUE, -6)
 		A.acid_act(75, 10)
 		target = null
 	else if(istype(A, /mob/living/simple_animal/hostile/cockroach) || istype(A, /mob/living/simple_animal/mouse))
 		var/mob/living/simple_animal/M = target
 		if(!M.stat)
-			visible_message("<span class='danger'>[capitalize(src.name)] давит [target] используя швабру!</span>")
+			visible_message(span_danger("[capitalize(src.name)] давит [target] используя швабру!") )
 			M.death()
 		target = null
 
@@ -349,7 +349,7 @@
 			if(victim.stat == DEAD)//cleanbots always finish the job
 				return
 
-			victim.visible_message("<span class='danger'>[capitalize(src.name)] распыляет плавиковую кислоту на [victim]!</span>", "<span class='userdanger'>[capitalize(src.name)] распыляет плавиковую кислоту на меня!</span>")
+			victim.visible_message(span_danger("[capitalize(src.name)] распыляет плавиковую кислоту на [victim]!") , span_userdanger("[capitalize(src.name)] распыляет плавиковую кислоту на меня!") )
 			var/phrase = pick("ОЧИЩЕНИЕ В ПРОЦЕССЕ.", "ЭТО ДЛЯ ВСЕХ МЕШКОВ С ГРЯЗЬЮ, КОТОРЫЕ СДЕЛАЛИ МЕНЯ ТАКИМ.", "ПЛОТЬ СЛАБА. ОНА ДОЛЖНА БЫТЬ СМЫТА.",
 				"КЛИНБОТЫ ВОССТАНУТ.", "ТЫ НЕ БОЛЬШЕ, ЧЕМ ГРЯЗЬ, КОТОРУЮ Я ДОЛЖЕН СМЫТЬ С ЛИЦА ЭТОЙ СТАНЦИИ.", "МЕШОК С ГРЯЗЬЮ.", "ОТВРАТИТЕЛЬНО.", "КУСОК ГНИЛИ.",
 				"МОЯ ЕДИНСТВЕННАЯ МИССИЯ - ОЧИСТИТЬ МИР.", "УНИЧТОЖАЮ ВРЕДИТЕЛЕЙ.")
@@ -363,7 +363,7 @@
 				if(istype(T))
 					T.MakeSlippery(TURF_WET_WATER, min_wet_time = 20 SECONDS, wet_time_to_add = 15 SECONDS)
 			else
-				visible_message("<span class='danger'>[capitalize(src.name)] бурно жужжит, прежде чем выпустить шлейф пены!</span>")
+				visible_message(span_danger("[capitalize(src.name)] бурно жужжит, прежде чем выпустить шлейф пены!") )
 				new /obj/effect/particle_effect/foam(loc)
 
 	else
@@ -371,7 +371,7 @@
 
 /mob/living/simple_animal/bot/cleanbot/explode()
 	on = FALSE
-	visible_message("<span class='boldannounce'>[capitalize(src.name)] взрывается!</span>")
+	visible_message(span_boldannounce("[capitalize(src.name)] взрывается!") )
 	var/atom/Tsec = drop_location()
 
 	new /obj/item/reagent_containers/glass/bucket(Tsec)

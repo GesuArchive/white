@@ -87,7 +87,7 @@
 	operation_order = reverseList(C.bodyparts)   //Chest and head are first in bodyparts, so we invert it to make them suffer more
 	warming_up = TRUE
 	harvesting = TRUE
-	visible_message("<span class='notice'>The [name] begins warming up!</span>")
+	visible_message(span_notice("The [name] begins warming up!") )
 	say("Initializing harvest protocol.")
 	update_icon()
 	addtimer(CALLBACK(src, .proc/harvest), interval)
@@ -139,10 +139,10 @@
 	if(..())
 		return
 	if(occupant)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] is currently occupied!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] is currently occupied!") )
 		return
 	if(state_open)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] must be closed to [panel_open ? "close" : "open"] its maintenance hatch!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] must be closed to [panel_open ? "close" : "open"] its maintenance hatch!") )
 		return
 	if(default_deconstruction_screwdriver(user, "[initial(icon_state)]-o", initial(icon_state), I))
 		return
@@ -158,7 +158,7 @@
 	. = !(state_open || panel_open || (flags_1 & NODECONSTRUCT_1)) && I.tool_behaviour == TOOL_CROWBAR //We removed is_operational here
 	if(.)
 		I.play_tool_sound(src, 50)
-		visible_message("<span class='notice'>[usr] pries open <b>[src.name]</b>.</span>", "<span class='notice'>You pry open [src].</span>")
+		visible_message(span_notice("[usr] pries open <b>[src.name]</b>.") , span_notice("You pry open [src].") )
 		open_machine()
 
 /obj/machinery/harvester/emag_act(mob/user)
@@ -166,15 +166,15 @@
 		return
 	obj_flags |= EMAGGED
 	allow_living = TRUE
-	to_chat(user, "<span class='warning'>You overload [src] lifesign scanners.</span>")
+	to_chat(user, span_warning("You overload [src] lifesign scanners.") )
 
 /obj/machinery/harvester/container_resist_act(mob/living/user)
 	if(!harvesting)
-		visible_message("<span class='notice'>[occupant] emerges from [src]!</span>",
-			"<span class='notice'>You climb out of [src]!</span>")
+		visible_message(span_notice("[occupant] emerges from [src]!") ,
+			span_notice("You climb out of [src]!") )
 		open_machine()
 	else
-		to_chat(user,"<span class='warning'>[capitalize(src.name)] is active and can't be opened!</span>") //rip
+		to_chat(user,span_warning("[capitalize(src.name)] is active and can't be opened!") ) //rip
 
 /obj/machinery/harvester/Exited(atom/movable/user)
 	if (!state_open && user == occupant)

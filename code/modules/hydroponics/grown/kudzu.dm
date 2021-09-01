@@ -24,7 +24,7 @@
 	return S
 
 /obj/item/seeds/kudzu/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] съедает пачку кудзу семян! Похоже [user.p_theyre()] пытается покончить с собой!</span>")
+	user.visible_message(span_suicide("[user] съедает пачку кудзу семян! Похоже [user.p_theyre()] пытается покончить с собой!") )
 	plant(user)
 	return (BRUTELOSS)
 
@@ -32,22 +32,22 @@
 	if(isspaceturf(user.loc))
 		return
 	if(!isturf(user.loc))
-		to_chat(user, "<span class='warning'>Нужно больше места, чтобы посадить росток [src].</span>")
+		to_chat(user, span_warning("Нужно больше места, чтобы посадить росток [src].") )
 		return FALSE
 	if(locate(/obj/structure/spacevine) in user.loc)
-		to_chat(user, "<span class='warning'>Здесь слишком много кудзу, чтобы посадить [src].</span>")
+		to_chat(user, span_warning("Здесь слишком много кудзу, чтобы посадить [src].") )
 		return FALSE
-	to_chat(user, "<span class='notice'>Сажаю [src].</span>")
+	to_chat(user, span_notice("Сажаю [src].") )
 	message_admins("Kudzu planted by [ADMIN_LOOKUPFLW(user)] at [ADMIN_VERBOSEJMP(user)]")
 	investigate_log("was planted by [key_name(user)] at [AREACOORD(user)]", INVESTIGATE_BOTANY)
 	new /datum/spacevine_controller(get_turf(user), mutations, potency, production)
 	qdel(src)
 
 /obj/item/seeds/kudzu/attack_self(mob/user)
-	user.visible_message("<span class='danger'>[user] начинает выбрасывать семена на пол...</span>")
+	user.visible_message(span_danger("[user] начинает выбрасывать семена на пол...") )
 	if(do_after(user, 5 SECONDS, target = user.drop_location(), progress = TRUE))
 		plant(user)
-		to_chat(user, "<span class='notice'>Вы посадили кудзу. Вы - монстр.</span>")
+		to_chat(user, span_notice("Вы посадили кудзу. Вы - монстр.") )
 
 /obj/item/seeds/kudzu/get_unique_analyzer_text()
 	var/kudzu_mutations = ""

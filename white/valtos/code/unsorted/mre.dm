@@ -38,7 +38,7 @@
 	if(STR.locked)
 		playsound(get_turf(src), open_sound, 50, TRUE)
 		STR.locked = FALSE
-		to_chat(user, "<span class='notice'>Вскрываю упаковку. Приятный запах начинает исходить из неё.</span>")
+		to_chat(user, span_notice("Вскрываю упаковку. Приятный запах начинает исходить из неё.") )
 		update_icon()
 
 /obj/item/storage/mre/vegan
@@ -112,7 +112,7 @@
 	if(STR.locked)
 		playsound(get_turf(src), open_sound, 50, TRUE)
 		STR.locked = FALSE
-		to_chat(user, "<span class='notice'>Вскрываю упаковку. Приятный запах начинает исходить из неё.</span>")
+		to_chat(user, span_notice("Вскрываю упаковку. Приятный запах начинает исходить из неё.") )
 		update_icon()
 
 /obj/item/storage/mrebag/dessert

@@ -54,7 +54,7 @@
 	else
 		zone = BODY_ZONE_R_ARM
 	SetSlotFromZone()
-	to_chat(user, "<span class='notice'>Изменил положение [src] и пересобрал его в [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руке.</span>")
+	to_chat(user, span_notice("Изменил положение [src] и пересобрал его в [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руке.") )
 	update_icon()
 
 /obj/item/organ/cyberimp/arm/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
@@ -77,7 +77,7 @@
 	if(. & EMP_PROTECT_SELF || status == ORGAN_ROBOTIC)
 		return
 	if(prob(15/severity) && owner)
-		to_chat(owner, "<span class='warning'>Электромагнитный импульс вызвал неисправность [src]!</span>")
+		to_chat(owner, span_warning("Электромагнитный импульс вызвал неисправность [src]!") )
 		// give the owner an idea about why his implant is glitching
 		Retract()
 
@@ -130,9 +130,9 @@
 		for(var/i in 1 to hand_items.len) //Can't just use *in* here.
 			var/I = hand_items[i]
 			if(!owner.dropItemToGround(I))
-				failure_message += "<span class='warning'>Мой [I] мешает [src]!</span>"
+				failure_message += span_warning("Мой [I] мешает [src]!")
 				continue
-			to_chat(owner, "<span class='notice'>Бросаю [I] чтобы активировать [src]!</span>")
+			to_chat(owner, span_notice("Бросаю [I] чтобы активировать [src]!") )
 			success = owner.put_in_hand(active_item, owner.get_empty_held_index_for_side(side))
 			break
 		if(!success)
@@ -146,7 +146,7 @@
 
 /obj/item/organ/cyberimp/arm/ui_action_click()
 	if((organ_flags & ORGAN_FAILING) || (!active_item && !contents.len))
-		to_chat(owner, "<span class='warning'>Имплант не отвечает. Похоже что он сломался...</span>")
+		to_chat(owner, span_warning("Имплант не отвечает. Похоже что он сломался...") )
 		return
 
 	if(!active_item || (active_item in src))
@@ -171,9 +171,9 @@
 		return
 	if(prob(30/severity) && owner && !(organ_flags & ORGAN_FAILING))
 		Retract()
-		owner.visible_message("<span class='danger'> Из [owner] [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руки [owner] раздался громкий хлопок!</span>")
+		owner.visible_message(span_danger(" Из [owner] [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руки [owner] раздался громкий хлопок!") )
 		playsound(get_turf(owner), 'sound/weapons/flashbang.ogg', 100, TRUE)
-		to_chat(owner, "<span class='userdanger'>Чувствую взрыв в моей [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руке, сломался имплант!</span>")
+		to_chat(owner, span_userdanger("Чувствую взрыв в моей [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руке, сломался имплант!") )
 		owner.adjust_fire_stacks(20)
 		owner.IgniteMob()
 		owner.adjustFireLoss(25)
@@ -215,7 +215,7 @@
 
 /obj/item/organ/cyberimp/arm/toolset/emag_act(mob/user)
 	if(!(locate(/obj/item/kitchen/knife/combat/cyborg) in items_list))
-		to_chat(user, "<span class='notice'>Разблокирую интегрированный нож [src]!</span>")
+		to_chat(user, span_notice("Разблокирую интегрированный нож [src]!") )
 		items_list += new /obj/item/kitchen/knife/combat/cyborg(src)
 		return 1
 	return 0

@@ -102,11 +102,11 @@
 
 /obj/item/modular_computer/laptop/proc/toggle_open(mob/living/user=null)
 	if(screen_on)
-		to_chat(user, "<span class='notice'>Закрываю <b>[src.name]</b>.</span>")
+		to_chat(user, span_notice("Закрываю <b>[src.name]</b>.") )
 		slowdown = initial(slowdown)
 		w_class = initial(w_class)
 	else
-		to_chat(user, "<span class='notice'>Открываю <b>[src.name]</b>.</span>")
+		to_chat(user, span_notice("Открываю <b>[src.name]</b>.") )
 		slowdown = slowdown_open
 		w_class = w_class_open
 

@@ -19,7 +19,7 @@
 /obj/structure/chair/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += "<span class='notice'>Удерживается вместе парочкой <b>болтов</b>.</span>"
+	. += span_notice("Удерживается вместе парочкой <b>болтов</b>.")
 	if(!has_buckled_mobs() && can_buckle)
 		. += "</br><span class='notice'>Перетащите себя, чтобы сидеть на нём.</span>"
 
@@ -97,7 +97,7 @@
 		AddComponent(/datum/component/electrified_buckle, (SHOCK_REQUIREMENT_ITEM | SHOCK_REQUIREMENT_LIVE_CABLE | SHOCK_REQUIREMENT_SIGNAL_RECEIVED_TOGGLE), input_shock_kit, overlays_from_child_procs, FALSE)
 
 	if(HAS_TRAIT(src, TRAIT_ELECTRIFIED_BUCKLE))
-		to_chat(user, "<span class='notice'>You connect the shock kit to the [name], electrifying it </span>")
+		to_chat(user, span_notice("You connect the shock kit to the [name], electrifying it ") )
 	else
 		user.put_in_active_hand(input_shock_kit)
 		to_chat(user, "<span class='notice'> You cannot fit the shock kit onto the [name]!")
@@ -275,7 +275,7 @@
 			return
 		if(!usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 			return
-		usr.visible_message("<span class='notice'>[usr] хватает [sklonenie(src.name, VINITELNI, src.gender)].</span>", "<span class='notice'>Хватаю [sklonenie(src.name, VINITELNI, src.gender)].</span>")
+		usr.visible_message(span_notice("[usr] хватает [sklonenie(src.name, VINITELNI, src.gender)].") , span_notice("Хватаю [sklonenie(src.name, VINITELNI, src.gender)].") )
 		var/obj/item/C = new item_chair(loc)
 		C.set_custom_materials(custom_materials)
 		TransferComponents(C)
@@ -311,7 +311,7 @@
 	var/obj/structure/chair/origin_type = /obj/structure/chair
 
 /obj/item/chair/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins hitting [user.ru_na()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] begins hitting [user.ru_na()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!") )
 	playsound(src,hitsound,50,TRUE)
 	return BRUTELOSS
 
@@ -326,17 +326,17 @@
 /obj/item/chair/proc/plant(mob/user)
 	var/turf/T = get_turf(loc)
 	if(!isfloorturf(T))
-		to_chat(user, "<span class='warning'>Надо бы пол!</span>")
+		to_chat(user, span_warning("Надо бы пол!") )
 		return
 	for(var/obj/A in T)
 		if(istype(A, /obj/structure/chair))
-			to_chat(user, "<span class='warning'>Здесь уже есть стул!</span>")
+			to_chat(user, span_warning("Здесь уже есть стул!") )
 			return
 		if(A.density && !(A.flags_1 & ON_BORDER_1))
-			to_chat(user, "<span class='warning'>Здесь уже что-то есть!</span>")
+			to_chat(user, span_warning("Здесь уже что-то есть!") )
 			return
 
-	user.visible_message("<span class='notice'>[user] ставит [src.name] на пол.</span>", "<span class='notice'>Ставлю [src.name] на пол.</span>")
+	user.visible_message(span_notice("[user] ставит [src.name] на пол.") , span_notice("Ставлю [src.name] на пол.") )
 	var/obj/structure/chair/C = new origin_type(get_turf(loc))
 	C.set_custom_materials(custom_materials)
 	TransferComponents(C)
@@ -361,7 +361,7 @@
 
 /obj/item/chair/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(attack_type == UNARMED_ATTACK && prob(hit_reaction_chance))
-		owner.visible_message("<span class='danger'>[owner] отражает [attack_text] [sklonenie(src.name, TVORITELNI, src.gender)]!</span>")
+		owner.visible_message(span_danger("[owner] отражает [attack_text] [sklonenie(src.name, TVORITELNI, src.gender)]!") )
 		return TRUE
 	return FALSE
 
@@ -370,7 +370,7 @@
 	if(!proximity)
 		return
 	if(prob(break_chance))
-		user.visible_message("<span class='danger'>[user] разбивает [src] на куски об [target]</span>")
+		user.visible_message(span_danger("[user] разбивает [src] на куски об [target]") )
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
 			if(C.health < C.maxHealth*0.5)
@@ -466,12 +466,12 @@
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return
 	if(!(datum_flags & DF_ISPROCESSING))
-		user.visible_message("<span class='notice'>[user] spins [src] around, and the last vestiges of Ratvarian technology keeps it spinning FOREVER.</span>", \
-		"<span class='notice'>Automated spinny chairs. The pinnacle of ancient Ratvarian technology.</span>")
+		user.visible_message(span_notice("[user] spins [src] around, and the last vestiges of Ratvarian technology keeps it spinning FOREVER.") , \
+		span_notice("Automated spinny chairs. The pinnacle of ancient Ratvarian technology.") )
 		START_PROCESSING(SSfastprocess, src)
 	else
-		user.visible_message("<span class='notice'>[user] stops [src] uncontrollable spinning.</span>", \
-		"<span class='notice'>You grab [src] and stop its wild spinning.</span>")
+		user.visible_message(span_notice("[user] stops [src] uncontrollable spinning.") , \
+		span_notice("You grab [src] and stop its wild spinning.") )
 		STOP_PROCESSING(SSfastprocess, src)
 
 /obj/structure/chair/mime
@@ -514,9 +514,9 @@
 
 /obj/structure/chair/plastic/proc/snap_check(mob/living/carbon/Mob)
 	if (Mob.nutrition >= NUTRITION_LEVEL_FAT)
-		to_chat(Mob, "<span class='warning'>Стул начинает трещать и трескаться, я слишком тяжелый!</span>")
+		to_chat(Mob, span_warning("Стул начинает трещать и трескаться, я слишком тяжелый!") )
 		if(do_after(Mob, 6 SECONDS, progress = FALSE))
-			Mob.visible_message("<span class='notice'>Пластиковый стул защелкивается под весом [Mob]!</span>")
+			Mob.visible_message(span_notice("Пластиковый стул защелкивается под весом [Mob]!") )
 			new /obj/effect/decal/cleanable/plastic(loc)
 			qdel(src)
 

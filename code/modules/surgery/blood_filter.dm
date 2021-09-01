@@ -23,22 +23,22 @@
 	time = 2.5 SECONDS
 
 /datum/surgery_step/filter_blood/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>Начинаю фильтрацию крови [target]...</span>",
-		"<span class='notice'>[user] использует [tool] для фильтрации моей крови.</span>",
-		"<span class='notice'>[user] использует [tool] на груди [target].</span>")
+	display_results(user, target, span_notice("Начинаю фильтрацию крови [target]...") ,
+		span_notice("[user] использует [tool] для фильтрации моей крови.") ,
+		span_notice("[user] использует [tool] на груди [target].") )
 
 /datum/surgery_step/filter_blood/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(target.reagents?.total_volume)
 		for(var/blood_chem in target.reagents.reagent_list)
 			var/datum/reagent/chem = blood_chem
 			target.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
-	display_results(user, target, "<span class='notice'>Закончив фильтрацию крови [target] [tool] издает короткий звон.</span>",
-		"<span class='notice'>Закончив качать мою кровь [tool] издает короткий звон.</span>",
+	display_results(user, target, span_notice("Закончив фильтрацию крови [target] [tool] издает короткий звон.") ,
+		span_notice("Закончив качать мою кровь [tool] издает короткий звон.") ,
 		"Закончив качать [tool] издает короткий звон.")
 	return ..()
 
 /datum/surgery_step/filter_blood/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='warning'>[gvorno(TRUE)], но [gvorno(TRUE)], но я облажался, оставив синяк на груди [target]!</span>",
-		"<span class='warning'>[user] облажался, оставив синяк на груди [target]!</span>",
-		"<span class='warning'>[user] облажался!</span>")
+	display_results(user, target, span_warning("[gvorno(TRUE)], но [gvorno(TRUE)], но я облажался, оставив синяк на груди [target]!") ,
+		span_warning("[user] облажался, оставив синяк на груди [target]!") ,
+		span_warning("[user] облажался!") )
 	target.adjustBruteLoss(5)

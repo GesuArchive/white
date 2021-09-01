@@ -37,7 +37,7 @@
 		if(no_den_usage)
 			var/area/A = get_area(user)
 			if(istype(A, /area/wizard_station))
-				to_chat(user, "<span class='warning'>You know better than to violate the security of The Den, best wait until you leave to use [src].</span>")
+				to_chat(user, span_warning("You know better than to violate the security of The Den, best wait until you leave to use [src].") )
 				return
 			else
 				no_den_usage = 0
@@ -48,7 +48,7 @@
 
 
 /obj/item/gun/magic/wand/proc/zap_self(mob/living/user)
-	user.visible_message("<span class='danger'>[user] zaps [user.ru_na()]self with [src].</span>")
+	user.visible_message(span_danger("[user] zaps [user.ru_na()]self with [src].") )
 	playsound(user, fire_sound, 50, TRUE)
 	user.log_message("zapped [user.ru_na()]self with a <b>[src]</b>", LOG_ATTACK)
 
@@ -70,13 +70,13 @@
 	..()
 	charges--
 	if(user.anti_magic_check())
-		user.visible_message("<span class='warning'>[capitalize(src.name)] не подействовала на [user]!</span>")
+		user.visible_message(span_warning("[capitalize(src.name)] не подействовала на [user]!") )
 		return
 	if(isliving(user))
 		var/mob/living/L = user
 		if(L.mob_biotypes & MOB_UNDEAD) //negative energy heals the undead
 			user.revive(full_heal = TRUE, admin_revive = TRUE)
-			to_chat(user, "<span class='notice'>Чувствую себя замечательно!</span>")
+			to_chat(user, span_notice("Чувствую себя замечательно!") )
 			return
 	to_chat(user, "<span class='warning'>Облучаю себя чистой негативной энергией! \
 	[pick("Не проходите мимо. Не подбирайте 200 зоркмидов.","Чувствую что мои навыки чтения заклинаний улучшились.","Вы умерли...","Вы хотите чтобы ваше имущество опознали?")]\
@@ -108,7 +108,7 @@
 	..()
 	charges--
 	if(user.anti_magic_check())
-		user.visible_message("<span class='warning'>[capitalize(src.name)] не подействовала на [user]!</span>")
+		user.visible_message(span_warning("[capitalize(src.name)] не подействовала на [user]!") )
 		return
 	if(isliving(user))
 		var/mob/living/L = user
@@ -119,7 +119,7 @@
 			user.death(0)
 			return
 	user.revive(full_heal = TRUE, admin_revive = TRUE)
-	to_chat(user, "<span class='notice'>Чувствую себя замечательно!</span>")
+	to_chat(user, span_notice("Чувствую себя замечательно!") )
 
 /obj/item/gun/magic/wand/resurrection/debug //for testing
 	desc = "Существует ли что-то мощнее обычной магии? Да, эта палочка."
@@ -213,7 +213,7 @@
 	no_den_usage = 1
 
 /obj/item/gun/magic/wand/door/zap_self(mob/living/user)
-	to_chat(user, "<span class='notice'>Чувствую что стал более открытым человеком.</span>")
+	to_chat(user, span_notice("Чувствую что стал более открытым человеком.") )
 	charges--
 	..()
 

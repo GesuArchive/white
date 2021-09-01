@@ -174,7 +174,7 @@
 	M.move_to_delay -= round(seed.production / 50)
 	M.health = M.maxHealth
 	qdel(src)
-	to_chat(user, "<span class='notice'>Сажаю ходячий гриб.</span>")
+	to_chat(user, span_notice("Сажаю ходячий гриб.") )
 
 
 // Chanterelle
@@ -270,7 +270,7 @@
 	if(isspaceturf(user.loc))
 		return FALSE
 	if(!isturf(user.loc))
-		to_chat(user, "<span class='warning'>Нужно больше места, чтобы посадить [src].</span>")
+		to_chat(user, span_warning("Нужно больше места, чтобы посадить [src].") )
 		return FALSE
 	var/count = 0
 	var/maxcount = 1
@@ -281,10 +281,10 @@
 	for(var/obj/structure/glowshroom/G in user.loc)
 		count++
 	if(count >= maxcount)
-		to_chat(user, "<span class='warning'>Здесь слишком много грибов, чтобы сажать [src].</span>")
+		to_chat(user, span_warning("Здесь слишком много грибов, чтобы сажать [src].") )
 		return FALSE
 	new effect_path(user.loc, seed)
-	to_chat(user, "<span class='notice'>Сажаю [src].</span>")
+	to_chat(user, span_notice("Сажаю [src].") )
 	qdel(src)
 	return TRUE
 

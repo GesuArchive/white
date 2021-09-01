@@ -25,7 +25,7 @@
 	. = ..()
 	if(!sample || !istype(A, /obj/structure/sink))
 		return FALSE
-	to_chat(user, "<span class='notice'>You wash the sample out of [src].</span>")
+	to_chat(user, span_notice("You wash the sample out of [src].") )
 	sample = null
 
 /obj/item/petri_dish/update_overlays()
@@ -42,7 +42,7 @@
 
 /obj/item/petri_dish/proc/deposit_sample(user, datum/biological_sample/deposited_sample)
 	sample = deposited_sample
-	to_chat(user, "<span class='notice'>You deposit a sample into [src].</span>")
+	to_chat(user, span_notice("You deposit a sample into [src].") )
 	update_icon()
 
 /// Petri dish with random sample already in it.

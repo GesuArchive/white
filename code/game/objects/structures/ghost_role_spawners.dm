@@ -95,7 +95,7 @@
 /obj/effect/mob_spawn/human/ash_walker/allow_spawn(mob/user)
 	if(!(user.key in team.players_spawned))//one per person unless you get a bonus spawn
 		return TRUE
-	to_chat(user, "<span class='warning'><b>Исчерпываю свою полезность для Некрополя</b>.</span>")
+	to_chat(user, span_warning("<b>Исчерпываю свою полезность для Некрополя</b>.") )
 	return FALSE
 
 /obj/effect/mob_spawn/human/ash_walker/special(mob/living/new_spawn)
@@ -237,7 +237,7 @@
 		if(QDELETED(src) || uses <= 0)
 			return
 		log_game("[key_name(H)] golem-swapped into [src]")
-		H.visible_message("<span class='notice'>Внезапно [H.name] высвобождает тусклый поток света, который направляется к [src.name] и оживляет её!</span>","<span class='notice'>Покидаю старое и перемещаюсь в [src.name]!</span>")
+		H.visible_message(span_notice("Внезапно [H.name] высвобождает тусклый поток света, который направляется к [src.name] и оживляет её!") ,span_notice("Покидаю старое и перемещаюсь в [src.name]!") )
 		show_flavour = FALSE
 		var/mob/living/carbon/human/newgolem = create(newname = H.real_name)
 		H.transfer_trait_datums(newgolem)
@@ -731,7 +731,7 @@
 	new_spawn.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_MIND)
 	var/policy = get_policy(assignedrole)
 	if(policy)
-		to_chat(new_spawn, "<span class='bold'>[policy]</span>")
+		to_chat(new_spawn, span_bold("[policy]") )
 
 /obj/effect/mob_spawn/human/syndicatespace/captain
 	name = "Syndicate Ship Captain"
@@ -843,7 +843,7 @@
 	var/obj/item/card/id/id_card = H.wear_id
 	if(H.age < AGE_MINOR)
 		id_card.registered_age = AGE_MINOR
-		to_chat(H, "<span class='notice'>You're not technically old enough to access or serve alcohol, but your ID has been discreetly modified to display your age as [AGE_MINOR]. Try to keep that a secret!</span>")
+		to_chat(H, span_notice("You're not technically old enough to access or serve alcohol, but your ID has been discreetly modified to display your age as [AGE_MINOR]. Try to keep that a secret!") )
 
 /obj/effect/mob_spawn/human/skeleton/alive
 	death = FALSE
@@ -889,7 +889,7 @@
 	var/despawn = alert("Return to cryosleep? (Warning, Your mob will be deleted!)", null, "Yes", "No")
 	if(despawn == "No" || !loc || !Adjacent(user))
 		return
-	user.visible_message("<span class='notice'>[user.name] climbs back into cryosleep...</span>")
+	user.visible_message(span_notice("[user.name] climbs back into cryosleep...") )
 	qdel(user)
 
 /datum/outfit/cryobartender

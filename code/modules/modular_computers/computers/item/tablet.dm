@@ -50,9 +50,9 @@
 
 /obj/item/modular_computer/tablet/nukeops/emag_act(mob/user)
 	if(!enabled)
-		to_chat(user, "<span class='warning'>Сначала мне нужно повернуть [src].</span>")
+		to_chat(user, span_warning("Сначала мне нужно повернуть [src].") )
 		return FALSE
-	to_chat(user, "<span class='notice'>Провожу <b>[src.name]</b>. На экране на короткое время отображается следующее сообщение: \"ИНЪЕКЦИЯ КОДА ПАМЯТИ ОБНАРУЖЕНА И УСПЕШНО ПОМЕЩЕНА В КАРАНТИН\".</span>")
+	to_chat(user, span_notice("Провожу <b>[src.name]</b>. На экране на короткое время отображается следующее сообщение: \"ИНЪЕКЦИЯ КОДА ПАМЯТИ ОБНАРУЖЕНА И УСПЕШНО ПОМЕЩЕНА В КАРАНТИН\".") )
 	return FALSE
 
 /// Borg Built-in tablet interface
@@ -141,7 +141,7 @@
 	if(!caller || !caller.alert_able || caller.alert_silenced || !alerttext) //Yeah, we're checking alert_able. No, you don't get to make alerts that the user can't silence.
 		return
 	borgo.playsound_local(src, sound, 50, TRUE)
-	to_chat(borgo, "<span class='notice'>[src] отображает [caller.filedesc] уведомление: [alerttext]</span>")
+	to_chat(borgo, span_notice("[src] отображает [caller.filedesc] уведомление: [alerttext]") )
 
 
 /obj/item/modular_computer/tablet/integrated/syndicate

@@ -8,9 +8,9 @@
 		if("help")
 			if (stat == DEAD)
 				return
-			visible_message("<span class='notice'>[M] [response_help_continuous] [sklonenie(name, VINITELNI, gender)].</span>", \
-							"<span class='notice'>[M] [response_help_continuous] меня.</span>", null, null, M)
-			to_chat(M, "<span class='notice'>[M] [response_help_simple] [sklonenie(name, VINITELNI, gender)].</span>")
+			visible_message(span_notice("[M] [response_help_continuous] [sklonenie(name, VINITELNI, gender)].") , \
+							span_notice("[M] [response_help_continuous] меня.") , null, null, M)
+			to_chat(M, span_notice("[M] [response_help_simple] [sklonenie(name, VINITELNI, gender)].") )
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 			if(pet_bonus)
 				funpet(M)
@@ -24,24 +24,24 @@
 			var/shove_dir = get_dir(M, src)
 			if(!Move(get_step(src, shove_dir), shove_dir))
 				log_combat(M, src, "shoved", "failing to move it")
-				M.visible_message("<span class='danger'>[M.name] толкает [sklonenie(name, VINITELNI, gender)]!</span>",
-					"<span class='danger'>Толкаю [sklonenie(name, VINITELNI, gender)]!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", COMBAT_MESSAGE_RANGE, list(src))
-				to_chat(src, "<span class='userdanger'>Меня толкает [M.name]!</span>")
+				M.visible_message(span_danger("[M.name] толкает [sklonenie(name, VINITELNI, gender)]!") ,
+					span_danger("Толкаю [sklonenie(name, VINITELNI, gender)]!") , span_hear("Слышу агрессивную потасовку!") , COMBAT_MESSAGE_RANGE, list(src))
+				to_chat(src, span_userdanger("Меня толкает [M.name]!") )
 				return TRUE
 			log_combat(M, src, "shoved", "pushing it")
-			M.visible_message("<span class='danger'>[M.name] толкает [sklonenie(name, VINITELNI, gender)] достаточно сильно!</span>",
-				"<span class='danger'>Толкаю [sklonenie(name, VINITELNI, gender)] достаточно сильно!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", COMBAT_MESSAGE_RANGE, list(src))
-			to_chat(src, "<span class='userdanger'>Меня толкает [name]!</span>")
+			M.visible_message(span_danger("[M.name] толкает [sklonenie(name, VINITELNI, gender)] достаточно сильно!") ,
+				span_danger("Толкаю [sklonenie(name, VINITELNI, gender)] достаточно сильно!") , span_hear("Слышу агрессивную потасовку!") , COMBAT_MESSAGE_RANGE, list(src))
+			to_chat(src, span_userdanger("Меня толкает [name]!") )
 			return TRUE
 
 		if("harm")
 			if(HAS_TRAIT(M, TRAIT_PACIFISM))
-				to_chat(M, "<span class='warning'>Не хочу вредить [sklonenie(name, VINITELNI, gender)]!</span>")
+				to_chat(M, span_warning("Не хочу вредить [sklonenie(name, VINITELNI, gender)]!") )
 				return
 			M.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
-			visible_message("<span class='danger'>[M] [response_harm_continuous] [sklonenie(name, VINITELNI, gender)]!</span>",\
-							"<span class='userdanger'>[M] [response_harm_continuous] меня!</span>", null, COMBAT_MESSAGE_RANGE, M)
-			to_chat(M, "<span class='danger'>Моя атака [response_harm_simple] [sklonenie(name, VINITELNI, gender)]!</span>")
+			visible_message(span_danger("[M] [response_harm_continuous] [sklonenie(name, VINITELNI, gender)]!") ,\
+							span_userdanger("[M] [response_harm_continuous] меня!") , null, COMBAT_MESSAGE_RANGE, M)
+			to_chat(M, span_danger("Моя атака [response_harm_simple] [sklonenie(name, VINITELNI, gender)]!") )
 			playsound(loc, attacked_sound, 25, TRUE, -1)
 			attack_threshold_check(harm_intent_damage)
 			log_combat(M, src, "атакует")
@@ -63,9 +63,9 @@
 	if(!.)
 		return
 	playsound(loc, "punch", 25, TRUE, -1)
-	visible_message("<span class='danger'>[user] бьёт [sklonenie(name, VINITELNI, gender)]!</span>", \
-					"<span class='userdanger'>Меня бьёт [user]!</span>", null, COMBAT_MESSAGE_RANGE, user)
-	to_chat(user, "<span class='danger'>Бью [sklonenie(name, VINITELNI, gender)]!</span>")
+	visible_message(span_danger("[user] бьёт [sklonenie(name, VINITELNI, gender)]!") , \
+					span_userdanger("Меня бьёт [user]!") , null, COMBAT_MESSAGE_RANGE, user)
+	to_chat(user, span_danger("Бью [sklonenie(name, VINITELNI, gender)]!") )
 	adjustBruteLoss(15)
 
 /mob/living/simple_animal/attack_paw(mob/living/carbon/human/M)
@@ -76,9 +76,9 @@
 			return 1
 	if (M.a_intent == INTENT_HELP)
 		if (health > 0)
-			visible_message("<span class='notice'>[M.name] [response_help_continuous] [sklonenie(name, VINITELNI, gender)].</span>", \
-							"<span class='notice'>[M.name] [response_help_continuous] меня.</span>", null, COMBAT_MESSAGE_RANGE, M)
-			to_chat(M, "<span class='notice'>Моя атака [response_help_simple] [sklonenie(name, VINITELNI, gender)].</span>")
+			visible_message(span_notice("[M.name] [response_help_continuous] [sklonenie(name, VINITELNI, gender)].") , \
+							span_notice("[M.name] [response_help_continuous] меня.") , null, COMBAT_MESSAGE_RANGE, M)
+			to_chat(M, span_notice("Моя атака [response_help_simple] [sklonenie(name, VINITELNI, gender)].") )
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 
 
@@ -86,15 +86,15 @@
 	if(..()) //if harm or disarm intent.
 		if(M.a_intent == INTENT_DISARM)
 			playsound(loc, 'sound/weapons/pierce.ogg', 25, TRUE, -1)
-			visible_message("<span class='danger'>[M] [response_disarm_continuous] [sklonenie(name, VINITELNI, gender)]!</span>", \
-							"<span class='userdanger'>[M] [response_disarm_continuous] меня!</span>", null, COMBAT_MESSAGE_RANGE, M)
-			to_chat(M, "<span class='danger'>Моя атака [response_disarm_simple] [sklonenie(name, VINITELNI, gender)]!</span>")
+			visible_message(span_danger("[M] [response_disarm_continuous] [sklonenie(name, VINITELNI, gender)]!") , \
+							span_userdanger("[M] [response_disarm_continuous] меня!") , null, COMBAT_MESSAGE_RANGE, M)
+			to_chat(M, span_danger("Моя атака [response_disarm_simple] [sklonenie(name, VINITELNI, gender)]!") )
 			log_combat(M, src, "disarmed")
 		else
 			var/damage = rand(15, 30)
-			visible_message("<span class='danger'>[M] рвёт когтями [sklonenie(name, VINITELNI, gender)]!</span>", \
-							"<span class='userdanger'>Меня рвёт когтями [M]!</span>", null, COMBAT_MESSAGE_RANGE, M)
-			to_chat(M, "<span class='danger'>Рву когтями [sklonenie(name, VINITELNI, gender)]!</span>")
+			visible_message(span_danger("[M] рвёт когтями [sklonenie(name, VINITELNI, gender)]!") , \
+							span_userdanger("Меня рвёт когтями [M]!") , null, COMBAT_MESSAGE_RANGE, M)
+			to_chat(M, span_danger("Рву когтями [sklonenie(name, VINITELNI, gender)]!") )
 			playsound(loc, 'sound/weapons/slice.ogg', 25, TRUE, -1)
 			attack_threshold_check(damage)
 			log_combat(M, src, "атакует")
@@ -134,7 +134,7 @@
 		temp_damage *= damage_coeff[damagetype]
 
 	if(temp_damage >= 0 && temp_damage <= force_threshold)
-		visible_message("<span class='warning'>[capitalize(src.name)] выглядит целым!</span>")
+		visible_message(span_warning("[capitalize(src.name)] выглядит целым!") )
 		return FALSE
 	else
 		if(actuallydamage)

@@ -57,8 +57,8 @@
 			if(!HAS_TRAIT(H, TRAIT_HACKER))
 				H.dropItemToGround(src, TRUE)
 				H.emote("agony")
-				to_chat(H, "<span class='danger'>КАК?!</span>")
-				visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
+				to_chat(H, span_danger("КАК?!") )
+				visible_message(span_warning("<b>[H]</b> в панике бросает [src] на пол!") )
 
 /obj/item/clothing/head/helmet/space/chronos/hacker/equipped(mob/user, slot)
 	. = ..()
@@ -70,8 +70,8 @@
 			if(!HAS_TRAIT(H, TRAIT_HACKER))
 				H.dropItemToGround(src, TRUE)
 				H.emote("agony")
-				to_chat(H, "<span class='danger'>КАК?!</span>")
-				visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
+				to_chat(H, span_danger("КАК?!") )
+				visible_message(span_warning("<b>[H]</b> в панике бросает [src] на пол!") )
 
 /obj/item/clothing/glasses/hud/hacker_rig
 	name = "NI-Трансфакторный Визор C3451"
@@ -99,8 +99,8 @@
 			if(!HAS_TRAIT(H, TRAIT_HACKER))
 				H.dropItemToGround(src, TRUE)
 				H.emote("agony")
-				to_chat(H, "<span class='danger'>КАК?!</span>")
-				visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
+				to_chat(H, span_danger("КАК?!") )
+				visible_message(span_warning("<b>[H]</b> в панике бросает [src] на пол!") )
 
 	if(slot != ITEM_SLOT_EYES)
 		return
@@ -125,7 +125,7 @@
 	if(. & EMP_PROTECT_SELF)
 		return
 	var/mob/living/carbon/human/user = src.loc
-	to_chat(user, "<span class='danger'>E:FATAL:RAM_READ_FAIL\nE:FATAL:STACK_EMPTY\nE:FATAL:READ_NULL_POINT\nE:FATAL:PWR_BUS_OVERLOAD</span>")
+	to_chat(user, span_danger("E:FATAL:RAM_READ_FAIL\nE:FATAL:STACK_EMPTY\nE:FATAL:READ_NULL_POINT\nE:FATAL:PWR_BUS_OVERLOAD") )
 	SEND_SOUND(user, sound('sound/ai/hacker/emp.ogg'))
 
 /obj/item/clothing/head/helmet/space/chronos/hacker
@@ -190,7 +190,7 @@
 	action_icon_state = "spacetime"
 
 /obj/effect/proc_holder/spell/self/hacker_heal/cast(list/targets, mob/living/carbon/human/user)
-	user.visible_message("<span class='warning'>Странный свет исходит от <b>[user]</b>!</span>", "<span class='notice'>Мне удалось немного исправить своё тело!</span>")
+	user.visible_message(span_warning("Странный свет исходит от <b>[user]</b>!") , span_notice("Мне удалось немного исправить своё тело!") )
 	user.adjustBruteLoss(-10)
 	user.adjustFireLoss(-10)
 
@@ -212,19 +212,19 @@
 
 /obj/effect/proc_holder/spell/targeted/remove_retard/cast(list/targets, mob/user = usr)
 	if(!targets.len)
-		to_chat(user, "<span class='warning'>Не нашел гниду!</span>")
+		to_chat(user, span_warning("Не нашел гниду!") )
 		return
 
 	var/mob/living/carbon/target = targets[1]
 
 	if(!(target in oview(range)))
-		to_chat(user, "<span class='warning'>Этот пидор слишком далеко!</span>")
+		to_chat(user, span_warning("Этот пидор слишком далеко!") )
 		return
 
-	to_chat(target, "<span class='danger'>Кто-то хочет мне навредить!</span>")
+	to_chat(target, span_danger("Кто-то хочет мне навредить!") )
 
-	user.visible_message("<span class='warning'><b>[user]</b> бормочет себе что-то под нос!</span>", \
-						   "<span class='danger'>Сейчас я этого пидораса сотру нахуй!</span>")
+	user.visible_message(span_warning("<b>[user]</b> бормочет себе что-то под нос!") , \
+						   span_danger("Сейчас я этого пидораса сотру нахуй!") )
 
 	if(do_after(user, 50, target = target))
 		user.whisper(md5("Цель: [target]"))
@@ -235,8 +235,8 @@
 				if(do_after(user, 60, target = target))
 					user.whisper(md5("Удаление  [target]..."))
 					target.emote("agony")
-					target.visible_message("<span class='danger'><b>[target]</b> исчезает!</span>", \
-									"<span class='danger'>Мне пиздец!</span>")
+					target.visible_message(span_danger("<b>[target]</b> исчезает!") , \
+									span_danger("Мне пиздец!") )
 					playsound(target, 'white/valtos/sounds/mechanized/kr1.wav', 100)
 					spawn(5)
 						qdel(target.client)
@@ -249,10 +249,10 @@
 
 	var/mob/living/carbon/C = usr
 	if(!C.stat)
-		to_chat(C, "<span class='notice'>А я ещё не умер!</span>")
+		to_chat(C, span_notice("А я ещё не умер!") )
 		return
 	if(C.has_status_effect(STATUS_EFFECT_HACKERS_IMMORTALITY))
-		to_chat(C, "<span class='warning'>А я уже воскрешаюсь!</span>")
+		to_chat(C, span_warning("А я уже воскрешаюсь!") )
 		return
 	C.apply_status_effect(STATUS_EFFECT_HACKERS_IMMORTALITY)
 	return 1
@@ -263,12 +263,12 @@
 	alert_type = /atom/movable/screen/alert/status_effect/hackers_revive
 
 /datum/status_effect/hackers_revive/on_apply()
-	to_chat(owner, "<span class='notice'>Смерть не мой конец! Сейчас восстановимся...</span>")
+	to_chat(owner, span_notice("Смерть не мой конец! Сейчас восстановимся...") )
 	return ..()
 
 /datum/status_effect/hackers_revive/on_remove()
 	owner.revive(full_heal = TRUE, admin_revive = TRUE)
-	owner.visible_message("<span class='warning'><b>[owner]</b> восстаёт из мёртвых!</span>", "<span class='notice'>Регенерирую полностью.</span>")
+	owner.visible_message(span_warning("<b>[owner]</b> восстаёт из мёртвых!") , span_notice("Регенерирую полностью.") )
 
 /atom/movable/screen/alert/status_effect/hackers_revive
 	name = "Цифровое бессмертие"
@@ -306,7 +306,7 @@
 	else
 		var/obj/item/S = new sheetsel(get_turf(user))
 		user.put_in_hands(S)
-		user.visible_message("<span class='warning'>Странный свет исходит от <b>[user]</b>!</span>", "<span class='notice'>Создаю что-тооооооооо!</span>")
+		user.visible_message(span_warning("Странный свет исходит от <b>[user]</b>!") , span_notice("Создаю что-тооооооооо!") )
 
 
 /datum/crafting_recipe/hacker/head

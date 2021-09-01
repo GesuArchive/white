@@ -30,7 +30,7 @@
 			return 0
 		if(has_buckled_mobs())
 			return 0
-		usr.visible_message("[usr] collapses [src.name].", "<span class='notice'>You collapse [src.name].</span>")
+		usr.visible_message("[usr] collapses [src.name].", span_notice("You collapse [src.name].") )
 		var/obj/structure/bed/roller/B = new foldabletype(get_turf(src))
 		usr.put_in_hands(B)
 		qdel(src)

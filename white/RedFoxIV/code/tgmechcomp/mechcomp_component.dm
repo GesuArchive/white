@@ -338,7 +338,7 @@
 
 	if (I?.tool_behaviour != TOOL_MECHCOMP)
 		if(istype(parent, /obj/item/mechcomp)) //to avoid outputting error messages where their origin is not obvious.
-			to_chat(user, "<span class='alert'>[MECHFAILSTRING]</span>")
+			to_chat(user, span_alert("[MECHFAILSTRING]") )
 		return
 
 	//что-то про кабинеты для мехкомпа. нахуй.
@@ -352,12 +352,12 @@
 			cabinet = A.loc
 		if(cabinet)
 			if(!cabinet.anchored)
-				to_chat(user,"<span class='alert'>Cannot create connection through an unsecured component housing</span>")
+				to_chat(user,span_alert("Cannot create connection through an unsecured component housing") )
 				return
 	*/
 
 	if(get_dist(parent, over) > 15)
-		to_chat(user, "<span class='alert'>Components need to be within a range of 14 meters to connect!</span>")
+		to_chat(user, span_alert("Components need to be within a range of 14 meters to connect!") )
 		return
 
 
@@ -391,10 +391,10 @@
 
 	var/atom/receiver = parent
 	if(trigger in src.connected_outgoing)
-		to_chat(user, "<span class='alert'>Can not create a direct loop between 2 components.</span>")
+		to_chat(user, span_alert("Can not create a direct loop between 2 components.") )
 		return
 	if(!src.inputs.len)
-		to_chat(user, "<span class='alert'>[receiver.name] has no input slots. Can not connect [trigger.name] as Trigger.</span>")
+		to_chat(user, span_alert("[receiver.name] has no input slots. Can not connect [trigger.name] as Trigger.") )
 		return
 
 	var/pointer_container[1] //A list of size 1, to store the address of the list we want
@@ -412,7 +412,7 @@
 	var/selected_input = show_radial_menu(user, parent, choices, tooltips = TRUE, radius = 48)
 	//var/selected_input = input(user, "Select \"[receiver.name]\" Input", "Input Selection") in inputs + "*CANCEL*"
 	if(!selected_input)
-		to_chat(user,"<span class='notice'>You decide against connecting [trigger.name] and [receiver.name].</span>")
+		to_chat(user,span_notice("You decide against connecting [trigger.name] and [receiver.name].") )
 		return
 
 	trg_outgoing |= receiver //Let's not allow making many of the same connection.
@@ -420,7 +420,7 @@
 	src.connected_incoming |= trigger //Let's not allow making many of the same connection.
 	last_edited_inputs_by["user"] = user
 	last_edited_inputs_by["action"] = "connected [trigger.name] to [receiver.name] ([selected_input])"
-	to_chat(user, "<span class='success'>You connect the [trigger.name] to the [receiver.name].</span>")
+	to_chat(user, span_success("You connect the [trigger.name] to the [receiver.name].") )
 	//logTheThing("station", user, null, "connects a <b>[trigger.name]</b> to a <b>[receiver.name]</b>.")
 	SEND_SIGNAL(trigger,_COMSIG_MECHCOMP_DISPATCH_ADD_FILTER, receiver, user)
 	return
@@ -486,7 +486,7 @@
 						var/atom/AP = parent
 						last_edited_inputs_by["user"] = user
 						last_edited_inputs_by["action"] = "wiped all connections"
-						to_chat(user, "<span class='notice'>You disconnect [AP.name].</span>")
+						to_chat(user, span_notice("You disconnect [AP.name].") )
 				else
 					//must be a custom config specific to the device, so let the device handle it
 					var/path = src.configs[selected_config]

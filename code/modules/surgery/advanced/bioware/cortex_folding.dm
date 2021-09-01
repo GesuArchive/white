@@ -24,26 +24,26 @@
 	time = 125
 
 /datum/surgery_step/fold_cortex/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>Начал сгибать внешнюю кору большого мозга [target] в фрактальный паттерн.</span>",
-		"<span class='notice'>[user] начал сгибать внешнюю кору большого мозга [target] в фрактальный паттерн.</span>",
-		"<span class='notice'>[user] начинает операцию на мозге [target].</span>")
+	display_results(user, target, span_notice("Начал сгибать внешнюю кору большого мозга [target] в фрактальный паттерн.") ,
+		span_notice("[user] начал сгибать внешнюю кору большого мозга [target] в фрактальный паттерн.") ,
+		span_notice("[user] начинает операцию на мозге [target].") )
 
 /datum/surgery_step/fold_cortex/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>Согнул внешнюю кору большого мозга [target] в фрактальный паттерн!</span>",
-		"<span class='notice'>[user] согнул внешнюю кору большого мозга [target] в фрактальный паттерн!</span>",
-		"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
+	display_results(user, target, span_notice("Согнул внешнюю кору большого мозга [target] в фрактальный паттерн!") ,
+		span_notice("[user] согнул внешнюю кору большого мозга [target] в фрактальный паттерн!") ,
+		span_notice("[user] завершил операцию на мозге [target].") )
 	new /datum/bioware/cortex_fold(target)
 	return ..()
 
 /datum/surgery_step/fold_cortex/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
-		display_results(user, target, "<span class='warning'>[gvorno(TRUE)], но я облажался, повредив мозг!</span>",
-			"<span class='warning'>[user] облажался, повредив мозг!</span>",
-			"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
+		display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, повредив мозг!") ,
+			span_warning("[user] облажался, повредив мозг!") ,
+			span_notice("[user] завершил операцию на мозге [target].") )
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60)
 		target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)
 	else
-		user.visible_message("<span class='warning'>[user] внезапно замечает что мозг [user.ru_who()] над которым работал [user.p_were()] исчез.</span>", "<span class='warning'>Внезапно обнаруживаю что мозг, над которым я работал, исчез.</span>")
+		user.visible_message(span_warning("[user] внезапно замечает что мозг [user.ru_who()] над которым работал [user.p_were()] исчез.") , span_warning("Внезапно обнаруживаю что мозг, над которым я работал, исчез.") )
 	return FALSE
 
 /datum/bioware/cortex_fold

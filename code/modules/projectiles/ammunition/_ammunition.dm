@@ -115,9 +115,9 @@
 					continue
 			if (boolets > 0)
 				box.update_icon()
-				to_chat(user, "<span class='notice'>Собираю [boolets] в [box], который теперь содержит [box.stored_ammo.len] патронов.</span>")
+				to_chat(user, span_notice("Собираю [boolets] в [box], который теперь содержит [box.stored_ammo.len] патронов.") )
 			else
-				to_chat(user, "<span class='warning'>ОЙ!</span>")
+				to_chat(user, span_warning("ОЙ!") )
 	else
 		return ..()
 

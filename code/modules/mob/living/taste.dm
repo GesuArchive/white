@@ -37,7 +37,7 @@
 			"поражение","боль","блаженство","месть","отрава","время","космос","смерть","жизнь","правда","ложь","справедливость","память",\
 			"сожаления","моя душа","страдания","музыка","шум","кровь","голод","солнцеликий")
 		if(text_output != last_taste_text || last_taste_time + 100 < world.time)
-			to_chat(src, "<span class='notice'>На вкус как [text_output].</span>")
+			to_chat(src, span_notice("На вкус как [text_output].") )
 			// "something indescribable" -> too many tastes, not enough flavor.
 
 			last_taste_time = world.time

@@ -147,13 +147,13 @@
 	if(!message || !can_use(user))
 		return
 	if(!is_station_level(user.z))
-		to_chat(user, "<span class='info'>[icon2html(src, user)]Error: Station out of range.</span>")
+		to_chat(user, span_info("[icon2html(src, user)]Error: Station out of range.") )
 		return
 	if(gang.members.len)
 		var/datum/antagonist/gang/G = user.mind.has_antag_datum(/datum/antagonist/gang)
 		if(!G)
 			return
-		var/ping = "<span class='danger'><B><i>[gang.name] [G.message_name] [user.real_name]</i>: [message]</B></span>"
+		var/ping = span_danger("<B><i>[gang.name] [G.message_name] [user.real_name]</i>: [message]</B>")
 		for(var/datum/mind/ganger in gang.members)
 			if(ganger.current && is_station_level(ganger.current.z) && (ganger.current.stat == CONSCIOUS))
 				to_chat(ganger.current, ping)
@@ -177,23 +177,23 @@
 			to_chat(user, "The <b>Gangtool</b> you registered will allow you to purchase weapons and equipment, and send messages to your gang.")
 			to_chat(user, "Unlike regular gangsters, you may use <b>recruitment pens</b> to add recruits to your gang. Use them on unsuspecting crew members to recruit them. Don't forget to get your one free pen from the gangtool.")
 	else
-		to_chat(user, "<span class='warning'>ACCESS DENIED: Unauthorized user.</span>")
+		to_chat(user, span_warning("ACCESS DENIED: Unauthorized user.") )
 
 /obj/item/gangtool/proc/recall(mob/user)
 	if(!recallchecks(user))
 		return
 	if(recalling)
-		to_chat(user, "<span class='warning'>Error: Recall already in progress.</span>")
+		to_chat(user, span_warning("Error: Recall already in progress.") )
 		return
 	gang.message_gangtools("[user] is attempting to recall the emergency shuttle.")
 	recalling = TRUE
-	to_chat(user, "<span class='info'>[icon2html(src, loc)]Generating shuttle recall order with codes retrieved from last call signal...</span>")
+	to_chat(user, span_info("[icon2html(src, loc)]Generating shuttle recall order with codes retrieved from last call signal...") )
 	addtimer(CALLBACK(src, .proc/recall2, user), rand(100,300))
 
 /obj/item/gangtool/proc/recall2(mob/user)
 	if(!recallchecks(user))
 		return
-	to_chat(user, "<span class='info'>[icon2html(src, loc)]Shuttle recall order generated. Accessing station long-range communication arrays...</span>")
+	to_chat(user, span_info("[icon2html(src, loc)]Shuttle recall order generated. Accessing station long-range communication arrays...") )
 	addtimer(CALLBACK(src, .proc/recall3, user), rand(100,300))
 
 /obj/item/gangtool/proc/recall3(mob/user)
@@ -205,10 +205,10 @@
 			living_crew += Player
 	var/malc = CONFIG_GET(number/midround_antag_life_check)
 	if(living_crew.len / GLOB.joined_player_list.len <= malc) //Shuttle cannot be recalled if too many people died
-		to_chat(user, "<span class='warning'>[icon2html(src, user)]Error: Station communication systems compromised. Unable to establish connection.</span>")
+		to_chat(user, span_warning("[icon2html(src, user)]Error: Station communication systems compromised. Unable to establish connection.") )
 		recalling = FALSE
 		return
-	to_chat(user, "<span class='info'>[icon2html(src, loc)]Comm arrays accessed. Broadcasting recall signal...</span>")
+	to_chat(user, span_info("[icon2html(src, loc)]Comm arrays accessed. Broadcasting recall signal...") )
 	addtimer(CALLBACK(src, .proc/recallfinal, user), rand(100,300))
 
 /obj/item/gangtool/proc/recallfinal(mob/user)
@@ -221,7 +221,7 @@
 		gang.recalls--
 		return TRUE
 
-	to_chat(user, "<span class='info'>[icon2html(src, loc)]No response recieved. Emergency shuttle cannot be recalled at this time.</span>")
+	to_chat(user, span_info("[icon2html(src, loc)]No response recieved. Emergency shuttle cannot be recalled at this time.") )
 	return
 
 /obj/item/gangtool/proc/recallchecks(mob/user)
@@ -230,18 +230,18 @@
 	if(SSshuttle.emergencyNoRecall)
 		return
 	if(!gang.recalls)
-		to_chat(user, "<span class='warning'>Error: Unable to access communication arrays. Firewall has logged our signature and is blocking all further attempts.</span>")
+		to_chat(user, span_warning("Error: Unable to access communication arrays. Firewall has logged our signature and is blocking all further attempts.") )
 		return
 	if(SSshuttle.emergency.mode != SHUTTLE_CALL) //Shuttle can only be recalled when it's moving to the station
-		to_chat(user, "<span class='warning'>[icon2html(src, user)]Emergency shuttle cannot be recalled at this time.</span>")
+		to_chat(user, span_warning("[icon2html(src, user)]Emergency shuttle cannot be recalled at this time.") )
 		recalling = FALSE
 		return
 	if(!gang.dom_attempts)
-		to_chat(user, "<span class='warning'>[icon2html(src, user)]Error: Unable to access communication arrays. Firewall has logged our signature and is blocking all further attempts.</span>")
+		to_chat(user, span_warning("[icon2html(src, user)]Error: Unable to access communication arrays. Firewall has logged our signature and is blocking all further attempts.") )
 		recalling = FALSE
 		return
 	if(!is_station_level(user.z)) //Shuttle can only be recalled while on station
-		to_chat(user, "<span class='warning'>[icon2html(src, user)]Error: Device out of range of station communication arrays.</span>")
+		to_chat(user, span_warning("[icon2html(src, user)]Error: Device out of range of station communication arrays.") )
 		recalling = FALSE
 		return
 	return TRUE
@@ -257,10 +257,10 @@
 		return
 	var/datum/antagonist/gang/G = user.mind.has_antag_datum(/datum/antagonist/gang)
 	if(!G && !istype(src, /obj/item/gangtool/hell_march/vigilante))
-		to_chat(user, "<span class='notice'>Huh, what's this?</span>")
+		to_chat(user, span_notice("Huh, what's this?") )
 		return
 	if(!isnull(gang) && G.gang != gang)
-		to_chat(user, "<span class='danger'>You cannot use gang tools owned by enemy gangs!</span>")
+		to_chat(user, span_danger("You cannot use gang tools owned by enemy gangs!") )
 		return
 	return TRUE
 
@@ -311,9 +311,9 @@
 	. = round(max(0,(3 - points/10)) + (G.gang.get_soldier_territories(M.mind)*0.5) + (LAZYLEN(G.gang.territories)*0.3))
 	points += .
 	if(.)
-		to_chat(M, "<span class='notice'>You have gained [.] influence from [G.gang.get_soldier_territories(M.mind)] territories you have personally tagged.</span>")
+		to_chat(M, span_notice("You have gained [.] influence from [G.gang.get_soldier_territories(M.mind)] territories you have personally tagged.") )
 	else
-		to_chat(M, "<span class='warning'>You have not gained any influence from territories you personally tagged. Get to work!</span>")
+		to_chat(M, span_warning("You have not gained any influence from territories you personally tagged. Get to work!") )
 
 /obj/item/gangtool/hell_march/proc/pay_territory_income_to_boss()
 	if(!ismob(loc))
@@ -328,7 +328,7 @@
 	var/inc = round(max(0,(5 - points/10)) + (LAZYLEN(G.gang.territories)*0.6))
 	. += inc
 	points += inc
-	to_chat(M, "<span class='notice'>Your influence has increased by [inc] from your gang holding [LAZYLEN(G.gang.territories)] territories!</span>")
+	to_chat(M, span_notice("Your influence has increased by [inc] from your gang holding [LAZYLEN(G.gang.territories)] territories!") )
 
 /obj/item/gangtool/hell_march/Destroy()
 	linked_action.Remove(linked_action.owner)
@@ -397,7 +397,7 @@
 	points += newpoints + 3
 	for(var/obj/item/implant/mindshield/I in H.implants)
 		points += 3
-		to_chat(H, "<span class='notice'>You have also received 3 influence for possessing a mindshield implant.</span>")
+		to_chat(H, span_notice("You have also received 3 influence for possessing a mindshield implant.") )
 	addtimer(CALLBACK(src, .proc/earnings), 1500, TIMER_UNIQUE)
 
 /obj/item/gangtool/hell_march/vigilante/ui_interact(mob/user)
@@ -452,7 +452,7 @@
 	var/obj/item/I = user.get_active_held_item()
 	var/value
 	if(QDELETED(I))
-		to_chat(user, "<span class='notice'>No item detected.</span>")
+		to_chat(user, span_notice("No item detected.") )
 		return
 	switch(I.type)
 		if(/obj/item/gun/ballistic/automatic/pistol)
@@ -513,7 +513,7 @@
 			if(I.type in (G.outer_outfits) && I.armor["bullet"]>=35)
 				value = 5
 	if(!value)
-		to_chat(user, "<span class='notice'>No contraband detected!</span>")
+		to_chat(user, span_notice("No contraband detected!") )
 		return
 	playsound(src, 'sound/items/poster_being_created.ogg', 75, 1)
 	if(do_after(user, 20, TRUE, I))

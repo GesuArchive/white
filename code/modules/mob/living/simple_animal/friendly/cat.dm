@@ -263,7 +263,7 @@
 			for(var/mob/living/simple_animal/mouse/M in view(1,src))
 				if(istype(M, /mob/living/simple_animal/mouse/brown/tom) && inept_hunter)
 					if(COOLDOWN_FINISHED(src, emote_cooldown))
-						visible_message("<span class='warning'>[capitalize(src.name)] бежит за [M] безуспешно, теряя последнюю надежду!</span>")
+						visible_message(span_warning("[capitalize(src.name)] бежит за [M] безуспешно, теряя последнюю надежду!") )
 						step(M, pick(GLOB.cardinals))
 						COOLDOWN_START(src, emote_cooldown, 1 MINUTES)
 					break
@@ -340,7 +340,7 @@
 	free cake to the station!</b>")
 	var/new_name = stripped_input(src, "Enter your name, or press \"Cancel\" to stick with Keeki.", "Name Change")
 	if(new_name)
-		to_chat(src, "<span class='notice'>Your name is now <b>\"new_name\"</b>!</span>")
+		to_chat(src, span_notice("Your name is now <b>\"new_name\"</b>!") )
 		name = new_name
 
 /mob/living/simple_animal/pet/cat/cak/Life(delta_time = SSMOBS_DT, times_fired)

@@ -53,16 +53,16 @@
 		var/atom/A = contents[contents.len] //Get the most recent hidden thing
 		if(istype(A, /mob/living))
 			var/mob/living/M = A
-			to_chat(user,"<span class='userdanger'>КТО-ТО НАШЁЛСЯ!</span>")
+			to_chat(user,span_userdanger("КТО-ТО НАШЁЛСЯ!") )
 			eject_mob(M)
 		else if (istype(A, /obj/item))
 			var/obj/item/I = A
-			to_chat(user,"<span class='notice'>Что-то нашлось!</span>")
+			to_chat(user,span_notice("Что-то нашлось!") )
 			I.forceMove(src.loc)
 	else
 		//You already searched this one bruh
 		if(user.ckey in searchedby)
-			to_chat(user,"<span class='warning'>Ничего здесь нет больше!</span>")
+			to_chat(user,span_warning("Ничего здесь нет больше!") )
 		//You found an item!
 		else
 			var/luck = rand(1,100)
@@ -70,14 +70,14 @@
 				produce_alpha_item()
 			else if(luck <= chance_alpha+chance_beta)
 				produce_beta_item()
-			to_chat(user,"<span class='notice'>Что-то нашлось!</span>")
+			to_chat(user,span_notice("Что-то нашлось!") )
 			searchedby += user.ckey
 
 /obj/structure/trash_pile/attack_hand(mob/user)
 	//Human mob
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		H.visible_message("[user] роется в куче мусора.","<span class='notice'>Роюсь в куче мусора.</span>")
+		H.visible_message("[user] роется в куче мусора.",span_notice("Роюсь в куче мусора.") )
 		//Do the searching
 		if(do_after(user,rand(4 SECONDS,6 SECONDS),target=src))
 			if(src.loc) //Let's check if the pile still exists
@@ -119,21 +119,21 @@
 
 /obj/structure/trash_pile/proc/eject_mob(var/mob/living/M)
 	M.forceMove(src.loc)
-	to_chat(M,"<span class='warning'>Меня нашли!</span>")
+	to_chat(M,span_warning("Меня нашли!") )
 	playsound(M.loc, 'sound/machines/chime.ogg', 50, FALSE, -5)
 	M.do_alert_animation(M)
 
 /obj/structure/trash_pile/proc/do_dive(mob/user)
 	if(contents.len)
 		for(var/mob/M in contents)
-			to_chat(user,"<span class='warning'>Кто-то уже сидит внутри!</span>")
+			to_chat(user,span_warning("Кто-то уже сидит внутри!") )
 			eject_mob(M)
 			return FALSE
 	return TRUE
 
 /obj/structure/trash_pile/proc/dive_in_pile(mob/user)
-	user.visible_message("<span class='warning'>[user] начинает залезать в кучу мусора.</span>", \
-								"<span class='notice'>Начинаю залезать в кучу мусора...</span>")
+	user.visible_message(span_warning("[user] начинает залезать в кучу мусора.") , \
+								span_notice("Начинаю залезать в кучу мусора...") )
 	var/adjusted_dive_time = hide_person_time
 	if(HAS_TRAIT(user, TRAIT_RESTRAINED)) //hiding takes twice as long when restrained.
 		adjusted_dive_time *= 2
@@ -141,7 +141,7 @@
 	if(do_mob(user, user, adjusted_dive_time))
 		if(src.loc) //Checking if structure has been destroyed
 			if(do_dive(user))
-				to_chat(user,"<span class='notice'>Прячусь в куче мусора.</span>")
+				to_chat(user,span_notice("Прячусь в куче мусора.") )
 				user.forceMove(src)
 
 /obj/structure/trash_pile/proc/can_hide_item(obj/item/I)
@@ -152,15 +152,15 @@
 /obj/structure/trash_pile/attackby(obj/item/I, mob/user, params)
 	if(user.a_intent == INTENT_HELP)
 		if(can_hide_item(I))
-			to_chat(user,"<span class='notice'>Начинаю прятать [I.name] в куче мусора.</span>")
+			to_chat(user,span_notice("Начинаю прятать [I.name] в куче мусора.") )
 			if(do_mob(user, user, hide_item_time))
 				if(src.loc)
 					if(user.transferItemToLoc(I, src))
-						to_chat(user,"<span class='notice'>Прячу [I.name] в куче мусора.</span>")
+						to_chat(user,span_notice("Прячу [I.name] в куче мусора.") )
 					else
-						to_chat(user, "<span class='warning'>[capitalize(I.name)] застрял в моей руке, не получится!</span>")
+						to_chat(user, span_warning("[capitalize(I.name)] застрял в моей руке, не получится!") )
 		else
-			to_chat(user,"<span class='warning'>Куча мусора переполнена и не хочет принимать [I.name]. Дряянь!</span>")
+			to_chat(user,span_warning("Куча мусора переполнена и не хочет принимать [I.name]. Дряянь!") )
 		return
 
 	. = ..()

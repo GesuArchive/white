@@ -280,7 +280,7 @@
 
 		temp_material += " | "
 		if (enough_mats < 1)
-			temp_material += "<span class='bad'>[cached_mats[material]/coeff] [CallMaterialName(material)]</span>"
+			temp_material += span_bad("[cached_mats[material]/coeff] [CallMaterialName(material)]")
 		else
 			temp_material += " [cached_mats[material]/coeff] [CallMaterialName(material)]"
 
@@ -291,7 +291,7 @@
 
 		temp_material += " | "
 		if (enough_chems < 1)
-			temp_material += "<span class='bad'>[cached_reagents[reagent]/coeff] [CallMaterialName(reagent)]</span>"
+			temp_material += span_bad("[cached_reagents[reagent]/coeff] [CallMaterialName(reagent)]")
 		else
 			temp_material += " [cached_reagents[reagent]/coeff] [CallMaterialName(reagent)]"
 

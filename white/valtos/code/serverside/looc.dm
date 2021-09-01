@@ -25,7 +25,7 @@
 	set category = "OOC"
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Не хочу писать.</span>")
+		to_chat(usr, span_danger("Не хочу писать.") )
 		return
 
 	if(!mob)
@@ -33,16 +33,16 @@
 
 	if(!holder)
 		if(!GLOB.looc_allowed)
-			to_chat(src, "<span class='danger'>LOOC выключен.</span>")
+			to_chat(src, span_danger("LOOC выключен.") )
 			return
 		if(!GLOB.dlooc_allowed && (mob.stat == DEAD))
-			to_chat(usr, "<span class='danger'>LOOC для мёртвых не разрешен.</span>")
+			to_chat(usr, span_danger("LOOC для мёртвых не разрешен.") )
 			return
 		if(prefs.muted & MUTE_LOOC)
-			to_chat(src, "<span class='danger'>Не хочу писать в LOOC.</span>")
+			to_chat(src, span_danger("Не хочу писать в LOOC.") )
 			return
 		if(is_banned_from(ckey, "OOC"))
-			to_chat(src, "<span class='danger'>Точно не хочу писать в LOOC.</span>")
+			to_chat(src, span_danger("Точно не хочу писать в LOOC.") )
 			return
 
 	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
@@ -57,7 +57,7 @@
 		if(handle_spam_prevention(msg, MUTE_LOOC))
 			return
 		if(findtext(msg, "byond://"))
-			to_chat(src, "<span class='bold'>Ты лох.</span>")
+			to_chat(src, span_bold("Ты лох.") )
 			log_admin("[key_name(src)] has attempted to advertise in LOOC: [msg]")
 			message_admins("[key_name_admin(src)] has attempted to advertise in LOOC: [msg]")
 			qdel(src)
@@ -65,7 +65,7 @@
 
 	/*
 	if(!prefs.chat_toggles & CHAT_LOOC)
-		to_chat(src, "<span class='danger'>Не хочу писать в LOOC.</span>")
+		to_chat(src, span_danger("Не хочу писать в LOOC.") )
 		return
 	*/
 
@@ -88,17 +88,17 @@
 			if(mob.client && mob.client.prefs) // && (mob.client.prefs.chat_toggles & CHAT_LOOC)
 				clients_to_hear += mob.client
 
-	var/message_admin = "<span class='looc'>LOOC: [ADMIN_LOOKUPFLW(mob)]: [msg]</span>"
-	var/message_admin_remote = "<span class='looc'><font color='black'>(R)</font>LOOC: [ADMIN_LOOKUPFLW(mob)]: [msg]</span>"
+	var/message_admin = span_looc("LOOC: [ADMIN_LOOKUPFLW(mob)]: [msg]")
+	var/message_admin_remote = span_looc("<font color='black'>(R)</font>LOOC: [ADMIN_LOOKUPFLW(mob)]: [msg]")
 	var/message_regular
 
 	if(isobserver(mob)) //if you're a spooky ghost
 		var/key_to_print = mob.key
 		if(holder && holder.fakekey)
 			key_to_print = holder.fakekey //stealthminning
-		message_regular = "<span class='looc'>LOOC: [key_to_print]: [msg]</span>"
+		message_regular = span_looc("LOOC: [key_to_print]: [msg]")
 	else
-		message_regular = "<span class='looc'>LOOC: [mob.name]: [msg]</span>"
+		message_regular = span_looc("LOOC: [mob.name]: [msg]")
 
 	for(var/client/C in GLOB.clients)
 		if(C in GLOB.admins)
@@ -125,4 +125,4 @@
 			return
 	else //otherwise just toggle it
 		GLOB.looc_allowed = !GLOB.looc_allowed
-	message_admins("<span class='bold'>LOOC [GLOB.looc_allowed ? "включен" : "выключен"].</span>")
+	message_admins(span_bold("LOOC [GLOB.looc_allowed ? "включен" : "выключен"].") )

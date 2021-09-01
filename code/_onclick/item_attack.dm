@@ -311,7 +311,7 @@
 		attack_message_victim = "<b>[user]</b> [message_verb_continuous] меня[message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
 	if(user == src)
 		attack_message_victim = "Моя атака [message_verb_simple] меня[message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]"
-	visible_message("<span class='danger'>[attack_message_spectator]</span>",\
-		"<span class='userdanger'>[attack_message_victim]</span>", null, COMBAT_MESSAGE_RANGE, user)
-	to_chat(user, "<span class='danger'>[attack_message_attacker]</span>")
+	visible_message(span_danger("[attack_message_spectator]") ,\
+		span_userdanger("[attack_message_victim]") , null, COMBAT_MESSAGE_RANGE, user)
+	to_chat(user, span_danger("[attack_message_attacker]") )
 	return 1

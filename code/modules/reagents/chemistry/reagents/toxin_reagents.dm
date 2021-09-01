@@ -188,7 +188,7 @@
 
 /datum/reagent/toxin/slimejelly/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(5, delta_time))
-		to_chat(M, "<span class='danger'>Моё нутро пылает!</span>")
+		to_chat(M, span_danger("Моё нутро пылает!") )
 		M.adjustToxLoss(rand(20,60)*REM, 0)
 		. = 1
 	else if(DT_PROB(23, delta_time))
@@ -579,7 +579,7 @@
 	if(DT_PROB(30, delta_time))
 		switch(pick(1, 2, 3, 4))
 			if(1)
-				to_chat(M, "<span class='danger'>Почти ничего не вижу!</span>")
+				to_chat(M, span_danger("Почти ничего не вижу!") )
 				M.blur_eyes(3)
 			if(2)
 				M.emote("cough")
@@ -587,7 +587,7 @@
 				M.emote("sneeze")
 			if(4)
 				if(prob(75))
-					to_chat(M, "<span class='danger'>Зудит всё тело.</span>")
+					to_chat(M, span_danger("Зудит всё тело.") )
 					M.adjustBruteLoss(2*REM, 0)
 					. = TRUE
 	..()
@@ -683,7 +683,7 @@
 	if(DT_PROB(2.5, delta_time))
 		M.losebreath += 1
 	if(DT_PROB(4, delta_time))
-		to_chat(M, "<span class='danger'>Чувствую пугающую слабость!</span>")
+		to_chat(M, span_danger("Чувствую пугающую слабость!") )
 		M.Stun(40)
 		M.adjustToxLoss(2*REM * normalise_creation_purity(), 0)
 	return ..()
@@ -716,15 +716,15 @@
 
 /datum/reagent/toxin/itching_powder/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(8, delta_time))
-		to_chat(M, "<span class='danger'>Чешу голову.</span>")
+		to_chat(M, span_danger("Чешу голову.") )
 		M.adjustBruteLoss(0.2*REM, 0)
 		. = 1
 	if(DT_PROB(8, delta_time))
-		to_chat(M, "<span class='danger'>Чешу ногу.</span>")
+		to_chat(M, span_danger("Чешу ногу.") )
 		M.adjustBruteLoss(0.2*REM, 0)
 		. = 1
 	if(DT_PROB(8, delta_time))
-		to_chat(M, "<span class='danger'>Чешу руку.</span>")
+		to_chat(M, span_danger("Чешу руку.") )
 		M.adjustBruteLoss(0.2*REM, 0)
 		. = TRUE
 	if(DT_PROB(1.5, delta_time))
@@ -759,7 +759,7 @@
 				if(!C.undergoing_cardiac_arrest() && C.can_heartattack())
 					C.set_heartattack(TRUE)
 					if(C.stat == CONSCIOUS)
-						C.visible_message("<span class='userdanger'>[C] хватается за свою грудь, будто бы [C.ru_ego()] сердце остановилось!</span>")
+						C.visible_message(span_userdanger("[C] хватается за свою грудь, будто бы [C.ru_ego()] сердце остановилось!") )
 				else
 					C.losebreath += 10
 					C.adjustOxyLoss(rand(5,25), 0)
@@ -910,7 +910,7 @@
 	if(current_cycle >= 33 && DT_PROB(7.5, delta_time))
 		C.spew_organ()
 		C.vomit(0, TRUE, TRUE, 4)
-		to_chat(C, "<span class='userdanger'>Чувствую как ком встает в горле во время рвоты.</span>")
+		to_chat(C, span_userdanger("Чувствую как ком встает в горле во время рвоты.") )
 
 /datum/reagent/toxin/curare
 	name = "Кураре"
@@ -1164,7 +1164,7 @@
 			if(2)
 				M.manual_emote(pick("oofs silently.", "looks like their bones hurt.", "grimaces, as though their bones hurt."))
 			if(3)
-				to_chat(M, "<span class='warning'>Мои кости болят!</span>")
+				to_chat(M, span_warning("Мои кости болят!") )
 	return ..()
 
 /datum/reagent/toxin/bonehurtingjuice/overdose_process(mob/living/carbon/M, delta_time, times_fired)
@@ -1173,11 +1173,11 @@
 		var/obj/item/bodypart/bp = M.get_bodypart(selected_part)
 		if(bp)
 			playsound(M, get_sfx("desecration"), 50, TRUE, -1)
-			M.visible_message("<span class='warning'>Кости [M] очень сильно болят!!</span>", "<span class='danger'>Мои кости очень сильно болят!!</span>")
+			M.visible_message(span_warning("Кости [M] очень сильно болят!!") , span_danger("Мои кости очень сильно болят!!") )
 			M.say("OOF!!", forced = /datum/reagent/toxin/bonehurtingjuice)
 			bp.receive_damage(20, 0, 200, wound_bonus = rand(30, 130))
 		else //SUCH A LUST FOR REVENGE!!!
-			to_chat(M, "<span class='warning'>Фантомная конечность болит!</span>")
+			to_chat(M, span_warning("Фантомная конечность болит!") )
 			M.say("Why are we still here, just to suffer?", forced = /datum/reagent/toxin/bonehurtingjuice)
 	return ..()
 
@@ -1197,7 +1197,7 @@
 	M.set_confusion(M.dizziness) //add a tertiary effect here if this is isn't an effective poison.
 	if(current_cycle >= 12 && DT_PROB(4, delta_time))
 		var/tox_message = pick("You feel your heart spasm in your chest.", "You feel faint.","You feel you need to catch your breath.","You feel a prickle of pain in your chest.")
-		to_chat(M, "<span class='notice'>[tox_message]</span>")
+		to_chat(M, span_notice("[tox_message]") )
 	. = TRUE
 	..()
 
@@ -1253,6 +1253,6 @@
 	M.adjustOrganLoss(ORGAN_SLOT_EARS, 1 * REM * delta_time)
 	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 1 * REM * delta_time)
 	if(DT_PROB(0.5, delta_time))
-		to_chat(M, "<span class='notice'>А, что это было? Кажется, я что-то слышал...</span>")
+		to_chat(M, span_notice("А, что это было? Кажется, я что-то слышал...") )
 		M.add_confusion(5)
 	return ..()

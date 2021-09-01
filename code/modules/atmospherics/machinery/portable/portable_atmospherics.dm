@@ -93,7 +93,7 @@
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)) || !can_interact(user))
 		return
 	if(holding)
-		to_chat(user, "<span class='notice'>Достаю [holding] из [src].</span>")
+		to_chat(user, span_notice("Достаю [holding] из [src].") )
 		replace_tank(user, TRUE)
 
 /obj/machinery/portable_atmospherics/examine(mob/user)
@@ -119,7 +119,7 @@
 			var/obj/item/tank/T = W
 			if(!user.transferItemToLoc(T, src))
 				return
-			to_chat(user, "<span class='notice'>[holding ? "Разом заменяю [holding] в [src] на [T]" : "Вставляю [T] в [src]"].</span>")
+			to_chat(user, span_notice("[holding ? "Разом заменяю [holding] в [src] на [T]" : "Вставляю [T] в [src]"].") )
 			investigate_log("had its internal [holding] swapped with [T] by [key_name(user)].", INVESTIGATE_ATMOS)
 			replace_tank(user, FALSE, T)
 			update_icon()
@@ -131,23 +131,23 @@
 				W.play_tool_sound(src)
 				user.visible_message( \
 					"[user] отсоединяет [src].", \
-					"<span class='notice'>Отсоединяю [src] от порта.</span>", \
-					"<span class='hear'>Слышу трещотку.</span>")
+					span_notice("Отсоединяю [src] от порта.") , \
+					span_hear("Слышу трещотку.") )
 				update_icon()
 				return
 			else
 				var/obj/machinery/atmospherics/components/unary/portables_connector/possible_port = locate(/obj/machinery/atmospherics/components/unary/portables_connector) in loc
 				if(!possible_port)
-					to_chat(user, "<span class='notice'>Ничего не происходит.</span>")
+					to_chat(user, span_notice("Ничего не происходит.") )
 					return
 				if(!connect(possible_port))
-					to_chat(user, "<span class='notice'>[name] проваливает попытку присоединения к порту.</span>")
+					to_chat(user, span_notice("[name] проваливает попытку присоединения к порту.") )
 					return
 				W.play_tool_sound(src)
 				user.visible_message( \
 					"[user] присоединяет [src].", \
-					"<span class='notice'>Присоединяю [src] к порту.</span>", \
-					"<span class='hear'>Слышу трещотку.</span>")
+					span_notice("Присоединяю [src] к порту.") , \
+					span_hear("Слышу трещотку.") )
 				update_icon()
 				investigate_log("was connected to [possible_port] by [key_name(user)].", INVESTIGATE_ATMOS)
 	else

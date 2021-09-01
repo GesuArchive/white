@@ -33,7 +33,7 @@
 		if(!prob(10))
 			return
 		playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
-		audible_message(pick(list("<span class='notice'>[capitalize(src.name)] grumbles!</span>", "<span class='notice'>[capitalize(src.name)] makes a splashing noise!</span>", "<span class='notice'>[capitalize(src.name)] sloshes!</span>")))
+		audible_message(pick(list(span_notice("[capitalize(src.name)] grumbles!") , span_notice("[capitalize(src.name)] makes a splashing noise!") , span_notice("[capitalize(src.name)] sloshes!") )))
 
 ///Handles the petri dish depositing into the vat.
 /obj/machinery/plumbing/growing_vat/attacked_by(obj/item/I, mob/living/user)
@@ -46,7 +46,7 @@
 		return ..()
 
 	if(biological_sample)
-		to_chat(user, "<span class='warning'>There is already a sample in the vat!</span>")
+		to_chat(user, span_warning("There is already a sample in the vat!") )
 		return
 	deposit_sample(user, petri)
 
@@ -57,7 +57,7 @@
 		biological_sample.micro_organisms += new m.type()
 	biological_sample.sample_layers = petri.sample.sample_layers
 	biological_sample.sample_color = petri.sample.sample_color
-	to_chat(user, "<span class='warning'>You put some of the sample in the vat!</span>")
+	to_chat(user, span_warning("You put some of the sample in the vat!") )
 	playsound(src, 'sound/effects/bubbles.ogg', 50, TRUE)
 	update_icon()
 

@@ -16,7 +16,7 @@
 /obj/item/firing_pin/catatonic
 	name = "ударник для дэбов"
 	desc = "Позволяет стрелять только \"гуманоидам\" с айсикью меньше 10."
-	fail_message = "<span class='warning'>ОБНАРУЖЕНА МОЗГОВАЯ АКТИВНОСТЬ.</span>"
+	fail_message = span_warning("ОБНАРУЖЕНА МОЗГОВАЯ АКТИВНОСТЬ.")
 
 /obj/item/firing_pin/catatonic/pin_auth(mob/living/user)
 	if(!istype(user))

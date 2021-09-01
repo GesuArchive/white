@@ -184,7 +184,7 @@
 /obj/machinery/atmospherics/components/ui_status(mob/user)
 	if(allowed(user))
 		return ..()
-	to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
+	to_chat(user, span_danger("Доступ запрещён.") )
 	return UI_CLOSE
 
 // Tool acts

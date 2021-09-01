@@ -8,8 +8,8 @@
 	desc = "Arriving at station while having programming socks on gives you special ICP."
 	value = 1
 	mob_trait = "programmer"
-	gain_text = "<span class='notice'>You know everything about compiling and crossdressing.</span>"
-	lose_text = "<span class='danger'>You feel like a normie.</span>"
+	gain_text = span_notice("You know everything about compiling and crossdressing.")
+	lose_text = span_danger("You feel like a normie.")
 	medical_record_text = "Patient says that you will code better if you dress like a japaneese schoolgirl."
 
 /datum/quirk/programmer/on_spawn()

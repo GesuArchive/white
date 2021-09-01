@@ -23,7 +23,7 @@
 
 /datum/computer_file/program/robotact/run_program(mob/living/user)
 	if(!istype(computer, /obj/item/modular_computer/tablet/integrated))
-		to_chat(user, "<span class='warning'>Предупреждение мерцает на [computer]: Устройство несовместимо.</span>")
+		to_chat(user, span_warning("Предупреждение мерцает на [computer]: Устройство несовместимо.") )
 		return FALSE
 	. = ..()
 	if(.)
@@ -111,7 +111,7 @@
 		if("alertPower")
 			if(borgo.stat == CONSCIOUS)
 				if(!borgo.cell || !borgo.cell.charge)
-					borgo.visible_message("<span class='notice'>Индикатор питания <span class='name'>[borgo]</span> постоянно мигает.</span>", \
+					borgo.visible_message(span_notice("Индикатор питания <span class='name'>[borgo]</span> постоянно мигает.") , \
 						"Вы объявляете, что работаете в режиме пониженного энергопотребления.")
 					playsound(borgo, 'sound/machines/buzz-two.ogg', 50, FALSE)
 

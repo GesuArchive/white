@@ -37,7 +37,7 @@
 		if(!isnum(user.client.player_age)) //apparently what happens when there's no DB connected. just don't let anybody be a drone without admin intervention
 			return
 		if(user.client.player_age < DRONE_MINIMUM_AGE)
-			to_chat(user, "<span class='danger'>Пока рано! Попробуй через [DRONE_MINIMUM_AGE - user.client.player_age] дней.</span>")
+			to_chat(user, span_danger("Пока рано! Попробуй через [DRONE_MINIMUM_AGE - user.client.player_age] дней.") )
 			return
 	. = ..()
 

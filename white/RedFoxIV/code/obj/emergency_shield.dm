@@ -35,7 +35,7 @@
 	. = ..()
 	. += "<br>"
 	if(!cell)
-		. += "<span class='alert'>There is no cell inside...</span>"
+		. += span_alert("There is no cell inside...")
 	switch(cell.charge)
 		if(3501 to INFINITY)
 			. += "It seems to be overcharged, somehow..." //i dunno.
@@ -58,15 +58,15 @@
 
 	if(cell.charge < 1500)
 		if(active)
-			. += "<span class='alert'><br>Turning it off now means you won't be able to turn it back on until recharged!</span>"
+			. += span_alert("<br>Turning it off now means you won't be able to turn it back on until recharged!")
 		else
-			. += "<span class='alert'><br>The charge is too low to turn the shield on! Remove the cell with a screwdriver and recharge it.</span>"
+			. += span_alert("<br>The charge is too low to turn the shield on! Remove the cell with a screwdriver and recharge it.")
 
 /obj/item/emergency_shield/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
 	if(I.tool_behaviour == TOOL_SCREWDRIVER && cell)
 		if(active)
-			to_chat(user, "<span class='alert'>Сначала выключи прожектор!</span>")
+			to_chat(user, span_alert("Сначала выключи прожектор!") )
 			return
 		cell.forceMove(src.drop_location())
 		cell.update_icon()
@@ -77,7 +77,7 @@
 
 	if(istype(I, /obj/item/stock_parts/cell) && !cell)
 		if(!istype(I, /obj/item/stock_parts/cell/emergency_shield))
-			to_chat(user, "<span class='alert'>Аварийный прожектор щита можно запитать только специальной батарейкой для прожекторов!..</span>")
+			to_chat(user, span_alert("Аварийный прожектор щита можно запитать только специальной батарейкой для прожекторов!..") )
 			return
 		cell = I
 		cell.forceMove(src)
@@ -177,7 +177,7 @@
 	active = TRUE
 	ADD_TRAIT(current_user, TRAIT_RESISTLOWPRESSURE, "emergency_shield")
 	ADD_TRAIT(current_user, TRAIT_RESISTHIGHPRESSURE, "emergency_shield")
-	
+
 	current_user.add_movespeed_modifier(/datum/movespeed_modifier/emergency_shield)
 	current_user.add_overlay(shield_effect)
 	playsound(src,'sound/weapons/saberon.ogg', 15, TRUE)

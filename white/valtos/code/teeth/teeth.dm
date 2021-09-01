@@ -28,7 +28,7 @@
 	transform = M
 
 /obj/item/stack/teeth/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] jams [src] into \his eyes! It looks like \he's trying to commit suicide.</span>")
+	user.visible_message(span_suicide("[user] jams [src] into \his eyes! It looks like \he's trying to commit suicide.") )
 	return (BRUTELOSS)
 
 /obj/item/stack/teeth/human
@@ -85,25 +85,25 @@
 /datum/surgery_step/handle_teeth/preop(mob/user, mob/living/carbon/human/target, target_zone, obj/item/stack/teeth/T, datum/surgery/surgery)
 	var/obj/item/bodypart/head/O = locate(/obj/item/bodypart/head) in target.bodyparts
 	if(!O)
-		user.visible_message("<span class='notice'>Че за... у [target] нет башки!</span>")
+		user.visible_message(span_notice("Че за... у [target] нет башки!") )
 		return -1
 	if(istype(T))
 		if(O.get_teeth() >= O.max_teeth)
 			to_chat(user, "<span class='notice'>Все зубы [target] в порядке.")
 			return -1
-		user.visible_message("<span class='notice'>[user] начинает вставлять [T] во рту [target].</span>")
+		user.visible_message(span_notice("[user] начинает вставлять [T] во рту [target].") )
 	else
-		user.visible_message("<span class='notice'>[user] проверяет зубы [target].</span>")
+		user.visible_message(span_notice("[user] проверяет зубы [target].") )
 
 /datum/surgery_step/handle_teeth/success(mob/user, mob/living/carbon/human/target, target_zone, obj/item/stack/teeth/T, datum/surgery/surgery)
 	var/obj/item/bodypart/head/O = locate(/obj/item/bodypart/head) in target.bodyparts
 	if(!O)
-		user.visible_message("<span class='notice'>Че за... у [target] нет башки!</span>")
+		user.visible_message(span_notice("Че за... у [target] нет башки!") )
 		return -1
 	if(istype(T))
 		if(O.get_teeth()) //Has teeth, check if they need "refilling"
 			if(O.get_teeth() >= O.max_teeth)
-				user.visible_message("<span class='notice'>[user] похоже не получится вставить [T] [target] в качестве зуба.</span>", "<span class='notice'>Все зубы [target] в порядке.</span>")
+				user.visible_message(span_notice("[user] похоже не получится вставить [T] [target] в качестве зуба.") , span_notice("Все зубы [target] в порядке.") )
 				return 0
 			var/obj/item/stack/teeth/F = locate(T.type) in O.teeth_list //Look for same type of teeth inside target's mouth for merging
 			var/amt = T.amount
@@ -116,7 +116,7 @@
 				O.teeth_list += E
 				// E.forceMove(target)
 				T = E
-			user.visible_message("<span class='notice'>[user] вставляет [amt] [sklonenie(T.name, VINITELNI)] в рот [target]!</span>")
+			user.visible_message(span_notice("[user] вставляет [amt] [sklonenie(T.name, VINITELNI)] в рот [target]!") )
 			return 1
 		else //No teeth to speak of.
 			var/amt = min(T.amount, O.max_teeth)
@@ -125,17 +125,17 @@
 			O.teeth_list += F
 			// F.forceMove(target)
 			T = F
-			user.visible_message("<span class='notice'>[user] вставляет [amt] [sklonenie(T.name, VINITELNI)] в рот [target]!</span>")
+			user.visible_message(span_notice("[user] вставляет [amt] [sklonenie(T.name, VINITELNI)] в рот [target]!") )
 			return 1
 	else
 		if(O.teeth_list.len)
-			user.visible_message("<span class='notice'>[user] вырывает все зубы изо рта [target]!</span>")
+			user.visible_message(span_notice("[user] вырывает все зубы изо рта [target]!") )
 			for(var/obj/item/stack/teeth/F in O.teeth_list)
 				O.teeth_list -= F
 				F.forceMove(get_turf(target))
 			return 1
 		else
-			user.visible_message("<span class='notice'>[user] не может найти что-то подходящее во рту [target].</span>")
+			user.visible_message(span_notice("[user] не может найти что-то подходящее во рту [target].") )
 			return 0
 
 /datum/species

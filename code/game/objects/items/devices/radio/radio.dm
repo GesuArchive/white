@@ -45,7 +45,7 @@
 	var/list/secure_radio_connections
 
 /obj/item/radio/suicide_act(mob/living/user)
-	user.visible_message("<span class='suicide'>[user] starts bouncing [src] off [user.ru_ego()] head! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] starts bouncing [src] off [user.ru_ego()] head! It looks like [user.p_theyre()] trying to commit suicide!") )
 	return BRUTELOSS
 
 /obj/item/radio/proc/set_frequency(new_frequency)
@@ -347,9 +347,9 @@
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
 		unscrewed = !unscrewed
 		if(unscrewed)
-			to_chat(user, "<span class='notice'>Теперь рация может быть приделана к чему-то или модифицированна!</span>")
+			to_chat(user, span_notice("Теперь рация может быть приделана к чему-то или модифицированна!") )
 		else
-			to_chat(user, "<span class='notice'>Теперь рация не может быть приделана к чему-то или модифицированна!</span>")
+			to_chat(user, span_notice("Теперь рация не может быть приделана к чему-то или модифицированна!") )
 	else
 		return ..()
 
@@ -360,7 +360,7 @@
 	emped++ //There's been an EMP; better count it
 	var/curremp = emped //Remember which EMP this was
 	if (listening && ismob(loc))	// if the radio is turned on and on someone's person they notice
-		to_chat(loc, "<span class='warning'>[capitalize(src.name)] перегружается.</span>")
+		to_chat(loc, span_warning("[capitalize(src.name)] перегружается.") )
 	broadcasting = FALSE
 	listening = FALSE
 	for (var/ch_name in channels)
@@ -418,14 +418,14 @@
 					keyslot = null
 
 			recalculateChannels()
-			to_chat(user, "<span class='notice'>Вынимаю ключ шифрования из рации.</span>")
+			to_chat(user, span_notice("Вынимаю ключ шифрования из рации.") )
 
 		else
-			to_chat(user, "<span class='warning'>Эта рация не имеет ключей шифрования в себе!</span>")
+			to_chat(user, span_warning("Эта рация не имеет ключей шифрования в себе!") )
 
 	else if(istype(W, /obj/item/encryptionkey/))
 		if(keyslot)
-			to_chat(user, "<span class='warning'>Эта рация не может иметь больше ключей шифрования!</span>")
+			to_chat(user, span_warning("Эта рация не может иметь больше ключей шифрования!") )
 			return
 
 		if(!keyslot)

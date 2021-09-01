@@ -74,7 +74,7 @@
 			to_chat(source, "[icon2html(src, source)]<span class='warning'>Not enough room in cargo compartment!</span>")
 			return
 		playsound(chassis, clampsound, 50, FALSE, -6)
-		chassis.visible_message("<span class='notice'>[chassis] lifts [target] and starts to load it into cargo compartment.</span>")
+		chassis.visible_message(span_notice("[chassis] lifts [target] and starts to load it into cargo compartment.") )
 		clamptarget.set_anchored(TRUE)
 		if(!do_after_cooldown(target, source))
 			clamptarget.set_anchored(initial(clamptarget.anchored))
@@ -94,16 +94,16 @@
 		if(source.a_intent == INTENT_HELP)
 			step_away(M,chassis)
 			if(killer_clamp)
-				target.visible_message("<span class='danger'>[chassis] tosses [target] like a piece of paper!</span>", \
-					"<span class='userdanger'>[chassis] tosses you like a piece of paper!</span>")
+				target.visible_message(span_danger("[chassis] tosses [target] like a piece of paper!") , \
+					span_userdanger("[chassis] tosses you like a piece of paper!") )
 			else
 				to_chat(source, "[icon2html(src, source)]<span class='notice'>You push [target] out of the way.</span>")
-				chassis.visible_message("<span class='notice'>[chassis] pushes [target] out of the way.</span>", \
-				"<span class='notice'>[chassis] pushes you aside.</span>")
+				chassis.visible_message(span_notice("[chassis] pushes [target] out of the way.") , \
+				span_notice("[chassis] pushes you aside.") )
 			return ..()
 		else if(source.a_intent == INTENT_DISARM && iscarbon(M))//meme clamp here
 			if(!killer_clamp)
-				to_chat(source, "<span class='notice'>You longingly wish to tear [M] arms off.</span>")
+				to_chat(source, span_notice("You longingly wish to tear [M] arms off.") )
 				return
 			var/mob/living/carbon/C = target
 			var/torn_off = FALSE
@@ -116,11 +116,11 @@
 				affected.dismember(damtype)
 				torn_off = TRUE
 			if(!torn_off)
-				to_chat(source, "<span class='notice'>[M] arms are already torn off, you must find a challenger worthy of the kill clamp!</span>")
+				to_chat(source, span_notice("[M] arms are already torn off, you must find a challenger worthy of the kill clamp!") )
 				return
 			playsound(src, get_dismember_sound(), 80, TRUE)
-			target.visible_message("<span class='danger'>[chassis] rips [target] arms off!</span>", \
-						   "<span class='userdanger'>[chassis] rips your arms off!</span>")
+			target.visible_message(span_danger("[chassis] rips [target] arms off!") , \
+						   span_userdanger("[chassis] rips your arms off!") )
 			log_combat(source, M, "removed both arms with a real clamp,", "[name]", "(INTENT: [uppertext(source.a_intent)]) (DAMTYPE: [uppertext(damtype)])")
 			return ..()
 
@@ -129,9 +129,9 @@
 			return
 		M.adjustOxyLoss(round(clamp_damage))
 		M.updatehealth()
-		target.visible_message("<span class='danger'>[chassis] squeezes [target]!</span>", \
-							"<span class='userdanger'>[chassis] squeezes you!</span>",\
-							"<span class='hear'>You hear something crack.</span>")
+		target.visible_message(span_danger("[chassis] squeezes [target]!") , \
+							span_userdanger("[chassis] squeezes you!") ,\
+							span_hear("You hear something crack.") )
 		log_combat(source, M, "attacked", "[name]", "(INTENT: [uppertext(source.a_intent)]) (DAMTYPE: [uppertext(damtype)])")
 	return ..()
 
@@ -325,19 +325,19 @@
 
 /obj/item/mecha_parts/mecha_equipment/ripleyupgrade/can_attach(obj/vehicle/sealed/mecha/working/ripley/M)
 	if(M.type != /obj/vehicle/sealed/mecha/working/ripley)
-		to_chat(loc, "<span class='warning'>This conversion kit can only be applied to APLU MK-I models.</span>")
+		to_chat(loc, span_warning("This conversion kit can only be applied to APLU MK-I models.") )
 		return FALSE
 	if(LAZYLEN(M.cargo))
-		to_chat(loc, "<span class='warning'>[M] cargo hold must be empty before this conversion kit can be applied.</span>")
+		to_chat(loc, span_warning("[M] cargo hold must be empty before this conversion kit can be applied.") )
 		return FALSE
 	if(!(M.mecha_flags & ADDING_MAINT_ACCESS_POSSIBLE)) //non-removable upgrade, so lets make sure the pilot or owner has their say.
-		to_chat(loc, "<span class='warning'>[M] must have maintenance protocols active in order to allow this conversion kit.</span>")
+		to_chat(loc, span_warning("[M] must have maintenance protocols active in order to allow this conversion kit.") )
 		return FALSE
 	if(LAZYLEN(M.occupants)) //We're actualy making a new mech and swapping things over, it might get weird if players are involved
-		to_chat(loc, "<span class='warning'>[M] must be unoccupied before this conversion kit can be applied.</span>")
+		to_chat(loc, span_warning("[M] must be unoccupied before this conversion kit can be applied.") )
 		return FALSE
 	if(!M.cell) //Turns out things break if the cell is missing
-		to_chat(loc, "<span class='warning'>The conversion process requires a cell installed.</span>")
+		to_chat(loc, span_warning("The conversion process requires a cell installed.") )
 		return FALSE
 	return TRUE
 

@@ -33,26 +33,26 @@
 		return FALSE
 
 	if(M == user)
-		M.visible_message("<span class='notice'>[user] пытается [apply_method] [src].</span>")
+		M.visible_message(span_notice("[user] пытается [apply_method] [src].") )
 		if(self_delay)
 			if(!do_mob(user, M, self_delay))
 				return FALSE
-		to_chat(M, "<span class='notice'>Пытаюсь [apply_method] [src].</span>")
+		to_chat(M, span_notice("Пытаюсь [apply_method] [src].") )
 
 	else
-		M.visible_message("<span class='danger'>[user] пытается принудить [M] [apply_method] [src].</span>", \
-							"<span class='userdanger'>[user] пытается принудить меня [apply_method] [src].</span>")
+		M.visible_message(span_danger("[user] пытается принудить [M] [apply_method] [src].") , \
+							span_userdanger("[user] пытается принудить меня [apply_method] [src].") )
 		if(!do_mob(user, M, CHEM_INTERACT_DELAY(3 SECONDS, user)))
 			return FALSE
-		M.visible_message("<span class='danger'>[user] принуждает [M] [apply_method] [src].</span>", \
-							"<span class='userdanger'>[user] принуждает меня [apply_method] [src].</span>")
+		M.visible_message(span_danger("[user] принуждает [M] [apply_method] [src].") , \
+							span_userdanger("[user] принуждает меня [apply_method] [src].") )
 
 	return on_consumption(M, user)
 
 ///Runs the consumption code, can be overriden for special effects
 /obj/item/reagent_containers/pill/proc/on_consumption(mob/M, mob/user)
 	if(icon_state == "pill4" && prob(5)) //you take the red pill - you stay in Wonderland, and I show you how deep the rabbit hole goes
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, M, "<span class='notice'>[pick(strings(REDPILL_FILE, "redpill_questions"))]</span>"), 50)
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, M, span_notice("[pick(strings(REDPILL_FILE, "redpill_questions"))]") ), 50)
 
 	if(reagents.total_volume)
 		reagents.trans_to(M, reagents.total_volume, transfered_by = user, methods = apply_type)
@@ -67,14 +67,14 @@
 	if(!dissolvable || !target.is_refillable())
 		return
 	if(target.is_drainable() && !target.reagents.total_volume)
-		to_chat(user, "<span class='warning'>[target] пустой! В чём я буду растворять [src]?</span>")
+		to_chat(user, span_warning("[target] пустой! В чём я буду растворять [src]?") )
 		return
 
 	if(target.reagents.holder_full())
-		to_chat(user, "<span class='warning'>[target] полон.</span>")
+		to_chat(user, span_warning("[target] полон.") )
 		return
 
-	user.visible_message("<span class='warning'>[user] закидывает что-то в [target]!</span>", "<span class='notice'>Растворяю [src] в [target].</span>", null, 2)
+	user.visible_message(span_warning("[user] закидывает что-то в [target]!") , span_notice("Растворяю [src] в [target].") , null, 2)
 	reagents.trans_to(target, reagents.total_volume, transfered_by = user)
 	qdel(src)
 
@@ -82,7 +82,7 @@
  * On accidental consumption, consume the pill
  */
 /obj/item/reagent_containers/pill/on_accidental_consumption(mob/living/carbon/victim, mob/living/carbon/user, obj/item/source_item, discover_after = FALSE)
-	to_chat(victim, "<span class='warning'>Проглатываю что-то маленькое. [source_item ? "Это было в [source_item]?" : ""]</span>")
+	to_chat(victim, span_warning("Проглатываю что-то маленькое. [source_item ? "Это было в [source_item]?" : ""]") )
 	reagents?.trans_to(victim, reagents.total_volume, transfered_by = user, methods = INGEST)
 	qdel(src)
 	return discover_after

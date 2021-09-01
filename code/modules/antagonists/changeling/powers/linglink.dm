@@ -12,27 +12,27 @@
 		return
 	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
 	if(changeling.islinking)
-		to_chat(user, "<span class='warning'>Мы уже сформировали связь с жертвой!</span>")
+		to_chat(user, span_warning("Мы уже сформировали связь с жертвой!") )
 		return
 	if(!user.pulling)
-		to_chat(user, "<span class='warning'>Мы должны крепко схватить существо, чтобы связаться с ними!</span>")
+		to_chat(user, span_warning("Мы должны крепко схватить существо, чтобы связаться с ними!") )
 		return
 	if(!iscarbon(user.pulling))
-		to_chat(user, "<span class='warning'>Мы не можем связаться с этим существом!</span>")
+		to_chat(user, span_warning("Мы не можем связаться с этим существом!") )
 		return
 	var/mob/living/carbon/target = user.pulling
 
 	if(!target.mind)
-		to_chat(user, "<span class='warning'>У жертвы отсутствует разум!</span>")
+		to_chat(user, span_warning("У жертвы отсутствует разум!") )
 		return
 	if(target.stat == DEAD)
-		to_chat(user, "<span class='warning'>Жертва мертва, мы не можем связаться с мертвым разумом!</span>")
+		to_chat(user, span_warning("Жертва мертва, мы не можем связаться с мертвым разумом!") )
 		return
 	if(target.mind.has_antag_datum(/datum/antagonist/changeling))
-		to_chat(user, "<span class='warning'>Жертва уже является частью роя!</span>")
+		to_chat(user, span_warning("Жертва уже является частью роя!") )
 		return
 	if(user.grab_state <= GRAB_AGGRESSIVE)
-		to_chat(user, "<span class='warning'>Мы должны держать это существо крепче!</span>")
+		to_chat(user, span_warning("Мы должны держать это существо крепче!") )
 		return
 	return changeling.can_absorb_dna(target)
 
@@ -43,33 +43,33 @@
 	for(var/i in 1 to 3)
 		switch(i)
 			if(1)
-				to_chat(user, "<span class='notice'>Существо подходит. Нам нужно не двигаться...</span>")
+				to_chat(user, span_notice("Существо подходит. Нам нужно не двигаться...") )
 			if(2)
-				to_chat(user, "<span class='notice'>Мы незаметно протыкаем <b>[target]</b> нашим малым хоботком...</span>")
-				to_chat(target, "<span class='userdanger'>Испытваю какое-то острое ощущение и в ушах начинает звенеть...</span>")
+				to_chat(user, span_notice("Мы незаметно протыкаем <b>[target]</b> нашим малым хоботком...") )
+				to_chat(target, span_userdanger("Испытваю какое-то острое ощущение и в ушах начинает звенеть...") )
 			if(3)
-				to_chat(user, "<span class='notice'>Мы формируем разум <b>[target]</b>, давая жертве способность общаться с роем!</span>")
-				to_chat(target, "<span class='userdanger'>Мигрень пульсирует перед глазами, слышу, как я кричу, но рот мой закрыт!</span>")
+				to_chat(user, span_notice("Мы формируем разум <b>[target]</b>, давая жертве способность общаться с роем!") )
+				to_chat(target, span_userdanger("Мигрень пульсирует перед глазами, слышу, как я кричу, но рот мой закрыт!") )
 				for(var/mi in GLOB.mob_list)
 					var/mob/M = mi
 					if(M.lingcheck() == LINGHIVE_LING)
-						to_chat(M, "<span class='changeling'>Мы ощущаем чужое присутствие в рое...</span>")
+						to_chat(M, span_changeling("Мы ощущаем чужое присутствие в рое...") )
 				target.mind.linglink = 1
 				target.say("[MODE_TOKEN_CHANGELING] Н-Е-Е-Е-Е-Т!")
 				to_chat(target, "<span class='changeling bold'>Теперь ты можешь общаться с генокрадами, используй \"[MODE_TOKEN_CHANGELING] сообщение\" для связи!</span>")
 		SSblackbox.record_feedback("nested tally", "changeling_powers", 1, list("[name]", "[i]"))
 		if(!do_mob(user, target, 20))
-			to_chat(user, "<span class='warning'>Наша связь с <b>[target]</b> завершена!</span>")
+			to_chat(user, span_warning("Наша связь с <b>[target]</b> завершена!") )
 			changeling.islinking = 0
 			target.mind.linglink = 0
 			return
 
-	to_chat(user, "<span class='notice'>Мы должны удерживать <b>[target]</b> для поддержания связи. </span>")
+	to_chat(user, span_notice("Мы должны удерживать <b>[target]</b> для поддержания связи. ") )
 	while(user.pulling && user.grab_state >= GRAB_NECK)
 		target.reagents.add_reagent(/datum/reagent/medicine/salbutamol, 0.5) // So they don't choke to death while you interrogate them
 		do_mob(user, target, 10 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM))
 
 	changeling.islinking = 0
 	target.mind.linglink = 0
-	to_chat(user, "<span class='notice'>Мы не можем больше поддерживать связь, наша жертва исчезает из роя!</span>")
-	to_chat(target, "<span class='userdanger'>Связь больше не поддерживается, моё соединение с роем разорвано!</span>")
+	to_chat(user, span_notice("Мы не можем больше поддерживать связь, наша жертва исчезает из роя!") )
+	to_chat(target, span_userdanger("Связь больше не поддерживается, моё соединение с роем разорвано!") )

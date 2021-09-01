@@ -212,7 +212,7 @@
 	wine_power = 80
 
 /obj/item/food/grown/cherry_bomb/attack_self(mob/living/user)
-	user.visible_message("<span class='warning'>[user] выдёргивает стебель [src]!</span>", "<span class='userdanger'>Выдираю стебель из [src], начинается громкое шипение!</span>")
+	user.visible_message(span_warning("[user] выдёргивает стебель [src]!") , span_userdanger("Выдираю стебель из [src], начинается громкое шипение!") )
 	log_bomber(user, "primed a", src, "for detonation")
 	detonate()
 
@@ -288,8 +288,8 @@
 	var/turf/player_turf = get_turf(user)
 	if(player_turf?.is_blocked_turf(TRUE))
 		return FALSE
-	user.visible_message("<span class='danger'>[user] начинает сажать <b>[src.name]</b>...</span>")
+	user.visible_message(span_danger("[user] начинает сажать <b>[src.name]</b>...") )
 	if(do_after(user, 8 SECONDS, target = user.drop_location(), progress = TRUE))
 		new /obj/structure/fluff/hedge/opaque(user.drop_location())
-		to_chat(user, "<span class='notice'>Сажаю <b>[src.name]</b>.</span>")
+		to_chat(user, span_notice("Сажаю <b>[src.name]</b>.") )
 		qdel(src)

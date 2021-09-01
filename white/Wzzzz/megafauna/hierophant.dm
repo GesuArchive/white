@@ -56,14 +56,14 @@
 			timeout_time--
 		if(timeout_time <= 0 && !did_reset)
 			did_reset = TRUE
-			visible_message("<span class='hierophant_warning'>\"Vixyvrmrk xs fewi...\"</span>")
+			visible_message(span_hierophant_warning("\"Vixyvrmrk xs fewi...\"") )
 			blink(spawned_beacon)
 			adjustHealth(min((health - maxHealth) * 0.5, -250)) //heal for 50% of our missing health, minimum 10% of maximum health
 			wander = FALSE
 			if(health > maxHealth * 0.9)
-				visible_message("<span class='hierophant'>\"Vitemvw gsqtpixi. Stivexmrk ex qebmqyq ijjmgmirgc.\"</span>")
+				visible_message(span_hierophant("\"Vitemvw gsqtpixi. Stivexmrk ex qebmqyq ijjmgmirgc.\"") )
 			else
-				visible_message("<span class='hierophant'>\"Vitemvw gsqtpixi. Stivexmsrep ijjmgmirgc gsqtvsqmwih.\"</span>")
+				visible_message(span_hierophant("\"Vitemvw gsqtpixi. Stivexmsrep ijjmgmirgc gsqtvsqmwih.\"") )
 
 /mob/living/simple_animal/hostile/megafauna/hierophantold/death()
 	if(health > 0 || stat == DEAD)
@@ -72,8 +72,8 @@
 		stat = DEAD
 		blinking = TRUE //we do a fancy animation, release a huge burst(), and leave our staff.
 		burst_range = 10
-		visible_message("<span class='hierophant'>\"Mrmxmexmrk wipj-hiwxvygx wiuyirgi...\"</span>")
-		visible_message("<span class='hierophant_warning'>[capitalize(src.name)] shrinks, releasing a massive burst of energy!</span>")
+		visible_message(span_hierophant("\"Mrmxmexmrk wipj-hiwxvygx wiuyirgi...\"") )
+		visible_message(span_hierophant_warning("[capitalize(src.name)] shrinks, releasing a massive burst of energy!") )
 		burst(get_turf(src))
 		..()
 
@@ -85,8 +85,8 @@
 	for(var/obj/item/W in L)
 		if(!L.dropItemToGround(W))
 			qdel(W)
-	visible_message("<span class='hierophant_warning'>\"[pick(kill_phrases)]\"</span>")
-	visible_message("<span class='hierophant_warning'>[capitalize(src.name)] annihilates [L]!</span>","<span class='userdanger'>You annihilate [L], restoring your health!</span>")
+	visible_message(span_hierophant_warning("\"[pick(kill_phrases)]\"") )
+	visible_message(span_hierophant_warning("[capitalize(src.name)] annihilates [L]!") ,span_userdanger("You annihilate [L], restoring your health!") )
 	adjustHealth(-L.maxHealth*0.5)
 	L.dust()
 
@@ -99,7 +99,7 @@
 	var/targets_the_same = (new_target == target)
 	. = ..()
 	if(. && target && !targets_the_same)
-		visible_message("<span class='hierophant_warning'>\"[pick(target_phrases)]\"</span>")
+		visible_message(span_hierophant_warning("\"[pick(target_phrases)]\"") )
 		if(spawned_beacon && loc == spawned_beacon.loc && did_reset)
 			arena_trap(src)
 
@@ -190,7 +190,7 @@
 			switch(pick(possibilities))
 				if("blink_spam") //blink either once or multiple times.
 					if(health < maxHealth * 0.5 && blink_counter > 1)
-						visible_message("<span class='hierophant'>\"Mx ampp rsx iwgeti.\"</span>")
+						visible_message(span_hierophant("\"Mx ampp rsx iwgeti.\"") )
 						var/oldcolor = color
 						animate(src, color = "#660099", time = 6)
 						sleep(6)
@@ -209,7 +209,7 @@
 					else
 						blink(target)
 				if("cross_blast_spam") //fire a lot of cross blasts at a target.
-					visible_message("<span class='hierophant'>\"Piezi mx rsalivi xs vyr.\"</span>")
+					visible_message(span_hierophant("\"Piezi mx rsalivi xs vyr.\"") )
 					blinking = TRUE
 					var/oldcolor = color
 					animate(src, color = "#660099", time = 6)
@@ -226,7 +226,7 @@
 					sleep(8)
 					blinking = FALSE
 				if("chaser_swarm") //fire four fucking chasers at a target and their friends.
-					visible_message("<span class='hierophant'>\"Mx gerrsx lmhi.\"</span>")
+					visible_message(span_hierophant("\"Mx gerrsx lmhi.\"") )
 					blinking = TRUE
 					var/oldcolor = color
 					animate(src, color = "#660099", time = 6)
@@ -362,7 +362,7 @@
 		B.damage = 30
 	animate(src, alpha = 0, time = 2, easing = EASE_OUT) //fade out
 	sleep(1)
-	visible_message("<span class='hierophant_warning'>[capitalize(src.name)] fades out!</span>")
+	visible_message(span_hierophant_warning("[capitalize(src.name)] fades out!") )
 	density = FALSE
 	sleep(2)
 	forceMove(T)
@@ -370,7 +370,7 @@
 	animate(src, alpha = 255, time = 2, easing = EASE_IN) //fade IN
 	sleep(1)
 	density = TRUE
-	visible_message("<span class='hierophant_warning'>[capitalize(src.name)] fades in!</span>")
+	visible_message(span_hierophant_warning("[capitalize(src.name)] fades in!") )
 	sleep(1) //at this point the blasts we made detonate
 	blinking = FALSE
 
@@ -590,7 +590,7 @@
 		if(L.client)
 			flash_color(L.client, "#660099", 1)
 		playsound(L,'sound/weapons/sear.ogg', 50, 1, -4)
-		to_chat(L, "<span class='userdanger'>You're struck by a [name]!</span>")
+		to_chat(L, span_userdanger("You're struck by a [name]!") )
 		var/limb_to_hit = L.get_bodypart(pick("head", "chest", "r_arm", "l_arm", "r_leg", "l_leg"))
 		var/armor = L.run_armor_check(limb_to_hit, "melee", "Your armor absorbs [src]!", "Your armor blocks part of [src]!", 50, "Your armor was penetrated by [src]!")
 		L.apply_damage(damage, BURN, limb_to_hit, armor)
@@ -610,7 +610,7 @@
 		if(M.occupant)
 			if(friendly_fire_check && caster && caster.faction_check_mob(M.occupant))
 				continue
-			to_chat(M.occupant, "<span class='userdanger'>Your [M.name] is struck by a [name]!</span>")
+			to_chat(M.occupant, span_userdanger("Your [M.name] is struck by a [name]!") )
 		playsound(M,'sound/weapons/sear.ogg', 50, 1, -4)
 		M.take_damage(damage, BURN, 0, 0)
 
@@ -632,13 +632,13 @@
 		if(H.timer > world.time)
 			return
 		if(H.beacon == src)
-			to_chat(user, "<span class='notice'>You start removing your hierophant beacon...</span>")
+			to_chat(user, span_notice("You start removing your hierophant beacon...") )
 			H.timer = world.time + 51
 			INVOKE_ASYNC(H, /obj/item/hierophant_club.proc/prepare_icon_update)
 			if(do_after(user, 50, target = src))
 				playsound(src,'sound/magic/blind.ogg', 200, 1, -4)
 				new /obj/effect/temp_visual/hierophant/telegraph/teleport(get_turf(src), user)
-				to_chat(user, "<span class='hierophant_warning'>You collect [src], reattaching it to the club!</span>")
+				to_chat(user, span_hierophant_warning("You collect [src], reattaching it to the club!") )
 				H.beacon = null
 				user.update_action_buttons_icon()
 				qdel(src)
@@ -646,7 +646,7 @@
 				H.timer = world.time
 				INVOKE_ASYNC(H, /obj/item/hierophant_club.proc/prepare_icon_update)
 		else
-			to_chat(user, "<span class='hierophant_warning'>You touch the beacon with the club, but nothing happens.</span>")
+			to_chat(user, span_hierophant_warning("You touch the beacon with the club, but nothing happens.") )
 	else
 		return ..()
 

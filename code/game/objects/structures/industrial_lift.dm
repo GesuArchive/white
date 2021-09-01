@@ -251,10 +251,10 @@ GLOBAL_LIST_EMPTY(lifts)
 				continue
 			if(!istype(victimstructure, /obj/structure/holosign) && victimstructure.layer >= LOW_OBJ_LAYER)
 				if(victimstructure.anchored && initial(victimstructure.anchored) == TRUE)
-					visible_message("<span class='danger'>[src] smashes through [victimstructure]!</span>")
+					visible_message(span_danger("[src] smashes through [victimstructure]!") )
 					victimstructure.deconstruct(FALSE)
 				else
-					visible_message("<span class='danger'>[src] violently rams [victimstructure] out of the way!</span>")
+					visible_message(span_danger("[src] violently rams [victimstructure] out of the way!") )
 					victimstructure.anchored = FALSE
 					victimstructure.take_damage(rand(20,25))
 					victimstructure.throw_at(throw_target, 200, 4)
@@ -265,7 +265,7 @@ GLOBAL_LIST_EMPTY(lifts)
 				continue
 			if(victimmachine.layer >= LOW_OBJ_LAYER) //avoids stuff that is probably flush with the ground
 				playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
-				visible_message("<span class='danger'>[src] smashes through [victimmachine]!</span>")
+				visible_message(span_danger("[src] smashes through [victimmachine]!") )
 				qdel(victimmachine)
 
 		for(var/mob/living/collided in destination.contents)

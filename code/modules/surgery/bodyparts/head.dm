@@ -70,20 +70,20 @@
 	. += "<hr>"
 	if(status == BODYPART_ORGANIC)
 		if(!brain)
-			. += "<span class='info'>Здесь нет мозга.</span>"
+			. += span_info("Здесь нет мозга.")
 		else if(brain.suicided || brainmob?.suiciding)
-			. += "<span class='info'>Странная гримасса на лице [real_name]; похоже эта голова и правда не любила свою жизнь. Это можно выбросить.</span>"
+			. += span_info("Странная гримасса на лице [real_name]; похоже эта голова и правда не любила свою жизнь. Это можно выбросить.")
 		else if(brainmob?.health <= HEALTH_THRESHOLD_DEAD)
-			. += "<span class='info'>Из этой штуки что-то... вытекает? Похоже мозгу внутри придали неестественную форму.</span>"
+			. += span_info("Из этой штуки что-то... вытекает? Похоже мозгу внутри придали неестественную форму.")
 		else if(brainmob)
 			if(brainmob.key || brainmob.get_ghost(FALSE, TRUE))
-				. += "<span class='info'>Эта штука немного шевелится... Похоже внутрии неё что-то очень хочет жить.</span>"
+				. += span_info("Эта штука немного шевелится... Похоже внутрии неё что-то очень хочет жить.")
 			else
-				. += "<span class='info'>Эта штука неподвижна. Возможно есть шанс сделать из этого что-то полезное.</span>"
+				. += span_info("Эта штука неподвижна. Возможно есть шанс сделать из этого что-то полезное.")
 		else if(brain?.decoy_override)
-			. += "<span class='info'>Эта штука неподвижна. Возможно есть шанс сделать из этого что-то полезное.</span>"
+			. += span_info("Эта штука неподвижна. Возможно есть шанс сделать из этого что-то полезное.")
 		else
-			. += "<span class='info'>Эта штука неподвижна.</span>"
+			. += span_info("Эта штука неподвижна.")
 
 		if(!eyes)
 			. += "\n<span class='info'>Глаза [real_name] отсутствуют.</span>"
@@ -107,14 +107,14 @@
 	for(var/obj/item/I in src)
 		if(I == brain)
 			if(user)
-				user.visible_message("<span class='warning'>[user] распиливает [src] и вырывает мозг!</span>", "<span class='notice'>Распиливаю [src] и вырываю оттуда мозг.</span>")
+				user.visible_message(span_warning("[user] распиливает [src] и вырывает мозг!") , span_notice("Распиливаю [src] и вырываю оттуда мозг.") )
 			if(brainmob)
 				brainmob.container = null
 				brainmob.forceMove(brain)
 				brain.brainmob = brainmob
 				brainmob = null
 			if(violent_removal && prob(rand(80, 100))) //ghetto surgery can damage the brain.
-				to_chat(user, "<span class='warning'>[brain] был повреждён в процессе!</span>")
+				to_chat(user, span_warning("[brain] был повреждён в процессе!") )
 				brain.setOrganDamage(brain.maxHealth)
 			brain.forceMove(T)
 			brain = null

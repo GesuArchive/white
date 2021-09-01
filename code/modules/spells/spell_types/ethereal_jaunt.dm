@@ -89,5 +89,5 @@
 	if(!.)
 		return
 	if (locate(/obj/effect/blessing, .))
-		to_chat(user, "<span class='warning'>Holy energies block your path!</span>")
+		to_chat(user, span_warning("Holy energies block your path!") )
 		return null

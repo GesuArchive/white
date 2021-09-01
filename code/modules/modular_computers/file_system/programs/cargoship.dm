@@ -63,13 +63,13 @@
 			cut_multiplier = potential_cut ? clamp(round(potential_cut/100, cut_min), cut_min, cut_max) : initial(cut_multiplier)
 		if("print")
 			if(!printer)
-				to_chat(usr, "<span class='notice'>Аппаратная ошибка: для печати штрих-кодов требуется принтер.</span>")
+				to_chat(usr, span_notice("Аппаратная ошибка: для печати штрих-кодов требуется принтер.") )
 				return
 			if(printer.stored_paper <= 0)
-				to_chat(usr, "<span class='notice'>Аппаратная ошибка: в принтере закончилась бумага.</span>")
+				to_chat(usr, span_notice("Аппаратная ошибка: в принтере закончилась бумага.") )
 				return
 			if(!payments_acc)
-				to_chat(usr, "<span class='notice'>Ошибка программного обеспечения: сначала установите текущего пользователя.</span>")
+				to_chat(usr, span_notice("Ошибка программного обеспечения: сначала установите текущего пользователя.") )
 				return
 			var/obj/item/barcode/barcode = new /obj/item/barcode(get_turf(ui_host()))
 			barcode.payments_acc = payments_acc

@@ -20,7 +20,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		playsound(get_turf(src), 'sound/items/drink.ogg', 50, TRUE) //slurp
-		H.visible_message("<span class='alert'>[H] слизывает сметанку с пола.</span>")
+		H.visible_message(span_alert("[H] слизывает сметанку с пола.") )
 		if(reagents)
 			for(var/datum/reagent/R in reagents.reagent_list)
 				if (istype(R, /datum/reagent/consumable))

@@ -7,7 +7,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 	set category = "OOC"
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>ОЙ.</span>")
+		to_chat(usr, span_danger("ОЙ.") )
 		return
 
 	if(!mob)
@@ -15,16 +15,16 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 
 	if(!holder)
 		if(!GLOB.ooc_allowed && !isnewplayer(mob))
-			to_chat(src, "<span class='danger'>OOC выключен. Приятной игры.</span>")
+			to_chat(src, span_danger("OOC выключен. Приятной игры.") )
 			return
 		if(!GLOB.dooc_allowed && (mob.stat == DEAD) && !isnewplayer(mob))
-			to_chat(usr, "<span class='danger'>OOC трупам не разрешён. Приятной игры.</span>")
+			to_chat(usr, span_danger("OOC трупам не разрешён. Приятной игры.") )
 			return
 		if(prefs.muted & MUTE_OOC)
-			to_chat(src, "<span class='danger'>Тебе нельзя. Приятной игры.</span>")
+			to_chat(src, span_danger("Тебе нельзя. Приятной игры.") )
 			return
 		if(is_banned_from(ckey, "OOC"))
-			to_chat(src, "<span class='danger'>Не-а.</span>")
+			to_chat(src, span_danger("Не-а.") )
 			return
 
 	if(QDELETED(src))
@@ -56,7 +56,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 			return
 
 	if(!(prefs.chat_toggles & CHAT_OOC))
-		to_chat(src, "<span class='danger'>Тебе нельзя.</span>")
+		to_chat(src, span_danger("Тебе нельзя.") )
 		return
 
 	//lobby ooc
@@ -88,12 +88,12 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 					if(check_rights_for(src, R_ADMIN))
 						to_chat(C, "<span class='adminooc'>[CONFIG_GET(flag/allow_admin_ooccolor) && prefs.ooccolor ? "<font color=[prefs.ooccolor]>" :"" ]<span class='prefix'>[tagmsg]:</span> <EM>[keyname][holder.fakekey ? "/([holder.fakekey])" : ""]:</EM> <span class='message linkify'>[msg]</span></span></font>")
 					else
-						to_chat(C, "<span class='adminobserverooc'><span class='prefix'>[tagmsg]:</span> <EM>[keyname][holder.fakekey ? "/([holder.fakekey])" : ""]:</EM> <span class='message linkify'>[msg]</span></span>")
+						to_chat(C, span_adminobserverooc("<span class='prefix'>[tagmsg]:</span> <EM>[keyname][holder.fakekey ? "/([holder.fakekey])" : ""]:</EM> <span class='message linkify'>[msg]</span>") )
 				else
 					if(GLOB.OOC_COLOR)
 						to_chat(C, "<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'>[tagmsg]:</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]</span></b></font>")
 					else
-						to_chat(C, "<span class='ooc'><span class='prefix'>[tagmsg]:</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]</span></span>")
+						to_chat(C, span_ooc("<span class='prefix'>[tagmsg]:</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]</span>") )
 
 			else if(!(key in C.prefs.ignoring))
 				if(check_donations(ckey) >= 100)
@@ -101,7 +101,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 				else if(GLOB.OOC_COLOR)
 					to_chat(C, "<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'>[tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font>")
 				else
-					to_chat(C, "<span class='ooc'><span class='prefix'>[tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></span>")
+					to_chat(C, span_ooc("<span class='prefix'>[tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span>") )
 	if(isnewplayer(mob))
 		webhook_send_lobby(key, msg)
 	else
@@ -115,7 +115,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 			return
 	else //otherwise just toggle it
 		GLOB.ooc_allowed = !GLOB.ooc_allowed
-	message_admins("<span class='bold'>OOC [GLOB.ooc_allowed ? "включен" : "выключен"].</span>")
+	message_admins(span_bold("OOC [GLOB.ooc_allowed ? "включен" : "выключен"].") )
 
 /proc/toggle_dooc(toggle = null)
 	if(toggle != null)
@@ -203,7 +203,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 	if(GLOB.admin_notice)
 		to_chat(src, "<span class='boldnotice'>Заметка:</span>\n \t [GLOB.admin_notice]")
 	else
-		to_chat(src, "<span class='notice'>Нет ничего особенного на этот раунд.</span>")
+		to_chat(src, span_notice("Нет ничего особенного на этот раунд.") )
 
 /client/verb/motd()
 	set name = "📘 Приветствие"
@@ -214,7 +214,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 	if(motd)
 		to_chat(src, "<div class=\"motd\">[motd]</div>", handle_whitespace=FALSE)
 	else
-		to_chat(src, "<span class='notice'>The Message of the Day has not been set.</span>")
+		to_chat(src, span_notice("The Message of the Day has not been set.") )
 
 /client/proc/self_notes()
 	set name = "📘 Просмотреть чем я отличился"
@@ -222,7 +222,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 	set desc = "View the notes that admins have written about you"
 
 	if(!CONFIG_GET(flag/see_own_notes))
-		to_chat(usr, "<span class='notice'>Sorry, that function is not enabled on this server.</span>")
+		to_chat(usr, span_notice("Sorry, that function is not enabled on this server.") )
 		return
 
 	browse_messages(null, usr.ckey, null, TRUE)
@@ -233,7 +233,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 	set desc = "View the amount of playtime for roles the server has tracked."
 
 	if(!CONFIG_GET(flag/use_exp_tracking))
-		to_chat(usr, "<span class='notice'>Sorry, tracking is currently disabled.</span>")
+		to_chat(usr, span_notice("Sorry, tracking is currently disabled.") )
 		return
 
 	new /datum/job_report_menu(src, usr)

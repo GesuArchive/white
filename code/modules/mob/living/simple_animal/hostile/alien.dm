@@ -117,7 +117,7 @@
 		return
 	if(locate(/obj/structure/alien/weeds/node) in get_turf(src))
 		return
-	visible_message("<span class='alertalien'>[capitalize(src.name)] plants some alien weeds!</span>")
+	visible_message(span_alertalien("[capitalize(src.name)] plants some alien weeds!") )
 	new /obj/structure/alien/weeds/node(loc)
 
 /mob/living/simple_animal/hostile/alien/proc/LayEggs()
@@ -125,7 +125,7 @@
 		return
 	if(locate(/obj/structure/alien/egg) in get_turf(src))
 		return
-	visible_message("<span class='alertalien'>[capitalize(src.name)] lays an egg!</span>")
+	visible_message(span_alertalien("[capitalize(src.name)] lays an egg!") )
 	new /obj/structure/alien/egg(loc)
 
 /mob/living/simple_animal/hostile/alien/queen/large
@@ -181,7 +181,7 @@
 	if(ismovable(target))
 		target.wash(CLEAN_SCRUB)
 		if(istype(target, /obj/effect/decal/cleanable))
-			visible_message("<span class='notice'>[capitalize(src.name)] cleans up [target].</span>")
+			visible_message(span_notice("[capitalize(src.name)] cleans up [target].") )
 		else
-			visible_message("<span class='notice'>[capitalize(src.name)] polishes [target].</span>")
+			visible_message(span_notice("[capitalize(src.name)] polishes [target].") )
 		return TRUE

@@ -51,7 +51,7 @@
 		if (iswallturf(from_turf))
 			if (display_error)
 				var/wallwarning = (i == 1) ? "in the way" : "at your destination"
-				to_chat(owner, "<span class='warning'>There is a solid wall [wallwarning].</span>")
+				to_chat(owner, span_warning("There is a solid wall [wallwarning].") )
 			return FALSE
 	// Done
 	target_turf = from_turf
@@ -66,8 +66,8 @@
 	var/mob/living/carbon/user = owner
 	var/turf/my_turf = get_turf(owner)
 
-	user.visible_message("<span class='warning'>[user] form dissipates into a cloud of mist!</span>", \
-					 	 "<span class='notice'>You disspiate into formless mist.</span>")
+	user.visible_message(span_warning("[user] form dissipates into a cloud of mist!") , \
+					 	 span_notice("You disspiate into formless mist.") )
 
 
 	// Effect Origin

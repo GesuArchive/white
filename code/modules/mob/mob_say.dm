@@ -6,7 +6,7 @@
 	set category = "IC"
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Не могу говорить.</span>")
+		to_chat(usr, span_danger("Не могу говорить.") )
 		return
 
 	if(message && proverka_na_detey(message, src))
@@ -17,7 +17,7 @@
 	set name = "Шептать"
 	set category = "IC"
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Не могу шептать.</span>")
+		to_chat(usr, span_danger("Не могу шептать.") )
 		return
 	if(proverka_na_detey(message, src))
 		whisper(message)
@@ -32,7 +32,7 @@
 	set category = "IC"
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Не могу изображать.</span>")
+		to_chat(usr, span_danger("Не могу изображать.") )
 		return
 
 	message = trim(copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN))
@@ -48,7 +48,7 @@
 	var/alt_name = ""
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Не могу говорить</span>")
+		to_chat(usr, span_danger("Не могу говорить") )
 		return
 
 	var/jb = is_banned_from(ckey, "Deadchat")
@@ -56,12 +56,12 @@
 		return
 
 	if(jb)
-		to_chat(src, "<span class='danger'>Мне нельзя говорить.</span>")
+		to_chat(src, span_danger("Мне нельзя говорить.") )
 		return
 
 	if (src.client)
 		if(src.client.prefs.muted & MUTE_DEADCHAT)
-			to_chat(src, "<span class='danger'>Не хочу говорить.</span>")
+			to_chat(src, span_danger("Не хочу говорить.") )
 			return
 
 		if(src.client.handle_spam_prevention(message,MUTE_DEADCHAT))

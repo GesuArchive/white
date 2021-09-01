@@ -45,5 +45,5 @@
 		return
 	completed = TRUE
 	var/mob/living/L = owner.current
-	to_chat(L, "<span class='notice'><big>Ликвидация цели успешна!</big></span>")
+	to_chat(L, span_notice("<big>Ликвидация цели успешна!</big>") )
 

@@ -115,10 +115,10 @@
 		toggle_on_off()
 		return TRUE
 	if(!s_initialized)
-		to_chat(user, "<span class='warning'><b>ОШИБКА</b>: костюм оффлайн. Пожалуйста, активируйте костюм.</span>")
+		to_chat(user, span_warning("<b>ОШИБКА</b>: костюм оффлайн. Пожалуйста, активируйте костюм.") )
 		return FALSE
 	if(s_coold > 0)
-		to_chat(user, "<span class='warning'><b>ОШИБКА</b>: костюм на перезарядка</span>")
+		to_chat(user, span_warning("<b>ОШИБКА</b>: костюм на перезарядка") )
 		return FALSE
 	if(IS_NINJA_SUIT_STATUS(action))
 		ninjastatus()
@@ -187,7 +187,7 @@
 	if(!istype(ninja))
 		return FALSE
 	if(!IS_SPACE_NINJA(ninja))
-		to_chat(ninja, "<span class='danger'><B>фАТаЛЬНая ОШИииБка</B>: 382200-*#00CODE <B>RED</B>\nUNAUСИРОВАН ИСПОЛЬЗУЙТЕ ОБНАРУЖeD\nCoMMENCING SUB-R0UIN3 13...\nУНИЧТОЖЕНИЕ П-П-ПОЛЬЗОВАТЕЛЯ...</span>")
+		to_chat(ninja, span_danger("<B>фАТаЛЬНая ОШИииБка</B>: 382200-*#00CODE <B>RED</B>\nUNAUСИРОВАН ИСПОЛЬЗУЙТЕ ОБНАРУЖeD\nCoMMENCING SUB-R0UIN3 13...\nУНИЧТОЖЕНИЕ П-П-ПОЛЬЗОВАТЕЛЯ...") )
 		ninja.gib()
 		return FALSE
 	if(!istype(ninja.head, /obj/item/clothing/head/helmet/space/space_ninja))

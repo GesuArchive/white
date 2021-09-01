@@ -66,24 +66,24 @@ Nothing else in the console has ID requirements.
 	if(istype(D, /obj/item/disk))
 		if(istype(D, /obj/item/disk/tech_disk))
 			if(t_disk)
-				to_chat(user, "<span class='warning'>Диск с технологиями уже загружен!</span>")
+				to_chat(user, span_warning("Диск с технологиями уже загружен!") )
 				return
 			if(!user.transferItemToLoc(D, src))
-				to_chat(user, "<span class='warning'>[D] застрял в руке!</span>")
+				to_chat(user, span_warning("[D] застрял в руке!") )
 				return
 			t_disk = D
 		else if (istype(D, /obj/item/disk/design_disk))
 			if(d_disk)
-				to_chat(user, "<span class='warning'>Диск с дизайнами уже загружен!</span>")
+				to_chat(user, span_warning("Диск с дизайнами уже загружен!") )
 				return
 			if(!user.transferItemToLoc(D, src))
-				to_chat(user, "<span class='warning'>[D] застрял в руке!</span>")
+				to_chat(user, span_warning("[D] застрял в руке!") )
 				return
 			d_disk = D
 		else
-			to_chat(user, "<span class='warning'>Машина не принимает диски данного формата.</span>")
+			to_chat(user, span_warning("Машина не принимает диски данного формата.") )
 			return
-		to_chat(user, "<span class='notice'>Вставляю [D] в [src]!</span>")
+		to_chat(user, span_notice("Вставляю [D] в [src]!") )
 		return
 	return ..()
 
@@ -128,7 +128,7 @@ Nothing else in the console has ID requirements.
 
 /obj/machinery/computer/rdconsole/emag_act(mob/user)
 	if(!(obj_flags & EMAGGED))
-		to_chat(user, "<span class='notice'>Отключаю протоколы безопасности и [locked? "разблокирую консоль":"блокирую консоль"].</span>")
+		to_chat(user, span_notice("Отключаю протоколы безопасности и [locked? "разблокирую консоль":"блокирую консоль"].") )
 		playsound(src, "sparks", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		obj_flags |= EMAGGED
 		locked = FALSE
@@ -296,12 +296,12 @@ Nothing else in the console has ID requirements.
 	switch (action)
 		if ("toggleLock")
 			if(obj_flags & EMAGGED)
-				to_chat(usr, "<span class='boldwarning'>Ошибка протокола безопасности: Нет доступа к блокирующим протоколам.</span>")
+				to_chat(usr, span_boldwarning("Ошибка протокола безопасности: Нет доступа к блокирующим протоколам.") )
 				return TRUE
 			if(allowed(usr))
 				locked = !locked
 			else
-				to_chat(usr, "<span class='boldwarning'>Неавторизованный доступ.</span>")
+				to_chat(usr, span_boldwarning("Неавторизованный доступ.") )
 			return TRUE
 		if ("researchNode")
 			if(!SSresearch.science_tech.available_nodes[params["node_id"]])

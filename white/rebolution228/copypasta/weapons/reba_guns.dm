@@ -85,15 +85,15 @@
 			select = 1
 			burst_size = initial(burst_size)
 			fire_delay = initial(fire_delay)
-			to_chat(user, "<span class='notice'>Выбираю режим стрельбы очередью.</span>")
+			to_chat(user, span_notice("Выбираю режим стрельбы очередью.") )
 		if(1)
 			select = 2
-			to_chat(user, "<span class='notice'>Выбираю режим гранатомёта.</span>")
+			to_chat(user, span_notice("Выбираю режим гранатомёта.") )
 		if(2)
 			select = 0
 			burst_size = 1
 			fire_delay = 0
-			to_chat(user, "<span class='notice'>Выбираю полуавтоматический режим.</span>")
+			to_chat(user, span_notice("Выбираю полуавтоматический режим.") )
 	playsound(user, 'white/rebolution228/sounds/weapons/dryfire1.ogg', 100, TRUE)
 	update_icon()
 	return
@@ -356,15 +356,15 @@
 			select = 1
 			burst_size = initial(burst_size)
 			fire_delay = initial(fire_delay)
-			to_chat(user, "<span class='notice'>Выбираю режим стрельбы очередью.</span>")
+			to_chat(user, span_notice("Выбираю режим стрельбы очередью.") )
 		if(1)
 			select = 2
-			to_chat(user, "<span class='notice'>Выбираю режим стрельбы из подствольника.</span>")
+			to_chat(user, span_notice("Выбираю режим стрельбы из подствольника.") )
 		if(2)
 			select = 0
 			burst_size = 1
 			fire_delay = 0
-			to_chat(user, "<span class='notice'>Выбираю полуавтоматический режим.</span>")
+			to_chat(user, span_notice("Выбираю полуавтоматический режим.") )
 	playsound(user, 'white/rebolution228/sounds/weapons/dryfire1.ogg', 100, TRUE)
 	update_icon()
 	return

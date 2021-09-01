@@ -34,9 +34,9 @@
 
 /datum/action/uatknut/Trigger()
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>Ты не можешь уаткнуть уже уоткнутого.</span>")
+		to_chat(owner, span_warning("Ты не можешь уаткнуть уже уоткнутого.") )
 		return
-	owner.visible_message("<span class='danger'>[owner] собирается кого-то уаткнуть!</span>", "<b><i>Твой следующий прием - уаткнуть.</i></b>")
+	owner.visible_message(span_danger("[owner] собирается кого-то уаткнуть!") , "<b><i>Твой следующий прием - уаткнуть.</i></b>")
 	var/mob/living/carbon/human/H = owner
 	H.mind.martial_art.streak = "uatknut"
 
@@ -46,9 +46,9 @@
 
 /datum/action/progib/Trigger()
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>Ты не можешь кинуть на прогиб лежачего.</span>")
+		to_chat(owner, span_warning("Ты не можешь кинуть на прогиб лежачего.") )
 		return
-	owner.visible_message("<span class='danger'>[owner] собирается кинуть неверного!</span>", "<b><i>Твой следующий прием - кинуть на прогиб.</i></b>")
+	owner.visible_message(span_danger("[owner] собирается кинуть неверного!") , "<b><i>Твой следующий прием - кинуть на прогиб.</i></b>")
 	var/mob/living/carbon/human/H = owner
 	H.mind.martial_art.streak = "progib"
 
@@ -58,7 +58,7 @@
 
 /datum/action/taa/Trigger()
 
-	owner.visible_message("<span class='danger'>[owner] орет ТАА!</span>", "<b><i>Сейчас вы уебете кого-то макасином по лицу.</i></b>")
+	owner.visible_message(span_danger("[owner] орет ТАА!") , "<b><i>Сейчас вы уебете кого-то макасином по лицу.</i></b>")
 	var/mob/living/carbon/human/H = owner
 	H.mind.martial_art.streak = "taa"
 
@@ -67,22 +67,22 @@
 	button_icon_state = "wrassle_strike"
 
 /datum/action/shaa/Trigger()
-	owner.visible_message("<span class='danger'>[owner] готов отвесить ЧАПАЛАХ!</span>", "<b><i>Твой следующий удар - ЧАПАЛАХ.</i></b>")
+	owner.visible_message(span_danger("[owner] готов отвесить ЧАПАЛАХ!") , "<b><i>Твой следующий удар - ЧАПАЛАХ.</i></b>")
 	var/mob/living/carbon/human/H = owner
 	H.mind.martial_art.streak = "shaa"
 
 
 /datum/martial_art/shaitanka/teach(mob/living/carbon/human/H,make_temporary=0)
 	if(..())
-		to_chat(H, "<span class='userdanger'>ПОСАДИ ВСЕХ НА БУТЫЛКУ!</span>")
-		to_chat(H, "<span class='danger'>Наведи курсор на иконку, чтобы узнать о своих приемах.</span>")
+		to_chat(H, span_userdanger("ПОСАДИ ВСЕХ НА БУТЫЛКУ!") )
+		to_chat(H, span_danger("Наведи курсор на иконку, чтобы узнать о своих приемах.") )
 		uatknut.Grant(H)
 		progib.Grant(H)
 		taa.Grant(H)
 		shaa.Grant(H)
 
 /datum/martial_art/shaitanka/on_remove(mob/living/carbon/human/H)
-	to_chat(H, "<span class='userdanger'>Чувствую вкус аромат коровьего навоза и бутылку в анальном проходе</span>")
+	to_chat(H, span_userdanger("Чувствую вкус аромат коровьего навоза и бутылку в анальном проходе") )
 	uatknut.Remove(H)
 	progib.Remove(H)
 	taa.Remove(H)
@@ -98,15 +98,15 @@
 	if(!D)
 		return
 	if(!A.pulling || A.pulling != D)
-		to_chat(A, "<span class='warning'>Уазьми [D] iв захват!</span>")
+		to_chat(A, span_warning("Уазьми [D] iв захват!") )
 		return
 	D.forceMove(A.loc)
 	D.setDir(get_dir(D, A))
 
 	D.Stun(80)
-	D.visible_message("<span class='danger'>[A] кидает на прогиб [D]!</span>", \
-					"<span class='userdanger'>Меня кидает на прогиб [A]!</span>", "<span class='hear'>Слышу звук трещащих костей!</span>", null, A)
-	to_chat(A, "<span class='danger'>Кидаю на прогиб [D]!</span>")
+	D.visible_message(span_danger("[A] кидает на прогиб [D]!") , \
+					span_userdanger("Меня кидает на прогиб [A]!") , span_hear("Слышу звук трещащих костей!") , null, A)
+	to_chat(A, span_danger("Кидаю на прогиб [D]!") )
 	A.emote("agony")
 
 
@@ -128,7 +128,7 @@
 					D.pixel_x = A.pixel_x + 8
 
 			if (get_dist(A, D) > 1)
-				to_chat(A, "<span class='warning'>[D] слишком далеко!</span>")
+				to_chat(A, span_warning("[D] слишком далеко!") )
 				A.pixel_x = 0
 				A.pixel_y = 0
 				D.pixel_x = 0
@@ -136,7 +136,7 @@
 				return
 
 			if (!isturf(A.loc) || !isturf(D.loc))
-				to_chat(A, "<span class='warning'>Не могу кинуть [D] здесь!</span>")
+				to_chat(A, span_warning("Не могу кинуть [D] здесь!") )
 				A.pixel_x = 0
 				A.pixel_y = 0
 				D.pixel_x = 0
@@ -159,11 +159,11 @@
 		if (A && D)
 
 			if (get_dist(A, D) > 1)
-				to_chat(A, "<span class='warning'>[D] слишком далеко!</span>")
+				to_chat(A, span_warning("[D] слишком далеко!") )
 				return
 
 			if (!isturf(A.loc) || !isturf(D.loc))
-				to_chat(A, "<span class='warning'>Не могу кинуть [D] здесь!</span>")
+				to_chat(A, span_warning("Не могу кинуть [D] здесь!") )
 				return
 
 			A.setDir(turn(A.dir, 1))
@@ -182,9 +182,9 @@
 
 		D.forceMove(A.loc) // Maybe this will help with the wallthrowing bug.
 
-		D.visible_message("<span class='danger'>[A] кидает [D]!</span>", \
-						"<span class='userdanger'>Меня кидает [A]!</span>", "<span class='hear'>Слышу агрессивную потасовку и громкий стук!</span>", null, A)
-		to_chat(A, "<span class='danger'>Кидаю [D]!</span>")
+		D.visible_message(span_danger("[A] кидает [D]!") , \
+						span_userdanger("Меня кидает [A]!") , span_hear("Слышу агрессивную потасовку и громкий стук!") , null, A)
+		to_chat(A, span_danger("Кидаю [D]!") )
 		playsound(A.loc, "swing_hit", 50, TRUE)
 		var/turf/T = get_edge_target_turf(A, A.dir)
 		if (T && isturf(T))
@@ -206,15 +206,15 @@
 	if(!D)
 		return
 	if(!A.pulling || A.pulling != D)
-		to_chat(A, "<span class='warning'>Надо взять [D] в захват!</span>")
+		to_chat(A, span_warning("Надо взять [D] в захват!") )
 		return
 	D.forceMove(A.loc)
 	A.setDir(get_dir(A, D))
 	D.setDir(get_dir(D, A))
 
-	D.visible_message("<span class='danger'>[A] хватает [D] up!</span>", \
-					"<span class='userdanger'>Меня втыкает [A]!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", null, A)
-	to_chat(A, "<span class='danger'>Втыкаю [D]!</span>")
+	D.visible_message(span_danger("[A] хватает [D] up!") , \
+					span_userdanger("Меня втыкает [A]!") , span_hear("Слышу агрессивную потасовку!") , null, A)
+	to_chat(A, span_danger("Втыкаю [D]!") )
 
 
 	for (var/i = 0, i < 3, i++)
@@ -235,7 +235,7 @@
 					D.pixel_x = A.pixel_x + 8
 
 			if (get_dist(A, D) > 1)
-				to_chat(A, "<span class='warning'>[D] слишком далеко!</span>")
+				to_chat(A, span_warning("[D] слишком далеко!") )
 				A.pixel_x = 0
 				A.pixel_y = 0
 				D.pixel_x = 0
@@ -243,7 +243,7 @@
 				return
 
 			if (!isturf(A.loc) || !isturf(D.loc))
-				to_chat(A, "<span class='warning'>Не могу воткнуть [D] здесь!</span>")
+				to_chat(A, span_warning("Не могу воткнуть [D] здесь!") )
 				A.pixel_x = 0
 				A.pixel_y = 0
 				D.pixel_x = 0
@@ -267,11 +267,11 @@
 		D.pixel_y = 0
 
 		if (get_dist(A, D) > 1)
-			to_chat(A, "<span class='warning'>[D] слишком далеко!</span>")
+			to_chat(A, span_warning("[D] слишком далеко!") )
 			return
 
 		if (!isturf(A.loc) || !isturf(D.loc))
-			to_chat(A, "<span class='warning'>Не могу воткнуть [D] здесь!</span>")
+			to_chat(A, span_warning("Не могу воткнуть [D] здесь!") )
 			return
 
 		D.forceMove(A.loc)
@@ -283,9 +283,9 @@
 			if (3)
 				fluff = "пиздец как [fluff]"
 
-		D.visible_message("<span class='danger'>[A] [fluff] [D]!</span>", \
-						"<span class='userdanger'>[fluff]ут  [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-		to_chat(A, "<span class='danger'>[fluff] [D]!</span>")
+		D.visible_message(span_danger("[A] [fluff] [D]!") , \
+						span_userdanger("[fluff]ут  [A]!") , span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, A)
+		to_chat(A, span_danger("[fluff] [D]!") )
 		playsound(A.loc, "swing_hit", 50, TRUE)
 		if (!D.stat)
 			D.emote("agony")
@@ -330,9 +330,9 @@
 		addtimer(CALLBACK(src, .proc/CheckStrikeTurf, A, T), 4)
 
 
-		D.visible_message("<span class='danger'>[A] дал чапалах [D]!</span>", \
-						"<span class='userdanger'>Получаю чапалахом по лицу от [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-		to_chat(A, "<span class='danger'>Угаманил [D]!</span>")
+		D.visible_message(span_danger("[A] дал чапалах [D]!") , \
+						span_userdanger("Получаю чапалахом по лицу от [A]!") , span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, A)
+		to_chat(A, span_danger("Угаманил [D]!") )
 		D.adjustBruteLoss(rand(10,20))
 		playsound(A.loc, "white/fogmann/taa.ogg", 100, TRUE)
 		D.Unconscious(20)
@@ -344,9 +344,9 @@
 	A.emote("agony")
 	A.setDir(turn(A.dir, 90))
 
-	D.visible_message("<span class='danger'>[A] дает с вертухи [D]!</span>", \
-					"<span class='userdanger'>Почуствовал вкус макасинов [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-	to_chat(A, "<span class='danger'>Угаманил [D]!</span>")
+	D.visible_message(span_danger("[A] дает с вертухи [D]!") , \
+					span_userdanger("Почуствовал вкус макасинов [A]!") , span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, A)
+	to_chat(A, span_danger("Угаманил [D]!") )
 	playsound(A.loc, "white/fogmann/shaa.ogg", 100, TRUE)
 	D.adjustBruteLoss(rand(10,20))
 
@@ -368,9 +368,9 @@
 	if(A.pulling == D)
 		return 1
 	A.start_pulling(D)
-	D.visible_message("<span class='danger'>[A] хватает [D] на болевой!</span>", \
-					"<span class='userdanger'>[A] взял меня на болевой!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", COMBAT_MESSAGE_RANGE, A)
-	to_chat(A, "<span class='danger'>Беру [D] на болевой!</span>")
+	D.visible_message(span_danger("[A] хватает [D] на болевой!") , \
+					span_userdanger("[A] взял меня на болевой!") , span_hear("Слышу агрессивную потасовку!") , COMBAT_MESSAGE_RANGE, A)
+	to_chat(A, span_danger("Беру [D] на болевой!") )
 	D.Stun(rand(60,100))
 	log_combat(A, D, "cinched")
 	return 1

@@ -37,14 +37,14 @@
 			if(1 to 6)
 				victim.bleed(blood_bled, TRUE)
 			if(7 to 13)
-				victim.visible_message("<span class='smalldanger'>Капельки крови вылетают из [ru_otkuda_zone(limb.name)] [victim].</span>", "<span class='danger'>Капельки крови выходят из моей [ru_otkuda_zone(limb.name)].</span>", vision_distance=COMBAT_MESSAGE_RANGE)
+				victim.visible_message(span_smalldanger("Капельки крови вылетают из [ru_otkuda_zone(limb.name)] [victim].") , span_danger("Капельки крови выходят из моей [ru_otkuda_zone(limb.name)].") , vision_distance=COMBAT_MESSAGE_RANGE)
 				victim.bleed(blood_bled, TRUE)
 			if(14 to 19)
-				victim.visible_message("<span class='smalldanger'>Небольшая струйка крови начинает течь из [ru_otkuda_zone(limb.name)] [victim]!</span>", "<span class='danger'>Небольшая струйка крови начинает течь из моей [ru_otkuda_zone(limb.name)]!</span>", vision_distance=COMBAT_MESSAGE_RANGE)
+				victim.visible_message(span_smalldanger("Небольшая струйка крови начинает течь из [ru_otkuda_zone(limb.name)] [victim]!") , span_danger("Небольшая струйка крови начинает течь из моей [ru_otkuda_zone(limb.name)]!") , vision_distance=COMBAT_MESSAGE_RANGE)
 				new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
 				victim.bleed(blood_bled)
 			if(20 to INFINITY)
-				victim.visible_message("<span class='danger'>Неконтроллируемая струя крови начинает хлестать из [ru_otkuda_zone(limb.name)] [victim]!</span>", "<span class='danger'><b>Из моей [ru_otkuda_zone(limb.name)] начинает выходить кровь ужасным темпом!</b></span>", vision_distance=COMBAT_MESSAGE_RANGE)
+				victim.visible_message(span_danger("Неконтроллируемая струя крови начинает хлестать из [ru_otkuda_zone(limb.name)] [victim]!") , span_danger("<b>Из моей [ru_otkuda_zone(limb.name)] начинает выходить кровь ужасным темпом!</b>") , vision_distance=COMBAT_MESSAGE_RANGE)
 				victim.bleed(blood_bled)
 				new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
 				victim.add_splatter_floor(get_step(victim.loc, victim.dir))
@@ -62,7 +62,7 @@
 	if(victim.bodytemperature < (BODYTEMP_NORMAL -  10))
 		blood_flow -= 0.1 * delta_time
 		if(DT_PROB(2.5, delta_time))
-			to_chat(victim, "<span class='notice'>Ощущаю как кровь в моей [ru_gde_zone(limb.name)] начинает сгущаться от холода!</span>")
+			to_chat(victim, span_notice("Ощущаю как кровь в моей [ru_gde_zone(limb.name)] начинает сгущаться от холода!") )
 
 	if(HAS_TRAIT(victim, TRAIT_BLOODY_MESS))
 		blood_flow += 0.25 * delta_time // old heparin used to just add +2 bleed stacks per tick, this adds 0.5 bleed flow to all open cuts which is probably even stronger as long as you can cut them first
@@ -100,10 +100,10 @@
 /// If someone is using a suture to close this puncture
 /datum/wound/pierce/proc/suture(obj/item/stack/medical/suture/I, mob/user)
 	var/self_penalty_mult = (user == victim ? 1.4 : 1)
-	user.visible_message("<span class='notice'><b>[user]</b> начинает зашивать [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I.name]...</span>", "<span class='notice'>Начинаю зашивать [ru_parse_zone(limb.name)] [user == victim ? "" : "<b>[victim]</b> "]используя [I.name]...</span>")
+	user.visible_message(span_notice("<b>[user]</b> начинает зашивать [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I.name]...") , span_notice("Начинаю зашивать [ru_parse_zone(limb.name)] [user == victim ? "" : "<b>[victim]</b> "]используя [I.name]...") )
 	if(!do_after(user, base_treat_time * self_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
-	user.visible_message("<span class='green'><b>[user]</b> успешно замедляет кровотечение <b>[victim]</b>.</span>", "<span class='green'>Успешно зашиваю некоторые кровотечения на [ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"].</span>")
+	user.visible_message(span_green("<b>[user]</b> успешно замедляет кровотечение <b>[victim]</b>.") , span_green("Успешно зашиваю некоторые кровотечения на [ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"].") )
 	var/blood_sutured = I.stop_bleeding / self_penalty_mult
 	blood_flow -= blood_sutured
 	limb.heal_damage(I.heal_brute, I.heal_burn)
@@ -112,18 +112,18 @@
 	if(blood_flow > 0)
 		try_treating(I, user)
 	else
-		to_chat(user, "<span class='green'>Успешно останавливаю кровотечение на [ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"].</span>")
+		to_chat(user, span_green("Успешно останавливаю кровотечение на [ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"].") )
 
 /// If someone is using either a cautery tool or something with heat to cauterize this pierce
 /datum/wound/pierce/proc/tool_cauterize(obj/item/I, mob/user)
 	var/improv_penalty_mult = (I.tool_behaviour == TOOL_CAUTERY ? 1 : 1.25) // 25% longer and less effective if you don't use a real cautery
 	var/self_penalty_mult = (user == victim ? 1.5 : 1) // 50% longer and less effective if you do it to yourself
 
-	user.visible_message("<span class='danger'><b>[user]</b> начинает прижигать [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I.name]...</span>", "<span class='danger'>Начинаю прижигать [ru_parse_zone(limb.name)] [user == victim ? "" : "<b>[victim]</b> "]используя [I.name]...</span>")
+	user.visible_message(span_danger("<b>[user]</b> начинает прижигать [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I.name]...") , span_danger("Начинаю прижигать [ru_parse_zone(limb.name)] [user == victim ? "" : "<b>[victim]</b> "]используя [I.name]...") )
 	if(!do_after(user, base_treat_time * self_penalty_mult * improv_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 
-	user.visible_message("<span class='green'><b>[user]</b> успешно прижигает некоторые кровотечения <b>[victim]</b>.</span>", "<span class='green'>Успешно прижигаю некоторые кровотечения на [ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"].</span>")
+	user.visible_message(span_green("<b>[user]</b> успешно прижигает некоторые кровотечения <b>[victim]</b>.") , span_green("Успешно прижигаю некоторые кровотечения на [ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"].") )
 	limb.receive_damage(burn = 2 + severity, wound_bonus = CANT_WOUND)
 	if(prob(30))
 		victim.emote("agony")

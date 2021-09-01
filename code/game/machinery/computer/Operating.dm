@@ -33,9 +33,9 @@
 
 /obj/machinery/computer/operating/attackby(obj/item/O, mob/user, params)
 	if(istype(O, /obj/item/disk/surgery))
-		user.visible_message("<span class='notice'>[user] начинает загружать [O] в <b>[src.name]</b>...</span>", \
-			"<span class='notice'>Начинаю загружать хирургические протоколы с [O]...</span>", \
-			"<span class='hear'>Слышу стрёкот дискетника.</span>")
+		user.visible_message(span_notice("[user] начинает загружать [O] в <b>[src.name]</b>...") , \
+			span_notice("Начинаю загружать хирургические протоколы с [O]...") , \
+			span_hear("Слышу стрёкот дискетника.") )
 		var/obj/item/disk/surgery/D = O
 		if(do_after(user, 10, target = src))
 			advanced_surgeries |= D.surgeries

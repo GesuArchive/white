@@ -108,7 +108,7 @@
  */
 /obj/item/food/grown/tomato/blue/bluespace/proc/splat_user(mob/living/carbon/user)
 	if(prob(50))
-		to_chat(user, "<span class='danger'>[src] slips out of your hand!</span>")
+		to_chat(user, span_danger("[src] slips out of your hand!") )
 		attack_self(user)
 
 // Killer Tomato
@@ -142,14 +142,14 @@
 
 /obj/item/food/grown/tomato/killer/attack(mob/M, mob/user, def_zone)
 	if(awakening)
-		to_chat(user, "<span class='warning'>Помидор дёргается и виляет, не давая его съесть.</span>")
+		to_chat(user, span_warning("Помидор дёргается и виляет, не давая его съесть.") )
 		return
 	..()
 
 /obj/item/food/grown/tomato/killer/attack_self(mob/user)
 	if(awakening || isspaceturf(user.loc))
 		return
-	to_chat(user, "<span class='notice'>Пробуждаю томата-убийцу...</span>")
+	to_chat(user, span_notice("Пробуждаю томата-убийцу...") )
 	begin_awaken(3 SECONDS)
 	log_game("[key_name(user)] awakened a killer tomato at [AREACOORD(user)].")
 
@@ -174,7 +174,7 @@
 	K.melee_damage_upper += round(seed.potency / 10)
 	K.move_to_delay -= round(seed.production / 50)
 	K.health = K.maxHealth
-	K.visible_message("<span class='notice'>Томат-убийца дико рычит и внезапно пробуждается.</span>")
+	K.visible_message(span_notice("Томат-убийца дико рычит и внезапно пробуждается.") )
 	qdel(src)
 
 /*
@@ -184,5 +184,5 @@
  */
 /obj/item/food/grown/tomato/killer/proc/early_awaken(mob/living/carbon/user)
 	if(!awakening && prob(25))
-		to_chat(user, "<span class='danger'>[src] begins to growl and shake!</span>")
+		to_chat(user, span_danger("[src] begins to growl and shake!") )
 		begin_awaken(1 SECONDS)

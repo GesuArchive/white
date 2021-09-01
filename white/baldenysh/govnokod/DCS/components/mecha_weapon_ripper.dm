@@ -35,7 +35,7 @@
 		ripping_target = turret.stored_gun
 
 	if(!ripping_target)
-		to_chat(user, "<span class='warning'>Да тут отрывать-то и нечего!</span>")
+		to_chat(user, span_warning("Да тут отрывать-то и нечего!") )
 		return
 
 	if(ripping)
@@ -47,11 +47,11 @@
 
 /datum/component/mecha_weapon_ripper/proc/doRip(mob/living/ripper, atom/target_holder, obj/item/ripping_target)
 	if(ripping_time > 0)
-		ripper.visible_message("<span class='warning'>[ripper] пытается оторвать [ripping_target] от [target_holder]!</span>", \
-			 "<span class='danger'>Начинаю отрывать [ripping_target] от [target_holder]!</span>")
+		ripper.visible_message(span_warning("[ripper] пытается оторвать [ripping_target] от [target_holder]!") , \
+			 span_danger("Начинаю отрывать [ripping_target] от [target_holder]!") )
 		ripping = TRUE
 		if(!do_after(ripper, ripping_time, target_holder))
-			to_chat(ripper, "<span class='warning'>Что-то помешало мне оторвать [ripping_target]!</span>")
+			to_chat(ripper, span_warning("Что-то помешало мне оторвать [ripping_target]!") )
 			ripping = FALSE
 			return
 		ripping = FALSE
@@ -75,5 +75,5 @@
 		var/obj/item/gun/energy/e_gun/turret/funny = ripping_target
 		funny.trigger_guard = TRIGGER_GUARD_NORMAL
 
-	ripper.visible_message("<span class='warning'>[ripper] отрывает [ripping_target] от [target_holder]!</span>", \
-		 "<span class='danger'>Отрываю [ripping_target] от [target_holder]!</span>")
+	ripper.visible_message(span_warning("[ripper] отрывает [ripping_target] от [target_holder]!") , \
+		 span_danger("Отрываю [ripping_target] от [target_holder]!") )

@@ -12,7 +12,7 @@
 /obj/vehicle/sealed/mecha/mechanized/proc/prehit(obj/projectile/source, list/signal_args)
 	SIGNAL_HANDLER
 	if(prob(deflect_chance))
-		visible_message("<span class='red'>[capitalize(src.name)] уворачивается от [source].</span>")
+		visible_message(span_red("[capitalize(src.name)] уворачивается от [source].") )
 		qdel(source)
 	switch(rand(1,4))
 		if(1)
@@ -89,9 +89,9 @@
 		var/obj/target_obj = target
 		if(target_obj.resistance_flags & UNACIDABLE)
 			return
-	target.visible_message("<span class='warning'>[chassis] starts to drill [target].</span>", \
-					"<span class='userdanger'>[chassis] starts to drill [target]...</span>", \
-					 "<span class='hear'>You hear drilling.</span>")
+	target.visible_message(span_warning("[chassis] starts to drill [target].") , \
+					span_userdanger("[chassis] starts to drill [target]...") , \
+					 span_hear("You hear drilling.") )
 
 	if(do_after_cooldown(target))
 		set_ready_state(FALSE)

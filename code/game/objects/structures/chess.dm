@@ -8,7 +8,7 @@
 	max_integrity = 100
 
 /obj/structure/chess/wrench_act(mob/user, obj/item/tool)
-	to_chat(user, "<span class='notice'>Начинаю разбирать шахматную фигуру.</span>")
+	to_chat(user, span_notice("Начинаю разбирать шахматную фигуру.") )
 	if(!do_after(user, 0.5 SECONDS, target = src))
 		return TRUE
 	var/obj/item/stack/sheet/iron/metal_sheets = new (drop_location(), 2)

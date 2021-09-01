@@ -25,7 +25,7 @@
 		if(istype(I, /obj/item/multitool))
 			var/obj/item/multitool/M = I
 			M.buffer = src
-			to_chat(user, "<span class='caution'>Сохраняю данные в буфере [I.name].</span>")
+			to_chat(user, span_caution("Сохраняю данные в буфере [I.name].") )
 			return 1
 
 	if(exchange_parts(user, I))

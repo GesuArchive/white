@@ -351,7 +351,7 @@
 		var/orbit_link
 		if (source && action == NOTIFY_ORBIT)
 			orbit_link = " <a href='?src=[REF(O)];follow=[REF(source)]'>(Следить)</a>"
-		to_chat(O, "<span class='ghostalert'>[capitalize(message)][(enter_link) ? " [enter_link]" : ""][orbit_link]</span>")
+		to_chat(O, span_ghostalert("[capitalize(message)][(enter_link) ? " [enter_link]" : ""][orbit_link]") )
 		if(ghost_sound)
 			SEND_SOUND(O, sound(ghost_sound, volume = notify_volume))
 		if(flashwindow)
@@ -386,11 +386,11 @@
 		if((brute_heal > 0 && affecting.brute_dam > 0) || (burn_heal > 0 && affecting.burn_dam > 0))
 			if(affecting.heal_damage(brute_heal, burn_heal, 0, BODYPART_ROBOTIC))
 				H.update_damage_overlays()
-			user.visible_message("<span class='notice'>[user] чинит несколько [dam ? "dents on" : "burnt wires in"] [H] [affecting.name].</span>", \
-			"<span class='notice'>Чиню несколько [dam ? "dents on" : "burnt wires in"] [H == user ? "your" : "[H]"] [affecting.name].</span>")
+			user.visible_message(span_notice("[user] чинит несколько [dam ? "dents on" : "burnt wires in"] [H] [affecting.name].") , \
+			span_notice("Чиню несколько [dam ? "dents on" : "burnt wires in"] [H == user ? "your" : "[H]"] [affecting.name].") )
 			return 1 //successful heal
 		else
-			to_chat(user, "<span class='warning'>[affecting] уже в хорошем состоянии!</span>")
+			to_chat(user, span_warning("[affecting] уже в хорошем состоянии!") )
 
 ///Is the passed in mob a ghost with admin powers, doesn't check for AI interact like isAdminGhost() used to
 /proc/isAdminObserver(mob/user)
@@ -519,7 +519,7 @@
 			dissectionmsg = " via Thorough Dissection"
 		. += "<span class='notice'>Это тело было рассечено и проанализировано[dissectionmsg].</span><br>"
 	if(HAS_TRAIT(src,TRAIT_HUSK))
-		. += "<span class='warning'>Это тело деградировало до состояния хаска.</span>"
+		. += span_warning("Это тело деградировало до состояния хаска.")
 
 /**
  * Get the list of keywords for policy config

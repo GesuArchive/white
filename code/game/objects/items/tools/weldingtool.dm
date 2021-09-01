@@ -97,7 +97,7 @@
 
 
 /obj/item/weldingtool/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] welds [user.ru_ego()] every orifice closed! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] welds [user.ru_ego()] every orifice closed! It looks like [user.p_theyre()] trying to commit suicide!") )
 	return (FIRELOSS)
 
 
@@ -125,8 +125,8 @@
 	if(affecting && affecting.status == BODYPART_ROBOTIC && user.a_intent != INTENT_HARM)
 		if(src.use_tool(H, user, 0, volume=50, amount=1))
 			if(user == H)
-				user.visible_message("<span class='notice'>[user] начинает чинить вмятины [H] на [ru_exam_parse_zone(affecting.name)].</span>",
-					"<span class='notice'>Начинаю чинить вмятины [H == user ? "своей" : "[H]"] на [ru_exam_parse_zone(affecting.name)].</span>")
+				user.visible_message(span_notice("[user] начинает чинить вмятины [H] на [ru_exam_parse_zone(affecting.name)].") ,
+					span_notice("Начинаю чинить вмятины [H == user ? "своей" : "[H]"] на [ru_exam_parse_zone(affecting.name)].") )
 				if(!do_mob(user, H, 50))
 					return
 			item_heal_robotic(H, user, 15, 0)
@@ -149,7 +149,7 @@
 
 	if(!status && O.is_refillable())
 		reagents.trans_to(O, reagents.total_volume, transfered_by = user)
-		to_chat(user, "<span class='notice'>Опустошаю топливный бак [src] в [O].</span>")
+		to_chat(user, span_notice("Опустошаю топливный бак [src] в [O].") )
 		update_icon()
 
 /obj/item/weldingtool/attack_qdeleted(atom/O, mob/user, proximity)
@@ -226,12 +226,12 @@
 //Switches the welder on
 /obj/item/weldingtool/proc/switched_on(mob/user)
 	if(!status)
-		to_chat(user, "<span class='warning'>Надо бы закрутить обратно всё в [src]!</span>")
+		to_chat(user, span_warning("Надо бы закрутить обратно всё в [src]!") )
 		return
 	set_welding(!welding)
 	if(welding)
 		if(get_fuel() >= 1)
-			to_chat(user, "<span class='notice'>Включаю [sklonenie(src.name, VINITELNI, src.gender)].</span>")
+			to_chat(user, span_notice("Включаю [sklonenie(src.name, VINITELNI, src.gender)].") )
 			playsound(loc, acti_sound, 50, TRUE)
 			force = 15
 			damtype = BURN
@@ -239,10 +239,10 @@
 			update_icon()
 			START_PROCESSING(SSobj, src)
 		else
-			to_chat(user, "<span class='warning'>Мало топлива!</span>")
+			to_chat(user, span_warning("Мало топлива!") )
 			switched_off(user)
 	else
-		to_chat(user, "<span class='notice'>Выключаю [sklonenie(src.name, VINITELNI, src.gender)].</span>")
+		to_chat(user, span_notice("Выключаю [sklonenie(src.name, VINITELNI, src.gender)].") )
 		playsound(loc, deac_sound, 50, TRUE)
 		switched_off(user)
 
@@ -271,26 +271,26 @@
 // If welding tool ran out of fuel during a construction task, construction fails.
 /obj/item/weldingtool/tool_use_check(mob/living/user, amount)
 	if(!isOn() || !check_fuel())
-		to_chat(user, "<span class='warning'>Надо бы включить [sklonenie(src.name, VINITELNI, src.gender)]!</span>")
+		to_chat(user, span_warning("Надо бы включить [sklonenie(src.name, VINITELNI, src.gender)]!") )
 		return FALSE
 
 	if(get_fuel() >= amount)
 		return TRUE
 	else
-		to_chat(user, "<span class='warning'>Нужно больше топлива для этой задачи!</span>")
+		to_chat(user, span_warning("Нужно больше топлива для этой задачи!") )
 		return FALSE
 
 
 /obj/item/weldingtool/proc/flamethrower_screwdriver(obj/item/I, mob/user)
 	if(welding)
-		to_chat(user, "<span class='warning'>Надо бы выключить!</span>")
+		to_chat(user, span_warning("Надо бы выключить!") )
 		return
 	status = !status
 	if(status)
-		to_chat(user, "<span class='notice'>Собираю обратно [sklonenie(src.name, VINITELNI, src.gender)].</span>")
+		to_chat(user, span_notice("Собираю обратно [sklonenie(src.name, VINITELNI, src.gender)].") )
 		reagents.flags &= ~(OPENCONTAINER)
 	else
-		to_chat(user, "<span class='notice'>Теперь можно модифицировать [sklonenie(src.name, VINITELNI, src.gender)].</span>")
+		to_chat(user, span_notice("Теперь можно модифицировать [sklonenie(src.name, VINITELNI, src.gender)].") )
 		reagents.flags |= OPENCONTAINER
 	add_fingerprint(user)
 
@@ -303,14 +303,14 @@
 				user.transferItemToLoc(src, F, TRUE)
 			F.weldtool = src
 			add_fingerprint(user)
-			to_chat(user, "<span class='notice'>Добавляю пруток к сварке и начинаю делать огнемёт.</span>")
+			to_chat(user, span_notice("Добавляю пруток к сварке и начинаю делать огнемёт.") )
 			user.put_in_hands(F)
 		else
-			to_chat(user, "<span class='warning'>Надо бы больше прутков!</span>")
+			to_chat(user, span_warning("Надо бы больше прутков!") )
 
 /obj/item/weldingtool/ignition_effect(atom/A, mob/user)
 	if(use_tool(A, user, 0, amount=1))
-		return "<span class='notice'>[user] классически поджигает [sklonenie(A.name, VINITELNI, A.gender)] используя [sklonenie(src.name, VINITELNI, src.gender)], какой крутой засранец.</span>"
+		return span_notice("[user] классически поджигает [sklonenie(A.name, VINITELNI, A.gender)] используя [sklonenie(src.name, VINITELNI, src.gender)], какой крутой засранец.")
 	else
 		return ""
 

@@ -150,8 +150,8 @@
 	SSshuttle.registerTradeBlockade(src)
 	AddComponent(/datum/component/gps, "Nautical Signal")
 	active = TRUE
-	to_chat(user,"<span class='notice'>You toggle [src] [active ? "on":"off"].</span>")
-	to_chat(user,"<span class='warning'>The scrambling signal can be now tracked by GPS.</span>")
+	to_chat(user,span_notice("You toggle [src] [active ? "on":"off"].") )
+	to_chat(user,span_warning("The scrambling signal can be now tracked by GPS.") )
 	START_PROCESSING(SSobj,src)
 
 /obj/machinery/shuttle_scrambler/interact(mob/user)
@@ -177,10 +177,10 @@
 /obj/machinery/shuttle_scrambler/proc/dump_loot(mob/user)
 	if(credits_stored)	// Prevents spamming empty holochips
 		new /obj/item/holochip(drop_location(), credits_stored)
-		to_chat(user,"<span class='notice'>You retrieve the siphoned credits!</span>")
+		to_chat(user,span_notice("You retrieve the siphoned credits!") )
 		credits_stored = 0
 	else
-		to_chat(user,"<span class='notice'>There's nothing to withdraw.</span>")
+		to_chat(user,span_notice("There's nothing to withdraw.") )
 
 /obj/machinery/shuttle_scrambler/proc/send_notification()
 	priority_announce("Обнаружен сигнал кражи данных, источник зарегистрирован на локальных GPS устройствах.")
@@ -228,7 +228,7 @@
 
 /obj/machinery/loot_locator/interact(mob/user)
 	if(world.time <= next_use)
-		to_chat(user,"<span class='warning'>[capitalize(src.name)] перезаряжается.</span>")
+		to_chat(user,span_warning("[capitalize(src.name)] перезаряжается.") )
 		return
 	next_use = world.time + cooldown
 	var/atom/movable/AM = find_random_loot()
@@ -263,7 +263,7 @@
 /obj/machinery/piratepad/multitool_act(mob/living/user, obj/item/multitool/I)
 	. = ..()
 	if (istype(I))
-		to_chat(user, "<span class='notice'>Записываю [src] в буффере [I].</span>")
+		to_chat(user, span_notice("Записываю [src] в буффере [I].") )
 		I.buffer = src
 		return TRUE
 
@@ -285,7 +285,7 @@
 /obj/machinery/computer/piratepad_control/multitool_act(mob/living/user, obj/item/multitool/I)
 	. = ..()
 	if (istype(I) && istype(I.buffer,/obj/machinery/piratepad))
-		to_chat(user, "<span class='notice'>Привязываю [src] используя [I.buffer] в буффере [I].</span>")
+		to_chat(user, span_notice("Привязываю [src] используя [I.buffer] в буффере [I].") )
 		pad = I.buffer
 		return TRUE
 
@@ -387,7 +387,7 @@
 	if(!value)
 		status_report += "Ничего"
 
-	pad.visible_message("<span class='notice'>[capitalize(pad.name)] активируется!</span>")
+	pad.visible_message(span_notice("[capitalize(pad.name)] активируется!") )
 	flick(pad.sending_state,pad)
 	pad.icon_state = pad.idle_state
 	sending = FALSE
@@ -397,7 +397,7 @@
 		return
 	sending = TRUE
 	status_report = "Отправка... "
-	pad.visible_message("<span class='notice'>[capitalize(pad.name)] начинает разогреваться.</span>")
+	pad.visible_message(span_notice("[capitalize(pad.name)] начинает разогреваться.") )
 	pad.icon_state = pad.warmup_state
 	sending_timer = addtimer(CALLBACK(src,.proc/send),warmup_time, TIMER_STOPPABLE)
 

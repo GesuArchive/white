@@ -130,7 +130,7 @@
 		myseed.forceMove(src)
 
 	if(!powered() && self_sustaining)
-		visible_message("<span class='warning'>[name] авторост отключается!</span>")
+		visible_message(span_warning("[name] авторост отключается!") )
 		idle_power_usage = 0
 		self_sustaining = FALSE
 		update_icon()
@@ -349,7 +349,7 @@
 	. = ..()
 	. += "<hr>"
 	if(myseed)
-		. += "<span class='info'>Здесь <span class='name'>[myseed.plantname]</span> посажен.</span>"
+		. += span_info("Здесь <span class='name'>[myseed.plantname]</span> посажен.")
 		if (dead)
 			. += "\n<span class='warning'>Оно мертво!</span>"
 		else if (harvest)
@@ -357,7 +357,7 @@
 		else if (plant_health <= (myseed.endurance / 2))
 			. += "\n<span class='warning'>Оно выглядит нездорово.</span>"
 	else
-		. += "<span class='info'>Тут пусто.</span>"
+		. += span_info("Тут пусто.")
 
 	. += "\n<span class='info'>Вода: [waterlevel]/[maxwater].</span>"
 	. += "\n<span class='info'>Питание: [reagents.total_volume]/[maxnutri].</span>"
@@ -365,9 +365,9 @@
 		. += "\n<span class='info'>Авторост лотка активен, теперь лоток защищает растение от мутаций, сорняков и паразитов.</span>"
 
 	if(weedlevel >= 5)
-		. += "<span class='warning'>Оно всё в сорняках!</span>"
+		. += span_warning("Оно всё в сорняках!")
 	if(pestlevel >= 5)
-		. += "<span class='warning'>Оно заполнено маленькими червями!</span>"
+		. += span_warning("Оно заполнено маленькими червями!")
 
 /**
  * What happens when a tray's weeds grow too large.
@@ -406,7 +406,7 @@
 	weedlevel = 0 // Reset
 	pestlevel = 0 // Reset
 	update_icon()
-	visible_message("<span class='warning'>[oldPlantName] настигает какое-то [myseed.plantname]!</span>")
+	visible_message(span_warning("[oldPlantName] настигает какое-то [myseed.plantname]!") )
 	TRAY_NAME_UPDATE
 
 /obj/machinery/hydroponics/proc/mutate(lifemut = 2, endmut = 5, productmut = 1, yieldmut = 2, potmut = 25, wrmut = 2, wcmut = 5, traitmut = 0, stabmut = 3) // Mutates the current seed
@@ -440,7 +440,7 @@
 
 	sleep(5) // Wait a while
 	update_icon()
-	visible_message("<span class='warning'>[oldPlantName] мутирует в [myseed.plantname]!</span>")
+	visible_message(span_warning("[oldPlantName] мутирует в [myseed.plantname]!") )
 	TRAY_NAME_UPDATE
 
 /obj/machinery/hydroponics/proc/mutateweed() // If the weeds gets the mutagent instead. Mind you, this pretty much destroys the old plant
@@ -460,10 +460,10 @@
 
 		sleep(5) // Wait a while
 		update_icon()
-		visible_message("<span class='warning'>Мутировавшие сорняки в [src] порождают [myseed.plantname]!</span>")
+		visible_message(span_warning("Мутировавшие сорняки в [src] порождают [myseed.plantname]!") )
 		TRAY_NAME_UPDATE
 	else
-		to_chat(usr, "<span class='warning'>Несколько сорняков в [src], кажется, реагируют, но только на мгновение...</span>")
+		to_chat(usr, span_warning("Несколько сорняков в [src], кажется, реагируют, но только на мгновение...") )
 
 /**
  * Plant Death Proc.
@@ -513,10 +513,10 @@
 	if(pestlevel > 5)
 		message_admins("[ADMIN_LOOKUPFLW(user)] last altered a hydro tray's contents which spawned spiderlings")
 		log_game("[key_name(user)] last altered a hydro tray, which spiderlings spawned from.")
-		visible_message("<span class='warning'>Паразиты ведут себя странно...</span>")
+		visible_message(span_warning("Паразиты ведут себя странно...") )
 		spawn_atom_to_turf(/obj/structure/spider/spiderling/hunter, src, 3, FALSE)
 	else if(myseed)
-		visible_message("<span class='warning'>Паразиты ведут себя странно в лотке с [myseed.name], но быстро успокаиваются...</span>")
+		visible_message(span_warning("Паразиты ведут себя странно в лотке с [myseed.name], но быстро успокаиваются...") )
 
 /obj/machinery/hydroponics/attackby(obj/item/O, mob/user, params)
 	//Called when mob user "attacks" it with object O
@@ -526,15 +526,15 @@
 		if(istype(reagent_source, /obj/item/reagent_containers/syringe))
 			var/obj/item/reagent_containers/syringe/syr = reagent_source
 			if(syr.mode != 1)
-				to_chat(user, "<span class='warning'>Не могу получить что-либо из этого растения.</span>"		)
+				to_chat(user, span_warning("Не могу получить что-либо из этого растения.") 		)
 				return
 
 		if(!reagent_source.reagents.total_volume)
-			to_chat(user, "<span class='warning'>[reagent_source] пустой!</span>")
+			to_chat(user, span_warning("[reagent_source] пустой!") )
 			return 1
 
 		if(reagents.total_volume >= reagents.maximum_volume && !reagent_source.reagents.has_reagent(/datum/reagent/water, 1))
-			to_chat(user, "<span class='notice'>[capitalize(src.name)] полный.</span>")
+			to_chat(user, span_notice("[capitalize(src.name)] полный.") )
 			return
 
 		var/list/trays = list(src)//makes the list just this in cases of syringes and compost etc
@@ -558,7 +558,7 @@
 				playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
 
 		if(visi_msg)
-			visible_message("<span class='notice'>[visi_msg].</span>")
+			visible_message(span_notice("[visi_msg].") )
 
 		for(var/obj/machinery/hydroponics/H in trays)
 		//cause I don't want to feel like im juggling 15 tamagotchis and I can get to my real work of ripping flooring apart in hopes of validating my life choices of becoming a space-gardener
@@ -584,7 +584,7 @@
 				investigate_log("had Kudzu planted in it by [key_name(user)] at [AREACOORD(src)]","kudzu")
 			if(!user.transferItemToLoc(O, src))
 				return
-			to_chat(user, "<span class='notice'>Сажаю [O].</span>")
+			to_chat(user, span_notice("Сажаю [O].") )
 			dead = FALSE
 			myseed = O
 			TRAY_NAME_UPDATE
@@ -594,7 +594,7 @@
 			update_icon()
 			return
 		else
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] уже имеет семена внутри!</span>")
+			to_chat(user, span_warning("[capitalize(src.name)] уже имеет семена внутри!") )
 			return
 
 	else if(istype(O, /obj/item/plant_analyzer))
@@ -604,26 +604,26 @@
 
 	else if(istype(O, /obj/item/cultivator))
 		if(weedlevel > 0)
-			user.visible_message("<span class='notice'>[user] выдирает сорняки.</span>", "<span class='notice'>Выдираю сорняки из [src].</span>")
+			user.visible_message(span_notice("[user] выдирает сорняки.") , span_notice("Выдираю сорняки из [src].") )
 			weedlevel = 0
 			update_icon()
 			return
 		else
-			to_chat(user, "<span class='warning'>Этот участок полностью лишён сорняков! Тут нечего выдирать.</span>")
+			to_chat(user, span_warning("Этот участок полностью лишён сорняков! Тут нечего выдирать.") )
 			return
 
 	else if(istype(O, /obj/item/secateurs))
 		if(!myseed)
-			to_chat(user, "<span class='notice'>Этот участок пустой.</span>")
+			to_chat(user, span_notice("Этот участок пустой.") )
 			return
 		else if(!harvest)
-			to_chat(user, "<span class='notice'>Это растение должно быть выросшим, чтобы его привить.</span>")
+			to_chat(user, span_notice("Это растение должно быть выросшим, чтобы его привить.") )
 			return
 		else if(myseed.grafted)
-			to_chat(user, "<span class='notice'>Это растение уже привито.</span>")
+			to_chat(user, span_notice("Это растение уже привито.") )
 			return
 		else
-			user.visible_message("<span class='notice'>[user] трансплантирует конечность из [src].</span>", "<span class='notice'>Осторожно трансплантирую часть [src].</span>")
+			user.visible_message(span_notice("[user] трансплантирует конечность из [src].") , span_notice("Осторожно трансплантирую часть [src].") )
 			var/obj/item/graft/snip = myseed.create_graft()
 			if(!snip)
 				return // The plant did not return a graft.
@@ -635,10 +635,10 @@
 
 	else if(istype(O, /obj/item/geneshears))
 		if(!myseed)
-			to_chat(user, "<span class='notice'>Лоток пустой.</span>")
+			to_chat(user, span_notice("Лоток пустой.") )
 			return
 		if(plant_health <= GENE_SHEAR_MIN_HEALTH)
-			to_chat(user, "<span class='notice'>Это растение выглядит слишком нездоровым, чтобы его обстригать прямо сейчас.</span>")
+			to_chat(user, span_notice("Это растение выглядит слишком нездоровым, чтобы его обстригать прямо сейчас.") )
 			return
 
 		var/list/current_traits = list()
@@ -664,20 +664,20 @@
 					break
 		myseed.reagents_from_genes()
 		adjustHealth(-15)
-		to_chat(user, "<span class='notice'>Аккуратно отрезаю гены с [myseed.plantname], оставляя растения выглядеть слабее.</span>")
+		to_chat(user, span_notice("Аккуратно отрезаю гены с [myseed.plantname], оставляя растения выглядеть слабее.") )
 		update_icon()
 		return
 
 	else if(istype(O, /obj/item/graft))
 		var/obj/item/graft/snip = O
 		if(!myseed)
-			to_chat(user, "<span class='notice'>Лоток пустой.</span>")
+			to_chat(user, span_notice("Лоток пустой.") )
 			return
 		if(!myseed.apply_graft(snip))
-			to_chat(user, "<span class='warning'>[myseed.plantname] отвергает [snip]!</span>")
+			to_chat(user, span_warning("[myseed.plantname] отвергает [snip]!") )
 			return
 		qdel(snip)
-		to_chat(user, "<span class='notice'>Тщательно интегрирую привитую ветвь [myseed.plantname].</span>")
+		to_chat(user, span_notice("Тщательно интегрирую привитую ветвь [myseed.plantname].") )
 		return
 
 	else if(istype(O, /obj/item/storage/bag/plants))
@@ -691,12 +691,12 @@
 
 	else if(istype(O, /obj/item/shovel/spade))
 		if(!myseed && !weedlevel)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] нет никаких растения или сорняков!</span>")
+			to_chat(user, span_warning("[capitalize(src.name)] нет никаких растения или сорняков!") )
 			return
-		user.visible_message("<span class='notice'>[user] выкапывает [src]...</span>",
-			"<span class='notice'>Выкапываю [src]...</span>")
+		user.visible_message(span_notice("[user] выкапывает [src]...") ,
+			span_notice("Выкапываю [src]...") )
 		if(O.use_tool(src, user, 50, volume=50) || (!myseed && !weedlevel))
-			user.visible_message("<span class='notice'>[user] выкапывает [src]!</span>", "<span class='notice'>Выкопал [src]!</span>")
+			user.visible_message(span_notice("[user] выкапывает [src]!") , span_notice("Выкопал [src]!") )
 			if(myseed) //Could be that they're just using it as a de-weeder
 				age = 0
 				plant_health = 0
@@ -716,16 +716,16 @@
 	else if(istype(O, /obj/item/gun/energy/floragun))
 		var/obj/item/gun/energy/floragun/flowergun = O
 		if(flowergun.cell.charge < flowergun.cell.maxcharge)
-			to_chat(user, "<span class='notice'>[flowergun] должен быть полностью заряжен, чтобы зафиксировать мутацию!</span>")
+			to_chat(user, span_notice("[flowergun] должен быть полностью заряжен, чтобы зафиксировать мутацию!") )
 			return
 		if(!myseed)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] пусто!</span>")
+			to_chat(user, span_warning("[capitalize(src.name)] пусто!") )
 			return
 		if(myseed.endurance <= 20)
-			to_chat(user, "<span class='warning'>[myseed.plantname] недостаточно вырос, чтобы выбрать мутацию!</span>")
+			to_chat(user, span_warning("[myseed.plantname] недостаточно вырос, чтобы выбрать мутацию!") )
 			return
 		if(!myseed.mutatelist)
-			to_chat(user, "<span class='warning'>[myseed.plantname] некуда больше мутировать!</span>")
+			to_chat(user, span_warning("[myseed.plantname] некуда больше мутировать!") )
 			return
 		else
 			var/list/fresh_mut_list = list()
@@ -739,7 +739,7 @@
 			myseed.set_endurance(myseed.endurance/2)
 			flowergun.cell.use(flowergun.cell.charge)
 			flowergun.update_icon()
-			to_chat(user, "<span class='notice'>[myseed.plantname] мутация была установлена в [locked_mutation], заряд [flowergun] сел!</span>")
+			to_chat(user, span_notice("[myseed.plantname] мутация была установлена в [locked_mutation], заряд [flowergun] сел!") )
 			return
 	else
 		return ..()
@@ -761,7 +761,7 @@
 
 	else if(dead)
 		dead = FALSE
-		to_chat(user, "<span class='notice'>Убираю мёртвое растение из [src].</span>")
+		to_chat(user, span_notice("Убираю мёртвое растение из [src].") )
 		qdel(myseed)
 		myseed = null
 		update_icon()
@@ -775,7 +775,7 @@
 	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
 	if(!powered())
-		to_chat(user, "<span class='warning'>[name] без питания.</span>")
+		to_chat(user, span_warning("[name] без питания.") )
 		return
 	if(!anchored)
 		return
@@ -792,7 +792,7 @@
 	var/warning = alert(user, "Are you sure you wish to empty the tray's nutrient beaker?","Empty Tray Nutrients?", "Yes", "No")
 	if(warning == "Yes" && user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		reagents.clear_reagents()
-		to_chat(user, "<span class='warning'>Опустошаю питательные вещества [src].</span>")
+		to_chat(user, span_warning("Опустошаю питательные вещества [src].") )
 
 /**
  * Update Tray Proc
@@ -805,11 +805,11 @@
 	harvest = FALSE
 	lastproduce = age
 	if(istype(myseed, /obj/item/seeds/replicapod))
-		to_chat(user, "<span class='notice'>Собираю плоды с [myseed.plantname].</span>")
+		to_chat(user, span_notice("Собираю плоды с [myseed.plantname].") )
 	else if(myseed.getYield() <= 0)
-		to_chat(user, "<span class='warning'>Не смог собрать ничего полезного!</span>")
+		to_chat(user, span_warning("Не смог собрать ничего полезного!") )
 	else
-		to_chat(user, "<span class='notice'>Собираю [myseed.getYield()] плодов с [myseed.plantname].</span>")
+		to_chat(user, span_notice("Собираю [myseed.getYield()] плодов с [myseed.plantname].") )
 	if(!myseed.get_gene(/datum/plant_gene/trait/repeated_harvest))
 		qdel(myseed)
 		myseed = null
@@ -895,7 +895,7 @@
 
 /obj/machinery/hydroponics/soil/attackby(obj/item/O, mob/user, params)
 	if(O.tool_behaviour == TOOL_SHOVEL && !istype(O, /obj/item/shovel/spade)) //Doesn't include spades because of uprooting plants
-		to_chat(user, "<span class='notice'>Очищаю [src]!</span>")
+		to_chat(user, span_notice("Очищаю [src]!") )
 		qdel(src)
 	else
 		return ..()

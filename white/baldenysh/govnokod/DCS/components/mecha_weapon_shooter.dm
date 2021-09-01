@@ -39,50 +39,50 @@
 
 /datum/component/mecha_weapon_shooter/proc/doShoot(mob/living/carbon/shooter, atom/target, obj/item/mecha_parts/mecha_equipment/weapon/W)
 	if(!target)
-		to_chat(shooter, "<span class='warning'>[W]: ОШИБКА: Цель не обнаружена!</span>")
+		to_chat(shooter, span_warning("[W]: ОШИБКА: Цель не обнаружена!") )
 		return
 	if(!W.equip_ready)
-		to_chat(shooter, "<span class='warning'>[W]: ОШИБКА: Оборудование не готово!</span>")
+		to_chat(shooter, span_warning("[W]: ОШИБКА: Оборудование не готово!") )
 		return
 
 	if(istype(W, /obj/item/mecha_parts/mecha_equipment/weapon/honker)) //впадлу для этой хуйни отдельный прок пилить
-		to_chat(shooter, "<span class='warning'>Стрельба из этого оружия приведет к крайне плачевным последствиям для стрелка. Отмена.</span>")
+		to_chat(shooter, span_warning("Стрельба из этого оружия приведет к крайне плачевным последствиям для стрелка. Отмена.") )
 		return
 
 	var/obj/item/stock_parts/cell/charge_source
 	if(W.energy_drain)
 		charge_source = locate(/obj/item/stock_parts/cell) in shooter.held_items
 		if(!charge_source || charge_source.charge < W.energy_drain*energy_drain_mod)
-			to_chat(shooter, "<span class='warning'>[W]: ОШИБКА: Не найден подходящий источник питания!</span>")
+			to_chat(shooter, span_warning("[W]: ОШИБКА: Не найден подходящий источник питания!") )
 			return
 
 	if(istype(W, /obj/item/mecha_parts/mecha_equipment/weapon/ballistic))
 		var/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/B = W
 		if(B.projectiles <= 0)
-			to_chat(shooter, "<span class='warning'>[W]: ОШИБКА: Боезапас израсходован!</span>")
+			to_chat(shooter, span_warning("[W]: ОШИБКА: Боезапас израсходован!") )
 			return
 
 	if(shooting_delay > 0)
-		shooter.visible_message("<span class='danger'>[shooter] целится из [W] в [target]!</span>", \
-			 "<span class='danger'>Начинаю целиться в [target]!</span>")
+		shooter.visible_message(span_danger("[shooter] целится из [W] в [target]!") , \
+			 span_danger("Начинаю целиться в [target]!") )
 		aiming = TRUE
 		if(!do_after(shooter, shooting_delay, W, timed_action_flags = IGNORE_USER_LOC_CHANGE))
 			aiming = FALSE
-			to_chat(shooter, "<span class='warning'>Что-то помешало мне прицелиться!</span>")
+			to_chat(shooter, span_warning("Что-то помешало мне прицелиться!") )
 			return
 		aiming = FALSE
 
 	var/newtonian_target = turn(shooter.dir,180)
 	if(TIMER_COOLDOWN_CHECK(shooter, COOLDOWN_MECHA_EQUIPMENT))
-		to_chat(shooter, "<span class='warning'>[W]: ОШИБКА: Оборудование не готово после прошлого использования!</span>")
+		to_chat(shooter, span_warning("[W]: ОШИБКА: Оборудование не готово после прошлого использования!") )
 		return
 	TIMER_COOLDOWN_START(shooter, COOLDOWN_MECHA_EQUIPMENT, W.equip_cooldown)
 
 	if(charge_source)
 		charge_source.use(W.energy_drain*energy_drain_mod)
 
-	shooter.visible_message("<span class='danger'>[shooter] стреляет из [W] в [target]!</span>", \
-			 "<span class='danger'>Стреляю из [W] в [target]!</span>")
+	shooter.visible_message(span_danger("[shooter] стреляет из [W] в [target]!") , \
+			 span_danger("Стреляю из [W] в [target]!") )
 
 	if(istype(W, /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher))
 		var/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/L = W

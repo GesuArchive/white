@@ -17,7 +17,7 @@
 		return
 
 	if(target.anti_magic_check())
-		target.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
+		target.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!") )
 		return BULLET_ACT_BLOCK
 
 	if(target.mob_biotypes & MOB_UNDEAD) //negative energy heals the undead
@@ -25,9 +25,9 @@
 			return BULLET_ACT_BLOCK
 		if(target.revive(full_heal = TRUE, admin_revive = TRUE))
 			target.grab_ghost(force = TRUE) // even suicides
-			to_chat(target, "<span class='notice'>Восстаю. Я НЕЖИТЬ!!!</span>")
+			to_chat(target, span_notice("Восстаю. Я НЕЖИТЬ!!!") )
 		else if(target.stat != DEAD)
-			to_chat(target, "<span class='notice'>Чувствую себя отлично!</span>")
+			to_chat(target, span_notice("Чувствую себя отлично!") )
 		return
 
 	target.death()
@@ -43,7 +43,7 @@
 	. = ..()
 	if(isliving(target))
 		if(target.anti_magic_check())
-			target.visible_message("<span class='warning'>[capitalize(src.name)] испаряется при контакте с [target]!</span>")
+			target.visible_message(span_warning("[capitalize(src.name)] испаряется при контакте с [target]!") )
 			return BULLET_ACT_BLOCK
 		if(target.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead
 			target.death(0)
@@ -52,9 +52,9 @@
 				return BULLET_ACT_BLOCK
 			if(target.revive(full_heal = TRUE, admin_revive = TRUE))
 				target.grab_ghost(force = TRUE) // even suicides
-				to_chat(target, "<span class='notice'>ЖИВУ!</span>")
+				to_chat(target, span_notice("ЖИВУ!") )
 			else if(target.stat != DEAD)
-				to_chat(target, "<span class='notice'>Чувствую себя прекрасно!</span>")
+				to_chat(target, span_notice("Чувствую себя прекрасно!") )
 
 /obj/projectile/magic/teleport
 	name = "заряд телепортации"
@@ -70,7 +70,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
+			M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!") )
 			return BULLET_ACT_BLOCK
 	var/teleammount = 0
 	var/teleloc = target
@@ -96,7 +96,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
+			M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!") )
 			return BULLET_ACT_BLOCK
 	if(isturf(target))
 		return BULLET_ACT_HIT
@@ -151,7 +151,7 @@
 	if(ismob(change))
 		var/mob/M = change
 		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [M]!</span>")
+			M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [M]!") )
 			qdel(src)
 			return BULLET_ACT_BLOCK
 	wabbajack(change)
@@ -298,7 +298,7 @@
 
 	M.wabbajack_act(new_mob)
 
-	to_chat(new_mob, "<span class='warning'>Внезапно становлюсь [randomize].</span>")
+	to_chat(new_mob, span_warning("Внезапно становлюсь [randomize].") )
 
 	var/poly_msg = get_policy(POLICY_POLYMORPH)
 	if(poly_msg)
@@ -338,7 +338,7 @@
 				if(L.mind)
 					L.mind.transfer_to(S)
 					if(owner)
-						to_chat(S, "<span class='userdanger'>Ты одушевленная статуя. Ты не можешь двигаться, когда за тобой следят, но они почти неуязвимы и смертельно опасны, когда их не замечают! Не навреди [owner], твоему создателю.</span>")
+						to_chat(S, span_userdanger("Ты одушевленная статуя. Ты не можешь двигаться, когда за тобой следят, но они почти неуязвимы и смертельно опасны, когда их не замечают! Не навреди [owner], твоему создателю.") )
 				P.forceMove(S)
 				return
 		else
@@ -367,7 +367,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
+			M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!") )
 			qdel(src)
 			return BULLET_ACT_BLOCK
 	. = ..()
@@ -386,7 +386,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
+			M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!") )
 			qdel(src)
 			return BULLET_ACT_BLOCK
 	. = ..()
@@ -483,7 +483,7 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.anti_magic_check())
-			L.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
+			L.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!") )
 			return BULLET_ACT_BLOCK
 		var/atom/throw_target = get_edge_target_turf(L, angle2dir(Angle))
 		L.throw_at(throw_target, 200, 4)
@@ -497,7 +497,7 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.anti_magic_check() || !firer)
-			L.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
+			L.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!") )
 			return BULLET_ACT_BLOCK
 		L.apply_status_effect(STATUS_EFFECT_BOUNTY, firer)
 
@@ -510,7 +510,7 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.anti_magic_check())
-			L.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
+			L.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!") )
 			return BULLET_ACT_BLOCK
 		L.apply_status_effect(STATUS_EFFECT_ANTIMAGIC)
 
@@ -523,7 +523,7 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.anti_magic_check() || !firer)
-			L.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
+			L.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!") )
 			return BULLET_ACT_BLOCK
 		var/atom/throw_target = get_edge_target_turf(L, get_dir(L, firer))
 		L.throw_at(throw_target, 200, 4)
@@ -537,7 +537,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
+			M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!") )
 			return BULLET_ACT_BLOCK
 		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, src, /datum/mood_event/sapped)
 
@@ -550,13 +550,13 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.anti_magic_check() || !L.mind || !L.mind.hasSoul)
-			L.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
+			L.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!") )
 			return BULLET_ACT_BLOCK
-		to_chat(L, "<span class='danger'>Моё тело чувствует себя истощенным, и в груди ощущается жгучая боль.</span>")
+		to_chat(L, span_danger("Моё тело чувствует себя истощенным, и в груди ощущается жгучая боль.") )
 		L.maxHealth -= 20
 		L.health = min(L.health, L.maxHealth)
 		if(L.maxHealth <= 0)
-			to_chat(L, "<span class='userdanger'>Моя ослабленная душа полностью поглощена [src]!</span>")
+			to_chat(L, span_userdanger("Моя ослабленная душа полностью поглощена [src]!") )
 			L.mind.hasSoul = FALSE
 			return
 		for(var/obj/effect/proc_holder/spell/spell in L.mind.spell_list)
@@ -573,13 +573,13 @@
 	if(iscarbon(target))
 		var/mob/living/carbon/M = target
 		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
+			M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!") )
 			return BULLET_ACT_BLOCK
 		for(var/x in M.get_traumas())//checks to see if the victim is already going through possession
 			if(istype(x, /datum/brain_trauma/special/imaginary_friend/trapped_owner))
-				M.visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
+				M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!") )
 				return BULLET_ACT_BLOCK
-		to_chat(M, "<span class='warning'>Мой разум открыт для любого желающего!</span>")
+		to_chat(M, span_warning("Мой разум открыт для любого желающего!") )
 		possession_test(M)
 		return BULLET_ACT_HIT
 
@@ -599,7 +599,7 @@
 		return
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
-		to_chat(M, "<span class='boldnotice'>Был замечен призраком, и он овладел мною!</span>")
+		to_chat(M, span_boldnotice("Был замечен призраком, и он овладел мною!") )
 		var/oldkey = M.key
 		M.ghostize(0)
 		M.key = C.key
@@ -608,7 +608,7 @@
 		trauma.friend.Show()
 		trauma.friend_initialized = TRUE
 	else
-		to_chat(M, "<span class='notice'>Мой разум сумел остаться незамеченным в духовном мире.</span>")
+		to_chat(M, span_notice("Мой разум сумел остаться незамеченным в духовном мире.") )
 		qdel(trauma)
 
 /obj/projectile/magic/aoe
@@ -650,7 +650,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			visible_message("<span class='warning'>[capitalize(src.name)] распадается при контакте с [target]!</span>")
+			visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!") )
 			qdel(src)
 			return BULLET_ACT_BLOCK
 	tesla_zap(src, zap_range, zap_power, zap_flags)
@@ -700,7 +700,7 @@
 	if(ismob(target))
 		var/mob/living/M = target
 		if(M.anti_magic_check())
-			visible_message("<span class='warning'>[capitalize(src.name)] затухает при контакте с [target]!</span>")
+			visible_message(span_warning("[capitalize(src.name)] затухает при контакте с [target]!") )
 			return BULLET_ACT_BLOCK
 		M.take_overall_damage(0,10) //between this 10 burn, the 10 brute, the explosion brute, and the onfire burn, your at about 65 damage if you stop drop and roll immediately
 	var/turf/T = get_turf(target)

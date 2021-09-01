@@ -210,7 +210,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		var/admin_number_present = send2tgs_adminless_only(initiator_ckey, "Ticket #[id]: [msg]")
 		log_admin_private("Ticket #[id]: [key_name(initiator)]: [name] - heard by [admin_number_present] non-AFK admins who have +BAN.")
 		if(admin_number_present <= 0)
-			to_chat(C, "<span class='notice'>Нет активных администраторов на сервере. Спрашивайте в Discord.</span>", confidential = TRUE)
+			to_chat(C, span_notice("Нет активных администраторов на сервере. Спрашивайте в Discord.") , confidential = TRUE)
 			heard_by_no_admins = TRUE
 	GLOB.ahelp_tickets.active_tickets += src
 
@@ -282,7 +282,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	msg = html_decode(sanitize(copytext_char(msg, 1, MAX_MESSAGE_LEN)))
 	var/ref_src = "[REF(src)]"
 	//Message to be sent to all admins
-	var/admin_msg = "<span class='adminnotice'><span class='adminhelp'>Тикет [TicketHref("#[id]", ref_src)]</span><b>: [LinkedReplyName(ref_src)] [FullMonty(ref_src)]:</b> <span class='linkify'>[keywords_lookup(msg)]</span></span>"
+	var/admin_msg = span_adminnotice("<span class='adminhelp'>Тикет [TicketHref("#[id]", ref_src)]</span><b>: [LinkedReplyName(ref_src)] [FullMonty(ref_src)]:</b> <span class='linkify'>[keywords_lookup(msg)]</span>")
 
 	AddInteraction("<font color='red'>[LinkedReplyName(ref_src)]: [msg]</font>")
 	log_admin_private("Ticket #[id]: [key_name(initiator)]: [msg]")
@@ -300,18 +300,18 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	//show it to the person adminhelping too
 	to_chat(initiator,
 		type = MESSAGE_TYPE_ADMINPM,
-		html = "<span class='adminnotice'>Сообщение <b>администраторам</b>: <span class='linkify'>[msg]</span></span>",
+		html = span_adminnotice("Сообщение <b>администраторам</b>: <span class='linkify'>[msg]</span>") ,
 		confidential = TRUE)
 	SSblackbox.LogAhelp(id, "Ticket Opened", msg, null, initiator.ckey)
 
 //Reopen a closed ticket
 /datum/admin_help/proc/Reopen()
 	if(state == AHELP_ACTIVE)
-		to_chat(usr, "<span class='warning'>Запрос уже открыт.</span>", confidential = TRUE)
+		to_chat(usr, span_warning("Запрос уже открыт.") , confidential = TRUE)
 		return
 
 	if(GLOB.ahelp_tickets.CKey2ActiveTicket(initiator_ckey))
-		to_chat(usr, "<span class='warning'>Этот пользователь уже имеет открытый тикет.</span>", confidential = TRUE)
+		to_chat(usr, span_warning("Этот пользователь уже имеет открытый тикет.") , confidential = TRUE)
 		return
 
 	statclick = new(null, src)
@@ -329,7 +329,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		initiator.current_ticket = src
 
 	AddInteraction("<font color='pink'>Reopened by [key_name_admin(usr)]</font>")
-	var/msg = "<span class='adminhelp'>Ticket [TicketHref("#[id]")] reopened by [key_name_admin(usr)].</span>"
+	var/msg = span_adminhelp("Ticket [TicketHref("#[id]")] reopened by [key_name_admin(usr)].")
 	message_admins(msg)
 	log_admin_private(msg)
 	SSblackbox.LogAhelp(id, "Reopened", "Reopened by [usr.key]", usr.ckey)
@@ -519,7 +519,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 // Used for methods where input via arg doesn't work
 /client/proc/get_adminhelp()
 	if(adminhelptimerid)
-		to_chat(usr, "<span class='danger'>Пока нельзя...</span>", confidential = TRUE)
+		to_chat(usr, span_danger("Пока нельзя...") , confidential = TRUE)
 		return
 	var/msg = input(src, "Опишите вашу проблему или вопрос максимально подробно.", "Ахелп") as message|null
 	adminhelp(msg)
@@ -537,12 +537,12 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	set hidden = 1
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Пока нельзя...</span>", confidential = TRUE)
+		to_chat(usr, span_danger("Пока нельзя...") , confidential = TRUE)
 		return
 
 	//handle muting and automuting
 	if(prefs.muted & MUTE_ADMINHELP)
-		to_chat(src, "<span class='danger'>Ошибка незакрытого рта. Заткнитесь. Заткнитесь.</span>", confidential = TRUE)
+		to_chat(src, span_danger("Ошибка незакрытого рта. Заткнитесь. Заткнитесь.") , confidential = TRUE)
 		return
 	if(handle_spam_prevention(msg,MUTE_ADMINHELP))
 		return
@@ -558,7 +558,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		current_ticket.TimeoutVerb()
 
 	if(ckey in GLOB.petushiniy_list)
-		to_chat(src, "<span class='notice'>Сообщение для <b>администраторов</b>: <span class='linkify'>[msg]</span></span>", confidential = TRUE)
+		to_chat(src, span_notice("Сообщение для <b>администраторов</b>: <span class='linkify'>[msg]</span>") , confidential = TRUE)
 		return
 
 	new /datum/admin_help(msg, src, FALSE)

@@ -32,8 +32,8 @@
 			SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "artbad", /datum/mood_event/artbad)
 			msg = "Вау, [source.ru_who()] выглядит ущербно."
 
-	user.visible_message("<span class='notice'>[user] останавливается и пристально смотрит на [source].</span>", \
-		"<span class='notice'>Оцениваю [source]... [msg]</span>")
+	user.visible_message(span_notice("[user] останавливается и пристально смотрит на [source].") , \
+		span_notice("Оцениваю [source]... [msg]") )
 
 /datum/element/art/proc/on_examine(atom/source, mob/user, list/examine_texts)
 	SIGNAL_HANDLER
@@ -42,7 +42,7 @@
 		INVOKE_ASYNC(src, .proc/appraise, source, user) //Do not sleep the proc.
 
 /datum/element/art/proc/appraise(atom/source, mob/user)
-	to_chat(user, "<span class='notice'>Любуюсь [source]...</span>")
+	to_chat(user, span_notice("Любуюсь [source]...") )
 	if(!do_after(user, 2 SECONDS, target = source))
 		return
 	var/mult = 1
@@ -62,5 +62,5 @@
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "artbad", /datum/mood_event/artbad)
 		msg = "Вау, [source.ru_who()] выглядит ущербно."
 
-	user.visible_message("<span class='notice'>[user] прекращает изучать [source].</span>", \
-		"<span class='notice'>Оцениваю [source], осмотрев искусное мастерство пролетариата... [msg]</span>")
+	user.visible_message(span_notice("[user] прекращает изучать [source].") , \
+		span_notice("Оцениваю [source], осмотрев искусное мастерство пролетариата... [msg]") )

@@ -26,8 +26,8 @@
 	if(obj_flags & EMAGGED)
 		return
 	if(user)
-		user.visible_message("<span class='warning'>[user] прижимает странную карту к экрану [src]!</span>",
-		"<span class='notice'>Перенастраиваю частоты аплинка и открываю новый маркет в аплинке.</span>")
+		user.visible_message(span_warning("[user] прижимает странную карту к экрану [src]!") ,
+		span_notice("Перенастраиваю частоты аплинка и открываю новый маркет в аплинке.") )
 
 	obj_flags |= EMAGGED
 
@@ -38,7 +38,7 @@
 	if(user.ckey == "erring")
 		if(iscarbon(user) && prob(50))
 			var/mob/living/carbon/C = user
-			C.visible_message("<span class='warning'>[user] вставляет руку в приёмник купюр нелегального аппарата...</span>")
+			C.visible_message(span_warning("[user] вставляет руку в приёмник купюр нелегального аппарата...") )
 			var/which_hand = BODY_ZONE_L_ARM
 			if(!(C.active_hand_index % 2))
 				which_hand = BODY_ZONE_R_ARM
@@ -48,9 +48,9 @@
 	if(istype(I, /obj/item/holochip) || istype(I, /obj/item/stack/spacecash) || istype(I, /obj/item/coin))
 		var/worth = I.get_item_credit_value()
 		if(!worth)
-			to_chat(user, "<span class='warning'>[I] кажется, ничего не стоит!</span>")
+			to_chat(user, span_warning("[I] кажется, ничего не стоит!") )
 		money += worth
-		to_chat(user, "<span class='notice'>Вкладываю [I] в [src] и оно показывают сумму в [money] кредит[get_num_string(money)] на счету аплинка.</span>")
+		to_chat(user, span_notice("Вкладываю [I] в [src] и оно показывают сумму в [money] кредит[get_num_string(money)] на счету аплинка.") )
 		qdel(I)
 		return
 	. = ..()
@@ -66,14 +66,14 @@
 	if(!amount_to_remove || amount_to_remove < 0)
 		return
 	if(amount_to_remove > money)
-		to_chat(user, "<span class='warning'>На данный момент [money] кредит[get_num_string(money)] в [src]</span>")
+		to_chat(user, span_warning("На данный момент [money] кредит[get_num_string(money)] в [src]") )
 		return
 
 	var/obj/item/holochip/holochip = new (user.drop_location(), amount_to_remove)
 	money -= amount_to_remove
 	holochip.name = "отмытые " + holochip.name
 	user.put_in_hands(holochip)
-	to_chat(user, "<span class='notice'>Снимаю [amount_to_remove] кредит[get_num_string(amount_to_remove)] в виде голочипа.</span>")
+	to_chat(user, span_notice("Снимаю [amount_to_remove] кредит[get_num_string(amount_to_remove)] в виде голочипа.") )
 
 /obj/item/blackmarket_uplink/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

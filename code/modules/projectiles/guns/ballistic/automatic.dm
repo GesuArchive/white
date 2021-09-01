@@ -34,11 +34,11 @@
 	if(!select)
 		burst_size = 1
 		fire_delay = 0
-		to_chat(user, "<span class='notice'>Переключаюсь на полу-автоматический режим.</span>")
+		to_chat(user, span_notice("Переключаюсь на полу-автоматический режим.") )
 	else
 		burst_size = initial(burst_size)
 		fire_delay = initial(fire_delay)
-		to_chat(user, "<span class='notice'>Переключаюсь на стрельбу очередями по [burst_size] пули за выстрел.</span>")
+		to_chat(user, span_notice("Переключаюсь на стрельбу очередями по [burst_size] пули за выстрел.") )
 
 	playsound(user, 'sound/weapons/empty.ogg', 100, TRUE)
 	update_icon()
@@ -204,15 +204,15 @@
 			select = 1
 			burst_size = initial(burst_size)
 			fire_delay = initial(fire_delay)
-			to_chat(user, "<span class='notice'>Выбираю режим [burst_size] пули за выстрел.</span>")
+			to_chat(user, span_notice("Выбираю режим [burst_size] пули за выстрел.") )
 		if(1)
 			select = 2
-			to_chat(user, "<span class='notice'>Выбран гранатомёт.</span>")
+			to_chat(user, span_notice("Выбран гранатомёт.") )
 		if(2)
 			select = 0
 			burst_size = 1
 			fire_delay = 0
-			to_chat(user, "<span class='notice'>Выбран полуавтоматический режим.</span>")
+			to_chat(user, span_notice("Выбран полуавтоматический режим.") )
 	playsound(user, 'sound/weapons/empty.ogg', 100, TRUE)
 	update_icon()
 	return
@@ -295,7 +295,7 @@
 	if(!user.canUseTopic(src))
 		return
 	cover_open = !cover_open
-	to_chat(user, "<span class='notice'>[cover_open ? "Открываю" : "Закрываю"] покрытие [src].</span>")
+	to_chat(user, span_notice("[cover_open ? "Открываю" : "Закрываю"] покрытие [src].") )
 	playsound(src, 'sound/weapons/gun/l6/l6_door.ogg', 60, TRUE)
 	update_icon()
 
@@ -309,7 +309,7 @@
 
 /obj/item/gun/ballistic/automatic/l6_saw/afterattack(atom/target as mob|obj|turf, mob/living/user as mob|obj, flag, params)
 	if(cover_open)
-		to_chat(user, "<span class='warning'>У [src.name] не закрыта крышка! Надо бы закрыть перед стрельбой!</span>")
+		to_chat(user, span_warning("У [src.name] не закрыта крышка! Надо бы закрыть перед стрельбой!") )
 		return
 	else
 		. = ..()
@@ -321,13 +321,13 @@
 		..()
 		return
 	if (!cover_open)
-		to_chat(user, "<span class='warning'>У [src.name] крышка закрыта! Перед выемкой магазина стоит открыть!</span>")
+		to_chat(user, span_warning("У [src.name] крышка закрыта! Перед выемкой магазина стоит открыть!") )
 		return
 	..()
 
 /obj/item/gun/ballistic/automatic/l6_saw/attackby(obj/item/A, mob/user, params)
 	if(!cover_open && istype(A, mag_type))
-		to_chat(user, "<span class='warning'>У [src.name] пылезащитный чехол предотвращает подгонку магазина.</span>")
+		to_chat(user, span_warning("У [src.name] пылезащитный чехол предотвращает подгонку магазина.") )
 		return
 	..()
 

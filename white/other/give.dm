@@ -4,16 +4,16 @@
 	set src in view(1)
 
 	if(src == usr)
-		to_chat(usr,"<span class='warning'>А?</span>")
+		to_chat(usr,span_warning("А?") )
 		return
 
 	if(!ismonkey(src)&&!ishuman(src) || isalien(src) || src.stat || usr.stat || !src.client)
-		to_chat(usr,"<span class='warning'><b>[src.name]</b> не может что-то сейчас брать.</span>")
+		to_chat(usr,span_warning("<b>[src.name]</b> не может что-то сейчас брать.") )
 		return
 
 	var/obj/item/I = usr.get_active_held_item()
 	if(!I)
-		to_chat(usr,"<span class='warning'>А у меня в руке ничего и нет, что можно дать <b>[src]</b>.</span>")
+		to_chat(usr,span_warning("А у меня в руке ничего и нет, что можно дать <b>[src]</b>.") )
 		return
 
 	if(!usr.canUnEquip(I))
@@ -21,7 +21,7 @@
 
 	var/list/empty_hands = get_empty_held_indexes()
 	if(!empty_hands.len)
-		to_chat(usr,"<span class='warning'>Руки <b>[src]</b> полны.</span>")
+		to_chat(usr,span_warning("Руки <b>[src]</b> полны.") )
 		return
 
 	switch(alert(src,"[usr] хочет дать мне [I]. Взять?",,"Да","Нет"))
@@ -29,33 +29,33 @@
 			if(!I || !usr)
 				return
 			if(!Adjacent(usr))
-				to_chat(src,"<span class='warning'>Надо бы ближе стоять.</span>")
-				to_chat(usr,"<span class='warning'><b>[usr]</b> слишком далеко.</span>")
+				to_chat(src,span_warning("Надо бы ближе стоять.") )
+				to_chat(usr,span_warning("<b>[usr]</b> слишком далеко.") )
 				return
 
 			if(I != usr.get_active_held_item())
-				to_chat(usr,"<span class='warning'>Надо бы держать предмет в руке.</span>")
-				to_chat(src,"<span class='warning'><b>[usr]</b> не хочет отдавать <b>[I]</b> мне.</span>")
+				to_chat(usr,span_warning("Надо бы держать предмет в руке.") )
+				to_chat(src,span_warning("<b>[usr]</b> не хочет отдавать <b>[I]</b> мне.") )
 				return
 
 			if(!(src.mobility_flags & MOBILITY_STAND) || src.handcuffed)
-				to_chat(usr,"<span class='warning'>Руки <b>[src]</b> связаны.</span>")
+				to_chat(usr,span_warning("Руки <b>[src]</b> связаны.") )
 				return
 
 			empty_hands = get_empty_held_indexes()
 			if(!empty_hands.len)
-				to_chat(src,"<span class='warning'>Мои руки заняты.</span>")
-				to_chat(usr,"<span class='warning'>Руки <b>[src]</b> заняты.</span>")
+				to_chat(src,span_warning("Мои руки заняты.") )
+				to_chat(usr,span_warning("Руки <b>[src]</b> заняты.") )
 				return
 
 			if(!usr.dropItemToGround(I))
 				return
 
 			if(!put_in_hands(I))
-				to_chat(src,"<span class='warning'>Не удалось взять <b>[I]</b>, так что <b>[usr]</b> сдаётся!</span>")
-				to_chat(usr,"<span class='warning'><b>[src]</b> не может взять <b>[I]</b>!</span>")
+				to_chat(src,span_warning("Не удалось взять <b>[I]</b>, так что <b>[usr]</b> сдаётся!") )
+				to_chat(usr,span_warning("<b>[src]</b> не может взять <b>[I]</b>!") )
 				return
 
-			src.visible_message("<span class='notice'><b>[usr]</b> передаёт <b>[I]</b> <b>[src]</b>.</span>")
+			src.visible_message(span_notice("<b>[usr]</b> передаёт <b>[I]</b> <b>[src]</b>.") )
 		if("Нет")
-			src.visible_message("<span class='warning'><b>[usr]</b> пытается передать <b>[I]</b> <b>[src]</b>, но <b>[src]</b> не хочет брать его.</span>")
+			src.visible_message(span_warning("<b>[usr]</b> пытается передать <b>[I]</b> <b>[src]</b>, но <b>[src]</b> не хочет брать его.") )

@@ -32,14 +32,14 @@
 		user.temporarilyRemoveItemFromInventory(hand_item, TRUE) //DROPDEL will delete the item
 		if(!silent)
 			playsound(user, 'sound/effects/blobattack.ogg', 30, TRUE)
-			user.visible_message("<span class='warning'>С отвратительным хрустом, <b>[user]</b> формирует [weapon_name_simple] обратно в руку!</span>", "<span class='notice'>Мы возвращаем [weapon_name_simple] обратно в наше тело.</span>", "<span class='italics>Слышу как что-то органическое разрывается!</span>")
+			user.visible_message(span_warning("С отвратительным хрустом, <b>[user]</b> формирует [weapon_name_simple] обратно в руку!") , span_notice("Мы возвращаем [weapon_name_simple] обратно в наше тело.") , "<span class='italics>Слышу как что-то органическое разрывается!</span>")
 		user.update_inv_hands()
 		return 1
 
 /datum/action/changeling/weapon/sting_action(mob/living/user)
 	var/obj/item/held = user.get_active_held_item()
 	if(held && !user.dropItemToGround(held))
-		to_chat(user, "<span class='warning'><b>[capitalize(held)]</b> застряло в моей руке, не получится сделать [weapon_name_simple] поверх этого!</span>")
+		to_chat(user, span_warning("<b>[capitalize(held)]</b> застряло в моей руке, не получится сделать [weapon_name_simple] поверх этого!") )
 		return
 	..()
 	var/limb_regen = 0
@@ -48,7 +48,7 @@
 	else
 		limb_regen = user.regenerate_limb(BODY_ZONE_L_ARM, 1)
 	if(limb_regen)
-		user.visible_message("<span class='warning'>Рука <b>[user]</b> трансформируется издавая громкий и неприятный звук!</span>", "<span class='userdanger'>Моя рука отрастает, издает громкий хрустящий звук и причиняет мне сильную боль!</span>", "<span class='hear'>Слышу как что-то органическое разрывается!</span>")
+		user.visible_message(span_warning("Рука <b>[user]</b> трансформируется издавая громкий и неприятный звук!") , span_userdanger("Моя рука отрастает, издает громкий хрустящий звук и причиняет мне сильную боль!") , span_hear("Слышу как что-то органическое разрывается!") )
 		user.emote("agony")
 	var/obj/item/W = new weapon_type(user, silent)
 	user.put_in_hands(W)
@@ -90,7 +90,7 @@
 		return 1
 	var/mob/living/carbon/human/H = user
 	if(istype(H.wear_suit, suit_type) || istype(H.head, helmet_type))
-		H.visible_message("<span class='warning'><b>[H]</b> сбрасывает с себя [suit_name_simple]!</span>", "<span class='warning'>Мы сбрасываем [suit_name_simple].</span>", "<span class='hear'>Слышу как что-то органическое разрывается!</span>")
+		H.visible_message(span_warning("<b>[H]</b> сбрасывает с себя [suit_name_simple]!") , span_warning("Мы сбрасываем [suit_name_simple].") , span_hear("Слышу как что-то органическое разрывается!") )
 		H.temporarilyRemoveItemFromInventory(H.head, TRUE) //The qdel on dropped() takes care of it
 		H.temporarilyRemoveItemFromInventory(H.wear_suit, TRUE)
 		H.update_inv_wear_suit()
@@ -113,10 +113,10 @@
 
 /datum/action/changeling/suit/sting_action(mob/living/carbon/human/user)
 	if(!user.canUnEquip(user.wear_suit))
-		to_chat(user, "<span class='warning'>[capitalize(user.wear_suit)] крепко сидит на моём теле, не получится вырастить [suit_name_simple] поверх этого!</span>")
+		to_chat(user, span_warning("[capitalize(user.wear_suit)] крепко сидит на моём теле, не получится вырастить [suit_name_simple] поверх этого!") )
 		return
 	if(!user.canUnEquip(user.head))
-		to_chat(user, "<span class='warning'>[capitalize(user.head)] крепко сидит на моей голове, не получится вырастить [helmet_name_simple] поверх этого!</span>")
+		to_chat(user, span_warning("[capitalize(user.head)] крепко сидит на моей голове, не получится вырастить [helmet_name_simple] поверх этого!") )
 		return
 	..()
 	user.dropItemToGround(user.head)
@@ -172,7 +172,7 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)
 	if(ismob(loc) && !silent)
-		loc.visible_message("<span class='warning'>Гротескный клинок формируется из руки <b>[loc.name]</b>!</span>", "<span class='warning'>Наша рука крутится и мутирует, превращаясь в смертельный клинок.</span>", "<span class='hear'>Слышу как что-то органическое разрывается!</span>")
+		loc.visible_message(span_warning("Гротескный клинок формируется из руки <b>[loc.name]</b>!") , span_warning("Наша рука крутится и мутирует, превращаясь в смертельный клинок.") , span_hear("Слышу как что-то органическое разрывается!") )
 	if(synthetic)
 		can_drop = TRUE
 	AddComponent(/datum/component/butchering, 60, 80)
@@ -195,18 +195,18 @@
 		if((!A.requiresID() || A.allowed(user)) && A.hasPower()) //This is to prevent stupid shit like hitting a door with an arm blade, the door opening because you have acces and still getting a "the airlocks motors resist our efforts to force it" message, power requirement is so this doesn't stop unpowered doors from being pried open if you have access
 			return
 		if(A.locked)
-			to_chat(user, "<span class='warning'>Болты шлюза предотвращают его принудительное открытие!</span>")
+			to_chat(user, span_warning("Болты шлюза предотвращают его принудительное открытие!") )
 			return
 
 		if(A.hasPower())
-			user.visible_message("<span class='warning'><b>[user]</b> втискивает <b>руку-лезвие</b> в шлюз и начинает открывать его!</span>", "<span class='warning'>Мы начинаем открывать [A].</span>", \
-			"<span class='hear'>Слышу металлический лязг.</span>")
+			user.visible_message(span_warning("<b>[user]</b> втискивает <b>руку-лезвие</b> в шлюз и начинает открывать его!") , span_warning("Мы начинаем открывать [A].") , \
+			span_hear("Слышу металлический лязг.") )
 			playsound(A, 'sound/machines/airlock_alien_prying.ogg', 100, TRUE)
 			if(!do_after(user, 100, target = A))
 				return
 		//user.say("Heeeeeeeeeerrre's Johnny!")
-		user.visible_message("<span class='warning'><b>[user]</b> заставляет шлюз открыться под силой <b>руки-лезвия</b>!</span>", "<span class='warning'>Мы заставляем [A] открыться.</span>", \
-		"<span class='hear'>Слышу металлический лязг.</span>")
+		user.visible_message(span_warning("<b>[user]</b> заставляет шлюз открыться под силой <b>руки-лезвия</b>!") , span_warning("Мы заставляем [A] открыться.") , \
+		span_hear("Слышу металлический лязг.") )
 		A.open(2)
 
 /obj/item/melee/arm_blade/dropped(mob/user)
@@ -259,13 +259,13 @@
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)
 	if(ismob(loc))
 		if(!silent)
-			loc.visible_message("<span class='warning'>Рука <b>[loc.name]</b> начинает странно растягиваться!</span>", "<span class='warning'>Наша рука изгибается и мутирует, превращая ее в щупальце.</span>", "<span class='hear'>Слышу как что-то органическое разрывается!</span>")
+			loc.visible_message(span_warning("Рука <b>[loc.name]</b> начинает странно растягиваться!") , span_warning("Наша рука изгибается и мутирует, превращая ее в щупальце.") , span_hear("Слышу как что-то органическое разрывается!") )
 		else
-			to_chat(loc, "<span class='notice'>Мы готовимся вытянуть щупальце.</span>")
+			to_chat(loc, span_notice("Мы готовимся вытянуть щупальце.") )
 
 
 /obj/item/gun/magic/tentacle/shoot_with_empty_chamber(mob/living/user as mob|obj)
-	to_chat(user, "<span class='warning'>Щупальце ещё не готово.</span>")
+	to_chat(user, span_warning("Щупальце ещё не готово.") )
 
 /obj/item/gun/magic/tentacle/process_fire()
 	. = ..()
@@ -273,7 +273,7 @@
 		qdel(src)
 
 /obj/item/gun/magic/tentacle/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] coils [src] tightly around [user.ru_ego()] neck! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] coils [src] tightly around [user.ru_ego()] neck! It looks like [user.p_theyre()] trying to commit suicide!") )
 	return (OXYLOSS)
 
 
@@ -331,7 +331,7 @@
 	if(H.Adjacent(C))
 		for(var/obj/item/I in H.held_items)
 			if(I.get_sharpness())
-				C.visible_message("<span class='danger'><b>[H]</b> пронзает <b>[C]</b> своим [I.name]!</span>", "<span class='userdanger'><b>[H]</b> пронзает меня своим [I.name]!</span>")
+				C.visible_message(span_danger("<b>[H]</b> пронзает <b>[C]</b> своим [I.name]!") , span_userdanger("<b>[H]</b> пронзает меня своим [I.name]!") )
 				C.apply_damage(I.force, BRUTE, BODY_ZONE_CHEST)
 				H.do_item_attack_animation(C, used_item = I)
 				H.add_mob_blood(C)
@@ -345,7 +345,7 @@
 	if(isitem(target))
 		var/obj/item/I = target
 		if(!I.anchored)
-			to_chat(firer, "<span class='notice'>Притягиваю <b>[I]</b> к себе.</span>")
+			to_chat(firer, span_notice("Притягиваю <b>[I]</b> к себе.") )
 			H.throw_mode_on(THROW_MODE_TOGGLE)
 			I.throw_at(H, 10, 2)
 			. = BULLET_ACT_HIT
@@ -361,7 +361,7 @@
 					firer_intent = M.a_intent
 				switch(firer_intent)
 					if(INTENT_HELP)
-						C.visible_message("<span class='danger'><b>[L]</b> утягивается щупальцем <b>[H]</b>!</span>","<span class='userdanger'>Щупальце хватает меня и тянет к <b>[H]</b>!</span>")
+						C.visible_message(span_danger("<b>[L]</b> утягивается щупальцем <b>[H]</b>!") ,span_userdanger("Щупальце хватает меня и тянет к <b>[H]</b>!") )
 						C.throw_at(get_step_towards(H,C), 8, 2)
 						return BULLET_ACT_HIT
 
@@ -369,27 +369,27 @@
 						var/obj/item/I = C.get_active_held_item()
 						if(I)
 							if(C.dropItemToGround(I))
-								C.visible_message("<span class='danger'><b>[capitalize(I)]</b> выдёргивается из руки <b>[C]</b> щупальцем!</span>","<span class='userdanger'>Щупальце вырывает <b>[I]</b> из моей руки!</span>")
+								C.visible_message(span_danger("<b>[capitalize(I)]</b> выдёргивается из руки <b>[C]</b> щупальцем!") ,span_userdanger("Щупальце вырывает <b>[I]</b> из моей руки!") )
 								on_hit(I) //grab the item as if you had hit it directly with the tentacle
 								return BULLET_ACT_HIT
 							else
-								to_chat(firer, "<span class='warning'>У нас не вышло вырвать <b>[I]</b> из рук <b>[C]</b>!</span>")
+								to_chat(firer, span_warning("У нас не вышло вырвать <b>[I]</b> из рук <b>[C]</b>!") )
 								return BULLET_ACT_BLOCK
 						else
-							to_chat(firer, "<span class='danger'><b>[C]</b> ничего в руках и не держит!</span>")
+							to_chat(firer, span_danger("<b>[C]</b> ничего в руках и не держит!") )
 							return BULLET_ACT_HIT
 
 					if(INTENT_GRAB)
-						C.visible_message("<span class='danger'><b>[L]</b> утягивает щупальце <b>[H]</b>!</span>","<span class='userdanger'>Щупальце хватает меня и тянет к <b>[H]</b>!</span>")
+						C.visible_message(span_danger("<b>[L]</b> утягивает щупальце <b>[H]</b>!") ,span_userdanger("Щупальце хватает меня и тянет к <b>[H]</b>!") )
 						C.throw_at(get_step_towards(H,C), 8, 2, H, TRUE, TRUE, callback=CALLBACK(src, .proc/tentacle_grab, H, C))
 						return BULLET_ACT_HIT
 
 					if(INTENT_HARM)
-						C.visible_message("<span class='danger'><b>[L]</b> быстро улетает в сторону <b>[H]</b> под силой щупальца!</span>","<span class='userdanger'>Щупальце хватает меня и бросает к <b>[H]</b>!</span>")
+						C.visible_message(span_danger("<b>[L]</b> быстро улетает в сторону <b>[H]</b> под силой щупальца!") ,span_userdanger("Щупальце хватает меня и бросает к <b>[H]</b>!") )
 						C.throw_at(get_step_towards(H,C), 8, 2, H, TRUE, TRUE, callback=CALLBACK(src, .proc/tentacle_stab, H, C))
 						return BULLET_ACT_HIT
 			else
-				L.visible_message("<span class='danger'><b>[L]</b> утягивает щупальце <b>[H]</b>!</span>","<span class='userdanger'>Щупальце хватает меня и тянет к <b>[H]</b>!</span>")
+				L.visible_message(span_danger("<b>[L]</b> утягивает щупальце <b>[H]</b>!") ,span_userdanger("Щупальце хватает меня и тянет к <b>[H]</b>!") )
 				L.throw_at(get_step_towards(H,L), 8, 2)
 				. = BULLET_ACT_HIT
 
@@ -439,13 +439,13 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)
 	if(ismob(loc))
-		loc.visible_message("<span class='warning'>Конец руки [loc.name] быстро расширяется формируя щитообразное месиво!</span>", "<span class='warning'>Мы раздуваем нашу руку в сильный щит.</span>", "<span class='hear'>Слышу как что-то органическое разрывается!</span>")
+		loc.visible_message(span_warning("Конец руки [loc.name] быстро расширяется формируя щитообразное месиво!") , span_warning("Мы раздуваем нашу руку в сильный щит.") , span_hear("Слышу как что-то органическое разрывается!") )
 
 /obj/item/shield/changeling/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(remaining_uses < 1)
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
-			H.visible_message("<span class='warning'>С отвратительным хрустом, <b>[H]</b> превращает щит в руку!</span>", "<span class='notice'>Мы возвращаем щит обратно в наше тело.</span>", "<span class='italics>Слышу как что-то органическое разрывается!</span>")
+			H.visible_message(span_warning("С отвратительным хрустом, <b>[H]</b> превращает щит в руку!") , span_notice("Мы возвращаем щит обратно в наше тело.") , "<span class='italics>Слышу как что-то органическое разрывается!</span>")
 		qdel(src)
 		return 0
 	else
@@ -487,7 +487,7 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)
 	if(ismob(loc))
-		loc.visible_message("<span class='warning'>Плоть <b>[loc.name]</b> быстро надувается, образуя вздутую массу вокруг тела!</span>", "<span class='warning'>Мы раздуваем нашу плоть, создавая космический костюм!</span>", "<span class='hear'>Слышу как что-то органическое разрывается!</span>")
+		loc.visible_message(span_warning("Плоть <b>[loc.name]</b> быстро надувается, образуя вздутую массу вокруг тела!") , span_warning("Мы раздуваем нашу плоть, создавая космический костюм!") , span_hear("Слышу как что-то органическое разрывается!") )
 	START_PROCESSING(SSobj, src)
 
 // seal the cell door
@@ -546,7 +546,7 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)
 	if(ismob(loc))
-		loc.visible_message("<span class='warning'>Плоть <b>[loc.name]</b> становится черной, быстро превращаясь в твердую хитиновую массу!</span>", "<span class='warning'>Мы укрепляем нашу плоть, создавая доспехи!</span>", "<span class='hear'>Слышу как что-то органическое разрывается!</span>")
+		loc.visible_message(span_warning("Плоть <b>[loc.name]</b> становится черной, быстро превращаясь в твердую хитиновую массу!") , span_warning("Мы укрепляем нашу плоть, создавая доспехи!") , span_hear("Слышу как что-то органическое разрывается!") )
 
 /obj/item/clothing/head/helmet/changeling
 	name = "хитиновый шлем"

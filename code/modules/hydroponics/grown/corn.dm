@@ -42,7 +42,7 @@
 
 /obj/item/grown/corncob/attackby(obj/item/grown/W, mob/user, params)
 	if(W.get_sharpness())
-		to_chat(user, "<span class='notice'>Использую [W], чтобы сделать трубу из початка кукурузы!</span>")
+		to_chat(user, span_notice("Использую [W], чтобы сделать трубу из початка кукурузы!") )
 		new /obj/item/clothing/mask/cigarette/pipe/cobpipe (user.loc)
 		qdel(src)
 	else
@@ -77,7 +77,7 @@
 
 /obj/item/grown/snapcorn/attack_self(mob/user)
 	..()
-	to_chat(user, "<span class='notice'>Достаю хрустяшки из початка.</span>")
+	to_chat(user, span_notice("Достаю хрустяшки из початка.") )
 	var/obj/item/toy/snappop/S = new /obj/item/toy/snappop(user.loc)
 	if(ishuman(user))
 		user.put_in_hands(S)

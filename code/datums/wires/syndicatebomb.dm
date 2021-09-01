@@ -20,24 +20,24 @@
 	switch(wire)
 		if(WIRE_BOOM)
 			if(B.active)
-				holder.visible_message("<span class='danger'>[icon2html(B, viewers(holder))] Издаёт сигнал тревоги! Кажется сей-</span>")
+				holder.visible_message(span_danger("[icon2html(B, viewers(holder))] Издаёт сигнал тревоги! Кажется сей-") )
 				B.explode_now = TRUE
 				tell_admins(B)
 			else
-				holder.visible_message("<span class='notice'>[icon2html(B, viewers(holder))] Ничего не происходит.</span>")
+				holder.visible_message(span_notice("[icon2html(B, viewers(holder))] Ничего не происходит.") )
 		if(WIRE_UNBOLT)
-			holder.visible_message("<span class='notice'>[icon2html(B, viewers(holder))] Болты начинают крутиться.</span>")
+			holder.visible_message(span_notice("[icon2html(B, viewers(holder))] Болты начинают крутиться.") )
 		if(WIRE_DELAY)
 			if(B.delayedbig)
-				holder.visible_message("<span class='notice'>[icon2html(B, viewers(holder))] Ничего не происходит.</span>")
+				holder.visible_message(span_notice("[icon2html(B, viewers(holder))] Ничего не происходит.") )
 			else
-				holder.visible_message("<span class='notice'>[icon2html(B, viewers(holder))] Щебечет что-то.</span>")
+				holder.visible_message(span_notice("[icon2html(B, viewers(holder))] Щебечет что-то.") )
 				playsound(B, 'sound/machines/chime.ogg', 30, TRUE)
 				B.detonation_timer += 300
 				if(B.active)
 					B.delayedbig = TRUE
 		if(WIRE_PROCEED)
-			holder.visible_message("<span class='danger'>[icon2html(B, viewers(holder))] Зловеще гудит!</span>")
+			holder.visible_message(span_danger("[icon2html(B, viewers(holder))] Зловеще гудит!") )
 			playsound(B, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
 			var/seconds = B.seconds_remaining()
 			if(seconds >= 61) // Long fuse bombs can suddenly become more dangerous if you tinker with them.
@@ -48,13 +48,13 @@
 				B.detonation_timer = world.time + 100
 		if(WIRE_ACTIVATE)
 			if(!B.active)
-				holder.visible_message("<span class='danger'>[icon2html(B, viewers(holder))] Начинает тикать!</span>")
+				holder.visible_message(span_danger("[icon2html(B, viewers(holder))] Начинает тикать!") )
 				B.activate()
 				B.update_icon()
 			else if(B.delayedlittle)
-				holder.visible_message("<span class='notice'>[icon2html(B, viewers(holder))] Ничего не происходит.</span>")
+				holder.visible_message(span_notice("[icon2html(B, viewers(holder))] Ничего не происходит.") )
 			else
-				holder.visible_message("<span class='notice'>[icon2html(B, viewers(holder))] Кажется, колеблется на мгновение.</span>")
+				holder.visible_message(span_notice("[icon2html(B, viewers(holder))] Кажется, колеблется на мгновение.") )
 				B.detonation_timer += 100
 				B.delayedlittle = TRUE
 
@@ -63,22 +63,22 @@
 	switch(wire)
 		if(WIRE_BOOM)
 			if(!mend && B.active)
-				holder.visible_message("<span class='danger'>[icon2html(B, viewers(holder))] Издаёт сигнал тревоги! Кажется сей-</span>")
+				holder.visible_message(span_danger("[icon2html(B, viewers(holder))] Издаёт сигнал тревоги! Кажется сей-") )
 				B.explode_now = TRUE
 				tell_admins(B)
 		if(WIRE_UNBOLT)
 			if(!mend && B.anchored)
-				holder.visible_message("<span class='notice'>[icon2html(B, viewers(holder))] Болты начинают подниматься!</span>")
+				holder.visible_message(span_notice("[icon2html(B, viewers(holder))] Болты начинают подниматься!") )
 				playsound(B, 'sound/effects/stealthoff.ogg', 30, TRUE)
 				B.set_anchored(FALSE)
 		if(WIRE_PROCEED)
 			if(!mend && B.active)
-				holder.visible_message("<span class='danger'>[icon2html(B, viewers(holder))] Издаёт сигнал тревоги! Кажется сей-</span>")
+				holder.visible_message(span_danger("[icon2html(B, viewers(holder))] Издаёт сигнал тревоги! Кажется сей-") )
 				B.explode_now = TRUE
 				tell_admins(B)
 		if(WIRE_ACTIVATE)
 			if(!mend && B.active)
-				holder.visible_message("<span class='notice'>[icon2html(B, viewers(holder))] Таймер останавливается! Бомба обезврежена!</span>")
+				holder.visible_message(span_notice("[icon2html(B, viewers(holder))] Таймер останавливается! Бомба обезврежена!") )
 				B.active = FALSE
 				B.delayedlittle = FALSE
 				B.delayedbig = FALSE

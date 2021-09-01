@@ -139,9 +139,9 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	prefs.inquisitive_ghost = !prefs.inquisitive_ghost
 	prefs.save_preferences()
 	if(prefs.inquisitive_ghost)
-		to_chat(src, "<span class='notice'>Буду изучать все, на что нажимаю.</span>")
+		to_chat(src, span_notice("Буду изучать все, на что нажимаю.") )
 	else
-		to_chat(src, "<span class='notice'>Больше не будешь изучать то, на что нажимаю.</span>")
+		to_chat(src, span_notice("Больше не будешь изучать то, на что нажимаю.") )
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Ghost Inquisitiveness", "[prefs.inquisitive_ghost ? "Enabled" : "Disabled"]"))
 
 //Admin Preferences

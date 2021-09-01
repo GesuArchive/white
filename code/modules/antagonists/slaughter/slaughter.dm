@@ -54,17 +54,17 @@
 	if(!isliving(A))
 		return ..()
 	if(slam_cooldown + slam_cooldown_time > world.time)
-		to_chat(src, "<span class='warning'>Отбрасывающая атака всё еще восстанавливается!</span>")
+		to_chat(src, span_warning("Отбрасывающая атака всё еще восстанавливается!") )
 		return
 	if(istype(loc, /obj/effect/dummy/phased_mob))
-		to_chat(src, "<span class='warning'>Не могу бить, пока я нахожусь в крови!</span>")
+		to_chat(src, span_warning("Не могу бить, пока я нахожусь в крови!") )
 		return
 
 	face_atom(A)
 	var/mob/living/victim = A
 	victim.take_bodypart_damage(brute=20, wound_bonus=wound_bonus) // don't worry, there's more punishment when they hit something
-	visible_message("<span class='danger'>[capitalize(src.name)] отбрасывает [victim] с монструозной силой!</span>", "<span class='danger'>Отбрасываю [victim] с монструозной силой!</span>", ignored_mobs=victim)
-	to_chat(victim, "<span class='userdanger'>[capitalize(src.name)] отбрасывает меня с монструозной силой, как обычную тряпичную куклу!</span>")
+	visible_message(span_danger("[capitalize(src.name)] отбрасывает [victim] с монструозной силой!") , span_danger("Отбрасываю [victim] с монструозной силой!") , ignored_mobs=victim)
+	to_chat(victim, span_userdanger("[capitalize(src.name)] отбрасывает меня с монструозной силой, как обычную тряпичную куклу!") )
 	var/turf/yeet_target = get_edge_target_turf(victim, dir)
 	victim.throw_at(yeet_target, 10, 5, src)
 	slam_cooldown = world.time
@@ -110,16 +110,16 @@
 /obj/item/organ/heart/demon/attack(mob/M, mob/living/carbon/user, obj/target)
 	if(M != user)
 		return ..()
-	user.visible_message("<span class='warning'>[user] поднимает [src] к [user.ru_ego()] рту и вгрызается в него при помощи [user.ru_ego()] зубов!</span>", \
-		"<span class='danger'>Неестественный голод поглощает меня. Я поднимаю [src] к своему рту и пожираю!</span>")
+	user.visible_message(span_warning("[user] поднимает [src] к [user.ru_ego()] рту и вгрызается в него при помощи [user.ru_ego()] зубов!") , \
+		span_danger("Неестественный голод поглощает меня. Я поднимаю [src] к своему рту и пожираю!") )
 	playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
 	for(var/obj/effect/proc_holder/spell/knownspell in user.mind.spell_list)
 		if(knownspell.type == /obj/effect/proc_holder/spell/bloodcrawl)
-			to_chat(user, "<span class='warning'>...и не ощущаю никакой разницы.</span>")
+			to_chat(user, span_warning("...и не ощущаю никакой разницы.") )
 			qdel(src)
 			return
-	user.visible_message("<span class='warning'>Глаза [user] вспыхивают темно-красным!</span>", \
-		"<span class='userdanger'>Чувствую как странная сила растекается по моему телу... я поглотил способность демона путешествовать по крови!</span>")
+	user.visible_message(span_warning("Глаза [user] вспыхивают темно-красным!") , \
+		span_userdanger("Чувствую как странная сила растекается по моему телу... я поглотил способность демона путешествовать по крови!") )
 	user.temporarilyRemoveItemFromInventory(src, TRUE)
 	src.Insert(user) //Consuming the heart literally replaces your heart with a demon heart. H A R D C O R E
 
@@ -211,7 +211,7 @@
 		if(M.revive(full_heal = TRUE, admin_revive = TRUE))
 			M.grab_ghost(force = TRUE)
 			playsound(T, feast_sound, 50, TRUE, -1)
-			to_chat(M, "<span class='clown'>Оставляю [src] теплые объятия,	 и чувствую силу покорять мир.</span>")
+			to_chat(M, span_clown("Оставляю [src] теплые объятия,	 и чувствую силу покорять мир.") )
 
 /mob/living/simple_animal/hostile/imp/slaughter/laughter/bloodcrawl_swallow(mob/living/victim)
 	// Keep their corpse so rescue is possible
@@ -232,7 +232,7 @@
 	// Someone we've eaten has spontaneously revived; maybe nanites, maybe a changeling
 	victim.forceMove(get_turf(src))
 	victim.exit_blood_effect()
-	victim.visible_message("<span class='warning'>Покрытый кровью [victim] возникает из воздуха, с озадаченным выражением лица.</span>")
+	victim.visible_message(span_warning("Покрытый кровью [victim] возникает из воздуха, с озадаченным выражением лица.") )
 	consumed_mobs -= victim
 	UnregisterSignal(victim, COMSIG_MOB_STATCHANGE)
 

@@ -97,16 +97,16 @@
 			adjustHealth(-5)
 			if(src != M)
 				Beam(M, icon_state="sendbeam", time = 4)
-				M.visible_message("<span class='danger'>[M] repairs some of \the <b>[src]</b> dents.</span>", \
-						   "<span class='cult'>You repair some of <b>[src]</b> dents, leaving <b>[src]</b> at <b>[health]/[maxHealth]</b> health.</span>")
+				M.visible_message(span_danger("[M] repairs some of \the <b>[src]</b> dents.") , \
+						   span_cult("You repair some of <b>[src]</b> dents, leaving <b>[src]</b> at <b>[health]/[maxHealth]</b> health.") )
 			else
-				M.visible_message("<span class='danger'>[M] repairs some of [ru_ego()] own dents.</span>", \
-						   "<span class='cult'>You repair some of your own dents, leaving you at <b>[M.health]/[M.maxHealth]</b> health.</span>")
+				M.visible_message(span_danger("[M] repairs some of [ru_ego()] own dents.") , \
+						   span_cult("You repair some of your own dents, leaving you at <b>[M.health]/[M.maxHealth]</b> health.") )
 		else
 			if(src != M)
-				to_chat(M, "<span class='cult'>You cannot repair <b>[src]</b> dents, as [ru_who()] [p_have()] none!</span>")
+				to_chat(M, span_cult("You cannot repair <b>[src]</b> dents, as [ru_who()] [p_have()] none!") )
 			else
-				to_chat(M, "<span class='cult'>You cannot repair your own dents, as you have none!</span>")
+				to_chat(M, span_cult("You cannot repair your own dents, as you have none!") )
 	else if(src != M)
 		return ..()
 
@@ -161,8 +161,8 @@
 		var/reflectchance = 40 - round(P.damage/3)
 		if(prob(reflectchance))
 			apply_damage(P.damage * 0.5, P.damage_type)
-			visible_message("<span class='danger'>The [P.name] is reflected by [src] armored shell!</span>", \
-							"<span class='userdanger'>The [P.name] is reflected by your armored shell!</span>")
+			visible_message(span_danger("The [P.name] is reflected by [src] armored shell!") , \
+							span_userdanger("The [P.name] is reflected by your armored shell!") )
 
 			// Find a turf near or on the original location to bounce to
 			if(P.starting)
@@ -423,8 +423,8 @@
 			if(undismembermerable_limbs) //they have limbs we can't remove, and no parts we can, attack!
 				return ..()
 			C.Paralyze(60)
-			visible_message("<span class='danger'>[capitalize(src.name)] knocks [C] down!</span>")
-			to_chat(src, "<span class='cultlarge'>\"Bring [C.ru_na()] to me.\"</span>")
+			visible_message(span_danger("[capitalize(src.name)] knocks [C] down!") )
+			to_chat(src, span_cultlarge("\"Bring [C.ru_na()] to me.\"") )
 			return FALSE
 		do_attack_animation(C)
 		var/obj/item/bodypart/BP = pick(parts)

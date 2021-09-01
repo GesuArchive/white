@@ -106,7 +106,7 @@
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/rack(mob/user = null)
 	if (bolt_locked == FALSE)
-		to_chat(user, "<span class='notice'>Открываю затвор <b>[src.name]</b></span>")
+		to_chat(user, span_notice("Открываю затвор <b>[src.name]</b>") )
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
 		process_chamber(FALSE, FALSE, FALSE)
 		bolt_locked = TRUE

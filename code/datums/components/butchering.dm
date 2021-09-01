@@ -60,25 +60,25 @@
 
 /datum/component/butchering/proc/startNeckSlice(obj/item/source, mob/living/carbon/human/H, mob/living/user)
 	if(DOING_INTERACTION_WITH_TARGET(user, H))
-		to_chat(user, "<span class='warning'>Уже взаимодействую с [H]!</span>")
+		to_chat(user, span_warning("Уже взаимодействую с [H]!") )
 		return
 
-	user.visible_message("<span class='danger'>[user] начинает резать глотку [H]!</span>", \
-					"<span class='danger'>Начинаю резать глотку [H]!</span>", \
-					"<span class='hear'>Слышу звуки нарезки мяса!</span>", ignored_mobs = H)
-	H.show_message("<span class='userdanger'>[user] начинает перерезать мою глотку!</span>", MSG_VISUAL, \
+	user.visible_message(span_danger("[user] начинает резать глотку [H]!") , \
+					span_danger("Начинаю резать глотку [H]!") , \
+					span_hear("Слышу звуки нарезки мяса!") , ignored_mobs = H)
+	H.show_message(span_userdanger("[user] начинает перерезать мою глотку!") , MSG_VISUAL, \
 					"<span class = 'userdanger'>Что-то режет мою глотку!</span>", NONE)
 	log_combat(user, H, "starts slicing the throat of")
 
 	playsound(H.loc, butcher_sound, 50, TRUE, -1)
 	if(do_mob(user, H, clamp(500 / source.force, 30, 100)) && H.Adjacent(source))
 		if(H.has_status_effect(/datum/status_effect/neck_slice))
-			user.show_message("<span class='warning'>[H] уже имеет второй рот на шее, куда больше?!</span>", MSG_VISUAL, \
-							"<span class='warning'>Здесь уже есть второй рот на шее, куда больше?!</span>")
+			user.show_message(span_warning("[H] уже имеет второй рот на шее, куда больше?!") , MSG_VISUAL, \
+							span_warning("Здесь уже есть второй рот на шее, куда больше?!") )
 			return
 
-		H.visible_message("<span class='danger'>[user] режет глотку [H]!</span>", \
-					"<span class='userdanger'>[user] режет мою глотку...</span>")
+		H.visible_message(span_danger("[user] режет глотку [H]!") , \
+					span_userdanger("[user] режет мою глотку...") )
 		playsound(get_turf(H), 'sound/effects/wounds/crackandbleed.ogg', 40)
 		log_combat(user, H, "wounded via throat slitting", source)
 		H.apply_damage(source.force, BRUTE, BODY_ZONE_HEAD, wound_bonus=CANT_WOUND) // easy tiger, we'll get to that in a sec

@@ -237,17 +237,17 @@
 		if(alert)
 			switch(stability)
 				if(70 to 90)
-					message = "<span class='warning'>Дрожу.</span>"
+					message = span_warning("Дрожу.")
 				if(60 to 69)
-					message = "<span class='warning'>Мне холодно.</span>"
+					message = span_warning("Мне холодно.")
 				if(40 to 59)
-					message = "<span class='warning'>Мне плохо.</span>"
+					message = span_warning("Мне плохо.")
 				if(20 to 39)
-					message = "<span class='warning'>Моя кожа движется?</span>"
+					message = span_warning("Моя кожа движется?")
 				if(1 to 19)
-					message = "<span class='warning'>Чувствую как каждая моя клеточка горит.</span>"
+					message = span_warning("Чувствую как каждая моя клеточка горит.")
 				if(-INFINITY to 0)
-					message = "<span class='boldwarning'>Похоже моя ДНК сейчас взорвётся! Надо бы что-то предпринять поскорее.</span>"
+					message = span_boldwarning("Похоже моя ДНК сейчас взорвётся! Надо бы что-то предпринять поскорее.")
 		if(stability <= 0)
 			holder.apply_status_effect(STATUS_EFFECT_DNA_MELT)
 		if(message)
@@ -599,21 +599,21 @@
 			if(1)
 				gain_trauma(/datum/brain_trauma/severe/paralysis/paraplegic)
 				new/obj/vehicle/ridden/wheelchair(get_turf(src)) //don't buckle, because I can't imagine to plethora of things to go through that could otherwise break
-				to_chat(src, "<span class='warning'>Моя плоть превратилась в инвалидную коляску, и я не чувствую своих ног.</span>")
+				to_chat(src, span_warning("Моя плоть превратилась в инвалидную коляску, и я не чувствую своих ног.") )
 			if(2)
 				corgize()
 			if(3)
-				to_chat(src, "<span class='notice'>А мне неплохо!</span>")
+				to_chat(src, span_notice("А мне неплохо!") )
 			if(4)
-				to_chat(src, "<span class='notice'>Неплохо!</span>") //you thought
+				to_chat(src, span_notice("Неплохо!") ) //you thought
 				physiology.damage_resistance = -20000
 			if(5)
-				to_chat(src, "<span class='notice'>Отлично!</span>")
+				to_chat(src, span_notice("Отлично!") )
 				reagents.add_reagent(/datum/reagent/aslimetoxin, 10)
 			if(6)
 				apply_status_effect(STATUS_EFFECT_GO_AWAY)
 			if(7)
-				to_chat(src, "<span class='notice'>Зашибись!</span>")
+				to_chat(src, span_notice("Зашибись!") )
 				ForceContractDisease(new/datum/disease/decloning()) //slow acting, non-viral clone damage based GBS
 			if(8)
 				var/list/elligible_organs = list()
@@ -623,13 +623,13 @@
 				if(elligible_organs.len)
 					var/obj/item/organ/O = pick(elligible_organs)
 					O.Remove(src)
-					visible_message("<span class='danger'>[capitalize(src.name)] выблёвывает [O.name]!</span>", "<span class='danger'>Выблёвываю [O.name]</span>") //no "vomit up your the heart"
+					visible_message(span_danger("[capitalize(src.name)] выблёвывает [O.name]!") , span_danger("Выблёвываю [O.name]") ) //no "vomit up your the heart"
 					O.forceMove(drop_location())
 					if(prob(20))
 						O.animate_atom_living()
 			if(9 to 10)
 				ForceContractDisease(new/datum/disease/gastrolosis())
-				to_chat(src, "<span class='notice'>О, да!</span>")
+				to_chat(src, span_notice("О, да!") )
 	else
 		switch(rand(0,5))
 			if(0)
@@ -650,7 +650,7 @@
 				else
 					set_species(/datum/species/dullahan)
 			if(4)
-				visible_message("<span class='warning'>С [src] слезает кожа!</span>", "<span class='boldwarning'>Моя кожа слезает с меня!</span>")
+				visible_message(span_warning("С [src] слезает кожа!") , span_boldwarning("Моя кожа слезает с меня!") )
 				spawn_gibs()
 				set_species(/datum/species/skeleton)
 				if(prob(90))
@@ -658,7 +658,7 @@
 					if(mind)
 						mind.hasSoul = FALSE
 			if(5)
-				to_chat(src, "<span class='phobia'>ПОСМОТРИ НАВЕРХ!</span>")
+				to_chat(src, span_phobia("ПОСМОТРИ НАВЕРХ!") )
 				addtimer(CALLBACK(src, .proc/something_horrible_mindmelt), 30)
 
 
@@ -669,5 +669,5 @@
 			return
 		eyes.Remove(src)
 		qdel(eyes)
-		visible_message("<span class='notice'>У [src] тают глаза!</span>", "<span class>='userdanger'>Кажется я теперь понимаю что-то.</span>")
+		visible_message(span_notice("У [src] тают глаза!") , "<span class>='userdanger'>Кажется я теперь понимаю что-то.</span>")
 		addtimer(CALLBACK(src, .proc/adjustOrganLoss, ORGAN_SLOT_BRAIN, 200), 20)

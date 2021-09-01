@@ -57,7 +57,7 @@
 		icon_state = "daki_[body_choice]"
 		custom_name = stripped_input(user, "Как её зовут?")
 		if(length(custom_name) > MAX_NAME_LEN)
-			to_chat(user, "<span class='danger'>Имя слишком длинное!</span>")
+			to_chat(user, span_danger("Имя слишком длинное!") )
 			return FALSE
 		if(custom_name)
 			name = custom_name + " " + name
@@ -66,16 +66,16 @@
 		if(!spam_flag)
 			spam_flag = 1
 			if(user.a_intent == "help")
-				user.visible_message("<span class='notice'><b>[user]</b> обнимает <b>дакимакуру [custom_name]</b>.</span>")
+				user.visible_message(span_notice("<b>[user]</b> обнимает <b>дакимакуру [custom_name]</b>.") )
 				playsound(src.loc, "rustle", 50, 1, -5)
 			if(user.a_intent == "disarm")
-				user.visible_message("<span class='notice'><b>[user]</b>] целует <b>дакимакуру [custom_name]</b>.</span>")
+				user.visible_message(span_notice("<b>[user]</b>] целует <b>дакимакуру [custom_name]</b>.") )
 				playsound(src.loc, "rustle", 50, 1, -5)
 			if(user.a_intent == "grab")
-				user.visible_message("<span class='warning'><b>[user]</b> вдерживает в <b>дакимакуру [custom_name]</b>!</span>")
+				user.visible_message(span_warning("<b>[user]</b> вдерживает в <b>дакимакуру [custom_name]</b>!") )
 				playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 			if(user.a_intent == "harm")
-				user.visible_message("<span class='danger'><b>[user]</b> бьёт <b>дакимакуру [custom_name]</b>!</span>")
+				user.visible_message(span_danger("<b>[user]</b> бьёт <b>дакимакуру [custom_name]</b>!") )
 				playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 			spawn(cooldowntime)
 				spam_flag = 0
@@ -87,8 +87,8 @@
 	desc = "Аниме пожрало последние твои накопления и материализовалось в бесполезную подушку."
 	value = 0
 	mob_trait = "weeb"
-	gain_text = "<span class='notice'>Взял с собой дакимакуру. Сберечь её бы надо.</span>"
-	lose_text = "<span class='danger'>Вайфу не актуальны. Так википедия сказал.</span>"
+	gain_text = span_notice("Взял с собой дакимакуру. Сберечь её бы надо.")
+	lose_text = span_danger("Вайфу не актуальны. Так википедия сказал.")
 	medical_record_text = "Пациент испытывает тягу к анимешным персонажам."
 
 /datum/quirk/weeb/on_spawn()

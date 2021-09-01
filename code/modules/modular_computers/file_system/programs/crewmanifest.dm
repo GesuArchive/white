@@ -45,7 +45,7 @@
 								[GLOB.data_core ? GLOB.data_core.get_manifest_html(0) : ""]
 								"}
 				if(!printer.print_text(contents,text("crew manifest ([])", station_time_timestamp())))
-					to_chat(usr, "<span class='notice'>Аппаратная ошибка: принтеру не удалось распечатать файл. Возможно, закончилась бумага.</span>")
+					to_chat(usr, span_notice("Аппаратная ошибка: принтеру не удалось распечатать файл. Возможно, закончилась бумага.") )
 					return
 				else
-					computer.visible_message("<span class='notice'>[computer] распечатывает бумагу.</span>")
+					computer.visible_message(span_notice("[computer] распечатывает бумагу.") )

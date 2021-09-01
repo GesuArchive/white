@@ -823,7 +823,7 @@
 
 /obj/effect/step_trigger/r3b0lut10n/Trigger(mob/M)
 	if(M.client)
-		to_chat(M, "<span class='info'>[message]</span>")
+		to_chat(M, span_info("[message]") )
 		qdel(src)
 
 /obj/effect/step_trigger/r3b0lut10n/deathtrap
@@ -845,7 +845,7 @@
 				if(!L?.client)
 					continue
 				to_chat(L, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-				to_chat(L, "<span class='info'>[message]</span>")
+				to_chat(L, span_info("[message]") )
 				for(var/area/awaymission/rospilovo/deathtrap/A in world)
 					A.fuckplayer()
 					for(var/turf/X in A)
@@ -860,12 +860,12 @@
 	area_flags = NOTELEPORT
 	has_gravity = TRUE
 	mood_bonus = -25
-	mood_message = "<span class='red'>Тут не очень приятно!\n</span>"
+	mood_message = span_red("Тут не очень приятно!\n")
 
 /area/awaymission/rospilovo/deathtrap
 	icon_state = "awaycontent5"
 	mood_bonus = -250000
-	mood_message = "<span class='nicegreen'>Ӧ̶̖̦̹́Ш̶͓̆́͋И̵̺̫͍̇̐̐Б̵̭̭̱͑К̵̪̣͋́͠А̵͔̃̇ ̴̧̳̊͆О̷̢̟̼͊Ш̴̞́И̷͎̩̮̅͋̿Б̷͉͊̆К̴̮̄А̸̪̰̺̕ ̸͙͓̈́̈̊О̷̝̭̣̀̾͊Ш̸̛͖И̶̫̬̬̾Б̷̮͔͋͛̐К̴̺͓͎̋А̶͓͑̓̚ ̸̙̼̗͊̽С̷̤̈В̷͇̤̏̕Я̵̪̥̀͑Ж̷͙͌̓̚Ӥ̷̲͕̖́Т̶̘̳̠͂Е̶̢͚̺̓С̵͖͓̳͛͗̿Ь̶̳̀̈́ ̸̘̹͙̉͑̌С̴͎́ ̴̛̪̇Р̶̛̹͉̄̈͜А̶͖̑͠З̴̹͕̏͠Р̵̙̪̌̀͜А̶̮̉̔̂Б̴̱͝ͅО̶̧͐͂̑Т̶̬͚̉͠Ч̵̮̥͊͂И̷̢͊̂̚К̵̩͓̟̌͆̚О̵͖͘М̴̹͚͚͌̈́ ̵̡̰̫̋О̵͎͙́͘Ш̷̢͆̓̂Ӥ̶͉̖̙́Б̴͎̄́̍К̴̰͋̒Ӓ̵̞́ ̷̪̊О̸̟͒̉Ш̸̲͕͒̿͊И̷̨̫̖́̊Б̷̗͈̱̅̍̓К̶̼̞̈́́А̴̩̑ ̸͙͈̽̋̅О̴̙͊͝Ш̵̯̒̍́Ӥ̴͓͚͕́Б̴̯̉К̵̢̩̐͛́А̶̖͕̙̓̑</span>"
+	mood_message = span_nicegreen("Ӧ̶̖̦̹́Ш̶͓̆́͋И̵̺̫͍̇̐̐Б̵̭̭̱͑К̵̪̣͋́͠А̵͔̃̇ ̴̧̳̊͆О̷̢̟̼͊Ш̴̞́И̷͎̩̮̅͋̿Б̷͉͊̆К̴̮̄А̸̪̰̺̕ ̸͙͓̈́̈̊О̷̝̭̣̀̾͊Ш̸̛͖И̶̫̬̬̾Б̷̮͔͋͛̐К̴̺͓͎̋А̶͓͑̓̚ ̸̙̼̗͊̽С̷̤̈В̷͇̤̏̕Я̵̪̥̀͑Ж̷͙͌̓̚Ӥ̷̲͕̖́Т̶̘̳̠͂Е̶̢͚̺̓С̵͖͓̳͛͗̿Ь̶̳̀̈́ ̸̘̹͙̉͑̌С̴͎́ ̴̛̪̇Р̶̛̹͉̄̈͜А̶͖̑͠З̴̹͕̏͠Р̵̙̪̌̀͜А̶̮̉̔̂Б̴̱͝ͅО̶̧͐͂̑Т̶̬͚̉͠Ч̵̮̥͊͂И̷̢͊̂̚К̵̩͓̟̌͆̚О̵͖͘М̴̹͚͚͌̈́ ̵̡̰̫̋О̵͎͙́͘Ш̷̢͆̓̂Ӥ̶͉̖̙́Б̴͎̄́̍К̴̰͋̒Ӓ̵̞́ ̷̪̊О̸̟͒̉Ш̸̲͕͒̿͊И̷̨̫̖́̊Б̷̗͈̱̅̍̓К̶̼̞̈́́А̴̩̑ ̸͙͈̽̋̅О̴̙͊͝Ш̵̯̒̍́Ӥ̴͓͚͕́Б̴̯̉К̵̢̩̐͛́А̶̖͕̙̓̑")
 	var/fucked_shit = FALSE
 
 /area/awaymission/rospilovo/deathtrap/proc/fuckplayer()
@@ -907,13 +907,13 @@
 						CHECK_TICK
 					for(var/mob/living/M in A)
 						if(M.client)
-							to_chat(M, "<span class='boldwarning'>0x1 -!- АВАРИЙНАЯ ОСТАНОВКА -!- </span>")
-							to_chat(M, "<span class='boldwarning'>0x2 -- ДАМП СИСТЕМНОЙ ПАМЯТИ -- </span>")
-							to_chat(M, "<span class='boldwarning'>0x3 -!- АВАРИЙНАЯ ОСТАНОВКА -!- </span>")
-							to_chat(M, "<span class='boldwarning'>0x4 -?- ПРОНИКНОВЕНИЕ В \[0xD*AD*0*3\] -?- </span>")
-							to_chat(M, "<span class='boldwarning'>0x5 -!- АВАРИЙНАЯ ОСТАНОВКА -!- </span>")
-							to_chat(M, "<span class='boldwarning'>0x6 -- ПЕРЕПОДКЛЮЧИТЕСЬ К ИНТЕРФЕЙСУ -- </span>")
-							to_chat(M, "<span class='boldwarning'>0x7 -!- АВАРИЙНАЯ ОСТАНОВКА -!- </span>")
+							to_chat(M, span_boldwarning("0x1 -!- АВАРИЙНАЯ ОСТАНОВКА -!- ") )
+							to_chat(M, span_boldwarning("0x2 -- ДАМП СИСТЕМНОЙ ПАМЯТИ -- ") )
+							to_chat(M, span_boldwarning("0x3 -!- АВАРИЙНАЯ ОСТАНОВКА -!- ") )
+							to_chat(M, span_boldwarning("0x4 -?- ПРОНИКНОВЕНИЕ В \[0xD*AD*0*3\] -?- ") )
+							to_chat(M, span_boldwarning("0x5 -!- АВАРИЙНАЯ ОСТАНОВКА -!- ") )
+							to_chat(M, span_boldwarning("0x6 -- ПЕРЕПОДКЛЮЧИТЕСЬ К ИНТЕРФЕЙСУ -- ") )
+							to_chat(M, span_boldwarning("0x7 -!- АВАРИЙНАЯ ОСТАНОВКА -!- ") )
 							to_chat(M, "\n\n\n\n\n\n\n")
 							spawn(5)
 								winset(M.client, null, "command=.reconnect")

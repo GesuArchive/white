@@ -54,7 +54,7 @@ RSF
 /obj/item/rsf/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += "<span class='notice'>It currently holds [matter]/[max_matter] [discriptor].</span>"
+	. += span_notice("It currently holds [matter]/[max_matter] [discriptor].")
 
 /obj/item/rsf/cyborg
 	matter = 30
@@ -63,12 +63,12 @@ RSF
 	if(is_type_in_list(W,matter_by_item))//If the thing we got hit by is in our matter list
 		var/tempMatter = matter_by_item[W.type] + matter
 		if(tempMatter > max_matter)
-			to_chat(user, "<span class='warning'><b>[src.name]</b> can't hold any more [discriptor]!</span>")
+			to_chat(user, span_warning("<b>[src.name]</b> can't hold any more [discriptor]!") )
 			return
 		qdel(W)
 		matter = tempMatter //We add its value
 		playsound(src.loc, 'sound/machines/click.ogg', 10, TRUE)
-		to_chat(user, "<span class='notice'><b>[src.name]</b> now holds [matter]/[max_matter] [discriptor].</span>")
+		to_chat(user, span_notice("<b>[src.name]</b> now holds [matter]/[max_matter] [discriptor].") )
 		icon_state = initial(icon_state)//and set the icon state to the initial value it had
 	else
 		return ..()
@@ -117,7 +117,7 @@ RSF
 	if(use_matter(dispense_cost, user))//If we can charge that amount of charge, we do so and return true
 		playsound(loc, 'sound/machines/click.ogg', 10, TRUE)
 		var/atom/meme = new to_dispense(get_turf(A))
-		to_chat(user, "<span class='notice'>[action_type] [meme.name]...</span>")
+		to_chat(user, span_notice("[action_type] [meme.name]...") )
 
 ///A helper proc. checks to see if we can afford the amount of charge that is passed, and if we can docs the charge from our base, and returns TRUE. If we can't we return FALSE
 /obj/item/rsf/proc/use_matter(charge, mob/user)
@@ -125,18 +125,18 @@ RSF
 		var/mob/living/silicon/robot/R = user
 		var/end_charge = R.cell.charge - charge
 		if(end_charge < 0)
-			to_chat(user, "<span class='warning'>You do not have enough power to use [src].</span>")
+			to_chat(user, span_warning("You do not have enough power to use [src].") )
 			icon_state = spent_icon_state
 			return FALSE
 		R.cell.charge = end_charge
 		return TRUE
 	else
 		if(matter - 1 < 0)
-			to_chat(user, "<span class='warning'><b>[src.name]</b> doesn't have enough [discriptor] left.</span>")
+			to_chat(user, span_warning("<b>[src.name]</b> doesn't have enough [discriptor] left.") )
 			icon_state = spent_icon_state
 			return FALSE
 		matter--
-		to_chat(user, "<span class='notice'><b>[src.name]</b> now holds [matter]/[max_matter] [discriptor].</span>")
+		to_chat(user, span_notice("<b>[src.name]</b> now holds [matter]/[max_matter] [discriptor].") )
 		return TRUE
 
 ///Helper proc that iterates through all the things we are allowed to spawn on, and sees if the passed atom is one of them
@@ -177,9 +177,9 @@ RSF
 /obj/item/rsf/cookiesynth/emag_act(mob/user)
 	obj_flags ^= EMAGGED
 	if(obj_flags & EMAGGED)
-		to_chat(user, "<span class='warning'>You short out [src] reagent safety checker!</span>")
+		to_chat(user, span_warning("You short out [src] reagent safety checker!") )
 	else
-		to_chat(user, "<span class='warning'>You reset [src] reagent safety checker!</span>")
+		to_chat(user, span_warning("You reset [src] reagent safety checker!") )
 
 /obj/item/rsf/cookiesynth/attack_self(mob/user)
 	var/mob/living/silicon/robot/P = null
@@ -188,11 +188,11 @@ RSF
 	if(((obj_flags & EMAGGED) || (P?.emagged)) && !toxin)
 		toxin = TRUE
 		to_dispense = /obj/item/food/cookie/sleepy
-		to_chat(user, "<span class='alert'>Cookie Synthesizer hacked.</span>")
+		to_chat(user, span_alert("Cookie Synthesizer hacked.") )
 	else
 		toxin = FALSE
 		to_dispense = /obj/item/food/cookie
-		to_chat(user, "<span class='notice'>Cookie Synthesizer reset.</span>")
+		to_chat(user, span_notice("Cookie Synthesizer reset.") )
 
 /obj/item/rsf/cookiesynth/process(delta_time)
 	matter = min(matter += delta_time, max_matter) //We add 1 up to a point

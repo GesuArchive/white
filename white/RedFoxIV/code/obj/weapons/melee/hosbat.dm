@@ -21,11 +21,11 @@
 	worn_icon_state = "katana" //временное решение, пока я не найду в себе силы заспрайтить в себе ещё 9 бит блять
 	var/reskinned = FALSE
 	///adminbus
-	var/debug_morph = FALSE 
+	var/debug_morph = FALSE
 	///whether it can be selected.
-	var/selectable = TRUE 
+	var/selectable = TRUE
 	///the only ckey who is allowed to choose this skin. null for unrestricted access.
-	var/list/allowed_ckey = null 
+	var/list/allowed_ckey = null
 	///if not null, the item will be replaced with path stored in this variable.
 	var/replace_with = null
 	custom_materials = list(/datum/material/iron = MINERAL_MATERIAL_AMOUNT * 3.5)
@@ -50,7 +50,7 @@
 	var/list/bat_icons = list()
 
 	var/list/available_items = typesof(/obj/item/melee/baseball_bat/hos)
-	//if you want to add an item to the selection that is not subtype of /obj/item/melee/baseball_bat/hos, add it here 
+	//if you want to add an item to the selection that is not subtype of /obj/item/melee/baseball_bat/hos, add it here
 	var/list/additional_items = list(/obj/item/item_generator/brick)
 	//////////////////////////////////////////////////////////////////
 	for(var/bat in available_items)
@@ -63,7 +63,7 @@
 				continue
 		display_names[initial(bat_type.name)] = bat_type
 		bat_icons += list(initial(bat_type.name) = image(icon = initial(bat_type.icon), icon_state = initial(bat_type.icon_state)))
-	
+
 	for(var/item_type in additional_items)
 		var/obj/item/item = item_type
 		display_names[initial(item.name)] = item
@@ -149,7 +149,7 @@
 	. = ..()
 	. += "overlay_bluespace"
 
-/obj/item/melee/brick 
+/obj/item/melee/brick
 	name = "кирпич"
 	desc = "Необычайно тяжёлый кирпич. Удобно сидит в вашей руке."
 	icon = 'white/RedFoxIV/icons/obj/weapons/melee/hosbat/hosbat.dmi'
@@ -163,7 +163,7 @@
 	if(isliving(loc) && prob(75)) //i have no fucking idea if this works lmfao
 		return
 	if(!istype(hit_atom,/mob/living))
-		src.visible_message(message = "<span class='alert'>The brick shatters into a fine mist upon impact, like it never existed to begin with...</span>")
+		src.visible_message(message = span_alert("The brick shatters into a fine mist upon impact, like it never existed to begin with...") )
 		qdel(src)
 		return
 
@@ -176,7 +176,7 @@
 		if(!head)
 			qdel(src)
 			return
-		L.visible_message("<span class='danger'>Голова [L] распидорашивается кирпичом нахуй!</span>", "<span class='userdanger'>Кирпич уничтожает мою голову!</span>")
+		L.visible_message(span_danger("Голова [L] распидорашивается кирпичом нахуй!") , span_userdanger("Кирпич уничтожает мою голову!") )
 		L.emote("blyadiada")
 		new /obj/effect/gibspawner/generic(get_turf(L), L)
 		head.dismember(BRUTE)

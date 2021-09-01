@@ -110,5 +110,5 @@ SUBSYSTEM_DEF(eigenstates)
 
 ///Prevents tool use on the item
 /datum/controller/subsystem/eigenstates/proc/tool_interact(atom/source, mob/user, obj/item/item)
-	to_chat(user, "<span class='notice'>Особые природные свойства [source] не позволяют использовать [item] на [source.p_them()]!</span>")
+	to_chat(user, span_notice("Особые природные свойства [source] не позволяют использовать [item] на [source.p_them()]!") )
 	return COMPONENT_BLOCK_TOOL_ATTACK

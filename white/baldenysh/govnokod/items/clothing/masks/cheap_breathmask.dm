@@ -33,7 +33,7 @@
 		update_clothes_damaged_state(FALSE)
 		obj_integrity = max_integrity
 		playsound(user, 'white/valtos/sounds/ducttape1.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>Чиню повреждения [src] используя [T].</span>")
+		to_chat(user, span_notice("Чиню повреждения [src] используя [T].") )
 		clothing_flags = initial(clothing_flags)
 		visor_flags = initial(visor_flags)
 		desc = initial(desc)
@@ -58,7 +58,7 @@
 		visor_flags = 0
 		if(iscarbon(loc))
 			var/mob/living/carbon/C = loc
-			C.visible_message("<span class='warning'>[capitalize(src.name)] [C] трескается!</span>", "<span class='danger'>[capitalize(src.name)] трескается!</span>")
+			C.visible_message(span_warning("[capitalize(src.name)] [C] трескается!") , span_danger("[capitalize(src.name)] трескается!") )
 			desc += " Поверхность покрыта множеством трещин."
 
 

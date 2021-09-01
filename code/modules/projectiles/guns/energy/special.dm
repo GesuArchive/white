@@ -155,11 +155,11 @@
 		charge_multiplier = 1
 	if(charge_multiplier)
 		if(cell.charge == cell.maxcharge)
-			to_chat(user, "<span class='notice'>Пытаюсь вставить [I] в [src.name], но он полностью заряжен.</span>") //my cell is round and full
+			to_chat(user, span_notice("Пытаюсь вставить [I] в [src.name], но он полностью заряжен.") ) //my cell is round and full
 			return
 		I.use(1)
 		cell.give(500*charge_multiplier)
-		to_chat(user, "<span class='notice'>Вставляю [I] в [src.name], перезаряжая его.</span>")
+		to_chat(user, span_notice("Вставляю [I] в [src.name], перезаряжая его.") )
 	else
 		..()
 
@@ -167,13 +167,13 @@
 // Amount cannot be defaulted to 1: most of the code specifies 0 in the call.
 /obj/item/gun/energy/plasmacutter/tool_use_check(mob/living/user, amount)
 	if(QDELETED(cell))
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] не имеет батарейки и не может быть использован!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] не имеет батарейки и не может быть использован!") )
 		return FALSE
 	// Amount cannot be used if drain is made continuous, e.g. amount = 5, charge_weld = 25
 	// Then it'll drain 125 at first and 25 periodically, but fail if charge dips below 125 even though it still can finish action
 	// Alternately it'll need to drain amount*charge_weld every period, which is either obscene or makes it free for other uses
 	if(amount ? cell.charge < charge_weld * amount : cell.charge < charge_weld)
-		to_chat(user, "<span class='warning'>Требуется чуточку больше заряда!</span>")
+		to_chat(user, span_warning("Требуется чуточку больше заряда!") )
 		return FALSE
 
 	return TRUE
@@ -208,7 +208,7 @@
 
 /obj/item/gun/energy/wormhole_projector/attackby(obj/item/C, mob/user)
 	if(istype(C, /obj/item/assembly/signaler/anomaly/bluespace))
-		to_chat(user, "<span class='notice'>Вставляю [C] в проектор червоточин и оружие нежно оживает.</span>")
+		to_chat(user, span_notice("Вставляю [C] в проектор червоточин и оружие нежно оживает.") )
 		firing_core = TRUE
 		playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 		qdel(C)
@@ -221,7 +221,7 @@
 
 /obj/item/gun/energy/wormhole_projector/shoot_with_empty_chamber(mob/living/user)
 	. = ..()
-	to_chat(user, "<span class='danger'>Дисплей сообщает, 'НЕ УСТАНОВЛЕНО ЯДРО'.</span>")
+	to_chat(user, span_danger("Дисплей сообщает, 'НЕ УСТАНОВЛЕНО ЯДРО'.") )
 
 /obj/item/gun/energy/wormhole_projector/update_icon_state()
 	icon_state = inhand_icon_state = "[initial(icon_state)][select]"
@@ -368,7 +368,7 @@
 
 /obj/item/gun/energy/gravity_gun/attackby(obj/item/C, mob/user)
 	if(istype(C, /obj/item/assembly/signaler/anomaly/grav))
-		to_chat(user, "<span class='notice'>Нежно вставляю [C] в гравитационный манипулятор и оружие нежно оживает.</span>")
+		to_chat(user, span_notice("Нежно вставляю [C] в гравитационный манипулятор и оружие нежно оживает.") )
 		firing_core = TRUE
 		playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 		qdel(C)

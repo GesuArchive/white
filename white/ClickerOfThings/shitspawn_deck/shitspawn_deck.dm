@@ -22,7 +22,7 @@
 /obj/item/toy/cards/deck/shitspawn_deck/attack_hand(mob/user)
 	var/choice = null
 	if(cards.len == 0)
-		to_chat(user, "<span class='warning'>There are no more cards to draw!</span>")
+		to_chat(user, span_warning("There are no more cards to draw!") )
 		return
 	var/obj/item/toy/cards/singlecard/H = new/obj/item/toy/cards/singlecard(user.loc)
 	if(holo)
@@ -36,7 +36,7 @@
 	H.pickup(user)
 	user.put_in_hands(H)
 	playsound(src, 'white/ClickerOfThings/shitspawn_deck/pullcard.ogg', 50, 1)
-	user.visible_message("[user] draws a card from the deck. Karta razlozhena v drugom poryadke, blyat!", "<span class='notice'>You draw a card from the deck. Karta razlozhena v drugom poryadke, blyat!</span>")
+	user.visible_message("[user] draws a card from the deck. Karta razlozhena v drugom poryadke, blyat!", span_notice("You draw a card from the deck. Karta razlozhena v drugom poryadke, blyat!") )
 	update_icon()
 
 
@@ -45,7 +45,7 @@
 		cards = shuffle(cards)
 		playsound(src, 'sound/items/cardshuffle.ogg', 50, 1)
 		playsound(src, 'white/ClickerOfThings/shitspawn_deck/cardshuffle2.ogg', 50, 1)
-		user.visible_message("[user] shuffles the deck. Karti razlozheni v drugom poryadke, blyat!", "<span class='notice'>You shuffle the deck. Karti razlozheni v drugom poryadke, blyat!</span>")
+		user.visible_message("[user] shuffles the deck. Karti razlozheni v drugom poryadke, blyat!", span_notice("You shuffle the deck. Karti razlozheni v drugom poryadke, blyat!") )
 		cooldown = world.time
 
 
@@ -54,30 +54,30 @@
 		var/obj/item/toy/cards/singlecard/SC = I
 		if(SC.parentdeck == src)
 			if(!user.temporarilyRemoveItemFromInventory(SC))
-				to_chat(user, "<span class='warning'>The card is stuck to your hand, you can't add it to the deck!</span>")
+				to_chat(user, span_warning("The card is stuck to your hand, you can't add it to the deck!") )
 				return
 			cards += SC.cardname
 			playsound(src, 'white/ClickerOfThings/shitspawn_deck/diler_est.ogg', 50, 1)
-			user.visible_message("[user] adds a card to the bottom of the deck. Karta razlozhena v nuzhnom poryadke.","<span class='notice'>You add the card to the bottom of the deck. Karta razlozhena v nuzhnom poryadke.</span>")
+			user.visible_message("[user] adds a card to the bottom of the deck. Karta razlozhena v nuzhnom poryadke.",span_notice("You add the card to the bottom of the deck. Karta razlozhena v nuzhnom poryadke.") )
 			cooldown = world.time
 			qdel(SC)
 		else
 			playsound(src, 'white/ClickerOfThings/shitspawn_deck/durak.ogg', 50, 1)
-			to_chat(user, "<span class='warning'>You can't mix cards from other decks! Ti che durak blyat?!</span>")
+			to_chat(user, span_warning("You can't mix cards from other decks! Ti che durak blyat?!") )
 		update_icon()
 	else if(istype(I, /obj/item/toy/cards/cardhand))
 		var/obj/item/toy/cards/cardhand/CH = I
 		if(CH.parentdeck == src)
 			if(!user.temporarilyRemoveItemFromInventory(CH))
-				to_chat(user, "<span class='warning'>The hand of cards is stuck to your hand, you can't add it to the deck!</span>")
+				to_chat(user, span_warning("The hand of cards is stuck to your hand, you can't add it to the deck!") )
 				return
 			cards += CH.currenthand
 			playsound(src, 'white/ClickerOfThings/shitspawn_deck/diler_est.ogg', 50, 1)
-			user.visible_message("[user] puts [user.ru_ego()] hand of cards in the deck. Ti to che delaesh?!", "<span class='notice'>You put the hand of cards in the deck. Ti to che delaesh?!</span>")
+			user.visible_message("[user] puts [user.ru_ego()] hand of cards in the deck. Ti to che delaesh?!", span_notice("You put the hand of cards in the deck. Ti to che delaesh?!") )
 			qdel(CH)
 		else
 			playsound(src, 'white/ClickerOfThings/shitspawn_deck/durak.ogg', 50, 1)
-			to_chat(user, "<span class='warning'>You can't mix cards from other decks! Ti che durak blyat?!</span>")
+			to_chat(user, span_warning("You can't mix cards from other decks! Ti che durak blyat?!") )
 		update_icon()
 	else if(istype(I, /obj/item/jobanyj_rot))
 		var/obj/item/jobanyj_rot = I

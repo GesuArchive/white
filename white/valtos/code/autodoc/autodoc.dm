@@ -286,10 +286,10 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 
 /obj/machinery/autodoc/emag_act(mob/user)
 	if(caesar)
-		to_chat(user, "<span class='notice'>Бедный <b>[src]</b> уже взломан!</span>")
+		to_chat(user, span_notice("Бедный <b>[src]</b> уже взломан!") )
 		return
 	log_combat(user, src, "emagged")
-	to_chat(user, "<span class='notice'>Нещадно провожу криптокаркой по <b>[src]</b>, заставляя его сойти с ума.</span>")
+	to_chat(user, span_notice("Нещадно провожу криптокаркой по <b>[src]</b>, заставляя его сойти с ума.") )
 	add_fingerprint(user)
 	caesar = TRUE
 
@@ -308,13 +308,13 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 
 /obj/machinery/autodoc/proc/toggle_open(mob/user)
 	if(panel_open)
-		to_chat(user, "<span class='notice'>Надо бы панель закрыть.</span>")
+		to_chat(user, span_notice("Надо бы панель закрыть.") )
 		return
 	if(state_open)
 		close_machine(null, user)
 		return
 	else if(in_use)
-		to_chat(user, "<span class='notice'>Не открыть. Похоже надо подождать.</span>")
+		to_chat(user, span_notice("Не открыть. Похоже надо подождать.") )
 		return
 	open_machine()
 
@@ -331,7 +331,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	if(user.stat || in_use)
 		if(message_cooldown <= world.time)
 			message_cooldown = world.time + 50
-			to_chat(user, "<span class='warning'>Дверца <b>[src]</b> застряла!</span>")
+			to_chat(user, span_warning("Дверца <b>[src]</b> застряла!") )
 		return
 	open_machine()
 
@@ -401,7 +401,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 		var/obj/item/bodypart/target_limb = surgery.operated_bodypart
 		target_limb.drop_limb()
 		target_limb.forceMove(get_turf(autodoc))
-		autodoc.visible_message("<span class='notice'><b>[autodoc]</b> выплёвывает <b>[target_limb]</b>!</span>")
+		autodoc.visible_message(span_notice("<b>[autodoc]</b> выплёвывает <b>[target_limb]</b>!") )
 	return TRUE
 
 /datum/surgery_step/heal/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
@@ -446,7 +446,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	newmeat.subjectjob = H.job
 	newmeat.reagents.add_reagent (/datum/reagent/consumable/nutriment, (removednutriment / 15)) //To balance with nutriment_factor of nutriment
 	newmeat.forceMove(get_turf(autodoc))
-	autodoc.visible_message("<span class='notice'><b>[autodoc]</b> выплёвывает <b>[newmeat]</b>!</span>")
+	autodoc.visible_message(span_notice("<b>[autodoc]</b> выплёвывает <b>[newmeat]</b>!") )
 	return TRUE
 
 /datum/surgery_step/fix_eyes/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)

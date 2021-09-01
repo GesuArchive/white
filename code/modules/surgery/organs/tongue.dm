@@ -115,19 +115,19 @@
 /datum/action/item_action/organ_action/statue/Trigger()
 	. = ..()
 	if(!iscarbon(owner))
-		to_chat(owner, "<span class='warning'>Your body rejects the powers of the tongue!</span>")
+		to_chat(owner, span_warning("Your body rejects the powers of the tongue!") )
 		return
 	var/mob/living/carbon/becoming_statue = owner
 	if(becoming_statue.health < 1)
-		to_chat(becoming_statue, "<span class='danger'>You are too weak to become a statue!</span>")
+		to_chat(becoming_statue, span_danger("You are too weak to become a statue!") )
 		return
 	if(!COOLDOWN_FINISHED(src, ability_cooldown))
-		to_chat(becoming_statue, "<span class='warning'>You just used the ability, wait a little bit!</span>")
+		to_chat(becoming_statue, span_warning("You just used the ability, wait a little bit!") )
 		return
 	var/is_statue = becoming_statue.loc == statue
-	to_chat(becoming_statue, "<span class='notice'>You begin to [is_statue ? "break free from the statue" : "make a glorious pose as you become a statue"]!</span>")
+	to_chat(becoming_statue, span_notice("You begin to [is_statue ? "break free from the statue" : "make a glorious pose as you become a statue"]!") )
 	if(!do_after(becoming_statue, (is_statue ? 5 : 30), target = get_turf(becoming_statue)))
-		to_chat(becoming_statue, "<span class='warning'>Your transformation is interrupted!</span>")
+		to_chat(becoming_statue, span_warning("Your transformation is interrupted!") )
 		COOLDOWN_START(src, ability_cooldown, 3 SECONDS)
 		return
 	COOLDOWN_START(src, ability_cooldown, 10 SECONDS)
@@ -138,12 +138,12 @@
 		statue.set_custom_materials(list(/datum/material/silver=MINERAL_MATERIAL_AMOUNT*5))
 
 	if(is_statue)
-		statue.visible_message("<span class='danger'>[statue] becomes animated!</span>")
+		statue.visible_message(span_danger("[statue] becomes animated!") )
 		becoming_statue.forceMove(get_turf(statue))
 		statue.moveToNullspace()
 		UnregisterSignal(becoming_statue, COMSIG_MOVABLE_MOVED)
 	else
-		becoming_statue.visible_message("<span class='notice'>[becoming_statue] hardens into a silver statue.</span>", "<span class='notice'>You have become a silver statue!</span>")
+		becoming_statue.visible_message(span_notice("[becoming_statue] hardens into a silver statue.") , span_notice("You have become a silver statue!") )
 		statue.set_visuals(becoming_statue.appearance)
 		statue.forceMove(get_turf(becoming_statue))
 		becoming_statue.forceMove(statue)
@@ -158,7 +158,7 @@
 	UnregisterSignal(mover, COMSIG_MOVABLE_MOVED)
 
 /datum/action/item_action/organ_action/statue/proc/statue_destroyed(datum/source)
-	to_chat(owner, "<span class='userdanger'>Your existence as a living creature snaps as your statue form crumbles!</span>")
+	to_chat(owner, span_userdanger("Your existence as a living creature snaps as your statue form crumbles!") )
 	if(iscarbon(owner))
 		//drop everything, just in case
 		var/mob/living/carbon/dying_carbon = owner
@@ -226,11 +226,11 @@
 		return
 
 	if(T.mothership == mothership)
-		to_chat(H, "<span class='notice'>[capitalize(src.name)] уже настроен на твой канал.</span>")
+		to_chat(H, span_notice("[capitalize(src.name)] уже настроен на твой канал.") )
 
-	H.visible_message("<span class='notice'>[H] держит [src] в руках и сосредотачивается на мгновение</span>", "<span class='notice'>Ты пытаешься модифицировать связи [src].</span>")
+	H.visible_message(span_notice("[H] держит [src] в руках и сосредотачивается на мгновение") , span_notice("Ты пытаешься модифицировать связи [src].") )
 	if(do_after(H, delay=15, target=src))
-		to_chat(H, "<span class='notice'>Ты настраиваешь [src] на свои канал.</span>")
+		to_chat(H, span_notice("Ты настраиваешь [src] на свои канал.") )
 		mothership = T.mothership
 
 /obj/item/organ/tongue/abductor/examine(mob/M)
@@ -245,7 +245,7 @@
 	//Hacks
 	var/message = speech_args[SPEECH_MESSAGE]
 	var/mob/living/carbon/human/user = source
-	var/rendered = "<span class='abductor'><b>[user.real_name]:</b> [message]</span>"
+	var/rendered = span_abductor("<b>[user.real_name]:</b> [message]")
 	user.log_talk(message, LOG_SAY, tag="abductor")
 	for(var/mob/living/carbon/human/H in GLOB.alive_mob_list)
 		var/obj/item/organ/tongue/abductor/T = H.getorganslot(ORGAN_SLOT_TONGUE)
@@ -484,8 +484,8 @@
 	speech_args[SPEECH_MESSAGE] = new_message
 
 	if(exclamation_found && question_found)
-		M.visible_message("<span class='notice'>[M] опускает одну из [M.ru_ego()] бровей, поднимая другую.</span>")
+		M.visible_message(span_notice("[M] опускает одну из [M.ru_ego()] бровей, поднимая другую.") )
 	else if(exclamation_found)
-		M.visible_message("<span class='notice'>[M] поднимает [M.ru_ego()] брови.</span>")
+		M.visible_message(span_notice("[M] поднимает [M.ru_ego()] брови.") )
 	else if(question_found)
-		M.visible_message("<span class='notice'>[M] опускает [M.ru_ego()] брови.</span>")
+		M.visible_message(span_notice("[M] опускает [M.ru_ego()] брови.") )

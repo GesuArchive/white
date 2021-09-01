@@ -334,17 +334,17 @@
 	var/unsafe_wrenching = FALSE
 	var/internal_pressure = int_air.return_pressure()-env_air.return_pressure()
 
-	to_chat(user, "<span class='notice'>Начинаю откручивать [src.name]...</span>")
+	to_chat(user, span_notice("Начинаю откручивать [src.name]...") )
 
 	if (internal_pressure > 2*ONE_ATMOSPHERE)
-		to_chat(user, "<span class='warning'>Начинаю откручивать [src.name], попутно ощущая сильный поток воздуха... может стоит ПЕРЕДУМАТЬ?</span>")
+		to_chat(user, span_warning("Начинаю откручивать [src.name], попутно ощущая сильный поток воздуха... может стоит ПЕРЕДУМАТЬ?") )
 		unsafe_wrenching = TRUE //Oh dear oh dear
 
 	if(I.use_tool(src, user, 20, volume=50))
 		user.visible_message( \
 			"[user] откручивает [src.name].", \
-			"<span class='notice'>Откручиваю [src.name].</span>", \
-			"<span class='hear'>Слышу трещотку.</span>")
+			span_notice("Откручиваю [src.name].") , \
+			span_hear("Слышу трещотку.") )
 		investigate_log("was <span class='warning'>REMOVED</span> by [key_name(usr)]", INVESTIGATE_ATMOS)
 
 		//You unwrenched a pipe full of pressure? Let's splat you into the wall, silly.
@@ -380,7 +380,7 @@
 		var/datum/gas_mixture/env_air = loc.return_air()
 		pressures = int_air.return_pressure() - env_air.return_pressure()
 
-	user.visible_message("<span class='danger'>Мощный поток воздуха отправляет <b>[user]</b> полетать!</span>","<span class='userdanger'>ВОТ ЭТО НАПОР!</span>")
+	user.visible_message(span_danger("Мощный поток воздуха отправляет <b>[user]</b> полетать!") ,span_userdanger("ВОТ ЭТО НАПОР!") )
 
 	// if get_dir(src, user) is not 0, target is the edge_target_turf on that dir
 	// otherwise, edge_target_turf uses a random cardinal direction
@@ -485,7 +485,7 @@
 		if(target_move.can_crawl_through())
 			if(is_type_in_typecache(target_move, GLOB.ventcrawl_machinery))
 				user.forceMove(target_move.loc) //handle entering and so on.
-				user.visible_message("<span class='notice'>Что-то ползает по трубам...</span>", "<span class='notice'>Забираюсь в вентиляцию.</span>")
+				user.visible_message(span_notice("Что-то ползает по трубам...") , span_notice("Забираюсь в вентиляцию.") )
 			else
 				var/list/pipenetdiff = returnPipenets() ^ target_move.returnPipenets()
 				if(pipenetdiff.len)
@@ -497,7 +497,7 @@
 					playsound(src, 'sound/machines/ventcrawl.ogg', 50, TRUE, -3)
 	else if(is_type_in_typecache(src, GLOB.ventcrawl_machinery) && can_crawl_through()) //if we move in a way the pipe can connect, but doesn't - or we're in a vent
 		user.forceMove(loc)
-		user.visible_message("<span class='notice'>Что-то ползает по трубам...</span>", "<span class='notice'>Выползаю из вентиляции.</span>")
+		user.visible_message(span_notice("Что-то ползает по трубам...") , span_notice("Выползаю из вентиляции.") )
 
 	//PLACEHOLDER COMMENT FOR ME TO READD THE 1 (?) DS DELAY THAT WAS IMPLEMENTED WITH A... TIMER?
 

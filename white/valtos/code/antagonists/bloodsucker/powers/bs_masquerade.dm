@@ -45,8 +45,8 @@
 	var/mob/living/user = owner
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = user.mind.has_antag_datum(ANTAG_DATUM_BLOODSUCKER)
 
-	to_chat(user, "<span class='notice'>Your heart beats falsely within your lifeless chest. You may yet pass for a mortal.</span>")
-	to_chat(user, "<span class='warning'>Your vampiric healing is halted while imitating life.</span>")
+	to_chat(user, span_notice("Your heart beats falsely within your lifeless chest. You may yet pass for a mortal.") )
+	to_chat(user, span_warning("Your vampiric healing is halted while imitating life.") )
 
 
 	// Remove ColdBlooded & Hard/SoftCrit
@@ -96,5 +96,5 @@
 	var/obj/item/organ/heart/H = user.getorganslot(ORGAN_SLOT_HEART)
 	H.Stop()
 
-	to_chat(user, "<span class='notice'>Your heart beats one final time, while your skin dries out and your icy pallor returns.</span>")
+	to_chat(user, span_notice("Your heart beats one final time, while your skin dries out and your icy pallor returns.") )
 

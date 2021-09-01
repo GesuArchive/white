@@ -38,7 +38,7 @@
 	)
 
 /obj/item/screwdriver/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is stabbing [src] into [user.ru_ego()] [pick("temple", "heart")]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] is stabbing [src] into [user.ru_ego()] [pick("temple", "heart")]! It looks like [user.p_theyre()] trying to commit suicide!") )
 	return(BRUTELOSS)
 
 /obj/item/screwdriver/Initialize()
@@ -121,9 +121,9 @@
 
 /obj/item/screwdriver/power/suicide_act(mob/user)
 	if(tool_behaviour == TOOL_SCREWDRIVER)
-		user.visible_message("<span class='suicide'>[user] is putting [src] to [user.ru_ego()] temple. It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message(span_suicide("[user] is putting [src] to [user.ru_ego()] temple. It looks like [user.p_theyre()] trying to commit suicide!") )
 	else
-		user.visible_message("<span class='suicide'>[user] is pressing [src] against [user.ru_ego()] head! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message(span_suicide("[user] is pressing [src] against [user.ru_ego()] head! It looks like [user.p_theyre()] trying to commit suicide!") )
 	playsound(loc, 'sound/items/drill_use.ogg', 50, TRUE, -1)
 	return(BRUTELOSS)
 
@@ -131,11 +131,11 @@
 	playsound(get_turf(user), 'sound/items/change_drill.ogg', 50, TRUE)
 	if(tool_behaviour == TOOL_SCREWDRIVER)
 		tool_behaviour = TOOL_WRENCH
-		to_chat(user, "<span class='notice'>Ставлю большого крутяку вместо маленького.</span>")
+		to_chat(user, span_notice("Ставлю большого крутяку вместо маленького.") )
 		icon_state = "drill_bolt"
 	else
 		tool_behaviour = TOOL_SCREWDRIVER
-		to_chat(user, "<span class='notice'>Ставлю маленького крутяку вместо большого.</span>")
+		to_chat(user, span_notice("Ставлю маленького крутяку вместо большого.") )
 		icon_state = "drill_screw"
 
 /obj/item/screwdriver/cyborg

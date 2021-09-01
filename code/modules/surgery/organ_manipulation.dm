@@ -81,32 +81,32 @@
 	I = null
 	if(istype(tool, /obj/item/organ_storage))
 		if(!tool.contents.len)
-			to_chat(user, "<span class='warning'>[tool] пуст!</span>")
+			to_chat(user, span_warning("[tool] пуст!") )
 			return -1
 		I = tool.contents[1]
 		if(!isorgan(I))
-			to_chat(user, "<span class='warning'>Не могу поместить [I] в [parse_zone(target_zone)] [target]!</span>")
+			to_chat(user, span_warning("Не могу поместить [I] в [parse_zone(target_zone)] [target]!") )
 			return -1
 		tool = I
 	if(isorgan(tool))
 		current_type = "insert"
 		I = tool
 		if(target_zone != I.zone || target.getorganslot(I.slot))
-			to_chat(user, "<span class='warning'>В [parse_zone(target_zone)] [target] нет места под [I]!</span>")
+			to_chat(user, span_warning("В [parse_zone(target_zone)] [target] нет места под [I]!") )
 			return -1
 		var/obj/item/organ/meatslab = tool
 		if(!meatslab.useable)
-			to_chat(user, "<span class='warning'>Судя по всему [I] пожеван, так что я не могу его использовать!</span>")
+			to_chat(user, span_warning("Судя по всему [I] пожеван, так что я не могу его использовать!") )
 			return -1
-		display_results(user, target, "<span class='notice'>Начинаю помещать [tool] в [parse_zone(target_zone)] [target]...</span>",
-			"<span class='notice'>[user] начинает помещать [tool] в [parse_zone(target_zone)] [target].</span>",
-			"<span class='notice'>[user] начинает засовывать что-то в [parse_zone(target_zone)] [target].</span>")
+		display_results(user, target, span_notice("Начинаю помещать [tool] в [parse_zone(target_zone)] [target]...") ,
+			span_notice("[user] начинает помещать [tool] в [parse_zone(target_zone)] [target].") ,
+			span_notice("[user] начинает засовывать что-то в [parse_zone(target_zone)] [target].") )
 
 	else if(implement_type in implements_extract)
 		current_type = "extract"
 		var/list/organs = target.getorganszone(target_zone)
 		if(!organs.len)
-			to_chat(user, "<span class='warning'>Внутри [parse_zone(target_zone)] [target] нет извлекаемых органов!</span>")
+			to_chat(user, span_warning("Внутри [parse_zone(target_zone)] [target] нет извлекаемых органов!") )
 			return -1
 		else
 			for(var/obj/item/organ/O in organs)
@@ -120,11 +120,11 @@
 				if(!I)
 					return -1
 				if(I.organ_flags & ORGAN_UNREMOVABLE)
-					to_chat(user, "<span class='warning'>[I] is too well connected to take out!</span>")
+					to_chat(user, span_warning("[I] is too well connected to take out!") )
 					return -1
-				display_results(user, target, "<span class='notice'>Начинаю извлекать [I] из [parse_zone(target_zone)] [target]...</span>",
-					"<span class='notice'>[user] начинает извлекать [I] из [parse_zone(target_zone)] [target].</span>",
-					"<span class='notice'>[user] начинает что-то извлекать из [parse_zone(target_zone)] [target].</span>")
+				display_results(user, target, span_notice("Начинаю извлекать [I] из [parse_zone(target_zone)] [target]...") ,
+					span_notice("[user] начинает извлекать [I] из [parse_zone(target_zone)] [target].") ,
+					span_notice("[user] начинает что-то извлекать из [parse_zone(target_zone)] [target].") )
 			else
 				return -1
 
@@ -141,20 +141,20 @@
 			I = tool
 		user.temporarilyRemoveItemFromInventory(I, TRUE)
 		I.Insert(target)
-		display_results(user, target, "<span class='notice'>Поместил [tool] в [parse_zone(target_zone)] [target].</span>",
-			"<span class='notice'>[user] поместил [tool] в [parse_zone(target_zone)] [target]!</span>",
-			"<span class='notice'>[user] поместил что-то в [parse_zone(target_zone)] [target]!</span>")
+		display_results(user, target, span_notice("Поместил [tool] в [parse_zone(target_zone)] [target].") ,
+			span_notice("[user] поместил [tool] в [parse_zone(target_zone)] [target]!") ,
+			span_notice("[user] поместил что-то в [parse_zone(target_zone)] [target]!") )
 
 	else if(current_type == "extract")
 		if(I && I.owner == target)
-			display_results(user, target, "<span class='notice'>Успешно извлек [I] из [parse_zone(target_zone)] [target].</span>",
-				"<span class='notice'>[user] успешно извлек [I] из [parse_zone(target_zone)] [target]!</span>",
-				"<span class='notice'>[user] успешно что-то извлек из [parse_zone(target_zone)] [target]!</span>")
+			display_results(user, target, span_notice("Успешно извлек [I] из [parse_zone(target_zone)] [target].") ,
+				span_notice("[user] успешно извлек [I] из [parse_zone(target_zone)] [target]!") ,
+				span_notice("[user] успешно что-то извлек из [parse_zone(target_zone)] [target]!") )
 			log_combat(user, target, "хирургически извлек [I.name] из", addition="INTENT: [uppertext(user.a_intent)]")
 			I.Remove(target)
 			I.forceMove(get_turf(target))
 		else
-			display_results(user, target, "<span class='warning'>Не могу ничего извлечь из [parse_zone(target_zone)] [target]!</span>",
-				"<span class='notice'>[user] не может ничего извлечь из [parse_zone(target_zone)] [target]!</span>",
-				"<span class='notice'>[user] не может ничего извлечь из [parse_zone(target_zone)] [target]!</span>")
+			display_results(user, target, span_warning("Не могу ничего извлечь из [parse_zone(target_zone)] [target]!") ,
+				span_notice("[user] не может ничего извлечь из [parse_zone(target_zone)] [target]!") ,
+				span_notice("[user] не может ничего извлечь из [parse_zone(target_zone)] [target]!") )
 	return FALSE

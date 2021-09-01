@@ -79,7 +79,7 @@
 		return FALSE
 
 	if (HAS_TRAIT(equipping, TRAIT_NODROP))
-		to_chat(user, "<span class='warning'>Не могу понять как можно поместить <b>[equipping]</b> на <b>[source]</b>, ведь эта штука застряла в моей руке!</span>")
+		to_chat(user, span_warning("Не могу понять как можно поместить <b>[equipping]</b> на <b>[source]</b>, ведь эта штука застряла в моей руке!") )
 		return FALSE
 
 	return TRUE
@@ -91,18 +91,18 @@
 		var/obj/item/clothing/clothing = source
 		if(clothing.clothing_flags & DANGEROUS_OBJECT)
 			source.visible_message(
-				"<span class='danger'><b>[user]</b> пытается надеть <b>[equipping]</b> на <b>[source]</b>.</span>",
-				"<span class='userdanger'><b>[user]</b> пытается надеть <b>[equipping]</b> на меня.</span>",
+				span_danger("<b>[user]</b> пытается надеть <b>[equipping]</b> на <b>[source]</b>.") ,
+				span_userdanger("<b>[user]</b> пытается надеть <b>[equipping]</b> на меня.") ,
 				ignored_mobs = user,
 			)
 		else
 			source.visible_message(
-				"<span class='notice'><b>[user]</b> пытается надеть <b>[equipping]</b> на <b>[source]</b>.</span>",
-				"<span class='notice'><b>[user]</b> пытается надеть <b>[equipping]</b> на меня.</span>",
+				span_notice("<b>[user]</b> пытается надеть <b>[equipping]</b> на <b>[source]</b>.") ,
+				span_notice("<b>[user]</b> пытается надеть <b>[equipping]</b> на меня.") ,
 				ignored_mobs = user,
 			)
 
-	to_chat(user, "<span class='notice'>Пытаюсь надеть <b>[equipping]</b> на <b>[source]</b>...</span>")
+	to_chat(user, span_notice("Пытаюсь надеть <b>[equipping]</b> на <b>[source]</b>...") )
 	/*
 	if(ishuman(source))
 		var/mob/living/carbon/human/victim_human = source
@@ -151,12 +151,12 @@
 		return FALSE
 
 	source.visible_message(
-		"<span class='warning'><b>[user]</b> пытается снять <b>[item]</b> с <b>[source]</b>.</span>",
-		"<span class='userdanger'><b>[user]</b> пытается снять <b>[item]</b>.</span>",
+		span_warning("<b>[user]</b> пытается снять <b>[item]</b> с <b>[source]</b>.") ,
+		span_userdanger("<b>[user]</b> пытается снять <b>[item]</b>.") ,
 		ignored_mobs = user,
 	)
 
-	to_chat(user, "<span class='danger'>Пытаюсь снять <b>[item]</b> с [source]...</span>")
+	to_chat(user, span_danger("Пытаюсь снять <b>[item]</b> с [source]...") )
 	source.log_message("[key_name(source)] is being stripped of [item] by [key_name(src)]", LOG_ATTACK, color="red")
 	user.log_message("[key_name(source)] is being stripped of [item] by [key_name(src)]", LOG_ATTACK, color="red", log_globally=FALSE)
 	item.add_fingerprint(src)
@@ -226,7 +226,7 @@
 		disable_warning = TRUE,
 		bypass_equip_delay_self = TRUE,
 	))
-		to_chat(user, "<span class='warning'>[capitalize(equipping)] не помещается туда!</span>")
+		to_chat(user, span_warning("[capitalize(equipping)] не помещается туда!") )
 		return FALSE
 
 	return TRUE

@@ -23,8 +23,8 @@
 		if((istype(C.gloves, /obj/item/clothing/gloves/color/yellow))&&(C.can_catch_item()))
 			var/obj/item/I =  new /obj/item/ammo_casing/caseless/pissball
 			C.put_in_active_hand(I)
-			visible_message("<span class='warning'><b>[C]</b> ловит <b>[I.name] рукой</b>!</span>", \
-							"<span class='userdanger'>Ловлю <b>[I.name] рукой</b>!</span>")
+			visible_message(span_warning("<b>[C]</b> ловит <b>[I.name] рукой</b>!") , \
+							span_userdanger("Ловлю <b>[I.name] рукой</b>!") )
 			C.throw_mode_off(THROW_MODE_TOGGLE)
 			return BULLET_ACT_BLOCK
 

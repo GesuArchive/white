@@ -24,27 +24,27 @@
 		return
 
 	if(I.embedding && I.embedding == conferred_embed)
-		to_chat(user, "<span class='warning'><b>[capitalize(I)]</b> уже обёрнут в <b>[src]</b>!</span>")
+		to_chat(user, span_warning("<b>[capitalize(I)]</b> уже обёрнут в <b>[src]</b>!") )
 		return
 
-	user.visible_message("<span class='notice'><b>[user]</b> начинает оборачивать <b>[I]</b> при помощи <b>[src]</b>.</span>", "<span class='notice'>Начинаю оборачивать <b>[I]</b> при помощи <b>[src]</b>.</span>")
+	user.visible_message(span_notice("<b>[user]</b> начинает оборачивать <b>[I]</b> при помощи <b>[src]</b>.") , span_notice("Начинаю оборачивать <b>[I]</b> при помощи <b>[src]</b>.") )
 
 	if(do_after(user, 30, target=I))
 		use(1)
 		if(istype(I, /obj/item/clothing/gloves/fingerless))
 			var/obj/item/clothing/gloves/tackler/offbrand/O = new /obj/item/clothing/gloves/tackler/offbrand
-			to_chat(user, "<span class='notice'>Оборачиваю <b>[I]</b> в <b>[O]</b> используя <b>[src]</b>.</span>")
+			to_chat(user, span_notice("Оборачиваю <b>[I]</b> в <b>[O]</b> используя <b>[src]</b>.") )
 			QDEL_NULL(I)
 			user.put_in_hands(O)
 			return
 
 		if(I.embedding && I.embedding == conferred_embed)
-			to_chat(user, "<span class='warning'>[I] уже покрыт [src]!</span>")
+			to_chat(user, span_warning("[I] уже покрыт [src]!") )
 			return
 
 		I.embedding = conferred_embed
 		I.updateEmbedding()
-		to_chat(user, "<span class='notice'>Заканчиваю оборачивать <b>[I]</b> используя <b>[src]</b>.</span>")
+		to_chat(user, span_notice("Заканчиваю оборачивать <b>[I]</b> используя <b>[src]</b>.") )
 		I.name = "[prefix] [I.name]"
 
 		if(istype(I, /obj/item/grenade))
@@ -53,7 +53,7 @@
 
 		if(istype(I, /obj/item/storage/bag/tray))
 			var/obj/item/shield/trayshield/new_item = new(user.loc)
-			to_chat(user, "<span class='notice'>Наматываю [src] на [I].</span>")
+			to_chat(user, span_notice("Наматываю [src] на [I].") )
 			var/replace = (user.get_inactive_held_item()==I)
 			qdel(I)
 			if(src.use(3) == 0)
@@ -64,7 +64,7 @@
 			playsound(user, 'white/valtos/sounds/ducttape1.ogg', 50, 1)
 		if(istype(I, /obj/item/shard) && !istype(I, /obj/item/melee/shank))
 			var/obj/item/melee/shank/new_item = new(user.loc)
-			to_chat(user, "<span class='notice'>Наматываю [src] на [I].</span>")
+			to_chat(user, span_notice("Наматываю [src] на [I].") )
 			var/replace = (user.get_inactive_held_item()==I)
 			qdel(I)
 			if(src.use(3) == 0)
@@ -76,24 +76,24 @@
 		if(ishuman(I) && (user.zone_selected == "mouth" || user.zone_selected == "head"))
 			var/mob/living/carbon/human/H = I
 			if(H.head && (H.head.flags_cover & HEADCOVERSMOUTH))
-				to_chat(user, "<span class='danger'>Надо снять [H.head] сначала.</span>")
+				to_chat(user, span_danger("Надо снять [H.head] сначала.") )
 				return
 			if(H.wear_mask) //don't even check to see if the mask covers the mouth as the tape takes up mask slot
-				to_chat(user, "<span class='danger'>Надо снять [H.wear_mask] сначала.</span>")
+				to_chat(user, span_danger("Надо снять [H.wear_mask] сначала.") )
 				return
 			playsound(loc, 'white/valtos/sounds/ducttape1.ogg', 30, 1)
-			to_chat(user, "<span class='notice'>Начинаю заклеивать рот [H].</span>")
+			to_chat(user, span_notice("Начинаю заклеивать рот [H].") )
 			if(do_mob(user, H, 20))
 				// H.wear_mask = new/obj/item/clothing/mask/tape(H)
 				H.equip_to_slot_or_del(new /obj/item/clothing/mask/tape(H), ITEM_SLOT_MASK)
-				to_chat(user, "<span class='notice'>Заматываю рот [H].</span>")
+				to_chat(user, span_notice("Заматываю рот [H].") )
 				playsound(loc, 'white/valtos/sounds/ducttape1.ogg', 50, 1)
 				if(src.use(2) == 0)
 					user.dropItemToGround(src)
 					qdel(src)
 				log_combat(user, H, "mouth-taped")
 			else
-				to_chat(user, "<span class='warning'>У меня не вышло заткнуть [H].</span>")
+				to_chat(user, span_warning("У меня не вышло заткнуть [H].") )
 
 /obj/item/stack/sticky_tape/super
 	name = "супер клейкая лента"

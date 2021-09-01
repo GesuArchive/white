@@ -34,7 +34,7 @@
 	var/cotton_name = "raw cotton"
 
 /obj/item/grown/cotton/attack_self(mob/user)
-	user.show_message("<span class='notice'>Вытаскиваю [cotton_name] из [name]!</span>", MSG_VISUAL)
+	user.show_message(span_notice("Вытаскиваю [cotton_name] из [name]!") , MSG_VISUAL)
 	var/seed_modifier = 0
 	if(seed)
 		seed_modifier = round(seed.potency / 25)
@@ -44,7 +44,7 @@
 		if(ST != cotton && istype(ST, cotton_type) && ST.amount < ST.max_amount)
 			ST.attackby(cotton, user)
 	if(cotton.amount > old_cotton_amount)
-		to_chat(user, "<span class='notice'>Добавляю [cotton_name] в кучу. Теперь тут [cotton.amount] [cotton_name].</span>")
+		to_chat(user, span_notice("Добавляю [cotton_name] в кучу. Теперь тут [cotton.amount] [cotton_name].") )
 	qdel(src)
 
 //reinforced mutated variant

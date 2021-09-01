@@ -96,7 +96,7 @@
 	else
 		stored_card.forceMove(drop_location())
 
-	to_chat(user, "<span class='notice'>Извлекаю карту из <b>[src.name]</b>.</span>")
+	to_chat(user, span_notice("Извлекаю карту из <b>[src.name]</b>.") )
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 
 	return TRUE
@@ -106,11 +106,11 @@
 		return
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		if(stored_card)
-			to_chat(user, "<span class='notice'>Нажимаю кнопку ручного извлечения с [I].</span>")
+			to_chat(user, span_notice("Нажимаю кнопку ручного извлечения с [I].") )
 			try_eject(user)
 			return
 		swap_slot()
-		to_chat(user, "<span class='notice'>Настраиваю разъем, чтобы он соответствовал [expansion_hw ? "дополнительному слоту" : "основному слоту"].</span>")
+		to_chat(user, span_notice("Настраиваю разъем, чтобы он соответствовал [expansion_hw ? "дополнительному слоту" : "основному слоту"].") )
 
 /**
  *Swaps the card_slot hardware between using the dedicated card slot bay on a computer, and using an expansion bay.

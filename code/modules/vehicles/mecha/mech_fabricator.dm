@@ -599,7 +599,7 @@
 	if(..())
 		return TRUE
 	if(being_built)
-		to_chat(user, "<span class='warning'><b>[src.name]</b> всё ещё работает! Нужно подождать.</span>")
+		to_chat(user, span_warning("<b>[src.name]</b> всё ещё работает! Нужно подождать.") )
 		return FALSE
 	return default_deconstruction_screwdriver(user, "fab-o", "fab-idle", I)
 
@@ -607,16 +607,16 @@
 	if(..())
 		return TRUE
 	if(being_built)
-		to_chat(user, "<span class='warning'><b>[src.name]</b> всё ещё работает! Нужно подождать.</span>")
+		to_chat(user, span_warning("<b>[src.name]</b> всё ещё работает! Нужно подождать.") )
 		return FALSE
 	return default_deconstruction_crowbar(I)
 
 /obj/machinery/mecha_part_fabricator/proc/is_insertion_ready(mob/user)
 	if(panel_open)
-		to_chat(user, "<span class='warning'>Не могу загрузить что-то в [src.name], пока он работает!</span>")
+		to_chat(user, span_warning("Не могу загрузить что-то в [src.name], пока он работает!") )
 		return FALSE
 	if(being_built)
-		to_chat(user, "<span class='warning'><b>[src.name]</b> всё ещё работает! Нужно подождать.</span>")
+		to_chat(user, span_warning("<b>[src.name]</b> всё ещё работает! Нужно подождать.") )
 		return FALSE
 
 	return TRUE

@@ -24,20 +24,20 @@
 	time = 40
 
 /datum/surgery_step/pacify/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>Начинаю умиротворять [target]...</span>",
-		"<span class='notice'>[user] начинает исправлять мозг [target].</span>",
-		"<span class='notice'>[user] начинает операцию на мозге [target].</span>")
+	display_results(user, target, span_notice("Начинаю умиротворять [target]...") ,
+		span_notice("[user] начинает исправлять мозг [target].") ,
+		span_notice("[user] начинает операцию на мозге [target].") )
 
 /datum/surgery_step/pacify/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, "<span class='notice'>Мне удалось неврологически усмирить [target].</span>",
-		"<span class='notice'>[user] успешно исправил мозг [target]!</span>",
-		"<span class='notice'>[user] завершает операцию на могзе [target].</span>")
+	display_results(user, target, span_notice("Мне удалось неврологически усмирить [target].") ,
+		span_notice("[user] успешно исправил мозг [target]!") ,
+		span_notice("[user] завершает операцию на могзе [target].") )
 	target.gain_trauma(/datum/brain_trauma/severe/pacifism, TRAUMA_RESILIENCE_LOBOTOMY)
 	return ..()
 
 /datum/surgery_step/pacify/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>[gvorno(TRUE)], но я облажался, перепутав часть мозга [target]...</span>",
-			"<span class='warning'>[user] облажался, повредив мозг!</span>",
-			"<span class='notice'>[user] завершает операцию на мозге [target].</span>")
+	display_results(user, target, span_notice("[gvorno(TRUE)], но я облажался, перепутав часть мозга [target]...") ,
+			span_warning("[user] облажался, повредив мозг!") ,
+			span_notice("[user] завершает операцию на мозге [target].") )
 	target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)
 	return FALSE

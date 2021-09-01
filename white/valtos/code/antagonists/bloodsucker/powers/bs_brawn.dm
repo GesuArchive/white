@@ -79,8 +79,8 @@
 		// Knockdown!
 		var/powerlevel = min(7, 1 + level_current)
 		if (rand(10 + powerlevel) >= 5)
-			target.visible_message("<span class='danger'>[user] has knocked [target] down!</span>", \
-							  "<span class='userdanger'>[user] has knocked you down!</span>", null, COMBAT_MESSAGE_RANGE)
+			target.visible_message(span_danger("[user] has knocked [target] down!") , \
+							  span_userdanger("[user] has knocked you down!") , null, COMBAT_MESSAGE_RANGE)
 
 			target.Knockdown( min(5, rand(10, 10 * powerlevel)) )
 			// Chance of KO
@@ -105,7 +105,7 @@
 		if (do_mob(usr,target,25))
 			var/obj/machinery/door/D = target
 			if (D.Adjacent(user))
-				to_chat(user, "<span class='notice'>You prepare to tear open [D].</span>")
+				to_chat(user, span_notice("You prepare to tear open [D].") )
 				user.Stun(10)
 				user.do_attack_animation(D, ATTACK_EFFECT_SMASH)
 				playsound(get_turf(D), 'sound/effects/bang.ogg', 30, 1, -1)
@@ -116,7 +116,7 @@
 		playsound(get_turf(usr), 'sound/machines/airlock_alien_prying.ogg', 40, 1, -1)
 		if (do_mob(usr,target,25))
 			var/obj/structure/closet/C = target
-			to_chat(user, "<span class='notice'>You prepare to tear open the [C].</span>")
+			to_chat(user, span_notice("You prepare to tear open the [C].") )
 			user.Stun(10)
 			user.do_attack_animation(C, ATTACK_EFFECT_SMASH)
 			playsound(get_turf(C), 'sound/effects/bang.ogg', 30, 1, -1)
@@ -136,8 +136,8 @@
 	if(user_C.handcuffed)
 		var/obj/O = user_C.get_item_by_slot(ITEM_SLOT_HANDCUFFED)
 		if(istype(O))
-			//user_C.visible_message("<span class='warning'>[user_C] attempts to remove [O]!</span>",
-			//					 "<span class='warning'>You snap [O] like it's nothing!</span>")
+			//user_C.visible_message(span_warning("[user_C] attempts to remove [O]!") ,
+			//					 span_warning("You snap [O] like it's nothing!") )
 			user_C.clear_cuffs(O,TRUE)
 			playsound(get_turf(usr), 'sound/effects/grillehit.ogg', 80, 1, -1)
 			return TRUE
@@ -148,8 +148,8 @@
 		if(user_H.wear_suit && user_H.wear_suit.breakouttime)
 			var/obj/item/clothing/suit/S = user_H.get_item_by_slot(ITEM_SLOT_OCLOTHING)
 			if(istype(S))
-				user_C.visible_message("<span class='warning'>[user_C] attempts to remove [S]!</span>", \
-						 			"<span class='warning'>You rip through [S] like it's nothing!</span>")
+				user_C.visible_message(span_warning("[user_C] attempts to remove [S]!") , \
+						 			span_warning("You rip through [S] like it's nothing!") )
 				user_C.clear_cuffs(S,TRUE)
 				playsound(get_turf(usr), 'sound/effects/grillehit.ogg', 80, 1, -1)
 				return TRUE
@@ -158,8 +158,8 @@
 	if(user_C.legcuffed)
 		var/obj/O = user_C.get_item_by_slot(ITEM_SLOT_LEGCUFFED)
 		if(istype(O))
-			//user_C.visible_message("<span class='warning'>[user_C] attempts to remove [O]!</span>",
-			//					 "<span class='warning'>You snap [O] like it's nothing!</span>")
+			//user_C.visible_message(span_warning("[user_C] attempts to remove [O]!") ,
+			//					 span_warning("You snap [O] like it's nothing!") )
 			user_C.clear_cuffs(O,TRUE)
 			playsound(get_turf(usr), 'sound/effects/grillehit.ogg', 80, 1, -1)
 			return TRUE
@@ -189,7 +189,7 @@
 	// /proc/log_combat(atom/user, atom/target, what_done, atom/object=null, addition=null)
 	log_combat(owner, M, "used Brawn power")
 
-	owner.visible_message("<span class='warning'>[owner] tears free of [M] grasp!</span>", \
-			 			"<span class='warning'>You shrug off [M] grasp!</span>")
+	owner.visible_message(span_warning("[owner] tears free of [M] grasp!") , \
+			 			span_warning("You shrug off [M] grasp!") )
 	owner.pulledby = null // It's already done, but JUST IN CASE.
 	return TRUE

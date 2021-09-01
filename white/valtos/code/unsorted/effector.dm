@@ -21,16 +21,16 @@
 		if(isliving(user.pulling))
 			var/mob/living/pushed_mob = user.pulling
 			if(pushed_mob.buckled)
-				to_chat(user, "<span class='warning'><b>[pushed_mob]</b> прикован к <b>[pushed_mob.buckled]</b>!</span>")
+				to_chat(user, span_warning("<b>[pushed_mob]</b> прикован к <b>[pushed_mob.buckled]</b>!") )
 				return
 			if(user.a_intent == INTENT_GRAB)
 				if(user.grab_state < GRAB_AGGRESSIVE)
-					to_chat(user, "<span class='warning'>Надо бы посильнее взять!</span>")
+					to_chat(user, span_warning("Надо бы посильнее взять!") )
 					return
 				if(user.grab_state >= GRAB_NECK)
 					user.emote("laugh")
-					pushed_mob.visible_message("<span class='warning'><b>[user]</b> пытается принудить <b>[pushed_mob]</b> подышать паром над <b>парилкой</b>...</span>", \
-									"<span class='userdanger'><b>[user]</b> пытается приставить <b>мою голову</b> к <b>парилке</b>...</span>")
+					pushed_mob.visible_message(span_warning("<b>[user]</b> пытается принудить <b>[pushed_mob]</b> подышать паром над <b>парилкой</b>...") , \
+									span_userdanger("<b>[user]</b> пытается приставить <b>мою голову</b> к <b>парилке</b>...") )
 					if(do_after(user, 35, target = pushed_mob) && temp_cd == 30)
 						if(temp_cd < 30)
 							return
@@ -40,8 +40,8 @@
 						pushed_mob.apply_damage(60, STAMINA)
 						pushed_mob.emote("agony")
 						playsound(pushed_mob, 'sound/machines/shower/shower_mid1.ogg', 90, TRUE)
-						pushed_mob.visible_message("<span class='danger'><b>[user]</b> принуждает <b>[pushed_mob]</b> вкусить свежий пар!</span>",
-									"<span class='userdanger'><b>[user]</b> принуждает меня вкусить свежий пар!</span>")
+						pushed_mob.visible_message(span_danger("<b>[user]</b> принуждает <b>[pushed_mob]</b> вкусить свежий пар!") ,
+									span_userdanger("<b>[user]</b> принуждает меня вкусить свежий пар!") )
 						log_combat(user, pushed_mob, "head fried", null, "against <b>[src]</b>")
 						SEND_SIGNAL(pushed_mob, COMSIG_ADD_MOOD_EVENT, "table", /datum/mood_event/table)
 					else

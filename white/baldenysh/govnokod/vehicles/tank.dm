@@ -65,7 +65,7 @@
 						continue
 					if(isliving(A))
 						var/mob/living/rammed = A
-						visible_message("<span class='danger'><b>[src]</b> давит <b>[A]</b>!</span>")
+						visible_message(span_danger("<b>[src]</b> давит <b>[A]</b>!") )
 						rammed.gib()
 						continue
 					if(isobj(A) && A.density)

@@ -21,16 +21,16 @@
 	require_all_chems = FALSE
 
 /datum/surgery_step/wing_reconstruction/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>Начинаю восстанавливать обугленные мембраны крыльев [target]...</span>",
-		"<span class='notice'>[user] начал восстанавливать обугленные мембраны крыльев [target].</span>",
-		"<span class='notice'>[user] начал проведение операции на обугленных мембранах крыльев [target].</span>")
+	display_results(user, target, span_notice("Начинаю восстанавливать обугленные мембраны крыльев [target]...") ,
+		span_notice("[user] начал восстанавливать обугленные мембраны крыльев [target].") ,
+		span_notice("[user] начал проведение операции на обугленных мембранах крыльев [target].") )
 
 /datum/surgery_step/wing_reconstruction/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		display_results(user, target, "<span class='notice'>Успешно восстановил крылья [target].</span>",
-			"<span class='notice'>[user] успешно восстановил крылья [target]!</span>",
-			"<span class='notice'>[user] завершил операцию на крыльях [target].</span>")
+		display_results(user, target, span_notice("Успешно восстановил крылья [target].") ,
+			span_notice("[user] успешно восстановил крылья [target]!") ,
+			span_notice("[user] завершил операцию на крыльях [target].") )
 		if(H.dna.features["original_moth_wings"] != null)
 			H.dna.features["moth_wings"] = H.dna.features["original_moth_wings"]
 		else

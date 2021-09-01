@@ -388,7 +388,7 @@
 
 	for(var/obj/effect/bump_teleporter/BT in AllTeleporters)
 		if(BT.id == src.id_target)
-			AM.visible_message("<span class='boldwarning'>[AM] сорвался!</span>", "<span class='userdanger'>Кажется я упал...</span>")
+			AM.visible_message(span_boldwarning("[AM] сорвался!") , span_userdanger("Кажется я упал...") )
 			AM.forceMove(BT.loc) //Teleport to location with correct id.
 			if(isliving(AM))
 				var/mob/living/L = AM

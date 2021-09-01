@@ -61,10 +61,10 @@
 		quirks = B.data["quirks"]
 		sampleDNA = B.data["blood_DNA"]
 		contains_sample = TRUE
-		visible_message("<span class='notice'> В [src] ввели кровь.</span>")
+		visible_message(span_notice(" В [src] ввели кровь.") )
 		log_cloning("[key_name(mind)] cloning record was added to [src] at [AREACOORD(src)].")
 	else
-		visible_message("<span class='warning'> Не получается ввести кровь в [src]!</span>")
+		visible_message(span_warning(" Не получается ввести кровь в [src]!") )
 	return NONE
 
 /// Handles reagents being deleted from these seeds.

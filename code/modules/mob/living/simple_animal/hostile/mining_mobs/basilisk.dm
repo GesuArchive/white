@@ -73,9 +73,9 @@
 /mob/living/simple_animal/hostile/asteroid/basilisk/AttackingTarget()
 	. = ..()
 	if(lava_drinker && !warmed_up && istype(target, /turf/open/lava))
-		visible_message("<span class='warning'>[capitalize(src.name)] begins to drink from [target]...</span>")
+		visible_message(span_warning("[capitalize(src.name)] begins to drink from [target]...") )
 		if(do_after(src, 70, target = target))
-			visible_message("<span class='warning'>[capitalize(src.name)] begins to fire up!</span>")
+			visible_message(span_warning("[capitalize(src.name)] begins to fire up!") )
 			fully_heal()
 			icon_state = "Basilisk_alert"
 			set_varspeed(0)
@@ -84,7 +84,7 @@
 			addtimer(CALLBACK(src, .proc/cool_down), 3000)
 
 /mob/living/simple_animal/hostile/asteroid/basilisk/proc/cool_down()
-	visible_message("<span class='warning'>[capitalize(src.name)] appears to be cooling down...</span>")
+	visible_message(span_warning("[capitalize(src.name)] appears to be cooling down...") )
 	if(stat != DEAD)
 		icon_state = "Basilisk"
 	set_varspeed(3)
@@ -135,10 +135,10 @@
 	for(var/obj/potential_consumption in view(1, src))
 		if(istype(potential_consumption, /obj/item/stack/ore/diamond))
 			qdel(potential_consumption)
-			visible_message("<span class='notice'>[src] consumes [potential_consumption], and it disappears! ...At least, you think.</span>")
+			visible_message(span_notice("[src] consumes [potential_consumption], and it disappears! ...At least, you think.") )
 		else if(istype(potential_consumption, /obj/item/pen/survival))
 			qdel(potential_consumption)
-			visible_message("<span class='notice'>[src] examines [potential_consumption] closer, and telekinetically shatters the pen.</span>")
+			visible_message(span_notice("[src] examines [potential_consumption] closer, and telekinetically shatters the pen.") )
 
 /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random/Initialize()
 	. = ..()

@@ -60,14 +60,14 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	if(istype(exposed_obj, /obj/item/paper))
 		var/obj/item/paper/paperaffected = exposed_obj
 		paperaffected.clearpaper()
-		to_chat(usr, "<span class='notice'>чернила на [paperaffected] смываются.</span>")
+		to_chat(usr, span_notice("чернила на [paperaffected] смываются.") )
 	if(istype(exposed_obj, /obj/item/book))
 		if(reac_volume >= 5)
 			var/obj/item/book/affectedbook = exposed_obj
 			affectedbook.dat = null
-			exposed_obj.visible_message("<span class='notice'>Надписи на [exposed_obj] смыты [name]!</span>")
+			exposed_obj.visible_message(span_notice("Надписи на [exposed_obj] смыты [name]!") )
 		else
-			exposed_obj.visible_message("<span class='warning'>[name] размазал чернила по [exposed_obj], но они не смылись!</span>")
+			exposed_obj.visible_message(span_warning("[name] размазал чернила по [exposed_obj], но они не смылись!") )
 	return ..()
 
 /datum/reagent/consumable/ethanol/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)//Splashing people with ethanol isn't quite as good as fuel.
@@ -237,7 +237,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	return ..()
 
 /datum/reagent/consumable/ethanol/thirteenloko/overdose_start(mob/living/M)
-	to_chat(M, "<span class='userdanger'>Всё моё тело сильно дрожит с приходом тошноты. Наверное не стоило пить так много [name]!</span>")
+	to_chat(M, span_userdanger("Всё моё тело сильно дрожит с приходом тошноты. Наверное не стоило пить так много [name]!") )
 	M.Jitter(20)
 	M.Stun(15)
 
@@ -246,11 +246,11 @@ All effects don't start immediately, but rather get worse over time; the rate is
 		var/obj/item/I = M.get_active_held_item()
 		if(I)
 			M.dropItemToGround(I)
-			to_chat(M, "<span class='notice'>Мои руки дрожат и я выронил из них то, что держал!</span>")
+			to_chat(M, span_notice("Мои руки дрожат и я выронил из них то, что держал!") )
 			M.Jitter(10)
 
 	if(DT_PROB(3.5, delta_time))
-		to_chat(M, "<span class='notice'>[pick("У меня очень сильно болит голова.", "Глазам больно.", "Мне сложно ровно стоять.", "По ощущениям мое сердце буквально вырывается из груди.")]</span>")
+		to_chat(M, span_notice("[pick("У меня очень сильно болит голова.", "Глазам больно.", "Мне сложно ровно стоять.", "По ощущениям мое сердце буквально вырывается из груди.")]") )
 
 	if(DT_PROB(2.5, delta_time) && iscarbon(M))
 		var/obj/item/organ/eyes/eyes = M.getorganslot(ORGAN_SLOT_EYES)
@@ -258,23 +258,23 @@ All effects don't start immediately, but rather get worse over time; the rate is
 			if(istype(eyes))
 				eyes.Remove(M)
 				eyes.forceMove(get_turf(M))
-				to_chat(M, "<span class='userdanger'>Сгибаюсь от боли, кажется мои глазные яблоки разжижаются в голове!</span>")
+				to_chat(M, span_userdanger("Сгибаюсь от боли, кажется мои глазные яблоки разжижаются в голове!") )
 				M.emote("agony")
 				M.adjustBruteLoss(15)
 		else
-			to_chat(M, "<span class='userdanger'>Кричу от ужаса, я ослеп!</span>")
+			to_chat(M, span_userdanger("Кричу от ужаса, я ослеп!") )
 			eyes.applyOrganDamage(eyes.maxHealth)
 			M.emote("agony")
 
 	if(DT_PROB(1.5, delta_time) && iscarbon(M))
-		M.visible_message("<span class='danger'>[M] бьется в припадке!</span>", "<span class='userdanger'>У меня припадок!</span>")
+		M.visible_message(span_danger("[M] бьется в припадке!") , span_userdanger("У меня припадок!") )
 		M.Unconscious(100)
 		M.Jitter(350)
 
 	if(DT_PROB(0.5, delta_time) && iscarbon(M))
 		var/datum/disease/D = new /datum/disease/heart_failure
 		M.ForceContractDisease(D)
-		to_chat(M, "<span class='userdanger'>Уверен что ощутил как мое сердце пропустило удар..</span>")
+		to_chat(M, span_userdanger("Уверен что ощутил как мое сердце пропустило удар..") )
 		M.playsound_local(M, 'sound/effects/singlebeat.ogg', 100, 0)
 
 /datum/reagent/consumable/ethanol/vodka
@@ -729,12 +729,12 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/brave_bull/on_mob_metabolize(mob/living/M)
 	tough_text = pick("brawny", "tenacious", "tough", "hardy", "sturdy") //Tuff stuff
-	to_chat(M, "<span class='notice'>Чувствую [tough_text]!</span>")
+	to_chat(M, span_notice("Чувствую [tough_text]!") )
 	M.maxHealth += 10 //Brave Bull makes you sturdier, and thus capable of withstanding a tiny bit more punishment.
 	M.health += 10
 
 /datum/reagent/consumable/ethanol/brave_bull/on_mob_end_metabolize(mob/living/M)
-	to_chat(M, "<span class='notice'>Ощущение [tough_text] прошло.</span>")
+	to_chat(M, span_notice("Ощущение [tough_text] прошло.") )
 	M.maxHealth -= 10
 	M.health = min(M.health - 10, M.maxHealth) //This can indeed crit you if you're alive solely based on alchol ingestion
 
@@ -754,7 +754,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_price = DRINK_PRICE_MEDIUM
 
 /datum/reagent/consumable/ethanol/tequila_sunrise/on_mob_metabolize(mob/living/M)
-	to_chat(M, "<span class='notice'>Чувствую как по моему телу расползается приятное тепло!</span>")
+	to_chat(M, span_notice("Чувствую как по моему телу расползается приятное тепло!") )
 	light_holder = new(M)
 	light_holder.set_light(3, 0.7, "#FFCC00") //Tequila Sunrise makes you radiate dim light, like a sunrise!
 
@@ -766,7 +766,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	return ..()
 
 /datum/reagent/consumable/ethanol/tequila_sunrise/on_mob_end_metabolize(mob/living/M)
-	to_chat(M, "<span class='notice'>Тепло покрывшее мое тело развеивается.</span>")
+	to_chat(M, span_notice("Тепло покрывшее мое тело развеивается.") )
 	QDEL_NULL(light_holder)
 
 /datum/reagent/consumable/ethanol/toxins_special
@@ -868,7 +868,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(HAS_TRAIT(H, TRAIT_DWARF))
-			to_chat(H, "<span class='notice'>Вот ЭТО и есть МУЖЕСТВО!</span>")
+			to_chat(H, span_notice("Вот ЭТО и есть МУЖЕСТВО!") )
 			boozepwr = 50 // will still smash but not as much.
 			dorf_mode = TRUE
 
@@ -1564,7 +1564,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	if(DT_PROB(10, delta_time))
 		M.adjustStaminaLoss(10)
 		M.drop_all_held_items()
-		to_chat(M, "<span class='notice'>Не чувствую свои руки!</span>")
+		to_chat(M, span_notice("Не чувствую свои руки!") )
 	if(current_cycle > 5)
 		if(DT_PROB(10, delta_time))
 			var/t = pickt()
@@ -1576,7 +1576,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 				if(!M.undergoing_cardiac_arrest() && M.can_heartattack())
 					M.set_heartattack(TRUE)
 					if(M.stat == CONSCIOUS)
-						M.visible_message("<span class='userdanger'>[M] хватается за [M.ru_ego()] грудь, будто [M.ru_ego()] сердце остановилось!</span>")
+						M.visible_message(span_userdanger("[M] хватается за [M.ru_ego()] грудь, будто [M.ru_ego()] сердце остановилось!") )
 	. = TRUE
 	..()
 
@@ -1804,9 +1804,9 @@ All effects don't start immediately, but rather get worse over time; the rate is
 		L.adjustToxLoss(-1)
 		L.adjustOxyLoss(-1)
 		L.adjustStaminaLoss(-1)
-	L.visible_message("<span class='warning'>[L] дрожит с новой силой!</span>", "<span class='notice'>Вкус [lowertext(name)] наполняет меня энергией!</span>")
+	L.visible_message(span_warning("[L] дрожит с новой силой!") , span_notice("Вкус [lowertext(name)] наполняет меня энергией!") )
 	if(!L.stat && heal_points == 20) //brought us out of softcrit
-		L.visible_message("<span class='danger'>[L] накренилась в сторону [L.ru_ego()] ноги!</span>", "<span class='boldnotice'>Проснись и пой, малыш.</span>")
+		L.visible_message(span_danger("[L] накренилась в сторону [L.ru_ego()] ноги!") , span_boldnotice("Проснись и пой, малыш.") )
 
 /datum/reagent/consumable/ethanol/bastion_bourbon/on_mob_life(mob/living/L, delta_time, times_fired)
 	if(L.health > 0)
@@ -1933,7 +1933,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 		for(var/obj/item/shield/theshield in thehuman.contents)
 			mighty_shield = theshield
 			mighty_shield.block_chance += 10
-			to_chat(thehuman, "<span class='notice'>[theshield] выглядит отполированным, хотя, я, кажется, его не полировал.</span>")
+			to_chat(thehuman, span_notice("[theshield] выглядит отполированным, хотя, я, кажется, его не полировал.") )
 			return TRUE
 
 /datum/reagent/consumable/ethanol/alexander/on_mob_life(mob/living/L, delta_time, times_fired)
@@ -1944,7 +1944,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 /datum/reagent/consumable/ethanol/alexander/on_mob_end_metabolize(mob/living/L)
 	if(mighty_shield)
 		mighty_shield.block_chance -= 10
-		to_chat(L,"<span class='notice'>Заметил что [mighty_shield] снова выглядит потрепанным. Странно.</span>")
+		to_chat(L,span_notice("Заметил что [mighty_shield] снова выглядит потрепанным. Странно.") )
 	..()
 
 /datum/reagent/consumable/ethanol/amaretto_alexander
@@ -2340,7 +2340,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/turbo/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(2, delta_time))
-		to_chat(M, "<span class='notice'>[pick("Начинаю ощущать пренебрежение к верховенству закона.", "Чувствую себя накачанным!", "Голова стучит.", "Мысли вылетают..")]</span>")
+		to_chat(M, span_notice("[pick("Начинаю ощущать пренебрежение к верховенству закона.", "Чувствую себя накачанным!", "Голова стучит.", "Мысли вылетают..")]") )
 	M.adjustStaminaLoss(-0.25 * M.drunkenness * REM * delta_time)
 	return ..()
 
@@ -2370,7 +2370,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 					metabolizer.update_hair()
 
 				if(metabolizer.age > 969) //Best not let people get older than this or i might incur G-ds wrath
-					metabolizer.visible_message("<span class='notice'>[metabolizer] становится старше чем кто либо.. и рассыпается прахом!</span>")
+					metabolizer.visible_message(span_notice("[metabolizer] становится старше чем кто либо.. и рассыпается прахом!") )
 					metabolizer.dust(just_ash = FALSE, drop_items = TRUE, force = FALSE)
 
 	return ..()

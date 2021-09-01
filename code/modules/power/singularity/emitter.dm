@@ -96,11 +96,11 @@
 	. = ..()
 	. += "<hr>"
 	if(welded)
-		. += "<span class='info'>Он прочно пришвартован к полу. Можно <b>отварить</b> его от пола.</span>"
+		. += span_info("Он прочно пришвартован к полу. Можно <b>отварить</b> его от пола.")
 	else if(anchored)
-		. += "<span class='info'>В настоящее время он прикреплен к полу. Можно <b>приварить</b> его к полу или же <b>открутить</b> от пола.</span>"
+		. += span_info("В настоящее время он прикреплен к полу. Можно <b>приварить</b> его к полу или же <b>открутить</b> от пола.")
 	else
-		. += "<span class='info'>Он не прикручен к полу. Можно закрепить его на месте с помощью <b>ключа</b>.</span>"
+		. += span_info("Он не прикручен к полу. Можно закрепить его на месте с помощью <b>ключа</b>.")
 
 	if(in_range(user, src) || isobserver(user))
 		if(!active)
@@ -117,7 +117,7 @@
 
 /obj/machinery/power/emitter/proc/can_be_rotated(mob/user,rotation_type)
 	if (anchored)
-		to_chat(user, "<span class='warning'>Он прикручен к полу!</span>")
+		to_chat(user, span_warning("Он прикручен к полу!") )
 		return FALSE
 	return TRUE
 
@@ -143,15 +143,15 @@
 	add_fingerprint(user)
 	if(welded)
 		if(!powernet)
-			to_chat(user, "<span class='warning'><b>[src]</b> не подключен к проводу!</span>")
+			to_chat(user, span_warning("<b>[src]</b> не подключен к проводу!") )
 			return TRUE
 		if(!locked && allow_switch_interact)
 			if(active == TRUE)
 				active = FALSE
-				to_chat(user, "<span class='notice'>Выключаю <b>[src]</b>.</span>")
+				to_chat(user, span_notice("Выключаю <b>[src]</b>.") )
 			else
 				active = TRUE
-				to_chat(user, "<span class='notice'>Включаю <b>[src]</b>.</span>")
+				to_chat(user, span_notice("Включаю <b>[src]</b>.") )
 				shot_number = 0
 				fire_delay = maximum_fire_delay
 
@@ -162,15 +162,15 @@
 			update_icon()
 
 		else
-			to_chat(user, "<span class='warning'>Управление заблокировано!</span>")
+			to_chat(user, span_warning("Управление заблокировано!") )
 	else
-		to_chat(user, "<span class='warning'><b>[src]</b> должен быть крепко приварен к полу!</span>")
+		to_chat(user, span_warning("<b>[src]</b> должен быть крепко приварен к полу!") )
 		return TRUE
 
 /obj/machinery/power/emitter/attack_animal(mob/living/simple_animal/M)
 	if(ismegafauna(M) && anchored)
 		set_anchored(FALSE)
-		M.visible_message("<span class='warning'><b>[M.name]</b> отрывает <b>[src.name]</b> от пола!</span>")
+		M.visible_message(span_warning("<b>[M.name]</b> отрывает <b>[src.name]</b> от пола!") )
 	else
 		. = ..()
 	if(. && !anchored)
@@ -243,12 +243,12 @@
 /obj/machinery/power/emitter/can_be_unfasten_wrench(mob/user, silent)
 	if(active)
 		if(!silent)
-			to_chat(user, "<span class='warning'>Надо бы выключить <b>[src]</b> сначала!</span>")
+			to_chat(user, span_warning("Надо бы выключить <b>[src]</b> сначала!") )
 		return FAILED_UNFASTEN
 
 	else if(welded)
 		if(!silent)
-			to_chat(user, "<span class='warning'><b>[src]</b> приварен к полу!</span>")
+			to_chat(user, span_warning("<b>[src]</b> приварен к полу!") )
 		return FAILED_UNFASTEN
 
 	return ..()
@@ -261,35 +261,35 @@
 /obj/machinery/power/emitter/welder_act(mob/living/user, obj/item/I)
 	..()
 	if(active)
-		to_chat(user, "<span class='warning'>Надо бы выключить <b>[src]</b> сначала!</span>")
+		to_chat(user, span_warning("Надо бы выключить <b>[src]</b> сначала!") )
 		return TRUE
 
 	if(welded)
 		if(!I.tool_start_check(user, amount=0))
 			return TRUE
-		user.visible_message("<span class='notice'><b>[user.name]</b> начинает отваривать <b>[name]</b> от пола.</span>", \
-			"<span class='notice'>Начинаю отваривать <b>[src]</b> от пола...</span>", \
-			"<span class='hear'>Слышу сварку.</span>")
+		user.visible_message(span_notice("<b>[user.name]</b> начинает отваривать <b>[name]</b> от пола.") , \
+			span_notice("Начинаю отваривать <b>[src]</b> от пола...") , \
+			span_hear("Слышу сварку.") )
 		if(I.use_tool(src, user, 20, volume=50) && welded)
 			welded = FALSE
-			to_chat(user, "<span class='notice'>Отвариваю <b>[src]</b> от пола.</span>")
+			to_chat(user, span_notice("Отвариваю <b>[src]</b> от пола.") )
 			disconnect_from_network()
 			update_cable_icons_on_turf(get_turf(src))
 
 	else if(anchored)
 		if(!I.tool_start_check(user, amount=0))
 			return TRUE
-		user.visible_message("<span class='notice'><b>[user.name]</b> начинает приваривать <b>[name]</b> к полу.</span>", \
-			"<span class='notice'>Начинаю приваривать <b>[src]</b> к полу...</span>", \
-			"<span class='hear'>Слышу сварку.</span>")
+		user.visible_message(span_notice("<b>[user.name]</b> начинает приваривать <b>[name]</b> к полу.") , \
+			span_notice("Начинаю приваривать <b>[src]</b> к полу...") , \
+			span_hear("Слышу сварку.") )
 		if(I.use_tool(src, user, 20, volume=50) && anchored)
 			welded = TRUE
-			to_chat(user, "<span class='notice'>Привариваю <b>[src]</b> к полу.</span>")
+			to_chat(user, span_notice("Привариваю <b>[src]</b> к полу.") )
 			connect_to_network()
 			update_cable_icons_on_turf(get_turf(src))
 
 	else
-		to_chat(user, "<span class='warning'><b>[src]</b> должен быть прикручен к полу!</span>")
+		to_chat(user, span_warning("<b>[src]</b> должен быть прикручен к полу!") )
 
 	return TRUE
 
@@ -309,16 +309,16 @@
 /obj/machinery/power/emitter/attackby(obj/item/I, mob/user, params)
 	if(I.GetID())
 		if(obj_flags & EMAGGED)
-			to_chat(user, "<span class='warning'>Похоже блокировочный механизм повреждён!</span>")
+			to_chat(user, span_warning("Похоже блокировочный механизм повреждён!") )
 			return
 		if(allowed(user))
 			if(active)
 				locked = !locked
-				to_chat(user, "<span class='notice'>Управление [src.locked ? "блокировано" : "разблокировано"].</span>")
+				to_chat(user, span_notice("Управление [src.locked ? "блокировано" : "разблокировано"].") )
 			else
-				to_chat(user, "<span class='warning'>Управление может быть заблокировано только когда <b>[src]</b> включен!</span>")
+				to_chat(user, span_warning("Управление может быть заблокировано только когда <b>[src]</b> включен!") )
 		else
-			to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
+			to_chat(user, span_danger("Доступ запрещён.") )
 		return
 
 	else if(is_wire_tool(I) && panel_open)
@@ -366,7 +366,7 @@
 	locked = FALSE
 	obj_flags |= EMAGGED
 	if(user)
-		user.visible_message("<span class='warning'><b>[user.name]</b> взламывает <b>[src]</b>.</span>", "<span class='notice'>Взламываю управление.</span>")
+		user.visible_message(span_warning("<b>[user.name]</b> взламывает <b>[src]</b>.") , span_notice("Взламываю управление.") )
 
 
 /obj/machinery/power/emitter/prototype

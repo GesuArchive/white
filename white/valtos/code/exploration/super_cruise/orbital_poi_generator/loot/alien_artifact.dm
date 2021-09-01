@@ -62,7 +62,7 @@
 
 /area/tear_in_reality/Initialize()
 	. = ..()
-	mood_message = "<span class='warning'>[scramble_message_replace_chars("###### ### #### ###### #######", 100)]!</span>"
+	mood_message = span_warning("[scramble_message_replace_chars("###### ### #### ###### #######", 100)]!")
 
 /area/tear_in_reality/proc/get_virtual_z(turf/T)
 	return REALITY_TEAR_VIRTUAL_Z
@@ -478,7 +478,7 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 			new /obj/effect/temp_visual/mining_scanner(T1)
 			var/mob/living/M = locate() in T1
 			if(M)
-				to_chat(M, "<span class='warning'>Ооох...</span>")
+				to_chat(M, span_warning("Ооох...") )
 				M.blind_eyes(30)
 				M.Knockdown(10)
 				M.emote("agony")

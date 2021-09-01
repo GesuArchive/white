@@ -9,7 +9,7 @@
 	if(fexists(filepath))
 		usr << ftp("[filepath]")
 	else
-		to_chat(usr,"<span class='warning'>Такого файла не существует.</span>")
+		to_chat(usr,span_warning("Такого файла не существует.") )
 
 /client/proc/manage_lists()
 	set category = "Дбг"

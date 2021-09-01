@@ -10,5 +10,5 @@
 	merge_type = /obj/item/stack/sheet/hot_ice
 
 /obj/item/stack/sheet/hot_ice/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] начинает облизывать <b>[src.name]</b>! Похоже [user.p_theyre()] пытается совершить самоубийство!</span>")
+	user.visible_message(span_suicide("[user] начинает облизывать <b>[src.name]</b>! Похоже [user.p_theyre()] пытается совершить самоубийство!") )
 	return FIRELOSS//dont you kids know that stuff is toxic?

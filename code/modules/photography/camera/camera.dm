@@ -45,7 +45,7 @@
 /obj/item/camera/attack_self(mob/user)
 	if(!disk)
 		return
-	to_chat(user, "<span class='notice'>You eject [disk] out the back of [src].</span>")
+	to_chat(user, span_notice("You eject [disk] out the back of [src].") )
 	user.put_in_hands(disk)
 	disk = null
 
@@ -78,23 +78,23 @@
 /obj/item/camera/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/camera_film))
 		if(pictures_left)
-			to_chat(user, "<span class='notice'>[capitalize(src.name)] still has some film in it!</span>")
+			to_chat(user, span_notice("[capitalize(src.name)] still has some film in it!") )
 			return
 		if(!user.temporarilyRemoveItemFromInventory(I))
 			return
-		to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
+		to_chat(user, span_notice("You insert [I] into [src].") )
 		qdel(I)
 		pictures_left = pictures_max
 		return
 	if(istype(I, /obj/item/disk/holodisk))
 		if (!disk)
 			if(!user.transferItemToLoc(I, src))
-				to_chat(user, "<span class='warning'>[I] is stuck to your hand!</span>")
+				to_chat(user, span_warning("[I] is stuck to your hand!") )
 				return TRUE
-			to_chat(user, "<span class='notice'>You slide [I] into the back of [src].</span>")
+			to_chat(user, span_notice("You slide [I] into the back of [src].") )
 			disk = I
 		else
-			to_chat(user, "<span class='warning'>There's already a disk inside [src].</span>")
+			to_chat(user, span_warning("There's already a disk inside [src].") )
 		return TRUE //no afterattack
 	..()
 
@@ -132,7 +132,7 @@
 			disk.record.caller_name = M.name
 			disk.record.set_caller_image(M)
 		else
-			to_chat(user, "<span class='warning'>Invalid holodisk target.</span>")
+			to_chat(user, span_warning("Invalid holodisk target.") )
 			return
 
 	if(!can_target(target, user, flag))
@@ -224,7 +224,7 @@
 	if(in_range(src, user)) //needed because of TK
 		user.put_in_hands(p)
 		pictures_left--
-		to_chat(user, "<span class='notice'>[pictures_left] photos left.</span>")
+		to_chat(user, span_notice("[pictures_left] photos left.") )
 		var/customise = "No"
 		if(can_customise)
 			customise = alert(user, "Do you want to customize the photo?", "Customization", "Yes", "No")

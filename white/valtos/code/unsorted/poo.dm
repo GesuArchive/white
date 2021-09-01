@@ -104,7 +104,7 @@
 		var/mutable_appearance/pooverlay = mutable_appearance('white/valtos/icons/poo.dmi')
 		//H.Paralyze(5) //splat!
 		H.adjust_blurriness(1)
-		H.visible_message("<span class='warning'><b>[H]</b> ловит <b>[src]</b> своим телом!</span>", "<span class='userdanger'>Ловлю <b>[src]</b> своим телом!</span>")
+		H.visible_message(span_warning("<b>[H]</b> ловит <b>[src]</b> своим телом!") , span_userdanger("Ловлю <b>[src]</b> своим телом!") )
 		playsound(H, "desceration", 50, TRUE)
 		if(!H.pooed) // one layer at a time
 			pooverlay.icon_state = "facepoo"
@@ -136,8 +136,8 @@
 		var/turf/T = get_turf(src)
 		if(H.pooition >= 25)
 			if(HAS_TRAIT(H, TRAIT_LIGHT_POOER))
-				H.visible_message("<span class='notice'><b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] себе прямо в руку!</span>", \
-					"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
+				H.visible_message(span_notice("<b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] себе прямо в руку!") , \
+					span_notice("Выдавливаю какаху из своего тела.") )
 				playsound(H, 'white/valtos/sounds/poo2.ogg', 25, 1) //silence hunter
 				var/obj/item/food/poo/P = new(T)
 				H.put_in_hands(P)
@@ -148,8 +148,8 @@
 				return
 			else
 				if(H.get_item_by_slot(ITEM_SLOT_ICLOTHING))
-					H.visible_message("<span class='notice'><b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] себе в штаны!</span>", \
-						"<span class='notice'>Сру себе в штаны.</span>")
+					H.visible_message(span_notice("<b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] себе в штаны!") , \
+						span_notice("Сру себе в штаны.") )
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
 					H.pooition -= 25
 					if(!H.pooed)
@@ -163,23 +163,23 @@
 					SSblackbox.record_feedback("tally", "poo", 1, "Poo Self")
 					return
 				else if(locate(/obj/structure/toilet) in T || locate(/obj/structure/toilet/greyscale) in T)
-					H.visible_message("<span class='notice'><b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] в туалет!</span>", \
-						"<span class='notice'>Выдавливаю какаху прямиком в туалет.</span>")
+					H.visible_message(span_notice("<b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] в туалет!") , \
+						span_notice("Выдавливаю какаху прямиком в туалет.") )
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
 					H.pooition -= 25
 					SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 					return
 				else
-					H.visible_message("<span class='notice'><b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] на пол!</span>", \
-						"<span class='notice'>Выдавливаю какаху из своего тела.</span>")
+					H.visible_message(span_notice("<b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] на пол!") , \
+						span_notice("Выдавливаю какаху из своего тела.") )
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
 					new /obj/item/food/poo(T)
 					H.pooition -= 25
 					SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 					return
 		else if(H.stat == CONSCIOUS)
-			H.visible_message("<span class='notice'><b>[H]</b> тужится!</span>", \
-					"<span class='notice'>Вам нечем какать.</span>")
+			H.visible_message(span_notice("<b>[H]</b> тужится!") , \
+					span_notice("Вам нечем какать.") )
 			H.adjust_blurriness(1)
 			SSblackbox.record_feedback("tally", "poo", 1, "Poo Creation Failed")
 			return
@@ -199,8 +199,8 @@
 	desc = "Древнее умение какать прямо себе в руку и не только."
 	value = 2
 	mob_trait = TRAIT_LIGHT_POOER
-	gain_text = "<span class='notice'>Теперь я знаю древние техники покакунек.</span>"
-	lose_text = "<span class='danger'>Забываю как правильно какать.</span>"
+	gain_text = span_notice("Теперь я знаю древние техники покакунек.")
+	lose_text = span_danger("Забываю как правильно какать.")
 	medical_record_text = "Дефекационные навыки пациента стоят за гранью понимания." //prikol
 
 /datum/quirk/legkoserya/post_add()
@@ -240,12 +240,12 @@
 
 	if(istype(I, /obj/item/food/poo) && user.a_intent == INTENT_HELP)
 		if(obj_integrity < max_integrity)
-			to_chat(user, "<span class='notice'>Начинаю чинить стену говна...</span>")
+			to_chat(user, span_notice("Начинаю чинить стену говна...") )
 			if(do_after(user, 20, target = src))
 				obj_integrity = max_integrity
-				to_chat(user, "<span class='notice'>Чиню стену говна говном.</span>")
+				to_chat(user, span_notice("Чиню стену говна говном.") )
 		else
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] уже в порядке!</span>")
+			to_chat(user, span_warning("[capitalize(src.name)] уже в порядке!") )
 		return
 
 /obj/structure/poop_barricade/deconstruct(disassembled)

@@ -9,9 +9,9 @@
 
 /obj/item/research_disk_pinpointer/attack_self(mob/user)
 	if(world.time < next_use_time)
-		to_chat(user, "<span class='notice'>Конденсаторы перезаряжаются...</span>")
+		to_chat(user, span_notice("Конденсаторы перезаряжаются...") )
 		return
-	to_chat(user, "<span class='notice'>Нажимаю кнопку...</span>")
+	to_chat(user, span_notice("Нажимаю кнопку...") )
 	pulse_effect(get_turf(src), 6)
 	next_use_time = world.time + 10 SECONDS
 	for(var/obj/item/disk/tech_disk/research/research_disk in SSorbits.research_disks)

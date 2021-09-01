@@ -27,7 +27,7 @@
 	rogue_types = list(/datum/nanite_program/toxic, /datum/nanite_program/nerve_decay)
 
 /datum/nanite_program/adrenaline/on_trigger()
-	to_chat(host_mob, "<span class='notice'>You feel a sudden surge of energy!</span>")
+	to_chat(host_mob, span_notice("You feel a sudden surge of energy!") )
 	host_mob.set_resting(FALSE)
 	host_mob.reagents.add_reagent(/datum/reagent/medicine/badstims, 3)
 

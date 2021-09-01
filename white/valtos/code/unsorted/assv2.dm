@@ -379,7 +379,7 @@ in their list
 	var/use_json = TRUE
 
 /datum/buildmode_mode/save/show_help(client/user)
-	to_chat(user, "<span class='notice'>БЕРИ И ВЫБИРАЙ ЗОНУ ЕБЛАН!</span>")
+	to_chat(user, span_notice("БЕРИ И ВЫБИРАЙ ЗОНУ ЕБЛАН!") )
 
 /datum/buildmode_mode/save/change_settings(client/user)
 	use_json = (alert("Would you like to use json (Default is \"Yes\")?",,"Yes","No") == "Yes")

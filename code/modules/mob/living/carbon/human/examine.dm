@@ -32,7 +32,7 @@
 			if(is_weapon)
 				spawn(15)
 					SEND_SOUND(user, sound('sound/ai/hacker/weapon.ogg'))
-				. += "<span class='warning'><big>Обнаружено оружие.</big></span>"
+				. += span_warning("<big>Обнаружено оружие.</big>")
 			else
 				hud_list[HACKER_HUD].cut_overlay("node_weapon")
 
@@ -63,7 +63,7 @@
 		. += "<span class='info'>Это же <EM>[!obscure_name ? name : "Неизвестный"]</EM>, [racetext ? "<big class='interface'>[racetext]</big>" : "[get_age_text()]"]!<hr>"
 
 	if(user?.stat == CONSCIOUS && ishuman(user))
-		user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[!obscure_name ? name : "Неизвестный"]</b>.</span>", "<span class='small'>Смотрю на <b>[!obscure_name ? name : "Неизвестный"]</b>.</span>", null, COMBAT_MESSAGE_RANGE)
+		user.visible_message(span_small("<b>[user]</b> смотрит на <b>[!obscure_name ? name : "Неизвестный"]</b>.") , span_small("Смотрю на <b>[!obscure_name ? name : "Неизвестный"]</b>.") , null, COMBAT_MESSAGE_RANGE)
 
 	var/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
@@ -184,7 +184,7 @@
 			if(suiciding)
 				. += "<span class='warning'>[t_on] выглядит как суицидник... [t_ego] уже невозможно спасти.</span>\n"
 			if(hellbound)
-				. += "<span class='warning'>[t_ego] душа выглядит вырванной из [t_ego] тела. Воскрешение невозможно.</span>"
+				. += span_warning("[t_ego] душа выглядит вырванной из [t_ego] тела. Воскрешение невозможно.")
 
 			. += generate_death_examine_text()
 
@@ -436,7 +436,7 @@
 			msg += "\n<span class='notice'><b><i>[t_on] имеет разорванное в хлам тело состоящее из шрамов... Стоит присмотреться, чтобы разглядеть ещё?</i></b></span>"
 
 	if (length(msg))
-		. += "<span class='warning'>[msg.Join("")]</span>"
+		. += span_warning("[msg.Join("")]")
 
 	var/perpname = get_face_name(get_id_name(""))
 	if(perpname && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))

@@ -49,7 +49,7 @@ SUBSYSTEM_DEF(mailbox)
 		return
 
 	else
-		to_chat(user, "<span class='alert'><b>[src.name]</b> не принимает <b>[I.name]</b>. Только специальные контейнеры.</span>")
+		to_chat(user, span_alert("<b>[src.name]</b> не принимает <b>[I.name]</b>. Только специальные контейнеры.") )
 
 /obj/item/storage/box/mailbox
 	name = "box MK1"

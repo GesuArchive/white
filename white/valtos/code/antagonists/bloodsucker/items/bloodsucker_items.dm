@@ -28,15 +28,15 @@
 
 	if(user.a_intent == INTENT_HELP && reagents.total_volume > 0)
 		if (user != M)
-			user.visible_message("<span class='userdanger'>[user] forces [M] to drink from the [src].</span>", \
-							  	"<span class='notice'>You put the [src] up to [M] mouth.</span>")
+			user.visible_message(span_userdanger("[user] forces [M] to drink from the [src].") , \
+							  	span_notice("You put the [src] up to [M] mouth.") )
 			if (!do_mob(user, M, 50))
 				return
 		else
 			if (!do_mob(user, M, 10))
 				return
-			user.visible_message("<span class='notice'>[user] puts the [src] up to their mouth.</span>", \
-		  		"<span class='notice'>You take a sip from the [src].</span>")
+			user.visible_message(span_notice("[user] puts the [src] up to their mouth.") , \
+		  		span_notice("You take a sip from the [src].") )
 
 		// Safety: In case you spam clicked the blood bag on yourself, and it is now empty (below will divide by zero)
 		if (reagents.total_volume <= 0)

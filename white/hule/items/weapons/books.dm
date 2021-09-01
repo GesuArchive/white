@@ -23,10 +23,10 @@
 		if(!H.undergoing_cardiac_arrest() && H.can_heartattack())
 			H.set_heartattack(TRUE)
 			if(H.stat == CONSCIOUS)
-				H.visible_message("<span class='danger'>[H] здох! Ну и лох!</span>")
+				H.visible_message(span_danger("[H] здох! Ну и лох!") )
 			dat += "[H.real_name]<br>"
 	if(!(ishuman(user)))
-		user.visible_message("<span class='danger'>[user] здох! Ну и лох!</span>")
+		user.visible_message(span_danger("[user] здох! Ну и лох!") )
 		user.forceMove(src)
 		dat += "[user.name]<br>"
 	..()

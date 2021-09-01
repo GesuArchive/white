@@ -146,9 +146,9 @@
 		if(CLOTHING_SHREDDED)
 			var/obj/item/stack/cloth_repair = W
 			if(cloth_repair.amount < 3)
-				to_chat(user, "<span class='warning'>Мне потребуется 3 единицы [W.name] для починки [src.name].</span>")
+				to_chat(user, span_warning("Мне потребуется 3 единицы [W.name] для починки [src.name].") )
 				return TRUE
-			to_chat(user, "<span class='notice'>Начинаю чинить повреждения [src.name] используя [cloth_repair]...</span>")
+			to_chat(user, span_notice("Начинаю чинить повреждения [src.name] используя [cloth_repair]...") )
 			if(!do_after(user, 6 SECONDS, src) || !cloth_repair.use(3))
 				return TRUE
 			repair(user, params)
@@ -166,7 +166,7 @@
 	damage_by_parts = null
 	if(user)
 		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
-		to_chat(user, "<span class='notice'>Чиню повреждения [src].</span>")
+		to_chat(user, span_notice("Чиню повреждения [src].") )
 
 /**
  * take_damage_zone() is used for dealing damage to specific bodyparts on a worn piece of clothing, meant to be called from [/obj/item/bodypart/proc/check_woundings_mods]
@@ -215,7 +215,7 @@
 
 	if(iscarbon(loc))
 		var/mob/living/carbon/C = loc
-		C.visible_message("<span class='danger'>The [zone_name] on [C] [src.name] is [break_verb] away!</span>", "<span class='userdanger'>The [zone_name] on your [src.name] is [break_verb] away!</span>", vision_distance = COMBAT_MESSAGE_RANGE)
+		C.visible_message(span_danger("The [zone_name] on [C] [src.name] is [break_verb] away!") , span_userdanger("The [zone_name] on your [src.name] is [break_verb] away!") , vision_distance = COMBAT_MESSAGE_RANGE)
 		RegisterSignal(C, COMSIG_MOVABLE_MOVED, .proc/bristle, override = TRUE)
 
 	zones_disabled++
@@ -401,9 +401,9 @@
 	if(isliving(loc)) //It's not important enough to warrant a message if it's not on someone
 		var/mob/living/M = loc
 		if(src in M.get_equipped_items(FALSE))
-			to_chat(M, "<span class='warning'>Мой [name] начинает распадаться на части!</span>")
+			to_chat(M, span_warning("Мой [name] начинает распадаться на части!") )
 		else
-			to_chat(M, "<span class='warning'>[capitalize(src.name)] начинает распадаться на части!</span>")
+			to_chat(M, span_warning("[capitalize(src.name)] начинает распадаться на части!") )
 
 //This mostly exists so subtypes can call appriopriate update icon calls on the wearer.
 /obj/item/clothing/proc/update_clothes_damaged_state(damaged_state = CLOTHING_DAMAGED)
@@ -446,7 +446,7 @@ BLIND     // can't see anything
 
 	visor_toggling()
 
-	to_chat(user, "<span class='notice'>[up ? "Поднимаю" : "Опускаю"] забрало [src].</span>")
+	to_chat(user, span_notice("[up ? "Поднимаю" : "Опускаю"] забрало [src].") )
 
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
@@ -496,10 +496,10 @@ BLIND     // can't see anything
 		if(isliving(loc))
 			var/mob/living/M = loc
 			if(src in M.get_equipped_items(FALSE)) //make sure they were wearing it and not attacking the item in their hands / eating it if they were a moth.
-				M.visible_message("<span class='danger'>[M] [src.name] fall[p_s()] off, [p_theyre()] completely shredded!</span>", "<span class='warning'><b>Your [src.name] fall[p_s()] off, [p_theyre()] completely shredded!</b></span>", vision_distance = COMBAT_MESSAGE_RANGE)
+				M.visible_message(span_danger("[M] [src.name] fall[p_s()] off, [p_theyre()] completely shredded!") , span_warning("<b>Your [src.name] fall[p_s()] off, [p_theyre()] completely shredded!</b>") , vision_distance = COMBAT_MESSAGE_RANGE)
 				M.dropItemToGround(src)
 			else
-				M.visible_message("<span class='danger'>[capitalize(src.name)] fall[p_s()] apart, completely shredded!</span>", vision_distance = COMBAT_MESSAGE_RANGE)
+				M.visible_message(span_danger("[capitalize(src.name)] fall[p_s()] apart, completely shredded!") , vision_distance = COMBAT_MESSAGE_RANGE)
 		name = "изорванный [initial(name)]" // change the name -after- the message, not before.
 	else
 		..()
@@ -511,6 +511,6 @@ BLIND     // can't see anything
 	if(!istype(L))
 		return
 	if(prob(0.2))
-		to_chat(L, "<span class='warning'>Порванные нитки на моем [src.name] раздражают!</span>")
+		to_chat(L, span_warning("Порванные нитки на моем [src.name] раздражают!") )
 
 #undef MOTH_EATING_CLOTHING_DAMAGE

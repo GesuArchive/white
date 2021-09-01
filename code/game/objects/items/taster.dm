@@ -14,9 +14,9 @@
 		return
 
 	if(!O.reagents)
-		to_chat(user, "<span class='notice'>[capitalize(src.name)] не может вкусить [O], потому что ничего не осталось.</span>")
+		to_chat(user, span_notice("[capitalize(src.name)] не может вкусить [O], потому что ничего не осталось.") )
 	else if(O.reagents.total_volume == 0)
 		to_chat(user, "<span class='notice'>[capitalize(src.name)] не может вкусить [O], потому что ничего нет.")
 	else
 		var/message = O.reagents.generate_taste_message(user, taste_sensitivity)
-		to_chat(user, "<span class='notice'>[capitalize(src.name)] вкушает <span class='italics'>[message]</span> в [O].</span>")
+		to_chat(user, span_notice("[capitalize(src.name)] вкушает <span class='italics'>[message]</span> в [O].") )

@@ -69,17 +69,17 @@
 		if(ghost_role == "Нет" || !user.loc || QDELETED(user))
 			return
 		if(is_banned_from(user.key, ROLE_ICECREAM))
-			to_chat(user, "<span class='warning'>[prob(10)? "А хуй тебе!" : "Упс, у вас джоббан на данную роль. Проконсультируйтесь с педаляцией."]</span>")
+			to_chat(user, span_warning("[prob(10)? "А хуй тебе!" : "Упс, у вас джоббан на данную роль. Проконсультируйтесь с педаляцией."]") )
 			return
 		if(isslimeperson(src))
-			to_chat(user, "<span class='warning'>Слаймолюдей занимать нельзя. Смирись.</span>")
+			to_chat(user, span_warning("Слаймолюдей занимать нельзя. Смирись.") )
 			return
 		if(QDELETED(src) || QDELETED(user))
 			return
 		if(src.client)
-			to_chat(user, "<span class='warning'>Тело уже занято! [prob(10) ? "Лошара." : "В следующий раз повезёт."]</span>")
+			to_chat(user, span_warning("Тело уже занято! [prob(10) ? "Лошара." : "В следующий раз повезёт."]") )
 			return
-		to_chat(src, "<span class='warning'>Моё тело забрали?! Срочно нажми F1 и опиши проблему.</span>") //такой хуйни быть не должно.
+		to_chat(src, span_warning("Моё тело забрали?! Срочно нажми F1 и опиши проблему.") ) //такой хуйни быть не должно.
 		log_game("[key_name(user)] Ice Creamed and became [src].")
 		message_admins("[key_name_admin(user)] забирает тело апатика ([ADMIN_LOOKUPFLW(src)]) себе.")
 		ghostize(0)

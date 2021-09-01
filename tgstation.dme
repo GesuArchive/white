@@ -137,6 +137,7 @@
 #include "code\__DEFINES\spaceman_dmm.dm"
 #include "code\__DEFINES\spacepods.dm"
 #include "code\__DEFINES\span.dm"
+#include "code\__DEFINES\span_white.dm"
 #include "code\__DEFINES\stat.dm"
 #include "code\__DEFINES\stat_tracking.dm"
 #include "code\__DEFINES\station.dm"

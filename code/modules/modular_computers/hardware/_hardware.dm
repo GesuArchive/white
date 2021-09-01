@@ -50,10 +50,10 @@
 	if(istype(I, /obj/item/stack/cable_coil))
 		var/obj/item/stack/S = I
 		if(obj_integrity == max_integrity)
-			to_chat(user, "<span class='warning'><b>[src.name]</b>, кажется, не требуется починка.</span>")
+			to_chat(user, span_warning("<b>[src.name]</b>, кажется, не требуется починка.") )
 			return 1
 		if(S.use(1))
-			to_chat(user, "<span class='notice'>Ты починил <b>[src.name]</b> с небольшой долей [I].</span>")
+			to_chat(user, span_notice("Ты починил <b>[src.name]</b> с небольшой долей [I].") )
 			obj_integrity = min(obj_integrity + 10, max_integrity)
 		return 1
 

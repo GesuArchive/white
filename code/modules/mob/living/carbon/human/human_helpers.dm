@@ -101,10 +101,10 @@
 	. = ..()
 	if(G.trigger_guard == TRIGGER_GUARD_NORMAL)
 		if(HAS_TRAIT(src, TRAIT_CHUNKYFINGERS))
-			to_chat(src, "<span class='warning'>Мои мясистые пальцы слишком большие, чтобы нажать на курок!</span>")
+			to_chat(src, span_warning("Мои мясистые пальцы слишком большие, чтобы нажать на курок!") )
 			return FALSE
 	if(HAS_TRAIT(src, TRAIT_NOGUNS))
-		to_chat(src, "<span class='warning'>Не могу заставить себя использовать оружие дальнего боя!</span>")
+		to_chat(src, span_warning("Не могу заставить себя использовать оружие дальнего боя!") )
 		return FALSE
 
 /mob/living/carbon/human/get_policy_keywords()

@@ -186,7 +186,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 
 
 	if(!SSticker || SSticker.current_state < GAME_STATE_PLAYING)
-		to_chat(src,"<span class='warning'>Не так быстро, игра ещё не началась!</span>")
+		to_chat(src,span_warning("Не так быстро, игра ещё не началась!") )
 		return
 
 	if (!GLOB.donators[ckey]) //If it doesn't exist yet
@@ -267,23 +267,23 @@ GLOBAL_LIST_EMPTY(donators)
 			var/mob/living/carbon/human/user = usr
 
 			if(!SSticker || SSticker.current_state < 3)
-				to_chat(user,"<span class='warning'>Игра ещё не началась!</span>")
+				to_chat(user,span_warning("Игра ещё не началась!") )
 				return 0
 
 			if((world.time-SSticker.round_start_time) > DONATIONS_SPAWN_WINDOW && !istype(get_area(user), /area/crew_quarters/bar))
-				to_chat(user,"<span class='warning'>Нужно быть в баре.</span>")
+				to_chat(user,span_warning("Нужно быть в баре.") )
 				return 0
 
 			if(prize.cost > money)
-				to_chat(user,"<span class='warning'>Недостаточно баланса.</span>")
+				to_chat(user,span_warning("Недостаточно баланса.") )
 				return 0
 
 			if(!allowed_num_items)
-				to_chat(user,"<span class='warning'>Достигли максимума. Ура.</span>")
+				to_chat(user,span_warning("Достигли максимума. Ура.") )
 				return 0
 
 			if(!user)
-				to_chat(user,"<span class='warning'>Нужно быть живым.</span>")
+				to_chat(user,span_warning("Нужно быть живым.") )
 				return 0
 
 			if(!ispath(prize.path_to))
@@ -293,12 +293,12 @@ GLOBAL_LIST_EMPTY(donators)
 				return 0
 
 			if(prize.stock <= 0)
-				to_chat(user,"<span class='warning'>Поставки <b>[prize.name]</b> закончились.</span>")
+				to_chat(user,span_warning("Поставки <b>[prize.name]</b> закончились.") )
 				return 0
 
 			if(prize.special)
 				if (prize.special != user.ckey)
-					to_chat(user,"<span class='warning'>Этот предмет предназначен для <b>[prize.special]</b>.</span>")
+					to_chat(user,span_warning("Этот предмет предназначен для <b>[prize.special]</b>.") )
 					return 0
 
 			prize.stock--
@@ -309,7 +309,7 @@ GLOBAL_LIST_EMPTY(donators)
 
 			new /obj/effect/pod_landingzone(get_turf(user), pod)
 
-			to_chat(user, "<span class='info'>[capitalize(prize.name)] был создан!</span>")
+			to_chat(user, span_info("[capitalize(prize.name)] был создан!") )
 
 			money -= prize.cost
 			allowed_num_items--

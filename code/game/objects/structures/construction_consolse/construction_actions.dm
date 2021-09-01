@@ -1,7 +1,7 @@
 /datum/action/innate/camera_off/base_construction
 	name = "Выйти из системы"
 
-///Generic construction action for base [construction consoles][/obj/machinery/computer/camera_advanced/base_construction]. 
+///Generic construction action for base [construction consoles][/obj/machinery/computer/camera_advanced/base_construction].
 /datum/action/innate/construction
 	icon_icon = 'icons/mob/actions/actions_construction.dmi'
 	///Console's eye mob
@@ -32,10 +32,10 @@
 	if (!area_constraint)
 		return TRUE
 	if(!istype(build_area, area_constraint))
-		to_chat(owner, "<span class='warning'>Вы можете строить только внутри [area_constraint]!</span>")
+		to_chat(owner, span_warning("Вы можете строить только внутри [area_constraint]!") )
 		return FALSE
 	if(only_station_z && !is_station_level(build_target.z))
-		to_chat(owner, "<span class='warning'>[area_constraint] запущен и больше не может быть изменен.</span>")
+		to_chat(owner, span_warning("[area_constraint] запущен и больше не может быть изменен.") )
 		return FALSE
 	return TRUE
 
@@ -104,17 +104,17 @@
 		return
 	var/turf/place_turf = get_turf(remote_eye)
 	if(!base_console.structures[structure_name])
-		to_chat(owner, "<span class='warning'>[base_console] вне [structure_name]!</span>")
+		to_chat(owner, span_warning("[base_console] вне [structure_name]!") )
 		return
 	if(!check_spot())
 		return
 	//Can't place inside a closed turf
 	if(place_turf.density)
-		to_chat(owner, "<span class='warning'>[structure_name] может быть размещено только на полу.</span>")
+		to_chat(owner, span_warning("[structure_name] может быть размещено только на полу.") )
 		return
 	//Can't place two dense objects inside eachother
 	if(initial(structure_path.density) && place_turf.is_blocked_turf())
-		to_chat(owner, "<span class='warning'>Что-то мешает разместить постройку. Очистите зону строительства и повторите попытку.</span>")
+		to_chat(owner, span_warning("Что-то мешает разместить постройку. Очистите зону строительства и повторите попытку.") )
 		return
 	var/obj/placed_structure = new structure_path(place_turf)
 	base_console.structures[structure_name]--
@@ -134,7 +134,7 @@
 	place_sound =  'sound/machines/click.ogg'
 
 /datum/action/innate/construction/place_structure/turret/after_place(obj/placed_structure, remaining)
-	to_chat(owner, "<span class='notice'>Крошечный вентилятор размещён. [remaining] вентиляторов осталось.</span>")
+	to_chat(owner, span_notice("Крошечный вентилятор размещён. [remaining] вентиляторов осталось.") )
 
 /datum/action/innate/construction/place_structure/turret
 	name = "Разместить Плазменную Турель для борьбы с фауной"
@@ -146,7 +146,7 @@
 /datum/action/innate/construction/place_structure/turret/after_place(obj/placed_structure, remaining)
 	var/obj/machinery/computer/auxiliary_base/turret_controller = locate() in get_area(placed_structure)
 	if(!turret_controller)
-		to_chat(owner, "<span class='notice'><b>Warning:</b> Вспомогательный базовый контроллер не обнаружен. Турели могут работать некорректно.</span>")
+		to_chat(owner, span_notice("<b>Warning:</b> Вспомогательный базовый контроллер не обнаружен. Турели могут работать некорректно.") )
 		return
 	turret_controller.turrets += placed_structure
-	to_chat(owner, "<span class='notice'>Вы построили дополнительную турель. [remaining] турелей осталось.</span>")
+	to_chat(owner, span_notice("Вы построили дополнительную турель. [remaining] турелей осталось.") )

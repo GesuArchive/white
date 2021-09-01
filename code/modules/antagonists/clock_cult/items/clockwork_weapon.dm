@@ -93,11 +93,11 @@
 		target.emp_act(EMP_LIGHT)
 		emp_cooldown = world.time + 300
 		addtimer(CALLBACK(src, .proc/send_message, user), 300)
-		to_chat(user, "<span class='brass'>You strike [target] with an electromagnetic pulse!</span>")
+		to_chat(user, span_brass("You strike [target] with an electromagnetic pulse!") )
 		playsound(user, 'sound/magic/lightningshock.ogg', 40)
 
 /obj/item/clockwork/brass_sword/proc/send_message(mob/living/target)
-	to_chat(target, "<span class='brass'>[src] glows, indicating the next attack will disrupt electronics of the target.</span>")
+	to_chat(target, span_brass("[src] glows, indicating the next attack will disrupt electronics of the target.") )
 
 /obj/item/gun/ballistic/bow/clockwork
 	name = "Brass Bow"
@@ -109,7 +109,7 @@
 
 /obj/item/gun/ballistic/bow/clockwork/attack_self(mob/living/user)
 	if(!drawn)
-		to_chat(user, "<span class='notice'>Натягиваю тетиву.</span>")
+		to_chat(user, span_notice("Натягиваю тетиву.") )
 	if (chambered)
 		drawn = TRUE
 	else

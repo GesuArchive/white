@@ -76,12 +76,12 @@
 		if (istype(W,/obj/item/clothing/mask/cigarette))
 			var/obj/item/clothing/mask/cigarette/cig = W
 			if (cig.lit == 1)
-				user.visible_message("<span class='notice'>[user] тушит [cig] об пепельницу.</span>")
+				user.visible_message(span_notice("[user] тушит [cig] об пепельницу.") )
 				var/obj/item/butt = new cig.type_butt(src)
 				cig.transfer_fingerprints_to(butt)
 				del(cig)
 			else if (cig.lit == 0)
-				to_chat(user, "<span class='notice'>Пепельница явно не для того, чтобы складывать туда простые сигареты.</span>")
+				to_chat(user, span_notice("Пепельница явно не для того, чтобы складывать туда простые сигареты.") )
 				return
 
 		add_fingerprint(user)
@@ -100,14 +100,14 @@
 			die()
 			return
 		if(contents.len)
-			to_chat(src, "<span class='warning'>Пепельница разбивается об [hit_atom]!</span>")
+			to_chat(src, span_warning("Пепельница разбивается об [hit_atom]!") )
 		for (var/obj/item/O in contents)
 			O.loc = src.loc
 		update_icon()
 	return ..()
 
 /obj/item/ashtray/proc/die()
-	src.visible_message("<span class='danger'>Пепельница разбивается, раскидывая свое содержимое!</span>")
+	src.visible_message(span_danger("Пепельница разбивается, раскидывая свое содержимое!") )
 	playsound(src, "shatter", 30, 1)
 	new /obj/item/shard(src.loc)
 	new /obj/effect/decal/cleanable/ash(src.loc)

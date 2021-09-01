@@ -11,7 +11,7 @@
 //Recover from stuns.
 /datum/action/changeling/adrenaline/sting_action(mob/living/user)
 	..()
-	to_chat(user, "<span class='notice'>Мы ощущаем прилив энергии.</span>")
+	to_chat(user, span_notice("Мы ощущаем прилив энергии.") )
 	user.SetKnockdown(0)
 	user.set_resting(FALSE)
 	user.adjustStaminaLoss(-75)

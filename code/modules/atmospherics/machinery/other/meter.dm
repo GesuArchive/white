@@ -118,12 +118,12 @@
 
 /obj/machinery/meter/wrench_act(mob/user, obj/item/I)
 	..()
-	to_chat(user, "<span class='notice'>Начинаю откручивать <b>[src.name]</b>...</span>")
+	to_chat(user, span_notice("Начинаю откручивать <b>[src.name]</b>...") )
 	if (I.use_tool(src, user, 40, volume=50))
 		user.visible_message(
 			"[user] откручивает <b>[src.name]</b>.",
-			"<span class='notice'>Откручиваю <b>[src.name]</b>.</span>",
-			"<span class='hear'>Слышу трещотку.</span>")
+			span_notice("Откручиваю <b>[src.name]</b>.") ,
+			span_hear("Слышу трещотку.") )
 		deconstruct()
 	return TRUE
 

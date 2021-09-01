@@ -52,7 +52,7 @@
 /obj/item/food/candy/bronx/examine(mob/user)
 	. = ..()
 	if(!revelation)
-		to_chat(user, "<span class='notice'>Geeze, you need to get to get your eyes checked. You should look again...</span>")
+		to_chat(user, span_notice("Geeze, you need to get to get your eyes checked. You should look again...") )
 		desc = "Lose weight, guaranteed! Caramel Mocha Flavor! WARNING: PRODUCT NOT FIT FOR HUMAN CONSUMPTION. CONTAINS LIVE DIAMPHIDIA SPECIMENS."
 		name = "South Bronx Parasite bar"
 		revelation = TRUE

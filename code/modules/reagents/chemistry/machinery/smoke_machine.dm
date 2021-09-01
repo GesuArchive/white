@@ -95,7 +95,7 @@
 		var/obj/item/reagent_containers/RC = I
 		var/units = RC.reagents.trans_to(src, RC.amount_per_transfer_from_this, transfered_by = user)
 		if(units)
-			to_chat(user, "<span class='notice'>Поместил [units] единиц раствора в [src].</span>")
+			to_chat(user, span_notice("Поместил [units] единиц раствора в [src].") )
 			return
 	if(default_unfasten_wrench(user, I, 40))
 		on = FALSE

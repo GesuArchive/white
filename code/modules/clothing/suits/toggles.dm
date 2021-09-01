@@ -64,10 +64,10 @@
 			return
 		var/mob/living/carbon/human/H = loc
 		if(H.wear_suit != src)
-			to_chat(H, "<span class='warning'>Стоит надеть [src] сначала, чтобы поднять капюшон!</span>")
+			to_chat(H, span_warning("Стоит надеть [src] сначала, чтобы поднять капюшон!") )
 			return
 		if(H.head)
-			to_chat(H, "<span class='warning'>На моей голове уже что-то есть!</span>")
+			to_chat(H, span_warning("На моей голове уже что-то есть!") )
 			return
 		else
 			if(alternative_mode)
@@ -124,7 +124,7 @@
 	if(!can_use(usr))
 		return 0
 
-	to_chat(usr, "<span class='notice'>Переключил [src] [togglename].</span>")
+	to_chat(usr, span_notice("Переключил [src] [togglename].") )
 	if(src.suittoggled)
 		src.icon_state = "[initial(icon_state)]"
 		src.suittoggled = FALSE
@@ -186,7 +186,7 @@
 			helmet.attack_self(H)
 		H.transferItemToLoc(helmet, src, TRUE)
 		H.update_inv_wear_suit()
-		to_chat(H, "<span class='notice'>Шлем отсоединяется от скафандра.</span>")
+		to_chat(H, span_notice("Шлем отсоединяется от скафандра.") )
 		playsound(src.loc, 'sound/mecha/mechmove03.ogg', 50, TRUE)
 	else
 		helmet.forceMove(src)
@@ -200,18 +200,18 @@
 	if(!helmettype)
 		return
 	if(!helmet)
-		to_chat(H, "<span class='warning'>Лампочка на шлеме похоже повреждена. Ей понадобиться замена.</span>")
+		to_chat(H, span_warning("Лампочка на шлеме похоже повреждена. Ей понадобиться замена.") )
 		return
 	if(!suittoggled)
 		if(ishuman(src.loc))
 			if(H.wear_suit != src)
-				to_chat(H, "<span class='warning'>Должен носить [src] чтобы использовать шлем!</span>")
+				to_chat(H, span_warning("Должен носить [src] чтобы использовать шлем!") )
 				return
 			if(H.head)
-				to_chat(H, "<span class='warning'>На мою голову уже что-то надето!</span>")
+				to_chat(H, span_warning("На мою голову уже что-то надето!") )
 				return
 			else if(H.equip_to_slot_if_possible(helmet,ITEM_SLOT_HEAD,0,0,1))
-				to_chat(H, "<span class='notice'>Активировал шлем скафандра.</span>")
+				to_chat(H, span_notice("Активировал шлем скафандра.") )
 				suittoggled = TRUE
 				H.update_inv_wear_suit()
 				playsound(src.loc, 'sound/mecha/mechmove03.ogg', 50, TRUE)

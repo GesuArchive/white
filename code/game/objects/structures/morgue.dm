@@ -54,7 +54,7 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 	if(locked)
 		if(message_cooldown <= world.time)
 			message_cooldown = world.time + 50
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] не поддаётся!</span>")
+			to_chat(user, span_warning("[capitalize(src.name)] не поддаётся!") )
 		return
 	open()
 
@@ -66,7 +66,7 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 	if(.)
 		return
 	if(locked)
-		to_chat(user, "<span class='danger'>Заблокировано.</span>")
+		to_chat(user, span_danger("Заблокировано.") )
 		return
 	if(!connected)
 		to_chat(user, "Здесь нет ложа. Как так?")
@@ -86,7 +86,7 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 	add_fingerprint(user)
 	if(istype(P, /obj/item/pen))
 		if(!user.is_literate())
-			to_chat(user, "<span class='notice'>Царапаю что-то прикольное на [src]!</span>")
+			to_chat(user, span_notice("Царапаю что-то прикольное на [src]!") )
 			return
 		var/t = stripped_input(user, "Что же мы напишем?", text("[]", name), null)
 		if (user.get_active_held_item() != P)
@@ -113,13 +113,13 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
 	user.visible_message(null, \
-		"<span class='notice'>Начинаю расшатывать стенки [src.name] в попытке открыть его... (это займёт примерно [DisplayTimeText(breakout_time)].)</span>", \
-		"<span class='hear'>Слышу металлический звон исходящий от [src.name].</span>")
+		span_notice("Начинаю расшатывать стенки [src.name] в попытке открыть его... (это займёт примерно [DisplayTimeText(breakout_time)].)") , \
+		span_hear("Слышу металлический звон исходящий от [src.name].") )
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src )
 			return
-		user.visible_message("<span class='warning'>[user] успешно вырывается из [src.name]!</span>", \
-			"<span class='notice'>Успешно вылезаю из [src.name]!</span>")
+		user.visible_message(span_warning("[user] успешно вырывается из [src.name]!") , \
+			span_notice("Успешно вылезаю из [src.name]!") )
 		open()
 
 /obj/structure/bodycontainer/proc/open()
@@ -173,7 +173,7 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return
 	beeper = !beeper
-	to_chat(user, "<span class='notice'>[beeper ? "Включаю" : "Выключаю"] систему оповещений.</span>")
+	to_chat(user, span_notice("[beeper ? "Включаю" : "Выключаю"] систему оповещений.") )
 
 /obj/structure/bodycontainer/morgue/update_icon()
 	if (!connected || connected.loc != src) // Open or tray is gone.
@@ -221,7 +221,7 @@ GLOBAL_LIST_EMPTY(crematoriums)
 	. += "<hr><span class='notice'>Температура: <b>[round(temperature-T0C, 0.01)] &deg;C</b></span>"
 
 /obj/structure/bodycontainer/crematorium/attack_robot(mob/user) //Borgs can't use crematoriums without help
-	to_chat(user, "<span class='warning'>[capitalize(src.name)] заперт для меня.</span>")
+	to_chat(user, span_warning("[capitalize(src.name)] заперт для меня.") )
 	return
 
 /obj/structure/bodycontainer/crematorium/Destroy()
@@ -260,13 +260,13 @@ GLOBAL_LIST_EMPTY(crematoriums)
 	if(temperature > 1173.15)
 		STOP_PROCESSING(SSobj, src)
 		playsound(src.loc, 'sound/machines/ding.ogg', 50, TRUE)
-		audible_message("<span class='hear'>Слышу треск.</span>")
+		audible_message(span_hear("Слышу треск.") )
 		heating = FALSE
 
 /obj/structure/bodycontainer/crematorium/proc/cremate(mob/user)
 	if(temperature < 1173.15)
 		if(!heating)
-			audible_message("<span class='hear'>Слышу как накаляется металл.</span>")
+			audible_message(span_hear("Слышу как накаляется металл.") )
 			START_PROCESSING(SSobj, src)
 			heating = TRUE
 		return
@@ -276,12 +276,12 @@ GLOBAL_LIST_EMPTY(crematoriums)
 	var/list/conts = GetAllContents() - src - connected
 
 	if(!conts.len)
-		audible_message("<span class='hear'>Слышу пустой гул.</span>")
+		audible_message(span_hear("Слышу пустой гул.") )
 		temperature = T20C
 		return
 
 	else
-		audible_message("<span class='hear'>Слышу дикий рёв исходящий из крематория.</span>")
+		audible_message(span_hear("Слышу дикий рёв исходящий из крематория.") )
 
 		locked = TRUE
 		update_icon()
@@ -364,7 +364,7 @@ GLOBAL_LIST_EMPTY(crematoriums)
 		connected.close()
 		add_fingerprint(user)
 	else
-		to_chat(user, "<span class='warning'>Эта штука не подключена ни к чему!</span>")
+		to_chat(user, span_warning("Эта штука не подключена ни к чему!") )
 
 /obj/structure/tray/attackby(obj/P, mob/user, params)
 	if(!istype(P, /obj/item/riding_offhand))
@@ -395,7 +395,7 @@ GLOBAL_LIST_EMPTY(crematoriums)
 			return
 	O.forceMove(src.loc)
 	if (user != O)
-		visible_message("<span class='warning'>[user] запихивает [O] в [src].</span>")
+		visible_message(span_warning("[user] запихивает [O] в [src].") )
 	return
 
 /*

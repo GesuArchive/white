@@ -243,13 +243,13 @@
 		if(!user.temporarilyRemoveItemFromInventory(c))
 			return
 		credits += c.value
-		visible_message("<span class='info'><span class='name'>[user]</span> вставляет [c.value] cr в [src].</span>")
+		visible_message(span_info("<span class='name'>[user]</span> вставляет [c.value] cr в [src].") )
 		qdel(c)
 		return
 	else if(istype(I, /obj/item/holochip))
 		var/obj/item/holochip/HC = I
 		credits += HC.credits
-		visible_message("<span class='info'>[user] вставляет [HC.credits] cr чип голокредитов в [src].</span>")
+		visible_message(span_info("[user] вставляет [HC.credits] cr чип голокредитов в [src].") )
 		qdel(HC)
 		return
 	else if(istype(I, /obj/item/card/id))

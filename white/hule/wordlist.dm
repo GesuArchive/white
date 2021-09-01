@@ -33,7 +33,7 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 			target.overlay_fullscreen("brute", /atom/movable/screen/fullscreen/brute, 6)
 			addtimer(CALLBACK(target, /mob.proc/clear_fullscreen, "brute", 10), 10)
 
-			to_chat(target, "<span class='notice'><big>[uppertext(W)]...</big></span>")
+			to_chat(target, span_notice("<big>[uppertext(W)]...</big>") )
 
 			SEND_SOUND(target, sound('sound/effects/singlebeat.ogg'))
 

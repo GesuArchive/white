@@ -9,10 +9,10 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY
 
-	low_threshold_passed = "<span class='info'>Слышу лёгкий звон в ушах.</span>"
-	now_failing = "<span class='warning'>Ничего не слышу!</span>"
-	now_fixed = "<span class='info'>Шум снова медленно начинает наполнять мои уши.</span>"
-	low_threshold_cleared = "<span class='info'>Звон в ушах утих.</span>"
+	low_threshold_passed = span_info("Слышу лёгкий звон в ушах.")
+	now_failing = span_warning("Ничего не слышу!")
+	now_fixed = span_info("Шум снова медленно начинает наполнять мои уши.")
+	low_threshold_cleared = span_info("Звон в ушах утих.")
 
 	// `deaf` measures "ticks" of deafness. While > 0, the person is unable
 	// to hear anything.
@@ -30,7 +30,7 @@
 /obj/item/organ/ears/on_life(delta_time, times_fired)
 	// only inform when things got worse, needs to happen before we heal
 	if((damage > low_threshold && prev_damage < low_threshold) || (damage > high_threshold && prev_damage < high_threshold))
-		to_chat(owner, "<span class='warning'>Звон в ушах становится громче, на мгновение заглушая любые внешние шумы.</span>")
+		to_chat(owner, span_warning("Звон в ушах становится громче, на мгновение заглушая любые внешние шумы.") )
 
 	. = ..()
 	// if we have non-damage related deafness like mutations, quirks or clothing (earmuffs), don't bother processing here. Ear healing from earmuffs or chems happen elsewhere
@@ -88,13 +88,13 @@
 /obj/item/organ/ears/penguin/Insert(mob/living/carbon/human/H, special = 0, drop_if_replaced = TRUE)
 	. = ..()
 	if(istype(H))
-		to_chat(H, "<span class='notice'>Похоже я теряю умение балансировать на ногах!</span>")
+		to_chat(H, span_notice("Похоже я теряю умение балансировать на ногах!") )
 		H.AddElement(/datum/element/waddling)
 
 /obj/item/organ/ears/penguin/Remove(mob/living/carbon/human/H,  special = 0)
 	. = ..()
 	if(istype(H))
-		to_chat(H, "<span class='notice'>Кажется меня больше не шатает.</span>")
+		to_chat(H, span_notice("Кажется меня больше не шатает.") )
 		H.RemoveElement(/datum/element/waddling)
 
 /obj/item/organ/ears/bronze

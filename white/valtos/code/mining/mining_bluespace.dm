@@ -83,17 +83,17 @@
 /obj/machinery/mineral/bluespace_miner/multitool_act(mob/living/user, obj/item/multitool/I)
 	. = ..()
 	if (istype(I))
-		to_chat(user, "<span class='notice'>Обновляю буфер майнера буфером мультитула.</span>")
+		to_chat(user, span_notice("Обновляю буфер майнера буфером мультитула.") )
 		materials?.silo = I.buffer
 		return TRUE
 	else
-		to_chat(user, "<span class='notice'>Буфер пуст.</span>")
+		to_chat(user, span_notice("Буфер пуст.") )
 		return FALSE
 
 /obj/machinery/mineral/bluespace_miner/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += "<span class='notice'>Скорость сбора ресурсов [mine_rate]</span>"
+	. += span_notice("Скорость сбора ресурсов [mine_rate]")
 	if(!materials?.silo)
 		. += "\n<span class='notice'>Бункер для руды не подключен. Используйте многофункциональный инструмент, чтобы связать бункер для руды с этой машиной.</span>"
 	else if(materials?.on_hold())

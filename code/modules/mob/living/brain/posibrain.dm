@@ -14,19 +14,19 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	braintype = "Android"
 	var/autoping = TRUE ///If it pings on creation immediately
 	///Message sent to the user when polling ghosts
-	var/begin_activation_message = "<span class='notice'>Аккуратно нащупываю кнопку активации, осталось подождать когда эта штука заработает.</span>"
+	var/begin_activation_message = span_notice("Аккуратно нащупываю кнопку активации, осталось подождать когда эта штука заработает.")
 	///Message sent as a visible message on success
-	var/success_message = "<span class='notice'>Позитронный мозг издаёт приятный звук и начинает светиться. Это успех!</span>"
+	var/success_message = span_notice("Позитронный мозг издаёт приятный звук и начинает светиться. Это успех!")
 	///Message sent as a visible message on failure
-	var/fail_message = "<span class='notice'>Позитронный мозг жужит недовольно и перестаёт светиться. Стоит попробовать ещё?</span>"
+	var/fail_message = span_notice("Позитронный мозг жужит недовольно и перестаёт светиться. Стоит попробовать ещё?")
 	///Role assigned to the newly created mind
 	var/new_role = "Позитронный мозг"
 	///Visible message sent when a player possesses the brain
-	var/new_mob_message = "<span class='notice'>Позитронный мозг начинает тихо пищать.</span>"
+	var/new_mob_message = span_notice("Позитронный мозг начинает тихо пищать.")
 	///Examine message when the posibrain has no mob
-	var/dead_message = "<span class='deadsay'>Он полностью отключен. Кнопка сброса активна.</span>"
+	var/dead_message = span_deadsay("Он полностью отключен. Кнопка сброса активна.")
 	///Examine message when the posibrain cannot poll ghosts due to cooldown
-	var/recharge_message = "<span class='warning'>Позитронный мозг не готов к повторной активации! Стоит подождать ещё немного.</span>"
+	var/recharge_message = span_warning("Позитронный мозг не готов к повторной активации! Стоит подождать ещё немного.")
 	var/list/possible_names ///One of these names is randomly picked as the posibrain's name on possession. If left blank, it will use the global posibrain names
 	var/picked_name ///Picked posibrain name
 
@@ -47,9 +47,9 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	if(!brainmob)
 		set_brainmob(new /mob/living/brain(src))
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SILICONS))
-		to_chat(user, "<span class='warning'>Центральное Командование запретило использование синтетиков в этом регионе...</span>")
+		to_chat(user, span_warning("Центральное Командование запретило использование синтетиков в этом регионе...") )
 	if(is_occupied())
-		to_chat(user, "<span class='warning'>[capitalize(name)] уже активен!</span>")
+		to_chat(user, span_warning("[capitalize(name)] уже активен!") )
 		return
 	if(next_ask > world.time)
 		to_chat(user, recharge_message)
@@ -69,7 +69,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return
 	if(input_seed)
-		to_chat(user, "<span class='notice'>Выставляю случайное число личности \"[input_seed]\".</span>")
+		to_chat(user, span_notice("Выставляю случайное число личности \"[input_seed]\".") )
 		ask_role = input_seed
 		update_icon()
 
@@ -104,7 +104,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	if(is_occupied() || is_banned_from(user.ckey, ROLE_POSIBRAIN) || QDELETED(brainmob) || QDELETED(src) || QDELETED(user))
 		return
 	if(user.suiciding) //if they suicided, they're out forever.
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] тихо шипит. Жалко, что суицидники не принимаются!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] тихо шипит. Жалко, что суицидники не принимаются!") )
 		return
 	var/posi_ask = alert("Быть [name]? (Внимание! Прошлого тебя не смогут воскресить, придётся забыть старые обиды)","Готов?","Да","Нет")
 	if(posi_ask == "Нет" || QDELETED(src))
@@ -137,7 +137,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	if(QDELETED(brainmob))
 		return
 	if(is_occupied()) //Prevents hostile takeover if two ghosts get the prompt or link for the same brain.
-		to_chat(candidate, "<span class='warning'>Этот [name] уже был выбран до того как была возможности войти! Возможно оно будет доступно позже?</span>")
+		to_chat(candidate, span_warning("Этот [name] уже был выбран до того как была возможности войти! Возможно оно будет доступно позже?") )
 		return FALSE
 	if(candidate.mind && !isobserver(candidate))
 		candidate.mind.transfer_to(brainmob)

@@ -41,10 +41,10 @@
 
 					playsound(user, insert_sound, 50, 1)
 
-					user.visible_message("<span class='notice'>[user] аккуратно устанавливает [chambered.BB] в [src].</span>", \
-                                         "<span class='notice'>Аккуратно устанавливаю [chambered.BB] в [src].</span>")
+					user.visible_message(span_notice("[user] аккуратно устанавливает [chambered.BB] в [src].") , \
+                                         span_notice("Аккуратно устанавливаю [chambered.BB] в [src].") )
 		else
-			to_chat(user, "<span class='warning'>Стоит натянуть тетиву перед установкой снаряда!</span>")
+			to_chat(user, span_warning("Стоит натянуть тетиву перед установкой снаряда!") )
 	else
 		to_chat(user, "<span class='warning'>Здесь уже есть [chambered.BB] внутри!<span>")
 
@@ -86,15 +86,15 @@
 					draw = "на максимум"
 				else if (charge > 1)
 					draw = "дальше"
-				user.visible_message("<span class='notice'>[user] натягивает тетиву [draw].</span>", \
-	                                     "<span class='notice'>Натягиваю тетиву [draw].</span>")
+				user.visible_message(span_notice("[user] натягивает тетиву [draw].") , \
+	                                     span_notice("Натягиваю тетиву [draw].") )
 			else
 				charging = FALSE
 		else
-			to_chat(user, "<span class='warning'>Тетива натянута, милорд!</span>")
+			to_chat(user, span_warning("Тетива натянута, милорд!") )
 	else
-		user.visible_message("<span class='notice'>[user] достаёт [chambered.BB] из [src].</span>", \
-							"<span class='notice'>Достаю [chambered.BB] из [src].</span>")
+		user.visible_message(span_notice("[user] достаёт [chambered.BB] из [src].") , \
+							span_notice("Достаю [chambered.BB] из [src].") )
 		user.put_in_hands(new /obj/item/stack/rods)
 		chambered = null
 		playsound(user, insert_sound, 50, 1)
@@ -186,8 +186,8 @@
 			R.updateEmbedding()
 			R.tryEmbed(BP, TRUE, TRUE)
 			H.update_damage_overlays()
-			visible_message("<span class='warning'><b>[capitalize(R.name)]</b> проникает в [ru_parse_zone(BP)] <b>[H]</b>!</span>",
-							"<span class='userdanger'>Ох! <b>[capitalize(R.name)]</b> проникает в <b>[ru_parse_zone(BP)]</b>!</span>")
+			visible_message(span_warning("<b>[capitalize(R.name)]</b> проникает в [ru_parse_zone(BP)] <b>[H]</b>!") ,
+							span_userdanger("Ох! <b>[capitalize(R.name)]</b> проникает в <b>[ru_parse_zone(BP)]</b>!") )
 			playsound(H, impale_sound, 50, 1)
 			H.emote("agony")
 

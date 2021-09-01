@@ -35,7 +35,7 @@ GLOBAL_LIST_INIT(glass_recipes, list ( \
 	source = /datum/robot_energy_storage/glass
 
 /obj/item/stack/sheet/glass/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] начинает разрезать шею [user.ru_ego ()] с помощью <b> [src.name] </b>! Похоже, [user.p_theyre ()] пытается совершить самоубийство!</span>")
+	user.visible_message(span_suicide("[user] начинает разрезать шею [user.ru_ego ()] с помощью <b> [src.name] </b>! Похоже, [user.p_theyre ()] пытается совершить самоубийство!") )
 	return BRUTELOSS
 
 /obj/item/stack/sheet/glass/five
@@ -57,7 +57,7 @@ GLOBAL_LIST_INIT(glass_recipes, list ( \
 			return
 		CC.use(5)
 		use(1)
-		to_chat(user, "<span class='notice'>Присоединяю провод к стеклу.</span>")
+		to_chat(user, span_notice("Присоединяю провод к стеклу.") )
 		var/obj/item/stack/light_w/new_tile = new(user.loc)
 		new_tile.add_fingerprint(user)
 		return
@@ -73,7 +73,7 @@ GLOBAL_LIST_INIT(glass_recipes, list ( \
 			if(QDELETED(src) && replace && !QDELETED(RG))
 				user.put_in_hands(RG)
 		else
-			to_chat(user, "<span class='warning'>Мне понадобится один стержень и один лист стекла для создания укреплённого стекла!</span>")
+			to_chat(user, span_warning("Мне понадобится один стержень и один лист стекла для создания укреплённого стекла!") )
 		return
 	return ..()
 
@@ -119,7 +119,7 @@ GLOBAL_LIST_INIT(pglass_recipes, list ( \
 			if(QDELETED(src) && replace)
 				user.put_in_hands(RG)
 		else
-			to_chat(user, "<span class='warning'>Мне понадобится один стержень и один лист плазмастекла для создания укреплённого плазмастекла!</span>")
+			to_chat(user, span_warning("Мне понадобится один стержень и один лист плазмастекла для создания укреплённого плазмастекла!") )
 			return
 	else
 		return ..()
@@ -276,7 +276,7 @@ GLOBAL_LIST_INIT(plastitaniumglass_recipes, list(
 
 
 /obj/item/shard/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] режет [user.ru_ego()] [pick("wrists", "throat")] осколком стекла! Похоже, [user.p_theyre()] пытается совершить самоубийство.</span>")
+	user.visible_message(span_suicide("[user] режет [user.ru_ego()] [pick("wrists", "throat")] осколком стекла! Похоже, [user.p_theyre()] пытается совершить самоубийство.") )
 	return (BRUTELOSS)
 
 
@@ -325,7 +325,7 @@ GLOBAL_LIST_INIT(plastitaniumglass_recipes, list(
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!H.gloves && !HAS_TRAIT(H, TRAIT_PIERCEIMMUNE)) // golems, etc
-			to_chat(H, "<span class='warning'><b>[capitalize(src.name)]</b> впивается в мою руку!</span>")
+			to_chat(H, span_warning("<b>[capitalize(src.name)]</b> впивается в мою руку!") )
 			H.apply_damage(force*0.5, BRUTE, hit_hand)
 
 /obj/item/shard/attackby(obj/item/I, mob/user, params)
@@ -334,11 +334,11 @@ GLOBAL_LIST_INIT(plastitaniumglass_recipes, list(
 		L.attackby(src, user)
 	else if(istype(I, /obj/item/stack/sheet/cloth))
 		var/obj/item/stack/sheet/cloth/C = I
-		to_chat(user, "<span class='notice'>Начинаю обматывать [src] используя [C]...</span>")
+		to_chat(user, span_notice("Начинаю обматывать [src] используя [C]...") )
 		if(do_after(user, 35, target = src))
 			var/obj/item/kitchen/knife/shiv/S = new /obj/item/kitchen/knife/shiv
 			C.use(1)
-			to_chat(user, "<span class='notice'>Обматываю [src] используя [C], получая при этом самодельное оружие.</span>")
+			to_chat(user, span_notice("Обматываю [src] используя [C], получая при этом самодельное оружие.") )
 			remove_item_from_storage(src)
 			qdel(src)
 			user.put_in_hands(S)
@@ -357,7 +357,7 @@ GLOBAL_LIST_INIT(plastitaniumglass_recipes, list(
 				if(G.amount >= G.max_amount)
 					continue
 				G.attackby(NG, user)
-		to_chat(user, "<span class='notice'>Добавляю свеженькое [NG.name] в кучу. Теперь она содержит [NG.amount] листов.</span>")
+		to_chat(user, span_notice("Добавляю свеженькое [NG.name] в кучу. Теперь она содержит [NG.amount] листов.") )
 		qdel(src)
 	return TRUE
 

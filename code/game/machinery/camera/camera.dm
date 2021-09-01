@@ -163,7 +163,7 @@
 				if (M.client.eye == src)
 					M.unset_machine()
 					M.reset_perspective(null)
-					to_chat(M, "<span class='warning'>The screen bursts into static!</span>")
+					to_chat(M, span_warning("The screen bursts into static!") )
 
 /obj/machinery/camera/proc/post_emp_reset(thisemp, previous_network)
 	if(QDELETED(src))
@@ -203,7 +203,7 @@
 	if(..())
 		return TRUE
 	panel_open = !panel_open
-	to_chat(user, "<span class='notice'>[panel_open ? "Откручиваю" : "Закручиваю"] техническую панель.</span>")
+	to_chat(user, span_notice("[panel_open ? "Откручиваю" : "Закручиваю"] техническую панель.") )
 	I.play_tool_sound(src)
 	update_icon()
 	return TRUE
@@ -228,7 +228,7 @@
 	var/obj/item/choice = input(user, "Убираем мы:", src) as null|obj in sortNames(droppable_parts)
 	if(!choice || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
-	to_chat(user, "<span class='notice'>Вытаскиваю [choice] из [src].</span>")
+	to_chat(user, span_notice("Вытаскиваю [choice] из [src].") )
 	if(choice == assembly.xray_module)
 		assembly.drop_upgrade(assembly.xray_module)
 		removeXRay()
@@ -257,7 +257,7 @@
 		return
 
 	setViewRange((view_range == initial(view_range)) ? short_range : initial(view_range))
-	to_chat(user, "<span class='notice'>[(view_range == initial(view_range)) ? "Восстанавливаю" : "Ломаю"] фокусировку камеры.</span>")
+	to_chat(user, span_notice("[(view_range == initial(view_range)) ? "Восстанавливаю" : "Ломаю"] фокусировку камеры.") )
 	return TRUE
 
 /obj/machinery/camera/welder_act(mob/living/user, obj/item/I)
@@ -268,10 +268,10 @@
 	if(!I.tool_start_check(user, amount=0))
 		return TRUE
 
-	to_chat(user, "<span class='notice'>Начинаю разваривать [src.name]...</span>")
+	to_chat(user, span_notice("Начинаю разваривать [src.name]...") )
 	if(I.use_tool(src, user, 100, volume=50))
-		user.visible_message("<span class='warning'>[user] отваривает [src.name] от стены, оставляя только рамку с болтами.</span>",
-			"<span class='warning'>Отвариваю [src.name] от стены, оставив только рамку с болтами.</span>")
+		user.visible_message(span_warning("[user] отваривает [src.name] от стены, оставляя только рамку с болтами.") ,
+			span_warning("Отвариваю [src.name] от стены, оставив только рамку с болтами.") )
 		deconstruct(TRUE)
 
 	return TRUE
@@ -287,19 +287,19 @@
 				if(!user.temporarilyRemoveItemFromInventory(I))
 					return
 				upgradeXRay(FALSE, TRUE)
-				to_chat(user, "<span class='notice'>Прикрепляю [I.name] во внутреннюю схему [assembly.name].</span>")
+				to_chat(user, span_notice("Прикрепляю [I.name] во внутреннюю схему [assembly.name].") )
 				qdel(I)
 			else
-				to_chat(user, "<span class='warning'>[src.name] уже имеет это улучшение!</span>")
+				to_chat(user, span_warning("[src.name] уже имеет это улучшение!") )
 			return
 
 		else if(istype(I, /obj/item/stack/sheet/mineral/plasma))
 			if(!isEmpProof(TRUE)) //don't reveal it was already upgraded if was done via MALF AI Upgrade Camera Network ability
 				if(I.use_tool(src, user, 0, amount=1))
 					upgradeEmpProof(FALSE, TRUE)
-					to_chat(user, "<span class='notice'>Прикрепляю [I.name] во внутреннюю схему [assembly.name].</span>")
+					to_chat(user, span_notice("Прикрепляю [I.name] во внутреннюю схему [assembly.name].") )
 			else
-				to_chat(user, "<span class='warning'>[src.name] уже имеет это улучшение!</span>")
+				to_chat(user, span_warning("[src.name] уже имеет это улучшение!") )
 			return
 
 		else if(istype(I, /obj/item/assembly/prox_sensor))
@@ -307,10 +307,10 @@
 				if(!user.temporarilyRemoveItemFromInventory(I))
 					return
 				upgradeMotion()
-				to_chat(user, "<span class='notice'>Прикрепляю [I.name] во внутреннюю схему [assembly.name].</span>")
+				to_chat(user, span_notice("Прикрепляю [I.name] во внутреннюю схему [assembly.name].") )
 				qdel(I)
 			else
-				to_chat(user, "<span class='warning'>[src.name] уже имеет это улучшение!</span>")
+				to_chat(user, span_warning("[src.name] уже имеет это улучшение!") )
 			return
 
 	// OTHER
@@ -329,7 +329,7 @@
 			P = I
 			itemname = P.name
 			info = P.notehtml
-		to_chat(U, "<span class='notice'>Показываю [itemname] перед камерой...</span>")
+		to_chat(U, span_notice("Показываю [itemname] перед камерой...") )
 		U.changeNext_move(CLICK_CD_MELEE)
 		for(var/mob/O in GLOB.player_list)
 			if(isAI(O))
@@ -348,14 +348,14 @@
 
 	else if(istype(I, /obj/item/camera_bug))
 		if(!can_use())
-			to_chat(user, "<span class='notice'>Камера не работает.</span>")
+			to_chat(user, span_notice("Камера не работает.") )
 			return
 		if(bug)
-			to_chat(user, "<span class='notice'>Жучок удалён.</span>")
+			to_chat(user, span_notice("Жучок удалён.") )
 			bug.bugged_cameras -= src.c_tag
 			bug = null
 		else
-			to_chat(user, "<span class='notice'>Жучок установлен.</span>")
+			to_chat(user, span_notice("Жучок установлен.") )
 			bug = I
 			bug.bugged_cameras[src.c_tag] = WEAKREF(src)
 		return
@@ -426,10 +426,10 @@
 			addtimer(CALLBACK(src, .proc/cancelCameraAlarm), 100)
 	if(displaymessage)
 		if(user)
-			visible_message("<span class='danger'>[user] [change_msg] [src]!</span>")
+			visible_message(span_danger("[user] [change_msg] [src]!") )
 			add_hiddenprint(user)
 		else
-			visible_message("<span class='danger'><b>[src.name]</b> [change_msg]!</span>")
+			visible_message(span_danger("<b>[src.name]</b> [change_msg]!") )
 
 		playsound(src, 'sound/items/wirecutter.ogg', 100, TRUE)
 	update_icon() //update Initialize() if you remove this.
@@ -441,7 +441,7 @@
 		if (O.client.eye == src)
 			O.unset_machine()
 			O.reset_perspective(null)
-			to_chat(O, "<span class='warning'>Экран заливается помехами!</span>")
+			to_chat(O, span_warning("Экран заливается помехами!") )
 
 /obj/machinery/camera/proc/triggerCameraAlarm()
 	alarm_on = TRUE

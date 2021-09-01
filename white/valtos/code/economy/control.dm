@@ -39,17 +39,17 @@
 
 /obj/machinery/computer/price_controller/proc/togglelock(mob/living/user)
 	if(obj_flags & EMAGGED)
-		to_chat(user, "<span class='warning'>Консоль повреждена!</span>")
+		to_chat(user, span_warning("Консоль повреждена!") )
 	else if(machine_stat & (BROKEN|MAINT))
-		to_chat(user, "<span class='warning'>Ничего не происходит!</span>")
+		to_chat(user, span_warning("Ничего не происходит!") )
 	else
 		if(allowed(usr))
 			authed = !authed
-			to_chat(user, "<span class='notice'>Консоль [ authed ? "раз" : "заб"]локирована.</span>")
+			to_chat(user, span_notice("Консоль [ authed ? "раз" : "заб"]локирована.") )
 			update_icon()
 			updateUsrDialog()
 		else
-			to_chat(user, "<span class='warning'>В доступе отказано.</span>")
+			to_chat(user, span_warning("В доступе отказано.") )
 
 /obj/machinery/computer/price_controller/proc/log_self(msg)
 	selflog += "\[[station_time_timestamp()]\] [msg]"
@@ -65,7 +65,7 @@
 
 /obj/machinery/computer/price_controller/ui_interact(mob/user, datum/tgui/ui)
 	if(!authed)
-		to_chat(user, "<span class='warning'>Консоль заблокирована!</span>")
+		to_chat(user, span_warning("Консоль заблокирована!") )
 		return
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)

@@ -15,10 +15,10 @@
 	if(ishuman(L))
 		var/obj/item/bodypart/affecting = L.get_bodypart(check_zone(user.zone_selected))
 		if(!affecting)
-			to_chat(user, "<span class='warning'>Конечности нет!</span>")
+			to_chat(user, span_warning("Конечности нет!") )
 			return
 		if(affecting.status != BODYPART_ORGANIC)
-			to_chat(user, "<span class='notice'>Медицина бессильна перед синтетикой!</span>")
+			to_chat(user, span_notice("Медицина бессильна перед синтетикой!") )
 			return
 	..()
 

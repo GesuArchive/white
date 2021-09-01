@@ -136,5 +136,5 @@
 					new picked_mob(new_open_turf)
 		CHECK_TICK
 
-	to_chat(world, "<span class='green'> -- #<b>[name]</b>:> <b>[(REALTIMEOFDAY - start_time)/10]</b> -- </span>")
+	to_chat(world, span_green(" -- #<b>[name]</b>:> <b>[(REALTIMEOFDAY - start_time)/10]</b> -- ") )
 	log_world("[name] is done job for [(REALTIMEOFDAY - start_time)/10]s!")

@@ -32,7 +32,7 @@
 	sharpness = SHARP_POINTY
 
 /obj/item/pen/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is scribbling numbers all over [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit sudoku...</span>")
+	user.visible_message(span_suicide("[user] is scribbling numbers all over [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit sudoku...") )
 	return(BRUTELOSS)
 
 /obj/item/pen/blue
@@ -68,7 +68,7 @@
 			colour = "blue"
 		else
 			colour = "black"
-	to_chat(user, "<span class='notice'><b>[src.name]</b> will now write in [colour].</span>")
+	to_chat(user, span_notice("<b>[src.name]</b> will now write in [colour].") )
 	desc = "It's a fancy four-color ink pen, set to [colour]."
 
 /obj/item/pen/fountain
@@ -125,7 +125,7 @@
 	var/deg = input(user, "What angle would you like to rotate the pen head to? (1-360)", "Rotate Pen Head") as null|num
 	if(deg && (deg > 0 && deg <= 360))
 		degrees = deg
-		to_chat(user, "<span class='notice'>You rotate the top of the pen to [degrees] degrees.</span>")
+		to_chat(user, span_notice("You rotate the top of the pen to [degrees] degrees.") )
 		SEND_SIGNAL(src, COMSIG_PEN_ROTATED, deg, user)
 
 /obj/item/pen/attack(mob/living/M, mob/user,stealth)
@@ -136,22 +136,22 @@
 		if(user.zone_selected == BODY_ZONE_HEAD)
 			var/input = input("Что бы ты хотел написать у [M] на лбу?","Засранец...", M.headstamp) as text|null
 			if(!input || length(input) >= 30)
-				to_chat(user, "<span class='warning'>Тебе перехотелось писать...</span>")
+				to_chat(user, span_warning("Тебе перехотелось писать...") )
 				return
-			M.visible_message(user, "<span class='danger'>[user] начинает писать что-то на лбу <b>[M]</b>.</span>")
+			M.visible_message(user, span_danger("[user] начинает писать что-то на лбу <b>[M]</b>.") )
 			var/speedofwriting = 40
 			if((HAS_TRAIT(user, TRAIT_CLUMSY)))
 				speedofwriting = 15
 			if(src.use_tool(M, user, speedofwriting, volume=50))
-				M.visible_message(user, "<span class='danger'>[user] написал <b>[input]</b на лбу <b>[M]</b>.</span>")
+				M.visible_message(user, span_danger("[user] написал <b>[input]</b на лбу <b>[M]</b>.") )
 				M.headstamp = input
 				return
-			to_chat(user, "<span class='warning'>Тебе перехотелось писать...</span>")
+			to_chat(user, span_warning("Тебе перехотелось писать...") )
 			return
 		if(M.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))
-			to_chat(user, "<span class='warning'>You stab [M] with the pen.</span>")
+			to_chat(user, span_warning("You stab [M] with the pen.") )
 			if(!stealth)
-				to_chat(M, "<span class='danger'>Что-то укололо меня!</span>")
+				to_chat(M, span_danger("Что-то укололо меня!") )
 			. = 1
 
 		log_combat(user, M, "втыкает", src)
@@ -172,14 +172,14 @@
 			if(QDELETED(O) || !user.canUseTopic(O, BE_CLOSE))
 				return
 			if(oldname == input || input == "")
-				to_chat(user, "<span class='notice'>You changed [O] to... well... [O].</span>")
+				to_chat(user, span_notice("You changed [O] to... well... [O].") )
 			else
 				O.name = input
 				var/datum/component/label/label = O.GetComponent(/datum/component/label)
 				if(label)
 					label.remove_label()
 					label.apply_label()
-				to_chat(user, "<span class='notice'>You have successfully renamed [oldname] to [O].</span>")
+				to_chat(user, span_notice("You have successfully renamed [oldname] to [O].") )
 				O.renamedByPlayer = TRUE
 
 		if(penchoice == "Change description")
@@ -188,10 +188,10 @@
 			if(QDELETED(O) || !user.canUseTopic(O, BE_CLOSE))
 				return
 			if(olddesc == input || input == "")
-				to_chat(user, "<span class='notice'>You decide against changing [O] description.</span>")
+				to_chat(user, span_notice("You decide against changing [O] description.") )
 			else
 				O.desc = input
-				to_chat(user, "<span class='notice'>You have successfully changed [O] description.</span>")
+				to_chat(user, span_notice("You have successfully changed [O] description.") )
 				O.renamedByPlayer = TRUE
 
 		if(penchoice == "Reset")
@@ -203,7 +203,7 @@
 			if(label)
 				label.remove_label()
 				label.apply_label()
-			to_chat(user, "<span class='notice'>You have successfully reset [O] name and description.</span>")
+			to_chat(user, span_notice("You have successfully reset [O] name and description.") )
 			O.renamedByPlayer = FALSE
 
 /*
@@ -248,9 +248,9 @@
 /obj/item/pen/edagger/suicide_act(mob/user)
 	. = BRUTELOSS
 	if(on)
-		user.visible_message("<span class='suicide'>[user] forcefully rams the pen into their mouth!</span>")
+		user.visible_message(span_suicide("[user] forcefully rams the pen into their mouth!") )
 	else
-		user.visible_message("<span class='suicide'>[user] is holding a pen up to their mouth! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message(span_suicide("[user] is holding a pen up to their mouth! It looks like [user.p_theyre()] trying to commit suicide!") )
 		attack_self(user)
 
 /obj/item/pen/edagger/attack_self(mob/living/user)

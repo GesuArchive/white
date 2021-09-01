@@ -39,13 +39,13 @@
 
 /obj/item/autosurgeon/organ/attack_self(mob/user)//when the object it used...
 	if(!uses)
-		to_chat(user, "<span class='alert'>[capitalize(src.name)] уже использован. Инструменты повисли и не включаются .</span>")
+		to_chat(user, span_alert("[capitalize(src.name)] уже использован. Инструменты повисли и не включаются .") )
 		return
 	else if(!storedorgan)
-		to_chat(user, "<span class='alert'>[capitalize(src.name)] внутри нет имплантов.</span>")
+		to_chat(user, span_alert("[capitalize(src.name)] внутри нет имплантов.") )
 		return
 	storedorgan.Insert(user)//insert stored organ into the user
-	user.visible_message("<span class='notice'>[user] нажимает кнопку [src], слышен короткий механический писк.</span>", "<span class='notice'>Ты чувствуешь резкий укол когда [src] втыкается в твое тело.</span>")
+	user.visible_message(span_notice("[user] нажимает кнопку [src], слышен короткий механический писк.") , span_notice("Ты чувствуешь резкий укол когда [src] втыкается в твое тело.") )
 	playsound(get_turf(user), 'sound/weapons/circsawhit.ogg', 50, TRUE)
 	storedorgan = null
 	name = initial(name)
@@ -57,15 +57,15 @@
 /obj/item/autosurgeon/organ/attackby(obj/item/I, mob/user, params)
 	if(istype(I, organ_type))
 		if(storedorgan)
-			to_chat(user, "<span class='alert'>[capitalize(src.name)] внутри уже есть имплант.</span>")
+			to_chat(user, span_alert("[capitalize(src.name)] внутри уже есть имплант.") )
 			return
 		else if(!uses)
-			to_chat(user, "<span class='alert'>[capitalize(src.name)] уже был использован.</span>")
+			to_chat(user, span_alert("[capitalize(src.name)] уже был использован.") )
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		storedorgan = I
-		to_chat(user, "<span class='notice'>Ты кладешь [I] в [src].</span>")
+		to_chat(user, span_notice("Ты кладешь [I] в [src].") )
 	else
 		return ..()
 
@@ -73,14 +73,14 @@
 	if(..())
 		return TRUE
 	if(!storedorgan)
-		to_chat(user, "<span class='warning'>Внутри [src] нет импланта который можно извлечь!</span>")
+		to_chat(user, span_warning("Внутри [src] нет импланта который можно извлечь!") )
 	else
 		var/atom/drop_loc = user.drop_location()
 		for(var/J in src)
 			var/atom/movable/AM = J
 			AM.forceMove(drop_loc)
 
-		to_chat(user, "<span class='notice'>Извлек [storedorgan] из [src].</span>")
+		to_chat(user, span_notice("Извлек [storedorgan] из [src].") )
 		I.play_tool_sound(src)
 		storedorgan = null
 		if(uses != INFINITE)
@@ -139,29 +139,29 @@
 
 /obj/item/autosurgeon/skillchip/attack_self(mob/living/carbon/user)//when the object it used...
 	if(!uses)
-		to_chat(user, "<span class='alert'>[capitalize(src.name)] уже был использован. Инструменты висят и не включаются..</span>")
+		to_chat(user, span_alert("[capitalize(src.name)] уже был использован. Инструменты висят и не включаются..") )
 		return
 
 	if(!stored_skillchip)
-		to_chat(user, "<span class='alert'>Внутри [capitalize(src.name)] нет чипа навыков.</span>")
+		to_chat(user, span_alert("Внутри [capitalize(src.name)] нет чипа навыков.") )
 		return
 
 	if(!istype(user))
-		to_chat(user, "<span class='alert'>В мозг [user] нельзя установить чип навыков..</span>")
+		to_chat(user, span_alert("В мозг [user] нельзя установить чип навыков..") )
 		return
 
 	// Try implanting.
 	var/implant_msg = user.implant_skillchip(stored_skillchip)
 	if(implant_msg)
-		user.visible_message("<span class='notice'>[user] нажимает кнопку на [src], но ничего не происходит.</span>", "<span class='notice'> [src] издаёт тихий писк, означающий какую-то ошибку.</span>")
-		to_chat(user, "<span class='alert'>[stored_skillchip] нельзя вживить. [implant_msg]</span>")
+		user.visible_message(span_notice("[user] нажимает кнопку на [src], но ничего не происходит.") , span_notice(" [src] издаёт тихий писк, означающий какую-то ошибку.") )
+		to_chat(user, span_alert("[stored_skillchip] нельзя вживить. [implant_msg]") )
 		return
 
 	// Clear the stored skillchip, it's technically not in this machine anymore.
 	var/obj/item/skillchip/implanted_chip = stored_skillchip
 	stored_skillchip = null
 
-	user.visible_message("<span class='notice'>[user] нажимает кнопку на [src], и слышится короткий механический звук.</span>", "<span class='notice'>Ты чувствуешь резкий укол, когда [src] втыкается в твой мозг.</span>")
+	user.visible_message(span_notice("[user] нажимает кнопку на [src], и слышится короткий механический звук.") , span_notice("Ты чувствуешь резкий укол, когда [src] втыкается в твой мозг.") )
 	playsound(get_turf(user), 'sound/weapons/circsawhit.ogg', 50, TRUE)
 
 	to_chat(user,"<span class='notice'Операция завершена! [implanted_chip] успешно вживлен! Попытка автоматической активации...</span>")
@@ -170,7 +170,7 @@
 	// The user can always go activate it at a skill station.
 	var/activate_msg = implanted_chip.try_activate_skillchip(FALSE, FALSE)
 	if(activate_msg)
-		to_chat(user, "<span class='alert'>[implanted_chip] нельзя активировать. [activate_msg]</span>")
+		to_chat(user, span_alert("[implanted_chip] нельзя активировать. [activate_msg]") )
 
 	name = initial(name)
 
@@ -185,19 +185,19 @@
 		return ..()
 
 	if(stored_skillchip)
-		to_chat(user, "<span class='alert'>Внутри [capitalize(src.name)] уже есть чип навыка.</span>")
+		to_chat(user, span_alert("Внутри [capitalize(src.name)] уже есть чип навыка.") )
 		return
 
 	if(!uses)
-		to_chat(user, "<span class='alert'>[capitalize(src.name)] уже использован.</span>")
+		to_chat(user, span_alert("[capitalize(src.name)] уже использован.") )
 		return
 
 	if(!user.transferItemToLoc(I, src))
-		to_chat(user, "<span class='alert'>У меня не получилось вставить чип в [src]. Кажется он застрял у меня в руке.</span>")
+		to_chat(user, span_alert("У меня не получилось вставить чип в [src]. Кажется он застрял у меня в руке.") )
 		return
 
 	stored_skillchip = I
-	to_chat(user, "<span class='notice'>Вставил [I] в [src].</span>")
+	to_chat(user, span_notice("Вставил [I] в [src].") )
 
 /obj/item/autosurgeon/skillchip/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -205,7 +205,7 @@
 		return
 
 	if(!stored_skillchip)
-		to_chat(user, "<span class='warning'>Внутри [src] нет чипа который можно извлечь!</span>")
+		to_chat(user, span_warning("Внутри [src] нет чипа который можно извлечь!") )
 		return TRUE
 
 	var/atom/drop_loc = user.drop_location()
@@ -213,7 +213,7 @@
 		var/atom/movable/movable_content = thing
 		movable_content.forceMove(drop_loc)
 
-	to_chat(user, "<span class='notice'>Успешно извлек [stored_skillchip] из [src].</span>")
+	to_chat(user, span_notice("Успешно извлек [stored_skillchip] из [src].") )
 	I.play_tool_sound(src)
 	stored_skillchip = null
 

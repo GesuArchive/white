@@ -23,7 +23,7 @@
 				var/obj/item/borg/upgrade/modkit/MK = I
 				MK.install(src, user)
 				return
-		to_chat(user, "<span class='warning'>Nigger?!</span>")
+		to_chat(user, span_warning("Nigger?!") )
 		return
 	else
 		..()
@@ -36,7 +36,7 @@
 				var/obj/item/borg/upgrade/modkit/MK = I
 				MK.install(src, user)
 				return
-		to_chat(user, "<span class='warning'>You can't install that mod!</span>")
+		to_chat(user, span_warning("You can't install that mod!") )
 		return
 	else
 		..()

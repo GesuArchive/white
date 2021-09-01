@@ -77,7 +77,7 @@
 		if(!can_trigger_gun(user))
 			return
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, "<span class='warning'>You can't bring yourself to fire <b>[src.name]</b>! You don't want to risk harming anyone...</span>")
+		to_chat(user, span_warning("You can't bring yourself to fire <b>[src.name]</b>! You don't want to risk harming anyone...") )
 		return
 	if(user && user.get_active_held_item() == src) // Make sure our user is still holding us
 		var/turf/target_turf = get_turf(target)
@@ -104,7 +104,7 @@
 
 	else if(W.tool_behaviour == TOOL_SCREWDRIVER && igniter && !lit)
 		status = !status
-		to_chat(user, "<span class='notice'><b>[igniter]</b> теперь [status ? "закреплён" : "откручен"]!</span>")
+		to_chat(user, span_notice("<b>[igniter]</b> теперь [status ? "закреплён" : "откручен"]!") )
 		update_icon()
 		return
 
@@ -125,7 +125,7 @@
 			if(user.transferItemToLoc(W,src))
 				ptank.forceMove(get_turf(src))
 				ptank = W
-				to_chat(user, "<span class='notice'>Меняю бак с плазмой в <b>[src.name]</b>!</span>")
+				to_chat(user, span_notice("Меняю бак с плазмой в <b>[src.name]</b>!") )
 			return
 		if(!user.transferItemToLoc(W, src))
 			return
@@ -149,7 +149,7 @@
 	if(ptank && isliving(user) && user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		user.put_in_hands(ptank)
 		ptank = null
-		to_chat(user, "<span class='notice'>Вынимаю бак с плазмой из <b>[src]</b>!</span>")
+		to_chat(user, span_notice("Вынимаю бак с плазмой из <b>[src]</b>!") )
 		update_icon()
 
 /obj/item/flamethrower/examine(mob/user)
@@ -159,12 +159,12 @@
 
 /obj/item/flamethrower/proc/toggle_igniter(mob/user)
 	if(!ptank)
-		to_chat(user, "<span class='notice'>Присоединить бы бак сначала!</span>")
+		to_chat(user, span_notice("Присоединить бы бак сначала!") )
 		return
 	if(!status)
-		to_chat(user, "<span class='notice'>Закрепить бы воспламенитель сначала!</span>")
+		to_chat(user, span_notice("Закрепить бы воспламенитель сначала!") )
 		return
-	to_chat(user, "<span class='notice'>[lit ? "Тушу" : "Разжигаю"] <b>[src.name]</b>!</span>")
+	to_chat(user, span_notice("[lit ? "Тушу" : "Разжигаю"] <b>[src.name]</b>!") )
 	lit = !lit
 	if(lit)
 		playsound(loc, acti_sound, 50, TRUE)
@@ -245,7 +245,7 @@
 /obj/item/flamethrower/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "удар", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	var/obj/projectile/P = hitby
 	if(damage && attack_type == PROJECTILE_ATTACK && P.damage_type != STAMINA && prob(15))
-		owner.visible_message("<span class='danger'>[capitalize(attack_text)] попадает в бак <b>огнемёта [owner.name]</b>, разрывая его! Вот это выстрел!</span>")
+		owner.visible_message(span_danger("[capitalize(attack_text)] попадает в бак <b>огнемёта [owner.name]</b>, разрывая его! Вот это выстрел!") )
 		var/turf/target_turf = get_turf(owner)
 		log_game("A projectile ([hitby]) detonated a flamethrower tank held by [key_name(owner)] at [COORD(target_turf)]")
 		igniter.ignite_turf(src,target_turf, release_amount = 100)

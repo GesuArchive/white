@@ -112,7 +112,7 @@
 								"[src] is twisting [ru_ego()] own neck! It looks like [p_theyre()] trying to commit suicide.", \
 								"[src] is holding [ru_ego()] breath! It looks like [p_theyre()] trying to commit suicide.")
 
-		visible_message("<span class='danger'>[suicide_message]</span>", "<span class='userdanger'>[suicide_message]</span>")
+		visible_message(span_danger("[suicide_message]") , span_userdanger("[suicide_message]") )
 
 		suicide_log()
 
@@ -130,8 +130,8 @@
 	if(confirm == "Yes")
 		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
-		visible_message("<span class='danger'>Мозг [capitalize(src.name)] начинает размякать и расслабляться. Похоже, что [ru_who(TRUE)] потерял желание жить.</span>", \
-						"<span class='userdanger'>Мозг [capitalize(src.name)] начинает размякать и расслабляться. Похоже, что [ru_who(TRUE)] потерял желание жить..</span>")
+		visible_message(span_danger("Мозг [capitalize(src.name)] начинает размякать и расслабляться. Похоже, что [ru_who(TRUE)] потерял желание жить.") , \
+						span_userdanger("Мозг [capitalize(src.name)] начинает размякать и расслабляться. Похоже, что [ru_who(TRUE)] потерял желание жить..") )
 
 		suicide_log()
 
@@ -148,8 +148,8 @@
 	if(confirm == "Yes")
 		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
-		visible_message("<span class='danger'>[capitalize(src.name)] отключается. Похоже, что [p_theyre()] пытается покончить с собой.</span>", \
-				"<span class='userdanger'>[capitalize(src.name)] отключается. Похоже, что [p_theyre()] пытается покончить с собой.</span>")
+		visible_message(span_danger("[capitalize(src.name)] отключается. Похоже, что [p_theyre()] пытается покончить с собой.") , \
+				span_userdanger("[capitalize(src.name)] отключается. Похоже, что [p_theyre()] пытается покончить с собой.") )
 
 		suicide_log()
 
@@ -168,8 +168,8 @@
 	if(confirm == "Yes")
 		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
-		visible_message("<span class='danger'>[capitalize(src.name)] отключается. Похоже, что [p_theyre()] пытается покончить с собой.</span>", \
-				"<span class='userdanger'>[capitalize(src.name)] отключается. Похоже, что [p_theyre()] пытается покончить с собой.</span>")
+		visible_message(span_danger("[capitalize(src.name)] отключается. Похоже, что [p_theyre()] пытается покончить с собой.") , \
+				span_userdanger("[capitalize(src.name)] отключается. Похоже, что [p_theyre()] пытается покончить с собой.") )
 
 		suicide_log()
 
@@ -184,8 +184,8 @@
 	if(confirm == "Yes")
 		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		var/turf/T = get_turf(src.loc)
-		T.visible_message("<span class='notice'>[capitalize(src.name)] высвечивает сообщение на весь экран: \"Удаление файлов ядра личности. Пожалуйста, загрузите новую личность чтобы продолжить использовать персональный ИИ.\"</span>", null, \
-			"<span class='notice'>[capitalize(src.name)] бипает.</span>")
+		T.visible_message(span_notice("[capitalize(src.name)] высвечивает сообщение на весь экран: \"Удаление файлов ядра личности. Пожалуйста, загрузите новую личность чтобы продолжить использовать персональный ИИ.\"") , null, \
+			span_notice("[capitalize(src.name)] бипает.") )
 
 		suicide_log()
 
@@ -204,9 +204,9 @@
 	if(confirm == "Yes")
 		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
-		visible_message("<span class='danger'>[capitalize(src.name)] is thrashing wildly! It looks like [p_theyre()] trying to commit suicide.</span>", \
-				"<span class='userdanger'>[capitalize(src.name)] is thrashing wildly! It looks like [p_theyre()] trying to commit suicide.</span>", \
-				"<span class='hear'>You hear thrashing.</span>")
+		visible_message(span_danger("[capitalize(src.name)] is thrashing wildly! It looks like [p_theyre()] trying to commit suicide.") , \
+				span_userdanger("[capitalize(src.name)] is thrashing wildly! It looks like [p_theyre()] trying to commit suicide.") , \
+				span_hear("You hear thrashing.") )
 
 		suicide_log()
 
@@ -225,8 +225,8 @@
 	if(confirm == "Yes")
 		inc_metabalance(src, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить.")
 		set_suicide(TRUE)
-		visible_message("<span class='danger'>[capitalize(src.name)] начинает падать. Похоже, что [p_theyve()] потерял желание жить.</span>", \
-						"<span class='userdanger'>[capitalize(src.name)] начинает падать. Похоже, что [p_theyve()] потерял желание жить.</span>")
+		visible_message(span_danger("[capitalize(src.name)] начинает падать. Похоже, что [p_theyve()] потерял желание жить.") , \
+						span_userdanger("[capitalize(src.name)] начинает падать. Похоже, что [p_theyve()] потерял желание жить.") )
 
 		suicide_log()
 
@@ -242,23 +242,23 @@
 /mob/living/proc/canSuicide()
 	var/area/A = get_area(src)
 	if(A.area_flags & BLOCK_SUICIDE)
-		to_chat(src, "<span class='warning'>Нельзя убить себя здесь! Если хочется, то можно стать призраком.</span>")
+		to_chat(src, span_warning("Нельзя убить себя здесь! Если хочется, то можно стать призраком.") )
 		return
 	switch(stat)
 		if(CONSCIOUS)
 			return TRUE
 		if(SOFT_CRIT)
-			to_chat(src, "<span class='warning'>Нельзя убить себя, находясь в критическом состоянии!</span>")
+			to_chat(src, span_warning("Нельзя убить себя, находясь в критическом состоянии!") )
 		if(UNCONSCIOUS, HARD_CRIT)
-			to_chat(src, "<span class='warning'>Нужно быть в сознании, чтобы убить себя!</span>")
+			to_chat(src, span_warning("Нужно быть в сознании, чтобы убить себя!") )
 		if(DEAD)
-			to_chat(src, "<span class='warning'>Ты уже мёртв!</span>")
+			to_chat(src, span_warning("Ты уже мёртв!") )
 	return
 
 /mob/living/carbon/canSuicide()
 	if(!..())
 		return
 	if(!(mobility_flags & MOBILITY_USE))	//just while I finish up the new 'fun' suiciding verb. This is to prevent metagaming via suicide
-		to_chat(src, "<span class='warning'>Говорят, что большая часть суицидов происходит под диким давлением. Да?</span>")
+		to_chat(src, span_warning("Говорят, что большая часть суицидов происходит под диким давлением. Да?") )
 		return
 	return TRUE

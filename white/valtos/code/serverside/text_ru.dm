@@ -246,8 +246,8 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	desc = "Я не помню как проговаривать букву \"Р\"."
 	value = 0
 	mob_trait = TRAIT_KARTAVII
-	gain_text = "<span class='notice'>Забываю как проговаривать букву \"Р\".</span>"
-	lose_text = "<span class='danger'>Вспоминаю как проговаривать букву \"Р\".</span>"
+	gain_text = span_notice("Забываю как проговаривать букву \"Р\".")
+	lose_text = span_danger("Вспоминаю как проговаривать букву \"Р\".")
 	medical_record_text = "Пациент не может проговаривать букву \"Р\"."
 
 /datum/quirk/jewish
@@ -255,8 +255,8 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	desc = "Я таки умею считать деньги."
 	value = 4 // гоев проще наёбывать
 	mob_trait = TRAIT_JEWISH
-	gain_text = "<span class='notice'>Теперь я знаю цену вещам.</span>"
-	lose_text = "<span class='danger'>Забываю цену вещам.</span>"
+	gain_text = span_notice("Теперь я знаю цену вещам.")
+	lose_text = span_danger("Забываю цену вещам.")
 	medical_record_text = "Пациент имеет удивительные навыки в оценке стоимости вещей."
 
 /datum/quirk/ukrainish
@@ -264,8 +264,8 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	desc = "Бахнуть бы сала..."
 	value = 0
 	mob_trait = TRAIT_UKRAINISH
-	gain_text = "<span class='notice'>Дайте мне, будь ласка, сала.</span>"
-	lose_text = "<span class='danger'>Забываю запах сала.</span>"
+	gain_text = span_notice("Дайте мне, будь ласка, сала.")
+	lose_text = span_danger("Забываю запах сала.")
 	medical_record_text = "Пациент имеет страсть к салу."
 
 /datum/quirk/ukrainish/add()
@@ -283,8 +283,8 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 	desc = "Долгое время работы в рисовых полях и жара палящего сверху солнца даровала вам этот прекрасный акцент."
 	value = 0
 	mob_trait = TRAIT_ASIAT
-	gain_text = "<span class='notice'>Чиньг-чоньг!.</span>"
-	lose_text = "<span class='danger'>Аниме говно.</span>"
+	gain_text = span_notice("Чиньг-чоньг!.")
+	lose_text = span_danger("Аниме говно.")
 	medical_record_text = "Пациент - азиат."
 
 /mob/living/carbon/human/proc/get_race_text()

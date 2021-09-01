@@ -44,7 +44,7 @@
 	merge_type = /obj/item/stack/package_wrap
 
 /obj/item/stack/package_wrap/suicide_act(mob/living/user)
-	user.visible_message("<span class='suicide'>[user] begins wrapping [user.ru_na()]self in <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] begins wrapping [user.ru_na()]self in <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!") )
 	if(use(3))
 		var/obj/structure/big_delivery/P = new /obj/structure/big_delivery(get_turf(user.loc))
 		P.icon_state = "deliverypackage5"
@@ -52,7 +52,7 @@
 		P.add_fingerprint(user)
 		return OXYLOSS
 	else
-		to_chat(user, "<span class='warning'>Не хватает обёрточной бумаги для суицида! Лох!</span>")
+		to_chat(user, span_warning("Не хватает обёрточной бумаги для суицида! Лох!") )
 		return SHAME
 
 /obj/item/proc/can_be_package_wrapped() //can the item be wrapped with package wrapper into a delivery package
@@ -103,7 +103,7 @@
 		if(O.opened)
 			return
 		if(!O.delivery_icon) //no delivery icon means unwrappable closet (e.g. body bags)
-			to_chat(user, "<span class='warning'>Не могу обернуть это!</span>")
+			to_chat(user, span_warning("Не могу обернуть это!") )
 			return
 		if(use(3))
 			var/obj/structure/big_delivery/P = new /obj/structure/big_delivery(get_turf(O.loc))
@@ -112,13 +112,13 @@
 			P.add_fingerprint(user)
 			O.add_fingerprint(user)
 		else
-			to_chat(user, "<span class='warning'>Надо бы больше обёрточной бумаги!</span>")
+			to_chat(user, span_warning("Надо бы больше обёрточной бумаги!") )
 			return
 	else
-		to_chat(user, "<span class='warning'>Эта штука не подойдёт для сортировочной машины, куда это будет отправлено!</span>")
+		to_chat(user, span_warning("Эта штука не подойдёт для сортировочной машины, куда это будет отправлено!") )
 		return
 
-	user.visible_message("<span class='notice'><b>[user]</b> оборачивает <b>[target]</b> в красивую и модную упаковку.</span>")
+	user.visible_message(span_notice("<b>[user]</b> оборачивает <b>[target]</b> в красивую и модную упаковку.") )
 	user.log_message("has used [name] on [key_name(target)]", LOG_ATTACK, color="blue")
 
 /obj/item/stack/package_wrap/use(used, transfer = FALSE, check = TRUE)

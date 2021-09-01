@@ -82,7 +82,7 @@ Bonus
 /datum/symptom/viralreverse/proc/Heal(mob/living/M, datum/disease/advance/A)
 	A.stage -= 1
 	if(A.stage < 2)
-		to_chat(M, "<span class='notice'>You suddenly feel healthy.</span>")
+		to_chat(M, span_notice("You suddenly feel healthy.") )
 		A.cure()
 
 /datum/symptom/viralreverse/Start(datum/disease/advance/A)

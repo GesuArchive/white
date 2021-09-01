@@ -7,7 +7,7 @@
 
 //We don't want these to hide - they're helpful!
 /datum/reagent/impurity/healing
-	name = "Healing impure reagent" 
+	name = "Healing impure reagent"
 	enname = "Healing impure reagent"
 	description = "Not all impure reagents are bad! Sometimes you might want to specifically make these!"
 	chemical_flags = REAGENT_DONOTSPLIT
@@ -15,7 +15,7 @@
 	liver_damage = 0
 
 /datum/reagent/inverse/healing
-	name = "Healing inverse reagent" 
+	name = "Healing inverse reagent"
 	enname = "Healing inverse reagent"
 	description = "Not all impure reagents are bad! Sometimes you might want to specifically make these!"
 	chemical_flags = REAGENT_DONOTSPLIT
@@ -28,7 +28,7 @@
 
 //Catch all failed reaction for medicines - supposed to be non punishing
 /datum/reagent/impurity/healing/medicine_failure
-	name = "Insolvent medicinal precipitate" 
+	name = "Insolvent medicinal precipitate"
 	enname = "Insolvent medicinal precipitate"
 	description = "A viscous mess of various medicines. Will heal a damage type at random"
 	metabolization_rate = 1 * REM//This is fast
@@ -53,7 +53,7 @@
 // Helbital
 //Inverse:
 /datum/reagent/inverse/helgrasp
-	name = "Helgrasp" 
+	name = "Helgrasp"
 	enname = "Helgrasp"
 	description = "This rare and forbidden concoction is thought to bring you closer to the grasp of the Norse goddess Hel."
 	metabolization_rate = 1*REM //This is fast
@@ -64,7 +64,7 @@
 
 //Warns you about the impenting hands
 /datum/reagent/inverse/helgrasp/on_mob_add(mob/living/L, amount)
-	to_chat(L, "<span class='hierophant'>You hear laughter as malevolent hands apparate before you, eager to drag you down to hell...! Look out!</span>")
+	to_chat(L, span_hierophant("You hear laughter as malevolent hands apparate before you, eager to drag you down to hell...! Look out!") )
 	playsound(L.loc, 'sound/chemistry/ahaha.ogg', 80, TRUE, -1) //Very obvious tell so people can be ready
 	. = ..()
 
@@ -101,7 +101,7 @@
 //Impure
 //Simply reduces your alcohol tolerance, kinda simular to prohol
 /datum/reagent/impurity/libitoil
-	name = "Libitoil" 
+	name = "Libitoil"
 	enname = "Libitoil"
 	description = "Temporarilly interferes a patient's ability to process alcohol."
 	chemical_flags = REAGENT_DONOTSPLIT
@@ -144,7 +144,7 @@
 
 //probital
 /datum/reagent/impurity/probital_failed//Basically crashed out failed metafactor
-	name = "Metabolic Inhibition Factor" 
+	name = "Metabolic Inhibition Factor"
 	enname = "Metabolic Inhibition Factor"
 	description = "This enzyme catalyzes crashes the conversion of nutricious food into healing peptides."
 	metabolization_rate = 0.0625  * REAGENTS_METABOLISM //slow metabolism rate so the patient can self heal with food even after the troph has metabolized away for amazing reagent efficency.
@@ -160,7 +160,7 @@
 	..()
 
 /datum/reagent/peptides_failed
-	name = "Prion peptides" 
+	name = "Prion peptides"
 	enname = "Prion peptides"
 	taste_description = "spearmint frosting"
 	description = "These inhibitory peptides cause cellular damage and cost nutrition to the patient!"
@@ -174,7 +174,7 @@
 //Lenturi
 //impure
 /datum/reagent/impurity/lentslurri //Okay maybe I should outsource names for these
-	name = "Lentslurri" 
+	name = "Lentslurri"
 	enname = "Lentslurri"//This is a really bad name please replace
 	description = "A highly addicitive muscle relaxant that is made when Lenturi reactions go wrong."
 	addiction_types = list(/datum/addiction/medicine = 8)
@@ -190,7 +190,7 @@
 
 //failed
 /datum/reagent/inverse/ichiyuri
-	name = "Ichiyuri" 
+	name = "Ichiyuri"
 	enname = "Ichiyuri"
 	description = "Prolonged exposure to this chemical can cause an overwhelming urge to itch oneself."
 	reagent_state = LIQUID
@@ -207,7 +207,7 @@
 /datum/reagent/inverse/ichiyuri/on_mob_life(mob/living/carbon/owner, delta_time, times_fired)
 	if(prob(resetting_probability) && !(HAS_TRAIT(owner, TRAIT_RESTRAINED) || owner.incapacitated()))
 		if(spammer < world.time)
-			to_chat(owner,"<span class='warning'>You can't help but itch yourself.</span>")
+			to_chat(owner,span_warning("You can't help but itch yourself.") )
 			spammer = world.time + (10 SECONDS)
 		var/scab = rand(1,7)
 		owner.adjustBruteLoss(scab*REM)
@@ -220,7 +220,7 @@
 //Aiuri
 //impure
 /datum/reagent/impurity/aiuri
-	name = "Aivime" 
+	name = "Aivime"
 	enname = "Aivime"
 	description = "This reagent is known to interfere with the eyesight of a patient."
 	ph = 3.1
@@ -243,7 +243,7 @@
 //Hercuri
 //inverse
 /datum/reagent/inverse/hercuri
-	name = "Herignis" 
+	name = "Herignis"
 	enname = "Herignis"
 	description = "This reagent causes a dramatic raise in a patient's body temperature."
 	ph = 0.8
@@ -280,7 +280,7 @@
 	..()
 
 /datum/reagent/inverse/healing/tirimol
-	name = "Super Melatonin" 
+	name = "Super Melatonin"
 	enname = "Super Melatonin"//It's melatonin, but super!
 	description = "This will send the patient to sleep, adding a bonus to the efficacy of all reagents administered."
 	ph = 12.5 //sleeping is a basic need of all lifeformsa
@@ -317,7 +317,7 @@
 
 /datum/reagent/inverse/healing/tirimol/on_mob_delete(mob/living/owner)
 	if(owner.IsSleeping())
-		owner.visible_message("<span class='notice'>[icon2html(owner, viewers(DEFAULT_MESSAGE_RANGE, src))] [owner] lets out a hearty snore!</span>")//small way of letting people know the supersnooze is ended
+		owner.visible_message(span_notice("[icon2html(owner, viewers(DEFAULT_MESSAGE_RANGE, src))] [owner] lets out a hearty snore!") )//small way of letting people know the supersnooze is ended
 	for(var/datum/reagent/reagent as anything in cached_reagent_list)
 		if(!reagent)
 			continue
@@ -328,7 +328,7 @@
 //convermol
 //inverse
 /datum/reagent/inverse/healing/convermol
-	name = "Coveroli" 
+	name = "Coveroli"
 	enname = "Coveroli"
 	description = "This reagent is known to coat the inside of a patient's lungs, providing greater protection against hot or cold air."
 	ph = 3.82
@@ -416,7 +416,7 @@
 
 //Kind of a healing effect, Presumably you're using syrinver to purge so this helps that
 /datum/reagent/inverse/healing/syriniver
-	name = "Syrinifergus" 
+	name = "Syrinifergus"
 	enname = "Syrinifergus"
 	description = "This reagent reduces the impurity of all non medicines within the patient, reducing their negative effects."
 	self_consuming = TRUE //No pesky liver shenanigans
@@ -454,7 +454,7 @@
 //Inverse
 //Reaction product when between 0.2 and 0.35 purity.
 /datum/reagent/inverse/healing/monover
-	name = "Monover" 
+	name = "Monover"
 	enname = "Monover"
 	description = "A toxin treating reagent, that only is effective if it's the only reagent present in the patient."
 	ph = 0.5
@@ -475,7 +475,7 @@
 ///If they're past fullcrit, their movement is slowed by half
 ///If they OD, their heart explodes (if they were brought back from the dead)
 /datum/reagent/inverse/penthrite
-	name = "Nooartrium" 
+	name = "Nooartrium"
 	enname = "Nooartrium"
 	description = "A reagent that is known to stimulate the heart in a dead patient, temporarily bringing back recently dead patients at great cost to their heart."
 	ph = 14
@@ -532,7 +532,7 @@
 	if(owner.health < -500 || heart.organ_flags & ORGAN_FAILING)//Honestly commendable if you get -500
 		explosion(owner, 0, 0, 1)
 		qdel(heart)
-		owner.visible_message("<span class='boldwarning'>[owner]'s heart explodes!</span>")
+		owner.visible_message(span_boldwarning("[owner]'s heart explodes!") )
 	return ..()
 
 /datum/reagent/inverse/penthrite/overdose_start(mob/living/carbon/owner)
@@ -545,7 +545,7 @@
 		return ..()
 	explosion(owner, 0, 0, 1)
 	qdel(heart)
-	owner.visible_message("<span class='boldwarning'>[owner]'s heart explodes!</span>")
+	owner.visible_message(span_boldwarning("[owner]'s heart explodes!") )
 	return..()
 
 /datum/reagent/inverse/penthrite/proc/remove_buffs(mob/living/carbon/owner)

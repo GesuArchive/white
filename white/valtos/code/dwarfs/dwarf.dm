@@ -91,19 +91,19 @@
 			if(0 to 30) // too low, harmful
 				H.adjustBruteLoss(10)
 				H.adjustStaminaLoss(80)
-				to_chat(H, "<span class='userdanger'>Недостаток алкоголя делает мне больно!</span>") // I'm not good with fluff messages, todo: improve
+				to_chat(H, span_userdanger("Недостаток алкоголя делает мне больно!") ) // I'm not good with fluff messages, todo: improve
 			if(30 to 45)
-				to_chat(H, "<span class='danger'>НАДО СРОЧНО ВЫПИТЬ!</span>")
+				to_chat(H, span_danger("НАДО СРОЧНО ВЫПИТЬ!") )
 				if(prob(5))
 					H.gain_trauma_type(BRAIN_TRAUMA_MILD)
 				H.adjustStaminaLoss(60)
 			if(45 to 60)
 				H.adjustStaminaLoss(40)
 				if(prob(30))
-					to_chat(H, "<span class='danger'>Хотелось бы выпить немного спирта.</span>")
+					to_chat(H, span_danger("Хотелось бы выпить немного спирта.") )
 			if(60 to 75)
 				if(prob(30))
-					to_chat(H, "<span class='danger'>Чёртова жажда начинает накрывать меня.</span>")
+					to_chat(H, span_danger("Чёртова жажда начинает накрывать меня.") )
 			// Else nothing happens
 
 /datum/species/dwarf/random_name(gender,unique,lastname, en_lang = FALSE)

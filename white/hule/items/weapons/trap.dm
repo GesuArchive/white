@@ -46,7 +46,7 @@
 		if(do_after(user, 30, target = src))
 			W.play_tool_sound(src)
 			if(prob(80) && user.mind.antag_datums == null && user != owner)
-				to_chat(user, "<span class='userdanger'>ОШИБОЧКА ВЫШЛА!</span>")
+				to_chat(user, span_userdanger("ОШИБОЧКА ВЫШЛА!") )
 				activate()
 				return
 			if(prikl)

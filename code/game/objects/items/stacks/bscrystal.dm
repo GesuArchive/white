@@ -31,7 +31,7 @@
 	return 1
 
 /obj/item/stack/ore/bluespace_crystal/attack_self(mob/user)
-	user.visible_message("<span class='warning'><b>[user]</b> раздавливает <b>[src]</b>!</span>", "<span class='danger'>Раздавливаю <b>[src]</b>!</span>")
+	user.visible_message(span_warning("<b>[user]</b> раздавливает <b>[src]</b>!") , span_danger("Раздавливаю <b>[src]</b>!") )
 	new /obj/effect/particle_effect/sparks(loc)
 	playsound(loc, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	blink_mob(user)
@@ -42,7 +42,7 @@
 
 /obj/item/stack/ore/bluespace_crystal/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	if(!..()) // not caught in mid-air
-		visible_message("<span class='notice'><b>[capitalize(src.name)]</b> шипит и исчезает при ударе!</span>")
+		visible_message(span_notice("<b>[capitalize(src.name)]</b> шипит и исчезает при ударе!") )
 		var/turf/T = get_turf(hit_atom)
 		new /obj/effect/particle_effect/sparks(T)
 		playsound(loc, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
@@ -79,7 +79,7 @@
 	var/crystal_type = /obj/item/stack/ore/bluespace_crystal/refined
 
 /obj/item/stack/sheet/bluespace_crystal/attack_self(mob/user)// to prevent the construction menu from ever happening
-	to_chat(user, "<span class='warning'>Не могу сломать целый поликристалл в руке. Надо бы их разделить.</span>")
+	to_chat(user, span_warning("Не могу сломать целый поликристалл в руке. Надо бы их разделить.") )
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/item/stack/sheet/bluespace_crystal/attack_hand(mob/user)
@@ -90,8 +90,8 @@
 		user.put_in_hands(BC)
 		use(1)
 		if(!amount)
-			to_chat(user, "<span class='notice'>Разбиваю последний кристалл.</span>")
+			to_chat(user, span_notice("Разбиваю последний кристалл.") )
 		else
-			to_chat(user, "<span class='notice'>Разбиваю кристалл.</span>")
+			to_chat(user, span_notice("Разбиваю кристалл.") )
 	else
 		..()

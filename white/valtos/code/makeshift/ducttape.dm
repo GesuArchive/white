@@ -17,7 +17,7 @@
 		return ..()
 	var/mob/living/carbon/human/H = user
 	if(loc == user && H.wear_mask == src)
-		to_chat(H, "<span class='userdanger'>Лента срывается с моего лица. Это было не самое приятное ощущение.</span>")
+		to_chat(H, span_userdanger("Лента срывается с моего лица. Это было не самое приятное ощущение.") )
 		playsound(user, 'white/valtos/sounds/ducttape2.ogg', 50, 1)
 		H.apply_damage(2, BRUTE, "head")
 		user.emote("agony")
@@ -34,7 +34,7 @@
 	var/mob/living/carbon/human/H = user
 	..()
 	if(H.wear_mask == src && !used)
-		to_chat(H, "<span class='userdanger'>Лента срывается с моего лица. Это было не самое приятное ощущение..</span>")
+		to_chat(H, span_userdanger("Лента срывается с моего лица. Это было не самое приятное ощущение..") )
 		playsound(user, 'white/valtos/sounds/ducttape2.ogg', 50, 1)
 		H.apply_damage(2, BRUTE, "head")
 		user.dropItemToGround(user.get_active_held_item())

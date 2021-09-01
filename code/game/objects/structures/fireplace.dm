@@ -26,10 +26,10 @@
 
 /obj/structure/fireplace/proc/try_light(obj/item/O, mob/user)
 	if(lit)
-		to_chat(user, "<span class='warning'>Оно уже горит!</span>")
+		to_chat(user, span_warning("Оно уже горит!") )
 		return FALSE
 	if(!fuel_added)
-		to_chat(user, "<span class='warning'><b>[src.name]</b> требует немного топлива для розжига!</span>")
+		to_chat(user, span_warning("<b>[src.name]</b> требует немного топлива для розжига!") )
 		return FALSE
 	var/msg = O.ignition_effect(src, user)
 	if(msg)
@@ -43,7 +43,7 @@
 		var/space_remaining = MAXIMUM_BURN_TIMER - burn_time_remaining()
 		var/space_for_logs = round(space_remaining / LOG_BURN_TIMER)
 		if(space_for_logs < 1)
-			to_chat(user, "<span class='warning'>Похоже [T.name] не поместится в <b>[src.name]</b>!</span>")
+			to_chat(user, span_warning("Похоже [T.name] не поместится в <b>[src.name]</b>!") )
 			return
 		var/logs_used = min(space_for_logs, wood.amount)
 		wood.use(logs_used)

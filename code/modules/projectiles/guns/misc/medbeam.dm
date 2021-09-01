@@ -52,7 +52,7 @@
 /obj/item/gun/medbeam/proc/beam_died()
 	active = FALSE //skip qdelling the beam again if we're doing this proc, because
 	if(isliving(loc))
-		to_chat(loc, "<span class='warning'>Потерял контроль над лучом!</span>")
+		to_chat(loc, span_warning("Потерял контроль над лучом!") )
 	LoseTarget()
 
 /obj/item/gun/medbeam/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
@@ -112,7 +112,7 @@
 				return FALSE // Could not leave the first turf.
 			first_step = FALSE
 		if(mounted && next_step == user_turf)
-			
+
 			continue //Mechs are dense and thus fail the check
 		if(next_step.density)
 			qdel(dummy)

@@ -82,28 +82,28 @@
 	name = "Огненный конус"
 	icon_icon = 'icons/obj/wizard.dmi'
 	button_icon_state = "fireball"
-	chosen_message = "<span class='colossus'>Буду дышать огнём на жертву.</span>"
+	chosen_message = span_colossus("Буду дышать огнём на жертву.")
 	chosen_attack_num = 1
 
 /datum/action/innate/megafauna_attack/fire_cone_meteors
 	name = "Огненный конус с метеорами"
 	icon_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"
-	chosen_message = "<span class='colossus'>Буду дышать огнём на жертву призывать падающие метеоры вокруг.</span>"
+	chosen_message = span_colossus("Буду дышать огнём на жертву призывать падающие метеоры вокруг.")
 	chosen_attack_num = 2
 
 /datum/action/innate/megafauna_attack/mass_fire
 	name = "Массовая огненная атака"
 	icon_icon = 'icons/effects/fire.dmi'
 	button_icon_state = "1"
-	chosen_message = "<span class='colossus'>Буду стрелять массовым сожжением, жаль только без газа.</span>"
+	chosen_message = span_colossus("Буду стрелять массовым сожжением, жаль только без газа.")
 	chosen_attack_num = 3
 
 /datum/action/innate/megafauna_attack/lava_swoop
 	name = "Лавовый угар"
 	icon_icon = 'icons/effects/effects.dmi'
 	button_icon_state = "lavastaff_warn"
-	chosen_message = "<span class='colossus'>Буду создавать лаву пока жертва пытается убежать от меня.</span>"
+	chosen_message = span_colossus("Буду создавать лаву пока жертва пытается убежать от меня.")
 	chosen_attack_num = 4
 
 /mob/living/simple_animal/hostile/megafauna/dragon/OpenFire()
@@ -142,7 +142,7 @@
 /mob/living/simple_animal/hostile/megafauna/dragon/proc/fire_rain()
 	if(!target)
 		return
-	target.visible_message("<span class='boldwarning'>Огненный дождь опускается с неба!</span>")
+	target.visible_message(span_boldwarning("Огненный дождь опускается с неба!") )
 	for(var/turf/turf in range(9,get_turf(target)))
 		if(prob(11))
 			new /obj/effect/temp_visual/target(turf)
@@ -150,7 +150,7 @@
 /mob/living/simple_animal/hostile/megafauna/dragon/proc/lava_pools(amount, delay = 0.8)
 	if(!target)
 		return
-	target.visible_message("<span class='boldwarning'>Лава начинает кучковаться вокруг меня!</span>")
+	target.visible_message(span_boldwarning("Лава начинает кучковаться вокруг меня!") )
 
 	while(amount > 0)
 		if(QDELETED(target))
@@ -190,7 +190,7 @@
 /mob/living/simple_animal/hostile/megafauna/dragon/proc/lava_arena()
 	if(!target)
 		return
-	target.visible_message("<span class='boldwarning'><b>[src]</b> заключает меня в огненную арену!</span>")
+	target.visible_message(span_boldwarning("<b>[src]</b> заключает меня в огненную арену!") )
 	var/amount = 3
 	var/turf/center = get_turf(target)
 	var/list/walled = RANGE_TURFS(3, center) - RANGE_TURFS(2, center)
@@ -289,7 +289,7 @@
 				continue
 			hit_list += L
 			L.adjustFireLoss(20)
-			to_chat(L, "<span class='userdanger'>В меня попадает волна огня исходящая от <b>дракона</b>!</span>")
+			to_chat(L, span_userdanger("В меня попадает волна огня исходящая от <b>дракона</b>!") )
 
 		// deals damage to mechs
 		for(var/obj/vehicle/sealed/mecha/M in T.contents)
@@ -310,7 +310,7 @@
 	swooping |= SWOOP_DAMAGEABLE
 	density = FALSE
 	icon_state = "shadow"
-	visible_message("<span class='boldwarning'><b>[src]</b> высоко взлетает!</span>")
+	visible_message(span_boldwarning("<b>[src]</b> высоко взлетает!") )
 
 	var/negative
 	var/initial_x = x
@@ -368,7 +368,7 @@
 	playsound(loc, 'sound/effects/meteorimpact.ogg', 200, TRUE)
 	for(var/mob/living/L in orange(1, src))
 		if(L.stat)
-			visible_message("<span class='warning'><b>[src]</b> приземляется на <b>[L]</b>, раздавливая [L.ru_ego()]!</span>")
+			visible_message(span_warning("<b>[src]</b> приземляется на <b>[L]</b>, раздавливая [L.ru_ego()]!") )
 			L.gib()
 		else
 			L.adjustBruteLoss(75)
@@ -378,7 +378,7 @@
 					throw_dir = pick(GLOB.alldirs)
 				var/throwtarget = get_edge_target_turf(src, throw_dir)
 				L.throw_at(throwtarget, 3)
-				visible_message("<span class='warning'><b>[L]</b> вылетает из под <b>дракона</b>!</span>")
+				visible_message(span_warning("<b>[L]</b> вылетает из под <b>дракона</b>!") )
 	for(var/obj/vehicle/sealed/mecha/M in orange(1, src))
 		M.take_damage(75, BRUTE, MELEE, 1)
 
@@ -445,7 +445,7 @@
 		if(istype(L, /mob/living/simple_animal/hostile/megafauna/dragon))
 			continue
 		L.adjustFireLoss(10)
-		to_chat(L, "<span class='userdanger'>Падаю прямо в лужу лавы!</span>")
+		to_chat(L, span_userdanger("Падаю прямо в лужу лавы!") )
 
 	// deals damage to mechs
 	for(var/obj/vehicle/sealed/mecha/M in T.contents)
@@ -565,7 +565,7 @@
 			continue
 		if(islist(flame_hit) && !flame_hit[L])
 			L.adjustFireLoss(40)
-			to_chat(L, "<span class='userdanger'>В меня попадает волна огня исходящая от <b>дракона</b>!</span>")
+			to_chat(L, span_userdanger("В меня попадает волна огня исходящая от <b>дракона</b>!") )
 			flame_hit[L] = TRUE
 		else
 			L.adjustFireLoss(10) //if we've already hit them, do way less damage
@@ -589,7 +589,7 @@
 	if(!istype(A))
 		return
 	if(player_cooldown >= world.time)
-		to_chat(src, "<span class='warning'>Хочу подождать [(player_cooldown - world.time) / 10] секунд перед прыжком!</span>")
+		to_chat(src, span_warning("Хочу подождать [(player_cooldown - world.time) / 10] секунд перед прыжком!") )
 		return
 	swoop_attack(FALSE, A)
 	lava_pools(10, 2) // less pools but longer delay before spawns

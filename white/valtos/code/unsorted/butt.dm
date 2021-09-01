@@ -94,7 +94,7 @@
 
 	if(istype(W, /obj/item/bodypart/l_arm/robot) || istype(W, /obj/item/bodypart/r_arm/robot))
 		if(istype(src, /obj/item/organ/butt/bluebutt)) //nobody sprited a blue butt buttbot
-			to_chat(user, "<span class='warning'>Не получится!</span>")
+			to_chat(user, span_warning("Не получится!") )
 			return
 		user.dropItemToGround(W)
 		qdel(W)
@@ -104,7 +104,7 @@
 			B.xeno = 1
 			B.icon_state = "buttbot_xeno"
 			B.speech_list = list("хссс жопка", "хсс хсс пидор", "отличный трофей, придурок", "жопа", "инспекция жопы пришельца начата")
-		to_chat(user, "<span class='notice'>Добавлю руку к жопе... Ммм?</span>")
+		to_chat(user, span_notice("Добавлю руку к жопе... Ммм?") )
 		user.dropItemToGround(src)
 		qdel(src)
 
@@ -127,33 +127,33 @@
 	if(user.zone_selected == "groin")
 		var/obj/item/organ/butt/B = getorgan(/obj/item/organ/butt)
 		if(!B)
-			to_chat(user, "<span class='warning'>А задница-то отсутствует!</span>")
+			to_chat(user, span_warning("А задница-то отсутствует!") )
 			return
 		if(!w_uniform)
 			var/datum/component/storage/STR = B.storage_handler.GetComponent(B.pocket_storage_component_path)
 			if(B && STR)
-				user.visible_message("<span class='warning'>[user] начинает инспектировать [user == src ? "свою задницу" : "задницу [src]"]!</span>", "<span class='warning'>Начинаю инспектировать [user == src ? "свою задницу" : "задницу [src]"]!</span>")
+				user.visible_message(span_warning("[user] начинает инспектировать [user == src ? "свою задницу" : "задницу [src]"]!") , span_warning("Начинаю инспектировать [user == src ? "свою задницу" : "задницу [src]"]!") )
 				if(do_mob(user, src, 40))
-					user.visible_message("<span class='warning'>[user] инспектирует [user == src ? "свою задницу" : "задницу [src]"]!</span>", "<span class='warning'>Инспектирую [user == src ? "свою задницу" : "задницу [src]"]!</span>")
+					user.visible_message(span_warning("[user] инспектирует [user == src ? "свою задницу" : "задницу [src]"]!") , span_warning("Инспектирую [user == src ? "свою задницу" : "задницу [src]"]!") )
 					if (user.active_storage)
 						user.active_storage.close(user)
 					STR.orient2hud(user)
 					STR.show_to(user)
 					return TRUE
 				else
-					user.visible_message("<span class='warning'>[user] проваливает попытку инспекции [user == src ? "своей задницы" : "задницы [src]"]!</span>", "<span class='warning'>Не вышло проинспектировать [user == src ? "свою задницу" : "задницу [src]"]!</span>")
+					user.visible_message(span_warning("[user] проваливает попытку инспекции [user == src ? "своей задницы" : "задницы [src]"]!") , span_warning("Не вышло проинспектировать [user == src ? "свою задницу" : "задницу [src]"]!") )
 					return TRUE
 			else
-				to_chat(user, "<span class='warning'>Задницы нет!</span>")
+				to_chat(user, span_warning("Задницы нет!") )
 				return TRUE
 		else
 			if(user == src)
-				user.visible_message("<span class='warning'>[user] хватает себя за зад!</span>", "<span class='warning'>Хватаю себя за зад!</span>")
-				to_chat(user,  "<span class='warning'>Надо бы снять одежду сперва!</span>")
+				user.visible_message(span_warning("[user] хватает себя за зад!") , span_warning("Хватаю себя за зад!") )
+				to_chat(user,  span_warning("Надо бы снять одежду сперва!") )
 			else
-				user.visible_message("<span class='warning'>[user] хватает [src] за задницу!</span>", "<span class='warning'>Хватаю задницу [src]!</span>")
-				to_chat(user, "<span class='warning'>Надо бы снять с [src] одежду!</span>")
-				to_chat(src, "<span class='userdanger'>Мой зад кто-то схватил!</span>")
+				user.visible_message(span_warning("[user] хватает [src] за задницу!") , span_warning("Хватаю задницу [src]!") )
+				to_chat(user, span_warning("Надо бы снять с [src] одежду!") )
+				to_chat(src, span_userdanger("Мой зад кто-то схватил!") )
 			return TRUE
 
 /mob/living/carbon/human/grabbedby(mob/living/user, supress_message = FALSE)
@@ -168,17 +168,17 @@
 			if(!istype(buttowner))
 				return FALSE
 			if(buttowner.w_uniform)
-				to_chat(user, "<span class='danger'>Надо бы снять одежду сперва!</span>")
+				to_chat(user, span_danger("Надо бы снять одежду сперва!") )
 				return FALSE
 			var/obj/item/organ/butt/B = buttowner.getorgan(/obj/item/organ/butt)
 			if(B)
 				var/datum/component/storage/STR = B.storage_handler.GetComponent(B.pocket_storage_component_path)
 				if(!STR)
 					return FALSE
-				user.visible_message("<span class='warning'>[user] начинает прятать [I] в [user == src ? "свою задницу" : "задницу [src]"].</span>", "<span class='warning'>Начинаю прятать [I] в [user == src ? "свою задницу" : "задницу [src]"].</span>")
+				user.visible_message(span_warning("[user] начинает прятать [I] в [user == src ? "свою задницу" : "задницу [src]"].") , span_warning("Начинаю прятать [I] в [user == src ? "свою задницу" : "задницу [src]"].") )
 				if(STR.can_be_inserted(I, 0, user) && do_mob(user, src, 20))
 					STR.handle_item_insertion(I, 0, user)
-					user.visible_message("<span class='warning'>[user] прячет [I] внутри [user == src ? "своей задницы" : "задницы [src]"].</span>", "<span class='warning'>Прячу [I] внутри [user == src ? "своей задницы" : "задницы [src]"].</span>")
+					user.visible_message(span_warning("[user] прячет [I] внутри [user == src ? "своей задницы" : "задницы [src]"].") , span_warning("Прячу [I] внутри [user == src ? "своей задницы" : "задницы [src]"].") )
 				return TRUE
 	return FALSE
 
@@ -222,7 +222,7 @@
 		speech_list = list("хссс жопка", "хсс хсс пидор", "отличный трофей, придурок", "жопа", "инспекция жопы пришельца начата")
 
 /mob/living/simple_animal/bot/buttbot/explode()
-	visible_message("<span class='userdanger'>[capitalize(src.name)] взрывается!</span>")
+	visible_message(span_userdanger("[capitalize(src.name)] взрывается!") )
 	var/turf/T = get_turf(src)
 
 	if(prob(50))

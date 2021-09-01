@@ -55,7 +55,7 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/pulse)
 
 /obj/item/gun/energy/pulse/destroyer/attack_self(mob/living/user)
-	to_chat(user, "<span class='danger'>[src.name] имеет три настройки и все они в режиме УНИЧТОЖИТЬ.</span>")
+	to_chat(user, span_danger("[src.name] имеет три настройки и все они в режиме УНИЧТОЖИТЬ.") )
 
 /obj/item/gun/energy/pulse/pistol
 	name = "импульсный пистолет"

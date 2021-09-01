@@ -10,19 +10,19 @@ GLOBAL_LIST_INIT(ventcrawl_machinery, typecacheof(list(
 		return
 
 	if(stat)
-		to_chat(src, "<span class='warning'>Нужно быть в сознании для этого!</span>")
+		to_chat(src, span_warning("Нужно быть в сознании для этого!") )
 		return
 	if(HAS_TRAIT(src, TRAIT_IMMOBILIZED))
-		to_chat(src, "<span class='warning'>Не могу сделать это в таком состоянии!</span>")
+		to_chat(src, span_warning("Не могу сделать это в таком состоянии!") )
 		return
 	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
-		to_chat(src, "<span class='warning'>Не могу сделать это со связанными руками!</span>")
+		to_chat(src, span_warning("Не могу сделать это со связанными руками!") )
 		return
 	if(has_buckled_mobs())
-		to_chat(src, "<span class='warning'>Не могу перемещаться по трубам с существами на мне!</span>")
+		to_chat(src, span_warning("Не могу перемещаться по трубам с существами на мне!") )
 		return
 	if(buckled)
-		to_chat(src, "<span class='warning'>Не могу перемещаться со стулом по трубам!</span>")
+		to_chat(src, span_warning("Не могу перемещаться со стулом по трубам!") )
 		return
 
 	var/obj/machinery/atmospherics/components/unary/vent_found
@@ -48,7 +48,7 @@ GLOBAL_LIST_INIT(ventcrawl_machinery, typecacheof(list(
 	if(vent_found)
 		var/datum/pipeline/vent_found_parent = vent_found.parents[1]
 		if(vent_found_parent && (vent_found_parent.members.len || vent_found_parent.other_atmosmch))
-			visible_message("<span class='notice'>[capitalize(src.name)] начинает проникать в систему вентиляции...</span>" ,"<span class='notice'>Начинаю проникать в систему вентиляции...</span>")
+			visible_message(span_notice("[capitalize(src.name)] начинает проникать в систему вентиляции...")  ,span_notice("Начинаю проникать в систему вентиляции...") )
 
 			if(!do_after(src, 25, target = vent_found))
 				return
@@ -58,13 +58,13 @@ GLOBAL_LIST_INIT(ventcrawl_machinery, typecacheof(list(
 
 			if(iscarbon(src) && ventcrawler == VENTCRAWLER_NUDE)
 				if(length(get_equipped_items(include_pockets = TRUE)) || get_num_held_items())
-					to_chat(src, "<span class='warning'>Не могу ползать по трубам с предметами в руках!</span>")
+					to_chat(src, span_warning("Не могу ползать по трубам с предметами в руках!") )
 					return
 
-			visible_message("<span class='notice'>[capitalize(src.name)] влезает в вентиляционное отверстие!</span>","<span class='notice'>Влезаю в вентиляционное отверстие.</span>")
+			visible_message(span_notice("[capitalize(src.name)] влезает в вентиляционное отверстие!") ,span_notice("Влезаю в вентиляционное отверстие.") )
 			forceMove(vent_found)
 	else
-		to_chat(src, "<span class='warning'>Эта вентиляция не подключена к системе труб!</span>")
+		to_chat(src, span_warning("Эта вентиляция не подключена к системе труб!") )
 
 /mob/living/simple_animal/slime/handle_ventcrawl(atom/A)
 	if(buckled)

@@ -2,8 +2,8 @@
 	name = "Фобия"
 	desc = "Пациент чего-то беспричинно боится."
 	scan_desc = "фобия"
-	gain_text = "<span class='warning'>You start finding default values very unnerving...</span>"
-	lose_text = "<span class='notice'>You no longer feel afraid of default values.</span>"
+	gain_text = span_warning("You start finding default values very unnerving...")
+	lose_text = span_notice("You no longer feel afraid of default values.")
 	var/phobia_type
 	var/phobia_ru
 	/// Cooldown for proximity checks so we don't spam a range 7 view every two seconds.
@@ -25,8 +25,8 @@
 
 	if(specific_person)
 		phobia_type = "ptsd"
-		gain_text = "<span class='warning'>Кто-то меня до чёртиков пугает...</span>"
-		lose_text = "<span class='notice'>Да кого вообще волнует [specific_person]?!</span>"
+		gain_text = span_warning("Кто-то меня до чёртиков пугает...")
+		lose_text = span_notice("Да кого вообще волнует [specific_person]?!")
 		scan_desc += " \"[phobia_ru]\""
 		var/list/names = splittext_char(specific_person, " ")
 		var/words_match = ""
@@ -42,8 +42,8 @@
 	if(!phobia_type)
 		phobia_type = pick(SStraumas.phobia_types)
 
-	gain_text = "<span class='warning'>[capitalize(phobia_ru)] меня пугают...</span>"
-	lose_text = "<span class='notice'>Да кого вообще волнуют [phobia_ru]?!</span>"
+	gain_text = span_warning("[capitalize(phobia_ru)] меня пугают...")
+	lose_text = span_notice("Да кого вообще волнуют [phobia_ru]?!")
 	scan_desc += " \"[phobia_ru]\""
 	trigger_regex = SStraumas.phobia_regexes[phobia_type]
 	trigger_mobs = SStraumas.phobia_mobs[phobia_type]
@@ -114,7 +114,7 @@
 	if(HAS_TRAIT(owner, TRAIT_FEARLESS))
 		return
 	if(trigger_regex.Find(speech_args[SPEECH_MESSAGE]) != 0)
-		to_chat(owner, "<span class='warning'>ОЧЕНЬ СТРАШНО СКАЗАТЬ СЛОВО \"<span class='phobia'>[uppertext(trigger_regex.group[2])]</span>\"!</span>")
+		to_chat(owner, span_warning("ОЧЕНЬ СТРАШНО СКАЗАТЬ СЛОВО \"<span class='phobia'>[uppertext(trigger_regex.group[2])]</span>\"!") )
 		speech_args[SPEECH_MESSAGE] = ""
 
 /datum/brain_trauma/mild/phobia/proc/freak_out(atom/reason, trigger_word)
@@ -123,15 +123,15 @@
 		return
 	var/message = pick("пугает меня до костей", "заставляет меня дрожать", "пугает меня", "заставляет меня паниковать", "бросает меня в холодный пот")
 	if(reason)
-		to_chat(owner, "<span class='userdanger'>[capitalize(reason.name)] [message]!</span>")
+		to_chat(owner, span_userdanger("[capitalize(reason.name)] [message]!") )
 	else if(trigger_word)
-		to_chat(owner, "<span class='userdanger'>\"[capitalize(trigger_word)]\" [message]!</span>")
+		to_chat(owner, span_userdanger("\"[capitalize(trigger_word)]\" [message]!") )
 	else
-		to_chat(owner, "<span class='userdanger'>Что-то [message]!</span>")
+		to_chat(owner, span_userdanger("Что-то [message]!") )
 	var/reaction = rand(1,4)
 	switch(reaction)
 		if(1)
-			to_chat(owner, "<span class='warning'>Ох!</span>")
+			to_chat(owner, span_warning("Ох!") )
 			owner.Stun(70)
 			owner.Jitter(8)
 		if(2)
@@ -141,7 +141,7 @@
 			if(reason)
 				owner.pointed(reason)
 		if(3)
-			to_chat(owner, "<span class='warning'>Какой ужас!</span>")
+			to_chat(owner, span_warning("Какой ужас!") )
 			owner.Jitter(5)
 			owner.blind_eyes(10)
 		if(4)

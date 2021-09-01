@@ -26,7 +26,7 @@
 	if(!can_use(usr))
 		return 0
 
-	to_chat(usr, "<span class='notice'>Расстегиваю [src].</span>")
+	to_chat(usr, span_notice("Расстегиваю [src].") )
 	if(src.suittoggled)
 		src.icon_state = "[initial(icon_state)]"
 		src.suittoggled = FALSE
@@ -62,7 +62,7 @@
 	desc = "Простая серая кофточка. Неплохо защитит от ветра."
 	icon_state = "greyhoodie"
 	inhand_icon_state = "gy_suit"
-	
+
 /obj/item/clothing/suit/jacket/hoodie/AltClick(mob/user)
 	..()
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
@@ -79,7 +79,7 @@
 	if(!can_use(usr))
 		return 0
 
-	to_chat(usr, "<span class='notice'>Расстегиваю [src].</span>")
+	to_chat(usr, span_notice("Расстегиваю [src].") )
 	if(src.suittoggled)
 		src.icon_state = "[initial(icon_state)]"
 		src.suittoggled = FALSE

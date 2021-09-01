@@ -294,7 +294,7 @@
 	if(hacking_cable)
 		if(get_dist(src, hacking_cable) > 1)
 			var/turf/T = get_turf(src)
-			T.visible_message("<span class='warning'>[hacking_cable] быстро втягивается обратно.</span>", "<span class='hear'>Слышу щелчок и быстрое сворачивание кабеля.</span>")
+			T.visible_message(span_warning("[hacking_cable] быстро втягивается обратно.") , span_hear("Слышу щелчок и быстрое сворачивание кабеля.") )
 			QDEL_NULL(hacking_cable)
 			if(!QDELETED(card))
 				card.update_icon()
@@ -314,7 +314,7 @@
 /obj/item/paicard/attackby(obj/item/W, mob/user, params)
 	if(pai && (istype(W, /obj/item/encryptionkey) || W.tool_behaviour == TOOL_SCREWDRIVER))
 		if(!pai.encryptmod)
-			to_chat(user, "<span class='alert'>Порт ключей шифрования не настроен.</span>")
+			to_chat(user, span_alert("Порт ключей шифрования не настроен.") )
 			return
 		user.set_machine(src)
 		pai.radio.attackby(W, user, params)

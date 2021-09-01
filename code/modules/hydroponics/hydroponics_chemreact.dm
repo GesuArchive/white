@@ -15,14 +15,14 @@
 	switch(rand(100))
 		if(91 to 100)
 			adjustHealth(-10)
-			visible_message("<span class='warning'>\ [myseed.plantname] начинает вянуть и гореть!</span>")
+			visible_message(span_warning("\ [myseed.plantname] начинает вянуть и гореть!") )
 			return
 		if(41 to 90)
 			if(myseed && !self_sustaining) //Stability
 				myseed.adjust_instability(5)
 				return
 		if(21 to 40)
-			visible_message("<span class='notice'>\ [myseed.plantname] выглядит очень радиоактивно...</span>")
+			visible_message(span_notice("\ [myseed.plantname] выглядит очень радиоактивно...") )
 			return
 		if(11 to 20)
 			mutateweed()

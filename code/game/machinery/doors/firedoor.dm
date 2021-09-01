@@ -41,7 +41,7 @@
 	else if(boltslocked)
 		. += "<span class='notice'>Он <i>заварен</i> намертво. Осталось <b>отвинтить</b> от пола.</span>\n"
 	else
-		. += "<span class='notice'>Он <i>отвинчен</i>, но сами винты <b>прикручены</b> к полу.</span>"
+		. += span_notice("Он <i>отвинчен</i>, но сами винты <b>прикручены</b> к полу.")
 
 /obj/machinery/door/firedoor/proc/CalculateAffectingAreas()
 	remove_from_areas()
@@ -98,8 +98,8 @@
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 
-	user.visible_message("<span class='notice'>[user] бьётся в [src].</span>", \
-		"<span class='notice'>Бьюсь в [src]. Гениально.</span>")
+	user.visible_message(span_notice("[user] бьётся в [src].") , \
+		span_notice("Бьюсь в [src]. Гениально.") )
 	playsound(loc, 'sound/effects/glassknock.ogg', 10, FALSE, frequency = 32000)
 
 /obj/machinery/door/firedoor/attackby(obj/item/C, mob/user, params)
@@ -109,21 +109,21 @@
 	if(welded)
 		if(C.tool_behaviour == TOOL_WRENCH)
 			if(boltslocked)
-				to_chat(user, "<span class='notice'>Есть винты, фиксирующие болты на месте!</span>")
+				to_chat(user, span_notice("Есть винты, фиксирующие болты на месте!") )
 				return
 			C.play_tool_sound(src)
-			user.visible_message("<span class='notice'>[user] начинает откручивать болты [src]...</span>", \
-				"<span class='notice'>Начинаю откручивать [src] от пола...</span>")
+			user.visible_message(span_notice("[user] начинает откручивать болты [src]...") , \
+				span_notice("Начинаю откручивать [src] от пола...") )
 			if(!C.use_tool(src, user, DEFAULT_STEP_TIME))
 				return
 			playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
-			user.visible_message("<span class='notice'>[user] откручивает болты [src].</span>", \
-				"<span class='notice'>Откручиваю [src] от пола.</span>")
+			user.visible_message(span_notice("[user] откручивает болты [src].") , \
+				span_notice("Откручиваю [src] от пола.") )
 			deconstruct(TRUE)
 			return
 		if(C.tool_behaviour == TOOL_SCREWDRIVER)
-			user.visible_message("<span class='notice'>[user] [boltslocked ? "разблокирует" : "блокирует"] болты [src].</span>", \
-				"<span class='notice'>[boltslocked ? "Разблокирую" : "Блокирую"] напольные болты [src].</span>")
+			user.visible_message(span_notice("[user] [boltslocked ? "разблокирует" : "блокирует"] болты [src].") , \
+				span_notice("[boltslocked ? "Разблокирую" : "Блокирую"] напольные болты [src].") )
 			C.play_tool_sound(src)
 			boltslocked = !boltslocked
 			return
@@ -135,10 +135,10 @@
 /obj/machinery/door/firedoor/try_to_weld(obj/item/weldingtool/W, mob/user)
 	if(!W.tool_start_check(user, amount=0))
 		return
-	user.visible_message("<span class='notice'>[user] начинает [welded ? "разваривать" : "заваривать"] [src].</span>", "<span class='notice'>Начинаю оперировать сваркой над [src].</span>")
+	user.visible_message(span_notice("[user] начинает [welded ? "разваривать" : "заваривать"] [src].") , span_notice("Начинаю оперировать сваркой над [src].") )
 	if(W.use_tool(src, user, DEFAULT_STEP_TIME, volume=50))
 		welded = !welded
-		to_chat(user, "<span class='danger'>[user] [welded?"заваривает":"разваривает"] [src].</span>", "<span class='notice'>[welded ? "Завариваю" : "Развариваю"] [src].</span>")
+		to_chat(user, span_danger("[user] [welded?"заваривает":"разваривает"] [src].") , span_notice("[welded ? "Завариваю" : "Развариваю"] [src].") )
 		log_game("[key_name(user)] [welded ? "welded":"unwelded"] firedoor [src] with [W] at [AREACOORD(src)]")
 		update_icon()
 
@@ -149,7 +149,7 @@
 	if(density)
 		if(is_holding_pressure())
 			// tell the user that this is a bad idea, and have a do_after as well
-			to_chat(user, "<span class='warning'>Начинаю вскрывать [src] ломиком, попутно ощущая сильный поток воздуха... может стоит ПЕРЕДУМАТЬ?</span>")
+			to_chat(user, span_warning("Начинаю вскрывать [src] ломиком, попутно ощущая сильный поток воздуха... может стоит ПЕРЕДУМАТЬ?") )
 			if(!do_after(user, 2 SECONDS, src)) // give them a few seconds to reconsider their decision.
 				return
 			log_game("[key_name_admin(user)] has opened a firelock with a pressure difference at [AREACOORD(loc)]") // there bibby I made it logged just for you. Enjoy.
@@ -232,7 +232,7 @@
 /obj/machinery/door/firedoor/attack_alien(mob/user)
 	add_fingerprint(user)
 	if(welded)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] не хочет открываться!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] не хочет открываться!") )
 		return
 	open()
 
@@ -386,11 +386,11 @@
 	. += "<hr>"
 	switch(constructionStep)
 		if(CONSTRUCTION_PANEL_OPEN)
-			. += "<span class='notice'>Он <i>откручен</i> от пола. Микросхема может быть изъята <b>ломиком</b>.</span>"
+			. += span_notice("Он <i>откручен</i> от пола. Микросхема может быть изъята <b>ломиком</b>.")
 			if(!reinforced)
-				. += "<span class='notice'>Он может быть укреплён пласталью.</span>"
+				. += span_notice("Он может быть укреплён пласталью.")
 		if(CONSTRUCTION_NO_CIRCUIT)
-			. += "<span class='notice'>Здесь нет <i>микросхемы</i> внутри. Рама может быть <b>разварена</b> на части.</span>"
+			. += span_notice("Здесь нет <i>микросхемы</i> внутри. Рама может быть <b>разварена</b> на части.")
 
 /obj/structure/firelock_frame/update_icon_state()
 	icon_state = "frame[constructionStep]"
@@ -400,32 +400,32 @@
 		if(CONSTRUCTION_PANEL_OPEN)
 			if(C.tool_behaviour == TOOL_CROWBAR)
 				C.play_tool_sound(src)
-				user.visible_message("<span class='notice'>[user] начинает извлекать микросхему из [src]...</span>", \
-					"<span class='notice'>Начинаю извлекать микросхему из [src]...</span>")
+				user.visible_message(span_notice("[user] начинает извлекать микросхему из [src]...") , \
+					span_notice("Начинаю извлекать микросхему из [src]...") )
 				if(!C.use_tool(src, user, DEFAULT_STEP_TIME))
 					return
 				if(constructionStep != CONSTRUCTION_PANEL_OPEN)
 					return
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
-				user.visible_message("<span class='notice'>[user] извлекает плату из [src].</span>", \
-					"<span class='notice'>Извлекаю плату из [src].</span>")
+				user.visible_message(span_notice("[user] извлекает плату из [src].") , \
+					span_notice("Извлекаю плату из [src].") )
 				new /obj/item/electronics/firelock(drop_location())
 				constructionStep = CONSTRUCTION_NO_CIRCUIT
 				update_icon()
 				return
 			if(C.tool_behaviour == TOOL_WRENCH)
 				if(locate(/obj/machinery/door/firedoor) in get_turf(src))
-					to_chat(user, "<span class='warning'>Здесь уже есть пожарный шлюз.</span>")
+					to_chat(user, span_warning("Здесь уже есть пожарный шлюз.") )
 					return
 				C.play_tool_sound(src)
-				user.visible_message("<span class='notice'>[user] начинает прикручивать [src]...</span>", \
-					"<span class='notice'>Начинаю прикручивать [src]...</span>")
+				user.visible_message(span_notice("[user] начинает прикручивать [src]...") , \
+					span_notice("Начинаю прикручивать [src]...") )
 				if(!C.use_tool(src, user, DEFAULT_STEP_TIME))
 					return
 				if(locate(/obj/machinery/door/firedoor) in get_turf(src))
 					return
-				user.visible_message("<span class='notice'>[user] заканчивает пожарный шлюз.</span>", \
-					"<span class='notice'>Заканчиваю пожарный шлюз.</span>")
+				user.visible_message(span_notice("[user] заканчивает пожарный шлюз.") , \
+					span_notice("Заканчиваю пожарный шлюз.") )
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				if(reinforced)
 					new /obj/machinery/door/firedoor/heavy(get_turf(src))
@@ -436,49 +436,49 @@
 			if(istype(C, /obj/item/stack/sheet/plasteel))
 				var/obj/item/stack/sheet/plasteel/P = C
 				if(reinforced)
-					to_chat(user, "<span class='warning'>[capitalize(src.name)] уже укреплён.</span>")
+					to_chat(user, span_warning("[capitalize(src.name)] уже укреплён.") )
 					return
 				if(P.get_amount() < 2)
-					to_chat(user, "<span class='warning'>Мне потребуется чуть больше пластали для [src].</span>")
+					to_chat(user, span_warning("Мне потребуется чуть больше пластали для [src].") )
 					return
-				user.visible_message("<span class='notice'>[user] начинает укреплять [src]...</span>", \
-					"<span class='notice'>Начинаю укреплять [src]...</span>")
+				user.visible_message(span_notice("[user] начинает укреплять [src]...") , \
+					span_notice("Начинаю укреплять [src]...") )
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				if(do_after(user, DEFAULT_STEP_TIME, target = src))
 					if(constructionStep != CONSTRUCTION_PANEL_OPEN || reinforced || P.get_amount() < 2 || !P)
 						return
-					user.visible_message("<span class='notice'>[user] укрепляет [src].</span>", \
-						"<span class='notice'>Укрепляю [src].</span>")
+					user.visible_message(span_notice("[user] укрепляет [src].") , \
+						span_notice("Укрепляю [src].") )
 					playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 					P.use(2)
 					reinforced = 1
 				return
 		if(CONSTRUCTION_NO_CIRCUIT)
 			if(istype(C, /obj/item/electronics/firelock))
-				user.visible_message("<span class='notice'>[user] начинает устанавливает [C] к [src]...</span>", \
-					"<span class='notice'>Начинаю вставлять плату в [src]...</span>")
+				user.visible_message(span_notice("[user] начинает устанавливает [C] к [src]...") , \
+					span_notice("Начинаю вставлять плату в [src]...") )
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				if(!do_after(user, DEFAULT_STEP_TIME, target = src))
 					return
 				if(constructionStep != CONSTRUCTION_NO_CIRCUIT)
 					return
 				qdel(C)
-				user.visible_message("<span class='notice'>[user] устанавливает плату в [src].</span>", \
-					"<span class='notice'>Вставляю плату в [C].</span>")
+				user.visible_message(span_notice("[user] устанавливает плату в [src].") , \
+					span_notice("Вставляю плату в [C].") )
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				constructionStep = CONSTRUCTION_PANEL_OPEN
 				return
 			if(C.tool_behaviour == TOOL_WELDER)
 				if(!C.tool_start_check(user, amount=1))
 					return
-				user.visible_message("<span class='notice'>[user] начинает разваривать [src]...</span>", \
-					"<span class='notice'>Начинаю разваривать [src] на куски...</span>")
+				user.visible_message(span_notice("[user] начинает разваривать [src]...") , \
+					span_notice("Начинаю разваривать [src] на куски...") )
 
 				if(C.use_tool(src, user, DEFAULT_STEP_TIME, volume=50, amount=1))
 					if(constructionStep != CONSTRUCTION_NO_CIRCUIT)
 						return
-					user.visible_message("<span class='notice'>[user] разваривает на куски [src]!</span>", \
-						"<span class='notice'>Развариваю [src] в метал.</span>")
+					user.visible_message(span_notice("[user] разваривает на куски [src]!") , \
+						span_notice("Развариваю [src] в метал.") )
 					var/turf/T = get_turf(src)
 					new /obj/item/stack/sheet/iron(T, 3)
 					if(reinforced)
@@ -489,8 +489,8 @@
 				var/obj/item/electroadaptive_pseudocircuit/P = C
 				if(!P.adapt_circuit(user, DEFAULT_STEP_TIME * 0.5))
 					return
-				user.visible_message("<span class='notice'>[user] создаёт специальную плату и вставляет в [src].</span>", \
-					"<span class='notice'>Адаптирую микросхему и вставляю в пожарный шлюз.</span>")
+				user.visible_message(span_notice("[user] создаёт специальную плату и вставляет в [src].") , \
+					span_notice("Адаптирую микросхему и вставляю в пожарный шлюз.") )
 				constructionStep = CONSTRUCTION_PANEL_OPEN
 				update_icon()
 				return
@@ -506,13 +506,13 @@
 /obj/structure/firelock_frame/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_UPGRADE_SIMPLE_CIRCUITS)
-			user.visible_message("<span class='notice'>[user] создаёт специальную плату и вставляет в [src].</span>", \
-			"<span class='notice'>Адаптирую микросхему и вставляю в пожарный шлюз.</span>")
+			user.visible_message(span_notice("[user] создаёт специальную плату и вставляет в [src].") , \
+			span_notice("Адаптирую микросхему и вставляю в пожарный шлюз.") )
 			constructionStep = CONSTRUCTION_PANEL_OPEN
 			update_icon()
 			return TRUE
 		if(RCD_DECONSTRUCT)
-			to_chat(user, "<span class='notice'>Разбираю [src].</span>")
+			to_chat(user, span_notice("Разбираю [src].") )
 			qdel(src)
 			return TRUE
 	return FALSE

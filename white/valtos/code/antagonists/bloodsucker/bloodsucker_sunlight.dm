@@ -141,7 +141,7 @@
 				continue
 			else
 				if (!bloodsuckerdatum.warn_sun_locker)
-					to_chat(M, "<span class='warning'>Your skin sizzles. The [M.current.loc] doesn't protect well against UV bombardment.</span>")
+					to_chat(M, span_warning("Your skin sizzles. The [M.current.loc] doesn't protect well against UV bombardment.") )
 					bloodsuckerdatum.warn_sun_locker = TRUE
 				M.current.adjustFireLoss(0.5 + bloodsuckerdatum.vamplevel / 2) // M.current.fireloss += 0.5 + bloodsuckerdatum.vamplevel / 2  //  Do DIRECT damage. Being spaced was causing this to not occur. setFireLoss(bloodsuckerdatum.vamplevel)
 				M.current.updatehealth()
@@ -150,9 +150,9 @@
 		else
 			if (!bloodsuckerdatum.warn_sun_burn)
 				if (bloodsuckerdatum.vamplevel > 0)
-					to_chat(M, "<span class='userdanger'>The solar flare sets your skin ablaze!</span>")
+					to_chat(M, span_userdanger("The solar flare sets your skin ablaze!") )
 				else
-					to_chat(M, "<span class='userdanger'>The solar flare scalds your neophyte skin!</span>")
+					to_chat(M, span_userdanger("The solar flare scalds your neophyte skin!") )
 				bloodsuckerdatum.warn_sun_burn = TRUE
 			if (M.current.fire_stacks <= 0)
 				M.current.fire_stacks = 0

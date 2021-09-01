@@ -44,7 +44,7 @@
 	owner.say(".x[message]")
 
 /obj/item/organ/vocal_cords/adamantine/handle_speech(message)
-	var/msg = "<span class='resonate'><span class='name'>[owner.real_name]</span> <span class='message'>резонирует, \"[message]\"</span></span>"
+	var/msg = span_resonate("<span class='name'>[owner.real_name]</span> <span class='message'>резонирует, \"[message]\"</span>")
 	for(var/m in GLOB.player_list)
 		if(iscarbon(m))
 			var/mob/living/carbon/C = m
@@ -91,7 +91,7 @@
 	. = ..()
 	if(!IsAvailable())
 		if(world.time < cords.next_command)
-			to_chat(owner, "<span class='notice'>Нужно подождать [DisplayTimeText(cords.next_command - world.time)] перед тем как говорить ещё.</span>")
+			to_chat(owner, span_notice("Нужно подождать [DisplayTimeText(cords.next_command - world.time)] перед тем как говорить ещё.") )
 		return
 	var/command = input(owner, "Громогласим?", "Команда")
 	if(QDELETED(src) || QDELETED(owner))
@@ -102,12 +102,12 @@
 
 /obj/item/organ/vocal_cords/colossus/can_speak_with()
 	if(world.time < next_command)
-		to_chat(owner, "<span class='notice'>Нужно подождать [DisplayTimeText(next_command - world.time)] перед тем как говорить ещё.</span>")
+		to_chat(owner, span_notice("Нужно подождать [DisplayTimeText(next_command - world.time)] перед тем как говорить ещё.") )
 		return FALSE
 	if(!owner)
 		return FALSE
 	if(!owner.can_speak_vocal())
-		to_chat(owner, "<span class='warning'>Не могу говорить!</span>")
+		to_chat(owner, span_warning("Не могу говорить!") )
 		return FALSE
 	return TRUE
 

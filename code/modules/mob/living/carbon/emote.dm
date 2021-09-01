@@ -141,11 +141,11 @@
 /datum/emote/living/carbon/circle/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
 	if(!length(user.get_empty_held_indexes()))
-		to_chat(user, "<span class='warning'>Да у меня и рук свободных нет.</span>")
+		to_chat(user, span_warning("Да у меня и рук свободных нет.") )
 		return
 	var/obj/item/circlegame/N = new(user)
 	if(user.put_in_hands(N))
-		to_chat(user, "<span class='notice'>Изображаю круг рукой.</span>")
+		to_chat(user, span_notice("Изображаю круг рукой.") )
 
 /datum/emote/living/carbon/slap
 	key = "slap"
@@ -159,8 +159,8 @@
 		return
 	var/obj/item/slapper_mark_two/N = new(user)
 	if(user.put_in_hands(N))
-		to_chat(user, "<span class='notice'>Готовлюсь шлёпать.</span>")
+		to_chat(user, span_notice("Готовлюсь шлёпать.") )
 	else
 		qdel(N)
-		to_chat(user, "<span class='warning'>Пока не могу шлёпать.</span>")
+		to_chat(user, span_warning("Пока не могу шлёпать.") )
 

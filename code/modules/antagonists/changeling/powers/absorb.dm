@@ -12,14 +12,14 @@
 
 	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
 	if(changeling.isabsorbing)
-		to_chat(user, "<span class='warning'>Мы уже поглощаем!</span>")
+		to_chat(user, span_warning("Мы уже поглощаем!") )
 		return
 
 	if(!user.pulling || !iscarbon(user.pulling))
-		to_chat(user, "<span class='warning'>Мы должны держать существо для поглощения!</span>")
+		to_chat(user, span_warning("Мы должны держать существо для поглощения!") )
 		return
 	if(user.grab_state <= GRAB_NECK)
-		to_chat(user, "<span class='warning'>Нам нужно держать существо крепче для поглощения!</span>")
+		to_chat(user, span_warning("Нам нужно держать существо крепче для поглощения!") )
 		return
 
 	var/mob/living/carbon/target = user.pulling
@@ -34,23 +34,23 @@
 	for(var/i in 1 to 3)
 		switch(i)
 			if(1)
-				to_chat(user, "<span class='notice'>Это существо подходит. Нужно постараться не двигаться...</span>")
+				to_chat(user, span_notice("Это существо подходит. Нужно постараться не двигаться...") )
 			if(2)
-				user.visible_message("<span class='warning'><b>[user]</b> выпускает хоботок!</span>", "<span class='notice'>Выпускаем хоботок.</span>")
+				user.visible_message(span_warning("<b>[user]</b> выпускает хоботок!") , span_notice("Выпускаем хоботок.") )
 			if(3)
-				user.visible_message("<span class='danger'><b>[user]</b> протыкает <b>[target]</b> своим хоботком!</span>", "<span class='notice'>Протыкаем <b>[target]</b> своим хоботком.</span>")
-				to_chat(target, "<span class='userdanger'>Что-то острое проникает в меня!</span>")
+				user.visible_message(span_danger("<b>[user]</b> протыкает <b>[target]</b> своим хоботком!") , span_notice("Протыкаем <b>[target]</b> своим хоботком.") )
+				to_chat(target, span_userdanger("Что-то острое проникает в меня!") )
 				target.take_overall_damage(40)
 
 		SSblackbox.record_feedback("nested tally", "changeling_powers", 1, list("Absorb DNA", "[i]"))
 		if(!do_mob(user, target, 150))
-			to_chat(user, "<span class='warning'>Наше поглощение <b>[target]</b> нарушено!</span>")
+			to_chat(user, span_warning("Наше поглощение <b>[target]</b> нарушено!") )
 			changeling.isabsorbing = 0
 			return
 
 	SSblackbox.record_feedback("nested tally", "changeling_powers", 1, list("Absorb DNA", "4"))
-	user.visible_message("<span class='danger'><b>[user]</b> высасывает жидкости из <b>[target]</b>!</span>", "<span class='notice'>Поглощаем <b>[target]</b>.</span>")
-	to_chat(target, "<span class='userdanger'>Похоже меня сожрал генокрад!</span>")
+	user.visible_message(span_danger("<b>[user]</b> высасывает жидкости из <b>[target]</b>!") , span_notice("Поглощаем <b>[target]</b>.") )
+	to_chat(target, span_userdanger("Похоже меня сожрал генокрад!") )
 
 	if(!changeling.has_dna(target.dna))
 		changeling.add_new_profile(target)
@@ -110,17 +110,17 @@
 
 		if(recent_speech.len)
 			changeling.antag_memory += "<B>Некоторые фразы сказанные [target] можно использовать их в наших целях!</B><br>"
-			to_chat(user, "<span class='boldnotice'>Некоторые фразы сказанные [target] можно использовать их в наших целях!</span>")
+			to_chat(user, span_boldnotice("Некоторые фразы сказанные [target] можно использовать их в наших целях!") )
 			for(var/spoken_memory in recent_speech)
 				changeling.antag_memory += "\"[recent_speech[spoken_memory]]\"<br>"
-				to_chat(user, "<span class='notice'>\"[recent_speech[spoken_memory]]\"</span>")
+				to_chat(user, span_notice("\"[recent_speech[spoken_memory]]\"") )
 			changeling.antag_memory += "<B>У нас больше нет знаний о речевых шаблонах [target].</B><br>"
-			to_chat(user, "<span class='boldnotice'>У нас больше нет знаний о речевых шаблонах [target].</span>")
+			to_chat(user, span_boldnotice("У нас больше нет знаний о речевых шаблонах [target].") )
 
 
 		var/datum/antagonist/changeling/target_ling = target.mind.has_antag_datum(/datum/antagonist/changeling)
 		if(target_ling)//If the target was a changeling, suck out their extra juice and objective points!
-			to_chat(user, "<span class='boldnotice'>[target] один из нас. Мы поглотили его силы также.</span>")
+			to_chat(user, span_boldnotice("[target] один из нас. Мы поглотили его силы также.") )
 			target_ling.remove_changeling_powers()
 			changeling.geneticpoints += round(target_ling.geneticpoints/2)
 			changeling.total_geneticspoints = changeling.geneticpoints //updates the total sum of genetic points when you absorb another ling

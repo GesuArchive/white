@@ -39,7 +39,7 @@
 		if(damage_received >= max_damage)
 			if(ishuman(owner))
 				var/mob/living/carbon/human/H = owner
-				H.visible_message("<span class='danger'>[H] [src] breaks!</span>", "<span class='userdanger'>Your [src] breaks!</span>")
+				H.visible_message(span_danger("[H] [src] breaks!") , span_userdanger("Your [src] breaks!") )
 				playsound(H, 'sound/effects/bang.ogg', 30, 1)
 				H.dropItemToGround(src, 1)
 				qdel(src)
@@ -72,6 +72,6 @@
 /obj/item/shard/shank/attack_self(mob/user)
 	playsound(user, 'white/valtos/sounds/ducttape2.ogg', 50, 1)
 	var/obj/item/shard/new_item = new(user.loc)
-	to_chat(user, "<span class='notice'>You take the duct tape off the [src].</span>")
+	to_chat(user, span_notice("You take the duct tape off the [src].") )
 	qdel(src)
 	user.put_in_hands(new_item)

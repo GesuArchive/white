@@ -59,8 +59,8 @@
 		var/obj/item/I = AM
 		I.attack_hand(src)
 		if(get_active_held_item() == I) //if our attack_hand() picks up the item...
-			visible_message("<span class='warning'><b>[src]</b> ловит <b>[I.name]</b>!</span>", \
-							"<span class='userdanger'>Ловлю <b>[I.name]</b>!</span>")
+			visible_message(span_warning("<b>[src]</b> ловит <b>[I.name]</b>!") , \
+							span_userdanger("Ловлю <b>[I.name]</b>!") )
 			throw_mode_off(THROW_MODE_TOGGLE)
 			return TRUE
 	return ..()
@@ -129,10 +129,10 @@
 		attack_message_victim = "<b>[user]</b> [message_verb_continuous] меня [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
 	if(user == src)
 		attack_message_victim = "Моя атака [message_verb_simple] меня [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
-	visible_message("<span class='danger'>[attack_message_spectator]</span>",\
-		"<span class='userdanger'>[attack_message_victim]</span>", null, COMBAT_MESSAGE_RANGE, user)
+	visible_message(span_danger("[attack_message_spectator]") ,\
+		span_userdanger("[attack_message_victim]") , null, COMBAT_MESSAGE_RANGE, user)
 	if(user != src)
-		to_chat(user, "<span class='danger'>[attack_message_attacker]</span>")
+		to_chat(user, span_danger("[attack_message_attacker]") )
 	return TRUE
 
 
@@ -204,8 +204,8 @@
 				if(M.powerlevel < 0)
 					M.powerlevel = 0
 
-				visible_message("<span class='danger'><b>[M.name]</b> ударил током <b>[src]</b>!</span>", \
-				"<span class='userdanger'><b>[M.name]</b> ударил меня током!</span>")
+				visible_message(span_danger("<b>[M.name]</b> ударил током <b>[src]</b>!") , \
+				span_userdanger("<b>[M.name]</b> ударил меня током!") )
 
 				do_sparks(5, TRUE, src)
 				var/power = M.powerlevel + rand(0,3)
@@ -250,8 +250,8 @@
 		if(target_on_help_and_unarmed || HAS_TRAIT(target, TRAIT_RESTRAINED))
 			do_slap_animation(target)
 			playsound(target.loc, 'sound/weapons/slap.ogg', 50, TRUE, -1)
-			visible_message("<span class='danger'>[capitalize(src.name)] slaps [target] in the face!</span>",
-				"<span class='notice'>You slap [target] in the face! </span>",\
+			visible_message(span_danger("[capitalize(src.name)] slaps [target] in the face!") ,
+				span_notice("You slap [target] in the face! ") ,\
 			"You hear a slap.")
 			target.dna?.species?.stop_wagging_tail(target)
 			return
@@ -289,9 +289,9 @@
 
 	if(target.IsKnockdown() && !target.IsParalyzed())
 		target.Paralyze(SHOVE_CHAIN_PARALYZE)
-		target.visible_message("<span class='danger'><b>[name]</b> кладет <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> на лопатки!</span>",
-						"<span class='userdanger'><b>[name]</b> кладет меня на лопатки!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
-		to_chat(src, "<span class='danger'>Укладываю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> на лопатки!</span>")
+		target.visible_message(span_danger("<b>[name]</b> кладет <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> на лопатки!") ,
+						span_userdanger("<b>[name]</b> кладет меня на лопатки!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , COMBAT_MESSAGE_RANGE, src)
+		to_chat(src, span_danger("Укладываю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> на лопатки!") )
 		addtimer(CALLBACK(target, /mob/living/proc/SetKnockdown, 0), SHOVE_CHAIN_PARALYZE)
 		log_combat(src, target, "kicks", "onto their side (paralyzing)")
 
@@ -310,35 +310,35 @@
 						break
 		if((!target_table && !target_collateral_carbon && !target_disposal_bin) || directional_blocked)
 			target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
-			target.visible_message("<span class='danger'><b>[name]</b> толкает <b>[sklonenie(target.name, VINITELNI, target.gender)]</b>, повалив на пол!</span>",
-							"<span class='danger'>Меня толкает <b>[name]</b>, повалив на пол!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
-			to_chat(src, "<span class='danger'>Толкаю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b>, повалив на пол!</span>")
+			target.visible_message(span_danger("<b>[name]</b> толкает <b>[sklonenie(target.name, VINITELNI, target.gender)]</b>, повалив на пол!") ,
+							span_danger("Меня толкает <b>[name]</b>, повалив на пол!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , COMBAT_MESSAGE_RANGE, src)
+			to_chat(src, span_danger("Толкаю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b>, повалив на пол!") )
 			log_combat(src, target, "shoved", "knocking them down")
 		else if(target_table)
 			target.Knockdown(SHOVE_KNOCKDOWN_TABLE)
-			target.visible_message("<span class='danger'><b>[name]</b> заталкивает <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> на [target_table]!</span>",
-							"<span class='userdanger'>Меня заталкивает <b>[name]</b> на [target_table]!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
-			to_chat(src, "<span class='danger'>Заталкиваю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> на [target_table]!</span>")
+			target.visible_message(span_danger("<b>[name]</b> заталкивает <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> на [target_table]!") ,
+							span_userdanger("Меня заталкивает <b>[name]</b> на [target_table]!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , COMBAT_MESSAGE_RANGE, src)
+			to_chat(src, span_danger("Заталкиваю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> на [target_table]!") )
 			target.throw_at(target_table, 1, 1, null, FALSE) //1 speed throws with no spin are basically just forcemoves with a hard collision check
 			log_combat(src, target, "shoved", "onto [target_table] (table)")
 		else if(target_collateral_carbon)
 			target.Knockdown(SHOVE_KNOCKDOWN_HUMAN)
 			target_collateral_carbon.Knockdown(SHOVE_KNOCKDOWN_COLLATERAL)
-			target.visible_message("<span class='danger'><b>[name]</b> толкает <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> в [target_collateral_carbon.name]!</span>",
-				"<span class='userdanger'>Меня толкает <b>[name]</b> в [target_collateral_carbon.name]!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
-			to_chat(src, "<span class='danger'>Толкаю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> в [target_collateral_carbon.name]!</span>")
+			target.visible_message(span_danger("<b>[name]</b> толкает <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> в [target_collateral_carbon.name]!") ,
+				span_userdanger("Меня толкает <b>[name]</b> в [target_collateral_carbon.name]!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , COMBAT_MESSAGE_RANGE, src)
+			to_chat(src, span_danger("Толкаю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> в [target_collateral_carbon.name]!") )
 			log_combat(src, target, "shoved", "into [target_collateral_carbon.name]")
 		else if(target_disposal_bin)
 			target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
 			target.forceMove(target_disposal_bin)
-			target.visible_message("<span class='danger'><b>[name]</b> толкает <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> в [target_disposal_bin]!</span>",
-							"<span class='userdanger'>Меня толкает <b>[name]</b> в [target_disposal_bin]!</span>!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
-			to_chat(src, "<span class='danger'>Толкаю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> прямо в [target_disposal_bin]!</span>")
+			target.visible_message(span_danger("<b>[name]</b> толкает <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> в [target_disposal_bin]!") ,
+							span_userdanger("Меня толкает <b>[name]</b> в [target_disposal_bin]!</span>!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , COMBAT_MESSAGE_RANGE, src)
+			to_chat(src, span_danger("Толкаю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> прямо в [target_disposal_bin]!") )
 			log_combat(src, target, "shoved", "into [target_disposal_bin] (disposal bin)")
 	else
-		target.visible_message("<span class='danger'><b>[name]</b> толкает <b>[sklonenie(target.name, VINITELNI, target.gender)]</b>!</span>",
-						"<span class='userdanger'>Меня толкает <b>[name]</b>!</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", COMBAT_MESSAGE_RANGE, src)
-		to_chat(src, "<span class='danger'>Толкаю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b>!</span>")
+		target.visible_message(span_danger("<b>[name]</b> толкает <b>[sklonenie(target.name, VINITELNI, target.gender)]</b>!") ,
+						span_userdanger("Меня толкает <b>[name]</b>!") , span_hear("Слышу агрессивную потасовку!") , COMBAT_MESSAGE_RANGE, src)
+		to_chat(src, span_danger("Толкаю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b>!") )
 		var/target_held_item = target.get_active_held_item()
 		var/knocked_item = FALSE
 		if(!is_type_in_typecache(target_held_item, GLOB.shove_disarming_types))
@@ -346,14 +346,14 @@
 		if(!target.has_movespeed_modifier(/datum/movespeed_modifier/shove))
 			target.add_movespeed_modifier(/datum/movespeed_modifier/shove)
 			if(target_held_item)
-				target.visible_message("<span class='danger'>Захват <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> на [target_held_item] слабеет!</span>",
-					"<span class='warning'>Мой захват [target_held_item] слабеет!</span>", null, COMBAT_MESSAGE_RANGE)
+				target.visible_message(span_danger("Захват <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> на [target_held_item] слабеет!") ,
+					span_warning("Мой захват [target_held_item] слабеет!") , null, COMBAT_MESSAGE_RANGE)
 			addtimer(CALLBACK(target, /mob/living/carbon/proc/clear_shove_slowdown), SHOVE_SLOWDOWN_LENGTH)
 		else if(target_held_item)
 			target.dropItemToGround(target_held_item)
 			knocked_item = TRUE
-			target.visible_message("<span class='danger'><b>[target.name]</b> роняет [target_held_item]!</span>",
-				"<span class='warning'>Роняю [target_held_item]!</span>", null, COMBAT_MESSAGE_RANGE)
+			target.visible_message(span_danger("<b>[target.name]</b> роняет [target_held_item]!") ,
+				span_warning("Роняю [target_held_item]!") , null, COMBAT_MESSAGE_RANGE)
 		var/append_message = ""
 		if(target_held_item)
 			if(knocked_item)
@@ -372,13 +372,13 @@
 	remove_movespeed_modifier(/datum/movespeed_modifier/shove)
 	var/active_item = get_active_held_item()
 	if(is_type_in_typecache(active_item, GLOB.shove_disarming_types))
-		visible_message("<span class='warning'>[name] regains their grip on [active_item]!</span>", "<span class='warning'>You regain your grip on [active_item]</span>", null, COMBAT_MESSAGE_RANGE)
+		visible_message(span_warning("[name] regains their grip on [active_item]!") , span_warning("You regain your grip on [active_item]") , null, COMBAT_MESSAGE_RANGE)
 
 /mob/living/carbon/blob_act(obj/structure/blob/B)
 	if (stat == DEAD)
 		return
 	else
-		show_message("<span class='userdanger'>The blob attacks!</span>")
+		show_message(span_userdanger("The blob attacks!") )
 		adjustBruteLoss(10)
 
 /mob/living/carbon/emp_act(severity)
@@ -429,7 +429,7 @@
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)
 	if(on_fire)
-		to_chat(M, "<span class='warning'>Не могу дотронуться до н[ru_ego()] голыми руками!</span>")
+		to_chat(M, span_warning("Не могу дотронуться до н[ru_ego()] голыми руками!") )
 		return
 
 	if(M == src && check_self_for_injuries())
@@ -437,26 +437,26 @@
 
 	if(body_position == LYING_DOWN)
 		if(buckled)
-			to_chat(M, "<span class='warning'>Тебе нужно отстегнуться от [src.name], чтобы сделать это!</span>")
+			to_chat(M, span_warning("Тебе нужно отстегнуться от [src.name], чтобы сделать это!") )
 			return
-		M.visible_message("<span class='notice'>[M] встряхивает [src] пытаесь поднять [ru_ego()]!</span>", \
-						null, "<span class='hear'>Слышу шуршание одежды.</span>", DEFAULT_MESSAGE_RANGE, list(M, src))
-		to_chat(M, "<span class='notice'>Встряхиваю [src] пытаесь поднять [ru_ego()]!</span>")
-		to_chat(src, "<span class='notice'>[M] пытается поднять меня!</span>")
+		M.visible_message(span_notice("[M] встряхивает [src] пытаесь поднять [ru_ego()]!") , \
+						null, span_hear("Слышу шуршание одежды.") , DEFAULT_MESSAGE_RANGE, list(M, src))
+		to_chat(M, span_notice("Встряхиваю [src] пытаесь поднять [ru_ego()]!") )
+		to_chat(src, span_notice("[M] пытается поднять меня!") )
 	else if(check_zone(M.zone_selected) == BODY_ZONE_HEAD) //Headpats!
 		SEND_SIGNAL(src, COMSIG_CARBON_HEADPAT, M)
-		M.visible_message("<span class='notice'>[M] гладит по головке [src]!</span>", \
-					null, "<span class='hear'>Слышу мягкое похлопывание.</span>", DEFAULT_MESSAGE_RANGE, list(M, src))
-		to_chat(M, "<span class='notice'>Глажу [src] по головке!</span>")
-		to_chat(src, "<span class='notice'>[M] гладит меня по головке! </span>")
+		M.visible_message(span_notice("[M] гладит по головке [src]!") , \
+					null, span_hear("Слышу мягкое похлопывание.") , DEFAULT_MESSAGE_RANGE, list(M, src))
+		to_chat(M, span_notice("Глажу [src] по головке!") )
+		to_chat(src, span_notice("[M] гладит меня по головке! ") )
 
 	else
 		SEND_SIGNAL(src, COMSIG_CARBON_HUGGED, M)
 		SEND_SIGNAL(M, COMSIG_CARBON_HUG, M, src)
-		M.visible_message("<span class='notice'>[M] обнимает [sklonenie(name, VINITELNI, gender)]!</span>", \
-					null, "<span class='hear'>Слышу шуршание одежды.</span>", DEFAULT_MESSAGE_RANGE, list(M, src))
-		to_chat(M, "<span class='notice'>Обнимаю [sklonenie(name, VINITELNI, gender)]!</span>")
-		to_chat(src, "<span class='notice'>[M] обнимает меня!</span>")
+		M.visible_message(span_notice("[M] обнимает [sklonenie(name, VINITELNI, gender)]!") , \
+					null, span_hear("Слышу шуршание одежды.") , DEFAULT_MESSAGE_RANGE, list(M, src))
+		to_chat(M, span_notice("Обнимаю [sklonenie(name, VINITELNI, gender)]!") )
+		to_chat(src, span_notice("[M] обнимает меня!") )
 
 		// Warm them up with hugs
 		share_bodytemperature(M)
@@ -472,14 +472,14 @@
 
 		// Let people know if they hugged someone really warm or really cold
 		if(M.bodytemperature > BODYTEMP_HEAT_DAMAGE_LIMIT)
-			to_chat(src, "<span class='warning'>Чувствую тепло при объятиях с <b>[M]</b>.</span>")
+			to_chat(src, span_warning("Чувствую тепло при объятиях с <b>[M]</b>.") )
 		else if(M.bodytemperature < BODYTEMP_COLD_DAMAGE_LIMIT)
-			to_chat(src, "<span class='warning'>Чувствую холод при объятиях с <b>[M]</b>.</span>")
+			to_chat(src, span_warning("Чувствую холод при объятиях с <b>[M]</b>.") )
 
 		if(bodytemperature > BODYTEMP_HEAT_DAMAGE_LIMIT)
-			to_chat(M, "<span class='warning'>Чувствую тепло при объятиях с <b>[M]</b>.</span>")
+			to_chat(M, span_warning("Чувствую тепло при объятиях с <b>[M]</b>.") )
 		else if(bodytemperature < BODYTEMP_COLD_DAMAGE_LIMIT)
-			to_chat(M, "<span class='warning'>Чувствую холод при объятиях с <b>[M]</b>.</span>")
+			to_chat(M, span_warning("Чувствую холод при объятиях с <b>[M]</b>.") )
 
 		if(HAS_TRAIT(M, TRAIT_HACKER))
 			RemoveElement(/datum/element/glitch)
@@ -523,8 +523,8 @@
 			if(!embeds)
 				embeds = TRUE
 				// this way, we only visibly try to examine ourselves if we have something embedded, otherwise we'll still hug ourselves :)
-				visible_message("<span class='notice'>[capitalize(src.name)] осматривает себя.</span>", \
-					"<span class='notice'>Осматриваю себя в поисках осколков.</span>")
+				visible_message(span_notice("[capitalize(src.name)] осматривает себя.") , \
+					span_notice("Осматриваю себя в поисках осколков.") )
 			if(I.isEmbedHarmless())
 				to_chat(src, "\t <a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(LB)]' class='warning'>Здесь [I] застрявший в [ru_gde_zone(LB.name)]!</a>")
 			else
@@ -546,16 +546,16 @@
 			return
 
 		if (damage == 1)
-			to_chat(src, "<span class='warning'>Мои глаза покалывает слегка.</span>")
+			to_chat(src, span_warning("Мои глаза покалывает слегка.") )
 			if(prob(40))
 				eyes.applyOrganDamage(1)
 
 		else if (damage == 2)
-			to_chat(src, "<span class='warning'>Мои глаза горят.</span>")
+			to_chat(src, span_warning("Мои глаза горят.") )
 			eyes.applyOrganDamage(rand(2, 4))
 
 		else if( damage >= 3)
-			to_chat(src, "<span class='warning'>Мои глаза сильно горят и слезятся!</span>")
+			to_chat(src, span_warning("Мои глаза сильно горят и слезятся!") )
 			eyes.applyOrganDamage(rand(12, 16))
 
 		if(eyes.damage > 10)
@@ -565,22 +565,22 @@
 			if(eyes.damage > 20)
 				if(prob(eyes.damage - 20))
 					if(!HAS_TRAIT(src, TRAIT_NEARSIGHT))
-						to_chat(src, "<span class='warning'>Мои глаза начали неприятно гореть!</span>")
+						to_chat(src, span_warning("Мои глаза начали неприятно гореть!") )
 					become_nearsighted(EYE_DAMAGE)
 
 				else if(prob(eyes.damage - 25))
 					if(!is_blind())
-						to_chat(src, "<span class='warning'>Перестаю видеть!</span>")
+						to_chat(src, span_warning("Перестаю видеть!") )
 					eyes.applyOrganDamage(eyes.maxHealth)
 
 			else
-				to_chat(src, "<span class='warning'>ГЛАЗА БОЛЯТ! Это не очень полезно для меня!</span>")
+				to_chat(src, span_warning("ГЛАЗА БОЛЯТ! Это не очень полезно для меня!") )
 		if(has_bane(BANE_LIGHT))
 			mind.disrupt_spells(-500)
 		return 1
 	else if(damage == 0) // just enough protection
 		if(prob(20))
-			to_chat(src, "<span class='notice'>Замечаю как что-то вспыхнуло краем глаза!</span>")
+			to_chat(src, span_notice("Замечаю как что-то вспыхнуло краем глаза!") )
 		if(has_bane(BANE_LIGHT))
 			mind.disrupt_spells(0)
 
@@ -603,13 +603,13 @@
 			ears.adjustEarDamage(ear_damage,deaf)
 
 			if(ears.damage >= 15)
-				to_chat(src, "<span class='warning'>В моих ушах начало звенеть сильно!</span>")
+				to_chat(src, span_warning("В моих ушах начало звенеть сильно!") )
 				if(prob(ears.damage - 5))
-					to_chat(src, "<span class='userdanger'>Ничего не слышу!</span>")
+					to_chat(src, span_userdanger("Ничего не слышу!") )
 					ears.damage = min(ears.damage, ears.maxHealth) // does this actually do anything useful? all this would do is set an upper bound on damage, is this supposed to be a max?
 					// you need earmuffs, inacusiate, or replacement
 			else if(ears.damage >= 5)
-				to_chat(src, "<span class='warning'>В моих ушах начало звенеть!</span>")
+				to_chat(src, span_warning("В моих ушах начало звенеть!") )
 			SEND_SOUND(src, sound('sound/weapons/flash_ring.ogg',0,1,0,250))
 		return effect_amount //how soundbanged we are
 
@@ -677,17 +677,17 @@
 		return
 	var/starting_hand_index = active_hand_index
 	if(starting_hand_index == grasped_part.held_index)
-		to_chat(src, "<span class='danger'>You can't grasp your [grasped_part.name] with itself!</span>")
+		to_chat(src, span_danger("You can't grasp your [grasped_part.name] with itself!") )
 		return
 
-	to_chat(src, "<span class='warning'>You try grasping at your [grasped_part.name], trying to stop the bleeding...</span>")
+	to_chat(src, span_warning("You try grasping at your [grasped_part.name], trying to stop the bleeding...") )
 	if(!do_after(src, 1.5 SECONDS))
-		to_chat(src, "<span class='danger'>You fail to grasp your [grasped_part.name].</span>")
+		to_chat(src, span_danger("You fail to grasp your [grasped_part.name].") )
 		return
 
 	var/obj/item/self_grasp/grasp = new
 	if(starting_hand_index != active_hand_index || !put_in_active_hand(grasp))
-		to_chat(src, "<span class='danger'>You fail to grasp your [grasped_part.name].</span>")
+		to_chat(src, span_danger("You fail to grasp your [grasped_part.name].") )
 		QDEL_NULL(grasp)
 		return
 	grasp.grasp_limb(grasped_part)
@@ -709,7 +709,7 @@
 
 /obj/item/self_grasp/Destroy()
 	if(user)
-		to_chat(user, "<span class='warning'>You stop holding onto your[grasped_part ? " [grasped_part.name]" : "self"].</span>")
+		to_chat(user, span_warning("You stop holding onto your[grasped_part ? " [grasped_part.name]" : "self"].") )
 		UnregisterSignal(user, COMSIG_PARENT_QDELETING)
 	if(grasped_part)
 		UnregisterSignal(grasped_part, list(COMSIG_CARBON_REMOVE_LIMB, COMSIG_PARENT_QDELETING))
@@ -735,7 +735,7 @@
 	RegisterSignal(user, COMSIG_PARENT_QDELETING, .proc/qdel_void)
 	RegisterSignal(grasped_part, list(COMSIG_CARBON_REMOVE_LIMB, COMSIG_PARENT_QDELETING), .proc/qdel_void)
 
-	user.visible_message("<span class='danger'>[user] grasps at [user.ru_ego()] [grasped_part.name], trying to stop the bleeding.</span>", "<span class='notice'>You grab hold of your [grasped_part.name] tightly.</span>", vision_distance=COMBAT_MESSAGE_RANGE)
+	user.visible_message(span_danger("[user] grasps at [user.ru_ego()] [grasped_part.name], trying to stop the bleeding.") , span_notice("You grab hold of your [grasped_part.name] tightly.") , vision_distance=COMBAT_MESSAGE_RANGE)
 	playsound(get_turf(src), 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 	return TRUE
 

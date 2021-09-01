@@ -214,11 +214,11 @@
 	if (bolt_type == BOLT_TYPE_OPEN)
 		if(!bolt_locked)	//If it's an open bolt, racking again would do nothing
 			if (user)
-				to_chat(user, "<span class='notice'>[bolt_wording] <b>[src.name]</b> уже передёрнут!</span>")
+				to_chat(user, span_notice("[bolt_wording] <b>[src.name]</b> уже передёрнут!") )
 			return
 		bolt_locked = FALSE
 	if (user)
-		to_chat(user, "<span class='notice'>Передёргиваю [bolt_wording] <b>[src.name]</b>.</span>")
+		to_chat(user, span_notice("Передёргиваю [bolt_wording] <b>[src.name]</b>.") )
 	process_chamber(!chambered, FALSE)
 	if (bolt_type == BOLT_TYPE_LOCKING && !chambered)
 		bolt_locked = TRUE
@@ -232,7 +232,7 @@
 /obj/item/gun/ballistic/proc/drop_bolt(mob/user = null)
 	playsound(src, bolt_drop_sound, bolt_drop_sound_volume, FALSE)
 	if (user)
-		to_chat(user, "<span class='notice'>Опускаю [bolt_wording] <b>[src.name]</b>.</span>")
+		to_chat(user, span_notice("Опускаю [bolt_wording] <b>[src.name]</b>.") )
 	chamber_round()
 	bolt_locked = FALSE
 	update_icon()
@@ -240,12 +240,12 @@
 ///Handles all the logic needed for magazine insertion
 /obj/item/gun/ballistic/proc/insert_magazine(mob/user, obj/item/ammo_box/magazine/AM, display_message = TRUE)
 	if(!istype(AM, mag_type))
-		to_chat(user, "<span class='warning'>[AM.name] не хочет в <b>[src.name]</b>...</span>")
+		to_chat(user, span_warning("[AM.name] не хочет в <b>[src.name]</b>...") )
 		return FALSE
 	if(user.transferItemToLoc(AM, src))
 		magazine = AM
 		if (display_message)
-			to_chat(user, "<span class='notice'>Вставляю [magazine_wording] в <b>[src.name]</b>.</span>")
+			to_chat(user, span_notice("Вставляю [magazine_wording] в <b>[src.name]</b>.") )
 		playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
 		if (bolt_type == BOLT_TYPE_OPEN && !bolt_locked)
 			chamber_round(TRUE)
@@ -253,7 +253,7 @@
 		SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 		return TRUE
 	else
-		to_chat(user, "<span class='warning'>Не могу убрать <b>[src.name]</b> из своей руки!</span>")
+		to_chat(user, span_warning("Не могу убрать <b>[src.name]</b> из своей руки!") )
 		return FALSE
 
 ///Handles all the logic of magazine ejection, if tac_load is set that magazine will be tacloaded in the place of the old eject
@@ -268,16 +268,16 @@
 	var/obj/item/ammo_box/magazine/old_mag = magazine
 	if (tac_load)
 		if (insert_magazine(user, tac_load, FALSE))
-			to_chat(user, "<span class='notice'>Произвожу тактическую перезарядку <b>[src.name]</b>.</span>")
+			to_chat(user, span_notice("Произвожу тактическую перезарядку <b>[src.name]</b>.") )
 		else
-			to_chat(user, "<span class='warning'>Бросаю старый [magazine_wording], но новый не вставляется. Невероятно.</span>")
+			to_chat(user, span_warning("Бросаю старый [magazine_wording], но новый не вставляется. Невероятно.") )
 			magazine = null
 	else
 		magazine = null
 	user.put_in_hands(old_mag)
 	old_mag.update_icon()
 	if (display_message)
-		to_chat(user, "<span class='notice'>Вытаскиваю [magazine_wording] из <b>[src.name]</b>.</span>")
+		to_chat(user, span_notice("Вытаскиваю [magazine_wording] из <b>[src.name]</b>.") )
 	update_icon()
 	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 
@@ -296,7 +296,7 @@
 			if (tac_reloads)
 				eject_magazine(user, FALSE, AM)
 			else
-				to_chat(user, "<span class='notice'>Здесь уже есть [magazine_wording] в <b>[src.name]</b>.</span>")
+				to_chat(user, span_notice("Здесь уже есть [magazine_wording] в <b>[src.name]</b>.") )
 		return
 	if (istype(A, /obj/item/ammo_casing) || istype(A, /obj/item/ammo_box))
 		if (bolt_type == BOLT_TYPE_NO_BOLT || internal_magazine)
@@ -305,7 +305,7 @@
 				chambered = null
 			var/num_loaded = magazine?.attackby(A, user, params, TRUE)
 			if (num_loaded)
-				to_chat(user, "<span class='notice'>Загружаю [num_loaded] [cartridge_wording] в <b>[src.name]</b>.</span>")
+				to_chat(user, span_notice("Загружаю [num_loaded] [cartridge_wording] в <b>[src.name]</b>.") )
 				playsound(src, load_sound, load_sound_volume, load_sound_vary)
 				if (chambered == null && bolt_type == BOLT_TYPE_NO_BOLT)
 					chamber_round()
@@ -318,13 +318,13 @@
 			to_chat(user, "<span class='warning'Без понятия как приделать [S.name] к <b>[src.name]</b>!</span>")
 			return
 		if(!user.is_holding(src))
-			to_chat(user, "<span class='warning'>Нужно держать в руках <b>[src.name]</b>, чтобы приделать [S.name]!</span>")
+			to_chat(user, span_warning("Нужно держать в руках <b>[src.name]</b>, чтобы приделать [S.name]!") )
 			return
 		if(suppressed)
-			to_chat(user, "<span class='warning'><b>[src.name]</b> уже имеет глушитель!</span>")
+			to_chat(user, span_warning("<b>[src.name]</b> уже имеет глушитель!") )
 			return
 		if(user.transferItemToLoc(A, src))
-			to_chat(user, "<span class='notice'>Прикручиваю [S.name] к <b>[src.name]</b>.</span>")
+			to_chat(user, span_notice("Прикручиваю [S.name] к <b>[src.name]</b>.") )
 			install_suppressor(A)
 			return
 	if (can_be_sawn_off)
@@ -360,7 +360,7 @@
 			var/obj/item/suppressor/S = suppressed
 			if(!user.is_holding(src))
 				return ..()
-			to_chat(user, "<span class='notice'>Откручиваю [S.name] от [src.name].</span>")
+			to_chat(user, span_notice("Откручиваю [S.name] от [src.name].") )
 			user.put_in_hands(S)
 			clear_suppressor()
 
@@ -398,13 +398,13 @@
 	if(HAS_TRAIT(user, TRAIT_GUNFLIP))
 		if(flip_cooldown <= world.time)
 			if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(40))
-				to_chat(user, "<span class='userdanger'>While trying to flip the [src] you pull the trigger and accidently shoot yourself!</span>")
+				to_chat(user, span_userdanger("While trying to flip the [src] you pull the trigger and accidently shoot yourself!") )
 				var/flip_mistake = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG, BODY_ZONE_HEAD, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_CHEST)
 				process_fire(user, user, FALSE, flip_mistake)
 				user.dropItemToGround(src, TRUE)
 				return
 			flip_cooldown = (world.time + 30)
-			user.visible_message("<span class='notice'>[user] spins the [src] around their finger by the trigger. ThatвЂ™s pretty badass.</span>")
+			user.visible_message(span_notice("[user] spins the [src] around their finger by the trigger. ThatвЂ™s pretty badass.") )
 			playsound(src, 'sound/items/handling/ammobox_pickup.ogg', 20, FALSE)
 	if(!internal_magazine && magazine)
 		if(!magazine.ammo_count())
@@ -421,11 +421,11 @@
 			if(T && is_station_level(T.z))
 				SSblackbox.record_feedback("tally", "station_mess_created", 1, CB.name)
 		if (num_unloaded)
-			to_chat(user, "<span class='notice'>Выгружаю [num_unloaded] [cartridge_wording] из <b>[src.name]</b>.</span>")
+			to_chat(user, span_notice("Выгружаю [num_unloaded] [cartridge_wording] из <b>[src.name]</b>.") )
 			playsound(user, eject_sound, eject_sound_volume, eject_sound_vary)
 			update_icon()
 		else
-			to_chat(user, "<span class='warning'><b>[src.name]</b> пуст!</span>")
+			to_chat(user, span_warning("<b>[src.name]</b> пуст!") )
 		return
 	if(bolt_type == BOLT_TYPE_LOCKING && bolt_locked)
 		drop_bolt(user)
@@ -441,7 +441,7 @@
 	. = ..()
 	. += "<hr>"
 	var/count_chambered = !(bolt_type == BOLT_TYPE_NO_BOLT || bolt_type == BOLT_TYPE_OPEN)
-	. += "<span class='smalldanger'>Внутри <b>[get_ammo(count_chambered)]</b> патронов.</span>"
+	. += span_smalldanger("Внутри <b>[get_ammo(count_chambered)]</b> патронов.")
 	if (!chambered)
 		. += "</br><span class='danger'>Патронник пуст.</span>"
 	if (bolt_locked)
@@ -474,12 +474,12 @@
 /obj/item/gun/ballistic/suicide_act(mob/user)
 	var/obj/item/organ/brain/B = user.getorganslot(ORGAN_SLOT_BRAIN)
 	if (B && chambered && chambered.BB && can_trigger_gun(user) && !chambered.BB.nodamage)
-		user.visible_message("<span class='suicide'>[user] is putting the barrel of [src] in [user.ru_ego()] mouth. It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message(span_suicide("[user] is putting the barrel of [src] in [user.ru_ego()] mouth. It looks like [user.p_theyre()] trying to commit suicide!") )
 		sleep(25)
 		if(user.is_holding(src))
 			var/turf/T = get_turf(user)
 			process_fire(user, user, FALSE, null, BODY_ZONE_HEAD)
-			user.visible_message("<span class='suicide'>[user] blows [user.ru_ego()] brain[user.p_s()] out with [src]!</span>")
+			user.visible_message(span_suicide("[user] blows [user.ru_ego()] brain[user.p_s()] out with [src]!") )
 			var/turf/target = get_ranged_target_turf(user, turn(user.dir, 180), BRAINS_BLOWN_THROW_RANGE)
 			B.Remove(user)
 			B.forceMove(T)
@@ -487,10 +487,10 @@
 			B.throw_at(target, BRAINS_BLOWN_THROW_RANGE, BRAINS_BLOWN_THROW_SPEED, callback=gibspawner)
 			return(BRUTELOSS)
 		else
-			user.visible_message("<span class='suicide'>[user] panics and starts choking to death!</span>")
+			user.visible_message(span_suicide("[user] panics and starts choking to death!") )
 			return(OXYLOSS)
 	else
-		user.visible_message("<span class='suicide'>[user] is pretending to blow [user.ru_ego()] brain[user.p_s()] out with [src]! It looks like [user.p_theyre()] trying to commit suicide!</b></span>")
+		user.visible_message(span_suicide("[user] is pretending to blow [user.ru_ego()] brain[user.p_s()] out with [src]! It looks like [user.p_theyre()] trying to commit suicide!</b>") )
 		playsound(src, dry_fire_sound, 30, TRUE)
 		return (OXYLOSS)
 #undef BRAINS_BLOWN_THROW_SPEED
@@ -507,23 +507,23 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 	if(!saw.get_sharpness() || (!is_type_in_typecache(saw, GLOB.gun_saw_types) && saw.tool_behaviour != TOOL_SAW)) //needs to be sharp. Otherwise turned off eswords can cut this.
 		return
 	if(sawn_off)
-		to_chat(user, "<span class='warning'><b>[src.name]</b> уже обрезан!</span>")
+		to_chat(user, span_warning("<b>[src.name]</b> уже обрезан!") )
 		return
 	if(bayonet)
-		to_chat(user, "<span class='warning'>Не могу отпилить <b>[src.name]</b> с прикрепленным [bayonet]!</span>")
+		to_chat(user, span_warning("Не могу отпилить <b>[src.name]</b> с прикрепленным [bayonet]!") )
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	user.visible_message("<span class='notice'>[user] начинает обрезать <b>[src.name]</b>.</span>", "<span class='notice'>Начинаю обрезать <b>[src.name]</b>...</span>")
+	user.visible_message(span_notice("[user] начинает обрезать <b>[src.name]</b>.") , span_notice("Начинаю обрезать <b>[src.name]</b>...") )
 
 	//if there's any live ammo inside the gun, makes it go off
 	if(blow_up(user))
-		user.visible_message("<span class='danger'><b>[src.name]</b> отлетает!</span>", "<span class='danger'><b>[src.name]</b> отлетает в мое лицо!</span>")
+		user.visible_message(span_danger("<b>[src.name]</b> отлетает!") , span_danger("<b>[src.name]</b> отлетает в мое лицо!") )
 		return
 
 	if(do_after(user, 30, target = src))
 		if(sawn_off)
 			return
-		user.visible_message("<span class='notice'>[user] обзрезал <b>[src.name]</b>!</span>", "<span class='notice'>Обрезал <b>[src.name]</b>.</span>")
+		user.visible_message(span_notice("[user] обзрезал <b>[src.name]</b>!") , span_notice("Обрезал <b>[src.name]</b>.") )
 		name = "обрезанный [src.name]"
 		desc = sawn_desc
 		w_class = WEIGHT_CLASS_NORMAL

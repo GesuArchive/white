@@ -60,9 +60,9 @@
 
 	if(isnum(.)) //Numerical values of drained handle their feedback here, Alpha values handle it themselves (Research hacking)
 		if(.)
-			to_chat(wearer, "<span class='notice'>Получена <B>[DisplayEnergy(.)]</B> энергии из [A].</span>")
+			to_chat(wearer, span_notice("Получена <B>[DisplayEnergy(.)]</B> энергии из [A].") )
 		else
-			to_chat(wearer, "<span class='danger'>В [A] иссякла энергия, я должен найти другой источник!</span>")
+			to_chat(wearer, span_danger("В [A] иссякла энергия, я должен найти другой источник!") )
 	else
 		. = FALSE	//as to not cancel attack_hand()
 

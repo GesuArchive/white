@@ -25,27 +25,27 @@
 	var/locked = SEND_SIGNAL(src, COMSIG_IS_STORAGE_LOCKED)
 	if(W.GetID())
 		if(broken)
-			to_chat(user, "<span class='danger'>It appears to be broken.</span>")
+			to_chat(user, span_danger("It appears to be broken.") )
 			return
 		if(allowed(user))
 			SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, !locked)
 			locked = SEND_SIGNAL(src, COMSIG_IS_STORAGE_LOCKED)
 			if(locked)
 				icon_state = icon_locked
-				to_chat(user, "<span class='danger'>You lock the [src.name]!</span>")
+				to_chat(user, span_danger("You lock the [src.name]!") )
 				SEND_SIGNAL(src, COMSIG_TRY_STORAGE_HIDE_ALL)
 				return
 			else
 				icon_state = icon_closed
-				to_chat(user, "<span class='danger'>You unlock the [src.name]!</span>")
+				to_chat(user, span_danger("You unlock the [src.name]!") )
 				return
 		else
-			to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
+			to_chat(user, span_danger("Доступ запрещён.") )
 			return
 	if(!locked)
 		return ..()
 	else
-		to_chat(user, "<span class='danger'>It's locked!</span>")
+		to_chat(user, span_danger("It's locked!") )
 
 /obj/item/storage/lockbox/emag_act(mob/user)
 	if(!broken)
@@ -54,7 +54,7 @@
 		desc += "It appears to be broken."
 		icon_state = src.icon_broken
 		if(user)
-			visible_message("<span class='warning'><b>[src.name]</b> is broken by [user] with an electromagnetic card!</span>")
+			visible_message(span_warning("<b>[src.name]</b> is broken by [user] with an electromagnetic card!") )
 			return
 
 /obj/item/storage/lockbox/Entered()
@@ -231,6 +231,6 @@
 
 	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, !privacy_lock)
 	privacy_lock = SEND_SIGNAL(src, COMSIG_IS_STORAGE_LOCKED)
-	user.visible_message("<span class='notice'>[user] [privacy_lock ? "" : "un"]locks [src] privacy lock.</span>",
-					"<span class='notice'>You [privacy_lock ? "" : "un"]lock [src] privacy lock.</span>")
+	user.visible_message(span_notice("[user] [privacy_lock ? "" : "un"]locks [src] privacy lock.") ,
+					span_notice("You [privacy_lock ? "" : "un"]lock [src] privacy lock.") )
 

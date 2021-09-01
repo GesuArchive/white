@@ -19,19 +19,19 @@
 /obj/item/pipe_dispenser/bluespace/attackby(obj/item/item, mob/user, param)
 	if(istype(item, /obj/item/stack/sheet/bluespace_crystal))
 		if(BSRPD_CAPAC_NEW > (BSRPD_CAPAC_MAX - bs_capac) || bs_use == 0)
-			to_chat(user, "<span class='warning'>Не могу больше зарядить [src]!</span>")
+			to_chat(user, span_warning("Не могу больше зарядить [src]!") )
 			return
 		item.use(1)
-		to_chat(user, "<span class='notice'>Перезаряжаю блюспейс-конденсатор внутри [src]</span>")
+		to_chat(user, span_notice("Перезаряжаю блюспейс-конденсатор внутри [src]") )
 		bs_capac += BSRPD_CAPAC_NEW
 		return
 	if(istype(item, /obj/item/assembly/signaler/anomaly/bluespace))
 		if(bs_use)
-			to_chat(user, "<span class='notice'>Вставляю [item] в [src]; теперь эта штука будет работать намного дольше!</span>")
+			to_chat(user, span_notice("Вставляю [item] в [src]; теперь эта штука будет работать намного дольше!") )
 			bs_use = 0
 			qdel(item)
 		else
-			to_chat(user, "<span class='warning'>Куда заряжать [src] больше то!</span>")
+			to_chat(user, span_warning("Куда заряжать [src] больше то!") )
 		return
 	return ..()
 
@@ -48,7 +48,7 @@
 	if(prox) // If we are in proximity to the target, don't use charge and don't call this shitcode.
 		return ..()
 	if(bs_capac < (bs_use * (bs_prog + 1)))
-		to_chat(user, "<span class='warning'>Ох, [src] не имеет заряда.</span>")
+		to_chat(user, span_warning("Ох, [src] не имеет заряда.") )
 		return FALSE
 	bs_prog++ // So people can't just spam click and get more uses
 	user.Beam(target, icon_state = "rped_upgrade", time = 1 SECONDS)

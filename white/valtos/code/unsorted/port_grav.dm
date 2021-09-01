@@ -7,7 +7,7 @@
 
 /obj/item/graviton_beacon/attack_self(mob/user)
 	..()
-	user.visible_message("<span class='notice'>[user] активирует [src.name].</span>", "<span class='notice'>Активирую [src.name].</span>")
+	user.visible_message(span_notice("[user] активирует [src.name].") , span_notice("Активирую [src.name].") )
 	playsound(src, 'sound/machines/terminal_alert.ogg', 50)
 	addtimer(CALLBACK(src, .proc/make_gravity), 30)
 
@@ -30,7 +30,7 @@
 			if(M.client)
 				shake_camera(M, 15, 1)
 				M.playsound_local(src.loc, null, 100, 1, 0.5, S = alert_sound)
-		visible_message("<span class='notice'>Пол начинает притягивать меня к себе!</span>")
+		visible_message(span_notice("Пол начинает притягивать меня к себе!") )
 		qdel(src)
 	else
 		playsound(src, 'sound/machines/buzz-two.ogg', 50)

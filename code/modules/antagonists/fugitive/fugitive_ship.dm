@@ -21,7 +21,7 @@
 	var/mob/living/carbon/human/fugitive = target
 	var/datum/antagonist/fugitive/fug_antag = fugitive.mind.has_antag_datum(/datum/antagonist/fugitive)
 	if(!fug_antag)
-		to_chat(fugitive_hunter, "<span class='warning'>This is not a wanted fugitive!</span>")
+		to_chat(fugitive_hunter, span_warning("This is not a wanted fugitive!") )
 		return
 	if(do_after(fugitive_hunter, 50, target = fugitive))
 		add_prisoner(fugitive, fug_antag)
@@ -29,7 +29,7 @@
 /obj/machinery/fugitive_capture/proc/add_prisoner(mob/living/carbon/human/fugitive, datum/antagonist/fugitive/antag)
 	fugitive.forceMove(src)
 	antag.is_captured = TRUE
-	to_chat(fugitive, "<span class='userdanger'>You are thrown into a vast void of bluespace, and as you fall further into oblivion the comparatively small entrance to reality gets smaller and smaller until you cannot see it anymore. You have failed to avoid capture.</span>")
+	to_chat(fugitive, span_userdanger("You are thrown into a vast void of bluespace, and as you fall further into oblivion the comparatively small entrance to reality gets smaller and smaller until you cannot see it anymore. You have failed to avoid capture.") )
 	fugitive.ghostize(TRUE) //so they cannot suicide, round end stuff.
 
 /obj/machinery/computer/shuttle_flight/hunter

@@ -22,10 +22,10 @@
 
 	//Vents
 	if(ventcrawler)
-		to_chat(src, "<span class='notice'>Есть возможность ползать по трубам! Используй alt+клик на вентиляции/вытяжке и попадёшь во внутрь.</span>")
+		to_chat(src, span_notice("Есть возможность ползать по трубам! Используй alt+клик на вентиляции/вытяжке и попадёшь во внутрь.") )
 
 	if(ranged_ability)
-		ranged_ability.add_ranged_ability(src, "<span class='notice'>Имею <b>[ranged_ability]</b> активной!</span>")
+		ranged_ability.add_ranged_ability(src, span_notice("Имею <b>[ranged_ability]</b> активной!") )
 
 	var/datum/antagonist/changeling/changeling = mind.has_antag_datum(/datum/antagonist/changeling)
 	if(changeling)

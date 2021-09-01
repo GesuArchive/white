@@ -124,9 +124,9 @@
 	var/datum/effect_system/lightning_spread/s = new /datum/effect_system/lightning_spread
 	s.set_up(5, 1, target.loc)
 	s.start()
-	target.visible_message("<span class='danger'>[target.name] поражен [src]!</span>", \
-		"<span class='userdanger'>Мощный удар отправляет меня в полет!</span>", \
-		"<span class='hear'>Слышу громкий электрический треск!</span>")
+	target.visible_message(span_danger("[target.name] поражен [src]!") , \
+		span_userdanger("Мощный удар отправляет меня в полет!") , \
+		span_hear("Слышу громкий электрический треск!") )
 	var/atom/throw_target = get_edge_target_turf(target, get_dir(src, get_step_away(target, src)))
 	target.throw_at(throw_target, 200, 4)
 	return

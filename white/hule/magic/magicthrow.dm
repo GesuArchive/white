@@ -37,11 +37,11 @@
 		if(S.amount <= 0)
 			qdel(S)
 	else
-		to_chat(usr,"<span class='notice'>В руке должна быть плитка или арматура</span>")
+		to_chat(usr,span_notice("В руке должна быть плитка или арматура") )
 		return
 	if (projectile_type == /obj/projectile/magic/tileacc)
 		if(current_amount < 5)
-			to_chat(usr,"<span class='notice'>Недостаточно зарядов для запуска плитки</span>")
+			to_chat(usr,span_notice("Недостаточно зарядов для запуска плитки") )
 			return
 		else
 			current_amount -= 4

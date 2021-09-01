@@ -116,7 +116,7 @@
 
 /datum/antagonist/bloodsucker/farewell()
 	owner.current.visible_message("[owner.current] skin flushes with color, their eyes growing glossier. They look...alive.",\
-			"<span class='userdanger'><FONT size = 3>With a snap, your curse has ended. You are no longer a Bloodsucker. You live once more!</FONT></span>")
+			span_userdanger("<FONT size = 3>With a snap, your curse has ended. You are no longer a Bloodsucker. You live once more!</FONT>") )
 	// Refill with Blood
 	owner.current.blood_volume = max(owner.current.blood_volume,BLOOD_VOLUME_SAFE)
 
@@ -154,7 +154,7 @@
 		else
 			vamptitle = pick ("Countess","Baroness","Viscountess","Princess","Duchess","Tzarina","Dreadlady","Lady","Mistress")
 
-		to_chat(owner, "<span class='announce'>You have earned a title! You are now known as <i>[ReturnFullName(TRUE)]</i>!</span>")
+		to_chat(owner, span_announce("You have earned a title! You are now known as <i>[ReturnFullName(TRUE)]</i>!") )
 	// Titles [Fledgling]
 	else
 		vamptitle = null
@@ -175,7 +175,7 @@
 			if (prob(10)) // Gender override
 				vampreputation = pick("Queen of the Damned", "Blood Queen", "Empress of Blades", "Sinlady", "God-Queen")
 
-		to_chat(owner, "<span class='announce'>You have earned a reputation! You are now known as <i>[ReturnFullName(TRUE)]</i>!</span>")
+		to_chat(owner, span_announce("You have earned a reputation! You are now known as <i>[ReturnFullName(TRUE)]</i>!") )
 
 	// Reputations [Fledgling]
 	else
@@ -340,17 +340,17 @@
 		if (vamplevel_unspent <= 0) // Already spent all your points, and tried opening/closing your coffin, pal.
 			return
 		if (!istype(owner.current.loc, /obj/structure/closet/crate/coffin))
-			to_chat(owner.current, "<span class='warning'>Return to your coffin to advance your Rank.</span>")
+			to_chat(owner.current, span_warning("Return to your coffin to advance your Rank.") )
 			return
 		if (!choice || !options[choice] || (locate(options[choice]) in powers)) // ADDED: Check to see if you already have this power, due to window stacking.
-			to_chat(owner.current, "<span class='notice'>You prevent your blood from thickening just yet, but you may try again later.</span>")
+			to_chat(owner.current, span_notice("You prevent your blood from thickening just yet, but you may try again later.") )
 			return
 		// Buy New Powers
 		var/datum/action/bloodsucker/P = options[choice]
 		BuyPower(new P)
-		to_chat(owner.current, "<span class='notice'>You have learned [initial(P.name)]!</span>")
+		to_chat(owner.current, span_notice("You have learned [initial(P.name)]!") )
 	else
-		to_chat(owner.current, "<span class='notice'>You grow more ancient by the night!</span>")
+		to_chat(owner.current, span_notice("You grow more ancient by the night!") )
 
 	/////////
 	// Advance Powers (including new)
@@ -382,9 +382,9 @@
 	if (vamplevel == 4)
 		SelectReputation(am_fledgling=FALSE, forced=TRUE)
 
-	to_chat(owner.current, "<span class='notice'>You are now a rank [vamplevel] Bloodsucker. Your strength, resistence, health, feed rate, regen rate, and maximum blood have all increased!</span>")
-	to_chat(owner.current, "<span class='notice'>Your existing powers have all ranked up as well!</span>")
-	to_chat(owner.current, "<span class='warning'>However, your weakness to fire and sunlight have also increased!</span>")
+	to_chat(owner.current, span_notice("You are now a rank [vamplevel] Bloodsucker. Your strength, resistence, health, feed rate, regen rate, and maximum blood have all increased!") )
+	to_chat(owner.current, span_notice("Your existing powers have all ranked up as well!") )
+	to_chat(owner.current, span_warning("However, your weakness to fire and sunlight have also increased!") )
 
 	update_hud(TRUE)
 
@@ -508,7 +508,7 @@
 
 	// Now list their vassals
 	if (vassals.len > 0)
-		report += "<span class='header'>Their Vassals were...</span>"
+		report += span_header("Their Vassals were...")
 		for (var/datum/antagonist/vassal/V in vassals)
 			if (V.owner)
 				var/jobname = V.owner.assigned_role ? "the [V.owner.assigned_role]" : ""

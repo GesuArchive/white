@@ -76,6 +76,6 @@
 				return
 			next_extinguish = world.time + extinguish_cooldown
 			extinguishes_left--
-			H.visible_message("<span class='warning'>[H] suit spews space lube everywhere!</span>","<span class='warning'>Your suit spews space lube everywhere!</span>")
+			H.visible_message(span_warning("[H] suit spews space lube everywhere!") ,span_warning("Your suit spews space lube everywhere!") )
 			H.extinguish_mob()
 			new /obj/effect/particle_effect/foam(loc) //Truely terrifying.

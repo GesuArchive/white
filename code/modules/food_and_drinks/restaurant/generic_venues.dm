@@ -41,7 +41,7 @@
 /datum/venue/restaurant/on_get_order(mob/living/simple_animal/robot_customer/customer_pawn, obj/item/order_item)
 	. = ..()
 	var/obj/item/food/ordered_food = order_item
-	customer_pawn.visible_message("<span class='danger'>[customer_pawn] затакливает [ordered_food] в своё подобие ротовой полости!</span>", "<span class='danger'>Запихиваю [ordered_food] в своё подобие ротовой полости.</span>")
+	customer_pawn.visible_message(span_danger("[customer_pawn] затакливает [ordered_food] в своё подобие ротовой полости!") , span_danger("Запихиваю [ordered_food] в своё подобие ротовой полости.") )
 	playsound(get_turf(customer_pawn),'sound/items/eatfood.ogg', rand(10,50), TRUE)
 	total_income += ordered_food.venue_value
 	customers_served += 1
@@ -104,7 +104,7 @@
 			continue
 		SEND_SIGNAL(reagent, COMSIG_ITEM_SOLD_TO_CUSTOMER, customer_pawn, order_item)
 
-	customer_pawn.visible_message("<span class='danger'>[customer_pawn] выпивает [order_item] залпом!</span>", "<span class='danger'>Выпиваю [order_item] залпом.</span>")
+	customer_pawn.visible_message(span_danger("[customer_pawn] выпивает [order_item] залпом!") , span_danger("Выпиваю [order_item] залпом.") )
 	playsound(get_turf(customer_pawn), 'sound/items/drink.ogg', 50, TRUE)
 	customers_served += 1
 	order_item.reagents.clear_reagents()

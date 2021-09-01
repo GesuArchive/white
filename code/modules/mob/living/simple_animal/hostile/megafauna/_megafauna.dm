@@ -134,8 +134,8 @@
 	if(!L)
 		return FALSE
 	visible_message(
-		"<span class='danger'><b>[src]</b> пожирает <b>[L]</b>!</span>",
-		"<span class='userdanger'>Пожираю [L]. Мне лучше!</span>")
+		span_danger("<b>[src]</b> пожирает <b>[L]</b>!") ,
+		span_userdanger("Пожираю [L]. Мне лучше!") )
 	if(!is_station_level(z) || client) //NPC monsters won't heal while on station
 		adjustBruteLoss(-L.maxHealth/2)
 	L.gib()

@@ -21,7 +21,7 @@
 	if(!poll)
 		return
 	if(!SSdbcore.Connect())
-		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src, span_danger("Failed to establish database connection.") )
 		return
 	switch(poll.poll_type)
 		if(POLLTYPE_OPTION)
@@ -313,15 +313,15 @@
  */
 /mob/dead/new_player/proc/vote_on_poll_handler(datum/poll_question/poll, href_list)
 	if(!SSdbcore.Connect())
-		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src, span_danger("Failed to establish database connection.") )
 		return
 	if(!poll || !href_list)
 		return
 	if(IsAdminAdvancedProcCall())
 		log_game("[key_name(usr)] attempted to rig the vote by voting as [key]")
 		message_admins("[key_name_admin(usr)] attempted to rig the vote by voting as [key]")
-		to_chat(usr, "<span class='danger'>You don't seem to be [key].</span>")
-		to_chat(src, "<span class='danger'>Something went horribly wrong processing your vote. Please contact an administrator, they should have gotten a message about this</span>")
+		to_chat(usr, span_danger("You don't seem to be [key].") )
+		to_chat(src, span_danger("Something went horribly wrong processing your vote. Please contact an administrator, they should have gotten a message about this") )
 		return
 	var/admin_rank
 	if(client.holder)
@@ -349,11 +349,11 @@
 	if(query_validate_poll_vote.NextRow())
 		vote_id = text2num(query_validate_poll_vote.item[1])
 		if(vote_id && !poll.allow_revoting)
-			to_chat(usr, "<span class='danger'>Голосовать снова запрещено.</span>")
+			to_chat(usr, span_danger("Голосовать снова запрещено.") )
 			qdel(query_validate_poll_vote)
 			return
 	else
-		to_chat(usr, "<span class='danger'>Опрос закрыт.</span>")
+		to_chat(usr, span_danger("Опрос закрыт.") )
 		qdel(query_validate_poll_vote)
 		return
 	qdel(query_validate_poll_vote)
@@ -372,7 +372,7 @@
 	if(vote_success)
 		if(!vote_id)
 			poll.poll_votes++
-		to_chat(usr, "<span class='notice'>ГОЛОС ОТДАН. Спасибо!</span>")
+		to_chat(usr, span_notice("ГОЛОС ОТДАН. Спасибо!") )
 
 /**
  * Processes vote form data and saves results to the database for an option type poll.
@@ -380,13 +380,13 @@
  */
 /mob/dead/new_player/proc/vote_on_poll_option(datum/poll_question/poll, href_list, admin_rank, sql_poll_id, vote_id)
 	if(!SSdbcore.Connect())
-		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src, span_danger("Failed to establish database connection.") )
 		return
 	if(IsAdminAdvancedProcCall())
 		return
 	var/datum/poll_option/option = locate(href_list["voteoptionref"]) in poll.options
 	if(!option)
-		to_chat(src, "<span class='danger'>Ничего не выбрано.</span>")
+		to_chat(src, span_danger("Ничего не выбрано.") )
 		return
 	var/datum/db_query/query_vote_option = SSdbcore.NewQuery({"
 		INSERT INTO [format_table_name("poll_vote")] (id, datetime, pollid, optionid, ckey, ip, adminrank)
@@ -412,13 +412,13 @@
  */
 /mob/dead/new_player/proc/vote_on_poll_text(href_list, admin_rank, sql_poll_id, vote_id)
 	if(!SSdbcore.Connect())
-		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src, span_danger("Failed to establish database connection.") )
 		return
 	if(IsAdminAdvancedProcCall())
 		return
 	var/reply_text = href_list["replytext"]
 	if(!reply_text || (length_char(reply_text) > 2048))
-		to_chat(src, "<span class='danger'>Текст слишком длинный. Давай что-то поменьше, а?</span>")
+		to_chat(src, span_danger("Текст слишком длинный. Давай что-то поменьше, а?") )
 		return
 	var/datum/db_query/query_vote_text = SSdbcore.NewQuery({"
 		INSERT INTO [format_table_name("poll_textreply")] (id, datetime, pollid, ckey, ip, replytext, adminrank)
@@ -444,7 +444,7 @@
  */
 /mob/dead/new_player/proc/vote_on_poll_rating(datum/poll_question/poll, list/href_list, admin_rank, sql_poll_id)
 	if(!SSdbcore.Connect())
-		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src, span_danger("Failed to establish database connection.") )
 		return
 	if(IsAdminAdvancedProcCall())
 		return
@@ -487,14 +487,14 @@
  */
 /mob/dead/new_player/proc/vote_on_poll_multi(datum/poll_question/poll, list/href_list, admin_rank, sql_poll_id)
 	if(!SSdbcore.Connect())
-		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src, span_danger("Failed to establish database connection.") )
 		return
 	if(IsAdminAdvancedProcCall())
 		return
 	if(length(href_list) > 2)
 		href_list.Cut(1,3) //first two values aren't options
 	else
-		to_chat(src, "<span class='danger'>Ничего не выбрано.</span>")
+		to_chat(src, span_danger("Ничего не выбрано.") )
 
 	var/special_columns = list(
 		"datetime" = "NOW()",
@@ -505,7 +505,7 @@
 	var/vote_count = 0
 	for(var/h in href_list)
 		if(vote_count == poll.options_allowed)
-			to_chat(src, "<span class='danger'>ПЕРЕБОР! Только первые [poll.options_allowed] выбранных вариантов были записаны.</span>")
+			to_chat(src, span_danger("ПЕРЕБОР! Только первые [poll.options_allowed] выбранных вариантов были записаны.") )
 			break
 		vote_count++
 		var/datum/poll_option/option = locate(h) in poll.options
@@ -534,13 +534,13 @@
  */
 /mob/dead/new_player/proc/vote_on_poll_irv(datum/poll_question/poll, list/href_list, admin_rank, sql_poll_id)
 	if(!SSdbcore.Connect())
-		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src, span_danger("Failed to establish database connection.") )
 		return
 	if(IsAdminAdvancedProcCall())
 		return
 	var/list/votelist = splittext(href_list["IRVdata"], ",")
 	if(!length(votelist))
-		to_chat(src, "<span class='danger'>Что-то сломалось в порядке. Педаль помоги?</span>")
+		to_chat(src, span_danger("Что-то сломалось в порядке. Педаль помоги?") )
 
 	var/list/special_columns = list(
 		"datetime" = "NOW()",

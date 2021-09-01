@@ -155,7 +155,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	if(W.tool_behaviour == TOOL_WIRECUTTER)
 		if (shock(user, 50))
 			return
-		user.visible_message("<span class='notice'><b>[user]</b> отрезает кабель.</span>", "<span class='notice'>Отрезаю кабель.</span>")
+		user.visible_message(span_notice("<b>[user]</b> отрезает кабель.") , span_notice("Отрезаю кабель.") )
 		investigate_log("was cut by [key_name(usr)] in [AREACOORD(src)]", INVESTIGATE_WIRES)
 		deconstruct()
 		return
@@ -168,9 +168,9 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 
 /obj/structure/cable/proc/get_power_info()
 	if(powernet?.avail > 0)
-		return "<span class='danger'>Суммарная мощность: [DisplayPower(powernet.avail)]\nНагрузка: [DisplayPower(powernet.load)]\nИзлишки: [DisplayPower(surplus())]</span>"
+		return span_danger("Суммарная мощность: [DisplayPower(powernet.avail)]\nНагрузка: [DisplayPower(powernet.load)]\nИзлишки: [DisplayPower(surplus())]")
 	else
-		return "<span class='danger'>Кабель не подключен.</span>"
+		return span_danger("Кабель не подключен.")
 
 
 // Items usable on a cable :
@@ -443,16 +443,16 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 
 /obj/item/stack/cable_coil/suicide_act(mob/user)
 	if(locate(/obj/structure/chair/stool) in get_turf(user))
-		user.visible_message("<span class='suicide'>[user] is making a noose with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message(span_suicide("[user] is making a noose with [src]! It looks like [user.p_theyre()] trying to commit suicide!") )
 	else
-		user.visible_message("<span class='suicide'>[user] is strangling [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message(span_suicide("[user] is strangling [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!") )
 	return(OXYLOSS)
 
 /obj/item/stack/cable_coil/proc/check_menu(mob/living/user)
 	if(!istype(user))
 		return FALSE
 	if(!ISADVANCEDTOOLUSER(user))
-		to_chat(user, "<span class='warning'>У меня не хватает ловкости для этого!</span>")
+		to_chat(user, span_warning("У меня не хватает ловкости для этого!") )
 		return FALSE
 	if(user.incapacitated() || !user.Adjacent(src))
 		return FALSE
@@ -519,7 +519,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 		if("Вешалка")
 			if (amount >= 30)
 				if(!(locate(/obj/structure/chair) in user.loc) && !(locate(/obj/structure/bed) in user.loc) && !(locate(/obj/structure/table) in user.loc) && !(locate(/obj/structure/toilet) in user.loc))
-					to_chat(user, "<span class='warning'>Нужно стоять на вершине стула/стола/туалета для создания вешалки!</span>")
+					to_chat(user, span_warning("Нужно стоять на вершине стула/стола/туалета для создания вешалки!") )
 					return
 				use(30)
 				new /obj/structure/chair/noose(get_turf(user))
@@ -537,7 +537,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	var/obj/item/bodypart/affecting = H.get_bodypart(check_zone(user.zone_selected))
 	if(affecting && affecting.status == BODYPART_ROBOTIC)
 		if(user == H)
-			user.visible_message("<span class='notice'><b>[user]</b> начинает исправлять проводку <b>[H]</b> на [affecting.name].</span>", "<span class='notice'>Начинаю исправлять проводку на [H == user ? "моей" : "<b>[H]</b>"] [affecting.name].</span>")
+			user.visible_message(span_notice("<b>[user]</b> начинает исправлять проводку <b>[H]</b> на [affecting.name].") , span_notice("Начинаю исправлять проводку на [H == user ? "моей" : "<b>[H]</b>"] [affecting.name].") )
 			if(!do_mob(user, H, 50))
 				return
 		if(item_heal_robotic(H, user, 0, 15))
@@ -565,20 +565,20 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 		return
 
 	if(!isturf(T) || T.intact || !T.can_have_cabling())
-		to_chat(user, "<span class='warning'>Кабель можно проложить только по полу!</span>")
+		to_chat(user, span_warning("Кабель можно проложить только по полу!") )
 		return
 
 	if(get_amount() < 1) // Out of cable
-		to_chat(user, "<span class='warning'>Кабель закончился!</span>")
+		to_chat(user, span_warning("Кабель закончился!") )
 		return
 
 	if(get_dist(T,user) > 1) // Too far
-		to_chat(user, "<span class='warning'>Не могу проложить кабель так далеко!</span>")
+		to_chat(user, span_warning("Не могу проложить кабель так далеко!") )
 		return
 
 	for(var/obj/structure/cable/C in T)
 		if(C.cable_layer & target_layer)
-			to_chat(user, "<span class='warning'>Здесь уже есть кабель!</span>")
+			to_chat(user, span_warning("Здесь уже есть кабель!") )
 			return
 
 	var/obj/structure/cable/C = new target_type(T)
@@ -728,16 +728,16 @@ GLOBAL_LIST(hub_radial_layer_list)
 	switch(layer_result)
 		if("Layer 1")
 			CL = CABLE_LAYER_1
-			to_chat(user, "<span class='warning'>You toggle L1 connection.</span>")
+			to_chat(user, span_warning("You toggle L1 connection.") )
 		if("Layer 2")
 			CL = CABLE_LAYER_2
-			to_chat(user, "<span class='warning'>You toggle L2 connection.</span>")
+			to_chat(user, span_warning("You toggle L2 connection.") )
 		if("Layer 3")
 			CL = CABLE_LAYER_3
-			to_chat(user, "<span class='warning'>You toggle L3 connection.</span>")
+			to_chat(user, span_warning("You toggle L3 connection.") )
 		if("Оборудование")
 			machinery_layer ^= MACHINERY_LAYER_1
-			to_chat(user, "<span class='warning'>You toggle machinery connection.</span>")
+			to_chat(user, span_warning("You toggle machinery connection.") )
 
 	cut_cable_from_powernet(FALSE)
 
@@ -753,7 +753,7 @@ GLOBAL_LIST(hub_radial_layer_list)
 	if(!istype(user))
 		return FALSE
 	if(!ISADVANCEDTOOLUSER(user))
-		to_chat(user, "<span class='warning'>У меня не хватает ловкости для этого!</span>")
+		to_chat(user, span_warning("У меня не хватает ловкости для этого!") )
 		return FALSE
 	if(user.incapacitated() || !user.Adjacent(src))
 		return FALSE
@@ -768,7 +768,7 @@ GLOBAL_LIST(hub_radial_layer_list)
 	auto_propagate_cut_cable(src)				// update the powernets
 
 /obj/structure/cable/multilayer/CtrlClick(mob/living/user)
-	to_chat(user, "<span class='warning'>You pust reset button.</span>")
+	to_chat(user, span_warning("You pust reset button.") )
 	addtimer(CALLBACK(src, .proc/Reload), 10, TIMER_UNIQUE) //spam protect
 
 

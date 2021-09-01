@@ -86,17 +86,17 @@
 
 	if(istype(I, /obj/item/ammo_casing))
 		if(!open)
-			to_chat(user, "<span class='notice'>Can't load [src.name] while it's closed!</span>")
+			to_chat(user, span_notice("Can't load [src.name] while it's closed!") )
 			return
 
 		if(!istype(I, casing_type))
-			to_chat(user, "<span class='notice'>[src.name] does not accept [I.name]!</span>")
+			to_chat(user, span_notice("[src.name] does not accept [I.name]!") )
 			return
 		var/current_ammo = magazine.len
 		if(current_ammo + 1 > max_ammo)
-			to_chat(user, "<span class='notice'>[src.name] is full!</span>")
+			to_chat(user, span_notice("[src.name] is full!") )
 			return
-		to_chat(user, "<span class='notice'>Вставляю [I.name] в <b>[src.name]</b>.</span>")
+		to_chat(user, span_notice("Вставляю [I.name] в <b>[src.name]</b>.") )
 		playsound(src, insert_sound, 40, TRUE)
 		I.forceMove(src)
 		magazine.Add(I)
@@ -135,7 +135,7 @@
 
 /obj/item/gun/breakopen/afterattack(atom/target, mob/living/user, flag, params, aimed)
 	if(open)
-		to_chat(user, "<span class='notice'>Can't fire [src.name] while it's open!</span>")
+		to_chat(user, span_notice("Can't fire [src.name] while it's open!") )
 		return
 	if(can_fire_all_rounds_at_once && user.a_intent == INTENT_HARM && max_ammo > 1 && magazine.len)
 		for(var/obj/item/ammo_casing/AC in magazine)
@@ -158,23 +158,23 @@
 	if(!saw.get_sharpness() || (!is_type_in_typecache(saw, GLOB.gun_saw_types) && saw.tool_behaviour != TOOL_SAW)) //needs to be sharp. Otherwise turned off eswords can cut this.
 		return
 	if(sawn_off)
-		to_chat(user, "<span class='warning'><b>[src.name]</b> уже обрезан!</span>")
+		to_chat(user, span_warning("<b>[src.name]</b> уже обрезан!") )
 		return
 	if(bayonet)
-		to_chat(user, "<span class='warning'>Не могу отпилить <b>[src.name]</b> с прикрепленным [bayonet]!</span>")
+		to_chat(user, span_warning("Не могу отпилить <b>[src.name]</b> с прикрепленным [bayonet]!") )
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	user.visible_message("<span class='notice'>[user] начинает обрезать <b>[src.name]</b>.</span>", "<span class='notice'>Начинаю обрезать <b>[src.name]</b>...</span>")
+	user.visible_message(span_notice("[user] начинает обрезать <b>[src.name]</b>.") , span_notice("Начинаю обрезать <b>[src.name]</b>...") )
 
 	//if there's any live ammo inside the gun, makes it go off
 	if(blow_up(user))
-		user.visible_message("<span class='danger'><b>[src.name]</b> отлетает!</span>", "<span class='danger'><b>[src.name]</b> отлетает в мое лицо!</span>")
+		user.visible_message(span_danger("<b>[src.name]</b> отлетает!") , span_danger("<b>[src.name]</b> отлетает в мое лицо!") )
 		return
 
 	if(do_after(user, 30, target = src))
 		if(sawn_off)
 			return
-		user.visible_message("<span class='notice'>[user] обзрезал <b>[src.name]</b>!</span>", "<span class='notice'>Обрезал <b>[src.name]</b>.</span>")
+		user.visible_message(span_notice("[user] обзрезал <b>[src.name]</b>!") , span_notice("Обрезал <b>[src.name]</b>.") )
 		name = "обрезанный [src.name]"
 		desc = sawn_desc
 		w_class = WEIGHT_CLASS_NORMAL

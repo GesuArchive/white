@@ -53,10 +53,10 @@
 //because you're expecting user input.
 /obj/item/airlock_painter/proc/can_use(mob/user)
 	if(!ink)
-		to_chat(user, "<span class='warning'>There is no toner cartridge installed in [src]!</span>")
+		to_chat(user, span_warning("There is no toner cartridge installed in [src]!") )
 		return FALSE
 	else if(ink.charges < 1)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] is out of ink!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] is out of ink!") )
 		return FALSE
 	else
 		return TRUE
@@ -65,7 +65,7 @@
 	var/obj/item/organ/lungs/L = user.getorganslot(ORGAN_SLOT_LUNGS)
 
 	if(can_use(user) && L)
-		user.visible_message("<span class='suicide'>[user] is inhaling toner from [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message(span_suicide("[user] is inhaling toner from [src]! It looks like [user.p_theyre()] trying to commit suicide!") )
 		use(user)
 
 		// Once you've inhaled the toner, you throw up your lungs
@@ -91,20 +91,20 @@
 
 		// TODO maybe add some colorful vomit?
 
-		user.visible_message("<span class='suicide'>[user] vomits out [user.ru_ego()] [L]!</span>")
+		user.visible_message(span_suicide("[user] vomits out [user.ru_ego()] [L]!") )
 		playsound(user.loc, 'sound/effects/splat.ogg', 50, TRUE)
 
 		L.forceMove(T)
 
 		return (TOXLOSS|OXYLOSS)
 	else if(can_use(user) && !L)
-		user.visible_message("<span class='suicide'>[user] is spraying toner on [user.ru_na()]self from [src]! It looks like [user.p_theyre()] trying to commit suicide.</span>")
+		user.visible_message(span_suicide("[user] is spraying toner on [user.ru_na()]self from [src]! It looks like [user.p_theyre()] trying to commit suicide.") )
 		user.reagents.add_reagent(/datum/reagent/colorful_reagent, 1)
 		user.reagents.expose(user, TOUCH, 1)
 		return TOXLOSS
 
 	else
-		user.visible_message("<span class='suicide'>[user] пытается inhale toner from [src]! It might be a suicide attempt if [src] had any toner.</span>")
+		user.visible_message(span_suicide("[user] пытается inhale toner from [src]! It might be a suicide attempt if [src] had any toner.") )
 		return SHAME
 
 
@@ -126,11 +126,11 @@
 /obj/item/airlock_painter/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/toner))
 		if(ink)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] already contains \a [ink]!</span>")
+			to_chat(user, span_warning("[capitalize(src.name)] already contains \a [ink]!") )
 			return
 		if(!user.transferItemToLoc(W, src))
 			return
-		to_chat(user, "<span class='notice'>You install [W] into [src].</span>")
+		to_chat(user, span_notice("You install [W] into [src].") )
 		ink = W
 		playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 	else
@@ -141,7 +141,7 @@
 		playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 		ink.forceMove(user.drop_location())
 		user.put_in_hands(ink)
-		to_chat(user, "<span class='notice'>You remove [ink] from [src].</span>")
+		to_chat(user, span_notice("You remove [ink] from [src].") )
 		ink = null
 
 /obj/item/airlock_painter/decal
@@ -279,7 +279,7 @@
 
 	var/turf/open/floor/plasteel/F = A
 	if(!istype(F))
-		to_chat(user, "<span class='warning'>\The [src] can only be used on station flooring.</span>")
+		to_chat(user, span_warning("\The [src] can only be used on station flooring.") )
 		return
 
 	if(F.dir == floor_dir && F.icon_state == floor_state && F.base_icon_state == floor_state)

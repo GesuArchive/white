@@ -28,13 +28,13 @@
 
 /obj/item/station_charter/attack_self(mob/living/user)
 	if(used)
-		to_chat(user, "<span class='warning'>[capitalize(name_type)] уже названа!</span>")
+		to_chat(user, span_warning("[capitalize(name_type)] уже названа!") )
 		return
 	if(!ignores_timeout && (world.time-SSticker.round_start_time > STATION_RENAME_TIME_LIMIT)) //5 minutes
-		to_chat(user, "<span class='warning'>Экипаж уже заселился. Будет странно, если [name_type] переименуется сейчас.</span>")
+		to_chat(user, span_warning("Экипаж уже заселился. Будет странно, если [name_type] переименуется сейчас.") )
 		return
 	if(response_timer_id)
-		to_chat(user, "<span class='warning'>Всё еще жду одобрения от своих работодателей по поводу предлагаемого изменения имени, лучше пока подождать.</span>")
+		to_chat(user, span_warning("Всё еще жду одобрения от своих работодателей по поводу предлагаемого изменения имени, лучше пока подождать.") )
 		return
 
 	var/new_name = stripped_input(user, message="Как мы назовём \
@@ -43,7 +43,7 @@
 		будет автоматически принято.", max_length=MAX_CHARTER_LEN)
 
 	if(response_timer_id)
-		to_chat(user, "<span class='warning'>Всё еще жду одобрения от своих работодателей по поводу предлагаемого изменения имени, лучше пока подождать..</span>")
+		to_chat(user, span_warning("Всё еще жду одобрения от своих работодателей по поводу предлагаемого изменения имени, лучше пока подождать..") )
 		return
 
 	if(!new_name)
@@ -52,14 +52,14 @@
 		[new_name]")
 
 	if(standard_station_regex.Find(new_name))
-		to_chat(user, "<span class='notice'>Новое имя станции было принято автоматически.</span>")
+		to_chat(user, span_notice("Новое имя станции было принято автоматически.") )
 		rename_station(new_name, user.name, user.real_name, key_name(user))
 		return
 
-	to_chat(user, "<span class='notice'>Название было отправлено на утверждение работодателям.</span>")
+	to_chat(user, span_notice("Название было отправлено на утверждение работодателям.") )
 	// Autoapproves after a certain time
 	response_timer_id = addtimer(CALLBACK(src, .proc/rename_station, new_name, user.name, user.real_name, key_name(user)), approval_time, TIMER_STOPPABLE)
-	to_chat(GLOB.admins, "<span class='adminnotice'><b><font color=orange>CUSTOM STATION RENAME:</font></b>[ADMIN_LOOKUPFLW(user)] proposes to rename the [name_type] to [new_name] (will autoapprove in [DisplayTimeText(approval_time)]). [ADMIN_SMITE(user)] (<A HREF='?_src_=holder;[HrefToken(TRUE)];reject_custom_name=[REF(src)]'>REJECT</A>) [ADMIN_CENTCOM_REPLY(user)]</span>")
+	to_chat(GLOB.admins, span_adminnotice("<b><font color=orange>CUSTOM STATION RENAME:</font></b>[ADMIN_LOOKUPFLW(user)] proposes to rename the [name_type] to [new_name] (will autoapprove in [DisplayTimeText(approval_time)]). [ADMIN_SMITE(user)] (<A HREF='?_src_=holder;[HrefToken(TRUE)];reject_custom_name=[REF(src)]'>REJECT</A>) [ADMIN_CENTCOM_REPLY(user)]") )
 	for(var/client/admin_client in GLOB.admins)
 		if(admin_client.prefs.toggles & SOUND_ADMINHELP)
 			window_flash(admin_client, ignorepref = TRUE)

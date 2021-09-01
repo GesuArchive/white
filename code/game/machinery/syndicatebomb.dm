@@ -113,25 +113,25 @@
 	if(I.tool_behaviour == TOOL_WRENCH && can_unanchor)
 		if(!anchored)
 			if(!isturf(loc) || isspaceturf(loc))
-				to_chat(user, "<span class='notice'>The bomb must be placed on solid ground to attach it.</span>")
+				to_chat(user, span_notice("The bomb must be placed on solid ground to attach it.") )
 			else
-				to_chat(user, "<span class='notice'>You firmly wrench the bomb to the floor.</span>")
+				to_chat(user, span_notice("You firmly wrench the bomb to the floor.") )
 				I.play_tool_sound(src)
 				set_anchored(TRUE)
 				if(active)
-					to_chat(user, "<span class='notice'>The bolts lock in place.</span>")
+					to_chat(user, span_notice("The bolts lock in place.") )
 		else
 			if(!active)
-				to_chat(user, "<span class='notice'>You wrench the bomb from the floor.</span>")
+				to_chat(user, span_notice("You wrench the bomb from the floor.") )
 				I.play_tool_sound(src)
 				set_anchored(FALSE)
 			else
-				to_chat(user, "<span class='warning'>The bolts are locked down!</span>")
+				to_chat(user, span_warning("The bolts are locked down!") )
 
 	else if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		open_panel = !open_panel
 		update_icon()
-		to_chat(user, "<span class='notice'>You [open_panel ? "open" : "close"] the wire panel.</span>")
+		to_chat(user, span_notice("You [open_panel ? "open" : "close"] the wire panel.") )
 
 	else if(is_wire_tool(I) && open_panel)
 		wires.interact(user)
@@ -139,23 +139,23 @@
 	else if(I.tool_behaviour == TOOL_CROWBAR)
 		if(open_panel && wires.is_all_cut())
 			if(payload)
-				to_chat(user, "<span class='notice'>You carefully pry out [payload].</span>")
+				to_chat(user, span_notice("You carefully pry out [payload].") )
 				payload.forceMove(drop_location())
 				payload = null
 			else
-				to_chat(user, "<span class='warning'>Нечего вытаскивать!</span>")
+				to_chat(user, span_warning("Нечего вытаскивать!") )
 		else if (open_panel)
-			to_chat(user, "<span class='warning'>Провода, соединяющие оболочку со взрывчаткой удерживают её!</span>")
+			to_chat(user, span_warning("Провода, соединяющие оболочку со взрывчаткой удерживают её!") )
 		else
-			to_chat(user, "<span class='warning'>Крышка прикручена, она не вскрывается!</span>")
+			to_chat(user, span_warning("Крышка прикручена, она не вскрывается!") )
 	else if(istype(I, /obj/item/bombcore))
 		if(!payload)
 			if(!user.transferItemToLoc(I, src))
 				return
 			payload = I
-			to_chat(user, "<span class='notice'>Помещаю [payload] в [src].</span>")
+			to_chat(user, span_notice("Помещаю [payload] в [src].") )
 		else
-			to_chat(user, "<span class='warning'>[payload] уже загружена в [src]! Нужно бы вытянуть её сначала.</span>")
+			to_chat(user, span_warning("[payload] уже загружена в [src]! Нужно бы вытянуть её сначала.") )
 	else if(I.tool_behaviour == TOOL_WELDER)
 		if(payload || !wires.is_all_cut() || !open_panel)
 			return
@@ -163,16 +163,16 @@
 		if(!I.tool_start_check(user, amount=5))  //uses up 5 fuel
 			return
 
-		to_chat(user, "<span class='notice'>Начинаю разрезать [src] на части...</span>")
+		to_chat(user, span_notice("Начинаю разрезать [src] на части...") )
 		if(I.use_tool(src, user, 20, volume=50, amount=5)) //uses up 5 fuel
-			to_chat(user, "<span class='notice'>Разрезал [src] на части.</span>")
+			to_chat(user, span_notice("Разрезал [src] на части.") )
 			new /obj/item/stack/sheet/plasteel( loc, 5)
 			qdel(src)
 	else
 		var/old_integ = obj_integrity
 		. = ..()
 		if((old_integ > obj_integrity) && active  && (payload in src))
-			to_chat(user, "<span class='warning'>Кажется это плохая идея...</span>")
+			to_chat(user, span_warning("Кажется это плохая идея...") )
 
 /obj/machinery/syndicatebomb/interact(mob/user)
 	wires.interact(user)
@@ -180,7 +180,7 @@
 		if(!active)
 			settings(user)
 		else if(anchored)
-			to_chat(user, "<span class='warning'>Бомба прикручена к полу!</span>")
+			to_chat(user, span_warning("Бомба прикручена к полу!") )
 
 /obj/machinery/syndicatebomb/proc/activate()
 	active = TRUE
@@ -199,10 +199,10 @@
 
 	if(in_range(src, user) && isliving(user)) //No running off and setting bombs from across the station
 		timer_set = clamp(new_timer, minimum_timer, maximum_timer)
-		loc.visible_message("<span class='notice'>[icon2html(src, viewers(src))] таймер настроен на [timer_set] секунд.</span>")
+		loc.visible_message(span_notice("[icon2html(src, viewers(src))] таймер настроен на [timer_set] секунд.") )
 	if(alert(user,"Would you like to start the countdown now?",,"Yes","No") == "Yes" && in_range(src, user) && isliving(user))
 		if(!active)
-			visible_message("<span class='danger'>[icon2html(src, viewers(loc))] [timer_set] секунд до детонации, пожалуйста, покиньте зону.</span>")
+			visible_message(span_danger("[icon2html(src, viewers(loc))] [timer_set] секунд до детонации, пожалуйста, покиньте зону.") )
 			activate()
 			update_icon()
 			add_fingerprint(user)
@@ -317,7 +317,7 @@
 	var/obj/machinery/syndicatebomb/holder = loc
 	if(istype(holder))
 		attempts++
-		holder.loc.visible_message("<span class='danger'>[icon2html(holder, viewers(holder))] Внимание: Бомба сдетонировала. Теперь ваш счёт [defusals] на [attempts]. Перенастройка проводов в течение 5 секунд...</span>")
+		holder.loc.visible_message(span_danger("[icon2html(holder, viewers(holder))] Внимание: Бомба сдетонировала. Теперь ваш счёт [defusals] на [attempts]. Перенастройка проводов в течение 5 секунд...") )
 		reset()
 	else
 		qdel(src)
@@ -327,7 +327,7 @@
 	if(istype(holder))
 		attempts++
 		defusals++
-		holder.loc.visible_message("<span class='notice'>[icon2html(holder, viewers(holder))] Внимание: Бомба обезврежена. Теперь ваш счёт [defusals] на [attempts]! Перенастройка проводов в течение 5 секунд...</span>")
+		holder.loc.visible_message(span_notice("[icon2html(holder, viewers(holder))] Внимание: Бомба обезврежена. Теперь ваш счёт [defusals] на [attempts]! Перенастройка проводов в течение 5 секунд...") )
 		sleep(50)	//Just in case someone пытается remove the bomb core this gives them a little window to crowbar it out
 		if(istype(holder))
 			reset()
@@ -448,9 +448,9 @@
 			if(!user.transferItemToLoc(I, src))
 				return
 			beakers += I
-			to_chat(user, "<span class='notice'>Устанавливаю [src] вместе с [I].</span>")
+			to_chat(user, span_notice("Устанавливаю [src] вместе с [I].") )
 		else
-			to_chat(user, "<span class='warning'>[I] не вмещается! <b>[src.name]</b> может содержать до [max_beakers] контейнеров.</span>")
+			to_chat(user, span_warning("[I] не вмещается! <b>[src.name]</b> может содержать до [max_beakers] контейнеров.") )
 			return
 	..()
 
@@ -532,7 +532,7 @@
 				detonated++
 			existent++
 		playsound(user, 'sound/machines/click.ogg', 20, TRUE)
-		to_chat(user, "<span class='notice'>Найдено [existent] бомб. Активировано [detonated] бомб.</span>")
+		to_chat(user, span_notice("Найдено [existent] бомб. Активировано [detonated] бомб.") )
 		if(detonated)
 			detonated--
 			log_bomber(user, "remotely detonated [detonated ? "syndicate bombs" : "a syndicate bomb"] using a", src)

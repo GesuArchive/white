@@ -3,11 +3,11 @@
 	id = MARTIALART_BOXING
 
 /datum/martial_art/boxing/disarm_act(mob/living/A, mob/living/D)
-	to_chat(A, "<span class='warning'>Can't disarm while boxing!</span>")
+	to_chat(A, span_warning("Can't disarm while boxing!") )
 	return TRUE
 
 /datum/martial_art/boxing/grab_act(mob/living/A, mob/living/D)
-	to_chat(A, "<span class='warning'>Can't grab while boxing!</span>")
+	to_chat(A, span_warning("Can't grab while boxing!") )
 	return TRUE
 
 /datum/martial_art/boxing/harm_act(mob/living/A, mob/living/D)
@@ -22,9 +22,9 @@
 	var/damage = rand(5, 8) + species.punchdamagelow
 	if(!damage)
 		playsound(D.loc, species.miss_sound, 25, TRUE, -1)
-		D.visible_message("<span class='warning'>[A] [atk_verb] мимо [D]!</span>", \
-			"<span class='userdanger'>[A] [atk_verb] мимо меня!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, A)
-		to_chat(A, "<span class='warning'>Промахиваюсь [atk_verb], пытаясь ударить [D]!</span>")
+		D.visible_message(span_warning("[A] [atk_verb] мимо [D]!") , \
+			span_userdanger("[A] [atk_verb] мимо меня!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, A)
+		to_chat(A, span_warning("Промахиваюсь [atk_verb], пытаясь ударить [D]!") )
 		log_combat(A, D, "attempted to hit", atk_verb)
 		return FALSE
 
@@ -34,18 +34,18 @@
 
 	playsound(D.loc, species.attack_sound, 25, TRUE, -1)
 
-	D.visible_message("<span class='danger'>[A] [atk_verb] [D]!</span>", \
-			"<span class='userdanger'>[A] [atk_verb] меня!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-	to_chat(A, "<span class='danger'>Бью [atk_verb] [D]!</span>")
+	D.visible_message(span_danger("[A] [atk_verb] [D]!") , \
+			span_userdanger("[A] [atk_verb] меня!") , span_hear("Слышу как что-то сильно бьёт по плоти!") , COMBAT_MESSAGE_RANGE, A)
+	to_chat(A, span_danger("Бью [atk_verb] [D]!") )
 
 	D.apply_damage(damage, STAMINA, affecting, armor_block)
 	log_combat(A, D, "punched (boxing) ")
 	if(D.getStaminaLoss() > 50 && istype(D.mind?.martial_art, /datum/martial_art/boxing))
 		var/knockout_prob = D.getStaminaLoss() + rand(-15,15)
 		if((D.stat != DEAD) && prob(knockout_prob))
-			D.visible_message("<span class='danger'>[A] валит [D] одним сильным ударом!</span>", \
-								"<span class='userdanger'>[A] валит меня сильным ударом!</span>", "<span class='hear'>Слышу как что-то сильно бьёт по плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-			to_chat(A, "<span class='danger'>Укладываю [D] одним сильным ударом!</span>")
+			D.visible_message(span_danger("[A] валит [D] одним сильным ударом!") , \
+								span_userdanger("[A] валит меня сильным ударом!") , span_hear("Слышу как что-то сильно бьёт по плоти!") , COMBAT_MESSAGE_RANGE, A)
+			to_chat(A, span_danger("Укладываю [D] одним сильным ударом!") )
 			D.apply_effect(200,EFFECT_KNOCKDOWN,armor_block)
 			D.SetSleeping(100)
 			log_combat(A, D, "knocked out (boxing) ")

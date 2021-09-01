@@ -7,23 +7,23 @@ GLOBAL_LIST_INIT(valid_blobstrains, subtypesof(/datum/blobstrain) - list(/datum/
 	/// The color that stuff like healing effects and the overmind camera gets
 	var/complementary_color = COLOR_BLACK
 	/// A short description of the power and its effects
-	var/shortdesc = null 
+	var/shortdesc = null
 	/// Any long, blob-tile specific effects
-	var/effectdesc = null 
+	var/effectdesc = null
 	/// Short descriptor of what the strain does damage-wise, generally seen in the reroll menu
 	var/analyzerdescdamage = "Unknown. Report this bug to a coder, or just adminhelp."
 	/// Short descriptor of what the strain does in general, generally seen in the reroll menu
 	var/analyzerdesceffect
 	/// Blobbernaut attack verb
-	var/blobbernaut_message = "slams" 
+	var/blobbernaut_message = "slams"
 	/// Message sent to any mob hit by the blob
-	var/message = "The blob strikes you" 
+	var/message = "The blob strikes you"
 	/// Gets added onto 'message' if the mob stuck is of type living
 	var/message_living = null
 	/// Stores world.time to figure out when to next give resources
 	var/resource_delay = 0
 	/// For blob-mobs and extinguishing-based effects
-	var/fire_based = FALSE 
+	var/fire_based = FALSE
 	var/mob/camera/blob/overmind
 	/// The amount of health regenned on core_process
 	var/base_core_regen = BLOB_CORE_HP_REGEN
@@ -131,7 +131,7 @@ GLOBAL_LIST_INIT(valid_blobstrains, subtypesof(/datum/blobstrain) - list(/datum/
 	for(var/mob/living/simple_animal/hostile/blob/BM as anything in overmind.blob_mobs)
 		BM.maxHealth /= max_mob_health_multiplier
 		BM.health /= max_mob_health_multiplier
-		
+
 
 /datum/blobstrain/proc/on_sporedeath(mob/living/spore)
 
@@ -140,7 +140,7 @@ GLOBAL_LIST_INIT(valid_blobstrains, subtypesof(/datum/blobstrain) - list(/datum/
 	if(message_living && !issilicon(M))
 		totalmessage += message_living
 	totalmessage += "!"
-	to_chat(M, "<span class='userdanger'>[totalmessage]</span>")
+	to_chat(M, span_userdanger("[totalmessage]") )
 
 /datum/blobstrain/proc/core_process()
 	if(resource_delay <= world.time)

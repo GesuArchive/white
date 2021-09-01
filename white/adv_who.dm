@@ -146,7 +146,7 @@
 				continue //Don't show afk admins to adminwho
 			if(!C.holder.fakekey)
 				msg += "\t[C] - [C.holder.rank]\n"
-		msg += "<span class='info'>Ахелпы также отправляются в Discord, если нет педалей онлайн.</span>"
+		msg += span_info("Ахелпы также отправляются в Discord, если нет педалей онлайн.")
 	to_chat(src, msg)
 
 /client/proc/inactivity2text()

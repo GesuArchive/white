@@ -100,9 +100,9 @@
 	alternate_magazine = current_mag
 	toggled = !toggled
 	if(toggled)
-		to_chat(user, "<span class='notice'>Труба 'B'.</span>")
+		to_chat(user, span_notice("Труба 'B'.") )
 	else
-		to_chat(user, "<span class='notice'>Труба 'А'.</span>")
+		to_chat(user, span_notice("Труба 'А'.") )
 
 /obj/item/gun/ballistic/shotgun/automatic/dual_tube/AltClick(mob/living/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
@@ -202,11 +202,11 @@
 		var/obj/item/stack/cable_coil/C = A
 		if(C.use(10))
 			slot_flags = ITEM_SLOT_BACK
-			to_chat(user, "<span class='notice'>Привязываю кабель к дробовику, теперь можно носить дробовик на спине.</span>")
+			to_chat(user, span_notice("Привязываю кабель к дробовику, теперь можно носить дробовик на спине.") )
 			slung = TRUE
 			update_icon()
 		else
-			to_chat(user, "<span class='warning'>Требуется минимум десять длин кабеля, если мне нужно сделать стропу!</span>")
+			to_chat(user, span_warning("Требуется минимум десять длин кабеля, если мне нужно сделать стропу!") )
 
 /obj/item/gun/ballistic/shotgun/doublebarrel/improvised/update_icon_state()
 	. = ..()
@@ -268,10 +268,10 @@
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		return
 	if(toggled)
-		to_chat(user,"<span class='notice'>Собираюсь стрелять.</span>")
+		to_chat(user,span_notice("Собираюсь стрелять.") )
 		fire_sound = initial(fire_sound)
 	else
-		to_chat(user,"<span class='notice'>Буду использовать крюк.</span>")
+		to_chat(user,span_notice("Буду использовать крюк.") )
 		fire_sound = 'sound/weapons/batonextend.ogg'
 	toggled = !toggled
 

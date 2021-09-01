@@ -240,7 +240,7 @@
 	// Also splashes everything in target turf with reagents and applies other trait effects (teleporting, etc) to the target by on_squash.
 	// For code, see grown.dm
 	name = "Жидкое содержимое"
-	examine_line = "<span class='info'>Внутри много жидкости.</span>"
+	examine_line = span_info("Внутри много жидкости.")
 
 /datum/plant_gene/trait/squash/can_add(obj/item/seeds/S)
 	if(S.get_gene(/datum/plant_gene/trait/sticky))
@@ -256,7 +256,7 @@
 	// Applies other trait effects (teleporting, etc) to the target by on_slip.
 	name = "Скользкая кожица"
 	rate = 1.6
-	examine_line = "<span class='info'>У него очень скользкая кожица.</span>"
+	examine_line = span_info("У него очень скользкая кожица.")
 
 /datum/plant_gene/trait/slip/on_new(obj/item/food/grown/G, newloc)
 	..()
@@ -307,7 +307,7 @@
 				C.update_icon()
 				batteries_recharged = 1
 		if(batteries_recharged)
-			to_chat(target, "<span class='notice'>Моя батарейка заряжена!</span>")
+			to_chat(target, span_notice("Моя батарейка заряжена!") )
 
 
 
@@ -316,7 +316,7 @@
 	// Adds 1 + potency*rate light range and potency*(rate + 0.01) light_power to products.
 	name = "Биолюминесценция"
 	rate = 0.03
-	examine_line = "<span class='info'>Издаёт мягкое свечение.</span>"
+	examine_line = span_info("Издаёт мягкое свечение.")
 	trait_id = GLOW_ID
 	var/glow_color = "#C3E381"
 
@@ -393,7 +393,7 @@
 /datum/plant_gene/trait/teleport/on_slip(obj/item/food/grown/G, mob/living/carbon/C)
 	var/teleport_radius = max(round(G.seed.potency / 10), 1)
 	var/turf/T = get_turf(C)
-	to_chat(C, "<span class='warning'>Проскальзываю через временное пространство!</span>")
+	to_chat(C, span_warning("Проскальзываю через временное пространство!") )
 	do_teleport(C, T, teleport_radius, channel = TELEPORT_CHANNEL_BLUESPACE)
 	if(prob(50))
 		do_teleport(G, T, teleport_radius, channel = TELEPORT_CHANNEL_BLUESPACE)
@@ -442,7 +442,7 @@
 	if(istype(I, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/C = I
 		if(C.use(5))
-			to_chat(user, "<span class='notice'>Добавляю провода в [G] и вставляю его в корпус батарейки.</span>")
+			to_chat(user, span_notice("Добавляю провода в [G] и вставляю его в корпус батарейки.") )
 			var/obj/item/stock_parts/cell/potato/pocell = new /obj/item/stock_parts/cell/potato(user.loc)
 			pocell.icon_state = G.icon_state
 			pocell.maxcharge = G.seed.potency * 20
@@ -460,7 +460,7 @@
 
 			qdel(G)
 		else
-			to_chat(user, "<span class='warning'>Нужно минимум пять мотков кабеля, чтобы сделать [G] батарейку!</span>")
+			to_chat(user, span_warning("Нужно минимум пять мотков кабеля, чтобы сделать [G] батарейку!") )
 
 
 /datum/plant_gene/trait/stinging
@@ -475,7 +475,7 @@
 		if(L.reagents && L.can_inject())
 			var/injecting_amount = max(1, G.seed.potency*0.2) // Minimum of 1, max of 20
 			G.reagents.trans_to(L, injecting_amount, methods = INJECT)
-			to_chat(target, "<span class='danger'>Укололся [G]!</span>")
+			to_chat(target, span_danger("Укололся [G]!") )
 			log_combat(G, L, "pricked and attempted to inject reagents from [G] to [L]. Last touched by: [G.fingerprintslast].")
 
 /datum/plant_gene/trait/smoke
@@ -515,7 +515,7 @@
 			if(spread_tray.myseed) // Check if there's another seed in the next tray.
 				if(spread_tray.myseed.type == our_tray.myseed.type && !spread_tray.dead)
 					continue // It should not destroy its own kind.
-				spread_tray.visible_message("<span class='warning'> [spread_tray.myseed.plantname] был постигнут [our_tray.myseed.plantname]!</span>")
+				spread_tray.visible_message(span_warning(" [spread_tray.myseed.plantname] был постигнут [our_tray.myseed.plantname]!") )
 				QDEL_NULL(spread_tray.myseed)
 			spread_tray.myseed = our_tray.myseed.Copy()
 			spread_tray.age = 0
@@ -526,7 +526,7 @@
 			spread_tray.weedlevel = 0 // Reset
 			spread_tray.pestlevel = 0 // Reset
 			spread_tray.update_icon()
-			spread_tray.visible_message("<span class='warning'> [our_tray.myseed.plantname] распространяется!</span>")
+			spread_tray.visible_message(span_warning(" [our_tray.myseed.plantname] распространяется!") )
 			if(spread_tray.myseed)
 				spread_tray.name = "[initial(spread_tray.name)] ([spread_tray.myseed.plantname])"
 			else
@@ -574,7 +574,7 @@
 	if(!can_trigger)
 		return
 
-	G.audible_message("<span class='notice'>[G] очень выразительно смеётся.</span>")
+	G.audible_message(span_notice("[G] очень выразительно смеётся.") )
 	playsound(G, pick(sounds), 100, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 /**

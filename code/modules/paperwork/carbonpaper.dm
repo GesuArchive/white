@@ -28,14 +28,14 @@
 			Copy.info += copycontents
 			Copy.info += "</font>"
 			Copy.name = "Copy - [C.name]"
-		to_chat(user, "<span class='notice'>Оторвал образец углеродного листа!</span>")
+		to_chat(user, span_notice("Оторвал образец углеродного листа!") )
 		C.copied = TRUE
 		Copy.iscopy = TRUE
 		Copy.update_icon_state()
 		C.update_icon_state()
 		user.put_in_hands(Copy)
 	else
-		to_chat(user, "<span class='notice'>К этой бумаге более не приложены никакие образцы углерода</span>")
+		to_chat(user, span_notice("К этой бумаге более не приложены никакие образцы углерода") )
 
 /obj/item/paper/carbon/attack_hand(mob/living/user)
 	if(loc == user && user.is_holding(src))

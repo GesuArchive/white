@@ -61,7 +61,7 @@
 /obj/item/card/emag/proc/can_emag(atom/target, mob/user)
 	for (var/subtypelist in type_blacklist)
 		if (target.type in subtypelist)
-			to_chat(user, "<span class='warning'>The [target] cannot be affected by the [src]! A more specialized hacking device is required.</span>")
+			to_chat(user, span_warning("The [target] cannot be affected by the [src]! A more specialized hacking device is required.") )
 			return FALSE
 	return TRUE
 
@@ -84,7 +84,7 @@
 
 /obj/item/card/emag/doorjack/proc/use_charge(mob/user)
 	charges --
-	to_chat(user, "<span class='notice'>You use [src]. It now has [charges] charges remaining.</span>")
+	to_chat(user, span_notice("You use [src]. It now has [charges] charges remaining.") )
 	charge_timers.Add(addtimer(CALLBACK(src, .proc/recharge), charge_time, TIMER_STOPPABLE))
 
 /obj/item/card/emag/doorjack/proc/recharge(mob/user)
@@ -104,10 +104,10 @@
 
 /obj/item/card/emag/doorjack/can_emag(atom/target, mob/user)
 	if (charges <= 0)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] is recharging!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] is recharging!") )
 		return FALSE
 	for (var/list/subtypelist in type_whitelist)
 		if (target.type in subtypelist)
 			return TRUE
-	to_chat(user, "<span class='warning'>[capitalize(src.name)] is unable to interface with this. It only seems to fit into airlock electronics.</span>")
+	to_chat(user, span_warning("[capitalize(src.name)] is unable to interface with this. It only seems to fit into airlock electronics.") )
 	return FALSE

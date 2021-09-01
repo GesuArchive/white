@@ -57,4 +57,4 @@
 	if(fexists("data/custom_ghosts/[ckey].dmi"))
 		swap_icons()
 	else
-		to_chat(src,"<span class='warning'>Кастомный спрайт не найден.</span>")
+		to_chat(src,span_warning("Кастомный спрайт не найден.") )

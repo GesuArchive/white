@@ -143,7 +143,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	if(isopenturf(turf_below))
 		if(do_after(user, 3 SECONDS, target = src))
 			user.forceMove(turf_below)
-			to_chat(user, "<span class='notice'>Аккуратно спускаюсь вниз...</span>")
+			to_chat(user, span_notice("Аккуратно спускаюсь вниз...") )
 			if(!HAS_TRAIT(user, TRAIT_FREERUNNING))
 				if(ishuman(user))
 					var/mob/living/carbon/human/H = user
@@ -158,23 +158,23 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		var/obj/structure/lattice/catwalk/W = locate(/obj/structure/lattice/catwalk, src)
 		if(W)
-			to_chat(user, "<span class='warning'>Здесь уже есть мостик!</span>")
+			to_chat(user, span_warning("Здесь уже есть мостик!") )
 			return
 		if(L)
 			if(R.use(1))
 				qdel(L)
-				to_chat(user, "<span class='notice'>Строю мостик.</span>")
+				to_chat(user, span_notice("Строю мостик.") )
 				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 				new/obj/structure/lattice/catwalk(src)
 			else
-				to_chat(user, "<span class='warning'>Нужно чуть больше прутьев для постройки мостика!</span>")
+				to_chat(user, span_warning("Нужно чуть больше прутьев для постройки мостика!") )
 			return
 		if(R.use(1))
-			to_chat(user, "<span class='notice'>Устанавливаю подпорку.</span>")
+			to_chat(user, span_notice("Устанавливаю подпорку.") )
 			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 			ReplaceWithLattice()
 		else
-			to_chat(user, "<span class='warning'>Нужно чуть больше прутьев для постройки подпорки.</span>")
+			to_chat(user, span_warning("Нужно чуть больше прутьев для постройки подпорки.") )
 		return
 	if(istype(C, /obj/item/stack/tile/plasteel))
 		if(!CanCoverUp())
@@ -185,12 +185,12 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 			if(S.use(1))
 				qdel(L)
 				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-				to_chat(user, "<span class='notice'>Строю пол.</span>")
+				to_chat(user, span_notice("Строю пол.") )
 				PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 			else
-				to_chat(user, "<span class='warning'>Нужна плитка для постройки пола!</span>")
+				to_chat(user, span_warning("Нужна плитка для постройки пола!") )
 		else
-			to_chat(user, "<span class='warning'>Обшивке нужна подпорка для удержания её на месте.</span>")
+			to_chat(user, span_warning("Обшивке нужна подпорка для удержания её на месте.") )
 
 /turf/open/openspace/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	if(!CanBuildHere())
@@ -208,7 +208,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_FLOORWALL)
-			to_chat(user, "<span class='notice'>Строю пол.</span>")
+			to_chat(user, span_notice("Строю пол.") )
 			PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 			return TRUE
 	return FALSE

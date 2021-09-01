@@ -35,21 +35,21 @@
 	objective = stripped_input(user, "Выберите директиву, которую хотите запечатлеть в мозге вашей жертвы", "Brainwashing", null, MAX_MESSAGE_LEN)
 	if(!objective)
 		return -1
-	display_results(user, target, "<span class='notice'>Начинаю промывать мозги [target]...</span>",
-		"<span class='notice'>[user] начинает исправлять мозг [target].</span>",
-		"<span class='notice'>[user] начинает проводить операцию на мозге [target].</span>")
+	display_results(user, target, span_notice("Начинаю промывать мозги [target]...") ,
+		span_notice("[user] начинает исправлять мозг [target].") ,
+		span_notice("[user] начинает проводить операцию на мозге [target].") )
 
 /datum/surgery_step/brainwash/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(!target.mind)
-		to_chat(user, "<span class='warning'>[target] не реагирует на промывание мозга, кажется, что [target.ru_who()] лишился ума...</span>")
+		to_chat(user, span_warning("[target] не реагирует на промывание мозга, кажется, что [target.ru_who()] лишился ума...") )
 		return FALSE
 	if(HAS_TRAIT(target, TRAIT_MINDSHIELD))
-		to_chat(user, "<span class='warning'>Слышу слабое жужание устройства в мозгу [target] и новая директива стирается.</span>")
+		to_chat(user, span_warning("Слышу слабое жужание устройства в мозгу [target] и новая директива стирается.") )
 		return FALSE
-	display_results(user, target, "<span class='notice'>Успешно промыл мозг [target].</span>",
-		"<span class='notice'>[user] успешно исправил мозг [target]!</span>",
-		"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
-	to_chat(target, "<span class='userdanger'>Что-то заполняет ваш разум, принуждая вас... подчиниться!</span>")
+	display_results(user, target, span_notice("Успешно промыл мозг [target].") ,
+		span_notice("[user] успешно исправил мозг [target]!") ,
+		span_notice("[user] завершил операцию на мозге [target].") )
+	to_chat(target, span_userdanger("Что-то заполняет ваш разум, принуждая вас... подчиниться!") )
 	brainwash(target, objective)
 	message_admins("[ADMIN_LOOKUPFLW(user)] surgically brainwashed [ADMIN_LOOKUPFLW(target)] with the objective '[objective]'.")
 	log_game("[key_name(user)] surgically brainwashed [key_name(target)] with the objective '[objective]'.")
@@ -57,10 +57,10 @@
 
 /datum/surgery_step/brainwash/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
-		display_results(user, target, "<span class='warning'>Облажалися, повредив мозговую ткань!</span>",
-			"<span class='warning'>[user] облажался, нанеся урон мозгу!</span>",
-			"<span class='notice'>[user] завершил операцию на мозге [target].</span>")
+		display_results(user, target, span_warning("Облажалися, повредив мозговую ткань!") ,
+			span_warning("[user] облажался, нанеся урон мозгу!") ,
+			span_notice("[user] завершил операцию на мозге [target].") )
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 40)
 	else
-		user.visible_message("<span class='warning'>[user] внезапно замечает что мозг [user.ru_who()] над которым работал [user.p_were()] исчез.</span>", "<span class='warning'>Внезапно обнаруживаю что мозг, над которым я работал, исчез.</span>")
+		user.visible_message(span_warning("[user] внезапно замечает что мозг [user.ru_who()] над которым работал [user.p_were()] исчез.") , span_warning("Внезапно обнаруживаю что мозг, над которым я работал, исчез.") )
 	return FALSE

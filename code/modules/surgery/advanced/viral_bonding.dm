@@ -31,14 +31,14 @@
 	return TRUE
 
 /datum/surgery_step/viral_bond/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>Начинаю нагревать спинной мозг [target] используя [tool]...</span>",
-		"<span class='notice'>[user] начинает нагревать спинной мозг [target] используя [tool]...</span>",
-		"<span class='notice'>[user] начинает нагревать что-то в туловище [target] используя [tool]...</span>")
+	display_results(user, target, span_notice("Начинаю нагревать спинной мозг [target] используя [tool]...") ,
+		span_notice("[user] начинает нагревать спинной мозг [target] используя [tool]...") ,
+		span_notice("[user] начинает нагревать что-то в туловище [target] используя [tool]...") )
 
 /datum/surgery_step/viral_bond/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
-	display_results(user, target, "<span class='notice'>Костный мозг [target] начинает медленно пульсировать. Вирусный симбиоз установлен.</span>",
-		"<span class='notice'>Костный мозг [target] начинает медленно пульсировать.</span>",
-		"<span class='notice'>[user] завершает операцию.</span>")
+	display_results(user, target, span_notice("Костный мозг [target] начинает медленно пульсировать. Вирусный симбиоз установлен.") ,
+		span_notice("Костный мозг [target] начинает медленно пульсировать.") ,
+		span_notice("[user] завершает операцию.") )
 	for(var/X in target.diseases)
 		var/datum/disease/D = X
 		D.carrier = TRUE

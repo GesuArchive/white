@@ -101,12 +101,12 @@
 /obj/item/boombox/proc/disk_insert(mob/user, obj/item/card/data/music/I, target)
 	if(istype(I))
 		if(target)
-			to_chat(user, "<span class='warning'>Здесь уже есть диск!</span>")
+			to_chat(user, span_warning("Здесь уже есть диск!") )
 			return FALSE
 		if(!user.transferItemToLoc(I, src))
 			return FALSE
-		user.visible_message("<span class='notice'>[user] вставляет диск в [src].</span>", \
-							"<span class='notice'>Вставляю диск в [src].</span>")
+		user.visible_message(span_notice("[user] вставляет диск в [src].") , \
+							span_notice("Вставляю диск в [src].") )
 		playsound(get_turf(src), 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 		return TRUE
 
@@ -295,7 +295,7 @@
 /obj/machinery/musicwriter/examine(mob/user)
 	. = ..()
 	if(writing)
-		. += "<span class='notice'>Можно перезагрузить <b>мультитулом</b>.</span>"
+		. += span_notice("Можно перезагрузить <b>мультитулом</b>.")
 
 /obj/machinery/musicwriter/attackby(obj/item/I, mob/user)
 	if(default_unfasten_wrench(user, I))
@@ -310,16 +310,16 @@
 	. = ..()
 	if(writing && do_after(user, 5 SECONDS, src))
 		writing = 0
-		to_chat(user,"<span class='warning'>Перезагружаю систему мультулом.</span>")
+		to_chat(user,span_warning("Перезагружаю систему мультулом.") )
 		icon_state = "off"
 		retard = null
 
 /obj/machinery/musicwriter/ui_interact(mob/user)
 	if (!anchored)
-		to_chat(user,"<span class='warning'>Надо бы прикрутить!</span>")
+		to_chat(user,span_warning("Надо бы прикрутить!") )
 		return
 	if(!allowed(user))
-		to_chat(user,"<span class='warning'>Ошибка! Нет доступа.</span>")
+		to_chat(user,span_warning("Ошибка! Нет доступа.") )
 		user.playsound_local(src,'sound/misc/compiler-failure.ogg', 25, 1)
 		return
 	if(writing)
@@ -336,7 +336,7 @@
 		writing = TRUE
 		retard = user
 		var/N = sanitize(input("Название") as text|null)
-		to_chat(user,"<span class='warning'>Надо бы прикрутить!</span>")
+		to_chat(user,span_warning("Надо бы прикрутить!") )
 		if(N)
 			var/sound/S = input("Файл") as sound|null
 			if(S)

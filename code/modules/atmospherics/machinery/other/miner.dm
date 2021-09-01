@@ -43,25 +43,25 @@
 		return FALSE
 	var/turf/T = get_turf(src)
 	if(!isopenturf(T))
-		broken_message = "<span class='boldnotice'>ВЕНТИЛЯЦИЯ ЗАБЛОКИРОВАНА</span>"
+		broken_message = span_boldnotice("ВЕНТИЛЯЦИЯ ЗАБЛОКИРОВАНА")
 		set_broken(TRUE)
 		return FALSE
 	var/turf/open/OT = T
 	if(OT.planetary_atmos)
-		broken_message = "<span class='boldwarning'>УСТРОЙСТВО НЕ МОЖЕТ РАБОТАТЬ В ОТКРЫТОМ ПРОСТРАНСТВЕ</span>"
+		broken_message = span_boldwarning("УСТРОЙСТВО НЕ МОЖЕТ РАБОТАТЬ В ОТКРЫТОМ ПРОСТРАНСТВЕ")
 		set_broken(TRUE)
 		return FALSE
 	if(isspaceturf(T))
-		broken_message = "<span class='boldnotice'>ГАЗ УХОДИТ В КОСМОС</span>"
+		broken_message = span_boldnotice("ГАЗ УХОДИТ В КОСМОС")
 		set_broken(TRUE)
 		return FALSE
 	var/datum/gas_mixture/G = OT.return_air()
 	if(G.return_pressure() > (max_ext_kpa - ((spawn_mol*spawn_temp*R_IDEAL_GAS_EQUATION)/(CELL_VOLUME))))
-		broken_message = "<span class='boldwarning'>ВНЕШНЕЕ ДАВЛЕНИЕ КРИТИЧЕСКОЕ</span>"
+		broken_message = span_boldwarning("ВНЕШНЕЕ ДАВЛЕНИЕ КРИТИЧЕСКОЕ")
 		set_broken(TRUE)
 		return FALSE
 	if(G.total_moles() > max_ext_mol)
-		broken_message = "<span class='boldwarning'>ВНЕШНЯЯ КОНЦЕНТРАЦИЯ ГАЗА КРИТИЧЕСКАЯ</span>"
+		broken_message = span_boldwarning("ВНЕШНЯЯ КОНЦЕНТРАЦИЯ ГАЗА КРИТИЧЕСКАЯ")
 		set_broken(TRUE)
 		return FALSE
 	if(broken)

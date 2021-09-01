@@ -39,7 +39,7 @@
 	var/obj/item/card/id/I = W.GetID()
 	if(istype(I))
 		if(broken)
-			to_chat(user, "<span class='danger'>Кажется, он сломан.</span>")
+			to_chat(user, span_danger("Кажется, он сломан.") )
 			return
 		if(!I || !I.registered_name)
 			return
@@ -52,6 +52,6 @@
 				registered_name = I.registered_name
 				desc = "Принадлежит [I.registered_name]."
 		else
-			to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
+			to_chat(user, span_danger("Доступ запрещён.") )
 	else
 		return ..()

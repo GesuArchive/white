@@ -20,22 +20,22 @@
 
 /obj/effect/proc_holder/spell/pointed/duffelbagcurse/cast(list/targets, mob/user)
 	if(!targets.len)
-		to_chat(user, "<span class='warning'>No target found in range!</span>")
+		to_chat(user, span_warning("No target found in range!") )
 		return FALSE
 	if(!can_target(targets[1], user))
 		return FALSE
 
 	var/mob/living/carbon/target = targets[1]
 	if(target.anti_magic_check())
-		to_chat(user, "<span class='warning'>The spell had no effect!</span>")
-		target.visible_message("<span class='danger'>[target] was unaffected by the curse!</span>", \
-						"<span class='danger'>You feel something whispering behind your back, but it's sent to the shadow realm before it can do anything to you!</span>")
+		to_chat(user, span_warning("The spell had no effect!") )
+		target.visible_message(span_danger("[target] was unaffected by the curse!") , \
+						span_danger("You feel something whispering behind your back, but it's sent to the shadow realm before it can do anything to you!") )
 		return FALSE
 
 	var/obj/item/storage/backpack/duffelbag/cursed/C = new get_turf(target)
 
-	target.visible_message("<span class='danger'>A stinky duffel bag appears on [target]!</span>", \
-						   "<span class='danger'>You feel something attaching itself to you!</span>")
+	target.visible_message(span_danger("A stinky duffel bag appears on [target]!") , \
+						   span_danger("You feel something attaching itself to you!") )
 	target.flash_act()
 	if(target.dropItemToGround(target.back))
 		target.equip_to_slot_if_possible(C, ITEM_SLOT_BACK, 1, 1)
@@ -51,6 +51,6 @@
 		return FALSE
 	if(!is_type_in_typecache(target, compatible_mobs_typecache))
 		if(!silent)
-			to_chat(user, "<span class='warning'>You are unable to curse [target]!</span>")
+			to_chat(user, span_warning("You are unable to curse [target]!") )
 		return FALSE
 	return TRUE

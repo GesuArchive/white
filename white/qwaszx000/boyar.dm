@@ -26,7 +26,7 @@
 	var/obj/item/organ/liver/liver = M.getorganslot(ORGAN_SLOT_LIVER)
 	if(liver && HAS_TRAIT(liver, TRAIT_BOMJ_METABOLISM))
 		M.emote("agony")
-		to_chat(M, "<span class='userdanger'>ОЩУЩАЮ МОЩНЕЙШИЙ ПРИЛИВ СИЛ!!!</span>")
+		to_chat(M, span_userdanger("ОЩУЩАЮ МОЩНЕЙШИЙ ПРИЛИВ СИЛ!!!") )
 		for(var/i in 1 to 100)
 			addtimer(CALLBACK(M, /atom/proc/add_atom_colour, (i % 2)? "#FF00FF" : "#00FFFF", ADMIN_COLOUR_PRIORITY), i)
 
@@ -40,7 +40,7 @@
 		M.reagents.add_reagent(/datum/reagent/toxin/rotatium,2)
 		spawn(0)
 			new /datum/hallucination/delusion(M, TRUE, "demon",600,0)
-		to_chat(M, "<span class='warning'>KILL THEM ALL!</span>")
+		to_chat(M, span_warning("KILL THEM ALL!") )
 	..()
 
 /obj/item/reagent_containers/pill/boyar_t

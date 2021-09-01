@@ -31,9 +31,9 @@
 /obj/item/clothing/mask/gas/examine(mob/user)
 	. = ..()
 	if(max_filters > 0)
-		. += "<span class='notice'>[src] has [max_filters] slot\s for filters.</span>"
+		. += span_notice("[src] has [max_filters] slot\s for filters.")
 	if(LAZYLEN(gas_filters) > 0)
-		. += "<span class='notice'>Currently there [LAZYLEN(gas_filters) == 1 ? "is" : "are"] [LAZYLEN(gas_filters)] filter\s with [get_filter_durability()]% durability.</span>"
+		. += span_notice("Currently there [LAZYLEN(gas_filters) == 1 ? "is" : "are"] [LAZYLEN(gas_filters)] filter\s with [get_filter_durability()]% durability.")
 
 /obj/item/clothing/mask/gas/attackby(obj/item/filter, mob/user)
 	if(!istype(filter, /obj/item/gas_filter))
@@ -184,7 +184,7 @@
 		for(var/X in actions)
 			var/datum/action/A = X
 			A.UpdateButtonIcon()
-		to_chat(user, "<span class='notice'>Маска клоуна превратилась в [choice], слава Хонкоматери!</span>")
+		to_chat(user, span_notice("Маска клоуна превратилась в [choice], слава Хонкоматери!") )
 		return TRUE
 
 /obj/item/clothing/mask/gas/sexyclown
@@ -239,7 +239,7 @@
 		for(var/X in actions)
 			var/datum/action/A = X
 			A.UpdateButtonIcon()
-		to_chat(user, "<span class='notice'>Маска Мима теперь превратилась в [choice]!</span>")
+		to_chat(user, span_notice("Маска Мима теперь превратилась в [choice]!") )
 		return TRUE
 
 /obj/item/clothing/mask/gas/monkeymask
@@ -320,7 +320,7 @@
 		for(var/X in actions)
 			var/datum/action/A = X
 			A.UpdateButtonIcon()
-		to_chat(M, "<span class='notice'>Маска Тики теперь выглядит как маска [choice]!</span>")
+		to_chat(M, span_notice("Маска Тики теперь выглядит как маска [choice]!") )
 		return 1
 
 /obj/item/clothing/mask/gas/tiki_mask/yalp_elor

@@ -40,7 +40,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 		else
 			playsound(src, 'sound/effects/bang.ogg', 50, 1)
 			W.add_dent(WALL_DENT_HIT)
-			visible_message("<span class='danger'><b>[user]</b> бьёт молотом по <b>стене</b>!</span>", null, COMBAT_MESSAGE_RANGE)
+			visible_message(span_danger("<b>[user]</b> бьёт молотом по <b>стене</b>!") , null, COMBAT_MESSAGE_RANGE)
 	return TRUE
 
 /obj/item/blacksmith/anvil_free
@@ -163,7 +163,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 
 	if(istype(I, /obj/item/blacksmith/tongs))
 		if(I.contents.len)
-			to_chat(user, "<span class='warning'>Некуда!</span>")
+			to_chat(user, span_warning("Некуда!") )
 			return
 		else
 			src.forceMove(I)
@@ -171,7 +171,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 				I.icon_state = "tongs_hot"
 			else
 				I.icon_state = "tongs_cold"
-			to_chat(user, "<span class='notice'>Беру слиток клещами.</span>")
+			to_chat(user, span_notice("Беру слиток клещами.") )
 			return
 
 /datum/material/stone
@@ -198,16 +198,16 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 	if(istype(I, /obj/item/blacksmith/chisel))
 		playsound(src, 'white/valtos/sounds/tough.wav', 100, TRUE)
 		if(prob(25))
-			to_chat(user, "<span class='warning'>Обрабатываю камень.</span>")
+			to_chat(user, span_warning("Обрабатываю камень.") )
 			return
 		new /obj/item/stack/sheet/stone(user.loc)
-		to_chat(user, "<span class='notice'>Обрабатываю камень.</span>")
+		to_chat(user, span_notice("Обрабатываю камень.") )
 		qdel(src)
 		return
 	if(istype(I, /obj/item/blacksmith/smithing_hammer))
 		playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE)
 		new /obj/item/stack/ore/glass(drop_location())
-		to_chat(user, "<span class='notice'>Разбиваю [src].</span>")
+		to_chat(user, span_notice("Разбиваю [src].") )
 		qdel(src)
 		return
 
@@ -453,12 +453,12 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 		var/obj/item/stack/S = I
 		if(S.amount >= 5)
 			S.use(5)
-			to_chat(user, "<span class='notice'>Создаю винтовку.</span>")
+			to_chat(user, span_notice("Создаю винтовку.") )
 			new /obj/item/gun/ballistic/rifle/boltaction/kar98k/empty(get_turf(src))
 			qdel(src)
 			return
 		else
-			to_chat(user, "<span class='warning'>Требуется пять единиц досок!</span>")
+			to_chat(user, span_warning("Требуется пять единиц досок!") )
 			return
 
 /obj/structure/mineral_door/detailed_door
@@ -478,7 +478,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 /obj/structure/mineral_door/detailed_door/CtrlClick(mob/user)
 	. = ..()
 	if(isdwarf(user) && !door_opened)
-		visible_message("<span class='notice'><b>[user]</b> [locked_door ? "от" : "за"]пирает дверь.</span>", null, COMBAT_MESSAGE_RANGE)
+		visible_message(span_notice("<b>[user]</b> [locked_door ? "от" : "за"]пирает дверь.") , null, COMBAT_MESSAGE_RANGE)
 		locked_door = !locked_door
 		playsound(get_turf(src), 'white/valtos/sounds/stonelock.ogg', 65, vary = TRUE)
 
@@ -500,14 +500,14 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 	. = ..()
 	if(istype(W, /obj/item/blacksmith/chisel))
 		if(busy)
-			to_chat(user, "<span class='warning'>Сейчас занято.</span>")
+			to_chat(user, span_warning("Сейчас занято.") )
 			return
 		busy = TRUE
 		if(!do_after(user, 10 SECONDS, target = src))
 			busy = FALSE
 			return
 		busy = FALSE
-		to_chat(user, "<span class='warning'>Обрабатываю [src].</span>")
+		to_chat(user, span_warning("Обрабатываю [src].") )
 		var/obj/structure/mineral_door/D = new /obj/structure/mineral_door/detailed_door(loc)
 		D.dir = dir
 		qdel(src)
@@ -521,7 +521,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 /obj/structure/mineral_door/heavystone/CtrlClick(mob/user)
 	. = ..()
 	if(isdwarf(user) && !door_opened)
-		visible_message("<span class='notice'><b>[user]</b> [locked_door ? "от" : "за"]пирает дверь.</span>", null, COMBAT_MESSAGE_RANGE)
+		visible_message(span_notice("<b>[user]</b> [locked_door ? "от" : "за"]пирает дверь.") , null, COMBAT_MESSAGE_RANGE)
 		locked_door = !locked_door
 		playsound(get_turf(src), 'white/valtos/sounds/stonelock.ogg', 65, vary = TRUE)
 
@@ -555,7 +555,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 /obj/item/clothing/head/helmet/dwarf_crown/proc/send_message(mob/user, msg)
 	message_admins("DF: [ADMIN_LOOKUPFLW(user)]: [msg]")
 	for(var/mob/M in GLOB.dwarf_list)
-		to_chat(M, "<span class='revenbignotice'>[msg]</span>")
+		to_chat(M, span_revenbignotice("[msg]") )
 		SEND_SOUND(M, 'white/valtos/sounds/siren.ogg')
 
 /obj/item/clothing/head/helmet/dwarf_crown/attack_self(mob/user)
@@ -568,9 +568,9 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 			king = C.assigned_count
 	if(busy && assigned_count != user)
 		if(user != king)
-			to_chat(user, "<span class='warning'>У МЕНЯ ЗДЕСЬ НЕТ ВЛАСТИ!</span>")
+			to_chat(user, span_warning("У МЕНЯ ЗДЕСЬ НЕТ ВЛАСТИ!") )
 		else
-			to_chat(user, "<span class='warning'>У МЕНЯ УЖЕ ЕСТЬ ВЛАСТЬ!</span>")
+			to_chat(user, span_warning("У МЕНЯ УЖЕ ЕСТЬ ВЛАСТЬ!") )
 		return
 
 	if(is_species(user, /datum/species/dwarf) && (!assigned_count || assigned_count?.stat == DEAD))
@@ -583,7 +583,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 		user.whisper("[msg]")
 		send_message(user, "<b>[user]</b>: [pointization(msg)]")
 	else
-		to_chat(user, "<span class='warning'>У МЕНЯ ЗДЕСЬ НЕТ ВЛАСТИ!</span>")
+		to_chat(user, span_warning("У МЕНЯ ЗДЕСЬ НЕТ ВЛАСТИ!") )
 
 /obj/item/blacksmith/torch_handle
 	name = "Скоба"
@@ -601,10 +601,10 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 		return
 	var/turf/T = get_turf(user)
 	if(!isfloorturf(T))
-		to_chat(user, "<span class='warning'>Пол не подходит для установки держателя!</span>")
+		to_chat(user, span_warning("Пол не подходит для установки держателя!") )
 		return
 	if(locate(/obj/machinery/torch_fixture) in view(1))
-		to_chat(user, "<span class='warning'>Здесь уже что-то есть на стене!</span>")
+		to_chat(user, span_warning("Здесь уже что-то есть на стене!") )
 		return
 
 	return TRUE
@@ -612,9 +612,9 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 /obj/item/blacksmith/torch_handle/proc/attach(turf/on_wall, mob/user)
 	if(result_path)
 		playsound(src.loc, 'sound/machines/click.ogg', 75, TRUE)
-		user.visible_message("<span class='notice'>[user.name] прикрепляет скобу к стене.</span>",
-			"<span class='notice'>Прикрепляю скобу к стене.</span>",
-			"<span class='hear'>Слышу щелчки.</span>")
+		user.visible_message(span_notice("[user.name] прикрепляет скобу к стене.") ,
+			span_notice("Прикрепляю скобу к стене.") ,
+			span_hear("Слышу щелчки.") )
 		var/ndir = get_dir(on_wall, user)
 
 		new result_path(get_turf(user), ndir, TRUE)
@@ -692,7 +692,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 
 	if(istype(W, /obj/item/flashlight/flare/torch))
 		if(status == LIGHT_OK)
-			to_chat(user, "<span class='warning'>Здесь уже есть факел!</span>")
+			to_chat(user, span_warning("Здесь уже есть факел!") )
 		else
 			src.add_fingerprint(user)
 			var/obj/item/flashlight/flare/torch/L = W
@@ -700,7 +700,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 				if(!user.temporarilyRemoveItemFromInventory(L))
 					return
 				src.add_fingerprint(user)
-				to_chat(user, "<span class='notice'>Ставлю [L] на место.</span>")
+				to_chat(user, span_notice("Ставлю [L] на место.") )
 				status = LIGHT_OK
 				fuel = L.fuel
 				on = L.on
@@ -708,7 +708,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 				qdel(L)
 				START_PROCESSING(SSobj, src)
 			else
-				to_chat(user, "<span class='warning'>Эта штука поддерживает только обычные факелы!</span>")
+				to_chat(user, span_warning("Эта штука поддерживает только обычные факелы!") )
 	else
 		return ..()
 
@@ -720,7 +720,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 	add_fingerprint(user)
 
 	if(status == LIGHT_EMPTY)
-		to_chat(user, "<span class='warning'>Здесь нет факела!</span>")
+		to_chat(user, span_warning("Здесь нет факела!") )
 		return
 
 	var/obj/item/flashlight/flare/torch/L = new light_type()
@@ -790,8 +790,8 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 				if(blocks_need <= 0)
 					break
 			T.ChangeTurf(/turf/closed/wall/stonewall, flags = CHANGETURF_IGNORE_AIR)
-			user.visible_message("<span class='notice'><b>[user]</b> возводит каменную стену.</span>", \
-								"<span class='notice'>Возвожу каменную стену.</span>")
+			user.visible_message(span_notice("<b>[user]</b> возводит каменную стену.") , \
+								span_notice("Возвожу каменную стену.") )
 		if(SHPATEL_BUILD_FLOOR)
 			var/blocks_need = 1
 			for(var/obj/item/stack/sheet/stone/B in view(1))
@@ -803,14 +803,14 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 				if(blocks_need <= 0)
 					break
 			T.ChangeTurf(/turf/open/floor/grass/gensgrass/dirty/stone, flags = CHANGETURF_INHERIT_AIR)
-			user.visible_message("<span class='notice'><b>[user]</b> создаёт каменный пол.</span>", \
-								"<span class='notice'>Делаю каменный пол.</span>")
+			user.visible_message(span_notice("<b>[user]</b> создаёт каменный пол.") , \
+								span_notice("Делаю каменный пол.") )
 
 /obj/item/blacksmith/shpatel/proc/do_job(atom/A, mob/user)
 	if(!istype(A, /turf/open/floor))
 		return
 	if(mode != SHPATEL_BUILD_FLOOR && !istype(A, /turf/open/floor/grass/gensgrass/dirty/stone))
-		to_chat(user, "<span class='warning'>Не могу построить на этом полу!</span>")
+		to_chat(user, span_warning("Не могу построить на этом полу!") )
 		return
 	if(mode==SHPATEL_BUILD_FLOOR && istype(A, /turf/open/floor/grass/gensgrass/dirty/stone))
 		var/turf/open/floor/grass/gensgrass/dirty/stone/S = A
@@ -824,7 +824,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 				playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 				return TRUE
 	else
-		to_chat(user, "<span class='warning'>Не хватает материалов!</span>")
+		to_chat(user, span_warning("Не хватает материалов!") )
 
 /obj/item/blacksmith/shpatel/proc/check_menu(mob/living/user)
 	if(!istype(user))
@@ -900,7 +900,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 	for(var/obj/effect/plan_marker/M in view(7, user))
 		qdel(M)
 		i++
-	to_chat(user, "<span class='notice'>Удалено [i] маркеров.</span>")
+	to_chat(user, span_notice("Удалено [i] маркеров.") )
 
 /obj/item/blacksmith/scepter/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -911,11 +911,11 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 		for(var/atom/A in T)
 			if(istype(A, /obj/effect/plan_marker))
 				qdel(A)
-				to_chat(user, "<span class='notice'>Убираю маркер.</span>")
+				to_chat(user, span_notice("Убираю маркер.") )
 				cur_markers--
 				return
 		if(cur_markers >= max_markers)
-			to_chat(user, "<span class='warning'>Максимум 64!</span>")
+			to_chat(user, span_warning("Максимум 64!") )
 			return
 		var/obj/visual = new /obj/effect/plan_marker(T)
 		cur_markers++
@@ -962,8 +962,8 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 /obj/structure/chair/comfy/stone/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_WRENCH && !(flags_1&NODECONSTRUCT_1))
 		W.play_tool_sound(src)
-		user.visible_message("<span class='notice'>[user] пытается разобрать каменный стул <b>ГАЕЧНЫМ КЛЮЧОМ</b>.</span>", \
-		"<span class='notice'>Пытаюсь разобрать каменный стул...</span>")
+		user.visible_message(span_notice("[user] пытается разобрать каменный стул <b>ГАЕЧНЫМ КЛЮЧОМ</b>.") , \
+		span_notice("Пытаюсь разобрать каменный стул...") )
 		return
 	else
 		return ..()
@@ -991,7 +991,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 
 /obj/structure/table/stone/attackby(obj/item/W, mob/user, params)
 	if (W.tool_behaviour == TOOL_WRENCH || W.tool_behaviour == TOOL_SCREWDRIVER)
-		to_chat(user, "<span class='warning'>А че как...</span>")
+		to_chat(user, span_warning("А че как...") )
 		return
 	else
 		return ..()

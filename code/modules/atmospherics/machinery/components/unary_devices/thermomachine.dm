@@ -102,11 +102,11 @@
 	if(cooling)
 		target_temperature = min_temperature
 		investigate_log("was set to [target_temperature] K by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>Уменьшаю температуру термомашины до минимума в размере [target_temperature] K.</span>")
+		to_chat(user, span_notice("Уменьшаю температуру термомашины до минимума в размере [target_temperature] K.") )
 	else
 		target_temperature = max_temperature
 		investigate_log("was set to [target_temperature] K by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>Увеличиваю температуру термомашины до максимума в размере [target_temperature] K.</span>")
+		to_chat(user, span_notice("Увеличиваю температуру термомашины до максимума в размере [target_temperature] K.") )
 
 /obj/machinery/atmospherics/components/unary/thermomachine/process_atmos()
 	..()

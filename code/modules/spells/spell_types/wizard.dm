@@ -34,7 +34,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[capitalize(src.name)] vanishes on contact with [target]!</span>")
+			M.visible_message(span_warning("[capitalize(src.name)] vanishes on contact with [target]!") )
 			return BULLET_ACT_BLOCK
 
 /obj/effect/proc_holder/spell/targeted/genetic/mutate
@@ -288,13 +288,13 @@
 				var/mob/living/M = AM
 				M.Paralyze(100)
 				M.adjustBruteLoss(5)
-				to_chat(M, "<span class='userdanger'>You're slammed into the floor by [user]!</span>")
+				to_chat(M, span_userdanger("You're slammed into the floor by [user]!") )
 		else
 			new sparkle_path(get_turf(AM), get_dir(user, AM)) //created sparkles will disappear on their own
 			if(isliving(AM))
 				var/mob/living/M = AM
 				M.Paralyze(stun_amt)
-				to_chat(M, "<span class='userdanger'>You're thrown back by [user]!</span>")
+				to_chat(M, span_userdanger("You're thrown back by [user]!") )
 			AM.safe_throw_at(throwtarget, ((clamp((maxthrow - (clamp(distfromcaster - 2, 0, distfromcaster))), 3, maxthrow))), 1,user, force = repulse_force)//So stuff gets tossed around at the same time.
 
 /obj/effect/proc_holder/spell/aoe_turf/repulse/xeno //i fixed conflicts only to find out that this is in the WIZARD file instead of the xeno file?!
@@ -414,7 +414,7 @@
 				playsound(get_turf(card_holder), 'white/valtos/sounds/fhit.ogg', 75, TRUE)
 				card_holder.Beam(lastloc, icon_state="lichbeam", time = 20)
 				lastloc = card_holder
-				to_chat(card_holder, "<span class='warning'><b>Федерация волшебников:</b> С вашего аккаунта было списано [credits_drawed] кредит[get_num_string(credits_drawed)]. Приятной смены!</span>")
+				to_chat(card_holder, span_warning("<b>Федерация волшебников:</b> С вашего аккаунта было списано [credits_drawed] кредит[get_num_string(credits_drawed)]. Приятной смены!") )
 		total_cash_looted += credits_drawed
 		sleep(5)
 	lastloc.Beam(user, icon_state="lichbeam", time = 20)
@@ -422,4 +422,4 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.put_in_hands(holochip)
-	to_chat(user, "<span class='notice'>Удалось собрать с проклятых гоев целых [total_cash_looted] кредит[get_num_string(total_cash_looted)]!</span>")
+	to_chat(user, span_notice("Удалось собрать с проклятых гоев целых [total_cash_looted] кредит[get_num_string(total_cash_looted)]!") )

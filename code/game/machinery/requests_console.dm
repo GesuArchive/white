@@ -284,7 +284,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 		GLOB.news_network.SubmitArticle(message, department, "Станционные Объявления", null)
 		usr.log_talk(message, LOG_SAY, tag="station announcement from [src]")
 		message_admins("[ADMIN_LOOKUPFLW(usr)] has made a station announcement from [src] at [AREACOORD(usr)].")
-		deadchat_broadcast(" делает оповещение <span class='name'>[get_area_name(usr, TRUE)]</span>.", "<span class='name'>[usr.real_name]</span>", usr, message_type=DEADCHAT_ANNOUNCEMENT)
+		deadchat_broadcast(" делает оповещение <span class='name'>[get_area_name(usr, TRUE)]</span>.", span_name("[usr.real_name]") , usr, message_type=DEADCHAT_ANNOUNCEMENT)
 		announceAuth = FALSE
 		message = ""
 		screen = REQ_SCREEN_MAIN
@@ -421,10 +421,10 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 /obj/machinery/requests_console/attackby(obj/item/O, mob/user, params)
 	if(O.tool_behaviour == TOOL_CROWBAR)
 		if(open)
-			to_chat(user, "<span class='notice'>Закрываю панель обслуживания.</span>")
+			to_chat(user, span_notice("Закрываю панель обслуживания.") )
 			open = FALSE
 		else
-			to_chat(user, "<span class='notice'>Открываю панель обслуживания.</span>")
+			to_chat(user, span_notice("Открываю панель обслуживания.") )
 			open = TRUE
 		update_icon()
 		return
@@ -432,12 +432,12 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 		if(open)
 			hackState = !hackState
 			if(hackState)
-				to_chat(user, "<span class='notice'>Модифицирую проводку.</span>")
+				to_chat(user, span_notice("Модифицирую проводку.") )
 			else
-				to_chat(user, "<span class='notice'>Возвращаю проводку на место.</span>")
+				to_chat(user, span_notice("Возвращаю проводку на место.") )
 			update_icon()
 		else
-			to_chat(user, "<span class='warning'>Надо бы сначала открыть панель обслуживания!</span>")
+			to_chat(user, span_warning("Надо бы сначала открыть панель обслуживания!") )
 		return
 
 	var/obj/item/card/id/ID = O.GetID()
@@ -450,13 +450,13 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 				announceAuth = TRUE
 			else
 				announceAuth = FALSE
-				to_chat(user, "<span class='warning'>У меня нет авторизации для отправки объявлений!</span>")
+				to_chat(user, span_warning("У меня нет авторизации для отправки объявлений!") )
 			updateUsrDialog()
 		return
 	if (istype(O, /obj/item/stamp))
 		if(screen == REQ_SCREEN_AUTHENTICATE)
 			var/obj/item/stamp/T = O
-			msgStamped = "<span class='boldnotice'>Штамп от [T.name]</span>"
+			msgStamped = span_boldnotice("Штамп от [T.name]")
 			updateUsrDialog()
 		return
 	return ..()

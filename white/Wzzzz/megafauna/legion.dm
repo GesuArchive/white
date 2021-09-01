@@ -52,21 +52,21 @@
 	name = "Create Legion Skull"
 	icon_icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
 	button_icon_state = "legion_head"
-	chosen_message = "<span class='colossus'>You are now creating legion skulls.</span>"
+	chosen_message = span_colossus("You are now creating legion skulls.")
 	chosen_attack_num = 1
 
 /datum/action/innate/megafauna_attack/charge_target
 	name = "Charge Target"
 	icon_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"
-	chosen_message = "<span class='colossus'>You are now charging at your target.</span>"
+	chosen_message = span_colossus("You are now charging at your target.")
 	chosen_attack_num = 2
 
 /datum/action/innate/megafauna_attack/create_turrets
 	name = "Create Sentinels"
 	icon_icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
 	button_icon_state = "legion_turret"
-	chosen_message = "<span class='colossus'>You are now creating legion sentinels.</span>"
+	chosen_message = span_colossus("You are now creating legion sentinels.")
 	chosen_attack_num = 3
 
 /mob/living/simple_animal/hostile/megafauna/legionold/OpenFire(the_target)
@@ -87,7 +87,7 @@
 
 ///Attack proc. Gives legion some movespeed buffs and switches the AI to melee. At lower sizes, this also throws the skull at the player.
 /mob/living/simple_animal/hostile/megafauna/legionold/proc/charge_target()
-	visible_message("<span class='warning'><b>[src] charges!</b></span>")
+	visible_message(span_warning("<b>[src] charges!</b>") )
 	SpinAnimation(speed = 20, loops = 3, parallel = FALSE)
 	ranged = FALSE
 	retreat_distance = 0
@@ -180,7 +180,7 @@
 			pixel_y = 0
 			maxHealth = 200
 	adjustHealth(0) //Make the health HUD look correct.
-	visible_message("<span class='boldannounce'>This is getting out of hands. Now there are three of them!</span>")
+	visible_message(span_boldannounce("This is getting out of hands. Now there are three of them!") )
 	for(var/i in 1 to 2) //Create three skulls in total
 		var/mob/living/simple_animal/hostile/megafauna/legionold/L = new(loc)
 		L.setVarsAfterSplit(src)

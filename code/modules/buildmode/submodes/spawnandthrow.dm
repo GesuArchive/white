@@ -18,14 +18,14 @@
 	qdel(mobcrutch)
 
 /datum/buildmode_mode/spawnandthrow/show_help(client/c)
-	to_chat(c, "<span class='notice'>***********************************************************</span>")
-	to_chat(c, "<span class='notice'>Middle Mouse Button - Copy object.</span>")
-	to_chat(c, "<span class='notice'>Left Mouse Button - Throw selected object.</span>")
-	to_chat(c, "<span class='notice'>Right Mouse Button - Call attack_self() and throw object. (similiar to using item in hand, uses a stub mob for this, may be buggy with items that are more complex than regular grenades.)</span>")
-	to_chat(c, "<span class='notice'>Alt click - Instead of throwing uses newtonian_move() to nudge object in selected direction. Only works with no gravity.</span>")
-	to_chat(c, "<span class='notice'>Use the button in the upper left corner to</span>")
+	to_chat(c, span_notice("***********************************************************") )
+	to_chat(c, span_notice("Middle Mouse Button - Copy object.") )
+	to_chat(c, span_notice("Left Mouse Button - Throw selected object.") )
+	to_chat(c, span_notice("Right Mouse Button - Call attack_self() and throw object. (similiar to using item in hand, uses a stub mob for this, may be buggy with items that are more complex than regular grenades.)") )
+	to_chat(c, span_notice("Alt click - Instead of throwing uses newtonian_move() to nudge object in selected direction. Only works with no gravity.") )
+	to_chat(c, span_notice("Use the button in the upper left corner to") )
 	to_chat(c, "<span class='notice'>configure throwing. If range is 0, it will spawn and throw the object on the same tile you clicked on.<span>")
-	to_chat(c, "<span class='notice'>***********************************************************</span>")
+	to_chat(c, span_notice("***********************************************************") )
 
 /datum/buildmode_mode/spawnandthrow/change_settings(client/c)
 	while(TRUE) // i am so glad we don't have qc
@@ -89,10 +89,10 @@
 
 	if(middle_click)
 		if(ispath(objholder, /area))
-			to_chat(c, "<span class='notice'>[initial(object.name)] is not a valid atom for this mode! Please try again.</span>")
+			to_chat(c, span_notice("[initial(object.name)] is not a valid atom for this mode! Please try again.") )
 		else
 			objholder = object.type
-			to_chat(c, "<span class='notice'>[initial(object.name)] ([object.type]) selected.</span>")
+			to_chat(c, span_notice("[initial(object.name)] ([object.type]) selected.") )
 			return
 
 	if(isnull(objholder))

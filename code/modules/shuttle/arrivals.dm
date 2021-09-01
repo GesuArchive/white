@@ -191,7 +191,7 @@
 
 	Launch(TRUE)
 
-	to_chat(user, "<span class='notice'>Вызываем шаттл. Надо подождать...</span>")
+	to_chat(user, span_notice("Вызываем шаттл. Надо подождать...") )
 	while(mode != SHUTTLE_CALL && !damaged)
 		stoplag()
 

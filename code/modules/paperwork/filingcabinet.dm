@@ -48,20 +48,20 @@
 
 /obj/structure/filingcabinet/attackby(obj/item/P, mob/user, params)
 	if(P.tool_behaviour == TOOL_WRENCH && user.a_intent != INTENT_HELP)
-		to_chat(user, "<span class='notice'>Начинаю [anchored ? "unwrench" : "wrench"] [src].</span>")
+		to_chat(user, span_notice("Начинаю [anchored ? "unwrench" : "wrench"] [src].") )
 		if(P.use_tool(src, user, 20, volume=50))
-			to_chat(user, "<span class='notice'>Успешно [anchored ? "unwrench" : "wrench"] [src].</span>")
+			to_chat(user, span_notice("Успешно [anchored ? "unwrench" : "wrench"] [src].") )
 			set_anchored(!anchored)
 	else if(P.w_class < WEIGHT_CLASS_NORMAL)
 		if(!user.transferItemToLoc(P, src))
 			return
-		to_chat(user, "<span class='notice'>Кладу [P] в [src].</span>")
+		to_chat(user, span_notice("Кладу [P] в [src].") )
 		icon_state = "[initial(icon_state)]-open"
 		sleep(5)
 		icon_state = initial(icon_state)
 		updateUsrDialog()
 	else if(user.a_intent != INTENT_HARM)
-		to_chat(user, "<span class='warning'>Не могу положить [P] в [src]!</span>")
+		to_chat(user, span_warning("Не могу положить [P] в [src]!") )
 	else
 		return ..()
 
@@ -69,7 +69,7 @@
 /obj/structure/filingcabinet/ui_interact(mob/user)
 	. = ..()
 	if(contents.len <= 0)
-		to_chat(user, "<span class='notice'>[capitalize(src.name)] пуст.</span>")
+		to_chat(user, span_notice("[capitalize(src.name)] пуст.") )
 		return
 
 	var/dat = "<center><table>"
@@ -95,9 +95,9 @@
 			I.forceMove(loc)
 			if(prob(25))
 				step_rand(I)
-			to_chat(user, "<span class='notice'>Случайно вытаскиваю \a [I] из [src].</span>")
+			to_chat(user, span_notice("Случайно вытаскиваю \a [I] из [src].") )
 			return
-	to_chat(user, "<span class='notice'>Ничего не нахожу в [src].</span>")
+	to_chat(user, span_notice("Ничего не нахожу в [src].") )
 
 
 /obj/structure/filingcabinet/Topic(href, href_list)

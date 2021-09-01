@@ -111,7 +111,7 @@
 				return
 			next_extinguish = world.time + extinguish_cooldown
 			extinguishes_left--
-			H.visible_message("<span class='warning'>[H] suit automatically extinguishes [H.ru_na()]!</span>","<span class='warning'>Your suit automatically extinguishes you.</span>")
+			H.visible_message(span_warning("[H] suit automatically extinguishes [H.ru_na()]!") ,span_warning("Your suit automatically extinguishes you.") )
 			H.extinguish_mob()
 			new /obj/effect/particle_effect/water(get_turf(H))
 
@@ -119,10 +119,10 @@
 	..()
 	if (istype(E, /obj/item/extinguisher_refill))
 		if (extinguishes_left == 5)
-			to_chat(user, "<span class='notice'>The inbuilt extinguisher is full.</span>")
+			to_chat(user, span_notice("The inbuilt extinguisher is full.") )
 		else
 			extinguishes_left = 5
-			to_chat(user, "<span class='notice'>You refill the suit's built-in extinguisher, using up the cartridge.</span>")
+			to_chat(user, span_notice("You refill the suit's built-in extinguisher, using up the cartridge.") )
 			qdel(E)
 
 /obj/item/extinguisher_refill

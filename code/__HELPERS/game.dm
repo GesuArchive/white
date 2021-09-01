@@ -367,22 +367,22 @@
 	var/list/answers = ignore_category ? list("Да", "Нет", "Никогда") : list("Да", "Нет")
 	switch(tgui_alert(M, Question, "Предложение получить новое тело!", answers, timeout=poll_time))
 		if("Да")
-			to_chat(M, "<span class='notice'>Выбираем: Да.</span>")
+			to_chat(M, span_notice("Выбираем: Да.") )
 			if(time_passed + poll_time <= world.time)
-				to_chat(M, "<span class='danger'>СЛИШКОМ ПОЗДНО!</span>")
+				to_chat(M, span_danger("СЛИШКОМ ПОЗДНО!") )
 				SEND_SOUND(M, sound('sound/machines/buzz-sigh.ogg'))
 				candidates -= M
 			else
 				candidates += M
 		if("Нет")
-			to_chat(M, "<span class='danger'>Выбираем: Нет.</span>")
+			to_chat(M, span_danger("Выбираем: Нет.") )
 			candidates -= M
 		if("Никогда")
 			var/list/L = GLOB.poll_ignore[ignore_category]
 			if(!L)
 				GLOB.poll_ignore[ignore_category] = list()
 			GLOB.poll_ignore[ignore_category] += M.ckey
-			to_chat(M, "<span class='danger'>Выбираем: Не спрашиваем до конца раунда.</span>")
+			to_chat(M, span_danger("Выбираем: Не спрашиваем до конца раунда.") )
 			candidates -= M
 		else
 			candidates -= M
@@ -490,7 +490,7 @@
 	if(!SSticker.IsRoundInProgress() || QDELETED(character))
 		return
 	var/area/A = get_area(character)
-	deadchat_broadcast("<span class='game'> прибывает на станцию в <span class='name'>[A.name]</span>.</span>", "<span class='game'><span class='name'>[character.real_name]</span> ([rank])</span>", follow_target = character, message_type=DEADCHAT_ARRIVALRATTLE)
+	deadchat_broadcast(span_game(" прибывает на станцию в <span class='name'>[A.name]</span>.") , span_game("<span class='name'>[character.real_name]</span> ([rank])") , follow_target = character, message_type=DEADCHAT_ARRIVALRATTLE)
 	if(!character.mind)
 		return
 	if(!GLOB.announcement_systems.len)

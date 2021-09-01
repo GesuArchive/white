@@ -20,14 +20,14 @@
 	weapon_force = 0
 
 /mob/living/simple_animal/bot/secbot/grievous/bullet_act(obj/projectile/P)
-	visible_message("<span class='warning'>[capitalize(src.name)] отражает [P] используя энергомечи!</span>")
+	visible_message(span_warning("[capitalize(src.name)] отражает [P] используя энергомечи!") )
 	playsound(src, 'sound/weapons/blade1.ogg', 50, TRUE)
 	return BULLET_ACT_BLOCK
 
 /mob/living/simple_animal/bot/secbot/grievous/on_entered(datum/source, atom/movable/AM)
 	. = ..()
 	if(ismob(AM) && AM == target)
-		visible_message("<span class='warning'>[capitalize(src.name)] сокрушает свои энергомечи в сторону [AM]!</span>")
+		visible_message(span_warning("[capitalize(src.name)] сокрушает свои энергомечи в сторону [AM]!") )
 		playsound(src,'sound/effects/beepskyspinsabre.ogg',100,TRUE,-1)
 		INVOKE_ASYNC(src, .proc/stun_attack, AM)
 
@@ -43,7 +43,7 @@
 	if(mode != BOT_HUNT)
 		return
 	if(prob(block_chance))
-		visible_message("<span class='warning'>[capitalize(src.name)] отражает атаку [user] своими энергомечами!</span>")
+		visible_message(span_warning("[capitalize(src.name)] отражает атаку [user] своими энергомечами!") )
 		playsound(src, 'sound/weapons/blade1.ogg', 50, TRUE, -1)
 		return TRUE
 
@@ -119,7 +119,7 @@
 			//playsound(src, pick('sound/voice/beepsky/criminal.ogg', 'sound/voice/beepsky/justice.ogg', 'sound/voice/beepsky/freeze.ogg'), 50, FALSE)
 			playsound(loc, pick('white/valtos/sounds/beepsky_russian/criminal.ogg', 'white/valtos/sounds/beepsky_russian/justice.ogg', 'white/valtos/sounds/beepsky_russian/freeze.ogg'), 50, FALSE)
 			playsound(src,'sound/weapons/saberon.ogg',50,TRUE,-1)
-			visible_message("<span class='warning'>[capitalize(src.name)] зажигает свои энергомечи!</span>")
+			visible_message(span_warning("[capitalize(src.name)] зажигает свои энергомечи!") )
 			icon_state = "grievous-c"
 			visible_message("<b>[capitalize(src.name)]</b> гонится за [C.name]!")
 			mode = BOT_HUNT
@@ -132,7 +132,7 @@
 /mob/living/simple_animal/bot/secbot/grievous/explode()
 
 	walk_to(src,0)
-	visible_message("<span class='boldannounce'>[capitalize(src.name)] громко кашляет и взрывается!</span>")
+	visible_message(span_boldannounce("[capitalize(src.name)] громко кашляет и взрывается!") )
 	var/atom/Tsec = drop_location()
 
 	var/obj/item/bot_assembly/secbot/Sa = new (Tsec)

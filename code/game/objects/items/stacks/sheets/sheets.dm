@@ -42,6 +42,6 @@
 	user.do_attack_animation(src, ATTACK_EFFECT_BOOP)
 	playsound(src, "shatter", 70, TRUE)
 	use(1)
-	user.visible_message("<span class='notice'>[user] разбивает лист [name] об пол, оставляя [english_list(shards)].</span>", \
-		"<span class='notice'>Разбиваю лист [name] об пол, оставляя [english_list(shards)].</span>")
+	user.visible_message(span_notice("[user] разбивает лист [name] об пол, оставляя [english_list(shards)].") , \
+		span_notice("Разбиваю лист [name] об пол, оставляя [english_list(shards)].") )
 	return TRUE

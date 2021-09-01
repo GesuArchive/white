@@ -39,7 +39,7 @@
 		return
 	if(world.time < last_synth+time_per_syringe)
 		return
-	to_chat(loc, "<span class='warning'>Слышу щелчок с которым [src] синтезировал новый дротик.</span>")
+	to_chat(loc, span_warning("Слышу щелчок с которым [src] синтезировал новый дротик.") )
 	syringes_left++
 	if(chambered && !chambered.BB)
 		chambered.newshot()

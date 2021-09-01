@@ -46,12 +46,12 @@
 	if(istype(O, /obj/item/gun/energy))
 		var/obj/item/gun/gun = O
 		if(installed_gun)
-			to_chat(user, "<span class='warning'>There's already a weapon installed.</span>")
+			to_chat(user, span_warning("There's already a weapon installed.") )
 			return
 		user.transferItemToLoc(gun,src)
 		installed_gun = gun
 		var/list/gun_properties = gun.get_turret_properties()
-		to_chat(user, "<span class='notice'>You slide [gun] into the firing mechanism.</span>")
+		to_chat(user, span_notice("You slide [gun] into the firing mechanism.") )
 		playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
 		stun_projectile = gun_properties["stun_projectile"]
 		stun_projectile_sound = gun_properties["stun_projectile_sound"]
@@ -71,14 +71,14 @@
 /obj/item/integrated_circuit_old/manipulation/weapon_firing/attack_self(var/mob/user)
 	if(installed_gun)
 		installed_gun.forceMove(drop_location())
-		to_chat(user, "<span class='notice'>You slide [installed_gun] out of the firing mechanism.</span>")
+		to_chat(user, span_notice("You slide [installed_gun] out of the firing mechanism.") )
 		size = initial(size)
 		playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
 		installed_gun = null
 		set_pin_data(IC_OUTPUT, 1, WEAKREF(null))
 		push_data()
 	else
-		to_chat(user, "<span class='notice'>There's no weapon to remove from the mechanism.</span>")
+		to_chat(user, span_notice("There's no weapon to remove from the mechanism.") )
 
 /obj/item/integrated_circuit_old/manipulation/weapon_firing/do_work()
 	if(!installed_gun || !installed_gun.handle_pins())
@@ -102,7 +102,7 @@
 		var/target_x = clamp(T.x + xo.data, 0, world.maxx)
 		var/target_y = clamp(T.y + yo.data, 0, world.maxy)
 
-		assembly.visible_message("<span class='danger'><b>[assembly]</b> стреляет из [installed_gun.name]!</span>")
+		assembly.visible_message(span_danger("<b>[assembly]</b> стреляет из [installed_gun.name]!") )
 		shootAt(locate(target_x, target_y, T.z))
 
 /obj/item/integrated_circuit_old/manipulation/weapon_firing/proc/shootAt(turf/target)
@@ -204,9 +204,9 @@
 /obj/item/integrated_circuit_old/manipulation/grenade/attackby(var/obj/item/grenade/G, var/mob/user)
 	if(istype(G))
 		if(attached_grenade)
-			to_chat(user, "<span class='warning'>There is already a grenade attached!</span>")
+			to_chat(user, span_warning("There is already a grenade attached!") )
 		else if(user.transferItemToLoc(G,src))
-			user.visible_message("<span class='warning'>\The [user] attaches \a [G] to <b>[src.name]</b>!</span>", "<span class='notice'>You attach [G] to <b>[src.name]</b>.</span>")
+			user.visible_message(span_warning("\The [user] attaches \a [G] to <b>[src.name]</b>!") , span_notice("You attach [G] to <b>[src.name]</b>.") )
 			attach_grenade(G)
 			G.forceMove(src)
 	else
@@ -214,7 +214,7 @@
 
 /obj/item/integrated_circuit_old/manipulation/grenade/attack_self(var/mob/user)
 	if(attached_grenade)
-		user.visible_message("<span class='warning'>\The [user] removes \an [attached_grenade] from <b>[src.name]</b>!</span>", "<span class='notice'>You remove [attached_grenade] from <b>[src.name]</b>.</span>")
+		user.visible_message(span_warning("\The [user] removes \an [attached_grenade] from <b>[src.name]</b>!") , span_notice("You remove [attached_grenade] from <b>[src.name]</b>.") )
 		user.put_in_hands(attached_grenade)
 		detach_grenade()
 	else
@@ -313,7 +313,7 @@
 					if(!TR.myseed)
 						if(istype(O, /obj/item/seeds/kudzu))
 							investigate_log("had Kudzu planted in it by [acting_object] at [AREACOORD(src)]","kudzu")
-						acting_object.visible_message("<span class='notice'>[acting_object] plants [O].</span>")
+						acting_object.visible_message(span_notice("[acting_object] plants [O].") )
 						TR.dead = 0
 						TR.myseed = O
 						TR.age = 1
@@ -492,7 +492,7 @@
 	// A.throwforce = 0
 	// A.embedding = list("embed_chance" = 0)
 	//throw it
-	assembly.visible_message("<span class='danger'>[assembly] has thrown [A]!</span>")
+	assembly.visible_message(span_danger("[assembly] has thrown [A]!") )
 	log_attack("[assembly] [REF(assembly)] has thrown [A].")
 	A.forceMove(drop_location())
 	A.throw_at(locate(x_abs, y_abs, T.z), range, 3, , , , CALLBACK(src, .proc/post_throw, A))

@@ -9,8 +9,8 @@
 	name = "Светочувствительность"
 	desc = "Пациент имеет необъяснимую неблагоприятную реакцию на свет."
 	scan_desc = "лёгкая светочувствительность"
-	gain_text = "<span class='warning'>Чувствую тягу к темноте.</span>"
-	lose_text = "<span class='notice'>Свет больше не беспокоит меня.</span>"
+	gain_text = span_warning("Чувствую тягу к темноте.")
+	lose_text = span_notice("Свет больше не беспокоит меня.")
 	/// Cooldown to prevent warning spam
 	COOLDOWN_DECLARE(damage_warning_cooldown)
 	var/next_damage_warning = 0
@@ -25,7 +25,7 @@
 		return
 
 	if(COOLDOWN_FINISHED(src, damage_warning_cooldown))
-		to_chat(owner, "<span class='warning'><b>Свет обжигает меня!</b></span>")
+		to_chat(owner, span_warning("<b>Свет обжигает меня!</b>") )
 		COOLDOWN_START(src, damage_warning_cooldown, 10 SECONDS)
 	owner.take_overall_damage(0, 1.5 * delta_time)
 
@@ -33,8 +33,8 @@
 	name = "Полтергейст"
 	desc = "Пациент, кажется, подвергается нападению со стороны невидимого объекта."
 	scan_desc = "паранормальная активность"
-	gain_text = "<span class='warning'>Чувствую ненавистное присутствие рядом со мной.</span>"
-	lose_text = "<span class='notice'>Чувствую, что ненавистное присутствие исчезает.</span>"
+	gain_text = span_warning("Чувствую ненавистное присутствие рядом со мной.")
+	lose_text = span_notice("Чувствую, что ненавистное присутствие исчезает.")
 
 /datum/brain_trauma/magic/poltergeist/on_life(delta_time, times_fired)
 	..()
@@ -56,8 +56,8 @@
 	name = "Athaumasia"
 	desc = "Пациент совершенно инертен к магическим силам."
 	scan_desc = "таумически-пуст"
-	gain_text = "<span class='notice'>Понимаю, что магия не может быть реальной.</span>"
-	lose_text = "<span class='notice'>Понимаю, что магия может быть реальной.</span>"
+	gain_text = span_notice("Понимаю, что магия не может быть реальной.")
+	lose_text = span_notice("Понимаю, что магия может быть реальной.")
 
 /datum/brain_trauma/magic/antimagic/on_gain()
 	ADD_TRAIT(owner, TRAIT_ANTIMAGIC, TRAUMA_TRAIT)
@@ -71,8 +71,8 @@
 	name = "Преследующий призрак"
 	desc = "Пациент преследуется фантомом, который видит только он."
 	scan_desc = "экстрасенсорная паранойя"
-	gain_text = "<span class='warning'>Чувствую, что что-то хочет меня убить...</span>"
-	lose_text = "<span class='notice'>Больше не чувствую глаза на спине.</span>"
+	gain_text = span_warning("Чувствую, что что-то хочет меня убить...")
+	lose_text = span_notice("Больше не чувствую глаза на спине.")
 	var/obj/effect/hallucination/simple/stalker_phantom/stalker
 	var/close_stalker = FALSE //For heartbeat
 
@@ -100,7 +100,7 @@
 
 	if(get_dist(owner, stalker) <= 1)
 		playsound(owner, 'sound/magic/demon_attack1.ogg', 50)
-		owner.visible_message("<span class='warning'>[owner] разрывают невидимые когти!</span>", "<span class='userdanger'>Призрачные когти разрывают моё тело на части!</span>")
+		owner.visible_message(span_warning("[owner] разрывают невидимые когти!") , span_userdanger("Призрачные когти разрывают моё тело на части!") )
 		owner.take_bodypart_damage(rand(20, 45), wound_bonus=CANT_WOUND)
 	else if(DT_PROB(30, delta_time))
 		stalker.forceMove(get_step_towards(stalker, owner))

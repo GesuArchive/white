@@ -62,20 +62,20 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 /obj/machinery/deepfryer/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/reagent_containers/pill))
 		if(!reagents.total_volume)
-			to_chat(user, "<span class='warning'>В [I] нечего растворить!</span>")
+			to_chat(user, span_warning("В [I] нечего растворить!") )
 			return
-		user.visible_message("<span class='notice'>[user] бросает [I] в [src].</span>", "<span class='notice'>Растворяю [I] в [src].</span>")
+		user.visible_message(span_notice("[user] бросает [I] в [src].") , span_notice("Растворяю [I] в [src].") )
 		I.reagents.trans_to(src, I.reagents.total_volume, transfered_by = user)
 		qdel(I)
 		return
 	if(!reagents.has_reagent(/datum/reagent/consumable/cooking_oil))
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] больше не имеет масла в себе!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] больше не имеет масла в себе!") )
 		return
 	if(I.resistance_flags & INDESTRUCTIBLE)
-		to_chat(user, "<span class='warning'>Будет неразумно попытаться зажарить [I]...</span>")
+		to_chat(user, span_warning("Будет неразумно попытаться зажарить [I]...") )
 		return
 	if(istype(I, /obj/item/food/deepfryholder))
-		to_chat(user, "<span class='userdanger'>Мои кулинарные навыки не дотягивают до легендарной техники двойной прожарки</span>")
+		to_chat(user, span_userdanger("Мои кулинарные навыки не дотягивают до легендарной техники двойной прожарки") )
 		return
 	if(default_unfasten_wrench(user, I))
 		return
@@ -85,7 +85,7 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 		if(is_type_in_typecache(I, deepfry_blacklisted_items) || is_type_in_typecache(I, GLOB.oilfry_blacklisted_items) || HAS_TRAIT(I, TRAIT_NODROP) || (I.item_flags & (ABSTRACT | DROPDEL)))
 			return ..()
 		else if(!frying && user.transferItemToLoc(I, src))
-			to_chat(user, "<span class='notice'>Бросаю [I] в [src].</span>")
+			to_chat(user, span_notice("Бросаю [I] в [src].") )
 			frying = new/obj/item/food/deepfryholder(src, I)
 			icon_state = "fryer_on"
 			fry_loop.start()
@@ -102,10 +102,10 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 		if(cook_time >= DEEPFRYER_COOKTIME && !frying_fried)
 			frying_fried = TRUE //frying... frying... fried
 			playsound(src.loc, 'sound/machines/ding.ogg', 50, TRUE)
-			audible_message("<span class='notice'>[capitalize(src.name)] дзынькает!</span>")
+			audible_message(span_notice("[capitalize(src.name)] дзынькает!") )
 		else if (cook_time >= DEEPFRYER_BURNTIME && !frying_burnt)
 			frying_burnt = TRUE
-			visible_message("<span class='warning'>[capitalize(src.name)] издает едкий запах!</span>")
+			visible_message(span_warning("[capitalize(src.name)] издает едкий запах!") )
 
 
 /obj/machinery/deepfryer/attack_ai(mob/user)
@@ -114,7 +114,7 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 /obj/machinery/deepfryer/attack_hand(mob/user)
 	if(frying)
 		if(frying.loc == src)
-			to_chat(user, "<span class='notice'>Извлекаю [frying] из [src].</span>")
+			to_chat(user, span_notice("Извлекаю [frying] из [src].") )
 			frying.fry(cook_time)
 			icon_state = "fryer_off"
 			frying.forceMove(drop_location())
@@ -128,10 +128,10 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 			return
 	else if(user.pulling && user.a_intent == "grab" && iscarbon(user.pulling) && reagents.total_volume)
 		if(user.grab_state < GRAB_AGGRESSIVE)
-			to_chat(user, "<span class='warning'>Потребуется более сильный захват для этого!</span>")
+			to_chat(user, span_warning("Потребуется более сильный захват для этого!") )
 			return
 		var/mob/living/carbon/C = user.pulling
-		user.visible_message("<span class='danger'>[user] окунает личико [C] в [src]!</span>")
+		user.visible_message(span_danger("[user] окунает личико [C] в [src]!") )
 		reagents.expose(C, TOUCH)
 		var/permeability = 1 - C.get_permeability_protection(list(HEAD))
 		C.apply_damage(min(30 * permeability, reagents.total_volume), BURN, BODY_ZONE_HEAD)

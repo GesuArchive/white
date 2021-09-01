@@ -30,7 +30,7 @@
 	if(can_interact(user))
 		target_temperature = max_temperature
 		investigate_log("was set to [target_temperature] K by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>Выставляю температуру в [src] на [target_temperature] К.</span>")
+		to_chat(user, span_notice("Выставляю температуру в [src] на [target_temperature] К.") )
 		update_icon()
 	return ..()
 
@@ -115,7 +115,7 @@
 /obj/machinery/atmospherics/components/binary/temperature_gate/can_unwrench(mob/user)
 	. = ..()
 	if(. && on && is_operational)
-		to_chat(user, "<span class='warning'>Не могу открутить [src.name], сначала нужно выключить это!</span>")
+		to_chat(user, span_warning("Не могу открутить [src.name], сначала нужно выключить это!") )
 		return FALSE
 
 /obj/machinery/atmospherics/components/binary/temperature_gate/multitool_act(mob/living/user, obj/item/multitool/I)
@@ -123,7 +123,7 @@
 	if (istype(I))
 		inverted = !inverted
 		if(inverted)
-			to_chat(user, "<span class='notice'>Ставлю сенсоры [src] так, что они будут пропускать газы только если температура выше чем выставленная.</span>")
+			to_chat(user, span_notice("Ставлю сенсоры [src] так, что они будут пропускать газы только если температура выше чем выставленная.") )
 		else
-			to_chat(user, "<span class='notice'>Выставляю сенсоры [src] на стандартные настройки.</span>")
+			to_chat(user, span_notice("Выставляю сенсоры [src] на стандартные настройки.") )
 	return TRUE

@@ -52,12 +52,12 @@ Arrow&bow
 		if(syringes.len < max_syringes)
 			if(!user.transferItemToLoc(A, src))
 				return FALSE
-			to_chat(user, "<span class='notice'>You load [A] into <b>[src.name]</b>.</span>")
+			to_chat(user, span_notice("You load [A] into <b>[src.name]</b>.") )
 			syringes += A
 			recharge_newshot()
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] cannot hold more syringes!</span>")
+			to_chat(user, span_warning("[capitalize(src.name)] cannot hold more syringes!") )
 	return FALSE
 
 /datum/crafting_recipe/bow_h

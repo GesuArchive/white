@@ -91,7 +91,7 @@
 	. = ..()
 
 /datum/antagonist/vassal/greet()
-	to_chat(owner, "<span class='userdanger'>You are now the mortal servant of [master.owner.current], a bloodsucking vampire!</span>")
+	to_chat(owner, span_userdanger("You are now the mortal servant of [master.owner.current], a bloodsucking vampire!") )
 	to_chat(owner, "<span class='boldannounce'>The power of [master.owner.current.ru_ego()] immortal blood compells you to obey [master.owner.current.ru_na()] in all things, even offering your own life to prolong theirs.<br>\
 			You are not required to obey any other Bloodsucker, for only [master.owner.current] is your master. The laws of Nanotransen do not apply to you now; only your vampiric master's word must be obeyed.<span>")
 	// Effects...
@@ -100,17 +100,17 @@
 	antag_memory += "You became the mortal servant of <b>[master.owner.current]</b>, a bloodsucking vampire!<br>"
 
 	// And to your new Master...
-	to_chat(master.owner, "<span class='userdanger'>[owner.current] has become addicted to your immortal blood. [owner.current.ru_who(TRUE)] [owner.current.p_are()] now your undying servant!</span>")
+	to_chat(master.owner, span_userdanger("[owner.current] has become addicted to your immortal blood. [owner.current.ru_who(TRUE)] [owner.current.p_are()] now your undying servant!") )
 	master.owner.current.playsound_local(null, 'sound/magic/mutate.ogg', 100, FALSE, pressure_affected = FALSE)
 
 /datum/antagonist/vassal/farewell()
 	owner.current.visible_message("[owner.current] eyes dart feverishly from side to side, and then stop. [owner.current.ru_who(TRUE)] seem[owner.current.p_s()] calm, \
 			like [owner.current.ru_who()] [owner.current.p_have()] regained some lost part of [owner.current.ru_na()]self.",\
-			"<span class='userdanger'><FONT size = 3>With a snap, you are no longer enslaved to [master.owner]! You breathe in heavily, having regained your free will.</FONT></span>")
+			span_userdanger("<FONT size = 3>With a snap, you are no longer enslaved to [master.owner]! You breathe in heavily, having regained your free will.</FONT>") )
 	owner.current.playsound_local(null, 'sound/magic/mutate.ogg', 100, FALSE, pressure_affected = FALSE)
 	// And to your former Master...
 	//if (master && master.owner)
-	//	to_chat(master.owner, "<span class='userdanger'>You feel the bond with your vassal [owner.current] has somehow been broken!</span>")
+	//	to_chat(master.owner, span_userdanger("You feel the bond with your vassal [owner.current] has somehow been broken!") )
 
 
 

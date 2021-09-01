@@ -128,9 +128,9 @@
 					// This program shouldn't even be runnable without computer.
 					CRASH("Var computer is null!")
 				if(!hard_drive)
-					computer.visible_message("<span class='warning'>[computer] отображает предупреждение\"I/O Ошибка: ошибка подключения жёсткого диска\"</span>")
+					computer.visible_message(span_warning("[computer] отображает предупреждение\"I/O Ошибка: ошибка подключения жёсткого диска\"") )
 				else	// In 99.9% cases this will mean our HDD is full
-					computer.visible_message("<span class='warning'>[computer] отображает предупреждение \"I/O Ошибка: жёсткий диск может быть заполнен. Освободите место и попробуйте еще раз. Требуемое пространство: [logfile.size]GQ\".</span>")
+					computer.visible_message(span_warning("[computer] отображает предупреждение \"I/O Ошибка: жёсткий диск может быть заполнен. Освободите место и попробуйте еще раз. Требуемое пространство: [logfile.size]GQ\".") )
 			return TRUE
 		if("PRG_renamechannel")
 			if(!authed)

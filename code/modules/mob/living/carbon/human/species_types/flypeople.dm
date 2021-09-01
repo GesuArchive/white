@@ -77,8 +77,8 @@
 		// we do not loss any nutrition as a fly when vomiting out food
 		body.vomit(0, FALSE, FALSE, 2, TRUE, force=TRUE, purge_ratio = 0.67)
 		playsound(get_turf(owner), 'sound/effects/splat.ogg', 50, TRUE)
-		body.visible_message("<span class='danger'>[body] блюёт на пол!</span>", \
-					"<span class='userdanger'>блюю на пол!</span>")
+		body.visible_message(span_danger("[body] блюёт на пол!") , \
+					span_userdanger("блюю на пол!") )
 	return ..()
 
 /obj/item/organ/appendix/fly

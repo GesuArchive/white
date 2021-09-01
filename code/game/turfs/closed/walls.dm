@@ -60,7 +60,7 @@
 	. += deconstruction_hints(user)
 
 /turf/closed/wall/proc/deconstruction_hints(mob/user)
-	return "<span class='notice'>Внешняя обшивка крепко <b>приварена</b>.</span>"
+	return span_notice("Внешняя обшивка крепко <b>приварена</b>.")
 
 /turf/closed/wall/attack_tk()
 	return
@@ -149,9 +149,9 @@
 	else
 		playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
 		add_dent(WALL_DENT_HIT)
-		user.visible_message("<span class='danger'>[user] бьёт [src]!</span>", \
-					"<span class='danger'>Бью [src]!</span>", \
-					"<span class='hear'>Слышу громкий удар по стене!</span>")
+		user.visible_message(span_danger("[user] бьёт [src]!") , \
+					span_danger("Бью [src]!") , \
+					span_hear("Слышу громкий удар по стене!") )
 	return TRUE
 
 /**
@@ -183,7 +183,7 @@
 	add_fingerprint(user)
 	if(isopenspace(turf_one))
 		if(locate(/obj/structure/lattice) in turf_one)
-			to_chat(user, "<span class='notice'>Решётка над головой не даёт пройти</span>")
+			to_chat(user, span_notice("Решётка над головой не даёт пройти") )
 			return
 		if(do_after(user, 3 SECONDS, target = src))
 			if(isopenturf(turf_two))
@@ -198,11 +198,11 @@
 							var/mob/living/carbon/human/H = user
 							H.adjustStaminaLoss(60)
 							H.set_resting(TRUE)
-					to_chat(user, "<span class='notice'>Взбираюсь по стене наверх...</span>")
+					to_chat(user, span_notice("Взбираюсь по стене наверх...") )
 					return
 			user.movement_type |= FLYING
 			user.forceMove(turf_one)
-			to_chat(user, "<span class='notice'>Взбираюсь по стене наверх осторожно...</span>")
+			to_chat(user, span_notice("Взбираюсь по стене наверх осторожно...") )
 			var/time_to_fall = 1 SECONDS
 			if(!HAS_TRAIT(user, TRAIT_FREERUNNING))
 				if(ishuman(user))
@@ -213,7 +213,7 @@
 			spawn(time_to_fall)
 				user.movement_type &= ~FLYING
 	else
-		to_chat(user, "<span class='notice'>Толкаю стену, но ничего не происходит!</span>")
+		to_chat(user, span_notice("Толкаю стену, но ничего не происходит!") )
 
 /turf/closed/wall/attackby(obj/item/W, mob/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
@@ -222,7 +222,7 @@
 		return
 
 	if (!ISADVANCEDTOOLUSER(user))
-		to_chat(user, "<span class='warning'>У меня не хватает ловкости, чтобы сделать это!</span>")
+		to_chat(user, span_warning("У меня не хватает ловкости, чтобы сделать это!") )
 		return
 
 	//get the user's location
@@ -264,10 +264,10 @@
 		if(!W.tool_start_check(user, amount=0))
 			return FALSE
 
-		to_chat(user, "<span class='notice'>Начинаю чинить стену...</span>")
+		to_chat(user, span_notice("Начинаю чинить стену...") )
 		if(W.use_tool(src, user, 0, volume=100))
 			if(iswallturf(src) && LAZYLEN(dent_decals))
-				to_chat(user, "<span class='notice'>Стена починена.</span>")
+				to_chat(user, span_notice("Стена починена.") )
 				cut_overlay(dent_decals)
 				dent_decals.Cut()
 			return TRUE
@@ -298,10 +298,10 @@
 		if(!I.tool_start_check(user, amount=0))
 			return FALSE
 
-		to_chat(user, "<span class='notice'>Начинаю разваривать стену...</span>")
+		to_chat(user, span_notice("Начинаю разваривать стену...") )
 		if(I.use_tool(src, user, slicing_duration, volume=100))
 			if(iswallturf(src))
-				to_chat(user, "<span class='notice'>После недолгого ожидания удалось снять верхнюю обшивку.</span>")
+				to_chat(user, span_notice("После недолгого ожидания удалось снять верхнюю обшивку.") )
 				dismantle_wall()
 			return TRUE
 
@@ -345,7 +345,7 @@
 /turf/closed/wall/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_DECONSTRUCT)
-			to_chat(user, "<span class='notice'>Разбираю стену.</span>")
+			to_chat(user, span_notice("Разбираю стену.") )
 			ScrapeAway()
 			return TRUE
 	return FALSE

@@ -71,7 +71,7 @@
 
 /datum/protector_effect/hierophant_chasers/trigger(obj/source, turf/T, atom/movable/target)
 	playsound(T,'sound/machines/airlockopen.ogg', 200, 1)
-	source.visible_message("<span class='hierophant'>\"Mx gerrsx lmhi.\"</span>")
+	source.visible_message(span_hierophant("\"Mx gerrsx lmhi.\"") )
 	var/obj/effect/temp_visual/hierophant/chaser/C = new(T, source, target, 3, FALSE)
 	C.moving = 3
 	C.moving_dir = pick(GLOB.cardinals)
@@ -79,17 +79,17 @@
 
 /datum/protector_effect/hierophant_burst/trigger(obj/source, turf/T, atom/movable/target)
 	playsound(T,'sound/machines/airlockopen.ogg', 200, 1)
-	source.visible_message("<span class='hierophant'>\"Irkekmrk hijirwmzi tvsxsgspw.\"</span>")
+	source.visible_message(span_hierophant("\"Irkekmrk hijirwmzi tvsxsgspw.\"") )
 	hierophant_burst(null, get_turf(target), 4)
 
 /datum/protector_effect/hierophant_burst_self/trigger(obj/source, turf/T, atom/movable/target)
 	playsound(T,'sound/machines/airlockopen.ogg', 200, 1)
-	source.visible_message("<span class='hierophant'>\"Yrorsar irxmxc hixigxih.\"</span>")
+	source.visible_message(span_hierophant("\"Yrorsar irxmxc hixigxih.\"") )
 	hierophant_burst(null, T, 7)
 
 /datum/protector_effect/emp_stun/trigger(obj/source, turf/T, atom/movable/target)
 	playsound(T,'sound/machines/airlockopen.ogg', 200, 1)
-	T.visible_message("<span class='hierophant'>\"Svhivw vigmizih.\"</span>")
+	T.visible_message(span_hierophant("\"Svhivw vigmizih.\"") )
 	empulse(T, 2, 6)
 	if(isliving(target))
 		var/mob/living/L = target

@@ -66,10 +66,10 @@ That's it, ok bye!
 
 /obj/machinery/lazylift_button/attack_hand(mob/user)
 	if (machine_stat & NOPOWER || !lift)
-		to_chat(user, "<span class='warning'>Ничего не происходит...</span>")
+		to_chat(user, span_warning("Ничего не происходит...") )
 		return
 	if(isliving(user) && user.mouse_opacity) //Don't display things like AIs or admin ghosts clicking the button.
-		visible_message("<span class='notice'>[user] [pick("спокойно нажимает на", "давит на", "тыкает по", "шлёпает по", "ударяет")] [src] </span>", "<span class='notice'>Жму [src.name].</span>")
+		visible_message(span_notice("[user] [pick("спокойно нажимает на", "давит на", "тыкает по", "шлёпает по", "ударяет")] [src] ") , span_notice("Жму [src.name].") )
 	flick("button_lit", src)
 	lift.master.path_to(lift.deck, lift.master.platform_location.deck)
 
@@ -283,7 +283,7 @@ That's it, ok bye!
 	req_access = list()
 	obj_flags |= EMAGGED
 	turbolift_delay = 1 SECONDS //NYOOOOOM
-	to_chat(user, "<span class='notice'>You fry [src] safety overrides, de-limiting its speed control circuits, button control priviledges and disabling its ability to avoid crushing people at the bottom of the shaft.</span>")
+	to_chat(user, span_notice("You fry [src] safety overrides, de-limiting its speed control circuits, button control priviledges and disabling its ability to avoid crushing people at the bottom of the shaft.") )
 */
 
 //Method to generate a path to a specific deck. If we're on deck 1, and want to reach deck 3, we have to go via deck 2 first.

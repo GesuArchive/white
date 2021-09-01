@@ -29,7 +29,7 @@
 		// Heal
 		if (HandleHealing(1))
 			if (notice_healing == FALSE && owner.current.blood_volume > 0)
-				to_chat(owner, "<span class='notice'>The power of your blood begins knitting your wounds...</span>")
+				to_chat(owner, span_notice("The power of your blood begins knitting your wounds...") )
 				notice_healing = TRUE
 		else if (notice_healing == TRUE)
 			notice_healing = FALSE
@@ -233,7 +233,7 @@
 					var/obj/item/bodypart/L = owner.current.get_bodypart( targetLimbZone )
 					AddBloodVolume(20 * costMult)	// Costs blood to heal
 					L.brute_dam = 60
-					to_chat(owner.current, "<span class='notice'>Your flesh knits as it regrows [L]!</span>")
+					to_chat(owner.current, span_notice("Your flesh knits as it regrows [L]!") )
 					playsound(owner.current, 'sound/magic/demon_consume.ogg', 50, 1)
 
 
@@ -345,9 +345,9 @@
 	// Died? Convert to Torpor (fake death)
 	if (owner.current.stat >= DEAD)
 		Torpor_Begin()
-		to_chat(owner, "<span class='danger'>Your immortal body will not yet relinquish your soul to the abyss. You enter Torpor.</span>")
+		to_chat(owner, span_danger("Your immortal body will not yet relinquish your soul to the abyss. You enter Torpor.") )
 		if (poweron_masquerade == TRUE)
-			to_chat(owner, "<span class='warning'>Your wounds will not heal until you disable the <span class='boldnotice'>Masquerade</span> power.</span>")
+			to_chat(owner, span_warning("Your wounds will not heal until you disable the <span class='boldnotice'>Masquerade</span> power.") )
 	// End Torpor:
 	else	// No damage, OR brute healed and NOT in coffin (since you cannot heal burn)
 		if (total_damage <= 0 || total_brute <= 0 && !istype(owner.current.loc, /obj/structure/closet/crate/coffin))
@@ -385,7 +385,7 @@
 	REMOVE_TRAIT(owner.current, TRAIT_NODEATH, "bloodsucker")
 	REMOVE_TRAIT(owner.current, TRAIT_RESISTHIGHPRESSURE, "bloodsucker")	// So you can heal in 0 G. otherwise you just...heal forever.
 	REMOVE_TRAIT(owner.current, TRAIT_RESISTLOWPRESSURE, "bloodsucker")	// So you can heal in 0 G. otherwise you just...heal forever.
-	to_chat(owner, "<span class='warning'>You have recovered from Torpor.</span>")
+	to_chat(owner, span_warning("You have recovered from Torpor.") )
 
 
 
@@ -416,15 +416,15 @@
 
 	// Elders get Dusted
 	if (vamplevel >= 4) // (vamptitle)
-		owner.current.visible_message("<span class='warning'>[owner.current] skin crackles and dries, their skin and bones withering to dust. A hollow cry whips from what is now a sandy pile of remains.</span>", \
-			 "<span class='userdanger'>Your soul escapes your withering body as the abyss welcomes you to your Final Death.</span>", \
-			 "<span class='italics'>You hear a dry, crackling sound.</span>")
+		owner.current.visible_message(span_warning("[owner.current] skin crackles and dries, their skin and bones withering to dust. A hollow cry whips from what is now a sandy pile of remains.") , \
+			 span_userdanger("Your soul escapes your withering body as the abyss welcomes you to your Final Death.") , \
+			 span_italics("You hear a dry, crackling sound.") )
 		owner.current.dust()
 	// Fledglings get Gibbed
 	else
-		owner.current.visible_message("<span class='warning'>[owner.current] skin bursts forth in a spray of gore and detritus. A horrible cry echoes from what is now a wet pile of decaying meat.</span>", \
-			 "<span class='userdanger'>Your soul escapes your withering body as the abyss welcomes you to your Final Death.</span>", \
-			 "<span class='italics'>You hear a wet, bursting sound.</span>")
+		owner.current.visible_message(span_warning("[owner.current] skin bursts forth in a spray of gore and detritus. A horrible cry echoes from what is now a wet pile of decaying meat.") , \
+			 span_userdanger("Your soul escapes your withering body as the abyss welcomes you to your Final Death.") , \
+			 span_italics("You hear a wet, bursting sound.") )
 		owner.current.gib()
 	playsound(owner.current.loc, 'sound/effects/tendril_destroyed.ogg', 40, 1)
 
@@ -463,7 +463,7 @@
 		return
 	// Haven't eaten, but I'm in a Human Disguise.
 	else if (poweron_masquerade)
-		to_chat(C, "<span class='notice'>Your stomach turns, but your \"human disguise\" keeps the food down...for now.</span>")
+		to_chat(C, span_notice("Your stomach turns, but your \"human disguise\" keeps the food down...for now.") )
 
 
 	// Keep looping until we purge. If we have activated our Human Disguise, we ignore the food. But it'll come up eventually...
@@ -483,20 +483,20 @@
 		// Put up disguise? Then hold off the vomit.
 		if (poweron_masquerade)
 			if (sickphase > 0)
-				to_chat(C, "<span class='notice'>Your stomach settles temporarily. You regain your composure...for now.</span>")
+				to_chat(C, span_notice("Your stomach settles temporarily. You regain your composure...for now.") )
 			sickphase = 0
 			continue
 
 		switch(sickphase)
 			if (1)
-				to_chat(C, "<span class='warning'>You feel unwell. You can taste ash on your tongue.</span>")
+				to_chat(C, span_warning("You feel unwell. You can taste ash on your tongue.") )
 				C.Immobilize(10)
 			if (2)
-				to_chat(C, "<span class='warning'>Your stomach turns. Whatever you ate tastes of grave dirt and brimstone.</span>")
+				to_chat(C, span_warning("Your stomach turns. Whatever you ate tastes of grave dirt and brimstone.") )
 				//C.Dizzy(15)
 				C.Immobilize(20)
 			if (3)
-				to_chat(C, "<span class='warning'>You purge the food of the living from your viscera! You've never felt worse.</span>")
+				to_chat(C, span_warning("You purge the food of the living from your viscera! You've never felt worse.") )
 				C.vomit(foodInGut * 4, foodInGut * 2, 0)  // (var/lost_nutrition = 10, var/blood = 0, var/stun = 1, var/distance = 0, var/message = 1, var/toxic = 0)
 				C.blood_volume = max(0, C.blood_volume - foodInGut * 2)
 				C.Stun(30)

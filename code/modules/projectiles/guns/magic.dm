@@ -28,13 +28,13 @@
 		var/area/A = get_area(user)
 		if(istype(A, /area/wizard_station))
 			add_fingerprint(user)
-			to_chat(user, "<span class='warning'>Чем нарушать безопасность логова, лучше стоит остановиться. [capitalize(src.name)] ещё пригодится, но не здесь.</span>")
+			to_chat(user, span_warning("Чем нарушать безопасность логова, лучше стоит остановиться. [capitalize(src.name)] ещё пригодится, но не здесь.") )
 			return
 		else
 			no_den_usage = 0
 	if(checks_antimagic && user.anti_magic_check(TRUE, FALSE, FALSE, 0, TRUE))
 		add_fingerprint(user)
-		to_chat(user, "<span class='warning'>Что-то мешает [src.name].</span>")
+		to_chat(user, span_warning("Что-то мешает [src.name].") )
 		return
 	. = ..()
 
@@ -79,10 +79,10 @@
 
 
 /obj/item/gun/magic/shoot_with_empty_chamber(mob/living/user as mob|obj)
-	to_chat(user, "<span class='warning'><b>[name]</b> тихо свистит.</span>")
+	to_chat(user, span_warning("<b>[name]</b> тихо свистит.") )
 
 /obj/item/gun/magic/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is twisting [src] above [user.ru_ego()] head, releasing a magical blast! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] is twisting [src] above [user.ru_ego()] head, releasing a magical blast! It looks like [user.p_theyre()] trying to commit suicide!") )
 	playsound(loc, fire_sound, 50, TRUE, -1)
 	return (FIRELOSS)
 

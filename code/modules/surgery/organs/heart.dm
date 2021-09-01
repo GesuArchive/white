@@ -8,10 +8,10 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = 2.5 * STANDARD_ORGAN_DECAY		//designed to fail around 6 minutes after death
 
-	low_threshold_passed = "<span class='info'>Колющая боль появляется и исчезает в груди...</span>"
-	high_threshold_passed = "<span class='warning'>Что-то в груди болит, и боль не утихает. Ох, я дышу намного быстрее, чем раньше.</span>"
-	now_fixed = "<span class='info'>Сердце снова начинает биться.</span>"
-	high_threshold_cleared = "<span class='info'>Боль в груди утихла и дыхание стало более расслабленным.</span>"
+	low_threshold_passed = span_info("Колющая боль появляется и исчезает в груди...")
+	high_threshold_passed = span_warning("Что-то в груди болит, и боль не утихает. Ох, я дышу намного быстрее, чем раньше.")
+	now_fixed = span_info("Сердце снова начинает биться.")
+	high_threshold_cleared = span_info("Боль в груди утихла и дыхание стало более расслабленным.")
 
 	// Heart attack code is in code/modules/mob/living/carbon/human/life.dm
 	var/beating = 1
@@ -40,7 +40,7 @@
 /obj/item/organ/heart/attack_self(mob/user)
 	..()
 	if(!beating)
-		user.visible_message("<span class='notice'>[user] сдавливает [src.name] заставляя его биться снова!</span>","<span class='notice'>Сдавливаю [src.name] заставляя его биться снова!</span>")
+		user.visible_message(span_notice("[user] сдавливает [src.name] заставляя его биться снова!") ,span_notice("Сдавливаю [src.name] заставляя его биться снова!") )
 		Restart()
 		addtimer(CALLBACK(src, .proc/stop_if_unowned), 80)
 
@@ -76,7 +76,7 @@
 		if(H.health <= H.crit_threshold && beat != BEAT_SLOW)
 			beat = BEAT_SLOW
 			H.playsound_local(get_turf(H), slowbeat, 40, 0, channel = CHANNEL_HEARTBEAT, use_reverb = FALSE)
-			to_chat(owner, "<span class='notice'>Моё сердце замедляется...</span>")
+			to_chat(owner, span_notice("Моё сердце замедляется...") )
 		if(beat == BEAT_SLOW && H.health > H.crit_threshold)
 			H.stop_sound_channel(CHANNEL_HEARTBEAT)
 			beat = BEAT_NONE
@@ -91,8 +91,8 @@
 
 	if(organ_flags & ORGAN_FAILING)	//heart broke, stopped beating, death imminent
 		if(owner.stat == CONSCIOUS)
-			owner.visible_message("<span class='danger'>[owner] хватается за [owner.ru_ego()] грудь в порыве сердечного приступа!</span>", \
-				"<span class='userdanger'>Чувствую ужасную боль в груди, как будто остановилось сердце!</span>")
+			owner.visible_message(span_danger("[owner] хватается за [owner.ru_ego()] грудь в порыве сердечного приступа!") , \
+				span_userdanger("Чувствую ужасную боль в груди, как будто остановилось сердце!") )
 		owner.set_heartattack(TRUE)
 		failed = TRUE
 
@@ -131,7 +131,7 @@
 			var/mob/living/carbon/human/H = owner
 			if(H.dna && !(NOBLOOD in H.dna.species.species_traits))
 				H.blood_volume = max(H.blood_volume - blood_loss, 0)
-				to_chat(H, "<span class='userdanger'>Нужно продолжать качать кровь!</span>")
+				to_chat(H, span_userdanger("Нужно продолжать качать кровь!") )
 				if(add_colour)
 					H.add_client_colour(/datum/client_colour/cursed_heart_blood) //bloody screen so real
 					add_colour = FALSE
@@ -141,7 +141,7 @@
 /obj/item/organ/heart/cursed/Insert(mob/living/carbon/M, special = 0)
 	..()
 	if(owner)
-		to_chat(owner, "<span class='userdanger'>Моё сердце заменено на проклятое, мне придется прокачивать его вручную, иначе я умру!</span>")
+		to_chat(owner, span_userdanger("Моё сердце заменено на проклятое, мне придется прокачивать его вручную, иначе я умру!") )
 
 /obj/item/organ/heart/cursed/Remove(mob/living/carbon/M, special = 0)
 	..()
@@ -157,12 +157,12 @@
 		var/obj/item/organ/heart/cursed/cursed_heart = target
 
 		if(world.time < (cursed_heart.last_pump + (cursed_heart.pump_delay-10))) //no spam
-			to_chat(owner, "<span class='userdanger'>Слишком поздно!</span>")
+			to_chat(owner, span_userdanger("Слишком поздно!") )
 			return
 
 		cursed_heart.last_pump = world.time
 		playsound(owner,'sound/effects/singlebeat.ogg', 40, TRUE)
-		to_chat(owner, "<span class='notice'>Сердце бьётся.</span>")
+		to_chat(owner, span_notice("Сердце бьётся.") )
 
 		var/mob/living/carbon/human/H = owner
 		if(istype(H))
@@ -223,8 +223,8 @@
 	if(prob(emp_vulnerability/severity)) //Chance of permanent effects
 		organ_flags |= ORGAN_SYNTHETIC_EMP //Starts organ faliure - gonna need replacing soon.
 		Stop()
-		owner.visible_message("<span class='danger'>[owner] хватается за [owner.ru_ego()] грудь в порыве сердечного приступа!</span>", \
-			"<span class='userdanger'>Чувствую ужасную боль в груди, как будто остановилось сердце!</span>")
+		owner.visible_message(span_danger("[owner] хватается за [owner.ru_ego()] грудь в порыве сердечного приступа!") , \
+			span_userdanger("Чувствую ужасную боль в груди, как будто остановилось сердце!") )
 		addtimer(CALLBACK(src, .proc/Restart), 10 SECONDS)
 
 /obj/item/organ/heart/cybernetic/on_life(delta_time, times_fired)
@@ -251,7 +251,7 @@
 	. = ..()
 	if(owner.health < 5 && COOLDOWN_FINISHED(src, adrenaline_cooldown))
 		COOLDOWN_START(src, adrenaline_cooldown, rand(25 SECONDS, 1 MINUTES))
-		to_chat(owner, "<span class='userdanger'>Отказываюсь сдаваться!</span>")
+		to_chat(owner, span_userdanger("Отказываюсь сдаваться!") )
 		owner.heal_overall_damage(15, 15, 0, BODYPART_ORGANIC)
 		if(owner.reagents.get_reagent_amount(/datum/reagent/medicine/ephedrine) < 20)
 			owner.reagents.add_reagent(/datum/reagent/medicine/ephedrine, 10)
@@ -335,8 +335,8 @@
 	if(!COOLDOWN_FINISHED(src, crystalize_cooldown))
 		return //lol double rip
 
-	to_chat(victim, "<span class='nicegreen'>Crystals start forming around your dead body.</span>")
-	victim.visible_message("<span class='notice'>Crystals start forming around [victim].</span>")
+	to_chat(victim, span_nicegreen("Crystals start forming around your dead body.") )
+	victim.visible_message(span_notice("Crystals start forming around [victim].") )
 	ADD_TRAIT(victim, TRAIT_CORPSELOCKED, SPECIES_TRAIT)
 
 	crystalize_timer_id = addtimer(CALLBACK(src, .proc/crystalize, victim), CRYSTALIZE_PRE_WAIT_TIME, TIMER_STOPPABLE)
@@ -347,8 +347,8 @@
 ///Ran when disarmed, prevents the ethereal from reviving
 /obj/item/organ/heart/ethereal/proc/reset_crystalizing(mob/living/defender, mob/living/attacker, zone)
 	SIGNAL_HANDLER
-	to_chat(defender, "<span class='notice'>The crystals on your corpse are gently broken off, and will need some time to recover.</span>")
-	defender.visible_message("<span class='notice'>The crystals on [defender] are gently broken off.</span>")
+	to_chat(defender, span_notice("The crystals on your corpse are gently broken off, and will need some time to recover.") )
+	defender.visible_message(span_notice("The crystals on [defender] are gently broken off.") )
 	deltimer(crystalize_timer_id)
 	crystalize_timer_id = addtimer(CALLBACK(src, .proc/crystalize, defender), CRYSTALIZE_DISARM_WAIT_TIME, TIMER_STOPPABLE) //Lets us restart the timer on disarm
 
@@ -395,8 +395,8 @@
 
 	var/mob/living/carbon/human/ethereal = source
 
-	to_chat(ethereal, "<span class='userwarning'>The crystals on your body have completely broken</span>")
-	ethereal.visible_message("<span class='notice'>The crystals on [ethereal] are completely shattered and stopped growing</span>")
+	to_chat(ethereal, span_userwarning("The crystals on your body have completely broken") )
+	ethereal.visible_message(span_notice("The crystals on [ethereal] are completely shattered and stopped growing") )
 
 	stop_crystalization_process(ethereal)
 
@@ -420,8 +420,8 @@
 /obj/structure/ethereal_crystal/Initialize(mapload, obj/item/organ/heart/ethereal/ethereal_heart)
 	. = ..()
 	src.ethereal_heart = ethereal_heart
-	ethereal_heart.owner.visible_message("<span class='notice'>The crystals fully encase [ethereal_heart.owner]!</span>")
-	to_chat(ethereal_heart.owner, "<span class='notice'>You are encased in a huge crystal!</span>")
+	ethereal_heart.owner.visible_message(span_notice("The crystals fully encase [ethereal_heart.owner]!") )
+	to_chat(ethereal_heart.owner, span_notice("You are encased in a huge crystal!") )
 	playsound(get_turf(src), 'sound/effects/ethereal_crystalization.ogg', 50)
 	ethereal_heart.owner.forceMove(src) //put that ethereal in
 	add_atom_colour(ethereal_heart.ethereal_color, FIXED_COLOUR_PRIORITY)
@@ -449,7 +449,7 @@
 	ethereal_heart.owner.forceMove(get_turf(src))
 	REMOVE_TRAIT(ethereal_heart.owner, TRAIT_CORPSELOCKED, SPECIES_TRAIT)
 	deltimer(crystal_heal_timer)
-	visible_message("<span class='notice'>The crystals shatters, causing [ethereal_heart.owner] to fall out</span>")
+	visible_message(span_notice("The crystals shatters, causing [ethereal_heart.owner] to fall out") )
 	return ..()
 
 /obj/structure/ethereal_crystal/update_overlays()
@@ -461,7 +461,7 @@
 
 /obj/structure/ethereal_crystal/proc/heal_ethereal()
 	ethereal_heart.owner.revive(TRUE, FALSE)
-	to_chat(ethereal_heart.owner, "<span class='notice'>You burst out of the crystal with vigour... </span><span class='userdanger'>But at a cost.</span>")
+	to_chat(ethereal_heart.owner, span_notice("You burst out of the crystal with vigour... </span><span class='userdanger'>But at a cost.") )
 	var/datum/brain_trauma/picked_trauma
 	if(prob(10)) //10% chance for a severe trauma
 		picked_trauma = pick(subtypesof(/datum/brain_trauma/severe))

@@ -11,7 +11,7 @@
 
 /obj/item/computer_hardware/printer/diagnostics(mob/living/user)
 	..()
-	to_chat(user, "<span class='notice'>Уровень бумаги: [stored_paper]/[max_paper].</span>")
+	to_chat(user, span_notice("Уровень бумаги: [stored_paper]/[max_paper].") )
 
 /obj/item/computer_hardware/printer/examine(mob/user)
 	. = ..()
@@ -41,12 +41,12 @@
 /obj/item/computer_hardware/printer/try_insert(obj/item/I, mob/living/user = null)
 	if(istype(I, /obj/item/paper))
 		if(stored_paper >= max_paper)
-			to_chat(user, "<span class='warning'>Пытаюсь добавить [I] в [src.name], но буффер бумаги оказывается переполнен!</span>")
+			to_chat(user, span_warning("Пытаюсь добавить [I] в [src.name], но буффер бумаги оказывается переполнен!") )
 			return FALSE
 
 		if(user && !user.temporarilyRemoveItemFromInventory(I))
 			return FALSE
-		to_chat(user, "<span class='notice'>Вставляю [I] в переработчик бумаги [src.name].</span>")
+		to_chat(user, span_notice("Вставляю [I] в переработчик бумаги [src.name].") )
 		qdel(I)
 		stored_paper++
 		return TRUE

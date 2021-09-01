@@ -42,9 +42,9 @@
 			if(WOUND_BURN)
 				occur_text = "часть была сожжена, превращая конечность в пыль"
 
-	var/msg = "<span class='boldwarning'>Последняя кость удерживающая [ru_parse_zone(dismembered_part.name)] <b>[victim]</b> [occur_text]!</span>"
+	var/msg = span_boldwarning("Последняя кость удерживающая [ru_parse_zone(dismembered_part.name)] <b>[victim]</b> [occur_text]!")
 
-	victim.visible_message(msg, "<span class='userdanger'>Моя последняя кость удерживающая [ru_parse_zone(dismembered_part.name)] [occur_text]!</span>")
+	victim.visible_message(msg, span_userdanger("Моя последняя кость удерживающая [ru_parse_zone(dismembered_part.name)] [occur_text]!") )
 
 	set_limb(dismembered_part)
 	second_wind()

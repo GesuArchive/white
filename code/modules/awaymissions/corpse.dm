@@ -44,13 +44,13 @@
 	if(ghost_role == "Нет" || !loc || QDELETED(user))
 		return
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SPAWNER) && !(flags_1 & ADMIN_SPAWNED_1))
-		to_chat(user, "<span class='warning'>Администраторы временно отключили гост-роли</span>")
+		to_chat(user, span_warning("Администраторы временно отключили гост-роли") )
 		return
 	if(!uses)
-		to_chat(user, "<span class='warning'>Заряды кончились!</span>")
+		to_chat(user, span_warning("Заряды кончились!") )
 		return
 	if(is_banned_from(user.key, banType))
-		to_chat(user, "<span class='warning'>А хуй тебе!</span>")
+		to_chat(user, span_warning("А хуй тебе!") )
 		return
 	if(!allow_spawn(user))
 		return

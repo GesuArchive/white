@@ -72,8 +72,8 @@
 	if(going_kaboom)
 		return
 	going_kaboom = TRUE
-	visible_message("<span class='danger'><b>[src.name]</b> lets out a shower of sparks as it starts to lose stability!</span>",\
-		"<span class='hear'>You hear a loud electrical crack!</span>")
+	visible_message(span_danger("<b>[src.name]</b> lets out a shower of sparks as it starts to lose stability!") ,\
+		span_hear("You hear a loud electrical crack!") )
 	playsound(src.loc, 'sound/magic/lightningshock.ogg', 100, TRUE, extrarange = 5)
 	tesla_zap(src, 5, power_gen * 0.05)
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/explosion, get_turf(src), 2, 3, 4, 8), 100) // Not a normal explosion.

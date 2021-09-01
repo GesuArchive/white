@@ -18,7 +18,7 @@
 
 	if(!length(key_emotes))
 		if(intentional)
-			to_chat(src, "<span class='notice'>'[act]' не существует. Напиши <b>*help</b> для вывода списка доступных.</span>")
+			to_chat(src, span_notice("'[act]' не существует. Напиши <b>*help</b> для вывода списка доступных.") )
 		return FALSE
 	var/silenced = FALSE
 	for(var/datum/emote/P in key_emotes)
@@ -30,7 +30,7 @@
 			SEND_SIGNAL(src, COMSIG_MOB_EMOTED(P.key))
 			return TRUE
 	if(intentional && !silenced)
-		to_chat(src, "<span class='notice'>Эмоция '[act]' невозможна. Напиши <b>*help</b> для вывода списка доступных.</span>")
+		to_chat(src, span_notice("Эмоция '[act]' невозможна. Напиши <b>*help</b> для вывода списка доступных.") )
 	return FALSE
 
 /datum/emote/flip
@@ -57,8 +57,8 @@
 		if(prob(90) && !(HAS_TRAIT(user, TRAIT_FREERUNNING)))
 			flippy_mcgee.Knockdown(5 SECONDS)
 			flippy_mcgee.visible_message(
-				"<span class='notice'>[flippy_mcgee] пытается сделать кувырок и падает на голову, во чудила!</span>",
-				"<span class='notice'>Пытаюсь сделать изящный кувырок, но спотыкаюсь и падаю!</span>"
+				span_notice("[flippy_mcgee] пытается сделать кувырок и падает на голову, во чудила!") ,
+				span_notice("Пытаюсь сделать изящный кувырок, но спотыкаюсь и падаю!")
 			)
 			if(prob(75))
 				flippy_mcgee.adjustBruteLoss(5)
@@ -67,8 +67,8 @@
 					neckflip.force_wound_upwards(/datum/wound/blunt/critical)
 		else
 			flippy_mcgee.visible_message(
-				"<span class='notice'>[flippy_mcgee] пытается удержать баланс после прыжка.</span>",
-				"<span class='notice'>Ух...</span>"
+				span_notice("[flippy_mcgee] пытается удержать баланс после прыжка.") ,
+				span_notice("Ух...")
 			)
 
 /datum/emote/spin
@@ -97,7 +97,7 @@
 		user.vomit(BEYBLADE_PUKE_NUTRIENT_LOSS, distance = 0)
 		return
 	if(prob(BEYBLADE_DIZZINESS_PROBABILITY))
-		to_chat(user, "<span class='warning'>You feel woozy from spinning.</span>")
+		to_chat(user, span_warning("You feel woozy from spinning.") )
 		user.Dizzy(BEYBLADE_DIZZINESS_VALUE)
 		if(current_confusion < BEYBLADE_CONFUSION_LIMIT)
 			user.add_confusion(BEYBLADE_CONFUSION_INCREMENT)

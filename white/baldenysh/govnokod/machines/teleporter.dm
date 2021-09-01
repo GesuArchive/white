@@ -51,14 +51,14 @@
 
 /obj/machinery/power/bs_emitter/proc/can_be_rotated(mob/user,rotation_type)
 	if(anchored)
-		to_chat(user, "<span class='warning'>Он прикручен к полу!</span>")
+		to_chat(user, span_warning("Он прикручен к полу!") )
 		return FALSE
 	return TRUE
 
 /obj/machinery/power/bs_emitter/can_be_unfasten_wrench(mob/user, silent)
 	if(active)
 		if(!silent)
-			to_chat(user, "<span class='warning'>Надо бы выключить <b>[src]</b> сначала!</span>")
+			to_chat(user, span_warning("Надо бы выключить <b>[src]</b> сначала!") )
 		return FAILED_UNFASTEN
 	return ..()
 

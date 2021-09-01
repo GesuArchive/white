@@ -245,9 +245,9 @@
 /obj/item/mechcomp/pressurepad/proc/finetune(obj/item/W, mob/user)
 	sensitive = !sensitive
 	if(sensitive)
-		to_chat(user, "<span class='alert'>You tune the [src.name] to be more sensitive, allowing it to sense not just living creatures, but objects passing by.</span>")
+		to_chat(user, span_alert("You tune the [src.name] to be more sensitive, allowing it to sense not just living creatures, but objects passing by.") )
 	else
-		to_chat(user, "<span class='alert'>You tune the [src.name] to be less sensitive, so it can only sense creatures passing by.</span>")
+		to_chat(user, span_alert("You tune the [src.name] to be less sensitive, so it can only sense creatures passing by.") )
 
 /obj/item/mechcomp/delay
 	name = "mechcomp timer"
@@ -272,10 +272,10 @@
 /obj/item/mechcomp/delay/proc/setdelaymanually(obj/item/W, mob/user)
 	var/input = input("Enter new time in deciseconds Current delay is [delay/10]s.", "Delay", null) as num
 	if(!in_range(src, user) || user.stat || isnull(input))
-		to_chat(user, "<span class='notice'>You leave the delay on [src.name] alone.</span>")
+		to_chat(user, span_notice("You leave the delay on [src.name] alone.") )
 		return FALSE
 	delay = clamp(input, 1, 100)
-	to_chat(user, "<span class='notice'>You change the delay on [src.name] to [delay/10] seconds.</span>")
+	to_chat(user, span_notice("You change the delay on [src.name] to [delay/10] seconds.") )
 	return TRUE
 
 
@@ -366,11 +366,11 @@
 /obj/item/mechcomp/grav_accelerator/proc/setpowermanually(obj/item/W, mob/user)
 	var/input = input("Enter new power setting.", "Power", null) as num
 	if(!in_range(src, user) || user.stat || isnull(input))
-		to_chat(user, "<span class='notice'>You leave the power setting on [src.name] alone.</span>")
+		to_chat(user, span_notice("You leave the power setting on [src.name] alone.") )
 		return FALSE
 
 	power = clamp(round(input), 1, 7)
-	to_chat(user, "<span class='notice'>You change the power setting on [src.name] to [power].</span>")
+	to_chat(user, span_notice("You change the power setting on [src.name] to [power].") )
 	return TRUE
 
 /obj/item/mechcomp/grav_accelerator/update_overlays()
@@ -430,27 +430,27 @@
 /obj/item/mechcomp/egunholder/interact_by_item(obj/item/I, mob/user)
 	. = ..()
 	if(!istype(I,/obj/item/gun/energy) && istype(I,/obj/item/gun/))
-		to_chat(user, "<span class='notice'>[src.name] accepts only energy-based weaponry!.</span>")
+		to_chat(user, span_notice("[src.name] accepts only energy-based weaponry!.") )
 		return
 
 	if(istype(I,/obj/item/gun/energy))
 		if(isnull(gun))
 			user.transferItemToLoc(I,src)
 			gun = I
-			to_chat(user, "<span class='notice'>You slide [gun] into the [src.name].</span>")
+			to_chat(user, span_notice("You slide [gun] into the [src.name].") )
 			playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
 			if(gun.can_charge)
 				recharger.setCharging(gun)
 			return
 		else
-			to_chat(user, "<span class='notice'>There's already a weapon installed in [src.name]!.</span>")
+			to_chat(user, span_notice("There's already a weapon installed in [src.name]!.") )
 			return
 
 	if(I.tool_behaviour == TOOL_CROWBAR && !isnull(gun))
 		gun.forceMove(drop_location())
 		gun = null
 		playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>You pop [gun] out of the [src.name].</span>")
+		to_chat(user, span_notice("You pop [gun] out of the [src.name].") )
 		recharger.setCharging(null)
 		return
 
@@ -609,7 +609,7 @@
 	var/input = input("Set glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue!", "glue", glue) as null|text
 	if(!isnull(input))
 		glue = input
-		to_chat(user, "<span class='notice'>You set [src.name]'s glue to \"[glue]\"</span>")
+		to_chat(user, span_notice("You set [src.name]'s glue to \"[glue]\"") )
 
 /obj/item/mechcomp/list_packer/proc/build(var/datum/mechcompMessage/msg)
 	var/list/l = list()
@@ -668,7 +668,7 @@
 	var/input = input("Set glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue! Make sure the list you pass to [src.name] uses the same glue!", "Glue", glue) as null|text
 	if(!isnull(input))
 		glue = input
-		to_chat(user, "<span class='notice'>You set [src.name]'s glue to \"[glue]\"</span>")
+		to_chat(user, span_notice("You set [src.name]'s glue to \"[glue]\"") )
 
 
 
@@ -705,7 +705,7 @@
 	var/input = input("Input your regex pattern.", "[pick(80;"Regex", 5;"Reg-ekhs?", 5;"what the fuck is a regex", 5;"if you have a problem you want to solve with regex, you have 2 problems.", 5;"the regex is outlawed in 48 US states")]", reg?.name) as null|text
 	if(!isnull(input))
 		reg = regex(input, "[g ? "g":""][i ? "i":""]")
-		to_chat(user, "<span class='notice'>You set [src.name]'s pattern to \"[reg?.name]\"</span>")
+		to_chat(user, span_notice("You set [src.name]'s pattern to \"[reg?.name]\"") )
 
 /obj/item/mechcomp/find_regex/proc/find(var/datum/mechcompMessage/msg)
 	if(isnull(reg))
@@ -738,13 +738,13 @@
 	var/input = input("Set group glue to what? Group glue for regex is used to glue together all the capture groups from the single search. It is heavily recommended to keep different from result glue which is used to glue together all search results.", "Glue", glue) as null|text
 	if(!isnull(input))
 		glue = input
-		to_chat(user, "<span class='notice'>You set [src.name]'s group glue to \"[glue]\"</span>")
+		to_chat(user, span_notice("You set [src.name]'s group glue to \"[glue]\"") )
 
 /obj/item/mechcomp/find_regex/proc/set_glue(obj/item/I, mob/user)
 	var/input = input("Set result glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue! Make sure to use a unique symbol or group or symbols, or else extracting data will be stupidly complicated!", "Glue", glue) as null|text
 	if(!isnull(input))
 		glue = input
-		to_chat(user, "<span class='notice'>You set [src.name]'s result glue to \"[glue]\"</span>")
+		to_chat(user, span_notice("You set [src.name]'s result glue to \"[glue]\"") )
 
 /obj/item/mechcomp/find_regex/proc/toggle_case(obj/item/I, mob/user)
 	i = !i
@@ -778,13 +778,13 @@
 
 /obj/item/mechcomp/timer/proc/set_time(obj/item/I, mob/user)
 	if(active)
-		to_chat(user, "<span class='alert'>Deactivate the [src.name] first!</span>")
+		to_chat(user, span_alert("Deactivate the [src.name] first!") )
 		return FALSE
 	var/input = input("Enter new time in deciseconds. Currently the [src.name] will activate every [time/10] seconds.", "Time", time) as num
 	if(!in_range(src, user) || user.stat || isnull(input))
 		return FALSE
 	time = clamp(input, 1, 100)
-	to_chat(user, "<span class='notice'>You change the time on [src.name] to [time/10] seconds.</span>")
+	to_chat(user, span_notice("You change the time on [src.name] to [time/10] seconds.") )
 	return TRUE
 
 /obj/item/mechcomp/timer/proc/toggle(var/datum/mechcompMessage/msg)
@@ -830,7 +830,7 @@
 /obj/item/mechcomp/timer/can_unanchor(mob/user)
 	. = ..()
 	if(timer_id || active)
-		to_chat(user, "<span class='alert'>The timer still running! Disable it first!</span>")
+		to_chat(user, span_alert("The timer still running! Disable it first!") )
 		return FALSE
 
 /obj/item/mechcomp/microphone
@@ -852,17 +852,17 @@
 /obj/item/mechcomp/microphone/proc/togglemechcomp(obj/item/I, mob/user)
 	ignore_mechcomp = !ignore_mechcomp
 	if(ignore_mechcomp)
-		to_chat(user, "<span class='notice'>The [src.name] will now filter out other mechcomp components.</span>")
+		to_chat(user, span_notice("The [src.name] will now filter out other mechcomp components.") )
 	else
-		to_chat(user, "<span class='notice'>The [src.name] will now pick up what other mechcomp components say.</span>")
+		to_chat(user, span_notice("The [src.name] will now pick up what other mechcomp components say.") )
 
 
 /obj/item/mechcomp/microphone/proc/toggleradio(obj/item/I, mob/user)
 	ignore_radios = !ignore_radios
 	if(ignore_radios)
-		to_chat(user, "<span class='notice'>The [src.name] will filter out speech from nearby radios and intercomms.</span>")
+		to_chat(user, span_notice("The [src.name] will filter out speech from nearby radios and intercomms.") )
 	else
-		to_chat(user, "<span class='notice'>The [src.name] will pick up speech from a radio or an intercomm, if one is nearby.</span>")
+		to_chat(user, span_notice("The [src.name] will pick up speech from a radio or an intercomm, if one is nearby.") )
 
 
 /obj/item/mechcomp/microphone/Hear(message, atom/movable/speaker, message_language, raw_message)

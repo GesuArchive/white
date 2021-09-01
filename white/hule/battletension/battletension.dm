@@ -18,7 +18,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	prefs.battlemusic = !prefs.battlemusic
 	prefs.save_preferences()
-	to_chat(usr, "<span class='danger'>Battle music [prefs.battlemusic ? "en" : "dis"]abled.</span>")
+	to_chat(usr, span_danger("Battle music [prefs.battlemusic ? "en" : "dis"]abled.") )
 
 /mob/living
 	var/datum/btension/battletension

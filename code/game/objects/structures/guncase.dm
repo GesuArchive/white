@@ -41,10 +41,10 @@
 		if(LAZYLEN(contents) < capacity)
 			if(!user.transferItemToLoc(I, src))
 				return
-			to_chat(user, "<span class='notice'>Убираю [I.name] в [src.name].</span>")
+			to_chat(user, span_notice("Убираю [I.name] в [src.name].") )
 			update_icon()
 		else
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] переполнен.</span>")
+			to_chat(user, span_warning("[capitalize(src.name)] переполнен.") )
 		return
 
 	else if(user.a_intent != INTENT_HARM)

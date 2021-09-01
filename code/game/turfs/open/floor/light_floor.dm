@@ -123,15 +123,15 @@
 	if(istype(C, /obj/item/light/bulb)) //only for light tiles
 		var/obj/item/light/bulb/B = C
 		if(B.status)/// check if broken
-			to_chat(user, "<span class='danger'>The light bulb is broken!</span>")
+			to_chat(user, span_danger("The light bulb is broken!") )
 			return
 		if(state && user.temporarilyRemoveItemFromInventory(C))
 			qdel(C)
 			state = LIGHTFLOOR_FINE //fixing it by bashing it with a light bulb, fun eh?
 			update_icon()
-			to_chat(user, "<span class='notice'>Заменяю лампочку.</span>")
+			to_chat(user, span_notice("Заменяю лампочку.") )
 		else
-			to_chat(user, "<span class='notice'>Лампочка кажется в порядке, замена лампочки не требуется.</span>")
+			to_chat(user, span_notice("Лампочка кажется в порядке, замена лампочки не требуется.") )
 
 /turf/open/floor/light/emp_act(severity)
 	. = ..()

@@ -109,7 +109,7 @@
 		return
 	var/mob/living/carbon/human/affected_human = affected_carbon
 	if(affected_human.gender == MALE)
-		to_chat(affected_human, "<span class='warning'>Кожа чешется.</span>")
+		to_chat(affected_human, span_warning("Кожа чешется.") )
 		affected_human.facial_hairstyle = "Beard (Full)"
 		affected_human.update_hair()
 	//Only like gross food
@@ -121,7 +121,7 @@
 	. = ..()
 	if(!ishuman(affected_carbon))
 		return
-	to_chat(affected_carbon, "<span class='warning'>В темноте вполне приятно...</span>")
+	to_chat(affected_carbon, span_warning("В темноте вполне приятно...") )
 	var/mob/living/carbon/human/affected_human = affected_carbon
 
 	var/obj/item/organ/liver/empowered_liver = affected_carbon.getorgan(/obj/item/organ/liver)
@@ -223,7 +223,7 @@
 	else if (organ.high_threshold_passed)
 		to_chat(affected_carbon, organ.high_threshold_passed)
 		return
-	to_chat(affected_carbon, "<span class='warning'>[uppertext(organ.name)] БОЛИТ!</span>")
+	to_chat(affected_carbon, span_warning("[uppertext(organ.name)] БОЛИТ!") )
 
 /datum/addiction/medicine/end_withdrawal(mob/living/carbon/affected_carbon)
 	. = ..()

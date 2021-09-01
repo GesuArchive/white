@@ -13,7 +13,7 @@
 	if(changeling.mimicing)
 		changeling.mimicing = ""
 		changeling.chem_recharge_slowdown -= 0.25
-		to_chat(user, "<span class='notice'>Мы возвращаем наши голосовые железы в исходное положение.</span>")
+		to_chat(user, span_notice("Мы возвращаем наши голосовые железы в исходное положение.") )
 		return
 
 	var/mimic_voice = sanitize_name(stripped_input(user, "Ввести бы имя для подражания.", "Подражание голосу", null, MAX_NAME_LEN))
@@ -22,6 +22,6 @@
 	..()
 	changeling.mimicing = mimic_voice
 	changeling.chem_recharge_slowdown += 0.25
-	to_chat(user, "<span class='notice'>Мы формируем наши железы, чтобы принять голос <b>[mimic_voice]</b>, это замедлит регенерацию химических веществ, пока оно активно.</span>")
-	to_chat(user, "<span class='notice'>Использовав эту силу снова, мы вернёмся к нашему первоначальному голосу и вернём химическую регенерацию к нормальному уровню.</span>")
+	to_chat(user, span_notice("Мы формируем наши железы, чтобы принять голос <b>[mimic_voice]</b>, это замедлит регенерацию химических веществ, пока оно активно.") )
+	to_chat(user, span_notice("Использовав эту силу снова, мы вернёмся к нашему первоначальному голосу и вернём химическую регенерацию к нормальному уровню.") )
 	return TRUE

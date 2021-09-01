@@ -294,7 +294,7 @@
 	CHECK_TICK
 
 	handle_hearts()
-	set_observer_default_invisibility(0, "<span class='warning'>Раунд завершён. Тебя видно!</span>")
+	set_observer_default_invisibility(0, span_warning("Раунд завершён. Тебя видно!") )
 
 	CHECK_TICK
 
@@ -383,8 +383,8 @@
 	parts += "[FOURSPACES]└ Длительность смены: <b>[DisplayTimeText(world.time - SSticker.round_start_time)]</b>"
 
 	parts += "<hr><b><font color=\"#60b6ff\">ИНФОРМАЦИЯ О СТАНЦИИ //</font></b>"
-	parts += "[FOURSPACES]├ Система ядерного самоуничтожения: <b>[mode.station_was_nuked ? "<span class='redtext'>была автивирована</span>" : "<span class='greentext'>не была автивирована</span>"]</b>"
-	parts += "[FOURSPACES]└ Состояние станции: <b>[mode.station_was_nuked ? "<span class='redtext'>уничтожена системой ядерного самоуничтожения</span>" : "[popcount["station_integrity"] == 100 ? "<span class='greentext'>нетронута</span>" : "[popcount["station_integrity"]]%"]"]</b>"
+	parts += "[FOURSPACES]├ Система ядерного самоуничтожения: <b>[mode.station_was_nuked ? span_redtext("была автивирована")  : span_greentext("не была автивирована") ]</b>"
+	parts += "[FOURSPACES]└ Состояние станции: <b>[mode.station_was_nuked ? span_redtext("уничтожена системой ядерного самоуничтожения")  : "[popcount["station_integrity"] == 100 ? span_greentext("нетронута")  : "[popcount["station_integrity"]]%"]"]</b>"
 
 	parts += "<hr><b><font color=\"#60b6ff\">ИНФОРМАЦИЯ О ПЕРСОНАЛЕ //</font></b>"
 	var/total_players = GLOB.joined_player_list.len
@@ -490,17 +490,17 @@
 			if(EMERGENCY_ESCAPED_OR_ENDGAMED)
 				if(!M.onCentCom() && !M.onSyndieBase())
 					parts += "<div class='panel stationborder'>"
-					parts += "<span class='marooned'>Тебе удалось пережить события, будучи [M.real_name], но пришлось остаться на станции [station_name()]...</span>"
+					parts += span_marooned("Тебе удалось пережить события, будучи [M.real_name], но пришлось остаться на станции [station_name()]...")
 				else
 					parts += "<div class='panel greenborder'>"
-					parts += "<span class='greentext'>Тебе удалось пережить события, произошедшие на станции [station_name()], будучи [M.real_name]!</span>"
+					parts += span_greentext("Тебе удалось пережить события, произошедшие на станции [station_name()], будучи [M.real_name]!")
 			else
 				parts += "<div class='panel greenborder'>"
-				parts += "<span class='greentext'>Тебе удалось пережить события, произошедшие на станции [station_name()], будучи [M.real_name]!</span>"
+				parts += span_greentext("Тебе удалось пережить события, произошедшие на станции [station_name()], будучи [M.real_name]!")
 
 		else
 			parts += "<div class='panel redborder'>"
-			parts += "<span class='redtext'>Будучи [M.real_name], тебе не удалось пережить события, произошедшие на станции [station_name()]...</span>"
+			parts += span_redtext("Будучи [M.real_name], тебе не удалось пережить события, произошедшие на станции [station_name()]...")
 	else
 		parts += "<div class='panel stationborder'>"
 	parts += "<br>"
@@ -523,7 +523,7 @@
 	var/minion_spacer = FALSE //inserts an extra linebreak to seperate AIs from independent borgs, and then multiple independent borgs.
 
 	//Silicon laws report
-	parts += "<span class='header'>Информация о кремниевых формах жизни</span>"
+	parts += span_header("Информация о кремниевых формах жизни")
 	parts += "<hr><b><font color=\"#60b6ff\">ИНФОРМАЦИЯ ОБ ИСКУСТВЕННЫХ ИНТЕЛЛЕКТАХ //</font></b>"
 	var/count_ai = 0
 	var/total_ai = GLOB.ai_list.len
@@ -534,8 +534,8 @@
 			if(aiPlayer.mind)
 				count_ai++
 				parts += "▶ \[[count_ai]/[total_ai]\] <b><font color=\"#60b6ff\">[aiPlayer.name]</font></b> (игрок: <b>[aiPlayer.mind.key]</b>)"
-				parts += "[FOURSPACES]├ Статус: [aiPlayer.stat != DEAD ? "<b>активен</b>" : "<span class='redtext'>деактивирован</span>"]"
-				parts += "[FOURSPACES]├ Суммарное кол-во сменов набора законов: <b>[aiPlayer.law_change_counter == 0 ? "<span class='greentext'>изменения отсутствуют</span>" : "<span class='redtext'>aiPlayer.law_change_counter</span>"]</b>"
+				parts += "[FOURSPACES]├ Статус: [aiPlayer.stat != DEAD ? "<b>активен</b>" : span_redtext("деактивирован") ]"
+				parts += "[FOURSPACES]├ Суммарное кол-во сменов набора законов: <b>[aiPlayer.law_change_counter == 0 ? span_greentext("изменения отсутствуют")  : span_redtext("aiPlayer.law_change_counter") ]</b>"
 				parts += "[FOURSPACES]└ <font color=\"#60b6ff\">ЗАКОНЫ ИИ //</font>"
 				parts += "[FOURSPACES][FOURSPACES] " + aiPlayer.laws.get_law_list(include_zeroth = TRUE)
 
@@ -568,7 +568,7 @@
 			if (!standalone_silicon.connected_ai && standalone_silicon.mind)
 				parts += "▶ ([count_silicon]/[total_silicon]) [minion_spacer ? "<br>" : ""]<b><font color=\"#60b6ff\">[standalone_silicon.name]</font></b> (игрок: <b>[standalone_silicon.mind.key]</b>)"
 				parts += "[FOURSPACES]├ Статус: [(standalone_silicon.stat != DEAD) ? "<span class='greentext'>выжил</span> как самостоятельный киборг без связи с ИИ!" : "<span class='redtext'>не смог выжить</span> в суровых условиях, будучи самостоятельным киборгом без связи с ИИ."]"
-				parts += "[FOURSPACES]├ Суммарное кол-во сменов набора законов: <b>[standalone_silicon.law_change_counter == 0 ? "<span class='greentext'>изменения отсутствуют</span>" : "<span class='redtext'>standalone_silicon.law_change_counter</span>"]</b>"
+				parts += "[FOURSPACES]├ Суммарное кол-во сменов набора законов: <b>[standalone_silicon.law_change_counter == 0 ? span_greentext("изменения отсутствуют")  : span_redtext("standalone_silicon.law_change_counter") ]</b>"
 				parts += "[FOURSPACES]└ <font color=\"#60b6ff\">ЗАКОНЫ КИБОРГА //</font>"
 
 				if(standalone_silicon) //How the hell do we lose standalone_silicon between here and the world messages directly above this?
@@ -680,7 +680,7 @@
 /datum/controller/subsystem/ticker/proc/medal_report()
 	if(GLOB.commendations.len)
 		var/list/parts = list()
-		parts += "<span class='header'>Medal Commendations:</span>"
+		parts += span_header("Medal Commendations:")
 		for (var/com in GLOB.commendations)
 			parts += com
 		return "<div class='panel stationborder'>[parts.Join("<br>")]</div>"

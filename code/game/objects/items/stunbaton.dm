@@ -45,11 +45,11 @@
 
 /obj/item/melee/baton/suicide_act(mob/user)
 	if(cell?.charge && turned_on)
-		user.visible_message("<span class='suicide'>[user] is putting the live [name] in [user.ru_ego()] mouth! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message(span_suicide("[user] is putting the live [name] in [user.ru_ego()] mouth! It looks like [user.p_theyre()] trying to commit suicide!") )
 		. = (FIRELOSS)
 		attack(user,user)
 	else
-		user.visible_message("<span class='suicide'>[user] is shoving the [name] down their throat! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message(span_suicide("[user] is shoving the [name] down their throat! It looks like [user.p_theyre()] trying to commit suicide!") )
 		. = (OXYLOSS)
 
 /obj/item/melee/baton/Initialize()
@@ -122,23 +122,23 @@
 	. = ..()
 	. += "<hr>"
 	if(cell)
-		. += "<span class='notice'>Дубинка заряжена на [round(cell.percent())]%.</span>"
+		. += span_notice("Дубинка заряжена на [round(cell.percent())]%.")
 	else
-		. += "<span class='warning'>Дубинка не имеет батарейки.</span>"
+		. += span_warning("Дубинка не имеет батарейки.")
 
 /obj/item/melee/baton/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stock_parts/cell))
 		var/obj/item/stock_parts/cell/C = W
 		if(cell)
-			to_chat(user, "<span class='warning'>Дубинка уже имеет батарейку!</span>")
+			to_chat(user, span_warning("Дубинка уже имеет батарейку!") )
 		else
 			if(C.maxcharge < cell_hit_cost)
-				to_chat(user, "<span class='notice'>Требует батарейку получше.</span>")
+				to_chat(user, span_notice("Требует батарейку получше.") )
 				return
 			if(!user.transferItemToLoc(W, src))
 				return
 			cell = W
-			to_chat(user, "<span class='notice'>Вставляю батарейку в дубинку.</span>")
+			to_chat(user, span_notice("Вставляю батарейку в дубинку.") )
 			update_icon()
 
 	else if(W.tool_behaviour == TOOL_SCREWDRIVER)
@@ -151,7 +151,7 @@
 		cell.update_icon()
 		cell.forceMove(get_turf(src))
 		cell = null
-		to_chat(user, "<span class='notice'>Вытаскиваю батарейку из дубинки.</span>")
+		to_chat(user, span_notice("Вытаскиваю батарейку из дубинки.") )
 		turned_on = FALSE
 		update_icon()
 
@@ -161,22 +161,22 @@
 /obj/item/melee/baton/proc/toggle_on(mob/user)
 	if(cell && cell.charge >= cell_hit_cost)
 		turned_on = !turned_on
-		to_chat(user, "<span class='notice'>Дубинка теперь [turned_on ? "включена" : "выключена"].</span>")
+		to_chat(user, span_notice("Дубинка теперь [turned_on ? "включена" : "выключена"].") )
 		playsound(src, activate_sound, 75, TRUE, -1)
 	else
 		turned_on = FALSE
 		if(!cell)
-			to_chat(user, "<span class='warning'>Дубинка не имеет батарейки!</span>")
+			to_chat(user, span_warning("Дубинка не имеет батарейки!") )
 		else
-			to_chat(user, "<span class='warning'>Дубинка разрядилась</span>")
+			to_chat(user, span_warning("Дубинка разрядилась") )
 	update_icon()
 	add_fingerprint(user)
 
 /obj/item/melee/baton/proc/clumsy_check(mob/living/carbon/human/user)
 	if(turned_on && HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50))
 		playsound(src, stun_sound, 75, TRUE, -1)
-		user.visible_message("<span class='danger'><b>[user]</b> случайно бьёт себя <b>электрошоковой дубинкой</b>!</span>", \
-							"<span class='userdanger'>Бью себя <b>электрошоковой дубинкой</b>! Я попал?</span>")
+		user.visible_message(span_danger("<b>[user]</b> случайно бьёт себя <b>электрошоковой дубинкой</b>!") , \
+							span_userdanger("Бью себя <b>электрошоковой дубинкой</b>! Я попал?") )
 		user.Knockdown(stun_time*3) //should really be an equivalent to attack(user,user)
 		deductcharge(cell_hit_cost)
 		return TRUE
@@ -203,10 +203,10 @@
 					user.do_attack_animation(M)
 					return
 			else
-				to_chat(user, "<span class='danger'>Дубинка всё ещё заряжается!</span>")
+				to_chat(user, span_danger("Дубинка всё ещё заряжается!") )
 		else
-			M.visible_message("<span class='warning'><b>[user]</b> тычет в [M] дубинкой. Она выключена.</span>", \
-							"<span class='warning'><b>[user]</b> тычет в меня дубинкой. Она выключена.</span>")
+			M.visible_message(span_warning("<b>[user]</b> тычет в [M] дубинкой. Она выключена.") , \
+							span_warning("<b>[user]</b> тычет в меня дубинкой. Она выключена.") )
 	else
 		if(turned_on)
 			if(attack_cooldown_check <= world.time)
@@ -218,7 +218,7 @@
 	if(shields_blocked(L, user))
 		return FALSE
 	if(HAS_TRAIT_FROM(L, TRAIT_IWASBATONED, user)) //no doublebaton abuse anon!
-		to_chat(user, "<span class='danger'><b>[L]</b> умело уворачивается от дубинки!</span>")
+		to_chat(user, span_danger("<b>[L]</b> умело уворачивается от дубинки!") )
 		return FALSE
 	if(iscyborg(loc))
 		var/mob/living/silicon/robot/R = loc
@@ -240,8 +240,8 @@
 	if(user)
 //		L.lastattacker = user.real_name
 //		L.lastattackerckey = user.ckey
-		L.visible_message("<span class='danger'><b>[user]</b> оглушает <b>[sklonenie(L.name, VINITELNI, L.gender)]</b> <b>электрошоковой дубинкой</b>!</span>", \
-								"<span class='userdanger'><b>[user]</b> оглушает меня <b>электрошоковой дубинкой</b>!</span>")
+		L.visible_message(span_danger("<b>[user]</b> оглушает <b>[sklonenie(L.name, VINITELNI, L.gender)]</b> <b>электрошоковой дубинкой</b>!") , \
+								span_userdanger("<b>[user]</b> оглушает меня <b>электрошоковой дубинкой</b>!") )
 		log_combat(user, L, "stunned")
 
 	playsound(src, stun_sound, 50, TRUE, -1)
@@ -257,7 +257,7 @@
 /obj/item/melee/baton/proc/apply_stun_effect_end(mob/living/target)
 	var/trait_check = HAS_TRAIT(target, TRAIT_STUNRESISTANCE) //var since we check it in out to_chat as well as determine stun duration
 	if(!target.IsKnockdown())
-		to_chat(target, "<span class='warning'>Мышцы сжимаются, принуждая меня упасть[trait_check ? ", но моё тело быстро восстанавливается..." : "!"]</span>")
+		to_chat(target, span_warning("Мышцы сжимаются, принуждая меня упасть[trait_check ? ", но моё тело быстро восстанавливается..." : "!"]") )
 
 	if(trait_check)
 		target.Knockdown(stun_time * 0.1)

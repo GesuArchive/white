@@ -17,9 +17,9 @@
 		if(W.get_sharpness() && W.force > 0)
 			if(W.hitsound)
 				playsound(get_turf(src), W.hitsound, 100, FALSE, FALSE)
-			user.visible_message("<span class='notice'>[user] начинает срубать [src] при помощи [W].</span>","<span class='notice'>Начинаю срубать [src] используя [W].</span>", "<span class='hear'>Слышу звуки работы с деревом.</span>")
+			user.visible_message(span_notice("[user] начинает срубать [src] при помощи [W].") ,span_notice("Начинаю срубать [src] используя [W].") , span_hear("Слышу звуки работы с деревом.") )
 			if(do_after(user, 1000/W.force, target = src)) //5 seconds with 20 force, 8 seconds with a hatchet, 20 seconds with a shard.
-				user.visible_message("<span class='notice'>[user] срубает [src] используя [W].</span>","<span class='notice'>Срубаю [src] используя [W].</span>", "<span class='hear'>Слышу громкий звук падения дерева.</span>")
+				user.visible_message(span_notice("[user] срубает [src] используя [W].") ,span_notice("Срубаю [src] используя [W].") , span_hear("Слышу громкий звук падения дерева.") )
 				playsound(get_turf(src), 'sound/effects/meteorimpact.ogg', 100 , FALSE, FALSE)
 				user.log_message("cut down [src] at [AREACOORD(src)]", LOG_ATTACK)
 				for(var/i=1 to log_amount)
@@ -78,9 +78,9 @@
 		return
 
 	if(took_presents[user.ckey] && !unlimited)
-		to_chat(user, "<span class='warning'>Здесь нет подарков для меня...</span>")
+		to_chat(user, span_warning("Здесь нет подарков для меня...") )
 		return
-	to_chat(user, "<span class='warning'>После небольшого осмотра нахожу подарок с моим именем на нем!</span>")
+	to_chat(user, span_warning("После небольшого осмотра нахожу подарок с моим именем на нем!") )
 
 	if(!unlimited)
 		took_presents[user.ckey] = TRUE
@@ -326,9 +326,9 @@
 /obj/item/kirbyplants/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
 	if(trimmable && HAS_TRAIT(user,TRAIT_BONSAI) && isturf(loc) && I.get_sharpness())
-		to_chat(user,"<span class='notice'>Начинаю стричь [src].</span>")
+		to_chat(user,span_notice("Начинаю стричь [src].") )
 		if(do_after(user,3 SECONDS,target=src))
-			to_chat(user,"<span class='notice'>Стригу [src].</span>")
+			to_chat(user,span_notice("Стригу [src].") )
 			change_visual()
 
 /// Cycle basic plant visuals
@@ -416,9 +416,9 @@
 		return ..()
 	if(flags_1 & NODECONSTRUCT_1)
 		return ..()
-	to_chat(user, "<span class='notice'>Начинаю копать...</span>")
+	to_chat(user, span_notice("Начинаю копать...") )
 	if(W.use_tool(src, user, 40, volume=50))
-		to_chat(user, "<span class='notice'>Заканчиваю копать камень.</span>")
+		to_chat(user, span_notice("Заканчиваю копать камень.") )
 		if(mineResult && mineAmount)
 			new mineResult(loc, mineAmount)
 		SSblackbox.record_feedback("tally", "pick_used_mining", 1, W.type)

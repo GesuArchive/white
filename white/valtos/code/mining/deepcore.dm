@@ -63,13 +63,13 @@
 		return .
 	if(deployed)
 		if(!target_hopper)
-			to_chat(user, "<span class='notice'>Бур не подключен к воронке!</span>")
+			to_chat(user, span_notice("Бур не подключен к воронке!") )
 			return
 		toggle()
 		if(active)
-			to_chat(user, "<span class='notice'>Включаю [src.name].</span>")
+			to_chat(user, span_notice("Включаю [src.name].") )
 		else
-			to_chat(user, "<span class='notice'>Выключаю [src.name].</span>")
+			to_chat(user, span_notice("Выключаю [src.name].") )
 		update_icon_state()
 		update_overlays()
 		return TRUE
@@ -80,15 +80,15 @@
 			playsound(src, 'sound/machines/windowdoor.ogg', 50)
 			flick("deep_core_drill-deploy", src)
 			addtimer(CALLBACK(src, .proc/Deploy), 14)
-			to_chat(user, "<span class='notice'>[capitalize(src.name)] обнаруживает [O.name] и начинает работу...</span>")
+			to_chat(user, span_notice("[capitalize(src.name)] обнаруживает [O.name] и начинает работу...") )
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] не может найти руду в зоне!</span>")
+			to_chat(user, span_warning("[capitalize(src.name)] не может найти руду в зоне!") )
 
 /obj/machinery/deepcore/drill/AltClick(mob/user)
 	. = ..()
 	if(active)
-		to_chat(user, "<span class='warning'>Не могу выключить пока [src.name] активен!</span>")
+		to_chat(user, span_warning("Не могу выключить пока [src.name] активен!") )
 		return
 	else
 		playsound(src, 'sound/machines/windowdoor.ogg', 50)
@@ -133,7 +133,7 @@
 	layer = MOB_LAYER+0.01
 	update_icon_state()
 	playsound(src, 'sound/machines/boltsdown.ogg', 50)
-	visible_message("<span class='notice'>[capitalize(name)] готов к работе!</span>")
+	visible_message(span_notice("[capitalize(name)] готов к работе!") )
 
 
 /obj/machinery/deepcore/drill/proc/Undeploy()
@@ -142,7 +142,7 @@
 	anchored = FALSE
 	update_icon_state()
 	playsound(src, 'sound/machines/boltsup.ogg', 50)
-	visible_message("<span class='notice'>[capitalize(name)] готов к движению!</span>")
+	visible_message(span_notice("[capitalize(name)] готов к движению!") )
 	layer = initial(layer)
 
 /obj/machinery/deepcore/drill/update_icon_state()
@@ -180,7 +180,7 @@
 
 //wtf?
 /obj/machinery/deepcore/drill/can_be_unfasten_wrench(mob/user, silent)
-	to_chat(user, "<span class='notice'>Мне потребуется гаечный ключ для установки [src.name]!</span>")
+	to_chat(user, span_notice("Мне потребуется гаечный ключ для установки [src.name]!") )
 	return CANT_UNFASTEN
 
 /obj/machinery/deepcore/drill/multitool_act(mob/living/user, obj/item/multitool/I)
@@ -189,9 +189,9 @@
 		return FALSE
 	if(istype(I.buffer, /obj/machinery/deepcore/hopper))
 		if(I.buffer.z != src.z)
-			to_chat(user, "<span class='notice'>The drill seems to experience some sort of bluespace interference. Perhaps you should move the hopper closer to it?</span>")
+			to_chat(user, span_notice("The drill seems to experience some sort of bluespace interference. Perhaps you should move the hopper closer to it?") )
 			return FALSE
-		to_chat(user, "<span class='notice'>You connect the deepcore drill to the hopper.</span>")
+		to_chat(user, span_notice("You connect the deepcore drill to the hopper.") )
 		target_hopper = I.buffer
 		return TRUE
 
@@ -224,7 +224,7 @@
 	var/to_deploy = /obj/machinery/deepcore/drill
 
 /obj/item/deepcorecapsule/attack_self()
-	loc.visible_message("<span class='warning'>[capitalize(src.name)] begins to shake. Stand back!</span>")
+	loc.visible_message(span_warning("[capitalize(src.name)] begins to shake. Stand back!") )
 	addtimer(CALLBACK(src, .proc/Deploy), 50)
 
 /obj/item/deepcorecapsule/proc/Deploy()
@@ -248,17 +248,17 @@
 /obj/item/pinpointer/deepcore/attack_self(mob/living/user)
 	if(active)
 		toggle_on()
-		user.visible_message("<span class='notice'>[user] deactivates [user.p_their()] pinpointer.</span>", "<span class='notice'>You deactivate your pinpointer.</span>")
+		user.visible_message(span_notice("[user] deactivates [user.p_their()] pinpointer.") , span_notice("You deactivate your pinpointer.") )
 		return
 
 	var/vein = LocateVein(user)
 	if(!vein)
-		user.visible_message("<span class='notice'>[user]'s pinpointer fails to detect any material.</span>", "<span class='notice'>Your pinpointer fails to detect any material.</span>")
+		user.visible_message(span_notice("[user]'s pinpointer fails to detect any material.") , span_notice("Your pinpointer fails to detect any material.") )
 		return
 
 	target = vein
 	toggle_on()
-	user.visible_message("<span class='notice'>[user] activates [user.p_their()] pinpointer.</span>", "<span class='notice'>You activate your pinpointer.</span>")
+	user.visible_message(span_notice("[user] activates [user.p_their()] pinpointer.") , span_notice("You activate your pinpointer.") )
 
 /obj/item/pinpointer/deepcore/proc/LocateVein(mob/living/user)
 	var/turf/here = get_turf(src)
@@ -457,7 +457,7 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 		. += "Воронка находится в процессе выброса руд."
 /obj/machinery/deepcore/hopper/AltClick(mob/user)
 	if(!active)
-		to_chat(user, "<span class='alert'>Turn on the hopper bfore flushing the materials!</span>")
+		to_chat(user, span_alert("Turn on the hopper bfore flushing the materials!") )
 		return
 
 	if(prob(5)) //lol
@@ -475,14 +475,14 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 	if(active)
 		active = FALSE
 		use_power = IDLE_POWER_USE
-		to_chat(user, "<span class='notice'>You deactiveate [src.name]</span>")
+		to_chat(user, span_notice("You deactiveate [src.name]") )
 	else
 		if(!powered(power_channel))
-			to_chat(user, "<span class='warning'>Unable to activate [src.name]! Insufficient power.</span>")
+			to_chat(user, span_warning("Unable to activate [src.name]! Insufficient power.") )
 			return
 		active = TRUE
 		use_power = ACTIVE_POWER_USE
-		to_chat(user, "<span class='notice'>You activeate [src.name]</span>")
+		to_chat(user, span_notice("You activeate [src.name]") )
 	update_icon_state()
 
 /obj/machinery/deepcore/hopper/multitool_act(mob/living/user, obj/item/multitool/I)
@@ -490,7 +490,7 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 	if(!istype(I))
 		return FALSE
 	I.buffer = src
-	to_chat(user, "<span class='notice'>You save the hopper's bluespace signature onto the multitool.[prob(2) ? " Jeez, apparently multitools, after all, <i>do</i> combine a lot of tools together." : ""]</span>")
+	to_chat(user, span_notice("You save the hopper's bluespace signature onto the multitool.[prob(2) ? " Jeez, apparently multitools, after all, <i>do</i> combine a lot of tools together." : ""]") )
 	return TRUE
 
 /obj/machinery/deepcore/hopper/process(delta_time)
@@ -514,7 +514,7 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 
 /obj/machinery/deepcore/hopper/can_be_unfasten_wrench(mob/user, silent)
 	if(active)
-		to_chat(user, "<span class='warning'>Turn [src.name] off first!</span>")
+		to_chat(user, span_warning("Turn [src.name] off first!") )
 		return FAILED_UNFASTEN
 	return ..()
 

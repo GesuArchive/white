@@ -42,12 +42,12 @@
 	var/obj/item/bodypart/head/myhead = user.get_bodypart(BODY_ZONE_HEAD)
 	if(myhead)
 		inc_metabalance(user, METACOIN_SUICIDE_REWARD, reason="За всё нужно платить и за это тоже, сладенький.")
-		user.visible_message("<span class='suicide'>[user] puts [user.ru_ego()] head into <b>[src.name]</b>, and begins closing it! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message(span_suicide("[user] puts [user.ru_ego()] head into <b>[src.name]</b>, and begins closing it! It looks like [user.p_theyre()] trying to commit suicide!") )
 		myhead.dismember()
 		myhead.forceMove(src)//force your enemies to kill themselves with your head collection box!
 		playsound(user, "desecration-01.ogg", 50, TRUE, -1)
 		return BRUTELOSS
-	user.visible_message("<span class='suicide'>[user] beating [user.ru_na()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] beating [user.ru_na()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!") )
 	return BRUTELOSS
 
 /obj/item/storage/box/update_overlays()
@@ -61,12 +61,12 @@
 	if(!foldable || (flags_1 & HOLOGRAM_1))
 		return
 	if(contents.len)
-		to_chat(user, "<span class='warning'>Не могу сложить коробку с предметами внутри!</span>")
+		to_chat(user, span_warning("Не могу сложить коробку с предметами внутри!") )
 		return
 	if(!ispath(foldable))
 		return
 
-	to_chat(user, "<span class='notice'>Складываю [src].</span>")
+	to_chat(user, span_notice("Складываю [src].") )
 	var/obj/item/I = new foldable
 	qdel(src)
 	user.put_in_hands(I)
@@ -661,7 +661,7 @@
 
 /obj/item/storage/box/mousetraps
 	name = "коробка мышеловок Pest-B-Gon"
-	desc = "<span class='alert'>Храните в недоступном для детей месте.</span>"
+	desc = span_alert("Храните в недоступном для детей месте.")
 	illustration = "mousetrap"
 
 /obj/item/storage/box/mousetraps/PopulateContents()
@@ -796,14 +796,14 @@
 	foldable = null
 
 /obj/item/storage/box/hug/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] clamps the box of hugs on [user.ru_ego()] jugular! Guess it wasn't such a hugbox after all..</span>")
+	user.visible_message(span_suicide("[user] clamps the box of hugs on [user.ru_ego()] jugular! Guess it wasn't such a hugbox after all..") )
 	return (BRUTELOSS)
 
 /obj/item/storage/box/hug/attack_self(mob/user)
 	..()
 	user.changeNext_move(CLICK_CD_MELEE)
 	playsound(loc, "rustle", 50, TRUE, -5)
-	user.visible_message("<span class='notice'>[user] обнимает <b>[sklonenie(name, VINITELNI, gender)]</b>.</span>","<span class='notice'>Обнимаю <b>[sklonenie(name, VINITELNI, gender)]</b>.</span>")
+	user.visible_message(span_notice("[user] обнимает <b>[sklonenie(name, VINITELNI, gender)]</b>.") ,span_notice("Обнимаю <b>[sklonenie(name, VINITELNI, gender)]</b>.") )
 
 /////clown box & honkbot assembly
 /obj/item/storage/box/clown
@@ -814,12 +814,12 @@
 /obj/item/storage/box/clown/attackby(obj/item/I, mob/user, params)
 	if((istype(I, /obj/item/bodypart/l_arm/robot)) || (istype(I, /obj/item/bodypart/r_arm/robot)))
 		if(contents.len) //prevent accidently deleting contents
-			to_chat(user, "<span class='warning'>Нужно опустошить [src] сначала!</span>")
+			to_chat(user, span_warning("Нужно опустошить [src] сначала!") )
 			return
 		if(!user.temporarilyRemoveItemFromInventory(I))
 			return
 		qdel(I)
-		to_chat(user, "<span class='notice'>Добавляю колёса для [src]! Теперь у меня есть сборка хонкбота! Хонк!</span>")
+		to_chat(user, span_notice("Добавляю колёса для [src]! Теперь у меня есть сборка хонкбота! Хонк!") )
 		var/obj/item/bot_assembly/honkbot/A = new
 		qdel(src)
 		user.put_in_hands(A)
@@ -929,19 +929,19 @@
 				desc = "Бумажный мешок с грубой улыбкой на боку."
 			else
 				return FALSE
-		to_chat(user, "<span class='notice'>Видоизменяю [src] используя ручку.</span>")
+		to_chat(user, span_notice("Видоизменяю [src] используя ручку.") )
 		icon_state = "paperbag_[choice]"
 		inhand_icon_state = "paperbag_[choice]"
 		return FALSE
 	else if(W.get_sharpness())
 		if(!contents.len)
 			if(inhand_icon_state == "paperbag_None")
-				user.show_message("<span class='notice'>Прорезаю дыры для глаз [src].</span>", MSG_VISUAL)
+				user.show_message(span_notice("Прорезаю дыры для глаз [src].") , MSG_VISUAL)
 				new /obj/item/clothing/head/papersack(user.loc)
 				qdel(src)
 				return FALSE
 			else if(inhand_icon_state == "paperbag_SmileyFace")
-				user.show_message("<span class='notice'>Прорезаю дыры для глаз в [src] и меняю его дизайн.</span>", MSG_VISUAL)
+				user.show_message(span_notice("Прорезаю дыры для глаз в [src] и меняю его дизайн.") , MSG_VISUAL)
 				new /obj/item/clothing/head/papersack/smiley(user.loc)
 				qdel(src)
 				return FALSE
@@ -960,10 +960,10 @@
 	if(user.incapacitated())
 		return FALSE
 	if(contents.len)
-		to_chat(user, "<span class='warning'>Не могу изменить [src] с предметами внутри!</span>")
+		to_chat(user, span_warning("Не могу изменить [src] с предметами внутри!") )
 		return FALSE
 	if(!P || !user.is_holding(P))
-		to_chat(user, "<span class='warning'>Мне понадобится ручка, чтобы изменить [src]!</span>")
+		to_chat(user, span_warning("Мне понадобится ручка, чтобы изменить [src]!") )
 		return FALSE
 	return TRUE
 

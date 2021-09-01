@@ -6,16 +6,16 @@
 	desc = "Я потерял свои вкусовые рецепторы и не могу почувствовать вкус какой-либо еды! Токсичная пища всё ещё будет отравлять вас."
 	value = 0
 	mob_trait = TRAIT_AGEUSIA
-	gain_text = "<span class='notice'>Больше не чувствую вкус еды!</span>"
-	lose_text = "<span class='notice'>Теперь можно почувствовать вкус еды!</span>"
+	gain_text = span_notice("Больше не чувствую вкус еды!")
+	lose_text = span_notice("Теперь можно почувствовать вкус еды!")
 	medical_record_text = "Пациент страдает от агавзии и неспособен чувствовать вкус еды или жидкости."
 
 /datum/quirk/foreigner
 	name = "Иностранец"
 	desc = "Вы не из этих земель. Вы не знаете основной галактический язык!"
 	value = 0
-	gain_text = "<span class='notice'>Вы не понимаете ни слова.</span>"
-	lose_text = "<span class='notice'>Вы научились понимать основной галактический язык.</span>"
+	gain_text = span_notice("Вы не понимаете ни слова.")
+	lose_text = span_notice("Вы научились понимать основной галактический язык.")
 	medical_record_text = "Пациент не разговаривает на основном галактическом языке."
 
 /datum/quirk/foreigner/add()
@@ -34,8 +34,8 @@
 	name = "Вегетарианец"
 	desc = "Я нахожу идею есть мясо физически и морально отталкивающим."
 	value = 0
-	gain_text = "<span class='notice'>Нахожу идею есть мясо физически и морально отталкивающим.</span>"
-	lose_text = "<span class='notice'>А мясо-то довольно вкусное!</span>"
+	gain_text = span_notice("Нахожу идею есть мясо физически и морально отталкивающим.")
+	lose_text = span_notice("А мясо-то довольно вкусное!")
 	medical_record_text = "Пациент сообщает о вегетарианской диете."
 
 /datum/quirk/vegetarian/add()
@@ -57,8 +57,8 @@
 	name = "Snob"
 	desc = "Вас заботит чистый вид помещений. Если комната выглядит не такой уж и красивой, стоит ли это того?"
 	value = 0
-	gain_text = "<span class='notice'>Чуствую, как-будто знаю, как по-настоящему должны выглядеть комнаты.</span>"
-	lose_text = "<span class='notice'>Ну. Кого вообще заботят какие-то декорации?</span>"
+	gain_text = span_notice("Чуствую, как-будто знаю, как по-настоящему должны выглядеть комнаты.")
+	lose_text = span_notice("Ну. Кого вообще заботят какие-то декорации?")
 	medical_record_text = "Пациент демонстрирует напористость."
 	mob_trait = TRAIT_SNOB
 
@@ -66,8 +66,8 @@
 	name = "Любитель ананасов"
 	desc = "Я очень сильно люблю ананасы. Я никогда ими не наемся!"
 	value = 0
-	gain_text = "<span class='notice'>Чувствую, что испытываю сильную тягу к ананасам.</span>"
-	lose_text = "<span class='notice'>Моя любовь к ананасам медленно угасает.</span>"
+	gain_text = span_notice("Чувствую, что испытываю сильную тягу к ананасам.")
+	lose_text = span_notice("Моя любовь к ананасам медленно угасает.")
 	medical_record_text = "Пациент демонстрирует патологическую любовь к ананасу."
 
 /datum/quirk/pineapple_liker/add()
@@ -85,8 +85,8 @@
 	name = "Отвращение к ананасам"
 	desc = "Я ненавижу ананасы. Серьёзно, они же совсем невкусные! И кто вообще посмеет положить их в пиццу!?"
 	value = 0
-	gain_text = "<span class='notice'>Думаю над тем, какой кусок идиота любит ананасы...</span>"
-	lose_text = "<span class='notice'>Моя ненависть к ананасам медленнно угасает...</span>"
+	gain_text = span_notice("Думаю над тем, какой кусок идиота любит ананасы...")
+	lose_text = span_notice("Моя ненависть к ананасам медленнно угасает...")
 	medical_record_text = "Пациент считает, что ананасы отвратительны."
 
 /datum/quirk/pineapple_hater/add()
@@ -104,8 +104,8 @@
 	name = "Девиантные вкусы"
 	desc = "Я не люблю ту еду, которое большинство предпочитает употреблять. Тем не менее, я люблю то, чего не любят они."
 	value = 0
-	gain_text = "<span class='notice'>У вас возникает жажда съесть что-нибудь странное на вкус.</span>"
-	lose_text = "<span class='notice'>Мне хочется поесть нормальную еду.</span>"
+	gain_text = span_notice("У вас возникает жажда съесть что-нибудь странное на вкус.")
+	lose_text = span_notice("Мне хочется поесть нормальную еду.")
 	medical_record_text = "Пациент демонстрирует необычные предпочтения к еде."
 
 /datum/quirk/deviant_tastes/add()
@@ -133,7 +133,7 @@
 
 /datum/quirk/monochromatic/post_add()
 	if(quirk_holder.mind.assigned_role == "Detective")
-		to_chat(quirk_holder, "<span class='boldannounce'>Ммм. На этой станции нет ничего чистого. Это всё оттенки серого...</span>")
+		to_chat(quirk_holder, span_boldannounce("Ммм. На этой станции нет ничего чистого. Это всё оттенки серого...") )
 		quirk_holder.playsound_local(quirk_holder, 'sound/ambience/ambidet1.ogg', 50, FALSE)
 
 /datum/quirk/monochromatic/remove()
@@ -187,15 +187,15 @@
 		var/mob/living/carbon/human/H = quirk_holder
 		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 
-	to_chat(quirk_holder, "<span class='notice'>У вас с собой указатель [where], который поможет вам найти путь в какой-либо отсек. Нажмите в руке, чтобы активировать.</span>")
+	to_chat(quirk_holder, span_notice("У вас с собой указатель [where], который поможет вам найти путь в какой-либо отсек. Нажмите в руке, чтобы активировать.") )
 
 /datum/quirk/bald
 	name = "Лысый"
 	desc = "У вас нет волос и чувствуете себя некомфортно от этого! Необходимо носить с собой парик или носить то, что закрывает голову."
 	value = 0
 	mob_trait = TRAIT_BALD
-	gain_text = "<span class='notice'>Лысый. Удивительно, не правда ли?</span>"
-	lose_text = "<span class='notice'>Моя голова чешется... у меня что, растут волосы?!</span>"
+	gain_text = span_notice("Лысый. Удивительно, не правда ли?")
+	lose_text = span_notice("Моя голова чешется... у меня что, растут волосы?!")
 	medical_record_text = "Пациент во время осмотра категорически отказывался снять свой головной убор."
 	///The user's starting hairstyle
 	var/old_hair
@@ -265,15 +265,15 @@
 		H.put_in_hands(gloves)
 
 /datum/quirk/tongue_tied/post_add()
-	to_chat(quirk_holder, "<span class='boldannounce'>Because you speak with your hands, having them full hinders your ability to communicate!</span>")
+	to_chat(quirk_holder, span_boldannounce("Because you speak with your hands, having them full hinders your ability to communicate!") )
 
 /datum/quirk/photographer
 	name = "Фотограф"
 	desc = "Я знаю, как обращаться с камерой, и сокращаю задержку между каждым снимком."
 	value = 0
 	mob_trait = TRAIT_PHOTOGRAPHER
-	gain_text = "<span class='notice'>Знаю всё о фотографировании.</span>"
-	lose_text = "<span class='danger'>Забываю, как работают фотоаппараты.</span>"
+	gain_text = span_notice("Знаю всё о фотографировании.")
+	lose_text = span_danger("Забываю, как работают фотоаппараты.")
 	medical_record_text = "Пациент упоминал фотографирование как хобби, снимающее стресс."
 
 /datum/quirk/photographer/on_spawn()

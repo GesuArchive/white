@@ -67,13 +67,13 @@ SUBSYSTEM_DEF(augury)
 
 /datum/action/innate/augury/Activate()
 	SSaugury.watchers += owner
-	to_chat(owner, "<span class='notice'>Автоматическое отслеживание космического мусора включено.</span>")
+	to_chat(owner, span_notice("Автоматическое отслеживание космического мусора включено.") )
 	active = TRUE
 	UpdateButtonIcon()
 
 /datum/action/innate/augury/Deactivate()
 	SSaugury.watchers -= owner
-	to_chat(owner, "<span class='notice'>Автоматическое отслеживание космического мусора отключено.</span>")
+	to_chat(owner, span_notice("Автоматическое отслеживание космического мусора отключено.") )
 	active = FALSE
 	UpdateButtonIcon()
 

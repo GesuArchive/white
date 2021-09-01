@@ -264,10 +264,10 @@
 	icon_state = "screen_b"
 
 /obj/machinery/doorpanel/attack_hand(mob/living/carbon/human/user)
-    to_chat(user, "<span class='warning'>It has no power!</span>")
+    to_chat(user, span_warning("It has no power!") )
 
 /obj/machinery/doorpanel/broken/attack_hand(mob/living/carbon/human/user)
-    to_chat(user, "<span class='warning'>It's broken.</span>")
+    to_chat(user, span_warning("It's broken.") )
 
 /obj/machinery/oldvents
 	name = "ventilation"
@@ -655,9 +655,9 @@
 	. = ..()
 	if(I.sharpness == SHARP_EDGED)
 		new /obj/item/stack/sheet/cloth(get_turf(src))
-		user.visible_message("<span class='notice'><b>[user]</b> нарезает <b>[src]</b> на нитки и быстро сплетает из него куски ткани при помощи <b>[I]</b>.</span>", \
-			"<span class='notice'>Нарезаю <b>[src]</b> на нитки и быстро сплетаю из него куски ткани при помощи <b>[I]</b>.</span>", \
-			"<span class='hear'>Слышу как что-то режет ткань.</span>")
+		user.visible_message(span_notice("<b>[user]</b> нарезает <b>[src]</b> на нитки и быстро сплетает из него куски ткани при помощи <b>[I]</b>.") , \
+			span_notice("Нарезаю <b>[src]</b> на нитки и быстро сплетаю из него куски ткани при помощи <b>[I]</b>.") , \
+			span_hear("Слышу как что-то режет ткань.") )
 		qdel(src)
 
 /obj/structure/flora/cataclysmdda/decoration/nature

@@ -62,7 +62,7 @@
 /datum/interaction/lewd/evaluate_user(var/mob/user, var/silent=1)
 	if(..(user, silent))
 		if(user_not_tired && user.refactory_period)
-			to_chat(user, "<span class='warning'>Всё еще не хочу после прошлого раза.</span>")
+			to_chat(user, span_warning("Всё еще не хочу после прошлого раза.") )
 			return 0
 		if(require_user_naked && !user.is_nude())
 			if(!silent) to_chat(user, "<span class = 'warning'>Вам мешает одежда.</span>")
@@ -82,7 +82,7 @@
 /datum/interaction/lewd/evaluate_target(var/mob/user, var/mob/target, var/silent=1)
 	if(..(user, target, silent))
 		if(target_not_tired && target.refactory_period)
-			to_chat(user, "<span class='warning'>.</span>")
+			to_chat(user, span_warning(".") )
 			return 0
 		if(require_target_naked && !target.is_nude())
 			if(!silent) to_chat(user, "<span class = 'warning'>Цели мешает одежда.</span>")

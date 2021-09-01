@@ -12,7 +12,7 @@
 	var/mob/living/carbon/human/ninja = affecting
 	var/actualCost = cost*10
 	if(cost && cell.charge < actualCost)
-		to_chat(ninja, "<span class='warning'>Недостаточно энергии!</span>")
+		to_chat(ninja, span_warning("Недостаточно энергии!") )
 		return TRUE
 	else
 		//This shit used to be handled individually on every proc.. why even bother with a universal check proc then?
@@ -23,6 +23,6 @@
 			cancel_stealth()//Get rid of it.
 		if(N_ADRENALINE)
 			if(!a_boost)
-				to_chat(ninja, "<span class='warning'>У вас больше нет инъекций адреналина!</span>")
+				to_chat(ninja, span_warning("У вас больше нет инъекций адреналина!") )
 				return TRUE
 	return (s_coold)//Returns the value of the variable which counts down to zero.

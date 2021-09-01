@@ -62,8 +62,8 @@
 	if(obj_flags & EMAGGED)
 		return
 	if(user)
-		user.visible_message("<span class='warning'>[user] проводит подозрительной картой через [src]!</span>",
-		"<span class='notice'>Перенастраиваю спектр маршрутизации и приемника консоли снабжения, разблокированы специальные материалы и контрабанда.</span>")
+		user.visible_message(span_warning("[user] проводит подозрительной картой через [src]!") ,
+		span_notice("Перенастраиваю спектр маршрутизации и приемника консоли снабжения, разблокированы специальные материалы и контрабанда.") )
 
 	obj_flags |= EMAGGED
 	contraband = TRUE

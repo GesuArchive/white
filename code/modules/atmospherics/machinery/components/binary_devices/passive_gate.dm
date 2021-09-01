@@ -38,7 +38,7 @@ Passive gate is similar to the regular pump except:
 	if(can_interact(user))
 		target_pressure = MAX_OUTPUT_PRESSURE
 		investigate_log("was set to [target_pressure] kPa by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>Максимально выкручиваю давление в [src] до [target_pressure] кПа.</span>")
+		to_chat(user, span_notice("Максимально выкручиваю давление в [src] до [target_pressure] кПа.") )
 		update_icon()
 	return ..()
 
@@ -152,7 +152,7 @@ Passive gate is similar to the regular pump except:
 /obj/machinery/atmospherics/components/binary/passive_gate/can_unwrench(mob/user)
 	. = ..()
 	if(. && on)
-		to_chat(user, "<span class='warning'>Не могу открутить [src.name], сначала нужно выключить это!</span>")
+		to_chat(user, span_warning("Не могу открутить [src.name], сначала нужно выключить это!") )
 		return FALSE
 
 

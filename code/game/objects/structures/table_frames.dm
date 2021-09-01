@@ -23,7 +23,7 @@
 
 
 /obj/structure/table_frame/wrench_act(mob/living/user, obj/item/I)
-	to_chat(user, "<span class='notice'>Начинаю разбирать [src]...</span>")
+	to_chat(user, span_notice("Начинаю разбирать [src]...") )
 	I.play_tool_sound(src)
 	if(!I.use_tool(src, user, 3 SECONDS))
 		return TRUE
@@ -37,23 +37,23 @@
 		var/obj/item/stack/material = I
 		if(material.tableVariant)
 			if(material.get_amount() < 1)
-				to_chat(user, "<span class='warning'>Надо бы [material.name] чтобы закончить это!</span>")
+				to_chat(user, span_warning("Надо бы [material.name] чтобы закончить это!") )
 				return
 			if(locate(/obj/structure/table) in loc)
-				to_chat(user, "<span class='warning'>Здесь уже есть стол!</span>")
+				to_chat(user, span_warning("Здесь уже есть стол!") )
 				return
-			to_chat(user, "<span class='notice'>Начинаю добавлять [material] к [src]...</span>")
+			to_chat(user, span_notice("Начинаю добавлять [material] к [src]...") )
 			if(!do_after(user, 2 SECONDS, target = src) || !material.use(1) || (locate(/obj/structure/table) in loc))
 				return
 			make_new_table(material.tableVariant)
 		else if(istype(material, /obj/item/stack/sheet))
 			if(material.get_amount() < 1)
-				to_chat(user, "<span class='warning'>Надо бы больше металла!</span>")
+				to_chat(user, span_warning("Надо бы больше металла!") )
 				return
 			if(locate(/obj/structure/table) in loc)
-				to_chat(user, "<span class='warning'>Здесь уже есть стол!</span>")
+				to_chat(user, span_warning("Здесь уже есть стол!") )
 				return
-			to_chat(user, "<span class='notice'>Начинаю добавлять [material] к [src]...</span>")
+			to_chat(user, span_notice("Начинаю добавлять [material] к [src]...") )
 			if(!do_after(user, 2 SECONDS, target = src) || !material.use(1) || (locate(/obj/structure/table) in loc))
 				return
 			var/list/material_list = list()
@@ -107,9 +107,9 @@
 			carpet_type = I.type
 		if (toConstruct)
 			if(material.get_amount() < 1)
-				to_chat(user, "<span class='warning'>Надо бы [material.name], чтобы закончить это!</span>")
+				to_chat(user, span_warning("Надо бы [material.name], чтобы закончить это!") )
 				return
-			to_chat(user, "<span class='notice'>Начинаю добавлять [material] к [src]...</span>")
+			to_chat(user, span_notice("Начинаю добавлять [material] к [src]...") )
 			if(do_after(user, 20, target = src) && material.use(1))
 				make_new_table(toConstruct, null, carpet_type)
 	else

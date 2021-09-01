@@ -104,32 +104,32 @@ SUBSYSTEM_DEF(spm)
 		var/obj/item/card/id/acard = I
 		if(acard.registered_account)
 			linked_account = acard.registered_account
-			to_chat(user, "<span class='notice'>Привязываю карту к полке.</span>")
+			to_chat(user, span_notice("Привязываю карту к полке.") )
 			return
-		to_chat(user, "<span class='warning'>На карте нет аккаунта!</span>")
+		to_chat(user, span_warning("На карте нет аккаунта!") )
 		return
 
 	if(istype(I, /obj/item/mining_thing))
 		if(contents.len >= 3)
-			to_chat(user, "<span class='warning'>Стойка переполнена!</span>")
+			to_chat(user, span_warning("Стойка переполнена!") )
 			return
 		I.forceMove(src)
 		switch(contents.len)
 			if(1)
-				to_chat(user, "<span class='notice'>Устанавливаю оборудование в верхний слот.</span>")
+				to_chat(user, span_notice("Устанавливаю оборудование в верхний слот.") )
 				add_overlay("top_miners")
 			if(2)
-				to_chat(user, "<span class='notice'>Устанавливаю оборудование в средний слот.</span>")
+				to_chat(user, span_notice("Устанавливаю оборудование в средний слот.") )
 				add_overlay("mid_miners")
 			if(3)
-				to_chat(user, "<span class='notice'>Устанавливаю оборудование в нижний слот.</span>")
+				to_chat(user, span_notice("Устанавливаю оборудование в нижний слот.") )
 				add_overlay("bot_miners")
 		recalculate_hashrate()
 
 	if(I.tool_behaviour == TOOL_WRENCH)
-		to_chat(user, "<span class='notice'>Начинаю [anchored ? "от" : "при"]кручивать [src.name]...</span>")
+		to_chat(user, span_notice("Начинаю [anchored ? "от" : "при"]кручивать [src.name]...") )
 		if(I.use_tool(src, user, 40, volume=75))
-			to_chat(user, "<span class='notice'>[anchored ? "От" : "При"]кручиваю [src.name].</span>")
+			to_chat(user, span_notice("[anchored ? "От" : "При"]кручиваю [src.name].") )
 			set_anchored(!anchored)
 		return
 
@@ -138,22 +138,22 @@ SUBSYSTEM_DEF(spm)
 		if(!new_key)
 			return
 		bound_key = new_key
-		to_chat(user, "<span class='notice'>Ключ \"[new_key]\" установлен.</span>")
+		to_chat(user, span_notice("Ключ \"[new_key]\" установлен.") )
 		return
 
 	if(I.tool_behaviour == TOOL_CROWBAR)
 		if(!contents.len)
-			to_chat(user, "<span class='warning'>Внутри пусто!</span>")
+			to_chat(user, span_warning("Внутри пусто!") )
 			return
 		switch(contents.len)
 			if(1)
-				to_chat(user, "<span class='notice'>Вытаскиваю оборудование из верхнего слота.</span>")
+				to_chat(user, span_notice("Вытаскиваю оборудование из верхнего слота.") )
 				cut_overlay("top_miners")
 			if(2)
-				to_chat(user, "<span class='notice'>Вытаскиваю оборудование из среднего слота.</span>")
+				to_chat(user, span_notice("Вытаскиваю оборудование из среднего слота.") )
 				cut_overlay("mid_miners")
 			if(3)
-				to_chat(user, "<span class='notice'>Вытаскиваю оборудование из нижнего слота.</span>")
+				to_chat(user, span_notice("Вытаскиваю оборудование из нижнего слота.") )
 				cut_overlay("bot_miners")
 		var/obj/item/TFM = contents[contents.len]
 		var/turf/T = get_turf(src)
@@ -228,15 +228,15 @@ SUBSYSTEM_DEF(spm)
 		return ..()
 
 	if(I.tool_behaviour == TOOL_MULTITOOL)
-		to_chat(user, "<span class='notice'>Пытаюсь разогнать [src.name]...</span>")
+		to_chat(user, span_notice("Пытаюсь разогнать [src.name]...") )
 		if(I.use_tool(src, user, 40, volume=75))
 			if(prob(overclock))
-				to_chat(user, "<span class='warning'>Успешно не разгоняю [src.name]?!</span>")
+				to_chat(user, span_warning("Успешно не разгоняю [src.name]?!") )
 				new /obj/item/mining_thing/burned(drop_location())
 				qdel(src)
 				return
 			overclock += rand(5, 10)
-			to_chat(user, "<span class='notice'>Успешно разгоняю [src.name]! Новый прирост: [overclock].</span>")
+			to_chat(user, span_notice("Успешно разгоняю [src.name]! Новый прирост: [overclock].") )
 
 /obj/item/mining_thing/examine(mob/user)
 	. = ..()

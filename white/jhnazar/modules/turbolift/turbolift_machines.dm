@@ -26,7 +26,7 @@ GLOBAL_LIST_EMPTY(turbolifts)
 
 /obj/machinery/turbolift_button/attack_hand(mob/user)
 	if (machine_stat & NOPOWER)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] не отвечает.</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] не отвечает.") )
 	if(!shuttle_id || !floor_id)
 		say("Произошла неизвестная ошибка. Пожалуйста, свяжитесь со службой починки лифтов Нанотрейзен.")
 		return

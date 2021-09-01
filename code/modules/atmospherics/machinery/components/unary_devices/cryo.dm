@@ -326,7 +326,7 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 /obj/machinery/atmospherics/components/unary/cryo_cell/relaymove(mob/living/user, direction)
 	if(message_cooldown <= world.time)
 		message_cooldown = world.time + 50
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] не поддаётся!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] не поддаётся!") )
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/open_machine(drop = FALSE)
 	if(!state_open && !panel_open)
@@ -348,14 +348,14 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 /obj/machinery/atmospherics/components/unary/cryo_cell/container_resist_act(mob/living/user)
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
-	user.visible_message("<span class='notice'>[user] пинает стекло криокамеры пытаясь выбраться!</span>", \
-		"<span class='notice'>Пинаю стекло криокамеры пытаясь выбраться из неё... (это займёт примерно [DisplayTimeText(CRYO_BREAKOUT_TIME)].)</span>", \
-		"<span class='hear'>Слышу удар по стеклу криокамеры.</span>")
+	user.visible_message(span_notice("[user] пинает стекло криокамеры пытаясь выбраться!") , \
+		span_notice("Пинаю стекло криокамеры пытаясь выбраться из неё... (это займёт примерно [DisplayTimeText(CRYO_BREAKOUT_TIME)].)") , \
+		span_hear("Слышу удар по стеклу криокамеры.") )
 	if(do_after(user, CRYO_BREAKOUT_TIME, target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src )
 			return
-		user.visible_message("<span class='warning'>[user] выбирается из криокамеры!</span>", \
-			"<span class='notice'>Успешно выбираюсь из криокамеры!</span>")
+		user.visible_message(span_warning("[user] выбирается из криокамеры!") , \
+			span_notice("Успешно выбираюсь из криокамеры!") )
 		open_machine()
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/examine(mob/user)
@@ -376,7 +376,7 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 		if(L.incapacitated())
 			close_machine(target)
 	else
-		user.visible_message("<span class='notice'>[user] начинает заталкивать [target] в криокамеру.</span>", "<span class='notice'>Начинаю заталкивать [target] в криокамеру.</span>")
+		user.visible_message(span_notice("[user] начинает заталкивать [target] в криокамеру.") , span_notice("Начинаю заталкивать [target] в криокамеру.") )
 		if (do_after(user, 2.5 SECONDS, target=target))
 			close_machine(target)
 
@@ -384,13 +384,13 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 	if(istype(I, /obj/item/reagent_containers/glass))
 		. = 1 //no afterattack
 		if(beaker)
-			to_chat(user, "<span class='warning'>Внутри криокамеры уже есть пробирка!</span>")
+			to_chat(user, span_warning("Внутри криокамеры уже есть пробирка!") )
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		beaker = I
-		user.visible_message("<span class='notice'>[user] устанавливает [I.name] в слот криокамеры.</span>", \
-							"<span class='notice'>Устанавливаю [I.name] в слот криокамеры.</span>")
+		user.visible_message(span_notice("[user] устанавливает [I.name] в слот криокамеры.") , \
+							span_notice("Устанавливаю [I.name] в слот криокамеры.") )
 		var/reagentlist = pretty_string_from_reagent_list(I.reagents.reagent_list)
 		log_game("[key_name(user)] added an [I] to cryo containing [reagentlist]")
 		return

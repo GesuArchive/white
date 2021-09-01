@@ -55,7 +55,7 @@
 	AddElement(/datum/element/plant_backfire, /obj/item/food/grown/nettle.proc/burn_holder, list(TRAIT_PIERCEIMMUNE))
 
 /obj/item/food/grown/nettle/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] ест [src]! Кажется, [user.p_theyre()] пытается покончить с собой!</span>")
+	user.visible_message(span_suicide("[user] ест [src]! Кажется, [user.p_theyre()] пытается покончить с собой!") )
 	return (BRUTELOSS|TOXLOSS)
 
 /*
@@ -64,7 +64,7 @@
  * user - the carbon who is holding the nettle.
  */
 /obj/item/food/grown/nettle/proc/burn_holder(mob/living/carbon/user)
-	to_chat(user, "<span class='danger'>[src] жжёт мою руку!</span>")
+	to_chat(user, span_danger("[src] жжёт мою руку!") )
 	var/obj/item/bodypart/affecting = user.get_active_hand()
 	if(affecting?.receive_damage(0, force, wound_bonus = CANT_WOUND))
 		user.update_damage_overlays()
@@ -76,7 +76,7 @@
 	if(force > 0)
 		force -= rand(1, (force / 3) + 1) // When you whack someone with it, leaves fall off
 	else
-		to_chat(usr, "<span class='warning'>Все листья опали с [src] после сильного удара.</span>")
+		to_chat(usr, span_warning("Все листья опали с [src] после сильного удара.") )
 		qdel(src)
 
 /obj/item/food/grown/nettle/death
@@ -96,13 +96,13 @@
 	. = ..()
 	if(prob(50))
 		user.Paralyze(100)
-		to_chat(user, "<span class='userdanger'>[capitalize(src.name)] обжигает мою руку, когда я пытаюсь дотронуться до неё!</span>")
+		to_chat(user, span_userdanger("[capitalize(src.name)] обжигает мою руку, когда я пытаюсь дотронуться до неё!") )
 
 /obj/item/food/grown/nettle/death/attack(mob/living/carbon/M, mob/user)
 	if(!..())
 		return
 	if(isliving(M))
-		to_chat(M, "<span class='danger'>Кислота сочится из [src], когда я пытаюсь дотронуться до неё и очень сильно обжигает мою руку!</span>")
+		to_chat(M, span_danger("Кислота сочится из [src], когда я пытаюсь дотронуться до неё и очень сильно обжигает мою руку!") )
 		log_combat(user, M, "attacked", src)
 
 		M.adjust_blurriness(force/7)

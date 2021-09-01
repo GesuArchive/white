@@ -253,9 +253,9 @@
 		return TRUE
 
 	if(istype(O, /obj/item/disk/design_disk))
-		user.visible_message("<span class='notice'>[user] начинает загружать [O] в [src]...</span>",
-			"<span class='notice'>Начинаю загружать [O]...</span>",
-			"<span class='hear'>Слышу шелест дискет.</span>")
+		user.visible_message(span_notice("[user] начинает загружать [O] в [src]...") ,
+			span_notice("Начинаю загружать [O]...") ,
+			span_hear("Слышу шелест дискет.") )
 		busy = TRUE
 		var/obj/item/disk/design_disk/D = O
 		if(do_after(user, 14.4, target = src))

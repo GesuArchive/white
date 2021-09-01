@@ -39,7 +39,7 @@
 /obj/item/pushbroom/proc/on_wield(obj/item/source, mob/user)
 	SIGNAL_HANDLER
 
-	to_chat(user, "<span class='notice'>Хватаю [src.name] обеими руками и готовлюсь толкать МУСОР.</span>")
+	to_chat(user, span_notice("Хватаю [src.name] обеими руками и готовлюсь толкать МУСОР.") )
 	RegisterSignal(user, COMSIG_MOVABLE_PRE_MOVE, .proc/sweep)
 
 /**
@@ -88,7 +88,7 @@
 	if (i > 1)
 		if (target_bin)
 			target_bin.update_icon()
-			to_chat(user, "<span class='notice'>Заталкиваю весь мусор в мусорку.</span>")
+			to_chat(user, span_notice("Заталкиваю весь мусор в мусорку.") )
 		playsound(loc, 'sound/weapons/thudswoosh.ogg', 30, TRUE, -1)
 
 /**
@@ -107,5 +107,5 @@
 	name = "метла робота"
 
 /obj/item/pushbroom/cyborg/janicart_insert(mob/user, obj/structure/janitorialcart/J)
-	to_chat(user, "<span class='notice'>Не получается положить [src.name] в [J.name]</span>")
+	to_chat(user, span_notice("Не получается положить [src.name] в [J.name]") )
 	return FALSE

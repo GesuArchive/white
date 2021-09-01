@@ -41,7 +41,7 @@
 					for(var/mob/living/L in T.contents)
 						L.apply_damage_type(20, BRUTE)
 						L.Paralyze(100)
-						to_chat(L, "<span class='userdanger'>ГРУДА КАМНЕЙ ПАДАЕТ С ПОТОЛКА ПРЯМО НА МЕНЯ!</span>")
+						to_chat(L, span_userdanger("ГРУДА КАМНЕЙ ПАДАЕТ С ПОТОЛКА ПРЯМО НА МЕНЯ!") )
 					T.ChangeTurf(/turf/closed/mineral/random/dwarf_lustress)
 
 /obj/effect/temp_visual/rockfall

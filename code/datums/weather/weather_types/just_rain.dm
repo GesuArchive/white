@@ -3,18 +3,18 @@
 	name = "just rain"
 	desc = "Простой дождик. Что?"
 
-	telegraph_message = "<span class='notice'>Кажется дождь начинается...</span>"
+	telegraph_message = span_notice("Кажется дождь начинается...")
 	telegraph_duration = 300
 	telegraph_overlay = "little_rain"
 	telegraph_sound = 'sound/ambience/rain_startstop.ogg'
 
-	weather_message = "<span class='boldnotice'><i>Дождик начинает усиливаться!</i></span>"
+	weather_message = span_boldnotice("<i>Дождик начинает усиливаться!</i>")
 	weather_duration_lower = 600
 	weather_duration_upper = 1200
 	weather_overlay = "just_rain"
 	weather_sound = 'sound/ambience/rain_mid.ogg'
 
-	end_message = "<span class='notice'>Дождь сбавляет свои обороты, похоже он начал успокаиваться...</span>"
+	end_message = span_notice("Дождь сбавляет свои обороты, похоже он начал успокаиваться...")
 	end_duration = 300
 	end_overlay = "little_rain"
 	end_sound = 'sound/ambience/rain_startstop.ogg'

@@ -252,11 +252,11 @@
 	. += "<hr>"
 	switch(buildstage)
 		if(0)
-			. += "<span class='notice'>Отсутствует плата.</span>"
+			. += span_notice("Отсутствует плата.")
 		if(1)
-			. += "<span class='notice'>Не хватает проводов</span>"
+			. += span_notice("Не хватает проводов")
 		if(2)
-			. += "<span class='notice'>ПКМ, чтобы [locked ? "разблокировать" : "заблокировать"] интерфейс.</span>"
+			. += span_notice("ПКМ, чтобы [locked ? "разблокировать" : "заблокировать"] интерфейс.")
 
 /obj/machinery/airalarm/ui_status(mob/user)
 	if(user.has_unlimited_silicon_privilege && aidisabled)
@@ -749,7 +749,7 @@
 		if(2)
 			if(W.tool_behaviour == TOOL_WIRECUTTER && panel_open && wires.is_all_cut())
 				W.play_tool_sound(src)
-				to_chat(user, "<span class='notice'>Откусываю последние провода.</span>")
+				to_chat(user, span_notice("Откусываю последние провода.") )
 				new /obj/item/stack/cable_coil(loc, 5)
 				buildstage = 1
 				update_icon()
@@ -757,7 +757,7 @@
 			else if(W.tool_behaviour == TOOL_SCREWDRIVER)  // Opening that Air Alarm up.
 				W.play_tool_sound(src)
 				panel_open = !panel_open
-				to_chat(user, "<span class='notice'>Провода теперь [panel_open ? "открыты" : "закрыты"].</span>")
+				to_chat(user, span_notice("Провода теперь [panel_open ? "открыты" : "закрыты"].") )
 				update_icon()
 				return
 			else if(W.GetID())// trying to unlock the interface with an ID card
@@ -768,12 +768,12 @@
 				return
 		if(1)
 			if(W.tool_behaviour == TOOL_CROWBAR)
-				user.visible_message("<span class='notice'>[user.name] вынимает плату из [src.name].</span>", \
-									"<span class='notice'>Начинаю вытаскивать плату...</span>")
+				user.visible_message(span_notice("[user.name] вынимает плату из [src.name].") , \
+									span_notice("Начинаю вытаскивать плату...") )
 				W.play_tool_sound(src)
 				if (W.use_tool(src, user, 20))
 					if (buildstage == 1)
-						to_chat(user, "<span class='notice'>Вынимаю плату.</span>")
+						to_chat(user, span_notice("Вынимаю плату.") )
 						new /obj/item/electronics/airalarm( src.loc )
 						playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 						buildstage = 0
@@ -783,14 +783,14 @@
 			if(istype(W, /obj/item/stack/cable_coil))
 				var/obj/item/stack/cable_coil/cable = W
 				if(cable.get_amount() < 5)
-					to_chat(user, "<span class='warning'>Надо бы чуть больше кабеля!</span>")
+					to_chat(user, span_warning("Надо бы чуть больше кабеля!") )
 					return
-				user.visible_message("<span class='notice'>[user.name] подключает провода к контроллеру.</span>", \
-									"<span class='notice'>Начинаю подключать провода к контролеру...</span>")
+				user.visible_message(span_notice("[user.name] подключает провода к контроллеру.") , \
+									span_notice("Начинаю подключать провода к контролеру...") )
 				if (do_after(user, 20, target = src))
 					if (cable.get_amount() >= 5 && buildstage == 1)
 						cable.use(5)
-						to_chat(user, "<span class='notice'>Подключаю провода к контроллеру.</span>")
+						to_chat(user, span_notice("Подключаю провода к контроллеру.") )
 						wires.repair()
 						aidisabled = 0
 						locked = FALSE
@@ -803,7 +803,7 @@
 		if(0)
 			if(istype(W, /obj/item/electronics/airalarm))
 				if(user.temporarilyRemoveItemFromInventory(W))
-					to_chat(user, "<span class='notice'>Вставляю плату.</span>")
+					to_chat(user, span_notice("Вставляю плату.") )
 					buildstage = 1
 					update_icon()
 					qdel(W)
@@ -813,14 +813,14 @@
 				var/obj/item/electroadaptive_pseudocircuit/P = W
 				if(!P.adapt_circuit(user, 25))
 					return
-				user.visible_message("<span class='notice'>[user] адаптирует плату и вставляет её в [src].</span>", \
-				"<span class='notice'>Адаптирую плату и вставляю её внутрь.</span>")
+				user.visible_message(span_notice("[user] адаптирует плату и вставляет её в [src].") , \
+				span_notice("Адаптирую плату и вставляю её внутрь.") )
 				buildstage = 1
 				update_icon()
 				return
 
 			if(W.tool_behaviour == TOOL_WRENCH)
-				to_chat(user, "<span class='notice'>Отсоединяю [src] от стены.</span>")
+				to_chat(user, span_notice("Отсоединяю [src] от стены.") )
 				W.play_tool_sound(src)
 				new /obj/item/wallframe/airalarm( user.loc )
 				qdel(src)
@@ -836,8 +836,8 @@
 /obj/machinery/airalarm/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_UPGRADE_SIMPLE_CIRCUITS)
-			user.visible_message("<span class='notice'>[user] адаптирует плату и вставляет её в [src].</span>", \
-			"<span class='notice'>Адаптирую плату и вставляю её внутрь.</span>")
+			user.visible_message(span_notice("[user] адаптирует плату и вставляет её в [src].") , \
+			span_notice("Адаптирую плату и вставляю её внутрь.") )
 			buildstage = 1
 			update_icon()
 			return TRUE
@@ -852,21 +852,21 @@
 
 /obj/machinery/airalarm/proc/togglelock(mob/living/user)
 	if(machine_stat & (NOPOWER|BROKEN))
-		to_chat(user, "<span class='warning'>Ниче не пойму!</span>")
+		to_chat(user, span_warning("Ниче не пойму!") )
 	else
 		if(src.allowed(usr) && !wires.is_cut(WIRE_IDSCAN))
 			locked = !locked
-			to_chat(user, "<span class='notice'>[ locked ? "блокирую" : "разблокирую"] интерфейс контроллера воздуха.</span>")
+			to_chat(user, span_notice("[ locked ? "блокирую" : "разблокирую"] интерфейс контроллера воздуха.") )
 			updateUsrDialog()
 		else
-			to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
+			to_chat(user, span_danger("Доступ запрещён.") )
 	return
 
 /obj/machinery/airalarm/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	visible_message("<span class='warning'>Искры вылетают из [src]!</span>", "<span class='notice'>Взламываю [src], вырубая его протоколы безопасности.</span>")
+	visible_message(span_warning("Искры вылетают из [src]!") , span_notice("Взламываю [src], вырубая его протоколы безопасности.") )
 	playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 /obj/machinery/airalarm/deconstruct(disassembled = TRUE)

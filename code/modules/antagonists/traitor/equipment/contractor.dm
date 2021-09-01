@@ -163,7 +163,7 @@
 	. = ..()
 
 	if (.)
-		to_chat(user, "<span class='notice'>Мой аплинк тихо вибрирует, подключаясь к ближайшим оперативникам...</span>")
+		to_chat(user, span_notice("Мой аплинк тихо вибрирует, подключаясь к ближайшим оперативникам...") )
 
 		var/list/mob/dead/observer/candidates = pollGhostCandidates("Do you want to play as the Contractor Support Unit for [user.real_name]?", ROLE_PAI, null, FALSE, 100, POLL_IGNORE_CONTRACTOR_SUPPORT)
 
@@ -171,7 +171,7 @@
 			var/mob/dead/observer/C = pick(candidates)
 			spawn_contractor_partner(user, C.key)
 		else
-			to_chat(user, "<span class='notice'>На данный момент нет свободных оперативников. Пожалуйста, попробуйте позже.</span>")
+			to_chat(user, span_notice("На данный момент нет свободных оперативников. Пожалуйста, попробуйте позже.") )
 
 			// refund and add the limit back.
 			limited += 1
@@ -267,9 +267,9 @@
 		var/atom/item_to_create = new item(get_turf(user))
 
 		if(user.put_in_hands(item_to_create))
-			to_chat(user, "<span class='notice'>Моя покупка материализуется в моих руках!</span>")
+			to_chat(user, span_notice("Моя покупка материализуется в моих руках!") )
 		else
-			to_chat(user, "<span class='notice'>Моя покупка материализуется на полу.</span>")
+			to_chat(user, span_notice("Моя покупка материализуется на полу.") )
 
 		return item_to_create
 	return TRUE

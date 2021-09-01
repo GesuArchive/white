@@ -15,7 +15,7 @@
 /datum/reagent/viagra/on_mob_add(mob/living/L)
 	if(ishuman(L))
 		//rd = roll_stat_dice(H.fate_luck)
-		to_chat(L, "<span class='notice'>Чуствую вкусную конфету!</span>")
+		to_chat(L, span_notice("Чуствую вкусную конфету!") )
 
 /datum/reagent/viagra/on_mob_life(mob/living/L)
 	//if(ishuman(L))
@@ -28,7 +28,7 @@
 /datum/reagent/viagra/overdose_process(mob/living/M)
 	if(ishuman(M))
 		var/mob/living/carbon/human/N = M
-		N.visible_message("<span class='suicide'><b>[N.name]</b> разлетается на куски!</span>")
+		N.visible_message(span_suicide("<b>[N.name]</b> разлетается на куски!") )
 		N.gib()
 		return
 	..()
@@ -55,7 +55,7 @@
 /datum/reagent/askorbinka/on_mob_add(mob/living/L)
 	if(ishuman(L))
 		//rd = roll_stat_dice(H.fate_luck)
-		to_chat(L, "<span class='notice'>Ням!</span>")
+		to_chat(L, span_notice("Ням!") )
 
 /datum/reagent/askorbinka/on_mob_life(mob/living/L)
 	//if(ishuman(L))
@@ -75,7 +75,7 @@
 		B.forceMove(T)
 		var/datum/callback/gibspawner = CALLBACK(GLOBAL_PROC, /proc/spawn_atom_to_turf, /obj/effect/gibspawner/generic, B, 1, FALSE, N)
 		B.throw_at(target, 1, 1, callback=gibspawner)
-		N.visible_message("<span class='suicide'>Мозги <b>[sklonenie(N.name, VINITELNI, N.gender)]</b> вырываются из черепной коробки!</span>")
+		N.visible_message(span_suicide("Мозги <b>[sklonenie(N.name, VINITELNI, N.gender)]</b> вырываются из черепной коробки!") )
 		return
 	..()
 

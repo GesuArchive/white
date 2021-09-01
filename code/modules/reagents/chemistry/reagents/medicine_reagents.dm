@@ -63,7 +63,7 @@
 			if(1   to 32)
 				mytray.mutatepest(user)
 			else if(prob(20))
-				mytray.visible_message("<span class='warning'>Ничего не произошло...</span>")
+				mytray.visible_message(span_warning("Ничего не произошло...") )
 
 /datum/reagent/medicine/adminordrazine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.heal_bodypart_damage(5 * REM * delta_time, 5 * REM * delta_time)
@@ -273,7 +273,7 @@
 	var/mob/living/carbon/patient = exposed_mob
 	if(reac_volume >= 5 && HAS_TRAIT_FROM(patient, TRAIT_HUSK, BURN) && patient.getFireLoss() < UNHUSK_DAMAGE_THRESHOLD) //One carp yields 12u rezadone.
 		patient.cure_husk(BURN)
-		patient.visible_message("<span class='nicegreen'>Тело [patient] быстро впитывает влагу из окружающей среды, принимая более здоровый вид.</span>")
+		patient.visible_message(span_nicegreen("Тело [patient] быстро впитывает влагу из окружающей среды, принимая более здоровый вид.") )
 
 /datum/reagent/medicine/spaceacillin
 	name = "Космоацилин"
@@ -343,11 +343,11 @@
 
 /datum/reagent/medicine/salglu_solution/overdose_process(mob/living/M, delta_time, times_fired)
 	if(DT_PROB(1.5, delta_time))
-		to_chat(M, "<span class='warning'>Какое соленое чувство.</span>")
+		to_chat(M, span_warning("Какое соленое чувство.") )
 		holder.add_reagent(/datum/reagent/consumable/salt, 1)
 		holder.remove_reagent(/datum/reagent/medicine/salglu_solution, 0.5)
 	else if(DT_PROB(1.5, delta_time))
-		to_chat(M, "<span class='warning'>Какое сладкое чувство.</span>")
+		to_chat(M, span_warning("Какое сладкое чувство.") )
 		holder.add_reagent(/datum/reagent/consumable/sugar, 1)
 		holder.remove_reagent(/datum/reagent/medicine/salglu_solution, 0.5)
 	if(DT_PROB(18, delta_time))
@@ -381,7 +381,7 @@
 	if(methods & (INGEST|VAPOR|INJECT))
 		exposed_mob.adjust_nutrition(-5)
 		if(show_message)
-			to_chat(exposed_mob, "<span class='warning'>Ощущаю пустоту в желудке и спазмы!</span>")
+			to_chat(exposed_mob, span_warning("Ощущаю пустоту в желудке и спазмы!") )
 
 	if(methods & (PATCH|TOUCH))
 		var/mob/living/carbon/exposed_carbon = exposed_mob
@@ -390,7 +390,7 @@
 			surgery.speed_modifier = max(0.1, surgery.speed_modifier)
 
 		if(show_message)
-			to_chat(exposed_carbon, "<span class='danger'>Чувствую, что мои раны затягиваются!</span>" )
+			to_chat(exposed_carbon, span_danger("Чувствую, что мои раны затягиваются!")  )
 
 /datum/reagent/medicine/mine_salve/on_mob_end_metabolize(mob/living/M)
 	if(iscarbon(M))
@@ -555,7 +555,7 @@
 	if(DT_PROB(10, delta_time) && iscarbon(M))
 		var/obj/item/I = M.get_active_held_item()
 		if(I && M.dropItemToGround(I))
-			to_chat(M, "<span class='notice'>Мои руки дернулись и я выронил то, что держал в них!</span>")
+			to_chat(M, span_notice("Мои руки дернулись и я выронил то, что держал в них!") )
 			M.Jitter(10)
 
 	M.AdjustAllImmobility(-20 * REM * delta_time)
@@ -567,11 +567,11 @@
 	if(DT_PROB(1, delta_time) && iscarbon(M))
 		var/datum/disease/D = new /datum/disease/heart_failure
 		M.ForceContractDisease(D)
-		to_chat(M, "<span class='userdanger'>Уверен что ощутил как мое сердце пропустило удар..</span>")
+		to_chat(M, span_userdanger("Уверен что ощутил как мое сердце пропустило удар..") )
 		M.playsound_local(M, 'sound/effects/singlebeat.ogg', 100, 0)
 
 	if(DT_PROB(3.5, delta_time))
-		to_chat(M, "<span class='notice'>[pick("У меня очень сильно болит голова.", "Глазам больно.", "Мне сложно ровно стоять.", "По ощущениям мое сердце буквально вырывается из груди.")]</span>")
+		to_chat(M, span_notice("[pick("У меня очень сильно болит голова.", "Глазам больно.", "Мне сложно ровно стоять.", "По ощущениям мое сердце буквально вырывается из груди.")]") )
 
 	if(DT_PROB(18, delta_time))
 		M.adjustToxLoss(1, 0)
@@ -622,7 +622,7 @@
 		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "numb", /datum/mood_event/narcotic_medium, name)
 	switch(current_cycle)
 		if(11)
-			to_chat(M, "<span class='warning'>Начал ощущать усталость...</span>" )
+			to_chat(M, span_warning("Начал ощущать усталость...")  )
 		if(12 to 24)
 			M.drowsyness += 1 * REM * delta_time
 		if(24 to INFINITY)
@@ -658,12 +658,12 @@
 	eyes.applyOrganDamage(-2 * REM * delta_time)
 	if(HAS_TRAIT_FROM(M, TRAIT_BLIND, EYE_DAMAGE))
 		if(DT_PROB(10, delta_time))
-			to_chat(M, "<span class='warning'>Ко мне постепенно возвращается зрение...</span>")
+			to_chat(M, span_warning("Ко мне постепенно возвращается зрение...") )
 			M.cure_blind(EYE_DAMAGE)
 			M.cure_nearsighted(EYE_DAMAGE)
 			M.blur_eyes(35)
 	else if(HAS_TRAIT_FROM(M, TRAIT_NEARSIGHT, EYE_DAMAGE))
-		to_chat(M, "<span class='warning'>В моем периферийном зрении рассеивается темнота.</span>")
+		to_chat(M, span_warning("В моем периферийном зрении рассеивается темнота.") )
 		M.cure_nearsighted(EYE_DAMAGE)
 		M.blur_eyes(10)
 	..()
@@ -785,16 +785,16 @@
 	if(exposed_mob.stat != DEAD)
 		return ..()
 	if(exposed_mob.suiciding || exposed_mob.hellbound) //they are never coming back
-		exposed_mob.visible_message("<span class='warning'>Тело [exposed_mob] не реагирует...</span>")
+		exposed_mob.visible_message(span_warning("Тело [exposed_mob] не реагирует...") )
 		return
 	if(iscarbon(exposed_mob) && !(methods & INGEST)) //simplemobs can still be splashed
 		return ..()
 	var/amount_to_revive = round((exposed_mob.getBruteLoss()+exposed_mob.getFireLoss())/20)
 	if(exposed_mob.getBruteLoss()+exposed_mob.getFireLoss() >= 200 || HAS_TRAIT(exposed_mob, TRAIT_HUSK) || reac_volume < amount_to_revive) //body will die from brute+burn on revive or you haven't provided enough to revive.
-		exposed_mob.visible_message("<span class='warning'>Тело [exposed_mob] недолго бьется в конвульсиях, а затем вновь замирает.</span>")
+		exposed_mob.visible_message(span_warning("Тело [exposed_mob] недолго бьется в конвульсиях, а затем вновь замирает.") )
 		exposed_mob.do_jitter_animation(10)
 		return
-	exposed_mob.visible_message("<span class='warning'>Тело [exposed_mob] начинает биться в конвульсиях!</span>")
+	exposed_mob.visible_message(span_warning("Тело [exposed_mob] начинает биться в конвульсиях!") )
 	exposed_mob.notify_ghost_cloning("Your body is being revived with Strange Reagent!")
 	exposed_mob.do_jitter_animation(10)
 	var/excess_healing = 5*(reac_volume-amount_to_revive) //excess reagent will heal blood and organs across the board
@@ -1234,7 +1234,7 @@
 	..()
 
 /datum/reagent/medicine/modafinil/overdose_start(mob/living/M)
-	to_chat(M, "<span class='userdanger'>Ощущаю ужасную отдышку и нахлынувшую панику!</span>")
+	to_chat(M, span_userdanger("Ощущаю ужасную отдышку и нахлынувшую панику!") )
 	metabolization_rate = 0.025 * REAGENTS_METABOLISM // sets metabolism to 0.01 per tick on overdose
 
 /datum/reagent/medicine/modafinil/overdose_process(mob/living/M, delta_time, times_fired)
@@ -1255,11 +1255,11 @@
 			if(DT_PROB(30, delta_time))
 				M.losebreath++
 			if(DT_PROB(10, delta_time))
-				to_chat(M, "<span class='userdanger'>Внезапно случился припадок!</span>")
+				to_chat(M, span_userdanger("Внезапно случился припадок!") )
 				M.emote("moan")
 				M.Paralyze(20) // you should be in a bad spot at this point unless epipen has been used
 		if(81)
-			to_chat(M, "<span class='userdanger'>Слишком устал, не могу так дальше!</span>") // at this point you will eventually die unless you get charcoal
+			to_chat(M, span_userdanger("Слишком устал, не могу так дальше!") ) // at this point you will eventually die unless you get charcoal
 			M.adjustOxyLoss(0.1*REM * delta_time, 0)
 			M.adjustStaminaLoss(0.1*REM * delta_time, 0)
 		if(82 to INFINITY)
@@ -1404,7 +1404,7 @@
 	if(prob(30) && iscarbon(M))
 		var/obj/item/I = M.get_active_held_item()
 		if(I && M.dropItemToGround(I))
-			to_chat(M, "<span class='notice'>Мои руки дернулись и я выронил то, что держал в них!</span>")
+			to_chat(M, span_notice("Мои руки дернулись и я выронил то, что держал в них!") )
 	M.adjustStaminaLoss(-10, 0)
 	M.Jitter(10)
 	M.Dizzy(15)
@@ -1465,7 +1465,7 @@
 
 	if(bloodiest_wound)
 		if(!was_working)
-			to_chat(M, "<span class='green'>Моя льющаяся кровь начинает сгущаться!</span>")
+			to_chat(M, span_green("Моя льющаяся кровь начинает сгущаться!") )
 			was_working = TRUE
 		bloodiest_wound.blood_flow = max(0, bloodiest_wound.blood_flow - (clot_rate * REM * delta_time))
 	else if(was_working)
@@ -1480,9 +1480,9 @@
 		M.losebreath += rand(2, 4)
 		M.adjustOxyLoss(rand(1, 3))
 		if(prob(30))
-			to_chat(M, "<span class='danger'>Чувствую как кровь сворачивается в венах!</span>")
+			to_chat(M, span_danger("Чувствую как кровь сворачивается в венах!") )
 		else if(prob(10))
-			to_chat(M, "<span class='userdanger'>Ощущение, будто бы моя кровь перестала течь!</span>")
+			to_chat(M, span_userdanger("Ощущение, будто бы моя кровь перестала течь!") )
 			M.adjustOxyLoss(rand(3, 4))
 
 		if(prob(50))
@@ -1501,7 +1501,7 @@
 
 /datum/reagent/medicine/coagulant/on_mob_end_metabolize(mob/living/M)
 	if(was_working)
-		to_chat(M, "<span class='warning'>Медикамент, сгущающий мою кровь, перестал действовать!</span>")
+		to_chat(M, span_warning("Медикамент, сгущающий мою кровь, перестал действовать!") )
 	if(!ishuman(M))
 		return
 

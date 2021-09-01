@@ -153,7 +153,7 @@
 
 	if(href_list["late_join"])
 		if(!SSticker?.IsRoundInProgress())
-			to_chat(usr, "<span class='boldwarning'>Раунд ещё не начался или уже завершился...</span>")
+			to_chat(usr, span_boldwarning("Раунд ещё не начался или уже завершился...") )
 			return
 
 		if(href_list["late_join"] == "override")
@@ -161,16 +161,16 @@
 			return
 
 		if(SSticker.queued_players.len || (relevant_cap && living_player_count() >= relevant_cap && !(ckey(key) in GLOB.admin_datums)))
-			to_chat(usr, "<span class='danger'>[CONFIG_GET(string/hard_popcap_message)]</span>")
+			to_chat(usr, span_danger("[CONFIG_GET(string/hard_popcap_message)]") )
 
 			var/queue_position = SSticker.queued_players.Find(usr)
 			if(queue_position == 1)
-				to_chat(usr, "<span class='notice'>Ты следующий по списку желающих войти в раунд. Тебя оповестят о подходящей возможности.</span>")
+				to_chat(usr, span_notice("Ты следующий по списку желающих войти в раунд. Тебя оповестят о подходящей возможности.") )
 			else if(queue_position)
-				to_chat(usr, "<span class='notice'>Перед тобой [queue_position-1] игроков в очереди ожидания захода в раунд.</span>")
+				to_chat(usr, span_notice("Перед тобой [queue_position-1] игроков в очереди ожидания захода в раунд.") )
 			else
 				SSticker.queued_players += usr
-				to_chat(usr, "<span class='notice'>Тебя добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len].</span>")
+				to_chat(usr, span_notice("Тебя добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len].") )
 			return
 		LateChoices()
 
@@ -179,16 +179,16 @@
 
 	if(href_list["SelectedJob"])
 		if(!SSticker?.IsRoundInProgress())
-			to_chat(usr, "<span class='danger'>Раунд ещё не начался или уже завершился...</span>")
+			to_chat(usr, span_danger("Раунд ещё не начался или уже завершился...") )
 			return
 
 		if(!GLOB.enter_allowed)
-			to_chat(usr, "<span class='notice'>Нельзя!</span>")
+			to_chat(usr, span_notice("Нельзя!") )
 			return
 
 		if(SSticker.queued_players.len && !(ckey(key) in GLOB.admin_datums))
 			if((living_player_count() >= relevant_cap) || (src != SSticker.queued_players[1]))
-				to_chat(usr, "<span class='warning'>Полновато здесь.</span>")
+				to_chat(usr, span_warning("Полновато здесь.") )
 				return
 
 		AttemptLateSpawn(href_list["SelectedJob"])
@@ -233,11 +233,11 @@
 	observer.started_as_observer = TRUE
 	close_spawn_windows()
 	var/obj/effect/landmark/observer_start/O = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
-	to_chat(src, "<span class='notice'>Телепортируемся! Аспект: [SSaspects.ca_desc]</span>")
+	to_chat(src, span_notice("Телепортируемся! Аспект: [SSaspects.ca_desc]") )
 	if (O)
 		observer.forceMove(O.loc)
 	else
-		to_chat(src, "<span class='notice'>Что-то сломалось и тебя забросило немного не там, где нужно. Ничего страшного.</span>")
+		to_chat(src, span_notice("Что-то сломалось и тебя забросило немного не там, где нужно. Ничего страшного.") )
 		stack_trace("There's no freaking observer landmark available on this map or you're making observers before the map is initialised")
 	observer.key = key
 	observer.client = client
@@ -364,7 +364,7 @@
 			AnnounceArrival(humanc, rank)
 		AddEmploymentContract(humanc)
 		if(GLOB.highlander)
-			to_chat(humanc, "<span class='userdanger'><i>THERE CAN BE ONLY ONE!!!</i></span>")
+			to_chat(humanc, span_userdanger("<i>THERE CAN BE ONLY ONE!!!</i>") )
 			humanc.make_scottish()
 
 		humanc.increment_scar_slot()
@@ -436,7 +436,7 @@
 				else
 					dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'>[job_datum.ru_title] ([job_datum.current_positions])</a>"
 		if(!dept_dat.len)
-			dept_dat += "<span class='nopositions'>Нет свободных позиций.</span>"
+			dept_dat += span_nopositions("Нет свободных позиций.")
 		dat += jointext(dept_dat, "")
 		dat += "</fieldset><br>"
 		column_counter++
@@ -542,7 +542,7 @@
 		has_antags = TRUE
 	if(client.prefs.job_preferences.len == 0)
 		if(!ineligible_for_roles)
-			to_chat(src, "<span class='danger'>You have no jobs enabled, along with return to lobby if job is unavailable. This makes you ineligible for any round start role, please update your job preferences.</span>")
+			to_chat(src, span_danger("You have no jobs enabled, along with return to lobby if job is unavailable. This makes you ineligible for any round start role, please update your job preferences.") )
 		ineligible_for_roles = TRUE
 		ready = PLAYER_NOT_READY
 		if(has_antags)

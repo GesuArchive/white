@@ -44,14 +44,14 @@
 	if(isturf(loc))
 		var/turf/T = loc
 		if(T.intact)
-			to_chat(user, "<span class='warning'>Надо бы сначала открыть к нему доступ!</span>")
+			to_chat(user, span_warning("Надо бы сначала открыть к нему доступ!") )
 			return
 
 	if(master && !master.can_terminal_dismantle())
 		return
 
-	user.visible_message("<span class='notice'>[user.name] отключает терминал от [master] и начинает отрезать кабели.</span>",
-		"<span class='notice'>Начинаю резать кабели...</span>")
+	user.visible_message(span_notice("[user.name] отключает терминал от [master] и начинает отрезать кабели.") ,
+		span_notice("Начинаю резать кабели...") )
 
 	playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 	if(I.use_tool(src, user, 50))
@@ -63,7 +63,7 @@
 			return
 
 		new /obj/item/stack/cable_coil(drop_location(), 10)
-		to_chat(user, "<span class='notice'>Отрезаю кабели и разбираю терминал.</span>")
+		to_chat(user, span_notice("Отрезаю кабели и разбираю терминал.") )
 		qdel(src)
 
 /obj/machinery/power/terminal/wirecutter_act(mob/living/user, obj/item/I)

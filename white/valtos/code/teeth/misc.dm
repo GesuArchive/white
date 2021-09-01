@@ -59,7 +59,7 @@
 	if(istype(Q, /obj/item/bodypart/head) && prob(strength * (user.zone_selected == "mouth" ? 3 : 1))) //MUCH higher chance to knock out teeth if you aim for mouth
 		var/obj/item/bodypart/head/U = Q
 		if(U.knock_out_teeth(get_dir(user, target), round(rand(28, 38) * ((strength*2)/100))))
-			target.visible_message("<span class='danger'>Зуб [target] вылетает и падает на пол!</span>", "<span class='userdanger'>Мой зубик!</span>")
+			target.visible_message(span_danger("Зуб [target] вылетает и падает на пол!") , span_userdanger("Мой зубик!") )
 
 /proc/lisp(message, intensity=100) //Intensity = how hard will the dude be lisped
 	message = prob(intensity) ? replacetext_char(message, "т", "ф") : message
@@ -81,12 +81,12 @@
 		var/mob/living/carbon/human/H = C
 		var/obj/item/bodypart/head/O = locate() in H.bodyparts
 		if(!O || !O.get_teeth())
-			to_chat(user, "<span class='notice'>У [H] нет зубов!</span>")
+			to_chat(user, span_notice("У [H] нет зубов!") )
 			return TRUE
 		if(user.next_move > world.time)
 			user.changeNext_move(50)
-			H.visible_message("<span class='danger'>[user] пытается вырвать зуб [H] используя [src.name]!</span>",
-								"<span class='userdanger'>[user] пытается вырвать мой зуб используя [src.name]!</span>")
+			H.visible_message(span_danger("[user] пытается вырвать зуб [H] используя [src.name]!") ,
+								span_userdanger("[user] пытается вырвать мой зуб используя [src.name]!") )
 			if(do_after(user, 50, target = H))
 				if(!O || !O.get_teeth()) return TRUE
 				var/obj/item/stack/teeth/E = pick(O.teeth_list)
@@ -96,8 +96,8 @@
 				E.use(1)
 				E.is_zero_amount() //Try to delete the teeth
 				log_combat(user, H, "torn out the tooth from", src)
-				H.visible_message("<span class='danger'>[user] вырывает зуб [H] используя [src.name]!</span>",
-								"<span class='userdanger'>[user] вырывает мой зуб используя [src.name]!</span>")
+				H.visible_message(span_danger("[user] вырывает зуб [H] используя [src.name]!") ,
+								span_userdanger("[user] вырывает мой зуб используя [src.name]!") )
 				var/armor = H.run_armor_check(O, "melee")
 				H.apply_damage(rand(1,5), BRUTE, O, armor)
 				playsound(H, 'white/valtos/sounds/tear.ogg', 40, 1, -1) //RIP AND TEAR. RIP AND TEAR.
@@ -105,11 +105,11 @@
 					inc_metabalance(H, METACOIN_TEETH_REWARD, reason="МОЙ ЗУБИК!")
 				H.emote("agony")
 			else
-				to_chat(user, "<span class='notice'>Не вышло вырвать зуб...</span>")
+				to_chat(user, span_notice("Не вышло вырвать зуб...") )
 				user.changeNext_move(0)
 			return TRUE
 		else
-			to_chat(user, "<span class='notice'>Уже вырываю зуб!</span>")
+			to_chat(user, span_notice("Уже вырываю зуб!") )
 		return TRUE
 
 /mob/living/carbon/human/regenerate_organs()

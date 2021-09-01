@@ -21,9 +21,9 @@
 /datum/interaction/lewd/kiss/display_interaction(var/mob/living/user, var/mob/living/target)
 	. = ..()
 	if (user.lust >= 3)
-		user.visible_message("<span class='warning'>[user] делает глубокий и продолжительный поцелуй с [target].</span>")
+		user.visible_message(span_warning("[user] делает глубокий и продолжительный поцелуй с [target].") )
 	else
-		user.visible_message("<span class='warning'>[user] целует [target] по-французки.</span>")
+		user.visible_message(span_warning("[user] целует [target] по-французки.") )
 
 
 

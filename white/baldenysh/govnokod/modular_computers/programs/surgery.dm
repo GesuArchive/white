@@ -14,16 +14,16 @@
 /datum/computer_file/program/surgmaster/tap(atom/A, mob/living/user)
 	if(iscarbon(A))
 		patient = A
-		to_chat(user, "<span class='notice'>Обнаружен пациент: [A].</span>")
+		to_chat(user, span_notice("Обнаружен пациент: [A].") )
 		return TRUE
 	if(istype(A, /obj/item/disk/surgery))
-		to_chat(user, "<span class='notice'>Загружаю хирургические протоколы из [A] в [filename].</span>")
+		to_chat(user, span_notice("Загружаю хирургические протоколы из [A] в [filename].") )
 		var/obj/item/disk/surgery/D = A
 		if(do_after(user, 10, target = A))
 			advanced_surgeries |= D.surgeries
 			return TRUE
 	if(istype(A, /obj/machinery/computer/operating))
-		to_chat(user, "<span class='notice'>Копирую хирургические протоколы из [A] в [filename].</span>")
+		to_chat(user, span_notice("Копирую хирургические протоколы из [A] в [filename].") )
 		var/obj/machinery/computer/operating/OC = A
 		if(do_after(user, 10, target = A))
 			advanced_surgeries |= OC.advanced_surgeries

@@ -35,7 +35,7 @@
 /obj/machinery/stasis/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'>ПКМ to [stasis_enabled ? "turn off" : "turn on"] the machine.</span>"
-	. += "<span class='notice'><b>[src.name]</b> is [op_computer ? "linked" : "<b>NOT</b> linked"] to a nearby operating computer.</span>"
+	. += span_notice("<b>[src.name]</b> is [op_computer ? "linked" : "<b>NOT</b> linked"] to a nearby operating computer.")
 
 /obj/machinery/stasis/proc/play_power_sound()
 	var/_running = stasis_running()
@@ -52,9 +52,9 @@
 		stasis_enabled = !stasis_enabled
 		stasis_can_toggle = world.time + STASIS_TOGGLE_COOLDOWN
 		playsound(src, 'sound/machines/click.ogg', 60, TRUE)
-		user.visible_message("<span class='notice'><b>[src.name]</b> [stasis_enabled ? "powers on" : "shuts down"].</span>", \
-					"<span class='notice'>You [stasis_enabled ? "power on" : "shut down"] <b>[src.name]</b>.</span>", \
-					"<span class='hear'>You hear a nearby machine [stasis_enabled ? "power on" : "shut down"].</span>")
+		user.visible_message(span_notice("<b>[src.name]</b> [stasis_enabled ? "powers on" : "shuts down"].") , \
+					span_notice("You [stasis_enabled ? "power on" : "shut down"] <b>[src.name]</b>.") , \
+					span_hear("You hear a nearby machine [stasis_enabled ? "power on" : "shut down"].") )
 		play_power_sound()
 		update_icon()
 

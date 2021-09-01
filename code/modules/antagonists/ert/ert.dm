@@ -201,7 +201,7 @@
 	if(!ert_team)
 		return
 
-	to_chat(owner, "<span class='warningplain'><B><font size=3 color=red>Я [name].</font></B></span>")
+	to_chat(owner, span_warningplain("<B><font size=3 color=red>Я [name].</font></B>") )
 
 	var/missiondesc = "Мой отряд был отправлен на станцию [station_name()] с миссией от Отдела Безопасности NanoTrasen."
 	if(leader) //If Squad Leader
@@ -211,7 +211,7 @@
 	if(!rip_and_tear)
 		missiondesc += " По возможности избегайте жертв среди гражданского населения."
 
-	missiondesc += "<span class='warningplain'><BR><B>Задание</B>: [ert_team.mission.explanation_text]</span>"
+	missiondesc += span_warningplain("<BR><B>Задание</B>: [ert_team.mission.explanation_text]")
 	to_chat(owner,missiondesc)
 
 

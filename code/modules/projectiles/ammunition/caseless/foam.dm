@@ -29,7 +29,7 @@
 		modified = TRUE
 		FD.modified = TRUE
 		FD.damage_type = BRUTE
-		to_chat(user, "<span class='notice'>Снимаю защитный колпачок с <b>[src.name]</b>.</span>")
+		to_chat(user, span_notice("Снимаю защитный колпачок с <b>[src.name]</b>.") )
 		update_icon()
 	else if (istype(A, /obj/item/pen))
 		if(modified)
@@ -40,11 +40,11 @@
 				FD.pen = A
 				FD.damage = 5
 				FD.nodamage = FALSE
-				to_chat(user, "<span class='notice'>Вставляю <b>[A.name]</b> в <b>[src.name]</b>.</span>")
+				to_chat(user, span_notice("Вставляю <b>[A.name]</b> в <b>[src.name]</b>.") )
 			else
-				to_chat(user, "<span class='warning'>Здесь уже что-то есть в <b>[src.name]</b>.</span>")
+				to_chat(user, span_warning("Здесь уже что-то есть в <b>[src.name]</b>.") )
 		else
-			to_chat(user, "<span class='warning'>Защитная крышка не позволяет вставить <b>[A.name]</b> в <b>[src.name]</b>.</span>")
+			to_chat(user, span_warning("Защитная крышка не позволяет вставить <b>[A.name]</b> в <b>[src.name]</b>.") )
 	else
 		return ..()
 
@@ -54,7 +54,7 @@
 		FD.damage = initial(FD.damage)
 		FD.nodamage = initial(FD.nodamage)
 		user.put_in_hands(FD.pen)
-		to_chat(user, "<span class='notice'>Вытаскиваю <b>[FD.pen]</b> из <b>[src.name]</b>.</span>")
+		to_chat(user, span_notice("Вытаскиваю <b>[FD.pen]</b> из <b>[src.name]</b>.") )
 		FD.pen = null
 
 /obj/item/ammo_casing/caseless/foam_dart/riot

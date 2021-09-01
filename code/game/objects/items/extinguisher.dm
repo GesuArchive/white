@@ -99,19 +99,19 @@
 
 /obj/item/extinguisher/suicide_act(mob/living/carbon/user)
 	if (!safety && (reagents.total_volume >= 1))
-		user.visible_message("<span class='suicide'>[user] puts the nozzle to [user.ru_ego()] mouth. It looks like [user.p_theyre()] trying to extinguish the spark of life!</span>")
+		user.visible_message(span_suicide("[user] puts the nozzle to [user.ru_ego()] mouth. It looks like [user.p_theyre()] trying to extinguish the spark of life!") )
 		afterattack(user,user)
 		return OXYLOSS
 	else if (safety && (reagents.total_volume >= 1))
-		user.visible_message("<span class='warning'>[user] puts the nozzle to [user.ru_ego()] mouth... The safety's still on!</span>")
+		user.visible_message(span_warning("[user] puts the nozzle to [user.ru_ego()] mouth... The safety's still on!") )
 		return SHAME
 	else
-		user.visible_message("<span class='warning'>[user] puts the nozzle to [user.ru_ego()] mouth... [src] is empty!</span>")
+		user.visible_message(span_warning("[user] puts the nozzle to [user.ru_ego()] mouth... [src] is empty!") )
 		return SHAME
 
 /obj/item/extinguisher/attack_self(mob/user)
 	if(broken)
-		to_chat(user, "<span class='warning'>Не хочет переключаться!</span>")
+		to_chat(user, span_warning("Не хочет переключаться!") )
 		return
 	safety = !safety
 	src.icon_state = "[sprite_name][!safety]"
@@ -123,7 +123,7 @@
 		return FALSE
 	else
 		if(prob(5) && !broken && can_explode)
-			to_chat(user, "<span class='userdanger'>Огнетушитель шипит!</span>")
+			to_chat(user, span_userdanger("Огнетушитель шипит!") )
 			playsound(get_turf(src), 'white/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
 			spawn(rand(10, 50))
 				babah(user)
@@ -148,7 +148,7 @@
 		reagents.clear_reagents()
 		max_water = 0
 		for(var/mob/living/M in get_hearers_in_view(5, bang_turf))
-			to_chat(M, "<span class='warning'>Похоже, пронесло!</span>")
+			to_chat(M, span_warning("Похоже, пронесло!") )
 		return
 
 	playsound(bang_turf, 'sound/weapons/flashbang.ogg', 100, TRUE, 8, 0.9)
@@ -186,7 +186,7 @@
 		return FALSE
 	else
 		if(prob(10) && !broken && can_explode)
-			to_chat(user, "<span class='userdanger'>Щас ебанёт кажись...</span>")
+			to_chat(user, span_userdanger("Щас ебанёт кажись...") )
 			playsound(get_turf(src), 'white/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
 			new /obj/effect/particle_effect/smoke(get_turf(src))
 			spawn(rand(10, 50))
@@ -208,18 +208,18 @@
 		var/safety_save = safety
 		safety = TRUE
 		if(reagents.total_volume == reagents.maximum_volume)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] уже полон!</span>")
+			to_chat(user, span_warning("[capitalize(src.name)] уже полон!") )
 			safety = safety_save
 			return TRUE
 		var/obj/structure/reagent_dispensers/W = target //will it work?
 		var/transferred = W.reagents.trans_to(src, max_water, transfered_by = user)
 		if(transferred > 0)
-			to_chat(user, "<span class='notice'>[capitalize(src.name)] пополнен [transferred] единицами.</span>")
+			to_chat(user, span_notice("[capitalize(src.name)] пополнен [transferred] единицами.") )
 			playsound(src.loc, 'sound/effects/refill.ogg', 50, TRUE, -6)
 			for(var/datum/reagent/water/R in reagents.reagent_list)
 				R.cooling_temperature = cooling_power
 		else
-			to_chat(user, "<span class='warning'>[capitalize(W.name)] совсем пустой!</span>")
+			to_chat(user, span_warning("[capitalize(W.name)] совсем пустой!") )
 		safety = safety_save
 		return TRUE
 	else
@@ -239,7 +239,7 @@
 
 
 		if (src.reagents.total_volume < 1)
-			to_chat(usr, "<span class='warning'>[capitalize(src.name)] совсем пустой!</span>")
+			to_chat(usr, span_warning("[capitalize(src.name)] совсем пустой!") )
 			return
 
 		if (world.time < src.last_use + 12)
@@ -328,7 +328,7 @@
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		return
 	if(!user.is_holding(src))
-		to_chat(user, "<span class='notice'>Надо бы держать в руках [src]!</span>")
+		to_chat(user, span_notice("Надо бы держать в руках [src]!") )
 		return
 	EmptyExtinguisher(user)
 
@@ -341,12 +341,12 @@
 			var/turf/open/theturf = T
 			theturf.MakeSlippery(TURF_WET_WATER, min_wet_time = 10 SECONDS, wet_time_to_add = 5 SECONDS)
 
-		user.visible_message("<span class='notice'>[user] опустошает [src] используя выпускной клапан.</span>", "<span class='info'>Быстренько опустошаю [src] используя выпускной клапан.</span>")
+		user.visible_message(span_notice("[user] опустошает [src] используя выпускной клапан.") , span_info("Быстренько опустошаю [src] используя выпускной клапан.") )
 
 //firebot assembly
 /obj/item/extinguisher/attackby(obj/O, mob/user, params)
 	if(istype(O, /obj/item/bodypart/l_arm/robot) || istype(O, /obj/item/bodypart/r_arm/robot))
-		to_chat(user, "<span class='notice'>Добавляю [O] к [src].</span>")
+		to_chat(user, span_notice("Добавляю [O] к [src].") )
 		qdel(O)
 		qdel(src)
 		user.put_in_hands(new /obj/item/bot_assembly/firebot)

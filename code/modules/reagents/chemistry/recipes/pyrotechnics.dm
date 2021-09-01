@@ -152,13 +152,13 @@
 				deity = GLOB.deity
 			else
 				deity = "Christ"
-			to_chat(R, "<span class='userdanger'>Сила [deity] заставляет меня!</span>")
+			to_chat(R, span_userdanger("Сила [deity] заставляет меня!") )
 			R.stun(20)
 			R.reveal(100)
 			R.adjustHealth(50)
 		for(var/mob/living/carbon/C in get_hearers_in_view(effective_size,T))
 			if(iscultist(C))
-				to_chat(C, "<span class='userdanger'>Божественный взрыв опаляет меня!</span>")
+				to_chat(C, span_userdanger("Божественный взрыв опаляет меня!") )
 				C.Paralyze(40)
 				C.adjust_fire_stacks(5)
 				C.IgniteMob()
@@ -174,7 +174,7 @@
 	required_temp = 474
 	strengthdiv = 10
 	modifier = 5
-	mix_message = "<span class='boldannounce'>Искры начинают кружить вокруг пороха!</span>"
+	mix_message = span_boldannounce("Искры начинают кружить вокруг пороха!")
 
 /datum/chemical_reaction/reagent_explosion/gunpowder_explosion/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	addtimer(CALLBACK(src, .proc/explode, holder, created_volume), rand(5,10) SECONDS)
@@ -544,21 +544,21 @@
 /datum/chemical_reaction/teslium
 	results = list(/datum/reagent/teslium = 3)
 	required_reagents = list(/datum/reagent/stable_plasma = 1, /datum/reagent/silver = 1, /datum/reagent/gunpowder = 1)
-	mix_message = "<span class='danger'>Струйка искр исходит из смеси во время её слияния с мерцающей жидкостью.</span>"
+	mix_message = span_danger("Струйка искр исходит из смеси во время её слияния с мерцающей жидкостью.")
 	required_temp = 400
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_EXPLOSIVE
 
 /datum/chemical_reaction/energized_jelly
 	results = list(/datum/reagent/teslium/energized_jelly = 2)
 	required_reagents = list(/datum/reagent/toxin/slimejelly = 1, /datum/reagent/teslium = 1)
-	mix_message = "<span class='danger'>Желе слайма начало мерцать.</span>"
+	mix_message = span_danger("Желе слайма начало мерцать.")
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DANGEROUS | REACTION_TAG_HEALING | REACTION_TAG_OTHER
 
 /datum/chemical_reaction/reagent_explosion/teslium_lightning
 	required_reagents = list(/datum/reagent/teslium = 1, /datum/reagent/water = 1)
 	strengthdiv = 100
 	modifier = -100
-	mix_message = "<span class='boldannounce'>Теслий начал искрить, когда электрическая дуга удалилась от него!</span>"
+	mix_message = span_boldannounce("Теслий начал искрить, когда электрическая дуга удалилась от него!")
 	mix_sound = 'sound/machines/defib_zap.ogg'
 	var/zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE | ZAP_MOB_STUN
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_EXPLOSIVE | REACTION_TAG_DANGEROUS

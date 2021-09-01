@@ -23,13 +23,13 @@
 		return //logically mulebots can't flash and beep if they don't have power.
 	switch(wire)
 		if(WIRE_POWER1, WIRE_POWER2)
-			holder.visible_message("<span class='notice'>[icon2html(M, viewers(holder))] Индикатор зарядки мигает.</span>")
+			holder.visible_message(span_notice("[icon2html(M, viewers(holder))] Индикатор зарядки мигает.") )
 		if(WIRE_AVOIDANCE)
-			holder.visible_message("<span class='notice'>[icon2html(M, viewers(holder))] Внешние сигнальные огни кратковременно мигают.</span>")
+			holder.visible_message(span_notice("[icon2html(M, viewers(holder))] Внешние сигнальные огни кратковременно мигают.") )
 			flick("[M.base_icon]1", M)
 		if(WIRE_LOADCHECK)
-			holder.visible_message("<span class='notice'>[icon2html(M, viewers(holder))] Грузовая платформа гремит.</span>")
+			holder.visible_message(span_notice("[icon2html(M, viewers(holder))] Грузовая платформа гремит.") )
 		if(WIRE_MOTOR1, WIRE_MOTOR2)
-			holder.visible_message("<span class='notice'>[icon2html(M, viewers(holder))] Двигатель коротко скулит.</span>")
+			holder.visible_message(span_notice("[icon2html(M, viewers(holder))] Двигатель коротко скулит.") )
 		else
-			holder.visible_message("<span class='notice'>[icon2html(M, viewers(holder))] Трещит на языке радио.</span>")
+			holder.visible_message(span_notice("[icon2html(M, viewers(holder))] Трещит на языке радио.") )

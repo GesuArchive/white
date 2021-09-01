@@ -12,12 +12,12 @@
 	high_threshold = 0.3 * STANDARD_ORGAN_THRESHOLD	//threshold at 30
 	low_threshold = 0.2 * STANDARD_ORGAN_THRESHOLD	//threshold at 20
 
-	low_threshold_passed = "<span class='info'>Далекие объекты становятся менее ощутимыми.</span>"
-	high_threshold_passed = "<span class='info'>Все становится менее ясным.</span>"
-	now_failing = "<span class='warning'>Тьма окутывает меня, глаза слепнут!</span>"
-	now_fixed = "<span class='info'>Цвет и формы снова ощутимы.</span>"
-	high_threshold_cleared = "<span class='info'>Зрение снова функционирует нормально.</span>"
-	low_threshold_cleared = "<span class='info'>Зрение очищено от недугов.</span>"
+	low_threshold_passed = span_info("Далекие объекты становятся менее ощутимыми.")
+	high_threshold_passed = span_info("Все становится менее ясным.")
+	now_failing = span_warning("Тьма окутывает меня, глаза слепнут!")
+	now_fixed = span_info("Цвет и формы снова ощутимы.")
+	high_threshold_cleared = span_info("Зрение снова функционирует нормально.")
+	low_threshold_cleared = span_info("Зрение очищено от недугов.")
 
 	var/sight_flags = 0
 	/// changes how the eyes overlay is applied, makes it apply over the lighting layer
@@ -159,7 +159,7 @@
 		return
 	if(prob(10 * severity))
 		return
-	to_chat(owner, "<span class='warning'>Статика затуманивает моё зрение!</span>")
+	to_chat(owner, span_warning("Статика затуманивает моё зрение!") )
 	owner.flash_act(visual = 1)
 
 /obj/item/organ/eyes/robotic/xray
@@ -318,13 +318,13 @@
 /obj/item/organ/eyes/robotic/glow/proc/activate(silent = FALSE)
 	start_visuals()
 	if(!silent)
-		to_chat(owner, "<span class='warning'>Мои [src.name] щёлкают, перед тем как выпустить жёсткий луч света!</span>")
+		to_chat(owner, span_warning("Мои [src.name] щёлкают, перед тем как выпустить жёсткий луч света!") )
 	cycle_mob_overlay()
 
 /obj/item/organ/eyes/robotic/glow/proc/deactivate(silent = FALSE)
 	clear_visuals()
 	if(!silent)
-		to_chat(owner, "<span class='warning'>Мои [src.name] вырубаются!</span>")
+		to_chat(owner, span_warning("Мои [src.name] вырубаются!") )
 	remove_mob_overlay()
 
 /obj/item/organ/eyes/robotic/glow/proc/update_visuals(datum/source, olddir, newdir)
@@ -466,7 +466,7 @@
 	var/turf/T = get_turf(owner)
 	var/lums = T.get_lumcount()
 	if(lums > 0.5) //we allow a little more than usual so we can produce light from the adapted eyes
-		to_chat(owner, "<span class='danger'>Your eyes! They burn in the light!</span>")
+		to_chat(owner, span_danger("Your eyes! They burn in the light!") )
 		applyOrganDamage(10) //blind quickly
 		playsound(owner, 'sound/machines/grill/grillsizzle.ogg', 50)
 	else

@@ -69,10 +69,10 @@
 		if(prob(40))
 			M.adjust_disgust(20)
 		if(prob(5))
-			M.visible_message("<span class='warning'>[M] [pick("корчится в рвотном позыве!","кашляет!","хрипит!")]</span>")
+			M.visible_message(span_warning("[M] [pick("корчится в рвотном позыве!","кашляет!","хрипит!")]") )
 		if(prob(10))
 			var/sick_message = pick("Вы чувствуете тошноту.", "Вы чувствуете себя не очень хорошо.","Вы чувствуете, как ваши внутренности тают.","Вам ОЧЕНЬ плохо.")
-			to_chat(M, "<span class='notice'>[sick_message]</span>")
+			to_chat(M, span_notice("[sick_message]") )
 		if(prob(15))
 			var/obj/item/organ/guts = pick(M.internal_organs)
 			guts.applyOrganDamage(20)
@@ -113,7 +113,7 @@
 		kitty_ears.Insert(H, TRUE, FALSE) //Gives nonhumans cat tail and ears
 		kitty_tail.Insert(H, TRUE, FALSE)
 	if(!silent)
-		to_chat(H, "<span class='boldnotice'>Мяу!</span>")
+		to_chat(H, span_boldnotice("Мяу!") )
 		playsound(get_turf(H), 'sound/effects/meow1.ogg', 50, TRUE, -1)
 
 /proc/purrbation_remove(mob/living/carbon/human/H, silent = FALSE)
@@ -135,4 +135,4 @@
 				var/obj/item/organ/new_ears = new target_species.mutantears
 				new_ears.Insert(H, TRUE, FALSE)
 	if(!silent)
-		to_chat(H, "<span class='boldnotice'>Больше не кот.</span>")
+		to_chat(H, span_boldnotice("Больше не кот.") )

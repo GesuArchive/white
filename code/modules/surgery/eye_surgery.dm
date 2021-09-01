@@ -14,21 +14,21 @@
 /datum/surgery/eye_surgery/can_start(mob/user, mob/living/carbon/target)
 	var/obj/item/organ/eyes/E = target.getorganslot(ORGAN_SLOT_EYES)
 	if(!E)
-		to_chat(user, "<span class='warning'>Довольно сложно оперировать чьи-то глаза, если у н[target.ru_who()] их нет.</span>")
+		to_chat(user, span_warning("Довольно сложно оперировать чьи-то глаза, если у н[target.ru_who()] их нет.") )
 		return FALSE
 	return TRUE
 
 /datum/surgery_step/fix_eyes/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>Начинаю исправлять глаза [sklonenie(target, RODITELNI, target.gender)]...</span>",
-		"<span class='notice'>[user] начинает исправлять [target.ru_who()] глаза.</span>",
-		"<span class='notice'>[user] начинает операцию на [target.ru_who()] глазах.</span>")
+	display_results(user, target, span_notice("Начинаю исправлять глаза [sklonenie(target, RODITELNI, target.gender)]...") ,
+		span_notice("[user] начинает исправлять [target.ru_who()] глаза.") ,
+		span_notice("[user] начинает операцию на [target.ru_who()] глазах.") )
 
 /datum/surgery_step/fix_eyes/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/obj/item/organ/eyes/E = target.getorganslot(ORGAN_SLOT_EYES)
-	user.visible_message("<span class='notice'>[user] успешно исправил [target.ru_who()] глаза!</span>", "<span class='notice'>Успешно исправил глаз [sklonenie(target, RODITELNI, target.gender)].</span>")
-	display_results(user, target, "<span class='notice'>Успешно исправил глаза [target].</span>",
-		"<span class='notice'>[user] успешно исправил [target.ru_who()] глаза!</span>",
-		"<span class='notice'>[user] завершил операцию на [target.ru_who()] глазах.</span>")
+	user.visible_message(span_notice("[user] успешно исправил [target.ru_who()] глаза!") , span_notice("Успешно исправил глаз [sklonenie(target, RODITELNI, target.gender)].") )
+	display_results(user, target, span_notice("Успешно исправил глаза [target].") ,
+		span_notice("[user] успешно исправил [target.ru_who()] глаза!") ,
+		span_notice("[user] завершил операцию на [target.ru_who()] глазах.") )
 	target.cure_blind(list(EYE_DAMAGE))
 	target.set_blindness(0)
 	target.cure_nearsighted(list(EYE_DAMAGE))
@@ -38,12 +38,12 @@
 
 /datum/surgery_step/fix_eyes/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(target.getorgan(/obj/item/organ/brain))
-		display_results(user, target, "<span class='warning'>Случайно уколол [sklonenie(target, RODITELNI, target.gender)] прямо в мозг!</span>",
-			"<span class='warning'>[user] случайно уколол [target.ru_who()] прямо в мозг!</span>",
-			"<span class='warning'>[user] случайно уколол [target.ru_who()] прямо в мозг!</span>")
+		display_results(user, target, span_warning("Случайно уколол [sklonenie(target, RODITELNI, target.gender)] прямо в мозг!") ,
+			span_warning("[user] случайно уколол [target.ru_who()] прямо в мозг!") ,
+			span_warning("[user] случайно уколол [target.ru_who()] прямо в мозг!") )
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 70)
 	else
-		display_results(user, target, "<span class='warning'>Случайно уколол [sklonenie(target, RODITELNI, target.gender)] прямо в мозг! Ну, точнее уколол бы, если бы у [target.ru_who()] был мозг.</span>",
-			"<span class='warning'>[user] случайно уколол [target.ru_who()] прямо в мозг! Ну, точнее уколол бы, если бы у [target.ru_who()] был мозг.</span>",
-			"<span class='warning'>[user] случайно уколол [target.ru_who()] прямо в мозг!</span>")
+		display_results(user, target, span_warning("Случайно уколол [sklonenie(target, RODITELNI, target.gender)] прямо в мозг! Ну, точнее уколол бы, если бы у [target.ru_who()] был мозг.") ,
+			span_warning("[user] случайно уколол [target.ru_who()] прямо в мозг! Ну, точнее уколол бы, если бы у [target.ru_who()] был мозг.") ,
+			span_warning("[user] случайно уколол [target.ru_who()] прямо в мозг!") )
 	return FALSE

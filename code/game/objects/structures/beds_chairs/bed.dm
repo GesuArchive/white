@@ -59,19 +59,19 @@
 	if(istype(W, /obj/item/roller/robo))
 		var/obj/item/roller/robo/R = W
 		if(R.loaded)
-			to_chat(user, "<span class='warning'>У меня уже есть пассажир!</span>")
+			to_chat(user, span_warning("У меня уже есть пассажир!") )
 			return
 
 		if(has_buckled_mobs())
 			if(buckled_mobs.len > 1)
 				unbuckle_all_mobs()
-				user.visible_message("<span class='notice'>[user] поднимает всех с [src].</span>")
+				user.visible_message(span_notice("[user] поднимает всех с [src].") )
 			else
 				user_unbuckle_mob(buckled_mobs[1],user)
 		else
 			R.loaded = src
 			forceMove(R)
-			user.visible_message("<span class='notice'>[user] собирает [src].</span>", "<span class='notice'>Собираю [src].</span>")
+			user.visible_message(span_notice("[user] собирает [src].") , span_notice("Собираю [src].") )
 		return 1
 	else
 		return ..()
@@ -83,7 +83,7 @@
 			return FALSE
 		if(has_buckled_mobs())
 			return FALSE
-		usr.visible_message("<span class='notice'>[usr] складывает [src.name].</span>", "<span class='notice'>Складываю [src.name].</span>")
+		usr.visible_message(span_notice("[usr] складывает [src.name].") , span_notice("Складываю [src.name].") )
 		var/obj/structure/bed/roller/B = new foldabletype(get_turf(src))
 		usr.put_in_hands(B)
 		qdel(src)
@@ -118,9 +118,9 @@
 	if(istype(I, /obj/item/roller/robo))
 		var/obj/item/roller/robo/R = I
 		if(R.loaded)
-			to_chat(user, "<span class='warning'>[capitalize(R.name)] уже имеет в запасе каталку!</span>")
+			to_chat(user, span_warning("[capitalize(R.name)] уже имеет в запасе каталку!") )
 			return
-		user.visible_message("<span class='notice'>[user] забирает [src].</span>", "<span class='notice'>Загружаю [src] в [R].</span>")
+		user.visible_message(span_notice("[user] забирает [src].") , span_notice("Загружаю [src] в [R].") )
 		R.loaded = new/obj/structure/bed/roller(R)
 		qdel(src) //"Load"
 		return
@@ -158,10 +158,10 @@
 /obj/item/roller/robo/deploy_roller(mob/user, atom/location)
 	if(loaded)
 		loaded.forceMove(location)
-		user.visible_message("<span class='notice'>[user] выдавливает [loaded].</span>", "<span class='notice'>Выдавливаю [loaded].</span>")
+		user.visible_message(span_notice("[user] выдавливает [loaded].") , span_notice("Выдавливаю [loaded].") )
 		loaded = null
 	else
-		to_chat(user, "<span class='warning'>Док пустой!</span>")
+		to_chat(user, span_warning("Док пустой!") )
 
 //Dog bed
 

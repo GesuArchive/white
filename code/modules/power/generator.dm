@@ -106,7 +106,7 @@
 /obj/machinery/power/generator/proc/get_menu(include_link = TRUE)
 	var/t = ""
 	if(!powernet)
-		t += "<span class='bad'>Нет соединения с энергосетью!</span>"
+		t += span_bad("Нет соединения с энергосетью!")
 	else if(cold_circ && hot_circ)
 		var/datum/gas_mixture/cold_circ_air1 = cold_circ.airs[1]
 		var/datum/gas_mixture/cold_circ_air2 = cold_circ.airs[2]
@@ -129,11 +129,11 @@
 
 		t += "</div>"
 	else if(!hot_circ && cold_circ)
-		t += "<span class='bad'>Не найден циркулятор!</span>"
+		t += span_bad("Не найден циркулятор!")
 	else if(hot_circ && !cold_circ)
-		t += "<span class='bad'>Не найден холодный циркулятор!</span>"
+		t += span_bad("Не найден холодный циркулятор!")
 	else
-		t += "<span class='bad'>Не найдены части!</span>"
+		t += span_bad("Не найдены части!")
 	if(include_link)
 		t += "<BR><A href='?src=[REF(src)];close=1'>Закрыть</A>"
 
@@ -196,31 +196,31 @@
 
 	if(!panel_open) //connect/disconnect circulators
 		if(!anchored)
-			to_chat(user, "<span class='warning'>Нужно прикрутить [src] перед подключением циркуляторов!</span>")
+			to_chat(user, span_warning("Нужно прикрутить [src] перед подключением циркуляторов!") )
 			return TRUE
 		else
 			if(hot_circ && cold_circ)
-				to_chat(user, "<span class='notice'>Начинаю отсоединять циркуляторы...</span>")
+				to_chat(user, span_notice("Начинаю отсоединять циркуляторы...") )
 				if(I.use_tool(src, user, 30, volume=50))
 					kill_circs()
 					update_icon()
-					to_chat(user, "<span class='notice'>Отсоединяю циркуляторы от [src].</span>")
+					to_chat(user, span_notice("Отсоединяю циркуляторы от [src].") )
 					playsound(src, 'sound/misc/box_deploy.ogg', 50)
 				return TRUE
 
-			to_chat(user, "<span class='notice'>Пытаюсь присоединить циркуляторы...</span>")
+			to_chat(user, span_notice("Пытаюсь присоединить циркуляторы...") )
 			if(I.use_tool(src, user, 30, volume=50))
 				switch(find_circs())
 					if(0)
-						to_chat(user, "<span class='warning'>Не обнаружено циркуляторов!</span>")
+						to_chat(user, span_warning("Не обнаружено циркуляторов!") )
 					if(1)
-						to_chat(user, "<span class='warning'>Найден только один циркулятор!</span>")
+						to_chat(user, span_warning("Найден только один циркулятор!") )
 					if(2)
-						to_chat(user, "<span class='notice'>Присоединяю циркуляторы к [src].</span>")
+						to_chat(user, span_notice("Присоединяю циркуляторы к [src].") )
 						playsound(src, 'sound/misc/box_deploy.ogg', 50)
 						return TRUE
 					if(3)
-						to_chat(user, "<span class='warning'>Оба циркулятора в одинаковом режиме!</span>")
+						to_chat(user, span_warning("Оба циркулятора в одинаковом режиме!") )
 				return TRUE
 
 	anchored = !anchored
@@ -228,7 +228,7 @@
 	if(!anchored)
 		kill_circs()
 	connect_to_network()
-	to_chat(user, "<span class='notice'>[anchored?"Прикручиваю":"Откручиваю"] [src].</span>")
+	to_chat(user, span_notice("[anchored?"Прикручиваю":"Откручиваю"] [src].") )
 	update_icon()
 	return TRUE
 
@@ -239,11 +239,11 @@
 		return
 
 	if(hot_circ && cold_circ)
-		to_chat(user, "<span class='warning'>Нужно отсоединить циркуляторы сначала!</span>")
+		to_chat(user, span_warning("Нужно отсоединить циркуляторы сначала!") )
 		return TRUE
 	panel_open = !panel_open
 	I.play_tool_sound(src)
-	to_chat(user, "<span class='notice'>[panel_open?"Открываю":"Закрываю"] панель [src].</span>")
+	to_chat(user, span_notice("[panel_open?"Открываю":"Закрываю"] панель [src].") )
 	update_icon()
 	return TRUE
 
@@ -252,10 +252,10 @@
 		return
 
 	if(anchored)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] прикручен!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] прикручен!") )
 		return TRUE
 	else if(!panel_open)
-		to_chat(user, "<span class='warning'>Стоит открыть панель сначала!</span>")
+		to_chat(user, span_warning("Стоит открыть панель сначала!") )
 		return TRUE
 	else
 		default_deconstruction_crowbar(I)

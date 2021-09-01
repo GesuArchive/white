@@ -110,11 +110,11 @@ Slimecrossing Items
 
 /obj/item/barriercube/attack_self(mob/user)
 	if(locate(/obj/structure/barricade/slime) in get_turf(loc))
-		to_chat(user, "<span class='warning'>Нельзя разместить более одного барьера в одном месте!</span>")
+		to_chat(user, span_warning("Нельзя разместить более одного барьера в одном месте!") )
 		return
-	to_chat(user, "<span class='notice'>Сжимаю [src].</span>")
+	to_chat(user, span_notice("Сжимаю [src].") )
 	var/obj/B = new /obj/structure/barricade/slime(get_turf(loc))
-	B.visible_message("<span class='warning'>[capitalize(src.name)] внезапно разрастается в огромный желейный барьер!</span>")
+	B.visible_message(span_warning("[capitalize(src.name)] внезапно разрастается в огромный желейный барьер!") )
 	qdel(src)
 
 //Slime barricade - Chilling Grey
@@ -172,37 +172,37 @@ Slimecrossing Items
 
 /obj/item/capturedevice/attack(mob/living/M, mob/user)
 	if(length(contents))
-		to_chat(user, "<span class='warning'>Внутри устройства уже что-то есть.</span>")
+		to_chat(user, span_warning("Внутри устройства уже что-то есть.") )
 		return
 	if(!isanimal(M))
-		to_chat(user, "<span class='warning'>Устройство захвата работает только на простых существ.</span>")
+		to_chat(user, span_warning("Устройство захвата работает только на простых существ.") )
 		return
 	if(M.mind)
-		to_chat(user, "<span class='notice'>Предлагаю устройство [M].</span>")
+		to_chat(user, span_notice("Предлагаю устройство [M].") )
 		if(alert(M, "Would you like to enter [user] capture device?", "Gold Capture Device", "Yes", "No") == "Yes")
 			if(user.canUseTopic(src, BE_CLOSE) && user.canUseTopic(M, BE_CLOSE))
-				to_chat(user, "<span class='notice'>Помещаю [M] в устройство захвата.</span>")
-				to_chat(M, "<span class='notice'>Мир вокруг тебя искривляется и внезапно ты оказываешься в бесконечной пустоте с летающим окном наружу перед тобой.</span>")
+				to_chat(user, span_notice("Помещаю [M] в устройство захвата.") )
+				to_chat(M, span_notice("Мир вокруг тебя искривляется и внезапно ты оказываешься в бесконечной пустоте с летающим окном наружу перед тобой.") )
 				store(M, user)
 			else
-				to_chat(user, "<span class='warning'>Был слишком далеко от [M].</span>")
-				to_chat(M, "<span class='warning'>Был слишком далеко от [user].</span>")
+				to_chat(user, span_warning("Был слишком далеко от [M].") )
+				to_chat(M, span_warning("Был слишком далеко от [user].") )
 		else
-			to_chat(user, "<span class='warning'>[M] отказался заходить в устройство.</span>")
+			to_chat(user, span_warning("[M] отказался заходить в устройство.") )
 			return
 	else
 		if(istype(M, /mob/living/simple_animal/hostile) && !("neutral" in M.faction))
-			to_chat(user, "<span class='warning'>Это существо слишком агрессивное, чтобы быть пойманным.</span>")
+			to_chat(user, span_warning("Это существо слишком агрессивное, чтобы быть пойманным.") )
 			return
-	to_chat(user, "<span class='notice'>Поместил [M] в устройство захвата.</span>")
+	to_chat(user, span_notice("Поместил [M] в устройство захвата.") )
 	store(M)
 
 /obj/item/capturedevice/attack_self(mob/user)
 	if(contents.len)
-		to_chat(user, "<span class='notice'>Открыл устройство захвата!</span>")
+		to_chat(user, span_notice("Открыл устройство захвата!") )
 		release()
 	else
-		to_chat(user, "<span class='warning'>Устройство пустое...</span>")
+		to_chat(user, span_warning("Устройство пустое...") )
 
 /obj/item/capturedevice/proc/store(mob/living/M)
 	M.forceMove(src)

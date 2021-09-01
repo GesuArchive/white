@@ -33,8 +33,8 @@
 		user.Paralyze(100)
 		playsound(user.loc, 'sound/weapons/taserhit.ogg', 50, TRUE)
 		addtimer(CALLBACK(user, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
-		visible_message("<span class='warning'><b>[user.name]</b> ловит разряд тока от стансферы!</span>", \
-						"<span class='userdanger'>Ай!!!</span>")
+		visible_message(span_warning("<b>[user.name]</b> ловит разряд тока от стансферы!") , \
+						span_userdanger("Ай!!!") )
 
 /obj/item/ammo_casing/caseless/pissball/examine(mob/user)
 	. = ..()

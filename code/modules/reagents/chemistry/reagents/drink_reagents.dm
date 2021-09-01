@@ -188,7 +188,7 @@
 
 /datum/reagent/consumable/superlaughter/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(16, delta_time))
-		M.visible_message("<span class='danger'>[M] разразился приступом неконтролируемого смеха!</span>", "<span class='userdanger'>Зашелся в приступе неконтролируемого смеха!</span>")
+		M.visible_message(span_danger("[M] разразился приступом неконтролируемого смеха!") , span_userdanger("Зашелся в приступе неконтролируемого смеха!") )
 		M.Stun(5)
 		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "chemical_laughter", /datum/mood_event/chemical_superlaughter)
 	..()
@@ -347,7 +347,7 @@
 
 /datum/reagent/consumable/tea/arnold_palmer/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, "<span class='notice'>[pick("Вспомнил что нужно расправить плечи.","Вспомнил что нужно опустить голову.","Не могу решить что делать, расправить плечи или опустить голову.","Вспомнил что нужно расслабиться.","Думаю, однажды, я улучшу свой счет в гольфе, снизив его на два удара.")]</span>")
+		to_chat(M, span_notice("[pick("Вспомнил что нужно расправить плечи.","Вспомнил что нужно опустить голову.","Не могу решить что делать, расправить плечи или опустить голову.","Вспомнил что нужно расслабиться.","Думаю, однажды, я улучшу свой счет в гольфе, снизив его на два удара.")]") )
 	..()
 	. = TRUE
 

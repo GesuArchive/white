@@ -30,10 +30,10 @@
 	add_fingerprint(user)
 	var/action = anchored ? "unscrews [src] from" : "screws [src] to"
 	var/uraction = anchored ? "unscrew [src] from " : "screw [src] to"
-	user.visible_message("<span class='warning'>[user] [action] the floor.</span>", "<span class='notice'>You start to [uraction] the floor...</span>", "<span class='hear'>You hear rustling noises.</span>")
+	user.visible_message(span_warning("[user] [action] the floor.") , span_notice("You start to [uraction] the floor...") , span_hear("You hear rustling noises.") )
 	if(W.use_tool(src, user, 100, volume=100, extra_checks = CALLBACK(src, .proc/check_anchored_state, anchored)))
 		set_anchored(!anchored)
-		to_chat(user, "<span class='notice'>You [anchored ? "unscrew" : "screw"] [src] from the floor.</span>")
+		to_chat(user, span_notice("You [anchored ? "unscrew" : "screw"] [src] from the floor.") )
 		return TRUE
 	else
 		return TRUE
@@ -41,11 +41,11 @@
 /obj/structure/plasticflaps/wirecutter_act(mob/living/user, obj/item/W)
 	. = ..()
 	if(!anchored)
-		user.visible_message("<span class='warning'>[user] cuts apart [src].</span>", "<span class='notice'>You start to cut apart [src].</span>", "<span class='hear'>You hear cutting.</span>")
+		user.visible_message(span_warning("[user] cuts apart [src].") , span_notice("You start to cut apart [src].") , span_hear("You hear cutting.") )
 		if(W.use_tool(src, user, 50, volume=100))
 			if(anchored)
 				return TRUE
-			to_chat(user, "<span class='notice'>You cut apart [src].</span>")
+			to_chat(user, span_notice("You cut apart [src].") )
 			var/obj/item/stack/sheet/plastic/five/P = new(loc)
 			P.add_fingerprint(user)
 			qdel(src)

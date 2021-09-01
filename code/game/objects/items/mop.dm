@@ -48,7 +48,7 @@
 		return
 
 	if(reagents.total_volume < 0.1)
-		to_chat(user, "<span class='warning'>Швабра сухая!</span>")
+		to_chat(user, span_warning("Швабра сухая!") )
 		return
 
 	var/turf/T = get_turf(A)
@@ -57,12 +57,12 @@
 		return
 
 	if(T)
-		user.visible_message("<span class='notice'>[user] начинает мыть [T] используя [src.name].</span>", "<span class='notice'>Начинаю мыть [T] используя [src.name]...</span>")
+		user.visible_message(span_notice("[user] начинает мыть [T] используя [src.name].") , span_notice("Начинаю мыть [T] используя [src.name]...") )
 		var/clean_speedies = 1
 		if(user.mind)
 			clean_speedies = user.mind.get_skill_modifier(/datum/skill/cleaning, SKILL_SPEED_MODIFIER)
 		if(do_after(user, mopspeed*clean_speedies, target = T))
-			to_chat(user, "<span class='notice'>Заканчиваю мыть пол.</span>")
+			to_chat(user, span_notice("Заканчиваю мыть пол.") )
 			clean(T, user)
 
 
@@ -79,7 +79,7 @@
 		J.mymop=src
 		J.update_icon()
 	else
-		to_chat(user, "<span class='warning'>Эта штука не помещается у меня в [J.name].</span>")
+		to_chat(user, span_warning("Эта штука не помещается у меня в [J.name].") )
 		return
 
 /obj/item/mop/cyborg
@@ -112,7 +112,7 @@
 		START_PROCESSING(SSobj, src)
 	else
 		STOP_PROCESSING(SSobj,src)
-	to_chat(user, "<span class='notice'>Устанавливаю переключатель конденсатора в положение '[refill_enabled ? "ВКЛ" : "ВЫКЛ"]'.</span>")
+	to_chat(user, span_notice("Устанавливаю переключатель конденсатора в положение '[refill_enabled ? "ВКЛ" : "ВЫКЛ"]'.") )
 	playsound(user, 'sound/machines/click.ogg', 30, TRUE)
 
 /obj/item/mop/advanced/process(delta_time)

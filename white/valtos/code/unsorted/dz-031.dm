@@ -182,7 +182,7 @@
 			icon_state = "spike_strike"
 			var/latched = FALSE
 			for(var/mob/living/L in loc)
-				visible_message("<span class='danger'>Стержень жёстко пробивает тушку <b>[L]</b>!</span>")
+				visible_message(span_danger("Стержень жёстко пробивает тушку <b>[L]</b>!") )
 				L.adjustBruteLoss(50)
 				var/turf/T = get_turf(src)
 				new /obj/effect/decal/cleanable/blood(T)
@@ -297,7 +297,7 @@
 				say("Доступ запрещён.")
 
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
-		to_chat(user, "<span class='warning'>Вставляю отвёртку в картоприёмник...</span>")
+		to_chat(user, span_warning("Вставляю отвёртку в картоприёмник...") )
 		playsound(src, 'white/valtos/sounds/dz/cardin.ogg', 60, TRUE)
 		if(isliving(user))
 			var/mob/living/L = user

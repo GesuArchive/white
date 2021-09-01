@@ -20,7 +20,7 @@
 /obj/machinery/power/singularity_beacon/proc/Activate(mob/user = null)
 	if(surplus() < 1500)
 		if(user)
-			to_chat(user, "<span class='notice'>The connected wire doesn't have enough current.</span>")
+			to_chat(user, span_notice("The connected wire doesn't have enough current.") )
 		return
 	for (var/_singulo in GLOB.singularities)
 		var/datum/component/singularity/singulo = _singulo
@@ -30,7 +30,7 @@
 	icon_state = "[icontype]1"
 	active = TRUE
 	if(user)
-		to_chat(user, "<span class='notice'>You activate the beacon.</span>")
+		to_chat(user, span_notice("You activate the beacon.") )
 
 
 /obj/machinery/power/singularity_beacon/proc/Deactivate(mob/user = null)
@@ -41,7 +41,7 @@
 	icon_state = "[icontype]0"
 	active = FALSE
 	if(user)
-		to_chat(user, "<span class='notice'>You deactivate the beacon.</span>")
+		to_chat(user, span_notice("You deactivate the beacon.") )
 
 
 /obj/machinery/power/singularity_beacon/attack_ai(mob/user)
@@ -55,30 +55,30 @@
 	if(anchored)
 		return active ? Deactivate(user) : Activate(user)
 	else
-		to_chat(user, "<span class='warning'>You need to screw <b>[src.name]</b> to the floor first!</span>")
+		to_chat(user, span_warning("You need to screw <b>[src.name]</b> to the floor first!") )
 
 /obj/machinery/power/singularity_beacon/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_WRENCH)
 		if(active)
-			to_chat(user, "<span class='warning'>You need to deactivate <b>[src.name]</b> first!</span>")
+			to_chat(user, span_warning("You need to deactivate <b>[src.name]</b> first!") )
 			return
 
 		if(anchored)
 			set_anchored(FALSE)
-			to_chat(user, "<span class='notice'>You unbolt <b>[src.name]</b> from the floor and detach it from the cable.</span>")
+			to_chat(user, span_notice("You unbolt <b>[src.name]</b> from the floor and detach it from the cable.") )
 			disconnect_from_network()
 			return
 		else
 			if(!connect_to_network())
-				to_chat(user, "<span class='warning'><b>[src.name]</b> must be placed over an exposed, powered cable node!</span>")
+				to_chat(user, span_warning("<b>[src.name]</b> must be placed over an exposed, powered cable node!") )
 				return
 			set_anchored(TRUE)
-			to_chat(user, "<span class='notice'>You bolt <b>[src.name]</b> to the floor and attach it to the cable.</span>")
+			to_chat(user, span_notice("You bolt <b>[src.name]</b> to the floor and attach it to the cable.") )
 			return
 	else if(W.tool_behaviour == TOOL_SCREWDRIVER)
 		user.visible_message( \
 			"[user] messes with <b>[src.name]</b> for a bit.", \
-			"<span class='notice'>You can't fit the screwdriver into <b>[src.name]</b>'s bolts! Try using a wrench.</span>")
+			span_notice("You can't fit the screwdriver into <b>[src.name]</b>'s bolts! Try using a wrench.") )
 	else
 		return ..()
 
@@ -124,7 +124,7 @@
 
 /obj/item/sbeacondrop/attack_self(mob/user)
 	if(user)
-		to_chat(user, "<span class='notice'>Locked In.</span>")
+		to_chat(user, span_notice("Locked In.") )
 		new droptype( user.loc )
 		playsound(src, 'sound/effects/pop.ogg', 100, TRUE, TRUE)
 		qdel(src)

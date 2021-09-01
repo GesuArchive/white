@@ -49,7 +49,7 @@
 			dat += "<br>Selected Server: [SelectedServer.id]"
 
 			if(SelectedServer.totaltraffic >= 1024)
-				dat += "<br>Общее число записанных данных: [round(SelectedServer.totaltraffic / 1024)] Террабайт<br><br>" 
+				dat += "<br>Общее число записанных данных: [round(SelectedServer.totaltraffic / 1024)] Террабайт<br><br>"
 			else
 				dat += "<br>Total recorded traffic: [SelectedServer.totaltraffic] Gigabytes<br><br>"
 
@@ -175,7 +175,7 @@
 	if(href_list["delete"])
 
 		if(!src.allowed(usr) && !(obj_flags & EMAGGED))
-			to_chat(usr, "<span class='danger'>Доступ запрещён.</span>")
+			to_chat(usr, span_danger("Доступ запрещён.") )
 			return
 
 		if(SelectedServer)

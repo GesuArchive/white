@@ -605,7 +605,7 @@
 	. += get_name_chaser(user)
 	if(desc)
 		. += "<hr>"
-		. += "<span class='small'>[desc]</span>"
+		. += span_small("[desc]")
 
 	if(custom_materials)
 		. += "<hr>"
@@ -613,7 +613,7 @@
 		for(var/i in custom_materials)
 			var/datum/material/M = i
 			materials_list += "[M.skloname]"
-		. += "<span class='small'>Вероятно, этот предмет создан из <u>[english_list(materials_list)]</u>.</span>"
+		. += span_small("Вероятно, этот предмет создан из <u>[english_list(materials_list)]</u>.")
 	if(reagents)
 		. += "<hr>"
 		if(reagents.flags & TRANSPARENT)
@@ -634,13 +634,13 @@
 				. += "Ничего."
 		else if(reagents.flags & AMOUNT_VISIBLE)
 			if(reagents.total_volume)
-				. += "<span class='notice'>В нём ещё есть [reagents.total_volume] единиц.</span>"
+				. += span_notice("В нём ещё есть [reagents.total_volume] единиц.")
 			else
-				. += "<span class='danger'>Он пуст.</span>"
+				. += span_danger("Он пуст.")
 
 	if(ishuman(user))
 		if(user.stat == CONSCIOUS && !user.eye_blind)
-			user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[sklonenie(name, VINITELNI, gender)]</b>.</span>", "<span class='small'>Смотрю на <b>[src.name]</b>.</span>", null, COMBAT_MESSAGE_RANGE)
+			user.visible_message(span_small("<b>[user]</b> смотрит на <b>[sklonenie(name, VINITELNI, gender)]</b>.") , span_small("Смотрю на <b>[src.name]</b>.") , null, COMBAT_MESSAGE_RANGE)
 		if(user.status_traits)
 			if(HAS_TRAIT(user, TRAIT_JEWISH))
 				var/datum/export_report/ex = export_item_and_contents(src, EXPORT_PIRATE | EXPORT_CARGO | EXPORT_CONTRABAND, dry_run=TRUE)
@@ -648,7 +648,7 @@
 				for(var/x in ex.total_amount)
 					price += ex.total_value[x]
 				. += "<hr>"
-				. += "<span class='danger'><b>Цена: [price] кредит[get_num_string(price)].</b></span>"
+				. += span_danger("<b>Цена: [price] кредит[get_num_string(price)].</b>")
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
@@ -665,7 +665,7 @@
 	. = list()
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE_MORE, user, .)
 	if(!LAZYLEN(.)) // lol ..length
-		return list("<span class='notice'><i>Осматриваю <b>[src]</b> тщательно, но не могу найти что-то ещё интересное...</i></span>")
+		return list(span_notice("<i>Осматриваю <b>[src]</b> тщательно, но не могу найти что-то ещё интересное...</i>") )
 
 /**
  * Updates the appearence of the icon
@@ -777,7 +777,7 @@
 /atom/proc/relaymove(mob/living/user, direction)
 	if(buckle_message_cooldown <= world.time)
 		buckle_message_cooldown = world.time + 50
-		to_chat(user, "<span class='warning'>You can't move while buckled to [src]!</span>")
+		to_chat(user, span_warning("You can't move while buckled to [src]!") )
 	return
 
 /**
@@ -1020,7 +1020,7 @@
 	while (do_after(user, 1 SECONDS, src, NONE, FALSE, CALLBACK(STR, /datum/component/storage.proc/handle_mass_item_insertion, things, src_object, user, progress)))
 		stoplag(1)
 	progress.end_progress()
-	to_chat(user, "<span class='notice'>Вытряхиваю содержимое [src_object.parent] [STR.insert_preposition] [src.name] как могу.</span>")
+	to_chat(user, span_notice("Вытряхиваю содержимое [src_object.parent] [STR.insert_preposition] [src.name] как могу.") )
 	STR.orient2hud(user)
 	src_object.orient2hud(user)
 	if(user.active_storage) //refresh the HUD to show the transfered contents
@@ -1465,7 +1465,7 @@
 
 
 /atom/proc/StartProcessingAtom(mob/living/user, obj/item/I, list/chosen_option)
-	to_chat(user, "<span class='notice'>Начинаю работать с [src].</span>")
+	to_chat(user, span_notice("Начинаю работать с [src].") )
 	if(I.use_tool(src, user, chosen_option[TOOL_PROCESSING_TIME], volume=50))
 		var/atom/atom_to_create = chosen_option[TOOL_PROCESSING_RESULT]
 		var/list/atom/created_atoms = list()
@@ -1480,7 +1480,7 @@
 				created_atom.pixel_y += rand(-8,8)
 			SEND_SIGNAL(created_atom, COMSIG_ATOM_CREATEDBY_PROCESSING, src, chosen_option)
 			created_atom.OnCreatedFromProcessing(user, I, chosen_option, src)
-			to_chat(user, "<span class='notice'>Удалось сделать [chosen_option[TOOL_PROCESSING_AMOUNT]] [initial(atom_to_create.name)] из [src].</span>")
+			to_chat(user, span_notice("Удалось сделать [chosen_option[TOOL_PROCESSING_AMOUNT]] [initial(atom_to_create.name)] из [src].") )
 			created_atoms.Add(created_atom)
 		SEND_SIGNAL(src, COMSIG_ATOM_PROCESSED, user, I, created_atoms)
 		UsedforProcessing(user, I, chosen_option)

@@ -95,7 +95,7 @@
 	. += "<hr><span class='info'>Примерное время создания объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
 	. += "<span class='info'>Оставшееся время: [timeleft(timer)] секунд.</span>\n"
 	. += "<span class='info'>Внутри запасено: <b>[crystals]/[max_crystals] заукер-кристаллов</b>.</span>\n"
-	. += "<span class='info'>Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, 10, reverse = TRUE)] [DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.</span>"
+	. += span_info("Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, 10, reverse = TRUE)] [DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.")
 	. += "<hr><span class='notice'>Похоже, ему требуется подключение к энергосети через кабель.</span>"
 
 /obj/machinery/copytech/Initialize()
@@ -112,14 +112,14 @@
 /obj/machinery/copytech/attacked_by(obj/item/I, mob/living/user)
 	if(istype(I, /obj/item/stack/sheet/mineral/zaukerite))
 		if(crystals >= max_crystals)
-			to_chat(user, "<span class='warning'>Перебор!</span>")
+			to_chat(user, span_warning("Перебор!") )
 			return
 		var/obj/item/stack/BC = I
 		if(!BC.amount)
-			to_chat(user, "<span class='warning'>БЛЯТЬ!</span>")
+			to_chat(user, span_warning("БЛЯТЬ!") )
 			return
 		crystals++
-		user.visible_message("[user] вставляет [I.name] в [src.name].", "<span class='notice'>Вставляю [I.name] в [src.name].</span>")
+		user.visible_message("[user] вставляет [I.name] в [src.name].", span_notice("Вставляю [I.name] в [src.name].") )
 		BC.use(1)
 		return
 	else
@@ -295,14 +295,14 @@
 		L.adjustFireLoss(20)
 		L.set_fire_stacks(5)
 		L.IgniteMob()
-		L.visible_message("<span class='danger'><b>[L]</b> прожаривается!</span>")
+		L.visible_message(span_danger("<b>[L]</b> прожаривается!") )
 		playsound(L, 'sound/machines/shower/shower_mid1.ogg', 90, TRUE)
 
 /obj/machinery/copytech_platform/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='info'>Примерное время для уничтожения объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
 	. += "<span class='info'>Оставшееся время: [time2text(timeleft(timer), "mm:ss")]</span>\n"
-	. += "<span class='info'>Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, 10, reverse = TRUE)] [DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.</span>"
+	. += span_info("Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, 10, reverse = TRUE)] [DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.")
 	. += "<hr><span class='notice'>Похоже, ему требуется подключение к энергосети через кабель.</span>"
 
 /obj/machinery/copytech_platform/Initialize()
@@ -372,7 +372,7 @@
 				M.layer = ABOVE_MOB_LAYER
 			sleep(1 SECONDS)
 			if(user)
-				to_chat(user, "<span class='alert'>Ну бл~</span>")
+				to_chat(user, span_alert("Ну бл~") )
 				explosion(user, 0, 0, 1)
 			if(isliving(user))
 				var/mob/living/L = user

@@ -16,12 +16,12 @@
 	..()
 	active = !active
 	if(active)
-		to_chat(user, "<span class='notice'>Наши мышцы напрягаются и укрепляются.</span>")
+		to_chat(user, span_notice("Наши мышцы напрягаются и укрепляются.") )
 	else
 		user.remove_movespeed_modifier(/datum/movespeed_modifier/strained_muscles)
-		to_chat(user, "<span class='notice'>Наши мышцы расслабляются.</span>")
+		to_chat(user, span_notice("Наши мышцы расслабляются.") )
 		if(stacks >= 10)
-			to_chat(user, "<span class='danger'>Мы падаем в изнеможении.</span>")
+			to_chat(user, span_danger("Мы падаем в изнеможении.") )
 			user.Paralyze(60)
 			user.emote("gasp")
 
@@ -34,7 +34,7 @@
 		user.add_movespeed_modifier(/datum/movespeed_modifier/strained_muscles)
 		if(user.stat != CONSCIOUS || user.staminaloss >= 90)
 			active = !active
-			to_chat(user, "<span class='notice'>Наши мышцы расслабляются без энергии укрепляющей их.</span>")
+			to_chat(user, span_notice("Наши мышцы расслабляются без энергии укрепляющей их.") )
 			user.Paralyze(40)
 			user.remove_movespeed_modifier(/datum/movespeed_modifier/strained_muscles)
 			break
@@ -44,7 +44,7 @@
 		user.adjustStaminaLoss(stacks * 1.3) //At first the changeling may regenerate stamina fast enough to nullify fatigue, but it will stack
 
 		if(stacks == 11) //Warning message that the stacks are getting too high
-			to_chat(user, "<span class='warning'>Наши ноги начинают сильно болеть...</span>")
+			to_chat(user, span_warning("Наши ноги начинают сильно болеть...") )
 
 		sleep(40)
 

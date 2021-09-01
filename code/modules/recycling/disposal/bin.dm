@@ -87,15 +87,15 @@
 		if(I.tool_behaviour == TOOL_SCREWDRIVER)
 			panel_open = !panel_open
 			I.play_tool_sound(src)
-			to_chat(user, "<span class='notice'>[panel_open ? "Откручиваю":"Закручиваю"] винтики питания.</span>")
+			to_chat(user, span_notice("[panel_open ? "Откручиваю":"Закручиваю"] винтики питания.") )
 			return
 		else if(I.tool_behaviour == TOOL_WELDER && panel_open)
 			if(!I.tool_start_check(user, amount=0))
 				return
 
-			to_chat(user, "<span class='notice'>Начинаю разваривать [src]...</span>")
+			to_chat(user, span_notice("Начинаю разваривать [src]...") )
 			if(I.use_tool(src, user, 20, volume=100) && panel_open)
-				to_chat(user, "<span class='notice'>Развариваю [src].</span>")
+				to_chat(user, span_notice("Развариваю [src].") )
 				deconstruct()
 			return
 
@@ -110,7 +110,7 @@
 
 /obj/machinery/disposal/proc/place_item_in_disposal(obj/item/I, mob/user)
 	I.forceMove(src)
-	user.visible_message("<span class='notice'>[user.name] закидывает [I] в [src].</span>", "<span class='notice'>Закидываю [I] в [src].</span>")
+	user.visible_message(span_notice("[user.name] закидывает [I] в [src].") , span_notice("Закидываю [I] в [src].") )
 
 //mouse drop another mob or self
 /obj/machinery/disposal/MouseDrop_T(mob/living/target, mob/living/user)
@@ -130,22 +130,22 @@
 	if(target.buckled || target.has_buckled_mobs())
 		return
 	if(target.mob_size > MOB_SIZE_HUMAN)
-		to_chat(user, "<span class='warning'>[target] не помещается внутри [src]!</span>")
+		to_chat(user, span_warning("[target] не помещается внутри [src]!") )
 		return
 	add_fingerprint(user)
 	if(user == target)
-		user.visible_message("<span class='warning'>[user] начинает забираться внутрь [src].</span>", "<span class='notice'>Начинаю забираться внутрь [src]...</span>")
+		user.visible_message(span_warning("[user] начинает забираться внутрь [src].") , span_notice("Начинаю забираться внутрь [src]...") )
 	else
-		target.visible_message("<span class='danger'>[user] начинает заталкивать [target] в [src].</span>", "<span class='userdanger'>[user] начинает заталкивать меня в [src]!</span>")
+		target.visible_message(span_danger("[user] начинает заталкивать [target] в [src].") , span_userdanger("[user] начинает заталкивать меня в [src]!") )
 	if(do_mob(user, target, 20))
 		if (!loc)
 			return
 		target.forceMove(src)
 		if(user == target)
-			user.visible_message("<span class='warning'>[user] забирается в [src].</span>", "<span class='notice'>Забираюсь в [src].</span>")
+			user.visible_message(span_warning("[user] забирается в [src].") , span_notice("Забираюсь в [src].") )
 			. = TRUE
 		else
-			target.visible_message("<span class='danger'>[user] заталкивает [target] в [src].</span>", "<span class='userdanger'>[user] заталкивает меня в [src].</span>")
+			target.visible_message(span_danger("[user] заталкивает [target] в [src].") , span_userdanger("[user] заталкивает меня в [src].") )
 			log_combat(user, target, "stuffed", addition="into [src]")
 			target.LAssailant = user
 			. = TRUE
@@ -266,7 +266,7 @@
 	if(istype(I, /obj/item/storage/bag/trash))	//Not doing component overrides because this is a specific type.
 		var/obj/item/storage/bag/trash/T = I
 		var/datum/component/storage/STR = T.GetComponent(/datum/component/storage)
-		to_chat(user, "<span class='warning'>Опустошаю мешок.</span>")
+		to_chat(user, span_warning("Опустошаю мешок.") )
 		for(var/obj/item/O in T.contents)
 			STR.remove_from_storage(O,src)
 		T.update_icon()
@@ -331,10 +331,10 @@
 	if(isitem(AM) && AM.CanEnterDisposals())
 		if(prob(75))
 			AM.forceMove(src)
-			visible_message("<span class='notice'>[AM] приземляется в [src].</span>")
+			visible_message(span_notice("[AM] приземляется в [src].") )
 			update_icon()
 		else
-			visible_message("<span class='notice'>[AM] отскакивает от края [src]!</span>")
+			visible_message(span_notice("[AM] отскакивает от края [src]!") )
 			return ..()
 	else
 		return ..()
@@ -466,7 +466,7 @@
 	else if(ismob(AM))
 		var/mob/M = AM
 		if(prob(2)) // to prevent mobs being stuck in infinite loops
-			to_chat(M, "<span class='warning'>Влетаю в край желоба.</span>")
+			to_chat(M, span_warning("Влетаю в край желоба.") )
 			return
 		M.forceMove(src)
 	flush()
@@ -531,21 +531,21 @@
 		if(I.tool_behaviour == TOOL_SCREWDRIVER)
 			panel_open = !panel_open
 			I.play_tool_sound(src)
-			to_chat(user, "<span class='notice'>[panel_open ? "Откручиваю":"Закручиваю"] винтики питания.</span>")
+			to_chat(user, span_notice("[panel_open ? "Откручиваю":"Закручиваю"] винтики питания.") )
 			return
 		else if(I.tool_behaviour == TOOL_WELDER && panel_open)
 			if(!I.tool_start_check(user, amount=0))
 				return
 
-			to_chat(user, "<span class='notice'>Начинаю разваривать [src]...</span>")
+			to_chat(user, span_notice("Начинаю разваривать [src]...") )
 			if(I.use_tool(src, user, 20, volume=100) && panel_open)
-				to_chat(user, "<span class='notice'>Развариваю [src].</span>")
+				to_chat(user, span_notice("Развариваю [src].") )
 				deconstruct()
 			return
 
 	if(user.a_intent != INTENT_HARM)
 		if((I.item_flags & ABSTRACT) || !flushing)
-			to_chat(user, "<span class='notice'>You don't see any opening to drop [I.name] into!</span>")
+			to_chat(user, span_notice("You don't see any opening to drop [I.name] into!") )
 			return
 		if(!user.temporarilyRemoveItemFromInventory(I))
 			return
@@ -587,7 +587,7 @@
 			pixel_x = 2
 
 /obj/machinery/disposal/mechcomp/place_item_in_disposal(obj/item/I, mob/user)
-	to_chat(user, "<span class='notice'>You [prob(50)?"manage to":"quickly"] [prob(50)?"slip":"drop"] [I.name] inside while [src.name] is open.</span>")
+	to_chat(user, span_notice("You [prob(50)?"manage to":"quickly"] [prob(50)?"slip":"drop"] [I.name] inside while [src.name] is open.") )
 	. = ..()
 
 /obj/machinery/disposal/mechcomp/update_overlays()

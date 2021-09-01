@@ -3,19 +3,19 @@
 		return FALSE
 
 	if(H.w_class > max_hardware_size)
-		to_chat(user, "<span class='warning'>Этот компонент слишком велик для <b>[src.name]</b>!</span>")
+		to_chat(user, span_warning("Этот компонент слишком велик для <b>[src.name]</b>!") )
 		return FALSE
 
 	if(H.expansion_hw)
 		if(LAZYLEN(expansion_bays) >= max_bays)
-			to_chat(user, "<span class='warning'>Все отсеки расширения компьютера заполнены.</span>")
+			to_chat(user, span_warning("Все отсеки расширения компьютера заполнены.") )
 			return FALSE
 		if(LAZYACCESS(expansion_bays, H.device_type))
-			to_chat(user, "<span class='warning'>Компьютер сразу отторгает [H] и отображает ошибку: \"Конфликт адресов оборудования\".</span>")
+			to_chat(user, span_warning("Компьютер сразу отторгает [H] и отображает ошибку: \"Конфликт адресов оборудования\".") )
 			return FALSE
 
 	if(all_components[H.device_type])
-		to_chat(user, "<span class='warning'>Слот оборудования этого компьютера уже занят [all_components[H.device_type]].</span>")
+		to_chat(user, span_warning("Слот оборудования этого компьютера уже занят [all_components[H.device_type]].") )
 		return FALSE
 	return TRUE
 
@@ -32,7 +32,7 @@
 		LAZYSET(expansion_bays, H.device_type, H)
 	all_components[H.device_type] = H
 
-	to_chat(user, "<span class='notice'>Устанавливаю [H] в <b>[src.name]</b>.</span>")
+	to_chat(user, span_notice("Устанавливаю [H] в <b>[src.name]</b>.") )
 	H.holder = src
 	H.forceMove(src)
 	H.on_install(src, user)
@@ -47,7 +47,7 @@
 		LAZYREMOVE(expansion_bays, H.device_type)
 	all_components.Remove(H.device_type)
 
-	to_chat(user, "<span class='notice'>Извлекаю [H] из <b>[src.name]</b>.</span>")
+	to_chat(user, span_notice("Извлекаю [H] из <b>[src.name]</b>.") )
 
 	H.forceMove(get_turf(src))
 	H.holder = null

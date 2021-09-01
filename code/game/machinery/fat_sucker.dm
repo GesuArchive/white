@@ -52,7 +52,7 @@
 
 /obj/machinery/fat_sucker/close_machine(mob/user)
 	if(panel_open)
-		to_chat(user, "<span class='warning'>Нужно закрыть техническую панель сначала!</span>")
+		to_chat(user, span_warning("Нужно закрыть техническую панель сначала!") )
 		return
 	..()
 	playsound(src, 'sound/machines/click.ogg', 50)
@@ -61,7 +61,7 @@
 			occupant.forceMove(drop_location())
 			set_occupant(null)
 			return
-		to_chat(occupant, "<span class='notice'>Вхожу в [src.name].</span>")
+		to_chat(occupant, span_notice("Вхожу в [src.name].") )
 		addtimer(CALLBACK(src, .proc/start_extracting), 20, TIMER_OVERRIDE|TIMER_UNIQUE)
 		update_icon()
 
@@ -74,18 +74,18 @@
 
 /obj/machinery/fat_sucker/container_resist_act(mob/living/user)
 	if(!free_exit || state_open)
-		to_chat(user, "<span class='notice'>Аварийный выход не работает! СЕЙЧАС БУДУ ЛОМАТЬ ЭТО ВСЁ!!!</span>")
+		to_chat(user, span_notice("Аварийный выход не работает! СЕЙЧАС БУДУ ЛОМАТЬ ЭТО ВСЁ!!!") )
 		user.changeNext_move(CLICK_CD_BREAKOUT)
 		user.last_special = world.time + CLICK_CD_BREAKOUT
-		user.visible_message("<span class='notice'>[user] пытается выломать дверь [src.name]!</span>", \
-			"<span class='notice'>Упираюсь в стенку [src.name] и начинаю выдавливать дверь... (это займёт примерно [DisplayTimeText(breakout_time)].)</span>", \
-			"<span class='hear'>Слышу металлический стук исходящий из [src.name].</span>")
+		user.visible_message(span_notice("[user] пытается выломать дверь [src.name]!") , \
+			span_notice("Упираюсь в стенку [src.name] и начинаю выдавливать дверь... (это займёт примерно [DisplayTimeText(breakout_time)].)") , \
+			span_hear("Слышу металлический стук исходящий из [src.name].") )
 		if(do_after(user, breakout_time, target = src))
 			if(!user || user.stat != CONSCIOUS || user.loc != src || state_open)
 				return
 			free_exit = TRUE
-			user.visible_message("<span class='warning'>[user] успешно вырывается из [src.name]!</span>", \
-				"<span class='notice'>Успешно вырываюсь из [src.name]!</span>")
+			user.visible_message(span_warning("[user] успешно вырывается из [src.name]!") , \
+				span_notice("Успешно вырываюсь из [src.name]!") )
 			open_machine()
 		return
 	open_machine()
@@ -96,19 +96,19 @@
 	else if(!processing || free_exit)
 		open_machine()
 	else
-		to_chat(user, "<span class='warning'>Люк отключен!</span>")
+		to_chat(user, span_warning("Люк отключен!") )
 
 /obj/machinery/fat_sucker/AltClick(mob/living/user)
 	if(!user.canUseTopic(src, BE_CLOSE))
 		return
 	if(user == occupant)
-		to_chat(user, "<span class='warning'>Не могу достать до панели управления изнутри!</span>")
+		to_chat(user, span_warning("Не могу достать до панели управления изнутри!") )
 		return
 	if(!(obj_flags & EMAGGED) && !allowed(user))
-		to_chat(user, "<span class='warning'>Доступ не подходит.</span>")
+		to_chat(user, span_warning("Доступ не подходит.") )
 		return
 	free_exit = !free_exit
-	to_chat(user, "<span class='notice'>Люк [free_exit ? "разблокирован" : "заблокирован"].</span>")
+	to_chat(user, span_notice("Люк [free_exit ? "разблокирован" : "заблокирован"].") )
 
 /obj/machinery/fat_sucker/update_overlays()
 	. = ..()
@@ -196,10 +196,10 @@
 	if(..())
 		return
 	if(occupant)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] уже занят!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] уже занят!") )
 		return
 	if(state_open)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] имеет [panel_open ? "закрытую" : "открытую"] техническую панель!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] имеет [panel_open ? "закрытую" : "открытую"] техническую панель!") )
 		return
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, I))
 		update_icon()
@@ -215,5 +215,5 @@
 		return
 	start_at = 100
 	stop_at = 0
-	to_chat(user, "<span class='notice'>Снимаю ограничения доступа и понижаю порог автоматического выброса!</span>")
+	to_chat(user, span_notice("Снимаю ограничения доступа и понижаю порог автоматического выброса!") )
 	obj_flags |= EMAGGED

@@ -24,7 +24,7 @@
 /obj/item/implantcase/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/pen))
 		if(!user.is_literate())
-			to_chat(user, "<span class='notice'>Царапаю что-то на краю <b>[src.name]</b>!</span>")
+			to_chat(user, span_notice("Царапаю что-то на краю <b>[src.name]</b>!") )
 			return
 		var/t = stripped_input(user, "Что же мы напишем?", name, null)
 		if(user.get_active_held_item() != W)

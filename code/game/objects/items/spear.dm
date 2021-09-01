@@ -35,7 +35,7 @@
 	icon_state = "[icon_prefix]0"
 
 /obj/item/spear/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] начинает глотать меч <b>[src.name]</b>! Это выглядит будто [user.p_theyre()] пытается совершить самоубийство!</span>")
+	user.visible_message(span_suicide("[user] начинает глотать меч <b>[src.name]</b>! Это выглядит будто [user.p_theyre()] пытается совершить самоубийство!") )
 	return BRUTELOSS
 
 /obj/item/spear/CheckParts(list/parts_list)
@@ -105,7 +105,7 @@
 	..()
 
 /obj/item/spear/explosive/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] начинает глотать меч <b>[src.name]</b>! Это выглядит будто [user.p_theyre()] пытается совершить суицид!</span>")
+	user.visible_message(span_suicide("[user] начинает глотать меч <b>[src.name]</b>! Это выглядит будто [user.p_theyre()] пытается совершить суицид!") )
 	user.say("[war_cry]", forced="spear warcry")
 	explosive.forceMove(user)
 	explosive.detonate()

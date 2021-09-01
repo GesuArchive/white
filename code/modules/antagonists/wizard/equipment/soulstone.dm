@@ -55,7 +55,7 @@
 /obj/item/soulstone/pickup(mob/living/user)
 	..()
 	if(!role_check(user))
-		to_chat(user, "<span class='danger'>An overwhelming feeling of dread comes over you as you pick up [src]. It would be wise to be rid of this quickly.</span>")
+		to_chat(user, span_danger("An overwhelming feeling of dread comes over you as you pick up [src]. It would be wise to be rid of this quickly.") )
 
 /obj/item/soulstone/examine(mob/user)
 	. = ..()
@@ -74,7 +74,7 @@
 	return ..()
 
 /obj/item/soulstone/proc/hot_potato(mob/living/user)
-	to_chat(user, "<span class='userdanger'>Holy magics residing in <b>[src.name]</b> burn your hand!</span>")
+	to_chat(user, span_userdanger("Holy magics residing in <b>[src.name]</b> burn your hand!") )
 	var/obj/item/bodypart/affecting = user.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 	affecting.receive_damage( 0, 10 )	// 10 burn damage
 	user.emote("agony")
@@ -86,18 +86,18 @@
 /obj/item/soulstone/attack(mob/living/carbon/human/M, mob/living/user)
 	if(!role_check(user))
 		user.Unconscious(100)
-		to_chat(user, "<span class='userdanger'>Your body is wracked with debilitating pain!</span>")
+		to_chat(user, span_userdanger("Your body is wracked with debilitating pain!") )
 		return
 	if(spent)
-		to_chat(user, "<span class='warning'>There is no power left in [src].</span>")
+		to_chat(user, span_warning("There is no power left in [src].") )
 		return
 	if(!ishuman(M))//If target is not a human.
 		return ..()
 	if((M.mind && !M.mind.hasSoul) || is_devil(M))
-		to_chat(user, "<span class='warning'>This... THING has no soul! It's filled with evil!</span>")
+		to_chat(user, span_warning("This... THING has no soul! It's filled with evil!") )
 		return
 	if(iscultist(M) && iscultist(user))
-		to_chat(user, "<span class='cultlarge'>\"Come now, do not capture your bretheren's soul.\"</span>")
+		to_chat(user, span_cultlarge("\"Come now, do not capture your bretheren's soul.\"") )
 		return
 	if(theme == THEME_HOLY && iscultist(user))
 		hot_potato(user)
@@ -112,7 +112,7 @@
 		return
 	if(!role_check(user))
 		user.Unconscious(100)
-		to_chat(user, "<span class='userdanger'>Your body is wracked with debilitating pain!</span>")
+		to_chat(user, span_userdanger("Your body is wracked with debilitating pain!") )
 		return
 	if(theme == THEME_HOLY && iscultist(user))
 		hot_potato(user)
@@ -154,13 +154,13 @@
 		return
 	if(!role_check(user))
 		user.Unconscious(10 SECONDS)
-		to_chat(user, "<span class='userdanger'>Your body is wracked with debilitating pain!</span>")
+		to_chat(user, span_userdanger("Your body is wracked with debilitating pain!") )
 		return
 
 	user.visible_message("<span class='notice'>[user] holds [src] above [user.p_their()] head and forces it into [target_toolbox] with a flash of light!", \
-		"<span class='notice'>You hold [src] above your head briefly, then force it into [target_toolbox], transferring the [occupant] soul!</span>", ignored_mobs = occupant)
-	to_chat(occupant, "<span class='userdanger'>[user] holds you up briefly, then forces you into [target_toolbox]!</span>")
-	to_chat(occupant, "<span class='deadsay'><b>Your eternal soul has been sacrificed to restore the soul of a toolbox. Them's the breaks!</b></span>")
+		span_notice("You hold [src] above your head briefly, then force it into [target_toolbox], transferring the [occupant] soul!") , ignored_mobs = occupant)
+	to_chat(occupant, span_userdanger("[user] holds you up briefly, then forces you into [target_toolbox]!") )
+	to_chat(occupant, span_deadsay("<b>Your eternal soul has been sacrificed to restore the soul of a toolbox. Them's the breaks!</b>") )
 
 	occupant.client?.give_award(/datum/award/achievement/misc/toolbox_soul, occupant)
 	occupant.deathmessage = "shrieks out in unholy pain as [occupant.p_their()] soul is absorbed into [target_toolbox]!"
@@ -192,7 +192,7 @@
 	if(istype(O, /obj/item/soulstone))
 		var/obj/item/soulstone/SS = O
 		if(!iscultist(user) && !iswizard(user) && !SS.theme == THEME_HOLY)
-			to_chat(user, "<span class='danger'>An overwhelming feeling of dread comes over you as you attempt to place [SS] into the shell. It would be wise to be rid of this quickly.</span>")
+			to_chat(user, span_danger("An overwhelming feeling of dread comes over you as you attempt to place [SS] into the shell. It would be wise to be rid of this quickly.") )
 			user.Dizzy(30)
 			return
 		if(SS.theme == THEME_HOLY && iscultist(user))
@@ -228,9 +228,9 @@
 			var/datum/antagonist/cult/C = user.mind.has_antag_datum(/datum/antagonist/cult,TRUE)
 			if(C?.cult_team.is_sacrifice_target(T.mind))
 				if(iscultist(user))
-					to_chat(user, "<span class='cult'><b>\"This soul is mine.</b></span> <span class='cultlarge'>SACRIFICE THEM!\"</span>")
+					to_chat(user, span_cult("<b>\"This soul is mine.</b></span> <span class='cultlarge'>SACRIFICE THEM!\"") )
 				else
-					to_chat(user, "<span class='danger'>[capitalize(src.name)] seems to reject this soul.</span>")
+					to_chat(user, span_danger("[capitalize(src.name)] seems to reject this soul.") )
 				return FALSE
 			if(contents.len)
 				to_chat(user, "<span class='userdanger'>Capture failed!</span>: [src] is full! Free an existing soul to make room.")
@@ -262,7 +262,7 @@
 				if(theme == THEME_CULT)
 					icon_state = "soulstone2"
 				name = "soulstone: Shade of [T.real_name]"
-				to_chat(T, "<span class='notice'>Your soul has been captured by [src]. Its arcane energies are reknitting your ethereal form.</span>")
+				to_chat(T, span_notice("Your soul has been captured by [src]. Its arcane energies are reknitting your ethereal form.") )
 				if(user != T)
 					to_chat(user, "<span class='info'><b>Capture successful!</b>:</span> [T.real_name] soul has been captured and stored within [src].")
 
@@ -408,7 +408,7 @@
 	if(!T)
 		return FALSE
 	if(!chosen_ghost || !chosen_ghost.client)
-		to_chat(user, "<span class='danger'>There were no spirits willing to become a shade.</span>")
+		to_chat(user, span_danger("There were no spirits willing to become a shade.") )
 		return FALSE
 	if(contents.len) //If they used the soulstone on someone else in the meantime
 		return FALSE

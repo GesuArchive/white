@@ -32,7 +32,7 @@
 
 /obj/machinery/computer/piratepad_control/multitool_act(mob/living/user, obj/item/multitool/I)
 	if(istype(I) && istype(I.buffer,/obj/machinery/piratepad/civilian))
-		to_chat(user, "<span class='notice'>Привязываю [src] используя [I.buffer] в буффере [I].</span>")
+		to_chat(user, span_notice("Привязываю [src] используя [I.buffer] в буффере [I].") )
 		pad = I.buffer
 		return TRUE
 
@@ -114,7 +114,7 @@
 				inc_metabalance(usr, METACOIN_BOUNTY_REWARD_NORMAL, reason="Обычный заказ выполнен!")
 			if(50 * CARGO_CRATE_VALUE + 1 to INFINITY)
 				inc_metabalance(usr, METACOIN_BOUNTY_REWARD_HARD, reason="Сложный заказ выполнен!")
-	pad.visible_message("<span class='notice'>[capitalize(pad.name)] активируется!</span>")
+	pad.visible_message(span_notice("[capitalize(pad.name)] активируется!") )
 	flick(pad.sending_state,pad)
 	pad.icon_state = pad.idle_state
 	playsound(loc, 'sound/machines/synth_yes.ogg', 30 , TRUE)
@@ -127,10 +127,10 @@
 	var/datum/bank_account/pot_acc = inserted_scan_id.registered_account
 	if((pot_acc.civilian_bounty && ((world.time) < pot_acc.bounty_timer + 5 MINUTES)) || pot_acc.bounties)
 		var/curr_time = round(((pot_acc.bounty_timer + (5 MINUTES))-world.time)/ (1 MINUTES), 0.01)
-		to_chat(usr, "<span class='warning'>Internal ID network spools coiling, try again in [curr_time] minutes!</span>")
+		to_chat(usr, span_warning("Internal ID network spools coiling, try again in [curr_time] minutes!") )
 		return FALSE
 	if(!pot_acc.account_job)
-		to_chat(usr, "<span class='warning'>The console smartly rejects your ID card, as it lacks a job assignment!</span>")
+		to_chat(usr, span_warning("The console smartly rejects your ID card, as it lacks a job assignment!") )
 		return FALSE
 	var/list/datum/bounty/crumbs = list(random_bounty(pot_acc.account_job.bounty_types), // We want to offer 2 bounties from their appropriate job catagories
 										random_bounty(pot_acc.account_job.bounty_types), // and 1 guarenteed assistant bounty if the other 2 suck.
@@ -225,8 +225,8 @@
 		else
 			id_eject(user, target)
 
-	user.visible_message("<span class='notice'>[user] вставляет [card_to_insert] в [src].</span>",
-						"<span class='notice'>Вставляю [card_to_insert] в [src].</span>")
+	user.visible_message(span_notice("[user] вставляет [card_to_insert] в [src].") ,
+						span_notice("Вставляю [card_to_insert] в [src].") )
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 	updateUsrDialog()
 	return TRUE
@@ -234,14 +234,14 @@
 ///Removes A stored ID card.
 /obj/machinery/computer/piratepad_control/civilian/proc/id_eject(mob/user, obj/target)
 	if(!target)
-		to_chat(user, "<span class='warning'>Внутри пусто!</span>")
+		to_chat(user, span_warning("Внутри пусто!") )
 		return FALSE
 	else
 		target.forceMove(drop_location())
 		if(!issilicon(user) && Adjacent(user))
 			user.put_in_hands(target)
-		user.visible_message("<span class='notice'>[user] достаёт [target] из [src].</span>", \
-							"<span class='notice'>Достаю [target] из[src].</span>")
+		user.visible_message(span_notice("[user] достаёт [target] из [src].") , \
+							span_notice("Достаю [target] из[src].") )
 		playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 		inserted_scan_id = null
 		updateUsrDialog()
@@ -269,7 +269,7 @@
 	var/uses = 2
 
 /obj/item/civ_bounty_beacon/attack_self()
-	loc.visible_message("<span class='warning'>[capitalize(src.name)] начинает громко пищать!</span>")
+	loc.visible_message(span_warning("[capitalize(src.name)] начинает громко пищать!") )
 	addtimer(CALLBACK(src, .proc/launch_payload), 1 SECONDS)
 
 /obj/item/civ_bounty_beacon/proc/launch_payload()

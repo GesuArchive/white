@@ -61,9 +61,9 @@
 	. = ..()
 	. += "<hr>"
 	if(anchored)
-		. += "<span class='notice'>Это прикручено на месте <b>винтами</b>. Стержни выглядят так, как будто они могут быть <b>прокушены</b>.</span>"
+		. += span_notice("Это прикручено на месте <b>винтами</b>. Стержни выглядят так, как будто они могут быть <b>прокушены</b>.")
 	if(!anchored)
-		. += "<span class='notice'>Это выглядит <i>открученым</i>. Стержни выглядят так, как будто они могут быть <b>прокушены</b>.</span>"
+		. += span_notice("Это выглядит <i>открученым</i>. Стержни выглядят так, как будто они могут быть <b>прокушены</b>.")
 
 /obj/structure/grille/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	switch(the_rcd.mode)
@@ -85,7 +85,7 @@
 /obj/structure/grille/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_DECONSTRUCT)
-			to_chat(user, "<span class='notice'>Разбираю решетку.</span>")
+			to_chat(user, span_notice("Разбираю решетку.") )
 			qdel(src)
 			return TRUE
 		if(RCD_WINDOWGRILLE)
@@ -133,7 +133,7 @@
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	user.do_attack_animation(src, ATTACK_EFFECT_KICK)
-	user.visible_message("<span class='warning'>[user] бьёт [src].</span>", null, null, COMBAT_MESSAGE_RANGE)
+	user.visible_message(span_warning("[user] бьёт [src].") , null, null, COMBAT_MESSAGE_RANGE)
 	log_combat(user, src, "hit")
 	if(!shock(user, 70))
 		take_damage(rand(5,10), BRUTE, MELEE, 1)
@@ -141,7 +141,7 @@
 /obj/structure/grille/attack_alien(mob/living/user)
 	user.do_attack_animation(src)
 	user.changeNext_move(CLICK_CD_MELEE)
-	user.visible_message("<span class='warning'>[user] разрывает [src].</span>", null, null, COMBAT_MESSAGE_RANGE)
+	user.visible_message(span_warning("[user] разрывает [src].") , null, null, COMBAT_MESSAGE_RANGE)
 	if(!shock(user, 70))
 		take_damage(20, BRUTE, MELEE, 1)
 
@@ -166,16 +166,16 @@
 		if(!shock(user, 90))
 			W.play_tool_sound(src, 100)
 			set_anchored(!anchored)
-			user.visible_message("<span class='notice'>[user] [anchored ? "прикручивает" : "откручивает"] [src.name].</span>", \
-				"<span class='notice'>[anchored ? "прикручиваю [src.name] к полу" : "откручиваю [src.name] от пола"].</span>")
+			user.visible_message(span_notice("[user] [anchored ? "прикручивает" : "откручивает"] [src.name].") , \
+				span_notice("[anchored ? "прикручиваю [src.name] к полу" : "откручиваю [src.name] от пола"].") )
 			if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
 				QUEUE_SMOOTH(src)
 			return
 	else if(istype(W, /obj/item/stack/rods) && broken)
 		var/obj/item/stack/rods/R = W
 		if(!shock(user, 90))
-			user.visible_message("<span class='notice'>[user] чинит решетку.</span>", \
-				"<span class='notice'>Чиню решетку.</span>")
+			user.visible_message(span_notice("[user] чинит решетку.") , \
+				span_notice("Чиню решетку.") )
 			new grille_type(src.loc)
 			R.use(1)
 			qdel(src)
@@ -186,16 +186,16 @@
 		if (!broken)
 			var/obj/item/stack/ST = W
 			if (ST.get_amount() < 2)
-				to_chat(user, "<span class='warning'>Надо бы хотя бы парочку листов стекла!</span>")
+				to_chat(user, span_warning("Надо бы хотя бы парочку листов стекла!") )
 				return
 			var/dir_to_set = SOUTHWEST
 			if(!anchored)
-				to_chat(user, "<span class='warning'>Надо бы прикрутить [src] к полу!</span>")
+				to_chat(user, span_warning("Надо бы прикрутить [src] к полу!") )
 				return
 			for(var/obj/structure/window/WINDOW in loc)
-				to_chat(user, "<span class='warning'>Здесь уже есть окно!</span>")
+				to_chat(user, span_warning("Здесь уже есть окно!") )
 				return
-			to_chat(user, "<span class='notice'>Начинаю ставить окно...</span>")
+			to_chat(user, span_notice("Начинаю ставить окно...") )
 			if(do_after(user,20, target = src))
 				if(!src.loc || !anchored) //Grille broken or unanchored while waiting
 					return
@@ -219,7 +219,7 @@
 				WD.set_anchored(FALSE)
 				WD.state = 0
 				ST.use(2)
-				to_chat(user, "<span class='notice'>Ставлю [WD] на [src].</span>")
+				to_chat(user, span_notice("Ставлю [WD] на [src].") )
 			return
 //window placing end
 

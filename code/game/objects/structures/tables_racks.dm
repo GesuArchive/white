@@ -68,19 +68,19 @@
 		if(isliving(user.pulling))
 			var/mob/living/pushed_mob = user.pulling
 			if(pushed_mob.buckled)
-				to_chat(user, "<span class='warning'><b>[pushed_mob]</b> прикован к <b>[pushed_mob.buckled]</b>!</span>")
+				to_chat(user, span_warning("<b>[pushed_mob]</b> прикован к <b>[pushed_mob.buckled]</b>!") )
 				return
 			if(user.a_intent == INTENT_GRAB)
 				if(user.grab_state < GRAB_AGGRESSIVE)
-					to_chat(user, "<span class='warning'>Надо бы посильнее взять!</span>")
+					to_chat(user, span_warning("Надо бы посильнее взять!") )
 					return
 				if(user.grab_state >= GRAB_NECK)
 					tablelimbsmash(user, pushed_mob)
 				else
 					tablepush(user, pushed_mob)
 			if(user.a_intent == INTENT_HELP)
-				pushed_mob.visible_message("<span class='notice'><b>[user]</b> начинает укладывать <b>[pushed_mob]</b> на <b>[src]</b>...</span>", \
-									"<span class='userdanger'><b>[user]</b> начинает укладывать <b>меня</b> на <b>[src]</b>...</span>")
+				pushed_mob.visible_message(span_notice("<b>[user]</b> начинает укладывать <b>[pushed_mob]</b> на <b>[src]</b>...") , \
+									span_userdanger("<b>[user]</b> начинает укладывать <b>меня</b> на <b>[src]</b>...") )
 				if(do_after(user, 35, target = pushed_mob))
 					tableplace(user, pushed_mob)
 				else
@@ -89,13 +89,13 @@
 		else if(user.pulling.pass_flags & PASSTABLE)
 			user.Move_Pulled(src)
 			if (user.pulling.loc == loc)
-				user.visible_message("<span class='notice'><b>[user]</b> кладёт <b>[user.pulling]</b> на <b>[src]</b>.</span>",
-					"<span class='notice'>Кладу на <b>[user.pulling]</b> на <b>[src]</b>.</span>")
+				user.visible_message(span_notice("<b>[user]</b> кладёт <b>[user.pulling]</b> на <b>[src]</b>.") ,
+					span_notice("Кладу на <b>[user.pulling]</b> на <b>[src]</b>.") )
 				user.stop_pulling()
 	if(user.a_intent == INTENT_HARM)
 		user.changeNext_move(CLICK_CD_MELEE)
-		user.visible_message("<span class='warning'>[user] долбит по столу!</span>", "<span class='warning'>Долблю по столу!</span>",
-			"<span class='danger'>Слышу звук удара.</span>")
+		user.visible_message(span_warning("[user] долбит по столу!") , span_warning("Долблю по столу!") ,
+			span_danger("Слышу звук удара.") )
 		playsound(src, bashsound, 80, TRUE)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
@@ -129,13 +129,13 @@
 /obj/structure/table/proc/tableplace(mob/living/user, mob/living/pushed_mob)
 	pushed_mob.forceMove(loc)
 	pushed_mob.set_resting(TRUE, TRUE)
-	pushed_mob.visible_message("<span class='notice'><b>[user]</b> кладет <b>[pushed_mob]</b> на <b>[src]</b>.</span>", \
-								"<span class='notice'><b>[user]</b> кладет <b>[pushed_mob]</b> на <b>[src]</b>.</span>")
+	pushed_mob.visible_message(span_notice("<b>[user]</b> кладет <b>[pushed_mob]</b> на <b>[src]</b>.") , \
+								span_notice("<b>[user]</b> кладет <b>[pushed_mob]</b> на <b>[src]</b>.") )
 	log_combat(user, pushed_mob, "places", null, "onto [src]")
 
 /obj/structure/table/proc/tablepush(mob/living/user, mob/living/pushed_mob)
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, "<span class='danger'>Не хочу бросать [pushed_mob] на стол. Это может ему навредить!</span>")
+		to_chat(user, span_danger("Не хочу бросать [pushed_mob] на стол. Это может ему навредить!") )
 		return
 	var/added_passtable = FALSE
 	if(!(pushed_mob.pass_flags & PASSTABLE))
@@ -152,8 +152,8 @@
 	if(user.mind?.martial_art.smashes_tables && user.mind?.martial_art.can_use(user))
 		deconstruct(FALSE)
 	playsound(pushed_mob, 'sound/effects/tableslam.ogg', 90, TRUE)
-	pushed_mob.visible_message("<span class='danger'><b>[user]</b> укладывает <b>[pushed_mob]</b> на <b>[src]</b>!</span>", \
-								"<span class='userdanger'><b>[user]</b> прикладывает меня на <b>[src]</b>!</span>")
+	pushed_mob.visible_message(span_danger("<b>[user]</b> укладывает <b>[pushed_mob]</b> на <b>[src]</b>!") , \
+								span_userdanger("<b>[user]</b> прикладывает меня на <b>[src]</b>!") )
 	log_combat(user, pushed_mob, "tabled", null, "onto [src]")
 	SEND_SIGNAL(pushed_mob, COMSIG_ADD_MOOD_EVENT, "table", /datum/mood_event/table)
 
@@ -169,21 +169,21 @@
 	if(user.mind?.martial_art.smashes_tables && user.mind?.martial_art.can_use(user))
 		deconstruct(FALSE)
 	playsound(pushed_mob, "sound/effects/bang.ogg", 90, TRUE)
-	pushed_mob.visible_message("<span class='danger'><b>[user]</b> ударяет голову <b>[pushed_mob]</b> об <b>[src]</b>!</span>",
-								"<span class='userdanger'><b>[user]</b> бьёт моей головой об <b>[src]</b>!</span>")
+	pushed_mob.visible_message(span_danger("<b>[user]</b> ударяет голову <b>[pushed_mob]</b> об <b>[src]</b>!") ,
+								span_userdanger("<b>[user]</b> бьёт моей головой об <b>[src]</b>!") )
 	log_combat(user, pushed_mob, "head slammed", null, "against [src]")
 	SEND_SIGNAL(pushed_mob, COMSIG_ADD_MOOD_EVENT, "table", /datum/mood_event/table_limbsmash, banged_limb)
 
 /obj/structure/table/attackby(obj/item/I, mob/user, params)
 	if(!(flags_1 & NODECONSTRUCT_1) && user.a_intent != INTENT_HELP)
 		if(I.tool_behaviour == TOOL_SCREWDRIVER && deconstruction_ready)
-			to_chat(user, "<span class='notice'>Начинаю раскручивать <b>[src]</b>...</span>")
+			to_chat(user, span_notice("Начинаю раскручивать <b>[src]</b>...") )
 			if(I.use_tool(src, user, 20, volume=50))
 				deconstruct(TRUE)
 			return
 
 		if(I.tool_behaviour == TOOL_WRENCH && deconstruction_ready)
-			to_chat(user, "<span class='notice'>Начинаю разбирать <b>[src]</b>...</span>")
+			to_chat(user, span_notice("Начинаю разбирать <b>[src]</b>...") )
 			if(I.use_tool(src, user, 40, volume=50))
 				playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 				deconstruct(TRUE, 1)
@@ -196,7 +196,7 @@
 				var/obj/item/item = x
 				AfterPutItemOnTable(item, user)
 			SEND_SIGNAL(I, COMSIG_TRY_STORAGE_QUICK_EMPTY, drop_location())
-			user.visible_message("<span class='notice'><b>[user]</b> опустошает <b>[I]</b> на <b>[src]</b>.</span>")
+			user.visible_message(span_notice("<b>[user]</b> опустошает <b>[I]</b> на <b>[src]</b>.") )
 			return
 		// If the tray IS empty, continue on (tray will be placed on the table like other items)
 
@@ -218,8 +218,8 @@
 				else if(HAS_TRAIT(user, TRAIT_QUICK_CARRY))
 					tableplace_delay = 2.75 SECONDS
 					skills_space = " quickly"
-				carried_mob.visible_message("<span class='notice'>[user] begins to[skills_space] place [carried_mob] onto [src]...</span>",
-					"<span class='userdanger'>[user] begins to[skills_space] place [carried_mob] onto [src]...</span>")
+				carried_mob.visible_message(span_notice("[user] begins to[skills_space] place [carried_mob] onto [src]...") ,
+					span_userdanger("[user] begins to[skills_space] place [carried_mob] onto [src]...") )
 				if(do_after(user, tableplace_delay, target = carried_mob))
 					user.unbuckle_mob(carried_mob)
 					tableplace(user, carried_mob)
@@ -269,7 +269,7 @@
 /obj/structure/table/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_DECONSTRUCT)
-			to_chat(user, "<span class='notice'>You deconstruct the table.</span>")
+			to_chat(user, span_notice("You deconstruct the table.") )
 			qdel(src)
 			return TRUE
 	return FALSE
@@ -368,8 +368,8 @@
 		table_shatter(M)
 
 /obj/structure/table/glass/proc/table_shatter(mob/living/L)
-	visible_message("<span class='warning'><b>[src]</b> ломается!</span>",
-		"<span class='danger'>Слышу звук ломающегося стекла.</span>")
+	visible_message(span_warning("<b>[src]</b> ломается!") ,
+		span_danger("Слышу звук ломающегося стекла.") )
 	var/turf/T = get_turf(src)
 	playsound(T, "shatter", 50, TRUE)
 	for(var/I in debris)
@@ -535,14 +535,14 @@
 			return
 
 		if(deconstruction_ready)
-			to_chat(user, "<span class='notice'>Начинаю укреплять армированный стол...</span>")
+			to_chat(user, span_notice("Начинаю укреплять армированный стол...") )
 			if (W.use_tool(src, user, 50, volume=50))
-				to_chat(user, "<span class='notice'>Укрепляю стол.</span>")
+				to_chat(user, span_notice("Укрепляю стол.") )
 				deconstruction_ready = 0
 		else
-			to_chat(user, "<span class='notice'>Начинаю разваривать стол...</span>")
+			to_chat(user, span_notice("Начинаю разваривать стол...") )
 			if (W.use_tool(src, user, 50, volume=50))
-				to_chat(user, "<span class='notice'>Развариваю стол.</span>")
+				to_chat(user, span_notice("Развариваю стол.") )
 				deconstruction_ready = 1
 	else
 		. = ..()
@@ -598,7 +598,7 @@
 /obj/structure/table/optable/tablepush(mob/living/user, mob/living/pushed_mob)
 	pushed_mob.forceMove(loc)
 	pushed_mob.set_resting(TRUE, TRUE)
-	visible_message("<span class='notice'><b>[user]</b> укладывает <b>[pushed_mob]</b> на <b>[src]</b>.</span>")
+	visible_message(span_notice("<b>[user]</b> укладывает <b>[pushed_mob]</b> на <b>[src]</b>.") )
 	get_patient()
 
 /obj/structure/table/optable/proc/get_patient()
@@ -634,7 +634,7 @@
 /obj/structure/rack/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += "<span class='notice'>Он удерживается вместе несколькими <b>болтами</b>.</span>"
+	. += span_notice("Он удерживается вместе несколькими <b>болтами</b>.")
 
 /obj/structure/rack/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
@@ -673,7 +673,7 @@
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	user.do_attack_animation(src, ATTACK_EFFECT_KICK)
-	user.visible_message("<span class='danger'><b>[user]</b> пинает <b>[src]</b>.</span>", null, null, COMBAT_MESSAGE_RANGE)
+	user.visible_message(span_danger("<b>[user]</b> пинает <b>[src]</b>.") , null, null, COMBAT_MESSAGE_RANGE)
 	take_damage(rand(4,8), BRUTE, MELEE, 1)
 
 /obj/structure/rack/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
@@ -722,13 +722,13 @@
 	if(building)
 		return
 	building = TRUE
-	to_chat(user, "<span class='notice'>Начинаю собирать стеллаж...</span>")
+	to_chat(user, span_notice("Начинаю собирать стеллаж...") )
 	if(do_after(user, 50, target = user, progress=TRUE))
 		if(!user.temporarilyRemoveItemFromInventory(src))
 			return
 		var/obj/structure/rack/R = new /obj/structure/rack(user.loc)
 		user.visible_message("<span class='notice'><b>[user]</b> собирает [R].\
-			</span>", "<span class='notice'>Собираю [R].</span>")
+			</span>", span_notice("Собираю [R].") )
 		R.add_fingerprint(user)
 		qdel(src)
 	building = FALSE

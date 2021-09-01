@@ -101,21 +101,21 @@
 			++loaded
 			add_seed(G)
 		if (loaded)
-			to_chat(user, "<span class='notice'>You put as many seeds from [O.name] into [src] as you can.</span>")
+			to_chat(user, span_notice("You put as many seeds from [O.name] into [src] as you can.") )
 		else
-			to_chat(user, "<span class='notice'>There are no seeds in [O.name].</span>")
+			to_chat(user, span_notice("There are no seeds in [O.name].") )
 		return
 
 	else if(seedify(O,-1, src, user))
-		to_chat(user, "<span class='notice'>You extract some seeds.</span>")
+		to_chat(user, span_notice("You extract some seeds.") )
 		return
 	else if (istype(O, /obj/item/seeds))
 		if(add_seed(O))
-			to_chat(user, "<span class='notice'>You add [O] to [src.name].</span>")
+			to_chat(user, span_notice("You add [O] to [src.name].") )
 			updateUsrDialog()
 		return
 	else if(user.a_intent != INTENT_HARM)
-		to_chat(user, "<span class='warning'>You can't extract any seeds from [O.name]!</span>")
+		to_chat(user, span_warning("You can't extract any seeds from [O.name]!") )
 	else
 		return ..()
 
@@ -141,7 +141,7 @@
  **/
 /obj/machinery/seed_extractor/proc/add_seed(obj/item/seeds/O)
 	if(contents.len >= 999)
-		to_chat(usr, "<span class='notice'><b>[src.name]</b> is full.</span>")
+		to_chat(usr, span_notice("<b>[src.name]</b> is full.") )
 		return FALSE
 
 	var/datum/component/storage/STR = O.loc.GetComponent(/datum/component/storage)
@@ -196,5 +196,5 @@
 					piles[item] -= WO
 					O.forceMove(drop_location())
 					. = TRUE
-					//to_chat(usr, "<span class='notice'>[capitalize(src.name)] clanks to life briefly before vending [prize.equipment_name]!</span>")
+					//to_chat(usr, span_notice("[capitalize(src.name)] clanks to life briefly before vending [prize.equipment_name]!") )
 

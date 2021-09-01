@@ -28,7 +28,7 @@ SUBSYSTEM_DEF(atoms)
 	initialized = INITIALIZATION_INNEW_REGULAR
 
 	SStitle.afterload()
-	to_chat(world, "<span class='green'> -- $<b>Мир</b>:> <b>Почти готов</b> -- </span>")
+	to_chat(world, span_green(" -- $<b>Мир</b>:> <b>Почти готов</b> -- ") )
 
 	return ..()
 

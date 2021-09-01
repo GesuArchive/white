@@ -27,7 +27,7 @@
 
 /obj/structure/closet/crate/secure/proc/boom(mob/user)
 	if(user)
-		to_chat(user, "<span class='danger'>Cистема защиты от несанкционированного доступа к ящику активированна!</span>")
+		to_chat(user, span_danger("Cистема защиты от несанкционированного доступа к ящику активированна!") )
 		log_bomber(user, "has detonated a", src)
 	for(var/atom/movable/AM in src)
 		qdel(AM)
@@ -98,16 +98,16 @@
 						if(iscarbon(user))
 							add_fingerprint(user)
 						locked = !locked
-						user.visible_message("<span class='notice'>[user] открывает замок [src].</span>",
-										"<span class='notice'>Открываю замок [src].</span>")
+						user.visible_message(span_notice("[user] открывает замок [src].") ,
+										span_notice("Открываю замок [src].") )
 						privacy_lock = FALSE
 						update_icon()
 					else if(!silent)
-						to_chat(user, "<span class='notice'>Банковский счет не принадлежит покупателю! </span>")
+						to_chat(user, span_notice("Банковский счет не принадлежит покупателю! ") )
 				else if(!silent)
-					to_chat(user, "<span class='notice'>Связанных банковских счетов не обнаружено!</span>")
+					to_chat(user, span_notice("Связанных банковских счетов не обнаружено!") )
 			else if(!silent)
-				to_chat(user, "<span class='notice'>ID не обнаружен</span>")
+				to_chat(user, span_notice("ID не обнаружен") )
 		else if(!silent)
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] сломан!</span>")
+			to_chat(user, span_warning("[capitalize(src.name)] сломан!") )
 	else ..()

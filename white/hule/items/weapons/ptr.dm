@@ -57,7 +57,7 @@
 		var/mob/living/carbon/C = target
 		if(def_zone == BODY_ZONE_HEAD)
 			var/obj/item/bodypart/head/H = C.get_bodypart(BODY_ZONE_HEAD)
-			to_chat(C, "<span class='userdanger'>Вашу голову поглотило антиматериальное противотанковое ружье M4ND4!</span>")
+			to_chat(C, span_userdanger("Вашу голову поглотило антиматериальное противотанковое ружье M4ND4!") )
 
 			H.drop_limb()
 			H.forceMove(G)

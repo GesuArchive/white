@@ -273,13 +273,13 @@
 	..()
 	if(!I.tool_start_check(user, amount=0))
 		return TRUE
-	to_chat(user, "<span class='notice'>Завариваю фильтр.</span>")
+	to_chat(user, span_notice("Завариваю фильтр.") )
 	if(I.use_tool(src, user, 20, volume=50))
 		if(!welded)
-			user.visible_message("<span class='notice'>[user] заваривает фильтр намертво.</span>","<span class='notice'>Завариваю фильтр намертво.</span>", "<span class='hear'>Слышу сварку.</span>")
+			user.visible_message(span_notice("[user] заваривает фильтр намертво.") ,span_notice("Завариваю фильтр намертво.") , span_hear("Слышу сварку.") )
 			welded = TRUE
 		else
-			user.visible_message("<span class='notice'>[user] разваривает фильтр.</span>", "<span class='notice'>Развариваю фильтр.</span>", "<span class='hear'>Слышу сварку.</span>")
+			user.visible_message(span_notice("[user] разваривает фильтр.") , span_notice("Развариваю фильтр.") , span_hear("Слышу сварку.") )
 			welded = FALSE
 		update_icon()
 		pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)
@@ -291,7 +291,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/can_unwrench(mob/user)
 	. = ..()
 	if(. && on && is_operational)
-		to_chat(user, "<span class='warning'>Не могу открутить [src.name], сначала нужно выключить это!</span>")
+		to_chat(user, span_warning("Не могу открутить [src.name], сначала нужно выключить это!") )
 		return FALSE
 
 /obj/machinery/atmospherics/components/unary/vent_scrubber/examine(mob/user)
@@ -307,7 +307,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/attack_alien(mob/user)
 	if(!welded || !(do_after(user, 20, target = src)))
 		return
-	user.visible_message("<span class='warning'>[user] яростно разрывает фильтр!</span>", "<span class='notice'>Удалось разблокировать доступ к фильтру.</span>", "<span class='hear'>Слышу громкий лязг металла.</span>")
+	user.visible_message(span_warning("[user] яростно разрывает фильтр!") , span_notice("Удалось разблокировать доступ к фильтру.") , span_hear("Слышу громкий лязг металла.") )
 	welded = FALSE
 	update_icon()
 	pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)

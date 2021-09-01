@@ -309,7 +309,7 @@
 /datum/chemical_reaction/heparin
 	results = list(/datum/reagent/toxin/heparin = 4)
 	required_reagents = list(/datum/reagent/toxin/formaldehyde = 1, /datum/reagent/sodium = 1, /datum/reagent/chlorine = 1, /datum/reagent/lithium = 1)
-	mix_message = "<span class='danger'>Смесь разжижается и теряет весь цвет.</span>"
+	mix_message = span_danger("Смесь разжижается и теряет весь цвет.")
 	is_cold_recipe = FALSE
 	required_temp = 100
 	optimal_temp = 450
@@ -329,7 +329,7 @@
 /datum/chemical_reaction/rotatium
 	results = list(/datum/reagent/toxin/rotatium = 3)
 	required_reagents = list(/datum/reagent/toxin/mindbreaker = 1, /datum/reagent/teslium = 1, /datum/reagent/toxin/fentanyl = 1)
-	mix_message = "<span class='danger'>After sparks, fire, and the smell of mindbreaker, the mix is constantly spinning with no stop in sight.</span>"
+	mix_message = span_danger("After sparks, fire, and the smell of mindbreaker, the mix is constantly spinning with no stop in sight.")
 	is_cold_recipe = FALSE
 	required_temp = 100
 	optimal_temp = 450
@@ -389,7 +389,7 @@
 /datum/chemical_reaction/bonehurtingjuice
 	results = list(/datum/reagent/toxin/bonehurtingjuice = 5)
 	required_reagents = list(/datum/reagent/toxin/mutagen = 1, /datum/reagent/toxin/itching_powder = 3, /datum/reagent/consumable/milk = 1)
-	mix_message = "<span class='danger'>Смесь неожиданно становится прозрачной и выглядит очень похоже на воду. У меня серьезное желание её выпить.</span>"
+	mix_message = span_danger("Смесь неожиданно становится прозрачной и выглядит очень похоже на воду. У меня серьезное желание её выпить.")
 	is_cold_recipe = FALSE
 	required_temp = 100
 	optimal_temp = 450
