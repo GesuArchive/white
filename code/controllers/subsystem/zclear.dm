@@ -207,11 +207,13 @@ SUBSYSTEM_DEF(zclear)
 				cleardata.completion_callback.Invoke(cleardata.zvalue)
 			if(cleardata.tracking)
 				LAZYADD(free_levels, SSmapping.z_list[cleardata.zvalue])
-			if(length(nullspaced_mobs))
-				var/nullspaced_mob_names = ""
-				for(var/atom/A as() in nullspaced_mobs)
-					nullspaced_mob_names += " - [A.name]\n"
-				priority_announce("Сенсоры сообщают о том, что несколько членов вашего экипажа пропало. Скорее всего их раскидало по космосу, их всё ещё можно попробовать найти.\n[nullspaced_mob_names]")
+				var/valid = FALSE
+				for(var/mob/M as() in nullspaced_mobs)
+					if(M.key || M.get_ghost(FALSE, TRUE))
+						nullspaced_mob_names += " - [M.name]\n"
+						valid = TRUE
+				if(valid)
+					priority_announce("Сенсоры сообщают о том, что несколько членов вашего экипажа пропало. Скорее всего их раскидало по космосу, их всё ещё можно попробовать найти.\n[nullspaced_mob_names]")
 	cleardata.process_num ++
 
 /*
