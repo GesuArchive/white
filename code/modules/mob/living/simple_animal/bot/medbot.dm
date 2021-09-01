@@ -510,9 +510,10 @@
 		var/message = pick(messagevoice)
 		speak(message)
 		playsound(src, messagevoice[message], 50)
-		oldpatient = patient
-		soft_reset()
-		return
+		if(!stationary_mode)
+			oldpatient = patient
+			soft_reset()
+			return
 
 	tending = TRUE
 	while(tending)
