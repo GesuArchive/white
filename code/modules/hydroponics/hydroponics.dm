@@ -789,7 +789,7 @@
 	if(!anchored)
 		update_icon()
 		return FALSE
-	var/warning = alert(user, "Are you sure you wish to empty the tray's nutrient beaker?","Empty Tray Nutrients?", "Yes", "No")
+	var/warning = tgui_alert(user, "Are you sure you wish to empty the tray's nutrient beaker?","Empty Tray Nutrients?", "Yes", "No")
 	if(warning == "Yes" && user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		reagents.clear_reagents()
 		to_chat(user, span_warning("Опустошаю питательные вещества [src].") )

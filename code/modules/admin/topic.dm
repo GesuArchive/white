@@ -171,7 +171,7 @@
 			var/datum/round_event/event = E.runEvent()
 			if(event.announceWhen>0)
 				event.processing = FALSE
-				var/prompt = alert(usr, "Would you like to alert the crew?", "Alert", "Yes", "No", "Cancel")
+				var/prompt = tgui_alert(usr, "Would you like to alert the crew?", "Alert", "Yes", "No", "Cancel")
 				switch(prompt)
 					if("Yes")
 						event.announceChance = 100
@@ -502,7 +502,7 @@
 	else if(href_list["deletemessage"])
 		if(!check_rights(R_ADMIN))
 			return
-		var/safety = alert("Delete message/note?",,"Yes","No");
+		var/safety = tgui_alert(usr, "Delete message/note?",,"Yes","No");
 		if (safety == "Yes")
 			var/message_id = href_list["deletemessage"]
 			delete_message(message_id)
@@ -510,7 +510,7 @@
 	else if(href_list["deletemessageempty"])
 		if(!check_rights(R_ADMIN))
 			return
-		var/safety = alert("Delete message/note?",,"Yes","No");
+		var/safety = tgui_alert(usr, "Delete message/note?",,"Yes","No");
 		if (safety == "Yes")
 			var/message_id = href_list["deletemessageempty"]
 			delete_message(message_id, browse = TRUE)
@@ -631,9 +631,9 @@
 		if(!check_rights(R_ADMIN))
 			return
 		if(SSticker?.mode)
-			return alert(usr, "The game has already started.", null, null, null, null)
+			return tgui_alert(usr, "The game has already started.", null, null, null, null)
 		if(!SSticker.is_mode("dynamic"))
-			return alert(usr, "The game mode has to be dynamic mode.", null, null, null, null)
+			return tgui_alert(usr, "The game mode has to be dynamic mode.", null, null, null, null)
 		var/roundstart_rules = list()
 		for (var/rule in subtypesof(/datum/dynamic_ruleset/roundstart))
 			var/datum/dynamic_ruleset/roundstart/newrule = new rule()
@@ -667,9 +667,9 @@
 			return
 
 		if(SSticker?.mode)
-			return alert(usr, "The game has already started.", null, null, null, null)
+			return tgui_alert(usr, "The game has already started.", null, null, null, null)
 		if(!SSticker.is_mode("dynamic"))
-			return alert(usr, "The game mode has to be dynamic mode!", null, null, null, null)
+			return tgui_alert(usr, "The game mode has to be dynamic mode!", null, null, null, null)
 
 		dynamic_mode_options(usr)
 	else if(href_list["f_dynamic_force_extended"])
@@ -677,7 +677,7 @@
 			return
 
 		if(!SSticker.is_mode("dynamic"))
-			return alert(usr, "The game mode has to be dynamic mode!", null, null, null, null)
+			return tgui_alert(usr, "The game mode has to be dynamic mode!", null, null, null, null)
 
 		GLOB.dynamic_forced_extended = !GLOB.dynamic_forced_extended
 		log_admin("[key_name(usr)] set 'forced_extended' to [GLOB.dynamic_forced_extended].")
@@ -689,7 +689,7 @@
 			return
 
 		if(!SSticker.is_mode("dynamic"))
-			return alert(usr, "The game mode has to be dynamic mode!", null, null, null, null)
+			return tgui_alert(usr, "The game mode has to be dynamic mode!", null, null, null, null)
 
 		GLOB.dynamic_no_stacking = !GLOB.dynamic_no_stacking
 		log_admin("[key_name(usr)] set 'no_stacking' to [GLOB.dynamic_no_stacking].")
@@ -700,7 +700,7 @@
 			return
 
 		if(!SSticker.is_mode("dynamic"))
-			return alert(usr, "The game mode has to be dynamic mode!", null, null, null, null)
+			return tgui_alert(usr, "The game mode has to be dynamic mode!", null, null, null, null)
 
 		GLOB.dynamic_stacking_limit = input(usr,"Change the threat limit at which round-endings rulesets will start to stack.", "Change stacking limit", null) as num
 		log_admin("[key_name(usr)] set 'stacking_limit' to [GLOB.dynamic_stacking_limit].")
@@ -712,14 +712,14 @@
 			return
 
 		if(SSticker?.mode)
-			return alert(usr, "The game has already started.", null, null, null, null)
+			return tgui_alert(usr, "The game has already started.", null, null, null, null)
 
 		if(!SSticker.is_mode("dynamic"))
-			return alert(usr, "The game mode has to be dynamic mode!", null, null, null, null)
+			return tgui_alert(usr, "The game mode has to be dynamic mode!", null, null, null, null)
 
 		var/new_value = input(usr, "Enter the forced threat level for dynamic mode.", "Forced threat level") as num
 		if (new_value > 100)
-			return alert(usr, "The value must be be under 100.", null, null, null, null)
+			return tgui_alert(usr, "The value must be be under 100.", null, null, null, null)
 		GLOB.dynamic_forced_threat_level = new_value
 
 		log_admin("[key_name(usr)] set 'forced_threat_level' to [GLOB.dynamic_forced_threat_level].")
@@ -749,9 +749,9 @@
 			return
 
 		if(SSticker.HasRoundStarted())
-			return alert(usr, "The game has already started.", null, null, null, null)
+			return tgui_alert(usr, "The game has already started.", null, null, null, null)
 		if(GLOB.master_mode != "secret")
-			return alert(usr, "The game mode has to be secret!", null, null, null, null)
+			return tgui_alert(usr, "The game mode has to be secret!", null, null, null, null)
 		GLOB.secret_force_mode = href_list["f_secret2"]
 		log_admin("[key_name(usr)] set the forced secret mode as [GLOB.secret_force_mode].")
 		message_admins(span_adminnotice("[key_name_admin(usr)] set the forced secret mode as [GLOB.secret_force_mode].") )
@@ -1647,7 +1647,7 @@
 		if(src.admincaster_feed_channel.channel_name == "" || src.admincaster_feed_channel.channel_name == "\[REDACTED\]" || check )
 			src.admincaster_screen=7
 		else
-			var/choice = alert("Please confirm Feed channel creation.","Network Channel Handler","Confirm","Cancel")
+			var/choice = tgui_alert(usr, "Please confirm Feed channel creation.","Network Channel Handler","Confirm","Cancel")
 			if(choice=="Confirm")
 				GLOB.news_network.CreateFeedChannel(src.admincaster_feed_channel.channel_name, src.admin_signature, src.admincaster_feed_channel.locked, 1)
 				SSblackbox.record_feedback("tally", "newscaster_channels", 1, src.admincaster_feed_channel.channel_name)
@@ -1742,7 +1742,7 @@
 		if(src.admincaster_wanted_message.criminal == "" || src.admincaster_wanted_message.body == "")
 			src.admincaster_screen = 16
 		else
-			var/choice = alert("Please confirm Wanted Issue [(input_param==1) ? ("creation.") : ("edit.")]","Network Security Handler","Confirm","Cancel")
+			var/choice = tgui_alert(usr, "Please confirm Wanted Issue [(input_param==1) ? ("creation.") : ("edit.")]","Network Security Handler","Confirm","Cancel")
 			if(choice=="Confirm")
 				if(input_param==1)          //If input_param == 1 we're submitting a new wanted issue. At 2 we're just editing an existing one. See the else below
 					GLOB.news_network.submitWanted(admincaster_wanted_message.criminal, admincaster_wanted_message.body, admin_signature, null, 1, 1)
@@ -1756,7 +1756,7 @@
 	else if(href_list["ac_cancel_wanted"])
 		if(!check_rights(R_ADMIN))
 			return
-		var/choice = alert("Please confirm Wanted Issue removal.","Network Security Handler","Confirm","Cancel")
+		var/choice = tgui_alert(usr, "Please confirm Wanted Issue removal.","Network Security Handler","Confirm","Cancel")
 		if(choice=="Confirm")
 			GLOB.news_network.deleteWanted()
 			src.admincaster_screen=17
@@ -2078,7 +2078,7 @@
 	else if(href_list["rebootworld"])
 		if(!check_rights(R_ADMIN))
 			return
-		var/confirm = alert("Are you sure you want to reboot the server?", "Confirm Reboot", "Yes", "No")
+		var/confirm = tgui_alert(usr, "Are you sure you want to reboot the server?", "Confirm Reboot", "Yes", "No")
 		if(confirm == "No")
 			return
 		if(confirm == "Yes")
@@ -2281,9 +2281,9 @@
 		return
 
 	if(SSticker.HasRoundStarted())
-		return alert(usr, "The game has already started.", null, null, null, null)
+		return tgui_alert(usr, "The game has already started.", null, null, null, null)
 	if(GLOB.master_mode != "secret")
-		return alert(usr, "The game mode has to be secret!", null, null, null, null)
+		return tgui_alert(usr, "The game mode has to be secret!", null, null, null, null)
 	var/dat = {"<B>What game mode do you want to force secret to be? Use this if you want to change the game mode, but want the players to believe it's secret. This will only work if the current game mode is secret.</B><HR>"}
 	for(var/mode in config.modes)
 		dat += {"<A href='?src=[REF(src)];[HrefToken()];f_secret2=[mode]'>[config.mode_names[mode]]</A><br>"}

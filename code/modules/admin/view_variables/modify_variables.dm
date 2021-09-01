@@ -9,7 +9,7 @@ GLOBAL_PROTECT(VVpixelmovement)
 
 /client/proc/vv_parse_text(O, new_var)
 	if(O && findtext(new_var,"\["))
-		var/process_vars = alert(usr,"\[] detected in string, process as variables?","Process Variables?","Yes","No")
+		var/process_vars = tgui_alert(usr,"\[] detected in string, process as variables?","Process Variables?","Yes","No")
 		if(process_vars == "Yes")
 			. = string2listofvars(new_var, O)
 
@@ -116,7 +116,7 @@ GLOBAL_PROTECT(VVpixelmovement)
 		return
 
 	if(L.len > 1000)
-		var/confirm = alert(src, "The list you're trying to edit is very long, continuing may crash the server.", "Warning", "Continue", "Abort")
+		var/confirm = tgui_alert(usr, "The list you're trying to edit is very long, continuing may crash the server.", "Warning", "Continue", "Abort")
 		if(confirm != "Continue")
 			return
 
@@ -178,7 +178,7 @@ GLOBAL_PROTECT(VVpixelmovement)
 	if (index == null)
 		return
 	var/assoc = 0
-	var/prompt = alert(src, "Do you want to edit the key or its assigned value?", "Associated List", "Key", "Assigned Value", "Cancel")
+	var/prompt = tgui_alert(usr, "Do you want to edit the key or its assigned value?", "Associated List", "Key", "Assigned Value", "Cancel")
 	if (prompt == "Cancel")
 		return
 	if (prompt == "Assigned Value")

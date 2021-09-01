@@ -4,7 +4,7 @@
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/confirm = alert(src, "Make [M] drop everything?", "Message", "Yes", "No")
+	var/confirm = tgui_alert(usr, "Make [M] drop everything?", "Message", "Yes", "No")
 	if(confirm != "Yes")
 		return
 
@@ -522,7 +522,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	log_admin("Admin [key_name(usr)] has added a new AI law - [input]")
 	message_admins("Admin [key_name_admin(usr)] has added a new AI law - [input]")
 
-	var/show_log = alert(src, "Show ion message?", "Message", "Yes", "No")
+	var/show_log = tgui_alert(usr, "Show ion message?", "Message", "Yes", "No")
 	var/announce_ion_laws = (show_log == "Yes" ? 100 : 0)
 
 	var/datum/round_event/ion_storm/add_law_only/ion = new()
@@ -637,7 +637,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/confirm = alert(src, "Drop a brain?", "Confirm", "Yes", "No","Cancel")
+	var/confirm = tgui_alert(usr, "Drop a brain?", "Confirm", "Yes", "No","Cancel")
 	if(confirm == "Cancel")
 		return
 	//Due to the delay here its easy for something to have happened to the mob
@@ -664,7 +664,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set name = "Gibself"
 	set category = "Адм.Веселье"
 
-	var/confirm = alert(src, "You sure?", "Confirm", "Yes", "No")
+	var/confirm = tgui_alert(usr, "You sure?", "Confirm", "Yes", "No")
 	if(confirm == "Yes")
 		log_admin("[key_name(usr)] used gibself.")
 		message_admins(span_adminnotice("[key_name_admin(usr)] used gibself.") )
@@ -708,7 +708,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/confirm = alert(src, "You sure?", "Confirm", "Yes", "Yes (No Recall)", "No")
+	var/confirm = tgui_alert(usr, "You sure?", "Confirm", "Yes", "Yes (No Recall)", "No")
 	switch(confirm)
 		if(null, "No")
 			return
@@ -809,7 +809,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 
-	var/notifyplayers = alert(src, "Do you want to notify the players?", "Options", "Yes", "No", "Cancel")
+	var/notifyplayers = tgui_alert(usr, "Do you want to notify the players?", "Options", "Yes", "No", "Cancel")
 	if(notifyplayers == "Cancel")
 		return
 
@@ -942,7 +942,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/confirm = alert(src, "Please confirm you want to add latent zombie organs in all humans?", "Confirm Zombies", "Yes", "No")
+	var/confirm = tgui_alert(usr, "Please confirm you want to add latent zombie organs in all humans?", "Confirm Zombies", "Yes", "No")
 	if(confirm != "Yes")
 		return
 
@@ -961,7 +961,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/confirm = alert(src, "Please confirm you want to cure all zombies?", "Confirm Zombie Cure", "Yes", "No")
+	var/confirm = tgui_alert(usr, "Please confirm you want to cure all zombies?", "Confirm Zombie Cure", "Yes", "No")
 	if(confirm != "Yes")
 		return
 
@@ -980,7 +980,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/confirm = alert(src, "Please confirm you want polymorph all mobs?", "Confirm Polymorph", "Yes", "No")
+	var/confirm = tgui_alert(usr, "Please confirm you want polymorph all mobs?", "Confirm Polymorph", "Yes", "No")
 	if(confirm != "Yes")
 		return
 

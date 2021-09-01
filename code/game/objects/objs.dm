@@ -277,7 +277,7 @@
 				message_admins(span_notice("[key_name_admin(usr)] modified the armor on [src] ([type]) to melee: [armor.melee], bullet: [armor.bullet], laser: [armor.laser], energy: [armor.energy], bomb: [armor.bomb], bio: [armor.bio], rad: [armor.rad], fire: [armor.fire], acid: [armor.acid]") )
 	if(href_list[VV_HK_MASS_DEL_TYPE])
 		if(check_rights(R_DEBUG|R_SERVER))
-			var/action_type = alert("Strict type ([type]) or type and all subtypes?",,"Strict type","Type and subtypes","Cancel")
+			var/action_type = tgui_alert(usr, "Strict type ([type]) or type and all subtypes?",,"Strict type","Type and subtypes","Cancel")
 			if(action_type == "Cancel" || !action_type)
 				return
 

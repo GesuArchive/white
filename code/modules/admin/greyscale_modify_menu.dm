@@ -170,7 +170,7 @@
 			if(!unlocked)
 				return
 			if(length(GLOB.player_list) > 1)
-				var/check = alert(
+				var/check = tgui_alert(
 					user,
 {"Other players are connected to the server, are you sure you want to refresh all greyscale configurations?\n
 This is highly likely to cause a lag spike for a few seconds."},

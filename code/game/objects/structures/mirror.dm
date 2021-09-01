@@ -256,7 +256,7 @@
 			H.update_mutations_overlay() //(hulk male/female)
 
 		if("hair")
-			var/hairchoice = alert(H, "Hairstyle or hair color?", "Change Hair", "Style", "Color")
+			var/hairchoice = tgui_alert(H, "Hairstyle or hair color?", "Change Hair", "Style", "Color")
 			if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 				return
 			if(hairchoice == "Style") //So you just want to use a mirror then?

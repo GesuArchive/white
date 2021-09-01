@@ -198,7 +198,7 @@
 						aiPDA.silent = !aiPDA.silent
 					else if(href_list["target"])
 						if(silent)
-							return alert("Communications circuits remain uninitialized.")
+							return tgui_alert(usr, "Communications circuits remain uninitialized.")
 						aiPDA.create_message(src, locate(href_list["target"]) in GLOB.PDAs)
 
 			if("medicalrecord") // Accessing medical records

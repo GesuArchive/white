@@ -154,7 +154,7 @@
 		if("ctfbutton")
 			toggle_id_ctf(holder, "centcom")
 		if("tdomereset")
-			var/delete_mobs = alert("Clear all mobs?","Confirm","Yes","No","Cancel")
+			var/delete_mobs = tgui_alert(usr, "Clear all mobs?","Confirm","Yes","No","Cancel")
 			if(delete_mobs == "Cancel")
 				return
 
@@ -186,7 +186,7 @@
 			message_admins(span_adminnotice("[key_name_admin(holder)] reset the station name.") )
 			priority_announce("[command_name()] has renamed the station to \"[new_name]\".")
 		if("night_shift_set")
-			var/val = alert(holder, "What do you want to set night shift to? This will override the automatic system until set to automatic again.", "Night Shift", "On", "Off", "Automatic")
+			var/val = tgui_alert(holder, "What do you want to set night shift to? This will override the automatic system until set to automatic again.", "Night Shift", "On", "Off", "Automatic")
 			switch(val)
 				if("Automatic")
 					if(CONFIG_GET(flag/enable_night_shifts))
@@ -283,7 +283,7 @@
 		if("onlyone")
 			if(!is_funmin)
 				return
-			var/response = alert("Delay by 40 seconds?", "There can, in fact, only be one", "Instant!", "40 seconds (crush the hope of a normal shift)")
+			var/response = tgui_alert(usr, "Delay by 40 seconds?", "There can, in fact, only be one", "Instant!", "40 seconds (crush the hope of a normal shift)")
 			if(response == "Instant!")
 				holder.only_one()
 			else
@@ -492,11 +492,11 @@
 		if("anime")
 			if(!is_funmin)
 				return
-			var/animetype = alert("Would you like to have the clothes be changed?",,"Yes","No","Cancel")
+			var/animetype = tgui_alert(usr, "Would you like to have the clothes be changed?",,"Yes","No","Cancel")
 
 			var/droptype
 			if(animetype =="Yes")
-				droptype = alert("Make the uniforms Nodrop?",,"Yes","No","Cancel")
+				droptype = tgui_alert(usr, "Make the uniforms Nodrop?",,"Yes","No","Cancel")
 
 			if(animetype == "Cancel" || droptype == "Cancel")
 				return

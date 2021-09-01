@@ -39,7 +39,7 @@
 	if(cooldowntime > world.time)
 		to_chat(user, span_brass("[src] is still warming up, it will be ready in [DisplayTimeText(cooldowntime - world.time)].") )
 		return
-	var/choice = alert(user,"You begin putting components together in the forge.",,"Robes of Divinity","Shrouding Cloak","Wraith Spectacles")
+	var/choice = tgui_alert(user,"You begin putting components together in the forge.",,"Robes of Divinity","Shrouding Cloak","Wraith Spectacles")
 	var/list/pickedtype = list()
 	switch(choice)
 		if("Robes of Divinity")

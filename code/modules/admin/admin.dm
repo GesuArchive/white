@@ -541,7 +541,7 @@
 
 	if (!usr.client.holder)
 		return
-	var/confirm = alert("End the round and  restart the game world?", "End Round", "Yes", "Cancel")
+	var/confirm = tgui_alert(usr, "End the round and  restart the game world?", "End Round", "Yes", "Cancel")
 	if(confirm == "Cancel")
 		return
 	if(confirm == "Yes")
@@ -685,7 +685,7 @@
 
 	var/newtime = input("Set a new time in seconds. Set -1 for indefinite delay.","Set Delay",round(SSticker.GetTimeLeft()/10)) as num|null
 	if(SSticker.current_state > GAME_STATE_PREGAME)
-		return alert("Too late... The game has already started!")
+		return tgui_alert(usr, "Too late... The game has already started!")
 	if(newtime)
 		newtime = newtime*10
 		SSticker.SetTimeLeft(newtime)
@@ -1000,7 +1000,7 @@
 		question = "This mob already has a user ([tomob.key]) in control of it! "
 	question += "Are you sure you want to place [frommob.name]([frommob.key]) in control of [tomob.name]?"
 
-	var/ask = alert(question, "Place ghost in control of mob?", "Yes", "No")
+	var/ask = tgui_alert(question, "Place ghost in control of mob?", "Yes", "No")
 	if (ask != "Yes")
 		return TRUE
 

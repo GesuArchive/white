@@ -559,7 +559,7 @@
 		revert_cast()
 		return
 	for(var/mob/living/carbon/human/thrallToRevive in targets)
-		var/choice = alert(user,"Empower a living thrall or revive a dead one?",,"Empower","Revive","Cancel")
+		var/choice = tgui_alert(user,"Empower a living thrall or revive a dead one?",,"Empower","Revive","Cancel")
 		switch(choice)
 			if("Empower")
 				if(!is_thrall(thrallToRevive))

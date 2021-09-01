@@ -217,7 +217,7 @@
 
 	var/this_is_like_playing_right = "Да"
 	if(!force_observe)
-		this_is_like_playing_right = alert(src,"Действительно хочешь следить? У меня не будет возможности зайти в этот раунд (исключая частые ивенты и спаунеры)!","Player Setup","Да","Нет")
+		this_is_like_playing_right = tgui_alert(usr,"Действительно хочешь следить? У меня не будет возможности зайти в этот раунд (исключая частые ивенты и спаунеры)!","Player Setup","Да","Нет")
 
 	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Да")
 		ready = PLAYER_NOT_READY
@@ -312,7 +312,7 @@
 	if(SSshuttle.arrivals)
 		close_spawn_windows()	//In case we get held up
 		if(SSshuttle.arrivals.damaged && CONFIG_GET(flag/arrivals_shuttle_require_safe_latejoin))
-			src << alert("Шаттл прибытия сломан! Ожидай, когда его починят.")
+			src << tgui_alert(usr, "Шаттл прибытия сломан! Ожидай, когда его починят.")
 			return FALSE
 
 		if(CONFIG_GET(flag/arrivals_shuttle_require_undocked))

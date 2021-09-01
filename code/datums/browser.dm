@@ -155,7 +155,7 @@
 /**
  * **DEPRECATED: USE tgui_alert(...) INSTEAD**
  *
- * Designed as a drop in replacement for alert(); functions the same. (outside of needing User specified)
+ * Designed as a drop in replacement for tgui_alert(); functions the same. (outside of needing User specified)
  * Arguments:
  * * User - The user to show the alert to.
  * * Message - The textual body of the alert.

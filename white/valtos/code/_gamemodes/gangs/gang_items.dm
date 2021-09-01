@@ -594,7 +594,7 @@
 	if(!(usrarea.type in gang.territories|gang.new_territories))
 		to_chat(user, span_warning("This device can only be spawned in territory controlled by your gang!") )
 		return FALSE
-	var/confirm_final = alert(user, "Your gang can only place ONE gateway, make sure it is in a well-secured location.", "Are you ready to place the gateway?", "This location is secure", "I should wait...")
+	var/confirm_final = tgui_alert(user, "Your gang can only place ONE gateway, make sure it is in a well-secured location.", "Are you ready to place the gateway?", "This location is secure", "I should wait...")
 	if(confirm_final == "I should wait...")
 		return FALSE
 	return ..()

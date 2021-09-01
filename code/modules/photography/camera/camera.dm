@@ -227,7 +227,7 @@
 		to_chat(user, span_notice("[pictures_left] photos left.") )
 		var/customise = "No"
 		if(can_customise)
-			customise = alert(user, "Do you want to customize the photo?", "Customization", "Yes", "No")
+			customise = tgui_alert(user, "Do you want to customize the photo?", "Customization", "Yes", "No")
 		if(customise == "Yes")
 			var/name1 = stripped_input(user, "Set a name for this photo, or leave blank. 32 characters max.", "Name", max_length = 32)
 			var/desc1 = stripped_input(user, "Set a description to add to photo, or leave blank. 128 characters max.", "Caption", max_length = 128)

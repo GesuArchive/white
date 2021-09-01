@@ -60,7 +60,7 @@ GLOBAL_LIST_INIT(cogscarabs, list())
 	if(!SSticker.mode)
 		to_chat(user, "Can't become a cogscarab before the game has started.")
 		return
-	var/be_drone = alert("Become a cogscarab? (Warning, You can no longer be cloned!)",,"Yes","No")
+	var/be_drone = tgui_alert(usr, "Become a cogscarab? (Warning, You can no longer be cloned!)",,"Yes","No")
 	if(be_drone == "No" || QDELETED(src) || !isobserver(user))
 		return
 	var/mob/living/simple_animal/drone/D = new mob_type(get_turf(loc))

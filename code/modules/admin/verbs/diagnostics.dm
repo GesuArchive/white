@@ -74,7 +74,7 @@
 	if(!src.holder)
 		return
 
-	var/confirm = alert(src, "Are you sure you want to reload all admins?", "Confirm", "Yes", "No")
+	var/confirm = tgui_alert(usr, "Are you sure you want to reload all admins?", "Confirm", "Yes", "No")
 	if(confirm !="Yes")
 		return
 

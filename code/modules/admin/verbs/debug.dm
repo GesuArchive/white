@@ -269,7 +269,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	var/client/newkey = input(src, "Pick the player to put in control.", "New player") as null|anything in sortList(GLOB.clients)
 	var/mob/oldmob = newkey.mob
 	var/delmob = FALSE
-	if((isobserver(oldmob) || alert("Do you want to delete [newkey] old mob?","Delete?","Yes","No") != "No"))
+	if((isobserver(oldmob) || tgui_alert(usr, "Do you want to delete [newkey] old mob?","Delete?","Yes","No") != "No"))
 		delmob = TRUE
 	if(!M || QDELETED(M))
 		to_chat(usr, span_warning("The target mob no longer exists, aborting.") )
@@ -770,7 +770,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		return
 	var/datum/map_template/ruin/template = data[1]
 	if (exists[template])
-		var/response = alert("There is already a [template] in existence.", "Spawn Ruin", "Jump", "Place Another", "Cancel")
+		var/response = tgui_alert(usr, "There is already a [template] in existence.", "Spawn Ruin", "Jump", "Place Another", "Cancel")
 		if (response == "Jump")
 			usr.forceMove(get_turf(exists[template]))
 			return
@@ -797,11 +797,11 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	var/ruin_size = input(src, "Ruin size (NxN) (Between 10 and 200)", "Ruin Size", 0) as num
 	if(ruin_size < 10 || ruin_size >= 200)
 		return
-	var/response = alert(src, "This will place the ruin at your current location.", "Spawn Ruin", "Spawn Ruin", "Cancel")
+	var/response = tgui_alert(usr, "This will place the ruin at your current location.", "Spawn Ruin", "Spawn Ruin", "Cancel")
 	if (response == "Cancel")
 		return
 	var/border_size = (world.maxx - ruin_size) / 2
-	var/is_city = alert(src, "Город генерируем?", "Ёбки", "Да", "Нет")
+	var/is_city = tgui_alert(usr, "Город генерируем?", "Ёбки", "Да", "Нет")
 	if (is_city == "Да")
 		generate_space_ruin(mob.x, mob.y, mob.z, border_size, border_size, forced_decoration = /datum/generator_settings/city, allowed_flags = RUIN_PART_CITY)
 		log_admin("[key_name(src)] randomly generated a CITY RUIN at [COORD(mob)].")
@@ -815,7 +815,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	set desc = "Deallocates all reserved space, restoring it to round start conditions."
 	if(!holder)
 		return
-	var/answer = alert("WARNING: THIS WILL WIPE ALL RESERVED SPACE TO A CLEAN SLATE! ANY MOVING SHUTTLES, ELEVATORS, OR IN-PROGRESS PHOTOGRAPHY WILL BE DELETED!", "Really wipe dynamic turfs?", "YES", "NO")
+	var/answer = tgui_alert(usr, "WARNING: THIS WILL WIPE ALL RESERVED SPACE TO A CLEAN SLATE! ANY MOVING SHUTTLES, ELEVATORS, OR IN-PROGRESS PHOTOGRAPHY WILL BE DELETED!", "Really wipe dynamic turfs?", "YES", "NO")
 	if(answer != "YES")
 		return
 	message_admins(span_adminnotice("[key_name_admin(src)] cleared dynamic transit space.") )

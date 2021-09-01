@@ -69,7 +69,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 			O.ghost_orbit = new_orbit
 
 /client/proc/pick_ghost_accs()
-	var/new_ghost_accs = alert("Do you want your ghost to show full accessories where possible, hide accessories but still use the directional sprites where possible, or also ignore the directions and stick to the default sprites?",,"full accessories", "only directional sprites", "default sprites")
+	var/new_ghost_accs = tgui_alert(usr, "Do you want your ghost to show full accessories where possible, hide accessories but still use the directional sprites where possible, or also ignore the directions and stick to the default sprites?",,"full accessories", "only directional sprites", "default sprites")
 	if(new_ghost_accs)
 		switch(new_ghost_accs)
 			if("full accessories")
@@ -98,7 +98,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	set name = "Вид других призраков"
 	set category = null
 	set desc = "Change display settings for the ghosts of other players."
-	var/new_ghost_others = alert("Хочешь изменить других призраков или же просто убрать их побрякушки?",,"Их настройки", "Стандартные спрайты", "Белые призраки")
+	var/new_ghost_others = tgui_alert(usr, "Хочешь изменить других призраков или же просто убрать их побрякушки?",,"Их настройки", "Стандартные спрайты", "Белые призраки")
 	if(new_ghost_others)
 		switch(new_ghost_others)
 			if("Их настройки")

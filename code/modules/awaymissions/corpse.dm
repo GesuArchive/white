@@ -40,7 +40,7 @@
 /obj/effect/mob_spawn/attack_ghost(mob/user)
 	if(!SSticker.HasRoundStarted() || !loc || !ghost_usable)
 		return
-	var/ghost_role = alert("Точно хочешь занять этот спаунер? (внимание, текущее тело будет покинуто)",,"Да","Нет")
+	var/ghost_role = tgui_alert(usr, "Точно хочешь занять этот спаунер? (внимание, текущее тело будет покинуто)",,"Да","Нет")
 	if(ghost_role == "Нет" || !loc || QDELETED(user))
 		return
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SPAWNER) && !(flags_1 & ADMIN_SPAWNED_1))

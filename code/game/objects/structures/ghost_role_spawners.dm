@@ -231,7 +231,7 @@
 		return
 	if(isgolem(user) && can_transfer)
 		var/mob/living/carbon/human/H = user
-		var/transfer_choice = alert("Переместить свою душу в [src.name]? (Старое тело погибнет!)",,"Да","Нет")
+		var/transfer_choice = tgui_alert(usr, "Переместить свою душу в [src.name]? (Старое тело погибнет!)",,"Да","Нет")
 		if(transfer_choice != "Да")
 			return
 		if(QDELETED(src) || uses <= 0)
@@ -886,7 +886,7 @@
 	assignedrole = "Space Bar Patron"
 
 /obj/effect/mob_spawn/human/alive/space_bar_patron/attack_hand(mob/user)
-	var/despawn = alert("Return to cryosleep? (Warning, Your mob will be deleted!)", null, "Yes", "No")
+	var/despawn = tgui_alert(usr, "Return to cryosleep? (Warning, Your mob will be deleted!)", null, "Yes", "No")
 	if(despawn == "No" || !loc || !Adjacent(user))
 		return
 	user.visible_message(span_notice("[user.name] climbs back into cryosleep...") )

@@ -20,7 +20,7 @@
 	if(used)
 		to_chat(user, span_brass("The Eminence has already been released.") )
 		return
-	var/option = alert(user,"Who shall control the Eminence?",,"Yourself","A ghost", "Cancel")
+	var/option = tgui_alert(user,"Who shall control the Eminence?",,"Yourself","A ghost", "Cancel")
 	if(option == "Cancel")
 		return
 	else if(option == "Yourself")

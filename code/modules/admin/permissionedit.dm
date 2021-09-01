@@ -167,7 +167,7 @@
 				to_chat(usr, span_danger("Unable to connect to database, changes are temporary only.") , confidential = TRUE)
 				use_db = FALSE
 			else
-				use_db = alert("Permanent changes are saved to the database for future rounds, temporary changes will affect only the current round", "Permanent or Temporary?", "Permanent", "Temporary", "Cancel")
+				use_db = tgui_alert(usr, "Permanent changes are saved to the database for future rounds, temporary changes will affect only the current round", "Permanent or Temporary?", "Permanent", "Temporary", "Cancel")
 				if(use_db == "Cancel")
 					return
 				if(use_db == "Permanent")

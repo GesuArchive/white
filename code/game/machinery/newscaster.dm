@@ -565,7 +565,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 			if(channel_name == "" || channel_name == "\[REDACTED\]" || scanned_user == "Неизвестный" || check || (scanned_user in existing_authors) )
 				screen=7
 			else
-				var/choice = alert("Подтвердить бы создание","Общая сеть","Подтвердить","Отменить")
+				var/choice = tgui_alert(usr, "Подтвердить бы создание","Общая сеть","Подтвердить","Отменить")
 				if(choice=="Подтвердить")
 					scan_user(usr)
 					GLOB.news_network.CreateFeedChannel(channel_name, scanned_user, c_locked)
@@ -635,7 +635,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 			if(msg == "" || channel_name == "" || scanned_user == "Неизвестный")
 				screen = 16
 			else
-				var/choice = alert("Подтвердить объявление о [(input_param==1) ? ("создании") : ("редактировании")] объявления о розыске.","Служба безопасности","Подтвердить","Отменить")
+				var/choice = tgui_alert(usr, "Подтвердить объявление о [(input_param==1) ? ("создании") : ("редактировании")] объявления о розыске.","Служба безопасности","Подтвердить","Отменить")
 				if(choice=="Подтвердить")
 					scan_user(usr)
 					if(input_param==1)          //If input_param == 1 we're submitting a new wanted issue. At 2 we're just editing an existing one.
@@ -652,7 +652,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 			if(GLOB.news_network.wanted_issue.isAdminMsg)
 				alert("Объявление о розыске создано офицером Нанотрейзен. Я не могу это снять","Лан")
 				return
-			var/choice = alert("Подвердить бы удаление розыска","Служба безопасности","Подтвердить","Отменить")
+			var/choice = tgui_alert(usr, "Подвердить бы удаление розыска","Служба безопасности","Подтвердить","Отменить")
 			if(choice=="Подтвердить")
 				GLOB.news_network.deleteWanted()
 				screen=17

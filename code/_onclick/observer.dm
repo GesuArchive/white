@@ -65,7 +65,7 @@
 	if(user.client && user.chem_scan)
 		chemscan(user, src)
 	if(HAS_TRAIT(src, TRAIT_CLIENT_LEAVED))
-		var/ghost_role = alert(user, "Точно хочешь занять это тело? (Вы больше не сможете вернуться в своё прошлое тело!)",,"Да","Нет")
+		var/ghost_role = tgui_alert(user, "Точно хочешь занять это тело? (Вы больше не сможете вернуться в своё прошлое тело!)",,"Да","Нет")
 		if(ghost_role == "Нет" || !user.loc || QDELETED(user))
 			return
 		if(is_banned_from(user.key, ROLE_ICECREAM))

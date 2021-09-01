@@ -45,7 +45,7 @@
      const { data } = useBackend(this.context);
      const { buttons } = data;
 
-     // Mimic alert() behavior for tabs and arrow keys
+     // Mimic tgui_alert() behavior for tabs and arrow keys
      if (current >= buttons.length) {
        current = isArrowKey ? current - 1 : 0;
      } else if (current < 0) {
