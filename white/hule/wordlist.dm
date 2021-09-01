@@ -31,7 +31,7 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 						return TRUE
 
 			target.overlay_fullscreen("brute", /atom/movable/screen/fullscreen/brute, 6)
-			addtimer(CALLBACK(target, .proc/clear_fullscreen, "brute", 10), 10)
+			addtimer(CALLBACK(target, /mob.proc/clear_fullscreen, "brute", 10), 10)
 
 			to_chat(target, "<span class='notice'><big>[uppertext(W)]...</big></span>")
 

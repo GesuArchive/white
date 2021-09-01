@@ -1,0 +1,1807 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aP" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L8"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"bx" = (
+/turf/closed/wall/r_wall,
+/area/hallway/primary/central)
+"bW" = (
+/turf/closed/wall,
+/area/storage/tech)
+"cv" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
+"cX" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
+"eo" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/turf/open/floor/plating,
+/area/bridge)
+"eC" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L4"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"fD" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L9"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"ja" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L5"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"kT" = (
+/turf/open/openspace,
+/area/bridge)
+"ni" = (
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"qw" = (
+/obj/machinery/door/airlock/public/glass{
+	name = "Central Access"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"sV" = (
+/turf/template_noop,
+/area/template_noop)
+"sX" = (
+/obj/machinery/door/airlock/public/glass{
+	name = "Central Access"
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"ub" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"uP" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters{
+	id = "aquaprivacy";
+	name = "Privacy Shutters"
+	},
+/turf/open/floor/plating,
+/area/crew_quarters/fitness/recreation)
+"vI" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"wJ" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"wZ" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/hallway/primary/central)
+"yb" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/public/glass{
+	name = "Central Access"
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"As" = (
+/turf/closed/wall,
+/area/crew_quarters/fitness/recreation)
+"AL" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L11"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"BG" = (
+/obj/machinery/door/airlock/public/glass{
+	name = "Central Access"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"Cf" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk,
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
+"Cg" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L6"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"CO" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters{
+	dir = 4;
+	id = "aquaprivacy";
+	name = "Privacy Shutters"
+	},
+/turf/open/floor/plating,
+/area/crew_quarters/fitness/recreation)
+"Dm" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L13"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"DL" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L3"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"DN" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L2"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"Ea" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"EQ" = (
+/obj/effect/spawner/randomsnackvend,
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
+"EX" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L1"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"FQ" = (
+/obj/machinery/door/airlock/public/glass{
+	name = "Central Access"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"Gr" = (
+/turf/closed/wall/r_wall,
+/area/bridge)
+"GY" = (
+/obj/machinery/door/airlock/public/glass{
+	name = "Central Access"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"HI" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L12"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"JV" = (
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
+"KU" = (
+/obj/item/kirbyplants/random,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"LZ" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/item/kirbyplants/random,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"No" = (
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"Ny" = (
+/obj/machinery/door/airlock/public/glass{
+	name = "Central Access"
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"Nz" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"NA" = (
+/turf/closed/wall,
+/area/hallway/primary/central)
+"NE" = (
+/obj/machinery/door/airlock/public/glass{
+	name = "Central Access"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"OP" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L14"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"Pg" = (
+/obj/structure/sign/directions/security{
+	dir = 1;
+	pixel_x = 32;
+	pixel_y = 40
+	},
+/obj/structure/sign/directions/medical{
+	dir = 4;
+	pixel_x = 32;
+	pixel_y = 32
+	},
+/obj/structure/sign/directions/evac{
+	dir = 4;
+	pixel_x = 32;
+	pixel_y = 24
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"Pi" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L7"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+"Qu" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
+"Sf" = (
+/obj/machinery/door/airlock/public/glass{
+	name = "Central Access"
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"SZ" = (
+/obj/effect/spawner/randomcolavend,
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
+"Ui" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/turf/open/floor/plating,
+/area/hallway/primary/central)
+"WW" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
+"Zk" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L10"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central)
+
+(1,1,1) = {"
+sV
+sV
+sV
+FQ
+NE
+FQ
+sV
+sV
+sV
+sV
+sV
+Cf
+WW
+WW
+WW
+Qu
+cX
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+"}
+(2,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+No
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+sV
+"}
+(3,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+No
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+sV
+"}
+(4,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+No
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+wZ
+"}
+(5,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+bx
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+NA
+"}
+(6,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+Ui
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+wZ
+"}
+(7,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+Ui
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+NA
+"}
+(8,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+Ui
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+bW
+"}
+(9,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+Ui
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+bW
+"}
+(10,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+Ui
+kT
+kT
+kT
+Gr
+eo
+eo
+eo
+Gr
+eo
+eo
+eo
+Gr
+eo
+eo
+Gr
+eo
+eo
+eo
+Gr
+eo
+eo
+eo
+Gr
+kT
+kT
+kT
+kT
+kT
+bW
+"}
+(11,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+Ui
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+bW
+"}
+(12,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+bx
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+bW
+"}
+(13,1,1) = {"
+sV
+sV
+uP
+No
+No
+No
+Ui
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+bW
+"}
+(14,1,1) = {"
+sV
+sV
+uP
+No
+No
+No
+Ui
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+bW
+"}
+(15,1,1) = {"
+sV
+CO
+As
+No
+No
+No
+Ui
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+bW
+"}
+(16,1,1) = {"
+sV
+KU
+No
+EX
+DN
+No
+Ui
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+bW
+"}
+(17,1,1) = {"
+sV
+Ea
+No
+DL
+eC
+No
+bx
+kT
+kT
+kT
+Gr
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+Gr
+kT
+kT
+kT
+kT
+kT
+bW
+"}
+(18,1,1) = {"
+Sf
+No
+No
+ja
+Cg
+No
+No
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+yb
+"}
+(19,1,1) = {"
+BG
+ni
+No
+Pi
+aP
+No
+No
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+qw
+"}
+(20,1,1) = {"
+Ny
+Pg
+No
+fD
+Zk
+No
+No
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+sX
+"}
+(21,1,1) = {"
+sV
+ub
+No
+AL
+HI
+No
+bx
+kT
+kT
+kT
+Gr
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+Gr
+kT
+kT
+kT
+kT
+kT
+sV
+"}
+(22,1,1) = {"
+sV
+LZ
+No
+Dm
+OP
+No
+Ui
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+sV
+"}
+(23,1,1) = {"
+sV
+Ui
+Ui
+No
+No
+No
+Ui
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+sV
+"}
+(24,1,1) = {"
+sV
+sV
+Ui
+No
+No
+No
+Ui
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+sV
+"}
+(25,1,1) = {"
+sV
+sV
+Ui
+No
+No
+No
+Ui
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+sV
+"}
+(26,1,1) = {"
+sV
+NA
+NA
+No
+No
+No
+bx
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+sV
+"}
+(27,1,1) = {"
+sV
+SZ
+EQ
+No
+No
+No
+Ui
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+eo
+kT
+kT
+kT
+kT
+kT
+sV
+"}
+(28,1,1) = {"
+sV
+Nz
+Nz
+No
+No
+No
+Ui
+kT
+kT
+kT
+Gr
+eo
+eo
+eo
+Gr
+eo
+eo
+eo
+Gr
+eo
+eo
+Gr
+eo
+eo
+eo
+Gr
+eo
+eo
+eo
+Gr
+kT
+kT
+kT
+kT
+kT
+sV
+"}
+(29,1,1) = {"
+sV
+wJ
+vI
+No
+No
+No
+Ui
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+sV
+"}
+(30,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+Ui
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+sV
+"}
+(31,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+Ui
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+sV
+"}
+(32,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+Ui
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+sV
+"}
+(33,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+bx
+Ui
+Ui
+Ui
+bx
+Ui
+Ui
+Ui
+bx
+Ui
+Ui
+Ui
+bx
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+sV
+"}
+(34,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+Ui
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+JV
+"}
+(35,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+Ui
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+cv
+"}
+(36,1,1) = {"
+sV
+sV
+sV
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+Ui
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+kT
+cv
+"}
+(37,1,1) = {"
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+FQ
+GY
+FQ
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+sV
+"}
