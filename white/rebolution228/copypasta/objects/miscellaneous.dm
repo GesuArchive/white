@@ -63,6 +63,7 @@
 	icon_state = "ashtray"
 	var/max_butts = 10
 	var/health = 20
+	w_class = WEIGHT_CLASS_SMALL
 
 
 /obj/item/ashtray/attackby(obj/item/W as obj, mob/user as mob, params)
