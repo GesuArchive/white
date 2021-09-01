@@ -218,7 +218,7 @@
 	if(spawn_coupon)
 		. += "\n<span class='notice'>На обратной стороне упаковки есть купон! Вы можете оторвать его, когда содержимое пачки станет пустым.</span>"
 
-/obj/item/storage/fancy/cigarettes/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/storage/fancy/cigarettes/AltClick(mob/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		return
 	var/obj/item/clothing/mask/cigarette/W = locate(/obj/item/clothing/mask/cigarette) in contents

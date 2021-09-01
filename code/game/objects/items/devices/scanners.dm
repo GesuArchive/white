@@ -652,7 +652,7 @@ GENE SCANNER
 			to_chat(user, "<span class='alert'>[GLOB.meta_gas_info[id][META_GAS_NAME]]: [round(gas_concentration*100, 0.01)] % ([round(environment.get_moles(id), 0.01)] моль)</span>")
 		to_chat(user, "<span class='info'>Температура: [round(environment.return_temperature()-T0C, 0.01)] &deg;C ([round(environment.return_temperature(), 0.01)] K)</span>")
 
-/obj/item/analyzer/attackby_secondary(obj/item/weapon, mob/user, params) //Barometer output for measuring when the next storm happens
+/obj/item/analyzer/AltClick(mob/user) //Barometer output for measuring when the next storm happens
 	..()
 
 	if(user.canUseTopic(src, BE_CLOSE))

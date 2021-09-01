@@ -195,7 +195,7 @@
 
 	return ..()
 
-/obj/machinery/mineral/ore_redemption/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/machinery/mineral/ore_redemption/AltClick(mob/living/user)
 	. = ..()
 	if(!user.canUseTopic(src, BE_CLOSE))
 		return

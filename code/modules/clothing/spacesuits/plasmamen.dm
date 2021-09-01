@@ -64,7 +64,7 @@
 	visor_toggling()
 	update_icon()
 
-/obj/item/clothing/head/helmet/space/plasmaman/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/clothing/head/helmet/space/plasmaman/AltClick(mob/user)
 	if(user.canUseTopic(src, BE_CLOSE))
 		toggle_welding_screen(user)
 

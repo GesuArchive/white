@@ -104,7 +104,7 @@
 /obj/item/modular_computer/proc/play_ping()
 	playsound(loc, 'sound/machines/ping.ogg', get_clamped_volume(), FALSE, -1)
 
-/obj/item/modular_computer/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/modular_computer/AltClick(mob/user)
 	..()
 	if(issilicon(user))
 		return

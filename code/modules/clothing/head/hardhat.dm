@@ -126,7 +126,7 @@
 /obj/item/clothing/head/hardhat/weldhat/attack_self(mob/living/user)
 	toggle_helmet_light(user)
 
-/obj/item/clothing/head/hardhat/weldhat/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/clothing/head/hardhat/weldhat/AltClick(mob/user)
 	if(user.canUseTopic(src, BE_CLOSE))
 		toggle_welding_screen(user)
 

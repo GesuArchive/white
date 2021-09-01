@@ -850,7 +850,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 		remove_pen(user)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-/obj/item/pda/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/pda/AltClick(mob/user)
 	..()
 
 	if(id)

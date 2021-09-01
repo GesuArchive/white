@@ -82,7 +82,7 @@
 		update_icon()
 		qdel(H)
 
-/obj/item/holochip/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/holochip/AltClick(mob/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return
 	var/split_amount = round(input(user,"How many credits do you want to extract from the holochip?") as null|num)

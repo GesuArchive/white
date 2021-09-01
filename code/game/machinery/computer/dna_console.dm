@@ -187,7 +187,7 @@
 	return ..()
 
 
-/obj/machinery/computer/scan_consolenew/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/machinery/computer/scan_consolenew/AltClick(mob/user)
 	// Make sure the user can interact with the machine.
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return

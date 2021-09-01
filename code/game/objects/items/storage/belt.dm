@@ -711,7 +711,7 @@
 	if(length(contents))
 		. += "<span class='notice'>ПКМ, чтобы немедленно достать саблю.</span>"
 
-/obj/item/storage/belt/sabre/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/storage/belt/sabre/AltClick(mob/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		return
 	if(length(contents))

@@ -87,7 +87,7 @@
 	SIGNAL_HANDLER
 	return update_icon(updates)
 
-/obj/machinery/modular_computer/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/machinery/modular_computer/AltClick(mob/user)
 	if(cpu)
 		cpu.AltClick(user)
 

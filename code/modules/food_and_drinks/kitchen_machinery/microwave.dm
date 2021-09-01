@@ -193,7 +193,7 @@
 
 	..()
 
-/obj/machinery/microwave/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/machinery/microwave/AltClick(mob/user)
 	if(user.canUseTopic(src, !issilicon(usr)))
 		cook()
 

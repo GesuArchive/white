@@ -109,7 +109,7 @@
 
 	playsound(src, 'sound/machines/click.ogg', 10, TRUE)
 
-/obj/item/plunger/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/plunger/AltClick(mob/user)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return
 

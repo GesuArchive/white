@@ -622,7 +622,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 	brakes = !brakes
 	to_chat(usr, "<span class='notice'>You toggle the brakes [brakes ? "on" : "off"].</span>")
 
-/obj/spacepod/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/spacepod/AltClick(user)
 	if(!verb_check(user = user))
 		return
 	brakes = !brakes

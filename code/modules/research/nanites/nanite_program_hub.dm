@@ -65,7 +65,7 @@
 		disk.forceMove(drop_location())
 	disk = null
 
-/obj/machinery/nanite_program_hub/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/machinery/nanite_program_hub/AltClick(mob/user)
 	if(disk && user.canUseTopic(src, !issilicon(user)))
 		to_chat(user, "<span class='notice'>You take out [disk] from [src].</span>")
 		eject(user)

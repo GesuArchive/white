@@ -281,7 +281,7 @@
 		new /obj/item/stack/sheet/iron(loc, 4)
 	qdel(src)
 
-/obj/machinery/icecream_vat/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/machinery/icecream_vat/AltClick(mob/living/user)
 	. = ..()
 	if(!can_interact(user) || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return

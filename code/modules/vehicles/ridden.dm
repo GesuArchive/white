@@ -39,7 +39,7 @@
 		inserted_key.forceMove(drop_location())
 	inserted_key = I
 
-/obj/vehicle/ridden/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/vehicle/ridden/AltClick(mob/user)
 	if(!inserted_key || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !issilicon(user)))
 		return ..()
 	if(!is_occupant(user))

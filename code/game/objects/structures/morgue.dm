@@ -168,7 +168,7 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 	. = ..()
 	. += "<hr><span class='notice'>Динамик [beeper ? "включен" : "отключен"]. ПКМ для смены режима.</span>"
 
-/obj/structure/bodycontainer/morgue/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/structure/bodycontainer/morgue/AltClick(mob/user)
 	..()
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return

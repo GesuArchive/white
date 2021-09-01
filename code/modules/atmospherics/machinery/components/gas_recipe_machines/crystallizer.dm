@@ -88,7 +88,7 @@
 	else
 		icon_state = "[base_icon]-off"
 
-/obj/machinery/atmospherics/components/binary/crystallizer/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/machinery/atmospherics/components/binary/crystallizer/AltClick(mob/user)
 	if(!can_interact(user))
 		return
 	on = !on

@@ -133,7 +133,7 @@
 	update_icon()
 	usr.update_action_buttons()
 
-/atom/movable/screen/movable/action_button/hide_toggle/attackby_secondary(obj/item/weapon, mob/user, params)
+/atom/movable/screen/movable/action_button/hide_toggle/AltClick(mob/user)
 	for(var/V in user.actions)
 		var/datum/action/A = V
 		var/atom/movable/screen/movable/action_button/B = A.button

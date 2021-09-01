@@ -246,7 +246,7 @@
 		if(H.w_uniform == src)
 			H.update_suit_sensors()
 
-/obj/item/clothing/under/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/clothing/under/AltClick(mob/user)
 	. = ..()
 	if(.)
 		return

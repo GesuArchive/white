@@ -55,7 +55,7 @@
 				H.blur_eyes(5)
 				eyes.applyOrganDamage(5)
 
-/obj/item/clothing/glasses/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/clothing/glasses/AltClick(mob/user)
 	if(glass_colour_type && ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.client)
@@ -499,7 +499,7 @@
 			var/datum/atom_hud/H = GLOB.huds[hud]
 			H.remove_hud_from(user)
 
-/obj/item/clothing/glasses/debug/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/clothing/glasses/debug/AltClick(mob/user)
 	. = ..()
 	if(ishuman(user))
 		if(xray)

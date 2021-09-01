@@ -94,7 +94,7 @@
 	toggle_open(user)
 
 
-/obj/item/modular_computer/laptop/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/modular_computer/laptop/AltClick(mob/user)
 	if(screen_on) // Close it.
 		try_toggle_open(user)
 	else

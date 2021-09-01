@@ -75,7 +75,7 @@
 		update_status(SP_READY)
 	to_chat(user, "<span class='notice'>[capitalize(src.name)] подключён к [C].</span>")
 
-/obj/item/supplypod_beacon/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/supplypod_beacon/AltClick(mob/user)
 	if (!user.canUseTopic(src, !issilicon(user)))
 		return
 	if (express_console)

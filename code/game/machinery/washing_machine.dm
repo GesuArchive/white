@@ -150,7 +150,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	if(!busy)
 		. += "<hr><span class='notice'><b>ПКМ</b> it to start a wash cycle.</span>"
 
-/obj/machinery/washing_machine/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/machinery/washing_machine/AltClick(mob/user)
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return
 	if(busy)

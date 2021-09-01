@@ -110,7 +110,7 @@
 	if(!SEND_SIGNAL(src, COMSIG_IS_STORAGE_LOCKED))
 		. += "<hr><span class='notice'>ПКМ to [open ? "close":"open"] it.</span>"
 
-/obj/item/storage/lockbox/medal/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/storage/lockbox/medal/AltClick(mob/user)
 	if(user.canUseTopic(src, BE_CLOSE))
 		if(!SEND_SIGNAL(src, COMSIG_IS_STORAGE_LOCKED))
 			open = (open ? FALSE : TRUE)

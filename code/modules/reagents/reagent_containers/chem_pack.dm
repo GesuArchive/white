@@ -11,7 +11,7 @@
 	var/sealed = FALSE
 	fill_icon_thresholds = list(10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
 
-/obj/item/reagent_containers/chem_pack/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/item/reagent_containers/chem_pack/AltClick(mob/living/user)
 	if(user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY) && !sealed)
 		if(iscarbon(user) && (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50)))
 			to_chat(user, "<span class='warning'>Ух.. бля! Я случайно разлил содержимое пакета прямо на себя.</span>")

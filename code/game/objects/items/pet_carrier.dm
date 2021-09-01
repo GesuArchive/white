@@ -72,7 +72,7 @@
 		open = TRUE
 	update_icon()
 
-/obj/item/pet_carrier/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/item/pet_carrier/AltClick(mob/living/user)
 	if(open || !user.canUseTopic(src, BE_CLOSE))
 		return
 	locked = !locked

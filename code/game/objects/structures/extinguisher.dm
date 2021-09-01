@@ -124,7 +124,7 @@
 /obj/structure/extinguisher_cabinet/attack_paw(mob/user)
 	return attack_hand(user)
 
-/obj/structure/extinguisher_cabinet/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/structure/extinguisher_cabinet/AltClick(mob/living/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		return
 	toggle_cabinet(user)

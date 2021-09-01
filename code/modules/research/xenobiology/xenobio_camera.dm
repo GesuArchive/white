@@ -344,7 +344,7 @@
 
 
 //Feeds a potion to slime
-/mob/living/simple_animal/slime/attackby_secondary(obj/item/weapon, mob/user, params)
+/mob/living/simple_animal/slime/AltClick(mob/user)
 	SEND_SIGNAL(user, COMSIG_XENO_SLIME_CLICK_ALT, src)
 	..()
 

@@ -36,7 +36,7 @@
 		TurnOn()
 		to_chat(user, "<span class='notice'>You turn the disco ball on!</span>")
 
-/obj/structure/etherealball/attackby_secondary(obj/item/weapon, mob/living/carbon/human/user, params)
+/obj/structure/etherealball/AltClick(mob/living/carbon/human/user)
 	. = ..()
 	set_anchored(!anchored)
 	to_chat(user, "<span class='notice'>You [anchored ? null : "un"]lock the disco ball.</span>")

@@ -21,7 +21,7 @@
 		update_icon()
 	return ..()
 
-/obj/machinery/atmospherics/components/binary/temperature_pump/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/machinery/atmospherics/components/binary/temperature_pump/AltClick(mob/user)
 	if(can_interact(user) && !(heat_transfer_rate == max_heat_transfer_rate))
 		heat_transfer_rate = max_heat_transfer_rate
 		investigate_log("was set to [heat_transfer_rate]% by [key_name(user)]", INVESTIGATE_ATMOS)

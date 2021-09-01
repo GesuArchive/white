@@ -49,7 +49,7 @@
 		leaving.Bump(src)
 		return COMPONENT_ATOM_BLOCK_EXIT
 
-/obj/structure/flippedtable/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/structure/flippedtable/AltClick(mob/user)
 	. = ..()
 	if(!istype(user) || !user.can_interact_with(src))
 		return FALSE
@@ -63,7 +63,7 @@
 
 //TABLES
 
-/obj/structure/table/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/structure/table/AltClick(mob/living/user)
 	. = ..()
 	if(!istype(user) || !user.can_interact_with(src) || isobserver(user))
 		return

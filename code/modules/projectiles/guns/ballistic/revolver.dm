@@ -33,7 +33,7 @@
 	..()
 	chamber_round()
 
-/obj/item/gun/ballistic/revolver/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/gun/ballistic/revolver/AltClick(mob/user)
 	..()
 	spin()
 

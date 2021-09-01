@@ -70,7 +70,7 @@
 	. = ..()
 	. += "<hr><span class='notice'>ПКМ to change mode.\nMode: [original ? "Original" : "Thumbnail"]</span>"
 
-/obj/item/photo/webpic/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/photo/webpic/AltClick(mob/user)
 	original = !original
 	to_chat(user, "<span class='notice'>Mode set to [original ? "Original" : "Thumbnail"]</span>")
 

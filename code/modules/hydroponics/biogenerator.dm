@@ -151,7 +151,7 @@
 	else
 		to_chat(user, "<span class='warning'>You cannot put this in [src.name]!</span>")
 
-/obj/machinery/biogenerator/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/machinery/biogenerator/AltClick(mob/living/user)
 	. = ..()
 	if(user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK) && can_interact(user))
 		detach(user)

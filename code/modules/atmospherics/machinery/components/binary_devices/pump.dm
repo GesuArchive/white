@@ -34,7 +34,7 @@
 		update_icon()
 	return ..()
 
-/obj/machinery/atmospherics/components/binary/pump/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/machinery/atmospherics/components/binary/pump/AltClick(mob/user)
 	if(can_interact(user))
 		target_pressure = MAX_OUTPUT_PRESSURE
 		investigate_log("was set to [target_pressure] kPa by [key_name(user)]", INVESTIGATE_ATMOS)

@@ -65,7 +65,7 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 		return
 	..()
 
-/obj/machinery/chem_mass_spec/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/machinery/chem_mass_spec/AltClick(mob/living/user)
 	. = ..()
 	if(processing_reagents)
 		to_chat(user, "<span class='notice'>The [src] is currently processing a batch!")

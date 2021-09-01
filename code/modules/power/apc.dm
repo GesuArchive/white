@@ -775,7 +775,7 @@
 				return FALSE
 	return FALSE
 
-/obj/machinery/power/apc/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/machinery/power/apc/AltClick(mob/user)
 	..()
 	if(!user.canUseTopic(src, !issilicon(user)) || !isturf(loc))
 		return

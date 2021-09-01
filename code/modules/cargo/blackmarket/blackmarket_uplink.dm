@@ -55,7 +55,7 @@
 		return
 	. = ..()
 
-/obj/item/blackmarket_uplink/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/blackmarket_uplink/AltClick(mob/user)
 	if(!isliving(user) || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
 

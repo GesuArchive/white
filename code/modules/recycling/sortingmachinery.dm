@@ -472,7 +472,7 @@
 	payments_acc = null
 	to_chat(user, "<span class='notice'>You clear the registered account.</span>")
 
-/obj/item/sales_tagger/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/sales_tagger/AltClick(mob/user)
 	. = ..()
 	var/potential_cut = input("How much would you like to payout to the registered card?","Percentage Profit") as num|null
 	if(!potential_cut)

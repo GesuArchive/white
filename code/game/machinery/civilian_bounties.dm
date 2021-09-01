@@ -146,7 +146,7 @@
 	inserted_scan_id.registered_account.bounties = null
 	return inserted_scan_id.registered_account.civilian_bounty
 
-/obj/machinery/computer/piratepad_control/civilian/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/machinery/computer/piratepad_control/civilian/AltClick(mob/user)
 	. = ..()
 	if(!user.canUseTopic(src, !issilicon(user)) || !is_operational)
 		id_eject(user, inserted_scan_id)

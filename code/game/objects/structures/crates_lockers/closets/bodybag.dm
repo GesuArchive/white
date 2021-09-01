@@ -259,7 +259,7 @@
 	// We don't break the bag, because the buckles were backed out as opposed to fully broken.
 	open()
 
-/obj/structure/closet/body_bag/environmental/prisoner/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/structure/closet/body_bag/environmental/prisoner/AltClick(mob/user)
 	. = ..()
 	if(!user.canUseTopic(src, BE_CLOSE) || !isturf(loc))
 		return

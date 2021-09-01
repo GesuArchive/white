@@ -404,7 +404,7 @@
 	. = ..()
 	AddComponent(/datum/component/automatic_fire_funny, 1)
 
-/obj/item/gun/ballistic/automatic/hs010/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/gun/ballistic/automatic/hs010/AltClick(mob/user)
 	. = ..()
 	fuller_auto = !fuller_auto
 	balloon_alert(user, "режим: [fuller_auto ? "fuller" : "full"] auto")

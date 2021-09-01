@@ -58,7 +58,7 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sortList(list(
 		var/obj/structure/marker_beacon/M = new(user.loc, picked_color)
 		transfer_fingerprints_to(M)
 
-/obj/item/stack/marker_beacon/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/item/stack/marker_beacon/AltClick(mob/living/user)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return
 	var/input_color = input(user, "Choose a color.", "Beacon Color") as null|anything in GLOB.marker_beacon_colors
@@ -138,7 +138,7 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sortList(list(
 		return
 	return ..()
 
-/obj/structure/marker_beacon/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/structure/marker_beacon/AltClick(mob/living/user)
 	..()
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return

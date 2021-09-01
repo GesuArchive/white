@@ -176,7 +176,7 @@
 	if(use_paint(user) && isturf(F))
 		F.AddElement(/datum/element/decal, 'icons/turf/decals.dmi', stored_decal_total, stored_dir, null, null, alpha, color, null, CLEAN_TYPE_PAINT, null)
 
-/obj/item/airlock_painter/decal/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/airlock_painter/decal/AltClick(mob/user)
 	. = ..()
 	ui_interact(user)
 

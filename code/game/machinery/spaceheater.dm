@@ -368,7 +368,7 @@
 	update_icon()
 	return TRUE
 
-/obj/machinery/space_heater/improvised_chem_heater/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/machinery/space_heater/improvised_chem_heater/AltClick(mob/living/user)
 	. = ..()
 	if(!can_interact(user) || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return

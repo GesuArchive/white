@@ -291,7 +291,7 @@
 		. += "\n<span class='notice'>Можно использовать <b>пустую руку</b> для извлечения магазина.</span>"
 
 
-/obj/item/gun/ballistic/automatic/l6_saw/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/gun/ballistic/automatic/l6_saw/AltClick(mob/user)
 	if(!user.canUseTopic(src))
 		return
 	cover_open = !cover_open

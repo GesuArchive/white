@@ -192,7 +192,7 @@
 			shuttle.setTimer(shuttle.timeLeft(1) + hijack_flight_time_increase)		//give the guy more time to hijack if it's already in flight.
 	return shuttle.hijack_status
 
-/obj/machinery/computer/emergency_shuttle/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/machinery/computer/emergency_shuttle/AltClick(user)
 	if(isliving(user))
 		attempt_hijack_stage(user)
 
@@ -724,7 +724,7 @@ GLOBAL_LIST_EMPTY(emergency_storages)
 	if(can_interact(usr))
 		return ..()
 
-/obj/item/storage/pod/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/storage/pod/AltClick(mob/user)
 	if(!can_interact(user))
 		return
 	..()

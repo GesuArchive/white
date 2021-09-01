@@ -154,7 +154,7 @@
 	. = ..()
 	. += "<hr><span class='notice'>ПКМ to toggle modes.</span>"
 
-/obj/item/grenade/barrier/attackby_secondary(obj/item/weapon, mob/living/carbon/user, params)
+/obj/item/grenade/barrier/AltClick(mob/living/carbon/user)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return
 	toggle_mode(user)

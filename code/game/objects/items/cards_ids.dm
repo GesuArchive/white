@@ -515,7 +515,7 @@
 	to_chat(user, "<span class='warning'>ID-номер аккаунта неверный.</span>")
 	return
 
-/obj/item/card/id/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/item/card/id/AltClick(mob/living/user)
 	if(!alt_click_can_use_id(user))
 		return
 
@@ -675,7 +675,7 @@
 	department_name = ACCOUNT_CAR_NAME
 	icon_state = "car_budget" //saving up for a new tesla
 
-/obj/item/card/id/departmental_budget/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/item/card/id/departmental_budget/AltClick(mob/living/user)
 	registered_account.bank_card_talk("<span class='warning'>Снимать с этой карты запрещено картой. Может потому что она не умеет печатать голочипы?</span>", TRUE) //prevents the vault bank machine being useless and putting money from the budget to your card to go over personal crates
 
 /obj/item/card/id/advanced

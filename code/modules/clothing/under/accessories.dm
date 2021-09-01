@@ -72,7 +72,7 @@
 /obj/item/clothing/accessory/proc/on_uniform_dropped(obj/item/clothing/under/U, user)
 	return
 
-/obj/item/clothing/accessory/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/clothing/accessory/AltClick(mob/user)
 	if(user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		if(initial(above_suit))
 			above_suit = !above_suit

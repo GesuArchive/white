@@ -242,7 +242,7 @@
 		realOverlay.pixel_y = -3
 		. += realOverlay
 
-/obj/item/clothing/neck/neckerchief/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/clothing/neck/neckerchief/AltClick(mob/user)
 	. = ..()
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user

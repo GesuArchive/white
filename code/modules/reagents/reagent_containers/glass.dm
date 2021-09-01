@@ -362,7 +362,7 @@
 	spillable = TRUE
 	var/obj/item/grinded
 
-/obj/item/reagent_containers/glass/mortar/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/reagent_containers/glass/mortar/AltClick(mob/user)
 	if(grinded)
 		grinded.forceMove(drop_location())
 		grinded = null

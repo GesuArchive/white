@@ -771,7 +771,7 @@
 	is_skipping = FALSE
 	skip_timer = world.time
 
-/obj/machinery/advanced_airlock_controller/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/machinery/advanced_airlock_controller/AltClick(mob/user)
 	..()
 	if(!user.canUseTopic(src, !issilicon(user)) || !isturf(loc))
 		return

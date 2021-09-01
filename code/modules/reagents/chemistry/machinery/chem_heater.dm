@@ -62,7 +62,7 @@
 	else
 		icon_state = "mixer0b"
 
-/obj/machinery/chem_heater/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/machinery/chem_heater/AltClick(mob/living/user)
 	. = ..()
 	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return

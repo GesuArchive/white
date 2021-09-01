@@ -472,7 +472,7 @@
 		angle = SIMPLIFY_DEGREES(new_angle)
 		addtimer(src, CALLBACK(src, .proc/debugrotate, angle+1), 1)
 
-/obj/item/mechcomp/egunholder/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/mechcomp/egunholder/AltClick(mob/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return
 	rotate(user)

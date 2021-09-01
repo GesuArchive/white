@@ -84,7 +84,7 @@
 		icon_state = "portablechemicalmixer_empty"
 
 
-/obj/item/storage/portable_chem_mixer/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/item/storage/portable_chem_mixer/AltClick(mob/living/user)
 	var/locked = SEND_SIGNAL(src, COMSIG_IS_STORAGE_LOCKED)
 	if (!locked)
 		return ..()

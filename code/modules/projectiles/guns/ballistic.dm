@@ -351,7 +351,7 @@
 		w_class -= I.w_class
 	return ..()
 
-/obj/item/gun/ballistic/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/gun/ballistic/AltClick(mob/user)
 	if (unique_reskin && !current_skin && user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		reskin_obj(user)
 		return

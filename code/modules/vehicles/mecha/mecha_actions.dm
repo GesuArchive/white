@@ -123,7 +123,7 @@
 
 	chassis.toggle_strafe()
 
-/obj/vehicle/sealed/mecha/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/vehicle/sealed/mecha/AltClick(mob/living/user)
 	if((user in occupants) && user.canUseTopic(src))
 		toggle_strafe()
 

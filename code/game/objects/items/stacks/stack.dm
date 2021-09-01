@@ -510,7 +510,7 @@
 	else
 		. = ..()
 
-/obj/item/stack/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/item/stack/AltClick(mob/living/user)
 	. = ..()
 	attack_hand_secondary(user) //похуй
 

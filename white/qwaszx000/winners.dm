@@ -79,7 +79,7 @@
 	else
 		to_chat(user, "<span class='warning'>You are loser.</span>")
 
-/obj/structure/displaycase/winner/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/structure/displaycase/winner/AltClick(mob/user)
 	if(open)
 		dump()
 		update_icon()

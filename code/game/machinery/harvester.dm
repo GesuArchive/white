@@ -51,7 +51,7 @@
 	else if(!harvesting)
 		open_machine()
 
-/obj/machinery/harvester/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/machinery/harvester/AltClick(mob/user)
 	if(harvesting || !user || !isliving(user) || state_open)
 		return
 	if(can_harvest())

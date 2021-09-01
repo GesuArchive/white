@@ -25,7 +25,7 @@
 	if(locked)
 		. += "<hr><span class='notice'>ПКМ to unlock.</span>"
 
-/obj/item/nanite_remote/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/nanite_remote/AltClick(mob/user)
 	. = ..()
 	if(!user.canUseTopic(src, BE_CLOSE))
 		return

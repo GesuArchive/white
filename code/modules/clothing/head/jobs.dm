@@ -99,7 +99,7 @@
 	. += "<hr>"
 	. += "<span class='notice'>ПКМ, чтобы достать кукурузную конфету.</span>"
 
-/obj/item/clothing/head/fedora/det_hat/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/item/clothing/head/fedora/det_hat/AltClick(mob/user)
 	. = ..()
 	if(loc != user || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		return

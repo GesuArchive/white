@@ -98,7 +98,7 @@
 	else
 		to_chat(user, "<span class='warning'>Люк отключен!</span>")
 
-/obj/machinery/fat_sucker/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/machinery/fat_sucker/AltClick(mob/living/user)
 	if(!user.canUseTopic(src, BE_CLOSE))
 		return
 	if(user == occupant)

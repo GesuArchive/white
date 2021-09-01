@@ -154,7 +154,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	stored.color = colorC
 	stored.update_icon()
 
-/obj/structure/pipe_cleaner/attackby_secondary(obj/item/weapon, mob/living/user, params)
+/obj/structure/pipe_cleaner/AltClick(mob/living/user)
 	if(!user.canUseTopic(src, BE_CLOSE))
 		return
 	cut_pipe_cleaner(user)
