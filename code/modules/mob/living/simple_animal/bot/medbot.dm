@@ -225,8 +225,9 @@
 			oldpatient = user
 
 /mob/living/simple_animal/bot/medbot/process_scan(mob/living/carbon/human/H)
-	if(H.stat == DEAD)
-		return
+	if(!stationary_mode)
+		if(H.stat == DEAD)
+			return
 
 	if((H == oldpatient) && (world.time < last_found + 200))
 		return
@@ -406,8 +407,10 @@
 	//Time to see if they need medical help!
 	if(stationary_mode && !Adjacent(C)) //YOU come to ME, BRO
 		return FALSE
-	if(C.stat == DEAD || (HAS_TRAIT(C, TRAIT_FAKEDEATH)))
-		return FALSE	//welp too late for them!
+
+	if(!stationary_mode)
+		if(C.stat == DEAD || (HAS_TRAIT(C, TRAIT_FAKEDEATH)))
+			return FALSE	//welp too late for them!
 
 	if(!(loc == C.loc) && !(isturf(C.loc) && isturf(loc)))
 		return FALSE
@@ -508,9 +511,10 @@
 		var/message = pick(messagevoice)
 		speak(message)
 		playsound(src, messagevoice[message], 50)
-		oldpatient = patient
-		soft_reset()
-		return
+		if(!stationary_mode)
+			oldpatient = patient
+			soft_reset()
+			return
 
 	tending = TRUE
 	while(tending)

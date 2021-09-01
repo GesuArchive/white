@@ -2668,7 +2668,7 @@
 /area/bridge/meeting_room)
 "hY" = (
 /obj/machinery/door/airlock/external{
-	req_one_access_txt = "20"
+	req_one_access_txt = "12"
 	},
 /obj/structure/fans/tiny,
 /obj/structure/cable,
@@ -3150,7 +3150,7 @@
 /area/hallway/primary/central)
 "kA" = (
 /obj/machinery/door/airlock/external{
-	req_one_access_txt = "19"
+	req_one_access_txt = "12"
 	},
 /obj/structure/fans/tiny,
 /obj/structure/disposalpipe/segment{
