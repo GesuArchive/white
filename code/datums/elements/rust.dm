@@ -13,13 +13,13 @@
 	if(!isatom(target))
 		return COMPONENT_INCOMPATIBLE
 	if(!rust_overlay)
-		rust_overlay = image(rust_icon, rust_icon)
+		rust_overlay = image(icon = rust_icon, icon_state = rust_icon_state)
 	ADD_TRAIT(target, TRAIT_RUSTY, src)
 	RegisterSignal(target, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/apply_rust_overlay)
 	RegisterSignal(target, COMSIG_PARENT_EXAMINE, .proc/handle_examine)
 	RegisterSignal(target, list(COMSIG_ATOM_SECONDARY_TOOL_ACT(TOOL_WELDER), COMSIG_ATOM_SECONDARY_TOOL_ACT(TOOL_RUSTSCRAPER)), .proc/secondary_tool_act)
 	// Unfortunately registering with parent sometimes doesn't cause an overlay update
-	target.update_icon()
+	target.update_icon(UPDATE_OVERLAYS)
 
 /datum/element/rust/Detach(atom/source)
 	. = ..()
@@ -27,7 +27,7 @@
 	UnregisterSignal(source, COMSIG_PARENT_EXAMINE)
 	UnregisterSignal(source, list(COMSIG_ATOM_SECONDARY_TOOL_ACT(TOOL_WELDER), COMSIG_ATOM_SECONDARY_TOOL_ACT(TOOL_RUSTSCRAPER)))
 	REMOVE_TRAIT(source, TRAIT_RUSTY, src)
-	source.update_icon()
+	source.update_icon(UPDATE_OVERLAYS)
 
 /datum/element/rust/proc/handle_examine(datum/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
@@ -52,12 +52,12 @@
 				if(!do_after(user, 5 SECONDS * item.toolspeed, source))
 					return
 				user.balloon_alert(user, "burned off rust")
-				qdel(src)
+				Detach(source)
 				return
 		if(TOOL_RUSTSCRAPER)
 			user.balloon_alert(user, "scraping off rust...")
 			if(!do_after(user, 2 SECONDS * item.toolspeed, source))
 				return
 			user.balloon_alert(user, "scraped off rust")
-			qdel(src)
+			Detach(source)
 			return
