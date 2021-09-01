@@ -70,7 +70,9 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/respawn_character,
 	/client/proc/fuck_pie,
 	/client/proc/open_killcounter_counts,
-	/datum/admins/proc/open_borgopanel
+	/datum/admins/proc/open_borgopanel,
+	/datum/admins/proc/view_all_circuits,
+	/datum/admins/proc/view_all_sdql_spells,
 	)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel, /client/proc/assblast_panel, /client/proc/show_assblasts))
 GLOBAL_PROTECT(admin_verbs_ban)
@@ -207,7 +209,10 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/clicker_panel,
 	/client/proc/check_timer_sources,
 	/client/proc/toggle_cdn,
-	/client/proc/force_evenmaster_rules
+	/client/proc/force_evenmaster_rules,
+	/client/proc/cmd_sdql_spell_menu,
+//	/client/proc/adventure_manager,
+	/client/proc/load_circuit,
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, /proc/possess, /proc/release))
 GLOBAL_PROTECT(admin_verbs_possess)
