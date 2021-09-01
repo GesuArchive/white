@@ -332,7 +332,7 @@
 /datum/controller/subsystem/ticker/proc/standard_reboot()
 	if(ready_for_reboot)
 		if(mode.station_was_nuked)
-			Reboot("Станция уничтожена Ядерной бомбой.", "nuke")
+			Reboot("Станция была уничтожена в пепле ядерного огня.", "nuke")
 		else
 			Reboot("Конец раунда.", "proper completion")
 	else
@@ -348,7 +348,9 @@
 	CHECK_TICK
 
 	//AI laws
+	parts += "DEBUG: law_report: добавление в отчёт.."
 	parts += law_report()
+	parts += "DEBUG: law_report: добавление завершего.."
 
 	CHECK_TICK
 
@@ -383,7 +385,7 @@
 	parts += "[FOURSPACES]└ Длительность смены: <b>[DisplayTimeText(world.time - SSticker.round_start_time)]</b>"
 
 	parts += "<hr><b><font color=\"#60b6ff\">ИНФОРМАЦИЯ О СТАНЦИИ //</font></b>"
-	parts += "[FOURSPACES]├ Система ядерного самоуничтожения: <b>[mode.station_was_nuked ? "<span class='redtext'>была автивирована</span>" : "<span class='greentext'>не была автивирована</span>"]</b>"
+	parts += "[FOURSPACES]├ Система ядерного самоуничтожения: <b>[mode.station_was_nuked ? "<span class='redtext'>была активирована</span>" : "<span class='greentext'>не была активирована</span>"]</b>"
 	parts += "[FOURSPACES]└ Состояние станции: <b>[mode.station_was_nuked ? "<span class='redtext'>уничтожена системой ядерного самоуничтожения</span>" : "[popcount["station_integrity"] == 100 ? "<span class='greentext'>нетронута</span>" : "[popcount["station_integrity"]]%"]"]</b>"
 
 	parts += "<hr><b><font color=\"#60b6ff\">ИНФОРМАЦИЯ О ПЕРСОНАЛЕ //</font></b>"
@@ -407,7 +409,7 @@
 				parts += "[FOURSPACES]├ Должность: <b>[first_death["role"]]</b>"
 				parts += "[FOURSPACES]├ Локация: <b>[first_death["area"]]</b>"
 				parts += "[FOURSPACES]├ Повреждения: <b>[first_death["damage"]]</b>"
-				parts += "[FOURSPACES]└ Его последние слова: <b>[first_death["last_words"] ? "[first_death["last_words"]]" : "<i>отсутствовали</i>"]</b>"
+				parts += "[FOURSPACES]└ Последние слова: <b>[first_death["last_words"] ? "[first_death["last_words"]]" : "<i>отсутствовали</i>"]</b>"
 				// ignore this comment, it fixes the broken sytax parsing caused by the " above
 			else
 				parts += "[FOURSPACES]└ <span class='greentext'>Никто не умер за смену</span>!"
