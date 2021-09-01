@@ -794,13 +794,13 @@
 			if(G.can_reenter_corpse || even_if_they_cant_reenter)
 				return G
 			break
-
+/*
 /datum/mind/proc/grab_ghost(force)
 	var/mob/dead/observer/G = get_ghost(even_if_they_cant_reenter = force)
 	. = G
 	if(G)
 		G.reenter_corpse()
-
+*/
 /// Sets our can_hijack to the fastest speed our antag datums allow.
 /datum/mind/proc/get_hijack_speed()
 	. = 0
