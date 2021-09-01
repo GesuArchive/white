@@ -62,9 +62,8 @@
 	icon = 'white/rebolution228/icons/obj/items.dmi'
 	icon_state = "ashtray"
 	var/max_butts = 10
-	var/empty_desc = ""
 	var/health = 20
-	
+
 
 /obj/item/ashtray/attackby(obj/item/W as obj, mob/user as mob, params)
 	if (istype(W,/obj/item/cigbutt) || istype(W,/obj/item/clothing/mask/cigarette) || istype(W, /obj/item/match))
@@ -81,7 +80,7 @@
 				cig.transfer_fingerprints_to(butt)
 				del(cig)
 			else if (cig.lit == 0)
-				to_chat(user, "<span class='danger'><font size=+4>ДОЛБОЁБ ЕБАНЫЙ ПЕПЕЛЬНИЦА ЭТО НЕ ПАЧКА СИГАРЕТ ПИДОРАС</font></span>")
+				to_chat(user, "<span class='notice'>Пепельница явно не для того, чтобы складывать туда простые сигареты.</span>")
 				return
 
 		add_fingerprint(user)
@@ -123,7 +122,7 @@
 		desc = "[initial(desc)] Пепельница заполнена."
 	else if (contents.len > 0)
 		icon_state = "ashtray_half"
-		desc = "[initial(desc)] Пепельница наполовину заполнена."
+		desc = "[initial(desc)] Пепельница наполовину полная."
 	else
 		icon_state = "ashtray"
 	return ..()
