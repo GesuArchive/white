@@ -20,13 +20,14 @@
 
 /obj/item/storage/belt/update_overlays()
 	. = ..()
-	if(content_overlays)
-		for(var/obj/item/I in contents)
-			. += I.get_belt_overlay()
+	if(!content_overlays)
+		return
+	for(var/obj/item/I in contents)
+		. += I.get_belt_overlay()
 
 /obj/item/storage/belt/Initialize()
 	. = ..()
-	update_icon()
+	update_appearance()
 
 /obj/item/storage/belt/utility
 	name = "пояс с инструментами" //Carn: utility belt is nicer, but it bamboozles the text parsing.
@@ -211,7 +212,7 @@
 	new /obj/item/stack/medical/bone_gel(src)
 	new /obj/item/stack/sticky_tape/surgical(src)
 	new /obj/item/reagent_containers/glass/bottle/formaldehyde(src)
-	update_icon()
+	update_appearance()
 
 /obj/item/storage/belt/security
 	name = "пояс офицера"
@@ -221,11 +222,18 @@
 	worn_icon_state = "security"
 	content_overlays = TRUE
 
+/obj/item/storage/belt/security/update_icon_state()
+	worn_icon_state = initial(worn_icon_state)
+	if(locate(/obj/item/melee/baton) in contents)
+		worn_icon_state += "-baton"
+	return ..()
+
 /obj/item/storage/belt/security/ComponentInitialize()
 	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 5
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
+	STR.max_w_class = WEIGHT_CLASS_BULKY
 	STR.set_holdable(list(
 		/obj/item/melee/baton,
 		/obj/item/melee/classic_baton,
@@ -252,7 +260,7 @@
 	new /obj/item/grenade/flashbang(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/melee/baton/loaded(src)
-	update_icon()
+	update_appearance()
 
 /obj/item/storage/belt/security/webbing
 	name = "разгрузка офицера"
@@ -716,11 +724,11 @@
 		return
 	if(length(contents))
 		var/obj/item/I = contents[1]
-		user.visible_message(span_notice("[user] достаёт [I] из [src].") , span_notice("Достаю [I] из [src].") )
+		user.visible_message(span_notice("[user] достаёт [I] из [src]."), span_notice("Достаю [I] из [src]."))
 		user.put_in_hands(I)
-		update_icon()
+		update_appearance()
 	else
-		to_chat(user, span_warning("[capitalize(src.name)] пустой!") )
+		to_chat(user, span_warning("[capitalize(src.name)] пустой!"))
 
 /obj/item/storage/belt/sabre/update_icon_state()
 	icon_state = initial(inhand_icon_state)
@@ -730,10 +738,11 @@
 		icon_state += "-sabre"
 		inhand_icon_state += "-sabre"
 		worn_icon_state += "-sabre"
+	return ..()
 
 /obj/item/storage/belt/sabre/PopulateContents()
 	new /obj/item/melee/sabre(src)
-	update_icon()
+	update_appearance()
 
 /obj/item/storage/belt/plant
 	name = "botanical belt"
