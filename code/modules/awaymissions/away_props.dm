@@ -73,7 +73,7 @@
 	SIGNAL_HANDLER
 
 	if(button.id == id) //No range checks because this is admin abuse mostly.
-		toggle()
+		INVOKE_ASYNC(src, .proc/toggle)
 
 /obj/structure/pitgrate/proc/update_openspace()
 	var/turf/open/openspace/T = get_turf(src)
