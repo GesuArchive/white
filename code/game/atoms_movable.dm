@@ -75,6 +75,9 @@
 	///Highest-intensity light affecting us, which determines our visibility.
 	var/affecting_dynamic_lumi = 0
 
+	/// Whether this atom should have its dir automatically changed when it moves. Setting this to FALSE allows for things such as directional windows to retain dir on moving without snowflake code all of the place.
+	var/set_dir_on_move = TRUE
+
 	/// The degree of thermal insulation that mobs in list/contents have from the external environment, between 0 and 1
 	var/contents_thermal_insulation = 0
 	/// The degree of pressure protection that mobs in list/contents have from the external environment, between 0 and 1
@@ -391,11 +394,8 @@
 	if(!direction)
 		direction = get_dir(src, newloc)
 
-	/* сасеш
 	if(set_dir_on_move)
 		setDir(direction)
-	*/
-	setDir(direction)
 
 	var/is_multi_tile_object = bound_width > 32 || bound_height > 32
 
@@ -521,7 +521,7 @@
 						moving_diagonally = SECOND_DIAG_STEP
 						. = step(src, SOUTH)
 			if(moving_diagonally == SECOND_DIAG_STEP)
-				if(!./* && set_dir_on_move*/)
+				if(!. && set_dir_on_move)
 					setDir(first_step_dir)
 
 				else if (!inertia_moving)
@@ -554,11 +554,8 @@
 		set_glide_size(glide_size_override)
 
 	last_move = direct
-	/*
 	if(set_dir_on_move)
 		setDir(direct)
-	*/
-	setDir(direct)
 	if(. && has_buckled_mobs() && !handle_buckled_mob_movement(loc, direct, glide_size_override)) //movement failed due to buckled mob(s)
 		return FALSE
 
