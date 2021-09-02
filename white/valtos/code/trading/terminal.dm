@@ -124,7 +124,7 @@
 	usr.set_machine(src)
 	if((href_list["buy_term"]) && (vend_ready))
 		if(panel_open)
-			to_chat(usr, span_warning("The vending machine cannot dispense products while its service panel is open!") )
+			to_chat(usr, span_warning("The vending machine cannot dispense products while its service panel is open!"))
 			return
 		vend_ready = FALSE //One thing at a time!!
 

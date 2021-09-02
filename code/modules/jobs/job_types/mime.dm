@@ -85,7 +85,7 @@
 			user.mind.AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/conjure/mime_box(null))
 		else
 			return
-	to_chat(user, span_warning("The book disappears into thin air.") )
+	to_chat(user, span_warning("The book disappears into thin air."))
 	qdel(src)
 
 /**

@@ -14,7 +14,7 @@
 		return
 
 	if(HAS_TRAIT(user, TRAIT_CHUNKYFINGERS))
-		to_chat(user, span_warning("Your fingers are too big to use this right now!") )
+		to_chat(user, span_warning("Your fingers are too big to use this right now!"))
 		return
 
 	// Robots don't really need to see the screen, their wireless connection works as long as computer is on.
@@ -34,7 +34,7 @@
 	// This screen simply lists available programs and user may select them.
 	var/obj/item/computer_hardware/hard_drive/hard_drive = all_components[MC_HDD]
 	if(!hard_drive || !hard_drive.stored_files || !hard_drive.stored_files.len)
-		to_chat(user, span_danger("<b>[src.name]</b>издает три звуковых сигнала, на экране отображается предупреждение \"ОШИБКА ДИСКА\".") )
+		to_chat(user, span_danger("<b>[src.name]</b>издает три звуковых сигнала, на экране отображается предупреждение \"ОШИБКА ДИСКА\"."))
 		return // No HDD, No HDD files list or no stored files. Something is very broken.
 
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -130,7 +130,7 @@
 				return
 
 			P.kill_program(forced = TRUE)
-			to_chat(user, span_notice("Программа [P.filename].[P.filetype] с PID [rand(100,999)] была уничтожена.") )
+			to_chat(user, span_notice("Программа [P.filename].[P.filetype] с PID [rand(100,999)] была уничтожена."))
 
 		if("PC_runprogram")
 			var/prog = params["name"]
@@ -140,7 +140,7 @@
 				P = hard_drive.find_file_by_name(prog)
 
 			if(!P || !istype(P)) // Program not found or it's not executable program.
-				to_chat(user, span_danger("<b>[src.name]</b>'s экран показывает предупреждение \"I/O ОШИБКА — невозможно запустить программу\".") )
+				to_chat(user, span_danger("<b>[src.name]</b>'s экран показывает предупреждение \"I/O ОШИБКА — невозможно запустить программу\"."))
 				return
 
 			P.computer = src
@@ -160,11 +160,11 @@
 			var/obj/item/computer_hardware/processor_unit/PU = all_components[MC_CPU]
 
 			if(idle_threads.len > PU.max_idle_programs)
-				to_chat(user, span_danger("<b>[src.name]</b> отображает ошибку \"Достигнута максимальная загрузка процессора. Невозможно запустить другую программу.\".") )
+				to_chat(user, span_danger("<b>[src.name]</b> отображает ошибку \"Достигнута максимальная загрузка процессора. Невозможно запустить другую программу.\"."))
 				return
 
 			if(P.requires_ntnet && !get_ntnet_status(P.requires_ntnet_feature)) // The program requires NTNet connection, but we are not connected to NTNet.
-				to_chat(user, span_danger("<b>[src.name]</b>'s экран отображает \"Невозможно подсоединиться к NTNet. Попробуйте заново. Если проблема не исчезнет, обратитесь к системному администратору.\" предупреждение.") )
+				to_chat(user, span_danger("<b>[src.name]</b>'s экран отображает \"Невозможно подсоединиться к NTNet. Попробуйте заново. Если проблема не исчезнет, обратитесь к системному администратору.\" предупреждение."))
 				return
 			if(P.run_program(user))
 				active_program = P
@@ -183,7 +183,7 @@
 				if(!new_color)
 					return
 				if(color_hex2num(new_color) < 200) //Colors too dark are rejected
-					to_chat(user, span_warning("Этот цвет слишком темный! Выберите какой-то посветлее..") )
+					to_chat(user, span_warning("Этот цвет слишком темный! Выберите какой-то посветлее.."))
 					new_color = null
 			return set_flashlight_color(new_color)
 

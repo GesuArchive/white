@@ -380,7 +380,7 @@ GLOBAL_LIST_EMPTY(species_list)
 	if(interaction_key)
 		var/current_interaction_count = LAZYACCESS(user.do_afters, interaction_key) || 0
 		if(current_interaction_count >= max_interact_count) //We are at our peak
-			to_chat(user, span_warning("You can't do this at the moment!") )
+			to_chat(user, span_warning("You can't do this at the moment!"))
 			return
 		LAZYSET(user.do_afters, interaction_key, current_interaction_count + 1)
 

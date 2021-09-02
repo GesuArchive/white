@@ -124,7 +124,7 @@
 			SSpersistence.antag_rep -= C.ckey
 
 	log_admin("[key_name(usr)]: Modified [key_name(C)] antagonist reputation [log_text]")
-	message_admins(span_adminnotice("[key_name_admin(usr)]: Modified [key_name(C)] antagonist reputation ([log_text])") )
+	message_admins(span_adminnotice("[key_name_admin(usr)]: Modified [key_name(C)] antagonist reputation ([log_text])"))
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Modify Antagonist Reputation") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_world_narrate()
@@ -140,7 +140,7 @@
 		return
 	to_chat(world, "[msg]", confidential = TRUE)
 	log_admin("GlobalNarrate: [key_name(usr)] : [msg]")
-	message_admins(span_adminnotice("[key_name_admin(usr)] Sent a global narrate") )
+	message_admins(span_adminnotice("[key_name_admin(usr)] Sent a global narrate"))
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Global Narrate") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_direct_narrate(mob/M)
@@ -186,7 +186,7 @@
 		to_chat(M, msg, confidential = TRUE)
 
 	log_admin("LocalNarrate: [key_name(usr)] at [AREACOORD(A)]: [msg]")
-	message_admins(span_adminnotice("<b> LocalNarrate: [key_name_admin(usr)] at [ADMIN_VERBOSEJMP(A)]:</b> [msg]<BR>") )
+	message_admins(span_adminnotice("<b> LocalNarrate: [key_name_admin(usr)] at [ADMIN_VERBOSEJMP(A)]:</b> [msg]<BR>"))
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Local Narrate") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_godmode(mob/M in GLOB.mob_list)
@@ -667,7 +667,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	var/confirm = tgui_alert(usr, "You sure?", "Confirm", list("Yes", "No"))
 	if(confirm == "Yes")
 		log_admin("[key_name(usr)] used gibself.")
-		message_admins(span_adminnotice("[key_name_admin(usr)] used gibself.") )
+		message_admins(span_adminnotice("[key_name_admin(usr)] used gibself."))
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Gib Self") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 		var/mob/living/ourself = mob
@@ -719,7 +719,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	SSshuttle.emergency.request()
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Call Shuttle") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] admin-called the emergency shuttle.")
-	message_admins(span_adminnotice("[key_name_admin(usr)] admin-called the emergency shuttle[confirm == "Yes (No Recall)" ? " (non-recallable)" : ""].") )
+	message_admins(span_adminnotice("[key_name_admin(usr)] admin-called the emergency shuttle[confirm == "Yes (No Recall)" ? " (non-recallable)" : ""]."))
 	return
 
 /client/proc/admin_cancel_shuttle()
@@ -739,7 +739,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	SSshuttle.emergency.cancel()
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Cancel Shuttle") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] admin-recalled the emergency shuttle.")
-	message_admins(span_adminnotice("[key_name_admin(usr)] admin-recalled the emergency shuttle.") )
+	message_admins(span_adminnotice("[key_name_admin(usr)] admin-recalled the emergency shuttle."))
 
 	return
 
@@ -751,13 +751,13 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 	if(SSshuttle.emergency.mode == SHUTTLE_DISABLED)
-		to_chat(usr, span_warning("Error, shuttle is already disabled.") )
+		to_chat(usr, span_warning("Error, shuttle is already disabled."))
 		return
 
 	if(tgui_alert(usr, "You sure?", "Confirm", list("Yes", "No")) != "Yes")
 		return
 
-	message_admins(span_adminnotice("[key_name_admin(usr)] disabled the shuttle.") )
+	message_admins(span_adminnotice("[key_name_admin(usr)] disabled the shuttle."))
 
 	SSshuttle.lastMode = SSshuttle.emergency.mode
 	SSshuttle.lastCallTime = SSshuttle.emergency.timeLeft(1)
@@ -774,13 +774,13 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 	if(SSshuttle.emergency.mode != SHUTTLE_DISABLED)
-		to_chat(usr, span_warning("Error, shuttle not disabled.") )
+		to_chat(usr, span_warning("Error, shuttle not disabled."))
 		return
 
 	if(tgui_alert(usr, "You sure?", "Confirm", list("Yes", "No")) != "Yes")
 		return
 
-	message_admins(span_adminnotice("[key_name_admin(usr)] enabled the emergency shuttle.") )
+	message_admins(span_adminnotice("[key_name_admin(usr)] enabled the emergency shuttle."))
 	SSshuttle.adminEmergencyNoRecall = FALSE
 	SSshuttle.emergencyNoRecall = FALSE
 	if(SSshuttle.lastMode == SHUTTLE_DISABLED) //If everything goes to shit, fix it.
@@ -997,7 +997,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		if(!M)
 			continue
 
-		M.audible_message(span_hear("...wabbajack...wabbajack...") )
+		M.audible_message(span_hear("...wabbajack...wabbajack..."))
 		playsound(M.loc, 'sound/magic/staff_change.ogg', 50, TRUE, -1)
 
 		wabbajack(M)

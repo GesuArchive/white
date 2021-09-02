@@ -48,17 +48,17 @@
 		if(WIRE_CAMERA) // Pulse to disable the camera.
 			if(!QDELETED(R.builtInCamera) && !R.scrambledcodes)
 				R.builtInCamera.toggle_cam(usr, 0)
-				R.visible_message(span_notice("Линза камеры <b>[R.name]</b> медленно фокусируется.") , span_notice("Линза моей камеры медленно фокусируется.") )
+				R.visible_message(span_notice("Линза камеры <b>[R.name]</b> медленно фокусируется.") , span_notice("Линза моей камеры медленно фокусируется."))
 		if(WIRE_LAWSYNC) // Forces a law update if possible.
 			if(R.lawupdate)
-				R.visible_message(span_notice("<b>[R.name]</b> изящно звянькает.") , span_notice("Протоколы синхронизации законов задействованы.") )
+				R.visible_message(span_notice("<b>[R.name]</b> изящно звянькает.") , span_notice("Протоколы синхронизации законов задействованы."))
 				R.lawsync()
 				R.show_laws()
 		if(WIRE_LOCKDOWN)
 			R.SetLockdown(!R.lockcharge) // Toggle
 		if(WIRE_RESET_MODULE)
 			if(R.has_module())
-				R.visible_message(span_notice("<b>[R.name]</b> начинает дёргаться.") , span_notice("Дисплей модулей мерцает.") )
+				R.visible_message(span_notice("<b>[R.name]</b> начинает дёргаться.") , span_notice("Дисплей модулей мерцает."))
 
 /datum/wires/robot/on_cut(wire, mend)
 	var/mob/living/silicon/robot/R = holder
@@ -81,7 +81,7 @@
 			if(!QDELETED(R.builtInCamera) && !R.scrambledcodes)
 				R.builtInCamera.status = mend
 				R.builtInCamera.toggle_cam(usr, 0)
-				R.visible_message(span_notice("Линза камеры <b>[R.name]</b> громко фокусируется.") , span_notice("Линза моей камеры громко фокусируется.") )
+				R.visible_message(span_notice("Линза камеры <b>[R.name]</b> громко фокусируется.") , span_notice("Линза моей камеры громко фокусируется."))
 				R.logevent("Camera Module fault [mend?"cleared":"detected"]")
 		if(WIRE_LOCKDOWN) // Simple lockdown.
 			R.SetLockdown(!mend)

@@ -61,7 +61,7 @@
 		overlay = mutable_appearance(icon, "pog_lift_overlay", ABOVE_MOB_LAYER)
 		addtimer(CALLBACK(src, .proc/toggle_busy), 20)
 		playsound(src, 'sound/vehicles/clowncar_cannonmode2.ogg', 75)
-		visible_message(span_danger("[capitalize(src.name)] поднимает вилку.") )
+		visible_message(span_danger("[capitalize(src.name)] поднимает вилку."))
 		fork_on = TRUE
 		pick_front()
 	else
@@ -70,7 +70,7 @@
 		overlay = mutable_appearance(src, "pog_overlay", ABOVE_MOB_LAYER)
 		addtimer(CALLBACK(src, .proc/toggle_busy), 20)
 		playsound(src, 'sound/vehicles/clowncar_cannonmode1.ogg', 75)
-		visible_message(span_danger("[capitalize(src.name)] опускает вилку.") )
+		visible_message(span_danger("[capitalize(src.name)] опускает вилку."))
 		fork_on = FALSE
 		drop_front()
 

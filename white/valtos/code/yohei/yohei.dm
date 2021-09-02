@@ -174,7 +174,7 @@
 			new_mode = MODE_PAINKILLER
 	current_mode = new_mode
 	playsound(get_turf(src), 'white/valtos/sounds/pamk_mode.ogg', 80)
-	to_chat(user, span_notice("<b>РЕЖИМ:</b></span> [uppertext(current_mode)].") )
+	to_chat(user, span_notice("<b>РЕЖИМ:</b></span> [uppertext(current_mode)]."))
 
 /obj/item/pamk/attack(mob/living/M, mob/user)
 	. = ..()
@@ -183,7 +183,7 @@
 /obj/item/pamk/proc/try_heal(mob/living/M, mob/user)
 	var/obj/item/bodypart/limb = M.get_bodypart(check_zone(user.zone_selected))
 	if(!limb)
-		to_chat(user, span_notice("А куда колоть то?!") )
+		to_chat(user, span_notice("А куда колоть то?!"))
 		return
 	switch(current_mode)
 		if(MODE_PAINKILLER)
@@ -191,45 +191,45 @@
 				if(use_charge(10))
 					M.heal_overall_damage(25, 25)
 				else
-					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц.") )
+					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц."))
 			else
-				to_chat(user, span_warning("Не обнаружено повреждений, либо они незначительны.") )
+				to_chat(user, span_warning("Не обнаружено повреждений, либо они незначительны."))
 		if(MODE_OXYLOSS)
 			if(M.getOxyLoss() > 5)
 				if(use_charge(10))
 					M.setOxyLoss(0)
 				else
-					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц.") )
+					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц."))
 			else
-				to_chat(user, span_warning("Уровень кислорода в норме.") )
+				to_chat(user, span_warning("Уровень кислорода в норме."))
 		if(MODE_TOXDUMP)
 			if(M.getToxLoss() > 5)
 				if(use_charge(20))
 					M.setToxLoss(0)
 				else
-					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц.") )
+					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц."))
 			else
-				to_chat(user, span_warning("Токсины отсутствуют.") )
+				to_chat(user, span_warning("Токсины отсутствуют."))
 		if(MODE_FRACTURE)
 			if(limb?.wounds?.len)
 				if(use_charge(20))
 					for(var/thing in limb.wounds)
 						var/datum/wound/W = thing
 						W.remove_wound()
-					to_chat(user, span_notice("Успешно исправили все переломы и вывихи в этой конечности.") )
+					to_chat(user, span_notice("Успешно исправили все переломы и вывихи в этой конечности."))
 				else
-					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц.") )
+					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц."))
 			else
-				to_chat(user, span_warning("Не обнаружено травм в этой конечности.") )
+				to_chat(user, span_warning("Не обнаружено травм в этой конечности."))
 		if(MODE_BLOOD_INJECTOR)
 			if(M.blood_volume <= initial(M.blood_volume) - 50)
 				if(use_charge(30))
 					M.restore_blood()
-					to_chat(user, span_notice("Кровь восстановлена.") )
+					to_chat(user, span_notice("Кровь восстановлена."))
 				else
-					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц.") )
+					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц."))
 			else
-				to_chat(user, span_warning("Уровень крови в пределах нормы.") )
+				to_chat(user, span_warning("Уровень крови в пределах нормы."))
 
 #undef MODE_PAINKILLER
 #undef MODE_OXYLOSS
@@ -307,7 +307,7 @@
 		if(BT)
 			BT.pick_sound('white/valtos/sounds/snidleyWhiplash.ogg')
 			BT.tension = 80
-		to_chat(H, span_revenbignotice("Давно не виделись, а?") )
+		to_chat(H, span_revenbignotice("Давно не виделись, а?"))
 		if(H?.hud_used)
 			H.hud_used.update_parallax_pref(H, TRUE)
 
@@ -615,7 +615,7 @@ GLOBAL_VAR(yohei_main_controller)
 	if(check_donations(user?.ckey) >= req_sum)
 		. = ..()
 	else
-		to_chat(user, span_warning("Эта роль требует <b>[req_sum]</b> донат-поинтов для доступа.") )
+		to_chat(user, span_warning("Эта роль требует <b>[req_sum]</b> донат-поинтов для доступа."))
 		return
 
 /obj/effect/mob_spawn/human/donate/yohei

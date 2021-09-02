@@ -60,10 +60,10 @@
 	else if(istype(O, /obj/item/bodypart))
 		var/obj/item/bodypart/B = O
 		if(B.status != BODYPART_ROBOTIC)
-			to_chat(user, span_warning("The machine only accepts cybernetics!") )
+			to_chat(user, span_warning("The machine only accepts cybernetics!"))
 			return
 		if(storedpart)
-			to_chat(user, span_warning("There is already something inside!") )
+			to_chat(user, span_warning("There is already something inside!"))
 			return
 		else
 			O = user.get_active_held_item()
@@ -80,17 +80,17 @@
 
 			user.visible_message(span_notice("[user] begins repairing [src].") , \
 				span_notice("You begin repairing [src]...") , \
-				span_hear("Слышу сварку.") )
+				span_hear("Слышу сварку."))
 
 			if(O.use_tool(src, user, 40, volume=50))
 				if(!(machine_stat & BROKEN))
 					return
-				to_chat(user, span_notice("Чиню [src].") )
+				to_chat(user, span_notice("Чиню [src]."))
 				set_machine_stat(machine_stat & ~BROKEN)
 				obj_integrity = max(obj_integrity, max_integrity)
 				update_icon()
 		else
-			to_chat(user, span_notice("[capitalize(src.name)] does not need repairs.") )
+			to_chat(user, span_notice("[capitalize(src.name)] does not need repairs."))
 	else
 		return ..()
 
@@ -111,7 +111,7 @@
 		storedpart.icon = style_list_icons[choice]
 		eject_part(user)
 	else
-		to_chat(user, span_warning("<b>[src.name]</b> пустой!") )
+		to_chat(user, span_warning("<b>[src.name]</b> пустой!"))
 
 /**
  * Checks if we are allowed to interact with a radial menu
@@ -137,7 +137,7 @@
 		storedpart = null
 		update_icon()
 	else
-		to_chat(user, span_warning("[capitalize(src.name)] пустой!") )
+		to_chat(user, span_warning("[capitalize(src.name)] пустой!"))
 
 /obj/machinery/aug_manipulator/AltClick(mob/living/user)
 	..()

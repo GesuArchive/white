@@ -45,7 +45,7 @@
 
 		target.visible_message(span_warning("[chassis] starts to drill [target].") , \
 					span_userdanger("[chassis] starts to drill [target]...") , \
-					span_hear("You hear drilling.") )
+					span_hear("You hear drilling."))
 
 		log_message("Started drilling [target]", LOG_MECHA)
 		// Drilling a turf is a one-and-done procedure.
@@ -124,7 +124,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/drill/proc/drill_mob(mob/living/target, mob/user)
 	target.visible_message(span_danger("[chassis] is drilling [target] with [src]!") , \
-						span_userdanger("[chassis] is drilling you with [src]!") )
+						span_userdanger("[chassis] is drilling you with [src]!"))
 	log_combat(user, target, "drilled", "[name]", "(INTENT: [uppertext(user.a_intent)]) (DAMTYPE: [uppertext(damtype)])")
 	if(target.stat == DEAD && target.getBruteLoss() >= (target.maxHealth * 2))
 		log_combat(user, target, "gibbed", name)

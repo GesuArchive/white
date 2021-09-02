@@ -50,21 +50,21 @@
 
 /obj/item/gun/energy/cellgun/proc/insert_cell(mob/user, display_message = TRUE, obj/item/stock_parts/cell/BAT)
 	/*if(!istype(BAT, obj/item/stock_parts/cell))
-		to_chat(user, span_warning("[BAT.name] не батарея!") )
+		to_chat(user, span_warning("[BAT.name] не батарея!"))
 		return FALSE
 	*/
 	if(!accepts_any_cell && !istype(BAT, cell_type))
-		to_chat(user, span_warning("[BAT] не вставляется в <b>[src]!</b>") )
+		to_chat(user, span_warning("[BAT] не вставляется в <b>[src]!</b>"))
 		return FALSE
 	if(user.transferItemToLoc(BAT, src))
 		cell = BAT
 		if (display_message)
-			to_chat(user, span_notice("Вставляю [BAT] в <b>[src]</b>.") )
+			to_chat(user, span_notice("Вставляю [BAT] в <b>[src]</b>."))
 		playsound(src, load_sound, load_sound_volume, load_sound_vary)
 		update_icon()
 		return TRUE
 	else
-		to_chat(user, span_warning("Не могу убрать <b>[src]</b> из своей руки!") )
+		to_chat(user, span_warning("Не могу убрать <b>[src]</b> из своей руки!"))
 		return FALSE
 
 
@@ -75,12 +75,12 @@
 	old_cell.update_icon()
 	if(tac_load)
 		if (insert_cell(user, FALSE, tac_load))
-			to_chat(user, span_notice("Произвожу тактическую перезарядку <b>[src]</b>.") )
+			to_chat(user, span_notice("Произвожу тактическую перезарядку <b>[src]</b>."))
 	else
 		cell = null
 	user.put_in_hands(old_cell)
 	if (display_message)
-		to_chat(user, span_notice("Вытаскиваю [old_cell] из <b>[src]</b>.") )
+		to_chat(user, span_notice("Вытаскиваю [old_cell] из <b>[src]</b>."))
 	update_icon()
 
 /obj/item/gun/energy/cellgun/update_icon(force_update)
@@ -133,10 +133,10 @@
 			if(tac_reloads)
 				eject_cell(user, FALSE, BAT)
 			else
-				to_chat(user, span_notice("В <b>[src]</b> уже вставлена <b>[cell]</b>.") )
+				to_chat(user, span_notice("В <b>[src]</b> уже вставлена <b>[cell]</b>."))
 		return
 	else
-		to_chat(user, span_warning("<b>[A.name]</b> не вставляется в <b>[src]</b>!") )
+		to_chat(user, span_warning("<b>[A.name]</b> не вставляется в <b>[src]</b>!"))
 		return
 
 	//можно запилить модификации для лазеров типа увеличения скорострельности, дамага и прочая поебень из какой-нибуть статодрочерской ммо
@@ -146,16 +146,16 @@
 	if(istype(A, /obj/item/suppressor))
 		var/obj/item/suppressor/S = A
 		if(!can_suppress)
-			to_chat(user, span_warning("Ты без понятия как приделать [S.name] к <b>[src.name]</b>!") )
+			to_chat(user, span_warning("Ты без понятия как приделать [S.name] к <b>[src.name]</b>!"))
 			return
 		if(!user.is_holding(src))
-			to_chat(user, span_warning("Нужно держать в руках <b>[src.name]</b>, чтобы приделать [S.name]!") )
+			to_chat(user, span_warning("Нужно держать в руках <b>[src.name]</b>, чтобы приделать [S.name]!"))
 			return
 		if(suppressed)
-			to_chat(user, span_warning("<b>[src.name]</b> уже имеет глушитель!") )
+			to_chat(user, span_warning("<b>[src.name]</b> уже имеет глушитель!"))
 			return
 		if(user.transferItemToLoc(A, src))
-			to_chat(user, span_notice("Ты прикрутил [S.name] к <b>[src.name]</b>.") )
+			to_chat(user, span_notice("Ты прикрутил [S.name] к <b>[src.name]</b>."))
 			install_suppressor(A)
 			return
 	*/

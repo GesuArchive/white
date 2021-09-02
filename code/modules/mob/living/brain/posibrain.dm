@@ -47,9 +47,9 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	if(!brainmob)
 		set_brainmob(new /mob/living/brain(src))
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SILICONS))
-		to_chat(user, span_warning("Центральное Командование запретило использование синтетиков в этом регионе...") )
+		to_chat(user, span_warning("Центральное Командование запретило использование синтетиков в этом регионе..."))
 	if(is_occupied())
-		to_chat(user, span_warning("[capitalize(name)] уже активен!") )
+		to_chat(user, span_warning("[capitalize(name)] уже активен!"))
 		return
 	if(next_ask > world.time)
 		to_chat(user, recharge_message)
@@ -69,7 +69,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return
 	if(input_seed)
-		to_chat(user, span_notice("Выставляю случайное число личности \"[input_seed]\".") )
+		to_chat(user, span_notice("Выставляю случайное число личности \"[input_seed]\"."))
 		ask_role = input_seed
 		update_icon()
 
@@ -104,7 +104,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	if(is_occupied() || is_banned_from(user.ckey, ROLE_POSIBRAIN) || QDELETED(brainmob) || QDELETED(src) || QDELETED(user))
 		return
 	if(user.suiciding) //if they suicided, they're out forever.
-		to_chat(user, span_warning("[capitalize(src.name)] тихо шипит. Жалко, что суицидники не принимаются!") )
+		to_chat(user, span_warning("[capitalize(src.name)] тихо шипит. Жалко, что суицидники не принимаются!"))
 		return
 	var/posi_ask = tgui_alert(usr, "Быть [name]? (Внимание! Прошлого тебя не смогут воскресить, придётся забыть старые обиды)","Готов?",list("Да","Нет"))
 	if(posi_ask == "Нет" || QDELETED(src))
@@ -137,7 +137,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	if(QDELETED(brainmob))
 		return
 	if(is_occupied()) //Prevents hostile takeover if two ghosts get the prompt or link for the same brain.
-		to_chat(candidate, span_warning("Этот [name] уже был выбран до того как была возможности войти! Возможно оно будет доступно позже?") )
+		to_chat(candidate, span_warning("Этот [name] уже был выбран до того как была возможности войти! Возможно оно будет доступно позже?"))
 		return FALSE
 	if(candidate.mind && !isobserver(candidate))
 		candidate.mind.transfer_to(brainmob)

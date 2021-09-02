@@ -34,13 +34,13 @@
 	if(!.)
 		return
 	if(target.ph <= ph)
-		target.my_atom.audible_message(span_warning("The beaker froths as the buffer is added, to no effect.") )
+		target.my_atom.audible_message(span_warning("The beaker froths as the buffer is added, to no effect."))
 		playsound(target.my_atom, 'sound/chemistry/bufferadd.ogg', 50, TRUE)
 		holder.remove_reagent(type, amount)//Remove from holder because it's not transfered
 		return
 	var/ph_change = -((amount/target.total_volume)*strength)
 	target.adjust_all_reagents_ph(ph_change, ph, 14)
-	target.my_atom.audible_message(span_warning("The beaker fizzes as the ph changes!") )
+	target.my_atom.audible_message(span_warning("The beaker fizzes as the ph changes!"))
 	playsound(target.my_atom, 'sound/chemistry/bufferadd.ogg', 50, TRUE)
 	holder.remove_reagent(type, amount)
 
@@ -61,13 +61,13 @@
 	if(!.)
 		return
 	if(target.ph >= ph)
-		target.my_atom.audible_message(span_warning("The beaker froths as the buffer is added, to no effect.") )
+		target.my_atom.audible_message(span_warning("The beaker froths as the buffer is added, to no effect."))
 		playsound(target.my_atom, 'sound/chemistry/bufferadd.ogg', 50, TRUE)
 		holder.remove_reagent(type, amount)//Remove from holder because it's not transfered
 		return
 	var/ph_change = (amount/target.total_volume)*strength
 	target.adjust_all_reagents_ph(ph_change, 0, ph)
-	target.my_atom.audible_message(span_warning("The beaker froths as the ph changes!") )
+	target.my_atom.audible_message(span_warning("The beaker froths as the ph changes!"))
 	playsound(target.my_atom, 'sound/chemistry/bufferadd.ogg', 50, TRUE)
 	holder.remove_reagent(type, amount)
 
@@ -102,10 +102,10 @@
 		if(reagent.purity <= reagent.inverse_chem_val)
 			is_inverse = TRUE
 	if(is_inverse)
-		target.my_atom.audible_message(span_warning("The beaker bubbles violently as the reagent is added!") )
+		target.my_atom.audible_message(span_warning("The beaker bubbles violently as the reagent is added!"))
 		playsound(target.my_atom, 'sound/chemistry/bufferadd.ogg', 50, TRUE)
 	else
-		target.my_atom.audible_message(span_warning("The added reagent doesn't seem to do much.") )
+		target.my_atom.audible_message(span_warning("The added reagent doesn't seem to do much."))
 	holder.remove_reagent(type, amount)
 
 /datum/reagent/reaction_agent/speed_agent

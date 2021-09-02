@@ -27,7 +27,7 @@ GLOBAL_LIST_EMPTY(de_admined)
 	else
 		C.holder.deactivate()
 		GLOB.de_admined.Add(C.ckey)
-		to_chat(C, span_interface("You were deadmined for this round by [src].") )
+		to_chat(C, span_interface("You were deadmined for this round by [src]."))
 		log_admin("[src] deadmined [C] for this round.")
 		message_admins("[src] deadmined [C] for this round.")
 		//SSblackbox.record_feedback("tally", "admin_verb", 1, "Deadmin")

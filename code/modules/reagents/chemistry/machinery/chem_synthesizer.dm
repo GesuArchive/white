@@ -45,7 +45,7 @@
 			if(beaker)
 				return
 			beaker = new /obj/item/reagent_containers/glass/beaker/bluespace(src)
-			visible_message(span_notice("[capitalize(src.name)] dispenses a bluespace beaker.") )
+			visible_message(span_notice("[capitalize(src.name)] dispenses a bluespace beaker."))
 		if("amount")
 			var/input = text2num(params["amount"])
 			if(input)

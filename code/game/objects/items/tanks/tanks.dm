@@ -31,25 +31,25 @@
 		return
 
 	if(H.internal == src)
-		to_chat(H, span_notice("You close [src] valve.") )
+		to_chat(H, span_notice("You close [src] valve."))
 		H.internal = null
 		H.update_internals_hud_icon(0)
 	else
 		if(!H.getorganslot(ORGAN_SLOT_BREATHING_TUBE))
 			if(!H.wear_mask)
-				to_chat(H, span_warning("You need a mask!") )
+				to_chat(H, span_warning("You need a mask!"))
 				return
 			var/is_clothing = isclothing(H.wear_mask)
 			if(is_clothing && H.wear_mask.mask_adjusted)
 				H.wear_mask.adjustmask(H)
 			if(!is_clothing || !(H.wear_mask.clothing_flags & MASKINTERNALS))
-				to_chat(H, span_warning("[H.wear_mask] can't use [src]!") )
+				to_chat(H, span_warning("[H.wear_mask] can't use [src]!"))
 				return
 
 		if(H.internal)
-			to_chat(H, span_notice("You switch your internals to [src].") )
+			to_chat(H, span_notice("You switch your internals to [src]."))
 		else
-			to_chat(H, span_notice("You open [src] valve.") )
+			to_chat(H, span_notice("You open [src] valve."))
 		H.internal = src
 		H.update_internals_hud_icon(1)
 	H.update_action_buttons_icon()
@@ -131,14 +131,14 @@
 
 /obj/item/tank/suicide_act(mob/user)
 	var/mob/living/carbon/human/H = user
-	user.visible_message(span_suicide("[user] is putting [src] valve to [user.ru_ego()] lips! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] is putting [src] valve to [user.ru_ego()] lips! It looks like [user.p_theyre()] trying to commit suicide!"))
 	playsound(loc, 'sound/effects/spray.ogg', 10, TRUE, -3)
 	if(!QDELETED(H) && air_contents && air_contents.return_pressure() >= 1000)
 		ADD_TRAIT(H, TRAIT_DISFIGURED, TRAIT_GENERIC)
 		H.inflate_gib()
 		return MANUAL_SUICIDE
 	else
-		to_chat(user, span_warning("There isn't enough pressure in [src] to commit suicide with...") )
+		to_chat(user, span_warning("There isn't enough pressure in [src] to commit suicide with..."))
 	return SHAME
 
 /obj/item/tank/attackby(obj/item/W, mob/user, params)

@@ -32,7 +32,7 @@
 		return
 	var/stun_amount = 200/severity
 	owner.Stun(stun_amount)
-	to_chat(owner, span_warning("Моё тело обездвижено!") )
+	to_chat(owner, span_warning("Моё тело обездвижено!"))
 
 
 /obj/item/organ/cyberimp/brain/anti_drop
@@ -52,17 +52,17 @@
 
 		var/list/L = owner.get_empty_held_indexes()
 		if(LAZYLEN(L) == owner.held_items.len)
-			to_chat(owner, span_notice("Ничего не держу, руки расслаблены...") )
+			to_chat(owner, span_notice("Ничего не держу, руки расслаблены..."))
 			active = 0
 			stored_items = list()
 		else
 			for(var/obj/item/I in stored_items)
-				to_chat(owner, span_notice("Моя [owner.get_held_index_name(owner.get_held_index_of_item(I))] усиливает захват.") )
+				to_chat(owner, span_notice("Моя [owner.get_held_index_name(owner.get_held_index_of_item(I))] усиливает захват."))
 				ADD_TRAIT(I, TRAIT_NODROP, ANTI_DROP_IMPLANT_TRAIT)
 
 	else
 		release_items()
-		to_chat(owner, span_notice("Руки расслабляются...") )
+		to_chat(owner, span_notice("Руки расслабляются..."))
 
 
 /obj/item/organ/cyberimp/brain/anti_drop/emp_act(severity)
@@ -76,7 +76,7 @@
 	for(var/obj/item/I in stored_items)
 		A = pick(oview(range))
 		I.throw_at(A, range, 2)
-		to_chat(owner, span_warning("Моя [owner.get_held_index_name(owner.get_held_index_of_item(I))] спазмирует и [I.name] вылетает из неё!") )
+		to_chat(owner, span_warning("Моя [owner.get_held_index_name(owner.get_held_index_of_item(I))] спазмирует и [I.name] вылетает из неё!"))
 	stored_items = list()
 
 
@@ -151,7 +151,7 @@
 	if(!owner || . & EMP_PROTECT_SELF)
 		return
 	if(prob(60/severity))
-		to_chat(owner, span_warning("НЕ МОГУ ДЫШАТЬ!") )
+		to_chat(owner, span_warning("НЕ МОГУ ДЫШАТЬ!"))
 		owner.losebreath += 2
 
 //BOX O' IMPLANTS

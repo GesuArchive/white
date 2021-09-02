@@ -43,7 +43,7 @@
 		rapid_melee = initial(rapid_melee)
 		return
 	if(!aggressive_message_said && target)
-		visible_message(span_danger("The [name] gets an enraged look at [target]!") )
+		visible_message(span_danger("The [name] gets an enraged look at [target]!"))
 		aggressive_message_said = TRUE
 	rapid_melee = 2
 

@@ -52,7 +52,7 @@
 
 /mob/living/simple_animal/bot/hygienebot/explode()
 	walk_to(src,0)
-	visible_message(span_boldannounce("[capitalize(src.name)] взрывается и разбрызгивает вокруг пену!") )
+	visible_message(span_boldannounce("[capitalize(src.name)] взрывается и разбрызгивает вокруг пену!"))
 	do_sparks(3, TRUE, src)
 	on = FALSE
 	new /obj/effect/particle_effect/foam(loc)

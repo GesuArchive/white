@@ -77,11 +77,11 @@
 		if(BOOKCASE_UNANCHORED)
 			if(I.tool_behaviour == TOOL_WRENCH)
 				if(I.use_tool(src, user, 20, volume=50))
-					to_chat(user, span_notice("Прикручиваю рамку шкафа.") )
+					to_chat(user, span_notice("Прикручиваю рамку шкафа."))
 					set_anchored(TRUE)
 			else if(I.tool_behaviour == TOOL_CROWBAR)
 				if(I.use_tool(src, user, 20, volume=50))
-					to_chat(user, span_notice("Разламываю рамку шкафа.") )
+					to_chat(user, span_notice("Разламываю рамку шкафа."))
 					deconstruct(TRUE)
 
 		if(BOOKCASE_ANCHORED)
@@ -89,12 +89,12 @@
 				var/obj/item/stack/sheet/mineral/wood/W = I
 				if(W.get_amount() >= 2)
 					W.use(2)
-					to_chat(user, span_notice("Добавляю полку.") )
+					to_chat(user, span_notice("Добавляю полку."))
 					state = BOOKCASE_FINISHED
 					update_icon()
 			else if(I.tool_behaviour == TOOL_WRENCH)
 				I.play_tool_sound(src, 100)
-				to_chat(user, span_notice("Откручиваю рамку шкафа.") )
+				to_chat(user, span_notice("Откручиваю рамку шкафа."))
 				set_anchored(FALSE)
 
 		if(BOOKCASE_FINISHED)
@@ -107,11 +107,11 @@
 				for(var/obj/item/T in I.contents)
 					if(istype(T, /obj/item/book) || istype(T, /obj/item/spellbook))
 						STR.remove_from_storage(T, src)
-				to_chat(user, span_notice("Кладу [I.name] в <b>[src.name]</b>.") )
+				to_chat(user, span_notice("Кладу [I.name] в <b>[src.name]</b>."))
 				update_icon()
 			else if(istype(I, /obj/item/pen))
 				if(!user.is_literate())
-					to_chat(user, span_notice("Пишу закорючки на стороне [src.name]! ХЕХ!") )
+					to_chat(user, span_notice("Пишу закорючки на стороне [src.name]! ХЕХ!"))
 					return
 				var/newname = stripped_input(user, "Как назовём этот шкаф?")
 				if(!user.canUseTopic(src, BE_CLOSE))
@@ -122,10 +122,10 @@
 					name = "книжный шкаф ([sanitize(newname)])"
 			else if(I.tool_behaviour == TOOL_CROWBAR)
 				if(contents.len)
-					to_chat(user, span_warning("Надо бы сначала вытащить все книги!") )
+					to_chat(user, span_warning("Надо бы сначала вытащить все книги!"))
 				else
 					I.play_tool_sound(src, 100)
-					to_chat(user, span_notice("Вырываю полку.") )
+					to_chat(user, span_notice("Вырываю полку."))
 					new /obj/item/stack/sheet/mineral/wood(drop_location(), 2)
 					state = BOOKCASE_ANCHORED
 					update_icon()
@@ -225,7 +225,7 @@
 /obj/item/book/attack_self(mob/user)
 	if(!user.can_read(src))
 		return
-	user.visible_message(span_notice("[user] открывает \"[title]\" и начинает внимательно её изучать.") )
+	user.visible_message(span_notice("[user] открывает \"[title]\" и начинает внимательно её изучать."))
 	SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "book_nerd", /datum/mood_event/book_nerd)
 	on_read(user)
 
@@ -234,20 +234,20 @@
 		user << browse("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><TT><I>Автор: [author].</I></TT> <BR>" + "[dat]", "window=book[window_size != null ? ";size=[window_size]" : ""]")
 		onclose(user, "book")
 	else
-		to_chat(user, span_notice("Книга пустая!") )
+		to_chat(user, span_notice("Книга пустая!"))
 
 
 /obj/item/book/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/pen))
 		if(user.is_blind())
-			to_chat(user, span_warning("Когда я открываю книгу, внезапно возникает ощущение того, что чего-то мне не хватает и это не только глаз!") )
+			to_chat(user, span_warning("Когда я открываю книгу, внезапно возникает ощущение того, что чего-то мне не хватает и это не только глаз!"))
 			return
 		if(unique)
-			to_chat(user, span_warning("Страницы не принимают мои чернила совсем! Похоже, что дописать эту книгу у меня не выйдет.") )
+			to_chat(user, span_warning("Страницы не принимают мои чернила совсем! Похоже, что дописать эту книгу у меня не выйдет."))
 			return
 		var/literate = user.is_literate()
 		if(!literate)
-			to_chat(user, span_notice("Выцарапываю закорючки на обложке [src.name]!") )
+			to_chat(user, span_notice("Выцарапываю закорючки на обложке [src.name]!"))
 			return
 		var/choice = tgui_input_list(usr, "Что меняем?",,list("Название", "Содержимое", "Автора", "Отмена"))
 		if(!user.canUseTopic(src, BE_CLOSE, literate))
@@ -258,10 +258,10 @@
 				if(!user.canUseTopic(src, BE_CLOSE, literate))
 					return
 				if (length_char(newtitle) > 20)
-					to_chat(user, span_warning("Это слишком длинное название!") )
+					to_chat(user, span_warning("Это слишком длинное название!"))
 					return
 				if(!newtitle)
-					to_chat(user, span_warning("Это название неправильное.") )
+					to_chat(user, span_warning("Это название неправильное."))
 					return
 				else
 					name = newtitle
@@ -271,7 +271,7 @@
 				if(!user.canUseTopic(src, BE_CLOSE, literate))
 					return
 				if(!content)
-					to_chat(user, span_warning("Содержимое неправильное.") )
+					to_chat(user, span_warning("Содержимое неправильное."))
 					return
 				else
 					dat += content
@@ -280,7 +280,7 @@
 				if(!user.canUseTopic(src, BE_CLOSE, literate))
 					return
 				if(!newauthor)
-					to_chat(user, span_warning("Имя неправильное.") )
+					to_chat(user, span_warning("Имя неправильное."))
 					return
 				else
 					author = newauthor
@@ -290,37 +290,37 @@
 	else if(istype(I, /obj/item/barcodescanner))
 		var/obj/item/barcodescanner/scanner = I
 		if(!scanner.computer)
-			to_chat(user, span_alert("Экран [I.name] вспыхивает: 'Не привязан компьютер!'") )
+			to_chat(user, span_alert("Экран [I.name] вспыхивает: 'Не привязан компьютер!'"))
 		else
 			switch(scanner.mode)
 				if(0)
 					scanner.book = src
-					to_chat(user, span_notice("Экран [I.name] вспыхивает: 'Книга сохранена в буфер.'") )
+					to_chat(user, span_notice("Экран [I.name] вспыхивает: 'Книга сохранена в буфер.'"))
 				if(1)
 					scanner.book = src
 					scanner.computer.buffer_book = name
-					to_chat(user, span_notice("Экран [I.name] вспыхивает: 'Книга сохранена в буфер. Название книги теперь сохранено в буфере компьютера.'") )
+					to_chat(user, span_notice("Экран [I.name] вспыхивает: 'Книга сохранена в буфер. Название книги теперь сохранено в буфере компьютера.'"))
 				if(2)
 					scanner.book = src
 					for(var/datum/borrowbook/b in scanner.computer.checkouts)
 						if(b.bookname == name)
 							scanner.computer.checkouts.Remove(b)
-							to_chat(user, span_notice("Экран [I.name] вспыхивает: 'Книга сохранена в буфер. Книга была зарегистрирована.'") )
+							to_chat(user, span_notice("Экран [I.name] вспыхивает: 'Книга сохранена в буфер. Книга была зарегистрирована.'"))
 							return
-					to_chat(user, span_notice("Экран [I.name] вспыхивает: 'Книга сохранена в буфер. Для текущего заголовка не найдено активных записей о выдаче.'") )
+					to_chat(user, span_notice("Экран [I.name] вспыхивает: 'Книга сохранена в буфер. Для текущего заголовка не найдено активных записей о выдаче.'"))
 				if(3)
 					scanner.book = src
 					for(var/obj/item/book in scanner.computer.inventory)
 						if(book == src)
-							to_chat(user, span_alert("Экран [I.name] вспыхивает: 'Книга сохранена в буфер. Заголовок уже присутствует в инвентаре, прерывание во избежание дублирования записи.'") )
+							to_chat(user, span_alert("Экран [I.name] вспыхивает: 'Книга сохранена в буфер. Заголовок уже присутствует в инвентаре, прерывание во избежание дублирования записи.'"))
 							return
 					scanner.computer.inventory.Add(src)
-					to_chat(user, span_notice("Экран [I.name] вспыхивает: 'Книга сохранена в буфер. Название добавлено в общий инвентарь.'") )
+					to_chat(user, span_notice("Экран [I.name] вспыхивает: 'Книга сохранена в буфер. Название добавлено в общий инвентарь.'"))
 
 	else if((istype(I, /obj/item/kitchen/knife) || I.tool_behaviour == TOOL_WIRECUTTER) && !(flags_1 & HOLOGRAM_1))
-		to_chat(user, span_notice("Начинаю резать [title]...") )
+		to_chat(user, span_notice("Начинаю резать [title]..."))
 		if(do_after(user, 30, target = src))
-			to_chat(user, span_notice("Режу страницы [title]! Всё равно книги никто не читает.") )
+			to_chat(user, span_notice("Режу страницы [title]! Всё равно книги никто не читает."))
 			var/obj/item/storage/book/B = new
 			B.name = src.name
 			B.title = src.title

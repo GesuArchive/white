@@ -24,14 +24,14 @@
 		return FALSE
 	var/datum/round_aspect/sel_aspect = input("Аспекты:", "Выбирайте!", null, null) as null|anything in SSaspects.aspects
 	if(!sel_aspect)
-		to_chat(C, span_notice("Не выбран аспект.") )
+		to_chat(C, span_notice("Не выбран аспект."))
 		return FALSE
 	else
 		if(sel_aspect.forbidden && !C.holder)
-			to_chat(C, span_notice("Этот аспект запрещён.") )
+			to_chat(C, span_notice("Этот аспект запрещён."))
 			return FALSE
 		message_admins("[key_name(C)] покупает аспект [sel_aspect].")
-		to_chat(C, span_notice("Выбрано <b>[sel_aspect]</b>! Другие игроки могут добавить ещё аспекты.") )
+		to_chat(C, span_notice("Выбрано <b>[sel_aspect]</b>! Другие игроки могут добавить ещё аспекты."))
 		SSaspects.forced_aspects[sel_aspect] = sel_aspect.weight
 		return TRUE
 

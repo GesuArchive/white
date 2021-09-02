@@ -85,9 +85,9 @@
  */
 /obj/machinery/atmospherics/components/unary/hypertorus/core/proc/activate(mob/living/user)
 	if(active)
-		to_chat(user, span_notice("You already activated the machine.") )
+		to_chat(user, span_notice("You already activated the machine."))
 		return
-	to_chat(user, span_notice("You link all parts toghether.") )
+	to_chat(user, span_notice("You link all parts toghether."))
 	active = TRUE
 	update_icon()
 	linked_interface.active = TRUE

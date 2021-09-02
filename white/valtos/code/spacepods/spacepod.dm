@@ -115,24 +115,24 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 			if(hatch_open || !locked)
 				hatch_open = !hatch_open
 				W.play_tool_sound(src)
-				to_chat(user, span_notice("You [hatch_open ? "open" : "close"] the maintenance hatch.") )
+				to_chat(user, span_notice("You [hatch_open ? "open" : "close"] the maintenance hatch."))
 			else
-				to_chat(user, span_warning("The hatch is locked shut!") )
+				to_chat(user, span_warning("The hatch is locked shut!"))
 			return TRUE
 		if(istype(W, /obj/item/stock_parts/cell))
 			if(!hatch_open)
-				to_chat(user, span_warning("The maintenance hatch is closed!") )
+				to_chat(user, span_warning("The maintenance hatch is closed!"))
 				return TRUE
 			if(cell)
-				to_chat(user, span_notice("The pod already has a battery.") )
+				to_chat(user, span_notice("The pod already has a battery."))
 				return TRUE
 			if(user.transferItemToLoc(W, src))
-				to_chat(user, span_notice("You insert [W] into the pod.") )
+				to_chat(user, span_notice("You insert [W] into the pod."))
 				cell = W
 			return TRUE
 		if(istype(W, /obj/item/spacepod_equipment))
 			if(!hatch_open)
-				to_chat(user, span_warning("The maintenance hatch is closed!") )
+				to_chat(user, span_warning("The maintenance hatch is closed!"))
 				return TRUE
 			var/obj/item/spacepod_equipment/SE = W
 			if(SE.can_install(src, user) && user.temporarilyRemoveItemFromInventory(SE))
@@ -143,36 +143,36 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 			var/obj/item/device/lock_buster/L = W
 			if(L.on)
 				user.visible_message(user, span_warning("[user] is drilling through [src]'s lock!") ,
-					span_notice("You start drilling through [src]'s lock!") )
+					span_notice("You start drilling through [src]'s lock!"))
 				if(do_after(user, 100 * W.toolspeed, target = src))
 					if(lock)
 						var/obj/O = lock
 						lock.on_uninstall()
 						qdel(O)
 						user.visible_message(user, span_warning("[user] has destroyed [src]'s lock!") ,
-							span_notice("You destroy [src]'s lock!") )
+							span_notice("You destroy [src]'s lock!"))
 				else
 					user.visible_message(user, span_warning("[user] fails to break through [src]'s lock!") ,
-					span_notice("You were unable to break through [src]'s lock!") )
+					span_notice("You were unable to break through [src]'s lock!"))
 				return TRUE
-			to_chat(user, span_notice("Turn the [L] on first.") )
+			to_chat(user, span_notice("Turn the [L] on first."))
 			return TRUE
 		if(W.tool_behaviour == TOOL_WELDER)
 			var/repairing = cell || internal_tank || equipment.len || (obj_integrity < max_integrity) || pilot || passengers.len
 			if(!hatch_open)
-				to_chat(user, span_warning("You must open the maintenance hatch before [repairing ? "attempting repairs" : "unwelding the armor"].") )
+				to_chat(user, span_warning("You must open the maintenance hatch before [repairing ? "attempting repairs" : "unwelding the armor"]."))
 				return TRUE
 			if(repairing && obj_integrity >= max_integrity)
-				to_chat(user, span_warning("[src] is fully repaired!") )
+				to_chat(user, span_warning("[src] is fully repaired!"))
 				return TRUE
-			to_chat(user, span_notice("You start [repairing ? "repairing [src]" : "slicing off [src]'s armor'"]") )
+			to_chat(user, span_notice("You start [repairing ? "repairing [src]" : "slicing off [src]'s armor'"]"))
 			if(W.use_tool(src, user, 50, amount=3, volume = 50))
 				if(repairing)
 					obj_integrity = min(max_integrity, obj_integrity + 10)
 					update_icon()
-					to_chat(user, span_notice("You mend some [pick("dents","bumps","damage")] with [W]") )
+					to_chat(user, span_notice("You mend some [pick("dents","bumps","damage")] with [W]"))
 				else if(!cell && !internal_tank && !equipment.len && !pilot && !passengers.len && construction_state == SPACEPOD_ARMOR_WELDED)
-					user.visible_message("[user] slices off [src]'s armor.", span_notice("You slice off [src]'s armor.") )
+					user.visible_message("[user] slices off [src]'s armor.", span_notice("You slice off [src]'s armor."))
 					construction_state = SPACEPOD_ARMOR_SECURED
 					update_icon()
 			return TRUE
@@ -188,22 +188,22 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 
 		if(target && istype(target))
 			src.visible_message(span_warning("[user] is trying to rip the door open and pull [target] out of [src]!") ,
-				span_warning("You see [user] outside the door trying to rip it open!") )
+				span_warning("You see [user] outside the door trying to rip it open!"))
 			if(do_after(user, 50, target = src) && construction_state == SPACEPOD_ARMOR_WELDED)
 				if(remove_rider(target))
 					target.Stun(20)
 					target.visible_message(span_warning("[user] flings the door open and tears [target] out of [src]") ,
-						span_warning("The door flies open and you are thrown out of [src] and to the ground!") )
+						span_warning("The door flies open and you are thrown out of [src] and to the ground!"))
 				return
 			target.visible_message(span_warning("[user] was unable to get the door open!") ,
-					span_warning("You manage to keep [user] out of [src]!") )
+					span_warning("You manage to keep [user] out of [src]!"))
 
 	if(!hatch_open)
 		//if(cargo_hold.storage_slots > 0)
 		//	if(!locked)
 		//		cargo_hold.open(user)
 		//	else
-		//		to_chat(user, span_notice("The storage compartment is locked") )
+		//		to_chat(user, span_notice("The storage compartment is locked"))
 		return ..()
 	var/list/items = list(cell, internal_tank)
 	items += equipment
@@ -511,16 +511,16 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 
 	if(istype(A, /obj/machinery/portable_atmospherics/canister))
 		if(internal_tank)
-			to_chat(user, span_warning("[src] already has an internal_tank!") )
+			to_chat(user, span_warning("[src] already has an internal_tank!"))
 			return
 		if(!A.Adjacent(src))
-			to_chat(user, span_warning("The canister is not close enough!") )
+			to_chat(user, span_warning("The canister is not close enough!"))
 			return
 		if(hatch_open)
-			to_chat(user, span_warning("The hatch is shut!") )
-		to_chat(user, span_notice("You begin inserting the canister into [src]") )
+			to_chat(user, span_warning("The hatch is shut!"))
+		to_chat(user, span_notice("You begin inserting the canister into [src]"))
 		if(do_after_mob(user, list(A, src), 50) && construction_state == SPACEPOD_ARMOR_WELDED)
-			to_chat(user, span_notice("You insert the canister into [src]") )
+			to_chat(user, span_notice("You insert the canister into [src]"))
 			A.forceMove(src)
 			internal_tank = A
 		return
@@ -529,10 +529,10 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		var/mob/living/M = A
 		if(M != user && !locked)
 			if(passengers.len >= max_passengers && !pilot)
-				to_chat(user, span_danger("<b>[A.p_they()] can't fly the pod!</b>") )
+				to_chat(user, span_danger("<b>[A.p_they()] can't fly the pod!</b>"))
 				return
 			if(passengers.len < max_passengers)
-				visible_message(span_danger("[user] starts loading [M] into [src]!") )
+				visible_message(span_danger("[user] starts loading [M] into [src]!"))
 				if(do_after_mob(user, list(M, src), 50) && construction_state == SPACEPOD_ARMOR_WELDED)
 					add_rider(M, FALSE)
 			return
@@ -547,7 +547,7 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		return FALSE
 
 	if(locked)
-		to_chat(user, span_warning("[src]'s doors are locked!") )
+		to_chat(user, span_warning("[src]'s doors are locked!"))
 		return FALSE
 
 	if(!istype(user))
@@ -559,23 +559,23 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		return FALSE
 
 	if(passengers.len <= max_passengers || !pilot)
-		visible_message(span_notice("[user] starts to climb into [src].") )
+		visible_message(span_notice("[user] starts to climb into [src]."))
 		if(do_after(user, 40, target = src) && construction_state == SPACEPOD_ARMOR_WELDED)
 			var/success = add_rider(user)
 			if(!success)
-				to_chat(user, span_notice("You were too slow. Try better next time, loser.") )
+				to_chat(user, span_notice("You were too slow. Try better next time, loser."))
 			return success
 		else
-			to_chat(user, span_notice("You stop entering [src].") )
+			to_chat(user, span_notice("You stop entering [src]."))
 	else
-		to_chat(user, span_danger("You can't fit in [src], it's full!") )
+		to_chat(user, span_danger("You can't fit in [src], it's full!"))
 	return FALSE
 
 /obj/spacepod/proc/verb_check(require_pilot = TRUE, mob/user = null)
 	if(!user)
 		user = usr
 	if(require_pilot && user != pilot)
-		to_chat(user, span_notice("You can't reach the controls from your chair") )
+		to_chat(user, span_notice("You can't reach the controls from your chair"))
 		return FALSE
 	return !user.incapacitated() && isliving(user)
 
@@ -588,14 +588,14 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		return
 
 	if(HAS_TRAIT(usr, TRAIT_RESTRAINED))
-		to_chat(usr, span_notice("You attempt to stumble out of [src]. This will take two minutes.") )
+		to_chat(usr, span_notice("You attempt to stumble out of [src]. This will take two minutes."))
 		if(pilot)
-			to_chat(pilot, span_warning("[usr] is trying to escape [src].") )
+			to_chat(pilot, span_warning("[usr] is trying to escape [src]."))
 		if(!do_after(usr, 1200, target = src))
 			return
 
 	if(remove_rider(usr))
-		to_chat(usr, span_notice("You climb out of [src].") )
+		to_chat(usr, span_notice("You climb out of [src]."))
 
 /obj/spacepod/verb/lock_pod()
 	set name = "Lock Doors"
@@ -606,11 +606,11 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 		return
 
 	if(!lock)
-		to_chat(usr, span_warning("[src] has no locking mechanism.") )
+		to_chat(usr, span_warning("[src] has no locking mechanism."))
 		locked = FALSE //Should never be false without a lock, but if it somehow happens, that will force an unlock.
 	else
 		locked = !locked
-		to_chat(usr, span_warning("You [locked ? "lock" : "unlock"] the doors.") )
+		to_chat(usr, span_warning("You [locked ? "lock" : "unlock"] the doors."))
 
 /obj/spacepod/verb/toggle_brakes()
 	set name = "Toggle Brakes"
@@ -620,13 +620,13 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 	if(!verb_check())
 		return
 	brakes = !brakes
-	to_chat(usr, span_notice("You toggle the brakes [brakes ? "on" : "off"].") )
+	to_chat(usr, span_notice("You toggle the brakes [brakes ? "on" : "off"]."))
 
 /obj/spacepod/AltClick(user)
 	if(!verb_check(user = user))
 		return
 	brakes = !brakes
-	to_chat(usr, span_notice("You toggle the brakes [brakes ? "on" : "off"].") )
+	to_chat(usr, span_notice("You toggle the brakes [brakes ? "on" : "off"]."))
 
 /obj/spacepod/verb/toggleLights()
 	set name = "Toggle Lights"
@@ -662,10 +662,10 @@ GLOBAL_LIST_INIT(spacepods_list, list())
 				else
 					P.close()
 					return TRUE
-		to_chat(usr, span_warning("Access denied.") )
+		to_chat(usr, span_warning("Access denied."))
 		return
 
-	to_chat(usr, span_warning("You are not close to any pod doors.") )
+	to_chat(usr, span_warning("You are not close to any pod doors."))
 
 /obj/spacepod/proc/add_rider(mob/living/M, allow_pilot = TRUE)
 	if(M == pilot || (M in passengers))

@@ -124,7 +124,7 @@
 	for(var/mob/living/L in loc)
 		if(QDELETED(attack_item) || !attack_mob)
 			continue
-		visible_message(span_danger("[capitalize(attack_item.name)] попадает в [L]!") )
+		visible_message(span_danger("[capitalize(attack_item.name)] попадает в [L]!"))
 		L.attacked_by(attack_item, attack_mob)
 
 /obj/item/claymore/aoetest

@@ -72,7 +72,7 @@
 			hooked_singulo = S
 			hooked_singulo.forceMove(get_turf(src))
 			hooked_singulo.alpha = 200
-			visible_message(span_warning("[capitalize(src.name)] цапает сингулярность!") )
+			visible_message(span_warning("[capitalize(src.name)] цапает сингулярность!"))
 			qdel(hooked_singulo.singularity_component)
 	else if (hooked_singulo)
 		if(magpower > 1)
@@ -155,7 +155,7 @@
 
 /obj/machinery/meteor_catcher/attackby(obj/item/I, mob/living/user, params)
 	if(asteroid_catching)
-		to_chat(user, span_warning("<b>[capitalize(src.name)]</b> занят!") )
+		to_chat(user, span_warning("<b>[capitalize(src.name)]</b> занят!"))
 		return FALSE
 	if(I.tool_behaviour == TOOL_WRENCH)
 		if(default_unfasten_wrench(user, I, time = 20) == SUCCESSFUL_UNFASTEN)
@@ -166,7 +166,7 @@
 				STOP_PROCESSING(SSobj, src)
 			return
 	if(I.tool_behaviour == TOOL_MULTITOOL)
-		to_chat(user, span_warning("Меняю режим.") )
+		to_chat(user, span_warning("Меняю режим."))
 		STOP_PROCESSING(SSobj, src)
 		asteroid_mode = !asteroid_mode
 		return
@@ -180,29 +180,29 @@
 	. = ..()
 	if(anchored)
 		if(asteroid_catching)
-			to_chat(user, span_warning("<b>[capitalize(src.name)]</b> занят!") )
+			to_chat(user, span_warning("<b>[capitalize(src.name)]</b> занят!"))
 			return
 		if(asteroid_catched)
 			user.visible_message(span_notice("<b>[user]</b> включает <b>[src.name]</b>.") , \
 						span_notice("Включаю <b>[src.name]</b>.") , \
-						span_hear("Слышу тяжёлое жужжание.") )
+						span_hear("Слышу тяжёлое жужжание."))
 			START_PROCESSING(SSobj, src)
 			icon_state = "beacon_on"
 			return
 		if(!(datum_flags & DF_ISPROCESSING))
 			user.visible_message(span_notice("<b>[user]</b> включает <b>[src.name]</b>.") , \
 						span_notice("Включаю <b>[src.name]</b>.") , \
-						span_hear("Слышу тяжёлое жужжание.") )
+						span_hear("Слышу тяжёлое жужжание."))
 			START_PROCESSING(SSobj, src)
 			icon_state = "beacon_on"
 		else
 			user.visible_message(span_notice("<b>[user]</b> выключает <b>[src.name]</b>.") , \
 						span_notice("Выключаю <b>[src.name]</b>.") , \
-						span_hear("Слышу утихающее жужжание.") )
+						span_hear("Слышу утихающее жужжание."))
 			STOP_PROCESSING(SSobj, src)
 			icon_state = "beacon_off"
 	else
-		to_chat(user, span_warning("<b>[capitalize(src.name)]</b> должен быть закреплён на полу!") )
+		to_chat(user, span_warning("<b>[capitalize(src.name)]</b> должен быть закреплён на полу!"))
 
 /obj/machinery/meteor_catcher/process()
 	if(!anchored)
@@ -301,7 +301,7 @@
 				var/obj/effect/meteor/M = new meteor_to(T)
 				last_catch = world.time
 				enslaved_meteors += M
-				visible_message(span_notice("<b>[capitalize(src.name)]</b> ловит в захват <b>[M]</b>.") )
+				visible_message(span_notice("<b>[capitalize(src.name)]</b> ловит в захват <b>[M]</b>."))
 				Beam(get_turf(M), icon_state = "nzcrentrs_power", time = 5 SECONDS)
 				return
 		else

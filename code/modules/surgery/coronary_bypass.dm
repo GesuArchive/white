@@ -24,7 +24,7 @@
 /datum/surgery_step/incise_heart/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю делать надрез в сердце [sklonenie(target, RODITELNI, target.gender)]...") ,
 		span_notice("[user] начинает делать надрез в [target.ru_who()] сердце.") ,
-		span_notice("[user] начинает делать надрез в [target.ru_who()] сердце.") )
+		span_notice("[user] начинает делать надрез в [target.ru_who()] сердце."))
 
 /datum/surgery_step/incise_heart/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
@@ -43,7 +43,7 @@
 		var/mob/living/carbon/human/H = target
 		display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, сделав слишком глубокий надрез в сердце!") ,
 			span_warning("[user] облажался, из-за чего из груди [H] брызгает кровь!") ,
-			span_warning("[user] облажался, из-за чего из груди [H] брызгает кровь!") )
+			span_warning("[user] облажался, из-за чего из груди [H] брызгает кровь!"))
 		var/obj/item/bodypart/BP = H.get_bodypart(target_zone)
 		BP.generic_bleedstacks += 10
 		H.adjustOrganLoss(ORGAN_SLOT_HEART, 10)
@@ -58,7 +58,7 @@
 /datum/surgery_step/coronary_bypass/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю делать обходное штунирование сердца [sklonenie(target, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает делать обходное штунирование [target.ru_who()] сердца!") ,
-			span_notice("[user] начинает делать обходное штунирование [target.ru_who()] сердца!") )
+			span_notice("[user] начинает делать обходное штунирование [target.ru_who()] сердца!"))
 
 /datum/surgery_step/coronary_bypass/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	target.setOrganLoss(ORGAN_SLOT_HEART, 60)
@@ -67,7 +67,7 @@
 		heart.operated = TRUE
 	display_results(user, target, span_notice("Успешно выполняю обходное штунирование на сердце [sklonenie(target, RODITELNI, target.gender)].") ,
 			span_notice("[user] успешно выполняет обходное штунирование на [target.ru_who()] сердце.") ,
-			span_notice("[user] успешно выполняет обходное штунирование на [target.ru_who()] сердце.") )
+			span_notice("[user] успешно выполняет обходное штунирование на [target.ru_who()] сердце."))
 	return ..()
 
 /datum/surgery_step/coronary_bypass/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
@@ -75,7 +75,7 @@
 		var/mob/living/carbon/human/H = target
 		display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, выполняя штунирование, разорвав часть сердца!") ,
 			span_warning("[user] облажался, из-за чего из груди [H] обильно льётся кровь!") ,
-			span_warning("[user] облажался, из-за чего из груди [H] обильно льётся кровь!") )
+			span_warning("[user] облажался, из-за чего из груди [H] обильно льётся кровь!"))
 		H.adjustOrganLoss(ORGAN_SLOT_HEART, 20)
 		var/obj/item/bodypart/BP = H.get_bodypart(target_zone)
 		BP.generic_bleedstacks += 30

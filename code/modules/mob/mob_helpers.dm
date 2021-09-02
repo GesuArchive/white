@@ -358,7 +358,7 @@
 		var/orbit_link
 		if (source && action == NOTIFY_ORBIT)
 			orbit_link = " <a href='?src=[REF(O)];follow=[REF(source)]'>(Следить)</a>"
-		to_chat(O, span_ghostalert("[capitalize(message)][(enter_link) ? " [enter_link]" : ""][orbit_link]") )
+		to_chat(O, span_ghostalert("[capitalize(message)][(enter_link) ? " [enter_link]" : ""][orbit_link]"))
 		if(ghost_sound)
 			SEND_SOUND(O, sound(ghost_sound, volume = notify_volume))
 		if(flashwindow)
@@ -394,10 +394,10 @@
 			if(affecting.heal_damage(brute_heal, burn_heal, 0, BODYPART_ROBOTIC))
 				H.update_damage_overlays()
 			user.visible_message(span_notice("[user] чинит несколько [dam ? "dents on" : "burnt wires in"] [H] [affecting.name].") , \
-			span_notice("Чиню несколько [dam ? "dents on" : "burnt wires in"] [H == user ? "your" : "[H]"] [affecting.name].") )
+			span_notice("Чиню несколько [dam ? "dents on" : "burnt wires in"] [H == user ? "your" : "[H]"] [affecting.name]."))
 			return 1 //successful heal
 		else
-			to_chat(user, span_warning("[affecting] уже в хорошем состоянии!") )
+			to_chat(user, span_warning("[affecting] уже в хорошем состоянии!"))
 
 ///Is the passed in mob a ghost with admin powers, doesn't check for AI interact like isAdminGhost() used to
 /proc/isAdminObserver(mob/user)

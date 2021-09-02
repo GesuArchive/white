@@ -15,7 +15,7 @@
 		icon_state = "linker_mechcomp"
 		tool_behaviour = TOOL_MECHCOMP
 	else
-		to_chat(user, span_notice("You slide in the mechcomp control panel on the \"C.U.M.\", making it function like a regular multitool.") )
+		to_chat(user, span_notice("You slide in the mechcomp control panel on the \"C.U.M.\", making it function like a regular multitool."))
 		icon_state = "linker_multitool"
 		tool_behaviour = TOOL_MULTITOOL
 	//So, apparently tool behaviours are not bitflags and are instead just plain strings with some #defines sprinkled over.

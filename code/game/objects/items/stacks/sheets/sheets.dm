@@ -43,5 +43,5 @@
 	playsound(src, "shatter", 70, TRUE)
 	use(1)
 	user.visible_message(span_notice("[user] разбивает лист [name] об пол, оставляя [english_list(shards)].") , \
-		span_notice("Разбиваю лист [name] об пол, оставляя [english_list(shards)].") )
+		span_notice("Разбиваю лист [name] об пол, оставляя [english_list(shards)]."))
 	return TRUE

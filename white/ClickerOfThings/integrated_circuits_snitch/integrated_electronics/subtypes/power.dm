@@ -82,7 +82,7 @@
 			var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 			s.set_up(12, 1, src)
 			s.start()
-			acting_object.visible_message(span_warning("\The [acting_object] makes some sparks!") )
+			acting_object.visible_message(span_warning("\The [acting_object] makes some sparks!"))
 	return TRUE
 
 

@@ -42,7 +42,7 @@
 
 /obj/item/energy_katana/attack_self(mob/user)
 	dash_toggled = !dash_toggled
-	to_chat(user, span_notice("[dash_toggled ? "enable" : "disable"] функцию рывка на [src].") )
+	to_chat(user, span_notice("[dash_toggled ? "enable" : "disable"] функцию рывка на [src]."))
 
 /obj/item/energy_katana/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -113,7 +113,7 @@
 			msg = "Your Energy Katana lands at your feet!"
 
 	if(msg)
-		to_chat(user, span_notice("[msg]") )
+		to_chat(user, span_notice("[msg]"))
 
 /datum/action/innate/dash/ninja
 	current_charges = 3

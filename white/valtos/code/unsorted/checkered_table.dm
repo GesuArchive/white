@@ -9,7 +9,7 @@
 	force = 7
 
 /obj/item/checkers_kit/attack_self(mob/user)
-	visible_message(span_warning("<b>[user]</b> разворачивает огромную доску!") )
+	visible_message(span_warning("<b>[user]</b> разворачивает огромную доску!"))
 	new /obj/checkered_table(get_turf(src))
 	qdel(src)
 
@@ -150,12 +150,12 @@
 	if(PR["alt"])
 		reset_table()
 		setup_checkers()
-		visible_message(span_warning("<b>[user]</b> сбрасывает доску к началу.") )
+		visible_message(span_warning("<b>[user]</b> сбрасывает доску к началу."))
 		return
 
 	if(PR["ctrl"] && PR["shift"])
 		reset_table()
-		visible_message(span_warning("<b>[user]</b> сворачивает доску.") )
+		visible_message(span_warning("<b>[user]</b> сворачивает доску."))
 		new /obj/item/checkers_kit(get_turf(src))
 		qdel(src)
 		return
@@ -188,7 +188,7 @@
 		overlays += clicked_piece
 		piece_active = clicked_piece
 		playsound(src.loc, 'white/valtos/sounds/checkers/capture.wav', 50)
-		visible_message(span_notice("<b>[user]</b> поднимает шашку в квадрате <b>[get_letter(_y)][_x]</b>.") )
+		visible_message(span_notice("<b>[user]</b> поднимает шашку в квадрате <b>[get_letter(_y)][_x]</b>."))
 	else if (clicked_piece && PR["middle"])
 		overlays -= clicked_piece
 		clicked_piece.icon_state = "[piece_active.name]"
@@ -198,14 +198,14 @@
 			clicked_piece.icon = 'white/valtos/icons/piece.dmi'
 		overlays += clicked_piece
 		playsound(src.loc, 'white/valtos/sounds/checkers/capture.wav', 50)
-		visible_message(span_notice("<b>[user]</b> переворачивает шашку в квадрате <b>[get_letter(_y)][_x]</b>.") )
+		visible_message(span_notice("<b>[user]</b> переворачивает шашку в квадрате <b>[get_letter(_y)][_x]</b>."))
 	else if (piece_active && clicked_piece)
 		overlays -= piece_active
 		piece_active.icon_state = "[piece_active.name]"
 		overlays += piece_active
 		piece_active = null
 		playsound(src.loc, 'white/valtos/sounds/checkers/capture.wav', 50)
-		visible_message(span_notice("<b>[user]</b> ставит шашку на место.") )
+		visible_message(span_notice("<b>[user]</b> ставит шашку на место."))
 	else if (piece_active && !clicked_piece)
 		remove_piece_from_table(piece_active)
 		overlays -= piece_active
@@ -213,7 +213,7 @@
 		set_piece_on_table(_x, _y, piece_active.icon_state)
 		piece_active = null
 		playsound(src.loc, 'white/valtos/sounds/checkers/move.wav', 50)
-		visible_message(span_notice("<b>[user]</b> переносит шашку в квадрат <b>[get_letter(_y)][_x]</b>.") )
+		visible_message(span_notice("<b>[user]</b> переносит шашку в квадрат <b>[get_letter(_y)][_x]</b>."))
 
 /*
 CONTAINS:

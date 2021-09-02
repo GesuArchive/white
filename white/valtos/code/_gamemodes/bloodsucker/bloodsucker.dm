@@ -124,18 +124,18 @@
 	// No Mind
 	if(!bloodsucker || !bloodsucker.key) // KEY is client login?
 		//if(creator) // REMOVED. You wouldn't see their name if there is no mind, so why say anything?
-		//	to_chat(creator, span_danger("[bloodsucker] isn't self-aware enough to be raised as a Bloodsucker!") )
+		//	to_chat(creator, span_danger("[bloodsucker] isn't self-aware enough to be raised as a Bloodsucker!"))
 		return FALSE
 	// Current body is invalid
 	if(!ishuman(bloodsucker.current))// && !ismonkey(bloodsucker.current))
 		if(display_warning && creator)
-			to_chat(creator, span_danger("[bloodsucker] isn't evolved enough to be raised as a Bloodsucker!") )
+			to_chat(creator, span_danger("[bloodsucker] isn't evolved enough to be raised as a Bloodsucker!"))
 		return FALSE
 	// Species Must have a HEART (Sorry Plasmabois)
 	var/mob/living/carbon/human/H = bloodsucker.current
 	if(NOBLOOD in H.dna.species.species_traits)
 		if(display_warning && creator)
-			to_chat(creator, span_danger("[bloodsucker] DNA isn't compatible!") )
+			to_chat(creator, span_danger("[bloodsucker] DNA isn't compatible!"))
 		return FALSE
 	// Already a Non-Human Antag
 	if(bloodsucker.has_antag_datum(/datum/antagonist/abductor) || bloodsucker.has_antag_datum(/datum/antagonist/changeling))
@@ -143,13 +143,13 @@
 	// Already a vamp
 	if(bloodsucker.has_antag_datum(ANTAG_DATUM_BLOODSUCKER))
 		if(display_warning && creator)
-			to_chat(creator, span_danger("[bloodsucker] is already a Bloodsucker!") )
+			to_chat(creator, span_danger("[bloodsucker] is already a Bloodsucker!"))
 		return FALSE
 	// Not High Enough
 	if(creator)
 		var/datum/antagonist/bloodsucker/creator_bloodsucker = creator.has_antag_datum(ANTAG_DATUM_BLOODSUCKER)
 		if(!istype(creator_bloodsucker) || creator_bloodsucker.vamplevel < BLOODSUCKER_LEVEL_TO_EMBRACE)
-			to_chat(creator, span_danger("Your blood is too thin to turn this corpse!") )
+			to_chat(creator, span_danger("Your blood is too thin to turn this corpse!"))
 			return FALSE
 	return TRUE
 
@@ -231,22 +231,22 @@
 	// No Mind!
 	if (!target.mind || !target.mind.key)
 		if (display_warning)
-			to_chat(creator, span_danger("[target] isn't self-aware enough to be made into a Vassal.") )
+			to_chat(creator, span_danger("[target] isn't self-aware enough to be made into a Vassal."))
 		return FALSE
 	// Already MY Vassal
 	var/datum/antagonist/vassal/V = target.mind.has_antag_datum(ANTAG_DATUM_VASSAL)
 	if (istype(V) && V.master)
 		if (V.master.owner == creator)
 			if (display_warning)
-				to_chat(creator, span_danger("[target] is already your loyal Vassal!") )
+				to_chat(creator, span_danger("[target] is already your loyal Vassal!"))
 		else
 			if (display_warning)
-				to_chat(creator, span_danger("[target] is the loyal Vassal of another Bloodsucker!") )
+				to_chat(creator, span_danger("[target] is the loyal Vassal of another Bloodsucker!"))
 		return FALSE
 	// Already Antag or Loyal (Vamp Hunters count as antags)
 	if (target.mind.enslaved_to || AmInvalidAntag(target.mind)) //!VassalCheckAntagValid(target.mind, check_antag_or_loyal)) // HAS_TRAIT(target, TRAIT_MINDSHIELD, "implant") ||
 		if (display_warning)
-			to_chat(creator, span_danger("[target] resists the power of your blood to dominate their mind!") )
+			to_chat(creator, span_danger("[target] resists the power of your blood to dominate their mind!"))
 		return FALSE
 	return TRUE
 

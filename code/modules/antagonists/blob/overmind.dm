@@ -111,7 +111,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 		if(!placed)
 			if(manualplace_min_time && world.time >= manualplace_min_time)
 				to_chat(src, "<b><span class='big'><font color=\"#EE4000\">You may now place your blob core.</font></span></b>")
-				to_chat(src, span_big("<font color=\"#EE4000\">You will automatically place your blob core in [DisplayTimeText(autoplace_max_time - world.time)].</font>") )
+				to_chat(src, span_big("<font color=\"#EE4000\">You will automatically place your blob core in [DisplayTimeText(autoplace_max_time - world.time)].</font>"))
 				manualplace_min_time = 0
 			if(autoplace_max_time && world.time >= autoplace_max_time)
 				place_blob_core(1)
@@ -210,7 +210,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	. = ..()
 	if(!. || !client)
 		return FALSE
-	to_chat(src, span_notice("You are the overmind!") )
+	to_chat(src, span_notice("You are the overmind!"))
 	blob_help()
 	update_health_hud()
 	add_points(0)
@@ -238,7 +238,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 
 	if (src.client)
 		if(client.prefs.muted & MUTE_IC)
-			to_chat(src, span_boldwarning("You cannot send IC messages (muted).") )
+			to_chat(src, span_boldwarning("You cannot send IC messages (muted)."))
 			return
 		if (!(ignore_spam || forced) && src.client.handle_spam_prevention(message,MUTE_IC))
 			return

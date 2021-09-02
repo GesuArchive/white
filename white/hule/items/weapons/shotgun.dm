@@ -87,7 +87,7 @@ obj/item/gun/ballistic/shotgun/makeshift/update_icon()
 	if(prob(jamchance) && !jammed)
 		jammed = TRUE
 		time_to_unjam = rand(jamchance,50+jamchance) //низкий jamchance даёт меньшее минимальное время для починки
-		to_chat(usr, span_warning("[capitalize(src.name)] malfunctions!") )
+		to_chat(usr, span_warning("[capitalize(src.name)] malfunctions!"))
 /obj/item/gun/ballistic/shotgun/makeshift/shoot_live_shot(mob/living/user)
 	..()
 	rack()
@@ -96,10 +96,10 @@ obj/item/gun/ballistic/shotgun/makeshift/update_icon()
 
 	if(istype(A, /obj/item/wrench))
 		if(magazine)
-			to_chat(user, span_warning("Take out the magazine first!") )
+			to_chat(user, span_warning("Take out the magazine first!"))
 			return
 
-		user.visible_message(span_notice("[user] fiddles with the [src]...") , span_notice("You to unjam the [src]...") )
+		user.visible_message(span_notice("[user] fiddles with the [src]...") , span_notice("You to unjam the [src]..."))
 
 		if(do_after(user, time_to_unjam, 1, target = src, progress = 1, extra_checks = null))
 			jammed = FALSE
@@ -129,7 +129,7 @@ obj/item/gun/ballistic/shotgun/makeshift/update_icon()
 				jamchance = min(jamchance += damaged,80)
 				to_chat(usr, "<span class='[class]'>You manage to unjam the [src], [damage_desc] in the progress.</span>")
 			else
-				to_chat(usr, span_notice("You unjam the [src].") )
+				to_chat(usr, span_notice("You unjam the [src]."))
 	..()
 */
 

@@ -42,9 +42,9 @@
 					playsound(user, insert_sound, 50, 1)
 
 					user.visible_message(span_notice("[user] аккуратно устанавливает [chambered.BB] в [src].") , \
-                                         span_notice("Аккуратно устанавливаю [chambered.BB] в [src].") )
+                                         span_notice("Аккуратно устанавливаю [chambered.BB] в [src]."))
 		else
-			to_chat(user, span_warning("Стоит натянуть тетиву перед установкой снаряда!") )
+			to_chat(user, span_warning("Стоит натянуть тетиву перед установкой снаряда!"))
 	else
 		to_chat(user, "<span class='warning'>Здесь уже есть [chambered.BB] внутри!<span>")
 
@@ -87,14 +87,14 @@
 				else if (charge > 1)
 					draw = "дальше"
 				user.visible_message(span_notice("[user] натягивает тетиву [draw].") , \
-	                                     span_notice("Натягиваю тетиву [draw].") )
+	                                     span_notice("Натягиваю тетиву [draw]."))
 			else
 				charging = FALSE
 		else
-			to_chat(user, span_warning("Тетива натянута, милорд!") )
+			to_chat(user, span_warning("Тетива натянута, милорд!"))
 	else
 		user.visible_message(span_notice("[user] достаёт [chambered.BB] из [src].") , \
-							span_notice("Достаю [chambered.BB] из [src].") )
+							span_notice("Достаю [chambered.BB] из [src]."))
 		user.put_in_hands(new /obj/item/stack/rods)
 		chambered = null
 		playsound(user, insert_sound, 50, 1)
@@ -187,7 +187,7 @@
 			R.tryEmbed(BP, TRUE, TRUE)
 			H.update_damage_overlays()
 			visible_message(span_warning("<b>[capitalize(R.name)]</b> проникает в [ru_parse_zone(BP)] <b>[H]</b>!") ,
-							span_userdanger("Ох! <b>[capitalize(R.name)]</b> проникает в <b>[ru_parse_zone(BP)]</b>!") )
+							span_userdanger("Ох! <b>[capitalize(R.name)]</b> проникает в <b>[ru_parse_zone(BP)]</b>!"))
 			playsound(H, impale_sound, 50, 1)
 			H.emote("agony")
 

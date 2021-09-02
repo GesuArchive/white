@@ -3,7 +3,7 @@
 	dye_color = DYE_PRISONER
 
 /obj/item/restraints/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] is strangling [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] is strangling [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return(OXYLOSS)
 
 /obj/item/restraints/Destroy()
@@ -50,14 +50,14 @@
 	SEND_SIGNAL(C, COMSIG_CARBON_CUFF_ATTEMPTED, user)
 
 	if(iscarbon(user) && (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50)))
-		to_chat(user, span_warning("Хыы... как это работает?!") )
+		to_chat(user, span_warning("Хыы... как это работает?!"))
 		apply_cuffs(user,user)
 		return
 
 	if(!C.handcuffed)
 		if(C.canBeHandcuffed())
 			C.visible_message(span_danger("[user] пытается надеть [src.name] на [C]!") , \
-								span_userdanger("[user] пытается надеть [src.name] на меня!") )
+								span_userdanger("[user] пытается надеть [src.name] на меня!"))
 
 			playsound(loc, cuffsound, 30, TRUE, -2)
 			log_combat(user, C, "attempted to handcuff")
@@ -67,15 +67,15 @@
 				else
 					apply_cuffs(C, user)
 				C.visible_message(span_notice("[user] заковывает [C].") , \
-									span_userdanger("[user] заковывает меня.") )
+									span_userdanger("[user] заковывает меня."))
 				SSblackbox.record_feedback("tally", "handcuffs", 1, type)
 
 				log_combat(user, C, "handcuffed")
 			else
-				to_chat(user, span_warning("Не выходит заковать [C]!") )
+				to_chat(user, span_warning("Не выходит заковать [C]!"))
 				log_combat(user, C, "failed to handcuff")
 		else
-			to_chat(user, span_warning("[C] не имеет двух рук...") )
+			to_chat(user, span_warning("[C] не имеет двух рук..."))
 
 /obj/item/restraints/handcuffs/proc/apply_cuffs(mob/living/carbon/target, mob/user, dispense = 0)
 	if(target.handcuffed)
@@ -158,24 +158,24 @@
 			var/obj/item/wirerod/W = new /obj/item/wirerod
 			remove_item_from_storage(user)
 			user.put_in_hands(W)
-			to_chat(user, span_notice("Оборачиваю [src.name] вокруг верхушки [I.name].") )
+			to_chat(user, span_notice("Оборачиваю [src.name] вокруг верхушки [I.name]."))
 			qdel(src)
 		else
-			to_chat(user, span_warning("Мне потребуется стержень для этого!") )
+			to_chat(user, span_warning("Мне потребуется стержень для этого!"))
 			return
 	else if(istype(I, /obj/item/stack/sheet/iron))
 		var/obj/item/stack/sheet/iron/M = I
 		if(M.get_amount() < 6)
-			to_chat(user, span_warning("Мне потребуется как минимум шесть единиц металла для веса!") )
+			to_chat(user, span_warning("Мне потребуется как минимум шесть единиц металла для веса!"))
 			return
-		to_chat(user, span_notice("Начинаю навешивать [I.name] на [src.name]...") )
+		to_chat(user, span_notice("Начинаю навешивать [I.name] на [src.name]..."))
 		if(do_after(user, 35, target = src))
 			if(M.get_amount() < 6 || !M)
 				return
 			var/obj/item/restraints/legcuffs/bola/S = new /obj/item/restraints/legcuffs/bola
 			M.use(6)
 			user.put_in_hands(S)
-			to_chat(user, span_notice("Делаю грузики используя [I.name] создавая [src.name].") )
+			to_chat(user, span_notice("Делаю грузики используя [I.name] создавая [src.name]."))
 			remove_item_from_storage(user)
 			qdel(src)
 	else
@@ -237,7 +237,7 @@
 	icon_state = "[initial(icon_state)][armed]"
 
 /obj/item/restraints/legcuffs/beartrap/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is sticking [user.ru_ego()] head in the [src.name]! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] is sticking [user.ru_ego()] head in the [src.name]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 50, TRUE, -1)
 	return (BRUTELOSS)
 
@@ -247,7 +247,7 @@
 		return
 	armed = !armed
 	update_icon()
-	to_chat(user, span_notice("[capitalize(src.name)] теперь [armed ? "заряжена" : "разряжена"].") )
+	to_chat(user, span_notice("[capitalize(src.name)] теперь [armed ? "заряжена" : "разряжена"]."))
 
 /obj/item/restraints/legcuffs/beartrap/proc/close_trap()
 	armed = FALSE
@@ -264,7 +264,7 @@
 				var/obj/vehicle/ridden_vehicle = L.buckled
 				if(!ridden_vehicle.are_legs_exposed) //close the trap without injuring/trapping the rider if their legs are inside the vehicle at all times.
 					close_trap()
-					ridden_vehicle.visible_message(span_danger("[ridden_vehicle] наезжает на <b>[src.name]</b>.") )
+					ridden_vehicle.visible_message(span_danger("[ridden_vehicle] наезжает на <b>[src.name]</b>."))
 
 			if(L.movement_type & (FLYING|FLOATING)) //don't close the trap if they're flying/floating over it.
 				snap = FALSE
@@ -287,7 +287,7 @@
 			if(snap)
 				close_trap()
 				L.visible_message(span_danger("[L] наступает в <b>[src.name]</b>.") , \
-						span_userdanger("Наступаю в <b>[src.name]</b>!") )
+						span_userdanger("Наступаю в <b>[src.name]</b>!"))
 				L.apply_damage(trap_damage, BRUTE, def_zone)
 
 /obj/item/restraints/legcuffs/beartrap/energy
@@ -344,13 +344,13 @@
  */
 /obj/item/restraints/legcuffs/bola/proc/ensnare(mob/living/carbon/C)
 	if(!C.legcuffed && C.num_legs >= 2)
-		visible_message(span_danger("<b>[src.name]</b> ловит ножки [C]!") )
+		visible_message(span_danger("<b>[src.name]</b> ловит ножки [C]!"))
 		C.legcuffed = src
 		forceMove(C)
 		C.update_equipment_speed_mods()
 		C.update_inv_legcuffed()
 		SSblackbox.record_feedback("tally", "handcuffs", 1, type)
-		to_chat(C, span_userdanger("<b>[src.name]</b> ловит мои ножки!") )
+		to_chat(C, span_userdanger("<b>[src.name]</b> ловит мои ножки!"))
 		C.Knockdown(knockdown)
 		playsound(src, 'sound/effects/snap.ogg', 50, TRUE)
 

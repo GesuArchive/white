@@ -55,7 +55,7 @@
 	var/list/nearby_things = range(0, get_turf(src))
 	for(var/mob/M in nearby_things)
 		var/obj/O = assembly ? assembly : src
-		to_chat(M, span_notice("[icon2html(O.icon, world, O.icon_state)] [stuff_to_display]") )
+		to_chat(M, span_notice("[icon2html(O.icon, world, O.icon_state)] [stuff_to_display]"))
 	if(assembly)
 		assembly.investigate_log("displayed \"[html_encode(stuff_to_display)]\" with [type].", INVESTIGATE_CIRCUIT)
 	else
@@ -441,7 +441,7 @@
 		user.transferItemToLoc(O,src)
 		encryption_keys += O
 		recalculate_channels()
-		to_chat(user, span_notice("You slide [O] inside the circuit.") )
+		to_chat(user, span_notice("You slide [O] inside the circuit."))
 	else
 		..()
 
@@ -465,10 +465,10 @@
 			O.forceMove(drop_location())
 		encryption_keys.Cut()
 		set_pin_data(IC_OUTPUT, 1, WEAKREF(null))
-		to_chat(user, span_notice("You slide the encryption keys out of the circuit.") )
+		to_chat(user, span_notice("You slide the encryption keys out of the circuit."))
 		recalculate_channels()
 	else
-		to_chat(user, span_notice("There are no encryption keys to remove from the mechanism.") )
+		to_chat(user, span_notice("There are no encryption keys to remove from the mechanism."))
 
 /obj/item/radio/headset/integrated
 
@@ -485,7 +485,7 @@
 /obj/item/integrated_circuit_old/output/screen/extralarge/do_work()
 	..()
 	var/obj/O = assembly ? get_turf(assembly) : loc
-	O.visible_message(span_notice("[icon2html(O.icon, world, O.icon_state)]  [stuff_to_display]") )
+	O.visible_message(span_notice("[icon2html(O.icon, world, O.icon_state)]  [stuff_to_display]"))
 	if(assembly)
 		assembly.investigate_log("displayed \"[html_encode(stuff_to_display)]\" with [type].", INVESTIGATE_CIRCUIT)
 	else

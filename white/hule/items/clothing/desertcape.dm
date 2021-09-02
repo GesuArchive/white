@@ -38,7 +38,7 @@
 	if(!isliving(user))
 		return
 	if(user.staminaloss > 80)
-		to_chat(user, span_warning("You are too tierd!") )
+		to_chat(user, span_warning("You are too tierd!"))
 		return
 
 	var/atom/target = get_edge_target_turf(user, user.dir)
@@ -56,7 +56,7 @@
 			for(var/obj/item/I in stored_items)
 				I.add_trait(TRAIT_NODROP)
 		playsound(src, 'sound/weapons/thudswoosh.ogg', 50, 1, 1)
-		user.visible_message(span_warning("[usr] dashes forward!") )
+		user.visible_message(span_warning("[usr] dashes forward!"))
 		user.throw_at(target, distance, speed, spin = FALSE, diagonals_first = TRUE)
 		user.Knockdown(10)
 		user.spin(10,1)

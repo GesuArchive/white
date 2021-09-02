@@ -25,33 +25,33 @@
 
 /obj/item/sharpener/attackby(obj/item/I, mob/user, params)
 	if(uses == 0)
-		to_chat(user, span_warning("The sharpening block is too worn to use again!") )
+		to_chat(user, span_warning("The sharpening block is too worn to use again!"))
 		return
 	if(I.force >= max || I.throwforce >= max) //So the whetstone never reduces force or throw_force
-		to_chat(user, span_warning("[I] уже слишком острый, чтобы точить дальше!") )
+		to_chat(user, span_warning("[I] уже слишком острый, чтобы точить дальше!"))
 		return
 	if(requires_sharpness && !I.get_sharpness())
-		to_chat(user, span_warning("Могу заточить только уже острые предметы, например, ножи!") )
+		to_chat(user, span_warning("Могу заточить только уже острые предметы, например, ножи!"))
 		return
 	if(is_type_in_list(I, list(/obj/item/melee/transforming/energy, /obj/item/dualsaber))) //You can't sharpen the photons in energy meelee weapons
-		to_chat(user, span_warning("Не думаю что [I] изменится, если я использую его на <b>[src.name]</b>!") )
+		to_chat(user, span_warning("Не думаю что [I] изменится, если я использую его на <b>[src.name]</b>!"))
 		return
 
 	//This block is used to check more things if the item has a relevant component.
 	var/signal_out = SEND_SIGNAL(I, COMSIG_ITEM_SHARPEN_ACT, increment, max) //Stores the bitflags returned by SEND_SIGNAL
 	if(signal_out & COMPONENT_BLOCK_SHARPEN_MAXED) //If the item's components enforce more limits on maximum power from sharpening,  we fail
-		to_chat(user, span_warning("[I] уже слишком острый, чтобы точить дальше!") )
+		to_chat(user, span_warning("[I] уже слишком острый, чтобы точить дальше!"))
 		return
 	if(signal_out & COMPONENT_BLOCK_SHARPEN_BLOCKED)
-		to_chat(user, span_warning(" не могу заточить [I] сейчас!") )
+		to_chat(user, span_warning(" не могу заточить [I] сейчас!"))
 		return
 	if((signal_out & COMPONENT_BLOCK_SHARPEN_ALREADY) || (I.force > initial(I.force) && !signal_out)) //No sharpening stuff twice
-		to_chat(user, span_warning("[I] уже был доработан раньше. Дальше затачивать нельзя!") )
+		to_chat(user, span_warning("[I] уже был доработан раньше. Дальше затачивать нельзя!"))
 		return
 	if(!(signal_out & COMPONENT_BLOCK_SHARPEN_APPLIED)) //If the item has a relevant component and COMPONENT_BLOCK_SHARPEN_APPLIED is returned, the item only gets the throw force increase
 		I.force = clamp(I.force + increment, 0, max)
 		I.wound_bonus = I.wound_bonus + increment //wound_bonus has no cap
-	user.visible_message(span_notice("[user] точит [I] на [src]!") , span_notice("Точу [I], делаю его более смертоносным.") )
+	user.visible_message(span_notice("[user] точит [I] на [src]!") , span_notice("Точу [I], делаю его более смертоносным."))
 	playsound(src, 'sound/items/unsheath.ogg', 25, TRUE)
 	I.sharpness = SHARP_EDGED //When you whetstone something, it becomes an edged weapon, even if it was previously dull or pointy
 	I.throwforce = clamp(I.throwforce + increment, 0, max)

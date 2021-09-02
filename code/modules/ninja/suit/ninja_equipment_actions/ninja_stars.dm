@@ -17,10 +17,10 @@
 	var/mob/living/carbon/human/ninja = affecting
 	var/obj/item/throwing_star/stamina/ninja/ninja_star = new(ninja)
 	if(ninja.put_in_hands(ninja_star))
-		to_chat(ninja, span_notice("В моей руке создана метательная звезда!") )
+		to_chat(ninja, span_notice("В моей руке создана метательная звезда!"))
 	else
 		qdel(ninja_star)
-		to_chat(ninja, span_notice("Не могу создать метательную звезду, мои руки заняты!") )
+		to_chat(ninja, span_notice("Не могу создать метательную звезду, мои руки заняты!"))
 
 /**
  * # Ninja Throwing Star

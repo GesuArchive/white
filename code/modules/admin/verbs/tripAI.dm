@@ -12,4 +12,4 @@
 		return
 	SSticker.triai = !SSticker.triai
 	to_chat(usr, "There will [SSticker.triai ? "" : "not"] be an AI Triumvirate at round start.")
-	message_admins(span_adminnotice("[key_name_admin(usr)] has toggled [SSticker.triai ? "on" : "off"] triple AIs at round start.") )
+	message_admins(span_adminnotice("[key_name_admin(usr)] has toggled [SSticker.triai ? "on" : "off"] triple AIs at round start."))

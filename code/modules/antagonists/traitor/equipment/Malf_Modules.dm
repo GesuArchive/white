@@ -79,10 +79,10 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 /datum/action/innate/ai/proc/adjust_uses(amt, silent)
 	uses += amt
 	if(!silent && uses)
-		to_chat(owner, span_notice("В [name] осталось <b>[uses]</b> заряд[uses > 1 ? "ов" : ""].") )
+		to_chat(owner, span_notice("В [name] осталось <b>[uses]</b> заряд[uses > 1 ? "ов" : ""]."))
 	if(!uses)
 		if(initial(uses) > 1) //no need to tell 'em if it was one-use anyway!
-			to_chat(owner, span_warning("В [name] закончились заряды!") )
+			to_chat(owner, span_warning("В [name] закончились заряды!"))
 		qdel(src)
 
 /// Framework for ranged abilities that can have different effects by left-clicking stuff.
@@ -106,10 +106,10 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 /datum/action/innate/ai/ranged/adjust_uses(amt, silent)
 	uses += amt
 	if(!silent && uses)
-		to_chat(owner, span_notice("В [name] осталось <b>[uses]</b> заряд[uses > 1 ? "ов" : ""].") )
+		to_chat(owner, span_notice("В [name] осталось <b>[uses]</b> заряд[uses > 1 ? "ов" : ""]."))
 	if(!uses)
 		if(initial(uses) > 1) //no need to tell 'em if it was one-use anyway!
-			to_chat(owner, span_warning("В [name] закончились заряды!") )
+			to_chat(owner, span_warning("В [name] закончились заряды!"))
 		Remove(owner)
 		QDEL_IN(src, 100) //let any active timers on us finish up
 
@@ -190,7 +190,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 /datum/action/innate/ai/nuke_station/Activate()
 	var/turf/T = get_turf(owner)
 	if(!istype(T) || !is_station_level(T.z))
-		to_chat(owner, span_warning("Не могу активировать устройство судного дня за пределами станции!") )
+		to_chat(owner, span_warning("Не могу активировать устройство судного дня за пределами станции!"))
 		return
 	if(tgui_alert(owner, "Send arming signal? (true = arm, false = cancel)", "purge_all_life()", list("confirm = TRUE;", "confirm = FALSE;")) != "confirm = TRUE;")
 		return
@@ -213,13 +213,13 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	if(!owner || QDELETED(owner))
 		return
 	owner.playsound_local(owner, 'sound/misc/bloblarm.ogg', 50, 0, use_reverb = FALSE)
-	to_chat(owner, span_userdanger("!!! НЕАВТОРИЗОВАННЫЙ ДОСТУП К СИСТЕМЕ САМОУНИЧТОЖЕНИЯ !!!") )
-	to_chat(owner, span_boldannounce("Нарушение системы безопасности класса-3. Информация о данном инциденте будет передана в Центральное Командование.") )
+	to_chat(owner, span_userdanger("!!! НЕАВТОРИЗОВАННЫЙ ДОСТУП К СИСТЕМЕ САМОУНИЧТОЖЕНИЯ !!!"))
+	to_chat(owner, span_boldannounce("Нарушение системы безопасности класса-3. Информация о данном инциденте будет передана в Центральное Командование."))
 	for(var/i in 1 to 3)
 		sleep(20)
 		if(!owner || QDELETED(owner))
 			return
-		to_chat(owner, span_boldannounce("Отправка отчета системы безопасности в Центральное Командование.....[rand(0, 9) + (rand(20, 30) * i)]%") )
+		to_chat(owner, span_boldannounce("Отправка отчета системы безопасности в Центральное Командование.....[rand(0, 9) + (rand(20, 30) * i)]%"))
 	sleep(3)
 	if(!owner || QDELETED(owner))
 		return
@@ -228,12 +228,12 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	sleep(30)
 	if(!owner || QDELETED(owner))
 		return
-	to_chat(owner, span_boldnotice("Полномочия приняты. Добро пожаловать, akjv9c88asdf12nb.") )
+	to_chat(owner, span_boldnotice("Полномочия приняты. Добро пожаловать, akjv9c88asdf12nb."))
 	owner.playsound_local(owner, 'sound/misc/server-ready.ogg', 50, 0, use_reverb = FALSE)
 	sleep(5)
 	if(!owner || QDELETED(owner))
 		return
-	to_chat(owner, span_boldnotice("Активировать устройство самоуничтожения? (Y/N)") )
+	to_chat(owner, span_boldnotice("Активировать устройство самоуничтожения? (Y/N)"))
 	owner.playsound_local(owner, 'sound/misc/compiler-stage1.ogg', 50, 0, use_reverb = FALSE)
 	sleep(20)
 	if(!owner || QDELETED(owner))
@@ -242,7 +242,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	sleep(15)
 	if(!owner || QDELETED(owner))
 		return
-	to_chat(owner, span_boldnotice("Вы уверены что хотите активировать устройство самоуничтожение? (Y/N)") )
+	to_chat(owner, span_boldnotice("Вы уверены что хотите активировать устройство самоуничтожение? (Y/N)"))
 	owner.playsound_local(owner, 'sound/misc/compiler-stage2.ogg', 50, 0, use_reverb = FALSE)
 	sleep(10)
 	if(!owner || QDELETED(owner))
@@ -251,7 +251,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	sleep(rand(15, 25))
 	if(!owner || QDELETED(owner))
 		return
-	to_chat(owner, span_boldnotice("Для подтверждения повторите пароль.") )
+	to_chat(owner, span_boldnotice("Для подтверждения повторите пароль."))
 	owner.playsound_local(owner, 'sound/misc/compiler-stage2.ogg', 50, 0, use_reverb = FALSE)
 	sleep(14)
 	if(!owner || QDELETED(owner))
@@ -260,7 +260,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	sleep(40)
 	if(!owner || QDELETED(owner))
 		return
-	to_chat(owner, span_boldnotice("Полномочия приняты. Отправляю активирующий сигнал...") )
+	to_chat(owner, span_boldnotice("Полномочия приняты. Отправляю активирующий сигнал..."))
 	owner.playsound_local(owner, 'sound/misc/server-ready.ogg', 50, 0, use_reverb = FALSE)
 	sleep(30)
 	if(!owner || QDELETED(owner))
@@ -358,7 +358,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 			continue
 		if(issilicon(L))
 			continue
-		to_chat(L, span_userdanger("Взрывная волна от [src] распыляет меня, атом за атомом!") )
+		to_chat(L, span_userdanger("Взрывная волна от [src] распыляет меня, атом за атомом!"))
 		L.dust()
 	to_chat(world, "<B>ИИ очистил станцию устройством судного дня!</B>")
 	SSticker.force_ending = 1
@@ -392,7 +392,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 		C.post_status("alert", "lockdown")
 
 	minor_announce("В контроллерах шлюзов обнаружена вредоносная среда выполнения. Теперь действуют протоколы изоляции. Пожалуйста, сохраняйте спокойствие.","Сетевая угроза", TRUE)
-	to_chat(owner, span_danger("Инициализирована блокировка. Сеть перезагрузится спустя 90 секунд.") )
+	to_chat(owner, span_danger("Инициализирована блокировка. Сеть перезагрузится спустя 90 секунд."))
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/minor_announce,
 		"Automatic system reboot complete. Have a secure day.",
 		"Network reset:"), 900)
@@ -435,19 +435,19 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 		remove_ranged_ability()
 		return
 	if(!istype(target))
-		to_chat(ranged_ability_user, span_warning("Не могу активировать что-то кроме аппаратов!") )
+		to_chat(ranged_ability_user, span_warning("Не могу активировать что-то кроме аппаратов!"))
 		return
 	if(!target.can_be_overridden() || is_type_in_typecache(target, GLOB.blacklisted_malf_machines))
-		to_chat(ranged_ability_user, span_warning("Этот аппарат нельзя перенастроить!") )
+		to_chat(ranged_ability_user, span_warning("Этот аппарат нельзя перенастроить!"))
 		return
 	ranged_ability_user.playsound_local(ranged_ability_user, 'sound/misc/interference.ogg', 50, 0, use_reverb = FALSE)
 	attached_action.adjust_uses(-1)
 	if(attached_action?.uses)
 		attached_action.desc = "[initial(attached_action.desc)] It has [attached_action.uses] use\s remaining."
 		attached_action.UpdateButtonIcon()
-	target.audible_message(span_userdanger("Слышу громкий электрический треск, исходящий от [target]!") )
+	target.audible_message(span_userdanger("Слышу громкий электрический треск, исходящий от [target]!"))
 	addtimer(CALLBACK(attached_action, /datum/action/innate/ai/ranged/override_machine.proc/animate_machine, target), 50) //kabeep!
-	remove_ranged_ability(span_danger("Посылаю перенастраивающий сигнал...") )
+	remove_ranged_ability(span_danger("Посылаю перенастраивающий сигнал..."))
 	return TRUE
 
 /// Destroy RCDs: Detonates all non-cyborg RCDs on the station.
@@ -472,7 +472,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 		if(!istype(I, /obj/item/construction/rcd/borg)) //Ensures that cyborg RCDs are spared.
 			var/obj/item/construction/rcd/RCD = I
 			RCD.detonate_pulse()
-	to_chat(owner, span_danger("Импульс детонации УОС запущен.") )
+	to_chat(owner, span_danger("Импульс детонации УОС запущен."))
 	owner.playsound_local(owner, 'sound/machines/twobeep.ogg', 50, 0)
 
 /// Overload Machine: Allows the AI to overload a machine, detonating it after a delay. Two uses per purchase.
@@ -518,19 +518,19 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 		remove_ranged_ability()
 		return
 	if(!istype(target))
-		to_chat(ranged_ability_user, span_warning("Не могу перегрузить что-то не являющееся аппаратом!") )
+		to_chat(ranged_ability_user, span_warning("Не могу перегрузить что-то не являющееся аппаратом!"))
 		return
 	if(is_type_in_typecache(target, GLOB.blacklisted_malf_machines))
-		to_chat(ranged_ability_user, span_warning("Не могу перегрузить это устройство!") )
+		to_chat(ranged_ability_user, span_warning("Не могу перегрузить это устройство!"))
 		return
 	ranged_ability_user.playsound_local(ranged_ability_user, "sparks", 50, 0)
 	attached_action.adjust_uses(-1)
 	if(attached_action?.uses)
 		attached_action.desc = "[initial(attached_action.desc)] It has [attached_action.uses] use\s remaining."
 		attached_action.UpdateButtonIcon()
-	target.audible_message(span_userdanger("Слышу громкий электрический треск, исходящий от [target]!") )
+	target.audible_message(span_userdanger("Слышу громкий электрический треск, исходящий от [target]!"))
 	addtimer(CALLBACK(attached_action, /datum/action/innate/ai/ranged/overload_machine.proc/detonate_machine, target), 50) //kaboom!
-	remove_ranged_ability(span_danger("Перегрузка аппарата...") )
+	remove_ranged_ability(span_danger("Перегрузка аппарата..."))
 	return TRUE
 
 /// Blackout: Overloads a random number of lights across the station. Three uses.
@@ -560,7 +560,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 			apc.overload_lighting()
 		else
 			apc.overload++
-	to_chat(owner, span_notice("Энергосеть перегружена.") )
+	to_chat(owner, span_notice("Энергосеть перегружена."))
 	owner.playsound_local(owner, "sparks", 50, 0)
 	adjust_uses(-1)
 	if(src && uses) //Not sure if not having src here would cause a runtime, so it's here to be safe
@@ -606,7 +606,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	conveyor.masterAI = owner
 	playsound(T, 'sound/effects/phasein.ogg', 100, TRUE)
 	owner_AI.can_shunt = FALSE
-	to_chat(owner, span_warning("You are no longer able to shunt your core to APCs.") )
+	to_chat(owner, span_warning("You are no longer able to shunt your core to APCs."))
 	adjust_uses(-1)
 
 /mob/living/silicon/ai/proc/remove_transformer_image(client/C, image/I, turf/T)
@@ -638,7 +638,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 		I.icon_state = "[success ? "green" : "red"]Overlay" //greenOverlay and redOverlay for success and failure respectively
 		addtimer(CALLBACK(src, .proc/remove_transformer_image, client, I, T), 30)
 	if(!success)
-		to_chat(src, span_warning("[alert_msg]") )
+		to_chat(src, span_warning("[alert_msg]"))
 	return success
 
 /// Air Alarm Safety Override: Unlocks the ability to enable flooding on all air alarms.
@@ -663,7 +663,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 		if(!is_station_level(AA.z))
 			continue
 		AA.obj_flags |= EMAGGED
-	to_chat(owner, span_notice("На всех контроллерах станции переписаны протоколы безопасности. Теперь контроллеры воздуха могут быть переведены в режим Задымления.") )
+	to_chat(owner, span_notice("На всех контроллерах станции переписаны протоколы безопасности. Теперь контроллеры воздуха могут быть переведены в режим Задымления."))
 	owner.playsound_local(owner, 'sound/machines/terminal_off.ogg', 50, 0)
 
 /// Thermal Sensor Override: Unlocks the ability to disable all fire alarms from doing their job.
@@ -688,7 +688,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 			continue
 		F.obj_flags |= EMAGGED
 		F.update_icon()
-	to_chat(owner, span_notice("Все тепловые датчики станции отключены. Извещения о пожаре более не распознаются.") )
+	to_chat(owner, span_notice("Все тепловые датчики станции отключены. Извещения о пожаре более не распознаются."))
 	owner.playsound_local(owner, 'sound/machines/terminal_off.ogg', 50, 0)
 
 /// Disable Emergency Lights
@@ -713,7 +713,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 			L.no_emergency = TRUE
 			INVOKE_ASYNC(L, /obj/machinery/light/.proc/update, FALSE)
 		CHECK_TICK
-	to_chat(owner, span_notice("Разорваны соединения Аварийного Освещения.") )
+	to_chat(owner, span_notice("Разорваны соединения Аварийного Освещения."))
 	owner.playsound_local(owner, 'sound/effects/light_flicker.ogg', 50, FALSE)
 
 /// Reactivate Camera Network: Reactivates up to 30 cameras across the station.
@@ -750,7 +750,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 			C.view_range = initial(C.view_range)
 			fixed_cameras++
 			uses-- //Not adjust_uses() so it doesn't automatically delete or show a message
-	to_chat(owner, span_notice("Diagnostic complete! Cameras reactivated: <b>[fixed_cameras]</b>. Reactivations remaining: <b>[uses]</b>.") )
+	to_chat(owner, span_notice("Diagnostic complete! Cameras reactivated: <b>[fixed_cameras]</b>. Reactivations remaining: <b>[uses]</b>."))
 	owner.playsound_local(owner, 'sound/items/wirecutter.ogg', 50, 0)
 	adjust_uses(0, TRUE) //Checks the uses remaining
 	if(src && uses) //Not sure if not having src here would cause a runtime, so it's here to be safe

@@ -367,22 +367,22 @@
 	var/list/answers = ignore_category ? list("Да", "Нет", "Никогда") : list("Да", "Нет")
 	switch(tgui_alert(M, Question, "Предложение получить новое тело!", answers, timeout=poll_time))
 		if("Да")
-			to_chat(M, span_notice("Выбираем: Да.") )
+			to_chat(M, span_notice("Выбираем: Да."))
 			if(time_passed + poll_time <= world.time)
-				to_chat(M, span_danger("СЛИШКОМ ПОЗДНО!") )
+				to_chat(M, span_danger("СЛИШКОМ ПОЗДНО!"))
 				SEND_SOUND(M, sound('sound/machines/buzz-sigh.ogg'))
 				candidates -= M
 			else
 				candidates += M
 		if("Нет")
-			to_chat(M, span_danger("Выбираем: Нет.") )
+			to_chat(M, span_danger("Выбираем: Нет."))
 			candidates -= M
 		if("Никогда")
 			var/list/L = GLOB.poll_ignore[ignore_category]
 			if(!L)
 				GLOB.poll_ignore[ignore_category] = list()
 			GLOB.poll_ignore[ignore_category] += M.ckey
-			to_chat(M, span_danger("Выбираем: Не спрашиваем до конца раунда.") )
+			to_chat(M, span_danger("Выбираем: Не спрашиваем до конца раунда."))
 			candidates -= M
 		else
 			candidates -= M

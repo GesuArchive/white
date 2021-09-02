@@ -46,9 +46,9 @@
 	if(surgery.operated_wound)
 		display_results(user, target, span_notice("You begin to repair the fracture in [target] [parse_zone(user.zone_selected)]...") ,
 			span_notice("[user] begins to repair the fracture in [target] [parse_zone(user.zone_selected)] with [tool].") ,
-			span_notice("[user] begins to repair the fracture in [target] [parse_zone(user.zone_selected)].") )
+			span_notice("[user] begins to repair the fracture in [target] [parse_zone(user.zone_selected)]."))
 	else
-		user.visible_message(span_notice("[user] looks for [target] [parse_zone(user.zone_selected)].") , span_notice("You look for [target] [parse_zone(user.zone_selected)]...") )
+		user.visible_message(span_notice("[user] looks for [target] [parse_zone(user.zone_selected)].") , span_notice("You look for [target] [parse_zone(user.zone_selected)]..."))
 
 /datum/surgery_step/repair_bone_hairline/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(surgery.operated_wound)
@@ -57,11 +57,11 @@
 			used_stack.use(1)
 		display_results(user, target, span_notice("You successfully repair the fracture in [target] [parse_zone(target_zone)].") ,
 			span_notice("[user] successfully repairs the fracture in [target] [parse_zone(target_zone)] with [tool]!") ,
-			span_notice("[user] successfully repairs the fracture in [target] [parse_zone(target_zone)]!") )
+			span_notice("[user] successfully repairs the fracture in [target] [parse_zone(target_zone)]!"))
 		log_combat(user, target, "repaired a hairline fracture in", addition="INTENT: [uppertext(user.a_intent)]")
 		qdel(surgery.operated_wound)
 	else
-		to_chat(user, span_warning("[target] has no hairline fracture there!") )
+		to_chat(user, span_warning("[target] has no hairline fracture there!"))
 	return ..()
 
 /datum/surgery_step/repair_bone_hairline/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, fail_prob = 0)
@@ -82,9 +82,9 @@
 	if(surgery.operated_wound)
 		display_results(user, target, span_notice("You begin to reset the bone in [target] [parse_zone(user.zone_selected)]...") ,
 			span_notice("[user] begins to reset the bone in [target] [parse_zone(user.zone_selected)] with [tool].") ,
-			span_notice("[user] begins to reset the bone in [target] [parse_zone(user.zone_selected)].") )
+			span_notice("[user] begins to reset the bone in [target] [parse_zone(user.zone_selected)]."))
 	else
-		user.visible_message(span_notice("[user] looks for [target] [parse_zone(user.zone_selected)].") , span_notice("You look for [target] [parse_zone(user.zone_selected)]...") )
+		user.visible_message(span_notice("[user] looks for [target] [parse_zone(user.zone_selected)].") , span_notice("You look for [target] [parse_zone(user.zone_selected)]..."))
 
 /datum/surgery_step/reset_compound_fracture/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(surgery.operated_wound)
@@ -93,10 +93,10 @@
 			used_stack.use(1)
 		display_results(user, target, span_notice("You successfully reset the bone in [target] [parse_zone(target_zone)].") ,
 			span_notice("[user] successfully resets the bone in [target] [parse_zone(target_zone)] with [tool]!") ,
-			span_notice("[user] successfully resets the bone in [target] [parse_zone(target_zone)]!") )
+			span_notice("[user] successfully resets the bone in [target] [parse_zone(target_zone)]!"))
 		log_combat(user, target, "reset a compound fracture in", addition="INTENT: [uppertext(user.a_intent)]")
 	else
-		to_chat(user, span_warning("[target] has no compound fracture there!") )
+		to_chat(user, span_warning("[target] has no compound fracture there!"))
 	return ..()
 
 /datum/surgery_step/reset_compound_fracture/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, fail_prob = 0)
@@ -116,9 +116,9 @@
 	if(surgery.operated_wound)
 		display_results(user, target, span_notice("You begin to repair the fracture in [target] [parse_zone(user.zone_selected)]...") ,
 			span_notice("[user] begins to repair the fracture in [target] [parse_zone(user.zone_selected)] with [tool].") ,
-			span_notice("[user] begins to repair the fracture in [target] [parse_zone(user.zone_selected)].") )
+			span_notice("[user] begins to repair the fracture in [target] [parse_zone(user.zone_selected)]."))
 	else
-		user.visible_message(span_notice("[user] looks for [target] [parse_zone(user.zone_selected)].") , span_notice("You look for [target] [parse_zone(user.zone_selected)]...") )
+		user.visible_message(span_notice("[user] looks for [target] [parse_zone(user.zone_selected)].") , span_notice("You look for [target] [parse_zone(user.zone_selected)]..."))
 
 /datum/surgery_step/repair_bone_compound/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(surgery.operated_wound)
@@ -127,11 +127,11 @@
 			used_stack.use(1)
 		display_results(user, target, span_notice("You successfully repair the fracture in [target] [parse_zone(target_zone)].") ,
 			span_notice("[user] successfully repairs the fracture in [target] [parse_zone(target_zone)] with [tool]!") ,
-			span_notice("[user] successfully repairs the fracture in [target] [parse_zone(target_zone)]!") )
+			span_notice("[user] successfully repairs the fracture in [target] [parse_zone(target_zone)]!"))
 		log_combat(user, target, "repaired a compound fracture in", addition="INTENT: [uppertext(user.a_intent)]")
 		qdel(surgery.operated_wound)
 	else
-		to_chat(user, span_warning("[target] has no compound fracture there!") )
+		to_chat(user, span_warning("[target] has no compound fracture there!"))
 	return ..()
 
 /datum/surgery_step/repair_bone_compound/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, fail_prob = 0)

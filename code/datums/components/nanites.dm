@@ -225,7 +225,7 @@
 					T.add_vomit_floor(host_mob, VOMIT_NANITE, 0)
 		if((NANITE_EXCESS_BURST + 0.1) to INFINITY) //Way too many nanites, they just leave through the closest exit before they harm/poison the host
 			host_mob.visible_message(span_warning("A torrent of metallic grey slurry violently bursts out of [host_mob] face and floods out of [host_mob.ru_ego()] skin!") ,
-								span_userdanger("A torrent of metallic grey slurry violently bursts out of your eyes, ears, and mouth, and floods out of your skin!") );
+								span_userdanger("A torrent of metallic grey slurry violently bursts out of your eyes, ears, and mouth, and floods out of your skin!"));
 
 			host_mob.blind_eyes(15) //nanites coming out of your eyes
 			host_mob.Paralyze(120)
@@ -397,24 +397,24 @@
 
 	if(!full_scan)
 		if(!stealth)
-			to_chat(user, span_notice("<b>Nanites Detected</b>") )
-			to_chat(user, span_notice("Saturation: [nanite_volume]/[max_nanites]") )
+			to_chat(user, span_notice("<b>Nanites Detected</b>"))
+			to_chat(user, span_notice("Saturation: [nanite_volume]/[max_nanites]"))
 			return TRUE
 	else
-		to_chat(user, span_info("NANITES DETECTED") )
-		to_chat(user, span_info("================") )
-		to_chat(user, span_info("Saturation: [nanite_volume]/[max_nanites]") )
-		to_chat(user, span_info("Safety Threshold: [safety_threshold]") )
-		to_chat(user, span_info("Cloud ID: [cloud_id ? cloud_id : "None"]") )
-		to_chat(user, span_info("Cloud Sync: [cloud_active ? "Active" : "Disabled"]") )
-		to_chat(user, span_info("================") )
-		to_chat(user, span_info("Program List:") )
+		to_chat(user, span_info("NANITES DETECTED"))
+		to_chat(user, span_info("================"))
+		to_chat(user, span_info("Saturation: [nanite_volume]/[max_nanites]"))
+		to_chat(user, span_info("Safety Threshold: [safety_threshold]"))
+		to_chat(user, span_info("Cloud ID: [cloud_id ? cloud_id : "None"]"))
+		to_chat(user, span_info("Cloud Sync: [cloud_active ? "Active" : "Disabled"]"))
+		to_chat(user, span_info("================"))
+		to_chat(user, span_info("Program List:"))
 		if(!diagnostics)
-			to_chat(user, span_alert("Nanite debugging disabled.") )
+			to_chat(user, span_alert("Nanite debugging disabled."))
 		else
 			for(var/X in programs)
 				var/datum/nanite_program/NP = X
-				to_chat(user, span_info("<b>[NP.name]</b> | [NP.activated ? "Active" : "Inactive"]") )
+				to_chat(user, span_info("<b>[NP.name]</b> | [NP.activated ? "Active" : "Inactive"]"))
 		return TRUE
 
 /datum/component/nanites/proc/nanite_ui_data(datum/source, list/data, scan_level)

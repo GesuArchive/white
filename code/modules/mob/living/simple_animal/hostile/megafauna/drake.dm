@@ -142,7 +142,7 @@
 /mob/living/simple_animal/hostile/megafauna/dragon/proc/fire_rain()
 	if(!target)
 		return
-	target.visible_message(span_boldwarning("Огненный дождь опускается с неба!") )
+	target.visible_message(span_boldwarning("Огненный дождь опускается с неба!"))
 	for(var/turf/turf in range(9,get_turf(target)))
 		if(prob(11))
 			new /obj/effect/temp_visual/target(turf)
@@ -150,7 +150,7 @@
 /mob/living/simple_animal/hostile/megafauna/dragon/proc/lava_pools(amount, delay = 0.8)
 	if(!target)
 		return
-	target.visible_message(span_boldwarning("Лава начинает кучковаться вокруг меня!") )
+	target.visible_message(span_boldwarning("Лава начинает кучковаться вокруг меня!"))
 
 	while(amount > 0)
 		if(QDELETED(target))
@@ -190,7 +190,7 @@
 /mob/living/simple_animal/hostile/megafauna/dragon/proc/lava_arena()
 	if(!target)
 		return
-	target.visible_message(span_boldwarning("<b>[src]</b> заключает меня в огненную арену!") )
+	target.visible_message(span_boldwarning("<b>[src]</b> заключает меня в огненную арену!"))
 	var/amount = 3
 	var/turf/center = get_turf(target)
 	var/list/walled = RANGE_TURFS(3, center) - RANGE_TURFS(2, center)
@@ -289,7 +289,7 @@
 				continue
 			hit_list += L
 			L.adjustFireLoss(20)
-			to_chat(L, span_userdanger("В меня попадает волна огня исходящая от <b>дракона</b>!") )
+			to_chat(L, span_userdanger("В меня попадает волна огня исходящая от <b>дракона</b>!"))
 
 		// deals damage to mechs
 		for(var/obj/vehicle/sealed/mecha/M in T.contents)
@@ -310,7 +310,7 @@
 	swooping |= SWOOP_DAMAGEABLE
 	set_density(FALSE)
 	icon_state = "shadow"
-	visible_message(span_boldwarning("<b>[src]</b> высоко взлетает!") )
+	visible_message(span_boldwarning("<b>[src]</b> высоко взлетает!"))
 
 	var/negative
 	var/initial_x = x
@@ -368,7 +368,7 @@
 	playsound(loc, 'sound/effects/meteorimpact.ogg', 200, TRUE)
 	for(var/mob/living/L in orange(1, src))
 		if(L.stat)
-			visible_message(span_warning("<b>[src]</b> приземляется на <b>[L]</b>, раздавливая [L.ru_ego()]!") )
+			visible_message(span_warning("<b>[src]</b> приземляется на <b>[L]</b>, раздавливая [L.ru_ego()]!"))
 			L.gib()
 		else
 			L.adjustBruteLoss(75)
@@ -378,7 +378,7 @@
 					throw_dir = pick(GLOB.alldirs)
 				var/throwtarget = get_edge_target_turf(src, throw_dir)
 				L.throw_at(throwtarget, 3)
-				visible_message(span_warning("<b>[L]</b> вылетает из под <b>дракона</b>!") )
+				visible_message(span_warning("<b>[L]</b> вылетает из под <b>дракона</b>!"))
 	for(var/obj/vehicle/sealed/mecha/M in orange(1, src))
 		M.take_damage(75, BRUTE, MELEE, 1)
 
@@ -445,7 +445,7 @@
 		if(istype(L, /mob/living/simple_animal/hostile/megafauna/dragon))
 			continue
 		L.adjustFireLoss(10)
-		to_chat(L, span_userdanger("Падаю прямо в лужу лавы!") )
+		to_chat(L, span_userdanger("Падаю прямо в лужу лавы!"))
 
 	// deals damage to mechs
 	for(var/obj/vehicle/sealed/mecha/M in T.contents)
@@ -565,7 +565,7 @@
 			continue
 		if(islist(flame_hit) && !flame_hit[L])
 			L.adjustFireLoss(40)
-			to_chat(L, span_userdanger("В меня попадает волна огня исходящая от <b>дракона</b>!") )
+			to_chat(L, span_userdanger("В меня попадает волна огня исходящая от <b>дракона</b>!"))
 			flame_hit[L] = TRUE
 		else
 			L.adjustFireLoss(10) //if we've already hit them, do way less damage
@@ -589,7 +589,7 @@
 	if(!istype(A))
 		return
 	if(player_cooldown >= world.time)
-		to_chat(src, span_warning("Хочу подождать [(player_cooldown - world.time) / 10] секунд перед прыжком!") )
+		to_chat(src, span_warning("Хочу подождать [(player_cooldown - world.time) / 10] секунд перед прыжком!"))
 		return
 	swoop_attack(FALSE, A)
 	lava_pools(10, 2) // less pools but longer delay before spawns

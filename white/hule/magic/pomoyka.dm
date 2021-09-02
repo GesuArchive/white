@@ -99,7 +99,7 @@
 /obj/structure/tbin/full/proc/spawnjunk(list/L, mob/M)
 	var/obj/O = pick(L)
 	var/obj/I = new O(get_turf(src),src)
-	to_chat(M,span_notice("Ого, целый [I.name] в мусорке!") )
+	to_chat(M,span_notice("Ого, целый [I.name] в мусорке!"))
 
 /obj/structure/tbin/full/verb/use()
 	set category = "IC"
@@ -107,11 +107,11 @@
 	set src in view(1)
 
 	if(usesleft <= 0)
-		to_chat(usr,span_notice("Эта мусорка пуста") )
+		to_chat(usr,span_notice("Эта мусорка пуста"))
 		return
 
 	if(!ismonkey(usr)&&!ishuman(usr)|| usr.stat)
-		to_chat(usr,span_warning("Ты што дэбил ты неможеш рыца в мусорке ТЫ ШТО") )
+		to_chat(usr,span_warning("Ты што дэбил ты неможеш рыца в мусорке ТЫ ШТО"))
 		return
 
 	if(prob(30))
@@ -128,7 +128,7 @@
 			spawnjunk(lootr, usr)
 		usesleft--
 	else
-		to_chat(usr,span_notice("А тут ничего нет...") )
+		to_chat(usr,span_notice("А тут ничего нет..."))
 
 /obj/effect/proc_holder/spell/targeted/pomoyka
 	name = "Призыв Сердца Помойки"

@@ -61,7 +61,7 @@
 
 /obj/machinery/sleeper/container_resist_act(mob/living/user)
 	visible_message(span_notice("[occupant] emerges from [src]!") ,
-		span_notice("You climb out of [src]!") )
+		span_notice("You climb out of [src]!"))
 	open_machine()
 
 /obj/machinery/sleeper/Exited(atom/movable/user)
@@ -105,10 +105,10 @@
 	if(..())
 		return
 	if(occupant)
-		to_chat(user, span_warning("[capitalize(src.name)] is currently occupied!") )
+		to_chat(user, span_warning("[capitalize(src.name)] is currently occupied!"))
 		return
 	if(state_open)
-		to_chat(user, span_warning("[capitalize(src.name)] must be closed to [panel_open ? "close" : "open"] its maintenance hatch!") )
+		to_chat(user, span_warning("[capitalize(src.name)] must be closed to [panel_open ? "close" : "open"] its maintenance hatch!"))
 		return
 	if(default_deconstruction_screwdriver(user, "[initial(icon_state)]-o", initial(icon_state), I))
 		return
@@ -130,7 +130,7 @@
 	. = !(state_open || panel_open || (flags_1 & NODECONSTRUCT_1)) && I.tool_behaviour == TOOL_CROWBAR
 	if(.)
 		I.play_tool_sound(src, 50)
-		visible_message(span_notice("[usr] pries open [src].") , span_notice("You pry open [src].") )
+		visible_message(span_notice("[usr] pries open [src].") , span_notice("You pry open [src]."))
 		open_machine()
 
 /obj/machinery/sleeper/ui_state(mob/user)
@@ -231,11 +231,11 @@
 			if(inject_chem(chem, usr))
 				. = TRUE
 				if(scrambled_chems && prob(5))
-					to_chat(usr, span_warning("Chemical system re-route detected, results may not be as expected!") )
+					to_chat(usr, span_warning("Chemical system re-route detected, results may not be as expected!"))
 
 /obj/machinery/sleeper/emag_act(mob/user)
 	scramble_chem_buttons()
-	to_chat(user, span_warning("You scramble the sleeper's user interface!") )
+	to_chat(user, span_warning("You scramble the sleeper's user interface!"))
 
 /obj/machinery/sleeper/proc/inject_chem(chem, mob/user)
 	if((chem in available_chems) && chem_allowed(chem))

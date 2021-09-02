@@ -21,13 +21,13 @@
 
 /obj/item/gun/ballistic/automatic/mg34/special_check(mob/user)
 	if(cover_open)
-		to_chat(user, span_warning("[capitalize(src.name)] cover is open! Close it before firing!") )
+		to_chat(user, span_warning("[capitalize(src.name)] cover is open! Close it before firing!"))
 		return FALSE
 	return ..()
 
 /obj/item/gun/ballistic/automatic/mg34/proc/toggle_cover(mob/user)
 	cover_open = !cover_open
-	to_chat(user, span_notice("You [cover_open ? "open" : "close"] [src] cover.") )
+	to_chat(user, span_notice("You [cover_open ? "open" : "close"] [src] cover."))
 	update_icon()
 
 /obj/item/gun/ballistic/automatic/mg34/attack_self(mob/user as mob)
@@ -46,13 +46,13 @@
 
 /obj/item/gun/ballistic/automatic/mg34/load_ammo(var/obj/item/A, mob/user)
 	if(!cover_open)
-		to_chat(user, span_warning("You need to open the cover to load [src].") )
+		to_chat(user, span_warning("You need to open the cover to load [src]."))
 		return
 	..()
 
 /obj/item/gun/ballistic/automatic/mg34/unload_ammo(mob/user, var/allow_dump=1)
 	if(!cover_open)
-		to_chat(user, span_warning("You need to open the cover to unload [src].") )
+		to_chat(user, span_warning("You need to open the cover to unload [src]."))
 		return
 	..()
 

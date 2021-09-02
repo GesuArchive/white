@@ -37,7 +37,7 @@
         if (!I.tool_start_check(user, amount=0))
             return
         else
-            to_chat(user, span_notice("Начинаю чинить[H == user ? " свою" : ""] [affecting.name]...") )
+            to_chat(user, span_notice("Начинаю чинить[H == user ? " свою" : ""] [affecting.name]..."))
             if(I.use_tool(src, user, 0, volume=40))
                 if(H == user)
                     H.adjustBruteLoss(-3)
@@ -45,10 +45,10 @@
                     H.adjustBruteLoss(-10)
                 H.updatehealth()
                 H.add_fingerprint(user)
-                H.visible_message(span_notice("[user] чинит [H == user ? "неряшливо " : ""]некоторые повреждения на [affecting.name].") )
+                H.visible_message(span_notice("[user] чинит [H == user ? "неряшливо " : ""]некоторые повреждения на [affecting.name]."))
         return
     else if(istype(I, /obj/item/stack/cable_coil))
-        to_chat(user, span_notice("Начинаю чинить[H == user ? " свою" : ""] [affecting.name]...") )
+        to_chat(user, span_notice("Начинаю чинить[H == user ? " свою" : ""] [affecting.name]..."))
         if(do_after(user, 30, target = H))
             var/obj/item/stack/cable_coil/C = I
             C.use(1)
@@ -59,7 +59,7 @@
                 H.adjustFireLoss(-10)
                 H.adjustToxLoss(-10)
             H.updatehealth()
-            H.visible_message(span_notice("[user] чинит [H == user ? "неряшливо " : ""]обгоревшие части на [affecting.name].") )
+            H.visible_message(span_notice("[user] чинит [H == user ? "неряшливо " : ""]обгоревшие части на [affecting.name]."))
         return
     else
         return ..()

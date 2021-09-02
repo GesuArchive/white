@@ -20,7 +20,7 @@
 /datum/surgery_step/extract_core/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("You begin to extract a core from [target]...") ,
 		span_notice("[user] begins to extract a core from [target].") ,
-		span_notice("[user] begins to extract a core from [target].") )
+		span_notice("[user] begins to extract a core from [target]."))
 
 /datum/surgery_step/extract_core/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/mob/living/simple_animal/slime/slime = target
@@ -28,7 +28,7 @@
 		slime.cores--
 		display_results(user, target, span_notice("You successfully extract a core from [target]. [slime.cores] core\s remaining.") ,
 			span_notice("[user] successfully extracts a core from [target]!") ,
-			span_notice("[user] successfully extracts a core from [target]!") )
+			span_notice("[user] successfully extracts a core from [target]!"))
 
 		new slime.coretype(slime.loc)
 
@@ -38,5 +38,5 @@
 		else
 			return 0
 	else
-		to_chat(user, span_warning("There aren't any cores left in [target]!") )
+		to_chat(user, span_warning("There aren't any cores left in [target]!"))
 		return ..()

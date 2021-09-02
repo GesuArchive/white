@@ -36,7 +36,7 @@
 		radiation_pulse(src, 400, 2)
 
 /obj/item/nuke_core/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is rubbing [src] against [user.ru_na()]self! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] is rubbing [src] against [user.ru_na()]self! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return (TOXLOSS)
 
 //nuke core box, for carrying the core
@@ -60,7 +60,7 @@
 	ncore.forceMove(src)
 	core = ncore
 	icon_state = "core_container_loaded"
-	to_chat(user, span_warning("Container is sealing...") )
+	to_chat(user, span_warning("Container is sealing..."))
 	addtimer(CALLBACK(src, .proc/seal), 50)
 	return TRUE
 
@@ -70,12 +70,12 @@
 		icon_state = "core_container_sealed"
 		playsound(src, 'sound/items/deconstruct.ogg', 60, TRUE)
 		if(ismob(loc))
-			to_chat(loc, span_warning("[capitalize(src.name)] is permanently sealed, [core] radiation is contained.") )
+			to_chat(loc, span_warning("[capitalize(src.name)] is permanently sealed, [core] radiation is contained."))
 
 /obj/item/nuke_core_container/attackby(obj/item/nuke_core/core, mob/user)
 	if(istype(core))
 		if(!user.temporarilyRemoveItemFromInventory(core))
-			to_chat(user, span_warning("The [core] is stuck to your hand!") )
+			to_chat(user, span_warning("The [core] is stuck to your hand!"))
 			return
 		else
 			load(core, user)
@@ -136,16 +136,16 @@
 	if(istype(W, /obj/item/hemostat/supermatter))
 		var/obj/item/hemostat/supermatter/tongs = W
 		if (tongs.sliver)
-			to_chat(user, span_warning("\The [tongs] is already holding a supermatter sliver!") )
+			to_chat(user, span_warning("\The [tongs] is already holding a supermatter sliver!"))
 			return FALSE
 		forceMove(tongs)
 		tongs.sliver = src
 		tongs.update_icon()
-		to_chat(user, span_notice("You carefully pick up [src] with [tongs].") )
+		to_chat(user, span_notice("You carefully pick up [src] with [tongs]."))
 	else if(istype(W, /obj/item/scalpel/supermatter) || istype(W, /obj/item/nuke_core_container/supermatter/)) // we don't want it to dust
 		return
 	else
-		to_chat(user, span_notice("As it touches <b>[src.name]</b>, both <b>[src.name]</b> and [W] burst into dust!") )
+		to_chat(user, span_notice("As it touches <b>[src.name]</b>, both <b>[src.name]</b> and [W] burst into dust!"))
 		radiation_pulse(user, 100)
 		playsound(src, 'sound/effects/supermatter.ogg', 50, TRUE)
 		qdel(W)
@@ -167,7 +167,7 @@
 		investigate_log("has consumed [key_name(victim)] via throw impact.", INVESTIGATE_SUPERMATTER)
 	victim.visible_message(span_danger("As [victim] is hit by [src], both flash into dust and silence fills the room...") ,\
 		span_userdanger("You're hit by [src] and everything suddenly goes silent.\n[src] flashes into dust, and soon as you can register this, you do as well.") ,\
-		span_hear("Everything suddenly goes silent.") )
+		span_hear("Everything suddenly goes silent."))
 	victim.dust()
 	radiation_pulse(src, 500, 2)
 	playsound(src, 'sound/effects/supermatter.ogg', 50, TRUE)
@@ -179,7 +179,7 @@
 		return FALSE
 	user.visible_message(span_danger("[user] reaches out and tries to pick up [src]. [user.ru_ego()] body starts to glow and bursts into flames before flashing into dust!") ,\
 			span_userdanger("You reach for [src] with your hands. That was dumb.") ,\
-			span_hear("Everything suddenly goes silent.") )
+			span_hear("Everything suddenly goes silent."))
 	radiation_pulse(user, 500, 2)
 	playsound(src, 'sound/effects/supermatter.ogg', 50, TRUE)
 	user.dust()
@@ -201,7 +201,7 @@
 	T.sliver = null
 	T.icon_state = "supermatter_tongs"
 	icon_state = "core_container_loaded"
-	to_chat(user, span_warning("Container is sealing...") )
+	to_chat(user, span_warning("Container is sealing..."))
 	addtimer(CALLBACK(src, .proc/seal), 50)
 	return TRUE
 
@@ -211,7 +211,7 @@
 		icon_state = "core_container_sealed"
 		playsound(src, 'sound/items/Deconstruct.ogg', 60, TRUE)
 		if(ismob(loc))
-			to_chat(loc, span_warning("[capitalize(src.name)] is permanently sealed, [sliver] is safely contained.") )
+			to_chat(loc, span_warning("[capitalize(src.name)] is permanently sealed, [sliver] is safely contained."))
 
 /obj/item/nuke_core_container/supermatter/attackby(obj/item/hemostat/supermatter/tongs, mob/user)
 	if(istype(tongs))
@@ -264,7 +264,7 @@
 /obj/item/hemostat/supermatter/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum) // no instakill supermatter javelins
 	if(sliver)
 		sliver.forceMove(loc)
-		visible_message(span_notice("\The [sliver] falls out of <b>[src.name]</b> as it hits the ground.") )
+		visible_message(span_notice("\The [sliver] falls out of <b>[src.name]</b> as it hits the ground."))
 		sliver = null
 		update_icon()
 	return ..()
@@ -288,7 +288,7 @@
 		log_combat(user, AM, "consumed", sliver, "via [src]")
 		user.visible_message(span_danger("As [user] touches [AM] with <b>[src.name]</b>, both flash into dust and silence fills the room...") ,\
 			span_userdanger("You touch [AM] with [src], and everything suddenly goes silent.\n[AM] and [sliver] flash into dust, and soon as you can register this, you do as well.") ,\
-			span_hear("Everything suddenly goes silent.") )
+			span_hear("Everything suddenly goes silent."))
 		user.dust()
 	radiation_pulse(src, 500, 2)
 	playsound(src, 'sound/effects/supermatter.ogg', 50, TRUE)

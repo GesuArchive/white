@@ -43,7 +43,7 @@
 						template.post_load(P)
 						break
 
-			message_admins(span_adminnotice("[key_name_admin(src)] has placed a map template ([template.name]) at [ADMIN_COORDJMP(T)]") )
+			message_admins(span_adminnotice("[key_name_admin(src)] has placed a map template ([template.name]) at [ADMIN_COORDJMP(T)]"))
 		else
 			to_chat(src, "Failed to place map", confidential = TRUE)
 	images -= preview
@@ -85,5 +85,5 @@
 			return
 
 	SSmapping.map_templates[M.name] = M
-	message_admins(span_adminnotice("[key_name_admin(src)] has uploaded a map template '[map]' ([M.width]x[M.height])[report_link].") )
+	message_admins(span_adminnotice("[key_name_admin(src)] has uploaded a map template '[map]' ([M.width]x[M.height])[report_link]."))
 	to_chat(src, span_notice("Map template '[map]' ready to place ([M.width]x[M.height])") , confidential = TRUE)

@@ -36,12 +36,12 @@ LINEN BINS
 		return
 	if(layer == initial(layer))
 		layer = ABOVE_MOB_LAYER
-		to_chat(user, span_notice("Накрываю себя [src].") )
+		to_chat(user, span_notice("Накрываю себя [src]."))
 		pixel_x = 0
 		pixel_y = 0
 	else
 		layer = initial(layer)
-		to_chat(user, span_notice("Расстелаю [src] под собой.") )
+		to_chat(user, span_notice("Расстелаю [src] под собой."))
 	add_fingerprint(user)
 	return
 
@@ -52,7 +52,7 @@ LINEN BINS
 			transfer_fingerprints_to(shreds)
 			shreds.add_fingerprint(user)
 		qdel(src)
-		to_chat(user, span_notice("Рву [src] на части.") )
+		to_chat(user, span_notice("Рву [src] на части."))
 	else
 		return ..()
 
@@ -338,7 +338,7 @@ LINEN BINS
 			return
 		sheets.Add(I)
 		amount++
-		to_chat(user, span_notice("Засунул [I] в [src].") )
+		to_chat(user, span_notice("Засунул [I] в [src]."))
 		update_icon()
 
 	else if(default_unfasten_wrench(user, I, 5))
@@ -357,10 +357,10 @@ LINEN BINS
 
 	else if(amount && !hidden && I.w_class < WEIGHT_CLASS_BULKY)	//make sure there's sheets to hide it among, make sure nothing else is hidden in there.
 		if(!user.transferItemToLoc(I, src))
-			to_chat(user, span_warning("[I] застрял в моей руке, я не могу спрятать его среди просыней!") )
+			to_chat(user, span_warning("[I] застрял в моей руке, я не могу спрятать его среди просыней!"))
 			return
 		hidden = I
-		to_chat(user, span_notice("Спрятал [I] среди простыней.") )
+		to_chat(user, span_notice("Спрятал [I] среди простыней."))
 
 
 /obj/structure/bedsheetbin/attack_paw(mob/user)
@@ -387,12 +387,12 @@ LINEN BINS
 
 		B.forceMove(drop_location())
 		user.put_in_hands(B)
-		to_chat(user, span_notice("Вытащил [B] из [src].") )
+		to_chat(user, span_notice("Вытащил [B] из [src]."))
 		update_icon()
 
 		if(hidden)
 			hidden.forceMove(drop_location())
-			to_chat(user, span_notice("[hidden] выпадает из [B]!") )
+			to_chat(user, span_notice("[hidden] выпадает из [B]!"))
 			hidden = null
 
 	add_fingerprint(user)
@@ -411,7 +411,7 @@ LINEN BINS
 			B = new /obj/item/bedsheet(loc)
 
 		B.forceMove(drop_location())
-		to_chat(user, span_notice("Телекинетически вытащил [B] из [src].") )
+		to_chat(user, span_notice("Телекинетически вытащил [B] из [src]."))
 		update_icon()
 
 		if(hidden)

@@ -25,7 +25,7 @@
 		return
 
 	if(COOLDOWN_FINISHED(src, damage_warning_cooldown))
-		to_chat(owner, span_warning("<b>Свет обжигает меня!</b>") )
+		to_chat(owner, span_warning("<b>Свет обжигает меня!</b>"))
 		COOLDOWN_START(src, damage_warning_cooldown, 10 SECONDS)
 	owner.take_overall_damage(0, 1.5 * delta_time)
 
@@ -100,7 +100,7 @@
 
 	if(get_dist(owner, stalker) <= 1)
 		playsound(owner, 'sound/magic/demon_attack1.ogg', 50)
-		owner.visible_message(span_warning("[owner] разрывают невидимые когти!") , span_userdanger("Призрачные когти разрывают моё тело на части!") )
+		owner.visible_message(span_warning("[owner] разрывают невидимые когти!") , span_userdanger("Призрачные когти разрывают моё тело на части!"))
 		owner.take_bodypart_damage(rand(20, 45), wound_bonus=CANT_WOUND)
 	else if(DT_PROB(30, delta_time))
 		stalker.forceMove(get_step_towards(stalker, owner))

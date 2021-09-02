@@ -38,13 +38,13 @@
 
 /obj/machinery/ai_slipper/smartfoam/interact(mob/user)
 	if(!allowed(user))
-		to_chat(user, span_danger("Доступ запрещён.") )
+		to_chat(user, span_danger("Доступ запрещён."))
 		return
 	if(!uses)
-		to_chat(user, span_warning("[capitalize(src.name)] полностью разряжен!") )
+		to_chat(user, span_warning("[capitalize(src.name)] полностью разряжен!"))
 		return
 	if(cooldown_time > world.time)
-		to_chat(user, span_warning("[capitalize(src.name)] на перезарядке, осталось <b>[DisplayTimeText(world.time - cooldown_time)]</b>!") )
+		to_chat(user, span_warning("[capitalize(src.name)] на перезарядке, осталось <b>[DisplayTimeText(world.time - cooldown_time)]</b>!"))
 		return
 	emergency_foam_blast()
 

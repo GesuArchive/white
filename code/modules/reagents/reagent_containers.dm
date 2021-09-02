@@ -113,7 +113,7 @@
 		covered = "mask"
 	if(covered)
 		var/who = (isnull(user) || eater == user) ? "your" : "[eater.ru_ego()]"
-		to_chat(user, span_warning("You have to remove [who] [covered] first!") )
+		to_chat(user, span_warning("You have to remove [who] [covered] first!"))
 		return FALSE
 	return TRUE
 
@@ -159,7 +159,7 @@
 		var/mob/M = target
 		var/R
 		target.visible_message(span_danger("[M] is splashed with something!") , \
-						span_userdanger("[M] is splashed with something!") )
+						span_userdanger("[M] is splashed with something!"))
 		for(var/datum/reagent/A in reagents.reagent_list)
 			R += "[A.type]  ([num2text(A.volume)]),"
 
@@ -168,7 +168,7 @@
 		reagents.expose(target, TOUCH)
 
 	else if(bartender_check(target) && thrown)
-		visible_message(span_notice("[capitalize(src.name)] lands onto the [target.name] without spilling a single drop.") )
+		visible_message(span_notice("[capitalize(src.name)] lands onto the [target.name] without spilling a single drop."))
 		return
 
 	else
@@ -176,7 +176,7 @@
 			log_combat(thrownby, target, "splashed (thrown) [english_list(reagents.reagent_list)]", "in [AREACOORD(target)]")
 			log_game("[key_name(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [AREACOORD(target)].")
 			message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [ADMIN_VERBOSEJMP(target)].")
-		visible_message(span_notice("[capitalize(src.name)] spills its contents all over [target].") )
+		visible_message(span_notice("[capitalize(src.name)] spills its contents all over [target]."))
 		reagents.expose(target, TOUCH)
 		if(QDELETED(src))
 			return

@@ -224,7 +224,7 @@
 
 /obj/item/modular_computer/emag_act(mob/user)
 	if(!enabled)
-		to_chat(user, span_warning("Сначала тебе следует включить [src].") )
+		to_chat(user, span_warning("Сначала тебе следует включить [src]."))
 		return FALSE
 	obj_flags |= EMAGGED //Mostly for consistancy purposes; the programs will do their own emag handling
 	var/newemag = FALSE
@@ -235,9 +235,9 @@
 		if(app.run_emag())
 			newemag = TRUE
 	if(newemag)
-		to_chat(user, span_notice("Провожу <b>[src.name]</b>. Окно консоли немедленно заполняет экран, а белый текст быстро прокручивается.") )
+		to_chat(user, span_notice("Провожу <b>[src.name]</b>. Окно консоли немедленно заполняет экран, а белый текст быстро прокручивается."))
 		return TRUE
-	to_chat(user, span_notice("Провожу <b>[src.name]</b>. Окно консоли заполняет экран, но оно быстро закрывается после того, как в него записано всего несколько строк.") )
+	to_chat(user, span_notice("Провожу <b>[src.name]</b>. Окно консоли заполняет экран, но оно быстро закрывается после того, как в него записано всего несколько строк."))
 	return FALSE
 
 /obj/item/modular_computer/examine(mob/user)
@@ -276,9 +276,9 @@
 	var/issynth = issilicon(user) // Robots and AIs get different activation messages.
 	if(obj_integrity <= integrity_failure * max_integrity)
 		if(issynth)
-			to_chat(user, span_warning("Посылаю сигнал активации <b>[src.name]</b>, но он отвечает кодом ошибки. Должно быть, что он повреждён.") )
+			to_chat(user, span_warning("Посылаю сигнал активации <b>[src.name]</b>, но он отвечает кодом ошибки. Должно быть, что он повреждён."))
 		else
-			to_chat(user, span_warning("Нажимаю кнопку питания, но компьютер не загружается, перед повторным выключением отображается множество ошибок.") )
+			to_chat(user, span_warning("Нажимаю кнопку питания, но компьютер не загружается, перед повторным выключением отображается множество ошибок."))
 		return FALSE
 
 	// If we have a recharger, enable it automatically. Lets computer without a battery work.
@@ -288,9 +288,9 @@
 
 	if(all_components[MC_CPU] && use_power()) // use_power() checks if the PC is powered
 		if(issynth)
-			to_chat(user, span_notice("Посылаю сигнал активации<b>[src.name]</b>, включая его.") )
+			to_chat(user, span_notice("Посылаю сигнал активации<b>[src.name]</b>, включая его."))
 		else
-			to_chat(user, span_notice("Нажимаю кнопку питания и запускаете <b>[src.name]</b>.") )
+			to_chat(user, span_notice("Нажимаю кнопку питания и запускаете <b>[src.name]</b>."))
 		if(looping_sound)
 			soundloop.start()
 		enabled = 1
@@ -299,9 +299,9 @@
 		return TRUE
 	else // Unpowered
 		if(issynth)
-			to_chat(user, span_warning("Посылаю сигнал активации<b>[src.name]</b>, но тот не отвечает.") )
+			to_chat(user, span_warning("Посылаю сигнал активации<b>[src.name]</b>, но тот не отвечает."))
 		else
-			to_chat(user, span_warning("Нажимаю кнопку питания <b>[src.name]</b>, но тот не отвечает..") )
+			to_chat(user, span_warning("Нажимаю кнопку питания <b>[src.name]</b>, но тот не отвечает.."))
 		return FALSE
 
 // Process currently calls handle_power(), may be expanded in future if more things are added.
@@ -357,7 +357,7 @@
 	if(!caller || !caller.alert_able || caller.alert_silenced || !alerttext) //Yeah, we're checking alert_able. No, you don't get to make alerts that the user can't silence.
 		return
 	playsound(src, sound, 50, TRUE)
-	visible_message(span_notice(" [src] отображает [caller.filedesc] уведомление: [alerttext]") )
+	visible_message(span_notice(" [src] отображает [caller.filedesc] уведомление: [alerttext]"))
 	var/mob/living/holder = loc
 	if(istype(holder))
 		to_chat(holder, "[icon2html(src)] <span class='notice'> [src] отображает [caller.filedesc] уведомление: [alerttext]</span>")
@@ -455,7 +455,7 @@
 	if(looping_sound)
 		soundloop.stop()
 	if(loud)
-		physical.visible_message(span_notice("<b>[src.name]</b> выключается.") )
+		physical.visible_message(span_notice("<b>[src.name]</b> выключается."))
 	enabled = 0
 	update_icon()
 
@@ -493,7 +493,7 @@
 
 /obj/item/modular_computer/screwdriver_act(mob/user, obj/item/tool)
 	if(!all_components.len)
-		to_chat(user, span_warning("На этом устройстве не установлены какие-либо компоненты.") )
+		to_chat(user, span_warning("На этом устройстве не установлены какие-либо компоненты."))
 		return
 	var/list/component_names = list()
 	for(var/h in all_components)
@@ -535,26 +535,26 @@
 
 	if(W.tool_behaviour == TOOL_WRENCH)
 		if(all_components.len)
-			to_chat(user, span_warning("Извлеките все компоненты из <b>[src.name]</b> перед его разборкой.") )
+			to_chat(user, span_warning("Извлеките все компоненты из <b>[src.name]</b> перед его разборкой."))
 			return
 		new /obj/item/stack/sheet/iron( get_turf(src.loc), steel_sheet_cost )
-		physical.visible_message(span_notice("<b>[src.name]</b> разобран [user].") )
+		physical.visible_message(span_notice("<b>[src.name]</b> разобран [user]."))
 		relay_qdel()
 		qdel(src)
 		return
 
 	if(W.tool_behaviour == TOOL_WELDER)
 		if(obj_integrity == max_integrity)
-			to_chat(user, span_warning("<b>[src.name]</b> не требуется ремонт.") )
+			to_chat(user, span_warning("<b>[src.name]</b> не требуется ремонт."))
 			return
 
 		if(!W.tool_start_check(user, amount=1))
 			return
 
-		to_chat(user, span_notice("Начинаю ремонтировать повреждения <b>[src.name]</b>...") )
+		to_chat(user, span_notice("Начинаю ремонтировать повреждения <b>[src.name]</b>..."))
 		if(W.use_tool(src, user, 20, volume=50, amount=1))
 			obj_integrity = max_integrity
-			to_chat(user, span_notice("Чиню<b>[src.name]</b>.") )
+			to_chat(user, span_notice("Чиню<b>[src.name]</b>."))
 		return
 
 	var/obj/item/computer_hardware/card_slot/card_slot = all_components[MC_CARD]

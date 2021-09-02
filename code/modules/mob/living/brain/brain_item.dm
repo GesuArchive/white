@@ -68,7 +68,7 @@
 /obj/item/organ/brain/Remove(mob/living/carbon/C, special = 0, no_id_transfer = FALSE)
 	// Delete skillchips first as parent proc sets owner to null, and skillchips need to know the brain's owner.
 	if(!QDELETED(C) && length(skillchips))
-		to_chat(C, span_notice("Мои чипы навыков включают аварийный режим энергосбережения, деактивируясь, когда мой мозг покидает моё тело...") )
+		to_chat(C, span_notice("Мои чипы навыков включают аварийный режим энергосбережения, деактивируясь, когда мой мозг покидает моё тело..."))
 		for(var/chip in skillchips)
 			var/obj/item/skillchip/skillchip = chip
 			// Run the try_ proc with force = TRUE.
@@ -105,7 +105,7 @@
 			LAZYSET(brainmob.status_traits, TRAIT_BADDNA, L.status_traits[TRAIT_BADDNA])
 	if(L.mind && L.mind.current)
 		L.mind.transfer_to(brainmob)
-	to_chat(brainmob, span_notice("Ощущаю себя немного дезориентированным. Возможно, потому что теперь я просто мозг?") )
+	to_chat(brainmob, span_notice("Ощущаю себя немного дезориентированным. Возможно, потому что теперь я просто мозг?"))
 
 /obj/item/organ/brain/attackby(obj/item/O, mob/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
@@ -116,19 +116,19 @@
 	if((organ_flags & ORGAN_FAILING) && O.is_drainable() && O.reagents.has_reagent(/datum/reagent/medicine/mannitol)) //attempt to heal the brain
 		. = TRUE //don't do attack animation.
 		if(brainmob?.health <= HEALTH_THRESHOLD_DEAD) //if the brain is fucked anyway, do nothing
-			to_chat(user, span_warning("[capitalize(src.name)] слишком сильно повреждён! В мусорку.") )
+			to_chat(user, span_warning("[capitalize(src.name)] слишком сильно повреждён! В мусорку."))
 			return
 
 		if(!O.reagents.has_reagent(/datum/reagent/medicine/mannitol, 10))
-			to_chat(user, span_warning("Недостаточно маннитола в [O] для попытки восстановить [src.name]!") )
+			to_chat(user, span_warning("Недостаточно маннитола в [O] для попытки восстановить [src.name]!"))
 			return
 
-		user.visible_message(span_notice("[user] начинает обильно поливать [src.name] из [O].") , span_notice("Начинаю обильно поливать [src.name] из [O].") )
+		user.visible_message(span_notice("[user] начинает обильно поливать [src.name] из [O].") , span_notice("Начинаю обильно поливать [src.name] из [O]."))
 		if(!do_after(user, 6 SECONDS, src))
-			to_chat(user, span_warning("Не вышло нормально починить [src]!") )
+			to_chat(user, span_warning("Не вышло нормально починить [src]!"))
 			return
 
-		user.visible_message(span_notice("[user] выливает содержимое [O] на [src.name], заставляя его реформировать свою первоначальную форму и приобрести более яркий оттенок розового.") , span_notice("Выливаю содержимое [O] на [src.name], заставляя его реформировать свою первоначальную форму и приобрести более яркий оттенок розового.") )
+		user.visible_message(span_notice("[user] выливает содержимое [O] на [src.name], заставляя его реформировать свою первоначальную форму и приобрести более яркий оттенок розового.") , span_notice("Выливаю содержимое [O] на [src.name], заставляя его реформировать свою первоначальную форму и приобрести более яркий оттенок розового."))
 		var/healby = O.reagents.get_reagent_amount(/datum/reagent/medicine/mannitol)
 		setOrganDamage(damage - healby*2)	//heals 2 damage per unit of mannitol, and by using "setorgandamage", we clear the failing variable if that was up
 		O.reagents.clear_reagents()
@@ -136,7 +136,7 @@
 
 	// Cutting out skill chips.
 	if(length(skillchips) && O.get_sharpness() == SHARP_EDGED)
-		to_chat(user,span_notice("Начинаю вырезать скиллчипы из [src.name].") )
+		to_chat(user,span_notice("Начинаю вырезать скиллчипы из [src.name]."))
 		if(do_after(user, 15 SECONDS, target = src))
 			for(var/chip in skillchips)
 				var/obj/item/skillchip/skillchip = chip
@@ -162,8 +162,8 @@
 
 	if(O.force != 0 && !(O.item_flags & NOBLUDGEON))
 		setOrganDamage(maxHealth) //fails the brain as the brain was attacked, they're pretty fragile.
-		visible_message(span_danger("[user] бьёт [src.name] используя [O]!") )
-		to_chat(user, span_danger("Бью [src.name] используя [O]!") )
+		visible_message(span_danger("[user] бьёт [src.name] используя [O]!"))
+		to_chat(user, span_danger("Бью [src.name] используя [O]!"))
 
 /obj/item/organ/brain/examine(mob/user)
 	. = ..()
@@ -194,7 +194,7 @@
 	var/target_has_brain = C.getorgan(/obj/item/organ/brain)
 
 	if(!target_has_brain && C.is_eyes_covered())
-		to_chat(user, span_warning("Стоит открыть [C.ru_ego()] голову сначала!") )
+		to_chat(user, span_warning("Стоит открыть [C.ru_ego()] голову сначала!"))
 		return
 
 	//since these people will be dead M != usr
@@ -207,11 +207,11 @@
 			msg = "[user] вставляет [src] в [user.ru_ego()] голову!"
 
 		C.visible_message(span_danger("[msg]") ,
-						span_userdanger("[msg]") )
+						span_userdanger("[msg]"))
 
 		if(C != user)
-			to_chat(C, span_notice("[user] вставляет [src] в мою голову.") )
-			to_chat(user, span_notice("Вставляю [src] в голову [C].") )
+			to_chat(C, span_notice("[user] вставляет [src] в мою голову."))
+			to_chat(user, span_notice("Вставляю [src] в голову [C]."))
 		else
 			to_chat(user, span_notice("Вставляю [src] в свою голову.") 	)
 
@@ -229,7 +229,7 @@
 
 /obj/item/organ/brain/on_life(delta_time, times_fired)
 	if(damage >= BRAIN_DAMAGE_DEATH) //rip
-		to_chat(owner, span_userdanger("Последняя искра жизни в моём мозгу угасает..") )
+		to_chat(owner, span_userdanger("Последняя искра жизни в моём мозгу угасает.."))
 		owner.death()
 
 /obj/item/organ/brain/check_damage_thresholds(mob/M)

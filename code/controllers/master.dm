@@ -256,7 +256,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 				msg = "Подсистема <b>[BadBoy.name]</b> похоже хочет умереть. Отключаем её."
 				BadBoy.flags |= SS_NO_FIRE
 		if(msg)
-			to_chat(GLOB.admins, span_green("[msg]") )
+			to_chat(GLOB.admins, span_green("[msg]"))
 			log_world(msg)
 
 	if (istype(Master.subsystems))
@@ -266,7 +266,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		current_runlevel = Master.current_runlevel
 		StartProcessing(10)
 	else
-		to_chat(world, span_green("Мастер-контроллер обосрался. Пытаемся переинициализировать <b>ВСЕ подсистемы</b>.") )
+		to_chat(world, span_green("Мастер-контроллер обосрался. Пытаемся переинициализировать <b>ВСЕ подсистемы</b>."))
 		Initialize(20, TRUE)
 
 
@@ -281,7 +281,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	if(init_sss)
 		init_subtypes(/datum/controller/subsystem, subsystems)
 
-	to_chat(world, span_green("Расставляем всё по полочкам...") )
+	to_chat(world, span_green("Расставляем всё по полочкам..."))
 
 	// Sort subsystems by init_order, so they initialize in the correct order.
 	sortTim(subsystems, /proc/cmp_subsystem_init)
@@ -299,9 +299,9 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 
 	spawn(10)
 		if(CONFIG_GET(flag/df_enabled))
-			message_admins(span_boldannounce("Подгружаем DF...") )
+			message_admins(span_boldannounce("Подгружаем DF..."))
 			load_new_z_level("_maps/RandomZLevels/dwarf_lustress.dmm", "Dwarf Fortress")
-			message_admins(span_boldannounce("DF подгружен...") )
+			message_admins(span_boldannounce("DF подгружен..."))
 			for(var/area/A in world)
 				if(istype(A, /area/awaymission/vietnam/dwarfgen))
 					A.RunGeneration()

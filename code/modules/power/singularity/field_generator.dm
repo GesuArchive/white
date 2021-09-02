@@ -76,18 +76,18 @@ no power level overlay is currently in the overlays list.
 	if(state == FG_WELDED)
 		if(get_dist(src, user) <= 1)//Need to actually touch the thing to turn it on
 			if(active >= FG_CHARGING)
-				to_chat(user, span_warning("Не могу выключить <b>[src]</b> пока он заряжен!") )
+				to_chat(user, span_warning("Не могу выключить <b>[src]</b> пока он заряжен!"))
 				return 1
 			else
 				user.visible_message(span_notice("<b>[user]</b> включает <b>[src]</b>.") , \
 					span_notice("Включаю <b>[src]</b>.") , \
-					span_hear("Слышу тяжёлое жужжание.") )
+					span_hear("Слышу тяжёлое жужжание."))
 				turn_on()
 				investigate_log("<font color='green'>activated</font> by [key_name(user)].", INVESTIGATE_SINGULO)
 
 				add_fingerprint(user)
 	else
-		to_chat(user, span_warning("<b>[src]</b> должен быть надёжно закреплён на полу!") )
+		to_chat(user, span_warning("<b>[src]</b> должен быть надёжно закреплён на полу!"))
 
 /obj/machinery/field/generator/set_anchored(anchorvalue)
 	. = ..()
@@ -100,12 +100,12 @@ no power level overlay is currently in the overlays list.
 /obj/machinery/field/generator/can_be_unfasten_wrench(mob/user, silent)
 	if(active)
 		if(!silent)
-			to_chat(user, span_warning("Надо бы отключить <b>[src]</b> для начала!") )
+			to_chat(user, span_warning("Надо бы отключить <b>[src]</b> для начала!"))
 		return FAILED_UNFASTEN
 
 	else if(state == FG_WELDED)
 		if(!silent)
-			to_chat(user, span_warning("<b>[src]</b> приварен к полу намертво!") )
+			to_chat(user, span_warning("<b>[src]</b> приварен к полу намертво!"))
 		return FAILED_UNFASTEN
 
 	return ..()
@@ -118,32 +118,32 @@ no power level overlay is currently in the overlays list.
 /obj/machinery/field/generator/welder_act(mob/living/user, obj/item/I)
 	. = ..()
 	if(active)
-		to_chat(user, span_warning("<b>[src]</b> должен быть выключен!") )
+		to_chat(user, span_warning("<b>[src]</b> должен быть выключен!"))
 		return TRUE
 
 	switch(state)
 		if(FG_UNSECURED)
-			to_chat(user, span_warning("<b>[src]</b> должен быть прикручен к полу!") )
+			to_chat(user, span_warning("<b>[src]</b> должен быть прикручен к полу!"))
 
 		if(FG_SECURED)
 			if(!I.tool_start_check(user, amount=0))
 				return TRUE
 			user.visible_message(span_notice("<b>[user]</b> начинает приваривать <b>[src]</b> к полу.") , \
 				span_notice("Начинаю приваривать <b>[src]</b> к полу...") , \
-				span_hear("Слышу сварку.") )
+				span_hear("Слышу сварку."))
 			if(I.use_tool(src, user, 20, volume=50) && state == FG_SECURED)
 				state = FG_WELDED
-				to_chat(user, span_notice("Привариваю генератор поля к полу.") )
+				to_chat(user, span_notice("Привариваю генератор поля к полу."))
 
 		if(FG_WELDED)
 			if(!I.tool_start_check(user, amount=0))
 				return TRUE
 			user.visible_message(span_notice("<b>[user]</b> начинает отваривать <b>[src]</b> от пола.") , \
 				span_notice("Начинаю отваривать <b>[src]</b> от пола...") , \
-				span_hear("Слышу сварку.") )
+				span_hear("Слышу сварку."))
 			if(I.use_tool(src, user, 20, volume=50) && state == FG_WELDED)
 				state = FG_SECURED
-				to_chat(user, span_notice("Отвариваю <b>[src]</b> от пола.") )
+				to_chat(user, span_notice("Отвариваю <b>[src]</b> от пола."))
 
 	return TRUE
 
@@ -151,7 +151,7 @@ no power level overlay is currently in the overlays list.
 /obj/machinery/field/generator/attack_animal(mob/living/simple_animal/M)
 	if(M.environment_smash & ENVIRONMENT_SMASH_RWALLS && active == FG_OFFLINE && state != FG_UNSECURED)
 		set_anchored(FALSE)
-		M.visible_message(span_warning("<b>[M.name]</b> вырывает <b>[src.name]</b> с места!") )
+		M.visible_message(span_warning("<b>[M.name]</b> вырывает <b>[src.name]</b> с места!"))
 	else
 		..()
 	if(!anchored)
@@ -223,7 +223,7 @@ no power level overlay is currently in the overlays list.
 		check_power_level()
 		return TRUE
 	else
-		visible_message(span_danger("<b>[capitalize(name)]</b> вырубается!") , span_hear("Что-то вырубилось.") )
+		visible_message(span_danger("<b>[capitalize(name)]</b> вырубается!") , span_hear("Что-то вырубилось."))
 		turn_off()
 		investigate_log("ran out of power and <font color='red'>deactivated</font>", INVESTIGATE_SINGULO)
 		power = 0

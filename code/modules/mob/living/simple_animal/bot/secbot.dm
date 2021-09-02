@@ -119,7 +119,7 @@
 		base_speed += 3
 		addtimer(VARSET_CALLBACK(src, base_speed, base_speed - 3), 60)
 		playsound(src, 'sound/machines/defib_zap.ogg', 50)
-		visible_message(span_warning("[capitalize(src.name)] пошатывается и ускоряется!") )
+		visible_message(span_warning("[capitalize(src.name)] пошатывается и ускоряется!"))
 
 /mob/living/simple_animal/bot/secbot/set_custom_texts()
 	text_hack = "Перегружаю систему идентификации [name]."
@@ -232,9 +232,9 @@
 	..()
 	if(emagged == 2)
 		if(user)
-			to_chat(user, span_danger("Перепрограммирую систему идентификации преступников [src.name].") )
+			to_chat(user, span_danger("Перепрограммирую систему идентификации преступников [src.name]."))
 			oldtarget_name = user.name
-		audible_message(span_danger("[capitalize(src.name)] громко жужжит!") )
+		audible_message(span_danger("[capitalize(src.name)] громко жужжит!"))
 		declare_arrests = FALSE
 		update_icon()
 
@@ -274,7 +274,7 @@
 	mode = BOT_ARREST
 	playsound(src, 'sound/weapons/cablecuff.ogg', 30, TRUE, -2)
 	C.visible_message(span_danger("[capitalize(src.name)] пытается надеть стяжки на [C]!") ,\
-						span_userdanger("[capitalize(src.name)] пытается надеть стяжки на меня!") )
+						span_userdanger("[capitalize(src.name)] пытается надеть стяжки на меня!"))
 	addtimer(CALLBACK(src, .proc/attempt_handcuff, C), 60)
 
 /mob/living/simple_animal/bot/secbot/proc/attempt_handcuff(mob/living/carbon/C)
@@ -290,7 +290,7 @@
 
 	if(prob(35))
 		C.visible_message(span_danger("<b>[capitalize(src.name)]</b> промахивается, пытаясь ударить <b>[C]</b>!") ,\
-								span_userdanger("[capitalize(src.name)] промахивается, пытаясь ударить меня!") )
+								span_userdanger("[capitalize(src.name)] промахивается, пытаясь ударить меня!"))
 		return FALSE
 
 	var/judgement_criteria = judgement_criteria()
@@ -316,7 +316,7 @@
 		var/area/location = get_area(src)
 		speak("[arrest_type ? "Задерживаю" : "Арест"] преступника <b>[C]</b> уровня [threat] в [location].", radio_channel)
 	C.visible_message(span_danger("<b>[capitalize(src.name)]</b> бьёт шокером <b>[C]</b>!") ,\
-							span_userdanger("[capitalize(src.name)] бьёт меня шокером!") )
+							span_userdanger("[capitalize(src.name)] бьёт меня шокером!"))
 
 /mob/living/simple_animal/bot/secbot/handle_automated_action()
 	if(!..())
@@ -466,7 +466,7 @@
 /mob/living/simple_animal/bot/secbot/explode()
 
 	walk_to(src,0)
-	visible_message(span_boldannounce("[capitalize(src.name)] взрывается!") )
+	visible_message(span_boldannounce("[capitalize(src.name)] взрывается!"))
 	var/atom/Tsec = drop_location()
 	if(ranged)
 		var/obj/item/bot_assembly/ed209/Sa = new (Tsec)

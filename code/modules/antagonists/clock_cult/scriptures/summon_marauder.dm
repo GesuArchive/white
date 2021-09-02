@@ -21,7 +21,7 @@
 	if(LAZYLEN(candidates))
 		selected = pick(candidates)
 	if(!selected)
-		to_chat(invoker, span_brass("<i>There are no ghosts willing to be a Clockwork Marauder!</i>") )
+		to_chat(invoker, span_brass("<i>There are no ghosts willing to be a Clockwork Marauder!</i>"))
 		invoke_fail()
 		if(invokation_chant_timer)
 			deltimer(invokation_chant_timer)

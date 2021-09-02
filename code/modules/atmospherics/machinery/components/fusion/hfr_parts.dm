@@ -180,7 +180,7 @@
 	var/obj/machinery/atmospherics/components/unary/hypertorus/core/centre = locate() in T
 
 	if(!centre || !centre.check_part_connectivity())
-		to_chat(user, span_notice("Check all parts and then try again.") )
+		to_chat(user, span_notice("Check all parts and then try again."))
 		return TRUE
 	new/obj/item/paper/guides/jobs/atmos/hypertorus(loc)
 	connected_core = centre
@@ -195,7 +195,7 @@
 			ui = new(user, src, "Hypertorus", name)
 			ui.open()
 	else
-		to_chat(user, span_notice("Activate the machine first by using a multitool on the interface.") )
+		to_chat(user, span_notice("Activate the machine first by using a multitool on the interface."))
 
 /obj/machinery/hypertorus/interface/ui_static_data()
 	var/data = list()

@@ -26,7 +26,7 @@
 	if(!can_use(usr))
 		return 0
 
-	to_chat(usr, span_notice("Расстегиваю [src].") )
+	to_chat(usr, span_notice("Расстегиваю [src]."))
 	if(src.suittoggled)
 		src.icon_state = "[initial(icon_state)]"
 		src.suittoggled = FALSE
@@ -79,7 +79,7 @@
 	if(!can_use(usr))
 		return 0
 
-	to_chat(usr, span_notice("Расстегиваю [src].") )
+	to_chat(usr, span_notice("Расстегиваю [src]."))
 	if(src.suittoggled)
 		src.icon_state = "[initial(icon_state)]"
 		src.suittoggled = FALSE

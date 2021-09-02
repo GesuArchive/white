@@ -146,9 +146,9 @@
 		if(CLOTHING_SHREDDED)
 			var/obj/item/stack/cloth_repair = W
 			if(cloth_repair.amount < 3)
-				to_chat(user, span_warning("Мне потребуется 3 единицы [W.name] для починки [src.name].") )
+				to_chat(user, span_warning("Мне потребуется 3 единицы [W.name] для починки [src.name]."))
 				return TRUE
-			to_chat(user, span_notice("Начинаю чинить повреждения [src.name] используя [cloth_repair]...") )
+			to_chat(user, span_notice("Начинаю чинить повреждения [src.name] используя [cloth_repair]..."))
 			if(!do_after(user, 6 SECONDS, src) || !cloth_repair.use(3))
 				return TRUE
 			repair(user, params)
@@ -166,7 +166,7 @@
 	damage_by_parts = null
 	if(user)
 		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
-		to_chat(user, span_notice("Чиню повреждения [src].") )
+		to_chat(user, span_notice("Чиню повреждения [src]."))
 
 /**
  * take_damage_zone() is used for dealing damage to specific bodyparts on a worn piece of clothing, meant to be called from [/obj/item/bodypart/proc/check_woundings_mods]
@@ -401,9 +401,9 @@
 	if(isliving(loc)) //It's not important enough to warrant a message if it's not on someone
 		var/mob/living/M = loc
 		if(src in M.get_equipped_items(FALSE))
-			to_chat(M, span_warning("Мой [name] начинает распадаться на части!") )
+			to_chat(M, span_warning("Мой [name] начинает распадаться на части!"))
 		else
-			to_chat(M, span_warning("[capitalize(src.name)] начинает распадаться на части!") )
+			to_chat(M, span_warning("[capitalize(src.name)] начинает распадаться на части!"))
 
 //This mostly exists so subtypes can call appriopriate update icon calls on the wearer.
 /obj/item/clothing/proc/update_clothes_damaged_state(damaged_state = CLOTHING_DAMAGED)
@@ -446,7 +446,7 @@ BLIND     // can't see anything
 
 	visor_toggling()
 
-	to_chat(user, span_notice("[up ? "Поднимаю" : "Опускаю"] забрало [src].") )
+	to_chat(user, span_notice("[up ? "Поднимаю" : "Опускаю"] забрало [src]."))
 
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
@@ -511,6 +511,6 @@ BLIND     // can't see anything
 	if(!istype(L))
 		return
 	if(prob(0.2))
-		to_chat(L, span_warning("Порванные нитки на моем [src.name] раздражают!") )
+		to_chat(L, span_warning("Порванные нитки на моем [src.name] раздражают!"))
 
 #undef MOTH_EATING_CLOTHING_DAMAGE

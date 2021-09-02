@@ -50,7 +50,7 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 	. = ..()
 	if(clothing_flags & VOICEBOX_TOGGLABLE)
 		clothing_flags ^= VOICEBOX_DISABLED
-		to_chat(user, span_notice("You [clothing_flags & VOICEBOX_DISABLED ? "disabled" : "enabled"] [src] voicebox.") )
+		to_chat(user, span_notice("You [clothing_flags & VOICEBOX_DISABLED ? "disabled" : "enabled"] [src] voicebox."))
 
 /obj/item/clothing/mask/animal/proc/make_cursed() //apply cursed effects.
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_MASK_TRAIT)
@@ -69,7 +69,7 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 		if(M.get_item_by_slot(ITEM_SLOT_MASK) == src)
 			if(update_speech_mod)
 				RegisterSignal(M, COMSIG_MOB_SAY, .proc/handle_speech)
-			to_chat(M, span_userdanger("[capitalize(src.name)] был проклят!") )
+			to_chat(M, span_userdanger("[capitalize(src.name)] был проклят!"))
 			M.update_inv_wear_mask()
 
 /obj/item/clothing/mask/animal/proc/clear_curse()
@@ -84,7 +84,7 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 	if(ismob(loc))
 		var/mob/M = loc
 		if(M.get_item_by_slot(ITEM_SLOT_MASK) == src)
-			to_chat(M, span_notice("Проклятье было снято с [capitalize(src.name)]!") )
+			to_chat(M, span_notice("Проклятье было снято с [capitalize(src.name)]!"))
 			if(update_speech_mod)
 				UnregisterSignal(M, COMSIG_MOB_SAY)
 			M.update_inv_wear_mask()
@@ -100,7 +100,7 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 	if(!iscarbon(user))
 		return ..()
 	if(slot == ITEM_SLOT_MASK && HAS_TRAIT_FROM(src, TRAIT_NODROP, CURSED_MASK_TRAIT))
-		to_chat(user, span_userdanger("[capitalize(src.name)] был проклят!") )
+		to_chat(user, span_userdanger("[capitalize(src.name)] был проклят!"))
 	return ..()
 
 

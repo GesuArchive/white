@@ -290,7 +290,7 @@ and clear when youre done! if you dont i will use :newspaper2: on you
 		object_contents.forceMove(target_turf)
 
 	if(!silent)
-		visible_message(span_notice("[object] пропадает!") )
+		visible_message(span_notice("[object] пропадает!"))
 
 	qdel(object)
 
@@ -377,7 +377,7 @@ and clear when youre done! if you dont i will use :newspaper2: on you
 		return
 	playsound(src, "sparks", 75, TRUE)
 	obj_flags |= EMAGGED
-	to_chat(user, span_warning("You vastly increase projector power and override the safety and security protocols.") )
+	to_chat(user, span_warning("You vastly increase projector power and override the safety and security protocols."))
 	say("Warning. Automatic shutoff and derezzing protocols have been corrupted. Please call Nanotrasen maintenance and do not use the simulator.")
 	log_game("[key_name(user)] emagged the Holodeck Control Console")
 	nerf(!(obj_flags & EMAGGED),FALSE)

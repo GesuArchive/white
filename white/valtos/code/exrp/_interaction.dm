@@ -91,10 +91,10 @@ GLOBAL_LIST_EMPTY(interactions)
 	if(cooldaun)
 		return
 	if(get_dist(user, target) > max_distance)
-		to_chat(user, span_warning("<b>[target.name]</b> слишком далеко.") )
+		to_chat(user, span_warning("<b>[target.name]</b> слишком далеко."))
 		return
 	if(needs_physical_contact && !(user.Adjacent(target) && target.Adjacent(user)))
-		to_chat(user, span_warning("Не могу добраться до <b>[target.name]</b>.") )
+		to_chat(user, span_warning("Не могу добраться до <b>[target.name]</b>."))
 		return
 	if(!evaluate_user(user, silent=0))
 		return

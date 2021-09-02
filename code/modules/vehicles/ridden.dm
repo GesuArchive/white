@@ -32,9 +32,9 @@
 	if(!key_type || is_key(inserted_key) || !is_key(I))
 		return ..()
 	if(!user.transferItemToLoc(I, src))
-		to_chat(user, span_warning("[I] seems to be stuck to your hand!") )
+		to_chat(user, span_warning("[I] seems to be stuck to your hand!"))
 		return
-	to_chat(user, span_notice("You insert [I] into <b>[src.name]</b>.") )
+	to_chat(user, span_notice("You insert [I] into <b>[src.name]</b>."))
 	if(inserted_key)	//just in case there's an invalid key
 		inserted_key.forceMove(drop_location())
 	inserted_key = I
@@ -43,9 +43,9 @@
 	if(!inserted_key || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !issilicon(user)))
 		return ..()
 	if(!is_occupant(user))
-		to_chat(user, span_warning("You must be riding the [src] to remove [src] key!") )
+		to_chat(user, span_warning("You must be riding the [src] to remove [src] key!"))
 		return
-	to_chat(user, span_notice("You remove [inserted_key] from <b>[src.name]</b>.") )
+	to_chat(user, span_notice("You remove [inserted_key] from <b>[src.name]</b>."))
 	inserted_key.forceMove(drop_location())
 	user.put_in_hands(inserted_key)
 	inserted_key = null

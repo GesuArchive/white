@@ -765,7 +765,7 @@
 		return ..()
 	if(newresult)
 		qdel(garnish)
-		to_chat(user, span_notice("You add [garnish] to [src].") )
+		to_chat(user, span_notice("You add [garnish] to [src]."))
 		AddComponent(/datum/component/grillable, cook_result = newresult)
 
 /obj/item/food/pancakes/raw/examine(mob/user)
@@ -825,11 +825,11 @@
 	if(istype(item, /obj/item/food/pancakes))
 		var/obj/item/food/pancakes/pancake = item
 		if((contents.len >= PANCAKE_MAX_STACK) || ((pancake.contents.len + contents.len) > PANCAKE_MAX_STACK))
-			to_chat(user, span_warning("You can't add that many pancakes to [src]!") )
+			to_chat(user, span_warning("You can't add that many pancakes to [src]!"))
 		else
 			if(!user.transferItemToLoc(pancake, src))
 				return
-			to_chat(user, span_notice("You add the [pancake] to the [src].") )
+			to_chat(user, span_notice("You add the [pancake] to the [src]."))
 			pancake.name = initial(pancake.name)
 			contents += pancake
 			update_snack_overlays(pancake)

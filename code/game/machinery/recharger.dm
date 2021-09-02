@@ -56,11 +56,11 @@
 /obj/machinery/recharger/attackby(obj/item/G, mob/user, params)
 	if(G.tool_behaviour == TOOL_WRENCH)
 		if(charging)
-			to_chat(user, span_notice("Там уже что-то есть!") )
+			to_chat(user, span_notice("Там уже что-то есть!"))
 			return
 		set_anchored(!anchored)
 		power_change()
-		to_chat(user, span_notice("[anchored ? "Прикручиваю" : "Откручиваю"] [src.name].") )
+		to_chat(user, span_notice("[anchored ? "Прикручиваю" : "Откручиваю"] [src.name]."))
 		G.play_tool_sound(src)
 		return
 
@@ -74,13 +74,13 @@
 			//Checks to make sure he's not in space doing it, and that the area got proper power.
 			var/area/a = get_area(src)
 			if(!isarea(a) || a.power_equip == 0)
-				to_chat(user, span_notice("[src.name] мигает красным, когда я пытаюсь вставить [G.name].") )
+				to_chat(user, span_notice("[src.name] мигает красным, когда я пытаюсь вставить [G.name]."))
 				return 1
 
 			if (istype(G, /obj/item/gun/energy))
 				var/obj/item/gun/energy/E = G
 				if(!E.can_charge)
-					to_chat(user, span_notice("Пушка не имеет внешнего коннектора для зарядки.") )
+					to_chat(user, span_notice("Пушка не имеет внешнего коннектора для зарядки."))
 					return 1
 
 			if(!user.transferItemToLoc(G, src))
@@ -88,7 +88,7 @@
 			setCharging(G)
 
 		else
-			to_chat(user, span_notice("[src.name] не подключён ни к чему!") )
+			to_chat(user, span_notice("[src.name] не подключён ни к чему!"))
 		return 1
 
 	if(anchored && !charging)

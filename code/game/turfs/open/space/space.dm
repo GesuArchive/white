@@ -134,23 +134,23 @@
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		var/obj/structure/lattice/catwalk/W = locate(/obj/structure/lattice/catwalk, src)
 		if(W)
-			to_chat(user, span_warning("Тут уже есть мостик!") )
+			to_chat(user, span_warning("Тут уже есть мостик!"))
 			return
 		if(L)
 			if(R.use(1))
 				qdel(L)
-				to_chat(user, span_notice("Строю мостик.") )
+				to_chat(user, span_notice("Строю мостик."))
 				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 				new/obj/structure/lattice/catwalk(src)
 			else
-				to_chat(user, span_warning("Надо бы побольше прутьев для постройки мостика!") )
+				to_chat(user, span_warning("Надо бы побольше прутьев для постройки мостика!"))
 			return
 		if(R.use(1))
-			to_chat(user, span_notice("Строю решетку.") )
+			to_chat(user, span_notice("Строю решетку."))
 			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 			ReplaceWithLattice()
 		else
-			to_chat(user, span_warning("Надо бы побольше прутьев для постройки решетки.") )
+			to_chat(user, span_warning("Надо бы побольше прутьев для постройки решетки."))
 		return
 	if(istype(C, /obj/item/stack/tile/plasteel))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
@@ -159,12 +159,12 @@
 			if(S.use(1))
 				qdel(L)
 				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-				to_chat(user, span_notice("Покрываю обшивкой.") )
+				to_chat(user, span_notice("Покрываю обшивкой."))
 				PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 			else
-				to_chat(user, span_warning("Надо бы плиточку!") )
+				to_chat(user, span_warning("Надо бы плиточку!"))
 		else
-			to_chat(user, span_warning("Надо бы опору сначала сделать. Подойдёт несколько прутьев.") )
+			to_chat(user, span_warning("Надо бы опору сначала сделать. Подойдёт несколько прутьев."))
 
 /turf/open/space/Entered(atom/movable/A)
 	. = ..()
@@ -254,7 +254,7 @@
 /turf/open/space/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_FLOORWALL)
-			to_chat(user, span_notice("Строю пол.") )
+			to_chat(user, span_notice("Строю пол."))
 			PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 			return TRUE
 	return FALSE

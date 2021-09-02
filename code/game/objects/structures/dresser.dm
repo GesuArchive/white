@@ -8,9 +8,9 @@
 
 /obj/structure/dresser/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WRENCH)
-		to_chat(user, span_notice("Начинаю [anchored ? "откручивать" : "прикручивать"] [src.name].") )
+		to_chat(user, span_notice("Начинаю [anchored ? "откручивать" : "прикручивать"] [src.name]."))
 		if(I.use_tool(src, user, 20, volume=50))
-			to_chat(user, span_notice("Успешно [anchored ? "откручиваю" : "прикручиваю"] [src.name].") )
+			to_chat(user, span_notice("Успешно [anchored ? "откручиваю" : "прикручиваю"] [src.name]."))
 			set_anchored(!anchored)
 	else
 		return ..()
@@ -30,7 +30,7 @@
 		var/mob/living/carbon/human/H = user
 
 		if(H.dna && H.dna.species && (NO_UNDERWEAR in H.dna.species.species_traits))
-			to_chat(user, span_warning("Да мне и носить это негде.") )
+			to_chat(user, span_warning("Да мне и носить это негде."))
 			return
 
 		var/choice = input(user, "Нижнее белье, рубаха, или носочки?", "Changing") as null|anything in list("Нижнее бельё","Цвет нижнего белья","Рубаха","Носочки")

@@ -22,7 +22,7 @@
 	// Being Grabbed
 	if (owner.pulledby && owner.pulledby.grab_state >= GRAB_AGGRESSIVE)
 		if (display_error)
-			to_chat(owner, span_warning("You're being grabbed!") )
+			to_chat(owner, span_warning("You're being grabbed!"))
 		return FALSE
 	return TRUE
 
@@ -38,7 +38,7 @@
 	// Check: Range
 	//if (!(target in view(target_range, get_turf(owner))))
 	//	if (display_error)
-	//		to_chat(owner, span_warning("Your victim is too far away.") )
+	//		to_chat(owner, span_warning("Your victim is too far away."))
 	//	return FALSE
 	// DEFAULT CHECKS (Distance)
 	if (!..())

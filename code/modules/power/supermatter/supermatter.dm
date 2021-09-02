@@ -456,10 +456,10 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 			SEND_SOUND(M, sound('sound/magic/charge.ogg'))
 
 			if (M.z == z || (is_station_level(M.z) && is_station_level(z)))
-				to_chat(M, span_boldannounce("Ощущаю искажение реальности на мгновение...") )
+				to_chat(M, span_boldannounce("Ощущаю искажение реальности на мгновение..."))
 				SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "delam", /datum/mood_event/delam)
 			else
-				to_chat(M, span_boldannounce("Всматриваюсь в [M.loc] сильно, пока реальность разлетается вокруг меня. Тут безопасно.") )
+				to_chat(M, span_boldannounce("Всматриваюсь в [M.loc] сильно, пока реальность разлетается вокруг меня. Тут безопасно."))
 
 	if(combined_gas > MOLE_PENALTY_THRESHOLD)
 		investigate_log("has collapsed into a singularity.", INVESTIGATE_SUPERMATTER)
@@ -500,7 +500,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	if(isclosedturf(T))
 		var/turf/did_it_melt = T.Melt()
 		if(!isclosedturf(did_it_melt)) //In case some joker finds way to place these on indestructible walls
-			visible_message(span_warning("[src.name] тает через [T]!") )
+			visible_message(span_warning("[src.name] тает через [T]!"))
 		return
 
 	//We vary volume by power, and handle OH FUCK FUSION IN COOLING LOOP noises.
@@ -837,11 +837,11 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	var/gain = 100
 	investigate_log("Supermatter shard consumed by singularity.", INVESTIGATE_SINGULO)
 	message_admins("Singularity has consumed a supermatter shard and can now become stage six.")
-	visible_message(span_userdanger("[src.name] потребляется сингулярностью!") )
+	visible_message(span_userdanger("[src.name] потребляется сингулярностью!"))
 	for(var/mob/M in GLOB.player_list)
 		if(M.z == z)
 			SEND_SOUND(M, sound('sound/effects/supermatter.ogg')) //everyone goan know bout this
-			to_chat(M, span_boldannounce("Ужасный визг наполняет уши, волна страха омывает меня...") )
+			to_chat(M, span_boldannounce("Ужасный визг наполняет уши, волна страха омывает меня..."))
 	qdel(src)
 	return gain
 
@@ -851,11 +851,11 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		damage += B.obj_integrity * 0.5 //take damage equal to 50% of remaining blob health before it tried to eat us
 		if(B.obj_integrity > 100)
 			B.visible_message(span_danger("<b>[capitalize(B)]</b> бьёт <b>[src.name]</b> и вздрагивает!") ,\
-			span_hear("Слышу громкий треск, когда меня омывает волна тепла.") )
+			span_hear("Слышу громкий треск, когда меня омывает волна тепла."))
 			B.take_damage(100, BURN)
 		else
 			B.visible_message(span_danger("<b>[capitalize(B)]</b> бьёт <b>[src.name]</b> и быстро превращается в пепел.") ,\
-			span_hear("Слышу громкий треск, когда меня омывает волна тепла.") )
+			span_hear("Слышу громкий треск, когда меня омывает волна тепла."))
 			Consume(B)
 
 
@@ -863,7 +863,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	if(!iscarbon(user))
 		return
 	var/mob/living/carbon/jedi = user
-	to_chat(jedi, span_userdanger("Это была действительно крутая идея.") )
+	to_chat(jedi, span_userdanger("Это была действительно крутая идея."))
 	jedi.ghostize()
 	var/obj/item/organ/brain/rip_u = locate(/obj/item/organ/brain) in jedi.internal_organs
 	if(rip_u)
@@ -911,7 +911,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		mob_msg = span_userdanger("Протягиваю руку и касаюсь [src.name]. Все начинает гореть, и все, что можно услышать - звон. Это не было мудрым решением.")
 	if(!cause)
 		cause = "contact"
-	nom.visible_message(vis_msg, mob_msg, span_hear("Слышу неземной шум, когда волна тепла охватывает меня.") )
+	nom.visible_message(vis_msg, mob_msg, span_hear("Слышу неземной шум, когда волна тепла охватывает меня."))
 	investigate_log("has been attacked ([cause]) by [key_name(nom)]", INVESTIGATE_SUPERMATTER)
 	playsound(get_turf(src), 'sound/effects/supermatter.ogg', 50, TRUE)
 	Consume(nom)
@@ -931,13 +931,13 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 			var/obj/item/bodypart/dust_arm = user.get_bodypart(which_hand)
 			dust_arm.dismember()
 			user.visible_message(span_danger("<b>[capitalize(W)]</b> исчезает из существования при контакте с <b>[src.name]</b>, резонируя с ужасным звуком...") ,\
-				span_danger("<b>[capitalize(W)]</b> исчезает из существования при контакте с <b>[src.name]</b>, забирая мою руку при этом! Это было глупо!") )
+				span_danger("<b>[capitalize(W)]</b> исчезает из существования при контакте с <b>[src.name]</b>, забирая мою руку при этом! Это было глупо!"))
 			playsound(src, 'sound/effects/supermatter.ogg', 150, TRUE)
 			Consume(dust_arm)
 			qdel(W)
 			return
 		if(cig.lit || user.a_intent != INTENT_HELP)
-			user.visible_message(span_danger("Отвратительное эхо происходит, когда <b>[W]</b> превращась в пепел при контакте с <b>[src.name]</b>. Это была плохая идея...") )
+			user.visible_message(span_danger("Отвратительное эхо происходит, когда <b>[W]</b> превращась в пепел при контакте с <b>[src.name]</b>. Это была плохая идея..."))
 			playsound(src, 'sound/effects/supermatter.ogg', 150, TRUE)
 			Consume(W)
 			radiation_pulse(src, 150, 4)
@@ -945,27 +945,27 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		else
 			cig.light()
 			user.visible_message(span_danger("Как только <b>[user]</b> прикуривает <b>[W]</b> используя <b>[src.name]</b>, тишина начинает наполнять комнату...") ,\
-				span_danger("Время, кажется, замедляется до минимума при прикосновении к <b>[src.name]</b> используя <b>[W]</b>.</span>\n<span class='notice'><b>[W]</b> вспыхивает жуткой энергией, когда я небрежно оттягиваю руку от <b>[src.name]</b>.") )
+				span_danger("Время, кажется, замедляется до минимума при прикосновении к <b>[src.name]</b> используя <b>[W]</b>.</span>\n<span class='notice'><b>[W]</b> вспыхивает жуткой энергией, когда я небрежно оттягиваю руку от <b>[src.name]</b>."))
 			playsound(src, 'sound/effects/supermatter.ogg', 50, TRUE)
 			radiation_pulse(src, 50, 3)
 			return
 	if(istype(W, /obj/item/scalpel/supermatter))
 		var/obj/item/scalpel/supermatter/scalpel = W
-		to_chat(user, span_notice("Начинаю аккуратно царапать <b>[src.name]</b> используя <b>[W]</b>...") )
+		to_chat(user, span_notice("Начинаю аккуратно царапать <b>[src.name]</b> используя <b>[W]</b>..."))
 		if(W.use_tool(src, user, 60, volume=100))
 			if (scalpel.usesLeft)
-				to_chat(user, span_danger("Извлекаю осколок из <b>[src.name]</b>. [capitalize(src.name)] начинает бурно реагировать!") )
+				to_chat(user, span_danger("Извлекаю осколок из <b>[src.name]</b>. [capitalize(src.name)] начинает бурно реагировать!"))
 				new /obj/item/nuke_core/supermatter_sliver(drop_location())
 				matter_power += 800
 				scalpel.usesLeft--
 				if (!scalpel.usesLeft)
-					to_chat(user, span_notice("Маленький кусочек отпадает от <b>[W]</b>, делая его бесполезным!") )
+					to_chat(user, span_notice("Маленький кусочек отпадает от <b>[W]</b>, делая его бесполезным!"))
 			else
-				to_chat(user, span_warning("Не получилось извлечь осколок из <b>[src.name]</b>! [capitalize(W)] недостаточно острый.") )
+				to_chat(user, span_warning("Не получилось извлечь осколок из <b>[src.name]</b>! [capitalize(W)] недостаточно острый."))
 	else if(user.dropItemToGround(W))
 		user.visible_message(span_danger("Как только <b>[user]</b> прикасается к <b>[src.name]</b> используя <b>[W]</b>, тишина начинает наполнять комнату...") ,\
 			span_userdanger("Прикасаюсь к <b>[src.name]</b> используя <b>[W]</b> и все вдруг замолкает.</span>\n<span class='notice'><b>[capitalize(W)]</b> превращается в пыль, когда я отскакиваю от <b>[src.name]</b>.") ,\
-			span_hear("Всё вдруг замолкает.") )
+			span_hear("Всё вдруг замолкает."))
 		investigate_log("has been attacked ([W]) by [key_name(user)]", INVESTIGATE_SUPERMATTER)
 		Consume(W)
 		playsound(get_turf(src), 'sound/effects/supermatter.ogg', 50, TRUE)
@@ -987,11 +987,11 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	if(isliving(AM))
 		AM.visible_message(span_danger("<b>[capitalize(AM.name)]</b> влетает в <b>[src.name]</b> вызывая резонанс... [AM.ru_ego()] тело начинает светиться и загораться, прежде чем превратиться в пыль!") ,\
 		span_userdanger("Влетаю в <b>[src.name]</b>, уши наполнены неземным звоном. Ну бл~") ,\
-		span_hear("Слышу неземной шум, когда волна тепла охватывает меня.") )
+		span_hear("Слышу неземной шум, когда волна тепла охватывает меня."))
 		inc_metabalance(AM, METACOIN_SUPERDEATH_REWARD, reason="Умер ужасной смертью.")
 	else if(isobj(AM) && !iseffect(AM))
 		AM.visible_message(span_danger("<b>[capitalize(AM.name)]</b> влетает в <b>[src.name]</b> и превращается в пепел.") , null,\
-		span_hear("Слышу громкий треск, когда меня омывает волна тепла.") )
+		span_hear("Слышу громкий треск, когда меня омывает волна тепла."))
 	else
 		return
 

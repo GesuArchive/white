@@ -7,7 +7,7 @@
 
 /obj/item/organ/body_egg/on_find(mob/living/finder)
 	..()
-	to_chat(finder, span_warning("You found an unknown alien organism in [owner] [zone]!") )
+	to_chat(finder, span_warning("You found an unknown alien organism in [owner] [zone]!"))
 
 /obj/item/organ/body_egg/Initialize()
 	. = ..()

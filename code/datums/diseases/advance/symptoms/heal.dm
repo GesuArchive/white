@@ -81,7 +81,7 @@
 /datum/symptom/heal/starlight/Heal(mob/living/carbon/M, datum/disease/advance/A, actual_power)
 	var/heal_amt = actual_power
 	if(M.getToxLoss() && prob(5))
-		to_chat(M, span_notice("Your skin tingles as the starlight seems to heal you.") )
+		to_chat(M, span_notice("Your skin tingles as the starlight seems to heal you."))
 
 	M.adjustToxLoss(-(4 * heal_amt)) //most effective on toxins
 
@@ -128,7 +128,7 @@
 		if(food_conversion)
 			M.adjust_nutrition(0.3)
 		if(prob(2))
-			to_chat(M, span_notice("You feel a mild warmth as your blood purifies itself.") )
+			to_chat(M, span_notice("You feel a mild warmth as your blood purifies itself."))
 	return 1
 
 
@@ -166,7 +166,7 @@
 	var/lost_nutrition = 9 - (reduced_hunger * 5)
 	C.adjust_nutrition(-lost_nutrition * HUNGER_FACTOR) //Hunger depletes at 10x the normal speed
 	if(prob(2))
-		to_chat(C, span_notice("You feel an odd gurgle in your stomach, as if it was working much faster than normal.") )
+		to_chat(C, span_notice("You feel an odd gurgle in your stomach, as if it was working much faster than normal."))
 	return 1
 
 /datum/symptom/heal/darkness
@@ -206,7 +206,7 @@
 		return
 
 	if(prob(5))
-		to_chat(M, span_notice("The darkness soothes and mends your wounds.") )
+		to_chat(M, span_notice("The darkness soothes and mends your wounds."))
 
 	for(var/obj/item/bodypart/L in parts)
 		if(L.heal_damage(heal_amt/parts.len, heal_amt/parts.len * 0.5, null, BODYPART_ORGANIC)) //more effective on brute
@@ -274,7 +274,7 @@
 		if(SOFT_CRIT)
 			return power * 0.5
 	if(M.getBruteLoss() + M.getFireLoss() >= 70 && !active_coma)
-		to_chat(M, span_warning("You feel yourself slip into a regenerative coma...") )
+		to_chat(M, span_warning("You feel yourself slip into a regenerative coma..."))
 		active_coma = TRUE
 		addtimer(CALLBACK(src, .proc/coma, M), 60)
 
@@ -358,7 +358,7 @@
 		return
 
 	if(prob(5))
-		to_chat(M, span_notice("You feel yourself absorbing the water around you to soothe your damaged skin.") )
+		to_chat(M, span_notice("You feel yourself absorbing the water around you to soothe your damaged skin."))
 
 	for(var/obj/item/bodypart/L in parts)
 		if(L.heal_damage(heal_amt/parts.len * 0.5, heal_amt/parts.len, null, BODYPART_ORGANIC))
@@ -412,17 +412,17 @@
 	var/heal_amt = 4 * actual_power
 
 	if(prob(5))
-		to_chat(M, span_notice("You feel yourself absorbing plasma inside and around you...") )
+		to_chat(M, span_notice("You feel yourself absorbing plasma inside and around you..."))
 
 	var/target_temp = M.get_body_temp_normal()
 	if(M.bodytemperature > target_temp)
 		M.adjust_bodytemperature(-20 * temp_rate * TEMPERATURE_DAMAGE_COEFFICIENT, target_temp)
 		if(prob(5))
-			to_chat(M, span_notice("You feel less hot.") )
+			to_chat(M, span_notice("You feel less hot."))
 	else if(M.bodytemperature < (M.get_body_temp_normal() + 1))
 		M.adjust_bodytemperature(20 * temp_rate * TEMPERATURE_DAMAGE_COEFFICIENT, 0, target_temp)
 		if(prob(5))
-			to_chat(M, span_notice("You feel warmer.") )
+			to_chat(M, span_notice("You feel warmer."))
 
 	M.adjustToxLoss(-heal_amt)
 
@@ -430,7 +430,7 @@
 	if(!parts.len)
 		return
 	if(prob(5))
-		to_chat(M, span_notice("The pain from your wounds fades rapidly.") )
+		to_chat(M, span_notice("The pain from your wounds fades rapidly."))
 	for(var/obj/item/bodypart/L in parts)
 		if(L.heal_damage(heal_amt/parts.len, heal_amt/parts.len, null, BODYPART_ORGANIC))
 			M.update_damage_overlays()
@@ -492,7 +492,7 @@
 		return
 
 	if(prob(4))
-		to_chat(M, span_notice("Your skin glows faintly, and you feel your wounds mending themselves.") )
+		to_chat(M, span_notice("Your skin glows faintly, and you feel your wounds mending themselves."))
 
 	for(var/obj/item/bodypart/L in parts)
 		if(L.heal_damage(heal_amt/parts.len, heal_amt/parts.len, null, BODYPART_ORGANIC))

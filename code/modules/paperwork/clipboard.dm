@@ -21,7 +21,7 @@
 
 
 /obj/item/clipboard/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] начинает класть [user.ru_ego()] засовывать голову в зажим <b>[src.name]</b>! Судя по всему, [user.p_theyre()] пытается совершить суицид!") )
+	user.visible_message(span_suicide("[user] начинает класть [user.ru_ego()] засовывать голову в зажим <b>[src.name]</b>! Судя по всему, [user.p_theyre()] пытается совершить суицид!"))
 	return BRUTELOSS//the clipboard's clip is very strong. industrial duty. can kill a man easily.
 
 /obj/item/clipboard/Initialize()
@@ -47,7 +47,7 @@
 		if(!user.transferItemToLoc(W, src))
 			return
 		toppaper = W
-		to_chat(user, span_notice("Зажимаю бумагу на <b>[src.name]</b>.") )
+		to_chat(user, span_notice("Зажимаю бумагу на <b>[src.name]</b>."))
 		update_icon()
 	else if(toppaper)
 		toppaper.attackby(user.get_active_held_item(), user)
@@ -96,7 +96,7 @@
 					if(!usr.transferItemToLoc(W, src))
 						return
 					haspen = W
-					to_chat(usr, span_notice("Вставляю [W] в [src].") )
+					to_chat(usr, span_notice("Вставляю [W] в [src]."))
 
 		if(href_list["write"])
 			var/obj/item/P = locate(href_list["write"]) in src
@@ -126,7 +126,7 @@
 			var/obj/item/P = locate(href_list["top"]) in src
 			if(istype(P))
 				toppaper = P
-				to_chat(usr, span_notice("Перемещаю [P.name] наверх.") )
+				to_chat(usr, span_notice("Перемещаю [P.name] наверх."))
 
 		//Update everything
 		attack_self(usr)

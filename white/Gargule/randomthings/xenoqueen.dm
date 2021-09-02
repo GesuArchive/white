@@ -20,7 +20,7 @@
 
 /mob/living/carbon/alien/humanoid/royal/queen/tamed/UnarmedAttack(atom/A)
 	if(!has_active_hand()) //can't attack without a hand.
-		to_chat(src, span_notice("Смотрю на свою руку и вздыхаю.") )
+		to_chat(src, span_notice("Смотрю на свою руку и вздыхаю."))
 		return
 	if(src.a_intent == INTENT_HELP && !ismob(A))
 		A.attack_hand(src)
@@ -29,10 +29,10 @@
 
 /mob/living/carbon/alien/humanoid/royal/queen/tamed/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE)
 	if(incapacitated() || !(mobility_flags & MOBILITY_STAND) )
-		to_chat(src, span_warning("You can't do that right now!") )
+		to_chat(src, span_warning("You can't do that right now!"))
 		return FALSE
 	if(!Adjacent(M) && (M.loc != src))
-		to_chat(src, span_warning("You are too far away!") )
+		to_chat(src, span_warning("You are too far away!"))
 		return FALSE
 	return TRUE
 

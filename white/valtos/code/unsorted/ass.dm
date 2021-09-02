@@ -301,11 +301,11 @@
 	set category = "Маппинг"
 	set name = "? WRITE MAP"
 	var/datum/dmm_suite/suite = new()
-	to_chat(world, span_boldannounce("ВНИМАНИЕ! Начато сохранение мира. Это займёт примерно минуту.") )
+	to_chat(world, span_boldannounce("ВНИМАНИЕ! Начато сохранение мира. Это займёт примерно минуту."))
 	var/map_text = suite.write_map(
 		locate(1, 1, zlevel_to),
 		locate(world.maxx, world.maxy, zlevel_to),
 		DMM_IGNORE_PLAYERS
 	)
 	usr << browse("<head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'></head>	<pre>[map_text]</pre>", "window=assmap")
-	to_chat(world, span_boldannounce("Мир сохранён, приятной игры!") )
+	to_chat(world, span_boldannounce("Мир сохранён, приятной игры!"))

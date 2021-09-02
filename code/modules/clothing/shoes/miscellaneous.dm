@@ -118,13 +118,13 @@
 	if(!isliving(user))
 		return
 	if(user.get_active_held_item() != src)
-		to_chat(user, span_warning("Мне нужно держать [src] в руке чтобы это сделать!") )
+		to_chat(user, span_warning("Мне нужно держать [src] в руке чтобы это сделать!"))
 		return
 	if (!enabled_waddle)
-		to_chat(user, span_notice("Выключил походочные демперы!") )
+		to_chat(user, span_notice("Выключил походочные демперы!"))
 		enabled_waddle = TRUE
 	else
-		to_chat(user, span_notice("Включил походочные демперы!") )
+		to_chat(user, span_notice("Включил походочные демперы!"))
 		enabled_waddle = FALSE
 
 /obj/item/clothing/shoes/clown_shoes/jester
@@ -260,17 +260,17 @@
 		return
 
 	if(recharging_time > world.time)
-		to_chat(user, span_warning("Внутренней силовой установке ботинок всё еще требуется перезарядка!") )
+		to_chat(user, span_warning("Внутренней силовой установке ботинок всё еще требуется перезарядка!"))
 		return
 
 	var/atom/target = get_edge_target_turf(user, user.dir) //gets the user's direction
 
 	if (user.throw_at(target, jumpdistance, jumpspeed, spin = FALSE, diagonals_first = TRUE))
 		playsound(src, 'sound/effects/stealthoff.ogg', 50, TRUE, TRUE)
-		user.visible_message(span_warning("[usr] взлетает в воздух!") )
+		user.visible_message(span_warning("[usr] взлетает в воздух!"))
 		recharging_time = world.time + recharging_rate
 	else
-		to_chat(user, span_warning("SЧто-то мешает мне взлететь!") )
+		to_chat(user, span_warning("SЧто-то мешает мне взлететь!"))
 
 /obj/item/clothing/shoes/bhop/rocket
 	name = "rocket boots"
@@ -332,7 +332,7 @@
 	if(!isliving(user))
 		return
 	if(!istype(user.get_item_by_slot(ITEM_SLOT_FEET), /obj/item/clothing/shoes/wheelys))
-		to_chat(user, span_warning("Стоит надеть вилли-хилс чтобы их использовать!") )
+		to_chat(user, span_warning("Стоит надеть вилли-хилс чтобы их использовать!"))
 		return
 	if(!(wheels.is_occupant(user)))
 		wheelToggle = FALSE
@@ -449,7 +449,7 @@
 	if(slot == ITEM_SLOT_FEET)
 		for(var/mob/living/occupant in occupants)
 			occupant.forceMove(user.drop_location())
-			user.visible_message(span_warning("[user] recoils as something slithers out of [src].") , span_userdanger("You feel a sudden stabbing pain in your [pick("foot", "toe", "ankle")]!") )
+			user.visible_message(span_warning("[user] recoils as something slithers out of [src].") , span_userdanger("You feel a sudden stabbing pain in your [pick("foot", "toe", "ankle")]!"))
 			user.Knockdown(20) //Is one second paralyze better here? I feel you would fall on your ass in some fashion.
 			user.apply_damage(5, BRUTE, pick(BODY_ZONE_R_LEG, BODY_ZONE_L_LEG))
 			if(istype(occupant, /mob/living/simple_animal/hostile/retaliate/poison))
@@ -461,12 +461,12 @@
 	if(!(user.mobility_flags & MOBILITY_USE) || user.stat != CONSCIOUS || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED) || !Adjacent(user) || !user.Adjacent(target) || target.stat == DEAD)
 		return
 	if(occupants.len >= max_occupants)
-		to_chat(user, span_warning("[capitalize(src.name)] заполнены!") )
+		to_chat(user, span_warning("[capitalize(src.name)] заполнены!"))
 		return
 	if(istype(target, /mob/living/simple_animal/hostile/retaliate/poison/snake) || istype(target, /mob/living/simple_animal/hostile/headcrab) || istype(target, /mob/living/carbon/alien/larva))
 		occupants += target
 		target.forceMove(src)
-		to_chat(user, span_notice("[target] скользит в [src].") )
+		to_chat(user, span_notice("[target] скользит в [src]."))
 
 /obj/item/clothing/shoes/cowboy/container_resist_act(mob/living/user)
 	if(!do_after(user, 10, target = user))

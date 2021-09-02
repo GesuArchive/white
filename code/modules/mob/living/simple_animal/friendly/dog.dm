@@ -189,7 +189,7 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 		return FALSE
 
 	if (!ispath(equipping.dog_fashion, /datum/dog_fashion/back))
-		to_chat(user, span_warning("You set [equipping] on [source]'s back, but it falls off!") )
+		to_chat(user, span_warning("You set [equipping] on [source]'s back, but it falls off!"))
 		equipping.forceMove(source.drop_location())
 		if (prob(25))
 			step_rand(equipping)
@@ -235,7 +235,7 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 		return FALSE
 
 	if (!istype(equipping, /obj/item/clothing/neck/petcollar))
-		to_chat(user, span_warning("That's not a collar.") )
+		to_chat(user, span_warning("That's not a collar."))
 		return FALSE
 
 	return TRUE
@@ -274,7 +274,7 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 		return FALSE
 
 	if (!istype(equipping, /obj/item/card/id))
-		to_chat(user, span_warning("You can't pin [equipping] to [source]!") )
+		to_chat(user, span_warning("You can't pin [equipping] to [source]!"))
 		return FALSE
 
 	return TRUE
@@ -318,14 +318,14 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 /mob/living/simple_animal/pet/dog/corgi/attackby(obj/item/O, mob/user, params)
 	if (istype(O, /obj/item/razor))
 		if (shaved)
-			to_chat(user, span_warning("Этот корги уже побрит!") )
+			to_chat(user, span_warning("Этот корги уже побрит!"))
 			return
 		if (nofur)
-			to_chat(user, span_warning("У этого корги нет шерсти!") )
+			to_chat(user, span_warning("У этого корги нет шерсти!"))
 			return
-		user.visible_message(span_notice("[user] начинает брить [src] используя [O].") , span_notice("Начинаю брить [src] используя [O]...") )
+		user.visible_message(span_notice("[user] начинает брить [src] используя [O].") , span_notice("Начинаю брить [src] используя [O]..."))
 		if(do_after(user, 50, target = src))
-			user.visible_message(span_notice("[user] бреет [src] используя [O].") )
+			user.visible_message(span_notice("[user] бреет [src] используя [O]."))
 			playsound(loc, 'sound/items/welder2.ogg', 20, TRUE)
 			shaved = TRUE
 			icon_living = "[initial(icon_living)]_shaved"
@@ -346,17 +346,17 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 /mob/living/simple_animal/pet/dog/corgi/proc/place_on_head(obj/item/item_to_add, mob/user)
 	if(inventory_head)
 		if(user)
-			to_chat(user, span_warning("Не могу посадить больше одной на [src]!") )
+			to_chat(user, span_warning("Не могу посадить больше одной на [src]!"))
 		return
 	if(!item_to_add)
-		user.visible_message(span_notice("[user] гладит [src].") , span_notice("Держу свою руку на голове [src]. Да?") )
+		user.visible_message(span_notice("[user] гладит [src].") , span_notice("Держу свою руку на голове [src]. Да?"))
 		if(flags_1 & HOLOGRAM_1)
 			return
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, src, /datum/mood_event/pet_animal, src)
 		return
 
 	if(user && !user.temporarilyRemoveItemFromInventory(item_to_add))
-		to_chat(user, span_warning("[capitalize(item_to_add)] застрял в моей руке, у меня не получится положить его на голову [src]!") )
+		to_chat(user, span_warning("[capitalize(item_to_add)] застрял в моей руке, у меня не получится положить его на голову [src]!"))
 		return
 
 	var/valid = FALSE
@@ -367,17 +367,17 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 
 	if(valid)
 		if(health <= 0)
-			to_chat(user, span_notice("Просто скучный, безжизненный взгляд виден в глазах [real_name] пока я пытаюсь напялить [item_to_add] на н[ru_ego()].") )
+			to_chat(user, span_notice("Просто скучный, безжизненный взгляд виден в глазах [real_name] пока я пытаюсь напялить [item_to_add] на н[ru_ego()]."))
 		else if(user)
 			user.visible_message(span_notice("[user] надевает [item_to_add] на голову [real_name]. [src] смотрит на [user] и гавкает радостно.") ,
 				span_notice("Надеваю [item_to_add] на голову [real_name]. [src] смотрит на меня своеобразно, затем [ru_who()] подвиливает хвостиком и гавкает радостно.") ,
-				span_hear("Слышу дружественно звучащий лай.") )
+				span_hear("Слышу дружественно звучащий лай."))
 		item_to_add.forceMove(src)
 		src.inventory_head = item_to_add
 		update_corgi_fluff()
 		regenerate_icons()
 	else
-		to_chat(user, span_warning("Надеваю [item_to_add] на голову [src], но оно спадает!") )
+		to_chat(user, span_warning("Надеваю [item_to_add] на голову [src], но оно спадает!"))
 		item_to_add.forceMove(drop_location())
 		if(prob(25))
 			step_rand(item_to_add)
@@ -599,7 +599,7 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 //puppies cannot wear anything.
 /mob/living/simple_animal/pet/dog/corgi/puppy/Topic(href, href_list)
 	if(href_list["remove_inv"] || href_list["add_inv"])
-		to_chat(usr, span_warning("Не могу надеть это на [src]!") )
+		to_chat(usr, span_warning("Не могу надеть это на [src]!"))
 		return
 	..()
 
@@ -655,7 +655,7 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 //Lisa already has a cute bow!
 /mob/living/simple_animal/pet/dog/corgi/lisa/Topic(href, href_list)
 	if(href_list["remove_inv"] || href_list["add_inv"])
-		to_chat(usr, span_warning("[capitalize(src.name)] уже имеет милый вид!") )
+		to_chat(usr, span_warning("[capitalize(src.name)] уже имеет милый вид!"))
 		return
 	..()
 

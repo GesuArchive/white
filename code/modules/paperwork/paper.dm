@@ -118,7 +118,7 @@
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
 		if(HAS_TRAIT(H, TRAIT_CLUMSY) && prob(25))
-			to_chat(H, span_warning("Режу себя бумагой! А-А-А-А-А-А-А-А!") )
+			to_chat(H, span_warning("Режу себя бумагой! А-А-А-А-А-А-А-А!"))
 			H.damageoverlaytemp = 9001
 			H.update_damage_hud()
 			return
@@ -128,7 +128,7 @@
 	add_fingerprint(usr)
 
 /obj/item/paper/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] выцарапывает решётку на [user.ru_ego()] запястье бумагой! Судя по всему, [user.p_theyre()] собирается совершить су...доку.") )
+	user.visible_message(span_suicide("[user] выцарапывает решётку на [user.ru_ego()] запястье бумагой! Судя по всему, [user.p_theyre()] собирается совершить су...доку."))
 	return (BRUTELOSS)
 
 /obj/item/paper/proc/clearpaper()
@@ -179,7 +179,7 @@
 	. = TRUE
 	if(!bypass_clumsy && HAS_TRAIT(user, TRAIT_CLUMSY) && prob(10) && Adjacent(user))
 		user.visible_message(span_warning("[user] случайно поджигает себя!") , \
-							span_userdanger("Жгу мимо [src] и поджигаю себя!") )
+							span_userdanger("Жгу мимо [src] и поджигаю себя!"))
 		if(user.is_holding(I)) //checking if they're holding it in case TK is involved
 			user.dropItemToGround(I)
 		user.adjust_fire_stacks(1)
@@ -199,12 +199,12 @@
 
 	if(istype(P, /obj/item/pen) || istype(P, /obj/item/toy/crayon))
 		if(length(info) >= MAX_PAPER_LENGTH) // Sheet must have less than 1000 charaters
-			to_chat(user, span_warning("Это хранилище бумаги заполнено!") )
+			to_chat(user, span_warning("Это хранилище бумаги заполнено!"))
 			return
 		ui_interact(user)
 		return
 	else if(istype(P, /obj/item/stamp))
-		to_chat(user, span_notice("Самое время делать печати!") )
+		to_chat(user, span_notice("Самое время делать печати!"))
 		ui_interact(user)
 		return /// Normaly you just stamp, you don't need to read the thing
 	else
@@ -312,7 +312,7 @@
 
 				update_static_data(usr,ui)
 				var/obj/O = ui.user.get_active_held_item()
-				ui.user.visible_message(span_notice("[ui.user] штампует [src] используя [O.name]!") , span_notice("Штампую [src] используя [O.name]!") )
+				ui.user.visible_message(span_notice("[ui.user] штампует [src] используя [O.name]!") , span_notice("Штампую [src] используя [O.name]!"))
 			else
 				to_chat(usr, pick("Пытаюсь сделать штамп, но промахиваюсь!", "А где штамп то ставить?!"))
 			. = TRUE

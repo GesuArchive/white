@@ -294,7 +294,7 @@
 			H.emote("burp")
 		if (prob(nitryl_pp) && nitryl_pp>10)
 			H.adjustOrganLoss(ORGAN_SLOT_LUNGS, nitryl_pp/2)
-			to_chat(H, span_notice("Мои лёгкие горят!") )
+			to_chat(H, span_notice("Мои лёгкие горят!"))
 		gas_breathed = breath.get_moles(/datum/gas/nitryl)
 		if (gas_breathed > gas_stimulation_min)
 			H.reagents.add_reagent(/datum/reagent/nitryl,1)
@@ -304,12 +304,12 @@
 	// Freon
 		var/freon_pp = breath.get_breath_partial_pressure(breath.get_moles(/datum/gas/freon))
 		if (prob(freon_pp))
-			to_chat(H, span_alert("Мои лёгкие горят!") )
+			to_chat(H, span_alert("Мои лёгкие горят!"))
 		if (freon_pp >40)
 			H.emote("gasp")
 			H.adjustFireLoss(15)
 			if (prob(freon_pp/2))
-				to_chat(H, span_alert("Моя глотка смыкается!") )
+				to_chat(H, span_alert("Моя глотка смыкается!"))
 				H.silent = max(H.silent, 3)
 		else
 			H.adjustFireLoss(freon_pp/4)
@@ -323,7 +323,7 @@
 		var/healium_pp = breath.get_breath_partial_pressure(breath.get_moles(/datum/gas/healium))
 		if(healium_pp > gas_stimulation_min)
 			if(prob(15))
-				to_chat(H, span_alert("Your head starts spinning and your lungs burn!") )
+				to_chat(H, span_alert("Your head starts spinning and your lungs burn!"))
 				SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "chemical_euphoria", /datum/mood_event/chemical_euphoria)
 				H.emote("gasp")
 		else
@@ -388,22 +388,22 @@
 					// At lower pp, give out a little warning
 					SEND_SIGNAL(owner, COMSIG_CLEAR_MOOD_EVENT, "smell")
 					if(prob(5))
-						to_chat(owner, span_notice("Тошнотворный запах.") )
+						to_chat(owner, span_notice("Тошнотворный запах."))
 				if(5 to 15)
 					//At somewhat higher pp, warning becomes more obvious
 					if(prob(15))
-						to_chat(owner, span_warning("Здесь кто-то умер? Воняет ужасно...") )
+						to_chat(owner, span_warning("Здесь кто-то умер? Воняет ужасно..."))
 						SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/bad_smell)
 				if(15 to 30)
 					//Small chance to vomit. By now, people have internals on anyway
 					if(prob(5))
-						to_chat(owner, span_warning("Вонь гниющих туш невыносима! Тошнит...") )
+						to_chat(owner, span_warning("Вонь гниющих туш невыносима! Тошнит..."))
 						SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/nauseating_stench)
 						owner.vomit()
 				if(30 to INFINITY)
 					//Higher chance to vomit. Let the horror start
 					if(prob(15))
-						to_chat(owner, span_warning("Вонь гниющих туш невыносима! Сейчас блевану...") )
+						to_chat(owner, span_warning("Вонь гниющих туш невыносима! Сейчас блевану..."))
 						SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/nauseating_stench)
 						owner.vomit()
 				else
@@ -453,7 +453,7 @@
 			H.apply_damage_type(cold_level_1_damage*cold_modifier, cold_damage_type)
 		if(breath_temperature < cold_level_1_threshold)
 			if(prob(20))
-				to_chat(H, span_warning("Ощущаю [cold_message] в мои лёгкие!") )
+				to_chat(H, span_warning("Ощущаю [cold_message] в мои лёгкие!"))
 
 	if(!HAS_TRAIT(H, TRAIT_RESISTHEAT)) // HEAT DAMAGE
 		var/heat_modifier = H.dna.species.heatmod
@@ -465,7 +465,7 @@
 			H.apply_damage_type(heat_level_3_damage*heat_modifier, heat_damage_type)
 		if(breath_temperature > heat_level_1_threshold)
 			if(prob(20))
-				to_chat(H, span_warning("Ощущаю [hot_message] в мои лёгкие!") )
+				to_chat(H, span_warning("Ощущаю [hot_message] в мои лёгкие!"))
 
 	// The air you breathe out should match your body temperature
 	breath.set_temperature(H.bodytemperature)
@@ -480,7 +480,7 @@
 		if(do_i_cough)
 			owner.emote("cough")
 	if(organ_flags & ORGAN_FAILING && owner.stat == CONSCIOUS)
-		owner.visible_message(span_danger("[owner] grabs [owner.ru_ego()] throat, struggling for breath!") , span_userdanger("You suddenly feel like you can't breathe!") )
+		owner.visible_message(span_danger("[owner] grabs [owner.ru_ego()] throat, struggling for breath!") , span_userdanger("You suddenly feel like you can't breathe!"))
 		failed = TRUE
 
 /obj/item/organ/lungs/get_availability(datum/species/S)

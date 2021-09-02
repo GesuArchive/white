@@ -120,7 +120,7 @@
 		if(demotes_to)
 			replace_wound(demotes_to)
 		else
-			to_chat(victim, span_green("Порез на моей [ru_parse_zone(limb.name)] перестаёт кровоточить!") )
+			to_chat(victim, span_green("Порез на моей [ru_parse_zone(limb.name)] перестаёт кровоточить!"))
 			qdel(src)
 
 
@@ -152,13 +152,13 @@
 	if(user.pulling != victim || user.zone_selected != limb.body_zone || !isfelinid(user) || !victim.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))
 		return FALSE
 	if(DOING_INTERACTION_WITH_TARGET(user, victim))
-		to_chat(user, span_warning("Уже взаимодействую с [victim]!") )
+		to_chat(user, span_warning("Уже взаимодействую с [victim]!"))
 		return
 	if(user.is_mouth_covered())
 		to_chat(user, "<span class='warning'Мой рот закрыт и не может достать до ран [victim]!</span>")
 		return
 	if(!user.getorganslot(ORGAN_SLOT_TONGUE))
-		to_chat(user, span_warning("А чем лизать-то?!") ) // f in chat
+		to_chat(user, span_warning("А чем лизать-то?!")) // f in chat
 		return
 
 	lick_wounds(user)
@@ -185,7 +185,7 @@
 	if(blood_flow > minimum_flow)
 		try_handling(user)
 	else if(demotes_to)
-		to_chat(user, span_green("Успешно ослабляю кровотечение у [victim].") )
+		to_chat(user, span_green("Успешно ослабляю кровотечение у [victim]."))
 
 /datum/wound/slash/on_xadone(power)
 	. = ..()
@@ -198,7 +198,7 @@
 /// If someone's putting a laser gun up to our cut to cauterize it
 /datum/wound/slash/proc/las_cauterize(obj/item/gun/energy/laser/lasgun, mob/user)
 	var/self_penalty_mult = (user == victim ? 1.25 : 1)
-	user.visible_message(span_warning("<b>[user]</b> начинает наводить [lasgun] прямо на [ru_gde_zone(limb.name)] <b>[victim]</b>...") , span_userdanger("Начинаю наводить [lasgun] прямо на [user == victim ? "свою " : " "][ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"]...") )
+	user.visible_message(span_warning("<b>[user]</b> начинает наводить [lasgun] прямо на [ru_gde_zone(limb.name)] <b>[victim]</b>...") , span_userdanger("Начинаю наводить [lasgun] прямо на [user == victim ? "свою " : " "][ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"]..."))
 	if(!do_after(user, base_treat_time  * self_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 	var/damage = lasgun.chambered.BB.damage
@@ -208,18 +208,18 @@
 		return
 	victim.emote("agony")
 	blood_flow -= damage / (5 * self_penalty_mult) // 20 / 5 = 4 bloodflow removed, p good
-	victim.visible_message(span_warning("Порезы на [ru_gde_zone(limb.name)] <b>[victim]</b> превращаются в ужасные шрамы!") )
+	victim.visible_message(span_warning("Порезы на [ru_gde_zone(limb.name)] <b>[victim]</b> превращаются в ужасные шрамы!"))
 
 /// If someone is using either a cautery tool or something with heat to cauterize this cut
 /datum/wound/slash/proc/tool_cauterize(obj/item/I, mob/user)
 	var/improv_penalty_mult = (I.tool_behaviour == TOOL_CAUTERY ? 1 : 1.25) // 25% longer and less effective if you don't use a real cautery
 	var/self_penalty_mult = (user == victim ? 1.5 : 1) // 50% longer and less effective if you do it to yourself
 
-	user.visible_message(span_danger("<b>[user]</b> начинает прижигать порезы на [ru_gde_zone(limb.name)] <b>[victim]</b> используя [I]...") , span_danger("Начинаю прижигать порезы на [user == victim ? "своей" : " "][ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...") )
+	user.visible_message(span_danger("<b>[user]</b> начинает прижигать порезы на [ru_gde_zone(limb.name)] <b>[victim]</b> используя [I]...") , span_danger("Начинаю прижигать порезы на [user == victim ? "своей" : " "][ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]..."))
 	if(!do_after(user, base_treat_time * self_penalty_mult * improv_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 
-	user.visible_message(span_green("<b>[user]</b> прижигает некоторые порезы <b>[victim]</b>.") , span_green("Прижигаю некоторые порезы <b>[victim]</b>.") )
+	user.visible_message(span_green("<b>[user]</b> прижигает некоторые порезы <b>[victim]</b>.") , span_green("Прижигаю некоторые порезы <b>[victim]</b>."))
 	limb.receive_damage(burn = 2 + severity, wound_bonus = CANT_WOUND)
 	if(prob(30))
 		victim.emote("agony")
@@ -229,15 +229,15 @@
 	if(blood_flow > minimum_flow)
 		try_treating(I, user)
 	else if(demotes_to)
-		to_chat(user, span_green("Успешно ослабляю кровотечение из [user == victim ? "моих порезов" : "порезов [victim]"].") )
+		to_chat(user, span_green("Успешно ослабляю кровотечение из [user == victim ? "моих порезов" : "порезов [victim]"]."))
 
 /// If someone is using a suture to close this cut
 /datum/wound/slash/proc/suture(obj/item/stack/medical/suture/I, mob/user)
 	var/self_penalty_mult = (user == victim ? 1.4 : 1)
-	user.visible_message(span_notice("<b>[user]</b> начинает зашивать порезы на [ru_gde_zone(limb.name)] <b>[victim]</b> используя [I]...") , span_notice("Начинаю зашивать порезы на [user == victim ? "моей" : " "][ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]...") )
+	user.visible_message(span_notice("<b>[user]</b> начинает зашивать порезы на [ru_gde_zone(limb.name)] <b>[victim]</b> используя [I]...") , span_notice("Начинаю зашивать порезы на [user == victim ? "моей" : " "][ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]..."))
 	if(!do_after(user, base_treat_time * self_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
-	user.visible_message(span_green("<b>[user]</b> зашивает некоторые порезы <b>[victim]</b>.") , span_green("Зашиваю некоторые порезы [user == victim ? "успешно" : "<b>[victim]</b>"].") )
+	user.visible_message(span_green("<b>[user]</b> зашивает некоторые порезы <b>[victim]</b>.") , span_green("Зашиваю некоторые порезы [user == victim ? "успешно" : "<b>[victim]</b>"]."))
 	var/blood_sutured = I.stop_bleeding / self_penalty_mult
 	blood_flow -= blood_sutured
 	limb.heal_damage(I.heal_brute, I.heal_burn)
@@ -246,7 +246,7 @@
 	if(blood_flow > minimum_flow)
 		try_treating(I, user)
 	else if(demotes_to)
-		to_chat(user, span_green("Успешно ослабляю кровотечение из [user == victim ? "моих порезов" : "порезов [victim]"].") )
+		to_chat(user, span_green("Успешно ослабляю кровотечение из [user == victim ? "моих порезов" : "порезов [victim]"]."))
 
 
 /datum/wound/slash/moderate

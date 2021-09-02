@@ -132,10 +132,10 @@
 /obj/machinery/satellite/proc/toggle(mob/user)
 	if(!active && !isinspace())
 		if(user)
-			to_chat(user, span_warning("Активировать [src.name] получится только в космосе.") )
+			to_chat(user, span_warning("Активировать [src.name] получится только в космосе."))
 		return FALSE
 	if(user)
-		to_chat(user, span_notice("[active ? "Деактивирую": "Активирую"] [src.name].") )
+		to_chat(user, span_notice("[active ? "Деактивирую": "Активирую"] [src.name]."))
 	set_anchored(!anchored)
 	return TRUE
 
@@ -144,7 +144,7 @@
 
 /obj/machinery/satellite/multitool_act(mob/living/user, obj/item/I)
 	..()
-	to_chat(user, span_notice("// NTSAT-[id] // Режим: [active ? "РАБОТА" : "ОЖИДАНИЕ"] //[(obj_flags & EMAGGED) ? "DEBUG_MODE //" : ""]") )
+	to_chat(user, span_notice("// NTSAT-[id] // Режим: [active ? "РАБОТА" : "ОЖИДАНИЕ"] //[(obj_flags & EMAGGED) ? "DEBUG_MODE //" : ""]"))
 	return TRUE
 
 /obj/machinery/satellite/meteor_shield
@@ -196,6 +196,6 @@
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	to_chat(user, span_notice("Взламываю защиту и увеличиваю шанс удара метеоритом.") )
+	to_chat(user, span_notice("Взламываю защиту и увеличиваю шанс удара метеоритом."))
 	if(active)
 		change_meteor_chance(2)

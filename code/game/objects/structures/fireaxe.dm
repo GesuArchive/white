@@ -46,20 +46,20 @@
 			if(!I.tool_start_check(user, amount=2))
 				return
 
-			to_chat(user, span_notice("Начинаю чинить [src].") )
+			to_chat(user, span_notice("Начинаю чинить [src]."))
 			if(I.use_tool(src, user, 40, volume=50, amount=2))
 				obj_integrity = max_integrity
 				update_icon()
-				to_chat(user, span_notice("Чиню [src].") )
+				to_chat(user, span_notice("Чиню [src]."))
 		else
-			to_chat(user, span_warning("[capitalize(src.name)] сейчас в хорошем состоянии!") )
+			to_chat(user, span_warning("[capitalize(src.name)] сейчас в хорошем состоянии!"))
 		return
 	else if(istype(I, /obj/item/stack/sheet/glass) && broken)
 		var/obj/item/stack/sheet/glass/G = I
 		if(G.get_amount() < 2)
-			to_chat(user, span_warning("Вам нужно два листа стекла, чтобы починить [src]!") )
+			to_chat(user, span_warning("Вам нужно два листа стекла, чтобы починить [src]!"))
 			return
-		to_chat(user, span_notice("Начинаю чинить [src]...") )
+		to_chat(user, span_notice("Начинаю чинить [src]..."))
 		if(do_after(user, 20, target = src) && G.use(2))
 			broken = FALSE
 			obj_integrity = max_integrity
@@ -68,12 +68,12 @@
 		if(istype(I, /obj/item/fireaxe) && !fireaxe)
 			var/obj/item/fireaxe/F = I
 			if(F?.wielded)
-				to_chat(user, span_warning("Для начала разварите [F.name] .") )
+				to_chat(user, span_warning("Для начала разварите [F.name] ."))
 				return
 			if(!user.transferItemToLoc(F, src))
 				return
 			fireaxe = F
-			to_chat(user, span_notice("Кладу [F.name] обратно в [name].") )
+			to_chat(user, span_notice("Кладу [F.name] обратно в [name]."))
 			update_icon()
 			return
 		else if(!broken)
@@ -128,12 +128,12 @@
 		if(fireaxe)
 			user.put_in_hands(fireaxe)
 			fireaxe = null
-			to_chat(user, span_notice("Вы берете пожарный топор из [name].") )
+			to_chat(user, span_notice("Вы берете пожарный топор из [name]."))
 			src.add_fingerprint(user)
 			update_icon()
 			return
 	if(locked)
-		to_chat(user, span_warning(" [name] не хочет двигаться!") )
+		to_chat(user, span_warning(" [name] не хочет двигаться!"))
 		return
 	else
 		open = !open
@@ -151,7 +151,7 @@
 /obj/structure/fireaxecabinet/attack_tk(mob/user)
 	. = COMPONENT_CANCEL_ATTACK_CHAIN
 	if(locked)
-		to_chat(user, span_warning(" [name] не собирается двигаться!") )
+		to_chat(user, span_warning(" [name] не собирается двигаться!"))
 		return
 	open = !open
 	update_icon()
@@ -183,10 +183,10 @@
 		. += "glass_raised"
 
 /obj/structure/fireaxecabinet/proc/toggle_lock(mob/user)
-	to_chat(user, span_notice("Сброс схем...") )
+	to_chat(user, span_notice("Сброс схем..."))
 	playsound(src, 'sound/machines/locktoggle.ogg', 50, TRUE)
 	if(do_after(user, 20, target = src))
-		to_chat(user, span_notice("[locked ? "выключаю" : "перезапускаю"] блокирующие модули.") )
+		to_chat(user, span_notice("[locked ? "выключаю" : "перезапускаю"] блокирующие модули."))
 		locked = !locked
 		update_icon()
 
@@ -196,7 +196,7 @@
 	set src in oview(1)
 
 	if(locked)
-		to_chat(usr, span_warning(" [name] двигаться не собирается!") )
+		to_chat(usr, span_warning(" [name] двигаться не собирается!"))
 		return
 	else
 		open = !open

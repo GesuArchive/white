@@ -19,10 +19,10 @@
 /obj/item/storage/belt/bandolier/attackby(obj/item/I, mob/user, params)
 	if(istype(I,/obj/item/storage/belt/bandolier))
 		if(contents.len > 0)
-			to_chat(user, span_warning("Оба должны быть пустыми!") )
+			to_chat(user, span_warning("Оба должны быть пустыми!"))
 			return
 		else
-			to_chat(user, span_notice("Соединяю бандольеры вместе.") )
+			to_chat(user, span_notice("Соединяю бандольеры вместе."))
 			qdel(I)
 			qdel(src)
 			user.put_in_hands(new /obj/item/storage/belt/bandolier/double(user))

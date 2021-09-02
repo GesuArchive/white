@@ -281,7 +281,7 @@
 		if(buckled)
 			Feedstop(silent = TRUE)
 			visible_message(span_danger("[M] pulls [src] off!") , \
-				span_danger("You pull [src] off!") )
+				span_danger("You pull [src] off!"))
 			return
 		attacked += 5
 		if(nutrition >= 100) //steal some nutrition. negval handled in life()
@@ -317,12 +317,12 @@
 		if(buckled == M)
 			if(prob(60))
 				M.visible_message(span_warning("[M] пытается скинуть [name]!") , \
-					span_danger("Пытаюсь скинуть [name]!") )
+					span_danger("Пытаюсь скинуть [name]!"))
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 
 			else
 				M.visible_message(span_warning("[M] удаётся побороть [name]!") , \
-					span_notice("Мне удаётся побороть [name]!") )
+					span_notice("Мне удаётся побороть [name]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 
 				discipline_slime(M)
@@ -330,12 +330,12 @@
 		else
 			if(prob(30))
 				buckled.visible_message(span_warning("[M] пытается побороть [name] [buckled]!") , \
-					span_warning("[M] пытается побороть мой [name]!") )
+					span_warning("[M] пытается побороть мой [name]!"))
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 
 			else
 				buckled.visible_message(span_warning("[M] удаётся побороть [name] [buckled]!") , \
-					span_notice("[M] удаётся побороть мой [name]!") )
+					span_notice("[M] удаётся побороть мой [name]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 
 				discipline_slime(M)
@@ -365,7 +365,7 @@
 			++Friends[user]
 		else
 			Friends[user] = 1
-		to_chat(user, span_notice("Кормлю слизь плазмой. Он весело верещит.") )
+		to_chat(user, span_notice("Кормлю слизь плазмой. Он весело верещит."))
 		var/obj/item/stack/sheet/mineral/plasma/S = W
 		S.use(1)
 		return
@@ -374,7 +374,7 @@
 		if(prob(25))
 			user.do_attack_animation(src)
 			user.changeNext_move(CLICK_CD_MELEE)
-			to_chat(user, span_danger("[W] проходит сквозь [src]!") )
+			to_chat(user, span_danger("[W] проходит сквозь [src]!"))
 			return
 		if(Discipline && prob(50)) // wow, buddy, why am I getting attacked??
 			Discipline = 0
@@ -387,7 +387,7 @@
 	if(istype(W, /obj/item/storage/bag/bio))
 		var/obj/item/storage/P = W
 		if(!effectmod)
-			to_chat(user, span_warning("Слайм в настоящее время не мутирует.") )
+			to_chat(user, span_warning("Слайм в настоящее время не мутирует."))
 			return
 		var/hasOutput = FALSE //Have we outputted text?
 		var/hasFound = FALSE //Have we found an extract to be added?
@@ -398,23 +398,23 @@
 				applied++
 				hasFound = TRUE
 			if(applied >= SLIME_EXTRACT_CROSSING_REQUIRED)
-				to_chat(user, span_notice("Кормлю слайма как можно большим количеством экстрактов из мешка, и он мутирует!") )
+				to_chat(user, span_notice("Кормлю слайма как можно большим количеством экстрактов из мешка, и он мутирует!"))
 				playsound(src, 'sound/effects/attackblob.ogg', 50, TRUE)
 				spawn_corecross()
 				hasOutput = TRUE
 				break
 		if(!hasOutput)
 			if(!hasFound)
-				to_chat(user, span_warning("В сумке нет экстрактов, которые примет этот слайм!") )
+				to_chat(user, span_warning("В сумке нет экстрактов, которые примет этот слайм!"))
 			else
-				to_chat(user, span_notice("Кормлю слайма экстрактами из мешка.") )
+				to_chat(user, span_notice("Кормлю слайма экстрактами из мешка."))
 				playsound(src, 'sound/effects/attackblob.ogg', 50, TRUE)
 		return
 	..()
 
 /mob/living/simple_animal/slime/proc/spawn_corecross()
 	var/static/list/crossbreeds = subtypesof(/obj/item/slimecross)
-	visible_message(span_danger("[capitalize(src.name)] вздрагивает, его мутировавшее ядро поглощает остальную часть его тела!") )
+	visible_message(span_danger("[capitalize(src.name)] вздрагивает, его мутировавшее ядро поглощает остальную часть его тела!"))
 	playsound(src, 'sound/magic/smoke.ogg', 50, TRUE)
 	var/crosspath
 	for(var/X in crossbreeds)
@@ -425,7 +425,7 @@
 	if(crosspath)
 		new crosspath(loc)
 	else
-		visible_message(span_warning("Мутировавшее ядро вздрагивает и падает в лужу, не в силах сохранить свою форму.") )
+		visible_message(span_warning("Мутировавшее ядро вздрагивает и падает в лужу, не в силах сохранить свою форму."))
 	qdel(src)
 
 /mob/living/simple_animal/slime/proc/apply_water()

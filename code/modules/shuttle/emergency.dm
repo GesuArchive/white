@@ -93,11 +93,11 @@
 	var/obj/item/card/id/ID = user.get_idcard(TRUE)
 
 	if(!ID)
-		to_chat(user, span_warning("У меня нет ID.") )
+		to_chat(user, span_warning("У меня нет ID."))
 		return
 
 	if(!(ACCESS_HEADS in ID.access))
-		to_chat(user, span_warning("Уровень доступа моей карты недостаточно высок.") )
+		to_chat(user, span_warning("Уровень доступа моей карты недостаточно высок."))
 		return
 
 	if (user in acted_recently)
@@ -208,13 +208,13 @@
 	if(hijack_hacking == TRUE)
 		return
 	if(SSshuttle.emergency.hijack_status >= HIJACKED)
-		to_chat(user, span_warning("The emergency shuttle is already loaded with a corrupt navigational payload. What more do you want from it?") )
+		to_chat(user, span_warning("The emergency shuttle is already loaded with a corrupt navigational payload. What more do you want from it?"))
 		return
 	if(hijack_last_stage_increase >= world.time + hijack_stage_cooldown)
 		say("Error - Catastrophic software error detected. Input is currently on timeout.")
 		return
 	hijack_hacking = TRUE
-	to_chat(user, span_boldwarning("You [SSshuttle.emergency.hijack_status == NOT_BEGUN? "begin" : "continue"] to override [src] navigational protocols.") )
+	to_chat(user, span_boldwarning("You [SSshuttle.emergency.hijack_status == NOT_BEGUN? "begin" : "continue"] to override [src] navigational protocols."))
 	say("Software override initiated.")
 	var/turf/console_hijack_turf = get_turf(src)
 	message_admins("[src] is being overriden for hijack by [ADMIN_LOOKUPFLW(user)] in [ADMIN_VERBOSEJMP(console_hijack_turf)]")
@@ -226,7 +226,7 @@
 		message_admins("[src] has had its hijack stage increased to stage [SSshuttle.emergency.hijack_status] out of [HIJACKED] by [ADMIN_LOOKUPFLW(user)] in [ADMIN_VERBOSEJMP(console_hijack_turf)]")
 		log_game("[src] has had its hijack stage increased to stage [SSshuttle.emergency.hijack_status] out of [HIJACKED] by [key_name(user)] at [AREACOORD(src)]")
 		. = TRUE
-		to_chat(user, span_notice("You reprogram some of [src] programming, putting it on timeout for [hijack_stage_cooldown/10] seconds.") )
+		to_chat(user, span_notice("You reprogram some of [src] programming, putting it on timeout for [hijack_stage_cooldown/10] seconds."))
 	hijack_hacking = FALSE
 
 /obj/machinery/computer/emergency_shuttle/proc/announce_hijack_stage()
@@ -254,7 +254,7 @@
 		return
 
 	if((obj_flags & EMAGGED) || ENGINES_STARTED)	//SYSTEM ERROR: THE SHUTTLE WILL LA-SYSTEM ERROR: THE SHUTTLE WILL LA-SYSTEM ERROR: THE SHUTTLE WILL LAUNCH IN 10 SECONDS
-		to_chat(user, span_warning("Шаттл уже готовится к запуску!") )
+		to_chat(user, span_warning("Шаттл уже готовится к запуску!"))
 		return
 
 	var/time = TIME_LEFT
@@ -581,7 +581,7 @@
 			launch_status = EARLY_LAUNCHED
 			return ..()
 	else
-		to_chat(usr, span_warning("Эвакуационный под запустится только при уровне \"Красной\" тревоги или выше.") )
+		to_chat(usr, span_warning("Эвакуационный под запустится только при уровне \"Красной\" тревоги или выше."))
 		return TRUE
 
 /obj/docking_port/mobile/pod/cancel()
@@ -610,7 +610,7 @@
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	to_chat(user, span_warning("Сжигаю систему проверки уровня тревоги и активирую радар.") )
+	to_chat(user, span_warning("Сжигаю систему проверки уровня тревоги и активирую радар."))
 
 /obj/machinery/computer/shuttle_flight/pod/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
 	if(port)

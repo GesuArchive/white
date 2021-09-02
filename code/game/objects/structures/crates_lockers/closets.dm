@@ -149,7 +149,7 @@
 	for(var/mob/living/L in T)
 		if(L.anchored || horizontal && L.mob_size > MOB_SIZE_TINY && L.density)
 			if(user)
-				to_chat(user, span_danger("Внутри [src] что-то большое, оно мешает закрыть его.") )
+				to_chat(user, span_danger("Внутри [src] что-то большое, оно мешает закрыть его."))
 			return FALSE
 	return TRUE
 
@@ -281,18 +281,18 @@
 				if(!W.tool_start_check(user, amount=0))
 					return
 
-				to_chat(user, span_notice("Начинаю резать <b>[src.name]</b> на части...") )
+				to_chat(user, span_notice("Начинаю резать <b>[src.name]</b> на части..."))
 				if(W.use_tool(src, user, 40, volume=50))
 					if(!opened)
 						return
 					user.visible_message(span_notice("[user] разрезает <b>[src.name]</b>.") ,
 									span_notice("Режу <b>[src.name]</b> с помощью [W].") ,
-									span_hear("Слышу сварку.") )
+									span_hear("Слышу сварку."))
 					deconstruct(TRUE)
 				return
 			else // for example cardboard box is cut with wirecutters
 				user.visible_message(span_notice("[user] разрезает <b>[src.name]</b>.") , \
-									span_notice("Режу <b>[src.name]</b> с помощью [W].") )
+									span_notice("Режу <b>[src.name]</b> с помощью [W]."))
 				deconstruct(TRUE)
 				return
 		if(user.transferItemToLoc(W, drop_location())) // so we put in unlit welder too
@@ -301,7 +301,7 @@
 		if(!W.tool_start_check(user, amount=0))
 			return
 
-		to_chat(user, span_notice("Начинаю резать [welded ? "развариваю":"свариваю"] <b>[src.name]</b>...") )
+		to_chat(user, span_notice("Начинаю резать [welded ? "развариваю":"свариваю"] <b>[src.name]</b>..."))
 		if(W.use_tool(src, user, 40, volume=50))
 			if(opened)
 				return
@@ -310,7 +310,7 @@
 			update_airtightness()
 			user.visible_message(span_notice("[user] [welded ? "сварные швы заварены" : "разварено"] <b>[src.name]</b>.") ,
 							span_notice("[welded ? "сварил" : "разварил"] <b>[src.name]</b> с помощью [W].") ,
-							span_hear("Слышу сварку.") )
+							span_hear("Слышу сварку."))
 			log_game("[key_name(user)] [welded ? "welded":"unwelded"] closet [src] with [W] at [AREACOORD(src)]")
 			update_icon()
 	else if(W.tool_behaviour == TOOL_WRENCH && anchorable)
@@ -320,12 +320,12 @@
 		W.play_tool_sound(src, 75)
 		user.visible_message(span_notice("<b>[user]</b> [anchored ? "прикручивает" : "откручивает"] <b>[src.name]</b> [anchored ? "к полу" : "от пола"].") , \
 						span_notice("[anchored ? "Прикручиваю" : "Откручиваю"] <b>[src.name]</b> [anchored ? "к полу" : "от полу"].") , \
-						span_hear("Слышу трещотку.") )
+						span_hear("Слышу трещотку."))
 /*	if(W.tool_behaviour == TOOL_MULTITOOL && secure)
 
 		if(!locked)
 			user.visible_message(span_warning("[user] блокирует <b>[src]</b> используя [W].") ,
-									span_warning("Блокирую <b>[src]</b>.") )
+									span_warning("Блокирую <b>[src]</b>."))
 			locked = TRUE
 			update_icon()
 			return
@@ -343,7 +343,7 @@
 
 		var/true_pick = pick("красный", "зелёный", "синий", "жёлтый", "фиолетовый", "оранжевый", "белый", "чёрный")
 
-		to_chat(user, span_revenbignotice("Фаза [hack_progress + 1]/6. Нужен <b>[true_pick]</b> провод!") )
+		to_chat(user, span_revenbignotice("Фаза [hack_progress + 1]/6. Нужен <b>[true_pick]</b> провод!"))
 
 		var/pick = show_radial_menu(user, src, choices, require_near = TRUE)
 
@@ -351,12 +351,12 @@
 
 			if(!pick)
 				hack_progress = 0
-				to_chat(user, span_warning("Выбрать надо было провод! Начинаем сначала.") )
+				to_chat(user, span_warning("Выбрать надо было провод! Начинаем сначала."))
 				return
 
 			if(pick != true_pick)
 				hack_progress = 0
-				to_chat(user, span_warning("НЕПРАВИЛЬНО! Начинаем сначала.") )
+				to_chat(user, span_warning("НЕПРАВИЛЬНО! Начинаем сначала."))
 				return
 
 			hack_progress++
@@ -371,7 +371,7 @@
 			update_icon()
 
 			user.visible_message(span_warning("[user] взламывает <b>[src]</b> используя [W].") ,
-									span_warning("Взламываю замок <b>[src]</b>.") )
+									span_warning("Взламываю замок <b>[src]</b>."))
 			return
 */
 	else if(user.a_intent != INTENT_HARM)
@@ -410,12 +410,12 @@
 	add_fingerprint(user)
 	user.visible_message(span_warning("[user] [actuallyismob ? "Пытаюсь ":""]вставить[O] в [src].") , \
 		span_warning("[actuallyismob ? "Пытаюсь ":""]вставить [O] в [src].") , \
-		span_hear("Слышу лязг.") )
+		span_hear("Слышу лязг."))
 	if(actuallyismob)
 		if(do_after_mob(user, targets, 40))
 			user.visible_message(span_notice("[user] вставляет [O] в [src].") , \
 				span_notice("Вставляю [O] в [src].") , \
-				span_hear("Cлышу громкий металлический удар.") )
+				span_hear("Cлышу громкий металлический удар."))
 			var/mob/living/L = O
 			if(!issilicon(L))
 				L.Paralyze(40)
@@ -434,7 +434,7 @@
 	if(locked)
 		if(message_cooldown <= world.time)
 			message_cooldown = world.time + 50
-			to_chat(user, span_warning("[capitalize(src.name)] дверь не поддается!") )
+			to_chat(user, span_warning("[capitalize(src.name)] дверь не поддается!"))
 		return
 	container_resist_act(user)
 
@@ -473,7 +473,7 @@
 	if(iscarbon(usr) || issilicon(usr) || isdrone(usr))
 		return toggle(usr)
 	else
-		to_chat(usr, span_warning("This mob type can't use this verb.") )
+		to_chat(usr, span_warning("This mob type can't use this verb."))
 
 // Objects that try to exit a locker by stepping were doing so successfully,
 // and due to an oversight in turf/Enter() were going through walls.  That
@@ -502,17 +502,17 @@
 	user.last_special = world.time + CLICK_CD_BREAKOUT
 	user.visible_message(span_warning("[capitalize(src.name)] начинает сильно трястись!") , \
 		span_notice("Вы упираетесь спиной в [src] и начинаете толкать дверь... (this will take about [DisplayTimeText(breakout_time)].)") , \
-		span_hear("Вы слышите стук от [src].") )
+		span_hear("Вы слышите стук от [src]."))
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src || opened || (!locked && !welded) )
 			return
 		//we check after a while whether there is a point of resisting anymore and whether the user is capable of resisting
 		user.visible_message(span_danger("[user] успешно вырвался из хватки [src]!") ,
-							span_notice("Успешно вырвался из захвата [src]!") )
+							span_notice("Успешно вырвался из захвата [src]!"))
 		bust_open()
 	else
 		if(user.loc == src) //so we don't get the message if we resisted multiple times and succeeded.
-			to_chat(user, span_warning("Не могу вырваться из захвата [src]!") )
+			to_chat(user, span_warning("Не могу вырваться из захвата [src]!"))
 
 /obj/structure/closet/proc/bust_open()
 	SIGNAL_HANDLER
@@ -544,19 +544,19 @@
 				add_fingerprint(user)
 			locked = !locked
 			user.visible_message(span_notice("[user] [locked ? "от" : "за"]крывает [src].") ,
-							span_notice("[locked ? "От" : "За"]крываю [src].") )
+							span_notice("[locked ? "От" : "За"]крываю [src]."))
 			update_icon()
 		else if(!silent)
-			to_chat(user, span_alert("Доступ запрещён.") )
+			to_chat(user, span_alert("Доступ запрещён."))
 	else if(secure && broken)
-		to_chat(user, span_warning("<b>[src.name]</b> сломан!") )
+		to_chat(user, span_warning("<b>[src.name]</b> сломан!"))
 
 /obj/structure/closet/emag_act(mob/user)
 	if(secure && !broken)
 		if(user)
 			user.visible_message(span_warning("От [src] летят искры!") ,
 							span_warning("Вы взламываете защиту [src], взломать его!") ,
-							span_hear("Вы слышите слабое искрение.") )
+							span_hear("Вы слышите слабое искрение."))
 		playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		broken = TRUE
 		locked = FALSE
@@ -612,19 +612,19 @@
 		if(locked)
 			togglelock(user, TRUE)
 		if(!open(user))
-			to_chat(user, span_warning("Это не сдвинется с места!") )
+			to_chat(user, span_warning("Это не сдвинется с места!"))
 			return
 	step_towards(user, T2)
 	T1 = get_turf(user)
 	if(T1 == T2)
 		user.set_resting(TRUE) //so people can jump into crates without slamming the lid on their head
 		if(!close(user))
-			to_chat(user, span_warning("Вы не можете заставить [src] закрыться!") )
+			to_chat(user, span_warning("Вы не можете заставить [src] закрыться!"))
 			user.set_resting(FALSE)
 			return
 		user.set_resting(FALSE)
 		togglelock(user)
-		T1.visible_message(span_warning("[user] прыгает в [src]!") )
+		T1.visible_message(span_warning("[user] прыгает в [src]!"))
 
 /obj/structure/closet/proc/update_airtightness()
 	var/is_airtight = FALSE

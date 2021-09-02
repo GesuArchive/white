@@ -56,7 +56,7 @@
 
 /obj/machinery/shower/interact(mob/M)
 	if(reagents.total_volume < 5)
-		to_chat(M,span_notice("<b>[src.name]</b> is dry.") )
+		to_chat(M,span_notice("<b>[src.name]</b> is dry."))
 		return FALSE
 	on = !on
 	update_icon()
@@ -74,7 +74,7 @@
 
 /obj/machinery/shower/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_ANALYZER)
-		to_chat(user, span_notice("The water temperature seems to be [current_temperature].") )
+		to_chat(user, span_notice("The water temperature seems to be [current_temperature]."))
 	else
 		return ..()
 
@@ -91,7 +91,7 @@
 
 /obj/machinery/shower/wrench_act(mob/living/user, obj/item/I)
 	..()
-	to_chat(user, span_notice("You begin to adjust the temperature valve with [I]...") )
+	to_chat(user, span_notice("You begin to adjust the temperature valve with [I]..."))
 	if(I.use_tool(src, user, 50))
 		switch(current_temperature)
 			if(SHOWER_NORMAL)
@@ -100,7 +100,7 @@
 				current_temperature = SHOWER_BOILING
 			if(SHOWER_BOILING)
 				current_temperature = SHOWER_NORMAL
-		user.visible_message(span_notice("[user] adjusts the shower with [I].") , span_notice("You adjust the shower with [I] to [current_temperature] temperature.") )
+		user.visible_message(span_notice("[user] adjusts the shower with [I].") , span_notice("You adjust the shower with [I] to [current_temperature] temperature."))
 		user.log_message("has wrenched a shower at [AREACOORD(src)] to [current_temperature].", LOG_ATTACK)
 		add_hiddenprint(user)
 	handle_mist()
@@ -178,12 +178,12 @@
 	if(current_temperature == SHOWER_FREEZING)
 		if(iscarbon(L))
 			C.adjust_bodytemperature(-80, 80)
-		to_chat(L, span_warning("[capitalize(src.name)] is freezing!") )
+		to_chat(L, span_warning("[capitalize(src.name)] is freezing!"))
 	else if(current_temperature == SHOWER_BOILING)
 		if(iscarbon(L))
 			C.adjust_bodytemperature(35, 0, 500)
 		L.adjustFireLoss(5)
-		to_chat(L, span_danger("[capitalize(src.name)] is searing!") )
+		to_chat(L, span_danger("[capitalize(src.name)] is searing!"))
 
 
 /obj/structure/showerframe
@@ -208,7 +208,7 @@
 
 /obj/structure/showerframe/proc/can_be_rotated(mob/user, rotation_type)
 	if(anchored)
-		to_chat(user, span_warning("It is fastened to the floor!") )
+		to_chat(user, span_warning("It is fastened to the floor!"))
 	return !anchored
 
 /obj/effect/mist

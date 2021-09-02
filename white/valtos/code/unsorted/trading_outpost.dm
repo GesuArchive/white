@@ -306,9 +306,9 @@
 		var/obj/item/card/id/acard = I
 		if(acard.registered_account)
 			linked_account = acard.registered_account
-			to_chat(user, span_notice("Привязываю карту к пиздюлегенератору.") )
+			to_chat(user, span_notice("Привязываю карту к пиздюлегенератору."))
 			return
-		to_chat(user, span_warning("На карте нет аккаунта!") )
+		to_chat(user, span_warning("На карте нет аккаунта!"))
 		return
 
 	. = ..()

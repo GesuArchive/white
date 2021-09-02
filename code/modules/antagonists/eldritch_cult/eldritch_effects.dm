@@ -100,7 +100,7 @@
 		is_in_use = FALSE
 		return
 	is_in_use = FALSE
-	to_chat(user,span_warning("Your ritual failed! You either used the wrong components or are missing something important!") )
+	to_chat(user,span_warning("Your ritual failed! You either used the wrong components or are missing something important!"))
 
 /obj/effect/eldritch/big
 	name = "transmutation rune"
@@ -178,15 +178,15 @@
 		return ..()
 	var/mob/living/carbon/human/human_user = user
 	if(IS_HERETIC(human_user))
-		to_chat(human_user,span_boldwarning("You know better than to tempt forces out of your control!") )
+		to_chat(human_user,span_boldwarning("You know better than to tempt forces out of your control!"))
 	else
 		var/obj/item/bodypart/arm = human_user.get_active_hand()
 		if(prob(25))
-			to_chat(human_user,span_userdanger("An otherwordly presence tears and atomizes your arm as you try to touch the hole in the very fabric of reality!") )
+			to_chat(human_user,span_userdanger("An otherwordly presence tears and atomizes your arm as you try to touch the hole in the very fabric of reality!"))
 			arm.dismember()
 			qdel(arm)
 		else
-			to_chat(human_user,span_danger("You pull your hand away from the hole as the eldritch energy flails trying to latch onto existance itself!") )
+			to_chat(human_user,span_danger("You pull your hand away from the hole as the eldritch energy flails trying to latch onto existance itself!"))
 
 
 /obj/effect/broken_illusion/attack_tk(mob/user)
@@ -195,10 +195,10 @@
 	. = COMPONENT_CANCEL_ATTACK_CHAIN
 	var/mob/living/carbon/human/human_user = user
 	if(IS_HERETIC(human_user))
-		to_chat(human_user,span_boldwarning("You know better than to tempt forces out of your control!") )
+		to_chat(human_user,span_boldwarning("You know better than to tempt forces out of your control!"))
 		return
 	//a very elaborate way to suicide
-	to_chat(human_user,span_userdanger("Eldritch energy lashes out, piercing your fragile mind, tearing it to pieces!") )
+	to_chat(human_user,span_userdanger("Eldritch energy lashes out, piercing your fragile mind, tearing it to pieces!"))
 	human_user.ghostize()
 	var/obj/item/bodypart/head/head = locate() in human_user.bodyparts
 	if(head)
@@ -216,7 +216,7 @@
 	. = ..()
 	if(!IS_HERETIC(user) && ishuman(user))
 		var/mob/living/carbon/human/human_user = user
-		to_chat(human_user,span_warning("Your mind burns as you stare at the tear!") )
+		to_chat(human_user,span_warning("Your mind burns as you stare at the tear!"))
 		human_user.adjustOrganLoss(ORGAN_SLOT_BRAIN,10,190)
 		SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "gates_of_mansus", /datum/mood_event/gates_of_mansus)
 

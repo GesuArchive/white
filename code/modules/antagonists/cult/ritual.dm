@@ -42,7 +42,7 @@ This file contains the cult dagger and rune list code
 
 /obj/item/melee/cultblade/dagger/attack_self(mob/user)
 	if(!iscultist(user))
-		to_chat(user, span_warning("[capitalize(src.name)] is covered in unintelligible shapes and markings.") )
+		to_chat(user, span_warning("[capitalize(src.name)] is covered in unintelligible shapes and markings."))
 		return
 	scribe_rune(user)
 
@@ -82,7 +82,7 @@ This file contains the cult dagger and rune list code
 	if(!src || QDELETED(src) || !Adjacent(user) || user.incapacitated() || !check_rune_turf(Turf, user))
 		return
 	if(ispath(rune_to_scribe, /obj/effect/rune/summon) && (!is_station_level(Turf.z) || initial(A.name) == "Space"))
-		to_chat(user, span_cultitalic("<b>The veil is not weak enough here to summon a cultist, you must be on station!</b>") )
+		to_chat(user, span_cultitalic("<b>The veil is not weak enough here to summon a cultist, you must be on station!</b>"))
 		return
 	if(ispath(rune_to_scribe, /obj/effect/rune/apocalypse))
 		if((world.time - SSticker.round_start_time) <= 6000)
@@ -91,41 +91,41 @@ This file contains the cult dagger and rune list code
 			return
 		var/datum/objective/eldergod/summon_objective = locate() in user_antag.cult_team.objectives
 		if(!(A in summon_objective.summon_spots))
-			to_chat(user, span_cultlarge("The Apocalypse rune will remove a ritual site (where Nar'Sie can be summoned), it can only be scribed in [english_list(summon_objective.summon_spots)]!") )
+			to_chat(user, span_cultlarge("The Apocalypse rune will remove a ritual site (where Nar'Sie can be summoned), it can only be scribed in [english_list(summon_objective.summon_spots)]!"))
 			return
 		if(summon_objective.summon_spots.len < 2)
-			to_chat(user, span_cultlarge("Only one ritual site remains - it must be reserved for the final summoning!") )
+			to_chat(user, span_cultlarge("Only one ritual site remains - it must be reserved for the final summoning!"))
 			return
 	if(ispath(rune_to_scribe, /obj/effect/rune/narsie))
 		var/datum/objective/eldergod/summon_objective = locate() in user_antag.cult_team.objectives
 		var/datum/objective/sacrifice/sac_objective = locate() in user_antag.cult_team.objectives
 		if(!summon_objective)
-			to_chat(user, span_warning("Nar'Sie does not wish to be summoned!") )
+			to_chat(user, span_warning("Nar'Sie does not wish to be summoned!"))
 			return
 		if(sac_objective && !sac_objective.check_completion())
-			to_chat(user, span_warning("The sacrifice is not complete. The portal would lack the power to open if you tried!") )
+			to_chat(user, span_warning("The sacrifice is not complete. The portal would lack the power to open if you tried!"))
 			return
 		if(summon_objective.check_completion())
-			to_chat(user, span_cultlarge("\"I am already here. There is no need to try to summon me now.\"") )
+			to_chat(user, span_cultlarge("\"I am already here. There is no need to try to summon me now.\""))
 			return
 		if(!(A in summon_objective.summon_spots))
-			to_chat(user, span_cultlarge("The Geometer can only be summoned where the veil is weak - in [english_list(summon_objective.summon_spots)]!") )
+			to_chat(user, span_cultlarge("The Geometer can only be summoned where the veil is weak - in [english_list(summon_objective.summon_spots)]!"))
 			return
 		var/confirm_final = tgui_alert(user, "This is the FINAL step to summon Nar'Sie; it is a long, painful ritual and the crew will be alerted to your presence", "Are you prepared for the final battle?", list("My life for Nar'Sie!", "No"))
 		if(confirm_final == "No")
-			to_chat(user, span_cult("You decide to prepare further before scribing the rune.") )
+			to_chat(user, span_cult("You decide to prepare further before scribing the rune."))
 			return
 		Turf = get_turf(user)
 		A = get_area(src)
 		if(!(A in summon_objective.summon_spots))  // Check again to make sure they didn't move
-			to_chat(user, span_cultlarge("The Geometer can only be summoned where the veil is weak - in [english_list(summon_objective.summon_spots)]!") )
+			to_chat(user, span_cultlarge("The Geometer can only be summoned where the veil is weak - in [english_list(summon_objective.summon_spots)]!"))
 			return
 		priority_announce("Figments from an eldritch god are being summoned by [user] into [initial(A.name)] from an unknown dimension. Disrupt the ritual at all costs!","Central Command Higher Dimensional Affairs", ANNOUNCER_SPANOMALIES)
 		for(var/B in spiral_range_turfs(1, user, 1))
 			var/obj/structure/emergency_shield/cult/narsie/N = new(B)
 			shields += N
 	user.visible_message(span_warning("[user] [user.blood_volume ? "cuts open [user.ru_ego()] arm and begins writing in [user.ru_ego()] own blood":"begins sketching out a strange design"]!") , \
-						span_cult("You [user.blood_volume ? "slice open your arm and ":""]begin drawing a sigil of the Geometer.") )
+						span_cult("You [user.blood_volume ? "slice open your arm and ":""]begin drawing a sigil of the Geometer."))
 	if(user.blood_volume)
 		user.apply_damage(initial(rune_to_scribe.scribe_damage), BRUTE, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM), wound_bonus = CANT_WOUND) // *cuts arm* *bone explodes* ever have one of those days?
 	var/scribe_mod = initial(rune_to_scribe.scribe_delay)
@@ -140,25 +140,25 @@ This file contains the cult dagger and rune list code
 	if(!check_rune_turf(Turf, user))
 		return
 	user.visible_message(span_warning("[user] creates a strange circle[user.blood_volume ? " in [user.ru_ego()] own blood":""].") , \
-						span_cult("You finish drawing the arcane markings of the Geometer.") )
+						span_cult("You finish drawing the arcane markings of the Geometer."))
 	for(var/V in shields)
 		var/obj/structure/emergency_shield/S = V
 		if(S && !QDELETED(S))
 			qdel(S)
 	var/obj/effect/rune/R = new rune_to_scribe(Turf, chosen_keyword)
 	R.add_mob_blood(user)
-	to_chat(user, span_cult("The [lowertext(R.cultist_name)] rune [R.cultist_desc]") )
+	to_chat(user, span_cult("The [lowertext(R.cultist_name)] rune [R.cultist_desc]"))
 	SSblackbox.record_feedback("tally", "cult_runes_scribed", 1, R.cultist_name)
 
 /obj/item/melee/cultblade/dagger/proc/check_rune_turf(turf/T, mob/user)
 	if(isspaceturf(T))
-		to_chat(user, span_warning("You cannot scribe runes in space!") )
+		to_chat(user, span_warning("You cannot scribe runes in space!"))
 		return FALSE
 	if(locate(/obj/effect/rune) in T)
-		to_chat(user, span_cult("There is already a rune here.") )
+		to_chat(user, span_cult("There is already a rune here."))
 		return FALSE
 	var/area/A = get_area(T)
 	if((!is_station_level(T.z) && !is_mining_level(T.z)) || (A && !(A.area_flags & CULT_PERMITTED)))
-		to_chat(user, span_warning("The veil is not weak enough here.") )
+		to_chat(user, span_warning("The veil is not weak enough here."))
 		return FALSE
 	return TRUE

@@ -190,10 +190,10 @@
 		broken = FALSE
 		burnt = FALSE
 		if(user && !silent)
-			to_chat(user, span_notice("Убираю повреждённую плитку.") )
+			to_chat(user, span_notice("Убираю повреждённую плитку."))
 	else
 		if(user && !silent)
-			to_chat(user, span_notice("Снимаю плитку.") )
+			to_chat(user, span_notice("Снимаю плитку."))
 		if(make_tile)
 			spawn_tile()
 	return make_plating(force_plating)
@@ -264,17 +264,17 @@
 /turf/open/floor/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_FLOORWALL)
-			to_chat(user, span_notice("Строю стену.") )
+			to_chat(user, span_notice("Строю стену."))
 			PlaceOnTop(/turf/closed/wall)
 			return TRUE
 		if(RCD_AIRLOCK)
 			for(var/obj/machinery/door/door in src)
 				if(door.sub_door)
 					continue
-				to_chat(user, span_notice("There is another door here!") )
+				to_chat(user, span_notice("There is another door here!"))
 				return FALSE
 			if(ispath(the_rcd.airlock_type, /obj/machinery/door/window))
-				to_chat(user, span_notice("Строю микрошлюз.") )
+				to_chat(user, span_notice("Строю микрошлюз."))
 				var/obj/machinery/door/window/new_window = new the_rcd.airlock_type(src, user.dir)
 				if(the_rcd.airlock_electronics)
 					new_window.req_access = the_rcd.airlock_electronics.accesses.Copy()
@@ -283,7 +283,7 @@
 				new_window.autoclose = TRUE
 				new_window.update_icon()
 				return TRUE
-			to_chat(user, span_notice("Строю шлюз.") )
+			to_chat(user, span_notice("Строю шлюз."))
 			var/obj/machinery/door/airlock/new_airlock = new the_rcd.airlock_type(src)
 			new_airlock.electronics = new /obj/item/electronics/airlock(new_airlock)
 			if(the_rcd.airlock_electronics)
@@ -302,12 +302,12 @@
 		if(RCD_DECONSTRUCT)
 			if(!ScrapeAway(flags = CHANGETURF_INHERIT_AIR))
 				return FALSE
-			to_chat(user, span_notice("Разбираю [src].") )
+			to_chat(user, span_notice("Разбираю [src]."))
 			return TRUE
 		if(RCD_WINDOWGRILLE)
 			if(locate(/obj/structure/grille) in src)
 				return FALSE
-			to_chat(user, span_notice("Строю решетку.") )
+			to_chat(user, span_notice("Строю решетку."))
 			var/obj/structure/grille/new_grille = new(src)
 			new_grille.set_anchored(TRUE)
 			return TRUE

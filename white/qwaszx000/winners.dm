@@ -50,34 +50,34 @@
 	if(open && !showpiece)
 		if(user.transferItemToLoc(W, src))
 			showpiece = W
-			to_chat(user, span_notice("You put [W] on display") )
+			to_chat(user, span_notice("You put [W] on display"))
 			update_icon()
 	else if(W.tool_behaviour == TOOL_WELDER && user.a_intent == INTENT_HELP && !broken)
 		if(obj_integrity < max_integrity)
 			if(!W.tool_start_check(user, amount=5))
-				to_chat(user, span_warning("No fuel!") )
+				to_chat(user, span_warning("No fuel!"))
 				return
-			to_chat(user, span_notice("You begin repairing [src].") )
+			to_chat(user, span_notice("You begin repairing [src]."))
 			if(W.use_tool(src, user, 40, amount=5, volume=50))
 				obj_integrity = max_integrity
 				update_icon()
-				to_chat(user, span_notice("You repair [src].") )
+				to_chat(user, span_notice("You repair [src]."))
 				return
 		else
-			to_chat(user, span_warning("[capitalize(src.name)] is already in good condition!") )
+			to_chat(user, span_warning("[capitalize(src.name)] is already in good condition!"))
 			return
 	else if(W.GetID() && !broken && openable)
-		to_chat(user, span_warning("It has fingerprint lock! Not ID!") )
+		to_chat(user, span_warning("It has fingerprint lock! Not ID!"))
 		return
 	else
 		return ..()
 
 /obj/structure/displaycase/winner/attack_hand(mob/user)
 	if(ckey(user.ckey) == ckey(need_key) && !broken && openable)
-		to_chat(user,  span_notice("You [open ? "close":"open"] [src].") )
+		to_chat(user,  span_notice("You [open ? "close":"open"] [src]."))
 		toggle_lock(user)
 	else
-		to_chat(user, span_warning("You are loser.") )
+		to_chat(user, span_warning("You are loser."))
 
 /obj/structure/displaycase/winner/AltClick(mob/user)
 	if(open)
@@ -113,7 +113,7 @@
 	if(!(user.name in coomers))
 		if(isliving(user))
 			inc_metabalance(user, 1, TRUE)
-			visible_message(span_noticeital("[user] кланяется статуе!") )
+			visible_message(span_noticeital("[user] кланяется статуе!"))
 			coomers += user.name
 
 /obj/structure/statue/gold/robust/examine_more(mob/user)

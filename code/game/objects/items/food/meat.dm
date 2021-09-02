@@ -350,23 +350,23 @@
 	if(faction)
 		bananas.faction = faction
 	if (!QDELETED(bananas))
-		visible_message(span_notice("[capitalize(src.name)] expands!") )
+		visible_message(span_notice("[capitalize(src.name)] expands!"))
 		bananas.log_message("Spawned via [src] at [AREACOORD(src)], Last attached mob: [key_name(spammer)].", LOG_ATTACK)
 	else if (!spammer) // Visible message in case there are no fingerprints
-		visible_message(span_notice("[capitalize(src.name)] fails to expand!") )
+		visible_message(span_notice("[capitalize(src.name)] fails to expand!"))
 	qdel(src)
 
 /obj/item/food/monkeycube/suicide_act(mob/living/M)
-	M.visible_message(span_suicide("[M] is putting [src] in [M.ru_ego()] mouth! It looks like [M.p_theyre()] trying to commit suicide!") )
+	M.visible_message(span_suicide("[M] is putting [src] in [M.ru_ego()] mouth! It looks like [M.p_theyre()] trying to commit suicide!"))
 	var/eating_success = do_after(M, 1 SECONDS, src)
 	if(QDELETED(M)) //qdeletion: the nuclear option of self-harm
 		return SHAME
 	if(!eating_success || QDELETED(src)) //checks if src is gone or if they failed to wait for a second
-		M.visible_message(span_suicide("[M] chickens out!") )
+		M.visible_message(span_suicide("[M] chickens out!"))
 		return SHAME
 	if(HAS_TRAIT(M, TRAIT_NOHUNGER)) //plasmamen don't have saliva/stomach acid
 		M.visible_message(span_suicide("[M] realizes [M.ru_ego()] body won't activate [src]!")
-		,span_warning("Your body won't activate [src]...") )
+		,span_warning("Your body won't activate [src]..."))
 		return SHAME
 	playsound(M, 'sound/items/eatfood.ogg', rand(10,50), TRUE)
 	M.temporarilyRemoveItemFromInventory(src) //removes from hands, keeps in M
@@ -377,10 +377,10 @@
 	if(QDELETED(M) || QDELETED(src))
 		return
 	if((src.loc != M)) //how the hell did you manage this
-		to_chat(M, span_warning("Something happened to [src]...") )
+		to_chat(M, span_warning("Something happened to [src]..."))
 		return
 	Expand()
-	M.visible_message(span_danger("[M] torso bursts open as a primate emerges!") )
+	M.visible_message(span_danger("[M] torso bursts open as a primate emerges!"))
 	M.gib(null, TRUE, null, TRUE)
 
 /obj/item/food/monkeycube/syndicate
@@ -828,7 +828,7 @@
 	foodtypes = RAW | MEAT | TOXIC
 
 /obj/item/food/meat/slab/goliath/burn()
-	visible_message(span_notice("[capitalize(src.name)] finishes cooking!") )
+	visible_message(span_notice("[capitalize(src.name)] finishes cooking!"))
 	new /obj/item/food/meat/steak/goliath(loc)
 	qdel(src)
 

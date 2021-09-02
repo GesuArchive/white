@@ -36,7 +36,7 @@
 	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
 	if(!case)
-		to_chat(user, span_warning("Внутри нет имплантов.") )
+		to_chat(user, span_warning("Внутри нет имплантов."))
 		return
 
 	user.put_in_hands(case)

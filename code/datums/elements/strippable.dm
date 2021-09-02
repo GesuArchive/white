@@ -79,7 +79,7 @@
 		return FALSE
 
 	if (HAS_TRAIT(equipping, TRAIT_NODROP))
-		to_chat(user, span_warning("Не могу понять как можно поместить <b>[equipping]</b> на <b>[source]</b>, ведь эта штука застряла в моей руке!") )
+		to_chat(user, span_warning("Не могу понять как можно поместить <b>[equipping]</b> на <b>[source]</b>, ведь эта штука застряла в моей руке!"))
 		return FALSE
 
 	return TRUE
@@ -102,7 +102,7 @@
 				ignored_mobs = user,
 			)
 
-	to_chat(user, span_notice("Пытаюсь надеть <b>[equipping]</b> на <b>[source]</b>...") )
+	to_chat(user, span_notice("Пытаюсь надеть <b>[equipping]</b> на <b>[source]</b>..."))
 	/*
 	if(ishuman(source))
 		var/mob/living/carbon/human/victim_human = source
@@ -156,7 +156,7 @@
 		ignored_mobs = user,
 	)
 
-	to_chat(user, span_danger("Пытаюсь снять <b>[item]</b> с [source]...") )
+	to_chat(user, span_danger("Пытаюсь снять <b>[item]</b> с [source]..."))
 	source.log_message("[key_name(source)] is being stripped of [item] by [key_name(src)]", LOG_ATTACK, color="red")
 	user.log_message("[key_name(source)] is being stripped of [item] by [key_name(src)]", LOG_ATTACK, color="red", log_globally=FALSE)
 	item.add_fingerprint(src)
@@ -226,7 +226,7 @@
 		disable_warning = TRUE,
 		bypass_equip_delay_self = TRUE,
 	))
-		to_chat(user, span_warning("[capitalize(equipping)] не помещается туда!") )
+		to_chat(user, span_warning("[capitalize(equipping)] не помещается туда!"))
 		return FALSE
 
 	return TRUE

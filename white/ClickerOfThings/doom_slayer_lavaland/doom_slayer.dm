@@ -17,7 +17,7 @@ VAZHNOE (ili ne osobo) PRIMECHANIE/\/\/\
 /mob/living/carbon/human/species/doom_slayer/Life()
 	..()
 	if (z == 2)
-		to_chat(usr, span_boldannounce("<font size=6>You have been killed by entering the station.<br>You shouldn't done that.</font>") )
+		to_chat(usr, span_boldannounce("<font size=6>You have been killed by entering the station.<br>You shouldn't done that.</font>"))
 		gib(1)
 
 // uberu eto govno poka
@@ -28,10 +28,10 @@ VAZHNOE (ili ne osobo) PRIMECHANIE/\/\/\
 /obj/effect/step_trigger/doom_slayer_slayer/Trigger(atom/movable/A)
 	var/mob/A1 = A
 	//var/datum/species/human/A2 = A1
-	//to_chat(A, span_notice("test1") )
+	//to_chat(A, span_notice("test1"))
 	//to_chat(A, A2.id)
 	if (A1.real_name == "Doom Slayer")
-		to_chat(A, span_boldannounce("<font size=6>You have been killed by entering the station.<br>You shouldn't done that.</font>") )
+		to_chat(A, span_boldannounce("<font size=6>You have been killed by entering the station.<br>You shouldn't done that.</font>"))
 		A1.gib()
 */
 

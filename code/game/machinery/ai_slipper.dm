@@ -27,17 +27,17 @@
 
 /obj/machinery/ai_slipper/interact(mob/user)
 	if(!allowed(user))
-		to_chat(user, span_danger("Доступ запрещён.") )
+		to_chat(user, span_danger("Доступ запрещён."))
 		return
 	if(!uses)
-		to_chat(user, span_warning("[capitalize(src.name)] полностью разряжен!") )
+		to_chat(user, span_warning("[capitalize(src.name)] полностью разряжен!"))
 		return
 	if(cooldown_time > world.time)
-		to_chat(user, span_warning("[capitalize(src.name)] на перезарядке, осталось <b>[DisplayTimeText(world.time - cooldown_time)]</b>!") )
+		to_chat(user, span_warning("[capitalize(src.name)] на перезарядке, осталось <b>[DisplayTimeText(world.time - cooldown_time)]</b>!"))
 		return
 	new /obj/effect/particle_effect/foam(loc)
 	uses--
-	to_chat(user, span_notice("Активирую [src.name]. Внутри осталось <b>[uses]</b> зарядов.") )
+	to_chat(user, span_notice("Активирую [src.name]. Внутри осталось <b>[uses]</b> зарядов."))
 	cooldown = world.time + cooldown_time
 	power_change()
 	addtimer(CALLBACK(src, .proc/power_change), cooldown_time)

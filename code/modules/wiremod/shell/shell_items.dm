@@ -11,11 +11,11 @@
 	var/screw_delay = 3 SECONDS
 
 /obj/item/shell/screwdriver_act(mob/living/user, obj/item/tool)
-	user.visible_message(span_notice("[user] начинает заканчивать сборку [src.name].") , span_notice("Начинаю заканчивать сборку [src.name].") )
+	user.visible_message(span_notice("[user] начинает заканчивать сборку [src.name].") , span_notice("Начинаю заканчивать сборку [src.name]."))
 	tool.play_tool_sound(src)
 	if(!do_after(user, screw_delay, src))
 		return
-	user.visible_message(span_notice("[user] завершает сборку [src.name].") , span_notice("Завершаю сборку [src.name].") )
+	user.visible_message(span_notice("[user] завершает сборку [src.name].") , span_notice("Завершаю сборку [src.name]."))
 
 	var/turf/drop_loc = drop_location()
 

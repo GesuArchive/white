@@ -57,7 +57,7 @@ Bonus
 	switch(A.stage)
 		if(1, 2, 3, 4)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, span_warning("[pick("Меня тошнит.", "Меня сейчас вырвет!")]") )
+				to_chat(M, span_warning("[pick("Меня тошнит.", "Меня сейчас вырвет!")]"))
 		else
 			vomit(M)
 

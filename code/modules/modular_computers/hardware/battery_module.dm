@@ -35,24 +35,24 @@
 		return FALSE
 
 	if(battery)
-		to_chat(user, span_warning("Пытаюсь подключить [I] к <b>[src.name]</b>, но не могу найти куда.") )
+		to_chat(user, span_warning("Пытаюсь подключить [I] к <b>[src.name]</b>, но не могу найти куда."))
 		return FALSE
 
 	if(I.w_class > holder.max_hardware_size)
-		to_chat(user, span_warning("Эта батарея слишком велика для [holder]!") )
+		to_chat(user, span_warning("Эта батарея слишком велика для [holder]!"))
 		return FALSE
 
 	if(user && !user.transferItemToLoc(I, src))
 		return FALSE
 
 	battery = I
-	to_chat(user, span_notice("Подключаю [I] к <b>[src.name]</b>.") )
+	to_chat(user, span_notice("Подключаю [I] к <b>[src.name]</b>."))
 
 	return TRUE
 
 /obj/item/computer_hardware/battery/try_eject(mob/living/user, forced = FALSE)
 	if(!battery)
-		to_chat(user, span_warning("Батарея не подключена к <b>[src.name]</b>.") )
+		to_chat(user, span_warning("Батарея не подключена к <b>[src.name]</b>."))
 		return FALSE
 	else
 		if(user)

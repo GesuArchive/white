@@ -18,7 +18,7 @@
 			else
 				blocked = 100
 				target.visible_message(span_danger("[capitalize(src.name)] был отражен!") , \
-									   span_userdanger("Моя броня отражает [src]!") )
+									   span_userdanger("Моя броня отражает [src]!"))
 	return ..()
 
 /obj/projectile/bullet/dnainjector/Destroy()

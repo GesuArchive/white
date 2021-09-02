@@ -55,7 +55,7 @@
 /obj/item/computer_hardware/recharger/wired/can_install(obj/item/modular_computer/M, mob/living/user = null)
 	if(ismachinery(M.physical) && M.physical.anchored)
 		return ..()
-	to_chat(user, span_warning("<b>[src.name]</b> несовместимо с портативными компьютерами!") )
+	to_chat(user, span_warning("<b>[src.name]</b> несовместимо с портативными компьютерами!"))
 	return FALSE
 
 /obj/item/computer_hardware/recharger/wired/use_power(amount, charging=0)

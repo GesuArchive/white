@@ -55,19 +55,19 @@
 	if(tearoutteeth(C, user)) // hippie start -- adds teeth code
 		return FALSE // hippie end
 	if(istype(C) && C.handcuffed && istype(C.handcuffed, /obj/item/restraints/handcuffs/cable))
-		user.visible_message(span_notice("[user] перекусывает наручи [C] используя [src]!") )
+		user.visible_message(span_notice("[user] перекусывает наручи [C] используя [src]!"))
 		qdel(C.handcuffed)
 		return
 	else if(istype(C) && C.has_status_effect(STATUS_EFFECT_CHOKINGSTRAND))
-		to_chat(C, span_notice("Пытаюсь снять прядь дюраткани с шеи.") )
+		to_chat(C, span_notice("Пытаюсь снять прядь дюраткани с шеи."))
 		if(do_after(user, 1.5 SECONDS, C))
-			to_chat(C, span_notice("Успешно снимаю прядь дюраткани.") )
+			to_chat(C, span_notice("Успешно снимаю прядь дюраткани."))
 			C.remove_status_effect(STATUS_EFFECT_CHOKINGSTRAND)
 	else
 		..()
 
 /obj/item/wirecutters/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is cutting at [user.ru_ego()] arteries with [src]! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] is cutting at [user.ru_ego()] arteries with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	playsound(loc, usesound, 50, TRUE, -1)
 	return (BRUTELOSS)
 

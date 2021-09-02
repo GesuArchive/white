@@ -57,7 +57,7 @@
 	else if(istype(old_headgear, /obj/item/clothing/mask/chameleon/drone))
 		new_headgear = new /obj/item/clothing/head/chameleon/drone()
 	else
-		to_chat(owner, span_warning("Нельзя переключить камуфляжную шлем-маску если она не надета.") )
+		to_chat(owner, span_warning("Нельзя переключить камуфляжную шлем-маску если она не надета."))
 	if(new_headgear)
 		// Force drop the item in the headslot, even though
 		// it's has TRAIT_NODROP
@@ -568,7 +568,7 @@
 
 /obj/item/clothing/mask/chameleon/attack_self(mob/user)
 	voice_change = !voice_change
-	to_chat(user, span_notice("Синтезатор голоса теперь [voice_change ? "включен" : "отключен"]!") )
+	to_chat(user, span_notice("Синтезатор голоса теперь [voice_change ? "включен" : "отключен"]!"))
 
 
 /obj/item/clothing/mask/chameleon/drone
@@ -587,7 +587,7 @@
 	randomise_action.UpdateButtonIcon()
 
 /obj/item/clothing/mask/chameleon/drone/attack_self(mob/user)
-	to_chat(user, span_notice("[capitalize(src.name)] не имеет синтезатора голоса.") )
+	to_chat(user, span_notice("[capitalize(src.name)] не имеет синтезатора голоса."))
 
 /obj/item/clothing/shoes/chameleon
 	name = "чёрные ботинки"
@@ -824,7 +824,7 @@
 
 /datum/action/item_action/chameleon/change/skillchip/update_look(mob/user, picked_item)
 	if(!COOLDOWN_FINISHED(src, usable_cooldown))
-		to_chat(user, span_notice("Chameleon skillchip is still recharging for another [COOLDOWN_TIMELEFT(src, usable_cooldown) * 0.1] seconds!") )
+		to_chat(user, span_notice("Chameleon skillchip is still recharging for another [COOLDOWN_TIMELEFT(src, usable_cooldown) * 0.1] seconds!"))
 		return ..()
 
 	var/obj/item/skillchip/new_chip = new picked_item(target, FALSE)
@@ -846,7 +846,7 @@
 
 	var/incompatibility_msg = new_chip.has_mob_incompatibility(user)
 	if(incompatibility_msg)
-		to_chat(user, span_notice("The chameleon skillchip fails to load the new skillchip's data. The following thought fills your mind: [incompatibility_msg]") )
+		to_chat(user, span_notice("The chameleon skillchip fails to load the new skillchip's data. The following thought fills your mind: [incompatibility_msg]"))
 		QDEL_NULL(new_chip)
 		return ..()
 
@@ -884,14 +884,14 @@
 	// Couldn't activate the chip for some reason.
 	// Can still be activated later on, or a new chip type selected. So let's not start processing or cooldowns.
 	if(activate_msg)
-		to_chat(user, span_notice("Your skillchip can't activate! Your mind fills with the following thought: [activate_msg]") )
+		to_chat(user, span_notice("Your skillchip can't activate! Your mind fills with the following thought: [activate_msg]"))
 		return ..()
 
 	// All set, start processing and cooldowns and inform the user of the recharge time.
 	COOLDOWN_START(src, usable_cooldown, cooldown)
 	START_PROCESSING(SSfastprocess, src)
 
-	to_chat(user, span_notice("The chameleon skillchip is recharging. It will be unable to change for another [cooldown * 0.1] seconds.") )
+	to_chat(user, span_notice("The chameleon skillchip is recharging. It will be unable to change for another [cooldown * 0.1] seconds."))
 
 	return ..()
 

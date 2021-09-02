@@ -16,7 +16,7 @@
 	return
 
 /datum/action/changeling/sting/proc/set_sting(mob/user)
-	to_chat(user, span_notice("Мы готовим наше жало. Alt + клик или щелчок средней кнопкой мыши на цели, чтобы жалить их.") )
+	to_chat(user, span_notice("Мы готовим наше жало. Alt + клик или щелчок средней кнопкой мыши на цели, чтобы жалить их."))
 	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
 	changeling.chosen_sting = src
 
@@ -24,7 +24,7 @@
 	user.hud_used.lingstingdisplay.invisibility = 0
 
 /datum/action/changeling/sting/proc/unset_sting(mob/user)
-	to_chat(user, span_warning("Мы убираем наше жало, пока мы не можем никого жалить.") )
+	to_chat(user, span_warning("Мы убираем наше жало, пока мы не можем никого жалить."))
 	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
 	changeling.chosen_sting = null
 
@@ -57,9 +57,9 @@
 /datum/action/changeling/sting/sting_feedback(mob/user, mob/target)
 	if(!target)
 		return
-	to_chat(user, span_notice("Мы незаметно жалим <b>[target.name]</b>.") )
+	to_chat(user, span_notice("Мы незаметно жалим <b>[target.name]</b>."))
 	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/changeling))
-		to_chat(target, span_warning("Что-то укололо меня.") )
+		to_chat(target, span_warning("Что-то укололо меня."))
 	return 1
 
 
@@ -82,7 +82,7 @@
 	if(!selected_dna)
 		return
 	if(NOTRANSSTING in selected_dna.dna.species.species_traits)
-		to_chat(user, span_notice("Эта ДНК не совместима с трансформирующим ретровирусом!") )
+		to_chat(user, span_notice("Эта ДНК не совместима с трансформирующим ретровирусом!"))
 		return
 	..()
 
@@ -91,7 +91,7 @@
 	if(!.)
 		return
 	if((HAS_TRAIT(target, TRAIT_HUSK)) || !iscarbon(target) || (NOTRANSSTING in target.dna.species.species_traits))
-		to_chat(user, span_warning("Наш укус кажется неэффективным против его ДНК.") )
+		to_chat(user, span_warning("Наш укус кажется неэффективным против его ДНК."))
 		return FALSE
 	return TRUE
 
@@ -126,7 +126,7 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if((HAS_TRAIT(L, TRAIT_HUSK)) || !L.has_dna())
-			to_chat(user, span_warning("Наше жало похоже неэффективно против его ДНК.") )
+			to_chat(user, span_warning("Наше жало похоже неэффективно против его ДНК."))
 			return FALSE
 	return TRUE
 
@@ -135,15 +135,15 @@
 
 	var/obj/item/held = target.get_active_held_item()
 	if(held && !target.dropItemToGround(held))
-		to_chat(user, span_warning("<b>[capitalize(held)]</b> застрял в руке жертвы, у нас не получится сформировать клинок поверх этой штуки!") )
+		to_chat(user, span_warning("<b>[capitalize(held)]</b> застрял в руке жертвы, у нас не получится сформировать клинок поверх этой штуки!"))
 		return
 	..()
 	if(ismonkey(target))
-		to_chat(user, span_notice("Наши гены кричат, когда мы жалим <b>[target.name]</b>!") )
+		to_chat(user, span_notice("Наши гены кричат, когда мы жалим <b>[target.name]</b>!"))
 
 	var/obj/item/melee/arm_blade/false/blade = new(target,1)
 	target.put_in_hands(blade)
-	target.visible_message(span_warning("Гротескный клинок формируется из руки <b>[target.name]</b>!") , span_userdanger("Наша рука крутится и мутирует, превращаясь в ужасающее чудовище!") , span_hear("Слышу как что-то органическое разрывается!") )
+	target.visible_message(span_warning("Гротескный клинок формируется из руки <b>[target.name]</b>!") , span_userdanger("Наша рука крутится и мутирует, превращаясь в ужасающее чудовище!") , span_hear("Слышу как что-то органическое разрывается!"))
 	playsound(target, 'sound/effects/blobattack.ogg', 30, TRUE)
 
 	addtimer(CALLBACK(src, .proc/remove_fake, target, blade), 600)
@@ -201,7 +201,7 @@
 
 /datum/action/changeling/sting/blind/sting_action(mob/user, mob/living/carbon/target)
 	log_combat(user, target, "stung", "blind sting")
-	to_chat(target, span_danger("Глаза горят ужасно!") )
+	to_chat(target, span_danger("Глаза горят ужасно!"))
 	target.become_nearsighted(EYE_DAMAGE)
 	target.blind_eyes(20)
 	target.blur_eyes(40)

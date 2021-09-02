@@ -45,7 +45,7 @@
 		booster_damage_modifier /= facing_modifier
 		booster_deflection_modifier *= facing_modifier
 	if(prob(deflect_chance * booster_deflection_modifier))
-		visible_message(span_danger("[capitalize(src.name)] armour deflects the attack!") )
+		visible_message(span_danger("[capitalize(src.name)] armour deflects the attack!"))
 		log_message("Armor saved.", LOG_MECHA)
 		return 0
 	if(.)
@@ -184,9 +184,9 @@
 
 	if(istype(W, /obj/item/mmi))
 		if(mmi_move_inside(W,user))
-			to_chat(user, span_notice("[capitalize(src.name)]-[W] interface initialized successfully.") )
+			to_chat(user, span_notice("[capitalize(src.name)]-[W] interface initialized successfully."))
 		else
-			to_chat(user, span_warning("[capitalize(src.name)]-[W] interface initialization failed.") )
+			to_chat(user, span_warning("[capitalize(src.name)]-[W] interface initialization failed."))
 		return
 
 	if(istype(W, /obj/item/mecha_ammo))
@@ -204,9 +204,9 @@
 					id_card = pda.id
 				output_maintenance_dialog(id_card, user)
 				return
-			to_chat(user, span_warning("Invalid ID: Access denied.") )
+			to_chat(user, span_warning("Invalid ID: Access denied."))
 			return
-		to_chat(user, span_warning("Maintenance protocols disabled by operator.") )
+		to_chat(user, span_warning("Maintenance protocols disabled by operator."))
 		return
 
 	if(istype(W, /obj/item/stock_parts/cell))
@@ -215,12 +215,12 @@
 				if(!user.transferItemToLoc(W, src, silent = FALSE))
 					return
 				var/obj/item/stock_parts/cell/C = W
-				to_chat(user, span_notice("You install the power cell.") )
+				to_chat(user, span_notice("You install the power cell."))
 				playsound(src, 'sound/items/screwdriver2.ogg', 50, FALSE)
 				cell = C
 				log_message("Power cell installed", LOG_MECHA)
 			else
-				to_chat(user, span_warning("There's already a power cell installed!") )
+				to_chat(user, span_warning("There's already a power cell installed!"))
 		return
 
 	if(istype(W, /obj/item/stock_parts/scanning_module))
@@ -228,13 +228,13 @@
 			if(!scanmod)
 				if(!user.transferItemToLoc(W, src))
 					return
-				to_chat(user, span_notice("You install the scanning module.") )
+				to_chat(user, span_notice("You install the scanning module."))
 				playsound(src, 'sound/items/screwdriver2.ogg', 50, FALSE)
 				scanmod = W
 				log_message("[W] installed", LOG_MECHA)
 				update_part_values()
 			else
-				to_chat(user, span_warning("There's already a scanning module installed!") )
+				to_chat(user, span_warning("There's already a scanning module installed!"))
 		return
 
 	if(istype(W, /obj/item/stock_parts/capacitor))
@@ -242,13 +242,13 @@
 			if(!capacitor)
 				if(!user.transferItemToLoc(W, src))
 					return
-				to_chat(user, span_notice("You install the capacitor.") )
+				to_chat(user, span_notice("You install the capacitor."))
 				playsound(src, 'sound/items/screwdriver2.ogg', 50, FALSE)
 				capacitor = W
 				log_message("[W] installed", LOG_MECHA)
 				update_part_values()
 			else
-				to_chat(user, span_warning("There's already a capacitor installed!") )
+				to_chat(user, span_warning("There's already a capacitor installed!"))
 		return
 
 	if(istype(W, /obj/item/stack/cable_coil))
@@ -256,9 +256,9 @@
 			var/obj/item/stack/cable_coil/CC = W
 			if(CC.use(2))
 				clear_internal_damage(MECHA_INT_SHORT_CIRCUIT)
-				to_chat(user, span_notice("You replace the fused wires.") )
+				to_chat(user, span_notice("You replace the fused wires."))
 			else
-				to_chat(user, span_warning("You need two lengths of cable to fix this mech!") )
+				to_chat(user, span_warning("You need two lengths of cable to fix this mech!"))
 		return
 
 	if(istype(W, /obj/item/mecha_parts))
@@ -273,29 +273,29 @@
 	. = TRUE
 	if(construction_state == MECHA_SECURE_BOLTS)
 		construction_state = MECHA_LOOSE_BOLTS
-		to_chat(user, span_notice("You undo the securing bolts.") )
+		to_chat(user, span_notice("You undo the securing bolts."))
 		return
 	if(construction_state == MECHA_LOOSE_BOLTS)
 		construction_state = MECHA_SECURE_BOLTS
-		to_chat(user, span_notice("You tighten the securing bolts.") )
+		to_chat(user, span_notice("You tighten the securing bolts."))
 
 /obj/vehicle/sealed/mecha/crowbar_act(mob/living/user, obj/item/I)
 	..()
 	. = TRUE
 	if(construction_state == MECHA_LOOSE_BOLTS)
 		construction_state = MECHA_OPEN_HATCH
-		to_chat(user, span_notice("You open the hatch to the power unit.") )
+		to_chat(user, span_notice("You open the hatch to the power unit."))
 		return
 	if(construction_state == MECHA_OPEN_HATCH)
 		construction_state = MECHA_LOOSE_BOLTS
-		to_chat(user, span_notice("You close the hatch to the power unit.") )
+		to_chat(user, span_notice("You close the hatch to the power unit."))
 
 /obj/vehicle/sealed/mecha/screwdriver_act(mob/living/user, obj/item/I)
 	..()
 	. = TRUE
 	if(internal_damage & MECHA_INT_TEMP_CONTROL)
 		clear_internal_damage(MECHA_INT_TEMP_CONTROL)
-		to_chat(user, span_notice("You repair the damaged temperature controller.") )
+		to_chat(user, span_notice("You repair the damaged temperature controller."))
 		return
 
 /obj/vehicle/sealed/mecha/welder_act(mob/living/user, obj/item/W)
@@ -307,17 +307,17 @@
 		if(!W.use_tool(src, user, 0, volume=50, amount=1))
 			return
 		clear_internal_damage(MECHA_INT_TANK_BREACH)
-		to_chat(user, span_notice("You repair the damaged gas tank.") )
+		to_chat(user, span_notice("You repair the damaged gas tank."))
 		return
 	if(obj_integrity < max_integrity)
 		if(!W.use_tool(src, user, 0, volume=50, amount=1))
 			return
-		user.visible_message(span_notice("[user] repairs some damage to [name].") , span_notice("You repair some damage to [src].") )
+		user.visible_message(span_notice("[user] repairs some damage to [name].") , span_notice("You repair some damage to [src]."))
 		obj_integrity += min(10, max_integrity-obj_integrity)
 		if(obj_integrity == max_integrity)
-			to_chat(user, span_notice("It looks to be fully repaired now.") )
+			to_chat(user, span_notice("It looks to be fully repaired now."))
 		return
-	to_chat(user, span_warning("The [name] is at full integrity!") )
+	to_chat(user, span_warning("The [name] is at full integrity!"))
 
 /obj/vehicle/sealed/mecha/proc/mech_toxin_damage(mob/living/target)
 	playsound(src, 'sound/effects/spray2.ogg', 50, TRUE)

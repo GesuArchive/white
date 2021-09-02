@@ -17,7 +17,7 @@
 	leap_icon.icon_state = "leap_[leap_on_click ? "on":"off"]"
 	update_icons()
 	if(message)
-		to_chat(src, span_noticealien("You will now [leap_on_click ? "leap at":"slash at"] enemies!") )
+		to_chat(src, span_noticealien("You will now [leap_on_click ? "leap at":"slash at"] enemies!"))
 	else
 		return
 
@@ -35,11 +35,11 @@
 		return
 
 	if(pounce_cooldown > world.time)
-		to_chat(src, span_alertalien("You are too fatigued to pounce right now!") )
+		to_chat(src, span_alertalien("You are too fatigued to pounce right now!"))
 		return
 
 	if(!has_gravity() || !A.has_gravity())
-		to_chat(src, span_alertalien("It is unsafe to leap without gravity!") )
+		to_chat(src, span_alertalien("It is unsafe to leap without gravity!"))
 		//It's also extremely buggy visually, so it's balance+bugfix
 		return
 
@@ -74,7 +74,7 @@
 				if(H.check_shields(src, 0, "the [name]", attack_type = LEAP_ATTACK))
 					blocked = TRUE
 			if(!blocked)
-				L.visible_message(span_danger("[capitalize(src.name)] pounces on [L]!") , span_userdanger("[capitalize(src.name)] pounces on you!") )
+				L.visible_message(span_danger("[capitalize(src.name)] pounces on [L]!") , span_userdanger("[capitalize(src.name)] pounces on you!"))
 				L.Paralyze(100)
 				sleep(2)//Runtime prevention (infinite bump() calls on hulks)
 				step_towards(src,L)

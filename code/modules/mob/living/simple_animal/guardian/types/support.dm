@@ -104,7 +104,7 @@
 		add_atom_colour(G.guardiancolor, FIXED_COLOUR_PRIORITY)
 
 /obj/structure/receiving_pad/proc/disappear()
-	visible_message(span_notice("[capitalize(src.name)] vanishes!") )
+	visible_message(span_notice("[capitalize(src.name)] vanishes!"))
 	qdel(src)
 
 /mob/living/simple_animal/hostile/guardian/healer/AltClickOn(atom/movable/A)
@@ -130,7 +130,7 @@
 
 	to_chat(src, "<span class='danger'><B>You begin to warp [A].</span></B>")
 	A.visible_message(span_danger("[A] starts to glow faintly!") , \
-	span_userdanger("You start to faintly glow, and you feel strangely weightless!") )
+	span_userdanger("You start to faintly glow, and you feel strangely weightless!"))
 	do_attack_animation(A)
 
 	if(!do_mob(src, A, 60)) //now start the channel
@@ -142,6 +142,6 @@
 		var/mob/living/L = A
 		L.flash_act()
 	A.visible_message(span_danger("[A] disappears in a flash of light!") , \
-	span_userdanger("Your vision is obscured by a flash of light!") )
+	span_userdanger("Your vision is obscured by a flash of light!"))
 	do_teleport(A, beacon, 0, channel = TELEPORT_CHANNEL_BLUESPACE)
 	new /obj/effect/temp_visual/guardian/phase(get_turf(A))

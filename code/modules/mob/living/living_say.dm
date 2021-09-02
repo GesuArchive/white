@@ -106,7 +106,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	if(ic_blocked)
 		//The filter warning message shows the sanitized message though.
-		to_chat(src, span_warning("Хочу сказать <span replaceRegex='show_filtered_ic_chat'>\"[message]\"</span>, но у меня ничего не выходит.") )
+		to_chat(src, span_warning("Хочу сказать <span replaceRegex='show_filtered_ic_chat'>\"[message]\"</span>, но у меня ничего не выходит."))
 		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
 		return
 	var/list/message_mods = list()
@@ -159,10 +159,10 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	var/mob/living/carbon/human/H = src
 	if(!can_speak_vocal(message))
 		if (HAS_TRAIT(src, TRAIT_SIGN_LANG) && H.mind.miming)
-			to_chat(src, span_warning("Не могу петь!") )
+			to_chat(src, span_warning("Не могу петь!"))
 			return
 		else
-			to_chat(src, span_warning("Не могу говорить!") )
+			to_chat(src, span_warning("Не могу говорить!"))
 			return
 
 	var/message_range = 7
@@ -356,7 +356,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 /mob/living/proc/can_speak_basic(message, ignore_spam = FALSE, forced = FALSE) //Check BEFORE handling of xeno and ling channels
 	if(client)
 		if(client.prefs.muted & MUTE_IC)
-			to_chat(src, span_danger("You cannot speak in IC (muted).") )
+			to_chat(src, span_danger("You cannot speak in IC (muted)."))
 			return FALSE
 		if(!(ignore_spam || forced) && client.handle_spam_prevention(message,MUTE_IC))
 			return FALSE

@@ -93,9 +93,9 @@
 	suicide(var/mob/user as mob) // lel
 		if (!src.user_can_suicide(user))
 			return 0
-		user.visible_message(span_alert("<b>[user] stares into the [src], trying to make sense of its function!</b>") )
+		user.visible_message(span_alert("<b>[user] stares into the [src], trying to make sense of its function!</b>"))
 		spawn(3 SECONDS)
-			user.visible_message(span_alert("<b>[user]'s brain melts!</b>") )
+			user.visible_message(span_alert("<b>[user]'s brain melts!</b>"))
 			playsound(get_turf(user), "sound/weapons/phaseroverload.ogg", 100)
 			user.adjustOrganLoss(ORGAN_SLOT_BRAIN, BRAIN_DAMAGE_DEATH, BRAIN_DAMAGE_DEATH)
 		spawn(20 SECONDS)
@@ -114,7 +114,7 @@
 	attackby(obj/item/W as obj, mob/user as mob)
 		if (isscrewingtool(W))
 			if(src.welded)
-				to_chat(user,span_alert("The [src] is welded shut.") )
+				to_chat(user,span_alert("The [src] is welded shut."))
 				return
 			src.does_not_open_in_pocket=src.open
 			src.open=!src.open
@@ -127,30 +127,30 @@
 			return 1
 		else if (iswrenchingtool(W))
 			if(!src.can_be_anchored)
-				to_chat(user,span_alert("[src] cannot be anchored to the ground.") )
+				to_chat(user,span_alert("[src] cannot be anchored to the ground."))
 				return
 			if(!src.open || src.welded)
-				to_chat(user,span_alert("You are unable to access the [src]'s bolts as they are on the inside.") )
+				to_chat(user,span_alert("You are unable to access the [src]'s bolts as they are on the inside."))
 				return
 			if(!isturf(src.loc) && !src.anchored)
-				to_chat(user,span_alert("You cannot anchor a component housing inside something else.") )
+				to_chat(user,span_alert("You cannot anchor a component housing inside something else."))
 				return
 			src.anchored=!src.anchored
 			playsound(src.loc,'sound/items/Ratchet.ogg',50)
-			to_chat(user,span_notice("You [src.anchored ? "anchor the [src] to" : "unsecure the [src] from"] the ground") )
+			to_chat(user,span_notice("You [src.anchored ? "anchor the [src] to" : "unsecure the [src] from"] the ground"))
 			if (!src.anchored)
 				src.destroy_outside_connections() //burn those bridges
 			return 1
 		else if (isweldingtool(W))
 			if (!src.can_be_welded)
-				to_chat(user,span_alert("[src]'s cover cannot be welded shut.") )
+				to_chat(user,span_alert("[src]'s cover cannot be welded shut."))
 				return
 			if (src.open)
 				to_chat(user,"Why would you want to weld something <i>open?</i>")
 				return
 			if(W:try_weld(user, 1))
 				src.welded=!src.welded
-				to_chat(user,span_notice("You [src.welded ? "" : "un"]weld the [src]'s cover") )
+				to_chat(user,span_notice("You [src.welded ? "" : "un"]weld the [src]'s cover"))
 				src.updateIcon()
 				return 1
 		else if (src.open || !istype(W,/obj/item/mechanics))
@@ -443,15 +443,15 @@
 					loosen()
 				if(2) //Level 2 = loose
 					if(!isturf(src.loc) && !(IN_CABINET)) // allow items to be deployed inside housings, but not in other stuff like toolboxes
-						to_chat(user, span_alert("[src] needs to be on the ground  [src.cabinet_banned ? "" : "or in a component housing"] for that to work.") )
+						to_chat(user, span_alert("[src] needs to be on the ground  [src.cabinet_banned ? "" : "or in a component housing"] for that to work."))
 						return 0
 					if(IN_CABINET && src.cabinet_banned)
-						to_chat(user,span_alert("[src] is not allowed in component housings.") )
+						to_chat(user,span_alert("[src] is not allowed in component housings."))
 						return
 					if(src.one_per_tile)
 						for(var/obj/item/mechanics/Z in src.loc)
 							if (Z.type == src.type && Z.level == 1)
-								to_chat(user,span_alert("No matter how hard you try, you are not able to think of a way to fit more than one [src] on a single tile.") )
+								to_chat(user,span_alert("No matter how hard you try, you are not able to think of a way to fit more than one [src] on a single tile."))
 								return
 					to_chat(user, "You attach the [src] to the [istype(src.loc,/obj/item/storage/mechanics) ? "housing" : "underfloor"] and activate it.")
 					//logTheThing("station", user, null, "attaches a <b>[src]</b> to the [istype(src.loc,/obj/item/storage/mechanics) ? "housing" : "underfloor"]  at [log_loc(src)].")
@@ -484,7 +484,7 @@
 
 	MouseDrop(obj/O, null, var/src_location, var/control_orig, var/control_new, var/params)
 		if(level == 2 || (istype(O, /obj/item/mechanics) && O.level == 2))
-			to_chat(usr, span_alert("Both components need to be secured into place before they can be connected.") )
+			to_chat(usr, span_alert("Both components need to be secured into place before they can be connected."))
 			return ..()
 
 		SEND_SIGNAL(src,_COMSIG_MECHCOMP_DROPCONNECT,O,usr)
@@ -550,7 +550,7 @@
 		if (code)
 			var/codecheck = strip_html(input(user,"Please enter current code:","Code check","") as text)
 			if (codecheck != code)
-				to_chat(user, span_alert("[bicon(src)]: Incorrect code entered.") )
+				to_chat(user, span_alert("[bicon(src)]: Incorrect code entered."))
 				return 0
 		var/inp = input(user,"Enter new price:","Price setting", price) as num
 		if(!in_range(src, user) || user.stat)
@@ -575,7 +575,7 @@
 		if (code)
 			var/codecheck = adminscrub(input(user,"Please enter current code:","Code check","") as text)
 			if (codecheck != code)
-				to_chat(user, span_alert("[bicon(src)]: Incorrect code entered.") )
+				to_chat(user, span_alert("[bicon(src)]: Incorrect code entered."))
 				return 0
 		var/inp = adminscrub(input(user,"Please enter new code:","Code setting","dosh") as text)
 		if(!in_range(src, user) || user.stat)
@@ -596,7 +596,7 @@
 			if(!in_range(src, user) || user.stat)
 				return 0
 			if (codecheck != code)
-				to_chat(user, span_alert("[bicon(src)]: Incorrect code entered.") )
+				to_chat(user, span_alert("[bicon(src)]: Incorrect code entered."))
 				return 0
 		ejectmoney()
 
@@ -796,7 +796,7 @@
 		if(..(W, user)) return 1
 		else if (istype(W, /obj/item/paper) && isReady())
 			if(thermal_only && !istype(W, /obj/item/paper/thermal))
-				to_chat(user, span_alert("This scanner only accepts thermal paper.") )
+				to_chat(user, span_alert("This scanner only accepts thermal paper."))
 				return 0
 			unReady()
 			LIGHT_UP_HOUSING
@@ -860,7 +860,7 @@
 		if(!in_range(src, user) || user.stat)
 			return 0
 		range = clamp(rng, 1, 5)
-		to_chat(user, span_notice("Range set to [range]!") )
+		to_chat(user, span_notice("Range set to [range]!"))
 		if(level == 1)
 			rebeam()
 		return 1
@@ -934,7 +934,7 @@
 				var/sendstr = (send_name ? user.real_name : user.bioHolder.uid_hash)
 				SEND_SIGNAL(src,COMSIG_MECHCOMP_TRANSMIT_SIGNAL,sendstr)
 			else
-				to_chat(user, span_alert("The hand scanner can only be used by humanoids.") )
+				to_chat(user, span_alert("The hand scanner can only be used by humanoids."))
 				return
 		else return ..(user)
 
@@ -1547,9 +1547,9 @@
 			if (!src.outgoing_filters[receiver]) src.outgoing_filters[receiver] = list()
 			src.outgoing_filters.Add(receiver)
 			src.outgoing_filters[receiver] = splittext(filter, ",")
-			to_chat(user, span_success("Only passing messages that [exact_match ? "match" : "contain"] [filter] to the [receiver.name]") )
+			to_chat(user, span_success("Only passing messages that [exact_match ? "match" : "contain"] [filter] to the [receiver.name]"))
 		else
-			to_chat(user, span_success("Passing all messages to the [receiver.name]") )
+			to_chat(user, span_success("Passing all messages to the [receiver.name]"))
 		return
 
 	//This will get called from the component-datum when a device is being unlinked
@@ -1967,7 +1967,7 @@
 			return 0
 		numsig = round(numsig)
 		if(numsig > 10) //Needs a limit because nerds are nerds
-			to_chat(user, span_alert("This component can't handle more than 10 signals!") )
+			to_chat(user, span_alert("This component can't handle more than 10 signals!"))
 			return 0
 		if(numsig)
 			signals.Cut()
@@ -1991,7 +1991,7 @@
 		if(!in_range(src, user) || user.stat)
 			return 0
 		if(!newsigs)
-			to_chat(user, span_notice("Signals remain unchanged!") )
+			to_chat(user, span_notice("Signals remain unchanged!"))
 			return 0
 		if(length(newsigs) >= 2048)
 			alert(user, "That's far too long. Trim it down some!")
@@ -2003,7 +2003,7 @@
 				i--
 		signals = built
 		current_index = 1
-		to_chat(user, span_notice("There are now [length(signals)] signals in the list.") )
+		to_chat(user, span_notice("There are now [length(signals)] signals in the list."))
 		//tooltip_rebuild = 1
 		return 1
 
@@ -2663,7 +2663,7 @@
 
 	proc/addButton(obj/item/W as obj, mob/user as mob)
 		if(length(src.active_buttons) >= 10)
-			to_chat(user, span_alert("There's no room to add another button - the panel is full") )
+			to_chat(user, span_alert("There's no room to add another button - the panel is full"))
 			return 0
 
 		var/new_label = input(user, "Button label", "Button Panel") as text
@@ -2685,7 +2685,7 @@
 
 	proc/removeButton(obj/item/W as obj, mob/user as mob)
 		if(!length(src.active_buttons))
-			to_chat(user, span_alert("[src] has no active buttons - there's nothing to remove!") )
+			to_chat(user, span_alert("[src] has no active buttons - there's nothing to remove!"))
 		else
 			var/to_remove = input(user, "Choose button to remove", "Button Panel") in src.active_buttons + "*CANCEL*"
 			if(!in_range(src, user) || user.stat)
@@ -2708,7 +2708,7 @@
 				SEND_SIGNAL(src,COMSIG_MECHCOMP_TRANSMIT_SIGNAL, src.active_buttons[selected_button])
 				return 1
 			else
-				to_chat(user, span_alert("[src] has no active buttons - there's nothing to press!") )
+				to_chat(user, span_alert("[src] has no active buttons - there's nothing to press!"))
 		else return ..(user)
 
 	afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
@@ -2748,7 +2748,7 @@
 			Gun = null
 			tooltip_flags &= ~REBUILD_ALWAYS
 			return 1
-		to_chat(user, span_alert("There is no gun inside this component.") )
+		to_chat(user, span_alert("There is no gun inside this component."))
 		return 0
 
 	attackby(obj/item/W as obj, mob/user as mob)
@@ -2899,7 +2899,7 @@
 			//tooltip_rebuild = 1
 			return 1
 		else
-			to_chat(user, span_alert("There is no instrument inside this component.") )
+			to_chat(user, span_alert("There is no instrument inside this component."))
 		return 0
 
 	attackby(obj/item/W as obj, mob/user as mob)
@@ -3177,7 +3177,7 @@
 
 	proc/removeItemManual(obj/item/W as obj, mob/user as mob)
 		if (!length(map))
-			to_chat(user, span_alert("[src] has no associations - there's nothing to remove!") )
+			to_chat(user, span_alert("[src] has no associations - there's nothing to remove!"))
 			return 0
 		var/input = input(user, "Remove association", "Association Component") in map + "*CANCEL*"
 		if (!in_range(src, user) || user.stat) return 0

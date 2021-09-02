@@ -665,7 +665,7 @@
 	. = list()
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE_MORE, user, .)
 	if(!LAZYLEN(.)) // lol ..length
-		return list(span_notice("<i>Осматриваю <b>[src]</b> тщательно, но не могу найти что-то ещё интересное...</i>") )
+		return list(span_notice("<i>Осматриваю <b>[src]</b> тщательно, но не могу найти что-то ещё интересное...</i>"))
 
 /**
  * Updates the appearence of the icon
@@ -777,7 +777,7 @@
 /atom/proc/relaymove(mob/living/user, direction)
 	if(buckle_message_cooldown <= world.time)
 		buckle_message_cooldown = world.time + 50
-		to_chat(user, span_warning("You can't move while buckled to [src]!") )
+		to_chat(user, span_warning("You can't move while buckled to [src]!"))
 	return
 
 /**
@@ -1020,7 +1020,7 @@
 	while (do_after(user, 1 SECONDS, src, NONE, FALSE, CALLBACK(STR, /datum/component/storage.proc/handle_mass_item_insertion, things, src_object, user, progress)))
 		stoplag(1)
 	progress.end_progress()
-	to_chat(user, span_notice("Вытряхиваю содержимое [src_object.parent] [STR.insert_preposition] [src.name] как могу.") )
+	to_chat(user, span_notice("Вытряхиваю содержимое [src_object.parent] [STR.insert_preposition] [src.name] как могу."))
 	STR.orient2hud(user)
 	src_object.orient2hud(user)
 	if(user.active_storage) //refresh the HUD to show the transfered contents
@@ -1465,7 +1465,7 @@
 
 
 /atom/proc/StartProcessingAtom(mob/living/user, obj/item/I, list/chosen_option)
-	to_chat(user, span_notice("Начинаю работать с [src].") )
+	to_chat(user, span_notice("Начинаю работать с [src]."))
 	if(I.use_tool(src, user, chosen_option[TOOL_PROCESSING_TIME], volume=50))
 		var/atom/atom_to_create = chosen_option[TOOL_PROCESSING_RESULT]
 		var/list/atom/created_atoms = list()
@@ -1480,7 +1480,7 @@
 				created_atom.pixel_y += rand(-8,8)
 			SEND_SIGNAL(created_atom, COMSIG_ATOM_CREATEDBY_PROCESSING, src, chosen_option)
 			created_atom.OnCreatedFromProcessing(user, I, chosen_option, src)
-			to_chat(user, span_notice("Удалось сделать [chosen_option[TOOL_PROCESSING_AMOUNT]] [initial(atom_to_create.name)] из [src].") )
+			to_chat(user, span_notice("Удалось сделать [chosen_option[TOOL_PROCESSING_AMOUNT]] [initial(atom_to_create.name)] из [src]."))
 			created_atoms.Add(created_atom)
 		SEND_SIGNAL(src, COMSIG_ATOM_PROCESSED, user, I, created_atoms)
 		UsedforProcessing(user, I, chosen_option)

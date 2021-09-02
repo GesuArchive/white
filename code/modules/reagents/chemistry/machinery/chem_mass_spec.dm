@@ -59,7 +59,7 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 			replace_beaker(user, BEAKER2, beaker)
 		else
 			replace_beaker(user, BEAKER1, beaker)
-		to_chat(user, span_notice("Добавляю [beaker] в [src].") )
+		to_chat(user, span_notice("Добавляю [beaker] в [src]."))
 		updateUsrDialog()
 		update_icon()
 		return

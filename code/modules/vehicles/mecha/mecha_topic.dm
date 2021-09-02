@@ -253,10 +253,10 @@
 					return
 				if(construction_state == MECHA_LOCKED)
 					construction_state = MECHA_SECURE_BOLTS
-					to_chat(usr, span_notice("The securing bolts are now exposed.") )
+					to_chat(usr, span_notice("The securing bolts are now exposed."))
 				else if(construction_state == MECHA_SECURE_BOLTS)
 					construction_state = MECHA_LOCKED
-					to_chat(usr, span_notice("The securing bolts are now hidden.") )
+					to_chat(usr, span_notice("The securing bolts are now hidden."))
 				output_maintenance_dialog(id_card,usr)
 				return
 			if(href_list["drop_cell"])
@@ -305,7 +305,7 @@
 			if(isnull(new_pressure) || usr.incapacitated() || !construction_state)
 				return
 			internal_tank_valve = new_pressure
-			to_chat(usr, span_notice("The internal pressure valve has been set to [internal_tank_valve]kPa.") )
+			to_chat(usr, span_notice("The internal pressure valve has been set to [internal_tank_valve]kPa."))
 			return
 
 	//Start of all internal topic stuff.
@@ -323,7 +323,7 @@
 			return
 		selected = equip
 		to_chat(occupants, "[icon2html(src, occupants)]<span class='notice'>You switch to [equip].</span>")
-		visible_message(span_notice("[capitalize(src.name)] raises [equip].") )
+		visible_message(span_notice("[capitalize(src.name)] raises [equip]."))
 		send_byjax(usr, "exosuit.browser", "eq_list", get_equipment_list())
 		return
 

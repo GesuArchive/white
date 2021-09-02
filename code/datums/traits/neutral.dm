@@ -133,7 +133,7 @@
 
 /datum/quirk/monochromatic/post_add()
 	if(quirk_holder.mind.assigned_role == "Detective")
-		to_chat(quirk_holder, span_boldannounce("Ммм. На этой станции нет ничего чистого. Это всё оттенки серого...") )
+		to_chat(quirk_holder, span_boldannounce("Ммм. На этой станции нет ничего чистого. Это всё оттенки серого..."))
 		quirk_holder.playsound_local(quirk_holder, 'sound/ambience/ambidet1.ogg', 50, FALSE)
 
 /datum/quirk/monochromatic/remove()
@@ -187,7 +187,7 @@
 		var/mob/living/carbon/human/H = quirk_holder
 		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 
-	to_chat(quirk_holder, span_notice("У вас с собой указатель [where], который поможет вам найти путь в какой-либо отсек. Нажмите в руке, чтобы активировать.") )
+	to_chat(quirk_holder, span_notice("У вас с собой указатель [where], который поможет вам найти путь в какой-либо отсек. Нажмите в руке, чтобы активировать."))
 
 /datum/quirk/bald
 	name = "Лысый"
@@ -265,7 +265,7 @@
 		H.put_in_hands(gloves)
 
 /datum/quirk/tongue_tied/post_add()
-	to_chat(quirk_holder, span_boldannounce("Because you speak with your hands, having them full hinders your ability to communicate!") )
+	to_chat(quirk_holder, span_boldannounce("Because you speak with your hands, having them full hinders your ability to communicate!"))
 
 /datum/quirk/photographer
 	name = "Фотограф"

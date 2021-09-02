@@ -158,7 +158,7 @@
 			s_store = I
 			update_inv_s_store()
 		else
-			to_chat(src, span_danger("Вы пытаетесь экипировать этот предмет в неподдерживаемый слот инвентаря. Доложите это кодерам!") )
+			to_chat(src, span_danger("Вы пытаетесь экипировать этот предмет в неподдерживаемый слот инвентаря. Доложите это кодерам!"))
 
 	//Item is handled and in slot, valid to call callback, for this proc should always be true
 	if(!not_handled)
@@ -318,7 +318,7 @@
 	var/obj/item/equipped_item = get_item_by_slot(slot_type)
 	if(!equipped_item) // We also let you equip an item like this
 		if(!thing)
-			to_chat(src, span_warning("Пояса то нет!") )
+			to_chat(src, span_warning("Пояса то нет!"))
 			return
 		if(equip_to_slot_if_possible(thing, slot_type))
 			update_inv_hands()
@@ -327,14 +327,14 @@
 		if(!thing)
 			equipped_item.attack_hand(src)
 		else
-			to_chat(src, span_warning("Не помещается!") )
+			to_chat(src, span_warning("Не помещается!"))
 		return
 	if(thing) // put thing in storage item
 		if(!SEND_SIGNAL(equipped_item, COMSIG_TRY_STORAGE_INSERT, thing, src))
-			to_chat(src, span_warning("Не помещается!") )
+			to_chat(src, span_warning("Не помещается!"))
 		return
 	if(!equipped_item.contents.len) // nothing to take out
-		to_chat(src, span_warning("Пусто!") )
+		to_chat(src, span_warning("Пусто!"))
 		return
 	var/obj/item/stored = equipped_item.contents[equipped_item.contents.len]
 	if(!stored || stored.on_found(src))

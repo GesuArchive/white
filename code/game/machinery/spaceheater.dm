@@ -151,21 +151,21 @@
 	else if(istype(I, /obj/item/stock_parts/cell))
 		if(panel_open)
 			if(cell)
-				to_chat(user, span_warning("Внутри уже есть батарейка!") )
+				to_chat(user, span_warning("Внутри уже есть батарейка!"))
 				return
 			else if(!user.transferItemToLoc(I, src))
 				return
 			cell = I
 			I.add_fingerprint(usr)
 
-			user.visible_message(span_notice("[capitalize(user)] вставляет батарейку в <b>[src.name]</b>.") , span_notice("Вставляю батарейку внутрь <b>[src.name]</b>.") )
+			user.visible_message(span_notice("[capitalize(user)] вставляет батарейку в <b>[src.name]</b>.") , span_notice("Вставляю батарейку внутрь <b>[src.name]</b>."))
 			SStgui.update_uis(src)
 		else
-			to_chat(user, span_warning("Техническая панель должна быть открыта для вставки батарейки!") )
+			to_chat(user, span_warning("Техническая панель должна быть открыта для вставки батарейки!"))
 			return
 	else if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		panel_open = !panel_open
-		user.visible_message(span_notice("[capitalize(user)] [panel_open ? "открывает" : "закрывает"] техническую панель <b>[src.name]</b>.") , span_notice("[panel_open ? "Открываю" : "Закрываю"] техническую панель <b>[src.name]</b>.") )
+		user.visible_message(span_notice("[capitalize(user)] [panel_open ? "открывает" : "закрывает"] техническую панель <b>[src.name]</b>.") , span_notice("[panel_open ? "Открываю" : "Закрываю"] техническую панель <b>[src.name]</b>."))
 		update_icon()
 	else if(default_deconstruction_crowbar(I))
 		return
@@ -213,7 +213,7 @@
 		if("power")
 			on = !on
 			mode = HEATER_MODE_STANDBY
-			usr.visible_message(span_notice("[usr] [on ? "включает" : "выключает"] <b>[src.name]</b>.") , span_notice("[on ? "Включаю" : "Выключаю"] <b>[src.name]</b>.") )
+			usr.visible_message(span_notice("[usr] [on ? "включает" : "выключает"] <b>[src.name]</b>.") , span_notice("[on ? "Включаю" : "Выключаю"] <b>[src.name]</b>."))
 			update_icon()
 			if (on)
 				START_PROCESSING(SSmachines, src)
@@ -316,14 +316,14 @@
 		return
 	if(istype(item, /obj/item/stock_parts/cell))
 		if(cell)
-			to_chat(user, span_warning("There is already a power cell inside!") )
+			to_chat(user, span_warning("There is already a power cell inside!"))
 			return
 		else if(!user.transferItemToLoc(item, src))
 			return
 		cell = item
 		item.add_fingerprint(usr)
 
-		user.visible_message(span_notice("\The [user] inserts a power cell into [src].") , span_notice("You insert the power cell into [src].") )
+		user.visible_message(span_notice("\The [user] inserts a power cell into [src].") , span_notice("You insert the power cell into [src]."))
 		SStgui.update_uis(src)
 	//reagent containers
 	if(is_reagent_container(item) && !(item.item_flags & ABSTRACT) && item.is_open_container())
@@ -332,7 +332,7 @@
 		if(!user.transferItemToLoc(container, src))
 			return
 		replace_beaker(user, container)
-		to_chat(user, span_notice("You add [container] to [src]'s water bath.") )
+		to_chat(user, span_notice("You add [container] to [src]'s water bath."))
 		updateUsrDialog()
 		return
 	//Dropper tools

@@ -181,7 +181,7 @@
 /proc/tkMaxRangeCheck(mob/user, atom/target)
 	var/d = get_dist(user, target)
 	if(d > TK_MAXRANGE)
-		to_chat(user, span_warning("Your mind won't reach that far.") )
+		to_chat(user, span_warning("Your mind won't reach that far."))
 		return
 	return TRUE
 
@@ -221,7 +221,7 @@
 	. += focus_overlay
 
 /obj/item/tk_grab/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is using [user.ru_ego()] telekinesis to choke [user.ru_na()]self! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] is using [user.ru_ego()] telekinesis to choke [user.ru_na()]self! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return (OXYLOSS)
 
 

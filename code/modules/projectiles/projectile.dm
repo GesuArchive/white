@@ -274,7 +274,7 @@
 			playsound(loc, hitsound, 5, TRUE, -1)
 		else if(suppressed)
 			playsound(loc, hitsound, 5, TRUE, -1)
-			to_chat(L, span_userdanger("В[organ_hit_text] попадает [src.name]!") )
+			to_chat(L, span_userdanger("В[organ_hit_text] попадает [src.name]!"))
 		else
 			if(hitsound)
 				var/volume = vol_by_damage()

@@ -34,7 +34,7 @@
 	if(can_interact(user))
 		volume_rate = MAX_TRANSFER_RATE
 		investigate_log("was set to [volume_rate] L/s by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, span_notice("Выкручиваю выход инжектора к максимальному значению в [volume_rate] Л/с.") )
+		to_chat(user, span_notice("Выкручиваю выход инжектора к максимальному значению в [volume_rate] Л/с."))
 		update_icon()
 	return ..()
 
@@ -182,7 +182,7 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector/can_unwrench(mob/user)
 	. = ..()
 	if(. && on && is_operational)
-		to_chat(user, span_warning("Не могу открутить [src.name], сначала нужно выключить это!") )
+		to_chat(user, span_warning("Не могу открутить [src.name], сначала нужно выключить это!"))
 		return FALSE
 
 // mapping

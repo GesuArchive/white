@@ -46,7 +46,7 @@
 /obj/item/paperplane/suicide_act(mob/living/user)
 	var/obj/item/organ/eyes/eyes = user.getorganslot(ORGAN_SLOT_EYES)
 	user.Stun(200)
-	user.visible_message(span_suicide("[user] jams [src] in [user.ru_ego()] nose. It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] jams [src] in [user.ru_ego()] nose. It looks like [user.p_theyre()] trying to commit suicide!"))
 	user.adjust_blurriness(6)
 	if(eyes)
 		eyes.applyOrganDamage(rand(6,8))
@@ -61,7 +61,7 @@
 			. += "paperplane_[S]"
 
 /obj/item/paperplane/attack_self(mob/user)
-	to_chat(user, span_notice("You unfold [src].") )
+	to_chat(user, span_notice("You unfold [src]."))
 	// We don't have to qdel the paperplane here; it shall be done once the internal paper object is moved out of src anyway.
 	if(user.Adjacent(internalPaper))
 		user.put_in_hands(internalPaper)
@@ -72,7 +72,7 @@
 	if(burn_paper_product_attackby_check(P, user))
 		return
 	if(istype(P, /obj/item/pen) || istype(P, /obj/item/toy/crayon))
-		to_chat(user, span_warning("You should unfold [src] before changing it!") )
+		to_chat(user, span_warning("You should unfold [src] before changing it!"))
 		return
 
 	else if(istype(P, /obj/item/stamp)) 	//we don't randomize stamps on a paperplane
@@ -102,7 +102,7 @@
 	if(prob(hit_probability))
 		if(H.is_eyes_covered())
 			return
-		visible_message(span_danger("<b>[src.name]</b> hits [H] in the eye[eyes ? "" : " socket"]!") )
+		visible_message(span_danger("<b>[src.name]</b> hits [H] in the eye[eyes ? "" : " socket"]!"))
 		H.adjust_blurriness(6)
 		eyes?.applyOrganDamage(rand(6,8))
 		H.Paralyze(40)
@@ -118,9 +118,9 @@
 	if(istype(src, /obj/item/paper/carbon))
 		var/obj/item/paper/carbon/Carbon = src
 		if(!Carbon.iscopy && !Carbon.copied)
-			to_chat(user, span_notice("Take off the carbon copy first.") )
+			to_chat(user, span_notice("Take off the carbon copy first."))
 			return
-	to_chat(user, span_notice("You fold [src] into the shape of a plane!") )
+	to_chat(user, span_notice("You fold [src] into the shape of a plane!"))
 	user.temporarilyRemoveItemFromInventory(src)
 	var/obj/item/paperplane/plane_type = /obj/item/paperplane
 	//Origami Master

@@ -19,7 +19,7 @@
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = owner.mind.has_antag_datum(ANTAG_DATUM_BLOODSUCKER)
 	var/mob/living/user = owner
 
-	to_chat(user, span_notice("Your flesh, skin, and muscles become as steel.") )
+	to_chat(user, span_notice("Your flesh, skin, and muscles become as steel."))
 
 	// Traits & Effects
 	ADD_TRAIT(user, TRAIT_PIERCEIMMUNE, "fortitude")

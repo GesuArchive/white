@@ -133,44 +133,44 @@
 /obj/item/clothing/suit/space/hardsuit/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/tank/jetpack/suit))
 		if(jetpack)
-			to_chat(user, span_warning("Джетпак [src] уже установлен.") )
+			to_chat(user, span_warning("Джетпак [src] уже установлен."))
 			return
 		if(src == user.get_item_by_slot(ITEM_SLOT_OCLOTHING)) //Make sure the player is not wearing the suit before applying the upgrade.
-			to_chat(user, span_warning("Не могу установить улучшение [src] пока он надет.") )
+			to_chat(user, span_warning("Не могу установить улучшение [src] пока он надет."))
 			return
 
 		if(user.transferItemToLoc(I, src))
 			jetpack = I
-			to_chat(user, span_notice("Успешно установил джетпак в [src].") )
+			to_chat(user, span_notice("Успешно установил джетпак в [src]."))
 			return
 	else if(!cell_cover_open && I.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!jetpack)
-			to_chat(user, span_warning("Джетпак [src] не установлен.") )
+			to_chat(user, span_warning("Джетпак [src] не установлен."))
 			return
 		if(src == user.get_item_by_slot(ITEM_SLOT_OCLOTHING))
-			to_chat(user, span_warning("Не могу вытащить джетпак из надетого [src].") )
+			to_chat(user, span_warning("Не могу вытащить джетпак из надетого [src]."))
 			return
 
 		jetpack.turn_off(user)
 		jetpack.forceMove(drop_location())
 		jetpack = null
-		to_chat(user, span_notice("Успешно вытащил джетпак из [src].") )
+		to_chat(user, span_notice("Успешно вытащил джетпак из [src]."))
 		return
 	else if(istype(I, /obj/item/light) && helmettype)
 		if(src == user.get_item_by_slot(ITEM_SLOT_OCLOTHING))
-			to_chat(user, span_warning("Не могу заменить лампочку на шлеме [src] пока он надет.") )
+			to_chat(user, span_warning("Не могу заменить лампочку на шлеме [src] пока он надет."))
 			return
 		if(helmet)
-			to_chat(user, span_warning("Шлему [src] не нужна новая лампочка.") )
+			to_chat(user, span_warning("Шлему [src] не нужна новая лампочка."))
 			return
 		var/obj/item/light/L = I
 		if(L.status)
-			to_chat(user, span_warning("Эта лампочка слишком повреждена чтобы использовать её в качестве замены!") )
+			to_chat(user, span_warning("Эта лампочка слишком повреждена чтобы использовать её в качестве замены!"))
 			return
 		if(do_after(user, 5 SECONDS, src))
 			qdel(I)
 			helmet = new helmettype(src)
-			to_chat(user, span_notice("Успешно заменил лампочку на шлеме [src].") )
+			to_chat(user, span_notice("Успешно заменил лампочку на шлеме [src]."))
 			new /obj/item/light/bulb/broken(drop_location())
 	return ..()
 
@@ -199,7 +199,7 @@
 	var/mob/living/carbon/human/user = src.loc
 	if(istype(user))
 		user.apply_damage(HARDSUIT_EMP_BURN, BURN, spread_damage=TRUE)
-		to_chat(user, span_warning("You feel <b>[src.name]</b> heat up from the EMP burning you slightly.") )
+		to_chat(user, span_warning("You feel <b>[src.name]</b> heat up from the EMP burning you slightly."))
 
 		// Chance to scream
 		if (user.stat < UNCONSCIOUS && prob(10))
@@ -385,7 +385,7 @@
 		return
 	on = !on
 	if(on || force)
-		to_chat(user, span_notice("Переключаю костюм в режим скафандра, жертвуем скоростью для защиты от космоса.") )
+		to_chat(user, span_notice("Переключаю костюм в режим скафандра, жертвуем скоростью для защиты от космоса."))
 		name = initial(name)
 		desc = initial(desc)
 		set_light_on(TRUE)
@@ -394,7 +394,7 @@
 		flags_inv |= visor_flags_inv
 		cold_protection |= HEAD
 	else
-		to_chat(user, span_notice("Переключаю костюм в боевой режим. Скорость увеличена.") )
+		to_chat(user, span_notice("Переключаю костюм в боевой режим. Скорость увеличена."))
 		name += " (боевой)"
 		desc = alt_desc
 		set_light_on(FALSE)

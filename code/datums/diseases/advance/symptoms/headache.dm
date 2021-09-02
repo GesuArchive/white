@@ -53,10 +53,10 @@ BONUS
 	var/mob/living/M = A.affected_mob
 	if(power < 2)
 		if(prob(base_message_chance) || A.stage >=4)
-			to_chat(M, span_warning("[pick("Голова болит.", "Моя голова разрывается.")]") )
+			to_chat(M, span_warning("[pick("Голова болит.", "Моя голова разрывается.")]"))
 	if(power >= 2 && A.stage >= 4)
-		to_chat(M, span_warning("[pick("Моя голова сильно болит.", "Моя голова постоянно разрывается.")]") )
+		to_chat(M, span_warning("[pick("Моя голова сильно болит.", "Моя голова постоянно разрывается.")]"))
 		M.adjustStaminaLoss(25)
 	if(power >= 3 && A.stage >= 5)
-		to_chat(M, span_userdanger("[pick("Голова болит!", "Чувствую горящий нож в моём мозгу!", "Волна боли заполняет мою голову!")]") )
+		to_chat(M, span_userdanger("[pick("Голова болит!", "Чувствую горящий нож в моём мозгу!", "Волна боли заполняет мою голову!")]"))
 		M.Stun(35)

@@ -32,7 +32,7 @@
 	var/atom/Tsec = drop_location()
 	for(var/mob/M in src)
 		M.forceMove(Tsec)
-		visible_message(span_danger("[M] вырывается из [src]!") )
+		visible_message(span_danger("[M] вырывается из [src]!"))
 	. = ..()
 
 /mob/living/carbon/spill_organs(no_brain, no_organs, no_bodyparts)

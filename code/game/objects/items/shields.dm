@@ -43,17 +43,17 @@
 /obj/item/shield/riot/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/melee/baton))
 		if(cooldown < world.time - 25)
-			user.visible_message(span_warning("<b>[user]</b> бьёт <b>[src.name]</b> используя [W]!") )
+			user.visible_message(span_warning("<b>[user]</b> бьёт <b>[src.name]</b> используя [W]!"))
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, TRUE)
 			cooldown = world.time
 	else if(istype(W, /obj/item/stack/sheet/mineral/titanium))
 		if (obj_integrity >= max_integrity)
-			to_chat(user, span_warning("<b>[src.name]</b> уже в превосходном состоянии.") )
+			to_chat(user, span_warning("<b>[src.name]</b> уже в превосходном состоянии."))
 		else
 			var/obj/item/stack/sheet/mineral/titanium/T = W
 			T.use(1)
 			obj_integrity = max_integrity
-			to_chat(user, span_notice("Чиню <b>[src.name]</b> используя <b>[T]</b>.") )
+			to_chat(user, span_notice("Чиню <b>[src.name]</b> используя <b>[T]</b>."))
 	else
 		return ..()
 
@@ -75,7 +75,7 @@
 /obj/item/shield/riot/on_shield_block(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", damage = 0, attack_type = MELEE_ATTACK)
 	if (obj_integrity <= damage)
 		var/turf/T = get_turf(owner)
-		T.visible_message(span_warning("<b>[capitalize(hitby.name)]</b> уничтожает <b>[src.name]</b>!") )
+		T.visible_message(span_warning("<b>[capitalize(hitby.name)]</b> уничтожает <b>[src.name]</b>!"))
 		shatter(owner)
 		qdel(src)
 		return FALSE
@@ -204,10 +204,10 @@
 	if(istype(W, /obj/item/assembly/flash/handheld))
 		var/obj/item/assembly/flash/handheld/flash = W
 		if(flash.burnt_out)
-			to_chat(user, span_warning("Нет смысла заменять её сломанной лампочкой!") )
+			to_chat(user, span_warning("Нет смысла заменять её сломанной лампочкой!"))
 			return
 		else
-			to_chat(user, span_notice("Начинаю заменять лампочку...") )
+			to_chat(user, span_notice("Начинаю заменять лампочку..."))
 			if(do_after(user, 20, target = user))
 				if(flash.burnt_out || !flash || QDELETED(flash))
 					return
@@ -268,7 +268,7 @@
 
 /obj/item/shield/energy/attack_self(mob/living/carbon/human/user)
 	if(clumsy_check && HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50))
-		to_chat(user, span_userdanger("Бью себя в голову используя <b>[src.name]</b>!") )
+		to_chat(user, span_userdanger("Бью себя в голову используя <b>[src.name]</b>!"))
 		user.take_bodypart_damage(5)
 	active = !active
 	icon_state = "[base_icon_state][active]"
@@ -279,14 +279,14 @@
 		throw_speed = on_throw_speed
 		w_class = WEIGHT_CLASS_BULKY
 		playsound(user, 'sound/weapons/saberon.ogg', 35, TRUE)
-		to_chat(user, span_notice("<b>[src.name]</b> теперь активен.") )
+		to_chat(user, span_notice("<b>[src.name]</b> теперь активен."))
 	else
 		force = initial(force)
 		throwforce = initial(throwforce)
 		throw_speed = initial(throw_speed)
 		w_class = WEIGHT_CLASS_TINY
 		playsound(user, 'sound/weapons/saberoff.ogg', 35, TRUE)
-		to_chat(user, span_notice("<b>[src.name]</b> теперь может быть спрятан.") )
+		to_chat(user, span_notice("<b>[src.name]</b> теперь может быть спрятан."))
 	add_fingerprint(user)
 
 /obj/item/shield/riot/tele
@@ -320,12 +320,12 @@
 		throw_speed = 2
 		w_class = WEIGHT_CLASS_BULKY
 		slot_flags = ITEM_SLOT_BACK
-		to_chat(user, span_notice("Раскрываю <b>[src.name]</b>.") )
+		to_chat(user, span_notice("Раскрываю <b>[src.name]</b>."))
 	else
 		force = 3
 		throwforce = 3
 		throw_speed = 3
 		w_class = WEIGHT_CLASS_NORMAL
 		slot_flags = null
-		to_chat(user, span_notice("Сворачиваю <b>[src.name]</b>.") )
+		to_chat(user, span_notice("Сворачиваю <b>[src.name]</b>."))
 	add_fingerprint(user)

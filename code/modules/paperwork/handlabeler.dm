@@ -9,7 +9,7 @@
 	var/mode = 0
 
 /obj/item/hand_labeler/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] указывает [src] на [user.ru_na()]self. [user.p_theyre(TRUE)] собирается обозначить [user.ru_na()]self как суицид!") )
+	user.visible_message(span_suicide("[user] указывает [src] на [user.ru_na()]self. [user.p_theyre(TRUE)] собирается обозначить [user.ru_na()]self как суицид!"))
 	labels_left = max(labels_left - 1, 0)
 
 	var/old_real_name = user.real_name
@@ -44,20 +44,20 @@
 		return
 
 	if(!labels_left)
-		to_chat(user, span_warning("Ярлыки закончились!") )
+		to_chat(user, span_warning("Ярлыки закончились!"))
 		return
 	if(!label || !length(label))
-		to_chat(user, span_warning("Не выбран текст!") )
+		to_chat(user, span_warning("Не выбран текст!"))
 		return
 	if(length(A.name) + length(label) > 64)
-		to_chat(user, span_warning("Текст слишком большой!") )
+		to_chat(user, span_warning("Текст слишком большой!"))
 		return
 	if(ismob(A))
-		to_chat(user, span_warning("Как я этим буду помечать то! <i>Хотя, ручкой получится точно.</i>") ) // use a collar
+		to_chat(user, span_warning("Как я этим буду помечать то! <i>Хотя, ручкой получится точно.</i>")) // use a collar
 		return
 
 	user.visible_message(span_notice("<b>[user]</b> помечает <b>[A]</b> ярлыком \"[label]\".") , \
-		span_notice("Помечаю <b>[A]</b> ярлыком \"[label]\".") )
+		span_notice("Помечаю <b>[A]</b> ярлыком \"[label]\"."))
 	A.AddComponent(/datum/component/label, label)
 	playsound(A, 'sound/items/handling/component_pickup.ogg', 20, TRUE)
 	labels_left--
@@ -65,26 +65,26 @@
 
 /obj/item/hand_labeler/attack_self(mob/user)
 	if(!ISADVANCEDTOOLUSER(user))
-		to_chat(user, span_warning("Как этим пользоваться то!") )
+		to_chat(user, span_warning("Как этим пользоваться то!"))
 		return
 	mode = !mode
 	icon_state = "labeler[mode]"
 	if(mode)
-		to_chat(user, span_notice("Включаю <b>[src]</b>.") )
+		to_chat(user, span_notice("Включаю <b>[src]</b>."))
 		//Now let them chose the text.
 		var/str = reject_bad_text(stripped_input(user, "Текст?", "Метка","", MAX_NAME_LEN), ascii_only = FALSE)
 		if(!str || !length(str))
-			to_chat(user, span_warning("Неправильный текст!") )
+			to_chat(user, span_warning("Неправильный текст!"))
 			return
 		label = str
-		to_chat(user, span_notice("Выбираю метку '[str]'.") )
+		to_chat(user, span_notice("Выбираю метку '[str]'."))
 	else
-		to_chat(user, span_notice("Выключаю <b>[src]</b>.") )
+		to_chat(user, span_notice("Выключаю <b>[src]</b>."))
 
 /obj/item/hand_labeler/attackby(obj/item/I, mob/user, params)
 	..()
 	if(istype(I, /obj/item/hand_labeler_refill))
-		to_chat(user, span_notice("Вставляю <b>[I]</b> в <b>[src]</b>.") )
+		to_chat(user, span_notice("Вставляю <b>[I]</b> в <b>[src]</b>."))
 		qdel(I)
 		labels_left = initial(labels_left)	//Yes, it's capped at its initial value
 

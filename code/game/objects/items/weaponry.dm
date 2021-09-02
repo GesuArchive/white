@@ -16,7 +16,7 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/banhammer/suicide_act(mob/user)
-		user.visible_message(span_suicide("[user] is hitting [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to ban [user.ru_na()]self from life.") )
+		user.visible_message(span_suicide("[user] is hitting [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to ban [user.ru_na()]self from life."))
 		return (BRUTELOSS|FIRELOSS|TOXLOSS|OXYLOSS)
 /*
 oranges says: This is a meme relating to the english translation of the ss13 russian wiki page on lurkmore.
@@ -25,9 +25,9 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 */
 /obj/item/banhammer/attack(mob/M, mob/user)
 	if(user.zone_selected == BODY_ZONE_HEAD)
-		M.visible_message(span_danger("[user] are stroking the head of [M] with a bangammer.") , span_userdanger("[user] are stroking your head with a bangammer.") , span_hear("You hear a bangammer stroking a head.") ) // see above comment
+		M.visible_message(span_danger("[user] are stroking the head of [M] with a bangammer.") , span_userdanger("[user] are stroking your head with a bangammer.") , span_hear("You hear a bangammer stroking a head.")) // see above comment
 	else
-		M.visible_message(span_danger("[M] has been banned FOR NO REISIN by [user]!") , span_userdanger("You have been banned FOR NO REISIN by [user]!") , span_hear("You hear a banhammer banning someone.") )
+		M.visible_message(span_danger("[M] has been banned FOR NO REISIN by [user]!") , span_userdanger("You have been banned FOR NO REISIN by [user]!") , span_hear("You hear a banhammer banning someone."))
 	playsound(loc, 'sound/effects/adminhelp_old.ogg', 30) //keep it at 15% volume so people don't jump out of their skin too much
 	if(user.a_intent != INTENT_HELP)
 		return ..(M, user)
@@ -49,7 +49,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 
 /obj/item/sord/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] пытается impale [user.ru_na()]self with [src]! It might be a suicide attempt if it weren't so shitty.") , \
-	span_suicide("Пытаюсь impale yourself with [src], but it's USELESS...") )
+	span_suicide("Пытаюсь impale yourself with [src], but it's USELESS..."))
 	return SHAME
 
 /obj/item/claymore
@@ -78,7 +78,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	AddComponent(/datum/component/butchering, 40, 105)
 
 /obj/item/claymore/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is falling on [src]! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] is falling on [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return(BRUTELOSS)
 
 //statistically similar to e-cutlasses
@@ -115,7 +115,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 /obj/item/claymore/highlander/Destroy()
 	if(nuke_disk)
 		nuke_disk.forceMove(get_turf(src))
-		nuke_disk.visible_message(span_warning("The nuke disk is vulnerable!") )
+		nuke_disk.visible_message(span_warning("The nuke disk is vulnerable!"))
 		nuke_disk = null
 	STOP_PROCESSING(SSobj, src)
 	return ..()
@@ -132,7 +132,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 
 /obj/item/claymore/highlander/pickup(mob/living/user)
 	. = ..()
-	to_chat(user, span_notice("The power of Scotland protects you! You are shielded from all stuns and knockdowns.") )
+	to_chat(user, span_notice("The power of Scotland protects you! You are shielded from all stuns and knockdowns."))
 	user.add_stun_absorption("highlander", INFINITY, 1, " is protected by the power of Scotland!", "The power of Scotland absorbs the stun!", " is protected by the power of Scotland!")
 	user.ignore_slowdown(HIGHLANDER)
 
@@ -151,7 +151,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	if(!QDELETED(target) && target.stat == DEAD && target.mind && target.mind.special_role == "highlander")
 		user.fully_heal(admin_revive = FALSE) //STEAL THE LIFE OF OUR FALLEN FOES
 		add_notch(user)
-		target.visible_message(span_warning("[target] crumbles to dust beneath [user] blows!") , span_userdanger("As you fall, your body crumbles to dust!") )
+		target.visible_message(span_warning("[target] crumbles to dust beneath [user] blows!") , span_userdanger("As you fall, your body crumbles to dust!"))
 		target.dust()
 
 /obj/item/claymore/highlander/attack_self(mob/living/user)
@@ -165,9 +165,9 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 			closest_victim = siliscot
 
 	if(!closest_victim)
-		to_chat(user, span_warning("[capitalize(src.name)] thrums for a moment and falls dark. Perhaps there's nobody nearby.") )
+		to_chat(user, span_warning("[capitalize(src.name)] thrums for a moment and falls dark. Perhaps there's nobody nearby."))
 		return
-	to_chat(user, span_danger("[capitalize(src.name)] thrums and points to the [dir2ru_text(get_dir(user, closest_victim))].") )
+	to_chat(user, span_danger("[capitalize(src.name)] thrums and points to the [dir2ru_text(get_dir(user, closest_victim))]."))
 
 /obj/item/claymore/highlander/IsReflect()
 	return 1 //YOU THINK YOUR PUNY LASERS CAN STOP ME?
@@ -178,44 +178,44 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	var/new_name = name
 	switch(notches)
 		if(1)
-			to_chat(user, span_notice("Your first kill - hopefully one of many. You scratch a notch into [src] blade.") )
-			to_chat(user, span_warning("You feel your fallen foe's soul entering your blade, restoring your wounds!") )
+			to_chat(user, span_notice("Your first kill - hopefully one of many. You scratch a notch into [src] blade."))
+			to_chat(user, span_warning("You feel your fallen foe's soul entering your blade, restoring your wounds!"))
 			new_name = "notched claymore"
 		if(2)
-			to_chat(user, span_notice("Another falls before you. Another soul fuses with your own. Another notch in the blade.") )
+			to_chat(user, span_notice("Another falls before you. Another soul fuses with your own. Another notch in the blade."))
 			new_name = "double-notched claymore"
 			add_atom_colour(rgb(255, 235, 235), ADMIN_COLOUR_PRIORITY)
 		if(3)
-			to_chat(user, span_notice("You're beginning to</span> <span class='danger'><b>relish</b> the <b>thrill</b> of <b>battle.</b>") )
+			to_chat(user, span_notice("You're beginning to</span> <span class='danger'><b>relish</b> the <b>thrill</b> of <b>battle.</b>"))
 			new_name = "triple-notched claymore"
 			add_atom_colour(rgb(255, 215, 215), ADMIN_COLOUR_PRIORITY)
 		if(4)
-			to_chat(user, span_notice("You've lost count of</span> <span class='boldannounce'>how many you've killed.") )
+			to_chat(user, span_notice("You've lost count of</span> <span class='boldannounce'>how many you've killed."))
 			new_name = "many-notched claymore"
 			add_atom_colour(rgb(255, 195, 195), ADMIN_COLOUR_PRIORITY)
 		if(5)
-			to_chat(user, span_boldannounce("Five voices now echo in your mind, cheering the slaughter.") )
+			to_chat(user, span_boldannounce("Five voices now echo in your mind, cheering the slaughter."))
 			new_name = "battle-tested claymore"
 			add_atom_colour(rgb(255, 175, 175), ADMIN_COLOUR_PRIORITY)
 		if(6)
-			to_chat(user, span_boldannounce("Is this what the vikings felt like? Visions of glory fill your head as you slay your sixth foe.") )
+			to_chat(user, span_boldannounce("Is this what the vikings felt like? Visions of glory fill your head as you slay your sixth foe."))
 			new_name = "battle-scarred claymore"
 			add_atom_colour(rgb(255, 155, 155), ADMIN_COLOUR_PRIORITY)
 		if(7)
-			to_chat(user, span_boldannounce("Kill. Butcher. <i>Conquer.</i>") )
+			to_chat(user, span_boldannounce("Kill. Butcher. <i>Conquer.</i>"))
 			new_name = "vicious claymore"
 			add_atom_colour(rgb(255, 135, 135), ADMIN_COLOUR_PRIORITY)
 		if(8)
-			to_chat(user, span_userdanger("IT NEVER GETS OLD. THE <i>SCREAMING</i>. THE <i>BLOOD</i> AS IT <i>SPRAYS</i> ACROSS YOUR <i>FACE.</i>") )
+			to_chat(user, span_userdanger("IT NEVER GETS OLD. THE <i>SCREAMING</i>. THE <i>BLOOD</i> AS IT <i>SPRAYS</i> ACROSS YOUR <i>FACE.</i>"))
 			new_name = "bloodthirsty claymore"
 			add_atom_colour(rgb(255, 115, 115), ADMIN_COLOUR_PRIORITY)
 		if(9)
-			to_chat(user, span_userdanger("ANOTHER ONE FALLS TO YOUR BLOWS. ANOTHER WEAKLING UNFIT TO LIVE.") )
+			to_chat(user, span_userdanger("ANOTHER ONE FALLS TO YOUR BLOWS. ANOTHER WEAKLING UNFIT TO LIVE."))
 			new_name = "gore-stained claymore"
 			add_atom_colour(rgb(255, 95, 95), ADMIN_COLOUR_PRIORITY)
 		if(10)
 			user.visible_message(span_warning("[user] eyes light up with a vengeful fire!") , \
-			span_userdanger("YOU FEEL THE POWER OF VALHALLA FLOWING THROUGH YOU! <i>THERE CAN BE ONLY ONE!!!</i>") )
+			span_userdanger("YOU FEEL THE POWER OF VALHALLA FLOWING THROUGH YOU! <i>THERE CAN BE ONLY ONE!!!</i>"))
 			user.update_icons()
 			new_name = "GORE-DRENCHED CLAYMORE OF [pick("THE WHIMSICAL SLAUGHTER", "A THOUSAND SLAUGHTERED CATTLE", "GLORY AND VALHALLA", "ANNIHILATION", "OBLITERATION")]"
 			icon_state = "claymore_gold"
@@ -263,7 +263,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	resistance_flags = FIRE_PROOF
 
 /obj/item/katana/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is slitting [user.ru_ego()] stomach open with [src]! It looks like [user.p_theyre()] trying to commit seppuku!") )
+	user.visible_message(span_suicide("[user] is slitting [user.ru_ego()] stomach open with [src]! It looks like [user.p_theyre()] trying to commit seppuku!"))
 	return(BRUTELOSS)
 
 /obj/item/katana/cursed //used by wizard events, see the tendril_loot.dm file for the miner one
@@ -293,14 +293,14 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		qdel(src)
 
 		user.put_in_hands(S)
-		to_chat(user, span_notice("You fasten the glass shard to the top of the rod with the cable.") )
+		to_chat(user, span_notice("You fasten the glass shard to the top of the rod with the cable."))
 
 	else if(istype(I, /obj/item/assembly/igniter) && !(HAS_TRAIT(I, TRAIT_NODROP)))
 		var/obj/item/melee/baton/cattleprod/P = new /obj/item/melee/baton/cattleprod
 
 		remove_item_from_storage(user)
 
-		to_chat(user, span_notice("You fasten [I] to the top of the rod with the cable.") )
+		to_chat(user, span_notice("You fasten [I] to the top of the rod with the cable."))
 
 		qdel(I)
 		qdel(src)
@@ -384,7 +384,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		sharpness = NONE
 
 /obj/item/switchblade/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is slitting [user.ru_ego()] own throat with [src]! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] is slitting [user.ru_ego()] own throat with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return (BRUTELOSS)
 
 /obj/item/phone
@@ -403,9 +403,9 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 
 /obj/item/phone/suicide_act(mob/user)
 	if(locate(/obj/structure/chair/stool) in user.loc)
-		user.visible_message(span_suicide("[user] begins to tie a noose with [src] cord! It looks like [user.p_theyre()] trying to commit suicide!") )
+		user.visible_message(span_suicide("[user] begins to tie a noose with [src] cord! It looks like [user.p_theyre()] trying to commit suicide!"))
 	else
-		user.visible_message(span_suicide("[user] is strangling [user.ru_na()]self with [src] cord! It looks like [user.p_theyre()] trying to commit suicide!") )
+		user.visible_message(span_suicide("[user] is strangling [user.ru_na()]self with [src] cord! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return(OXYLOSS)
 
 /obj/item/cane
@@ -469,7 +469,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	icon_state = "ectoplasm"
 
 /obj/item/ectoplasm/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is inhaling [src]! It looks like [user.p_theyre()] trying to visit the astral plane!") )
+	user.visible_message(span_suicide("[user] is inhaling [src]! It looks like [user.p_theyre()] trying to visit the astral plane!"))
 	return (OXYLOSS)
 
 /obj/item/ectoplasm/angelic
@@ -649,13 +649,13 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		..()
 		return
 	if(homerun_ready)
-		to_chat(user, span_warning("You're already ready to do a home run!") )
+		to_chat(user, span_warning("You're already ready to do a home run!"))
 		..()
 		return
-	to_chat(user, span_warning("You begin gathering strength...") )
+	to_chat(user, span_warning("You begin gathering strength..."))
 	playsound(get_turf(src), 'sound/magic/lightning_chargeup.ogg', 65, TRUE)
 	if(do_after(user, 90, target = src))
-		to_chat(user, span_userdanger("You gather power! Time for a home run!") )
+		to_chat(user, span_userdanger("You gather power! Time for a home run!"))
 		homerun_ready = 1
 	..()
 
@@ -665,7 +665,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		return
 	var/atom/throw_target = get_edge_target_turf(target, user.dir)
 	if(homerun_ready)
-		user.visible_message(span_userdanger("It's a home run!") )
+		user.visible_message(span_userdanger("It's a home run!"))
 		target.throw_at(throw_target, rand(8,10), 14, user)
 		SSexplosions.medturf += throw_target
 		playsound(get_turf(src), 'sound/weapons/homerun.ogg', 100, TRUE)
@@ -694,7 +694,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	if(picksound == 2)
 		playsound(turf, 'sound/weapons/effects/batreflect2.ogg', 50, TRUE)
 	if(obj_integrity <= 0)
-		visible_message(span_danger("[capitalize(src.name)] ломается!") )
+		visible_message(span_danger("[capitalize(src.name)] ломается!"))
 		qdel(src)
 	return TRUE
 
@@ -731,7 +731,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	if(proximity_flag)
 		if(is_type_in_typecache(target, strong_against))
 			new /obj/effect/decal/cleanable/insectguts(target.drop_location())
-			to_chat(user, span_warning("You easily splat the [target].") )
+			to_chat(user, span_warning("You easily splat the [target]."))
 			if(istype(target, /mob/living/))
 				var/mob/living/bug = target
 				bug.death(1)
@@ -780,10 +780,10 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		return
 
 	if(owner == sucker) // big mood
-		to_chat(owner, span_danger("Wait a second... you just looked at your own [src.name]!") )
+		to_chat(owner, span_danger("Wait a second... you just looked at your own [src.name]!"))
 		addtimer(CALLBACK(src, .proc/selfGottem, owner), 10)
 	else
-		to_chat(sucker, span_danger("Wait a second... was that a-") )
+		to_chat(sucker, span_danger("Wait a second... was that a-"))
 		addtimer(CALLBACK(src, .proc/GOTTEM, owner, sucker), 6)
 
 /// Stage 3A: We face our own failures
@@ -793,7 +793,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 
 	playsound(get_turf(owner), 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
 	owner.visible_message(span_danger("[owner] shamefully bops [owner.ru_na()]self with [owner.ru_ego()] [src.name].") , span_userdanger("You shamefully bop yourself with your [src.name].") , \
-		span_hear("You hear a dull thud!") )
+		span_hear("You hear a dull thud!"))
 	log_combat(owner, owner, "bopped", src.name, "(self)")
 	owner.do_attack_animation(owner)
 	owner.apply_damage(100, STAMINA)
@@ -806,15 +806,15 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		return
 
 	if(QDELETED(src) || QDELETED(owner))
-		to_chat(sucker, span_warning("Nevermind... must've been your imagination...") )
+		to_chat(sucker, span_warning("Nevermind... must've been your imagination..."))
 		return
 
 	if(!in_range(owner, sucker) || !(owner.mobility_flags & MOBILITY_USE))
-		to_chat(sucker, span_notice("Phew... you moved away before [owner] noticed you saw [owner.ru_ego()] [src.name]...") )
+		to_chat(sucker, span_notice("Phew... you moved away before [owner] noticed you saw [owner.ru_ego()] [src.name]..."))
 		return
 
-	to_chat(owner, span_warning("[sucker] looks down at your [src.name] before trying to avert [sucker.ru_ego()] eyes, but it's too late!") )
-	to_chat(sucker, span_danger("<b>[owner] sees the fear in your eyes as you try to look away from [owner.ru_ego()] [src.name]!</b>") )
+	to_chat(owner, span_warning("[sucker] looks down at your [src.name] before trying to avert [sucker.ru_ego()] eyes, but it's too late!"))
+	to_chat(sucker, span_danger("<b>[owner] sees the fear in your eyes as you try to look away from [owner.ru_ego()] [src.name]!</b>"))
 
 	owner.face_atom(sucker)
 	if(owner.client)
@@ -826,7 +826,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	if(HAS_TRAIT(owner, TRAIT_HULK))
 		owner.visible_message(span_danger("[owner] bops [sucker] with [owner.ru_ego()] [src.name] much harder than intended, sending [sucker.ru_na()] flying!") , \
 			span_danger("You bop [sucker] with your [src.name] much harder than intended, sending [sucker.ru_na()] flying!") , span_hear("Слышу звук разрывающейся плоти!") , ignored_mobs=list(sucker))
-		to_chat(sucker, span_userdanger("[owner] bops you incredibly hard with [owner.ru_ego()] [src.name], sending you flying!") )
+		to_chat(sucker, span_userdanger("[owner] bops you incredibly hard with [owner.ru_ego()] [src.name], sending you flying!"))
 		sucker.apply_damage(50, STAMINA)
 		sucker.Knockdown(50)
 		log_combat(owner, sucker, "bopped", src.name, "(setup- Hulk)")
@@ -837,7 +837,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 			span_hear("You hear a dull thud!") , ignored_mobs=list(sucker))
 		sucker.apply_damage(15, STAMINA)
 		log_combat(owner, sucker, "bopped", src.name, "(setup)")
-		to_chat(sucker, span_userdanger("[owner] bops you with [owner.ru_ego()] [src.name]!") )
+		to_chat(sucker, span_userdanger("[owner] bops you with [owner.ru_ego()] [src.name]!"))
 	qdel(src)
 
 /obj/item/slapper
@@ -861,7 +861,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	playsound(M, 'sound/weapons/slap.ogg', 50, TRUE, -1)
 	user.visible_message(span_danger("[user] slaps [M]!") ,
 	span_notice("You slap [M]!") ,\
-	span_hear("You hear a slap.") )
+	span_hear("You hear a slap."))
 	return
 /obj/item/proc/can_trigger_gun(mob/living/user)
 	if(!user.can_use_guns(src))
@@ -888,7 +888,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 /obj/item/extendohand/attack(atom/M, mob/living/carbon/human/user)
 	var/dist = get_dist(M, user)
 	if(dist < min_reach)
-		to_chat(user, span_warning("[M] is too close to use [src] on.") )
+		to_chat(user, span_warning("[M] is too close to use [src] on."))
 		return
 	M.attack_hand(user)
 
@@ -957,11 +957,11 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	if(wielded || attack_type != PROJECTILE_ATTACK)
 		if(prob(final_block_chance))
 			if(attack_type == PROJECTILE_ATTACK)
-				owner.visible_message(span_danger("[owner] deflects [attack_text] with [src]!") )
+				owner.visible_message(span_danger("[owner] deflects [attack_text] with [src]!"))
 				playsound(src, pick('sound/weapons/bulletflyby.ogg', 'sound/weapons/bulletflyby2.ogg', 'sound/weapons/bulletflyby3.ogg'), 75, TRUE)
 				return TRUE
 			else
-				owner.visible_message(span_danger("[owner] parries [attack_text] with [src]!") )
+				owner.visible_message(span_danger("[owner] parries [attack_text] with [src]!"))
 				return TRUE
 	return FALSE
 

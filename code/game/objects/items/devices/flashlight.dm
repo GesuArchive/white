@@ -47,9 +47,9 @@
 
 /obj/item/flashlight/suicide_act(mob/living/carbon/human/user)
 	if (user.is_blind())
-		user.visible_message(span_suicide("[user] is putting [src] close to [user.ru_ego()] eyes and turning it on... but [user.p_theyre()] blind!") )
+		user.visible_message(span_suicide("[user] is putting [src] close to [user.ru_ego()] eyes and turning it on... but [user.p_theyre()] blind!"))
 		return SHAME
-	user.visible_message(span_suicide("[user] is putting [src] close to [user.ru_ego()] eyes and turning it on! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] is putting [src] close to [user.ru_ego()] eyes and turning it on! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return (FIRELOSS)
 
 /obj/item/flashlight/attack(mob/living/carbon/M, mob/living/carbon/human/user)
@@ -60,11 +60,11 @@
 			return ..()	//just hit them in the head
 
 		if(!ISADVANCEDTOOLUSER(user))
-			to_chat(user, span_warning("У меня не хватает ловкости для этого!") )
+			to_chat(user, span_warning("У меня не хватает ловкости для этого!"))
 			return
 
 		if(!M.get_bodypart(BODY_ZONE_HEAD))
-			to_chat(user, span_warning("[M] не имеет головы!") )
+			to_chat(user, span_warning("[M] не имеет головы!"))
 			return
 
 		if(light_power < 1)
@@ -74,33 +74,33 @@
 		switch(user.zone_selected)
 			if(BODY_ZONE_PRECISE_EYES)
 				if((M.head && M.head.flags_cover & HEADCOVERSEYES) || (M.wear_mask && M.wear_mask.flags_cover & MASKCOVERSEYES) || (M.glasses && M.glasses.flags_cover & GLASSESCOVERSEYES))
-					to_chat(user, span_warning("Мне потребуется снять [(M.head && M.head.flags_cover & HEADCOVERSEYES) ? "этот шлем" : (M.wear_mask && M.wear_mask.flags_cover & MASKCOVERSEYES) ? "эту маску": "эти очки"] сначала!") )
+					to_chat(user, span_warning("Мне потребуется снять [(M.head && M.head.flags_cover & HEADCOVERSEYES) ? "этот шлем" : (M.wear_mask && M.wear_mask.flags_cover & MASKCOVERSEYES) ? "эту маску": "эти очки"] сначала!"))
 					return
 
 				var/obj/item/organ/eyes/E = M.getorganslot(ORGAN_SLOT_EYES)
 				if(!E)
-					to_chat(user, span_warning("[M] не имеет глаз!") )
+					to_chat(user, span_warning("[M] не имеет глаз!"))
 					return
 
 				if(M == user)	//they're using it on themselves
 					if(M.flash_act(visual = 1))
-						M.visible_message(span_notice("[M] светит фонариком себе в глаза.") , span_notice("Свечу фонариком себе в глаза. Ммм...") )
+						M.visible_message(span_notice("[M] светит фонариком себе в глаза.") , span_notice("Свечу фонариком себе в глаза. Ммм..."))
 					else
-						M.visible_message(span_notice("[M] светит фонариком себе в глаза.") , span_notice("Свечу фонариком себе в глаза.") )
+						M.visible_message(span_notice("[M] светит фонариком себе в глаза.") , span_notice("Свечу фонариком себе в глаза."))
 				else
 					user.visible_message(span_warning("[user] светит фонариком прямо в глаза [M].") , \
-						span_danger("Свечу фонариком прямо в глаза [M].") )
+						span_danger("Свечу фонариком прямо в глаза [M]."))
 					if(M.stat == DEAD || (M.is_blind()) || !M.flash_act(visual = 1)) //mob is dead or fully blind
-						to_chat(user, span_warning("Зрачки [M] не реагируют на свет!") )
+						to_chat(user, span_warning("Зрачки [M] не реагируют на свет!"))
 					else if(M.dna && M.dna.check_mutation(XRAY))	//mob has X-ray vision
-						to_chat(user, span_danger("Зрачки [M] сверкают!") )
+						to_chat(user, span_danger("Зрачки [M] сверкают!"))
 					else //they're okay!
-						to_chat(user, span_notice("Зрачки [M] сужаются.") )
+						to_chat(user, span_notice("Зрачки [M] сужаются."))
 
 			if(BODY_ZONE_PRECISE_MOUTH)
 
 				if(M.is_mouth_covered())
-					to_chat(user, span_warning("Мне потребуется снять [(M.head && M.head.flags_cover & HEADCOVERSMOUTH) ? "этот шлем" : "эту маску"] сначала!") )
+					to_chat(user, span_warning("Мне потребуется снять [(M.head && M.head.flags_cover & HEADCOVERSMOUTH) ? "этот шлем" : "эту маску"] сначала!"))
 					return
 
 				var/their = M.ru_ego()
@@ -141,26 +141,26 @@
 									can_use_mirror = mirror.pixel_x < 0
 
 					M.visible_message(span_notice("[M] светит фонариком себе в рот.") , \
-					span_notice("Свечу фонариком себе в рот.") )
+					span_notice("Свечу фонариком себе в рот."))
 					if(!can_use_mirror)
-						to_chat(user, span_notice("Без зеркала ничего не разглядеть.") )
+						to_chat(user, span_notice("Без зеркала ничего не разглядеть."))
 						return
 					if(organ_count)
-						to_chat(user, span_notice("Внутри моего рта [organ_count > 1 ? "находятся" : "находится"] [organ_list].") )
+						to_chat(user, span_notice("Внутри моего рта [organ_count > 1 ? "находятся" : "находится"] [organ_list]."))
 					else
-						to_chat(user, span_notice("У меня во рту нет ничего интересного.") )
+						to_chat(user, span_notice("У меня во рту нет ничего интересного."))
 					if(pill_count)
-						to_chat(user, span_notice("У меня во рту есть [pill_count] имплантированн[pill_count > 1 ? "ые таблетки" : "ая таблетка"].") )
+						to_chat(user, span_notice("У меня во рту есть [pill_count] имплантированн[pill_count > 1 ? "ые таблетки" : "ая таблетка"]."))
 
 				else
 					user.visible_message(span_notice("[user] светит фонариком в рот [M].") ,\
-						span_notice("Свечу фонариком в рот [M].") )
+						span_notice("Свечу фонариком в рот [M]."))
 					if(organ_count)
-						to_chat(user, span_notice("Внутри [their] рта [organ_count > 1 ? "находятся" : "находится"] [organ_list].") )
+						to_chat(user, span_notice("Внутри [their] рта [organ_count > 1 ? "находятся" : "находится"] [organ_list]."))
 					else
-						to_chat(user, span_notice("[M] не имеет ничего необычного в [their] рте.") )
+						to_chat(user, span_notice("[M] не имеет ничего необычного в [their] рте."))
 					if(pill_count)
-						to_chat(user, span_notice("[M] имеет [pill_count] имплантированн[pill_count > 1 ? "ые таблетки" : "ая таблетка"] в [their] зубах.") )
+						to_chat(user, span_notice("[M] имеет [pill_count] имплантированн[pill_count > 1 ? "ые таблетки" : "ая таблетка"] в [their] зубах."))
 
 	else
 		return ..()
@@ -179,7 +179,7 @@
 	. = ..()
 	if(!proximity_flag)
 		if(holo_cooldown > world.time)
-			to_chat(user, span_warning("[capitalize(src.name)] ещё не готова!") )
+			to_chat(user, span_warning("[capitalize(src.name)] ещё не готова!"))
 			return
 		var/T = get_turf(target)
 		if(locate(/mob/living) in T)
@@ -209,7 +209,7 @@
 	. = ..()
 	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE) //make some noise!
 	if(creator)
-		visible_message(span_danger("[creator] создаёт голограмму!") )
+		visible_message(span_danger("[creator] создаёт голограмму!"))
 
 
 /obj/item/flashlight/seclite
@@ -320,16 +320,16 @@
 
 	// Usual checks
 	if(fuel <= 0)
-		to_chat(user, span_warning("[capitalize(src.name)] сгорела!") )
+		to_chat(user, span_warning("[capitalize(src.name)] сгорела!"))
 		return
 	if(on)
-		to_chat(user, span_warning("[capitalize(src.name)] уже горит!") )
+		to_chat(user, span_warning("[capitalize(src.name)] уже горит!"))
 		return
 
 	. = ..()
 	// All good, turn it on.
 	if(.)
-		user.visible_message(span_notice("[user] зажигает [src.name].") , span_notice("Зажигаю [src.name]!") )
+		user.visible_message(span_notice("[user] зажигает [src.name].") , span_notice("Зажигаю [src.name]!"))
 		force = on_damage
 		damtype = BURN
 		START_PROCESSING(SSobj, src)
@@ -436,13 +436,13 @@
 			var/mob/M = A
 			log_combat(user, M, "атакует", "EMP-light")
 			M.visible_message(span_danger("[user] щёлкает фонариком в сторону [A.name].") , \
-								span_userdanger("[user] щёлкает фонариком в меня.") )
+								span_userdanger("[user] щёлкает фонариком в меня."))
 		else
-			A.visible_message(span_danger("[user] щёлкает фонариком в сторону [A].") )
-		to_chat(user, span_notice("О, да! [capitalize(src.name)] теперь имеет [emp_cur_charges] зарядов.") )
+			A.visible_message(span_danger("[user] щёлкает фонариком в сторону [A]."))
+		to_chat(user, span_notice("О, да! [capitalize(src.name)] теперь имеет [emp_cur_charges] зарядов."))
 		A.emp_act(EMP_HEAVY)
 	else
-		to_chat(user, span_warning("[capitalize(src.name)] скоро перезарядится!") )
+		to_chat(user, span_warning("[capitalize(src.name)] скоро перезарядится!"))
 	return
 
 /obj/item/flashlight/emp/debug //for testing emp_act()
@@ -509,26 +509,26 @@
 
 /obj/item/flashlight/glowstick/attack_self(mob/user)
 	if(fuel <= 0)
-		to_chat(user, span_notice("[capitalize(src.name)] кончилась.") )
+		to_chat(user, span_notice("[capitalize(src.name)] кончилась."))
 		return
 	if(on)
-		to_chat(user, span_warning("[capitalize(src.name)] уже горит!") )
+		to_chat(user, span_warning("[capitalize(src.name)] уже горит!"))
 		return
 
 	. = ..()
 	if(.)
-		user.visible_message(span_notice("[user] ломает и трясёт [src.name].") , span_notice("Ломаю и трясу [src.name], включая её!") )
+		user.visible_message(span_notice("[user] ломает и трясёт [src.name].") , span_notice("Ломаю и трясу [src.name], включая её!"))
 		START_PROCESSING(SSobj, src)
 
 /obj/item/flashlight/glowstick/suicide_act(mob/living/carbon/human/user)
 	if(!fuel)
-		user.visible_message(span_suicide("[user] пытается squirt [src] fluids into [user.ru_ego()] eyes... but it's empty!") )
+		user.visible_message(span_suicide("[user] пытается squirt [src] fluids into [user.ru_ego()] eyes... but it's empty!"))
 		return SHAME
 	var/obj/item/organ/eyes/eyes = user.getorganslot(ORGAN_SLOT_EYES)
 	if(!eyes)
-		user.visible_message(span_suicide("[user] пытается squirt [src] fluids into [user.ru_ego()] eyes... but [user.ru_who()] don't have any!") )
+		user.visible_message(span_suicide("[user] пытается squirt [src] fluids into [user.ru_ego()] eyes... but [user.ru_who()] don't have any!"))
 		return SHAME
-	user.visible_message(span_suicide("[user] is squirting [src] fluids into [user.ru_ego()] eyes! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] is squirting [src] fluids into [user.ru_ego()] eyes! It looks like [user.p_theyre()] trying to commit suicide!"))
 	fuel = 0
 	return (FIRELOSS)
 

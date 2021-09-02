@@ -34,27 +34,27 @@
 /datum/surgery_step/repair_innards/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	var/datum/wound/pierce/pierce_wound = surgery.operated_wound
 	if(!pierce_wound)
-		user.visible_message(span_notice("[user] looks for [target] [parse_zone(user.zone_selected)].") , span_notice("You look for [target] [parse_zone(user.zone_selected)]...") )
+		user.visible_message(span_notice("[user] looks for [target] [parse_zone(user.zone_selected)].") , span_notice("You look for [target] [parse_zone(user.zone_selected)]..."))
 		return
 
 	if(pierce_wound.blood_flow <= 0)
-		to_chat(user, span_notice("[target] [parse_zone(user.zone_selected)] has no puncture to repair!") )
+		to_chat(user, span_notice("[target] [parse_zone(user.zone_selected)] has no puncture to repair!"))
 		surgery.status++
 		return
 
 	display_results(user, target, span_notice("You begin to realign the torn blood vessels in [target] [parse_zone(user.zone_selected)]...") ,
 		span_notice("[user] begins to realign the torn blood vessels in [target] [parse_zone(user.zone_selected)] with [tool].") ,
-		span_notice("[user] begins to realign the torn blood vessels in [target] [parse_zone(user.zone_selected)].") )
+		span_notice("[user] begins to realign the torn blood vessels in [target] [parse_zone(user.zone_selected)]."))
 
 /datum/surgery_step/repair_innards/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/datum/wound/pierce/pierce_wound = surgery.operated_wound
 	if(!pierce_wound)
-		to_chat(user, span_warning("[target] has no puncture wound there!") )
+		to_chat(user, span_warning("[target] has no puncture wound there!"))
 		return ..()
 
 	display_results(user, target, span_notice("You successfully realign some of the blood vessels in [target] [parse_zone(target_zone)].") ,
 		span_notice("[user] successfully realigns some of the blood vessels in [target] [parse_zone(target_zone)] with [tool]!") ,
-		span_notice("[user] successfully realigns some of the blood vessels in [target] [parse_zone(target_zone)]!") )
+		span_notice("[user] successfully realigns some of the blood vessels in [target] [parse_zone(target_zone)]!"))
 	log_combat(user, target, "excised infected flesh in", addition="INTENT: [uppertext(user.a_intent)]")
 	surgery.operated_bodypart.receive_damage(brute=3, wound_bonus=CANT_WOUND)
 	pierce_wound.blood_flow -= 0.25
@@ -64,7 +64,7 @@
 	. = ..()
 	display_results(user, target, span_notice("You jerk apart some of the blood vessels in [target] [parse_zone(target_zone)].") ,
 		span_notice("[user] jerks apart some of the blood vessels in [target] [parse_zone(target_zone)] with [tool]!") ,
-		span_notice("[user] jerk apart some of the blood vessels in [target] [parse_zone(target_zone)]!") )
+		span_notice("[user] jerk apart some of the blood vessels in [target] [parse_zone(target_zone)]!"))
 	surgery.operated_bodypart.receive_damage(brute=rand(4,8), sharpness=SHARP_EDGED, wound_bonus = 10)
 
 ///// Sealing the vessels back together
@@ -82,28 +82,28 @@
 /datum/surgery_step/seal_veins/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	var/datum/wound/pierce/pierce_wound = surgery.operated_wound
 	if(!pierce_wound)
-		user.visible_message(span_notice("[user] looks for [target] [parse_zone(user.zone_selected)].") , span_notice("You look for [target] [parse_zone(user.zone_selected)]...") )
+		user.visible_message(span_notice("[user] looks for [target] [parse_zone(user.zone_selected)].") , span_notice("You look for [target] [parse_zone(user.zone_selected)]..."))
 		return
 	display_results(user, target, span_notice("You begin to meld some of the split blood vessels in [target] [parse_zone(user.zone_selected)]...") ,
 		span_notice("[user] begins to meld some of the split blood vessels in [target] [parse_zone(user.zone_selected)] with [tool].") ,
-		span_notice("[user] begins to meld some of the split blood vessels in [target] [parse_zone(user.zone_selected)].") )
+		span_notice("[user] begins to meld some of the split blood vessels in [target] [parse_zone(user.zone_selected)]."))
 
 /datum/surgery_step/seal_veins/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/datum/wound/pierce/pierce_wound = surgery.operated_wound
 	if(!pierce_wound)
-		to_chat(user, span_warning("[target] has no puncture there!") )
+		to_chat(user, span_warning("[target] has no puncture there!"))
 		return ..()
 
 	display_results(user, target, span_notice("You successfully meld some of the split blood vessels in [target] [parse_zone(target_zone)] with [tool].") ,
 		span_notice("[user] successfully melds some of the split blood vessels in [target] [parse_zone(target_zone)] with [tool]!") ,
-		span_notice("[user] successfully melds some of the split blood vessels in [target] [parse_zone(target_zone)]!") )
+		span_notice("[user] successfully melds some of the split blood vessels in [target] [parse_zone(target_zone)]!"))
 	log_combat(user, target, "dressed burns in", addition="INTENT: [uppertext(user.a_intent)]")
 	pierce_wound.blood_flow -= 0.5
 	if(pierce_wound.blood_flow > 0)
 		surgery.status = REALIGN_INNARDS
-		to_chat(user, span_notice("<i>There still seems to be misaligned blood vessels to finish...<i>") )
+		to_chat(user, span_notice("<i>There still seems to be misaligned blood vessels to finish...<i>"))
 	else
-		to_chat(user, span_green("You've repaired all the internal damage in [target] [parse_zone(target_zone)]!") )
+		to_chat(user, span_green("You've repaired all the internal damage in [target] [parse_zone(target_zone)]!"))
 	return ..()
 
 #undef REALIGN_INNARDS

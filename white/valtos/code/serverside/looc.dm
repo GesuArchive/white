@@ -25,7 +25,7 @@
 	set category = "OOC"
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, span_danger("Не хочу писать.") )
+		to_chat(usr, span_danger("Не хочу писать."))
 		return
 
 	if(!mob)
@@ -33,16 +33,16 @@
 
 	if(!holder)
 		if(!GLOB.looc_allowed)
-			to_chat(src, span_danger("LOOC выключен.") )
+			to_chat(src, span_danger("LOOC выключен."))
 			return
 		if(!GLOB.dlooc_allowed && (mob.stat == DEAD))
-			to_chat(usr, span_danger("LOOC для мёртвых не разрешен.") )
+			to_chat(usr, span_danger("LOOC для мёртвых не разрешен."))
 			return
 		if(prefs.muted & MUTE_LOOC)
-			to_chat(src, span_danger("Не хочу писать в LOOC.") )
+			to_chat(src, span_danger("Не хочу писать в LOOC."))
 			return
 		if(is_banned_from(ckey, "OOC"))
-			to_chat(src, span_danger("Точно не хочу писать в LOOC.") )
+			to_chat(src, span_danger("Точно не хочу писать в LOOC."))
 			return
 
 	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
@@ -57,7 +57,7 @@
 		if(handle_spam_prevention(msg, MUTE_LOOC))
 			return
 		if(findtext(msg, "byond://"))
-			to_chat(src, span_bold("Ты лох.") )
+			to_chat(src, span_bold("Ты лох."))
 			log_admin("[key_name(src)] has attempted to advertise in LOOC: [msg]")
 			message_admins("[key_name_admin(src)] has attempted to advertise in LOOC: [msg]")
 			qdel(src)
@@ -65,7 +65,7 @@
 
 	/*
 	if(!prefs.chat_toggles & CHAT_LOOC)
-		to_chat(src, span_danger("Не хочу писать в LOOC.") )
+		to_chat(src, span_danger("Не хочу писать в LOOC."))
 		return
 	*/
 
@@ -125,4 +125,4 @@
 			return
 	else //otherwise just toggle it
 		GLOB.looc_allowed = !GLOB.looc_allowed
-	message_admins(span_bold("LOOC [GLOB.looc_allowed ? "включен" : "выключен"].") )
+	message_admins(span_bold("LOOC [GLOB.looc_allowed ? "включен" : "выключен"]."))

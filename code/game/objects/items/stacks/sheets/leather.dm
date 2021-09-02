@@ -254,9 +254,9 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 /obj/item/stack/sheet/animalhide/attackby(obj/item/W, mob/user, params)
 	if(W.get_sharpness())
 		playsound(loc, 'sound/weapons/slice.ogg', 50, TRUE, -1)
-		user.visible_message(span_notice("<b>[user]</b> начинает срезать шерсть с <b>[src]</b>.") , span_notice("Начинаю срезать шерсть с <b>[src]</b>...") , span_hear("Слыш как нож режет плоть.") )
+		user.visible_message(span_notice("<b>[user]</b> начинает срезать шерсть с <b>[src]</b>.") , span_notice("Начинаю срезать шерсть с <b>[src]</b>...") , span_hear("Слыш как нож режет плоть."))
 		if(do_after(user, 50, target = src))
-			to_chat(user, span_notice("Срезаю шерсть с <b>[src.singular_name]</b>.") )
+			to_chat(user, span_notice("Срезаю шерсть с <b>[src.singular_name]</b>."))
 			new /obj/item/stack/sheet/hairlesshide(user.drop_location(), 1)
 			use(1)
 	else

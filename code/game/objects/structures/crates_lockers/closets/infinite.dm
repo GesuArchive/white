@@ -30,4 +30,4 @@
 
 /obj/structure/closet/infinite/proc/close_on_my_own()
 	if(close())
-		visible_message(span_notice("<b>[src.name]</b> закрывается сам.") )
+		visible_message(span_notice("<b>[src.name]</b> закрывается сам."))

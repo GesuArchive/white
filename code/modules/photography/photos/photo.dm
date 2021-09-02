@@ -48,7 +48,7 @@
 	overlays += I
 
 /obj/item/photo/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] is taking one last look at <b>[src.name]</b>! It looks like [user.p_theyre()] giving in to death!") )//when you wanna look at photo of waifu one last time before you die...
+	user.visible_message(span_suicide("[user] is taking one last look at <b>[src.name]</b>! It looks like [user.p_theyre()] giving in to death!"))//when you wanna look at photo of waifu one last time before you die...
 	if (user.gender == MALE)
 		playsound(user, 'sound/voice/human/manlaugh1.ogg', 50, TRUE)//EVERY TIME I DO IT MAKES ME LAUGH
 	else if (user.gender == FEMALE)
@@ -63,7 +63,7 @@
 		return
 	if(istype(P, /obj/item/pen) || istype(P, /obj/item/toy/crayon))
 		if(!user.is_literate())
-			to_chat(user, span_notice("You scribble illegibly on [src]!") )
+			to_chat(user, span_notice("You scribble illegibly on [src]!"))
 			return
 		var/txt = stripped_input(user, "What would you like to write on the back?", "Photo Writing", "", 128)
 		if(txt && user.canUseTopic(src, BE_CLOSE))
@@ -81,7 +81,7 @@
 
 /obj/item/photo/proc/show(mob/user)
 	if(!istype(picture) || !picture.picture_image)
-		to_chat(user, span_warning("[capitalize(src.name)] seems to be blank...") )
+		to_chat(user, span_warning("[capitalize(src.name)] seems to be blank..."))
 		return
 	user << browse_rsc(picture.picture_image, "tmp_photo.png")
 	user << browse("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>[name]</title></head>" \

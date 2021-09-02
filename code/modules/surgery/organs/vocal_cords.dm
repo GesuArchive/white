@@ -91,7 +91,7 @@
 	. = ..()
 	if(!IsAvailable())
 		if(world.time < cords.next_command)
-			to_chat(owner, span_notice("Нужно подождать [DisplayTimeText(cords.next_command - world.time)] перед тем как говорить ещё.") )
+			to_chat(owner, span_notice("Нужно подождать [DisplayTimeText(cords.next_command - world.time)] перед тем как говорить ещё."))
 		return
 	var/command = input(owner, "Громогласим?", "Команда")
 	if(QDELETED(src) || QDELETED(owner))
@@ -102,12 +102,12 @@
 
 /obj/item/organ/vocal_cords/colossus/can_speak_with()
 	if(world.time < next_command)
-		to_chat(owner, span_notice("Нужно подождать [DisplayTimeText(next_command - world.time)] перед тем как говорить ещё.") )
+		to_chat(owner, span_notice("Нужно подождать [DisplayTimeText(next_command - world.time)] перед тем как говорить ещё."))
 		return FALSE
 	if(!owner)
 		return FALSE
 	if(!owner.can_speak_vocal())
-		to_chat(owner, span_warning("Не могу говорить!") )
+		to_chat(owner, span_warning("Не могу говорить!"))
 		return FALSE
 	return TRUE
 

@@ -12,11 +12,11 @@
         if(prob(5+(current_cycle*0.6))) //burping intensifies
             H.emote("poo")
             if(prob(5))
-                to_chat(H, span_danger("Чувствую, что мой раздутый живот грохочет газом.") )
+                to_chat(H, span_danger("Чувствую, что мой раздутый живот грохочет газом."))
 
         if(current_cycle>90) //chance to burp = 55% (you can't stop burping)
             if(prob(5))
-                to_chat(H, span_danger("Моё горло болит от всего газа, выходящего!") )
+                to_chat(H, span_danger("Моё горло болит от всего газа, выходящего!"))
     return ..()
 
 /datum/reagent/drug/fartium
@@ -42,7 +42,7 @@
 /datum/reagent/drug/crank/on_mob_life(mob/living/M)
 	var/high_message = pick("Я чувствую скорость.", "Меня никто не остановит!", "Я чувствую, что могу взять мир в свои руки.")
 	if(prob(5))
-		to_chat(M, span_notice("[high_message]") )
+		to_chat(M, span_notice("[high_message]"))
 	M.AdjustStun(-20, 0)
 	M.AdjustParalyzed(-20, 0)
 	M.AdjustUnconscious(-20, 0)
@@ -53,7 +53,7 @@
 /datum/reagent/drug/bath_salts/on_mob_life(mob/living/M)
 	var/high_message = pick("Я чувствую, что у меня есть силы.", "Я готов.", "Я чувствую, что могу довести это до предела.")
 	if(prob(5))
-		to_chat(M, span_notice("[high_message]") )
+		to_chat(M, span_notice("[high_message]"))
 	M.AdjustUnconscious(-100, 0)
 	M.AdjustStun(-100, 0)
 	M.AdjustParalyzed(-100, 0)
@@ -84,7 +84,7 @@
 		if(prob(80))
 			H.SpinAnimation(10,1)
 		if(prob(10))
-			to_chat(M, span_notice("[high_message].") )
+			to_chat(M, span_notice("[high_message]."))
 
 	..()
 	return
@@ -99,7 +99,7 @@
 				for(var/i = 0, i < 4, i++)
 				step(M, pick(GLOB.cardinals))
 		if(prob(15))
-			to_chat(M, span_danger("Переворот настолько интенсивен, что я начинаю уставать.") )
+			to_chat(M, span_danger("Переворот настолько интенсивен, что я начинаю уставать."))
 			//H.confused +=4
 			M.adjustStaminaLoss(10)
 			H.transform *= -1
@@ -119,7 +119,7 @@
 /datum/reagent/drug/yespowder/on_mob_life(mob/living/M)
 	var/high_message = pick("Соглашение наполняет мой разум.", "'Нет' - прошлый век. 'Да' - это модно.", "Да.")
 	if(prob(5))
-		to_chat(M, span_notice("[high_message]") )
+		to_chat(M, span_notice("[high_message]"))
 	if(prob(20))
 		M.say("Да.", forced = "yes powder")
 	..()
@@ -133,7 +133,7 @@
 /datum/reagent/drug/pupupipi/on_mob_life(mob/living/M)
 	if(prob(5))
 		var/high_message = pick("Мне нужен сладкий коричневый сок...", "Мои кишки дрожат...", "Я чувствую себя легкомысленным...")
-		to_chat(M, span_notice("[high_message]") )
+		to_chat(M, span_notice("[high_message]"))
 	M.Jitter(30)
 	if(prob(15)) //once every six-ish ticks. is that ok?
 		M.emote("burp")
@@ -197,7 +197,7 @@
 					if(prob(15))
 						whole_screen.filters += filter(type="wave", x=20*rand() - 20, y=20*rand() - 20, size=rand()*0.1, offset=rand()*0.5, flags = WAVE_BOUNDED)
 						animate(whole_screen.filters[whole_screen.filters.len], size = rand(1,3), time = 30, easing = QUAD_EASING, loop = -1)
-						to_chat(H, span_notice("Чувствую, что реальность тает...") )
+						to_chat(H, span_notice("Чувствую, что реальность тает..."))
 						addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
 				high_message = pick("Ебена мать...", "Реальность не существует, человек.", "...", "Никто не летает вокруг солнца.")
 			else if(prob(5))
@@ -207,12 +207,12 @@
 				if(prob(4))
 					H.emote("laugh")
 					H.say(pick("ГРЕРКРКРК",";ХАХА, Я БЛЯДЬ ПОД КАЙФОМ!!!","Я БАБОЧКА!!!"))
-					H.visible_message(span_notice("[H] выглядит, как будто он на высоте!") )
+					H.visible_message(span_notice("[H] выглядит, как будто он на высоте!"))
 				else if(prob(3))
 					H.Knockdown(20)
 					H.emote("laugh")
 					H.say(pick("ВКЛЮЧЕНО!!!","Я СЛЫШУ ГОЛОСА АХАХА","ТЫ ГОКУ!!!"))
-					H.visible_message(span_notice("[H] выглядит под крутым кайфом!") )
+					H.visible_message(span_notice("[H] выглядит под крутым кайфом!"))
 			if(prob(1) && badtrip_cooldown < world.time)
 				bad_trip = TRUE
 			if(bad_trip)
@@ -241,12 +241,12 @@
 				else if(prob(5))
 					H.emote("cry")
 					H.say(pick("ОСТАНОВИ ЭТО!! МНЕ ЖАЛЬ!!", ";Я СДЕЛАЮ ВСЕ, ЧТО УГОДНО, ЗАСТАВЬ ЭТО ОСТАНОВИТЬСЯ!!!", "ТЫ ДАЖЕ НЕ ПОБЕСПОКОИЛСЯ, ТЫ НЕ ВИДЕЛ, КАК ОНИ УШЛИ!!!", "ТЫ ХОЧЕШЬ УВИДЕТЬ, ЧТО ТАКОЕ РЕАЛЬНОСТЬ НА САМОМ ДЕЛЕ?!!"))
-					H.visible_message(span_warning("[H] appears to be freaking out!") )
+					H.visible_message(span_warning("[H] appears to be freaking out!"))
 				else if(prob(3))
 					H.stop_sound_channel(CHANNEL_HEARTBEAT)
 					H.playsound_local(H, 'sound/effects/singlebeat.ogg', 100, 0)
 					if(prob(40))
-						H.visible_message(span_warning("[H] хватается за свою грудь и похоже это конец!") )
+						H.visible_message(span_warning("[H] хватается за свою грудь и похоже это конец!"))
 					H.adjustStaminaLoss(80)
 				if(prob(3))
 					addtimer(CALLBACK(src, .proc/end_bad_trip, H), 30)
@@ -262,11 +262,11 @@
 /datum/reagent/drug/grape_blast/proc/end_bad_trip(mob/living/carbon/human/H)
 	bad_trip = FALSE
 	badtrip_cooldown = world.time + BADTRIP_COOLDOWN
-	H.visible_message(span_notice("[H] похоже, успокаивается.") )
+	H.visible_message(span_notice("[H] похоже, успокаивается."))
 	H.emote("me", 1, pick("делает глубокий вдох", "расслабляется"))
 
 /datum/reagent/drug/grape_blast/proc/cure_autism(mob/living/carbon/C)
-	to_chat(C, span_notice("По мере того, как наркотики выходят, я чувствую, что медленно возвращаюсь к реальности...") )
+	to_chat(C, span_notice("По мере того, как наркотики выходят, я чувствую, что медленно возвращаюсь к реальности..."))
 	C.drowsyness++ //We feel sleepy after going through that trip.
 	if(!HAS_TRAIT(C, TRAIT_DUMB))
 		C.derpspeech = 0
@@ -621,7 +621,7 @@
 	var/high_message = pick("ЗВЁЗДОЧКИ", "КАЙФ")
 
 	if(prob(15))
-		to_chat(M, span_notice(" ... [high_message] ... ") )
+		to_chat(M, span_notice(" ... [high_message] ... "))
 		M.adjustToxLoss(-4 * REM, 0)
 		M.adjustBruteLoss(-4 * REM, 0)
 		M.adjustFireLoss(-4 * REM, 0)

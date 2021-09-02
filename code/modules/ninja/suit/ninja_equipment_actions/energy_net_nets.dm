@@ -31,7 +31,7 @@
 
 /obj/structure/energy_net/Destroy()
 	if(!QDELETED(affecting))
-		affecting.visible_message(span_notice("[affecting.name] восстанавливается из энергосети!") , span_notice("Восстанавливаюсь за счёт энергосети!") , span_hear("Вы слышите ворчание.") )
+		affecting.visible_message(span_notice("[affecting.name] восстанавливается из энергосети!") , span_notice("Восстанавливаюсь за счёт энергосети!") , span_hear("Вы слышите ворчание."))
 	affecting = null
 	return ..()
 

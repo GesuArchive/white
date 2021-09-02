@@ -8,7 +8,7 @@
 			log_combat(M, src, "attacked")
 			visible_message(span_danger("[M] kicks [src]!") , \
 							span_userdanger("[M] kicks you!") , span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, M)
-			to_chat(M, span_danger("You kick [src]!") )
+			to_chat(M, span_danger("You kick [src]!"))
 			if ((stat != DEAD) && (damage > 4.9))
 				Unconscious(rand(100,200))
 
@@ -18,7 +18,7 @@
 			playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 			visible_message(span_danger("[M] kick misses [src]!") , \
 							span_danger("You avoid [M] kick!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, M)
-			to_chat(M, span_warning("Your kick misses [src]!") )
+			to_chat(M, span_warning("Your kick misses [src]!"))
 
 /mob/living/carbon/alien/larva/attack_hulk(mob/living/carbon/human/user)
 	. = ..()

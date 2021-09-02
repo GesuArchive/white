@@ -153,10 +153,10 @@
 		if(isliving(A))
 			var/mob/living/LM = A
 			forceMove(LM.loc)
-			visible_message(span_userdanger("[capitalize(src.name)] укладывает [LM] отдохнуть!") )
+			visible_message(span_userdanger("[capitalize(src.name)] укладывает [LM] отдохнуть!"))
 			discharge()
 		else if(istype(A, /turf/closed))
-			visible_message(span_userdanger("[capitalize(src.name)] впечатывает [A] в стену!") )
+			visible_message(span_userdanger("[capitalize(src.name)] впечатывает [A] в стену!"))
 			discharge(1.33)
 
 /mob/living/simple_animal/hostile/megafauna/sans/proc/update_phase()
@@ -186,7 +186,7 @@
 		move_to_delay = move_to_charge
 
 /mob/living/simple_animal/hostile/megafauna/sans/proc/bonespin()
-	visible_message(span_boldwarning("[capitalize(src.name)] готовит мощную атаку!") )
+	visible_message(span_boldwarning("[capitalize(src.name)] готовит мощную атаку!"))
 	speen = TRUE
 	animate(src, color = "#66ffff", 10)
 	sleep(1)
@@ -240,7 +240,7 @@
 
 /mob/living/simple_animal/hostile/megafauna/sans/proc/chargeattack(atom/target, var/range)
 	face_atom(target)
-	visible_message(span_boldwarning("[capitalize(src.name)] готовится к очередной атаке!") )
+	visible_message(span_boldwarning("[capitalize(src.name)] готовится к очередной атаке!"))
 	animate(src, color = "#66ffff", 3)
 	sleep(2)
 	face_atom(target)
@@ -529,7 +529,7 @@
 		if(L.client)
 			flash_color(L.client, "#ff9955", 1)
 		playsound(L,'white/valtos/sounds/undertale/snd_hurt1.wav', 50, TRUE, -4)
-		to_chat(L, span_userdanger("Меня ударяет <b>[name]</b>!") )
+		to_chat(L, span_userdanger("Меня ударяет <b>[name]</b>!"))
 		var/limb_to_hit = L.get_bodypart(pick(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_R_LEG, BODY_ZONE_L_LEG))
 		var/armor = L.run_armor_check(limb_to_hit, MELEE, "Моя броня поглощает <b>[src]</b>!", "Моя броня блокирует часть <b>[src]</b>!", FALSE, 50, "Моя броня пробита <b>[src]</b>!")
 		L.apply_damage(damage, BURN, limb_to_hit, armor, wound_bonus=CANT_WOUND)
@@ -551,6 +551,6 @@
 			var/mob/living/occupant = O
 			if(caster && caster.faction_check_mob(occupant))
 				continue
-			to_chat(M, span_userdanger("Мой [M.name] был подвержен [name]!") )
+			to_chat(M, span_userdanger("Мой [M.name] был подвержен [name]!"))
 			playsound(M,'white/valtos/sounds/undertale/snd_hurt1.wav', 50, TRUE, -4)
 			M.take_damage(damage, BURN, 0, 0)

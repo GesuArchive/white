@@ -29,7 +29,7 @@
 	. = ..()
 
 	to_chat(src, "<h1 class='alert'>Центральное Командование</h1>")
-	to_chat(src, span_alert("Последние нотки мышления начинают покидать мой разум. Это конечная.") )
+	to_chat(src, span_alert("Последние нотки мышления начинают покидать мой разум. Это конечная."))
 
 	for(var/V in verbs)
 		remove_verb(src, V)
@@ -88,7 +88,7 @@
 
 	roleplay_progress++
 
-	to_chat(src, span_notice("Прогресс отыгрыша ролевой ролеплейной игры: \[[roleplay_progress]/100\]") )
+	to_chat(src, span_notice("Прогресс отыгрыша ролевой ролеплейной игры: \[[roleplay_progress]/100\]"))
 	visible_message("<b>[src.name]</b> [pick("мило булькает", "машет хвостиком", "улыбается", "радостно смотрит куда-то")].", null, null)
 
 	remove_verb(src, /mob/living/simple_animal/xaxi/verb/roleplay)

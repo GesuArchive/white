@@ -76,7 +76,7 @@
 /obj/structure/wall_stuck_thing/proc/release_mob(mob/living/M)
 	M.pixel_y = M.base_pixel_y + PIXEL_Y_OFFSET_LYING
 	M.adjustBruteLoss(30)
-	M.visible_message(span_danger("[M] falls free of [src]!") )
+	M.visible_message(span_danger("[M] falls free of [src]!"))
 	unbuckle_mob(M,force=1)
 	M.emote("agony")
 	M.AdjustParalyzed(20)
@@ -95,21 +95,21 @@
 		if(M != user)
 			M.visible_message(span_notice("[user] tries to pull [M] free of [src]!") ,\
 				span_notice("[user] пытается pull you off [src], opening up fresh wounds!") ,\
-				span_hear("You hear a squishy wet noise.") )
+				span_hear("You hear a squishy wet noise."))
 			if(!do_after(user, 300, target = src))
 				if(M?.buckled)
 					M.visible_message(span_notice("[user] fails to free [M]!") ,\
-					span_notice("[user] fails to pull you off of [src].") )
+					span_notice("[user] fails to pull you off of [src]."))
 				return
 
 		else
 			M.visible_message(span_warning("[M] struggles to break free from [src]!") ,\
 			span_notice("You struggle to break free from [src], exacerbating your wounds! (Stay still for two minutes.)") ,\
-			span_hear("You hear a wet squishing noise..") )
+			span_hear("You hear a wet squishing noise.."))
 			M.adjustBruteLoss(30)
 			if(!do_after(M, 1200, target = src))
 				if(M?.buckled)
-					to_chat(M, span_warning("You fail to free yourself!") )
+					to_chat(M, span_warning("You fail to free yourself!"))
 				return
 		if(!M.buckled)
 			return

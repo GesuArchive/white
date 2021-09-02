@@ -40,11 +40,11 @@
 		var/success = C.equip_to_slot_if_possible(new /obj/item/clothing/gloves/color/yellow/sprayon, ITEM_SLOT_GLOVES, qdel_on_fail = TRUE, disable_warning = TRUE)
 		if(success)
 			if(C == user)
-				C.visible_message(span_notice("[U] распылил на руки блестящую резину!") )
+				C.visible_message(span_notice("[U] распылил на руки блестящую резину!"))
 			else
-				C.visible_message(span_warning("[U] распылил на руки [C] блестяшую резину!") )
+				C.visible_message(span_warning("[U] распылил на руки [C] блестяшую резину!"))
 		else
-			C.visible_message(span_warning("Резина не прилипла к рукам [C]!") )
+			C.visible_message(span_warning("Резина не прилипла к рукам [C]!"))
 
 /obj/item/clothing/gloves/color/yellow/sprayon
 	desc = "И как ты собираешься их снять, умник?"
@@ -71,7 +71,7 @@
 	charges_remaining--
 	if(charges_remaining <= 0)
 		var/turf/location = get_turf(src)
-		location.visible_message(span_warning("[src] рассыпается в пыль.") ) // прямо как мои сны после перевода
+		location.visible_message(span_warning("[src] рассыпается в пыль.")) // прямо как мои сны после перевода
 		qdel(src)
 
 /obj/item/clothing/gloves/color/fyellow                             //Cheap Chinese Crap

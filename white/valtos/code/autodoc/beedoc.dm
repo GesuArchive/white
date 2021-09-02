@@ -40,16 +40,16 @@
 			occupant.forceMove(drop_location())
 			occupant = null
 			return
-		to_chat(occupant, span_notice("Вхожу в [src.name]") )
+		to_chat(occupant, span_notice("Вхожу в [src.name]"))
 
 		dosurgery()
 
 /obj/machinery/organdoc/proc/dosurgery()
 	if(!storedorgan && !(obj_flags & EMAGGED))
-		to_chat(occupant, span_notice("Органдок не имеет имплантов.") )
+		to_chat(occupant, span_notice("Органдок не имеет имплантов."))
 		return
 
-	occupant.visible_message(span_notice("<b>[occupant]</b> нажимает на кнопку Органдока.") , span_notice("Ощущаю как острые штуки протыкают меня и что-то делают с моими органами.") )
+	occupant.visible_message(span_notice("<b>[occupant]</b> нажимает на кнопку Органдока.") , span_notice("Ощущаю как острые штуки протыкают меня и что-то делают с моими органами."))
 	playsound(get_turf(occupant), 'sound/weapons/circsawhit.ogg', 50, 1)
 	processing = TRUE
 	update_icon()
@@ -66,7 +66,7 @@
 			if(!processing)
 				return
 
-		occupant.visible_message(span_warning("Органдок нарезает на кусочки <b>[occupant]</b>!") , span_warning("Органдок начинает шинковать меня как салат Цезарь!") )
+		occupant.visible_message(span_warning("Органдок нарезает на кусочки <b>[occupant]</b>!") , span_warning("Органдок начинает шинковать меня как салат Цезарь!"))
 
 	else
 		sleep(surgerytime)
@@ -78,7 +78,7 @@
 			currentorgan.forceMove(get_turf(src))
 		storedorgan.Insert(occupant)//insert stored organ into the user
 		storedorgan = null
-		occupant.visible_message(span_notice("Органдок завершает хирургическую процедуру") , span_notice("Органдок вставляет орган в моё тело.") )
+		occupant.visible_message(span_notice("Органдок завершает хирургическую процедуру") , span_notice("Органдок вставляет орган в моё тело."))
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, 0)
 	processing = FALSE
 	use_power(5000)
@@ -86,7 +86,7 @@
 
 /obj/machinery/organdoc/open_machine(mob/user)
 	if(processing)
-		occupant.visible_message(span_notice("<b>[user]</b> отменяет процедуру Органдока") , span_notice("Органдок прекращает вставлять орган в моё тело.") )
+		occupant.visible_message(span_notice("<b>[user]</b> отменяет процедуру Органдока") , span_notice("Органдок прекращает вставлять орган в моё тело."))
 		processing = FALSE
 	if(occupant)
 		occupant.forceMove(drop_location())
@@ -95,7 +95,7 @@
 
 /obj/machinery/organdoc/interact(mob/user)
 	if(panel_open)
-		to_chat(user, span_notice("Закрыть бы техническую панель сначала.") )
+		to_chat(user, span_notice("Закрыть бы техническую панель сначала."))
 		return
 
 	if(state_open)
@@ -107,13 +107,13 @@
 /obj/machinery/organdoc/attackby(obj/item/I, mob/user, params)
 	if(istype(I, organ_type))
 		if(storedorgan)
-			to_chat(user, span_notice("Органдок уже имеет орган для работы.") )
+			to_chat(user, span_notice("Органдок уже имеет орган для работы."))
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		storedorgan = I
 		I.forceMove(src)
-		to_chat(user, span_notice("Вставляю [I.name] в Органдок.") )
+		to_chat(user, span_notice("Вставляю [I.name] в Органдок."))
 	else
 		return ..()
 
@@ -122,10 +122,10 @@
 	if(..())
 		return
 	if(occupant)
-		to_chat(user, span_warning("Органдок уже занят!") )
+		to_chat(user, span_warning("Органдок уже занят!"))
 		return
 	if(state_open)
-		to_chat(user, span_warning("Органдок должен быть закрыт!") )
+		to_chat(user, span_warning("Органдок должен быть закрыт!"))
 		return
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, I))
 		if(storedorgan)
@@ -165,7 +165,7 @@
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	to_chat(user, span_warning("Переделываю программу в режим готовки шаурмы.") )
+	to_chat(user, span_warning("Переделываю программу в режим готовки шаурмы."))
 
 /obj/item/circuitboard/machine/organdoc
 	name = "Органдок (Оборудование)"

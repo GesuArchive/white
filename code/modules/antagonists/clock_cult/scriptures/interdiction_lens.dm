@@ -41,16 +41,16 @@
 /obj/structure/destructible/clockwork/gear_base/interdiction_lens/attack_hand(mob/user)
 	if(is_servant_of_ratvar(user))
 		if(!anchored)
-			to_chat(user, span_warning("[src] needs to be fastened to the floor!") )
+			to_chat(user, span_warning("[src] needs to be fastened to the floor!"))
 			return
 		enabled = !enabled
-		to_chat(user, span_brass("You flick the switch on [src], turning it [enabled?"on":"off"]!") )
+		to_chat(user, span_brass("You flick the switch on [src], turning it [enabled?"on":"off"]!"))
 		if(enabled)
 			if(update_power())
 				repowered()
 			else
 				enabled = FALSE
-				to_chat(user, span_warning("[src] does not have enough power!") )
+				to_chat(user, span_warning("[src] does not have enough power!"))
 		else
 			depowered()
 	else

@@ -22,19 +22,19 @@
 
 /obj/structure/janitorialcart/proc/wet_mop(obj/item/mop, mob/user)
 	if(reagents.total_volume < 1)
-		to_chat(user, span_warning("[capitalize(src.name)] is out of water!") )
+		to_chat(user, span_warning("[capitalize(src.name)] is out of water!"))
 		return FALSE
 	else
 		var/obj/item/mop/M = mop
 		reagents.trans_to(mop, M.mopcap, transfered_by = user)
-		to_chat(user, span_notice("You wet [mop] in [src].") )
+		to_chat(user, span_notice("You wet [mop] in [src]."))
 		playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
 		return TRUE
 
 /obj/structure/janitorialcart/proc/put_in_cart(obj/item/I, mob/user)
 	if(!user.transferItemToLoc(I, src))
 		return
-	to_chat(user, span_notice("You put [I] into [src].") )
+	to_chat(user, span_notice("You put [I] into [src]."))
 	return
 
 
@@ -81,13 +81,13 @@
 			signs++
 			update_icon()
 		else
-			to_chat(user, span_warning("[capitalize(src.name)] can't hold any more signs!") )
+			to_chat(user, span_warning("[capitalize(src.name)] can't hold any more signs!"))
 	else if(mybag)
 		mybag.attackby(I, user)
 	else if(I.tool_behaviour == TOOL_CROWBAR)
-		user.visible_message(span_notice("[user] begins to empty the contents of [src].") , span_notice("You begin to empty the contents of [src]...") )
+		user.visible_message(span_notice("[user] begins to empty the contents of [src].") , span_notice("You begin to empty the contents of [src]..."))
 		if(I.use_tool(src, user, 30))
-			to_chat(usr, span_notice("You empty the contents of [src] bucket onto the floor.") )
+			to_chat(usr, span_notice("You empty the contents of [src] bucket onto the floor."))
 			reagents.expose(src.loc)
 			src.reagents.clear_reagents()
 	else
@@ -124,37 +124,37 @@
 			if(!mybag)
 				return
 			user.put_in_hands(mybag)
-			to_chat(user, span_notice("You take [mybag] from [src].") )
+			to_chat(user, span_notice("You take [mybag] from [src]."))
 			mybag = null
 		if("Mop")
 			if(!mymop)
 				return
 			user.put_in_hands(mymop)
-			to_chat(user, span_notice("You take [mymop] from [src].") )
+			to_chat(user, span_notice("You take [mymop] from [src]."))
 			mymop = null
 		if("Broom")
 			if(!mybroom)
 				return
 			user.put_in_hands(mybroom)
-			to_chat(user, span_notice("You take [mybroom] from [src].") )
+			to_chat(user, span_notice("You take [mybroom] from [src]."))
 			mybroom = null
 		if("Spray bottle")
 			if(!myspray)
 				return
 			user.put_in_hands(myspray)
-			to_chat(user, span_notice("You take [myspray] from [src].") )
+			to_chat(user, span_notice("You take [myspray] from [src]."))
 			myspray = null
 		if("Light replacer")
 			if(!myreplacer)
 				return
 			user.put_in_hands(myreplacer)
-			to_chat(user, span_notice("You take [myreplacer] from [src].") )
+			to_chat(user, span_notice("You take [myreplacer] from [src]."))
 			myreplacer = null
 		if("Sign")
 			if(signs <= 0)
 				return
 			user.put_in_hands(sign)
-			to_chat(user, span_notice("You take \a [sign] from [src].") )
+			to_chat(user, span_notice("You take \a [sign] from [src]."))
 			signs--
 		else
 			return

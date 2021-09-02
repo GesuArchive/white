@@ -28,7 +28,7 @@
 		return ..()
 	var/mob/living/pushed_mob = user.pulling
 	if(pushed_mob.buckled)
-		to_chat(user, span_warning("[pushed_mob] is buckled to [pushed_mob.buckled]!") )
+		to_chat(user, span_warning("[pushed_mob] is buckled to [pushed_mob.buckled]!"))
 		return ..()
 	to_chat(user,"<span class='notice>Пытаюсь coax [pushed_mob] onto [src]...</span>")
 	if(!do_after(user,(5 SECONDS),target = pushed_mob))
@@ -63,10 +63,10 @@
 
 /obj/item/ritual_totem/proc/block_magic(mob/user, major)
 	if(major)
-		to_chat(user, span_warning("[src] consumes the magic within itself!") )
+		to_chat(user, span_warning("[src] consumes the magic within itself!"))
 
 /obj/item/ritual_totem/proc/expire(mob/user)
-	to_chat(user, span_warning("[src] quickly decays into rot!") )
+	to_chat(user, span_warning("[src] quickly decays into rot!"))
 	qdel(src)
 	new /obj/effect/decal/cleanable/ash(drop_location())
 
@@ -85,11 +85,11 @@
 	var/holiness = taker.mind?.holy_role
 	var/no_take = FALSE
 	if(holiness == NONE)
-		to_chat(taker, span_warning("Try as you may, you're seemingly unable to pick [src] up!") )
+		to_chat(taker, span_warning("Try as you may, you're seemingly unable to pick [src] up!"))
 		no_take = TRUE
 	else if(holiness == HOLY_ROLE_DEACON) //deacons cannot pick them up either
 		no_take = TRUE
-		to_chat(taker, span_warning("You cannot pick [src] up. It seems you aren't important enough to [GLOB.deity] to do that.") )
+		to_chat(taker, span_warning("You cannot pick [src] up. It seems you aren't important enough to [GLOB.deity] to do that."))
 	..()
 	if(no_take)
 		taker.dropItemToGround(src)

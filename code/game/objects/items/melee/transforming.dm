@@ -88,7 +88,7 @@
 
 /obj/item/melee/transforming/proc/clumsy_transform_effect(mob/living/user)
 	if(clumsy_check && HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50))
-		to_chat(user, span_warning("Случайно втыкаю [src.name] в себя, ой!") )
+		to_chat(user, span_warning("Случайно втыкаю [src.name] в себя, ой!"))
 		user.take_bodypart_damage(5,5)
 
 /obj/item/melee/transforming/proc/on_sharpen(datum/source, increment, max)

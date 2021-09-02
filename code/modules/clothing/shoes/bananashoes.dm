@@ -31,7 +31,7 @@
 			if(!always_noslip)
 				clothing_flags &= ~NOSLIP
 			update_icon()
-			to_chat(loc, span_warning("У вас закончился бананиум!") )
+			to_chat(loc, span_warning("У вас закончился бананиум!"))
 		else
 			new /obj/item/grown/bananapeel/specialpeel(get_step(src,turn(wearer.dir, 180))) //honk
 			bananium.use_amount_mat(100, /datum/material/bananium)
@@ -40,9 +40,9 @@
 	var/datum/component/material_container/bananium = GetComponent(/datum/component/material_container)
 	var/sheet_amount = bananium.retrieve_all()
 	if(sheet_amount)
-		to_chat(user, span_notice("Получил[sheet_amount] листов бананиума из прототипных ботинок.") )
+		to_chat(user, span_notice("Получил[sheet_amount] листов бананиума из прототипных ботинок."))
 	else
-		to_chat(user, span_warning("Не могу получить бананиум из прототипных ботинки!") )
+		to_chat(user, span_warning("Не могу получить бананиум из прототипных ботинки!"))
 
 /obj/item/clothing/shoes/clown_shoes/banana_shoes/examine(mob/user)
 	. = ..()
@@ -53,14 +53,14 @@
 	if(bananium.get_material_amount(/datum/material/bananium))
 		on = !on
 		update_icon()
-		to_chat(user, span_notice("[on ? "Активирую" : "Деактивирую"] прототипные ботинки.") )
+		to_chat(user, span_notice("[on ? "Активирую" : "Деактивирую"] прототипные ботинки."))
 		if(!always_noslip)
 			if(on)
 				clothing_flags |= NOSLIP
 			else
 				clothing_flags &= ~NOSLIP
 	else
-		to_chat(user, span_warning("Вам нужен бананиум чтобы включить прототипные ботинки!") )
+		to_chat(user, span_warning("Вам нужен бананиум чтобы включить прототипные ботинки!"))
 
 /obj/item/clothing/shoes/clown_shoes/banana_shoes/update_icon_state()
 	if(on)

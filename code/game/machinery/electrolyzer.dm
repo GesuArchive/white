@@ -122,23 +122,23 @@
 		return
 	if(istype(I, /obj/item/stock_parts/cell))
 		if(!panel_open)
-			to_chat(user, span_warning("Техническая панель должна быть открыта для вставки батарейки!") )
+			to_chat(user, span_warning("Техническая панель должна быть открыта для вставки батарейки!"))
 			return
 		if(cell)
-			to_chat(user, span_warning("Внутри уже есть батарейка!") )
+			to_chat(user, span_warning("Внутри уже есть батарейка!"))
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		cell = I
 		I.add_fingerprint(usr)
 
-		user.visible_message(span_notice("[capitalize(user)] вставляет батарейку в <b>[src.name]</b>.") , span_notice("Вставляю батарейку внутрь <b>[src.name]</b>.") )
+		user.visible_message(span_notice("[capitalize(user)] вставляет батарейку в <b>[src.name]</b>.") , span_notice("Вставляю батарейку внутрь <b>[src.name]</b>."))
 		SStgui.update_uis(src)
 
 		return
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		panel_open = !panel_open
-		user.visible_message(span_notice("[capitalize(user)] [panel_open ? "открывает" : "закрывает"] техническую панель <b>[src.name]</b>.") , span_notice("[panel_open ? "Открываю" : "Закрываю"] техническую панель <b>[src.name]</b>.") )
+		user.visible_message(span_notice("[capitalize(user)] [panel_open ? "открывает" : "закрывает"] техническую панель <b>[src.name]</b>.") , span_notice("[panel_open ? "Открываю" : "Закрываю"] техническую панель <b>[src.name]</b>."))
 		update_icon()
 		return
 	if(default_deconstruction_crowbar(I))
@@ -171,7 +171,7 @@
 		if("power")
 			on = !on
 			mode = ELECTROLYZER_MODE_STANDBY
-			usr.visible_message(span_notice("[usr] [on ? "включает" : "выключает"] <b>[src.name]</b>.") , span_notice("[on ? "Включаю" : "Выключаю"] <b>[src.name]</b>.") )
+			usr.visible_message(span_notice("[usr] [on ? "включает" : "выключает"] <b>[src.name]</b>.") , span_notice("[on ? "Включаю" : "Выключаю"] <b>[src.name]</b>."))
 			update_icon()
 			if (on)
 				START_PROCESSING(SSmachines, src)

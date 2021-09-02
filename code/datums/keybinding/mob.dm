@@ -15,7 +15,7 @@
 		return
 	var/mob/M = user.mob
 	if(!M.pulling)
-		to_chat(user, span_notice("You are not pulling anything.") )
+		to_chat(user, span_notice("You are not pulling anything."))
 	else
 		M.stop_pulling()
 	return TRUE
@@ -96,7 +96,7 @@
 	var/mob/M = user.mob
 	var/obj/item/I = M.get_active_held_item()
 	if(!I)
-		to_chat(user, span_warning("Да у меня в руке ничего и нет!") )
+		to_chat(user, span_warning("Да у меня в руке ничего и нет!"))
 	else
 		user.mob.dropItemToGround(I)
 	return TRUE

@@ -117,7 +117,7 @@
 
 ///Attack proc. Gives legion some movespeed buffs and switches the AI to melee. At lower sizes, this also throws the skull at the player.
 /mob/living/simple_animal/hostile/megafauna/legion/proc/charge_target()
-	visible_message(span_warning("<b>[src] charges!</b>") )
+	visible_message(span_warning("<b>[src] charges!</b>"))
 	SpinAnimation(speed = 20, loops = 3, parallel = FALSE)
 	ranged = FALSE
 	retreat_distance = 0
@@ -234,7 +234,7 @@
 			pixel_y = 0
 			maxHealth = 200
 	adjustHealth(0) //Make the health HUD look correct.
-	visible_message(span_boldannounce("This is getting out of hands. Now there are three of them!") )
+	visible_message(span_boldannounce("This is getting out of hands. Now there are three of them!"))
 	for(var/i in 1 to 2) //Create three skulls in total
 		var/mob/living/simple_animal/hostile/megafauna/legion/L = new(loc)
 		L.setVarsAfterSplit(src)

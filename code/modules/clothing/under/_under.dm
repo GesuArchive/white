@@ -37,7 +37,7 @@
 		var/obj/item/stack/cable_coil/C = I
 		C.use(1)
 		has_sensor = HAS_SENSORS
-		to_chat(user,span_notice("Починил датчики костюма [src] с помощью [C].") )
+		to_chat(user,span_notice("Починил датчики костюма [src] с помощью [C]."))
 		return 1
 	if(!attach_accessory(I, user))
 		return ..()
@@ -64,7 +64,7 @@
 		sensor_mode = pick(SENSOR_OFF, SENSOR_OFF, SENSOR_OFF, SENSOR_LIVING, SENSOR_LIVING, SENSOR_VITALS, SENSOR_VITALS, SENSOR_COORDS)
 		if(ismob(loc))
 			var/mob/M = loc
-			to_chat(M,span_warning("Датчики на [src] быстро меняются!") )
+			to_chat(M,span_warning("Датчики на [src] быстро меняются!"))
 
 /obj/item/clothing/under/equipped(mob/user, slot)
 	..()
@@ -121,7 +121,7 @@
 		var/obj/item/clothing/accessory/A = I
 		if(attached_accessory)
 			if(user)
-				to_chat(user, span_warning("<b>[src.name]</b> уже что-то имеет.") )
+				to_chat(user, span_warning("<b>[src.name]</b> уже что-то имеет."))
 			return
 		else
 
@@ -133,7 +133,7 @@
 				return
 
 			if(user && notifyAttach)
-				to_chat(user, span_notice("Прикрепляю <b>[I.name]</b> на <b>[src.name]</b>.") )
+				to_chat(user, span_notice("Прикрепляю <b>[I.name]</b> на <b>[src.name]</b>."))
 
 			var/accessory_color = attached_accessory.icon_state
 			if(I.worn_icon)
@@ -168,9 +168,9 @@
 		var/obj/item/clothing/accessory/A = attached_accessory
 		attached_accessory.detach(src, user)
 		if(user.put_in_hands(A))
-			to_chat(user, span_notice("Снимаю <b>[A.name]</b> с <b>[src.name]</b>.") )
+			to_chat(user, span_notice("Снимаю <b>[A.name]</b> с <b>[src.name]</b>."))
 		else
-			to_chat(user, span_notice("Снимаю <b>[A.name]</b> с <b>[src.name]</b> и она падает на пол.") )
+			to_chat(user, span_notice("Снимаю <b>[A.name]</b> с <b>[src.name]</b> и она падает на пол."))
 
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
@@ -227,19 +227,19 @@
 	var/list/modes = list("Выкл", "Примерные показатели", "Точные показатели", " + отслеживание")
 	var/switchMode = tgui_input_list(M, "Выбери режим работы:", "Режим работы", modes)
 	if(get_dist(usr, src) > 1)
-		to_chat(usr, span_warning("Слишком далеко от станции!") )
+		to_chat(usr, span_warning("Слишком далеко от станции!"))
 		return
 	sensor_mode = modes.Find(switchMode) - 1
 	if (loc == usr)
 		switch(sensor_mode)
 			if(0)
-				to_chat(usr, span_notice("Отключаю работу сенсоров костюма.") )
+				to_chat(usr, span_notice("Отключаю работу сенсоров костюма."))
 			if(1)
-				to_chat(usr, span_notice("Мой костюм теперь будет сообщать только о том, жив я или мёртв.") )
+				to_chat(usr, span_notice("Мой костюм теперь будет сообщать только о том, жив я или мёртв."))
 			if(2)
-				to_chat(usr, span_notice("Мой костюм теперь будет сообщать только мои точные жизненные признаки.") )
+				to_chat(usr, span_notice("Мой костюм теперь будет сообщать только мои точные жизненные признаки."))
 			if(3)
-				to_chat(usr, span_notice("Мой костюм теперь сообщает о моих точных жизненных знаках, а также о моих координатах.") )
+				to_chat(usr, span_notice("Мой костюм теперь сообщает о моих точных жизненных знаках, а также о моих координатах."))
 
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
@@ -268,12 +268,12 @@
 	if(!can_use(usr))
 		return
 	if(!can_adjust)
-		to_chat(usr, span_warning("А тут некуда поправлять!") )
+		to_chat(usr, span_warning("А тут некуда поправлять!"))
 		return
 	if(toggle_jumpsuit_adjust())
-		to_chat(usr, span_notice("Теперь буду носить его как модник.") )
+		to_chat(usr, span_notice("Теперь буду носить его как модник."))
 	else
-		to_chat(usr, span_notice("Теперь буду носить как обычно.") )
+		to_chat(usr, span_notice("Теперь буду носить как обычно."))
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
 		H.update_inv_w_uniform()

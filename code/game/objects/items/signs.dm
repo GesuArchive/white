@@ -20,7 +20,7 @@
 
 /obj/item/picket_sign/proc/retext(mob/user)
 	if(!user.is_literate())
-		to_chat(user, span_notice("Карябаю неразборчивые символы [src]!") )
+		to_chat(user, span_notice("Карябаю неразборчивые символы [src]!"))
 		return
 	var/txt = stripped_input(user, "What would you like to write on the sign?", "Sign Label", null , 30)
 	if(txt && user.canUseTopic(src, BE_CLOSE))

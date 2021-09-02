@@ -104,12 +104,12 @@
 		return
 	open = !open
 	if(open && !bomb_defused)
-		audible_message(span_warning("[icon2html(src, hearers(src))] *beep*") )
+		audible_message(span_warning("[icon2html(src, hearers(src))] *beep*"))
 		bomb_active = TRUE
 		START_PROCESSING(SSobj, src)
 	else if(!open && !pizza && !bomb)
 		var/obj/item/stack/sheet/cardboard/cardboard = new /obj/item/stack/sheet/cardboard(user.drop_location())
-		to_chat(user, span_notice("You fold [src] into [cardboard].") )
+		to_chat(user, span_notice("You fold [src] into [cardboard]."))
 		user.put_in_active_hand(cardboard)
 		qdel(src)
 		return
@@ -122,13 +122,13 @@
 	if(open)
 		if(pizza)
 			user.put_in_hands(pizza)
-			to_chat(user, span_notice("You take [pizza] out of [src].") )
+			to_chat(user, span_notice("You take [pizza] out of [src]."))
 			pizza = null
 			update_icon()
 		else if(bomb)
 			if(wires.is_all_cut() && bomb_defused)
 				user.put_in_hands(bomb)
-				to_chat(user, span_notice("You carefully remove the [bomb] from [src].") )
+				to_chat(user, span_notice("You carefully remove the [bomb] from [src]."))
 				bomb = null
 				update_icon()
 				return
@@ -144,13 +144,13 @@
 				log_bomber(user, "has trapped a", src, "with [bomb] set to [bomb_timer] seconds")
 				bomb.adminlog = "The [bomb.name] in [src.name] that [key_name(user)] activated has detonated!"
 
-				to_chat(user, span_warning("You trap [src] with [bomb].") )
+				to_chat(user, span_warning("You trap [src] with [bomb]."))
 				update_icon()
 	else if(boxes.len)
 		var/obj/item/pizzabox/topbox = boxes[boxes.len]
 		boxes -= topbox
 		user.put_in_hands(topbox)
-		to_chat(user, span_notice("You remove the topmost [name] from the stack.") )
+		to_chat(user, span_notice("You remove the topmost [name] from the stack."))
 		topbox.update_icon()
 		update_icon()
 		user.regenerate_icons()
@@ -166,28 +166,28 @@
 				return
 			boxes += add
 			newbox.boxes.Cut()
-			to_chat(user, span_notice("You put [newbox] on top of [src]!") )
+			to_chat(user, span_notice("You put [newbox] on top of [src]!"))
 			newbox.update_icon()
 			update_icon()
 			user.regenerate_icons()
 			if(boxes.len >= 5)
 				if(prob(10 * boxes.len))
-					to_chat(user, span_danger("You can't keep holding the stack!") )
+					to_chat(user, span_danger("You can't keep holding the stack!"))
 					disperse_pizzas()
 				else
-					to_chat(user, span_warning("The stack is getting a little high...") )
+					to_chat(user, span_warning("The stack is getting a little high..."))
 			return
 		else
-			to_chat(user, span_notice("Close [open ? src : newbox] first!") )
+			to_chat(user, span_notice("Close [open ? src : newbox] first!"))
 	else if(istype(I, /obj/item/food/pizza))
 		if(open)
 			if(pizza)
-				to_chat(user, span_warning("[capitalize(src.name)] already has \a [pizza.name]!") )
+				to_chat(user, span_warning("[capitalize(src.name)] already has \a [pizza.name]!"))
 				return
 			if(!user.transferItemToLoc(I, src))
 				return
 			pizza = I
-			to_chat(user, span_notice("You put [I] in [src].") )
+			to_chat(user, span_notice("You put [I] in [src]."))
 			update_icon()
 			return
 	else if(istype(I, /obj/item/bombcore/miniature/pizza))
@@ -196,28 +196,28 @@
 				return
 			wires = new /datum/wires/explosive/pizza(src)
 			bomb = I
-			to_chat(user, span_notice("You put [I] in [src]. Sneeki breeki...") )
+			to_chat(user, span_notice("You put [I] in [src]. Sneeki breeki..."))
 			update_icon()
 			return
 		else if(bomb)
-			to_chat(user, span_warning("[capitalize(src.name)] already has a bomb in it!") )
+			to_chat(user, span_warning("[capitalize(src.name)] already has a bomb in it!"))
 	else if(istype(I, /obj/item/pen))
 		if(!open)
 			if(!user.is_literate())
-				to_chat(user, span_notice("You scribble illegibly on [src]!") )
+				to_chat(user, span_notice("You scribble illegibly on [src]!"))
 				return
 			var/obj/item/pizzabox/box = boxes.len ? boxes[boxes.len] : src
 			box.boxtag += stripped_input(user, "Write on [box] tag:", box, "", 30)
 			if(!user.canUseTopic(src, BE_CLOSE))
 				return
-			to_chat(user, span_notice("You write with [I] on [src].") )
+			to_chat(user, span_notice("You write with [I] on [src]."))
 			update_icon()
 			return
 	else if(is_wire_tool(I))
 		if(wires && bomb)
 			wires.interact(user)
 	else if(istype(I, /obj/item/reagent_containers/food))
-		to_chat(user, span_warning("That's not a pizza!") )
+		to_chat(user, span_warning("That's not a pizza!"))
 	..()
 
 /obj/item/pizzabox/process(delta_time)
@@ -246,7 +246,7 @@
 		disperse_pizzas()
 
 /obj/item/pizzabox/proc/disperse_pizzas()
-	visible_message(span_warning("The pizzas fall everywhere!") )
+	visible_message(span_warning("The pizzas fall everywhere!"))
 	for(var/V in boxes)
 		var/obj/item/pizzabox/P = V
 		var/fall_dir = pick(GLOB.alldirs)

@@ -25,7 +25,7 @@
 /datum/surgery_step/filter_blood/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю фильтрацию крови [target]...") ,
 		span_notice("[user] использует [tool] для фильтрации моей крови.") ,
-		span_notice("[user] использует [tool] на груди [target].") )
+		span_notice("[user] использует [tool] на груди [target]."))
 
 /datum/surgery_step/filter_blood/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(target.reagents?.total_volume)
@@ -40,5 +40,5 @@
 /datum/surgery_step/filter_blood/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_warning("[gvorno(TRUE)], но [gvorno(TRUE)], но я облажался, оставив синяк на груди [target]!") ,
 		span_warning("[user] облажался, оставив синяк на груди [target]!") ,
-		span_warning("[user] облажался!") )
+		span_warning("[user] облажался!"))
 	target.adjustBruteLoss(5)

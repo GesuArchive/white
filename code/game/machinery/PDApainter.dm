@@ -110,11 +110,11 @@
 				return
 			user.visible_message(span_notice("[user] is repairing [src].") , \
 							span_notice("You begin repairing [src]...") , \
-							span_hear("You hear welding.") )
+							span_hear("You hear welding."))
 			if(O.use_tool(src, user, 40, volume=50))
 				if(!(machine_stat & BROKEN))
 					return
-				to_chat(user, span_notice("You repair [src].") )
+				to_chat(user, span_notice("You repair [src]."))
 				set_machine_stat(machine_stat & ~BROKEN)
 				obj_integrity = max_integrity
 				update_icon()
@@ -127,11 +127,11 @@
 
 	// Chameleon checks first so they can exit the logic early if they're detected.
 	if(istype(O, /obj/item/card/id/advanced/chameleon))
-		to_chat(user, span_warning("The machine rejects your [O]. This ID card does not appear to be compatible with the PDA Painter.") )
+		to_chat(user, span_warning("The machine rejects your [O]. This ID card does not appear to be compatible with the PDA Painter."))
 		return
 
 	if(istype(O, /obj/item/pda/chameleon))
-		to_chat(user, span_warning("The machine rejects your [O]. This PDA does not appear to be compatible with the PDA Painter.") )
+		to_chat(user, span_warning("The machine rejects your [O]. This PDA does not appear to be compatible with the PDA Painter."))
 		return
 
 	if(istype(O, /obj/item/pda))
@@ -140,7 +140,7 @@
 
 	if(istype(O, /obj/item/card/id))
 		if(stored_id_card)
-			to_chat(user, span_warning("There is already an ID card inside!") )
+			to_chat(user, span_warning("There is already an ID card inside!"))
 			return
 
 		if(!user.transferItemToLoc(O, src))
@@ -341,7 +341,7 @@
 				if(SSid_access.apply_trim_to_card(stored_id_card, path, copy_access = FALSE))
 					return TRUE
 
-				to_chat(usr, span_warning("The trim you selected could not be added to [stored_id_card]. You will need a rarer ID card to imprint that trim data.") )
+				to_chat(usr, span_warning("The trim you selected could not be added to [stored_id_card]. You will need a rarer ID card to imprint that trim data."))
 
 			return TRUE
 		if("reset_card")

@@ -82,7 +82,7 @@
 	if(.)
 		return
 	if(!allowed(usr))
-		to_chat(usr, span_warning("Доступ запрещён.") )
+		to_chat(usr, span_warning("Доступ запрещён."))
 		return
 
 	switch(action)

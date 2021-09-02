@@ -159,7 +159,7 @@
 	phase = MAFIA_PHASE_DAY
 	if(!check_victory())
 		if(turn == 1)
-			send_message(span_notice("<b>The selected map is [current_map.name]!</b></br>[current_map.description]") )
+			send_message(span_notice("<b>The selected map is [current_map.name]!</b></br>[current_map.description]"))
 			send_message("<b>Day [turn] started! There is no voting on the first day. Say hello to everybody!</b>")
 			next_phase_timer = addtimer(CALLBACK(src,.proc/check_trial, FALSE),first_day_phase_period,TIMER_STOPPABLE) //no voting period = no votes = instant night
 		else
@@ -228,19 +228,19 @@
 /datum/mafia_controller/proc/lynch()
 	for(var/i in judgement_innocent_votes)
 		var/datum/mafia_role/role = i
-		send_message(span_green("[role.body.real_name] voted innocent.") )
+		send_message(span_green("[role.body.real_name] voted innocent."))
 	for(var/ii in judgement_abstain_votes)
 		var/datum/mafia_role/role = ii
-		send_message(span_comradio("[role.body.real_name] abstained.") )
+		send_message(span_comradio("[role.body.real_name] abstained."))
 	for(var/iii in judgement_guilty_votes)
 		var/datum/mafia_role/role = iii
-		send_message(span_red("[role.body.real_name] voted guilty.") )
+		send_message(span_red("[role.body.real_name] voted guilty."))
 	if(judgement_guilty_votes.len > judgement_innocent_votes.len) //strictly need majority guilty to lynch
-		send_message(span_red("<b>Guilty wins majority, [on_trial.body.real_name] has been lynched.</b>") )
+		send_message(span_red("<b>Guilty wins majority, [on_trial.body.real_name] has been lynched.</b>"))
 		on_trial.kill(src, lynch = TRUE)
 		addtimer(CALLBACK(src, .proc/send_home, on_trial),judgement_lynch_period)
 	else
-		send_message(span_green("<b>Innocent wins majority, [on_trial.body.real_name] has been spared.</b>") )
+		send_message(span_green("<b>Innocent wins majority, [on_trial.body.real_name] has been spared.</b>"))
 		on_trial.body.forceMove(get_turf(on_trial.assigned_landmark))
 	on_trial = null
 	//day votes are already cleared, so this will skip the trial and check victory/lockdown/whatever else
@@ -694,25 +694,25 @@
 		switch(action)
 			if("mf_signup")
 				if(!SSticker.HasRoundStarted())
-					to_chat(usr, span_warning("Wait for the round to start.") )
+					to_chat(usr, span_warning("Wait for the round to start."))
 					return
 				if(GLOB.mafia_signup[C.ckey])
 					GLOB.mafia_signup -= C.ckey
-					to_chat(usr, span_notice("You unregister from Mafia.") )
+					to_chat(usr, span_notice("You unregister from Mafia."))
 					return TRUE
 				else
 					GLOB.mafia_signup[C.ckey] = C
-					to_chat(usr, span_notice("You sign up for Mafia.") )
+					to_chat(usr, span_notice("You sign up for Mafia."))
 				if(phase == MAFIA_PHASE_SETUP)
 					check_signups()
 					try_autostart()
 				return TRUE
 			if("mf_spectate")
 				if(C.ckey in spectators)
-					to_chat(usr, span_notice("You will no longer get messages from the game.") )
+					to_chat(usr, span_notice("You will no longer get messages from the game."))
 					spectators -= C.ckey
 				else
-					to_chat(usr, span_notice("You will now get messages from the game.") )
+					to_chat(usr, span_notice("You will now get messages from the game."))
 					spectators += C.ckey
 				return TRUE
 	if(user_role.game_status == MAFIA_DEAD)
@@ -892,8 +892,8 @@
 	//small message about not getting into this game for clarity on why they didn't get in
 	for(var/unpicked in possible_keys)
 		var/client/unpicked_client = GLOB.directory[unpicked]
-		to_chat(unpicked_client, span_danger("Sorry, the starting mafia game has too many players and you were not picked.") )
-		to_chat(unpicked_client, span_warning("You're still signed up, getting messages from the current round, and have another chance to join when the one starting now finishes.") )
+		to_chat(unpicked_client, span_danger("Sorry, the starting mafia game has too many players and you were not picked."))
+		to_chat(unpicked_client, span_warning("You're still signed up, getting messages from the current round, and have another chance to join when the one starting now finishes."))
 
 	if(!setup.len) //don't actually have one yet, so generate a max player random setup. it's good to do this here instead of above so it doesn't generate one every time a game could possibly start.
 		setup = generate_random_setup()

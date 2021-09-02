@@ -108,12 +108,12 @@
 
 /obj/item/clothing/head/hardhat/cakehat/energycake/turn_on(mob/living/user)
 	playsound(user, 'sound/weapons/saberon.ogg', 5, TRUE)
-	to_chat(user, span_warning("Ты включаешь <b>[src.name]</b>.") )
+	to_chat(user, span_warning("Ты включаешь <b>[src.name]</b>."))
 	..()
 
 /obj/item/clothing/head/hardhat/cakehat/energycake/turn_off(mob/living/user)
 	playsound(user, 'sound/weapons/saberoff.ogg', 5, TRUE)
-	to_chat(user, span_warning("Ты выключаешь <b>[src.name]</b>.") )
+	to_chat(user, span_warning("Ты выключаешь <b>[src.name]</b>."))
 	..()
 
 /*
@@ -135,11 +135,11 @@
 	if(earflaps)
 		icon_state = "ushankaup"
 		inhand_icon_state = "ushankaup"
-		to_chat(user, span_notice("Поднимаю ушки на Ушанке.") )
+		to_chat(user, span_notice("Поднимаю ушки на Ушанке."))
 	else
 		icon_state = "ushankadown"
 		inhand_icon_state = "ushankadown"
-		to_chat(user, span_notice("Опускаю ушки на Ушанке.") )
+		to_chat(user, span_notice("Опускаю ушки на Ушанке."))
 	earflaps = !earflaps
 
 /*
@@ -260,7 +260,7 @@
 		return
 	if(new_style && new_style != hairstyle)
 		hairstyle = new_style
-		user.visible_message(span_notice("[user] меняет прическу [src] на [new_style].") , span_notice("Изменил прическу [src] на [new_style].") )
+		user.visible_message(span_notice("[user] меняет прическу [src] на [new_style].") , span_notice("Изменил прическу [src] на [new_style]."))
 	if(newcolor && newcolor != color) // only update if necessary
 		add_atom_colour(newcolor, FIXED_COLOUR_PRIORITY)
 	update_icon()
@@ -268,7 +268,7 @@
 /obj/item/clothing/head/wig/afterattack(mob/living/carbon/human/target, mob/user)
 	. = ..()
 	if (istype(target) && (HAIR in target.dna.species.species_traits) && target.hairstyle != "Bald")
-		to_chat(user, span_notice("Подстриг [src] под [target.name] [target.hairstyle].") )
+		to_chat(user, span_notice("Подстриг [src] под [target.name] [target.hairstyle]."))
 		add_atom_colour("#[target.hair_color]", FIXED_COLOUR_PRIORITY)
 		hairstyle = target.hairstyle
 		update_icon()
@@ -333,14 +333,14 @@
 	paranoia = new()
 
 	user.gain_trauma(paranoia, TRAUMA_RESILIENCE_MAGIC)
-	to_chat(user, span_warning("Как только вы надеваете расклеенную шляпу, в ваш разум вдруг врывается целый мир конспирологических теорий и, казалось бы, безумных идей. То, что ты когда-то считал невероятным... внезапно кажется неоспоримым. Все взаимосвязано и ничего не происходит случайно. Ты слишком много знаешь, и теперь они хотят забрать тебя.") )
+	to_chat(user, span_warning("Как только вы надеваете расклеенную шляпу, в ваш разум вдруг врывается целый мир конспирологических теорий и, казалось бы, безумных идей. То, что ты когда-то считал невероятным... внезапно кажется неоспоримым. Все взаимосвязано и ничего не происходит случайно. Ты слишком много знаешь, и теперь они хотят забрать тебя."))
 
 /obj/item/clothing/head/foilhat/MouseDrop(atom/over_object)
 	//God Im sorry
 	if(!warped && iscarbon(usr))
 		var/mob/living/carbon/C = usr
 		if(src == C.head)
-			to_chat(C, span_userdanger("Зачем тебе это снимать? Ты хочешь, чтобы они проникли в твой разум?!") )
+			to_chat(C, span_userdanger("Зачем тебе это снимать? Ты хочешь, чтобы они проникли в твой разум?!"))
 			return
 	return ..()
 
@@ -361,13 +361,13 @@
 		return
 	QDEL_NULL(paranoia)
 	if(target.stat < UNCONSCIOUS)
-		to_chat(target, span_warning("Мой ревностный заговор быстро рассеивается по мере того, как надетая шляпа погружается в разрушенный беспорядок. Все эти теории начинают звучать как просто смешная фанфара.") )
+		to_chat(target, span_warning("Мой ревностный заговор быстро рассеивается по мере того, как надетая шляпа погружается в разрушенный беспорядок. Все эти теории начинают звучать как просто смешная фанфара."))
 
 /obj/item/clothing/head/foilhat/attack_hand(mob/user)
 	if(!warped && iscarbon(user))
 		var/mob/living/carbon/C = user
 		if(src == C.head)
-			to_chat(user, span_userdanger("Зачем тебе это снимать? Ты хочешь, чтобы они проникли в твой разум?!") )
+			to_chat(user, span_userdanger("Зачем тебе это снимать? Ты хочешь, чтобы они проникли в твой разум?!"))
 			return
 	return ..()
 

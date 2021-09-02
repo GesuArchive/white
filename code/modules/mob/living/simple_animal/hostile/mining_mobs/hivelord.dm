@@ -144,7 +144,7 @@
 	dwarf_mob = TRUE
 
 /mob/living/simple_animal/hostile/asteroid/hivelord/legion/death(gibbed)
-	visible_message(span_warning("The skulls on [src] wail in anger as they flee from their dying host!") )
+	visible_message(span_warning("The skulls on [src] wail in anger as they flee from their dying host!"))
 	var/turf/T = get_turf(src)
 	if(T)
 		if(stored_mob)
@@ -214,9 +214,9 @@
 
 ///Create a new legion using the supplied human H
 /mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion/proc/infest(mob/living/carbon/human/H)
-	visible_message(span_warning("[name] burrows into the flesh of [H]!") )
+	visible_message(span_warning("[name] burrows into the flesh of [H]!"))
 	var/mob/living/simple_animal/hostile/asteroid/hivelord/legion/L = make_legion(H)
-	visible_message(span_warning("[L] staggers to [L.ru_ego()] feet!") )
+	visible_message(span_warning("[L] staggers to [L.ru_ego()] feet!"))
 	H.death()
 	H.adjustBruteLoss(1000)
 	L.stored_mob = H

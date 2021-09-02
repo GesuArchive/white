@@ -20,7 +20,7 @@
 	if(QDELETED(src))
 		return
 	if(toggle)
-		visible_message(span_danger("The explosion glances off [src] energy shielding!") )
+		visible_message(span_danger("The explosion glances off [src] energy shielding!"))
 
 /mob/living/simple_animal/hostile/guardian/protector/adjustHealth(amount, updating_health = TRUE, forced = FALSE)
 	. = ..()
@@ -60,12 +60,12 @@
 			return
 		else
 			if(istype(summoner.loc, /obj/effect))
-				to_chat(src, span_holoparasite("You moved out of range, and were pulled back! You can only move [range] meters from [summoner.real_name]!") )
-				visible_message(span_danger("<b>[src.name]</b> jumps back to its user.") )
+				to_chat(src, span_holoparasite("You moved out of range, and were pulled back! You can only move [range] meters from [summoner.real_name]!"))
+				visible_message(span_danger("<b>[src.name]</b> jumps back to its user."))
 				Recall(TRUE)
 			else
-				to_chat(summoner, span_holoparasite("You moved out of range, and were pulled back! You can only move [range] meters from <font color=\"[guardiancolor]\"><b>[real_name]</b></font>!") )
-				summoner.visible_message(span_danger("\The [summoner] jumps back to [summoner.ru_ego()] protector.") )
+				to_chat(summoner, span_holoparasite("You moved out of range, and were pulled back! You can only move [range] meters from <font color=\"[guardiancolor]\"><b>[real_name]</b></font>!"))
+				summoner.visible_message(span_danger("\The [summoner] jumps back to [summoner.ru_ego()] protector."))
 				new /obj/effect/temp_visual/guardian/phase/out(get_turf(summoner))
 				summoner.forceMove(get_turf(src))
 				new /obj/effect/temp_visual/guardian/phase(get_turf(summoner))

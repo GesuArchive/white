@@ -29,7 +29,7 @@
 /obj/structure/closet/body_bag/attackby(obj/item/interact_tool, mob/user, params)
 	if (istype(interact_tool, /obj/item/pen) || istype(interact_tool, /obj/item/toy/crayon))
 		if(!user.is_literate())
-			to_chat(user, span_notice("Неразборчиво черкаю на [src]!") )
+			to_chat(user, span_notice("Неразборчиво черкаю на [src]!"))
 			return
 		var/t = stripped_input(user, "What would you like the label to be?", name, null, 53)
 		if(user.get_active_held_item() != interact_tool)
@@ -44,7 +44,7 @@
 			name = initial(name)
 		return
 	else if((interact_tool.tool_behaviour == TOOL_WIRECUTTER) && tagged)
-		to_chat(user, span_notice("Отрезаю бирку [src].") )
+		to_chat(user, span_notice("Отрезаю бирку [src]."))
 		name = "мешок для трупов"
 		tagged = FALSE
 		update_icon()
@@ -84,11 +84,11 @@
 	if(!istype(the_folder))
 		return
 	if(opened)
-		to_chat(the_folder, span_warning("Вы боретесь с [src], но он не хочет складываться пока открыт.") )
+		to_chat(the_folder, span_warning("Вы боретесь с [src], но он не хочет складываться пока открыт."))
 		return
 	for(var/content_thing in contents)
 		if(istype(content_thing, /mob) || istype(content_thing, /obj))
-			to_chat(the_folder, span_warning("Внутри [src] слишком много вещей, чтобы сложить его!") )
+			to_chat(the_folder, span_warning("Внутри [src] слишком много вещей, чтобы сложить его!"))
 			return
 	// toto we made it!
 	return TRUE
@@ -100,7 +100,7 @@
 		* * the_folder - over_object of MouseDrop aka usr
 		*/
 /obj/structure/closet/body_bag/proc/perform_fold(mob/living/carbon/human/the_folder)
-	visible_message(span_notice("[usr] складывает [src].") )
+	visible_message(span_notice("[usr] складывает [src]."))
 	var/obj/item/bodybag/B = foldedbag_instance || new foldedbag_path
 	the_folder.put_in_hands(B)
 
@@ -119,11 +119,11 @@
 	if(!istype(the_folder))
 		return
 	if(opened)
-		to_chat(the_folder, span_warning("Вы боретесь с [src], но он не хочет складываться пока открыт.") )
+		to_chat(the_folder, span_warning("Вы боретесь с [src], но он не хочет складываться пока открыт."))
 		return
 	//end copypaste zone
 	if(contents.len >= mob_storage_capacity / 2)
-		to_chat(usr, span_warning("Внутри [src] слишком много вещей, чтобы сложить его!") )
+		to_chat(usr, span_warning("Внутри [src] слишком много вещей, чтобы сложить его!"))
 		return
 	for(var/obj/item/bodybag/bluespace/B in src)
 		to_chat(usr, span_warning("Вы не можете складывать блюспейс мешки для трупов друг в друга")  )
@@ -131,14 +131,14 @@
 	return TRUE
 
 /obj/structure/closet/body_bag/bluespace/perform_fold(mob/living/carbon/human/the_folder)
-	visible_message(span_notice("[usr] складывает [src].") )
+	visible_message(span_notice("[usr] складывает [src]."))
 	var/obj/item/bodybag/B = foldedbag_instance || new foldedbag_path
 	var/max_weight_of_contents = initial(B.w_class)
 	for(var/am in contents)
 		var/atom/movable/content = am
 		content.forceMove(B)
 		if(isliving(content))
-			to_chat(content, span_userdanger("Вы внезапно оказались в крошечном, сжатом пространстве!") )
+			to_chat(content, span_userdanger("Вы внезапно оказались в крошечном, сжатом пространстве!"))
 		if(!isitem(content))
 			max_weight_of_contents = max(WEIGHT_CLASS_BULKY, max_weight_of_contents)
 			continue
@@ -190,7 +190,7 @@
 
 /obj/structure/closet/body_bag/environmental/prisoner/attempt_fold(mob/living/carbon/human/the_folder)
 	if(sinched)
-		to_chat(the_folder, span_warning("You wrestle with [src], but it won't fold while its straps are fastened.") )
+		to_chat(the_folder, span_warning("You wrestle with [src], but it won't fold while its straps are fastened."))
 	return ..()
 
 /obj/structure/closet/body_bag/environmental/prisoner/update_icon()
@@ -204,7 +204,7 @@
 	if(force)
 		return TRUE
 	if(sinched)
-		to_chat(user, span_danger("The buckles on [src] are sinched down, preventing it from opening.") )
+		to_chat(user, span_danger("The buckles on [src] are sinched down, preventing it from opening."))
 		return FALSE
 	. = ..()
 
@@ -241,17 +241,17 @@
 	user.last_special = world.time + CLICK_CD_BREAKOUT
 	user.visible_message(span_warning("Someone in [src] begins to wriggle!") , \
 		span_notice("You start wriggling, attempting to loosen [src]'s buckles... (this will take about [DisplayTimeText(breakout_time)].)") , \
-		span_hear("You hear straining cloth from [src].") )
+		span_hear("You hear straining cloth from [src]."))
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src || opened || !sinched )
 			return
 		//we check after a while whether there is a point of resisting anymore and whether the user is capable of resisting
 		user.visible_message(span_danger("[user] successfully broke out of [src]!") ,
-							span_notice("You successfully break out of [src]!") )
+							span_notice("You successfully break out of [src]!"))
 		bust_open()
 	else
 		if(user.loc == src) //so we don't get the message if we resisted multiple times and succeeded.
-			to_chat(user, span_warning("You fail to break out of [src]!") )
+			to_chat(user, span_warning("You fail to break out of [src]!"))
 
 
 /obj/structure/closet/body_bag/environmental/prisoner/bust_open()
@@ -269,14 +269,14 @@
 
 /obj/structure/closet/body_bag/environmental/prisoner/togglelock(mob/living/user, silent)
 	if(user in contents)
-		to_chat(user, span_warning("You can't reach the buckles from here!") )
+		to_chat(user, span_warning("You can't reach the buckles from here!"))
 		return
 	if(iscarbon(user))
 		add_fingerprint(user)
 	if(!sinched)
 		for(var/mob/living/target in contents)
-			to_chat(target, span_userdanger("You feel the lining of [src] tighten around you! Soon, you won't be able to escape!") )
-		user.visible_message(span_notice("You begin sinching down the buckles on [src].") )
+			to_chat(target, span_userdanger("You feel the lining of [src] tighten around you! Soon, you won't be able to escape!"))
+		user.visible_message(span_notice("You begin sinching down the buckles on [src]."))
 		if(!(do_after(user,(sinch_time),target = src)))
 			return
 	sinched = !sinched
@@ -284,7 +284,7 @@
 		playsound(loc, sinch_sound, 15, TRUE, -2)
 	user.visible_message(span_notice("[user] [sinched ? null : "un"]sinches [src].") ,
 							span_notice("You [sinched ? null : "un"]sinch [src].") ,
-							span_hear("You hear stretching followed by metal clicking from [src].") )
+							span_hear("You hear stretching followed by metal clicking from [src]."))
 	log_game("[key_name(user)] [sinched ? "sinched":"unsinched"] secure environmental bag [src] at [AREACOORD(src)]")
 	update_icon()
 
@@ -340,4 +340,4 @@
 	. = ..()
 	if(sinched)
 		for(var/mob/living/target in contents)
-			to_chat(target, span_warning("You hear a faint hiss, and a white mist fills your vision...") )
+			to_chat(target, span_warning("You hear a faint hiss, and a white mist fills your vision..."))

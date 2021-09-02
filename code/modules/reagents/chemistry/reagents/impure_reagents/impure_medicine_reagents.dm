@@ -64,7 +64,7 @@
 
 //Warns you about the impenting hands
 /datum/reagent/inverse/helgrasp/on_mob_add(mob/living/L, amount)
-	to_chat(L, span_hierophant("You hear laughter as malevolent hands apparate before you, eager to drag you down to hell...! Look out!") )
+	to_chat(L, span_hierophant("You hear laughter as malevolent hands apparate before you, eager to drag you down to hell...! Look out!"))
 	playsound(L.loc, 'sound/chemistry/ahaha.ogg', 80, TRUE, -1) //Very obvious tell so people can be ready
 	. = ..()
 
@@ -207,7 +207,7 @@
 /datum/reagent/inverse/ichiyuri/on_mob_life(mob/living/carbon/owner, delta_time, times_fired)
 	if(prob(resetting_probability) && !(HAS_TRAIT(owner, TRAIT_RESTRAINED) || owner.incapacitated()))
 		if(spammer < world.time)
-			to_chat(owner,span_warning("You can't help but itch yourself.") )
+			to_chat(owner,span_warning("You can't help but itch yourself."))
 			spammer = world.time + (10 SECONDS)
 		var/scab = rand(1,7)
 		owner.adjustBruteLoss(scab*REM)
@@ -317,7 +317,7 @@
 
 /datum/reagent/inverse/healing/tirimol/on_mob_delete(mob/living/owner)
 	if(owner.IsSleeping())
-		owner.visible_message(span_notice("[icon2html(owner, viewers(DEFAULT_MESSAGE_RANGE, src))] [owner] lets out a hearty snore!") )//small way of letting people know the supersnooze is ended
+		owner.visible_message(span_notice("[icon2html(owner, viewers(DEFAULT_MESSAGE_RANGE, src))] [owner] lets out a hearty snore!"))//small way of letting people know the supersnooze is ended
 	for(var/datum/reagent/reagent as anything in cached_reagent_list)
 		if(!reagent)
 			continue
@@ -532,7 +532,7 @@
 	if(owner.health < -500 || heart.organ_flags & ORGAN_FAILING)//Honestly commendable if you get -500
 		explosion(owner, 0, 0, 1)
 		qdel(heart)
-		owner.visible_message(span_boldwarning("[owner]'s heart explodes!") )
+		owner.visible_message(span_boldwarning("[owner]'s heart explodes!"))
 	return ..()
 
 /datum/reagent/inverse/penthrite/overdose_start(mob/living/carbon/owner)
@@ -545,7 +545,7 @@
 		return ..()
 	explosion(owner, 0, 0, 1)
 	qdel(heart)
-	owner.visible_message(span_boldwarning("[owner]'s heart explodes!") )
+	owner.visible_message(span_boldwarning("[owner]'s heart explodes!"))
 	return..()
 
 /datum/reagent/inverse/penthrite/proc/remove_buffs(mob/living/carbon/owner)

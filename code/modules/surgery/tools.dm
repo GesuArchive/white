@@ -80,11 +80,11 @@
 	playsound(get_turf(user), 'sound/weapons/tap.ogg', 50, TRUE)
 	if(tool_behaviour == TOOL_CAUTERY)
 		tool_behaviour = TOOL_DRILL
-		to_chat(user, span_notice("Ставлю линзы инструмента на место, теперь он может сверлить кости.") )
+		to_chat(user, span_notice("Ставлю линзы инструмента на место, теперь он может сверлить кости."))
 		icon_state = "surgicaldrill_a"
 	else
 		tool_behaviour = TOOL_CAUTERY
-		to_chat(user, span_notice("Фокусирую линзы инструмента, теперь он может прижигать раны.") )
+		to_chat(user, span_notice("Фокусирую линзы инструмента, теперь он может прижигать раны."))
 		icon_state = "cautery_a"
 
 /obj/item/cautery/advanced/examine()
@@ -117,7 +117,7 @@
 	AddElement(/datum/element/eyestab)
 
 /obj/item/surgicaldrill/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] rams [src] into [user.ru_ego()] chest! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] rams [src] into [user.ru_ego()] chest! It looks like [user.p_theyre()] trying to commit suicide!"))
 	addtimer(CALLBACK(user, /mob/living/carbon.proc/gib, null, null, TRUE, TRUE), 25)
 	user.SpinAnimation(3, 10)
 	playsound(user, 'sound/machines/juicer.ogg', 20, TRUE)
@@ -165,7 +165,7 @@
 	toolspeed = 0.5
 
 /obj/item/scalpel/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is slitting [user.ru_ego()] [pick("wrists", "throat", "stomach")] with [src]! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] is slitting [user.ru_ego()] [pick("wrists", "throat", "stomach")] with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return (BRUTELOSS)
 
 
@@ -232,13 +232,13 @@
 	if(!proximity)
 		return
 	if(contents.len)
-		to_chat(user, span_warning("[capitalize(src.name)] уже что-то хранит!") )
+		to_chat(user, span_warning("[capitalize(src.name)] уже что-то хранит!"))
 		return
 	if(!isorgan(I) && !isbodypart(I))
-		to_chat(user, span_warning("[capitalize(src.name)] может содержать только части тела!") )
+		to_chat(user, span_warning("[capitalize(src.name)] может содержать только части тела!"))
 		return
 
-	user.visible_message(span_notice("[user] кладёт [I] внутрь [src].") , span_notice("Кладу [I] внутрь [src].") )
+	user.visible_message(span_notice("[user] кладёт [I] внутрь [src].") , span_notice("Кладу [I] внутрь [src]."))
 	icon_state = "evidence"
 	var/xx = I.pixel_x
 	var/yy = I.pixel_y
@@ -257,13 +257,13 @@
 /obj/item/organ_storage/attack_self(mob/user)
 	if(contents.len)
 		var/obj/item/I = contents[1]
-		user.visible_message(span_notice("[user] вытряхивает [I] из [src].") , span_notice("Вытряхиваю [I] из [src].") )
+		user.visible_message(span_notice("[user] вытряхивает [I] из [src].") , span_notice("Вытряхиваю [I] из [src]."))
 		cut_overlays()
 		I.forceMove(get_turf(src))
 		icon_state = "evidenceobj"
 		desc = "Контейнер для хранения частей тела."
 	else
-		to_chat(user, span_notice("[capitalize(src.name)] пуст.") )
+		to_chat(user, span_notice("[capitalize(src.name)] пуст."))
 	return
 
 /obj/item/surgical_processor //allows medical cyborgs to scan and initiate advanced surgeries
@@ -279,13 +279,13 @@
 	if(!proximity)
 		return
 	if(istype(O, /obj/item/disk/surgery))
-		to_chat(user, span_notice("Загружаю хирургический протокол из [O] в [src].") )
+		to_chat(user, span_notice("Загружаю хирургический протокол из [O] в [src]."))
 		var/obj/item/disk/surgery/D = O
 		if(do_after(user, 10, target = O))
 			advanced_surgeries |= D.surgeries
 		return TRUE
 	if(istype(O, /obj/machinery/computer/operating))
-		to_chat(user, span_notice("Копирую хирургический протокол из [O] в [src].") )
+		to_chat(user, span_notice("Копирую хирургический протокол из [O] в [src]."))
 		var/obj/machinery/computer/operating/OC = O
 		if(do_after(user, 10, target = O))
 			advanced_surgeries |= OC.advanced_surgeries
@@ -310,13 +310,13 @@
 	playsound(get_turf(user), 'sound/machines/click.ogg', 50, TRUE)
 	if(tool_behaviour == TOOL_SCALPEL)
 		tool_behaviour = TOOL_SAW
-		to_chat(user, span_notice("Увеличиваю мощность [src]. Теперь он может резать кости.") )
+		to_chat(user, span_notice("Увеличиваю мощность [src]. Теперь он может резать кости."))
 		set_light_range(2)
 		force += 1 //we don't want to ruin sharpened stuff
 		icon_state = "saw_a"
 	else
 		tool_behaviour = TOOL_SCALPEL
-		to_chat(user, span_notice("Уменьшаю мощность [src]. Теперь он не может резать кости.") )
+		to_chat(user, span_notice("Уменьшаю мощность [src]. Теперь он не может резать кости."))
 		set_light_range(1)
 		force -= 1
 		icon_state = "scalpel_a"
@@ -336,11 +336,11 @@
 	playsound(get_turf(user), 'sound/items/change_drill.ogg', 50, TRUE)
 	if(tool_behaviour == TOOL_RETRACTOR)
 		tool_behaviour = TOOL_HEMOSTAT
-		to_chat(user, span_notice("Настраиваю шестерни [src], теперь они в режиме зажима.") )
+		to_chat(user, span_notice("Настраиваю шестерни [src], теперь они в режиме зажима."))
 		icon_state = "hemostat_a"
 	else
 		tool_behaviour = TOOL_RETRACTOR
-		to_chat(user, span_notice("Настраиваю шестерни [src], теперь они в режиме расширителя.") )
+		to_chat(user, span_notice("Настраиваю шестерни [src], теперь они в режиме расширителя."))
 		icon_state = "retractor_a"
 
 /obj/item/retractor/advanced/examine()
@@ -376,7 +376,7 @@
 	var/mob/living/carbon/patient = M
 
 	if(HAS_TRAIT(patient, TRAIT_NODISMEMBER))
-		to_chat(user, span_warning("Конечности пациента выглядят слишком крепкими для ампутации.") )
+		to_chat(user, span_warning("Конечности пациента выглядят слишком крепкими для ампутации."))
 		return
 
 	var/candidate_name
@@ -386,20 +386,20 @@
 	if(user.zone_selected == BODY_ZONE_PRECISE_GROIN)
 		tail_snip_candidate = patient.getorganslot(ORGAN_SLOT_TAIL)
 		if(!tail_snip_candidate)
-			to_chat(user, span_warning("[patient] не имеет хвоста.") )
+			to_chat(user, span_warning("[patient] не имеет хвоста."))
 			return
 		candidate_name = tail_snip_candidate.name
 
 	else
 		limb_snip_candidate = patient.get_bodypart(check_zone(user.zone_selected))
 		if(!limb_snip_candidate)
-			to_chat(user, span_warning("[patient] не имеет здесь конечности.") )
+			to_chat(user, span_warning("[patient] не имеет здесь конечности."))
 			return
 		candidate_name = limb_snip_candidate.name
 
 	var/amputation_speed_mod
 
-	patient.visible_message(span_danger("[user] начинает устанавливать [src] вокруг [candidate_name] [patient].") , span_userdanger("[user] начинает закреплять [src] вокруг моей [candidate_name]!") )
+	patient.visible_message(span_danger("[user] начинает устанавливать [src] вокруг [candidate_name] [patient].") , span_userdanger("[user] начинает закреплять [src] вокруг моей [candidate_name]!"))
 	playsound(get_turf(patient), 'sound/items/ratchet.ogg', 20, TRUE)
 	if(patient.stat >= UNCONSCIOUS || patient.IsStun()) //Stun is used by paralytics like curare it should not be confused with the more common paralyze.
 		amputation_speed_mod = 0.5
@@ -415,10 +415,10 @@
 			tail_snip_candidate.forceMove(get_turf(patient))
 		else
 			limb_snip_candidate.dismember()
-		user.visible_message(span_danger("[capitalize(src.name)] яростно захлопывается, ампутируя [candidate_name] [patient].") , span_notice("Ампутирую [candidate_name] [patient] используя [src].") )
+		user.visible_message(span_danger("[capitalize(src.name)] яростно захлопывается, ампутируя [candidate_name] [patient].") , span_notice("Ампутирую [candidate_name] [patient] используя [src]."))
 
 /obj/item/shears/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] is pinching [user.p_them()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] is pinching [user.p_them()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
 	var/timer = 1 SECONDS
 	for(var/obj/item/bodypart/thing in user.bodyparts)
 		if(thing.body_part == CHEST)

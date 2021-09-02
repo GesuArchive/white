@@ -30,7 +30,7 @@
 /obj/item/organ/ears/on_life(delta_time, times_fired)
 	// only inform when things got worse, needs to happen before we heal
 	if((damage > low_threshold && prev_damage < low_threshold) || (damage > high_threshold && prev_damage < high_threshold))
-		to_chat(owner, span_warning("Звон в ушах становится громче, на мгновение заглушая любые внешние шумы.") )
+		to_chat(owner, span_warning("Звон в ушах становится громче, на мгновение заглушая любые внешние шумы."))
 
 	. = ..()
 	// if we have non-damage related deafness like mutations, quirks or clothing (earmuffs), don't bother processing here. Ear healing from earmuffs or chems happen elsewhere
@@ -88,13 +88,13 @@
 /obj/item/organ/ears/penguin/Insert(mob/living/carbon/human/H, special = 0, drop_if_replaced = TRUE)
 	. = ..()
 	if(istype(H))
-		to_chat(H, span_notice("Похоже я теряю умение балансировать на ногах!") )
+		to_chat(H, span_notice("Похоже я теряю умение балансировать на ногах!"))
 		H.AddElement(/datum/element/waddling)
 
 /obj/item/organ/ears/penguin/Remove(mob/living/carbon/human/H,  special = 0)
 	. = ..()
 	if(istype(H))
-		to_chat(H, span_notice("Кажется меня больше не шатает.") )
+		to_chat(H, span_notice("Кажется меня больше не шатает."))
 		H.RemoveElement(/datum/element/waddling)
 
 /obj/item/organ/ears/bronze

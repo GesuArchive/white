@@ -323,7 +323,7 @@
 	//сука?
 	//if (!user.find_tool_in_hand(TOOL_PULSING))
 	if (user.held_items[user.active_hand_index].tool_behaviour != TOOL_MULTITOOL)
-		to_chat(user, span_alert("[MECHFAILSTRING]") )
+		to_chat(user, span_alert("[MECHFAILSTRING]"))
 		return
 
 	//что-то про кабинеты для мехкомпа. нахуй.
@@ -337,12 +337,12 @@
 			cabinet = A.loc
 		if(cabinet)
 			if(!cabinet.anchored)
-				to_chat(user,span_alert("Cannot create connection through an unsecured component housing") )
+				to_chat(user,span_alert("Cannot create connection through an unsecured component housing"))
 				return
 	*/
 
 	if(get_dist(parent, over) > 15)
-		to_chat(user, span_alert("Components need to be within a range of 14 meters to connect.") )
+		to_chat(user, span_alert("Components need to be within a range of 14 meters to connect."))
 		return
 
 	to_chat(user, "assblast")
@@ -373,10 +373,10 @@
 
 	var/atom/receiver = parent
 	if(trigger in src.connected_outgoing)
-		to_chat(user, span_alert("Can not create a direct loop between 2 components.") )
+		to_chat(user, span_alert("Can not create a direct loop between 2 components."))
 		return
 	if(!src.inputs.len)
-		to_chat(user, span_alert("[receiver.name] has no input slots. Can not connect [trigger.name] as Trigger.") )
+		to_chat(user, span_alert("[receiver.name] has no input slots. Can not connect [trigger.name] as Trigger."))
 		return
 
 	var/pointer_container[1] //A list of size 1, to store the address of the list we want
@@ -388,7 +388,7 @@
 	trg_outgoing |= receiver //Let's not allow making many of the same connection.
 	trg_outgoing[receiver] = selected_input
 	src.connected_incoming |= trigger //Let's not allow making many of the same connection.
-	to_chat(user, span_success("You connect the [trigger.name] to the [receiver.name].") )
+	to_chat(user, span_success("You connect the [trigger.name] to the [receiver.name]."))
 	//logTheThing("station", user, null, "connects a <b>[trigger.name]</b> to a <b>[receiver.name]</b>.")
 	SEND_SIGNAL(trigger,_COMSIG_MECHCOMP_DISPATCH_ADD_FILTER, receiver, user)
 	return
@@ -439,7 +439,7 @@
 					WipeConnections()
 					if(istype(parent, /atom))
 						var/atom/AP = parent
-						to_chat(user, span_notice("You disconnect [AP.name].") )
+						to_chat(user, span_notice("You disconnect [AP.name]."))
 				else
 					//must be a custom config specific to the device, so let the device handle it
 					var/path = src.configs[selected_config]

@@ -18,7 +18,7 @@
 	..()
 
 /obj/item/organ/heart/gland/slime/activate()
-	to_chat(owner, span_warning("Меня тошнит!") )
+	to_chat(owner, span_warning("Меня тошнит!"))
 	owner.vomit(20)
 
 	var/mob/living/simple_animal/slime/Slime = new(get_turf(owner), "grey")

@@ -80,22 +80,22 @@
 
 /obj/structure/falsewall/attackby(obj/item/W, mob/user, params)
 	if(opening)
-		to_chat(user, span_warning("НАДО ПОДОЖДАТЬ!") )
+		to_chat(user, span_warning("НАДО ПОДОЖДАТЬ!"))
 		return
 
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
 		if(density)
 			var/turf/T = get_turf(src)
 			if(T.density)
-				to_chat(user, span_warning("[src.name] заблокирована!") )
+				to_chat(user, span_warning("[src.name] заблокирована!"))
 				return
 			if(!isfloorturf(T))
-				to_chat(user, span_warning("[src.name] не ощущает пола под собой!") )
+				to_chat(user, span_warning("[src.name] не ощущает пола под собой!"))
 				return
-			user.visible_message(span_notice("[user] затягивает болты стены.") , span_notice("Затягиваю болты стены.") )
+			user.visible_message(span_notice("[user] затягивает болты стены.") , span_notice("Затягиваю болты стены."))
 			ChangeToWall()
 		else
-			to_chat(user, span_warning("Не могу достать до болтов! Закрыть бы её!") )
+			to_chat(user, span_warning("Не могу достать до болтов! Закрыть бы её!"))
 
 	else if(W.tool_behaviour == TOOL_WELDER)
 		if(W.use_tool(src, user, 0, volume=50))
@@ -104,7 +104,7 @@
 		return ..()
 
 /obj/structure/falsewall/proc/dismantle(mob/user, disassembled=TRUE, obj/item/tool = null)
-	user.visible_message(span_notice("[user] dismantles the false wall.") , span_notice("You dismantle the false wall.") )
+	user.visible_message(span_notice("[user] dismantles the false wall.") , span_notice("You dismantle the false wall."))
 	if(tool)
 		tool.play_tool_sound(src, 100)
 	else
@@ -124,7 +124,7 @@
 	return null
 
 /obj/structure/falsewall/examine_status(mob/user) //So you can't detect falsewalls by examine.
-	to_chat(user, span_notice("Внешнее покрытие <b>приварено</b> крепко.") )
+	to_chat(user, span_notice("Внешнее покрытие <b>приварено</b> крепко."))
 	return null
 
 /*
@@ -142,7 +142,7 @@
 	smoothing_flags = SMOOTH_BITMASK
 
 /obj/structure/falsewall/reinforced/examine_status(mob/user)
-	to_chat(user, span_notice("Внешняя <b>решетка</b> цела.") )
+	to_chat(user, span_notice("Внешняя <b>решетка</b> цела."))
 	return null
 
 /obj/structure/falsewall/reinforced/attackby(obj/item/tool, mob/user)

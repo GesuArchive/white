@@ -125,7 +125,7 @@
 			ui_interact(user)
 			return
 		else
-			to_chat(user, span_notice("The portable chemical mixer is currently open and its contents can be accessed.") )
+			to_chat(user, span_notice("The portable chemical mixer is currently open and its contents can be accessed."))
 			return
 	return
 

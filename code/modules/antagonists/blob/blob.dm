@@ -21,7 +21,7 @@
 
 /datum/antagonist/blob/greet()
 	if(!isovermind(owner.current))
-		to_chat(owner,span_userdanger("You feel bloated.") )
+		to_chat(owner,span_userdanger("You feel bloated."))
 
 /datum/antagonist/blob/on_gain()
 	create_objectives()

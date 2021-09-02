@@ -270,11 +270,11 @@
 	. = ..()
 	if(usr != owner)
 		return
-	to_chat(owner, span_notice("Пытаюсь снять прядь дюраткани с моей шеи.") )
+	to_chat(owner, span_notice("Пытаюсь снять прядь дюраткани с моей шеи."))
 	if(do_after(owner, 3.5 SECONDS, owner))
 		if(isliving(owner))
 			var/mob/living/L = owner
-			to_chat(owner, span_notice("Успешно удаляю прядь дюраткани.") )
+			to_chat(owner, span_notice("Успешно удаляю прядь дюраткани."))
 			L.remove_status_effect(STATUS_EFFECT_CHOKINGSTRAND)
 
 //OTHER DEBUFFS
@@ -638,7 +638,7 @@
 	ADD_TRAIT(owner, TRAIT_PACIFISM, "gonbolaPacify")
 	ADD_TRAIT(owner, TRAIT_MUTE, "gonbolaMute")
 	ADD_TRAIT(owner, TRAIT_JOLLY, "gonbolaJolly")
-	to_chat(owner, span_notice("Внезапно чувствую покой и отпала необходимость совершать внезапные или опрометчивые действия...") )
+	to_chat(owner, span_notice("Внезапно чувствую покой и отпала необходимость совершать внезапные или опрометчивые действия..."))
 	return ..()
 
 /datum/status_effect/gonbola_pacify/on_remove()
@@ -672,7 +672,7 @@
 	ADD_TRAIT(owner, TRAIT_MUTE, "trance")
 	owner.add_client_colour(/datum/client_colour/monochrome/trance)
 	owner.visible_message("[stun ? span_warning("[owner] стоит смирно и пялится на точку в далеке.")  : ""]", \
-	span_warning("[pick("Чувствую, что мои мысли замедлились....", "У меня кружится голова....", "У меня такое чувство, что я в середине сна....","Чувствую себя невероятно расслаблено...")]") )
+	span_warning("[pick("Чувствую, что мои мысли замедлились....", "У меня кружится голова....", "У меня такое чувство, что я в середине сна....","Чувствую себя невероятно расслаблено...")]"))
 	return TRUE
 
 /datum/status_effect/trance/on_creation(mob/living/new_owner, _duration, _stun = TRUE)
@@ -685,7 +685,7 @@
 	REMOVE_TRAIT(owner, TRAIT_MUTE, "trance")
 	owner.dizziness = 0
 	owner.remove_client_colour(/datum/client_colour/monochrome/trance)
-	to_chat(owner, span_warning("Выхожу из своего транса!") )
+	to_chat(owner, span_warning("Выхожу из своего транса!"))
 
 /datum/status_effect/trance/proc/hypnotize(datum/source, list/hearing_args)
 	SIGNAL_HANDLER
@@ -710,14 +710,14 @@
 		switch(rand(1,5))
 			if(1)
 				if((owner.mobility_flags & MOBILITY_MOVE) && isturf(owner.loc))
-					to_chat(owner, span_warning("Мою ногу схватила судорога!") )
+					to_chat(owner, span_warning("Мою ногу схватила судорога!"))
 					step(owner, pick(GLOB.cardinals))
 			if(2)
 				if(owner.incapacitated())
 					return
 				var/obj/item/I = owner.get_active_held_item()
 				if(I)
-					to_chat(owner, span_warning("Мой палец схватила судорога!") )
+					to_chat(owner, span_warning("Мой палец схватила судорога!"))
 					owner.log_message("used [I] due to a Muscle Spasm", LOG_ATTACK)
 					I.attack_self(owner)
 			if(3)
@@ -733,14 +733,14 @@
 					if(isliving(M))
 						targets += M
 				if(LAZYLEN(targets))
-					to_chat(owner, span_warning("Мою руку схватила судорога!") )
+					to_chat(owner, span_warning("Мою руку схватила судорога!"))
 					owner.log_message(" attacked someone due to a Muscle Spasm", LOG_ATTACK) //the following attack will log itself
 					owner.ClickOn(pick(targets))
 				owner.a_intent = prev_intent
 			if(4)
 				var/prev_intent = owner.a_intent
 				owner.a_intent = INTENT_HARM
-				to_chat(owner, span_warning("Мою руку схватила судорога!") )
+				to_chat(owner, span_warning("Мою руку схватила судорога!"))
 				owner.log_message("attacked [owner.ru_na()]self to a Muscle Spasm", LOG_ATTACK)
 				owner.ClickOn(owner)
 				owner.a_intent = prev_intent
@@ -752,7 +752,7 @@
 				for(var/turf/T in oview(owner, 3))
 					targets += T
 				if(LAZYLEN(targets) && I)
-					to_chat(owner, span_warning("Мою руку схватила судорога!") )
+					to_chat(owner, span_warning("Мою руку схватила судорога!"))
 					owner.log_message("threw [I] due to a Muscle Spasm", LOG_ATTACK)
 					owner.throw_item(pick(targets))
 
@@ -764,14 +764,14 @@
 
 /datum/status_effect/convulsing/on_creation(mob/living/zappy_boy)
 	. = ..()
-	to_chat(zappy_boy, span_boldwarning("Чувствую шок, движущийся по моему телу! Мои руки начинают дрожать!") )
+	to_chat(zappy_boy, span_boldwarning("Чувствую шок, движущийся по моему телу! Мои руки начинают дрожать!"))
 
 /datum/status_effect/convulsing/tick()
 	var/mob/living/carbon/H = owner
 	if(prob(40))
 		var/obj/item/I = H.get_active_held_item()
 		if(I && H.dropItemToGround(I))
-			H.visible_message(span_notice("Рука [H] дёргается и случайно выбрасывает [sklonenie(I.name, VINITELNI, I.gender)]!") ,span_userdanger("Моя рука внезапно дёргается и из неё выпадает то, что я держу!") )
+			H.visible_message(span_notice("Рука [H] дёргается и случайно выбрасывает [sklonenie(I.name, VINITELNI, I.gender)]!") ,span_userdanger("Моя рука внезапно дёргается и из неё выпадает то, что я держу!"))
 			H.jitteriness += 5
 
 /atom/movable/screen/alert/status_effect/convulsing
@@ -788,7 +788,7 @@
 
 /datum/status_effect/dna_melt/on_creation(mob/living/new_owner, set_duration)
 	. = ..()
-	to_chat(new_owner, span_boldwarning("Мое тело не выдержит больше мутаций! Мне нужно, чтобы мои мутации были быстро удалены!") )
+	to_chat(new_owner, span_boldwarning("Мое тело не выдержит больше мутаций! Мне нужно, чтобы мои мутации были быстро удалены!"))
 
 /datum/status_effect/dna_melt/on_remove()
 	if(!ishuman(owner))
@@ -838,7 +838,7 @@
 	if(owner.m_intent == MOVE_INTENT_RUN)
 		owner.toggle_move_intent(owner)
 		running_toggled = TRUE
-		to_chat(owner, span_warning("You know you shouldn't be running here...") )
+		to_chat(owner, span_warning("You know you shouldn't be running here..."))
 	owner.add_movespeed_modifier(/datum/movespeed_modifier/interdiction)
 
 /datum/movespeed_modifier/interdiction
@@ -874,20 +874,20 @@
 				span_warning("[pick("У меня кружится голова.", "Перед глазами всё вращается.")]") ,
 				"<span notice='warning'>[pick("Сглатываю излишки слизи.", "Я слегка покашливаю.")]</span>",
 				span_warning("[pick("Голова болит.", "Мой разум на мгновение остался пустым.")]") ,
-				span_warning("[pick("Горло болит.", "Прочищаю своё горло.")]") )
+				span_warning("[pick("Горло болит.", "Прочищаю своё горло.")]"))
 		if(301 to 600)
 			if(prob(2))
 				fake_msg = pick(span_warning("[pick("Моя голова сильно болит.", "Моя голова постоянно разрывается.")]") ,
 				span_warning("[pick("Моё дыхательное горлышко похоже на соломинку.", "Дышать невероятно сложно.")]") ,
 				span_warning("Чувствую себя очень [pick("плохо","дурно","слабо")].") ,
 				span_warning("[pick("Слышу звон в ушах.", "В ушах стреляет.")]") ,
-				span_warning("Засыпаю на мгновение.") )
+				span_warning("Засыпаю на мгновение."))
 		else
 			if(prob(3))
 				if(prob(50))// coin flip to throw a message or an emote
 					fake_msg = pick(span_userdanger("[pick("Голова болит!", "Чувствую горящий нож в моём мозгу!", "Волна боли заполняет мою голову!")]") ,
 					span_userdanger("[pick("В груди очень сильно болит!", "Больно дышать!")]") ,
-					span_warning("[pick("Меня тошнит.", "Меня сейчас вырвет!")]") )
+					span_warning("[pick("Меня тошнит.", "Меня сейчас вырвет!")]"))
 				else
 					fake_emote = pick("cough", "sniff", "sneeze")
 
@@ -906,7 +906,7 @@
 
 /datum/status_effect/corrosion_curse/on_creation(mob/living/new_owner, ...)
 	. = ..()
-	to_chat(owner, span_danger("Your feel your body starting to break apart...") )
+	to_chat(owner, span_danger("Your feel your body starting to break apart..."))
 
 /datum/status_effect/corrosion_curse/tick()
 	. = ..()
@@ -945,7 +945,7 @@
 
 /datum/status_effect/amok/on_apply(mob/living/afflicted)
 	. = ..()
-	to_chat(owner, span_boldwarning("You feel filled with a rage that is not your own!") )
+	to_chat(owner, span_boldwarning("You feel filled with a rage that is not your own!"))
 
 /datum/status_effect/amok/tick()
 	. = ..()
@@ -1008,7 +1008,7 @@
 
 /datum/status_effect/ants/on_creation(mob/living/new_owner, amount_left)
 	if(isnum(amount_left))
-		to_chat(new_owner, span_userdanger("You're covered in ants!") )
+		to_chat(new_owner, span_userdanger("You're covered in ants!"))
 		ants_remaining += amount_left
 	. = ..()
 
@@ -1016,7 +1016,7 @@
 	var/mob/living/carbon/human/victim = owner
 	if(isnum(amount_left) && ants_remaining >= 1)
 		if(!prob(1)) // 99%
-			to_chat(victim, span_userdanger("You're covered in MORE ants!") )
+			to_chat(victim, span_userdanger("You're covered in MORE ants!"))
 		else // 1%
 			victim.say("AAHH! THIS SITUATION HAS ONLY BEEN MADE WORSE WITH THE ADDITION OF YET MORE ANTS!!", forced = /datum/status_effect/ants)
 		ants_remaining += amount_left
@@ -1024,7 +1024,7 @@
 
 /datum/status_effect/ants/on_remove()
 	ants_remaining = 0
-	to_chat(owner, span_notice("All of the ants are off of your body!") )
+	to_chat(owner, span_notice("All of the ants are off of your body!"))
 	UnregisterSignal(owner, COMSIG_COMPONENT_CLEAN_ACT, .proc/ants_washed)
 	. = ..()
 
@@ -1047,18 +1047,18 @@
 			switch(rand(1,50))
 				if (1 to 8) //16% Chance
 					var/obj/item/bodypart/head/hed = victim.get_bodypart(BODY_ZONE_HEAD)
-					to_chat(victim, span_danger("You scratch at the ants on your scalp!.") )
+					to_chat(victim, span_danger("You scratch at the ants on your scalp!."))
 					hed.receive_damage(0.1,0)
 				if (9 to 29) //40% chance
 					var/obj/item/bodypart/arm = victim.get_bodypart(pick(BODY_ZONE_L_ARM,BODY_ZONE_R_ARM))
-					to_chat(victim, span_danger("You scratch at the ants on your arms!") )
+					to_chat(victim, span_danger("You scratch at the ants on your arms!"))
 					arm.receive_damage(0.1,0)
 				if (30 to 49) //38% chance
 					var/obj/item/bodypart/leg = victim.get_bodypart(pick(BODY_ZONE_L_LEG,BODY_ZONE_R_LEG))
-					to_chat(victim, span_danger("You scratch at the ants on your leg!") )
+					to_chat(victim, span_danger("You scratch at the ants on your leg!"))
 					leg.receive_damage(0.1,0)
 				if(50) // 2% chance
-					to_chat(victim, span_danger("You rub some ants away from your eyes!") )
+					to_chat(victim, span_danger("You rub some ants away from your eyes!"))
 					victim.blur_eyes(3)
 					ants_remaining -= 5 // To balance out the blindness, it'll be a little shorter.
 	ants_remaining--
@@ -1074,11 +1074,11 @@
 	var/mob/living/living = owner
 	if(!istype(living) || !living.can_resist() || living != owner)
 		return
-	to_chat(living, span_notice("You start to shake the ants off!") )
+	to_chat(living, span_notice("You start to shake the ants off!"))
 	if(!do_after(living, 2 SECONDS, target = living))
 		return
 	for (var/datum/status_effect/ants/ant_covered in living.status_effects)
-		to_chat(living, span_notice("You manage to get some of the ants off!") )
+		to_chat(living, span_notice("You manage to get some of the ants off!"))
 		ant_covered.ants_remaining -= 10 // 5 Times more ants removed per second than just waiting in place
 
 /datum/status_effect/ghoul

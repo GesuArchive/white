@@ -126,7 +126,7 @@
 	s.start()
 	target.visible_message(span_danger("[target.name] поражен [src]!") , \
 		span_userdanger("Мощный удар отправляет меня в полет!") , \
-		span_hear("Слышу громкий электрический треск!") )
+		span_hear("Слышу громкий электрический треск!"))
 	var/atom/throw_target = get_edge_target_turf(target, get_dir(src, get_step_away(target, src)))
 	target.throw_at(throw_target, 200, 4)
 	return

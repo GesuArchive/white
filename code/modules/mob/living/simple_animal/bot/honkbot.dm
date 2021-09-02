@@ -135,9 +135,9 @@ Status: []<BR>
 	..()
 	if(emagged == 2)
 		if(user)
-			to_chat(user, span_danger("Взламываю звуковую систему [src.name]. Он начинает злобно смеяться.") )
+			to_chat(user, span_danger("Взламываю звуковую систему [src.name]. Он начинает злобно смеяться."))
 			oldtarget_name = user.name
-		audible_message(span_danger("[capitalize(src.name)] смётся по-злодейски!") )
+		audible_message(span_danger("[capitalize(src.name)] смётся по-злодейски!"))
 		playsound(src, 'sound/machines/honkbot_evil_laugh.ogg', 75, TRUE, -1) // evil laughter
 		update_icon()
 
@@ -221,7 +221,7 @@ Status: []<BR>
 			log_combat(src,C,"honked")
 
 			C.visible_message(span_danger("[capitalize(src.name)] хонкает [C]!") ,\
-					span_userdanger("[capitalize(src.name)] хонкает меня!") )
+					span_userdanger("[capitalize(src.name)] хонкает меня!"))
 		else
 			C.stuttering = 20
 			C.Paralyze(80)
@@ -333,7 +333,7 @@ Status: []<BR>
 /mob/living/simple_animal/bot/honkbot/explode()
 
 	walk_to(src,0)
-	visible_message(span_boldannounce("[capitalize(src.name)] взрывается!") )
+	visible_message(span_boldannounce("[capitalize(src.name)] взрывается!"))
 	var/atom/Tsec = drop_location()
 	//doesn't drop cardboard nor its assembly, since its a very frail material.
 	if(prob(50))

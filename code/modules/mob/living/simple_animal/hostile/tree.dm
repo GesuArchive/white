@@ -70,7 +70,7 @@
 		if(prob(15))
 			C.Paralyze(60)
 			C.visible_message(span_danger("<b>[src.name]</b> knocks down [C]!") , \
-					span_userdanger("<b>[src.name]</b> knocks you down!") )
+					span_userdanger("<b>[src.name]</b> knocks you down!"))
 
 /mob/living/simple_animal/hostile/tree/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_PINE, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
@@ -96,7 +96,7 @@
 /mob/living/simple_animal/hostile/tree/festivus/attack_hand(mob/living/carbon/human/M)
 	. = ..()
 	if(M.a_intent == "help")
-		visible_message(span_warning("[capitalize(src.name)] crackles with static electricity!") )
+		visible_message(span_warning("[capitalize(src.name)] crackles with static electricity!"))
 		for(var/obj/item/stock_parts/cell/C in range(2, get_turf(src)))
 			C.give(75)
 		for(var/mob/living/silicon/robot/R in range(2, get_turf(src)))

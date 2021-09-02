@@ -21,7 +21,7 @@
 	// Must be Dark
 	var/turf/T = owner.loc
 	if(istype(T) && T.get_lumcount() > light_min)
-		to_chat(owner, span_warning("This area is not dark enough to blend in") )
+		to_chat(owner, span_warning("This area is not dark enough to blend in"))
 		return FALSE
 	return TRUE
 
@@ -49,16 +49,16 @@
 		return FALSE
 	// Must be CONSCIOUS
 	if (user.stat > CONSCIOUS)
-		to_chat(owner, span_warning("DEBUG: FAIL STAT ") )
+		to_chat(owner, span_warning("DEBUG: FAIL STAT "))
 		return FALSE
 	// Must be SAME LOCATION
 	var/turf/T = owner.loc
 	if (!upgrade_canMove && T != remember_start_loc)
-		to_chat(owner, span_warning("DEBUG: FAIL MOVE [T] vs [remember_start_loc] ") )
+		to_chat(owner, span_warning("DEBUG: FAIL MOVE [T] vs [remember_start_loc] "))
 		return FALSE
 	// Must be DARK
 	if(istype(T) && T.get_lumcount() > light_min)
-		to_chat(owner, span_warning("DEBUG: FAIL DARK") )
+		to_chat(owner, span_warning("DEBUG: FAIL DARK"))
 		return FALSE
 	return TRUE
 

@@ -53,11 +53,11 @@
 	. = ..()
 	if(!istype(user) || !user.can_interact_with(src))
 		return FALSE
-	user.visible_message(span_danger("<b>[user]</b> начинает ставить на место <b>[src.name]</b>!") , span_notice("Начинаю ставить на место <b>[src.name]</b>!") )
+	user.visible_message(span_danger("<b>[user]</b> начинает ставить на место <b>[src.name]</b>!") , span_notice("Начинаю ставить на место <b>[src.name]</b>!"))
 	if(do_after(user, max_integrity/4))
 		var/obj/structure/table/T = new table_type(src.loc)
 		T.update_integrity(src.get_integrity())
-		user.visible_message(span_danger("<b>[user]</b> ставит на место <b>[src.name]</b>!") , span_notice("Ставлю на место <b>[src.name]</b>!") )
+		user.visible_message(span_danger("<b>[user]</b> ставит на место <b>[src.name]</b>!") , span_notice("Ставлю на место <b>[src.name]</b>!"))
 		playsound(src, 'sound/items/trayhit2.ogg', 100)
 		qdel(src)
 
@@ -68,7 +68,7 @@
 	if(!istype(user) || !user.can_interact_with(src) || isobserver(user))
 		return
 	if(can_flip)
-		user.visible_message(span_danger("<b>[user]</b> начинает переворачивать <b>[src.name]</b>!") , span_notice("Начинаю переворачивать <b>[src.name]</b>!") )
+		user.visible_message(span_danger("<b>[user]</b> начинает переворачивать <b>[src.name]</b>!") , span_notice("Начинаю переворачивать <b>[src.name]</b>!"))
 		if(do_after(user, max_integrity/4))
 			var/obj/structure/flippedtable/T = new flipped_table_type(src.loc)
 			T.name = "перевёрнутый [src.name]"
@@ -81,7 +81,7 @@
 			T.max_integrity = src.max_integrity
 			T.update_integrity(src.get_integrity())
 			T.table_type = src.type
-			user.visible_message(span_danger("<b>[user]</b> переворачивает <b>[src.name]</b>!") , span_notice("Переворачиваю <b>[src.name]</b>!") )
+			user.visible_message(span_danger("<b>[user]</b> переворачивает <b>[src.name]</b>!") , span_notice("Переворачиваю <b>[src.name]</b>!"))
 			playsound(src, 'sound/items/trayhit2.ogg', 100)
 			qdel(src)
 

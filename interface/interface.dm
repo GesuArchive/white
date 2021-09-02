@@ -11,7 +11,7 @@
 		else if (query != null)
 			src << link(wikiurl)
 	else
-		to_chat(src, span_danger("The wiki URL is not set in the server configuration.") )
+		to_chat(src, span_danger("The wiki URL is not set in the server configuration."))
 	return
 
 /client/verb/forum()
@@ -24,7 +24,7 @@
 			return
 		src << link(forumurl)
 	else
-		to_chat(src, span_danger("The forum URL is not set in the server configuration.") )
+		to_chat(src, span_danger("The forum URL is not set in the server configuration."))
 	return
 
 /client/verb/donate()
@@ -44,7 +44,7 @@
 			return
 		src << link(rulesurl)
 	else
-		to_chat(src, span_danger("The rules URL is not set in the server configuration.") )
+		to_chat(src, span_danger("The rules URL is not set in the server configuration."))
 	return
 
 /client/verb/github()
@@ -57,7 +57,7 @@
 			return
 		src << link(githuburl)
 	else
-		to_chat(src, span_danger("The Github URL is not set in the server configuration.") )
+		to_chat(src, span_danger("The Github URL is not set in the server configuration."))
 	return
 
 /client/verb/reportissue()
@@ -102,7 +102,7 @@
 		var/url_params = "Reporting client version: [byond_version].[byond_build]\n\n[local_template]"
 		DIRECT_OUTPUT(src, link("[githuburl]/issues/new?body=[url_encode(url_params)]"))
 	else
-		to_chat(src, span_danger("The Github URL is not set in the server configuration.") )
+		to_chat(src, span_danger("The Github URL is not set in the server configuration."))
 	return
 
 /client/verb/changelog()

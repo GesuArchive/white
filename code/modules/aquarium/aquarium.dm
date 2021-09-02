@@ -106,9 +106,9 @@
 		var/obj/item/stack/sheet/glass/glass = I
 		if(istype(glass))
 			if(glass.get_amount() < 2)
-				to_chat(user, span_warning("You need two glass sheets to fix the case!") )
+				to_chat(user, span_warning("You need two glass sheets to fix the case!"))
 				return
-			to_chat(user, span_notice("You start fixing [src]...") )
+			to_chat(user, span_notice("You start fixing [src]..."))
 			if(do_after(user, 2 SECONDS, target = src))
 				glass.use(2)
 				broken = FALSE
@@ -131,7 +131,7 @@
 /obj/structure/aquarium/proc/feed_feedback(datum/source, obj/item/thing, mob/user, params)
 	SIGNAL_HANDLER
 	if(istype(thing, /obj/item/fish_feed))
-		to_chat(user,span_notice("You feed the fish.") )
+		to_chat(user,span_notice("You feed the fish."))
 	return NONE
 
 /obj/structure/aquarium/interact(mob/user)
@@ -151,22 +151,22 @@
 	if(user.pulling && user.a_intent == INTENT_GRAB && isliving(user.pulling))
 		var/mob/living/living_pulled = user.pulling
 		if(living_pulled.buckled || living_pulled.has_buckled_mobs())
-			to_chat(user, span_warning("[living_pulled] is attached to something!") )
+			to_chat(user, span_warning("[living_pulled] is attached to something!"))
 			return
-		user.visible_message(span_danger("[user] starts to put [living_pulled] into [src]!") )
+		user.visible_message(span_danger("[user] starts to put [living_pulled] into [src]!"))
 		if(do_after(user, 10 SECONDS, target = src))
 			if(QDELETED(living_pulled) || user.pulling != living_pulled || living_pulled.buckled  || living_pulled.has_buckled_mobs())
 				return
 			var/datum/component/aquarium_content/content_component = living_pulled.GetComponent(/datum/component/aquarium_content)
 			if(content_component || content_component.is_ready_to_insert(src))
 				return
-			user.visible_message(span_danger("[user] stuffs [living_pulled] into [src]!") )
+			user.visible_message(span_danger("[user] stuffs [living_pulled] into [src]!"))
 			living_pulled.forceMove(src)
 			update_icon()
 
 ///Apply mood bonus depending on aquarium status
 /obj/structure/aquarium/proc/admire(mob/user)
-	to_chat(user,span_notice("You take a moment to watch [src].") )
+	to_chat(user,span_notice("You take a moment to watch [src]."))
 	if(do_after(user, 5 SECONDS, target = src))
 		//Check if there are live fish - good mood
 		//All fish dead - bad mood.
@@ -220,7 +220,7 @@
 					user.put_in_hands(inside)
 				else
 					inside.forceMove(get_turf(src))
-				to_chat(user,span_notice("You take out [inside] from [src].") )
+				to_chat(user,span_notice("You take out [inside] from [src]."))
 
 /obj/structure/aquarium/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()

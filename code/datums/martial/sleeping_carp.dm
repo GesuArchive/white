@@ -32,7 +32,7 @@
 	var/atk_verb = pick("пинает", "бьёт", "прикладывает")
 	D.visible_message(span_danger("<b>[A]</b> [atk_verb] <b>[D]</b>!") , \
 					  span_userdanger("<b>[A]</b> [atk_verb] меня!") , null, null, A)
-	to_chat(A, span_danger("Моя атака [atk_verb] [D]!") )
+	to_chat(A, span_danger("Моя атака [atk_verb] [D]!"))
 	playsound(get_turf(D), 'sound/weapons/punch1.ogg', 25, TRUE, -1)
 	log_combat(A, D, "strong punched (Sleeping Carp)")
 	D.apply_damage(20, A.get_attack_type(), affecting)
@@ -82,7 +82,7 @@
 			log_combat(A, D, "grabbed", addition="aggressively")
 			D.visible_message(span_warning("[A] violently grabs [D]!") , \
 							span_userdanger("You're grabbed violently by [A]!") , span_hear("You hear sounds of aggressive fondling!") , COMBAT_MESSAGE_RANGE, A)
-			to_chat(A, span_danger("Крепко хватаю [D]!") )
+			to_chat(A, span_danger("Крепко хватаю [D]!"))
 		return TRUE
 	else
 		return FALSE
@@ -96,7 +96,7 @@
 	var/atk_verb = pick("бьёт", "пинает", "избивает", "выбивает")
 	D.visible_message(span_danger("<b>[A]</b> [atk_verb] <b>[D]</b>!") , \
 					  span_userdanger("<b>[A]</b> [atk_verb] меня!") , null, null, A)
-	to_chat(A, span_danger("Моя атака [atk_verb] [D]!") )
+	to_chat(A, span_danger("Моя атака [atk_verb] [D]!"))
 	D.apply_damage(rand(10,15), BRUTE, affecting, wound_bonus = CANT_WOUND)
 	playsound(get_turf(D), 'sound/weapons/punch1.ogg', 25, TRUE, -1)
 	log_combat(A, D, "punched (Sleeping Carp)")
@@ -117,7 +117,7 @@
 	if(!isturf(A.loc)) //NO MOTHERFLIPPIN MECHS!
 		return BULLET_ACT_HIT
 	else
-		A.visible_message(span_danger("<b>[A]</b> отражает снаряд рукой!") , span_userdanger("Отражаю снаряд!") )
+		A.visible_message(span_danger("<b>[A]</b> отражает снаряд рукой!") , span_userdanger("Отражаю снаряд!"))
 		playsound(get_turf(A), pick('sound/weapons/bulletflyby.ogg', 'sound/weapons/bulletflyby2.ogg', 'sound/weapons/bulletflyby3.ogg'), 75, TRUE)
 		P.firer = A
 		P.setAngle(rand(0, 360))//SHING
@@ -201,7 +201,7 @@
 /obj/item/staff/bostaff/attack(mob/target, mob/living/user)
 	add_fingerprint(user)
 	if((HAS_TRAIT(user, TRAIT_CLUMSY)) && prob(50))
-		to_chat(user, span_warning("You club yourself over the head with [src].") )
+		to_chat(user, span_warning("You club yourself over the head with [src]."))
 		user.Paralyze(60)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
@@ -215,7 +215,7 @@
 		return ..()
 	var/mob/living/carbon/C = target
 	if(C.stat)
-		to_chat(user, span_warning("It would be dishonorable to attack a foe while they cannot retaliate.") )
+		to_chat(user, span_warning("It would be dishonorable to attack a foe while they cannot retaliate."))
 		return
 	if(user.a_intent == INTENT_DISARM)
 		if(!wielded)
@@ -226,19 +226,19 @@
 		var/list/fluffmessages = list("club", "smack", "broadside", "beat", "slam")
 		H.visible_message(span_warning("[user] [pick(fluffmessages)]s [H] with [src]!") , \
 						span_userdanger("[user] [pick(fluffmessages)]s you with [src]!") , span_hear("Слышу как что-то сильно бьёт по плоти!") , null, user)
-		to_chat(user, span_danger("You [pick(fluffmessages)] [H] with [src]!") )
+		to_chat(user, span_danger("You [pick(fluffmessages)] [H] with [src]!"))
 		playsound(get_turf(user), 'sound/effects/woodhit.ogg', 75, TRUE, -1)
 		H.adjustStaminaLoss(rand(13,20))
 		if(prob(10))
 			H.visible_message(span_warning("[H] collapses!") , \
-							span_userdanger("Your legs give out!") )
+							span_userdanger("Your legs give out!"))
 			H.Paralyze(80)
 		if(H.staminaloss && !H.IsSleeping())
 			var/total_health = (H.health - H.staminaloss)
 			if(total_health <= HEALTH_THRESHOLD_CRIT && !H.stat)
 				H.visible_message(span_warning("[user] delivers a heavy hit to [H] head, knocking [H.ru_na()] out cold!") , \
 								span_userdanger("You're knocked unconscious by [user]!") , span_hear("Слышу как что-то сильно бьёт по плоти!") , null, user)
-				to_chat(user, span_danger("You deliver a heavy hit to [H] head, knocking [H.ru_na()] out cold!") )
+				to_chat(user, span_danger("You deliver a heavy hit to [H] head, knocking [H.ru_na()] out cold!"))
 				H.SetSleeping(600)
 				H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 15, 150)
 	else

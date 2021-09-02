@@ -8,7 +8,7 @@
 		var/cap = CONFIG_GET(number/monkeycap)
 		if (LAZYLEN(SSmobs.cubemonkeys) > cap)
 			if (spawner)
-				to_chat(spawner, span_warning("Блюспейс гармония предотвращает наличие более чем [cap] обезьян на станции в одно и то же время!") )
+				to_chat(spawner, span_warning("Блюспейс гармония предотвращает наличие более чем [cap] обезьян на станции в одно и то же время!"))
 			return INITIALIZE_HINT_QDEL
 		SSmobs.cubemonkeys += src
 	return ..()

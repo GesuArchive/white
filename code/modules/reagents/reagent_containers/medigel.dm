@@ -39,32 +39,32 @@
 		amount_per_transfer_from_this = squirt_amount
 	else
 		amount_per_transfer_from_this = initial(amount_per_transfer_from_this)
-	to_chat(user, span_notice("Буду применять содержимое в [squirt_mode ? "коротком":"длинном"] режиме. Теперь используется [amount_per_transfer_from_this] единиц за раз.") )
+	to_chat(user, span_notice("Буду применять содержимое в [squirt_mode ? "коротком":"длинном"] режиме. Теперь используется [amount_per_transfer_from_this] единиц за раз."))
 
 /obj/item/reagent_containers/medigel/attack(mob/M, mob/user, def_zone)
 	if(!reagents || !reagents.total_volume)
-		to_chat(user, span_warning("[capitalize(src.name)] is empty!") )
+		to_chat(user, span_warning("[capitalize(src.name)] is empty!"))
 		return
 
 	if(M == user)
-		M.visible_message(span_notice("[user] пытается [apply_method] [src] на [user.ru_na()].") )
+		M.visible_message(span_notice("[user] пытается [apply_method] [src] на [user.ru_na()]."))
 		if(self_delay)
 			if(!do_mob(user, M, self_delay))
 				return
 			if(!reagents || !reagents.total_volume)
 				return
-		to_chat(M, span_notice("Пытаюсь [apply_method] [src] на себя.") )
+		to_chat(M, span_notice("Пытаюсь [apply_method] [src] на себя."))
 
 	else
 		log_combat(user, M, "attempted to apply", src, reagents.log_list())
 		M.visible_message(span_danger("[user] пытается [apply_method] [src] на [M].") , \
-							span_userdanger("[user] пытается [apply_method] [src] на меня.") )
+							span_userdanger("[user] пытается [apply_method] [src] на меня."))
 		if(!do_mob(user, M, CHEM_INTERACT_DELAY(3 SECONDS, user)))
 			return
 		if(!reagents || !reagents.total_volume)
 			return
 		M.visible_message(span_danger("[user] применяет [M] [src].") , \
-							span_userdanger("[user] применяет на мне [src].") )
+							span_userdanger("[user] применяет на мне [src]."))
 
 	if(!reagents || !reagents.total_volume)
 		return

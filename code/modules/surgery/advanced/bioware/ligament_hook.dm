@@ -20,12 +20,12 @@
 /datum/surgery_step/reshape_ligaments/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю менять форму связок [target] на крючкообразную.") ,
 		span_notice("[user] начал менять форму связок[target] на крючкообразную.") ,
-		span_notice("[user] начал работать над связками [target].") )
+		span_notice("[user] начал работать над связками [target]."))
 
 /datum/surgery_step/reshape_ligaments/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(user, target, span_notice("Изменил форму связок [target] на соединяющий крючок!") ,
 		span_notice("[user] сформировал из связок [target] соединяющий крючок!") ,
-		span_notice("[user] закончил работу над связками [target].") )
+		span_notice("[user] закончил работу над связками [target]."))
 	new /datum/bioware/hooked_ligaments(target)
 	return ..()
 

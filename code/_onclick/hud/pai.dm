@@ -90,7 +90,7 @@
 	if(iscarbon(pAI.card.loc))
 		pAI.hostscan.attack(pAI.card.loc, pAI)
 	else
-		to_chat(src, span_warning("You are not being carried by anyone!") )
+		to_chat(src, span_warning("You are not being carried by anyone!"))
 		return FALSE
 
 /atom/movable/screen/pai/crew_manifest

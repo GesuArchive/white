@@ -40,7 +40,7 @@
 	if(!istype(user))
 		return
 	if(user.get_item_by_slot(user.getBackSlot()) != src)
-		to_chat(user, span_warning("The watertank must be worn properly to use!") )
+		to_chat(user, span_warning("The watertank must be worn properly to use!"))
 		return
 	if(user.incapacitated())
 		return
@@ -50,7 +50,7 @@
 	if(noz in src)
 		//Detach the nozzle into the user's hands
 		if(!user.put_in_hands(noz))
-			to_chat(user, span_warning("You need a free hand to hold the mister!") )
+			to_chat(user, span_warning("You need a free hand to hold the mister!"))
 			return
 	else
 		//Remove from their hands and put back "into" the tank
@@ -134,7 +134,7 @@
 /obj/item/reagent_containers/spray/mister/doMove(atom/destination)
 	if(destination && (destination != tank.loc || !ismob(destination)))
 		if (loc != tank)
-			to_chat(tank.loc, span_notice("The mister snaps back onto the watertank.") )
+			to_chat(tank.loc, span_notice("The mister snaps back onto the watertank."))
 		destination = tank
 	..()
 
@@ -173,7 +173,7 @@
 
 /obj/item/reagent_containers/spray/mister/janitor/attack_self(mob/user)
 	amount_per_transfer_from_this = (amount_per_transfer_from_this == 10 ? 5 : 10)
-	to_chat(user, span_notice("You [amount_per_transfer_from_this == 10 ? "remove" : "fix"] the nozzle. You'll now use [amount_per_transfer_from_this] units per spray.") )
+	to_chat(user, span_notice("You [amount_per_transfer_from_this == 10 ? "remove" : "fix"] the nozzle. You'll now use [amount_per_transfer_from_this] units per spray."))
 
 //ATMOS FIRE FIGHTING BACKPACK
 
@@ -245,7 +245,7 @@
 /obj/item/extinguisher/mini/nozzle/doMove(atom/destination)
 	if(destination && (destination != tank.loc || !ismob(destination)))
 		if(loc != tank)
-			to_chat(tank.loc, span_notice("The nozzle snaps back onto the tank.") )
+			to_chat(tank.loc, span_notice("The nozzle snaps back onto the tank."))
 		destination = tank
 	..()
 
@@ -254,17 +254,17 @@
 		if(EXTINGUISHER)
 			nozzle_mode = RESIN_LAUNCHER
 			tank.icon_state = "waterbackpackatmos_1"
-			to_chat(user, span_notice("Swapped to resin launcher.") )
+			to_chat(user, span_notice("Swapped to resin launcher."))
 			return
 		if(RESIN_LAUNCHER)
 			nozzle_mode = RESIN_FOAM
 			tank.icon_state = "waterbackpackatmos_2"
-			to_chat(user, span_notice("Swapped to resin foamer.") )
+			to_chat(user, span_notice("Swapped to resin foamer."))
 			return
 		if(RESIN_FOAM)
 			nozzle_mode = EXTINGUISHER
 			tank.icon_state = "waterbackpackatmos_0"
-			to_chat(user, span_notice("Swapped to water extinguisher.") )
+			to_chat(user, span_notice("Swapped to water extinguisher."))
 			return
 	return
 
@@ -280,10 +280,10 @@
 			return //Safety check so you don't blast yourself trying to refill your tank
 		var/datum/reagents/R = reagents
 		if(R.total_volume < 100)
-			to_chat(user, span_warning("You need at least 100 units of water to use the resin launcher!") )
+			to_chat(user, span_warning("You need at least 100 units of water to use the resin launcher!"))
 			return
 		if(resin_cooldown)
-			to_chat(user, span_warning("Resin launcher is still recharging...") )
+			to_chat(user, span_warning("Resin launcher is still recharging..."))
 			return
 		resin_cooldown = TRUE
 		R.remove_any(100)
@@ -301,7 +301,7 @@
 			return
 		for(var/S in target)
 			if(istype(S, /obj/effect/particle_effect/foam/metal/resin) || istype(S, /obj/structure/foamedmetal/resin))
-				to_chat(user, span_warning("There's already resin here!") )
+				to_chat(user, span_warning("There's already resin here!"))
 				return
 		if(metal_synthesis_cooldown < 5)
 			var/obj/effect/particle_effect/foam/metal/resin/F = new (get_turf(target))
@@ -309,7 +309,7 @@
 			metal_synthesis_cooldown++
 			addtimer(CALLBACK(src, .proc/reduce_metal_synth_cooldown), 10 SECONDS)
 		else
-			to_chat(user, span_warning("Resin foam mix is still being synthesized...") )
+			to_chat(user, span_warning("Resin foam mix is still being synthesized..."))
 			return
 
 /obj/item/extinguisher/mini/nozzle/proc/reduce_metal_synth_cooldown()
@@ -371,7 +371,7 @@
 	if(!istype(user))
 		return
 	if (user.get_item_by_slot(ITEM_SLOT_BACK) != src)
-		to_chat(user, span_warning("The chemtank needs to be on your back before you can activate it!") )
+		to_chat(user, span_warning("The chemtank needs to be on your back before you can activate it!"))
 		return
 	if(on)
 		turn_off()
@@ -401,13 +401,13 @@
 	on = TRUE
 	START_PROCESSING(SSobj, src)
 	if(ismob(loc))
-		to_chat(loc, span_notice("[capitalize(src.name)] turns on.") )
+		to_chat(loc, span_notice("[capitalize(src.name)] turns on."))
 
 /obj/item/reagent_containers/chemtank/proc/turn_off()
 	on = FALSE
 	STOP_PROCESSING(SSobj, src)
 	if(ismob(loc))
-		to_chat(loc, span_notice("[capitalize(src.name)] turns off.") )
+		to_chat(loc, span_notice("[capitalize(src.name)] turns off."))
 
 /obj/item/reagent_containers/chemtank/process(delta_time)
 	if(!ishuman(loc))

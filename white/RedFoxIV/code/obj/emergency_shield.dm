@@ -66,7 +66,7 @@
 	. = ..()
 	if(I.tool_behaviour == TOOL_SCREWDRIVER && cell)
 		if(active)
-			to_chat(user, span_alert("Сначала выключи прожектор!") )
+			to_chat(user, span_alert("Сначала выключи прожектор!"))
 			return
 		cell.forceMove(src.drop_location())
 		cell.update_icon()
@@ -77,7 +77,7 @@
 
 	if(istype(I, /obj/item/stock_parts/cell) && !cell)
 		if(!istype(I, /obj/item/stock_parts/cell/emergency_shield))
-			to_chat(user, span_alert("Аварийный прожектор щита можно запитать только специальной батарейкой для прожекторов!..") )
+			to_chat(user, span_alert("Аварийный прожектор щита можно запитать только специальной батарейкой для прожекторов!.."))
 			return
 		cell = I
 		cell.forceMove(src)

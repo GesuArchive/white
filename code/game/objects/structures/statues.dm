@@ -25,7 +25,7 @@
 /obj/structure/statue/proc/can_be_rotated(mob/user)
 	if(!anchored)
 		return TRUE
-	to_chat(user, span_warning("It's bolted to the floor, you'll need to unwrench it first.") )
+	to_chat(user, span_warning("It's bolted to the floor, you'll need to unwrench it first."))
 
 /obj/structure/statue/proc/can_user_rotate(mob/user)
 	return !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user))
@@ -40,10 +40,10 @@
 				return FALSE
 
 			user.visible_message(span_notice("[user] is slicing apart the [name].") , \
-								span_notice("You are slicing apart the [name]...") )
+								span_notice("You are slicing apart the [name]..."))
 			if(W.use_tool(src, user, 40, volume=50))
 				user.visible_message(span_notice("[user] slices apart the [name].") , \
-									span_notice("You slice apart the [name]!") )
+									span_notice("You slice apart the [name]!"))
 				deconstruct(TRUE)
 			return
 	return ..()

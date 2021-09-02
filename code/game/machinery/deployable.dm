@@ -31,7 +31,7 @@
 			if(!I.tool_start_check(user, amount=0))
 				return
 
-			to_chat(user, span_notice("You begin repairing [src]...") )
+			to_chat(user, span_notice("You begin repairing [src]..."))
 			if(I.use_tool(src, user, 40, volume=40))
 				obj_integrity = clamp(obj_integrity + 20, 0, max_integrity)
 	else
@@ -67,10 +67,10 @@
 	if(istype(I,/obj/item/stack/sheet/mineral/wood))
 		var/obj/item/stack/sheet/mineral/wood/W = I
 		if(W.amount < 5)
-			to_chat(user, span_warning("You need at least five wooden planks to make a wall!") )
+			to_chat(user, span_warning("You need at least five wooden planks to make a wall!"))
 			return
 		else
-			to_chat(user, span_notice("You start adding [I] to [src]...") )
+			to_chat(user, span_notice("You start adding [I] to [src]..."))
 			if(do_after(user, 50, target=src))
 				W.use(5)
 				var/turf/T = get_turf(src)
@@ -138,7 +138,7 @@
 	set_density(TRUE)
 	set_anchored(TRUE)
 	if(deploy_message)
-		visible_message(span_warning("[capitalize(src.name)] deploys!") )
+		visible_message(span_warning("[capitalize(src.name)] deploys!"))
 
 
 /obj/item/grenade/barrier
@@ -168,7 +168,7 @@
 		if(HORIZONTAL)
 			mode = SINGLE
 
-	to_chat(user, span_notice("[capitalize(src.name)] is now in [mode] mode.") )
+	to_chat(user, span_notice("[capitalize(src.name)] is now in [mode] mode."))
 
 /obj/item/grenade/barrier/detonate(mob/living/lanced_by)
 	. = ..()

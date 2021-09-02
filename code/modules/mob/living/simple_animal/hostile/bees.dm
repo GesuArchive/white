@@ -72,7 +72,7 @@
 	if(beegent)
 		reee[beegent.type] = 5
 	holder.AddComponent(/datum/component/edible, reee, null, RAW | MEAT | GROSS, 10, 0, list("bee"), null, 10)
-	L.visible_message(span_warning("[L] scoops up [src]!") )
+	L.visible_message(span_warning("[L] scoops up [src]!"))
 	L.put_in_hands(holder)
 
 /mob/living/simple_animal/hostile/poison/bees/Destroy()
@@ -305,18 +305,18 @@
 				if(queen?.beegent)
 					qb.queen.assign_reagent(queen.beegent) //Bees use the global singleton instances of reagents, so we don't need to worry about one bee being deleted and her copies losing their reagents.
 				user.put_in_active_hand(qb)
-				user.visible_message(span_notice("[user] injects [src] with royal bee jelly, causing it to split into two bees, MORE BEES!") ,span_warning("You inject [src] with royal bee jelly, causing it to split into two bees, MORE BEES!") )
+				user.visible_message(span_notice("[user] injects [src] with royal bee jelly, causing it to split into two bees, MORE BEES!") ,span_warning("You inject [src] with royal bee jelly, causing it to split into two bees, MORE BEES!"))
 			else
-				to_chat(user, span_warning("You don't have enough royal bee jelly to split a bee in two!") )
+				to_chat(user, span_warning("You don't have enough royal bee jelly to split a bee in two!"))
 		else
 			var/datum/reagent/R = GLOB.chemical_reagents_list[S.reagents.get_master_reagent_id()]
 			if(R && S.reagents.has_reagent(R.type, 5))
 				S.reagents.remove_reagent(R.type,5)
 				queen.assign_reagent(R)
-				user.visible_message(span_warning("[user] injects [src] genome with [R.name], mutating its DNA!") ,span_warning("You inject [src] genome with [R.name], mutating its DNA!") )
+				user.visible_message(span_warning("[user] injects [src] genome with [R.name], mutating its DNA!") ,span_warning("You inject [src] genome with [R.name], mutating its DNA!"))
 				name = queen.name
 			else
-				to_chat(user, span_warning("You don't have enough units of that chemical to modify the bee's DNA!") )
+				to_chat(user, span_warning("You don't have enough units of that chemical to modify the bee's DNA!"))
 	..()
 
 

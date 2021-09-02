@@ -132,7 +132,7 @@
 
 /obj/structure/fence/door/proc/toggle(mob/user)
 	open = !open
-	visible_message(span_notice(" [user] [open ? "открывает" : "закрывает"] <b>[src.name]</b>.") )
+	visible_message(span_notice(" [user] [open ? "открывает" : "закрывает"] <b>[src.name]</b>."))
 	update_door_status()
 	playsound(src, 'sound/machines/click.ogg', 100, TRUE)
 

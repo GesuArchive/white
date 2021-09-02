@@ -29,28 +29,28 @@
 		return FALSE
 
 	if(stored_card)
-		to_chat(user, span_warning("Пытаюсь вставить [I] в <b>[src.name]</b>, но слот уже занят.") )
+		to_chat(user, span_warning("Пытаюсь вставить [I] в <b>[src.name]</b>, но слот уже занят."))
 		return FALSE
 	if(user && !user.transferItemToLoc(I, src))
 		return FALSE
 
 	stored_card = I
-	to_chat(user, span_notice("Вставляю [I] в <b>[src.name]</b>.") )
+	to_chat(user, span_notice("Вставляю [I] в <b>[src.name]</b>."))
 
 	return TRUE
 
 
 /obj/item/computer_hardware/ai_slot/try_eject(mob/living/user = null, forced = FALSE)
 	if(!stored_card)
-		to_chat(user, span_warning("В <b>[src.name]</b> нет карты.") )
+		to_chat(user, span_warning("В <b>[src.name]</b> нет карты."))
 		return FALSE
 
 	if(locked && !forced)
-		to_chat(user, span_warning("Защитные меры не позволяют вынуть карту до завершения реконструкции...") )
+		to_chat(user, span_warning("Защитные меры не позволяют вынуть карту до завершения реконструкции..."))
 		return FALSE
 
 	if(stored_card)
-		to_chat(user, span_notice("Вытаскивю [stored_card] из [src].") )
+		to_chat(user, span_notice("Вытаскивю [stored_card] из [src]."))
 		locked = FALSE
 		if(Adjacent(user))
 			user.put_in_hands(stored_card)
@@ -64,6 +64,6 @@
 	if(..())
 		return
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
-		to_chat(user, span_notice("Нажимаю кнопку ручного извлечения с [I].") )
+		to_chat(user, span_notice("Нажимаю кнопку ручного извлечения с [I]."))
 		try_eject(user, TRUE)
 		return

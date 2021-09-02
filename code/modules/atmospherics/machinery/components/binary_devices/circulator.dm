@@ -152,16 +152,16 @@
 		return
 
 	if(!panel_open)
-		to_chat(user, span_warning("Стоит открыть панель!") )
+		to_chat(user, span_warning("Стоит открыть панель!"))
 		return TRUE
 
 	if(generator)
-		to_chat(user, span_warning("Нужно отключить [generator] сначала!") )
+		to_chat(user, span_warning("Нужно отключить [generator] сначала!"))
 		return TRUE
 
 	anchored = !anchored
 	I.play_tool_sound(src)
-	to_chat(user, span_notice("[anchored?"Прикручиваю":"Откручиваю"] [src].") )
+	to_chat(user, span_notice("[anchored?"Прикручиваю":"Откручиваю"] [src]."))
 
 	var/obj/machinery/atmospherics/node1 = nodes[1]
 	var/obj/machinery/atmospherics/node2 = nodes[2]
@@ -213,11 +213,11 @@
 	if(user.a_intent == INTENT_HARM)
 		return
 	if(generator)
-		to_chat(user, span_warning("Нужно отключить [generator] сначала!") )
+		to_chat(user, span_warning("Нужно отключить [generator] сначала!"))
 		return TRUE
 
 	mode = !mode
-	to_chat(user, span_notice("Выставляю режим [src] в [mode?"холодный":"горячий"] поток.") )
+	to_chat(user, span_notice("Выставляю режим [src] в [mode?"холодный":"горячий"] поток."))
 	return TRUE
 
 /obj/machinery/atmospherics/components/binary/circulator/screwdriver_act(mob/user, obj/item/I)
@@ -226,12 +226,12 @@
 	if(user.a_intent == INTENT_HARM)
 		return
 	if(generator)
-		to_chat(user, span_warning("Сначала нужно отключить генератор!") )
+		to_chat(user, span_warning("Сначала нужно отключить генератор!"))
 		return TRUE
 
 	panel_open = !panel_open
 	I.play_tool_sound(src)
-	to_chat(user, span_notice("[panel_open?"Открываю":"Закрываю"] панель [src].") )
+	to_chat(user, span_notice("[panel_open?"Открываю":"Закрываю"] панель [src]."))
 	update_icon_nopipes()
 	return TRUE
 
@@ -239,7 +239,7 @@
 	if(user.a_intent == INTENT_HARM)
 		return
 	if(anchored)
-		to_chat(user, span_warning("[capitalize(src.name)] прикручен!") )
+		to_chat(user, span_warning("[capitalize(src.name)] прикручен!"))
 		return TRUE
 	if(!panel_open)
 		circulator_flip()
@@ -274,7 +274,7 @@
 		return
 
 	flipped = !flipped
-	to_chat(usr, span_notice("Кручу [src.name].") )
+	to_chat(usr, span_notice("Кручу [src.name]."))
 	playsound(src, 'sound/items/change_drill.ogg', 50)
 	update_icon_nopipes()
 

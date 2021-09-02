@@ -399,7 +399,7 @@
 	if(CheckFriendlyFire(A))
 		return
 	if(!(simple_mob_flags & SILENCE_RANGED_MESSAGE))
-		visible_message(span_danger("<b>[src]</b> [ranged_message] at [A]!") )
+		visible_message(span_danger("<b>[src]</b> [ranged_message] at [A]!"))
 
 
 	if(rapid > 1)
@@ -640,7 +640,7 @@
 				if(H.check_shields(src, 0, "the [name]", attack_type = LEAP_ATTACK))
 					blocked = TRUE
 			if(!blocked)
-				L.visible_message(span_danger("[capitalize(src.name)] charges on [L]!") , span_userdanger("[capitalize(src.name)] charges into you!") )
+				L.visible_message(span_danger("[capitalize(src.name)] charges on [L]!") , span_userdanger("[capitalize(src.name)] charges into you!"))
 				L.Knockdown(knockdown_time)
 			else
 				Stun((knockdown_time * 2), ignore_canstun = TRUE)

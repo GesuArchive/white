@@ -142,7 +142,7 @@
 			return FALSE
 	// passed initial checks - time to leap!
 	M.visible_message(span_danger("[capitalize(src.name)] leaps at [M] face!") , \
-							span_userdanger("[capitalize(src.name)] leaps at your face!") )
+							span_userdanger("[capitalize(src.name)] leaps at your face!"))
 
 	// probiscis-blocker handling
 	if(iscarbon(M))
@@ -152,7 +152,7 @@
 			var/mob/living/carbon/human/H = M
 			if(H.is_mouth_covered(head_only = 1))
 				H.visible_message(span_danger("[capitalize(src.name)] smashes against [H] [H.head]!") , \
-									span_userdanger("[capitalize(src.name)] smashes against your [H.head]!") )
+									span_userdanger("[capitalize(src.name)] smashes against your [H.head]!"))
 				Die()
 				return FALSE
 
@@ -160,7 +160,7 @@
 			var/obj/item/clothing/W = target.wear_mask
 			if(target.dropItemToGround(W))
 				target.visible_message(span_danger("[capitalize(src.name)] tears [W] off of [target] face!") , \
-									span_userdanger("[capitalize(src.name)] tears [W] off of your face!") )
+									span_userdanger("[capitalize(src.name)] tears [W] off of your face!"))
 		target.equip_to_slot_if_possible(src, ITEM_SLOT_MASK, 0, 1, 1)
 	return TRUE // time for a smoke
 
@@ -195,7 +195,7 @@
 
 	if(!sterile)
 		target.visible_message(span_danger("[capitalize(src.name)] falls limp after violating [target] face!") , \
-								span_userdanger("[capitalize(src.name)] falls limp after violating your face!") )
+								span_userdanger("[capitalize(src.name)] falls limp after violating your face!"))
 
 		Die()
 		icon_state = "[initial(icon_state)]_impregnated"
@@ -208,7 +208,7 @@
 
 	else
 		target.visible_message(span_danger("[capitalize(src.name)] violates [target] face!") , \
-								span_userdanger("[capitalize(src.name)] violates your face!") )
+								span_userdanger("[capitalize(src.name)] violates your face!"))
 
 /obj/item/clothing/mask/facehugger/proc/GoActive()
 	if(stat == DEAD || stat == CONSCIOUS)
@@ -234,7 +234,7 @@
 	inhand_icon_state = "facehugger_inactive"
 	stat = DEAD
 
-	visible_message(span_danger("[capitalize(src.name)] curls up into a ball!") )
+	visible_message(span_danger("[capitalize(src.name)] curls up into a ball!"))
 
 /proc/CanHug(mob/living/M)
 	if(!istype(M))

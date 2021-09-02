@@ -159,7 +159,7 @@
 		return
 	if(prob(10 * severity))
 		return
-	to_chat(owner, span_warning("Статика затуманивает моё зрение!") )
+	to_chat(owner, span_warning("Статика затуманивает моё зрение!"))
 	owner.flash_act(visual = 1)
 
 /obj/item/organ/eyes/robotic/xray
@@ -318,13 +318,13 @@
 /obj/item/organ/eyes/robotic/glow/proc/activate(silent = FALSE)
 	start_visuals()
 	if(!silent)
-		to_chat(owner, span_warning("Мои [src.name] щёлкают, перед тем как выпустить жёсткий луч света!") )
+		to_chat(owner, span_warning("Мои [src.name] щёлкают, перед тем как выпустить жёсткий луч света!"))
 	cycle_mob_overlay()
 
 /obj/item/organ/eyes/robotic/glow/proc/deactivate(silent = FALSE)
 	clear_visuals()
 	if(!silent)
-		to_chat(owner, span_warning("Мои [src.name] вырубаются!") )
+		to_chat(owner, span_warning("Мои [src.name] вырубаются!"))
 	remove_mob_overlay()
 
 /obj/item/organ/eyes/robotic/glow/proc/update_visuals(datum/source, olddir, newdir)
@@ -466,7 +466,7 @@
 	var/turf/T = get_turf(owner)
 	var/lums = T.get_lumcount()
 	if(lums > 0.5) //we allow a little more than usual so we can produce light from the adapted eyes
-		to_chat(owner, span_danger("Your eyes! They burn in the light!") )
+		to_chat(owner, span_danger("Your eyes! They burn in the light!"))
 		applyOrganDamage(10) //blind quickly
 		playsound(owner, 'sound/machines/grill/grillsizzle.ogg', 50)
 	else

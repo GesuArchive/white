@@ -121,7 +121,7 @@
 		kick_us_off = TRUE
 	if(kick_us_off || (istype(AMM) && ((ride_check_ridden_restrained && HAS_TRAIT(AMM, TRAIT_RESTRAINED)) || (ride_check_ridden_incapacitated && AMM.incapacitated(TRUE, TRUE)))))
 		M.visible_message(span_warning("[M] falls off of [AM]!") , \
-						span_warning("You fall off of [AM]!") )
+						span_warning("You fall off of [AM]!"))
 		AM.unbuckle_mob(M)
 	return TRUE
 
@@ -134,11 +134,11 @@
 		M.Move(targetm)
 		if(gentle)
 			M.visible_message(span_warning("[M] is thrown clear of [AM]!") , \
-			span_warning("You're thrown clear of [AM]!") )
+			span_warning("You're thrown clear of [AM]!"))
 			M.throw_at(target, 8, 3, AM, gentle = TRUE)
 		else
 			M.visible_message(span_warning("[M] is thrown violently from [AM]!") , \
-			span_warning("You're thrown violently from [AM]!") )
+			span_warning("You're thrown violently from [AM]!"))
 			M.throw_at(target, 14, 5, AM, gentle = FALSE)
 		M.Knockdown(3 SECONDS)
 
@@ -227,7 +227,7 @@
 		if(!istype(next) || !istype(current))
 			return	//not happening.
 		if(!turf_check(next, current))
-			to_chat(user, span_warning("Your [AM] can not go onto [next]!") )
+			to_chat(user, span_warning("Your [AM] can not go onto [next]!"))
 			return
 		if(!Process_Spacemove(direction) || !isturf(AM.loc))
 			return
@@ -245,7 +245,7 @@
 		handle_vehicle_layer(AM.dir)
 		handle_vehicle_offsets(AM.dir)
 	else
-		to_chat(user, span_warning("You'll need a special item in one of your hands to [drive_verb] [AM].") )
+		to_chat(user, span_warning("You'll need a special item in one of your hands to [drive_verb] [AM]."))
 
 /datum/component/riding/proc/Unbuckle(atom/movable/M)
 	addtimer(CALLBACK(parent, /atom/movable/.proc/unbuckle_mob, M), 0, TIMER_UNIQUE)
@@ -319,7 +319,7 @@
 	AM.unbuckle_mob(user)
 	user.Paralyze(60)
 	user.visible_message(span_warning("[AM] pushes [user] off of [AM.ru_na()]!") , \
-						span_warning("[AM] pushes you off of [AM.ru_na()]!") )
+						span_warning("[AM] pushes you off of [AM.ru_na()]!"))
 
 /datum/component/riding/cyborg
 	del_on_unbuckle_all = TRUE
@@ -333,14 +333,14 @@
 			if(R.module && R.module.ride_allow_incapacitated)
 				kick = FALSE
 		if(kick)
-			to_chat(user, span_userdanger("You fall off of [AM]!") )
+			to_chat(user, span_userdanger("You fall off of [AM]!"))
 			Unbuckle(user)
 			return
 	if(iscarbon(user))
 		var/mob/living/carbon/carbonuser = user
 		if(!carbonuser.usable_hands)
 			Unbuckle(user)
-			to_chat(user, span_warning("You can't grab onto [AM] with no hands!") )
+			to_chat(user, span_warning("You can't grab onto [AM] with no hands!"))
 			return
 
 /datum/component/riding/cyborg/handle_vehicle_layer(dir)
@@ -436,6 +436,6 @@
 		return //Piggyback user.
 	user.unbuckle_mob(rider)
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_notice("Вы осторожно слезаете с [rider].") )
+		to_chat(user, span_notice("Вы осторожно слезаете с [rider]."))
 		return
 	return rider
