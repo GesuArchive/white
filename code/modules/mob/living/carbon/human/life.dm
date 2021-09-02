@@ -362,6 +362,7 @@
 			Stun(4 SECONDS)
 			visible_message("<b>[capitalize(src.name)]</b> писает себе в трусы!")
 			playsound(src, 'sound/effects/splat.ogg', 50, 1)
+			hydration -= 5
 			for(var/mob/M in viewers(src, 7))
 				if(ishuman(M) && M != src)
 					M.emote("laugh")
