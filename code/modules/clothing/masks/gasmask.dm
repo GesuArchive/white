@@ -184,7 +184,7 @@
 		for(var/X in actions)
 			var/datum/action/A = X
 			A.UpdateButtonIcon()
-		to_chat(user, span_notice("Маска клоуна превратилась в [choice], слава Хонкоматери!") )
+		to_chat(user, span_notice("Маска клоуна превратилась в [choice], слава Хонкоматери!"))
 		return TRUE
 
 /obj/item/clothing/mask/gas/sexyclown
@@ -239,7 +239,7 @@
 		for(var/X in actions)
 			var/datum/action/A = X
 			A.UpdateButtonIcon()
-		to_chat(user, span_notice("Маска Мима теперь превратилась в [choice]!") )
+		to_chat(user, span_notice("Маска Мима теперь превратилась в [choice]!"))
 		return TRUE
 
 /obj/item/clothing/mask/gas/monkeymask
@@ -320,7 +320,7 @@
 		for(var/X in actions)
 			var/datum/action/A = X
 			A.UpdateButtonIcon()
-		to_chat(M, span_notice("Маска Тики теперь выглядит как маска [choice]!") )
+		to_chat(M, span_notice("Маска Тики теперь выглядит как маска [choice]!"))
 		return 1
 
 /obj/item/clothing/mask/gas/tiki_mask/yalp_elor

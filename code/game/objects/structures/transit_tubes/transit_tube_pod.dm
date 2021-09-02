@@ -31,7 +31,7 @@
 		if(!moving)
 			I.play_tool_sound(src)
 			if(contents.len)
-				user.visible_message(span_notice("[user] empties <b>[src.name]</b>.") , span_notice("You empty <b>[src.name]</b>.") )
+				user.visible_message(span_notice("[user] empties <b>[src.name]</b>.") , span_notice("You empty <b>[src.name]</b>."))
 				empty_pod()
 			else
 				deconstruct(TRUE, user)
@@ -44,7 +44,7 @@
 		if(user)
 			location = user.loc
 			add_fingerprint(user)
-			user.visible_message(span_notice("[user] removes [src].") , span_notice("You remove [src].") )
+			user.visible_message(span_notice("[user] removes [src].") , span_notice("You remove [src]."))
 		var/obj/structure/c_transit_tube_pod/R = new/obj/structure/c_transit_tube_pod(location)
 		transfer_fingerprints_to(R)
 		R.setDir(dir)
@@ -78,9 +78,9 @@
 	if(!moving)
 		user.changeNext_move(CLICK_CD_BREAKOUT)
 		user.last_special = world.time + CLICK_CD_BREAKOUT
-		to_chat(user, span_notice("You start trying to escape from the pod...") )
+		to_chat(user, span_notice("You start trying to escape from the pod..."))
 		if(do_after(user, 1 MINUTES, target = src))
-			to_chat(user, span_notice("You manage to open the pod.") )
+			to_chat(user, span_notice("You manage to open the pod."))
 			empty_pod()
 
 /obj/structure/transit_tube_pod/proc/empty_pod(atom/location)
@@ -160,7 +160,7 @@
 	var/list/savedcontents = contents.Copy()
 	var/saveddir = dir
 	var/turf/destination = get_edge_target_turf(src,saveddir)
-	visible_message(span_warning("[capitalize(src.name)] ejects its insides out!") )
+	visible_message(span_warning("[capitalize(src.name)] ejects its insides out!"))
 	deconstruct(FALSE)//we automatically deconstruct the pod
 	for(var/i in savedcontents)
 		var/atom/movable/AM = i

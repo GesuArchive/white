@@ -97,14 +97,14 @@
 	if(buckled)
 		buckled.user_unbuckle_mob(src,src)
 		visible_message(span_warning("[src] easily breaks out of [p_their()] handcuffs!") , \
-					span_notice("With just a thought your handcuffs fall off.") )
+					span_notice("With just a thought your handcuffs fall off."))
 
 /mob/living/carbon/true_devil/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
 	if(incapacitated())
-		to_chat(src, span_warning("You can't do that right now!") )
+		to_chat(src, span_warning("You can't do that right now!"))
 		return FALSE
 	if(be_close && !in_range(M, src))
-		to_chat(src, span_warning("You are too far away!") )
+		to_chat(src, span_warning("You are too far away!"))
 		return FALSE
 	return TRUE
 
@@ -170,7 +170,7 @@
 				var/damage = rand(1, 5)
 				playsound(loc, "punch", 25, TRUE, -1)
 				visible_message(span_danger("[M] punches [src]!") , \
-						span_userdanger("[M] punches you!") )
+						span_userdanger("[M] punches you!"))
 				adjustBruteLoss(damage)
 				log_combat(M, src, "attacked")
 				updatehealth()
@@ -181,17 +181,17 @@
 						playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 						log_combat(M, src, "pushed")
 						visible_message(span_danger("[M] pushes [src] down!") , \
-							span_userdanger("[M] pushes you down!") )
+							span_userdanger("[M] pushes you down!"))
 					else
 						if (prob(25))
 							dropItemToGround(get_active_held_item())
 							playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 							visible_message(span_danger("[M] disarms [src]!") , \
-							span_userdanger("[M] disarms you!") )
+							span_userdanger("[M] disarms you!"))
 						else
 							playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 							visible_message(span_danger("[M] fails to disarm [src]!") , \
-							span_userdanger("[M] fails to disarm you!") )
+							span_userdanger("[M] fails to disarm you!"))
 
 /mob/living/carbon/true_devil/handle_breathing()
 	// devils do not need to breathe

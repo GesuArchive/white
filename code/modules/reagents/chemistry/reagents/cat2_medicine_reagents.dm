@@ -52,26 +52,26 @@
 		var/list/RockPaperScissors = list("rock" = "paper", "paper" = "scissors", "scissors" = "rock") //choice = loses to
 		if(M.apply_status_effect(/datum/status_effect/necropolis_curse,CURSE_BLINDING))
 			helbent = TRUE
-		to_chat(M, span_hierophant("Передо мной появляются зловещие духи, выторговывая вашу жизнь в «товарищеской» партии в камень-ножницы-бумагу. Что выбрать?") )
+		to_chat(M, span_hierophant("Передо мной появляются зловещие духи, выторговывая вашу жизнь в «товарищеской» партии в камень-ножницы-бумагу. Что выбрать?"))
 		var/timeisticking = world.time
 		var/RPSchoice = input(M, "Janken Time! You have 60 Seconds to Choose!", "Rock Paper Scissors",null) as null|anything in RockPaperScissors
 		if(QDELETED(M) || (timeisticking+(1.1 MINUTES) < world.time))
 			reaping = FALSE
 			return //good job, you ruined it
 		if(!RPSchoice)
-			to_chat(M, span_hierophant("Решил не испытывать удачу, но призраки всё еще здесь... Надеюсь они скоро исчезнут.") )
+			to_chat(M, span_hierophant("Решил не испытывать удачу, но призраки всё еще здесь... Надеюсь они скоро исчезнут."))
 			reaping = FALSE
 			return
 		var/grim = pick(RockPaperScissors)
 		if(grim == RPSchoice) //You Tied!
-			to_chat(M, span_hierophant("Ничья. Зловещие духи исчезли... Пока что.") )
+			to_chat(M, span_hierophant("Ничья. Зловещие духи исчезли... Пока что."))
 			reaping = FALSE
 		else if(RockPaperScissors[RPSchoice] == grim) //You lost!
-			to_chat(M, span_hierophant("Проиграл, и зловещие духи начали окружать меня устрашающе ухмыляясь.") )
+			to_chat(M, span_hierophant("Проиграл, и зловещие духи начали окружать меня устрашающе ухмыляясь."))
 			M.dust()
 			return
 		else //VICTORY ROYALE
-			to_chat(M, span_hierophant("Победил, зловещие духи исчезли, как и мои раны.") )
+			to_chat(M, span_hierophant("Победил, зловещие духи исчезли, как и мои раны."))
 			M.client.give_award(/datum/award/achievement/misc/helbitaljanken, M)
 			M.revive(full_heal = TRUE, admin_revive = FALSE)
 			holder.del_reagent(type)
@@ -141,7 +141,7 @@
 	if(M.getStaminaLoss() >= 80)
 		M.drowsyness += 1 * REM * delta_time
 	if(M.getStaminaLoss() >= 100)
-		to_chat(M,span_warning("Чувствую небывалую усталость, возможно, стоит дать глазам немного отдохнуть...") )
+		to_chat(M,span_warning("Чувствую небывалую усталость, возможно, стоит дать глазам немного отдохнуть..."))
 		M.adjustStaminaLoss(-100, TRUE)
 		M.Sleeping(10 SECONDS)
 	..()
@@ -499,7 +499,7 @@
 		iter_wound.on_synthflesh(reac_volume)
 	carbies.adjustToxLoss((harmies+burnies)*(0.5 + (0.25*(1-creation_purity)))) //0.5 - 0.75
 	if(show_message)
-		to_chat(carbies, span_danger("Чувствую как мои ожоги и синяки заживают! Чертовски жжется!") )
+		to_chat(carbies, span_danger("Чувствую как мои ожоги и синяки заживают! Чертовски жжется!"))
 	SEND_SIGNAL(carbies, COMSIG_ADD_MOOD_EVENT, "painful_medicine", /datum/mood_event/painful_medicine)
 	if(HAS_TRAIT_FROM(exposed_mob, TRAIT_HUSK, BURN) && carbies.getFireLoss() < UNHUSK_DAMAGE_THRESHOLD && (carbies.reagents.get_reagent_amount(/datum/reagent/medicine/c2/synthflesh) + reac_volume >= SYNTHFLESH_UNHUSK_AMOUNT))
 		carbies.cure_husk(BURN)
@@ -554,11 +554,11 @@
 		H.Dizzy(rand(0, 2) * REM * delta_time)
 
 		if(DT_PROB(18, delta_time))
-			to_chat(H,span_danger("Моё тело хочет сдаться, но сердце всё еще бьется!") )
+			to_chat(H,span_danger("Моё тело хочет сдаться, но сердце всё еще бьется!"))
 
 	if(H.health <= (H.crit_threshold + HEALTH_THRESHOLD_FULLCRIT*(2*normalise_creation_purity()))) //certain death below this threshold
 		REMOVE_TRAIT(H, TRAIT_STABLEHEART, type) //we have to remove the stable heart trait before we give them a heart attack
-		to_chat(H,span_danger("Чувствую как в груди что-то разрывается!") )
+		to_chat(H,span_danger("Чувствую как в груди что-то разрывается!"))
 		H.emote("agony")
 		H.set_heartattack(TRUE)
 		volume = 0

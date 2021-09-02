@@ -31,7 +31,7 @@
 /datum/surgery_step/stomach_pump/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("You begin pumping [target] stomach...") ,
 		span_notice("[user] begins to pump [target] stomach.") ,
-		span_notice("[user] begins to press on [target] chest.") )
+		span_notice("[user] begins to press on [target] chest."))
 
 /datum/surgery_step/stomach_pump/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
@@ -47,6 +47,6 @@
 		var/mob/living/carbon/human/H = target
 		display_results(user, target, span_warning("You screw up, brusing [H] chest!") ,
 			span_warning("[user] screws up, brusing [H] chest!") ,
-			span_warning("[user] screws up!") )
+			span_warning("[user] screws up!"))
 		H.adjustOrganLoss(ORGAN_SLOT_STOMACH, 5)
 		H.adjustBruteLoss(5)

@@ -746,17 +746,17 @@ GLOBAL_LIST_EMPTY(allCasters)
 
 /obj/machinery/newscaster/attackby(obj/item/I, mob/living/user, params)
 	if(I.tool_behaviour == TOOL_WRENCH)
-		to_chat(user, span_notice("Начинаю [anchored ? "откручивать" : "прикручивать"] [name]...") )
+		to_chat(user, span_notice("Начинаю [anchored ? "откручивать" : "прикручивать"] [name]..."))
 		I.play_tool_sound(src)
 		if(I.use_tool(src, user, 60))
 			playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 			if(machine_stat & BROKEN)
-				to_chat(user, span_warning("Куски [src] падают на пол.") )
+				to_chat(user, span_warning("Куски [src] падают на пол."))
 				new /obj/item/stack/sheet/iron(loc, 5)
 				new /obj/item/shard(loc)
 				new /obj/item/shard(loc)
 			else
-				to_chat(user, span_notice("[anchored ? "откручиваю" : "прикручиваю"] [name].") )
+				to_chat(user, span_notice("[anchored ? "откручиваю" : "прикручиваю"] [name]."))
 				new /obj/item/wallframe/newscaster(loc)
 			qdel(src)
 	else if(I.tool_behaviour == TOOL_WELDER && user.a_intent != INTENT_HARM)
@@ -765,16 +765,16 @@ GLOBAL_LIST_EMPTY(allCasters)
 				return
 			user.visible_message(span_notice("[user] начинает чинить [src].") , \
 							span_notice("Начинаю чинить [src]...") , \
-							span_hear("Слышу сварку.") )
+							span_hear("Слышу сварку."))
 			if(I.use_tool(src, user, 40, volume=50))
 				if(!(machine_stat & BROKEN))
 					return
-				to_chat(user, span_notice("Чиню [src].") )
+				to_chat(user, span_notice("Чиню [src]."))
 				obj_integrity = max_integrity
 				set_machine_stat(machine_stat & ~BROKEN)
 				update_icon()
 		else
-			to_chat(user, span_notice("[capitalize(src.name)] не хочет починки.") )
+			to_chat(user, span_notice("[capitalize(src.name)] не хочет починки."))
 	else
 		return ..()
 
@@ -804,7 +804,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 
 /obj/machinery/newscaster/attack_paw(mob/user)
 	if(user.a_intent != INTENT_HARM)
-		to_chat(user, span_warning("СЛИШКОМ СЛОЖНО!") )
+		to_chat(user, span_warning("СЛИШКОМ СЛОЖНО!"))
 	else
 		take_damage(5, BRUTE, MELEE)
 
@@ -827,9 +827,9 @@ GLOBAL_LIST_EMPTY(allCasters)
 			else
 				targetcam = R.aicamera
 		else
-			to_chat(user, span_warning("Вот был бы я синтетиком!") )
+			to_chat(user, span_warning("Вот был бы я синтетиком!"))
 		if(!targetcam.stored.len)
-			to_chat(usr, span_boldannounce("Нет изображений!") )
+			to_chat(usr, span_boldannounce("Нет изображений!"))
 			return
 		var/datum/picture/selection = targetcam.selectpicture(user)
 		if(selection)
@@ -911,13 +911,13 @@ GLOBAL_LIST_EMPTY(allCasters)
 	icon_state = "newspaperold"
 
 /obj/item/newspaper/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is focusing intently on [src]! It looks like [user.p_theyre()] trying to commit sudoku... until [user.ru_ego()] eyes light up with realization!") )
+	user.visible_message(span_suicide("[user] is focusing intently on [src]! It looks like [user.p_theyre()] trying to commit sudoku... until [user.ru_ego()] eyes light up with realization!"))
 	user.say(";JOURNALISM IS MY CALLING! EVERYBODY APPRECIATES UNBIASED REPORTI-GLORF", forced="newspaper suicide")
 	var/mob/living/carbon/human/H = user
 	var/obj/W = new /obj/item/reagent_containers/food/drinks/bottle/whiskey(H.loc)
 	playsound(H.loc, 'sound/items/drink.ogg', rand(10,50), TRUE)
 	W.reagents.trans_to(H, W.reagents.total_volume, transfered_by = user)
-	user.visible_message(span_suicide("[user] downs the contents of [W.name] in one gulp! Shoulda stuck to sudoku!") )
+	user.visible_message(span_suicide("[user] downs the contents of [W.name] in one gulp! Shoulda stuck to sudoku!"))
 
 	return(TOXLOSS)
 
@@ -1000,7 +1000,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 		human_user << browse(dat, "window=newspaper_main;size=300x400")
 		onclose(human_user, "newspaper_main")
 	else
-		to_chat(user, span_warning("The paper is full of unintelligible symbols!") )
+		to_chat(user, span_warning("The paper is full of unintelligible symbols!"))
 
 /obj/item/newspaper/proc/notContent(list/L)
 	if(!L.len)
@@ -1050,10 +1050,10 @@ GLOBAL_LIST_EMPTY(allCasters)
 
 	if(istype(W, /obj/item/pen))
 		if(!user.is_literate())
-			to_chat(user, span_notice("Пишу код оникса на [src]!") )
+			to_chat(user, span_notice("Пишу код оникса на [src]!"))
 			return
 		if(scribble_page == curr_page)
-			to_chat(user, span_warning("Здесь уже что-то написали... Не хочу тут писать!") )
+			to_chat(user, span_warning("Здесь уже что-то написали... Не хочу тут писать!"))
 		else
 			var/s = stripped_input(user, "Написать бы", "Новостная газета")
 			if (!s)

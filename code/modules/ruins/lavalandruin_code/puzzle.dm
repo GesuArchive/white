@@ -282,7 +282,7 @@
 
 /obj/effect/sliding_puzzle/prison/Destroy()
 	if(prisoner)
-		to_chat(prisoner,span_userdanger("После разрушения куба силой, вы чувствуете, как ваше тело распадается на кусочки.") )
+		to_chat(prisoner,span_userdanger("После разрушения куба силой, вы чувствуете, как ваше тело распадается на кусочки."))
 		prisoner.death()
 		qdel(prisoner)
 	. = ..()
@@ -314,12 +314,12 @@
 	//Handcuffed or unconcious
 	if(istype(carbon_victim) && carbon_victim.handcuffed || victim.stat != CONSCIOUS)
 		if(!puzzle_imprison(target))
-			to_chat(user,span_warning("[capitalize(src.name)] ничего не делает.") )
+			to_chat(user,span_warning("[capitalize(src.name)] ничего не делает."))
 			return
-		to_chat(user,span_warning("Вы заключаете [victim] в куб-тюрьму!") )
+		to_chat(user,span_warning("Вы заключаете [victim] в куб-тюрьму!"))
 		qdel(src)
 	else
-		to_chat(user,span_notice("[capitalize(src.name)] принимает только связанных или оглушённых пленников.") )
+		to_chat(user,span_notice("[capitalize(src.name)] принимает только связанных или оглушённых пленников."))
 
 /proc/puzzle_imprison(mob/living/prisoner)
 	var/turf/T = get_turf(prisoner)
@@ -331,7 +331,7 @@
 	//First grab the prisoner and move them temporarily into the generator so they won't get thrown around.
 	prisoner.notransform = TRUE
 	prisoner.forceMove(cube)
-	to_chat(prisoner,span_userdanger("Вы заключены в кубе-тюрьме! Вы останетесь здесь, пока кто-нибудь не решит загадку куба.") )
+	to_chat(prisoner,span_userdanger("Вы заключены в кубе-тюрьме! Вы останетесь здесь, пока кто-нибудь не решит загадку куба."))
 
 	//Clear the area from objects (and cube user)
 	var/list/things_to_throw = list()

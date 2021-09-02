@@ -37,7 +37,7 @@
 		return
 	var/area/A = get_area(user)
 	if(!A.static_lighting)
-		to_chat(user, span_warning("Не могу установить [src] здесь!") )
+		to_chat(user, span_warning("Не могу установить [src] здесь!"))
 		return
 	return TRUE
 
@@ -92,7 +92,7 @@
 
 /obj/structure/light_construct/attack_hand(mob/user)
 	if(cell)
-		user.visible_message(span_notice("[user] извлекает [cell] из [src]!") , span_notice("Извлекаю [cell].") )
+		user.visible_message(span_notice("[user] извлекает [cell] из [src]!") , span_notice("Извлекаю [cell]."))
 		user.put_in_hands(cell)
 		cell.update_icon()
 		cell = null
@@ -102,7 +102,7 @@
 /obj/structure/light_construct/attack_tk(mob/user)
 	if(!cell)
 		return
-	to_chat(user, span_notice("Телекинетически извлекаю [cell].") )
+	to_chat(user, span_notice("Телекинетически извлекаю [cell]."))
 	var/obj/item/stock_parts/cell/cell_reference = cell
 	cell = null
 	cell_reference.forceMove(drop_location())
@@ -113,37 +113,37 @@
 	add_fingerprint(user)
 	if(istype(W, /obj/item/stock_parts/cell))
 		if(!cell_connectors)
-			to_chat(user, span_warning("Этот [name] не может хранить батарейку!") )
+			to_chat(user, span_warning("Этот [name] не может хранить батарейку!"))
 			return
 		if(HAS_TRAIT(W, TRAIT_NODROP))
-			to_chat(user, span_warning("[W] застрял в моей руке!") )
+			to_chat(user, span_warning("[W] застрял в моей руке!"))
 			return
 		if(cell)
-			to_chat(user, span_warning("Здесь уже есть батарейка!") )
+			to_chat(user, span_warning("Здесь уже есть батарейка!"))
 		else if(user.temporarilyRemoveItemFromInventory(W))
 			user.visible_message(span_notice("[user] подключает [W] к [src].") , \
-			span_notice("Подключаю [W] к [src].") )
+			span_notice("Подключаю [W] к [src]."))
 			playsound(src, 'sound/machines/click.ogg', 50, TRUE)
 			W.forceMove(src)
 			cell = W
 			add_fingerprint(user)
 		return
 	else if (istype(W, /obj/item/light))
-		to_chat(user, span_warning("[capitalize(name)] не готово для установки!") )
+		to_chat(user, span_warning("[capitalize(name)] не готово для установки!"))
 		return
 
 	switch(stage)
 		if(1)
 			if(W.tool_behaviour == TOOL_WRENCH)
 				if(cell)
-					to_chat(user, span_warning("Нужно сначала извлечь батарейку!") )
+					to_chat(user, span_warning("Нужно сначала извлечь батарейку!"))
 					return
 				else
-					to_chat(user, span_notice("Начинаю разбирать [src]...") )
+					to_chat(user, span_notice("Начинаю разбирать [src]..."))
 					if (W.use_tool(src, user, 30, volume=50))
 						new /obj/item/stack/sheet/iron(drop_location(), sheets_refunded)
 						user.visible_message(span_notice("[user.name] разбирает [src].") , \
-							span_notice("Разбираю [src].") , span_hear("Слышу трещотку.") )
+							span_notice("Разбираю [src].") , span_hear("Слышу трещотку."))
 						playsound(src, 'sound/items/deconstruct.ogg', 75, TRUE)
 						qdel(src)
 					return
@@ -154,13 +154,13 @@
 					icon_state = "[fixture_type]-construct-stage2"
 					stage = 2
 					user.visible_message(span_notice("[user.name] добавляет провода к [src].") , \
-						span_notice("Добавляю провода к [src].") )
+						span_notice("Добавляю провода к [src]."))
 				else
-					to_chat(user, span_warning("Потребуется немножечко кабеля для [src]!") )
+					to_chat(user, span_warning("Потребуется немножечко кабеля для [src]!"))
 				return
 		if(2)
 			if(W.tool_behaviour == TOOL_WRENCH)
-				to_chat(usr, span_warning("Стоит убрать проводку сначала!") )
+				to_chat(usr, span_warning("Стоит убрать проводку сначала!"))
 				return
 
 			if(W.tool_behaviour == TOOL_WIRECUTTER)
@@ -168,13 +168,13 @@
 				icon_state = "[fixture_type]-construct-stage1"
 				new /obj/item/stack/cable_coil(drop_location(), 1, "red")
 				user.visible_message(span_notice("[user.name] убирает проводку из [src].") , \
-					span_notice("Убираю проводку из [src].") , span_hear("Слышу щелчки.") )
+					span_notice("Убираю проводку из [src].") , span_hear("Слышу щелчки."))
 				W.play_tool_sound(src, 100)
 				return
 
 			if(W.tool_behaviour == TOOL_SCREWDRIVER)
 				user.visible_message(span_notice("[user.name] закручивает корпус [src].") , \
-					span_notice("Закручиваю корпус [src].") , span_hear("Слышу работу отвёрткой.") )
+					span_notice("Закручиваю корпус [src].") , span_hear("Слышу работу отвёрткой."))
 				W.play_tool_sound(src, 75)
 				switch(fixture_type)
 					if("tube")
@@ -533,7 +533,7 @@
 	// attempt to insert light
 	else if(istype(W, /obj/item/light))
 		if(status == LIGHT_OK)
-			to_chat(user, span_warning("Здесь уже есть лампочка внутри!") )
+			to_chat(user, span_warning("Здесь уже есть лампочка внутри!"))
 		else
 			src.add_fingerprint(user)
 			var/obj/item/light/L = W
@@ -544,9 +544,9 @@
 				src.add_fingerprint(user)
 				if(status != LIGHT_EMPTY)
 					drop_light_tube(user)
-					to_chat(user, span_notice("Заменяю [L].") )
+					to_chat(user, span_notice("Заменяю [L]."))
 				else
-					to_chat(user, span_notice("Вставляю [L].") )
+					to_chat(user, span_notice("Вставляю [L]."))
 				status = L.status
 				switchcount = L.switchcount
 				rigged = L.rigged
@@ -559,17 +559,17 @@
 				if(on && rigged)
 					explode()
 			else
-				to_chat(user, span_warning("Этот тип светильника требует другую лампочку!") )
+				to_chat(user, span_warning("Этот тип светильника требует другую лампочку!"))
 
 	// attempt to stick weapon into light socket
 	else if(status == LIGHT_EMPTY)
 		if(W.tool_behaviour == TOOL_SCREWDRIVER) //If it's a screwdriver open it.
 			W.play_tool_sound(src, 75)
 			user.visible_message(span_notice("[user.name] раскручивает [src].") , \
-				span_notice("Раскручиваю [src].") , span_hear("Слышу какой-то шум.") )
+				span_notice("Раскручиваю [src].") , span_hear("Слышу какой-то шум."))
 			deconstruct()
 		else
-			to_chat(user, span_userdanger("Вставляю [W] прямо в контакты лампочки!") )
+			to_chat(user, span_userdanger("Вставляю [W] прямо в контакты лампочки!"))
 			if(has_power() && (W.flags_1 & CONDUCT_1))
 				do_sparks(3, TRUE, src)
 				if (prob(75))
@@ -661,7 +661,7 @@
 	if(!has_emergency_power(pwr))
 		return FALSE
 	if(cell.charge > 300) //it's meant to handle 120 W, ya doofus
-		visible_message(span_warning("[capitalize(src.name)] перегорает от переизбытка питания!") )
+		visible_message(span_warning("[capitalize(src.name)] перегорает от переизбытка питания!"))
 		burn_out()
 		return FALSE
 	cell.use(pwr)
@@ -689,7 +689,7 @@
 
 /obj/machinery/light/attack_ai(mob/user)
 	no_emergency = !no_emergency
-	to_chat(user, span_notice("Экстренное освещение [no_emergency ? "отключено" : "включено"].") )
+	to_chat(user, span_notice("Экстренное освещение [no_emergency ? "отключено" : "включено"]."))
 	update(FALSE)
 	return
 
@@ -704,7 +704,7 @@
 	add_fingerprint(user)
 
 	if(status == LIGHT_EMPTY)
-		to_chat(user, span_warning("Внутри нет лампочки!") )
+		to_chat(user, span_warning("Внутри нет лампочки!"))
 		return
 
 	// make it burn hands unless you're wearing heat insulated gloves or have the RESISTHEAT/RESISTHEATHANDS traits
@@ -718,15 +718,15 @@
 				var/datum/species/ethereal/E = H.dna.species
 				if(E.drain_time > world.time)
 					return
-				to_chat(H, span_notice("Начинаю заряжать себя используя лампочку.") )
+				to_chat(H, span_notice("Начинаю заряжать себя используя лампочку."))
 				E.drain_time = world.time + LIGHT_DRAIN_TIME
 				if(do_after(user, LIGHT_DRAIN_TIME, target = src))
 					var/obj/item/organ/stomach/ethereal/stomach = H.getorganslot(ORGAN_SLOT_STOMACH)
 					if(istype(stomach))
-						to_chat(H, span_notice("Получаю немного энергии от лампочки.") )
+						to_chat(H, span_notice("Получаю немного энергии от лампочки."))
 						stomach.adjust_charge(LIGHT_POWER_GAIN)
 					else
-						to_chat(H, span_warning("Не вышло получить энергию от лампочки!") )
+						to_chat(H, span_warning("Не вышло получить энергию от лампочки!"))
 				return
 
 			if(H.gloves)
@@ -737,26 +737,26 @@
 			prot = 1
 
 		if(prot > 0 || HAS_TRAIT(user, TRAIT_RESISTHEAT) || HAS_TRAIT(user, TRAIT_RESISTHEATHANDS))
-			to_chat(user, span_notice("Извлекаю лампочку.") )
+			to_chat(user, span_notice("Извлекаю лампочку."))
 		else if(istype(user) && user.dna.check_mutation(TK))
-			to_chat(user, span_notice("Телекинетически извлекаю лампочку.") )
+			to_chat(user, span_notice("Телекинетически извлекаю лампочку."))
 		else
 			var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 			if(affecting?.receive_damage( 0, 5 ))			// 5 burn damage
 				H.update_damage_overlays()
 			if(HAS_TRAIT(user, TRAIT_LIGHTBULB_REMOVER))
-				to_chat(user, span_notice("Ощущаю дикую боль в руке, но меня это не останавливает.") )
+				to_chat(user, span_notice("Ощущаю дикую боль в руке, но меня это не останавливает."))
 				if(!do_after(user, 5 SECONDS, target = src))
 					return
 				if(affecting?.receive_damage( 0, 10 ))		// 10 more burn damage
 					H.update_damage_overlays()
-				to_chat(user, span_notice("Мне удалось вытащить лампочку, правда они разбилась в процессе.") )
+				to_chat(user, span_notice("Мне удалось вытащить лампочку, правда они разбилась в процессе."))
 				break_light_tube()
 			else
-				to_chat(user, span_warning("Пытаюсь вытащить лампочку, но она слишком горячая!") )
+				to_chat(user, span_warning("Пытаюсь вытащить лампочку, но она слишком горячая!"))
 				return
 	else
-		to_chat(user, span_notice("Вытаскиваю лампочку.") )
+		to_chat(user, span_notice("Вытаскиваю лампочку."))
 	// create a light tube/bulb item and put it in the user's hand
 	drop_light_tube(user)
 
@@ -783,10 +783,10 @@
 
 /obj/machinery/light/attack_tk(mob/user)
 	if(status == LIGHT_EMPTY)
-		to_chat(user, span_warning("Внутри нет лампочки!") )
+		to_chat(user, span_warning("Внутри нет лампочки!"))
 		return
 
-	to_chat(user, span_notice("Телекинетически извлекаю лампочку.") )
+	to_chat(user, span_notice("Телекинетически извлекаю лампочку."))
 	// create a light tube/bulb item and put it in the user's hand
 	var/obj/item/light/light_tube = drop_light_tube()
 	return light_tube.attack_tk(user)
@@ -876,10 +876,10 @@
 
 /obj/item/light/suicide_act(mob/living/carbon/user)
 	if (status == LIGHT_BROKEN)
-		user.visible_message(span_suicide("[user] begins to stab [user.ru_na()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!") )
+		user.visible_message(span_suicide("[user] begins to stab [user.ru_na()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
 		return BRUTELOSS
 	else
-		user.visible_message(span_suicide("[user] begins to eat <b>[src.name]</b>! It looks like [user.p_theyre()] not very bright!") )
+		user.visible_message(span_suicide("[user] begins to eat <b>[src.name]</b>! It looks like [user.p_theyre()] not very bright!"))
 		shatter()
 		return BRUTELOSS
 
@@ -986,7 +986,7 @@
 
 /obj/item/light/proc/shatter()
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
-		visible_message(span_danger("[capitalize(src.name)] разбивается.") ,span_hear("Слышу как что-то стеклянное разбивается.") )
+		visible_message(span_danger("[capitalize(src.name)] разбивается.") ,span_hear("Слышу как что-то стеклянное разбивается."))
 		status = LIGHT_BROKEN
 		force = 5
 		playsound(src.loc, 'sound/effects/glasshit.ogg', 75, TRUE)

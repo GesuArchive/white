@@ -22,11 +22,11 @@
 		var/obj/item/stack/sheet/iron/M = O
 		if (M.use(1))
 			var/obj/item/L = new /obj/item/stack/tile/light(user.drop_location())
-			to_chat(user, span_notice("Создаю светоплитку.") )
+			to_chat(user, span_notice("Создаю светоплитку."))
 			L.add_fingerprint(user)
 			use(1)
 		else
-			to_chat(user, span_warning("Мне нужен один железный лист, чтобы закончить светоплитку!") )
+			to_chat(user, span_warning("Мне нужен один железный лист, чтобы закончить светоплитку!"))
 	else
 		return ..()
 

@@ -29,14 +29,14 @@
 /datum/surgery_step/gastrectomy/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю вырезать часть поврежденного желудка [target]...") ,
 		span_notice("[user] делает надрез [target].") ,
-		span_notice("[user] делает надрез [target].") )
+		span_notice("[user] делает надрез [target]."))
 
 /datum/surgery_step/gastrectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/mob/living/carbon/human/H = target
 	H.setOrganLoss(ORGAN_SLOT_STOMACH, 20) // Stomachs have a threshold for being able to even digest food, so I might tweak this number
 	display_results(user, target, span_notice("Успешно извлек поврежденную часть желудка [target].") ,
 		span_notice("[user] успешно извлек поврежденную часть желудка [target].") ,
-		span_notice("[user] успешно извлек поврежденную часть желудка [target].") )
+		span_notice("[user] успешно извлек поврежденную часть желудка [target]."))
 	return ..()
 
 /datum/surgery_step/hepatectomy/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery)
@@ -44,4 +44,4 @@
 	H.adjustOrganLoss(ORGAN_SLOT_STOMACH, 15)
 	display_results(user, target, span_warning("Вырезал неверную часть желудка [target]!") ,
 		span_warning("[user] вырезал неверную часть желудка [target]!") ,
-		span_warning("[user] вырезал неверную часть желудка [target]!") )
+		span_warning("[user] вырезал неверную часть желудка [target]!"))

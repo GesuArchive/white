@@ -105,16 +105,16 @@
 
 		if(sort_tag != destination_tag.currTag)
 			var/tag = uppertext(GLOB.TAGGERLOCATIONS[destination_tag.currTag])
-			to_chat(user, span_notice("*[tag]*") )
+			to_chat(user, span_notice("*[tag]*"))
 			sort_tag = destination_tag.currTag
 			playsound(loc, 'sound/machines/twobeep_high.ogg', 100, TRUE)
 
 /obj/item/mail/attack_self(mob/user)
 	if(recipient && user != recipient)
-		to_chat(user, span_notice("Эта почта защищена слишком мудрым защитным механизмом! Не хотелось бы <em>потерять голову</em>!") )
+		to_chat(user, span_notice("Эта почта защищена слишком мудрым защитным механизмом! Не хотелось бы <em>потерять голову</em>!"))
 		return
 
-	to_chat(user, span_notice("Начинаю вскрывать посылку...") )
+	to_chat(user, span_notice("Начинаю вскрывать посылку..."))
 	if(!do_after(user, 1.5 SECONDS, target = user))
 		return
 	user.temporarilyRemoveItemFromInventory(src, TRUE)
@@ -125,7 +125,7 @@
 
 /obj/item/mail/examine_more(mob/user)
 	. = ..()
-	var/list/msg = list(span_notice("<i>Замечаю почтовый штемпель на лицевой стороне письма...</i>") )
+	var/list/msg = list(span_notice("<i>Замечаю почтовый штемпель на лицевой стороне письма...</i>"))
 	if(recipient)
 		msg += "\t<span class='info'>Сертифицированная Нанотрейзен посылка для [recipient].</span>"
 	else

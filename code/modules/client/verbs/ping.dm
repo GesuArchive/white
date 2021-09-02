@@ -14,7 +14,7 @@
 /client/verb/display_ping(time as num)
 	set instant = TRUE
 	set name = ".display_ping"
-	to_chat(src, span_notice("Время отклика [round(pingfromtime(time)/4, 1)]мс.") )
+	to_chat(src, span_notice("Время отклика [round(pingfromtime(time)/4, 1)]мс."))
 
 /client/verb/ping()
 	set name = "Пинг"

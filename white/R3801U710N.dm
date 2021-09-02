@@ -15,7 +15,7 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 		return
 
 	A.zashkvareno = 1
-	A.visible_message(span_danger("[A.name] зашкваривается от петушиного касания!") )
+	A.visible_message(span_danger("[A.name] зашкваривается от петушиного касания!"))
 
 	if(prob(50))
 		A.name = "петушиный " + A.name

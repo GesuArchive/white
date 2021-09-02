@@ -71,19 +71,19 @@ the same goes for Remove(). if you override Remove(), call parent or else your p
 		return FALSE
 	var/datum/antagonist/changeling/c = user.mind.has_antag_datum(/datum/antagonist/changeling)
 	if(c.chem_charges < chemical_cost)
-		to_chat(user, span_warning("Нам требуется [chemical_cost] единиц химикатов для этого!") )
+		to_chat(user, span_warning("Нам требуется [chemical_cost] единиц химикатов для этого!"))
 		return FALSE
 	if(c.absorbedcount < req_dna)
-		to_chat(user, span_warning("Нам требуется [req_dna] образцов совместимых ДНК.") )
+		to_chat(user, span_warning("Нам требуется [req_dna] образцов совместимых ДНК."))
 		return FALSE
 	if(c.trueabsorbs < req_absorbs)
-		to_chat(user, span_warning("Нам требуется [req_absorbs] образцов ДНК полученных через поглощение.") )
+		to_chat(user, span_warning("Нам требуется [req_absorbs] образцов ДНК полученных через поглощение."))
 		return FALSE
 	if(req_stat < user.stat)
-		to_chat(user, span_warning("Мы не в состоянии.") )
+		to_chat(user, span_warning("Мы не в состоянии."))
 		return FALSE
 	if((HAS_TRAIT(user, TRAIT_DEATHCOMA)) && (!ignores_fakedeath))
-		to_chat(user, span_warning("Мы не в состоянии.") )
+		to_chat(user, span_warning("Мы не в состоянии."))
 		return FALSE
 	return TRUE
 

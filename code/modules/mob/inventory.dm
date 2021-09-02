@@ -396,7 +396,7 @@
 
 /obj/item/proc/equip_to_best_slot(mob/M, check_hand = TRUE)
 	if(check_hand && src != M.get_active_held_item())
-		to_chat(M, span_warning("You are not holding anything to equip!") )
+		to_chat(M, span_warning("You are not holding anything to equip!"))
 		return FALSE
 
 	if(M.equip_to_appropriate_slot(src))
@@ -417,7 +417,7 @@
 		if(SEND_SIGNAL(I, COMSIG_TRY_STORAGE_INSERT, src, M))
 			return TRUE
 
-	to_chat(M, span_warning("You are unable to equip that!") )
+	to_chat(M, span_warning("You are unable to equip that!"))
 	return FALSE
 
 

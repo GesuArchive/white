@@ -26,12 +26,12 @@
 /datum/surgery_step/imprint_cortex/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю вырезать на коре большого мозга [target] само-импринтирующий паттерн.") ,
 		span_notice("[user] начинает вырезать на коре большого мозга [target]само-импринтирующий паттерн.") ,
-		span_notice("[user] начинает проводить операцию на мозге [target].") )
+		span_notice("[user] начинает проводить операцию на мозге [target]."))
 
 /datum/surgery_step/imprint_cortex/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(user, target, span_notice("Изменил форму коры большого мозга [target] на само-импринтирующий паттерн!") ,
 		span_notice("[user] изменил форму коры большого мозга [target] на само-импринтирующий паттерн!") ,
-		span_notice("[user] завершил операцию на мозге [target].") )
+		span_notice("[user] завершил операцию на мозге [target]."))
 	new /datum/bioware/cortex_imprint(target)
 	return ..()
 
@@ -39,11 +39,11 @@
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
 		display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, повредив мозг!") ,
 			span_warning("[user] облажался, повредив мозг!") ,
-			span_notice("[user] завершил операцию на мозге [target]") )
+			span_notice("[user] завершил операцию на мозге [target]"))
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60)
 		target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)
 	else
-		user.visible_message(span_warning("[user] внезапно замечает что мозг [user.ru_who()] над которым работал [user.p_were()] исчез.") , span_warning("Внезапно обнаруживаю что мозг, над которым работал, исчез.") )
+		user.visible_message(span_warning("[user] внезапно замечает что мозг [user.ru_who()] над которым работал [user.p_were()] исчез.") , span_warning("Внезапно обнаруживаю что мозг, над которым работал, исчез."))
 	return FALSE
 
 /datum/bioware/cortex_imprint

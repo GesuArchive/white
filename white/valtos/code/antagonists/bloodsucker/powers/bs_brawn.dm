@@ -105,7 +105,7 @@
 		if (do_mob(usr,target,25))
 			var/obj/machinery/door/D = target
 			if (D.Adjacent(user))
-				to_chat(user, span_notice("You prepare to tear open [D].") )
+				to_chat(user, span_notice("You prepare to tear open [D]."))
 				user.Stun(10)
 				user.do_attack_animation(D, ATTACK_EFFECT_SMASH)
 				playsound(get_turf(D), 'sound/effects/bang.ogg', 30, 1, -1)
@@ -116,7 +116,7 @@
 		playsound(get_turf(usr), 'sound/machines/airlock_alien_prying.ogg', 40, 1, -1)
 		if (do_mob(usr,target,25))
 			var/obj/structure/closet/C = target
-			to_chat(user, span_notice("You prepare to tear open the [C].") )
+			to_chat(user, span_notice("You prepare to tear open the [C]."))
 			user.Stun(10)
 			user.do_attack_animation(C, ATTACK_EFFECT_SMASH)
 			playsound(get_turf(C), 'sound/effects/bang.ogg', 30, 1, -1)
@@ -137,7 +137,7 @@
 		var/obj/O = user_C.get_item_by_slot(ITEM_SLOT_HANDCUFFED)
 		if(istype(O))
 			//user_C.visible_message(span_warning("[user_C] attempts to remove [O]!") ,
-			//					 span_warning("You snap [O] like it's nothing!") )
+			//					 span_warning("You snap [O] like it's nothing!"))
 			user_C.clear_cuffs(O,TRUE)
 			playsound(get_turf(usr), 'sound/effects/grillehit.ogg', 80, 1, -1)
 			return TRUE
@@ -149,7 +149,7 @@
 			var/obj/item/clothing/suit/S = user_H.get_item_by_slot(ITEM_SLOT_OCLOTHING)
 			if(istype(S))
 				user_C.visible_message(span_warning("[user_C] attempts to remove [S]!") , \
-						 			span_warning("You rip through [S] like it's nothing!") )
+						 			span_warning("You rip through [S] like it's nothing!"))
 				user_C.clear_cuffs(S,TRUE)
 				playsound(get_turf(usr), 'sound/effects/grillehit.ogg', 80, 1, -1)
 				return TRUE
@@ -159,7 +159,7 @@
 		var/obj/O = user_C.get_item_by_slot(ITEM_SLOT_LEGCUFFED)
 		if(istype(O))
 			//user_C.visible_message(span_warning("[user_C] attempts to remove [O]!") ,
-			//					 span_warning("You snap [O] like it's nothing!") )
+			//					 span_warning("You snap [O] like it's nothing!"))
 			user_C.clear_cuffs(O,TRUE)
 			playsound(get_turf(usr), 'sound/effects/grillehit.ogg', 80, 1, -1)
 			return TRUE
@@ -190,6 +190,6 @@
 	log_combat(owner, M, "used Brawn power")
 
 	owner.visible_message(span_warning("[owner] tears free of [M] grasp!") , \
-			 			span_warning("You shrug off [M] grasp!") )
+			 			span_warning("You shrug off [M] grasp!"))
 	owner.pulledby = null // It's already done, but JUST IN CASE.
 	return TRUE

@@ -114,7 +114,7 @@
 
 /datum/orion_event/electronic_part/emag_effect(obj/machinery/computer/arcade/orion_trail/game, mob/living/carbon/gamer)
 	playsound(game, 'sound/effects/empulse.ogg', 50, TRUE)
-	game.visible_message(span_danger("[src] malfunctions, randomizing in-game stats!") )
+	game.visible_message(span_danger("[src] malfunctions, randomizing in-game stats!"))
 	var/oldfood = game.food
 	var/oldfuel = game.fuel
 	game.food = rand(10,80) / rand(1,2)
@@ -124,9 +124,9 @@
 
 /datum/orion_event/electronic_part/proc/revert_random(obj/machinery/computer/arcade/orion_trail/game, oldfood, oldfuel)
 	if(oldfuel > game.fuel && oldfood > game.food)
-		game.audible_message(span_danger("[src] lets out a somehow reassuring chime.") )
+		game.audible_message(span_danger("[src] lets out a somehow reassuring chime."))
 	else if(oldfuel < game.fuel || oldfood < game.food)
-		game.audible_message(span_danger("[src] lets out a somehow ominous chime.") )
+		game.audible_message(span_danger("[src] lets out a somehow ominous chime."))
 	game.food = oldfood
 	game.fuel = oldfuel
 	playsound(game, 'sound/machines/chime.ogg', 50, TRUE)
@@ -259,10 +259,10 @@
 
 /datum/orion_event/raiders/emag_effect(obj/machinery/computer/arcade/orion_trail/game, mob/living/carbon/gamer)
 	if(prob(50-gamer_skill))
-		to_chat(usr, span_userdanger("You hear battle shouts. The tramping of boots on cold metal. Screams of agony. The rush of venting air. Are you going insane?") )
+		to_chat(usr, span_userdanger("You hear battle shouts. The tramping of boots on cold metal. Screams of agony. The rush of venting air. Are you going insane?"))
 		gamer.hallucination += 30
 	else
-		to_chat(usr, span_userdanger("Something strikes you from behind! It hurts like hell and feel like a blunt weapon, but nothing is there...") )
+		to_chat(usr, span_userdanger("Something strikes you from behind! It hurts like hell and feel like a blunt weapon, but nothing is there..."))
 		gamer.take_bodypart_damage(30)
 		playsound(game, 'sound/weapons/genhit2.ogg', 100, TRUE)
 
@@ -286,11 +286,11 @@
 		to_chat(gamer, span_userdanger("You suddenly feel slightly nauseated.")  )
 		gamer.adjust_disgust(50)
 	if(severity == 2)
-		to_chat(usr, span_userdanger("You suddenly feel extremely nauseated and hunch over until it passes.") )
+		to_chat(usr, span_userdanger("You suddenly feel extremely nauseated and hunch over until it passes."))
 		gamer.adjust_disgust(110)
 		gamer.Stun(60)
 	if(severity >= 3) //you didn't pray hard enough
-		to_chat(gamer, span_warning("An overpowering wave of nausea consumes over you. You hunch over, your stomach's contents preparing for a spectacular exit.") )
+		to_chat(gamer, span_warning("An overpowering wave of nausea consumes over you. You hunch over, your stomach's contents preparing for a spectacular exit."))
 		gamer.adjust_disgust(150) //max this bitch out so they barf a lot
 		gamer.Stun(100)
 
@@ -316,7 +316,7 @@
 
 /datum/orion_event/flux/emag_effect(obj/machinery/computer/arcade/orion_trail/game, mob/living/carbon/gamer)
 	if(prob(25 + gamer_skill))//withstand the wind with your GAMER SKILL
-		to_chat(gamer, span_userdanger("A violent gale blows past you, and you barely manage to stay standing!") )
+		to_chat(gamer, span_userdanger("A violent gale blows past you, and you barely manage to stay standing!"))
 		return
 	gamer.Paralyze(60)
 	game.say("A sudden gust of powerful wind slams [gamer] into the floor!")

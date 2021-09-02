@@ -163,7 +163,7 @@
 	if(!iscarbon(user))
 		return
 	var/mob/living/carbon/jedi = user
-	to_chat(jedi, span_userdanger("Шокирующе-глупая идея.") )
+	to_chat(jedi, span_userdanger("Шокирующе-глупая идея."))
 	var/obj/item/organ/brain/rip_u = locate(/obj/item/organ/brain) in jedi.internal_organs
 	jedi.ghostize(jedi)
 	if(rip_u)

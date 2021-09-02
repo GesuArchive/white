@@ -275,7 +275,7 @@
 	// калькулируем модификаторы
 
 	if(dstats[MOB_INT] <= 0)
-		visible_message(span_suicide("<b>[name]</b> падает на пол закатив свои глаза!") )
+		visible_message(span_suicide("<b>[name]</b> падает на пол закатив свои глаза!"))
 		setOrganLoss(ORGAN_SLOT_BRAIN, 200)
 		return
 

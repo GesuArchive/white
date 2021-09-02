@@ -25,13 +25,13 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	if(STR.locked)
 		icon_state += "_open"
-		user.visible_message(span_notice("[user] открывает [src].") , span_notice("Ты открываешь [src].") )
+		user.visible_message(span_notice("[user] открывает [src].") , span_notice("Ты открываешь [src]."))
 		STR.locked = FALSE
 		if(contents.len)
 			return
 	else
 		icon_state = initial(icon_state)
-		user.visible_message(span_notice("[user] закрывает [src].") , span_notice("Ты закрываешь [src].") )
+		user.visible_message(span_notice("[user] закрывает [src].") , span_notice("Ты закрываешь [src]."))
 		STR.locked = TRUE
 		return
 

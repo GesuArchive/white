@@ -54,7 +54,7 @@
 					user.visible_message("[user] wires [src].", "You wire [src].")
 					construction_state++
 				else
-					to_chat(user, span_warning("You need 10 wires for this!") )
+					to_chat(user, span_warning("You need 10 wires for this!"))
 		if(SPACEPOD_WIRES_LOOSE)
 			if(W.tool_behaviour == TOOL_WIRECUTTER)
 				. = TRUE
@@ -82,7 +82,7 @@
 					construction_state++
 					user.visible_message("[user] inserts the mainboard into [src].", "You insert the mainboard into [src].")
 				else
-					to_chat(user, span_warning("[W] is stuck to your hand!") )
+					to_chat(user, span_warning("[W] is stuck to your hand!"))
 		if(SPACEPOD_CIRCUIT_LOOSE)
 			if(W.tool_behaviour == TOOL_CROWBAR)
 				. = TRUE
@@ -109,7 +109,7 @@
 					construction_state++
 					user.visible_message("[user] inserts the core into [src].", "You carefully insert the core into [src].")
 				else
-					to_chat(user, span_warning("[W] is stuck to your hand!") )
+					to_chat(user, span_warning("[W] is stuck to your hand!"))
 		if(SPACEPOD_CORE_LOOSE)
 			if(W.tool_behaviour == TOOL_CROWBAR)
 				. = TRUE
@@ -135,7 +135,7 @@
 					user.visible_message("[user] fabricates a pressure bulkhead for [src].", "You frabricate a pressure bulkhead for [src].")
 					construction_state++
 				else
-					to_chat(user, span_warning("You need 5 metal for this!") )
+					to_chat(user, span_warning("You need 5 metal for this!"))
 		if(SPACEPOD_BULKHEAD_LOOSE)
 			if(W.tool_behaviour == TOOL_CROWBAR)
 				. = TRUE

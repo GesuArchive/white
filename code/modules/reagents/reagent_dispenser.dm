@@ -51,7 +51,7 @@
 	. = ..()
 
 /obj/structure/reagent_dispensers/proc/boom()
-	visible_message(span_danger("<b>[src.name]</b> ruptures!") )
+	visible_message(span_danger("<b>[src.name]</b> ruptures!"))
 	chem_splash(loc, 5, list(reagents))
 	qdel(src)
 
@@ -114,19 +114,19 @@
 /obj/structure/reagent_dispensers/fueltank/attackby(obj/item/I, mob/living/user, params)
 	if(I.tool_behaviour == TOOL_WELDER)
 		if(!reagents.has_reagent(/datum/reagent/fuel))
-			to_chat(user, span_warning("[capitalize(src.name)] is out of fuel!") )
+			to_chat(user, span_warning("[capitalize(src.name)] is out of fuel!"))
 			return
 		var/obj/item/weldingtool/W = I
 		if(istype(W) && !W.welding)
 			if(W.reagents.has_reagent(/datum/reagent/fuel, W.max_fuel))
-				to_chat(user, span_warning("Your [W.name] is already full!") )
+				to_chat(user, span_warning("Your [W.name] is already full!"))
 				return
 			reagents.trans_to(W, W.max_fuel, transfered_by = user)
-			user.visible_message(span_notice("[user] refills [user.ru_ego()] [W.name].") , span_notice("You refill [W].") )
+			user.visible_message(span_notice("[user] refills [user.ru_ego()] [W.name].") , span_notice("You refill [W]."))
 			playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
 			W.update_icon()
 		else
-			user.visible_message(span_danger("[user] catastrophically fails at refilling [user.ru_ego()] [I.name]!") , span_userdanger("That was stupid of you.") )
+			user.visible_message(span_danger("[user] catastrophically fails at refilling [user.ru_ego()] [I.name]!") , span_userdanger("That was stupid of you."))
 			log_bomber(user, "detonated a", src, "via welding tool")
 			boom()
 		return
@@ -207,9 +207,9 @@
 	if(.)
 		return
 	if(!paper_cups)
-		to_chat(user, span_warning("There aren't any cups left!") )
+		to_chat(user, span_warning("There aren't any cups left!"))
 		return
-	user.visible_message(span_notice("[user] takes a cup from [src].") , span_notice("You take a paper cup from [src].") )
+	user.visible_message(span_notice("[user] takes a cup from [src].") , span_notice("You take a paper cup from [src]."))
 	var/obj/item/reagent_containers/food/drinks/sillycup/S = new(get_turf(src))
 	user.put_in_hands(S)
 	paper_cups--
@@ -309,7 +309,7 @@
 
 /obj/structure/reagent_dispensers/plumbed/storage/proc/can_be_rotated(mob/user, rotation_type)
 	if(anchored)
-		to_chat(user, span_warning("It is fastened to the floor!") )
+		to_chat(user, span_warning("It is fastened to the floor!"))
 	return !anchored
 
 /obj/structure/reagent_dispensers/plumbed/fuel

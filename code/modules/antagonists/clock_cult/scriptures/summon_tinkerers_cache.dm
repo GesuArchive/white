@@ -31,13 +31,13 @@
 	if(.)
 		return
 	if(!is_servant_of_ratvar(user))
-		to_chat(user, span_warning("You try to put your hand into [src], but almost burn yourself!") )
+		to_chat(user, span_warning("You try to put your hand into [src], but almost burn yourself!"))
 		return
 	if(!anchored)
-		to_chat(user, span_brass("You need to anchor [src] to the floor first.") )
+		to_chat(user, span_brass("You need to anchor [src] to the floor first."))
 		return
 	if(cooldowntime > world.time)
-		to_chat(user, span_brass("[src] is still warming up, it will be ready in [DisplayTimeText(cooldowntime - world.time)].") )
+		to_chat(user, span_brass("[src] is still warming up, it will be ready in [DisplayTimeText(cooldowntime - world.time)]."))
 		return
 	var/choice = tgui_alert(user,"You begin putting components together in the forge.",,"Robes of Divinity","Shrouding Cloak","Wraith Spectacles")
 	var/list/pickedtype = list()
@@ -52,5 +52,5 @@
 		cooldowntime = world.time + 2400
 		for(var/N in pickedtype)
 			new N(get_turf(src))
-			to_chat(user, span_brass("You craft a [choice] to near perfection, [src] burning down.") )
+			to_chat(user, span_brass("You craft a [choice] to near perfection, [src] burning down."))
 

@@ -8,7 +8,7 @@
 //Transform into a human.
 /datum/action/changeling/humanform/sting_action(mob/living/carbon/user)
 	if(user.movement_type & VENTCRAWLING)
-		to_chat(user, span_notice("Мы должны выйти из труб, прежде чем сможем вернуть форму!") )
+		to_chat(user, span_notice("Мы должны выйти из труб, прежде чем сможем вернуть форму!"))
 		return FALSE
 	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
 	var/list/names = list()
@@ -24,7 +24,7 @@
 		return
 	if(!user || user.notransform)
 		return FALSE
-	to_chat(user, span_notice("Трансформируем нашу внешность.") )
+	to_chat(user, span_notice("Трансформируем нашу внешность."))
 	..()
 	changeling.purchasedpowers -= src
 

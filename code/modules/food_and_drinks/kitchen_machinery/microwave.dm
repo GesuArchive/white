@@ -119,19 +119,19 @@
 
 	if(broken > 0)
 		if(broken == 2 && O.tool_behaviour == TOOL_WIRECUTTER) // If it's broken and they're using a screwdriver
-			user.visible_message(span_notice("[user] starts to fix part of <b>[src.name]</b>.") , span_notice("You start to fix part of <b>[src.name]</b>...") )
+			user.visible_message(span_notice("[user] starts to fix part of <b>[src.name]</b>.") , span_notice("You start to fix part of <b>[src.name]</b>..."))
 			if(O.use_tool(src, user, 20))
-				user.visible_message(span_notice("[user] fixes part of <b>[src.name]</b>.") , span_notice("You fix part of <b>[src.name]</b>.") )
+				user.visible_message(span_notice("[user] fixes part of <b>[src.name]</b>.") , span_notice("You fix part of <b>[src.name]</b>."))
 				broken = 1 // Fix it a bit
 		else if(broken == 1 && O.tool_behaviour == TOOL_WELDER) // If it's broken and they're doing the wrench
-			user.visible_message(span_notice("[user] starts to fix part of <b>[src.name]</b>.") , span_notice("You start to fix part of <b>[src.name]</b>...") )
+			user.visible_message(span_notice("[user] starts to fix part of <b>[src.name]</b>.") , span_notice("You start to fix part of <b>[src.name]</b>..."))
 			if(O.use_tool(src, user, 20))
-				user.visible_message(span_notice("[user] fixes <b>[src.name]</b>.") , span_notice("You fix <b>[src.name]</b>.") )
+				user.visible_message(span_notice("[user] fixes <b>[src.name]</b>.") , span_notice("You fix <b>[src.name]</b>."))
 				broken = 0
 				update_icon()
 				return FALSE //to use some fuel
 		else
-			to_chat(user, span_warning("It's broken!") )
+			to_chat(user, span_warning("It's broken!"))
 			return TRUE
 		return
 
@@ -140,11 +140,11 @@
 		if(clean_spray.reagents.has_reagent(/datum/reagent/space_cleaner, clean_spray.amount_per_transfer_from_this))
 			clean_spray.reagents.remove_reagent(/datum/reagent/space_cleaner, clean_spray.amount_per_transfer_from_this,1)
 			playsound(loc, 'sound/effects/spray3.ogg', 50, TRUE, -6)
-			user.visible_message(span_notice("[user] cleans <b>[src.name]</b>.") , span_notice("You clean <b>[src.name]</b>.") )
+			user.visible_message(span_notice("[user] cleans <b>[src.name]</b>.") , span_notice("You clean <b>[src.name]</b>."))
 			dirty = 0
 			update_icon()
 		else
-			to_chat(user, span_warning("You need more space cleaner!") )
+			to_chat(user, span_warning("You need more space cleaner!"))
 		return TRUE
 
 	if(istype(O, /obj/item/soap) || istype(O, /obj/item/reagent_containers/glass/rag))
@@ -152,15 +152,15 @@
 		if(istype(O, /obj/item/soap))
 			var/obj/item/soap/used_soap = O
 			cleanspeed = used_soap.cleanspeed
-		user.visible_message(span_notice("[user] starts to clean <b>[src.name]</b>.") , span_notice("You start to clean <b>[src.name]</b>...") )
+		user.visible_message(span_notice("[user] starts to clean <b>[src.name]</b>.") , span_notice("You start to clean <b>[src.name]</b>..."))
 		if(do_after(user, cleanspeed, target = src))
-			user.visible_message(span_notice("[user] cleans <b>[src.name]</b>.") , span_notice("You clean <b>[src.name]</b>.") )
+			user.visible_message(span_notice("[user] cleans <b>[src.name]</b>.") , span_notice("You clean <b>[src.name]</b>."))
 			dirty = 0
 			update_icon()
 		return TRUE
 
 	if(dirty == 100) // The microwave is all dirty so can't be used!
-		to_chat(user, span_warning("<b>[src.name]</b> is dirty!") )
+		to_chat(user, span_warning("<b>[src.name]</b> is dirty!"))
 		return TRUE
 
 	if(istype(O, /obj/item/storage/bag/tray))
@@ -170,25 +170,25 @@
 			if(!IS_EDIBLE(S))
 				continue
 			if(ingredients.len >= max_n_of_items)
-				to_chat(user, span_warning("<b>[src.name]</b> is full, you can't put anything in!") )
+				to_chat(user, span_warning("<b>[src.name]</b> is full, you can't put anything in!"))
 				return TRUE
 			if(SEND_SIGNAL(T, COMSIG_TRY_STORAGE_TAKE, S, src))
 				loaded++
 				ingredients += S
 		if(loaded)
-			to_chat(user, span_notice("You insert [loaded] items into <b>[src.name]</b>.") )
+			to_chat(user, span_notice("You insert [loaded] items into <b>[src.name]</b>."))
 		return
 
 	if(O.w_class <= WEIGHT_CLASS_NORMAL && !istype(O, /obj/item/storage) && user.a_intent == INTENT_HELP)
 		if(ingredients.len >= max_n_of_items)
-			to_chat(user, span_warning("<b>[src.name]</b> is full, you can't put anything in!") )
+			to_chat(user, span_warning("<b>[src.name]</b> is full, you can't put anything in!"))
 			return TRUE
 		if(!user.transferItemToLoc(O, src))
-			to_chat(user, span_warning("\The [O] is stuck to your hand!") )
+			to_chat(user, span_warning("\The [O] is stuck to your hand!"))
 			return FALSE
 
 		ingredients += O
-		user.visible_message(span_notice("[user] adds \a [O] to <b>[src.name]</b>.") , span_notice("You add [O] to <b>[src.name]</b>.") )
+		user.visible_message(span_notice("[user] adds \a [O] to <b>[src.name]</b>.") , span_notice("You add [O] to <b>[src.name]</b>."))
 		return
 
 	..()
@@ -209,7 +209,7 @@
 		if(isAI(user))
 			examine(user)
 		else
-			to_chat(user, span_warning("<b>[src.name]</b> is empty.") )
+			to_chat(user, span_warning("<b>[src.name]</b> is empty."))
 		return
 
 	var/choice = show_radial_menu(user, src, isAI(user) ? ai_radial_options : radial_options, require_near = !issilicon(user))
@@ -259,7 +259,7 @@
 	start()
 
 /obj/machinery/microwave/proc/wzhzhzh()
-	visible_message(span_notice("<b>[src.name]</b> turns on.") , null, span_hear("You hear a microwave humming.") )
+	visible_message(span_notice("<b>[src.name]</b> turns on.") , null, span_hear("You hear a microwave humming."))
 	operating = TRUE
 
 	set_light(1.5)
@@ -267,7 +267,7 @@
 	update_icon()
 
 /obj/machinery/microwave/proc/spark()
-	visible_message(span_warning("Sparks fly around [src]!") )
+	visible_message(span_warning("Sparks fly around [src]!"))
 	var/datum/effect_system/spark_spread/s = new
 	s.set_up(2, 1, src)
 	s.start()
@@ -348,7 +348,7 @@
 	loop(MICROWAVE_NORMAL, 10)
 
 /obj/machinery/microwave/proc/muck_finish()
-	visible_message(span_warning("<b>[src.name]</b> gets covered in muck!") )
+	visible_message(span_warning("<b>[src.name]</b> gets covered in muck!"))
 
 	dirty = 100
 	dirty_anim_playing = FALSE

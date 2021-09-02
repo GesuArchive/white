@@ -11,14 +11,14 @@
 /obj/machinery/priem_steklotara/attackby(obj/item/I, mob/living/user, params)
 	if (istype(I, /obj/item/reagent_containers/food/drinks/bottle))
 		if (processing)
-			to_chat(user, span_warning("Пункт приёма стеклотары обрабатывает бутылку, подождите!") )
+			to_chat(user, span_warning("Пункт приёма стеклотары обрабатывает бутылку, подождите!"))
 			return
 		var/obj/item/reagent_containers/food/drinks/bottle/btl = I
 		if (btl.reagents.reagent_list.len != 0)
-			to_chat(user, span_warning("Бутылка должна быть пуста!") )
+			to_chat(user, span_warning("Бутылка должна быть пуста!"))
 			return
 		qdel(I)
-		to_chat(user, span_info("Пункт приёма захавало бутылку.") )
+		to_chat(user, span_info("Пункт приёма захавало бутылку."))
 		playsound(src, 'sound/machines/chime.ogg', 100, 0)
 		say("Бутылка обнаружена! Подождите...")
 		processing = TRUE

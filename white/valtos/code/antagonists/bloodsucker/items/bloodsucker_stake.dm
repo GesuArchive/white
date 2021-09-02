@@ -58,7 +58,7 @@
 /obj/item/stake/basic/attackby(obj/item/W, mob/user, params)
 	if (istype(W, /obj/item/weldingtool))
 		//if (amWelded)
-		//	to_chat(user, span_warning("This stake has already been treated with fire.") )
+		//	to_chat(user, span_warning("This stake has already been treated with fire."))
 		//	return
 		//amWelded = TRUE
 		// Weld it
@@ -66,7 +66,7 @@
 		if(WT.use(0))//remove_fuel(0,user))
 			user.visible_message("[user.name] scorched the pointy end of [src] with the welding tool.", \
 						 span_notice("You scorch the pointy end of [src] with the welding tool.") , \
-						 span_italics("You hear welding.") )
+						 span_italics("You hear welding."))
 		// 8 Second Timer
 		if (!do_mob(user, src, 80))
 			return
@@ -82,7 +82,7 @@
 
 
 /obj/item/stake/afterattack(atom/target, mob/user, proximity)
-	//to_chat(world, span_notice("DEBUG: Staking ") )
+	//to_chat(world, span_notice("DEBUG: Staking "))
 	// Invalid Target, or not targetting chest with HARM intent?
 	if (!iscarbon(target) || check_zone(user.zone_selected) != "chest" || user.a_intent != INTENT_HARM)
 		return
@@ -92,17 +92,17 @@
 		return
 			// Oops! Can't.
 	if(HAS_TRAIT(C, TRAIT_PIERCEIMMUNE))
-		to_chat(user, span_danger("[target] chest resists the stake. It won't go in.") )
+		to_chat(user, span_danger("[target] chest resists the stake. It won't go in."))
 		return
 	// Make Attempt...
-	to_chat(user, span_notice("You put all your weight into embedding the stake into [target] chest...") )
+	to_chat(user, span_notice("You put all your weight into embedding the stake into [target] chest..."))
 	playsound(user, 'sound/magic/Demon_consume.ogg', 50, 1)
 	if (!do_mob(user, C, staketime, 0, 1, extra_checks=CALLBACK(C, /mob/living/carbon/proc/can_be_staked))) // user / target / time / uninterruptable / show progress bar / extra checks
 		return
 
 	// Drop & Embed Stake
 	user.visible_message(span_danger("[user.name] drives the [src] into [target] chest!") , \
-			 span_danger("You drive the [src] into [target] chest!") )
+			 span_danger("You drive the [src] into [target] chest!"))
 	playsound(get_turf(target), 'sound/effects/splat.ogg', 40, 1)
 
 	user.dropItemToGround(src, TRUE) //user.drop_item() // "drop item" doesn't seem to exist anymore. New proc is user.dropItemToGround() but it doesn't seem like it's needed now?
@@ -121,8 +121,8 @@
 				bloodsucker.FinalDeath()
 				return
 			else
-				to_chat(target, span_userdanger("You have been staked! Your powers are useless, your death forever, while it remains in place.") )
-				to_chat(user, span_warning("You missed [C.ru_ego(TRUE)] heart! It would be easier if [C.ru_who(TRUE)] weren't struggling so much.") )
+				to_chat(target, span_userdanger("You have been staked! Your powers are useless, your death forever, while it remains in place."))
+				to_chat(user, span_warning("You missed [C.ru_ego(TRUE)] heart! It would be easier if [C.ru_who(TRUE)] weren't struggling so much."))
 
 
 
@@ -141,14 +141,14 @@
 	if (W.get_sharpness())
 		user.visible_message("[user] begins whittling [src] into a pointy object.", \
 				 span_notice("You begin whittling [src] into a sharp point at one end.") , \
-				 span_italics("You hear wood carving.") )
+				 span_italics("You hear wood carving."))
 		// 8 Second Timer
 		if (!do_mob(user, src, 80))
 			return
 		// Make Stake
 		var/obj/item/stake/basic/new_item = new(usr.loc)
 		user.visible_message("[user] finishes carving a stake out of [src].", \
-				 span_notice("You finish carving a stake out of [src].") )
+				 span_notice("You finish carving a stake out of [src]."))
 		// Prepare to Put in Hands (if holding wood)
 		var/obj/item/stack/sheet/mineral/wood/thisStack = src
 		var/replace = (user.get_inactive_held_item()==thisStack)
@@ -200,7 +200,7 @@
 				if(S.amount >= S.max_amount)
 					continue
 				S.attackby(newsheet, user)
-			to_chat(user, span_notice("You melt down the stake and add it to the stack. It now contains [newsheet.amount] sheet\s.") )
+			to_chat(user, span_notice("You melt down the stake and add it to the stack. It now contains [newsheet.amount] sheet\s."))
 			qdel(src)
 	else
 		return ..()

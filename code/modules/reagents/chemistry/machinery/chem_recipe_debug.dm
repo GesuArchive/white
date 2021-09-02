@@ -129,7 +129,7 @@
 		for(var/reagent_type in reaction.results)
 			var/datum/reagent/reagent =  reagents.get_reagent(reagent_type)
 			if(!reagent)
-				say(span_warning("Unable to find product [reagent_type] in holder after reaction! reagents found are:") )
+				say(span_warning("Unable to find product [reagent_type] in holder after reaction! reagents found are:"))
 				for(var/other_reagent in reagents.reagent_list)
 					say("[other_reagent]")
 				var/obj/item/reagent_containers/glass/beaker/bluespace/beaker = new /obj/item/reagent_containers/glass/beaker/bluespace(loc)

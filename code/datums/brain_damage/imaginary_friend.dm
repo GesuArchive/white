@@ -84,9 +84,9 @@
 	Show()
 
 /mob/camera/imaginary_friend/proc/greet()
-		to_chat(src, span_notice("<b>Воображаемый друг [owner]!</b>") )
-		to_chat(src, span_notice("Абсолютно верен своему другу, несмотря ни на что.") )
-		to_chat(src, span_notice("Не могу напрямую влиять на мир вокруг меня, но можно видеть, чего [owner] не может.") )
+		to_chat(src, span_notice("<b>Воображаемый друг [owner]!</b>"))
+		to_chat(src, span_notice("Абсолютно верен своему другу, несмотря ни на что."))
+		to_chat(src, span_notice("Не могу напрямую влиять на мир вокруг меня, но можно видеть, чего [owner] не может."))
 
 /mob/camera/imaginary_friend/Initialize(mapload, _trauma)
 	. = ..()
@@ -143,7 +143,7 @@
 
 	if (src.client)
 		if(client.prefs.muted & MUTE_IC)
-			to_chat(src, span_boldwarning("Не могу.") )
+			to_chat(src, span_boldwarning("Не могу."))
 			return
 		if (!(ignore_spam || forced) && src.client.handle_spam_prevention(message,MUTE_IC))
 			return
@@ -263,9 +263,9 @@
 	desc = "Предыдущий хозяин этого тела."
 
 /mob/camera/imaginary_friend/trapped/greet()
-	to_chat(src, span_notice("<b>Мне удалось удержаться как плод воображения нового хозяина!</b>") )
-	to_chat(src, span_notice("Вся надежда потеряна для меня, но, по крайней мере, можно взаимодействовать с хозяином. Можно быть не верен ему.") )
-	to_chat(src, span_notice("Не могу напрямую влиять на мир вокруг меня, но вы могу видеть то, что хозяин не может.") )
+	to_chat(src, span_notice("<b>Мне удалось удержаться как плод воображения нового хозяина!</b>"))
+	to_chat(src, span_notice("Вся надежда потеряна для меня, но, по крайней мере, можно взаимодействовать с хозяином. Можно быть не верен ему."))
+	to_chat(src, span_notice("Не могу напрямую влиять на мир вокруг меня, но вы могу видеть то, что хозяин не может."))
 
 /mob/camera/imaginary_friend/trapped/setup_friend()
 	real_name = "[owner.real_name]?"

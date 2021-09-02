@@ -52,7 +52,7 @@
 
 /obj/machinery/processor/attackby(obj/item/O, mob/user, params)
 	if(processing)
-		to_chat(user, span_warning("[capitalize(src.name)] в процессе процессирования!") )
+		to_chat(user, span_warning("[capitalize(src.name)] в процессе процессирования!"))
 		return TRUE
 	if(default_deconstruction_screwdriver(user, "processor", "processor1", O))
 		return
@@ -79,44 +79,44 @@
 					loaded++
 
 		if(loaded)
-			to_chat(user, span_notice("Закидываю [loaded] предметов в [src].") )
+			to_chat(user, span_notice("Закидываю [loaded] предметов в [src]."))
 		return
 
 	var/datum/food_processor_process/P = select_recipe(O)
 	if(P)
 		user.visible_message(span_notice("[user] закидывает [O] в [src].") , \
-			span_notice("Закидываю [O] в [src].") )
+			span_notice("Закидываю [O] в [src]."))
 		user.transferItemToLoc(O, src, TRUE)
 		LAZYADD(processor_contents, O)
 		return 1
 	else
 		if(user.a_intent != INTENT_HARM)
-			to_chat(user, span_warning("Это не получится измельчить!") )
+			to_chat(user, span_warning("Это не получится измельчить!"))
 			return 1
 		else
 			return ..()
 
 /obj/machinery/processor/interact(mob/user)
 	if(processing)
-		to_chat(user, span_warning("[capitalize(src.name)] в процессе процессирования!") )
+		to_chat(user, span_warning("[capitalize(src.name)] в процессе процессирования!"))
 		return TRUE
 	if(user.a_intent == INTENT_GRAB && ismob(user.pulling) && select_recipe(user.pulling))
 		if(user.grab_state < GRAB_AGGRESSIVE)
-			to_chat(user, span_warning("Потребуется более сильный захват для этого!") )
+			to_chat(user, span_warning("Потребуется более сильный захват для этого!"))
 			return
 		var/mob/living/pushed_mob = user.pulling
-		visible_message(span_warning("[user] запихивает [pushed_mob] в [src]!") )
+		visible_message(span_warning("[user] запихивает [pushed_mob] в [src]!"))
 		pushed_mob.forceMove(src)
 		LAZYADD(processor_contents, pushed_mob)
 		user.stop_pulling()
 		return
 	if(!LAZYLEN(processor_contents))
-		to_chat(user, span_warning("[capitalize(src.name)] пуст!") )
+		to_chat(user, span_warning("[capitalize(src.name)] пуст!"))
 		return TRUE
 	processing = TRUE
 	user.visible_message(span_notice("[user] включает [src].") , \
 		span_notice("Включаю [src].") , \
-		span_hear("Слышу рёв металла.") )
+		span_hear("Слышу рёв металла."))
 	playsound(src.loc, 'sound/machines/blender.ogg', 50, TRUE)
 	use_power(500)
 	var/total_time = 0
@@ -137,7 +137,7 @@
 		process_food(P, O)
 	pixel_x = base_pixel_x //return to its spot after shaking
 	processing = FALSE
-	visible_message(span_notice("[capitalize(src.name)] заканчивает свою работу.") )
+	visible_message(span_notice("[capitalize(src.name)] заканчивает свою работу."))
 
 /obj/machinery/processor/verb/eject()
 	set category = "Объект"
@@ -159,7 +159,7 @@
 
 /obj/machinery/processor/container_resist_act(mob/living/user)
 	user.forceMove(drop_location())
-	user.visible_message(span_notice("[user] вылезает из комбайна!") )
+	user.visible_message(span_notice("[user] вылезает из комбайна!"))
 
 /obj/machinery/processor/slime
 	name = "переработчик слаймов"
@@ -197,7 +197,7 @@
 	if (!P)
 		return
 
-	visible_message(span_notice("[picked_slime] всасывается в [src.name].") )
+	visible_message(span_notice("[picked_slime] всасывается в [src.name]."))
 	LAZYADD(processor_contents, picked_slime)
 	picked_slime.forceMove(src)
 
@@ -208,7 +208,7 @@
 		if(S.stat != DEAD)
 			LAZYREMOVE(processor_contents, S)
 			S.forceMove(drop_location())
-			S.visible_message(span_notice("[C] выпрыгивает из комбайна!") )
+			S.visible_message(span_notice("[C] выпрыгивает из комбайна!"))
 			return
 		for(var/i in 1 to (C+rating_amount-1))
 			var/atom/movable/item = new S.coretype(drop_location())

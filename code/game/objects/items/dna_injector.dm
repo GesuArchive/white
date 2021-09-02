@@ -49,10 +49,10 @@
 
 /obj/item/dnainjector/attack(mob/target, mob/user)
 	if(!ISADVANCEDTOOLUSER(user))
-		to_chat(user, span_warning("А как?!") )
+		to_chat(user, span_warning("А как?!"))
 		return
 	if(used)
-		to_chat(user, span_warning("Этот инъектор уже был использован!") )
+		to_chat(user, span_warning("Этот инъектор уже был использован!"))
 		return
 	if(ishuman(target))
 		var/mob/living/carbon/human/humantarget = target
@@ -62,19 +62,19 @@
 
 	if(target != user)
 		target.visible_message(span_danger("<b>[user]</b> пытается вколоть <b>[target]</b> <b>[src.name]</b>!") , \
-			span_userdanger("<b>[user]</b> пытается вколоть мне <b>[src.name]</b>!") )
+			span_userdanger("<b>[user]</b> пытается вколоть мне <b>[src.name]</b>!"))
 		if(!do_mob(user, target) || used)
 			return
 		target.visible_message(span_danger("<b>[user]</b> вкалывает <b>[target]</b> <b>[src.name]</b>!") , \
-						span_userdanger("<b>[user]</b> вкалывает мне <b>[src.name]</b>!") )
+						span_userdanger("<b>[user]</b> вкалывает мне <b>[src.name]</b>!"))
 
 	else
-		to_chat(user, span_notice("Вкалываю себе <b>[src.name]</b>.") )
+		to_chat(user, span_notice("Вкалываю себе <b>[src.name]</b>."))
 
 	log_combat(user, target, "injected", src)
 
 	if(!inject(target, user))	//Now we actually do the heavy lifting.
-		to_chat(user, span_notice("Похоже <b>[target]</b> не имеет подходящего ДНК.") )
+		to_chat(user, span_notice("Похоже <b>[target]</b> не имеет подходящего ДНК."))
 
 	used = 1
 	icon_state = "dnainjector0"
@@ -438,7 +438,7 @@
 
 /obj/item/dnainjector/timed/inject(mob/living/carbon/M, mob/user)
 	if(M.stat == DEAD)	//prevents dead people from having their DNA changed
-		to_chat(user, span_notice("You can't modify [M] DNA while [M.p_theyre()] dead.") )
+		to_chat(user, span_notice("You can't modify [M] DNA while [M.p_theyre()] dead."))
 		return FALSE
 
 	if(M.has_dna() && !(HAS_TRAIT(M, TRAIT_BADDNA)))

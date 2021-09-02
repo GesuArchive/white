@@ -69,7 +69,7 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 	if(isanimal(user))
 		var/mob/living/simple_animal/A = user
 		if(!A.dextrous)
-			to_chat(user, span_warning("Очко и жопа! Гы-гы!") )
+			to_chat(user, span_warning("Очко и жопа! Гы-гы!"))
 			return UI_CLOSE
 	return ..()
 

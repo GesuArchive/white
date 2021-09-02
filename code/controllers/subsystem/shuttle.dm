@@ -247,13 +247,13 @@ SUBSYSTEM_DEF(shuttle)
 
 	var/can_evac_or_fail_reason = SSshuttle.canEvac(user, FALSE)
 	if(can_evac_or_fail_reason != TRUE)
-		to_chat(user, span_alert("[can_evac_or_fail_reason]") )
+		to_chat(user, span_alert("[can_evac_or_fail_reason]"))
 		return
 
 	call_reason = trim(html_encode(call_reason))
 
 	if(length(call_reason) < CALL_SHUTTLE_REASON_LENGTH && seclevel2num(get_security_level()) > SEC_LEVEL_GREEN)
-		to_chat(user, span_alert("You must provide a reason.") )
+		to_chat(user, span_alert("You must provide a reason."))
 		return
 
 	var/area/signal_origin = get_area(user)

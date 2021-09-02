@@ -286,7 +286,7 @@
 	var/mobpath = tgui_input_list(usr, "Which type of mob should [src] turn into?", "Choose a type", sortList(mobtypes, /proc/cmp_typepaths_asc))
 
 	if(!safe_animal(mobpath))
-		to_chat(usr, span_danger("Извините, но данный тип мода сейчас недоступен.") )
+		to_chat(usr, span_danger("Извините, но данный тип мода сейчас недоступен."))
 		return
 
 	if(notransform)
@@ -310,7 +310,7 @@
 	new_mob.a_intent = INTENT_HARM
 
 
-	to_chat(new_mob, span_boldnotice("Внезапно чувствую себя более ... животным.") )
+	to_chat(new_mob, span_boldnotice("Внезапно чувствую себя более ... животным."))
 	. = new_mob
 	qdel(src)
 
@@ -320,14 +320,14 @@
 	var/mobpath = tgui_input_list(usr, "Which type of mob should [src] turn into?", "Choose a type", sortList(mobtypes, /proc/cmp_typepaths_asc))
 
 	if(!safe_animal(mobpath))
-		to_chat(usr, span_danger(">Извините, но данный тип мода сейчас недоступен.") )
+		to_chat(usr, span_danger(">Извините, но данный тип мода сейчас недоступен."))
 		return
 
 	var/mob/new_mob = new mobpath(src.loc)
 
 	new_mob.key = key
 	new_mob.a_intent = INTENT_HARM
-	to_chat(new_mob, span_boldnotice("Чувствую себя более ... животным.") )
+	to_chat(new_mob, span_boldnotice("Чувствую себя более ... животным."))
 
 	. = new_mob
 	qdel(src)

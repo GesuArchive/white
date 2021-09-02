@@ -29,15 +29,15 @@
 	switch(exploration_job_id)
 		if(1)
 			to_chat(H, "<span class='notice big'>Мне пришлось стать <span class'sciradio'>Учёным</span> в этой операции!</span>")
-			to_chat(H, span_notice("Сканируем неизвестные штуки и получаем очки! Чудеса!") )
+			to_chat(H, span_notice("Сканируем неизвестные штуки и получаем очки! Чудеса!"))
 			outfit_override = /datum/outfit/job/exploration/scientist
 		if(2)
 			to_chat(H, "<span class='notice big'>Мне пришлось стать <span class'medradio'>Доктором</span> в этой операции!</span>")
-			to_chat(H, span_notice("Необходимо следить за здоровьем товарищей.") )
+			to_chat(H, span_notice("Необходимо следить за здоровьем товарищей."))
 			outfit_override = /datum/outfit/job/exploration/medic
 		if(3)
 			to_chat(H, "<span class='notice big'>Мне пришлось стать <span class'engradio'>Инженером</span> в этой операции!</span>")
-			to_chat(H, span_notice("Установка взрывчатки и починка корпуса - моя обязанность.") )
+			to_chat(H, span_notice("Установка взрывчатки и починка корпуса - моя обязанность."))
 			outfit_override = /datum/outfit/job/exploration/engineer
 	. = ..(H, visualsOnly, announce, latejoin, outfit_override, preference_source)
 

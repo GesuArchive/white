@@ -17,7 +17,7 @@
 	obj_flags |= IN_USE
 	user.adjustCloneLoss(20)
 	if(user.stat)
-		to_chat(user, span_userdanger("Нет... еще один разок...") )
+		to_chat(user, span_userdanger("Нет... еще один разок..."))
 		user.gib()
 	else
 		user.visible_message(span_warning("[user] дергает [src] рычаг с блеском в [user.ru_ego()] глахах!") , "<span class='warning'>Вы чувствуете истощение и слабость во всем теле как только дергаете рычаг, но вы \
@@ -33,11 +33,11 @@
 		playsound(src, 'sound/lavaland/cursed_slot_machine_jackpot.ogg', 50, FALSE)
 		new/obj/structure/cursed_money(get_turf(src))
 		if(user)
-			to_chat(user, span_boldwarning("Ты сорвал куш. Отголоски смеха постепенно исчезают, пока твой приз появляется внутри автомата.") )
+			to_chat(user, span_boldwarning("Ты сорвал куш. Отголоски смеха постепенно исчезают, пока твой приз появляется внутри автомата."))
 		qdel(src)
 	else
 		if(user)
-			to_chat(user, span_boldwarning("Чёртова железяка! Точно подкручивает. Но... еще один разок не повредит, так?") )
+			to_chat(user, span_boldwarning("Чёртова железяка! Точно подкручивает. Но... еще один разок не повредит, так?"))
 
 
 /obj/structure/cursed_money
@@ -85,10 +85,10 @@
 	if(ishuman(mover))
 		var/mob/living/carbon/human/H = mover
 		if(H.nutrition >= NUTRITION_LEVEL_FAT)
-			H.visible_message(span_warning("[H] проходит сквозь [src]!") , span_notice("Вы видели и ели вещи похуже этого.") )
+			H.visible_message(span_warning("[H] проходит сквозь [src]!") , span_notice("Вы видели и ели вещи похуже этого."))
 			return TRUE
 		else
-			to_chat(H, span_warning("Вам не хочется даже смотреть на [src]. Лишь свинья смогла бы заставить себя пройти сквозь это.") )
+			to_chat(H, span_warning("Вам не хочется даже смотреть на [src]. Лишь свинья смогла бы заставить себя пройти сквозь это."))
 	if(istype(mover, /mob/living/simple_animal/hostile/morph))
 		return TRUE
 
@@ -106,7 +106,7 @@
 
 /obj/structure/mirror/magic/pride/curse(mob/user)
 	user.visible_message(span_danger("<B>Земля раскалывается под [user] когда [user.ru_ego()] рука выходит из зеркала!</B>") , \
-	span_notice("Идеально. Гораздо лучше! Теперь <i>никто</i> не сможет перед тобой устоять.") )
+	span_notice("Идеально. Гораздо лучше! Теперь <i>никто</i> не сможет перед тобой устоять."))
 
 	var/turf/T = get_turf(user)
 	var/list/levels = SSmapping.levels_by_trait(ZTRAIT_DYNAMIC_LEVEL)
@@ -148,4 +148,4 @@
 			user.updateappearance(mutcolor_update=1)
 			user.domutcheck()
 			user.visible_message(span_warning("[user] превращается в [H]!") , \
-			span_boldannounce("[H.ru_who(TRUE)] думает что [H.p_s()] [H.p_theyre()] <i>гораааздо</i> лучше чем ты. Больше [H.ru_who()] так думать не будет.") )
+			span_boldannounce("[H.ru_who(TRUE)] думает что [H.p_s()] [H.p_theyre()] <i>гораааздо</i> лучше чем ты. Больше [H.ru_who()] так думать не будет."))

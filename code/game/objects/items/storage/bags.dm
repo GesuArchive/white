@@ -51,7 +51,7 @@
 	STR.set_holdable(null, list(/obj/item/disk/nuclear))
 
 /obj/item/storage/bag/trash/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] puts [src] over [user.ru_ego()] head and starts chomping at the insides! Disgusting!") )
+	user.visible_message(span_suicide("[user] puts [src] over [user.ru_ego()] head and starts chomping at the insides! Disgusting!"))
 	playsound(loc, 'sound/items/eatfood.ogg', 50, TRUE, -1)
 	return (TOXLOSS)
 
@@ -75,7 +75,7 @@
 		J.mybag=src
 		J.update_icon()
 	else
-		to_chat(user, span_warning("You are unable to fit your [name] into the [J.name].") )
+		to_chat(user, span_warning("You are unable to fit your [name] into the [J.name]."))
 		return
 
 /obj/item/storage/bag/trash/filled
@@ -163,17 +163,17 @@
 				show_message = TRUE
 			else
 				if(!spam_protection)
-					to_chat(user, span_warning("Видимо, [name] полна и не может вмещать больше!") )
+					to_chat(user, span_warning("Видимо, [name] полна и не может вмещать больше!"))
 					spam_protection = TRUE
 					continue
 	if(show_message)
 		playsound(user, "rustle", 50, TRUE)
 		if (box)
 			user.visible_message(span_notice("[user] выгружает руду под собой[user.ru_na()] в [box].") , \
-			span_notice("Загружаю руду под собой в [box].") )
+			span_notice("Загружаю руду под собой в [box]."))
 		else
 			user.visible_message(span_notice("[user] собирает руду под [user.ru_na()].") , \
-				span_notice("Собираю руду под собой в [sklonenie(name, VINITELNI, MALE)].") )
+				span_notice("Собираю руду под собой в [sklonenie(name, VINITELNI, MALE)]."))
 	spam_protection = FALSE
 
 /obj/item/storage/bag/ore/cyborg

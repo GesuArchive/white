@@ -32,7 +32,7 @@
 		M.add_overlay(forbearance)
 		addtimer(CALLBACK(M, /atom/proc/cut_overlay, forbearance), 100)
 		M.visible_message(span_warning("[M] stares blankly, as a field of energy flows around them.") , \
-									   span_userdanger("You feel a slight shock as a wave of energy flows past you.") )
+									   span_userdanger("You feel a slight shock as a wave of energy flows past you."))
 		playsound(invoker, 'sound/magic/mm_hit.ogg', 50, TRUE)
 		return TRUE
 	//Blood Cultist Effect
@@ -44,7 +44,7 @@
 		M.color = LIGHT_COLOR_BLOOD_MAGIC
 		animate(M, color = mob_color, time = 300)
 		M.say("Fwebar uloft'gib mirlig yro'fara!")
-		to_chat(invoker, span_brass("You fail to stun [M]!") )
+		to_chat(invoker, span_brass("You fail to stun [M]!"))
 		playsound(invoker, 'sound/magic/mm_hit.ogg', 50, TRUE)
 		return TRUE
 	//Successful Invokation
@@ -53,7 +53,7 @@
 		if(!HAS_TRAIT(M, TRAIT_MINDSHIELD))
 			M.Paralyze(150)
 		else
-			to_chat(invoker, span_brass("[M] seems somewhat resistant to your powers!") )
+			to_chat(invoker, span_brass("[M] seems somewhat resistant to your powers!"))
 			M.set_confusion(clamp(M.get_confusion(), 50, INFINITY))
 	if(issilicon(M))
 		var/mob/living/silicon/S = M

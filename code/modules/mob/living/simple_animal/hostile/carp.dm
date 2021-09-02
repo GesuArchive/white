@@ -103,7 +103,7 @@
 /mob/living/simple_animal/hostile/carp/proc/chomp_plastic()
 	var/obj/item/storage/cans/tasty_plastic = locate(/obj/item/storage/cans) in view(1, src)
 	if(tasty_plastic && Adjacent(tasty_plastic))
-		visible_message(span_notice("[capitalize(src.name)] gets its head stuck in [tasty_plastic], and gets cut breaking free from it!") , span_notice("Пытаюсь avoid [tasty_plastic], but it looks so... delicious... Ow! It cuts the inside of your mouth!") )
+		visible_message(span_notice("[capitalize(src.name)] gets its head stuck in [tasty_plastic], and gets cut breaking free from it!") , span_notice("Пытаюсь avoid [tasty_plastic], but it looks so... delicious... Ow! It cuts the inside of your mouth!"))
 
 		new /obj/effect/decal/cleanable/plastic(loc)
 
@@ -261,14 +261,14 @@
 			return
 		potential_disky.forceMove(src)
 		disky = potential_disky
-		to_chat(src, span_nicegreen("YES!! You manage to pick up [disky]. (Click anywhere to place it back down.)") )
+		to_chat(src, span_nicegreen("YES!! You manage to pick up [disky]. (Click anywhere to place it back down.)"))
 		update_icon()
 		if(!disky.fake)
 			client.give_award(/datum/award/achievement/misc/cayenne_disk, src)
 		return
 	if(disky)
 		if(isopenturf(attacked_target))
-			to_chat(src, span_notice("You place [disky] on [attacked_target]") )
+			to_chat(src, span_notice("You place [disky] on [attacked_target]"))
 			disky.forceMove(attacked_target.drop_location())
 			disky = null
 			update_icon()

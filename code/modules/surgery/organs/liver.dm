@@ -101,7 +101,7 @@
 			C.reagents.metabolize(C, delta_time, times_fired, can_overdose=TRUE)
 
 			if(provide_pain_message && damage > 10 && DT_PROB(damage/6, delta_time))//the higher the damage the higher the probability
-				to_chat(C, span_warning("Ощущаю тупую боль в животе.") )
+				to_chat(C, span_warning("Ощущаю тупую боль в животе."))
 
 
 	if(damage > maxHealth)//cap liver damage

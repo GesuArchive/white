@@ -23,10 +23,10 @@
 	mouse_control_probability = 100
 
 /obj/item/clothing/head/chefhat/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] надевает [src]! Похоже, что [user.p_theyre()] пытается стать шеф-поваром.") )
+	user.visible_message(span_suicide("[user] надевает [src]! Похоже, что [user.p_theyre()] пытается стать шеф-поваром."))
 	user.say("Bork Bork Bork!", forced = "chef hat suicide")
 	sleep(20)
-	user.visible_message(span_suicide("[user] залезает в воображаемую печку!") )
+	user.visible_message(span_suicide("[user] залезает в воображаемую печку!"))
 	user.say("BOOORK!", forced = "chef hat suicide")
 	playsound(user, 'sound/machines/ding.ogg', 50, TRUE)
 	return(FIRELOSS)
@@ -106,10 +106,10 @@
 	if(candy_cooldown < world.time)
 		var/obj/item/food/candy_corn/CC = new /obj/item/food/candy_corn(src)
 		user.put_in_hands(CC)
-		to_chat(user, span_notice("Достаю кукурузную конфету из своей шляпы.") )
+		to_chat(user, span_notice("Достаю кукурузную конфету из своей шляпы."))
 		candy_cooldown = world.time+1200
 	else
-		to_chat(user, span_warning("Только что взял кукурузную конфету! Надо подождать пару минут, чтобы не истратить заначку.") )
+		to_chat(user, span_warning("Только что взял кукурузную конфету! Надо подождать пару минут, чтобы не истратить заначку."))
 
 
 //Mime
@@ -195,22 +195,22 @@
 		return TRUE
 	switch(mode)
 		if(DRILL_DEFAULT)
-			to_chat(user, span_notice("You set the voice circuit to the middle position.") )
+			to_chat(user, span_notice("You set the voice circuit to the middle position."))
 			mode = DRILL_SHOUTING
 		if(DRILL_SHOUTING)
-			to_chat(user, span_notice("You set the voice circuit to the last position.") )
+			to_chat(user, span_notice("You set the voice circuit to the last position."))
 			mode = DRILL_YELLING
 		if(DRILL_YELLING)
-			to_chat(user, span_notice("You set the voice circuit to the first position.") )
+			to_chat(user, span_notice("You set the voice circuit to the first position."))
 			mode = DRILL_DEFAULT
 		if(DRILL_CANADIAN)
-			to_chat(user, span_danger("You adjust voice circuit but nothing happens, probably because it's broken.") )
+			to_chat(user, span_danger("You adjust voice circuit but nothing happens, probably because it's broken."))
 	return TRUE
 
 /obj/item/clothing/head/warden/drill/wirecutter_act(mob/living/user, obj/item/I)
 	..()
 	if(mode != DRILL_CANADIAN)
-		to_chat(user, span_danger("You broke the voice circuit!") )
+		to_chat(user, span_danger("You broke the voice circuit!"))
 		mode = DRILL_CANADIAN
 	return TRUE
 

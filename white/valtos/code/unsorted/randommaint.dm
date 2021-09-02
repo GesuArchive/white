@@ -100,5 +100,5 @@
 
 		CHECK_TICK
 
-	to_chat(world, span_green(" -- #<b>[name]</b>:> <b>[(REALTIMEOFDAY - start_time)/10]</b> -- ") )
+	to_chat(world, span_green(" -- #<b>[name]</b>:> <b>[(REALTIMEOFDAY - start_time)/10]</b> -- "))
 	log_world("[name] is done job for [(REALTIMEOFDAY - start_time)/10]s!")

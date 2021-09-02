@@ -90,7 +90,7 @@
 		var/mob/living/carbon/human/H = quirk_holder
 		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 
-	to_chat(quirk_holder, span_boldnotice("У вас имеется пачка маннитола [where], которая будет помогать вам остаться в живых. Не стоит слишком сильно надеяться на него!") )
+	to_chat(quirk_holder, span_boldnotice("У вас имеется пачка маннитола [where], которая будет помогать вам остаться в живых. Не стоит слишком сильно надеяться на него!"))
 
 /datum/quirk/brainproblems/on_process(delta_time)
 	if(HAS_TRAIT(quirk_holder, TRAIT_TUMOR_SUPPRESSED))
@@ -236,7 +236,7 @@
 		var/mob/living/carbon/human/H = quirk_holder
 		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 
-	to_chat(quirk_holder, span_boldnotice("Дорогая для вас реликвия [heirloom.name] [where], передавалась из поколения в поколение. Хранить в безопасности!") )
+	to_chat(quirk_holder, span_boldnotice("Дорогая для вас реликвия [heirloom.name] [where], передавалась из поколения в поколение. Хранить в безопасности!"))
 
 	var/list/names = splittext(quirk_holder.real_name, " ")
 	var/family_name = names[names.len]
@@ -341,7 +341,7 @@
 	var/lums = T.get_lumcount()
 	if(lums <= 0.2)
 		if(quirk_holder.m_intent == MOVE_INTENT_RUN)
-			to_chat(quirk_holder, span_warning("Так, спокойно, спокойно... ничего страшного...") )
+			to_chat(quirk_holder, span_warning("Так, спокойно, спокойно... ничего страшного..."))
 			quirk_holder.toggle_move_intent()
 		SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "nyctophobia", /datum/mood_event/nyctophobia)
 	else
@@ -510,10 +510,10 @@
 	if(DT_PROB(2 + nearby_people, delta_time))
 		H.stuttering = max(3, H.stuttering)
 	else if(DT_PROB(min(3, nearby_people), delta_time) && !H.silent)
-		to_chat(H, span_danger("Решаю просто немного помолчать. Мне <i>совсем</i> не хочется разговаривать.") )
+		to_chat(H, span_danger("Решаю просто немного помолчать. Мне <i>совсем</i> не хочется разговаривать."))
 		H.silent = max(10, H.silent)
 	else if(DT_PROB(0.5, delta_time) && dumb_thing)
-		to_chat(H, span_userdanger("Вспоминаю дурацкую вещь, которую сказали давным давно и испытываю внутреннюю боль.") )
+		to_chat(H, span_userdanger("Вспоминаю дурацкую вещь, которую сказали давным давно и испытываю внутреннюю боль."))
 		dumb_thing = FALSE //only once per life
 		if(prob(1))
 			new/obj/item/food/spaghetti/pastatomato(get_turf(H)) //now that's what I call spaghetti code
@@ -526,7 +526,7 @@
 	if(prob(85) || (istype(mind_check) && mind_check.mind))
 		return
 
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, span_smallnotice("[capitalize(A.name)] смотрит прямо на меня.") ), 3)
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, span_smallnotice("[capitalize(A.name)] смотрит прямо на меня.")), 3)
 
 /datum/quirk/social_anxiety/proc/eye_contact(datum/source, mob/living/other_mob, triggering_examiner)
 	SIGNAL_HANDLER
@@ -551,7 +551,7 @@
 			msg += "АХ!"
 
 	SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "anxiety_eyecontact", /datum/mood_event/anxiety_eyecontact)
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, span_userdanger("[msg]") ), 3) // so the examine signal has time to fire and this will print after
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, span_userdanger("[msg]")), 3) // so the examine signal has time to fire and this will print after
 	return COMSIG_BLOCK_EYECONTACT
 
 /datum/mood_event/anxiety_eyecontact
@@ -619,7 +619,7 @@
 			quirk_holder.mind.remove_addiction_points(addiction_type, MAX_ADDICTION_POINTS) //chat feedback here. No need of lose_text.
 
 /datum/quirk/junkie/proc/announce_drugs()
-	to_chat(quirk_holder, span_boldnotice("Пронёс [initial(drug_container_type.name)] из [initial(reagent_type.name)] [where_drug]. Скоро он закончится, и мне необходимо будет найти дополнительную дозу.") )
+	to_chat(quirk_holder, span_boldnotice("Пронёс [initial(drug_container_type.name)] из [initial(reagent_type.name)] [where_drug]. Скоро он закончится, и мне необходимо будет найти дополнительную дозу."))
 
 /datum/quirk/junkie/on_process()
 	if(HAS_TRAIT(quirk_holder, TRAIT_NOMETABOLISM))
@@ -635,7 +635,7 @@
 		if(deleted || missing_addiction)
 			if(deleted)
 				reagent_instance = new reagent_type()
-			to_chat(quirk_holder, span_danger("Надо бахнуть..") )
+			to_chat(quirk_holder, span_danger("Надо бахнуть.."))
 			if(H?.mind)
 				for(var/addiction in reagent_instance.addiction_types)
 					H.mind.add_addiction_points(addiction, 1000) ///Max that shit out
@@ -661,7 +661,7 @@
 	. = ..()
 
 /datum/quirk/junkie/smoker/announce_drugs()
-	to_chat(quirk_holder, span_boldnotice("Пачка сигарет [initial(drug_container_type.name)] [where_drug], и зажигалочка [where_accessory]. Надо убедиться, что я найду свой любимый бренд, если тот закончится.") )
+	to_chat(quirk_holder, span_boldnotice("Пачка сигарет [initial(drug_container_type.name)] [where_drug], и зажигалочка [where_accessory]. Надо убедиться, что я найду свой любимый бренд, если тот закончится."))
 
 
 /datum/quirk/junkie/smoker/on_process()
@@ -711,7 +711,7 @@
 	name = "Extreme " + display +"Allergies"
 	medical_record_text = "Иммунитет пациента сильно реагирует на [display]!"
 	quirk_holder?.mind.store_memory("You are allergic to [display]")
-	to_chat(quirk_holder, span_boldnotice("У вас аллергия к [display]!") )
+	to_chat(quirk_holder, span_boldnotice("У вас аллергия к [display]!"))
 	if(!ishuman(quirk_holder))
 		return
 	var/mob/living/carbon/human/human_holder = quirk_holder

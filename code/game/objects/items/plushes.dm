@@ -109,25 +109,25 @@
 /obj/item/toy/plush/attack_self(mob/user)
 	. = ..()
 	if(stuffed || grenade)
-		to_chat(user, span_notice("You pet [src]. D'awww.") )
+		to_chat(user, span_notice("You pet [src]. D'awww."))
 		if(grenade && !grenade.active)
 			log_game("[key_name(user)] activated a hidden grenade in [src].")
 			grenade.arm_grenade(user, msg = FALSE, volume = 10)
 	else
-		to_chat(user, span_notice("Пытаюсь pet [src], but it has no stuffing. Aww...") )
+		to_chat(user, span_notice("Пытаюсь pet [src], but it has no stuffing. Aww..."))
 
 /obj/item/toy/plush/attackby(obj/item/I, mob/living/user, params)
 	if(I.get_sharpness())
 		if(!grenade)
 			if(!stuffed)
-				to_chat(user, span_warning("You already murdered it!") )
+				to_chat(user, span_warning("You already murdered it!"))
 				return
 			if(!divine)
-				user.visible_message(span_notice("[user] tears out the stuffing from [src]!") , span_notice("You rip a bunch of the stuffing from [src]. Murderer.") )
+				user.visible_message(span_notice("[user] tears out the stuffing from [src]!") , span_notice("You rip a bunch of the stuffing from [src]. Murderer."))
 				I.play_tool_sound(src)
 				stuffed = FALSE
 			else
-				to_chat(user, span_notice("What a fool you are. [src] is a god, how can you kill a god? What a grand and intoxicating innocence.") )
+				to_chat(user, span_notice("What a fool you are. [src] is a god, how can you kill a god? What a grand and intoxicating innocence."))
 				if(iscarbon(user))
 					var/mob/living/carbon/C = user
 					if(C.drunkenness < 50)
@@ -135,27 +135,27 @@
 				var/turf/current_location = get_turf(user)
 				var/area/current_area = current_location.loc //copied from hand tele code
 				if(current_location && current_area && (current_area.area_flags & NOTELEPORT))
-					to_chat(user, span_notice("There is no escape. No recall or intervention can work in this place.") )
+					to_chat(user, span_notice("There is no escape. No recall or intervention can work in this place."))
 				else
-					to_chat(user, span_notice("There is no escape. Although recall or intervention can work in this place, attempting to flee from [src] immense power would be futile.") )
-				user.visible_message(span_notice("[user] lays down their weapons and begs for [src] mercy!") , span_notice("You lay down your weapons and beg for [src] mercy.") )
+					to_chat(user, span_notice("There is no escape. Although recall or intervention can work in this place, attempting to flee from [src] immense power would be futile."))
+				user.visible_message(span_notice("[user] lays down their weapons and begs for [src] mercy!") , span_notice("You lay down your weapons and beg for [src] mercy."))
 				user.drop_all_held_items()
 		else
-			to_chat(user, span_notice("You remove the grenade from [src].") )
+			to_chat(user, span_notice("You remove the grenade from [src]."))
 			user.put_in_hands(grenade)
 			grenade = null
 		return
 	if(istype(I, /obj/item/grenade))
 		if(stuffed)
-			to_chat(user, span_warning("You need to remove some stuffing first!") )
+			to_chat(user, span_warning("You need to remove some stuffing first!"))
 			return
 		if(grenade)
-			to_chat(user, span_warning("[capitalize(src.name)] already has a grenade!") )
+			to_chat(user, span_warning("[capitalize(src.name)] already has a grenade!"))
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		user.visible_message(span_warning("[user] slides [grenade] into [src].") , \
-		span_danger("You slide [I] into [src].") )
+		span_danger("You slide [I] into [src]."))
 		grenade = I
 		var/turf/grenade_turf = get_turf(src)
 		log_game("[key_name(user)] added a grenade ([I.name]) to [src] at [AREACOORD(grenade_turf)].")
@@ -199,7 +199,7 @@
 
 		if(prob(chance))	//did we bag a date?
 			user.visible_message(span_notice("[user] makes [Kisser] kiss [src]!") ,
-									span_notice("You make [Kisser] kiss [src]!") )
+									span_notice("You make [Kisser] kiss [src]!"))
 			if(lover)	//who cares for the past, we live in the present
 				lover.heartbreak(src)
 			new_lover(Kisser)
@@ -211,23 +211,23 @@
 	//then comes marriage
 	else if(Kisser.lover == src && Kisser.partner != src)	//need to be lovers (assumes loving is a two way street) but not married (also assumes similar)
 		user.visible_message(span_notice("[user] pronounces [Kisser] and [src] married! D'aw.") ,
-									span_notice("You pronounce [Kisser] and [src] married!") )
+									span_notice("You pronounce [Kisser] and [src] married!"))
 		new_partner(Kisser)
 		Kisser.new_partner(src)
 
 	//then comes a baby in a baby's carriage, or an adoption in an adoption's orphanage
 	else if(Kisser.partner == src && !plush_child)	//the one advancing does not take ownership of the child and we have a one child policy in the toyshop
 		user.visible_message(span_notice("[user] is going to break [Kisser] and [src] by bashing them like that.") ,
-									span_notice("[Kisser] passionately embraces [src] in your hands. Look away you perv!") )
+									span_notice("[Kisser] passionately embraces [src] in your hands. Look away you perv!"))
 		user.client.give_award(/datum/award/achievement/misc/rule8, user)
 		if(plop(Kisser))
 			user.visible_message(span_notice("Something drops at the feet of [user].") ,
-							span_notice("The miracle of oh god did that just come out of [src]?!") )
+							span_notice("The miracle of oh god did that just come out of [src]?!"))
 
 	//then comes protection, or abstinence if we are catholic
 	else if(Kisser.partner == src && plush_child)
 		user.visible_message(span_notice("[user] makes [Kisser] nuzzle [src]!") ,
-									span_notice("You make [Kisser] nuzzle [src]!") )
+									span_notice("You make [Kisser] nuzzle [src]!"))
 
 	//then oh fuck something unexpected happened
 	else
@@ -428,7 +428,7 @@
 			clash_target = null
 			return
 		if(!Adjacent(P))
-			visible_message(span_warning("The two plushies angrily flail at each other before giving up.") )
+			visible_message(span_warning("The two plushies angrily flail at each other before giving up."))
 			clash_target = null
 			P.clashing = FALSE
 			return
@@ -588,7 +588,7 @@
 	var/suicide_count = 0
 
 /obj/item/toy/plush/moth/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] stares deeply into the eyes of [src] and it begins consuming [user.ru_na()]! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] stares deeply into the eyes of [src] and it begins consuming [user.ru_na()]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	suicide_count++
 	if(suicide_count < 3)
 		desc = "A plushie depicting an unsettling mothperson. After killing [suicide_count] [suicide_count == 1 ? "person" : "people"] it's not looking so huggable now..."

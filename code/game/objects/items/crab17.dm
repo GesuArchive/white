@@ -10,10 +10,10 @@
 
 /obj/item/suspiciousphone/attack_self(mob/living/user)
 	if(!ISADVANCEDTOOLUSER(user))
-		to_chat(user, span_warning("This device is too advanced for you!") )
+		to_chat(user, span_warning("This device is too advanced for you!"))
 		return
 	if(dumped)
-		to_chat(user, span_warning("You already activated Protocol CRAB-17.") )
+		to_chat(user, span_warning("You already activated Protocol CRAB-17."))
 		return FALSE
 	if(tgui_alert(user, "Are you sure you want to crash this market with no survivors?", "Protocol CRAB-17", list("Yes", "No")) == "Yes")
 		if(dumped || QDELETED(src)) //Prevents fuckers from cheesing alert
@@ -64,15 +64,15 @@
 	if(istype(W, /obj/item/card/id))
 		var/obj/item/card/id/card = W
 		if(!card.registered_account)
-			to_chat(user, span_warning("This card does not have a registered account!") )
+			to_chat(user, span_warning("This card does not have a registered account!"))
 			return
 		if(!card.registered_account.being_dumped)
-			to_chat(user, span_warning("It appears that your funds are safe from draining!") )
+			to_chat(user, span_warning("It appears that your funds are safe from draining!"))
 			return
 		if(do_after(user, 40, target = src))
 			if(!card.registered_account.being_dumped)
 				return
-			to_chat(user, span_warning("You quickly cash out your funds to a more secure banking location. Funds are safu.") ) // This is a reference and not a typo
+			to_chat(user, span_warning("You quickly cash out your funds to a more secure banking location. Funds are safu.")) // This is a reference and not a typo
 			card.registered_account.being_dumped = FALSE
 			if(check_if_finished())
 				qdel(src)

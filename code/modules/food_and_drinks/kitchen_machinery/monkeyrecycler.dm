@@ -69,35 +69,35 @@ GLOBAL_LIST_EMPTY(monkey_recyclers)
 	if(!istype(target))
 		return
 	if(target.stat == CONSCIOUS)
-		to_chat(user, span_warning("The monkey is struggling far too much to put it in the recycler.") )
+		to_chat(user, span_warning("The monkey is struggling far too much to put it in the recycler."))
 		return
 	if(target.buckled || target.has_buckled_mobs())
-		to_chat(user, span_warning("The monkey is attached to something.") )
+		to_chat(user, span_warning("The monkey is attached to something."))
 		return
 	qdel(target)
-	to_chat(user, span_notice("You stuff the monkey into the machine.") )
+	to_chat(user, span_notice("You stuff the monkey into the machine."))
 	playsound(src.loc, 'sound/machines/juicer.ogg', 50, TRUE)
 	var/offset = prob(50) ? -2 : 2
 	animate(src, pixel_x = pixel_x + offset, time = 0.2, loop = 200) //start shaking
 	use_power(500)
 	stored_matter += cube_production
 	addtimer(VARSET_CALLBACK(src, pixel_x, base_pixel_x))
-	addtimer(CALLBACK(GLOBAL_PROC, /proc/to_chat, user, span_notice("The machine now has [stored_matter] monkey\s worth of material stored.") ))
+	addtimer(CALLBACK(GLOBAL_PROC, /proc/to_chat, user, span_notice("The machine now has [stored_matter] monkey\s worth of material stored.")))
 
 /obj/machinery/monkey_recycler/interact(mob/user)
 	if(stored_matter >= 1)
-		to_chat(user, span_notice("The machine hisses loudly as it condenses the ground monkey meat. After a moment, it dispenses a brand new monkey cube.") )
+		to_chat(user, span_notice("The machine hisses loudly as it condenses the ground monkey meat. After a moment, it dispenses a brand new monkey cube."))
 		playsound(src.loc, 'sound/machines/hiss.ogg', 50, TRUE)
 		for(var/i in 1 to FLOOR(stored_matter, 1))
 			new /obj/item/food/monkeycube(src.loc)
 			stored_matter--
-		to_chat(user, span_notice("The machine's display flashes that it has [stored_matter] monkeys worth of material left.") )
+		to_chat(user, span_notice("The machine's display flashes that it has [stored_matter] monkeys worth of material left."))
 	else
-		to_chat(user, span_danger("The machine needs at least 1 monkey worth of material to produce a monkey cube. It currently has [stored_matter].") )
+		to_chat(user, span_danger("The machine needs at least 1 monkey worth of material to produce a monkey cube. It currently has [stored_matter]."))
 
 /obj/machinery/monkey_recycler/multitool_act(mob/living/user, obj/item/multitool/I)
 	. = ..()
 	if(istype(I))
-		to_chat(user, span_notice("You log [src] in the multitool's buffer.") )
+		to_chat(user, span_notice("You log [src] in the multitool's buffer."))
 		I.buffer = src
 		return TRUE

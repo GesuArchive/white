@@ -65,34 +65,34 @@
 			default_deconstruction_screwdriver(user, "button-open", "[skin]",W)
 			update_icon()
 		else
-			to_chat(user, span_alert("Maintenance Access Denied.") )
+			to_chat(user, span_alert("Maintenance Access Denied."))
 			flick("[skin]-denied", src)
 		return
 
 	if(panel_open)
 		if(!device && istype(W, /obj/item/assembly))
 			if(!user.transferItemToLoc(W, src))
-				to_chat(user, span_warning("[W] прилип ко мне!") )
+				to_chat(user, span_warning("[W] прилип ко мне!"))
 				return
 			device = W
-			to_chat(user, span_notice("Прикручиваю [W] к кнопке.") )
+			to_chat(user, span_notice("Прикручиваю [W] к кнопке."))
 
 		if(!board && istype(W, /obj/item/electronics/airlock))
 			if(!user.transferItemToLoc(W, src))
-				to_chat(user, span_warning("[W] прилип ко мне!") )
+				to_chat(user, span_warning("[W] прилип ко мне!"))
 				return
 			board = W
 			if(board.one_access)
 				req_one_access = board.accesses
 			else
 				req_access = board.accesses
-			to_chat(user, span_notice("Прикручиваю [W] к кнопке.") )
+			to_chat(user, span_notice("Прикручиваю [W] к кнопке."))
 
 		if(!device && !board && W.tool_behaviour == TOOL_WRENCH)
-			to_chat(user, span_notice("You start unsecuring the button frame...") )
+			to_chat(user, span_notice("You start unsecuring the button frame..."))
 			W.play_tool_sound(src)
 			if(W.use_tool(src, user, 40))
-				to_chat(user, span_notice("You unsecure the button frame.") )
+				to_chat(user, span_notice("You unsecure the button frame."))
 				transfer_fingerprints_to(new /obj/item/wallframe/button(get_turf(src)))
 				playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 				qdel(src)
@@ -149,14 +149,14 @@
 				req_one_access = list()
 				board = null
 			update_icon()
-			to_chat(user, span_notice("You remove electronics from the button frame.") )
+			to_chat(user, span_notice("You remove electronics from the button frame."))
 
 		else
 			if(skin == "doorctrl")
 				skin = "launcher"
 			else
 				skin = "doorctrl"
-			to_chat(user, span_notice("You change the button frame's front panel.") )
+			to_chat(user, span_notice("You change the button frame's front panel."))
 		return
 
 	if((machine_stat & (NOPOWER|BROKEN)))
@@ -168,7 +168,7 @@
 	playsound(get_turf(src), 'white/valtos/sounds/switch_click.wav', 50, TRUE)
 
 	if(!allowed(user))
-		to_chat(user, span_alert("Доступ запрещён.") )
+		to_chat(user, span_alert("Доступ запрещён."))
 		flick("[skin]-denied", src)
 		return
 

@@ -20,10 +20,10 @@
 	attack_verb_simple = list("бьёт", "протыкает", "рубит", "атакует")
 
 /obj/item/pickaxe/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] begins digging into [user.ru_ego()] chest! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] begins digging into [user.ru_ego()] chest! It looks like [user.p_theyre()] trying to commit suicide!"))
 	if(use_tool(user, user, 30, volume=50))
 		return BRUTELOSS
-	user.visible_message(span_suicide("[user] couldn't do it!") )
+	user.visible_message(span_suicide("[user] couldn't do it!"))
 	return SHAME
 
 /obj/item/pickaxe/rusted
@@ -144,10 +144,10 @@
 	AddComponent(/datum/component/butchering, 150, 40) //it's sharp, so it works, but barely.
 
 /obj/item/shovel/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] begins digging their own grave! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] begins digging their own grave! It looks like [user.p_theyre()] trying to commit suicide!"))
 	if(use_tool(user, user, 30, volume=50))
 		return BRUTELOSS
-	user.visible_message(span_suicide("[user] couldn't do it!") )
+	user.visible_message(span_suicide("[user] couldn't do it!"))
 	return SHAME
 
 /obj/item/shovel/spade

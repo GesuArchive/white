@@ -24,19 +24,19 @@
 	if(!user.can_read(src))
 		return FALSE
 	if(inUse)
-		to_chat(user, span_notice("Someone else is reading it.") )
+		to_chat(user, span_notice("Someone else is reading it."))
 	if(ishuman(user))
 		var/mob/living/carbon/human/U = user
 		if(U.check_acedia())
-			to_chat(user, span_notice("None of this matters, why are you reading this? You put [title] down.") )
+			to_chat(user, span_notice("None of this matters, why are you reading this? You put [title] down."))
 			return
-	user.visible_message(span_notice("[user] opens [title] and begins reading intently.") )
+	user.visible_message(span_notice("[user] opens [title] and begins reading intently."))
 	ask_name(user)
 
 
 /obj/item/book/codex_gigas/proc/perform_research(mob/user, devilName)
 	if(!devilName)
-		user.visible_message(span_notice("[user] closes [title] without looking anything up.") )
+		user.visible_message(span_notice("[user] closes [title] without looking anything up."))
 		return
 	inUse = TRUE
 	var/speed = 300

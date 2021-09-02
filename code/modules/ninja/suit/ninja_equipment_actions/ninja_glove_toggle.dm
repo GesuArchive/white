@@ -11,5 +11,5 @@
  */
 /obj/item/clothing/gloves/space_ninja/proc/toggledrain()
 	var/mob/living/carbon/human/ninja = loc
-	to_chat(ninja, span_notice("[candrain?"disable":"enable"] особое взаимодействие.") )
+	to_chat(ninja, span_notice("[candrain?"disable":"enable"] особое взаимодействие."))
 	candrain=!candrain

@@ -56,7 +56,7 @@
 
 
 /obj/item/book/ruchinese/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] бьет себя словарем по голове, кажется он чувствует себя хуево!") )
+	user.visible_message(span_suicide("[user] бьет себя словарем по голове, кажется он чувствует себя хуево!"))
 	var/delay_offset = 0
 	for(var/mob/M in viewers(src, 7))
 		var/mob/living/carbon/human/C = M

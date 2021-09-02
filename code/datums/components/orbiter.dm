@@ -98,7 +98,7 @@
 		var/atom/movable/movable_parent = parent
 		orbiter.glide_size = movable_parent.glide_size
 
-	to_chat(orbiter, span_notice("Следим за <b>[parent]</b>.") )
+	to_chat(orbiter, span_notice("Следим за <b>[parent]</b>."))
 	orbiter.abstract_move(get_turf(parent))
 
 /datum/component/orbiter/proc/end_orbit(atom/movable/orbiter, refreshing=FALSE)

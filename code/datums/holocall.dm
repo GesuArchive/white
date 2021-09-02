@@ -254,10 +254,10 @@
 			record.caller_image = holodiskOriginal.record.caller_image
 			record.entries = holodiskOriginal.record.entries.Copy()
 			record.language = holodiskOriginal.record.language
-			to_chat(user, span_notice("Копирую запись с [holodiskOriginal] на [src] используя специальные порты!") )
+			to_chat(user, span_notice("Копирую запись с [holodiskOriginal] на [src] используя специальные порты!"))
 			name = holodiskOriginal.name
 		else
-			to_chat(user, span_warning("[capitalize(holodiskOriginal)] не имеет записей!") )
+			to_chat(user, span_warning("[capitalize(holodiskOriginal)] не имеет записей!"))
 	..()
 
 /obj/item/disk/holodisk/proc/build_record()

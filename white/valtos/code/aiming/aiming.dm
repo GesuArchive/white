@@ -77,9 +77,9 @@
 		return
 	src.user = user
 	src.target = target
-	user.visible_message(span_warning("<b>[user]</b> наводит [parent] на <b>[target]</b>!") )
-	to_chat(target, span_warning("<b>[user]</b> наводит [parent] на меня! Похоже, мне лучше не двигаться! \n > Можно использовать <b>*surrender</b>, чтобы сдаться.") )
-	to_chat(user, span_notice("Целюсь в <b>[target]</b>. Если цель попробоует достать оружие или сделать что-то ещё, то я обязательно об этом узнаю.") )
+	user.visible_message(span_warning("<b>[user]</b> наводит [parent] на <b>[target]</b>!"))
+	to_chat(target, span_warning("<b>[user]</b> наводит [parent] на меня! Похоже, мне лучше не двигаться! \n > Можно использовать <b>*surrender</b>, чтобы сдаться."))
+	to_chat(user, span_notice("Целюсь в <b>[target]</b>. Если цель попробоует достать оружие или сделать что-то ещё, то я обязательно об этом узнаю."))
 	user.say("СТОЯТЬ!!")
 	playsound(target, 'white/valtos/sounds/autoguninsert.ogg', 100, TRUE)
 	aiming_cooldown = TRUE
@@ -100,16 +100,16 @@ Methods to alert the aimer about events, usually to signify that they're complyi
 
 /datum/component/aiming/proc/on_drop()
 	SIGNAL_HANDLER
-	to_chat(user, span_nicegreen("<b>[target]</b> бросает что-то.") )
+	to_chat(user, span_nicegreen("<b>[target]</b> бросает что-то."))
 
 /datum/component/aiming/proc/on_paralyze()
 	SIGNAL_HANDLER
-	to_chat(user, span_nicegreen("<b>[target]</b> сдаётся!") )
+	to_chat(user, span_nicegreen("<b>[target]</b> сдаётся!"))
 
 /datum/component/aiming/proc/on_equip()
 	SIGNAL_HANDLER
 	new /obj/effect/temp_visual/aiming/suspect_alert(get_turf(target))
-	to_chat(user, span_userdanger("<b>[target]</b> что-то достаёт!") )
+	to_chat(user, span_userdanger("<b>[target]</b> что-то достаёт!"))
 	SEND_SOUND(user, 'sound/machines/chime.ogg')
 
 /**
@@ -175,7 +175,7 @@ There are two main branches, dictated by SOP. If the perp is armed, tell them to
 	if(isitem(parent))
 		var/obj/item/I = parent
 		I.afterattack(target, user)
-		user.visible_message(span_warning("<b>[user]</b> угрожающе размахивает [parent]!") ) //lets you still aim at someone with a wrench / knife for epic psycho RP!
+		user.visible_message(span_warning("<b>[user]</b> угрожающе размахивает [parent]!")) //lets you still aim at someone with a wrench / knife for epic psycho RP!
 		stop_aiming()
 
 /datum/component/aiming/proc/stop_aiming()

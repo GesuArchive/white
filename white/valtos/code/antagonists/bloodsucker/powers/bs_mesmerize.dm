@@ -23,13 +23,13 @@
 		return FALSE
 	if (!owner.getorganslot(ORGAN_SLOT_EYES))
 		if (display_error)
-			to_chat(owner, span_warning("You have no eyes with which to mesmerize.") )
+			to_chat(owner, span_warning("You have no eyes with which to mesmerize."))
 		return FALSE
 	// Check: Eyes covered?
 	var/mob/living/L = owner
 	if (istype(L) && L.is_eyes_covered() || !isturf(owner.loc))
 		if (display_error)
-			to_chat(owner, span_warning("Your eyes are concealed from sight.") )
+			to_chat(owner, span_warning("Your eyes are concealed from sight."))
 		return FALSE
 	return TRUE
 
@@ -44,41 +44,41 @@
 	// Bloodsucker
 	if (target.mind && target.mind.has_antag_datum(ANTAG_DATUM_BLOODSUCKER))
 		if (display_error)
-			to_chat(owner, span_warning("Bloodsuckers are immune to [src].") )
+			to_chat(owner, span_warning("Bloodsuckers are immune to [src]."))
 		return FALSE
 	// Dead/Unconscious
 	if (target.stat > CONSCIOUS)
 		if (display_error)
-			to_chat(owner, span_warning("Your victim is not [(target.stat == DEAD || HAS_TRAIT(target, TRAIT_FAKEDEATH))?"alive":"conscious"].") )
+			to_chat(owner, span_warning("Your victim is not [(target.stat == DEAD || HAS_TRAIT(target, TRAIT_FAKEDEATH))?"alive":"conscious"]."))
 		return FALSE
 	// Check: Target has eyes?
 	if (!target.getorganslot("heart"))
 		if (display_error)
-			to_chat(owner, span_warning("They have no eyes!") )
+			to_chat(owner, span_warning("They have no eyes!"))
 		return FALSE
 	// Check: Target blind?
 	if (target.eye_blind > 0)
 		if (display_error)
-			to_chat(owner, span_warning("Your victim's eyes are glazed over. They cannot perceive you.") )
+			to_chat(owner, span_warning("Your victim's eyes are glazed over. They cannot perceive you."))
 		return FALSE
 	// Check: Target See Me? (behind wall)
 	if (!(owner in view(target_range, get_turf(target))))
 		// Sub-Check: GET CLOSER
 		//if (!(owner in range(target_range, get_turf(target)))
 		//	if (display_error)
-		//		to_chat(owner, span_warning("You're too far from your victim.") )
+		//		to_chat(owner, span_warning("You're too far from your victim."))
 		if (display_error)
-			to_chat(owner, span_warning("You're too far outside your victim's view.") )
+			to_chat(owner, span_warning("You're too far outside your victim's view."))
 		return FALSE
 	// Check: Facing target?
 	if (!is_A_facing_B(owner,target))	// in unsorted.dm
 		if (display_error)
-			to_chat(owner, span_warning("You must be facing your victim.") )
+			to_chat(owner, span_warning("You must be facing your victim."))
 		return FALSE
 	// Check: Target facing me?
 	if ((target.mobility_flags & MOBILITY_STAND) && !is_A_facing_B(target,owner))
 		if (display_error)
-			to_chat(owner, span_warning("Your victim must be facing you to see into your eyes.") )
+			to_chat(owner, span_warning("Your victim must be facing you to see into your eyes."))
 		return FALSE
 
 	return TRUE
@@ -96,7 +96,7 @@
 	if (do_mob(user, target, 40, 0, TRUE, extra_checks=CALLBACK(src, .proc/ContinueActive, user, target)))
 		PowerActivatedSuccessfully() // PAY COST! BEGIN COOLDOWN!
 		var/power_time = 90 + level_current * 15
-		to_chat(user, span_notice("[target] is fixed in place by your hypnotic gaze.") )
+		to_chat(user, span_notice("[target] is fixed in place by your hypnotic gaze."))
 		target.Immobilize(power_time)
 		//target.silent += power_time / 10 // Silent isn't based on ticks.
 		target.next_move = world.time + power_time // <--- Use direct change instead. We want an unmodified delay to their next move //    target.changeNext_move(power_time) // check click.dm
@@ -107,7 +107,7 @@
 				REMOVE_TRAIT(target, TRAIT_MUTE, "bloodsucker_mesmerize")
 				// They Woke Up! (Notice if within view)
 				if (istype(user) && target.stat == CONSCIOUS && (target in view(10, get_turf(user)))  )
-					to_chat(user, span_warning("[target] has snapped out of their trance.") )
+					to_chat(user, span_warning("[target] has snapped out of their trance."))
 
 
 /datum/action/bloodsucker/targeted/mesmerize/ContinueActive(mob/living/user, mob/living/target)

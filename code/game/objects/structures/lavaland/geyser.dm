@@ -36,13 +36,13 @@
 
 /obj/structure/geyser/plunger_act(obj/item/plunger/P, mob/living/user, _reinforced)
 	if(!_reinforced)
-		to_chat(user, span_warning("The [P.name] isn't strong enough!") )
+		to_chat(user, span_warning("The [P.name] isn't strong enough!"))
 		return
 	if(activated)
-		to_chat(user, span_warning("The [name] is already active!") )
+		to_chat(user, span_warning("The [name] is already active!"))
 		return
 
-	to_chat(user, span_notice("You start vigorously plunging [src]!") )
+	to_chat(user, span_notice("You start vigorously plunging [src]!"))
 	if(do_after(user, 50 * P.plunge_mod, target = src) && !activated)
 		start_chemming()
 
@@ -93,7 +93,7 @@
 		var/mob/living/carbon/H = hit_atom
 		if(!H.wear_mask)
 			H.equip_to_slot_if_possible(src, ITEM_SLOT_MASK)
-			H.visible_message(span_warning("The plunger slams into [H] face!") , span_warning("The plunger suctions to your face!") )
+			H.visible_message(span_warning("The plunger slams into [H] face!") , span_warning("The plunger suctions to your face!"))
 
 /obj/item/plunger/attack_self(mob/user)
 	. = ..()
@@ -102,10 +102,10 @@
 
 	if(!layer_mode)
 		icon_state = initial(icon_state)
-		to_chat(user, span_notice("You set the plunger to 'Plunger Mode'.") )
+		to_chat(user, span_notice("You set the plunger to 'Plunger Mode'."))
 	else
 		icon_state = layer_mode_sprite
-		to_chat(user, span_notice("You set the plunger to 'Layer Mode'.") )
+		to_chat(user, span_notice("You set the plunger to 'Layer Mode'."))
 
 	playsound(src, 'sound/machines/click.ogg', 10, TRUE)
 

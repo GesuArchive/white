@@ -14,7 +14,7 @@
 	. = ..()
 	if(M.dna.species.id != "nightmare")
 		M.set_species(/datum/species/shadow/nightmare)
-		visible_message(span_warning("[M] thrashes as [src] takes root in [M.p_their()] body!") )
+		visible_message(span_warning("[M] thrashes as [src] takes root in [M.p_their()] body!"))
 	var/obj/effect/proc_holder/spell/targeted/shadowwalk/SW = new
 	M.AddSpell(SW)
 	shadowwalk = SW
@@ -66,7 +66,7 @@
 /obj/item/organ/heart/nightmare/Remove(mob/living/carbon/M, special = FALSE)
 	respawn_progress = 0
 	if(blade && special != HEART_SPECIAL_SHADOWIFY)
-		M.visible_message(span_warning("\The [blade] disintegrates!") )
+		M.visible_message(span_warning("\The [blade] disintegrates!"))
 		QDEL_NULL(blade)
 	return ..()
 
@@ -91,9 +91,9 @@
 		Remove(owner, HEART_SPECIAL_SHADOWIFY)
 		old_owner.set_species(/datum/species/shadow)
 		Insert(old_owner, HEART_SPECIAL_SHADOWIFY)
-		to_chat(owner, span_userdanger("You feel the shadows invade your skin, leaping into the center of your chest! You're alive!") )
+		to_chat(owner, span_userdanger("You feel the shadows invade your skin, leaping into the center of your chest! You're alive!"))
 		SEND_SOUND(owner, sound('sound/effects/ghost.ogg'))
-	owner.visible_message(span_warning("[owner] staggers to [owner.p_their()] feet!") )
+	owner.visible_message(span_warning("[owner] staggers to [owner.p_their()] feet!"))
 	playsound(owner, 'sound/hallucinations/far_noise.ogg', 50, TRUE)
 	respawn_progress = 0
 

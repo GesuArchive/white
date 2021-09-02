@@ -27,18 +27,18 @@
 	var/obj/structure/chisel_message/existing_message = locate() in T
 
 	if(!remaining_uses && !existing_message)
-		to_chat(user, span_warning("[capitalize(src.name)] истёрся.") )
+		to_chat(user, span_warning("[capitalize(src.name)] истёрся."))
 		return
 
 	if(!good_chisel_message_location(T))
-		to_chat(user, span_warning("Тут не получится гравировать.") )
+		to_chat(user, span_warning("Тут не получится гравировать."))
 		return
 
 	if(existing_message)
-		user.visible_message(span_notice("[user] начинает стирать [existing_message].") , span_notice("Начинаю стирать [existing_message].") , span_hear("Слышу как что-то скребёт по металлу.") )
+		user.visible_message(span_notice("[user] начинает стирать [existing_message].") , span_notice("Начинаю стирать [existing_message].") , span_hear("Слышу как что-то скребёт по металлу."))
 		playsound(loc, 'sound/items/gavel.ogg', 50, TRUE, -1)
 		if(do_after(user, tool_speed, target = existing_message))
-			user.visible_message(span_notice("[user] стирает [existing_message].") , span_notice("Стираю [existing_message][existing_message.creator_key == user.ckey ? ", не испортив стеатит" : ""].") )
+			user.visible_message(span_notice("[user] стирает [existing_message].") , span_notice("Стираю [existing_message][existing_message.creator_key == user.ckey ? ", не испортив стеатит" : ""]."))
 			existing_message.persists = FALSE
 			qdel(existing_message)
 			playsound(loc, 'sound/items/gavel.ogg', 50, TRUE, -1)
@@ -48,17 +48,17 @@
 
 	var/message = stripped_input(user, "Что же мы напишем?", "Сообщение")
 	if(!message)
-		to_chat(user, span_notice("Не хочу писать. Вот!") )
+		to_chat(user, span_notice("Не хочу писать. Вот!"))
 		return
 
 	if(!target.Adjacent(user) && locate(/obj/structure/chisel_message) in T)
-		to_chat(user, span_warning("Кто-то уже что-то написал здесь!") )
+		to_chat(user, span_warning("Кто-то уже что-то написал здесь!"))
 		return
 	playsound(loc, 'sound/items/gavel.ogg', 50, TRUE, -1)
-	user.visible_message(span_notice("[user] начинает выцарапывать сообщение на [T]...") , span_notice("Начинаю выцарапывать сообщение на [T]...") , span_hear("Слышу как что-то скребёт по металлу.") )
+	user.visible_message(span_notice("[user] начинает выцарапывать сообщение на [T]...") , span_notice("Начинаю выцарапывать сообщение на [T]...") , span_hear("Слышу как что-то скребёт по металлу."))
 	if(can_use() && do_after(user, tool_speed, target = T) && can_use()) //This looks messy but it's actually really clever!
 		if(!locate(/obj/structure/chisel_message) in T)
-			user.visible_message(span_notice("[user] выцарапывает сообщение для будущих космонавтов!") , span_notice("Выцарапываю сообщение на [T]!") , span_hear("Слышу как что-то скребёт по металлу.") )
+			user.visible_message(span_notice("[user] выцарапывает сообщение для будущих космонавтов!") , span_notice("Выцарапываю сообщение на [T]!") , span_hear("Слышу как что-то скребёт по металлу."))
 			playsound(loc, 'sound/items/gavel.ogg', 50, TRUE, -1)
 			var/obj/structure/chisel_message/M = new(T)
 			M.register(user, message)

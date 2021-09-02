@@ -69,12 +69,12 @@
 
 /obj/item/paxee/attack_self(mob/user)
 	if (charged)
-		to_chat(user, span_notice("Время нести справедливость! Меня ничто не остановит!") )
+		to_chat(user, span_notice("Время нести справедливость! Меня ничто не остановит!"))
 		charged = FALSE
 		block_chance = 100
 		armour_penetration = 100
 		sleep(30)
-		to_chat(user, span_warning("Выдохся.") )
+		to_chat(user, span_warning("Выдохся."))
 		block_chance = 15
 		armour_penetration = 10
 		addtimer(CALLBACK(src, .proc/Recharge), recharge_time)
@@ -82,7 +82,7 @@
 /obj/item/paxee/proc/Recharge()
 	if(!charged)
 		charged = TRUE
-		to_chat(loc, span_warning("Мы готовы нести справедливость!") )
+		to_chat(loc, span_warning("Мы готовы нести справедливость!"))
 
 /obj/item/paxee/examine(mob/living/user)
 	..()
@@ -100,11 +100,11 @@
 /obj/item/book/manual/wiki/security_space_law/afterattack(atom/target, mob/living/user, proximity_flag, clickparams)
 	. = ..()
 	if (istype(target, /obj/item/paxe))
-		to_chat(user, span_notice("Улучшаю алебарду властью, данною мне законом.") )
+		to_chat(user, span_notice("Улучшаю алебарду властью, данною мне законом."))
 		var/obj/item/paxe/I = target
 		new /obj/item/paxee(I.loc)
 		qdel(I)
 		for (var/mob/i in GLOB.player_list)
 			if (istype (i, /mob/living/carbon/human/))
 				var/mob/living/carbon/human/H = i
-				to_chat(H, span_warning("Чувствую высвобождение сил ебонумбы.") )
+				to_chat(H, span_warning("Чувствую высвобождение сил ебонумбы."))

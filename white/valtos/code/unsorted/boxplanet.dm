@@ -98,7 +98,7 @@
 
 /obj/structure/flora/tree/boxplanet/glikodil/attackby(obj/item/W, mob/user, params)
 	if(has_cure && needs_sharp_harvest && W.get_sharpness())
-		user.visible_message(span_notice("[user] начинает собирать [src] используя [W].") ,span_notice("Вы начинаете собирать [src] используя [W].") )
+		user.visible_message(span_notice("[user] начинает собирать [src] используя [W].") ,span_notice("Вы начинаете собирать [src] используя [W]."))
 		if(do_after(user, harvest_time, target = src))
 			new /obj/item/glikoleaf(loc)
 			has_cure = FALSE
@@ -115,14 +115,14 @@
 			H.adjustFireLoss(-25)
 			H.remove_CC()
 			H.bodytemperature = H.get_body_temp_normal()
-			visible_message(span_notice("[H] прикасается рукой к растению и его раны начинают затягиваться.") )
+			visible_message(span_notice("[H] прикасается рукой к растению и его раны начинают затягиваться."))
 		else
-			visible_message(span_warning("Похоже, что эта штука помогает только людям, но не животным. <b>[capitalize(user)]</b> поедает гликодил.") )
+			visible_message(span_warning("Похоже, что эта штука помогает только людям, но не животным. <b>[capitalize(user)]</b> поедает гликодил."))
 			qdel(src)
 		spawn(rand(600, 3600))
 			has_cure = TRUE
 	else
-		to_chat(user, span_notice("Не могу найти лечебных листочков на этом растении. Видимо ещё не время.") )
+		to_chat(user, span_notice("Не могу найти лечебных листочков на этом растении. Видимо ещё не время."))
 
 /obj/item/glikoleaf
 	name = "Листок гликодила"
@@ -204,7 +204,7 @@
 		amb_chance = 0
 		var/msg = pick("ЗАСАДА!", "ЗДЕСЬ КТО-ТО ЕСТЬ!", "МОНСТРЫ!")
 		var/turf/T = get_turf(A)
-		T.visible_message(span_userdanger("[msg]") )
+		T.visible_message(span_userdanger("[msg]"))
 		playsound(A.loc, 'white/valtos/sounds/ambush.ogg', 50)
 		for(var/obj/structure/flora/tree/boxplanet/kartoshmel/K in orange(7, src))
 			K.spawned_mobs = 0
@@ -239,7 +239,7 @@
 			var/area/A = get_area(T)
 			if(!istype(A, /area/boxplanet))
 				ChangeTurf(/turf/open/floor/plating)
-				to_chat(user, span_danger("<b>[capitalize(src.name)]</b> уже достаточно раскопан!") )
+				to_chat(user, span_danger("<b>[capitalize(src.name)]</b> уже достаточно раскопан!"))
 			if(istype(T, /turf/closed/mineral))
 				ChangeTurf(/turf/open/openspace/boxplanet/caves)
 				T.ChangeTurf(/turf/open/floor/plating/asteroid/boxplanet/caves)
@@ -267,7 +267,7 @@
 
 /turf/open/floor/plating/asteroid/boxplanet/surface/burn_tile()
 	if(!burnt)
-		visible_message(span_danger("[capitalize(src.name)] тает!.") )
+		visible_message(span_danger("[capitalize(src.name)] тает!."))
 		slowdown = 0
 		burnt = TRUE
 		icon_state = "snow_dug"
@@ -330,9 +330,9 @@
 		return
 	add_fingerprint(user)
 	if(is_turned)
-		to_chat(user, span_danger("Рубильник не поддаётся!") )
+		to_chat(user, span_danger("Рубильник не поддаётся!"))
 		return
-	user.visible_message(span_warning("<b>[user]</b> дёргает рубильник!") )
+	user.visible_message(span_warning("<b>[user]</b> дёргает рубильник!"))
 	is_turned = TRUE
 	icon_state = "switch-on"
 	SSmachines.makepowernets()
@@ -345,4 +345,4 @@
 		is_turned = FALSE
 		playsound(src.loc, 'white/valtos/sounds/leveroff.ogg', 90, TRUE)
 		var/turf/T = get_turf(src)
-		T.visible_message(span_notice("<b>[src]</b> возвращается на место!") )
+		T.visible_message(span_notice("<b>[src]</b> возвращается на место!"))

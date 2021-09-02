@@ -115,7 +115,7 @@
 
 /obj/item/stack/grind_requirements()
 	if(is_cyborg)
-		to_chat(usr, span_warning("[src] синтезируется в электронном виде в вашем шасси и не может быть измельчен!") )
+		to_chat(usr, span_warning("[src] синтезируется в электронном виде в вашем шасси и не может быть измельчен!"))
 		return
 	return TRUE
 
@@ -256,7 +256,7 @@
 				return
 			if(recipe.time)
 				var/adjusted_time = 0
-				usr.visible_message(span_notice("[usr] начинает строить [recipe.title].") , span_notice("Начинаю строить [recipe.title]...") )
+				usr.visible_message(span_notice("[usr] начинает строить [recipe.title].") , span_notice("Начинаю строить [recipe.title]..."))
 				if(HAS_TRAIT(usr, recipe.trait_booster))
 					adjusted_time = (recipe.time * recipe.trait_modifier)
 				else
@@ -384,11 +384,11 @@
 	if(get_amount() < amount)
 		if(singular_name)
 			if(amount > 1)
-				to_chat(user, span_warning("Мне потребуется [amount] [singular_name] для этого!") )
+				to_chat(user, span_warning("Мне потребуется [amount] [singular_name] для этого!"))
 			else
-				to_chat(user, span_warning("Мне потребуется [amount] [singular_name] для этого!") )
+				to_chat(user, span_warning("Мне потребуется [amount] [singular_name] для этого!"))
 		else
-			to_chat(user, span_warning("Мне потребуется [amount] для этого!") )
+			to_chat(user, span_warning("Мне потребуется [amount] для этого!"))
 
 		return FALSE
 
@@ -530,7 +530,7 @@
 	if(stackmaterial == null || stackmaterial <= 0 || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return SECONDARY_ATTACK_CONTINUE_CHAIN
 	split_stack(user, stackmaterial)
-	to_chat(user, span_notice("Достаю [stackmaterial] листов из кучи.") )
+	to_chat(user, span_notice("Достаю [stackmaterial] листов из кучи."))
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /** Splits the stack into two stacks.
@@ -557,7 +557,7 @@
 	if(can_merge(W))
 		var/obj/item/stack/S = W
 		if(merge(S))
-			to_chat(user, span_notice("Моя куча <b>[S.name]</b> теперь содержит [S.get_amount()] [S.singular_name].") )
+			to_chat(user, span_notice("Моя куча <b>[S.name]</b> теперь содержит [S.get_amount()] [S.singular_name]."))
 	else
 		. = ..()
 

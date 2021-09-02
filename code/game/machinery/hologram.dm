@@ -213,11 +213,11 @@ Possible to do for anyone motivated enough:
 
 	if(istype(P,/obj/item/disk/holodisk))
 		if(disk)
-			to_chat(user,span_warning("Внутри уже есть диск!") )
+			to_chat(user,span_warning("Внутри уже есть диск!"))
 			return
 		if (!user.transferItemToLoc(P,src))
 			return
-		to_chat(user,span_notice("Вставляю [P] в [src.name].") )
+		to_chat(user,span_notice("Вставляю [P] в [src.name]."))
 		disk = P
 		return
 
@@ -267,15 +267,15 @@ Possible to do for anyone motivated enough:
 		if("AIrequest")
 			if(last_request + 200 < world.time)
 				last_request = world.time
-				to_chat(usr, span_info("Запрашиваю присутствие ИИ.") )
+				to_chat(usr, span_info("Запрашиваю присутствие ИИ."))
 				var/area/area = get_area(src)
 				for(var/mob/living/silicon/ai/AI in GLOB.silicon_mobs)
 					if(!AI.client)
 						continue
-					to_chat(AI, span_info("Меня хотят видеть <a href='?src=[REF(AI)];jumptoholopad=[REF(src)]'>в [area]</a>.") )
+					to_chat(AI, span_info("Меня хотят видеть <a href='?src=[REF(AI)];jumptoholopad=[REF(src)]'>в [area]</a>."))
 				return TRUE
 			else
-				to_chat(usr, span_info("Недавно уже был запрос ИИ. Платформа перезаряжается.") )
+				to_chat(usr, span_info("Недавно уже был запрос ИИ. Платформа перезаряжается."))
 				return
 		if("holocall")
 			if(outgoing_call)
@@ -297,7 +297,7 @@ Possible to do for anyone motivated enough:
 					calling = TRUE
 					return TRUE
 			else
-				to_chat(usr, span_warning("Нужно стоять на платформе, что сделать вызов!") )
+				to_chat(usr, span_warning("Нужно стоять на платформе, что сделать вызов!"))
 		if("connectcall")
 			var/datum/holocall/call_to_connect = locate(params["holopad"]) in holo_calls
 			if(!QDELETED(call_to_connect))
@@ -436,7 +436,7 @@ Possible to do for anyone motivated enough:
 		move_hologram()
 
 		set_holo(user, Hologram)
-		visible_message(span_notice("Голографическое изображение [user] появляется перед моими глазами!") )
+		visible_message(span_notice("Голографическое изображение [user] появляется перед моими глазами!"))
 
 		return Hologram
 	else
@@ -591,7 +591,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	Hologram.set_anchored(TRUE)//So space wind cannot drag it.
 	Hologram.name = "Голограмма [record.caller_name]"//If someone decides to right click.
 	Hologram.set_light(2)	//hologram lighting
-	visible_message(span_notice("Голографическое изображение [record.caller_name] появляется перед моими глазами!") )
+	visible_message(span_notice("Голографическое изображение [record.caller_name] появляется перед моими глазами!"))
 	return Hologram
 
 /obj/machinery/holopad/proc/replay_start()

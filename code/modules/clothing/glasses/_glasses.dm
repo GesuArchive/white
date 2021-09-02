@@ -19,7 +19,7 @@
 	var/glass_colour_type //colors your vision when worn
 
 /obj/item/clothing/glasses/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] тычет <b>[src.name]</b> в [user.ru_ego()] глаза! Выглядит так, будто [user.p_theyre()] пытается покончить с собой!") )
+	user.visible_message(span_suicide("[user] тычет <b>[src.name]</b> в [user.ru_ego()] глаза! Выглядит так, будто [user.p_theyre()] пытается покончить с собой!"))
 	return BRUTELOSS
 
 /obj/item/clothing/glasses/examine(mob/user)
@@ -49,7 +49,7 @@
 		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
 		if(!H.is_blind())
 			if(H.glasses == src)
-				to_chat(H, span_danger("[capitalize(src.name)] перегружается и... МОИ ГЛАЗА!") )
+				to_chat(H, span_danger("[capitalize(src.name)] перегружается и... МОИ ГЛАЗА!"))
 				H.flash_act(visual = 1)
 				H.blind_eyes(3)
 				H.blur_eyes(5)
@@ -63,9 +63,9 @@
 				if(src == H.glasses)
 					H.client.prefs.uses_glasses_colour = !H.client.prefs.uses_glasses_colour
 					if(H.client.prefs.uses_glasses_colour)
-						to_chat(H, span_notice("Теперь вижу цвет очков.") )
+						to_chat(H, span_notice("Теперь вижу цвет очков."))
 					else
-						to_chat(H, span_notice("Теперь не вижу цвет очков.") )
+						to_chat(H, span_notice("Теперь не вижу цвет очков."))
 					H.update_glasses_color(src, 1)
 	else
 		return ..()
@@ -100,7 +100,7 @@
 	glass_colour_type = /datum/client_colour/glass_colour/lightgreen
 
 /obj/item/clothing/glasses/meson/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] приближает <b>[src.name]</b> к [user.ru_ego()] глазам и выкручивает яркость на полную! Похоже, что [user.p_theyre()] пытается убить себя!") )
+	user.visible_message(span_suicide("[user] приближает <b>[src.name]</b> к [user.ru_ego()] глазам и выкручивает яркость на полную! Похоже, что [user.p_theyre()] пытается убить себя!"))
 	return BRUTELOSS
 
 /obj/item/clothing/glasses/meson/night
@@ -152,7 +152,7 @@
 	glass_colour_type = /datum/client_colour/glass_colour/green
 
 /obj/item/clothing/glasses/science/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] затягивает ремешки <b>[src.name]</b> вокруг [user.ru_ego()] шеи! Похоже, что [user.p_theyre()] пытается убить себя!") )
+	user.visible_message(span_suicide("[user] затягивает ремешки <b>[src.name]</b> вокруг [user.ru_ego()] шеи! Похоже, что [user.p_theyre()] пытается убить себя!"))
 	return OXYLOSS
 
 /obj/item/clothing/glasses/eyepatch

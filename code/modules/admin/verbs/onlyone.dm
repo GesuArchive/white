@@ -6,7 +6,7 @@ GLOBAL_VAR_INIT(highlander, FALSE)
 	GLOB.highlander = TRUE
 
 	sound_to_playing_players('sound/misc/highlander.ogg')
-	send_to_playing_players(span_boldannounce("<font size=6>THERE CAN BE ONLY ONE</font>") )
+	send_to_playing_players(span_boldannounce("<font size=6>THERE CAN BE ONLY ONE</font>"))
 
 	for(var/obj/item/disk/nuclear/N in GLOB.poi_list)
 		var/datum/component/stationloving/component = N.GetComponent(/datum/component/stationloving)
@@ -34,13 +34,13 @@ GLOBAL_VAR_INIT(highlander, FALSE)
 			continue
 		robot.make_scottish()
 
-	message_admins(span_adminnotice("[key_name_admin(usr)] used THERE CAN BE ONLY ONE!") )
+	message_admins(span_adminnotice("[key_name_admin(usr)] used THERE CAN BE ONLY ONE!"))
 	log_admin("[key_name(usr)] used THERE CAN BE ONLY ONE.")
 	addtimer(CALLBACK(SSshuttle.emergency, /obj/docking_port/mobile/emergency.proc/request, null, 1), 50)
 
 /client/proc/only_one_delayed()
-	send_to_playing_players(span_userdanger("Bagpipes begin to blare. You feel Scottish pride coming over you.") )
-	message_admins(span_adminnotice("[key_name_admin(usr)] used (delayed) THERE CAN BE ONLY ONE!") )
+	send_to_playing_players(span_userdanger("Bagpipes begin to blare. You feel Scottish pride coming over you."))
+	message_admins(span_adminnotice("[key_name_admin(usr)] used (delayed) THERE CAN BE ONLY ONE!"))
 	log_admin("[key_name(usr)] used delayed THERE CAN BE ONLY ONE.")
 	addtimer(CALLBACK(src, .proc/only_one), 42 SECONDS)
 

@@ -52,15 +52,15 @@
 		broken = FALSE
 		burnt = FALSE
 		if(user && !silent)
-			to_chat(user, span_notice("Снимаю сломанные доски.") )
+			to_chat(user, span_notice("Снимаю сломанные доски."))
 	else
 		if(make_tile)
 			if(user && !silent)
-				to_chat(user, span_notice("Откручиваю доски.") )
+				to_chat(user, span_notice("Откручиваю доски."))
 			spawn_tile()
 		else
 			if(user && !silent)
-				to_chat(user, span_notice("Силой отрываю доски, уничтожая их в процессе.") )
+				to_chat(user, span_notice("Силой отрываю доски, уничтожая их в процессе."))
 	return make_plating(force_plating)
 
 /turf/open/floor/wood/cold
@@ -121,7 +121,7 @@
 /turf/open/floor/grass/attackby(obj/item/C, mob/user, params)
 	if((C.tool_behaviour == TOOL_SHOVEL) && params)
 		new ore_type(src, 2)
-		user.visible_message(span_notice("[user] вскапывает [src].") , span_notice("[turfverb] [src].") )
+		user.visible_message(span_notice("[user] вскапывает [src].") , span_notice("[turfverb] [src]."))
 		playsound(src, 'sound/effects/shovel_dig.ogg', 50, TRUE)
 		make_plating()
 	if(..())

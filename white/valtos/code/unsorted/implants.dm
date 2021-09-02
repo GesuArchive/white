@@ -12,16 +12,16 @@
 	switch(s_type)
 		if("int")
 			s_type = "str"
-			to_chat(user, span_notice("Теперь имплант настроен на <b>СИЛУ</b>.") )
+			to_chat(user, span_notice("Теперь имплант настроен на <b>СИЛУ</b>."))
 		if("str")
 			s_type = "stm"
-			to_chat(user, span_notice("Теперь имплант настроен на <b>ВЫНОСЛИВОСТЬ</b>.") )
+			to_chat(user, span_notice("Теперь имплант настроен на <b>ВЫНОСЛИВОСТЬ</b>."))
 		if("stm")
 			s_type = "dex"
-			to_chat(user, span_notice("Теперь имплант настроен на <b>ЛОВКОСТЬ</b>.") )
+			to_chat(user, span_notice("Теперь имплант настроен на <b>ЛОВКОСТЬ</b>."))
 		if("dex")
 			s_type = "int"
-			to_chat(user, span_notice("Теперь имплант настроен на <b>ИНТЕЛЛЕКТ</b>.") )
+			to_chat(user, span_notice("Теперь имплант настроен на <b>ИНТЕЛЛЕКТ</b>."))
 	icon_state = s_type
 	update_icon()
 
@@ -80,16 +80,16 @@
 	switch(s_type)
 		if("int")
 			M.current_fate[MOB_INT] = 4
-			to_chat(M, span_notice("Мои мозги работают быстрее!") )
+			to_chat(M, span_notice("Мои мозги работают быстрее!"))
 		if("str")
 			M.current_fate[MOB_STR] = 4
-			to_chat(M, span_notice("<b>ОЩУЩАЮ СИЛУ!</b>") )
+			to_chat(M, span_notice("<b>ОЩУЩАЮ СИЛУ!</b>"))
 		if("stm")
 			M.current_fate[MOB_STM] = 4
-			to_chat(M, span_notice("Моя кожа каменеет, а кровь начинает кипеть!") )
+			to_chat(M, span_notice("Моя кожа каменеет, а кровь начинает кипеть!"))
 		if("dex")
 			M.current_fate[MOB_DEX] = 4
-			to_chat(M, span_notice("Чувствую, что могу дотрогнуться локтём до носа!") )
+			to_chat(M, span_notice("Чувствую, что могу дотрогнуться локтём до носа!"))
 	M.recalculate_stats()
 
 /obj/item/organ/cyberimp/brain/stats/emp_act(severity)

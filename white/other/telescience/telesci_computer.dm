@@ -146,34 +146,34 @@
 		crystals = starting_crystals
 
 /obj/machinery/computer/telescience/attack_paw(mob/user)
-	to_chat(user, span_warning("А КАК?!") )
+	to_chat(user, span_warning("А КАК?!"))
 	return
 
 /obj/machinery/computer/telescience/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stack/ore/bluespace_crystal) || istype(W, /obj/item/stack/sheet/bluespace_crystal))
 		if(crystals >= max_crystals)
-			to_chat(user, span_warning("Не хватает слотов.") )
+			to_chat(user, span_warning("Не хватает слотов."))
 			return
 		var/obj/item/stack/BC = W
 		if(!BC.amount)
-			to_chat(user, span_warning("БЛЯТЬ!") )
+			to_chat(user, span_warning("БЛЯТЬ!"))
 			return
 		crystals++
 		BC.use(1)
-		user.visible_message("[user] вставляет [W] в <b>[src.name]</b>.", span_notice("Вставляю [W] в <b>[src.name]</b>.") )
+		user.visible_message("[user] вставляет [W] в <b>[src.name]</b>.", span_notice("Вставляю [W] в <b>[src.name]</b>."))
 		updateDialog()
 	else if(istype(W, /obj/item/gps))
 		if(!inserted_gps)
 			if(!user.transferItemToLoc(W, src))
 				return
 			inserted_gps = W
-			user.visible_message("[user] вставляет [W] в <b>[src.name]</b>.", span_notice("Вставляю [W] в <b>[src.name]</b>.") )
+			user.visible_message("[user] вставляет [W] в <b>[src.name]</b>.", span_notice("Вставляю [W] в <b>[src.name]</b>."))
 	else if(istype(W, /obj/item/multitool))
 		var/obj/item/multitool/M = W
 		if(M.buffer && istype(M.buffer, /obj/machinery/telepad))
 			telepad = M.buffer
 			M.buffer = null
-			to_chat(user, span_caution("Выгружаю данные из буффера [W.name] в консоль.") )
+			to_chat(user, span_caution("Выгружаю данные из буффера [W.name] в консоль."))
 	else
 		return ..()
 
@@ -260,7 +260,7 @@
 
 /obj/machinery/computer/telescience/proc/telefail()
 	sparks()
-	visible_message(span_warning("Телепад слабо искрит.") )
+	visible_message(span_warning("Телепад слабо искрит."))
 
 /obj/machinery/computer/telescience/proc/doteleport(mob/user)
 

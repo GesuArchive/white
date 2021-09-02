@@ -118,7 +118,7 @@
 
 	if(canFail && prob((quality - 9)*10))
 		var/turf/place = get_turf(parent)
-		place.visible_message(span_danger("[parent] <span class='blue'>сильно светится синим</span> на момент, затем испаряется...") )
+		place.visible_message(span_danger("[parent] <span class='blue'>сильно светится синим</span> на момент, затем испаряется..."))
 		master.burn()
 		return
 	else if(announce)

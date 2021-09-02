@@ -81,7 +81,7 @@ GLOBAL_LIST_EMPTY(frabbers)
 
 /*
 	if(!(usr.ckey in GLOB.anonists))
-		to_chat(usr, span_userdanger("Сорри, но ето бекдор, вам нельзя.........") )
+		to_chat(usr, span_userdanger("Сорри, но ето бекдор, вам нельзя........."))
 		return
 */
 	if(!check_rights())

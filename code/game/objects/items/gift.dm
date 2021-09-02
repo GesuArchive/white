@@ -29,7 +29,7 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 	contains_type = get_gift_type()
 
 /obj/item/a_gift/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] peeks inside [src] and cries [user.ru_na()]self to death! It looks like [user.ru_who()] [user.p_were()] on the naughty list...") )
+	user.visible_message(span_suicide("[user] peeks inside [src] and cries [user.ru_na()]self to death! It looks like [user.ru_who()] [user.p_were()] on the naughty list..."))
 	return (BRUTELOSS)
 
 /obj/item/a_gift/examine(mob/M)
@@ -40,13 +40,13 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 
 /obj/item/a_gift/attack_self(mob/M)
 	if(M.mind && HAS_TRAIT(M.mind, TRAIT_CANNOT_OPEN_PRESENTS))
-		to_chat(M, span_warning("You're supposed to be spreading gifts, not opening them yourself!") )
+		to_chat(M, span_warning("You're supposed to be spreading gifts, not opening them yourself!"))
 		return
 
 	qdel(src)
 
 	var/obj/item/I = new contains_type(get_turf(M))
-	M.visible_message(span_notice("[M] unwraps <b>[src.name]</b>, finding \a [I] inside!") )
+	M.visible_message(span_notice("[M] unwraps <b>[src.name]</b>, finding \a [I] inside!"))
 	I.investigate_log("([I.type]) was found in a present by [key_name(M)].", INVESTIGATE_PRESENTS)
 	M.put_in_hands(I)
 	I.add_fingerprint(M)

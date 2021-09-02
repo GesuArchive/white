@@ -23,7 +23,7 @@
 		else
 			if(gang)
 				gang.adjust_influence(-real_cost)
-		to_chat(user, span_notice("You bought [name].") )
+		to_chat(user, span_notice("You bought [name]."))
 		gangtool.attack_self(user)
 		return TRUE
 
@@ -317,7 +317,7 @@
 		var/datum/antagonist/gang/G = user.mind.has_antag_datum(/datum/antagonist/gang)
 		if(G)
 			if(G.gang != gang)
-				to_chat(user, span_danger("This spraycan's color isn't your gang's one! You cannot use it.") )
+				to_chat(user, span_danger("This spraycan's color isn't your gang's one! You cannot use it."))
 				return FALSE
 			gang_mode = TRUE
 			instant = FALSE
@@ -339,7 +339,7 @@
 	// Reject space, player-created areas, and non-station z-levels.
 	var/area/A = get_area(target)
 	if(!A || (!is_station_level(A.z)) || !A.valid_territory)
-		to_chat(user, span_warning("[A] is unsuitable for tagging.") )
+		to_chat(user, span_warning("[A] is unsuitable for tagging."))
 		return FALSE
 
 	var/spraying_over = FALSE
@@ -352,12 +352,12 @@
 				break
 
 	for(var/obj/machinery/power/apc in target)
-		to_chat(user, span_warning("You can't tag an APC.") )
+		to_chat(user, span_warning("You can't tag an APC."))
 		return FALSE
 
 	var/occupying_gang = territory_claimed(A, user)
 	if(occupying_gang && !spraying_over)
-		to_chat(user, span_danger("[A] has already been tagged by the [occupying_gang] gang! You must get rid of or spray over the old tag first!") )
+		to_chat(user, span_danger("[A] has already been tagged by the [occupying_gang] gang! You must get rid of or spray over the old tag first!"))
 		return FALSE
 
 	// If you pass the gaunlet of checks, you're good to proceed
@@ -379,7 +379,7 @@
 	new /obj/effect/decal/cleanable/crayon/gang(target,G.gang,"graffiti",0,user)
 	if(user.mind)
 		LAZYADD(G.gang.tags_by_mind[user.mind], src)
-	to_chat(user, span_notice("You tagged [territory] for your gang!") )
+	to_chat(user, span_notice("You tagged [territory] for your gang!"))
 
 /obj/effect/decal/cleanable/crayon/gang
 	icon = 'white/valtos/icons/crayondecal.dmi'
@@ -543,7 +543,7 @@
 			else
 				success = TRUE
 			if(!success)
-				target.visible_message(span_warning("[target] seems to resist the implant!") , span_warning("You feel the influence of your enemies try to invade your mind!") )
+				target.visible_message(span_warning("[target] seems to resist the implant!") , span_warning("You feel the influence of your enemies try to invade your mind!"))
 				return FALSE
 		target.mind.add_antag_datum(/datum/antagonist/gang, gang)
 		qdel(src)
@@ -592,7 +592,7 @@
 /datum/gang_item/function/backup/purchase(mob/living/carbon/user, datum/team/gang/gang, obj/item/gangtool/gangtool)
 	var/area/usrarea = get_area(user.loc)
 	if(!(usrarea.type in gang.territories|gang.new_territories))
-		to_chat(user, span_warning("This device can only be spawned in territory controlled by your gang!") )
+		to_chat(user, span_warning("This device can only be spawned in territory controlled by your gang!"))
 		return FALSE
 	var/confirm_final = tgui_alert(user, "Your gang can only place ONE gateway, make sure it is in a well-secured location.", "Are you ready to place the gateway?", "This location is secure", "I should wait...")
 	if(confirm_final == "I should wait...")
@@ -777,7 +777,7 @@
 	if(gang)
 		item_type = /obj/item/gangtool/spare/lt
 		if(gang.leaders.len < MAX_LEADERS_GANG)
-			to_chat(user, span_notice("<b>Gangtools</b> allow you to promote a gangster to be your Lieutenant, enabling them to recruit and purchase items like you. Simply have them register the gangtool. You may promote up to [MAX_LEADERS_GANG-gang.leaders.len] more Lieutenants") )
+			to_chat(user, span_notice("<b>Gangtools</b> allow you to promote a gangster to be your Lieutenant, enabling them to recruit and purchase items like you. Simply have them register the gangtool. You may promote up to [MAX_LEADERS_GANG-gang.leaders.len] more Lieutenants"))
 	else
 		item_type = /obj/item/gangtool/spare
 	var/obj/item/gangtool/spare/tool = new item_type(user.loc)
@@ -822,11 +822,11 @@
 /datum/gang_item/equipment/dominator/purchase(mob/living/carbon/user, datum/team/gang/gang, obj/item/gangtool/gangtool)
 	var/area/userarea = get_area(user)
 	if(!(userarea.type in gang.territories|gang.new_territories))
-		to_chat(user,span_warning("The <b>dominator</b> can be spawned only on territory controlled by your gang!") )
+		to_chat(user,span_warning("The <b>dominator</b> can be spawned only on territory controlled by your gang!"))
 		return FALSE
 	for(var/obj/obj in get_turf(user))
 		if(obj.density)
-			to_chat(user, span_warning("There's not enough room here!") )
+			to_chat(user, span_warning("There's not enough room here!"))
 			return FALSE
 	var/list/open = list()
 	var/list/closed = list()
@@ -883,7 +883,7 @@
 /obj/item/reviver/attack(mob/living/carbon/human/H, mob/user)
 	if(!ishuman(H) || icon_state == "implanter0")
 		return ..()
-	user.visible_message(span_warning("[user] begins inject [H] with [src].") , span_warning("You begin to inject [H] with [src]...") )
+	user.visible_message(span_warning("[user] begins inject [H] with [src].") , span_warning("You begin to inject [H] with [src]..."))
 	var/total_burn	= 0
 	var/total_brute	= 0
 	H.notify_ghost_cloning("You're being injected with a revivification serum - return to your body!")

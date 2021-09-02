@@ -4,15 +4,15 @@
 
 /datum/martial_art/mushpunch/harm_act(mob/living/A, mob/living/D)
 	var/atk_verb
-	to_chat(A, span_spider("You begin to wind up an attack...") )
+	to_chat(A, span_spider("You begin to wind up an attack..."))
 	if(!do_after(A, 25, target = D))
-		to_chat(A, span_spider("<b>Your attack was interrupted!</b>") )
+		to_chat(A, span_spider("<b>Your attack was interrupted!</b>"))
 		return TRUE //martial art code was a mistake
 	A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
 	atk_verb = pick("punch", "smash", "crack")
 	D.visible_message(span_danger("[A] [atk_verb]ed [D] with such inhuman strength that it sends [D.ru_na()] flying backwards!") , \
 					span_userdanger("You're [atk_verb]ed by [A] with such inhuman strength that it sends you flying backwards!") , span_hear("Слышу звук разрывающейся плоти!") , null, A)
-	to_chat(A, span_danger("[atk_verb] [D] так сильно, что [D.p_them()] отлетает назад!") )
+	to_chat(A, span_danger("[atk_verb] [D] так сильно, что [D.p_them()] отлетает назад!"))
 	D.apply_damage(rand(15,30), A.get_attack_type())
 	playsound(D, 'sound/effects/meteorimpact.ogg', 25, TRUE, -1)
 	var/throwtarget = get_edge_target_turf(A, get_dir(A, get_step_away(D, A)))
@@ -37,4 +37,4 @@
 	mush.teach(user)
 	qdel(src)
 	visible_message(span_warning("[user] devours [src].") , \
-					span_notice("You devour [src].") )
+					span_notice("You devour [src]."))

@@ -42,10 +42,10 @@
 		return
 
 	if(owner == sucker) // big mood
-		to_chat(owner, span_danger("Wait a second... you just looked at your own [src.name]!") )
+		to_chat(owner, span_danger("Wait a second... you just looked at your own [src.name]!"))
 		addtimer(CALLBACK(src, .proc/selfGottem, owner), 10)
 	else
-		to_chat(sucker, span_danger("Wait a second... was that a-") )
+		to_chat(sucker, span_danger("Wait a second... was that a-"))
 		addtimer(CALLBACK(src, .proc/GOTTEM, owner, sucker), 6)
 
 /// Stage 3A: We face our own failures
@@ -55,7 +55,7 @@
 
 	playsound(get_turf(owner), 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
 	owner.visible_message(span_danger("[owner] shamefully bops [owner.p_them()]self with [owner.p_their()] [src.name].") , span_userdanger("You shamefully bop yourself with your [src.name].") , \
-		span_hear("You hear a dull thud!") )
+		span_hear("You hear a dull thud!"))
 	log_combat(owner, owner, "bopped", src.name, "(self)")
 	owner.do_attack_animation(owner)
 	owner.apply_damage(100, STAMINA)
@@ -68,15 +68,15 @@
 		return
 
 	if(QDELETED(src) || QDELETED(owner))
-		to_chat(sucker, span_warning("Nevermind... must've been your imagination...") )
+		to_chat(sucker, span_warning("Nevermind... must've been your imagination..."))
 		return
 
 	if(!in_range(owner, sucker) || !(owner.mobility_flags & MOBILITY_USE))
-		to_chat(sucker, span_notice("Phew... you moved away before [owner] noticed you saw [owner.p_their()] [src.name]...") )
+		to_chat(sucker, span_notice("Phew... you moved away before [owner] noticed you saw [owner.p_their()] [src.name]..."))
 		return
 
-	to_chat(owner, span_warning("[sucker] looks down at your [src.name] before trying to avert [sucker.p_their()] eyes, but it's too late!") )
-	to_chat(sucker, span_danger("<b>[owner] sees the fear in your eyes as you try to look away from [owner.p_their()] [src.name]!</b>") )
+	to_chat(owner, span_warning("[sucker] looks down at your [src.name] before trying to avert [sucker.p_their()] eyes, but it's too late!"))
+	to_chat(sucker, span_danger("<b>[owner] sees the fear in your eyes as you try to look away from [owner.p_their()] [src.name]!</b>"))
 
 	owner.face_atom(sucker)
 	if(owner.client)
@@ -88,7 +88,7 @@
 	if(HAS_TRAIT(owner, TRAIT_HULK))
 		owner.visible_message(span_danger("[owner] bops [sucker] with [owner.p_their()] [src.name] much harder than intended, sending [sucker.p_them()] flying!") , \
 			span_danger("You bop [sucker] with your [src.name] much harder than intended, sending [sucker.p_them()] flying!") , span_hear("You hear a sickening sound of flesh hitting flesh!") , ignored_mobs=list(sucker))
-		to_chat(sucker, span_userdanger("[owner] bops you incredibly hard with [owner.p_their()] [src.name], sending you flying!") )
+		to_chat(sucker, span_userdanger("[owner] bops you incredibly hard with [owner.p_their()] [src.name], sending you flying!"))
 		sucker.apply_damage(50, STAMINA)
 		sucker.Knockdown(50)
 		log_combat(owner, sucker, "bopped", src.name, "(setup- Hulk)")
@@ -99,7 +99,7 @@
 			span_hear("You hear a dull thud!") , ignored_mobs=list(sucker))
 		sucker.apply_damage(15, STAMINA)
 		log_combat(owner, sucker, "bopped", src.name, "(setup)")
-		to_chat(sucker, span_userdanger("[owner] bops you with [owner.p_their()] [src.name]!") )
+		to_chat(sucker, span_userdanger("[owner] bops you with [owner.p_their()] [src.name]!"))
 	qdel(src)
 
 /obj/item/slapper
@@ -126,11 +126,11 @@
 	if(user.zone_selected == BODY_ZONE_HEAD || user.zone_selected == BODY_ZONE_PRECISE_MOUTH)
 		user.visible_message(span_danger("[user] slaps [M] in the face!") ,
 		span_notice("You slap [M] in the face!") ,\
-		span_hear("You hear a slap.") )
+		span_hear("You hear a slap."))
 	else
 		user.visible_message(span_danger("[user] slaps [M]!") ,
 		span_notice("You slap [M]!") ,\
-		span_hear("You hear a slap.") )
+		span_hear("You hear a slap."))
 	return
 
 /obj/item/slapper/attack_obj(obj/O, mob/living/user, params)
@@ -173,7 +173,7 @@
 
 /obj/item/noogie/attack(mob/living/carbon/target, mob/living/carbon/human/user)
 	if(!istype(target))
-		to_chat(user, span_warning("You don't think you can give this a noogie!") )
+		to_chat(user, span_warning("You don't think you can give this a noogie!"))
 		return
 
 	if(!(target?.get_bodypart(BODY_ZONE_HEAD)) || user.pulling != target || user.grab_state < GRAB_AGGRESSIVE || user.getStaminaLoss() > 80)
@@ -181,7 +181,7 @@
 
 	var/obj/item/bodypart/head/the_head = target.get_bodypart(BODY_ZONE_HEAD)
 	if((target.get_biological_state() != BIO_FLESH_BONE && target.get_biological_state() != BIO_JUST_FLESH) || !the_head.is_organic_limb())
-		to_chat(user, span_warning("You can't noogie [target], [target.p_they()] [target.p_have()] no skin on [target.p_their()] head!") )
+		to_chat(user, span_warning("You can't noogie [target], [target.p_they()] [target.p_have()] no skin on [target.p_their()] head!"))
 		return
 
 	// [user] gives [target] a [prefix_desc] noogie[affix_desc]!
@@ -203,11 +203,11 @@
 	var/message_target = "[prefix_desc] noogie[affix_desc_target]"
 
 	user.visible_message(span_danger("[user] begins giving [target] a [message_others]!") , span_warning("You start giving [target] a [message_others]!") , vision_distance=COMBAT_MESSAGE_RANGE, ignored_mobs=target)
-	to_chat(target, span_userdanger("[user] starts giving you a [message_target]!") )
+	to_chat(target, span_userdanger("[user] starts giving you a [message_target]!"))
 
 	if(!do_after(user, 1.5 SECONDS, target))
-		to_chat(user, span_warning("You fail to give [target] a noogie!") )
-		to_chat(target, span_danger("[user] fails to give you a noogie!") )
+		to_chat(user, span_warning("You fail to give [target] a noogie!"))
+		to_chat(target, span_danger("[user] fails to give you a noogie!"))
 		return
 
 	if(brutal_noogie)
@@ -223,8 +223,8 @@
 		return FALSE
 
 	if(user.getStaminaLoss() > 80)
-		to_chat(user, span_warning("You're too tired to continue giving [target] a noogie!") )
-		to_chat(target, span_danger("[user] is too tired to continue giving you a noogie!") )
+		to_chat(user, span_warning("You're too tired to continue giving [target] a noogie!"))
+		to_chat(target, span_danger("[user] is too tired to continue giving you a noogie!"))
 		return
 
 	var/damage = rand(1, 5)
@@ -243,11 +243,11 @@
 
 	if(prob(33))
 		user.visible_message(span_danger("[user] continues noogie'ing [target]!") , span_warning("You continue giving [target] a noogie!") , vision_distance=COMBAT_MESSAGE_RANGE, ignored_mobs=target)
-		to_chat(target, span_userdanger("[user] continues giving you a noogie!") )
+		to_chat(target, span_userdanger("[user] continues giving you a noogie!"))
 
 	if(!do_after(user, 1 SECONDS + (iteration * 2), target))
-		to_chat(user, span_warning("You fail to give [target] a noogie!") )
-		to_chat(target, span_danger("[user] fails to give you a noogie!") )
+		to_chat(user, span_warning("You fail to give [target] a noogie!"))
+		to_chat(target, span_danger("[user] fails to give you a noogie!"))
 		return
 
 	iteration++
@@ -269,7 +269,7 @@
 /obj/item/kisser/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
 	var/obj/projectile/blown_kiss = new kiss_type(get_turf(user))
-	user.visible_message("<b>[user]</b> blows \a [blown_kiss] at [target]!", span_notice("You blow \a [blown_kiss] at [target]!") )
+	user.visible_message("<b>[user]</b> blows \a [blown_kiss] at [target]!", span_notice("You blow \a [blown_kiss] at [target]!"))
 
 	//Shooting Code:
 	blown_kiss.spread = 0

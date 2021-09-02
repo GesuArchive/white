@@ -92,7 +92,7 @@
 /datum/computer_file/program/proc/is_supported_by_hardware(hardware_flag = 0, loud = 0, mob/user = null)
 	if(!(hardware_flag & usage_flags))
 		if(loud && computer && user)
-			to_chat(user, span_danger("[computer]: \"Ошибка оборудования — несовместимое программное обеспечение\".") )
+			to_chat(user, span_danger("[computer]: \"Ошибка оборудования — несовместимое программное обеспечение\"."))
 		return FALSE
 	return TRUE
 
@@ -144,14 +144,14 @@
 
 		if(!D)
 			if(loud)
-				to_chat(user, span_danger("[computer]: \"Ошибка RFID- Невозможно просканировать ID-карту\".") )
+				to_chat(user, span_danger("[computer]: \"Ошибка RFID- Невозможно просканировать ID-карту\"."))
 			return FALSE
 		access = D.GetAccess()
 
 	if(access_to_check in access)
 		return TRUE
 	if(loud)
-		to_chat(user, span_danger("[computer]: \"В доступе отказано\".") )
+		to_chat(user, span_danger("[computer]: \"В доступе отказано\"."))
 	return FALSE
 
 // This attempts to retrieve header data for UIs. If implementing completely new device of different type than existing ones

@@ -122,7 +122,7 @@
 		new /obj/effect/temp_visual/dragon_swoop/legionnaire(T)
 		T = get_step(T, dir_to_target)
 	playsound(src,'sound/magic/demon_attack1.ogg', 200, 1)
-	visible_message(span_boldwarning("[capitalize(src.name)] prepares to charge!") )
+	visible_message(span_boldwarning("[capitalize(src.name)] prepares to charge!"))
 	addtimer(CALLBACK(src, .proc/legionnaire_charge_2, dir_to_target, 0), 4)
 
 /mob/living/simple_animal/hostile/asteroid/elite/legionnaire/proc/legionnaire_charge_2(move_dir, times_ran)
@@ -151,8 +151,8 @@
 		if(faction_check_mob(L))
 			return
 		hit_things += L
-		visible_message(span_boldwarning("[capitalize(src.name)] tramples and kicks [L]!") )
-		to_chat(L, span_userdanger("[capitalize(src.name)] tramples you and kicks you away!") )
+		visible_message(span_boldwarning("[capitalize(src.name)] tramples and kicks [L]!"))
+		to_chat(L, span_userdanger("[capitalize(src.name)] tramples you and kicks you away!"))
 		L.safe_throw_at(throwtarget, 10, 1, src)
 		L.Paralyze(20)
 		L.adjustBruteLoss(melee_damage_upper)
@@ -168,7 +168,7 @@
 		icon_state = "legionnaire_headless"
 		icon_living = "legionnaire_headless"
 		icon_aggro = "legionnaire_headless"
-		visible_message(span_boldwarning("[capitalize(src.name)] head flies off!") )
+		visible_message(span_boldwarning("[capitalize(src.name)] head flies off!"))
 		var/mob/living/simple_animal/hostile/asteroid/elite/legionnairehead/newhead = new /mob/living/simple_animal/hostile/asteroid/elite/legionnairehead(loc)
 		newhead.GiveTarget(target)
 		newhead.faction = faction.Copy()
@@ -192,7 +192,7 @@
 	icon_state = "legionnaire"
 	icon_living = "legionnaire"
 	icon_aggro = "legionnaire"
-	visible_message(span_boldwarning("The top of [src] spine leaks a black liquid, forming into a skull!") )
+	visible_message(span_boldwarning("The top of [src] spine leaks a black liquid, forming into a skull!"))
 
 /mob/living/simple_animal/hostile/asteroid/elite/legionnaire/proc/bonfire_teleport()
 	ranged_cooldown = world.time + 5
@@ -201,7 +201,7 @@
 		mypile = newpile
 		mypile.myowner = src
 		playsound(get_turf(src),'sound/items/fultext_deploy.ogg', 200, 1)
-		visible_message(span_boldwarning("[capitalize(src.name)] summons a bonfire on [get_turf(src)]!") )
+		visible_message(span_boldwarning("[capitalize(src.name)] summons a bonfire on [get_turf(src)]!"))
 		return
 	else
 		var/turf/legionturf = get_turf(src)
@@ -212,9 +212,9 @@
 			return
 		playsound(pileturf,'sound/items/fultext_deploy.ogg', 200, 1)
 		playsound(legionturf,'sound/items/fultext_deploy.ogg', 200, 1)
-		visible_message(span_boldwarning("[capitalize(src.name)] melts down into a burning pile of bones!") )
+		visible_message(span_boldwarning("[capitalize(src.name)] melts down into a burning pile of bones!"))
 		forceMove(pileturf)
-		visible_message(span_boldwarning("[capitalize(src.name)] forms from the bonfire!") )
+		visible_message(span_boldwarning("[capitalize(src.name)] forms from the bonfire!"))
 		mypile.forceMove(legionturf)
 
 /mob/living/simple_animal/hostile/asteroid/elite/legionnaire/proc/spew_smoke()
@@ -225,11 +225,11 @@
 	else
 		smoke_location = get_turf(src)
 	if(myhead != null)
-		myhead.visible_message(span_boldwarning("[myhead] spews smoke from its maw!") )
+		myhead.visible_message(span_boldwarning("[myhead] spews smoke from its maw!"))
 	else if(!has_head)
-		visible_message(span_boldwarning("[capitalize(src.name)] spews smoke from the tip of their spine!") )
+		visible_message(span_boldwarning("[capitalize(src.name)] spews smoke from the tip of their spine!"))
 	else
-		visible_message(span_boldwarning("[capitalize(src.name)] spews smoke from its maw!") )
+		visible_message(span_boldwarning("[capitalize(src.name)] spews smoke from its maw!"))
 	var/datum/effect_system/smoke_spread/smoke = new
 	smoke.set_up(2, smoke_location)
 	smoke.start()
@@ -338,10 +338,10 @@
 		return
 	var/mob/living/LivingUser = user
 	if(next_use_time > world.time)
-		LivingUser.visible_message(span_warning("[LivingUser] shakes the [src], but nothing happens...") )
+		LivingUser.visible_message(span_warning("[LivingUser] shakes the [src], but nothing happens..."))
 		to_chat(LivingUser, "<b>You need to wait longer to use this again.</b>")
 		return
-	LivingUser.visible_message(span_boldwarning("[LivingUser] shakes the [src] and summons a legion skull!") )
+	LivingUser.visible_message(span_boldwarning("[LivingUser] shakes the [src] and summons a legion skull!"))
 	var/mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion/LegionSkull = new /mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion(LivingUser.loc)
 	LegionSkull.friends += LivingUser
 	LegionSkull.faction = LivingUser.faction.Copy()

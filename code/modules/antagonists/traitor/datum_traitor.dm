@@ -40,14 +40,14 @@
 		QDEL_NULL(A.malf_picker)
 	SSticker.mode.traitors -= owner
 	if(!silent && owner.current)
-		to_chat(owner.current,span_userdanger("Больше не [special_role]!") )
+		to_chat(owner.current,span_userdanger("Больше не [special_role]!"))
 	owner.special_role = null
 	return ..()
 
 /datum/antagonist/traitor/proc/handle_hearing(datum/source, list/hearing_args)
 	var/message = hearing_args[HEARING_RAW_MESSAGE]
-	message = GLOB.syndicate_code_phrase_regex.Replace_char(message, span_blue("$1") )
-	message = GLOB.syndicate_code_response_regex.Replace_char(message, span_red("$1") )
+	message = GLOB.syndicate_code_phrase_regex.Replace_char(message, span_blue("$1"))
+	message = GLOB.syndicate_code_response_regex.Replace_char(message, span_red("$1"))
 	hearing_args[HEARING_RAW_MESSAGE] = message
 
 /datum/antagonist/traitor/proc/add_objective(datum/objective/O)
@@ -190,7 +190,7 @@
 			.=2
 
 /datum/antagonist/traitor/greet()
-	to_chat(owner.current, span_alertsyndie("Да я же [owner.special_role].") )
+	to_chat(owner.current, span_alertsyndie("Да я же [owner.special_role]."))
 	owner.announce_objectives()
 	if(should_give_codewords)
 		give_codewords()
@@ -242,7 +242,7 @@
 	antag_memory += "<b>Кодовый ответ</b>: <span class='red'>[responses]</span><br>"
 
 	to_chat(traitor_mob, "Надо бы использовать кодовые слова в своём разговоре для кооперации с другими агентами. Только надо быть осторожнее.")
-	to_chat(traitor_mob, span_alertwarning("Запомню эти слова и буду определять их быстро.") )
+	to_chat(traitor_mob, span_alertwarning("Запомню эти слова и буду определять их быстро."))
 
 /datum/antagonist/traitor/proc/add_law_zero()
 	var/mob/living/silicon/ai/killer = owner.current

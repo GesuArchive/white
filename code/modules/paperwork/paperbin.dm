@@ -70,7 +70,7 @@
 		P.add_fingerprint(user)
 		P.forceMove(user.loc)
 		user.put_in_hands(P)
-		to_chat(user, span_notice("Беру [P] из <b>[src.name]</b>.") )
+		to_chat(user, span_notice("Беру [P] из <b>[src.name]</b>."))
 		bin_pen = null
 		update_icon()
 	else if(total_paper >= 1)
@@ -91,9 +91,9 @@
 		P.add_fingerprint(user)
 		P.forceMove(user.loc)
 		user.put_in_hands(P)
-		to_chat(user, span_notice("Беру [P] из <b>[src.name]</b>.") )
+		to_chat(user, span_notice("Беру [P] из <b>[src.name]</b>."))
 	else
-		to_chat(user, span_warning("[capitalize(src.name)] пуст!") )
+		to_chat(user, span_warning("[capitalize(src.name)] пуст!"))
 	add_fingerprint(user)
 	return ..()
 
@@ -102,7 +102,7 @@
 		var/obj/item/paper/P = I
 		if(!user.transferItemToLoc(P, src))
 			return
-		to_chat(user, span_notice("Кладу [P] в [src].") )
+		to_chat(user, span_notice("Кладу [P] в [src]."))
 		papers.Add(P)
 		total_paper++
 		update_icon()
@@ -110,7 +110,7 @@
 		var/obj/item/pen/P = I
 		if(!user.transferItemToLoc(P, src))
 			return
-		to_chat(user, span_notice("Кладу [P] в [src].") )
+		to_chat(user, span_notice("Кладу [P] в [src]."))
 		bin_pen = P
 		update_icon()
 	else
@@ -159,7 +159,7 @@
 
 /obj/item/paper_bin/bundlenatural/attackby(obj/item/W, mob/user)
 	if(W.get_sharpness())
-		to_chat(user, span_notice("You snip <b>[src.name]</b>, spilling paper everywhere.") )
+		to_chat(user, span_notice("You snip <b>[src.name]</b>, spilling paper everywhere."))
 		var/turf/T = get_turf(src.loc)
 		while(total_paper > 0)
 			total_paper--

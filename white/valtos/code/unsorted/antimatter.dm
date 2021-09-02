@@ -246,22 +246,22 @@
 			W.play_tool_sound(src, 75)
 			user.visible_message("<b>[user.name]</b> прикручивает <b>[src.name]</b> к полу.", \
 				span_notice("Прикручиваю удерживающие болты к полу.") , \
-				span_italics("Слышу как крутят что-то.") )
+				span_italics("Слышу как крутят что-то."))
 			src.anchored = TRUE
 			connect_to_network()
 		else if(!linked_shielding.len > 0)
 			W.play_tool_sound(src, 75)
 			user.visible_message("<b>[user.name]</b> откручивает <b>[src.name]</b> от пола.", \
 				span_notice("Откручиваю от пола.") , \
-				span_italics("Слышу как крутят что-то.") )
+				span_italics("Слышу как крутят что-то."))
 			src.anchored = FALSE
 			disconnect_from_network()
 		else
-			to_chat(user, span_warning("Как только <b>[src.name]</b> собран и подключён он не может быть передвинут!") )
+			to_chat(user, span_warning("Как только <b>[src.name]</b> собран и подключён он не может быть передвинут!"))
 
 	else if(istype(W, /obj/item/am_containment))
 		if(fueljar)
-			to_chat(user, span_warning("Здесь уже есть [fueljar] внутри!") )
+			to_chat(user, span_warning("Здесь уже есть [fueljar] внутри!"))
 			return
 
 		if(!user.transferItemToLoc(W, src))
@@ -269,7 +269,7 @@
 		fueljar = W
 		user.visible_message("<b>[user.name]</b> загружает <b>[W.name]</b> внутрь <b>[src.name]</b>.", \
 				span_notice("Загружаю <b>[W.name]</b>.") , \
-				span_italics("Слышу стук.") )
+				span_italics("Слышу стук."))
 	else
 		return ..()
 
@@ -480,12 +480,12 @@
 	addtimer(CALLBACK(src, .proc/controllerscan), 10)
 
 /obj/machinery/am_shielding/proc/overheat()
-	visible_message(span_danger("<b>[src]</b> тает!") )
+	visible_message(span_danger("<b>[src]</b> тает!"))
 	new /obj/effect/hotspot(loc)
 	qdel(src)
 
 /obj/machinery/am_shielding/proc/collapse()
-	visible_message(span_notice("<b>[src]</b> схлопывается обратно в контейнер!") )
+	visible_message(span_notice("<b>[src]</b> схлопывается обратно в контейнер!"))
 	new /obj/item/am_shielding_container(drop_location())
 	qdel(src)
 

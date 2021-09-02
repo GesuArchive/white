@@ -19,17 +19,17 @@
 	if(I)
 		display_results(user, target, span_notice("You begin to extract [I] from [target] [target_zone]...") ,
 			span_notice("[user] begins to extract [I] from [target] [target_zone].") ,
-			span_notice("[user] begins to extract something from [target] [target_zone].") )
+			span_notice("[user] begins to extract something from [target] [target_zone]."))
 	else
 		display_results(user, target, span_notice("You look for an implant in [target] [target_zone]...") ,
 			span_notice("[user] looks for an implant in [target] [target_zone].") ,
-			span_notice("[user] looks for something in [target] [target_zone].") )
+			span_notice("[user] looks for something in [target] [target_zone]."))
 
 /datum/surgery_step/extract_implant/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(I)
 		display_results(user, target, span_notice("You successfully remove [I] from [target] [target_zone].") ,
 			span_notice("[user] successfully removes [I] from [target] [target_zone]!") ,
-			span_notice("[user] successfully removes something from [target] [target_zone]!") )
+			span_notice("[user] successfully removes something from [target] [target_zone]!"))
 		I.removed(target)
 
 		var/obj/item/implantcase/case
@@ -44,12 +44,12 @@
 			case.update_icon()
 			display_results(user, target, span_notice("You place [I] into [case].") ,
 				span_notice("[user] places [I] into [case]!") ,
-				span_notice("[user] places it into [case]!") )
+				span_notice("[user] places it into [case]!"))
 		else
 			qdel(I)
 
 	else
-		to_chat(user, span_warning("You can't find anything in [target] [target_zone]!") )
+		to_chat(user, span_warning("You can't find anything in [target] [target_zone]!"))
 	return ..()
 
 /datum/surgery/implant_removal/mechanic

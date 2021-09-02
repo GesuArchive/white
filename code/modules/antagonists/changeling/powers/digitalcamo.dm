@@ -10,10 +10,10 @@
 /datum/action/changeling/digitalcamo/sting_action(mob/user)
 	..()
 	if(active)
-		to_chat(user, span_notice("Мы возвращаемся к норме.") )
+		to_chat(user, span_notice("Мы возвращаемся к норме."))
 		user.RemoveElement(/datum/element/digitalcamo)
 	else
-		to_chat(user, span_notice("Мы искажаем нашу форму, чтобы скрыться от ИИ.") )
+		to_chat(user, span_notice("Мы искажаем нашу форму, чтобы скрыться от ИИ."))
 		user.AddElement(/datum/element/digitalcamo)
 	active = !active
 	return TRUE

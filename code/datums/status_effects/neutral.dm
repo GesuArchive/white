@@ -86,7 +86,7 @@
 		rewarded = caster
 
 /datum/status_effect/bounty/on_apply()
-	to_chat(owner, span_boldnotice("You hear something behind you talking...</span> <span class='notice'>You have been marked for death by [rewarded]. If you die, they will be rewarded.") )
+	to_chat(owner, span_boldnotice("You hear something behind you talking...</span> <span class='notice'>You have been marked for death by [rewarded]. If you die, they will be rewarded."))
 	playsound(owner, 'sound/weapons/gun/shotgun/rack.ogg', 75, FALSE)
 	return ..()
 
@@ -97,9 +97,9 @@
 
 /datum/status_effect/bounty/proc/rewards()
 	if(rewarded && rewarded.mind && rewarded.stat != DEAD)
-		to_chat(owner, span_boldnotice("You hear something behind you talking...</span> <span class='notice'>Bounty claimed.") )
+		to_chat(owner, span_boldnotice("You hear something behind you talking...</span> <span class='notice'>Bounty claimed."))
 		playsound(owner, 'sound/weapons/gun/shotgun/shot.ogg', 75, FALSE)
-		to_chat(rewarded, span_greentext("You feel a surge of mana flow into you!") )
+		to_chat(rewarded, span_greentext("You feel a surge of mana flow into you!"))
 		for(var/obj/effect/proc_holder/spell/spell in rewarded.mind.spell_list)
 			spell.charge_counter = spell.charge_max
 			spell.recharging = FALSE
@@ -212,7 +212,7 @@
 			open_hands_taker++
 
 	if(!open_hands_taker)
-		to_chat(successful_taker, span_warning("You can't high-five [owner] with no open hands!") )
+		to_chat(successful_taker, span_warning("You can't high-five [owner] with no open hands!"))
 		SEND_SIGNAL(successful_taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five_full_hand) // not so successful now!
 		return
 
@@ -227,13 +227,13 @@
 
 	if(slappers_owner >= 2) // we only check this if it's already established the taker has 2+ hands free
 		owner.visible_message(span_notice("[successful_taker] enthusiastically high-tens [owner]!") , span_nicegreen("Wow! You're high-tenned [successful_taker]!") , span_hear("Слышу звук разрывающейся плоти!") , ignored_mobs=successful_taker)
-		to_chat(successful_taker, span_nicegreen("You give high-tenning [owner] your all!") )
+		to_chat(successful_taker, span_nicegreen("You give high-tenning [owner] your all!"))
 		playsound(owner, 'sound/weapons/slap.ogg', 100, TRUE, 1)
 		SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_ten)
 		SEND_SIGNAL(successful_taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_ten)
 	else
 		owner.visible_message(span_notice("[successful_taker] high-fives [owner]!") , span_nicegreen("All right! You're high-fived by [successful_taker]!") , span_hear("Слышу звук разрывающейся плоти!") , ignored_mobs=successful_taker)
-		to_chat(successful_taker, span_nicegreen("You high-five [owner]!") )
+		to_chat(successful_taker, span_nicegreen("You high-five [owner]!"))
 		playsound(owner, 'sound/weapons/slap.ogg', 50, TRUE, -1)
 		SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five)
 		SEND_SIGNAL(successful_taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five)
@@ -242,7 +242,7 @@
 /// If we don't have any slappers in hand when someone goes to high-five us, we prank the hell out of them
 /datum/status_effect/high_fiving/proc/too_slow_p1(mob/living/carbon/rube)
 	owner.visible_message(span_notice("[rube] rushes in to high-five [owner], but-") , span_nicegreen("[rube] falls for your trick just as planned, lunging for a high-five that no longer exists! Classic!") , ignored_mobs=rube)
-	to_chat(rube, span_nicegreen("You go in for [owner] high-five, but-") )
+	to_chat(rube, span_nicegreen("You go in for [owner] high-five, but-"))
 	addtimer(CALLBACK(src, .proc/too_slow_p2, rube), 0.5 SECONDS)
 
 /// Part two of the ultimate prank
@@ -252,7 +252,7 @@
 		return
 	owner.visible_message(span_danger("[owner] pulls away from [rube] slap at the last second, dodging the high-five entirely!") , span_nicegreen("[rube] fails to make contact with your hand, making an utter fool of [rube.ru_na()]self!") , span_hear("You hear a disappointing sound of flesh not hitting flesh!") , ignored_mobs=rube)
 	var/all_caps_for_emphasis = uppertext("NO! [owner] PULLS [owner.ru_ego()] HAND AWAY FROM YOURS! YOU'RE TOO SLOW!")
-	to_chat(rube, span_userdanger("[all_caps_for_emphasis]") )
+	to_chat(rube, span_userdanger("[all_caps_for_emphasis]"))
 	playsound(owner, 'sound/weapons/thudswoosh.ogg', 100, TRUE, 1)
 	rube.Knockdown(1 SECONDS)
 	SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/down_low)
@@ -272,7 +272,7 @@
 	if(owner.CanReach(taker) && !taker.incapacitated())
 		return
 
-	to_chat(taker, span_warning("You left [owner] hanging!") )
+	to_chat(taker, span_warning("You left [owner] hanging!"))
 	remove_candidate(taker)
 	if(!possible_takers)
 		fail()
@@ -373,7 +373,7 @@
 	//These run on specific cycles
 	switch(current_cycle)
 		if(0)
-			to_chat(owner, span_userdanger("You feel like you're being pulled across to somewhere else. You feel empty inside.") )
+			to_chat(owner, span_userdanger("You feel like you're being pulled across to somewhere else. You feel empty inside."))
 
 		//phase 1
 		if(1 to EIGENSTASIUM_PHASE_1_END)
@@ -383,7 +383,7 @@
 		//phase 2
 		if(EIGENSTASIUM_PHASE_1_END to EIGENSTASIUM_PHASE_2_END)
 			if(current_cycle == 51)
-				to_chat(owner, span_userdanger("You start to convlse violently as you feel your consciousness merges across realities, your possessions flying wildy off your body!") )
+				to_chat(owner, span_userdanger("You start to convlse violently as you feel your consciousness merges across realities, your possessions flying wildy off your body!"))
 				owner.Jitter(200)
 				owner.Knockdown(10)
 			var/items = owner.get_contents()
@@ -401,7 +401,7 @@
 			switch(phase_3_cycle) //Loops 0 -> 1 -> 2 -> 1 -> 2 -> 1 ...ect.
 				if(0)
 					owner.Jitter(100)
-					to_chat(owner, span_userdanger("Your eigenstate starts to rip apart, drawing in alternative reality versions of yourself!") )
+					to_chat(owner, span_userdanger("Your eigenstate starts to rip apart, drawing in alternative reality versions of yourself!"))
 				if(1)
 					var/typepath = owner.type
 					alt_clone = new typepath(owner.loc)
@@ -465,7 +465,7 @@
 			do_sparks(5, FALSE, owner)
 			owner.Sleeping(100)
 			owner.Jitter(50)
-			to_chat(owner, span_userdanger("You feel your eigenstate settle, as \"you\" become an alternative version of yourself!") )
+			to_chat(owner, span_userdanger("You feel your eigenstate settle, as \"you\" become an alternative version of yourself!"))
 			owner.emote("me",1,"flashes into reality suddenly, gasping as they gaze around in a bewildered and highly confused fashion!",TRUE)
 			log_game("FERMICHEM: [owner] ckey: [owner.key] has become an alternative universe version of themselves.")
 			//new you new stuff

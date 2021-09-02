@@ -11,7 +11,7 @@
 		pin.emag_act(user)
 	if(obj_flags & EMAGGED)
 		return
-	to_chat(user, span_warning("Взламываю защиту, теперь он может стрелять ещё более мощнее, нежели раньше.") )
+	to_chat(user, span_warning("Взламываю защиту, теперь он может стрелять ещё более мощнее, нежели раньше."))
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/exploration_kill, /obj/item/ammo_casing/energy/laser/exploration_destroy)
 	update_ammo_types()
 	obj_flags |= EMAGGED
@@ -77,7 +77,7 @@
 		damage = 50
 	//If you somehow hit yourself you get fried.
 	if(target == firer)
-		to_chat(firer, span_userdanger("Лазер внезапно притягивается к моей пушке и делает ОГРОМНУЮ ДЫРЕНЬ В МОЁМ ТЕЛЕ!") )
+		to_chat(firer, span_userdanger("Лазер внезапно притягивается к моей пушке и делает ОГРОМНУЮ ДЫРЕНЬ В МОЁМ ТЕЛЕ!"))
 		damage = 200
 	. = ..()
 

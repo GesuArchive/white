@@ -237,7 +237,7 @@
 		SEND_SIGNAL(infectee, COMSIG_NANITE_SYNC, nanites)
 		SEND_SIGNAL(infectee, COMSIG_NANITE_SET_CLOUD, nanites.cloud_id)
 		infectee.investigate_log("was infected by a nanite cluster with cloud ID [nanites.cloud_id] by [key_name(host_mob)] at [AREACOORD(infectee)].", INVESTIGATE_NANITES)
-		to_chat(infectee, span_warning("Что-то укололо меня.") )
+		to_chat(infectee, span_warning("Что-то укололо меня."))
 
 /datum/nanite_program/mitosis
 	name = "Mitosis"

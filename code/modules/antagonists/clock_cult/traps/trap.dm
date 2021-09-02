@@ -12,9 +12,9 @@
 		return
 	for(var/obj/structure/destructible/clockwork/trap/T in get_turf(src))
 		if(istype(T, type))
-			to_chat(user, span_warning("That space is occupied!") )
+			to_chat(user, span_warning("That space is occupied!"))
 			return
-	to_chat(user, span_brass("You place [src], use a <b>clockwork slab</b> to link it to other traps.") )
+	to_chat(user, span_brass("You place [src], use a <b>clockwork slab</b> to link it to other traps."))
 	var/obj/new_obj = new result_path(get_turf(src))
 	new_obj.setDir(user.dir)
 	qdel(src)
@@ -50,9 +50,9 @@
 
 /obj/structure/destructible/clockwork/trap/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
-	to_chat(user, span_warning("You begin unwrenching [src]...") )
+	to_chat(user, span_warning("You begin unwrenching [src]..."))
 	if(do_after(user, 50, target=src))
-		to_chat(user, span_warning("You detach [src], clearing all the connections associated with it.") )
+		to_chat(user, span_warning("You detach [src], clearing all the connections associated with it."))
 		new unwrench_path(get_turf(src))
 		qdel(src)
 		return TRUE
@@ -90,17 +90,17 @@
 			var/obj/item/clockwork/clockwork_slab/slab = I
 			if(slab.buffer)
 				if(takes_input)
-					to_chat(user, span_brass("You connect [slab.buffer.parent] to [parent].") )
+					to_chat(user, span_brass("You connect [slab.buffer.parent] to [parent]."))
 					add_output(slab.buffer)
 					slab.buffer = null
 				else
-					to_chat(user, span_brass("That device does not accept input.") )
+					to_chat(user, span_brass("That device does not accept input."))
 			else
 				if(sends_input)
-					to_chat(user, span_brass("You prepare to connect [parent] with other devices.") )
+					to_chat(user, span_brass("You prepare to connect [parent] with other devices."))
 					slab.buffer = src
 				else
-					to_chat(user, span_brass("That device does not output anything.") )
+					to_chat(user, span_brass("That device does not output anything."))
 
 /datum/component/clockwork_trap/proc/trigger_connected()
 	for(var/obj/O in outputs)

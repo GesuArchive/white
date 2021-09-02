@@ -10,17 +10,17 @@
 	time = 64
 
 /datum/surgery_step/reshape_face/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	user.visible_message(span_notice("[user] начинает менять внешность [target].") , span_notice("Начинаю менять внешность [target]...") )
+	user.visible_message(span_notice("[user] начинает менять внешность [target].") , span_notice("Начинаю менять внешность [target]..."))
 	display_results(user, target, span_notice("Начинаю менять внешность [target]...") ,
 		span_notice("[user] начинает менять внешность [target].") ,
-		span_notice("[user] делает надрез на лице [target].") )
+		span_notice("[user] делает надрез на лице [target]."))
 
 /datum/surgery_step/reshape_face/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(HAS_TRAIT_FROM(target, TRAIT_DISFIGURED, TRAIT_GENERIC))
 		REMOVE_TRAIT(target, TRAIT_DISFIGURED, TRAIT_GENERIC)
 		display_results(user, target, span_notice("Успешно изменил внешность [target].") ,
 			span_notice("[user] успешно изменил внешность [target]!") ,
-			span_notice("[user] завершил операцию на лице [target].") )
+			span_notice("[user] завершил операцию на лице [target]."))
 	else
 		var/list/names = list()
 		if(!isabductor(user))
@@ -38,7 +38,7 @@
 		var/newname = target.real_name	//something about how the code handles names required that I use this instead of target.real_name
 		display_results(user, target, span_notice("You alter [oldname] appearance completely, [target.ru_who()] is now [newname].") ,
 			span_notice("[user] alters [oldname] appearance completely, [target.ru_who()] is now [newname]!") ,
-			span_notice("[user] finishes the operation on [target] face.") )
+			span_notice("[user] finishes the operation on [target] face."))
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		H.sec_hud_set_ID()
@@ -47,6 +47,6 @@
 /datum/surgery_step/reshape_face/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, изуродовав внешность [target]!") ,
 		span_notice("[user] облажался, изуродовав внешность [target]!") ,
-		span_notice("[user] заверщил операцию на лице [target].") )
+		span_notice("[user] заверщил операцию на лице [target]."))
 	ADD_TRAIT(target, TRAIT_DISFIGURED, TRAIT_GENERIC)
 	return FALSE

@@ -23,13 +23,13 @@
 		if(number_of_pages == 50)
 			icon_state = "pHbooklet_open"
 		if(!number_of_pages)
-			to_chat(user, span_warning("<b>[capitalize(src.name)]</b> пуст!") )
+			to_chat(user, span_warning("<b>[capitalize(src.name)]</b> пуст!"))
 			add_fingerprint(user)
 			return
 		var/obj/item/ph_paper/page = new(get_turf(user))
 		page.add_fingerprint(user)
 		user.put_in_active_hand(page)
-		to_chat(user, span_notice("Достаю [page] из [src.name].") )
+		to_chat(user, span_notice("Достаю [page] из [src.name]."))
 		number_of_pages--
 		playsound(user.loc, 'sound/items/poster_ripped.ogg', 50, TRUE)
 		add_fingerprint(user)
@@ -48,7 +48,7 @@
 	if(HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 		return
 	if(!number_of_pages)
-		to_chat(user, span_warning("<b>[capitalize(src.name)]</b> пуст!") )
+		to_chat(user, span_warning("<b>[capitalize(src.name)]</b> пуст!"))
 		add_fingerprint(user)
 		return
 	if(number_of_pages == 50)
@@ -56,7 +56,7 @@
 	var/obj/item/ph_paper/P = new(get_turf(user))
 	P.add_fingerprint(user)
 	user.put_in_active_hand(P)
-	to_chat(user, span_notice("Достаю [P] из [src.name].") )
+	to_chat(user, span_notice("Достаю [P] из [src.name]."))
 	number_of_pages--
 	playsound(user.loc, 'sound/items/poster_ripped.ogg', 50, TRUE)
 	add_fingerprint(user)
@@ -83,7 +83,7 @@
 		return
 	var/obj/item/reagent_containers/cont = target
 	if(used == TRUE)
-		to_chat(user, span_warning("<b>[capitalize(src.name)]</b> уже использована!") )
+		to_chat(user, span_warning("<b>[capitalize(src.name)]</b> уже использована!"))
 		return
 	if(!LAZYLEN(cont.reagents.reagent_list))
 		return
@@ -106,10 +106,10 @@
 
 /obj/item/ph_meter/attack_self(mob/user)
 	if(scanmode == SHORTENED_CHEM_OUTPUT)
-		to_chat(user, span_notice("Переключаю химический анализатор, чтобы получить подробное описание каждого реагента.") )
+		to_chat(user, span_notice("Переключаю химический анализатор, чтобы получить подробное описание каждого реагента."))
 		scanmode = DETAILED_CHEM_OUTPUT
 	else
-		to_chat(user, span_notice("Переключаю химический анализатор, чтобы не включать в отчет описания реагентов.") )
+		to_chat(user, span_notice("Переключаю химический анализатор, чтобы не включать в отчет описания реагентов."))
 		scanmode = SHORTENED_CHEM_OUTPUT
 
 /obj/item/ph_meter/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
@@ -171,25 +171,25 @@
 		if(lit)
 			var/obj/item/reagent_containers/container = I
 			container.reagents.expose_temperature(get_temperature())
-			to_chat(user, span_notice("Нагреваю [I] используя [src.name].") )
+			to_chat(user, span_notice("Нагреваю [I] используя [src.name]."))
 			playsound(user.loc, 'sound/chemistry/heatdam.ogg', 50, TRUE)
 			return
 		else if(I.is_drainable()) //Transfer FROM it TO us. Special code so it only happens when flame is off.
 			var/obj/item/reagent_containers/container = I
 			if(!container.reagents.total_volume)
-				to_chat(user, span_warning("[capitalize(container)] пуст!") )
+				to_chat(user, span_warning("[capitalize(container)] пуст!"))
 				return
 
 			if(reagents.holder_full())
-				to_chat(user, span_warning("[src.name] переполнена.") )
+				to_chat(user, span_warning("[src.name] переполнена."))
 				return
 
 			var/trans = container.reagents.trans_to(src, container.amount_per_transfer_from_this, transfered_by = user)
-			to_chat(user, span_notice("Заполняю [src.name] используя [trans] единиц содержимого [container].") )
+			to_chat(user, span_notice("Заполняю [src.name] используя [trans] единиц содержимого [container]."))
 	if(I.heat < 1000)
 		return
 	set_lit(TRUE)
-	user.visible_message(span_notice("[user] поджигает [src.name].") )
+	user.visible_message(span_notice("[user] поджигает [src.name]."))
 
 /obj/item/burner/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -197,14 +197,14 @@
 		if(is_reagent_container(target))
 			var/obj/item/reagent_containers/container = target
 			container.reagents.expose_temperature(get_temperature())
-			to_chat(user, span_notice("Нагреваю [src.name].") )
+			to_chat(user, span_notice("Нагреваю [src.name]."))
 			playsound(user.loc, 'sound/chemistry/heatdam.ogg', 50, TRUE)
 			return
 	else if(isitem(target))
 		var/obj/item/item = target
 		if(item.heat > 1000)
 			set_lit(TRUE)
-			user.visible_message(span_notice("[user] поджигает [src.name].") )
+			user.visible_message(span_notice("[user] поджигает [src.name]."))
 
 /obj/item/burner/update_icon_state()
 	. = ..()
@@ -239,7 +239,7 @@
 		return
 	if(lit)
 		set_lit(FALSE)
-		user.visible_message(span_notice("[user] задувает пламя [src.name].") )
+		user.visible_message(span_notice("[user] задувает пламя [src.name]."))
 
 /obj/item/burner/attack(mob/living/carbon/M, mob/living/carbon/user)
 	if(lit && M.IgniteMob())
@@ -300,7 +300,7 @@
 		if(!user.transferItemToLoc(src, target))
 			return
 		attached_to_reagents = target.reagents
-		to_chat(user, span_notice("Прикрепляю [src.name] в [target].") )
+		to_chat(user, span_notice("Прикрепляю [src.name] в [target]."))
 		ui_interact(usr, null)
 
 /obj/item/thermometer/ui_interact(mob/user, datum/tgui/ui)
@@ -333,7 +333,7 @@
 	attached_to_reagents = null
 
 /obj/item/thermometer/proc/try_put_in_hand(obj/object, mob/living/user)
-	to_chat(user, span_notice("Убираю [src.name] из [attached_to_reagents.my_atom].") )
+	to_chat(user, span_notice("Убираю [src.name] из [attached_to_reagents.my_atom]."))
 	if(!issilicon(user) && in_range(src.loc, user))
 		user.put_in_hands(object)
 	else

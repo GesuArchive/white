@@ -294,7 +294,7 @@
 	CHECK_TICK
 
 	handle_hearts()
-	set_observer_default_invisibility(0, span_warning("Раунд завершён. Тебя видно!") )
+	set_observer_default_invisibility(0, span_warning("Раунд завершён. Тебя видно!"))
 
 	CHECK_TICK
 

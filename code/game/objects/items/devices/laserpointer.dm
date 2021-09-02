@@ -45,13 +45,13 @@
 			if(!user.transferItemToLoc(W, src))
 				return
 			diode = W
-			to_chat(user, span_notice("You install a [diode.name] in [src].") )
+			to_chat(user, span_notice("You install a [diode.name] in [src]."))
 		else
-			to_chat(user, span_warning("[capitalize(src.name)] already has a diode installed!") )
+			to_chat(user, span_warning("[capitalize(src.name)] already has a diode installed!"))
 
 	else if(W.tool_behaviour == TOOL_SCREWDRIVER)
 		if(diode)
-			to_chat(user, span_notice("You remove the [diode.name] from <b>[src.name]</b>.") )
+			to_chat(user, span_notice("You remove the [diode.name] from <b>[src.name]</b>."))
 			diode.forceMove(drop_location())
 			diode = null
 	else
@@ -73,19 +73,19 @@
 	if( !(user in (viewers(7,target))) )
 		return
 	if (!diode)
-		to_chat(user, span_notice("You point [src] at [target], but nothing happens!") )
+		to_chat(user, span_notice("You point [src] at [target], but nothing happens!"))
 		return
 	if (!ISADVANCEDTOOLUSER(user))
-		to_chat(user, span_warning("У меня не хватает ловкости для этого!") )
+		to_chat(user, span_warning("У меня не хватает ловкости для этого!"))
 		return
 	if(HAS_TRAIT(user, TRAIT_CHUNKYFINGERS))
-		to_chat(user, span_warning("Your fingers can't press the button!") )
+		to_chat(user, span_warning("Your fingers can't press the button!"))
 		return
 	add_fingerprint(user)
 
 	//nothing happens if the battery is drained
 	if(recharge_locked)
-		to_chat(user, span_notice("You point [src] at [target], but it's still charging.") )
+		to_chat(user, span_notice("You point [src] at [target], but it's still charging."))
 		return
 
 	var/outmsg
@@ -118,7 +118,7 @@
 		if(prob(effectchance * diode.rating))
 			S.flash_act(affect_silicon = 1)
 			S.Paralyze(rand(100,200))
-			to_chat(S, span_danger("Your sensors were overloaded by a laser!") )
+			to_chat(S, span_danger("Your sensors were overloaded by a laser!"))
 			outmsg = span_notice("You overload [S] by shining [src] at [S.ru_ego()] sensors.")
 		else
 			outmsg = span_warning("You fail to overload [S] by shining [src] at [S.ru_ego()] sensors!")
@@ -140,24 +140,24 @@
 		if(user.body_position == STANDING_UP)
 			H.setDir(get_dir(H,targloc)) // kitty always looks at the light
 			if(prob(effectchance * diode.rating))
-				H.visible_message(span_warning("[H] makes a grab for the light!") ,span_userdanger("LIGHT!") )
+				H.visible_message(span_warning("[H] makes a grab for the light!") ,span_userdanger("LIGHT!"))
 				H.Move(targloc)
 				log_combat(user, H, "moved with a laser pointer",src)
 			else
-				H.visible_message(span_notice("[H] looks briefly distracted by the light.") , span_warning("You're briefly tempted by the shiny light...") )
+				H.visible_message(span_notice("[H] looks briefly distracted by the light.") , span_warning("You're briefly tempted by the shiny light..."))
 		else
-			H.visible_message(span_notice("[H] stares at the light.") , span_warning("You stare at the light...") )
+			H.visible_message(span_notice("[H] stares at the light.") , span_warning("You stare at the light..."))
 
 	//cats!
 	for(var/mob/living/simple_animal/pet/cat/C in view(1,targloc))
 		if(prob(effectchance * diode.rating))
 			if(C.resting)
 				C.set_resting(FALSE, instant = TRUE)
-			C.visible_message(span_notice("[C] pounces on the light!") ,span_warning("LIGHT!") )
+			C.visible_message(span_notice("[C] pounces on the light!") ,span_warning("LIGHT!"))
 			C.Move(targloc)
 			C.Immobilize(1 SECONDS)
 		else
-			C.visible_message(span_notice("[C] looks uninterested in your games.") ,span_warning("You spot [user] shining [src] at you. How insulting!") )
+			C.visible_message(span_notice("[C] looks uninterested in your games.") ,span_warning("You spot [user] shining [src] at you. How insulting!"))
 
 	//laser pointer image
 	icon_state = "pointer_[pointer_icon_state]"
@@ -175,7 +175,7 @@
 	if(outmsg)
 		to_chat(user, outmsg)
 	else
-		to_chat(user, span_info("You point [src] at [target].") )
+		to_chat(user, span_info("You point [src] at [target]."))
 
 	energy -= 1
 	if(energy <= max_energy)
@@ -183,7 +183,7 @@
 			recharging = TRUE
 			START_PROCESSING(SSobj, src)
 		if(energy <= 0)
-			to_chat(user, span_warning("[capitalize(src.name)] battery is overused, it needs time to recharge!") )
+			to_chat(user, span_warning("[capitalize(src.name)] battery is overused, it needs time to recharge!"))
 			recharge_locked = TRUE
 
 	flick_overlay_view(I, targloc, 10)

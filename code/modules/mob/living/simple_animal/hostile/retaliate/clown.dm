@@ -47,7 +47,7 @@
 	if(pod_ask == "Нет" || !src || QDELETED(src))
 		return
 	if(key)
-		to_chat(user, span_warning("Кто-то уже занял этого клоуна!") )
+		to_chat(user, span_warning("Кто-то уже занял этого клоуна!"))
 		return
 	key = user.key
 	log_game("[key_name(src)] took control of [name].")
@@ -58,7 +58,7 @@
 	if(pod_ask == "Нет" || !src || QDELETED(src))
 		return
 	if(key)
-		to_chat(user, span_warning("Кто-то уже занял этого клоуна!") )
+		to_chat(user, span_warning("Кто-то уже занял этого клоуна!"))
 		return
 	key = user.key
 	to_chat(src, "<B><font size=3 color=pink>Ты - Апостол Хонкоматери.</font></B>")
@@ -451,7 +451,7 @@
 /mob/living/simple_animal/hostile/clown/mutant/glutton/proc/eat(atom/movable/A)
 	if(A && A.loc != src)
 		playsound(src, 'sound/items/eatfood.ogg', 100, TRUE)
-		visible_message(span_warning("[capitalize(src.name)] пожирает [A]!") )
+		visible_message(span_warning("[capitalize(src.name)] пожирает [A]!"))
 		biomass += 50
 		qdel(A)
 		return TRUE
@@ -461,7 +461,7 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.stat == DEAD)
-			to_chat(src, span_warning("Начинаю проглатывать [L]...") )
+			to_chat(src, span_warning("Начинаю проглатывать [L]..."))
 			if(do_after_mob(src, L, 2 SECONDS))
 				eat(L)
 			return
@@ -476,7 +476,7 @@
 		playsound(src, 'sound/effects/splat.ogg', 100, TRUE)
 		new /mob/living/simple_animal/hostile/clown/mutant(A.loc)
 		new /obj/effect/particle_effect/foam(get_turf(A.loc))
-		visible_message(span_warning("[capitalize(src.name)] заражает тело [A] хонкочервями!") )
+		visible_message(span_warning("[capitalize(src.name)] заражает тело [A] хонкочервями!"))
 		qdel(A)
 		return TRUE
 	return FALSE
@@ -485,7 +485,7 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.stat == DEAD)
-			to_chat(src, span_warning("Начинаю заражать труп [L]...") )
+			to_chat(src, span_warning("Начинаю заражать труп [L]..."))
 			if(do_after_mob(src, L, 6 SECONDS))
 				eat(L)
 			return
@@ -519,7 +519,7 @@
 		SEND_SOUND(M, sound('sound/effects/screech.ogg'))
 		M.add_confusion(25)
 		M.Jitter(50)
-	to_chat(user, span_notice("Издаю ужасающий визг, высасывая энергию из лампочек вокруг!") )
+	to_chat(user, span_notice("Издаю ужасающий визг, высасывая энергию из лампочек вокруг!"))
 	return
 
 
@@ -687,12 +687,12 @@
 	var/turf/glutton_turf = get_turf(glutton)
 
 	if (glutton.biomass < 25)
-		to_chat(glutton, span_warning("Недостаточно плоти!") )
+		to_chat(glutton, span_warning("Недостаточно плоти!"))
 		return FALSE
 	if(locate(/obj/structure/clownweeds/node/) in glutton_turf)
-		to_chat(glutton, span_warning("Здесь уже есть рассадник кожи!") )
+		to_chat(glutton, span_warning("Здесь уже есть рассадник кожи!"))
 		return FALSE
-	glutton.visible_message(span_alertalien("[glutton] выращивает на полу рассадник кожи!") )
+	glutton.visible_message(span_alertalien("[glutton] выращивает на полу рассадник кожи!"))
 	new/obj/structure/clownweeds/node/(glutton.loc)
 	glutton.biomass = glutton.biomass - 25
 	return TRUE
@@ -705,12 +705,12 @@
 	var/turf/glutton_turf = get_turf(glutton)
 
 	if (glutton.biomass < 25)
-		to_chat(glutton, span_warning("Недостаточно плоти!") )
+		to_chat(glutton, span_warning("Недостаточно плоти!"))
 		return FALSE
 	if(locate(/obj/structure/clownweeds/node/) in glutton_turf)
-		to_chat(glutton, span_warning("Здесь уже есть рассадник кожи!") )
+		to_chat(glutton, span_warning("Здесь уже есть рассадник кожи!"))
 		return FALSE
-	glutton.visible_message(span_alertalien("[glutton] выращивает на полу рассадник кожи!") )
+	glutton.visible_message(span_alertalien("[glutton] выращивает на полу рассадник кожи!"))
 	new/obj/structure/clownweeds/node/(glutton.loc)
 	glutton.biomass = glutton.biomass - 25
 	return TRUE
@@ -760,11 +760,11 @@
 	var/obj/structure/spawner/clown/spawner =  new choice
 	var/ccost = spawner.cost
 	if(ccost > glutton.biomass)
-		to_chat(glutton, span_notice("Недостаточно плоти.") )
+		to_chat(glutton, span_notice("Недостаточно плоти."))
 		return FALSE
 	else
 		new choice(glutton.loc)
-		to_chat(glutton, span_notice("Леплю из плоти [choice].") )
-		glutton.visible_message(span_notice("[glutton] формирует неестественное строение из накопленной плоти.") )
+		to_chat(glutton, span_notice("Леплю из плоти [choice]."))
+		glutton.visible_message(span_notice("[glutton] формирует неестественное строение из накопленной плоти."))
 		glutton.biomass -= ccost
 		return TRUE

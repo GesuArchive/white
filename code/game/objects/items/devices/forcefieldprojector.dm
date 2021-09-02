@@ -24,34 +24,34 @@
 	if(istype(target, /obj/structure/projected_forcefield))
 		var/obj/structure/projected_forcefield/F = target
 		if(F.generator == src)
-			to_chat(user, span_notice("You deactivate [F].") )
+			to_chat(user, span_notice("You deactivate [F]."))
 			qdel(F)
 			return
 	var/turf/T = get_turf(target)
 	var/obj/structure/projected_forcefield/found_field = locate() in T
 	if(found_field)
-		to_chat(user, span_warning("There is already a forcefield in that location!") )
+		to_chat(user, span_warning("There is already a forcefield in that location!"))
 		return
 	if(T.density)
 		return
 	if(get_dist(T,src) > field_distance_limit)
 		return
 	if (get_turf(src) == T)
-		to_chat(user, span_warning("Target is too close, aborting!") )
+		to_chat(user, span_warning("Target is too close, aborting!"))
 		return
 	if(LAZYLEN(current_fields) >= max_fields)
-		to_chat(user, span_warning("[capitalize(src.name)] cannot sustain any more forcefields!") )
+		to_chat(user, span_warning("[capitalize(src.name)] cannot sustain any more forcefields!"))
 		return
 
 	playsound(src,'sound/weapons/resonator_fire.ogg',50,TRUE)
-	user.visible_message(span_warning("[user] projects a forcefield!") ,span_notice("You project a forcefield.") )
+	user.visible_message(span_warning("[user] projects a forcefield!") ,span_notice("You project a forcefield."))
 	var/obj/structure/projected_forcefield/F = new(T, src)
 	current_fields += F
 	user.changeNext_move(CLICK_CD_MELEE)
 
 /obj/item/forcefield_projector/attack_self(mob/user)
 	if(LAZYLEN(current_fields))
-		to_chat(user, span_notice("You deactivate [src], disabling all active forcefields.") )
+		to_chat(user, span_notice("You deactivate [src], disabling all active forcefields."))
 		for(var/obj/structure/projected_forcefield/F in current_fields)
 			qdel(F)
 
@@ -97,7 +97,7 @@
 	generator = origin
 
 /obj/structure/projected_forcefield/Destroy()
-	visible_message(span_warning("[capitalize(src.name)] flickers and disappears!") )
+	visible_message(span_warning("[capitalize(src.name)] flickers and disappears!"))
 	playsound(src,'sound/weapons/resonator_blast.ogg',25,TRUE)
 	generator.current_fields -= src
 	generator = null

@@ -34,7 +34,7 @@
 	if(.)
 		return
 	if(obj_flags & IN_USE)
-		to_chat(user, span_warning("It's already in use - wait a bit!") )
+		to_chat(user, span_warning("It's already in use - wait a bit!"))
 		return
 	else
 		obj_flags |= IN_USE

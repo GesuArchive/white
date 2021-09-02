@@ -83,11 +83,11 @@
 /obj/machinery/mineral/bluespace_miner/multitool_act(mob/living/user, obj/item/multitool/I)
 	. = ..()
 	if (istype(I))
-		to_chat(user, span_notice("Обновляю буфер майнера буфером мультитула.") )
+		to_chat(user, span_notice("Обновляю буфер майнера буфером мультитула."))
 		materials?.silo = I.buffer
 		return TRUE
 	else
-		to_chat(user, span_notice("Буфер пуст.") )
+		to_chat(user, span_notice("Буфер пуст."))
 		return FALSE
 
 /obj/machinery/mineral/bluespace_miner/examine(mob/user)

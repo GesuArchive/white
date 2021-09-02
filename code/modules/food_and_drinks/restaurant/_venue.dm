@@ -115,7 +115,7 @@
 		return ..()
 
 	if(!(linked_venue.req_access in used_id.GetAccess()))
-		to_chat(user, span_warning("This card lacks the access to change this venues status.") )
+		to_chat(user, span_warning("This card lacks the access to change this venues status."))
 		return
 
 	linked_venue.toggle_open()
@@ -128,7 +128,7 @@
 	var/obj/item/card/id/used_id = I
 
 	if(!(linked_venue.req_access in used_id.GetAccess()))
-		to_chat(user, span_warning("This card lacks the access to change this venues status.") )
+		to_chat(user, span_warning("This card lacks the access to change this venues status."))
 		return
 
 	var/list/radial_items = list()
@@ -149,10 +149,10 @@
 
 
 	if(!(chosen_venue.req_access in used_id.GetAccess()))
-		to_chat(user, span_warning("This card lacks the access to change this venues status.") )
+		to_chat(user, span_warning("This card lacks the access to change this venues status."))
 		return
 
-	to_chat(user, span_notice("You change the portal's linked venue.") )
+	to_chat(user, span_notice("You change the portal's linked venue."))
 
 	if(linked_venue && linked_venue.restaurant_portal) //We're already linked, unlink us.
 		if(linked_venue.open)

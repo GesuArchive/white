@@ -19,12 +19,12 @@
 /datum/surgery_step/thread_veins/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю переплетать кровеносную систему [target].") ,
 		span_notice("[user] начал переплетать кровеносную систему [target].") ,
-		span_notice("[user] начал работать над кровеносной системой [target].") )
+		span_notice("[user] начал работать над кровеносной системой [target]."))
 
 /datum/surgery_step/thread_veins/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(user, target, span_notice("Сплел кровеносную систему [target] в прочную сеть!") ,
 		span_notice("[user] сплел кровеносную систему [target] в прочную сеть!") ,
-		span_notice("[user] закончил работать над кровеносной системой [target].") )
+		span_notice("[user] закончил работать над кровеносной системой [target]."))
 	new /datum/bioware/threaded_veins(target)
 	return ..()
 

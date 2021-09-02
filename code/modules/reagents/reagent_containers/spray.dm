@@ -31,19 +31,19 @@
 
 	if((A.is_drainable() && !A.is_refillable()) && get_dist(src,A) <= 1 && can_fill_from_container)
 		if(!A.reagents.total_volume)
-			to_chat(user, span_warning("[A] is empty.") )
+			to_chat(user, span_warning("[A] is empty."))
 			return
 
 		if(reagents.holder_full())
-			to_chat(user, span_warning("[capitalize(src.name)] is full.") )
+			to_chat(user, span_warning("[capitalize(src.name)] is full."))
 			return
 
 		var/trans = A.reagents.trans_to(src, 50, transfered_by = user) //transfer 50u , using the spray's transfer amount would take too long to refill
-		to_chat(user, span_notice("You fill <b>[src.name]</b> with [trans] units of the contents of [A].") )
+		to_chat(user, span_notice("You fill <b>[src.name]</b> with [trans] units of the contents of [A]."))
 		return
 
 	if(reagents.total_volume < amount_per_transfer_from_this)
-		to_chat(user, span_warning("Not enough left!") )
+		to_chat(user, span_warning("Not enough left!"))
 		return
 
 	spray(A, user)
@@ -122,13 +122,13 @@
 	else
 		amount_per_transfer_from_this = initial(amount_per_transfer_from_this)
 		current_range = spray_range
-	to_chat(user, span_notice("You switch the nozzle setting to [stream_mode ? "\"stream\"":"\"spray\""]. You'll now use [amount_per_transfer_from_this] units per use.") )
+	to_chat(user, span_notice("You switch the nozzle setting to [stream_mode ? "\"stream\"":"\"spray\""]. You'll now use [amount_per_transfer_from_this] units per use."))
 
 /obj/item/reagent_containers/spray/attackby(obj/item/I, mob/user, params)
 	var/hotness = I.get_temperature()
 	if(hotness && reagents)
 		reagents.expose_temperature(hotness)
-		to_chat(user, span_notice("You heat [name] with [I]!") )
+		to_chat(user, span_notice("You heat [name] with [I]!"))
 
 	//Cooling method
 	if(istype(I, /obj/item/extinguisher))
@@ -136,11 +136,11 @@
 		if(extinguisher.safety)
 			return
 		if (extinguisher.reagents.total_volume < 1)
-			to_chat(user, span_warning("[capitalize(extinguisher)] пуст!") )
+			to_chat(user, span_warning("[capitalize(extinguisher)] пуст!"))
 			return
 		var/cooling = (0 - reagents.chem_temp) * extinguisher.cooling_power * 2
 		reagents.expose_temperature(cooling)
-		to_chat(user, span_notice("Охлаждаю [name] используя [I]!") )
+		to_chat(user, span_notice("Охлаждаю [name] используя [I]!"))
 		playsound(loc, 'sound/effects/extinguish.ogg', 75, TRUE, -3)
 		extinguisher.reagents.remove_all(1)
 
@@ -155,7 +155,7 @@
 	if (tgui_alert(usr, "Are you sure you want to empty that?", "Empty Bottle:", list("Yes", "No")) != "Yes")
 		return
 	if(isturf(usr.loc) && src.loc == usr)
-		to_chat(usr, span_notice("You empty <b>[src.name]</b> onto the floor.") )
+		to_chat(usr, span_notice("You empty <b>[src.name]</b> onto the floor."))
 		reagents.expose(usr.loc)
 		src.reagents.clear_reagents()
 
@@ -190,17 +190,17 @@
 	stream_amount = 5
 
 /obj/item/reagent_containers/spray/cleaner/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is putting the nozzle of <b>[src.name]</b> in [user.ru_ego()] mouth. It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] is putting the nozzle of <b>[src.name]</b> in [user.ru_ego()] mouth. It looks like [user.p_theyre()] trying to commit suicide!"))
 	if(do_mob(user,user,30))
 		if(reagents.total_volume >= amount_per_transfer_from_this)//if not empty
-			user.visible_message(span_suicide("[user] pulls the trigger!") )
+			user.visible_message(span_suicide("[user] pulls the trigger!"))
 			src.spray(user)
 			return BRUTELOSS
 		else
-			user.visible_message(span_suicide("[user] pulls the trigger...but <b>[src.name]</b> is empty!") )
+			user.visible_message(span_suicide("[user] pulls the trigger...but <b>[src.name]</b> is empty!"))
 			return SHAME
 	else
-		user.visible_message(span_suicide("[user] decided life was worth living.") )
+		user.visible_message(span_suicide("[user] decided life was worth living."))
 		return MANUAL_SUICIDE_NONLETHAL
 
 //spray tan
@@ -229,7 +229,7 @@
 	list_reagents = null
 
 /obj/item/reagent_containers/spray/pepper/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins huffing <b>[src.name]</b>! It looks like [user.p_theyre()] getting a dirty high!") )
+	user.visible_message(span_suicide("[user] begins huffing <b>[src.name]</b>! It looks like [user.p_theyre()] getting a dirty high!"))
 	return OXYLOSS
 
 // Fix pepperspraying yourself
@@ -295,7 +295,7 @@
 	generate_reagents()
 
 /obj/item/reagent_containers/spray/waterflower/cyborg/empty()
-	to_chat(usr, span_warning("You can not empty this!") )
+	to_chat(usr, span_warning("You can not empty this!"))
 	return
 
 /obj/item/reagent_containers/spray/waterflower/cyborg/proc/generate_reagents()

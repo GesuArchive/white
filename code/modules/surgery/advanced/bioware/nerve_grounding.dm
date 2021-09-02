@@ -19,12 +19,12 @@
 /datum/surgery_step/ground_nerves/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю перенаправлять нервы [target].") ,
 		span_notice("[user] начал перенаправлять нервы [target].") ,
-		span_notice("[user] начал работать с нервной системой [target].") )
+		span_notice("[user] начал работать с нервной системой [target]."))
 
 /datum/surgery_step/ground_nerves/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(user, target, span_notice("Успешно перенаправил нервную систему [target]!") ,
 		span_notice("[user] успешно перенаправил нервную систему [target]!") ,
-		span_notice("[user] закончил работать с нервной системой [target].") )
+		span_notice("[user] закончил работать с нервной системой [target]."))
 	new /datum/bioware/grounded_nerves(target)
 	return ..()
 

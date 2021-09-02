@@ -8,7 +8,7 @@
 	greentext_reward = 40
 
 /datum/antagonist/pirate/greet()
-	to_chat(owner, span_boldannounce("You are a Space Pirate!") )
+	to_chat(owner, span_boldannounce("You are a Space Pirate!"))
 	to_chat(owner, "<B>The station refused to pay for your protection, protect the ship, siphon the credits from the station and raid it for even more loot.</B>")
 	owner.announce_objectives()
 

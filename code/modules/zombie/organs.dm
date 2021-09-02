@@ -51,7 +51,7 @@
 	if (causes_damage && !iszombie(owner) && owner.stat != DEAD)
 		owner.adjustToxLoss(0.5 * delta_time)
 		if(DT_PROB(5, delta_time))
-			to_chat(owner, span_danger("Мне плохо...") )
+			to_chat(owner, span_danger("Мне плохо..."))
 	if(timer_id)
 		return
 	if(owner.suiciding)
@@ -89,11 +89,11 @@
 		return
 
 	owner.grab_ghost()
-	owner.visible_message(span_danger("[owner] suddenly convulses, as [owner.ru_who()][stand_up ? " stagger to [owner.ru_ego()] feet and" : ""] gain a ravenous hunger in [owner.ru_ego()] eyes!") , span_alien("You HUNGER!") )
+	owner.visible_message(span_danger("[owner] suddenly convulses, as [owner.ru_who()][stand_up ? " stagger to [owner.ru_ego()] feet and" : ""] gain a ravenous hunger in [owner.ru_ego()] eyes!") , span_alien("You HUNGER!"))
 	playsound(owner.loc, 'sound/hallucinations/far_noise.ogg', 50, TRUE)
 	owner.do_jitter_animation(living_transformation_time)
 	owner.Stun(living_transformation_time)
-	to_chat(owner, span_alertalien("You are now a zombie! Do not seek to be cured, do not help any non-zombies in any way, do not harm your zombie brethren and spread the disease by killing others. You are a creature of hunger and violence.") )
+	to_chat(owner, span_alertalien("You are now a zombie! Do not seek to be cured, do not help any non-zombies in any way, do not harm your zombie brethren and spread the disease by killing others. You are a creature of hunger and violence."))
 
 /obj/item/organ/zombie_infection/nodamage
 	causes_damage = FALSE

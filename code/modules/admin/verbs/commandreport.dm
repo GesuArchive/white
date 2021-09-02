@@ -104,10 +104,10 @@
 			announce_contents = !announce_contents
 		if("submit_report")
 			if(!command_name)
-				to_chat(ui_user, span_danger("You can't send a report with no command name.") )
+				to_chat(ui_user, span_danger("You can't send a report with no command name."))
 				return
 			if(!command_report_content)
-				to_chat(ui_user, span_danger("You can't send a report with no contents.") )
+				to_chat(ui_user, span_danger("You can't send a report with no contents."))
 				return
 			send_announcement()
 

@@ -44,7 +44,7 @@
 
 	var/msg = span_boldwarning("Последняя кость удерживающая [ru_parse_zone(dismembered_part.name)] <b>[victim]</b> [occur_text]!")
 
-	victim.visible_message(msg, span_userdanger("Моя последняя кость удерживающая [ru_parse_zone(dismembered_part.name)] [occur_text]!") )
+	victim.visible_message(msg, span_userdanger("Моя последняя кость удерживающая [ru_parse_zone(dismembered_part.name)] [occur_text]!"))
 
 	set_limb(dismembered_part)
 	second_wind()

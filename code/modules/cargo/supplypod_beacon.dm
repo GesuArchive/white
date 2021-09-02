@@ -73,7 +73,7 @@
 	update_status(SP_LINKED)
 	if (express_console.usingBeacon)
 		update_status(SP_READY)
-	to_chat(user, span_notice("[capitalize(src.name)] подключён к [C].") )
+	to_chat(user, span_notice("[capitalize(src.name)] подключён к [C]."))
 
 /obj/item/supplypod_beacon/AltClick(mob/user)
 	if (!user.canUseTopic(src, !issilicon(user)))
@@ -81,7 +81,7 @@
 	if (express_console)
 		unlink_console()
 	else
-		to_chat(user, span_alert("Нет подключённой консоли.") )
+		to_chat(user, span_alert("Нет подключённой консоли."))
 
 /obj/item/supplypod_beacon/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/pen)) //give a tag that is visible from the linked express console

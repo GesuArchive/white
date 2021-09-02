@@ -125,7 +125,7 @@ SUBSYSTEM_DEF(metainv)
 
 /datum/controller/subsystem/metainv/proc/open_inventory(client/C)
 	if(!SSticker || SSticker.current_state < GAME_STATE_PREGAME)
-		to_chat(C,span_warning("Не так быстро, мир все еще не создан!") )
+		to_chat(C,span_warning("Не так быстро, мир все еще не создан!"))
 		return
 	var/datum/metainventory/MI = get_inv(C.ckey)
 	MI.ui_interact(C.mob)

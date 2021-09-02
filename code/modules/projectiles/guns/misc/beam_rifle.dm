@@ -101,13 +101,13 @@
 			zoom_lock = 0
 		switch(zoom_lock)
 			if(ZOOM_LOCK_AUTOZOOM_FREEMOVE)
-				to_chat(user, span_boldnotice("Переключил процессор увеличения [src] на свободное направление.") )
+				to_chat(user, span_boldnotice("Переключил процессор увеличения [src] на свободное направление."))
 			if(ZOOM_LOCK_AUTOZOOM_ANGLELOCK)
-				to_chat(user, span_boldnotice("Переключил процессор увеличения [src] на фиксированное направление.") )
+				to_chat(user, span_boldnotice("Переключил процессор увеличения [src] на фиксированное направление."))
 			if(ZOOM_LOCK_CENTER_VIEW)
-				to_chat(user, span_boldnotice("Переключил процессор увеличения [src] на центральный режим.") )
+				to_chat(user, span_boldnotice("Переключил процессор увеличения [src] на центральный режим."))
 			if(ZOOM_LOCK_OFF)
-				to_chat(user, span_boldnotice("Отключил систему увеличения [src].") )
+				to_chat(user, span_boldnotice("Отключил систему увеличения [src]."))
 		reset_zooming()
 	else
 		..()
@@ -148,7 +148,7 @@
 
 /obj/item/gun/energy/beam_rifle/attack_self(mob/user)
 	projectile_setting_pierce = !projectile_setting_pierce
-	to_chat(user, span_boldnotice("Установил <b>[src.name]</b> на режим [projectile_setting_pierce? "пробивания":"удара"].") )
+	to_chat(user, span_boldnotice("Установил <b>[src.name]</b> на режим [projectile_setting_pierce? "пробивания":"удара"]."))
 	aiming_beam()
 
 /obj/item/gun/energy/beam_rifle/proc/update_slowdown()
@@ -438,7 +438,7 @@
 	new /obj/effect/temp_visual/explosion/fast(epicenter)
 	for(var/mob/living/L in range(aoe_mob_range, epicenter))		//handle aoe mob damage
 		L.adjustFireLoss(aoe_mob_damage)
-		to_chat(L, span_userdanger("<b>[src.name]</b> опалил меня!") )
+		to_chat(L, span_userdanger("<b>[src.name]</b> опалил меня!"))
 	for(var/turf/T in range(aoe_fire_range, epicenter))		//handle aoe fire
 		if(prob(aoe_fire_chance))
 			new /obj/effect/hotspot(T)

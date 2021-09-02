@@ -26,12 +26,12 @@
 /datum/surgery_step/bionecrosis/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Стимулирую рост опухоли Ромерола в мозгу [target]...") ,
 		span_notice("[user] начинает возиться с мозгом [target]...") ,
-		span_notice("[user] начинает операцию на мозге [target].") )
+		span_notice("[user] начинает операцию на мозге [target]."))
 
 /datum/surgery_step/bionecrosis/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(user, target, span_notice("Успешно стимулировал рост опухоли Ромерола в мозгу [target].") ,
 		span_notice("[user] успешно вырастил опухоль Ромерола в мозгу [target]!") ,
-		span_notice("[user] завершил операцию на мозге [target].") )
+		span_notice("[user] завершил операцию на мозге [target]."))
 	if(!target.getorganslot(ORGAN_SLOT_ZOMBIE))
 		var/obj/item/organ/zombie_infection/ZI = new()
 		ZI.Insert(target)

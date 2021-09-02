@@ -108,10 +108,10 @@
 		inturf = get_step(src, dir)
 		locate_machinery()
 		if(turbine)
-			to_chat(user, span_notice("Turbine connected.") )
+			to_chat(user, span_notice("Turbine connected."))
 			set_machine_stat(machine_stat & ~BROKEN)
 		else
-			to_chat(user, span_alert("Turbine not connected.") )
+			to_chat(user, span_alert("Turbine not connected."))
 			obj_break()
 		return
 
@@ -241,10 +241,10 @@
 		outturf = get_step(src, dir)
 		locate_machinery()
 		if(compressor)
-			to_chat(user, span_notice("Compressor connected.") )
+			to_chat(user, span_notice("Compressor connected."))
 			set_machine_stat(machine_stat & ~BROKEN)
 		else
-			to_chat(user, span_alert("Compressor not connected.") )
+			to_chat(user, span_alert("Compressor not connected."))
 			obj_break()
 		return
 

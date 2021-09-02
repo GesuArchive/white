@@ -9,7 +9,7 @@
 /datum/surgery_step/incise/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю делать надрез на [parse_zone(target_zone)] [target]...") ,
 		span_notice("[user] начинает делать надрез на [parse_zone(target_zone)] [target]...") ,
-		span_notice("[user] начинает делать надрез на [parse_zone(target_zone)] [target].") )
+		span_notice("[user] начинает делать надрез на [parse_zone(target_zone)] [target]."))
 
 /datum/surgery_step/incise/tool_check(mob/user, obj/item/tool)
 	if(implement_type == /obj/item && !tool.get_sharpness())
@@ -32,7 +32,7 @@
 /datum/surgery_step/incise/nobleed/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("<i>Аккуратно</i> надрезаю [parse_zone(target_zone)] [target]...") ,
 		span_notice("[user] начинает делать <i>аккуратный</i> надрез на [parse_zone(target_zone)] [target].") ,
-		span_notice("[user] начинает делать <i>аккуратный</i> надрез на [parse_zone(target_zone)] [target].") )
+		span_notice("[user] начинает делать <i>аккуратный</i> надрез на [parse_zone(target_zone)] [target]."))
 
 //clamp bleeders
 /datum/surgery_step/clamp_bleeders
@@ -43,7 +43,7 @@
 /datum/surgery_step/clamp_bleeders/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю зажимать источник кровотечения на [parse_zone(target_zone)] [target]...") ,
 		span_notice("[user] начинает зажимать источник кровотечения на [parse_zone(target_zone)] [target].") ,
-		span_notice("[user] начинает зажимать источник кровотечения на [parse_zone(target_zone)] [target].") )
+		span_notice("[user] начинает зажимать источник кровотечения на [parse_zone(target_zone)] [target]."))
 
 /datum/surgery_step/clamp_bleeders/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
 	if(locate(/datum/surgery_step/saw) in surgery.steps)
@@ -64,7 +64,7 @@
 /datum/surgery_step/retract_skin/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю оттягивать кожу на [parse_zone(target_zone)] [target]...") ,
 		span_notice("[user] начинает оттягивать кожу на [parse_zone(target_zone)] [target].") ,
-		span_notice("[user] начинает оттягивать кожу на [parse_zone(target_zone)] [target].") )
+		span_notice("[user] начинает оттягивать кожу на [parse_zone(target_zone)] [target]."))
 
 
 
@@ -78,7 +78,7 @@
 /datum/surgery_step/close/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю прижигать надрез на [parse_zone(target_zone)] [target]...") ,
 		span_notice("[user] начинает прижигать надрез на [parse_zone(target_zone)] [target].") ,
-		span_notice("[user] начинает прижигать надрез на [parse_zone(target_zone)].") )
+		span_notice("[user] начинает прижигать надрез на [parse_zone(target_zone)]."))
 
 /datum/surgery_step/close/tool_check(mob/user, obj/item/tool)
 	if(implement_type == TOOL_WELDER || implement_type == /obj/item)
@@ -108,7 +108,7 @@
 /datum/surgery_step/saw/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю пилить кость на [parse_zone(target_zone)] [target]...") ,
 		span_notice("[user] начинает пилить кость на [parse_zone(target_zone)] [target].") ,
-		span_notice("[user] начинает пилить кость на [parse_zone(target_zone)] [target].") )
+		span_notice("[user] начинает пилить кость на [parse_zone(target_zone)] [target]."))
 
 /datum/surgery_step/saw/tool_check(mob/user, obj/item/tool)
 	if(implement_type == /obj/item && !(tool.get_sharpness() && (tool.force >= 10)))
@@ -119,7 +119,7 @@
 	target.apply_damage(50, BRUTE, "[target_zone]", wound_bonus=CANT_WOUND)
 	display_results(user, target, span_notice("Отпилил [parse_zone(target_zone)] [target].") ,
 		span_notice("[user] отпилил [parse_zone(target_zone)] [target]!") ,
-		span_notice("[user] отпилил [parse_zone(target_zone)] [target]!") )
+		span_notice("[user] отпилил [parse_zone(target_zone)] [target]!"))
 	return ..()
 
 //drill bone
@@ -131,10 +131,10 @@
 /datum/surgery_step/drill/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю сверление кости в [parse_zone(target_zone)] [target]...") ,
 		span_notice("[user] начинает сверление кости в [parse_zone(target_zone)] [target].") ,
-		span_notice("[user] начинает сверление кости в [parse_zone(target_zone)] [target].") )
+		span_notice("[user] начинает сверление кости в [parse_zone(target_zone)] [target]."))
 
 /datum/surgery_step/drill/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(user, target, span_notice("Успешно просверлил кость в [parse_zone(target_zone)] [target].") ,
 		span_notice("[user] успешно просверлил кость в [parse_zone(target_zone)] [target]!") ,
-		span_notice("[user] успешно просверлил кость в [parse_zone(target_zone)] [target]!") )
+		span_notice("[user] успешно просверлил кость в [parse_zone(target_zone)] [target]!"))
 	return ..()

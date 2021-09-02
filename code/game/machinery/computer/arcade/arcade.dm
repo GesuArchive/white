@@ -77,14 +77,14 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 	SEND_SIGNAL(user, COMSIG_ARCADE_PRIZEVEND, user, prizes)
 	if(user.mind?.get_skill_level(/datum/skill/gaming) >= SKILL_LEVEL_LEGENDARY && HAS_TRAIT(user, TRAIT_GAMERGOD))
 		visible_message("<span class='notice'>[user] inputs an intense cheat code!",\
-		span_notice("You hear a flurry of buttons being pressed.") )
+		span_notice("You hear a flurry of buttons being pressed."))
 		say("CODE ACTIVATED: EXTRA PRIZES.")
 		prizes *= 2
 	for(var/i = 0, i < prizes, i++)
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "arcade", /datum/mood_event/arcade)
 		if(prob(0.0001)) //1 in a million
 			new /obj/item/gun/energy/pulse/prize(src)
-			visible_message(span_notice("[src] dispenses.. woah, a gun! Way past cool.") , span_notice("You hear a chime and a shot.") )
+			visible_message(span_notice("[src] dispenses.. woah, a gun! Way past cool.") , span_notice("You hear a chime and a shot."))
 			user.client.give_award(/datum/award/achievement/misc/pulse, user)
 			return
 
@@ -95,7 +95,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 			prizeselect = pickweight(GLOB.arcade_prize_pool)
 		var/atom/movable/the_prize = new prizeselect(get_turf(src))
 		playsound(src, 'sound/machines/machine_vend.ogg', 50, TRUE, extrarange = -3)
-		visible_message(span_notice("[src] dispenses [the_prize]!") , span_notice("You hear a chime and a clunk.") )
+		visible_message(span_notice("[src] dispenses [the_prize]!") , span_notice("You hear a chime and a clunk."))
 
 /obj/machinery/computer/arcade/emp_act(severity)
 	. = ..()
@@ -126,13 +126,13 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 		var/obj/item/stack/arcadeticket/T = O
 		var/amount = T.get_amount()
 		if(amount <2)
-			to_chat(user, span_warning("You need 2 tickets to claim a prize!") )
+			to_chat(user, span_warning("You need 2 tickets to claim a prize!"))
 			return
 		prizevend(user)
 		T.pay_tickets()
 		T.update_icon()
 		O = T
-		to_chat(user, span_notice("You turn in 2 tickets to the [src] and claim a prize!") )
+		to_chat(user, span_notice("You turn in 2 tickets to the [src] and claim a prize!"))
 		return
 
 // ** BATTLE ** //
@@ -601,7 +601,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 	if(obj_flags & EMAGGED)
 		return
 
-	to_chat(user, span_warning("A mesmerizing Rhumba beat starts playing from the arcade machine's speakers!") )
+	to_chat(user, span_warning("A mesmerizing Rhumba beat starts playing from the arcade machine's speakers!"))
 	temp = "<br><center><h2>If you die in the game, you die for real!<center><h2>"
 	max_passive = 6
 	bomb_cooldown = 18
@@ -636,9 +636,9 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 	var/mob/living/carbon/c_user = user
 	if(!c_user.get_bodypart(BODY_ZONE_L_ARM) && !c_user.get_bodypart(BODY_ZONE_R_ARM))
 		return
-	to_chat(c_user, span_warning("You move your hand towards the machine, and begin to hesitate as a bloodied guillotine emerges from inside of it...") )
+	to_chat(c_user, span_warning("You move your hand towards the machine, and begin to hesitate as a bloodied guillotine emerges from inside of it..."))
 	if(do_after(c_user, 50, target = src))
-		to_chat(c_user, span_userdanger("The guillotine drops on your arm, and the machine sucks it in!") )
+		to_chat(c_user, span_userdanger("The guillotine drops on your arm, and the machine sucks it in!"))
 		playsound(loc, 'sound/weapons/slice.ogg', 25, TRUE, -1)
 		var/which_hand = BODY_ZONE_L_ARM
 		if(!(c_user.active_hand_index % 2))
@@ -650,7 +650,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 		playsound(loc, 'sound/arcade/win.ogg', 50, TRUE)
 		prizevend(user, rand(3,5))
 	else
-		to_chat(c_user, span_notice("You (wisely) decide against putting your hand in the machine.") )
+		to_chat(c_user, span_notice("You (wisely) decide against putting your hand in the machine."))
 
 /obj/machinery/computer/arcade/amputation/festive //dispenses wrapped gifts instead of arcade prizes, also known as the ancap christmas tree
 	name = "Mediborg's Festive Amputation Adventure"

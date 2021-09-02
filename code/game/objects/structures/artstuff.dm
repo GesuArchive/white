@@ -21,7 +21,7 @@
 		painting = C
 		C.forceMove(get_turf(src))
 		C.layer = layer+0.1
-		user.visible_message(span_notice("[user] ставит [C] на [src].") ,span_notice("Ставлю [C] на [src].") )
+		user.visible_message(span_notice("[user] ставит [C] на [src].") ,span_notice("Ставлю [C] на [src]."))
 	else
 		return ..()
 
@@ -282,7 +282,7 @@
 	if(C)
 		C.forceMove(drop_location())
 		C = null
-		to_chat(user, span_notice("Вынимаю картину из рамки.") )
+		to_chat(user, span_notice("Вынимаю картину из рамки."))
 		update_icon()
 		return TRUE
 
@@ -291,7 +291,7 @@
 		C = new_canvas
 		if(!C.finalized)
 			C.finalize(user)
-		to_chat(user,span_notice("Вставляю [C] в рамку.") )
+		to_chat(user,span_notice("Вставляю [C] в рамку."))
 	update_icon()
 
 /obj/structure/sign/painting/proc/try_rename(mob/user)
@@ -330,7 +330,7 @@
 	if(!title)
 		title = "Untitled Artwork" //Should prevent NULL named art from loading as NULL, if you're still getting the admin log chances are persistence is broken
 	if(!title)
-		message_admins(span_notice("Painting with NO TITLE loaded on a [persistence_id] frame in [get_area(src)]. Please delete it, it is saved in the database with no name and will create bad assets.") )
+		message_admins(span_notice("Painting with NO TITLE loaded on a [persistence_id] frame in [get_area(src)]. Please delete it, it is saved in the database with no name and will create bad assets."))
 	if(!fexists(png))
 		stack_trace("Persistent painting [chosen["md5"]].png was not found in [persistence_id] directory.")
 		return
@@ -409,7 +409,7 @@
 			return
 		var/mob/user = usr
 		if(!persistence_id || !C)
-			to_chat(user,span_warning("This is not a persistent painting.") )
+			to_chat(user,span_warning("This is not a persistent painting."))
 			return
 		var/md5 = md5(lowertext(C.get_data_string()))
 		var/author = C.author_ckey
@@ -424,4 +424,4 @@
 			if(P.C && md5(P.C.get_data_string()) == md5)
 				QDEL_NULL(P.C)
 		log_admin("[key_name(user)] has deleted a persistent painting made by [author].")
-		message_admins(span_notice("[key_name_admin(user)] has deleted persistent painting made by [author].") )
+		message_admins(span_notice("[key_name_admin(user)] has deleted persistent painting made by [author]."))

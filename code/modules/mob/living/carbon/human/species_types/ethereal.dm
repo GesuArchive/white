@@ -99,7 +99,7 @@
 /datum/species/ethereal/proc/on_emp_act(mob/living/carbon/human/H, severity)
 	EMPeffect = TRUE
 	spec_updatehealth(H)
-	to_chat(H, span_notice("Чувствую, как свет покидает моё тело.") )
+	to_chat(H, span_notice("Чувствую, как свет покидает моё тело."))
 	switch(severity)
 		if(EMP_LIGHT)
 			addtimer(CALLBACK(src, .proc/stop_emp, H), 10 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE) //We're out for 10 seconds
@@ -111,8 +111,8 @@
 		return
 	emageffect = TRUE
 	if(user)
-		to_chat(user, span_notice("Касаюсь картой по [H].") )
-	H.visible_message(span_danger("[H] начинает мерцать множеством цветов!") )
+		to_chat(user, span_notice("Касаюсь картой по [H]."))
+	H.visible_message(span_danger("[H] начинает мерцать множеством цветов!"))
 	handle_emag(H)
 	addtimer(CALLBACK(src, .proc/stop_emag, H), 2 MINUTES) //Disco mode for 2 minutes! This doesn't affect the ethereal at all besides either annoying some players, or making someone look badass.
 
@@ -130,7 +130,7 @@
 /datum/species/ethereal/proc/stop_emp(mob/living/carbon/human/H)
 	EMPeffect = FALSE
 	spec_updatehealth(H)
-	to_chat(H, span_notice("Чувствую себя более наэлектризованным, как только моё сияние вернулось.") )
+	to_chat(H, span_notice("Чувствую себя более наэлектризованным, как только моё сияние вернулось."))
 
 
 /datum/species/ethereal/proc/handle_emag(mob/living/carbon/human/H)
@@ -143,7 +143,7 @@
 /datum/species/ethereal/proc/stop_emag(mob/living/carbon/human/H)
 	emageffect = FALSE
 	spec_updatehealth(H)
-	H.visible_message(span_danger("[H] перестаёт мигать и возвращается в нормальное состояние.") )
+	H.visible_message(span_danger("[H] перестаёт мигать и возвращается в нормальное состояние."))
 
 /datum/species/ethereal/proc/handle_charge(mob/living/carbon/human/H, delta_time, times_fired)
 	switch(get_charge(H))
@@ -170,8 +170,8 @@
 			H.clear_alert("ethereal_overcharge")
 
 /datum/species/ethereal/proc/discharge_process(mob/living/carbon/human/H)
-	to_chat(H, span_warning("Чувствую, что теряю контроль над своим зарядом!") )
-	H.visible_message(span_danger("[H] начинает неистово искрить!") )
+	to_chat(H, span_warning("Чувствую, что теряю контроль над своим зарядом!"))
+	H.visible_message(span_danger("[H] начинает неистово искрить!"))
 	var/static/mutable_appearance/overcharge //shameless copycode from lightning spell
 	overcharge = overcharge || mutable_appearance('icons/effects/effects.dmi', "electricity", EFFECTS_LAYER)
 	H.add_overlay(overcharge)
@@ -183,12 +183,12 @@
 		tesla_zap(H, 2, stomach.crystal_charge*2.5, ZAP_OBJ_DAMAGE | ZAP_ALLOW_DUPLICATES)
 		if(istype(stomach))
 			stomach.adjust_charge(ETHEREAL_CHARGE_FULL - stomach.crystal_charge)
-		to_chat(H, span_warning("Неистово выпускаю энергию!") )
-		H.visible_message(span_danger("[H] неистово выпускает энергию!") )
+		to_chat(H, span_warning("Неистово выпускаю энергию!"))
+		H.visible_message(span_danger("[H] неистово выпускает энергию!"))
 		if(prob(10)) //chance of developing heart disease to dissuade overcharging oneself
 			var/datum/disease/D = new /datum/disease/heart_failure
 			H.ForceContractDisease(D)
-			to_chat(H, span_userdanger("Сердце остановилось на секунду...") )
+			to_chat(H, span_userdanger("Сердце остановилось на секунду..."))
 			H.playsound_local(H, 'sound/effects/singlebeat.ogg', 100, 0)
 		H.Paralyze(100)
 

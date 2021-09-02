@@ -42,7 +42,7 @@
 		playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
 		soundloop.stop()
 		soundloop2.stop()
-		to_chat(loc, span_userdanger("*ding*") )
+		to_chat(loc, span_userdanger("*ding*"))
 		addtimer(CALLBACK(src, .proc/snap), 2)
 
 /obj/item/reverse_bear_trap/attack_hand(mob/user)
@@ -69,7 +69,7 @@
 					struggling = FALSE
 					return
 				if(!prob(escape_chance))
-					to_chat(user, span_warning("It doesn't budge!") )
+					to_chat(user, span_warning("It doesn't budge!"))
 					escape_chance++
 				else
 					user.visible_message(span_warning("The lock on [user] [name] pops open!") , \
@@ -81,16 +81,16 @@
 
 /obj/item/reverse_bear_trap/attack(mob/living/target, mob/living/user)
 	if(target.get_item_by_slot(ITEM_SLOT_HEAD))
-		to_chat(user, span_warning("Remove [target.ru_ego()] headgear first!") )
+		to_chat(user, span_warning("Remove [target.ru_ego()] headgear first!"))
 		return
 	target.visible_message(span_warning("[user] starts forcing [src] onto [target] head!") , \
 	span_userdanger("[target] starts forcing [src] onto your head!") , "<i>You hear clanking.</i>")
-	to_chat(user, span_danger("You start forcing [src] onto [target] head...") )
+	to_chat(user, span_danger("You start forcing [src] onto [target] head..."))
 	if(!do_after(user, 30, target = target) || target.get_item_by_slot(ITEM_SLOT_HEAD))
 		return
 	target.visible_message(span_warning("[user] forces and locks [src] onto [target] head!") , \
 	span_userdanger("[target] locks [src] onto your head!") , "<i>You hear a click, and then a timer ticking down.</i>")
-	to_chat(user, span_danger("You force [src] onto [target] head and click the padlock shut.") )
+	to_chat(user, span_danger("You force [src] onto [target] head and click the padlock shut."))
 	user.dropItemToGround(src)
 	target.equip_to_slot_if_possible(src, ITEM_SLOT_HEAD)
 	arm()
@@ -100,11 +100,11 @@
 	reset()
 	var/mob/living/carbon/human/H = loc
 	if(!istype(H) || H.get_item_by_slot(ITEM_SLOT_HEAD) != src)
-		visible_message(span_warning("[capitalize(src.name)] jaws snap open with an ear-piercing crack!") )
+		visible_message(span_warning("[capitalize(src.name)] jaws snap open with an ear-piercing crack!"))
 		playsound(src, 'sound/effects/snap.ogg', 75, TRUE)
 	else
 		var/mob/living/carbon/human/jill = loc
-		jill.visible_message(span_boldwarning("[capitalize(src.name)] goes off in [jill] mouth, ripping [jill.ru_ego()] head apart!") , span_userdanger("[capitalize(src.name)] goes off!") )
+		jill.visible_message(span_boldwarning("[capitalize(src.name)] goes off in [jill] mouth, ripping [jill.ru_ego()] head apart!") , span_userdanger("[capitalize(src.name)] goes off!"))
 		jill.emote("agony")
 		playsound(src, 'sound/effects/snap.ogg', 75, TRUE, frequency = 0.5)
 		playsound(src, 'sound/effects/splat.ogg', 50, TRUE, frequency = 0.5)

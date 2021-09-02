@@ -11,7 +11,7 @@
 /datum/interaction/kiss/evaluate_user(var/mob/user, var/silent=1)
 	if(..())
 		if(!user.has_lips())
-			if(!silent) to_chat(user, span_warning("У меня нет губ!") )
+			if(!silent) to_chat(user, span_warning("У меня нет губ!"))
 			return 0
 		return 1
 	return 0

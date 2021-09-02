@@ -46,7 +46,7 @@
 
 	if(user?.has_dna())
 		if(user.dna.check_mutation(HULK))
-			to_chat(user, span_warning("You lack the grace to wield this!") )
+			to_chat(user, span_warning("You lack the grace to wield this!"))
 			return COMPONENT_TWOHANDED_BLOCK_WIELD
 	wielded = TRUE
 	w_class = w_class_on
@@ -78,7 +78,7 @@
 
 /obj/item/dualsaber/suicide_act(mob/living/carbon/user)
 	if(wielded)
-		user.visible_message(span_suicide("[user] begins spinning way too fast! It looks like [user.p_theyre()] trying to commit suicide!") )
+		user.visible_message(span_suicide("[user] begins spinning way too fast! It looks like [user.p_theyre()] trying to commit suicide!"))
 
 		var/obj/item/bodypart/head/myhead = user.get_bodypart(BODY_ZONE_HEAD)//stole from chainsaw code
 		var/obj/item/organ/brain/B = user.getorganslot(ORGAN_SLOT_BRAIN)
@@ -93,11 +93,11 @@
 					myhead.drop_limb()
 				sleep(3)
 			else
-				user.visible_message(span_suicide("[user] panics and starts choking to death!") )
+				user.visible_message(span_suicide("[user] panics and starts choking to death!"))
 				return OXYLOSS
 
 	else
-		user.visible_message(span_suicide("[user] begins beating [user.ru_na()]self to death with <b>[src.name]</b>'s handle! It probably would've been cooler if [user.ru_who()] turned it on first!") )
+		user.visible_message(span_suicide("[user] begins beating [user.ru_na()]self to death with <b>[src.name]</b>'s handle! It probably would've been cooler if [user.ru_who()] turned it on first!"))
 	return BRUTELOSS
 
 /obj/item/dualsaber/Initialize()
@@ -123,7 +123,7 @@
 /obj/item/dualsaber/attack(mob/target, mob/living/carbon/human/user)
 	if(user.has_dna())
 		if(user.dna.check_mutation(HULK))
-			to_chat(user, span_warning("You grip the blade too hard and accidentally drop it!") )
+			to_chat(user, span_warning("You grip the blade too hard and accidentally drop it!"))
 			if(wielded)
 				user.dropItemToGround(src, force=TRUE)
 				return
@@ -138,7 +138,7 @@
 	dance_rotate(user, CALLBACK(user, /mob.proc/emote, "spin"))
 
 /obj/item/dualsaber/proc/impale(mob/living/user)
-	to_chat(user, span_warning("You twirl around a bit before losing your balance and impaling yourself on [src].") )
+	to_chat(user, span_warning("You twirl around a bit before losing your balance and impaling yourself on [src]."))
 	if(wielded)
 		user.take_bodypart_damage(20,25,check_armor = TRUE)
 	else
@@ -192,10 +192,10 @@
 	if(W.tool_behaviour == TOOL_MULTITOOL)
 		if(!hacked)
 			hacked = TRUE
-			to_chat(user, span_warning("2XRNBW_ENGAGE") )
+			to_chat(user, span_warning("2XRNBW_ENGAGE"))
 			saber_color = "rainbow"
 			update_icon()
 		else
-			to_chat(user, span_warning("It's starting to look like a triple rainbow - no, nevermind.") )
+			to_chat(user, span_warning("It's starting to look like a triple rainbow - no, nevermind."))
 	else
 		return ..()

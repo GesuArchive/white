@@ -157,7 +157,7 @@ SUBSYSTEM_DEF(ticker)
 				start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 10)
 			for(var/client/C in GLOB.clients)
 				window_flash(C, ignorepref = TRUE) //let them know lobby has opened up.
-			to_chat(world, span_boldnotice("Приветствуем вас на [station_name()]!") )
+			to_chat(world, span_boldnotice("Приветствуем вас на [station_name()]!"))
 			send2chat("New round starting on [SSmapping.config.map_name]!", CONFIG_GET(string/chat_announce_new_game))
 			current_state = GAME_STATE_PREGAME
 			webhook_send_roundstatus("lobby")
@@ -220,7 +220,7 @@ SUBSYSTEM_DEF(ticker)
 
 
 /datum/controller/subsystem/ticker/proc/setup()
-	to_chat(world, span_green(" -- [prob(5) ? "*#!&$^@$ Запускаем симуляцию в режиме полного реализма... $@!^(&*" : "Запускаем симуляцию..."] -- ") )
+	to_chat(world, span_green(" -- [prob(5) ? "*#!&$^@$ Запускаем симуляцию в режиме полного реализма... $@!^(&*" : "Запускаем симуляцию..."] -- "))
 	var/init_start = world.timeofday
 		//Create and announce mode
 	var/list/datum/game_mode/runnable_modes
@@ -232,13 +232,13 @@ SUBSYSTEM_DEF(ticker)
 			if(GLOB.secret_force_mode != "secret")
 				var/datum/game_mode/smode = config.pick_mode(GLOB.secret_force_mode)
 				if(!smode.can_start())
-					message_admins(span_notice("Unable to force secret [GLOB.secret_force_mode]. [smode.required_players] players and [smode.required_enemies] eligible antagonists needed.") )
+					message_admins(span_notice("Unable to force secret [GLOB.secret_force_mode]. [smode.required_players] players and [smode.required_enemies] eligible antagonists needed."))
 				else
 					mode = smode
 
 		if(!mode)
 			if(!runnable_modes.len)
-				to_chat(world, span_green("<B>Ничего не вышло!</B> Откатываем таймер назад.") )
+				to_chat(world, span_green("<B>Ничего не вышло!</B> Откатываем таймер назад."))
 				return FALSE
 			mode = pickweight(runnable_modes)
 			if(!mode)	//too few roundtypes all run too recently
@@ -247,7 +247,7 @@ SUBSYSTEM_DEF(ticker)
 	else
 		mode = config.pick_mode(GLOB.master_mode)
 		if(!mode.can_start())
-			to_chat(world, span_green("<B>Режим [mode.name] не хочет запускаться.</B> Недостаточно игроков, требуется [mode.required_players] готовых и [mode.required_enemies] антагов. Откатываем таймер назад.") )
+			to_chat(world, span_green("<B>Режим [mode.name] не хочет запускаться.</B> Недостаточно игроков, требуется [mode.required_players] готовых и [mode.required_enemies] антагов. Откатываем таймер назад."))
 			qdel(mode)
 			mode = null
 			SSjob.ResetOccupations()
@@ -271,11 +271,11 @@ SUBSYSTEM_DEF(ticker)
 				log_game("[mode.name] failed pre_setup, cause: [mode.setup_error]")
 				QDEL_NULL(mode)
 				retrycap++
-				to_chat(world, span_notice("Станция не сможет работать без <B>Капитана</B>. [retrycap]/5 до отдыха.") )
+				to_chat(world, span_notice("Станция не сможет работать без <B>Капитана</B>. [retrycap]/5 до отдыха."))
 				SSjob.ResetOccupations()
 				return FALSE
 		else
-			message_admins(span_notice("ДЕБАГ: Обходим стартовые проверки... <b>Не забудьте отключить режим Debug-Game после успешного старта!</b>") )
+			message_admins(span_notice("ДЕБАГ: Обходим стартовые проверки... <b>Не забудьте отключить режим Debug-Game после успешного старта!</b>"))
 
 	CHECK_TICK
 
@@ -319,14 +319,14 @@ SUBSYSTEM_DEF(ticker)
 	round_start_time = world.time
 	SSdbcore.SetRoundStart()
 
-	to_chat(world, span_notice("Приветствуем вас на <B>[station_name()]</B>, приятного пребывания!") )
+	to_chat(world, span_notice("Приветствуем вас на <B>[station_name()]</B>, приятного пребывания!"))
 	SEND_SOUND(world, sound(SSstation.announcer.get_rand_welcome_sound()))
 
 	current_state = GAME_STATE_PLAYING
 	Master.SetRunLevel(RUNLEVEL_GAME)
 
 	if(SSevents.holidays)
-		to_chat(world, span_notice("и...") )
+		to_chat(world, span_notice("и..."))
 		for(var/holidayname in SSevents.holidays)
 			var/datum/holiday/holiday = SSevents.holidays[holidayname]
 			to_chat(world, "<h4>[holiday.greet()]</h4>")
@@ -377,7 +377,7 @@ SUBSYSTEM_DEF(ticker)
 			continue
 		if(iter_human.mind?.special_role)
 			iter_human.hardcore_survival_score *= 2 //Double for antags
-		to_chat(iter_human, span_notice("You will gain [round(iter_human.hardcore_survival_score)] hardcore random points if you survive this round!") )
+		to_chat(iter_human, span_notice("You will gain [round(iter_human.hardcore_survival_score)] hardcore random points if you survive this round!"))
 
 //These callbacks will fire after roundstart key transfer
 /datum/controller/subsystem/ticker/proc/OnRoundstart(datum/callback/cb)
@@ -462,7 +462,7 @@ SUBSYSTEM_DEF(ticker)
 		for(var/mob/dead/new_player/new_player_mob as anything in GLOB.new_player_list)
 			var/mob/living/carbon/human/new_player_human = new_player_mob.new_character
 			if(new_player_human)
-				to_chat(new_player_mob, span_notice("НЕТ КАПИТАНА!") )
+				to_chat(new_player_mob, span_notice("НЕТ КАПИТАНА!"))
 			CHECK_TICK
 
 /datum/controller/subsystem/ticker/proc/transfer_characters()
@@ -499,7 +499,7 @@ SUBSYSTEM_DEF(ticker)
 			m = pick(memetips)
 
 	if(m)
-		to_chat(world, span_purple("<b>Заметка: </b>[html_encode(m)]") )
+		to_chat(world, span_purple("<b>Заметка: </b>[html_encode(m)]"))
 
 /datum/controller/subsystem/ticker/proc/check_queue()
 	if(!queued_players.len)
@@ -508,7 +508,7 @@ SUBSYSTEM_DEF(ticker)
 	if(!hpc)
 		listclearnulls(queued_players)
 		for (var/mob/dead/new_player/NP in queued_players)
-			to_chat(NP, span_userdanger("The alive players limit has been released!<br><a href='?src=[REF(NP)];late_join=override'>[html_encode(">>Join Game<<")]</a>") )
+			to_chat(NP, span_userdanger("The alive players limit has been released!<br><a href='?src=[REF(NP)];late_join=override'>[html_encode(">>Join Game<<")]</a>"))
 			SEND_SOUND(NP, sound('sound/misc/notice1.ogg'))
 			NP.LateChoices()
 		queued_players.len = 0
@@ -523,14 +523,14 @@ SUBSYSTEM_DEF(ticker)
 			listclearnulls(queued_players)
 			if(living_player_count() < hpc)
 				if(next_in_line?.client)
-					to_chat(next_in_line, span_userdanger("A slot has opened! You have approximately 20 seconds to join. <a href='?src=[REF(next_in_line)];late_join=override'>\>\>Join Game\<\<</a>") )
+					to_chat(next_in_line, span_userdanger("A slot has opened! You have approximately 20 seconds to join. <a href='?src=[REF(next_in_line)];late_join=override'>\>\>Join Game\<\<</a>"))
 					SEND_SOUND(next_in_line, sound('sound/misc/notice1.ogg'))
 					next_in_line.LateChoices()
 					return
 				queued_players -= next_in_line //Client disconnected, remove he
 			queue_delay = 0 //No vacancy: restart timer
 		if(25 to INFINITY)  //No response from the next in line when a vacancy exists, remove he
-			to_chat(next_in_line, span_danger("No response received. You have been removed from the line.") )
+			to_chat(next_in_line, span_danger("No response received. You have been removed from the line."))
 			queued_players -= next_in_line
 			queue_delay = 0
 
@@ -698,20 +698,20 @@ SUBSYSTEM_DEF(ticker)
 
 	var/skip_delay = check_rights()
 	if(delay_end && !skip_delay)
-		to_chat(world, span_boldannounce("Конец продлён.") )
+		to_chat(world, span_boldannounce("Конец продлён."))
 		return
 
 	if(world.system_type == UNIX)
 		WRITE_FILE("nhb/ended", world.time)
 
-	to_chat(world, span_boldannounce("Игра закончится через [DisplayTimeText(delay)]. [reason]") )
+	to_chat(world, span_boldannounce("Игра закончится через [DisplayTimeText(delay)]. [reason]"))
 
 	var/start_wait = world.time
 	UNTIL(round_end_sound_sent || (world.time - start_wait) > (delay * 2))	//don't wait forever
 	sleep(delay - (world.time - start_wait))
 
 	if(delay_end && !skip_delay)
-		to_chat(world, span_boldannounce("Перезагрузка отменена. Веселье продолжается!") )
+		to_chat(world, span_boldannounce("Перезагрузка отменена. Веселье продолжается!"))
 		return
 	if(end_string)
 		end_state = end_string
@@ -720,9 +720,9 @@ SUBSYSTEM_DEF(ticker)
 	var/gamelogloc = CONFIG_GET(string/gamelogurl)
 
 	if(statspage)
-		to_chat(world, span_info("Статистику по раундам вы можете найти на <a href=\"[statspage][GLOB.round_id]\">нашем сайте!</a>") )
+		to_chat(world, span_info("Статистику по раундам вы можете найти на <a href=\"[statspage][GLOB.round_id]\">нашем сайте!</a>"))
 	else if(gamelogloc)
-		to_chat(world, span_info("Round logs can be located <a href=\"[gamelogloc]\">at this website!</a>") )
+		to_chat(world, span_info("Round logs can be located <a href=\"[gamelogloc]\">at this website!</a>"))
 
 	//snowflake handling for saving assblasteds
 	fdel("[global.config.directory]/assblasted_people.txt") // no way this could end badly
@@ -740,7 +740,7 @@ SUBSYSTEM_DEF(ticker)
 	newblast = copytext(newblast, 2)
 	text2file(newblast, "[global.config.directory]/assblasted_people.txt")
 
-	log_game(span_boldannounce("Пересоздаём мир. [reason]") )
+	log_game(span_boldannounce("Пересоздаём мир. [reason]"))
 
 	world.Reboot()
 

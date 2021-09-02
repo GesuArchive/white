@@ -48,10 +48,10 @@
 		return
 	var/turf/T = get_turf(N)
 	if (N.can_be_seen(T) || !do_after(N, 60, target = T))
-		to_chat(N, span_warning("You can't phase in or out while being observed and you must stay still!") )
+		to_chat(N, span_warning("You can't phase in or out while being observed and you must stay still!"))
 		return
 	if (get_dist(N, T) != 0 || N.can_be_seen(T))
-		to_chat(N, span_warning("Action cancelled, as you moved while reappearing or someone is now viewing your location.") )
+		to_chat(N, span_warning("Action cancelled, as you moved while reappearing or someone is now viewing your location."))
 		return
 	if(N.is_phased)
 		holder = N.loc
@@ -167,10 +167,10 @@
 /obj/structure/spawner/nether/attack_hand(mob/user)
 	. = ..()
 	if(isskeleton(user) || iszombie(user))
-		to_chat(user, span_notice("You don't feel like going home yet...") )
+		to_chat(user, span_notice("You don't feel like going home yet..."))
 	else
 		user.visible_message(span_warning("[user] is violently pulled into the link!") , \
-							span_userdanger("Touching the portal, you are quickly pulled through into a world of unimaginable horror!") )
+							span_userdanger("Touching the portal, you are quickly pulled through into a world of unimaginable horror!"))
 		contents.Add(user)
 
 /obj/structure/spawner/nether/process(delta_time)
@@ -184,5 +184,5 @@
 				blank = new(loc)
 				blank.name = "[M]"
 				blank.desc = "It's [M], but [M.ru_ego()] flesh has an ashy texture, and [M.ru_ego()] face is featureless save an eerie smile."
-				src.visible_message(span_warning("[M] reemerges from the link!") )
+				src.visible_message(span_warning("[M] reemerges from the link!"))
 				qdel(M)

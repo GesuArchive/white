@@ -167,4 +167,4 @@
 	var/input = input("Set glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue! Make sure the list you pass to [src.name] uses the same glue!", "Glue", glue) as null|text
 	if(!isnull(input))
 		glue = input
-		to_chat(user, span_notice("You set [src.name]'s glue to \"[glue]\"") )
+		to_chat(user, span_notice("You set [src.name]'s glue to \"[glue]\""))

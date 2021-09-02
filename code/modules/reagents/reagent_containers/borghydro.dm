@@ -105,16 +105,16 @@ Borg Hypospray
 /obj/item/reagent_containers/borghypo/attack(mob/living/carbon/M, mob/user)
 	var/datum/reagents/R = reagent_list[mode]
 	if(!R.total_volume)
-		to_chat(user, span_warning("Инжектор пуст!") )
+		to_chat(user, span_warning("Инжектор пуст!"))
 		return
 	if(!istype(M))
 		return
 	if(R.total_volume && M.try_inject(user, user.zone_selected, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE | (bypass_protection ? INJECT_CHECK_PENETRATE_THICK : 0)))
-		to_chat(M, span_warning("Что-то укололо меня!") )
-		to_chat(user, span_notice("Ввожу [M] используя инжектор.") )
+		to_chat(M, span_warning("Что-то укололо меня!"))
+		to_chat(user, span_notice("Ввожу [M] используя инжектор."))
 		if(M.reagents)
 			var/trans = R.trans_to(M, amount_per_transfer_from_this, transfered_by = user, methods = INJECT)
-			to_chat(user, span_notice("[trans] единиц введено. [R.total_volume] единиц осталось.") )
+			to_chat(user, span_notice("[trans] единиц введено. [R.total_volume] единиц осталось."))
 
 	var/list/injected = list()
 	for(var/datum/reagent/RG in R.reagent_list)
@@ -128,7 +128,7 @@ Borg Hypospray
 	mode = chosen_reagent
 	playsound(loc, 'sound/effects/pop.ogg', 50, FALSE)
 	var/datum/reagent/R = GLOB.chemical_reagents_list[reagent_ids[mode]]
-	to_chat(user, span_notice("[capitalize(src.name)] теперь выделяет '[R.name]'.") )
+	to_chat(user, span_notice("[capitalize(src.name)] теперь выделяет '[R.name]'."))
 	return
 
 /obj/item/reagent_containers/borghypo/examine(mob/user)
@@ -161,7 +161,7 @@ Borg Hypospray
 		amount_per_transfer_from_this = 2
 	else
 		amount_per_transfer_from_this = 5
-	to_chat(user,span_notice("[capitalize(src.name)] теперь установлен на [amount_per_transfer_from_this == 5 ? "обычную дозу" : "микроскопическую дозу"].") )
+	to_chat(user,span_notice("[capitalize(src.name)] теперь установлен на [amount_per_transfer_from_this == 5 ? "обычную дозу" : "микроскопическую дозу"]."))
 
 /obj/item/reagent_containers/borghypo/hacked
 	icon_state = "borghypo_s"
@@ -247,15 +247,15 @@ Borg Shaker
 	else if(target.is_refillable())
 		var/datum/reagents/R = reagent_list[mode]
 		if(!R.total_volume)
-			to_chat(user, span_warning("[capitalize(src.name)] на данный момент не имеет ингредиента! Подождите немного до момента как внутри синтезируется больше вещества.") )
+			to_chat(user, span_warning("[capitalize(src.name)] на данный момент не имеет ингредиента! Подождите немного до момента как внутри синтезируется больше вещества."))
 			return
 
 		if(target.reagents.total_volume >= target.reagents.maximum_volume)
-			to_chat(user, span_notice("[target] наполнен.") )
+			to_chat(user, span_notice("[target] наполнен."))
 			return
 
 		var/trans = R.trans_to(target, amount_per_transfer_from_this, transfered_by = user)
-		to_chat(user, span_notice("Вы перелили [trans] единиц раствора в [target].") )
+		to_chat(user, span_notice("Вы перелили [trans] единиц раствора в [target]."))
 
 /obj/item/reagent_containers/borghypo/borgshaker/DescribeContents()
 	var/datum/reagents/RS = reagent_list[mode]

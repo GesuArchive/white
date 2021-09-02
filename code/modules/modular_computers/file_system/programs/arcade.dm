@@ -150,20 +150,20 @@
 			return TRUE
 		if("Dispense_Tickets")
 			if(!printer)
-				to_chat(usr, span_notice("Аппаратная ошибка: для выкупа билетов требуется принтер.") )
+				to_chat(usr, span_notice("Аппаратная ошибка: для выкупа билетов требуется принтер."))
 				return
 			if(printer.stored_paper <= 0)
-				to_chat(usr, span_notice("Аппаратная ошибка: в принтере закончилась бумага.") )
+				to_chat(usr, span_notice("Аппаратная ошибка: в принтере закончилась бумага."))
 				return
 			else
-				computer.visible_message(span_notice("[computer] печатает бумагу.") )
+				computer.visible_message(span_notice("[computer] печатает бумагу."))
 				if(ticket_count >= 1)
 					new /obj/item/stack/arcadeticket((get_turf(computer)), 1)
-					to_chat(usr, span_notice("[computer] выдаёт билет!") )
+					to_chat(usr, span_notice("[computer] выдаёт билет!"))
 					ticket_count -= 1
 					printer.stored_paper -= 1
 				else
-					to_chat(usr, span_notice("У вас нет билетов!") )
+					to_chat(usr, span_notice("У вас нет билетов!"))
 				return TRUE
 		if("Start_Game")
 			game_active = TRUE

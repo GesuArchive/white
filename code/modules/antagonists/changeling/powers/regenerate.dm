@@ -9,7 +9,7 @@
 
 /datum/action/changeling/regenerate/sting_action(mob/living/user)
 	..()
-	to_chat(user, span_notice("Чувствуем зуд, как внутри, так и снаружи, ведь наши ткани пересвязываются.") )
+	to_chat(user, span_notice("Чувствуем зуд, как внутри, так и снаружи, ведь наши ткани пересвязываются."))
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		var/list/missing = C.get_missing_limbs()
@@ -17,7 +17,7 @@
 			playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
 			C.visible_message(span_warning("<b>[user]</b> отращивает недостающие конечности, издавая громкие, гротескные звуки!") ,
 				span_userdanger("Наши конечности вырастают, издают громкие хрустящие звуки и причиняют нам сильную боль!") ,
-				span_hear("Слышу как что-то органическое разрывается!") )
+				span_hear("Слышу как что-то органическое разрывается!"))
 			C.emote("agony")
 			C.regenerate_limbs(1)
 		if(!user.getorganslot(ORGAN_SLOT_BRAIN))

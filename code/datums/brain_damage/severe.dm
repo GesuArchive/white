@@ -134,10 +134,10 @@
 	if(owner.drowsyness)
 		sleep_chance += 3
 	if(DT_PROB(0.5 * sleep_chance, delta_time))
-		to_chat(owner, span_warning("You fall asleep.") )
+		to_chat(owner, span_warning("You fall asleep."))
 		owner.Sleeping(60)
 	else if(!owner.drowsyness && DT_PROB(sleep_chance, delta_time))
-		to_chat(owner, span_warning("You feel tired...") )
+		to_chat(owner, span_warning("You feel tired..."))
 		owner.drowsyness += 10
 
 /datum/brain_trauma/severe/monophobia
@@ -151,9 +151,9 @@
 /datum/brain_trauma/severe/monophobia/on_gain()
 	..()
 	if(check_alone())
-		to_chat(owner, span_warning("Мне так одиноко...") )
+		to_chat(owner, span_warning("Мне так одиноко..."))
 	else
-		to_chat(owner, span_notice("В безопасности, пока рядом есть люди.") )
+		to_chat(owner, span_notice("В безопасности, пока рядом есть люди."))
 
 /datum/brain_trauma/severe/monophobia/on_life(delta_time, times_fired)
 	..()
@@ -182,18 +182,18 @@
 	switch(rand(1,6))
 		if(1)
 			if(!high_stress)
-				to_chat(owner, span_warning("Мне плохо...") )
+				to_chat(owner, span_warning("Мне плохо..."))
 			else
-				to_chat(owner, span_warning("Мне правда плохо от одиночества!") )
+				to_chat(owner, span_warning("Мне правда плохо от одиночества!"))
 			addtimer(CALLBACK(owner, /mob/living/carbon.proc/vomit, high_stress), 50) //blood vomit if high stress
 		if(2)
 			if(!high_stress)
-				to_chat(owner, span_warning("Не могу перестать шататься...") )
+				to_chat(owner, span_warning("Не могу перестать шататься..."))
 				owner.dizziness += 20
 				owner.add_confusion(20)
 				owner.Jitter(20)
 			else
-				to_chat(owner, span_warning("Ощущаю себя слабым и беззащитным! Если бы только я был не один...") )
+				to_chat(owner, span_warning("Ощущаю себя слабым и беззащитным! Если бы только я был не один..."))
 				owner.dizziness += 20
 				owner.add_confusion(20)
 				owner.Jitter(20)
@@ -201,22 +201,22 @@
 
 		if(3, 4)
 			if(!high_stress)
-				to_chat(owner, span_warning("Мне очень одиноко...") )
+				to_chat(owner, span_warning("Мне очень одиноко..."))
 			else
-				to_chat(owner, span_warning("Схожу с ума от одиночества!") )
+				to_chat(owner, span_warning("Схожу с ума от одиночества!"))
 				owner.hallucination += 30
 
 		if(5)
 			if(!high_stress)
-				to_chat(owner, span_warning("Моё сердце замирает на мгновение.") )
+				to_chat(owner, span_warning("Моё сердце замирает на мгновение."))
 				owner.adjustOxyLoss(8)
 			else
 				if(prob(15) && ishuman(owner))
 					var/mob/living/carbon/human/H = owner
 					H.set_heartattack(TRUE)
-					to_chat(H, span_userdanger("О-О-О! МОЁ СЕРДЦЕ!!!") )
+					to_chat(H, span_userdanger("О-О-О! МОЁ СЕРДЦЕ!!!"))
 				else
-					to_chat(owner, span_userdanger("Моё сердце хочет вырваться из груди...") )
+					to_chat(owner, span_userdanger("Моё сердце хочет вырваться из груди..."))
 					owner.adjustOxyLoss(8)
 
 /datum/brain_trauma/severe/discoordination
@@ -293,8 +293,8 @@
 
 	if(findtext(hearing_args[HEARING_RAW_MESSAGE], reg))
 		addtimer(CALLBACK(src, .proc/hypnotrigger), 10) //to react AFTER the chat message
-		hearing_args[HEARING_RAW_MESSAGE] = reg.Replace(hearing_args[HEARING_RAW_MESSAGE], span_hypnophrase("*********") )
+		hearing_args[HEARING_RAW_MESSAGE] = reg.Replace(hearing_args[HEARING_RAW_MESSAGE], span_hypnophrase("*********"))
 
 /datum/brain_trauma/severe/hypnotic_trigger/proc/hypnotrigger()
-	to_chat(owner, span_warning("Слова вызывают что-то глубокое внутри, сознание ускользает...") )
+	to_chat(owner, span_warning("Слова вызывают что-то глубокое внутри, сознание ускользает..."))
 	owner.apply_status_effect(/datum/status_effect/trance, rand(100,300), FALSE)

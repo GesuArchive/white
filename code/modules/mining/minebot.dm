@@ -94,20 +94,20 @@
 	..()
 	. = TRUE
 	if(mode == MINEDRONE_ATTACK)
-		to_chat(user, span_warning("[capitalize(src.name)] can't be repaired while in attack mode!") )
+		to_chat(user, span_warning("[capitalize(src.name)] can't be repaired while in attack mode!"))
 		return
 
 	if(maxHealth == health)
-		to_chat(user, span_info("[capitalize(src.name)] is at full integrity.") )
+		to_chat(user, span_info("[capitalize(src.name)] is at full integrity."))
 		return
 
 	if(I.use_tool(src, user, 0, volume=40))
 		adjustBruteLoss(-15)
-		to_chat(user, span_info("You repair some of the armor on [src].") )
+		to_chat(user, span_info("You repair some of the armor on [src]."))
 
 /mob/living/simple_animal/hostile/mining_drone/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/mining_scanner) || istype(I, /obj/item/t_scanner/adv_mining_scanner))
-		to_chat(user, span_info("You instruct [src] to drop any collected ore.") )
+		to_chat(user, span_info("You instruct [src] to drop any collected ore."))
 		DropOre()
 		return
 	if(I.tool_behaviour == TOOL_CROWBAR || istype(I, /obj/item/borg/upgrade/modkit))
@@ -131,9 +131,9 @@
 		toggle_mode()
 		switch(mode)
 			if(MINEDRONE_COLLECT)
-				to_chat(M, span_info("[capitalize(src.name)] has been set to search and store loose ore.") )
+				to_chat(M, span_info("[capitalize(src.name)] has been set to search and store loose ore."))
 			if(MINEDRONE_ATTACK)
-				to_chat(M, span_info("[capitalize(src.name)] has been set to attack hostile wildlife.") )
+				to_chat(M, span_info("[capitalize(src.name)] has been set to attack hostile wildlife."))
 		return
 
 /mob/living/simple_animal/hostile/mining_drone/CanAllowThrough(atom/movable/mover, border_dir)
@@ -155,7 +155,7 @@
 	minimum_distance = 1
 	retreat_distance = null
 	icon_state = "mining_drone"
-	to_chat(src, span_info("You are set to collect mode. You can now collect loose ore.") )
+	to_chat(src, span_info("You are set to collect mode. You can now collect loose ore."))
 
 /mob/living/simple_animal/hostile/mining_drone/proc/SetOffenseBehavior()
 	mode = MINEDRONE_ATTACK
@@ -166,7 +166,7 @@
 	retreat_distance = 2
 	minimum_distance = 1
 	icon_state = "mining_drone_offense"
-	to_chat(src, span_info("You are set to attack mode. You can now attack from range.") )
+	to_chat(src, span_info("You are set to attack mode. You can now attack from range."))
 
 /mob/living/simple_animal/hostile/mining_drone/AttackingTarget()
 	if(istype(target, /obj/item/stack/ore) && mode == MINEDRONE_COLLECT)
@@ -188,10 +188,10 @@
 /mob/living/simple_animal/hostile/mining_drone/proc/DropOre(message = 1)
 	if(!contents.len)
 		if(message)
-			to_chat(src, span_warning("You attempt to dump your stored ore, but you have none!") )
+			to_chat(src, span_warning("You attempt to dump your stored ore, but you have none!"))
 		return
 	if(message)
-		to_chat(src, span_notice("You dump your stored ore.") )
+		to_chat(src, span_notice("You dump your stored ore."))
 	for(var/obj/item/stack/ore/O in contents)
 		O.forceMove(drop_location())
 
@@ -215,7 +215,7 @@
 
 	user.sync_lighting_plane_alpha()
 
-	to_chat(user, span_notice("You toggle your meson vision [(user.sight & SEE_TURFS) ? "on" : "off"].") )
+	to_chat(user, span_notice("You toggle your meson vision [(user.sight & SEE_TURFS) ? "on" : "off"]."))
 
 
 /mob/living/simple_animal/hostile/mining_drone/proc/toggle_mode()
@@ -240,7 +240,7 @@
 /datum/action/innate/minedrone/toggle_light/Activate()
 	var/mob/living/simple_animal/hostile/mining_drone/user = owner
 	user.set_light_on(!user.light_on)
-	to_chat(user, span_notice("You toggle your light [user.light_on ? "on" : "off"].") )
+	to_chat(user, span_notice("You toggle your light [user.light_on ? "on" : "off"]."))
 
 
 /datum/action/innate/minedrone/toggle_mode
@@ -278,7 +278,7 @@
 
 /obj/item/mine_bot_upgrade/proc/upgrade_bot(mob/living/simple_animal/hostile/mining_drone/M, mob/user)
 	if(M.melee_damage_upper != initial(M.melee_damage_upper))
-		to_chat(user, span_warning("[capitalize(src.name)] already has a combat upgrade installed!") )
+		to_chat(user, span_warning("[capitalize(src.name)] already has a combat upgrade installed!"))
 		return
 	M.melee_damage_lower += 7
 	M.melee_damage_upper += 7
@@ -291,7 +291,7 @@
 
 /obj/item/mine_bot_upgrade/health/upgrade_bot(mob/living/simple_animal/hostile/mining_drone/M, mob/user)
 	if(M.maxHealth != initial(M.maxHealth))
-		to_chat(user, span_warning("[capitalize(src.name)] already has reinforced armor!") )
+		to_chat(user, span_warning("[capitalize(src.name)] already has reinforced armor!"))
 		return
 	M.maxHealth += 45
 	M.updatehealth()

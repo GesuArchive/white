@@ -33,7 +33,7 @@
 			msg = "Вау, [source.ru_who()] выглядит ущербно."
 
 	user.visible_message(span_notice("[user] останавливается и пристально смотрит на [source].") , \
-		span_notice("Оцениваю [source]... [msg]") )
+		span_notice("Оцениваю [source]... [msg]"))
 
 /datum/element/art/proc/on_examine(atom/source, mob/user, list/examine_texts)
 	SIGNAL_HANDLER
@@ -42,7 +42,7 @@
 		INVOKE_ASYNC(src, .proc/appraise, source, user) //Do not sleep the proc.
 
 /datum/element/art/proc/appraise(atom/source, mob/user)
-	to_chat(user, span_notice("Любуюсь [source]...") )
+	to_chat(user, span_notice("Любуюсь [source]..."))
 	if(!do_after(user, 2 SECONDS, target = source))
 		return
 	var/mult = 1
@@ -63,4 +63,4 @@
 		msg = "Вау, [source.ru_who()] выглядит ущербно."
 
 	user.visible_message(span_notice("[user] прекращает изучать [source].") , \
-		span_notice("Оцениваю [source], осмотрев искусное мастерство пролетариата... [msg]") )
+		span_notice("Оцениваю [source], осмотрев искусное мастерство пролетариата... [msg]"))

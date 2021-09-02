@@ -12,7 +12,7 @@
 	if(istype(I, /obj/item/gem) && !istype(I, /obj/item/gem/cut))
 		icon_state = "gemcutter_on"
 		if(busy)
-			to_chat(user, span_notice("Сейчас занято.") )
+			to_chat(user, span_notice("Сейчас занято."))
 			return
 		busy = TRUE
 		if(!do_after(user, 15 SECONDS, target = src))
@@ -22,7 +22,7 @@
 		busy = FALSE
 		var/obj/item/gem/G = I
 		new G.cut_type(loc)
-		to_chat(user, span_notice("Обрабатываю [G] на [src]") )
+		to_chat(user, span_notice("Обрабатываю [G] на [src]"))
 		qdel(G)
 		icon_state = "gemcutter_off"
 	else
@@ -55,7 +55,7 @@
 /obj/structure/workbench/attack_hand(mob/user)
 	. = ..()
 	if(busy)
-		to_chat(user, span_notice("Сейчас занято.") )
+		to_chat(user, span_notice("Сейчас занято."))
 		return
 	if(recipe && inventory.len && !ready)
 		var/answer = tgui_alert(user, "Отменить нынешнюю сборку?", "Верстак", list("Да", "Нет"))
@@ -67,7 +67,7 @@
 		qdel(recipe)
 		recipe = null
 		inventory.Cut()
-		to_chat(user, span_notice("Отменяю сборку [recipe].") )
+		to_chat(user, span_notice("Отменяю сборку [recipe]."))
 		return
 	if(ready)
 		busy = TRUE
@@ -81,7 +81,7 @@
 			var/obj/item/blacksmith/partial/P = get_primary()
 			O.name = "[P.grade][O.name][P.grade]"
 			O.calculate_smithing_stats(1+P.level/10)
-		to_chat(user, span_notice("Собираю [O].") )
+		to_chat(user, span_notice("Собираю [O]."))
 		qdel(recipe)
 		inventory.Cut()
 		recipe = null
@@ -99,7 +99,7 @@
 	if(!answer)
 		return
 	recipe = recipes[answer]
-	to_chat(user, span_notice("Выбираю [recipe.name] для сборки.") )
+	to_chat(user, span_notice("Выбираю [recipe.name] для сборки."))
 
 /obj/structure/workbench/examine(mob/user)
 	. = ..()
@@ -164,10 +164,10 @@
 					qdel(S)
 			user.transferItemToLoc(I, src)
 			inventory+=I
-			visible_message(span_notice("[user] кладет [I] на [src].") ,span_notice("Кладу [I] на [src].") )
+			visible_message(span_notice("[user] кладет [I] на [src].") ,span_notice("Кладу [I] на [src]."))
 			check_ready()
 		else
-			to_chat(user, span_notice("В [src] больше не влазит.") )
+			to_chat(user, span_notice("В [src] больше не влазит."))
 	else
 		..()
 
@@ -206,7 +206,7 @@
 	if(dwarf_ask == "Нет" || !src || QDELETED(src) || QDELETED(user))
 		return FALSE
 	if(!active)
-		to_chat(user, span_warning("Уже занято!") )
+		to_chat(user, span_warning("Уже занято!"))
 		return FALSE
 	var/mob/living/carbon/human/D = new /mob/living/carbon/human(loc)
 	D.set_species(/datum/species/dwarf)
@@ -222,7 +222,7 @@
 
 /obj/structure/dwarf_altar/attackby(obj/item/I, mob/living/user, params)
 	if((I.type in allowed_resources))
-		to_chat(user, span_notice("Жертвую [I.name]") )
+		to_chat(user, span_notice("Жертвую [I.name]"))
 		resources+=allowed_resources[I.type]
 		qdel(I)
 	else if(istype(I, /obj/item/damaz))
@@ -236,27 +236,27 @@
 /obj/structure/dwarf_altar/attack_hand(mob/user)
 	if(ishuman(user) && !isdwarf(user))
 		if(!active)
-			to_chat(user, span_warning("Алтарь не готов!") )
+			to_chat(user, span_warning("Алтарь не готов!"))
 			return
 		var/mob/living/carbon/human/M = user
 		var/dwarf_ask = tgui_alert(M, "Стать дворфом?", "КОПАТЬ?", list("Да", "Нет"))
 		if(dwarf_ask == "Нет" || !src || QDELETED(src) || QDELETED(M))
 			return FALSE
 		if(!active)
-			to_chat(M, span_warning("Не повезло!") )
+			to_chat(M, span_warning("Не повезло!"))
 			return FALSE
 		M.set_species(/datum/species/dwarf)
 		M.unequip_everything()
 		M.equipOutfit(/datum/outfit/dwarf)
 		active = FALSE
-		to_chat(M, span_notice("Становлюсь дворфом.") )
+		to_chat(M, span_notice("Становлюсь дворфом."))
 
 /obj/structure/dwarf_altar/proc/perform_rite(rite, mob/user)
 	var/datum/ritual/R = new rite
 	if(busy)
 		return
 	busy = TRUE
-	to_chat(user, span_notice("Начинаю ритуал") )
+	to_chat(user, span_notice("Начинаю ритуал"))
 	activate()
 	if(!do_after(user, 3 SECONDS, target = src))
 		busy = FALSE
@@ -276,7 +276,7 @@
 			for(var/tool in list(/obj/item/blacksmith/smithing_hammer, /obj/item/blacksmith/tongs))
 				new tool(loc)
 	busy = FALSE
-	to_chat(user, span_notice("Заканчиваю ритуал") )
+	to_chat(user, span_notice("Заканчиваю ритуал"))
 	deactivate()
 	qdel(R)
 
@@ -309,7 +309,7 @@
 	. = ..()
 	var/cost = params["cost"]
 	if(cost>resources)
-		to_chat(usr, span_warning("Не хватает ресурсов!") )
+		to_chat(usr, span_warning("Не хватает ресурсов!"))
 		return
 	resources-=cost
 	perform_rite(params["path"], usr)

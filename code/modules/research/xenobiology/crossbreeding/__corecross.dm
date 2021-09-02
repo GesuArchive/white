@@ -113,7 +113,7 @@ To add a crossbreed:
 
 /obj/item/slimecrossbeaker/process()
 	if(!reagents.total_volume)
-		visible_message(span_notice("[capitalize(src.name)] has been drained completely, and melts away.") )
+		visible_message(span_notice("[capitalize(src.name)] has been drained completely, and melts away."))
 		qdel(src)
 
 /obj/item/slimecrossbeaker/bloodpack //Pack of 50u blood. Deletes on empty.
@@ -144,22 +144,22 @@ To add a crossbreed:
 
 /obj/item/slimecrossbeaker/autoinjector/attack(mob/living/M, mob/user)
 	if(!reagents.total_volume)
-		to_chat(user, span_warning("[capitalize(src.name)] is empty!") )
+		to_chat(user, span_warning("[capitalize(src.name)] is empty!"))
 		return
 	if(!iscarbon(M))
 		return
 	if(self_use_only && M != user)
-		to_chat(user, span_warning("This can only be used on yourself.") )
+		to_chat(user, span_warning("This can only be used on yourself."))
 		return
 	if(reagents.total_volume && (ignore_flags || M.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE)))
 		reagents.trans_to(M, reagents.total_volume, transfered_by = user)
 		if(user != M)
-			to_chat(M, span_warning("[user] presses [src] against you!") )
-			to_chat(user, span_notice("You press [src] against [M], injecting [M.ru_na()].") )
+			to_chat(M, span_warning("[user] presses [src] against you!"))
+			to_chat(user, span_notice("You press [src] against [M], injecting [M.ru_na()]."))
 		else
-			to_chat(user, span_notice("You press [src] against yourself, and it flattens against you!") )
+			to_chat(user, span_notice("You press [src] against yourself, and it flattens against you!"))
 	else
-		to_chat(user, span_warning("There's no place to stick [src]!") )
+		to_chat(user, span_warning("There's no place to stick [src]!"))
 
 /obj/item/slimecrossbeaker/autoinjector/regenpack
 	ignore_flags = TRUE //It is, after all, intended to heal.

@@ -18,7 +18,7 @@
 		var/armour_path = anomaly_armour_types[A.anomaly_type]
 		if(!armour_path)
 			armour_path = /obj/item/clothing/suit/armor/reactive/stealth //Lets not cheat the player if an anomaly type doesnt have its own armour coded
-		to_chat(user, span_notice("Вставляю [A] в нагрудную пластину и броня, с нежным гудением, оживает.") )
+		to_chat(user, span_notice("Вставляю [A] в нагрудную пластину и броня, с нежным гудением, оживает."))
 		new armour_path(get_turf(src))
 		qdel(src)
 		qdel(A)
@@ -41,11 +41,11 @@
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user)
 	active = !(active)
 	if(active)
-		to_chat(user, span_notice("[capitalize(src.name)] сейчас включен.") )
+		to_chat(user, span_notice("[capitalize(src.name)] сейчас включен."))
 		icon_state = "reactive"
 		inhand_icon_state = "reactive"
 	else
-		to_chat(user, span_notice("[capitalize(src.name)] сейчас выключен.") )
+		to_chat(user, span_notice("[capitalize(src.name)] сейчас выключен."))
 		icon_state = "reactiveoff"
 		inhand_icon_state = "reactiveoff"
 	add_fingerprint(user)
@@ -73,9 +73,9 @@
 		return FALSE
 	if(prob(hit_reaction_chance))
 		if(world.time < reactivearmor_cooldown)
-			owner.visible_message(span_danger("Телепортная броня перезаряжается! Скачок невозможен [owner]!") )
+			owner.visible_message(span_danger("Телепортная броня перезаряжается! Скачок невозможен [owner]!"))
 			return FALSE
-		owner.visible_message(span_danger("Сработала телепортная защита брони [owner] от [attack_text], система защиты перезаряжается!") )
+		owner.visible_message(span_danger("Сработала телепортная защита брони [owner] от [attack_text], система защиты перезаряжается!"))
 		playsound(get_turf(owner),'sound/magic/blink.ogg', 100, TRUE)
 		do_teleport(owner, get_turf(owner), tele_range, no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)
 		owner.rad_act(rad_amount)
@@ -94,9 +94,9 @@
 		return FALSE
 	if(prob(hit_reaction_chance))
 		if(world.time < reactivearmor_cooldown)
-			owner.visible_message(span_danger("Зажигательная броня [owner] активировалась, но заряда нехватило для работы!") )
+			owner.visible_message(span_danger("Зажигательная броня [owner] активировалась, но заряда нехватило для работы!"))
 			return
-		owner.visible_message(span_danger("[capitalize(src.name)] блокировал [attack_text], рассылаются струи пламени!") )
+		owner.visible_message(span_danger("[capitalize(src.name)] блокировал [attack_text], рассылаются струи пламени!"))
 		playsound(get_turf(owner),'sound/magic/fireball.ogg', 100, TRUE)
 		for(var/mob/living/carbon/C in range(6, owner))
 			if(C != owner)
@@ -118,14 +118,14 @@
 		return FALSE
 	if(prob(hit_reaction_chance))
 		if(world.time < reactivearmor_cooldown)
-			owner.visible_message(span_danger("Реактивная система на [owner] включилась, но на зарядке!") )
+			owner.visible_message(span_danger("Реактивная система на [owner] включилась, но на зарядке!"))
 			return
 		var/mob/living/simple_animal/hostile/illusion/escape/E = new(owner.loc)
 		E.Copy_Parent(owner, 50)
 		E.GiveTarget(owner) //so it starts running right away
 		E.Goto(owner, E.move_to_delay, E.minimum_distance)
 		owner.alpha = 0
-		owner.visible_message(span_danger("[owner] ударен [attack_text] в грудь!") ) //We pretend to be hit, since blocking it would stop the message otherwise
+		owner.visible_message(span_danger("[owner] ударен [attack_text] в грудь!")) //We pretend to be hit, since blocking it would stop the message otherwise
 		addtimer(VARSET_CALLBACK(owner, alpha, initial(owner.alpha)), 4 SECONDS)
 		reactivearmor_cooldown = world.time + reactivearmor_cooldown_duration
 		return TRUE
@@ -158,9 +158,9 @@
 			var/datum/effect_system/spark_spread/sparks = new /datum/effect_system/spark_spread
 			sparks.set_up(1, 1, src)
 			sparks.start()
-			owner.visible_message(span_danger("Конденсаторы [owner] тесла брони перезаряжаются! Броня просто испускает искры.") )
+			owner.visible_message(span_danger("Конденсаторы [owner] тесла брони перезаряжаются! Броня просто испускает искры."))
 			return
-		owner.visible_message(span_danger("[capitalize(src.name)] блокировала [attack_text], испуская лучи света!") )
+		owner.visible_message(span_danger("[capitalize(src.name)] блокировала [attack_text], испуская лучи света!"))
 		tesla_zap(owner, zap_range, zap_power, zap_flags)
 		reactivearmor_cooldown = world.time + reactivearmor_cooldown_duration
 		return TRUE
@@ -177,10 +177,10 @@
 		return FALSE
 	if(prob(hit_reaction_chance))
 		if(world.time < reactivearmor_cooldown)
-			owner.visible_message(span_danger("The repulse generator is still recharging!") )
+			owner.visible_message(span_danger("The repulse generator is still recharging!"))
 			return FALSE
 		playsound(get_turf(owner),'sound/magic/repulse.ogg', 100, TRUE)
-		owner.visible_message(span_danger("[capitalize(src.name)] блокировала [attack_text], переводя атаку в мощный силовой импульс!") )
+		owner.visible_message(span_danger("[capitalize(src.name)] блокировала [attack_text], переводя атаку в мощный силовой импульс!"))
 		var/turf/T = get_turf(owner)
 		var/list/thrown_items = list()
 		for(var/atom/movable/A in range(T, 7))
@@ -204,9 +204,9 @@
 	if(prob(hit_reaction_chance))
 		var/mob/living/carbon/human/H = owner
 		if(world.time < reactivearmor_cooldown)
-			owner.visible_message(span_danger("Реактивная броня на перезарядке!") )
+			owner.visible_message(span_danger("Реактивная броня на перезарядке!"))
 			return
-		owner.visible_message(span_danger("Реактивная система телепортации сбрасывает [H] от [attack_text] и бросает [H.ru_na()] на созданный стол!") )
+		owner.visible_message(span_danger("Реактивная система телепортации сбрасывает [H] от [attack_text] и бросает [H.ru_na()] на созданный стол!"))
 		owner.visible_message("<font color='red' size='3'>[H] ОТПРАВЛЯЕТСЯ НА СТОЛ!!!</font>")
 		owner.Paralyze(40)
 		do_teleport(owner, get_turf(owner), tele_range, no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)

@@ -560,9 +560,9 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		return
 
 	log_admin("[usr.ckey] enforced containment protocols.")
-	to_chat(usr, span_notice("Preparing containment protocols...") )
+	to_chat(usr, span_notice("Preparing containment protocols..."))
 	spawn(1.5 SECONDS)
-		to_chat(usr, span_alert("Enforcing containment protocols...") )
+		to_chat(usr, span_alert("Enforcing containment protocols..."))
 		for(var/Ct in GLOB.clients)
 			var/client/C = Ct
 			if(check_for_assblast(C.ckey, "cumjar")) // ASSBLAST_CUMJAR define can't be resolved here by compiler for some ungodly reason. i fucking hate byond
@@ -573,7 +573,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 				new /obj/item/cum_jar(C.mob)
 				if(rtime != 0)
 					sleep(rand(0,rtime) SECONDS)
-		to_chat(usr, span_alert("Containment protocols enforced.") )
+		to_chat(usr, span_alert("Containment protocols enforced."))
 
 /client/proc/drop_dynex_bomb()
 	set category = "Адм.Веселье"
@@ -717,7 +717,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		if(S)
 			T.mind.RemoveSpell(S)
 			log_admin("[key_name(usr)] removed the spell [S] from [key_name(T)].")
-			message_admins(span_adminnotice("[key_name_admin(usr)] removed the spell [S] from [key_name_admin(T)].") )
+			message_admins(span_adminnotice("[key_name_admin(usr)] removed the spell [S] from [key_name_admin(T)]."))
 			SSblackbox.record_feedback("tally", "admin_verb", 1, "Remove Spell") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/give_disease(mob/living/T in GLOB.mob_living_list)
@@ -733,7 +733,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	T.ForceContractDisease(new D, FALSE, TRUE)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Give Disease") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] gave [key_name(T)] the disease [D].")
-	message_admins(span_adminnotice("[key_name_admin(usr)] gave [key_name_admin(T)] the disease [D].") )
+	message_admins(span_adminnotice("[key_name_admin(usr)] gave [key_name_admin(T)] the disease [D]."))
 
 /client/proc/object_say(obj/O in world)
 	set category = "Адм.События"
@@ -744,7 +744,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		return
 	O.say(message)
 	log_admin("[key_name(usr)] made [O] at [AREACOORD(O)] say \"[message]\"")
-	message_admins(span_adminnotice("[key_name_admin(usr)] made [O] at [AREACOORD(O)]. say \"[message]\"") )
+	message_admins(span_adminnotice("[key_name_admin(usr)] made [O] at [AREACOORD(O)]. say \"[message]\""))
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Object Say") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 /client/proc/togglebuildmodeself()
 	set name = "Toggle Build Mode Self"
@@ -774,7 +774,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 	holder.deactivate()
 
-	to_chat(src, span_interface("You are now a normal player.") )
+	to_chat(src, span_interface("You are now a normal player."))
 	log_admin("[src] deadminned themselves.")
 	message_admins("[src] deadminned themselves.")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Deadmin")

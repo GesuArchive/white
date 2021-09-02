@@ -83,7 +83,7 @@
 	uses = 301
 
 /obj/item/soap/omega/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is using [src] to scrub themselves from the timeline! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] is using [src] to scrub themselves from the timeline! It looks like [user.p_theyre()] trying to commit suicide!"))
 	new /obj/structure/chrono_field(user.loc, user)
 	return MANUAL_SUICIDE
 
@@ -95,7 +95,7 @@
 
 /obj/item/soap/suicide_act(mob/user)
 	user.say(";FFFFFFFFFFFFFFFFUUUUUUUDGE!!", forced="soap suicide")
-	user.visible_message(span_suicide("[user] lifts [src] to [user.ru_ego()] mouth and gnaws on it furiously, producing a thick froth! [user.ru_who(TRUE)]'ll never get that BB gun now!") )
+	user.visible_message(span_suicide("[user] lifts [src] to [user.ru_ego()] mouth and gnaws on it furiously, producing a thick froth! [user.ru_who(TRUE)]'ll never get that BB gun now!"))
 	new /obj/effect/particle_effect/foam(loc)
 	return (TOXLOSS)
 
@@ -113,7 +113,7 @@
 	if(prob(skillcheck*100)) //higher level = more uses assuming RNG is nice
 		uses--
 	if(uses <= 0)
-		to_chat(user, span_warning("[capitalize(src.name)] crumbles into tiny bits!") )
+		to_chat(user, span_warning("[capitalize(src.name)] crumbles into tiny bits!"))
 		qdel(src)
 
 /obj/item/soap/afterattack(atom/target, mob/user, proximity)
@@ -126,11 +126,11 @@
 	//I couldn't feasibly  fix the overlay bugs caused by cleaning items we are wearing.
 	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
 	if(user.client && ((target in user.client.screen) && !user.is_holding(target)))
-		to_chat(user, span_warning("You need to take that [target.name] off before cleaning it!") )
+		to_chat(user, span_warning("You need to take that [target.name] off before cleaning it!"))
 	else if(istype(target, /obj/effect/decal/cleanable))
-		user.visible_message(span_notice("[user] begins to scrub [target.name] out with [src].") , span_warning("You begin to scrub [target.name] out with [src]...") )
+		user.visible_message(span_notice("[user] begins to scrub [target.name] out with [src].") , span_warning("You begin to scrub [target.name] out with [src]..."))
 		if(do_after(user, clean_speedies, target = target))
-			to_chat(user, span_notice("You scrub [target.name] out.") )
+			to_chat(user, span_notice("You scrub [target.name] out."))
 			var/obj/effect/decal/cleanable/cleanies = target
 			user.mind?.adjust_experience(/datum/skill/cleaning, max(round(cleanies.beauty/CLEAN_SKILL_BEAUTY_ADJUSTMENT),0)) //again, intentional that this does NOT round but mops do.
 			qdel(target)
@@ -138,7 +138,7 @@
 
 	else if(ishuman(target) && user.zone_selected == BODY_ZONE_PRECISE_MOUTH)
 		var/mob/living/carbon/human/human_user = user
-		user.visible_message(span_warning("\the [user] washes [target] mouth out with [src.name]!") , span_notice("You wash [target] mouth out with [src.name]!") ) //washes mouth out with soap sounds better than 'the soap' here			if(user.zone_selected == "mouth")
+		user.visible_message(span_warning("\the [user] washes [target] mouth out with [src.name]!") , span_notice("You wash [target] mouth out with [src.name]!")) //washes mouth out with soap sounds better than 'the soap' here			if(user.zone_selected == "mouth")
 		if(human_user.lip_style)
 			user.mind?.adjust_experience(/datum/skill/cleaning, CLEAN_SKILL_GENERIC_WASH_XP)
 			human_user.lip_style = null //removes lipstick
@@ -146,17 +146,17 @@
 		decreaseUses(user)
 		return
 	else if(istype(target, /obj/structure/window))
-		user.visible_message(span_notice("[user] begins to clean [target.name] with [src]...") , span_notice("You begin to clean [target.name] with [src]...") )
+		user.visible_message(span_notice("[user] begins to clean [target.name] with [src]...") , span_notice("You begin to clean [target.name] with [src]..."))
 		if(do_after(user, clean_speedies, target = target))
-			to_chat(user, span_notice("You clean [target.name].") )
+			to_chat(user, span_notice("You clean [target.name]."))
 			target.remove_atom_colour(WASHABLE_COLOUR_PRIORITY)
 			target.set_opacity(initial(target.opacity))
 			user.mind?.adjust_experience(/datum/skill/cleaning, CLEAN_SKILL_GENERIC_WASH_XP)
 			decreaseUses(user)
 	else
-		user.visible_message(span_notice("[user] begins to clean [target.name] with [src]...") , span_notice("You begin to clean [target.name] with [src]...") )
+		user.visible_message(span_notice("[user] begins to clean [target.name] with [src]...") , span_notice("You begin to clean [target.name] with [src]..."))
 		if(do_after(user, clean_speedies, target = target))
-			to_chat(user, span_notice("You clean [target.name].") )
+			to_chat(user, span_notice("You clean [target.name]."))
 			if(user && isturf(target))
 				for(var/obj/effect/decal/cleanable/cleanable_decal in target)
 					user.mind?.adjust_experience(/datum/skill/cleaning, round(cleanable_decal.beauty / CLEAN_SKILL_BEAUTY_ADJUSTMENT))
@@ -204,7 +204,7 @@
 	return ..()
 
 /obj/item/bikehorn/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] solemnly points [src] at [user.ru_ego()] temple! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] solemnly points [src] at [user.ru_ego()] temple! It looks like [user.p_theyre()] trying to commit suicide!"))
 	playsound(src, 'sound/items/bikehorn.ogg', 50, TRUE)
 	return (BRUTELOSS)
 

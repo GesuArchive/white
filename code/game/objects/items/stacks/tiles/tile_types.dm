@@ -53,18 +53,18 @@
 
 	if (W.tool_behaviour == TOOL_WELDER)
 		if(get_amount() < 4)
-			to_chat(user, span_warning("Мне нужно минимум четыре плитки для этого!") )
+			to_chat(user, span_warning("Мне нужно минимум четыре плитки для этого!"))
 			return
 
 		if(!mineralType)
-			to_chat(user, span_warning("Не могу исправить это!") )
+			to_chat(user, span_warning("Не могу исправить это!"))
 			return
 
 		if(W.use_tool(src, user, 0, volume=40))
 			if(mineralType == "plasma")
 				atmos_spawn_air("plasma=5;TEMP=1000")
 				user.visible_message(span_warning("[user.name] поджигает плазменные плитки!") , \
-									span_warning("Поджигаю плазменные плитки!") )
+									span_warning("Поджигаю плазменные плитки!"))
 				qdel(src)
 				return
 
@@ -72,7 +72,7 @@
 				var/obj/item/stack/sheet/iron/new_item = new(user.loc)
 				user.visible_message(span_notice("[user.name] переплавляет [src] в железо с помощью сварочного аппарата.") , \
 					span_notice("Переплавляю [src] в металл с помощью сварочного аппарата.") , \
-					span_hear("Слышу сварку.") )
+					span_hear("Слышу сварку."))
 				var/obj/item/stack/rods/R = src
 				src = null
 				var/replace = (user.get_inactive_held_item()==R)
@@ -85,7 +85,7 @@
 				var/obj/item/stack/sheet/mineral/new_item = new sheet_type(user.loc)
 				user.visible_message(span_notice("[user.name] переплавляет [src] в листы метала с помощью сварочного аппарата.") , \
 					span_notice("Переплавляю [src] в листы металла с помощью сварочного аппарата.") , \
-					span_hear("Слышу сварку.") )
+					span_hear("Слышу сварку."))
 				var/obj/item/stack/rods/R = src
 				src = null
 				var/replace = (user.get_inactive_held_item()==R)

@@ -40,7 +40,7 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/can_unwrench(mob/user)
 	. = ..()
 	if(. && connected_device)
-		to_chat(user, span_warning("Не могу открутить [src.name], надо отключить от него [connected_device] сначала!") )
+		to_chat(user, span_warning("Не могу открутить [src.name], надо отключить от него [connected_device] сначала!"))
 		return FALSE
 
 /obj/machinery/atmospherics/components/unary/portables_connector/layer2

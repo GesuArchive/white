@@ -162,7 +162,7 @@
 /mob/living/carbon/proc/give()
 	var/obj/item/receiving = get_active_held_item()
 	if(!receiving)
-		to_chat(src, span_warning("А у меня в руке ничего и нет!") )
+		to_chat(src, span_warning("А у меня в руке ничего и нет!"))
 		return
 
 	if(istype(receiving, /obj/item/slapper))
@@ -194,19 +194,19 @@
 /mob/living/carbon/proc/take(mob/living/carbon/giver, obj/item/I)
 	clear_alert("[giver.name]")
 	if(get_dist(src, giver) > 1)
-		to_chat(src, span_warning("<b>[giver.name]</b> слишком далеко!") )
+		to_chat(src, span_warning("<b>[giver.name]</b> слишком далеко!"))
 		return
 	if(!I || giver.get_active_held_item() != I)
-		to_chat(src, span_warning("<b>[giver.name]</b> уже не хочет давать мне это!") )
+		to_chat(src, span_warning("<b>[giver.name]</b> уже не хочет давать мне это!"))
 		return
 	if(!get_empty_held_indexes())
-		to_chat(src, span_warning("Мои руки заняты!") )
+		to_chat(src, span_warning("Мои руки заняты!"))
 		return
 	if(!giver.temporarilyRemoveItemFromInventory(I))
-		visible_message(span_notice("<b>[giver.name]</b> пытается дать <b>[I.name]</b>, но похоже оно приклеено к его руке...") )
+		visible_message(span_notice("<b>[giver.name]</b> пытается дать <b>[I.name]</b>, но похоже оно приклеено к его руке..."))
 		return
 	visible_message(span_notice("<b>[src]</b> берёт [I.name] у <b>[giver.name]</b>.") , \
-					span_notice("Беру [I.name] у <b>[giver.name]</b>.") )
+					span_notice("Беру [I.name] у <b>[giver.name]</b>."))
 	put_in_hands(I)
 
 /// Spin-off of [/mob/living/carbon/proc/give] exclusively for high-fiving

@@ -101,12 +101,12 @@
 /obj/item/boombox/proc/disk_insert(mob/user, obj/item/card/data/music/I, target)
 	if(istype(I))
 		if(target)
-			to_chat(user, span_warning("Здесь уже есть диск!") )
+			to_chat(user, span_warning("Здесь уже есть диск!"))
 			return FALSE
 		if(!user.transferItemToLoc(I, src))
 			return FALSE
 		user.visible_message(span_notice("[user] вставляет диск в [src].") , \
-							span_notice("Вставляю диск в [src].") )
+							span_notice("Вставляю диск в [src]."))
 		playsound(get_turf(src), 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 		return TRUE
 
@@ -310,16 +310,16 @@
 	. = ..()
 	if(writing && do_after(user, 5 SECONDS, src))
 		writing = 0
-		to_chat(user,span_warning("Перезагружаю систему мультулом.") )
+		to_chat(user,span_warning("Перезагружаю систему мультулом."))
 		icon_state = "off"
 		retard = null
 
 /obj/machinery/musicwriter/ui_interact(mob/user)
 	if (!anchored)
-		to_chat(user,span_warning("Надо бы прикрутить!") )
+		to_chat(user,span_warning("Надо бы прикрутить!"))
 		return
 	if(!allowed(user))
-		to_chat(user,span_warning("Ошибка! Нет доступа.") )
+		to_chat(user,span_warning("Ошибка! Нет доступа."))
 		user.playsound_local(src,'sound/misc/compiler-failure.ogg', 25, 1)
 		return
 	if(writing)
@@ -336,7 +336,7 @@
 		writing = TRUE
 		retard = user
 		var/N = sanitize(input("Название") as text|null)
-		to_chat(user,span_warning("Надо бы прикрутить!") )
+		to_chat(user,span_warning("Надо бы прикрутить!"))
 		if(N)
 			var/sound/S = input("Файл") as sound|null
 			if(S)

@@ -44,7 +44,7 @@
 		if(ST != cotton && istype(ST, cotton_type) && ST.amount < ST.max_amount)
 			ST.attackby(cotton, user)
 	if(cotton.amount > old_cotton_amount)
-		to_chat(user, span_notice("Добавляю [cotton_name] в кучу. Теперь тут [cotton.amount] [cotton_name].") )
+		to_chat(user, span_notice("Добавляю [cotton_name] в кучу. Теперь тут [cotton.amount] [cotton_name]."))
 	qdel(src)
 
 //reinforced mutated variant

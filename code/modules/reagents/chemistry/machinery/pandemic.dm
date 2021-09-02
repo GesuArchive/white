@@ -206,7 +206,7 @@
 			var/id = get_virus_id_by_index(text2num(params["index"]))
 			var/datum/disease/advance/A = SSdisease.archive_diseases[id]
 			if(!istype(A) || !A.mutable)
-				to_chat(usr, span_warning("ОШИБКА: Невозможно воспроизвести штамм вируса.") )
+				to_chat(usr, span_warning("ОШИБКА: Невозможно воспроизвести штамм вируса."))
 				return
 			A = A.Copy()
 			var/list/data = list("viruses" = list(A))
@@ -240,13 +240,13 @@
 		if(machine_stat & (NOPOWER|BROKEN))
 			return
 		if(beaker)
-			to_chat(user, span_warning("Контейнер уже помещен в [src]!") )
+			to_chat(user, span_warning("Контейнер уже помещен в [src]!"))
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 
 		beaker = I
-		to_chat(user, span_notice("Ввел [I] в [src].") )
+		to_chat(user, span_notice("Ввел [I] в [src]."))
 		update_icon()
 	else
 		return ..()

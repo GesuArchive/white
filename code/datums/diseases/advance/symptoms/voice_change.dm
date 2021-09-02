@@ -55,7 +55,7 @@ Bonus
 	switch(A.stage)
 		if(1, 2, 3, 4)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, span_warning("[pick("Горло болит.", "Прочищаю своё горло.")]") )
+				to_chat(M, span_warning("[pick("Горло болит.", "Прочищаю своё горло.")]"))
 		else
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M

@@ -89,15 +89,15 @@
 	if(istype(W, /obj/item/stock_parts/cell))
 		var/obj/item/stock_parts/cell/C = W
 		if(cell)
-			to_chat(user, span_warning("<b>[capitalize(src.name)]</b> уже имеет батарейку!") )
+			to_chat(user, span_warning("<b>[capitalize(src.name)]</b> уже имеет батарейку!"))
 		else
 			if(C.maxcharge < cell_hit_cost)
-				to_chat(user, span_notice("<b>[capitalize(src.name)]</b> требует более мощный источник питания.") )
+				to_chat(user, span_notice("<b>[capitalize(src.name)]</b> требует более мощный источник питания."))
 				return
 			if(!user.transferItemToLoc(W, src))
 				return
 			cell = W
-			to_chat(user, span_notice("Вставляю батарейку в <b>[capitalize(src.name)]</b>.") )
+			to_chat(user, span_notice("Вставляю батарейку в <b>[capitalize(src.name)]</b>."))
 			update_icon()
 
 	else if(W.tool_behaviour == TOOL_SCREWDRIVER)
@@ -110,7 +110,7 @@
 		cell.update_icon()
 		cell.forceMove(get_turf(src))
 		cell = null
-		to_chat(user, span_notice("Вытаскиваю батарейку из <b>[src.name]</b>.") )
+		to_chat(user, span_notice("Вытаскиваю батарейку из <b>[src.name]</b>."))
 		turned_on = FALSE
 		update_icon()
 
@@ -120,14 +120,14 @@
 /obj/item/melee/sabre/security/proc/toggle_on(mob/user)
 	if(cell && cell.charge > cell_hit_cost)
 		turned_on = !turned_on
-		to_chat(user, span_notice("<b>[capitalize(src.name)]</b> теперь [turned_on ? "включена" : "отключена"].") )
+		to_chat(user, span_notice("<b>[capitalize(src.name)]</b> теперь [turned_on ? "включена" : "отключена"]."))
 		playsound(src, "sparks", 75, TRUE, -1)
 	else
 		turned_on = FALSE
 		if(!cell)
-			to_chat(user, span_warning("<b>[capitalize(src.name)]</b> не имеет источника энергии!") )
+			to_chat(user, span_warning("<b>[capitalize(src.name)]</b> не имеет источника энергии!"))
 		else
-			to_chat(user, span_warning("<b>[capitalize(src.name)]</b> разрядилась.") )
+			to_chat(user, span_warning("<b>[capitalize(src.name)]</b> разрядилась."))
 	update_icon()
 	add_fingerprint(user)
 
@@ -160,7 +160,7 @@
 //		L.lastattacker = user.real_name
 //		L.lastattackerckey = user.ckey
 		L.visible_message(span_danger("<b>[user]</b> бьёт <b>[L]</b> при помощи <b>[src.name]</b>, высвобождая холодный поток энергии из <b>[src]</b>!") , \
-								span_userdanger("<b>[user]</b> бьёт меня при помощи <b>[src.name]</b>!") )
+								span_userdanger("<b>[user]</b> бьёт меня при помощи <b>[src.name]</b>!"))
 		log_combat(user, L, "cryosliced")
 
 	return 1

@@ -307,7 +307,7 @@
 
 	// now that we've determined we have a valid attempt at treating, we can stomp on their dreams if we're already interacting with the patient or if their part is obscured
 	if(DOING_INTERACTION_WITH_TARGET(user, victim))
-		to_chat(user, span_warning("Уже взаимодействую с [victim]!") )
+		to_chat(user, span_warning("Уже взаимодействую с [victim]!"))
 		return TRUE
 
 	// next we check if the bodypart in actually accessible (not under thick clothing). We skip the species trait check since skellies

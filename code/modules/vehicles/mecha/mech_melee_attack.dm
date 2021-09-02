@@ -49,7 +49,7 @@
 /mob/living/mech_melee_attack(obj/vehicle/sealed/mecha/mecha_attacker, mob/user)
 	if(user.a_intent == INTENT_HARM)
 		if(HAS_TRAIT(user, TRAIT_PACIFISM))
-			to_chat(user, span_warning("You don't want to harm other living beings!") )
+			to_chat(user, span_warning("You don't want to harm other living beings!"))
 			return
 		mecha_attacker.do_attack_animation(src)
 		if(mecha_attacker.damtype == "brute")
@@ -69,19 +69,19 @@
 		updatehealth()
 		visible_message(span_danger("[mecha_attacker.name] hits [src]!") , \
 						span_userdanger("[mecha_attacker.name] hits you!") , span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, mecha_attacker)
-		to_chat(mecha_attacker, span_danger("You hit [src]!") )
+		to_chat(mecha_attacker, span_danger("You hit [src]!"))
 		log_combat(user, src, "attacked", mecha_attacker, "(INTENT: [uppertext(user.a_intent)]) (DAMTYPE: [uppertext(mecha_attacker.damtype)])")
 	else
 		step_away(src, mecha_attacker)
 		log_combat(user, src, "pushed", mecha_attacker)
 		visible_message(span_warning("[mecha_attacker] pushes [src] out of the way.") , \
 						span_warning("[mecha_attacker] pushes you out of the way.") , span_hear("Слышу агрессивную потасовку!") , 5, list(mecha_attacker))
-		to_chat(mecha_attacker, span_danger("You push [src] out of the way.") )
+		to_chat(mecha_attacker, span_danger("You push [src] out of the way."))
 
 /mob/living/carbon/human/mech_melee_attack(obj/vehicle/sealed/mecha/mecha_attacker, mob/user)
 	if(user.a_intent == INTENT_HARM)
 		if(HAS_TRAIT(user, TRAIT_PACIFISM))
-			to_chat(user, span_warning("You don't want to harm other living beings!") )
+			to_chat(user, span_warning("You don't want to harm other living beings!"))
 			return
 		mecha_attacker.do_attack_animation(src)
 		if(mecha_attacker.damtype == BRUTE)
@@ -111,7 +111,7 @@
 
 		visible_message(span_danger("[mecha_attacker.name] hits [src]!") , \
 						span_userdanger("[mecha_attacker.name] hits you!") , span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, list(mecha_attacker))
-		to_chat(mecha_attacker, span_danger("You hit [src]!") )
+		to_chat(mecha_attacker, span_danger("You hit [src]!"))
 		log_combat(user, src, "attacked", mecha_attacker, "(INTENT: [uppertext(user.a_intent)]) (DAMTYPE: [uppertext(mecha_attacker.damtype)])")
 	else
 		return ..()

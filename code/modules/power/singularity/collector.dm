@@ -77,19 +77,19 @@
 		if(!src.locked)
 			toggle_power()
 			user.visible_message(span_notice("<b>[user.name]</b> [active? "включает":"выключает"] <b>[src.name]</b>.") , \
-			span_notice("[active? "Включаю":"Выключаю"] <b>[src.name]</b>.") )
+			span_notice("[active? "Включаю":"Выключаю"] <b>[src.name]</b>."))
 			if(loaded_tank && loaded_tank.air_contents)
 				var/fuel = loaded_tank.air_contents.get_moles(/datum/gas/plasma)
 				investigate_log("turned [active?"<font color='green'>on</font>":"<font color='red'>off</font>"] by [key_name(user)]. [loaded_tank?"Fuel: [round(fuel/0.29)]%":"<font color='red'>It is empty</font>"].", INVESTIGATE_SINGULO)
 			return
 		else
-			to_chat(user, span_warning("Управление заблокировано!") )
+			to_chat(user, span_warning("Управление заблокировано!"))
 			return
 
 /obj/machinery/power/rad_collector/can_be_unfasten_wrench(mob/user, silent)
 	if(loaded_tank)
 		if(!silent)
-			to_chat(user, span_warning("Надо бы вытащить бак для начала!") )
+			to_chat(user, span_warning("Надо бы вытащить бак для начала!"))
 		return FAILED_UNFASTEN
 	return ..()
 
@@ -105,13 +105,13 @@
 /obj/machinery/power/rad_collector/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/tank/internals/plasma))
 		if(!anchored)
-			to_chat(user, span_warning("<b>[src]</b> должен быть прикручен к полу!") )
+			to_chat(user, span_warning("<b>[src]</b> должен быть прикручен к полу!"))
 			return TRUE
 		if(loaded_tank)
-			to_chat(user, span_warning("Здесь уже есть бак!") )
+			to_chat(user, span_warning("Здесь уже есть бак!"))
 			return TRUE
 		if(panel_open)
-			to_chat(user, span_warning("Техническая панель открыта. Не входит!") )
+			to_chat(user, span_warning("Техническая панель открыта. Не входит!"))
 			return TRUE
 		if(!user.transferItemToLoc(W, src))
 			return
@@ -121,11 +121,11 @@
 		if(allowed(user))
 			if(active)
 				locked = !locked
-				to_chat(user, span_notice("Управление [locked ? "заблокировано" : "разблокировано"].") )
+				to_chat(user, span_notice("Управление [locked ? "заблокировано" : "разблокировано"]."))
 			else
-				to_chat(user, span_warning("Управление может быть заблокировано только когда <b>[src]</b> включен!") )
+				to_chat(user, span_warning("Управление может быть заблокировано только когда <b>[src]</b> включен!"))
 		else
-			to_chat(user, span_danger("Доступ запрещён.") )
+			to_chat(user, span_danger("Доступ запрещён."))
 			return TRUE
 	else
 		return ..()
@@ -146,7 +146,7 @@
 	if(..())
 		return TRUE
 	if(loaded_tank)
-		to_chat(user, span_warning("Надо бы вытащить бак сначала!") )
+		to_chat(user, span_warning("Надо бы вытащить бак сначала!"))
 	else
 		default_deconstruction_screwdriver(user, icon_state, icon_state, I)
 	return TRUE
@@ -154,27 +154,27 @@
 /obj/machinery/power/rad_collector/crowbar_act(mob/living/user, obj/item/I)
 	if(loaded_tank)
 		if(locked)
-			to_chat(user, span_warning("Управление заблокировано!") )
+			to_chat(user, span_warning("Управление заблокировано!"))
 			return TRUE
 		eject()
 		return TRUE
 	if(default_deconstruction_crowbar(I))
 		return TRUE
-	to_chat(user, span_warning("Здесь нет бака!") )
+	to_chat(user, span_warning("Здесь нет бака!"))
 	return TRUE
 
 /obj/machinery/power/rad_collector/multitool_act(mob/living/user, obj/item/I)
 	if(!is_station_level(z) && !SSresearch.science_tech)
-		to_chat(user, span_warning("<b>[src]</b> не подключен к исследовательской сети!") )
+		to_chat(user, span_warning("<b>[src]</b> не подключен к исследовательской сети!"))
 		return TRUE
 	if(locked)
-		to_chat(user, span_warning("<b>[src]</b> заблокирован!") )
+		to_chat(user, span_warning("<b>[src]</b> заблокирован!"))
 		return TRUE
 	if(active)
-		to_chat(user, span_warning("<b>[src]</b> на данный момент работает и производит [bitcoinmining ? "исследовательские очки":"энергию"].") )
+		to_chat(user, span_warning("<b>[src]</b> на данный момент работает и производит [bitcoinmining ? "исследовательские очки":"энергию"]."))
 		return TRUE
 	bitcoinmining = !bitcoinmining
-	to_chat(user, span_warning("[bitcoinmining ? "Включаю":"Выключаю"] сбор исследовательских очков у <b>[src]</b>.") )
+	to_chat(user, span_warning("[bitcoinmining ? "Включаю":"Выключаю"] сбор исследовательских очков у <b>[src]</b>."))
 	return TRUE
 
 /obj/machinery/power/rad_collector/return_analyzable_air()

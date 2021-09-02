@@ -95,11 +95,11 @@
 			owner.dizziness += 10
 			fail = TRUE
 		if(3)
-			to_chat(owner, span_userdanger("Чувствую биение собственного сердца...") )
+			to_chat(owner, span_userdanger("Чувствую биение собственного сердца..."))
 			owner.Stun(20)
 			shake_camera(owner, 15, 1)
 		if(4)
-			to_chat(owner, span_warning("Ощущаю слабость.") )
+			to_chat(owner, span_warning("Ощущаю слабость."))
 			owner.Unconscious(80)
 			fail = TRUE
 	return fail

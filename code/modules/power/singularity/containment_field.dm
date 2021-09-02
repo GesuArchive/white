@@ -63,7 +63,7 @@
 		qdel(src)
 		return
 	if(ismegafauna(M))
-		M.visible_message(span_warning("<b>[M]</b> свирепо светится, когда вспыхивает поле сдерживания!") )
+		M.visible_message(span_warning("<b>[M]</b> свирепо светится, когда вспыхивает поле сдерживания!"))
 		FG1.calc_power(INFINITY) //rip that 'containment' field
 		M.adjustHealth(-M.obj_damage)
 	else
@@ -135,7 +135,7 @@
 		user.take_overall_damage(0, shock_damage)
 		user.visible_message(span_danger("<b>[user.name]</b> ударило током <b>[src.name]</b>!") , \
 		span_userdanger("Обнаружен импульс энергии, повреждение систем!") , \
-		span_hear("Слышу электрический треск.") )
+		span_hear("Слышу электрический треск."))
 
 	user.updatehealth()
 	bump_field(user)

@@ -36,7 +36,7 @@
 	if(istype(I, /obj/item/stack/sheet/mineral/coal) || istype(I, /obj/item/stack/sheet/mineral/wood))
 		var/obj/item/stack/S = I
 		var/stackamount = S.get_amount()
-		to_chat(user, span_notice("Закидываю [stackamount] [I] в [src].") )
+		to_chat(user, span_notice("Закидываю [stackamount] [I] в [src]."))
 		if(istype(I, /obj/item/stack/sheet/mineral/coal))
 			grill_fuel += (500 * stackamount)
 		else
@@ -45,12 +45,12 @@
 		update_icon()
 		return
 	if(I.resistance_flags & INDESTRUCTIBLE)
-		to_chat(user, span_warning("Что-то я не очень хочу жарить [I]...") )
+		to_chat(user, span_warning("Что-то я не очень хочу жарить [I]..."))
 		return ..()
 	if(istype(I, /obj/item/reagent_containers/food/drinks))
 		if(I.reagents.has_reagent(/datum/reagent/consumable/monkey_energy))
 			grill_fuel += (20 * (I.reagents.get_reagent_amount(/datum/reagent/consumable/monkey_energy)))
-			to_chat(user, span_notice("Выплёскиваю напиток на [src].") )
+			to_chat(user, span_notice("Выплёскиваю напиток на [src]."))
 			I.reagents.remove_reagent(/datum/reagent/consumable/monkey_energy, I.reagents.get_reagent_amount(/datum/reagent/consumable/monkey_energy))
 			update_icon()
 			return
@@ -58,16 +58,16 @@
 		if(HAS_TRAIT(I, TRAIT_NODROP) || (I.item_flags & (ABSTRACT | DROPDEL)))
 			return ..()
 		else if(HAS_TRAIT(I, TRAIT_FOOD_GRILLED))
-			to_chat(user, span_notice("[I] уже пожарено!") )
+			to_chat(user, span_notice("[I] уже пожарено!"))
 			return
 		else if(grill_fuel <= 0)
-			to_chat(user, span_warning("Недостаточно топлива!") )
+			to_chat(user, span_warning("Недостаточно топлива!"))
 			return
 		else if(!grilled_item && user.transferItemToLoc(I, src))
 			grilled_item = I
 			RegisterSignal(grilled_item, COMSIG_GRILL_COMPLETED, .proc/GrillCompleted)
 			ADD_TRAIT(grilled_item, TRAIT_FOOD_GRILLED, "boomers")
-			to_chat(user, span_notice("Нежно укладываю [grilled_item] на [src].") )
+			to_chat(user, span_notice("Нежно укладываю [grilled_item] на [src]."))
 			update_icon()
 			grill_loop.start()
 			return
@@ -124,7 +124,7 @@
 
 /obj/machinery/grill/attack_hand(mob/user)
 	if(grilled_item)
-		to_chat(user, span_notice("Достаю [grilled_item] из [src].") )
+		to_chat(user, span_notice("Достаю [grilled_item] из [src]."))
 		grilled_item.forceMove(drop_location())
 		update_icon()
 		return

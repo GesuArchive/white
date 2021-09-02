@@ -141,12 +141,12 @@
 		if(!user.transferItemToLoc(B, src))
 			return
 		replace_beaker(user, B)
-		to_chat(user, span_notice("Добавляю [B.name] в [src.name].") )
+		to_chat(user, span_notice("Добавляю [B.name] в [src.name]."))
 		update_icon()
 		return TRUE //no afterattack
 
 	if(holdingitems.len >= limit)
-		to_chat(user, span_warning("[capitalize(src.name)] забит полностью!") )
+		to_chat(user, span_warning("[capitalize(src.name)] забит полностью!"))
 		return TRUE
 
 	//Fill machine with a bag!
@@ -156,23 +156,23 @@
 			for(var/i in inserted)
 				holdingitems[i] = TRUE
 			if(!I.contents.len)
-				to_chat(user, span_notice("Опустошаю [I.name] прямо в [src.name].") )
+				to_chat(user, span_notice("Опустошаю [I.name] прямо в [src.name]."))
 			else
-				to_chat(user, span_notice("Наполняю [src.name] до краёв.") )
+				to_chat(user, span_notice("Наполняю [src.name] до краёв."))
 		return TRUE
 
 	if(!I.grind_results && !I.juice_results)
 		if(user.a_intent == INTENT_HARM)
 			return ..()
 		else
-			to_chat(user, span_warning("Не получится перемолоть [I.name]!") )
+			to_chat(user, span_warning("Не получится перемолоть [I.name]!"))
 			return TRUE
 
 	if(!I.grind_requirements(src)) //Error messages should be in the objects' definitions
 		return
 
 	if(user.transferItemToLoc(I, src))
-		to_chat(user, span_notice("Добавляю [I.name] в [src.name].") )
+		to_chat(user, span_notice("Добавляю [I.name] в [src.name]."))
 		holdingitems[I] = TRUE
 		return FALSE
 
@@ -274,7 +274,7 @@
 
 /obj/machinery/reagentgrinder/proc/juice_item(obj/item/I) //Juicing results can be found in respective object definitions
 	if(I.on_juice(src) == -1)
-		to_chat(usr, span_danger("[capitalize(src.name)] закорачивается, пытаясь пытаясь выдавить сок [I.name] и отправляет обратно в хранилище.") )
+		to_chat(usr, span_danger("[capitalize(src.name)] закорачивается, пытаясь пытаясь выдавить сок [I.name] и отправляет обратно в хранилище."))
 		return
 	beaker.reagents.add_reagent_list(I.juice_results)
 	remove_object(I)
@@ -293,7 +293,7 @@
 
 /obj/machinery/reagentgrinder/proc/grind_item(obj/item/I, mob/user) //Grind results can be found in respective object definitions
 	if(I.on_grind(src) == -1) //Call on_grind() to change amount as needed, and stop grinding the item if it returns -1
-		to_chat(usr, span_danger("[capitalize(src.name)] закорачивается, пытаясь пытаясь размолоть [I.name] и отправляет обратно в хранилище.") )
+		to_chat(usr, span_danger("[capitalize(src.name)] закорачивается, пытаясь пытаясь размолоть [I.name] и отправляет обратно в хранилище."))
 		return
 	beaker.reagents.add_reagent_list(I.grind_results)
 	if(I.reagents)

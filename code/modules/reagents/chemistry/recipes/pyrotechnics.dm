@@ -152,13 +152,13 @@
 				deity = GLOB.deity
 			else
 				deity = "Christ"
-			to_chat(R, span_userdanger("Сила [deity] заставляет меня!") )
+			to_chat(R, span_userdanger("Сила [deity] заставляет меня!"))
 			R.stun(20)
 			R.reveal(100)
 			R.adjustHealth(50)
 		for(var/mob/living/carbon/C in get_hearers_in_view(effective_size,T))
 			if(iscultist(C))
-				to_chat(C, span_userdanger("Божественный взрыв опаляет меня!") )
+				to_chat(C, span_userdanger("Божественный взрыв опаляет меня!"))
 				C.Paralyze(40)
 				C.adjust_fire_stacks(5)
 				C.IgniteMob()

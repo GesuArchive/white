@@ -43,7 +43,7 @@
 	var/obj/item/card/id/stored_card = computer.GetID()
 	if(istype(stored_card) && stored_card.registered_name)
 		username = "user [stored_card.registered_name]"
-	to_chat(borgo, span_userdanger("Запрос файла системного журнала получен от [username]. Идёт загрузка.") )//Могут содержаться ужасающие улики, так что предупреждай борга
+	to_chat(borgo, span_userdanger("Запрос файла системного журнала получен от [username]. Идёт загрузка."))//Могут содержаться ужасающие улики, так что предупреждай борга
 	borgo.logevent("File request by [username]: /var/logs/syslog")
 	return TRUE
 
@@ -55,7 +55,7 @@
 	var/turf/here = get_turf(computer)
 	var/turf/there = get_turf(DL_source)
 	if(!here.Adjacent(there))//If someone walked away, cancel the download
-		to_chat(DL_source, span_danger("Ошибка загрузки журнала: общая ошибка подключения.") )//Пусть борг знает, что загрузка остановлена
+		to_chat(DL_source, span_danger("Ошибка загрузки журнала: общая ошибка подключения."))//Пусть борг знает, что загрузка остановлена
 		DL_source = null
 		DL_progress = -1
 		return
@@ -129,7 +129,7 @@
 			if(!ID)
 				return
 			if(R.stat == DEAD) //Dead borgs will listen to you no longer
-				to_chat(usr, span_warn("Ошибка: не удалось установить соединение с объектом:[R]") )
+				to_chat(usr, span_warn("Ошибка: не удалось установить соединение с объектом:[R]"))
 			var/message = stripped_input(usr, message = "Enter message to be sent to remote cyborg.", title = "Send Message")
 			if(!message)
 				return

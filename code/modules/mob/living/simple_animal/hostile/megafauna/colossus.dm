@@ -150,11 +150,11 @@
 	icon_state = "eva_attack"
 	if(health < maxHealth/3)
 		return double_spiral()
-	visible_message(span_colossus("\"<b>Judgement.</b>\"") )
+	visible_message(span_colossus("\"<b>Judgement.</b>\""))
 	return spiral_shoot()
 
 /mob/living/simple_animal/hostile/megafauna/colossus/proc/double_spiral()
-	visible_message(span_colossus("\"<b>Die.</b>\"") )
+	visible_message(span_colossus("\"<b>Die.</b>\""))
 
 	SLEEP_CHECK_DEATH(10)
 	INVOKE_ASYNC(src, .proc/spiral_shoot, FALSE)
@@ -225,7 +225,7 @@
 
 
 /mob/living/simple_animal/hostile/megafauna/colossus/devour(mob/living/L)
-	visible_message(span_colossus("[capitalize(src.name)] disintegrates [L]!") )
+	visible_message(span_colossus("[capitalize(src.name)] disintegrates [L]!"))
 	L.dust()
 
 /obj/effect/temp_visual/at_shield
@@ -591,7 +591,7 @@
 		if(L.stat != DEAD)
 			L.heal_overall_damage(melee_damage_upper, melee_damage_upper)
 			new /obj/effect/temp_visual/heal(get_turf(target), "#80F5FF")
-			visible_message(span_notice("[capitalize(src.name)] mends the wounds of [target].") ,span_notice("You mend the wounds of [target].") )
+			visible_message(span_notice("[capitalize(src.name)] mends the wounds of [target].") ,span_notice("You mend the wounds of [target]."))
 
 /mob/living/simple_animal/hostile/lightgeist/ghost()
 	. = ..()

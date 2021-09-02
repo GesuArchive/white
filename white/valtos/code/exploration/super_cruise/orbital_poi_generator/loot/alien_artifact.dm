@@ -478,7 +478,7 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 			new /obj/effect/temp_visual/mining_scanner(T1)
 			var/mob/living/M = locate() in T1
 			if(M)
-				to_chat(M, span_warning("Ооох...") )
+				to_chat(M, span_warning("Ооох..."))
 				M.blind_eyes(30)
 				M.Knockdown(10)
 				M.emote("agony")

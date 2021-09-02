@@ -86,7 +86,7 @@
 	return TRUE
 
 /datum/micro_organism/cell_line/proc/fuck_up_growing(obj/machinery/plumbing/growing_vat/vat)
-	vat.visible_message(span_warning("The biological sample in [vat] seems to have dissipated!") )
+	vat.visible_message(span_warning("The biological sample in [vat] seems to have dissipated!"))
 	QDEL_NULL(vat.biological_sample) //Kill off the sample, we're done
 	if(prob(50))
 		new /obj/effect/gibspawner/generic(get_turf(vat)) //Spawn some gibs.
@@ -100,7 +100,7 @@
 		for(var/x in 1 to resulting_atoms[created_thing])
 			var/atom/thing = new created_thing(get_turf(vat))
 			ADD_TRAIT(thing, TRAIT_VATGROWN, "vatgrowing")
-			vat.visible_message(span_nicegreen("[thing] pops out of [vat]!") )
+			vat.visible_message(span_nicegreen("[thing] pops out of [vat]!"))
 
 	QDEL_NULL(vat.biological_sample) //Kill off the sample, we're done
 

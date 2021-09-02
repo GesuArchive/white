@@ -24,7 +24,7 @@
 	var/list/trays = list(tray)
 	var/visi_msg = "[acting_object] transfers fluid into [tray]"
 
-	acting_object.visible_message(span_notice("[visi_msg].") )
+	acting_object.visible_message(span_notice("[visi_msg]."))
 	playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 
 	var/split = round(amount/trays.len)
@@ -126,7 +126,7 @@
 			var/contained = reagents.log_list()
 			log_combat(src, L, "attempted to inject", addition="which had [contained]")
 			L.visible_message(span_danger("[acting_object] пытается inject [L]!") , \
-								span_userdanger("[acting_object] пытается inject you!") )
+								span_userdanger("[acting_object] пытается inject you!"))
 			busy = TRUE
 			if(do_after(L, 20, target=src) && L.can_inject())
 				var/fraction = min(transfer_amount/reagents.total_volume, 1)
@@ -134,7 +134,7 @@
 				reagents.trans_to(L, transfer_amount)
 				log_combat(src, L, "injected", addition="which had [contained]")
 				L.visible_message(span_danger("[acting_object] injects [L] with its needle!") , \
-									span_userdanger("[acting_object] injects you with its needle!") )
+									span_userdanger("[acting_object] injects you with its needle!"))
 			else
 				busy = FALSE
 				activate_pin(3)
@@ -155,15 +155,15 @@
 		if(isliving(AM) && !istype(assembly.loc, /obj/item/storage))
 			var/mob/living/L = AM
 			L.visible_message(span_danger("[acting_object] пытается take a blood sample from [L]!") , \
-								span_userdanger("[acting_object] пытается take a blood sample from you!") )
+								span_userdanger("[acting_object] пытается take a blood sample from you!"))
 			busy = TRUE
 			if(do_after(L, 20, target=src) && L.can_inject())
 				if(L.transfer_blood_to(src, tramount))
 					L.visible_message(span_danger("[acting_object] takes a blood sample from [L]!") , \
-					span_userdanger("[acting_object] takes a blood sample from you!") )
+					span_userdanger("[acting_object] takes a blood sample from you!"))
 				else
 					L.visible_message(span_warning("[acting_object] fails to take a blood sample from [L].") , \
-								span_userdanger("[acting_object] fails to take a blood sample from you!") )
+								span_userdanger("[acting_object] fails to take a blood sample from you!"))
 					busy = FALSE
 					activate_pin(3)
 					return
@@ -171,7 +171,7 @@
 
 		else
 			if(!AM.reagents.total_volume)
-				acting_object.visible_message(span_notice("[acting_object] tries to draw from [AM], but it is empty!") )
+				acting_object.visible_message(span_notice("[acting_object] tries to draw from [AM], but it is empty!"))
 				activate_pin(3)
 				return
 
@@ -773,19 +773,19 @@
 /obj/item/integrated_circuit_old/input/beaker_connector/attackby(var/obj/item/reagent_containers/I, var/mob/living/user)
 	//Check if it truly is a reagent container
 	if(!istype(I,/obj/item/reagent_containers/glass/beaker))
-		to_chat(user,span_warning("The [I.name] doesn't seem to fit in here.") )
+		to_chat(user,span_warning("The [I.name] doesn't seem to fit in here."))
 		return
 
 	//Check if there is no other beaker already inside
 	if(current_beaker)
-		to_chat(user,span_notice("There is already a reagent container inside.") )
+		to_chat(user,span_notice("There is already a reagent container inside."))
 		return
 
 	//The current beaker is the one we just attached, its location is inside the circuit
 	current_beaker = I
 	user.transferItemToLoc(I,src)
 
-	to_chat(user,span_warning("You put the [I.name] inside the beaker connector.") )
+	to_chat(user,span_warning("You put the [I.name] inside the beaker connector."))
 
 	//Set the pin to a weak reference of the current beaker
 	push_vol()
@@ -802,11 +802,11 @@
 /obj/item/integrated_circuit_old/input/beaker_connector/attack_self(mob/user)
 	//Check if no beaker attached
 	if(!current_beaker)
-		to_chat(user, span_notice("There is currently no beaker attached.") )
+		to_chat(user, span_notice("There is currently no beaker attached."))
 		return
 
 	//Remove beaker and put in user's hands/location
-	to_chat(user, span_notice("You take [current_beaker] out of the beaker connector.") )
+	to_chat(user, span_notice("You take [current_beaker] out of the beaker connector."))
 	user.put_in_hands(current_beaker)
 	current_beaker = null
 	//Remove beaker reference

@@ -196,31 +196,31 @@
 
 	if(!panel_open) //connect/disconnect circulators
 		if(!anchored)
-			to_chat(user, span_warning("Нужно прикрутить [src] перед подключением циркуляторов!") )
+			to_chat(user, span_warning("Нужно прикрутить [src] перед подключением циркуляторов!"))
 			return TRUE
 		else
 			if(hot_circ && cold_circ)
-				to_chat(user, span_notice("Начинаю отсоединять циркуляторы...") )
+				to_chat(user, span_notice("Начинаю отсоединять циркуляторы..."))
 				if(I.use_tool(src, user, 30, volume=50))
 					kill_circs()
 					update_icon()
-					to_chat(user, span_notice("Отсоединяю циркуляторы от [src].") )
+					to_chat(user, span_notice("Отсоединяю циркуляторы от [src]."))
 					playsound(src, 'sound/misc/box_deploy.ogg', 50)
 				return TRUE
 
-			to_chat(user, span_notice("Пытаюсь присоединить циркуляторы...") )
+			to_chat(user, span_notice("Пытаюсь присоединить циркуляторы..."))
 			if(I.use_tool(src, user, 30, volume=50))
 				switch(find_circs())
 					if(0)
-						to_chat(user, span_warning("Не обнаружено циркуляторов!") )
+						to_chat(user, span_warning("Не обнаружено циркуляторов!"))
 					if(1)
-						to_chat(user, span_warning("Найден только один циркулятор!") )
+						to_chat(user, span_warning("Найден только один циркулятор!"))
 					if(2)
-						to_chat(user, span_notice("Присоединяю циркуляторы к [src].") )
+						to_chat(user, span_notice("Присоединяю циркуляторы к [src]."))
 						playsound(src, 'sound/misc/box_deploy.ogg', 50)
 						return TRUE
 					if(3)
-						to_chat(user, span_warning("Оба циркулятора в одинаковом режиме!") )
+						to_chat(user, span_warning("Оба циркулятора в одинаковом режиме!"))
 				return TRUE
 
 	anchored = !anchored
@@ -228,7 +228,7 @@
 	if(!anchored)
 		kill_circs()
 	connect_to_network()
-	to_chat(user, span_notice("[anchored?"Прикручиваю":"Откручиваю"] [src].") )
+	to_chat(user, span_notice("[anchored?"Прикручиваю":"Откручиваю"] [src]."))
 	update_icon()
 	return TRUE
 
@@ -239,11 +239,11 @@
 		return
 
 	if(hot_circ && cold_circ)
-		to_chat(user, span_warning("Нужно отсоединить циркуляторы сначала!") )
+		to_chat(user, span_warning("Нужно отсоединить циркуляторы сначала!"))
 		return TRUE
 	panel_open = !panel_open
 	I.play_tool_sound(src)
-	to_chat(user, span_notice("[panel_open?"Открываю":"Закрываю"] панель [src].") )
+	to_chat(user, span_notice("[panel_open?"Открываю":"Закрываю"] панель [src]."))
 	update_icon()
 	return TRUE
 
@@ -252,10 +252,10 @@
 		return
 
 	if(anchored)
-		to_chat(user, span_warning("[capitalize(src.name)] прикручен!") )
+		to_chat(user, span_warning("[capitalize(src.name)] прикручен!"))
 		return TRUE
 	else if(!panel_open)
-		to_chat(user, span_warning("Стоит открыть панель сначала!") )
+		to_chat(user, span_warning("Стоит открыть панель сначала!"))
 		return TRUE
 	else
 		default_deconstruction_crowbar(I)

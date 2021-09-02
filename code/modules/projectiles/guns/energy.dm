@@ -172,7 +172,7 @@
 	fire_sound = shot.fire_sound
 	fire_delay = shot.delay
 	if (shot.select_name)
-		to_chat(user, span_notice("<b>[capitalize(src.name)]</b> теперь в режиме [shot.select_name].") )
+		to_chat(user, span_notice("<b>[capitalize(src.name)]</b> теперь в режиме [shot.select_name]."))
 	chambered = null
 	recharge_newshot(TRUE)
 	update_icon()
@@ -228,20 +228,20 @@
 
 /obj/item/gun/energy/suicide_act(mob/living/user)
 	if (istype(user) && can_shoot() && can_trigger_gun(user) && user.get_bodypart(BODY_ZONE_HEAD))
-		user.visible_message(span_suicide("[user] is putting the barrel of [src] in [user.ru_ego()] mouth. It looks like [user.p_theyre()] trying to commit suicide!") )
+		user.visible_message(span_suicide("[user] is putting the barrel of [src] in [user.ru_ego()] mouth. It looks like [user.p_theyre()] trying to commit suicide!"))
 		sleep(25)
 		if(user.is_holding(src))
-			user.visible_message(span_suicide("[user] melts [user.ru_ego()] face off with [src]!") )
+			user.visible_message(span_suicide("[user] melts [user.ru_ego()] face off with [src]!"))
 			playsound(loc, fire_sound, 50, TRUE, -1)
 			var/obj/item/ammo_casing/energy/shot = ammo_type[select]
 			cell.use(shot.e_cost)
 			update_icon()
 			return(FIRELOSS)
 		else
-			user.visible_message(span_suicide("[user] panics and starts choking to death!") )
+			user.visible_message(span_suicide("[user] panics and starts choking to death!"))
 			return(OXYLOSS)
 	else
-		user.visible_message(span_suicide("[user] is pretending to melt [user.ru_ego()] face off with [src]! It looks like [user.p_theyre()] trying to commit suicide!</b>") )
+		user.visible_message(span_suicide("[user] is pretending to melt [user.ru_ego()] face off with [src]! It looks like [user.p_theyre()] trying to commit suicide!</b>"))
 		playsound(src, dry_fire_sound, 30, TRUE)
 		return (OXYLOSS)
 
@@ -266,13 +266,13 @@
 		if(!BB)
 			. = ""
 		else if(BB.nodamage || !BB.damage || BB.damage_type == STAMINA)
-			user.visible_message(span_danger("[user] пытается зажечь [A.loc == user ? "[user.ru_ego()] [A.name]" : A] используя [src], но не выходит. Тупица.") )
+			user.visible_message(span_danger("[user] пытается зажечь [A.loc == user ? "[user.ru_ego()] [A.name]" : A] используя [src], но не выходит. Тупица."))
 			playsound(user, E.fire_sound, 50, TRUE)
 			playsound(user, BB.hitsound, 50, TRUE)
 			cell.use(E.e_cost)
 			. = ""
 		else if(BB.damage_type != BURN)
-			user.visible_message(span_danger("[user] пытается поджечь [A.loc == user ? "[user.ru_ego()] [A.name]" : A] при помощи [src], но в итоге просто уничтожил это. Тупица.") )
+			user.visible_message(span_danger("[user] пытается поджечь [A.loc == user ? "[user.ru_ego()] [A.name]" : A] при помощи [src], но в итоге просто уничтожил это. Тупица."))
 			playsound(user, E.fire_sound, 50, TRUE)
 			playsound(user, BB.hitsound, 50, TRUE)
 			cell.use(E.e_cost)

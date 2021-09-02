@@ -15,7 +15,7 @@
 /datum/antagonist/slaughter/greet()
 	. = ..()
 	owner.announce_objectives()
-	to_chat(owner, span_warning("У тебя есть мощная альтернативная атака, которая отбрасывает людей. Ты можешь активировать её используя shift+ctrl+лкм по цели!") )
+	to_chat(owner, span_warning("У тебя есть мощная альтернативная атака, которая отбрасывает людей. Ты можешь активировать её используя shift+ctrl+лкм по цели!"))
 
 /datum/antagonist/slaughter/proc/forge_objectives()
 	if(summoner)

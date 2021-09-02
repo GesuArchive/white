@@ -24,7 +24,7 @@
 		desc = "Небольшой текст гласит: «Вы будете убиты» ... Это звучит неправильно, не так ли?"
 		if(ismob(loc))
 			var/mob/M = loc
-			to_chat(M, span_warning("Купон гласит '<b>трахни себя</b>' жирным шрифтом ... это цена или нет?") )
+			to_chat(M, span_warning("Купон гласит '<b>трахни себя</b>' жирным шрифтом ... это цена или нет?"))
 			M.AddComponent(/datum/component/omen, TRUE, src)
 	else
 		discount_pct_off = text2num(discount_pct_off)
@@ -34,7 +34,7 @@
 	if(!istype(O, /obj/machinery/computer/cargo))
 		return ..()
 	if(discount_pct_off == COUPON_OMEN)
-		to_chat(user, span_warning("\The [O] подтверждает купон как подлинный, но отказывается принять его ...") )
+		to_chat(user, span_warning("\The [O] подтверждает купон как подлинный, но отказывается принять его ..."))
 		O.say("Выпуск купона уже в процессе ...")
 		return
 

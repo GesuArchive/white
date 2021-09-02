@@ -46,10 +46,10 @@
 				var/obj/item/blacksmith/ingot/N = I.contents[I.contents.len]
 				N.heattemp = 350
 				I.icon_state = "tongs_hot"
-				to_chat(user, span_notice("Нагреваю болванку как могу.") )
+				to_chat(user, span_notice("Нагреваю болванку как могу."))
 				return
 		else
-			to_chat(user, span_warning("Ты ебанутый?") )
+			to_chat(user, span_warning("Ты ебанутый?"))
 			return
 
 /obj/furnace
@@ -93,7 +93,7 @@
 			furnacing = TRUE
 			icon_state = "furnace_on"
 			light_range = 3
-			to_chat(user, span_notice("Плавильня начинает свою работу...") )
+			to_chat(user, span_notice("Плавильня начинает свою работу..."))
 			if(istype(I, /obj/item/stack/ore/gold))
 				furnacing_type = "gold"
 			else if(istype(I, /obj/item/stack/ore/glass))
@@ -131,14 +131,14 @@
 	if(current_ingot.progress_current == current_ingot.progress_need)
 		current_ingot.progress_current++
 		playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
-		to_chat(user, span_notice("Болванка готова. Ещё один удар для продолжения ковки, либо можно охлаждать.") )
-		to_chat(user, span_green("> Активируй болванку в клещах для охлаждения.") )
+		to_chat(user, span_notice("Болванка готова. Ещё один удар для продолжения ковки, либо можно охлаждать."))
+		to_chat(user, span_green("> Активируй болванку в клещах для охлаждения."))
 		user<<browse(null, "window=Наковальня")
 		return
 	else
 		playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
 		user.visible_message(span_notice("<b>[user]</b> бьёт молотом по наковальне.") , \
-						span_notice("Бью молотом по наковальне.") )
+						span_notice("Бью молотом по наковальне."))
 		current_ingot.progress_current++
 		H.adjustStaminaLoss(rand(1, 5))
 		H.mind.adjust_experience(/datum/skill/smithing, rand(0, 4) * current_ingot.mod_grade)
@@ -148,14 +148,14 @@
 	// var/mob/living/carbon/human/H = user
 	current_ingot.durability--
 	if(current_ingot.durability == 0)
-		to_chat(user, span_warning("Болванка раскалывается на множество бесполезных кусочков металла...") )
+		to_chat(user, span_warning("Болванка раскалывается на множество бесполезных кусочков металла..."))
 		current_ingot = null
 		LAZYCLEARLIST(contents)
 		icon_state = "[initial(icon_state)]"
 		user<<browse(null, "window=Наковальня")
 	playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
 	user.visible_message(span_warning("<b>[user]</b> неправильно бьёт молотом по наковальне.") , \
-						span_warning("Неправильно бью молотом по наковальне.") )
+						span_warning("Неправильно бью молотом по наковальне."))
 	return
 
 /obj/anvil/fullsteel
@@ -179,7 +179,7 @@
 		return
 
 	if(!ishuman(user))
-		to_chat(user, span_warning("Мои ручки слишком слабы для такой работы!") )
+		to_chat(user, span_warning("Мои ручки слишком слабы для такой работы!"))
 		return
 
 	var/mob/living/carbon/human/H = user
@@ -192,7 +192,7 @@
 		if(current_ingot)
 			if(current_ingot.heattemp <= 0)
 				icon_state = "[initial(icon_state)]_cold"
-				to_chat(user, span_warning("Болванка слишком холодная. Стоит разогреть её.") )
+				to_chat(user, span_warning("Болванка слишком холодная. Стоит разогреть её."))
 				return
 			if(current_ingot.recipe)
 				var/height = 30
@@ -331,7 +331,7 @@
 					current_ingot.mod_grade++
 					current_ingot.progress_need = round(current_ingot.progress_need * 1.1)
 					playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
-					to_chat(user, span_notice("Начинаем улучшать болванку...") )
+					to_chat(user, span_notice("Начинаем улучшать болванку..."))
 					return
 			else
 				var/list/metal_allowed_list = list()
@@ -340,24 +340,24 @@
 						metal_allowed_list += SR
 				var/datum/smithing_recipe/sel_recipe = input("Выбор:", "Что куём?", null, null) as null|anything in metal_allowed_list
 				if(!sel_recipe)
-					to_chat(user, span_warning("Не выбран рецепт.") )
+					to_chat(user, span_warning("Не выбран рецепт."))
 					return
 				if(current_ingot.recipe)
-					to_chat(user, span_warning("УЖЕ ВЫБРАН РЕЦЕПТ!") )
+					to_chat(user, span_warning("УЖЕ ВЫБРАН РЕЦЕПТ!"))
 					return
 				current_ingot.recipe = new sel_recipe.type()
 				current_ingot.recipe.max_resulting = H.mind.get_skill_modifier(/datum/skill/smithing, SKILL_RANDS_MODIFIER)
 				playsound(src, 'white/valtos/sounds/anvil_hit.ogg', 70, TRUE)
-				to_chat(user, span_notice("Приступаем к ковке...") )
+				to_chat(user, span_notice("Приступаем к ковке..."))
 				return
 		else
-			to_chat(user, span_warning("Тут нечего ковать!") )
+			to_chat(user, span_warning("Тут нечего ковать!"))
 			return
 
 	if(istype(I, /obj/item/blacksmith/tongs))
 		if(current_ingot)
 			if(I.contents.len)
-				to_chat(user, span_warning("Клещи уже что-то держат!") )
+				to_chat(user, span_warning("Клещи уже что-то держат!"))
 				return
 			else
 				if(current_ingot.heattemp > 0)
@@ -367,12 +367,12 @@
 				current_ingot.forceMove(I)
 				current_ingot = null
 				icon_state = "[initial(icon_state)]"
-				to_chat(user, span_notice("Беру болванку в клещи.") )
+				to_chat(user, span_notice("Беру болванку в клещи."))
 				return
 		else
 			if(I.contents.len)
 				if(current_ingot)
-					to_chat(user, span_warning("Здесь уже есть болванка!") )
+					to_chat(user, span_warning("Здесь уже есть болванка!"))
 					return
 				var/obj/item/blacksmith/ingot/N = I.contents[I.contents.len]
 				if(N.heattemp > 0)
@@ -382,9 +382,9 @@
 				N.forceMove(src)
 				current_ingot = N
 				I.icon_state = "tongs"
-				to_chat(user, span_notice("Располагаю болванку на наковальне.") )
+				to_chat(user, span_notice("Располагаю болванку на наковальне."))
 				return
 			else
-				to_chat(user, span_warning("Наковальня совсем пуста!") )
+				to_chat(user, span_warning("Наковальня совсем пуста!"))
 				return
 	return ..()

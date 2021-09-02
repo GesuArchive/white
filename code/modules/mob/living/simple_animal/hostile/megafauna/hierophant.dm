@@ -214,7 +214,7 @@ Difficulty: Hard
 /mob/living/simple_animal/hostile/megafauna/hierophant/proc/blink_spam(blink_counter, target_slowness, cross_counter)
 	update_cooldowns(list(COOLDOWN_UPDATE_SET_RANGED = max(0.5 SECONDS, major_attack_cooldown - anger_modifier * 0.75)))
 	if(health < maxHealth * 0.5 && blink_counter > 1)
-		visible_message(span_hierophant("\"Mx ampp rsx iwgeti.\"") )
+		visible_message(span_hierophant("\"Mx ampp rsx iwgeti.\""))
 		var/oldcolor = color
 		animate(src, color = "#660099", time = 6)
 		SLEEP_CHECK_DEATH(6)
@@ -402,14 +402,14 @@ Difficulty: Hard
 			timeout_time--
 		if(timeout_time <= 0 && !did_reset)
 			did_reset = TRUE
-			visible_message(span_hierophant_warning("\"Vixyvrmrk xs fewi...\"") )
+			visible_message(span_hierophant_warning("\"Vixyvrmrk xs fewi...\""))
 			blink(spawned_beacon)
 			adjustHealth(min((health - maxHealth) * 0.5, -250)) //heal for 50% of our missing health, minimum 10% of maximum health
 			wander = FALSE
 			if(health > maxHealth * 0.9)
-				visible_message(span_hierophant("\"Vitemvw gsqtpixi. Stivexmrk ex qebmqyq ijjmgmirgc.\"") )
+				visible_message(span_hierophant("\"Vitemvw gsqtpixi. Stivexmrk ex qebmqyq ijjmgmirgc.\""))
 			else
-				visible_message(span_hierophant("\"Vitemvw gsqtpixi. Stivexmsrep ijjmgmirgc gsqtvsqmwih.\"") )
+				visible_message(span_hierophant("\"Vitemvw gsqtpixi. Stivexmsrep ijjmgmirgc gsqtvsqmwih.\""))
 
 /mob/living/simple_animal/hostile/megafauna/hierophant/death()
 	if(health > 0 || stat == DEAD)
@@ -417,8 +417,8 @@ Difficulty: Hard
 	else
 		set_stat(DEAD)
 		blinking = TRUE //we do a fancy animation, release a huge burst(), and leave our staff.
-		visible_message(span_hierophant("\"Mrmxmexmrk wipj-hiwxvygx wiuyirgi...\"") )
-		visible_message(span_hierophant_warning("[capitalize(src.name)] shrinks, releasing a massive burst of energy!") )
+		visible_message(span_hierophant("\"Mrmxmexmrk wipj-hiwxvygx wiuyirgi...\""))
+		visible_message(span_hierophant_warning("[capitalize(src.name)] shrinks, releasing a massive burst of energy!"))
 		for(var/mob/living/L in view(7,src))
 			stored_nearby += L // store the people to grant the achievements to once we die
 		hierophant_burst(null, get_turf(src), 10)
@@ -433,8 +433,8 @@ Difficulty: Hard
 	for(var/obj/item/W in L)
 		if(!L.dropItemToGround(W))
 			qdel(W)
-	visible_message(span_hierophant_warning("\"[pick(kill_phrases)]\"") )
-	visible_message(span_hierophant_warning("[capitalize(src.name)] annihilates [L]!") ,span_userdanger("You annihilate [L], restoring your health!") )
+	visible_message(span_hierophant_warning("\"[pick(kill_phrases)]\""))
+	visible_message(span_hierophant_warning("[capitalize(src.name)] annihilates [L]!") ,span_userdanger("You annihilate [L], restoring your health!"))
 	adjustHealth(-L.maxHealth*0.5)
 	L.dust()
 
@@ -447,7 +447,7 @@ Difficulty: Hard
 	var/targets_the_same = (new_target == target)
 	. = ..()
 	if(. && target && !targets_the_same)
-		visible_message(span_hierophant_warning("\"[pick(target_phrases)]\"") )
+		visible_message(span_hierophant_warning("\"[pick(target_phrases)]\""))
 		if(spawned_beacon && loc == spawned_beacon.loc && did_reset)
 			arena_trap(src)
 
@@ -700,7 +700,7 @@ Difficulty: Hard
 		if(L.client)
 			flash_color(L.client, "#660099", 1)
 		playsound(L,'sound/weapons/sear.ogg', 50, TRUE, -4)
-		to_chat(L, span_userdanger("Меня ударяет <b>[name]</b>!") )
+		to_chat(L, span_userdanger("Меня ударяет <b>[name]</b>!"))
 		var/limb_to_hit = L.get_bodypart(pick(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_R_LEG, BODY_ZONE_L_LEG))
 		var/armor = L.run_armor_check(limb_to_hit, MELEE, "Моя броня поглощает <b>[src]</b>!", "Моя броня блокирует часть <b>[src]</b>!", FALSE, 50, "Моя броня пробита <b>[src]</b>!")
 		L.apply_damage(damage, BURN, limb_to_hit, armor, wound_bonus=CANT_WOUND)
@@ -722,7 +722,7 @@ Difficulty: Hard
 			var/mob/living/occupant = O
 			if(friendly_fire_check && caster?.faction_check_mob(occupant))
 				continue
-			to_chat(M, span_userdanger("Мой [M.name] был подвержен [name]!") )
+			to_chat(M, span_userdanger("Мой [M.name] был подвержен [name]!"))
 			playsound(M,'sound/weapons/sear.ogg', 50, TRUE, -4)
 			M.take_damage(damage, BURN, 0, 0)
 
@@ -752,16 +752,16 @@ Difficulty: Hard
 	if(istype(I, /obj/item/hierophant_club))
 		var/obj/item/hierophant_club/H = I
 		if(H.beacon == src)
-			to_chat(user, span_notice("You start removing your hierophant beacon...") )
+			to_chat(user, span_notice("You start removing your hierophant beacon..."))
 			if(do_after(user, 50, target = src))
 				playsound(src,'sound/magic/blind.ogg', 200, TRUE, -4)
 				new /obj/effect/temp_visual/hierophant/telegraph/teleport(get_turf(src), user)
-				to_chat(user, span_hierophant_warning("You collect [src], reattaching it to the club!") )
+				to_chat(user, span_hierophant_warning("You collect [src], reattaching it to the club!"))
 				H.beacon = null
 				H.update_icon()
 				user.update_action_buttons_icon()
 				qdel(src)
 		else
-			to_chat(user, span_hierophant_warning("You touch the beacon with the club, but nothing happens.") )
+			to_chat(user, span_hierophant_warning("You touch the beacon with the club, but nothing happens."))
 	else
 		return ..()

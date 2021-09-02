@@ -260,13 +260,13 @@
 	REMOVE_TRAIT(L, TRAIT_HOLY, type)
 	if(HAS_TRAIT_FROM(L, TRAIT_DEPRESSION, HOLYWATER_TRAIT))
 		REMOVE_TRAIT(L, TRAIT_DEPRESSION, HOLYWATER_TRAIT)
-		to_chat(L, span_notice("You cheer up, knowing that everything is going to be ok.") )
+		to_chat(L, span_notice("You cheer up, knowing that everything is going to be ok."))
 	..()
 
 /datum/reagent/water/holywater/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()
 	if(iscultist(exposed_mob))
-		to_chat(exposed_mob, span_userdanger("Омерзительная святость начинает распространять свои сияющие щупальца по вашему разуму, очищая влияние Геометра Крови!") )
+		to_chat(exposed_mob, span_userdanger("Омерзительная святость начинает распространять свои сияющие щупальца по вашему разуму, очищая влияние Геометра Крови!"))
 
 /datum/reagent/water/holywater/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(M.blood_volume)
@@ -278,7 +278,7 @@
 	M.jitteriness = min(M.jitteriness + (2 * delta_time), 10)
 	if(iscultist(M))
 		for(var/datum/action/innate/cult/blood_magic/BM in M.actions)
-			to_chat(M, span_cultlarge("Мои кровавые ритуалы сорваны, так как святая вода омыла моё тело!") )
+			to_chat(M, span_cultlarge("Мои кровавые ритуалы сорваны, так как святая вода омыла моё тело!"))
 			for(var/datum/action/innate/cult/blood_spell/BS in BM.spells)
 				qdel(BS)
 	if(data["misc"] >= 25)		// 10 units, 45 seconds @ metabolism 0.4 units & tick rate 1.8 sec
@@ -290,12 +290,12 @@
 			M.say(text2ratvar(pick("Please don't leave me...", "Rat'var what happened?", "My friends, where are you?", "The hierophant network just went dark, is anyone there?", "The light is fading...", "No... It can't be...")), forced = "holy water")
 			if(prob(40))
 				if(!HAS_TRAIT_FROM(M, TRAIT_DEPRESSION, HOLYWATER_TRAIT))
-					to_chat(M, span_large_brass("You feel the light fading and the world collapsing around you...") )
+					to_chat(M, span_large_brass("You feel the light fading and the world collapsing around you..."))
 					ADD_TRAIT(M, TRAIT_DEPRESSION, HOLYWATER_TRAIT)
 		if(iscultist(M) && DT_PROB(10, delta_time))
 			M.say(pick("Av'te Nar'Sie","Pa'lid Mors","INO INO ORA ANA","SAT ANA!","Daim'niodeis Arc'iai Le'eones","R'ge Na'sie","Diabo us Vo'iscum","Eld' Mon Nobis"), forced = "holy water")
 			if(prob(10))
-				M.visible_message(span_danger("У [M] начался припадок!") , span_userdanger("У меня припадок!") )
+				M.visible_message(span_danger("У [M] начался припадок!") , span_userdanger("У меня припадок!"))
 				M.Unconscious(120)
 				to_chat(M, "<span class='cultlarge'>[pick("Твоя кровь это твои узы - без них ты ничего не стоишь", "Не забывай своё место", \
 				"Такая сила, и ты всё равно провалился?", "Если тебе не по силам очистится от этого яда, то я очищу мир от твоего скудного существования!")].</span>")
@@ -515,7 +515,7 @@
 			exposed_human.regenerate_icons()
 
 		if((methods & INGEST) && show_message)
-			to_chat(exposed_mob, span_notice("Вкус говнище.") )
+			to_chat(exposed_mob, span_notice("Вкус говнище."))
 
 
 /datum/reagent/spraytan/overdose_process(mob/living/M, delta_time, times_fired)
@@ -584,13 +584,13 @@
 		for(var/i in mutationtexts)
 			if(mutationtexts[i] == filter)
 				pick_ur_fav += i
-		to_chat(H, span_warning("[pick(pick_ur_fav)]") )
+		to_chat(H, span_warning("[pick(pick_ur_fav)]"))
 
 	if(current_cycle >= cycles_to_turn)
 		var/datum/species/species_type = race
 		H.set_species(species_type)
 		holder.del_reagent(type)
-		to_chat(H, span_warning("Превратился в [lowertext(initial(species_type.name))]!") )
+		to_chat(H, span_warning("Превратился в [lowertext(initial(species_type.name))]!"))
 		return
 	..()
 
@@ -657,7 +657,7 @@
 
 /datum/reagent/mutationtoxin/jelly/on_mob_life(mob/living/carbon/human/H, delta_time, times_fired)
 	if(isjellyperson(H))
-		to_chat(H, span_warning("Моя масса трансформируется и смещается, превращая меня в другой подвид!") )
+		to_chat(H, span_warning("Моя масса трансформируется и смещается, превращая меня в другой подвид!"))
 		var/species_type = pick(subtypesof(/datum/species/jelly))
 		H.set_species(species_type)
 		holder.del_reagent(type)
@@ -666,7 +666,7 @@
 		var/datum/species/species_type = pick(subtypesof(race))
 		H.set_species(species_type)
 		holder.del_reagent(type)
-		to_chat(H, span_warning("Превратился в [initial(species_type.name)]!") )
+		to_chat(H, span_warning("Превратился в [initial(species_type.name)]!"))
 		return TRUE
 	return ..()
 
@@ -761,7 +761,7 @@
 	..()
 	if (!istype(H))
 		return
-	to_chat(H, span_warning("<b>Стискиваю зубы от боли, появившейся во время быстрой мутации моего тела!</b>") )
+	to_chat(H, span_warning("<b>Стискиваю зубы от боли, появившейся во время быстрой мутации моего тела!</b>"))
 	H.visible_message("<b>[H]</b> внезапно трансформировался!")
 	randomize_human(H)
 
@@ -1183,7 +1183,7 @@
 
 /datum/reagent/bluespace/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(current_cycle > 10 && DT_PROB(7.5, delta_time))
-		to_chat(M, span_warning("Чувствую себя нестабильно...") )
+		to_chat(M, span_warning("Чувствую себя нестабильно..."))
 		M.Jitter(2)
 		current_cycle = 1
 		addtimer(CALLBACK(M, /mob/living/proc/bluespace_shuffle), 30)
@@ -2196,7 +2196,7 @@
 	var/mob/living/carbon/human/exposed_human = exposed_mob
 	var/datum/sprite_accessory/hair/picked_hair = pick(GLOB.hairstyles_list)
 	var/datum/sprite_accessory/facial_hair/picked_beard = pick(GLOB.facial_hairstyles_list)
-	to_chat(exposed_human, span_notice("На моем скальпе начали расти волосы.") )
+	to_chat(exposed_human, span_notice("На моем скальпе начали расти волосы."))
 	exposed_human.hairstyle = picked_hair
 	exposed_human.facial_hairstyle = picked_beard
 	exposed_human.update_hair()
@@ -2217,7 +2217,7 @@
 		return
 
 	var/mob/living/carbon/human/exposed_human = exposed_mob
-	to_chat(exposed_human, span_notice("Мои волосы начали очень быстро расти!") )
+	to_chat(exposed_human, span_notice("Мои волосы начали очень быстро расти!"))
 	exposed_human.hairstyle = "Very Long Hair"
 	exposed_human.facial_hairstyle = "Beard (Very Long)"
 	exposed_human.update_hair()
@@ -2238,7 +2238,7 @@
 		return
 
 	var/mob/living/carbon/human/exposed_human = exposed_mob
-	to_chat(exposed_human, span_danger("Мои волосы начали выпадать целыми клочьями!") )
+	to_chat(exposed_human, span_danger("Мои волосы начали выпадать целыми клочьями!"))
 	exposed_human.hairstyle = "Bald"
 	exposed_human.facial_hairstyle = "Shaved"
 	exposed_human.update_hair()
@@ -2621,7 +2621,7 @@
 			var/dread = pick("Something is moving in your stomach...", \
 				"A wet growl echoes from your stomach...", \
 				"For a moment you feel like your surroundings are moving, but it's your stomach...")
-			to_chat(C, span_userdanger("[dread]") )
+			to_chat(C, span_userdanger("[dread]"))
 			yuck_cycle = current_cycle
 	else
 		var/yuck_cycles = current_cycle - yuck_cycle
@@ -2865,7 +2865,7 @@
 
 /datum/reagent/ants/on_mob_end_metabolize(mob/living/living_anthill)
 	ant_damage = 0
-	to_chat(living_anthill, span_notice("You feel like the last of the ants are out of your system.") )
+	to_chat(living_anthill, span_notice("You feel like the last of the ants are out of your system."))
 	return ..()
 
 /datum/reagent/ants/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)

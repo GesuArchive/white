@@ -99,7 +99,7 @@
 /obj/item/assembly_holder/screwdriver_act(mob/user, obj/item/tool)
 	if(..())
 		return TRUE
-	to_chat(user, span_notice("You disassemble [src]!") )
+	to_chat(user, span_notice("You disassemble [src]!"))
 	if(a_left)
 		a_left.on_detach()
 		a_left = null
@@ -112,7 +112,7 @@
 /obj/item/assembly_holder/attack_self(mob/user)
 	src.add_fingerprint(user)
 	if(!a_left || !a_right)
-		to_chat(user, span_danger("Assembly part missing!") )
+		to_chat(user, span_danger("Assembly part missing!"))
 		return
 	if(istype(a_left,a_right.type))//If they are the same type it causes issues due to window code
 		switch(tgui_alert(usr,"Which side would you like to use?",,list("Left","Right")))

@@ -18,10 +18,10 @@
 	if(!..())
 		return FALSE
 	for(var/obj/structure/destructible/clockwork/structure in get_turf(invoker))
-		to_chat(invoker, span_brass("You cannot invoke that here, the tile is occupied by [structure].") )
+		to_chat(invoker, span_brass("You cannot invoke that here, the tile is occupied by [structure]."))
 		return FALSE
 	for(var/obj/structure/destructible/clockwork/ocular_warden/AC in range(OCULAR_WARDEN_PLACE_RANGE))
-		to_chat(invoker, span_nezbere("There is another ocular warden nearby, placing them too close will cause them to fight!") )
+		to_chat(invoker, span_nezbere("There is another ocular warden nearby, placing them too close will cause them to fight!"))
 		return FALSE
 	return TRUE
 

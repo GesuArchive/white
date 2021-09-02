@@ -32,7 +32,7 @@
 /datum/antagonist/gang/farewell()
 	if(ishuman(owner.current))
 		owner.current.visible_message(span_deconversion_message("[owner.current] looks like [owner.current.p_theyve()] just remembered [owner.current.ru_ego()] real allegiance!") , null, null, null, owner.current)
-		to_chat(owner, span_userdanger("You are no longer a gangster!") )
+		to_chat(owner, span_userdanger("You are no longer a gangster!"))
 
 /datum/antagonist/gang/on_gain()
 	if(!gang)
@@ -133,7 +133,7 @@
 			gang = new newgang
 	else
 		if(!GLOB.gangs.len) // no gangs exist
-			to_chat(admin, span_danger("No gangs exist, please create a new one instead.") )
+			to_chat(admin, span_danger("No gangs exist, please create a new one instead."))
 			return
 		var/existinggang = input(admin, "Select a gang, or select random to pick a random one.", "Existing gang") as null|anything in GLOB.gangs + "Random"
 		if(isnull(existinggang))
@@ -245,7 +245,7 @@
 		..()
 	equip_gang()
 	log_admin("[key_name(admin)] has made [new_owner.current] a boss of the [gang.name] gang.")
-	to_chat(new_owner.current, span_userdanger("You are a member of the [gang.name] Gang leadership now!") )
+	to_chat(new_owner.current, span_userdanger("You are a member of the [gang.name] Gang leadership now!"))
 	return TRUE
 
 /datum/antagonist/gang/boss/get_admin_commands()
@@ -265,13 +265,13 @@
 	old_owner.add_antag_datum(new_gangster,old_gang)
 	new_gangster.silent = FALSE
 	log_game("[key_name(old_owner)] has been demoted to Gangster in the [gang.name] Gang")
-	to_chat(old_owner, span_userdanger("The gang has been disappointed of your leader traits! You are a regular gangster now!") )
+	to_chat(old_owner, span_userdanger("The gang has been disappointed of your leader traits! You are a regular gangster now!"))
 
 /datum/antagonist/gang/boss/proc/admin_take_gangtool(mob/admin)
 	var/list/L = owner.current.get_contents()
 	var/obj/item/gangtool/gangtool = locate() in L
 	if (!gangtool)
-		to_chat(admin, span_danger("Deleting gangtool failed!") )
+		to_chat(admin, span_danger("Deleting gangtool failed!"))
 		return
 	qdel(gangtool)
 
@@ -476,7 +476,7 @@
 		if(mob && mob.mind && mob.stat == CONSCIOUS)
 			var/datum/antagonist/gang/gangster = mob.mind.has_antag_datum(/datum/antagonist/gang)
 			if(gangster.gang == src)
-				to_chat(mob, span_warning("[icon2html(tool, mob)] [message]") )
+				to_chat(mob, span_warning("[icon2html(tool, mob)] [message]"))
 				playsound(mob.loc, 'sound/machines/twobeep.ogg', 50, 1)
 			return
 

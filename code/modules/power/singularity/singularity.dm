@@ -402,7 +402,7 @@
 /obj/singularity/proc/combust_mobs()
 	for(var/mob/living/carbon/C in urange(20, src, 1))
 		C.visible_message(span_warning("Кожа <b>[C]</b> воспламеняется!") , \
-						  span_userdanger("Чувствую, что я сейчас <b>ГОРЮ</b>!") )
+						  span_userdanger("Чувствую, что я сейчас <b>ГОРЮ</b>!"))
 		C.adjust_fire_stacks(5)
 		C.IgniteMob()
 	return
@@ -419,12 +419,12 @@
 				if(istype(H.glasses, /obj/item/clothing/glasses/meson))
 					var/obj/item/clothing/glasses/meson/MS = H.glasses
 					if(MS.vision_flags == SEE_TURFS)
-						to_chat(H, span_notice("Смотрю прямо в <b>сингулярность</b>, но меня спасают мои защитные очки!") )
+						to_chat(H, span_notice("Смотрю прямо в <b>сингулярность</b>, но меня спасают мои защитные очки!"))
 						return
 
 		M.apply_effect(60, EFFECT_STUN)
 		M.visible_message(span_danger("<b>[M]</b> смотрит прямо в <b>сингулярность</b>!") , \
-						span_userdanger("Смотрю прямо в <b>сингулярность</b> и ощущаю слабость.") )
+						span_userdanger("Смотрю прямо в <b>сингулярность</b> и ощущаю слабость."))
 
 
 /obj/singularity/proc/emp_area()

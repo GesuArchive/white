@@ -11,7 +11,7 @@
 /datum/surgery_step/insert_pill/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю вводить [tool] в [parse_zone(target_zone)] [target]...") ,
 			span_notice("[user] начинет вводить [tool] в [parse_zone(target_zone)] [target].") ,
-			span_notice("[user] начинат вводить что-то в [parse_zone(target_zone)] [target] .") )
+			span_notice("[user] начинат вводить что-то в [parse_zone(target_zone)] [target] ."))
 
 /datum/surgery_step/insert_pill/success(mob/user, mob/living/carbon/target, target_zone, obj/item/reagent_containers/pill/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(!istype(tool))
@@ -26,7 +26,7 @@
 
 	display_results(user, target, span_notice("Ввёл [tool] в [parse_zone(target_zone)] [target] .") ,
 			span_notice("[user] ввёл [tool] в [parse_zone(target_zone)] [target]!") ,
-			span_notice("[user] ввёл что-то в [parse_zone(target_zone)] [target] !") )
+			span_notice("[user] ввёл что-то в [parse_zone(target_zone)] [target] !"))
 	return ..()
 
 /datum/action/item_action/hands_free/activate_pill
@@ -35,7 +35,7 @@
 /datum/action/item_action/hands_free/activate_pill/Trigger()
 	if(!..())
 		return FALSE
-	to_chat(owner, span_notice("Сжимаю зубы и разжёвываю имплант [target.name]!") )
+	to_chat(owner, span_notice("Сжимаю зубы и разжёвываю имплант [target.name]!"))
 	log_combat(owner, null, "проглотил имплантированную пилюлю", target)
 	if(target.reagents.total_volume)
 		target.reagents.trans_to(owner, target.reagents.total_volume, transfered_by = owner, methods = INGEST)

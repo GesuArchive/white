@@ -27,23 +27,23 @@
 	SIGNAL_HANDLER
 	if(!user.research_scanner)
 		return
-	to_chat(user, span_notice("Научная ценность обнаружена.") )
-	to_chat(user, span_notice("Сканирование: [scanned ? "Истина" : "Ложь"].") )
-	to_chat(user, span_notice("Награда: [point_reward].") )
+	to_chat(user, span_notice("Научная ценность обнаружена."))
+	to_chat(user, span_notice("Сканирование: [scanned ? "Истина" : "Ложь"]."))
+	to_chat(user, span_notice("Награда: [point_reward]."))
 
 /datum/component/discoverable/proc/discovery_scan(datum/techweb/linked_techweb, mob/user)
 	//Already scanned our atom.
 	var/atom/A = parent
 	if(scanned)
-		to_chat(user, span_warning("[A] уже было проанализировано.") )
+		to_chat(user, span_warning("[A] уже было проанализировано."))
 		return
 	//Already scanned another of this type.
 	if(linked_techweb.scanned_atoms[A.type] && !unique)
-		to_chat(user, span_warning("Мы уже знаем про тип [A].") )
+		to_chat(user, span_warning("Мы уже знаем про тип [A]."))
 		return
 	scanned = TRUE
 	linked_techweb.add_point_type(TECHWEB_POINT_TYPE_GENERIC, point_reward)
 	linked_techweb.scanned_atoms[A.type] = TRUE
 	playsound(user, 'sound/machines/terminal_success.ogg', 60)
-	to_chat(user, span_notice("Новый тип отсканирован, [point_reward] очков было получено.") )
+	to_chat(user, span_notice("Новый тип отсканирован, [point_reward] очков было получено."))
 	pulse_effect(get_turf(A), 4)

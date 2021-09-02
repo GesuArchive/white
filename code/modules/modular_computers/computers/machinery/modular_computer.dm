@@ -62,7 +62,7 @@
 
 /obj/machinery/modular_computer/emag_act(mob/user)
 	if(!cpu)
-		to_chat(user, span_warning("Сначала мне следует включить [src].") )
+		to_chat(user, span_warning("Сначала мне следует включить [src]."))
 		return FALSE
 	return (cpu.emag_act(user))
 
@@ -110,7 +110,7 @@
 /obj/machinery/modular_computer/proc/power_failure(malfunction = 0)
 	var/obj/item/computer_hardware/battery/battery_module = cpu.all_components[MC_CELL]
 	if(cpu?.enabled) // Shut down the computer
-		visible_message(span_danger("<b>[src.name]</b> экран мерцает предупреждением [battery_module ? "\"БАТТЕРИЯ [malfunction ? "НЕИСПРАВНОСТЬ" : "КРИТИЧЕСКАЯ"]\"" : "\"ВНЕШНЯЯ ПОТЕРЯ МОЩНОСТИ\""], после чего неожиданно выключается.") )
+		visible_message(span_danger("<b>[src.name]</b> экран мерцает предупреждением [battery_module ? "\"БАТТЕРИЯ [malfunction ? "НЕИСПРАВНОСТЬ" : "КРИТИЧЕСКАЯ"]\"" : "\"ВНЕШНЯЯ ПОТЕРЯ МОЩНОСТИ\""], после чего неожиданно выключается."))
 		if(cpu)
 			cpu.shutdown_computer(0)
 	set_machine_stat(machine_stat | NOPOWER)

@@ -272,7 +272,7 @@
 	if(M != user && (get_turf(M) != get_turf(src)))
 		M.visible_message(span_warning("[user] starts buckling [M] to [src]!") ,\
 			span_userdanger("[user] starts buckling you to [src]!") ,\
-			span_hear("You hear metal clanking.") )
+			span_hear("You hear metal clanking."))
 		if(!do_after(user, 2 SECONDS, M))
 			return FALSE
 
@@ -286,11 +286,11 @@
 		if(M == user)
 			M.visible_message(span_notice("[M] присаживается на [src].") ,\
 				span_notice("Присаживаюсь на [src].") ,\
-				span_hear("Слышу лязг металла.") )
+				span_hear("Слышу лязг металла."))
 		else
 			M.visible_message(span_warning("[user] усаживает [M] на [src]!") ,\
 				span_warning("[user] усаживает меня на [src]!") ,\
-				span_hear("Слышу лязг металла.") )
+				span_hear("Слышу лязг металла."))
 /**
  * Handles a user unbuckling a mob from src and sends a visible_message
  *
@@ -306,11 +306,11 @@
 		if(M != user)
 			M.visible_message(span_notice("[user] поднимает [M] с [src].") ,\
 				span_notice("[user] поднмает меня с [src].") ,\
-				span_hear("Слышу лязг металла.") )
+				span_hear("Слышу лязг металла."))
 		else
 			M.visible_message(span_notice("[M] встаёт со [src].") ,\
 				span_notice("Встаю с [src].") ,\
-				span_hear("Слышу лязг металла.") )
+				span_hear("Слышу лязг металла."))
 		add_fingerprint(user)
 		if(isliving(M.pulledby))
 			var/mob/living/L = M.pulledby

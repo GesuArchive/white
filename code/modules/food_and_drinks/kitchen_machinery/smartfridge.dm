@@ -87,12 +87,12 @@
 	if(!machine_stat)
 
 		if(contents.len >= max_n_of_items)
-			to_chat(user, span_warning("<b>[src.name]</b> is full!") )
+			to_chat(user, span_warning("<b>[src.name]</b> is full!"))
 			return FALSE
 
 		if(accept_check(O))
 			load(O)
-			user.visible_message(span_notice("[user] adds [O] to <b>[src.name]</b>.") , span_notice("You add [O] to <b>[src.name]</b>.") )
+			user.visible_message(span_notice("[user] adds [O] to <b>[src.name]</b>.") , span_notice("You add [O] to <b>[src.name]</b>."))
 			updateUsrDialog()
 			if (visible_contents)
 				update_icon()
@@ -112,21 +112,21 @@
 			if(loaded)
 				if(contents.len >= max_n_of_items)
 					user.visible_message(span_notice("[user] loads <b>[src.name]</b> with [O].") , \
-						span_notice("You fill <b>[src.name]</b> with [O].") )
+						span_notice("You fill <b>[src.name]</b> with [O]."))
 				else
 					user.visible_message(span_notice("[user] loads <b>[src.name]</b> with [O].") , \
-						span_notice("You load <b>[src.name]</b> with [O].") )
+						span_notice("You load <b>[src.name]</b> with [O]."))
 				if(O.contents.len > 0)
-					to_chat(user, span_warning("Some items are refused.") )
+					to_chat(user, span_warning("Some items are refused."))
 				if (visible_contents)
 					update_icon()
 				return TRUE
 			else
-				to_chat(user, span_warning("There is nothing in [O] to put in [src]!") )
+				to_chat(user, span_warning("There is nothing in [O] to put in [src]!"))
 				return FALSE
 
 	if(user.a_intent != INTENT_HARM)
-		to_chat(user, span_warning("<b>[src.name]</b> smartly refuses [O].") )
+		to_chat(user, span_warning("<b>[src.name]</b> smartly refuses [O]."))
 		updateUsrDialog()
 		return FALSE
 	else
@@ -143,7 +143,7 @@
 	if(ismob(O.loc))
 		var/mob/M = O.loc
 		if(!M.transferItemToLoc(O, src))
-			to_chat(usr, span_warning("\the [O] is stuck to your hand, you cannot put it in <b>[src.name]</b>!") )
+			to_chat(usr, span_warning("\the [O] is stuck to your hand, you cannot put it in <b>[src.name]</b>!"))
 			return FALSE
 		else
 			return TRUE
@@ -203,7 +203,7 @@
 			var/desired = 0
 
 			if(!allow_ai_retrieve && isAI(usr))
-				to_chat(usr, span_warning("[capitalize(src.name)] does not seem to be configured to respect your authority!") )
+				to_chat(usr, span_warning("[capitalize(src.name)] does not seem to be configured to respect your authority!"))
 				return
 
 			if (params["amount"])

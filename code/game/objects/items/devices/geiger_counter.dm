@@ -124,16 +124,16 @@
 /obj/item/geiger_counter/attack_self(mob/user)
 	scanning = !scanning
 	update_icon()
-	to_chat(user, span_notice("[icon2html(src, user)] Переключаю [src.name] в режим [scanning ? "вкл" : "выкл"].") )
+	to_chat(user, span_notice("[icon2html(src, user)] Переключаю [src.name] в режим [scanning ? "вкл" : "выкл"]."))
 
 /obj/item/geiger_counter/afterattack(atom/target, mob/user)
 	. = ..()
 	if(user.a_intent == INTENT_HELP)
 		if(!(obj_flags & EMAGGED))
-			user.visible_message(span_notice("[user] сканирует [target] используя [src.name].") , span_notice("Сканирую [target] radiation levels with [src.name]...") )
+			user.visible_message(span_notice("[user] сканирует [target] используя [src.name].") , span_notice("Сканирую [target] radiation levels with [src.name]..."))
 			addtimer(CALLBACK(src, .proc/scan, target, user), 20, TIMER_UNIQUE) // Let's not have spamming GetAllContents
 		else
-			user.visible_message(span_notice("[user] сканирует [target] используя [src.name].") , span_danger("Вкачиваю радиацию запасённую [src.name] в [target]!") )
+			user.visible_message(span_notice("[user] сканирует [target] используя [src.name].") , span_danger("Вкачиваю радиацию запасённую [src.name] в [target]!"))
 			target.rad_act(radiation_count)
 			radiation_count = 0
 		return TRUE
@@ -144,24 +144,24 @@
 	if(isliving(A))
 		var/mob/living/M = A
 		if(!M.radiation)
-			to_chat(user, span_notice("[icon2html(src, user)] Уровень радиоактивного излучения в норме.") )
+			to_chat(user, span_notice("[icon2html(src, user)] Уровень радиоактивного излучения в норме."))
 		else
-			to_chat(user, span_boldannounce("[icon2html(src, user)] Пациент радиоактивен. Уровень излучения: [M.radiation].") )
+			to_chat(user, span_boldannounce("[icon2html(src, user)] Пациент радиоактивен. Уровень излучения: [M.radiation]."))
 
 	if(rad_strength)
-		to_chat(user, span_boldannounce("[icon2html(src, user)] Цель содержит радиоактивное загрязнение. Сила излучения: [rad_strength]") )
+		to_chat(user, span_boldannounce("[icon2html(src, user)] Цель содержит радиоактивное загрязнение. Сила излучения: [rad_strength]"))
 	else
-		to_chat(user, span_notice("[icon2html(src, user)] Цель не имеет радиоактивного загрязнения.") )
+		to_chat(user, span_notice("[icon2html(src, user)] Цель не имеет радиоактивного загрязнения."))
 
 /obj/item/geiger_counter/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_SCREWDRIVER && (obj_flags & EMAGGED))
 		if(scanning)
-			to_chat(user, span_warning("Стоит выключить [src.name] перед тем как делать это!") )
+			to_chat(user, span_warning("Стоит выключить [src.name] перед тем как делать это!"))
 			return FALSE
-		user.visible_message(span_notice("[user] раскручивает панели обслуживания [src.name] и начинает возиться с его внутренностями...") , span_notice("Начинаю сбрасывать [src.name]...") )
+		user.visible_message(span_notice("[user] раскручивает панели обслуживания [src.name] и начинает возиться с его внутренностями...") , span_notice("Начинаю сбрасывать [src.name]..."))
 		if(!I.use_tool(src, user, 40, volume=50))
 			return FALSE
-		user.visible_message(span_notice("[user] закручивает панельку [src.name]!") , span_notice("Успешно сбрасываю [src.name] до заводских настроек!") )
+		user.visible_message(span_notice("[user] закручивает панельку [src.name]!") , span_notice("Успешно сбрасываю [src.name] до заводских настроек!"))
 		obj_flags &= ~EMAGGED
 		radiation_count = 0
 		update_icon()
@@ -173,19 +173,19 @@
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return ..()
 	if(!scanning)
-		to_chat(usr, span_warning("Сначала нужно включить [src.name]!") )
+		to_chat(usr, span_warning("Сначала нужно включить [src.name]!"))
 		return
 	radiation_count = 0
-	to_chat(usr, span_notice("Сбрасываю уровни радиации [src.name].") )
+	to_chat(usr, span_notice("Сбрасываю уровни радиации [src.name]."))
 	update_icon()
 
 /obj/item/geiger_counter/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
 		return
 	if(scanning)
-		to_chat(user, span_warning("Стоит выключить [src.name] перед этим!") )
+		to_chat(user, span_warning("Стоит выключить [src.name] перед этим!"))
 		return
-	to_chat(user, span_warning("Перезаписываю протоколы хранения радиации [src.name]. Теперь он будет генерировать небольшие дозы радиации, а сохраненные рады теперь проецируются на существ, которых я сканирую.") )
+	to_chat(user, span_warning("Перезаписываю протоколы хранения радиации [src.name]. Теперь он будет генерировать небольшие дозы радиации, а сохраненные рады теперь проецируются на существ, которых я сканирую."))
 	obj_flags |= EMAGGED
 
 

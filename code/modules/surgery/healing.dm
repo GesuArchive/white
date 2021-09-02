@@ -52,7 +52,7 @@
 		if(!the_surgery.antispam)
 			display_results(user, target, span_notice("Пытаюсь залатать [woundtype] [target].") ,
 		span_notice("[user] пытается залатать [woundtype] [target].") ,
-		span_notice("[user] пытается залатать [woundtype] [target].") )
+		span_notice("[user] пытается залатать [woundtype] [target]."))
 
 /datum/surgery_step/heal/initiate(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, try_to_fail = FALSE)
 	if(!..())

@@ -147,7 +147,7 @@
 	var/mob/living/carbon/human/M = AM
 
 	if(M.stat != DEAD && M.ckey)
-		visible_message(span_warning("[M] triggered [src]!") )
+		visible_message(span_warning("[M] triggered [src]!"))
 		triggered = 1
 
 		var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
@@ -164,10 +164,10 @@
 
 	var/mob/living/carbon/C = usr
 	if(!C.stat)
-		to_chat(C, span_notice("А я ещё не умер!") )
+		to_chat(C, span_notice("А я ещё не умер!"))
 		return
 	if(C.has_status_effect(STATUS_EFFECT_WISH_GRANTERS_GIFT))
-		to_chat(C, span_warning("А я уже воскрешаюсь!") )
+		to_chat(C, span_warning("А я уже воскрешаюсь!"))
 		return
 	C.apply_status_effect(STATUS_EFFECT_WISH_GRANTERS_GIFT)
 	return 1

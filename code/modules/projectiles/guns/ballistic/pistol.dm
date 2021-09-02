@@ -90,12 +90,12 @@
 
 /obj/item/gun/ballistic/automatic/pistol/stickman/pickup(mob/living/user)
 	SHOULD_CALL_PARENT(FALSE)
-	to_chat(user, span_notice("Пытаюсь поднять [src], но оно выскользывает из рук..") )
+	to_chat(user, span_notice("Пытаюсь поднять [src], но оно выскользывает из рук.."))
 	if(prob(50))
-		to_chat(user, span_notice("..и исчезает из вашего видения! Куда, черт возьми, это пошло?") )
+		to_chat(user, span_notice("..и исчезает из вашего видения! Куда, черт возьми, это пошло?"))
 		qdel(src)
 		user.update_icons()
 	else
-		to_chat(user, span_notice("..и попадает в поле зрения. Уфф, это было близко.") )
+		to_chat(user, span_notice("..и попадает в поле зрения. Уфф, это было близко."))
 		user.dropItemToGround(src)
 

@@ -563,7 +563,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 		if(M?.current)
 			if(isliving(M.current))
 				var/mob/living/H = M.current
-				to_chat(H, span_warning("<big>В МОЁ ТЕЛО ВВЕДЕНО ВЕЩЕСТВО, КОТОРОЕ РАЗОРВЁТ МЕНЯ ЧЕРЕЗ [uppertext(DisplayTimeText(time_to_do))]. НУЖНО ВЫПОЛНИТЬ ВСЕ ЗАДАНИЯ СРОЧНО!</big>") )
+				to_chat(H, span_warning("<big>В МОЁ ТЕЛО ВВЕДЕНО ВЕЩЕСТВО, КОТОРОЕ РАЗОРВЁТ МЕНЯ ЧЕРЕЗ [uppertext(DisplayTimeText(time_to_do))]. НУЖНО ВЫПОЛНИТЬ ВСЕ ЗАДАНИЯ СРОЧНО!</big>"))
 				SEND_SOUND(H, 'white/valtos/sounds/timertick.ogg')
 
 /datum/objective/limited/proc/kill_agents()
@@ -572,7 +572,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 		if(M?.current)
 			if(isliving(M.current))
 				var/mob/living/H = M.current
-				to_chat(H, span_warning("<big>ВРЕМЯ ВЫШЛО!</big>") )
+				to_chat(H, span_warning("<big>ВРЕМЯ ВЫШЛО!</big>"))
 				SEND_SOUND(H, 'white/valtos/sounds/timerring.ogg')
 				spawn(50)
 					H?.gib()
@@ -959,7 +959,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 		var/mob/new_target = input(admin,"Select target:", "Objective target") as null|anything in sortNames(possible_targets)
 		target = new_target.mind
 	else
-		to_chat(admin, span_boldwarning("No active AIs with minds.") )
+		to_chat(admin, span_boldwarning("No active AIs with minds."))
 	update_explanation_text()
 
 /datum/objective/destroy/internal

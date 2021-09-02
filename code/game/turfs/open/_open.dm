@@ -219,7 +219,7 @@
 			if(C.m_intent == MOVE_INTENT_WALK && (lube&NO_SLIP_WHEN_WALKING))
 				return FALSE
 		if(!(lube&SLIDE_ICE))
-			to_chat(C, span_notice("Слишком скоо-о-ользко[ O ? "! [uppertext(O.name)] ПОПАДАЕТСЯ МНЕ ПОД НОГИ" : ""]!") )
+			to_chat(C, span_notice("Слишком скоо-о-ользко[ O ? "! [uppertext(O.name)] ПОПАДАЕТСЯ МНЕ ПОД НОГИ" : ""]!"))
 			playsound(C.loc, 'sound/misc/slip.ogg', 50, TRUE, -3)
 
 		SEND_SIGNAL(C, COMSIG_ON_CARBON_SLIP)

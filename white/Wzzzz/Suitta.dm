@@ -123,7 +123,7 @@
 		playsound(B, 'sound/items/sheath.ogg', 25, TRUE)
 
 /obj/item/melee/marines/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] пытается cut off all [user.ru_ego()] limbs with [src]! it looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] пытается cut off all [user.ru_ego()] limbs with [src]! it looks like [user.p_theyre()] trying to commit suicide!"))
 	var/i = 0
 	ADD_TRAIT(src, TRAIT_NODROP, SABRE_SUICIDE_TRAIT)
 	if(iscarbon(user))

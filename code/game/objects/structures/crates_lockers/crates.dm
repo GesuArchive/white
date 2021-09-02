@@ -67,14 +67,14 @@
 /obj/structure/closet/crate/open(mob/living/user, force = FALSE)
 	. = ..()
 	if(. && manifest)
-		to_chat(user, span_notice("Манифест оторван от [src].") )
+		to_chat(user, span_notice("Манифест оторван от [src]."))
 		playsound(src, 'sound/items/poster_ripped.ogg', 75, TRUE)
 		manifest.forceMove(get_turf(src))
 		manifest = null
 		update_icon()
 
 /obj/structure/closet/crate/proc/tear_manifest(mob/user)
-	to_chat(user, span_notice("Отрываю манифест от [src].") )
+	to_chat(user, span_notice("Отрываю манифест от [src]."))
 	playsound(src, 'sound/items/poster_ripped.ogg', 75, TRUE)
 
 	manifest.forceMove(loc)

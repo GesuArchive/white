@@ -66,21 +66,21 @@
 	if(.)
 		return
 	if(!allowed(user))
-		to_chat(user, span_info("Доступ запрещён.") )
+		to_chat(user, span_info("Доступ запрещён."))
 		return
 	if(broken)
-		to_chat(user, span_danger("Управление не отвечает.") )
+		to_chat(user, span_danger("Управление не отвечает."))
 		return
 	pick_sign(user)
 
 /obj/structure/sign/barsign/attackby(obj/item/I, mob/user)
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!panel_open)
-			to_chat(user, span_notice("Открываю техническую панель.") )
+			to_chat(user, span_notice("Открываю техническую панель."))
 			set_sign(new /datum/barsign/hiddensigns/signoff)
 			panel_open = TRUE
 		else
-			to_chat(user, span_notice("Закрываю техническую панель.") )
+			to_chat(user, span_notice("Закрываю техническую панель."))
 			if(!broken)
 				if(!chosen_sign)
 					set_sign(new /datum/barsign/hiddensigns/signoff)
@@ -93,14 +93,14 @@
 	else if(istype(I, /obj/item/stack/cable_coil) && panel_open)
 		var/obj/item/stack/cable_coil/C = I
 		if(!broken)
-			to_chat(user, span_warning("Эта вывеска работает как надо!") )
+			to_chat(user, span_warning("Эта вывеска работает как надо!"))
 			return
 
 		if(C.use(2))
-			to_chat(user, span_notice("Чиню повреждённую проводку.") )
+			to_chat(user, span_notice("Чиню повреждённую проводку."))
 			broken = FALSE
 		else
-			to_chat(user, span_warning("Потребуется две длины кабеля!") )
+			to_chat(user, span_warning("Потребуется две длины кабеля!"))
 	else
 		return ..()
 
@@ -114,9 +114,9 @@
 
 /obj/structure/sign/barsign/emag_act(mob/user)
 	if(broken)
-		to_chat(user, span_warning("Ничего интересного не случилось!") )
+		to_chat(user, span_warning("Ничего интересного не случилось!"))
 		return
-	to_chat(user, span_notice("Загружаю в буфер памяти недопустимый штрих-код...") )
+	to_chat(user, span_notice("Загружаю в буфер памяти недопустимый штрих-код..."))
 	sleep(10 SECONDS)
 	chosen_sign = set_sign(new /datum/barsign/hiddensigns/syndibarsign)
 

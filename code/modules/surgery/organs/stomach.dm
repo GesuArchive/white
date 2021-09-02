@@ -107,13 +107,13 @@
 	//The stomach is damage has nutriment but low on theshhold, lo prob of vomit
 	if(DT_PROB(0.0125 * damage * nutri_vol * nutri_vol, delta_time))
 		body.vomit(damage)
-		to_chat(body, span_warning("Живот крутит от боли, потому что я не могу сдерживать эту еду!") )
+		to_chat(body, span_warning("Живот крутит от боли, потому что я не могу сдерживать эту еду!"))
 		return
 
 	// the change of vomit is now high
 	if(damage > high_threshold && DT_PROB(0.05 * damage * nutri_vol * nutri_vol, delta_time))
 		body.vomit(damage)
-		to_chat(body, span_warning("Живот крутит от боли, потому что я не могу сдерживать эту еду!") )
+		to_chat(body, span_warning("Живот крутит от боли, потому что я не могу сдерживать эту еду!"))
 
 	if(body.nutrition <= 50)
 		applyOrganDamage(1)
@@ -129,7 +129,7 @@
 				H.stuttering += 1
 				H.add_confusion(2)
 			if(DT_PROB(5, delta_time) && !H.stat)
-				to_chat(H, span_warning("Меня тошнит...") )
+				to_chat(H, span_warning("Меня тошнит..."))
 			H.jitteriness = max(H.jitteriness - 3, 0)
 		if(H.disgust >= DISGUST_LEVEL_VERYGROSS)
 			if(DT_PROB(pukeprob, delta_time)) //iT hAndLeS mOrE ThaN PukInG
@@ -177,7 +177,7 @@
 		var/mob/living/carbon/body = owner
 		if(milk.volume > 10)
 			reagents.remove_reagent(milk.type, milk.volume - 10)
-			to_chat(owner, span_warning("Лишнее молоко капает с костей!") )
+			to_chat(owner, span_warning("Лишнее молоко капает с костей!"))
 		body.heal_bodypart_damage(milk_brute_healing * REAGENTS_EFFECT_MULTIPLIER * delta_time, milk_burn_healing * REAGENTS_EFFECT_MULTIPLIER * delta_time)
 
 		for(var/i in body.all_wounds)
@@ -220,7 +220,7 @@
 	if(flags & SHOCK_ILLUSION)
 		return
 	adjust_charge(shock_damage * siemens_coeff * 2)
-	to_chat(owner, span_notice("Поглощаю часть удара током своим телом!") )
+	to_chat(owner, span_notice("Поглощаю часть удара током своим телом!"))
 
 /obj/item/organ/stomach/ethereal/proc/adjust_charge(amount)
 	crystal_charge = clamp(crystal_charge + amount, ETHEREAL_CHARGE_NONE, ETHEREAL_CHARGE_DANGEROUS)

@@ -42,7 +42,7 @@
 			if(get_location_accessible(target, target_zone) || surgery.ignore_clothes)
 				initiate(user, target, target_zone, tool, surgery, try_to_fail)
 			else
-				to_chat(user, span_warning("Мне нужно иметь доступ к [parse_zone(target_zone)] <b>[target]</b> для проведения хирургической операции!") )
+				to_chat(user, span_warning("Мне нужно иметь доступ к [parse_zone(target_zone)] <b>[target]</b> для проведения хирургической операции!"))
 			return TRUE	//returns TRUE so we don't stab the guy in the dick or wherever.
 
 	if(repeatable)
@@ -116,13 +116,13 @@
 /datum/surgery_step/proc/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю выполнять операцию на <b>[target]</b>...") ,
 		span_notice("<b>[user]</b> начинает выполнять операцию на <b>[target]</b>.") ,
-		span_notice("<b>[user]</b> начинает выполнять операцию на <b>[target]</b>.") )
+		span_notice("<b>[user]</b> начинает выполнять операцию на <b>[target]</b>."))
 
 /datum/surgery_step/proc/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = TRUE)
 	if(default_display_results)
 		display_results(user, target, span_notice("Успех.") ,
 				span_notice("<b>[user]</b> имеет успех!") ,
-				span_notice("<b>[user]</b> заканчивает.") )
+				span_notice("<b>[user]</b> заканчивает."))
 	return TRUE
 
 /datum/surgery_step/proc/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, fail_prob = 0)
@@ -174,4 +174,4 @@
 	user.visible_message(detailed_message, self_message, vision_distance = 1, ignored_mobs = target_detailed ? null : target)
 	if(!target_detailed)
 		var/you_feel = pick("a brief pain", "your body tense up", "an unnerving sensation")
-		target.show_message(vague_message, MSG_VISUAL, span_notice("You feel [you_feel] as you are operated on.") )
+		target.show_message(vague_message, MSG_VISUAL, span_notice("You feel [you_feel] as you are operated on."))

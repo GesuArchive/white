@@ -56,10 +56,10 @@
 		if(!left_leg || !right_leg || left_leg.bodypart_disabled || right_leg.bodypart_disabled)
 			return ..()
 		visible_message(span_notice("[capitalize(src.name)] ловко приземляется на [T]!") , \
-			span_warning("Лечу вниз на [levels] уров[levels > 1 ? "ней" : "ень"] прямо в [T] мягко приземляясь при этом!") )
+			span_warning("Лечу вниз на [levels] уров[levels > 1 ? "ней" : "ень"] прямо в [T] мягко приземляясь при этом!"))
 	else
 		visible_message(span_danger("[capitalize(src.name)] влетает в [T], но остаётся в целости.") , \
-						span_userdanger("Падаю... и влетаю в [T], но остаюсь в целости.") )
+						span_userdanger("Падаю... и влетаю в [T], но остаюсь в целости."))
 		Knockdown(levels * 50)
 
 /mob/living/carbon/human/prepare_data_huds()
@@ -106,7 +106,7 @@
 	if(href_list["item"]) //canUseTopic check for this is handled by mob/Topic()
 		var/slot = text2num(href_list["item"])
 		if(check_obscured_slots(TRUE) & slot)
-			to_chat(usr, span_warning("Не могу достать! Что-то мешает доступу к этому.") )
+			to_chat(usr, span_warning("Не могу достать! Что-то мешает доступу к этому."))
 			return
 
 ///////HUDs///////
@@ -176,15 +176,15 @@
 						if(burndamage)
 							to_chat(usr, "<span class='[span]'>[BP] имеет [status]</span>")
 				if(getOxyLoss())
-					to_chat(usr, span_danger("Пациент имеет признаки удушья, может потребоваться экстренное лечение!") )
+					to_chat(usr, span_danger("Пациент имеет признаки удушья, может потребоваться экстренное лечение!"))
 				if(getToxLoss() > 20)
-					to_chat(usr, span_danger("Собранные данные не соответствуют анализу, возможная причина: отравление.") )
+					to_chat(usr, span_danger("Собранные данные не соответствуют анализу, возможная причина: отравление."))
 			if(!H.wear_id) //You require access from here on out.
-				to_chat(H, span_warning("ERROR: Нет доступа") )
+				to_chat(H, span_warning("ERROR: Нет доступа"))
 				return
 			var/list/access = H.wear_id.GetAccess()
 			if(!(ACCESS_MEDICAL in access))
-				to_chat(H, span_warning("ERROR: Нет доступа") )
+				to_chat(H, span_warning("ERROR: Нет доступа"))
 				return
 			if(href_list["p_stat"])
 				var/health_status = input(usr, "Укажите новый физический статус для этого человека.", "Medical HUD", R.fields["p_stat"]) in list("Active", "Physically Unfit", "*Unconscious*", "*Deceased*", "Cancel")
@@ -233,15 +233,15 @@
 						allowed_access = H.get_authentification_name()
 
 			if(!allowed_access)
-				to_chat(H, span_warning("ERROR: Нет доступа.") )
+				to_chat(H, span_warning("ERROR: Нет доступа."))
 				return
 
 			if(!perpname)
-				to_chat(H, span_warning("ERROR: Не могу идентифицировать цель.") )
+				to_chat(H, span_warning("ERROR: Не могу идентифицировать цель."))
 				return
 			R = find_record("name", perpname, GLOB.data_core.security)
 			if(!R)
-				to_chat(usr, span_warning("ERROR: Невозможно найти запись ядра данных для цели.") )
+				to_chat(usr, span_warning("ERROR: Невозможно найти запись ядра данных для цели."))
 				return
 			if(href_list["status"])
 				var/setcriminal = input(usr, "Укажите новый преступный статус для этого человека.", "Security HUD", R.fields["criminal"]) in list("None", "*Arrest*", "Incarcerated", "Paroled", "Discharged", "Отмена")
@@ -285,7 +285,7 @@
 				if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD))
 					return
 				if(fine < 0)
-					to_chat(usr, span_warning("You're pretty sure that's not how money works.") )
+					to_chat(usr, span_warning("You're pretty sure that's not how money works."))
 					return
 				fine = min(fine, maxFine)
 
@@ -317,7 +317,7 @@
 				var/crime = GLOB.data_core.createCrimeEntry(t1, null, allowed_access, station_time_timestamp())
 				GLOB.data_core.addCrime(R.fields["id"], crime)
 				investigate_log("New Crime: <strong>[t1]</strong> | Added to [R.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
-				to_chat(usr, span_notice("Успешно добавили преступление.") )
+				to_chat(usr, span_notice("Успешно добавили преступление."))
 				return
 
 			if(href_list["add_details"])
@@ -331,7 +331,7 @@
 				if(href_list["cdataid"])
 					GLOB.data_core.addCrimeDetails(R.fields["id"], href_list["cdataid"], t1)
 					investigate_log("New Crime details: [t1] | Added to [R.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
-					to_chat(usr, span_notice("Успешно добавлены детали.") )
+					to_chat(usr, span_notice("Успешно добавлены детали."))
 				return
 
 			if(href_list["view_comment"])
@@ -359,7 +359,7 @@
 				while(R.fields[text("com_[]", counter)])
 					counter++
 				R.fields[text("com_[]", counter)] = text("Сделано [] в [] [], []<BR>[]", allowed_access, station_time_timestamp(), time2text(world.realtime, "MMM DD"), GLOB.year_integer+540, t1)
-				to_chat(usr, span_notice("Успешно добавили комментарий.") )
+				to_chat(usr, span_notice("Успешно добавили комментарий."))
 				return
 
 	..() //end of this massive fucking chain. TODO: make the hud chain not spooky. - Yeah, great job doing that.
@@ -391,7 +391,7 @@
 	if(!. && (injection_flags & INJECT_TRY_SHOW_ERROR_MESSAGE) && user)
 		var/obj/item/bodypart/the_part = get_bodypart(target_zone) || get_bodypart(BODY_ZONE_CHEST)
 
-		to_chat(user, span_alert("Нет открытой плоти или тонкого материала на [ru_gde_zone(the_part.name)].") )
+		to_chat(user, span_alert("Нет открытой плоти или тонкого материала на [ru_gde_zone(the_part.name)]."))
 
 /mob/living/carbon/human/assess_threat(judgement_criteria, lasercolor = "", datum/callback/weaponcheck=null)
 	if(judgement_criteria & JUDGE_EMAGGED)
@@ -474,7 +474,7 @@
 		for(var/obj/item/hand in held_items)
 			if(prob(current_size * 5) && hand.w_class >= ((11-current_size)/2)  && dropItemToGround(hand))
 				step_towards(hand, src)
-				to_chat(src, span_warning("Невероятно, но [S] вытягивает [hand] из моей руки!") )
+				to_chat(src, span_warning("Невероятно, но [S] вытягивает [hand] из моей руки!"))
 	rad_act(current_size * 3)
 
 #define CPR_PANIC_SPEED (0.8 SECONDS)
@@ -493,50 +493,50 @@
 			return FALSE
 
 		if (target.stat == DEAD || HAS_TRAIT(target, TRAIT_FAKEDEATH))
-			to_chat(src, span_warning("[target.name] мертво!") )
+			to_chat(src, span_warning("[target.name] мертво!"))
 			return FALSE
 
 		if (is_mouth_covered())
-			to_chat(src, span_warning("Надо бы маску снять!") )
+			to_chat(src, span_warning("Надо бы маску снять!"))
 			return FALSE
 
 		if (target.is_mouth_covered())
-			to_chat(src, span_warning("Снять бы с н[ru_ego()] маску сначала!") )
+			to_chat(src, span_warning("Снять бы с н[ru_ego()] маску сначала!"))
 			return FALSE
 
 		if (!getorganslot(ORGAN_SLOT_LUNGS))
-			to_chat(src, span_warning("У меня нет лёгких для проведения данной процедуры!") )
+			to_chat(src, span_warning("У меня нет лёгких для проведения данной процедуры!"))
 			return FALSE
 
 		if (HAS_TRAIT(src, TRAIT_NOBREATH))
-			to_chat(src, span_warning("А я дышать то не умею. Как?") )
+			to_chat(src, span_warning("А я дышать то не умею. Как?"))
 			return FALSE
 
 		visible_message(span_notice("[capitalize(src.name)] делает сердечно-легочную реанимацию [target.name]!") , \
-						span_notice("Делаю сердечно-легочную реанимацию [target.name]... Надо потерпеть!") )
+						span_notice("Делаю сердечно-легочную реанимацию [target.name]... Надо потерпеть!"))
 
 		if (!do_mob(src, target, time = panicking ? CPR_PANIC_SPEED : (3 SECONDS)))
-			to_chat(src, span_warning("У меня не вышло сделать сердечно-легочную реанимацию [target]!") )
+			to_chat(src, span_warning("У меня не вышло сделать сердечно-легочную реанимацию [target]!"))
 			return FALSE
 
 		if (target.health > target.crit_threshold)
 			return FALSE
 
-		visible_message(span_notice("[capitalize(src.name)] производит сердечно-легочную реанимацию [target.name]!") , span_notice("Произвожу сердечно-легочную реанимацию [target.name].") )
+		visible_message(span_notice("[capitalize(src.name)] производит сердечно-легочную реанимацию [target.name]!") , span_notice("Произвожу сердечно-легочную реанимацию [target.name]."))
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "saved_life", /datum/mood_event/saved_life)
 		log_combat(src, target, "CPRed")
 
 		if (HAS_TRAIT(target, TRAIT_NOBREATH))
-			to_chat(target, span_unconscious("Чувствую, как глоток свежего воздуха входит в мои легкие...") )
+			to_chat(target, span_unconscious("Чувствую, как глоток свежего воздуха входит в мои легкие..."))
 		else if (!target.getorganslot(ORGAN_SLOT_LUNGS))
-			to_chat(target, span_unconscious("Чувствую глоток свежего воздуха... но мне не лучше...") )
+			to_chat(target, span_unconscious("Чувствую глоток свежего воздуха... но мне не лучше..."))
 		else
 			target.adjustOxyLoss(-min(target.getOxyLoss(), 7))
-			to_chat(target, span_unconscious("Чувствую глоток свежего воздуха... мне лучше...") )
+			to_chat(target, span_unconscious("Чувствую глоток свежего воздуха... мне лучше..."))
 
 		if (target.health <= target.crit_threshold)
 			if (!panicking)
-				to_chat(src, span_warning("[target] всё ещё лежит! Нужно попробовать ещё!") )
+				to_chat(src, span_warning("[target] всё ещё лежит! Нужно попробовать ещё!"))
 			panicking = TRUE
 		else
 			panicking = FALSE
@@ -665,8 +665,8 @@
 	if(!I.loc || buckled)
 		return FALSE
 	if(I == wear_suit)
-		visible_message(span_danger("[capitalize(src.name)] manages to [cuff_break ? "break" : "remove"] [I]!") )
-		to_chat(src, span_notice("You successfully [cuff_break ? "break" : "remove"] [I].") )
+		visible_message(span_danger("[capitalize(src.name)] manages to [cuff_break ? "break" : "remove"] [I]!"))
+		to_chat(src, span_notice("You successfully [cuff_break ? "break" : "remove"] [I]."))
 		return TRUE
 
 /mob/living/carbon/human/replace_records_name(oldname,newname) // Only humans have records right now, move this up if changed.
@@ -758,7 +758,7 @@
 	if(blood && (NOBLOOD in dna.species.species_traits) && !HAS_TRAIT(src, TRAIT_TOXINLOVER))
 		if(message)
 			visible_message(span_warning("[capitalize(src.name)] рыгает!") , \
-							span_userdanger("Ты пытаешься вырвать, но в твоем желудке нет ничего!") )
+							span_userdanger("Ты пытаешься вырвать, но в твоем желудке нет ничего!"))
 		if(stun)
 			Paralyze(200)
 		return 1
@@ -908,7 +908,7 @@
 
 /mob/living/carbon/human/proc/fireman_carry(mob/living/carbon/target)
 	if(!can_be_firemanned(target) || incapacitated(FALSE, TRUE))
-		to_chat(src, span_warning("You can't fireman carry [target] while [target.p_they()] [target.p_are()] standing!") )
+		to_chat(src, span_warning("You can't fireman carry [target] while [target.p_they()] [target.p_are()] standing!"))
 		return
 
 	var/carrydelay = 5 SECONDS //if you have latex you are faster at grabbing
@@ -922,15 +922,15 @@
 
 	visible_message(span_notice("<b>[src]</b> начинает[skills_space] поднимать <b>[target]</b> на свою спину...") ,
 	//Joe Medic starts quickly/expertly lifting Grey Tider onto their back..
-	span_notice("[carrydelay < 3.5 SECONDS ? "Используя наночипы в своих перчатках начинаю" : "Начинаю"][skills_space] поднимать [target] на свою спину[carrydelay == 4 SECONDS ? ", пока мне помогают наночипы в моих перчатках..." : "..."]") )
+	span_notice("[carrydelay < 3.5 SECONDS ? "Используя наночипы в своих перчатках начинаю" : "Начинаю"][skills_space] поднимать [target] на свою спину[carrydelay == 4 SECONDS ? ", пока мне помогают наночипы в моих перчатках..." : "..."]"))
 	//(Using your gloves' nanochips, you/You) ( /quickly/expertly) start to lift Grey Tider onto your back(, while assisted by the nanochips in your gloves../...)
 	if(!do_after(src, carrydelay, target))
-		visible_message(span_warning("<b>[src]</b> проваливает попытку поднять <b>[target]</b>!") )
+		visible_message(span_warning("<b>[src]</b> проваливает попытку поднять <b>[target]</b>!"))
 		return
 
 	//Second check to make sure they're still valid to be carried
 	if(!can_be_firemanned(target) || incapacitated(FALSE, TRUE) || target.buckled)
-		visible_message(span_warning("<b>[src]</b> проваливает попытку поднять <b>[target]</b>!") )
+		visible_message(span_warning("<b>[src]</b> проваливает попытку поднять <b>[target]</b>!"))
 		return
 
 	if(target.loc != loc)
@@ -944,23 +944,23 @@
 
 /mob/living/carbon/human/proc/piggyback(mob/living/carbon/target)
 	if(!can_piggyback(target))
-		to_chat(target, span_warning("Не хочу взбираться на <b>[src]</b>!") )
+		to_chat(target, span_warning("Не хочу взбираться на <b>[src]</b>!"))
 		return
 
-	visible_message(span_notice("<b>[target]</b> начинает залезать на <b>[src]</b>...") )
+	visible_message(span_notice("<b>[target]</b> начинает залезать на <b>[src]</b>..."))
 	if(!do_after(target, 1.5 SECONDS, target = src) || !can_piggyback(target))
-		visible_message(span_warning("<b>[target]</b> не может залезть на <b>[src]</b>!") )
+		visible_message(span_warning("<b>[target]</b> не может залезть на <b>[src]</b>!"))
 		return
 
 	if(target.incapacitated(FALSE, TRUE) || incapacitated(FALSE, TRUE))
-		target.visible_message(span_warning("<b>[target]</b> не может залезть на <b>[src]</b>") )
+		target.visible_message(span_warning("<b>[target]</b> не может залезть на <b>[src]</b>"))
 		return
 
 	return buckle_mob(target, TRUE, TRUE, RIDER_NEEDS_ARMS)
 
 /mob/living/carbon/human/buckle_mob(mob/living/target, force = FALSE, check_loc = TRUE, buckle_mob_flags= NONE)
 	if(!is_type_in_typecache(target, can_ride_typecache))
-		target.visible_message(span_warning("<b>[target]</b> не понимает как взобраться на <b>[src]</b>...") )
+		target.visible_message(span_warning("<b>[target]</b> не понимает как взобраться на <b>[src]</b>..."))
 		return
 
 	if(!force)//humans are only meant to be ridden through piggybacking and special cases

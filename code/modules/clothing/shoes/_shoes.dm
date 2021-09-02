@@ -24,7 +24,7 @@
 
 /obj/item/clothing/shoes/suicide_act(mob/living/carbon/user)
 	if(rand(2)>1)
-		user.visible_message(span_suicide("[user] begins tying <b>[src.name]</b> up waaay too tightly! It looks like [user.p_theyre()] trying to commit suicide!") )
+		user.visible_message(span_suicide("[user] begins tying <b>[src.name]</b> up waaay too tightly! It looks like [user.p_theyre()] trying to commit suicide!"))
 		var/obj/item/bodypart/l_leg = user.get_bodypart(BODY_ZONE_L_LEG)
 		var/obj/item/bodypart/r_leg = user.get_bodypart(BODY_ZONE_R_LEG)
 		if(l_leg)
@@ -34,7 +34,7 @@
 		playsound(user, "desecration", 50, TRUE, -1)
 		return BRUTELOSS
 	else//didnt realize this suicide act existed (was in miscellaneous.dm) and didnt want to remove it, so made it a 50/50 chance. Why not!
-		user.visible_message(span_suicide("[user] is bashing [user.ru_ego()] own head in with [src]! Ain't that a kick in the head?") )
+		user.visible_message(span_suicide("[user] is bashing [user.ru_ego()] own head in with [src]! Ain't that a kick in the head?"))
 		for(var/i = 0, i < 3, i++)
 			sleep(3)
 			playsound(user, 'sound/weapons/genhit2.ogg', 50, TRUE)
@@ -147,17 +147,17 @@
 		return
 
 	if(!in_range(user, our_guy))
-		to_chat(user, span_warning("Слишком далеко чтобы взаимодействовать со шнурками [src]!") )
+		to_chat(user, span_warning("Слишком далеко чтобы взаимодействовать со шнурками [src]!"))
 		return
 
 	if(user == loc && tied != SHOES_TIED) // if they're our own shoes, go tie-wards
 		if(DOING_INTERACTION_WITH_TARGET(user, our_guy))
-			to_chat(user, span_warning("Уже взаимодействую с [src]!") )
+			to_chat(user, span_warning("Уже взаимодействую с [src]!"))
 			return
-		user.visible_message(span_notice("[user] [tied ? "развязывать" : "завязывать"] шнурки на [user.ru_ego()] [src.name].") , span_notice("You begin [tied ? "unknotting" : "tying"] the laces of your [src.name]...") )
+		user.visible_message(span_notice("[user] [tied ? "развязывать" : "завязывать"] шнурки на [user.ru_ego()] [src.name].") , span_notice("You begin [tied ? "unknotting" : "tying"] the laces of your [src.name]..."))
 
 		if(do_after(user, lace_time, target = our_guy, extra_checks = CALLBACK(src, .proc/still_shoed, our_guy)))
-			to_chat(user, span_notice("You [tied ? "Развязываю" : "Завязываю"] шнурки на [src.name].") )
+			to_chat(user, span_notice("You [tied ? "Развязываю" : "Завязываю"] шнурки на [src.name]."))
 			if(tied == SHOES_UNTIED)
 				adjust_laces(SHOES_TIED, user)
 			else
@@ -166,29 +166,29 @@
 	else // if they're someone else's shoes, go knot-wards
 		var/mob/living/L = user
 		if(istype(L) && L.body_position == STANDING_UP)
-			to_chat(user, span_warning("Мне нужно быть на полу чтобы взаимодействовать с [src]!") )
+			to_chat(user, span_warning("Мне нужно быть на полу чтобы взаимодействовать с [src]!"))
 			return
 		if(tied == SHOES_KNOTTED)
-			to_chat(user, span_warning("Шнурки на [loc] [src.name] уже связаны!") )
+			to_chat(user, span_warning("Шнурки на [loc] [src.name] уже связаны!"))
 			return
 		if(DOING_INTERACTION_WITH_TARGET(user, our_guy))
-			to_chat(user, span_warning("Уже взаимодействую с [src]!") )
+			to_chat(user, span_warning("Уже взаимодействую с [src]!"))
 			return
 
 		var/mod_time = lace_time
-		to_chat(user, span_notice("You quietly set to work [tied ? "untying" : "knotting"] [loc] [src.name]...") )
+		to_chat(user, span_notice("You quietly set to work [tied ? "untying" : "knotting"] [loc] [src.name]..."))
 		if(HAS_TRAIT(user, TRAIT_CLUMSY)) // based clowns trained their whole lives for this
 			mod_time *= 0.75
 
 		if(do_after(user, mod_time, target = our_guy, extra_checks = CALLBACK(src, .proc/still_shoed, our_guy)))
-			to_chat(user, span_notice("You [tied ? "untie" : "knot"] the laces on [loc] [src.name].") )
+			to_chat(user, span_notice("You [tied ? "untie" : "knot"] the laces on [loc] [src.name]."))
 			if(tied == SHOES_UNTIED)
 				adjust_laces(SHOES_KNOTTED, user)
 			else
 				adjust_laces(SHOES_UNTIED, user)
 		else // if one of us moved
 			user.visible_message(span_danger("[our_guy] stamps on [user] hand, mid-shoelace [tied ? "knotting" : "untying"]!") , span_userdanger("Ow! [our_guy] stamps on your hand!") , list(our_guy))
-			to_chat(our_guy, span_userdanger("You stamp on [user] hand! What the- [user.ru_who()] [user.p_were()] [tied ? "knotting" : "untying"] your shoelaces!") )
+			to_chat(our_guy, span_userdanger("You stamp on [user] hand! What the- [user.ru_who()] [user.p_were()] [tied ? "knotting" : "untying"] your shoelaces!"))
 			user.emote("agony")
 			if(istype(L))
 				var/obj/item/bodypart/ouchie = L.get_bodypart(pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
@@ -209,7 +209,7 @@
 	if(tied == SHOES_KNOTTED)
 		our_guy.Paralyze(5)
 		our_guy.Knockdown(10)
-		our_guy.visible_message(span_danger("[our_guy] trips on [our_guy.ru_ego()] knotted shoelaces and falls! What a klutz!") , span_userdanger("You trip on your knotted shoelaces and fall over!") )
+		our_guy.visible_message(span_danger("[our_guy] trips on [our_guy.ru_ego()] knotted shoelaces and falls! What a klutz!") , span_userdanger("You trip on your knotted shoelaces and fall over!"))
 		SEND_SIGNAL(our_guy, COMSIG_ADD_MOOD_EVENT, "trip", /datum/mood_event/tripped) // well we realized they're knotted now!
 		our_alert_ref = WEAKREF(our_guy.throw_alert("shoealert", /atom/movable/screen/alert/shoes/knotted))
 
@@ -220,21 +220,21 @@
 				our_guy.Paralyze(5)
 				our_guy.Knockdown(10)
 				SEND_SIGNAL(our_guy, COMSIG_ADD_MOOD_EVENT, "trip", /datum/mood_event/tripped) // well we realized they're knotted now!
-				our_guy.visible_message(span_danger("[our_guy] trips on [our_guy.ru_ego()] untied shoelaces and falls! What a klutz!") , span_userdanger("You trip on your untied shoelaces and fall over!") )
+				our_guy.visible_message(span_danger("[our_guy] trips on [our_guy.ru_ego()] untied shoelaces and falls! What a klutz!") , span_userdanger("You trip on your untied shoelaces and fall over!"))
 
 			if(2 to 5) // .4% chance to stumble and lurch forward
 				our_guy.throw_at(get_step(our_guy, our_guy.dir), 3, 2)
-				to_chat(our_guy, span_danger("You stumble on your untied shoelaces and lurch forward!") )
+				to_chat(our_guy, span_danger("You stumble on your untied shoelaces and lurch forward!"))
 
 			if(6 to 13) // .7% chance to stumble and fling what we're holding
 				var/have_anything = FALSE
 				for(var/obj/item/I in our_guy.held_items)
 					have_anything = TRUE
 					our_guy.accident(I)
-				to_chat(our_guy, span_danger("You trip on your shoelaces a bit[have_anything ? ", flinging what you were holding" : ""]!") )
+				to_chat(our_guy, span_danger("You trip on your shoelaces a bit[have_anything ? ", flinging what you were holding" : ""]!"))
 
 			if(14 to 25) // 1.3ish% chance to stumble and be a bit off balance (like being disarmed)
-				to_chat(our_guy, span_danger("You stumble a bit on your untied shoelaces!") )
+				to_chat(our_guy, span_danger("You stumble a bit on your untied shoelaces!"))
 				if(!our_guy.has_movespeed_modifier(/datum/movespeed_modifier/shove))
 					our_guy.add_movespeed_modifier(/datum/movespeed_modifier/shove)
 					addtimer(CALLBACK(our_guy, /mob/living/carbon/proc/clear_shove_slowdown), SHOVE_SLOWDOWN_LENGTH)
@@ -258,11 +258,11 @@
 	. = ..()
 
 	if(DOING_INTERACTION_WITH_TARGET(user, src))
-		to_chat(user, span_warning("Уже взаимодействую с [src]!") )
+		to_chat(user, span_warning("Уже взаимодействую с [src]!"))
 		return
 
-	to_chat(user, span_notice("You begin [tied ? "untying" : "tying"] the laces on [src]...") )
+	to_chat(user, span_notice("You begin [tied ? "untying" : "tying"] the laces on [src]..."))
 
 	if(do_after(user, lace_time, target = src,extra_checks = CALLBACK(src, .proc/still_shoed, user)))
-		to_chat(user, span_notice("You [tied ? "untie" : "tie"] the laces on [src].") )
+		to_chat(user, span_notice("You [tied ? "untie" : "tie"] the laces on [src]."))
 		adjust_laces(tied ? SHOES_TIED : SHOES_UNTIED, user)

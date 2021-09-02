@@ -48,7 +48,7 @@ clamping the Knockback_Force value below. */
 		var/target_angle = Get_Angle(attacktarget, usertarget)
 		var/move_target = get_ranged_target_turf(usertarget, angle2dir(target_angle), knockback_force)
 		usertarget.throw_at(move_target, knockback_force, knockback_speed)
-		usertarget.visible_message(span_warning("[usertarget] отлетает благодаря силе [I] ударившей [attacktarget]!") , span_warning("Сила удара [I] по [attacktarget] принуждает меня отлететь!") )
+		usertarget.visible_message(span_warning("[usertarget] отлетает благодаря силе [I] ударившей [attacktarget]!") , span_warning("Сила удара [I] по [attacktarget] принуждает меня отлететь!"))
 
 /datum/element/selfknockback/proc/Projectile_SelfKnockback(obj/projectile/P)
 	SIGNAL_HANDLER

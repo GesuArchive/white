@@ -110,20 +110,20 @@
 	var/input = prompt("pairs glue",pairs_glue)
 	if(!isnull(input))
 		pairs_glue = input
-		to_chat(user, span_notice("You set the pairs glue to [pairs_glue].") )
+		to_chat(user, span_notice("You set the pairs glue to [pairs_glue]."))
 
 /obj/machinery/plumbing/tank/proc/setlistglue(obj/item/I, mob/user)
 	var/input = prompt("list glue",list_glue)
 	if(!isnull(input))
 		list_glue = input
-		to_chat(user, span_notice("You set the list glue to [list_glue].") )
+		to_chat(user, span_notice("You set the list glue to [list_glue]."))
 
 /obj/machinery/plumbing/tank/proc/toggleenname(obj/item/I, mob/user)
 	use_enname_for_list = !use_enname_for_list
 	if(use_enname_for_list)
-		to_chat(user, span_notice("Now the [src.name] will use english reagent names for output list, if they're available.") )
+		to_chat(user, span_notice("Now the [src.name] will use english reagent names for output list, if they're available."))
 	else
-		to_chat(user, span_notice("Now the [src.name] will use russian reagent names for output list.") )
+		to_chat(user, span_notice("Now the [src.name] will use russian reagent names for output list."))
 
 /obj/machinery/plumbing/tank/proc/prompt(varname, v)
 	var/input = input("Set [varname] to what? Make sure to select a unique symbol like \"&\", otherwise extracting from list will be very problematic! (Groups of symbols are also accepted!)", "[varname]", v) as null|num

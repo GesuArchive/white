@@ -38,7 +38,7 @@
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	to_chat(user, span_warning("ПЗЗЗЗЗТ") )
+	to_chat(user, span_warning("ПЗЗЗЗЗТ"))
 	desc = "[desc] Дисплей слегка мигает."
 
 /obj/item/clothing/glasses/hud/health

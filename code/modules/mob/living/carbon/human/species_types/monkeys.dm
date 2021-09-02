@@ -77,12 +77,12 @@
 		if(prob(25))
 			victim.visible_message(span_danger("[user] bite misses [victim]!") ,
 				span_danger("You avoid [user] bite!") , span_hear("You hear jaws snapping shut!") , COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, span_danger("Your bite misses [victim]!") )
+			to_chat(user, span_danger("Your bite misses [victim]!"))
 			return TRUE
 		victim.apply_damage(rand(punchdamagelow, punchdamagehigh), BRUTE, affecting, armor)
 		victim.visible_message(span_danger("[name] bites [victim]!") ,
 			span_userdanger("[name] bites you!") , span_hear("You hear a chomp!") , COMBAT_MESSAGE_RANGE, name)
-		to_chat(user, span_danger("You bite [victim]!") )
+		to_chat(user, span_danger("You bite [victim]!"))
 		if(armor >= 2)
 			return TRUE
 		for(var/d in user.diseases)

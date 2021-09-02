@@ -30,7 +30,7 @@
 		var/obj/item/exploration_detonator/detonator = W
 		detonator.linked_explosives |= src
 		attached_detonators |= detonator
-		to_chat(user, span_notice("Связаываю [src] и [W].") )
+		to_chat(user, span_notice("Связаываю [src] и [W]."))
 		return
 	. = ..()
 
@@ -38,7 +38,7 @@
 	. = ..()
 
 	if(!length(attached_detonators))
-		to_chat(user, span_notice("[src] должен быть связан с детонатором сначала!") )
+		to_chat(user, span_notice("[src] должен быть связан с детонатором сначала!"))
 		return
 
 	if(!flag)
@@ -46,7 +46,7 @@
 	if(ismob(AM))
 		return
 
-	to_chat(user, span_notice("Начинаю устанавливать [src].") )
+	to_chat(user, span_notice("Начинаю устанавливать [src]."))
 
 	if(do_after(user, 30, target = AM))
 		if(!user.temporarilyRemoveItemFromInventory(src))
@@ -71,7 +71,7 @@
 			plastic_overlay.layer = FLOAT_LAYER
 
 		target.add_overlay(plastic_overlay, TRUE)
-		to_chat(user, span_notice("Устанавливаю заряд.") )
+		to_chat(user, span_notice("Устанавливаю заряд."))
 
 /obj/item/grenade/exploration/detonate(mob/living/lanced_by)
 	. = ..()
@@ -111,14 +111,14 @@
 		return
 	var/turf/T = get_turf(user)
 	if(is_station_level(T) && !(obj_flags & EMAGGED))
-		to_chat(user, span_warning("Файрволл станции блокирует подрыв.") )
+		to_chat(user, span_warning("Файрволл станции блокирует подрыв."))
 		return
 	var/explosives_trigged = 0
 	for(var/obj/item/grenade/exploration/exploration in linked_explosives)
 		if(get_dist(exploration.target, user) <= range)
 			addtimer(CALLBACK(exploration, /obj/item/grenade/exploration.proc/detonate), 10)
 			explosives_trigged ++
-	to_chat(user, span_notice("[explosives_trigged] зарядов было активировано.") )
+	to_chat(user, span_notice("[explosives_trigged] зарядов было активировано."))
 
 /obj/item/exploration_detonator/emag_act(mob/user)
 	. = ..()

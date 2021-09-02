@@ -154,7 +154,7 @@
 	else if(splat_type)
 		new splat_type(T)
 
-	visible_message(span_warning("[src] раздавлен.") ,span_hear("Слышу шлепок.") )
+	visible_message(span_warning("[src] раздавлен.") ,span_hear("Слышу шлепок."))
 	if(seed)
 		for(var/datum/plant_gene/trait/trait in seed.genes)
 			trait.on_squash(src, target)
@@ -163,7 +163,7 @@
 		for(var/A in T)
 			reagents.expose(A)
 	else
-		visible_message(span_warning("[capitalize(src.name)] сжимается и разжимается вместе с содержимым внутри.") )
+		visible_message(span_warning("[capitalize(src.name)] сжимается и разжимается вместе с содержимым внутри."))
 		addtimer(CALLBACK(src, .proc/squashreact), 20)
 		reagents.expose(T)
 		for(var/A in T)

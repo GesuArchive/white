@@ -73,7 +73,7 @@
 
 /obj/structure/ladder/singularity_pull()
 	if (!(resistance_flags & INDESTRUCTIBLE))
-		visible_message(span_danger("[capitalize(src.name)] разлетается на куски под силой гравитации!") )
+		visible_message(span_danger("[capitalize(src.name)] разлетается на куски под силой гравитации!"))
 		qdel(src)
 
 /obj/structure/ladder/proc/travel(going_up, mob/user, is_ghost, obj/structure/ladder/ladder)
@@ -115,7 +115,7 @@
 	if (down)
 		tool_list["Down"] = image(icon = 'icons/testing/turf_analysis.dmi', icon_state = "red_arrow", dir = SOUTH)
 	if (!length(tool_list))
-		to_chat(user, span_warning("[capitalize(src.name)] никуда не ведёт!") )
+		to_chat(user, span_warning("[capitalize(src.name)] никуда не ведёт!"))
 		return
 
 	var/result = show_radial_menu(user, src, tool_list, custom_check = CALLBACK(src, .proc/check_menu, user, is_ghost), require_near = !is_ghost, tooltips = TRUE)
@@ -169,9 +169,9 @@
 
 /obj/structure/ladder/proc/show_fluff_message(going_up, mob/user)
 	if(going_up)
-		user.visible_message(span_notice("[user] поднимается наверх по лестнице.") , span_notice("Поднимаюсь наверх по лестнице.") )
+		user.visible_message(span_notice("[user] поднимается наверх по лестнице.") , span_notice("Поднимаюсь наверх по лестнице."))
 	else
-		user.visible_message(span_notice("[user] спускается вниз по лестнице.") , span_notice("Спускаюсь вниз по лестнице.") )
+		user.visible_message(span_notice("[user] спускается вниз по лестнице.") , span_notice("Спускаюсь вниз по лестнице."))
 
 
 // Indestructible away mission ladders which link based on a mapped ID and height value rather than X/Y/Z.

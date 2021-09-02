@@ -421,10 +421,10 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 /obj/machinery/requests_console/attackby(obj/item/O, mob/user, params)
 	if(O.tool_behaviour == TOOL_CROWBAR)
 		if(open)
-			to_chat(user, span_notice("Закрываю панель обслуживания.") )
+			to_chat(user, span_notice("Закрываю панель обслуживания."))
 			open = FALSE
 		else
-			to_chat(user, span_notice("Открываю панель обслуживания.") )
+			to_chat(user, span_notice("Открываю панель обслуживания."))
 			open = TRUE
 		update_icon()
 		return
@@ -432,12 +432,12 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 		if(open)
 			hackState = !hackState
 			if(hackState)
-				to_chat(user, span_notice("Модифицирую проводку.") )
+				to_chat(user, span_notice("Модифицирую проводку."))
 			else
-				to_chat(user, span_notice("Возвращаю проводку на место.") )
+				to_chat(user, span_notice("Возвращаю проводку на место."))
 			update_icon()
 		else
-			to_chat(user, span_warning("Надо бы сначала открыть панель обслуживания!") )
+			to_chat(user, span_warning("Надо бы сначала открыть панель обслуживания!"))
 		return
 
 	var/obj/item/card/id/ID = O.GetID()
@@ -450,7 +450,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 				announceAuth = TRUE
 			else
 				announceAuth = FALSE
-				to_chat(user, span_warning("У меня нет авторизации для отправки объявлений!") )
+				to_chat(user, span_warning("У меня нет авторизации для отправки объявлений!"))
 			updateUsrDialog()
 		return
 	if (istype(O, /obj/item/stamp))

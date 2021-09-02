@@ -21,13 +21,13 @@
 		return FALSE
 	var/area/AR = get_area(invoker)
 	if(!is_reebe(AR.z))
-		to_chat(invoker, span_brass("You need to be near the gateway to channel its energy!") )
+		to_chat(invoker, span_brass("You need to be near the gateway to channel its energy!"))
 		return FALSE
 	return TRUE
 
 /datum/clockcult/scripture/ark_activation/invoke_success()
 	var/obj/structure/destructible/clockwork/massive/celestial_gateway/gateway = GLOB.celestial_gateway
 	if(!gateway)
-		to_chat(invoker, span_brass("No celestial gateway located, contact the admins.") )
+		to_chat(invoker, span_brass("No celestial gateway located, contact the admins."))
 		return FALSE
 	gateway.open_gateway()

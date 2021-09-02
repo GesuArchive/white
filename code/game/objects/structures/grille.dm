@@ -85,7 +85,7 @@
 /obj/structure/grille/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_DECONSTRUCT)
-			to_chat(user, span_notice("Разбираю решетку.") )
+			to_chat(user, span_notice("Разбираю решетку."))
 			qdel(src)
 			return TRUE
 		if(RCD_WINDOWGRILLE)
@@ -167,7 +167,7 @@
 			W.play_tool_sound(src, 100)
 			set_anchored(!anchored)
 			user.visible_message(span_notice("[user] [anchored ? "прикручивает" : "откручивает"] [src.name].") , \
-				span_notice("[anchored ? "прикручиваю [src.name] к полу" : "откручиваю [src.name] от пола"].") )
+				span_notice("[anchored ? "прикручиваю [src.name] к полу" : "откручиваю [src.name] от пола"]."))
 			if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
 				QUEUE_SMOOTH(src)
 			return
@@ -175,7 +175,7 @@
 		var/obj/item/stack/rods/R = W
 		if(!shock(user, 90))
 			user.visible_message(span_notice("[user] чинит решетку.") , \
-				span_notice("Чиню решетку.") )
+				span_notice("Чиню решетку."))
 			new grille_type(src.loc)
 			R.use(1)
 			qdel(src)
@@ -186,16 +186,16 @@
 		if (!broken)
 			var/obj/item/stack/ST = W
 			if (ST.get_amount() < 2)
-				to_chat(user, span_warning("Надо бы хотя бы парочку листов стекла!") )
+				to_chat(user, span_warning("Надо бы хотя бы парочку листов стекла!"))
 				return
 			var/dir_to_set = SOUTHWEST
 			if(!anchored)
-				to_chat(user, span_warning("Надо бы прикрутить [src] к полу!") )
+				to_chat(user, span_warning("Надо бы прикрутить [src] к полу!"))
 				return
 			for(var/obj/structure/window/WINDOW in loc)
-				to_chat(user, span_warning("Здесь уже есть окно!") )
+				to_chat(user, span_warning("Здесь уже есть окно!"))
 				return
-			to_chat(user, span_notice("Начинаю ставить окно...") )
+			to_chat(user, span_notice("Начинаю ставить окно..."))
 			if(do_after(user,20, target = src))
 				if(!src.loc || !anchored) //Grille broken or unanchored while waiting
 					return
@@ -219,7 +219,7 @@
 				WD.set_anchored(FALSE)
 				WD.state = 0
 				ST.use(2)
-				to_chat(user, span_notice("Ставлю [WD] на [src].") )
+				to_chat(user, span_notice("Ставлю [WD] на [src]."))
 			return
 //window placing end
 

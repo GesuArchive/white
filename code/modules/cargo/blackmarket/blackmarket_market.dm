@@ -40,7 +40,7 @@
 		var/price = I.price + shipping[method]
 		// I can't get the price of the item and shipping in a clean way to the UI, so I have to do this.
 		if(uplink.money < price)
-			to_chat(span_warning("Недостаточно кредитов в [uplink] для [I] с [method] доставки.") )
+			to_chat(span_warning("Недостаточно кредитов в [uplink] для [I] с [method] доставки."))
 			return FALSE
 
 		if(I.buy(uplink, user, method))

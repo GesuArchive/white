@@ -9,9 +9,9 @@
 	if(!istype(I, /obj/item/petri_dish))
 		return ..()
 	if(current_dish)
-		to_chat(user, span_warning("There is already a petridish in <b>[src.name]</b>.") )
+		to_chat(user, span_warning("There is already a petridish in <b>[src.name]</b>."))
 		return
-	to_chat(user, span_notice("You put [I] into <b>[src.name]</b>.") )
+	to_chat(user, span_notice("You put [I] into <b>[src.name]</b>."))
 	current_dish = I
 	current_dish.forceMove(src)
 

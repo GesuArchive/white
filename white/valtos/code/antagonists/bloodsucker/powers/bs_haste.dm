@@ -25,7 +25,7 @@
 	// Being Grabbed
 	if (owner.pulledby && owner.pulledby.grab_state >= GRAB_AGGRESSIVE)
 		if (display_error)
-			to_chat(owner, span_warning("You're being grabbed!") )
+			to_chat(owner, span_warning("You're being grabbed!"))
 		return FALSE
 	return TRUE
 

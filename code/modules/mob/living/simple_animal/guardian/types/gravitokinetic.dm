@@ -22,15 +22,15 @@
 	if(isliving(target) && target != src && target != summoner)
 		to_chat(src, "<span class='danger'><B>Your punch has applied heavy gravity to [target]!</span></B>")
 		add_gravity(target, 5)
-		to_chat(target, span_userdanger("Everything feels really heavy!") )
+		to_chat(target, span_userdanger("Everything feels really heavy!"))
 
 /mob/living/simple_animal/hostile/guardian/gravitokinetic/AltClickOn(atom/A)
 	if(isopenturf(A) && is_deployed() && stat != DEAD && in_range(src, A) && !incapacitated())
 		var/turf/T = A
 		if(isspaceturf(T))
-			to_chat(src, span_warning("You cannot add gravity to space!") )
+			to_chat(src, span_warning("You cannot add gravity to space!"))
 			return
-		visible_message(span_danger("[capitalize(src.name)] slams their fist into the [T]!") , span_notice("You modify the gravity of the [T].") )
+		visible_message(span_danger("[capitalize(src.name)] slams their fist into the [T]!") , span_notice("You modify the gravity of the [T]."))
 		do_attack_animation(T)
 		add_gravity(T, 3)
 		return

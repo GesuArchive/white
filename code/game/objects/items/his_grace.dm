@@ -73,7 +73,7 @@
 /obj/item/his_grace/relaymove(mob/living/user, direction) //Allows changelings, etc. to climb out of Him after they revive, provided He isn't active
 	if(!awakened)
 		user.forceMove(get_turf(src))
-		user.visible_message(span_warning("[user] scrambles out of [src]!") , span_notice("You climb out of [src]!") )
+		user.visible_message(span_warning("[user] scrambles out of [src]!") , span_notice("You climb out of [src]!"))
 
 /obj/item/his_grace/process(delta_time)
 	if(!bloodthirst)
@@ -126,7 +126,7 @@
 	if(awakened)
 		return
 	awakened = TRUE
-	user.visible_message(span_boldwarning("[capitalize(src.name)] begins to rattle. He thirsts.") , span_his_grace("You flick [src] latch up. You hope this is a good idea.") )
+	user.visible_message(span_boldwarning("[capitalize(src.name)] begins to rattle. He thirsts.") , span_his_grace("You flick [src] latch up. You hope this is a good idea."))
 	name = "His Grace"
 	desc = "A bloodthirsty artifact created by a profane rite."
 	gender = MALE
@@ -162,7 +162,7 @@
 	if(!awakened || ascended)
 		return
 	var/turf/T = get_turf(src)
-	T.visible_message(span_boldwarning("[capitalize(src.name)] slowly stops rattling and falls still, His latch snapping shut.") )
+	T.visible_message(span_boldwarning("[capitalize(src.name)] slowly stops rattling and falls still, His latch snapping shut."))
 	playsound(loc, 'sound/weapons/batonextend.ogg', 100, TRUE)
 	name = initial(name)
 	desc = initial(desc)
@@ -210,7 +210,7 @@
 	switch(bloodthirst)
 		if(HIS_GRACE_CONSUME_OWNER to HIS_GRACE_FALL_ASLEEP)
 			if(HIS_GRACE_CONSUME_OWNER > prev_bloodthirst)
-				master.visible_message(span_userdanger("[capitalize(src.name)] enters a frenzy!") )
+				master.visible_message(span_userdanger("[capitalize(src.name)] enters a frenzy!"))
 		if(HIS_GRACE_STARVING to HIS_GRACE_CONSUME_OWNER)
 			ADD_TRAIT(src, TRAIT_NODROP, HIS_GRACE_TRAIT)
 			if(HIS_GRACE_STARVING > prev_bloodthirst)
@@ -231,10 +231,10 @@
 				[force_bonus < 5 ? " His power grows.":""]</span>")
 				force_bonus = max(force_bonus, 5)
 			if(prev_bloodthirst >= HIS_GRACE_FAMISHED)
-				master.visible_message(span_warning("[capitalize(src.name)] is now only somewhat hungry.") , span_his_grace("[capitalize(src.name)] hunger recedes a little...") )
+				master.visible_message(span_warning("[capitalize(src.name)] is now only somewhat hungry.") , span_his_grace("[capitalize(src.name)] hunger recedes a little..."))
 		if(HIS_GRACE_PECKISH to HIS_GRACE_HUNGRY)
 			if(HIS_GRACE_PECKISH > prev_bloodthirst)
-				master.visible_message(span_warning("[capitalize(src.name)] is feeling snackish.") , span_his_grace("[capitalize(src.name)] begins to hunger.") )
+				master.visible_message(span_warning("[capitalize(src.name)] is feeling snackish.") , span_his_grace("[capitalize(src.name)] begins to hunger."))
 			if(prev_bloodthirst >= HIS_GRACE_HUNGRY)
 				master.visible_message(span_warning("[capitalize(src.name)] is now only a little peckish.") , "<span class='his_grace big'>[capitalize(src.name)] hunger recedes somewhat...</span>")
 		if(HIS_GRACE_SATIATED to HIS_GRACE_PECKISH)

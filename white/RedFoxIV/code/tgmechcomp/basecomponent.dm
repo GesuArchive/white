@@ -127,7 +127,7 @@
 	if(only_one_per_tile)
 		for(var/obj/item/mechcomp/i in get_turf(src))
 			if(istype(i, src) && i.anchored)
-				to_chat(user, span_alert("Cannot wrench two [src.name]s in one place! Pick a different spot for this one!") )
+				to_chat(user, span_alert("Cannot wrench two [src.name]s in one place! Pick a different spot for this one!"))
 				return FALSE
 		src.pixel_x = 0
 		src.pixel_y = 0
@@ -136,7 +136,7 @@
 ///Returns true if unanchoring is allowed, returns false if not.
 /obj/item/mechcomp/proc/can_unanchor(mob/living/user)
 	if (length(compdatum.connected_incoming) || length(compdatum.connected_outgoing))
-		to_chat(user, span_alert("The locking bolts of [src.name] are locked in and do not budge! Disconnect all first!") )
+		to_chat(user, span_alert("The locking bolts of [src.name] are locked in and do not budge! Disconnect all first!"))
 		return FALSE
 	//just in case we /somehow/ fucked up with the check
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_RM_ALL_CONNECTIONS)
@@ -148,7 +148,7 @@
 	last_anchored_by = user
 	playsound(src, 'sound/items/ratchet.ogg', 100, TRUE)
 	user.visible_message(span_notice("[user] прикручивает [src.name].") , \
-		span_notice("Прикручиваю [src.name] к полу.") )
+		span_notice("Прикручиваю [src.name] к полу."))
 	update_icon_state(part_icon_state)
 
 ///handles the unanchoring of component.
@@ -156,7 +156,7 @@
 	anchored = FALSE
 	playsound(src, 'sound/items/ratchet.ogg', 100, TRUE)
 	user.visible_message(span_notice("[user] откручивает [src.name].") , \
-		span_notice("Откручиваю [src.name] от пола.") )
+		span_notice("Откручиваю [src.name] от пола."))
 	update_icon_state(part_icon_state)
 
 
@@ -235,10 +235,10 @@
 	for(input in input_types)
 		input_icons += list(input) = image(icon = input[1], icon_state = "[input[1] ? input[1] : "unknown"]")
 	var/input_choice = show_radial_menu(user, src, list/choices, tooltips = TRUE)
-	to_chat(user, span_notice("Подключаю вход \"[input_choice[2]]\" [src.name]...") )
+	to_chat(user, span_notice("Подключаю вход \"[input_choice[2]]\" [src.name]..."))
 
 	for(output in over.output_types)
 		input_icons += list(input[2]) = image(icon = output[1], icon_state = "[output[1] ? output[1] : "unknown"]")
 	var/output_choice = show_radial_menu(user, over, list/choices, tooltips = TRUE)
-	to_chat(user, span_notice("...к выходу \"[output_choice[2]]\" [over.name].") )
+	to_chat(user, span_notice("...к выходу \"[output_choice[2]]\" [over.name]."))
 */

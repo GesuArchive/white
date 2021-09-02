@@ -60,5 +60,5 @@
 /obj/item/damaz/proc/can_use(mob/user)
 	var/allowed = isdwarf(user)
 	if(!allowed)
-		to_chat(user, span_warning("Ты не достоин!") )
+		to_chat(user, span_warning("Ты не достоин!"))
 	return allowed

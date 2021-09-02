@@ -182,7 +182,7 @@
 	victim.put_in_hands(chainsaw, forced = TRUE)
 	chainsaw.attack_self(victim)
 	victim.reagents.add_reagent(/datum/reagent/medicine/adminordrazine,25)
-	to_chat(victim, span_warning("KILL, KILL, KILL! YOU HAVE NO ALLIES ANYMORE, KILL THEM ALL!") )
+	to_chat(victim, span_warning("KILL, KILL, KILL! YOU HAVE NO ALLIES ANYMORE, KILL THEM ALL!"))
 
 	var/datum/client_colour/colour = victim.add_client_colour(/datum/client_colour/bloodlust)
 	QDEL_IN(colour, 11)
@@ -192,7 +192,7 @@
 
 /obj/effect/mine/pickup/bloodbath/proc/end_blood_frenzy()
 	if(doomslayer)
-		to_chat(doomslayer, span_notice("Your bloodlust seeps back into the bog of your subconscious and you regain self control.") )
+		to_chat(doomslayer, span_notice("Your bloodlust seeps back into the bog of your subconscious and you regain self control."))
 		doomslayer.log_message("exited a blood frenzy", LOG_ATTACK)
 	if(chainsaw)
 		qdel(chainsaw)
@@ -208,7 +208,7 @@
 /obj/effect/mine/pickup/healing/mineEffect(mob/living/carbon/victim)
 	if(!victim.client || !istype(victim))
 		return
-	to_chat(victim, span_notice("You feel great!") )
+	to_chat(victim, span_notice("You feel great!"))
 	victim.revive(full_heal = TRUE, admin_revive = TRUE)
 
 /obj/effect/mine/pickup/speed
@@ -220,11 +220,11 @@
 /obj/effect/mine/pickup/speed/mineEffect(mob/living/carbon/victim)
 	if(!victim.client || !istype(victim))
 		return
-	to_chat(victim, span_notice("You feel fast!") )
+	to_chat(victim, span_notice("You feel fast!"))
 	victim.add_movespeed_modifier(/datum/movespeed_modifier/yellow_orb)
 	sleep(duration)
 	victim.remove_movespeed_modifier(/datum/movespeed_modifier/yellow_orb)
-	to_chat(victim, span_notice("You slow down.") )
+	to_chat(victim, span_notice("You slow down."))
 
 
 /obj/effect/mine/sound/bwoink

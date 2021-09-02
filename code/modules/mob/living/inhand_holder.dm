@@ -56,13 +56,13 @@
 	if(isliving(loc))
 		var/mob/living/L = loc
 		if(display_messages)
-			to_chat(L, span_warning("[held_mob] вырывается!") )
+			to_chat(L, span_warning("[held_mob] вырывается!"))
 		L.dropItemToGround(src)
 	held_mob.forceMove(get_turf(held_mob))
 	held_mob.reset_perspective()
 	held_mob.setDir(SOUTH)
 	if(display_messages)
-		held_mob.visible_message(span_warning("[held_mob] вылезает из рук!") )
+		held_mob.visible_message(span_warning("[held_mob] вылезает из рук!"))
 	held_mob = null
 	if(del_on_release && !destroying)
 		qdel(src)
@@ -76,7 +76,7 @@
 
 /obj/item/clothing/head/mob_holder/on_found(mob/finder)
 	if(held_mob?.will_escape_storage())
-		to_chat(finder, span_warning("[capitalize(held_mob.name)] вылезает!") )
+		to_chat(finder, span_warning("[capitalize(held_mob.name)] вылезает!"))
 		finder.visible_message(span_warning("[capitalize(held_mob.name)] вылезает из контейнера!") , ignored_mobs = finder)
 		release(TRUE, FALSE)
 		return

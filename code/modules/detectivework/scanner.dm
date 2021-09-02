@@ -33,10 +33,10 @@
 /obj/item/detective_scanner/attack_self(mob/user)
 	if(log.len && !scanning)
 		scanning = TRUE
-		to_chat(user, span_notice("Печатаю отчет, пожалуйста подождите...") )
+		to_chat(user, span_notice("Печатаю отчет, пожалуйста подождите..."))
 		addtimer(CALLBACK(src, .proc/PrintReport), 100)
 	else
-		to_chat(user, span_notice("Логи сканера пусты или же он используется.") )
+		to_chat(user, span_notice("Логи сканера пусты или же он используется."))
 
 /obj/item/detective_scanner/attack(mob/living/M, mob/user)
 	return
@@ -57,7 +57,7 @@
 	if(ismob(loc))
 		var/mob/M = loc
 		M.put_in_hands(P)
-		to_chat(M, span_notice("Отчет напечатан. Логи очищены.") )
+		to_chat(M, span_notice("Отчет напечатан. Логи очищены."))
 
 	// Clear the logs
 	log = list()
@@ -77,8 +77,8 @@
 
 		scanning = TRUE
 
-		user.visible_message(span_notice("[user] указывает на [src.name] в [A] и начинает судебно-медицинское сканирование.") )
-		to_chat(user, span_notice("Сканирую [A]. Сканер начинает анализ результатов...") )
+		user.visible_message(span_notice("[user] указывает на [src.name] в [A] и начинает судебно-медицинское сканирование."))
+		to_chat(user, span_notice("Сканирую [A]. Сканер начинает анализ результатов..."))
 
 
 		// GATHER INFORMATION
@@ -126,7 +126,7 @@
 		// Fingerprints
 		if(length(fingerprints))
 			sleep(30)
-			add_log(span_info("<B>Отпечатки:</B>") )
+			add_log(span_info("<B>Отпечатки:</B>"))
 			for(var/finger in fingerprints)
 				add_log("[finger]")
 			found_something = TRUE
@@ -134,7 +134,7 @@
 		// Blood
 		if (length(blood))
 			sleep(30)
-			add_log(span_info("<B>Кровь:</B>") )
+			add_log(span_info("<B>Кровь:</B>"))
 			found_something = TRUE
 			for(var/B in blood)
 				add_log("Type: <font color='red'>[blood[B]]</font> ДНК (UE): <font color='red'>[B]</font>")
@@ -142,7 +142,7 @@
 		//Fibers
 		if(length(fibers))
 			sleep(30)
-			add_log(span_info("<B>Волокна:</B>") )
+			add_log(span_info("<B>Волокна:</B>"))
 			for(var/fiber in fibers)
 				add_log("[fiber]")
 			found_something = TRUE
@@ -150,7 +150,7 @@
 		//Reagents
 		if(length(reagents))
 			sleep(30)
-			add_log(span_info("<B>Реагенты:</B>") )
+			add_log(span_info("<B>Реагенты:</B>"))
 			for(var/R in reagents)
 				add_log("Reagent: <font color='red'>[R]</font> Объем: <font color='red'>[reagents[R]]</font>")
 			found_something = TRUE
@@ -163,10 +163,10 @@
 		if(!found_something)
 			add_log("<I># Судебно-медецинских следов не обнаружено #</I>", 0) // Don't display this to the holder user
 			if(holder)
-				to_chat(holder, span_warning("Не в состоянии обнаружить какие-либо отпечатки, материалы, волокна, или кровь на [target_name]!") )
+				to_chat(holder, span_warning("Не в состоянии обнаружить какие-либо отпечатки, материалы, волокна, или кровь на [target_name]!"))
 		else
 			if(holder)
-				to_chat(holder, span_notice("Сканирование [target_name] завершено.") )
+				to_chat(holder, span_notice("Сканирование [target_name] завершено."))
 
 		add_log("---------------------------------------------------------", 0)
 		scanning = FALSE
@@ -189,12 +189,12 @@
 	if(!user.canUseTopic(src, be_close=TRUE))
 		return
 	if(!LAZYLEN(log))
-		to_chat(user, span_notice("Не удалось очистить логи, логи сканера пусты.") )
+		to_chat(user, span_notice("Не удалось очистить логи, логи сканера пусты."))
 		return
 	if(scanning)
-		to_chat(user, span_notice("Не удалось очистить логи, сканер используется.") )
+		to_chat(user, span_notice("Не удалось очистить логи, сканер используется."))
 		return
-	to_chat(user, span_notice("Логи сканера очищены.") )
+	to_chat(user, span_notice("Логи сканера очищены."))
 	log = list()
 
 /obj/item/detective_scanner/examine(mob/user)
@@ -205,11 +205,11 @@
 /obj/item/detective_scanner/proc/displayDetectiveScanResults(mob/living/user)
 	// No need for can-use checks since the action button should do proper checks
 	if(!LAZYLEN(log))
-		to_chat(user, span_notice("Не удалось отобразить логи, логи сканера пусты.") )
+		to_chat(user, span_notice("Не удалось отобразить логи, логи сканера пусты."))
 		return
 	if(scanning)
-		to_chat(user, span_notice("Не удалось отобразить логи, сканер используется.") )
+		to_chat(user, span_notice("Не удалось отобразить логи, сканер используется."))
 		return
-	to_chat(user, span_notice("<B>Отчет сканера</B>") )
+	to_chat(user, span_notice("<B>Отчет сканера</B>"))
 	for(var/iterLog in log)
 		to_chat(user, iterLog)

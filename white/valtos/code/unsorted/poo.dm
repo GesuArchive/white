@@ -104,7 +104,7 @@
 		var/mutable_appearance/pooverlay = mutable_appearance('white/valtos/icons/poo.dmi')
 		//H.Paralyze(5) //splat!
 		H.adjust_blurriness(1)
-		H.visible_message(span_warning("<b>[H]</b> ловит <b>[src]</b> своим телом!") , span_userdanger("Ловлю <b>[src]</b> своим телом!") )
+		H.visible_message(span_warning("<b>[H]</b> ловит <b>[src]</b> своим телом!") , span_userdanger("Ловлю <b>[src]</b> своим телом!"))
 		playsound(H, "desceration", 50, TRUE)
 		if(!H.pooed) // one layer at a time
 			pooverlay.icon_state = "facepoo"
@@ -137,7 +137,7 @@
 		if(H.pooition >= 25)
 			if(HAS_TRAIT(H, TRAIT_LIGHT_POOER))
 				H.visible_message(span_notice("<b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] себе прямо в руку!") , \
-					span_notice("Выдавливаю какаху из своего тела.") )
+					span_notice("Выдавливаю какаху из своего тела."))
 				playsound(H, 'white/valtos/sounds/poo2.ogg', 25, 1) //silence hunter
 				var/obj/item/food/poo/P = new(T)
 				H.put_in_hands(P)
@@ -149,7 +149,7 @@
 			else
 				if(H.get_item_by_slot(ITEM_SLOT_ICLOTHING))
 					H.visible_message(span_notice("<b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] себе в штаны!") , \
-						span_notice("Сру себе в штаны.") )
+						span_notice("Сру себе в штаны."))
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
 					H.pooition -= 25
 					if(!H.pooed)
@@ -164,14 +164,14 @@
 					return
 				else if(locate(/obj/structure/toilet) in T || locate(/obj/structure/toilet/greyscale) in T)
 					H.visible_message(span_notice("<b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] в туалет!") , \
-						span_notice("Выдавливаю какаху прямиком в туалет.") )
+						span_notice("Выдавливаю какаху прямиком в туалет."))
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
 					H.pooition -= 25
 					SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 					return
 				else
 					H.visible_message(span_notice("<b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] на пол!") , \
-						span_notice("Выдавливаю какаху из своего тела.") )
+						span_notice("Выдавливаю какаху из своего тела."))
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
 					new /obj/item/food/poo(T)
 					H.pooition -= 25
@@ -179,7 +179,7 @@
 					return
 		else if(H.stat == CONSCIOUS)
 			H.visible_message(span_notice("<b>[H]</b> тужится!") , \
-					span_notice("Вам нечем какать.") )
+					span_notice("Вам нечем какать."))
 			H.adjust_blurriness(1)
 			SSblackbox.record_feedback("tally", "poo", 1, "Poo Creation Failed")
 			return
@@ -240,12 +240,12 @@
 
 	if(istype(I, /obj/item/food/poo) && user.a_intent == INTENT_HELP)
 		if(obj_integrity < max_integrity)
-			to_chat(user, span_notice("Начинаю чинить стену говна...") )
+			to_chat(user, span_notice("Начинаю чинить стену говна..."))
 			if(do_after(user, 20, target = src))
 				obj_integrity = max_integrity
-				to_chat(user, span_notice("Чиню стену говна говном.") )
+				to_chat(user, span_notice("Чиню стену говна говном."))
 		else
-			to_chat(user, span_warning("[capitalize(src.name)] уже в порядке!") )
+			to_chat(user, span_warning("[capitalize(src.name)] уже в порядке!"))
 		return
 
 /obj/structure/poop_barricade/deconstruct(disassembled)

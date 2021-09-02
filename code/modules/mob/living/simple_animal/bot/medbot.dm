@@ -217,8 +217,8 @@
 	if(emagged == 2)
 		declare_crit = 0
 		if(user)
-			to_chat(user, span_notice("Взламываю синтезатор реагентов [src.name].") )
-		audible_message(span_danger("[capitalize(src.name)] странно гудит!") )
+			to_chat(user, span_notice("Взламываю синтезатор реагентов [src.name]."))
+		audible_message(span_danger("[capitalize(src.name)] странно гудит!"))
 		flick("medibot_spark", src)
 		playsound(src, "sparks", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		if(user)
@@ -247,7 +247,7 @@
 /mob/living/simple_animal/bot/medbot/proc/tip_over(mob/user)
 	ADD_TRAIT(src, TRAIT_IMMOBILIZED, TIPPED_OVER)
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 50)
-	user.visible_message(span_danger("[user] роняет [src.name]а!") , span_danger("Роняю [src.name]а на бок!") )
+	user.visible_message(span_danger("[user] роняет [src.name]а!") , span_danger("Роняю [src.name]а на бок!"))
 	mode = BOT_TIPPED
 	var/matrix/mat = transform
 	transform = mat.Turn(180)
@@ -258,13 +258,13 @@
 	var/list/messagevoice
 
 	if(user)
-		user.visible_message(span_notice("[user] ставит [src.name] на место!") , span_green("Ставлю [src.name] на место!") )
+		user.visible_message(span_notice("[user] ставит [src.name] на место!") , span_green("Ставлю [src.name] на место!"))
 		if(user.name == tipper_name)
 			messagevoice = list("Я тебя прощаю." = 'sound/voice/medbot/forgive.ogg')
 		else
 			messagevoice = list("Спасибо!" = 'sound/voice/medbot/thank_you.ogg', "Ты хороший человек." = 'sound/voice/medbot/youre_good.ogg')
 	else
-		visible_message(span_notice("[capitalize(src.name)] умудряется встать на колёсики сам.") )
+		visible_message(span_notice("[capitalize(src.name)] умудряется встать на колёсики сам."))
 		messagevoice = list("Пошёл нахуй." = 'sound/voice/medbot/fuck_you.ogg', "Ваше поведение было записано, прекрасного вам[prob(10)?", блять,":""] дня." = 'sound/voice/medbot/reported.ogg')
 	tipper_name = null
 	if(world.time > last_tipping_action_voice + 15 SECONDS)
@@ -456,11 +456,11 @@
 
 /mob/living/simple_animal/bot/medbot/attack_hand(mob/living/carbon/human/H)
 	if(DOING_INTERACTION_WITH_TARGET(H, src))
-		to_chat(H, span_warning("Уже взаимодействую с [src.name]ом.") )
+		to_chat(H, span_warning("Уже взаимодействую с [src.name]ом."))
 		return
 
 	if(H.a_intent == INTENT_DISARM && mode != BOT_TIPPED)
-		H.visible_message(span_danger("[H] пытается опрокинуть [src.name]а.") , span_warning("Пытаюсь опрокинуть [src.name]а...") )
+		H.visible_message(span_danger("[H] пытается опрокинуть [src.name]а.") , span_warning("Пытаюсь опрокинуть [src.name]а..."))
 
 		if(world.time > last_tipping_action_voice + 15 SECONDS)
 			last_tipping_action_voice = world.time // message for tipping happens when we start interacting, message for righting comes after finishing
@@ -473,7 +473,7 @@
 			tip_over(H)
 
 	else if(H.a_intent == INTENT_HELP && mode == BOT_TIPPED)
-		H.visible_message(span_notice("[H] пытается поставить [src.name]а на место.") , span_notice("Пытаюсь поставить [src.name]а на место...") )
+		H.visible_message(span_notice("[H] пытается поставить [src.name]а на место.") , span_notice("Пытаюсь поставить [src.name]а на место..."))
 		if(do_after(H, 3 SECONDS, target=src))
 			set_right(H)
 	else
@@ -543,7 +543,7 @@
 
 		if(!treatment_method && emagged != 2) //If they don't need any of that they're probably cured!
 			if(C.maxHealth - C.get_organic_health() < heal_threshold)
-				to_chat(src, span_notice("[C] здоров! Программа не позволяет лечить чьи-либо раны без хотя бы [heal_threshold] урона любого типа ([heal_threshold + 5] для кислородного урона.)") ) //ёбаный в рот этого казино блять
+				to_chat(src, span_notice("[C] здоров! Программа не позволяет лечить чьи-либо раны без хотя бы [heal_threshold] урона любого типа ([heal_threshold + 5] для кислородного урона.)")) //ёбаный в рот этого казино блять
 
 			var/list/messagevoice = list("Все исправлено!" = 'sound/voice/medbot/patchedup.ogg',/*"Кто яблоко в день съедает, у того я не бываю." = 'sound/voice/medbot/apple.ogg'*/,"Поправляйся!" = 'sound/voice/medbot/feelbetter.ogg')
 			var/message = pick(messagevoice)
@@ -553,7 +553,7 @@
 			tending = FALSE
 		else if(patient)
 			C.visible_message(span_danger("[capitalize(src.name)] пытается вылечить раны [patient]!") , \
-				span_userdanger("[capitalize(src.name)] пытается вылечить мои раны!") )
+				span_userdanger("[capitalize(src.name)] пытается вылечить мои раны!"))
 
 			if(do_mob(src, patient, 20)) //Slightly faster than default tend wounds, but does less HPS
 				if((get_dist(src, patient) <= 1) && (on) && assess_patient(patient))
@@ -569,7 +569,7 @@
 						patient.apply_damage_type((healies*-1),treatment_method) //don't need to check treatment_method since we know by this point that they were actually damaged.
 						log_combat(src, patient, "tended the wounds of", "internal tools", "([uppertext(treatment_method)])")
 					C.visible_message(span_notice("[capitalize(src.name)] лечит раны [patient]!") , \
-						span_green("[capitalize(src.name)] лечит мои раны!") )
+						span_green("[capitalize(src.name)] лечит мои раны!"))
 					ADD_TRAIT(patient,TRAIT_MEDIBOTCOMINGTHROUGH,tag)
 					addtimer(TRAIT_CALLBACK_REMOVE(patient, TRAIT_MEDIBOTCOMINGTHROUGH, tag), (30 SECONDS))
 				else
@@ -586,7 +586,7 @@
 
 /mob/living/simple_animal/bot/medbot/explode()
 	on = FALSE
-	visible_message(span_boldannounce("[capitalize(src.name)] разрывается на куски!") )
+	visible_message(span_boldannounce("[capitalize(src.name)] разрывается на куски!"))
 	var/atom/Tsec = drop_location()
 
 	drop_part(firstaid, Tsec)

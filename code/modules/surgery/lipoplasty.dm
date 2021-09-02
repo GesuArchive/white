@@ -16,15 +16,15 @@
 	time = 64
 
 /datum/surgery_step/cut_fat/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	user.visible_message(span_notice("[user] begins to cut away [target] excess fat.") , span_notice("You begin to cut away [target] excess fat...") )
+	user.visible_message(span_notice("[user] begins to cut away [target] excess fat.") , span_notice("You begin to cut away [target] excess fat..."))
 	display_results(user, target, span_notice("You begin to cut away [target] excess fat...") ,
 			span_notice("[user] begins to cut away [target] excess fat.") ,
-			span_notice("[user] begins to cut [target] [target_zone] with [tool].") )
+			span_notice("[user] begins to cut [target] [target_zone] with [tool]."))
 
 /datum/surgery_step/cut_fat/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
 	display_results(user, target, span_notice("You cut [target] excess fat loose.") ,
 			span_notice("[user] cuts [target] excess fat loose!") ,
-			span_notice("[user] finishes the cut on [target] [target_zone].") )
+			span_notice("[user] finishes the cut on [target] [target_zone]."))
 	return 1
 
 //remove fat
@@ -36,12 +36,12 @@
 /datum/surgery_step/remove_fat/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("You begin to extract [target] loose fat...") ,
 			span_notice("[user] begins to extract [target] loose fat!") ,
-			span_notice("[user] begins to extract something from [target] [target_zone].") )
+			span_notice("[user] begins to extract something from [target] [target_zone]."))
 
 /datum/surgery_step/remove_fat/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(user, target, span_notice("You extract [target] fat.") ,
 			span_notice("[user] extracts [target] fat!") ,
-			span_notice("[user] extracts [target] fat!") )
+			span_notice("[user] extracts [target] fat!"))
 	target.overeatduration = 0 //patient is unfatted
 	var/removednutriment = target.nutrition
 	target.set_nutrition(NUTRITION_LEVEL_WELL_FED)

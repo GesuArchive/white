@@ -92,13 +92,13 @@
 		var/species = golem_shell_species_types[O.merge_type]
 		if(species)
 			if(O.use(10))
-				to_chat(user, span_notice("Вы достраиваете корпус голема десятью листами [O].") )
+				to_chat(user, span_notice("Вы достраиваете корпус голема десятью листами [O]."))
 				new shell_type(get_turf(src), species, user)
 				qdel(src)
 			else
-				to_chat(user, span_warning("Вам нужно как минимум 10 листов чтобы достроить голема!") )
+				to_chat(user, span_warning("Вам нужно как минимум 10 листов чтобы достроить голема!"))
 		else
-			to_chat(user, span_warning("Ты не можешь построить голема из этого материала!") )
+			to_chat(user, span_warning("Ты не можешь построить голема из этого материала!"))
 
 //made with xenobiology, the golem obeys its creator
 /obj/item/golem_shell/servant

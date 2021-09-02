@@ -67,10 +67,10 @@
 
 /obj/effect/proc_holder/tentacle_slap/fire(mob/living/carbon/user)
 	if(current_cooldown > world.time)
-		to_chat(user, span_notice("This ability is still on cooldown.") )
+		to_chat(user, span_notice("This ability is still on cooldown."))
 		return
 	if(active)
-		remove_ranged_ability(span_notice("You stop preparing to tentacle slap.") )
+		remove_ranged_ability(span_notice("You stop preparing to tentacle slap."))
 	else
 		add_ranged_ability(user, span_notice("You prepare your pimp-tentacle. <B>Left-click to slap a target!</B>") , TRUE)
 
@@ -91,7 +91,7 @@
 
 	var/mob/living/living_target = target
 
-	owner.visible_message("<span class='warning>[owner] slaps [living_target] with its tentacle!</span>", span_notice("You slap [living_target] with your tentacle.") )
+	owner.visible_message("<span class='warning>[owner] slaps [living_target] with its tentacle!</span>", span_notice("You slap [living_target] with your tentacle."))
 	playsound(owner, 'sound/effects/assslap.ogg', 90)
 	var/atom/throw_target = get_edge_target_turf(target, ranged_ability_user.dir)
 	living_target.throw_at(throw_target, 6, 4, owner)

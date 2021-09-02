@@ -50,7 +50,7 @@
 							english_right += initial(chem_id.name)
 							right += chem_id
 			else
-				to_chat(usr, span_warning("No such known reagent exists!") )
+				to_chat(usr, span_warning("No such known reagent exists!"))
 
 		if("remove")
 			var/chem_name = params["reagent"]

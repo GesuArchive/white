@@ -823,7 +823,7 @@
 
 /obj/effect/step_trigger/r3b0lut10n/Trigger(mob/M)
 	if(M.client)
-		to_chat(M, span_info("[message]") )
+		to_chat(M, span_info("[message]"))
 		qdel(src)
 
 /obj/effect/step_trigger/r3b0lut10n/deathtrap
@@ -845,7 +845,7 @@
 				if(!L?.client)
 					continue
 				to_chat(L, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-				to_chat(L, span_info("[message]") )
+				to_chat(L, span_info("[message]"))
 				for(var/area/awaymission/rospilovo/deathtrap/A in world)
 					A.fuckplayer()
 					for(var/turf/X in A)
@@ -907,13 +907,13 @@
 						CHECK_TICK
 					for(var/mob/living/M in A)
 						if(M.client)
-							to_chat(M, span_boldwarning("0x1 -!- АВАРИЙНАЯ ОСТАНОВКА -!- ") )
-							to_chat(M, span_boldwarning("0x2 -- ДАМП СИСТЕМНОЙ ПАМЯТИ -- ") )
-							to_chat(M, span_boldwarning("0x3 -!- АВАРИЙНАЯ ОСТАНОВКА -!- ") )
-							to_chat(M, span_boldwarning("0x4 -?- ПРОНИКНОВЕНИЕ В \[0xD*AD*0*3\] -?- ") )
-							to_chat(M, span_boldwarning("0x5 -!- АВАРИЙНАЯ ОСТАНОВКА -!- ") )
-							to_chat(M, span_boldwarning("0x6 -- ПЕРЕПОДКЛЮЧИТЕСЬ К ИНТЕРФЕЙСУ -- ") )
-							to_chat(M, span_boldwarning("0x7 -!- АВАРИЙНАЯ ОСТАНОВКА -!- ") )
+							to_chat(M, span_boldwarning("0x1 -!- АВАРИЙНАЯ ОСТАНОВКА -!- "))
+							to_chat(M, span_boldwarning("0x2 -- ДАМП СИСТЕМНОЙ ПАМЯТИ -- "))
+							to_chat(M, span_boldwarning("0x3 -!- АВАРИЙНАЯ ОСТАНОВКА -!- "))
+							to_chat(M, span_boldwarning("0x4 -?- ПРОНИКНОВЕНИЕ В \[0xD*AD*0*3\] -?- "))
+							to_chat(M, span_boldwarning("0x5 -!- АВАРИЙНАЯ ОСТАНОВКА -!- "))
+							to_chat(M, span_boldwarning("0x6 -- ПЕРЕПОДКЛЮЧИТЕСЬ К ИНТЕРФЕЙСУ -- "))
+							to_chat(M, span_boldwarning("0x7 -!- АВАРИЙНАЯ ОСТАНОВКА -!- "))
 							to_chat(M, "\n\n\n\n\n\n\n")
 							spawn(5)
 								winset(M.client, null, "command=.reconnect")

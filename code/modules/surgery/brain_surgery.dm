@@ -27,12 +27,12 @@
 /datum/surgery_step/fix_brain/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю исправлять мозг [target]...") ,
 		span_notice("[user] начинает исправлять мозг [target].") ,
-		span_notice("[user] начинает операцию на мозге [target].") )
+		span_notice("[user] начинает операцию на мозге [target]."))
 
 /datum/surgery_step/fix_brain/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(user, target, span_notice("Успешно исправил мозг [target].") ,
 		span_notice("[user] успешно исправил мозг [target]!") ,
-		span_notice("[user] завершил операцию на мозге [target].") )
+		span_notice("[user] завершил операцию на мозге [target]."))
 	if(target.mind?.has_antag_datum(/datum/antagonist/brainwashed))
 		target.mind.remove_antag_datum(/datum/antagonist/brainwashed)
 	target.setOrganLoss(ORGAN_SLOT_BRAIN, target.getOrganLoss(ORGAN_SLOT_BRAIN) - 50)	//we set damage in this case in order to clear the "failing" flag
@@ -45,9 +45,9 @@
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
 		display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, нанеся еще больший ущерб!") ,
 			span_warning("[user] облажался, нанеся урон мозгу!") ,
-			span_notice("[user] завершил операцию на мозге [target].") )
+			span_notice("[user] завершил операцию на мозге [target]."))
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60)
 		target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)
 	else
-		user.visible_message(span_warning("[user] внезапно замечает что мозг [user.ru_who()] над которым работал [user.p_were()] пропал.") , span_warning("Неожиданно обнаруживаю что мозг, над которым я работал, исчез.") )
+		user.visible_message(span_warning("[user] внезапно замечает что мозг [user.ru_who()] над которым работал [user.p_were()] пропал.") , span_warning("Неожиданно обнаруживаю что мозг, над которым я работал, исчез."))
 	return FALSE

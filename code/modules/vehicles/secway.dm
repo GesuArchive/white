@@ -33,14 +33,14 @@
 	if(.)
 		return
 	if(obj_integrity >= max_integrity)
-		to_chat(user, span_notice("It is fully repaired already!") )
+		to_chat(user, span_notice("It is fully repaired already!"))
 		return
 	if(!I.use_tool(src, user, 0, volume = 50, amount = 1))
 		return
-	user.visible_message(span_notice("[user] repairs some damage to [name].") , span_notice("You repair some damage to [src].") )
+	user.visible_message(span_notice("[user] repairs some damage to [name].") , span_notice("You repair some damage to [src]."))
 	obj_integrity += min(10, max_integrity-obj_integrity)
 	if(obj_integrity >= max_integrity)
-		to_chat(user, span_notice("It looks to be fully repaired now.") )
+		to_chat(user, span_notice("It looks to be fully repaired now."))
 		STOP_PROCESSING(SSobj, src)
 
 /obj/vehicle/ridden/secway/attackby(obj/item/W, mob/living/user, params)
@@ -58,10 +58,10 @@
 /obj/vehicle/ridden/secway/attack_hand(mob/living/user, list/modifiers)
 	if(!eddie_murphy)
 		return ..()
-	user.visible_message(span_warning("[user] begins cleaning [eddie_murphy] out of [src].") , span_warning("You begin cleaning [eddie_murphy] out of [src]...") )
+	user.visible_message(span_warning("[user] begins cleaning [eddie_murphy] out of [src].") , span_warning("You begin cleaning [eddie_murphy] out of [src]..."))
 	if(!do_after(user, 60, target = src))
 		return ..()
-	user.visible_message(span_warning("[user] cleans [eddie_murphy] out of [src].") , span_warning("You manage to get [eddie_murphy] out of [src].") )
+	user.visible_message(span_warning("[user] cleans [eddie_murphy] out of [src].") , span_warning("You manage to get [eddie_murphy] out of [src]."))
 	eddie_murphy.forceMove(drop_location())
 	eddie_murphy = null
 

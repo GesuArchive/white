@@ -146,14 +146,14 @@
 			if(!H.get_bodypart(body_zone) && !animal_origin)
 				user.temporarilyRemoveItemFromInventory(src, TRUE)
 				if(!attach_limb(C))
-					to_chat(user, span_warning("Тело [H] отторгает [src]!") )
+					to_chat(user, span_warning("Тело [H] отторгает [src]!"))
 					forceMove(H.loc)
 				if(H == user)
 					H.visible_message(span_warning("[H] впихивает [src] в себя!") ,\
-					span_notice("Впихиваю [src] в себя и оно вроде как стоит как надо!") )
+					span_notice("Впихиваю [src] в себя и оно вроде как стоит как надо!"))
 				else
 					H.visible_message(span_warning("[user] впихивает [src] в [H]!") ,\
-					span_notice("[user] впихивает в меня [src] и оно вроде стоит как надо!") )
+					span_notice("[user] впихивает в меня [src] и оно вроде стоит как надо!"))
 				return
 	..()
 
@@ -161,11 +161,11 @@
 	if(W.get_sharpness())
 		add_fingerprint(user)
 		if(!contents.len)
-			to_chat(user, span_warning("А внутри [src] ничего и нет!") )
+			to_chat(user, span_warning("А внутри [src] ничего и нет!"))
 			return
 		playsound(loc, 'sound/weapons/slice.ogg', 50, TRUE, -1)
 		user.visible_message(span_warning("[user] начинает вскрывать [src].") ,\
-			span_notice("Начинаю вскрывать [src]...") )
+			span_notice("Начинаю вскрывать [src]..."))
 		if(do_after(user, 54, target = src))
 			drop_organs(user, TRUE)
 	else
@@ -936,7 +936,7 @@
 		dam_mul *= iter_wound.damage_mulitplier_penalty
 
 	if(!LAZYLEN(wounds) && current_gauze && !replaced) // no more wounds = no need for the gauze anymore
-		owner.visible_message(span_notice("[current_gauze] на [owner] [name] отваливается.") , span_notice("[current_gauze] на моем [name] отваливается.") )
+		owner.visible_message(span_notice("[current_gauze] на [owner] [name] отваливается.") , span_notice("[current_gauze] на моем [name] отваливается."))
 		QDEL_NULL(current_gauze)
 
 	wound_damage_multiplier = dam_mul

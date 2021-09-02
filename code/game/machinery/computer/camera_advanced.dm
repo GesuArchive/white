@@ -127,7 +127,7 @@
 	if(!can_use(user))
 		return
 	if(current_user)
-		to_chat(user, span_warning("The console is already in use!") )
+		to_chat(user, span_warning("The console is already in use!"))
 		return
 	var/mob/living/L = user
 	if(!eyeobj)
@@ -317,9 +317,9 @@
 	var/mob/living/user_mob = target
 	var/mob/camera/ai_eye/remote/remote_eye = user_mob.remote_control
 	if(remote_eye.zMove(UP, FALSE))
-		to_chat(user_mob, span_notice("You move upwards.") )
+		to_chat(user_mob, span_notice("You move upwards."))
 	else
-		to_chat(user_mob, span_notice("You couldn't move upwards!") )
+		to_chat(user_mob, span_notice("You couldn't move upwards!"))
 
 /datum/action/innate/camera_multiz_down
 	name = "Move down a floor"
@@ -332,6 +332,6 @@
 	var/mob/living/user_mob = target
 	var/mob/camera/ai_eye/remote/remote_eye = user_mob.remote_control
 	if(remote_eye.zMove(DOWN, FALSE))
-		to_chat(user_mob, span_notice("You move downwards.") )
+		to_chat(user_mob, span_notice("You move downwards."))
 	else
-		to_chat(user_mob, span_notice("You couldn't move downwards!") )
+		to_chat(user_mob, span_notice("You couldn't move downwards!"))

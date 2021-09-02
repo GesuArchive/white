@@ -307,7 +307,7 @@
 				C.update_icon()
 				batteries_recharged = 1
 		if(batteries_recharged)
-			to_chat(target, span_notice("Моя батарейка заряжена!") )
+			to_chat(target, span_notice("Моя батарейка заряжена!"))
 
 
 
@@ -393,7 +393,7 @@
 /datum/plant_gene/trait/teleport/on_slip(obj/item/food/grown/G, mob/living/carbon/C)
 	var/teleport_radius = max(round(G.seed.potency / 10), 1)
 	var/turf/T = get_turf(C)
-	to_chat(C, span_warning("Проскальзываю через временное пространство!") )
+	to_chat(C, span_warning("Проскальзываю через временное пространство!"))
 	do_teleport(C, T, teleport_radius, channel = TELEPORT_CHANNEL_BLUESPACE)
 	if(prob(50))
 		do_teleport(G, T, teleport_radius, channel = TELEPORT_CHANNEL_BLUESPACE)
@@ -442,7 +442,7 @@
 	if(istype(I, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/C = I
 		if(C.use(5))
-			to_chat(user, span_notice("Добавляю провода в [G] и вставляю его в корпус батарейки.") )
+			to_chat(user, span_notice("Добавляю провода в [G] и вставляю его в корпус батарейки."))
 			var/obj/item/stock_parts/cell/potato/pocell = new /obj/item/stock_parts/cell/potato(user.loc)
 			pocell.icon_state = G.icon_state
 			pocell.maxcharge = G.seed.potency * 20
@@ -460,7 +460,7 @@
 
 			qdel(G)
 		else
-			to_chat(user, span_warning("Нужно минимум пять мотков кабеля, чтобы сделать [G] батарейку!") )
+			to_chat(user, span_warning("Нужно минимум пять мотков кабеля, чтобы сделать [G] батарейку!"))
 
 
 /datum/plant_gene/trait/stinging
@@ -475,7 +475,7 @@
 		if(L.reagents && L.can_inject())
 			var/injecting_amount = max(1, G.seed.potency*0.2) // Minimum of 1, max of 20
 			G.reagents.trans_to(L, injecting_amount, methods = INJECT)
-			to_chat(target, span_danger("Укололся [G]!") )
+			to_chat(target, span_danger("Укололся [G]!"))
 			log_combat(G, L, "pricked and attempted to inject reagents from [G] to [L]. Last touched by: [G.fingerprintslast].")
 
 /datum/plant_gene/trait/smoke
@@ -515,7 +515,7 @@
 			if(spread_tray.myseed) // Check if there's another seed in the next tray.
 				if(spread_tray.myseed.type == our_tray.myseed.type && !spread_tray.dead)
 					continue // It should not destroy its own kind.
-				spread_tray.visible_message(span_warning(" [spread_tray.myseed.plantname] был постигнут [our_tray.myseed.plantname]!") )
+				spread_tray.visible_message(span_warning(" [spread_tray.myseed.plantname] был постигнут [our_tray.myseed.plantname]!"))
 				QDEL_NULL(spread_tray.myseed)
 			spread_tray.myseed = our_tray.myseed.Copy()
 			spread_tray.age = 0
@@ -526,7 +526,7 @@
 			spread_tray.weedlevel = 0 // Reset
 			spread_tray.pestlevel = 0 // Reset
 			spread_tray.update_icon()
-			spread_tray.visible_message(span_warning(" [our_tray.myseed.plantname] распространяется!") )
+			spread_tray.visible_message(span_warning(" [our_tray.myseed.plantname] распространяется!"))
 			if(spread_tray.myseed)
 				spread_tray.name = "[initial(spread_tray.name)] ([spread_tray.myseed.plantname])"
 			else
@@ -574,7 +574,7 @@
 	if(!can_trigger)
 		return
 
-	G.audible_message(span_notice("[G] очень выразительно смеётся.") )
+	G.audible_message(span_notice("[G] очень выразительно смеётся."))
 	playsound(G, pick(sounds), 100, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 /**

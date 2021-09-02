@@ -42,7 +42,7 @@
 /mob/living/simple_animal/clockwork_marauder/Login()
 	. = ..()
 	add_servant_of_ratvar(src)
-	to_chat(src, span_brass("You can block up to 4 attacks with your shield, however it requires a welder to be repaired.") )
+	to_chat(src, span_brass("You can block up to 4 attacks with your shield, however it requires a welder to be repaired."))
 
 /mob/living/simple_animal/clockwork_marauder/death(gibbed)
 	. = ..()
@@ -56,7 +56,7 @@
 	//Block Ranged Attacks
 	if(shield_health > 0)
 		damage_shield()
-		to_chat(src, span_warning("Your shield blocks the attack.") )
+		to_chat(src, span_warning("Your shield blocks the attack."))
 		return BULLET_ACT_BLOCK
 	return ..()
 
@@ -66,13 +66,13 @@
 	shield_health --
 	playsound(src, 'sound/magic/clockwork/anima_fragment_attack.ogg', 60, TRUE)
 	if(shield_health == 0)
-		to_chat(src, span_userdanger("Your shield breaks!") )
-		to_chat(src, span_brass("You require a welding tool to repair your damaged shield!") )
+		to_chat(src, span_userdanger("Your shield breaks!"))
+		to_chat(src, span_brass("You require a welding tool to repair your damaged shield!"))
 
 /mob/living/simple_animal/clockwork_marauder/welder_act(mob/living/user, obj/item/I)
 	if(do_after(user, 25, target=src))
 		health = min(health + 10, maxHealth)
-		to_chat(user, span_notice("You repair some of [src]'s damage.") )
+		to_chat(user, span_notice("You repair some of [src]'s damage."))
 		if(shield_health < MARAUDER_SHIELD_MAX)
 			shield_health ++
 			playsound(src, 'sound/magic/charge.ogg', 60, TRUE)

@@ -114,7 +114,7 @@
 	if(HAS_TRAIT(owner, TRAIT_FEARLESS))
 		return
 	if(trigger_regex.Find(speech_args[SPEECH_MESSAGE]) != 0)
-		to_chat(owner, span_warning("ОЧЕНЬ СТРАШНО СКАЗАТЬ СЛОВО \"<span class='phobia'>[uppertext(trigger_regex.group[2])]</span>\"!") )
+		to_chat(owner, span_warning("ОЧЕНЬ СТРАШНО СКАЗАТЬ СЛОВО \"<span class='phobia'>[uppertext(trigger_regex.group[2])]</span>\"!"))
 		speech_args[SPEECH_MESSAGE] = ""
 
 /datum/brain_trauma/mild/phobia/proc/freak_out(atom/reason, trigger_word)
@@ -123,15 +123,15 @@
 		return
 	var/message = pick("пугает меня до костей", "заставляет меня дрожать", "пугает меня", "заставляет меня паниковать", "бросает меня в холодный пот")
 	if(reason)
-		to_chat(owner, span_userdanger("[capitalize(reason.name)] [message]!") )
+		to_chat(owner, span_userdanger("[capitalize(reason.name)] [message]!"))
 	else if(trigger_word)
-		to_chat(owner, span_userdanger("\"[capitalize(trigger_word)]\" [message]!") )
+		to_chat(owner, span_userdanger("\"[capitalize(trigger_word)]\" [message]!"))
 	else
-		to_chat(owner, span_userdanger("Что-то [message]!") )
+		to_chat(owner, span_userdanger("Что-то [message]!"))
 	var/reaction = rand(1,4)
 	switch(reaction)
 		if(1)
-			to_chat(owner, span_warning("Ох!") )
+			to_chat(owner, span_warning("Ох!"))
 			owner.Stun(70)
 			owner.Jitter(8)
 		if(2)
@@ -141,7 +141,7 @@
 			if(reason)
 				owner.pointed(reason)
 		if(3)
-			to_chat(owner, span_warning("Какой ужас!") )
+			to_chat(owner, span_warning("Какой ужас!"))
 			owner.Jitter(5)
 			owner.blind_eyes(10)
 		if(4)

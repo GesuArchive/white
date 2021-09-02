@@ -117,12 +117,12 @@
 /obj/machinery/turntable/proc/disk_insert(mob/user, obj/item/card/music/I, target)
 	if(istype(I))
 		if(target)
-			to_chat(user, span_warning("Здесь уже есть диск!") )
+			to_chat(user, span_warning("Здесь уже есть диск!"))
 			return FALSE
 		if(!user.transferItemToLoc(I, src))
 			return FALSE
 		user.visible_message(span_notice("[user] вставляет диск в музыкальный автомат.") , \
-							span_notice("Вставляю диск в музыкальный автомат.") )
+							span_notice("Вставляю диск в музыкальный автомат."))
 		playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 		updateUsrDialog()
 		return TRUE
@@ -132,10 +132,10 @@
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return
 	if (!anchored)
-		to_chat(user,span_warning("Он же откручен!") )
+		to_chat(user,span_warning("Он же откручен!"))
 		return
 	if(!allowed(user))
-		to_chat(user,span_warning("Ошибка! Доступа нет.") )
+		to_chat(user,span_warning("Ошибка! Доступа нет."))
 		user.playsound_local(src,'sound/misc/compiler-failure.ogg', 25, 1)
 		return
 
@@ -278,10 +278,10 @@
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return
 	if (!anchored)
-		to_chat(user,span_warning("Надо бы прикрутить!") )
+		to_chat(user,span_warning("Надо бы прикрутить!"))
 		return
 	if(!allowed(user))
-		to_chat(user,span_warning("Ошибка! Нет доступа.") )
+		to_chat(user,span_warning("Ошибка! Нет доступа."))
 		user.playsound_local(src,'sound/misc/compiler-failure.ogg', 25, 1)
 		return
 

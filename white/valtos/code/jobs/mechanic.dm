@@ -112,14 +112,14 @@
 /obj/machinery/copytech/attacked_by(obj/item/I, mob/living/user)
 	if(istype(I, /obj/item/stack/sheet/mineral/zaukerite))
 		if(crystals >= max_crystals)
-			to_chat(user, span_warning("Перебор!") )
+			to_chat(user, span_warning("Перебор!"))
 			return
 		var/obj/item/stack/BC = I
 		if(!BC.amount)
-			to_chat(user, span_warning("БЛЯТЬ!") )
+			to_chat(user, span_warning("БЛЯТЬ!"))
 			return
 		crystals++
-		user.visible_message("[user] вставляет [I.name] в [src.name].", span_notice("Вставляю [I.name] в [src.name].") )
+		user.visible_message("[user] вставляет [I.name] в [src.name].", span_notice("Вставляю [I.name] в [src.name]."))
 		BC.use(1)
 		return
 	else
@@ -295,7 +295,7 @@
 		L.adjustFireLoss(20)
 		L.set_fire_stacks(5)
 		L.IgniteMob()
-		L.visible_message(span_danger("<b>[L]</b> прожаривается!") )
+		L.visible_message(span_danger("<b>[L]</b> прожаривается!"))
 		playsound(L, 'sound/machines/shower/shower_mid1.ogg', 90, TRUE)
 
 /obj/machinery/copytech_platform/examine(mob/user)
@@ -372,7 +372,7 @@
 				M.layer = ABOVE_MOB_LAYER
 			sleep(1 SECONDS)
 			if(user)
-				to_chat(user, span_alert("Ну бл~") )
+				to_chat(user, span_alert("Ну бл~"))
 				explosion(user, 0, 0, 1)
 			if(isliving(user))
 				var/mob/living/L = user

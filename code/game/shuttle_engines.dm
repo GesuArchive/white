@@ -24,7 +24,7 @@
 /obj/structure/shuttle/engine/can_be_unfasten_wrench(mob/user, silent)
 	if(state == ENGINE_WELDED)
 		if(!silent)
-			to_chat(user, span_warning("[capitalize(src.name)] is welded to the floor!") )
+			to_chat(user, span_warning("[capitalize(src.name)] is welded to the floor!"))
 		return FAILED_UNFASTEN
 	return ..()
 
@@ -45,18 +45,18 @@
 	. = ..()
 	switch(state)
 		if(ENGINE_UNWRENCHED)
-			to_chat(user, span_warning("The [src.name] needs to be wrenched to the floor!") )
+			to_chat(user, span_warning("The [src.name] needs to be wrenched to the floor!"))
 		if(ENGINE_WRENCHED)
 			if(!I.tool_start_check(user, amount=0))
 				return TRUE
 
 			user.visible_message(span_notice("[user.name] starts to weld the [name] to the floor.") , \
 				span_notice("You start to weld <b>[src.name]</b> to the floor...") , \
-				span_hear("Слышу сварку.") )
+				span_hear("Слышу сварку."))
 
 			if(I.use_tool(src, user, ENGINE_WELDTIME, volume=50))
 				state = ENGINE_WELDED
-				to_chat(user, span_notice("You weld <b>[src.name]</b> to the floor.") )
+				to_chat(user, span_notice("You weld <b>[src.name]</b> to the floor."))
 				alter_engine_power(engine_power)
 
 		if(ENGINE_WELDED)
@@ -65,11 +65,11 @@
 
 			user.visible_message(span_notice("[user.name] starts to cut the [name] free from the floor.") , \
 				span_notice("You start to cut <b>[src.name]</b> free from the floor...") , \
-				span_hear("Слышу сварку.") )
+				span_hear("Слышу сварку."))
 
 			if(I.use_tool(src, user, ENGINE_WELDTIME, volume=50))
 				state = ENGINE_WRENCHED
-				to_chat(user, span_notice("You cut <b>[src.name]</b> free from the floor.") )
+				to_chat(user, span_notice("You cut <b>[src.name]</b> free from the floor."))
 				alter_engine_power(-engine_power)
 	return TRUE
 

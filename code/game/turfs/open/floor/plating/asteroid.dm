@@ -46,7 +46,7 @@
 	if(!dug)
 		return TRUE
 	if(user)
-		to_chat(user, span_warning("Похоже, здесь кто-то уже копал!") )
+		to_chat(user, span_warning("Похоже, здесь кто-то уже копал!"))
 
 /turf/open/floor/plating/asteroid/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
 	return
@@ -73,12 +73,12 @@
 			if(!isturf(user.loc))
 				return
 
-			to_chat(user, span_notice("Начинаю копать...") )
+			to_chat(user, span_notice("Начинаю копать..."))
 
 			if(W.use_tool(src, user, 40, volume=50))
 				if(!can_dig(user))
 					return TRUE
-				to_chat(user, span_notice("Выкапываю ямку.") )
+				to_chat(user, span_notice("Выкапываю ямку."))
 				getDug()
 				SSblackbox.record_feedback("tally", "pick_used_mining", 1, W.type)
 				return TRUE
@@ -164,7 +164,7 @@
 
 /turf/open/floor/plating/asteroid/snow/burn_tile()
 	if(!burnt)
-		visible_message(span_danger("[capitalize(src.name)] melts away!.") )
+		visible_message(span_danger("[capitalize(src.name)] melts away!."))
 		slowdown = 0
 		burnt = TRUE
 		icon_state = "snow_dug"

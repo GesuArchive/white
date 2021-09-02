@@ -116,7 +116,7 @@
 /turf/closed/wall/clockwork/attack_hulk(mob/user, does_attack_animation)
 	if(prob(10))
 		return ..()
-	to_chat(user, span_warning("Your slightly dent [src].") )
+	to_chat(user, span_warning("Your slightly dent [src]."))
 	return
 
 //========Deconstruction Handled Here=======
@@ -134,11 +134,11 @@
 		return 0
 	if(!I.tool_start_check(user, amount=0))
 		return 0
-	to_chat(user, span_warning("You begin to weld apart the [src].") )
+	to_chat(user, span_warning("You begin to weld apart the [src]."))
 	if(I.use_tool(src, user, 40, volume=100))
 		if(!istype(src, /turf/closed/wall/clockwork) || d_state != INTACT)
 			return 0
-		to_chat(user, span_warning("You weld the [src] apart!") )
+		to_chat(user, span_warning("You weld the [src] apart!"))
 		dismantle_wall()
 		return 1
 	return
@@ -203,9 +203,9 @@
 			return TRUE
 	else if(baseturfs == type)
 		return TRUE
-	user.visible_message(span_notice("[user] begins slowly prying up [src]...") , span_notice("You begin painstakingly prying up [src]...") )
+	user.visible_message(span_notice("[user] begins slowly prying up [src]...") , span_notice("You begin painstakingly prying up [src]..."))
 	if(I.use_tool(src, user, 70, volume=80))
-		user.visible_message(span_notice("[user] pries up [src]!") , span_notice("You pry up [src]!") )
+		user.visible_message(span_notice("[user] pries up [src]!") , span_notice("You pry up [src]!"))
 		make_plating()
 	return TRUE
 
@@ -411,30 +411,30 @@
 		return 0
 	else if(I.tool_behaviour == TOOL_WRENCH)
 		if(construction_state == GEAR_SECURE)
-			user.visible_message(span_notice("[user] begins loosening [src]'s cogwheel...") , span_notice("You begin loosening [src]'s cogwheel...") )
+			user.visible_message(span_notice("[user] begins loosening [src]'s cogwheel...") , span_notice("You begin loosening [src]'s cogwheel..."))
 			if(!I.use_tool(src, user, 75, volume=50) || construction_state != GEAR_SECURE)
 				return 1
-			user.visible_message(span_notice("[user] loosens [src]'s cogwheel!") , span_notice("[src]'s cogwheel pops off and dangles loosely.") )
+			user.visible_message(span_notice("[user] loosens [src]'s cogwheel!") , span_notice("[src]'s cogwheel pops off and dangles loosely."))
 			playsound(src, 'sound/items/deconstruct.ogg', 50, 1)
 			construction_state = GEAR_LOOSE
 		else if(construction_state == GEAR_LOOSE)
-			user.visible_message(span_notice("[user] begins tightening [src]'s cogwheel...") , span_notice("You begin tightening [src]'s cogwheel into place...") )
+			user.visible_message(span_notice("[user] begins tightening [src]'s cogwheel...") , span_notice("You begin tightening [src]'s cogwheel into place..."))
 			if(!I.use_tool(src, user, 75, volume=50) || construction_state != GEAR_LOOSE)
 				return 1
-			user.visible_message(span_notice("[user] tightens [src]'s cogwheel!") , span_notice("You firmly tighten [src]'s cogwheel into place.") )
+			user.visible_message(span_notice("[user] tightens [src]'s cogwheel!") , span_notice("You firmly tighten [src]'s cogwheel into place."))
 			playsound(src, 'sound/items/deconstruct.ogg', 50, 1)
 			construction_state = GEAR_SECURE
 		return 1
 	else if(I.tool_behaviour == TOOL_CROWBAR)
 		if(construction_state == GEAR_SECURE)
-			to_chat(user, span_warning("[src]'s cogwheel is too tightly secured! Your [I.name] can't reach under it!") )
+			to_chat(user, span_warning("[src]'s cogwheel is too tightly secured! Your [I.name] can't reach under it!"))
 			return 1
 		else if(construction_state == GEAR_LOOSE)
-			user.visible_message(span_notice("[user] begins slowly lifting off [src]'s cogwheel...") , span_notice("You slowly begin lifting off [src]'s cogwheel...") )
+			user.visible_message(span_notice("[user] begins slowly lifting off [src]'s cogwheel...") , span_notice("You slowly begin lifting off [src]'s cogwheel..."))
 			if(!I.use_tool(src, user, 75, volume=50) || construction_state != GEAR_LOOSE)
 				return 1
 			user.visible_message(span_notice("[user] lifts off [src]'s cogwheel, causing it to fall apart!") , \
-			span_notice("You lift off [src]'s cogwheel, causing it to fall apart!") )
+			span_notice("You lift off [src]'s cogwheel, causing it to fall apart!"))
 			deconstruct(TRUE)
 		return 1
 	return 0

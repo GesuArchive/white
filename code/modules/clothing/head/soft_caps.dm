@@ -32,10 +32,10 @@
 		flipped = !flipped
 		if(flipped)
 			icon_state = "[soft_type]soft_flipped"
-			to_chat(user, span_notice("Переворачиваю козырёк кепки назад.") )
+			to_chat(user, span_notice("Переворачиваю козырёк кепки назад."))
 		else
 			icon_state = "[soft_type]soft"
-			to_chat(user, span_notice("Возвращаю кепку обратно на место.") )
+			to_chat(user, span_notice("Возвращаю кепку обратно на место."))
 		usr.update_inv_head()	//so our mob-overlays update
 
 /obj/item/clothing/head/soft/examine(mob/user)

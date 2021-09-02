@@ -18,7 +18,7 @@
 
 	if(!length(key_emotes))
 		if(intentional)
-			to_chat(src, span_notice("'[act]' не существует. Напиши <b>*help</b> для вывода списка доступных.") )
+			to_chat(src, span_notice("'[act]' не существует. Напиши <b>*help</b> для вывода списка доступных."))
 		return FALSE
 	var/silenced = FALSE
 	for(var/datum/emote/P in key_emotes)
@@ -30,7 +30,7 @@
 			SEND_SIGNAL(src, COMSIG_MOB_EMOTED(P.key))
 			return TRUE
 	if(intentional && !silenced)
-		to_chat(src, span_notice("Эмоция '[act]' невозможна. Напиши <b>*help</b> для вывода списка доступных.") )
+		to_chat(src, span_notice("Эмоция '[act]' невозможна. Напиши <b>*help</b> для вывода списка доступных."))
 	return FALSE
 
 /datum/emote/flip
@@ -97,7 +97,7 @@
 		user.vomit(BEYBLADE_PUKE_NUTRIENT_LOSS, distance = 0)
 		return
 	if(prob(BEYBLADE_DIZZINESS_PROBABILITY))
-		to_chat(user, span_warning("You feel woozy from spinning.") )
+		to_chat(user, span_warning("You feel woozy from spinning."))
 		user.Dizzy(BEYBLADE_DIZZINESS_VALUE)
 		if(current_confusion < BEYBLADE_CONFUSION_LIMIT)
 			user.add_confusion(BEYBLADE_CONFUSION_INCREMENT)

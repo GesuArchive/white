@@ -34,7 +34,7 @@
 	else if(istype(action, /datum/action/item_action/jetpack_stabilization))
 		if(on)
 			stabilizers = !stabilizers
-			to_chat(user, span_notice("You turn the jetpack stabilization [stabilizers ? "on" : "off"].") )
+			to_chat(user, span_notice("You turn the jetpack stabilization [stabilizers ? "on" : "off"]."))
 	else
 		toggle_internals(user)
 
@@ -45,10 +45,10 @@
 
 	if(!on)
 		turn_on(user)
-		to_chat(user, span_notice("You turn the jetpack on.") )
+		to_chat(user, span_notice("You turn the jetpack on."))
 	else
 		turn_off(user)
-		to_chat(user, span_notice("You turn the jetpack off.") )
+		to_chat(user, span_notice("You turn the jetpack off."))
 	for(var/X in actions)
 		var/datum/action/A = X
 		A.UpdateButtonIcon()
@@ -113,7 +113,7 @@
 	if (istype(user, /mob/living/carbon/human/))
 		var/mob/living/carbon/human/H = user
 		H.say("WHAT THE FUCK IS CARBON DIOXIDE?")
-		H.visible_message(span_suicide("[user] is suffocating [user.ru_na()]self with [src]! It looks like [user.ru_who()] didn't read what that jetpack says!") )
+		H.visible_message(span_suicide("[user] is suffocating [user.ru_na()]self with [src]! It looks like [user.ru_who()] didn't read what that jetpack says!"))
 		return (OXYLOSS)
 	else
 		..()
@@ -131,7 +131,7 @@
 
 /obj/item/tank/jetpack/improvised/allow_thrust(num, mob/living/user)
 	if(rand(0,250) == 0)
-		to_chat(user, span_notice("You feel your jetpack's engines cut out.") )
+		to_chat(user, span_notice("You feel your jetpack's engines cut out."))
 		turn_off(user)
 		return
 	return ..()
@@ -208,12 +208,12 @@
 
 /obj/item/tank/jetpack/suit/cycle(mob/user)
 	if(!istype(loc, /obj/item/clothing/suit/space/hardsuit))
-		to_chat(user, span_warning("<b>[src.name]</b> must be connected to a hardsuit!") )
+		to_chat(user, span_warning("<b>[src.name]</b> must be connected to a hardsuit!"))
 		return
 
 	var/mob/living/carbon/human/H = user
 	if(!istype(H.s_store, /obj/item/tank/internals))
-		to_chat(user, span_warning("You need a tank in your suit storage!") )
+		to_chat(user, span_warning("You need a tank in your suit storage!"))
 		return
 	..()
 

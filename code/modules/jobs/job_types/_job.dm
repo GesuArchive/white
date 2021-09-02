@@ -163,12 +163,12 @@
 					permitted = FALSE
 
 				if(!permitted)
-					to_chat(M, span_warning("Должность или раса не позволяют мне иметь [G.display_name]!") )
+					to_chat(M, span_warning("Должность или раса не позволяют мне иметь [G.display_name]!"))
 					continue
 
 				if(G.slot)
 					if(H.equip_to_slot_or_del(G.spawn_item(H), G.slot))
-						to_chat(M, span_notice("Экипируем [G.display_name]!") )
+						to_chat(M, span_notice("Экипируем [G.display_name]!"))
 					else
 						gear_leftovers += G
 				else
@@ -184,25 +184,25 @@
 
 			if(istype(placed_in))
 				if(isturf(placed_in))
-					to_chat(M, span_notice("[capitalize(G.display_name)] находится в [placed_in]!") )
+					to_chat(M, span_notice("[capitalize(G.display_name)] находится в [placed_in]!"))
 				else
 					to_chat(M, "<span class='noticed'>[capitalize(G.display_name)] находится на [placed_in.name]]")
 				continue
 
 			if(H.equip_to_appropriate_slot(item))
-				to_chat(M, span_notice("[capitalize(G.display_name)] находится где-то на мне!") )
+				to_chat(M, span_notice("[capitalize(G.display_name)] находится где-то на мне!"))
 				continue
 			if(H.put_in_hands(item))
-				to_chat(M, span_notice("[capitalize(G.display_name)] у меня в руках!") )
+				to_chat(M, span_notice("[capitalize(G.display_name)] у меня в руках!"))
 				continue
 
 			var/obj/item/storage/B = (locate() in H)
 			if(B && item)
 				item.forceMove(B)
-				to_chat(M, span_notice("[capitalize(G.display_name)] в [B.name]!") )
+				to_chat(M, span_notice("[capitalize(G.display_name)] в [B.name]!"))
 				continue
 
-			to_chat(M, span_danger("Что-то пришлось оставить...") )
+			to_chat(M, span_danger("Что-то пришлось оставить..."))
 			qdel(item)
 
 	// новый год 2021

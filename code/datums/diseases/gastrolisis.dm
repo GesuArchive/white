@@ -41,7 +41,7 @@
 				var/obj/item/organ/eyes/snail/new_eyes = new()
 				new_eyes.Insert(affected_mob, drop_if_replaced = TRUE)
 				affected_mob.visible_message(span_warning("[affected_mob] eyes fall out, with snail eyes taking its place!") , \
-				span_userdanger("You scream in pain as your eyes are pushed out by your new snail eyes!") )
+				span_userdanger("You scream in pain as your eyes are pushed out by your new snail eyes!"))
 				affected_mob.emote("agony")
 				return
 
@@ -52,7 +52,7 @@
 				if(affected_mob.dropItemToGround(affected_mob.get_item_by_slot(ITEM_SLOT_BACK)))
 					affected_mob.equip_to_slot_or_del(new /obj/item/storage/backpack/snail(affected_mob), ITEM_SLOT_BACK)
 					affected_mob.visible_message(span_warning("[affected_mob] grows a grotesque shell on their back!") , \
-					span_userdanger("You scream in pain as a shell pushes itself out from under your skin!") )
+					span_userdanger("You scream in pain as a shell pushes itself out from under your skin!"))
 					affected_mob.emote("agony")
 					return
 
@@ -60,14 +60,14 @@
 			if(!tongue && DT_PROB(2.5, delta_time))
 				var/obj/item/organ/tongue/snail/new_tongue = new()
 				new_tongue.Insert(affected_mob)
-				to_chat(affected_mob, span_userdanger("You feel your speech slow down...") )
+				to_chat(affected_mob, span_userdanger("You feel your speech slow down..."))
 				return
 
 			if(shell && eyes && tongue && DT_PROB(2.5, delta_time))
 				affected_mob.set_species(/datum/species/snail)
 				affected_mob.client?.give_award(/datum/award/achievement/misc/snail, affected_mob)
 				affected_mob.visible_message(span_warning("[affected_mob] turns into a snail!") , \
-				span_boldnotice("You turned into a snail person! You feel an urge to cccrrraaawwwlll...") )
+				span_boldnotice("You turned into a snail person! You feel an urge to cccrrraaawwwlll..."))
 				cure()
 				return FALSE
 

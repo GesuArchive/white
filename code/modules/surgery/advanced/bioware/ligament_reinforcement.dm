@@ -20,12 +20,12 @@
 /datum/surgery_step/reinforce_ligaments/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю укреплять связки [target].") ,
 		span_notice("[user] начал укреплять связки [target].") ,
-		span_notice("[user] начал работу со связками [target].") )
+		span_notice("[user] начал работу со связками [target]."))
 
 /datum/surgery_step/reinforce_ligaments/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(user, target, span_notice("Укрепил связки [target]!") ,
 		span_notice("[user] укрепил связки [target]!") ,
-		span_notice("[user] закончил работу со связками [target].") )
+		span_notice("[user] закончил работу со связками [target]."))
 	new /datum/bioware/reinforced_ligaments(target)
 	return ..()
 

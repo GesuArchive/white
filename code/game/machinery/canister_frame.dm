@@ -92,9 +92,9 @@
 	if (ispath(next_tier) && istype(S, next_tier_reqitem))
 		var/obj/item/stack/ST = S
 		var/reqitem_name = ST.singular_name ? ST.singular_name : ST.name
-		to_chat(user, span_notice("You start adding [next_tier_reqitem_am] [reqitem_name]\s to the frame...") )
+		to_chat(user, span_notice("You start adding [next_tier_reqitem_am] [reqitem_name]\s to the frame..."))
 		if (ST.use_tool(src, user, 2 SECONDS, amount=next_tier_reqitem_am, volume=50))
-			to_chat(user, span_notice("You added [next_tier_reqitem_am] [reqitem_name]\s to the frame, turning it into \a [initial(next_tier.name)].") )
+			to_chat(user, span_notice("You added [next_tier_reqitem_am] [reqitem_name]\s to the frame, turning it into \a [initial(next_tier.name)]."))
 			new next_tier(drop_location())
 			qdel(src)
 		return
@@ -105,9 +105,9 @@
 	if(..())
 		return
 	if(ispath(finished_obj))
-		to_chat(user, span_notice("You start tightening the screws on <b>[src.name]</b>.") )
+		to_chat(user, span_notice("You start tightening the screws on <b>[src.name]</b>."))
 		if (I.use_tool(src, user, 2 SECONDS, volume=50))
-			to_chat(user, span_notice("You tighten the last screws on <b>[src.name]</b>.") )
+			to_chat(user, span_notice("You tighten the last screws on <b>[src.name]</b>."))
 			new finished_obj(drop_location())
 			qdel(src)
 		return
@@ -117,7 +117,7 @@
 	. = TRUE
 	if(..())
 		return
-	to_chat(user, span_notice("You start to dismantle <b>[src.name]</b>...") )
+	to_chat(user, span_notice("You start to dismantle <b>[src.name]</b>..."))
 	if (I.use_tool(src, user, 2 SECONDS, volume=50))
-		to_chat(user, span_notice("You dismantle <b>[src.name]</b>.") )
+		to_chat(user, span_notice("You dismantle <b>[src.name]</b>."))
 		deconstruct()

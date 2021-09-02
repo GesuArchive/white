@@ -67,7 +67,7 @@
 	STR.max_combined_w_class = 35
 
 /obj/item/storage/backpack/holding/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is jumping into [src]! It looks like [user.p_theyre()] trying to commit suicide.") )
+	user.visible_message(span_suicide("[user] is jumping into [src]! It looks like [user.p_theyre()] trying to commit suicide."))
 	user.dropItemToGround(src, TRUE)
 	user.Stun(100, ignore_canstun = TRUE)
 	sleep(20)
@@ -92,7 +92,7 @@
 	STR.max_combined_w_class = 60
 
 /obj/item/storage/backpack/santabag/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] places [src] over [user.ru_ego()] head and pulls it tight! It looks like [user.ru_who()] [user.p_are()]n't in the Christmas spirit...") )
+	user.visible_message(span_suicide("[user] places [src] over [user.ru_ego()] head and pulls it tight! It looks like [user.ru_who()] [user.p_are()]n't in the Christmas spirit..."))
 	return (OXYLOSS)
 
 /obj/item/storage/backpack/santabag/proc/regenerate_presents()
@@ -390,10 +390,10 @@
 				playsound(src, 'sound/items/eatfood.ogg', 20, TRUE)
 				///poisoned food damages it
 				if(F.reagents.has_reagent(/datum/reagent/toxin))
-					to_chat(user, span_warning("The [name] grumbles!") )
+					to_chat(user, span_warning("The [name] grumbles!"))
 					obj_integrity -= 20
 				else
-					to_chat(user, span_notice("The [name] eats your [F]!") )
+					to_chat(user, span_notice("The [name] eats your [F]!"))
 				qdel(F)
 				hunger = 0
 				return
@@ -402,7 +402,7 @@
 		user.apply_damage(40, BRUTE, affecting)
 		hunger = 5
 		playsound(src, 'sound/items/eatfood.ogg', 20, TRUE)
-		to_chat(user, span_warning("The [name] eats your back!") )
+		to_chat(user, span_warning("The [name] eats your back!"))
 		obj_integrity -= 15
 
 /obj/item/storage/backpack/duffelbag/cursed/Destroy()

@@ -24,7 +24,7 @@
 /datum/surgery_step/lobectomy/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("You begin to make an incision in [target] lungs...") ,
 		span_notice("[user] begins to make an incision in [target].") ,
-		span_notice("[user] begins to make an incision in [target].") )
+		span_notice("[user] begins to make an incision in [target]."))
 
 /datum/surgery_step/lobectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
@@ -42,7 +42,7 @@
 		var/mob/living/carbon/human/H = target
 		display_results(user, target, span_warning("You screw up, failing to excise [H] damaged lobe!") ,
 			span_warning("[user] screws up!") ,
-			span_warning("[user] screws up!") )
+			span_warning("[user] screws up!"))
 		H.losebreath += 4
 		H.adjustOrganLoss(ORGAN_SLOT_LUNGS, 10)
 	return FALSE

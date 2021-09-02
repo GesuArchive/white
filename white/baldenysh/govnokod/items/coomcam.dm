@@ -14,7 +14,7 @@
 	if(in_range(src, user)) //needed because of TK
 		user.put_in_hands(p)
 		pictures_left--
-		to_chat(user, span_notice("[pictures_left] photos left.") )
+		to_chat(user, span_notice("[pictures_left] photos left."))
 		if(default_picture_name)
 			picture.picture_name = default_picture_name
 
@@ -72,11 +72,11 @@
 
 /obj/item/photo/webpic/AltClick(mob/user)
 	original = !original
-	to_chat(user, span_notice("Mode set to [original ? "Original" : "Thumbnail"]") )
+	to_chat(user, span_notice("Mode set to [original ? "Original" : "Thumbnail"]"))
 
 /obj/item/photo/webpic/show(mob/user)
 	if(!istype(picture) || !picture.picture_image || !tumbnail_src)
-		to_chat(user, span_warning("[capitalize(src.name)] seems to be blank...") )
+		to_chat(user, span_warning("[capitalize(src.name)] seems to be blank..."))
 		return
 	user << browse("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>[name]</title></head>" \
 		+ "<body style='width: auto;height: auto;overflow:hidden;margin:0;text-align:center;'>" \

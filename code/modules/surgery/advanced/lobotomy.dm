@@ -35,12 +35,12 @@
 /datum/surgery_step/lobotomize/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю проведение лоботомии на мозге [target]...") ,
 		span_notice("[user] начинает проведение лоботомии на мозге [target].") ,
-		span_notice("[user] начинает операцию на мозге [target].") )
+		span_notice("[user] начинает операцию на мозге [target]."))
 
 /datum/surgery_step/lobotomize/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(user, target, span_notice("Успешно выполнил лоботомию [target].") ,
 			span_notice("[user] успешно выполнил лоботомию [target]!") ,
-			span_notice("[user] завершает операцию [target].") )
+			span_notice("[user] завершает операцию [target]."))
 	target.cure_all_traumas(TRAUMA_RESILIENCE_LOBOTOMY)
 	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/brainwashed))
 		target.mind.remove_antag_datum(/datum/antagonist/brainwashed)
@@ -61,7 +61,7 @@
 	if(B)
 		display_results(user, target, span_warning("Извлек неверную часть, что привело к большим повреждениям!") ,
 			span_notice("[user] успешно выполнил лоботомию [target]!") ,
-			span_notice("[user] завершает операцию [target] brain.") )
+			span_notice("[user] завершает операцию [target] brain."))
 		B.applyOrganDamage(80)
 		switch(rand(1,3))
 			if(1)
@@ -74,5 +74,5 @@
 			if(3)
 				target.gain_trauma_type(BRAIN_TRAUMA_SPECIAL, TRAUMA_RESILIENCE_MAGIC)
 	else
-		user.visible_message(span_warning("[user] внезапно замечает что мозг [user.ru_who()] над которым работал [user.p_were()] исчез.") , span_warning("Внезапно обнаруживаю что мозг, над которым я работал, исчез.") )
+		user.visible_message(span_warning("[user] внезапно замечает что мозг [user.ru_who()] над которым работал [user.p_were()] исчез.") , span_warning("Внезапно обнаруживаю что мозг, над которым я работал, исчез."))
 	return FALSE

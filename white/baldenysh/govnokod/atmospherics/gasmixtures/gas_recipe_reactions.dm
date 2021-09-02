@@ -78,7 +78,7 @@
 		var/amount_produced = products[result_path]
 		for(var/i in 1 to amount_produced)
 			var/obj/creation = new result_path(location)
-			creation.visible_message(span_notice("[creation] кристаллизуется в ходе атмосферных реакций!") )
+			creation.visible_message(span_notice("[creation] кристаллизуется в ходе атмосферных реакций!"))
 			if(dangerous)
 				creation.investigate_log("has been created as result of a gas recipe reaction.", INVESTIGATE_SUPERMATTER)
 				message_admins("[creation] has been created as result of a gas recipe reaction [ADMIN_JMP(creation)].")

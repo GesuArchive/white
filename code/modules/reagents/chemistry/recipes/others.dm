@@ -326,7 +326,7 @@
 	reaction_flags = REACTION_INSTANT
 
 /datum/chemical_reaction/foam/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
-	holder.create_foam(/datum/effect_system/foam_spread,2*created_volume,notification=span_danger("Раствор испускает пену!") )
+	holder.create_foam(/datum/effect_system/foam_spread,2*created_volume,notification=span_danger("Раствор испускает пену!"))
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE
 
 /datum/chemical_reaction/metalfoam
@@ -336,7 +336,7 @@
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE
 
 /datum/chemical_reaction/metalfoam/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
-	holder.create_foam(/datum/effect_system/foam_spread/metal,5*created_volume,1,span_danger("Раствор испускает металлическую пену!") )
+	holder.create_foam(/datum/effect_system/foam_spread/metal,5*created_volume,1,span_danger("Раствор испускает металлическую пену!"))
 
 /datum/chemical_reaction/smart_foam
 	required_reagents = list(/datum/reagent/aluminium = 3, /datum/reagent/smart_foaming_agent = 1, /datum/reagent/toxin/acid/fluacid = 1)
@@ -345,7 +345,7 @@
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE
 
 /datum/chemical_reaction/smart_foam/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
-	holder.create_foam(/datum/effect_system/foam_spread/metal/smart,5*created_volume,1,span_danger("Раствор выделяет металлическую пену!") )
+	holder.create_foam(/datum/effect_system/foam_spread/metal/smart,5*created_volume,1,span_danger("Раствор выделяет металлическую пену!"))
 
 /datum/chemical_reaction/ironfoam
 	required_reagents = list(/datum/reagent/iron = 3, /datum/reagent/foaming_agent = 1, /datum/reagent/toxin/acid/fluacid = 1)
@@ -354,7 +354,7 @@
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE
 
 /datum/chemical_reaction/ironfoam/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
-	holder.create_foam(/datum/effect_system/foam_spread/metal,5*created_volume,2,span_danger("Раствор испускает металлическую пену!") )
+	holder.create_foam(/datum/effect_system/foam_spread/metal,5*created_volume,2,span_danger("Раствор испускает металлическую пену!"))
 
 /datum/chemical_reaction/foaming_agent
 	results = list(/datum/reagent/foaming_agent = 1)
@@ -862,7 +862,7 @@
 			clear_products(holder, step_volume_added)
 			return
 	clear_products(holder, step_volume_added)
-	holder.my_atom.audible_message(span_notice("[icon2html(holder.my_atom, viewers(DEFAULT_MESSAGE_RANGE, src))] The reaction gives out a fizz, teleporting items everywhere!") )
+	holder.my_atom.audible_message(span_notice("[icon2html(holder.my_atom, viewers(DEFAULT_MESSAGE_RANGE, src))] The reaction gives out a fizz, teleporting items everywhere!"))
 
 /datum/chemical_reaction/ants
 	results = list(/datum/reagent/ants = 3)

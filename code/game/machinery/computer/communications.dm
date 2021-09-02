@@ -76,7 +76,7 @@
 	obj_flags |= EMAGGED
 	if (authenticated)
 		authorize_access = SSid_access.get_region_access_list(list(REGION_ALL_STATION))
-	to_chat(user, span_danger("Изменяю траекторию связи!") )
+	to_chat(user, span_danger("Изменяю траекторию связи!"))
 	playsound(src, 'sound/machines/terminal_alert.ogg', 50, FALSE)
 
 /obj/machinery/computer/communications/ui_act(action, list/params)
@@ -129,11 +129,11 @@
 				var/obj/item/held_item = usr.get_active_held_item()
 				var/obj/item/card/id/id_card = held_item?.GetID()
 				if (!istype(id_card))
-					to_chat(usr, span_warning("Нужно провести ID-КАРТОЙ!") )
+					to_chat(usr, span_warning("Нужно провести ID-КАРТОЙ!"))
 					playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, FALSE)
 					return
 				if (!(ACCESS_CAPTAIN in id_card.access))
-					to_chat(usr, span_warning("Недостаточно прав!") )
+					to_chat(usr, span_warning("Недостаточно прав!"))
 					playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, FALSE)
 					return
 
@@ -145,7 +145,7 @@
 
 			set_security_level(new_sec_level)
 
-			to_chat(usr, span_notice("Авторизация подтверждена. Изменение уровня безопасности.") )
+			to_chat(usr, span_notice("Авторизация подтверждена. Изменение уровня безопасности."))
 			playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 
 			// Only notify people if an actual change happened
@@ -183,10 +183,10 @@
 			var/emagged = obj_flags & EMAGGED
 			if (emagged)
 				message_syndicate(message, usr)
-				to_chat(usr, span_danger("SYSERR @l(19833)of(transmit.dm): !@$ MESSAGE TRANSMITTED TO SYNDICATE COMMAND.") )
+				to_chat(usr, span_danger("SYSERR @l(19833)of(transmit.dm): !@$ MESSAGE TRANSMITTED TO SYNDICATE COMMAND."))
 			else
 				message_centcom(message, usr)
-				to_chat(usr, span_notice("Message transmitted to Central Command.") )
+				to_chat(usr, span_notice("Message transmitted to Central Command."))
 
 			var/associates = emagged ? "Синдикату": "ЦК"
 			usr.log_talk(message, LOG_SAY, tag = "message to [associates]")
@@ -196,14 +196,14 @@
 			var/can_buy_shuttles_or_fail_reason = can_buy_shuttles(usr)
 			if (can_buy_shuttles_or_fail_reason != TRUE)
 				if (can_buy_shuttles_or_fail_reason != FALSE)
-					to_chat(usr, span_alert("[can_buy_shuttles_or_fail_reason]") )
+					to_chat(usr, span_alert("[can_buy_shuttles_or_fail_reason]"))
 				return
 			var/list/shuttles = flatten_list(SSmapping.shuttle_templates)
 			var/datum/map_template/shuttle/shuttle = locate(params["shuttle"]) in shuttles
 			if (!istype(shuttle))
 				return
 			if (!shuttle.prerequisites_met())
-				to_chat(usr, span_alert("Мы не соответствуем требованиям для покупки этого шаттла.") )
+				to_chat(usr, span_alert("Мы не соответствуем требованиям для покупки этого шаттла."))
 				return
 			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_STA)
 			if (bank_account.account_balance < shuttle.credit_cost)
@@ -229,13 +229,13 @@
 			if(SSticker.maj_mode)
 				if(!SSticker.maj_mode.is_done)
 					if(SSticker.maj_mode.check_completion())
-						to_chat(usr, span_notice("Успех!") )
+						to_chat(usr, span_notice("Успех!"))
 					else
-						to_chat(usr, span_notice("Чего-то не хватает. Проверьте точность выполнения задания.") )
+						to_chat(usr, span_notice("Чего-то не хватает. Проверьте точность выполнения задания."))
 				else
-					to_chat(usr, span_notice("Задание уже выполнено. Вы молодцы.") )
+					to_chat(usr, span_notice("Задание уже выполнено. Вы молодцы."))
 			else
-				to_chat(usr, span_notice("На эту смену особых поручений пока нет.") )
+				to_chat(usr, span_notice("На эту смену особых поручений пока нет."))
 		if ("requestNukeCodes")
 			if (!authenticated_as_non_silicon_captain(usr))
 				return
@@ -243,7 +243,7 @@
 				return
 			var/reason = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
 			nuke_request(reason, usr)
-			to_chat(usr, span_notice("Запрос отправлен.") )
+			to_chat(usr, span_notice("Запрос отправлен."))
 			usr.log_message("has requested the nuclear codes from CentCom with reason \"[reason]\"", LOG_SAY)
 			priority_announce("Коды ядерной авторизации для самоуничтожения станции были запрошены [usr]. Подтверждение или отклонение данного запроса возможно в скором времени.", "Запрос кодов ядерной авторизации", SSstation.announcer.get_rand_report_sound())
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
@@ -255,11 +255,11 @@
 				return
 			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_STA)
 			if (bank_account.account_balance < 250)
-				to_chat(usr, span_alert("Недостаточно средств для вызова отряда. Требуется 250 кредитов на счету станции.") )
+				to_chat(usr, span_alert("Недостаточно средств для вызова отряда. Требуется 250 кредитов на счету станции."))
 				return
 			var/input = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
 			bank_account.adjust_money(-250)
-			to_chat(usr, span_notice("Запрос отправлен. Со счёта карго было списано 250 кредитов.") )
+			to_chat(usr, span_notice("Запрос отправлен. Со счёта карго было списано 250 кредитов."))
 			usr.log_message("has requested SOBR team from CentCom with reason \"[input]\"", LOG_SAY)
 			priority_announce("Отряд СОБРа был вызван [usr].", "Экстренный запрос",'sound/ai/announcer/alert.ogg')
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
@@ -272,11 +272,11 @@
 				return
 			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_STA)
 			if (bank_account.account_balance < 500)
-				to_chat(usr, span_alert("Недостаточно средств для вызова клининговой службы. Требуется 500 кредитов на счету станции.") )
+				to_chat(usr, span_alert("Недостаточно средств для вызова клининговой службы. Требуется 500 кредитов на счету станции."))
 				return
 			var/input = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
 			bank_account.adjust_money(-500)
-			to_chat(usr, span_notice("Запрос отправлен. Со счёта карго было списано 500 кредитов.") )
+			to_chat(usr, span_notice("Запрос отправлен. Со счёта карго было списано 500 кредитов."))
 			usr.log_message("has requested the janitor team from CentCom with reason \"[input]\"", LOG_SAY)
 			priority_announce("Отряд уборщиков был вызван [usr].", "Экстренный запрос",'sound/ai/announcer/alert.ogg')//А надо ли оно?
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
@@ -289,11 +289,11 @@
 				return
 			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_STA)
 			if (bank_account.account_balance < 750)
-				to_chat(usr, span_alert("Недостаточно средств для вызова ремонтной бригады. Требуется 750 кредитов на счету станции.") )
+				to_chat(usr, span_alert("Недостаточно средств для вызова ремонтной бригады. Требуется 750 кредитов на счету станции."))
 				return
 			var/input = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
 			bank_account.adjust_money(-750)
-			to_chat(usr, span_notice("Запрос отправлен. Со счёта карго было списано 750 кредитов.") )
+			to_chat(usr, span_notice("Запрос отправлен. Со счёта карго было списано 750 кредитов."))
 			usr.log_message("has requested the engineer team from CentCom with reason \"[input]\"", LOG_SAY)
 			priority_announce("[prob(15) ? "Экстренный отряд таджиков был вызван ":"Ремонтная бригада была вызвана "][usr].", "Экстренный запрос",'sound/ai/announcer/alert.ogg')//tajik = funny
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
@@ -304,7 +304,7 @@
 				return
 			if (!(obj_flags & EMAGGED))
 				return
-			to_chat(usr, span_notice("Backup routing data restored.") )
+			to_chat(usr, span_notice("Backup routing data restored."))
 			playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 			obj_flags &= ~EMAGGED
 		if ("sendToOtherSector")
@@ -374,7 +374,7 @@
 				authenticated = TRUE
 				authorize_access = SSid_access.get_region_access_list(list(REGION_ALL_STATION))
 				authorize_name = "Неизвестный"
-				to_chat(usr, span_warning("[capitalize(src.name)] выстреливает несколько искр.") )
+				to_chat(usr, span_warning("[capitalize(src.name)] выстреливает несколько искр."))
 				playsound(src, 'sound/machines/terminal_alert.ogg', 25, FALSE)
 			else if(isliving(usr))
 				var/mob/living/L = usr
@@ -564,7 +564,7 @@
  */
 /obj/machinery/computer/communications/proc/emergency_meeting(mob/living/user)
 	if(!SScommunications.can_make_emergency_meeting(user))
-		to_chat(user, span_alert("Сбор не хочет проводиться. Может стоит подождать?") )
+		to_chat(user, span_alert("Сбор не хочет проводиться. Может стоит подождать?"))
 		return
 	SScommunications.emergency_meeting(user)
 	deadchat_broadcast(" делает экстренный сбор в локации <span class='name'>[get_area_name(usr, TRUE)]</span>.", span_name("[user.real_name]") , user, message_type=DEADCHAT_ANNOUNCEMENT)
@@ -572,14 +572,14 @@
 /obj/machinery/computer/communications/proc/make_announcement(mob/living/user)
 	var/is_ai = issilicon(user)
 	if(!SScommunications.can_announce(user, is_ai))
-		to_chat(user, span_alert("Подзарядка интеркомов. Подождите, пожалуйста.") )
+		to_chat(user, span_alert("Подзарядка интеркомов. Подождите, пожалуйста."))
 		return
 	var/input = stripped_input(user, "Введите сообщение для станции.", "ЧЕ?")
 	if(!input || !user.canUseTopic(src, !issilicon(usr)))
 		return
 	if(!(user.can_speak())) //No more cheating, mime/random mute guy!
 		input = "..."
-		to_chat(user, span_warning("А как говорить...") )
+		to_chat(user, span_warning("А как говорить..."))
 	SScommunications.make_announcement(user, is_ai, input)
 	deadchat_broadcast(" делает объявление из локации <span class='name'>[get_area_name(usr, TRUE)]</span>.", span_name("[user.real_name]") , user, message_type=DEADCHAT_ANNOUNCEMENT)
 

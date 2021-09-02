@@ -23,7 +23,7 @@
 	var/force_opens = FALSE
 
 /obj/item/crowbar/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is beating [user.ru_na()]self to death with [src]! It looks like [user.p_theyre()] trying to commit suicide!") )
+	user.visible_message(span_suicide("[user] is beating [user.ru_na()]self to death with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	playsound(loc, 'sound/weapons/genhit.ogg', 50, TRUE, -1)
 	return (BRUTELOSS)
 
@@ -84,10 +84,10 @@
 
 /obj/item/crowbar/power/suicide_act(mob/user)
 	if(tool_behaviour == TOOL_CROWBAR)
-		user.visible_message(span_suicide("[user] is putting [user.ru_ego()] head in [src], it looks like [user.p_theyre()] trying to commit suicide!") )
+		user.visible_message(span_suicide("[user] is putting [user.ru_ego()] head in [src], it looks like [user.p_theyre()] trying to commit suicide!"))
 		playsound(loc, 'sound/items/jaws_pry.ogg', 50, TRUE, -1)
 	else
-		user.visible_message(span_suicide("[user] is wrapping <b>[src.name]</b> around [user.ru_ego()] neck. It looks like [user.p_theyre()] trying to rip [user.ru_ego()] head off!") )
+		user.visible_message(span_suicide("[user] is wrapping <b>[src.name]</b> around [user.ru_ego()] neck. It looks like [user.p_theyre()] trying to rip [user.ru_ego()] head off!"))
 		playsound(loc, 'sound/items/jaws_cut.ogg', 50, TRUE, -1)
 		if(iscarbon(user))
 			var/mob/living/carbon/C = user
@@ -101,13 +101,13 @@
 	playsound(get_turf(user), 'sound/items/change_jaws.ogg', 50, TRUE)
 	if(tool_behaviour == TOOL_CROWBAR)
 		tool_behaviour = TOOL_WIRECUTTER
-		to_chat(user, span_notice("Меняю открываку на кусаку.") )
+		to_chat(user, span_notice("Меняю открываку на кусаку."))
 		usesound = 'sound/items/jaws_cut.ogg'
 		update_icon()
 
 	else
 		tool_behaviour = TOOL_CROWBAR
-		to_chat(user, span_notice("Меняю кусаку на открываку.") )
+		to_chat(user, span_notice("Меняю кусаку на открываку."))
 		usesound = 'sound/items/jaws_pry.ogg'
 		update_icon()
 
@@ -125,7 +125,7 @@
 
 /obj/item/crowbar/power/attack(mob/living/carbon/C, mob/user)
 	if(istype(C) && C.handcuffed && tool_behaviour == TOOL_WIRECUTTER)
-		user.visible_message(span_notice("[user] перекусывает наручи [C] используя [src]!") )
+		user.visible_message(span_notice("[user] перекусывает наручи [C] используя [src]!"))
 		qdel(C.handcuffed)
 		return
 	else
