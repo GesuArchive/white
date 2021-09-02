@@ -659,7 +659,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		homerun_ready = 1
 	..()
 
-/obj/item/melee/baseball_bat/attack(mob/living/target, mob/living/user, knockback = TRUE)
+/obj/item/melee/baseball_bat/attack(mob/living/target, mob/living/user)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		return
@@ -671,11 +671,9 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		playsound(get_turf(src), 'sound/weapons/homerun.ogg', 100, TRUE)
 		homerun_ready = 0
 		return
-	else if(!target.anchored && knockback)
-		if(QDELETED(target))
-			return
+	else if(!target.anchored)
 		var/whack_speed = (prob(60) ? 1 : 4)
-		target.throw_at(throw_target, rand(1, 2), whack_speed, user) // sorry friends, 7 speed batting caused wounds to absolutely delete whoever you knocked your target into (and said target)
+		target.throw_at(throw_target, rand(1, 2), whack_speed, user, gentle = TRUE) // sorry friends, 7 speed batting caused wounds to absolutely delete whoever you knocked your target into (and said target)
 
 /obj/item/melee/baseball_bat/ablative
 	name = "стальная бейсбольная бита"

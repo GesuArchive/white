@@ -60,7 +60,7 @@
 			/obj/item/mounted_chainsaw,
 			/obj/item/tailclub,
 			/obj/item/melee/baseball_bat/ablative,
-			/obj/item/melee/flyswatter,									//Да
+			/obj/item/melee/flyswatter,									//Да // пизда
 			/obj/item/extendohand,
 			/obj/item/gohei,
 			/obj/item/vibro_weapon,
