@@ -11675,6 +11675,9 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
 "aWB" = (
@@ -12577,20 +12580,10 @@
 /turf/open/floor/plasteel/monofloor,
 /area/crew_quarters/locker)
 "bbt" = (
-/obj/item/radio/intercom{
-	pixel_x = 29
-	},
-/obj/effect/turf_decal/tile/brown,
-/obj/effect/turf_decal/tile/brown{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 8
-	},
-/obj/structure/closet/secure_closet/quartermaster,
-/obj/item/storage/firstaid/regular,
-/turf/open/floor/plasteel,
-/area/quartermaster/qm)
+/obj/machinery/computer/mech_bay_power_console,
+/obj/structure/cable,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/quartermaster/office)
 "bbv" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
@@ -12944,16 +12937,10 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
+/obj/effect/turf_decal/tile/brown,
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
 "bcV" = (
@@ -16485,7 +16472,8 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
-/obj/machinery/computer/security/qm,
+/obj/structure/closet/secure_closet/quartermaster,
+/obj/item/storage/firstaid/regular,
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
 "bvH" = (
@@ -16574,8 +16562,11 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/brown,
-/obj/machinery/computer/price_controller{
+/obj/machinery/computer/bounty{
 	dir = 8
+	},
+/obj/item/radio/intercom{
+	pixel_x = 29
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
@@ -16674,6 +16665,12 @@
 /obj/machinery/firealarm{
 	dir = 8;
 	pixel_x = 24
+	},
+/obj/machinery/computer/security/qm{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
@@ -32723,7 +32720,6 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
-/obj/machinery/computer/bounty,
 /obj/effect/turf_decal/tile/brown,
 /obj/machinery/light{
 	dir = 1;
@@ -34952,7 +34948,6 @@
 /area/engine/manufactory)
 "igQ" = (
 /obj/structure/cable,
-/obj/machinery/computer/mech_bay_power_console,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/office)
 "igR" = (
@@ -68101,7 +68096,7 @@ gjl
 bvU
 bvX
 bwQ
-bbt
+gjl
 gjl
 sLJ
 jAX
@@ -68359,7 +68354,7 @@ gjl
 gjl
 gjl
 gjl
-gjl
+bbt
 igQ
 eVL
 eVL

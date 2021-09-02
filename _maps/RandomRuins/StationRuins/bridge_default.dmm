@@ -884,6 +884,7 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "cI" = (
@@ -2053,7 +2054,9 @@
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
 "fr" = (
-/obj/effect/spawner/randomarcade,
+/obj/effect/spawner/randomarcade{
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "fs" = (
@@ -4655,6 +4658,12 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
+"zg" = (
+/obj/machinery/computer/price_controller{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/bridge/meeting_room)
 "zl" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -5339,7 +5348,7 @@ ef
 ew
 eT
 fn
-et
+zg
 fX
 gw
 gM

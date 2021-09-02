@@ -4,8 +4,9 @@ SUBSYSTEM_DEF(economy)
 	init_order = INIT_ORDER_ECONOMY
 	runlevels = RUNLEVEL_GAME
 	var/roundstart_paychecks = 5
-	var/budget_pool = 3500
-	var/list/department_accounts = list(ACCOUNT_CIV = ACCOUNT_CIV_NAME,
+	var/budget_pool = 650
+	var/list/department_accounts = list(ACCOUNT_STA = ACCOUNT_STA_NAME,
+										ACCOUNT_CIV = ACCOUNT_CIV_NAME,
 										ACCOUNT_ENG = ACCOUNT_ENG_NAME,
 										ACCOUNT_SCI = ACCOUNT_SCI_NAME,
 										ACCOUNT_MED = ACCOUNT_MED_NAME,
@@ -131,8 +132,8 @@ SUBSYSTEM_DEF(economy)
 /**
  * Прок для получения выплат за покуику товаров
  **/
-/datum/controller/subsystem/economy/proc/adjust_cargo_money(amount, source, slave, product)
-	var/datum/bank_account/D = get_dep_account(ACCOUNT_CAR)
+/datum/controller/subsystem/economy/proc/adjust_station_money(amount, source, slave, product)
+	var/datum/bank_account/D = get_dep_account(ACCOUNT_STA)
 	if(D && amount)
 		D.adjust_money(amount/2)
 		if(PC && source && slave && product)
