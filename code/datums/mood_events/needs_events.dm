@@ -19,6 +19,23 @@
 	description = "<span class='boldwarning'>Голодаю!</span>\n"
 	mood_change = -10
 
+//thirst
+/datum/mood_event/overhydrated
+	description = "<span class='warning'><B>СЛИШКОМ МНОГО ВОДЫ...</B></span>\n"
+	mood_change = -4
+
+/datum/mood_event/hydrated
+	description = "<span class='nicegreen'>Не хочу пить.</span>\n"
+	mood_change = 2
+
+/datum/mood_event/thirsty
+	description = "<span class='warning'>Хочу пить.</span>\n"
+	mood_change = -8
+
+/datum/mood_event/dehydrated
+	description = "<span class='boldwarning'>ВОДЫ!</span>\n"
+	mood_change = -12
+
 //charge
 /datum/mood_event/supercharged
 	description = "<span class='boldwarning'>I can't possibly keep all this power inside, I need to release some quick!</span>\n"

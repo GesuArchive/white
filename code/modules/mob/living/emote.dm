@@ -479,10 +479,10 @@
 	emote_type = EMOTE_AUDIBLE
 	stat_allowed = UNCONSCIOUS
 
-/datum/emote/living/pee
-	key = "pee"
-	key_third_person = "писает"
-	message = "писает!"
+/datum/emote/living/plot
+	key = "plot"
+	key_third_person = "корчится от жажды"
+	message = "корчится от жажды!"
 	emote_type = EMOTE_AUDIBLE
 	stat_allowed = UNCONSCIOUS
 
