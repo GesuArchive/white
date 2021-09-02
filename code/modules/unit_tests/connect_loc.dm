@@ -1,3 +1,4 @@
+/*
 #define COMSIG_MOCK_SIGNAL "mock_signal"
 
 /// Test that the connect_loc element handles basic movement cases
@@ -73,3 +74,4 @@
 	times_called += 1
 
 #undef COMSIG_MOCK_SIGNAL
+*/
