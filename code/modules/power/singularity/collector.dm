@@ -73,18 +73,20 @@
 			stored_energy-=bitcoins_mined
 
 /obj/machinery/power/rad_collector/interact(mob/user)
-	if(anchored)
-		if(!src.locked)
-			toggle_power()
-			user.visible_message(span_notice("<b>[user.name]</b> [active? "включает":"выключает"] <b>[src.name]</b>.") , \
-			span_notice("[active? "Включаю":"Выключаю"] <b>[src.name]</b>."))
-			if(loaded_tank && loaded_tank.air_contents)
-				var/fuel = loaded_tank.air_contents.get_moles(/datum/gas/plasma)
-				investigate_log("turned [active?"<font color='green'>on</font>":"<font color='red'>off</font>"] by [key_name(user)]. [loaded_tank?"Fuel: [round(fuel/0.29)]%":"<font color='red'>It is empty</font>"].", INVESTIGATE_SINGULO)
-			return
-		else
-			to_chat(user, span_warning("Управление заблокировано!"))
-			return
+	if(!anchored)
+		return
+	if(locked)
+		to_chat(user, span_warning("The controls are locked!"))
+		return
+	toggle_power()
+	user.visible_message(span_notice("[user.name] turns the [src.name] [active? "on":"off"]."), \
+	span_notice("You turn the [src.name] [active? "on":"off"]."))
+	var/datum/gas_mixture/tank_mix = loaded_tank?.return_air()
+	var/fuel
+	if(loaded_tank)
+		fuel = tank_mix.gases[/datum/gas/plasma]
+	fuel = fuel ? fuel[MOLES] : 0
+	investigate_log("turned [active?"<font color='green'>on</font>":"<font color='red'>off</font>"] by [key_name(user)]. [loaded_tank?"Fuel: [round(fuel/0.29)]%":"<font color='red'>It is empty</font>"].", INVESTIGATE_SINGULO)
 
 /obj/machinery/power/rad_collector/can_be_unfasten_wrench(mob/user, silent)
 	if(loaded_tank)

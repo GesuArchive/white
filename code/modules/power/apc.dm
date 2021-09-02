@@ -48,6 +48,8 @@
 /// The APCs power channel is automatically on.
 #define APC_CHANNEL_AUTO_ON 3
 
+#define APC_CHANNEL_IS_ON(channel) (channel >= APC_CHANNEL_ON)
+
 // APC autoset enums:
 /// The APC turns automated and manual power channels off.
 #define AUTOSET_FORCE_OFF 0
@@ -100,7 +102,7 @@
 	var/environ = 3
 	var/operating = TRUE
 	var/charging = APC_NOT_CHARGING
-	var/chargemode = 1
+	var/chargemode = TRUE
 	var/chargecount = 0
 	var/locked = TRUE
 	var/coverlocked = TRUE
@@ -120,6 +122,7 @@
 	var/beenhit = 0 // used for counting how many times it has been hit, used for Aliens at the moment
 	var/mob/living/silicon/ai/occupier = null
 	var/transfer_in_progress = FALSE //Is there an AI being transferred out of us?
+	///buffer state that makes apcs not shut off channels immediately as long as theres some power left, effect visible in apcs only slowly losing power
 	var/longtermpower = 10
 	var/auto_name = FALSE
 	var/failure_timer = 0
@@ -1248,9 +1251,10 @@
 		force_update = TRUE
 		return
 
-	lastused_light = area.power_usage[AREA_USAGE_LIGHT] + area.power_usage[AREA_USAGE_STATIC_LIGHT]
-	lastused_equip = area.power_usage[AREA_USAGE_EQUIP] + area.power_usage[AREA_USAGE_STATIC_EQUIP]
-	lastused_environ = area.power_usage[AREA_USAGE_ENVIRON] + area.power_usage[AREA_USAGE_STATIC_ENVIRON]
+	//dont use any power from that channel if we shut that power channel off
+	lastused_light = APC_CHANNEL_IS_ON(lighting) ? area.power_usage[AREA_USAGE_LIGHT] + area.power_usage[AREA_USAGE_STATIC_LIGHT] : 0
+	lastused_equip = APC_CHANNEL_IS_ON(equipment) ? area.power_usage[AREA_USAGE_EQUIP] + area.power_usage[AREA_USAGE_STATIC_EQUIP] : 0
+	lastused_environ = APC_CHANNEL_IS_ON(environ) ? area.power_usage[AREA_USAGE_ENVIRON] + area.power_usage[AREA_USAGE_STATIC_ENVIRON] : 0
 	area.clear_usage()
 
 	lastused_total = lastused_light + lastused_equip + lastused_environ
@@ -1388,17 +1392,18 @@
 // on 0=off, 1=on, 2=autooff
 
 /obj/machinery/power/apc/proc/autoset(val, on)
-	if(on==0)
-		if(val==2)			// if on, return off
-			return 0
-		else if(val==3)		// if auto-on, return auto-off
-			return 1
-	else if(on==1)
-		if(val==1)			// if auto-off, return auto-on
-			return 3
-	else if(on==2)
-		if(val==3)			// if auto-on, return auto-off
-			return 1
+	switch(on)
+		if(AUTOSET_FORCE_OFF)
+			if(val == APC_CHANNEL_ON) // if on, return off
+				return APC_CHANNEL_OFF
+			else if(val == APC_CHANNEL_AUTO_ON) // if auto-on, return auto-off
+				return APC_CHANNEL_AUTO_OFF
+		if(AUTOSET_ON)
+			if(val == APC_CHANNEL_AUTO_OFF) // if auto-off, return auto-on
+				return APC_CHANNEL_AUTO_ON
+		if(AUTOSET_OFF)
+			if(val == APC_CHANNEL_AUTO_ON) // if auto-on, return auto-off
+				return APC_CHANNEL_AUTO_OFF
 	return val
 
 /obj/machinery/power/apc/proc/reset(wire)
