@@ -40,45 +40,54 @@ const CornerText = (props: {
 const SLOTS: Record<
   string,
   {
-    displayName: string;
-    gridSpot: GridSpotKey;
-    image?: string;
+    dN: string; // displayName
+    gS: GridSpotKey; // gridSpot
+    i?: string; // image
     additionalComponent?: JSX.Element;
   }
 > = {
-  "8": { displayName: "глаза", gridSpot: getGSK([0, 0]), image: "glasses.png" },
-  "64": { displayName: "голова", gridSpot: getGSK([0, 1]), image: "head.png" },
-  "4096": { displayName: "шея", gridSpot: getGSK([1, 0]), image: "neck.png" },
-  "32": { displayName: "маска", gridSpot: getGSK([1, 1]), image: "mask.png" },
-  "16": { displayName: "уши", gridSpot: getGSK([1, 2]), image: "ears.png" },
-  "2": { displayName: "униформа", gridSpot: getGSK([2, 0]), image: "uniform.png" },
-  "1": { displayName: "костюм", gridSpot: getGSK([2, 1]), image: "suit.png" },
-  "4": { displayName: "перчатки", gridSpot: getGSK([2, 2]), image: "gloves.png" },
-  "128": { displayName: "ботинки", gridSpot: getGSK([3, 1]), image: "shoes.png" },
-  "32768": { displayName: "хранилище костюма", gridSpot: getGSK([3, 2]), image: "suit_storage.png" },
-  "256": { displayName: "ID", gridSpot: getGSK([4, 0]), image: "id.png" },
-  "512": { displayName: "пояс", gridSpot: getGSK([4, 1]), image: "belt.png" },
-  "1024": { displayName: "спина", gridSpot: getGSK([4, 2]), image: "back.png" },
-  "65536": { displayName: "левый карман", gridSpot: getGSK([4, 3]), image: "pocket.png" },
-  "131072": { displayName: "правый карман", gridSpot: getGSK([4, 4]), image: "pocket.png" },
-  "-1": { displayName: "левая рука", gridSpot: getGSK([2, 4]), image: "hand_l.png", additionalComponent: <CornerText align="right">Л</CornerText> },
-  "-2": { displayName: "правая рука", gridSpot: getGSK([2, 3]), image: "hand_r.png", additionalComponent: <CornerText align="left">П</CornerText> },
+  "8": { dN: "глаза", gS: getGSK([0, 0]), i: "glasses.png" },
+  "64": { dN: "голова", gS: getGSK([0, 1]), i: "head.png" },
+  "4096": { dN: "шея", gS: getGSK([1, 0]), i: "neck.png" },
+  "32": { dN: "маска", gS: getGSK([1, 1]), i: "mask.png" },
+  "16": { dN: "уши", gS: getGSK([1, 2]), i: "ears.png" },
+  "2": { dN: "униформа", gS: getGSK([2, 0]), i: "uniform.png" },
+  "1": { dN: "костюм", gS: getGSK([2, 1]), i: "suit.png" },
+  "4": { dN: "перчатки", gS: getGSK([2, 2]), i: "gloves.png" },
+  "128": { dN: "ботинки", gS: getGSK([3, 1]), i: "shoes.png" },
+  "32768": { dN: "хранилище костюма", gS: getGSK([3, 2]), i: "suit_storage.png" },
+  "256": { dN: "ID", gS: getGSK([4, 0]), i: "id.png" },
+  "512": { dN: "пояс", gS: getGSK([4, 1]), i: "belt.png" },
+  "1024": { dN: "спина", gS: getGSK([4, 2]), i: "back.png" },
+  "65536": { dN: "левый карман", gS: getGSK([4, 3]), i: "pocket.png" },
+  "131072": { dN: "правый карман", gS: getGSK([4, 4]), i: "pocket.png" },
+  "-1": { dN: "левая рука", gS: getGSK([2, 4]), i: "hand_l.png",
+    additionalComponent: <CornerText align="right">Л</CornerText> },
+  "-2": { dN: "правая рука", gS: getGSK([2, 3]), i: "hand_r.png",
+    additionalComponent: <CornerText align="left">П</CornerText> },
   // аыыыыыыыыыыыы я дыбиииииииил
-  "-3": { displayName: "пол", gridSpot: getGSK([0, 6]), image: "pocket.png" },
-  "-4": { displayName: "пол", gridSpot: getGSK([1, 6]), image: "pocket.png" },
-  "-5": { displayName: "пол", gridSpot: getGSK([2, 6]), image: "pocket.png" },
-  "-6": { displayName: "пол", gridSpot: getGSK([3, 6]), image: "pocket.png" },
-  "-7": { displayName: "пол", gridSpot: getGSK([4, 6]), image: "pocket.png" },
+  "-3": { dN: "пол", gS: getGSK([0, 6]), i: "pocket.png" },
+  "-4": { dN: "пол", gS: getGSK([1, 6]), i: "pocket.png" },
+  "-5": { dN: "пол", gS: getGSK([2, 6]), i: "pocket.png" },
+  "-6": { dN: "пол", gS: getGSK([3, 6]), i: "pocket.png" },
+  "-7": { dN: "пол", gS: getGSK([4, 6]), i: "pocket.png" },
 };
 
-const MetaInvLoadout=(act,loadout:MetaInvLoadout,objects:Array<MetaInvObj>)=>{
-  const ID2ObjAssoc = objects.reduce((acc, obj) => (acc[obj.id] = obj, acc), {} as Record<string, MetaInvObj>)
+// ебал линтер
+const MetaInvLoadout=(
+  act,
+  loadout:MetaInvLoadoutData,
+  objects:Array<MetaInvObj>
+) => {
+  //а как это фиксить я не ебу
+  const ID2ObjAssoc = objects.reduce((acc, obj) =>
+    (acc[obj.id] = obj, acc), {} as Record<string, MetaInvObj>);
 
   const gridSpots = new Map<GridSpotKey, string>();
 
   for (const slotkey of Object.keys(loadout)) {
     if (SLOTS[slotkey]) {
-      gridSpots.set(SLOTS[slotkey].gridSpot, slotkey);
+      gridSpots.set(SLOTS[slotkey].gS, slotkey);
     }
   }
 
@@ -104,14 +113,17 @@ const MetaInvLoadout=(act,loadout:MetaInvLoadout,objects:Array<MetaInvObj>)=>{
               }
 
               const item_id = loadout[keyAtSpot];
-              const item:MetaInvObj = (item_id && item_id !== "0" ) ? ID2ObjAssoc[item_id] : null;
+              const item:MetaInvObj
+                = (item_id && item_id !== "0")
+                  ? ID2ObjAssoc[item_id]
+                  : null;
               const slot = SLOTS[keyAtSpot];
 
               let content;
               let tooltip;
 
               if (item === null || item === undefined) {
-                tooltip = slot.displayName;
+                tooltip = slot.dN;
               } else if ("name" in item) {
                 content = (
                   <Box
@@ -160,10 +172,10 @@ const MetaInvLoadout=(act,loadout:MetaInvLoadout,objects:Array<MetaInvObj>)=>{
                         padding: 0,
                       }}
                     >
-                      {slot.image && (
+                      {slot.i && (
                         <Box
                           as="img"
-                          src={resolveAsset("inventory-" + slot.image)}
+                          src={resolveAsset("inventory-" + slot.i)}
                           opacity={0.7}
                           style={{
                             position: "absolute",
@@ -194,7 +206,7 @@ const MetaInvLoadout=(act,loadout:MetaInvLoadout,objects:Array<MetaInvObj>)=>{
   );
 };
 
-const ItemSlot = (act, slotID:number, item:MetaInvObj, active_slot:number) => {
+const ItemSlot = (act, slotID, item:MetaInvObj, active_slot) => {
   let content;
   let tooltip;
 
@@ -231,9 +243,9 @@ const ItemSlot = (act, slotID:number, item:MetaInvObj, active_slot:number) => {
         flid
         tooltip={tooltip}
         style={{
-          background: slotID == active_slot
-                              ? "hsl(39, 73%, 30%)"
-                              : undefined,
+          background: slotID === active_slot
+            ? "hsl(39, 73%, 30%)"
+            : undefined,
           position: "relative",
           width: "100%",
           height: "100%",
@@ -262,7 +274,7 @@ const ItemSlot = (act, slotID:number, item:MetaInvObj, active_slot:number) => {
   );
 };
 
-const MetaInvItems = (act, objects:Array<MetaInvObj>, slots:number, active_slot:number) => {
+const MetaInvItems = (act, objects:Array<MetaInvObj>, slots, active_slot) => {
   const slotRows = Math.ceil(slots/COLUMNS);
   return (
     <Stack fill vertical>
@@ -280,7 +292,11 @@ const MetaInvItems = (act, objects:Array<MetaInvObj>, slots:number, active_slot:
                     height: BUTTON_DIMENSIONS,
                   }}
                 >
-                  {(cur_num <= slots) ? ItemSlot(act, cur_num, curItem, active_slot) : null}
+                  {
+                    (cur_num <= slots)
+                      ? ItemSlot(act, cur_num, curItem, active_slot)
+                      : null
+                  }
                 </Stack.Item>
               );
             })}
@@ -294,7 +310,7 @@ const MetaInvItems = (act, objects:Array<MetaInvObj>, slots:number, active_slot:
 
 type MetaInvData = {
   objects: Array<MetaInvObj>;
-  loadout: MetaInvLoadout;
+  loadout: MetaInvLoadoutData;
   slots: number;
   active_slot: number;
 };
@@ -305,7 +321,7 @@ type MetaInvObj = {
   icon: string;
 };
 
-type MetaInvLoadout = Record<string, string>;
+type MetaInvLoadoutData = Record<string, string>;
 
 export const MetaInventory = (props, context) => {
   const { act, data } = useBackend<MetaInvData>(context);
