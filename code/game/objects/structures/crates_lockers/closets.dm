@@ -321,7 +321,7 @@
 		user.visible_message(span_notice("<b>[user]</b> [anchored ? "прикручивает" : "откручивает"] <b>[src.name]</b> [anchored ? "к полу" : "от пола"].") , \
 						span_notice("[anchored ? "Прикручиваю" : "Откручиваю"] <b>[src.name]</b> [anchored ? "к полу" : "от полу"].") , \
 						span_hear("Слышу трещотку.") )
-	if(W.tool_behaviour == TOOL_MULTITOOL && secure)
+/*	if(W.tool_behaviour == TOOL_MULTITOOL && secure)
 
 		if(!locked)
 			user.visible_message(span_warning("[user] блокирует <b>[src]</b> используя [W].") ,
@@ -373,7 +373,7 @@
 			user.visible_message(span_warning("[user] взламывает <b>[src]</b> используя [W].") ,
 									span_warning("Взламываю замок <b>[src]</b>.") )
 			return
-
+*/
 	else if(user.a_intent != INTENT_HARM)
 		var/item_is_id = W.GetID()
 		if(!item_is_id)
