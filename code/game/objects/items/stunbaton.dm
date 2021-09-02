@@ -98,6 +98,9 @@
 /obj/item/melee/baton/loaded //this one starts with a cell pre-installed.
 	preload_cell_type = /obj/item/stock_parts/cell/high
 
+/obj/item/melee/baton/loaded/cyborg_sosal
+	cell_hit_cost = 10000
+
 /obj/item/melee/baton/proc/deductcharge(chrgdeductamt)
 	if(cell)
 		//Note this value returned is significant, as it will determine
