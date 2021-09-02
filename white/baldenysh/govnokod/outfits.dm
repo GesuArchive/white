@@ -75,7 +75,8 @@
 	name = "Dreamer (Station)"
 	id = /obj/item/card/id/advanced/dreamer_station
 	back = /obj/item/storage/backpack/satchel/leather
-	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/storage/firstaid/tactical=1)
+	belt = /obj/item/melee/baton/loaded
+	backpack_contents = list(/obj/item/storage/firstaid/tactical=1)
 	l_pocket = /obj/item/grenade/clusterbuster/syndieminibomb
 
 /datum/outfit/dreamer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
