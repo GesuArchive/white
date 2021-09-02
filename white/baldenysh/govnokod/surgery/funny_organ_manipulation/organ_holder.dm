@@ -15,11 +15,13 @@
 
 /atom/movable/organ_holder/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
-	arrived.AddElement(/datum/element/organ_holder_item)
+	if(isorgan(arrived))
+		arrived.AddElement(/datum/element/organ_holder_organ)
 
 /atom/movable/organ_holder/Exited(atom/movable/gone, direction)
 	. = ..()
-	gone.RemoveElement(/datum/element/organ_holder_item)
+	if(isorgan(gone))
+		gone.RemoveElement(/datum/element/organ_holder_organ)
 
 /atom/movable/organ_holder/proc/GetZoneContents(zone)
 	return contents & contents_by_zone[zone]
