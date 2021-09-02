@@ -27,7 +27,7 @@
 	if(M.active_storage)
 		M.active_storage.hide_from(M)
 	var/list/zonecontents = real_location.GetZoneContents(zone)
-	orient2hud(zonecontents)
+	orient2hud_from_list(zonecontents)
 	M.client.screen |= boxes
 	M.client.screen |= closer
 	M.client.screen |= zonecontents
@@ -36,15 +36,13 @@
 	RegisterSignal(M, COMSIG_PARENT_QDELETING, .proc/mob_deleted)
 	return TRUE
 
-/datum/component/storage/organ_holder/orient2hud(list/zonecontents)
-	//var/atom/movable/organ_holder/real_location = real_location()
-	var/adjusted_contents = zonecontents.len
-
+/datum/component/storage/concrete/organ_holder/proc/orient2hud_from_list(list/contents_override)
+	var/adjusted_contents = contents_override.len
 	var/columns = clamp(max_items, 1, screen_max_columns)
 	var/rows = clamp(CEILING(adjusted_contents / columns, 1), 1, screen_max_rows)
-	orient_objs_from_list(rows, columns, zonecontents)
+	orient_objs_from_list(rows, columns, contents_override)
 
-/datum/component/storage/organ_holder/proc/orient_objs_from_list(rows, cols, list/obj_list)
+/datum/component/storage/concrete/organ_holder/proc/orient_objs_from_list(rows, cols, list/obj_list)
 	boxes.screen_loc = "[screen_start_x]:[screen_pixel_x],[screen_start_y]:[screen_pixel_y] to [screen_start_x+cols-1]:[screen_pixel_x],[screen_start_y+rows-1]:[screen_pixel_y]"
 	var/cx = screen_start_x
 	var/cy = screen_start_y
