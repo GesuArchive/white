@@ -8,7 +8,7 @@
 		/datum/reagent/consumable/salt = 10,
 		/datum/reagent/consumable/blackpepper = 10
 	)
-	result = /obj/item/food/soup/Imperium
+	result = /obj/item/food/soup/imperium
 	subcategory = CAT_SOUP
 
 /obj/item/food/soup/imperium
