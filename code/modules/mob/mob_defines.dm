@@ -101,6 +101,7 @@
 	var/jitteriness = 0//Carbon
 	/// Hunger level of the mob
 	var/nutrition = NUTRITION_LEVEL_START_MIN // randomised in Initialize
+	/// Thirst level of the mob
 	var/thirst = THIRST_LEVEL_START_MIN
 	/// Shit level of the mob
 	var/pooition = 20

@@ -360,7 +360,7 @@
 	if(thirst >= THIRST_LEVEL_OVERHYDRATED)
 		if(DT_PROB(5, delta_time) && w_uniform)
 			Stun(4 SECONDS)
-			visible_message("<b>[capitalize(src.name)]</b> писает себе в штаны!")
+			visible_message("<b>[capitalize(src.name)]</b> писает себе в трусы!")
 			playsound(src, 'sound/effects/splat.ogg', 50, 1)
 			for(var/mob/M in viewers(src, 7))
 				if(ishuman(M) && M != src)
