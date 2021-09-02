@@ -229,10 +229,15 @@
 			return FALSE
 	/// After a target is hit, we do a chunk of stamina damage, along with other effects.
 	/// After a period of time, we then check to see what stun duration we give.
-	L.Jitter(20)
-	L.set_confusion(max(confusion_amt, L.get_confusion()))
-	L.stuttering = max(8, L.stuttering)
-	L.apply_damage(stamina_loss_amt, STAMINA, BODY_ZONE_CHEST)
+
+	if(HAS_TRAIT(L, TRAIT_STUNRESISTANCE))
+		L.apply_damage(stamina_loss_amt*0.5, STAMINA, BODY_ZONE_CHEST)
+		L.Jitter(10)
+	else
+		L.apply_damage(stamina_loss_amt, STAMINA, BODY_ZONE_CHEST)
+		L.Jitter(20)
+		L.set_confusion(max(confusion_amt, L.get_confusion()))
+		L.stuttering = max(8, L.stuttering)
 
 	SEND_SIGNAL(L, COMSIG_LIVING_MINOR_SHOCK)
 	addtimer(CALLBACK(src, .proc/apply_stun_effect_end, L), apply_stun_delay)
@@ -259,9 +264,7 @@
 	if(!target.IsKnockdown())
 		to_chat(target, span_warning("Мышцы сжимаются, принуждая меня упасть[trait_check ? ", но моё тело быстро восстанавливается..." : "!"]") )
 
-	if(trait_check)
-		target.Knockdown(stun_time * 0.1)
-	else
+	if(!trait_check)
 		target.Knockdown(stun_time)
 
 /obj/item/melee/baton/emp_act(severity)

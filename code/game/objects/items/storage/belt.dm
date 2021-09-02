@@ -221,6 +221,7 @@
 	inhand_icon_state = "security"//Could likely use a better one.
 	worn_icon_state = "security"
 	content_overlays = TRUE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/storage/belt/security/update_icon_state()
 	worn_icon_state = initial(worn_icon_state)
