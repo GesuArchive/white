@@ -1901,7 +1901,7 @@
 /mob/living/proc/set_safe_hunger_level()
 	// Nutrition reset and alert clearing.
 	nutrition = NUTRITION_LEVEL_FED
-	thirst = THIRST_LEVEL_NORMAL + 15
+	hydration = HYDRATION_LEVEL_NORMAL + 15
 	clear_alert("nutrition")
 	satiety = 0
 

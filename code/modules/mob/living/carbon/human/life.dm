@@ -355,9 +355,9 @@
 	// Tissues die without blood circulation
 	adjustBruteLoss(1 * delta_time)
 
-/mob/living/carbon/human/handle_thirst(delta_time, times_fired)
+/mob/living/carbon/human/handle_hydration(delta_time, times_fired)
 	..()
-	if(thirst >= THIRST_LEVEL_OVERHYDRATED)
+	if(hydration >= HYDRATION_LEVEL_OVERHYDRATED)
 		if(DT_PROB(5, delta_time) && w_uniform)
 			Stun(4 SECONDS)
 			visible_message("<b>[capitalize(src.name)]</b> писает себе в трусы!")

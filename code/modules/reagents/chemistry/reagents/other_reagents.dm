@@ -222,7 +222,7 @@
 	. = ..()
 	if(M.blood_volume)
 		M.blood_volume += 0.1 * REM * delta_time // water is good for you!
-		M.thirst += DRINK_THIRST_FACTOR
+		M.hydration += DRINK_HYDRATION_FACTOR
 
 ///For weird backwards situations where water manages to get added to trays nutrients, as opposed to being snowflaked away like usual.
 /datum/reagent/water/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray)

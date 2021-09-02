@@ -197,7 +197,7 @@
 		if(9)
 			setSanity(sanity+0.6*delta_time, SANITY_NEUTRAL, SANITY_MAXIMUM)
 	HandleNutrition()
-	HandleThirst()
+	HandleHydration()
 
 	// 0.416% is 15 successes / 3600 seconds. Calculated with 2 minute
 	// mood runtime, so 50% average uptime across the hour.
@@ -360,20 +360,20 @@
 		if(0 to NUTRITION_LEVEL_STARVING)
 			add_event(null, "nutrition", /datum/mood_event/starving)
 
-/datum/component/mood/proc/HandleThirst()
+/datum/component/mood/proc/HandleHydration()
 	var/mob/living/L = parent
 	if(HAS_TRAIT(L, TRAIT_NOHUNGER))
 		return FALSE
-	switch(L.thirst)
-		if(THIRST_LEVEL_OVERHYDRATED to INFINITY)
+	switch(L.hydration)
+		if(HYDRATION_LEVEL_OVERHYDRATED to INFINITY)
 			add_event(null, "thirst", /datum/mood_event/overhydrated)
-		if(THIRST_LEVEL_NORMAL to THIRST_LEVEL_OVERHYDRATED)
+		if(HYDRATION_LEVEL_NORMAL to HYDRATION_LEVEL_OVERHYDRATED)
 			add_event(null, "thirst", /datum/mood_event/hydrated)
-		if(THIRST_LEVEL_THIRSTY to THIRST_LEVEL_NORMAL)
+		if(HYDRATION_LEVEL_THIRSTY to HYDRATION_LEVEL_NORMAL)
 			clear_event(null, "thirst")
-		if(THIRST_LEVEL_DEHYDRATED to THIRST_LEVEL_THIRSTY)
+		if(HYDRATION_LEVEL_DEHYDRATED to HYDRATION_LEVEL_THIRSTY)
 			add_event(null, "thirst", /datum/mood_event/thirsty)
-		if(-INFINITY to THIRST_LEVEL_DEHYDRATED)
+		if(-INFINITY to HYDRATION_LEVEL_DEHYDRATED)
 			add_event(null, "thirst", /datum/mood_event/dehydrated)
 
 /datum/component/mood/proc/check_area_mood(datum/source, area/A)

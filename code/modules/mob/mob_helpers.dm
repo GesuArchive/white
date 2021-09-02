@@ -182,7 +182,7 @@
 /proc/thirstymessage(message)
 	. = ""
 	for(var/n = 1, n <= length_char(message), n++)
-		var/chance = prob(THIRST_STUTTER_RATE)
+		var/chance = prob(HYDRATION_STUTTER_RATE)
 		. += chance ? "-" : copytext_char(message, n, n + 1)
 
 	return sanitize(.)

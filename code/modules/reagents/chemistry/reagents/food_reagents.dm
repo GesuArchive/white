@@ -53,7 +53,7 @@
 			SEND_SIGNAL(exposed_mob, COMSIG_ADD_MOOD_EVENT, "quality_food", /datum/mood_event/amazingtaste)
 
 	if(reagent_state == LIQUID)
-		exposed_mob.thirst += max(0.5, nutriment_factor) * DRINK_THIRST_FACTOR
+		exposed_mob.hydration += max(0.5, nutriment_factor) * DRINK_HYDRATION_FACTOR
 
 /datum/reagent/consumable/nutriment
 	name = "Питательные вещества"
@@ -396,7 +396,7 @@
 
 /datum/reagent/consumable/salt/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection=0)
 	. = ..()
-	exposed_mob.thirst -= 0.04
+	exposed_mob.hydration -= 0.04
 	if(exposed_mob.has_bane(BANE_SALT))
 		exposed_mob.mind.disrupt_spells(-200)
 
