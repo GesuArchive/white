@@ -4017,6 +4017,7 @@
 #include "white\other\telescience\telesci_circuits.dm"
 #include "white\other\telescience\telesci_computer.dm"
 #include "white\qwaszx000\boyar.dm"
+#include "white\qwaszx000\wah.dm"
 #include "white\qwaszx000\weapons.dm"
 #include "white\qwaszx000\winners.dm"
 #include "white\qwaszx000\loly\loly.dm"

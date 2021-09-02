@@ -20,6 +20,7 @@
 
 		if(.) //not dead
 			handle_blood(delta_time, times_fired)
+			handle_thirst(delta_time, times_fired)
 
 		if(stat != DEAD)
 			handle_brain_damage(delta_time, times_fired)
@@ -341,6 +342,13 @@
 
 /mob/living/carbon/proc/handle_blood(delta_time, times_fired)
 	return
+
+/mob/living/carbon/proc/handle_thirst(delta_time, times_fired)
+	thirst -= THIRST_LOSS_PER_LIFE
+
+	if(thirst <= THIRST_LEVEL_DEHYDRATED)
+		if(DT_PROB(5, delta_time))
+			emote("pee")
 
 /mob/living/carbon/proc/handle_bodyparts(delta_time, times_fired)
 	var/stam_regen = FALSE

@@ -406,6 +406,9 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	else if(slurring)
 		message = slur(message)
 
+	if(thirst <= THIRST_LEVEL_DEHYDRATED)
+		message = thirstymessage(message)
+
 	if(client?.prefs?.disabled_autocap)
 		message = message
 	else

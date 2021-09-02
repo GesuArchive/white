@@ -355,6 +355,17 @@
 	// Tissues die without blood circulation
 	adjustBruteLoss(1 * delta_time)
 
+/mob/living/carbon/human/handle_thirst(delta_time, times_fired)
+	..()
+	if(thirst >= THIRST_LEVEL_OVERHYDRATED)
+		if(DT_PROB(5, delta_time) && w_uniform)
+			Stun(4 SECONDS)
+			visible_message("<b>[capitalize(src.name)]</b> писает себе в штаны!")
+			playsound(src, 'sound/effects/splat.ogg', 50, 1)
+			for(var/mob/M in viewers(src, 7))
+				if(ishuman(M) && M != src)
+					M.emote("laugh")
+
 #undef THERMAL_PROTECTION_HEAD
 #undef THERMAL_PROTECTION_CHEST
 #undef THERMAL_PROTECTION_GROIN

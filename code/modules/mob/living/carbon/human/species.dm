@@ -1294,6 +1294,17 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(0 to NUTRITION_LEVEL_STARVING)
 			H.throw_alert("nutrition", /atom/movable/screen/alert/starving)
 
+	//Thristy
+	switch(H.thirst)
+		if(THIRST_LEVEL_OVERHYDRATED to INFINITY)
+			H.throw_alert("thirsty", /atom/movable/screen/alert/overhydrated)
+		if(THIRST_LEVEL_NORMAL to THIRST_LEVEL_OVERHYDRATED)
+			H.clear_alert("thirsty")
+		if(THIRST_LEVEL_THIRSTY to THIRST_LEVEL_NORMAL)
+			H.throw_alert("thirsty", /atom/movable/screen/alert/thirsty)
+		if(0 to THIRST_LEVEL_DEHYDRATED)
+			H.throw_alert("thirsty", /atom/movable/screen/alert/dehydrated)
+
 /datum/species/proc/update_health_hud(mob/living/carbon/human/H)
 	return FALSE
 

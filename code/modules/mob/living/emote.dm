@@ -479,6 +479,13 @@
 	emote_type = EMOTE_AUDIBLE
 	stat_allowed = UNCONSCIOUS
 
+/datum/emote/living/pee
+	key = "pee"
+	key_third_person = "писает"
+	message = "писает!"
+	emote_type = EMOTE_AUDIBLE
+	stat_allowed = UNCONSCIOUS
+
 /datum/emote/living/snore/get_sound(mob/living/user)
 	if(ishuman(user))
 		return pick('white/valtos/sounds/emotes/snore_1.ogg',\

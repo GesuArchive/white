@@ -5,14 +5,14 @@
 		/obj/item/food/grown/tomato = 1,
 		/obj/item/food/grown/potato = 1,
 		/datum/reagent/water = 20,
-		/datum/reagent/consumable/sodiumchloride = 10,
+		/datum/reagent/consumable/salt = 10,
 		/datum/reagent/consumable/blackpepper = 10
 	)
 	result = /obj/item/food/soup/Imperium
 	subcategory = CAT_SOUP
 
-/obj/item/food/soup/Imperium
+/obj/item/food/soup/imperium
 	name = "Imperium soup"
 	desc = "FOR IMPERIUM!"
 	icon_state = "wishsoup"
-	list_reagents = list("water" = 20, "vitamin" = 20, "nutriment" = 50, "omnizine" = 15, "ephedrine" = 25, "morphine" = 30)
+	food_reagents = list(/datum/reagent/water = 20, /datum/reagent/consumable/nutriment/vitamin = 20, /datum/reagent/consumable/nutriment = 50, /datum/reagent/medicine/omnizine = 15, /datum/reagent/medicine/ephedrine = 25, /datum/reagent/medicine/morphine = 30)
