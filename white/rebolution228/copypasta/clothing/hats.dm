@@ -13,7 +13,7 @@
 	alt_toggle_message = "Поднимаю забрало"
 	force = 15
 	can_toggle = 1
-	armor = list(MELEE = 80, BULLET = 90, LASER = 50, ENERGY = 50, BOMB = 80, BIO = 0, RAD = 0, FIRE = 70, WOUND = 20)
+	armor = list(MELEE = 90, BULLET = 80, LASER = 50, ENERGY = 50, BOMB = 80, BIO = 0, RAD = 0, FIRE = 70, WOUND = 20)
 	strip_delay = 100
 	actions_types = list(/datum/action/item_action/toggle)
 	flags_inv = HIDEEARS|HIDEHAIR|HIDESNOUT
