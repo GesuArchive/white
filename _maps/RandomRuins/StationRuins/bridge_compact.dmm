@@ -1969,8 +1969,9 @@
 /turf/open/floor/plating,
 /area/crew_quarters/heads/hop)
 "fs" = (
-/obj/item/storage/fancy/donut_box,
-/obj/structure/table,
+/obj/machinery/computer/price_controller{
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "ft" = (

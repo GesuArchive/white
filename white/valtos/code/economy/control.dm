@@ -14,7 +14,7 @@
 	circuit = /obj/item/circuitboard/computer/price_controller
 	var/list/selflog = list(" -!- Очищено Системным Администратором -!- ")
 	var/authed = FALSE
-	req_access = list(ACCESS_CARGO)
+	req_access = list(ACCESS_HEADS)
 
 /obj/machinery/computer/price_controller/Initialize(mapload, obj/item/circuitboard/C)
 	if(!SSeconomy.PC)

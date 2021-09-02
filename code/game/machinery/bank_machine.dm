@@ -31,7 +31,7 @@
 		var/obj/item/holochip/H = I
 		value = H.credits
 	if(value)
-		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
+		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_STA)
 		if(D)
 			D.adjust_money(value)
 			to_chat(user, span_notice("You deposit [I]. The Cargo Budget is now [D.account_balance] cr.") )
@@ -46,7 +46,7 @@
 			say("Insufficient power. Halting siphon.")
 			end_syphon()
 		var/siphon_am = 100 * delta_time
-		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
+		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_STA)
 		if(!D.has_money(siphon_am))
 			say("Cargo budget depleted. Halting siphon.")
 			end_syphon()
@@ -69,7 +69,7 @@
 
 /obj/machinery/computer/bank_machine/ui_data(mob/user)
 	var/list/data = list()
-	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
+	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_STA)
 
 	if(D)
 		data["current_balance"] = D.account_balance

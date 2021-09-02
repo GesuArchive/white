@@ -3867,9 +3867,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "pH" = (
-/obj/machinery/modular_computer/console/preset/command{
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
@@ -3878,6 +3875,9 @@
 	},
 /obj/effect/turf_decal/tile/green{
 	dir = 4
+	},
+/obj/machinery/computer/price_controller{
+	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/bridge)

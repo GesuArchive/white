@@ -678,6 +678,41 @@
 /obj/item/card/id/departmental_budget/AltClick(mob/living/user)
 	registered_account.bank_card_talk(span_warning("Снимать с этой карты запрещено картой. Может потому что она не умеет печатать голочипы?") , TRUE) //prevents the vault bank machine being useless and putting money from the budget to your card to go over personal crates
 
+/obj/item/card/id/departmental_budget/sta
+	department_ID = ACCOUNT_STA
+	department_name = ACCOUNT_STA_NAME
+	icon_state = "budgetcard"
+
+/obj/item/card/id/departmental_budget/srv
+	department_ID = ACCOUNT_SRV
+	department_name = ACCOUNT_SRV_NAME
+	icon_state = "srv_budget"
+
+/obj/item/card/id/departmental_budget/civ
+	department_ID = ACCOUNT_CIV
+	department_name = ACCOUNT_CIV_NAME
+	icon_state = "civ_budget"
+
+/obj/item/card/id/departmental_budget/sec
+	department_ID = ACCOUNT_SEC
+	department_name = ACCOUNT_SEC_NAME
+	icon_state = "sec_budget"
+
+/obj/item/card/id/departmental_budget/med
+	department_ID = ACCOUNT_MED
+	department_name = ACCOUNT_MED_NAME
+	icon_state = "med_budget"
+
+/obj/item/card/id/departmental_budget/sci
+	department_ID = ACCOUNT_SCI
+	department_name = ACCOUNT_SCI_NAME
+	icon_state = "sci_budget"
+
+/obj/item/card/id/departmental_budget/eng
+	department_ID = ACCOUNT_ENG
+	department_name = ACCOUNT_ENG_NAME
+	icon_state = "eng_budget"
+
 /obj/item/card/id/advanced
 	name = "ID-карта"
 	desc = "Используется для предоставления доступа к различным штукам на станции. Имеет дисплей и продвинутые внутренности в себе."

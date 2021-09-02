@@ -22,6 +22,8 @@
 //What should vending machines charge when you buy something in-department.
 #define VENDING_DISCOUNT 0.1
 
+#define ACCOUNT_STA "STA"
+#define ACCOUNT_STA_NAME "Станционный бюджет"
 #define ACCOUNT_CIV "CIV"
 #define ACCOUNT_CIV_NAME "Гражданский бюджет"
 #define ACCOUNT_ENG "ENG"

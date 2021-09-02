@@ -205,7 +205,7 @@
 			if (!shuttle.prerequisites_met())
 				to_chat(usr, span_alert("Мы не соответствуем требованиям для покупки этого шаттла.") )
 				return
-			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
+			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_STA)
 			if (bank_account.account_balance < shuttle.credit_cost)
 				return
 			SSshuttle.shuttle_purchased = SHUTTLEPURCHASE_PURCHASED
@@ -253,9 +253,9 @@
 				return
 			if (!COOLDOWN_FINISHED(src, important_action_cooldown))
 				return
-			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
+			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_STA)
 			if (bank_account.account_balance < 250)
-				to_chat(usr, span_alert("Недостаточно средств для вызова отряда. Требуется 250 кредитов на счету снабжения.") )
+				to_chat(usr, span_alert("Недостаточно средств для вызова отряда. Требуется 250 кредитов на счету станции.") )
 				return
 			var/input = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
 			bank_account.adjust_money(-250)
@@ -270,9 +270,9 @@
 				return
 			if (!COOLDOWN_FINISHED(src, important_action_cooldown))
 				return
-			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
+			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_STA)
 			if (bank_account.account_balance < 500)
-				to_chat(usr, span_alert("Недостаточно средств для вызова клининговой службы. Требуется 500 кредитов на счету снабжения.") )
+				to_chat(usr, span_alert("Недостаточно средств для вызова клининговой службы. Требуется 500 кредитов на счету станции.") )
 				return
 			var/input = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
 			bank_account.adjust_money(-500)
@@ -287,9 +287,9 @@
 				return
 			if (!COOLDOWN_FINISHED(src, important_action_cooldown))
 				return
-			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
+			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_STA)
 			if (bank_account.account_balance < 750)
-				to_chat(usr, span_alert("Недостаточно средств для вызова ремонтной бригады. Требуется 750 кредитов на счету снабжения.") )
+				to_chat(usr, span_alert("Недостаточно средств для вызова ремонтной бригады. Требуется 750 кредитов на счету станции.") )
 				return
 			var/input = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
 			bank_account.adjust_money(-750)
@@ -483,7 +483,7 @@
 							"possibleAnswers" = message.possible_answers,
 						))
 			if (STATE_BUYING_SHUTTLE)
-				var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
+				var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_STA)
 				var/list/shuttles = list()
 
 				for (var/shuttle_id in SSmapping.shuttle_templates)
