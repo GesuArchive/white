@@ -6,12 +6,20 @@
 /atom/movable/organ_holder/proc/RegisterWithMob(mob/living/carbon/C)
 	for(var/obj/item/organ/O in C.internal_organs)
 		LAZYADD(contents_by_zone[O.zone], O)
-		O.loc = src
+		O.forceMove(src)
 
 /atom/movable/organ_holder/Initialize(mapload)
 	. = ..()
 	verbs.Cut()
 	AddComponent(/datum/component/storage/concrete/organ_holder)
+
+/atom/movable/organ_holder/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	. = ..()
+	arrived.AddElement(/datum/element/organ_holder_item)
+
+/atom/movable/organ_holder/Exited(atom/movable/gone, direction)
+	. = ..()
+	gone.RemoveElement(/datum/element/organ_holder_item)
 
 /atom/movable/organ_holder/proc/GetZoneContents(zone)
 	return contents & contents_by_zone[zone]
