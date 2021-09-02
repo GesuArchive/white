@@ -66,7 +66,7 @@
 	to_chat(user, span_notice("Начинаю пришивать [source]."))
 	if(do_after(user, 5, source.loc.loc))
 		user.visible_message(span_notice("[user] успешно пришивает [source]!"), span_notice("Удалось пришить [source]!"))
-		source.NonNullspaceInsert(owner)
+		source.Insert(owner, move_to_nullspace = FALSE)
 		source.update_icon(UPDATE_OVERLAYS)
 
 /datum/element/organ_holder_organ/proc/rip(obj/item/organ/source, mob/user, mob/living/carbon/owner)
@@ -78,27 +78,3 @@
 		if(iscarbon(user))
 			user.put_in_hands(source)
 		source.update_icon(UPDATE_OVERLAYS)
-
-/obj/item/organ/proc/NonNullspaceInsert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
-	if(!iscarbon(M) || owner == M)
-		return
-
-	var/obj/item/organ/replaced = M.getorganslot(slot)
-	if(replaced)
-		replaced.Remove(M, special = TRUE)
-		if(drop_if_replaced)
-			replaced.forceMove(get_turf(M))
-		else
-			qdel(replaced)
-
-	SEND_SIGNAL(src, COMSIG_ORGAN_IMPLANTED, M)
-	SEND_SIGNAL(M, COMSIG_CARBON_GAIN_ORGAN, src, special)
-
-	owner = M
-	M.internal_organs |= src
-	M.internal_organs_slot[slot] = src
-	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, .proc/on_owner_examine)
-	for(var/X in actions)
-		var/datum/action/A = X
-		A.Grant(M)
-	STOP_PROCESSING(SSobj, src)
