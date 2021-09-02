@@ -99,7 +99,7 @@
 	preload_cell_type = /obj/item/stock_parts/cell/high
 
 /obj/item/melee/baton/loaded/cyborg_sosal
-	cell_hit_cost = 10000
+	cell_hit_cost = 4000
 
 /obj/item/melee/baton/proc/deductcharge(chrgdeductamt)
 	if(cell)
