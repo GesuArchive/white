@@ -189,6 +189,7 @@
 	attack_verb_simple = list("cleave", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	w_class = WEIGHT_CLASS_NORMAL
 	custom_price = PAYCHECK_EASY * 5
+	wound_bonus = 25
 
 /obj/item/kitchen/knife/hunting
 	name = "hunting knife"
