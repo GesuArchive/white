@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet/quartermaster
-	name = "\proper шкафчик квартирмейстера"
+	name = "шкафчик квартирмейстера"
 	req_access = list(ACCESS_QM)
 	icon_state = "qm"
 

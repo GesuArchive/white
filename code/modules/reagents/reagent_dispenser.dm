@@ -132,6 +132,17 @@
 		return
 	return ..()
 
+/obj/structure/reagent_dispensers/fueltank/attackby_secondary(obj/item/I, mob/user, params)
+	. = ..()
+	if(I.tool_behaviour == TOOL_WELDER)
+		var/obj/item/weldingtool/W = I
+		if(istype(W) && W.welding)
+			. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+			user.visible_message(span_danger("[user] начинает ТАКТИКУЛЬНО греть [src] с помощью [user.ru_ego()] [I.name]!"), span_userdanger("Прикол инбаунд."))
+			if(do_after(user, 10 SECONDS, src))
+				explosion(get_turf(src), 1, 3, 7, flame_range = 9)
+				qdel(src)
+
 /obj/structure/reagent_dispensers/fueltank/large
 	name = "high capacity fuel tank"
 	desc = "A tank full of a high quantity of welding fuel. Keep away from open flames."
