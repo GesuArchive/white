@@ -334,12 +334,6 @@
 	SEND_SIGNAL(src, COMSIG_MOVABLE_BUMP, A)
 	if(!can_hit_target(A, A == original, TRUE, TRUE))
 		return
-	if(ishuman(firer))
-		var/mob/living/carbon/human/H = firer
-		if(H.mind)
-			if(!prob(25 + H.mind.get_skill_modifier(/datum/skill/ranged, SKILL_PROBS_MODIFIER)))
-				return
-			H.mind.adjust_experience(/datum/skill/ranged, 5)
 	Impact(A)
 
 /**
@@ -410,6 +404,12 @@
 	// 2.
 	impacted[target] = TRUE		//hash lookup > in for performance in hit-checking
 	// 3.
+	if(ishuman(firer))
+		var/mob/living/carbon/human/H = firer
+		if(H.mind)
+			if(!prob(25 + H.mind.get_skill_modifier(/datum/skill/ranged, SKILL_PROBS_MODIFIER)))
+				return
+			H.mind.adjust_experience(/datum/skill/ranged, 1)
 	var/mode = prehit_pierce(target)
 	if(mode == PROJECTILE_DELETE_WITHOUT_HITTING)
 		qdel(src)
