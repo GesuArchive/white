@@ -44,7 +44,7 @@
 
 /obj/machinery/door/poddoor/incinerator_toxmix
 	name = "combustion chamber vent"
-	id = INCINERATOR_TOXMIX_VENT
+	id = INCINERATOR_ORDMIX_VENT
 
 /obj/machinery/door/poddoor/incinerator_atmos_main
 	name = "turbine vent"

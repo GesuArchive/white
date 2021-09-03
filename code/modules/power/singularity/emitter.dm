@@ -77,9 +77,9 @@
 		welded = FALSE
 
 /obj/machinery/power/emitter/RefreshParts()
-	var/max_firedelay = 120
-	var/firedelay = 120
-	var/min_firedelay = 24
+	var/max_fire_delay = 12 SECONDS
+	var/fire_shoot_delay = 12 SECONDS
+	var/min_fire_delay = 2.4 SECONDS
 	var/power_usage = 350
 	for(var/obj/item/stock_parts/micro_laser/laser in component_parts)
 		max_fire_delay -= 2 SECONDS * laser.rating

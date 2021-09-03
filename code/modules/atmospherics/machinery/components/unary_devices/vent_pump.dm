@@ -408,7 +408,7 @@
 
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/toxin_output
 	name = "вентиляция из камеры с плазмой"
-	id_tag = ATMOS_GAS_MONITOR_OUTPUT_TOX
+	id_tag = ATMOS_GAS_MONITOR_OUTPUT_PLAS
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/oxygen_output
 	name = "вентиляция из камеры с кислородом"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_O2
@@ -478,7 +478,7 @@
 	frequency = FREQ_ATMOS_CONTROL
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/toxins_mixing_output
 	name = "вентиляция из камеры смешивания токсинов"
-	id_tag = ATMOS_GAS_MONITOR_OUTPUT_TOXINS_LAB
+	id_tag = ATMOS_GAS_MONITOR_OUTPUT_ORDNANCE_LAB
 	frequency = FREQ_ATMOS_CONTROL
 
 /obj/machinery/atmospherics/components/unary/vent_pump/high_volume/layer2

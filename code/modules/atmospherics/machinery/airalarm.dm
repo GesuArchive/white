@@ -351,7 +351,7 @@
 				investigate_log(" treshold value for [env]:[name] was set to [value] by [key_name(usr)]",INVESTIGATE_ATMOS)
 				var/turf/our_turf = get_turf(src)
 				var/datum/gas_mixture/environment = our_turf.return_air()
-				check_air_dangerlevel(our_turf, environment, environment.temperature)
+				check_air_dangerlevel(our_turf, environment, environment.return_temperature())
 				. = TRUE
 		if("mode")
 			mode = text2num(params["mode"])
@@ -592,7 +592,6 @@
 	//cache for sanic speed (lists are references anyways)
 	var/list/cached_tlv = TLV
 
-	var/datum/gas_mixture/environment = location.return_air()
 	var/partial_pressure = R_IDEAL_GAS_EQUATION * environment.return_temperature() / environment.return_volume()
 
 	current_tlv = cached_tlv["pressure"]
@@ -603,11 +602,11 @@
 	var/temperature_dangerlevel = current_tlv.get_danger_level(exposed_temperature)
 
 	var/gas_dangerlevel = 0
-	for(var/gas_id in env_gases)
+	for(var/gas_id in environment.get_gases())
 		if(!(gas_id in cached_tlv)) // We're not interested in this gas, it seems.
 			continue
 		current_tlv = cached_tlv[gas_id]
-		gas_dangerlevel = max(gas_dangerlevel, current_tlv.get_danger_level(env_gases[gas_id][MOLES] * partial_pressure))
+		gas_dangerlevel = max(gas_dangerlevel, current_tlv.get_danger_level(environment.get_moles(gas_id) * partial_pressure))
 
 	var/old_danger_level = danger_level
 	danger_level = max(pressure_dangerlevel, temperature_dangerlevel, gas_dangerlevel)
@@ -848,20 +847,20 @@
 	locked = FALSE
 
 /obj/machinery/airalarm/engine
-	name = "engine air alarm"
+	name = "котроллер воздуха в двигателе"
 	locked = FALSE
 	req_access = null
 	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ENGINE)
 
 /obj/machinery/airalarm/mixingchamber
-	name = "chamber air alarm"
+	name = "контроллер воздуха в смешивателе"
 	locked = FALSE
 	req_access = null
-	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ORDNANCE)
+	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_TOXINS)
 
 /obj/machinery/airalarm/all_access
-	name = "all-access air alarm"
-	desc = "This particular atmos control unit appears to have no access restrictions."
+	name = "вседоступный контроллер воздуха"
+	desc = "Похоже этот контроллер может использовать любой."
 	locked = FALSE
 	req_access = null
 	req_one_access = null

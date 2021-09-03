@@ -46,7 +46,7 @@
 	if (new_charging)
 		START_PROCESSING(SSmachines, src)
 		update_use_power(ACTIVE_POWER_USE)
-		finished_recharging = FALSE
+		//finished_recharging = FALSE
 		using_power = TRUE
 		update_icon()
 	else

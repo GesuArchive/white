@@ -221,7 +221,7 @@
 
 /obj/machinery/button/door/incinerator_vent_toxmix
 	name = "управление системой вентиляции камеры сгорания"
-	id = INCINERATOR_TOXMIX_VENT
+	id = INCINERATOR_ORDMIX_VENT
 	req_access = list(ACCESS_TOXINS)
 
 /obj/machinery/button/door/incinerator_vent_atmos_main
@@ -279,7 +279,7 @@
 	desc = "A remote control switch for the combustion chamber's igniter."
 
 /obj/machinery/button/ignition/incinerator/toxmix
-	id = INCINERATOR_TOXMIX_IGNITER
+	id = INCINERATOR_ORDMIX_IGNITER
 
 /obj/machinery/button/ignition/incinerator/atmos
 	id = INCINERATOR_ATMOS_IGNITER

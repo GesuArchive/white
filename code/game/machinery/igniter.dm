@@ -30,7 +30,7 @@
 	pixel_x = -26
 
 /obj/machinery/igniter/incinerator_toxmix
-	id = INCINERATOR_TOXMIX_IGNITER
+	id = INCINERATOR_ORDMIX_IGNITER
 
 /obj/machinery/igniter/incinerator_atmos
 	id = INCINERATOR_ATMOS_IGNITER
@@ -86,7 +86,7 @@
 	var/datum/effect_system/spark_spread/spark_system
 
 /obj/machinery/sparker/toxmix
-	id = INCINERATOR_TOXMIX_IGNITER
+	id = INCINERATOR_ORDMIX_IGNITER
 
 /obj/machinery/sparker/Initialize()
 	. = ..()
