@@ -3836,6 +3836,7 @@
 #include "white\baldenysh\govnokod\DCS\components\impaled.dm"
 #include "white\baldenysh\govnokod\DCS\components\mecha_weapon_ripper.dm"
 #include "white\baldenysh\govnokod\DCS\components\mecha_weapon_shooter.dm"
+#include "white\baldenysh\govnokod\DCS\components\multistorage.dm"
 #include "white\baldenysh\govnokod\DCS\components\soundplayer.dm"
 #include "white\baldenysh\govnokod\DCS\components\tts_comp.dm"
 #include "white\baldenysh\govnokod\DCS\components\zombie_weapon.dm"
