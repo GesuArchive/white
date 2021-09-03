@@ -9,36 +9,36 @@
 
 /datum/mood_event/wrong_brand
 	description = "<span class='warning'>Ненавижу эту марку сигарет.</span>\n"
-	mood_change = -2
+	mood_change = -4
 	timeout = 6 MINUTES
 
 /datum/mood_event/overdose
-	mood_change = -8
+	mood_change = -16
 	timeout = 5 MINUTES
 
 /datum/mood_event/overdose/add_effects(drug_name)
 	description = "<span class='warning'>У меня передозировка [drug_name]</span>\n"
 
 /datum/mood_event/withdrawal_light
-	mood_change = -2
+	mood_change = -4
 
 /datum/mood_event/withdrawal_light/add_effects(drug_name)
 	description = "<span class='warning'>Мне не помешало бы немного [drug_name]</span>\n"
 
 /datum/mood_event/withdrawal_medium
-	mood_change = -5
+	mood_change = -10
 
 /datum/mood_event/withdrawal_medium/add_effects(drug_name)
 	description = "<span class='warning'>Мне очень нужно [drug_name]</span>\n"
 
 /datum/mood_event/withdrawal_severe
-	mood_change = -8
+	mood_change = -16
 
 /datum/mood_event/withdrawal_severe/add_effects(drug_name)
 	description = "<span class='boldwarning'>О, боже, как же я хочу [drug_name]</span>\n"
 
 /datum/mood_event/withdrawal_critical
-	mood_change = -10
+	mood_change = -20
 
 /datum/mood_event/withdrawal_critical/add_effects(drug_name)
 	description = "<span class='boldwarning'>[drug_name]! [drug_name]! [drug_name]!</span>\n"
@@ -55,7 +55,7 @@
 
 /datum/mood_event/happiness_drug_bad_od
 	description = "<span class='boldwarning'>НЕТ! НЕТ!! НЕТ!!!</span>\n"
-	mood_change = -100
+	mood_change = -200
 	timeout = 30 SECONDS
 	special_screen_obj = "mood_happiness_bad"
 
@@ -98,8 +98,8 @@
 
 /datum/mood_event/nicotine_withdrawal_moderate
 	description = "<span class='warning'>Haven't had a smoke in a while. Feeling a little on edge... </span>\n"
-	mood_change = -5
+	mood_change = -10
 
 /datum/mood_event/nicotine_withdrawal_severe
 	description = "<span class='boldwarning'>Head pounding. Cold sweating. Feeling anxious. Need a smoke to calm down!</span>\n"
-	mood_change = -8
+	mood_change = -16

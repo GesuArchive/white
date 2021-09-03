@@ -185,3 +185,8 @@
 	layer = LIGHTING_LAYER
 	blend_mode = BLEND_ADD
 	show_when_dead = TRUE
+
+/atom/movable/screen/fullscreen/depression
+	icon_state = "depression"
+	layer = FLASH_LAYER
+	plane = FULLSCREEN_PLANE
