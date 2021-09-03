@@ -107,7 +107,7 @@
 	for(var/gas_id in GLOB.meta_gas_info)
 		breath.assert_gas(gas_id)
 */
-	if(H.wear_mask && H.wear_mask.clothing_flags & GAS_FILTERING && H.wear_mask.has_filter == TRUE)
+	if(H.wear_mask && isclothing(H.wear_mask) && H.wear_mask.clothing_flags & GAS_FILTERING && H.wear_mask.has_filter == TRUE)
 		breath = H.wear_mask.consume_filter(breath)
 
 	var/gas_breathed = 0
