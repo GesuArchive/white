@@ -5,7 +5,7 @@
 	species_traits = list(NOEYESPRITES,HAS_FLESH,HAS_BONE)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BUG
 	meat = /obj/item/food/meat/slab/human/mutant/fly
-	disliked_food = null
+	disliked_food = CLOTH
 	liked_food = GROSS
 	mutanteyes = /obj/item/organ/eyes/fly
 	toxic_food = NONE

@@ -333,8 +333,8 @@
 ////////////////////////////////////////////MUFFINS////////////////////////////////////////////
 
 /obj/item/food/muffin
-	name = "muffin"
-	desc = "A delicious and spongy little cake."
+	name = "маффин"
+	desc = "Сладкое и мягкое пирожное."
 	icon_state = "muffin"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("оладья" = 1)
@@ -343,29 +343,50 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/muffin/berry
-	name = "berry muffin"
+	name = "ягодный маффин"
 	icon_state = "berrymuffin"
-	desc = "A delicious and spongy little cake, with berries."
+	desc = "Сладкое и мягкое пирожное с ягодами"
 	tastes = list("оладья" = 3, "ягода" = 1)
 	foodtypes = GRAIN | FRUIT | SUGAR | BREAKFAST
 	venue_value = FOOD_PRICE_NORMAL
 
 /obj/item/food/muffin/booberry
-	name = "booberry muffin"
+	name = "маффин из мрачных ягод"
 	icon_state = "berrymuffin"
 	alpha = 125
-	desc = "My stomach is a graveyard! No living being can quench my bloodthirst!"
+	desc = "Мой желудок словно кладбище! Ничто не сможет утолить мою жажду крови!"
 	tastes = list("оладья" = 3, "страх" = 1)
 	foodtypes = GRAIN | FRUIT | SUGAR | BREAKFAST
 
 /obj/item/food/chawanmushi
-	name = "chawanmushi"
-	desc = "A legendary egg custard that makes friends out of enemies. Probably too hot for a cat to eat."
+	name = "тяван-муси"
+	desc = "Легендарный заварной крем из яйца, делающий друзей из врагов."
 	icon_state = "chawanmushi"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("заварной крем" = 1)
 	foodtypes = GRAIN | MEAT | VEGETABLES
 	venue_value = FOOD_PRICE_NORMAL
+
+/obj/item/food/muffin/moffin
+	name = "моффин"
+	icon_state = "moffin"
+	desc = "Сладкое и мягкое пирожное."
+	tastes = list("muffin" = 3, "dust" = 1, "lint" = 1)
+	foodtypes = CLOTH | GRAIN | SUGAR | BREAKFAST
+
+/obj/item/food/muffin/moffin/Initialize(mapload)
+	. = ..()
+	icon_state = "[icon_state]_[rand(1,3)]"
+
+/obj/item/food/muffin/moffin/examine(mob/user)
+	. = ..()
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/moffin_observer = user
+	if(moffin_observer.dna.species.liked_food & CLOTH)
+		. += "<span class='nicegreen'>М-м-м! На нем даже есть куски одежды! Вкусно!</span>"
+	else
+		. += "<span class='warning'>Я не слишком уверен, что на поверхности этого маффина...</span>"
 
 ////////////////////////////////////////////WAFFLES////////////////////////////////////////////
 

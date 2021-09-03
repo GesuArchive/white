@@ -540,6 +540,16 @@
 	if(spamchecking)
 		qdel(src)
 
+/obj/item/food/chewable/lollipop/penis
+	name = "леденец"
+	desc = "Леденец в весьма необычной и загадочной форме."
+	icon = 'icons/obj/lollipop.dmi'
+	icon_state = "huec"
+	inhand_icon_state = "lollipop_stick"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/consumable/sugar = 5, /datum/reagent/consumable/nutriment/protein = 2)
+	headcolor = null
+	tastes = list("пенис" = 1)
+
 /obj/item/food/chewable/bubblegum
 	name = "bubblegum"
 	desc = "A rubbery strip of gum. Not exactly filling, but it keeps you busy."
