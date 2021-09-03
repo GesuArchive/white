@@ -66,7 +66,7 @@
 	to_chat(user, span_notice("Начинаю пришивать [source]."))
 	if(do_after(user, 5, source.loc.loc))
 		user.visible_message(span_notice("[user] успешно пришивает [source]!"), span_notice("Удалось пришить [source]!"))
-		source.Insert(owner, move_to_nullspace = FALSE)
+		source.Insert(owner)
 		source.update_icon(UPDATE_OVERLAYS)
 
 /datum/element/organ_holder_organ/proc/rip(obj/item/organ/source, mob/user, mob/living/carbon/owner)
