@@ -12,7 +12,9 @@
 /datum/component/storage/concrete/multicompartment/proc/try_insert_into_compartment(obj/item/I, compartment_name)
 	if(!can_be_inserted(I, FALSE, null, compartment_name))
 		return FALSE
-	handle_item_insertion(I, FALSE, null, null, compartment_name)
+	if(!handle_item_insertion(I, FALSE, null, null, compartment_name))
+		return FALSE
+	return TRUE
 
 /datum/component/storage/concrete/multicompartment/can_be_inserted(obj/item/I, stop_messages, mob/M, compartment_name)
 	if(!compartment_name && M && last_compartment_interactions[M])

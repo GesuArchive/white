@@ -8,9 +8,21 @@
 	AddComponent(/datum/component/storage/concrete/multicompartment/organ_holder)
 
 /atom/movable/organ_holder/proc/RegisterWithMob(mob/living/carbon/C)
+	RegisterSignal(C, COMSIG_CARBON_GAIN_ORGAN, .proc/on_organ_gain)
+	//RegisterSignal(C, COMSIG_CARBON_GAIN_ORGAN, .proc/on_organ_loss)
 	var/datum/component/storage/concrete/multicompartment/organ_holder/MULSTR = GetComponent(/datum/component/storage/concrete/multicompartment/organ_holder)
 	for(var/obj/item/organ/O in C.internal_organs)
 		MULSTR.try_insert_into_compartment(O, O.zone)
+
+/atom/movable/organ_holder/proc/on_organ_gain(mob/living/carbon/C, obj/item/organ/O)
+	SIGNAL_HANDLER
+	var/datum/component/storage/concrete/multicompartment/organ_holder/MULSTR = GetComponent(/datum/component/storage/concrete/multicompartment/organ_holder)
+	MULSTR.try_insert_into_compartment(O, O.zone)
+
+/*
+/atom/movable/organ_holder/proc/on_organ_loss(mob/living/carbon/C, obj/item/organ/O)
+	SIGNAL_HANDLER
+*/
 
 /atom/movable/organ_holder/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
