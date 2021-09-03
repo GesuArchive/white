@@ -10,8 +10,8 @@
 
 	outfit = /datum/outfit/job/paramedic
 
-	skills = list(/datum/skill/surgery, SKILL_EXP_NOVICE)
-	minimal_skills = list(/datum/skill/surgery, SKILL_EXP_NOVICE)
+	skills = list(/datum/skill/surgery = SKILL_EXP_NOVICE)
+	minimal_skills = list(/datum/skill/surgery = SKILL_EXP_NOVICE)
 
 	paycheck = PAYCHECK_MEDIUM
 	paycheck_department = ACCOUNT_MED

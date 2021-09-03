@@ -17,8 +17,8 @@
 
 	outfit = /datum/outfit/job/cmo
 
-	skills = list(/datum/skill/surgery, SKILL_EXP_JOURNEYMAN)
-	minimal_skills = list(/datum/skill/surgery, SKILL_EXP_JOURNEYMAN)
+	skills = list(/datum/skill/surgery = SKILL_EXP_JOURNEYMAN)
+	minimal_skills = list(/datum/skill/surgery = SKILL_EXP_JOURNEYMAN)
 
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_MED

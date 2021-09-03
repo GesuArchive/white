@@ -14,6 +14,9 @@
 
 	outfit = /datum/outfit/job/warden
 
+	skills = list(/datum/skill/ranged = SKILL_EXP_APPRENTICE)
+	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_APPRENTICE)
+
 	paycheck = PAYCHECK_HARD
 	paycheck_department = ACCOUNT_SEC
 
