@@ -190,3 +190,4 @@
 	icon_state = "depression"
 	layer = FLASH_LAYER
 	plane = FULLSCREEN_PLANE
+	blend_mode = 3
