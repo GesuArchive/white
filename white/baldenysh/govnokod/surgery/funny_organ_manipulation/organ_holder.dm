@@ -5,12 +5,12 @@
 /atom/movable/organ_holder/Initialize(mapload)
 	. = ..()
 	verbs.Cut()
-	AddComponent(/datum/component/storage/concrete/multi/organ_holder)
+	AddComponent(/datum/component/storage/concrete/multicompartment/organ_holder)
 
 /atom/movable/organ_holder/proc/RegisterWithMob(mob/living/carbon/C)
-	var/datum/component/storage/concrete/multi/organ_holder/MULSTR = GetComponent(/datum/component/storage/concrete/multi/organ_holder)
+	var/datum/component/storage/concrete/multicompartment/organ_holder/MULSTR = GetComponent(/datum/component/storage/concrete/multicompartment/organ_holder)
 	for(var/obj/item/organ/O in C.internal_organs)
-		MULSTR.try_insert_into_compartment(O, null, O.zone)
+		MULSTR.try_insert_into_compartment(O, O.zone)
 
 /atom/movable/organ_holder/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()

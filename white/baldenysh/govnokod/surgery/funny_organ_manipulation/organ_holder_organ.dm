@@ -21,7 +21,7 @@
 	UnregisterSignal(source, COMSIG_ATOM_TOOL_ACT(TOOL_SCALPEL))
 	UnregisterSignal(source, COMSIG_ATOM_TOOL_ACT(TOOL_HEMOSTAT))
 	UnregisterSignal(source, COMSIG_ATOM_ATTACK_HAND)
-	source.update_icon(UPDATE_OVERLAYS)
+	source.underlays.Cut()
 
 /datum/element/organ_holder_organ/proc/handle_examine(obj/item/organ/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
@@ -67,7 +67,7 @@
 	if(do_after(user, 5, source.loc.loc))
 		user.visible_message(span_notice("[user] успешно пришивает [source]!"), span_notice("Удалось пришить [source]!"))
 		source.Insert(owner)
-		source.update_icon(UPDATE_OVERLAYS)
+		source.underlays.Cut()
 
 /datum/element/organ_holder_organ/proc/rip(obj/item/organ/source, mob/user, mob/living/carbon/owner)
 	user.visible_message(span_danger("[user] пытается вырвать [source]!"), span_danger("Начинаю вырывать [source]!"))
@@ -77,4 +77,4 @@
 		source.forceMove(get_turf(owner))
 		if(iscarbon(user))
 			user.put_in_hands(source)
-		source.update_icon(UPDATE_OVERLAYS)
+		source.underlays.Cut()
