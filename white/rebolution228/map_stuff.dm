@@ -614,7 +614,6 @@
 
 /turf/open/water/cataclysmdda/Entered(atom/movable/AM)
 	. = ..()
-//	update_water_overlay() хули оно рантаймит блядь чините
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
 		H.wash()
@@ -622,13 +621,6 @@
 		if(H.fire_stacks)
 			H.fire_stacks = 0
 			H.extinguish_mob()
-
-/turf/open/water/cataclysmdda/Exited(atom/movable/AM, atom/newLoc)
-	. = ..()
-	if(ismob(AM))
-		add_overlay(mutable_appearance(icon, "water_overlay", ABOVE_MOB_LAYER, ABOVE_MOB_LAYER))
-	else
-		cut_overlay(mutable_appearance(icon, "water_overlay", ABOVE_MOB_LAYER, ABOVE_MOB_LAYER))
 
 /turf/open/floor/carpet/tentfloor
 	name = "пол палатки"

@@ -230,6 +230,7 @@
 			master.overlay_fullscreen("depression", /atom/movable/screen/fullscreen/depression, 3)
 			if(prob(7))
 				master.playsound_local(null, pick(CREEPY_SOUNDS), 100, 1)
+			master.sound_environment_override = SOUND_ENVIRONMENT_PSYCHOTIC
 			sanity_level = 6
 		if(SANITY_CRAZY to SANITY_UNSTABLE)
 			setInsanityEffect(MINOR_INSANITY_PEN)
