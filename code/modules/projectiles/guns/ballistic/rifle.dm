@@ -87,22 +87,9 @@
 	fire_sound = 'sound/weapons/gun/sniper/shot.ogg'
 	can_be_sawn_off = FALSE
 
-/obj/item/gun/ballistic/rifle/boltaction/pipegun/prime
-	name = "regal pipegun"
-	desc = "Older, territorial assistants typically possess more valuable loot."
-	icon_state = "musket_prime"
-	inhand_icon_state = "musket_prime"
-	worn_icon_state = "musket_prime"
-	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/pipegun/prime
-	can_misfire = FALSE
-	can_jam = FALSE
-	misfire_probability = 0
-	misfire_percentage_increment = 0
-	projectile_damage_multiplier = 1
-
 /// MAGICAL BOLT ACTIONS + ARCANE BARRAGE? ///
 
-/obj/item/gun/ballistic/rifle/enchanted
+/obj/item/gun/ballistic/rifle/boltaction/enchanted
 	name = "enchanted bolt action rifle"
 	desc = "Careful not to lose your head."
 	var/guns_left = 30
