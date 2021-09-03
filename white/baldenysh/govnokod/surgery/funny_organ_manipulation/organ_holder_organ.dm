@@ -28,7 +28,7 @@
 	if(source.owner)
 		examine_text += span_notice("\n[capitalize(source.name)] можно отрезать <b>скальпелем</b> или вырвать руками.")
 	else
-		examine_text += span_notice("\n[capitalize(source.name)] можно пришить исользуя <b>зажим</b>.")
+		examine_text += span_notice("\n[capitalize(source.name)] можно пришить используя <b>зажим</b>.")
 
 /datum/element/organ_holder_organ/proc/apply_underlays(obj/item/organ/source, list/overlays)
 	SIGNAL_HANDLER
