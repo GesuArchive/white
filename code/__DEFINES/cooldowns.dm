@@ -42,6 +42,9 @@
 //clown car cooldowns
 #define COOLDOWN_CLOWNCAR_RANDOMNESS "clown_car_randomness"
 
+// item cooldowns
+#define COOLDOWN_SIGNALLER_SEND "cooldown_signaller_send"
+
 //circuit cooldowns
 
 #define COOLDOWN_CIRCUIT_SOUNDEMITTER "circuit_soundemitter"
