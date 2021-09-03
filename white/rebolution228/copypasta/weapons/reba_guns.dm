@@ -389,20 +389,28 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_LIGHT
 
-	//fire_sound = null //
-	//rack_sound = null //
+	fire_sound = 'white/baldenysh/sounds/eyedc/HS_STEREO_FIRE_SOSANIE.ogg'
+	fire_sound_volume = 25
+
 	eject_sound = 'white/baldenysh/sounds/eyedc/hs_reload_02.wav'
 	eject_empty_sound = 'white/baldenysh/sounds/eyedc/hs_reload_02.wav'
 	load_sound = 'white/baldenysh/sounds/eyedc/hs_reload_02.wav'
 	load_empty_sound = 'white/baldenysh/sounds/eyedc/hs_reload_02.wav'
+	rack_sound = 'white/baldenysh/sounds/eyedc/hs_reload_03.wav'
 
 	actions_types = list()
 	can_suppress = FALSE
 	var/fuller_auto = FALSE
+	var/tail_sound = 'white/baldenysh/sounds/eyedc/HS_STEREO_FIRE_TAIL.wav'
 
 /obj/item/gun/ballistic/automatic/hs010/Initialize()
 	. = ..()
 	AddComponent(/datum/component/automatic_fire_funny, 1)
+	RegisterSignal(src, COMSIG_AUTOFIRE_STOPPED, .proc/play_tail_sound)
+
+/obj/item/gun/ballistic/automatic/hs010/proc/play_tail_sound()
+	SIGNAL_HANDLER
+	playsound(get_turf(src), tail_sound, 50)
 
 /obj/item/gun/ballistic/automatic/hs010/AltClick(mob/user)
 	. = ..()
@@ -412,10 +420,14 @@
 		var/datum/component/automatic_fire_funny/D = GetComponent(/datum/component/automatic_fire_funny)
 		D.autofire_shot_delay = 0.1
 		spread = 10
+		fire_sound = 'white/baldenysh/sounds/eyedc/HS_STEREO_FIRE_HSPEED_SOSANIE.ogg'
+		tail_sound = 'white/baldenysh/sounds/eyedc/HS_STEREO_FIRE_HSPEED_TAIL.wav'
 	else
 		var/datum/component/automatic_fire_funny/D = GetComponent(/datum/component/automatic_fire_funny)
 		D.autofire_shot_delay = 1
 		spread = 30
+		fire_sound = 'white/baldenysh/sounds/eyedc/HS_STEREO_FIRE_SOSANIE.ogg'
+		tail_sound = 'white/baldenysh/sounds/eyedc/HS_STEREO_FIRE_TAIL.wav'
 
 /obj/item/ammo_box/magazine/hs010
 	name = "HS 010 Magazine"
