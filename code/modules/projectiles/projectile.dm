@@ -334,6 +334,12 @@
 	SEND_SIGNAL(src, COMSIG_MOVABLE_BUMP, A)
 	if(!can_hit_target(A, A == original, TRUE, TRUE))
 		return
+	if(ishuman(firer))
+		var/mob/living/carbon/human/H = firer
+		if(H.mind)
+			if(!prob(25 + H.mind.get_skill_modifier(/datum/skill/ranged, SKILL_PROBS_MODIFIER)))
+				return
+			H.mind.adjust_experience(/datum/skill/ranged, 5)
 	Impact(A)
 
 /**
@@ -491,13 +497,6 @@
 		if((target == firer) || ((target == firer.loc) && (ismecha(firer.loc) || isspacepod(firer.loc))) || (target in firer.buckled_mobs) || (istype(M) && (M.buckled == target)))
 			return FALSE
 	if(target.density || cross_failed)		//This thing blocks projectiles, hit it regardless of layer/mob stuns/etc.
-		if(ishuman(firer))
-			var/mob/living/carbon/human/H = firer
-			if(H.mind)
-				if(prob(25 + H.mind.get_skill_modifier(/datum/skill/ranged, SKILL_PROBS_MODIFIER)))
-					H.mind.adjust_experience(/datum/skill/ranged, 5)
-					return TRUE
-				return FALSE
 		return TRUE
 	if(!isliving(target))
 		if(isturf(target))		// non dense turfs
