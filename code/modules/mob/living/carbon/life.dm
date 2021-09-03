@@ -349,6 +349,8 @@
 	if(hydration <= HYDRATION_LEVEL_DEHYDRATED)
 		if(DT_PROB(5, delta_time))
 			emote("plot")
+			adjustToxLoss(1)
+			adjustStaminaLoss(5)
 
 /mob/living/carbon/proc/handle_bodyparts(delta_time, times_fired)
 	var/stam_regen = FALSE
