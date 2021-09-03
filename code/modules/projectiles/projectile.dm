@@ -503,6 +503,13 @@
 		var/mob/living/L = target
 		if(direct_target)
 			return TRUE
+		if(ishuman(firer))
+			var/mob/living/carbon/human/H = firer
+			if(H.mind)
+				if(prob(25 + H.mind.get_skill_modifier(/datum/skill/ranged, SKILL_PROBS_MODIFIER)))
+					H.mind.adjust_experience(/datum/skill/ranged, 5)
+					return TRUE
+				return FALSE
 		// If target not able to use items, move and stand - or if they're just dead, pass over.
 		if(L.stat == DEAD)
 			return FALSE

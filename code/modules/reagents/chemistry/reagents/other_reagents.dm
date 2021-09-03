@@ -217,12 +217,13 @@
 	. = ..()
 	if(methods & TOUCH)
 		exposed_mob.extinguish_mob() // extinguish removes all fire stacks
+	if(methods & INGEST)
+		exposed_mob.hydration += reac_volume * DRINK_HYDRATION_FACTOR
 
 /datum/reagent/water/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
 	if(M.blood_volume)
 		M.blood_volume += 0.1 * REM * delta_time // water is good for you!
-		M.hydration += DRINK_HYDRATION_FACTOR
 
 ///For weird backwards situations where water manages to get added to trays nutrients, as opposed to being snowflaked away like usual.
 /datum/reagent/water/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray)

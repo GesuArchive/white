@@ -1466,7 +1466,6 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "zx" = (
-/obj/machinery/smartfridge/black_box,
 /obj/effect/turf_decal/bot_red,
 /turf/open/floor/engine/airless,
 /area/ruin/space/has_grav/terrorship)

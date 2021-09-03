@@ -1,20 +1,26 @@
 //мб лишняя хрень, а мб так и надо было делать, похуй короче прикольный костыль уменьшает еблю с компонентом сторейжа
 /atom/movable/organ_holder
 	name = ""
-	var/list/contents_by_zone = list()
-
-/atom/movable/organ_holder/proc/RegisterWithMob(mob/living/carbon/C)
-	for(var/obj/item/organ/O in C.internal_organs)
-		LAZYADD(contents_by_zone[O.zone], O)
-		O.loc = src
 
 /atom/movable/organ_holder/Initialize(mapload)
 	. = ..()
 	verbs.Cut()
-	AddComponent(/datum/component/storage/concrete/organ_holder)
+	AddComponent(/datum/component/storage/concrete/multi/organ_holder)
 
-/atom/movable/organ_holder/proc/GetZoneContents(zone)
-	return contents & contents_by_zone[zone]
+/atom/movable/organ_holder/proc/RegisterWithMob(mob/living/carbon/C)
+	var/datum/component/storage/concrete/multi/organ_holder/MULSTR = GetComponent(/datum/component/storage/concrete/multi/organ_holder)
+	for(var/obj/item/organ/O in C.internal_organs)
+		MULSTR.try_insert_into_compartment(O, null, O.zone)
+
+/atom/movable/organ_holder/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	. = ..()
+	if(isorgan(arrived))
+		arrived.AddElement(/datum/element/organ_holder_organ)
+
+/atom/movable/organ_holder/Exited(atom/movable/gone, direction)
+	. = ..()
+	if(isorgan(gone))
+		gone.RemoveElement(/datum/element/organ_holder_organ)
 
 /atom/movable/organ_holder/ex_act(severity)
 	return FALSE

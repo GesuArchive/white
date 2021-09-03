@@ -47,12 +47,12 @@
 /obj/machinery/power/emitter/ctf
 	name = "энергопушка"
 	active = TRUE
-	active_power_usage = FALSE
-	idle_power_usage = FALSE
+	active_power_usage = 0
+	idle_power_usage = 0
 	locked = TRUE
 	req_access_txt = "100"
 	welded = TRUE
-	use_power = FALSE
+	use_power = NO_POWER_USE
 
 /obj/machinery/power/emitter/Initialize()
 	. = ..()
@@ -77,20 +77,20 @@
 		welded = FALSE
 
 /obj/machinery/power/emitter/RefreshParts()
-	var/max_firedelay = 120
-	var/firedelay = 120
-	var/min_firedelay = 24
+	var/max_fire_delay = 12 SECONDS
+	var/fire_shoot_delay = 12 SECONDS
+	var/min_fire_delay = 2.4 SECONDS
 	var/power_usage = 350
-	for(var/obj/item/stock_parts/micro_laser/L in component_parts)
-		max_firedelay -= 20 * L.rating
-		min_firedelay -= 4 * L.rating
-		firedelay -= 20 * L.rating
-	maximum_fire_delay = max_firedelay
-	minimum_fire_delay = min_firedelay
-	fire_delay = firedelay
-	for(var/obj/item/stock_parts/manipulator/M in component_parts)
-		power_usage -= 50 * M.rating
-	active_power_usage = power_usage
+	for(var/obj/item/stock_parts/micro_laser/laser in component_parts)
+		max_fire_delay -= 2 SECONDS * laser.rating
+		min_fire_delay -= 0.4 SECONDS * laser.rating
+		fire_shoot_delay -= 2 SECONDS * laser.rating
+	maximum_fire_delay = max_fire_delay
+	minimum_fire_delay = min_fire_delay
+	fire_delay = fire_shoot_delay
+	for(var/obj/item/stock_parts/manipulator/manipulator in component_parts)
+		power_usage -= 50 * manipulator.rating
+	update_mode_power_usage(ACTIVE_POWER_USE, power_usage)
 
 /obj/machinery/power/emitter/examine(mob/user)
 	. = ..()

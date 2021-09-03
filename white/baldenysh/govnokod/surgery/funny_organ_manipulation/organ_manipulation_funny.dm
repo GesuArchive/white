@@ -29,7 +29,7 @@
 
 /datum/surgery_step/manipulate_organs_adv/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
 	var/atom/movable/organ_holder/OH = locate() in target.contents
-	var/datum/component/storage/STR = OH.GetComponent(/datum/component/storage/concrete/organ_holder)
+	var/datum/component/storage/STR = OH.GetComponent(/datum/component/storage/concrete/multi/organ_holder)
 	STR.show_to(user, target_zone)
 	return TRUE
 

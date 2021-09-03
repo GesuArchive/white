@@ -171,8 +171,8 @@
 /obj/machinery/portable_atmospherics/scrubber/huge/process_atmos(delta_time)
 	if((!anchored && !movable) || !is_operational)
 		on = FALSE
-		update_icon()
-	use_power = on ? ACTIVE_POWER_USE : IDLE_POWER_USE
+		update_appearance()
+	update_use_power(on ? ACTIVE_POWER_USE : IDLE_POWER_USE)
 	if(!on)
 		return
 

@@ -442,14 +442,14 @@
 				if(trigger)
 					burn_out()
 			else
-				use_power = ACTIVE_POWER_USE
+				update_use_power(ACTIVE_POWER_USE)
 				set_light(BR, PO, CO)
 	else if(has_emergency_power(LIGHT_EMERGENCY_POWER_USE) && !turned_off())
-		use_power = IDLE_POWER_USE
+		update_use_power(IDLE_POWER_USE)
 		emergency_mode = TRUE
 		START_PROCESSING(SSmachines, src)
 	else
-		use_power = IDLE_POWER_USE
+		update_use_power(IDLE_POWER_USE)
 		set_light(0)
 	update_icon()
 

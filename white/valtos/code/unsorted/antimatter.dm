@@ -225,10 +225,10 @@
 		if(active)
 			toggle_power(1)
 		else
-			use_power = NO_POWER_USE
+			update_use_power(NO_POWER_USE)
 
 	else if(!machine_stat && anchored)
-		use_power = IDLE_POWER_USE
+		update_use_power(IDLE_POWER_USE)
 
 	return
 
@@ -322,10 +322,10 @@
 /obj/machinery/power/am_control_unit/proc/toggle_power(powerfail = 0)
 	active = !active
 	if(active)
-		use_power = ACTIVE_POWER_USE
+		update_use_power(ACTIVE_POWER_USE)
 		visible_message("<b>[src.name]</b> запускается.")
 	else
-		use_power = !powerfail
+		update_use_power(IDLE_POWER_USE)
 		visible_message("<b>[src.name]</b> выключается.")
 	update_icon()
 	return

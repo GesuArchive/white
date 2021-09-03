@@ -226,22 +226,32 @@
 		if(SANITY_INSANE to SANITY_CRAZY)
 			setInsanityEffect(MAJOR_INSANITY_PEN)
 			master.add_movespeed_modifier(/datum/movespeed_modifier/sanity/insane)
-			master.add_actionspeed_modifier(/datum/actionspeed_modifier/low_sanity)
+			master.add_actionspeed_modifier(/datum/actionspeed_modifier/very_low_sanity)
+			master.overlay_fullscreen("depression", /atom/movable/screen/fullscreen/depression, 3)
+			if(prob(7))
+				master.playsound_local(null, pick(CREEPY_SOUNDS), 100, 1)
+			master.sound_environment_override = SOUND_ENVIRONMENT_PSYCHOTIC
 			sanity_level = 6
 		if(SANITY_CRAZY to SANITY_UNSTABLE)
 			setInsanityEffect(MINOR_INSANITY_PEN)
 			master.add_movespeed_modifier(/datum/movespeed_modifier/sanity/crazy)
 			master.add_actionspeed_modifier(/datum/actionspeed_modifier/low_sanity)
+			master.overlay_fullscreen("depression", /atom/movable/screen/fullscreen/depression, 2)
+			if(prob(3))
+				master.playsound_local(null, pick(CREEPY_SOUNDS), 60, 1)
+			master.sound_environment_override = SOUND_ENVIRONMENT_NONE
 			sanity_level = 5
 		if(SANITY_UNSTABLE to SANITY_DISTURBED)
 			setInsanityEffect(0)
 			master.add_movespeed_modifier(/datum/movespeed_modifier/sanity/disturbed)
 			master.add_actionspeed_modifier(/datum/actionspeed_modifier/low_sanity)
+			master.overlay_fullscreen("depression", /atom/movable/screen/fullscreen/depression, 1)
 			sanity_level = 4
 		if(SANITY_DISTURBED to SANITY_NEUTRAL)
 			setInsanityEffect(0)
 			master.remove_movespeed_modifier(MOVESPEED_ID_SANITY)
 			master.remove_actionspeed_modifier(ACTIONSPEED_ID_SANITY)
+			master.clear_fullscreen("depression")
 			sanity_level = 3
 		if(SANITY_NEUTRAL+1 to SANITY_GREAT+1) //shitty hack but +1 to prevent it from responding to super small differences
 			setInsanityEffect(0)

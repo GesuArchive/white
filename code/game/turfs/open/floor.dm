@@ -167,8 +167,9 @@
 	return FALSE
 
 /turf/open/floor/crowbar_act(mob/living/user, obj/item/I)
-	if(intact && pry_tile(I, user))
-		return TRUE
+	if(do_after(user, I.toolspeed * 0.5 SECONDS, src))
+		if(intact && pry_tile(I, user))
+			return TRUE
 
 /turf/open/floor/proc/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
 	if(T.turf_type == type)

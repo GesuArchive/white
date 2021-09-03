@@ -79,9 +79,10 @@ const MetaInvLoadout=(
   loadout:MetaInvLoadoutData,
   objects:Array<MetaInvObj>
 ) => {
-  //а как это фиксить я не ебу
-  const ID2ObjAssoc = objects.reduce((acc, obj) =>
-    (acc[obj.id] = obj, acc), {} as Record<string, MetaInvObj>);
+
+  const ID2ObjAssoc = new Map(objects.map(
+    obj => [obj.id, obj] as [string, MetaInvObj]
+  ));
 
   const gridSpots = new Map<GridSpotKey, string>();
 
@@ -115,7 +116,7 @@ const MetaInvLoadout=(
               const item_id = loadout[keyAtSpot];
               const item:MetaInvObj
                 = (item_id && item_id !== "0")
-                  ? ID2ObjAssoc[item_id]
+                  ? ID2ObjAssoc.get(item_id)
                   : null;
               const slot = SLOTS[keyAtSpot];
 

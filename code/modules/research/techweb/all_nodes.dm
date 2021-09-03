@@ -383,8 +383,9 @@
 		"bci_implanter",
 		"bci_shell",
 		"bot_shell",
-		"door_shell",
 		"controller_shell",
+		"door_shell",
+		"gun_shell",
 		"money_bot_shell",
 		"scanner_shell",
 	)

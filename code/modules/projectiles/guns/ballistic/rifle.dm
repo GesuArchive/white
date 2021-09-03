@@ -87,6 +87,8 @@
 	fire_sound = 'sound/weapons/gun/sniper/shot.ogg'
 	can_be_sawn_off = FALSE
 
+/// MAGICAL BOLT ACTIONS + ARCANE BARRAGE? ///
+
 /obj/item/gun/ballistic/rifle/boltaction/enchanted
 	name = "enchanted bolt action rifle"
 	desc = "Careful not to lose your head."

@@ -17,6 +17,9 @@
 
 	outfit = /datum/outfit/job/hos
 
+	skills = list(/datum/skill/ranged = SKILL_EXP_MASTER)
+	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_EXPERT)
+
 	mind_traits = list(TRAIT_DONUT_LOVER)
 	liver_traits = list(TRAIT_LAW_ENFORCEMENT_METABOLISM, TRAIT_ROYAL_METABOLISM)
 
@@ -47,7 +50,7 @@
 	suit_store = /obj/item/gun/energy/e_gun
 	r_pocket = /obj/item/pda/heads/hos
 	l_pocket = /obj/item/restraints/handcuffs
-	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/modular_computer/tablet/preset/advanced/command=1, /obj/item/card/id/departmental_budget/sec=1)
+	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced/command=1, /obj/item/card/id/departmental_budget/sec=1)
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec
@@ -66,5 +69,4 @@
 	mask = /obj/item/clothing/mask/gas/sechailer
 	suit = /obj/item/clothing/suit/space/hardsuit/security/hos
 	suit_store = /obj/item/tank/internals/oxygen
-	backpack_contents = list(/obj/item/melee/baton/loaded=1)
 

@@ -582,7 +582,7 @@
 
 /datum/mood_event/anxiety_eyecontact
 	description = "<span class='warning'>Sometimes eye contact makes me so nervous...</span>\n"
-	mood_change = -5
+	mood_change = -10
 	timeout = 3 MINUTES
 
 /datum/quirk/item_quirk/junkie

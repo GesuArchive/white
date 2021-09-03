@@ -358,14 +358,21 @@
 /mob/living/carbon/human/handle_hydration(delta_time, times_fired)
 	..()
 	if(hydration >= HYDRATION_LEVEL_OVERHYDRATED)
-		if(DT_PROB(5, delta_time) && w_uniform)
-			Stun(4 SECONDS)
-			visible_message("<b>[capitalize(src.name)]</b> писает себе в трусы!")
-			playsound(src, 'sound/effects/splat.ogg', 50, 1)
-			hydration -= 5
-			for(var/mob/M in viewers(src, 7))
-				if(ishuman(M) && M != src)
-					M.emote("laugh")
+		if(DT_PROB(5, delta_time))
+			if(w_uniform)
+				Stun(4 SECONDS)
+				visible_message("<b>[capitalize(src.name)]</b> мочится себе в трусы!")
+				playsound(src, 'sound/effects/splat.ogg', 50, 1)
+				hydration -= 5
+				for(var/mob/M in viewers(src, 7))
+					if(ishuman(M) && M != src)
+						M.emote("laugh")
+			else
+				Stun(2 SECONDS)
+				visible_message("<b>[capitalize(src.name)]</b> обильно ссыт на пол!")
+				playsound(src, 'sound/effects/splat.ogg', 50, 1)
+				hydration -= 10
+
 
 #undef THERMAL_PROTECTION_HEAD
 #undef THERMAL_PROTECTION_CHEST

@@ -74,6 +74,9 @@
 	if(tool)
 		speed_mod = tool.toolspeed
 
+	if(user.mind)
+		speed_mod = speed_mod * user.mind.get_skill_modifier(/datum/skill/surgery, SKILL_SPEED_MODIFIER)
+
 	var/implement_speed_mod = 1
 	if(implement_type)	//this means it isn't a require hand or any item step.
 		implement_speed_mod = implements[implement_type] / 100.0
@@ -96,6 +99,11 @@
 		if((prob(100-fail_prob) || (iscyborg(user) && !silicons_obey_prob)) && chem_check_result && !try_to_fail)
 
 			if(success(user, target, target_zone, tool, surgery))
+				if(user.mind)
+					var/total_experience_gain = 1 + fail_prob
+					if(repeatable)
+						total_experience_gain *= 0.5
+					user.mind.adjust_experience(/datum/skill/surgery, total_experience_gain)
 				advance = TRUE
 		else
 			if(failure(user, target, target_zone, tool, surgery, fail_prob))

@@ -219,7 +219,7 @@
 	id = ATMOS_GAS_MONITOR_WASTE_ENGINE
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/toxin_input
 	name = "инжектор в бак плазмы"
-	id = ATMOS_GAS_MONITOR_INPUT_TOX
+	id = ATMOS_GAS_MONITOR_INPUT_PLAS
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/oxygen_input
 	name = "инжектор в кислородный бак"
 	id = ATMOS_GAS_MONITOR_INPUT_O2
@@ -291,4 +291,4 @@
 	id = ATMOS_GAS_MONITOR_INPUT_INCINERATOR
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/toxins_mixing_input
 	name = "инжектор в камеру смешивания токсинов"
-	id = ATMOS_GAS_MONITOR_INPUT_TOXINS_LAB
+	id = ATMOS_GAS_MONITOR_INPUT_ORDNANCE_LAB

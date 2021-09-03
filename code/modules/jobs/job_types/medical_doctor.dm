@@ -13,6 +13,9 @@
 
 	outfit = /datum/outfit/job/doctor
 
+	skills = list(/datum/skill/surgery = SKILL_EXP_APPRENTICE)
+	minimal_skills = list(/datum/skill/surgery = SKILL_EXP_NOVICE)
+
 	paycheck = PAYCHECK_MEDIUM
 	paycheck_department = ACCOUNT_MED
 

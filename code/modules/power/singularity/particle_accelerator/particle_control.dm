@@ -42,7 +42,7 @@
 
 /obj/machinery/particle_accelerator/control_box/proc/update_state()
 	if(construction_state < PA_CONSTRUCTION_COMPLETE)
-		use_power = NO_POWER_USE
+		update_use_power(NO_POWER_USE)
 		assembled = FALSE
 		active = FALSE
 		for(var/CP in connected_parts)
@@ -53,7 +53,7 @@
 		connected_parts.Cut()
 		return
 	if(!part_scan())
-		use_power = IDLE_POWER_USE
+		update_use_power(IDLE_POWER_USE)
 		active = FALSE
 		connected_parts.Cut()
 
@@ -103,9 +103,9 @@
 	. = ..()
 	if(machine_stat & NOPOWER)
 		active = FALSE
-		use_power = NO_POWER_USE
+		update_use_power(NO_POWER_USE)
 	else if(!machine_stat && construction_state == PA_CONSTRUCTION_COMPLETE)
-		use_power = IDLE_POWER_USE
+		update_use_power(IDLE_POWER_USE)
 
 /obj/machinery/particle_accelerator/control_box/process()
 	if(active)
