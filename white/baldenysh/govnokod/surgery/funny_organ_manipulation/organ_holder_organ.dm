@@ -67,7 +67,7 @@
 	if(do_after(user, 5, source.loc.loc))
 		user.visible_message(span_notice("[user] успешно пришивает [source]!"), span_notice("Удалось пришить [source]!"))
 		source.Insert(owner)
-		source.underlays.Cut()
+		source.update_icon(UPDATE_OVERLAYS)
 
 /datum/element/organ_holder_organ/proc/rip(obj/item/organ/source, mob/user, mob/living/carbon/owner)
 	user.visible_message(span_danger("[user] пытается вырвать [source]!"), span_danger("Начинаю вырывать [source]!"))
