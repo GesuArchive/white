@@ -218,7 +218,7 @@
 	if(methods & TOUCH)
 		exposed_mob.extinguish_mob() // extinguish removes all fire stacks
 	if(methods & INGEST)
-		M.hydration += reac_volume * DRINK_HYDRATION_FACTOR
+		exposed_mob.hydration += reac_volume * DRINK_HYDRATION_FACTOR
 
 /datum/reagent/water/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
