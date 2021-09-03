@@ -509,6 +509,13 @@
 		if(!L.density)
 			return FALSE
 		if(L.body_position != LYING_DOWN)
+			if(ishuman(firer))
+				var/mob/living/carbon/human/H = firer
+				if(H.mind)
+					if(prob(25 + H.mind.get_skill_modifier(/datum/skill/ranged, SKILL_PROBS_MODIFIER)))
+						H.mind.adjust_experience(/datum/skill/ranged, 5)
+						return TRUE
+					return FALSE
 			return TRUE
 		var/stunned = HAS_TRAIT(L, TRAIT_IMMOBILIZED) && HAS_TRAIT(L, TRAIT_FLOORED) && HAS_TRAIT(L, TRAIT_HANDS_BLOCKED)
 		return !stunned || hit_stunned_targets
