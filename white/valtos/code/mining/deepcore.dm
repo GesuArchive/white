@@ -474,14 +474,14 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 	. = ..()
 	if(active)
 		active = FALSE
-		use_power = IDLE_POWER_USE
+		update_use_power(IDLE_POWER_USE)
 		to_chat(user, span_notice("You deactiveate [src.name]"))
 	else
 		if(!powered(power_channel))
 			to_chat(user, span_warning("Unable to activate [src.name]! Insufficient power."))
 			return
 		active = TRUE
-		use_power = ACTIVE_POWER_USE
+		update_use_power(ACTIVE_POWER_USE)
 		to_chat(user, span_notice("You activeate [src.name]"))
 	update_icon_state()
 
