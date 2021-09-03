@@ -12,10 +12,10 @@
 	movetypes = (~FLYING)
 
 /datum/movespeed_modifier/sanity/insane
-	multiplicative_slowdown = 3
+	multiplicative_slowdown = 2
 
 /datum/movespeed_modifier/sanity/crazy
-	multiplicative_slowdown = 2
+	multiplicative_slowdown = 1.5
 
 /datum/movespeed_modifier/sanity/disturbed
 	multiplicative_slowdown = 1
