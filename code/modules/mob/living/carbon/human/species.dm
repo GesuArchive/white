@@ -1302,7 +1302,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			H.clear_alert("thirsty")
 		if(HYDRATION_LEVEL_THIRSTY to HYDRATION_LEVEL_NORMAL)
 			H.throw_alert("thirsty", /atom/movable/screen/alert/thirsty)
-		if(0 to HYDRATION_LEVEL_DEHYDRATED)
+		if(-INFINITY to HYDRATION_LEVEL_DEHYDRATED)
 			H.throw_alert("thirsty", /atom/movable/screen/alert/dehydrated)
 
 /datum/species/proc/update_health_hud(mob/living/carbon/human/H)
