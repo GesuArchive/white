@@ -26,9 +26,9 @@
 /datum/element/organ_holder_organ/proc/handle_examine(obj/item/organ/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
 	if(source.owner)
-		examine_text += span_notice("\n[capitalize(source.name)] можно отрезать <i>скальпелем</i> или вырвать руками.")
+		examine_text += span_notice("\n[capitalize(source.name)] можно отрезать <b>скальпелем</b> или вырвать руками.")
 	else
-		examine_text += span_notice("\n[capitalize(source.name)] можно пришить исользуя <i>хирургический зажим</i>.")
+		examine_text += span_notice("\n[capitalize(source.name)] можно пришить исользуя <b>зажим</b>.")
 
 /datum/element/organ_holder_organ/proc/apply_underlays(obj/item/organ/source, list/overlays)
 	SIGNAL_HANDLER
