@@ -9,7 +9,7 @@
 
 /datum/mood_event/stoned
 	mood_change = 6
-	description = "<span class='nicegreen'>Чува-а-а-а-ак... я так обкуре-е-е-е-ен..</span>\n"
+	description = "<span class='nicegreen'>Чува-а-а-а-ак... я так обкуре-е-е-е-ен...</span>\n"
 
 /datum/mood_event/wrong_brand
 	description = "<span class='warning'>Ненавижу эту марку сигарет.</span>\n"
