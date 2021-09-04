@@ -147,7 +147,7 @@
 		else
 			target.visible_message(span_danger("[user] заталкивает [target] в [src].") , span_userdanger("[user] заталкивает меня в [src]."))
 			log_combat(user, target, "stuffed", addition="into [src]")
-			target.LAssailant = user
+			target.LAssailant = WEAKREF(user)
 			. = TRUE
 		update_icon()
 

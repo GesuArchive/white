@@ -68,7 +68,7 @@
 	yolk.equipOutfit(/datum/outfit/ashwalker)//this is an authentic mess we're making
 	yolk.update_body()
 	yolk.gib()
-	qdel(egg)
+	QDEL_NULL(egg)
 	return ..()
 
 
@@ -92,6 +92,11 @@
 	var/datum/team/ashwalkers/team
 	var/obj/structure/ash_walker_eggshell/eggshell
 
+
+/obj/effect/mob_spawn/human/ash_walker/Destroy()
+	eggshell = null
+	return ..()
+
 /obj/effect/mob_spawn/human/ash_walker/allow_spawn(mob/user)
 	if(!(user.key in team.players_spawned))//one per person unless you get a bonus spawn
 		return TRUE
@@ -112,7 +117,7 @@
 		H.remove_language(/datum/language/common)
 	team.players_spawned += (new_spawn.key)
 	eggshell.egg = null
-	qdel(eggshell)
+	QDEL_NULL(eggshell)
 
 /obj/effect/mob_spawn/human/ash_walker/Initialize(mapload, datum/team/ashwalkers/ashteam)
 	. = ..()
@@ -527,7 +532,7 @@
 
 /datum/outfit/syndicate_empty/battlecruiser/assault/captain
 	name = "Syndicate Battlecruiser Captain"
-	l_pocket = /obj/item/melee/transforming/energy/sword/saber/red
+	l_pocket = /obj/item/melee/energy/sword/saber/red
 	r_pocket = /obj/item/melee/classic_baton/telescopic
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
 	suit_store = /obj/item/gun/ballistic/revolver/mateba

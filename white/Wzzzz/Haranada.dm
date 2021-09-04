@@ -116,7 +116,7 @@
 	icon = 'white/Wzzzz/clothing/suits.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 20, "bomb" = 55, "bio" = 50, "rad" = 40, "fire" = 50, "acid" = 50)
-	allowed = list(/obj/item/gun, /obj/item/ammo_box,/obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
+	allowed = list(/obj/item/gun, /obj/item/ammo_box,/obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/breacher_cheap
 
 /obj/item/clothing/suit/space/hardsuit/syndi/elite/breacher
@@ -130,7 +130,7 @@
 	icon = 'white/Wzzzz/clothing/suits.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 60, "bullet" = 75, "laser" = 50, "energy" = 40, "bomb" = 70, "bio" = 80, "rad" = 50, "fire" = 100, "acid" = 100)
-	allowed = list(/obj/item/gun, /obj/item/ammo_box,/obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
+	allowed = list(/obj/item/gun, /obj/item/ammo_box,/obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/breacher
 	resistance_flags = NONE|ACID_PROOF|FIRE_PROOF|FREEZE_PROOF|LAVA_PROOF
 
