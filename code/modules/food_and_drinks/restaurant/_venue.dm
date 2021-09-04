@@ -102,7 +102,7 @@
 
 /obj/machinery/restaurant_portal/Destroy()
 	. = ..()
-	turned_on_portal = null
+	//turned_on_portal = null
 	linked_venue.restaurant_portal = null
 	linked_venue = null
 

@@ -89,13 +89,14 @@ While using this makes the system rely on OnFire, it still gives options for tim
 	if(owner == null)
 		STOP_PROCESSING(SSfastprocess, src)
 		qdel(src)
-	if(button)
-		var/timeleft = max(elite_owner?.ranged_cooldown - world.time, 0)
-		if(timeleft == 0)
-			button.maptext = ""
-			UpdateButtonIcon()
-		else
-			button.maptext = "<b class='maptext'>[round(timeleft/10, 0.1)]</b>"
+		return
+	var/mob/living/simple_animal/hostile/asteroid/elite/elite_owner = owner
+	var/timeleft = max(elite_owner.ranged_cooldown - world.time, 0)
+	if(timeleft == 0)
+		button.maptext = ""
+		UpdateButtonIcon()
+	else
+		button.maptext = "<b class='maptext'>[round(timeleft/10, 0.1)]</b>"
 
 /datum/action/innate/elite_attack/Grant(mob/living/L)
 	if(istype(L, /mob/living/simple_animal/hostile/asteroid/elite))
