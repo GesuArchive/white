@@ -262,7 +262,7 @@
 	. = ..()
 	if(locate(/obj/item/assembly/flash/armimplant) in items_list)
 		var/obj/item/assembly/flash/armimplant/F = locate(/obj/item/assembly/flash/armimplant) in items_list
-		F.I = src
+		F.arm = src
 
 /obj/item/organ/cyberimp/arm/flash/Extend()
 	. = ..()
