@@ -15,14 +15,23 @@
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
 	item_flags = NO_MAT_REDEMPTION | NOBLUDGEON
+	slot_flags = ITEM_SLOT_ID
+	worn_icon_state = "emag"
 	var/prox_check = TRUE //If the emag requires you to be in range
 	var/type_blacklist //List of types that require a specialized emag
+
+/obj/item/card/emag/attack_self(mob/user) //for traitors with balls of plastitanium
+	if(Adjacent(user))
+		user.visible_message("<span class='notice'>[user] shows you: [icon2html(src, viewers(user))] [name].</span>", "<span class='notice'>You show [src].</span>")
+	add_fingerprint(user)
 
 /obj/item/card/emag/bluespace
 	name = "bluespace cryptographic sequencer"
 	desc = "It's a blue card with a magnetic strip attached to some circuitry. It appears to have some sort of transmitter attached to it."
 	color = rgb(40, 130, 255)
 	prox_check = FALSE
+	slot_flags = ITEM_SLOT_ID
+	worn_icon_state = "emag"
 
 /obj/item/card/emag/halloween
 	name = "hack-o'-lantern"
@@ -36,6 +45,11 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
+
+/obj/item/card/emagfake/attack_self(mob/user) //for assistants with balls of plasteel
+	if(Adjacent(user))
+		user.visible_message("<span class='notice'>[user] shows you: [icon2html(src, viewers(user))] [name].</span>", "<span class='notice'>You show [src].</span>")
+	add_fingerprint(user)
 
 /obj/item/card/emagfake/afterattack()
 	. = ..()
@@ -72,6 +86,7 @@
 	desc = "Commonly known as a \"doorjack\", this device is a specialized cryptographic sequencer specifically designed to override station airlock access codes. Uses self-refilling charges to hack airlocks."
 	name = "airlock authentication override card"
 	icon_state = "doorjack"
+	worn_icon_state = "doorjack"
 	var/type_whitelist //List of types
 	var/charges = 3
 	var/max_charges = 3
