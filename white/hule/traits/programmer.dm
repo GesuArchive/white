@@ -4,13 +4,13 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 /datum/quirk/programmer
-	name = "Professional Hardware Engineer"
-	desc = "Arriving at station while having programming socks on gives you special ICP."
+	name = "Программист"
+	desc = "Прибытие на станцию в носках программиста будет давать вам специальный принтер интегральных схем."
 	value = 1
 	mob_trait = "programmer"
-	gain_text = span_notice("You know everything about compiling and crossdressing.")
-	lose_text = span_danger("You feel like a normie.")
-	medical_record_text = "Patient says that you will code better if you dress like a japaneese schoolgirl."
+	gain_text = span_notice("Вы знаете всё о программировании и кроссдресинге.")
+	lose_text = span_danger("Вы чувствуете себя нормальным.")
+	medical_record_text = "Пациент утверждает, что если одеваться, как японская школьница, то его навыки программирования улучшатся."
 
 /datum/quirk/programmer/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder

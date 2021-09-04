@@ -243,7 +243,7 @@ GLOBAL_LIST_INIT(rus_unicode_conversion_hex,list(
 
 /datum/quirk/kartavii
 	name = "Картавый"
-	desc = "Я не помню как проговаривать букву \"Р\"."
+	desc = "Вы не знаете, как проговаривать букву \"Р\"."
 	value = 0
 	mob_trait = TRAIT_KARTAVII
 	gain_text = span_notice("Забываю как проговаривать букву \"Р\".")
