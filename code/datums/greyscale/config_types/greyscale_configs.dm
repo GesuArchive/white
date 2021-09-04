@@ -164,17 +164,18 @@
 	name = "Wheeled Sneakers"
 	icon_file = 'icons/obj/clothing/shoes.dmi'
 	json_config = 'code/datums/greyscale/json_configs/sneakers_wheelys.json'
-
+/*
 /datum/greyscale_config/sneakers_marisa
 	name = "Marisa Sneakers"
 	icon_file = 'icons/obj/clothing/shoes.dmi'
 	json_config = 'code/datums/greyscale/json_configs/sneakers_marisa.json'
-
+*/
+/*
 /datum/greyscale_config/circuit
 	name = "Circuit Board"
 	icon_file = 'icons/obj/module.dmi'
 	json_config = 'code/datums/greyscale/json_configs/circuit.json'
-
+*/
 /datum/greyscale_config/sombrero
 	name = "Sombrero"
 	icon_file = 'icons/obj/clothing/head/sombrero.dmi'
@@ -227,12 +228,12 @@
 	name = "Winter Coat Hood Worn"
 	icon_file = 'icons/mob/clothing/head/winterhood.dmi'
 	json_config = 'code/datums/greyscale/json_configs/wintercoats_hood_worn.json'
-
+/*
 /datum/greyscale_config/plush_lizard
 	name = "Plushie Lizard"
 	icon_file = 'icons/obj/plushes.dmi'
 	json_config = 'code/datums/greyscale/json_configs/plushie_lizard.json'
-
+*/
 /datum/greyscale_config/flower_simple
 	name = "Flower"
 	icon_file = 'icons/obj/hydroponics/harvest.dmi'
@@ -310,7 +311,7 @@
 	name = "Worn Suspenders"
 	icon_file = 'icons/mob/clothing/suit.dmi'
 	json_config = 'code/datums/greyscale/json_configs/suspenders_worn.json'
-
+/*
 /datum/greyscale_config/giftdeliverybox
 	name = "Gift Box"
 	icon_file = 'icons/obj/storage.dmi'
@@ -355,7 +356,7 @@
 	name = "Wrapping Paper"
 	icon_file = 'icons/obj/stack_objects.dmi'
 	json_config = 'code/datums/greyscale/json_configs/wrap_paper.json'
-
+*/
 /datum/greyscale_config/meter
 	name = "Meter"
 	icon_file = 'icons/obj/atmospherics/pipes/meter.dmi'
