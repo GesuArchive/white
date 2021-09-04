@@ -70,6 +70,7 @@
 
 /obj/item/crowbar/power/get_belt_overlay()
 	return mutable_appearance('white/valtos/icons/belt_overlays.dmi', icon_state)
+
 /obj/item/crowbar/power/Initialize()
 	. = ..()
 	AddComponent(/datum/component/transforming, \
@@ -80,6 +81,7 @@
 		clumsy_check = FALSE)
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
 
+
 /*
  * Signal proc for [COMSIG_TRANSFORMING_ON_TRANSFORM].
  *
@@ -89,7 +91,7 @@
 	SIGNAL_HANDLER
 
 	tool_behaviour = (active ? TOOL_WIRECUTTER : TOOL_CROWBAR)
-	balloon_alert(user, "attached [active ? "cutting" : "prying"]")
+	balloon_alert(user, "ставлю [active ? "кусаку" : "открываку"]")
 	playsound(user ? user : src, 'sound/items/change_jaws.ogg', 50, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 

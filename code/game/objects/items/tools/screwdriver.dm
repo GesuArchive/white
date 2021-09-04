@@ -136,7 +136,7 @@
 	SIGNAL_HANDLER
 
 	tool_behaviour = (active ? TOOL_WRENCH : TOOL_SCREWDRIVER)
-	balloon_alert(user, "attached [active ? "bolt bit" : "screw bit"]")
+	balloon_alert(user, "ставлю [active ? "большого" : "маленького"] крутяку")
 	playsound(user ? user : src, 'sound/items/change_drill.ogg', 50, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 

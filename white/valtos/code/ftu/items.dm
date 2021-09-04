@@ -18,7 +18,7 @@
 	resistance_flags = FIRE_PROOF
 	damtype = BURN
 
-	sword_color_icon = "active"
+	sword_color_icon = null
 	active_force = 48
 	active_throwforce = 40
 	active_w_class = WEIGHT_CLASS_HUGE
@@ -35,10 +35,10 @@
 		w_class_on = active_w_class)
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
 
-/obj/item/melee/energy/sword/bananium/on_transform(obj/item/source, mob/user, active)
+/obj/item/melee/energy/sword/ignis/on_transform(obj/item/source, mob/user, active)
 	. = ..()
 	playsound(user, 'white/valtos/sounds/ignis_toggle.ogg', 35, TRUE)  //changed it from 50% volume to 35% because deafness
-	to_chat(user, span_notice("[src] [blade_active ? "теперь активен":"может быть убран"]."))
+	//to_chat(user, span_notice("[src] [blade_active ? "теперь активен":"может быть убран"]."))
 
 ///////40x32 R37 PULSE RIFLE
 /obj/item/gun/ballistic/automatic/pitbull/pulse/r37
