@@ -249,7 +249,7 @@
 /obj/item/organ/cyberimp/arm/medibeam
 	name = "встроенная медицинская лучевая пушка"
 	desc = "Кибернетический имплант позволяющий пользователю излучать исцеляющие лучи из своей руки."
-	items_to_create = newlist(/obj/item/gun/medbeam)
+	items_to_create = list(/obj/item/gun/medbeam)
 
 
 /obj/item/organ/cyberimp/arm/flash

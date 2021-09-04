@@ -8,6 +8,7 @@
 	icon_state = "screwdriver_map"
 	inhand_icon_state = "screwdriver"
 	worn_icon_state = "screwdriver"
+	belt_icon_state = "screwdriver"
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
 	force = 5
