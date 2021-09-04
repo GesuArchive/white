@@ -460,7 +460,7 @@
 	adapt_light.update_brightness(adapted)
 	//traits
 	ADD_TRAIT(adapted, TRAIT_FLASH_SENSITIVE, ORGAN_TRAIT)
-	ADD_TRAIT(adapted, CULT_EYES, ORGAN_TRAIT)
+	ADD_TRAIT(adapted, TRAIT_CULT_EYES, ORGAN_TRAIT)
 
 /obj/item/organ/eyes/night_vision/maintenance_adapted/on_life(delta_time, times_fired)
 	var/turf/T = get_turf(owner)
@@ -480,5 +480,5 @@
 	adapt_light.forceMove(src)
 	//traits
 	REMOVE_TRAIT(unadapted, TRAIT_FLASH_SENSITIVE, ORGAN_TRAIT)
-	REMOVE_TRAIT(unadapted, CULT_EYES, ORGAN_TRAIT)
+	REMOVE_TRAIT(unadapted, TRAIT_CULT_EYES, ORGAN_TRAIT)
 	return ..()

@@ -36,6 +36,31 @@
 		M.hallucination += 5
 	..()
 
+/datum/reagent/drug/cannabis
+	name = "Каннабис"
+	description = "A psychoactive drug from the Cannabis plant used for recreational purposes."
+	color = "#059033"
+	overdose_threshold = INFINITY
+	ph = 6
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	metabolization_rate = 0.125 * REAGENTS_METABOLISM
+
+/datum/reagent/drug/cannabis/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	M.apply_status_effect(/datum/status_effect/stoned)
+	if(DT_PROB(1, delta_time))
+		var/smoke_message = pick("Чувствую себя расслабленно.","Чувствую спокойствие.","Чувствую, что мой рот сухой.","Хочется пить...","Мое сердце быстро бьётся.","Чувствую себя неуклюжим.","Хочется чего-то поесть...","Замечаю, что двигаюсь медленнее.")
+		to_chat(M, "<span class='notice'>[smoke_message]</span>")
+	if(DT_PROB(2, delta_time))
+		M.emote(pick("smile","laugh","giggle"))
+	M.adjust_nutrition(-1 * REM * delta_time) //munchies
+	if(DT_PROB(4, delta_time) && M.body_position == LYING_DOWN && !M.IsSleeping()) //chance to fall asleep if lying down
+		to_chat(M, "<span class='warning'>Хочется поспать...</span>")
+		M.Sleeping(10 SECONDS)
+	if(DT_PROB(4, delta_time) && M.buckled && M.body_position != LYING_DOWN && !M.IsParalyzed()) //chance to be couchlocked if sitting
+		to_chat(M, "<span class='warning'>Слишком удобно, чтобы двигаться...</span>")
+		M.Paralyze(10 SECONDS)
+	return ..()
+
 /datum/reagent/drug/nicotine
 	name = "Никотин"
 	enname = "Nicotine"
