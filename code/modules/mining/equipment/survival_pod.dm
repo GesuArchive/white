@@ -311,5 +311,5 @@
 	desc = initial(I.desc)
 	icon_state = initial(I.icon_state)
 	inhand_icon_state = initial(I.inhand_icon_state)
-	lefthand_file = initial(I.lefthand_file)
-	righthand_file = initial(I.righthand_file)
+//	lefthand_file = initial(I.lefthand_file) // кривая хуйня не работае
+//	righthand_file = initial(I.righthand_file)
