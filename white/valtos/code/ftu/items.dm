@@ -1,4 +1,4 @@
-/obj/item/melee/transforming/energy/sword/ignis
+/obj/item/melee/energy/sword/ignis
 	name = "FTU 'Ignis'"
 	desc = "Дорогая конструкция FTU, Ignis - один из многих прототипов создания энергетического меча из плазмы, а не из жесткого света. У этого есть флаг FTU, отпечатанный на его высококачественной деревянной рукоятке, и, в отличие от более ранних моделей, он может выдержать несколько ударов, не разряжая батарею."
 	icon = 'white/valtos/icons/serviceguns.dmi'
@@ -24,7 +24,7 @@
 	resistance_flags = FIRE_PROOF
 	damtype = BURN
 
-/obj/item/melee/transforming/energy/sword/ignis/transform_messages(mob/living/user, supress_message_text)
+/obj/item/melee/energy/sword/ignis/transform_messages(mob/living/user, supress_message_text)
 	playsound(user, 'white/valtos/sounds/ignis_toggle.ogg', 35, TRUE)  //changed it from 50% volume to 35% because deafness
 	if(!supress_message_text)
 		to_chat(user, span_notice("[src] [active ? "теперь активен":"может быть убран"]."))

@@ -300,7 +300,7 @@
 	r_pocket = /obj/item/bikehorn/golden
 	l_pocket = /obj/item/food/grown/banana
 	backpack_contents = list(/obj/item/storage/box/hug/survival=1,\
-		/obj/item/melee/transforming/energy/sword/bananium=1,\
+		/obj/item/melee/energy/sword/bananium=1,\
 		/obj/item/shield/energy/bananium=1,\
 		/obj/item/gun/ballistic/revolver/reverse=1)
 

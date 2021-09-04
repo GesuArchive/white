@@ -39,10 +39,13 @@
 		club.update_appearance()
 
 	current_charges = clamp(current_charges + 1, 0, max_charges)
-	owner.update_action_buttons_icon()
 
 	if(recharge_sound)
 		playsound(dashing_item, recharge_sound, 50, TRUE)
+
+	if(!owner)
+		return
+	owner.update_action_buttons_icon()
 	to_chat(owner, span_notice("[src] now has [current_charges]/[max_charges] charges."))
 
 /obj/item/hierophant_club
@@ -358,6 +361,7 @@
 	sharpness = SHARP_EDGED
 	bare_wound_bonus = 10
 	layer = MOB_LAYER
+	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	/// Soulscythe mob in the scythe
 	var/mob/living/simple_animal/soulscythe/soul
 	/// Are we grabbing a spirit?
@@ -719,7 +723,7 @@
 				user.mind.AddSpell(dragon_shapeshift)
 		if(4)
 			to_chat(user, span_danger("You feel like you could walk straight through lava now."))
-			LAZYOR(consumer.weather_immunities, WEATHER_LAVA)
+			ADD_TRAIT(user, TRAIT_LAVA_IMMUNE, type)
 
 	playsound(user,'sound/items/drink.ogg', 30, TRUE)
 	qdel(src)
@@ -759,7 +763,7 @@
 		var/turf/open/T = get_turf(target)
 		if(!istype(T))
 			return
-		if(!istype(T, turf_type))
+		if(!istype(T, /turf/open/lava))
 			var/obj/effect/temp_visual/lavastaff/L = new /obj/effect/temp_visual/lavastaff(T)
 			L.alpha = 0
 			animate(L, alpha = 255, time = create_delay)
