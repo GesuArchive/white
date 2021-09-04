@@ -56,7 +56,7 @@
 /obj/item/crowbar/power
 	name = "челюсти жизни"
 	desc = "Набор челюстей жизни, сжатых через магию науки."
-	icon_state = "jaws"
+	icon_state = "jaws_pry"
 	inhand_icon_state = "jawsoflife"
 	worn_icon_state = "jawsoflife"
 	icon = 'white/valtos/icons/items.dmi'
@@ -71,34 +71,10 @@
 /obj/item/crowbar/power/get_belt_overlay()
 	return mutable_appearance('white/valtos/icons/belt_overlays.dmi', icon_state)
 
-/obj/item/crowbar/power/Initialize()
-	. = ..()
-	AddComponent(/datum/component/transforming, \
-		force_on = force, \
-		throwforce_on = throwforce, \
-		hitsound_on = hitsound, \
-		w_class_on = w_class, \
-		clumsy_check = FALSE)
-	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
-
-
-/*
- * Signal proc for [COMSIG_TRANSFORMING_ON_TRANSFORM].
- *
- * Toggles between crowbar and wirecutters and gives feedback to the user.
- */
-/obj/item/crowbar/power/proc/on_transform(obj/item/source, mob/user, active)
-	SIGNAL_HANDLER
-
-	tool_behaviour = (active ? TOOL_WIRECUTTER : TOOL_CROWBAR)
-	balloon_alert(user, "ставлю [active ? "кусаку" : "открываку"]")
-	playsound(user ? user : src, 'sound/items/change_jaws.ogg', 50, TRUE)
-	return COMPONENT_NO_DEFAULT_MESSAGE
-
 /obj/item/crowbar/power/syndicate
 	name = "Syndicate jaws of life"
 	desc = "A re-engineered copy of Nanotrasen's standard jaws of life. Can be used to force open airlocks in its crowbar configuration."
-	icon_state = "jaws_syndie"
+	icon_state = "jaws_pry_syndie"
 	toolspeed = 0.5
 	force_opens = TRUE
 
@@ -120,6 +96,32 @@
 				BP.drop_limb()
 				playsound(loc, "desecration", 50, TRUE, -1)
 	return (BRUTELOSS)
+
+/obj/item/crowbar/power/attack_self(mob/user)
+	playsound(get_turf(user), 'sound/items/change_jaws.ogg', 50, TRUE)
+	if(tool_behaviour == TOOL_CROWBAR)
+		tool_behaviour = TOOL_WIRECUTTER
+		to_chat(user, span_notice("Меняю открываку на кусаку."))
+		usesound = 'sound/items/jaws_cut.ogg'
+		update_icon()
+
+	else
+		tool_behaviour = TOOL_CROWBAR
+		to_chat(user, span_notice("Меняю кусаку на открываку."))
+		usesound = 'sound/items/jaws_pry.ogg'
+		update_icon()
+
+/obj/item/crowbar/power/update_icon()
+	if(tool_behaviour == TOOL_WIRECUTTER)
+		icon_state = "jaws_cutter"
+	else
+		icon_state = "jaws_pry"
+
+/obj/item/crowbar/power/syndicate/update_icon()
+	if(tool_behaviour == TOOL_WIRECUTTER)
+		icon_state = "jaws_cutter_syndie"
+	else
+		icon_state = "jaws_pry_syndie"
 
 /obj/item/crowbar/power/attack(mob/living/carbon/C, mob/user)
 	if(istype(C) && C.handcuffed && tool_behaviour == TOOL_WIRECUTTER)

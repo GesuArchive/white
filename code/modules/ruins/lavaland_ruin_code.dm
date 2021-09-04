@@ -160,7 +160,7 @@
 
 /datum/outfit/lavaland_syndicate/comms
 	name = "Связист Синдиката в Лаваленде"
-	r_hand = /obj/item/melee/energy/sword/saber
+	r_hand = /obj/item/melee/transforming/energy/sword/saber
 	mask = /obj/item/clothing/mask/chameleon/gps
 	suit = /obj/item/clothing/suit/armor/vest
 

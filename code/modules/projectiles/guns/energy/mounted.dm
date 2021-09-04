@@ -30,7 +30,3 @@
 
 /obj/item/gun/energy/laser/mounted/dropped()
 	..()
-
-/obj/item/gun/energy/laser/mounted/augment
-	icon = 'icons/obj/surgery.dmi'
-	icon_state = "arm_laser"

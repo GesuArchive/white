@@ -639,7 +639,7 @@
 	if(!owner)
 		return FALSE
 	linked_mobs.Add(M)
-	to_chat(M, span_notice("You are now connected to [owner.real_name] Slime Link."))
+	to_chat(M, span_notice("You are now connected to [slimelink_owner.real_name] Slime Link."))
 	var/datum/action/innate/linked_speech/action = new(src)
 	linked_actions.Add(action)
 	action.Grant(M)

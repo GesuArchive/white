@@ -11,7 +11,7 @@
 /turf/open/floor/plating/asteroid/airless,
 /area/ruin/unpowered/no_grav)
 "N" = (
-/obj/item/melee/energy/sword/saber/blue,
+/obj/item/melee/transforming/energy/sword/saber/blue,
 /turf/open/floor/plating/asteroid/airless,
 /area/ruin/unpowered/no_grav)
 "R" = (

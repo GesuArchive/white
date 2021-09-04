@@ -68,39 +68,28 @@
 	name = "жгучий инструмент"
 	desc = "Он проектирует мощный лазер для медицинского применения."
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "e_cautery"
+	icon_state = "cautery_a"
 	hitsound = 'sound/items/welder.ogg'
 	toolspeed = 0.7
 	light_system = MOVABLE_LIGHT
 	light_range = 1
 	light_color = COLOR_SOFT_RED
 
-/obj/item/cautery/advanced/Initialize()
-	. = ..()
-	AddComponent(/datum/component/transforming, \
-		force_on = force, \
-		throwforce_on = throwforce, \
-		hitsound_on = hitsound, \
-		w_class_on = w_class, \
-		clumsy_check = FALSE)
-	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
 
-/*
- * Signal proc for [COMSIG_TRANSFORMING_ON_TRANSFORM].
- *
- * Toggles between drill and cautery and gives feedback to the user.
- */
-/obj/item/cautery/advanced/proc/on_transform(obj/item/source, mob/user, active)
-	SIGNAL_HANDLER
-
-	tool_behaviour = (active ? TOOL_DRILL : TOOL_CAUTERY)
-	balloon_alert(user, "lenses set to [active ? "drill" : "mend"]")
-	playsound(user ? user : src, 'sound/weapons/tap.ogg', 50, TRUE)
-	return COMPONENT_NO_DEFAULT_MESSAGE
+/obj/item/cautery/advanced/attack_self(mob/user)
+	playsound(get_turf(user), 'sound/weapons/tap.ogg', 50, TRUE)
+	if(tool_behaviour == TOOL_CAUTERY)
+		tool_behaviour = TOOL_DRILL
+		to_chat(user, span_notice("Ставлю линзы инструмента на место, теперь он может сверлить кости."))
+		icon_state = "surgicaldrill_a"
+	else
+		tool_behaviour = TOOL_CAUTERY
+		to_chat(user, span_notice("Фокусирую линзы инструмента, теперь он может прижигать раны."))
+		icon_state = "cautery_a"
 
 /obj/item/cautery/advanced/examine()
 	. = ..()
-	. += span_notice("It's set to [tool_behaviour == TOOL_CAUTERY ? "mending" : "drilling"] mode.")
+	. += "<hr>It's set to [tool_behaviour == TOOL_CAUTERY ? "mending" : "drilling"] mode."
 
 /obj/item/surgicaldrill
 	name = "хирургическая дрель"
@@ -307,7 +296,7 @@
 	name = "лазерный скальпель"
 	desc = "Усовершенствованный скальпель, который использует лазерную технологию для резки."
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "e_scalpel"
+	icon_state = "scalpel_a"
 	hitsound = 'sound/weapons/blade1.ogg'
 	force = 16
 	toolspeed = 0.7
@@ -316,74 +305,47 @@
 	light_color = LIGHT_COLOR_GREEN
 	sharpness = SHARP_EDGED
 
-/obj/item/scalpel/advanced/Initialize()
-	. = ..()
-	AddComponent(/datum/component/transforming, \
-		force_on = force + 1, \
-		throwforce_on = throwforce, \
-		throw_speed_on = throw_speed, \
-		sharpness_on = sharpness, \
-		hitsound_on = hitsound, \
-		w_class_on = w_class, \
-		clumsy_check = FALSE)
-	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
 
-/*
- * Signal proc for [COMSIG_TRANSFORMING_ON_TRANSFORM].
- *
- * Toggles between saw and scalpel and updates the light / gives feedback to the user.
- */
-/obj/item/scalpel/advanced/proc/on_transform(obj/item/source, mob/user, active)
-	SIGNAL_HANDLER
-
-	if(active)
+/obj/item/scalpel/advanced/attack_self(mob/user)
+	playsound(get_turf(user), 'sound/machines/click.ogg', 50, TRUE)
+	if(tool_behaviour == TOOL_SCALPEL)
 		tool_behaviour = TOOL_SAW
+		to_chat(user, span_notice("Увеличиваю мощность [src]. Теперь он может резать кости."))
 		set_light_range(2)
+		force += 1 //we don't want to ruin sharpened stuff
+		icon_state = "saw_a"
 	else
 		tool_behaviour = TOOL_SCALPEL
+		to_chat(user, span_notice("Уменьшаю мощность [src]. Теперь он не может резать кости."))
 		set_light_range(1)
-
-	balloon_alert(user, "[active ? "enabled" : "disabled"] bone-cutting mode")
-	playsound(user ? user : src, 'sound/machines/click.ogg', 50, TRUE)
-	return COMPONENT_NO_DEFAULT_MESSAGE
+		force -= 1
+		icon_state = "scalpel_a"
 
 /obj/item/scalpel/advanced/examine()
 	. = ..()
-	. += span_notice("It's set to [tool_behaviour == TOOL_SCALPEL ? "scalpel" : "saw"] mode.")
+	. += "<hr>Переключатель стоит на [tool_behaviour == TOOL_SCALPEL ? "скальпеле" : "пиле"]."
 
 /obj/item/retractor/advanced
 	name = "механические зажимы"
 	desc = "Агломерация шатунов и зубчатых колес."
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "adv_retractor"
+	icon_state = "retractor_a"
 	toolspeed = 0.7
 
-/obj/item/retractor/advanced/Initialize()
-	. = ..()
-	AddComponent(/datum/component/transforming, \
-		force_on = force, \
-		throwforce_on = throwforce, \
-		hitsound_on = hitsound, \
-		w_class_on = w_class, \
-		clumsy_check = FALSE)
-	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
-
-/*
- * Signal proc for [COMSIG_TRANSFORMING_ON_TRANSFORM].
- *
- * Toggles between retractor and hemostat and gives feedback to the user.
- */
-/obj/item/retractor/advanced/proc/on_transform(obj/item/source, mob/user, active)
-	SIGNAL_HANDLER
-
-	tool_behaviour = (active ? TOOL_HEMOSTAT : TOOL_RETRACTOR)
-	balloon_alert(user, "gears set to [active ? "clamp" : "retract"]")
-	playsound(user ? user : src, 'sound/items/change_drill.ogg', 50, TRUE)
-	return COMPONENT_NO_DEFAULT_MESSAGE
+/obj/item/retractor/advanced/attack_self(mob/user)
+	playsound(get_turf(user), 'sound/items/change_drill.ogg', 50, TRUE)
+	if(tool_behaviour == TOOL_RETRACTOR)
+		tool_behaviour = TOOL_HEMOSTAT
+		to_chat(user, span_notice("Настраиваю шестерни [src], теперь они в режиме зажима."))
+		icon_state = "hemostat_a"
+	else
+		tool_behaviour = TOOL_RETRACTOR
+		to_chat(user, span_notice("Настраиваю шестерни [src], теперь они в режиме расширителя."))
+		icon_state = "retractor_a"
 
 /obj/item/retractor/advanced/examine()
 	. = ..()
-	. += span_notice("It resembles a [tool_behaviour == TOOL_RETRACTOR ? "retractor" : "hemostat"].")
+	. += "<hr>Находится в положении [tool_behaviour == TOOL_RETRACTOR ? "расширителя" : "зажима"]."
 
 /obj/item/shears
 	name = "ножницы для ампутации"
