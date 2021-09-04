@@ -404,7 +404,7 @@
 	// 2.
 	impacted[target] = TRUE		//hash lookup > in for performance in hit-checking
 	// 3.
-	if(ismob(target) && ishuman(firer))
+	if(ismob(target) && target != original && ishuman(firer))
 		var/mob/living/carbon/human/H = firer
 		if(H.mind)
 			if(!prob(25 + H.mind.get_skill_modifier(/datum/skill/ranged, SKILL_PROBS_MODIFIER)))

@@ -200,8 +200,8 @@
 					var/atom/throw_target = get_edge_target_turf(PBT, user.dir)
 					PBT.throw_at(throw_target, pb_knockback, 2)
 			else
-				user.visible_message(span_danger("<b>[user]</b> стреляет из <b>[src.name]</b>!"), \
-								span_danger("Стреляю из [src.name]!"), \
+				user.visible_message(span_danger("<b>[user]</b> стреляет из <b>[src.name]</b> в <b>[pbtarget]</b>!"), \
+								span_danger("Стреляю из [src.name] в <b>[pbtarget]</b>!"), \
 								span_hear("Слышу выстрел!"), COMBAT_MESSAGE_RANGE)
 
 /obj/item/gun/emp_act(severity)
