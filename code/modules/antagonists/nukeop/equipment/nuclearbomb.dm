@@ -489,13 +489,12 @@
 	//Cinematic
 	SSticker.mode.OnNukeExplosion(off_station)
 	really_actually_explode(off_station)
-	GrabDatFence(z) //https://youtu.be/xjatJ36cJvM?t=112
+	GrabDatFence(bomb_location.z) //https://youtu.be/xjatJ36cJvM?t=112
 	SSticker.roundend_check_paused = FALSE
 
 /obj/machinery/nuclearbomb/proc/really_actually_explode(off_station)
 	Cinematic(get_cinematic_type(off_station),world,CALLBACK(SSticker,/datum/controller/subsystem/ticker/proc/station_explosion_detonation,src))
 	//INVOKE_ASYNC(GLOBAL_PROC,.proc/KillEveryoneOnZLevel, z) //Эта хуйня не работает, меняю на свое.
-
 
 /obj/machinery/nuclearbomb/proc/GrabDatFence(nukez)
 	var/nukedstation = is_station_level(nukez)
@@ -505,7 +504,8 @@
 			continue
 		else if (!nukedstation && L.z != nukez)
 			continue
-		to_chat(L, span_userdanger("Сгораю в огне ядерного пламени, БЛЯДЬ!"))
+		L.say("ААААААААА!!!")
+		L.emote("agony")
 		L.adjustFireLoss(500)
 		L.set_species(/datum/species/skeleton)
 
