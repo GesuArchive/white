@@ -514,7 +514,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!L.client.played)
 		var/sound/S = sound(pick(ambientsounds))
 
-		S.repeat = TRUE
+		S.repeat = FALSE
 		S.channel = CHANNEL_AMBIENCE
 		S.wait = FALSE
 		S.volume = ambience_volume
