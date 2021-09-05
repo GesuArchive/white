@@ -176,14 +176,14 @@
 	flags_1 = NONE
 	ambience_index = AMBIENCE_DANGER
 	ambientsounds = HIGHSEC
+	base_lighting_alpha = 255
+	base_lighting_color = COLOR_WHITE
 	network_root_id = SYNDICATE_NETWORK_ROOT
 
 /area/syndicate_mothership/control
 	name = "Синдикат: Комната управления"
 	icon_state = "syndie-control"
 	static_lighting = FALSE
-	base_lighting_alpha = 255
-	base_lighting_color = COLOR_WHITE
 	network_root_id = SYNDICATE_NETWORK_ROOT
 
 /area/syndicate_mothership/elite_squad

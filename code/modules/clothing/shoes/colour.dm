@@ -4,6 +4,7 @@
 	greyscale_colors = "#545454#ffffff"
 	greyscale_config = /datum/greyscale_config/sneakers
 	greyscale_config_worn = /datum/greyscale_config/sneakers_worn
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/shoes/sneakers/black
 	name = "чёрные ботинки"
@@ -53,12 +54,14 @@
 	icon_state = "rain_bow"
 	greyscale_colors = null
 	greyscale_config = null
+	flags_1 = NONE
 
 /obj/item/clothing/shoes/sneakers/orange
 	name = "оранжевые ботинки"
 	greyscale_colors = "#eb7016#ffffff"
 	greyscale_config = /datum/greyscale_config/sneakers_orange
 	greyscale_config_worn = /datum/greyscale_config/sneakers_orange_worn
+	flags_1 = NONE
 
 /obj/item/clothing/shoes/sneakers/orange/attack_self(mob/user)
 	if (src.chained)

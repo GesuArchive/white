@@ -277,7 +277,10 @@
 /obj/item/clothing/head/flatcap
 	name = "кепка"
 	desc = "Рабочая мужская шапка."
-	icon_state = "flat_cap"
+	icon_state = "beret_flat"
+	greyscale_config = /datum/greyscale_config/beret
+	greyscale_config_worn = /datum/greyscale_config/beret/worn
+	greyscale_colors = "#8F7654"
 	inhand_icon_state = "detective"
 
 /obj/item/clothing/head/hunter
@@ -395,6 +398,9 @@
 	name = "французский берет"
 	desc = "Качественный берет, наполненный ароматом курящих, парящих парижан. По какой-то причине вы чувствуете себя менее склонным к военному конфликту."
 	icon_state = "beret"
+	greyscale_config = /datum/greyscale_config/beret
+	greyscale_config_worn = /datum/greyscale_config/beret/worn
+	greyscale_colors = "#972A2A"
 	dynamic_hair_suffix = ""
 
 /obj/item/clothing/head/frenchberet/equipped(mob/M, slot)

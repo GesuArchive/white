@@ -59,7 +59,10 @@ Contains:
 /obj/item/clothing/head/helmet/space/beret
 	name = "офицерский шлем"
 	desc = "Бронированный берет, обычно используемый офицерами спецопераций. Использует продвинутую технологию силового поля, что защищает голову от космоса."
+	greyscale_config = /datum/greyscale_config/beret_badge
+	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
 	icon_state = "beret_badge"
+	greyscale_colors = "#972A2A#F2F2F2"
 	dynamic_hair_suffix = "+generic"
 	dynamic_fhair_suffix = "+generic"
 	flags_inv = 0
