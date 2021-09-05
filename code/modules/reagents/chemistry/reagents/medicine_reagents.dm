@@ -1306,7 +1306,7 @@
 	. = TRUE
 
 /datum/reagent/medicine/metafactor
-	name = "Фактор Метобализма Митогенов"
+	name = "Фактор Метаболизма Митогенов"
 	enname = "Mitogen Metabolism Factor"
 	description = "This enzyme catalyzes the conversion of nutricious food into healing peptides."
 	metabolization_rate = 0.0625  * REAGENTS_METABOLISM //slow metabolism rate so the patient can self heal with food even after the troph has metabolized away for amazing reagent efficency.
