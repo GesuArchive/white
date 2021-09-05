@@ -125,16 +125,16 @@
 			//Always log attemped injections for admins
 			var/contained = reagents.log_list()
 			log_combat(src, L, "attempted to inject", addition="which had [contained]")
-			L.visible_message(span_danger("[acting_object] пытается inject [L]!") , \
-								span_userdanger("[acting_object] пытается inject you!"))
+			L.visible_message(span_danger("<b>[acting_object]</b> пытается пытается ввести что-то <b>[L]</b>!") , \
+								span_userdanger("<b>[acting_object]</b> пытается что-то мне ввести!"))
 			busy = TRUE
 			if(do_after(L, 20, target=src) && L.can_inject())
 				var/fraction = min(transfer_amount/reagents.total_volume, 1)
 				reagents.expose(L, INJECT, fraction)
 				reagents.trans_to(L, transfer_amount)
 				log_combat(src, L, "injected", addition="which had [contained]")
-				L.visible_message(span_danger("[acting_object] injects [L] with its needle!") , \
-									span_userdanger("[acting_object] injects you with its needle!"))
+				L.visible_message(span_danger("<b>[acting_object]</b> вводит что-то в <b>[L]</b> своей иглой!") , \
+									span_userdanger("<b>[acting_object]</b> вводит что-то в меня своей иглой!"))
 			else
 				busy = FALSE
 				activate_pin(3)
@@ -146,7 +146,7 @@
 
 	if(direction_mode == SYRINGE_DRAW)
 		if(reagents.total_volume >= reagents.maximum_volume)
-			acting_object.visible_message("[acting_object] tries to draw from [AM], but the injector is full.")
+			acting_object.visible_message("<b>[acting_object]</b> пытается взять жидкость из [AM], но инъектор полон.")
 			activate_pin(3)
 			return
 
@@ -154,16 +154,16 @@
 
 		if(isliving(AM) && !istype(assembly.loc, /obj/item/storage))
 			var/mob/living/L = AM
-			L.visible_message(span_danger("[acting_object] пытается take a blood sample from [L]!") , \
-								span_userdanger("[acting_object] пытается take a blood sample from you!"))
+			L.visible_message(span_danger("<b>[acting_object]</b> пытается взять кровь у <b>[L]</b>!") , \
+								span_userdanger("<b>[acting_object]</b> пытается взять кровь у меня!"))
 			busy = TRUE
 			if(do_after(L, 20, target=src) && L.can_inject())
 				if(L.transfer_blood_to(src, tramount))
-					L.visible_message(span_danger("[acting_object] takes a blood sample from [L]!") , \
-					span_userdanger("[acting_object] takes a blood sample from you!"))
+					L.visible_message(span_danger("<b>[acting_object]</b> берёт кровь у <b>[L]</b>!") , \
+					span_userdanger("<b>[acting_object]</b> берёт кровь у меня!"))
 				else
-					L.visible_message(span_warning("[acting_object] fails to take a blood sample from [L].") , \
-								span_userdanger("[acting_object] fails to take a blood sample from you!"))
+					L.visible_message(span_warning("<b>[acting_object]</b> не может взять кровь у <b>[L]</b>.") , \
+								span_userdanger("<b>[acting_object]</b> не может взять кровь меня!"))
 					busy = FALSE
 					activate_pin(3)
 					return
@@ -171,7 +171,7 @@
 
 		else
 			if(!AM.reagents.total_volume)
-				acting_object.visible_message(span_notice("[acting_object] tries to draw from [AM], but it is empty!"))
+				acting_object.visible_message(span_notice("<b>[acting_object]</b> пытается изъять жидкость из [AM], но там ничего нет!"))
 				activate_pin(3)
 				return
 
