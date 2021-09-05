@@ -113,6 +113,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 		greet()
 	apply_innate_effects()
 	give_antag_moodies()
+	set_antag_skills()
 	if(is_banned(owner.current) && replace_banned)
 		replace_banned_player()
 	else if(owner.current.client?.holder && (CONFIG_GET(flag/auto_deadmin_antagonists) || owner.current.client.prefs?.toggles & DEADMIN_ANTAGONIST))
@@ -159,6 +160,10 @@ GLOBAL_LIST_EMPTY(antagonists)
 
 /datum/antagonist/proc/farewell()
 	return
+
+/datum/antagonist/proc/set_antag_skills()
+	owner.set_experience(/datum/skill/ranged,  SKILL_EXP_MASTER, FALSE)
+	owner.set_experience(/datum/skill/surgery, SKILL_EXP_EXPERT, FALSE)
 
 /datum/antagonist/proc/give_antag_moodies()
 	if(!antag_moodlet)
