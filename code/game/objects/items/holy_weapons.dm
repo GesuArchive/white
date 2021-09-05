@@ -415,25 +415,25 @@
 	name = "light energy sword"
 	hitsound = 'sound/weapons/blade1.ogg'
 	icon = 'icons/obj/transforming_energy.dmi'
-	icon_state = "swordblue"
-	inhand_icon_state = "swordblue"
+	icon_state = "e_sword_on_blue"
+	inhand_icon_state = "e_sword_on_blue"
 	worn_icon_state = "swordblue"
 	slot_flags = ITEM_SLOT_BELT
 	desc = "If you strike me down, I shall become more robust than you can possibly imagine."
 
 /obj/item/nullrod/claymore/saber/red
 	name = "dark energy sword"
-	icon_state = "swordred"
-	inhand_icon_state = "swordred"
-	worn_icon_state = "swordred"
 	desc = "Woefully ineffective when used on steep terrain."
+	icon_state = "e_sword_on_red"
+	inhand_icon_state = "e_sword_on_red"
+	worn_icon_state = "swordred"
 
 /obj/item/nullrod/claymore/saber/pirate
 	name = "nautical energy sword"
-	icon_state = "cutlass1"
-	inhand_icon_state = "cutlass1"
-	worn_icon_state = "swordred"
 	desc = "Convincing HR that your religion involved piracy was no mean feat."
+	icon_state = "e_cutlass_on"
+	inhand_icon_state = "e_cutlass_on"
+	worn_icon_state = "swordred"
 
 /obj/item/nullrod/sord
 	name = "\improper UNREAL SORD"
