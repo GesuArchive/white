@@ -150,8 +150,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
  */
 /area/Initialize(mapload)
 	icon_state = ""
-	if(!ambientsounds)
-		ambientsounds = GLOB.ambience_assoc[ambience_index]
 
 	if(area_flags & AREA_USES_STARLIGHT)
 		static_lighting = CONFIG_GET(flag/starlight)
@@ -514,7 +512,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!L.client.played)
 		var/sound/S = sound(pick(ambientsounds))
 
-		S.repeat = FALSE
+		S.repeat = TRUE
 		S.channel = CHANNEL_AMBIENCE
 		S.wait = FALSE
 		S.volume = ambience_volume
