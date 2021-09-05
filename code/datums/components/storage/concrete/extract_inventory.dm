@@ -1,7 +1,7 @@
 /datum/component/storage/concrete/extract_inventory
 	max_combined_w_class = WEIGHT_CLASS_TINY * 3
 	max_items = 3
-	insert_preposition = "in"
+	insert_preposition = "в"
 //These need to be false in order for the extract's food to be unextractable
 //from the inventory
 	attack_hand_interact = FALSE
