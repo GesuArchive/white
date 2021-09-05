@@ -489,14 +489,14 @@
 	//Cinematic
 	SSticker.mode.OnNukeExplosion(off_station)
 	really_actually_explode(off_station)
-	GrabDatFence(bomb_location.z) //https://youtu.be/xjatJ36cJvM?t=112
+	grab_dat_fence(bomb_location.z) //https://youtu.be/xjatJ36cJvM?t=112
 	SSticker.roundend_check_paused = FALSE
 
 /obj/machinery/nuclearbomb/proc/really_actually_explode(off_station)
 	Cinematic(get_cinematic_type(off_station),world,CALLBACK(SSticker,/datum/controller/subsystem/ticker/proc/station_explosion_detonation,src))
 	//INVOKE_ASYNC(GLOBAL_PROC,.proc/KillEveryoneOnZLevel, z) //Эта хуйня не работает, меняю на свое.
 
-/obj/machinery/nuclearbomb/proc/GrabDatFence(nukez)
+/obj/machinery/nuclearbomb/proc/grab_dat_fence(nukez)
 	var/nukedstation = is_station_level(nukez)
 	for(var/i in GLOB.mob_living_list)
 		var/mob/living/L = i
