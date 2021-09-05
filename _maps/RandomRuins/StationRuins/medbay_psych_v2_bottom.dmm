@@ -1,187 +1,14 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
-/turf/template_noop,
-/area/template_noop)
-"c" = (
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/power/apc/auto_name/south,
-/obj/structure/cable,
-/turf/open/floor/plasteel/white,
-/area/medical/medbay/zone2)
-"d" = (
-/obj/machinery/light{
-	dir = 1;
-	pixel_y = 0
-	},
-/turf/open/floor/plasteel/monofloor/white,
-/area/medical/psychology)
-"e" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/carpet/blue,
-/area/medical/psychology)
-"f" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/plasteel/monofloor/white,
-/area/medical/psychology)
-"g" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 4
-	},
-/turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay/zone2)
-"h" = (
-/obj/structure/chair/sofa/right{
-	dir = 8
-	},
-/obj/item/toy/plush/moth,
-/turf/open/floor/carpet/blue,
-/area/medical/psychology)
-"j" = (
-/obj/machinery/light,
-/obj/machinery/power/apc/auto_name/south,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/turf/open/floor/carpet/blue,
-/area/medical/psychology)
-"k" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/plasteel/white,
-/area/medical/medbay/zone2)
-"l" = (
-/obj/structure/closet/secure_closet/psychology,
-/turf/open/floor/plasteel/monofloor/white,
-/area/medical/psychology)
-"m" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
-/turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay/zone2)
-"n" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plating,
-/area/medical/psychology)
-"o" = (
-/obj/structure/table/wood,
-/obj/item/paper_bin/carbon,
-/obj/item/pen,
-/obj/item/radio/intercom{
-	pixel_y = -35
-	},
-/turf/open/floor/plasteel/monofloor/white,
-/area/medical/psychology)
-"p" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 10
-	},
-/obj/structure/table,
-/obj/item/stack/ducts/fifty,
-/obj/item/stack/ducts/fifty,
-/obj/item/stack/ducts/fifty,
-/obj/item/stack/ducts/fifty,
-/obj/item/plunger,
-/turf/open/floor/plasteel/white,
-/area/medical/medbay/zone2)
-"q" = (
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/item/radio/intercom{
-	pixel_y = -35
-	},
-/turf/open/floor/plasteel/white,
-/area/medical/medbay/zone2)
-"r" = (
+"bt" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
 	name = "Medbay Maintenance";
 	req_access_txt = "5"
 	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/locked,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /turf/open/floor/plating,
-/area/medical/psychology)
-"s" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay/zone2)
-"t" = (
-/obj/structure/ladder,
-/turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay/zone2)
-"u" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 8
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = -24
-	},
-/turf/open/floor/plasteel/white,
-/area/medical/medbay/zone2)
-"v" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay/zone2)
-"w" = (
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/plasteel/white,
-/area/medical/medbay/zone2)
-"x" = (
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/airalarm{
-	dir = 1;
-	pixel_y = -23
-	},
-/obj/machinery/light,
-/turf/open/floor/plasteel/white,
-/area/medical/medbay/zone2)
-"y" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/carpet/blue,
-/area/medical/psychology)
-"z" = (
+/area/medical/chemistry)
+"cd" = (
 /obj/machinery/firealarm/directional/east,
 /obj/structure/chair/sofa{
 	dir = 8
@@ -194,38 +21,110 @@
 	},
 /turf/open/floor/carpet/blue,
 /area/medical/psychology)
-"A" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 1
+"ee" = (
+/obj/structure/filingcabinet,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/psychology)
+"em" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/item/radio/intercom{
+	pixel_y = -35
 	},
+/turf/open/floor/plasteel/white,
+/area/medical/medbay/zone2)
+"fa" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/psychology)
+"fc" = (
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plasteel/white,
-/area/medical/medbay/zone2)
-"B" = (
-/turf/closed/wall/r_wall,
+/turf/open/floor/plating,
 /area/medical/psychology)
-"C" = (
+"fE" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -30
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"ge" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"gL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet/blue,
+/area/medical/psychology)
+"hj" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/obj/structure/table,
+/obj/item/stack/ducts/fifty,
+/obj/item/stack/ducts/fifty,
+/obj/item/stack/ducts/fifty,
+/obj/item/stack/ducts/fifty,
+/obj/item/stack/ducts/fifty,
+/obj/item/plunger,
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"hG" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/zone2)
-"D" = (
-/obj/machinery/door/airlock/medical/glass{
-	name = "Chemistry Storage";
-	req_access_txt = "33"
+"ir" = (
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/chemistry)
+"iW" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
 	},
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
+/obj/machinery/light{
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/sign/departments/chemistry{
+	pixel_y = 32
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
-"E" = (
+"jI" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 8
+	},
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = -24
+	},
+/obj/structure/stairs/north,
+/turf/open/floor/plasteel/white,
+/area/medical/medbay/zone2)
+"jN" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
+	},
+/obj/machinery/vending/wardrobe/chem_wardrobe,
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"lX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
@@ -239,34 +138,120 @@
 	name = "Medbay RC";
 	pixel_x = -30
 	},
+/obj/structure/railing,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
-"F" = (
-/turf/closed/wall/r_wall,
+"ob" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/obj/structure/railing,
+/turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/zone2)
-"G" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
+"oe" = (
+/obj/machinery/atmospherics/components/unary/cryo_cell,
 /obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 6
+	dir = 1
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
-"I" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
+"oH" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/medbay/zone2)
+"pt" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
 	},
-/obj/structure/cable,
-/obj/structure/bookcase/random/reference,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/medbay/zone2)
+"pR" = (
+/obj/structure/table/wood,
+/obj/machinery/computer/med_data/laptop{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/white,
 /area/medical/psychology)
-"J" = (
+"qp" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 9
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/plasteel/white,
+/area/medical/medbay/zone2)
+"qT" = (
+/obj/structure/closet/secure_closet/psychology,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/psychology)
+"ru" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/structure/table/glass,
+/obj/item/storage/box/beakers{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/dropper,
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"sl" = (
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"su" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/medbay/zone2)
+"sS" = (
+/obj/machinery/airalarm{
+	pixel_y = 23
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"tG" = (
+/turf/closed/wall/r_wall,
+/area/medical/psychology)
+"tI" = (
+/turf/template_noop,
+/area/template_noop)
+"uk" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/medbay/zone2)
+"uR" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/airalarm{
+	dir = 1;
+	pixel_y = -23
+	},
+/obj/machinery/light,
+/turf/open/floor/plasteel/white,
+/area/medical/medbay/zone2)
+"vQ" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
 	},
 /obj/structure/table,
 /obj/item/storage/toolbox/mechanical{
@@ -276,27 +261,254 @@
 /obj/item/construction/plumbing{
 	pixel_y = -10
 	},
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = -24
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"vY" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
+	},
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/machinery/airalarm{
+	dir = 8;
+	pixel_x = 23
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"xl" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/chemistry)
+"xH" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/plasteel/white,
+/area/medical/medbay/zone2)
+"xJ" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/north,
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"xM" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/item/radio/intercom{
+	pixel_y = -35
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"ys" = (
+/obj/machinery/holopad,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/medbay/zone2)
+"yu" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/chem_dispenser,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 5;
+	pixel_y = 30
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"yL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 6
+	},
+/obj/structure/table/glass,
+/obj/item/wrench/medical{
+	pixel_x = -6;
+	pixel_y = 13
+	},
+/obj/item/reagent_containers/glass/beaker/cryoxadone{
+	pixel_x = 7;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/glass/beaker/cryoxadone{
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/glass/beaker/cryoxadone{
+	pixel_x = 7;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/glass/beaker/cryoxadone{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/storage/pill_bottle/mannitol{
+	pixel_y = -3
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
-"K" = (
-/obj/structure/filingcabinet,
+"zM" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/structure/railing{
+	dir = 8
+	},
 /turf/open/floor/plasteel/monofloor/white,
-/area/medical/psychology)
-"L" = (
-/obj/machinery/atmospherics/components/unary/cryo_cell,
+/area/medical/medbay/zone2)
+"AP" = (
+/obj/machinery/atmospherics/components/unary/portables_connector/visible,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/item/wrench/medical,
 /obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/camera/autoname,
+/turf/open/floor/plasteel/white,
+/area/medical/medbay/zone2)
+"AQ" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/chem_heater,
+/obj/machinery/camera{
+	c_tag = "Chemistry Lab North";
+	network = list("ss13","medbay")
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"Ca" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"Cb" = (
+/turf/closed/wall/r_wall,
+/area/medical/chemistry)
+"Cx" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 8
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"CE" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/chemistry)
+"CT" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"Df" = (
+/obj/structure/stairs/north,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/medbay/zone2)
+"EH" = (
+/obj/machinery/light,
+/obj/machinery/power/apc/auto_name/south,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/carpet/blue,
+/area/medical/psychology)
+"EO" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/railing/corner{
 	dir = 1
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
-"M" = (
+"Fb" = (
+/turf/closed/wall/r_wall,
+/area/medical/medbay/zone2)
+"Fd" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"Fm" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"FW" = (
+/obj/machinery/airalarm{
+	dir = 8;
+	pixel_x = 23
+	},
+/obj/structure/chair/sofa/left{
+	dir = 8
+	},
 /turf/open/floor/carpet/blue,
 /area/medical/psychology)
-"N" = (
+"Hp" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/power/apc/auto_name/south,
+/obj/structure/cable,
+/turf/open/floor/plasteel/white,
+/area/medical/medbay/zone2)
+"HV" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/chemistry)
+"JJ" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"JK" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin/carbon,
+/obj/item/pen,
+/obj/item/radio/intercom{
+	pixel_y = -35
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/psychology)
+"LR" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/light,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"No" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -307,54 +519,56 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
-"O" = (
+"Nx" = (
+/obj/structure/chair/sofa/right{
+	dir = 8
+	},
+/obj/item/toy/plush/moth,
+/turf/open/floor/carpet/blue,
+/area/medical/psychology)
+"Ob" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 5
+	dir = 1
 	},
-/obj/machinery/light/small{
-	dir = 1;
-	pixel_y = 0
-	},
-/obj/structure/sign/departments/chemistry{
-	pixel_y = 32
-	},
-/obj/machinery/airalarm{
-	dir = 8;
-	pixel_x = 23
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/chem_mass_spec,
 /turf/open/floor/plasteel/white,
-/area/medical/medbay/zone2)
-"P" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 5
+/area/medical/chemistry)
+"Oe" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/chemistry)
+"Pe" = (
+/obj/machinery/holopad,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/chemistry)
+"Pk" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -5;
+	pixel_y = 30
 	},
-/obj/machinery/light{
-	dir = 4
+/obj/structure/chair/office/light{
+	dir = 8
 	},
+/obj/effect/landmark/start/psychologist,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/psychology)
+"Qg" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plasteel/white,
-/area/medical/medbay/zone2)
-"Q" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/carpet/blue,
+/obj/structure/cable,
+/obj/structure/bookcase/random/reference,
+/turf/open/floor/plating,
 /area/medical/psychology)
-"R" = (
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plasteel/white,
-/area/medical/medbay/zone2)
-"S" = (
-/obj/structure/table/wood,
-/obj/machinery/computer/med_data/laptop{
-	dir = 4
+"Qn" = (
+/obj/structure/chair/office/light{
+	dir = 1
 	},
+/obj/effect/landmark/start/chemist,
 /turf/open/floor/plasteel/monofloor/white,
-/area/medical/psychology)
-"T" = (
+/area/medical/chemistry)
+"RC" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
@@ -364,17 +578,63 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
-"U" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible,
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/item/wrench/medical,
+"RS" = (
+/obj/machinery/door/airlock/medical/glass{
+	name = "Chemistry Storage";
+	req_access_txt = "33"
+	},
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"RU" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/carpet/blue,
+/area/medical/psychology)
+"Sl" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/psychology)
+"SA" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"SX" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/machinery/camera/autoname,
+/obj/structure/table,
+/obj/machinery/reagentgrinder,
+/obj/item/stack/sheet/mineral/plasma,
 /turf/open/floor/plasteel/white,
-/area/medical/medbay/zone2)
-"V" = (
+/area/medical/chemistry)
+"Te" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/machinery/chem_master,
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
+"To" = (
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/psychology)
+"Ud" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -395,1406 +655,1396 @@
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/psychology)
-"W" = (
-/turf/open/floor/plasteel/monofloor/white,
-/area/medical/psychology)
-"X" = (
-/obj/machinery/airalarm{
-	dir = 8;
-	pixel_x = 23
-	},
-/obj/structure/chair/sofa/left{
+"VX" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/carpet/blue,
 /area/medical/psychology)
-"Y" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -5;
-	pixel_y = 30
+"WM" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	name = "Medbay Maintenance";
+	req_access_txt = "5"
 	},
-/obj/structure/chair/office/light{
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/effect/landmark/start/psychologist,
-/turf/open/floor/plasteel/monofloor/white,
-/area/medical/psychology)
-"Z" = (
-/obj/structure/table/glass,
-/obj/item/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 7;
-	pixel_y = 9
-	},
-/obj/item/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 7;
-	pixel_y = 1
-	},
-/obj/item/reagent_containers/glass/beaker/cryoxadone{
-	pixel_y = 1
-	},
-/obj/item/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = -7;
-	pixel_y = 1
-	},
-/obj/item/wrench/medical,
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
 	},
-/obj/item/storage/pill_bottle/mannitol{
-	pixel_y = 10
+/turf/open/floor/plating,
+/area/medical/psychology)
+"Xd" = (
+/obj/machinery/holopad,
+/turf/open/floor/carpet/blue,
+/area/medical/psychology)
+"YD" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
 	},
-/obj/effect/turf_decal/tile/blue,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
+"Zd" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/medbay/zone2)
+"Zp" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/chemistry)
 
 (1,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (2,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+Cb
+Cb
+Cb
+Cb
+Cb
+Cb
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (3,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+Cb
+jN
+Cx
+Cx
+Ca
+bt
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (4,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+Cb
+sS
+ir
+ir
+ge
+Cb
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (5,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+Cb
+Zp
+ir
+ir
+Fd
+Cb
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (6,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+Cb
+xJ
+xl
+xl
+LR
+Cb
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (7,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+Cb
+Ob
+Pe
+ir
+fE
+Cb
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (8,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+Cb
+ru
+ir
+HV
+CT
+Cb
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (9,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+Cb
+AQ
+ir
+ir
+xM
+Cb
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (10,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-F
-F
-F
-F
-F
-F
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+Cb
+yu
+Qn
+ir
+CT
+Cb
+Fb
+Fb
+Fb
+Fb
+Fb
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (11,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-F
-N
-E
-u
-Z
-F
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+Cb
+Te
+ir
+ir
+sl
+Cb
+No
+lX
+jI
+YD
+Fb
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (12,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-F
-U
-m
-t
-q
-F
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+Cb
+SX
+Oe
+CE
+CT
+Cb
+AP
+ob
+Df
+em
+Fb
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (13,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-F
-L
-m
-C
-R
-F
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+Cb
+vQ
+hj
+SA
+CT
+Cb
+oe
+su
+zM
+EO
+Fb
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (14,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-F
-F
-F
-F
-T
-m
-g
-x
-F
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+Cb
+Cb
+Cb
+Zp
+CT
+Cb
+RC
+oH
+pt
+uR
+Fb
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (15,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-F
-J
-p
-F
-L
-m
-s
-c
-F
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+Cb
+JJ
+CT
+Cb
+oe
+oH
+uk
+Hp
+Fb
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (16,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-F
-O
-k
-D
-A
-C
-C
-w
-F
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+Cb
+vY
+Fm
+RS
+qp
+Zd
+ys
+xH
+Fb
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (17,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-B
-B
-B
-B
-P
-v
-v
-G
-F
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tG
+tG
+tG
+tG
+iW
+hG
+hG
+yL
+Fb
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (18,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-B
-S
-o
-B
-B
-V
-B
-B
-B
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tG
+pR
+JK
+tG
+tG
+Ud
+tG
+tG
+tG
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (19,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-B
-Y
-f
-Q
-Q
-e
-I
-n
-B
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tG
+Pk
+fa
+gL
+gL
+VX
+Qg
+fc
+tG
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (20,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-B
-d
-W
-M
-y
-j
-B
-r
-B
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tG
+Sl
+To
+Xd
+RU
+EH
+tG
+WM
+tG
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (21,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-B
-K
-l
-h
-z
-X
-B
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tG
+ee
+qT
+Nx
+cd
+FW
+tG
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (22,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-B
-B
-B
-B
-B
-B
-B
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tG
+tG
+tG
+tG
+tG
+tG
+tG
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (23,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (24,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (25,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (26,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (27,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (28,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (29,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (30,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (31,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
 (32,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
+tI
 "}
