@@ -6,7 +6,7 @@
 /datum/blackmarket_item/melee/energy/esword
 	name = "Случайное энергетическое оружие ближнего боя"
 	desc = "При заказе вам будет выдано случайное энергетическое оружие ближнего боя"
-	item = /obj/item/melee/transforming/energy/sword
+	item = /obj/item/melee/energy/sword
 
 	price_min = 5000
 	price_max = 20000
@@ -15,15 +15,15 @@
 	availability_prob = 100
 
 /datum/blackmarket_item/melee/energy/esword/spawn_item(loc)
-	var/esword = pick(list(/obj/item/melee/transforming/energy/sword,
-			/obj/item/melee/transforming/energy/sword/saber/red,
-			/obj/item/melee/transforming/energy/sword/saber/blue,
-			/obj/item/melee/transforming/energy/sword/saber/green,
-			/obj/item/melee/transforming/energy/sword/saber/purple,
-			/obj/item/melee/transforming/energy/sword/bananium,
-			/obj/item/melee/transforming/energy/sword/pirate,
-			/obj/item/melee/transforming/energy/blade,
-			/obj/item/melee/transforming/energy/blade/hardlight,
+	var/esword = pick(list(/obj/item/melee/energy/sword,
+			/obj/item/melee/energy/sword/saber/red,
+			/obj/item/melee/energy/sword/saber/blue,
+			/obj/item/melee/energy/sword/saber/green,
+			/obj/item/melee/energy/sword/saber/purple,
+			/obj/item/melee/energy/sword/bananium,
+			/obj/item/melee/energy/sword/pirate,
+			/obj/item/melee/energy/blade,
+			/obj/item/melee/energy/blade/hardlight,
 			/obj/item/dualsaber))
 	return new esword(loc)
 */
