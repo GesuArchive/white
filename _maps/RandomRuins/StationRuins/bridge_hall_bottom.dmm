@@ -11,7 +11,7 @@
 "av" = (
 /obj/machinery/holopad,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "ax" = (
 /obj/machinery/light,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -110,7 +110,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "ca" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -163,14 +163,14 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "df" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "dj" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Central Access"
@@ -198,7 +198,7 @@
 /obj/machinery/door/firedoor/border_only,
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "dC" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -247,7 +247,7 @@
 	dir = 10
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "ea" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -266,14 +266,14 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "ee" = (
 /turf/closed/wall/r_wall,
 /area/engine/gravity_generator)
 "eu" = (
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "ex" = (
 /obj/machinery/light_switch/directional/west,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -283,18 +283,11 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "eH" = (
 /obj/machinery/photocopier,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/heads/hop)
-"eJ" = (
-/obj/machinery/airalarm{
-	pixel_y = 23
-	},
-/obj/structure/closet/firecloset,
-/turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
 "eK" = (
 /obj/machinery/vending/cigarette,
 /turf/open/floor/wood,
@@ -336,7 +329,7 @@
 	pixel_x = -12
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "fY" = (
 /obj/structure/cable,
 /obj/machinery/light_switch/directional/south,
@@ -350,7 +343,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "gb" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -423,7 +416,7 @@
 "gG" = (
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "gO" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -438,7 +431,7 @@
 /obj/machinery/door/firedoor/border_only,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "gY" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -470,7 +463,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "hG" = (
 /obj/structure/table,
 /obj/machinery/recharger,
@@ -546,7 +539,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "im" = (
 /obj/machinery/light{
 	dir = 4
@@ -616,7 +609,7 @@
 "km" = (
 /obj/effect/spawner/randomcolavend,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "ks" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -641,7 +634,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "kN" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/structure/closet/emcloset,
@@ -670,6 +663,10 @@
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/heads/hop)
+"lL" = (
+/obj/structure/sign/poster/random,
+/turf/closed/wall/r_wall,
+/area/bridge/meeting_room)
 "lN" = (
 /obj/structure/stairs/south,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -682,7 +679,13 @@
 	icon_state = "vomit_4-old"
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
+"ma" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/bridge/meeting_room/council)
 "md" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -693,7 +696,7 @@
 	},
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "mm" = (
 /obj/machinery/airalarm{
 	dir = 8;
@@ -752,7 +755,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "nk" = (
 /obj/structure/table,
 /obj/item/stack/package_wrap{
@@ -778,13 +781,13 @@
 	},
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "nD" = (
 /obj/structure/chair/sofa/corp{
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "nX" = (
 /obj/structure/stairs/south{
 	dir = 1
@@ -809,7 +812,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "ot" = (
 /obj/structure/cable,
 /obj/item/radio/intercom/directional/south{
@@ -861,7 +864,11 @@
 	pixel_y = 2
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
+"pg" = (
+/obj/structure/sign/poster/random,
+/turf/closed/wall/r_wall,
+/area/maintenance/bottom_station_maints)
 "pv" = (
 /obj/structure/table/wood,
 /obj/item/hand_tele,
@@ -900,13 +907,13 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "ql" = (
 /obj/effect/decal/cleanable/vomit/old{
 	icon_state = "vomit_2-old"
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "qm" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -941,7 +948,7 @@
 	pixel_y = 16
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "rc" = (
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -1089,7 +1096,7 @@
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal/bin,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "tf" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -1147,7 +1154,7 @@
 	dir = 5
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "tX" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
@@ -1213,7 +1220,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "uI" = (
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
@@ -1304,7 +1311,7 @@
 "vS" = (
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "vV" = (
 /obj/structure/table/wood,
 /obj/item/camera,
@@ -1332,6 +1339,11 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
+"we" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/north,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/bridge/meeting_room/council)
 "wr" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
@@ -1349,7 +1361,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "wN" = (
 /obj/machinery/holopad,
 /obj/effect/mapping_helpers/ianbirthday,
@@ -1364,7 +1376,7 @@
 /obj/machinery/holopad,
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "xX" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -1590,7 +1602,7 @@
 	},
 /obj/structure/extinguisher_cabinet/directional/south,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Bs" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -1600,6 +1612,10 @@
 /obj/item/pen,
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
+"BD" = (
+/obj/structure/sign/poster/random,
+/turf/closed/wall/r_wall,
+/area/engine/gravity_generator)
 "BN" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -1613,6 +1629,9 @@
 /obj/machinery/holopad,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central)
+"Ck" = (
+/turf/closed/wall/r_wall,
+/area/bridge/meeting_room/council)
 "Cl" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -1641,7 +1660,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "CK" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -1660,7 +1679,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "CS" = (
 /obj/machinery/light,
 /obj/machinery/airalarm{
@@ -1716,7 +1735,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Ds" = (
 /obj/structure/closet/firecloset,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -1766,7 +1785,7 @@
 "Er" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "EN" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -1774,15 +1793,16 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/heads/hop)
-"Ft" = (
-/turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
 "Fv" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/template_noop,
 /area/template_noop)
+"FG" = (
+/obj/structure/sign/poster/random,
+/turf/closed/wall/r_wall,
+/area/hallway/primary/central)
 "FI" = (
 /obj/structure/stairs/south,
 /obj/machinery/camera/autoname{
@@ -1803,11 +1823,11 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "FT" = (
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -1819,7 +1839,7 @@
 	dir = 5
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Gr" = (
 /obj/structure/ladder,
 /obj/machinery/light_switch{
@@ -1892,7 +1912,7 @@
 /obj/structure/closet/emcloset,
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "HW" = (
 /obj/machinery/holopad,
 /obj/structure/disposalpipe/segment{
@@ -2016,7 +2036,7 @@
 	icon_state = "vomit_1-old"
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Kp" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -2029,7 +2049,7 @@
 	dir = 5
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Kq" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -2043,7 +2063,7 @@
 "KA" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Lw" = (
 /obj/structure/stairs/south,
 /turf/open/floor/plasteel/dark,
@@ -2070,7 +2090,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "LJ" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/bottle/cognac{
@@ -2094,7 +2114,7 @@
 	pixel_y = 2
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "LL" = (
 /obj/structure/cable,
 /obj/machinery/airalarm{
@@ -2110,7 +2130,7 @@
 	icon_state = "vomit_4-old"
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "LP" = (
 /turf/closed/wall/r_wall,
 /area/bridge/meeting_room)
@@ -2121,7 +2141,7 @@
 "LU" = (
 /obj/effect/spawner/randomsnackvend,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Mf" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/northleft{
@@ -2162,9 +2182,8 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central)
 "MN" = (
-/obj/structure/closet/emcloset,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Nh" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -2182,7 +2201,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Nz" = (
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge";
@@ -2202,7 +2221,7 @@
 "ND" = (
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "NF" = (
 /obj/effect/turf_decal/bot_white/left,
 /obj/effect/turf_decal/tile/neutral{
@@ -2231,7 +2250,7 @@
 	},
 /obj/structure/extinguisher_cabinet/directional/south,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Od" = (
 /obj/structure/table,
 /obj/item/paper_bin/carbon{
@@ -2257,7 +2276,11 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
+"OF" = (
+/obj/structure/sign/poster/random,
+/turf/closed/wall/r_wall,
+/area/crew_quarters/heads/captain)
 "OK" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -2280,7 +2303,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Pb" = (
 /obj/machinery/light{
 	dir = 8
@@ -2290,6 +2313,17 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/crew_quarters/heads/hop)
+"Pd" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "19"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "Pf" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
@@ -2303,7 +2337,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Pq" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -2332,7 +2366,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "PP" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -2370,7 +2404,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Qj" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -2430,7 +2464,7 @@
 /obj/machinery/firealarm/directional/south,
 /obj/machinery/holopad,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Rk" = (
 /obj/machinery/camera/autoname{
 	dir = 8
@@ -2473,7 +2507,7 @@
 "Si" = (
 /obj/structure/closet/firecloset,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Sm" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -2484,7 +2518,7 @@
 	},
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Sq" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -2497,7 +2531,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "SD" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -2548,12 +2582,17 @@
 /area/hallway/primary/central)
 "Tn" = (
 /obj/item/radio/intercom/directional/north,
+/obj/structure/closet/emcloset,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Ts" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central)
+"Tv" = (
+/obj/structure/sign/poster/random,
+/turf/closed/wall/r_wall,
+/area/teleporter)
 "TL" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -2631,7 +2670,7 @@
 	pixel_y = 3
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Vf" = (
 /obj/machinery/airalarm{
 	dir = 1;
@@ -2678,8 +2717,11 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/airalarm{
+	pixel_y = 23
+	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "VH" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -2714,6 +2756,10 @@
 	},
 /turf/open/floor/plating,
 /area/hallway/primary/central)
+"VX" = (
+/obj/structure/sign/poster/random,
+/turf/closed/wall/r_wall,
+/area/bridge/meeting_room/council)
 "VY" = (
 /turf/template_noop,
 /area/template_noop)
@@ -2743,7 +2789,7 @@
 	pixel_x = -13
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Wd" = (
 /obj/machinery/airalarm{
 	dir = 4;
@@ -2791,13 +2837,14 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+/obj/effect/landmark/blobstart,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "WL" = (
 /obj/machinery/modular_computer/console/preset/command,
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "WM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -2826,7 +2873,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Xh" = (
 /obj/structure/closet/secure_closet/hop,
 /turf/open/floor/carpet,
@@ -2841,7 +2888,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Xt" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green{
@@ -2854,7 +2901,7 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "XB" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -2975,11 +3022,11 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Za" = (
 /obj/item/radio/intercom/directional/west,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Zb" = (
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/tile/neutral{
@@ -3033,7 +3080,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "Zs" = (
 /obj/structure/chair/office,
 /obj/machinery/button/ticket_machine{
@@ -3078,7 +3125,7 @@
 	dir = 10
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/bridge)
+/area/bridge/meeting_room/council)
 "ZC" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -3108,26 +3155,26 @@ VY
 VY
 VY
 VY
-ZW
+Ck
 Xw
 Xw
 Xw
-ZW
-Xw
-Xw
-Xw
-Xw
-ZW
-ZW
+Ck
 Xw
 Xw
 Xw
 Xw
-ZW
+Ck
+Ck
 Xw
 Xw
 Xw
-ZW
+Xw
+Ck
+Xw
+Xw
+Xw
+Ck
 VY
 VY
 VY
@@ -3147,24 +3194,24 @@ VY
 VY
 VY
 Xw
-Ft
-Ft
+MN
+MN
 Oy
 Za
-Ft
-Ft
+MN
+MN
 av
-Ft
+MN
 hZ
-Ft
+MN
 Qc
-Ft
-Ft
+MN
+MN
 ny
 vS
-Ft
+MN
 Qc
-Ft
+MN
 Xw
 VY
 VY
@@ -3184,7 +3231,7 @@ VY
 mN
 mN
 mN
-mN
+Tv
 Cv
 qj
 qj
@@ -3203,7 +3250,7 @@ qj
 qj
 qj
 bU
-LP
+lL
 DJ
 LP
 VY
@@ -3227,7 +3274,7 @@ Zg
 LG
 lP
 CM
-Vv
+OF
 Vv
 Vv
 Vv
@@ -3236,10 +3283,10 @@ Eg
 Vv
 Vv
 Vv
-Vv
+OF
 Si
-Ft
-Ft
+MN
+MN
 qj
 LP
 Os
@@ -3353,7 +3400,7 @@ cx
 Vv
 sZ
 Gg
-Ft
+MN
 qj
 LP
 hO
@@ -3374,9 +3421,9 @@ VY
 mN
 mN
 mN
-mN
+Tv
 qj
-Ft
+MN
 LJ
 nD
 Vv
@@ -3391,7 +3438,7 @@ Vf
 Vv
 LU
 ne
-Ft
+MN
 uE
 LP
 LP
@@ -3433,8 +3480,8 @@ df
 cX
 gO
 Kp
-ZW
-ZW
+Ck
+Ck
 VY
 VY
 VY
@@ -3447,7 +3494,7 @@ VY
 VY
 VY
 VY
-Ft
+MN
 qj
 gG
 UL
@@ -3455,7 +3502,7 @@ UL
 UL
 UL
 UL
-Vv
+OF
 Vv
 Vv
 Vv
@@ -3464,7 +3511,7 @@ vk
 Vv
 Vv
 Vv
-Vv
+OF
 UL
 UL
 UL
@@ -3472,7 +3519,7 @@ UL
 UL
 dV
 tV
-ZW
+Ck
 VY
 VY
 VY
@@ -3485,9 +3532,9 @@ VY
 VY
 VY
 VY
-Ft
+we
 qj
-Ft
+MN
 VW
 kN
 hW
@@ -3510,7 +3557,7 @@ Yk
 VW
 KA
 fY
-ZW
+Ck
 VY
 VY
 VY
@@ -3525,7 +3572,7 @@ VY
 VY
 Er
 qj
-Ft
+MN
 VW
 ys
 gv
@@ -3546,9 +3593,9 @@ Cm
 Gw
 bL
 VW
-Ft
+MN
 oq
-ZW
+Ck
 VY
 VY
 VY
@@ -3586,7 +3633,7 @@ bL
 VW
 Er
 Dj
-ZW
+Ck
 VY
 VY
 VY
@@ -3599,7 +3646,7 @@ VY
 VY
 VY
 VY
-Ft
+MN
 qj
 eD
 UL
@@ -3624,7 +3671,7 @@ bL
 VW
 av
 Sq
-ZW
+Ck
 VY
 VY
 VY
@@ -3639,7 +3686,7 @@ VY
 Yq
 VB
 qj
-Ft
+MN
 VW
 IX
 pa
@@ -3660,9 +3707,9 @@ Hh
 Hh
 TL
 VW
-Ft
+MN
 NH
-ZW
+Ck
 VY
 VY
 VY
@@ -3674,8 +3721,8 @@ VY
 VY
 VY
 VY
-Yq
-eJ
+Pd
+MN
 qj
 MN
 VW
@@ -3698,9 +3745,9 @@ Hh
 TL
 IX
 VW
-Ft
+MN
 Sq
-ZW
+Ck
 VY
 VY
 VY
@@ -3713,10 +3760,10 @@ VY
 VY
 VY
 UL
-ZW
+Ck
 Pu
-ZW
-UL
+Ck
+FG
 TY
 IX
 IX
@@ -3735,11 +3782,11 @@ mq
 mq
 IX
 ax
-UL
-ZW
+FG
+Ck
 WW
-ZW
-ZW
+VX
+Ck
 VY
 VY
 "}
@@ -3864,11 +3911,11 @@ VY
 VY
 VY
 VY
-ZW
-ZW
+Ck
+Ck
 Pu
-ZW
-UL
+Ck
+FG
 RR
 QP
 QP
@@ -3902,7 +3949,7 @@ VY
 VY
 VY
 VY
-ZW
+Ck
 Si
 qj
 MN
@@ -3940,7 +3987,7 @@ VY
 VY
 VY
 VY
-ZW
+Ck
 Tn
 qj
 eD
@@ -3978,7 +4025,7 @@ VY
 VY
 VY
 VY
-ZW
+Ck
 qU
 md
 Ri
@@ -4016,7 +4063,7 @@ VY
 VY
 VY
 VY
-ZW
+Ck
 YV
 qj
 Ph
@@ -4054,10 +4101,10 @@ VY
 VY
 VY
 VY
-ZW
-VB
+Ck
+ma
 qj
-Ft
+MN
 VW
 IX
 IX
@@ -4092,10 +4139,10 @@ VY
 VY
 VY
 VY
-ZW
+Ck
 eu
 qj
-Ft
+MN
 VW
 MK
 IX
@@ -4141,20 +4188,20 @@ tX
 tX
 UL
 UL
-UL
+FG
 UL
 UL
 sx
 UL
 Pf
-UL
+FG
 Pf
 UL
 Pf
 Pf
 Pf
 UL
-XD
+pg
 aG
 XD
 JW
@@ -4335,7 +4382,7 @@ ee
 ee
 ee
 ee
-ee
+BD
 qh
 ZW
 ZW
