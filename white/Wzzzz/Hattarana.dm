@@ -730,7 +730,7 @@
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	clothing_flags = STOPSPRESSUREDAMAGE
 	w_class = WEIGHT_CLASS_HUGE
-	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
+	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	armor = list("melee" = 30, "bullet" = 20, "laser" = 20,"energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 100, "fire" = 80, "acid" = 85)
 
 /obj/item/clothing/suit/space/secger
@@ -986,7 +986,7 @@
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	clothing_flags = STOPSPRESSUREDAMAGE
 	w_class = WEIGHT_CLASS_HUGE
-	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
+	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 30,"energy" = 40, "bomb" = 40, "bio" = 100, "rad" = 10, "fire" = 80, "acid" = 50)
 
 /obj/item/clothing/suit/space/eng
@@ -1001,7 +1001,7 @@
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	clothing_flags = STOPSPRESSUREDAMAGE
 	w_class = WEIGHT_CLASS_HUGE
-	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
+	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	armor = list("melee" = 20, "bullet" = 20, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 100, "rad" = 100, "fire" = 80, "acid" = 50)
 
 /obj/item/clothing/head/helmet/space/sec
@@ -1598,7 +1598,7 @@
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	clothing_flags = STOPSPRESSUREDAMAGE
 	w_class = WEIGHT_CLASS_HUGE
-	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
+	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 0, "fire" = 60, "acid" = 60)
 
 /obj/item/clothing/suit/space/skrell_suit_white
@@ -1613,7 +1613,7 @@
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	clothing_flags = STOPSPRESSUREDAMAGE
 	w_class = WEIGHT_CLASS_HUGE
-	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
+	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 0, "fire" = 60, "acid" = 60)
 
 /obj/item/clothing/suit/forensics_blue
@@ -1654,7 +1654,7 @@
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	clothing_flags = STOPSPRESSUREDAMAGE
 	w_class = WEIGHT_CLASS_HUGE
-	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
+	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 0, "fire" = 60, "acid" = 60)
 
 /obj/item/clothing/suit/blueponcho
