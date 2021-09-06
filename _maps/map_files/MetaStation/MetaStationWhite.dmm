@@ -68431,10 +68431,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/warden)
-"npJ" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/space)
 "npN" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -120180,7 +120176,7 @@ cLJ
 cor
 cmZ
 jLo
-npJ
+hcY
 aav
 aav
 aav
