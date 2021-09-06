@@ -65,6 +65,17 @@
 	suffix = "bridge_interesting.dmm"
 	name = "Interesting Bridge"
 
+/datum/map_template/ruin/station/bridge/hall
+	id = "hall_Bridge"
+	suffix = "bridge_hall.dmm"
+	name = "Hall Bridge"
+	always_spawn_with = list(/datum/map_template/ruin/station/bridge/hall/bottom = PLACE_BELOW)
+
+/datum/map_template/ruin/station/bridge/hall/bottom
+	id = "hall_Bridge_bottom"
+	suffix = "bridge_hall_bottom.dmm"
+	name = "Hall Bridge Bottom"
+
 /datum/map_template/ruin/station/engine
 	id = "engine_sm"
 	suffix = "engine_supermatter.dmm"
