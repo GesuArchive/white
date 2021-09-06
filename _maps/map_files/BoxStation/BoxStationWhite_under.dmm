@@ -956,6 +956,11 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/xenobiology)
+"cB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/open/floor/plasteel,
+/area/maintenance/port/fore)
 "cC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
@@ -1943,6 +1948,12 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/maintenance/solars/starboard/fore)
+"fQ" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/carpet/purple,
+/area/quartermaster/meeting_room)
 "fS" = (
 /obj/machinery/button/door{
 	id = "xenobio4";
@@ -2217,6 +2228,7 @@
 	dir = 8
 	},
 /obj/structure/extinguisher_cabinet/directional/south,
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plasteel,
 /area/crew_quarters/dorms)
 "gO" = (
@@ -2707,6 +2719,12 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
+"is" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/meeting_room)
 "it" = (
 /obj/machinery/button/door{
 	id = "permaouter";
@@ -3816,6 +3834,7 @@
 /obj/machinery/light_switch{
 	pixel_y = 28
 	},
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plasteel/white/side{
 	dir = 8
 	},
@@ -4964,10 +4983,10 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "oM" = (
-/obj/structure/chair,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
 "oN" = (
@@ -10049,6 +10068,7 @@
 	dir = 4
 	},
 /obj/machinery/airalarm/directional/east,
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/meeting_room)
 "DC" = (
@@ -11336,6 +11356,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness)
+"HA" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/carpet/purple,
+/area/quartermaster/meeting_room)
 "HB" = (
 /obj/effect/turf_decal/arrows/white{
 	dir = 1
@@ -12577,6 +12603,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary/second)
 "Ld" = (
@@ -14148,6 +14175,7 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/exploration_prep)
 "PL" = (
@@ -16898,6 +16926,16 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
+"XQ" = (
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/meeting_room)
 "XR" = (
 /obj/machinery/camera/autoname{
 	dir = 8
@@ -30335,7 +30373,7 @@ PG
 bw
 GC
 GC
-NP
+cB
 fb
 fb
 fb
@@ -40141,7 +40179,7 @@ Yy
 Yy
 Dx
 cj
-pS
+XQ
 QQ
 hr
 cj
@@ -40650,13 +40688,13 @@ Zm
 Zm
 cj
 wJ
+fQ
 Yy
-Yy
-Yy
+HA
 Dx
 cj
 pS
-bm
+is
 hr
 cj
 aW
