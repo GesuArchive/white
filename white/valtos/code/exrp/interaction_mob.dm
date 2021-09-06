@@ -19,7 +19,7 @@
 /mob/living/carbon/human/foot_is_free()
 	return !shoes
 
-/atom/movable/attack_hand(mob/living/user)
+/atom/movable/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	if(can_buckle && has_buckled_mobs())
 		if(user_unbuckle_mob(user))
