@@ -976,6 +976,7 @@
 "rL" = (
 /obj/machinery/power/apc{
 	areastring = "/area/hallway/primary/central";
+	cell_type = /obj/item/stock_parts/cell/bluespace;
 	dir = 8;
 	name = "Central Hall APC";
 	pixel_x = -25
@@ -2506,6 +2507,7 @@
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
+/obj/machinery/light,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/engine/gravity_generator)
 "SF" = (
@@ -4155,7 +4157,7 @@ UL
 XD
 aG
 XD
-XD
+JW
 OK
 VY
 "}
@@ -4193,7 +4195,7 @@ Wo
 Wo
 Wo
 JW
-XD
+JW
 OK
 VY
 "}
@@ -4225,7 +4227,7 @@ ZW
 ZW
 ZW
 ZW
-VY
+XD
 VY
 VY
 VY

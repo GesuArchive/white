@@ -1,17 +1,14 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ag" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/machinery/firealarm/directional/west,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 4
-	},
 /obj/machinery/navbeacon{
 	codes_txt = "patrol;next_patrol=AftH";
 	location = "AIW"
 	},
-/obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "al" = (
@@ -49,12 +46,12 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/obj/machinery/door/poddoor/preopen{
-	id = "bridge blast";
-	name = "bridge blast door"
-	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
+	},
+/obj/machinery/door/poddoor/preopen{
+	id = "capblast";
+	name = "captains blast door"
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
@@ -269,6 +266,7 @@
 	codes_txt = "patrol;next_patrol=CHE";
 	location = "AIE"
 	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "el" = (
@@ -288,15 +286,8 @@
 /turf/open/floor/plating,
 /area/hallway/primary/central)
 "eu" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only,
-/obj/structure/disposalpipe/segment{
-	dir = 10
-	},
+/obj/effect/turf_decal/tile/blue,
+/obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "eC" = (
@@ -344,6 +335,23 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/bridge)
+"fh" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/preopen{
+	id = "bridge blast";
+	name = "bridge blast door"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/hallway/primary/central)
 "fi" = (
 /obj/structure/railing{
 	dir = 1
@@ -444,8 +452,12 @@
 /turf/open/openspace,
 /area/hallway/primary/central)
 "gX" = (
-/obj/machinery/light{
-	dir = 4
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 5
 	},
 /turf/open/floor/plating,
 /area/bridge)
@@ -542,7 +554,7 @@
 	dir = 4
 	},
 /turf/open/openspace,
-/area/hallway/primary/central)
+/area/ai_monitored/turret_protected/ai_upload)
 "iu" = (
 /obj/structure/railing/corner,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -560,6 +572,7 @@
 /area/hallway/primary/central)
 "iA" = (
 /obj/structure/extinguisher_cabinet/directional/south,
+/obj/machinery/light,
 /turf/open/floor/plating,
 /area/bridge)
 "iC" = (
@@ -608,7 +621,7 @@
 	dir = 1
 	},
 /turf/open/openspace,
-/area/hallway/primary/central)
+/area/ai_monitored/turret_protected/ai_upload)
 "jr" = (
 /obj/structure/lattice,
 /obj/structure/disposalpipe/junction/flip{
@@ -661,6 +674,13 @@
 /obj/machinery/light,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
+"kO" = (
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
+/turf/open/openspace,
+/area/bridge)
 "kR" = (
 /obj/structure/ladder,
 /turf/open/floor/wood,
@@ -687,11 +707,11 @@
 /turf/open/floor/plating,
 /area/teleporter)
 "lF" = (
-/obj/machinery/porta_turret/ai{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/porta_turret/ai{
+	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/turret_protected/ai_upload)
@@ -706,7 +726,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/openspace,
-/area/hallway/primary/central)
+/area/ai_monitored/turret_protected/ai_upload)
 "lT" = (
 /obj/structure/lattice,
 /obj/machinery/light,
@@ -729,15 +749,14 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
 "ml" = (
-/obj/structure/railing{
-	dir = 6
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/preopen{
+	id = "bridge blast";
+	name = "bridge blast door"
 	},
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/turf/open/floor/plasteel/monofloor/dark,
-/area/hallway/primary/central)
+/turf/open/floor/plating,
+/area/bridge)
 "mo" = (
 /obj/structure/cable,
 /obj/structure/railing,
@@ -872,6 +891,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"oA" = (
+/obj/machinery/light,
+/obj/structure/lattice,
+/turf/open/openspace,
+/area/bridge)
 "oC" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -879,13 +903,13 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/bridge)
 "oJ" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/holopad,
 /obj/effect/landmark/event_spawn,
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
 "oQ" = (
@@ -970,22 +994,12 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/teleporter)
 "pL" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
-/obj/machinery/door/poddoor/preopen{
-	id = "bridge blast";
-	name = "bridge blast door"
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
 	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/hallway/primary/central)
+/turf/open/openspace,
+/area/bridge)
 "pM" = (
 /obj/structure/railing{
 	dir = 1
@@ -1019,6 +1033,13 @@
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
+"qk" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/obj/structure/lattice,
+/turf/open/openspace,
+/area/bridge)
 "qw" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Central Access"
@@ -1079,10 +1100,12 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "rp" = (
-/obj/structure/cable,
-/obj/machinery/door/firedoor/border_only,
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
+/obj/structure/lattice,
+/obj/machinery/porta_turret/ai{
+	dir = 8
+	},
+/turf/open/openspace,
+/area/ai_monitored/turret_protected/ai_upload)
 "rv" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1161,6 +1184,11 @@
 /obj/structure/disposalpipe/junction/flip{
 	dir = 2
 	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "sC" = (
@@ -1287,7 +1315,7 @@
 	dir = 4
 	},
 /turf/open/openspace,
-/area/hallway/primary/central)
+/area/ai_monitored/turret_protected/ai_upload)
 "vu" = (
 /obj/machinery/firealarm/directional/north,
 /obj/effect/turf_decal/tile/neutral{
@@ -1644,7 +1672,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/openspace,
-/area/hallway/primary/central)
+/area/ai_monitored/turret_protected/ai_upload)
 "zF" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1676,15 +1704,15 @@
 "Ao" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
-/obj/machinery/door/poddoor/preopen{
-	id = "bridge blast";
-	name = "bridge blast door"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/poddoor/preopen{
+	id = "capblast";
+	name = "captains blast door"
+	},
 /turf/open/floor/plating,
 /area/crew_quarters/heads/captain)
 "As" = (
@@ -2066,7 +2094,7 @@
 	dir = 4
 	},
 /turf/open/openspace,
-/area/hallway/primary/central)
+/area/ai_monitored/turret_protected/ai_upload)
 "Gn" = (
 /obj/structure/railing{
 	dir = 4
@@ -2119,6 +2147,11 @@
 "GN" = (
 /obj/structure/bed/dogbed/renault,
 /mob/living/simple_animal/pet/fox/renault,
+/obj/machinery/turretid{
+	control_area = "/area/ai_monitored/turret_protected/ai_upload";
+	name = "AI Upload turret control";
+	pixel_y = -25
+	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "GY" = (
@@ -2229,8 +2262,8 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
-	id = "bridge blast";
-	name = "bridge blast door"
+	id = "capblast";
+	name = "captains blast door"
 	},
 /turf/open/floor/plating,
 /area/crew_quarters/heads/captain)
@@ -2270,6 +2303,16 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
+"Je" = (
+/obj/structure/railing{
+	dir = 6
+	},
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/hallway/primary/central)
 "Js" = (
 /obj/structure/railing{
 	dir = 4
@@ -2280,12 +2323,6 @@
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "Ju" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
@@ -2302,6 +2339,18 @@
 /obj/machinery/light,
 /turf/open/openspace,
 /area/bridge)
+"JK" = (
+/obj/structure/lattice,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/porta_turret/ai{
+	dir = 8
+	},
+/turf/open/openspace,
+/area/ai_monitored/turret_protected/ai_upload)
 "JV" = (
 /obj/structure/railing{
 	dir = 1
@@ -2383,14 +2432,16 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "LP" = (
-/obj/structure/cable,
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/porta_turret/ai{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only,
-/turf/open/floor/plasteel/monofloor,
-/area/hallway/primary/central)
+/turf/open/openspace,
+/area/ai_monitored/turret_protected/ai_upload)
 "LQ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -2644,6 +2695,14 @@
 	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
+"Qb" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/preopen{
+	id = "heads_meeting";
+	name = "privacy shutters"
+	},
+/turf/open/floor/plating,
+/area/bridge)
 "Qn" = (
 /obj/machinery/computer/station_alert{
 	dir = 1
@@ -2750,6 +2809,13 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/teleporter)
+"Ra" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/lattice,
+/turf/open/openspace,
+/area/bridge)
 "Rh" = (
 /obj/structure/railing{
 	dir = 1
@@ -2786,6 +2852,23 @@
 	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/captain)
+"Sa" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/bridge)
 "Sd" = (
 /obj/structure/railing/corner{
 	dir = 4
@@ -2831,6 +2914,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "Sr" = (
@@ -2945,6 +3029,13 @@
 /obj/structure/sink{
 	dir = 4;
 	pixel_x = -12
+	},
+/obj/machinery/button/door{
+	id = "captains blast";
+	name = "Captains Blast Door Control";
+	pixel_x = -39;
+	pixel_y = -25;
+	req_access_txt = "19"
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
@@ -3122,13 +3213,13 @@
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "Zn" = (
-/obj/machinery/porta_turret/ai{
-	dir = 8
-	},
 /obj/machinery/camera/motion{
 	c_tag = "AI Upload West";
 	dir = 4;
 	network = list("aiupload")
+	},
+/obj/machinery/porta_turret/ai{
+	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/turret_protected/ai_upload)
@@ -3186,7 +3277,7 @@ Tk
 kT
 kT
 kT
-kT
+ml
 kT
 Nh
 iu
@@ -3197,17 +3288,17 @@ rH
 rh
 rh
 rh
-ml
+rh
+Je
 kT
-kT
-kT
+kO
 kT
 Nh
 BU
 kT
+Qb
 kT
-kT
-kT
+Qb
 Ju
 lk
 lk
@@ -3238,16 +3329,16 @@ kT
 yu
 kT
 kT
-kT
+kO
 kT
 pM
 BU
 nS
 nu
 nu
-Gf
+nu
 Bt
-Gf
+nu
 nu
 nu
 "}
@@ -3257,7 +3348,7 @@ sV
 sV
 bC
 Rn
-MO
+eu
 Oc
 oW
 hy
@@ -3280,7 +3371,7 @@ lf
 dm
 Nh
 BU
-JJ
+oA
 nu
 pq
 Js
@@ -3432,12 +3523,12 @@ Ao
 Bf
 fi
 rE
-kT
+ZC
 nu
 nu
-Gf
+nu
 vX
-Gf
+nu
 nu
 nu
 "}
@@ -3452,12 +3543,12 @@ Tk
 kT
 va
 kT
-kT
+pL
 kT
 pM
 rE
 kT
-lf
+Ir
 sC
 sC
 sC
@@ -3471,7 +3562,7 @@ kT
 xo
 zQ
 kT
-kT
+kO
 kT
 kT
 Fe
@@ -3725,12 +3816,12 @@ nT
 VM
 nT
 nT
-pa
+rp
 iq
 iq
 iq
 iq
-pa
+rp
 nT
 nT
 zF
@@ -3740,7 +3831,7 @@ nT
 eo
 kT
 kT
-Fe
+Sa
 gX
 Iv
 bW
@@ -3778,9 +3869,9 @@ lT
 bx
 Tk
 Tk
-pL
-bx
 Tk
+fh
+bx
 bW
 "}
 (18,1,1) = {"
@@ -3816,7 +3907,7 @@ nT
 eo
 nT
 nT
-eu
+nT
 ag
 sz
 yb
@@ -3854,7 +3945,7 @@ nT
 eo
 nT
 nT
-LP
+nT
 oJ
 Xa
 qw
@@ -3892,7 +3983,7 @@ nT
 eo
 nT
 nT
-rp
+nT
 dW
 DG
 sX
@@ -3953,12 +4044,12 @@ nT
 pa
 nT
 nT
-VM
+LP
 vk
 vk
 lR
 lR
-fy
+JK
 nT
 nT
 my
@@ -4171,9 +4262,9 @@ No
 cX
 Kt
 bx
-ZC
-ZC
-PF
+ml
+ml
+ml
 bx
 eo
 eo
@@ -4218,9 +4309,9 @@ kT
 kT
 bD
 kT
+ml
 kT
-kT
-bD
+Ra
 kT
 kT
 mw
@@ -4256,7 +4347,7 @@ kT
 kT
 ZC
 kT
-kT
+ml
 kT
 ZC
 kT
@@ -4294,7 +4385,7 @@ kT
 kT
 ZC
 kT
-kT
+ml
 kT
 ZC
 kT
@@ -4332,9 +4423,9 @@ kT
 kT
 ZC
 kT
+ml
 kT
-kT
-AJ
+qk
 kT
 kT
 kT
@@ -4495,7 +4586,7 @@ kT
 kT
 ZC
 kT
-kT
+ZC
 va
 bD
 kT
