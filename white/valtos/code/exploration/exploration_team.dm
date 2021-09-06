@@ -11,9 +11,6 @@
 
 	outfit = /datum/outfit/job/exploration
 
-	skills = list(/datum/skill/ranged = SKILL_EXP_EXPERT)
-	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_EXPERT)
-
 	paycheck = PAYCHECK_HARD
 	paycheck_department = ACCOUNT_CAR
 
