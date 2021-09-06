@@ -18,7 +18,6 @@
 
 /// Override this to do initial set up
 /datum/greyscale_layer/proc/Initialize(icon_file)
-	return
 
 /// Handles the processing of the json data and conversion to correct value types.
 /// Will error on incorrect, missing, or unexpected values.
@@ -39,14 +38,9 @@
 		var/datum/json_reader/reader = required_values[keyname] || optional_values[keyname]
 		reader = json_readers[reader]
 		if(!reader)
-			stack_trace("[src] has an invalid json reader type '[required_values[keyname]]' for key '[keyname]'.")
+			stack_trace("[src] has an invalid json reader type '[required_values[keyname]]' for key [keyname].")
 			continue
 		vars[keyname] = reader.ReadJson(json_data[keyname])
-
-	// Final check to make sure we got everything we needed
-	for(var/keyname in required_values)
-		if(isnull(json_data[keyname]))
-			stack_trace("[src] is missing required json data key '[keyname]'.")
 
 /// Gathers information from the layer about what variables are expected in the json.
 /// Override and add to the two argument lists if you want extra information in your layer.

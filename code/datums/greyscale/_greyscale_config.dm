@@ -85,7 +85,7 @@
 	var/display_name = name || "MISSING_NAME"
 	return "[display_name] ([icon_file]|[json_config])"
 
-/// Takes the json icon state configuration and puts it into a more processed format.
+/// Takes the json icon state configuration and puts it into a more processed format
 /datum/greyscale_config/proc/ReadIconStateConfiguration(list/data)
 	icon_states = list()
 	for(var/state in data)
@@ -107,7 +107,7 @@
 		var/layer_type = SSgreyscale.layer_types[data["type"]]
 		if(!layer_type)
 			CRASH("An unknown layer type was specified in the json of greyscale configuration [DebugName()]: [data["layer_type"]]")
-		return new layer_type(icon_file, data.Copy()) // We don't want anything in there touching our version of the data
+		return new layer_type(icon_file, data.Copy())
 	var/list/output = list()
 	for(var/list/group as anything in data)
 		output += ReadLayerGroup(group)

@@ -1,44 +1,34 @@
-/obj/item/melee/energy/sword/ignis
+/obj/item/melee/transforming/energy/sword/ignis
 	name = "FTU 'Ignis'"
 	desc = "Дорогая конструкция FTU, Ignis - один из многих прототипов создания энергетического меча из плазмы, а не из жесткого света. У этого есть флаг FTU, отпечатанный на его высококачественной деревянной рукоятке, и, в отличие от более ранних моделей, он может выдержать несколько ударов, не разряжая батарею."
 	icon = 'white/valtos/icons/serviceguns.dmi'
 	icon_state = "ignis"
+	icon_state_on = "ignis_active"
 	lefthand_file = 'white/valtos/icons/lefthand_big.dmi'
 	righthand_file = 'white/valtos/icons/righthand_big.dmi'
 	force = 3
+	force_on = 48
 	block_chance = 65
 	sharpness = SHARP_EDGED
+	sword_color = null
 	throwforce = 5
+	throwforce_on = 40
 	wound_bonus = 50
 	hitsound = 'white/valtos/sounds/ignis_hit.ogg'
 	throw_speed = 4
 	throw_range = 10
 	w_class = WEIGHT_CLASS_SMALL
+	w_class_on = WEIGHT_CLASS_HUGE
 	armour_penetration = 90
+	attack_verb_on = list("разрывает", "выпаривает", "пробивает", "прорубает", "пилит", "протыкает", "уничтожает")
 	resistance_flags = FIRE_PROOF
 	damtype = BURN
 
-	sword_color_icon = null
-	active_force = 48
-	active_throwforce = 40
-	active_w_class = WEIGHT_CLASS_HUGE
-
-
-/obj/item/melee/energy/sword/ignis/make_transformable()
-	AddComponent(/datum/component/transforming, \
-		force_on = active_force, \
-		throwforce_on = active_throwforce, \
-		throw_speed_on = throw_speed, \
-		sharpness_on = sharpness, \
-		attack_verb_continuous_on = list("разрывает", "выпаривает", "пробивает", "прорубает", "пилит", "протыкает", "уничтожает"), \
-		attack_verb_simple_on = list("разрывает", "выпаривает", "пробивает", "прорубает", "пилит", "протыкает", "уничтожает"), \
-		w_class_on = active_w_class)
-	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
-
-/obj/item/melee/energy/sword/ignis/on_transform(obj/item/source, mob/user, active)
-	. = ..()
+/obj/item/melee/transforming/energy/sword/ignis/transform_messages(mob/living/user, supress_message_text)
 	playsound(user, 'white/valtos/sounds/ignis_toggle.ogg', 35, TRUE)  //changed it from 50% volume to 35% because deafness
-	//to_chat(user, span_notice("[src] [blade_active ? "теперь активен":"может быть убран"]."))
+	if(!supress_message_text)
+		to_chat(user, span_notice("[src] [active ? "теперь активен":"может быть убран"]."))
+
 
 ///////40x32 R37 PULSE RIFLE
 /obj/item/gun/ballistic/automatic/pitbull/pulse/r37

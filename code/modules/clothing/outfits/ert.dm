@@ -51,7 +51,7 @@
 	glasses = /obj/item/clothing/glasses/thermal/eyepatch
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
 		/obj/item/gun/energy/pulse/pistol/loyalpin=1)
-	l_pocket = /obj/item/melee/energy/sword/saber
+	l_pocket = /obj/item/melee/transforming/energy/sword/saber
 
 /datum/outfit/centcom/ert/security
 	name = "ERT Security"
@@ -287,12 +287,6 @@
 	id = /obj/item/card/id/advanced/centcom/ert/clown
 	glasses = /obj/item/clothing/glasses/godeye
 	back = /obj/item/storage/backpack/ert/clown
-	backpack_contents = list(
-		/obj/item/gun/ballistic/revolver/reverse = 1,
-		/obj/item/melee/energy/sword/bananium = 1,
-		/obj/item/shield/energy/bananium = 1,
-		/obj/item/storage/box/survival/engineer = 1,
-)
 	belt = /obj/item/storage/belt/champion
 	glasses = /obj/item/clothing/glasses/trickblindfold
 	mask = /obj/item/clothing/mask/gas/clown_hat
@@ -300,7 +294,7 @@
 	r_pocket = /obj/item/bikehorn/golden
 	l_pocket = /obj/item/food/grown/banana
 	backpack_contents = list(/obj/item/storage/box/hug/survival=1,\
-		/obj/item/melee/energy/sword/bananium=1,\
+		/obj/item/melee/transforming/energy/sword/bananium=1,\
 		/obj/item/shield/energy/bananium=1,\
 		/obj/item/gun/ballistic/revolver/reverse=1)
 
@@ -420,55 +414,10 @@
 	suit_store = null
 	belt = /obj/item/storage/belt/sabre
 	l_hand = /obj/item/toy/balloon
-
-/datum/outfit/centcom/death_commando
-	name = "Death Commando"
-
-	id = /obj/item/card/id/advanced/black/deathsquad
-	id_trim = /datum/id_trim/centcom/deathsquad
-	uniform = /obj/item/clothing/under/rank/centcom/commander
-	suit = /obj/item/clothing/suit/space/hardsuit/deathsquad
-	suit_store = /obj/item/tank/internals/emergency_oxygen/double
-	back = /obj/item/storage/backpack/security
-	backpack_contents = list(
-		/obj/item/ammo_box/a357 = 1,
-		/obj/item/flashlight = 1,
-		/obj/item/grenade/c4/x4 = 1,
-		/obj/item/storage/box/flashbangs = 1,
-		/obj/item/storage/box/survival/engineer = 1,
-		/obj/item/storage/firstaid/regular = 1,
-)
-	belt = /obj/item/gun/ballistic/revolver/mateba
-	ears = /obj/item/radio/headset/headset_cent/alt
-	glasses = /obj/item/clothing/glasses/hud/toggle/thermal
-	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
-	mask = /obj/item/clothing/mask/gas/sechailer/swat
-	shoes = /obj/item/clothing/shoes/combat/swat
-	l_pocket = /obj/item/melee/energy/sword/saber
-	r_pocket = /obj/item/shield/energy
-	l_hand = /obj/item/gun/energy/pulse/loyalpin
-
-	skillchips = list(
-		/obj/item/skillchip/disk_verifier,
-)
-
-/datum/outfit/centcom/death_commando/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(visualsOnly)
-		return
-
-	var/obj/item/radio/R = H.ears
-	R.set_frequency(FREQ_CENTCOM)
-	R.freqlock = TRUE
-	var/obj/item/card/id/W = H.wear_id
-	W.registered_name = H.real_name
-	W.update_label()
-	W.update_icon()
-	..()
-
-/datum/outfit/centcom/death_commando/officer
-	name = "Death Commando Officer"
-
-	head = /obj/item/clothing/head/helmet/space/beret
+	l_pocket = /obj/item/kitchen/knife
+	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
+		/obj/item/storage/box/fireworks=3,\
+		/obj/item/food/cake/birthday=1)
 
 /datum/outfit/centcom/ert/marine
 	name = "Marine Commander"

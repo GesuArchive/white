@@ -359,30 +359,33 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	attack_verb_continuous = list("бьёт", "протыкает")
 	attack_verb_simple = list("бьёт", "протыкает")
 	resistance_flags = FIRE_PROOF
-	/// Whether the switchblade starts extended or not.
-	var/start_extended = FALSE
+	var/extended = 0
 
-/obj/item/switchblade/Initialize()
-	. = ..()
-	AddElement(/datum/element/update_icon_updates_onmob)
-	AddComponent(/datum/component/butchering, 7 SECONDS, 100)
-	AddComponent(/datum/component/transforming, \
-		start_transformed = start_extended, \
-		force_on = 20, \
-		throwforce_on = 23, \
-		throw_speed_on = throw_speed, \
-		sharpness_on = SHARP_EDGED, \
-		hitsound_on = 'sound/weapons/bladeslice.ogg', \
-		w_class_on = WEIGHT_CLASS_NORMAL, \
-		attack_verb_continuous_on = list("slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts"), \
-		attack_verb_simple_on = list("slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut"))
+/obj/item/switchblade/attack_self(mob/user)
+	extended = !extended
+	playsound(src.loc, 'sound/weapons/batonextend.ogg', 50, TRUE)
+	if(extended)
+		force = 20
+		w_class = WEIGHT_CLASS_NORMAL
+		throwforce = 23
+		icon_state = "switchblade_ext"
+		attack_verb_continuous = list("рубит", "втыкает", "врезает", "кромсает", "разрывает", "нарезает", "режет")
+		attack_verb_simple = list("рубит", "втыкает", "врезает", "кромсает", "разрывает", "нарезает", "режет")
+		hitsound = 'sound/weapons/bladeslice.ogg'
+		sharpness = SHARP_EDGED
+	else
+		force = 3
+		w_class = WEIGHT_CLASS_SMALL
+		throwforce = 5
+		icon_state = "switchblade"
+		attack_verb_continuous = list("стукает", "тычет")
+		attack_verb_simple = list("стукает", "тычет")
+		hitsound = 'sound/weapons/genhit.ogg'
+		sharpness = NONE
 
 /obj/item/switchblade/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] is slitting [user.ru_ego()] own throat with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return (BRUTELOSS)
-
-/obj/item/switchblade/extended
-	start_extended = TRUE
 
 /obj/item/phone
 	name = "красный phone"
