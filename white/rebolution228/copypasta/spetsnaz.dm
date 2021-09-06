@@ -106,7 +106,7 @@
 	R.recalculateChannels()
 
 	var/obj/item/card/id/W = H.wear_id
-	W.assignment = "MVD Spetsnaz Operative"
+	W.assignment = "MVD Specops Operative"
 	W.registered_name = H.real_name
 	W.update_label()
 
@@ -138,7 +138,7 @@
 	R.recalculateChannels()
 
 	var/obj/item/card/id/W = H.wear_id
-	W.assignment = "MVD Spetsnaz Operative"
+	W.assignment = "MVD Specops Operative"
 	W.registered_name = H.real_name
 	W.update_label()
 
@@ -177,7 +177,7 @@
 	R.recalculateChannels()
 
 	var/obj/item/card/id/W = H.wear_id
-	W.assignment = "MVD Spetsnaz Leader"
+	W.assignment = "MVD Specops Leader"
 	W.registered_name = H.real_name
 	W.update_label()
 
