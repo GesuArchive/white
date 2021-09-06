@@ -166,10 +166,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
 		/obj/item/storage/box/handcuffs=1,\
 		/obj/item/melee/classic_baton/german=1,\
-		/obj/item/crowbar/red=1,\
-		/obj/item/autosurgeon/organ=1,\
-		/obj/item/organ/eyes/robotic/thermals=1,\
-		/obj/item/organ/cyberimp/eyes/hud/security=1)
+		/obj/item/crowbar/red=1)
 
 /datum/outfit/spetsnaz/leader/pre_equip(mob/living/carbon/human/H)
 	suit_store = /obj/item/gun/ballistic/automatic/asval
@@ -192,10 +189,6 @@
 /obj/item/storage/belt/military/spetsnaz
 	desc = "Набор тактических ремней, которые носят некоторые вооруженные отряды."
 
-/obj/item/storage/belt/military/spetsnaz/grenadier
-
-/obj/item/storage/belt/military/spetsnaz/leader
-
 /obj/item/storage/belt/military/spetsnaz/PopulateContents()
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/ammo_box/magazine/ak74m(src)
@@ -203,6 +196,8 @@
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/reagent_containers/hypospray/medipen/stimpack/traitor(src)
 		new /obj/item/grenade/stingbang(src)
+
+/obj/item/storage/belt/military/spetsnaz/grenadier
 
 /obj/item/storage/belt/military/spetsnaz/grenadier/PopulateContents()
 		new /obj/item/ammo_box/magazine/ak74m(src)
@@ -212,6 +207,8 @@
 		new /obj/item/ammo_casing/a40mm/vog25(src)
 		new /obj/item/reagent_containers/hypospray/medipen/stimpack/traitor(src)
 		new /obj/item/grenade/stingbang(src)
+
+/obj/item/storage/belt/military/spetsnaz/leader
 
 /obj/item/storage/belt/military/spetsnaz/leader/PopulateContents()
 		new /obj/item/ammo_box/magazine/asval(src)
