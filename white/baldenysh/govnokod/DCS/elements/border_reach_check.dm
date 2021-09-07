@@ -80,5 +80,3 @@
 		return B.plane - A.plane
 	else
 		return B.layer - A.layer
-
-#undef BORDER_REACH_CHECK_GENERIC
