@@ -94,19 +94,25 @@
 
 ////////////////////////////////////////////////////////////////////////защита
 
-/datum/component/rotating_shield/proc/on_shielded_attackby(datum/source, obj/item/I, mob/user)
+/datum/component/rotating_shield/proc/on_shielded_attackby(atom/movable/shielded_source, obj/item/I, mob/user, params)
 	SIGNAL_HANDLER
+	var/obj/structure/rs_plate/hit_plate
+	var/angle = dir2angle(get_dir(shielded_source, user))
+	for(var/datum/rs_plate_layer/rspl in reverseList(plate_layers))
+		hit_plate = rspl.find_hit_plate(angle)
+		if(hit_plate)
+			break
+	if(!hit_plate)
+		return
+	hit_plate.attackby(I, user, params)
+	return COMPONENT_NO_AFTERATTACK
 
 /datum/component/rotating_shield/proc/on_shielded_bullet_act(datum/source, obj/projectile/P, def_zone)
 	SIGNAL_HANDLER
 
 /datum/component/rotating_shield/proc/on_shielded_hitby(datum/source, atom/movable/AM, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)
 	SIGNAL_HANDLER
-/*
-/datum/component/rotating_shield/proc/find_plate_by_angle(angle)
-	for(var/l in plate_layers.len to 1)
-		for(var/obj/structure/rs_plate/plate in plate_layers[l])
-*/
+
 ////////////////////////////////////////////////////////////////////////
 
 /datum/component/rotating_shield/proc/get_plates()
@@ -163,7 +169,7 @@
 		return
 	plates.Add(plate)
 
-/datum/rs_plate_layer/proc/check_hit(hitangle)
+/datum/rs_plate_layer/proc/find_hit_plate(hitangle)
 	if(!plates.len)
 		return
 	var/angle_between_plates = (360 - get_total_plates_angle(radius))/plates.len
