@@ -610,6 +610,8 @@
 	attack_verb_continuous = list("атакует", "режет", "протыкает", "нарезает", "рвёт", "разрывает", "делит", "кромсает")
 	attack_verb_simple = list("атакует", "режет", "протыкает", "нарезает", "рвёт", "разрывает", "делит", "кромсает")
 
+#define CHEMICAL_TRANSFER_CHANCE 30
+
 /obj/item/nullrod/pride_hammer
 	name = "Pride-struck Hammer"
 	desc = "It resonates an aura of Pride."
@@ -626,15 +628,18 @@
 	attack_verb_simple = list("атакует", "лупит", "покушается", "нежит", "засаживает")
 	hitsound = 'sound/weapons/blade1.ogg'
 
-/obj/item/nullrod/pride_hammer/afterattack(atom/A as mob|obj|turf|area, mob/user, proximity)
+
+/obj/item/nullrod/pride_hammer/Initialize()
 	. = ..()
-	if(!proximity)
-		return
-	if(prob(30) && ishuman(A))
-		var/mob/living/carbon/human/H = A
-		user.reagents.trans_to(H, user.reagents.total_volume, 1, 1, 0, transfered_by = user)
-		to_chat(user, span_notice("Your pride reflects on [H]."))
-		to_chat(H, span_userdanger("You feel insecure, taking on [user] burden."))
+	AddElement(/datum/element/kneejerk)
+	AddElement(
+		/datum/element/chemical_transfer,\
+		span_notice("Your pride reflects on %VICTIM."),\
+		span_userdanger("You feel insecure, taking on %ATTACKER's burden."),\
+		CHEMICAL_TRANSFER_CHANCE\
+	)
+
+#undef CHEMICAL_TRANSFER_CHANCE
 
 /obj/item/nullrod/whip
 	name = "holy whip"
@@ -702,14 +707,10 @@
 	attack_verb_continuous = list("кусает", "грызёт", "шлёпает плавником")
 	attack_verb_simple = list("кусает", "грызёт", "шлёпает плавником")
 	hitsound = 'sound/weapons/bite.ogg'
-	var/used_blessing = FALSE
 
-/obj/item/nullrod/carp/attack_self(mob/living/user)
-	if(used_blessing)
-	else if(user.mind && (user.mind.holy_role))
-		to_chat(user, span_boldnotice("You are blessed by Carp-Sie. Wild space carp will no longer attack you."))
-		user.faction |= "carp"
-		used_blessing = TRUE
+/obj/item/nullrod/carp/Initialize()
+	. = ..()
+	AddComponent(/datum/component/faction_granter, "carp", holy_role_required = HOLY_ROLE_PRIEST, grant_message = span_boldnotice("You are blessed by Carp-Sie. Wild space carp will no longer attack you."))
 
 /obj/item/nullrod/claymore/bostaff //May as well make it a "claymore" and inherit the blocking
 	name = "monk's staff"
