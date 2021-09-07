@@ -96,6 +96,7 @@
 
 /datum/component/rotating_shield/proc/on_shielded_attackby(atom/movable/shielded_source, obj/item/I, mob/user, params)
 	SIGNAL_HANDLER
+	/*
 	var/obj/structure/rs_plate/hit_plate
 	var/angle = dir2angle(get_dir(shielded_source, user))
 	for(var/datum/rs_plate_layer/rspl in reverseList(plate_layers))
@@ -106,6 +107,7 @@
 		return
 	hit_plate.attackby(I, user, params)
 	return COMPONENT_NO_AFTERATTACK
+	*/
 
 /datum/component/rotating_shield/proc/on_shielded_bullet_act(datum/source, obj/projectile/P, def_zone)
 	SIGNAL_HANDLER
