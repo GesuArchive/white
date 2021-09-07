@@ -1,113 +1,115 @@
-/obj/item/rotating_shield
-	name = "RS controller"
-	icon = 'white/baldenysh/icons/obj/rshield.dmi'
-	icon_state = "type0"
-
-	var/atom/movable/shielded_atom
+/datum/component/rotating_shield
+	var/list/atom/movable/shielded_stack = list()
 	var/list/datum/rs_plate_layer/plate_layers = list()
 	var/angular_velocity = 30
 	var/active = FALSE
 
-/obj/item/rotating_shield/Initialize()
-	. = ..()
-	RegisterShielded(ismovable(loc) ? loc : src)
-	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/on_moved)
+/datum/component/rotating_shield/Initialize()
+	if(!ismovable(parent))
+		return COMPONENT_INCOMPATIBLE
 
-/obj/item/rotating_shield/Destroy()
-	. = ..()
-	UnregisterShielded()
-	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
+/datum/component/rotating_shield/RegisterWithParent()
+	SetShielded(parent)
 
-/obj/item/rotating_shield/proc/on_moved(datum/source, newloc, dir)
-	SIGNAL_HANDLER
-	UnregisterShielded()
-	RegisterShielded(ismovable(loc) ? loc : src)
-
-/obj/item/rotating_shield/proc/RegisterShielded(atom/movable/A)
-	if(!istype(A))
+/datum/component/rotating_shield/proc/SetShielded(atom/movable/movable_to_shield)
+	if(!istype(movable_to_shield))
 		return
-	shielded_atom = A
-	RegisterSignal(A, COMSIG_MOVABLE_MOVED, .proc/on_shielded_moved)
-	RegisterSignal(A, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, .proc/on_shielded_glide_size_update)
+	if(shielded_stack.len)
+		var/atom/movable/last_shielded_movable = shielded_stack[shielded_stack.len]
+		if(last_shielded_movable)
+			UnregisterSignal(last_shielded_movable, COMSIG_ATOM_EXITED)
+			UnregisterSignal(last_shielded_movable, COMSIG_MOVABLE_MOVED)
+			UnregisterSignal(last_shielded_movable, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE)
+			UnregisterSignal(last_shielded_movable, COMSIG_PARENT_ATTACKBY)
+			UnregisterSignal(last_shielded_movable, COMSIG_ATOM_BULLET_ACT)
+			UnregisterSignal(last_shielded_movable, COMSIG_ATOM_HITBY)
+	if(movable_to_shield in shielded_stack)
+		var/atom/movable/last_shielded_movable = shielded_stack[shielded_stack.len]
+		LAZYREMOVE(shielded_stack, last_shielded_movable)
+	else
+		LAZYADD(shielded_stack, movable_to_shield)
+	RegisterSignal(movable_to_shield, COMSIG_ATOM_EXITED, .proc/on_exited)
+	RegisterSignal(movable_to_shield, COMSIG_MOVABLE_MOVED, .proc/on_shielded_moved)
+	RegisterSignal(movable_to_shield, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, .proc/on_shielded_glide_size_update)
+	RegisterSignal(movable_to_shield, COMSIG_PARENT_ATTACKBY, .proc/on_shielded_attackby)
+	RegisterSignal(movable_to_shield, COMSIG_ATOM_BULLET_ACT, .proc/on_shielded_bullet_act)
+	RegisterSignal(movable_to_shield, COMSIG_ATOM_HITBY, .proc/on_shielded_hitby)
 	on_shielded_moved()
-
-	RegisterSignal(A, COMSIG_PARENT_ATTACKBY, .proc/on_shielded_attackby)
-	RegisterSignal(A, COMSIG_ATOM_BULLET_ACT, .proc/on_shielded_bullet_act)
-	RegisterSignal(A, COMSIG_ATOM_HITBY, .proc/on_shielded_hitby)
-
-/obj/item/rotating_shield/proc/UnregisterShielded()
-	UnregisterSignal(shielded_atom, COMSIG_MOVABLE_MOVED)
-	UnregisterSignal(shielded_atom, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE)
-
-	UnregisterSignal(shielded_atom, COMSIG_PARENT_ATTACKBY)
-	UnregisterSignal(shielded_atom, COMSIG_ATOM_BULLET_ACT)
-	UnregisterSignal(shielded_atom, COMSIG_ATOM_HITBY)
 
 ////////////////////////////////////////////////////////////////////////перемещение/анимация
 
-/obj/item/rotating_shield/proc/on_shielded_moved(datum/source, newloc, dir)
+/datum/component/rotating_shield/proc/on_exited(datum/source, atom/movable/gone)
+	SIGNAL_HANDLER
+	if(shielded_stack.len < 2)
+		return
+	if(gone == shielded_stack[shielded_stack.len - 1])
+		SetShielded(gone)
+
+/datum/component/rotating_shield/proc/on_shielded_moved(datum/source, atom/old_loc, movement_dir, forced = FALSE, list/old_locs)
 	SIGNAL_HANDLER
 	if(!active)
 		return
-	var/turf/T = get_turf(loc)
-	for(var/obj/structure/rs_plate/plate in get_plates())
-		plate.forceMove(T)
+	var/atom/movable/shielded_movable = shielded_stack[shielded_stack.len]
+	if(!shielded_movable)
+		return
+	if(isturf(shielded_movable.loc))
+		for(var/obj/structure/rs_plate/plate in get_plates())
+			plate.forceMove(shielded_movable.loc)
+	else
+		SetShielded(shielded_movable.loc)
 
-/obj/item/rotating_shield/proc/on_shielded_glide_size_update(datum/source, new_glide_size)
+/datum/component/rotating_shield/proc/on_shielded_glide_size_update(datum/source, new_glide_size)
 	SIGNAL_HANDLER
-	set_glide_size(new_glide_size)
 	for(var/obj/structure/rs_plate/plate in get_plates())
 		plate.set_glide_size(new_glide_size)
 
-/obj/item/rotating_shield/Destroy(force, silent)
+/datum/component/rotating_shield/Destroy(force, silent)
 	deactivate()
 	QDEL_LIST(plate_layers)
 	. = ..()
 
-/obj/item/rotating_shield/process(delta_time)
+/datum/component/rotating_shield/process(delta_time)
 	rotate(angular_velocity, delta_time)
 
-/obj/item/rotating_shield/proc/rotate(degrees, delta_time)
+/datum/component/rotating_shield/proc/rotate(degrees, delta_time)
 	var/base_rotation = degrees * delta_time
 	for(var/i in 1 to plate_layers.len)
 		var/cur_rotation = base_rotation/i
 		var/datum/rs_plate_layer/rspl = plate_layers[i]
 		rspl.rotate(i%2 ? cur_rotation : -cur_rotation, delta_time)
 
-/obj/item/rotating_shield/proc/activate()
+/datum/component/rotating_shield/proc/activate()
 	for(var/obj/structure/rs_plate/plate in get_plates())
-		plate.forceMove(get_turf(shielded_atom))
-		plate.control = src
+		plate.forceMove(get_turf(parent))
 
 	START_PROCESSING(SSfastprocess, src)
 	active = TRUE
 
-/obj/item/rotating_shield/proc/deactivate()
+/datum/component/rotating_shield/proc/deactivate()
 	for(var/obj/structure/rs_plate/plate in get_plates())
-		plate.forceMove(src)
-		plate.control = null
+		plate.moveToNullspace()
 
 	STOP_PROCESSING(SSfastprocess, src)
 	active = FALSE
 
 ////////////////////////////////////////////////////////////////////////защита
 
-/obj/item/rotating_shield/proc/on_shielded_attackby(datum/source, obj/item/I, mob/user)
+/datum/component/rotating_shield/proc/on_shielded_attackby(datum/source, obj/item/I, mob/user)
 	SIGNAL_HANDLER
 
-/obj/item/rotating_shield/proc/on_shielded_bullet_act(datum/source, obj/projectile/P, def_zone)
+/datum/component/rotating_shield/proc/on_shielded_bullet_act(datum/source, obj/projectile/P, def_zone)
 	SIGNAL_HANDLER
 
-/obj/item/rotating_shield/proc/on_shielded_hitby(datum/source, atom/movable/AM, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)
+/datum/component/rotating_shield/proc/on_shielded_hitby(datum/source, atom/movable/AM, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)
 	SIGNAL_HANDLER
 /*
-/obj/item/rotating_shield/proc/find_plate_by_angle(angle)
+/datum/component/rotating_shield/proc/find_plate_by_angle(angle)
 	for(var/l in plate_layers.len to 1)
 		for(var/obj/structure/rs_plate/plate in plate_layers[l])
 */
 ////////////////////////////////////////////////////////////////////////
 
-/obj/item/rotating_shield/proc/get_plates()
+/datum/component/rotating_shield/proc/get_plates()
 	. = list()
 	for(var/datum/rs_plate_layer/rspl in plate_layers)
 		for(var/obj/structure/rs_plate/plate in rspl.plates)
@@ -122,6 +124,10 @@
 	var/list/obj/structure/rs_plate/plates = list()
 	var/angle = 0
 	var/radius = 48
+
+/datum/rs_plate_layer/Destroy(force, ...)
+	QDEL_LIST(plates)
+	. = ..()
 
 /datum/rs_plate_layer/proc/rotate(degrees, delta_time)
 	if(!plates.len)
@@ -173,11 +179,10 @@
 
 ////////////////////////////////////////////////////////////////////////хрень для дебага хз че ето
 
-/obj/item/rotating_shield/test
-	name = "RSE-00"
-	angular_velocity = 0
+/datum/component/rotating_shield/test
+	angular_velocity = 30
 
-/obj/item/rotating_shield/test/Initialize()
+/datum/component/rotating_shield/test/Initialize()
 	. = ..()
 	var/datum/rs_plate_layer/rspl1 = new
 	rspl1.add_plate(new /obj/structure/rs_plate(src))
@@ -213,5 +218,4 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	appearance_flags = LONG_GLIDE
 	max_integrity = 50
-	var/obj/item/rotating_shield/control
 	var/chord_length = 64
