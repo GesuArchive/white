@@ -94,20 +94,19 @@
 
 ////////////////////////////////////////////////////////////////////////защита
 
+/datum/component/rotating_shield/proc/find_hit_plate(angle)
+	for(var/datum/rs_plate_layer/rspl in reverseList(plate_layers))
+		. = rspl.find_hit_plate(angle)
+		if(.)
+			break
+
 /datum/component/rotating_shield/proc/on_shielded_attackby(atom/movable/shielded_source, obj/item/I, mob/user, params)
 	SIGNAL_HANDLER
-	/*
-	var/obj/structure/rs_plate/hit_plate
-	var/angle = dir2angle(get_dir(shielded_source, user))
-	for(var/datum/rs_plate_layer/rspl in reverseList(plate_layers))
-		hit_plate = rspl.find_hit_plate(angle)
-		if(hit_plate)
-			break
+	var/obj/structure/rs_plate/hit_plate = find_hit_plate(dir2angle(get_dir(shielded_source, user)))
 	if(!hit_plate)
 		return
-	hit_plate.attackby(I, user, params)
+	INVOKE_ASYNC(hit_plate, /atom.proc/attackby, I, user, params)
 	return COMPONENT_NO_AFTERATTACK
-	*/
 
 /datum/component/rotating_shield/proc/on_shielded_bullet_act(datum/source, obj/projectile/P, def_zone)
 	SIGNAL_HANDLER

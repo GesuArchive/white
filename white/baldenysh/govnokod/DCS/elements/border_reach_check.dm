@@ -1,10 +1,3 @@
-#define BORDER_REACH_CHECK_GENERIC(on_blocker_interact, cancel_signal)\
-	var/obj/blocker = get_reach_blocker(source, user);\
-	if(blocker){\
-		if(blocker_interact){blocker.on_blocker_interact};\
-		return cancel_signal;\
-	};
-
 //отвечает за то штоб нельзя было трогать пограничную хрень типа виндура или файрлока када между ней и трогателем непроходимый объект
 //если на примерах - работает как can_be_reached у окон
 //необходимо отключать INTERACT_ATOM_ATTACK_HAND в interaction_flags_atom чтоб работало как надо, может отключение вообще в элемент напрямую впилить...
@@ -36,16 +29,36 @@
 	return ..()
 
 /datum/element/border_reach_check/proc/on_attack_hand(atom/source, mob/user)
-	BORDER_REACH_CHECK_GENERIC(attack_hand(user), COMPONENT_CANCEL_ATTACK_CHAIN)
+	SIGNAL_HANDLER
+	var/obj/blocker = get_reach_blocker(source, user)
+	if(blocker)
+		if(blocker_interact)
+			INVOKE_ASYNC(blocker, /atom.proc/attack_hand, user)
+		return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/element/border_reach_check/proc/on_attack_paw(atom/source, mob/user)
-	BORDER_REACH_CHECK_GENERIC(attack_paw(user), COMPONENT_CANCEL_ATTACK_CHAIN)
+	SIGNAL_HANDLER
+	var/obj/blocker = get_reach_blocker(source, user)
+	if(blocker)
+		if(blocker_interact)
+			INVOKE_ASYNC(blocker, /atom.proc/attack_paw, user)
+		return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/element/border_reach_check/proc/on_attackby(atom/source, obj/item/W, mob/user, params)
-	BORDER_REACH_CHECK_GENERIC(attackby(W, user, params), COMPONENT_NO_AFTERATTACK)
+	SIGNAL_HANDLER
+	var/obj/blocker = get_reach_blocker(source, user)
+	if(blocker)
+		if(blocker_interact)
+			INVOKE_ASYNC(blocker, /atom.proc/attackby, W, user, params)
+		return COMPONENT_NO_AFTERATTACK
 
 /datum/element/border_reach_check/proc/on_tool_act(atom/source, mob/living/user, obj/item/I, tool_type)
-	BORDER_REACH_CHECK_GENERIC(tool_act(user, I, tool_type), COMPONENT_BLOCK_TOOL_ATTACK)
+	SIGNAL_HANDLER
+	var/obj/blocker = get_reach_blocker(source, user)
+	if(blocker)
+		if(blocker_interact)
+			INVOKE_ASYNC(blocker, /atom.proc/tool_act, user, I, tool_type)
+		return COMPONENT_BLOCK_TOOL_ATTACK
 
 /datum/element/border_reach_check/proc/get_reach_blocker(atom/border_atom, mob/user)
 	var/checking_dir = get_dir(user, border_atom)
