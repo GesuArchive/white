@@ -2191,6 +2191,25 @@
 /obj/item/reagent_containers/syringe,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"gG" = (
+/obj/machinery/door/airlock/mining/glass{
+	name = "Exploration Bay"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/meeting_room)
 "gJ" = (
 /obj/machinery/door/airlock{
 	id_tag = "Cab4";
@@ -4201,6 +4220,16 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints)
+"mr" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/quartermaster/meeting_room)
 "ms" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -4229,6 +4258,16 @@
 "mw" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints/west)
+"mx" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/carpet/purple,
+/area/quartermaster/meeting_room)
 "mA" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4593,6 +4632,10 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/meeting_room)
@@ -7474,6 +7517,7 @@
 	},
 /obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable,
+/obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plasteel/dark,
 /area/quartermaster/meeting_room)
 "vH" = (
@@ -9601,6 +9645,13 @@
 /area/security/prison)
 "Ca" = (
 /obj/structure/ladder,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
 /turf/open/floor/carpet/purple,
 /area/quartermaster/meeting_room)
 "Cb" = (
@@ -11358,7 +11409,7 @@
 /area/crew_quarters/fitness)
 "HA" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
+	dir = 4
 	},
 /turf/open/floor/carpet/purple,
 /area/quartermaster/meeting_room)
@@ -40175,7 +40226,7 @@ PG
 cj
 wJ
 Rc
-Yy
+HA
 Yy
 Dx
 cj
@@ -40432,7 +40483,7 @@ Zm
 cj
 JN
 gw
-gw
+mx
 Ze
 WO
 nv
@@ -40689,8 +40740,8 @@ Zm
 cj
 wJ
 fQ
+mx
 Yy
-HA
 Dx
 cj
 pS
@@ -41203,7 +41254,7 @@ Zm
 jB
 Pz
 RV
-bm
+mr
 cn
 wW
 Ms
@@ -41459,9 +41510,9 @@ Zm
 Zm
 jB
 jB
-cj
-cj
-cj
+jB
+gG
+jB
 jB
 jB
 jB
@@ -41716,9 +41767,9 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
+jB
+mr
+jB
 PG
 Zm
 Zm
