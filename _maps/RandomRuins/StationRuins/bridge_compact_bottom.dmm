@@ -757,6 +757,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/captain)
+"sC" = (
+/turf/open/floor/plating,
+/area/quartermaster/meeting_room)
 "sM" = (
 /obj/structure/table,
 /obj/item/ai_module/core/full/asimov,
@@ -893,6 +896,19 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central)
+"vu" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "19"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/central)
 "vW" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/carpet,
@@ -1918,6 +1934,9 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
+"Tq" = (
+/turf/closed/wall/r_wall,
+/area/quartermaster/meeting_room)
 "Uo" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -2155,9 +2174,9 @@ YS
 YS
 YS
 YS
-YS
-YS
-YS
+Tq
+sC
+Tq
 Zl
 YS
 YS
@@ -2193,9 +2212,9 @@ YS
 YS
 YS
 YS
-YS
-YS
-YS
+Tq
+sC
+Tq
 jH
 YS
 YS
@@ -2231,9 +2250,9 @@ jH
 jH
 jH
 jH
-jH
-jH
-jH
+Tq
+sC
+Tq
 jH
 jH
 jH
@@ -2269,9 +2288,9 @@ YS
 Zl
 YS
 YS
-YS
-YS
-YS
+Tq
+sC
+Tq
 jH
 YS
 YS
@@ -2307,10 +2326,10 @@ YS
 Zl
 YS
 YS
-NH
-NH
+Tq
+vu
+Tq
 tw
-NH
 NH
 YS
 ab

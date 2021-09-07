@@ -455,12 +455,6 @@
 /obj/effect/spawner/lootdrop/gross_decal_spawner,
 /turf/open/floor/plating,
 /area/maintenance/central/secondary)
-"bu" = (
-/obj/machinery/light_switch{
-	pixel_x = 27
-	},
-/turf/closed/wall/r_wall,
-/area/teleporter)
 "bw" = (
 /obj/structure/table,
 /obj/item/hand_tele,
@@ -3350,6 +3344,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+/obj/machinery/light_switch{
+	pixel_x = -4;
+	pixel_y = 36
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/teleporter)
 "qb" = (
@@ -3740,14 +3738,6 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
-"Di" = (
-/obj/machinery/light{
-	dir = 1;
-	pixel_y = 0
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/maintenance/central/secondary)
 "Do" = (
 /obj/machinery/light{
 	dir = 4
@@ -4582,6 +4572,7 @@
 /turf/open/floor/plating,
 /area/maintenance/central)
 "Zy" = (
+/obj/machinery/light,
 /turf/open/floor/plating,
 /area/maintenance/central/secondary)
 
@@ -5431,7 +5422,7 @@ wy
 eh
 hI
 bz
-Di
+xQ
 Zy
 es
 wL
@@ -5732,7 +5723,7 @@ ab
 aN
 fS
 ar
-bu
+bj
 pP
 bI
 Ko

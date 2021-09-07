@@ -264,6 +264,12 @@
 	if(prob(50))
 		qdel(src)
 
+/obj/machinery/particle_accelerator/control_box/attack_hand(mob/living/user)
+	. = ..()
+	if(construction_state != PA_CONSTRUCTION_COMPLETE)
+		return
+	interact(user)
+
 /obj/machinery/particle_accelerator/control_box/interact(mob/user)
 	if(construction_state == PA_CONSTRUCTION_PANEL_OPEN)
 		wires.interact(user)
@@ -280,7 +286,7 @@
 
 /obj/machinery/particle_accelerator/control_box/ui_status(mob/user)
 	if(is_interactive(user))
-		return ..()
+		return UI_INTERACTIVE // похуй
 	return UI_CLOSE
 
 /obj/machinery/particle_accelerator/control_box/ui_interact(mob/user, datum/tgui/ui)

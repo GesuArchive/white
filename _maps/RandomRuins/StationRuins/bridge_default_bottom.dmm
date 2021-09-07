@@ -15,6 +15,20 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"lH" = (
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external{
+	name = "External Access";
+	req_access_txt = "13"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/quartermaster/meeting_room)
 "oH" = (
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/plating,
@@ -33,6 +47,12 @@
 "DF" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints)
+"Pc" = (
+/turf/closed/wall/r_wall,
+/area/quartermaster/meeting_room)
+"UY" = (
+/turf/open/floor/plating,
+/area/quartermaster/meeting_room)
 "Ws" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints/north)
@@ -72,9 +92,9 @@ YS
 YS
 YS
 YS
-YS
-YS
-YS
+Pc
+UY
+Pc
 Zl
 YS
 YS
@@ -110,9 +130,9 @@ YS
 YS
 YS
 YS
-YS
-YS
-YS
+Pc
+lH
+Pc
 Zl
 YS
 YS
@@ -187,7 +207,7 @@ YS
 YS
 YS
 YS
-YS
+Zl
 YS
 Zl
 YS
@@ -225,7 +245,7 @@ YS
 YS
 YS
 YS
-YS
+Zl
 YS
 Zl
 YS
@@ -263,7 +283,7 @@ YS
 YS
 YS
 YS
-YS
+Zl
 YS
 Zl
 YS
@@ -301,7 +321,7 @@ YS
 YS
 YS
 YS
-YS
+Zl
 YS
 Zl
 YS
@@ -339,7 +359,7 @@ YS
 YS
 YS
 YS
-YS
+Zl
 Zl
 Zl
 Zl
@@ -377,7 +397,7 @@ YS
 YS
 YS
 YS
-YS
+Zl
 YS
 Zl
 YS

@@ -135,15 +135,15 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	///The damage we had before this cycle. Used to limit the damage we can take each cycle, and for safe_alert
 	var/damage_archived = 0
 	///Our "Shit is no longer fucked" message. We send it when damage is less then damage_archived
-	var/safe_alert = "Кристаллическая гиперструктура возвращаается к безопасным рабочим параметрам."
+	var/safe_alert = "Кристаллическая гиперструктура возвращается к безопасным рабочим параметрам."
 	///The point at which we should start sending messeges about the damage to the engi channels.
 	var/warning_point = 50
 	///The alert we send when we've reached warning_point
-	var/warning_alert = "Тревога! Кристаллическая гиперструктуры разрушается!"
+	var/warning_alert = "Тревога! Кристаллическая гиперструктура разрушается!"
 	///The point at which we start sending messages to the common channel
 	var/emergency_point = 700
 	///The alert we send when we've reached emergency_point
-	var/emergency_alert = "РАССЛОЕНИЕ КРИСТАЛЛА НЕИЗБЕЖНО."
+	var/emergency_alert = "РАССЛОЕНИЕ КРИСТАЛЛА НЕИЗБЕЖНО!"
 	///The point at which we delam
 	var/explosion_point = 900
 	///When we pass this amount of damage we start shooting bolts
