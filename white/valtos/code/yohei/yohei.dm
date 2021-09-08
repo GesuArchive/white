@@ -264,6 +264,9 @@
 		var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
 		H.maxHealth = MAX_LIVING_HEALTH + LM.reputation[H.ckey]
 		ADD_TRAIT(H, TRAIT_YOHEI, JOB_TRAIT)
+	var/obj/item/card/id/yohei/Y = H.get_idcard(FALSE)
+	if(Y && H.mind)
+		Y.assigned_to = H.mind
 
 /datum/outfit/yohei/medic
 	name = "Йохей: Медик"
@@ -589,6 +592,8 @@ GLOBAL_VAR(yohei_main_controller)
 	parallax_movedir = NORTH
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | BLOCK_SUICIDE | NOTELEPORT
 	static_lighting = FALSE
+	base_lighting_alpha = 255
+	base_lighting_color = COLOR_WHITE
 
 /obj/item/card/id/yohei
 	name = "странная карточка"
@@ -598,9 +603,42 @@ GLOBAL_VAR(yohei_main_controller)
 	assignment = "Yohei"
 	registered_age = 666
 	access = list(ACCESS_YOHEI, ACCESS_MAINT_TUNNELS)
+	var/datum/mind/assigned_to
+	var/assigned_by
+
+/obj/item/card/id/yohei/Initialize(mapload)
+	. = ..()
+	var/datum/bank_account/bank_account = new /datum/bank_account(name)
+	registered_account = bank_account
 
 /obj/item/card/id/yohei/update_label()
-	name = "[md5("[rand(1, 10)][name]")]"
+	if(assigned_by)
+		name = "Наёмный рабочий ([assigned_by])"
+	else
+		name = "[uppertext(copytext_char(md5("[rand(1, 10)][name]"), 1, 4))]-[rand(100000, 999999)]"
+
+/obj/item/card/id/yohei/attackby(obj/item/W, mob/user, params)
+	. = ..()
+
+	if(!isidcard(W) || istype(W, /obj/item/card/id/yohei))
+		return
+
+	if(assigned_by || assigned_to.special_role)
+		to_chat(user, span_danger("Уже кем-то нанят, какая жалость."))
+		return
+
+	if(assigned_to && user?.mind != assigned_to)
+		var/obj/item/card/id/ID = W
+		if(ID.registered_name)
+			assigned_by = ID.registered_name
+			assigned_to.special_role = "yohei"
+			var/datum/antagonist/yohei/V = new
+			V.protected_guy = user.mind
+			assigned_to.add_antag_datum(V)
+			to_chat(user, span_notice("Успешно нанимаю [assigned_to.name]. Теперь меня точно защитят."))
+		else
+			to_chat(user, span_danger("Карта неисправна. Самоутилизация активирована."))
+			qdel(W)
 
 /obj/effect/mob_spawn/human/donate
 	name = "платно"
@@ -625,7 +663,7 @@ GLOBAL_VAR(yohei_main_controller)
 	density = FALSE
 	icon_state = "yohei_spawn"
 	short_desc = "Что-то интересное?"
-	flavour_text = "Наёмник посреди пустошей Лаваленда, до чего жизнь довела!"
+	flavour_text = "Наёмник посреди открытого космоса, до чего жизнь довела!"
 	outfit = /datum/outfit/yohei
 	assignedrole = "Yohei"
 	req_sum = 1250
@@ -672,3 +710,41 @@ GLOBAL_VAR(yohei_main_controller)
 	if (!newname)
 		return
 	H.fully_replace_character_name(H.real_name, newname)
+
+/datum/antagonist/yohei
+	name = "yohei"
+	roundend_category = "yohei"
+	show_in_antagpanel = FALSE
+	prevent_roundtype_conversion = FALSE
+	var/datum/mind/protected_guy
+	greentext_reward = 250
+
+/datum/antagonist/yohei/proc/forge_objectives()
+	var/datum/objective/protect/protect_objective = new /datum/objective/protect
+	protect_objective.owner = owner
+	protect_objective.target = protected_guy
+	if(!ishuman(protected_guy.current))
+		protect_objective.human_check = FALSE
+	protect_objective.explanation_text = "Защитить [protected_guy.name], моего нанимателя."
+	objectives += protect_objective
+
+/datum/antagonist/yohei/on_gain()
+	forge_objectives()
+	. = ..()
+
+/datum/antagonist/yohei/greet()
+	to_chat(owner, span_warning("<B>Неужели, хоть кто-то решился на это. Теперь надо подумать как уберечь задницу [protected_guy.name] от смерти.</B>"))
+
+//Squashed up a bit
+/datum/antagonist/yohei/roundend_report()
+	var/objectives_complete = TRUE
+	if(objectives.len)
+		for(var/datum/objective/objective in objectives)
+			if(!objective.check_completion())
+				objectives_complete = FALSE
+				break
+
+	if(objectives_complete)
+		return "<span class='greentext big'>[owner.name] успешно выполняет работу.</span>"
+	else
+		return "<span class='redtext big'>[owner.name] обосрался, позор!</span>"
