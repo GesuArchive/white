@@ -56,6 +56,9 @@
 	req_access_txt = "49";
 	specialfunctions = 4
 	},
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
 "g" = (
@@ -289,6 +292,9 @@
 	specialfunctions = 4
 	},
 /obj/machinery/light/small,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
 "z" = (
@@ -398,6 +404,7 @@
 	req_access_txt = "49";
 	specialfunctions = 4
 	},
+/obj/machinery/camera/autoname,
 /turf/open/floor/plating,
 /area/shuttle/exploration)
 "N" = (
