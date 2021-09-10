@@ -68,7 +68,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	initial_gas_mix = AIRLESS_ATMOS
 
 /turf/open/openspace/fastload/planetmos
-	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 
 /turf/open/openspace/fastload/LateInitialize()
 	return

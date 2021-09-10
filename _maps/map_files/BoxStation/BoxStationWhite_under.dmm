@@ -6106,6 +6106,10 @@
 	},
 /turf/open/floor/plating/rust,
 /area/maintenance/bottom_station_maints)
+"rM" = (
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel/monofloor,
+/area/maintenance/bottom_station_maints)
 "rN" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -8913,7 +8917,7 @@
 /obj/structure/chair{
 	dir = 1
 	},
-/turf/open/genturf,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "zE" = (
 /obj/structure/cable/multilayer/multiz,
@@ -13456,17 +13460,11 @@
 /turf/open/floor/plating,
 /area/security/prison)
 "Nz" = (
-/obj/structure/cable,
 /obj/machinery/light/small{
-	dir = 8
+	dir = 1;
+	pixel_y = 0
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/turf/open/floor/plating,
+/turf/open/genturf,
 /area/maintenance/bottom_station_maints/east)
 "NA" = (
 /obj/machinery/vending/games,
@@ -13847,8 +13845,8 @@
 /turf/open/floor/engine,
 /area/science/xenobiology)
 "OG" = (
-/obj/machinery/door/firedoor,
-/turf/open/floor/plasteel/monofloor,
+/obj/structure/table,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "OH" = (
 /obj/effect/turf_decal/tile/neutral,
@@ -55402,7 +55400,7 @@ rm
 ln
 ln
 dP
-ln
+rm
 EB
 EB
 EB
@@ -55659,8 +55657,8 @@ rm
 ln
 ln
 hN
-hN
-OG
+rM
+dP
 ln
 EB
 EB
@@ -55916,8 +55914,8 @@ rm
 ln
 ln
 dP
-ln
 FZ
+dP
 ln
 ln
 ln
@@ -56174,7 +56172,7 @@ rm
 zi
 zi
 rm
-rm
+dP
 ei
 ei
 ei
@@ -56691,11 +56689,11 @@ rm
 rm
 rm
 rm
+ln
+ln
 dP
-dP
-dP
-dP
-Gu
+ln
+ln
 rm
 ln
 ln
@@ -56948,11 +56946,11 @@ CJ
 ln
 ln
 rm
+ln
+ln
 dP
-dP
-dP
-dP
-dP
+ln
+ln
 rm
 ln
 ln
@@ -57183,7 +57181,7 @@ SN
 ij
 rm
 rm
-rm
+ln
 ln
 rm
 rm
@@ -57205,11 +57203,11 @@ rm
 jU
 jU
 rm
+ln
+ln
 dP
 dP
-dP
-dP
-dP
+ln
 rm
 ln
 ln
@@ -57438,8 +57436,8 @@ dP
 UY
 SN
 ij
+ij
 rm
-ln
 rm
 CJ
 rm
@@ -57462,11 +57460,11 @@ rm
 rm
 rm
 rm
+ln
+ln
 dP
 dP
-dP
-dP
-dP
+ln
 rm
 ln
 ln
@@ -57695,9 +57693,9 @@ ln
 ij
 SN
 ij
+ij
 rm
 ln
-rm
 ln
 CJ
 dP
@@ -57719,11 +57717,11 @@ rm
 ln
 ln
 CJ
+ln
+ln
 dP
 dP
-dP
-dP
-dP
+ln
 CJ
 ln
 ln
@@ -57952,8 +57950,8 @@ ln
 ij
 SN
 ij
+ij
 rm
-ln
 ln
 ln
 rm
@@ -57976,11 +57974,11 @@ CJ
 ln
 ln
 CJ
+ln
+ln
 dP
 dP
-dP
-dP
-dP
+ln
 CJ
 ln
 ln
@@ -58209,8 +58207,8 @@ ln
 dP
 SN
 ij
+ij
 rm
-ln
 ln
 rm
 rm
@@ -58233,11 +58231,11 @@ rm
 ln
 ln
 rm
+ln
 dP
 dP
 dP
-dP
-dP
+ln
 rm
 ln
 ln
@@ -58466,8 +58464,8 @@ ln
 dP
 SN
 ij
+ij
 CJ
-ln
 ln
 ln
 ln
@@ -58482,19 +58480,19 @@ ln
 ln
 CJ
 ei
-CJ
+FZ
+dP
+dP
 ln
+rm
+rm
+rm
+rm
 ln
+dP
+dP
+dP
 ln
-rm
-rm
-rm
-rm
-dP
-dP
-dP
-dP
-dP
 rm
 ln
 ln
@@ -58723,8 +58721,8 @@ dP
 dP
 ei
 ij
+ij
 CJ
-ln
 ln
 ln
 ln
@@ -58739,20 +58737,20 @@ ln
 ln
 CJ
 ei
+FZ
+dP
+dP
+dP
+dP
+ln
+ln
 CJ
 ln
-ln
-ln
-ln
-ln
-ln
-rm
 dP
 dP
-dP
-dP
-dP
-rm
+ln
+ln
+CJ
 ln
 ln
 ln
@@ -58997,19 +58995,19 @@ cq
 hM
 mR
 hM
-hM
+OG
 zB
+dP
+dP
+dP
+ln
+CJ
 ln
 ln
+dP
 ln
 ln
-rm
-dP
-dP
-dP
-dP
-dP
-rm
+CJ
 ln
 ln
 pB
@@ -59253,7 +59251,7 @@ dc
 dc
 mR
 NL
-Nz
+hM
 hM
 hM
 hM
@@ -59509,7 +59507,7 @@ dc
 dc
 dL
 cq
-Fa
+dc
 dc
 hM
 Fa
@@ -59517,8 +59515,8 @@ Fa
 Fa
 Fa
 Fa
-Fa
-Fa
+ER
+ER
 ER
 dL
 dL
@@ -59766,7 +59764,7 @@ hM
 hM
 hM
 hM
-Fa
+Nz
 dc
 sN
 dL

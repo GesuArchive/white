@@ -1438,6 +1438,11 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
+"tN" = (
+/obj/machinery/camera/autoname,
+/obj/machinery/door/firedoor,
+/turf/open/openspace,
+/area/medical/medbay/central)
 "tW" = (
 /obj/effect/turf_decal/siding/blue,
 /obj/machinery/firealarm/directional/south,
@@ -3219,6 +3224,10 @@
 /obj/machinery/cell_charger,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
+"Sw" = (
+/obj/machinery/door/firedoor,
+/turf/open/openspace,
+/area/medical/medbay/central)
 "SC" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 4
@@ -3595,6 +3604,13 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
+"WM" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/turf/open/openspace,
+/area/medical/medbay/central)
 "Xj" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
@@ -3810,7 +3826,7 @@ di
 di
 di
 Jk
-DI
+WM
 di
 di
 eH
@@ -3900,8 +3916,8 @@ wB
 id
 Tn
 Tn
-qt
-di
+tN
+Sw
 GH
 ba
 ba
@@ -4491,7 +4507,7 @@ oa
 di
 di
 Jk
-di
+Sw
 di
 di
 GH
@@ -4533,7 +4549,7 @@ JF
 di
 eH
 Jk
-di
+Sw
 di
 di
 di
@@ -4622,9 +4638,9 @@ So
 So
 So
 So
-di
-di
-di
+Sw
+Sw
+Sw
 GH
 GH
 GH
@@ -4637,8 +4653,8 @@ ba
 "}
 (22,1,1) = {"
 GH
-di
-di
+Sw
+Sw
 SU
 xa
 RN
@@ -4668,7 +4684,7 @@ di
 di
 di
 di
-di
+Sw
 di
 di
 di
@@ -4710,7 +4726,7 @@ di
 eH
 di
 di
-di
+Sw
 di
 di
 di
@@ -4934,7 +4950,7 @@ ba
 GH
 di
 di
-Jk
+Sw
 di
 Hd
 di
@@ -4947,9 +4963,9 @@ AA
 di
 di
 di
-di
+Sw
 Hd
-Jk
+Sw
 di
 di
 So
@@ -4976,7 +4992,7 @@ ba
 GH
 di
 di
-Jk
+Sw
 di
 kh
 dU
@@ -4989,22 +5005,22 @@ AA
 di
 di
 di
+Sw
 di
-di
-Jk
-di
-di
-di
+Sw
 di
 di
 di
-Jk
+di
+di
+di
+Sw
 di
 Hd
 di
 di
 di
-di
+Sw
 di
 di
 di
@@ -5040,13 +5056,13 @@ di
 di
 di
 di
-Jk
+Sw
 di
 di
 DI
 di
 di
-di
+Sw
 di
 di
 di

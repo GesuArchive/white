@@ -28,32 +28,6 @@
 	inhand_icon_state = "philosopher_wig"
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 80, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 5)
 
-/obj/item/clothing/head/hijab
-	name = "hijab"
-	desc = "Hijab"
-	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
-	icon = 'white/Wzzzz/clothing/head.dmi'
-	dynamic_hair_suffix = ""
-	icon_state = "hijab"
-	inhand_icon_state = "hijab"
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 0)
-
-/obj/item/clothing/head/taqiyah
-	name = "taqiyah"
-	desc = "Looks like taqiyah"
-	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
-	icon = 'white/Wzzzz/clothing/head.dmi'
-	icon_state = "taqiyah"
-	inhand_icon_state = "taqiyah"
-
-/obj/item/clothing/head/turban
-	name = "turban"
-	desc = "Soft, good"
-	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
-	icon = 'white/Wzzzz/clothing/head.dmi'
-	icon_state = "turban"
-	inhand_icon_state = "turban"
-
 /obj/item/clothing/head/soft/fleetsoft
 	name = "fleet cap"
 	desc = "For fleet?"
