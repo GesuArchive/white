@@ -248,3 +248,85 @@
 /obj/item/ammo_box/magazine/ak47mag/update_icon()
 	..()
 	icon_state = "akm-[ammo_count() ? "30" : "0"]"
+
+/obj/item/clothing/head/hijab
+	name = "хиджаб"
+	desc = "Ммм"
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	dynamic_hair_suffix = ""
+	icon_state = "hijab"
+	inhand_icon_state = "hijab"
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 0)
+
+/obj/item/clothing/head/taqiyah
+	name = "такиях"
+	desc = "Ооох."
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	icon_state = "taqiyah"
+	inhand_icon_state = "taqiyah"
+
+/obj/item/clothing/head/turban
+	name = "тюрбан"
+	desc = "Мягкий, ых"
+	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
+	icon = 'white/Wzzzz/clothing/head.dmi'
+	icon_state = "turban"
+	inhand_icon_state = "turban"
+
+
+/obj/item/storage/belt/military/assault/terrorist_m
+
+/obj/item/storage/belt/military/assault/terrorist_m/PopulateContents()
+	new /obj/item/ammo_box/magazine/ak47mag(src)
+	new /obj/item/ammo_box/magazine/ak47mag(src)
+	new /obj/item/ammo_box/magazine/ak47mag(src)
+	new /obj/item/ammo_box/magazine/ak47mag(src)
+	new /obj/item/ammo_box/magazine/ak47mag(src)
+	new /obj/item/ammo_box/magazine/ak47mag(src)
+
+/obj/item/storage/belt/military/assault/terrorist_f
+
+/obj/item/storage/belt/military/assault/terrorist_f/PopulateContents()
+	new /obj/item/grenade/firecracker(src)
+	new /obj/item/grenade/firecracker(src)
+	new /obj/item/grenade/firecracker(src)
+	new /obj/item/grenade/firecracker(src)
+	new /obj/item/grenade/firecracker(src)
+	new /obj/item/grenade/firecracker(src)
+	new /obj/item/grenade/frag(src)
+	new /obj/item/grenade/frag(src)
+	new /obj/item/grenade/frag(src)
+	new /obj/item/grenade/frag(src)
+	new /obj/item/grenade/frag(src)
+	new /obj/item/grenade/frag(src)
+
+/datum/outfit/terrorist_m
+	name = "Террорист: Мужчина"
+
+	head = /obj/item/clothing/head/turban
+	uniform = /obj/item/clothing/under/color/white
+	suit = /obj/item/clothing/suit/chaplainsuit/studentuni
+	shoes = /obj/item/clothing/shoes/sandal
+	gloves = /obj/item/clothing/gloves/combat
+
+	belt = /obj/item/storage/belt/military/assault/terrorist_m
+
+	back = /obj/item/gun/ballistic/automatic/ak47
+
+/datum/outfit/terrorist_f
+	name = "Террорист: Женщина"
+
+	head = /obj/item/clothing/head/hijab
+	mask = /obj/item/clothing/mask/surgical
+	uniform = /obj/item/clothing/under/color/white
+	suit = /obj/item/clothing/suit/chaplainsuit/whiterobe
+	shoes = /obj/item/clothing/shoes/sandal
+	gloves = /obj/item/clothing/gloves/color/white
+
+	belt = /obj/item/storage/belt/military/assault/terrorist_f
+
+	back = /obj/item/storage/backpack/explorer
+
+	backpack_contents = list(/obj/item/grenade/c4/x4 = 4, /obj/item/sbeacondrop/bomb = 2)
