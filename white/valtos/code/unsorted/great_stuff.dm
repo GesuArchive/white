@@ -338,8 +338,9 @@
 	H.AddSpell(new /obj/effect/proc_holder/spell/self/his_wish(null))
 	H.hair_color = "000"
 	H.facial_hair_color = "000"
-	H.facial_hairstyle = "Long Beard"
+	H.facial_hairstyle = "Beard (Very Long)"
 	H.update_hair()
+	H.fully_replace_character_name(H.real_name, "[pick("Джохар", "Аслан", "Абу", "Шамиль", "Усама", "Ахтар", "Кари")] Бомбаев")
 
 /datum/outfit/terrorist_f/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
@@ -348,6 +349,7 @@
 	H.hair_color = "000"
 	H.facial_hair_color = "000"
 	H.update_hair()
+	H.fully_replace_character_name(H.real_name, "[pick("Адиля", "Гульшат", "Динара", "Ляйсан", "Нарима", "Рахима", "Ширин")] Бомбаева")
 	if(H.mind)
 		H.mind.miming = TRUE
 
@@ -358,8 +360,8 @@
 	clothes_req = FALSE
 	charge_max = 100
 	cooldown_min = 100
-	invocation = "выкрикивает что-то!"
-	invocation_type = "emote"
+	invocation = "﷽!"
+	invocation_type = INVOCATION_SHOUT
 	school = "restoration"
 	sound = 'white/valtos/sounds/Alah.ogg'
 	action_icon_state = "spacetime"
@@ -367,3 +369,7 @@
 /obj/effect/proc_holder/spell/self/his_wish/cast(list/targets, mob/living/carbon/human/user)
 	user.adjustBruteLoss(-50)
 	user.adjustFireLoss(-50)
+	user.adjustOxyLoss(-50)
+	user.adjustStaminaLoss(-50)
+	user.set_handcuffed(null)
+	user.update_handcuffed()
