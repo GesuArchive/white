@@ -371,5 +371,6 @@
 	user.adjustFireLoss(-50)
 	user.adjustOxyLoss(-50)
 	user.adjustStaminaLoss(-50)
+	user.adjustToxLoss(-50)
 	user.set_handcuffed(null)
 	user.update_handcuffed()

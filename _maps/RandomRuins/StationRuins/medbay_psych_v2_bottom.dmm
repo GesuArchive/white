@@ -1,12 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "bt" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4;
-	name = "Medbay Maintenance";
-	req_access_txt = "5"
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
 	},
-/obj/effect/mapping_helpers/airlock/locked,
-/turf/open/floor/plating,
+/obj/machinery/vending/wardrobe/chem_wardrobe,
+/turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "cd" = (
 /obj/machinery/firealarm/directional/east,
@@ -46,17 +44,19 @@
 /area/medical/psychology)
 "fE" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
 /obj/structure/cable,
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -30
 	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "ge" = (
-/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 8
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "gL" = (
@@ -118,11 +118,13 @@
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
 "jN" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 9
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	name = "Medbay Maintenance";
+	req_access_txt = "5"
 	},
-/obj/machinery/vending/wardrobe/chem_wardrobe,
-/turf/open/floor/plasteel/white,
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/plating,
 /area/medical/chemistry)
 "lX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
@@ -196,6 +198,9 @@
 	},
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/item/reagent_containers/dropper,
+/obj/machinery/airalarm{
+	pixel_y = 23
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "sl" = (
@@ -218,15 +223,6 @@
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/zone2)
-"sS" = (
-/obj/machinery/airalarm{
-	pixel_y = 23
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 1
-	},
-/turf/open/floor/plasteel/white,
-/area/medical/chemistry)
 "tG" = (
 /turf/closed/wall/r_wall,
 /area/medical/psychology)
@@ -387,20 +383,8 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
-"Ca" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 10
-	},
-/turf/open/floor/plasteel/white,
-/area/medical/chemistry)
 "Cb" = (
 /turf/closed/wall/r_wall,
-/area/medical/chemistry)
-"Cx" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 8
-	},
-/turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "CE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -442,9 +426,8 @@
 /turf/closed/wall/r_wall,
 /area/medical/medbay/zone2)
 "Fd" = (
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 4
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
@@ -502,9 +485,6 @@
 "LR" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/light,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
@@ -756,12 +736,12 @@ tI
 tI
 tI
 tI
-Cb
-Cb
-Cb
-Cb
-Cb
-Cb
+tI
+tI
+tI
+tI
+tI
+tI
 tI
 tI
 tI
@@ -798,12 +778,12 @@ tI
 tI
 tI
 tI
-Cb
-jN
-Cx
-Cx
-Ca
-bt
+tI
+tI
+tI
+tI
+tI
+tI
 tI
 tI
 tI
@@ -841,10 +821,10 @@ tI
 tI
 tI
 Cb
-sS
-ir
-ir
-ge
+Cb
+Cb
+Cb
+Cb
 Cb
 tI
 tI
@@ -883,11 +863,11 @@ tI
 tI
 tI
 Cb
-Zp
-ir
-ir
+bt
+ge
+ge
 Fd
-Cb
+jN
 tI
 tI
 tI
