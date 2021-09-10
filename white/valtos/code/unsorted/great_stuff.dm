@@ -251,7 +251,7 @@
 
 /obj/item/clothing/head/hijab
 	name = "хиджаб"
-	desc = "Ммм"
+	desc = "Ммм."
 	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon = 'white/Wzzzz/clothing/head.dmi'
 	dynamic_hair_suffix = ""
@@ -269,7 +269,7 @@
 
 /obj/item/clothing/head/turban
 	name = "тюрбан"
-	desc = "Мягкий, ых"
+	desc = "Мягкий, ых."
 	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "turban"
@@ -293,12 +293,6 @@
 	new /obj/item/grenade/firecracker(src)
 	new /obj/item/grenade/firecracker(src)
 	new /obj/item/grenade/firecracker(src)
-	new /obj/item/grenade/firecracker(src)
-	new /obj/item/grenade/firecracker(src)
-	new /obj/item/grenade/frag(src)
-	new /obj/item/grenade/frag(src)
-	new /obj/item/grenade/frag(src)
-	new /obj/item/grenade/frag(src)
 	new /obj/item/grenade/frag(src)
 	new /obj/item/grenade/frag(src)
 
@@ -311,6 +305,9 @@
 	shoes = /obj/item/clothing/shoes/sandal
 	gloves = /obj/item/clothing/gloves/combat
 
+	r_pocket = /obj/item/card/emag/doorjack
+	l_pocket = /obj/item/soap/syndie
+
 	belt = /obj/item/storage/belt/military/assault/terrorist_m
 
 	back = /obj/item/gun/ballistic/automatic/ak47
@@ -318,6 +315,7 @@
 /datum/outfit/terrorist_f
 	name = "Террорист: Женщина"
 
+	glasses = /obj/item/clothing/glasses/sunglasses
 	head = /obj/item/clothing/head/hijab
 	mask = /obj/item/clothing/mask/surgical
 	uniform = /obj/item/clothing/under/color/white
@@ -327,6 +325,45 @@
 
 	belt = /obj/item/storage/belt/military/assault/terrorist_f
 
-	back = /obj/item/storage/backpack/explorer
+	r_pocket = /obj/item/lighter
+	l_pocket = /obj/item/grenade/syndieminibomb
+
+	back = /obj/item/storage/backpack/satchel/explorer
 
 	backpack_contents = list(/obj/item/grenade/c4/x4 = 4, /obj/item/sbeacondrop/bomb = 2)
+
+/datum/outfit/terrorist_m/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+	H.client << 'white/valtos/sounds/arab_choir.ogg'
+	H.AddSpell(new /obj/effect/proc_holder/spell/self/his_wish(null))
+	H.hair_color = "000"
+	H.facial_hair_color = "000"
+	H.facial_hairstyle = "Long Beard"
+	H.update_hair()
+
+/datum/outfit/terrorist_f/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+	H.client << 'white/valtos/sounds/arab_choir.ogg'
+	H.AddSpell(new /obj/effect/proc_holder/spell/self/his_wish(null))
+	H.hair_color = "000"
+	H.facial_hair_color = "000"
+	H.update_hair()
+	if(H.mind)
+		H.mind.miming = TRUE
+
+/obj/effect/proc_holder/spell/self/his_wish
+	name = "Воззвать к Всевышнему"
+	desc = "Позволяет забыть о боли на момент."
+	human_req = TRUE
+	clothes_req = FALSE
+	charge_max = 100
+	cooldown_min = 100
+	invocation = "выкрикивает что-то!"
+	invocation_type = "emote"
+	school = "restoration"
+	sound = 'white/valtos/sounds/Alah.ogg'
+	action_icon_state = "spacetime"
+
+/obj/effect/proc_holder/spell/self/his_wish/cast(list/targets, mob/living/carbon/human/user)
+	user.adjustBruteLoss(-50)
+	user.adjustFireLoss(-50)
