@@ -460,7 +460,7 @@
 	visible_message(span_warning("[capitalize(src.name)] включается!"))
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
 	polling = TRUE
-	var/list/candidates = pollCandidatesForMob("Хотите поиграть за обезьянку с увеличенным интеллектом?", ROLE_SENTIENCE, null, ROLE_SENTIENCE, 50, magnification, POLL_IGNORE_SENTIENCE_POTION)
+	var/list/candidates = poll_candidates_for_mob("Хотите поиграть за обезьянку с увеличенным интеллектом?", ROLE_SENTIENCE, null, ROLE_SENTIENCE, 50, magnification, POLL_IGNORE_SENTIENCE_POTION)
 	polling = FALSE
 	if(!candidates.len)
 		magnification = null
