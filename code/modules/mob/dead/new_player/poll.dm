@@ -372,7 +372,7 @@
 	if(vote_success)
 		if(!vote_id)
 			poll.poll_votes++
-		to_chat(usr, span_notice("ГОЛОС ОТДАН. Спасибо!"))
+		inc_metabalance(usr, 100, reason="ГОЛОС ОТДАН. Спасибо!")
 
 /**
  * Processes vote form data and saves results to the database for an option type poll.
