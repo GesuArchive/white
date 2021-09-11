@@ -216,3 +216,7 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 		target.color = COLOR_RED
 		target.set_light(1.4, 4, COLOR_RED, TRUE)
 		priority_announce("За голову [target] назначена награда в размере [bounty] кредит[get_num_string(bounty)]. Он будет подсвечен лазерной наводкой для удобства.", "Охота за головами",'sound/ai/announcer/alert.ogg')
+
+/proc/maptick_initialize()
+	var/result = call(EXTOOLS, "maptick_initialize")()
+	message_admins(span_danger("ENABLING EXPERIMENTAL MAPTICK BOOST WITH RESULT OF: [result]"))
