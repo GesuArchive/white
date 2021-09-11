@@ -61,7 +61,7 @@
 
 /datum/asset/simple/circuit_assets
 	assets = list(
-		"grid_background.png" = 'icons/ui_icons/tgui/grid_background.png'
+		"grid_background.png" = 'icons/UI_Icons/tgui/grid_background.png'
 	)
 
 /datum/asset/spritesheet/simple/pda
@@ -574,10 +574,10 @@
 
 /datum/asset/simple/contracts
 	assets = list(
-		"bluespace.png" = 'icons/ui_icons/contracts/bluespace.png',
-		"destruction.png" = 'icons/ui_icons/contracts/destruction.png',
-		"healing.png" = 'icons/ui_icons/contracts/healing.png',
-		"robeless.png" = 'icons/ui_icons/contracts/robeless.png',
+		"bluespace.png" = 'icons/UI_Icons/contracts/bluespace.png',
+		"destruction.png" = 'icons/UI_Icons/contracts/destruction.png',
+		"healing.png" = 'icons/UI_Icons/contracts/healing.png',
+		"robeless.png" = 'icons/UI_Icons/contracts/robeless.png',
 	)
 
 /datum/asset/spritesheet/fish
