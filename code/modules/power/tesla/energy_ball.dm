@@ -29,6 +29,8 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	flags_1 = SUPERMATTER_IGNORES_1
 
+	blend_mode = BLEND_MULTIPLY
+
 	var/energy
 	var/target
 	var/list/orbiting_balls = list()
