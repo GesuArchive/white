@@ -166,7 +166,7 @@
 	if(href_list["drop_from_cargo"])
 		var/obj/cargoobj = locate(href_list["drop_from_cargo"]) in cargo
 		if(cargoobj)
-			to_chat(occupants, "[icon2html(src, occupants)]<span class='notice'>You unload [cargoobj].</span>")
+			to_chat(occupants, "[icon2html(src, occupants)]<span class='notice'>Выгружаю [cargoobj].</span>")
 			cargoobj.forceMove(drop_location())
 			LAZYREMOVE(cargo, cargoobj)
 			if(cargoobj == box)
@@ -184,26 +184,26 @@
 
 /obj/vehicle/sealed/mecha/working/ripley/get_stats_part()
 	var/output = ..()
-	output += "<b>Cargo Compartment Contents:</b><div style=\"margin-left: 15px;\">"
+	output += "<b>Содержимое грузового отсека:</b><div style=\"margin-left: 15px;\">"
 	if(LAZYLEN(cargo))
 		for(var/obj/O in cargo)
-			output += "<a href='?src=[REF(src)];drop_from_cargo=[REF(O)]'>Unload</a> : [O]<br>"
+			output += "<a href='?src=[REF(src)];drop_from_cargo=[REF(O)]'>Выгрузить</a>: [O]<br>"
 	else
-		output += "Nothing"
+		output += "Ничего"
 	output += "</div>"
 	return output
 
 /obj/vehicle/sealed/mecha/working/ripley/relay_container_resist_act(mob/living/user, obj/O)
-	to_chat(user, span_notice("You lean on the back of [O] and start pushing so it falls out of [src]."))
+	to_chat(user, span_notice("Пытаюсь выдавить стенку [O], чтобы попытаться выбраться из [src]."))
 	if(do_after(user, 300, target = O))
 		if(!user || user.stat != CONSCIOUS || user.loc != src || O.loc != src )
 			return
-		to_chat(user, span_notice("You successfully pushed [O] out of [src]!"))
+		to_chat(user, span_notice("Успешно выдавливаю стенку [O] и выбираюсь из [src]!"))
 		O.forceMove(drop_location())
 		LAZYREMOVE(cargo, O)
 	else
 		if(user.loc == src) //so we don't get the message if we resisted multiple times and succeeded.
-			to_chat(user, span_warning("You fail to push [O] out of [src]!"))
+			to_chat(user, span_warning("Не выходит выдавить стенку [O] и выбраться из [src]!"))
 
 /**
  * Makes the mecha go faster and halves the mecha drill cooldown if in Lavaland pressure.

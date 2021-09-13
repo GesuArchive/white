@@ -7,7 +7,7 @@
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	var/rounds = 0
-	var/round_term = "round"
+	var/round_term = "патрон"
 	var/direct_load //For weapons where we re-load the weapon itself rather than adding to the ammo storage.
 	var/load_audio = 'sound/weapons/gun/general/mag_bullet_insert.ogg'
 	var/ammo_type
@@ -33,7 +33,7 @@
 /obj/item/mecha_ammo/examine(mob/user)
 	. = ..()
 	if(rounds)
-		. += "<hr>There [rounds > 1?"are":"is"] [rounds] [round_term][rounds > 1?"s":""] left."
+		. += "<hr>Внутри [rounds] [round_term][rounds > 1?"":"а"]."
 
 /obj/item/mecha_ammo/incendiary
 	name = "incendiary ammo"
@@ -61,7 +61,7 @@
 	desc = "A box of large missiles, ready for loading into a BRM-6 exosuit missile rack."
 	icon_state = "missile_br"
 	rounds = 6
-	round_term = "missile"
+	round_term = "ракет"
 	direct_load = TRUE
 	load_audio = 'sound/weapons/gun/general/mag_bullet_insert.ogg'
 	ammo_type = "missiles_br"
@@ -71,7 +71,7 @@
 	desc = "A box of large missiles, ready for loading into an SRM-8 exosuit missile rack."
 	icon_state = "missile_he"
 	rounds = 8
-	round_term = "missile"
+	round_term = "ракет"
 	direct_load = TRUE
 	load_audio = 'sound/weapons/gun/general/mag_bullet_insert.ogg'
 	ammo_type = "missiles_he"
@@ -82,7 +82,7 @@
 	desc = "A box of smooth flashbangs, for use with a large exosuit launcher. Cannot be primed by hand."
 	icon_state = "flashbang"
 	rounds = 6
-	round_term = "grenade"
+	round_term = "гранат"
 	ammo_type = "flashbang"
 
 /obj/item/mecha_ammo/clusterbang
@@ -90,6 +90,6 @@
 	desc = "A box of clustered flashbangs, for use with a specialized exosuit cluster launcher. Cannot be primed by hand."
 	icon_state = "clusterbang"
 	rounds = 3
-	round_term = "cluster"
+	round_term = "кластер"
 	direct_load = TRUE
 	ammo_type = "clusterbang"

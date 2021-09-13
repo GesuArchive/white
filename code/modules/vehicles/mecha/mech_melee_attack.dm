@@ -7,8 +7,8 @@
 	switch(mecha_attacker.damtype)
 		if(BRUTE)
 			playsound(src, 'sound/weapons/punch4.ogg', 50, TRUE)
-			mecha_attacker.visible_message(span_danger("[mecha_attacker.name] hits [src]!") , \
-							span_danger("You hit [src]!") , null, COMBAT_MESSAGE_RANGE)
+			mecha_attacker.visible_message(span_danger("[mecha_attacker.name] бьёт [src]!") , \
+							span_danger("Бью [src]!") , null, COMBAT_MESSAGE_RANGE)
 			if(prob(hardness + mecha_attacker.force) && mecha_attacker.force > 20)
 				dismantle_wall(1)
 				playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
@@ -38,7 +38,7 @@
 				return 0
 			else
 				return 0
-	mecha_attacker.visible_message(span_danger("[mecha_attacker.name] hits [src]!") , span_danger("You hit [src]!") , null, COMBAT_MESSAGE_RANGE)
+	mecha_attacker.visible_message(span_danger("[mecha_attacker.name] бьёт [src]!") , span_danger("Бью [src]!") , null, COMBAT_MESSAGE_RANGE)
 	return take_damage(mecha_attacker.force * 3, mech_damtype, "melee", play_soundeffect, get_dir(src, mecha_attacker)) // multiplied by 3 so we can hit objs hard but not be overpowered against mobs.
 
 /obj/structure/window/mech_melee_attack(obj/vehicle/sealed/mecha/mecha_attacker)
@@ -49,7 +49,7 @@
 /mob/living/mech_melee_attack(obj/vehicle/sealed/mecha/mecha_attacker, mob/user)
 	if(user.a_intent == INTENT_HARM)
 		if(HAS_TRAIT(user, TRAIT_PACIFISM))
-			to_chat(user, span_warning("You don't want to harm other living beings!"))
+			to_chat(user, span_warning("Не хочу вредить живым существам!"))
 			return
 		mecha_attacker.do_attack_animation(src)
 		if(mecha_attacker.damtype == "brute")
@@ -67,21 +67,21 @@
 			else
 				return
 		updatehealth()
-		visible_message(span_danger("[mecha_attacker.name] hits [src]!") , \
-						span_userdanger("[mecha_attacker.name] hits you!") , span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, mecha_attacker)
-		to_chat(mecha_attacker, span_danger("You hit [src]!"))
+		visible_message(span_danger("[mecha_attacker.name] бьёт [src]!") , \
+						span_userdanger("[mecha_attacker.name] бьёт меня!") , span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, mecha_attacker)
+		to_chat(mecha_attacker, span_danger("Бью [src]!"))
 		log_combat(user, src, "attacked", mecha_attacker, "(INTENT: [uppertext(user.a_intent)]) (DAMTYPE: [uppertext(mecha_attacker.damtype)])")
 	else
 		step_away(src, mecha_attacker)
 		log_combat(user, src, "pushed", mecha_attacker)
-		visible_message(span_warning("[mecha_attacker] pushes [src] out of the way.") , \
-						span_warning("[mecha_attacker] pushes you out of the way.") , span_hear("Слышу агрессивную потасовку!") , 5, list(mecha_attacker))
-		to_chat(mecha_attacker, span_danger("You push [src] out of the way."))
+		visible_message(span_warning("[mecha_attacker] толкает [src] в сторону.") , \
+						span_warning("[mecha_attacker] толкает меня в сторону.") , span_hear("Слышу агрессивную потасовку!") , 5, list(mecha_attacker))
+		to_chat(mecha_attacker, span_danger("Толкаю [src] в сторону."))
 
 /mob/living/carbon/human/mech_melee_attack(obj/vehicle/sealed/mecha/mecha_attacker, mob/user)
 	if(user.a_intent == INTENT_HARM)
 		if(HAS_TRAIT(user, TRAIT_PACIFISM))
-			to_chat(user, span_warning("You don't want to harm other living beings!"))
+			to_chat(user, span_warning("Не хочу вредить живым существам!"))
 			return
 		mecha_attacker.do_attack_animation(src)
 		if(mecha_attacker.damtype == BRUTE)
@@ -109,9 +109,9 @@
 				update_damage_overlays()
 			updatehealth()
 
-		visible_message(span_danger("[mecha_attacker.name] hits [src]!") , \
-						span_userdanger("[mecha_attacker.name] hits you!") , span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, list(mecha_attacker))
-		to_chat(mecha_attacker, span_danger("You hit [src]!"))
+		visible_message(span_danger("[mecha_attacker.name] лупит [src]!") , \
+						span_userdanger("[mecha_attacker.name] лупит меня!") , span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, list(mecha_attacker))
+		to_chat(mecha_attacker, span_danger("Луплю [src]!"))
 		log_combat(user, src, "attacked", mecha_attacker, "(INTENT: [uppertext(user.a_intent)]) (DAMTYPE: [uppertext(mecha_attacker.damtype)])")
 	else
 		return ..()

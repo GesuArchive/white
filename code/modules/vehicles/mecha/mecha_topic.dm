@@ -65,36 +65,36 @@
 		tank_temperature = internal_tank ? int_tank_air.return_temperature() : "Unknown"
 		cabin_pressure = round(return_pressure(),0.01)
 	. =	{"[report_internal_damage()]
-		[integrity<30?"<span class='userdanger'>DAMAGE LEVEL CRITICAL</span><br>":null]
-		<b>Integrity: </b> [integrity]%<br>
-		<b>Power cell charge: </b>[isnull(cell_charge)?"No power cell installed":"[cell.percent()]%"]<br>
-		<b>Air source: </b>[internal_tank?"[use_internal_tank?"Internal Airtank":"Environment"]":"Environment"]<br>
-		<b>Airtank pressure: </b>[internal_tank?"[tank_pressure]kPa":"N/A"]<br>
-		<b>Airtank temperature: </b>[internal_tank?"[tank_temperature]&deg;K|[tank_temperature - T0C]&deg;C":"N/A"]<br>
-		<b>Cabin pressure: </b>[internal_tank?"[cabin_pressure>WARNING_HIGH_PRESSURE ? span_danger("[cabin_pressure]") : cabin_pressure]kPa":"N/A"]<br>
-		<b>Cabin temperature: </b> [internal_tank?"[return_temperature()]&deg;K|[return_temperature() - T0C]&deg;C":"N/A"]<br>
-		[dna_lock?"<b>DNA-locked:</b><br> <span style='font-size:10px;letter-spacing:-1px;'>[dna_lock]</span> \[<a href='?src=[REF(src)];reset_dna=1'>Reset</a>\]<br>":""]<br>"}
+		[integrity<30?"<span class='userdanger'>УРОВЕНЬ ПОВРЕЖДЕНИЙ КРИТИЧЕСКИЙ</span><br>":null]
+		<b>Состояние: </b> [integrity]%<br>
+		<b>Заряд: </b>[isnull(cell_charge)?"НЕТ АККУМУЛЯТОРА":"[cell.percent()]%"]<br>
+		<b>Источник воздуха: </b>[internal_tank?"[use_internal_tank?"Бак":"Окружение"]":"Окружение"]<br>
+		<b>Давление в баке: </b>[internal_tank?"[tank_pressure]кПа":"N/A"]<br>
+		<b>Температура в баке: </b>[internal_tank?"[tank_temperature]&deg;K|[tank_temperature - T0C]&deg;C":"N/A"]<br>
+		<b>Давление в кабине: </b>[internal_tank?"[cabin_pressure>WARNING_HIGH_PRESSURE ? span_danger("[cabin_pressure]") : cabin_pressure]кПа":"N/A"]<br>
+		<b>Температура в кабине: </b> [internal_tank?"[return_temperature()]&deg;K|[return_temperature() - T0C]&deg;C":"N/A"]<br>
+		[dna_lock?"<b>ДНК-блок:</b><br> <span style='font-size:10px;letter-spacing:-1px;'>[dna_lock]</span> \[<a href='?src=[REF(src)];reset_dna=1'>Сброс</a>\]<br>":""]<br>"}
 	. += "[get_actions(user)]<br>"
 
 ///Returns HTML for mech actions. Ideally, this proc would be empty for the base mecha. Segmented for easy refactoring.
 /obj/vehicle/sealed/mecha/proc/get_actions(mob/user)
 	. = ""
-	. += "[LAZYACCESSASSOC(occupant_actions, user, /datum/action/vehicle/sealed/mecha/mech_defense_mode) ? "<b>Defense Mode: </b> [defense_mode ? "Enabled" : "Disabled"]<br>" : ""]"
-	. += "[LAZYACCESSASSOC(occupant_actions, user, /datum/action/vehicle/sealed/mecha/mech_overload_mode) ? "<b>Leg Actuators Overload: </b> [leg_overload_mode ? "Enabled" : "Disabled"]<br>" : ""]"
-	. += "[LAZYACCESSASSOC(occupant_actions, user, /datum/action/vehicle/sealed/mecha/mech_smoke) ? "<b>Smoke Charges remaining: </b> [smoke_charges]<br>" : ""]"
-	. += "[LAZYACCESSASSOC(occupant_actions, user, /datum/action/vehicle/sealed/mecha/mech_zoom) ? "<b>Zoom: </b> [zoom_mode ? "Enabled" : "Disabled"]<br>" : ""]"
-	. += "[LAZYACCESSASSOC(occupant_actions, user, /datum/action/vehicle/sealed/mecha/mech_switch_damtype) ? "<b>Damtype: </b> [damtype]<br>" : ""]"
-	. += "[LAZYACCESSASSOC(occupant_actions, user, /datum/action/vehicle/sealed/mecha/mech_toggle_phasing) ? "<b>Phase Modulator: </b> [phasing ? "Enabled" : "Disabled"]<br>" : ""]"
+	. += "[LAZYACCESSASSOC(occupant_actions, user, /datum/action/vehicle/sealed/mecha/mech_defense_mode) ? "<b>Режим защиты: </b> [defense_mode ? "Включено" : "Отключено"]<br>" : ""]"
+	. += "[LAZYACCESSASSOC(occupant_actions, user, /datum/action/vehicle/sealed/mecha/mech_overload_mode) ? "<b>Перегрузка ног: </b> [leg_overload_mode ? "Включено" : "Отключено"]<br>" : ""]"
+	. += "[LAZYACCESSASSOC(occupant_actions, user, /datum/action/vehicle/sealed/mecha/mech_smoke) ? "<b>Дымовых завес </b> [smoke_charges]<br>" : ""]"
+	. += "[LAZYACCESSASSOC(occupant_actions, user, /datum/action/vehicle/sealed/mecha/mech_zoom) ? "<b>Зум: </b> [zoom_mode ? "Включено" : "Отключено"]<br>" : ""]"
+	. += "[LAZYACCESSASSOC(occupant_actions, user, /datum/action/vehicle/sealed/mecha/mech_switch_damtype) ? "<b>Тип урона: </b> [damtype]<br>" : ""]"
+	. += "[LAZYACCESSASSOC(occupant_actions, user, /datum/action/vehicle/sealed/mecha/mech_toggle_phasing) ? "<b>Фазирование: </b> [phasing ? "Включено" : "Отключено"]<br>" : ""]"
 
 ///HTML for internal damage.
 /obj/vehicle/sealed/mecha/proc/report_internal_damage()
 	. = ""
 	var/list/dam_reports = list(
-		"[MECHA_INT_FIRE]" = span_userdanger("INTERNAL FIRE") ,
-		"[MECHA_INT_TEMP_CONTROL]" = span_userdanger("LIFE SUPPORT SYSTEM MALFUNCTION") ,
-		"[MECHA_INT_TANK_BREACH]" = span_userdanger("GAS TANK BREACH") ,
-		"[MECHA_INT_CONTROL_LOST]" = "<span class='userdanger'>COORDINATION SYSTEM CALIBRATION FAILURE</span> - <a href='?src=[REF(src)];repair_int_control_lost=1'>Recalibrate</a>",
-		"[MECHA_INT_SHORT_CIRCUIT]" = span_userdanger("SHORT CIRCUIT")
+		"[MECHA_INT_FIRE]" = span_userdanger("ВНУТРЕННИЙ ПОЖАР") ,
+		"[MECHA_INT_TEMP_CONTROL]" = span_userdanger("СБОЙ СИСТЕМЫ ЖИЗНЕОБЕСПЕЧЕНИЯ") ,
+		"[MECHA_INT_TANK_BREACH]" = span_userdanger("ПРОБИТИЕ БАКА") ,
+		"[MECHA_INT_CONTROL_LOST]" = "<span class='userdanger'>СБОЙ СИСТЕМЫ КАЛИБРОВКИ КООРДИНАЦИИ</span> - <a href='?src=[REF(src)];repair_int_control_lost=1'>Перекалибровать</a>",
+		"[MECHA_INT_SHORT_CIRCUIT]" = span_userdanger("КОРОТКОЕ ЗАМЫКАНИЕ")
 								)
 	for(var/tflag in dam_reports)
 		var/intdamflag = text2num(tflag)
@@ -102,13 +102,13 @@
 			. += dam_reports[tflag]
 			. += "<br />"
 	if(return_pressure() > WARNING_HIGH_PRESSURE)
-		. += "<span class='userdanger'>DANGEROUSLY HIGH CABIN PRESSURE</span><br />"
+		. += "<span class='userdanger'>ОПАСНО ВЫСОКОЕ ДАВЛЕНИЕ В КАБИНЕ</span><br />"
 
 ///HTML for list of equipment.
 /obj/vehicle/sealed/mecha/proc/get_equipment_list() //outputs mecha equipment list in html
 	if(!LAZYLEN(equipment))
 		return
-	. = "<b>Equipment:</b><div style=\"margin-left: 15px;\">"
+	. = "<b>Оборудование:</b><div style=\"margin-left: 15px;\">"
 	for(var/obj/item/mecha_parts/mecha_equipment/MT in equipment)
 		. += "<div id='[REF(MT)]'>[MT.get_equip_info()]</div>"
 	. += "</div>"
@@ -117,31 +117,31 @@
 /obj/vehicle/sealed/mecha/proc/get_commands()
 	. = {"
 	<div class='wr'>
-		<div class='header'>Electronics</div>
+		<div class='header'>Электроника</div>
 		<div class='links'>
-			<b>Radio settings:</b><br>
-			Microphone:
+			<b>Рация:</b><br>
+			Микрофон:
 			[radio? "<a href='?src=[REF(src)];rmictoggle=1'>\
-			<span id=\"rmicstate\">[radio.broadcasting?"Engaged":"Disengaged"]</span></a>":"Error"]<br>
-			Speaker:
+			<span id=\"rmicstate\">[radio.broadcasting?"Включен":"Отключен"]</span></a>":"Ошибка"]<br>
+			Динамик:
 			[radio? "<a href='?src=[REF(src)];rspktoggle=1'><span id=\"rspkstate\">\
-			[radio.listening?"Engaged":"Disengaged"]</span></a>":"Error"]<br>
-			Frequency:
+			[radio.listening?"Включен":"Отключен"]</span></a>":"Ошибка"]<br>
+			Частота:
 			[radio? "<a href='?src=[REF(src)];rfreq=-10'>-</a>":"-"]
 			[radio? "<a href='?src=[REF(src)];rfreq=-2'>-</a>":"-"]
-			<span id=\"rfreq\">[radio?"[format_frequency(radio.frequency)]":"Error"]</span>
+			<span id=\"rfreq\">[radio?"[format_frequency(radio.frequency)]":"Ошибка"]</span>
 			[radio? "<a href='?src=[REF(src)];rfreq=2'>+</a>":"+"]
 			[radio? "<a href='?src=[REF(src)];rfreq=10'>+</a>":"+"]<br>
 		</div>
 	</div>
 	<div class='wr'>
-		<div class='header'>Permissions & Logging</div>
+		<div class='header'>Права и логгирование</div>
 		<div class='links'>
-			<a href='?src=[REF(src)];toggle_id_upload=1'><span id='t_id_upload'>[(mecha_flags & ADDING_ACCESS_POSSIBLE)?"L":"Unl"]ock ID upload panel</span></a><br>
-			<a href='?src=[REF(src)];toggle_maint_access=1'><span id='t_maint_access'>[(mecha_flags & ADDING_MAINT_ACCESS_POSSIBLE)?"Forbid":"Permit"] maintenance protocols</span></a><br>
-			[internal_tank?"<a href='?src=[REF(src)];toggle_port_connection=1'><span id='t_port_connection'>[internal_tank.connected_port?"Disconnect from":"Connect to"] gas port</span></a><br>":""]
-			<a href='?src=[REF(src)];dna_lock=1'>DNA-lock</a><br>
-			<a href='?src=[REF(src)];change_name=1'>Change exosuit name</a>
+			<a href='?src=[REF(src)];toggle_id_upload=1'><span id='t_id_upload'>[(mecha_flags & ADDING_ACCESS_POSSIBLE)?"Заб":"Раз"]блокировать ID-панель</span></a><br>
+			<a href='?src=[REF(src)];toggle_maint_access=1'><span id='t_maint_access'>[(mecha_flags & ADDING_MAINT_ACCESS_POSSIBLE)?"Запретить":"Разрешить"] технические протоколы</span></a><br>
+			[internal_tank?"<a href='?src=[REF(src)];toggle_port_connection=1'><span id='t_port_connection'>[internal_tank.connected_port?"Отключиться от воздушного порта":"Подключиться к воздушному порту"]</span></a><br>":""]
+			<a href='?src=[REF(src)];dna_lock=1'>ДНК-блок</a><br>
+			<a href='?src=[REF(src)];change_name=1'>Изменить имя меха</a>
 		</div>
 	</div>"}
 
@@ -149,12 +149,12 @@
 /obj/vehicle/sealed/mecha/proc/get_equipment_menu() //outputs mecha html equipment menu
 	. = {"
 	<div class='wr'>
-	<div class='header'>Equipment</div>
+	<div class='header'>Оборудование</div>
 	<div class='links'>"}
 	for(var/e in equipment)
 		var/obj/item/mecha_parts/mecha_equipment/equipment = e
-		. += "[equipment.name] [equipment.detachable ? "<a href='?src=[REF(equipment)];detach=1'>Detach</a><br>" : "\[Non-removable\]<br>"]"
-	. += {"<b>Available equipment slots:</b> [max_equip-LAZYLEN(equipment)]
+		. += "[equipment.name] [equipment.detachable ? "<a href='?src=[REF(equipment)];detach=1'>Отсоединить</a><br>" : "\[Интегрированное\]<br>"]"
+	. += {"<b>Всего доступно слотов:</b> [max_equip-LAZYLEN(equipment)]
 	</div>
 	</div>"}
 
@@ -171,19 +171,19 @@
 				</style>
 			</head>
 			<body>
-				<h1>Following keycodes are present in this system:</h1>"}
+				<h1>Текущие ключи доступны в системе:</h1>"}
 	for(var/a in operation_req_access)
-		. += "[SSid_access.get_access_desc(a)] - <a href='?src=[REF(src)];del_req_access=[a];user=[REF(user)];id_card=[REF(id_card)]'>Delete</a><br>"
-	. += "<hr><h1>Following keycodes were detected on portable device:</h1>"
+		. += "[SSid_access.get_access_desc(a)] - <a href='?src=[REF(src)];del_req_access=[a];user=[REF(user)];id_card=[REF(id_card)]'>Удалить</a><br>"
+	. += "<hr><h1>Данные ключи обнаружены на портативном устройстве:</h1>"
 	for(var/a in id_card.access)
 		if(a in operation_req_access)
 			continue
 		var/a_name = SSid_access.get_access_desc(a)
 		if(!a_name)
 			continue //there's some strange access without a name
-		. += "[a_name] - <a href='?src=[REF(src)];add_req_access=[a];user=[REF(user)];id_card=[REF(id_card)]'>Add</a><br>"
-	. +={"<hr><a href='?src=[REF(src)];finish_req_access=1;user=[REF(user)]'>Lock ID panel</a><br>
-		<span class='danger'>(Warning! The ID upload panel can be unlocked only through Exosuit Interface.)</span>
+		. += "[a_name] - <a href='?src=[REF(src)];add_req_access=[a];user=[REF(user)];id_card=[REF(id_card)]'>Добавить</a><br>"
+	. +={"<hr><a href='?src=[REF(src)];finish_req_access=1;user=[REF(user)]'>Заблокировать панель-ID</a><br>
+		<span class='danger'>(Внимание! Панель-ID может быть разблокирована только из кабины пилота.)</span>
 		</body>
 		</html>"}
 	user << browse(., "window=exosuit_add_access")
@@ -202,14 +202,14 @@
 				</style>
 			</head>
 			<body>
-				[(mecha_flags & ADDING_ACCESS_POSSIBLE)?"<a href='?src=[REF(src)];req_access=1;id_card=[REF(id_card)];user=[REF(user)]'>Edit operation keycodes</a>":null]
-				[(mecha_flags & ADDING_MAINT_ACCESS_POSSIBLE)?"<a href='?src=[REF(src)];maint_access=1;id_card=[REF(id_card)];user=[REF(user)]'>[(construction_state > MECHA_LOCKED) ? "Terminate" : "Initiate"] maintenance protocol</a>":null]
+				[(mecha_flags & ADDING_ACCESS_POSSIBLE)?"<a href='?src=[REF(src)];req_access=1;id_card=[REF(id_card)];user=[REF(user)]'>Редактировать ключи</a>":null]
+				[(mecha_flags & ADDING_MAINT_ACCESS_POSSIBLE)?"<a href='?src=[REF(src)];maint_access=1;id_card=[REF(id_card)];user=[REF(user)]'>[(construction_state > MECHA_LOCKED) ? "Терминация" : "Инициация"] технических протоколов</a>":null]
 				[(construction_state == MECHA_OPEN_HATCH) ?"--------------------</br>":null]
-				[(construction_state == MECHA_OPEN_HATCH) ?"[cell?"<a href='?src=[REF(src)];drop_cell=1;id_card=[REF(id_card)];user=[REF(user)]'>Drop power cell</a>":"No cell installed</br>"]":null]
-				[(construction_state == MECHA_OPEN_HATCH) ?"[scanmod?"<a href='?src=[REF(src)];drop_scanmod=1;id_card=[REF(id_card)];user=[REF(user)]'>Drop scanning module</a>":"No scanning module installed</br>"]":null]
-				[(construction_state == MECHA_OPEN_HATCH) ?"[capacitor?"<a href='?src=[REF(src)];drop_cap=1;id_card=[REF(id_card)];user=[REF(user)]'>Drop capacitor</a>":"No capacitor installed</br>"]":null]
+				[(construction_state == MECHA_OPEN_HATCH) ?"[cell?"<a href='?src=[REF(src)];drop_cell=1;id_card=[REF(id_card)];user=[REF(user)]'>Сброс аккумулятора</a>":"Нет аккумулятора</br>"]":null]
+				[(construction_state == MECHA_OPEN_HATCH) ?"[scanmod?"<a href='?src=[REF(src)];drop_scanmod=1;id_card=[REF(id_card)];user=[REF(user)]'>Сброс сканирующего модуля</a>":"Нет сканирующего модуля</br>"]":null]
+				[(construction_state == MECHA_OPEN_HATCH) ?"[capacitor?"<a href='?src=[REF(src)];drop_cap=1;id_card=[REF(id_card)];user=[REF(user)]'>Сброс конденсатора</a>":"Нет конденсатора</br>"]":null]
 				[(construction_state == MECHA_OPEN_HATCH) ?"--------------------</br>":null]
-				[(construction_state > MECHA_LOCKED) ?"<a href='?src=[REF(src)];set_internal_tank_valve=1;user=[REF(user)]'>Set Cabin Air Pressure</a>":null]
+				[(construction_state > MECHA_LOCKED) ?"<a href='?src=[REF(src)];set_internal_tank_valve=1;user=[REF(user)]'>Установить давление в кабине</a>":null]
 			</body>
 		</html>"}
 	user << browse(., "window=exosuit_maint_console")
@@ -253,10 +253,10 @@
 					return
 				if(construction_state == MECHA_LOCKED)
 					construction_state = MECHA_SECURE_BOLTS
-					to_chat(usr, span_notice("The securing bolts are now exposed."))
+					to_chat(usr, span_notice("Защитные болты открыты."))
 				else if(construction_state == MECHA_SECURE_BOLTS)
 					construction_state = MECHA_LOCKED
-					to_chat(usr, span_notice("The securing bolts are now hidden."))
+					to_chat(usr, span_notice("Защитные болты спрятаны."))
 				output_maintenance_dialog(id_card,usr)
 				return
 			if(href_list["drop_cell"])
@@ -301,11 +301,11 @@
 
 		//Set pressure.
 		if(href_list["set_internal_tank_valve"] && construction_state)
-			var/new_pressure = input(usr,"Input new output pressure","Pressure setting",internal_tank_valve) as num|null
+			var/new_pressure = input(usr,"Новое давление бы ввести","Установка давления",internal_tank_valve) as num|null
 			if(isnull(new_pressure) || usr.incapacitated() || !construction_state)
 				return
 			internal_tank_valve = new_pressure
-			to_chat(usr, span_notice("The internal pressure valve has been set to [internal_tank_valve]kPa."))
+			to_chat(usr, span_notice("Внутреннее давление теперь [internal_tank_valve]кПа."))
 			return
 
 	//Start of all internal topic stuff.
@@ -322,21 +322,21 @@
 		if(!equip || !equip.selectable)
 			return
 		selected = equip
-		to_chat(occupants, "[icon2html(src, occupants)]<span class='notice'>You switch to [equip].</span>")
-		visible_message(span_notice("[capitalize(src.name)] raises [equip]."))
+		to_chat(occupants, "[icon2html(src, occupants)]<span class='notice'>Переключаюсь на [equip].</span>")
+		visible_message(span_notice("[capitalize(src.name)] достаёт [equip]."))
 		send_byjax(usr, "exosuit.browser", "eq_list", get_equipment_list())
 		return
 
 	//Toggles radio broadcasting
 	if(href_list["rmictoggle"])
 		radio.broadcasting = !radio.broadcasting
-		send_byjax(usr,"exosuit.browser","rmicstate",(radio.broadcasting?"Engaged":"Disengaged"))
+		send_byjax(usr,"exosuit.browser","rmicstate",(radio.broadcasting?"Включено":"Выключено"))
 		return
 
 	//Toggles radio listening
 	if(href_list["rspktoggle"])
 		radio.listening = !radio.listening
-		send_byjax(usr,"exosuit.browser","rspkstate",(radio.listening?"Engaged":"Disengaged"))
+		send_byjax(usr,"exosuit.browser","rspkstate",(radio.listening?"Включено":"Выключено"))
 		return
 
 	//Changes radio freqency.
@@ -348,7 +348,7 @@
 
 	//Changes the exosuit name.
 	if(href_list["change_name"])
-		var/userinput = stripped_input(usr, "Choose a new exosuit name.", "Rename exosuit", "", MAX_NAME_LEN)
+		var/userinput = stripped_input(usr, "Выбрать бы новое имя.", "Переименование", "", MAX_NAME_LEN)
 		if(!userinput || !locate(usr) in occupants || usr.incapacitated())
 			return
 		name = userinput
@@ -357,46 +357,46 @@
 	//Toggles ID upload.
 	if (href_list["toggle_id_upload"])
 		mecha_flags ^= ADDING_ACCESS_POSSIBLE
-		send_byjax(usr,"exosuit.browser","t_id_upload","[(mecha_flags & ADDING_ACCESS_POSSIBLE)?"L":"Unl"]ock ID upload panel")
+		send_byjax(usr,"exosuit.browser","t_id_upload","[(mecha_flags & ADDING_ACCESS_POSSIBLE)?"За":"Раз"]блокировать панель-ID")
 		return
 
 	//Toggles main access.
 	if(href_list["toggle_maint_access"])
 		if(construction_state)
-			to_chat(occupants, "[icon2html(src, occupants)]<span class='danger'>Maintenance protocols in effect</span>")
+			to_chat(occupants, "[icon2html(src, occupants)]<span class='danger'>Технический протокол в действии</span>")
 			return
 		mecha_flags ^= ADDING_MAINT_ACCESS_POSSIBLE
-		send_byjax(usr,"exosuit.browser","t_maint_access","[(mecha_flags & ADDING_MAINT_ACCESS_POSSIBLE)?"Forbid":"Permit"] maintenance protocols")
+		send_byjax(usr,"exosuit.browser","t_maint_access","[(mecha_flags & ADDING_MAINT_ACCESS_POSSIBLE)?"Запретить":"Разрешить"] технические протоколы")
 		return
 
 	//Toggles connection port.
 	if (href_list["toggle_port_connection"])
 		if(internal_tank.connected_port)
 			if(internal_tank.disconnect())
-				to_chat(occupants, "[icon2html(src, occupants)]<span class='notice'>Disconnected from the air system port.</span>")
+				to_chat(occupants, "[icon2html(src, occupants)]<span class='notice'>Отключаемся от воздушного порта.</span>")
 				log_message("Disconnected from gas port.", LOG_MECHA)
 			else
-				to_chat(occupants, "[icon2html(src, occupants)]<span class='warning'>Unable to disconnect from the air system port!</span>")
+				to_chat(occupants, "[icon2html(src, occupants)]<span class='warning'>Невозможно отключиться от воздушного порта!</span>")
 				return
 		else
 			var/obj/machinery/atmospherics/components/unary/portables_connector/possible_port = locate() in loc
 			if(internal_tank.connect(possible_port))
-				to_chat(occupants, "[icon2html(src, occupants)]<span class='notice'>Connected to the air system port.</span>")
+				to_chat(occupants, "[icon2html(src, occupants)]<span class='notice'>Подключаемся к воздушному порту.</span>")
 				log_message("Connected to gas port.", LOG_MECHA)
 			else
-				to_chat(occupants, "[icon2html(src, occupants)]<span class='warning'>Unable to connect with air system port!</span>")
+				to_chat(occupants, "[icon2html(src, occupants)]<span class='warning'>Невозможно подключиться к воздушному порту!</span>")
 				return
-		send_byjax(occupants,"exosuit.browser","t_port_connection","[internal_tank.connected_port?"Disconnect from":"Connect to"] gas port")
+		send_byjax(occupants,"exosuit.browser","t_port_connection","[internal_tank.connected_port?"Отключиться от воздушного порта":"Подключиться к воздушному порту"]")
 		return
 
 	//Turns on the DNA lock
 	if(href_list["dna_lock"])
 		var/mob/living/carbon/user = usr
 		if(!istype(user) || !user.dna)
-			to_chat(user, "[icon2html(src, occupants)]<span class='notice'>You can't create a DNA lock with no DNA!.</span>")
+			to_chat(user, "[icon2html(src, occupants)]<span class='notice'>Как я буду блокировать при помощи ДНК без ДНК?!</span>")
 			return
 		dna_lock = user.dna.unique_enzymes
-		to_chat(user, "[icon2html(src, occupants)]<span class='notice'>You feel a prick as the needle takes your DNA sample.</span>")
+		to_chat(user, "[icon2html(src, occupants)]<span class='notice'>Что-то колющее входит в меня... Ах, это же был взят образец ДНК!</span>")
 		return
 
 	//Resets the DNA lock
@@ -406,7 +406,7 @@
 
 	//Repairs internal damage
 	if(href_list["repair_int_control_lost"])
-		to_chat(occupants, "[icon2html(src, occupants)]<span class='notice'>Recalibrating coordination system...</span>")
+		to_chat(occupants, "[icon2html(src, occupants)]<span class='notice'>Перекалибровка систем координации движения...</span>")
 		log_message("Recalibration of coordination system started.", LOG_MECHA)
 		addtimer(CALLBACK(src, .proc/stationary_repair, loc), 100, TIMER_UNIQUE)
 
@@ -414,8 +414,8 @@
 /obj/vehicle/sealed/mecha/proc/stationary_repair(location)
 	if(location == loc)
 		clear_internal_damage(MECHA_INT_CONTROL_LOST)
-		to_chat(occupants, "[icon2html(src, occupants)]<span class='notice'>Recalibration successful.</span>")
+		to_chat(occupants, "[icon2html(src, occupants)]<span class='notice'>Перекалибровка успешна.</span>")
 		log_message("Recalibration of coordination system finished with 0 errors.", LOG_MECHA)
 	else
-		to_chat(occupants, "[icon2html(src, occupants)]<span class='warning'>Recalibration failed!</span>")
+		to_chat(occupants, "[icon2html(src, occupants)]<span class='warning'>Перекалибровка успешно провалена!</span>")
 		log_message("Recalibration of coordination system failed with 1 error.", LOG_MECHA, color="red")
