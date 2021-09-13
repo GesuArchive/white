@@ -50,6 +50,12 @@
 	if(bloodpool)
 		bloodpool.RegisterSignal(src, list(COMSIG_LIVING_AFTERPHASEIN,COMSIG_PARENT_QDELETING), /obj/effect/dummy/phased_mob/.proc/deleteself)
 
+/mob/living/simple_animal/hostile/imp/slaughter/Move(atom/newloc, dir, step_x, step_y)
+	. = ..()
+	var/list/blood_in_area = range(2, src)
+	if(!locate(/obj/effect/decal/cleanable/blood) in blood_in_area)
+		adjustHealth(-5)
+
 /mob/living/simple_animal/hostile/imp/slaughter/CtrlShiftClickOn(atom/A)
 	if(!isliving(A))
 		return ..()
