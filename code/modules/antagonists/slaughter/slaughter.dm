@@ -52,10 +52,11 @@
 
 /mob/living/simple_animal/hostile/imp/slaughter/Move(atom/newloc, dir, step_x, step_y)
 	. = ..()
-	if(!istype(loc, /obj/effect/dummy/phased_mob))
-		var/list/blood_in_area = range(2, src)
-		if(!locate(/obj/effect/decal/cleanable/blood) in blood_in_area)
-			adjustHealth(-5)
+	if(istype(loc, /obj/effect/dummy/phased_mob))
+		return
+	var/list/blood_in_area = range(2, src)
+	if(!locate(/obj/effect/decal/cleanable/blood) in blood_in_area)
+		adjustHealth(5)
 
 /mob/living/simple_animal/hostile/imp/slaughter/CtrlShiftClickOn(atom/A)
 	if(!isliving(A))
