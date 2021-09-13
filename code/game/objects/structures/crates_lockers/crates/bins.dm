@@ -1,5 +1,5 @@
 /obj/structure/closet/crate/bin
-	desc = "Мусорное ведро, поместите мусор сюда, чтобы уборщик собрал его."
+	desc = "Мусорное ведро, поместите мусор сюда, чтобы уборщик утилизировал его."
 	name = "мусорное ведро"
 	icon_state = "largebins"
 	open_sound = 'sound/effects/bin_open.ogg'

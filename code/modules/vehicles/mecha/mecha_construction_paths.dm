@@ -59,7 +59,7 @@
 	. = user.transferItemToLoc(I, parent)
 	if(.)
 		var/atom/parent_atom = parent
-		user.visible_message(span_notice("[user] connects [I] to [parent].") , span_notice("You connect [I] to [parent]."))
+		user.visible_message(span_notice("<b>[user]</b> подключает <b>[I]</b> к <b>[parent]</b>.") , span_notice("Подключаю <b>[I.name]</b> к <b>[parent]</b>."))
 		parent_atom.add_overlay(I.icon_state+"+o")
 		qdel(I)
 
@@ -75,23 +75,23 @@
 	return list(
 		list(
 			"key" = TOOL_WRENCH,
-			"desc" = "The hydraulic systems are disconnected."
+			"desc" = "Гидравлические системы отключены."
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_WRENCH,
-			"desc" = "The hydraulic systems are connected."
+			"desc" = "Гидравлические системы подключены."
 		),
 		list(
 			"key" = /obj/item/stack/cable_coil,
 			"amount" = 5,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "The hydraulic systems are active."
+			"desc" = "Гидравлические системы активны."
 		),
 		list(
 			"key" = TOOL_WIRECUTTER,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "The wiring is added."
+			"desc" = "Проводка добавлена."
 		)
 	)
 
@@ -103,23 +103,23 @@
 			"key" = circuit_control,
 			"action" = ITEM_DELETE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "The wiring is adjusted."
+			"desc" = "Проводка настроена."
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Central control module is installed."
+			"desc" = "Модуль центрального управления установлен."
 		),
 		list(
 			"key" = circuit_periph,
 			"action" = ITEM_DELETE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Central control module is secured."
+			"desc" = "Модуль центрального управления закреплён."
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Peripherals control module is installed."
+			"desc" = "Модуль управления периферией установлен."
 		)
 	)
 
@@ -131,19 +131,19 @@
 			"key" = circuit_weapon,
 			"action" = ITEM_DELETE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Peripherals control module is secured."
+			"desc" = "Модуль управления периферией закреплён."
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Weapons control module is installed."
+			"desc" = "Модуль управления оружием установлен."
 		)
 	)
 
 // Default proc for stock part installation
 // Third set of steps by default
 /datum/component/construction/mecha/proc/get_stockpart_steps()
-	var/prevstep_text = circuit_weapon ? "Weapons control module is secured." : "Peripherals control module is secured."
+	var/prevstep_text = circuit_weapon ? "Модуль управления оружием закреплён." : "Модуль управления периферией закреплён."
 	return list(
 		list(
 			"key" = /obj/item/stock_parts/scanning_module,
@@ -154,29 +154,29 @@
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Scanner module is installed."
+			"desc" = "Модуль сканирования установлен."
 		),
 		list(
 			"key" = /obj/item/stock_parts/capacitor,
 			"action" = ITEM_MOVE_INSIDE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Scanner module is secured."
+			"desc" = "Модуль сканирования закреплён."
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Capacitor is installed."
+			"desc" = "Конденсатор установлен."
 		),
 		list(
 			"key" = /obj/item/stock_parts/cell,
 			"action" = ITEM_MOVE_INSIDE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Capacitor is secured."
+			"desc" = "Конденсатор закреплён."
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "The power cell is installed."
+			"desc" = "Аккумулятор установлен."
 		)
 	)
 
@@ -190,7 +190,7 @@
 				"key" = inner_plating,
 				"amount" = inner_plating_amount,
 				"back_key" = TOOL_SCREWDRIVER,
-				"desc" = "The power cell is secured."
+				"desc" = "Аккумулятор закреплён."
 			)
 		)
 	else
@@ -199,7 +199,7 @@
 				"key" = inner_plating,
 				"action" = ITEM_DELETE,
 				"back_key" = TOOL_SCREWDRIVER,
-				"desc" = "The power cell is secured."
+				"desc" = "Аккумулятор закреплён."
 			)
 		)
 
@@ -207,12 +207,12 @@
 		list(
 			"key" = TOOL_WRENCH,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Inner plating is installed."
+			"desc" = "Внутренняя обшивка установлена."
 		),
 		list(
 			"key" = TOOL_WELDER,
 			"back_key" = TOOL_WRENCH,
-			"desc" = "Inner Plating is wrenched."
+			"desc" = "Внутренняя обшивка прикручена."
 		)
 	)
 
@@ -226,7 +226,7 @@
 				"key" = outer_plating,
 				"amount" = outer_plating_amount,
 				"back_key" = TOOL_WELDER,
-				"desc" = "Inner plating is welded."
+				"desc" = "Внутренняя обшивка приварена."
 			)
 		)
 	else
@@ -235,7 +235,7 @@
 				"key" = outer_plating,
 				"action" = ITEM_DELETE,
 				"back_key" = TOOL_WELDER,
-				"desc" = "Inner plating is welded."
+				"desc" = "Внутренняя обшивка приварена."
 			)
 		)
 
@@ -243,12 +243,12 @@
 		list(
 			"key" = TOOL_WRENCH,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "External armor is installed."
+			"desc" = "Внешняя обшивка установлена."
 		),
 		list(
 			"key" = TOOL_WELDER,
 			"back_key" = TOOL_WRENCH,
-			"desc" = "External armor is wrenched."
+			"desc" = "Внешняя обшивка прикручена."
 		)
 	)
 
@@ -282,12 +282,12 @@
 			"key" = /obj/item/stack/rods,
 			"amount" = 10,
 			"back_key" = TOOL_WELDER,
-			"desc" = "Outer Plating is welded."
+			"desc" = "Наружное покрытие приварено."
 		),
 		list(
 			"key" = TOOL_WELDER,
 			"back_key" = TOOL_WIRECUTTER,
-			"desc" = "Cockpit wire screen is installed."
+			"desc" = "Защита кабины установлена."
 		),
 	)
 
@@ -297,102 +297,102 @@
 
 	switch(index)
 		if(1)
-			user.visible_message(span_notice("[user] connects [parent] hydraulic systems.") , span_notice("You connect [parent] hydraulic systems."))
+			user.visible_message(span_notice("<b>[user]</b> подключает гидравлическую систему <b>[parent]</b>.") , span_notice("Подключаю гидравлическую систему <b>[parent]</b>."))
 		if(2)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] activates [parent] hydraulic systems.") , span_notice("You activate [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> активирует гидравлическую систему <b>[parent]</b>.") , span_notice("Активирую гидравлическую систему <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] disconnects [parent] hydraulic systems.") , span_notice("You disconnect [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> отключает гидравлическую систему <b>[parent]</b>.") , span_notice("Отключаю гидравлическую систему <b>[parent]</b>."))
 		if(3)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] adds the wiring to [parent].") , span_notice("You add the wiring to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает проводку в <b>[parent]</b>.") , span_notice("Устанавливаю проводку в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] deactivates [parent] hydraulic systems.") , span_notice("You deactivate [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> деактивирует гидравлическую систему <b>[parent]</b>.") , span_notice("Деактивирую гидравлическую систему <b>[parent]</b>."))
 		if(4)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] adjusts the wiring of [parent].") , span_notice("You adjust the wiring of [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> настраивает проводку в <b>[parent]</b>.") , span_notice("Настраиваю проводку в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] removes the wiring from [parent].") , span_notice("You remove the wiring from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет проводку из <b>[parent]</b>.") , span_notice("Удаляю проводку из <b>[parent]</b>."))
 		if(5)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] disconnects the wiring of [parent].") , span_notice("You disconnect the wiring of [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> отключает проводку в <b>[parent]</b>.") , span_notice("Отключаю проводку в <b>[parent]</b>."))
 		if(6)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the mainboard.") , span_notice("You secure the mainboard."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет основную плату.") , span_notice("Закрепляю основную плату."))
 			else
-				user.visible_message(span_notice("[user] removes the central control module from [parent].") , span_notice("You remove the central computer mainboard from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль центрального управления из <b>[parent]</b>.") , span_notice("Удаляю модуль центрального управления из <b>[parent]</b>."))
 		if(7)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the mainboard.") , span_notice("You unfasten the mainboard."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает основную плату.") , span_notice("Откручиваю основную плату."))
 		if(8)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the peripherals control module.") , span_notice("You secure the peripherals control module."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления периферией.") , span_notice("Закрепляю модуль управления периферией."))
 			else
-				user.visible_message(span_notice("[user] removes the peripherals control module from [parent].") , span_notice("You remove the peripherals control module from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления периферией из <b>[parent]</b>.") , span_notice("Удаляю модуль управления периферией из <b>[parent]</b>."))
 		if(9)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the peripherals control module.") , span_notice("You unfasten the peripherals control module."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления периферией.") , span_notice("Откручиваю модуль управления периферией."))
 		if(10)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the scanner module.") , span_notice("You secure the scanner module."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль сканирования.") , span_notice("Закрепляю модуль сканирования."))
 			else
-				user.visible_message(span_notice("[user] removes the scanner module from [parent].") , span_notice("You remove the scanner module from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль сканирования из <b>[parent]</b>.") , span_notice("Удаляю модуль сканирования из <b>[parent]</b>."))
 		if(11)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] to [parent].") , span_notice("You install [I] to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the scanner module.") , span_notice("You unfasten the scanner module."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает модуль сканирования.") , span_notice("Откручиваю модуль сканирования."))
 		if(12)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures [I].") , span_notice("You secure [I]."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет <b>[I.name]</b>.") , span_notice("<b>[user]</b> закрепляю <b>[I.name]</b>."))
 			else
-				user.visible_message(span_notice("[user] removes the capacitor from [parent].") , span_notice("You remove the capacitor from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет конденсатор из <b>[parent]</b>.") , span_notice("Удаляю конденсатор из <b>[parent]</b>."))
 		if(13)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I].") , span_notice("You install [I]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b>.") , span_notice("Устанавливаю <b>[I.name]</b>."))
 			else
-				user.visible_message(span_notice("[user] unsecures the capacitor from [parent].") , span_notice("You unsecure the capacitor from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает конденсатор в <b>[parent]</b>.") , span_notice("Откручиваю конденсатор в <b>[parent]</b>."))
 		if(14)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the power cell.") , span_notice("You secure the power cell."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет аккумулятор.") , span_notice("Закрепляю аккумулятор."))
 			else
-				user.visible_message(span_notice("[user] pries the power cell from [parent].") , span_notice("You pry the power cell from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> вытаскивает аккумулятор из <b>[parent]</b>.") , span_notice("Вытаскиваю аккумулятор из <b>[parent]</b>."))
 		if(15)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs the internal armor layer to [parent].") , span_notice("You install the internal armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Устанавливаю внутреннюю обшивку <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the power cell.") , span_notice("You unfasten the power cell."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает аккумулятор.") , span_notice("Откручиваю аккумулятор."))
 		if(16)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the internal armor layer.") , span_notice("You secure the internal armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет внутреннюю обшивку.") , span_notice("Закрепляю внутреннюю обшивку."))
 			else
-				user.visible_message(span_notice("[user] pries internal armor layer from [parent].") , span_notice("You pry internal armor layer from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> снимает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Снимаю внутреннюю обшивку <b>[parent]</b>."))
 		if(17)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] welds the internal armor layer to [parent].") , span_notice("You weld the internal armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> приваривает внутреннюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внутреннюю обшивку к <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the internal armor layer.") , span_notice("You unfasten the internal armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает внутреннюю обшивку.") , span_notice("Откручиваю внутреннюю обшивку."))
 		if(18)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs the external reinforced armor layer to [parent].") , span_notice("You install the external reinforced armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает внешнюю обшивку <b>[parent]</b>.") , span_notice("Устанавливаю внешнюю обшивку на <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] cuts the internal armor layer from [parent].") , span_notice("You cut the internal armor layer from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> срезает внутреннюю обшивку с <b>[parent]</b>.") , span_notice("Срезаю внутреннюю обшивку с <b>[parent]</b>."))
 		if(19)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the external armor layer.") , span_notice("You secure the external reinforced armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет внешнюю обшивку.") , span_notice("Закрепляю внешнюю обшивку."))
 			else
-				user.visible_message(span_notice("[user] pries external armor layer from [parent].") , span_notice("You pry external armor layer from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> снимает внешнюю обшивку <b>[parent]</b>.") , span_notice("Снимаю внешнюю обшивку <b>[parent]</b>."))
 		if(20)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] welds the external armor layer to [parent].") , span_notice("You weld the external armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> приваривает внешнюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внешнюю обшивку к <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the external armor layer.") , span_notice("You unfasten the external armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает внешнюю обшивку.") , span_notice("Откручиваю внешнюю обшивку."))
 	return TRUE
 
 /datum/component/construction/unordered/mecha_chassis/gygax
@@ -429,112 +429,112 @@
 
 	switch(index)
 		if(1)
-			user.visible_message(span_notice("[user] connects [parent] hydraulic systems.") , span_notice("You connect [parent] hydraulic systems."))
+			user.visible_message(span_notice("<b>[user]</b> подключает гидравлическую систему <b>[parent]</b>.") , span_notice("Подключаю гидравлическую систему <b>[parent]</b>."))
 		if(2)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] activates [parent] hydraulic systems.") , span_notice("You activate [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> активирует гидравлическую систему <b>[parent]</b>.") , span_notice("Активирую гидравлическую систему <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] disconnects [parent] hydraulic systems.") , span_notice("You disconnect [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> отключает гидравлическую систему <b>[parent]</b>.") , span_notice("Отключаю гидравлическую систему <b>[parent]</b>."))
 		if(3)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] adds the wiring to [parent].") , span_notice("You add the wiring to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает проводку в <b>[parent]</b>.") , span_notice("Устанавливаю проводку в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] deactivates [parent] hydraulic systems.") , span_notice("You deactivate [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> деактивирует гидравлическую систему <b>[parent]</b>.") , span_notice("Деактивирую гидравлическую систему <b>[parent]</b>."))
 		if(4)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] adjusts the wiring of [parent].") , span_notice("You adjust the wiring of [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> настраивает проводку в <b>[parent]</b>.") , span_notice("Настраиваю проводку в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] removes the wiring from [parent].") , span_notice("You remove the wiring from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет проводку из <b>[parent]</b>.") , span_notice("Удаляю проводку из <b>[parent]</b>."))
 		if(5)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] disconnects the wiring of [parent].") , span_notice("You disconnect the wiring of [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> отключает проводку в <b>[parent]</b>.") , span_notice("Отключаю проводку в <b>[parent]</b>."))
 		if(6)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the mainboard.") , span_notice("You secure the mainboard."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет основную плату.") , span_notice("Закрепляю основную плату."))
 			else
-				user.visible_message(span_notice("[user] removes the central control module from [parent].") , span_notice("You remove the central computer mainboard from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль центрального управления из <b>[parent]</b>.") , span_notice("Удаляю модуль центрального управления из <b>[parent]</b>."))
 		if(7)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the mainboard.") , span_notice("You unfasten the mainboard."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает основную плату.") , span_notice("Откручиваю основную плату."))
 		if(8)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the peripherals control module.") , span_notice("You secure the peripherals control module."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления периферией.") , span_notice("Закрепляю модуль управления периферией."))
 			else
-				user.visible_message(span_notice("[user] removes the peripherals control module from [parent].") , span_notice("You remove the peripherals control module from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления периферией из <b>[parent]</b>.") , span_notice("Удаляю модуль управления периферией из <b>[parent]</b>."))
 		if(9)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the peripherals control module.") , span_notice("You unfasten the peripherals control module."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления периферией.") , span_notice("Откручиваю модуль управления периферией."))
 		if(10)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the weapon control module.") , span_notice("You secure the weapon control module."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления оружием.") , span_notice("Закрепляю модуль управления оружием."))
 			else
-				user.visible_message(span_notice("[user] removes the weapon control module from [parent].") , span_notice("You remove the weapon control module from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления оружием из <b>[parent]</b>.") , span_notice("Удаляю модуль управления оружием из <b>[parent]</b>."))
 		if(11)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] to [parent].") , span_notice("You install [I] to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the weapon control module.") , span_notice("You unfasten the weapon control module."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления оружием.") , span_notice("Откручиваю модуль управления оружием."))
 		if(12)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the scanner module.") , span_notice("You secure the scanner module."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль сканирования.") , span_notice("Закрепляю модуль сканирования."))
 			else
-				user.visible_message(span_notice("[user] removes the scanner module from [parent].") , span_notice("You remove the scanner module from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль сканирования из <b>[parent]</b>.") , span_notice("Удаляю модуль сканирования из <b>[parent]</b>."))
 		if(13)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] to [parent].") , span_notice("You install [I] to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the scanner module.") , span_notice("You unfasten the scanner module."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает модуль сканирования.") , span_notice("Откручиваю модуль сканирования."))
 		if(14)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the capacitor.") , span_notice("You secure the capacitor."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет конденсатор.") , span_notice("Закрепляю конденсатор."))
 			else
-				user.visible_message(span_notice("[user] removes the capacitor from [parent].") , span_notice("You remove the capacitor from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет конденсатор из <b>[parent]</b>.") , span_notice("Удаляю конденсатор из <b>[parent]</b>."))
 		if(15)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the capacitor.") , span_notice("You unfasten the capacitor."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает конденсатор.") , span_notice("Откручиваю конденсатор."))
 		if(16)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the power cell.") , span_notice("You secure the power cell."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет аккумулятор.") , span_notice("Закрепляю аккумулятор."))
 			else
-				user.visible_message(span_notice("[user] pries the power cell from [parent].") , span_notice("You pry the power cell from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> вытаскивает аккумулятор из <b>[parent]</b>.") , span_notice("Вытаскиваю аккумулятор из <b>[parent]</b>."))
 		if(17)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs the internal armor layer to [parent].") , span_notice("You install the internal armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Устанавливаю внутреннюю обшивку <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the power cell.") , span_notice("You unfasten the power cell."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает аккумулятор.") , span_notice("Откручиваю аккумулятор."))
 		if(18)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the internal armor layer.") , span_notice("You secure the internal armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет внутреннюю обшивку.") , span_notice("Закрепляю внутреннюю обшивку."))
 			else
-				user.visible_message(span_notice("[user] pries internal armor layer from [parent].") , span_notice("You pry internal armor layer from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> снимает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Снимаю внутреннюю обшивку <b>[parent]</b>."))
 		if(19)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] welds the internal armor layer to [parent].") , span_notice("You weld the internal armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> приваривает внутреннюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внутреннюю обшивку к <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the internal armor layer.") , span_notice("You unfasten the internal armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает внутреннюю обшивку.") , span_notice("Откручиваю внутреннюю обшивку."))
 		if(20)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] to [parent].") , span_notice("You install [I] to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] cuts the internal armor layer from [parent].") , span_notice("You cut the internal armor layer from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> срезает внутреннюю обшивку с <b>[parent]</b>.") , span_notice("Срезаю внутреннюю обшивку с <b>[parent]</b>."))
 		if(21)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures Gygax Armor Plates.") , span_notice("You secure Gygax Armor Plates."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет Gygax Armor Plates.") , span_notice("Закрепляю Gygax Armor Plates."))
 			else
-				user.visible_message(span_notice("[user] pries Gygax Armor Plates from [parent].") , span_notice("You pry Gygax Armor Plates from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> снимает Gygax Armor Plates с <b>[parent]</b>.") , span_notice("Снимаю Gygax Armor Plates с <b>[parent]</b>."))
 		if(22)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] welds Gygax Armor Plates to [parent].") , span_notice("You weld Gygax Armor Plates to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> приваривает Gygax Armor Plates к <b>[parent]</b>.") , span_notice("Привариваю Gygax Armor Plates к <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens Gygax Armor Plates.") , span_notice("You unfasten Gygax Armor Plates."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает Gygax Armor Plates.") , span_notice("Откручиваю Gygax Armor Plates."))
 	return TRUE
 
 /datum/component/construction/unordered/mecha_chassis/clarke
@@ -564,28 +564,28 @@
 		list(
 			"key" = /obj/item/stack/conveyor,
 			"amount" = 4,
-			"desc" = "The treads are added."
+			"desc" = "Гусеницы установлены."
 		),
 		list(
 			"key" = TOOL_WRENCH,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "The hydraulic systems are disconnected."
+			"desc" = "Гидравлические системы отключены."
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_WRENCH,
-			"desc" = "The hydraulic systems are connected."
+			"desc" = "Гидравлические системы подключены."
 		),
 		list(
 			"key" = /obj/item/stack/cable_coil,
 			"amount" = 5,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "The hydraulic systems are active."
+			"desc" = "Гидравлические системы активны."
 		),
 		list(
 			"key" = TOOL_WIRECUTTER,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "The wiring is added."
+			"desc" = "Проводка добавлена."
 		)
 	)
 
@@ -598,108 +598,108 @@
 	//TODO: better messages.
 	switch(index)
 		if(1)
-			user.visible_message(span_notice("[user] adds the tread systems.") , span_notice("You add the tread systems."))
+			user.visible_message(span_notice("<b>[user]</b> устанавливает гусеницы.") , span_notice("Устанавливаю гусеницы."))
 		if(2)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] connects [parent] hydraulic systems.") , span_notice("You connect [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> подключает гидравлическую систему <b>[parent]</b>.") , span_notice("Подключаю гидравлическую систему <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] removes the tread systems.") , span_notice("You remove the tread systems."))
+				user.visible_message(span_notice("<b>[user]</b> снимает гусеницы.") , span_notice("Снимаю гусеницы."))
 
 		if(3)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] activates [parent] hydraulic systems.") , span_notice("You activate [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> активирует гидравлическую систему <b>[parent]</b>.") , span_notice("Активирую гидравлическую систему <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] disconnects [parent] hydraulic systems.") , span_notice("You disconnect [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> отключает гидравлическую систему <b>[parent]</b>.") , span_notice("Отключаю гидравлическую систему <b>[parent]</b>."))
 		if(4)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] adds the wiring to [parent].") , span_notice("You add the wiring to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает проводку в <b>[parent]</b>.") , span_notice("Устанавливаю проводку в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] deactivates [parent] hydraulic systems.") , span_notice("You deactivate [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> деактивирует гидравлическую систему <b>[parent]</b>.") , span_notice("Деактивирую гидравлическую систему <b>[parent]</b>."))
 		if(5)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] adjusts the wiring of [parent].") , span_notice("You adjust the wiring of [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> настраивает проводку в <b>[parent]</b>.") , span_notice("Настраиваю проводку в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] removes the wiring from [parent].") , span_notice("You remove the wiring from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет проводку из <b>[parent]</b>.") , span_notice("Удаляю проводку из <b>[parent]</b>."))
 		if(6)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] disconnects the wiring of [parent].") , span_notice("You disconnect the wiring of [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> отключает проводку в <b>[parent]</b>.") , span_notice("Отключаю проводку в <b>[parent]</b>."))
 		if(7)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the mainboard.") , span_notice("You secure the mainboard."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет основную плату.") , span_notice("Закрепляю основную плату."))
 			else
-				user.visible_message(span_notice("[user] removes the central control module from [parent].") , span_notice("You remove the central computer mainboard from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль центрального управления из <b>[parent]</b>.") , span_notice("Удаляю модуль центрального управления из <b>[parent]</b>."))
 		if(8)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the mainboard.") , span_notice("You unfasten the mainboard."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает основную плату.") , span_notice("Откручиваю основную плату."))
 		if(9)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the peripherals control module.") , span_notice("You secure the peripherals control module."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления периферией.") , span_notice("Закрепляю модуль управления периферией."))
 			else
-				user.visible_message(span_notice("[user] removes the peripherals control module from [parent].") , span_notice("You remove the peripherals control module from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления периферией из <b>[parent]</b>.") , span_notice("Удаляю модуль управления периферией из <b>[parent]</b>."))
 		if(10)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the peripherals control module.") , span_notice("You unfasten the peripherals control module."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления периферией.") , span_notice("Откручиваю модуль управления периферией."))
 		if(11)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the scanner module.") , span_notice("You secure the scanner module."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль сканирования.") , span_notice("Закрепляю модуль сканирования."))
 			else
-				user.visible_message(span_notice("[user] removes the scanner module from [parent].") , span_notice("You remove the scanner module from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль сканирования из <b>[parent]</b>.") , span_notice("Удаляю модуль сканирования из <b>[parent]</b>."))
 		if(12)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] to [parent].") , span_notice("You install [I] to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the scanner module.") , span_notice("You unfasten the scanner module."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает модуль сканирования.") , span_notice("Откручиваю модуль сканирования."))
 		if(13)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the capacitor.") , span_notice("You secure the capacitor."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет конденсатор.") , span_notice("Закрепляю конденсатор."))
 			else
-				user.visible_message(span_notice("[user] removes the capacitor from [parent].") , span_notice("You remove the capacitor from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет конденсатор из <b>[parent]</b>.") , span_notice("Удаляю конденсатор из <b>[parent]</b>."))
 		if(14)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the capacitor.") , span_notice("You unfasten the capacitor."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает конденсатор.") , span_notice("Откручиваю конденсатор."))
 		if(15)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the power cell.") , span_notice("You secure the power cell."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет аккумулятор.") , span_notice("Закрепляю аккумулятор."))
 			else
-				user.visible_message(span_notice("[user] pries the power cell from [parent].") , span_notice("You pry the power cell from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> вытаскивает аккумулятор из <b>[parent]</b>.") , span_notice("Вытаскиваю аккумулятор из <b>[parent]</b>."))
 		if(16)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs the internal armor layer to [parent].") , span_notice("You install the internal armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Устанавливаю внутреннюю обшивку <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the power cell.") , span_notice("You unfasten the power cell."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает аккумулятор.") , span_notice("Откручиваю аккумулятор."))
 		if(17)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the internal armor layer.") , span_notice("You secure the internal armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет внутреннюю обшивку.") , span_notice("Закрепляю внутреннюю обшивку."))
 			else
-				user.visible_message(span_notice("[user] pries internal armor layer from [parent].") , span_notice("You pry internal armor layer from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> снимает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Снимаю внутреннюю обшивку <b>[parent]</b>."))
 		if(18)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] welds the internal armor layer to [parent].") , span_notice("You weld the internal armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> приваривает внутреннюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внутреннюю обшивку к <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the internal armor layer.") , span_notice("You unfasten the internal armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает внутреннюю обшивку.") , span_notice("Откручиваю внутреннюю обшивку."))
 		if(19)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs the external armor layer to [parent].") , span_notice("You install the external reinforced armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает внешнюю обшивку на <b>[parent]</b>.") , span_notice("Устанавливаю внешнюю обшивку на <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] cuts the internal armor layer from [parent].") , span_notice("You cut the internal armor layer from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> срезает внутреннюю обшивку с <b>[parent]</b>.") , span_notice("Срезаю внутреннюю обшивку с <b>[parent]</b>."))
 		if(20)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the external armor layer.") , span_notice("You secure the external reinforced armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет внешнюю обшивку.") , span_notice("Закрепляю внешнюю обшивку."))
 			else
-				user.visible_message(span_notice("[user] pries the external armor layer from [parent].") , span_notice("You pry the external armor layer from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> снимает внешнюю обшивку с <b>[parent]</b>.") , span_notice("Снимаю внешнюю обшивку с <b>[parent]</b>."))
 		if(21)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] welds the external armor layer to [parent].") , span_notice("You weld the external armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> приваривает внешнюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внешнюю обшивку к <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the external armor layer.") , span_notice("You unfasten the external armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает внешнюю обшивку.") , span_notice("Откручиваю внешнюю обшивку."))
 	return TRUE
 
 
@@ -795,26 +795,26 @@
 
 	if(istype(I, /obj/item/bikehorn))
 		playsound(parent, 'sound/items/bikehorn.ogg', 50, TRUE)
-		user.visible_message(span_danger("HONK!"))
+		user.visible_message(span_danger("ХОНК!"))
 
 	//TODO: better messages.
 	switch(index)
 		if(2)
-			user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+			user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 		if(4)
-			user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+			user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 		if(6)
-			user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+			user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 		if(8)
-			user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+			user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 		if(10)
-			user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+			user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 		if(12)
-			user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+			user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 		if(14)
-			user.visible_message(span_notice("[user] puts [I] on [parent].") , span_notice("You put [I] on [parent]."))
+			user.visible_message(span_notice("<b>[user]</b> гениально устанавливает <b>[I.name]</b> на <b>[parent]</b>.") , span_notice("Гениально устанавливаю <b>[I.name]</b> на <b>[parent]</b>."))
 		if(16)
-			user.visible_message(span_notice("[user] puts [I] on [parent].") , span_notice("You put [I] on [parent]."))
+			user.visible_message(span_notice("<b>[user]</b> гениально устанавливает <b>[I.name]</b> на <b>[parent]</b>.") , span_notice("Гениально устанавливаю <b>[I.name]</b> на <b>[parent]</b>."))
 	return TRUE
 
 /datum/component/construction/unordered/mecha_chassis/durand
@@ -849,112 +849,112 @@
 	//TODO: better messages.
 	switch(index)
 		if(1)
-			user.visible_message(span_notice("[user] connects [parent] hydraulic systems.") , span_notice("You connect [parent] hydraulic systems."))
+			user.visible_message(span_notice("<b>[user]</b> подключает гидравлическую систему <b>[parent]</b>.") , span_notice("Подключаю гидравлическую систему <b>[parent]</b>."))
 		if(2)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] activates [parent] hydraulic systems.") , span_notice("You activate [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> активирует гидравлическую систему <b>[parent]</b>.") , span_notice("Активирую гидравлическую систему <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] disconnects [parent] hydraulic systems.") , span_notice("You disconnect [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> отключает гидравлическую систему <b>[parent]</b>.") , span_notice("Отключаю гидравлическую систему <b>[parent]</b>."))
 		if(3)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] adds the wiring to [parent].") , span_notice("You add the wiring to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает проводку в <b>[parent]</b>.") , span_notice("Устанавливаю проводку в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] deactivates [parent] hydraulic systems.") , span_notice("You deactivate [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> деактивирует гидравлическую систему <b>[parent]</b>.") , span_notice("Деактивирую гидравлическую систему <b>[parent]</b>."))
 		if(4)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] adjusts the wiring of [parent].") , span_notice("You adjust the wiring of [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> настраивает проводку в <b>[parent]</b>.") , span_notice("Настраиваю проводку в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] removes the wiring from [parent].") , span_notice("You remove the wiring from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет проводку из <b>[parent]</b>.") , span_notice("Удаляю проводку из <b>[parent]</b>."))
 		if(5)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] disconnects the wiring of [parent].") , span_notice("You disconnect the wiring of [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> отключает проводку в <b>[parent]</b>.") , span_notice("Отключаю проводку в <b>[parent]</b>."))
 		if(6)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the mainboard.") , span_notice("You secure the mainboard."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет основную плату.") , span_notice("Закрепляю основную плату."))
 			else
-				user.visible_message(span_notice("[user] removes the central control module from [parent].") , span_notice("You remove the central computer mainboard from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль центрального управления из <b>[parent]</b>.") , span_notice("Удаляю модуль центрального управления из <b>[parent]</b>."))
 		if(7)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the mainboard.") , span_notice("You unfasten the mainboard."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает основную плату.") , span_notice("Откручиваю основную плату."))
 		if(8)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the peripherals control module.") , span_notice("You secure the peripherals control module."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления периферией.") , span_notice("Закрепляю модуль управления периферией."))
 			else
-				user.visible_message(span_notice("[user] removes the peripherals control module from [parent].") , span_notice("You remove the peripherals control module from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления периферией из <b>[parent]</b>.") , span_notice("Удаляю модуль управления периферией из <b>[parent]</b>."))
 		if(9)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the peripherals control module.") , span_notice("You unfasten the peripherals control module."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления периферией.") , span_notice("Откручиваю модуль управления периферией."))
 		if(10)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the weapon control module.") , span_notice("You secure the weapon control module."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления оружием.") , span_notice("Закрепляю модуль управления оружием."))
 			else
-				user.visible_message(span_notice("[user] removes the weapon control module from [parent].") , span_notice("You remove the weapon control module from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления оружием из <b>[parent]</b>.") , span_notice("Удаляю модуль управления оружием из <b>[parent]</b>."))
 		if(11)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] to [parent].") , span_notice("You install [I] to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the weapon control module.") , span_notice("You unfasten the weapon control module."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления оружием.") , span_notice("Откручиваю модуль управления оружием."))
 		if(12)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the scanner module.") , span_notice("You secure the scanner module."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль сканирования.") , span_notice("Закрепляю модуль сканирования."))
 			else
-				user.visible_message(span_notice("[user] removes the scanner module from [parent].") , span_notice("You remove the scanner module from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль сканирования из <b>[parent]</b>.") , span_notice("Удаляю модуль сканирования из <b>[parent]</b>."))
 		if(13)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] to [parent].") , span_notice("You install [I] to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the scanner module.") , span_notice("You unfasten the scanner module."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает модуль сканирования.") , span_notice("Откручиваю модуль сканирования."))
 		if(14)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the capacitor.") , span_notice("You secure the capacitor."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет конденсатор.") , span_notice("Закрепляю конденсатор."))
 			else
-				user.visible_message(span_notice("[user] removes the capacitor from [parent].") , span_notice("You remove the capacitor from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет конденсатор из <b>[parent]</b>.") , span_notice("Удаляю конденсатор из <b>[parent]</b>."))
 		if(15)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the capacitor.") , span_notice("You unfasten the capacitor."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает конденсатор.") , span_notice("Откручиваю конденсатор."))
 		if(16)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the power cell.") , span_notice("You secure the power cell."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет аккумулятор.") , span_notice("Закрепляю аккумулятор."))
 			else
-				user.visible_message(span_notice("[user] pries the power cell from [parent].") , span_notice("You pry the power cell from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> вытаскивает аккумулятор из <b>[parent]</b>.") , span_notice("Вытаскиваю аккумулятор из <b>[parent]</b>."))
 		if(17)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs the internal armor layer to [parent].") , span_notice("You install the internal armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Устанавливаю внутреннюю обшивку <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the power cell.") , span_notice("You unfasten the power cell."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает аккумулятор.") , span_notice("Откручиваю аккумулятор."))
 		if(18)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the internal armor layer.") , span_notice("You secure the internal armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет внутреннюю обшивку.") , span_notice("Закрепляю внутреннюю обшивку."))
 			else
-				user.visible_message(span_notice("[user] pries internal armor layer from [parent].") , span_notice("You pry internal armor layer from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> снимает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Снимаю внутреннюю обшивку <b>[parent]</b>."))
 		if(19)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] welds the internal armor layer to [parent].") , span_notice("You weld the internal armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> приваривает внутреннюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внутреннюю обшивку к <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the internal armor layer.") , span_notice("You unfasten the internal armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает внутреннюю обшивку.") , span_notice("Откручиваю внутреннюю обшивку."))
 		if(20)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] to [parent].") , span_notice("You install [I] to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] cuts the internal armor layer from [parent].") , span_notice("You cut the internal armor layer from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> срезает внутреннюю обшивку с <b>[parent]</b>.") , span_notice("Срезаю внутреннюю обшивку с <b>[parent]</b>."))
 		if(21)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures Durand Armor Plates.") , span_notice("You secure Durand Armor Plates."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет Durand Armor Plates.") , span_notice("Закрепляю Durand Armor Plates."))
 			else
-				user.visible_message(span_notice("[user] pries Durand Armor Plates from [parent].") , span_notice("You pry Durand Armor Plates from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> снимает Durand Armor Plates с <b>[parent]</b>.") , span_notice("Снимаю Durand Armor Plates с <b>[parent]</b>."))
 		if(22)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] welds Durand Armor Plates to [parent].") , span_notice("You weld Durand Armor Plates to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> приваривает Durand Armor Plates к <b>[parent]</b>.") , span_notice("Привариваю Durand Armor Plates к <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens Durand Armor Plates.") , span_notice("You unfasten Durand Armor Plates."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает Durand Armor Plates.") , span_notice("Откручиваю Durand Armor Plates."))
 	return TRUE
 
 //PHAZON
@@ -990,51 +990,51 @@
 			"key" = /obj/item/stock_parts/scanning_module,
 			"action" = ITEM_MOVE_INSIDE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Weapon control module is secured."
+			"desc" = "Модуль управления оружием."
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Scanner module is installed."
+			"desc" = "Модуль сканирования установлен."
 		),
 		list(
 			"key" = /obj/item/stock_parts/capacitor,
 			"action" = ITEM_MOVE_INSIDE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Scanner module is secured."
+			"desc" = "Модуль сканирования закреплён."
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Capacitor is installed."
+			"desc" = "Конденсатор установлен."
 		),
 		list(
 			"key" = /obj/item/stack/ore/bluespace_crystal,
 			"amount" = 1,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Capacitor is secured."
+			"desc" = "Конденсатор закреплён."
 		),
 		list(
 			"key" = /obj/item/stack/cable_coil,
 			"amount" = 5,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "The bluespace crystal is installed."
+			"desc" = "Блюспейс кристалл установлен."
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_WIRECUTTER,
-			"desc" = "The bluespace crystal is connected."
+			"desc" = "Блюспейс кристалл подключен."
 		),
 		list(
 			"key" = /obj/item/stock_parts/cell,
 			"action" = ITEM_MOVE_INSIDE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "The bluespace crystal is engaged."
+			"desc" = "Блюспейс кристалл активен."
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "The power cell is installed.",
+			"desc" = "Аккумулятор установлен.",
 			"icon_state" = "phazon17"
 			// This is the point where a step icon is skipped, so "icon_state" had to be set manually starting from here.
 		)
@@ -1047,23 +1047,23 @@
 			"amount" = 1,
 			"action" = ITEM_DELETE,
 			"back_key" = TOOL_WELDER,
-			"desc" = "Internal armor is welded."
+			"desc" = "Внутренняя обшивка приварена."
 		),
 		list(
 			"key" = TOOL_WRENCH,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "External armor is installed."
+			"desc" = "Внешняя обшивка установлена."
 		),
 		list(
 			"key" = TOOL_WELDER,
 			"back_key" = TOOL_WRENCH,
-			"desc" = "External armor is wrenched."
+			"desc" = "Внешняя обшивка прикручена."
 		),
 		list(
 			"key" = /obj/item/assembly/signaler/anomaly/bluespace,
 			"action" = ITEM_DELETE,
 			"back_key" = TOOL_WELDER,
-			"desc" = "Bluespace anomaly core socket is open.",
+			"desc" = "Отсек для ядра блюспейс-аномалии свободен.",
 			"icon_state" = "phazon24"
 		)
 	)
@@ -1075,131 +1075,131 @@
 	//TODO: better messages.
 	switch(index)
 		if(1)
-			user.visible_message(span_notice("[user] connects [parent] hydraulic systems.") , span_notice("You connect [parent] hydraulic systems."))
+			user.visible_message(span_notice("<b>[user]</b> подключает гидравлическую систему <b>[parent]</b>.") , span_notice("Подключаю гидравлическую систему <b>[parent]</b>."))
 		if(2)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] activates [parent] hydraulic systems.") , span_notice("You activate [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> активирует гидравлическую систему <b>[parent]</b>.") , span_notice("Активирую гидравлическую систему <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] disconnects [parent] hydraulic systems.") , span_notice("You disconnect [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> отключает гидравлическую систему <b>[parent]</b>.") , span_notice("Отключаю гидравлическую систему <b>[parent]</b>."))
 		if(3)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] adds the wiring to [parent].") , span_notice("You add the wiring to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает проводку в <b>[parent]</b>.") , span_notice("Устанавливаю проводку в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] deactivates [parent] hydraulic systems.") , span_notice("You deactivate [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> деактивирует гидравлическую систему <b>[parent]</b>.") , span_notice("Деактивирую гидравлическую систему <b>[parent]</b>."))
 		if(4)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] adjusts the wiring of [parent].") , span_notice("You adjust the wiring of [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> настраивает проводку в <b>[parent]</b>.") , span_notice("Настраиваю проводку в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] removes the wiring from [parent].") , span_notice("You remove the wiring from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет проводку из <b>[parent]</b>.") , span_notice("Удаляю проводку из <b>[parent]</b>."))
 		if(5)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] disconnects the wiring of [parent].") , span_notice("You disconnect the wiring of [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> отключает проводку в <b>[parent]</b>.") , span_notice("Отключаю проводку в <b>[parent]</b>."))
 		if(6)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the mainboard.") , span_notice("You secure the mainboard."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет основную плату.") , span_notice("Закрепляю основную плату."))
 			else
-				user.visible_message(span_notice("[user] removes the central control module from [parent].") , span_notice("You remove the central computer mainboard from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль центрального управления из <b>[parent]</b>.") , span_notice("Удаляю модуль центрального управления из <b>[parent]</b>."))
 		if(7)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the mainboard.") , span_notice("You unfasten the mainboard."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает основную плату.") , span_notice("Откручиваю основную плату."))
 		if(8)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the peripherals control module.") , span_notice("You secure the peripherals control module."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления периферией.") , span_notice("Закрепляю модуль управления периферией."))
 			else
-				user.visible_message(span_notice("[user] removes the peripherals control module from [parent].") , span_notice("You remove the peripherals control module from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления периферией из <b>[parent]</b>.") , span_notice("Удаляю модуль управления периферией из <b>[parent]</b>."))
 		if(9)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the peripherals control module.") , span_notice("You unfasten the peripherals control module."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления периферией.") , span_notice("Откручиваю модуль управления периферией."))
 		if(10)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the weapon control module.") , span_notice("You secure the weapon control module."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления оружием.") , span_notice("Закрепляю модуль управления оружием."))
 			else
-				user.visible_message(span_notice("[user] removes the weapon control module from [parent].") , span_notice("You remove the weapon control module from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления оружием из <b>[parent]</b>.") , span_notice("Удаляю модуль управления оружием из <b>[parent]</b>."))
 		if(11)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] to [parent].") , span_notice("You install [I] to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the weapon control module.") , span_notice("You unfasten the weapon control module."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления оружием.") , span_notice("Откручиваю модуль управления оружием."))
 		if(12)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the scanner module.") , span_notice("You secure the scanner module."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль сканирования.") , span_notice("Закрепляю модуль сканирования."))
 			else
-				user.visible_message(span_notice("[user] removes the scanner module from [parent].") , span_notice("You remove the scanner module from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль сканирования из <b>[parent]</b>.") , span_notice("Удаляю модуль сканирования из <b>[parent]</b>."))
 		if(13)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] to [parent].") , span_notice("You install [I] to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the scanner module.") , span_notice("You unfasten the scanner module."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает модуль сканирования.") , span_notice("Откручиваю модуль сканирования."))
 		if(14)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the capacitor.") , span_notice("You secure the capacitor."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет конденсатор.") , span_notice("Закрепляю конденсатор."))
 			else
-				user.visible_message(span_notice("[user] removes the capacitor from [parent].") , span_notice("You remove the capacitor from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет конденсатор из <b>[parent]</b>.") , span_notice("Удаляю конденсатор из <b>[parent]</b>."))
 		if(15)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I].") , span_notice("You install [I]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b>.") , span_notice("Устанавливаю <b>[I.name]</b>."))
 			else
-				user.visible_message(span_notice("[user] unsecures the capacitor from [parent].") , span_notice("You unsecure the capacitor from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает конденсатор в <b>[parent]</b>.") , span_notice("Откручиваю конденсатор в <b>[parent]</b>."))
 		if(16)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] connects the bluespace crystal.") , span_notice("You connect the bluespace crystal."))
+				user.visible_message(span_notice("<b>[user]</b> подключает блюспейс кристалл.") , span_notice("Подключаю блюспейс кристалл."))
 			else
-				user.visible_message(span_notice("[user] removes the bluespace crystal from [parent].") , span_notice("You remove the bluespace crystal from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет блюспейс кристалл из <b>[parent]</b>.") , span_notice("Удаляю блюспейс кристалл из <b>[parent]</b>."))
 		if(17)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] engages the bluespace crystal.") , span_notice("You engage the bluespace crystal."))
+				user.visible_message(span_notice("<b>[user]</b> активирует блюспейс кристалл.") , span_notice("Активирую блюспейс кристалл."))
 			else
-				user.visible_message(span_notice("[user] disconnects the bluespace crystal from [parent].") , span_notice("You disconnect the bluespace crystal from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> отключает блюспейс кристалл от <b>[parent]</b>.") , span_notice("Отключаю блюспейс кристалл от <b>[parent]</b>."))
 		if(18)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] disengages the bluespace crystal.") , span_notice("You disengage the bluespace crystal."))
+				user.visible_message(span_notice("Деактивирует блюспейс кристалл.") , span_notice("Деактивирую блюспейс кристалл."))
 		if(19)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the power cell.") , span_notice("You secure the power cell."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет аккумулятор.") , span_notice("Закрепляю аккумулятор."))
 			else
-				user.visible_message(span_notice("[user] pries the power cell from [parent].") , span_notice("You pry the power cell from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> вытаскивает аккумулятор из <b>[parent]</b>.") , span_notice("Вытаскиваю аккумулятор из <b>[parent]</b>."))
 		if(20)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs the phase armor layer to [parent].") , span_notice("You install the phase armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает фазовую броню на <b>[parent]</b>.") , span_notice("Устанавливаю фазовую броню на <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the power cell.") , span_notice("You unfasten the power cell."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает аккумулятор.") , span_notice("Откручиваю аккумулятор."))
 		if(21)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the phase armor layer.") , span_notice("You secure the phase armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет фазовую броню.") , span_notice("Закрепляю фазовую броню."))
 			else
-				user.visible_message(span_notice("[user] pries the phase armor layer from [parent].") , span_notice("You pry the phase armor layer from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> снимает фазовую броню с <b>[parent]</b>.") , span_notice("Снимаю фазовую броню с <b>[parent]</b>."))
 		if(22)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] welds the phase armor layer to [parent].") , span_notice("You weld the phase armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> приваривает фазовую броню к <b>[parent]</b>.") , span_notice("Привариваю фазовую броню к <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the phase armor layer.") , span_notice("You unfasten the phase armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает фазовую броню.") , span_notice("Откручиваю фазовую броню."))
 		if(23)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] to [parent].") , span_notice("You install [I] to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] cuts phase armor layer from [parent].") , span_notice("You cut the phase armor layer from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> срезает фазовую броню с <b>[parent]</b>.") , span_notice("Срезаю фазовую броню с <b>[parent]</b>."))
 		if(24)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures Phazon Armor Plates.") , span_notice("You secure Phazon Armor Plates."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет Phazon Armor Plates.") , span_notice("Закрепляю Phazon Armor Plates."))
 			else
-				user.visible_message(span_notice("[user] pries Phazon Armor Plates from [parent].") , span_notice("You pry Phazon Armor Plates from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> снимает Phazon Armor Plates с <b>[parent]</b>.") , span_notice("Снимаю Phazon Armor Plates с <b>[parent]</b>."))
 		if(25)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] welds Phazon Armor Plates to [parent].") , span_notice("You weld Phazon Armor Plates to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> приваривает Phazon Armor Plates к <b>[parent]</b>.") , span_notice("Привариваю Phazon Armor Plates к <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens Phazon Armor Plates.") , span_notice("You unfasten Phazon Armor Plates."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает Phazon Armor Plates.") , span_notice("Откручиваю Phazon Armor Plates."))
 		if(26)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] carefully inserts the bluespace anomaly core into [parent] and secures it.") ,
-					span_notice("You slowly place the bluespace anomaly core into its socket and close its chamber."))
+				user.visible_message(span_notice("<b>[user]</b> аккуратно вставляет ядро блюспейс аномалии в <b>[parent]</b> и закрепляет его.") ,
+					span_notice("Аккуратно вставляю ядро блюспейс аномалии в специальный отсек и закрепляю его."))
 	return TRUE
 
 //ODYSSEUS
@@ -1235,100 +1235,100 @@
 	//TODO: better messages.
 	switch(index)
 		if(1)
-			user.visible_message(span_notice("[user] connects [parent] hydraulic systems.") , span_notice("You connect [parent] hydraulic systems."))
+			user.visible_message(span_notice("<b>[user]</b> подключает гидравлическую систему <b>[parent]</b>.") , span_notice("Подключаю гидравлическую систему <b>[parent]</b>."))
 		if(2)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] activates [parent] hydraulic systems.") , span_notice("You activate [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> активирует гидравлическую систему <b>[parent]</b>.") , span_notice("Активирую гидравлическую систему <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] disconnects [parent] hydraulic systems.") , span_notice("You disconnect [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> отключает гидравлическую систему <b>[parent]</b>.") , span_notice("Отключаю гидравлическую систему <b>[parent]</b>."))
 		if(3)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] adds the wiring to [parent].") , span_notice("You add the wiring to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает проводку в <b>[parent]</b>.") , span_notice("Устанавливаю проводку в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] deactivates [parent] hydraulic systems.") , span_notice("You deactivate [parent] hydraulic systems."))
+				user.visible_message(span_notice("<b>[user]</b> деактивирует гидравлическую систему <b>[parent]</b>.") , span_notice("Деактивирую гидравлическую систему <b>[parent]</b>."))
 		if(4)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] adjusts the wiring of [parent].") , span_notice("You adjust the wiring of [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> настраивает проводку в <b>[parent]</b>.") , span_notice("Настраиваю проводку в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] removes the wiring from [parent].") , span_notice("You remove the wiring from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет проводку из <b>[parent]</b>.") , span_notice("Удаляю проводку из <b>[parent]</b>."))
 		if(5)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] disconnects the wiring of [parent].") , span_notice("You disconnect the wiring of [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> отключает проводку в <b>[parent]</b>.") , span_notice("Отключаю проводку в <b>[parent]</b>."))
 		if(6)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the mainboard.") , span_notice("You secure the mainboard."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет основную плату.") , span_notice("Закрепляю основную плату."))
 			else
-				user.visible_message(span_notice("[user] removes the central control module from [parent].") , span_notice("You remove the central computer mainboard from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль центрального управления из <b>[parent]</b>.") , span_notice("Удаляю модуль центрального управления из <b>[parent]</b>."))
 		if(7)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the mainboard.") , span_notice("You unfasten the mainboard."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает основную плату.") , span_notice("Откручиваю основную плату."))
 		if(8)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the peripherals control module.") , span_notice("You secure the peripherals control module."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления периферией.") , span_notice("Закрепляю модуль управления периферией."))
 			else
-				user.visible_message(span_notice("[user] removes the peripherals control module from [parent].") , span_notice("You remove the peripherals control module from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления периферией из <b>[parent]</b>.") , span_notice("Удаляю модуль управления периферией из <b>[parent]</b>."))
 		if(9)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the peripherals control module.") , span_notice("You unfasten the peripherals control module."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления периферией.") , span_notice("Откручиваю модуль управления периферией."))
 		if(10)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the scanner module.") , span_notice("You secure the scanner module."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль сканирования.") , span_notice("Закрепляю модуль сканирования."))
 			else
-				user.visible_message(span_notice("[user] removes the scanner module from [parent].") , span_notice("You remove the scanner module from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет модуль сканирования из <b>[parent]</b>.") , span_notice("Удаляю модуль сканирования из <b>[parent]</b>."))
 		if(11)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] to [parent].") , span_notice("You install [I] to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the scanner module.") , span_notice("You unfasten the scanner module."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает модуль сканирования.") , span_notice("Откручиваю модуль сканирования."))
 		if(12)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the capacitor.") , span_notice("You secure the capacitor."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет конденсатор.") , span_notice("Закрепляю конденсатор."))
 			else
-				user.visible_message(span_notice("[user] removes the capacitor from [parent].") , span_notice("You remove the capacitor from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> удаляет конденсатор из <b>[parent]</b>.") , span_notice("Удаляю конденсатор из <b>[parent]</b>."))
 		if(13)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs [I] into [parent].") , span_notice("You install [I] into [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the capacitor.") , span_notice("You unfasten the capacitor."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает конденсатор.") , span_notice("Откручиваю конденсатор."))
 		if(14)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the power cell.") , span_notice("You secure the power cell."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет аккумулятор.") , span_notice("Закрепляю аккумулятор."))
 			else
-				user.visible_message(span_notice("[user] pries the power cell from [parent].") , span_notice("You pry the power cell from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> вытаскивает аккумулятор из <b>[parent]</b>.") , span_notice("Вытаскиваю аккумулятор из <b>[parent]</b>."))
 		if(15)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs the internal armor layer to [parent].") , span_notice("You install the internal armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Устанавливаю внутреннюю обшивку <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the power cell.") , span_notice("You unfasten the power cell."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает аккумулятор.") , span_notice("Откручиваю аккумулятор."))
 		if(16)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the internal armor layer.") , span_notice("You secure the internal armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет внутреннюю обшивку.") , span_notice("Закрепляю внутреннюю обшивку."))
 			else
-				user.visible_message(span_notice("[user] pries internal armor layer from [parent].") , span_notice("You pry internal armor layer from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> снимает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Снимаю внутреннюю обшивку <b>[parent]</b>."))
 		if(17)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] welds the internal armor layer to [parent].") , span_notice("You weld the internal armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> приваривает внутреннюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внутреннюю обшивку к <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the internal armor layer.") , span_notice("You unfasten the internal armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает внутреннюю обшивку.") , span_notice("Откручиваю внутреннюю обшивку."))
 		if(18)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] installs the external armor layer to [parent].") , span_notice("You install the external reinforced armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> устанавливает внешнюю обшивку на <b>[parent]</b>.") , span_notice("Устанавливаю внешнюю обшивку на <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] cuts the internal armor layer from [parent].") , span_notice("You cut the internal armor layer from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> срезает внутреннюю обшивку с <b>[parent]</b>.") , span_notice("Срезаю внутреннюю обшивку с <b>[parent]</b>."))
 		if(19)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] secures the external armor layer.") , span_notice("You secure the external reinforced armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> закрепляет внешнюю обшивку.") , span_notice("Закрепляю внешнюю обшивку."))
 			else
-				user.visible_message(span_notice("[user] pries the external armor layer from [parent].") , span_notice("You pry the external armor layer from [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> снимает внешнюю обшивку с <b>[parent]</b>.") , span_notice("Снимаю внешнюю обшивку с <b>[parent]</b>."))
 		if(20)
 			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] welds the external armor layer to [parent].") , span_notice("You weld the external armor layer to [parent]."))
+				user.visible_message(span_notice("<b>[user]</b> приваривает внешнюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внешнюю обшивку к <b>[parent]</b>."))
 			else
-				user.visible_message(span_notice("[user] unfastens the external armor layer.") , span_notice("You unfasten the external armor layer."))
+				user.visible_message(span_notice("<b>[user]</b> откручивает внешнюю обшивку.") , span_notice("Откручиваю внешнюю обшивку."))
 	return TRUE

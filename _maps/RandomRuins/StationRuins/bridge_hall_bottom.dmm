@@ -283,6 +283,7 @@
 "eu" = (
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/structure/closet/emcloset,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/bridge/meeting_room/council)
 "ex" = (
@@ -615,6 +616,7 @@
 /area/crew_quarters/heads/hop)
 "km" = (
 /obj/effect/spawner/randomcolavend,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/bridge/meeting_room/council)
 "ks" = (
@@ -645,6 +647,7 @@
 "kN" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/structure/closet/emcloset,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "kX" = (
@@ -658,6 +661,7 @@
 /obj/structure/extinguisher_cabinet/directional/south,
 /obj/machinery/light,
 /obj/structure/reagent_dispensers/water_cooler,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/bridge/meeting_room)
 "lF" = (
@@ -999,18 +1003,18 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central)
 "rL" = (
-/obj/machinery/power/apc{
-	areastring = "/area/hallway/primary/central";
-	cell_type = /obj/item/stock_parts/cell/bluespace;
-	dir = 8;
-	name = "Central Hall APC";
-	pixel_x = -25
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+/obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "se" = (
 /obj/machinery/light_switch/directional/east,
@@ -1133,6 +1137,7 @@
 "sZ" = (
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal/bin,
+/obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/bridge/meeting_room/council)
 "tf" = (
@@ -1185,6 +1190,7 @@
 "tV" = (
 /obj/structure/closet/firecloset,
 /obj/item/radio/intercom/directional/north,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/bridge/meeting_room/council)
 "tX" = (
@@ -1524,6 +1530,7 @@
 "zb" = (
 /obj/item/radio/intercom/directional/west,
 /obj/structure/closet/emcloset,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central)
 "zH" = (
@@ -1594,6 +1601,14 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/power/apc{
+	areastring = "/area/hallway/primary/central";
+	cell_type = /obj/item/stock_parts/cell/bluespace;
+	dir = 8;
+	name = "Central Hall APC";
+	pixel_x = -25
+	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "Ar" = (
@@ -1779,6 +1794,7 @@
 /area/bridge/meeting_room/council)
 "Ds" = (
 /obj/structure/closet/firecloset,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/maintenance/bottom_station_maints/north)
 "DI" = (
@@ -1845,6 +1861,7 @@
 /area/hallway/primary/central)
 "FI" = (
 /obj/structure/reagent_dispensers/fueltank,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "FJ" = (
@@ -1948,6 +1965,7 @@
 "HV" = (
 /obj/structure/closet/emcloset,
 /obj/structure/extinguisher_cabinet/directional/north,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/bridge/meeting_room/council)
 "HW" = (
@@ -1960,6 +1978,7 @@
 /area/hallway/primary/central)
 "Ix" = (
 /obj/effect/loot_site_spawner,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/maintenance/bottom_station_maints/north)
 "IG" = (
@@ -2120,6 +2139,7 @@
 /obj/machinery/computer/price_controller{
 	dir = 1
 	},
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/bridge/meeting_room)
 "LD" = (
@@ -2194,6 +2214,7 @@
 /area/crew_quarters/heads/hop)
 "LU" = (
 /obj/effect/spawner/randomsnackvend,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/bridge/meeting_room/council)
 "Mf" = (
@@ -2347,6 +2368,7 @@
 /area/maintenance/bottom_station_maints)
 "OP" = (
 /obj/structure/closet/firecloset,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "OY" = (
@@ -2491,6 +2513,7 @@
 /area/maintenance/bottom_station_maints)
 "QH" = (
 /obj/structure/closet/firecloset,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central)
 "QP" = (
@@ -2557,6 +2580,7 @@
 /area/hallway/primary/central)
 "RQ" = (
 /obj/effect/loot_site_spawner,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "RR" = (
@@ -2567,6 +2591,7 @@
 /area/hallway/primary/central)
 "Si" = (
 /obj/structure/closet/firecloset,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/bridge/meeting_room/council)
 "Sm" = (
@@ -2639,6 +2664,7 @@
 /area/hallway/primary/central)
 "Tm" = (
 /obj/effect/spawner/randomcolavend,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central)
 "Tn" = (
@@ -2648,7 +2674,10 @@
 /turf/open/floor/plating,
 /area/bridge/meeting_room/council)
 "Ts" = (
-/obj/structure/closet/emcloset,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central)
 "Tv" = (
@@ -2690,6 +2719,7 @@
 /area/crew_quarters/heads/captain)
 "Uj" = (
 /obj/effect/spawner/randomsnackvend,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central)
 "Ur" = (
@@ -2902,6 +2932,7 @@
 "WL" = (
 /obj/machinery/modular_computer/console/preset/command,
 /obj/machinery/camera/autoname,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/bridge/meeting_room/council)
 "WM" = (
@@ -3027,6 +3058,7 @@
 	},
 /obj/effect/turf_decal/tile/blue,
 /obj/structure/closet/firecloset,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "Yq" = (
@@ -3657,7 +3689,7 @@ zY
 Hh
 Hh
 Hh
-Hh
+rL
 Hh
 cL
 QP
@@ -3695,7 +3727,7 @@ vZ
 IX
 IX
 mq
-Hh
+rL
 Hh
 Hh
 Hh
@@ -3733,7 +3765,7 @@ VV
 IX
 IX
 IX
-IX
+tL
 PP
 Hh
 Hh
@@ -3771,7 +3803,7 @@ gb
 IX
 IX
 IX
-IX
+tL
 IX
 PP
 Hh
@@ -3809,7 +3841,7 @@ zT
 gb
 IX
 IX
-IX
+tL
 DJ
 IX
 PP
@@ -3847,7 +3879,7 @@ gv
 gv
 gb
 IX
-IX
+tL
 IX
 IX
 no
@@ -3873,7 +3905,7 @@ VY
 UL
 Ek
 rn
-rL
+WM
 YC
 WM
 WM
@@ -3885,7 +3917,7 @@ ss
 ss
 ss
 gc
-WM
+Ts
 WM
 WM
 WM
@@ -4236,7 +4268,7 @@ IX
 IX
 IX
 UL
-Ts
+IX
 rn
 XD
 RQ

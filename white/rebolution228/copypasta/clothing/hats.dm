@@ -78,5 +78,5 @@
 	desc = "Простой синий берет. На деле он голубой, но кого это волнует?"
 	icon = 'white/rebolution228/icons/clothing/hats.dmi'
 	worn_icon = 'white/rebolution228/icons/clothing/mob/hats_mob.dmi'
-	greyscale_colors = "#972A2A"
+	greyscale_colors = "#3f3c40"
 

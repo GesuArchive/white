@@ -774,12 +774,17 @@
 
 
 /area/duel
+	name = "Дуэлянты"
 	icon_state = "duel"
 	area_flags = NO_ALERTS | ABDUCTOR_PROOF | BLOCK_SUICIDE | HIDDEN_AREA | NOTELEPORT | UNIQUE_AREA
 	static_lighting = FALSE
 	requires_power = FALSE
 	has_gravity = STANDARD_GRAVITY
+	base_lighting_alpha = 255
+	base_lighting_color = COLOR_WHITE
+
 /area/duel/arena
+	name = "Дуэлянты: Арена"
 	icon_state = "duel_arena"
 
 /obj/effect/landmark/duel_spawnpoint
@@ -795,7 +800,7 @@
 	invisibility = INVISIBILITY_OBSERVER
 	var/duel_outfit = /datum/outfit/artist
 	var/duel_status = DUEL_NODUEL
-	var/list/mob/living/carbon/human/duelists
+	var/list/mob/living/carbon/human/duelists = list()
 	var/bet
 	/// Время на каждый бой. Не меньше 30 секунд.
 	var/duel_timelimit = 60

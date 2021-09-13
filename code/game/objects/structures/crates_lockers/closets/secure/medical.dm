@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/medical1
-	name = "аптечка"
-	desc = "До краев наполнена медицинским барахлом."
+	name = "аптечный шкаф"
+	desc = "До краев наполнен медицинским барахлом."
 	icon_state = "med"
 	req_access = list(ACCESS_MEDICAL)
 

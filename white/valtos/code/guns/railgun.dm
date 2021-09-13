@@ -66,7 +66,7 @@
 /obj/projectile/bullet/fallout/railgun
 	icon_state = "gauss_silenced"
 	speed = 0.4
-	damage = 0
+	damage = 1
 	damage_type = BURN
 	range = 150
 	projectile_piercing = PASSALL

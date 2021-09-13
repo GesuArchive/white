@@ -183,7 +183,7 @@
 		return
 
 	if(force && HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_warning("You don't want to harm other living beings!"))
+		to_chat(user, span_warning("Не хочу вредить живым существам!"))
 		return
 
 	if(!force)

@@ -15,7 +15,7 @@
 		if(!I.embedding || I.embedding == EMBED_HARMLESS)
 			I.embedding = EMBED_POINTY
 			I.updateEmbedding()
-			I.name = "pointy [I.name]"
+			I.name = "острый [I.name]"
 
 	GLOB.embedpocalypse = TRUE
 	GLOB.stickpocalypse = FALSE // embedpocalypse takes precedence over stickpocalypse
@@ -41,6 +41,6 @@
 		if(!I.embedding)
 			I.embedding = EMBED_HARMLESS
 			I.updateEmbedding()
-			I.name = "sticky [I.name]"
+			I.name = "липкий [I.name]"
 
 	GLOB.stickpocalypse = TRUE

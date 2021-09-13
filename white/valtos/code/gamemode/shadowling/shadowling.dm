@@ -41,7 +41,7 @@ Made by Xhuis
 	var/thrall_ratio = 1
 
 /datum/game_mode/proc/replace_jobbaned_player(mob/living/M, role_type, pref)
-	var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you want to play as a [role_type]?", "[role_type]", null, pref, 50, M)
+	var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Do you want to play as a [role_type]?", "[role_type]", null, pref, 50, M)
 	var/mob/dead/observer/theghost = null
 	if(candidates.len)
 		theghost = pick(candidates)

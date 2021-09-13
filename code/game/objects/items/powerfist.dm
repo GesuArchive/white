@@ -75,7 +75,7 @@
 		to_chat(user, span_warning("<b>[src.name]</b> can't operate without a source of gas!"))
 		return
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_warning("You don't want to harm other living beings!"))
+		to_chat(user, span_warning("Не хочу вредить живым существам!"))
 		return
 	var/datum/gas_mixture/gasused = tank.air_contents.remove(gasperfist * fisto_setting)
 	var/turf/T = get_turf(src)

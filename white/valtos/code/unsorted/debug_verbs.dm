@@ -2,6 +2,9 @@
 	set name = " ? Raspidoars"
 	set category = "Дбг"
 
+	if(!check_rights(R_DEBUG))
+		return
+
 	var/turf/where = get_turf(mob)
 
 	if(!where)
@@ -24,6 +27,9 @@
 /client/proc/kaboom()
 	set name = " ? Ka-Boom"
 	set category = "Дбг"
+
+	if(!check_rights(R_DEBUG))
+		return
 
 	var/turf/where = get_turf(mob)
 
@@ -50,6 +56,9 @@
 	set name = " ? Smooth Z-Level"
 	set category = "Дбг"
 
+	if(!check_rights(R_DEBUG))
+		return
+
 	var/zlevel = input("Z-Level? Пиши 0, если не понимаешь че нажал:") as num
 
 	if(zlevel != 0)
@@ -60,6 +69,9 @@
 /client/proc/get_tacmap_for_test()
 	set name = " ? Generate TacMap"
 	set category = "Дбг"
+
+	if(!check_rights(R_DEBUG))
+		return
 
 	var/fuckz = input("З-уровень") as num
 
@@ -79,6 +91,9 @@
 /client/proc/toggle_major_mode()
 	set name = " ? Переключить ММ (тест)"
 	set category = "Дбг"
+
+	if(!check_rights(R_DEBUG))
+		return
 
 	GLOB.major_mode_active = !GLOB.major_mode_active
 
@@ -216,3 +231,7 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 		target.color = COLOR_RED
 		target.set_light(1.4, 4, COLOR_RED, TRUE)
 		priority_announce("За голову [target] назначена награда в размере [bounty] кредит[get_num_string(bounty)]. Он будет подсвечен лазерной наводкой для удобства.", "Охота за головами",'sound/ai/announcer/alert.ogg')
+
+/proc/maptick_initialize()
+	var/result = call(EXTOOLS, "maptick_initialize")()
+	message_admins(span_danger("ENABLING EXPERIMENTAL MAPTICK BOOST WITH RESULT OF: [result]"))
