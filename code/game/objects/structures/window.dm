@@ -315,7 +315,7 @@
 	ini_dir = dir
 	add_fingerprint(user)
 
-/obj/structure/window/proc/on_painted(is_dark_color)
+/obj/structure/window/proc/on_painted(obj/structure/window/source, is_dark_color)
 	SIGNAL_HANDLER
 
 	if (is_dark_color)
