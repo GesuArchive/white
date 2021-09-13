@@ -354,6 +354,13 @@ GLOBAL_VAR(yohei_main_controller)
 		return
 	reputation = json_decode(file2text(json_file))
 
+/obj/lab_monitor/yohei/proc/clear_reputation()
+	var/json_file = file("data/yohei.json")
+	if(!fexists(json_file))
+		return
+	reputation = list()
+	WRITE_FILE(json_file, json_encode(reputation))
+
 /obj/lab_monitor/yohei/proc/adjust_reputation(keyto, amt = 0)
 	if(IsAdminAdvancedProcCall())
 		var/client/C = usr
