@@ -35,9 +35,9 @@
 	else
 		BB.def_zone = user.zone_selected
 	BB.suppressed = quiet
-	BB.damage = initial(BB.damage) + extra_damage
+	BB.damage += extra_damage
 	if(isnum(extra_penetration))
-		BB.armour_penetration = initial(BB.armour_penetration) + extra_penetration
+		BB.armour_penetration += extra_penetration
 
 	if(reagents && BB.reagents)
 		reagents.trans_to(BB, reagents.total_volume, transfered_by = user) //For chemical darts/bullets
