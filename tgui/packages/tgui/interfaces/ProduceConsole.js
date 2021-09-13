@@ -182,7 +182,7 @@ const CheckoutTab = (props, context) => {
                 color="yellow"
                 content="Экспресс"
                 tooltip={multiline`
-                Отправляет ингридиенты мгновенно, но
+                Отправляет ингредиенты мгновенно, но
                 блокирует консоль надолго. Двойная стоимость заказа!
                 `}
                 tooltipPosition="top-start"

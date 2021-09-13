@@ -269,10 +269,10 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	if(!LAZYLEN(embedding))
 		if(GLOB.embedpocalypse)
 			embedding = EMBED_POINTY
-			name = "pointy [name]"
+			name = "острый [name]"
 		else if(GLOB.stickpocalypse)
 			embedding = EMBED_HARMLESS
-			name = "sticky [name]"
+			name = "липкий [name]"
 
 	updateEmbedding()
 

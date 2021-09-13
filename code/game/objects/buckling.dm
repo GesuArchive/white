@@ -305,7 +305,7 @@
 	if(M)
 		if(M != user)
 			M.visible_message(span_notice("[user] поднимает [M] с [src].") ,\
-				span_notice("[user] поднмает меня с [src].") ,\
+				span_notice("[user] поднимает меня с [src].") ,\
 				span_hear("Слышу лязг металла."))
 		else
 			M.visible_message(span_notice("[M] встаёт со [src].") ,\

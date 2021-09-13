@@ -605,7 +605,7 @@
 
 /obj/item/storage/belt/bandolier
 	name = "бандольер"
-	desc = "Бандольером для хранения боеприпасов к дробовикам."
+	desc = "Бандольер для хранения боеприпасов к дробовикам."
 	icon_state = "bandolier"
 	inhand_icon_state = "bandolier"
 	worn_icon_state = "bandolier"
