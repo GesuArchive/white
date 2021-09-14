@@ -3069,6 +3069,9 @@
 	pixel_y = 32
 	},
 /obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/accounting{
+	pixel_y = 11
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/crew_quarters/heads/hop)
 "hQ" = (

@@ -1940,6 +1940,9 @@
 /obj/machinery/computer/security/telescreen/vault{
 	pixel_y = 30
 	},
+/obj/machinery/accounting{
+	pixel_y = 11
+	},
 /turf/open/floor/carpet,
 /area/crew_quarters/heads/hop)
 "Hh" = (
