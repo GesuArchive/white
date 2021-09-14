@@ -35,7 +35,7 @@
 
 /obj/item/reagent_containers/food/drinks/flask/gold/soviet
 	name = "советская фляжка"
-	desc = "Старая позолоченная фляжка. В ней нет ничего примечательного, кроме того, что на ней изображена красная звезда. На крышке также есть гравировка \"ВДВ\" "
+	desc = "Старая позолоченная фляжка. В ней нет ничего примечательного, кроме того, что на ней изображена красная звезда. На крышке также есть гравировка \"ВДВ\"."
 	icon = 'white/rebolution228/icons/obj/items.dmi'
 	icon_state = "sovietflask"
 	list_reagents = list(/datum/reagent/consumable/ethanol/vodka = 30)
