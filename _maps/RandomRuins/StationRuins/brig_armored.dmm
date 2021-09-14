@@ -488,10 +488,13 @@
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 8
 	},
-/obj/item/ammo_box/magazine/sniper_rounds/soporific,
-/obj/item/ammo_box/magazine/sniper_rounds/soporific,
-/obj/item/ammo_box/magazine/sniper_rounds/soporific,
-/obj/item/gun/ballistic/rifle/fallout/hunting/scoped/amr,
+/obj/item/gun/ballistic/shotgun/riot,
+/obj/item/gun/ballistic/shotgun/riot{
+	pixel_y = 3
+	},
+/obj/item/gun/ballistic/shotgun/riot{
+	pixel_y = 6
+	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "co" = (
