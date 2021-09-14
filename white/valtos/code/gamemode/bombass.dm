@@ -12,7 +12,7 @@
 	name = "Бункер бомбасса"
 	outdoors = FALSE
 	requires_power = FALSE
-	static_lighting = FALSE
+	static_lighting = TRUE
 
 /obj/structure/closet/bombcloset/bombsquad
 	name = "BOMBSQUAD"
