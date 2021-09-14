@@ -12,7 +12,6 @@
 	name = "Chilly"
 	icon = 'white/rebolution228/map_sprites.dmi'
 	icon_state = "coutdoor"
-	static_lighting = TRUE
 	requires_power = TRUE
 	has_gravity = STANDARD_GRAVITY
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | NOTELEPORT
@@ -22,6 +21,9 @@
 	//poweralm = FALSE
 	ambientsounds = list('sound/ambience/white/snowyambient.ogg')
 	env_temp_relative = -25
+	static_lighting = FALSE
+	base_lighting_color = COLOR_WHITE
+	base_lighting_alpha = 255
 
 /area/awaymission/chilly/surface // костыль, потому что шторм иначе будет применяться на все зоны
 	name = "Surface"
@@ -41,7 +43,7 @@
 /area/awaymission/chilly/facility
 	name = "Base I"
 	icon_state = "base"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = TRUE
 	always_unpowered = TRUE
 	ambientsounds = list('sound/ambience/ambireebe1.ogg')
@@ -50,7 +52,7 @@
 /area/awaymission/chilly/facility/croom
 	name = "Base I Underground Control Room"
 	icon_state = "base_eng"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = FALSE
 	always_unpowered = FALSE
 	env_temp_relative = -5
@@ -58,7 +60,7 @@
 /area/awaymission/chilly/facility2
 	name = "Base II"
 	icon_state = "base2"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = TRUE
 	ambientsounds = list('sound/ambience/ambireebe3.ogg')
 	always_unpowered = TRUE
@@ -67,7 +69,7 @@
 /area/awaymission/chilly/facility3
 	name = "Base III"
 	icon_state = "base3"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = TRUE
 	always_unpowered = TRUE
 	ambientsounds = list('sound/ambience/ambireebe2.ogg')
@@ -76,7 +78,7 @@
 /area/awaymission/chilly/facility4
 	name = "Base IV House"
 	icon_state = "base4"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = TRUE
 	always_unpowered = TRUE
 	ambientsounds = list('sound/ambience/ambiruin4.ogg')
@@ -85,7 +87,7 @@
 /area/awaymission/chilly/facility5
 	name = "Base V"
 	icon_state = "base5"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = TRUE
 	always_unpowered = TRUE
 	ambientsounds = list('sound/ambience/ambitech.ogg')
@@ -96,7 +98,7 @@
 /area/awaymission/chilly/cave
 	name = "Underground Train Tracks"
 	icon_state = "caverns"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = TRUE
 	always_unpowered = TRUE
 	ambientsounds = list('sound/ambience/ambireebe3.ogg')
@@ -105,7 +107,7 @@
 /area/awaymission/chilly/syndietrain
 	name = "Syndicate Cargo Train"
 	icon_state = "syndie_train"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = FALSE
 	ambientsounds = list('sound/ambience/ambireebe3.ogg')
 	always_unpowered = FALSE
@@ -114,7 +116,7 @@
 /area/awaymission/chilly/ntcargotrain
 	name = "NanoTrasen Cargo Train Wreckage"
 	icon_state = "nt_train"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = TRUE
 	ambientsounds = list('sound/ambience/ambireebe3.ogg')
 	always_unpowered = TRUE
@@ -126,14 +128,14 @@
 /area/awaymission/chilly/mountain
 	name = "Mountain"
 	icon_state = "mountain"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	always_unpowered = TRUE
 	env_temp_relative = -30
 
 /area/awaymission/chilly/gatewaystart
 	name = "Gateway Entrance"
 	icon_state = "gateways"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = FALSE
 	always_unpowered = FALSE
 	ambientsounds = list('sound/ambience/ambitech.ogg', 'sound/ambience/ambitech2.ogg', 'sound/ambience/ambitech3.ogg')
