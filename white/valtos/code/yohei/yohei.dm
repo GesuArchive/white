@@ -264,9 +264,10 @@
 		var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
 		H.maxHealth = MAX_LIVING_HEALTH + LM.reputation[H.ckey]
 		ADD_TRAIT(H, TRAIT_YOHEI, JOB_TRAIT)
-	var/obj/item/card/id/yohei/Y = H.get_idcard(FALSE)
-	if(Y && H.mind)
-		Y.assigned_to = H.mind
+	spawn(1 SECONDS) // fucking
+		var/obj/item/card/id/yohei/Y = H.get_idcard(FALSE)
+		if(Y && H.mind)
+			Y.assigned_to = H.mind
 
 /datum/outfit/yohei/medic
 	name = "Йохей: Медик"
@@ -588,6 +589,9 @@ GLOBAL_VAR(yohei_main_controller)
 /datum/yohei_task/gamemode/check_task(mob/user)
 	if(!adatum)
 		qdel(src)
+		if(GLOB.yohei_main_controller)
+			var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
+			LM.current_task = null
 		return FALSE
 	if(!is_special_character(user))
 		user.mind.add_antag_datum(adatum)
@@ -643,6 +647,7 @@ GLOBAL_VAR(yohei_main_controller)
 			V.protected_guy = user.mind
 			assigned_to.add_antag_datum(V)
 			to_chat(user, span_notice("Успешно нанимаю [assigned_to.name]. Теперь меня точно защитят."))
+			update_label()
 		else
 			to_chat(user, span_danger("Карта неисправна. Самоутилизация активирована."))
 			qdel(W)
