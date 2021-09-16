@@ -365,7 +365,7 @@
 
 /obj/machinery/power/am_control_unit/ui_interact(mob/user)
 	. = ..()
-	if((get_dist(src, user) > 1) || (machine_stat & (BROKEN|NOPOWER)))
+	if((get_dist(src, user) > 1) || (machine_stat & (BROKEN)))
 		if(!isAI(user))
 			user.unset_machine()
 			user << browse(null, "window=AMcontrol")
