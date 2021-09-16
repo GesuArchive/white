@@ -81,15 +81,23 @@
 	data["surgeries"] = surgeries
 
 	//If there's no patient just hop to it yeah?
-	if(!table)
+	if(!table && !sbed)
 		data["patient"] = null
 		return data
 
-	data["table"] = table
-	if(!table.check_eligible_patient())
-		return data
+	var/mob/living/carbon/human/patient
 	data["patient"] = list()
-	var/mob/living/carbon/human/patient = table.patient
+
+	if(table)
+		data["table"] = table
+		if(!table.check_eligible_patient())
+			return data
+		var/mob/living/carbon/human/patient = table.patient
+	else
+		data["table"] = sbed
+		if(!sbed.occupant || !ishuman(sbed.occupant))
+			return data
+		var/mob/living/carbon/human/patient = sbed.occupant
 
 	switch(patient.stat)
 		if(CONSCIOUS)

@@ -168,3 +168,6 @@
 	name = "arena"
 	has_gravity = STANDARD_GRAVITY
 	requires_power = FALSE
+	static_lighting = FALSE
+	base_lighting_alpha = 255
+	base_lighting_color = COLOR_WHITE
