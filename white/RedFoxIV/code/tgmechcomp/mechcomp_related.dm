@@ -45,13 +45,13 @@
 					/obj/item/mechcomp/timer = 2,
 					/obj/item/mechcomp/microphone = 7,
 					/obj/item/mechcomp/teleport = 6,
-					/obj/structure/disposalconstruct/mechcomp = 2)
+					/obj/structure/disposalconstruct/mechcomp = 2,
+					/obj/item/multitool/mechcomp = 1)
 	contraband = list(
 						/obj/item/mechcomp/egunholder = 3,
 						/obj/item/mechcomp/grav_accelerator = 5,
 						/obj/item/mechcomp/teleport/longrange = 6)
-	premium = list(	/obj/item/multitool/mechcomp = 1,
-					/obj/item/mechcomp/grav_accelerator = 2,
+	premium = list(	/obj/item/mechcomp/grav_accelerator = 2,
 					/obj/item/mechcomp/teleport/longrange = 3)
 	armor = list(MELEE = 30, BULLET = 30, LASER = 40, ENERGY = 40, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 40)
 	resistance_flags = FIRE_PROOF

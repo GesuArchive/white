@@ -137,7 +137,7 @@
 		check_shield_icons()
 		update_shield_icons = 0
 
-	if(machine_stat & (NOPOWER|BROKEN) || !active)//can update the icons even without power
+	if((machine_stat & BROKEN) || !active)//can update the icons even without power
 		return
 
 	if(!fueljar)//No fuel but we are on, shutdown
@@ -221,13 +221,8 @@
 
 /obj/machinery/power/am_control_unit/power_change()
 	..()
-	if(machine_stat & NOPOWER)
-		if(active)
-			toggle_power(1)
-		else
-			update_use_power(NO_POWER_USE)
 
-	else if(!machine_stat && anchored)
+	if(!machine_stat && anchored)
 		update_use_power(IDLE_POWER_USE)
 
 	return
