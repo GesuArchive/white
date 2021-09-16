@@ -287,6 +287,12 @@
 	density = 0
 	opacity = 0
 
+/obj/structure/rospilovo/okno/Initialize()
+	. = ..()
+	var/turf/T = get_turf(src)
+	if(isclosedturf(T))
+		T.opacity = FALSE
+
 /obj/structure/rospilovo/tree
 	name = "дерево"
 	icon = 'white/valtos/icons/rospilovo/derevya.dmi'
