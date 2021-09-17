@@ -358,87 +358,51 @@
 /obj/machinery/power/am_control_unit/proc/reset_stored_core_stability_delay()
 	stored_core_stability_delay = 0
 
-/obj/machinery/power/am_control_unit/ui_interact(mob/user)
+/obj/machinery/power/am_control_unit/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Antimatter", name)
+		ui.open()
+
+/obj/machinery/power/am_control_unit/ui_data(mob/user)
+	var/data = list()
+	data["active"] = active
+	data["stability"] = stability
+	data["linked_shielding"] = linked_shielding.len
+	data["linked_cores"] = linked_cores.len
+	data["reported_core_efficiency"] = reported_core_efficiency
+	data["stored_core_stability"] = stored_core_stability
+	data["stored_power"] = DisplayPower(stored_power)
+	if(fueljar)
+		data["fueljar"] = fueljar.name
+		data["fuel"] = fueljar.fuel
+		data["fuel_injection"] = fuel_injection
+	. =  data
+
+/obj/machinery/power/am_control_unit/ui_act(action, list/params)
 	. = ..()
-	if((get_dist(src, user) > 1) || (machine_stat & BROKEN))
-		if(!isAI(user))
-			user.unset_machine()
-			user << browse(null, "window=AMcontrol")
-			return
-
-	var/dat = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
-	dat += "Панель управления антивеществом<BR>"
-	dat += "<A href='?src=[REF(src)];close=1'>Закрыть</A><BR>"
-	dat += "<A href='?src=[REF(src)];refresh=1'>Обновить</A><BR>"
-	dat += "<A href='?src=[REF(src)];refreshicons=1'>Обновление силовой защиты</A><BR><BR>"
-	dat += "Состояние: [(active?"Вводится":"Ожидает")] <BR>"
-	dat += "<A href='?src=[REF(src)];togglestatus=1'>Переключить</A><BR>"
-
-	dat += "Стабильность: [stability]%<BR>"
-	dat += "Части реактора: [linked_shielding.len]<BR>"//TODO: perhaps add some sort of stability check
-	dat += "Ядра: [linked_cores.len]<BR><BR>"
-	dat += "- Текущая эффективность: [reported_core_efficiency]<BR>"
-	dat += "- Средняя стабильность: [stored_core_stability] <A href='?src=[REF(src)];refreshstability=1'>(обновить)</A><BR>"
-	dat += "В последний раз произведено: [DisplayPower(stored_power)]<BR>"
-
-	dat += "Топливо: "
-	if(!fueljar)
-		dat += "<BR>Не обнаружено топливных ячеек."
-	else
-		dat += "<A href='?src=[REF(src)];ejectjar=1'>Изъять</A><BR>"
-		dat += "- [fueljar.fuel]/[fueljar.fuel_max] юнитов<BR>"
-
-		dat += "- Ввод: [fuel_injection] юнитов<BR>"
-		dat += "- <A href='?src=[REF(src)];strengthdown=1'>--</A>|<A href='?src=[REF(src)];strengthup=1'>++</A>|<A href='?src=[REF(src)];strengthinput=1'>Своё</A><BR><BR>"
-
-
-	var/datum/browser/popup = new(user, "AMcontrol", name, 420, 500)
-	popup.set_content(dat)
-	popup.open()
-
-/obj/machinery/power/am_control_unit/Topic(href, href_list)
-	if(..())
+	if(.)
 		return
-
-	if(href_list["close"])
-		usr << browse(null, "window=AMcontrol")
-		usr.unset_machine()
-		return
-
-	if(href_list["togglestatus"])
-		toggle_power()
-
-	if(href_list["refreshicons"])
-		update_shield_icons = 1
-
-	if(href_list["ejectjar"])
-		if(fueljar)
-			fueljar.forceMove(drop_location())
-			fueljar = null
-			//fueljar.control_unit = null currently it does not care where it is
-			//update_icon() when we have the icon for it
-
-	if(href_list["strengthup"])
-		fuel_injection++
-
-	if(href_list["strengthdown"])
-		fuel_injection--
-		if(fuel_injection < 0)
-			fuel_injection = 0
-
-	if(href_list["strengthinput"])
-		var/wa = input(usr, "Сколько вводим?", "COCKS", "[fuel_injection]") as num|null
-
-		if(isnull(wa) || wa < 0 || wa > 1000)
-			return
-
-		fuel_injection = wa
-
-	if(href_list["refreshstability"])
-		check_core_stability()
-
-	updateDialog()
-	return
+	switch(action)
+		if("togglestatus")
+			toggle_power()
+			. = TRUE
+		if("ejectjar")
+			if(fueljar)
+				fueljar.forceMove(drop_location())
+				fueljar = null
+			. = TRUE
+		if("strengthup")
+			fuel_injection++
+			. = TRUE
+		if("strengthdown")
+			fuel_injection--
+			if(fuel_injection < 0)
+				fuel_injection = 0
+			. = TRUE
+		if("strengthinput")
+			fuel_injection = clamp(text2num(params["target"]), 0, 1000)
+			. = TRUE
 
 //like orange but only checks north/south/east/west for one step
 /proc/cardinalrange(var/center)
