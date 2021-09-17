@@ -252,9 +252,9 @@
 
 /obj/item/gun/ballistic/revolver/russian/soul/shoot_self(mob/living/user)
 	..()
-	var/obj/item/soulstone/anybody/revolver/SS = new /obj/item/soulstone/anybody/revolver(get_turf(src))
-	if(!SS.transfer_soul("FORCE", user)) //Something went wrong
-		qdel(SS)
+	var/obj/item/soulstone/anybody/revolver/stone = new /obj/item/soulstone/anybody/revolver(get_turf(src))
+	if(!stone.capture_soul(user, forced = TRUE)) //Something went wrong
+		qdel(stone)
 		return
 	user.visible_message(span_danger("Душа <b>[user.name]</b> теперь принадлежит <b>[src.name]</b>!") , span_userdanger("Азартная игра проиграна вместе с душой!"))
 

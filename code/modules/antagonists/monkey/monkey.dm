@@ -116,9 +116,8 @@
 
 /datum/antagonist/monkey/leader/on_gain()
 	. = ..()
-	var/obj/item/organ/heart/freedom/F = new
-	F.Insert(owner.current, drop_if_replaced = FALSE)
-	SSticker.mode.ape_leaders += owner
+	var/obj/item/organ/heart/freedom/super_heart = new
+	super_heart.Insert(owner.current, drop_if_replaced = FALSE)
 	owner.special_role = "Monkey Leader"
 
 /datum/antagonist/monkey/leader/on_removal()
