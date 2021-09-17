@@ -92,12 +92,12 @@
 		data["table"] = table
 		if(!table.check_eligible_patient())
 			return data
-		var/mob/living/carbon/human/patient = table.patient
+		patient = table.patient
 	else
 		data["table"] = sbed
 		if(!sbed.occupant || !ishuman(sbed.occupant))
 			return data
-		var/mob/living/carbon/human/patient = sbed.occupant
+		patient = sbed.occupant
 
 	switch(patient.stat)
 		if(CONSCIOUS)
