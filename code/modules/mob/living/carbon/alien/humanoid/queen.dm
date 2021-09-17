@@ -38,7 +38,7 @@
 	AddAbility(new/obj/effect/proc_holder/alien/royal/queen/promote())
 	smallsprite.Grant(src)
 
-	priority_announce("На станции [station_name()] обнаружена опасная, неопознанная форма жизни. Заблокируйте любой внешний доступ, включая воздуховоды и вентиляцию.", "Боевая Тревога", ANNOUNCER_ALIENS)
+	priority_announce("На станции [station_name()] обнаружена королева ксеноморфов. Заблокируйте любой внешний доступ, включая воздуховоды и вентиляцию.", "Боевая Тревога", ANNOUNCER_ALIENS)
 
 	return ..()
 
