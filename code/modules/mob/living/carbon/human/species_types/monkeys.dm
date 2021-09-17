@@ -2,7 +2,7 @@
 	name = "Monkey"
 	id = "monkey"
 	say_mod = "выкрикивает"
-	attack_verb = "bite"
+	attack_verb = "кусает"
 	attack_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 	miss_sound = 'sound/weapons/bite.ogg'

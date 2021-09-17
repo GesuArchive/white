@@ -513,7 +513,7 @@
 			ADD_TRAIT(exposed_carbon, TRAIT_HOLY, SPECIES_TRAIT)
 		playsound(exposed_carbon.loc, 'sound/items/poster_ripped.ogg', 50, TRUE, -1)
 		exposed_carbon.adjustBruteLoss(20)
-		exposed_carbon.emote("scream")
+		exposed_carbon.emote("agony")
 
 
 /obj/item/jacobs_ladder
@@ -726,7 +726,7 @@
 
 /obj/item/clothing/glasses/godeye/proc/pain(mob/living/victim)
 	to_chat(victim, span_userdanger("You experience blinding pain, as [src] burrows into your skull."))
-	victim.emote("scream")
+	victim.emote("agony")
 	victim.flash_act()
 
 /obj/effect/proc_holder/scan

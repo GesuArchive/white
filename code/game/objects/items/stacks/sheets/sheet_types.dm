@@ -778,6 +778,22 @@ new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperfra
 	merge_type = /obj/item/stack/sheet/sandblock
 	material_type = /datum/material/sand
 	material_modifier = 1
+	var/obj/item/food/no_raisin/negr_snack
+
+/obj/item/stack/sheet/sandblock/attack(mob/living/M, mob/living/user, params)
+	if(user.a_intent != INTENT_HARM && ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(H.skin_tone == "african1" || H.skin_tone == "african2")
+			if (isnull(negr_snack))
+				negr_snack = new
+				negr_snack.name = name
+			negr_snack.attack(M, user, params)
+			return TRUE
+	return ..()
+
+/obj/item/stack/sheet/sandblock/Destroy()
+	QDEL_NULL(negr_snack)
+	return ..()
 
 /obj/item/stack/sheet/sandblock/fifty
 	amount = 50
