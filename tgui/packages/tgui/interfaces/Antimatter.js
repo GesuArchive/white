@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Slider, NoticeBox, Table, Button, LabeledList, ProgressBar, Section } from '../components';
+import { Slider, NoticeBox, Button, LabeledList, ProgressBar, Section, Table, Box } from '../components';
 import { Window } from '../layouts';
 
 export const Antimatter = (props, context) => {
@@ -11,67 +11,73 @@ export const Antimatter = (props, context) => {
       height={300}>
       <Window.Content>
         <Button
-          content={data.autosell ? "АВТОПРОДАЖА ВКЛЮЧЕНА" : "АВТОПРОДАЖА ОТКЛЮЧЕНА"}
+          content={data.active ? "АКТИВНОЕ СОСТОЯНИЕ" : "ПРОЦЕСС ОСТАНОВЛЕН"}
           textAlign="center"
           fontSize="18px"
           fluid
           mb={1}
-          onClick={() => act('toggle_autosell')} />
-        <Slider
-          value={data.autosell_amount}
-          unit="W"
-          minValue={1}
-          maxValue={10000000}
-          step={100000}
-          stepPixelSize={5}
-          mb={1}
-          onDrag={(e, value) => act('setautosellamount', {
-            autosell_selected: value,
-          })} />
-        <Table mb={1}>
-          <Table.Row header>
-            <Table.Cell p={1}>
-              Коил
-            </Table.Cell>
-            <Table.Cell p={1}>
-              Запас
-            </Table.Cell>
-            <Table.Cell p={1}>
-              Максимум
-            </Table.Cell>
-            <Table.Cell p={1}>
-              Скорость
-            </Table.Cell>
-          </Table.Row>
-          {data.coils.map((coil, i) => (
-            <Table.Row key={i}>
-              <Table.Cell p={1}>
-                #{i+1}
-              </Table.Cell>
-              <Table.Cell p={1}>
-                {coil.acc}W
-              </Table.Cell>
-              <Table.Cell p={1}>
-                {coil.max}W
-              </Table.Cell>
-              <Table.Cell p={1}>
-                {coil.suc}W
-              </Table.Cell>
-            </Table.Row>
-          ))}
-        </Table>
-        <Button
-          content="НАЙТИ КАТУШКИ"
-          textAlign="center"
-          fontSize="18px"
-          fluid
-          mb={1}
-          onClick={() => act('get_coils')} />
-        <NoticeBox
-          fontSize="16px"
-          p={1}>
-          {data.price_for_one_kw} кредита за один kW
-        </NoticeBox>
+          onClick={() => act('togglestatus')} />
+        {data.fueljar && (
+          <Box>
+            <Slider
+              value={data?.fuel_injection}
+              unit="АМ"
+              minValue={0}
+              maxValue={100}
+              step={1}
+              stepPixelSize={3}
+              mb={1}
+              onDrag={(e, value) => act('strengthinput', {
+                target: value,
+              })} />
+            <Button
+              content={data.fueljar}
+              textAlign="center"
+              fontSize="18px"
+              fluid
+              mb={1}
+              onClick={() => act('ejectjar')} />
+          </Box>
+        )}
+        <LabeledList>
+          <LabeledList.Item label="Текущая стабильность">
+            <ProgressBar
+              value={data.stability / 100}
+              ranges={{
+                good: [0.9, Infinity],
+                average: [0.5, 0.9],
+                bad: [-Infinity, 0.5],
+              }}
+            />
+          </LabeledList.Item>
+          <LabeledList.Item label="Средняя стабильность">
+            <ProgressBar
+              value={data.stored_core_stability / 100}
+              ranges={{
+                good: [0.9, Infinity],
+                average: [0.5, 0.9],
+                bad: [-Infinity, 0.5],
+              }}
+            />
+          </LabeledList.Item>
+          <LabeledList.Item label="Подключённая обшивка">
+            {data.linked_shielding}
+          </LabeledList.Item>
+          <LabeledList.Item label="Подключённые ядра">
+            {data.linked_cores}
+          </LabeledList.Item>
+          <LabeledList.Item label="Активные ядра">
+            {data.reported_core_efficiency}
+          </LabeledList.Item>
+          <LabeledList.Item label="Выход энергии">
+            {data.stored_power}
+          </LabeledList.Item>
+          {data.fueljar && (
+            <LabeledList.Item label="Топливо">
+              {data.fuel}/10000
+            </LabeledList.Item>
+          )}
+        </LabeledList>
       </Window.Content>
     </Window>
   );

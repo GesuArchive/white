@@ -81,7 +81,7 @@
 	return wanted
 
 /obj/machinery/power/am_control_unit
-	name = "блок управления антивеществом"
+	name = "блок управления АМ"
 	desc = "Это устройство вводит антивещество в подключенные экранирующие устройства, чем больше антивещества вводится, тем больше вырабатывается энергии. Разверните устройство, чтобы настроить его."
 	icon = 'white/valtos/icons/antimatter.dmi'
 	icon_state = "control"
@@ -374,9 +374,13 @@
 	data["stored_core_stability"] = stored_core_stability
 	data["stored_power"] = DisplayPower(stored_power)
 	if(fueljar)
-		data["fueljar"] = fueljar.name
+		data["fueljar"] = uppertext(fueljar.name)
 		data["fuel"] = fueljar.fuel
 		data["fuel_injection"] = fuel_injection
+	else
+		data["fueljar"] = null
+	check_core_stability()
+	check_shield_icons()
 	. =  data
 
 /obj/machinery/power/am_control_unit/ui_act(action, list/params)
