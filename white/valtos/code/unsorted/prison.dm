@@ -3,7 +3,7 @@
 /area/prisonv2
 	name = "Тюрьма СССР"
 	icon_state = "brig"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = TRUE
 	has_gravity = TRUE
 	area_flags = NOTELEPORT
@@ -112,7 +112,7 @@
 	initial_gas_mix = "o2=22;n2=82;TEMP=248.15"
 	icon = 'white/valtos/icons/prison/beton.dmi'
 	floor_tile = /obj/item/stack/tile/trot
-	slowdown = -1
+	slowdown = -0.1
 	broken_states = list("damaged")
 	baseturfs = /turf/open/floor/plating/beach/sand
 
@@ -578,6 +578,7 @@
 	icon = 'white/valtos/icons/prison/prison.dmi'
 	icon_state = "keys"
 	desc = "Ключи от всех дверей"
+	access = list(ACCESS_SYNDICATE)
 
 /*********************Sovietlathe************************/
 

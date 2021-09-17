@@ -350,8 +350,6 @@
 	H.facial_hair_color = "000"
 	H.update_hair()
 	H.fully_replace_character_name(H.real_name, "[pick("Адиля", "Гульшат", "Динара", "Ляйсан", "Нарима", "Рахима", "Ширин")] Бомбаева")
-	if(H.mind)
-		H.mind.miming = TRUE
 
 /obj/effect/proc_holder/spell/self/his_wish
 	name = "Воззвать к Всевышнему"
@@ -374,3 +372,20 @@
 	user.adjustToxLoss(-50)
 	user.set_handcuffed(null)
 	user.update_handcuffed()
+
+/obj/item/melee/ersh
+	name = "ершов"
+	desc = "Его величество!"
+	icon = 'white/valtos/icons/objects.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
+	icon_state = "ersh"
+	inhand_icon_state = "ersh"
+	custom_materials = list(/datum/material/gold = 2000)
+	force = 10
+	w_class = WEIGHT_CLASS_BULKY
+	throwforce = 8
+	block_chance = 30
+	armour_penetration = 50
+	attack_verb_continuous = list("ершует", "ёршит", "чистит", "обогащает")
+	attack_verb_simple = list("ершует", "ёршит", "чистит", "обогащает")

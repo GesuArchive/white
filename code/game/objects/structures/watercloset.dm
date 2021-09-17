@@ -1,5 +1,5 @@
 /obj/structure/toilet
-	name = "toilet"
+	name = "туалет"
 	desc = "The HT-451, a torque rotation-based, waste disposal unit for small matter. This one seems remarkably clean."
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "toilet00"
@@ -120,6 +120,22 @@
 			to_chat(user, span_notice("You carefully place [I] into the cistern."))
 		return TRUE
 
+	else if (istype(I, /obj/item/melee/ersh))
+		if(!open)
+			return
+		user.visible_message(span_notice("<b>[user]</b> элегантно чистит <b>[src.name]</b>.") ,
+			span_notice("Элегантно чищу <b>[src.name]</b>.") , span_hear("Слышу как что-то ёрзает."))
+		return TRUE
+
+	else if (istype(I, /obj/item/kitchen/fork))
+		if(!open)
+			return
+		user.visible_message(span_warning("<b>[user]</b> шкрябает <b>парашу</b> вилкой.") ,
+			span_userdanger("Шкрябаю парашу вилкой.") , span_hear("Слышу как кто-то скребёт вилкой по чему-то твёрдому."))
+		inc_metabalance(user, -1, reason="Не хочу я работать...")
+		playsound(get_turf(src), 'white/valtos/sounds/vilka.ogg', 80, TRUE)
+		return TRUE
+
 	else if(istype(I, /obj/item/reagent_containers))
 		if (!open)
 			return
@@ -150,7 +166,7 @@
 	buildstacktype = null
 
 /obj/structure/urinal
-	name = "urinal"
+	name = "писуар"
 	desc = "The HU-452, an experimental urinal. Comes complete with experimental urinal cake."
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "urinal"
@@ -265,7 +281,7 @@
 	worn_icon_state = "duck"
 
 /obj/structure/sink
-	name = "sink"
+	name = "умывальник"
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "sink"
 	desc = "A sink used for washing one's hands and face. Passively reclaims water over time."
@@ -636,8 +652,8 @@
 //Defines used are pre-existing in layers.dm//
 
 /obj/structure/curtain
-	name = "curtain"
-	desc = "Contains less than 1% mercury."
+	name = "занавеска"
+	desc = "Содержит менее одного процента ртути."
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "bathroom-open"
 	var/icon_type = "bathroom"//used in making the icon state
