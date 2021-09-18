@@ -7,7 +7,7 @@
 #define BAD_TURF	4
 
 /area/shuttle/auxiliary_base
-	name = "Auxiliary Base"
+	name = "Дроппод станции"
 	luminosity = 0 //Lighting gets lost when it lands anyway
 
 /obj/machinery/computer/auxiliary_base

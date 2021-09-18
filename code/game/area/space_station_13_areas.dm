@@ -183,76 +183,76 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 //Maintenance - Generic
 
 /area/maintenance/aft
-	name = "Техтоннели: Кормовые"
+	name = "Техтоннели: Южные"
 	icon_state = "amaint"
 
 /area/maintenance/aft/upper
-	name = "Техтоннели: Верхние кормовые"
+	name = "Техтоннели: Верхние южные"
 
 /area/maintenance/aft/secondary
-	name = "Техтоннели: Вторичные кормовые"
+	name = "Техтоннели: Вторичные южные"
 	icon_state = "amaint_2"
 
 /area/maintenance/central
-	name = "Техтоннели: Центр"
+	name = "Техтоннели: Центральные"
 	icon_state = "maintcentral"
 
 /area/maintenance/central/secondary
-	name = "Техтоннели: Вторичный центр"
+	name = "Техтоннели: Вторичные центральные"
 	icon_state = "maintcentral"
 
 /area/maintenance/fore
-	name = "Техтоннели: Носовые"
+	name = "Техтоннели: Северные"
 	icon_state = "fmaint"
 
 /area/maintenance/fore/upper
-	name = "Техтоннели: Верхние носовые"
+	name = "Техтоннели: Верхние северные"
 
 /area/maintenance/fore/secondary
-	name = "Техтоннели: Вторичные носовые"
+	name = "Техтоннели: Вторичные северные"
 	icon_state = "fmaint_2"
 
 /area/maintenance/starboard
-	name = "Техтоннели: Правый борт"
+	name = "Техтоннели: Восточные"
 	icon_state = "smaint"
 
 /area/maintenance/starboard/upper
-	name = "Техтоннели: Верхний правый борт"
+	name = "Техтоннели: Верхние восточные"
 
 /area/maintenance/starboard/central
-	name = "Техтоннели: Центральный правый борт"
+	name = "Техтоннели: Центрально-восточные"
 	icon_state = "smaint"
 
 /area/maintenance/starboard/secondary
-	name = "Техтоннели: Вторичный правый борт"
+	name = "Техтоннели: Вторичные восточные"
 	icon_state = "smaint_2"
 
 /area/maintenance/starboard/aft
-	name = "Техтоннели: Кормовой правый борт"
+	name = "Техтоннели: Юго-восточные"
 	icon_state = "asmaint"
 
 /area/maintenance/starboard/aft/secondary
-	name = "Техтоннели: Вторичный кормовой правый борт"
+	name = "Техтоннели: Вторичные юго-восточные"
 	icon_state = "asmaint_2"
 
 /area/maintenance/starboard/fore
-	name = "Техтоннели: Носовой правый борт"
+	name = "Техтоннели: Северо-восточные"
 	icon_state = "fsmaint"
 
 /area/maintenance/port
-	name = "Техтоннели: Порт"
+	name = "Техтоннели: Восточные"
 	icon_state = "pmaint"
 
 /area/maintenance/port/central
-	name = "Техтоннели: Центральный порт"
+	name = "Техтоннели: Центрально-восточные"
 	icon_state = "maintcentral"
 
 /area/maintenance/port/aft
-	name = "Техтоннели: Кормовой порт"
+	name = "Техтоннели: Восточные"
 	icon_state = "apmaint"
 
 /area/maintenance/port/fore
-	name = "Техтоннели: Носовой порт"
+	name = "Техтоннели: Северно-восточные"
 	icon_state = "fpmaint"
 
 /area/maintenance/disposal
@@ -280,7 +280,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Техтоннели: Основные трамвайные"
 
 /area/maintenance/tram/left
-	name = "Техтоннели: Портовые подтрамвайные"
+	name = "Техтоннели: Западные подтрамвайные"
 	icon_state = "mainttramL"
 
 /area/maintenance/tram/mid
@@ -288,7 +288,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "mainttramM"
 
 /area/maintenance/tram/right
-	name = "Техтоннели: Правобортовые подтрамвайные"
+	name = "Техтоннели: Восточные подтрамвайные"
 	icon_state = "mainttramR"
 
 //Radation storm shelter
@@ -322,34 +322,34 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Коридоры"
 
 /area/hallway/primary/aft
-	name = "Коридоры: Кормовые"
+	name = "Коридоры: Южные"
 	icon_state = "hallA"
 
 /area/hallway/primary/fore
-	name = "Коридоры: Носовые"
+	name = "Коридоры: Северные"
 	icon_state = "hallF"
 
 /area/hallway/primary/starboard
-	name = "Коридоры: Правый борт"
+	name = "Коридоры: Восточные"
 	icon_state = "hallS"
 
 /area/hallway/primary/port
-	name = "Коридоры: Порт"
+	name = "Коридоры: Западные"
 	icon_state = "hallP"
 
 /area/hallway/primary/central
-	name = "Коридоры: Центральный"
+	name = "Коридоры: Центральные"
 	icon_state = "hallC"
 
 /area/hallway/primary/upper
-	name = "Коридоры: Верхний центральный"
+	name = "Коридоры: Верхние центральные"
 	icon_state = "hallC"
 
 /area/hallway/primary/tram
 	name = "Коридоры: Метро"
 
 /area/hallway/primary/tram/left
-	name = "Коридоры: Порт метро"
+	name = "Коридоры: Запад метро"
 	icon_state = "halltramL"
 
 /area/hallway/primary/tram/center
@@ -357,7 +357,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "halltramM"
 
 /area/hallway/primary/tram/right
-	name = "Коридоры: Правый борт метро"
+	name = "Коридоры: Восток метро"
 	icon_state = "halltramR"
 
 /area/hallway/secondary/command
@@ -640,32 +640,32 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/service/janitor
-	name = "Custodial Closet"
+	name = "Уборная"
 	icon_state = "janitor"
 	area_flags = CULT_PERMITTED
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/service/hydroponics
-	name = "Hydroponics"
+	name = "Гидропоника"
 	icon_state = "hydro"
 	airlock_wires = /datum/wires/airlock/service
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/service/hydroponics/upper
-	name = "Upper Hydroponics"
+	name = "Верхняя Гидропоника"
 	icon_state = "hydro"
 
 /area/service/hydroponics/garden
-	name = "Garden"
+	name = "Сад"
 	icon_state = "garden"
 
 /area/service/hydroponics/garden/abandoned
-	name = "Abandoned Garden"
+	name = "Заброшенный Сад"
 	icon_state = "abandoned_garden"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/service/hydroponics/garden/monastery
-	name = "Monastery Garden"
+	name = "Монастырский Сад"
 	icon_state = "hydro"
 
 //Engineering
@@ -750,44 +750,44 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_SPACE
 
 /area/solar/fore
-	name = "Солнечные панели: Носовые"
+	name = "Солнечные панели: Северные"
 	icon_state = "yellow"
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/solar/aft
-	name = "Солнечные панели: Кормовые"
+	name = "Солнечные панели: Южные"
 	icon_state = "yellow"
 
 /area/solar/aux/port
-	name = "Солнечные панели: Запасной порт"
+	name = "Солнечные панели: Запасные"
 	icon_state = "panelsA"
 
 /area/solar/aux/starboard
-	name = "Солнечные панели: Запасной правый борт"
+	name = "Солнечные панели: Запасные восточные"
 	icon_state = "panelsA"
 
 /area/solar/starboard
-	name = "Солнечные панели: Правый борт"
+	name = "Солнечные панели: Восточные"
 	icon_state = "panelsS"
 
 /area/solar/starboard/aft
-	name = "Солнечные панели: Кормовой правый борт"
+	name = "Солнечные панели: Юго-восточные"
 	icon_state = "panelsAS"
 
 /area/solar/starboard/fore
-	name = "Солнечные панели: Носовой правый борт"
+	name = "Солнечные панели: Северо-восточные"
 	icon_state = "panelsFS"
 
 /area/solar/port
-	name = "Солнечные панели: Порт"
+	name = "Солнечные панели: Западные"
 	icon_state = "panelsP"
 
 /area/solar/port/aft
-	name = "Солнечные панели: Кормовой порт"
+	name = "Солнечные панели: Юго-западные"
 	icon_state = "panelsAP"
 
 /area/solar/port/fore
-	name = "Солнечные панели: Носовой порт"
+	name = "Солнечные панели: Северо-западные"
 	icon_state = "panelsFP"
 
 /area/solar/aisat
@@ -802,27 +802,27 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "yellow"
 
 /area/maintenance/solars/port
-	name = "Техтоннели: Солнечные панели: Порт"
+	name = "Техтоннели: Солнечные панели: Западные"
 	icon_state = "SolarcontrolP"
 
 /area/maintenance/solars/port/aft
-	name = "Техтоннели: Солнечные панели: Кормовой порт"
+	name = "Техтоннели: Солнечные панели: Юго-западные"
 	icon_state = "SolarcontrolAP"
 
 /area/maintenance/solars/port/fore
-	name = "Техтоннели: Солнечные панели: Носовой порт"
+	name = "Техтоннели: Солнечные панели: Северо-западные"
 	icon_state = "SolarcontrolFP"
 
 /area/maintenance/solars/starboard
-	name = "Техтоннели: Солнечные панели: Правый борт"
+	name = "Техтоннели: Солнечные панели: Восточные"
 	icon_state = "SolarcontrolS"
 
 /area/maintenance/solars/starboard/aft
-	name = "Техтоннели: Солнечные панели: Кормовой правый борт"
+	name = "Техтоннели: Солнечные панели: Юго-восточные"
 	icon_state = "SolarcontrolAS"
 
 /area/maintenance/solars/starboard/fore
-	name = "Техтоннели: Солнечные панели: Носовой правый борт"
+	name = "Техтоннели: Солнечные панели: Северо-восточные"
 	icon_state = "SolarcontrolFS"
 
 //Teleporter
@@ -873,7 +873,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "medbay2"
 
 /area/medical/medbay/aft
-	name = "Медбей: Кормовой"
+	name = "Медбей: Западный"
 	icon_state = "med_aft"
 
 /area/medical/storage
@@ -1294,11 +1294,11 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "eva"
 
 /area/storage/emergency/starboard
-	name = "Хранилище: Правый борт"
+	name = "Хранилище: Восточное"
 	icon_state = "emergency_storage"
 
 /area/storage/emergency/port
-	name = "Хранилище: Порт"
+	name = "Хранилище: Западное"
 	icon_state = "emergency_storage"
 
 /area/storage/tech
@@ -1462,10 +1462,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "amaint"
 
 /area/maintenance/external/aft
-	name = "Обшивка: Кормовая"
+	name = "Обшивка: Западная"
 
 /area/maintenance/external/port
-	name = "Обшивка: Порт"
+	name = "Обшивка: Восточная"
 
 /area/maintenance/external/port/bow
-	name = "Обшивка: Порт правого борта"
+	name = "Обшивка: Юго-западная"
