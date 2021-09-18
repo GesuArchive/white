@@ -1000,7 +1000,7 @@
 	icon = 'icons/obj/lighting.dmi'
 	base_state = "floor"		// base description and icon_state
 	icon_state = "floor"
-	brightness = 4
+	brightness = 2
 	layer = 2.5
 	light_type = /obj/item/light/tube
 	fitting = "tube"
