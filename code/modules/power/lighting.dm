@@ -1002,11 +1002,26 @@
 	icon_state = "floor"
 	brightness = 4
 	layer = 2.5
-	light_type = /obj/item/light/bulb
-	fitting = "bulb"
+	light_type = /obj/item/light/tube
+	fitting = "tube"
 
 // -------- Directional presets
 // The directions are backwards on the lights we have now
+
+// ---- Floor tube
+/obj/machinery/light/floor/directional/north
+	dir = NORTH
+
+/obj/machinery/light/floor/directional/south
+	dir = SOUTH
+
+/obj/machinery/light/floor/directional/east
+	dir = EAST
+
+/obj/machinery/light/floor/directional/west
+	dir = WEST
+
+// ---- Basic tube
 /obj/machinery/light/directional/north
 	dir = NORTH
 
