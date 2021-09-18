@@ -60,7 +60,7 @@
 	var/obj/machinery/door/hackdoor		// The airlock being hacked
 	var/hackprogress = 0				// Possible values: 0 - 100, >= 100 means the hack is complete and will be reset upon next check
 
-	var/obj/item/integrated_signaler/signaler // AI's signaller
+	var/obj/item/assembly/signaler/internal/signaler // AI's signaler
 
 	var/obj/item/instrument/piano_synth/internal_instrument
 	var/obj/machinery/newscaster			//pAI Newscaster
@@ -131,7 +131,7 @@
 	forceMove(P)
 	card = P
 	job = "Personal AI"
-	signaler = new(src)
+	signaler = new /obj/item/assembly/signaler/internal(src)
 	hostscan = new /obj/item/healthanalyzer(src)
 	newscaster = new /obj/machinery/newscaster(src)
 	if(!aicamera)
@@ -311,13 +311,30 @@
 /mob/living/silicon/pai/process(delta_time)
 	emitterhealth = clamp((emitterhealth + (emitter_regen_per_second * delta_time)), -50, emittermaxhealth)
 
-/obj/item/paicard/attackby(obj/item/W, mob/user, params)
-	if(pai && (istype(W, /obj/item/encryptionkey) || W.tool_behaviour == TOOL_SCREWDRIVER))
+/mob/living/silicon/pai/can_interact_with(atom/A)
+	if(A == signaler) // Bypass for signaler
+		return TRUE
+
+	return ..()
+
+/obj/item/paicard/attackby(obj/item/used, mob/user, params)
+	if(pai && (istype(used, /obj/item/encryptionkey) || used.tool_behaviour == TOOL_SCREWDRIVER))
 		if(!pai.encryptmod)
 			to_chat(user, span_alert("Порт ключей шифрования не настроен."))
 			return
 		user.set_machine(src)
-		pai.radio.attackby(W, user, params)
+		pai.radio.attackby(used, user, params)
+		to_chat(user, span_notice("You insert [used] into the [src]."))
 		return
 
 	return ..()
+
+/obj/item/paicard/emag_act(mob/user) // Emag to wipe the master DNA and supplemental directive
+	if(!pai)
+		return
+	to_chat(user, "<span class='notice'>You override [pai]'s directive system, clearing its master string and supplied directive.</span>")
+	to_chat(pai, "<span class='danger'>Warning: System override detected, check directive sub-system for any changes.'</span>")
+	log_game("[key_name(user)] emagged [key_name(pai)], wiping their master DNA and supplemental directive.")
+	pai.master = null
+	pai.master_dna = null
+	pai.laws.supplied[1] = "None." // Sets supplemental directive to this
