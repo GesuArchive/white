@@ -376,7 +376,7 @@
 	description = "Coffee with pulsing ice shards"
 	color = "#102838" // rgb: 16, 40, 56
 	nutriment_factor = 0
-	taste_description = "bitter coldness and a hint of smoke"
+	taste_description = "горечь и намёк на дым"
 	glass_icon_state = "hoticecoffee"
 	glass_name = "hot ice coffee"
 	glass_desc = "A sharp drink, this can't have come cheap"
