@@ -4047,6 +4047,7 @@
 #include "white\rebolution228\copypasta\diseases\cumvirus.dm"
 #include "white\rebolution228\copypasta\objects\miscellaneous.dm"
 #include "white\rebolution228\copypasta\objects\toys.dm"
+#include "white\rebolution228\copypasta\weapons\attachments.dm"
 #include "white\rebolution228\copypasta\weapons\reba_guns.dm"
 #include "white\RedFoxIV\code\Crutches_Gigapack.dm"
 #include "white\RedFoxIV\code\obj\emergency_shield.dm"

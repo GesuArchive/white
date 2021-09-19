@@ -15,17 +15,17 @@
     name = "ПСО-1"
     desc = "Армейский снайперский прицел, предназначен для ведения боев на дальних дистанциях. Для установки на оружие используется крепление типа \"ласточкин хвост\"."
     icon_state = "pso1"
-	w_class = WEIGHT_CLASS_NORMAL
+    w_class = WEIGHT_CLASS_NORMAL
     
 // Foregrip attachments
 /obj/item/gun_attachment/foregrip/vertical_grip
     name = "вертикальная рукоятка"
     desc = "Стандартная передняя рукоятка, предназначенная для крепления на огнестрельное оружие. Позволяет стрелку лучше наводить оружие на цель и удерживать отдачу."
     icon_state = "verticalgrip"
-	w_class = WEIGHT_CLASS_SMALL
+    w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/gun_attachment/foregrip/gp30
     name = "ГП-30 \"Обувка\""
     desc = "Подствольный 40-мм гранатомёт, дальнейшая модификация ГП-25. В отличие от своего предшественника, имеет немного меньший вес и менее трудоёмок в производстве."
     icon_state = "gp30"
-	w_class = WEIGHT_CLASS_NORMAL
+    w_class = WEIGHT_CLASS_NORMAL
