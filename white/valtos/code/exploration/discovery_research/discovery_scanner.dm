@@ -1,11 +1,12 @@
 /obj/item/discovery_scanner
 	name = "нюхер"
 	desc = "Используется учёными для сканирования различных артифактов и неизвестных форм жизни."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "hand_tele"
-	inhand_icon_state = "healthanalyzer"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	icon = 'white/valtos/icons/objects.dmi'
+	icon_state = "nuher"
+	inhand_icon_state = "electronic"
+	worn_icon_state = "electronic"
+	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	var/datum/techweb/linked_techweb
 
