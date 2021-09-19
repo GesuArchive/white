@@ -217,7 +217,7 @@
 	initialized = TRUE
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 	if(!SStitle.game_loaded)
-		SStitle.adjust_load_pos(round(time * 10, 1), "[name] ГОТОВО")
+		SStitle.adjust_load_pos(round(time * 5, 1), "[name] ГОТОВО")
 		to_chat(world, span_green(" -- @<b>[name]</b>:> <b>[time]</b> -- "))
 	else
 		message_admins("-- @<b>[name]</b>:> <b>[time]</b> --")
