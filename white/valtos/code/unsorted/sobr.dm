@@ -194,7 +194,7 @@
 		if(forced_sound)
 			playsound(loc, forced_sound, 50, FALSE)
 		else
-			playsound(loc, sound("white/valtos/sounds/die[rand(1,4)].ogg"), 75, FALSE)
+			playsound(loc, "white/valtos/sounds/die[rand(1,4)].ogg", 75, FALSE)
 
 /obj/item/implanter/sound_implant
 	name = "имплантер (звуковой имплант)"
