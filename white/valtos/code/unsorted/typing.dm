@@ -18,12 +18,15 @@ GLOBAL_DATUM_INIT(human_typing_indicator, /mutable_appearance, mutable_appearanc
 /mob/living/Life()
 	. = ..()
 	if(!stat && mind && client)
-		var/ourtext = copytext_char(winget(src, "outputwindow.input", "text"), 10)
-		if(ourtext && ourtext[1] != "*")
+		var/ourtext = get_input_text()
+		if(ourtext && ourtext[1] != "*" && !overlays_standing[TYPING_LAYER])
 			create_typing_indicator()
-		else
 			spawn(3 SECONDS)
-				remove_typing_indicator()
+				if(!get_input_text())
+					remove_typing_indicator()
+
+/mob/proc/get_input_text()
+	return copytext_char(winget(src, "outputwindow.input", "text"), 10)
 
 ////Wrappers////
 //Keybindings were updated to change to use these wrappers. If you ever remove this file, revert those keybind changes
@@ -33,7 +36,7 @@ GLOBAL_DATUM_INIT(human_typing_indicator, /mutable_appearance, mutable_appearanc
 	set instant = 1
 
 	create_typing_indicator()
-	var/message = input("","скажем же что-то") as text|null
+	var/message = input("", pick("Эй, послушай...", "И конечно же мы скажем...", "Вероятно надо сказать...", "Хотелось бы сказать...", "Слушай внимательно...")) as text|null
 	remove_typing_indicator()
 	if(message)
 		say_verb(message)
