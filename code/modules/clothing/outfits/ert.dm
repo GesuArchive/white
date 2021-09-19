@@ -1,3 +1,6 @@
+/datum/outfit/centcom
+	implants = list(/obj/item/implant/sound_implant)
+
 /datum/outfit/centcom/ert
 	name = "ERT Common"
 

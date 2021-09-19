@@ -27,7 +27,6 @@
 /datum/antagonist/ert/sobr/leader/update_name()
 	owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source)]")
 
-
 /datum/outfit/sobr
 	name = "СОБР"
 
@@ -43,6 +42,7 @@
 	id = /obj/item/card/id/advanced/centcom
 
 	implants = list(/obj/item/implant/sound_implant)
+
 /datum/outfit/sobr/pre_equip(mob/living/carbon/human/H)
 	if (prob(10))
 		back = /obj/item/shield/riot/flash
@@ -53,7 +53,6 @@
 		r_hand = /obj/item/gun/ballistic/rocketlauncher/unrestricted //I'm just a SOBR with a rocket launcher
 		l_hand = /obj/item/ammo_casing/caseless/rocket/weak
 
-
 /datum/outfit/sobr/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
 		return
@@ -63,10 +62,6 @@
 	R.recalculateChannels()
 
 	var/obj/item/card/id/W = H.wear_id
-	//W.access = get_centcom_access(name)
-	//W.access += ACCESS_WEAPONS
-	//W.access += ACCESS_MAINT_TUNNELS
-	//W.access += get_region_accesses(2)
 	W.assignment = name
 	W.registered_name = H.real_name
 	W.update_label()
@@ -85,20 +80,15 @@
 	id = /obj/item/card/id/advanced/centcom
 
 	implants = list(/obj/item/implant/sound_implant)
+
 /datum/outfit/sobr/leader/pre_equip(mob/living/carbon/human/H)
 	back = /obj/item/gun/ballistic/automatic/ak47
-
-
 
 /datum/outfit/sobr/leader/post_equip(mob/living/carbon/human/H, visualsOnly)
 	var/obj/item/radio/R = H.ears
 	R.keyslot = new /obj/item/encryptionkey/heads/hos
 	R.recalculateChannels()
 	var/obj/item/card/id/W = H.wear_id
-	//W.access = get_centcom_access(name)
-	//W.access += ACCESS_WEAPONS
-	//W.access += ACCESS_MAINT_TUNNELS
-	//W.access += get_region_accesses(2)
 	W.assignment = name
 	W.registered_name = H.real_name
 	W.update_label()
@@ -190,7 +180,7 @@
 /obj/item/implant/sound_implant
 	name = "звуковой имплант"
 	activated = 0
-	var/sound/cur_sound = 'white/valtos/sounds/polnomochiya.ogg'
+	var/sound/forced_sound
 
 /obj/item/implant/sound_implant/get_data()
 	var/dat = {"<b>Имплант:</b><BR>
@@ -201,7 +191,10 @@
 
 /obj/item/implant/sound_implant/trigger(emote, mob/source)
 	if(emote == "deathgasp")
-		playsound(loc, cur_sound, 50, FALSE)
+		if(forced_sound)
+			playsound(loc, forced_sound, 50, FALSE)
+		else
+			playsound(loc, sound("white/valtos/sounds/die[rand(1,4)].ogg"), 75, FALSE)
 
 /obj/item/implanter/sound_implant
 	name = "имплантер (звуковой имплант)"
