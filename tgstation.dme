@@ -4358,6 +4358,7 @@
 #include "white\valtos\code\unsorted\trading_outpost.dm"
 #include "white\valtos\code\unsorted\trash_pile.dm"
 #include "white\valtos\code\unsorted\tricoder.dm"
+#include "white\valtos\code\unsorted\typing.dm"
 #include "white\valtos\code\unsorted\vietnam.dm"
 #include "white\valtos\code\unsorted\winds.dm"
 #include "white\valtos\code\unsorted\wizgirl.dm"
