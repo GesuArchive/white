@@ -19,12 +19,10 @@ GLOBAL_DATUM_INIT(human_typing_indicator, /mutable_appearance, mutable_appearanc
 	. = ..()
 	if(!stat && mind && client)
 		var/ourtext = get_input_text()
-		if(ourtext && ourtext[1] != "*" && !overlays_standing[TYPING_LAYER])
+		if(ourtext && ourtext[1] != "*")
 			create_typing_indicator()
-			spawn(3 SECONDS)
-				remove_typing_indicator()
-				if(get_input_text())
-					create_typing_indicator()
+		else
+			remove_typing_indicator()
 
 /mob/proc/get_input_text()
 	return copytext_char(winget(src, "outputwindow.input", "text"), 10)
