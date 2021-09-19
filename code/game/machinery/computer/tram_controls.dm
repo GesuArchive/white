@@ -126,14 +126,16 @@
 	location = add_output_port("Location", PORT_TYPE_STRING)
 	travelling_output = add_output_port("Travelling", PORT_TYPE_NUMBER)
 
-/obj/item/circuit_component/tram_controls/register_usb_parent(atom/movable/parent)
+/obj/item/circuit_component/tram_controls/register_usb_parent(atom/movable/shell)
 	. = ..()
-	if (istype(parent, /obj/machinery/computer/tram_controls))
-		computer = parent
-		RegisterSignal(computer.tram_part, COMSIG_TRAM_SET_TRAVELLING, .proc/on_tram_set_travelling)
-		RegisterSignal(computer.tram_part, COMSIG_TRAM_TRAVEL, .proc/on_tram_travel)
+	if (istype(shell, /obj/machinery/computer/tram_controls))
+		computer = shell
+		var/obj/structure/industrial_lift/tram/central/tram_part = computer.tram_ref?.resolve()
+		RegisterSignal(tram_part, COMSIG_TRAM_SET_TRAVELLING, .proc/on_tram_set_travelling)
+		RegisterSignal(tram_part, COMSIG_TRAM_TRAVEL, .proc/on_tram_travel)
 
-/obj/item/circuit_component/tram_controls/unregister_usb_parent(atom/movable/parent)
+/obj/item/circuit_component/tram_controls/unregister_usb_parent(atom/movable/shell)
+	var/obj/structure/industrial_lift/tram/central/tram_part = computer.tram_ref?.resolve()
 	computer = null
 	UnregisterSignal(computer.tram_part, list(COMSIG_TRAM_SET_TRAVELLING, COMSIG_TRAM_TRAVEL))
 	return ..()
