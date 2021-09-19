@@ -24,7 +24,7 @@ SUBSYSTEM_DEF(input)
 	"Any+UP" = "\"KeyUp \[\[*\]\]\"",
 	"O" = "ooc",
 	"T" = ".сказать",
-	"M" = ".действие",
+	"M" = "Действия",
 	"Back" = "\".winset \\\"input.text=\\\"\\\"\\\"\"",
 	"Tab" = "\".winset \\\"input.focus=true?map.focus=true:input.focus=true\\\"\"",
 	"Escape" = "Reset-Held-Keys",

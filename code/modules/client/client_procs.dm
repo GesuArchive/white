@@ -998,7 +998,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 				if("South")
 					movement_keys[key] = SOUTH
 				if("Сказать")
-					winset(src, "default-[REF(key)]", "parent=default;name=[key];command=Сказать")
+					winset(src, "default-[REF(key)]", "parent=default;name=[key];command=.сказать")
 				if("OOC")
 					winset(src, "default-[REF(key)]", "parent=default;name=[key];command=ooc")
 				if("Действия")

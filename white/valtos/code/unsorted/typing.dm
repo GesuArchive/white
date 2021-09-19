@@ -18,10 +18,12 @@ GLOBAL_DATUM_INIT(human_typing_indicator, /mutable_appearance, mutable_appearanc
 /mob/living/Life()
 	. = ..()
 	if(!stat && mind && client)
-		if(copytext_char(winget(src, "outputwindow.input", "text"), 10))
+		var/ourtext = copytext_char(winget(src, "outputwindow.input", "text"), 10)
+		if(ourtext && ourtext[1] != "*")
 			create_typing_indicator()
 		else
-			remove_typing_indicator()
+			spawn(3 SECONDS)
+				remove_typing_indicator()
 
 ////Wrappers////
 //Keybindings were updated to change to use these wrappers. If you ever remove this file, revert those keybind changes
@@ -35,17 +37,6 @@ GLOBAL_DATUM_INIT(human_typing_indicator, /mutable_appearance, mutable_appearanc
 	remove_typing_indicator()
 	if(message)
 		say_verb(message)
-
-/mob/verb/me_wrapper()
-	set name = ".действие"
-	set hidden = 1
-	set instant = 1
-
-	create_typing_indicator()
-	var/message = input("","продемонстрируем им") as text|null
-	remove_typing_indicator()
-	if(message)
-		me_verb(message)
 
 ///Human Typing Indicators///
 /mob/living/carbon/human/create_typing_indicator()
