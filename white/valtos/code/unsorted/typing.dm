@@ -15,7 +15,7 @@ GLOBAL_DATUM_INIT(human_typing_indicator, /mutable_appearance, mutable_appearanc
 	remove_typing_indicator()
 	. = ..()
 
-/mob/living/Life()
+/mob/living/carbon/human/Life()
 	. = ..()
 	if(!stat && mind && client)
 		var/ourtext = get_input_text()
