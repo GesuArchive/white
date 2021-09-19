@@ -22,8 +22,9 @@ GLOBAL_DATUM_INIT(human_typing_indicator, /mutable_appearance, mutable_appearanc
 		if(ourtext && ourtext[1] != "*" && !overlays_standing[TYPING_LAYER])
 			create_typing_indicator()
 			spawn(3 SECONDS)
-				if(!get_input_text())
-					remove_typing_indicator()
+				remove_typing_indicator()
+				if(get_input_text())
+					create_typing_indicator()
 
 /mob/proc/get_input_text()
 	return copytext_char(winget(src, "outputwindow.input", "text"), 10)
