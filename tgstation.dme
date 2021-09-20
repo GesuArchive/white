@@ -4062,6 +4062,7 @@
 #include "white\RedFoxIV\code\tgmechcomp\mechcomp_related.dm"
 #include "white\RedFoxIV\code\tgmechcomp\teleporter_comp.dm"
 #include "white\RedFoxIV\guns\battery_gun_def\battery_gun.dm"
+#include "white\shruman\code\occult.dm"
 #include "white\valtos\protocol_C.dm"
 #include "white\valtos\code\_defines\bloodsucker.dm"
 #include "white\valtos\code\_defines\gangs.dm"
