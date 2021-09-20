@@ -263,7 +263,7 @@
 	on = TRUE
 	icon_state = "heater_1"
 
-/obj/machinery/atmospherics/components/unary/thermomachine/interact((mob/living/carbon/user), special_state)
+/obj/machinery/atmospherics/components/unary/thermomachine/interact(mob/living/carbon/user, special_state)
 	if(user.ckey == "erring")
 		playsound(user, 'white/rebolution228/sounds/misc/alleiluya.ogg', 80, 1)
 		shake_camera(user, 3, 3)
