@@ -38,7 +38,6 @@
 
 /datum/component/bounty/proc/bounty_examine(datum/source, mob/user, list/out)
 	SIGNAL_HANDLER
-	var/mob/M = parent
 	out = "<hr><span class='warning'>Награда за это тело всего [bounty_size] кредит[get_num_string(bounty_size)]. Чудеса.</span>"
 
 /datum/component/bounty/proc/bounty_death()
