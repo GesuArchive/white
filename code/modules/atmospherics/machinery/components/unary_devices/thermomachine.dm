@@ -274,7 +274,7 @@
 		user.set_light(2)
 		user.add_overlay(mutable_appearance('icons/effects/genetics.dmi', "servitude", -MUTATIONS_LAYER))
 
-		sleep(30)
+		spawn(30)
 		user.dust()
 	else
 		return ..()
