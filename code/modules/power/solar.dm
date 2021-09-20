@@ -281,7 +281,7 @@
 				new /obj/machinery/power/tracker(get_turf(src), src)
 			if (istype(W, /obj/item/stack/sheet/plasmaglass))
 				new /obj/machinery/power/solar/plasma(get_turf(src), src)
-			if (istype(W, /obj/item/stack/sheet/plastitaniumglass))
+			else if (istype(W, /obj/item/stack/sheet/plastitaniumglass))
 				new /obj/machinery/power/solar/plastitaniumglass(get_turf(src), src)
 			else
 				new /obj/machinery/power/solar(get_turf(src), src)
