@@ -1889,7 +1889,7 @@
 /turf/open/floor/plating/asteroid/snow/ice/oxy,
 /area/awaymission/chilly/cave)
 "ff" = (
-/obj/item/hatchet/wooden,
+/obj/item/fireaxe,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
 "fg" = (
@@ -4930,7 +4930,6 @@
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/light,
 /obj/structure/closet/crate/secure,
-/obj/item/disk/design_disk,
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
 "nN" = (
@@ -8324,10 +8323,6 @@
 /obj/effect/turf_decal/weather/side,
 /turf/open/floor/plating/ice/smooth/oxy,
 /area/awaymission/chilly/cave)
-"xl" = (
-/obj/structure/flora/tree/pine,
-/turf/open/floor/plating/snowed/smoothed/temperatre,
-/area/awaymission/chilly/surface)
 "xn" = (
 /obj/effect/turf_decal/dust,
 /obj/structure/filingcabinet{
@@ -9024,7 +9019,13 @@
 "zn" = (
 /obj/effect/turf_decal/bot_white,
 /obj/structure/closet/crate/secure,
-/obj/item/gun/magic/glitch,
+/obj/item/stack/spacecash/c10000,
+/obj/item/stack/spacecash/c10000,
+/obj/item/stack/spacecash/c10000,
+/obj/item/stack/spacecash/c10000,
+/obj/item/stack/spacecash/c10000,
+/obj/item/stack/spacecash/c10000,
+/obj/item/gun/ballistic/automatic/pistol/deagle/gold,
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
 "zp" = (
@@ -10281,7 +10282,7 @@
 "CL" = (
 /obj/effect/turf_decal/bot_white,
 /obj/structure/closet/crate/secure,
-/obj/item/disk/design_disk,
+/obj/item/gun/magic/staff/healing,
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
 "CM" = (
@@ -10606,9 +10607,6 @@
 /obj/structure/lattice,
 /turf/open/floor/plating,
 /area/awaymission/chilly/facility2)
-"DF" = (
-/turf/open/floor/plating/snowed/smoothed/temperatre,
-/area/awaymission/chilly)
 "DG" = (
 /obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/shreds,
@@ -12559,7 +12557,6 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/secure,
-/obj/item/disk/design_disk,
 /turf/open/floor/engine/hull/oxy,
 /area/awaymission/chilly/syndietrain)
 "Jr" = (
@@ -13805,21 +13802,6 @@
 	icon_state = "platingdmg2"
 	},
 /area/awaymission/chilly/facility)
-"Nd" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	pixel_y = 1
-	},
-/obj/machinery/door/window{
-	dir = 4
-	},
-/obj/structure/table/reinforced,
-/obj/item/gun/magic/wand/resurrection/debug,
-/turf/open/floor/circuit/red,
-/area/awaymission/chilly/syndietrain)
 "Ne" = (
 /obj/effect/turf_decal/dust,
 /turf/open/floor/carpet/red,
@@ -17339,15 +17321,7 @@
 /turf/open/floor/plasteel,
 /area/awaymission/chilly/facility)
 "Xe" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/window/northright{
-	dir = 4
-	},
-/obj/structure/table/reinforced,
-/obj/item/fakeartefact,
+/obj/machinery/porta_turret/syndicate/shuttle/chilly,
 /turf/open/floor/circuit/red,
 /area/awaymission/chilly/syndietrain)
 "Xf" = (
@@ -24639,8 +24613,8 @@ WQ
 fn
 Om
 PE
-xl
 Om
+PE
 Om
 fn
 Om
@@ -24880,9 +24854,9 @@ Om
 dB
 dB
 Om
-xl
+PE
 fn
-Om
+PE
 dB
 dB
 ue
@@ -34185,9 +34159,9 @@ Om
 Om
 Om
 fn
-ue
-ue
-ue
+dB
+dB
+dB
 fn
 Om
 Om
@@ -34430,7 +34404,7 @@ Ee
 Ko
 Ko
 Ko
-ue
+dB
 Om
 Om
 fn
@@ -41019,7 +40993,7 @@ YJ
 RP
 PE
 Om
-DF
+YJ
 PE
 YJ
 YJ
@@ -47123,7 +47097,7 @@ dB
 Ee
 dB
 dB
-Om
+dB
 Om
 Om
 Om
@@ -47365,7 +47339,7 @@ dB
 dB
 dB
 dB
-fn
+dB
 Om
 SP
 Om
@@ -47607,7 +47581,7 @@ dB
 Ee
 dB
 dB
-Om
+dB
 Om
 Om
 Om
@@ -47849,8 +47823,8 @@ dB
 Ee
 dB
 dB
-Om
-Om
+dB
+fn
 Om
 Om
 VX
@@ -48091,7 +48065,7 @@ dB
 dB
 dB
 dB
-fn
+dB
 Om
 Om
 Om
@@ -48333,7 +48307,7 @@ dB
 dB
 dB
 dB
-Om
+dB
 Om
 Om
 SP
@@ -48575,8 +48549,8 @@ oJ
 dB
 dB
 dB
-Om
-VX
+dB
+fn
 Om
 Om
 Om
@@ -48817,7 +48791,7 @@ dB
 dB
 dB
 dB
-fn
+dB
 Om
 Om
 VX
@@ -49059,7 +49033,7 @@ dB
 dB
 dB
 dB
-Om
+dB
 Om
 Om
 Om
@@ -49301,8 +49275,8 @@ dB
 dB
 dB
 dB
+dB
 fn
-Om
 Om
 Om
 Om
@@ -49543,7 +49517,7 @@ dB
 dB
 dB
 dB
-Om
+dB
 Om
 Om
 Om
@@ -49785,8 +49759,8 @@ dB
 dB
 dB
 dB
-Om
-Om
+dB
+dB
 Om
 VX
 Om
@@ -50027,8 +50001,8 @@ dB
 dB
 dB
 dB
-Om
-VX
+dB
+dB
 Om
 Om
 Om
@@ -50269,9 +50243,9 @@ dB
 dB
 dB
 dB
+dB
+dB
 fn
-Om
-Om
 VX
 Om
 Om
@@ -50511,8 +50485,8 @@ dB
 dB
 dB
 dB
-Om
-WQ
+dB
+dB
 Om
 Om
 Om
@@ -50753,8 +50727,8 @@ dB
 dB
 dB
 dB
-Om
-Om
+dB
+dB
 Om
 Om
 VX
@@ -50995,8 +50969,8 @@ dB
 dB
 dB
 dB
-Om
-VX
+dB
+fn
 Om
 Om
 Om
@@ -51237,7 +51211,7 @@ dB
 dB
 dB
 dB
-fn
+dB
 Om
 Om
 Om
@@ -51479,7 +51453,7 @@ dB
 dB
 dB
 dB
-Om
+dB
 Om
 Om
 VX
@@ -51721,8 +51695,8 @@ dB
 dB
 dB
 dB
-Om
-Om
+dB
+fn
 Om
 Om
 Om
@@ -51963,7 +51937,7 @@ dB
 dB
 dB
 dB
-Om
+dB
 Om
 Om
 VX
@@ -54871,7 +54845,7 @@ dB
 dB
 dB
 dB
-Om
+dB
 Om
 Om
 Om
@@ -55113,7 +55087,7 @@ dB
 dB
 dB
 dB
-Om
+dB
 Om
 VX
 Om
@@ -55355,8 +55329,8 @@ dB
 dB
 dB
 dB
-Om
-Om
+dB
+fn
 Om
 Om
 Om
@@ -55597,7 +55571,7 @@ dB
 dB
 dB
 dB
-fn
+dB
 Om
 Om
 VX
@@ -58019,7 +57993,7 @@ Ko
 Ko
 Ko
 Ko
-ue
+dB
 Om
 Om
 VX
@@ -58261,7 +58235,7 @@ dB
 dB
 dB
 dB
-ue
+dB
 Om
 Om
 Om
@@ -58987,7 +58961,7 @@ dB
 dB
 dB
 dB
-ue
+dB
 Om
 Om
 Om
@@ -59229,9 +59203,9 @@ dB
 dB
 dB
 dB
-ue
-ue
-ue
+dB
+fn
+Om
 Om
 Om
 VX
@@ -59473,8 +59447,8 @@ dB
 dB
 dB
 dB
-dB
-dB
+Om
+Om
 Om
 Om
 Om
@@ -59716,7 +59690,7 @@ dB
 dB
 dB
 dB
-dB
+Om
 Om
 Om
 Om
@@ -67869,7 +67843,7 @@ Pr
 mL
 PI
 XI
-Nd
+Xe
 Xe
 XI
 PI
@@ -68111,8 +68085,8 @@ Pr
 YU
 XI
 Zo
-lo
-kP
+KR
+xH
 CL
 XI
 Vv
@@ -68839,7 +68813,7 @@ XI
 zn
 lo
 kP
-CL
+Zo
 XI
 mL
 Pr
@@ -69320,7 +69294,7 @@ zZ
 zt
 Vv
 XI
-CL
+Zo
 lo
 kP
 nf
@@ -70049,7 +70023,7 @@ XI
 Zo
 qB
 Nn
-CL
+Zo
 XI
 YU
 aG
