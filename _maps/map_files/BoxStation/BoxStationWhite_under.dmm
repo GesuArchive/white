@@ -7559,6 +7559,7 @@
 	dir = 4;
 	req_access_txt = "12"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "vI" = (
