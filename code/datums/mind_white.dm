@@ -1,6 +1,6 @@
 //редфокс красный лис четыре фашист
 /datum/mind/proc/is_artist()
-	for(var/obj/effect/mob_spawn/human/artist/S)
+	for(var/obj/effect/mob_spawn/human/donate/artist/S)
 		if(current in S.spawned_mobs)
 			return TRUE
 		//надо штоб еще гостов артистов закидывало

@@ -6,6 +6,8 @@
 /obj/structure/sign/warning/electricshock{
 	pixel_y = -32
 	},
+/obj/structure/lattice,
+/obj/structure/grille,
 /turf/open/space/basic,
 /area/space)
 "ac" = (
@@ -3509,6 +3511,11 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
+"jI" = (
+/obj/structure/grille,
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space)
 "jJ" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -5458,6 +5465,17 @@
 /obj/machinery/rnd/production/techfab/department/medical,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
+"pq" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 4
+	},
+/obj/machinery/camera{
+	c_tag = "Cold Chamber";
+	network = list("burnchamber")
+	},
+/turf/open/space/basic,
+/area/space)
 "pr" = (
 /obj/structure/table,
 /obj/item/storage/box/rxglasses,
@@ -5470,12 +5488,8 @@
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "pt" = (
-/obj/structure/rack,
-/obj/effect/spawner/lootdrop/maintenance{
-	lootcount = 2;
-	name = "2maintenance loot spawner"
-	},
-/turf/open/floor/plating,
+/obj/structure/weightmachine/stacklifter,
+/turf/open/floor/plasteel,
 /area/maintenance/aft)
 "pu" = (
 /obj/structure/closet,
@@ -5483,7 +5497,7 @@
 	lootcount = 2;
 	name = "2maintenance loot spawner"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plasteel,
 /area/maintenance/aft)
 "pv" = (
 /obj/structure/closet,
@@ -5729,7 +5743,7 @@
 /obj/machinery/door/airlock/maintenance{
 	req_access_txt = "57"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
 "qg" = (
 /obj/machinery/door/airlock{
@@ -5795,7 +5809,7 @@
 "qp" = (
 /obj/structure/cable,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel,
 /area/maintenance/aft)
 "qq" = (
 /obj/structure/lattice,
@@ -6976,6 +6990,8 @@
 /obj/item/pipe_dispenser{
 	pixel_y = 6
 	},
+/obj/item/circuitboard/machine/thermomachine,
+/obj/item/circuitboard/machine/thermomachine,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
 "tR" = (
@@ -7296,7 +7312,7 @@
 	dir = 6
 	},
 /turf/open/space/basic,
-/area/engine/engineering)
+/area/space)
 "uX" = (
 /obj/structure/transit_tube/diagonal/topleft,
 /turf/open/space/basic,
@@ -7305,20 +7321,13 @@
 /obj/machinery/atmospherics/components/binary/pump,
 /turf/open/floor/plating,
 /area/engine/engineering)
-"uZ" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 4
-	},
-/turf/open/space/basic,
-/area/engine/engineering)
 "va" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 10
 	},
 /turf/open/space/basic,
-/area/engine/engineering)
+/area/space)
 "vb" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -7379,14 +7388,14 @@
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /turf/open/space/basic,
-/area/engine/engineering)
+/area/space)
 "vk" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 5
 	},
 /turf/open/space/basic,
-/area/engine/engineering)
+/area/space)
 "vl" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/heat_exchanging/junction{
@@ -7600,7 +7609,7 @@
 	dir = 9
 	},
 /turf/open/space/basic,
-/area/engine/engineering)
+/area/space)
 "vS" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 1
@@ -7653,12 +7662,8 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
 	},
-/obj/machinery/light/small{
-	brightness = 5;
-	dir = 1
-	},
 /turf/open/space/basic,
-/area/engine/engineering)
+/area/space)
 "vZ" = (
 /obj/machinery/light,
 /turf/open/floor/plating,
@@ -8180,6 +8185,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
+"xN" = (
+/obj/structure/weightmachine/weightlifter,
+/turf/open/floor/plasteel,
+/area/maintenance/aft)
 "xO" = (
 /obj/structure/cable,
 /obj/machinery/power/apc{
@@ -8736,9 +8745,12 @@
 /area/crew_quarters/heads/hop)
 "zJ" = (
 /obj/structure/table,
-/obj/item/folder/blue,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 8
+	},
+/obj/machinery/accounting,
+/obj/item/folder/blue{
+	pixel_x = -13
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/hop)
@@ -9611,6 +9623,14 @@
 "Dj" = (
 /turf/closed/wall/r_wall,
 /area/medical/medbay)
+"DF" = (
+/obj/effect/spawner/lootdrop/maintenance{
+	lootcount = 2;
+	name = "2maintenance loot spawner"
+	},
+/obj/structure/rack,
+/turf/open/floor/plasteel,
+/area/maintenance/aft)
 "DI" = (
 /obj/structure/cable,
 /obj/structure/sign/directions/evac{
@@ -9744,6 +9764,10 @@
 /obj/item/clothing/head/welding,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
+"Fu" = (
+/obj/structure/punching_bag,
+/turf/open/floor/plasteel,
+/area/maintenance/aft)
 "Fx" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
@@ -10052,6 +10076,14 @@
 	},
 /turf/open/floor/plasteel,
 /area/bridge)
+"KW" = (
+/obj/structure/rack,
+/obj/effect/spawner/lootdrop/maintenance{
+	lootcount = 2;
+	name = "2maintenance loot spawner"
+	},
+/turf/open/floor/plasteel,
+/area/maintenance/aft)
 "LG" = (
 /obj/machinery/dna_scannernew,
 /turf/open/floor/plasteel/white,
@@ -10217,6 +10249,9 @@
 /obj/machinery/light/small,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/aisat)
+"Pk" = (
+/turf/open/floor/plasteel,
+/area/maintenance/aft)
 "PM" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
@@ -10306,6 +10341,10 @@
 /obj/item/stock_parts/cell/high,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/quartermaster/exploration_dock)
+"Ro" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/maintenance/aft)
 "Rq" = (
 /obj/structure/lattice,
 /turf/closed/wall/r_wall,
@@ -10458,6 +10497,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/quartermaster/exploration_dock)
+"UL" = (
+/obj/structure/lattice,
+/obj/structure/grille,
+/turf/open/space/basic,
+/area/space)
 "UQ" = (
 /turf/closed/wall/r_wall,
 /area/medical/chemistry)
@@ -10685,6 +10729,13 @@
 /obj/machinery/atmospherics/pipe/layer_manifold,
 /turf/closed/wall,
 /area/science/research)
+"YQ" = (
+/obj/machinery/light/small{
+	brightness = 3;
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/maintenance/aft)
 "YS" = (
 /turf/closed/wall/r_wall,
 /area/quartermaster/exploration_dock)
@@ -41178,11 +41229,11 @@ zQ
 Ac
 Ak
 zD
-nc
-nc
-nc
+xN
+YQ
+Fu
 pu
-pt
+KW
 mE
 WD
 rq
@@ -41435,9 +41486,9 @@ zQ
 Ad
 pA
 qf
-ps
-ps
-ps
+Ro
+Ro
+Ro
 qp
 qE
 mE
@@ -41461,7 +41512,7 @@ aa
 aa
 aa
 rq
-uZ
+vY
 va
 vj
 vj
@@ -41693,8 +41744,8 @@ Ae
 Ac
 zD
 pt
-nc
-nc
+Pk
+DF
 ps
 tG
 mE
@@ -41718,7 +41769,7 @@ aV
 aa
 aa
 rq
-uZ
+vY
 uW
 vj
 vj
@@ -41975,7 +42026,7 @@ aV
 aa
 aa
 rq
-uZ
+pq
 va
 vj
 vj
@@ -42232,7 +42283,7 @@ rq
 rq
 rq
 rq
-uZ
+vY
 uW
 vj
 vj
@@ -42681,7 +42732,7 @@ aa
 aa
 aa
 aa
-aa
+aV
 Ag
 EF
 Ag
@@ -42930,8 +42981,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+jI
+UL
 Js
 Js
 Js
@@ -43186,7 +43237,7 @@ aa
 aa
 aa
 aa
-aa
+UL
 ab
 Js
 Js
@@ -43443,7 +43494,7 @@ aa
 aa
 aa
 aa
-aa
+UL
 aa
 ae
 af
@@ -43700,8 +43751,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+UL
+aV
 ae
 ag
 ar
@@ -43957,7 +44008,7 @@ aa
 aa
 aa
 aa
-aa
+UL
 aa
 ae
 ah
@@ -44214,7 +44265,7 @@ aa
 aa
 aa
 aa
-aa
+UL
 aa
 ae
 ai
@@ -44471,7 +44522,7 @@ aa
 aa
 aa
 aa
-aa
+UL
 aa
 ae
 aj
@@ -44728,7 +44779,7 @@ aa
 aa
 aa
 aa
-aa
+UL
 aa
 ae
 ak
@@ -44985,7 +45036,7 @@ aa
 aa
 aa
 aa
-aa
+UL
 aa
 ae
 al
@@ -45242,8 +45293,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+UL
+aV
 ae
 am
 ar
@@ -45499,7 +45550,7 @@ aa
 aa
 aa
 aa
-aa
+UL
 aa
 ae
 an
@@ -45756,8 +45807,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+UL
+UL
 Js
 Js
 aB
@@ -46014,8 +46065,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+jI
+UL
 Js
 Js
 Js

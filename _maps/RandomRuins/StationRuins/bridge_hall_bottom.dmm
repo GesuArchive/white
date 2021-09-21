@@ -595,6 +595,21 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/gravity_generator)
+"ji" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/light/floor,
+/obj/machinery/light/floor/directional/east,
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
 "jo" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -1567,7 +1582,8 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/machinery/light/floor,
+/obj/machinery/light/floor/directional/north,
+/obj/machinery/light/floor/directional/west,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "zW" = (
@@ -1801,7 +1817,8 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/maintenance/bottom_station_maints/north)
 "DJ" = (
-/obj/machinery/light/floor,
+/obj/machinery/light/floor/directional/north,
+/obj/machinery/light/floor/directional/east,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central)
 "Eg" = (
@@ -3039,6 +3056,11 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
+"Yb" = (
+/obj/machinery/light/floor,
+/obj/machinery/light/floor/directional/west,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/hallway/primary/central)
 "Yf" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -3845,7 +3867,7 @@ gb
 IX
 IX
 tL
-DJ
+Yb
 IX
 PP
 Hh
@@ -4073,7 +4095,7 @@ Cm
 TL
 Ro
 gv
-zT
+ji
 gv
 gb
 IX

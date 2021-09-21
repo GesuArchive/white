@@ -633,7 +633,7 @@
 	shoes = /obj/item/clothing/shoes/combat/artist
 	r_hand = /obj/item/storage/toolbox/mechanical
 
-/obj/effect/mob_spawn/human/artist/create(ckey, newname)
+/obj/effect/mob_spawn/human/donate/artist/create(ckey, newname)
 	if(ckey)
 		var/client/C = GLOB.directory[ckey]
 		if(C?.prefs)
@@ -678,7 +678,7 @@
 	. = ..()
 */
 
-/obj/effect/mob_spawn/human/artist
+/obj/effect/mob_spawn/human/donate/artist
 	name = "Экстрактор"
 	desc = "Вытягивает заблудшие души с того света и конвертирует их в дешёвую рабочую силу."
 	icon = 'white/valtos/icons/prison/prison.dmi'
@@ -692,6 +692,8 @@
 	outfit = /datum/outfit/artist
 	assignedrole = "Artist"
 
+	req_sum = 50 // sugar is bad
+
 	//mobs that were spawned from /this/ one instance of the spawner
 	var/list/mob/living/spawned_mobs = list()
 
@@ -699,28 +701,28 @@
 	var/global/list/round_banned_ckeys = list()
 	var/global/amount = 0
 
-/obj/effect/mob_spawn/human/artist/Initialize()
+/obj/effect/mob_spawn/human/donate/artist/Initialize()
 	. = ..()
 	round_banned_ckeys += "sanecman"
 	START_PROCESSING(SSprocessing, src)
 
-/obj/effect/mob_spawn/human/artist/Destroy()
+/obj/effect/mob_spawn/human/donate/artist/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
 
-/obj/effect/mob_spawn/human/artist/attack_ghost(mob/user)
+/obj/effect/mob_spawn/human/donate/artist/attack_ghost(mob/user)
 	if(user.ckey in round_banned_ckeys)
 		to_chat(user, span_warning("А хуй тебе!"))
 		return
 	. = ..()
 
-/obj/effect/mob_spawn/human/artist/create(ckey, newname)
+/obj/effect/mob_spawn/human/donate/artist/create(ckey, newname)
 	. = ..()
 	var/mob/living/L = .
 	spawned_mobs += L
 	spawned_mobs[L] = L.ckey
 
-/obj/effect/mob_spawn/human/artist/special(mob/living/L)
+/obj/effect/mob_spawn/human/donate/artist/special(mob/living/L)
 	amount += 1
 	L.real_name = "Артист #[amount]"
 	if(L.ckey == "redfoxiv")
@@ -730,7 +732,7 @@
 
 
 //stolen from CTF code
-/obj/effect/mob_spawn/human/artist/process(delta_time)
+/obj/effect/mob_spawn/human/donate/artist/process(delta_time)
 	for(var/i in spawned_mobs)
 		if(!i)
 			spawned_mobs -= i

@@ -1107,6 +1107,14 @@
 /obj/item/storage/firstaid/ancient,
 /turf/open/floor/rospilovo/wood,
 /area/awaymission/rospilovo)
+"lB" = (
+/obj/structure/table/rospilovo,
+/obj/item/storage/firstaid/regular{
+	pixel_x = 6;
+	pixel_y = -5
+	},
+/turf/open/floor/rospilovo/plitka,
+/area/awaymission/rospilovo)
 "lT" = (
 /mob/living/carbon/human/combat_ai/pistol,
 /turf/open/floor/dz/corruption,
@@ -1125,11 +1133,12 @@
 /turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "pb" = (
+/obj/structure/table/rospilovo,
 /obj/item/storage/firstaid/regular{
 	pixel_x = 2;
 	pixel_y = 3
 	},
-/turf/open/floor/rospilovo/wood,
+/turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
 "qg" = (
 /mob/living/carbon/human/combat_ai/pistol,
@@ -1210,10 +1219,8 @@
 	},
 /area/awaymission/rospilovo)
 "CG" = (
-/obj/item/storage/firstaid/regular{
-	pixel_x = 6;
-	pixel_y = -5
-	},
+/obj/structure/table/rospilovo,
+/obj/item/storage/firstaid/regular,
 /turf/open/floor/rospilovo/wood,
 /area/awaymission/rospilovo)
 "CQ" = (
@@ -1354,8 +1361,8 @@
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "Ne" = (
-/obj/item/storage/firstaid/regular,
-/turf/open/floor/rospilovo/wood,
+/obj/structure/table/rospilovo,
+/turf/open/floor/rospilovo/plitka,
 /area/awaymission/rospilovo)
 "Nj" = (
 /mob/living/carbon/human/combat_ai/shotgun,
@@ -1666,11 +1673,11 @@ bP
 bN
 bQ
 bN
-bN
-bN
-bN
-bN
-bN
+bM
+bM
+ce
+bM
+bM
 bN
 bN
 bN
@@ -5029,11 +5036,11 @@ bN
 bN
 bN
 bN
-bN
-bN
-bN
-bN
-bN
+bM
+bM
+ce
+bM
+bM
 bN
 ab
 cf
@@ -5451,7 +5458,7 @@ ab
 "}
 (32,1,1) = {"
 ab
-bN
+bM
 bM
 bM
 bM
@@ -5578,7 +5585,7 @@ ab
 "}
 (33,1,1) = {"
 ab
-bN
+bM
 bM
 bM
 bM
@@ -5705,7 +5712,7 @@ ab
 "}
 (34,1,1) = {"
 ab
-bN
+cd
 cd
 cd
 cd
@@ -5832,7 +5839,7 @@ ab
 "}
 (35,1,1) = {"
 ab
-bN
+bM
 bM
 bM
 bM
@@ -5959,7 +5966,7 @@ ab
 "}
 (36,1,1) = {"
 ab
-bN
+bM
 bM
 bM
 bM
@@ -12431,7 +12438,7 @@ bM
 bM
 bM
 bM
-bN
+bM
 ab
 "}
 (87,1,1) = {"
@@ -12558,7 +12565,7 @@ bM
 bM
 bM
 bM
-bN
+bM
 ab
 "}
 (88,1,1) = {"
@@ -12685,7 +12692,7 @@ cd
 cd
 cd
 cd
-bN
+cd
 ab
 "}
 (89,1,1) = {"
@@ -12812,7 +12819,7 @@ bM
 bM
 bM
 bM
-bN
+bM
 ab
 "}
 (90,1,1) = {"
@@ -12939,7 +12946,7 @@ bM
 bM
 bM
 bM
-bN
+bM
 ab
 "}
 (91,1,1) = {"
@@ -13241,14 +13248,14 @@ bT
 bT
 qg
 ac
-CG
+au
 au
 au
 ac
 bT
 bT
-bT
-bT
+lB
+Ne
 ac
 bJ
 bG
@@ -13877,8 +13884,8 @@ au
 aE
 au
 aZ
-au
-au
+at
+at
 au
 ac
 bT
@@ -14003,9 +14010,9 @@ aw
 au
 FW
 au
-au
+CG
 hD
-au
+at
 au
 ac
 bT
@@ -14252,7 +14259,7 @@ aw
 ac
 ac
 ac
-GH
+pb
 GH
 ac
 bp
@@ -14374,24 +14381,24 @@ bM
 dd
 ac
 aw
-aw
-aw
-ac
-pb
-au
-aw
-aw
-au
+GH
+GH
 ac
 au
 au
+aw
+aw
+au
+ac
+au
+au
 au
 au
 au
 ac
-bT
-bT
-bT
+Ne
+Ne
+Ne
 af
 bG
 du
@@ -14764,7 +14771,7 @@ aw
 aw
 au
 ac
-Ne
+au
 au
 au
 au
@@ -15020,7 +15027,7 @@ bT
 bT
 bT
 bT
-bT
+Ne
 bT
 bT
 bT
@@ -15147,7 +15154,7 @@ bT
 bT
 bT
 bT
-bT
+Ne
 bT
 bT
 bT
@@ -17221,11 +17228,11 @@ bN
 bN
 bN
 bN
-bN
-bN
-bN
-bN
-bN
+bM
+bM
+ce
+bM
+bM
 bN
 bN
 bN
