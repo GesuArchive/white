@@ -384,9 +384,9 @@
 		return
 	var/mob/living/carbon/human/moffin_observer = user
 	if(moffin_observer.dna.species.liked_food & CLOTH)
-		. += "<span class='nicegreen'>М-м-м! На нем даже есть куски одежды! Вкусно!</span>"
+		. += "<span class='nicegreen'>М-м-м! На нем даже есть кусочки ткани! Вкуснятина!</span>"
 	else
-		. += "<span class='warning'>Я не слишком уверен, что на поверхности этого маффина...</span>"
+		. += "<span class='warning'>Я не думаю, что на поверхности этого маффина находится что-то съедобное...</span>"
 
 ////////////////////////////////////////////WAFFLES////////////////////////////////////////////
 
