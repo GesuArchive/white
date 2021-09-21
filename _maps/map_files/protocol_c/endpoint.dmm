@@ -3083,7 +3083,7 @@
 /turf/open/floor/engine/cult,
 /area/wizard_station)
 "rG" = (
-/obj/effect/mob_spawn/human/artist{
+/obj/effect/mob_spawn/human/donate/artist{
 	pixel_y = 6
 	},
 /turf/open/floor/holofloor/carpet{
@@ -5046,7 +5046,7 @@
 /turf/open/floor/plasteel/grimy,
 /area/centcom/brief)
 "FP" = (
-/obj/effect/mob_spawn/human/artist{
+/obj/effect/mob_spawn/human/donate/artist{
 	pixel_y = 6
 	},
 /turf/open/floor/wood{
@@ -7687,7 +7687,7 @@
 /area/ruin/powered/yohei_base)
 "Xy" = (
 /obj/machinery/light/directional/south,
-/obj/effect/mob_spawn/human/artist{
+/obj/effect/mob_spawn/human/donate/artist{
 	pixel_y = 6
 	},
 /turf/open/floor/holofloor/carpet{
