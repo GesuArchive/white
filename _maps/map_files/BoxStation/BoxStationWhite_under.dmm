@@ -5218,6 +5218,7 @@
 /area/engine/atmospherics_engine)
 "pi" = (
 /obj/structure/closet/firecloset,
+/obj/machinery/light/floor/directional/east,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/secondary/entry)
 "pk" = (
@@ -6045,6 +6046,7 @@
 	dir = 1
 	},
 /obj/structure/closet/emcloset/anchored,
+/obj/machinery/light/floor/directional/west,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/secondary/entry)
 "rD" = (
@@ -9414,6 +9416,10 @@
 /turf/open/floor/plating,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/maintenance/bottom_station_maints)
+"Bd" = (
+/obj/machinery/light/floor/directional/south,
+/turf/open/floor/plating,
+/area/hallway/secondary/entry)
 "Bf" = (
 /obj/structure/table,
 /obj/item/rack_parts,
@@ -9891,6 +9897,7 @@
 	c_tag = "Arrivals Bay 1 South"
 	},
 /obj/structure/closet/emcloset/anchored,
+/obj/machinery/light/floor/directional/east,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/secondary/entry)
 "CJ" = (
@@ -10509,7 +10516,6 @@
 "Ey" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate/internals,
-/obj/machinery/light/floor,
 /turf/open/floor/plasteel/monofloor,
 /area/quartermaster/warehouse)
 "EA" = (
@@ -11766,10 +11772,13 @@
 /turf/open/floor/wood/parquet,
 /area/library)
 "It" = (
-/obj/effect/turf_decal/bot,
-/obj/machinery/light/floor,
-/turf/open/floor/plasteel/monofloor,
-/area/quartermaster/warehouse)
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/floor/directional/west,
+/turf/open/floor/plasteel,
+/area/hallway/secondary/exit/departure_lounge)
 "Iu" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -14941,6 +14950,7 @@
 /turf/open/floor/plasteel,
 /area/maintenance/port/fore)
 "RI" = (
+/obj/machinery/light/floor/directional/north,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "RJ" = (
@@ -15774,6 +15784,7 @@
 /area/maintenance/starboard/aft)
 "TQ" = (
 /obj/structure/cable,
+/obj/machinery/light/floor/directional/south,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "TR" = (
@@ -16531,9 +16542,19 @@
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary/second)
 "Wo" = (
-/obj/machinery/light/floor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/light/floor/directional/east,
 /turf/open/floor/plasteel,
-/area/quartermaster/warehouse)
+/area/hallway/secondary/exit/departure_lounge)
 "Wp" = (
 /obj/machinery/computer/piratepad_control/civilian,
 /obj/effect/turf_decal/tile/neutral{
@@ -17654,6 +17675,11 @@
 	},
 /turf/open/floor/plating,
 /area/ai_monitored/turret_protected/ai)
+"ZF" = (
+/obj/structure/closet/firecloset,
+/obj/machinery/light/floor/directional/west,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/hallway/secondary/entry)
 "ZG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible{
 	dir = 6
@@ -28708,7 +28734,7 @@ Zm
 Zm
 PG
 Vv
-pi
+ZF
 ve
 mM
 Vv
@@ -29221,7 +29247,7 @@ Zm
 Zm
 Zm
 dq
-RI
+Bd
 Si
 AF
 iF
@@ -37465,7 +37491,7 @@ GQ
 da
 zN
 aI
-Wo
+db
 zT
 db
 Ey
@@ -38236,10 +38262,10 @@ Ex
 da
 nc
 zT
-Wo
+db
 aI
 db
-It
+zT
 HO
 tT
 Fg
@@ -60057,7 +60083,7 @@ mp
 An
 yc
 zH
-zf
+It
 zf
 zf
 ef
@@ -60571,7 +60597,7 @@ Uz
 pA
 UD
 yt
-yt
+Wo
 Ou
 vz
 Ts
