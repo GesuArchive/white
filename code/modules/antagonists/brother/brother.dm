@@ -1,3 +1,4 @@
+/*
 /datum/antagonist/brother
 	name = "Brother"
 	antagpanel_category = "Brother"
@@ -170,3 +171,4 @@
 
 /datum/team/brother_team/antag_listing_name()
 	return "[name] blood brothers"
+*/

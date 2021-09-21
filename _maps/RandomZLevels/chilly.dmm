@@ -1305,7 +1305,6 @@
 /obj/item/food/bun,
 /obj/item/food/bun,
 /obj/item/food/bun,
-/obj/item/food/grown/banana/bombanana,
 /obj/item/food/grown/carrot,
 /obj/item/food/grown/citrus/lemon,
 /obj/item/food/grown/citrus/orange,
@@ -1317,6 +1316,7 @@
 /obj/item/food/grown/wheat,
 /obj/item/food/tortilla,
 /obj/item/food/shaurma,
+/obj/item/food/grown/banana,
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/chilly/facility)
 "dD" = (

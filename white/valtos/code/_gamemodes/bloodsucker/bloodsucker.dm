@@ -6,7 +6,7 @@
 	var/obj/effect/sunlight/bloodsucker_sunlight	// Sunlight Timer. Created on first Bloodsucker assign. Destroyed on last removed Bloodsucker.
 
 	// LISTS //
-	var/list/vassal_allowed_antags = list(/datum/antagonist/brother, /datum/antagonist/traitor, /datum/antagonist/traitor/internal_affairs, /datum/antagonist/survivalist, \
+	var/list/vassal_allowed_antags = list(/datum/antagonist/traitor, /datum/antagonist/traitor/internal_affairs, /datum/antagonist/survivalist, \
 										  /datum/antagonist/rev, /datum/antagonist/nukeop, /datum/antagonist/pirate, /datum/antagonist/cult, /datum/antagonist/abductee)
 	// The antags you're allowed to be if turning Vassal.
 
