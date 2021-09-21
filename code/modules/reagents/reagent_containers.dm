@@ -51,7 +51,7 @@
 					amount_per_transfer_from_this = possible_transfer_amounts[i+1]
 				else
 					amount_per_transfer_from_this = possible_transfer_amounts[1]
-				to_chat(user, "Перемещаю [amount_per_transfer_from_this]е")
+				to_chat(user, span_notice("Перемещаю [amount_per_transfer_from_this] единиц"))
 				return
 
 /obj/item/reagent_containers/attack(atom/target, mob/living/user, def_zone)
