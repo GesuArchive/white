@@ -318,7 +318,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	SSair.atmos_machinery += src
 	countdown = new(src)
 	countdown.start()
-	AddElement(/datum/element/point_of_interest)
+	SSpoints_of_interest.make_point_of_interest(src)
 	radio = new(src)
 	radio.keyslot = new radio_key
 	radio.listening = 0

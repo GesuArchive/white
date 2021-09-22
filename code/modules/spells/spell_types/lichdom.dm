@@ -93,7 +93,7 @@
 	name = "phylactery of [mind.name]"
 
 	active_phylacteries++
-	AddElement(/datum/element/point_of_interest)
+	SSpoints_of_interest.make_point_of_interest(src)
 	START_PROCESSING(SSobj, src)
 	if(initial(SSticker.mode.round_ends_with_antag_death))
 		SSticker.mode.round_ends_with_antag_death = FALSE

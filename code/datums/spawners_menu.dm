@@ -59,9 +59,8 @@
 	var/list/spawnerlist = GLOB.mob_spawners[group_name]
 	if(!spawnerlist.len)
 		return
-	//var/obj/effect/mob_spawn/MS = pick(spawnerlist)
-	var/atom/MS = pick(spawnerlist)
-	if(!istype(MS) || !(MS in GLOB.poi_list))
+	var/obj/effect/mob_spawn/mob_spawner = pick(spawnerlist)
+	if(!istype(mob_spawner) || !SSpoints_of_interest.get_poi_atom_by_ref(mob_spawner))
 		return
 	switch(action)
 		if("jump")
