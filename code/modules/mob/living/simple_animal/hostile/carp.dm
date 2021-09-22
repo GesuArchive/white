@@ -290,4 +290,32 @@
 	. += colored_disk_mouth
 	. += mutable_appearance(disk_overlay_file, "disk_overlay")
 
-#undef REGENERATION_DELAY
+/mob/living/simple_animal/hostile/carp/bluespacecarp
+	name = "Блюспэйскарп"
+	desc = "Интересная зверушка, постоянно мерцает. Интересно, на какой частоте?"
+	maxHealth = 90
+	health = 90
+	harm_intent_damage = 5
+	attack_verb_continuous = "прожигает"
+	attack_verb_simple = "прожигает"
+	attack_sound = 'sound/weapons/blaster.ogg'
+	rarechance = 10
+	melee_damage_type = BURN
+	butcher_results = list(/obj/item/food/fishmeat/carp = 2, /obj/item/stack/telecrystal = 2)
+	var/safe_cooldown = 20
+	var/safe
+
+/mob/living/simple_animal/hostile/carp/bluespacecarp/Initialize()
+	safe = world.time
+	. = ..()
+
+/mob/living/simple_animal/hostile/carp/bluespacecarp/attackby(obj/item/W, mob/user, params)
+	if(safe+safe_cooldown <= world.time && stat != DEAD)
+		do_sparks(1, FALSE, src)
+		to_chat(user,("[src.name] дематериализуется и удар пролетает насквозь!"))
+		safe = world.time
+		if(prob(20))
+			empulse(src, 2, 5)
+		return
+	else
+		return ..()
