@@ -29,6 +29,7 @@
 	name = "Surface"
 	icon_state = "coutdoor"
 	env_temp_relative = -25
+	blend_mode = 0
 
 /area/awaymission/chilly/surface/Initialize()
 	. = ..()
@@ -43,6 +44,7 @@
 /area/awaymission/chilly/facility
 	name = "Base I"
 	icon_state = "base"
+	base_lighting_alpha = 1
 	static_lighting = TRUE
 	requires_power = TRUE
 	always_unpowered = TRUE
@@ -60,6 +62,7 @@
 /area/awaymission/chilly/facility2
 	name = "Base II"
 	icon_state = "base2"
+	base_lighting_alpha = 1
 	static_lighting = TRUE
 	requires_power = TRUE
 	ambientsounds = list('sound/ambience/ambireebe3.ogg')
@@ -69,6 +72,7 @@
 /area/awaymission/chilly/facility3
 	name = "Base III"
 	icon_state = "base3"
+	base_lighting_alpha = 1
 	static_lighting = TRUE
 	requires_power = TRUE
 	always_unpowered = TRUE
@@ -78,6 +82,7 @@
 /area/awaymission/chilly/facility4
 	name = "Base IV House"
 	icon_state = "base4"
+	base_lighting_alpha = 1
 	static_lighting = TRUE
 	requires_power = TRUE
 	always_unpowered = TRUE
@@ -87,6 +92,7 @@
 /area/awaymission/chilly/facility5
 	name = "Base V"
 	icon_state = "base5"
+	base_lighting_alpha = 1
 	static_lighting = TRUE
 	requires_power = TRUE
 	always_unpowered = TRUE
@@ -98,6 +104,7 @@
 /area/awaymission/chilly/cave
 	name = "Underground Train Tracks"
 	icon_state = "caverns"
+	base_lighting_alpha = 1
 	static_lighting = TRUE
 	requires_power = TRUE
 	always_unpowered = TRUE
@@ -107,6 +114,7 @@
 /area/awaymission/chilly/syndietrain
 	name = "Syndicate Cargo Train"
 	icon_state = "syndie_train"
+	base_lighting_alpha = 1
 	static_lighting = TRUE
 	requires_power = FALSE
 	ambientsounds = list('sound/ambience/ambireebe3.ogg')
@@ -116,6 +124,7 @@
 /area/awaymission/chilly/ntcargotrain
 	name = "NanoTrasen Cargo Train Wreckage"
 	icon_state = "nt_train"
+	base_lighting_alpha = 1
 	static_lighting = TRUE
 	requires_power = TRUE
 	ambientsounds = list('sound/ambience/ambireebe3.ogg')
@@ -128,6 +137,7 @@
 /area/awaymission/chilly/mountain
 	name = "Mountain"
 	icon_state = "mountain"
+	base_lighting_alpha = 1
 	static_lighting = TRUE
 	always_unpowered = TRUE
 	env_temp_relative = -30
@@ -135,6 +145,7 @@
 /area/awaymission/chilly/gatewaystart
 	name = "Gateway Entrance"
 	icon_state = "gateways"
+	base_lighting_alpha = 1
 	static_lighting = TRUE
 	requires_power = FALSE
 	always_unpowered = FALSE
@@ -145,11 +156,13 @@
 	name = "Base II Armory"
 	icon_state = "base2armory"
 	env_temp_relative = 0
+	base_lighting_alpha = 1
 
 /area/awaymission/chilly/facility/emergencystorage
 	name = "Emergency Storage"
 	icon_state = "estorage"
 	env_temp_relative = -5
+	base_lighting_alpha = 1
 
 /* TURFS */
 
