@@ -262,6 +262,11 @@
 	id = "comp_typecast"
 	build_path = /obj/item/circuit_component/typecast
 
+/datum/design/component/pinpointer
+	name = "Proximity Pinpointer Component"
+	id = "comp_pinpointer"
+	build_path = /obj/item/circuit_component/pinpointer
+
 /datum/design/component/bci
 	category = list("Схемотехника", "BCI Components", "Интегральные схемы")
 	sub_category = list("Интерфейс Человек-Машина (ИЧМ)")
