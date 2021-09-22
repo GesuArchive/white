@@ -5,6 +5,8 @@
 	. = ..()
 	var/bounty = input("Награда в кредитах:", "Жопа", 50) as num|null
 
+	target.AddComponent(/datum/component/bounty, bounty)
+
 	priority_announce("За голову [target] назначена награда в размере [bounty] кредит[get_num_string(bounty)]. Цель будет подсвечена лазерной наводкой для удобства.", "Охота за головами",'sound/ai/announcer/alert.ogg')
 
 /datum/component/bounty
