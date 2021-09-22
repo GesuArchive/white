@@ -87,7 +87,7 @@
 		body += "<a href='?_src_=holder;[HrefToken()];showrelatedacc=cid;client=[REF(M.client)]'>CID</a>"
 		body += "<a href='?_src_=holder;[HrefToken()];showrelatedacc=ip;client=[REF(M.client)]'>IP</a>"
 		body += "<br><b>Страна:</b> [M.client.get_loc_info()["country"]]"
-		if(check_rights(R_PERMISSIONS, show_msg = FALSE))
+		if(check_rights(R_SECURED, show_msg = FALSE))
 			body += " | Город: [M.client.get_loc_info()["city"]]"
 		body += "<br><b>Crawler:</b> <a href='?_src_=holder;[HrefToken()];pushmetocrawler=[REF(M.client)]'>INFO</a>"
 		var/rep = 0

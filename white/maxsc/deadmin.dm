@@ -10,7 +10,7 @@ GLOBAL_LIST_EMPTY(de_admined)
 
 	var/list/choices = list()
 	for(var/client/A in GLOB.admins)
-		if(!check_rights_for(A, R_PERMISSIONS))
+		if(!check_rights_for(A, R_SECURED))
 			choices.Add(A)
 
 	var/selected = input("Please, select an admin!", "Admin", null) as null|anything in choices

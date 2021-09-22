@@ -216,9 +216,10 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, /proc/possess, /proc/release))
 GLOBAL_PROTECT(admin_verbs_possess)
-GLOBAL_LIST_INIT(admin_verbs_permissions, list(/client/proc/edit_admin_permissions, /client/proc/de_admin,
-/client/proc/retrieve_file, /client/proc/manage_lists))
+GLOBAL_LIST_INIT(admin_verbs_permissions, list(/client/proc/edit_admin_permissions, /client/proc/retrieve_file, /client/proc/manage_lists))
 GLOBAL_PROTECT(admin_verbs_permissions)
+GLOBAL_LIST_INIT(admin_verbs_secured, list(/client/proc/de_admin))
+GLOBAL_PROTECT(admin_verbs_secured)
 GLOBAL_LIST_INIT(admin_verbs_poll, list(/client/proc/poll_panel))
 GLOBAL_PROTECT(admin_verbs_poll)
 
@@ -313,6 +314,8 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 			add_verb(src, GLOB.admin_verbs_possess)
 		if(rights & R_PERMISSIONS)
 			add_verb(src, GLOB.admin_verbs_permissions)
+		if(rights & R_SECURED)
+			add_verb(src, GLOB.admin_verbs_secured)
 		if(rights & R_STEALTH)
 			add_verb(src, /client/proc/stealth)
 		if(rights & R_ADMIN)
@@ -335,6 +338,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		GLOB.admin_verbs_debug,
 		GLOB.admin_verbs_possess,
 		GLOB.admin_verbs_permissions,
+		GLOB.admin_verbs_secured,
 		/client/proc/stealth,
 		GLOB.admin_verbs_poll,
 		GLOB.admin_verbs_sounds,
