@@ -46,6 +46,11 @@
 
 	output_value = add_output_port("Output Value", PORT_TYPE_ANY)
 
+/obj/item/circuit_component/proccall/pre_input_received(datum/port/input/port)
+	if(port == expected_output_type)
+		if(output_value.datatype != expected_output_type.value)
+			output_value.set_datatype(expected_output_type.value)
+
 /obj/item/circuit_component/proccall/input_received(datum/port/input/port)
 	var/called_on
 	if(proccall_options.value == COMP_PROC_OBJECT)
