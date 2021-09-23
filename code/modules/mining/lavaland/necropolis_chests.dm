@@ -7,21 +7,10 @@
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 /obj/structure/closet/crate/necropolis/tendril
-	//desc = "It's watching you suspiciously. You need a skeleton key to open it."
-	integrity_failure = 0 //prevents bust_open from firing
-	/// var to check if it got opened by a key
-	var/spawned_loot = FALSE
+	desc = "It's watching you suspiciously. You need a skeleton key to open it."
+	integrity_failure = 0
 
-/obj/structure/closet/crate/necropolis/tendril/Initialize()
-	. = ..()
-	RegisterSignal(src, COMSIG_PARENT_ATTACKBY, .proc/try_spawn_loot)
-
-/obj/structure/closet/crate/necropolis/tendril/proc/try_spawn_loot(datum/source, obj/item/item, mob/user, params) ///proc that handles key checking and generating loot
-	SIGNAL_HANDLER
-	/*
-	if(!istype(item, /obj/item/skeleton_key) || spawned_loot)
-		return FALSE
-	*/
+/obj/structure/closet/crate/necropolis/tendril/PopulateContents()
 	var/loot = rand(1,20)
 	switch(loot)
 		if(1)
@@ -74,15 +63,6 @@
 			new /obj/item/bedsheet/cult(src)
 		if(20)
 			new /obj/item/clothing/neck/necklace/memento_mori(src)
-	spawned_loot = TRUE
-	qdel(item)
-	to_chat(user, span_notice("You disable the magic lock, revealing the loot."))
-	return TRUE
-
-/obj/structure/closet/crate/necropolis/tendril/can_open(mob/living/user, force = FALSE)
-	if(!spawned_loot)
-		return FALSE
-	return ..()
 
 //Megafauna chests
 
