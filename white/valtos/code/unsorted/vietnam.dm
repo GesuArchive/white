@@ -1,15 +1,23 @@
 /area/awaymission/vietnam
 	name = "Дикие джунгли"
 	icon_state = "unexplored"
-	static_lighting = TRUE
+	static_lighting = FALSE
+	base_lighting_alpha = 255
+	base_lighting_color = COLOR_WHITE
 	map_generator = /datum/map_generator/jungle_generator
 	ambientsounds = AWAY_MISSION
 	enabled_area_tension = FALSE
 
+/area/awaymission/vietnam/Initialize(mapload)
+	. = ..()
+	RunGeneration()
+
 /area/awaymission/vietnam/dark
 	name = "Тёмное джунглевое место"
 	icon_state = "unexplored"
-	static_lighting = FALSE
+	static_lighting = TRUE
+	base_lighting_alpha = 1
+	base_lighting_color = COLOR_WHITE
 	ambientsounds = AWAY_MISSION
 	requires_power = FALSE
 
