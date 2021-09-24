@@ -3954,6 +3954,7 @@
 #include "white\ClickerOfThings\super_kinetic\super_kinetic_accelerator.dm"
 #include "white\deda565\Huesoslist.dm"
 #include "white\Feline\code\med\designes.dm"
+#include "white\Feline\code\med\equipment.dm"
 #include "white\Feline\code\med\tools.dm"
 #include "white\fogmann\donations.dm"
 #include "white\fogmann\fogmann.dm"
