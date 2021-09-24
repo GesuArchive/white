@@ -138,6 +138,8 @@ SUBSYSTEM_DEF(zclear)
 	addtimer(CALLBACK(src, .proc/begin_tracking, picked_level), 60 SECONDS)
 	message_admins("SSORBITS: Created a new dynamic free level ([LAZYLEN(free_levels)] now created) as none were available at the time.")
 
+	return picked_level
+
 /datum/controller/subsystem/zclear/proc/begin_tracking(datum/space_level/sl)
 	LAZYOR(autowipe, sl)
 
