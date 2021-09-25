@@ -36,6 +36,11 @@
 		BT.pick_sound()
 	med_hud_set_status()
 
+/mob/living/carbon/Login()
+	. = ..()
+	if(!. || !client)
+		return FALSE
+
 	if(HAS_TRAIT(src, TRAIT_CLIENT_LEAVED))
 		REMOVE_TRAIT(src, TRAIT_CLIENT_LEAVED, "ice_cream")
 
