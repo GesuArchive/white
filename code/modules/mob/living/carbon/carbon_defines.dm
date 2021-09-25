@@ -108,3 +108,6 @@
 	var/can_be_shoved_into = FALSE
 
 	COOLDOWN_DECLARE(bleeding_message_cd)
+
+	var/ice_cream_mob_time = 0
+	var/ice_cream_mob = FALSE
