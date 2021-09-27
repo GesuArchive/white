@@ -232,6 +232,7 @@
 //===================
 
 GLOBAL_LIST_EMPTY(destabilization_spawns)
+GLOBAL_LIST_EMPTY(destabliization_exits)
 
 /obj/effect/landmark/destabilization_loc
 	name = "destabilization spawn"
@@ -247,10 +248,15 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 	var/list/contained_things = list()
 	effect_act_descs = list("рядом с чем-то")
 
+/datum/artifact_effect/reality_destabilizer/Initialize(source)
+	. = ..()
+	GLOB.destabliization_exits += source
+
 /datum/artifact_effect/reality_destabilizer/Destroy()
 	for(var/atom/movable/AM as() in contained_things)
 		AM.forceMove(get_turf(src))
 	contained_things.Cut()
+	GLOB.destabliization_exits -= source_object
 	. = ..()
 
 /datum/artifact_effect/reality_destabilizer/process(delta_time)
@@ -297,6 +303,10 @@ GLOBAL_LIST_EMPTY(destabilization_spawns)
 	if(QDELETED(src))
 		return
 	if(QDELETED(AM))
+		return
+	var/area/A = get_area(AM)
+	//already left the tear.
+	if(!istype(AM, /area/tear_in_reality))
 		return
 	AM.forceMove(T)
 	contained_things -= AM
