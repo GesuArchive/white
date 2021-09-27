@@ -28,6 +28,9 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	var/possible_destinations = ""
 	var/list/valid_docks = list("")
 
+	//The current orbital map we are observing
+	var/orbital_map_index = PRIMARY_ORBITAL_MAP
+
 	//Our orbital body.
 	var/datum/orbital_object/shuttle/shuttleObject
 
@@ -110,25 +113,27 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	data["update_index"] = SSorbits.times_fired
 	//Add orbital bodies
 	data["map_objects"] = list()
-	for(var/datum/orbital_object/object in SSorbits.orbital_map.bodies)
-		if(!object)
-			continue
-		//we can't see it, unless we are stealth too
-		if(shuttleObject)
-			if(object != shuttleObject && (object.stealth && !shuttleObject.stealth))
+	var/datum/orbital_map/showing_map = SSorbits.orbital_maps[orbital_map_index]
+	for(var/map_key in showing_map.collision_zone_bodies)
+		for(var/datum/orbital_object/object as() in showing_map.collision_zone_bodies[map_key])
+			if(!object)
 				continue
-		else
-			if(object.stealth)
-				continue
-		//Send to be rendered on the UI
-		data["map_objects"] += list(list(
-			"name" = object.name,
-			"position_x" = object.position.x,
-			"position_y" = object.position.y,
-			"velocity_x" = object.velocity.x * object.velocity_multiplier,
-			"velocity_y" = object.velocity.y * object.velocity_multiplier,
-			"radius" = object.radius
-		))
+			//we can't see it, unless we are stealth too
+			if(shuttleObject)
+				if(object != shuttleObject && (object.stealth && !shuttleObject.stealth))
+					continue
+			else
+				if(object.stealth)
+					continue
+			//Send to be rendered on the UI
+			data["map_objects"] += list(list(
+				"name" = object.name,
+				"position_x" = object.position.x,
+				"position_y" = object.position.y,
+				"velocity_x" = object.velocity.x * object.velocity_multiplier,
+				"velocity_y" = object.velocity.y * object.velocity_multiplier,
+				"radius" = object.radius
+			))
 	if(!SSshuttle.getShuttle(shuttleId))
 		data["linkedToShuttle"] = FALSE
 		return data
@@ -228,20 +233,24 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 					say("Шаттл уже в месте назначения.")
 					return
 				//Locate the orbital object
-				for(var/datum/orbital_object/z_linked/z_linked in SSorbits.orbital_map.bodies)
-					if(z_linked.z_in_contents(target_port.z))
-						if(!SSorbits.assoc_shuttles.Find(shuttleId))
-							//Launch the shuttle
-							if(!launch_shuttle())
+				var/datum/orbital_map/viewing_map = SSorbits.orbital_maps[orbital_map_index]
+				for(var/map_key in viewing_map.collision_zone_bodies)
+					for(var/datum/orbital_object/z_linked/z_linked as() in viewing_map.collision_zone_bodies[map_key])
+						if(!istype(z_linked))
+							continue
+						if(z_linked.z_in_contents(target_port.z))
+							if(!SSorbits.assoc_shuttles.Find(shuttleId))
+								//Launch the shuttle
+								if(!launch_shuttle())
+									return
+							if(shuttleObject.shuttleTarget == z_linked && shuttleObject.controlling_computer == src)
 								return
-						if(shuttleObject.shuttleTarget == z_linked && shuttleObject.controlling_computer == src)
+							shuttleObject = SSorbits.assoc_shuttles[shuttleId]
+							shuttleObject.shuttleTarget = z_linked
+							shuttleObject.autopilot = TRUE
+							shuttleObject.controlling_computer = src
+							say("Шаттл запрошен.")
 							return
-						shuttleObject = SSorbits.assoc_shuttles[shuttleId]
-						shuttleObject.shuttleTarget = z_linked
-						shuttleObject.autopilot = TRUE
-						shuttleObject.controlling_computer = src
-						say("Shuttle requested.")
-						return
 				say("Место стыковки в жопе. Свяжитесь с техниками Нанотрейзен.")
 		return
 
@@ -253,10 +262,12 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 			var/desiredTarget = params["target"]
 			if(shuttleObject.name == desiredTarget)
 				return
-			for(var/datum/orbital_object/object in SSorbits.orbital_map.bodies)
-				if(object.name == desiredTarget)
-					shuttleObject.shuttleTarget = object
-					return
+			var/datum/orbital_map/showing_map = SSorbits.orbital_maps[orbital_map_index]
+			for(var/map_key in showing_map.collision_zone_bodies)
+				for(var/datum/orbital_object/object as() in showing_map.collision_zone_bodies[map_key])
+					if(object.name == desiredTarget)
+						shuttleObject.shuttleTarget = object
+						return
 		if("setThrust")
 			if(QDELETED(shuttleObject))
 				say("Шаттл не летит.")
@@ -327,8 +338,9 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 				return
 			say("Перехватчик активирован, шаттл замедляется...")
 			//Create the site of interdiction
-			var/datum/orbital_object/z_linked/beacon/z_linked = new /datum/orbital_object/z_linked/beacon/ruin/interdiction()
-			z_linked.position = new /datum/orbital_vector(shuttleObject.position.x, shuttleObject.position.y)
+			var/datum/orbital_object/z_linked/beacon/z_linked = new /datum/orbital_object/z_linked/beacon/ruin/interdiction(
+				new /datum/orbital_vector(shuttleObject.position.x, shuttleObject.position.y)
+			)
 			z_linked.name = "Перехват"
 			//Lets tell everyone about it
 			priority_announce("Обнаружен перехват, данны были записаны на местные датчики GPS. Источник: [shuttleObject.name]")

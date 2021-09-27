@@ -9,16 +9,44 @@
 	earliest_start = 25 MINUTES
 
 /datum/round_event/meteor_wave
-	startWhen		= 6
-	endWhen			= 66
-	announceWhen	= 1
+	announceWhen = 	150
+	startWhen = 	1
+	endWhen = 		151
 	var/list/wave_type
 	var/wave_name = "normal"
+	var/start_x
+	var/start_y
+	var/datum/orbital_object/station_target
+	var/meteor_time = 15 MINUTES
 
 /datum/round_event/meteor_wave/New()
 	..()
 	if(!wave_type)
 		determine_wave_type()
+	start_x = sin(rand(0, 360)) * 9000
+	start_y = cos(rand(0, 360)) * 9000
+	station_target = SSorbits.station_instance
+	if(!station_target)
+		CRASH("Meteor failed to locate a target.")
+
+/datum/round_event/meteor_wave/Destroy(force, ...)
+	station_target = null
+	. = ..()
+
+/datum/round_event/meteor_wave/tick()
+	if(ISMULTIPLE(activeFor, 3) && activeFor < 61 && station_target)
+		var/datum/orbital_object/meteor/meteor = new()
+		meteor.name = "Метеорит ([wave_name])"
+		meteor.meteor_types = wave_type
+		meteor.start_x = start_x + rand(-600, 600)
+		meteor.start_y = start_y + rand(-600, 600)
+		meteor.position.x = meteor.start_x
+		meteor.position.y = meteor.start_y
+		//Calculate velocity
+		meteor.velocity.x = (station_target.position.x - meteor.start_x * 10) / meteor_time
+		meteor.velocity.y = (station_target.position.y - meteor.start_y * 10) / meteor_time
+		meteor.end_tick = world.time + meteor_time
+		meteor.target = station_target
 
 /datum/round_event/meteor_wave/proc/determine_wave_type()
 	if(!wave_name)
@@ -48,10 +76,6 @@
 
 /datum/round_event/meteor_wave/announce(fake)
 	priority_announce("Метеоры были обнаружены на пути столкновения со станцией.", "Метеоритная тревога", ANNOUNCER_METEORS)
-
-/datum/round_event/meteor_wave/tick()
-	if(ISMULTIPLE(activeFor, 3))
-		spawn_meteors(5, wave_type) //meteor list types defined in gamemode/meteor/meteors.dm
 
 /datum/round_event_control/meteor_wave/threatening
 	name = "Meteor Wave: Threatening"

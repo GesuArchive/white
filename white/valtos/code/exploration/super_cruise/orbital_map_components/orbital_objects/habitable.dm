@@ -7,7 +7,8 @@
 
 /datum/orbital_object/z_linked/habitable/New()
 	. = ..()
-	name = "[initial(name)] #[rand(1, 9)][SSorbits.orbital_map.bodies.len][rand(1, 9)]"
+	var/datum/orbital_map/linked_map = SSorbits.orbital_maps[orbital_map_index]
+	name = "[initial(name)] #[rand(1, 9)][linked_map.object_count][rand(1, 9)]"
 
 /datum/orbital_object/z_linked/habitable/post_map_setup()
 
@@ -16,4 +17,6 @@
 	assigned_space_level.orbital_body = src
 	generate_space_ruin(world.maxx / 2, world.maxy / 2, assigned_space_level.z_value, 100, 100, allowed_flags = RUIN_PART_DEFAULT | RUIN_PART_HABITABLE)
 
-	set_orbitting_around_body(SSorbits.orbital_map.center, 4800 + 250 * rand(4, 20))
+
+	var/datum/orbital_map/linked_map = SSorbits.orbital_maps[orbital_map_index]
+	set_orbitting_around_body(linked_map.center, 4800 + 250 * rand(4, 20))
