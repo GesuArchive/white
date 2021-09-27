@@ -82,3 +82,4 @@
 /area/asteroid/generated
 	name = "Дальний космос"
 	static_lighting = FALSE
+	outdoors = TRUE
