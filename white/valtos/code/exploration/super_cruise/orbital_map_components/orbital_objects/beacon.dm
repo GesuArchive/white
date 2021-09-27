@@ -13,7 +13,7 @@
 	if(ruin_event?.warning_message)
 		name = "[initial(name)] #[rand(1, 9)][linked_map.object_count][rand(1, 9)] ([ruin_event.warning_message])"
 	else
-		name = "[initial(name)] #[rand(1, 9)]linked_map.object_count][rand(1, 9)]"
+		name = "[initial(name)] #[rand(1, 9)][linked_map.object_count][rand(1, 9)]"
 	//Link the ruin event to ourselves
 	ruin_event?.linked_z = src
 
