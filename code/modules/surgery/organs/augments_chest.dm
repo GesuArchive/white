@@ -11,6 +11,7 @@
 	icon_state = "chest_implant"
 	implant_color = "#00AA00"
 	var/hunger_threshold = NUTRITION_LEVEL_STARVING
+	var/hydration_threshold = HYDRATION_LEVEL_THIRSTY
 	var/synthesizing = 0
 	var/poison_amount = 5
 	slot = ORGAN_SLOT_STOMACH_AID
@@ -23,6 +24,12 @@
 		synthesizing = TRUE
 		to_chat(owner, span_notice("Чуство голода немного притупилось..."))
 		owner.adjust_nutrition(25 * delta_time)
+		addtimer(CALLBACK(src, .proc/synth_cool), 50)
+
+	if(owner.hydration <= hydration_threshold)
+		synthesizing = TRUE
+		to_chat(owner, span_notice("Жажда мучает не так сильно..."))
+		owner.hydration = owner.hydration + 20
 		addtimer(CALLBACK(src, .proc/synth_cool), 50)
 
 /obj/item/organ/cyberimp/chest/nutriment/proc/synth_cool()
@@ -42,6 +49,7 @@
 	icon_state = "chest_implant"
 	implant_color = "#006607"
 	hunger_threshold = NUTRITION_LEVEL_HUNGRY
+	hydration_threshold = HYDRATION_LEVEL_NORMAL
 	poison_amount = 10
 
 /obj/item/organ/cyberimp/chest/reviver

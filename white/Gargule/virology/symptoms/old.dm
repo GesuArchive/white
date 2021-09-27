@@ -19,8 +19,8 @@ Bonus
 
 /datum/symptom/weight_even
 
-	name = "Weight Even"
-	desc = "The virus mutates the host's metabolism, making it almost unable to lose nutrition"
+	name = "Биостазис Метаболизма"
+	desc = "Под воздействием вируса метаболизм носителя мутирует и перестраивается, клеточный обмен веществ переходит на полностью замкнутый цикл и организм более не нуждается в приеме пищи и утолении жажды."
 	stealth = -1
 	resistance = 2
 	stage_speed = 1
@@ -38,6 +38,7 @@ Bonus
 		if(4, 5)
 			M.overeatduration = 0
 			M.nutrition = NUTRITION_LEVEL_WELL_FED + 50
+			M.hydration = HYDRATION_LEVEL_NORMAL + 20
 
 /*
 //////////////////////////////////////
