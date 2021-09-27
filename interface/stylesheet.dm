@@ -56,6 +56,7 @@ em						{font-style: normal;	font-weight: bold;}
 .greenteamradio			{color: #00ff00;}
 .yellowteamradio		{color: #d1ba22;}
 .yoheiradio				{color: #8888cc;}
+.gangradio				{color: #ac2ea1;}
 
 .yell					{					font-weight: bold;}
 

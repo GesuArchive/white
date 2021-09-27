@@ -288,6 +288,23 @@
 
 	if(!possible_takers)
 		fail()
+/// We lost the item, give it up
+
+/datum/status_effect/offering/proc/dropped_item(obj/item/source)
+	SIGNAL_HANDLER
+	qdel(src)
+
+/datum/status_effect/offering/secret_handshake
+	id = "secret_handshake"
+	give_alert_type = /atom/movable/screen/alert/give/secret_handshake
+
+//this effect gives the user an alert they can use to surrender quickly
+/datum/status_effect/grouped/surrender
+	id = "surrender"
+	duration = -1
+	tick_interval = -1
+	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/surrender
 
 /// Something fishy is going on here...
 /datum/status_effect/high_fiving/proc/dropped_slap(obj/item/source)

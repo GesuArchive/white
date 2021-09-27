@@ -288,16 +288,47 @@
 				"}
 				break_counter++
 			output += "</div></div>"
-		var/list/long_job_lists = list("Service" = GLOB.service_positions,
-									"Ghost and Other Roles" = list(ROLE_BRAINWASHED, ROLE_DEATHSQUAD, ROLE_DRONE, ROLE_LAVALAND, ROLE_MIND_TRANSFER, ROLE_POSIBRAIN, ROLE_SENTIENCE, ROLE_ICECREAM),
-									"Antagonist Positions" = list(ROLE_ABDUCTOR, ROLE_ALIEN, ROLE_BLOB,
-									ROLE_BROTHER, ROLE_CHANGELING, ROLE_CULTIST, ROLE_DEVIL,
-									ROLE_INTERNAL_AFFAIRS, ROLE_MALF,
-									ROLE_MONKEY, ROLE_NINJA, ROLE_OPERATIVE,
-									ROLE_SERVANT_OF_RATVAR,
-									ROLE_OVERTHROW, ROLE_REV, ROLE_REVENANT,
-									ROLE_REV_HEAD, ROLE_SYNDICATE,
-									ROLE_TRAITOR, ROLE_WIZARD, ROLE_HIVE , ROLE_HERETIC)) //ROLE_REV_HEAD is excluded from this because rev jobbans are handled by ROLE_REV
+		var/list/long_job_lists = list(
+			"Ghost and Other Roles" = list(
+				ROLE_PAI,
+				ROLE_BRAINWASHED,
+				ROLE_DEATHSQUAD,
+				ROLE_DRONE,
+				ROLE_LAVALAND,
+				ROLE_MIND_TRANSFER,
+				ROLE_POSIBRAIN,
+				ROLE_SENTIENCE,
+				ROLE_ICECREAM,
+			),
+			"Antagonist Positions" = list(
+				ROLE_ABDUCTOR,
+				ROLE_ALIEN,
+				ROLE_BLOB,
+				ROLE_BROTHER,
+				ROLE_CHANGELING,
+				ROLE_CULTIST,
+				ROLE_DEVIL,
+				ROLE_FAMILIES,
+				ROLE_HERETIC,
+				ROLE_HIVE,
+				ROLE_INTERNAL_AFFAIRS,
+				ROLE_MALF,
+				ROLE_MONKEY,
+				ROLE_NINJA,
+				ROLE_OPERATIVE,
+				ROLE_SERVANT_OF_RATVAR,
+				ROLE_OVERTHROW,
+				ROLE_REV,
+				ROLE_REVENANT,
+				ROLE_REV_HEAD,
+				ROLE_SENTIENT_DISEASE,
+				ROLE_SPIDER,
+				ROLE_SWARMER,
+				ROLE_SYNDICATE,
+				ROLE_TRAITOR,
+				ROLE_WIZARD,
+			),
+		)
 		for(var/department in long_job_lists)
 			output += "<div class='column'><label class='rolegroup long [ckey(department)]'><input type='checkbox' name='[department]' class='hidden' [usr.client.prefs.tgui_fancy ? " onClick='toggle_checkboxes(this, \"_com\")'" : ""]>[department]</label><div class='content'>"
 			break_counter = 0
