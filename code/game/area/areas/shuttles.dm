@@ -101,6 +101,8 @@
 	desc = "Уииииииииииии"
 	static_lighting = FALSE
 	area_flags = NO_ALERTS | HIDDEN_AREA
+	base_lighting_alpha = 255
+	base_lighting_color = "#ffffff"
 
 /area/shuttle/arrival
 	name = "Шаттл прибытия"

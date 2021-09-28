@@ -4,7 +4,7 @@
 	quality = POSITIVE
 	locked = TRUE
 	difficulty = 500
-	text_gain_indication = "<span class='notice'>Вы чувствуете себя невосприимчивым к космосу.</span>"
+	text_gain_indication = span_notice("Вы чувствуете себя невосприимчивым к космосу.")
 	time_coeff = 5
 	instability = 30
 

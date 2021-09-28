@@ -50,18 +50,18 @@
 	ADD_TRAIT(H, TRAIT_NOCRITDAMAGE, CLONING_POD_TRAIT)
 	H.Unconscious(80)
 
-	var/list/candidates = pollCandidatesForMob("Do you want to play as [clonename] defective clone?", null, null, null, 100, H, POLL_IGNORE_DEFECTIVECLONE)
+	var/list/candidates = poll_candidates_for_mob("Do you want to play as [clonename] defective clone?", null, null, null, 100, H, POLL_IGNORE_DEFECTIVECLONE)
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
 		H.key = C.key
 
 	if(grab_ghost_when == CLONER_FRESH_CLONE)
 		H.grab_ghost()
-		to_chat(H, "<span class='notice'><b>Consciousness slowly creeps over you as your body regenerates.</b><br><i>So this is what cloning feels like?</i></span>")
+		to_chat(H, span_notice("<b>Consciousness slowly creeps over you as your body regenerates.</b><br><i>So this is what cloning feels like?</i>"))
 
 	if(grab_ghost_when == CLONER_MATURE_CLONE)
 		H.ghostize(TRUE)	//Only does anything if they were still in their old body and not already a ghost
-		to_chat(H.get_ghost(TRUE), "<span class='notice'>Your body is beginning to regenerate in a cloning pod. You will become conscious when it is complete.</span>")
+		to_chat(H.get_ghost(TRUE), span_notice("Your body is beginning to regenerate in a cloning pod. You will become conscious when it is complete."))
 
 	if(H)
 		H.faction |= factions
@@ -212,7 +212,7 @@
 			dat += "<a href='byond://?src=[REF(src)];clone=1'>Clone</a>"
 			dat += "<br><a href='byond://?src=[REF(src)];lock=1'>[src.scanner.locked ? "Unlock Scanner" : "Lock Scanner"]</a>"
 		else
-			dat += "<span class='linkOff'>Clone</span>"
+			dat += span_linkoff("Clone")
 
 	var/datum/browser/popup = new(user, "cloning", "Prototype Cloning System Control")
 	popup.set_content(dat)

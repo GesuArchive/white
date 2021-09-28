@@ -7,7 +7,9 @@
 	density = TRUE
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "mixer0"
-	use_power = TRUE
+	icon_keyboard = null
+	base_icon_state = "mixer"
+	use_power = IDLE_POWER_USE
 	idle_power_usage = 20
 	resistance_flags = ACID_PROOF
 	circuit = /obj/item/circuitboard/computer/pandemic
@@ -206,7 +208,7 @@
 			var/id = get_virus_id_by_index(text2num(params["index"]))
 			var/datum/disease/advance/A = SSdisease.archive_diseases[id]
 			if(!istype(A) || !A.mutable)
-				to_chat(usr, "<span class='warning'>ОШИБКА: Невозможно воспроизвести штамм вируса.</span>")
+				to_chat(usr, span_warning("ОШИБКА: Невозможно воспроизвести штамм вируса."))
 				return
 			A = A.Copy()
 			var/list/data = list("viruses" = list(A))
@@ -240,13 +242,13 @@
 		if(machine_stat & (NOPOWER|BROKEN))
 			return
 		if(beaker)
-			to_chat(user, "<span class='warning'>Контейнер уже помещен в [src]!</span>")
+			to_chat(user, span_warning("Контейнер уже помещен в [src]!"))
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 
 		beaker = I
-		to_chat(user, "<span class='notice'>Ввел [I] в [src].</span>")
+		to_chat(user, span_notice("Ввел [I] в [src]."))
 		update_icon()
 	else
 		return ..()

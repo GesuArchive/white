@@ -35,7 +35,7 @@
 /obj/machinery/stasis/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'>ПКМ to [stasis_enabled ? "turn off" : "turn on"] the machine.</span>"
-	. += "<span class='notice'><b>[src.name]</b> is [op_computer ? "linked" : "<b>NOT</b> linked"] to a nearby operating computer.</span>"
+	. += span_notice("\n<b>[src.name]</b> is [op_computer ? "linked" : "<b>NOT</b> linked"] to a nearby operating computer.")
 
 /obj/machinery/stasis/proc/play_power_sound()
 	var/_running = stasis_running()
@@ -52,9 +52,9 @@
 		stasis_enabled = !stasis_enabled
 		stasis_can_toggle = world.time + STASIS_TOGGLE_COOLDOWN
 		playsound(src, 'sound/machines/click.ogg', 60, TRUE)
-		user.visible_message("<span class='notice'><b>[src.name]</b> [stasis_enabled ? "powers on" : "shuts down"].</span>", \
-					"<span class='notice'>You [stasis_enabled ? "power on" : "shut down"] <b>[src.name]</b>.</span>", \
-					"<span class='hear'>You hear a nearby machine [stasis_enabled ? "power on" : "shut down"].</span>")
+		user.visible_message(span_notice("<b>[src.name]</b> [stasis_enabled ? "powers on" : "shuts down"].") , \
+					span_notice("You [stasis_enabled ? "power on" : "shut down"] <b>[src.name]</b>.") , \
+					span_hear("You hear a nearby machine [stasis_enabled ? "power on" : "shut down"]."))
 		play_power_sound()
 		update_icon()
 
@@ -112,13 +112,13 @@
 	target.apply_status_effect(STATUS_EFFECT_STASIS, STASIS_MACHINE_EFFECT)
 	ADD_TRAIT(target, TRAIT_TUMOR_SUPPRESSED, TRAIT_GENERIC)
 	target.extinguish_mob()
-	use_power = ACTIVE_POWER_USE
+	update_use_power(ACTIVE_POWER_USE)
 
 /obj/machinery/stasis/proc/thaw_them(mob/living/target)
 	target.remove_status_effect(STATUS_EFFECT_STASIS, STASIS_MACHINE_EFFECT)
 	REMOVE_TRAIT(target, TRAIT_TUMOR_SUPPRESSED, TRAIT_GENERIC)
 	if(target == occupant)
-		use_power = IDLE_POWER_USE
+		update_use_power(IDLE_POWER_USE)
 
 /obj/machinery/stasis/post_buckle_mob(mob/living/L)
 	if(!can_be_occupant(L))
@@ -135,8 +135,8 @@
 	update_icon()
 
 /obj/machinery/stasis/process()
-	if( !(occupant && isliving(occupant) /*&& check_nap_violations()*/ ) )
-		use_power = IDLE_POWER_USE
+	if(!(occupant && isliving(occupant) && check_nap_violations()))
+		update_use_power(IDLE_POWER_USE)
 		return
 	var/mob/living/L_occupant = occupant
 	if(stasis_running())

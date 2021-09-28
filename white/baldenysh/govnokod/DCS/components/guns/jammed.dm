@@ -48,6 +48,7 @@
 		qdel(src)
 
 /datum/component/jammed/proc/on_fix(obj/item/gun/fixed_gun, mob/user)
+	fixed_gun.process_chamber()
 	playsound(get_turf(fixed_gun), 'sound/weapons/gun/general/slide_lock_1.ogg', 100)
 
 //пример с кастомным заклиниванием для енергооружия

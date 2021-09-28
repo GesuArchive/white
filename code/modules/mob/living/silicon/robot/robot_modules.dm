@@ -349,7 +349,7 @@
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
 		/obj/item/restraints/handcuffs/cable/zipties,
-		/obj/item/melee/baton/loaded,
+		/obj/item/melee/baton/loaded/cyborg_sosal,
 		/obj/item/gun/energy/disabler/cyborg,
 		/obj/item/clothing/mask/gas/sechailer/cyborg,
 		/obj/item/extinguisher/mini)
@@ -621,7 +621,7 @@
 	name = "Syndicate Assault"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
-		/obj/item/melee/transforming/energy/sword/cyborg,
+		/obj/item/melee/energy/sword/cyborg,
 		/obj/item/gun/energy/printer,
 		/obj/item/gun/ballistic/revolver/grenadelauncher/cyborg,
 		/obj/item/crowbar/cyborg,
@@ -656,7 +656,7 @@
 		/obj/item/cautery,
 		/obj/item/surgicaldrill,
 		/obj/item/scalpel,
-		/obj/item/melee/transforming/energy/sword/cyborg/saw,
+		/obj/item/melee/energy/sword/cyborg/saw,
 		/obj/item/roller/robo,
 		/obj/item/card/emag,
 		/obj/item/crowbar/cyborg,

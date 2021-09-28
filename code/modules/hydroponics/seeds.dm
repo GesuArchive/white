@@ -292,14 +292,14 @@
 
 		// Heats up the plant's contents by 25 kelvin per 1 unit of nutriment. Mutually exclusive with cooling.
 		if(get_gene(/datum/plant_gene/trait/chem_heating))
-			T.visible_message("<span class='notice'>[T] releases freezing air, consuming its nutriments to heat its contents.</span>")
+			T.visible_message(span_notice("[T] releases freezing air, consuming its nutriments to heat its contents."))
 			T.reagents.remove_all_type(/datum/reagent/consumable/nutriment, num_nutriment, strict = TRUE)
 			T.reagents.chem_temp = min(1000, (T.reagents.chem_temp + num_nutriment * 25))
 			T.reagents.handle_reactions()
 			playsound(T.loc, 'sound/effects/wounds/sizzle2.ogg', 5)
 		// Cools down the plant's contents by 5 kelvin per 1 unit of nutriment. Mutually exclusive with heating.
 		else if(get_gene(/datum/plant_gene/trait/chem_cooling))
-			T.visible_message("<span class='notice'>[T] releases a blast of hot air, consuming its nutriments to cool its contents.</span>")
+			T.visible_message(span_notice("[T] releases a blast of hot air, consuming its nutriments to cool its contents."))
 			T.reagents.remove_all_type(/datum/reagent/consumable/nutriment, num_nutriment, strict = TRUE)
 			T.reagents.chem_temp = max(3, (T.reagents.chem_temp + num_nutriment * -5))
 			T.reagents.handle_reactions()
@@ -503,7 +503,7 @@
 		return
 
 	if(istype(O, /obj/item/pen))
-		var/choice = input("What would you like to change?") in list("Plant Name", "Seed Description", "Product Description", "Cancel")
+		var/choice = tgui_input_list(usr, "What would you like to change?",, list("Plant Name", "Seed Description", "Product Description", "Cancel"))
 		if(!user.canUseTopic(src, BE_CLOSE))
 			return
 		switch(choice)
@@ -512,10 +512,10 @@
 				if(!user.canUseTopic(src, BE_CLOSE))
 					return
 				if (length(newplantname) > 20)
-					to_chat(user, "<span class='warning'>That name is too long!</span>")
+					to_chat(user, span_warning("That name is too long!"))
 					return
 				if(!newplantname)
-					to_chat(user, "<span class='warning'>That name is invalid.</span>")
+					to_chat(user, span_warning("That name is invalid."))
 					return
 				else
 					name = "[lowertext(newplantname)]"
@@ -525,10 +525,10 @@
 				if(!user.canUseTopic(src, BE_CLOSE))
 					return
 				if (length(newdesc) > 180)
-					to_chat(user, "<span class='warning'>That description is too long!</span>")
+					to_chat(user, span_warning("That description is too long!"))
 					return
 				if(!newdesc)
-					to_chat(user, "<span class='warning'>That description is invalid.</span>")
+					to_chat(user, span_warning("That description is invalid."))
 					return
 				else
 					desc = newdesc
@@ -539,10 +539,10 @@
 				if(!user.canUseTopic(src, BE_CLOSE))
 					return
 				if (length(newproductdesc) > 180)
-					to_chat(user, "<span class='warning'>That description is too long!</span>")
+					to_chat(user, span_warning("That description is too long!"))
 					return
 				if(!newproductdesc)
-					to_chat(user, "<span class='warning'>That description is invalid.</span>")
+					to_chat(user, span_warning("That description is invalid."))
 					return
 				else
 					productdesc = newproductdesc
@@ -609,7 +609,6 @@
  */
 /obj/item/seeds/proc/create_graft()
 	var/obj/item/graft/snip = new(loc, graft_gene)
-	snip.parent_seed = src
 	snip.parent_name = plantname
 	snip.name += "([plantname])"
 

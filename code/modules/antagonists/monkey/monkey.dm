@@ -80,7 +80,7 @@
 /datum/antagonist/monkey/admin_remove(mob/admin)
 	var/mob/living/carbon/human/M = owner.current
 	if(ismonkey(M))
-		switch(alert(admin, "Humanize?", "Humanize", "Yes", "No"))
+		switch(tgui_alert(admin, "Humanize?", "Humanize", list("Yes", "No")))
 			if("Yes")
 				if(admin == M)
 					admin = M.humanize()
@@ -100,7 +100,7 @@
 /datum/antagonist/monkey/leader/admin_add(datum/mind/new_owner,mob/admin)
 	var/mob/living/carbon/human/H = new_owner.current
 	if(istype(H))
-		switch(alert(admin, "Monkeyize?", "Monkeyize", "Yes", "No"))
+		switch(tgui_alert(admin, "Monkeyize?", "Monkeyize", list("Yes", "No")))
 			if("Yes")
 				if(admin == H)
 					admin = H.monkeyize()
@@ -211,23 +211,23 @@
 	switch(get_result())
 		if(MONKEYS_ESCAPED)
 			parts += "<span class='greentext big'><B>Monkey Major Victory!</B></span>"
-			parts += "<span class='greentext'><B>Central Command and [station_name()] were taken over by the monkeys! Ook ook!</B></span>"
+			parts += span_greentext("<B>Central Command and [station_name()] were taken over by the monkeys! Ook ook!</B>")
 		if(MONKEYS_LIVED)
 			parts += "<FONT size = 3><B>Monkey Minor Victory!</B></FONT>"
-			parts += "<span class='greentext'><B>[station_name()] was taken over by the monkeys! Ook ook!</B></span>"
+			parts += span_greentext("<B>[station_name()] was taken over by the monkeys! Ook ook!</B>")
 		if(DISEASE_LIVED)
 			parts += "<span class='redtext big'><B>Monkey Minor Defeat!</B></span>"
-			parts += "<span class='redtext'><B>All the monkeys died, but the disease lives on! The future is uncertain.</B></span>"
+			parts += span_redtext("<B>All the monkeys died, but the disease lives on! The future is uncertain.</B>")
 		if(MONKEYS_DIED)
 			parts += "<span class='redtext big'><B>Monkey Major Defeat!</B></span>"
-			parts += "<span class='redtext'><B>All the monkeys died, and Jungle Fever was wiped out!</B></span>"
+			parts += span_redtext("<B>All the monkeys died, and Jungle Fever was wiped out!</B>")
 	var/list/leaders = get_antag_minds(/datum/antagonist/monkey/leader, TRUE)
 	var/list/monkeys = get_antag_minds(/datum/antagonist/monkey, TRUE)
 
 	if(LAZYLEN(leaders))
-		parts += "<span class='header'>The monkey leaders were:</span>"
+		parts += span_header("The monkey leaders were:")
 		parts += printplayerlist(SSticker.mode.ape_leaders)
 	if(LAZYLEN(monkeys))
-		parts += "<span class='header'>The monkeys were:</span>"
+		parts += span_header("The monkeys were:")
 		parts += printplayerlist(SSticker.mode.ape_infectees)
 	return "<div class='panel redborder'>[parts.Join("<br>")]</div>"

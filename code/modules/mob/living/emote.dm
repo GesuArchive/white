@@ -479,6 +479,13 @@
 	emote_type = EMOTE_AUDIBLE
 	stat_allowed = UNCONSCIOUS
 
+/datum/emote/living/plot
+	key = "plot"
+	key_third_person = "корчится от жажды"
+	message = "корчится от жажды!"
+	emote_type = EMOTE_AUDIBLE
+	stat_allowed = UNCONSCIOUS
+
 /datum/emote/living/snore/get_sound(mob/living/user)
 	if(ishuman(user))
 		return pick('white/valtos/sounds/emotes/snore_1.ogg',\
@@ -600,7 +607,7 @@
 /datum/emote/living/custom/proc/check_invalid(mob/user, input)
 	var/static/regex/stop_bad_mime = regex(@"говорит|восклицает|кричит|спрашивает")
 	if(stop_bad_mime.Find(input, 1, 1))
-		to_chat(user, "<span class='danger'>Не знаю что делать!</span>")
+		to_chat(user, span_danger("Не знаю что делать!"))
 		return TRUE
 	return FALSE
 
@@ -608,12 +615,12 @@
 	if(!can_run_emote(user, TRUE, intentional))
 		return FALSE
 	if(is_banned_from(user.ckey, "Emote"))
-		to_chat(user, "<span class='boldwarning'>You cannot send custom emotes (banned).</span>")
+		to_chat(user, span_boldwarning("You cannot send custom emotes (banned)."))
 		return FALSE
 	else if(QDELETED(user))
 		return FALSE
 	else if(user.client && user.client.prefs.muted & MUTE_IC)
-		to_chat(user, "<span class='boldwarning'>You cannot send IC messages (muted).</span>")
+		to_chat(user, span_boldwarning("You cannot send IC messages (muted)."))
 		return FALSE
 	else if(!params)
 		var/custom_emote = copytext(sanitize(input("Choose an emote to display.") as text|null), 1, MAX_MESSAGE_LEN)
@@ -625,7 +632,7 @@
 				if("Hearable")
 					emote_type = EMOTE_AUDIBLE
 				else
-					alert("Unable to use this emote, must be either hearable or visible.")
+					tgui_alert(usr,"Unable to use this emote, must be either hearable or visible.")
 					return
 			message = custom_emote
 	else

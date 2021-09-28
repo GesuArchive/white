@@ -13,7 +13,7 @@
 	alt_toggle_message = "Поднимаю забрало"
 	force = 15
 	can_toggle = 1
-	armor = list(MELEE = 80, BULLET = 90, LASER = 50, ENERGY = 50, BOMB = 80, BIO = 0, RAD = 0, FIRE = 70, WOUND = 20)
+	armor = list(MELEE = 90, BULLET = 80, LASER = 50, ENERGY = 50, BOMB = 80, BIO = 0, RAD = 0, FIRE = 70, WOUND = 20)
 	strip_delay = 100
 	actions_types = list(/datum/action/item_action/toggle)
 	flags_inv = HIDEEARS|HIDEHAIR|HIDESNOUT
@@ -33,7 +33,7 @@
 			flags_inv ^= visor_flags_inv
 			flags_cover ^= visor_flags_cover
 			icon_state = "[initial(icon_state)][up ? "up" : ""]"
-			to_chat(user, "<span class='notice'>[up ? alt_toggle_message : toggle_message] [src].</span>")
+			to_chat(user, span_notice("[up ? alt_toggle_message : toggle_message] [src]."))
 
 			user.update_inv_head()
 			if(iscarbon(user))
@@ -78,4 +78,5 @@
 	desc = "Простой синий берет. На деле он голубой, но кого это волнует?"
 	icon = 'white/rebolution228/icons/clothing/hats.dmi'
 	worn_icon = 'white/rebolution228/icons/clothing/mob/hats_mob.dmi'
-	icon_state = "blueberet"
+	greyscale_colors = "#3f3c40"
+

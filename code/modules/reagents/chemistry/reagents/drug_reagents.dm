@@ -28,13 +28,38 @@
 	..()
 
 /datum/reagent/drug/space_drugs/overdose_start(mob/living/M)
-	to_chat(M, "<span class='userdanger'>Вот это меня накрыло!</span>")
+	to_chat(M, span_userdanger("Вот это меня накрыло!"))
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/overdose, name)
 
 /datum/reagent/drug/space_drugs/overdose_process(mob/living/M, delta_time, times_fired)
 	if(M.hallucination < volume && DT_PROB(10, delta_time))
 		M.hallucination += 5
 	..()
+
+/datum/reagent/drug/cannabis
+	name = "Каннабис"
+	description = "A psychoactive drug from the Cannabis plant used for recreational purposes."
+	color = "#059033"
+	overdose_threshold = INFINITY
+	ph = 6
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	metabolization_rate = 0.125 * REAGENTS_METABOLISM
+
+/datum/reagent/drug/cannabis/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	M.apply_status_effect(/datum/status_effect/stoned)
+	if(DT_PROB(1, delta_time))
+		var/smoke_message = pick("Чувствую себя расслабленно.","Чувствую спокойствие.","Чувствую, что мой рот сухой.","Хочется пить...","Мое сердце быстро бьётся.","Чувствую себя неуклюжим.","Хочется чего-то поесть...","Замечаю, что двигаюсь медленнее.")
+		to_chat(M, "<span class='notice'>[smoke_message]</span>")
+	if(DT_PROB(2, delta_time))
+		M.emote(pick("smile","laugh","giggle"))
+	M.adjust_nutrition(-1 * REM * delta_time) //munchies
+	if(DT_PROB(4, delta_time) && M.body_position == LYING_DOWN && !M.IsSleeping()) //chance to fall asleep if lying down
+		to_chat(M, "<span class='warning'>Хочется поспать...</span>")
+		M.Sleeping(10 SECONDS)
+	if(DT_PROB(4, delta_time) && M.buckled && M.body_position != LYING_DOWN && !M.IsParalyzed()) //chance to be couchlocked if sitting
+		to_chat(M, "<span class='warning'>Слишком удобно, чтобы двигаться...</span>")
+		M.Paralyze(10 SECONDS)
+	return ..()
 
 /datum/reagent/drug/nicotine
 	name = "Никотин"
@@ -60,7 +85,7 @@
 /datum/reagent/drug/nicotine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(0.5, delta_time))
 		var/smoke_message = pick("Я чувствую себя расслабленно.", "Я чувствую себя спокойно.","Я чувствую бдительность.","Я чувствую себя грубо.")
-		to_chat(M, "<span class='notice'>[smoke_message]</span>")
+		to_chat(M, span_notice("[smoke_message]"))
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "smoked", /datum/mood_event/smoked, name)
 	M.Jitter(0) //calms down any withdrawal jitters
 	M.AdjustStun(-50  * REM * delta_time)
@@ -91,7 +116,7 @@
 /datum/reagent/drug/crank/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(2.5, delta_time))
 		var/high_message = pick("You feel jittery.", "You feel like you gotta go fast.", "You feel like you need to step it up.")
-		to_chat(M, "<span class='notice'>[high_message]</span>")
+		to_chat(M, span_notice("[high_message]"))
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "tweaking", /datum/mood_event/stimulant_medium, name)
 	M.AdjustStun(-20 * REM * delta_time)
 	M.AdjustKnockdown(-20 * REM * delta_time)
@@ -123,11 +148,11 @@
 /datum/reagent/drug/krokodil/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	var/high_message = pick("You feel calm.", "You feel collected.", "You feel like you need to relax.")
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, "<span class='notice'>[high_message]</span>")
+		to_chat(M, span_notice("[high_message]"))
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "smacked out", /datum/mood_event/narcotic_heavy, name)
 	if(current_cycle == 35 && creation_purity <= 0.6)
 		if(!istype(M.dna.species, /datum/species/krokodil_addict))
-			to_chat(M, "<span class='userdanger'>Your skin falls off easily!</span>")
+			to_chat(M, span_userdanger("Your skin falls off easily!"))
 			M.adjustBruteLoss(50*REM, 0) // holy shit your skin just FELL THE FUCK OFF
 			M.set_species(/datum/species/krokodil_addict)
 	..()
@@ -163,7 +188,7 @@
 /datum/reagent/drug/methamphetamine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	var/high_message = pick("Я чувствую скорость.", "Меня никто не остановит!", "Я чувствую, что могу взять мир в свои руки.")
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, "<span class='notice'>[high_message]</span>")
+		to_chat(M, span_notice("[high_message]"))
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "tweaking", /datum/mood_event/stimulant_medium, name)
 	M.AdjustStun(-40 * REM * delta_time)
 	M.AdjustKnockdown(-40 * REM * delta_time)
@@ -185,7 +210,7 @@
 	if(DT_PROB(10, delta_time))
 		M.emote("laugh")
 	if(DT_PROB(18, delta_time))
-		M.visible_message("<span class='danger'>Руки [M] вывернулись и стали дрожать!</span>")
+		M.visible_message(span_danger("Руки [M] вывернулись и стали дрожать!"))
 		M.drop_all_held_items()
 	..()
 	M.adjustToxLoss(1 * REM * delta_time, 0)
@@ -224,7 +249,7 @@
 /datum/reagent/drug/bath_salts/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	var/high_message = pick("You feel amped up.", "You feel ready.", "You feel like you can push it to the limit.")
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, "<span class='notice'>[high_message]</span>")
+		to_chat(M, span_notice("[high_message]"))
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "salted", /datum/mood_event/stimulant_heavy, name)
 	M.adjustStaminaLoss(-5 * REM * delta_time, 0)
 	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 4 * REM * delta_time)
@@ -258,7 +283,7 @@
 /datum/reagent/drug/aranesp/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	var/high_message = pick("You feel amped up.", "You feel ready.", "You feel like you can push it to the limit.")
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, "<span class='notice'>[high_message]</span>")
+		to_chat(M, span_notice("[high_message]"))
 	M.adjustStaminaLoss(-18 * REM * delta_time, 0)
 	M.adjustToxLoss(0.5 * REM * delta_time, 0)
 	if(DT_PROB(30, delta_time))
@@ -336,7 +361,7 @@
 	M.Jitter(5 * REM * delta_time)
 
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, "<span class='notice'>[pick("Да! Да! ДААААА!", "Я готов...", "Я неуязвим...")]</span>")
+		to_chat(M, span_notice("[pick("Да! Да! ДААААА!", "Я готов...", "Я неуязвим...")]"))
 	if(DT_PROB(7.5, delta_time))
 		M.losebreath++
 		M.adjustToxLoss(2, 0)
@@ -344,7 +369,7 @@
 	. = TRUE
 
 /datum/reagent/drug/pumpup/overdose_start(mob/living/M)
-	to_chat(M, "<span class='userdanger'>Не могу перестать дрожать, моё сердце бьется всё быстрее с каждой секундой...</span>")
+	to_chat(M, span_userdanger("Не могу перестать дрожать, моё сердце бьется всё быстрее с каждой секундой..."))
 
 /datum/reagent/drug/pumpup/overdose_process(mob/living/M, delta_time, times_fired)
 	M.Jitter(5 * REM * delta_time)

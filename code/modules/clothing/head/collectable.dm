@@ -59,6 +59,9 @@
 	name = "коллекционный берет"
 	desc = "Коллекционный красный берет. Пахнет чуть-чуть чесноком."
 	icon_state = "beret"
+	greyscale_config = /datum/greyscale_config/beret
+	greyscale_config_worn = /datum/greyscale_config/beret/worn
+	greyscale_colors = "#972A2A"
 
 	dog_fashion = /datum/dog_fashion/head/beret
 
@@ -80,7 +83,10 @@
 /obj/item/clothing/head/collectable/flatcap
 	name = "коллекционный кепарик"
 	desc = "Коллекционная колпачок крестьянина!"
-	icon_state = "flat_cap"
+	icon_state = "beret_flat"
+	greyscale_config = /datum/greyscale_config/beret
+	greyscale_config_worn = /datum/greyscale_config/beret/worn
+	greyscale_colors = "#8F7654"
 	inhand_icon_state = "detective"
 
 /obj/item/clothing/head/collectable/pirate

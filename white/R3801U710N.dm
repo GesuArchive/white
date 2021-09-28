@@ -15,7 +15,7 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 		return
 
 	A.zashkvareno = 1
-	A.visible_message("<span class='danger'>[A.name] зашкваривается от петушиного касания!</span>")
+	A.visible_message(span_danger("[A.name] зашкваривается от петушиного касания!"))
 
 	if(prob(50))
 		A.name = "петушиный " + A.name
@@ -53,4 +53,4 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 		newshot()
 	. = ..()
 */
-GLOBAL_LIST_INIT(pacifist_list, list("chillraccoon", "hughdepayne", "ainnik", "kolya_7901"))
+GLOBAL_LIST_INIT(pacifist_list, list("ershov4ik"))

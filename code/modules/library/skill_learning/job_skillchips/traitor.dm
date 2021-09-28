@@ -3,8 +3,8 @@
 	desc = "A highly advanced Syndicate skillchip that does nothing on its own. It is loaded with the data of every skillchip."
 	skill_name = "Imitate Skillchip"
 	skill_description = "Reacts to the user's thoughts, selecting a skill from a wide database of choices."
-	activate_message = "<span class='notice'>You feel at one with the skillchip.</span>"
-	deactivate_message = "<span class='notice'>The infinite mysteries of the skillchip escape your mind.</span>"
+	activate_message = span_notice("You feel at one with the skillchip.")
+	deactivate_message = span_notice("The infinite mysteries of the skillchip escape your mind.")
 	skill_icon = "microchip"
 	// Chip does nothing on its own, so it has 0 complexity.
 	complexity = 0

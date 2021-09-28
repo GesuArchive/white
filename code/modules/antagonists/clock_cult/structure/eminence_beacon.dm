@@ -18,9 +18,9 @@
 		hierophant_message("[user] has cancelled the Eminence vote.")
 		return
 	if(used)
-		to_chat(user, "<span class='brass'>The Eminence has already been released.</span>")
+		to_chat(user, span_brass("The Eminence has already been released."))
 		return
-	var/option = alert(user,"Who shall control the Eminence?",,"Yourself","A ghost", "Cancel")
+	var/option = tgui_alert(user,"Who shall control the Eminence?",,"Yourself","A ghost", "Cancel")
 	if(option == "Cancel")
 		return
 	else if(option == "Yourself")

@@ -109,11 +109,11 @@
 #define MAX_ADDICTION_POINTS 1000
 
 ///Addiction start/ends
-#define WITHDRAWAL_STAGE1_START_CYCLE 60
-#define WITHDRAWAL_STAGE1_END_CYCLE 120
-#define WITHDRAWAL_STAGE2_START_CYCLE 121
-#define WITHDRAWAL_STAGE2_END_CYCLE 180
-#define WITHDRAWAL_STAGE3_START_CYCLE 181
+#define WITHDRAWAL_STAGE1_START_CYCLE 600
+#define WITHDRAWAL_STAGE1_END_CYCLE 750
+#define WITHDRAWAL_STAGE2_START_CYCLE 751
+#define WITHDRAWAL_STAGE2_END_CYCLE 900
+#define WITHDRAWAL_STAGE3_START_CYCLE 901
 ///Used for overheat_temp - This sets the overheat so high it effectively has no overheat temperature.
 #define NO_OVERHEAT 99999
 ////Used to force an equlibrium to end a reaction in reaction_step() (i.e. in a reaction_step() proc return END_REACTION to end it)

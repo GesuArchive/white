@@ -14,6 +14,9 @@
 
 	outfit = /datum/outfit/job/warden
 
+	skills = list(/datum/skill/ranged = SKILL_EXP_APPRENTICE)
+	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_APPRENTICE)
+
 	paycheck = PAYCHECK_HARD
 	paycheck_department = ACCOUNT_SEC
 
@@ -47,7 +50,7 @@
 	r_pocket = /obj/item/assembly/flash/handheld
 	l_pocket = /obj/item/restraints/handcuffs
 	suit_store = /obj/item/gun/energy/disabler
-	backpack_contents = list(/obj/item/modular_computer/tablet/preset/cheap=1, /obj/item/melee/baton/loaded=1)
+	backpack_contents = list(/obj/item/modular_computer/tablet/preset/cheap=1)
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec

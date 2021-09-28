@@ -33,6 +33,8 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	var/icon/worn_icon
 	///icon state for mob worn overlays, if null the normal icon_state will be used.
 	var/worn_icon_state
+	///Icon state for the belt overlay, if null the normal icon_state will be used.
+	var/belt_icon_state
 	///Forced mob worn layer instead of the standard preferred ssize.
 	var/alternate_worn_layer
 	///The config type to use for greyscaled worn sprites. Both this and greyscale_colors must be assigned to work.
@@ -41,6 +43,8 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	var/greyscale_config_inhand_left
 	///The config type to use for greyscaled right inhand sprites. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_inhand_right
+	///The config type to use for greyscaled belt overlays. Both this and greyscale_colors must be assigned to work.
+	var/greyscale_config_belt
 
 	/*	!!!!!!!!!!!!!!! IMPORTANT !!!!!!!!!!!!!!
 
@@ -146,8 +150,8 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	///list() of species types, if a species cannot put items in a certain slot, but species type is in list, it will be able to wear that item
 	var/list/species_exception = null
 
-	///Who threw the item
-	var/mob/thrownby = null
+	///A weakref to the mob who threw the item
+	var/datum/weakref/thrownby = null //I cannot verbally describe how much I hate this var
 	///Items can by default thrown up to 10 tiles by TK users
 	tk_throw_range = 10
 
@@ -265,10 +269,10 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	if(!LAZYLEN(embedding))
 		if(GLOB.embedpocalypse)
 			embedding = EMBED_POINTY
-			name = "pointy [name]"
+			name = "острый [name]"
 		else if(GLOB.stickpocalypse)
 			embedding = EMBED_HARMLESS
-			name = "sticky [name]"
+			name = "липкий [name]"
 
 	updateEmbedding()
 
@@ -414,9 +418,9 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 		if(can_handle_hot)
 			extinguish()
-			to_chat(user, "<span class='notice'>Тушу [src].</span>")
+			to_chat(user, span_notice("Тушу [src]."))
 		else
-			to_chat(user, "<span class='warning'>Обжигаюсь дотронувшись до [src]!</span>")
+			to_chat(user, span_warning("Обжигаюсь дотронувшись до [src]!"))
 			var/obj/item/bodypart/affecting = C.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 			if(affecting?.receive_damage( 0, 5 ))		// 5 burn damage
 				C.update_damage_overlays()
@@ -429,7 +433,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	var/grav = user.has_gravity()
 	if(grav > STANDARD_GRAVITY)
 		var/grav_power = min(3,grav - STANDARD_GRAVITY)
-		to_chat(user,"<span class='notice'>С трудом начинаю поднимать [src]...</span>")
+		to_chat(user,span_notice("С трудом начинаю поднимать [src]..."))
 		if(!do_mob(user,src,30*grav_power))
 			return
 
@@ -480,7 +484,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	if(!user.can_hold_items(src))
 		if(src in A.contents) // To stop Aliens having items stuck in their pockets
 			A.dropItemToGround(src)
-		to_chat(user, "<span class='warning'>У меня лапки!</span>")
+		to_chat(user, span_warning("У меня лапки!"))
 		return
 	attack_paw(A)
 
@@ -500,9 +504,11 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 // afterattack() and attack() prototypes moved to _onclick/item_attack.dm for consistency
 
 /obj/item/proc/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
-	SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, owner, hitby, attack_text, final_block_chance, damage, attack_type)
+	if(SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, owner, hitby, attack_text, final_block_chance, damage, attack_type) & COMPONENT_HIT_REACTION_BLOCK)
+		return TRUE
+
 	if(prob(final_block_chance))
-		owner.visible_message("<span class='danger'><b>[owner]</b> блокирует [attack_text] при помощи <b>[src.name]</b>!</span>")
+		owner.visible_message(span_danger("<b>[owner]</b> блокирует [attack_text] при помощи <b>[src.name]</b>!"))
 		return TRUE
 
 /obj/item/proc/talk_into(mob/M, input, channel, spans, datum/language/language, list/message_mods)
@@ -642,10 +648,9 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE, params)
 	if(HAS_TRAIT(src, TRAIT_NODROP))
 		return
-	thrownby = thrower
+	thrownby = WEAKREF(thrower)
 	callback = CALLBACK(src, .proc/after_throw, callback) //replace their callback with our own
 	. = ..(target, range, speed, thrower, spin, diagonals_first, callback, force, gentle, quickstart = quickstart)
-
 
 /obj/item/proc/after_throw(datum/callback/callback)
 	if (callback) //call the original callback
@@ -663,8 +668,12 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		return SEND_SIGNAL(loc, COMSIG_TRY_STORAGE_TAKE, src, newLoc, TRUE)
 	return FALSE
 
-/obj/item/proc/get_belt_overlay() //Returns the icon used for overlaying the object on a belt
-	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', icon_state)
+/// Returns the icon used for overlaying the object on a belt
+/obj/item/proc/get_belt_overlay()
+	var/icon_state_to_use = belt_icon_state || icon_state
+	if(greyscale_config_belt && greyscale_colors)
+		return mutable_appearance(SSgreyscale.GetColoredIconByType(greyscale_config_belt, greyscale_colors), icon_state_to_use)
+	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', icon_state_to_use)
 
 /obj/item/proc/update_slot_icon()
 	if(!ismob(loc))
@@ -724,7 +733,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 /obj/item/proc/ignition_effect(atom/A, mob/user)
 	if(get_temperature())
-		. = "<span class='notice'>[user] поджигает [A] при помощи [src].</span>"
+		. = span_notice("[user] поджигает [A] при помощи [src].")
 	else
 		. = ""
 
@@ -941,7 +950,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		return
 	user.dropItemToGround(src, silent = TRUE)
 	if(throwforce && HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, "<span class='notice'>You set [src] down gently on the ground.</span>")
+		to_chat(user, span_notice("You set [src] down gently on the ground."))
 		return
 
 	return src
@@ -1013,9 +1022,9 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
  */
 /obj/item/proc/on_accidental_consumption(mob/living/carbon/victim, mob/living/carbon/user, obj/item/source_item, discover_after = TRUE)
 	if(get_sharpness() && force >= 5) //if we've got something sharp with a decent force (ie, not plastic)
-		INVOKE_ASYNC(victim, /mob.proc/emote, "scream")
-		victim.visible_message("<span class='warning'>[victim] looks like [victim.p_theyve()] just bit something they shouldn't have!</span>", \
-							"<span class='boldwarning'>OH GOD! Was that a crunch? That didn't feel good at all!!</span>")
+		INVOKE_ASYNC(victim, /mob.proc/emote, "agony")
+		victim.visible_message(span_warning("[victim] looks like [victim.p_theyve()] just bit something they shouldn't have!") , \
+							span_boldwarning("OH GOD! Was that a crunch? That didn't feel good at all!!"))
 
 		victim.apply_damage(max(15, force), BRUTE, BODY_ZONE_HEAD, wound_bonus = 10, sharpness = TRUE)
 		victim.losebreath += 2
@@ -1058,8 +1067,8 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 			discover_after = FALSE
 
 		victim.adjust_disgust(33)
-		victim.visible_message("<span class='warning'>[victim] looks like [victim.p_theyve()] just bitten into something hard.</span>", \
-						"<span class='warning'>Eugh! Did I just bite into something?</span>")
+		victim.visible_message(span_warning("[victim] looks like [victim.p_theyve()] just bitten into something hard.") , \
+						span_warning("Eugh! Did I just bite into something?"))
 
 	else if(w_class == WEIGHT_CLASS_TINY) //small items like soap or toys that don't have mat datums
 		/// victim's chest (for cavity implanting the item)
@@ -1067,16 +1076,16 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		if(victim_cavity.cavity_item)
 			victim.vomit(5, FALSE, FALSE, distance = 0)
 			forceMove(drop_location())
-			to_chat(victim, "<span class='warning'>You vomit up a [name]! [source_item? "Was that in [source_item]?" : ""]</span>")
+			to_chat(victim, span_warning("You vomit up a [name]! [source_item? "Was that in [source_item]?" : ""]"))
 		else
 			victim.transferItemToLoc(src, victim, TRUE)
 			victim.losebreath += 2
 			victim_cavity.cavity_item = src
-			to_chat(victim, "<span class='warning'>Проглатываю что-то жёсткое. [source_item? "Это было в [source_item]..." : ""]</span>")
+			to_chat(victim, span_warning("Проглатываю что-то жёсткое. [source_item? "Это было в [source_item]..." : ""]"))
 		discover_after = FALSE
 
 	else
-		to_chat(victim, "<span class='warning'>[source_item? "Something strange was in the [source_item]..." : "I just bit something strange..."] </span>")
+		to_chat(victim, span_warning("[source_item? "Something strange was in the [source_item]..." : "I just bit something strange..."] "))
 
 	return discover_after
 

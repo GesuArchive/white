@@ -13,7 +13,7 @@
 	/// description of weather
 	var/desc = "Сильные порывы ветра покрывают территорию, периодически сбивая с ног всех, кто попал на открытую площадку."
 	/// The message displayed in chat to foreshadow the weather's beginning
-	var/telegraph_message = "<span class='warning'>Ветер начинает подниматься.</span>"
+	var/telegraph_message = span_warning("Ветер начинает подниматься.")
 	/// In deciseconds, how long from the beginning of the telegraph until the weather begins
 	var/telegraph_duration = 300
 	/// The sound file played to everyone on an affected z-level
@@ -22,7 +22,7 @@
 	var/telegraph_overlay
 
 	/// Displayed in chat once the weather begins in earnest
-	var/weather_message = "<span class='userdanger'>Ветер начинает свирепо дуть!</span>"
+	var/weather_message = span_userdanger("Ветер начинает свирепо дуть!")
 	/// In deciseconds, how long the weather lasts once it begins
 	var/weather_duration = 1200
 	/// See above - this is the lowest possible duration
@@ -37,7 +37,7 @@
 	var/weather_color = null
 
 	/// Displayed once the weather is over
-	var/end_message = "<span class='danger'>Ветер смягчает нападение.</span>"
+	var/end_message = span_danger("Ветер смягчает нападение.")
 	/// In deciseconds, how long the "wind-down" graphic will appear before vanishing entirely
 	var/end_duration = 300
 	/// Sound that plays while weather is ending

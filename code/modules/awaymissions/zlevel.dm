@@ -4,10 +4,11 @@ GLOBAL_VAR_INIT(isGatewayLoaded, TRUE) // sosi
 
 /proc/createRandomZlevel()
 	if(GLOB.potentialRandomZlevels && GLOB.potentialRandomZlevels.len)
-		message_admins("<span class='boldannounce'>Loading away mission...</span>")
+		message_admins(span_boldannounce("Loading away mission..."))
 		var/map = pick(GLOB.potentialRandomZlevels)
-		load_new_z_level(map, "Away Mission")
-		message_admins("<span class='boldannounce'>Away mission loaded.</span>")
+		var/lev = load_new_z_level(map, "Away Mission")
+		SSair.pause_z(lev)
+		message_admins(span_boldannounce("Away mission loaded on level: [lev]."))
 
 /obj/effect/landmark/awaystart
 	name = "away mission spawn"

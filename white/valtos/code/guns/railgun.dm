@@ -33,7 +33,7 @@
 	. = ..()
 	if(user?.client?.holder)
 		fatality_mode = !fatality_mode
-		to_chat(user, "<span class='notice'><b>ЭКСТЕРМИНАТУС:</b> [fatality_mode ? "АКТИВЕН" : "ВЫКЛЮЧЕН"]!</span>")
+		to_chat(user, span_notice("<b>ЭКСТЕРМИНАТУС:</b> [fatality_mode ? "АКТИВЕН" : "ВЫКЛЮЧЕН"]!"))
 		if(fatality_mode)
 			extra_damage = 1500
 			extra_penetration = 1500
@@ -66,7 +66,7 @@
 /obj/projectile/bullet/fallout/railgun
 	icon_state = "gauss_silenced"
 	speed = 0.4
-	damage = 0
+	damage = 1
 	damage_type = BURN
 	range = 150
 	projectile_piercing = PASSALL

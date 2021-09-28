@@ -22,12 +22,12 @@
 	return ..()
 
 /datum/buildmode_mode/area_edit/show_help(client/c)
-	to_chat(c, "<span class='notice'>***********************************************************</span>")
-	to_chat(c, "<span class='notice'>Left Mouse Button on obj/turf/mob = Select corner</span>")
+	to_chat(c, span_notice("***********************************************************"))
+	to_chat(c, span_notice("Left Mouse Button on obj/turf/mob = Select corner"))
 	to_chat(c, "<span class='notice'>Left Mouse Button + Alt on turf/obj/mob = Paint area/span>")
-	to_chat(c, "<span class='notice'>Right Mouse Button on obj/turf/mob = Select area to paint</span>")
-	to_chat(c, "<span class='notice'>Right Mouse Button on buildmode button = Create new area</span>")
-	to_chat(c, "<span class='notice'>***********************************************************</span>")
+	to_chat(c, span_notice("Right Mouse Button on obj/turf/mob = Select area to paint"))
+	to_chat(c, span_notice("Right Mouse Button on buildmode button = Create new area"))
+	to_chat(c, span_notice("***********************************************************"))
 
 /datum/buildmode_mode/area_edit/change_settings(client/c)
 	var/target_path = input(c, "Enter typepath:", "Typepath", "/area")
@@ -52,7 +52,7 @@
 
 	if(left_click)
 		if(!storedarea)
-			to_chat(c, "<span class='warning'>Configure or select the area you want to paint first!</span>")
+			to_chat(c, span_warning("Configure or select the area you want to paint first!"))
 			return
 		if(alt_click)
 			var/turf/T = get_turf(object)
@@ -71,7 +71,7 @@
 	var/left_click = pa.Find("left")
 
 	if(left_click)
-		var/choice = alert("Are you sure you want to fill area?", "Area Fill Confirmation", "Yes", "No")
+		var/choice = tgui_alert(usr, "Are you sure you want to fill area?", "Area Fill Confirmation", list("Yes", "No"))
 		if(choice != "Yes")
 			return
 		for(var/turf/T in block(get_turf(cornerA),get_turf(cornerB)))

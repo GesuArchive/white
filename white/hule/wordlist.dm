@@ -30,9 +30,12 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 					if(findtext_char(WC, W) && (WC != W))
 						return TRUE
 
-			to_chat(target, "<span class='notice'><big>[uppertext(W)]...</big></span>")
+			target.overlay_fullscreen("brute", /atom/movable/screen/fullscreen/brute, 6)
+			addtimer(CALLBACK(target, /mob.proc/clear_fullscreen, "brute", 10), 10)
 
-			SEND_SOUND(target, sound('white/hule/SFX/rjach.ogg'))
+			to_chat(target, span_notice("<big>[uppertext(W)]...</big>"))
+
+			SEND_SOUND(target, sound('sound/effects/singlebeat.ogg'))
 
 			message_admins("[ADMIN_LOOKUPFLW(target)] попытался насрать на ИС словом \"[W]\". ([msg]) [ADMIN_SMITE(target)]")
 			return FALSE

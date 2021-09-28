@@ -83431,9 +83431,6 @@
 	dir = 8
 	},
 /obj/machinery/newscaster/directional/south,
-/obj/machinery/computer/price_controller{
-	dir = 1
-	},
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
 "qIS" = (
@@ -104251,6 +104248,22 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
 /area/storage/tech)
+"wnQ" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/machinery/computer/price_controller{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/bridge)
 "wnT" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -151416,7 +151429,7 @@ wQK
 nzz
 oOD
 gdT
-qzr
+wnQ
 bKH
 bKH
 bKH

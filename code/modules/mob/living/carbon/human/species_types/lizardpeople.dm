@@ -1,8 +1,8 @@
 /datum/species/lizard
 	// Reptilian humanoids with scaled skin and tails.
-	name = "Lizardperson"
+	name = "Пидорас пиздец"
 	id = "lizard"
-	say_mod = "шипит"
+	say_mod = "отсасывает этот хуй блядь мм да"
 	default_color = "00FF00"
 	species_traits = list(MUTCOLORS,EYECOLOR,LIPS,HAS_FLESH,HAS_BONE)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_REPTILE
@@ -21,7 +21,7 @@
 	meat = /obj/item/food/meat/slab/human/mutant/lizard
 	skinned_type = /obj/item/stack/sheet/animalhide/lizard
 	exotic_bloodtype = "L"
-	disliked_food = GRAIN | DAIRY
+	disliked_food = GRAIN | DAIRY | CLOTH
 	liked_food = GROSS | MEAT
 	inert_mutation = FIREBREATH
 	deathsound = 'sound/voice/lizard/deathsound.ogg'

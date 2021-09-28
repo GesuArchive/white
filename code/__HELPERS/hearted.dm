@@ -34,7 +34,7 @@
 /mob/proc/query_heart(attempt=1)
 	if(!mind || !client || attempt > 3)
 		return
-	if(attempt == 1 && tgui_alert(src, "Was there another character you noticed being kind this round that you would like to anonymously thank?", "<3?", list("Yes", "No"), timeout = 30 SECONDS) != "Yes")
+	if(attempt == 1 && tgui_alert(usr, "Was there another character you noticed being kind this round that you would like to anonymously thank?", "<3?", list("Yes", "No"), timeout = 30 SECONDS) != "Yes")
 		return
 
 	var/heart_nominee
@@ -61,7 +61,7 @@
 		if(heart_contender == src)
 			continue
 
-		switch(tgui_alert(src, "Is this the person: [heart_contender.real_name]?", "<3?", list("Yes!", "Nope", "Cancel"), timeout = 15 SECONDS))
+		switch(tgui_alert(usr, "Is this the person: [heart_contender.real_name]?", "<3?", list("Yes!", "Nope", "Cancel"), timeout = 15 SECONDS))
 			if("Yes!")
 				nominate_heart(heart_contender)
 				return
@@ -76,7 +76,7 @@
 /mob/proc/nominate_heart(mob/heart_recepient)
 	if(!mind || !client)
 		return
-	to_chat(src, "<span class='nicegreen'>Commendation sent!</span>")
+	to_chat(src, span_nicegreen("Commendation sent!"))
 	message_admins("[key_name(src)] commended [key_name(heart_recepient)] (<a href='?src=[REF(SSticker)];cancel_heart=1;heart_source=[REF(src)];heart_target=[REF(heart_recepient)]'>CANCEL</a>)") // cancel is probably unnecessary without messages
 	log_admin("[key_name(src)] commended [key_name(heart_recepient)]")
 	LAZYADD(SSticker.hearts, heart_recepient)

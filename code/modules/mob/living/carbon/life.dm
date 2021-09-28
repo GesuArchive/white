@@ -20,6 +20,7 @@
 
 		if(.) //not dead
 			handle_blood(delta_time, times_fired)
+			handle_hydration(delta_time, times_fired)
 
 		if(stat != DEAD)
 			handle_brain_damage(delta_time, times_fired)
@@ -245,7 +246,7 @@
 				emote(pick("giggle","laugh"))
 			if(SA_partialpressure > NITROGEN_NARCOSIS_PRESSURE_HIGH) // Hallucinations
 				if(prob(15))
-					to_chat(src, "<span class='userdanger'>СЛОЖН... ДУМОТЬ!!!</span>")
+					to_chat(src, span_userdanger("СЛОЖН... ДУМОТЬ!!!"))
 					set_confusion(min(SA_partialpressure/10, get_confusion() + 12))
 				hallucination += 5
 
@@ -288,22 +289,22 @@
 				// At lower pp, give out a little warning
 				SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "smell")
 				if(prob(5))
-					to_chat(src, "<span class='notice'>Здесь неприятно пахнет.</span>")
+					to_chat(src, span_notice("Здесь неприятно пахнет."))
 			if(5 to 20)
 				//At somewhat higher pp, warning becomes more obvious
 				if(prob(15))
-					to_chat(src, "<span class='warning'>Здесь точно что-то гниёт и неплохо так отдаёт запахом.</span>")
+					to_chat(src, span_warning("Здесь точно что-то гниёт и неплохо так отдаёт запахом."))
 					SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/bad_smell)
 			if(15 to 30)
 				//Small chance to vomit. By now, people have internals on anyway
 				if(prob(5))
-					to_chat(src, "<span class='warning'>Запах гниющей плоти бьёт мне прямо в нос!</span>")
+					to_chat(src, span_warning("Запах гниющей плоти бьёт мне прямо в нос!"))
 					SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/nauseating_stench)
 					vomit()
 			if(30 to INFINITY)
 				//Higher chance to vomit. Let the horror start
 				if(prob(25))
-					to_chat(src, "<span class='warning'>Запашок непередаваемый!</span>")
+					to_chat(src, span_warning("Запашок непередаваемый!"))
 					SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/nauseating_stench)
 					vomit()
 			else
@@ -341,6 +342,15 @@
 
 /mob/living/carbon/proc/handle_blood(delta_time, times_fired)
 	return
+
+/mob/living/carbon/proc/handle_hydration(delta_time, times_fired)
+	hydration -= HYDRATION_LOSS_PER_LIFE
+
+	if(hydration <= HYDRATION_LEVEL_DEHYDRATED)
+		if(DT_PROB(5, delta_time))
+			emote("plot")
+			adjustToxLoss(1)
+			adjustStaminaLoss(5)
 
 /mob/living/carbon/proc/handle_bodyparts(delta_time, times_fired)
 	var/stam_regen = FALSE
@@ -566,16 +576,16 @@ All effects don't start immediately, but rather get worse over time; the rate is
 		if(drunkenness >= 81)
 			adjustToxLoss(0.5 * delta_time)
 			if(!stat && DT_PROB(2.5, delta_time))
-				to_chat(src, "<span class='warning'>Надо полежать...</span>")
+				to_chat(src, span_warning("Надо полежать..."))
 
 		if(drunkenness >= 91)
 			adjustToxLoss(0.5 * delta_time)
 			adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.2 * delta_time)
 			if(DT_PROB(10, delta_time) && !stat)
 				if(SSshuttle.emergency.mode == SHUTTLE_DOCKED && is_station_level(z)) //QoL mainly
-					to_chat(src, "<span class='warning'>Уф, надо бы поспать... но я не могу упустить этот шаттл...</span>")
+					to_chat(src, span_warning("Уф, надо бы поспать... но я не могу упустить этот шаттл..."))
 				else
-					to_chat(src, "<span class='warning'>Немного вздремнём...</span>")
+					to_chat(src, span_warning("Немного вздремнём..."))
 					Sleeping(900)
 
 		if(drunkenness >= 101)
@@ -797,11 +807,11 @@ All effects don't start immediately, but rather get worse over time; the rate is
 				if(limb.cremation_progress >= 100)
 					if(limb.status == BODYPART_ORGANIC) //Non-organic limbs don't burn
 						limb.drop_limb()
-						limb.visible_message("<span class='warning'>[capitalize(limb.name)] <b>[src]</b> обращается в пепел!</span>")
+						limb.visible_message(span_warning("[capitalize(limb.name)] <b>[src]</b> обращается в пепел!"))
 						qdel(limb)
 					else
 						limb.drop_limb()
-						limb.visible_message("<span class='warning'>[capitalize(limb.name)] <b>[src]</b> отлетает от тела!</span>")
+						limb.visible_message(span_warning("[capitalize(limb.name)] <b>[src]</b> отлетает от тела!"))
 	if(still_has_limbs)
 		return
 
@@ -813,17 +823,17 @@ All effects don't start immediately, but rather get worse over time; the rate is
 			if(head.cremation_progress >= 100)
 				if(head.status == BODYPART_ORGANIC) //Non-organic limbs don't burn
 					head.drop_limb()
-					head.visible_message("<span class='warning'>Голова <b>[src]</b> обращается в пепел!</span>")
+					head.visible_message(span_warning("Голова <b>[src]</b> обращается в пепел!"))
 					qdel(head)
 				else
 					head.drop_limb()
-					head.visible_message("<span class='warning'>Голова <b>[src]</b> отлетает от тела!</span>")
+					head.visible_message(span_warning("Голова <b>[src]</b> отлетает от тела!"))
 		return
 
 	//Nothing left: dust the body, drop the items (if they're flammable they'll burn on their own)
 	chest.cremation_progress += rand(1 * delta_time, 2.5 * delta_time)
 	if(chest.cremation_progress >= 100)
-		visible_message("<span class='warning'><b>[src]</b> обращается в пепел!</span>")
+		visible_message(span_warning("<b>[src]</b> обращается в пепел!"))
 		dust(TRUE, TRUE)
 
 ////////////////

@@ -235,7 +235,7 @@
 	if(!is_type_in_list(O, food_type))
 		return ..()
 
-	user.visible_message("<span class='notice'><b>[user]</b> даёт попробовать с руки [O] <b>[src]</b>.</span>", "<span class='notice'>Пытаюсь дать попробовать [O] <b>[src]</b>.</span>")
+	user.visible_message(span_notice("<b>[user]</b> даёт попробовать с руки [O] <b>[src]</b>.") , span_notice("Пытаюсь дать попробовать [O] <b>[src]</b>."))
 	qdel(O)
 	if(tame)
 		return
@@ -490,7 +490,7 @@
 		icon_state = icon_dead
 		if(flip_on_death)
 			transform = transform.Turn(180)
-		density = FALSE
+		set_density(FALSE)
 		..()
 
 /mob/living/simple_animal/proc/CanAttack(atom/the_target)
@@ -529,7 +529,7 @@
 		return
 	icon = initial(icon)
 	icon_state = icon_living
-	density = initial(density)
+	set_density(initial(density))
 
 /mob/living/simple_animal/proc/make_babies() // <3 <3 <3
 	if(gender != FEMALE || stat || next_scan_time > world.time || !childtype || !animal_species || !SSticker.IsRoundInProgress())
@@ -758,7 +758,7 @@
 	if(isliving(hunted)) // Are we hunting a living mob?
 		var/mob/living/prey = hunted
 		if(inept_hunter) // Make your hunter inept to have them unable to catch their prey.
-			visible_message("<span class='warning'>[src] chases [prey] around, to no avail!</span>")
+			visible_message(span_warning("[src] chases [prey] around, to no avail!"))
 			step(prey, pick(GLOB.cardinals))
 			COOLDOWN_START(src, emote_cooldown, 1 MINUTES)
 			return

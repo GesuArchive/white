@@ -97,7 +97,7 @@ GLOBAL_LIST_EMPTY(decomission_bombs)
 
 /obj/machinery/nuclearbomb/decomission/set_active()
 	if(safety)
-		to_chat(usr, "<span class='danger'>Механизм безопасности включен.</span>")
+		to_chat(usr, span_danger("Механизм безопасности включен."))
 		return
 	timing = !timing
 	if(timing)
@@ -121,6 +121,6 @@ GLOBAL_LIST_EMPTY(decomission_bombs)
 /obj/machinery/nuclearbomb/decomission/actually_explode()
 	SSticker.roundend_check_paused = FALSE
 	linked_objective.complete_objective()
-	GrabDatFence(target_z)
+	grab_dat_fence(target_z)
 	QDEL_NULL(linked_objective.linked_beacon)
 	qdel(src)

@@ -184,6 +184,17 @@
 #define NUTRITION_LEVEL_START_MIN 175
 #define NUTRITION_LEVEL_START_MAX 400
 
+//Humans get thirsty
+#define HYDRATION_LEVEL_OVERHYDRATED 100
+#define HYDRATION_LEVEL_NORMAL 40
+#define HYDRATION_LEVEL_THIRSTY 20
+#define HYDRATION_LEVEL_DEHYDRATED 0
+#define HYDRATION_LEVEL_START_MIN 60
+#define HYDRATION_LEVEL_START_MAX 90
+#define HYDRATION_LOSS_PER_LIFE 0.005
+#define DRINK_HYDRATION_FACTOR 1
+#define HYDRATION_STUTTER_RATE 15
+
 //Disgust levels for humans
 #define DISGUST_LEVEL_MAXEDOUT 150
 #define DISGUST_LEVEL_DISGUSTED 75
@@ -449,3 +460,6 @@
 #define THROW_MODE_DISABLED 0
 #define THROW_MODE_TOGGLE 1
 #define THROW_MODE_HOLD 2
+
+//Saves a proc call, life is suffering. If who has no targets_from var, we assume it's just who
+#define GET_TARGETS_FROM(who) (who.targets_from ? who.get_targets_from() : who)

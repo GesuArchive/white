@@ -17,14 +17,23 @@
 	var/faction = list("ashwalker")
 	var/meat_counter = 6
 	var/datum/team/ashwalkers/ashies
+	var/datum/linked_objective
 
 /obj/structure/lavaland/ash_walker/Initialize()
 	.=..()
 	ashies = new /datum/team/ashwalkers()
 	var/datum/objective/protect_object/objective = new
 	objective.set_target(src)
+	linked_objective = objective
 	ashies.objectives += objective
 	START_PROCESSING(SSprocessing, src)
+
+/obj/structure/lavaland/ash_walker/Destroy()
+	ashies.objectives -= linked_objective
+	ashies = null
+	QDEL_NULL(linked_objective)
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
 
 /obj/structure/lavaland/ash_walker/deconstruct(disassembled)
 	new /obj/item/assembly/signaler/anomaly (get_step(loc, pick(GLOB.alldirs)))
@@ -43,11 +52,11 @@
 					qdel(W)
 			if(issilicon(H)) //no advantage to sacrificing borgs...
 				H.gib()
-				visible_message("<span class='notice'>Зазубренные тентакли жадно разрывают [H] на кусочки, но не находят ничего интересного.</span>")
+				visible_message(span_notice("Зазубренные тентакли жадно разрывают [H] на кусочки, но не находят ничего интересного."))
 				return
 
 			if(H.mind?.has_antag_datum(/datum/antagonist/ashwalker) && (H.key || H.get_ghost(FALSE, TRUE))) //special interactions for dead lava lizards with ghosts attached
-				visible_message("<span class='warning'>Зазубренные тентакли аккуратно притягивают [H] к [src], поглощая тело и создавая его заново.</span>")
+				visible_message(span_warning("Зазубренные тентакли аккуратно притягивают [H] к [src], поглощая тело и создавая его заново."))
 				var/datum/mind/deadmind
 				if(H.key)
 					deadmind = H
@@ -64,13 +73,13 @@
 				meat_counter += 20
 			else
 				meat_counter++
-			visible_message("<span class='warning'>Зазубренные тентакли жадно притягивают [H] к [src], разрывая тело на кусочки и поливая яйца кровью.</span>")
+			visible_message(span_warning("Зазубренные тентакли жадно притягивают [H] к [src], разрывая тело на кусочки и поливая яйца кровью."))
 			playsound(get_turf(src),'sound/magic/demon_consume.ogg', 100, TRUE)
 			var/deliverykey = H.fingerprintslast //key of whoever brought the body
 			var/mob/living/deliverymob = get_mob_by_key(deliverykey) //mob of said key
 			//there is a 40% chance that the Lava Lizard unlocks their respawn with each sacrifice
 			if(deliverymob && (deliverymob.mind?.has_antag_datum(/datum/antagonist/ashwalker)) && (deliverykey in ashies.players_spawned) && (prob(40)))
-				to_chat(deliverymob, "<span class='warning'><b>Некрополис удовлетворён вашей жертвой. Вы ощущаете уверенность в своём посмертии .</b></span>")
+				to_chat(deliverymob, span_warning("<b>Некрополис удовлетворён вашей жертвой. Вы ощущаете уверенность в своём посмертии .</b>"))
 				ashies.players_spawned -= deliverykey
 			H.gib()
 			obj_integrity = min(obj_integrity + max_integrity*0.05,max_integrity)//restores 5% hp of tendril
@@ -94,5 +103,5 @@
 /obj/structure/lavaland/ash_walker/proc/spawn_mob()
 	if(meat_counter >= ASH_WALKER_SPAWN_THRESHOLD)
 		new /obj/effect/mob_spawn/human/ash_walker(get_step(loc, pick(GLOB.alldirs)), ashies)
-		visible_message("<span class='danger'>Одно из яиц вырастает до ненормальных размеров и свободно дергается. Оно готово к вылуплению!</span>")
+		visible_message(span_danger("Одно из яиц вырастает до ненормальных размеров и свободно дергается. Оно готово к вылуплению!"))
 		meat_counter -= ASH_WALKER_SPAWN_THRESHOLD

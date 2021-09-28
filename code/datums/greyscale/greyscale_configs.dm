@@ -134,3 +134,21 @@
 	name = "Wheeled Sneakers"
 	icon_file = 'icons/obj/clothing/shoes.dmi'
 	json_config = 'code/datums/greyscale/json_configs/sneakers_wheelys.json'
+
+/datum/greyscale_config/beret
+	name = "Beret"
+	icon_file = 'icons/obj/clothing/hats.dmi'
+	json_config = 'code/datums/greyscale/json_configs/beret.json'
+
+/datum/greyscale_config/beret/worn
+	name = "Beret Worn"
+	json_config = 'code/datums/greyscale/json_configs/beret_worn.json'
+
+/datum/greyscale_config/beret_badge
+	name = "Beret With Badge"
+	icon_file = 'icons/obj/clothing/hats.dmi'
+	json_config = 'code/datums/greyscale/json_configs/beret_badge.json'
+
+/datum/greyscale_config/beret_badge/worn
+	name = "Beret With Badge Worn"
+	json_config = 'code/datums/greyscale/json_configs/beret_badge_worn.json'

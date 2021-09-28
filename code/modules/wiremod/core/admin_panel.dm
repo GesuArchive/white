@@ -1,6 +1,6 @@
 /// An admin verb to view all circuits, plus useful information
 /datum/admins/proc/view_all_circuits()
-	set category = "Admin.Game"
+	set category = "Адм.Игра"
 	set name = "View All Circuits"
 
 	var/static/datum/circuit_admin_panel/circuit_admin_panel = new
@@ -39,7 +39,7 @@
 
 	switch (action)
 		if ("duplicate_circuit")
-			if (alert(usr, "This will spawn the new circuit at where you are, are you sure?", "Confirm", "Yes", "No") != "Yes")
+			if (alert(usr, "This will spawn the new circuit at where you are, are you sure?", "Confirm", list("Yes", "No")) != "Yes")
 				return FALSE
 
 			var/list/errors = list()

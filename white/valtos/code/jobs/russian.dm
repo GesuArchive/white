@@ -6,6 +6,9 @@
 	outfit = /datum/outfit/job/security/omon
 	assign_dep = FALSE
 
+	skills = list(/datum/skill/ranged = SKILL_EXP_EXPERT)
+	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_EXPERT)
+
 /datum/job/security_officer/veteran
 	title = "Veteran"
 	ru_title = "Ветеран"
@@ -17,6 +20,9 @@
 	exp_type_department = EXP_TYPE_SECURITY
 	outfit = /datum/outfit/job/security/veteran
 	assign_dep = FALSE
+
+	skills = list(/datum/skill/ranged = SKILL_EXP_MASTER)
+	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_EXPERT)
 
 /datum/id_trim/job/omon
 	assignment = "Russian Officer"

@@ -15,8 +15,8 @@
 /obj/item/implant/exile/removed(mob/living/target, silent = FALSE, special = FALSE)
 	. = ..()
 	ADD_TRAIT(target, TRAIT_PACIFISM, "sosi")
-	target.visible_message("<span class='danger'>Имплант разрывается и испускает гигансткое облако из наном~- <big>ААААААААААААААААААААААААА!!!</big></span>", \
-		"<span class='userdanger'>$*$(*@%@!^&за мир во всём мире!</span>", vision_distance = 2)
+	target.visible_message(span_danger("Имплант разрывается и испускает гигансткое облако из наном~- <big>ААААААААААААААААААААААААА!!!</big>") , \
+		span_userdanger("$*$(*@%@!^&за мир во всём мире!") , vision_distance = 2)
 	for(var/mob/living/carbon/human/H in view(1, get_turf(target)))
 		H.adjustBruteLoss(49)
 		H.adjustFireLoss(49)

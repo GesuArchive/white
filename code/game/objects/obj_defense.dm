@@ -105,7 +105,7 @@
 	. = ..()
 	playsound(src, P.hitsound, 50, TRUE)
 	if(P.suppressed != SUPPRESSED_VERY)
-		visible_message("<span class='danger'>В <b>[src]</b> попадает <b>[P.name]</b>!</span>", null, null, COMBAT_MESSAGE_RANGE)
+		visible_message(span_danger("В <b>[src]</b> попадает <b>[P.name]</b>!") , null, null, COMBAT_MESSAGE_RANGE)
 	if(!QDELETED(src)) //Bullet on_hit effect might have already destroyed this object
 		take_damage(P.damage, P.damage_type, P.flag, 0, turn(P.dir, 180), P.armour_penetration)
 
@@ -115,7 +115,7 @@
 
 /obj/attack_hulk(mob/living/carbon/human/user)
 	..()
-	user.visible_message("<span class='danger'>[user] smashes [src]!</span>", "<span class='danger'>You smash [src]!</span>", null, COMBAT_MESSAGE_RANGE)
+	user.visible_message(span_danger("[user] smashes [src]!") , span_danger("You smash [src]!") , null, COMBAT_MESSAGE_RANGE)
 	if(density)
 		playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
 	else

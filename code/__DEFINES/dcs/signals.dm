@@ -974,6 +974,8 @@
 #define COMSIG_MOB_FIRED_GUN "mob_fired_gun"
 ///called in /obj/item/gun/process_fire (user, target, params, zone_override)
 #define COMSIG_GUN_FIRED "gun_fired"
+///called in /obj/item/gun/process_chamber (src)
+#define COMSIG_GUN_CHAMBER_PROCESSED "gun_chamber_processed"
 ///called in /obj/item/gun/ballistic/process_chamber (casing)
 #define COMSIG_CASING_EJECTED "casing_ejected"
 
@@ -1180,6 +1182,17 @@
 // /datum/component/swabbing signals
 #define COMSIG_SWAB_FOR_SAMPLES "swab_for_samples" ///Called when you try to swab something using the swabable component, includes a mutable list of what has been swabbed so far so it can be modified.
 	#define COMPONENT_SWAB_FOUND (1<<0)
+
+// /datum/component/transforming signals
+
+/// From /datum/component/transforming/proc/on_attack_self(obj/item/source, mob/user): (obj/item/source, mob/user, active)
+#define COMSIG_TRANSFORMING_PRE_TRANSFORM "transforming_pre_transform"
+	/// Return COMPONENT_BLOCK_TRANSFORM to prevent the item from transforming.
+	#define COMPONENT_BLOCK_TRANSFORM (1<<0)
+/// From /datum/component/transforming/proc/do_transform(obj/item/source, mob/user): (obj/item/source, mob/user, active)
+#define COMSIG_TRANSFORMING_ON_TRANSFORM "transforming_on_transform"
+	/// Return COMPONENT_NO_DEFAULT_MESSAGE to prevent the transforming component from displaying the default transform message / sound.
+	#define COMPONENT_NO_DEFAULT_MESSAGE (1<<0)
 
 // /datum/component/two_handed signals
 

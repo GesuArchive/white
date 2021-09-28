@@ -1,5 +1,7 @@
 /datum/orbital_object/shuttle
 	name = "Шаттл"
+	collision_type = COLLISION_SHUTTLES
+	collision_flags = COLLISION_Z_LINKED | COLLISION_METEOR
 	var/shuttle_port_id
 	//Shuttle data
 	var/max_thrust = 10
@@ -57,8 +59,7 @@
 	if(!QDELETED(docking_target))
 		velocity.x = 0
 		velocity.y = 0
-		position.x = docking_target.position.x
-		position.y = docking_target.position.y
+		MOVE_ORBITAL_BODY(src, docking_target.position.x, docking_target.position.y)
 		//Disable autopilot and thrust while docking to prevent fuel usage.
 		thrust = 0
 		angle = 0
@@ -70,8 +71,7 @@
 	//I hate that I have to do this, but people keep flying them away.
 	if(position.x > 20000 || position.x < -20000 || position.y > 20000 || position.y < -20000)
 		priority_announce("Разрыв блюспейс ткани обнаружен, источник: [name].")
-		position.x = rand(-2000, 2000)
-		position.y = rand(-2000, 2000)
+		MOVE_ORBITAL_BODY(src, rand(-2000, 2000), rand(-2000, 2000))
 		velocity.x = 0
 		velocity.y = 0
 		thrust = 0

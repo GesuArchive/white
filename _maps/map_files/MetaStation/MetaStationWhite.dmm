@@ -8676,7 +8676,7 @@
 /obj/item/clothing/head/beret/sec/navyofficer,
 /obj/item/clothing/head/beret/sec/navyofficer,
 /obj/item/clothing/head/beret/sec/navywarden,
-/obj/item/clothing/head/beret/sec/navyhos,
+/obj/item/clothing/head/hos/beret/navyhos,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
@@ -25089,13 +25089,13 @@
 /obj/item/radio/intercom{
 	pixel_y = 29
 	},
-/obj/machinery/modular_computer/console/preset/engineering,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/machinery/computer/price_controller,
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "bkE" = (
@@ -68431,10 +68431,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/warden)
-"npJ" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/space)
 "npN" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -120180,7 +120176,7 @@ cLJ
 cor
 cmZ
 jLo
-npJ
+hcY
 aav
 aav
 aav

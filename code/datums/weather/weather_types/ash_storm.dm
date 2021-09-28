@@ -3,16 +3,16 @@
 	name = "ash storm"
 	desc = "Интенсивная атмосферная буря поднимает пепел с поверхности планеты и вздымает его по всей области, нанося интенсивный урон от огня незащищенным."
 
-	telegraph_message = "<span class='boldwarning'>Жуткий стон ветра слышен. Куски горящего пепла чернят горизонт. Пора искать убежище.</span>"
+	telegraph_message = span_boldwarning("Жуткий стон ветра слышен. Куски горящего пепла чернят горизонт. Пора искать убежище.")
 	telegraph_duration = 300
 	telegraph_overlay = "light_ash"
 
-	weather_message = "<span class='userdanger'><i>Тлеющие тучи палящего пепла вокруг меня! В УБЕЖИЩЕ!</i></span>"
+	weather_message = span_userdanger("<i>Тлеющие тучи палящего пепла вокруг меня! В УБЕЖИЩЕ!</i>")
 	weather_duration_lower = 600
 	weather_duration_upper = 1200
 	weather_overlay = "ash_storm"
 
-	end_message = "<span class='boldannounce'>Визжащий ветер смахивает остатки пепла и возвращает его обычный шум. Теперь должно быть безопасно выйти наружу.</span>"
+	end_message = span_boldannounce("Визжащий ветер смахивает остатки пепла и возвращает его обычный шум. Теперь должно быть безопасно выйти наружу.")
 	end_duration = 300
 	end_overlay = "light_ash"
 
@@ -93,10 +93,10 @@
 	name = "emberfall"
 	desc = "Проходящий пепельный шторм покрывает область в безобидных углях."
 
-	weather_message = "<span class='notice'>Нежные тлеющие угольки летят вокруг меня, как гротескный снег. Шторм, кажется, прошел мимо меня...</span>"
+	weather_message = span_notice("Нежные тлеющие угольки летят вокруг меня, как гротескный снег. Шторм, кажется, прошел мимо меня...")
 	weather_overlay = "light_ash"
 
-	end_message = "<span class='notice'>Пепельный шторм сначала замедляется, потом останавливается. Еще один слой отвердевшей сажи на базальте под ногами.</span>"
+	end_message = span_notice("Пепельный шторм сначала замедляется, потом останавливается. Еще один слой отвердевшей сажи на базальте под ногами.")
 	end_sound = null
 
 	aesthetic = TRUE

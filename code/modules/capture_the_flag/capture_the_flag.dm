@@ -41,6 +41,7 @@
 	. = ..()
 	if(!reset)
 		reset = new reset_path(get_turf(src))
+		reset.flag = src
 	RegisterSignal(src, COMSIG_PARENT_PREQDELETED, .proc/reset_flag) //just in case CTF has some map hazards (read: chasms).
 
 /obj/item/ctf/ComponentInitialize()
@@ -56,12 +57,15 @@
 /obj/item/ctf/proc/reset_flag(capture = FALSE)
 	SIGNAL_HANDLER
 
-	forceMove(get_turf(src.reset))
+	var/turf/our_turf = get_turf(src.reset)
+	if(!our_turf)
+		return TRUE
+	forceMove(our_turf)
 	for(var/mob/M in GLOB.player_list)
 		var/area/mob_area = get_area(M)
 		if(istype(mob_area, game_area))
 			if(!capture)
-				to_chat(M, "<span class='userdanger'>[src] возвращен на базу!</span>")
+				to_chat(M, span_userdanger("[src] возвращен на базу!"))
 	STOP_PROCESSING(SSobj, src)
 	return TRUE //so if called by a signal, it doesn't delete
 
@@ -69,10 +73,10 @@
 /obj/item/ctf/attack_hand(mob/living/user)
 	//pre normal check item stuff, this is for our special flag checks
 	if(!is_ctf_target(user) && !anyonecanpickup)
-		to_chat(user, "<span class='warning'>Флаг могут двигать только игроки!</span>")
+		to_chat(user, span_warning("Флаг могут двигать только игроки!"))
 		return
 	if(team in user.faction)
-		to_chat(user, "<span class='warning'>Не могу двигать свой флаг!</span>")
+		to_chat(user, span_warning("Не могу двигать свой флаг!"))
 		return
 	if(loc == user)
 		if(!user.dropItemToGround(src))
@@ -80,7 +84,7 @@
 	for(var/mob/M in GLOB.player_list)
 		var/area/mob_area = get_area(M)
 		if(istype(mob_area, game_area))
-			to_chat(M, "<span class='userdanger'>[initial(src.name)] взят!</span>")
+			to_chat(M, span_userdanger("[initial(src.name)] взят!"))
 	STOP_PROCESSING(SSobj, src)
 	anchored = FALSE //normal checks need this to be FALSE to pass
 	. = ..() //this is the actual normal item checks
@@ -100,7 +104,7 @@
 	for(var/mob/M in GLOB.player_list)
 		var/area/mob_area = get_area(M)
 		if(istype(mob_area, game_area))
-			to_chat(M, "<span class='userdanger'>\The [initial(name)] упал!</span>")
+			to_chat(M, span_userdanger("\The [initial(name)] упал!"))
 	anchored = TRUE
 
 
@@ -144,6 +148,13 @@
 	icon_state = "banner"
 	desc = "Сюда вставляется знамя Нанотрейзен."
 	layer = LOW_ITEM_LAYER
+	var/obj/item/ctf/flag
+
+/obj/effect/ctf/flag_reset/Destroy()
+	if(flag)
+		flag.reset = null
+		flag = null
+	return ..()
 
 /obj/effect/ctf/flag_reset/red
 	name = "Точка красного флага"
@@ -197,7 +208,7 @@
 	resistance_flags = INDESTRUCTIBLE
 	var/game_id = "centcom"
 
-	var/victory_rejoin_text = "<span class='userdanger'>Игра окончена. Кликните на контроллеры чтобы проголосовать за новый раунд \"Захвата Флага\"</span>"
+	var/victory_rejoin_text = span_userdanger("Игра окончена. Кликните на контроллеры чтобы проголосовать за новый раунд \"Захвата Флага\"")
 	var/team = WHITE_TEAM
 	var/team_span = ""
 	//Capture the Flag scoring
@@ -281,18 +292,18 @@
 /obj/machinery/capture_the_flag/attack_ghost(mob/user)
 	if(ctf_enabled == FALSE)
 		if(user.client && user.client.holder)
-			var/response = alert("Enable this CTF game?", "CTF", "Yes", "No")
+			var/response = tgui_alert(usr,"Enable this CTF game?", "CTF", list("Yes", "No"))
 			if(response == "Yes")
 				toggle_id_ctf(user, game_id)
 			return
 
 
 		if(!(GLOB.ghost_role_flags & GHOSTROLE_MINIGAME))
-			to_chat(user, "<span class='warning'>\"Захват Флага\" был отключен администрацией.</span>")
+			to_chat(user, span_warning("\"Захват Флага\" был отключен администрацией."))
 			return
 		for(var/obj/machinery/capture_the_flag/CTF in GLOB.machines)
 			if(CTF.game_id != game_id && CTF.ctf_enabled)
-				to_chat(user, "<span class='warning'>На [get_area(CTF)] уже проводится игра!</span>")
+				to_chat(user, span_warning("На [get_area(CTF)] уже проводится игра!"))
 				return
 		people_who_want_to_play |= user.ckey
 		var/num = people_who_want_to_play.len
@@ -301,7 +312,7 @@
 			people_who_want_to_play.Cut()
 			toggle_id_ctf(null, game_id)
 		else
-			to_chat(user, "<span class='notice'>Запрос на запуск \"Захвата Флага\". [num]/[CTF_REQUIRED_PLAYERS] игроков готово.</span>")
+			to_chat(user, span_notice("Запрос на запуск \"Захвата Флага\". [num]/[CTF_REQUIRED_PLAYERS] игроков готово."))
 
 		return
 
@@ -309,7 +320,7 @@
 		return
 	if(user.ckey in team_members)
 		if(user.ckey in recently_dead_ckeys)
-			to_chat(user, "<span class='warning'>Нужно подождать еще [DisplayTimeText(respawn_cooldown)] с моей смерти!</span>")
+			to_chat(user, span_warning("Нужно подождать еще [DisplayTimeText(respawn_cooldown)] с моей смерти!"))
 			return
 		var/client/new_team_member = user.client
 		if(user.mind && user.mind.current)
@@ -321,10 +332,10 @@
 		if(CTF.game_id != game_id || CTF == src || CTF.ctf_enabled == FALSE)
 			continue
 		if(user.ckey in CTF.team_members)
-			to_chat(user, "<span class='warning'>Нельзя менять команду во время раунда!</span>")
+			to_chat(user, span_warning("Нельзя менять команду во время раунда!"))
 			return
 		if(CTF.team_members.len < src.team_members.len)
-			to_chat(user, "<span class='warning'>В [src.team] больше игроков чем в [CTF.team]! Попробуй присоединиться к [CTF.team] команде чтобы все было честно.</span>")
+			to_chat(user, span_warning("В [src.team] больше игроков чем в [CTF.team]! Попробуй присоединиться к [CTF.team] команде чтобы все было честно."))
 			return
 	var/client/new_team_member = user.client
 	if(user.mind && user.mind.current)
@@ -361,7 +372,7 @@
 	else //2-3 choices
 		var/list/names_only = assoc_list_strip_value(ctf_gear)
 		names_only.len += 1 //create a new null entry so if it's a 2-sized list, names_only[3] is null instead of out of bounds
-		var/result = alert(new_team_member, "Select a class.", "CTF", names_only[1], names_only[2], names_only[3])
+		var/result = tgui_alert(new_team_member, "Select a class.", "CTF", list(names_only[1], names_only[2], names_only[3]))
 		if(!result || !(GLOB.ghost_role_flags & GHOSTROLE_MINIGAME) || (new_team_member.ckey in recently_dead_ckeys) || !isobserver(new_team_member.mob))
 			return //picked nothing, admin disabled it, cheating to respawn faster, cheating to respawn... while in game?
 		chosen_class = ctf_gear[result]
@@ -754,7 +765,7 @@
 	if(!is_ctf_target(L))
 		return
 	if(!(src.team in L.faction))
-		to_chat(L, "<span class='danger'><B>Держись подальше от базы противника!</B></span>")
+		to_chat(L, span_danger("<B>Держись подальше от базы противника!</B>"))
 		L.death()
 
 /obj/structure/trap/ctf/red
@@ -823,7 +834,7 @@
 			for(var/obj/item/gun/G in M)
 				qdel(G)
 			O.equip(M)
-			to_chat(M, "<span class='notice'>Оружие снова заряжено!</span>")
+			to_chat(M, span_notice("Оружие снова заряжено!"))
 			playsound(get_turf(M), 'sound/weapons/gun/shotgun/rack.ogg', 50, TRUE, -1)
 			qdel(src)
 			break
@@ -841,6 +852,13 @@
 		if(CTF.game_id != game_id)
 			continue
 		CTF.dead_barricades += src
+
+/obj/effect/ctf/dead_barricade/Destroy()
+	for(var/obj/machinery/capture_the_flag/CTF in GLOB.machines)
+		if(CTF.game_id != game_id)
+			continue
+		CTF.dead_barricades -= src
+	return ..()
 
 /obj/effect/ctf/dead_barricade/proc/respawn()
 	if(!QDELETED(src))
@@ -884,7 +902,7 @@
 				for(var/mob/M in GLOB.player_list)
 					var/area/mob_area = get_area(M)
 					if(istype(mob_area, game_area))
-						to_chat(M, "<span class='userdanger'>[user.real_name] захватил \ [src] для [CTF.team]! Иди и забери обратно!</span>")
+						to_chat(M, span_userdanger("[user.real_name] захватил \ [src] для [CTF.team]! Иди и забери обратно!"))
 				break
 
 #undef WHITE_TEAM

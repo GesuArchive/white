@@ -4,6 +4,7 @@
 	greyscale_colors = "#545454#ffffff"
 	greyscale_config = /datum/greyscale_config/sneakers
 	greyscale_config_worn = /datum/greyscale_config/sneakers_worn
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/shoes/sneakers/black
 	name = "чёрные ботинки"
@@ -53,12 +54,14 @@
 	icon_state = "rain_bow"
 	greyscale_colors = null
 	greyscale_config = null
+	flags_1 = NONE
 
 /obj/item/clothing/shoes/sneakers/orange
 	name = "оранжевые ботинки"
 	greyscale_colors = "#eb7016#ffffff"
 	greyscale_config = /datum/greyscale_config/sneakers_orange
 	greyscale_config_worn = /datum/greyscale_config/sneakers_orange_worn
+	flags_1 = NONE
 
 /obj/item/clothing/shoes/sneakers/orange/attack_self(mob/user)
 	if (src.chained)
@@ -82,7 +85,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/C = user
 		if(C.shoes == src && chained == 1)
-			to_chat(user, "<span class='warning'>Мне бы не помешала помощь чтобы снять их!</span>")
+			to_chat(user, span_warning("Мне бы не помешала помощь чтобы снять их!"))
 			return FALSE
 	return ..()
 
@@ -91,7 +94,7 @@
 	if(ishuman(m))
 		var/mob/living/carbon/human/c = m
 		if(c.shoes == src && chained == 1)
-			to_chat(c, "<span class='warning'>Мне бы не помешала помощь чтобы снять их!</span>")
+			to_chat(c, span_warning("Мне бы не помешала помощь чтобы снять их!"))
 			return
 	return ..()
 

@@ -11,7 +11,7 @@
 	set hidden = 1
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Не могу молиться.</span>", confidential = TRUE)
+		to_chat(usr, span_danger("Не могу молиться.") , confidential = TRUE)
 		return
 
 	msg = copytext_char(sanitize(msg), 1, MAX_MESSAGE_LEN)
@@ -20,7 +20,7 @@
 	log_prayer("[src.key]/([src.name]): [msg]")
 	if(usr.client)
 		if(usr.client.prefs.muted & MUTE_PRAY)
-			to_chat(usr, "<span class='danger'>Не хочу молиться.</span>", confidential = TRUE)
+			to_chat(usr, span_danger("Не хочу молиться.") , confidential = TRUE)
 			return
 		if(src.client.handle_spam_prevention(msg,MUTE_PRAY))
 			return
@@ -49,7 +49,7 @@
 
 	var/msg_tmp = msg
 	GLOB.requests.pray(usr.client, msg, usr.job == "Chaplain")
-	msg = "<span class='adminnotice'>[icon2html(cross, GLOB.admins)]<b><font color=[font_color]>[prayer_type][deity ? " (to [deity])" : ""]: </font>[ADMIN_FULLMONTY(src)] [ADMIN_SC(src)] [ADMIN_SP(src)]:</b> <span class='linkify'>[msg]</span></span>"
+	msg = span_adminnotice("[icon2html(cross, GLOB.admins)]<b><font color=[font_color]>[prayer_type][deity ? " (to [deity])" : ""]: </font>[ADMIN_FULLMONTY(src)] [ADMIN_SC(src)] [ADMIN_SP(src)]:</b> <span class='linkify'>[msg]</span>")
 
 	for(var/client/C in GLOB.admins)
 		if(C.prefs.chat_toggles & CHAT_PRAYER)
@@ -57,7 +57,7 @@
 			if(C.prefs.toggles & SOUND_PRAYERS)
 				if(usr.job == "Chaplain")
 					SEND_SOUND(C, sound('sound/effects/pray.ogg'))
-	to_chat(usr, "<span class='info'>Молитва: \"[msg_tmp]\"</span>", confidential = TRUE)
+	to_chat(usr, span_info("Молитва: \"[msg_tmp]\"") , confidential = TRUE)
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Prayer") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 

@@ -42,7 +42,7 @@
 			if(get_location_accessible(target, target_zone) || surgery.ignore_clothes)
 				initiate(user, target, target_zone, tool, surgery, try_to_fail)
 			else
-				to_chat(user, "<span class='warning'>Мне нужно иметь доступ к [parse_zone(target_zone)] <b>[target]</b> для проведения хирургической операции!</span>")
+				to_chat(user, span_warning("Мне нужно иметь доступ к [parse_zone(target_zone)] <b>[target]</b> для проведения хирургической операции!"))
 			return TRUE	//returns TRUE so we don't stab the guy in the dick or wherever.
 
 	if(repeatable)
@@ -74,6 +74,9 @@
 	if(tool)
 		speed_mod = tool.toolspeed
 
+	if(user.mind)
+		speed_mod = speed_mod * user.mind.get_skill_modifier(/datum/skill/surgery, SKILL_SPEED_MODIFIER)
+
 	var/implement_speed_mod = 1
 	if(implement_type)	//this means it isn't a require hand or any item step.
 		implement_speed_mod = implements[implement_type] / 100.0
@@ -96,6 +99,11 @@
 		if((prob(100-fail_prob) || (iscyborg(user) && !silicons_obey_prob)) && chem_check_result && !try_to_fail)
 
 			if(success(user, target, target_zone, tool, surgery))
+				if(user.mind)
+					var/total_experience_gain = 1 + fail_prob
+					if(repeatable)
+						total_experience_gain *= 0.5
+					user.mind.adjust_experience(/datum/skill/surgery, total_experience_gain)
 				advance = TRUE
 		else
 			if(failure(user, target, target_zone, tool, surgery, fail_prob))
@@ -114,15 +122,15 @@
 	return advance
 
 /datum/surgery_step/proc/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>Начинаю выполнять операцию на <b>[target]</b>...</span>",
-		"<span class='notice'><b>[user]</b> начинает выполнять операцию на <b>[target]</b>.</span>",
-		"<span class='notice'><b>[user]</b> начинает выполнять операцию на <b>[target]</b>.</span>")
+	display_results(user, target, span_notice("Начинаю выполнять операцию на <b>[target]</b>...") ,
+		span_notice("<b>[user]</b> начинает выполнять операцию на <b>[target]</b>.") ,
+		span_notice("<b>[user]</b> начинает выполнять операцию на <b>[target]</b>."))
 
 /datum/surgery_step/proc/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = TRUE)
 	if(default_display_results)
-		display_results(user, target, "<span class='notice'>Успех.</span>",
-				"<span class='notice'><b>[user]</b> имеет успех!</span>",
-				"<span class='notice'><b>[user]</b> заканчивает.</span>")
+		display_results(user, target, span_notice("Успех.") ,
+				span_notice("<b>[user]</b> имеет успех!") ,
+				span_notice("<b>[user]</b> заканчивает."))
 	return TRUE
 
 /datum/surgery_step/proc/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, fail_prob = 0)
@@ -135,9 +143,9 @@
 		if(75 to 99)
 			screwedmessage = " Это практически невозможно в данных условиях..."
 
-	display_results(user, target, "<span class='warning'>Не вышло![screwedmessage]</span>",
-		"<span class='warning'><b>[user]</b> делает неправильно!</span>",
-		"<span class='notice'><b>[user]</b> заканчивает.</span>", TRUE) //By default the patient will notice if the wrong thing has been cut
+	display_results(user, target, span_warning("Не вышло![screwedmessage]") ,
+		span_warning("<b>[user]</b> делает неправильно!") ,
+		span_notice("<b>[user]</b> заканчивает.") , TRUE) //By default the patient will notice if the wrong thing has been cut
 	return FALSE
 
 /datum/surgery_step/proc/tool_check(mob/user, obj/item/tool)
@@ -174,4 +182,4 @@
 	user.visible_message(detailed_message, self_message, vision_distance = 1, ignored_mobs = target_detailed ? null : target)
 	if(!target_detailed)
 		var/you_feel = pick("a brief pain", "your body tense up", "an unnerving sensation")
-		target.show_message(vague_message, MSG_VISUAL, "<span class='notice'>You feel [you_feel] as you are operated on.</span>")
+		target.show_message(vague_message, MSG_VISUAL, span_notice("You feel [you_feel] as you are operated on."))

@@ -33,6 +33,10 @@
 
 /obj/item/clothing/head/helmet/space/hardsuit/Destroy()
 	. = ..()
+	if(!QDELETED(suit))
+		qdel(suit)
+	suit = null
+	QDEL_NULL(soundloop)
 	STOP_PROCESSING(SSobj, src)
 
 /obj/item/clothing/head/helmet/space/hardsuit/attack_self(mob/user)
@@ -115,7 +119,6 @@
 	var/obj/item/tank/jetpack/suit/jetpack = null
 	var/hardsuit_type
 
-
 /obj/item/clothing/suit/space/hardsuit/Initialize()
 	if(jetpack && ispath(jetpack))
 		jetpack = new jetpack(src)
@@ -133,44 +136,44 @@
 /obj/item/clothing/suit/space/hardsuit/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/tank/jetpack/suit))
 		if(jetpack)
-			to_chat(user, "<span class='warning'>Джетпак [src] уже установлен.</span>")
+			to_chat(user, span_warning("Джетпак [src] уже установлен."))
 			return
 		if(src == user.get_item_by_slot(ITEM_SLOT_OCLOTHING)) //Make sure the player is not wearing the suit before applying the upgrade.
-			to_chat(user, "<span class='warning'>Не могу установить улучшение [src] пока он надет.</span>")
+			to_chat(user, span_warning("Не могу установить улучшение [src] пока он надет."))
 			return
 
 		if(user.transferItemToLoc(I, src))
 			jetpack = I
-			to_chat(user, "<span class='notice'>Успешно установил джетпак в [src].</span>")
+			to_chat(user, span_notice("Успешно установил джетпак в [src]."))
 			return
 	else if(!cell_cover_open && I.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!jetpack)
-			to_chat(user, "<span class='warning'>Джетпак [src] не установлен.</span>")
+			to_chat(user, span_warning("Джетпак [src] не установлен."))
 			return
 		if(src == user.get_item_by_slot(ITEM_SLOT_OCLOTHING))
-			to_chat(user, "<span class='warning'>Не могу вытащить джетпак из надетого [src].</span>")
+			to_chat(user, span_warning("Не могу вытащить джетпак из надетого [src]."))
 			return
 
 		jetpack.turn_off(user)
 		jetpack.forceMove(drop_location())
 		jetpack = null
-		to_chat(user, "<span class='notice'>Успешно вытащил джетпак из [src].</span>")
+		to_chat(user, span_notice("Успешно вытащил джетпак из [src]."))
 		return
 	else if(istype(I, /obj/item/light) && helmettype)
 		if(src == user.get_item_by_slot(ITEM_SLOT_OCLOTHING))
-			to_chat(user, "<span class='warning'>Не могу заменить лампочку на шлеме [src] пока он надет.</span>")
+			to_chat(user, span_warning("Не могу заменить лампочку на шлеме [src] пока он надет."))
 			return
 		if(helmet)
-			to_chat(user, "<span class='warning'>Шлему [src] не нужна новая лампочка.</span>")
+			to_chat(user, span_warning("Шлему [src] не нужна новая лампочка."))
 			return
 		var/obj/item/light/L = I
 		if(L.status)
-			to_chat(user, "<span class='warning'>Эта лампочка слишком повреждена чтобы использовать её в качестве замены!</span>")
+			to_chat(user, span_warning("Эта лампочка слишком повреждена чтобы использовать её в качестве замены!"))
 			return
 		if(do_after(user, 5 SECONDS, src))
 			qdel(I)
 			helmet = new helmettype(src)
-			to_chat(user, "<span class='notice'>Успешно заменил лампочку на шлеме [src].</span>")
+			to_chat(user, span_notice("Успешно заменил лампочку на шлеме [src]."))
 			new /obj/item/light/bulb/broken(drop_location())
 	return ..()
 
@@ -199,7 +202,7 @@
 	var/mob/living/carbon/human/user = src.loc
 	if(istype(user))
 		user.apply_damage(HARDSUIT_EMP_BURN, BURN, spread_damage=TRUE)
-		to_chat(user, "<span class='warning'>You feel <b>[src.name]</b> heat up from the EMP burning you slightly.</span>")
+		to_chat(user, span_warning("You feel <b>[src.name]</b> heat up from the EMP burning you slightly."))
 
 		// Chance to scream
 		if (user.stat < UNCONSCIOUS && prob(10))
@@ -381,11 +384,11 @@
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/attack_self(mob/user) //Toggle Helmet
 	if(!isturf(user.loc))
-		to_chat(user, "<span class='warning'>Не могу переключить шлем. На нём [user.loc]!</span>" )
+		to_chat(user, span_warning("Не могу переключить шлем. На нём [user.loc]!")  )
 		return
 	on = !on
 	if(on || force)
-		to_chat(user, "<span class='notice'>Переключаю костюм в режим скафандра, жертвуем скоростью для защиты от космоса.</span>")
+		to_chat(user, span_notice("Переключаю костюм в режим скафандра, жертвуем скоростью для защиты от космоса."))
 		name = initial(name)
 		desc = initial(desc)
 		set_light_on(TRUE)
@@ -394,7 +397,7 @@
 		flags_inv |= visor_flags_inv
 		cold_protection |= HEAD
 	else
-		to_chat(user, "<span class='notice'>Переключаю костюм в боевой режим. Скорость увеличена.</span>")
+		to_chat(user, span_notice("Переключаю костюм в боевой режим. Скорость увеличена."))
 		name += " (боевой)"
 		desc = alt_desc
 		set_light_on(FALSE)
@@ -444,7 +447,7 @@
 	hardsuit_type = "syndi"
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(MELEE = 40, BULLET = 50, LASER = 30, ENERGY = 40, BOMB = 35, BIO = 100, RAD = 50, FIRE = 50, ACID = 90, WOUND = 25)
-	allowed = list(/obj/item/gun, /obj/item/ammo_box,/obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
+	allowed = list(/obj/item/gun, /obj/item/ammo_box,/obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi
 	jetpack = /obj/item/tank/jetpack/suit
 	cell = /obj/item/stock_parts/cell/hyper
@@ -905,14 +908,11 @@
 	inhand_icon_state = "syndie_hardsuit"
 	hardsuit_type = "syndi"
 	armor = list(MELEE = 40, BULLET = 50, LASER = 30, ENERGY = 40, BOMB = 35, BIO = 100, RAD = 50, FIRE = 100, ACID = 100, WOUND = 30)
-	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
+	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/shielded/syndi
 	slowdown = 0
 	shield_icon = "shield-red"
-
-/obj/item/clothing/suit/space/hardsuit/shielded/syndi/Initialize()
-	jetpack = new /obj/item/tank/jetpack/suit(src)
-	. = ..()
+	jetpack = /obj/item/tank/jetpack/suit
 
 /obj/item/clothing/head/helmet/space/hardsuit/shielded/syndi
 	name = "кроваво-красный шлем"

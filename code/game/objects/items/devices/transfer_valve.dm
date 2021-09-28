@@ -15,40 +15,44 @@
 	var/valve_open = FALSE
 	var/toggle = TRUE
 
+/obj/item/transfer_valve/Destroy()
+	attached_device = null
+	return ..()
+
 /obj/item/transfer_valve/IsAssemblyHolder()
 	return TRUE
 
 /obj/item/transfer_valve/attackby(obj/item/item, mob/user, params)
 	if(istype(item, /obj/item/tank))
 		if(tank_one && tank_two)
-			to_chat(user, "<span class='warning'>There are already two tanks attached, remove one first!</span>")
+			to_chat(user, span_warning("There are already two tanks attached, remove one first!"))
 			return
 
 		if(!tank_one)
 			if(!user.transferItemToLoc(item, src))
 				return
 			tank_one = item
-			to_chat(user, "<span class='notice'>You attach the tank to the transfer valve.</span>")
+			to_chat(user, span_notice("You attach the tank to the transfer valve."))
 		else if(!tank_two)
 			if(!user.transferItemToLoc(item, src))
 				return
 			tank_two = item
-			to_chat(user, "<span class='notice'>You attach the tank to the transfer valve.</span>")
+			to_chat(user, span_notice("You attach the tank to the transfer valve."))
 
 		update_icon()
 //TODO: Have this take an assemblyholder
 	else if(isassembly(item))
 		var/obj/item/assembly/A = item
 		if(A.secured)
-			to_chat(user, "<span class='notice'>The device is secured.</span>")
+			to_chat(user, span_notice("The device is secured."))
 			return
 		if(attached_device)
-			to_chat(user, "<span class='warning'>There is already a device attached to the valve, remove it first!</span>")
+			to_chat(user, span_warning("There is already a device attached to the valve, remove it first!"))
 			return
 		if(!user.transferItemToLoc(item, src))
 			return
 		attached_device = A
-		to_chat(user, "<span class='notice'>You attach the [item] to the valve controls and secure it.</span>")
+		to_chat(user, span_notice("You attach the [item] to the valve controls and secure it."))
 		A.on_attach()
 		A.holder = src
 		A.toggle_secure()	//this calls update_icon(), which calls update_icon() on the holder (i.e. the bomb).
@@ -248,3 +252,22 @@
  */
 /obj/item/transfer_valve/proc/ready()
 	return tank_one && tank_two
+
+
+/obj/item/transfer_valve/equipped(mob/living/carbon/user, slot)
+	. = ..()
+
+	if(user.ckey == "erring")
+		playsound(user, 'white/rebolution228/sounds/misc/alleiluya.ogg', 80, 1)
+		shake_camera(user, 3, 3)
+		to_chat(user, span_userdanger("† Чувствую, как сила Божья поглощает мое грешное тело! †"))
+		user.overlay_fullscreen("thegod", /atom/movable/screen/fullscreen/pain)
+		user.Paralyze(990)
+		user.set_light_color(COLOR_VERY_SOFT_YELLOW)
+		user.set_light(2)
+		user.add_overlay(mutable_appearance('icons/effects/genetics.dmi', "servitude", -MUTATIONS_LAYER))
+
+		spawn(30)
+		user.dust()
+	else 
+		return ..()

@@ -103,7 +103,7 @@
 /mob/living/simple_animal/hostile/carp/proc/chomp_plastic()
 	var/obj/item/storage/cans/tasty_plastic = locate(/obj/item/storage/cans) in view(1, src)
 	if(tasty_plastic && Adjacent(tasty_plastic))
-		visible_message("<span class='notice'>[capitalize(src.name)] gets its head stuck in [tasty_plastic], and gets cut breaking free from it!</span>", "<span class='notice'>Пытаюсь avoid [tasty_plastic], but it looks so... delicious... Ow! It cuts the inside of your mouth!</span>")
+		visible_message(span_notice("[capitalize(src.name)] gets its head stuck in [tasty_plastic], and gets cut breaking free from it!") , span_notice("Пытаюсь avoid [tasty_plastic], but it looks so... delicious... Ow! It cuts the inside of your mouth!"))
 
 		new /obj/effect/decal/cleanable/plastic(loc)
 
@@ -252,7 +252,7 @@
 /mob/living/simple_animal/hostile/carp/cayenne/examine(mob/user)
 	. = ..()
 	if(disky)
-		. += "<span class='notice'>Wait... is that [disky] in [p_their()] mouth?</span>"
+		. += span_notice("Wait... is that [disky] in [p_their()] mouth?")
 
 /mob/living/simple_animal/hostile/carp/cayenne/AttackingTarget(atom/attacked_target)
 	if(istype(attacked_target, /obj/item/disk/nuclear))
@@ -261,14 +261,14 @@
 			return
 		potential_disky.forceMove(src)
 		disky = potential_disky
-		to_chat(src, "<span class='nicegreen'>YES!! You manage to pick up [disky]. (Click anywhere to place it back down.)</span>")
+		to_chat(src, span_nicegreen("YES!! You manage to pick up [disky]. (Click anywhere to place it back down.)"))
 		update_icon()
 		if(!disky.fake)
 			client.give_award(/datum/award/achievement/misc/cayenne_disk, src)
 		return
 	if(disky)
 		if(isopenturf(attacked_target))
-			to_chat(src, "<span class='notice'>You place [disky] on [attacked_target]</span>")
+			to_chat(src, span_notice("You place [disky] on [attacked_target]"))
 			disky.forceMove(attacked_target.drop_location())
 			disky = null
 			update_icon()
@@ -290,4 +290,32 @@
 	. += colored_disk_mouth
 	. += mutable_appearance(disk_overlay_file, "disk_overlay")
 
-#undef REGENERATION_DELAY
+/mob/living/simple_animal/hostile/carp/bluespacecarp
+	name = "Блюспэйскарп"
+	desc = "Интересная зверушка, постоянно мерцает. Интересно, на какой частоте?"
+	maxHealth = 90
+	health = 90
+	harm_intent_damage = 5
+	attack_verb_continuous = "прожигает"
+	attack_verb_simple = "прожигает"
+	attack_sound = 'sound/weapons/blaster.ogg'
+	rarechance = 10
+	melee_damage_type = BURN
+	butcher_results = list(/obj/item/food/fishmeat/carp = 2, /obj/item/stack/telecrystal = 2)
+	var/safe_cooldown = 20
+	var/safe
+
+/mob/living/simple_animal/hostile/carp/bluespacecarp/Initialize()
+	safe = world.time
+	. = ..()
+
+/mob/living/simple_animal/hostile/carp/bluespacecarp/attackby(obj/item/W, mob/user, params)
+	if(safe+safe_cooldown <= world.time && stat != DEAD)
+		do_sparks(1, FALSE, src)
+		to_chat(user,("[src.name] дематериализуется и удар пролетает насквозь!"))
+		safe = world.time
+		if(prob(20))
+			empulse(src, 2, 5)
+		return
+	else
+		return ..()

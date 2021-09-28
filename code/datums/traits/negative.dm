@@ -8,11 +8,11 @@
 
 /datum/quirk/badback
 	name = "Больная спина"
-	desc = " Из-за вашей плохой осанки рюкзаки будет носить ОЧЕНЬ неудобно."
+	desc = "Из-за моей плохой осанки рюкзаки будет носить КРАЙНЕ неудобно."
 	value = -8
 	mood_quirk = TRUE
-	gain_text = "<span class='danger'>Моя спина ОЧЕНЬ СИЛЬНО болит!</span>"
-	lose_text = "<span class='notice'>Моя спина чувствует себя лучше...</span>"
+	gain_text = span_danger("Моя спина ОЧЕНЬ СИЛЬНО болит!")
+	lose_text = span_notice("Моя спина чувствует себя лучше...")
 	medical_record_text = "Сканирование пациента даёт показание, что его спина сильно болит."
 	hardcore_value = 4
 
@@ -25,10 +25,10 @@
 
 /datum/quirk/blooddeficiency
 	name = "Дефицит крови"
-	desc = "Ваш организм не может производить достаточно крови для нормального функционирования."
+	desc = "Мой организм не будет производить достаточно крови для нормального функционирования."
 	value = -8
-	gain_text = "<span class='danger'>Чувствую онемение.</span>"
-	lose_text = "<span class='notice'>Чувствую себя бодрым!</span>"
+	gain_text = span_danger("Чувствую онемение.")
+	lose_text = span_notice("Чувствую себя бодрым!")
 	medical_record_text = " Пациенту необходима дополнительная помощь для переливания крови из-за её дефицита в организме."
 	hardcore_value = 8
 
@@ -42,10 +42,10 @@
 
 /datum/quirk/blindness
 	name = "Слепой"
-	desc = "Я абсолютно слеп. Ничего не может воспрепятствовать этому."
+	desc = "Я буду абсолютно слепым. Ничего не сможет воспрепятствовать этому."
 	value = -16
-	gain_text = "<span class='danger'>Ничего не вижу!</span>"
-	lose_text = "<span class='notice'>Чудесным образом снова вижу!</span>"
+	gain_text = span_danger("Ничего не вижу!")
+	lose_text = span_notice("Чудесным образом снова вижу!")
 	medical_record_text = "Пациент имеет постоянную слепоту."
 	hardcore_value = 15
 
@@ -65,10 +65,10 @@
 	 */
 /datum/quirk/brainproblems
 	name = "Паразит в голове"
-	desc = "В вашей голове завёлся маленький дружок, который медленно уничтожает ваш мозг. Будет хорошим выбором носить с собой маннитол."
+	desc = "В моей голове заведётся маленький дружок, который медленно будет пожирать мой мозг. Будет хорошим выбором носить с собой маннитол."
 	value = -12
-	gain_text = "<span class='danger'>Чувствую боль в голове.</span>"
-	lose_text = "<span class='notice'>Чувствую, что голова перестала болеть.</span>"
+	gain_text = span_danger("Чувствую боль в голове.")
+	lose_text = span_notice("Чувствую, что голова перестала болеть.")
 	medical_record_text = "Пациент имеет паразита в своей голове, который медленно пожирает его мозг, и в скором будущем это может привести к летальному исходу."
 	hardcore_value = 12
 	/// Location of the bottle of pills on spawn
@@ -90,7 +90,7 @@
 		var/mob/living/carbon/human/H = quirk_holder
 		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 
-	to_chat(quirk_holder, "<span class='boldnotice'>У вас имеется пачка маннитола [where], которая будет помогать вам остаться в живых. Не стоит слишком сильно надеяться на него!</span>")
+	to_chat(quirk_holder, span_boldnotice("У вас имеется пачка маннитола [where], которая будет помогать вам остаться в живых. Не стоит слишком сильно надеяться на него!"))
 
 /datum/quirk/brainproblems/on_process(delta_time)
 	if(HAS_TRAIT(quirk_holder, TRAIT_TUMOR_SUPPRESSED))
@@ -99,21 +99,21 @@
 
 /datum/quirk/deafness
 	name = "Глухонемой"
-	desc = "Я ничего не слышу."
+	desc = "Я перестану слышать какие-либо звуки."
 	value = -8
 	mob_trait = TRAIT_DEAF
-	gain_text = "<span class='danger'>Не могу слышать.</span>"
-	lose_text = "<span class='notice'>Теперь я снова слышу!</span>"
+	gain_text = span_danger("Не могу слышать.")
+	lose_text = span_notice("Теперь я снова слышу!")
 	medical_record_text = "Ушная улитка пациента повреждена и не подвергается лечению."
 	hardcore_value = 12
 
 /datum/quirk/depression
 	name = "Депрессивный"
-	desc = "Иногда я просто ненавижу свою жизнь."
+	desc = "Иногда я просто буду ненавидеть свою жизнь."
 	mob_trait = TRAIT_DEPRESSION
 	value = -3
-	gain_text = "<span class='danger'>Чувствую себя депрессивным.</span>"
-	lose_text = "<span class='notice'>Больше не чувствую себя депрессивным.</span>" // если один это было так легко!
+	gain_text = span_danger("Чувствую себя депрессивным.")
+	lose_text = span_notice("Больше не чувствую себя депрессивным.")  // если один это было так легко!
 	medical_record_text = "Пациент имеет серьёзное психическое заболевание, в результате чего у него возникают острые эпизоды депрессии."
 	mood_quirk = TRUE
 	hardcore_value = 1
@@ -124,7 +124,7 @@
 
 /datum/quirk/family_heirloom
 	name = "Семейная реликвия"
-	desc = "Я являетесь владельцем семейной реликвии, которая передаётся мне из поколения в поколение. Стоит держать это с собой!"
+	desc = "Вы будете являться владельцем семейной реликвии, которая передаётся вам из поколения в поколение. Стоило бы держать эту реликвию всегда с собой."
 	value = -2
 	mood_quirk = TRUE
 	var/obj/item/heirloom
@@ -236,7 +236,7 @@
 		var/mob/living/carbon/human/H = quirk_holder
 		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 
-	to_chat(quirk_holder, "<span class='boldnotice'>Дорогая для вас реликвия [heirloom.name] [where], передавалась из поколения в поколение. Хранить в безопасности!</span>")
+	to_chat(quirk_holder, span_boldnotice("Дорогая для вас реликвия [heirloom.name] [where], передавалась из поколения в поколение. Хранить в безопасности!"))
 
 	var/list/names = splittext(quirk_holder.real_name, " ")
 	var/family_name = names[names.len]
@@ -261,27 +261,27 @@
 	desc = "Ваши кости очень хрупкие! Ваши конечности не смогут выдержать слишком много повреждений."
 	value = -6
 	mob_trait = TRAIT_EASILY_WOUNDED
-	gain_text = "<span class='danger'>Чувствую себя слабым.</span>"
-	lose_text = "<span class='notice'>Вновь чувствую себя крепким!</span>"
+	gain_text = span_danger("Чувствую себя слабым.")
+	lose_text = span_notice("Вновь чувствую себя крепким!")
 	medical_record_text = "Пациент имеет очень слабые кости, рекомендуется кальцевая диета."
 	hardcore_value = 4
 
 /datum/quirk/heavy_sleeper
 	name = "Крепкий сон"
-	desc = " Я крепко сплю! Всякий раз, когда я ложусь спать или теряю сознание, мне потребуется немного больше времени, чтобы встать."
+	desc = "Я буду крепко спать. Время на пробуждение будет слегка увеличено."
 	value = -2
 	mob_trait = TRAIT_HEAVY_SLEEPER
-	gain_text = "<span class='danger'>Чувствую себя вялым.</span>"
-	lose_text = "<span class='notice'>Вновь чувствую себя бодрым!</span>"
+	gain_text = span_danger("Чувствую себя вялым.")
+	lose_text = span_notice("Вновь чувствую себя бодрым!")
 	medical_record_text = "Пациент имеет отрицательные результаты качества сна и его трудно разбудить."
 	hardcore_value = 2
 
 /datum/quirk/hypersensitive
 	name = "Нытик"
-	desc = "Хорошо ли это, или плохо, но влияние на ваше настроение более сильное, чем должно быть."
+	desc = "Хорошо ли это, или плохо, но влияние на мое настроение будет более сильнее, чем должно быть."
 	value = -2
-	gain_text = "<span class='danger'>Мне хочется создать одну огромную проблему из всего.</span>"
-	lose_text = "<span class='notice'>Вам больше не хочется устраивать шумиху.</span>"
+	gain_text = span_danger("Мне хочется создать одну огромную проблему из всего.")
+	lose_text = span_notice("Вам больше не хочется устраивать кипиш.")
 	medical_record_text = "Пациент демонстрирует высокие перепады настроения."
 	hardcore_value = 3
 
@@ -297,21 +297,21 @@
 			mood.mood_modifier -= 0.5
 
 /datum/quirk/light_drinker
-	name = "Мало пьющий"
-	desc = "Вы всегда являлись трезвенником. У вас низкая устойчивость к алкоголю и вы очень быстро становитесь пьяным."
+	name = "Трезвенник"
+	desc = "Вы трезвенник. Влияние на вас от алкоголя будет увеличено."
 	value = -2
 	mob_trait = TRAIT_LIGHT_DRINKER
-	gain_text = "<span class='notice'>Даже мысль об алкоголе заставляет вашу голову кружиться.</span>"
-	lose_text = "<span class='danger'>Чувствую себя более устойчивее к алкоголю.</span>"
+	gain_text = span_notice("Даже мысль об алкоголе заставляет вашу голову кружиться.")
+	lose_text = span_danger("Чувствую себя более устойчивее к алкоголю.")
 	medical_record_text = "Пациент демонстрирует низкую устойчивость к алкоголю."
 	hardcore_value = 3
 
 /datum/quirk/nearsighted //t. errorage
 	name = "Близорукий"
-	desc = "Я близорук и мне необходимо ношение очков. По крайней мере, пара очков у меня уже есть."
+	desc = "Вы близорукий и вам необходимо ношение очков."
 	value = -1
-	gain_text = "<span class='danger'>Вещи вдалеке кажутся мне сильно расплывчатыми.</span>"
-	lose_text = "<span class='notice'>Вещи вдалеке теперь видны более четко.</span>"
+	gain_text = span_danger("Вещи вдалеке кажутся мне сильно расплывчатыми.")
+	lose_text = span_notice("Вещи вдалеке теперь видны более четко.")
 	medical_record_text = "Пациенту необходимо носить пара очков, чтобы не страдать от близорукости."
 	hardcore_value = 5
 
@@ -326,7 +326,7 @@
 
 /datum/quirk/nyctophobia
 	name = "Боязнь темноты"
-	desc = "Вы всегда боялись темноты. Будучи в темноте без света, вам станет страшно и вы будете вести себя аккуратно."
+	desc = "Вы всегда боялись темноты. Будучи в темноте без света, вы переключитесь на шаг."
 	value = -3
 	medical_record_text = "Пациент демонстрирует страх к темноте."
 	hardcore_value = 5
@@ -341,7 +341,7 @@
 	var/lums = T.get_lumcount()
 	if(lums <= 0.2)
 		if(quirk_holder.m_intent == MOVE_INTENT_RUN)
-			to_chat(quirk_holder, "<span class='warning'>Так, спокойно, спокойно... ничего страшного...</span>")
+			to_chat(quirk_holder, span_warning("Так, спокойно, спокойно... ничего страшного..."))
 			quirk_holder.toggle_move_intent()
 		SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "nyctophobia", /datum/mood_event/nyctophobia)
 	else
@@ -349,11 +349,11 @@
 
 /datum/quirk/nonviolent
 	name = "Пацифист"
-	desc = "Мысль о насилии заставляет меня чувствовать себя неприятно. Настолько, что я не могу нанести вред окружающим."
+	desc = "Мысль о насилии будет заставлять вас чувствовать себя неприятно. Настолько, что не сможете нанести вред окружающим."
 	value = -8
 	mob_trait = TRAIT_PACIFISM
-	gain_text = "<span class='danger'>Чувствую себя жутко, подумав о насилии!</span>"
-	lose_text = "<span class='notice'>Чувствую, что можно защитить себя вновь.</span>"
+	gain_text = span_danger("Чувствую себя жутко, подумав о насилии!")
+	lose_text = span_notice("Чувствую, что можно защитить себя вновь.")
 	medical_record_text = "Пациент является пацифистом и не может заставить себя причинить вред кому-либо."
 	hardcore_value = 6
 
@@ -398,7 +398,7 @@
 
 /datum/quirk/poor_aim
 	name = "Плохо стреляющий"
-	desc = "Ваши навыки обращения с оружием оставляют желать лучшего. Для более точной стрельбы берите оружие в две руки."
+	desc = "Ваши навыки обращения с оружием оставляют желать лучшего."
 	value = -4
 	mob_trait = TRAIT_POOR_AIM
 	medical_record_text = "У пациента сильная дрожь в обеих руках."
@@ -406,7 +406,7 @@
 
 /datum/quirk/prosopagnosia
 	name = "Прозопагнозия"
-	desc = "Я имею психическое расстройство, которое мешает мне распознавать лица."
+	desc = "Вы не сможете больше распознавать лица."
 	value = -4
 	mob_trait = TRAIT_PROSOPAGNOSIA
 	medical_record_text = "Пациент страдает от прозопагнозии и не может узнать лица."
@@ -414,7 +414,7 @@
 
 /datum/quirk/prosthetic_limb
 	name = "Протез конечности"
-	desc = "Ввиду инцидента, который случился в прошлом, я потерял одну из моих конечностей. Хорошо, что у меня есть её протез!"
+	desc = "Ввиду инцидента, который случился в прошлом, вы потеряли одну из своей конечностей. Случайная конечность будет заменена на дешевый протез."
 	value = -4
 	var/slot_string = "limb"
 	medical_record_text = "Во время физического обследования у пациента был обнаружен протез."
@@ -448,21 +448,21 @@
 
 /datum/quirk/pushover
 	name = "Неуверенный"
-	desc = "Мой первый инстинкт будет позволять людям толкать меня. Вырываться из захвата будет также сложнее."
+	desc = "Ваш первый инстинкт будет позволять людям толкать вас. Вырываться из захвата будет сложнее."
 	value = -8
 	mob_trait = TRAIT_GRABWEAKNESS
-	gain_text = "<span class='danger'>Чувствую себя неуверенно.</span>"
-	lose_text = "<span class='notice'>Теперь-то я смогу защитить себя!</span>"
+	gain_text = span_danger("Чувствую себя неуверенно.")
+	lose_text = span_notice("Теперь-то я смогу защитить себя!")
 	medical_record_text = "Пациент представляет собой неуверенную и наивную личность, и им легко манипулировать."
 	hardcore_value = 4
 
 /datum/quirk/insanity
 	name = "Синдром Диссоциации Реальности"
-	desc = "Я страдаю от серьёзного психического расстройства, которое вызывает очень сильные галлюцинации. Вещество \"Майндбрейкер\" поможет мне подавить эти эффекты. <b>Это не является лицензией на гриф.</b>"
+	desc = "Вы страдаете от серьёзного психического расстройства, которое вызывает очень сильные галлюцинации. Вещество \"Майндбрейкер\" поможет вам подавить эти эффекты. <b>Это не является лицензией на убийство</b>"
 	value = -8
 	//no mob trait because it's handled uniquely
-	gain_text = "<span class='userdanger'>...</span>"
-	lose_text = "<span class='notice'>Чувствую себя нормальным..</span>"
+	gain_text = span_userdanger("...")
+	lose_text = span_notice("Чувствую себя нормальным..")
 	medical_record_text = "Пациент страдает от Синдрома Диссоциации Реальности, вызывающее у него тяжелые галлюцинации."
 	hardcore_value = 6
 
@@ -486,8 +486,8 @@
 	name = "Социофоб"
 	desc = "Разговор с людьми очень сложен для вас, и вы будете заикаться при попытке заговорить, или просто молчать."
 	value = -3
-	gain_text = "<span class='danger'>Начинаю волноваться насчёт мнения окружающих.</span>"
-	lose_text = "<span class='notice'>Вам стало легче говорить.</span>" //if only it were that easy!
+	gain_text = span_danger("Начинаю волноваться насчёт мнения окружающих.")
+	lose_text = span_notice("Вам стало легче говорить.")  //if only it were that easy!
 	medical_record_text = "Пациент, как правило, беспокоится о социальных связях и предпочитает избегать их."
 	hardcore_value = 4
 	var/dumb_thing = TRUE
@@ -510,10 +510,10 @@
 	if(DT_PROB(2 + nearby_people, delta_time))
 		H.stuttering = max(3, H.stuttering)
 	else if(DT_PROB(min(3, nearby_people), delta_time) && !H.silent)
-		to_chat(H, "<span class='danger'>Решаю просто немного помолчать. Мне <i>совсем</i> не хочется разговаривать.</span>")
+		to_chat(H, span_danger("Решаю просто немного помолчать. Мне <i>совсем</i> не хочется разговаривать."))
 		H.silent = max(10, H.silent)
 	else if(DT_PROB(0.5, delta_time) && dumb_thing)
-		to_chat(H, "<span class='userdanger'>Вспоминаю дурацкую вещь, которую сказали давным давно и испытываю внутреннюю боль.</span>")
+		to_chat(H, span_userdanger("Вспоминаю дурацкую вещь, которую сказали давным давно и испытываю внутреннюю боль."))
 		dumb_thing = FALSE //only once per life
 		if(prob(1))
 			new/obj/item/food/spaghetti/pastatomato(get_turf(H)) //now that's what I call spaghetti code
@@ -526,7 +526,7 @@
 	if(prob(85) || (istype(mind_check) && mind_check.mind))
 		return
 
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, "<span class='smallnotice'>[capitalize(A.name)] смотрит прямо на меня.</span>"), 3)
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, span_smallnotice("[capitalize(A.name)] смотрит прямо на меня.")), 3)
 
 /datum/quirk/social_anxiety/proc/eye_contact(datum/source, mob/living/other_mob, triggering_examiner)
 	SIGNAL_HANDLER
@@ -551,19 +551,19 @@
 			msg += "АХ!"
 
 	SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "anxiety_eyecontact", /datum/mood_event/anxiety_eyecontact)
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, "<span class='userdanger'>[msg]</span>"), 3) // so the examine signal has time to fire and this will print after
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, span_userdanger("[msg]")), 3) // so the examine signal has time to fire and this will print after
 	return COMSIG_BLOCK_EYECONTACT
 
 /datum/mood_event/anxiety_eyecontact
 	description = "<span class='warning'>Sometimes eye contact makes me so nervous...</span>\n"
-	mood_change = -5
+	mood_change = -10
 	timeout = 3 MINUTES
 
 /datum/quirk/junkie
 	name = "Наркоман"
-	desc = "Я страдаю от наркотической зависимости."
+	desc = "Вы страдаете от наркотической зависимости."
 	value = -6
-	gain_text = "<span class='danger'>Внезапно я почувствовал тягу к наркотикам.</span>"
+	gain_text = span_danger("Внезапно я почувствовал тягу к наркотикам.")
 	medical_record_text = "Пациент страдает от зависимости и тяжелых наркотиков."
 	hardcore_value = 4
 	var/drug_list = list(/datum/reagent/drug/crank, /datum/reagent/drug/krokodil, /datum/reagent/medicine/morphine, /datum/reagent/drug/happiness, /datum/reagent/drug/methamphetamine) //List of possible IDs
@@ -619,7 +619,7 @@
 			quirk_holder.mind.remove_addiction_points(addiction_type, MAX_ADDICTION_POINTS) //chat feedback here. No need of lose_text.
 
 /datum/quirk/junkie/proc/announce_drugs()
-	to_chat(quirk_holder, "<span class='boldnotice'>Пронёс [initial(drug_container_type.name)] из [initial(reagent_type.name)] [where_drug]. Скоро он закончится, и мне необходимо будет найти дополнительную дозу.</span>")
+	to_chat(quirk_holder, span_boldnotice("Пронёс [initial(drug_container_type.name)] из [initial(reagent_type.name)] [where_drug]. Скоро он закончится, и мне необходимо будет найти дополнительную дозу."))
 
 /datum/quirk/junkie/on_process()
 	if(HAS_TRAIT(quirk_holder, TRAIT_NOMETABOLISM))
@@ -635,7 +635,7 @@
 		if(deleted || missing_addiction)
 			if(deleted)
 				reagent_instance = new reagent_type()
-			to_chat(quirk_holder, "<span class='danger'>Надо бахнуть..</span>")
+			to_chat(quirk_holder, span_danger("Надо бахнуть.."))
 			if(H?.mind)
 				for(var/addiction in reagent_instance.addiction_types)
 					H.mind.add_addiction_points(addiction, 1000) ///Max that shit out
@@ -644,7 +644,7 @@
 	name = "Курильщик"
 	desc = "Вы страдаете от никотиновой зависимости и вам придется регулярно выкуривать пачку сигарет. Не очень-то и полезно для ваших легких."
 	value = -4
-	gain_text = "<span class='danger'>Вам стоит снова закурить.</span>"
+	gain_text = span_danger("Вам стоит снова закурить.")
 	medical_record_text = "Пациент является курильщиком."
 	reagent_type = /datum/reagent/drug/nicotine
 	accessory_type = /obj/item/lighter/greyscale
@@ -661,7 +661,7 @@
 	. = ..()
 
 /datum/quirk/junkie/smoker/announce_drugs()
-	to_chat(quirk_holder, "<span class='boldnotice'>Пачка сигарет [initial(drug_container_type.name)] [where_drug], и зажигалочка [where_accessory]. Надо убедиться, что я найду свой любимый бренд, если тот закончится.</span>")
+	to_chat(quirk_holder, span_boldnotice("Пачка сигарет [initial(drug_container_type.name)] [where_drug], и зажигалочка [where_accessory]. Надо убедиться, что я найду свой любимый бренд, если тот закончится."))
 
 
 /datum/quirk/junkie/smoker/on_process()
@@ -677,20 +677,20 @@
 
 /datum/quirk/unstable
 	name = "Неуравновешенный"
-	desc = "Вы больше не сможете вернуть свою психику, если каким-то образом повредите её. Будьте очень осторожным и держите себя в хорошем настроении!"
+	desc = "Вы больше не сможете вернуть свою психику, если каким-то образом повредите её. Будьте очень осторожным и поддерживайте свое настроение!"
 	value = -10
 	mob_trait = TRAIT_UNSTABLE
-	gain_text = "<span class='danger'>Столько вещей сейчас в голове...</span>"
-	lose_text = "<span class='notice'>Чувствую себя гораздо спокойнее.</span>"
+	gain_text = span_danger("Столько вещей сейчас в голове...")
+	lose_text = span_notice("Чувствую себя гораздо спокойнее.")
 	medical_record_text = "Психика пациента находится в уязвимом состоянии и не сможет больше оправиться после травмы."
 	hardcore_value = 9
 
 /datum/quirk/allergic
 	name = "Аллергия"
-	desc = "С детства у вас имеется аллергия к некоторым препаратам."
+	desc = "С детства у вас имеется аллергия к некоторым препаратам и реагентам."
 	value = -6
-	gain_text = "<span class='danger'>Вы чувствуете сдвиг вашей иммунной системы.</span>"
-	lose_text = "<span class='notice'>Вы чувствуете, что ваш иммунитет стал более устойчивее.</span>"
+	gain_text = span_danger("Вы чувствуете сдвиг вашей иммунной системы.")
+	lose_text = span_notice("Вы чувствуете, что ваш иммунитет стал более устойчивее.")
 	medical_record_text = "Иммунитет пациента очень резко реагирует на определенные препараты."
 	hardcore_value = 3
 	var/list/allergies = list()
@@ -711,7 +711,7 @@
 	name = "Extreme " + display +"Allergies"
 	medical_record_text = "Иммунитет пациента сильно реагирует на [display]!"
 	quirk_holder?.mind.store_memory("You are allergic to [display]")
-	to_chat(quirk_holder, "<span class='boldnotice'>У вас аллергия к [display]!</span>")
+	to_chat(quirk_holder, span_boldnotice("У вас аллергия к [display]!"))
 	if(!ishuman(quirk_holder))
 		return
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -744,12 +744,12 @@
 			carbon_quirk_holder.adjustOrganLoss(pick(ORGAN_SLOT_BRAIN,ORGAN_SLOT_APPENDIX,ORGAN_SLOT_LUNGS,ORGAN_SLOT_HEART,ORGAN_SLOT_LIVER,ORGAN_SLOT_STOMACH),10)
 
 /datum/quirk/bad_touch
-	name = "Bad Touch"
-	desc = "You don't like hugs. You'd really prefer if people just left you alone."
+	name = "Плохое прикосновение"
+	desc = "Вы не любите обниматься. Будет предпочтительнее, если вас оставят в покое."
 	mob_trait = TRAIT_BADTOUCH
 	value = -1
-	gain_text = "<span class='danger'>You just want people to leave you alone.</span>"
-	lose_text = "<span class='notice'>You could use a big hug.</span>"
+	gain_text = span_danger("You just want people to leave you alone.")
+	lose_text = span_notice("You could use a big hug.")
 	medical_record_text = "Patient has disdain for being touched. Potentially has undiagnosed haphephobia."
 	mood_quirk = TRUE
 	hardcore_value = 1

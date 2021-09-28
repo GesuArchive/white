@@ -124,9 +124,9 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	if(ishuman(user) && istype(A, /obj/item))
 		var/mob/living/carbon/human/H = user
 		if(H.put_in_hands(A))
-			to_chat(H, "<span class='boldnotice'>[A] materializes into your hands!</span>")
+			to_chat(H, span_boldnotice("[A] materializes into your hands!"))
 			return A
-	to_chat(user, "<span class='boldnotice'>[A] materializes onto the floor!</span>")
+	to_chat(user, span_boldnotice("[A] materializes onto the floor!"))
 	return A
 
 //Discounts (dynamically filled above)
@@ -347,7 +347,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	name = "Bananium Energy Sword"
 	desc = "An energy sword that deals no damage, but will slip anyone it contacts, be it by melee attack, thrown \
 	impact, or just stepping on it. Beware friendly fire, as even anti-slip shoes will not protect against it."
-	item = /obj/item/melee/transforming/energy/sword/bananium
+	item = /obj/item/melee/energy/sword/bananium
 	cost = 3
 	surplus = 0
 	purchasable_from = UPLINK_CLOWN_OPS
@@ -420,7 +420,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	name = "Energy Sword"
 	desc = "The energy sword is an edged weapon with a blade of pure energy. The sword is small enough to be \
 			pocketed when inactive. Activating it produces a loud, distinctive noise."
-	item = /obj/item/melee/transforming/energy/sword/saber
+	item = /obj/item/melee/energy/sword/saber
 	cost = 8
 	purchasable_from = ~UPLINK_CLOWN_OPS
 
@@ -2035,7 +2035,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			and services at lucrative prices. The briefcase also feels a little heavier to hold; it has been \
 			manufactured to pack a little bit more of a punch if your client needs some convincing."
 	item = /obj/item/storage/secure/briefcase/syndie
-	cost = 1
+	cost = 20
 	restricted = TRUE
 	illegal_tech = FALSE
 
@@ -2063,4 +2063,3 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	cost = 1
 	purchasable_from = UPLINK_CLOWN_OPS
 	illegal_tech = FALSE
-

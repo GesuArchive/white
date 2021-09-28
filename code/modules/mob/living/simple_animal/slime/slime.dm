@@ -1,3 +1,4 @@
+#define SLIME_CARES_ABOUT(to_check) (to_check && (to_check == Target || to_check == Leader || (to_check in Friends)))
 /mob/living/simple_animal/slime
 	name = "grey baby slime (123)"
 	icon = 'icons/mob/slimes.dmi'
@@ -110,9 +111,9 @@
 	for (var/A in actions)
 		var/datum/action/AC = A
 		AC.Remove(src)
-	Target = null
-	Leader = null
-	Friends = null
+	set_target(null)
+	set_leader(null)
+	clear_friends()
 	return ..()
 
 /mob/living/simple_animal/slime/create_reagents(max_vol, flags)
@@ -280,8 +281,8 @@
 			return
 		if(buckled)
 			Feedstop(silent = TRUE)
-			visible_message("<span class='danger'>[M] pulls [src] off!</span>", \
-				"<span class='danger'>You pull [src] off!</span>")
+			visible_message(span_danger("[M] pulls [src] off!") , \
+				span_danger("You pull [src] off!"))
 			return
 		attacked += 5
 		if(nutrition >= 100) //steal some nutrition. negval handled in life()
@@ -316,26 +317,26 @@
 		M.do_attack_animation(src, ATTACK_EFFECT_DISARM)
 		if(buckled == M)
 			if(prob(60))
-				M.visible_message("<span class='warning'>[M] пытается скинуть [name]!</span>", \
-					"<span class='danger'>Пытаюсь скинуть [name]!</span>")
+				M.visible_message(span_warning("[M] пытается скинуть [name]!") , \
+					span_danger("Пытаюсь скинуть [name]!"))
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 
 			else
-				M.visible_message("<span class='warning'>[M] удаётся побороть [name]!</span>", \
-					"<span class='notice'>Мне удаётся побороть [name]!</span>")
+				M.visible_message(span_warning("[M] удаётся побороть [name]!") , \
+					span_notice("Мне удаётся побороть [name]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 
 				discipline_slime(M)
 
 		else
 			if(prob(30))
-				buckled.visible_message("<span class='warning'>[M] пытается побороть [name] [buckled]!</span>", \
-					"<span class='warning'>[M] пытается побороть мой [name]!</span>")
+				buckled.visible_message(span_warning("[M] пытается побороть [name] [buckled]!") , \
+					span_warning("[M] пытается побороть мой [name]!"))
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 
 			else
-				buckled.visible_message("<span class='warning'>[M] удаётся побороть [name] [buckled]!</span>", \
-					"<span class='notice'>[M] удаётся побороть мой [name]!</span>")
+				buckled.visible_message(span_warning("[M] удаётся побороть [name] [buckled]!") , \
+					span_notice("[M] удаётся побороть мой [name]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 
 				discipline_slime(M)
@@ -361,11 +362,8 @@
 				if(S.next_step(user,user.a_intent))
 					return 1
 	if(istype(W, /obj/item/stack/sheet/mineral/plasma) && !stat) //Let's you feed slimes plasma.
-		if (user in Friends)
-			++Friends[user]
-		else
-			Friends[user] = 1
-		to_chat(user, "<span class='notice'>Кормлю слизь плазмой. Он весело верещит.</span>")
+		add_friendship(user, 1)
+		to_chat(user, span_notice("Кормлю слизь плазмой. Он весело верещит."))
 		var/obj/item/stack/sheet/mineral/plasma/S = W
 		S.use(1)
 		return
@@ -374,7 +372,7 @@
 		if(prob(25))
 			user.do_attack_animation(src)
 			user.changeNext_move(CLICK_CD_MELEE)
-			to_chat(user, "<span class='danger'>[W] проходит сквозь [src]!</span>")
+			to_chat(user, span_danger("[W] проходит сквозь [src]!"))
 			return
 		if(Discipline && prob(50)) // wow, buddy, why am I getting attacked??
 			Discipline = 0
@@ -387,7 +385,7 @@
 	if(istype(W, /obj/item/storage/bag/bio))
 		var/obj/item/storage/P = W
 		if(!effectmod)
-			to_chat(user, "<span class='warning'>Слайм в настоящее время не мутирует.</span>")
+			to_chat(user, span_warning("Слайм в настоящее время не мутирует."))
 			return
 		var/hasOutput = FALSE //Have we outputted text?
 		var/hasFound = FALSE //Have we found an extract to be added?
@@ -398,23 +396,23 @@
 				applied++
 				hasFound = TRUE
 			if(applied >= SLIME_EXTRACT_CROSSING_REQUIRED)
-				to_chat(user, "<span class='notice'>Кормлю слайма как можно большим количеством экстрактов из мешка, и он мутирует!</span>")
+				to_chat(user, span_notice("Кормлю слайма как можно большим количеством экстрактов из мешка, и он мутирует!"))
 				playsound(src, 'sound/effects/attackblob.ogg', 50, TRUE)
 				spawn_corecross()
 				hasOutput = TRUE
 				break
 		if(!hasOutput)
 			if(!hasFound)
-				to_chat(user, "<span class='warning'>В сумке нет экстрактов, которые примет этот слайм!</span>")
+				to_chat(user, span_warning("В сумке нет экстрактов, которые примет этот слайм!"))
 			else
-				to_chat(user, "<span class='notice'>Кормлю слайма экстрактами из мешка.</span>")
+				to_chat(user, span_notice("Кормлю слайма экстрактами из мешка."))
 				playsound(src, 'sound/effects/attackblob.ogg', 50, TRUE)
 		return
 	..()
 
 /mob/living/simple_animal/slime/proc/spawn_corecross()
 	var/static/list/crossbreeds = subtypesof(/obj/item/slimecross)
-	visible_message("<span class='danger'>[capitalize(src.name)] вздрагивает, его мутировавшее ядро поглощает остальную часть его тела!</span>")
+	visible_message(span_danger("[capitalize(src.name)] вздрагивает, его мутировавшее ядро поглощает остальную часть его тела!"))
 	playsound(src, 'sound/magic/smoke.ogg', 50, TRUE)
 	var/crosspath
 	for(var/X in crossbreeds)
@@ -425,14 +423,14 @@
 	if(crosspath)
 		new crosspath(loc)
 	else
-		visible_message("<span class='warning'>Мутировавшее ядро вздрагивает и падает в лужу, не в силах сохранить свою форму.</span>")
+		visible_message(span_warning("Мутировавшее ядро вздрагивает и падает в лужу, не в силах сохранить свою форму."))
 	qdel(src)
 
 /mob/living/simple_animal/slime/proc/apply_water()
 	adjustBruteLoss(rand(15,20))
 	if(!client)
 		if(Target) // Like cats
-			Target = null
+			set_target(null)
 			++Discipline
 	return
 
@@ -477,8 +475,7 @@
 			if(Discipline == 1)
 				attacked = 0
 
-	if(Target)
-		Target = null
+	set_target(null)
 	if(buckled)
 		Feedstop(silent = TRUE) //we unbuckle the slime from the mob it latched onto.
 
@@ -509,5 +506,54 @@
 /mob/living/simple_animal/slime/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLIME, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
 
-/mob/living/simple_animal/slime/rainbow/Initialize(mapload, new_colour="rainbow", new_is_adult)
-	. = ..(mapload, new_colour, new_is_adult)
+/mob/living/simple_animal/slime/proc/set_target(new_target)
+	var/old_target = Target
+	Target = new_target
+	if(old_target && !SLIME_CARES_ABOUT(old_target))
+		UnregisterSignal(old_target, COMSIG_PARENT_QDELETING)
+	if(Target)
+		RegisterSignal(Target, COMSIG_PARENT_QDELETING, .proc/clear_memories_of, override = TRUE)
+
+/mob/living/simple_animal/slime/proc/set_leader(new_leader)
+	var/old_leader = Leader
+	Leader = new_leader
+	if(old_leader && !SLIME_CARES_ABOUT(old_leader))
+		UnregisterSignal(old_leader, COMSIG_PARENT_QDELETING)
+	if(Leader)
+		RegisterSignal(Leader, COMSIG_PARENT_QDELETING, .proc/clear_memories_of, override = TRUE)
+
+/mob/living/simple_animal/slime/proc/add_friendship(new_friend, amount = 1)
+	if(!Friends[new_friend])
+		Friends[new_friend] = 0
+	Friends[new_friend] += amount
+	if(new_friend)
+		RegisterSignal(new_friend, COMSIG_PARENT_QDELETING, .proc/clear_memories_of, override = TRUE)
+
+/mob/living/simple_animal/slime/proc/set_friendship(new_friend, amount = 1)
+	Friends[new_friend] = amount
+	if(new_friend)
+		RegisterSignal(new_friend, COMSIG_PARENT_QDELETING, .proc/clear_memories_of, override = TRUE)
+
+/mob/living/simple_animal/slime/proc/remove_friend(friend)
+	Friends -= friend
+	if(friend && !SLIME_CARES_ABOUT(friend))
+		UnregisterSignal(friend, COMSIG_PARENT_QDELETING)
+
+/mob/living/simple_animal/slime/proc/set_friends(new_buds)
+	clear_friends()
+	for(var/mob/friend as anything in new_buds)
+		set_friendship(friend, new_buds[friend])
+
+/mob/living/simple_animal/slime/proc/clear_friends()
+	for(var/mob/friend as anything in Friends)
+		remove_friend(friend)
+
+/mob/living/simple_animal/slime/proc/clear_memories_of(datum/source)
+	SIGNAL_HANDLER
+	if(source == Target)
+		set_target(null)
+	if(source == Leader)
+		set_leader(null)
+	remove_friend(source)
+
+#undef SLIME_CARES_ABOUT

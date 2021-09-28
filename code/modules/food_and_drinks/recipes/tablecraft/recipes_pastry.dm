@@ -5,7 +5,7 @@
 
 /datum/crafting_recipe/food/donut
 	time = 15
-	name = "Donut"
+	name = "Пончик"
 	reqs = list(
 		/datum/reagent/consumable/sugar = 1,
 		/obj/item/food/pastrybase = 1
@@ -15,7 +15,7 @@
 
 
 /datum/crafting_recipe/food/donut/chaos
-	name = "Chaos donut"
+	name = "Пончик хаоса"
 	reqs = list(
 		/datum/reagent/consumable/frostoil = 5,
 		/datum/reagent/consumable/capsaicin = 5,
@@ -25,7 +25,7 @@
 
 /datum/crafting_recipe/food/donut/meat
 	time = 15
-	name = "Meat donut"
+	name = "Мясной пончик"
 	reqs = list(
 		/obj/item/food/meat/rawcutlet = 1,
 		/obj/item/food/pastrybase = 1
@@ -33,7 +33,7 @@
 	result = /obj/item/food/donut/meat
 
 /datum/crafting_recipe/food/donut/jelly
-	name = "Jelly donut"
+	name = "Желейный пончик"
 	reqs = list(
 		/datum/reagent/consumable/berryjuice = 5,
 		/obj/item/food/pastrybase = 1
@@ -41,7 +41,7 @@
 	result = /obj/item/food/donut/jelly/plain
 
 /datum/crafting_recipe/food/donut/slimejelly
-	name = "Slime jelly donut"
+	name = "Слизневый пончик"
 	reqs = list(
 		/datum/reagent/toxin/slimejelly = 5,
 		/obj/item/food/pastrybase = 1
@@ -50,7 +50,7 @@
 
 
 /datum/crafting_recipe/food/donut/berry
-	name = "Berry Donut"
+	name = "Ягодный пончик"
 	reqs = list(
 		/datum/reagent/consumable/berryjuice = 3,
 		/obj/item/food/donut/plain = 1
@@ -58,7 +58,7 @@
 	result = /obj/item/food/donut/berry
 
 /datum/crafting_recipe/food/donut/trumpet
-	name = "Spaceman's Donut"
+	name = "Пончик Космонавта"
 	reqs = list(
 		/datum/reagent/medicine/polypyr = 3,
 		/obj/item/food/donut/plain = 1
@@ -67,7 +67,7 @@
 	result = /obj/item/food/donut/trumpet
 
 /datum/crafting_recipe/food/donut/apple
-	name = "Apple Donut"
+	name = "Ягодный пончик"
 	reqs = list(
 		/datum/reagent/consumable/applejuice = 3,
 		/obj/item/food/donut/plain = 1
@@ -75,7 +75,7 @@
 	result = /obj/item/food/donut/apple
 
 /datum/crafting_recipe/food/donut/caramel
-	name = "Caramel Donut"
+	name = "Карамельный пончик"
 	reqs = list(
 		/datum/reagent/consumable/caramel = 3,
 		/obj/item/food/donut/plain = 1
@@ -83,7 +83,7 @@
 	result = /obj/item/food/donut/caramel
 
 /datum/crafting_recipe/food/donut/choco
-	name = "Chocolate Donut"
+	name = "Шоколадный пончик"
 	reqs = list(
 		/obj/item/food/chocolatebar = 1,
 		/obj/item/food/donut/plain = 1
@@ -91,7 +91,7 @@
 	result = /obj/item/food/donut/choco
 
 /datum/crafting_recipe/food/donut/blumpkin
-	name = "Blumpkin Donut"
+	name = "Светотыквенный пончик"
 	reqs = list(
 		/datum/reagent/consumable/blumpkinjuice = 3,
 		/obj/item/food/donut/plain = 1
@@ -276,7 +276,7 @@
 
 /datum/crafting_recipe/food/waffles
 	time = 15
-	name = "Waffles"
+	name = "Вафли"
 	reqs = list(
 		/obj/item/food/pastrybase = 2
 	)
@@ -294,7 +294,7 @@
 	subcategory = CAT_PASTRY
 
 /datum/crafting_recipe/food/soylentgreen
-	name = "Soylent green"
+	name = "Зеленый сойлент"
 	reqs = list(
 		/obj/item/food/pastrybase = 2,
 		/obj/item/food/meat/slab/human = 2
@@ -304,7 +304,7 @@
 
 
 /datum/crafting_recipe/food/rofflewaffles
-	name = "Roffle waffles"
+	name = "Нарк-вафли"
 	reqs = list(
 		/datum/reagent/drug/mushroomhallucinogen = 5,
 		/obj/item/food/pastrybase = 2
@@ -316,7 +316,7 @@
 
 /datum/crafting_recipe/food/donkpocket
 	time = 15
-	name = "Donk-pocket"
+	name = "Донк-покет"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/obj/item/food/meatball = 1
@@ -326,7 +326,7 @@
 
 /datum/crafting_recipe/food/dankpocket
 	time = 15
-	name = "Dank-pocket"
+	name = "Нарк-покет"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/obj/item/food/grown/cannabis = 1
@@ -336,7 +336,7 @@
 
 /datum/crafting_recipe/food/donkpocket/spicy
 	time = 15
-	name = "Spicy-pocket"
+	name = "Острый-покет"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/obj/item/food/meatball = 1,
@@ -347,7 +347,7 @@
 
 /datum/crafting_recipe/food/donkpocket/teriyaki
 	time = 15
-	name = "Teriyaki-pocket"
+	name = "Терияки-покет"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/obj/item/food/meatball = 1,
@@ -358,7 +358,7 @@
 
 /datum/crafting_recipe/food/donkpocket/pizza
 	time = 15
-	name = "Pizza-pocket"
+	name = "Пицца-покет"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/obj/item/food/meatball = 1,
@@ -369,7 +369,7 @@
 
 /datum/crafting_recipe/food/donkpocket/honk
 	time = 15
-	name = "Honk-Pocket"
+	name = "Хонк-покет"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/obj/item/food/grown/banana = 1,
@@ -380,7 +380,7 @@
 
 /datum/crafting_recipe/food/donkpocket/berry
 	time = 15
-	name = "Berry-pocket"
+	name = "Ягод-покет"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/obj/item/food/grown/berries = 1
@@ -390,7 +390,7 @@
 
 /datum/crafting_recipe/food/donkpocket/gondola
 	time = 15
-	name = "Gondola-pocket"
+	name = "Гондола-покет"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/obj/item/food/meatball = 1,
@@ -403,7 +403,7 @@
 
 /datum/crafting_recipe/food/muffin
 	time = 15
-	name = "Muffin"
+	name = "Маффин"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/obj/item/food/pastrybase = 1
@@ -412,7 +412,7 @@
 	subcategory = CAT_PASTRY
 
 /datum/crafting_recipe/food/berrymuffin
-	name = "Berry muffin"
+	name = "Ягодный маффин"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/obj/item/food/pastrybase = 1,
@@ -422,7 +422,7 @@
 	subcategory = CAT_PASTRY
 
 /datum/crafting_recipe/food/booberrymuffin
-	name = "Booberry muffin"
+	name = "Маффин из мрачных ягод"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/obj/item/food/pastrybase = 1,
@@ -433,7 +433,7 @@
 	subcategory = CAT_PASTRY
 
 /datum/crafting_recipe/food/chawanmushi
-	name = "Chawanmushi"
+	name = "Тяван-муси"
 	reqs = list(
 		/datum/reagent/water = 5,
 		/datum/reagent/consumable/soysauce = 5,
@@ -443,10 +443,20 @@
 	result = /obj/item/food/chawanmushi
 	subcategory = CAT_PASTRY
 
+/datum/crafting_recipe/food/moffin
+	name = "Моффин"
+	reqs = list(
+		/datum/reagent/consumable/milk = 5,
+		/obj/item/food/pastrybase = 1,
+		/obj/item/stack/sheet/cloth = 1,
+	)
+	result = /obj/item/food/muffin/moffin
+	subcategory = CAT_PASTRY
+
 ////////////////////////////////////////////OTHER////////////////////////////////////////////
 
 /datum/crafting_recipe/food/hotdog
-	name = "Hot dog"
+	name = "Хот-дог"
 	reqs = list(
 		/datum/reagent/consumable/ketchup = 5,
 		/obj/item/food/bun = 1,

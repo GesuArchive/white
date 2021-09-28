@@ -213,11 +213,11 @@ Possible to do for anyone motivated enough:
 
 	if(istype(P,/obj/item/disk/holodisk))
 		if(disk)
-			to_chat(user,"<span class='warning'>Внутри уже есть диск!</span>")
+			to_chat(user,span_warning("Внутри уже есть диск!"))
 			return
 		if (!user.transferItemToLoc(P,src))
 			return
-		to_chat(user,"<span class='notice'>Вставляю [P] в [src.name].</span>")
+		to_chat(user,span_notice("Вставляю [P] в [src.name]."))
 		disk = P
 		return
 
@@ -267,15 +267,15 @@ Possible to do for anyone motivated enough:
 		if("AIrequest")
 			if(last_request + 200 < world.time)
 				last_request = world.time
-				to_chat(usr, "<span class='info'>Запрашиваю присутствие ИИ.</span>")
+				to_chat(usr, span_info("Запрашиваю присутствие ИИ."))
 				var/area/area = get_area(src)
 				for(var/mob/living/silicon/ai/AI in GLOB.silicon_mobs)
 					if(!AI.client)
 						continue
-					to_chat(AI, "<span class='info'>Меня хотят видеть <a href='?src=[REF(AI)];jumptoholopad=[REF(src)]'>в [area]</a>.</span>")
+					to_chat(AI, span_info("Меня хотят видеть <a href='?src=[REF(AI)];jumptoholopad=[REF(src)]'>в [area]</a>."))
 				return TRUE
 			else
-				to_chat(usr, "<span class='info'>Недавно уже был запрос ИИ. Платформа перезаряжается.</span>")
+				to_chat(usr, span_info("Недавно уже был запрос ИИ. Платформа перезаряжается."))
 				return
 		if("holocall")
 			if(outgoing_call)
@@ -297,7 +297,7 @@ Possible to do for anyone motivated enough:
 					calling = TRUE
 					return TRUE
 			else
-				to_chat(usr, "<span class='warning'>Нужно стоять на платформе, что сделать вызов!</span>")
+				to_chat(usr, span_warning("Нужно стоять на платформе, что сделать вызов!"))
 		if("connectcall")
 			var/datum/holocall/call_to_connect = locate(params["holopad"]) in holo_calls
 			if(!QDELETED(call_to_connect))
@@ -375,12 +375,7 @@ Possible to do for anyone motivated enough:
 
 /obj/machinery/holopad/process()
 	if(LAZYLEN(masters))
-		for(var/I in masters)
-			var/mob/living/master = I
-			var/mob/living/silicon/ai/AI = master
-			if(!istype(AI))
-				AI = null
-
+		for(var/mob/living/master as anything in masters)
 			if(!is_operational || !validate_user(master))
 				clear_holo(master)
 
@@ -389,22 +384,23 @@ Possible to do for anyone motivated enough:
 
 	ringing = FALSE
 
-	for(var/I in holo_calls)
-		var/datum/holocall/HC = I
-		if(HC.connected_holopad != src)
-			if(force_answer_call && world.time > (HC.call_start_time + (HOLOPAD_MAX_DIAL_TIME / 2)))
-				HC.Answer(src)
-				break
-			if(HC.head_call && !secure)
-				HC.Answer(src)
-				break
-			if(outgoing_call)
-				HC.Disconnect(src)//can't answer calls while calling
-			else
-				playsound(src, 'sound/machines/twobeep.ogg', 100)	//bring, bring!
-				ringing = TRUE
+	for(var/datum/holocall/holocall as anything in holo_calls)
+		if(holocall.connected_holopad == src)
+			continue
 
-	update_icon()
+		if(force_answer_call && world.time > (holocall.call_start_time + (HOLOPAD_MAX_DIAL_TIME / 2)))
+			holocall.Answer(src)
+			break
+		if(holocall.head_call && !secure)
+			holocall.Answer(src)
+			break
+		if(outgoing_call)
+			holocall.Disconnect(src)//can't answer calls while calling
+		else
+			playsound(src, 'sound/machines/twobeep.ogg', 100) //bring, bring!
+			ringing = TRUE
+
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/machinery/holopad/proc/activate_holo(mob/living/user)
 	var/mob/living/silicon/ai/AI = user
@@ -436,7 +432,7 @@ Possible to do for anyone motivated enough:
 		move_hologram()
 
 		set_holo(user, Hologram)
-		visible_message("<span class='notice'>Голографическое изображение [user] появляется перед моими глазами!</span>")
+		visible_message(span_notice("Голографическое изображение [user] появляется перед моими глазами!"))
 
 		return Hologram
 	else
@@ -464,8 +460,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 /obj/machinery/holopad/proc/SetLightsAndPower()
 	var/total_users = LAZYLEN(masters) + LAZYLEN(holo_calls)
-	use_power = total_users > 0 ? ACTIVE_POWER_USE : IDLE_POWER_USE
-	active_power_usage = HOLOPAD_PASSIVE_POWER_USAGE + (HOLOGRAM_POWER_USAGE * total_users)
+	update_use_power(total_users > 0 ? ACTIVE_POWER_USE : IDLE_POWER_USE)
+	update_mode_power_usage(ACTIVE_POWER_USE, HOLOPAD_PASSIVE_POWER_USAGE + (HOLOGRAM_POWER_USAGE * total_users))
 	if(total_users || replay_mode)
 		set_light(2)
 	else
@@ -591,7 +587,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	Hologram.set_anchored(TRUE)//So space wind cannot drag it.
 	Hologram.name = "Голограмма [record.caller_name]"//If someone decides to right click.
 	Hologram.set_light(2)	//hologram lighting
-	visible_message("<span class='notice'>Голографическое изображение [record.caller_name] появляется перед моими глазами!</span>")
+	visible_message(span_notice("Голографическое изображение [record.caller_name] появляется перед моими глазами!"))
 	return Hologram
 
 /obj/machinery/holopad/proc/replay_start()

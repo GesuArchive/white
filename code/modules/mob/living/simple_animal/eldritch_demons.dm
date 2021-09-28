@@ -82,7 +82,7 @@
 	if(linked_mobs[mob_linked])
 		return FALSE
 
-	to_chat(mob_linked, "<span class='notice'>You feel something new enter your sphere of mind, you hear whispers of people far away, screeches of horror and a huming of welcome to [src] Mansus Link.</span>")
+	to_chat(mob_linked, span_notice("You feel something new enter your sphere of mind, you hear whispers of people far away, screeches of horror and a huming of welcome to [src] Mansus Link."))
 	var/datum/action/innate/mansus_speech/action = new(src)
 	linked_mobs[mob_linked] = action
 	action.Grant(mob_linked)
@@ -98,8 +98,8 @@
 	var/datum/action/innate/mansus_speech/action = linked_mobs[mob_linked]
 	action.Remove(mob_linked)
 	qdel(action)
-	to_chat(mob_linked, "<span class='notice'>Your mind shatters as the [src] Mansus Link leaves your mind.</span>")
-	INVOKE_ASYNC(mob_linked, /mob.proc/emote, "scream")
+	to_chat(mob_linked, span_notice("Your mind shatters as the [src] Mansus Link leaves your mind."))
+	INVOKE_ASYNC(mob_linked, /mob.proc/emote, "agony")
 	//micro stun
 	mob_linked.AdjustParalyzed(0.5 SECONDS)
 	linked_mobs -= mob_linked

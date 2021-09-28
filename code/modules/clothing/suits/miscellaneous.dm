@@ -51,7 +51,7 @@
 	desc = "Йарр."
 	icon_state = "pirate"
 	inhand_icon_state = "pirate"
-	allowed = list(/obj/item/melee/transforming/energy/sword/pirate, /obj/item/clothing/glasses/eyepatch, /obj/item/reagent_containers/food/drinks/bottle/rum)
+	allowed = list(/obj/item/melee/energy/sword/pirate, /obj/item/clothing/glasses/eyepatch, /obj/item/reagent_containers/food/drinks/bottle/rum)
 	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/suit/pirate/armored
@@ -401,7 +401,7 @@
 	if(prob(25))
 		H.Paralyze(5)
 		H.Knockdown(10)
-		H.visible_message("<span class='danger'>[H] спотыкается и падает!</span>", "<span class='userdanger'>Спотыкаюсь и падаю!</span>")
+		H.visible_message(span_danger("[H] спотыкается и падает!") , span_userdanger("Спотыкаюсь и падаю!"))
 
 /obj/item/clothing/suit/ianshirt
 	name = "изношенная рубашка"

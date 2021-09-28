@@ -101,6 +101,8 @@
 	var/jitteriness = 0//Carbon
 	/// Hunger level of the mob
 	var/nutrition = NUTRITION_LEVEL_START_MIN // randomised in Initialize
+	/// Hydration level of the mob
+	var/hydration = HYDRATION_LEVEL_START_MIN
 	/// Shit level of the mob
 	var/pooition = 20
 	/// Satiation level of the mob
@@ -159,8 +161,8 @@
 	/// Can this mob enter shuttles
 	var/move_on_shuttle = 1
 
-	///The last mob/living/carbon to push/drag/grab this mob (exclusively used by slimes friend recognition)
-	var/mob/living/carbon/LAssailant = null
+	///A weakref to the last mob/living/carbon to push/drag/grab this mob (exclusively used by slimes friend recognition)
+	var/datum/weakref/LAssailant = null
 
 	/**
 	  * construct spells and mime spells.

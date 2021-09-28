@@ -11,13 +11,13 @@
 
 /datum/status_effect/determined/on_apply()
 	. = ..()
-	owner.visible_message("<span class='danger'>[owner] стискивает [owner.ru_ego()] зубы от боли!</span>", "<span class='notice'><b>Прилив адреналина даёт мне на мгновение забыть про раны!</b></span>", vision_distance=COMBAT_MESSAGE_RANGE)
+	owner.visible_message(span_danger("[owner] стискивает [owner.ru_ego()] зубы от боли!") , span_notice("<b>Прилив адреналина даёт мне на мгновение забыть про раны!</b>") , vision_distance=COMBAT_MESSAGE_RANGE)
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
 		human_owner.physiology.bleed_mod *= WOUND_DETERMINATION_BLEED_MOD
 
 /datum/status_effect/determined/on_remove()
-	owner.visible_message("<span class='danger'>[owner] заметно ослабевает!</span>", "<span class='warning'><b>Раны начинают болеть с огромной силой...</b></span>", vision_distance=COMBAT_MESSAGE_RANGE)
+	owner.visible_message(span_danger("[owner] заметно ослабевает!") , span_warning("<b>Раны начинают болеть с огромной силой...</b>") , vision_distance=COMBAT_MESSAGE_RANGE)
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
 		human_owner.physiology.bleed_mod /= WOUND_DETERMINATION_BLEED_MOD

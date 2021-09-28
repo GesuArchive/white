@@ -34,7 +34,7 @@
 	if(SSstation.announcer.custom_alert_message && !has_important_message)
 		announcement +=  SSstation.announcer.custom_alert_message
 	else
-		announcement += "<span class='alert'><big>[html_encode(text)]</big></span>"
+		announcement += span_alert("<big>[html_encode(text)]</big>")
 	announcement += "\n\n"
 
 	var/s = sound(sound)

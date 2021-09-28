@@ -35,7 +35,7 @@
 	humie.grab_ghost()
 
 	if(!humie.mind || !humie.client)
-		var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you want to play as a [humie.real_name], a voiceless dead", ROLE_HERETIC, null, ROLE_HERETIC, 50,humie)
+		var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Do you want to play as a [humie.real_name], a voiceless dead", ROLE_HERETIC, null, ROLE_HERETIC, 50,humie)
 		if(!LAZYLEN(candidates))
 			return
 		var/mob/dead/observer/C = pick(candidates)
@@ -87,15 +87,15 @@
 	human_target.grab_ghost()
 
 	if(!human_target.mind || !human_target.client)
-		to_chat(user, "<span class='warning'>There is no soul connected to this body...</span>")
+		to_chat(user, span_warning("There is no soul connected to this body..."))
 		return
 
 	if(HAS_TRAIT(human_target, TRAIT_HUSK))
-		to_chat(user, "<span class='warning'>You cannot revive a dead ghoul!</span>")
+		to_chat(user, span_warning("You cannot revive a dead ghoul!"))
 		return
 
 	if(LAZYLEN(spooky_scaries) >= ghoul_amt)
-		to_chat(user, "<span class='warning'>Your patron cannot support more ghouls on this plane!</span>")
+		to_chat(user, span_warning("Your patron cannot support more ghouls on this plane!"))
 		return
 
 	LAZYADD(spooky_scaries, human_target)

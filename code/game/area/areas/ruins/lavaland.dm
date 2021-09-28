@@ -44,13 +44,13 @@
 	icon_state = "green"
 
 /area/ruin/unpowered/syndicate_lava_base
-	name = "Secret Base"
+	name = "Секретная база"
 	icon_state = "dk_yellow"
 	ambience_index = AMBIENCE_DANGER
 	ambientsounds = HIGHSEC
 
 /area/ruin/unpowered/cultaltar
-	name = "Cult Altar"
+	name = "Алтарь культистов"
 	area_flags = CULT_PERMITTED
 	ambience_index = AMBIENCE_SPOOKY
 	ambientsounds = SPOOKY
@@ -58,37 +58,37 @@
 //Syndicate lavaland base
 
 /area/ruin/unpowered/syndicate_lava_base/engineering
-	name = "Syndicate Lavaland Engineering"
+	name = "Секретная база: Инженерный"
 
 /area/ruin/unpowered/syndicate_lava_base/medbay
-	name = "Syndicate Lavaland Medbay"
+	name = "Секретная база: Медбей"
 
 /area/ruin/unpowered/syndicate_lava_base/arrivals
-	name = "Syndicate Lavaland Arrivals"
+	name = "Секретная база: Прибытие"
 
 /area/ruin/unpowered/syndicate_lava_base/bar
-	name = "Syndicate Lavaland Bar"
+	name = "Секретная база: Бар"
 
 /area/ruin/unpowered/syndicate_lava_base/main
-	name = "Syndicate Lavaland Primary Hallway"
+	name = "Секретная база: Коридоры"
 
 /area/ruin/unpowered/syndicate_lava_base/cargo
 	name = "Syndicate Lavaland Cargo Bay"
 
 /area/ruin/unpowered/syndicate_lava_base/chemistry
-	name = "Syndicate Lavaland Chemistry"
+	name = "Секретная база: Химическая лаборатория"
 
 /area/ruin/unpowered/syndicate_lava_base/virology
-	name = "Syndicate Lavaland Virology"
+	name = "Секретная база: Вирусология"
 
 /area/ruin/unpowered/syndicate_lava_base/testlab
-	name = "Syndicate Lavaland Experimentation Lab"
+	name = "Секретная база: Лаборатория"
 
 /area/ruin/unpowered/syndicate_lava_base/dormitories
-	name = "Syndicate Lavaland Dormitories"
+	name = "Секретная база: Дормитории"
 
 /area/ruin/unpowered/syndicate_lava_base/telecomms
-	name = "Syndicate Lavaland Telecommunications"
+	name = "Секретная база: Телекомы"
 
 //Xeno Nest
 

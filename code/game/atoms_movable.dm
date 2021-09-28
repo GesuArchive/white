@@ -75,6 +75,9 @@
 	///Highest-intensity light affecting us, which determines our visibility.
 	var/affecting_dynamic_lumi = 0
 
+	/// Whether this atom should have its dir automatically changed when it moves. Setting this to FALSE allows for things such as directional windows to retain dir on moving without snowflake code all of the place.
+	var/set_dir_on_move = TRUE
+
 	/// The degree of thermal insulation that mobs in list/contents have from the external environment, between 0 and 1
 	var/contents_thermal_insulation = 0
 	/// The degree of pressure protection that mobs in list/contents have from the external environment, between 0 and 1
@@ -293,8 +296,8 @@
 		var/mob/M = AM
 		log_combat(src, M, "grabbed", addition="passive grab")
 		if(!supress_message)
-			M.visible_message("<span class='warning'><b>[src]</b> хватает <b>[M]</b>.</span>", \
-				"<span class='danger'><b>[src]</b> хватает меня.</span>")
+			M.visible_message(span_warning("<b>[src]</b> хватает <b>[M]</b>.") , \
+				span_danger("<b>[src]</b> хватает меня."))
 	return TRUE
 
 /atom/movable/proc/stop_pulling()
@@ -391,11 +394,8 @@
 	if(!direction)
 		direction = get_dir(src, newloc)
 
-	/* сасеш
 	if(set_dir_on_move)
 		setDir(direction)
-	*/
-	setDir(direction)
 
 	var/is_multi_tile_object = bound_width > 32 || bound_height > 32
 
@@ -521,7 +521,7 @@
 						moving_diagonally = SECOND_DIAG_STEP
 						. = step(src, SOUTH)
 			if(moving_diagonally == SECOND_DIAG_STEP)
-				if(!./* && set_dir_on_move*/)
+				if(!. && set_dir_on_move)
 					setDir(first_step_dir)
 
 				else if (!inertia_moving)
@@ -554,11 +554,8 @@
 		set_glide_size(glide_size_override)
 
 	last_move = direct
-	/*
 	if(set_dir_on_move)
 		setDir(direct)
-	*/
-	setDir(direct)
 	if(. && has_buckled_mobs() && !handle_buckled_mob_movement(loc, direct, glide_size_override)) //movement failed due to buckled mob(s)
 		return FALSE
 
@@ -929,12 +926,12 @@
 /atom/movable/proc/force_push(atom/movable/AM, force = move_force, direction, silent = FALSE)
 	. = AM.force_pushed(src, force, direction)
 	if(!silent && .)
-		visible_message("<span class='warning'>[capitalize(src.name)] forcefully pushes against [AM]!</span>", "<span class='warning'>You forcefully push against [AM]!</span>")
+		visible_message(span_warning("[capitalize(src.name)] forcefully pushes against [AM]!") , span_warning("You forcefully push against [AM]!"))
 
 /atom/movable/proc/move_crush(atom/movable/AM, force = move_force, direction, silent = FALSE)
 	. = AM.move_crushed(src, force, direction)
 	if(!silent && .)
-		visible_message("<span class='danger'>[capitalize(src.name)] crushes past [AM]!</span>", "<span class='danger'>You crush [AM]!</span>")
+		visible_message(span_danger("[capitalize(src.name)] crushes past [AM]!") , span_danger("You crush [AM]!"))
 
 /atom/movable/proc/move_crushed(atom/movable/pusher, force = MOVE_FORCE_DEFAULT, direction)
 	return FALSE
@@ -1211,7 +1208,7 @@
 		return
 
 	if(href_list[VV_HK_DEADCHAT_PLAYS] && check_rights(R_FUN))
-		if(alert(usr, "Allow deadchat to control [src] via chat commands?", "Deadchat Plays [src]", "Allow", "Cancel") == "Cancel")
+		if(tgui_alert(usr, "Allow deadchat to control [src] via chat commands?", "Deadchat Plays [src]", list("Allow", "Cancel")) != "Allow")
 			return
 
 		// Alert is async, so quick sanity check to make sure we should still be doing this.
@@ -1220,12 +1217,12 @@
 
 		// This should never happen, but if it does it should not be silent.
 		if(deadchat_plays() == COMPONENT_INCOMPATIBLE)
-			to_chat(usr, "<span class='warning'>Deadchat control not compatible with [src].</span>")
+			to_chat(usr, span_warning("Deadchat control not compatible with [src]."))
 			CRASH("deadchat_control component incompatible with object of type: [type]")
 
-		to_chat(usr, "<span class='notice'>Deadchat now control [src].</span>")
+		to_chat(usr, span_notice("Deadchat now control [src]."))
 		log_admin("[key_name(usr)] has added deadchat control to [src]")
-		message_admins("<span class='notice'>[key_name(usr)] has added deadchat control to [src]</span>")
+		message_admins(span_notice("[key_name(usr)] has added deadchat control to [src]"))
 
 /obj/item/proc/do_pickup_animation(atom/target)
 	set waitfor = FALSE

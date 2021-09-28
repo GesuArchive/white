@@ -51,6 +51,10 @@
     'text-color': #00ff00,
   ));
 
+  .LabeledList__label {
+    color: #00ff00 !important;
+  }
+
   .Layout__content {
     background-image: none;
   }

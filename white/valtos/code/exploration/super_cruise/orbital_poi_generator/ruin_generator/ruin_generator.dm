@@ -351,6 +351,8 @@
 
 	CHECK_TICK
 
+	SSmapping.seedStation()
+
 	//Generate objective stuff
 	if(linked_objective)
 		var/obj_sanity = 100

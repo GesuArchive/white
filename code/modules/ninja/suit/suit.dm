@@ -84,6 +84,11 @@
 	cell.name = "black power cell"
 	cell.icon_state = "bscell"
 
+/obj/item/clothing/suit/space/space_ninja/Destroy()
+	QDEL_NULL(spark_system)
+	QDEL_NULL(cell)
+	return ..()
+
 // seal the cell in the ninja outfit
 /obj/item/clothing/suit/space/space_ninja/toggle_spacesuit_cell(mob/user)
 	return
@@ -115,10 +120,10 @@
 		toggle_on_off()
 		return TRUE
 	if(!s_initialized)
-		to_chat(user, "<span class='warning'><b>ОШИБКА</b>: костюм оффлайн. Пожалуйста, активируйте костюм.</span>")
+		to_chat(user, span_warning("<b>ОШИБКА</b>: костюм оффлайн. Пожалуйста, активируйте костюм."))
 		return FALSE
 	if(s_coold > 0)
-		to_chat(user, "<span class='warning'><b>ОШИБКА</b>: костюм на перезарядка</span>")
+		to_chat(user, span_warning("<b>ОШИБКА</b>: костюм на перезарядка"))
 		return FALSE
 	if(IS_NINJA_SUIT_STATUS(action))
 		ninjastatus()
@@ -159,7 +164,7 @@
  * * ninja - The person wearing the suit.
  */
 /obj/item/clothing/suit/space/space_ninja/proc/lockIcons(mob/living/carbon/human/ninja)
-	var/design_choice = alert(ninja, "Please choose your desired suit design.",,"Original","New Age")
+	var/design_choice = tgui_alert(ninja, "Please choose your desired suit design.",,list("Original","New Age"))
 	switch(design_choice)
 		if("Original")
 			icon_state = ninja.body_type == "female" ? "s-ninjanf" : "s-ninjan"
@@ -187,7 +192,7 @@
 	if(!istype(ninja))
 		return FALSE
 	if(!IS_SPACE_NINJA(ninja))
-		to_chat(ninja, "<span class='danger'><B>фАТаЛЬНая ОШИииБка</B>: 382200-*#00CODE <B>RED</B>\nUNAUСИРОВАН ИСПОЛЬЗУЙТЕ ОБНАРУЖeD\nCoMMENCING SUB-R0UIN3 13...\nУНИЧТОЖЕНИЕ П-П-ПОЛЬЗОВАТЕЛЯ...</span>")
+		to_chat(ninja, span_danger("<B>фАТаЛЬНая ОШИииБка</B>: 382200-*#00CODE <B>RED</B>\nUNAUСИРОВАН ИСПОЛЬЗУЙТЕ ОБНАРУЖeD\nCoMMENCING SUB-R0UIN3 13...\nУНИЧТОЖЕНИЕ П-П-ПОЛЬЗОВАТЕЛЯ..."))
 		ninja.gib()
 		return FALSE
 	if(!istype(ninja.head, /obj/item/clothing/head/helmet/space/space_ninja))

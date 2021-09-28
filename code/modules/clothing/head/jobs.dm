@@ -23,10 +23,10 @@
 	mouse_control_probability = 100
 
 /obj/item/clothing/head/chefhat/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] надевает [src]! Похоже, что [user.p_theyre()] пытается стать шеф-поваром.</span>")
+	user.visible_message(span_suicide("[user] надевает [src]! Похоже, что [user.p_theyre()] пытается стать шеф-поваром."))
 	user.say("Bork Bork Bork!", forced = "chef hat suicide")
 	sleep(20)
-	user.visible_message("<span class='suicide'>[user] залезает в воображаемую печку!</span>")
+	user.visible_message(span_suicide("[user] залезает в воображаемую печку!"))
 	user.say("BOOORK!", forced = "chef hat suicide")
 	playsound(user, 'sound/machines/ding.ogg', 50, TRUE)
 	return(FIRELOSS)
@@ -57,6 +57,14 @@
 	icon_state = "capcap"
 
 	dog_fashion = null
+
+/obj/item/clothing/head/caphat/beret
+	name = "капитанский берет"
+	desc = "Для модного капитана."
+	icon_state = "beret_badge"
+	greyscale_config = /datum/greyscale_config/beret_badge
+	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
+	greyscale_colors = "#0070B7#FFCE5B"
 
 
 //Head of Personnel
@@ -97,7 +105,7 @@
 /obj/item/clothing/head/fedora/det_hat/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += "<span class='notice'>ПКМ, чтобы достать кукурузную конфету.</span>"
+	. += span_notice("ПКМ, чтобы достать кукурузную конфету.")
 
 /obj/item/clothing/head/fedora/det_hat/AltClick(mob/user)
 	. = ..()
@@ -106,10 +114,10 @@
 	if(candy_cooldown < world.time)
 		var/obj/item/food/candy_corn/CC = new /obj/item/food/candy_corn(src)
 		user.put_in_hands(CC)
-		to_chat(user, "<span class='notice'>Достаю кукурузную конфету из своей шляпы.</span>")
+		to_chat(user, span_notice("Достаю кукурузную конфету из своей шляпы."))
 		candy_cooldown = world.time+1200
 	else
-		to_chat(user, "<span class='warning'>Только что взял кукурузную конфету! Надо подождать пару минут, чтобы не истратить заначку.</span>")
+		to_chat(user, span_warning("Только что взял кукурузную конфету! Надо подождать пару минут, чтобы не истратить заначку."))
 
 
 //Mime
@@ -119,37 +127,10 @@
 	icon_state = "beret"
 	dog_fashion = /datum/dog_fashion/head/beret
 	dynamic_hair_suffix = ""
-
-/obj/item/clothing/head/beret/vintage
-	name = "старинный берет"
-	desc = "Пахнет сыростью."
-	icon_state = "vintageberet"
-	dog_fashion = null
-
-/obj/item/clothing/head/beret/archaic
-	name = "архаичный берет"
-	desc = "Абсолютно древний берет, якобы носящийся первым мимом, ступившим на станцию Нанотрейзен."
-	icon_state = "archaicberet"
-	dog_fashion = null
-
-/obj/item/clothing/head/beret/black
-	name = "чёрный берет"
-	desc = "Черный берет, идеально подходит для ветеранов войны и темных, задумчивых, антигеройских мимов."
-	icon_state = "beretblack"
-
-/obj/item/clothing/head/beret/highlander
-	desc = "Это была белая ткань. <i>Была</i>."
-	dog_fashion = null //THIS IS FOR SLAUGHTER, NOT PUPPIES
-
-/obj/item/clothing/head/beret/highlander/Initialize()
-	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, HIGHLANDER)
-
-/obj/item/clothing/head/beret/durathread
-	name = "дюратканевый берет"
-	desc =  "Берет из дюраткани, эластичные волокна которого обеспечивают некоторую защиту головы владельца."
-	icon_state = "beretdurathread"
-	armor = list(MELEE = 15, BULLET = 5, LASER = 15, ENERGY = 25, BOMB = 10, BIO = 0, RAD = 0, FIRE = 30, ACID = 5, WOUND = 4)
+	greyscale_config = /datum/greyscale_config/beret
+	greyscale_config_worn = /datum/greyscale_config/beret/worn
+	greyscale_colors = "#972A2A"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 //Security
 
@@ -166,9 +147,17 @@
 	desc = "Черная шапочка подходит для высокопоставленного офицера синдиката."
 
 /obj/item/clothing/head/hos/beret
-	name = "берет главы безопасности"
+	name = "берет начальника охраны"
 	desc = "Прочный берет для главы службы безопасности, выглядит стильно, не жертвуя при этом защитой."
-	icon_state = "hosberetblack"
+	icon_state = "beret_badge"
+	greyscale_config = /datum/greyscale_config/beret_badge
+	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
+	greyscale_colors = "#3F3C40#FFCE5B"
+
+/obj/item/clothing/head/hos/beret/navyhos
+	name = "берет начальника охраны"
+	desc = "Особый берет с вышитой на нем эмблемой начальника службы безопасности. Символ превосходства, знак отваги, знак отличия."
+	greyscale_colors = "#3C485A#FFCE5B"
 
 /obj/item/clothing/head/hos/beret/syndicate
 	name = "берет синдиката"
@@ -195,22 +184,22 @@
 		return TRUE
 	switch(mode)
 		if(DRILL_DEFAULT)
-			to_chat(user, "<span class='notice'>You set the voice circuit to the middle position.</span>")
+			to_chat(user, span_notice("You set the voice circuit to the middle position."))
 			mode = DRILL_SHOUTING
 		if(DRILL_SHOUTING)
-			to_chat(user, "<span class='notice'>You set the voice circuit to the last position.</span>")
+			to_chat(user, span_notice("You set the voice circuit to the last position."))
 			mode = DRILL_YELLING
 		if(DRILL_YELLING)
-			to_chat(user, "<span class='notice'>You set the voice circuit to the first position.</span>")
+			to_chat(user, span_notice("You set the voice circuit to the first position."))
 			mode = DRILL_DEFAULT
 		if(DRILL_CANADIAN)
-			to_chat(user, "<span class='danger'>You adjust voice circuit but nothing happens, probably because it's broken.</span>")
+			to_chat(user, span_danger("You adjust voice circuit but nothing happens, probably because it's broken."))
 	return TRUE
 
 /obj/item/clothing/head/warden/drill/wirecutter_act(mob/living/user, obj/item/I)
 	..()
 	if(mode != DRILL_CANADIAN)
-		to_chat(user, "<span class='danger'>You broke the voice circuit!</span>")
+		to_chat(user, span_danger("You broke the voice circuit!"))
 		mode = DRILL_CANADIAN
 	return TRUE
 
@@ -257,35 +246,120 @@
 	armor = list(MELEE = 40, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, RAD = 0, FIRE = 20, ACID = 50, WOUND = 4)
 	strip_delay = 60
 	dog_fashion = null
-
-/obj/item/clothing/head/beret/sec/navyhos
-	name = "берет главы безопасности"
-	desc = "Специальный берет с эмблемой главы службы безопасности, украшенный эмблемой. Символ совершенства, значок мужества, знак отличия."
-	icon_state = "hosberet"
+	greyscale_config = /datum/greyscale_config/beret_badge
+	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
+	greyscale_colors = "#972A2A#F2F2F2"
+	flags_1 = NONE
 
 /obj/item/clothing/head/beret/sec/navywarden
 	name = "берет надзирателя"
 	desc = "Специальный берет с эмблемой начальника тюрьмы, украшенный знаком отличия. Для модных надзирателей."
-	icon_state = "wardenberet"
+	greyscale_colors = "#3C485A#00AEEF"
 	armor = list(MELEE = 40, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, RAD = 0, FIRE = 30, ACID = 50, WOUND = 6)
 	strip_delay = 60
 
 /obj/item/clothing/head/beret/sec/navyofficer
 	desc = "Специальный берет с эмблемой безопасности на нем. Для модных офицеров."
-	icon_state = "officerberet"
+	greyscale_colors = "#3C485A#FF0000"
 
 //Science
 
 /obj/item/clothing/head/beret/science
 	name = "научный берет"
 	desc = "Берет, раскраска которого посвящена нашим усердно работающим учёным."
-	icon_state = "sciberet"
+	greyscale_colors = "#8D008F"
+	flags_1 = NONE
+
+/obj/item/clothing/head/beret/science/fancy
+	desc = "Берет на научную тематику для наших трудолюбивых ученых. У этого есть необычный значок!"
+	icon_state = "beret_badge"
+	greyscale_config = /datum/greyscale_config/beret_badge
+	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
+	greyscale_colors = "#8D008F#FFFFFF"
+
+
+//Medical
+
+/obj/item/clothing/head/beret/medical
+	name = "берет медика"
+	desc = "Берет с лечебным вкусом для доктора в тебе!"
+	greyscale_colors = "#FFFFFF"
+	flags_1 = NONE
+
+/obj/item/clothing/head/beret/medical/paramedic
+	name = "берет парамедика"
+	desc = "Для стильного поиска трупов!"
+	greyscale_colors = "#16313D"
+
+
+//Engineering
+
+/obj/item/clothing/head/beret/engi
+	name = "берет инженера"
+	desc = "Не защитит от радиации, но точно защитит от немодной внешности!"
+	greyscale_colors = "#FFBC30"
+	flags_1 = NONE
+
+/obj/item/clothing/head/beret/atmos
+	name = "берет атмостеха"
+	desc = "Хотя \"трубы\" и \"стиль\" могут не рифмовать, этот берет наверняка заставит вас почувствовать, что они должны!"
+	greyscale_colors = "#FFDE15"
+	flags_1 = NONE
+
+
+//Cargo
+
+/obj/item/clothing/head/beret/cargo
+	name = "берет грузчика"
+	desc = "Зачем комплексовать, когда можно носить этот берет!"
+	greyscale_colors = "#ECCA30"
+	flags_1 = NONE
 
 //Curator
 /obj/item/clothing/head/fedora/curator
 	name = "фетровая шляпа охотника за сокровищами"
 	desc = "Ты получил красное сообщение сегодня, парень, но это не значит, что тебе это должно нравиться."
 	icon_state = "curator"
+
+//Miscellaneous
+
+/obj/item/clothing/head/beret/black
+	name = "чёрный берет"
+	desc = "Черный берет, идеально подходит для ветеранов войны и темных, задумчивых, антигеройских мимов."
+	icon_state = "beret"
+	greyscale_config = /datum/greyscale_config/beret
+	greyscale_config_worn = /datum/greyscale_config/beret/worn
+	greyscale_colors = "#3f3c40"
+
+/obj/item/clothing/head/beret/durathread
+	name = "дюратканевый берет"
+	desc =  "Берет из дюраткани, эластичные волокна которого обеспечивают некоторую защиту головы владельца."
+	icon_state = "beret_badge"
+	greyscale_config = /datum/greyscale_config/beret_badge
+	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
+	greyscale_colors = "#C5D4F3#ECF1F8"
+	armor = list(MELEE = 15, BULLET = 5, LASER = 15, ENERGY = 25, BOMB = 10, BIO = 0, RAD = 0, FIRE = 30, ACID = 5, WOUND = 4)
+
+/obj/item/clothing/head/beret/highlander
+	desc = "Это была белая ткань. <i>Была</i>."
+	dog_fashion = null //THIS IS FOR SLAUGHTER, NOT PUPPIES
+
+/obj/item/clothing/head/beret/highlander/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, HIGHLANDER)
+
+
+//CentCom
+
+/obj/item/clothing/head/beret/centcom_formal
+	name = "берет офицера центрального командования"
+	desc = "Иногда приходится идти на компромисс между модой и защитой. Благодаря последним усовершенствованиям наноткани от Central Command на этот раз дело обстоит не так."
+	icon_state = "beret_badge"
+	greyscale_config = /datum/greyscale_config/beret_badge
+	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
+	greyscale_colors = "#397F3F#FFCE5B"
+	armor = list(MELEE = 80, BULLET = 80, LASER = 50, ENERGY = 50, BOMB = 100, BIO = 100, RAD = 90, FIRE = 100, ACID = 90, WOUND = 10)
+	strip_delay = 10 SECONDS
 
 #undef DRILL_DEFAULT
 #undef DRILL_SHOUTING

@@ -62,7 +62,7 @@
 
 /obj/effect/anomaly/Destroy()
 	STOP_PROCESSING(SSobj, src)
-	qdel(countdown)
+	QDEL_NULL(countdown)
 	if(aSignal)
 		QDEL_NULL(aSignal)
 	return ..()
@@ -91,7 +91,7 @@
 
 /obj/effect/anomaly/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_ANALYZER || istype(I, /obj/item/multitool/tricorder))
-		to_chat(user, "<span class='notice'>Analyzing... [src] unstable field is fluctuating along frequency [format_frequency(aSignal.frequency)], code [aSignal.code].</span>")
+		to_chat(user, span_notice("Analyzing... [src] unstable field is fluctuating along frequency [format_frequency(aSignal.frequency)], code [aSignal.code]."))
 
 ///////////////////////
 
@@ -318,7 +318,7 @@
 	var/datum/action/innate/slime/reproduce/A = new
 	A.Grant(S)
 
-	var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you want to play as a pyroclastic anomaly slime?", ROLE_SENTIENCE, null, null, 100, S, POLL_IGNORE_PYROSLIME)
+	var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Do you want to play as a pyroclastic anomaly slime?", ROLE_SENTIENCE, null, null, 100, S, POLL_IGNORE_PYROSLIME)
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/chosen = pick(candidates)
 		S.key = chosen.key

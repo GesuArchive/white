@@ -43,25 +43,25 @@
 		return FALSE
 	var/turf/T = get_turf(src)
 	if(!isopenturf(T))
-		broken_message = "<span class='boldnotice'>ВЕНТИЛЯЦИЯ ЗАБЛОКИРОВАНА</span>"
+		broken_message = span_boldnotice("ВЕНТИЛЯЦИЯ ЗАБЛОКИРОВАНА")
 		set_broken(TRUE)
 		return FALSE
 	var/turf/open/OT = T
 	if(OT.planetary_atmos)
-		broken_message = "<span class='boldwarning'>УСТРОЙСТВО НЕ МОЖЕТ РАБОТАТЬ В ОТКРЫТОМ ПРОСТРАНСТВЕ</span>"
+		broken_message = span_boldwarning("УСТРОЙСТВО НЕ МОЖЕТ РАБОТАТЬ В ОТКРЫТОМ ПРОСТРАНСТВЕ")
 		set_broken(TRUE)
 		return FALSE
 	if(isspaceturf(T))
-		broken_message = "<span class='boldnotice'>ГАЗ УХОДИТ В КОСМОС</span>"
+		broken_message = span_boldnotice("ГАЗ УХОДИТ В КОСМОС")
 		set_broken(TRUE)
 		return FALSE
 	var/datum/gas_mixture/G = OT.return_air()
 	if(G.return_pressure() > (max_ext_kpa - ((spawn_mol*spawn_temp*R_IDEAL_GAS_EQUATION)/(CELL_VOLUME))))
-		broken_message = "<span class='boldwarning'>ВНЕШНЕЕ ДАВЛЕНИЕ КРИТИЧЕСКОЕ</span>"
+		broken_message = span_boldwarning("ВНЕШНЕЕ ДАВЛЕНИЕ КРИТИЧЕСКОЕ")
 		set_broken(TRUE)
 		return FALSE
 	if(G.total_moles() > max_ext_mol)
-		broken_message = "<span class='boldwarning'>ВНЕШНЯЯ КОНЦЕНТРАЦИЯ ГАЗА КРИТИЧЕСКАЯ</span>"
+		broken_message = span_boldwarning("ВНЕШНЯЯ КОНЦЕНТРАЦИЯ ГАЗА КРИТИЧЕСКАЯ")
 		set_broken(TRUE)
 		return FALSE
 	if(broken)
@@ -87,15 +87,15 @@
 	var/P = G.return_pressure()
 	switch(power_draw)
 		if(GASMINER_POWER_NONE)
-			active_power_usage = 0
+			update_use_power(ACTIVE_POWER_USE, 0)
 		if(GASMINER_POWER_STATIC)
-			active_power_usage = power_draw_static
+			update_use_power(ACTIVE_POWER_USE, power_draw_static)
 		if(GASMINER_POWER_MOLES)
-			active_power_usage = spawn_mol * power_draw_dynamic_mol_coeff
+			update_use_power(ACTIVE_POWER_USE, spawn_mol * power_draw_dynamic_mol_coeff)
 		if(GASMINER_POWER_KPA)
-			active_power_usage = P * power_draw_dynamic_kpa_coeff
+			update_use_power(ACTIVE_POWER_USE, P * power_draw_dynamic_kpa_coeff)
 		if(GASMINER_POWER_FULLSCALE)
-			active_power_usage = (spawn_mol * power_draw_dynamic_mol_coeff) + (P * power_draw_dynamic_kpa_coeff)
+			update_use_power(ACTIVE_POWER_USE, (spawn_mol * power_draw_dynamic_mol_coeff) + (P * power_draw_dynamic_kpa_coeff))
 
 /obj/machinery/atmospherics/miner/proc/do_use_power(amount)
 	var/turf/T = get_turf(src)

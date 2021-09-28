@@ -61,7 +61,9 @@
 	owner = M
 	M.internal_organs |= src
 	M.internal_organs_slot[slot] = src
-	moveToNullspace()
+	//вайтокостыль
+	if(!istype(loc, /atom/movable/organ_holder))
+		moveToNullspace()
 	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, .proc/on_owner_examine)
 	for(var/X in actions)
 		var/datum/action/A = X
@@ -124,7 +126,7 @@
 /obj/item/organ/examine(mob/user)
 	. = ..()
 
-	. += "<hr><span class='notice'>Должен быть вставлен в [parse_zone(zone)].</span>"
+	. += "<hr><span class='notice'>Можно вставить в [parse_zone(zone)].</span>"
 
 	if(organ_flags & ORGAN_FAILING)
 		if(status == ORGAN_ROBOTIC)

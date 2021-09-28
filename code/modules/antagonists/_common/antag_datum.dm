@@ -94,7 +94,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 		if(removing) // They're a clown becoming an antag, remove clumsy
 			H.dna.remove_mutation(CLOWNMUT)
 			if(!silent && message)
-				to_chat(H, "<span class='boldnotice'>[message]</span>")
+				to_chat(H, span_boldnotice("[message]"))
 		else
 			H.dna.add_mutation(CLOWNMUT) // We're removing their antag status, add back clumsy
 
@@ -113,6 +113,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 		greet()
 	apply_innate_effects()
 	give_antag_moodies()
+	set_antag_skills()
 	if(is_banned(owner.current) && replace_banned)
 		replace_banned_player()
 	else if(owner.current.client?.holder && (CONFIG_GET(flag/auto_deadmin_antagonists) || owner.current.client.prefs?.toggles & DEADMIN_ANTAGONIST))
@@ -128,7 +129,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 /datum/antagonist/proc/replace_banned_player()
 	set waitfor = FALSE
 
-	var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you want to play as a [name]?", "[name]", null, job_rank, 50, owner.current)
+	var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Do you want to play as a [name]?", "[name]", null, job_rank, 50, owner.current)
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
 		to_chat(owner, "Your mob has been taken over by a ghost! Appeal your job ban if you want to avoid this in the future!")
@@ -159,6 +160,10 @@ GLOBAL_LIST_EMPTY(antagonists)
 
 /datum/antagonist/proc/farewell()
 	return
+
+/datum/antagonist/proc/set_antag_skills()
+	owner.set_experience(/datum/skill/ranged,  SKILL_EXP_MASTER, FALSE)
+	owner.set_experience(/datum/skill/surgery, SKILL_EXP_EXPERT, FALSE)
 
 /datum/antagonist/proc/give_antag_moodies()
 	if(!antag_moodlet)

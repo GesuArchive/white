@@ -7,10 +7,11 @@
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 /obj/structure/closet/crate/necropolis/tendril
-	desc = "It's watching you suspiciously."
+	desc = "It's watching you suspiciously. You need a skeleton key to open it."
+	integrity_failure = 0
 
 /obj/structure/closet/crate/necropolis/tendril/PopulateContents()
-	var/loot = rand(1,21)
+	var/loot = rand(1,20)
 	switch(loot)
 		if(1)
 			new /obj/item/shared_storage/red(src)
@@ -54,15 +55,13 @@
 		if(16)
 			new /obj/item/immortality_talisman(src)
 		if(17)
-			new /obj/item/voodoo(src)
-		if(18)
 			new /obj/item/book/granter/spell/summonitem(src)
-		if(19)
+		if(18)
 			new /obj/item/book_of_babel(src)
-		if(20)
+		if(19)
 			new /obj/item/borg/upgrade/modkit/lifesteal(src)
 			new /obj/item/bedsheet/cult(src)
-		if(21)
+		if(20)
 			new /obj/item/clothing/neck/necklace/memento_mori(src)
 
 //Megafauna chests
@@ -143,6 +142,7 @@
 			new /obj/item/wisp_lantern(src)
 		if(3)
 			new /obj/item/prisoncube(src)
+
 /*
 /obj/item/skeleton_key
 	name = "skeleton key"

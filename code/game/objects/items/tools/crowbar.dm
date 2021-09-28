@@ -23,7 +23,7 @@
 	var/force_opens = FALSE
 
 /obj/item/crowbar/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is beating [user.ru_na()]self to death with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] is beating [user.ru_na()]self to death with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	playsound(loc, 'sound/weapons/genhit.ogg', 50, TRUE, -1)
 	return (BRUTELOSS)
 
@@ -56,7 +56,7 @@
 /obj/item/crowbar/power
 	name = "челюсти жизни"
 	desc = "Набор челюстей жизни, сжатых через магию науки."
-	icon_state = "jaws_pry"
+	icon_state = "jaws"
 	inhand_icon_state = "jawsoflife"
 	worn_icon_state = "jawsoflife"
 	icon = 'white/valtos/icons/items.dmi'
@@ -71,10 +71,34 @@
 /obj/item/crowbar/power/get_belt_overlay()
 	return mutable_appearance('white/valtos/icons/belt_overlays.dmi', icon_state)
 
+/obj/item/crowbar/power/Initialize()
+	. = ..()
+	AddComponent(/datum/component/transforming, \
+		force_on = force, \
+		throwforce_on = throwforce, \
+		hitsound_on = hitsound, \
+		w_class_on = w_class, \
+		clumsy_check = FALSE)
+	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
+
+
+/*
+ * Signal proc for [COMSIG_TRANSFORMING_ON_TRANSFORM].
+ *
+ * Toggles between crowbar and wirecutters and gives feedback to the user.
+ */
+/obj/item/crowbar/power/proc/on_transform(obj/item/source, mob/user, active)
+	SIGNAL_HANDLER
+
+	tool_behaviour = (active ? TOOL_WIRECUTTER : TOOL_CROWBAR)
+	balloon_alert(user, "ставлю [active ? "кусаку" : "открываку"]")
+	playsound(user ? user : src, 'sound/items/change_jaws.ogg', 50, TRUE)
+	return COMPONENT_NO_DEFAULT_MESSAGE
+
 /obj/item/crowbar/power/syndicate
 	name = "Syndicate jaws of life"
 	desc = "A re-engineered copy of Nanotrasen's standard jaws of life. Can be used to force open airlocks in its crowbar configuration."
-	icon_state = "jaws_pry_syndie"
+	icon_state = "jaws_syndie"
 	toolspeed = 0.5
 	force_opens = TRUE
 
@@ -84,10 +108,10 @@
 
 /obj/item/crowbar/power/suicide_act(mob/user)
 	if(tool_behaviour == TOOL_CROWBAR)
-		user.visible_message("<span class='suicide'>[user] is putting [user.ru_ego()] head in [src], it looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message(span_suicide("[user] is putting [user.ru_ego()] head in [src], it looks like [user.p_theyre()] trying to commit suicide!"))
 		playsound(loc, 'sound/items/jaws_pry.ogg', 50, TRUE, -1)
 	else
-		user.visible_message("<span class='suicide'>[user] is wrapping <b>[src.name]</b> around [user.ru_ego()] neck. It looks like [user.p_theyre()] trying to rip [user.ru_ego()] head off!</span>")
+		user.visible_message(span_suicide("[user] is wrapping <b>[src.name]</b> around [user.ru_ego()] neck. It looks like [user.p_theyre()] trying to rip [user.ru_ego()] head off!"))
 		playsound(loc, 'sound/items/jaws_cut.ogg', 50, TRUE, -1)
 		if(iscarbon(user))
 			var/mob/living/carbon/C = user
@@ -97,35 +121,9 @@
 				playsound(loc, "desecration", 50, TRUE, -1)
 	return (BRUTELOSS)
 
-/obj/item/crowbar/power/attack_self(mob/user)
-	playsound(get_turf(user), 'sound/items/change_jaws.ogg', 50, TRUE)
-	if(tool_behaviour == TOOL_CROWBAR)
-		tool_behaviour = TOOL_WIRECUTTER
-		to_chat(user, "<span class='notice'>Меняю открываку на кусаку.</span>")
-		usesound = 'sound/items/jaws_cut.ogg'
-		update_icon()
-
-	else
-		tool_behaviour = TOOL_CROWBAR
-		to_chat(user, "<span class='notice'>Меняю кусаку на открываку.</span>")
-		usesound = 'sound/items/jaws_pry.ogg'
-		update_icon()
-
-/obj/item/crowbar/power/update_icon()
-	if(tool_behaviour == TOOL_WIRECUTTER)
-		icon_state = "jaws_cutter"
-	else
-		icon_state = "jaws_pry"
-
-/obj/item/crowbar/power/syndicate/update_icon()
-	if(tool_behaviour == TOOL_WIRECUTTER)
-		icon_state = "jaws_cutter_syndie"
-	else
-		icon_state = "jaws_pry_syndie"
-
 /obj/item/crowbar/power/attack(mob/living/carbon/C, mob/user)
 	if(istype(C) && C.handcuffed && tool_behaviour == TOOL_WIRECUTTER)
-		user.visible_message("<span class='notice'>[user] перекусывает наручи [C] используя [src]!</span>")
+		user.visible_message(span_notice("[user] перекусывает наручи [C] используя [src]!"))
 		qdel(C.handcuffed)
 		return
 	else

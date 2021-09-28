@@ -204,6 +204,29 @@
 	return list("eightiesred_damaged")
 
 /turf/open/floor/plating/rust
+	//SDMM supports colors, this is simply for easier mapping
+	//and should be removed on initialize
+	color = COLOR_BROWN
+
+/turf/open/floor/plating/rust/Initialize(mapload)
+	. = ..()
+	color = null
+
+/turf/open/floor/plating/rust/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/rust)
+
+/turf/open/floor/plating/plasma
+	initial_gas_mix = ATMOS_TANK_PLASMA
+
+/turf/open/floor/plating/plasma/rust/Initialize(mapload)
+	. = ..()
+	// Because this is a fluff turf explicitly for KiloStation it doesn't make sense to ChangeTurf like usual
+	// Especially since it looks like we don't even change the default icon/iconstate???
+	AddElement(/datum/element/rust)
+
+/*
+/turf/open/floor/plating/rust
 	name = "ржавая обшивка"
 	desc = "НЕ безопасна."
 	icon_state = "plating_rust"
@@ -213,7 +236,7 @@
 
 /turf/open/floor/plating/rust/rust_heretic_act()
 	return
-
+*/
 /turf/open/floor/stone
 	name = "stone brick floor"
 	desc = "Odd, really, how it looks exactly like the iron walls yet is stone instead of iron. Now, if that's really more of a complaint about\

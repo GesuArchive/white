@@ -359,7 +359,7 @@ const CfStep3 = (props, context) => {
         italic
         textAlign="center"
         fontSize="20px">
-       Ваше устройство готово к сборке...
+        Ваше устройство готово к сборке...
       </Box>
       <Box
         bold

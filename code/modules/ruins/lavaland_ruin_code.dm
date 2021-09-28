@@ -92,13 +92,13 @@
 		var/species = golem_shell_species_types[O.merge_type]
 		if(species)
 			if(O.use(10))
-				to_chat(user, "<span class='notice'>Вы достраиваете корпус голема десятью листами [O].</span>")
+				to_chat(user, span_notice("Вы достраиваете корпус голема десятью листами [O]."))
 				new shell_type(get_turf(src), species, user)
 				qdel(src)
 			else
-				to_chat(user, "<span class='warning'>Вам нужно как минимум 10 листов чтобы достроить голема!</span>")
+				to_chat(user, span_warning("Вам нужно как минимум 10 листов чтобы достроить голема!"))
 		else
-			to_chat(user, "<span class='warning'>Ты не можешь построить голема из этого материала!</span>")
+			to_chat(user, span_warning("Ты не можешь построить голема из этого материала!"))
 
 //made with xenobiology, the golem obeys its creator
 /obj/item/golem_shell/servant
@@ -160,7 +160,7 @@
 
 /datum/outfit/lavaland_syndicate/comms
 	name = "Связист Синдиката в Лаваленде"
-	r_hand = /obj/item/melee/transforming/energy/sword/saber
+	r_hand = /obj/item/melee/energy/sword/saber
 	mask = /obj/item/clothing/mask/chameleon/gps
 	suit = /obj/item/clothing/suit/armor/vest
 

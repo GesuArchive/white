@@ -174,7 +174,7 @@
 			new_mode = MODE_PAINKILLER
 	current_mode = new_mode
 	playsound(get_turf(src), 'white/valtos/sounds/pamk_mode.ogg', 80)
-	to_chat(user, "<span class='notice'><b>РЕЖИМ:</b></span> [uppertext(current_mode)].</span>")
+	to_chat(user, span_notice("<b>РЕЖИМ:</b></span> [uppertext(current_mode)]."))
 
 /obj/item/pamk/attack(mob/living/M, mob/user)
 	. = ..()
@@ -183,7 +183,7 @@
 /obj/item/pamk/proc/try_heal(mob/living/M, mob/user)
 	var/obj/item/bodypart/limb = M.get_bodypart(check_zone(user.zone_selected))
 	if(!limb)
-		to_chat(user, "<span class='notice'>А куда колоть то?!</span>")
+		to_chat(user, span_notice("А куда колоть то?!"))
 		return
 	switch(current_mode)
 		if(MODE_PAINKILLER)
@@ -191,45 +191,45 @@
 				if(use_charge(10))
 					M.heal_overall_damage(25, 25)
 				else
-					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
+					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц."))
 			else
-				to_chat(user, "<span class='warning'>Не обнаружено повреждений, либо они незначительны.</span>")
+				to_chat(user, span_warning("Не обнаружено повреждений, либо они незначительны."))
 		if(MODE_OXYLOSS)
 			if(M.getOxyLoss() > 5)
 				if(use_charge(10))
 					M.setOxyLoss(0)
 				else
-					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
+					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц."))
 			else
-				to_chat(user, "<span class='warning'>Уровень кислорода в норме.</span>")
+				to_chat(user, span_warning("Уровень кислорода в норме."))
 		if(MODE_TOXDUMP)
 			if(M.getToxLoss() > 5)
 				if(use_charge(20))
 					M.setToxLoss(0)
 				else
-					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
+					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц."))
 			else
-				to_chat(user, "<span class='warning'>Токсины отсутствуют.</span>")
+				to_chat(user, span_warning("Токсины отсутствуют."))
 		if(MODE_FRACTURE)
 			if(limb?.wounds?.len)
 				if(use_charge(20))
 					for(var/thing in limb.wounds)
 						var/datum/wound/W = thing
 						W.remove_wound()
-					to_chat(user, "<span class='notice'>Успешно исправили все переломы и вывихи в этой конечности.</span>")
+					to_chat(user, span_notice("Успешно исправили все переломы и вывихи в этой конечности."))
 				else
-					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
+					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц."))
 			else
-				to_chat(user, "<span class='warning'>Не обнаружено травм в этой конечности.</span>")
+				to_chat(user, span_warning("Не обнаружено травм в этой конечности."))
 		if(MODE_BLOOD_INJECTOR)
 			if(M.blood_volume <= initial(M.blood_volume) - 50)
 				if(use_charge(30))
 					M.restore_blood()
-					to_chat(user, "<span class='notice'>Кровь восстановлена.</span>")
+					to_chat(user, span_notice("Кровь восстановлена."))
 				else
-					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
+					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц."))
 			else
-				to_chat(user, "<span class='warning'>Уровень крови в пределах нормы.</span>")
+				to_chat(user, span_warning("Уровень крови в пределах нормы."))
 
 #undef MODE_PAINKILLER
 #undef MODE_OXYLOSS
@@ -264,6 +264,10 @@
 		var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
 		H.maxHealth = MAX_LIVING_HEALTH + LM.reputation[H.ckey]
 		ADD_TRAIT(H, TRAIT_YOHEI, JOB_TRAIT)
+	spawn(1 SECONDS) // fucking
+		var/obj/item/card/id/yohei/Y = H.get_idcard(FALSE)
+		if(Y && H.mind)
+			Y.assigned_to = H.mind
 
 /datum/outfit/yohei/medic
 	name = "Йохей: Медик"
@@ -307,7 +311,7 @@
 		if(BT)
 			BT.pick_sound('white/valtos/sounds/snidleyWhiplash.ogg')
 			BT.tension = 80
-		to_chat(H, "<span class='revenbignotice'>Давно не виделись, а?</span>")
+		to_chat(H, span_revenbignotice("Давно не виделись, а?"))
 		if(H?.hud_used)
 			H.hud_used.update_parallax_pref(H, TRUE)
 
@@ -350,6 +354,13 @@ GLOBAL_VAR(yohei_main_controller)
 	if(!fexists(json_file))
 		return
 	reputation = json_decode(file2text(json_file))
+
+/obj/lab_monitor/yohei/proc/clear_reputation()
+	var/json_file = file("data/yohei.json")
+	if(!fexists(json_file))
+		return
+	reputation = list()
+	WRITE_FILE(json_file, json_encode(reputation))
 
 /obj/lab_monitor/yohei/proc/adjust_reputation(keyto, amt = 0)
 	if(IsAdminAdvancedProcCall())
@@ -421,7 +432,7 @@ GLOBAL_VAR(yohei_main_controller)
 	. = ..()
 	if(current_task)
 		. += "<hr>"
-		. += "<span class='notice'><b>Задание:</b> [current_task.desc]</span>"
+		. += span_notice("<b>Задание:</b> [current_task.desc]")
 		. += "\n<span class='notice'><b>Награда:</b> [current_task.prize]</span>"
 		. += "\n<span class='notice'><b>Исполнители:</b> [english_list(action_guys)]</span>"
 		if(user?.ckey in reputation)
@@ -578,6 +589,9 @@ GLOBAL_VAR(yohei_main_controller)
 /datum/yohei_task/gamemode/check_task(mob/user)
 	if(!adatum)
 		qdel(src)
+		if(GLOB.yohei_main_controller)
+			var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
+			LM.current_task = null
 		return FALSE
 	if(!is_special_character(user))
 		user.mind.add_antag_datum(adatum)
@@ -589,6 +603,8 @@ GLOBAL_VAR(yohei_main_controller)
 	parallax_movedir = NORTH
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | BLOCK_SUICIDE | NOTELEPORT
 	static_lighting = FALSE
+	base_lighting_alpha = 255
+	base_lighting_color = COLOR_WHITE
 
 /obj/item/card/id/yohei
 	name = "странная карточка"
@@ -598,9 +614,43 @@ GLOBAL_VAR(yohei_main_controller)
 	assignment = "Yohei"
 	registered_age = 666
 	access = list(ACCESS_YOHEI, ACCESS_MAINT_TUNNELS)
+	var/datum/mind/assigned_to
+	var/assigned_by
+
+/obj/item/card/id/yohei/Initialize(mapload)
+	. = ..()
+	var/datum/bank_account/bank_account = new /datum/bank_account(name)
+	registered_account = bank_account
 
 /obj/item/card/id/yohei/update_label()
-	name = "[md5("[rand(1, 10)][name]")]"
+	if(assigned_by)
+		name = "Наёмный рабочий ([assigned_by])"
+	else
+		name = "[uppertext(copytext_char(md5("[rand(1, 10)][name]"), 1, 4))]-[rand(100000, 999999)]"
+
+/obj/item/card/id/yohei/attackby(obj/item/W, mob/user, params)
+	. = ..()
+
+	if(!isidcard(W) || istype(W, /obj/item/card/id/yohei))
+		return
+
+	if(assigned_by || assigned_to.special_role)
+		to_chat(user, span_danger("Уже кем-то нанят, какая жалость."))
+		return
+
+	if(assigned_to && user?.mind != assigned_to)
+		var/obj/item/card/id/ID = W
+		if(ID.registered_name)
+			assigned_by = ID.registered_name
+			assigned_to.special_role = "yohei"
+			var/datum/antagonist/yohei/V = new
+			V.protected_guy = user.mind
+			assigned_to.add_antag_datum(V)
+			to_chat(user, span_notice("Успешно нанимаю [assigned_to.name]. Теперь меня точно защитят."))
+			update_label()
+		else
+			to_chat(user, span_danger("Карта неисправна. Самоутилизация активирована."))
+			qdel(W)
 
 /obj/effect/mob_spawn/human/donate
 	name = "платно"
@@ -615,7 +665,7 @@ GLOBAL_VAR(yohei_main_controller)
 	if(check_donations(user?.ckey) >= req_sum)
 		. = ..()
 	else
-		to_chat(user, "<span class='warning'>Эта роль требует <b>[req_sum]</b> донат-поинтов для доступа.</span>")
+		to_chat(user, span_warning("Эта роль требует <b>[req_sum]</b> донат-поинтов для доступа."))
 		return
 
 /obj/effect/mob_spawn/human/donate/yohei
@@ -625,7 +675,7 @@ GLOBAL_VAR(yohei_main_controller)
 	density = FALSE
 	icon_state = "yohei_spawn"
 	short_desc = "Что-то интересное?"
-	flavour_text = "Наёмник посреди пустошей Лаваленда, до чего жизнь довела!"
+	flavour_text = "Наёмник посреди открытого космоса, до чего жизнь довела!"
 	outfit = /datum/outfit/yohei
 	assignedrole = "Yohei"
 	req_sum = 1250
@@ -672,3 +722,41 @@ GLOBAL_VAR(yohei_main_controller)
 	if (!newname)
 		return
 	H.fully_replace_character_name(H.real_name, newname)
+
+/datum/antagonist/yohei
+	name = "yohei"
+	roundend_category = "yohei"
+	show_in_antagpanel = FALSE
+	prevent_roundtype_conversion = FALSE
+	var/datum/mind/protected_guy
+	greentext_reward = 250
+
+/datum/antagonist/yohei/proc/forge_objectives()
+	var/datum/objective/protect/protect_objective = new /datum/objective/protect
+	protect_objective.owner = owner
+	protect_objective.target = protected_guy
+	if(!ishuman(protected_guy.current))
+		protect_objective.human_check = FALSE
+	protect_objective.explanation_text = "Защитить [protected_guy.name], моего нанимателя."
+	objectives += protect_objective
+
+/datum/antagonist/yohei/on_gain()
+	forge_objectives()
+	. = ..()
+
+/datum/antagonist/yohei/greet()
+	to_chat(owner, span_warning("<B>Неужели, хоть кто-то решился на это. Теперь надо подумать как уберечь задницу [protected_guy.name] от смерти.</B>"))
+
+//Squashed up a bit
+/datum/antagonist/yohei/roundend_report()
+	var/objectives_complete = TRUE
+	if(objectives.len)
+		for(var/datum/objective/objective in objectives)
+			if(!objective.check_completion())
+				objectives_complete = FALSE
+				break
+
+	if(objectives_complete)
+		return "<span class='greentext big'>[owner.name] успешно выполняет работу.</span>"
+	else
+		return "<span class='redtext big'>[owner.name] обосрался, позор!</span>"

@@ -565,7 +565,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 			if(channel_name == "" || channel_name == "\[REDACTED\]" || scanned_user == "Неизвестный" || check || (scanned_user in existing_authors) )
 				screen=7
 			else
-				var/choice = alert("Подтвердить бы создание","Общая сеть","Подтвердить","Отменить")
+				var/choice = tgui_alert(usr, "Подтвердить бы создание","Общая сеть", list("Подтвердить","Отменить"))
 				if(choice=="Подтвердить")
 					scan_user(usr)
 					GLOB.news_network.CreateFeedChannel(channel_name, scanned_user, c_locked)
@@ -635,7 +635,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 			if(msg == "" || channel_name == "" || scanned_user == "Неизвестный")
 				screen = 16
 			else
-				var/choice = alert("Подтвердить объявление о [(input_param==1) ? ("создании") : ("редактировании")] объявления о розыске.","Служба безопасности","Подтвердить","Отменить")
+				var/choice = tgui_alert(usr, "Подтвердить объявление о [(input_param==1) ? ("создании") : ("редактировании")] объявления о розыске.","Служба безопасности",list("Подтвердить","Отменить"))
 				if(choice=="Подтвердить")
 					scan_user(usr)
 					if(input_param==1)          //If input_param == 1 we're submitting a new wanted issue. At 2 we're just editing an existing one.
@@ -643,16 +643,16 @@ GLOBAL_LIST_EMPTY(allCasters)
 						screen = 15
 					else
 						if(GLOB.news_network.wanted_issue.isAdminMsg)
-							alert("Объявление о розыске создано офицером Нанотрейзен. Я не могу это редактировать.","Лан")
+							tgui_alert(usr,"Объявление о розыске создано офицером Нанотрейзен. Я не могу это редактировать.","Лан")
 							return
 						GLOB.news_network.submitWanted(channel_name, msg, scanned_user, picture)
 						screen = 19
 			updateUsrDialog()
 		else if(href_list["cancel_wanted"])
 			if(GLOB.news_network.wanted_issue.isAdminMsg)
-				alert("Объявление о розыске создано офицером Нанотрейзен. Я не могу это снять","Лан")
+				tgui_alert(usr, "Объявление о розыске создано офицером Нанотрейзен. Я не могу это снять","Лан")
 				return
-			var/choice = alert("Подвердить бы удаление розыска","Служба безопасности","Подтвердить","Отменить")
+			var/choice = tgui_alert(usr, "Подвердить бы удаление розыска","Служба безопасности",list("Подтвердить","Отменить"))
 			if(choice=="Подтвердить")
 				GLOB.news_network.deleteWanted()
 				screen=17
@@ -663,21 +663,21 @@ GLOBAL_LIST_EMPTY(allCasters)
 		else if(href_list["censor_channel_author"])
 			var/datum/newscaster/feed_channel/FC = locate(href_list["censor_channel_author"]) in GLOB.news_network.network_channels
 			if(FC.is_admin_channel)
-				alert("Этот канал создан офицером Нанотрейзен. Я не могу зацензурить это.","Лан")
+				tgui_alert(usr, "Этот канал создан офицером Нанотрейзен. Я не могу зацензурить это.","Лан")
 				return
 			FC.toggleCensorAuthor()
 			updateUsrDialog()
 		else if(href_list["censor_channel_story_author"])
 			var/datum/newscaster/feed_message/MSG = locate(href_list["censor_channel_story_author"]) in viewing_channel.messages
 			if(MSG.is_admin_message)
-				alert("Это сообщение создано офицером Нанотрейзен. Я не могу зацензурить автора.","Лан")
+				tgui_alert(usr, "Это сообщение создано офицером Нанотрейзен. Я не могу зацензурить автора.","Лан")
 				return
 			MSG.toggleCensorAuthor()
 			updateUsrDialog()
 		else if(href_list["censor_channel_story_body"])
 			var/datum/newscaster/feed_message/MSG = locate(href_list["censor_channel_story_body"]) in viewing_channel.messages
 			if(MSG.is_admin_message)
-				alert("Этот канал создан офицером Нанотрейзен. Я не могу зацензурить это.","Лан")
+				tgui_alert(usr, "Этот канал создан офицером Нанотрейзен. Я не могу зацензурить это.","Лан")
 				return
 			MSG.toggleCensorBody()
 			updateUsrDialog()
@@ -689,7 +689,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 		else if(href_list["toggle_d_notice"])
 			var/datum/newscaster/feed_channel/FC = locate(href_list["toggle_d_notice"]) in GLOB.news_network.network_channels
 			if(FC.is_admin_channel)
-				alert("Этот канал создан офицером Нанотрейзен. Я не могу оставлять заметки тут.","Лан")
+				tgui_alert(usr, "Этот канал создан офицером Нанотрейзен. Я не могу оставлять заметки тут.","Лан")
 				return
 			FC.toggleCensorDclass()
 			updateUsrDialog()
@@ -746,35 +746,35 @@ GLOBAL_LIST_EMPTY(allCasters)
 
 /obj/machinery/newscaster/attackby(obj/item/I, mob/living/user, params)
 	if(I.tool_behaviour == TOOL_WRENCH)
-		to_chat(user, "<span class='notice'>Начинаю [anchored ? "откручивать" : "прикручивать"] [name]...</span>")
+		to_chat(user, span_notice("Начинаю [anchored ? "откручивать" : "прикручивать"] [name]..."))
 		I.play_tool_sound(src)
 		if(I.use_tool(src, user, 60))
 			playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 			if(machine_stat & BROKEN)
-				to_chat(user, "<span class='warning'>Куски [src] падают на пол.</span>")
+				to_chat(user, span_warning("Куски [src] падают на пол."))
 				new /obj/item/stack/sheet/iron(loc, 5)
 				new /obj/item/shard(loc)
 				new /obj/item/shard(loc)
 			else
-				to_chat(user, "<span class='notice'>[anchored ? "откручиваю" : "прикручиваю"] [name].</span>")
+				to_chat(user, span_notice("[anchored ? "откручиваю" : "прикручиваю"] [name]."))
 				new /obj/item/wallframe/newscaster(loc)
 			qdel(src)
 	else if(I.tool_behaviour == TOOL_WELDER && user.a_intent != INTENT_HARM)
 		if(machine_stat & BROKEN)
 			if(!I.tool_start_check(user, amount=0))
 				return
-			user.visible_message("<span class='notice'>[user] начинает чинить [src].</span>", \
-							"<span class='notice'>Начинаю чинить [src]...</span>", \
-							"<span class='hear'>Слышу сварку.</span>")
+			user.visible_message(span_notice("[user] начинает чинить [src].") , \
+							span_notice("Начинаю чинить [src]...") , \
+							span_hear("Слышу сварку."))
 			if(I.use_tool(src, user, 40, volume=50))
 				if(!(machine_stat & BROKEN))
 					return
-				to_chat(user, "<span class='notice'>Чиню [src].</span>")
+				to_chat(user, span_notice("Чиню [src]."))
 				obj_integrity = max_integrity
 				set_machine_stat(machine_stat & ~BROKEN)
 				update_icon()
 		else
-			to_chat(user, "<span class='notice'>[capitalize(src.name)] не хочет починки.</span>")
+			to_chat(user, span_notice("[capitalize(src.name)] не хочет починки."))
 	else
 		return ..()
 
@@ -804,7 +804,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 
 /obj/machinery/newscaster/attack_paw(mob/user)
 	if(user.a_intent != INTENT_HARM)
-		to_chat(user, "<span class='warning'>СЛИШКОМ СЛОЖНО!</span>")
+		to_chat(user, span_warning("СЛИШКОМ СЛОЖНО!"))
 	else
 		take_damage(5, BRUTE, MELEE)
 
@@ -827,9 +827,9 @@ GLOBAL_LIST_EMPTY(allCasters)
 			else
 				targetcam = R.aicamera
 		else
-			to_chat(user, "<span class='warning'>Вот был бы я синтетиком!</span>")
+			to_chat(user, span_warning("Вот был бы я синтетиком!"))
 		if(!targetcam.stored.len)
-			to_chat(usr, "<span class='boldannounce'>Нет изображений!</span>")
+			to_chat(usr, span_boldannounce("Нет изображений!"))
 			return
 		var/datum/picture/selection = targetcam.selectpicture(user)
 		if(selection)
@@ -911,13 +911,13 @@ GLOBAL_LIST_EMPTY(allCasters)
 	icon_state = "newspaperold"
 
 /obj/item/newspaper/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is focusing intently on [src]! It looks like [user.p_theyre()] trying to commit sudoku... until [user.ru_ego()] eyes light up with realization!</span>")
+	user.visible_message(span_suicide("[user] is focusing intently on [src]! It looks like [user.p_theyre()] trying to commit sudoku... until [user.ru_ego()] eyes light up with realization!"))
 	user.say(";JOURNALISM IS MY CALLING! EVERYBODY APPRECIATES UNBIASED REPORTI-GLORF", forced="newspaper suicide")
 	var/mob/living/carbon/human/H = user
 	var/obj/W = new /obj/item/reagent_containers/food/drinks/bottle/whiskey(H.loc)
 	playsound(H.loc, 'sound/items/drink.ogg', rand(10,50), TRUE)
 	W.reagents.trans_to(H, W.reagents.total_volume, transfered_by = user)
-	user.visible_message("<span class='suicide'>[user] downs the contents of [W.name] in one gulp! Shoulda stuck to sudoku!</span>")
+	user.visible_message(span_suicide("[user] downs the contents of [W.name] in one gulp! Shoulda stuck to sudoku!"))
 
 	return(TOXLOSS)
 
@@ -1000,7 +1000,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 		human_user << browse(dat, "window=newspaper_main;size=300x400")
 		onclose(human_user, "newspaper_main")
 	else
-		to_chat(user, "<span class='warning'>The paper is full of unintelligible symbols!</span>")
+		to_chat(user, span_warning("The paper is full of unintelligible symbols!"))
 
 /obj/item/newspaper/proc/notContent(list/L)
 	if(!L.len)
@@ -1050,10 +1050,10 @@ GLOBAL_LIST_EMPTY(allCasters)
 
 	if(istype(W, /obj/item/pen))
 		if(!user.is_literate())
-			to_chat(user, "<span class='notice'>Пишу код оникса на [src]!</span>")
+			to_chat(user, span_notice("Пишу код оникса на [src]!"))
 			return
 		if(scribble_page == curr_page)
-			to_chat(user, "<span class='warning'>Здесь уже что-то написали... Не хочу тут писать!</span>")
+			to_chat(user, span_warning("Здесь уже что-то написали... Не хочу тут писать!"))
 		else
 			var/s = stripped_input(user, "Написать бы", "Новостная газета")
 			if (!s)

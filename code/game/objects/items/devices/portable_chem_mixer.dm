@@ -20,7 +20,7 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_combined_w_class = 200
 	STR.max_items = 50
-	STR.insert_preposition = "in"
+	STR.insert_preposition = "в"
 	STR.set_holdable(list(
 		/obj/item/reagent_containers/glass/beaker,
 	))
@@ -125,7 +125,7 @@
 			ui_interact(user)
 			return
 		else
-			to_chat(user, "<span class='notice'>The portable chemical mixer is currently open and its contents can be accessed.</span>")
+			to_chat(user, span_notice("The portable chemical mixer is currently open and its contents can be accessed."))
 			return
 	return
 

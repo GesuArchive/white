@@ -77,8 +77,9 @@
 
 /obj/effect/landmark/stationroom/bridge/random
 	template_names = list(
+		"Hall Bridge" = 10,
 		"Compact Bridge" = 4,
-		"Default Bridge" = 10,
+		"Default Bridge" = 5,
 		"Interesting Bridge" = 3,
 	)
 	icon_state = "bridge_template"

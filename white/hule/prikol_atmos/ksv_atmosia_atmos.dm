@@ -4,7 +4,7 @@
 
 /obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4/atmos/toxin_input
 	name = "plasma tank input injector"
-	id = ATMOS_GAS_MONITOR_INPUT_TOX
+	id = ATMOS_GAS_MONITOR_INPUT_PLAS
 /obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4/atmos/oxygen_input
 	name = "oxygen tank input injector"
 	id = ATMOS_GAS_MONITOR_INPUT_O2
@@ -30,7 +30,7 @@
 	id = ATMOS_GAS_MONITOR_INPUT_INCINERATOR
 /obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4/atmos/toxins_mixing_input
 	name = "toxins mixing input injector"
-	id = ATMOS_GAS_MONITOR_INPUT_TOXINS_LAB
+	id = ATMOS_GAS_MONITOR_INPUT_PLASINS_LAB
 /obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4/atmos/atmos_waste
 	name = "atmos waste outlet injector"
 	id =  ATMOS_GAS_MONITOR_WASTE_ATMOS

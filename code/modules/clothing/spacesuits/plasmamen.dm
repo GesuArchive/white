@@ -4,7 +4,7 @@
 /obj/item/clothing/suit/space/eva/plasmaman
 	name = "ЕВА плазменный скафандр"
 	desc = "Специальный скафандр, разработаный для плазмалюдей для безопасного пребывания на станции. Оснащен внутренней системой пожаротушения. Число срабатываний ограничено."
-	allowed = list(/obj/item/gun, /obj/item/ammo_casing, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword, /obj/item/restraints/handcuffs, /obj/item/tank)
+	allowed = list(/obj/item/gun, /obj/item/ammo_casing, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/energy/sword, /obj/item/restraints/handcuffs, /obj/item/tank)
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 0, FIRE = 100, ACID = 75)
 	resistance_flags = FIRE_PROOF
 	icon_state = "plasmaman_suit"
@@ -29,7 +29,7 @@
 				return
 			next_extinguish = world.time + extinguish_cooldown
 			extinguishes_left--
-			H.visible_message("<span class='warning'>[H] костюм автоматически тушит [H.ru_na()]!</span>","<span class='warning'>В костюме сработала система пожаротушения.</span>")
+			H.visible_message(span_warning("[H] костюм автоматически тушит [H.ru_na()]!") ,span_warning("В костюме сработала система пожаротушения."))
 			H.extinguish_mob()
 			new /obj/effect/particle_effect/water(get_turf(H))
 
@@ -71,7 +71,7 @@
 /obj/item/clothing/head/helmet/space/plasmaman/proc/toggle_welding_screen(mob/living/user)
 	if(weldingvisortoggle(user))
 		if(helmet_on)
-			to_chat(user, "<span class='notice'>Your helmet's torch can't pass through your welding visor!</span>")
+			to_chat(user, span_notice("Your helmet's torch can't pass through your welding visor!"))
 			helmet_on = FALSE
 			playsound(src, 'sound/mecha/mechmove03.ogg', 50, TRUE) //Visors don't just come from nothing
 			update_icon()
@@ -88,14 +88,14 @@
 	if(istype(C, /obj/item/toy/crayon))
 		if(smile == FALSE)
 			var/obj/item/toy/crayon/CR = C
-			to_chat(user, "<span class='notice'>You start drawing a smiley face on the helmet's visor..</span>")
+			to_chat(user, span_notice("You start drawing a smiley face on the helmet's visor.."))
 			if(do_after(user, 25, target = src))
 				smile = TRUE
 				smile_color = CR.paint_color
 				to_chat(user, "You draw a smiley on the helmet visor.")
 				update_icon()
 		else
-			to_chat(user, "<span class='warning'>Seems like someone already drew something on this helmet's visor!</span>")
+			to_chat(user, span_warning("Seems like someone already drew something on this helmet's visor!"))
 
 /obj/item/clothing/head/helmet/space/plasmaman/worn_overlays(isinhands)
 	. = ..()
@@ -123,7 +123,7 @@
 
 	if(helmet_on)
 		if(!up)
-			to_chat(user, "<span class='notice'>Your helmet's torch can't pass through your welding visor!</span>")
+			to_chat(user, span_notice("Your helmet's torch can't pass through your welding visor!"))
 			set_light_on(FALSE)
 		else
 			set_light_on(TRUE)

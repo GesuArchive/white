@@ -2,6 +2,9 @@
 	set name = " ? Raspidoars"
 	set category = "Дбг"
 
+	if(!check_rights(R_DEBUG))
+		return
+
 	var/turf/where = get_turf(mob)
 
 	if(!where)
@@ -24,6 +27,9 @@
 /client/proc/kaboom()
 	set name = " ? Ka-Boom"
 	set category = "Дбг"
+
+	if(!check_rights(R_DEBUG))
+		return
 
 	var/turf/where = get_turf(mob)
 
@@ -50,6 +56,9 @@
 	set name = " ? Smooth Z-Level"
 	set category = "Дбг"
 
+	if(!check_rights(R_DEBUG))
+		return
+
 	var/zlevel = input("Z-Level? Пиши 0, если не понимаешь че нажал:") as num
 
 	if(zlevel != 0)
@@ -61,10 +70,13 @@
 	set name = " ? Generate TacMap"
 	set category = "Дбг"
 
+	if(!check_rights(R_DEBUG))
+		return
+
 	var/fuckz = input("З-уровень") as num
 
 	if(!fuckz || fuckz > world.maxz)
-		to_chat(usr, "<span class='adminnotice'> !! RETARD !! </span>")
+		to_chat(usr, span_adminnotice(" !! RETARD !! "))
 		return
 
 	message_admins("[ADMIN_LOOKUPFLW(usr)] запустил генерацию миникарты Z-уровня [fuckz].")
@@ -73,12 +85,15 @@
 	spawn(0)
 		var/icon/I = gen_tacmap(fuckz)
 		usr << browse_rsc(I, "tacmap[fuckz].png")
-		to_chat(usr, "<span class='adminnotice'>Ваша овсянка, сер:</span>")
+		to_chat(usr, span_adminnotice("Ваша овсянка, сер:"))
 		to_chat(usr, "<img src='tacmap[fuckz].png'>")
 
 /client/proc/toggle_major_mode()
 	set name = " ? Переключить ММ (тест)"
 	set category = "Дбг"
+
+	if(!check_rights(R_DEBUG))
+		return
 
 	GLOB.major_mode_active = !GLOB.major_mode_active
 
@@ -121,7 +136,7 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 					GLOB.pidorlist += pidorasname
 
 				if("Remove Pidoras (rly?)")
-					to_chat(usr,"<span class='warning'>A zachem</span>")
+					to_chat(usr,span_warning("A zachem"))
 					return
 
 				if("Pidoras List")
@@ -204,15 +219,8 @@ GLOBAL_LIST_INIT(obembalist, world.file2list("[global.config.directory]/autoeban
 	)
 
 	var/data_to_send = jointext(data_list, "\n")
-	to_chat(src, "<span class='notice'>\n[data_to_send]\n</span>")
+	to_chat(src, span_notice("\n[data_to_send]\n"))
 
-/datum/smite/valid_hunt
-	name = "Valid Hunt"
-
-/datum/smite/valid_hunt/effect(client/user, mob/living/target)
-	. = ..()
-	var/bounty = input("Награда в кредитах (выдавать руками пока):", "Жопа", 50) as num|null
-	if(bounty)
-		target.color = COLOR_RED
-		target.set_light(1.4, 4, COLOR_RED, TRUE)
-		priority_announce("За голову [target] назначена награда в размере [bounty] кредит[get_num_string(bounty)]. Он будет подсвечен лазерной наводкой для удобства.", "Охота за головами",'sound/ai/announcer/alert.ogg')
+/proc/maptick_initialize()
+	var/result = call(EXTOOLS, "maptick_initialize")()
+	message_admins(span_danger("ENABLING EXPERIMENTAL MAPTICK BOOST WITH RESULT OF: [result]"))

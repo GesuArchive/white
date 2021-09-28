@@ -12,7 +12,6 @@
 	name = "Chilly"
 	icon = 'white/rebolution228/map_sprites.dmi'
 	icon_state = "coutdoor"
-	static_lighting = TRUE
 	requires_power = TRUE
 	has_gravity = STANDARD_GRAVITY
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | NOTELEPORT
@@ -22,11 +21,15 @@
 	//poweralm = FALSE
 	ambientsounds = list('sound/ambience/white/snowyambient.ogg')
 	env_temp_relative = -25
+	static_lighting = FALSE
+	base_lighting_color = COLOR_WHITE
+	base_lighting_alpha = 255
 
 /area/awaymission/chilly/surface // костыль, потому что шторм иначе будет применяться на все зоны
 	name = "Surface"
 	icon_state = "coutdoor"
 	env_temp_relative = -25
+	blend_mode = 0
 
 /area/awaymission/chilly/surface/Initialize()
 	. = ..()
@@ -41,7 +44,8 @@
 /area/awaymission/chilly/facility
 	name = "Base I"
 	icon_state = "base"
-	static_lighting = FALSE
+	base_lighting_alpha = 1
+	static_lighting = TRUE
 	requires_power = TRUE
 	always_unpowered = TRUE
 	ambientsounds = list('sound/ambience/ambireebe1.ogg')
@@ -50,7 +54,7 @@
 /area/awaymission/chilly/facility/croom
 	name = "Base I Underground Control Room"
 	icon_state = "base_eng"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = FALSE
 	always_unpowered = FALSE
 	env_temp_relative = -5
@@ -58,7 +62,8 @@
 /area/awaymission/chilly/facility2
 	name = "Base II"
 	icon_state = "base2"
-	static_lighting = FALSE
+	base_lighting_alpha = 1
+	static_lighting = TRUE
 	requires_power = TRUE
 	ambientsounds = list('sound/ambience/ambireebe3.ogg')
 	always_unpowered = TRUE
@@ -67,7 +72,8 @@
 /area/awaymission/chilly/facility3
 	name = "Base III"
 	icon_state = "base3"
-	static_lighting = FALSE
+	base_lighting_alpha = 1
+	static_lighting = TRUE
 	requires_power = TRUE
 	always_unpowered = TRUE
 	ambientsounds = list('sound/ambience/ambireebe2.ogg')
@@ -76,7 +82,8 @@
 /area/awaymission/chilly/facility4
 	name = "Base IV House"
 	icon_state = "base4"
-	static_lighting = FALSE
+	base_lighting_alpha = 1
+	static_lighting = TRUE
 	requires_power = TRUE
 	always_unpowered = TRUE
 	ambientsounds = list('sound/ambience/ambiruin4.ogg')
@@ -85,7 +92,8 @@
 /area/awaymission/chilly/facility5
 	name = "Base V"
 	icon_state = "base5"
-	static_lighting = FALSE
+	base_lighting_alpha = 1
+	static_lighting = TRUE
 	requires_power = TRUE
 	always_unpowered = TRUE
 	ambientsounds = list('sound/ambience/ambitech.ogg')
@@ -96,7 +104,8 @@
 /area/awaymission/chilly/cave
 	name = "Underground Train Tracks"
 	icon_state = "caverns"
-	static_lighting = FALSE
+	base_lighting_alpha = 1
+	static_lighting = TRUE
 	requires_power = TRUE
 	always_unpowered = TRUE
 	ambientsounds = list('sound/ambience/ambireebe3.ogg')
@@ -105,7 +114,8 @@
 /area/awaymission/chilly/syndietrain
 	name = "Syndicate Cargo Train"
 	icon_state = "syndie_train"
-	static_lighting = FALSE
+	base_lighting_alpha = 1
+	static_lighting = TRUE
 	requires_power = FALSE
 	ambientsounds = list('sound/ambience/ambireebe3.ogg')
 	always_unpowered = FALSE
@@ -114,7 +124,8 @@
 /area/awaymission/chilly/ntcargotrain
 	name = "NanoTrasen Cargo Train Wreckage"
 	icon_state = "nt_train"
-	static_lighting = FALSE
+	base_lighting_alpha = 1
+	static_lighting = TRUE
 	requires_power = TRUE
 	ambientsounds = list('sound/ambience/ambireebe3.ogg')
 	always_unpowered = TRUE
@@ -126,14 +137,16 @@
 /area/awaymission/chilly/mountain
 	name = "Mountain"
 	icon_state = "mountain"
-	static_lighting = FALSE
+	base_lighting_alpha = 1
+	static_lighting = TRUE
 	always_unpowered = TRUE
 	env_temp_relative = -30
 
 /area/awaymission/chilly/gatewaystart
 	name = "Gateway Entrance"
 	icon_state = "gateways"
-	static_lighting = FALSE
+	base_lighting_alpha = 1
+	static_lighting = TRUE
 	requires_power = FALSE
 	always_unpowered = FALSE
 	ambientsounds = list('sound/ambience/ambitech.ogg', 'sound/ambience/ambitech2.ogg', 'sound/ambience/ambitech3.ogg')
@@ -143,11 +156,13 @@
 	name = "Base II Armory"
 	icon_state = "base2armory"
 	env_temp_relative = 0
+	base_lighting_alpha = 1
 
 /area/awaymission/chilly/facility/emergencystorage
 	name = "Emergency Storage"
 	icon_state = "estorage"
 	env_temp_relative = -5
+	base_lighting_alpha = 1
 
 /* TURFS */
 
@@ -264,10 +279,10 @@
 	icon_state = "screen_b"
 
 /obj/machinery/doorpanel/attack_hand(mob/living/carbon/human/user)
-    to_chat(user, "<span class='warning'>It has no power!</span>")
+    to_chat(user, span_warning("It has no power!"))
 
 /obj/machinery/doorpanel/broken/attack_hand(mob/living/carbon/human/user)
-    to_chat(user, "<span class='warning'>It's broken.</span>")
+    to_chat(user, span_warning("It's broken."))
 
 /obj/machinery/oldvents
 	name = "ventilation"
@@ -614,7 +629,6 @@
 
 /turf/open/water/cataclysmdda/Entered(atom/movable/AM)
 	. = ..()
-//	update_water_overlay() хули оно рантаймит блядь чините
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
 		H.wash()
@@ -622,13 +636,6 @@
 		if(H.fire_stacks)
 			H.fire_stacks = 0
 			H.extinguish_mob()
-
-/turf/open/water/cataclysmdda/Exited(atom/movable/AM, atom/newLoc)
-	. = ..()
-	if(ismob(AM))
-		add_overlay(mutable_appearance(icon, "water_overlay", ABOVE_MOB_LAYER, ABOVE_MOB_LAYER))
-	else
-		cut_overlay(mutable_appearance(icon, "water_overlay", ABOVE_MOB_LAYER, ABOVE_MOB_LAYER))
 
 /turf/open/floor/carpet/tentfloor
 	name = "пол палатки"
@@ -655,9 +662,9 @@
 	. = ..()
 	if(I.sharpness == SHARP_EDGED)
 		new /obj/item/stack/sheet/cloth(get_turf(src))
-		user.visible_message("<span class='notice'><b>[user]</b> нарезает <b>[src]</b> на нитки и быстро сплетает из него куски ткани при помощи <b>[I]</b>.</span>", \
-			"<span class='notice'>Нарезаю <b>[src]</b> на нитки и быстро сплетаю из него куски ткани при помощи <b>[I]</b>.</span>", \
-			"<span class='hear'>Слышу как что-то режет ткань.</span>")
+		user.visible_message(span_notice("<b>[user]</b> нарезает <b>[src]</b> на нитки и быстро сплетает из него куски ткани при помощи <b>[I]</b>.") , \
+			span_notice("Нарезаю <b>[src]</b> на нитки и быстро сплетаю из него куски ткани при помощи <b>[I]</b>.") , \
+			span_hear("Слышу как что-то режет ткань."))
 		qdel(src)
 
 /obj/structure/flora/cataclysmdda/decoration/nature

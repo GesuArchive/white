@@ -138,6 +138,8 @@ SUBSYSTEM_DEF(zclear)
 	addtimer(CALLBACK(src, .proc/begin_tracking, picked_level), 60 SECONDS)
 	message_admins("SSORBITS: Created a new dynamic free level ([LAZYLEN(free_levels)] now created) as none were available at the time.")
 
+	return picked_level
+
 /datum/controller/subsystem/zclear/proc/begin_tracking(datum/space_level/sl)
 	LAZYOR(autowipe, sl)
 
@@ -207,11 +209,14 @@ SUBSYSTEM_DEF(zclear)
 				cleardata.completion_callback.Invoke(cleardata.zvalue)
 			if(cleardata.tracking)
 				LAZYADD(free_levels, SSmapping.z_list[cleardata.zvalue])
-			if(length(nullspaced_mobs))
 				var/nullspaced_mob_names = ""
-				for(var/atom/A as() in nullspaced_mobs)
-					nullspaced_mob_names += " - [A.name]\n"
-				priority_announce("Сенсоры сообщают о том, что несколько членов вашего экипажа пропало. Скорее всего их раскидало по космосу, их всё ещё можно попробовать найти.\n[nullspaced_mob_names]")
+				var/valid = FALSE
+				for(var/mob/M as() in nullspaced_mobs)
+					if(M.key || M.get_ghost(FALSE, TRUE))
+						nullspaced_mob_names += " - [M.name]\n"
+						valid = TRUE
+				if(valid)
+					priority_announce("Сенсоры сообщают о том, что несколько членов вашего экипажа пропало. Скорее всего их раскидало по космосу, их всё ещё можно попробовать найти.\n[nullspaced_mob_names]")
 	cleardata.process_num ++
 
 /*
@@ -244,7 +249,7 @@ SUBSYSTEM_DEF(zclear)
 						//Since the wiping takes 90 seconds they could potentially still be on the z-level as it is wiping if they reconnect in time
 						random_teleport_atom(M)
 						M.Knockdown(5)
-						to_chat(M, "<span class='warning'>You feel sick as your body lurches through space and time, the ripples of the starship that brought you here eminate no more and you get the horrible feeling that you have been left behind.</span>")
+						to_chat(M, span_warning("You feel sick as your body lurches through space and time, the ripples of the starship that brought you here eminate no more and you get the horrible feeling that you have been left behind."))
 				else
 					delete_atom(thing)
 			else

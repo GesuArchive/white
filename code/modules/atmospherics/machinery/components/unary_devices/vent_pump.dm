@@ -299,13 +299,13 @@
 	..()
 	if(!I.tool_start_check(user, amount=0))
 		return TRUE
-	to_chat(user, "<span class='notice'>Начинаю заваривать вентиляцию...</span>")
+	to_chat(user, span_notice("Начинаю заваривать вентиляцию..."))
 	if(I.use_tool(src, user, 20, volume=50))
 		if(!welded)
-			user.visible_message("<span class='notice'>[user] заваривает вентиляцию намертво.</span>", "<span class='notice'>Завариваю ветиляцию намертво.</span>", "<span class='hear'>Слышу сварку.</span>")
+			user.visible_message(span_notice("[user] заваривает вентиляцию намертво.") , span_notice("Завариваю ветиляцию намертво.") , span_hear("Слышу сварку."))
 			welded = TRUE
 		else
-			user.visible_message("<span class='notice'>[user] разваривает вентиляцию.</span>", "<span class='notice'>Развариваю вентиляцию.</span>", "<span class='hear'>Слышу сварку.</span>")
+			user.visible_message(span_notice("[user] разваривает вентиляцию.") , span_notice("Развариваю вентиляцию.") , span_hear("Слышу сварку."))
 			welded = FALSE
 		update_icon()
 		pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)
@@ -317,7 +317,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/can_unwrench(mob/user)
 	. = ..()
 	if(. && on && is_operational)
-		to_chat(user, "<span class='warning'>Не могу открутить [src.name], сначала нужно выключить это!</span>")
+		to_chat(user, span_warning("Не могу открутить [src.name], сначала нужно выключить это!"))
 		return FALSE
 
 /obj/machinery/atmospherics/components/unary/vent_pump/examine(mob/user)
@@ -337,7 +337,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/attack_alien(mob/user)
 	if(!welded || !(do_after(user, 20, target = src)))
 		return
-	user.visible_message("<span class='warning'>[user] яростно разрывает вентиляцию!</span>", "<span class='notice'>Удалось разблокировать доступ к вентиляции.</span>", "<span class='hear'>Слышу громкий лязг металла.</span>")
+	user.visible_message(span_warning("[user] яростно разрывает вентиляцию!") , span_notice("Удалось разблокировать доступ к вентиляции.") , span_hear("Слышу громкий лязг металла."))
 	welded = FALSE
 	update_icon()
 	pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)
@@ -408,7 +408,7 @@
 
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/toxin_output
 	name = "вентиляция из камеры с плазмой"
-	id_tag = ATMOS_GAS_MONITOR_OUTPUT_TOX
+	id_tag = ATMOS_GAS_MONITOR_OUTPUT_PLAS
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/oxygen_output
 	name = "вентиляция из камеры с кислородом"
 	id_tag = ATMOS_GAS_MONITOR_OUTPUT_O2
@@ -478,7 +478,7 @@
 	frequency = FREQ_ATMOS_CONTROL
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/toxins_mixing_output
 	name = "вентиляция из камеры смешивания токсинов"
-	id_tag = ATMOS_GAS_MONITOR_OUTPUT_TOXINS_LAB
+	id_tag = ATMOS_GAS_MONITOR_OUTPUT_ORDNANCE_LAB
 	frequency = FREQ_ATMOS_CONTROL
 
 /obj/machinery/atmospherics/components/unary/vent_pump/high_volume/layer2

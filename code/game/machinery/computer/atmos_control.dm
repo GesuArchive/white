@@ -15,10 +15,10 @@
 
 /obj/machinery/air_sensor/atmos/toxin_tank
 	name = "plasma tank gas sensor"
-	id_tag = ATMOS_GAS_MONITOR_SENSOR_TOX
+	id_tag = ATMOS_GAS_MONITOR_SENSOR_PLAS
 /obj/machinery/air_sensor/atmos/toxins_mixing_tank
 	name = "toxins mixing gas sensor"
-	id_tag = ATMOS_GAS_MONITOR_SENSOR_TOXINS_LAB
+	id_tag = ATMOS_GAS_MONITOR_SENSOR_ORDNANCE_LAB
 /obj/machinery/air_sensor/atmos/oxygen_tank
 	name = "oxygen tank gas sensor"
 	id_tag = ATMOS_GAS_MONITOR_SENSOR_O2
@@ -255,8 +255,8 @@ GLOBAL_LIST_EMPTY(atmos_air_controllers)
 
 /obj/machinery/computer/atmos_control/tank/toxin_tank
 	name = "Plasma Supply Control"
-	input_tag = ATMOS_GAS_MONITOR_INPUT_TOX
-	output_tag = ATMOS_GAS_MONITOR_OUTPUT_TOX
+	input_tag = ATMOS_GAS_MONITOR_INPUT_PLAS
+	output_tag = ATMOS_GAS_MONITOR_OUTPUT_PLAS
 	sensors = list(ATMOS_GAS_MONITOR_SENSOR_TOX = "Plasma Tank")
 	circuit = /obj/item/circuitboard/computer/atmos_control/tank/toxin_tank
 
@@ -428,7 +428,7 @@ GLOBAL_LIST_EMPTY(atmos_air_controllers)
 		var/list/text = splittext(U.id, "_")
 		IO |= text[1]
 	if(!IO.len)
-		to_chat(user, "<span class='alert'>No machinery detected.</span>")
+		to_chat(user, span_alert("No machinery detected."))
 	var/S = input("Select the device set: ", "Selection", IO[1]) as anything in sortList(IO)
 	if(src)
 		src.input_tag = "[S]_in"

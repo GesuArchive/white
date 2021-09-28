@@ -8,7 +8,7 @@
 	icon_state = "labcoatsec"
 	blood_overlay_type = "coat"
 	dog_fashion = /datum/dog_fashion/back
-
+	allowed = list(/obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/flashlight, /obj/item/gun/ballistic, /obj/item/gun/energy, /obj/item/kitchen/knife/combat, /obj/item/melee/baton, /obj/item/melee/classic_baton, /obj/item/reagent_containers/spray/pepper, /obj/item/restraints/handcuffs, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/storage/belt/holster/detective, /obj/item/storage/belt/holster/nukie, /obj/item/tank/internals/emergency_oxygen, /obj/item/healthanalyzer, /obj/item/medbot_carrier)
 
 /obj/item/clothing/suit/armor/vest/fieldmedic/AltClick(mob/user)
 	..()
@@ -26,7 +26,7 @@
 	if(!can_use(usr))
 		return 0
 
-	to_chat(usr, "<span class='notice'>Расстегиваю [src].</span>")
+	to_chat(usr, span_notice("Расстегиваю [src]."))
 	if(src.suittoggled)
 		src.icon_state = "[initial(icon_state)]"
 		src.suittoggled = FALSE
@@ -62,7 +62,7 @@
 	desc = "Простая серая кофточка. Неплохо защитит от ветра."
 	icon_state = "greyhoodie"
 	inhand_icon_state = "gy_suit"
-	
+
 /obj/item/clothing/suit/jacket/hoodie/AltClick(mob/user)
 	..()
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
@@ -79,7 +79,7 @@
 	if(!can_use(usr))
 		return 0
 
-	to_chat(usr, "<span class='notice'>Расстегиваю [src].</span>")
+	to_chat(usr, span_notice("Расстегиваю [src]."))
 	if(src.suittoggled)
 		src.icon_state = "[initial(icon_state)]"
 		src.suittoggled = FALSE

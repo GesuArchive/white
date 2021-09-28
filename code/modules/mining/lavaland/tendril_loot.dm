@@ -513,7 +513,7 @@
 			ADD_TRAIT(exposed_carbon, TRAIT_HOLY, SPECIES_TRAIT)
 		playsound(exposed_carbon.loc, 'sound/items/poster_ripped.ogg', 50, TRUE, -1)
 		exposed_carbon.adjustBruteLoss(20)
-		exposed_carbon.emote("scream")
+		exposed_carbon.emote("agony")
 
 
 /obj/item/jacobs_ladder
@@ -591,7 +591,7 @@
 	armor = list(MELEE = 30, BULLET = 30, LASER = 10, ENERGY = 20, BOMB = 50, BIO = 100, RAD = 10, FIRE = 100, ACID = 100)
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/pickaxe, /obj/item/spear, /obj/item/organ/regenerative_core/legion, /obj/item/kitchen/knife, /obj/item/kinetic_crusher, /obj/item/resonator, /obj/item/melee/transforming/cleaving_saw)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/pickaxe, /obj/item/spear, /obj/item/organ/regenerative_core/legion, /obj/item/kitchen/knife, /obj/item/kinetic_crusher, /obj/item/resonator, /obj/item/melee/cleaving_saw)
 
 
 /obj/item/clothing/suit/space/hardsuit/berserker/Initialize()
@@ -726,7 +726,7 @@
 
 /obj/item/clothing/glasses/godeye/proc/pain(mob/living/victim)
 	to_chat(victim, span_userdanger("You experience blinding pain, as [src] burrows into your skull."))
-	victim.emote("scream")
+	victim.emote("agony")
 	victim.flash_act()
 
 /obj/effect/proc_holder/scan

@@ -70,8 +70,8 @@
 	var/list/skills_rewarded
 	///Assoc list of skills. Use SKILL_LVL to access level, and SKILL_EXP to access skill's exp.
 	var/list/known_skills = list()
-	///What character we joined in as- either at roundstart or latejoin, so we know for persistent scars if we ended as the same person or not
-	var/mob/original_character
+	///Weakref to thecharacter we joined in as- either at roundstart or latejoin, so we know for persistent scars if we ended as the same person or not
+	var/datum/weakref/original_character
 	/// The index for what character slot, if any, we were loaded from, so we can track persistent scars on a per-character basis. Each character slot gets PERSISTENT_SCAR_SLOTS scar slots
 	var/original_character_slot_index
 	/// The index for our current scar slot, so we don't have to constantly check the savefile (unlike the slots themselves, this index is independent of selected char slot, and increments whenever a valid char is joined with)
@@ -99,10 +99,9 @@
 
 /datum/mind/Destroy()
 	SSticker.minds -= src
-	if(islist(antag_datums))
-		QDEL_LIST(antag_datums)
-	current = null
-	soulOwner = null
+	QDEL_LIST(antag_datums)
+	QDEL_NULL(language_holder)
+	set_current(null)
 	return ..()
 
 /datum/mind/proc/set_current(mob/new_current)
@@ -124,8 +123,8 @@
 	return language_holder
 
 /datum/mind/proc/transfer_to(mob/new_character, force_key_move = 0)
-	original_character = null
-	if(current)	// remove ourself from our old body's mind variable
+	set_original_character(null)
+	if(current) // remove ourself from our old body's mind variable
 		current.mind = null
 		UnregisterSignal(current, COMSIG_LIVING_DEATH)
 		SStgui.on_transfer(current, new_character)
@@ -136,16 +135,16 @@
 	else
 		key = new_character.key
 
-	if(new_character.mind)								//disassociate any mind currently in our new body's mind variable
-		new_character.mind.current = null
+	if(new_character.mind) //disassociate any mind currently in our new body's mind variable
+		new_character.mind.set_current(null)
 
 	var/datum/atom_hud/antag/hud_to_transfer = antag_hud//we need this because leave_hud() will clear this list
 	var/mob/living/old_current = current
 	if(current)
-		current.transfer_observers_to(new_character)	//transfer anyone observing the old character to the new one
-	current = new_character								//associate ourself with our new body
-	new_character.mind = src							//and associate our new body with ourself
-	for(var/a in antag_datums)	//Makes sure all antag datums effects are applied in the new body
+		current.transfer_observers_to(new_character) //transfer anyone observing the old character to the new one
+	set_current(new_character) //associate ourself with our new body
+	new_character.mind = src //and associate our new body with ourself
+	for(var/a in antag_datums) //Makes sure all antag datums effects are applied in the new body
 		var/datum/antagonist/A = a
 		A.on_body_transfer(old_current, current)
 	if(iscarbon(new_character))
@@ -161,6 +160,10 @@
 		LAZYCLEARLIST(new_character.client.recent_examines)
 		new_character.client.init_verbs() // re-initialize character specific verbs
 	current.update_atom_languages()
+
+//I cannot trust you fucks to do this properly
+/datum/mind/proc/set_original_character(new_original_character)
+	original_character = WEAKREF(new_original_character)
 
 /datum/mind/proc/init_known_skills()
 	for (var/type in GLOB.skill_types)
@@ -234,7 +237,7 @@
 		if(known_skills[i][SKILL_LVL] > SKILL_LEVEL_NONE) //Do we actually have a level in this?
 			shown_skills += i
 	if(!length(shown_skills))
-		to_chat(user, "<span class='notice'>Да у меня и нет каких-то особых навыков.</span>")
+		to_chat(user, span_notice("Да у меня и нет каких-то особых навыков."))
 		return
 	var/msg = "<span class='info'><EM>Мои навыки</EM></span>\n<span class='notice'>"
 	for(var/i in shown_skills)
@@ -323,11 +326,11 @@
 
 /datum/mind/proc/remove_traitor()
 	remove_antag_datum(/datum/antagonist/traitor)
-
+/*
 /datum/mind/proc/remove_brother()
 	if(src in SSticker.mode.brothers)
 		remove_antag_datum(/datum/antagonist/brother)
-
+*/
 /datum/mind/proc/remove_nukeop()
 	var/datum/antagonist/nukeop/nuke = has_antag_datum(/datum/antagonist/nukeop,TRUE)
 	if(nuke)
@@ -416,11 +419,11 @@
 		U.setup_unlock_code()
 		if(!silent)
 			if(uplink_loc == R)
-				to_chat(traitor_mob, "<span class='boldnotice'>[employer] хитро замаскировал аплинк в [R.name]. Нужно только выбрать частоту [format_frequency(U.unlock_code)], чтобы получить доступ к нему.</span>")
+				to_chat(traitor_mob, span_boldnotice("[employer] хитро замаскировал аплинк в [R.name]. Нужно только выбрать частоту [format_frequency(U.unlock_code)], чтобы получить доступ к нему."))
 			else if(uplink_loc == PDA)
-				to_chat(traitor_mob, "<span class='boldnotice'>[employer] хитро замаскировал аплинк в [PDA.name]. Нужно ввести код \"[U.unlock_code]\" как рингтон, чтобы получить доступ к нему.</span>")
+				to_chat(traitor_mob, span_boldnotice("[employer] хитро замаскировал аплинк в [PDA.name]. Нужно ввести код \"[U.unlock_code]\" как рингтон, чтобы получить доступ к нему."))
 			else if(uplink_loc == P)
-				to_chat(traitor_mob, "<span class='boldnotice'>[employer] хитро замаскировал аплинк в [P.name]. Нужно просто покрутить головку ручки [english_list(U.unlock_code)] со стартовой позиции, чтобы получить доступ к нему.</span>")
+				to_chat(traitor_mob, span_boldnotice("[employer] хитро замаскировал аплинк в [P.name]. Нужно просто покрутить головку ручки [english_list(U.unlock_code)] со стартовой позиции, чтобы получить доступ к нему."))
 
 		if(uplink_owner)
 			uplink_owner.antag_memory += U.unlock_note + "<br>"
@@ -430,7 +433,7 @@
 		var/obj/item/implant/uplink/starting/I = new(traitor_mob)
 		I.implant(traitor_mob, null, silent = TRUE)
 		if(!silent)
-			to_chat(traitor_mob, "<span class='boldnotice'>[employer] has cunningly implanted you with a Syndicate Uplink (although uplink implants cost valuable TC, so you will have slightly less). Simply trigger the uplink to access it.</span>")
+			to_chat(traitor_mob, span_boldnotice("[employer] has cunningly implanted you with a Syndicate Uplink (although uplink implants cost valuable TC, so you will have slightly less). Simply trigger the uplink to access it."))
 		return I
 
 
@@ -463,7 +466,7 @@
 
 	if(creator.mind.special_role)
 		message_admins("[ADMIN_LOOKUPFLW(current)] has been created by [ADMIN_LOOKUPFLW(creator)], an antagonist.")
-		to_chat(current, "<span class='userdanger'>Несмотря на преданность своим создателям, мой истинный хозяин <b>[creator.real_name]</b>. Если их лояльность изменится, изменится и моя. Это никогда не сменится, пока тело моего создателя не будет уничтожено.</span>")
+		to_chat(current, span_userdanger("Несмотря на преданность своим создателям, мой истинный хозяин <b>[creator.real_name]</b>. Если их лояльность изменится, изменится и моя. Это никогда не сменится, пока тело моего создателя не будет уничтожено."))
 
 /datum/mind/proc/show_memory(mob/recipient, window=1)
 	if(!recipient)
@@ -508,7 +511,7 @@
 	if(href_list["remove_antag"])
 		var/datum/antagonist/A = locate(href_list["remove_antag"]) in antag_datums
 		if(!istype(A))
-			to_chat(usr,"<span class='warning'>Invalid antagonist ref to be removed.</span>")
+			to_chat(usr,span_warning("Invalid antagonist ref to be removed."))
 			return
 		A.admin_remove(usr)
 
@@ -660,7 +663,7 @@
 							log_admin("[key_name(usr)] changed [current] telecrystal count to [crystals].")
 			if("uplink")
 				if(!equip_traitor())
-					to_chat(usr, "<span class='danger'>Equipping a syndicate failed!</span>")
+					to_chat(usr, span_danger("Equipping a syndicate failed!"))
 					log_admin("[key_name(usr)] tried and failed to give [current] an uplink.")
 				else
 					log_admin("[key_name(usr)] gave [current] an uplink.")
@@ -682,7 +685,7 @@
 
 /datum/mind/proc/announce_objectives()
 	var/obj_count = 1
-	to_chat(current, "<span class='notice'>Мои текущие цели:</span>")
+	to_chat(current, span_notice("Мои текущие цели:"))
 	for(var/objective in get_all_objectives())
 		var/datum/objective/O = objective
 		to_chat(current, "<B>Цель #[obj_count]</B>: [O.explanation_text]")
@@ -850,7 +853,7 @@
 		SSticker.minds += mind
 	if(!mind.name)
 		mind.name = real_name
-	mind.current = src
+	mind.set_current(src)
 
 /mob/living/carbon/mind_initialize()
 	..()

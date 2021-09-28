@@ -212,12 +212,12 @@
 
 /obj/machinery/embedded_controller/radio/airlock_controller/incinerator_toxmix
 	name = "Incinerator Access Console"
-	airpump_tag = INCINERATOR_TOXMIX_DP_VENTPUMP
-	exterior_door_tag = INCINERATOR_TOXMIX_AIRLOCK_EXTERIOR
-	id_tag = INCINERATOR_TOXMIX_AIRLOCK_CONTROLLER
-	interior_door_tag = INCINERATOR_TOXMIX_AIRLOCK_INTERIOR
+	airpump_tag = INCINERATOR_ORDMIX_DP_VENTPUMP
+	exterior_door_tag = INCINERATOR_ORDMIX_AIRLOCK_EXTERIOR
+	id_tag = INCINERATOR_ORDMIX_AIRLOCK_CONTROLLER
+	interior_door_tag = INCINERATOR_ORDMIX_AIRLOCK_INTERIOR
 	sanitize_external = TRUE
-	sensor_tag = INCINERATOR_TOXMIX_AIRLOCK_SENSOR
+	sensor_tag = INCINERATOR_ORDMIX_AIRLOCK_SENSOR
 
 /obj/machinery/embedded_controller/radio/airlock_controller/incinerator_atmos
 	name = "Incinerator Access Console"

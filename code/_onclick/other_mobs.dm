@@ -6,6 +6,12 @@
 
 	if (secondary_result == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN || secondary_result == SECONDARY_ATTACK_CONTINUE_CHAIN)
 		return TRUE
+
+	//white
+	else if(isobj(target))
+		target.AltClick(src)
+		return TRUE
+
 	else if (secondary_result != SECONDARY_ATTACK_CALL_NORMAL)
 		CRASH("attack_hand_secondary did not return a SECONDARY_ATTACK_* define.")
 

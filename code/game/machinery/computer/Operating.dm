@@ -8,7 +8,6 @@
 	icon_keyboard = "med_key"
 	circuit = /obj/item/circuitboard/computer/operating
 
-	var/mob/living/carbon/human/patient
 	var/obj/structure/table/optable/table
 	var/obj/machinery/stasis/sbed
 	var/list/advanced_surgeries = list()
@@ -33,9 +32,9 @@
 
 /obj/machinery/computer/operating/attackby(obj/item/O, mob/user, params)
 	if(istype(O, /obj/item/disk/surgery))
-		user.visible_message("<span class='notice'>[user] начинает загружать [O] в <b>[src.name]</b>...</span>", \
-			"<span class='notice'>Начинаю загружать хирургические протоколы с [O]...</span>", \
-			"<span class='hear'>Слышу стрёкот дискетника.</span>")
+		user.visible_message(span_notice("[user] начинает загружать [O] в <b>[src.name]</b>...") , \
+			span_notice("Начинаю загружать хирургические протоколы с [O]...") , \
+			span_hear("Слышу стрёкот дискетника."))
 		var/obj/item/disk/surgery/D = O
 		if(do_after(user, 10, target = src))
 			advanced_surgeries |= D.surgeries
@@ -80,23 +79,26 @@
 		surgery["desc"] = initial(S.desc)
 		surgeries += list(surgery)
 	data["surgeries"] = surgeries
-	data["patient"] = null
+
+	//If there's no patient just hop to it yeah?
+	if(!table && !sbed)
+		data["patient"] = null
+		return data
+
+	var/mob/living/carbon/human/patient
+	data["patient"] = list()
+
 	if(table)
 		data["table"] = table
 		if(!table.check_eligible_patient())
 			return data
-		data["patient"] = list()
 		patient = table.patient
 	else
-		if(sbed)
-			data["table"] = sbed
-			if(!ishuman(sbed.occupant))
-				return data
-			data["patient"] = list()
-			patient = sbed.occupant
-		else
-			data["patient"] = null
+		data["table"] = sbed
+		if(!sbed.occupant || !ishuman(sbed.occupant))
 			return data
+		patient = sbed.occupant
+
 	switch(patient.stat)
 		if(CONSCIOUS)
 			data["patient"]["stat"] = "В сознании"

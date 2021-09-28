@@ -29,6 +29,8 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	flags_1 = SUPERMATTER_IGNORES_1
 
+	blend_mode = BLEND_MULTIPLY
+
 	var/energy
 	var/target
 	var/list/orbiting_balls = list()
@@ -163,7 +165,7 @@
 	if(!iscarbon(user))
 		return
 	var/mob/living/carbon/jedi = user
-	to_chat(jedi, "<span class='userdanger'>Шокирующе-глупая идея.</span>")
+	to_chat(jedi, span_userdanger("Шокирующе-глупая идея."))
 	var/obj/item/organ/brain/rip_u = locate(/obj/item/organ/brain) in jedi.internal_organs
 	jedi.ghostize(jedi)
 	if(rip_u)

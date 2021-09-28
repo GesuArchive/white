@@ -5,10 +5,12 @@
 		mind.active = FALSE	//This is to stop say, a mind.transfer_to call on a corpse causing a ghost to re-enter its body.
 	med_hud_set_status()
 
+/mob/living/carbon/Logout()
+	. = ..()
 	if(ice_cream_mob && !isbrain(src))
 		addtimer(CALLBACK(src, .proc/ice_cream_check), ice_cream_mob_time)
 
-/mob/living/proc/ice_cream_check()
+/mob/living/carbon/proc/ice_cream_check()
 	if(!src || client || stat == DEAD)
 		return
 	ADD_TRAIT(src, TRAIT_CLIENT_LEAVED, "ice_cream")

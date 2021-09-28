@@ -55,12 +55,12 @@ GLOBAL_LIST_INIT(cogscarabs, list())
 	if(CONFIG_GET(flag/use_age_restriction_for_jobs))
 		if(!isnum(user.client.player_age)) //apparently what happens when there's no DB connected. just don't let anybody be a drone without admin intervention
 			if(user.client.player_age < 14)
-				to_chat(user, "<span class='danger'>You're too new to play as a drone! Please try again in [14 - user.client.player_age] days.</span>")
+				to_chat(user, span_danger("You're too new to play as a drone! Please try again in [14 - user.client.player_age] days."))
 				return
 	if(!SSticker.mode)
 		to_chat(user, "Can't become a cogscarab before the game has started.")
 		return
-	var/be_drone = alert("Become a cogscarab? (Warning, You can no longer be cloned!)",,"Yes","No")
+	var/be_drone = tgui_alert(usr, "Become a cogscarab? (Warning, You can no longer be cloned!)",,"Yes","No")
 	if(be_drone == "No" || QDELETED(src) || !isobserver(user))
 		return
 	var/mob/living/simple_animal/drone/D = new mob_type(get_turf(loc))

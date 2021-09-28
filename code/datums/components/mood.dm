@@ -197,6 +197,7 @@
 		if(9)
 			setSanity(sanity+0.6*delta_time, SANITY_NEUTRAL, SANITY_MAXIMUM)
 	HandleNutrition()
+	HandleHydration()
 
 	// 0.416% is 15 successes / 3600 seconds. Calculated with 2 minute
 	// mood runtime, so 50% average uptime across the hour.
@@ -225,22 +226,32 @@
 		if(SANITY_INSANE to SANITY_CRAZY)
 			setInsanityEffect(MAJOR_INSANITY_PEN)
 			master.add_movespeed_modifier(/datum/movespeed_modifier/sanity/insane)
-			master.add_actionspeed_modifier(/datum/actionspeed_modifier/low_sanity)
+			master.add_actionspeed_modifier(/datum/actionspeed_modifier/very_low_sanity)
+			master.overlay_fullscreen("depression", /atom/movable/screen/fullscreen/depression, 3)
+			if(prob(7))
+				master.playsound_local(null, pick(CREEPY_SOUNDS), 100, 1)
+			master.sound_environment_override = SOUND_ENVIRONMENT_PSYCHOTIC
 			sanity_level = 6
 		if(SANITY_CRAZY to SANITY_UNSTABLE)
 			setInsanityEffect(MINOR_INSANITY_PEN)
 			master.add_movespeed_modifier(/datum/movespeed_modifier/sanity/crazy)
 			master.add_actionspeed_modifier(/datum/actionspeed_modifier/low_sanity)
+			master.overlay_fullscreen("depression", /atom/movable/screen/fullscreen/depression, 2)
+			if(prob(3))
+				master.playsound_local(null, pick(CREEPY_SOUNDS), 60, 1)
+			master.sound_environment_override = SOUND_ENVIRONMENT_NONE
 			sanity_level = 5
 		if(SANITY_UNSTABLE to SANITY_DISTURBED)
 			setInsanityEffect(0)
 			master.add_movespeed_modifier(/datum/movespeed_modifier/sanity/disturbed)
 			master.add_actionspeed_modifier(/datum/actionspeed_modifier/low_sanity)
+			master.overlay_fullscreen("depression", /atom/movable/screen/fullscreen/depression, 1)
 			sanity_level = 4
 		if(SANITY_DISTURBED to SANITY_NEUTRAL)
 			setInsanityEffect(0)
 			master.remove_movespeed_modifier(MOVESPEED_ID_SANITY)
 			master.remove_actionspeed_modifier(ACTIONSPEED_ID_SANITY)
+			master.clear_fullscreen("depression")
 			sanity_level = 3
 		if(SANITY_NEUTRAL+1 to SANITY_GREAT+1) //shitty hack but +1 to prevent it from responding to super small differences
 			setInsanityEffect(0)
@@ -350,7 +361,7 @@
 				add_event(null, "nutrition", /datum/mood_event/wellfed) // round and full
 		if(NUTRITION_LEVEL_WELL_FED to NUTRITION_LEVEL_FULL)
 			add_event(null, "nutrition", /datum/mood_event/wellfed)
-		if( NUTRITION_LEVEL_FED to NUTRITION_LEVEL_WELL_FED)
+		if(NUTRITION_LEVEL_FED to NUTRITION_LEVEL_WELL_FED)
 			add_event(null, "nutrition", /datum/mood_event/fed)
 		if(NUTRITION_LEVEL_HUNGRY to NUTRITION_LEVEL_FED)
 			clear_event(null, "nutrition")
@@ -358,6 +369,22 @@
 			add_event(null, "nutrition", /datum/mood_event/hungry)
 		if(0 to NUTRITION_LEVEL_STARVING)
 			add_event(null, "nutrition", /datum/mood_event/starving)
+
+/datum/component/mood/proc/HandleHydration()
+	var/mob/living/L = parent
+	if(HAS_TRAIT(L, TRAIT_NOHUNGER))
+		return FALSE
+	switch(L.hydration)
+		if(HYDRATION_LEVEL_OVERHYDRATED to INFINITY)
+			add_event(null, "thirst", /datum/mood_event/overhydrated)
+		if(HYDRATION_LEVEL_NORMAL to HYDRATION_LEVEL_OVERHYDRATED)
+			add_event(null, "thirst", /datum/mood_event/hydrated)
+		if(HYDRATION_LEVEL_THIRSTY to HYDRATION_LEVEL_NORMAL)
+			clear_event(null, "thirst")
+		if(HYDRATION_LEVEL_DEHYDRATED to HYDRATION_LEVEL_THIRSTY)
+			add_event(null, "thirst", /datum/mood_event/thirsty)
+		if(-INFINITY to HYDRATION_LEVEL_DEHYDRATED)
+			add_event(null, "thirst", /datum/mood_event/dehydrated)
 
 /datum/component/mood/proc/check_area_mood(datum/source, area/A)
 	SIGNAL_HANDLER

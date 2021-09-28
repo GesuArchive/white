@@ -1,3 +1,4 @@
+/*
 /datum/game_mode
 	var/list/datum/mind/brothers = list()
 	var/list/datum/team/brother_team/brother_teams = list()
@@ -6,6 +7,7 @@
 	name = "traitor+brothers"
 	config_tag = "traitorbro"
 	restricted_jobs = list("Prisoner","AI", "Cyborg")
+	required_players = 35
 
 	announce_span = "danger"
 	announce_text = "There are Syndicate agents and Blood Brothers on the station!\n\
@@ -65,3 +67,4 @@
 
 /datum/game_mode/traitor/bros/generate_report()
 	return "Наступает сезон набора в Синдикат. Будьте внимательны к потенциальным злоумышленникам Синдиката, но также остерегайтесь недовольных сотрудников, пытающихся сбежать. В отличие от Нанотрасена, Синдикат гордится своей командной работой и набирает только те пары, которые разделяют братское доверие."
+*/

@@ -18,58 +18,55 @@
 	desc = "A magic contract previously signed by an apprentice. In exchange for instruction in the magical arts, they are bound to answer your call for aid."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state ="scroll2"
+	var/polling = FALSE
 
-/obj/item/antag_spawner/contract/attack_self(mob/user)
-	user.set_machine(src)
-	var/dat
-	if(used)
-		dat = "<B>You have already summoned your apprentice.</B><BR>"
-	else
-		dat = "<B>Contract of Apprenticeship:</B><BR>"
-		dat += "<I>Using this contract, you may summon an apprentice to aid you on your mission.</I><BR>"
-		dat += "<I>If you are unable to establish contact with your apprentice, you can feed the contract back to the spellbook to refund your points.</I><BR>"
-		dat += "<B>Which school of magic is your apprentice studying?:</B><BR>"
-		dat += "<A href='byond://?src=[REF(src)];school=[APPRENTICE_DESTRUCTION]'>Destruction</A><BR>"
-		dat += "<I>Your apprentice is skilled in offensive magic. They know Magic Missile and Fireball.</I><BR>"
-		dat += "<A href='byond://?src=[REF(src)];school=[APPRENTICE_BLUESPACE]'>Bluespace Manipulation</A><BR>"
-		dat += "<I>Your apprentice is able to defy physics, melting through solid objects and travelling great distances in the blink of an eye. They know Teleport and Ethereal Jaunt.</I><BR>"
-		dat += "<A href='byond://?src=[REF(src)];school=[APPRENTICE_HEALING]'>Healing</A><BR>"
-		dat += "<I>Your apprentice is training to cast spells that will aid your survival. They know Forcewall and Charge and come with a Staff of Healing.</I><BR>"
-		dat += "<A href='byond://?src=[REF(src)];school=[APPRENTICE_ROBELESS]'>Robeless</A><BR>"
-		dat += "<I>Your apprentice is training to cast spells without their robes. They know Knock and Mindswap.</I><BR>"
-	user << browse(dat, "window=radio")
-	onclose(user, "radio")
-	return
-
-/obj/item/antag_spawner/contract/Topic(href, href_list)
+/obj/item/antag_spawner/contract/can_interact(mob/user)
 	. = ..()
+	if(!.)
+		return FALSE
+	if(polling)
+		balloon_alert(user, "already calling an apprentice!")
+		return FALSE
 
-	if(usr.stat != CONSCIOUS || HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED))
+/obj/item/antag_spawner/contract/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "ApprenticeContract", name)
+		ui.open()
+
+/obj/item/antag_spawner/contract/ui_state(mob/user)
+	if(used)
+		return GLOB.never_state
+	return GLOB.default_state
+
+/obj/item/antag_spawner/contract/ui_assets(mob/user)
+	. = ..()
+	return list(
+		get_asset_datum(/datum/asset/simple/contracts),
+	)
+
+/obj/item/antag_spawner/contract/ui_act(action, list/params)
+	. = ..()
+	if(used || polling || !ishuman(usr))
 		return
-	if(!ishuman(usr))
-		return TRUE
-	var/mob/living/carbon/human/H = usr
+	INVOKE_ASYNC(src, .proc/poll_for_student, usr, params["school"])
+	SStgui.close_uis(src)
 
-	if(loc == H || (in_range(src, H) && isturf(loc)))
-		H.set_machine(src)
-		if(href_list["school"])
-			if(used)
-				to_chat(H, "<span class='warning'>You already used this contract!</span>")
-				return
-			var/list/candidates = pollCandidatesForMob("Do you want to play as a wizard's [href_list["school"]] apprentice?", ROLE_WIZARD, null, ROLE_WIZARD, 150, src)
-			if(LAZYLEN(candidates))
-				if(QDELETED(src))
-					return
-				if(used)
-					to_chat(H, "<span class='warning'>You already used this contract!</span>")
-					return
-				used = TRUE
-				var/mob/dead/observer/C = pick(candidates)
-				spawn_antag(C.client, get_turf(src), href_list["school"],H.mind)
-			else
-				to_chat(H, "<span class='warning'>Unable to reach your apprentice! You can either attack the spellbook with the contract to refund your points, or wait and try again later.</span>")
+/obj/item/antag_spawner/contract/proc/poll_for_student(mob/living/carbon/human/teacher, apprentice_school)
+	balloon_alert(teacher, "contacting apprentice...")
+	polling = TRUE
+	var/list/candidates = poll_candidates_for_mob("Do you want to play as a wizard's [apprentice_school] apprentice?", ROLE_WIZARD, ROLE_WIZARD, 15 SECONDS, src)
+	polling = FALSE
+	if(!LAZYLEN(candidates))
+		to_chat(teacher, span_warning("Unable to reach your apprentice! You can either attack the spellbook with the contract to refund your points, or wait and try again later."))
+		return
+	if(QDELETED(src) || used)
+		return
+	used = TRUE
+	var/mob/dead/observer/student = pick(candidates)
+	spawn_antag(student.client, get_turf(src), apprentice_school, teacher.mind)
 
-/obj/item/antag_spawner/contract/spawn_antag(client/C, turf/T, kind ,datum/mind/user)
+/obj/item/antag_spawner/contract/spawn_antag(client/C, turf/T, kind, datum/mind/user)
 	new /obj/effect/particle_effect/smoke(T)
 	var/mob/living/carbon/human/M = new/mob/living/carbon/human(T)
 	C.prefs.copy_to(M)
@@ -111,10 +108,10 @@
 
 /obj/item/antag_spawner/nuke_ops/proc/check_usability(mob/user)
 	if(used)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] is out of power!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] is out of power!"))
 		return FALSE
 	if(!user.mind.has_antag_datum(/datum/antagonist/nukeop,TRUE))
-		to_chat(user, "<span class='danger'>AUTHENTICATION FAILURE. ACCESS DENIED.</span>")
+		to_chat(user, span_danger("AUTHENTICATION FAILURE. ACCESS DENIED."))
 		return FALSE
 	return TRUE
 
@@ -122,7 +119,7 @@
 	if(!(check_usability(user)))
 		return
 
-	to_chat(user, "<span class='notice'>You activate [src] and wait for confirmation.</span>")
+	to_chat(user, span_notice("You activate [src] and wait for confirmation."))
 	var/list/nuke_candidates = pollGhostCandidates("Do you want to play as a syndicate [borg_to_spawn ? "[lowertext(borg_to_spawn)] cyborg":"operative"]?", ROLE_OPERATIVE, null, ROLE_OPERATIVE, 150, POLL_IGNORE_SYNDICATE)
 	if(LAZYLEN(nuke_candidates))
 		if(QDELETED(src) || !check_usability(user))
@@ -133,7 +130,7 @@
 		do_sparks(4, TRUE, src)
 		qdel(src)
 	else
-		to_chat(user, "<span class='warning'>Unable to connect to Syndicate command. Please wait and try again later or use the teleporter on your uplink to get your points refunded.</span>")
+		to_chat(user, span_warning("Unable to connect to Syndicate command. Please wait and try again later or use the teleporter on your uplink to get your points refunded."))
 
 /obj/item/antag_spawner/nuke_ops/spawn_antag(client/C, turf/T, kind, datum/mind/user)
 	var/mob/living/carbon/human/M = new/mob/living/carbon/human(T)
@@ -219,19 +216,19 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "vial"
 
-	var/shatter_msg = "<span class='notice'>You shatter the bottle, no turning back now!</span>"
-	var/veil_msg = "<span class='warning'>You sense a dark presence lurking just beyond the veil...</span>"
+	var/shatter_msg = span_notice("You shatter the bottle, no turning back now!")
+	var/veil_msg = span_warning("You sense a dark presence lurking just beyond the veil...")
 	var/mob/living/demon_type = /mob/living/simple_animal/hostile/imp/slaughter
 	var/antag_type = /datum/antagonist/slaughter
 
 
 /obj/item/antag_spawner/slaughter_demon/attack_self(mob/user)
 	if(!is_station_level(user.z))
-		to_chat(user, "<span class='warning'>You should probably wait until you reach the station.</span>")
+		to_chat(user, span_warning("You should probably wait until you reach the station."))
 		return
 	if(used)
 		return
-	var/list/candidates = pollCandidatesForMob("Do you want to play as a [initial(demon_type.name)]?", ROLE_ALIEN, null, ROLE_ALIEN, 50, src)
+	var/list/candidates = poll_candidates_for_mob("Do you want to play as a [initial(demon_type.name)]?", ROLE_ALIEN, null, ROLE_ALIEN, 50, src)
 	if(LAZYLEN(candidates))
 		if(used || QDELETED(src))
 			return
@@ -243,7 +240,7 @@
 		playsound(user.loc, 'sound/effects/glassbr1.ogg', 100, TRUE)
 		qdel(src)
 	else
-		to_chat(user, "<span class='warning'>You can't seem to work up the nerve to shatter the bottle! Perhaps you should try again later.</span>")
+		to_chat(user, span_warning("You can't seem to work up the nerve to shatter the bottle! Perhaps you should try again later."))
 
 
 /obj/item/antag_spawner/slaughter_demon/spawn_antag(client/C, turf/T, kind = "", datum/mind/user)
@@ -264,6 +261,6 @@
 	icon_state = "vial"
 	color = "#FF69B4" // HOT PINK
 
-	veil_msg = "<span class='warning'>You sense an adorable presence lurking just beyond the veil...</span>"
+	veil_msg = span_warning("You sense an adorable presence lurking just beyond the veil...")
 	demon_type = /mob/living/simple_animal/hostile/imp/slaughter/laughter
 	antag_type = /datum/antagonist/slaughter/laughter

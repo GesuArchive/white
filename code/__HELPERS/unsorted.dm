@@ -588,6 +588,8 @@ Turf and target are separate in case you want to teleport some distance from a t
 		return "пах"
 	else if (zone == "head")
 		return "голова"
+	else if (zone == "eyes")
+		return "глаза"
 	else
 		return zone
 

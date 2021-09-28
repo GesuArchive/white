@@ -69,7 +69,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 			O.ghost_orbit = new_orbit
 
 /client/proc/pick_ghost_accs()
-	var/new_ghost_accs = alert("Do you want your ghost to show full accessories where possible, hide accessories but still use the directional sprites where possible, or also ignore the directions and stick to the default sprites?",,"full accessories", "only directional sprites", "default sprites")
+	var/new_ghost_accs = tgui_alert(usr,"Do you want your ghost to show full accessories where possible, hide accessories but still use the directional sprites where possible, or also ignore the directions and stick to the default sprites?",,list("full accessories", "only directional sprites", "default sprites"))
 	if(new_ghost_accs)
 		switch(new_ghost_accs)
 			if("full accessories")
@@ -86,7 +86,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 /client/verb/pick_ghost_customization()
 	set name = "Настройка призрака"
 	set category = "Призрак"
-	switch(alert("Что хотим сменить?",,"Форма","Тип орбиты","Побрякушки"))
+	switch(tgui_alert("Что хотим сменить?",,list("Форма","Тип орбиты","Побрякушки")))
 		if("Форма")
 			pick_form()
 		if("Тип орбиты")
@@ -98,7 +98,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	set name = "Вид других призраков"
 	set category = null
 	set desc = "Change display settings for the ghosts of other players."
-	var/new_ghost_others = alert("Хочешь изменить других призраков или же просто убрать их побрякушки?",,"Их настройки", "Стандартные спрайты", "Белые призраки")
+	var/new_ghost_others = tgui_alert(usr, "Хочешь изменить других призраков или же просто убрать их побрякушки?",,list("Их настройки", "Стандартные спрайты", "Белые призраки"))
 	if(new_ghost_others)
 		switch(new_ghost_others)
 			if("Их настройки")
@@ -139,9 +139,9 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	prefs.inquisitive_ghost = !prefs.inquisitive_ghost
 	prefs.save_preferences()
 	if(prefs.inquisitive_ghost)
-		to_chat(src, "<span class='notice'>Буду изучать все, на что нажимаю.</span>")
+		to_chat(src, span_notice("Буду изучать все, на что нажимаю."))
 	else
-		to_chat(src, "<span class='notice'>Больше не будешь изучать то, на что нажимаю.</span>")
+		to_chat(src, span_notice("Больше не будешь изучать то, на что нажимаю."))
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Ghost Inquisitiveness", "[prefs.inquisitive_ghost ? "Enabled" : "Disabled"]"))
 
 //Admin Preferences

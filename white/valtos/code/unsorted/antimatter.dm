@@ -81,7 +81,7 @@
 	return wanted
 
 /obj/machinery/power/am_control_unit
-	name = "блок управления антивеществом"
+	name = "блок управления АМ"
 	desc = "Это устройство вводит антивещество в подключенные экранирующие устройства, чем больше антивещества вводится, тем больше вырабатывается энергии. Разверните устройство, чтобы настроить его."
 	icon = 'white/valtos/icons/antimatter.dmi'
 	icon_state = "control"
@@ -137,7 +137,7 @@
 		check_shield_icons()
 		update_shield_icons = 0
 
-	if(machine_stat & (NOPOWER|BROKEN) || !active)//can update the icons even without power
+	if((machine_stat & BROKEN) || !active)//can update the icons even without power
 		return
 
 	if(!fueljar)//No fuel but we are on, shutdown
@@ -221,14 +221,9 @@
 
 /obj/machinery/power/am_control_unit/power_change()
 	..()
-	if(machine_stat & NOPOWER)
-		if(active)
-			toggle_power(1)
-		else
-			use_power = NO_POWER_USE
 
-	else if(!machine_stat && anchored)
-		use_power = IDLE_POWER_USE
+	if(!machine_stat && anchored)
+		update_use_power(IDLE_POWER_USE)
 
 	return
 
@@ -245,31 +240,31 @@
 		if(!anchored)
 			W.play_tool_sound(src, 75)
 			user.visible_message("<b>[user.name]</b> прикручивает <b>[src.name]</b> к полу.", \
-				"<span class='notice'>Прикручиваю удерживающие болты к полу.</span>", \
-				"<span class='italics'>Слышу как крутят что-то.</span>")
+				span_notice("Прикручиваю удерживающие болты к полу.") , \
+				span_italics("Слышу как крутят что-то."))
 			src.anchored = TRUE
 			connect_to_network()
 		else if(!linked_shielding.len > 0)
 			W.play_tool_sound(src, 75)
 			user.visible_message("<b>[user.name]</b> откручивает <b>[src.name]</b> от пола.", \
-				"<span class='notice'>Откручиваю от пола.</span>", \
-				"<span class='italics'>Слышу как крутят что-то.</span>")
+				span_notice("Откручиваю от пола.") , \
+				span_italics("Слышу как крутят что-то."))
 			src.anchored = FALSE
 			disconnect_from_network()
 		else
-			to_chat(user, "<span class='warning'>Как только <b>[src.name]</b> собран и подключён он не может быть передвинут!</span>")
+			to_chat(user, span_warning("Как только <b>[src.name]</b> собран и подключён он не может быть передвинут!"))
 
 	else if(istype(W, /obj/item/am_containment))
 		if(fueljar)
-			to_chat(user, "<span class='warning'>Здесь уже есть [fueljar] внутри!</span>")
+			to_chat(user, span_warning("Здесь уже есть [fueljar] внутри!"))
 			return
 
 		if(!user.transferItemToLoc(W, src))
 			return
 		fueljar = W
 		user.visible_message("<b>[user.name]</b> загружает <b>[W.name]</b> внутрь <b>[src.name]</b>.", \
-				"<span class='notice'>Загружаю <b>[W.name]</b>.</span>", \
-				"<span class='italics'>Слышу стук.</span>")
+				span_notice("Загружаю <b>[W.name]</b>.") , \
+				span_italics("Слышу стук."))
 	else
 		return ..()
 
@@ -322,10 +317,10 @@
 /obj/machinery/power/am_control_unit/proc/toggle_power(powerfail = 0)
 	active = !active
 	if(active)
-		use_power = ACTIVE_POWER_USE
+		update_use_power(ACTIVE_POWER_USE)
 		visible_message("<b>[src.name]</b> запускается.")
 	else
-		use_power = !powerfail
+		update_use_power(IDLE_POWER_USE)
 		visible_message("<b>[src.name]</b> выключается.")
 	update_icon()
 	return
@@ -363,87 +358,55 @@
 /obj/machinery/power/am_control_unit/proc/reset_stored_core_stability_delay()
 	stored_core_stability_delay = 0
 
-/obj/machinery/power/am_control_unit/ui_interact(mob/user)
-	. = ..()
-	if((get_dist(src, user) > 1) || (machine_stat & (BROKEN|NOPOWER)))
-		if(!isAI(user))
-			user.unset_machine()
-			user << browse(null, "window=AMcontrol")
-			return
+/obj/machinery/power/am_control_unit/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Antimatter", name)
+		ui.open()
 
-	var/dat = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
-	dat += "Панель управления антивеществом<BR>"
-	dat += "<A href='?src=[REF(src)];close=1'>Закрыть</A><BR>"
-	dat += "<A href='?src=[REF(src)];refresh=1'>Обновить</A><BR>"
-	dat += "<A href='?src=[REF(src)];refreshicons=1'>Обновление силовой защиты</A><BR><BR>"
-	dat += "Состояние: [(active?"Вводится":"Ожидает")] <BR>"
-	dat += "<A href='?src=[REF(src)];togglestatus=1'>Переключить</A><BR>"
-
-	dat += "Стабильность: [stability]%<BR>"
-	dat += "Части реактора: [linked_shielding.len]<BR>"//TODO: perhaps add some sort of stability check
-	dat += "Ядра: [linked_cores.len]<BR><BR>"
-	dat += "- Текущая эффективность: [reported_core_efficiency]<BR>"
-	dat += "- Средняя стабильность: [stored_core_stability] <A href='?src=[REF(src)];refreshstability=1'>(обновить)</A><BR>"
-	dat += "В последний раз произведено: [DisplayPower(stored_power)]<BR>"
-
-	dat += "Топливо: "
-	if(!fueljar)
-		dat += "<BR>Не обнаружено топливных ячеек."
+/obj/machinery/power/am_control_unit/ui_data(mob/user)
+	var/data = list()
+	data["active"] = active
+	data["stability"] = stability
+	data["linked_shielding"] = linked_shielding.len
+	data["linked_cores"] = linked_cores.len
+	data["reported_core_efficiency"] = reported_core_efficiency
+	data["stored_core_stability"] = stored_core_stability
+	data["stored_power"] = DisplayPower(stored_power)
+	if(fueljar)
+		data["fueljar"] = uppertext(fueljar.name)
+		data["fuel"] = fueljar.fuel
+		data["fuel_injection"] = fuel_injection
 	else
-		dat += "<A href='?src=[REF(src)];ejectjar=1'>Изъять</A><BR>"
-		dat += "- [fueljar.fuel]/[fueljar.fuel_max] юнитов<BR>"
+		data["fueljar"] = null
+	check_core_stability()
+	check_shield_icons()
+	. =  data
 
-		dat += "- Ввод: [fuel_injection] юнитов<BR>"
-		dat += "- <A href='?src=[REF(src)];strengthdown=1'>--</A>|<A href='?src=[REF(src)];strengthup=1'>++</A>|<A href='?src=[REF(src)];strengthinput=1'>Своё</A><BR><BR>"
-
-
-	var/datum/browser/popup = new(user, "AMcontrol", name, 420, 500)
-	popup.set_content(dat)
-	popup.open()
-
-/obj/machinery/power/am_control_unit/Topic(href, href_list)
-	if(..())
+/obj/machinery/power/am_control_unit/ui_act(action, list/params)
+	. = ..()
+	if(.)
 		return
-
-	if(href_list["close"])
-		usr << browse(null, "window=AMcontrol")
-		usr.unset_machine()
-		return
-
-	if(href_list["togglestatus"])
-		toggle_power()
-
-	if(href_list["refreshicons"])
-		update_shield_icons = 1
-
-	if(href_list["ejectjar"])
-		if(fueljar)
-			fueljar.forceMove(drop_location())
-			fueljar = null
-			//fueljar.control_unit = null currently it does not care where it is
-			//update_icon() when we have the icon for it
-
-	if(href_list["strengthup"])
-		fuel_injection++
-
-	if(href_list["strengthdown"])
-		fuel_injection--
-		if(fuel_injection < 0)
-			fuel_injection = 0
-
-	if(href_list["strengthinput"])
-		var/wa = input(usr, "Сколько вводим?", "COCKS", "[fuel_injection]") as num|null
-
-		if(isnull(wa) || wa < 0 || wa > 1000)
-			return
-
-		fuel_injection = wa
-
-	if(href_list["refreshstability"])
-		check_core_stability()
-
-	updateDialog()
-	return
+	switch(action)
+		if("togglestatus")
+			toggle_power()
+			. = TRUE
+		if("ejectjar")
+			if(fueljar)
+				fueljar.forceMove(drop_location())
+				fueljar = null
+			. = TRUE
+		if("strengthup")
+			fuel_injection++
+			. = TRUE
+		if("strengthdown")
+			fuel_injection--
+			if(fuel_injection < 0)
+				fuel_injection = 0
+			. = TRUE
+		if("strengthinput")
+			fuel_injection = clamp(text2num(params["target"]), 0, 1000)
+			. = TRUE
 
 //like orange but only checks north/south/east/west for one step
 /proc/cardinalrange(var/center)
@@ -480,12 +443,12 @@
 	addtimer(CALLBACK(src, .proc/controllerscan), 10)
 
 /obj/machinery/am_shielding/proc/overheat()
-	visible_message("<span class='danger'><b>[src]</b> тает!</span>")
+	visible_message(span_danger("<b>[src]</b> тает!"))
 	new /obj/effect/hotspot(loc)
 	qdel(src)
 
 /obj/machinery/am_shielding/proc/collapse()
-	visible_message("<span class='notice'><b>[src]</b> схлопывается обратно в контейнер!</span>")
+	visible_message(span_notice("<b>[src]</b> схлопывается обратно в контейнер!"))
 	new /obj/item/am_shielding_container(drop_location())
 	qdel(src)
 

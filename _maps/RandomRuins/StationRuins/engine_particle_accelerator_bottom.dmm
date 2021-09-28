@@ -142,6 +142,7 @@
 "lj" = (
 /obj/structure/closet/toolcloset,
 /obj/effect/turf_decal/bot,
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/engine/engineering)
 "lv" = (
@@ -353,10 +354,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
-"Vn" = (
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space/nearstation)
 "Yf" = (
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel/dark,
@@ -829,13 +826,13 @@ Ne
 uv
 tB
 xc
-Vn
-Vn
-Vn
+yB
+yB
+yB
 Rz
-Vn
-Vn
-Vn
+yB
+yB
+yB
 xc
 ab
 ab
@@ -856,7 +853,7 @@ oq
 fs
 uv
 ab
-Vn
+yB
 ab
 ab
 ab
@@ -884,7 +881,7 @@ OA
 TX
 cA
 ab
-Vn
+yB
 ab
 ab
 ab
@@ -912,7 +909,7 @@ Yf
 Zq
 uv
 ab
-Vn
+yB
 tB
 tB
 tB
@@ -968,7 +965,7 @@ Yf
 Zq
 uv
 ab
-Vn
+yB
 ab
 ab
 tB
@@ -996,7 +993,7 @@ SV
 Tv
 cA
 ab
-Vn
+yB
 ab
 ab
 tB
@@ -1024,7 +1021,7 @@ oq
 zh
 uv
 ab
-Vn
+yB
 ab
 ab
 tB
@@ -1053,13 +1050,13 @@ Ne
 uv
 tB
 xc
-Vn
-Vn
+yB
+yB
 Rz
-Vn
-Vn
-Vn
-Vn
+yB
+yB
+yB
+yB
 xc
 ab
 ab

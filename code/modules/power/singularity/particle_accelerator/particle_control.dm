@@ -42,7 +42,7 @@
 
 /obj/machinery/particle_accelerator/control_box/proc/update_state()
 	if(construction_state < PA_CONSTRUCTION_COMPLETE)
-		use_power = NO_POWER_USE
+		update_use_power(NO_POWER_USE)
 		assembled = FALSE
 		active = FALSE
 		for(var/CP in connected_parts)
@@ -53,7 +53,7 @@
 		connected_parts.Cut()
 		return
 	if(!part_scan())
-		use_power = IDLE_POWER_USE
+		update_use_power(IDLE_POWER_USE)
 		active = FALSE
 		connected_parts.Cut()
 
@@ -103,9 +103,9 @@
 	. = ..()
 	if(machine_stat & NOPOWER)
 		active = FALSE
-		use_power = NO_POWER_USE
+		update_use_power(NO_POWER_USE)
 	else if(!machine_stat && construction_state == PA_CONSTRUCTION_COMPLETE)
-		use_power = IDLE_POWER_USE
+		update_use_power(IDLE_POWER_USE)
 
 /obj/machinery/particle_accelerator/control_box/process()
 	if(active)
@@ -215,40 +215,40 @@
 			if(W.tool_behaviour == TOOL_WRENCH && !isinspace())
 				W.play_tool_sound(src, 75)
 				set_anchored(TRUE)
-				user.visible_message("<span class='notice'><b>[user.name]</b> прикручивает <b>[name]</b> к полу.</span>", \
-					"<span class='notice'>Прикручиваю к полу.</span>")
+				user.visible_message(span_notice("<b>[user.name]</b> прикручивает <b>[name]</b> к полу.") , \
+					span_notice("Прикручиваю к полу."))
 				user.changeNext_move(CLICK_CD_MELEE)
 				return //set_anchored handles the rest of the stuff we need to do.
 		if(PA_CONSTRUCTION_UNWIRED)
 			if(W.tool_behaviour == TOOL_WRENCH)
 				W.play_tool_sound(src, 75)
 				set_anchored(FALSE)
-				user.visible_message("<span class='notice'><b>[user.name]</b> откручивает <b>[name]</b> от пола.</span>", \
-					"<span class='notice'>Откручиваю от пола.</span>")
+				user.visible_message(span_notice("<b>[user.name]</b> откручивает <b>[name]</b> от пола.") , \
+					span_notice("Откручиваю от пола."))
 				user.changeNext_move(CLICK_CD_MELEE)
 				return //set_anchored handles the rest of the stuff we need to do.
 			else if(istype(W, /obj/item/stack/cable_coil))
 				var/obj/item/stack/cable_coil/CC = W
 				if(CC.use(1))
-					user.visible_message("<span class='notice'><b>[user.name]</b> добавляет кабели в <b>[name]</b>.</span>", \
-						"<span class='notice'>Добавляю кабели.</span>")
+					user.visible_message(span_notice("<b>[user.name]</b> добавляет кабели в <b>[name]</b>.") , \
+						span_notice("Добавляю кабели."))
 					construction_state = PA_CONSTRUCTION_PANEL_OPEN
 					did_something = TRUE
 		if(PA_CONSTRUCTION_PANEL_OPEN)
 			if(W.tool_behaviour == TOOL_WIRECUTTER)//TODO:Shock user if its on?
-				user.visible_message("<span class='notice'><b>[user.name]</b> удаляет кабели из <b>[name]</b>.</span>", \
-					"<span class='notice'>Убираю кабели.</span>")
+				user.visible_message(span_notice("<b>[user.name]</b> удаляет кабели из <b>[name]</b>.") , \
+					span_notice("Убираю кабели."))
 				construction_state = PA_CONSTRUCTION_UNWIRED
 				did_something = TRUE
 			else if(W.tool_behaviour == TOOL_SCREWDRIVER)
-				user.visible_message("<span class='notice'><b>[user.name]</b> закрывает крышку <b>[name]</b>.</span>", \
-					"<span class='notice'>Закрываю панель.</span>")
+				user.visible_message(span_notice("<b>[user.name]</b> закрывает крышку <b>[name]</b>.") , \
+					span_notice("Закрываю панель."))
 				construction_state = PA_CONSTRUCTION_COMPLETE
 				did_something = TRUE
 		if(PA_CONSTRUCTION_COMPLETE)
 			if(W.tool_behaviour == TOOL_SCREWDRIVER)
-				user.visible_message("<span class='notice'><b>[user.name]</b> открывает крышку <b>[name]</b>.</span>", \
-					"<span class='notice'>Открываю панель.</span>")
+				user.visible_message(span_notice("<b>[user.name]</b> открывает крышку <b>[name]</b>.") , \
+					span_notice("Открываю панель."))
 				construction_state = PA_CONSTRUCTION_PANEL_OPEN
 				did_something = TRUE
 
@@ -264,6 +264,12 @@
 	if(prob(50))
 		qdel(src)
 
+/obj/machinery/particle_accelerator/control_box/attack_hand(mob/living/user)
+	. = ..()
+	if(construction_state != PA_CONSTRUCTION_COMPLETE)
+		return
+	interact(user)
+
 /obj/machinery/particle_accelerator/control_box/interact(mob/user)
 	if(construction_state == PA_CONSTRUCTION_PANEL_OPEN)
 		wires.interact(user)
@@ -272,7 +278,7 @@
 
 /obj/machinery/particle_accelerator/control_box/proc/is_interactive(mob/user)
 	if(!interface_control)
-		to_chat(user, "<span class='alert'>ERROR: Истекло время запроса. Проверьте контакты провода.</span>")
+		to_chat(user, span_alert("ERROR: Истекло время запроса. Проверьте контакты провода."))
 		return FALSE
 	if(construction_state != PA_CONSTRUCTION_COMPLETE)
 		return FALSE
@@ -280,7 +286,7 @@
 
 /obj/machinery/particle_accelerator/control_box/ui_status(mob/user)
 	if(is_interactive(user))
-		return ..()
+		return UI_INTERACTIVE // похуй
 	return UI_CLOSE
 
 /obj/machinery/particle_accelerator/control_box/ui_interact(mob/user, datum/tgui/ui)

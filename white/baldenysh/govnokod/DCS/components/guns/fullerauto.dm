@@ -198,6 +198,7 @@
 	mouse_parameters = null
 
 	trolling_execution_protocols_active = FALSE
+	SEND_SIGNAL(parent, COMSIG_AUTOFIRE_STOPPED)
 
 /datum/component/automatic_fire_funny/proc/on_mouse_drag(client/source, atom/src_object, atom/over_object, turf/src_location, turf/over_location, src_control, over_control, params)
 	SIGNAL_HANDLER
@@ -246,7 +247,7 @@
 		return FALSE
 	var/obj/item/bodypart/other_hand = shooter.has_hand_for_held_index(shooter.get_inactive_hand_index())
 	if(weapon_weight == WEAPON_HEAVY && (shooter.get_inactive_held_item() || !other_hand))
-		to_chat(shooter, "<span class='warning'>You need two hands to fire [src]!</span>")
+		to_chat(shooter, span_warning("You need two hands to fire [src]!"))
 		return FALSE
 	return TRUE
 

@@ -42,7 +42,7 @@
 	/// Bonus mood for being in this area
 	var/mood_bonus = 0
 	/// Mood message for being here, only shows up if mood_bonus != 0
-	var/mood_message = "<span class='nicegreen'>Здесь круто!\n</span>"
+	var/mood_message = span_nicegreen("Здесь круто!\n")
 	/// Does the mood bonus require a trait?
 	var/mood_trait
 
@@ -90,6 +90,9 @@
 
 	//Lighting overlay
 	var/obj/effect/lighting_overlay
+
+	var/list/air_vent_info = list()
+	var/list/air_scrub_info = list()
 
 /**
  * A list of teleport locations
@@ -147,8 +150,9 @@ GLOBAL_LIST_EMPTY(teleportlocs)
  */
 /area/Initialize(mapload)
 	icon_state = ""
-	if(!ambientsounds)
-		ambientsounds = GLOB.ambience_assoc[ambience_index]
+
+	if(area_flags & AREA_USES_STARLIGHT)
+		static_lighting = CONFIG_GET(flag/starlight)
 
 	if(requires_power)
 		luminosity = 0
@@ -180,7 +184,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
  * Sets machine power levels in the area
  */
 /area/LateInitialize()
-	power_change()		// all machines set to current power level, also updates icon
+	power_change() // all machines set to current power level, also updates icon
 	update_beauty()
 
 /area/proc/RunGeneration()
@@ -227,6 +231,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /area/Destroy()
 	if(GLOB.areas_by_type[type] == src)
 		GLOB.areas_by_type[type] = null
+	GLOB.sortedAreas -= src
 	STOP_PROCESSING(SSobj, src)
 	QDEL_NULL(alarm_manager)
 	return ..()
@@ -240,7 +245,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		for(var/FD in firedoors)
 			var/obj/machinery/door/firedoor/D = FD
 			var/cont = !D.welded
-			if(cont && opening)	//don't open if adjacent area is on fire
+			if(cont && opening) //don't open if adjacent area is on fire
 				for(var/I in D.affecting_areas)
 					var/area/A = I
 					if(A.fire)
@@ -265,7 +270,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		ModifyFiredoors(FALSE)
 		for(var/item in firealarms)
 			var/obj/machinery/firealarm/F = item
-			F.update_icon()
+			F.update_appearance()
 	alarm_manager.send_alarm(ALARM_FIRE, source)
 	START_PROCESSING(SSobj, src)
 
@@ -294,7 +299,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		ModifyFiredoors(TRUE)
 		for(var/item in firealarms)
 			var/obj/machinery/firealarm/F = item
-			F.update_icon()
+			F.update_appearance()
 	alarm_manager.clear_alarm(ALARM_FIRE, source)
 	STOP_PROCESSING(SSobj, src)
 
@@ -304,7 +309,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /area/process()
 	if(!triggered_firealarms)
 		firereset() //If there are no breaches or fires, and this alert was caused by a breach or fire, die
-	if(firedoors_last_closed_on + 100 < world.time)	//every 10 seconds
+	if(firedoors_last_closed_on + 100 < world.time) //every 10 seconds
 		ModifyFiredoors(FALSE)
 
 /**
@@ -381,11 +386,13 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 			weather_icon = TRUE
 	if(!weather_icon)
 		icon_state = null
+	return ..()
 
 /**
  * Update the icon of the area (overridden to always be null for space
  */
 /area/space/update_icon_state()
+	SHOULD_CALL_PARENT(FALSE)
 	icon_state = null
 
 
@@ -395,7 +402,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
  * evalutes a mixture of variables mappers can set, requires_power, always_unpowered and then
  * per channel power_equip, power_light, power_environ
  */
-/area/proc/powered(chan)		// return true if the area has power to given channel
+/area/proc/powered(chan) // return true if the area has power to given channel
 
 	if(!requires_power)
 		return TRUE
@@ -423,10 +430,8 @@ GLOBAL_LIST_EMPTY(teleportlocs)
  * Updates the area icon, calls power change on all machinees in the area, and sends the `COMSIG_AREA_POWER_CHANGE` signal.
  */
 /area/proc/power_change()
-	for(var/obj/machinery/M in src)	// for each machine in the area
-		M.power_change()				// reverify power status (to update icons etc.)
 	SEND_SIGNAL(src, COMSIG_AREA_POWER_CHANGE)
-	update_icon()
+	update_appearance()
 
 
 /**
@@ -443,13 +448,28 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 			power_usage[powerchannel] += value
 
 /**
- * Clear all power usage in area
+ * Remove a static amount of power load to an area
  *
- * Clears all power used for equipment, light and environment channels
+ * Possible channels
+ * *AREA_USAGE_STATIC_EQUIP
+ * *AREA_USAGE_STATIC_LIGHT
+ * *AREA_USAGE_STATIC_ENVIRON
+ */
+/area/proc/removeStaticPower(value, powerchannel)
+	switch(powerchannel)
+		if(AREA_USAGE_STATIC_START to AREA_USAGE_STATIC_END)
+			power_usage[powerchannel] -= value
+
+/**
+ * Clear all non-static power usage in area
+ *
+ * Clears all power used for the dynamic equipment, light and environment channels
  */
 /area/proc/clear_usage()
-	for(var/i in AREA_USAGE_DYNAMIC_START to AREA_USAGE_DYNAMIC_END)
-		power_usage[i] = 0
+	power_usage[AREA_USAGE_EQUIP] = 0
+	power_usage[AREA_USAGE_LIGHT] = 0
+	power_usage[AREA_USAGE_ENVIRON] = 0
+
 
 /**
  * Add a power value amount to the stored used_x variables
@@ -462,7 +482,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /**
  * Call back when an atom enters an area
  *
- * Sends signals COMSIG_AREA_ENTERED and COMSIG_ENTER_AREA (to the atom)
+ * Sends signals COMSIG_AREA_ENTERED and COMSIG_ENTER_AREA (to a list of atoms)
  *
  * If the area has ambience, then it plays some ambience music to the ambience channel
  */
@@ -541,7 +561,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /**
  * Called when an atom exits an area
  *
- * Sends signals COMSIG_AREA_EXITED and COMSIG_EXIT_AREA (to the atom)
+ * Sends signals COMSIG_AREA_EXITED and COMSIG_EXIT_AREA (to a list of atoms)
  */
 /area/Exited(atom/movable/gone, direction)
 	SEND_SIGNAL(src, COMSIG_AREA_EXITED, gone, direction)
@@ -598,3 +618,8 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /// A hook so areas can modify the incoming args (of what??)
 /area/proc/PlaceOnTopReact(list/new_baseturfs, turf/fake_turf_type, flags)
 	return flags
+
+
+/// Called when a living mob that spawned here, joining the round, receives the player client.
+/area/proc/on_joining_game(mob/living/boarder)
+	return

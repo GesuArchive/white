@@ -40,17 +40,17 @@
 /obj/effect/mob_spawn/attack_ghost(mob/user)
 	if(!SSticker.HasRoundStarted() || !loc || !ghost_usable)
 		return
-	var/ghost_role = alert("Точно хочешь занять этот спаунер? (внимание, текущее тело будет покинуто)",,"Да","Нет")
+	var/ghost_role = tgui_alert(usr, "Точно хочешь занять этот спаунер? (внимание, текущее тело будет покинуто)",,list("Да","Нет"))
 	if(ghost_role == "Нет" || !loc || QDELETED(user))
 		return
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SPAWNER) && !(flags_1 & ADMIN_SPAWNED_1))
-		to_chat(user, "<span class='warning'>Администраторы временно отключили гост-роли</span>")
+		to_chat(user, span_warning("Администраторы временно отключили гост-роли"))
 		return
 	if(!uses)
-		to_chat(user, "<span class='warning'>Заряды кончились!</span>")
+		to_chat(user, span_warning("Заряды кончились!"))
 		return
 	if(is_banned_from(user.key, banType))
-		to_chat(user, "<span class='warning'>А хуй тебе!</span>")
+		to_chat(user, span_warning("А хуй тебе!"))
 		return
 	if(!allow_spawn(user))
 		return

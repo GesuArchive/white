@@ -135,9 +135,9 @@ Status: []<BR>
 	..()
 	if(emagged == 2)
 		if(user)
-			to_chat(user, "<span class='danger'>Взламываю звуковую систему [src.name]. Он начинает злобно смеяться.</span>")
+			to_chat(user, span_danger("Взламываю звуковую систему [src.name]. Он начинает злобно смеяться."))
 			oldtarget_name = user.name
-		audible_message("<span class='danger'>[capitalize(src.name)] смётся по-злодейски!</span>")
+		audible_message(span_danger("[capitalize(src.name)] смётся по-злодейски!"))
 		playsound(src, 'sound/machines/honkbot_evil_laugh.ogg', 75, TRUE, -1) // evil laughter
 		update_icon()
 
@@ -167,8 +167,9 @@ Status: []<BR>
 	if(istype(AM, /obj/item))
 		playsound(src, honksound, 50, TRUE, -1)
 		var/obj/item/I = AM
-		if(I.throwforce < health && I.thrownby && (istype(I.thrownby, /mob/living/carbon/human)))
-			var/mob/living/carbon/human/H = I.thrownby
+		var/mob/thrown_by = I.thrownby?.resolve()
+		if(I.throwforce < health && thrown_by && (istype(thrown_by, /mob/living/carbon/human)))
+			var/mob/living/carbon/human/H = thrown_by
 			retaliate(H)
 	..()
 
@@ -220,8 +221,8 @@ Status: []<BR>
 
 			log_combat(src,C,"honked")
 
-			C.visible_message("<span class='danger'>[capitalize(src.name)] хонкает [C]!</span>",\
-					"<span class='userdanger'>[capitalize(src.name)] хонкает меня!</span>")
+			C.visible_message(span_danger("[capitalize(src.name)] хонкает [C]!") ,\
+					span_userdanger("[capitalize(src.name)] хонкает меня!"))
 		else
 			C.stuttering = 20
 			C.Paralyze(80)
@@ -333,7 +334,7 @@ Status: []<BR>
 /mob/living/simple_animal/bot/honkbot/explode()
 
 	walk_to(src,0)
-	visible_message("<span class='boldannounce'>[capitalize(src.name)] взрывается!</span>")
+	visible_message(span_boldannounce("[capitalize(src.name)] взрывается!"))
 	var/atom/Tsec = drop_location()
 	//doesn't drop cardboard nor its assembly, since its a very frail material.
 	if(prob(50))

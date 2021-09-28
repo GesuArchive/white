@@ -5,7 +5,7 @@
 	show_in_antagpanel = FALSE
 	prevent_roundtype_conversion = FALSE
 	var/datum/team/mutant_zombies/zombs
-	greentext_reward = 40
+	greentext_reward = 5
 
 /datum/antagonist/mutant_zombie/get_team()
 	return zombs

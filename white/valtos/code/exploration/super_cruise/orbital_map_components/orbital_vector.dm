@@ -1,3 +1,5 @@
+// probably everything here should work as intended
+
 /datum/orbital_vector
 	var/x = 0
 	var/y = 0

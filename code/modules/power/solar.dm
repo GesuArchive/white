@@ -1,9 +1,9 @@
-#define SOLAR_GEN_RATE 1500
+#define SOLAR_GEN_RATE 3000
 #define OCCLUSION_DISTANCE 20
 
 /obj/machinery/power/solar
-	name = "Солнечная панель"
-	desc = "Солнечная панель. Генерирует энергию при контакте со светом"
+	name = "солнечная панель"
+	desc = "Генерирует энергию при контакте со светом."
 	icon = 'goon/icons/obj/power.dmi'
 	icon_state = "sp_base"
 	density = TRUE
@@ -26,6 +26,22 @@
 	///do we need to call update_solar_exposure() next tick?
 	var/needs_to_update_solar_exposure = TRUE
 	var/obj/effect/overlay/panel
+	var/power_multi = 1
+	var/solar_panel_state = "solar_panel"
+
+/obj/machinery/power/solar/plasma
+	name = "солнечная плазмапанель"
+	desc = "Генерирует энергию при контакте со светом. Эта вдвое производительнее обычной."
+	max_integrity = 300
+	power_multi = 2
+	solar_panel_state = "solar_panel_upgraded"
+
+/obj/machinery/power/solar/plastitaniumglass
+	name = "солнечная пластистекольная панель"
+	desc = "Генерирует энергию при контакте со светом. Эта в четыре раза производительнее обычной."
+	max_integrity = 600
+	power_multi = 4
+	solar_panel_state = "solar_panel_ultra"
 
 /obj/machinery/power/solar/Initialize(mapload, obj/item/solar_assembly/S)
 	. = ..()
@@ -33,7 +49,7 @@
 	panel.vis_flags = VIS_INHERIT_ID|VIS_INHERIT_ICON|VIS_INHERIT_PLANE
 	vis_contents += panel
 	panel.icon = icon
-	panel.icon_state = "solar_panel"
+	panel.icon_state = solar_panel_state
 	panel.layer = FLY_LAYER
 	Make(S)
 	connect_to_network()
@@ -72,10 +88,10 @@
 
 /obj/machinery/power/solar/crowbar_act(mob/user, obj/item/I)
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
-	user.visible_message("<span class='notice'>[user] начинает снимать стекло с [src].</span>", "<span class='notice'>Начинаю снимать стекло с [src]...</span>")
+	user.visible_message(span_notice("[user] начинает снимать стекло с [src].") , span_notice("Начинаю снимать стекло с [src]..."))
 	if(I.use_tool(src, user, 50))
 		playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-		user.visible_message("<span class='notice'>[user] снимает стекло с [src].</span>", "<span class='notice'>Снимаю стекло с [src].</span>")
+		user.visible_message(span_notice("[user] снимает стекло с [src].") , span_notice("Снимаю стекло с [src]."))
 		deconstruct(TRUE)
 	return TRUE
 
@@ -115,9 +131,9 @@
 	turner.Turn(azimuth_current)
 	panel.transform = turner
 	if(machine_stat & BROKEN)
-		panel.icon_state = "solar_panel-b"
+		panel.icon_state = "[solar_panel_state]-b"
 	else
-		panel.icon_state = "solar_panel"
+		panel.icon_state = "[solar_panel_state]"
 
 /obj/machinery/power/solar/proc/queue_turn(azimuth)
 	needs_to_turn = TRUE
@@ -185,7 +201,7 @@
 	if(sunfrac <= 0)
 		return
 
-	var/sgen = SOLAR_GEN_RATE * sunfrac
+	var/sgen = SOLAR_GEN_RATE * sunfrac * power_multi
 	add_avail(sgen)
 	if(control)
 		control.gen += sgen
@@ -203,8 +219,8 @@
 //
 
 /obj/item/solar_assembly
-	name = "Основание солнечной панели"
-	desc = "Основание солнечной панели, даёт возможность создания солнечной панели, или с помощью платы отслеживания a солнечный отслеживатель." // отслеживатель? Как по мне круче трекер, но кого это интересует...
+	name = "основание солнечной панели"
+	desc = "Даёт возможность создания солнечной панели, или с помощью платы отслеживания a солнечный отслеживатель." // отслеживатель? Как по мне круче трекер, но кого это интересует...
 	icon = 'goon/icons/obj/power.dmi'
 	icon_state = "sp_base"
 	inhand_icon_state = "electropack"
@@ -244,29 +260,33 @@
 /obj/item/solar_assembly/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_WRENCH && isturf(loc))
 		if(isinspace())
-			to_chat(user, "<span class='warning'>Не могу прикрутить [src] тут.</span>")
+			to_chat(user, span_warning("Не могу прикрутить [src] тут."))
 			return
 		set_anchored(!anchored)
 
-		user.visible_message("<span class='notice'>[user] [anchored ? "при" : "от"]кручивает основание солнечной панели.</span>", "<span class='notice'>[anchored ? "При" : "от"]кручиваю основание солнечной панели.</span>")
+		user.visible_message(span_notice("[user] [anchored ? "при" : "от"]кручивает основание солнечной панели.") , span_notice("[anchored ? "При" : "от"]кручиваю основание солнечной панели."))
 		W.play_tool_sound(src, 75)
 		return TRUE
 
-	if(istype(W, /obj/item/stack/sheet/glass) || istype(W, /obj/item/stack/sheet/rglass))
+	if(istype(W, /obj/item/stack/sheet/glass) || istype(W, /obj/item/stack/sheet/rglass) || istype(W, /obj/item/stack/sheet/plasmaglass) || istype(W, /obj/item/stack/sheet/plastitaniumglass))
 		if(!anchored)
-			to_chat(user, "<span class='warning'>Мне нужно прикрутить основание прежде чем добавлять туда стекло.</span>")
+			to_chat(user, span_warning("Мне нужно прикрутить основание прежде чем добавлять туда стекло."))
 			return
 		var/obj/item/stack/sheet/S = W
 		if(S.use(2))
 			glass_type = W.type
 			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
-			user.visible_message("<span class='notice'>[user] вставляет стекло в основание солнечной панели.</span>", "<span class='notice'>Вставляю стекло в основание солнейчной панели.</span>")
+			user.visible_message(span_notice("[user] вставляет стекло в основание солнечной панели.") , span_notice("Вставляю стекло в основание солнейчной панели."))
 			if(tracker)
 				new /obj/machinery/power/tracker(get_turf(src), src)
+			if (istype(W, /obj/item/stack/sheet/plasmaglass))
+				new /obj/machinery/power/solar/plasma(get_turf(src), src)
+			else if (istype(W, /obj/item/stack/sheet/plastitaniumglass))
+				new /obj/machinery/power/solar/plastitaniumglass(get_turf(src), src)
 			else
 				new /obj/machinery/power/solar(get_turf(src), src)
 		else
-			to_chat(user, "<span class='warning'>Мне нужно иметь два листа стекла прежде чем вставлять их в основание!</span>")
+			to_chat(user, span_warning("Мне нужно иметь два листа стекла прежде чем вставлять их в основание!"))
 			return
 		return TRUE
 
@@ -276,13 +296,13 @@
 				return
 			tracker = TRUE
 			qdel(W)
-			user.visible_message("<span class='notice'>[user] вставляет электронику в основание солнечной панели.</span>", "<span class='notice'>Вставляю электронику в основание солнечной панели.</span>")
+			user.visible_message(span_notice("[user] вставляет электронику в основание солнечной панели.") , span_notice("Вставляю электронику в основание солнечной панели."))
 			return TRUE
 	else
 		if(W.tool_behaviour == TOOL_CROWBAR)
 			new /obj/item/electronics/tracker(src.loc)
 			tracker = FALSE
-			user.visible_message("<span class='notice'>[user] вынимает электронику из основания солнечной панели.</span>", "<span class='notice'>Вынимаю электронику из основания солнечной панели.</span>")
+			user.visible_message(span_notice("[user] вынимает электронику из основания солнечной панели.") , span_notice("Вынимаю электронику из основания солнечной панели."))
 			return TRUE
 	return ..()
 
@@ -411,7 +431,7 @@
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		if(I.use_tool(src, user, 20, volume=50))
 			if (src.machine_stat & BROKEN)
-				to_chat(user, "<span class='notice'>Сломанное стекло выпадает.</span>")
+				to_chat(user, span_notice("Сломанное стекло выпадает."))
 				var/obj/structure/frame/computer/A = new /obj/structure/frame/computer( src.loc )
 				new /obj/item/shard( src.loc )
 				var/obj/item/circuitboard/computer/solar_control/M = new /obj/item/circuitboard/computer/solar_control( A )
@@ -423,7 +443,7 @@
 				A.set_anchored(TRUE)
 				qdel(src)
 			else
-				to_chat(user, "<span class='notice'>Отсоединяю монитор.</span>")
+				to_chat(user, span_notice("Отсоединяю монитор."))
 				var/obj/structure/frame/computer/A = new /obj/structure/frame/computer( src.loc )
 				var/obj/item/circuitboard/computer/solar_control/M = new /obj/item/circuitboard/computer/solar_control( A )
 				for (var/obj/C in src)

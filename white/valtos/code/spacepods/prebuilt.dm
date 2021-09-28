@@ -86,4 +86,5 @@
 	equipment_types = list(/obj/item/spacepod_equipment/weaponry/burst_disabler,
 		/obj/item/spacepod_equipment/cargo/large,
 		/obj/item/spacepod_equipment/lock/keyed/yohei,
+		/obj/item/spacepod_equipment/cargo/chair,
 		/obj/item/spacepod_equipment/teleport)

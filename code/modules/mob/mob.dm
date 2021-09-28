@@ -16,7 +16,11 @@
  *
  * qdels any client colours in place on this mob
  *
+ * Clears any refs to the mob inside its current location
+ *
  * Ghostizes the client attached to this mob
+ *
+ * If our mind still exists, clear its current var to prevent harddels
  *
  * Parent call
  */
@@ -24,6 +28,7 @@
 	remove_from_mob_list()
 	remove_from_dead_mob_list()
 	remove_from_alive_mob_list()
+	remove_from_mob_suicide_list()
 	focus = null
 	if(length(progressbars))
 		stack_trace("[src] destroyed with elements in its progressbars list")
@@ -36,6 +41,7 @@
 			observe.reset_perspective(null)
 	qdel(hud_used)
 	QDEL_LIST(client_colours)
+	clear_client_in_contents() //Gotta do this here as well as Logout, since client will be null by the time it gets there, cause of that ghostize
 	ghostize() //False, since we're deleting it currently
 	if(mind?.current == src) //Let's just be safe yeah? This will occasionally be cleared, but not always. Can't do it with ghostize without changing behavior
 		mind.set_current(null)
@@ -75,6 +81,7 @@
 		var/datum/atom_hud/alternate_appearance/AA = v
 		AA.onNewMob(src)
 	set_nutrition(rand(NUTRITION_LEVEL_START_MIN, NUTRITION_LEVEL_START_MAX))
+	hydration = rand(HYDRATION_LEVEL_START_MIN, HYDRATION_LEVEL_START_MAX)
 	. = ..()
 	update_config_movespeed()
 	initialize_actionspeed()
@@ -119,11 +126,11 @@
 
 	var/datum/gas_mixture/environment = loc.return_air()
 
-	var/t =	"<span class='notice'>Координаты: [x],[y] \n</span>"
-	t +=	"<span class='danger'>Температура: [environment.return_temperature()] \n</span>"
+	var/t =	span_notice("Координаты: [x],[y] \n")
+	t +=	span_danger("Температура: [environment.return_temperature()] \n")
 	for(var/id in environment.get_gases())
 		if(environment.get_moles(id))
-			t+="<span class='notice'>[GLOB.meta_gas_info[id][META_GAS_NAME]]: [environment.get_moles(id)] \n</span>"
+			t+=span_notice("[GLOB.meta_gas_info[id][META_GAS_NAME]]: [environment.get_moles(id)] \n")
 
 	to_chat(usr, t)
 
@@ -197,7 +204,7 @@
 
 	var/raw_msg = message
 	if(visible_message_flags & EMOTE_MESSAGE)
-		message = "<span class='emote'><b>[src]</b> [message]</span>"
+		message = span_emote("<b>[src]</b> [message]")
 
 	for(var/mob/M in hearers)
 		if(!M.client)
@@ -242,7 +249,7 @@
 		hearers -= src
 	var/raw_msg = message
 	if(audible_message_flags & EMOTE_MESSAGE)
-		message = "<span class='emote'><b>[src]</b> [message]</span>"
+		message = span_emote("<b>[src]</b> [message]")
 	for(var/mob/M in hearers)
 		if(audible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(M, audible_message_flags) && M.can_hear())
 			M.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)
@@ -331,7 +338,7 @@
 		if(qdel_on_fail)
 			qdel(W)
 		else if(!disable_warning)
-			to_chat(src, "<span class='warning'>Не могу себя снарядить этим!</span>")
+			to_chat(src, span_warning("Не могу себя снарядить этим!"))
 		return FALSE
 	equip_to_slot(W, slot, initial, redraw_mob) //This proc should not ever fail.
 	return TRUE
@@ -472,29 +479,29 @@
 /mob/living/blind_examine_check(atom/examined_thing)
 	//need to be next to something and awake
 	if(!Adjacent(examined_thing) || incapacitated())
-		to_chat(src, "<span class='warning'>Здесь что-то есть, но я не вижу этого!</span>")
+		to_chat(src, span_warning("Здесь что-то есть, но я не вижу этого!"))
 		return FALSE
 
 	//you can examine things you're holding directly, but you can't examine other things if your hands are full
 	/// the item in our active hand
 	var/active_item = get_active_held_item()
 	if(active_item && active_item != examined_thing)
-		to_chat(src, "<span class='warning'>Мне нужна свободная рука для правильного осмотра!</span>")
+		to_chat(src, span_warning("Мне нужна свободная рука для правильного осмотра!"))
 		return FALSE
 
 	//you can only initiate exaimines if you have a hand, it's not disabled, and only as many examines as you have hands
 	/// our active hand, to check if it's disabled/detatched
 	var/obj/item/bodypart/active_hand = has_active_hand()? get_active_hand() : null
 	if(!active_hand || active_hand.bodypart_disabled || LAZYLEN(do_afters) >= usable_hands)
-		to_chat(src, "<span class='warning'>Мне нужна свободная рука для правильного осмотра!</span>")
+		to_chat(src, span_warning("Мне нужна свободная рука для правильного осмотра!"))
 		return FALSE
 
 	//you can only queue up one examine on something at a time
 	if(DOING_INTERACTION_WITH_TARGET(src, examined_thing))
 		return FALSE
 
-	to_chat(src, "<span class='notice'>Начинаю осматривать что-то...</span>")
-	visible_message("<span class='notice'>[name] щупает [examined_thing.name]...</span>")
+	to_chat(src, span_notice("Начинаю осматривать что-то..."))
+	visible_message(span_notice("[name] щупает [examined_thing.name]..."))
 
 	/// how long it takes for the blind person to find the thing they're examining
 	var/examine_delay_length = rand(1 SECONDS, 2 SECONDS)
@@ -506,7 +513,7 @@
 		examine_delay_length *= 2
 
 	if(examine_delay_length > 0 && !do_after(src, examine_delay_length, target = examined_thing))
-		to_chat(src, "<span class='notice'>Не понятно че это. ДА КАК ОН НАЗВАЛ МОЮ МАТЬ?!</span>")
+		to_chat(src, span_notice("Не понятно че это. ДА КАК ОН НАЗВАЛ МОЮ МАТЬ?!"))
 		return FALSE
 
 	//now we touch the thing we're examining
@@ -545,11 +552,11 @@
 
 	// check to see if their face is blocked or, if not, a signal blocks it
 	if(examined_mob.is_face_visible() && SEND_SIGNAL(src, COMSIG_MOB_EYECONTACT, examined_mob, TRUE) != COMSIG_BLOCK_EYECONTACT)
-		var/msg = "<span class='smallnotice'>[capitalize(examined_mob.name)] смотрит прямо на меня.</span>"
+		var/msg = span_smallnotice("[capitalize(examined_mob.name)] смотрит прямо на меня.")
 		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, src, msg), 3) // so the examine signal has time to fire and this will print after
 
 	if(is_face_visible() && SEND_SIGNAL(examined_mob, COMSIG_MOB_EYECONTACT, src, FALSE) != COMSIG_BLOCK_EYECONTACT)
-		var/msg = "<span class='smallnotice'>[capitalize(src.name)] смотрит прямо на меня.</span>"
+		var/msg = span_smallnotice("[capitalize(src.name)] смотрит прямо на меня.")
 		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, examined_mob, msg), 3)
 
 /**
@@ -699,18 +706,18 @@
 	set name = "❗ Переродиться"
 	set category = "OOC"
 
-	if (CONFIG_GET(flag/norespawn) && (!check_rights_for(usr.client, R_ADMIN) || alert(usr, "Respawn configs disabled. Do you want to use your permissions to circumvent it?", "Respawn", "Yes", "No") != "Yes") && client.is_respawned)
+	if (CONFIG_GET(flag/norespawn) && (!check_rights_for(usr.client, R_ADMIN) || tgui_alert(usr, "Respawn configs disabled. Do you want to use your permissions to circumvent it?", "Respawn", list("Yes", "No")) != "Yes"))
 		return
 
 	if ((stat != DEAD || !( SSticker )))
-		to_chat(usr, "<span class='boldnotice'>Живу!</span>")
+		to_chat(usr, span_boldnotice("Живу!"))
 		return
 
 	client.is_respawned = TRUE
 
 	log_game("[key_name(usr)] used abandon mob.")
 
-	to_chat(usr, "<span class='boldnotice'>Поменяй имя или я приду к тебе ночью и вырву твою печень!</span>")
+	to_chat(usr, span_boldnotice("Поменяй имя или я приду к тебе ночью и вырву твою печень!"))
 
 	if(!client)
 		log_game("[key_name(usr)] AM failed due to disconnect.")
@@ -913,7 +920,7 @@
 /mob/proc/swap_hand()
 	var/obj/item/held_item = get_active_held_item()
 	if(SEND_SIGNAL(src, COMSIG_MOB_SWAP_HANDS, held_item) & COMPONENT_BLOCK_SWAP)
-		to_chat(src, "<span class='warning'>Другая рука слишком занята тем, чтобы держать [held_item].</span>")
+		to_chat(src, span_warning("Другая рука слишком занята тем, чтобы держать [held_item]."))
 		return FALSE
 	return TRUE
 
@@ -983,9 +990,9 @@
 	var/turf/T = get_turf(src)
 	if(M.loc != T)
 		var/old_density = density
-		density = FALSE
+		density = FALSE // Hacky and doesn't use set_density()
 		var/can_step = step_towards(M, T)
-		density = old_density
+		density = old_density // Avoid changing density directly in normal circumstances, without the setter.
 		if(!can_step)
 			return FALSE
 	return ..()
@@ -1165,10 +1172,10 @@
 ///Can this mob read (is literate and not blind)
 /mob/proc/can_read(obj/O)
 	if(is_blind())
-		to_chat(src, "<span class='warning'>Пытаясь прочитать [O], внезапно вы чувствуете себя слишком тупым!</span>")
+		to_chat(src, span_warning("Пытаясь прочитать [O], внезапно вы чувствуете себя слишком тупым!"))
 		return
 	if(!is_literate())
-		to_chat(src, "<span class='notice'>Пытаюсь read [O], but can't comprehend any of it.</span>")
+		to_chat(src, span_notice("Пытаюсь read [O], but can't comprehend any of it."))
 		return
 	return TRUE
 
@@ -1190,6 +1197,7 @@
 	VV_DROPDOWN_OPTION(VV_HK_DIRECT_CONTROL, "Assume Direct Control")
 	VV_DROPDOWN_OPTION(VV_HK_GIVE_DIRECT_CONTROL, "Give Direct Control")
 	VV_DROPDOWN_OPTION(VV_HK_OFFER_GHOSTS, "Offer Control to Ghosts")
+	VV_DROPDOWN_OPTION(VV_HK_SDQL_SPELL, "Give SDQL Spell")
 
 /mob/vv_do_topic(list/href_list)
 	. = ..()
@@ -1241,6 +1249,10 @@
 		if(!check_rights(NONE))
 			return
 		offer_control(src)
+	if(href_list[VV_HK_SDQL_SPELL])
+		if(!check_rights(R_DEBUG))
+			return
+		usr.client.cmd_sdql_spell_menu(src)
 
 /**
  * extra var handling for the logging var

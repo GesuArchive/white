@@ -57,7 +57,7 @@ GLOBAL_LIST_INIT(ninja_deinitialize_messages, list(
 		s_busy = FALSE
 		return
 	if (phase > NINJA_LOCK_PHASE && (ninja.stat == DEAD || ninja.health <= 0))
-		to_chat(ninja, "<span class='danger'><B>FAAL i??Rri??R</B>: 344--93#i??&&21 BRi??i??N |/|/aVi?? PATT$RN <B>RED</B>\nA-A-aBi??rTi??NG...</span>")
+		to_chat(ninja, span_danger("<B>FAAL i??Rri??R</B>: 344--93#i??&&21 BRi??i??N |/|/aVi?? PATT$RN <B>RED</B>\nA-A-aBi??rTi??NG..."))
 		unlock_suit(ninja)
 		s_busy = FALSE
 		return
@@ -78,7 +78,7 @@ GLOBAL_LIST_INIT(ninja_deinitialize_messages, list(
 			s_initialized = TRUE
 			s_busy = FALSE
 
-	to_chat(ninja, "<span class='notice'>[message]</span>")
+	to_chat(ninja, span_notice("[message]"))
 	playsound(ninja, 'sound/effects/sparks1.ogg', 10, TRUE)
 
 	if (phase < NINJA_COMPLETE_PHASE)
@@ -97,7 +97,7 @@ GLOBAL_LIST_INIT(ninja_deinitialize_messages, list(
 	if (!ninja || !ninja.mind)
 		s_busy = FALSE
 		return
-	if (phase == 0 && alert("Are you certain you wish to remove the suit? This will take time and remove all abilities.",,"Yes","No") == "No")
+	if (phase == 0 && tgui_alert(usr, "Are you certain you wish to remove the suit? This will take time and remove all abilities.",,list("Yes","No")) == "No")
 		s_busy = FALSE
 		return
 
@@ -107,7 +107,7 @@ GLOBAL_LIST_INIT(ninja_deinitialize_messages, list(
 			message = "Выхожу, [ninja.real_name]. " + message
 		if(NINJA_DEINIT_STEALTH_PHASE)
 			cancel_stealth()
-	to_chat(ninja, "<span class='notice'>[message]</span>")
+	to_chat(ninja, span_notice("[message]"))
 	playsound(ninja, 'sound/items/deconstruct.ogg', 10, TRUE)
 
 	if (phase < NINJA_COMPLETE_PHASE)

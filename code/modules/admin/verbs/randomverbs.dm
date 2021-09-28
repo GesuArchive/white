@@ -4,7 +4,7 @@
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/confirm = alert(src, "Make [M] drop everything?", "Message", "Yes", "No")
+	var/confirm = tgui_alert(usr, "Make [M] drop everything?", "Message", list("Yes", "No"))
 	if(confirm != "Yes")
 		return
 
@@ -40,7 +40,7 @@
 				to_chat(M, "<i>Голос в моей голове говорит мне: <b>[msg]</b></i>", confidential = TRUE)
 
 	log_admin("SubtlePM: [key_name(usr)] -> [key_name(M)] : [msg]")
-	msg = "<span class='adminnotice'><b> SubtleMessage: [key_name_admin(usr)] -> [key_name_admin(M)] :</b> [msg]</span>"
+	msg = span_adminnotice("<b> SubtleMessage: [key_name_admin(usr)] -> [key_name_admin(M)] :</b> [msg]")
 	message_admins(msg)
 	admin_ticket_log(M, msg)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Subtle Message") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -77,7 +77,7 @@
 
 	log_directed_talk(mob, H, input, LOG_ADMIN, "reply")
 	message_admins("[key_name_admin(src)] replied to [key_name_admin(H)] [sender] message with: \"[input]\"")
-	to_chat(H, "<span class='hear'>Наушники начинают шуршать, затем из них раздаётся голос, который говорит:  \"Пожалуйста, прослушайте сообщение от [sender == "Syndicate" ? "вашего покровителя" : "Центрального Командования"]. Сообщение гласит[sender == "Syndicate" ? ", агент" : ""]: <b>[input].</b> Конец сообщения.\"</span>", confidential = TRUE)
+	to_chat(H, span_hear("Наушники начинают шуршать, затем из них раздаётся голос, который говорит:  \"Пожалуйста, прослушайте сообщение от [sender == "Syndicate" ? "вашего покровителя" : "Центрального Командования"]. Сообщение гласит[sender == "Syndicate" ? ", агент" : ""]: <b>[input].</b> Конец сообщения.\"") , confidential = TRUE)
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Headset Message") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -124,7 +124,7 @@
 			SSpersistence.antag_rep -= C.ckey
 
 	log_admin("[key_name(usr)]: Modified [key_name(C)] antagonist reputation [log_text]")
-	message_admins("<span class='adminnotice'>[key_name_admin(usr)]: Modified [key_name(C)] antagonist reputation ([log_text])</span>")
+	message_admins(span_adminnotice("[key_name_admin(usr)]: Modified [key_name(C)] antagonist reputation ([log_text])"))
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Modify Antagonist Reputation") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_world_narrate()
@@ -140,7 +140,7 @@
 		return
 	to_chat(world, "[msg]", confidential = TRUE)
 	log_admin("GlobalNarrate: [key_name(usr)] : [msg]")
-	message_admins("<span class='adminnotice'>[key_name_admin(usr)] Sent a global narrate</span>")
+	message_admins(span_adminnotice("[key_name_admin(usr)] Sent a global narrate"))
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Global Narrate") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_direct_narrate(mob/M)
@@ -163,7 +163,7 @@
 
 	to_chat(M, msg, confidential = TRUE)
 	log_admin("DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]")
-	msg = "<span class='adminnotice'><b> DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]):</b> [msg]<BR></span>"
+	msg = span_adminnotice("<b> DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]):</b> [msg]<BR>")
 	message_admins(msg)
 	admin_ticket_log(M, msg)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Direct Narrate") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -186,7 +186,7 @@
 		to_chat(M, msg, confidential = TRUE)
 
 	log_admin("LocalNarrate: [key_name(usr)] at [AREACOORD(A)]: [msg]")
-	message_admins("<span class='adminnotice'><b> LocalNarrate: [key_name_admin(usr)] at [ADMIN_VERBOSEJMP(A)]:</b> [msg]<BR></span>")
+	message_admins(span_adminnotice("<b> LocalNarrate: [key_name_admin(usr)] at [ADMIN_VERBOSEJMP(A)]:</b> [msg]<BR>"))
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Local Narrate") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_godmode(mob/M in GLOB.mob_list)
@@ -196,7 +196,7 @@
 		return
 
 	M.status_flags ^= GODMODE
-	to_chat(usr, "<span class='adminnotice'>Toggled [(M.status_flags & GODMODE) ? "ON" : "OFF"]</span>", confidential = TRUE)
+	to_chat(usr, span_adminnotice("Toggled [(M.status_flags & GODMODE) ? "ON" : "OFF"]") , confidential = TRUE)
 
 	log_admin("[key_name(usr)] has toggled [key_name(M)] nodamage to [(M.status_flags & GODMODE) ? "On" : "Off"]")
 	var/msg = "[key_name_admin(usr)] has toggled [ADMIN_LOOKUPFLW(M)] nodamage to [(M.status_flags & GODMODE) ? "On" : "Off"]"
@@ -304,7 +304,7 @@
 		if(candidates.len)
 			ckey = input("Pick the player you want to respawn as a xeno.", "Suitable Candidates") as null|anything in sortKey(candidates)
 		else
-			to_chat(usr, "<span class='danger'>Error: create_xeno(): no suitable candidates.</span>", confidential = TRUE)
+			to_chat(usr, span_danger("Error: create_xeno(): no suitable candidates.") , confidential = TRUE)
 	if(!istext(ckey))
 		return FALSE
 
@@ -330,7 +330,7 @@
 		SSjob.SendToLateJoin(new_xeno, FALSE)
 
 	new_xeno.ckey = ckey
-	var/msg = "<span class='notice'>[key_name_admin(usr)] has spawned [ckey] as a filthy xeno [alien_caste].</span>"
+	var/msg = span_notice("[key_name_admin(usr)] has spawned [ckey] as a filthy xeno [alien_caste].")
 	message_admins(msg)
 	admin_ticket_log(new_xeno, msg)
 	return TRUE
@@ -364,7 +364,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(G_found.mind && !G_found.mind.active)	//mind isn't currently in use by someone/something
 		//Check if they were an alien
 		if(G_found.mind.assigned_role == ROLE_ALIEN)
-			if(alert("This character appears to have been an alien. Would you like to respawn them as such?",,"Yes","No")=="Yes")
+			if(tgui_alert(usr,"This character appears to have been an alien. Would you like to respawn them as such?",,list("Yes","No"))=="Yes")
 				var/turf/T
 				if(GLOB.xeno_spawn.len)
 					T = pick(GLOB.xeno_spawn)
@@ -392,20 +392,20 @@ Traitors and the like can also be revived with the previous role mostly intact.
 				G_found.mind.transfer_to(new_xeno)	//be careful when doing stuff like this! I've already checked the mind isn't in use
 				new_xeno.key = G_found.key
 				to_chat(new_xeno, "You have been fully respawned. Enjoy the game.", confidential = TRUE)
-				var/msg = "<span class='adminnotice'>[key_name_admin(usr)] has respawned [new_xeno.key] as a filthy xeno.</span>"
+				var/msg = span_adminnotice("[key_name_admin(usr)] has respawned [new_xeno.key] as a filthy xeno.")
 				message_admins(msg)
 				admin_ticket_log(new_xeno, msg)
 				return	//all done. The ghost is auto-deleted
 
 		//check if they were a monkey
 		else if(findtext(G_found.real_name,"monkey"))
-			if(alert("This character appears to have been a monkey. Would you like to respawn them as such?",,"Yes","No")=="Yes")
+			if(tgui_alert(usr,"This character appears to have been a monkey. Would you like to respawn them as such?",,list("Yes","No"))=="Yes")
 				var/mob/living/carbon/human/species/monkey/new_monkey = new
 				SSjob.SendToLateJoin(new_monkey)
 				G_found.mind.transfer_to(new_monkey)	//be careful when doing stuff like this! I've already checked the mind isn't in use
 				new_monkey.key = G_found.key
 				to_chat(new_monkey, "You have been fully respawned. Enjoy the game.", confidential = TRUE)
-				var/msg = "<span class='adminnotice'>[key_name_admin(usr)] has respawned [new_monkey.key] as a filthy monkey.</span>"
+				var/msg = span_adminnotice("[key_name_admin(usr)] has respawned [new_monkey.key] as a filthy monkey.")
 				message_admins(msg)
 				admin_ticket_log(new_monkey, msg)
 				return	//all done. The ghost is auto-deleted
@@ -493,13 +493,13 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!issilicon(new_character))//If they are not a cyborg/AI.
 		if(!record_found&&new_character.mind.assigned_role!=new_character.mind.special_role)//If there are no records for them. If they have a record, this info is already in there. MODE people are not announced anyway.
 			//Power to the user!
-			if(alert(new_character,"Warning: No data core entry detected. Would you like to announce the arrival of this character by adding them to various databases, such as medical records?",,"No","Yes")=="Yes")
+			if(tgui_alert(new_character,"Warning: No data core entry detected. Would you like to announce the arrival of this character by adding them to various databases, such as medical records?",,list("No","Yes"))=="Yes")
 				GLOB.data_core.manifest_inject(new_character)
 
-			if(alert(new_character,"Would you like an active AI to announce this character?",,"No","Yes")=="Yes")
+			if(tgui_alert(new_character,"Would you like an active AI to announce this character?",,list("No","Yes"))=="Yes")
 				AnnounceArrival(new_character, new_character.mind.assigned_role)
 
-	var/msg = "<span class='adminnotice'>[admin] has respawned [player_key] as [new_character.real_name].</span>"
+	var/msg = span_adminnotice("[admin] has respawned [player_key] as [new_character.real_name].")
 	message_admins(msg)
 	admin_ticket_log(new_character, msg)
 
@@ -522,7 +522,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	log_admin("Admin [key_name(usr)] has added a new AI law - [input]")
 	message_admins("Admin [key_name_admin(usr)] has added a new AI law - [input]")
 
-	var/show_log = alert(src, "Show ion message?", "Message", "Yes", "No")
+	var/show_log = tgui_alert(usr, "Show ion message?", "Message", list("Yes", "No"))
 	var/announce_ion_laws = (show_log == "Yes" ? 100 : 0)
 
 	var/datum/round_event/ion_storm/add_law_only/ion = new()
@@ -541,12 +541,12 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!mob)
 		return
 	if(!istype(M))
-		alert("Cannot revive a ghost")
+		tgui_alert(usr,"Cannot revive a ghost")
 		return
 	M.revive(full_heal = TRUE, admin_revive = TRUE)
 
 	log_admin("[key_name(usr)] healed / revived [key_name(M)]")
-	var/msg = "<span class='danger'>Admin [key_name_admin(usr)] healed / revived [ADMIN_LOOKUPFLW(M)]!</span>"
+	var/msg = span_danger("Admin [key_name_admin(usr)] healed / revived [ADMIN_LOOKUPFLW(M)]!")
 	message_admins(msg)
 	admin_ticket_log(M, msg)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Rejuvenate") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -594,7 +594,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if ((devastation != -1) || (heavy != -1) || (light != -1) || (flash != -1) || (flames != -1))
 		if ((devastation > 20) || (heavy > 20) || (light > 20) || (flames > 20))
-			if (alert(src, "Are you sure you want to do this? It will laaag.", "Confirmation", "Yes", "No") == "No")
+			if (tgui_alert(usr, "Are you sure you want to do this? It will laaag.", "Confirmation", list("Yes", "No")) == "No")
 				return
 
 		explosion(O, devastation, heavy, light, flash, null, null,flames)
@@ -637,7 +637,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/confirm = alert(src, "Drop a brain?", "Confirm", "Yes", "No","Cancel")
+	var/confirm = tgui_alert(usr, "Drop a brain?", "Confirm", list("Yes", "No","Cancel"))
 	if(confirm == "Cancel")
 		return
 	//Due to the delay here its easy for something to have happened to the mob
@@ -664,10 +664,10 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set name = "Gibself"
 	set category = "Адм.Веселье"
 
-	var/confirm = alert(src, "You sure?", "Confirm", "Yes", "No")
+	var/confirm = tgui_alert(usr, "You sure?", "Confirm", list("Yes", "No"))
 	if(confirm == "Yes")
 		log_admin("[key_name(usr)] used gibself.")
-		message_admins("<span class='adminnotice'>[key_name_admin(usr)] used gibself.</span>")
+		message_admins(span_adminnotice("[key_name_admin(usr)] used gibself."))
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Gib Self") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 		var/mob/living/ourself = mob
@@ -708,7 +708,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/confirm = alert(src, "You sure?", "Confirm", "Yes", "Yes (No Recall)", "No")
+	var/confirm = tgui_alert(usr, "You sure?", "Confirm", list("Yes", "Yes (No Recall)", "No"))
 	switch(confirm)
 		if(null, "No")
 			return
@@ -719,7 +719,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	SSshuttle.emergency.request()
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Call Shuttle") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] admin-called the emergency shuttle.")
-	message_admins("<span class='adminnotice'>[key_name_admin(usr)] admin-called the emergency shuttle[confirm == "Yes (No Recall)" ? " (non-recallable)" : ""].</span>")
+	message_admins(span_adminnotice("[key_name_admin(usr)] admin-called the emergency shuttle[confirm == "Yes (No Recall)" ? " (non-recallable)" : ""]."))
 	return
 
 /client/proc/admin_cancel_shuttle()
@@ -727,7 +727,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set name = "Cancel Shuttle"
 	if(!check_rights(0))
 		return
-	if(alert(src, "You sure?", "Confirm", "Yes", "No") != "Yes")
+	if(tgui_alert(usr, "You sure?", "Confirm", list("Yes", "No")) != "Yes")
 		return
 
 	if(SSshuttle.adminEmergencyNoRecall)
@@ -739,7 +739,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	SSshuttle.emergency.cancel()
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Cancel Shuttle") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] admin-recalled the emergency shuttle.")
-	message_admins("<span class='adminnotice'>[key_name_admin(usr)] admin-recalled the emergency shuttle.</span>")
+	message_admins(span_adminnotice("[key_name_admin(usr)] admin-recalled the emergency shuttle."))
 
 	return
 
@@ -751,13 +751,13 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 	if(SSshuttle.emergency.mode == SHUTTLE_DISABLED)
-		to_chat(usr, "<span class='warning'>Error, shuttle is already disabled.</span>")
+		to_chat(usr, span_warning("Error, shuttle is already disabled."))
 		return
 
-	if(alert(src, "You sure?", "Confirm", "Yes", "No") != "Yes")
+	if(tgui_alert(usr, "You sure?", "Confirm", list("Yes", "No")) != "Yes")
 		return
 
-	message_admins("<span class='adminnotice'>[key_name_admin(usr)] disabled the shuttle.</span>")
+	message_admins(span_adminnotice("[key_name_admin(usr)] disabled the shuttle."))
 
 	SSshuttle.lastMode = SSshuttle.emergency.mode
 	SSshuttle.lastCallTime = SSshuttle.emergency.timeLeft(1)
@@ -774,13 +774,13 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 	if(SSshuttle.emergency.mode != SHUTTLE_DISABLED)
-		to_chat(usr, "<span class='warning'>Error, shuttle not disabled.</span>")
+		to_chat(usr, span_warning("Error, shuttle not disabled."))
 		return
 
-	if(alert(src, "You sure?", "Confirm", "Yes", "No") != "Yes")
+	if(tgui_alert(usr, "You sure?", "Confirm", list("Yes", "No")) != "Yes")
 		return
 
-	message_admins("<span class='adminnotice'>[key_name_admin(usr)] enabled the emergency shuttle.</span>")
+	message_admins(span_adminnotice("[key_name_admin(usr)] enabled the emergency shuttle."))
 	SSshuttle.adminEmergencyNoRecall = FALSE
 	SSshuttle.emergencyNoRecall = FALSE
 	if(SSshuttle.lastMode == SHUTTLE_DISABLED) //If everything goes to shit, fix it.
@@ -809,7 +809,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 
-	var/notifyplayers = alert(src, "Do you want to notify the players?", "Options", "Yes", "No", "Cancel")
+	var/notifyplayers = tgui_alert(usr, "Do you want to notify the players?", "Options", list("Yes", "No", "Cancel"))
 	if(notifyplayers == "Cancel")
 		return
 
@@ -817,7 +817,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	message_admins("Admin [key_name_admin(usr)] has forced the players to have random appearances.")
 
 	if(notifyplayers == "Yes")
-		to_chat(world, "<span class='adminnotice'>Admin [usr.key] has forced the players to have completely random identities!</span>", confidential = TRUE)
+		to_chat(world, span_adminnotice("Admin [usr.key] has forced the players to have completely random identities!") , confidential = TRUE)
 
 	to_chat(usr, "<i>Remember: you can always disable the randomness by using the verb again, assuming the round hasn't started yet</i>.", confidential = TRUE)
 
@@ -942,7 +942,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/confirm = alert(src, "Please confirm you want to add latent zombie organs in all humans?", "Confirm Zombies", "Yes", "No")
+	var/confirm = tgui_alert(usr, "Please confirm you want to add latent zombie organs in all humans?", "Confirm Zombies", list("Yes", "No"))
 	if(confirm != "Yes")
 		return
 
@@ -961,7 +961,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/confirm = alert(src, "Please confirm you want to cure all zombies?", "Confirm Zombie Cure", "Yes", "No")
+	var/confirm = tgui_alert(usr, "Please confirm you want to cure all zombies?", "Confirm Zombie Cure", list("Yes", "No"))
 	if(confirm != "Yes")
 		return
 
@@ -980,7 +980,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/confirm = alert(src, "Please confirm you want polymorph all mobs?", "Confirm Polymorph", "Yes", "No")
+	var/confirm = tgui_alert(usr, "Please confirm you want polymorph all mobs?", "Confirm Polymorph", list("Yes", "No"))
 	if(confirm != "Yes")
 		return
 
@@ -997,7 +997,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		if(!M)
 			continue
 
-		M.audible_message("<span class='hear'>...wabbajack...wabbajack...</span>")
+		M.audible_message(span_hear("...wabbajack...wabbajack..."))
 		playsound(M.loc, 'sound/magic/staff_change.ogg', 50, TRUE, -1)
 
 		wabbajack(M)
@@ -1150,7 +1150,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 	if(!CONFIG_GET(flag/use_exp_tracking))
-		to_chat(usr, "<span class='warning'>Tracking is disabled in the server configuration file.</span>", confidential = TRUE)
+		to_chat(usr, span_warning("Tracking is disabled in the server configuration file.") , confidential = TRUE)
 		return
 
 	var/list/msg = list()
@@ -1166,10 +1166,10 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 	if(!client_to_check)
-		to_chat(usr, "<span class='danger'>ERROR: Client not found.</span>", confidential = TRUE)
+		to_chat(usr, span_danger("ERROR: Client not found.") , confidential = TRUE)
 		return
 	if(!CONFIG_GET(flag/use_exp_tracking))
-		to_chat(usr, "<span class='warning'>Tracking is disabled in the server configuration file.</span>", confidential = TRUE)
+		to_chat(usr, span_warning("Tracking is disabled in the server configuration file.") , confidential = TRUE)
 		return
 
 	new /datum/job_report_menu(client_to_check, usr)
@@ -1178,11 +1178,11 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 	if(!C)
-		to_chat(usr, "<span class='danger'>ERROR: Client not found.</span>", confidential = TRUE)
+		to_chat(usr, span_danger("ERROR: Client not found.") , confidential = TRUE)
 		return
 
 	if(!C.set_db_player_flags())
-		to_chat(usr, "<span class='danger'>ERROR: Unable read player flags from database. Please check logs.</span>", confidential = TRUE)
+		to_chat(usr, span_danger("ERROR: Unable read player flags from database. Please check logs.") , confidential = TRUE)
 	var/dbflags = C.prefs.db_flags
 	var/newstate = FALSE
 	if(dbflags & DB_FLAG_EXEMPT)
@@ -1191,7 +1191,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		newstate = TRUE
 
 	if(C.update_flag_db(DB_FLAG_EXEMPT, newstate))
-		to_chat(usr, "<span class='danger'>ERROR: Unable to update player flags. Please check logs.</span>", confidential = TRUE)
+		to_chat(usr, span_danger("ERROR: Unable to update player flags. Please check logs.") , confidential = TRUE)
 	else
 		message_admins("[key_name_admin(usr)] has [newstate ? "activated" : "deactivated"] job exp exempt status on [key_name_admin(C)]")
 		log_admin("[key_name(usr)] has [newstate ? "activated" : "deactivated"] job exp exempt status on [key_name(C)]")

@@ -1,11 +1,12 @@
 /obj/item/discovery_scanner
 	name = "нюхер"
 	desc = "Используется учёными для сканирования различных артифактов и неизвестных форм жизни."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "hand_tele"
-	inhand_icon_state = "healthanalyzer"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	icon = 'white/valtos/icons/objects.dmi'
+	icon_state = "nuher"
+	inhand_icon_state = "electronic"
+	worn_icon_state = "electronic"
+	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	var/datum/techweb/linked_techweb
 
@@ -26,13 +27,13 @@
 
 /obj/item/discovery_scanner/attack_obj(obj/O, mob/living/user)
 	if(istype(O, /obj/machinery/computer/rdconsole))
-		to_chat(user, "<span class='notice'>Привязываю [src] к [O].</span>")
+		to_chat(user, span_notice("Привязываю [src] к [O]."))
 		var/obj/machinery/computer/rdconsole/rdconsole = O
 		linked_techweb = rdconsole.stored_research
 		return
 	. = ..()
 
 /obj/item/discovery_scanner/proc/begin_scanning(mob/user, datum/component/discoverable/discoverable)
-	to_chat(user, "<span class='notice'>Начинаю сканировать [discoverable.parent]...</span>")
+	to_chat(user, span_notice("Начинаю сканировать [discoverable.parent]..."))
 	if(do_after(user, 50, target=get_turf(user)))
 		discoverable.discovery_scan(linked_techweb, user)

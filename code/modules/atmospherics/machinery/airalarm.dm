@@ -1,37 +1,43 @@
+// A datum for dealing with threshold limit values
 /datum/tlv
-	var/min2
-	var/min1
-	var/max1
-	var/max2
+	var/warning_min
+	var/warning_max
+	var/hazard_min
+	var/hazard_max
 
 /datum/tlv/New(min2 as num, min1 as num, max1 as num, max2 as num)
-	if(min2) src.min2 = min2
-	if(min1) src.min1 = min1
-	if(max1) src.max1 = max1
-	if(max2) src.max2 = max2
+	if(min2)
+		hazard_min = min2
+	if(min1)
+		warning_min = min1
+	if(max1)
+		warning_max = max1
+	if(max2)
+		hazard_max = max2
 
-/datum/tlv/proc/get_danger_level(val as num)
-	if(max2 != -1 && val >= max2)
-		return 2
-	if(min2 != -1 && val <= min2)
-		return 2
-	if(max1 != -1 && val >= max1)
-		return 1
-	if(min1 != -1 && val <= min1)
-		return 1
-	return 0
+/datum/tlv/proc/get_danger_level(val)
+	if(hazard_max != TLV_DONT_CHECK && val >= hazard_max)
+		return TLV_OUTSIDE_HAZARD_LIMIT
+	if(hazard_min != TLV_DONT_CHECK && val <= hazard_min)
+		return TLV_OUTSIDE_HAZARD_LIMIT
+	if(warning_max != TLV_DONT_CHECK && val >= warning_max)
+		return TLV_OUTSIDE_WARNING_LIMIT
+	if(warning_min != TLV_DONT_CHECK && val <= warning_min)
+		return TLV_OUTSIDE_WARNING_LIMIT
+
+	return TLV_NO_DANGER
 
 /datum/tlv/no_checks
-	min2 = -1
-	min1 = -1
-	max1 = -1
-	max2 = -1
+	hazard_min = TLV_DONT_CHECK
+	warning_min = TLV_DONT_CHECK
+	warning_max = TLV_DONT_CHECK
+	hazard_max = TLV_DONT_CHECK
 
 /datum/tlv/dangerous
-	min2 = -1
-	min1 = -1
-	max1 = 0.2
-	max2 = 0.5
+	hazard_min = TLV_DONT_CHECK
+	warning_min = TLV_DONT_CHECK
+	warning_max = 0.2
+	hazard_max = 0.5
 
 /obj/item/electronics/airalarm
 	name = "плата контроллера воздуха"
@@ -85,134 +91,33 @@
 	///Represents a signel source of atmos alarms, complains to all the listeners if one of our thresholds is violated
 	var/datum/alarm_handler/alarm_manager
 
+	var/static/list/atmos_connections = list(COMSIG_TURF_EXPOSE = .proc/check_air_dangerlevel)
+
 	var/list/TLV = list( // Breathable air.
-		"pressure"					= new/datum/tlv(HAZARD_LOW_PRESSURE, WARNING_LOW_PRESSURE, WARNING_HIGH_PRESSURE, HAZARD_HIGH_PRESSURE), // kPa. Values are min2, min1, max1, max2
-		"temperature"				= new/datum/tlv(T0C, T0C+10, T0C+40, T0C+66),
-		/datum/gas/oxygen			= new/datum/tlv(16, 19, 135, 140), // Partial pressure, kpa
-		/datum/gas/nitrogen			= new/datum/tlv(-1, -1, 1000, 1000),
-		/datum/gas/carbon_dioxide	= new/datum/tlv(-1, -1, 5, 10),
-		/datum/gas/miasma			= new/datum/tlv/(-1, -1, 15, 30),
-		/datum/gas/plasma			= new/datum/tlv/dangerous,
-		/datum/gas/nitrous_oxide	= new/datum/tlv/dangerous,
-		/datum/gas/bz				= new/datum/tlv/dangerous,
-		/datum/gas/hypernoblium		= new/datum/tlv(-1, -1, 1000, 1000), // Hyper-Noblium is inert and nontoxic
-		/datum/gas/water_vapor		= new/datum/tlv/dangerous,
-		/datum/gas/tritium			= new/datum/tlv/dangerous,
-		/datum/gas/stimulum			= new/datum/tlv/dangerous,
-		/datum/gas/nitryl			= new/datum/tlv/dangerous,
-		/datum/gas/pluoxium			= new/datum/tlv(-1, -1, 1000, 1000), // Unlike oxygen, pluoxium does not fuel plasma/tritium fires
-		/datum/gas/freon			= new/datum/tlv/dangerous,
-		/datum/gas/hydrogen			= new/datum/tlv/dangerous,
-		/datum/gas/healium			= new/datum/tlv/dangerous,
-		/datum/gas/proto_nitrate	= new/datum/tlv/dangerous,
-		/datum/gas/zauker			= new/datum/tlv/dangerous,
-		/datum/gas/helium			= new/datum/tlv/dangerous,
-		/datum/gas/antinoblium		= new/datum/tlv/dangerous,
-		/datum/gas/halon			= new/datum/tlv/dangerous
+		"pressure" = new/datum/tlv(HAZARD_LOW_PRESSURE, WARNING_LOW_PRESSURE, WARNING_HIGH_PRESSURE, HAZARD_HIGH_PRESSURE), // kPa. Values are hazard_min, warning_min, warning_max, hazard_max
+		"temperature" = new/datum/tlv(BODYTEMP_COLD_WARNING_1, BODYTEMP_COLD_WARNING_1+10, BODYTEMP_HEAT_WARNING_1-27, BODYTEMP_HEAT_WARNING_1),
+		/datum/gas/oxygen = new/datum/tlv(16, 19, 135, 140), // Partial pressure, kpa
+		/datum/gas/nitrogen = new/datum/tlv(-1, -1, 1000, 1000),
+		/datum/gas/carbon_dioxide = new/datum/tlv(-1, -1, 5, 10),
+		/datum/gas/miasma = new/datum/tlv/(-1, -1, 15, 30),
+		/datum/gas/plasma = new/datum/tlv/dangerous,
+		/datum/gas/nitrous_oxide = new/datum/tlv/dangerous,
+		/datum/gas/bz = new/datum/tlv/dangerous,
+		/datum/gas/hypernoblium = new/datum/tlv(-1, -1, 1000, 1000), // Hyper-Noblium is inert and nontoxic
+		/datum/gas/water_vapor = new/datum/tlv/dangerous,
+		/datum/gas/tritium = new/datum/tlv/dangerous,
+		/datum/gas/stimulum = new/datum/tlv/dangerous,
+		/datum/gas/nitryl = new/datum/tlv/dangerous,
+		/datum/gas/pluoxium = new/datum/tlv(-1, -1, 1000, 1000), // Unlike oxygen, pluoxium does not fuel plasma/tritium fires
+		/datum/gas/freon = new/datum/tlv/dangerous,
+		/datum/gas/hydrogen = new/datum/tlv/dangerous,
+		/datum/gas/healium = new/datum/tlv/dangerous,
+		/datum/gas/proto_nitrate = new/datum/tlv/dangerous,
+		/datum/gas/zauker = new/datum/tlv/dangerous,
+		/datum/gas/helium = new/datum/tlv/dangerous,
+		/datum/gas/antinoblium = new/datum/tlv/dangerous,
+		/datum/gas/halon = new/datum/tlv/dangerous
 	)
-
-/obj/machinery/airalarm/server // No checks here.
-	TLV = list(
-		"pressure"					= new/datum/tlv/no_checks,
-		"temperature"				= new/datum/tlv/no_checks,
-		/datum/gas/oxygen			= new/datum/tlv/no_checks,
-		/datum/gas/nitrogen			= new/datum/tlv/no_checks,
-		/datum/gas/carbon_dioxide	= new/datum/tlv/no_checks,
-		/datum/gas/miasma			= new/datum/tlv/no_checks,
-		/datum/gas/plasma			= new/datum/tlv/no_checks,
-		/datum/gas/nitrous_oxide	= new/datum/tlv/no_checks,
-		/datum/gas/bz				= new/datum/tlv/no_checks,
-		/datum/gas/hypernoblium		= new/datum/tlv/no_checks,
-		/datum/gas/water_vapor		= new/datum/tlv/no_checks,
-		/datum/gas/tritium			= new/datum/tlv/no_checks,
-		/datum/gas/stimulum			= new/datum/tlv/no_checks,
-		/datum/gas/nitryl			= new/datum/tlv/no_checks,
-		/datum/gas/pluoxium			= new/datum/tlv/no_checks,
-		/datum/gas/freon			= new/datum/tlv/no_checks,
-		/datum/gas/hydrogen			= new/datum/tlv/no_checks,
-		/datum/gas/healium			= new/datum/tlv/dangerous,
-		/datum/gas/proto_nitrate	= new/datum/tlv/dangerous,
-		/datum/gas/zauker			= new/datum/tlv/dangerous,
-		/datum/gas/helium			= new/datum/tlv/dangerous,
-		/datum/gas/antinoblium		= new/datum/tlv/dangerous,
-		/datum/gas/halon			= new/datum/tlv/dangerous
-	)
-
-/obj/machinery/airalarm/kitchen_cold_room // Kitchen cold rooms start off at -14°C or 259.15°K.
-	TLV = list(
-		"pressure"					= new/datum/tlv(ONE_ATMOSPHERE * 0.8, ONE_ATMOSPHERE *  0.9, ONE_ATMOSPHERE * 1.1, ONE_ATMOSPHERE * 1.2), // kPa
-		"temperature"				= new/datum/tlv(COLD_ROOM_TEMP-40, COLD_ROOM_TEMP-20, COLD_ROOM_TEMP+20, COLD_ROOM_TEMP+40),
-		/datum/gas/oxygen			= new/datum/tlv(16, 19, 135, 140), // Partial pressure, kpa
-		/datum/gas/nitrogen			= new/datum/tlv(-1, -1, 1000, 1000),
-		/datum/gas/carbon_dioxide	= new/datum/tlv(-1, -1, 5, 10),
-		/datum/gas/miasma			= new/datum/tlv/(-1, -1, 2, 5),
-		/datum/gas/plasma			= new/datum/tlv/dangerous,
-		/datum/gas/nitrous_oxide	= new/datum/tlv/dangerous,
-		/datum/gas/bz				= new/datum/tlv/dangerous,
-		/datum/gas/hypernoblium		= new/datum/tlv(-1, -1, 1000, 1000), // Hyper-Noblium is inert and nontoxic
-		/datum/gas/water_vapor		= new/datum/tlv/dangerous,
-		/datum/gas/tritium			= new/datum/tlv/dangerous,
-		/datum/gas/stimulum			= new/datum/tlv/dangerous,
-		/datum/gas/nitryl			= new/datum/tlv/dangerous,
-		/datum/gas/pluoxium			= new/datum/tlv(-1, -1, 1000, 1000), // Unlike oxygen, pluoxium does not fuel plasma/tritium fires
-		/datum/gas/freon			= new/datum/tlv/dangerous,
-		/datum/gas/hydrogen			= new/datum/tlv/dangerous,
-		/datum/gas/healium			= new/datum/tlv/dangerous,
-		/datum/gas/proto_nitrate	= new/datum/tlv/dangerous,
-		/datum/gas/zauker			= new/datum/tlv/dangerous,
-		/datum/gas/helium			= new/datum/tlv/dangerous,
-		/datum/gas/antinoblium		= new/datum/tlv/dangerous,
-		/datum/gas/halon			= new/datum/tlv/dangerous
-	)
-
-/obj/machinery/airalarm/unlocked
-	locked = FALSE
-
-/obj/machinery/airalarm/engine
-	name = "котроллер воздуха в двигателе"
-	locked = FALSE
-	req_access = null
-	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ENGINE)
-
-/obj/machinery/airalarm/mixingchamber
-	name = "контроллер воздуха в смешивателе"
-	locked = FALSE
-	req_access = null
-	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_TOXINS)
-
-/obj/machinery/airalarm/all_access
-	name = "вседоступный контроллер воздуха"
-	desc = "Похоже этот контроллер может использовать любой."
-	locked = FALSE
-	req_access = null
-	req_one_access = null
-
-/obj/machinery/airalarm/syndicate //general syndicate access
-	req_access = list(ACCESS_SYNDICATE)
-
-/obj/machinery/airalarm/away //general away mission access
-	req_access = list(ACCESS_AWAY_GENERAL)
-
-/obj/machinery/airalarm/directional/north //Pixel offsets get overwritten on New()
-	dir = SOUTH
-	pixel_y = 24
-
-/obj/machinery/airalarm/directional/south
-	dir = NORTH
-	pixel_y = -24
-
-/obj/machinery/airalarm/directional/east
-	dir = WEST
-	pixel_x = 24
-
-/obj/machinery/airalarm/directional/west
-	dir = EAST
-	pixel_x = -24
-
-//all air alarms in area are connected via magic
-/area
-	var/list/air_vent_info = list()
-	var/list/air_scrub_info = list()
 
 /obj/machinery/airalarm/New(loc, ndir, nbuild)
 	..()
@@ -240,7 +145,7 @@
 /obj/machinery/airalarm/Initialize(mapload)
 	. = ..()
 	set_frequency(frequency)
-	GLOB.zclear_atoms += src
+	AddElement(/datum/element/connect_loc, atmos_connections)
 	AddComponent(/datum/component/usb_port, list(
 		/obj/item/circuit_component/air_alarm,
 	))
@@ -252,11 +157,11 @@
 	. += "<hr>"
 	switch(buildstage)
 		if(0)
-			. += "<span class='notice'>Отсутствует плата.</span>"
+			. += span_notice("Отсутствует плата.")
 		if(1)
-			. += "<span class='notice'>Не хватает проводов</span>"
+			. += span_notice("Не хватает проводов")
 		if(2)
-			. += "<span class='notice'>ПКМ, чтобы [locked ? "разблокировать" : "заблокировать"] интерфейс.</span>"
+			. += span_notice("ПКМ, чтобы [locked ? "разблокировать" : "заблокировать"] интерфейс.")
 
 /obj/machinery/airalarm/ui_status(mob/user)
 	if(user.has_unlimited_silicon_privilege && aidisabled)
@@ -370,27 +275,27 @@
 
 		selected = TLV["pressure"]
 		thresholds += list(list("name" = "Давление", "settings" = list()))
-		thresholds[thresholds.len]["settings"] += list(list("env" = "pressure", "val" = "min2", "selected" = selected.min2))
-		thresholds[thresholds.len]["settings"] += list(list("env" = "pressure", "val" = "min1", "selected" = selected.min1))
-		thresholds[thresholds.len]["settings"] += list(list("env" = "pressure", "val" = "max1", "selected" = selected.max1))
-		thresholds[thresholds.len]["settings"] += list(list("env" = "pressure", "val" = "max2", "selected" = selected.max2))
+		thresholds[thresholds.len]["settings"] += list(list("env" = "pressure", "val" = "hazard_min", "selected" = selected.hazard_min))
+		thresholds[thresholds.len]["settings"] += list(list("env" = "pressure", "val" = "warning_min", "selected" = selected.warning_min))
+		thresholds[thresholds.len]["settings"] += list(list("env" = "pressure", "val" = "warning_max", "selected" = selected.warning_max))
+		thresholds[thresholds.len]["settings"] += list(list("env" = "pressure", "val" = "hazard_max", "selected" = selected.hazard_max))
 
 		selected = TLV["temperature"]
 		thresholds += list(list("name" = "Температура", "settings" = list()))
-		thresholds[thresholds.len]["settings"] += list(list("env" = "temperature", "val" = "min2", "selected" = selected.min2))
-		thresholds[thresholds.len]["settings"] += list(list("env" = "temperature", "val" = "min1", "selected" = selected.min1))
-		thresholds[thresholds.len]["settings"] += list(list("env" = "temperature", "val" = "max1", "selected" = selected.max1))
-		thresholds[thresholds.len]["settings"] += list(list("env" = "temperature", "val" = "max2", "selected" = selected.max2))
+		thresholds[thresholds.len]["settings"] += list(list("env" = "temperature", "val" = "hazard_min", "selected" = selected.hazard_min))
+		thresholds[thresholds.len]["settings"] += list(list("env" = "temperature", "val" = "warning_min", "selected" = selected.warning_min))
+		thresholds[thresholds.len]["settings"] += list(list("env" = "temperature", "val" = "warning_max", "selected" = selected.warning_max))
+		thresholds[thresholds.len]["settings"] += list(list("env" = "temperature", "val" = "hazard_max", "selected" = selected.hazard_max))
 
 		for(var/gas_id in GLOB.meta_gas_info)
 			if(!(gas_id in TLV)) // We're not interested in this gas, it seems.
 				continue
 			selected = TLV[gas_id]
 			thresholds += list(list("name" = GLOB.meta_gas_info[gas_id][META_GAS_NAME], "settings" = list()))
-			thresholds[thresholds.len]["settings"] += list(list("env" = gas_id, "val" = "min2", "selected" = selected.min2))
-			thresholds[thresholds.len]["settings"] += list(list("env" = gas_id, "val" = "min1", "selected" = selected.min1))
-			thresholds[thresholds.len]["settings"] += list(list("env" = gas_id, "val" = "max1", "selected" = selected.max1))
-			thresholds[thresholds.len]["settings"] += list(list("env" = gas_id, "val" = "max2", "selected" = selected.max2))
+			thresholds[thresholds.len]["settings"] += list(list("env" = gas_id, "val" = "hazard_min", "selected" = selected.hazard_min))
+			thresholds[thresholds.len]["settings"] += list(list("env" = gas_id, "val" = "warning_min", "selected" = selected.warning_min))
+			thresholds[thresholds.len]["settings"] += list(list("env" = gas_id, "val" = "warning_max", "selected" = selected.warning_max))
+			thresholds[thresholds.len]["settings"] += list(list("env" = gas_id, "val" = "hazard_max", "selected" = selected.hazard_max))
 
 		data["thresholds"] = thresholds
 	return data
@@ -444,6 +349,9 @@
 				else
 					tlv.vars[name] = round(value, 0.01)
 				investigate_log(" treshold value for [env]:[name] was set to [value] by [key_name(usr)]",INVESTIGATE_ATMOS)
+				var/turf/our_turf = get_turf(src)
+				var/datum/gas_mixture/environment = our_turf.return_air()
+				check_air_dangerlevel(our_turf, environment, environment.return_temperature())
 				. = TRUE
 		if("mode")
 			mode = text2num(params["mode"])
@@ -670,41 +578,44 @@
 		if(2)
 			icon_state = "alarm1"
 
-/obj/machinery/airalarm/process()
+/**
+ * main proc for throwing a shitfit if the air isnt right.
+ * goes into warning mode if gas parameters are beyond the tlv warning bounds, goes into hazard mode if gas parameters are beyond tlv hazard bounds
+ *
+ */
+/obj/machinery/airalarm/proc/check_air_dangerlevel(turf/location, datum/gas_mixture/environment, exposed_temperature)
+	SIGNAL_HANDLER
 	if((machine_stat & (NOPOWER|BROKEN)) || shorted)
 		return
 
-	var/turf/location = get_turf(src)
-	if(!location)
-		return
+	var/datum/tlv/current_tlv
+	//cache for sanic speed (lists are references anyways)
+	var/list/cached_tlv = TLV
 
-	var/datum/tlv/cur_tlv
-
-	var/datum/gas_mixture/environment = location.return_air()
 	var/partial_pressure = R_IDEAL_GAS_EQUATION * environment.return_temperature() / environment.return_volume()
 
-	cur_tlv = TLV["pressure"]
+	current_tlv = cached_tlv["pressure"]
 	var/environment_pressure = environment.return_pressure()
-	var/pressure_dangerlevel = cur_tlv.get_danger_level(environment_pressure)
+	var/pressure_dangerlevel = current_tlv.get_danger_level(environment_pressure)
 
-	cur_tlv = TLV["temperature"]
-	var/temperature_dangerlevel = cur_tlv.get_danger_level(environment.return_temperature())
+	current_tlv = cached_tlv["temperature"]
+	var/temperature_dangerlevel = current_tlv.get_danger_level(exposed_temperature)
 
 	var/gas_dangerlevel = 0
 	for(var/gas_id in environment.get_gases())
-		if(!(gas_id in TLV)) // We're not interested in this gas, it seems.
+		if(!(gas_id in cached_tlv)) // We're not interested in this gas, it seems.
 			continue
-		cur_tlv = TLV[gas_id]
-		gas_dangerlevel = max(gas_dangerlevel, cur_tlv.get_danger_level(environment.get_moles(gas_id) * partial_pressure))
+		current_tlv = cached_tlv[gas_id]
+		gas_dangerlevel = max(gas_dangerlevel, current_tlv.get_danger_level(environment.get_moles(gas_id) * partial_pressure))
 
 	var/old_danger_level = danger_level
 	danger_level = max(pressure_dangerlevel, temperature_dangerlevel, gas_dangerlevel)
 
 	if(old_danger_level != danger_level)
-		apply_danger_level()
+		INVOKE_ASYNC(src, .proc/apply_danger_level)
 	if(mode == AALARM_MODE_REPLACEMENT && environment_pressure < ONE_ATMOSPHERE * 0.05)
-		mode = AALARM_MODE_CONTAMINATED
-		apply_mode(src)
+		mode = AALARM_MODE_SCRUBBING
+		INVOKE_ASYNC(src, .proc/apply_mode, src)
 
 
 /obj/machinery/airalarm/proc/post_alert(alert_level)
@@ -749,7 +660,7 @@
 		if(2)
 			if(W.tool_behaviour == TOOL_WIRECUTTER && panel_open && wires.is_all_cut())
 				W.play_tool_sound(src)
-				to_chat(user, "<span class='notice'>Откусываю последние провода.</span>")
+				to_chat(user, span_notice("Откусываю последние провода."))
 				new /obj/item/stack/cable_coil(loc, 5)
 				buildstage = 1
 				update_icon()
@@ -757,7 +668,7 @@
 			else if(W.tool_behaviour == TOOL_SCREWDRIVER)  // Opening that Air Alarm up.
 				W.play_tool_sound(src)
 				panel_open = !panel_open
-				to_chat(user, "<span class='notice'>Провода теперь [panel_open ? "открыты" : "закрыты"].</span>")
+				to_chat(user, span_notice("Провода теперь [panel_open ? "открыты" : "закрыты"]."))
 				update_icon()
 				return
 			else if(W.GetID())// trying to unlock the interface with an ID card
@@ -768,12 +679,12 @@
 				return
 		if(1)
 			if(W.tool_behaviour == TOOL_CROWBAR)
-				user.visible_message("<span class='notice'>[user.name] вынимает плату из [src.name].</span>", \
-									"<span class='notice'>Начинаю вытаскивать плату...</span>")
+				user.visible_message(span_notice("[user.name] вынимает плату из [src.name].") , \
+									span_notice("Начинаю вытаскивать плату..."))
 				W.play_tool_sound(src)
 				if (W.use_tool(src, user, 20))
 					if (buildstage == 1)
-						to_chat(user, "<span class='notice'>Вынимаю плату.</span>")
+						to_chat(user, span_notice("Вынимаю плату."))
 						new /obj/item/electronics/airalarm( src.loc )
 						playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 						buildstage = 0
@@ -783,14 +694,14 @@
 			if(istype(W, /obj/item/stack/cable_coil))
 				var/obj/item/stack/cable_coil/cable = W
 				if(cable.get_amount() < 5)
-					to_chat(user, "<span class='warning'>Надо бы чуть больше кабеля!</span>")
+					to_chat(user, span_warning("Надо бы чуть больше кабеля!"))
 					return
-				user.visible_message("<span class='notice'>[user.name] подключает провода к контроллеру.</span>", \
-									"<span class='notice'>Начинаю подключать провода к контролеру...</span>")
+				user.visible_message(span_notice("[user.name] подключает провода к контроллеру.") , \
+									span_notice("Начинаю подключать провода к контролеру..."))
 				if (do_after(user, 20, target = src))
 					if (cable.get_amount() >= 5 && buildstage == 1)
 						cable.use(5)
-						to_chat(user, "<span class='notice'>Подключаю провода к контроллеру.</span>")
+						to_chat(user, span_notice("Подключаю провода к контроллеру."))
 						wires.repair()
 						aidisabled = 0
 						locked = FALSE
@@ -803,7 +714,7 @@
 		if(0)
 			if(istype(W, /obj/item/electronics/airalarm))
 				if(user.temporarilyRemoveItemFromInventory(W))
-					to_chat(user, "<span class='notice'>Вставляю плату.</span>")
+					to_chat(user, span_notice("Вставляю плату."))
 					buildstage = 1
 					update_icon()
 					qdel(W)
@@ -813,14 +724,14 @@
 				var/obj/item/electroadaptive_pseudocircuit/P = W
 				if(!P.adapt_circuit(user, 25))
 					return
-				user.visible_message("<span class='notice'>[user] адаптирует плату и вставляет её в [src].</span>", \
-				"<span class='notice'>Адаптирую плату и вставляю её внутрь.</span>")
+				user.visible_message(span_notice("[user] адаптирует плату и вставляет её в [src].") , \
+				span_notice("Адаптирую плату и вставляю её внутрь."))
 				buildstage = 1
 				update_icon()
 				return
 
 			if(W.tool_behaviour == TOOL_WRENCH)
-				to_chat(user, "<span class='notice'>Отсоединяю [src] от стены.</span>")
+				to_chat(user, span_notice("Отсоединяю [src] от стены."))
 				W.play_tool_sound(src)
 				new /obj/item/wallframe/airalarm( user.loc )
 				qdel(src)
@@ -836,8 +747,8 @@
 /obj/machinery/airalarm/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_UPGRADE_SIMPLE_CIRCUITS)
-			user.visible_message("<span class='notice'>[user] адаптирует плату и вставляет её в [src].</span>", \
-			"<span class='notice'>Адаптирую плату и вставляю её внутрь.</span>")
+			user.visible_message(span_notice("[user] адаптирует плату и вставляет её в [src].") , \
+			span_notice("Адаптирую плату и вставляю её внутрь."))
 			buildstage = 1
 			update_icon()
 			return TRUE
@@ -852,21 +763,21 @@
 
 /obj/machinery/airalarm/proc/togglelock(mob/living/user)
 	if(machine_stat & (NOPOWER|BROKEN))
-		to_chat(user, "<span class='warning'>Ниче не пойму!</span>")
+		to_chat(user, span_warning("Ниче не пойму!"))
 	else
 		if(src.allowed(usr) && !wires.is_cut(WIRE_IDSCAN))
 			locked = !locked
-			to_chat(user, "<span class='notice'>[ locked ? "блокирую" : "разблокирую"] интерфейс контроллера воздуха.</span>")
+			to_chat(user, span_notice("[ locked ? "блокирую" : "разблокирую"] интерфейс контроллера воздуха."))
 			updateUsrDialog()
 		else
-			to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
+			to_chat(user, span_danger("Доступ запрещён."))
 	return
 
 /obj/machinery/airalarm/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	visible_message("<span class='warning'>Искры вылетают из [src]!</span>", "<span class='notice'>Взламываю [src], вырубая его протоколы безопасности.</span>")
+	visible_message(span_warning("Искры вылетают из [src]!") , span_notice("Взламываю [src], вырубая его протоколы безопасности."))
 	playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 /obj/machinery/airalarm/deconstruct(disassembled = TRUE)
@@ -877,6 +788,104 @@
 			I.obj_integrity = I.max_integrity * 0.5
 		new /obj/item/stack/cable_coil(loc, 3)
 	qdel(src)
+
+/obj/machinery/airalarm/server // No checks here.
+	TLV = list(
+		"pressure" = new/datum/tlv/no_checks,
+		"temperature" = new/datum/tlv/no_checks,
+		/datum/gas/oxygen = new/datum/tlv/no_checks,
+		/datum/gas/nitrogen = new/datum/tlv/no_checks,
+		/datum/gas/carbon_dioxide = new/datum/tlv/no_checks,
+		/datum/gas/miasma = new/datum/tlv/no_checks,
+		/datum/gas/plasma = new/datum/tlv/no_checks,
+		/datum/gas/nitrous_oxide = new/datum/tlv/no_checks,
+		/datum/gas/bz = new/datum/tlv/no_checks,
+		/datum/gas/hypernoblium = new/datum/tlv/no_checks,
+		/datum/gas/water_vapor = new/datum/tlv/no_checks,
+		/datum/gas/tritium = new/datum/tlv/no_checks,
+		/datum/gas/stimulum = new/datum/tlv/no_checks,
+		/datum/gas/nitryl = new/datum/tlv/no_checks,
+		/datum/gas/pluoxium = new/datum/tlv/no_checks,
+		/datum/gas/freon = new/datum/tlv/no_checks,
+		/datum/gas/hydrogen = new/datum/tlv/no_checks,
+		/datum/gas/healium = new/datum/tlv/dangerous,
+		/datum/gas/proto_nitrate = new/datum/tlv/dangerous,
+		/datum/gas/zauker = new/datum/tlv/dangerous,
+		/datum/gas/helium = new/datum/tlv/dangerous,
+		/datum/gas/antinoblium = new/datum/tlv/dangerous,
+		/datum/gas/halon = new/datum/tlv/dangerous,
+	)
+
+/obj/machinery/airalarm/kitchen_cold_room // Kitchen cold rooms start off at -14°C or 259.15K.
+	TLV = list(
+		"pressure" = new/datum/tlv(ONE_ATMOSPHERE * 0.8, ONE_ATMOSPHERE *  0.9, ONE_ATMOSPHERE * 1.1, ONE_ATMOSPHERE * 1.2), // kPa
+		"temperature" = new/datum/tlv(COLD_ROOM_TEMP-40, COLD_ROOM_TEMP-20, COLD_ROOM_TEMP+20, COLD_ROOM_TEMP+40),
+		/datum/gas/oxygen = new/datum/tlv(16, 19, 135, 140), // Partial pressure, kpa
+		/datum/gas/nitrogen = new/datum/tlv(-1, -1, 1000, 1000),
+		/datum/gas/carbon_dioxide = new/datum/tlv(-1, -1, 5, 10),
+		/datum/gas/miasma = new/datum/tlv/(-1, -1, 2, 5),
+		/datum/gas/plasma = new/datum/tlv/dangerous,
+		/datum/gas/nitrous_oxide = new/datum/tlv/dangerous,
+		/datum/gas/bz = new/datum/tlv/dangerous,
+		/datum/gas/hypernoblium = new/datum/tlv(-1, -1, 1000, 1000), // Hyper-Noblium is inert and nontoxic
+		/datum/gas/water_vapor = new/datum/tlv/dangerous,
+		/datum/gas/tritium = new/datum/tlv/dangerous,
+		/datum/gas/stimulum = new/datum/tlv/dangerous,
+		/datum/gas/nitryl = new/datum/tlv/dangerous,
+		/datum/gas/pluoxium = new/datum/tlv(-1, -1, 1000, 1000), // Unlike oxygen, pluoxium does not fuel plasma/tritium fires
+		/datum/gas/freon = new/datum/tlv/dangerous,
+		/datum/gas/hydrogen = new/datum/tlv/dangerous,
+		/datum/gas/healium = new/datum/tlv/dangerous,
+		/datum/gas/proto_nitrate = new/datum/tlv/dangerous,
+		/datum/gas/zauker = new/datum/tlv/dangerous,
+		/datum/gas/helium = new/datum/tlv/dangerous,
+		/datum/gas/antinoblium = new/datum/tlv/dangerous,
+		/datum/gas/halon = new/datum/tlv/dangerous,
+	)
+
+/obj/machinery/airalarm/unlocked
+	locked = FALSE
+
+/obj/machinery/airalarm/engine
+	name = "котроллер воздуха в двигателе"
+	locked = FALSE
+	req_access = null
+	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ENGINE)
+
+/obj/machinery/airalarm/mixingchamber
+	name = "контроллер воздуха в смешивателе"
+	locked = FALSE
+	req_access = null
+	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_TOXINS)
+
+/obj/machinery/airalarm/all_access
+	name = "вседоступный контроллер воздуха"
+	desc = "Похоже этот контроллер может использовать любой."
+	locked = FALSE
+	req_access = null
+	req_one_access = null
+
+/obj/machinery/airalarm/syndicate //general syndicate access
+	req_access = list(ACCESS_SYNDICATE)
+
+/obj/machinery/airalarm/away //general away mission access
+	req_access = list(ACCESS_AWAY_GENERAL)
+
+/obj/machinery/airalarm/directional/north //Pixel offsets get overwritten on New()
+	dir = SOUTH
+	pixel_y = 24
+
+/obj/machinery/airalarm/directional/south
+	dir = NORTH
+	pixel_y = -24
+
+/obj/machinery/airalarm/directional/east
+	dir = WEST
+	pixel_x = 24
+
+/obj/machinery/airalarm/directional/west
+	dir = EAST
+	pixel_x = -24
 
 /obj/item/circuit_component/air_alarm
 	display_name = "Контроллер воздуха"
@@ -898,8 +907,7 @@
 	var/obj/machinery/airalarm/connected_alarm
 	var/list/options_map
 
-/obj/item/circuit_component/air_alarm/Initialize()
-	. = ..()
+/obj/item/circuit_component/air_alarm/populate_ports()
 	min_2 = add_input_port("Min 2", PORT_TYPE_NUMBER)
 	min_1 = add_input_port("Min 1", PORT_TYPE_NUMBER)
 	max_1 = add_input_port("Max 1", PORT_TYPE_NUMBER)
@@ -935,9 +943,7 @@
 	return ..()
 
 /obj/item/circuit_component/air_alarm/input_received(datum/port/input/port)
-	. = ..()
-
-	if(. || !connected_alarm || connected_alarm.locked)
+	if(!connected_alarm || connected_alarm.locked)
 		return
 
 	var/current_option = air_alarm_options.value
@@ -954,10 +960,10 @@
 		return
 
 	var/datum/tlv/settings = connected_alarm.TLV[options_map[current_option]]
-	settings.min2 = min_2
-	settings.min1 = min_1
-	settings.max1 = max_1
-	settings.max2 = max_2
+	settings.hazard_min = min_2
+	settings.warning_min = min_1
+	settings.warning_max = max_1
+	settings.hazard_max = max_2
 
 #undef AALARM_MODE_SCRUBBING
 #undef AALARM_MODE_VENTING

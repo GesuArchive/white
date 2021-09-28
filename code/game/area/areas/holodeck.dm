@@ -1,7 +1,7 @@
 /area/holodeck
 	name = "Голодек"
 	icon_state = "Holodeck"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	base_lighting_color = COLOR_WHITE
 	base_lighting_alpha = 255
 	flags_1 = NONE

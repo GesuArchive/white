@@ -15,7 +15,7 @@
 		icon_state = "linker_mechcomp"
 		tool_behaviour = TOOL_MECHCOMP
 	else
-		to_chat(user, "<span class='notice'>You slide in the mechcomp control panel on the \"C.U.M.\", making it function like a regular multitool.</span>")
+		to_chat(user, span_notice("You slide in the mechcomp control panel on the \"C.U.M.\", making it function like a regular multitool."))
 		icon_state = "linker_multitool"
 		tool_behaviour = TOOL_MULTITOOL
 	//So, apparently tool behaviours are not bitflags and are instead just plain strings with some #defines sprinkled over.
@@ -45,13 +45,13 @@
 					/obj/item/mechcomp/timer = 2,
 					/obj/item/mechcomp/microphone = 7,
 					/obj/item/mechcomp/teleport = 6,
-					/obj/structure/disposalconstruct/mechcomp = 2)
+					/obj/structure/disposalconstruct/mechcomp = 2,
+					/obj/item/multitool/mechcomp = 1)
 	contraband = list(
 						/obj/item/mechcomp/egunholder = 3,
 						/obj/item/mechcomp/grav_accelerator = 5,
 						/obj/item/mechcomp/teleport/longrange = 6)
-	premium = list(	/obj/item/multitool/mechcomp = 1,
-					/obj/item/mechcomp/grav_accelerator = 2,
+	premium = list(	/obj/item/mechcomp/grav_accelerator = 2,
 					/obj/item/mechcomp/teleport/longrange = 3)
 	armor = list(MELEE = 30, BULLET = 30, LASER = 40, ENERGY = 40, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 40)
 	resistance_flags = FIRE_PROOF

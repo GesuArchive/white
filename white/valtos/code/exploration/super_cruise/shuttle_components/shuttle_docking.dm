@@ -71,6 +71,8 @@
 			the_eye.placement_images[I] = list(x_off, y_off)
 
 /obj/machinery/computer/shuttle_flight/proc/give_eye_control(mob/user)
+	if(!isliving(user))
+		return
 	if(!eyeobj)
 		CreateEye()
 	GrantActions(user)
@@ -133,29 +135,29 @@
 		return
 
 	if(QDELETED(shuttleObject))
-		to_chat(usr, "<span class='warning'>Шаттл уже пристыкован.</span>")
+		to_chat(usr, span_warning("Шаттл уже пристыкован."))
 		return
 
 	var/mob/camera/ai_eye/remote/shuttle_docker/the_eye = eyeobj
 	var/landing_clear = checkLandingSpot()
 	if(designate_time && (landing_clear != SHUTTLE_DOCKER_BLOCKED))
-		to_chat(current_user, "<span class='warning'>Начинаем стыковку, подождите [DisplayTimeText(designate_time)]...</span>")
+		to_chat(current_user, span_warning("Начинаем стыковку, подождите [DisplayTimeText(designate_time)]..."))
 		designating_target_loc = the_eye.loc
 		var/wait_completed = do_after(current_user, designate_time, NONE, TRUE, CALLBACK(src, .proc/canDesignateTarget))
 		designating_target_loc = null
 		if(!current_user)
 			return
 		if(!wait_completed)
-			to_chat(current_user, "<span class='warning'>Операция отменена.</span>")
+			to_chat(current_user, span_warning("Операция отменена."))
 			return
 		landing_clear = checkLandingSpot()
 
 	if(landing_clear != SHUTTLE_DOCKER_LANDING_CLEAR)
 		switch(landing_clear)
 			if(SHUTTLE_DOCKER_BLOCKED)
-				to_chat(current_user, "<span class='warning'>Неправильная локация.</span>")
+				to_chat(current_user, span_warning("Неправильная локация."))
 			if(SHUTTLE_DOCKER_BLOCKED_BY_HIDDEN_PORT)
-				to_chat(current_user, "<span class='warning'>Неизвестный объект в зоне высадки. Выберите другое место.</span>")
+				to_chat(current_user, span_warning("Неизвестный объект в зоне высадки. Выберите другое место."))
 		return
 
 	///Make one use port that deleted after fly off, to don't lose info that need on to properly fly off.
@@ -202,9 +204,9 @@
 			say("Ожидайте...")
 			INVOKE_ASYNC(src, .proc/unfreeze_shuttle, M, SSmapping.get_level(eyeobj.z))
 		if(1)
-			to_chat(usr, "<span class='warning'>Неправильный шаттл запрошен.</span>")
+			to_chat(usr, span_warning("Неправильный шаттл запрошен."))
 		else
-			to_chat(usr, "<span class='notice'>Не понимаю.</span>")
+			to_chat(usr, span_notice("Не понимаю."))
 
 	return TRUE
 
@@ -297,7 +299,7 @@
 /obj/machinery/computer/shuttle_flight/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
 	if(port && (shuttleId == initial(shuttleId) || override))
 		shuttleId = port.id
-		shuttlePortId = "[port.id]_custom"
+		shuttlePortId = "[shuttleId]_custom"
 
 /mob/camera/ai_eye/remote/shuttle_docker
 	visible_icon = FALSE
@@ -381,7 +383,7 @@
 		if(T)
 			playsound(console, 'sound/machines/terminal_prompt_confirm.ogg', 25, 0)
 			remote_eye.setLoc(T)
-			to_chat(target, "<span class='notice'>Прыгаем к [selected].</span>")
+			to_chat(target, span_notice("Прыгаем к [selected]."))
 			C.overlay_fullscreen("flash", /atom/movable/screen/fullscreen/flash/static)
 			C.clear_fullscreen("flash", 3)
 	else

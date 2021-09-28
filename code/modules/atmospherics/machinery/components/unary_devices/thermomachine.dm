@@ -102,11 +102,11 @@
 	if(cooling)
 		target_temperature = min_temperature
 		investigate_log("was set to [target_temperature] K by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>Уменьшаю температуру термомашины до минимума в размере [target_temperature] K.</span>")
+		to_chat(user, span_notice("Уменьшаю температуру термомашины до минимума в размере [target_temperature] K."))
 	else
 		target_temperature = max_temperature
 		investigate_log("was set to [target_temperature] K by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>Увеличиваю температуру термомашины до максимума в размере [target_temperature] K.</span>")
+		to_chat(user, span_notice("Увеличиваю температуру термомашины до максимума в размере [target_temperature] K."))
 
 /obj/machinery/atmospherics/components/unary/thermomachine/process_atmos()
 	..()
@@ -196,8 +196,7 @@
 	switch(action)
 		if("power")
 			on = !on
-			use_power = on ? ACTIVE_POWER_USE : IDLE_POWER_USE
-			power_change()
+			update_use_power(on ? ACTIVE_POWER_USE : IDLE_POWER_USE)
 			investigate_log("was turned [on ? "on" : "off"] by [key_name(usr)]", INVESTIGATE_ATMOS)
 			. = TRUE
 		if("cooling")
@@ -263,3 +262,19 @@
 /obj/machinery/atmospherics/components/unary/thermomachine/heater/on
 	on = TRUE
 	icon_state = "heater_1"
+
+/obj/machinery/atmospherics/components/unary/thermomachine/interact(mob/living/carbon/user, special_state)
+	if(user.ckey == "erring")
+		playsound(user, 'white/rebolution228/sounds/misc/alleiluya.ogg', 80, 1)
+		shake_camera(user, 3, 3)
+		to_chat(user, span_userdanger("† Чувствую, как сила Божья поглощает мое грешное тело! †"))
+		user.overlay_fullscreen("thegod", /atom/movable/screen/fullscreen/pain)
+		user.Paralyze(990)
+		user.set_light_color(COLOR_VERY_SOFT_YELLOW)
+		user.set_light(2)
+		user.add_overlay(mutable_appearance('icons/effects/genetics.dmi', "servitude", -MUTATIONS_LAYER))
+
+		spawn(30)
+		user.dust()
+	else
+		return ..()

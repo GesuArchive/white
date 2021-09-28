@@ -96,7 +96,7 @@
 
 /obj/machinery/door/proc/try_safety_unlock(mob/user)
 	if(safety_mode && !hasPower() && density)
-		to_chat(user, "<span class='notice'>Начинаю разблокировать протоколы безопасности шлюза...</span>")
+		to_chat(user, span_notice("Начинаю разблокировать протоколы безопасности шлюза..."))
 		if(do_after(user, 15 SECONDS, target = src))
 			try_to_crowbar(null, user)
 			return TRUE
@@ -327,7 +327,7 @@
 	do_animate("opening")
 	set_opacity(0)
 	sleep(5)
-	density = FALSE
+	set_density(FALSE)
 	flags_1 &= ~PREVENT_CLICK_UNDER_1
 	sleep(5)
 	layer = initial(layer)
@@ -359,9 +359,8 @@
 	if(air_tight)
 		density = TRUE
 	sleep(5)
-	density = TRUE
-	if(prevent_clicks_under_when_closed)
-		flags_1 |= PREVENT_CLICK_UNDER_1
+	set_density(TRUE)
+	flags_1 |= PREVENT_CLICK_UNDER_1
 	sleep(5)
 	update_icon()
 	if(visible && !glass)
@@ -386,7 +385,7 @@
 
 /obj/machinery/door/proc/crush()
 	for(var/mob/living/L in get_turf(src))
-		L.visible_message("<span class='warning'>[capitalize(src.name)] закрывается на [L], раздавливая [L.ru_ego()]!</span>", "<span class='userdanger'>[capitalize(src.name)] закрывается на мне с прикольным звуком!</span>")
+		L.visible_message(span_warning("[capitalize(src.name)] закрывается на [L], раздавливая [L.ru_ego()]!") , span_userdanger("[capitalize(src.name)] закрывается на мне с прикольным звуком!"))
 		SEND_SIGNAL(L, COMSIG_LIVING_DOORCRUSHED, src)
 		if(isalien(L))  //For xenos
 			L.adjustBruteLoss(DOOR_CRUSH_DAMAGE * 1.5) //Xenos go into crit after aproximately the same amount of crushes as humans.

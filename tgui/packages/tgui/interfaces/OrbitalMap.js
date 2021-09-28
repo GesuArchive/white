@@ -288,7 +288,7 @@ export const InterdictionDisplay = (props, context) => {
                         height={100 * lockedZoomScale}
                         fill="url(#smallgrid)" />
                       <path
-                        fill="none" stroke="#CE1935" stroke-width="1"
+                        fill="none" stroke="#6e1111" stroke-width="1"
                         d={"M " + (100 * lockedZoomScale)+ " 0 L 0 0 0 " + (100 * lockedZoomScale)} />
                     </pattern>
                     <pattern id="smallgrid"
@@ -298,10 +298,10 @@ export const InterdictionDisplay = (props, context) => {
                       <rect
                         width={50 * lockedZoomScale}
                         height={50 * lockedZoomScale}
-                        fill="#382424" />
+                        fill="#6e1111" />
                       <path
                         fill="none"
-                        stroke="#CE1935"
+                        stroke="#6e1111"
                         stroke-width="0.5"
                         d={"M " + (50 * lockedZoomScale) + " 0 L 0 0 0 "
                         + (50 * lockedZoomScale)} />
@@ -494,7 +494,7 @@ export const OrbitalMapDisplay = (props, context) => {
                   height={100 * lockedZoomScale}
                   fill="url(#smallgrid)" />
                 <path
-                  fill="none" stroke="#4665DE" stroke-width="1"
+                  fill="none" stroke="#9e1111" stroke-width="1"
                   d={"M " + (100 * lockedZoomScale)+ " 0 L 0 0 0 " + (100 * lockedZoomScale)} />
               </pattern>
               <pattern id="smallgrid"
@@ -504,10 +504,10 @@ export const OrbitalMapDisplay = (props, context) => {
                 <rect
                   width={50 * lockedZoomScale}
                   height={50 * lockedZoomScale}
-                  fill="#2B2E3B" />
+                  fill="#1e1111" />
                 <path
                   fill="none"
-                  stroke="#4665DE"
+                  stroke="#9e1111"
                   stroke-width="0.5"
                   d={"M " + (50 * lockedZoomScale) + " 0 L 0 0 0 "
                   + (50 * lockedZoomScale)} />
@@ -829,11 +829,11 @@ export const ShuttleMap = (props, context) => {
         <defs>
           <pattern id="grid" width={200} height={200} patternUnits="userSpaceOnUse">
             <rect width={200} height={200} fill="url(#smallgrid)" />
-            <path d={"M 200 0 L 0 0 0 200"} fill="none" stroke="#4665DE" stroke-width="1" />
+            <path d={"M 200 0 L 0 0 0 200"} fill="none" stroke="#6e1111" stroke-width="1" />
           </pattern>
           <pattern id="smallgrid" width={100} height={100} patternUnits="userSpaceOnUse">
-            <rect width={100} height={100} fill="#2B2E3B" />
-            <path d={"M 100 0 L 0 0 0 100"} fill="none" stroke="#4665DE" stroke-width="0.5" />
+            <rect width={100} height={100} fill="#111111" />
+            <path d={"M 100 0 L 0 0 0 100"} fill="none" stroke="#6e1111" stroke-width="0.5" />
           </pattern>
         </defs>
         <rect x="-50%" y="-50%" width="100%" height="100%" fill="url(#grid)" />

@@ -1,15 +1,23 @@
 /area/awaymission/vietnam
 	name = "Дикие джунгли"
 	icon_state = "unexplored"
-	static_lighting = TRUE
+	static_lighting = FALSE
+	base_lighting_alpha = 255
+	base_lighting_color = COLOR_WHITE
 	map_generator = /datum/map_generator/jungle_generator
 	ambientsounds = AWAY_MISSION
 	enabled_area_tension = FALSE
 
+/area/awaymission/vietnam/Initialize(mapload)
+	. = ..()
+	RunGeneration()
+
 /area/awaymission/vietnam/dark
 	name = "Тёмное джунглевое место"
 	icon_state = "unexplored"
-	static_lighting = FALSE
+	static_lighting = TRUE
+	base_lighting_alpha = 1
+	base_lighting_color = COLOR_WHITE
 	ambientsounds = AWAY_MISSION
 	requires_power = FALSE
 
@@ -112,7 +120,7 @@
 
 /turf/open/floor/grass/gensgrass/dirty/stone/attackby(obj/item/I, mob/user, params)
 	if((I.tool_behaviour == TOOL_SHOVEL) && params)
-		user.visible_message("<span class='warning'>[user] грустно долбит лопатой по [src].</span>", "<span class='warning'>Как я лопатой буду копать [src]?!</span>")
+		user.visible_message(span_warning("[user] грустно долбит лопатой по [src].") , span_warning("Как я лопатой буду копать [src]?!"))
 		return FALSE
 	if(..())
 		return
@@ -149,14 +157,14 @@
 	. = ..()
 	if(istype(W, /obj/item/blacksmith/chisel))
 		if(busy)
-			to_chat(user, "<span class='warning'>Сейчас занято.</span>")
+			to_chat(user, span_warning("Сейчас занято."))
 			return
 		busy = TRUE
 		if(!do_after(user, 10 SECONDS, target = src))
 			busy = FALSE
 			return
 		busy = FALSE
-		to_chat(user, "<span class='warning'>Обрабатываю [src].</span>")
+		to_chat(user, span_warning("Обрабатываю [src]."))
 		ChangeTurf(/turf/closed/wall/stonewall_fancy)
 
 /turf/closed/wall/stonewall_fancy
@@ -190,14 +198,14 @@
 	. = ..()
 	if(istype(W, /obj/item/blacksmith/chisel)&&isstrictlytype(src, /turf/open/floor/grass/gensgrass/dirty/stone))
 		if(busy)
-			to_chat(user, "<span class='warning'>Сейчас занято.</span>")
+			to_chat(user, span_warning("Сейчас занято."))
 			return
 		busy = TRUE
 		if(!do_after(user, 10 SECONDS, target = src))
 			busy = FALSE
 			return
 		busy = FALSE
-		to_chat(user, "<span class='warning'>Обрабатываю [src].</span>")
+		to_chat(user, span_warning("Обрабатываю [src]."))
 		ChangeTurf(/turf/open/floor/grass/gensgrass/dirty/stone/fancy, flags=CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/grass/gensgrass/dirty/stone/raw/attackby(obj/item/I, mob/user, params)
@@ -213,10 +221,10 @@
 					S.pixel_x = rand(-8, 8)
 					S.pixel_y = rand(-8, 8)
 				digged_up = TRUE
-				user.visible_message("<span class='notice'><b>[user]</b> выкапывает немного камней.</span>", \
-									"<span class='notice'>Выкапываю немного камней.</span>")
+				user.visible_message(span_notice("<b>[user]</b> выкапывает немного камней.") , \
+									span_notice("Выкапываю немного камней."))
 		else
-			to_chat(user, "<span class='warning'>Здесь уже всё раскопано!</span>")
+			to_chat(user, span_warning("Здесь уже всё раскопано!"))
 
 /turf/closed/mineral/random/vietnam
 	icon = 'white/valtos/icons/rocks.dmi'
@@ -374,7 +382,7 @@
 	. = ..()
 
 	if(prob(0.8))
-		to_chat(user, "<span class='userdanger'>КАМЕНЬ ОКАЗАЛСЯ УДИВИТЕЛЬНО МЯГКИМ!</span>")
+		to_chat(user, span_userdanger("КАМЕНЬ ОКАЗАЛСЯ УДИВИТЕЛЬНО МЯГКИМ!"))
 		new /mob/living/simple_animal/hostile/troll(src)
 
 /area/awaymission/vietnam/dwarf

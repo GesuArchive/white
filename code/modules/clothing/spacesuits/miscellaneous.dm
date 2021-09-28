@@ -59,7 +59,10 @@ Contains:
 /obj/item/clothing/head/helmet/space/beret
 	name = "офицерский шлем"
 	desc = "Бронированный берет, обычно используемый офицерами спецопераций. Использует продвинутую технологию силового поля, что защищает голову от космоса."
+	greyscale_config = /datum/greyscale_config/beret_badge
+	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
 	icon_state = "beret_badge"
+	greyscale_colors = "#972A2A#F2F2F2"
 	dynamic_hair_suffix = "+generic"
 	dynamic_fhair_suffix = "+generic"
 	flags_inv = 0
@@ -148,7 +151,7 @@ Contains:
 	desc = "Йарр."
 	icon_state = "spacepirate"
 	w_class = WEIGHT_CLASS_NORMAL
-	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/restraints/handcuffs, /obj/item/tank/internals, /obj/item/melee/transforming/energy/sword/pirate, /obj/item/clothing/glasses/eyepatch, /obj/item/reagent_containers/food/drinks/bottle/rum)
+	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/restraints/handcuffs, /obj/item/tank/internals, /obj/item/melee/energy/sword/pirate, /obj/item/clothing/glasses/eyepatch, /obj/item/reagent_containers/food/drinks/bottle/rum)
 	slowdown = 0
 	armor = list(MELEE = 30, BULLET = 50, LASER = 30,ENERGY = 40, BOMB = 30, BIO = 30, RAD = 30, FIRE = 60, ACID = 75)
 	strip_delay = 40
@@ -390,7 +393,7 @@ Contains:
 	armor = list(MELEE = 30, BULLET = 10, LASER = 10, ENERGY = 20, BOMB = 50, BIO = 100, RAD = 10, FIRE = 100, ACID = 100)
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/pickaxe, /obj/item/spear, /obj/item/organ/regenerative_core/legion, /obj/item/kitchen/knife, /obj/item/kinetic_crusher, /obj/item/resonator, /obj/item/melee/transforming/cleaving_saw)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/pickaxe, /obj/item/spear, /obj/item/organ/regenerative_core/legion, /obj/item/kitchen/knife, /obj/item/kinetic_crusher, /obj/item/resonator, /obj/item/melee/cleaving_saw)
 
 
 /obj/item/clothing/suit/space/hardsuit/berserker/Initialize()
@@ -431,7 +434,7 @@ Contains:
 
 /obj/item/clothing/head/helmet/space/hardsuit/berserker/examine()
 	. = ..()
-	. += "<span class='notice'>Berserk mode is [berserk_charge]% charged.</span>"
+	. += span_notice("Berserk mode is [berserk_charge]% charged.")
 
 /obj/item/clothing/head/helmet/space/hardsuit/berserker/process(delta_time)
 	. = ..()
@@ -453,11 +456,11 @@ Contains:
 		berserk_value *= PROJECTILE_HIT_MULTIPLIER
 	berserk_charge = clamp(round(berserk_charge + berserk_value), 0, MAX_BERSERK_CHARGE)
 	if(berserk_charge >= MAX_BERSERK_CHARGE)
-		to_chat(owner, "<span class='notice'>Berserk mode is fully charged.</span>")
+		to_chat(owner, span_notice("Berserk mode is fully charged."))
 
 /// Starts berserk, giving the wearer 50 melee armor, doubled attacking speed, NOGUNS trait, adding a color and giving them the berserk movespeed modifier
 /obj/item/clothing/head/helmet/space/hardsuit/berserker/proc/berserk_mode(mob/living/carbon/human/user)
-	to_chat(user, "<span class='warning'>You enter berserk mode.</span>")
+	to_chat(user, span_warning("You enter berserk mode."))
 	playsound(user, 'sound/magic/staff_healing.ogg', 50)
 	user.add_movespeed_modifier(/datum/movespeed_modifier/berserk)
 	user.physiology.armor.melee += BERSERK_MELEE_ARMOR_ADDED
@@ -471,7 +474,7 @@ Contains:
 /obj/item/clothing/head/helmet/space/hardsuit/berserker/proc/end_berserk(mob/living/carbon/human/user)
 	if(!berserk_active)
 		return
-	to_chat(user, "<span class='warning'>You exit berserk mode.</span>")
+	to_chat(user, span_warning("You exit berserk mode."))
 	playsound(user, 'sound/magic/summonitems_generic.ogg', 50)
 	user.remove_movespeed_modifier(/datum/movespeed_modifier/berserk)
 	user.physiology.armor.melee -= BERSERK_MELEE_ARMOR_ADDED
@@ -508,7 +511,7 @@ Contains:
 
 /obj/item/clothing/suit/space/fragile/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(!torn && prob(50))
-		to_chat(owner, "<span class='warning'>[capitalize(src.name)] tears from the damage, breaking the air-tight seal!</span>")
+		to_chat(owner, span_warning("[capitalize(src.name)] tears from the damage, breaking the air-tight seal!"))
 		clothing_flags &= ~STOPSPRESSUREDAMAGE
 		name = "torn [src]."
 		desc = "A bulky suit meant to protect the user during emergency situations, at least until someone tore a hole in the suit."

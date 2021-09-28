@@ -161,7 +161,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/toolbox
-	name = "Toolbox"
+	name = "Ящик с инструментами"
 	id = "tool_box"
 	build_type = AUTOLATHE
 	materials = list(MAT_CATEGORY_ITEM_MATERIAL = 500)

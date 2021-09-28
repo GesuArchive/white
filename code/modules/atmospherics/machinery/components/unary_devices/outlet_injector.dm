@@ -34,7 +34,7 @@
 	if(can_interact(user))
 		volume_rate = MAX_TRANSFER_RATE
 		investigate_log("was set to [volume_rate] L/s by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>Выкручиваю выход инжектора к максимальному значению в [volume_rate] Л/с.</span>")
+		to_chat(user, span_notice("Выкручиваю выход инжектора к максимальному значению в [volume_rate] Л/с."))
 		update_icon()
 	return ..()
 
@@ -182,7 +182,7 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector/can_unwrench(mob/user)
 	. = ..()
 	if(. && on && is_operational)
-		to_chat(user, "<span class='warning'>Не могу открутить [src.name], сначала нужно выключить это!</span>")
+		to_chat(user, span_warning("Не могу открутить [src.name], сначала нужно выключить это!"))
 		return FALSE
 
 // mapping
@@ -219,7 +219,7 @@
 	id = ATMOS_GAS_MONITOR_WASTE_ENGINE
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/toxin_input
 	name = "инжектор в бак плазмы"
-	id = ATMOS_GAS_MONITOR_INPUT_TOX
+	id = ATMOS_GAS_MONITOR_INPUT_PLAS
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/oxygen_input
 	name = "инжектор в кислородный бак"
 	id = ATMOS_GAS_MONITOR_INPUT_O2
@@ -291,4 +291,4 @@
 	id = ATMOS_GAS_MONITOR_INPUT_INCINERATOR
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/toxins_mixing_input
 	name = "инжектор в камеру смешивания токсинов"
-	id = ATMOS_GAS_MONITOR_INPUT_TOXINS_LAB
+	id = ATMOS_GAS_MONITOR_INPUT_ORDNANCE_LAB

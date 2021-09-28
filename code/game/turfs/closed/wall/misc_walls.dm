@@ -56,6 +56,27 @@
 	rcd_memory = null
 
 /turf/closed/wall/rust
+	//SDMM supports colors, this is simply for easier mapping
+	//and should be removed on initialize
+	color = COLOR_ORANGE_BROWN
+
+/turf/closed/wall/rust/Initialize(mapload)
+	. = ..()
+	color = null
+	AddElement(/datum/element/rust)
+
+/turf/closed/wall/r_wall/rust
+	//SDMM supports colors, this is simply for easier mapping
+	//and should be removed on initialize
+	color = COLOR_ORANGE_BROWN
+
+/turf/closed/wall/r_wall/rust/Initialize(mapload)
+	. = ..()
+	color = null
+	AddElement(/datum/element/rust)
+
+/*
+/turf/closed/wall/rust
 	name = "ржавая стена"
 	desc = "Старая ржавая стена."
 	icon = 'icons/turf/walls/rusty_wall.dmi'
@@ -80,7 +101,7 @@
 	if(prob(50))
 		return
 	ScrapeAway()
-
+*/
 /turf/closed/wall/mineral/bronze
 	name = "бронзовая стена"
 	desc = "Крупная бронзовая стена. Её украшивают также и бронзовые шестерни."

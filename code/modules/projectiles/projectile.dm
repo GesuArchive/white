@@ -274,13 +274,13 @@
 			playsound(loc, hitsound, 5, TRUE, -1)
 		else if(suppressed)
 			playsound(loc, hitsound, 5, TRUE, -1)
-			to_chat(L, "<span class='userdanger'>В[organ_hit_text] попадает [src.name]!</span>")
+			to_chat(L, span_userdanger("В[organ_hit_text] попадает [src.name]!"))
 		else
 			if(hitsound)
 				var/volume = vol_by_damage()
 				playsound(loc, hitsound, volume, TRUE, -1)
-			L.visible_message("<span class='danger'>В[organ_hit_text] <b>[L]</b> попадает [src.name]!</span>", \
-					"<span class='userdanger'>В[organ_hit_text] <b>[L]<b> попадает [src.name]!</span>", null, COMBAT_MESSAGE_RANGE)
+			L.visible_message(span_danger("В[organ_hit_text] <b>[L]</b> попадает [src.name]!") , \
+					span_userdanger("В[organ_hit_text] <b>[L]<b> попадает [src.name]!") , null, COMBAT_MESSAGE_RANGE)
 
 		if(def_zone == BODY_ZONE_HEAD && GLOB.prikol_mode && !istype(src, /obj/projectile/bullet/a15mm))
 			playsound(src,'white/hule/SFX/csSFX/headshot.wav', 100, 5, pressure_affected = FALSE)
@@ -404,6 +404,13 @@
 	// 2.
 	impacted[target] = TRUE		//hash lookup > in for performance in hit-checking
 	// 3.
+	if(ishuman(target) && target != original && ishuman(firer))
+		var/mob/living/carbon/human/H = firer
+		if(H.mind)
+			if(!prob((65 + H.mind.get_skill_modifier(/datum/skill/ranged, SKILL_PROBS_MODIFIER)) - 7 * get_dist(T, starting)))
+				SEND_SOUND(target, sound(pick('sound/weapons/bulletflyby.ogg', 'sound/weapons/bulletflyby2.ogg', 'sound/weapons/bulletflyby3.ogg')))
+				return
+			H.mind.adjust_experience(/datum/skill/ranged, 1)
 	var/mode = prehit_pierce(target)
 	if(mode == PROJECTILE_DELETE_WITHOUT_HITTING)
 		qdel(src)
@@ -800,7 +807,7 @@
 		else if(T != loc)
 			step_towards(src, T)
 			hitscan_last = loc
-	if(!hitscanning && !forcemoved)
+	if(!hitscanning && !forcemoved && trajectory)
 		pixel_x = trajectory.return_px() - trajectory.mpx * trajectory_multiplier * SSprojectiles.global_iterations_per_move
 		pixel_y = trajectory.return_py() - trajectory.mpy * trajectory_multiplier * SSprojectiles.global_iterations_per_move
 		animate(src, pixel_x = trajectory.return_px(), pixel_y = trajectory.return_py(), time = 1, flags = ANIMATION_END_NOW)
@@ -891,13 +898,14 @@
 		finalize_hitscan_and_generate_tracers()
 	STOP_PROCESSING(SSprojectiles, src)
 	cleanup_beam_segments()
-	qdel(trajectory)
+	if(trajectory)
+		QDEL_NULL(trajectory)
 	return ..()
 
 /obj/projectile/proc/cleanup_beam_segments()
 	QDEL_LIST_ASSOC(beam_segments)
 	beam_segments = list()
-	qdel(beam_index)
+	QDEL_NULL(beam_index)
 
 /obj/projectile/proc/finalize_hitscan_and_generate_tracers(impacting = TRUE)
 	if(trajectory && beam_index)

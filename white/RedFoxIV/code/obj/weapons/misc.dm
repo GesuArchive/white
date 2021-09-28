@@ -396,10 +396,10 @@
 		if(!user.transferItemToLoc(B, src))
 			return
 		replace_beaker(user, B)
-		to_chat(user, "<span class='notice'>Добавил [B] в [src].</span>")
+		to_chat(user, span_notice("Добавил [B] в [src]."))
 		updateUsrDialog()
 	else if(user.a_intent != INTENT_HARM && !istype(I, /obj/item/card/emag))
-		to_chat(user, "<span class='warning'>Не могу загрузить [I] в [src]!</span>")
+		to_chat(user, span_warning("Не могу загрузить [I] в [src]!"))
 		return ..()
 	else
 		return ..()
@@ -604,7 +604,7 @@
 				ass = "чуть-чуть"
 			else
 				ass = "почти никак не"
-		cell.visible_message("<span class='hypnophrase'>Чудодейственное вещество проникает в щели и отверстия [cell.name], [ass] увеличивая энергоёмкость батареи.</span>")
+		cell.visible_message(span_hypnophrase("Чудодейственное вещество проникает в щели и отверстия [cell.name], [ass] увеличивая энергоёмкость батареи."))
 		cell.desc = initial(cell.desc) + " Обладаёт лёгким и неописуемым ароматом."
 		return ..()
 
@@ -621,7 +621,7 @@
 				if(4 to INFINITY)
 					ass = "<i>многократно</i>"
 			SP.rating = new_rating
-			SP.visible_message("<span class='hypnophrase'>Чудодейственное вещество проникает в щели и отверстия [SP.name], [ass] оптимизируя и улучшая его работу! </span>")
+			SP.visible_message(span_hypnophrase("Чудодейственное вещество проникает в щели и отверстия [SP.name], [ass] оптимизируя и улучшая его работу! "))
 		SP.desc = initial(SP.desc) + " Обладаёт лёгким и неописуемым ароматом."
 		return ..()
 
@@ -633,7 +633,7 @@
 	shoes = /obj/item/clothing/shoes/combat/artist
 	r_hand = /obj/item/storage/toolbox/mechanical
 
-/obj/effect/mob_spawn/human/artist/create(ckey, newname)
+/obj/effect/mob_spawn/human/donate/artist/create(ckey, newname)
 	if(ckey)
 		var/client/C = GLOB.directory[ckey]
 		if(C?.prefs)
@@ -678,7 +678,7 @@
 	. = ..()
 */
 
-/obj/effect/mob_spawn/human/artist
+/obj/effect/mob_spawn/human/donate/artist
 	name = "Экстрактор"
 	desc = "Вытягивает заблудшие души с того света и конвертирует их в дешёвую рабочую силу."
 	icon = 'white/valtos/icons/prison/prison.dmi'
@@ -692,6 +692,8 @@
 	outfit = /datum/outfit/artist
 	assignedrole = "Artist"
 
+	req_sum = 50 // sugar is bad
+
 	//mobs that were spawned from /this/ one instance of the spawner
 	var/list/mob/living/spawned_mobs = list()
 
@@ -699,28 +701,28 @@
 	var/global/list/round_banned_ckeys = list()
 	var/global/amount = 0
 
-/obj/effect/mob_spawn/human/artist/Initialize()
+/obj/effect/mob_spawn/human/donate/artist/Initialize()
 	. = ..()
 	round_banned_ckeys += "sanecman"
 	START_PROCESSING(SSprocessing, src)
 
-/obj/effect/mob_spawn/human/artist/Destroy()
+/obj/effect/mob_spawn/human/donate/artist/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
 
-/obj/effect/mob_spawn/human/artist/attack_ghost(mob/user)
+/obj/effect/mob_spawn/human/donate/artist/attack_ghost(mob/user)
 	if(user.ckey in round_banned_ckeys)
-		to_chat(user, "<span class='warning'>А хуй тебе!</span>")
+		to_chat(user, span_warning("А хуй тебе!"))
 		return
 	. = ..()
 
-/obj/effect/mob_spawn/human/artist/create(ckey, newname)
+/obj/effect/mob_spawn/human/donate/artist/create(ckey, newname)
 	. = ..()
 	var/mob/living/L = .
 	spawned_mobs += L
 	spawned_mobs[L] = L.ckey
 
-/obj/effect/mob_spawn/human/artist/special(mob/living/L)
+/obj/effect/mob_spawn/human/donate/artist/special(mob/living/L)
 	amount += 1
 	L.real_name = "Артист #[amount]"
 	if(L.ckey == "redfoxiv")
@@ -730,7 +732,7 @@
 
 
 //stolen from CTF code
-/obj/effect/mob_spawn/human/artist/process(delta_time)
+/obj/effect/mob_spawn/human/donate/artist/process(delta_time)
 	for(var/i in spawned_mobs)
 		if(!i)
 			spawned_mobs -= i
@@ -745,7 +747,7 @@
 		if(!istype(A, /area/centcom/circus) && !istype(A, /area/centcom/outdoors/circus)) //just in case
 			round_banned_ckeys.Add(spawned_mobs[artist])
 			spawned_mobs.Remove(artist)
-			to_chat(artist, "<span class='userdanger'>Ох, лучше бы я не покидал Цирк...</span>") //let them know they fucked up
+			to_chat(artist, span_userdanger("Ох, лучше бы я не покидал Цирк...")) //let them know they fucked up
 			message_admins("Игрок [artist.ckey], будучи Артистом, каким-то образом сбежал из цирка, за что был казнён и лишён доступа к спавнеру до конца раунда. Такого быть не должно: выясните, как он этого добился и передайте кодербасу. Если же это произошло по вине админбаса, удалите сикей игрока из переменной спавнера (round_banned_ckeys). Позиция игрока на момент обнаружения побега: x=[artist.x], y=[artist.y], z=[artist.z], название зоны - [get_area_name(artist)]")
 			artist.pooition = 10000
 			artist.emote("agony")
@@ -754,7 +756,7 @@
 			for(var/s=1,s<51,s++)
 				addtimer(CALLBACK(artist, /mob/proc/emote, "poo"), 1+2*log(s) SECONDS)
 			spawn(8.7 SECONDS)
-				artist.visible_message("<span class='hypnophrase'>[artist.name] распидорасило: похоже, за побег из Цирка он был отправлен в бессрочную ссылку на [pick("Цитадель", "Флаффи", "Скайрэт", "Опух", "парашу")]. [pick("Прикольно", "Страшно", "Помянем", "Ужасно", "Кошмар", "Грустно", "Смешно")].</span>")
+				artist.visible_message(span_hypnophrase("[artist.name] распидорасило: похоже, за побег из Цирка он был отправлен в бессрочную ссылку на [pick("Цитадель", "Флаффи", "Скайрэт", "Опух", "парашу")]. [pick("Прикольно", "Страшно", "Помянем", "Ужасно", "Кошмар", "Грустно", "Смешно")]."))
 				artist.gib(TRUE)
 			continue
 		/*
@@ -774,12 +776,17 @@
 
 
 /area/duel
+	name = "Дуэлянты"
 	icon_state = "duel"
 	area_flags = NO_ALERTS | ABDUCTOR_PROOF | BLOCK_SUICIDE | HIDDEN_AREA | NOTELEPORT | UNIQUE_AREA
 	static_lighting = FALSE
 	requires_power = FALSE
 	has_gravity = STANDARD_GRAVITY
+	base_lighting_alpha = 255
+	base_lighting_color = COLOR_WHITE
+
 /area/duel/arena
+	name = "Дуэлянты: Арена"
 	icon_state = "duel_arena"
 
 /obj/effect/landmark/duel_spawnpoint
@@ -795,7 +802,7 @@
 	invisibility = INVISIBILITY_OBSERVER
 	var/duel_outfit = /datum/outfit/artist
 	var/duel_status = DUEL_NODUEL
-	var/list/mob/living/carbon/human/duelists
+	var/list/mob/living/carbon/human/duelists = list()
 	var/bet
 	/// Время на каждый бой. Не меньше 30 секунд.
 	var/duel_timelimit = 60
@@ -826,7 +833,7 @@
 		return
 
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SPAWNER) && !(flags_1 & ADMIN_SPAWNED_1))
-		to_chat(user, "<span class='warning'>Администраторы временно отключили гост-роли.</span>")
+		to_chat(user, span_warning("Администраторы временно отключили гост-роли."))
 		return
 
 
@@ -837,12 +844,12 @@
 	if(duel_status == DUEL_PENDING)
 		if(duelists.Find(user))
 			CRASH("A ghost tried to join a duel when he already was in the list of duelists. WTF?")
-		var/alert = alert("Точно хочешь поучавствовать в дуэли на [bet] метакэша?",,"Да","Нет")
+		var/alert = tgui_alert(usr, "Точно хочешь поучавствовать в дуэли на [bet] метакэша?",,list("Да","Нет"))
 		if(alert == "Да")
 			spawn_user()
 		return
 
-	var/ghost_role = alert("Точно хочешь начать дуэль? (Ты не сможешь вернуться в своё прошлое тело, так что выбирай с умом!)",,"Да","Нет")
+	var/ghost_role = tgui_alert(usr, "Точно хочешь начать дуэль? (Ты не сможешь вернуться в своё прошлое тело, так что выбирай с умом!)",,list("Да","Нет"))
 	if(ghost_role == "Нет" || !loc || QDELETED(user))
 		return
 	var/betinput = input("Сколько метакэша готов поставить? (Не меньше 50!)", "1XBET", 50) as num
@@ -863,7 +870,7 @@
 	duel_status = DUEL_PENDING
 	inc_metabalance(user, -bet, TRUE, "Оплатил входной билет.")
 	spawn_user(user, bet)
-	to_chat(user, "<span class='notice'>Создали предложение о дуэли. Если никто не откликнется за 30 секунд, дуэль будет отменена и вам вернут деньги.</span>")
+	to_chat(user, span_notice("Создали предложение о дуэли. Если никто не откликнется за 30 секунд, дуэль будет отменена и вам вернут деньги."))
 	notify_ghosts("[user.name] ([user.ckey]) приглашает всех желающих поучавствовать в дуэли на [bet] метакэша.", source = src, action = NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY)
 	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), 30 SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
 
@@ -911,9 +918,9 @@
 	M2.forceMove(locate(x+second_spawnpoint[1], y+second_spawnpoint[2], z)) // undefined proc "forceMove" on /list
 	for(var/mob/living/D in duelists)
 		D.Paralyze(3 SECONDS)
-		to_chat(D, "<span class='alert'>Дуэль начнётся через 3 секунды...</span>")
+		to_chat(D, span_alert("Дуэль начнётся через 3 секунды..."))
 		spawn(3 SECONDS)
-			to_chat(D, "<span class='hypnophrase'>Дуэль началась!</span>")
+			to_chat(D, span_hypnophrase("Дуэль началась!"))
 
 
 /obj/effect/duel_controller/proc/timeout()
@@ -933,7 +940,7 @@
 
 
 /obj/effect/duel_controller/proc/announce(msg)
-	visible_message("<span class='alert'>[msg]</span>")
+	visible_message(span_alert("[msg]"))
 
 /obj/effect/duel_controller/proc/finish_duel(mob/loser, state = DUEL_FINISH)
 	//дичайшее говнище
@@ -971,7 +978,7 @@
 /obj/effect/duel_controller/process(delta_time)
 	for(var/mob/living/D in duelists)
 		if(!istype(get_area(D), /area/duel/arena))
-			to_chat(D, "<span class='warning'><b>Вы покинули арену. [pick("Очень глупо с вашей стороны.", "Мнда.", "Лох..")]</b></span>")
+			to_chat(D, span_warning("<b>Вы покинули арену. [pick("Очень глупо с вашей стороны.", "Мнда.", "Лох..")]</b>"))
 			finish_duel(D)
 			return
 
@@ -1113,7 +1120,7 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 
 	for(var/assblast in GLOB.assblasts)
 		var/desc = GLOB.assblasts[assblast]
-		to_chat(usr, "<span class='notice'><i><b>[assblast]</b> - [desc]</i></span>")
+		to_chat(usr, span_notice("<i><b>[assblast]</b> - [desc]</i>"))
 
 /client/proc/assblast_panel()
 	set name = "Assblast-панель"

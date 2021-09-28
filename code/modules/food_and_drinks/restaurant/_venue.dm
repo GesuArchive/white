@@ -82,15 +82,13 @@
 	desc = "A robot-only gate into the wonders of Space Station cuisine!"
 	icon = 'icons/obj/machines/restaurant_portal.dmi'
 	icon_state = "portal"
-	density = TRUE
+	anchored = TRUE
+	density = FALSE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 1000
 	active_power_usage = 10000
 	circuit = /obj/item/circuitboard/machine/restaurant_portal
-
 	layer = BELOW_OBJ_LAYER
-	density = FALSE
-	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	///What venue is this portal for? Uses a typepath which is turned into an instance on Initialize
 	var/datum/venue/linked_venue = /datum/venue
@@ -104,6 +102,9 @@
 
 /obj/machinery/restaurant_portal/Destroy()
 	. = ..()
+	//turned_on_portal = null
+	linked_venue.restaurant_portal = null
+	linked_venue = null
 
 /obj/machinery/restaurant_portal/update_overlays()
 	. = ..()
@@ -117,7 +118,7 @@
 		return ..()
 
 	if(!(linked_venue.req_access in used_id.GetAccess()))
-		to_chat(user, "<span class='warning'>This card lacks the access to change this venues status.</span>")
+		to_chat(user, span_warning("This card lacks the access to change this venues status."))
 		return
 
 	linked_venue.toggle_open()
@@ -130,7 +131,7 @@
 	var/obj/item/card/id/used_id = I
 
 	if(!(linked_venue.req_access in used_id.GetAccess()))
-		to_chat(user, "<span class='warning'>This card lacks the access to change this venues status.</span>")
+		to_chat(user, span_warning("This card lacks the access to change this venues status."))
 		return
 
 	var/list/radial_items = list()
@@ -151,15 +152,16 @@
 
 
 	if(!(chosen_venue.req_access in used_id.GetAccess()))
-		to_chat(user, "<span class='warning'>This card lacks the access to change this venues status.</span>")
+		to_chat(user, span_warning("This card lacks the access to change this venues status."))
 		return
 
-	to_chat(user, "<span class='notice'>You change the portal's linked venue.</span>")
+	to_chat(user, span_notice("You change the portal's linked venue."))
 
 	if(linked_venue && linked_venue.restaurant_portal) //We're already linked, unlink us.
 		if(linked_venue.open)
 			linked_venue.close()
 		linked_venue.restaurant_portal.linked_venue = null
+		linked_venue.restaurant_portal = null
 
 	linked_venue = chosen_venue
 	linked_venue.restaurant_portal = src

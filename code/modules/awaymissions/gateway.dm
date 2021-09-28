@@ -112,7 +112,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /datum/gateway_destination/gateway/home/proc/check_exile_implant(mob/living/L)
 	for(var/obj/item/implant/exile/E in L.implants)//Checking that there is an exile implant
-		to_chat(L, "<span class='userdanger'>Механизм врат обнаружил твой имплант ссылки и не пропускает тебя.</span>")
+		to_chat(L, span_userdanger("Механизм врат обнаружил твой имплант ссылки и не пропускает тебя."))
 		return TRUE
 	return FALSE
 
@@ -184,6 +184,12 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	vis_contents += portal_visuals
 	return ..()
 
+/obj/machinery/gateway/Destroy()
+	destination.target_gateway = null
+	GLOB.gateway_destinations -= destination
+	destination = null
+	return ..()
+
 /obj/machinery/gateway/proc/generate_destination()
 	destination = new destination_type
 	destination.name = destination_name
@@ -195,8 +201,8 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	target = null
 	dest.deactivate(src)
 	QDEL_NULL(portal)
-	use_power = IDLE_POWER_USE
-	update_icon()
+	update_use_power(IDLE_POWER_USE)
+	update_appearance()
 	portal_visuals.reset_visuals()
 
 /obj/machinery/gateway/process()
@@ -218,8 +224,8 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	target.activate(destination)
 	portal_visuals.setup_visuals(target)
 	generate_bumper()
-	use_power = ACTIVE_POWER_USE
-	update_icon()
+	update_use_power(ACTIVE_POWER_USE)
+	update_appearance()
 
 /obj/machinery/gateway/proc/Transfer(atom/movable/AM)
 	if(!target || !target.incoming_pass_check(AM))
@@ -244,7 +250,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /obj/machinery/gateway/multitool_act(mob/living/user, obj/item/I)
 	if(calibrated)
-		to_chat(user, "<span class='alert'>Врата откалиброваны, больше ничего делать не нужно.</span>")
+		to_chat(user, span_alert("Врата откалиброваны, больше ничего делать не нужно."))
 	else
 		to_chat(user, "<span class='boldnotice'>Успешная рекалибровка!</span>: \black Системы врат налажены. Теперь через них можно проходить.")
 		calibrated = TRUE
@@ -259,7 +265,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	. = ..()
 	if(!target)
 		if(!GLOB.the_gateway)
-			to_chat(user,"<span class='warning'>Начальные врата не отвечают!</span>")
+			to_chat(user,span_warning("Начальные врата не отвечают!"))
 		if(GLOB.the_gateway.target)
 			GLOB.the_gateway.deactivate() //this will turn the home gateway off so that it's free for us to connect to
 		activate(GLOB.the_gateway.destination)

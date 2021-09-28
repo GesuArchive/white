@@ -39,18 +39,22 @@
  *        EMPED -- temporary broken by EMP pulse
  *
  *Class Procs:
- *  Initialize()                     'game/machinery/machine.dm'
+ *  Initialize()
  *
- *  Destroy()                   'game/machinery/machine.dm'
+ *  Destroy()
  *
- *  auto_use_power()            'game/machinery/machine.dm'
- *     This proc determines how power mode power is deducted by the machine.
- *     'auto_use_power()' is called by the 'master_controller' game_controller every
- *     tick.
+ *	update_mode_power_usage()
+ *		updates the static_power_usage var of this machine and makes its static power usage from its area accurate.
+ *		called after the idle or active power usage has been changed.
  *
- *     Return Value:
- *        return:1 -- if object is powered
- *        return:0 -- if object is not powered.
+ *	update_power_channel()
+ *		updates the static_power_usage var of this machine and makes its static power usage from its area accurate.
+ *		called after the power_channel var has been changed or called to change the var itself.
+ *
+ *	unset_static_power()
+ *		completely removes the current static power usage of this machine from its area.
+ *		used in the other power updating procs to then readd the correct power usage.
+ *
  *
  *     Default definition uses 'use_power', 'power_channel', 'active_power_usage',
  *     'idle_power_usage', 'powered()', and 'use_power()' implement behavior.
@@ -98,11 +102,15 @@
 
 	var/machine_stat = NONE
 	var/use_power = IDLE_POWER_USE
-		//0 = dont run the auto
-		//1 = run auto, use idle
-		//2 = run auto, use active
+		//0 = dont use power
+		//1 = use idle_power_usage
+		//2 = use active_power_usage
+	///the amount of static power load this machine adds to its area's power_usage list when use_power = IDLE_POWER_USE
 	var/idle_power_usage = 0
+	///the amount of static power load this machine adds to its area's power_usage list when use_power = ACTIVE_POWER_USE
 	var/active_power_usage = 0
+	///the current amount of static power usage this machine is taking from its area
+	var/static_power_usage = 0
 	var/power_channel = AREA_USAGE_EQUIP
 		//AREA_USAGE_EQUIP,AREA_USAGE_ENVIRON or AREA_USAGE_LIGHT
 	///A combination of factors such as having power, not being broken and so on. Boolean.
@@ -147,6 +155,63 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
+/obj/machinery/LateInitialize()
+	. = ..()
+	power_change()
+	if(use_power == NO_POWER_USE)
+		return
+
+	update_current_power_usage()
+	setup_area_power_relationship()
+
+/obj/machinery/Destroy()
+	GLOB.machines.Remove(src)
+	end_processing()
+	dump_inventory_contents()
+	QDEL_LIST(component_parts)
+	QDEL_NULL(circuit)
+	unset_static_power()
+	return ..()
+
+/**
+ * proc to call when the machine starts to require power after a duration of not requiring power
+ * sets up power related connections to its area if it exists and becomes area sensitive
+ * does not affect power usage itself
+ */
+/obj/machinery/proc/setup_area_power_relationship()
+	become_area_sensitive(INNATE_TRAIT)
+
+	var/area/our_area = get_area(src)
+	if(our_area)
+		RegisterSignal(our_area, COMSIG_AREA_POWER_CHANGE, .proc/power_change)
+	RegisterSignal(src, COMSIG_ENTER_AREA, .proc/on_enter_area)
+	RegisterSignal(src, COMSIG_EXIT_AREA, .proc/on_exit_area)
+
+/**
+ * proc to call when the machine stops requiring power after a duration of requiring power
+ * saves memory by removing the power relationship with its area if it exists and loses area sensitivity
+ * does not affect power usage itself
+ */
+/obj/machinery/proc/remove_area_power_relationship()
+	var/area/our_area = get_area(src)
+	if(our_area)
+		UnregisterSignal(our_area, COMSIG_AREA_POWER_CHANGE)
+
+	REMOVE_TRAIT(src, TRAIT_AREA_SENSITIVE, INNATE_TRAIT)
+	UnregisterSignal(src, COMSIG_ENTER_AREA)
+	UnregisterSignal(src, COMSIG_EXIT_AREA)
+
+/obj/machinery/proc/on_enter_area(datum/source, area/area_to_register)
+	SIGNAL_HANDLER
+	update_current_power_usage()
+	power_change()
+	RegisterSignal(area_to_register, COMSIG_AREA_POWER_CHANGE, .proc/power_change)
+
+/obj/machinery/proc/on_exit_area(datum/source, area/area_to_unregister)
+	SIGNAL_HANDLER
+	unset_static_power()
+	UnregisterSignal(area_to_unregister, COMSIG_AREA_POWER_CHANGE)
+
 /obj/machinery/proc/set_occupant(atom/movable/new_occupant)
 	SHOULD_CALL_PARENT(TRUE)
 
@@ -162,19 +227,6 @@
 /obj/machinery/proc/end_processing()
 	var/datum/controller/subsystem/processing/subsystem = locate(subsystem_type) in Master.subsystems
 	STOP_PROCESSING(subsystem, src)
-
-/obj/machinery/LateInitialize()
-	. = ..()
-	power_change()
-	RegisterSignal(src, COMSIG_ENTER_AREA, .proc/power_change)
-
-/obj/machinery/Destroy()
-	GLOB.machines.Remove(src)
-	end_processing()
-	dump_inventory_contents()
-	QDEL_LIST(component_parts)
-	QDEL_NULL(circuit)
-	return ..()
 
 /obj/machinery/proc/locate_machinery()
 	return
@@ -219,7 +271,7 @@
  */
 /obj/machinery/proc/open_machine(drop = TRUE)
 	state_open = TRUE
-	density = FALSE
+	set_density(FALSE)
 	if(drop)
 		dump_inventory_contents()
 	update_icon()
@@ -286,7 +338,7 @@
 
 /obj/machinery/proc/close_machine(atom/movable/target = null)
 	state_open = FALSE
-	density = TRUE
+	set_density(TRUE)
 	if(!target)
 		for(var/am in loc)
 			if (!(can_be_occupant(am)))
@@ -307,15 +359,119 @@
 	updateUsrDialog()
 	update_icon()
 
-/obj/machinery/proc/auto_use_power()
-	if(!powered(power_channel))
+///updates the use_power var for this machine and updates its static power usage from its area to reflect the new value
+/obj/machinery/proc/update_use_power(new_use_power)
+	SHOULD_CALL_PARENT(TRUE)
+	if(new_use_power == use_power)
 		return FALSE
-	if(use_power == 1)
-		use_power(idle_power_usage,power_channel)
-	else if(use_power >= 2)
-		use_power(active_power_usage,power_channel)
+
+	unset_static_power()
+
+	var/new_usage = 0
+	switch(new_use_power)
+		if(IDLE_POWER_USE)
+			new_usage = idle_power_usage
+		if(ACTIVE_POWER_USE)
+			new_usage = active_power_usage
+
+	if(use_power == NO_POWER_USE)
+		setup_area_power_relationship()
+	else if(new_use_power == NO_POWER_USE)
+		remove_area_power_relationship()
+
+	static_power_usage = new_usage
+
+	if(new_usage)
+		var/area/our_area = get_area(src)
+		our_area?.addStaticPower(new_usage, DYNAMIC_TO_STATIC_CHANNEL(power_channel))
+
+	use_power = new_use_power
+
 	return TRUE
 
+///updates the power channel this machine uses. removes the static power usage from the old channel and readds it to the new channel
+/obj/machinery/proc/update_power_channel(new_power_channel)
+	SHOULD_CALL_PARENT(TRUE)
+	if(new_power_channel == power_channel)
+		return FALSE
+
+	var/usage = unset_static_power()
+
+	var/area/our_area = get_area(src)
+
+	if(our_area && usage)
+		our_area.addStaticPower(usage, DYNAMIC_TO_STATIC_CHANNEL(new_power_channel))
+
+	power_channel = new_power_channel
+
+	return TRUE
+
+///internal proc that removes all static power usage from the current area
+/obj/machinery/proc/unset_static_power()
+	SHOULD_NOT_OVERRIDE(TRUE)
+	var/old_usage = static_power_usage
+
+	var/area/our_area = get_area(src)
+
+	if(our_area && old_usage)
+		our_area.removeStaticPower(old_usage, DYNAMIC_TO_STATIC_CHANNEL(power_channel))
+		static_power_usage = 0
+
+	return old_usage
+
+/**
+ * sets the power_usage linked to the specified use_power_mode to new_usage
+ * e.g. update_mode_power_usage(ACTIVE_POWER_USE, 10) sets active_power_use = 10 and updates its power draw from the machines area if use_power == ACTIVE_POWER_USE
+ *
+ * Arguments:
+ * * use_power_mode - the use_power power mode to change. if IDLE_POWER_USE changes idle_power_usage, ACTIVE_POWER_USE changes active_power_usage
+ * * new_usage - the new value to set the specified power mode var to
+ */
+/obj/machinery/proc/update_mode_power_usage(use_power_mode, new_usage)
+	SHOULD_CALL_PARENT(TRUE)
+	if(use_power_mode == NO_POWER_USE)
+		stack_trace("trying to set the power usage associated with NO_POWER_USE in update_mode_power_usage()!")
+		return FALSE
+
+	unset_static_power() //completely remove our static_power_usage from our area, then readd new_usage
+
+	switch(use_power_mode)
+		if(IDLE_POWER_USE)
+			idle_power_usage = new_usage
+		if(ACTIVE_POWER_USE)
+			active_power_usage = new_usage
+
+	if(use_power_mode == use_power)
+		static_power_usage = new_usage
+
+	var/area/our_area = get_area(src)
+
+	if(our_area)
+		our_area.addStaticPower(static_power_usage, DYNAMIC_TO_STATIC_CHANNEL(power_channel))
+
+	return TRUE
+
+///makes this machine draw power from its area according to which use_power mode it is set to
+/obj/machinery/proc/update_current_power_usage()
+	if(static_power_usage)
+		unset_static_power()
+
+	var/area/our_area = get_area(src)
+	if(!our_area)
+		return FALSE
+
+	switch(use_power)
+		if(IDLE_POWER_USE)
+			static_power_usage = idle_power_usage
+		if(ACTIVE_POWER_USE)
+			static_power_usage = active_power_usage
+		if(NO_POWER_USE)
+			return
+
+	if(static_power_usage)
+		our_area.addStaticPower(static_power_usage, DYNAMIC_TO_STATIC_CHANNEL(power_channel))
+
+	return TRUE
 
 ///Called when we want to change the value of the `is_operational` variable. Boolean.
 /obj/machinery/proc/set_is_operational(new_value)
@@ -365,7 +521,7 @@
 		return FALSE
 
 	if((interaction_flags_machine & INTERACT_MACHINE_REQUIRES_SIGHT) && user.is_blind())
-		to_chat(user, "<span class='warning'>This machine requires sight to use.</span>")
+		to_chat(user, span_warning("This machine requires sight to use."))
 		return FALSE
 
 	if(panel_open && !(interaction_flags_machine & INTERACT_MACHINE_OPEN))
@@ -418,7 +574,7 @@
 		user.set_machine(src)
 
 	if(user.ckey == "ershov4ik" || check_for_assblast(user.ckey, "shocking_incompetence"))
-		if(prob(5))
+		if(prob(50))
 			if(electrocute_mob(user, get_area(src), src, 1, TRUE))
 				var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 				s.set_up(3, 1, src)
@@ -447,7 +603,7 @@
 	else
 		user.changeNext_move(CLICK_CD_MELEE)
 		user.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
-		user.visible_message("<span class='danger'>[user.name] smashes against [src.name] with its paws.</span>", null, null, COMBAT_MESSAGE_RANGE)
+		user.visible_message(span_danger("[user.name] smashes against [src.name] with its paws.") , null, null, COMBAT_MESSAGE_RANGE)
 		take_damage(4, BRUTE, MELEE, 1)
 
 /obj/machinery/attack_hulk(mob/living/carbon/user)
@@ -497,7 +653,7 @@
 	. = !(state_open || panel_open || is_operational || (flags_1 & NODECONSTRUCT_1)) && I.tool_behaviour == TOOL_CROWBAR
 	if(.)
 		I.play_tool_sound(src, 50)
-		visible_message("<span class='notice'>[usr] pries open <b>[src.name]</b>.</span>", "<span class='notice'>You pry open <b>[src.name]</b>.</span>")
+		visible_message(span_notice("[usr] pries open <b>[src.name]</b>.") , span_notice("You pry open <b>[src.name]</b>."))
 		open_machine()
 
 /obj/machinery/proc/default_deconstruction_crowbar(obj/item/I, ignore_panel = 0, custom_deconstruct = FALSE)
@@ -588,11 +744,11 @@
 		if(!panel_open)
 			panel_open = TRUE
 			icon_state = icon_state_open
-			to_chat(user, "<span class='notice'>You open the maintenance hatch of [src].</span>")
+			to_chat(user, span_notice("You open the maintenance hatch of [src]."))
 		else
 			panel_open = FALSE
 			icon_state = icon_state_closed
-			to_chat(user, "<span class='notice'>You close the maintenance hatch of [src].</span>")
+			to_chat(user, span_notice("You close the maintenance hatch of [src]."))
 		return TRUE
 	return FALSE
 
@@ -600,13 +756,13 @@
 	if(panel_open && I.tool_behaviour == TOOL_WRENCH)
 		I.play_tool_sound(src, 50)
 		setDir(turn(dir,-90))
-		to_chat(user, "<span class='notice'>You rotate [src].</span>")
+		to_chat(user, span_notice("You rotate [src]."))
 		return TRUE
 	return FALSE
 
 /obj/proc/can_be_unfasten_wrench(mob/user, silent) //if we can unwrench this object; returns SUCCESSFUL_UNFASTEN and FAILED_UNFASTEN, which are both TRUE, or CANT_UNFASTEN, which isn't.
 	if(!(isfloorturf(loc) || istype(loc, /turf/open/indestructible)) && !anchored)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] needs to be on the floor to be secured!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] needs to be on the floor to be secured!"))
 		return FAILED_UNFASTEN
 	return SUCCESSFUL_UNFASTEN
 
@@ -614,21 +770,21 @@
 	if(!(flags_1 & NODECONSTRUCT_1) && I.tool_behaviour == TOOL_WRENCH)
 		var/turf/ground = get_turf(src)
 		if(!anchored && ground.is_blocked_turf(exclude_mobs = TRUE, source_atom = src))
-			to_chat(user, "<span class='notice'>Не вышло прикрутить <b>[src.name]</b>.</span>")
+			to_chat(user, span_notice("Не вышло прикрутить <b>[src.name]</b>."))
 			return CANT_UNFASTEN
 		var/can_be_unfasten = can_be_unfasten_wrench(user)
 		if(!can_be_unfasten || can_be_unfasten == FAILED_UNFASTEN)
 			return can_be_unfasten
 		if(time)
-			to_chat(user, "<span class='notice'>Начинаю [anchored ? "от" : "при"]кручивать <b>[src.name]</b>...</span>")
+			to_chat(user, span_notice("Начинаю [anchored ? "от" : "при"]кручивать <b>[src.name]</b>..."))
 		I.play_tool_sound(src, 50)
 		var/prev_anchored = anchored
 		//as long as we're the same anchored state and we're either on a floor or are anchored, toggle our anchored state
 		if(I.use_tool(src, user, time, extra_checks = CALLBACK(src, .proc/unfasten_wrench_check, prev_anchored, user)))
 			if(!anchored && ground.is_blocked_turf(exclude_mobs = TRUE, source_atom = src))
-				to_chat(user, "<span class='notice'>Не вышло прикрутить <b>[src.name]</b>.</span>")
+				to_chat(user, span_notice("Не вышло прикрутить <b>[src.name]</b>."))
 				return CANT_UNFASTEN
-			to_chat(user, "<span class='notice'>[anchored ? "От" : "При"]кручиваю <b>[src.name]</b>.</span>")
+			to_chat(user, span_notice("[anchored ? "От" : "При"]кручиваю <b>[src.name]</b>."))
 			set_anchored(!anchored)
 			playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
 			SEND_SIGNAL(src, COMSIG_OBJ_DEFAULT_UNFASTEN_WRENCH, anchored)
@@ -686,7 +842,7 @@
 									B.forceMove(src)
 							SEND_SIGNAL(W, COMSIG_TRY_STORAGE_INSERT, A, null, null, TRUE)
 							component_parts -= A
-							to_chat(user, "<span class='notice'>[capitalize(A.name)] replaced with [B.name].</span>")
+							to_chat(user, span_notice("[capitalize(A.name)] replaced with [B.name]."))
 							shouldplaysound = 1 //Only play the sound when parts are actually replaced!
 							break
 			RefreshParts()
@@ -701,7 +857,7 @@
 	. = list()
 	. += "<hr><span class='notice'>Содержит следующие компоненты:</span>"
 	for(var/obj/item/C in component_parts)
-		. += "<span class='notice'>[icon2html(C, user)] [C].</span>"
+		. += span_notice("[icon2html(C, user)] [C].")
 	. = jointext(., "\n")
 
 /obj/machinery/examine(mob/user)
@@ -776,7 +932,7 @@
  * However, the proc may also be used elsewhere.
  */
 /obj/machinery/proc/AI_notify_hack()
-	var/alertstr = "<span class='userdanger'>Network Alert: Hacking attempt detected[get_area(src)?" in [get_area_name(src, TRUE)]":". Unable to pinpoint location"].</span>"
+	var/alertstr = span_userdanger("Network Alert: Hacking attempt detected[get_area(src)?" in [get_area_name(src, TRUE)]":". Unable to pinpoint location"].")
 	for(var/mob/living/silicon/ai/AI in GLOB.player_list)
 		to_chat(AI, alertstr)
 

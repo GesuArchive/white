@@ -58,7 +58,7 @@
 	toolspeed = 1
 
 /obj/item/cautery/ignition_effect(atom/A, mob/user)
-	. = "<span class='notice'>[user] притрагивается раскалённым концом [src.name] к [A.name].</span>"
+	. = span_notice("[user] притрагивается раскалённым концом [src.name] к [A.name].")
 
 /obj/item/cautery/augment
 	desc = "Нагревательный элемент, который прижигает раны."
@@ -68,28 +68,39 @@
 	name = "жгучий инструмент"
 	desc = "Он проектирует мощный лазер для медицинского применения."
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "cautery_a"
+	icon_state = "e_cautery"
 	hitsound = 'sound/items/welder.ogg'
 	toolspeed = 0.7
 	light_system = MOVABLE_LIGHT
 	light_range = 1
 	light_color = COLOR_SOFT_RED
 
+/obj/item/cautery/advanced/Initialize()
+	. = ..()
+	AddComponent(/datum/component/transforming, \
+		force_on = force, \
+		throwforce_on = throwforce, \
+		hitsound_on = hitsound, \
+		w_class_on = w_class, \
+		clumsy_check = FALSE)
+	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
 
-/obj/item/cautery/advanced/attack_self(mob/user)
-	playsound(get_turf(user), 'sound/weapons/tap.ogg', 50, TRUE)
-	if(tool_behaviour == TOOL_CAUTERY)
-		tool_behaviour = TOOL_DRILL
-		to_chat(user, "<span class='notice'>Ставлю линзы инструмента на место, теперь он может сверлить кости.</span>")
-		icon_state = "surgicaldrill_a"
-	else
-		tool_behaviour = TOOL_CAUTERY
-		to_chat(user, "<span class='notice'>Фокусирую линзы инструмента, теперь он может прижигать раны.</span>")
-		icon_state = "cautery_a"
+/*
+ * Signal proc for [COMSIG_TRANSFORMING_ON_TRANSFORM].
+ *
+ * Toggles between drill and cautery and gives feedback to the user.
+ */
+/obj/item/cautery/advanced/proc/on_transform(obj/item/source, mob/user, active)
+	SIGNAL_HANDLER
+
+	tool_behaviour = (active ? TOOL_DRILL : TOOL_CAUTERY)
+	balloon_alert(user, "lenses set to [active ? "drill" : "mend"]")
+	playsound(user ? user : src, 'sound/weapons/tap.ogg', 50, TRUE)
+	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/cautery/advanced/examine()
 	. = ..()
-	. += "<hr>It's set to [tool_behaviour == TOOL_CAUTERY ? "mending" : "drilling"] mode."
+	. += span_notice("It's set to [tool_behaviour == TOOL_CAUTERY ? "mending" : "drilling"] mode.")
 
 /obj/item/surgicaldrill
 	name = "хирургическая дрель"
@@ -117,7 +128,7 @@
 	AddElement(/datum/element/eyestab)
 
 /obj/item/surgicaldrill/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] rams [src] into [user.ru_ego()] chest! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] rams [src] into [user.ru_ego()] chest! It looks like [user.p_theyre()] trying to commit suicide!"))
 	addtimer(CALLBACK(user, /mob/living/carbon.proc/gib, null, null, TRUE, TRUE), 25)
 	user.SpinAnimation(3, 10)
 	playsound(user, 'sound/machines/juicer.ogg', 20, TRUE)
@@ -165,7 +176,7 @@
 	toolspeed = 0.5
 
 /obj/item/scalpel/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is slitting [user.ru_ego()] [pick("wrists", "throat", "stomach")] with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] is slitting [user.ru_ego()] [pick("wrists", "throat", "stomach")] with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return (BRUTELOSS)
 
 
@@ -232,13 +243,13 @@
 	if(!proximity)
 		return
 	if(contents.len)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] уже что-то хранит!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] уже что-то хранит!"))
 		return
 	if(!isorgan(I) && !isbodypart(I))
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] может содержать только части тела!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] может содержать только части тела!"))
 		return
 
-	user.visible_message("<span class='notice'>[user] кладёт [I] внутрь [src].</span>", "<span class='notice'>Кладу [I] внутрь [src].</span>")
+	user.visible_message(span_notice("[user] кладёт [I] внутрь [src].") , span_notice("Кладу [I] внутрь [src]."))
 	icon_state = "evidence"
 	var/xx = I.pixel_x
 	var/yy = I.pixel_y
@@ -257,13 +268,13 @@
 /obj/item/organ_storage/attack_self(mob/user)
 	if(contents.len)
 		var/obj/item/I = contents[1]
-		user.visible_message("<span class='notice'>[user] вытряхивает [I] из [src].</span>", "<span class='notice'>Вытряхиваю [I] из [src].</span>")
+		user.visible_message(span_notice("[user] вытряхивает [I] из [src].") , span_notice("Вытряхиваю [I] из [src]."))
 		cut_overlays()
 		I.forceMove(get_turf(src))
 		icon_state = "evidenceobj"
 		desc = "Контейнер для хранения частей тела."
 	else
-		to_chat(user, "<span class='notice'>[capitalize(src.name)] пуст.</span>")
+		to_chat(user, span_notice("[capitalize(src.name)] пуст."))
 	return
 
 /obj/item/surgical_processor //allows medical cyborgs to scan and initiate advanced surgeries
@@ -279,13 +290,13 @@
 	if(!proximity)
 		return
 	if(istype(O, /obj/item/disk/surgery))
-		to_chat(user, "<span class='notice'>Загружаю хирургический протокол из [O] в [src].</span>")
+		to_chat(user, span_notice("Загружаю хирургический протокол из [O] в [src]."))
 		var/obj/item/disk/surgery/D = O
 		if(do_after(user, 10, target = O))
 			advanced_surgeries |= D.surgeries
 		return TRUE
 	if(istype(O, /obj/machinery/computer/operating))
-		to_chat(user, "<span class='notice'>Копирую хирургический протокол из [O] в [src].</span>")
+		to_chat(user, span_notice("Копирую хирургический протокол из [O] в [src]."))
 		var/obj/machinery/computer/operating/OC = O
 		if(do_after(user, 10, target = O))
 			advanced_surgeries |= OC.advanced_surgeries
@@ -296,7 +307,7 @@
 	name = "лазерный скальпель"
 	desc = "Усовершенствованный скальпель, который использует лазерную технологию для резки."
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "scalpel_a"
+	icon_state = "e_scalpel"
 	hitsound = 'sound/weapons/blade1.ogg'
 	force = 16
 	toolspeed = 0.7
@@ -305,47 +316,74 @@
 	light_color = LIGHT_COLOR_GREEN
 	sharpness = SHARP_EDGED
 
+/obj/item/scalpel/advanced/Initialize()
+	. = ..()
+	AddComponent(/datum/component/transforming, \
+		force_on = force + 1, \
+		throwforce_on = throwforce, \
+		throw_speed_on = throw_speed, \
+		sharpness_on = sharpness, \
+		hitsound_on = hitsound, \
+		w_class_on = w_class, \
+		clumsy_check = FALSE)
+	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
 
-/obj/item/scalpel/advanced/attack_self(mob/user)
-	playsound(get_turf(user), 'sound/machines/click.ogg', 50, TRUE)
-	if(tool_behaviour == TOOL_SCALPEL)
+/*
+ * Signal proc for [COMSIG_TRANSFORMING_ON_TRANSFORM].
+ *
+ * Toggles between saw and scalpel and updates the light / gives feedback to the user.
+ */
+/obj/item/scalpel/advanced/proc/on_transform(obj/item/source, mob/user, active)
+	SIGNAL_HANDLER
+
+	if(active)
 		tool_behaviour = TOOL_SAW
-		to_chat(user, "<span class='notice'>Увеличиваю мощность [src]. Теперь он может резать кости.</span>")
 		set_light_range(2)
-		force += 1 //we don't want to ruin sharpened stuff
-		icon_state = "saw_a"
 	else
 		tool_behaviour = TOOL_SCALPEL
-		to_chat(user, "<span class='notice'>Уменьшаю мощность [src]. Теперь он не может резать кости.</span>")
 		set_light_range(1)
-		force -= 1
-		icon_state = "scalpel_a"
+
+	balloon_alert(user, "[active ? "enabled" : "disabled"] bone-cutting mode")
+	playsound(user ? user : src, 'sound/machines/click.ogg', 50, TRUE)
+	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/scalpel/advanced/examine()
 	. = ..()
-	. += "<hr>Переключатель стоит на [tool_behaviour == TOOL_SCALPEL ? "скальпеле" : "пиле"]."
+	. += span_notice("It's set to [tool_behaviour == TOOL_SCALPEL ? "scalpel" : "saw"] mode.")
 
 /obj/item/retractor/advanced
 	name = "механические зажимы"
 	desc = "Агломерация шатунов и зубчатых колес."
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "retractor_a"
+	icon_state = "adv_retractor"
 	toolspeed = 0.7
 
-/obj/item/retractor/advanced/attack_self(mob/user)
-	playsound(get_turf(user), 'sound/items/change_drill.ogg', 50, TRUE)
-	if(tool_behaviour == TOOL_RETRACTOR)
-		tool_behaviour = TOOL_HEMOSTAT
-		to_chat(user, "<span class='notice'>Настраиваю шестерни [src], теперь они в режиме зажима.</span>")
-		icon_state = "hemostat_a"
-	else
-		tool_behaviour = TOOL_RETRACTOR
-		to_chat(user, "<span class='notice'>Настраиваю шестерни [src], теперь они в режиме расширителя.</span>")
-		icon_state = "retractor_a"
+/obj/item/retractor/advanced/Initialize()
+	. = ..()
+	AddComponent(/datum/component/transforming, \
+		force_on = force, \
+		throwforce_on = throwforce, \
+		hitsound_on = hitsound, \
+		w_class_on = w_class, \
+		clumsy_check = FALSE)
+	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
+
+/*
+ * Signal proc for [COMSIG_TRANSFORMING_ON_TRANSFORM].
+ *
+ * Toggles between retractor and hemostat and gives feedback to the user.
+ */
+/obj/item/retractor/advanced/proc/on_transform(obj/item/source, mob/user, active)
+	SIGNAL_HANDLER
+
+	tool_behaviour = (active ? TOOL_HEMOSTAT : TOOL_RETRACTOR)
+	balloon_alert(user, "gears set to [active ? "clamp" : "retract"]")
+	playsound(user ? user : src, 'sound/items/change_drill.ogg', 50, TRUE)
+	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/retractor/advanced/examine()
 	. = ..()
-	. += "<hr>Находится в положении [tool_behaviour == TOOL_RETRACTOR ? "расширителя" : "зажима"]."
+	. += span_notice("It resembles a [tool_behaviour == TOOL_RETRACTOR ? "retractor" : "hemostat"].")
 
 /obj/item/shears
 	name = "ножницы для ампутации"
@@ -376,7 +414,7 @@
 	var/mob/living/carbon/patient = M
 
 	if(HAS_TRAIT(patient, TRAIT_NODISMEMBER))
-		to_chat(user, "<span class='warning'>Конечности пациента выглядят слишком крепкими для ампутации.</span>")
+		to_chat(user, span_warning("Конечности пациента выглядят слишком крепкими для ампутации."))
 		return
 
 	var/candidate_name
@@ -386,20 +424,20 @@
 	if(user.zone_selected == BODY_ZONE_PRECISE_GROIN)
 		tail_snip_candidate = patient.getorganslot(ORGAN_SLOT_TAIL)
 		if(!tail_snip_candidate)
-			to_chat(user, "<span class='warning'>[patient] не имеет хвоста.</span>")
+			to_chat(user, span_warning("[patient] не имеет хвоста."))
 			return
 		candidate_name = tail_snip_candidate.name
 
 	else
 		limb_snip_candidate = patient.get_bodypart(check_zone(user.zone_selected))
 		if(!limb_snip_candidate)
-			to_chat(user, "<span class='warning'>[patient] не имеет здесь конечности.</span>")
+			to_chat(user, span_warning("[patient] не имеет здесь конечности."))
 			return
 		candidate_name = limb_snip_candidate.name
 
 	var/amputation_speed_mod
 
-	patient.visible_message("<span class='danger'>[user] начинает устанавливать [src] вокруг [candidate_name] [patient].</span>", "<span class='userdanger'>[user] начинает закреплять [src] вокруг моей [candidate_name]!</span>")
+	patient.visible_message(span_danger("[user] начинает устанавливать [src] вокруг [candidate_name] [patient].") , span_userdanger("[user] начинает закреплять [src] вокруг моей [candidate_name]!"))
 	playsound(get_turf(patient), 'sound/items/ratchet.ogg', 20, TRUE)
 	if(patient.stat >= UNCONSCIOUS || patient.IsStun()) //Stun is used by paralytics like curare it should not be confused with the more common paralyze.
 		amputation_speed_mod = 0.5
@@ -415,10 +453,10 @@
 			tail_snip_candidate.forceMove(get_turf(patient))
 		else
 			limb_snip_candidate.dismember()
-		user.visible_message("<span class='danger'>[capitalize(src.name)] яростно захлопывается, ампутируя [candidate_name] [patient].</span>", "<span class='notice'>Ампутирую [candidate_name] [patient] используя [src].</span>")
+		user.visible_message(span_danger("[capitalize(src.name)] яростно захлопывается, ампутируя [candidate_name] [patient].") , span_notice("Ампутирую [candidate_name] [patient] используя [src]."))
 
 /obj/item/shears/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] is pinching [user.p_them()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] is pinching [user.p_them()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
 	var/timer = 1 SECONDS
 	for(var/obj/item/bodypart/thing in user.bodyparts)
 		if(thing.body_part == CHEST)

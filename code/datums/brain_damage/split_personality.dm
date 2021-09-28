@@ -5,8 +5,8 @@
 	name = "Раздвоение личности"
 	desc = "Сознание пациента раскололось на две личности, каждая из которых, в процессе борьбы, переодически перехватывает управление телом."
 	scan_desc = "доля полностью удалена"
-	gain_text = "<span class='warning'>You feel like your mind was split in two.</span>"
-	lose_text = "<span class='notice'>You feel alone again.</span>"
+	gain_text = span_warning("You feel like your mind was split in two.")
+	lose_text = span_notice("You feel alone again.")
 	var/current_controller = OWNER
 	var/initialized = FALSE //to prevent personalities deleting themselves while we wait for ghosts
 	var/mob/living/split_personality/stranger_backseat //there's two so they can swap without overwriting
@@ -33,7 +33,7 @@
 
 /datum/brain_trauma/severe/split_personality/proc/get_ghost()
 	set waitfor = FALSE
-	var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you want to play as [owner.real_name]'s split personality?", ROLE_PAI, null, 75, stranger_backseat, POLL_IGNORE_SPLITPERSONALITY)
+	var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Do you want to play as [owner.real_name]'s split personality?", ROLE_PAI, null, 75, stranger_backseat, POLL_IGNORE_SPLITPERSONALITY)
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
 		stranger_backseat.key = C.key
@@ -177,7 +177,7 @@
 	desc = "Patient's brain is split into two personalities, which randomly switch control of the body."
 	scan_desc = "complete lobe separation"
 	gain_text = ""
-	lose_text = "<span class='notice'>You are free of your brainwashing.</span>"
+	lose_text = span_notice("You are free of your brainwashing.")
 	can_gain = FALSE
 	var/codeword
 	var/objective
@@ -206,7 +206,7 @@
 
 /datum/brain_trauma/severe/split_personality/brainwashing/get_ghost()
 	set waitfor = FALSE
-	var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you want to play as [owner.real_name]'s brainwashed mind?", null, null, 75, stranger_backseat)
+	var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Do you want to play as [owner.real_name]'s brainwashed mind?", null, null, 75, stranger_backseat)
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
 		stranger_backseat.key = C.key

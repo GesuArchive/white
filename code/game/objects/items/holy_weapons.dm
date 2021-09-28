@@ -68,7 +68,7 @@
 		SSblackbox.record_feedback("tally", "chaplain_armor", 1, "[choice]")
 		GLOB.holy_armor_type = choice
 	else
-		to_chat(M, "<span class='warning'>A selection has already been made. Self-Destructing...</span>")
+		to_chat(M, span_warning("A selection has already been made. Self-Destructing..."))
 		return
 
 
@@ -238,7 +238,7 @@
 	AddComponent(/datum/component/anti_magic, TRUE, TRUE, FALSE, null, null, FALSE)
 
 /obj/item/nullrod/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is killing [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to get closer to god!</span>")
+	user.visible_message(span_suicide("[user] is killing [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to get closer to god!"))
 	return (BRUTELOSS|FIRELOSS)
 
 /obj/item/nullrod/attack_self(mob/user)
@@ -415,25 +415,25 @@
 	name = "light energy sword"
 	hitsound = 'sound/weapons/blade1.ogg'
 	icon = 'icons/obj/transforming_energy.dmi'
-	icon_state = "swordblue"
-	inhand_icon_state = "swordblue"
+	icon_state = "e_sword_on_blue"
+	inhand_icon_state = "e_sword_on_blue"
 	worn_icon_state = "swordblue"
 	slot_flags = ITEM_SLOT_BELT
 	desc = "If you strike me down, I shall become more robust than you can possibly imagine."
 
 /obj/item/nullrod/claymore/saber/red
 	name = "dark energy sword"
-	icon_state = "swordred"
-	inhand_icon_state = "swordred"
-	worn_icon_state = "swordred"
 	desc = "Woefully ineffective when used on steep terrain."
+	icon_state = "e_sword_on_red"
+	inhand_icon_state = "e_sword_on_red"
+	worn_icon_state = "swordred"
 
 /obj/item/nullrod/claymore/saber/pirate
 	name = "nautical energy sword"
-	icon_state = "cutlass1"
-	inhand_icon_state = "cutlass1"
-	worn_icon_state = "swordred"
 	desc = "Convincing HR that your religion involved piracy was no mean feat."
+	icon_state = "e_cutlass_on"
+	inhand_icon_state = "e_cutlass_on"
+	worn_icon_state = "swordred"
 
 /obj/item/nullrod/sord
 	name = "\improper UNREAL SORD"
@@ -451,8 +451,8 @@
 	attack_verb_simple = list("НЕРЕАЛЬНО рубит", "НЕРЕАЛЬНО режет", "НЕРЕАЛЬНО кромсает", "НЕРЕАЛЬНО разрывает", "НЕРЕАЛЬНО протыкает", "НЕРЕАЛЬНО атакует", "НЕРЕАЛЬНО делит", "НЕРЕАЛЬНО колбасит")
 
 /obj/item/nullrod/sord/suicide_act(mob/user) //a near-exact copy+paste of the actual sord suicide_act()
-	user.visible_message("<span class='suicide'>[user] пытается impale [user.ru_na()]self with [src]! It might be a suicide attempt if it weren't so HOLY.</span>", \
-	"<span class='suicide'>Пытаюсь impale yourself with [src], but it's TOO HOLY...</span>")
+	user.visible_message(span_suicide("[user] пытается impale [user.ru_na()]self with [src]! It might be a suicide attempt if it weren't so HOLY.") , \
+	span_suicide("Пытаюсь impale yourself with [src], but it's TOO HOLY..."))
 	return SHAME
 
 /obj/item/nullrod/scythe
@@ -516,10 +516,10 @@
 	if(possessed)
 		return
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_STATION_SENTIENCE))
-		to_chat(user, "<span class='notice'>Anomalous otherworldly energies block you from awakening the blade!</span>")
+		to_chat(user, span_notice("Anomalous otherworldly energies block you from awakening the blade!"))
 		return
 
-	to_chat(user, "<span class='notice'>You attempt to wake the spirit of the blade...</span>")
+	to_chat(user, span_notice("You attempt to wake the spirit of the blade..."))
 
 	possessed = TRUE
 
@@ -540,12 +540,12 @@
 			name = input
 			S.fully_replace_character_name(null, "The spirit of [input]")
 	else
-		to_chat(user, "<span class='warning'>The blade is dormant. Maybe you can try again later.</span>")
+		to_chat(user, span_warning("The blade is dormant. Maybe you can try again later."))
 		possessed = FALSE
 
 /obj/item/nullrod/scythe/talking/Destroy()
 	for(var/mob/living/simple_animal/shade/S in contents)
-		to_chat(S, "<span class='userdanger'>You were destroyed!</span>")
+		to_chat(S, span_userdanger("You were destroyed!"))
 		qdel(S)
 	return ..()
 
@@ -610,6 +610,8 @@
 	attack_verb_continuous = list("атакует", "режет", "протыкает", "нарезает", "рвёт", "разрывает", "делит", "кромсает")
 	attack_verb_simple = list("атакует", "режет", "протыкает", "нарезает", "рвёт", "разрывает", "делит", "кромсает")
 
+#define CHEMICAL_TRANSFER_CHANCE 30
+
 /obj/item/nullrod/pride_hammer
 	name = "Pride-struck Hammer"
 	desc = "It resonates an aura of Pride."
@@ -626,15 +628,18 @@
 	attack_verb_simple = list("атакует", "лупит", "покушается", "нежит", "засаживает")
 	hitsound = 'sound/weapons/blade1.ogg'
 
-/obj/item/nullrod/pride_hammer/afterattack(atom/A as mob|obj|turf|area, mob/user, proximity)
+
+/obj/item/nullrod/pride_hammer/Initialize()
 	. = ..()
-	if(!proximity)
-		return
-	if(prob(30) && ishuman(A))
-		var/mob/living/carbon/human/H = A
-		user.reagents.trans_to(H, user.reagents.total_volume, 1, 1, 0, transfered_by = user)
-		to_chat(user, "<span class='notice'>Your pride reflects on [H].</span>")
-		to_chat(H, "<span class='userdanger'>You feel insecure, taking on [user] burden.</span>")
+	AddElement(/datum/element/kneejerk)
+	AddElement(
+		/datum/element/chemical_transfer,\
+		span_notice("Your pride reflects on %VICTIM."),\
+		span_userdanger("You feel insecure, taking on %ATTACKER's burden."),\
+		CHEMICAL_TRANSFER_CHANCE\
+	)
+
+#undef CHEMICAL_TRANSFER_CHANCE
 
 /obj/item/nullrod/whip
 	name = "holy whip"
@@ -702,14 +707,10 @@
 	attack_verb_continuous = list("кусает", "грызёт", "шлёпает плавником")
 	attack_verb_simple = list("кусает", "грызёт", "шлёпает плавником")
 	hitsound = 'sound/weapons/bite.ogg'
-	var/used_blessing = FALSE
 
-/obj/item/nullrod/carp/attack_self(mob/living/user)
-	if(used_blessing)
-	else if(user.mind && (user.mind.holy_role))
-		to_chat(user, "<span class='boldnotice'>You are blessed by Carp-Sie. Wild space carp will no longer attack you.</span>")
-		user.faction |= "carp"
-		used_blessing = TRUE
+/obj/item/nullrod/carp/Initialize()
+	. = ..()
+	AddComponent(/datum/component/faction_granter, "carp", holy_role_required = HOLY_ROLE_PRIEST, grant_message = span_boldnotice("You are blessed by Carp-Sie. Wild space carp will no longer attack you."))
 
 /obj/item/nullrod/claymore/bostaff //May as well make it a "claymore" and inherit the blocking
 	name = "monk's staff"
