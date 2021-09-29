@@ -282,6 +282,8 @@
 		return FALSE
 	if(construction_state != PA_CONSTRUCTION_COMPLETE)
 		return FALSE
+	if(isobserver(user))
+		return FALSE
 	return TRUE
 
 /obj/machinery/particle_accelerator/control_box/ui_status(mob/user)
