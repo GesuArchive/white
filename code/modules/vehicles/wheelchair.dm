@@ -11,12 +11,14 @@
 	var/delay_multiplier = 6.7
 	/// This variable is used to specify which overlay icon is used for the wheelchair, ensures wheelchair can cover your legs
 	var/overlay_icon = "wheelchair_overlay"
+	var/image/wheels_overlay
 	///Determines the typepath of what the object folds into
 	var/foldabletype = /obj/item/wheelchair
 
 /obj/vehicle/ridden/wheelchair/Initialize()
 	. = ..()
 	make_ridable()
+	wheels_overlay = image(icon, overlay_icon, FLY_LAYER)
 
 /obj/vehicle/ridden/wheelchair/ComponentInitialize()	//Since it's technically a chair I want it to have chair properties
 	. = ..()
@@ -72,7 +74,7 @@
 
 /obj/vehicle/ridden/wheelchair/proc/handle_rotation_overlayed()
 	cut_overlays()
-	var/image/V = image(icon = icon, icon_state = overlay_icon, layer = FLY_LAYER, dir = src.dir)
+	var/image/V = wheels_overlay
 	add_overlay(V)
 
 
