@@ -101,7 +101,6 @@
 		landmark_loc += loc
 
 	if(client)
-		client.hide_lobby()
 		stop_sound_channel(CHANNEL_LOBBYMUSIC)
 
 	if(!transfer_after)

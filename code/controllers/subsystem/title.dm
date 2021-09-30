@@ -4,19 +4,23 @@ SUBSYSTEM_DEF(title)
 	init_order = INIT_ORDER_TITLE
 
 	var/file_path
-	var/ctt = ""
-	var/loader_pos = 0
-	var/enabled_shit = TRUE
-	var/game_loaded = FALSE
-	var/current_lobby_screen = 'icons/ts.png'
+	var/icon/icon
+	var/icon/previous_icon
+	var/turf/closed/indestructible/splashscreen/splash_turf
 
 /datum/controller/subsystem/title/Initialize()
+	if(file_path && icon)
+		return
+
+	if(fexists("data/previous_title.dat"))
+		var/previous_path = file2text("data/previous_title.dat")
+		if(istext(previous_path))
+			previous_icon = new(previous_icon)
+	fdel("data/previous_title.dat")
 
 	var/list/provisional_title_screens = flist("[global.config.directory]/title_screens/images/")
 	var/list/title_screens = list()
 	var/use_rare_screens = prob(1)
-
-	SSmapping.HACK_LoadMapConfig()
 
 	for(var/S in provisional_title_screens)
 		var/list/L = splittext(S,"+")
@@ -27,120 +31,38 @@ SUBSYSTEM_DEF(title)
 		file_path = "[global.config.directory]/title_screens/images/[pick(title_screens)]"
 
 	if(!file_path)
-		file_path = "icons/ts.png"
+		file_path = "icons/runtime/default_title.dmi"
 
-	if(fexists(file_path))
-		ASSERT(fexists(file_path))
+	ASSERT(fexists(file_path))
 
-	current_lobby_screen = fcopy_rsc(file_path)
+	icon = new(fcopy_rsc(file_path))
 
-	update_lobby_screen()
+	if(splash_turf)
+		splash_turf.icon = icon
 
 	return ..()
 
-/datum/controller/subsystem/title/proc/adjust_load_pos(val_to, text_to)
-	if(enabled_shit)
-		loader_pos += val_to
-		for(var/mob/dead/new_player/D in GLOB.new_player_list)
-			if(D?.client?.lobbyscreen_image)
-				D.client.send_to_lobby_load_pos(loader_pos, text_to)
-
-/datum/controller/subsystem/title/proc/sm(msg, newline = TRUE)
-	if(enabled_shit)
-		if(newline)
-			ctt += "[msg]</br>"
-		else
-			ctt += "[msg]"
-
-/datum/controller/subsystem/title/proc/us()
-	if(enabled_shit)
-		for(var/mob/dead/new_player/D in GLOB.new_player_list)
-			if(D?.client?.lobbyscreen_image)
-				D.client.send_to_lobby_console_now(ctt)
-
-/datum/controller/subsystem/title/proc/cls()
-	if(enabled_shit)
-		game_loaded = TRUE
-		for(var/mob/dead/new_player/D in GLOB.new_player_list)
-			if(D?.client?.lobbyscreen_image)
-				D.client.clear_lobby()
-				D.stop_sound_channel(CHANNEL_LOBBYMUSIC)
-				D.client.playtitlemusic()
-		ctt = ""
-		spawn(5)
-			uplayers()
-
-/datum/controller/subsystem/title/proc/update_lobby_screen()
-	if(enabled_shit)
-		for(var/mob/dead/new_player/D in GLOB.new_player_list)
-			if(D?.client?.lobbyscreen_image)
-				D.client.reload_lobby()
-
-/datum/controller/subsystem/title/proc/uplayers()
-	if(enabled_shit && game_loaded)
-		var/list/caa = list()
-		var/list/cum = list()
-		ctt = ""
-		var/tcc = ""
-		for(var/i in GLOB.new_player_list)
-			var/mob/dead/new_player/player = i
-			if(player.ready == PLAYER_READY_TO_PLAY)
-				var/role_thing = "Неизвестно"
-				if(GLOB.disable_fucking_station_shit_please)
-					caa["Выживший"] += list(player.key)
-					continue
-				if(player.client.prefs.job_preferences["Assistant"])
-					role_thing = "Ассистент"
-				else
-					for(var/j in player.client.prefs.job_preferences)
-						if(player.client.prefs.job_preferences[j] == JP_HIGH)
-							var/datum/job/jobdatum = SSjob.GetJob(j)
-							if(jobdatum)
-								role_thing = jobdatum.ru_title
-								break
-				if(!caa[role_thing])
-					caa[role_thing] = list(player.key)
-				else
-					caa[role_thing] += "[player.key]"
-			else
-				cum += "[player.key]"
-		for(var/line in GLOB.whitelist)
-			cum += "[line]"
-		tcc += "<table>"
-		if(SSticker.current_state <= GAME_STATE_PREGAME)
-			for(var/line in sortList(caa))
-				tcc += "<tr><td class='role'>[line]</td><td class='victims'>[english_list(caa[line])]</td></tr>"
-			tcc += "<tr><td class='role'>Не готовы:</td><td class='victims'>"
-		else
-			tcc += "<tr><td class='role'>Чат-боты:</td><td class='victims'>"
-		tcc += "[english_list(cum)]"
-		tcc += "</td></tr></table>"
-		ctt = tcc
-		for(var/mob/dead/new_player/D in GLOB.new_player_list)
-			if(D?.client?.lobbyscreen_image)
-				D.client.clear_lobby()
-				D.client.send_to_lobby_console_now(ctt)
-
-/datum/controller/subsystem/title/proc/afterload()
-	cls()
-	regen_tacmap()
-	display_tacmap()
-
-/datum/controller/subsystem/title/proc/regen_tacmap()
-	for(var/Z in SSmapping.levels_by_trait(ZTRAIT_STATION))
-		var/icon/I = gen_tacmap_full(Z)
-		SSassets.transport.register_asset("tacmap[Z].png", I)
-
-/datum/controller/subsystem/title/proc/display_tacmap()
-	var/list/zets = SSmapping.levels_by_trait(ZTRAIT_STATION)
-	for(var/mob/dead/new_player/D in GLOB.new_player_list)
-		if(D?.client?.lobbyscreen_image)
-			D.client.display_tacmap(zets.len)
+/datum/controller/subsystem/title/vv_edit_var(var_name, var_value)
+	. = ..()
+	if(.)
+		switch(var_name)
+			if(NAMEOF(src, icon))
+				if(splash_turf)
+					splash_turf.icon = icon
 
 /datum/controller/subsystem/title/Shutdown()
-	for(var/client/thing in GLOB.clients)
+	if(file_path)
+		var/F = file("data/previous_title.dat")
+		WRITE_FILE(F, file_path)
+
+	for(var/thing in GLOB.clients)
 		if(!thing)
 			continue
-		thing.fit_viewport()
 		var/atom/movable/screen/splash/S = new(thing, FALSE)
 		S.Fade(FALSE,FALSE)
+
+/datum/controller/subsystem/title/Recover()
+	icon = SStitle.icon
+	splash_turf = SStitle.splash_turf
+	file_path = SStitle.file_path
+	previous_icon = SStitle.previous_icon

@@ -216,11 +216,7 @@
 /datum/controller/subsystem/Initialize(start_timeofday)
 	initialized = TRUE
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
-	if(!SStitle.game_loaded)
-		SStitle.adjust_load_pos(round(time * 5, 1), "[name] ГОТОВО")
-		to_chat(world, span_green(" -- @<b>[name]</b>:> <b>[time]</b> -- "))
-	else
-		message_admins("-- @<b>[name]</b>:> <b>[time]</b> --")
+	to_chat(world, span_green(" -- Загружено: <b>[name]</b>:> <b>[time]</b> -- "))
 	log_world("Init [name] for [time]s!")
 	return time
 

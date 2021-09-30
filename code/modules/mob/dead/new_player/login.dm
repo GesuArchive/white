@@ -33,6 +33,9 @@
 
 	client.playtitlemusic()
 
+	var/datum/asset/asset_datum = get_asset_datum(/datum/asset/simple/lobby)
+	asset_datum.send(client)
+
 	// Check if user should be added to interview queue
 	if (!client.holder && CONFIG_GET(flag/panic_bunker) && CONFIG_GET(flag/panic_bunker_interview) && !(client.ckey in GLOB.interviews.approved_ckeys))
 		var/required_living_minutes = CONFIG_GET(number/panic_bunker_living)
@@ -42,7 +45,6 @@
 			register_for_interview()
 			return
 
-	new_player_panel()
 	if(SSticker.current_state < GAME_STATE_SETTING_UP)
 		var/tl = SSticker.GetTimeLeft()
 		var/postfix
@@ -57,7 +59,3 @@
 
 	client.update_metabalance_cache()
 	client.proverka_na_pindosov()
-	//client.proverka_na_obemky()
-
-	client.lobbyscreen_image = new /datum/lobbyscreen()
-	client.show_lobby()

@@ -206,13 +206,7 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 	UNTIL(SSticker.login_music) //wait for SSticker init to set the login music
 
 	if(prefs && (prefs.toggles & SOUND_LOBBY))
-		if(SStitle.game_loaded)
-			//var/tmusic = replacetext(pop(splittext(SSticker.login_music, "/")), ".ogg", "")
-			//spawn(10)
-			//	to_chat(src, "\n<center><b>Сейчас играет: <i>[tmusic]</i></b></center>\n")
-			SEND_SOUND(src, sound(SSticker.login_music, repeat = TRUE, wait = 0, volume = vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
-		else
-			SEND_SOUND(src, sound('sound/ambience/ddrone.ogg', repeat = TRUE, wait = 0, volume = 50, channel = CHANNEL_LOBBYMUSIC))
+		SEND_SOUND(src, sound(SSticker.login_music, repeat = TRUE, wait = 0, volume = vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
 
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.

@@ -1434,3 +1434,9 @@
 
 ///The gun needs to update the gun hud!
 #define COMSIG_UPDATE_AMMO_HUD "update_ammo_hud"
+
+///Called when the ticker enters the pre-game phase
+#define COMSIG_TICKER_ENTER_PREGAME "comsig_ticker_enter_pregame"
+
+///Called when the ticker sets up the game for start
+#define COMSIG_TICKER_ENTER_SETTING_UP "comsig_ticker_enter_setting_up"

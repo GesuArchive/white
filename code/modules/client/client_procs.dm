@@ -470,8 +470,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	view_size.setZoomMode()
 	fit_viewport()
 
-	SStitle.uplayers()
-
 	Master.UpdateTickRate()
 
 //////////////
@@ -534,7 +532,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	seen_messages = null
 	Master.UpdateTickRate()
 	..() //Even though we're going to be hard deleted there are still some things that want to know the destroy is happening
-	SStitle.uplayers()
 	return QDEL_HINT_HARDDEL_NOW
 
 /client/proc/set_client_age_from_db(connectiontopic)

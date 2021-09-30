@@ -178,5 +178,8 @@
 #define SPLASHSCREEN_PLANE 54
 #define SPLASHSCREEN_RENDER_TARGET "SPLASHSCREEN_PLANE"
 
+#define LOBBY_BACKGROUND_LAYER 3
+#define LOBBY_BUTTON_LAYER 4
+
 ///Plane master controller keys
 #define PLANE_MASTERS_GAME "plane_masters_game"

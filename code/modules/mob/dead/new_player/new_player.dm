@@ -1,5 +1,3 @@
-#define LINKIFY_READY(string, value) "<a href='byond://?src=[REF(src)];ready=[value]'>[string]</a>"
-
 /mob/dead/new_player
 	var/ready = 0
 	var/spawning = 0//Referenced when you want to delete the new_player later on in the code.
@@ -10,6 +8,7 @@
 
 	density = FALSE
 	stat = DEAD
+	hud_type = /datum/hud/new_player
 	hud_possible = list()
 
 	var/mob/living/new_character	//for instant transfer once the round is set up
@@ -40,75 +39,6 @@
 /mob/dead/new_player/prepare_huds()
 	return
 
-/**
- * This proc generates the panel that opens to all newly joining players, allowing them to join, observe, view polls, view the current crew manifest, and open the character customization menu.
- */
-/mob/dead/new_player/proc/new_player_panel()
-	if (client?.interviewee)
-		return
-
-	var/datum/asset/asset_datum = get_asset_datum(/datum/asset/simple/lobby)
-	asset_datum.send(client)
-	var/list/output = list("<center class='titlescreen'><p><a href='byond://?src=[REF(src)];show_preferences=1'>Настроить Персонажа</a></p>")
-
-	if(SSticker.current_state <= GAME_STATE_PREGAME)
-		switch(ready)
-			if(PLAYER_NOT_READY)
-				output += "<p>\[ [LINKIFY_READY("Готов", PLAYER_READY_TO_PLAY)] | <b>Не готов</b> | [LINKIFY_READY("Наблюдать", PLAYER_READY_TO_OBSERVE)] \]</p>"
-			if(PLAYER_READY_TO_PLAY)
-				output += "<p>\[ <b>Готов</b> | [LINKIFY_READY("Не готов", PLAYER_NOT_READY)] | [LINKIFY_READY("Наблюдать", PLAYER_READY_TO_OBSERVE)] \]</p>"
-			if(PLAYER_READY_TO_OBSERVE)
-				output += "<p>\[ [LINKIFY_READY("Готов", PLAYER_READY_TO_PLAY)] | [LINKIFY_READY("Не готов", PLAYER_NOT_READY)] | <b> Наблюдать </b> \]</p>"
-	else
-		output += "<p><a href='byond://?src=[REF(src)];manifest=1'>Список Экипажа</a></p>"
-		output += "<p><a href='byond://?src=[REF(src)];late_join=1'>Присоединиться!</a></p>"
-		output += "<p>[LINKIFY_READY("Наблюдать", PLAYER_READY_TO_OBSERVE)]</p>"
-
-	if(!IsGuestKey(src.key))
-		output += playerpolls()
-
-	output += "</center>"
-
-	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>White Dream</div>", 275, 275) // 新しい白い夢
-	popup.set_window_options("can_close=0")
-	popup.set_content(output.Join())
-	popup.open(FALSE)
-
-/mob/dead/new_player/proc/playerpolls()
-	var/list/output = list()
-	if (SSdbcore.Connect())
-		var/isadmin = FALSE
-		if(client?.holder)
-			isadmin = TRUE
-		var/datum/db_query/query_get_new_polls = SSdbcore.NewQuery({"
-			SELECT id FROM [format_table_name("poll_question")]
-			WHERE (adminonly = 0 OR :isadmin = 1)
-			AND Now() BETWEEN starttime AND endtime
-			AND deleted = 0
-			AND id NOT IN (
-				SELECT pollid FROM [format_table_name("poll_vote")]
-				WHERE ckey = :ckey
-				AND deleted = 0
-			)
-			AND id NOT IN (
-				SELECT pollid FROM [format_table_name("poll_textreply")]
-				WHERE ckey = :ckey
-				AND deleted = 0
-			)
-		"}, list("isadmin" = isadmin, "ckey" = ckey))
-		var/rs = REF(src)
-		if(!query_get_new_polls.Execute())
-			qdel(query_get_new_polls)
-			return
-		if(query_get_new_polls.NextRow())
-			output += "<p><a href='byond://?src=[rs];showpoll=1'><b>НОВЫЙ ОПРОС!</b></A></p>"
-		else if(isadmin)
-			output += "<p><a href='byond://?src=[rs];showpoll=1'>Опросы</A></p>"
-		qdel(query_get_new_polls)
-		if(QDELETED(src))
-			return
-		return output
-
 /mob/dead/new_player/Topic(href, href_list[])
 	if(src != usr)
 		return
@@ -119,63 +49,11 @@
 	if(client.interviewee)
 		return FALSE
 
-	//Determines Relevent Population Cap
-	var/relevant_cap
-	var/hpc = CONFIG_GET(number/hard_popcap)
-	var/epc = CONFIG_GET(number/extreme_popcap)
-	if(hpc && epc)
-		relevant_cap = min(hpc, epc)
-	else
-		relevant_cap = max(hpc, epc)
-
-	if(href_list["show_preferences"])
-		client.prefs.ShowChoices(src)
-		return TRUE
-
-	if(href_list["ready"])
-		var/tready = text2num(href_list["ready"])
-		//Avoid updating ready if we're after PREGAME (they should use latejoin instead)
-		//This is likely not an actual issue but I don't have time to prove that this
-		//no longer is required
-		if(SSticker.current_state <= GAME_STATE_PREGAME)
-			ready = tready
-		//if it's post initialisation and they're trying to observe we do the needful
-		if(!SSticker.current_state < GAME_STATE_PREGAME && tready == PLAYER_READY_TO_OBSERVE)
-			ready = tready
-			make_me_an_observer()
-			return
-
-		SStitle.uplayers()
-
-	if(href_list["refresh"])
-		src << browse(null, "window=playersetup") //closes the player setup window
-		new_player_panel()
-
-	if(href_list["late_join"])
+	if(href_list["late_join"]) //This still exists for queue messages in chat
 		if(!SSticker?.IsRoundInProgress())
 			to_chat(usr, span_boldwarning("Раунд ещё не начался или уже завершился..."))
 			return
-
-		if(href_list["late_join"] == "override")
-			LateChoices()
-			return
-
-		if(SSticker.queued_players.len || (relevant_cap && living_player_count() >= relevant_cap && !(ckey(key) in GLOB.admin_datums)))
-			to_chat(usr, span_danger("[CONFIG_GET(string/hard_popcap_message)]"))
-
-			var/queue_position = SSticker.queued_players.Find(usr)
-			if(queue_position == 1)
-				to_chat(usr, span_notice("Ты следующий по списку желающих войти в раунд. Тебя оповестят о подходящей возможности."))
-			else if(queue_position)
-				to_chat(usr, span_notice("Перед тобой [queue_position-1] игроков в очереди ожидания захода в раунд."))
-			else
-				SSticker.queued_players += usr
-				to_chat(usr, span_notice("Тебя добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len]."))
-			return
 		LateChoices()
-
-	if(href_list["manifest"])
-		ViewManifest()
 
 	if(href_list["SelectedJob"])
 		if(!SSticker?.IsRoundInProgress())
@@ -186,19 +64,21 @@
 			to_chat(usr, span_notice("Нельзя!"))
 			return
 
+		//Determines Relevent Population Cap
+		var/relevant_cap
+		var/hpc = CONFIG_GET(number/hard_popcap)
+		var/epc = CONFIG_GET(number/extreme_popcap)
+		if(hpc && epc)
+			relevant_cap = min(hpc, epc)
+		else
+			relevant_cap = max(hpc, epc)
+
 		if(SSticker.queued_players.len && !(ckey(key) in GLOB.admin_datums))
 			if((living_player_count() >= relevant_cap) || (src != SSticker.queued_players[1]))
 				to_chat(usr, span_warning("Полновато здесь."))
 				return
 
 		AttemptLateSpawn(href_list["SelectedJob"])
-		return
-
-	else if(!href_list["late_join"])
-		new_player_panel()
-
-	if(href_list["showpoll"])
-		handle_player_polling()
 		return
 
 	if(href_list["viewpoll"])
@@ -222,13 +102,10 @@
 	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Да")
 		ready = PLAYER_NOT_READY
 		src << browse(null, "window=playersetup") //closes the player setup window
-		new_player_panel()
 		return FALSE
 
 	var/mob/dead/observer/observer = new()
 	spawning = TRUE
-
-	client.hide_lobby()
 
 	observer.started_as_observer = TRUE
 	close_spawn_windows()
@@ -474,8 +351,6 @@
 		is_antag = TRUE
 
 	client.prefs.copy_to(H, antagonist = is_antag, is_latejoiner = transfer_after)
-
-	client.hide_lobby()
 
 	H.dna.update_dna_identity()
 	if(mind)
