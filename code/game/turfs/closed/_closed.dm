@@ -72,11 +72,6 @@
 	maptext_x = 4
 	maptext_y = 8
 
-/turf/closed/indestructible/splashscreen/proc/do_cring()
-	filters += filter(type = "displace", icon = 'white/valtos/icons/cfas.png', size = 0)
-	animate(filters[1], size = 4, time = 300, loop = -1, easing = SINE_EASING)
-	animate(size = 0, y = -4, time = 300)
-
 /turf/closed/indestructible/splashscreen/New()
 	SStitle.splash_turf = src
 	..()
