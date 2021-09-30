@@ -231,14 +231,14 @@
 	icon = 'icons/hud/lobby/bottom_buttons.dmi'
 	icon_state = "changelog"
 	base_icon_state = "changelog"
-	screen_loc ="TOP:-122,CENTER:+58"
+	screen_loc = "SOUTH:+2,CENTER:-26"
 
 
 /atom/movable/screen/lobby/button/crew_manifest
 	icon = 'icons/hud/lobby/bottom_buttons.dmi'
 	icon_state = "crew_manifest"
 	base_icon_state = "crew_manifest"
-	screen_loc = "TOP:-122,CENTER:+30"
+	screen_loc = "SOUTH:+2,CENTER:+26"
 
 /atom/movable/screen/lobby/button/crew_manifest/Click(location, control, params)
 	. = ..()
@@ -249,13 +249,15 @@
 
 /atom/movable/screen/lobby/button/changelog_button/Click(location, control, params)
 	. = ..()
-	usr << link("https://station13.ru")
+	var/lets_fucking_go = tgui_alert(usr,"Перейдём в интересное место? (это откроет страницу в браузере)", "Любопытство", list("Да", "Нет"))
+	if(lets_fucking_go == "Да")
+		usr << link("https://station13.ru")
 
 /atom/movable/screen/lobby/button/poll
 	icon = 'icons/hud/lobby/bottom_buttons.dmi'
 	icon_state = "poll"
 	base_icon_state = "poll"
-	screen_loc = "TOP:-122,CENTER:+2"
+	screen_loc = "SOUTH:+2,CENTER"
 
 	var/new_poll = FALSE
 
