@@ -62,7 +62,7 @@
 /turf/closed/indestructible/splashscreen
 	name = "White Dream"
 	desc = "Поколение странных увлечений."
-	icon = 'icons/effects/station_explosion.dmi'
+	icon = 'icons/runtime/default_title.dmi'
 	icon_state = "station_intact"
 	layer = SPLASHSCREEN_LAYER
 	plane = SPLASHSCREEN_PLANE

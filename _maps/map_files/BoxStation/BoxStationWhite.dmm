@@ -8126,7 +8126,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
-/obj/structure/cable,
 /obj/structure/railing,
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plating,
@@ -10755,12 +10754,6 @@
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -24
-	},
-/turf/open/floor/plasteel/monofloor,
-/area/hallway/secondary/entry)
-"aSe" = (
-/obj/machinery/light{
-	pixel_y = 0
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry)
@@ -34781,7 +34774,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/cable,
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
@@ -36117,7 +36109,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
@@ -61603,7 +61594,7 @@ vIn
 aLB
 aLB
 aQK
-aSe
+ayl
 czK
 aUQ
 aUQ
