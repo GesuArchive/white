@@ -249,7 +249,7 @@
 
 /atom/movable/screen/lobby/button/changelog_button/Click(location, control, params)
 	. = ..()
-	usr.client?.changelog()
+	usr << link("https://station13.ru")
 
 /atom/movable/screen/lobby/button/poll
 	icon = 'icons/hud/lobby/bottom_buttons.dmi'
