@@ -18,4 +18,5 @@ GLOBAL_LIST_INIT(wiremod_fundamental_types, list(
 	PORT_TYPE_DATUM,
 	PORT_TYPE_STRING,
 	PORT_TYPE_LIST,
+	PORT_TYPE_ASSOC_LIST,
 ))
