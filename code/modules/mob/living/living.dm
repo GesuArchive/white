@@ -14,7 +14,6 @@
 		if(ckey in GLOB.pacifist_list)
 			ADD_TRAIT(src, TRAIT_PACIFISM, "sosi")
 
-	//overlay_fullscreen("noise", /atom/movable/screen/fullscreen/noisescreen)
 	add_client_colour(/datum/client_colour/correction)
 
 	AddComponent(/datum/component/battletension)

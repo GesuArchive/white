@@ -93,10 +93,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		tooltip?.screen_loc = "SOUTH+1,CENTER-4:16"
 	infodisplay += tooltip
 
-	if(owner)
-		add_emote_panel(owner)
-		add_multiz_buttons(owner)
-
 	for(var/mytype in subtypesof(/atom/movable/screen/plane_master))
 		var/atom/movable/screen/plane_master/instance = new mytype()
 		plane_masters["[instance.plane]"] = instance

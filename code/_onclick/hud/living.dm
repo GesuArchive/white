@@ -4,6 +4,10 @@
 /datum/hud/living/New(mob/living/owner)
 	..()
 
+	if(owner)
+		add_emote_panel(owner)
+		add_multiz_buttons(owner)
+
 	pull_icon = new /atom/movable/screen/pull()
 	pull_icon.icon = ui_style
 	pull_icon.update_icon()
