@@ -362,6 +362,10 @@
 			inv_slots[TOBITSHIFT(inv.slot_id) + 1] = inv
 			inv.update_icon()
 
+	if(owner)
+		add_emote_panel(owner)
+		add_multiz_buttons(owner)
+
 	update_locked_slots()
 
 /datum/hud/human/update_locked_slots()
