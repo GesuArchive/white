@@ -22,7 +22,7 @@
 	var/printed_beacons = 0 //number of beacons printed. Used to determine beacon names.
 	var/list/meme_pack_data
 	var/obj/item/supplypod_beacon/beacon //the linked supplypod beacon
-	var/area/landingzone = /area/quartermaster/storage //where we droppin boys
+	var/area/landingzone = /area/cargo/storage //where we droppin boys
 	var/podType = /obj/structure/closet/supplypod
 	var/cooldown = 0 //cooldown to prevent printing supplypod beacon spam
 	var/locked = TRUE //is the console locked? unlock with ID
@@ -192,7 +192,7 @@
 						LZ = get_turf(beacon)
 						beacon.update_status(SP_LAUNCH)
 					else if (!usingBeacon)//find a suitable supplypod landing zone in cargobay
-						landingzone = GLOB.areas_by_type[/area/quartermaster/storage]
+						landingzone = GLOB.areas_by_type[/area/cargo/storage]
 						if (!landingzone)
 							WARNING("[src] не удалось найти на станции комнату КМа / Склада (он же Карго), и поэтому он установил зону посадки снабжения для области, в которой он находится.")
 							landingzone = get_area(src)

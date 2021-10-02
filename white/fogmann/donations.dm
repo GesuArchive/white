@@ -270,7 +270,7 @@ GLOBAL_LIST_EMPTY(donators)
 				to_chat(user,span_warning("Игра ещё не началась!"))
 				return 0
 
-			if((world.time-SSticker.round_start_time) > DONATIONS_SPAWN_WINDOW && !istype(get_area(user), /area/crew_quarters/bar))
+			if((world.time-SSticker.round_start_time) > DONATIONS_SPAWN_WINDOW && !istype(get_area(user), /area/service/bar))
 				to_chat(user,span_warning("Нужно быть в баре."))
 				return 0
 

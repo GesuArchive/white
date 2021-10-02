@@ -78,19 +78,19 @@
 
 	// For removing problematic items
 	target_armory = locate(/area/ai_monitored/security/armory) in GLOB.sortedAreas
-	target_hos = locate(/area/crew_quarters/heads/hos) in GLOB.sortedAreas
+	target_hos = locate(/area/command/heads_quarters/hos) in GLOB.sortedAreas
 	target_brig = locate(/area/security/brig) in GLOB.sortedAreas
 	target_equip = locate(/area/security/main) in GLOB.sortedAreas
 	target_ward = locate(/area/security/warden) in GLOB.sortedAreas
 	target_det = locate(/area/security/detectives_office) in GLOB.sortedAreas
-	target_captain = locate(/area/crew_quarters/heads/captain/private) in GLOB.sortedAreas
-	target_hop = locate(/area/crew_quarters/heads/hop) in GLOB.sortedAreas
+	target_captain = locate(/area/command/heads_quarters/captain/private) in GLOB.sortedAreas
+	target_hop = locate(/area/command/heads_quarters/hop) in GLOB.sortedAreas
 	target_science = locate(/area/science/research) in GLOB.sortedAreas
 	target_science2 = locate(/area/science/mixing) in GLOB.sortedAreas
-	target_atmos = locate(/area/engine/atmos) in GLOB.sortedAreas
+	target_atmos = locate(/area/engineering/atmos) in GLOB.sortedAreas
 
-	for(var/area/crew_quarters/heads/captain/C in GLOB.sortedAreas)
-		if(C != /area/crew_quarters/heads/captain/private)
+	for(var/area/command/heads_quarters/captain/C in GLOB.sortedAreas)
+		if(C != /area/command/heads_quarters/captain/private)
 			target_captain2 = C
 			break
 	gangpocalypse()

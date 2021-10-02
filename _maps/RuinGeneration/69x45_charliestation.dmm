@@ -546,7 +546,7 @@
 /obj/structure/cable,
 /obj/machinery/power/solar,
 /turf/open/floor/plating/airless,
-/area/solar/ancientstation)
+/area/solars/ancientstation)
 "eR" = (
 /obj/structure/sign/poster/official/science,
 /turf/closed/wall,
@@ -765,7 +765,7 @@
 /obj/structure/cable,
 /obj/item/solar_assembly,
 /turf/open/floor/plating/airless,
-/area/solar/ancientstation)
+/area/solars/ancientstation)
 "gA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 6
@@ -3509,7 +3509,7 @@
 /area/ruin/space/has_grav/ancientstation/kitchen)
 "DU" = (
 /turf/open/floor/plating/airless,
-/area/solar/ancientstation)
+/area/solars/ancientstation)
 "DY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/barricade/wooden,
@@ -3575,7 +3575,7 @@
 /obj/item/solar_assembly,
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
-/area/solar/ancientstation)
+/area/solars/ancientstation)
 "En" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/green,
@@ -4066,7 +4066,7 @@
 /obj/machinery/power/solar,
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
-/area/solar/ancientstation)
+/area/solars/ancientstation)
 "IH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
@@ -5155,7 +5155,7 @@
 "Qw" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/solar/ancientstation)
+/area/solars/ancientstation)
 "Qx" = (
 /obj/item/kirbyplants{
 	icon_state = "plant-25"
@@ -6241,7 +6241,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
 /turf/template_noop,
-/area/solar/ancientstation)
+/area/solars/ancientstation)
 "YJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,

@@ -37,13 +37,13 @@
 			if(istype(A, /area/security))
 				tacmap_icon.DrawBox(rgb(255, 0, 0), xx, yy, xx, yy)
 				continue
-			if(istype(A, /area/quartermaster))
+			if(istype(A, /area/cargo))
 				tacmap_icon.DrawBox(rgb(209, 101, 43), xx, yy, xx, yy)
 				continue
-			if(istype(A, /area/quartermaster))
+			if(istype(A, /area/cargo))
 				tacmap_icon.DrawBox(rgb(209, 101, 43), xx, yy, xx, yy)
 				continue
-			if(istype(A, /area/service/hydroponics) || istype(A, /area/chapel) || istype(A, /area/library) || istype(A, /area/crew_quarters))
+			if(istype(A, /area/service/hydroponics) || istype(A, /area/service/chapel) || istype(A, /area/service/library) || istype(A, /area/commons))
 				tacmap_icon.DrawBox(rgb(62, 209, 43), xx, yy, xx, yy)
 				continue
 			if(istype(A, /area/science))
@@ -52,13 +52,13 @@
 			if(istype(A, /area/medical))
 				tacmap_icon.DrawBox(rgb(0, 255, 229), xx, yy, xx, yy)
 				continue
-			if(istype(A, /area/ai_monitored) || istype(A, /area/teleporter) || istype(A, /area/gateway) || istype(A, /area/bridge))
+			if(istype(A, /area/ai_monitored) || istype(A, /area/command/teleporter) || istype(A, /area/command/gateway) || istype(A, /area/command))
 				tacmap_icon.DrawBox(rgb(0, 60, 255), xx, yy, xx, yy)
 				continue
-			if(istype(A, /area/storage) || istype(A, /area/maintenance))
+			if(istype(A, /area/commons/storage) || istype(A, /area/maintenance))
 				tacmap_icon.DrawBox(rgb(70, 70, 70), xx, yy, xx, yy)
 				continue
-			if(istype(A, /area/vacant_room) || istype(A, /area/tcommsat) || istype(A, /area/comms) || istype(A, /area/server) || istype(A, /area/solar) || istype(A, /area/engine))
+			if(istype(A, /area/commons/vacant_room) || istype(A, /area/tcommsat) || istype(A, /area/comms) || istype(A, /area/server) || istype(A, /area/solar) || istype(A, /area/engine))
 				tacmap_icon.DrawBox(rgb(255, 145, 0), xx, yy, xx, yy)
 				continue
 	return tacmap_icon

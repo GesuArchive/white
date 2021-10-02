@@ -20,7 +20,7 @@
 		. += " Станция находится в локации [linked_beacon.name]. Успехов."
 
 /datum/orbital_objective/nuclear_bomb/on_assign(obj/machinery/computer/objective/objective_computer)
-	var/area/A = GLOB.areas_by_type[/area/bridge]
+	var/area/A = GLOB.areas_by_type[/area/command]
 	var/turf/open/T = pick(A.get_unobstructed_turfs())
 	if(!T)
 		T = locate() in shuffle(A.contents)

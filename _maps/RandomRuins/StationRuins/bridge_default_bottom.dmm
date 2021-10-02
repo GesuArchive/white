@@ -28,7 +28,7 @@
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
-/area/quartermaster/meeting_room)
+/area/cargo/meeting_room)
 "oH" = (
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/plating,
@@ -49,10 +49,10 @@
 /area/maintenance/bottom_station_maints)
 "Pc" = (
 /turf/closed/wall/r_wall,
-/area/quartermaster/meeting_room)
+/area/cargo/meeting_room)
 "UY" = (
 /turf/open/floor/plating,
-/area/quartermaster/meeting_room)
+/area/cargo/meeting_room)
 "Ws" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints/north)

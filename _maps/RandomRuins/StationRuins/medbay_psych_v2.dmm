@@ -35,7 +35,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "aA" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -586,7 +586,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "hn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -766,7 +766,7 @@
 /obj/structure/cable,
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "jE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -810,7 +810,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "kc" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
@@ -1224,7 +1224,7 @@
 	},
 /obj/machinery/pdapainter/medbay,
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "oP" = (
 /obj/machinery/stasis,
 /obj/effect/turf_decal/box,
@@ -1314,7 +1314,7 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "qt" = (
 /obj/machinery/camera/autoname,
 /turf/open/openspace,
@@ -1358,7 +1358,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "sa" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -1427,7 +1427,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "tc" = (
 /obj/machinery/newscaster{
 	pixel_y = 32
@@ -1595,7 +1595,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "wy" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/corner{
@@ -1672,7 +1672,7 @@
 	req_access_txt = "40"
 	},
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "xa" = (
 /obj/structure/table/glass,
 /obj/item/paper_bin{
@@ -1694,7 +1694,7 @@
 	pixel_y = 23
 	},
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "xd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1720,14 +1720,14 @@
 	dir = 9
 	},
 /obj/machinery/power/apc{
-	areastring = "/area/crew_quarters/heads/cmo";
+	areastring = "/area/command/heads_quarters/cmo";
 	dir = 1;
 	name = "CMO Office APC";
 	pixel_y = 23
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "xz" = (
 /obj/structure/sink{
 	dir = 8;
@@ -1765,7 +1765,7 @@
 	pixel_x = -30
 	},
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "xO" = (
 /obj/machinery/door/poddoor/multi_tile/three_tile_hor{
 	id = "durka_gate_outer"
@@ -2092,7 +2092,7 @@
 	pixel_y = 1
 	},
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "Co" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -2142,7 +2142,7 @@
 "CR" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "CV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2165,7 +2165,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "Dc" = (
 /obj/machinery/modular_computer/console/preset/id,
 /obj/effect/turf_decal/tile/blue{
@@ -2185,7 +2185,7 @@
 	pixel_y = 24
 	},
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "Dj" = (
 /obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2259,7 +2259,7 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "EQ" = (
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/central)
@@ -2399,7 +2399,7 @@
 "Gh" = (
 /obj/machinery/holopad,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "Gl" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3118,7 +3118,7 @@
 /area/medical/storage)
 "QQ" = (
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "Ri" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -3209,7 +3209,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "So" = (
 /turf/closed/wall/r_wall,
 /area/medical/medbay/aft)
@@ -3282,7 +3282,7 @@
 /area/medical/medbay/aft)
 "SU" = (
 /turf/closed/wall/r_wall,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "Te" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/food/drinks/waterbottle/empty{
@@ -3328,7 +3328,7 @@
 /obj/structure/bed/dogbed/runtime,
 /mob/living/simple_animal/pet/cat/runtime,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "TS" = (
 /obj/machinery/requests_console{
 	department = "Medbay";

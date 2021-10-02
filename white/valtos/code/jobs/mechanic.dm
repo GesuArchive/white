@@ -24,7 +24,7 @@
 	template_access = list(ACCESS_CAPTAIN, ACCESS_CE, ACCESS_CHANGE_IDS)
 	trim_icon = 'white/valtos/icons/card.dmi'
 
-/area/engine/manufactory
+/area/engineering/manufactory
 	name = "Фабрика"
 	icon_state = "engine"
 

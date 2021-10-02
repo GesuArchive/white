@@ -94,7 +94,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "aH" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/white,
@@ -300,7 +300,7 @@
 /area/security/main)
 "bh" = (
 /turf/closed/wall,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bi" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/preopen{
@@ -309,7 +309,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bk" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
@@ -317,7 +317,7 @@
 	dir = 4
 	},
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bl" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -487,18 +487,18 @@
 /obj/machinery/computer/secure_data,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bB" = (
 /obj/machinery/computer/security/hos,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bC" = (
 /obj/machinery/modular_computer/console/preset/id,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bD" = (
 /obj/machinery/airalarm{
 	pixel_y = 23
@@ -512,7 +512,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/shotglass,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bE" = (
 /obj/machinery/newscaster/security_unit{
 	pixel_x = -30
@@ -527,7 +527,7 @@
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bF" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
@@ -647,17 +647,17 @@
 /obj/structure/chair/comfy/black,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bR" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bS" = (
 /obj/machinery/holopad/secure,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bT" = (
 /obj/machinery/keycard_auth{
 	pixel_x = 24;
@@ -669,7 +669,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/reagent_containers/food/drinks/flask/gold/soviet,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bU" = (
 /obj/structure/table,
 /obj/item/storage/box/firingpins,
@@ -912,7 +912,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cq" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/decal/cleanable/dirt,
@@ -930,25 +930,25 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "ct" = (
 /obj/structure/table/wood,
 /obj/item/folder/red,
 /obj/item/stamp/hos,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cu" = (
 /obj/item/book/manual/wiki/security_space_law,
 /obj/structure/table/wood,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cv" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cw" = (
 /obj/machinery/light{
 	dir = 4
@@ -956,7 +956,7 @@
 /obj/machinery/suit_storage_unit/hos,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cx" = (
 /obj/item/grenade/barrier{
 	pixel_x = 4
@@ -1053,7 +1053,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/pdapainter/security,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cO" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
@@ -1067,13 +1067,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cQ" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cR" = (
 /obj/item/storage/secure/safe/hos{
 	pixel_x = 35
@@ -1081,7 +1081,7 @@
 /obj/structure/closet/secure_closet/hos,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cS" = (
 /obj/structure/closet/secure_closet/contraband/armory,
 /obj/effect/spawner/lootdrop/maintenance/three,
@@ -1262,7 +1262,7 @@
 /area/ai_monitored/security/armory)
 "dm" = (
 /obj/machinery/power/apc{
-	areastring = "/area/crew_quarters/heads/hos";
+	areastring = "/area/command/heads_quarters/hos";
 	dir = 8;
 	name = "Head of Security's Office APC";
 	pixel_x = -25
@@ -1275,7 +1275,7 @@
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/pet/dog/pug/mcgriff,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "dn" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
@@ -1284,7 +1284,7 @@
 	dir = 10
 	},
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "do" = (
 /obj/machinery/light_switch{
 	pixel_y = -23
@@ -1293,14 +1293,14 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "dp" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "dq" = (
 /obj/machinery/door/airlock/external{
 	name = "Security External Airlock";
@@ -1601,13 +1601,13 @@
 	dir = 1
 	},
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "dX" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "dY" = (
 /obj/structure/disposalpipe/segment{
 	dir = 9

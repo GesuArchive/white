@@ -4,7 +4,7 @@
 /area/template_noop)
 "cA" = (
 /turf/closed/wall/r_wall,
-/area/engine/engineering)
+/area/engineering/main)
 "tB" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -12,7 +12,7 @@
 "uZ" = (
 /obj/structure/sign/warning/vacuum,
 /turf/closed/wall/r_wall,
-/area/engine/engineering)
+/area/engineering/main)
 "xY" = (
 /obj/machinery/door/firedoor,
 /obj/structure/fans/tiny,
@@ -25,11 +25,11 @@
 	req_access_txt = "12"
 	},
 /turf/open/floor/plating,
-/area/engine/engineering)
+/area/engineering/main)
 "FH" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/engine/engineering)
+/area/engineering/main)
 "UB" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,

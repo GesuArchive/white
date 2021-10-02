@@ -146,12 +146,12 @@
 		var/list/safe_area_types = typecacheof(list(
 		/area/ai_monitored/turret_protected/ai,
 		/area/ai_monitored/turret_protected/ai_upload,
-		/area/engine,
+		/area/engineering
 		/area/shuttle)
 		)
 
 		///Subtypes from the above that actually should explode.
-		var/list/unsafe_area_subtypes = typecacheof(list(/area/engine/break_room))
+		var/list/unsafe_area_subtypes = typecacheof(list(/area/engineering/break_room))
 		allowed_areas = make_associative(GLOB.the_station_areas) - safe_area_types + unsafe_area_subtypes
 	var/list/possible_areas = typecache_filter_list(GLOB.sortedAreas,allowed_areas)
 	if (length(possible_areas))
@@ -405,7 +405,7 @@
 
 /datum/round_aspect/emergency_meeting/run_aspect()
 	spawn(5 SECONDS)
-		call_emergency_meeting("Центральное Командование", GLOB.areas_by_type[/area/bridge/meeting_room])
+		call_emergency_meeting("Центральное Командование", GLOB.areas_by_type[/area/command/meeting_room])
 	..()
 
 /datum/round_aspect/emp_ass

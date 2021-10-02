@@ -296,7 +296,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "bZ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -668,7 +668,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "gU" = (
 /obj/effect/landmark/start/medical_doctor,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -865,7 +865,7 @@
 /area/medical/medbay)
 "iZ" = (
 /turf/closed/wall/r_wall,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "jc" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -895,7 +895,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "jt" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -1427,7 +1427,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "pf" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
@@ -1501,7 +1501,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "ps" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor/white,
@@ -1569,7 +1569,7 @@
 /area/medical/storage)
 "qY" = (
 /obj/machinery/power/apc{
-	areastring = "/area/crew_quarters/heads/cmo";
+	areastring = "/area/command/heads_quarters/cmo";
 	dir = 1;
 	name = "CM Office APC";
 	pixel_y = 23
@@ -1696,7 +1696,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "rY" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
@@ -1813,7 +1813,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "tD" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -1848,7 +1848,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "uk" = (
 /obj/effect/turf_decal/trimline/green/filled/corner{
 	dir = 4
@@ -1966,7 +1966,7 @@
 "vo" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "vt" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2042,7 +2042,7 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "vR" = (
 /obj/structure/table,
 /obj/item/crowbar,
@@ -2082,7 +2082,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "wi" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -2422,7 +2422,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "zd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2633,7 +2633,7 @@
 	dir = 9
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "Ax" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -2848,7 +2848,7 @@
 /area/medical/chemistry)
 "CU" = (
 /turf/closed/wall,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "CY" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -2956,7 +2956,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "DB" = (
 /obj/machinery/medical_kiosk,
 /turf/open/floor/plasteel/monofloor/white,
@@ -3296,7 +3296,7 @@
 	},
 /obj/machinery/pdapainter/medbay,
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "Hg" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -3454,7 +3454,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "IU" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
@@ -3522,7 +3522,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "Js" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -3630,7 +3630,7 @@
 	},
 /obj/structure/closet/secure_closet/chief_medical,
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "KC" = (
 /obj/structure/table/glass,
 /obj/machinery/reagentgrinder,
@@ -3930,7 +3930,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "Oa" = (
 /obj/machinery/light{
 	dir = 4
@@ -4357,7 +4357,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "Rk" = (
 /obj/structure/table,
 /obj/item/surgical_drapes,
@@ -4594,7 +4594,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "TH" = (
 /obj/machinery/door/airlock/medical/glass{
 	name = "Medbay Storage";
@@ -4630,7 +4630,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "TK" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -4794,7 +4794,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "Vz" = (
 /obj/machinery/space_heater,
 /turf/open/floor/plating,
@@ -4827,7 +4827,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "VJ" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Security Office";
@@ -5161,7 +5161,7 @@
 /obj/structure/bed/dogbed/runtime,
 /mob/living/simple_animal/pet/cat/runtime,
 /turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
+/area/command/heads_quarters/cmo)
 "YC" = (
 /obj/structure/table,
 /obj/item/storage/firstaid/brute{

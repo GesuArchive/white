@@ -47,7 +47,7 @@
 /area/template_noop)
 "aW" = (
 /turf/closed/wall/r_wall,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "be" = (
 /turf/closed/wall/r_wall,
 /area/security/main)
@@ -61,7 +61,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bi" = (
 /obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/door/poddoor/preopen{
@@ -135,20 +135,20 @@
 	pixel_y = 34
 	},
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bB" = (
 /obj/machinery/computer/secure_data,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bC" = (
 /obj/machinery/computer/security/hos,
 /obj/structure/cable,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bD" = (
 /obj/machinery/modular_computer/console/preset/id,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bE" = (
 /obj/machinery/airalarm{
 	pixel_y = 23
@@ -161,7 +161,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/shotglass,
 /obj/item/reagent_containers/food/drinks/drinkingglass/shotglass,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bI" = (
 /obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/door/poddoor/preopen{
@@ -171,7 +171,7 @@
 /obj/structure/cable,
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bL" = (
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 1
@@ -207,7 +207,7 @@
 	},
 /obj/structure/table/wood,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bR" = (
 /obj/structure/chair/comfy/black,
 /obj/machinery/button/door{
@@ -218,15 +218,15 @@
 	req_access_txt = "3"
 	},
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bS" = (
 /obj/structure/cable,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bT" = (
 /obj/machinery/holopad/secure,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bU" = (
 /obj/machinery/keycard_auth{
 	pixel_x = 24;
@@ -237,7 +237,7 @@
 /obj/item/taperecorder,
 /obj/item/reagent_containers/food/drinks/flask/gold/soviet,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bV" = (
 /obj/structure/sign/warning/securearea{
 	pixel_y = -32
@@ -527,7 +527,7 @@
 /obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "ct" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green{
@@ -540,29 +540,29 @@
 	pixel_y = 7
 	},
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cu" = (
 /obj/structure/table/wood,
 /obj/item/folder/red,
 /obj/item/stamp/hos,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cv" = (
 /obj/item/book/manual/wiki/security_space_law,
 /obj/structure/table/wood,
 /obj/structure/cable,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cw" = (
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cx" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/machinery/suit_storage_unit/hos,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cA" = (
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 4
@@ -654,22 +654,22 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cQ" = (
 /obj/structure/chair{
 	dir = 1
 	},
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cR" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cS" = (
 /mob/living/simple_animal/pet/dog/shepherd,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cY" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -816,10 +816,10 @@
 	},
 /obj/structure/closet/secure_closet/hos,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "dn" = (
 /obj/machinery/power/apc{
-	areastring = "/area/crew_quarters/heads/hos";
+	areastring = "/area/command/heads_quarters/hos";
 	dir = 8;
 	name = "Head of Security's Office APC";
 	pixel_x = -25
@@ -830,7 +830,7 @@
 	},
 /obj/machinery/pdapainter/security,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "do" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -838,7 +838,7 @@
 	dir = 10
 	},
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "dp" = (
 /obj/machinery/light_switch{
 	pixel_y = -23
@@ -846,7 +846,7 @@
 /obj/effect/landmark/event_spawn,
 /obj/structure/cable,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "dv" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
@@ -976,13 +976,13 @@
 /obj/structure/disposalpipe/trunk,
 /obj/structure/cable,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "dX" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "dY" = (
 /obj/machinery/camera{
 	c_tag = "Security Escape Pod";
@@ -2726,7 +2726,7 @@
 	},
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/engine,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "ih" = (
 /obj/machinery/camera{
 	c_tag = "Brig Central";

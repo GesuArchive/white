@@ -300,8 +300,8 @@ GLOBAL_LIST_EMPTY(custom_shuttle_machines)		//Machines that require updating (He
 			overwritten_area = /area/space
 		else if(istype(place, /area/lavaland/surface/outdoors))
 			overwritten_area = /area/lavaland/surface/outdoors
-		else if(istype(place, /area/crew_quarters/electronic_marketing_den))
-			overwritten_area = /area/crew_quarters/electronic_marketing_den
+		else if(istype(place, /area/service/electronic_marketing_den))
+			overwritten_area = /area/service/electronic_marketing_den
 		else if(istype(place, /area/asteroid/generated))
 			overwritten_area = /area/asteroid/generated
 		else

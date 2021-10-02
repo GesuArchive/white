@@ -44,7 +44,7 @@
 	},
 /obj/machinery/pdapainter/security,
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bp" = (
 /obj/structure/closet/secure_closet/security/sec,
 /obj/effect/turf_decal/bot,
@@ -75,7 +75,7 @@
 	pixel_y = 23
 	},
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bt" = (
 /obj/machinery/status_display/evac{
 	pixel_x = -32;
@@ -85,13 +85,13 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bv" = (
 /obj/structure/chair/comfy/black,
 /obj/structure/cable,
@@ -102,13 +102,13 @@
 	dir = 6
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bC" = (
 /obj/structure/closet/bombcloset/security,
 /turf/open/floor/plasteel/showroomfloor,
@@ -131,15 +131,15 @@
 /obj/item/cartridge/detective,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bG" = (
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bH" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bI" = (
 /obj/structure/table/wood,
 /obj/item/stamp/hos,
@@ -147,7 +147,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bJ" = (
 /obj/item/phone{
 	desc = "Supposedly a direct line to Nanotrasen Central Command. It's not even plugged in.";
@@ -160,7 +160,7 @@
 	},
 /obj/structure/table/wood,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "bK" = (
 /obj/structure/sign/warning/securearea{
 	pixel_y = -32
@@ -358,16 +358,16 @@
 /obj/machinery/recharger,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cg" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "ch" = (
 /obj/structure/cable,
 /obj/machinery/holopad/secure,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "ci" = (
 /obj/structure/chair{
 	dir = 1
@@ -377,12 +377,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cj" = (
 /obj/structure/cable,
 /mob/living/simple_animal/hostile/retaliate/bat/sgt_araneus,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cp" = (
 /obj/effect/landmark/carpspawn,
 /turf/template_noop,
@@ -471,19 +471,19 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cy" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cz" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cD" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -493,7 +493,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cG" = (
 /obj/structure/closet/secure_closet/contraband/armory,
 /obj/effect/spawner/lootdrop/maintenance/three,
@@ -622,10 +622,10 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cS" = (
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "cT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
@@ -742,10 +742,10 @@
 /obj/structure/cable,
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "dv" = (
 /turf/closed/wall/r_wall,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "dw" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
@@ -1454,7 +1454,7 @@
 /obj/structure/cable,
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "fo" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3307,7 +3307,7 @@
 	c_tag = "Head of Security's Office"
 	},
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "tt" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -3316,11 +3316,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "ur" = (
 /obj/machinery/computer/prisoner/management,
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "uS" = (
 /obj/machinery/light{
 	dir = 4
@@ -3334,7 +3334,7 @@
 	},
 /obj/machinery/suit_storage_unit/hos,
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "wc" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -3350,7 +3350,7 @@
 /obj/structure/cable,
 /obj/item/reagent_containers/food/drinks/flask/gold/soviet,
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "Fi" = (
 /obj/machinery/status_display/evac{
 	pixel_x = 32;
@@ -3360,7 +3360,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "Hn" = (
 /obj/structure/table,
 /obj/item/stack/package_wrap,
@@ -3384,7 +3384,7 @@
 	dir = 1
 	},
 /turf/open/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "Oi" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -3394,7 +3394,7 @@
 	name = "space shutters"
 	},
 /turf/open/floor/plating,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "Ok" = (
 /obj/structure/table/wood,
 /obj/item/taperecorder{
@@ -3406,7 +3406,7 @@
 /obj/structure/cable,
 /obj/item/storage/box/deputy,
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "Po" = (
 /obj/structure/table,
 /obj/item/assembly/timer,
@@ -3415,7 +3415,7 @@
 "RG" = (
 /obj/machinery/computer/secure_data,
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "Sg" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -3431,7 +3431,7 @@
 "Vh" = (
 /obj/machinery/photocopier,
 /obj/machinery/power/apc{
-	areastring = "/area/crew_quarters/heads/hos";
+	areastring = "/area/command/heads_quarters/hos";
 	dir = 4;
 	name = "Head of Security's Office APC";
 	pixel_x = 24
@@ -3454,12 +3454,12 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "WN" = (
 /obj/machinery/computer/security/hos,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "XW" = (
 /obj/structure/table,
 /obj/item/restraints/handcuffs,
@@ -3475,7 +3475,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/crew_quarters/heads/hos)
+/area/command/heads_quarters/hos)
 "YS" = (
 /obj/structure/table,
 /obj/item/book/manual/wiki/security_space_law,
