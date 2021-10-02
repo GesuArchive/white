@@ -58,7 +58,7 @@
 			if(istype(A, /area/commons/storage) || istype(A, /area/maintenance))
 				tacmap_icon.DrawBox(rgb(70, 70, 70), xx, yy, xx, yy)
 				continue
-			if(istype(A, /area/commons/vacant_room) || istype(A, /area/tcommsat) || istype(A, /area/comms) || istype(A, /area/server) || istype(A, /area/solar) || istype(A, /area/engine))
+			if(istype(A, /area/commons/vacant_room) || istype(A, /area/tcommsat) || istype(A, /area/comms) || istype(A, /area/server) || istype(A, /area/solar) || istype(A, /area/engineering))
 				tacmap_icon.DrawBox(rgb(255, 145, 0), xx, yy, xx, yy)
 				continue
 	return tacmap_icon
