@@ -1736,6 +1736,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/brig)
+"ahr" = (
+/obj/effect/spawner/structure/window/plasma/reinforced,
+/turf/open/floor/plating,
+/area/maintenance/disposal/incinerator)
 "ahs" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "xeno4";
@@ -1887,7 +1891,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/machinery/vendor/exploration,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
 "ahS" = (
@@ -2256,9 +2259,8 @@
 "ajy" = (
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/structure/cable,
-/obj/machinery/door/airlock/mining/glass{
-	name = "Exploration Dock";
-	req_access_txt = "49"
+/obj/machinery/door/airlock/maintenance{
+	req_one_access_txt = "12;47"
 	},
 /turf/open/floor/plasteel/dark,
 /area/maintenance/department/electrical)
@@ -2295,7 +2297,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/effect/landmark/start/exploration,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
 "ajG" = (
@@ -26320,7 +26321,6 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /obj/effect/landmark/event_spawn,
-/obj/effect/landmark/start/exploration,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
 "cMw" = (
@@ -27054,17 +27054,13 @@
 /turf/open/floor/plasteel,
 /area/security/warden)
 "cZi" = (
-/obj/docking_port/stationary{
-	dir = 4;
-	dwidth = 5;
-	height = 7;
-	id = "exploration_home";
-	name = "NT SS13: Док Рейнджеров";
-	roundstart_template = /datum/map_template/shuttle/exploration;
-	width = 13
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/spider/stickyweb,
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
 	},
-/turf/open/floor/plating/asteroid/airless,
-/area/space/nearstation)
+/turf/open/floor/plasteel/dark,
+/area/maintenance/department/electrical)
 "cZn" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/turf_decal/delivery,
@@ -27898,9 +27894,6 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/service/kitchen)
 "dpI" = (
-/obj/machinery/door/airlock/external{
-	req_access_txt = "49"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
@@ -29259,7 +29252,6 @@
 /area/engineering/main)
 "dTz" = (
 /obj/machinery/status_display/ai/directional/south,
-/obj/machinery/suit_storage_unit/exploration,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
@@ -29671,6 +29663,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/aft)
+"ecc" = (
+/obj/effect/landmark/start/exploration,
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/maintenance/department/electrical)
 "ecj" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
@@ -41511,6 +41510,10 @@
 "iHI" = (
 /turf/closed/wall/rust,
 /area/cargo/storage)
+"iHO" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/maintenance/department/electrical)
 "iHR" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/airalarm/directional/south,
@@ -43108,6 +43111,12 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port)
+"jmb" = (
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/maintenance/department/electrical)
 "jmf" = (
 /obj/structure/sign/departments/security{
 	pixel_y = 32
@@ -47365,6 +47374,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/main)
+"kPg" = (
+/obj/effect/spawner/structure/window/plasma/reinforced,
+/turf/open/floor/plating,
+/area/engineering/atmos)
 "kPB" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/public/glass{
@@ -48085,6 +48098,17 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/aisat_interior)
+"lbJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/door/airlock/mining/glass{
+	name = "Exploration Dock";
+	req_access_txt = "49"
+	},
+/turf/open/floor/plasteel/dark,
+/area/maintenance/department/electrical)
 "lbY" = (
 /obj/structure/cable,
 /obj/machinery/light/small/directional/west,
@@ -53614,7 +53638,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/machinery/suit_storage_unit/exploration,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
@@ -53918,6 +53941,11 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating,
 /area/cargo/warehouse)
+"noM" = (
+/obj/machinery/suit_storage_unit/exploration,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel/dark,
+/area/maintenance/department/electrical)
 "noN" = (
 /obj/structure/table,
 /obj/effect/turf_decal/tile/neutral{
@@ -55030,7 +55058,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/effect/landmark/start/exploration,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
 "nNU" = (
@@ -56134,6 +56161,18 @@
 	},
 /turf/open/floor/wood,
 /area/command/heads_quarters/hos)
+"okR" = (
+/obj/docking_port/stationary{
+	dir = 4;
+	dwidth = 5;
+	height = 7;
+	id = "exploration_home";
+	name = "NT SS13: Док Рейнджеров";
+	roundstart_template = /datum/map_template/shuttle/exploration;
+	width = 13
+	},
+/turf/open/floor/plating/asteroid/airless,
+/area/space/nearstation)
 "okT" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/bed/roller,
@@ -58661,6 +58700,7 @@
 /area/ai_monitored/storage/satellite)
 "pim" = (
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible,
+/obj/effect/spawner/structure/window/plasma/reinforced,
 /turf/open/floor/plating/airless,
 /area/engineering/main)
 "piF" = (
@@ -58883,6 +58923,13 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/hop)
+"pmy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/maintenance/department/electrical)
 "pmJ" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -61393,6 +61440,20 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/commons/fitness/recreation)
+"qhk" = (
+/obj/machinery/door/airlock/external{
+	req_access_txt = "49"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/fans/tiny,
+/obj/structure/cable,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/maintenance/department/electrical)
 "qho" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -66301,9 +66362,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/spider/stickyweb,
-/obj/machinery/door/airlock/mining/glass{
-	name = "Exploration Dock";
-	req_access_txt = "49"
+/obj/machinery/door/airlock/maintenance{
+	req_one_access_txt = "12;47"
 	},
 /turf/open/floor/plasteel/dark,
 /area/maintenance/department/electrical)
@@ -66647,6 +66707,14 @@
 /obj/structure/disposalpipe/trunk,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/starboard)
+"sco" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/brown,
+/turf/open/floor/plasteel/dark,
+/area/maintenance/department/electrical)
 "scq" = (
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
@@ -69944,7 +70012,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/noticeboard/directional/south,
 /obj/structure/cable,
-/obj/machinery/suit_storage_unit/exploration,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
 "tuA" = (
@@ -71582,6 +71649,14 @@
 "tYw" = (
 /turf/closed/wall,
 /area/tcommsat/computer)
+"tYF" = (
+/obj/effect/landmark/start/exploration,
+/obj/structure/spider/stickyweb,
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/maintenance/department/electrical)
 "tYM" = (
 /obj/effect/turf_decal/tile/purple,
 /obj/effect/turf_decal/tile/purple{
@@ -74932,6 +75007,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/service/hydroponics)
+"vrw" = (
+/obj/machinery/vendor/exploration,
+/turf/open/floor/plasteel/dark,
+/area/maintenance/department/electrical)
 "vrU" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/tile/neutral{
@@ -107173,7 +107252,7 @@ aFI
 aeu
 xzv
 xzv
-tNt
+ahr
 xzv
 cFY
 acm
@@ -108201,7 +108280,7 @@ aFJ
 acm
 xzv
 xzv
-tNt
+ahr
 xzv
 cFY
 acm
@@ -108941,15 +109020,15 @@ bej
 bFa
 rko
 xHX
-wev
+kPg
 qwx
 idD
 xHX
-wev
+kPg
 mUT
 idD
 nvo
-wev
+kPg
 bvF
 idD
 acm
@@ -111268,7 +111347,7 @@ psO
 ekZ
 uRP
 acT
-wev
+kPg
 ieC
 mGu
 nGB
@@ -112296,7 +112375,7 @@ oYG
 iNb
 oKk
 vfO
-wev
+kPg
 oOf
 oCa
 oOf
@@ -113324,7 +113403,7 @@ tMH
 pEg
 oKk
 vfO
-wev
+kPg
 dxn
 nQl
 oNT
@@ -114352,7 +114431,7 @@ wCn
 pdM
 oKk
 vfO
-wev
+kPg
 ocW
 uhO
 wrb
@@ -123000,7 +123079,7 @@ age
 cLp
 bkd
 bkd
-bkd
+lbJ
 ava
 bkd
 bkd
@@ -123256,9 +123335,9 @@ afX
 agg
 abt
 bkd
-aeu
-aeu
-cLr
+tYF
+sco
+cLs
 ahP
 aoy
 ajA
@@ -123513,8 +123592,8 @@ avA
 abs
 ava
 ava
-aeu
-aeu
+ecc
+sco
 cLs
 ahQ
 mxD
@@ -123769,9 +123848,9 @@ bkd
 bkd
 ava
 bkd
-aeu
-aeu
-aeu
+vrw
+ecc
+sco
 cLs
 bjM
 cLH
@@ -124024,12 +124103,12 @@ aeu
 aeu
 aeu
 aeu
-aeu
-aeu
-aeu
-aeu
-aeu
-cLr
+cLs
+cZi
+pmy
+jmb
+sco
+cLs
 ahR
 dif
 ajF
@@ -124281,11 +124360,11 @@ aeu
 aeu
 aeu
 aeu
-aeu
-aeu
-aeu
-aeu
-aeu
+cLs
+noM
+noM
+noM
+sco
 cLs
 ahU
 bzt
@@ -124538,11 +124617,11 @@ aaa
 aaa
 aaa
 aeu
-aeu
-aeu
-aeu
-aeu
-aeu
+cLs
+iHO
+cLs
+cLs
+qhk
 cLs
 cLs
 dpI
@@ -124796,10 +124875,10 @@ aaa
 aaa
 aaa
 aeU
-aeu
 aeU
 aeU
 aeU
+okR
 aeU
 aeU
 aeU
@@ -125052,13 +125131,13 @@ aaa
 aaa
 aaa
 aaa
-aUz
 aeU
 aeU
 aeU
 aeU
 aeU
-cZi
+aeU
+aeU
 aeU
 aeU
 aeU
@@ -126340,7 +126419,7 @@ aaa
 aaa
 aaa
 aaa
-aUz
+aeU
 aeU
 aeU
 aeU
@@ -126598,10 +126677,10 @@ aaa
 aaa
 aaa
 aaa
-aeU
-aeU
-aeU
-aeU
+aeu
+aeu
+aeu
+aeu
 aeU
 aeU
 aeu
