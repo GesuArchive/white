@@ -142,7 +142,7 @@
 		var/list/safe_area_types = typecacheof(list(
 		/area/ai_monitored/turret_protected/ai,
 		/area/ai_monitored/turret_protected/ai_upload,
-		/area/engineering
+		/area/engineering,
 		/area/shuttle,
 		/area/science/test_area)
 		)

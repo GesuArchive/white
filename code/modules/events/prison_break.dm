@@ -9,7 +9,7 @@
 	endWhen = 20
 	var/list/area/areasToOpen = list()
 	var/list/potential_areas = list(/area/command,
-									/area/engineering
+									/area/engineering,
 									/area/medical,
 									/area/security,
 									/area/cargo,
