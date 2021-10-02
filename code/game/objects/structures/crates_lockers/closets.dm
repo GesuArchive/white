@@ -501,7 +501,7 @@
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
 	user.visible_message(span_warning("[capitalize(src.name)] начинает сильно трястись!") , \
-		span_notice("Упираюсь спиной в [src] и начинаете толкать дверь... (this will take about [DisplayTimeText(breakout_time)].)") , \
+		span_notice("Упираюсь спиной в [src] и начинаю толкать дверь... (это займёт примерно [DisplayTimeText(breakout_time)].)") , \
 		span_hear("Слышу стук от [src]."))
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src || opened || (!locked && !welded) )
