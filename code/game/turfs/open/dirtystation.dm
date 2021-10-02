@@ -38,7 +38,7 @@
 		return
 
 		//Construction zones. Blood, sweat, and oil.  Oh, and dirt.
-	var/static/list/engine_dirt_areas = typecacheof(list(/area/engineering
+	var/static/list/engine_dirt_areas = typecacheof(list(/area/engineering,
 														/area/command/heads_quarters/ce,
 														/area/science/robotics,
 														/area/maintenance,
