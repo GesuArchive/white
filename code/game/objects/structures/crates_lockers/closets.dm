@@ -117,7 +117,7 @@
 	if(opened)
 		. += "<hr><span class='notice'>Детали <b>сварены</b> вместе.</span>"
 	else if(secure && !opened)
-		. += "<hr><span class='notice'>Alt-лкм чтобы [locked ? "открыть" : "lock"].</span>"
+		. += "<hr><span class='notice'>Alt-лкм чтобы [locked ? "разблокировать" : "заблокировать"].</span>"
 	if(isliving(user))
 		var/mob/living/L = user
 		if(HAS_TRAIT(L, TRAIT_SKITTISH))
@@ -543,8 +543,9 @@
 			if(iscarbon(user))
 				add_fingerprint(user)
 			locked = !locked
-			user.visible_message(span_notice("[user] [locked ? "от" : "за"]крывает [src].") ,
-							span_notice("[locked ? "От" : "За"]крываю [src]."))
+			playsound(src, 'white/valtos/sounds/locker.ogg', 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+			user.visible_message(span_notice("[user] [locked ? "разблокирывает" : "блокирует"] [src].") ,
+							span_notice("[locked ? "Разблокирываю" : "Блокирую"] [src]."))
 			update_icon()
 		else if(!silent)
 			to_chat(user, span_alert("Доступ запрещён."))
@@ -554,9 +555,9 @@
 /obj/structure/closet/emag_act(mob/user)
 	if(secure && !broken)
 		if(user)
-			user.visible_message(span_warning("От [src] летят искры!") ,
-							span_warning("Вы взламываете защиту [src], взломать его!") ,
-							span_hear("Вы слышите слабое искрение."))
+			user.visible_message(span_warning("От [src.name] летят искры!") ,
+							span_warning("Взламываю защиту [src.name]!") ,
+							span_hear("Слышу слабое искрение."))
 		playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		broken = TRUE
 		locked = FALSE
