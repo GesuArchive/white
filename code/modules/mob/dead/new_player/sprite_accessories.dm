@@ -1088,7 +1088,7 @@
 
 /datum/sprite_accessory/hair/white/mediumbraid
 	name = "EX: Medium Braid"
-	icon_state = "hair_mediumbraid" 
+	icon_state = "hair_mediumbraid"
 
 /datum/sprite_accessory/hair/white/mentalist
 	name = "EX: Mentalist"
@@ -2210,7 +2210,7 @@
 	color_src = HAIR
 	icon = 'white/valtos/icons/mutant_bodyparts.dmi'
 
-/datum/sprite_accessory/tails_animated/human/fox
+/datum/sprite_accessory/tails_animated/human/oni
 	name = "Oni"
 	icon_state = "oni"
 	color_src = HAIR
