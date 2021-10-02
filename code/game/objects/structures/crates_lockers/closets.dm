@@ -501,8 +501,8 @@
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
 	user.visible_message(span_warning("[capitalize(src.name)] начинает сильно трястись!") , \
-		span_notice("Вы упираетесь спиной в [src] и начинаете толкать дверь... (this will take about [DisplayTimeText(breakout_time)].)") , \
-		span_hear("Вы слышите стук от [src]."))
+		span_notice("Упираюсь спиной в [src] и начинаете толкать дверь... (this will take about [DisplayTimeText(breakout_time)].)") , \
+		span_hear("Слышу стук от [src]."))
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src || opened || (!locked && !welded) )
 			return
@@ -543,9 +543,9 @@
 			if(iscarbon(user))
 				add_fingerprint(user)
 			locked = !locked
-			playsound(src, 'white/valtos/sounds/locker.ogg', 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-			user.visible_message(span_notice("[user] [locked ? "разблокирывает" : "блокирует"] [src].") ,
-							span_notice("[locked ? "Разблокирываю" : "Блокирую"] [src]."))
+			playsound(src, 'white/valtos/sounds/locker.ogg', 50, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
+			user.visible_message(span_notice("[user] [locked ? "блокирует" : "разблокирывает"] [src].") ,
+							span_notice("[locked ? "Блокирую" : "Разблокирываю"] [src]."))
 			update_icon()
 		else if(!silent)
 			to_chat(user, span_alert("Доступ запрещён."))
@@ -620,7 +620,7 @@
 	if(T1 == T2)
 		user.set_resting(TRUE) //so people can jump into crates without slamming the lid on their head
 		if(!close(user))
-			to_chat(user, span_warning("Вы не можете заставить [src] закрыться!"))
+			to_chat(user, span_warning("Не могу заставить [src] закрыться!"))
 			user.set_resting(FALSE)
 			return
 		user.set_resting(FALSE)
