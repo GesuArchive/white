@@ -39,6 +39,7 @@ It's like a regular ol' straight pipe, but you can turn it on and off.
 	SEND_SIGNAL(src, COMSIG_VALVE_SET_OPEN, to_open)
 	. = on
 	on = to_open
+	playsound(src, 'white/valtos/sounds/valve.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 	if(on)
 		update_icon_nopipes()
 		update_parents()

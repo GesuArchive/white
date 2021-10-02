@@ -543,7 +543,7 @@
 			if(iscarbon(user))
 				add_fingerprint(user)
 			locked = !locked
-			playsound(src, 'white/valtos/sounds/locker.ogg', 50, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
+			playsound(src, 'white/valtos/sounds/locker.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 			user.visible_message(span_notice("[user] [locked ? "блокирует" : "разблокирывает"] [src].") ,
 							span_notice("[locked ? "Блокирую" : "Разблокирываю"] [src]."))
 			update_icon()

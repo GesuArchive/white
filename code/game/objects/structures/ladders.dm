@@ -101,6 +101,9 @@
 
 	//reopening ladder radial menu ahead
 	T = get_turf(user)
+
+	playsound(T, 'white/valtos/sounds/ladder.ogg', 55, TRUE)
+
 	var/obj/structure/ladder/ladder_structure = locate() in T
 	if (ladder_structure)
 		ladder_structure.use(user)

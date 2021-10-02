@@ -7,6 +7,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	worn_icon = 'icons/mob/clothing/back.dmi' //since these can also get thrown into suit storage slots. if something goes on the belt, set this to null.
 	hitsound = 'sound/weapons/smash.ogg'
+	drop_sound = 'white/valtos/sounds/ballon_drop.ogg'
 	pressure_resistance = ONE_ATMOSPHERE * 5
 	force = 5
 	throwforce = 10

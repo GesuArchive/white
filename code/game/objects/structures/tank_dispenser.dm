@@ -64,7 +64,7 @@
 
 	if(!user.transferItemToLoc(I, src))
 		return
-	to_chat(user, span_notice("Вставляю [I] в [src]."))
+	to_chat(user, span_notice("Вставляю <b>[I]</b> в [src]."))
 	playsound(src, 'white/valtos/sounds/fucking.ogg', 50, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 	update_icon()
 
@@ -94,14 +94,14 @@
 			if(tank && Adjacent(usr))
 				usr.put_in_hands(tank)
 				plasmatanks--
-				playsound(src, 'white/valtos/sounds/fucking.ogg', 50, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
+				playsound(src, 'white/valtos/sounds/fucking.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 			. = TRUE
 		if("oxygen")
 			var/obj/item/tank/internals/oxygen/tank = locate() in src
 			if(tank && Adjacent(usr))
 				usr.put_in_hands(tank)
 				oxygentanks--
-				playsound(src, 'white/valtos/sounds/fucking.ogg', 50, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
+				playsound(src, 'white/valtos/sounds/fucking.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 			. = TRUE
 	update_icon()
 

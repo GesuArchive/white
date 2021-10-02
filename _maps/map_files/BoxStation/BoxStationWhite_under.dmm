@@ -259,7 +259,7 @@
 /area/ai_monitored/storage/eva)
 "aM" = (
 /turf/closed/wall/r_wall,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aN" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -467,7 +467,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "br" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
@@ -1450,7 +1450,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "eo" = (
 /obj/effect/turf_decal/siding/wideplating/dark/end{
 	dir = 1
@@ -2450,7 +2450,7 @@
 /area/maintenance/starboard/aft)
 "hx" = (
 /turf/closed/wall,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "hy" = (
 /obj/effect/turf_decal/trimline/green/filled/corner{
 	dir = 4
@@ -2649,7 +2649,7 @@
 	dir = 10
 	},
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "id" = (
 /obj/structure/lattice,
 /obj/machinery/camera{
@@ -3665,7 +3665,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "kQ" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating,
@@ -3836,7 +3836,7 @@
 "lp" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "lq" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "xenobio7";
@@ -4267,7 +4267,7 @@
 	pixel_y = 0
 	},
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "mw" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints/west)
@@ -4448,7 +4448,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "nb" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -4511,7 +4511,7 @@
 	dir = 8
 	},
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "ng" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4676,7 +4676,7 @@
 	dir = 6
 	},
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "nC" = (
 /turf/open/floor/plasteel/airless{
 	icon_state = "damaged5"
@@ -6039,7 +6039,7 @@
 "rz" = (
 /obj/structure/sign/warning/securearea,
 /turf/closed/wall/r_wall,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "rA" = (
 /obj/machinery/camera{
 	c_tag = "Arrivals Bay 1 North";
@@ -6562,7 +6562,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "sR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
@@ -7161,7 +7161,7 @@
 	},
 /obj/machinery/camera/autoname,
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "ux" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
@@ -9093,7 +9093,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "Ad" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -9484,7 +9484,7 @@
 	dir = 1
 	},
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "Bt" = (
 /turf/open/genturf,
 /area/maintenance/bottom_station_maints/north)
@@ -9658,7 +9658,7 @@
 	dir = 1
 	},
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "BV" = (
 /obj/structure/chair/stool,
 /turf/open/floor/carpet/purple,
@@ -11129,7 +11129,7 @@
 	dir = 8
 	},
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "GC" = (
 /turf/closed/wall,
 /area/maintenance/port/fore)
@@ -11747,7 +11747,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "Iq" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -11858,7 +11858,7 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/light,
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "IF" = (
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 1
@@ -11879,7 +11879,7 @@
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "II" = (
 /turf/closed/wall/r_wall,
 /area/security/prison)
@@ -12752,7 +12752,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "Li" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -13427,7 +13427,7 @@
 "Nm" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "Nn" = (
 /obj/machinery/door/airlock{
 	name = "Cleaning Closet"
@@ -15129,7 +15129,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "Sg" = (
 /obj/machinery/door/window/northleft{
 	base_state = "right";
@@ -15380,7 +15380,7 @@
 	dir = 5
 	},
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "SP" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -15839,7 +15839,7 @@
 /area/engineering/atmospherics_engine)
 "TY" = (
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "TZ" = (
 /obj/item/clothing/glasses/meson,
 /obj/item/flashlight,
@@ -16347,7 +16347,7 @@
 	dir = 9
 	},
 /turf/open/floor/engine,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "VF" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1

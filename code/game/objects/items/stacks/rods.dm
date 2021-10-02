@@ -35,6 +35,7 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	cost = 250
 	source = /datum/robot_energy_storage/iron
 	merge_type = /obj/item/stack/rods
+	drop_sound = 'white/valtos/sounds/rods_drop.ogg'
 
 /obj/item/stack/rods/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] начинает набивать <b>[src.name]</b> в свою глотку! Похоже, [user.p_theyre()] пытается совершить самоубийство!"))//it looks like theyre ur mum

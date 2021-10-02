@@ -1335,7 +1335,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "alv" = (
 /obj/structure/table/wood,
 /obj/item/ashtray,
@@ -6116,7 +6116,7 @@
 /area/commons/toilet)
 "aBa" = (
 /turf/closed/wall/r_wall,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aBb" = (
 /obj/item/assembly/mousetrap,
 /turf/open/floor/plating,
@@ -6309,7 +6309,7 @@
 	pixel_y = 28
 	},
 /turf/open/floor/circuit,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aBT" = (
 /obj/machinery/computer/bank_machine,
 /obj/effect/turf_decal/bot_white,
@@ -6324,17 +6324,17 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aBU" = (
 /obj/machinery/power/apc{
-	areastring = "/area/ai_monitored/nuke_storage";
+	areastring = "/area/ai_monitored/command/nuke_storage";
 	dir = 1;
 	name = "Vault APC";
 	pixel_y = 23
 	},
 /obj/structure/cable,
 /turf/open/floor/circuit,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aBV" = (
 /obj/machinery/airalarm{
 	pixel_y = 23
@@ -6344,7 +6344,7 @@
 	pixel_y = 0
 	},
 /turf/open/floor/circuit,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aBW" = (
 /obj/structure/filingcabinet,
 /obj/item/folder/documents,
@@ -6360,7 +6360,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aBZ" = (
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/tile/neutral{
@@ -6806,7 +6806,7 @@
 	dir = 10
 	},
 /turf/open/floor/circuit,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aDs" = (
 /obj/effect/turf_decal/bot_white/right,
 /obj/effect/turf_decal/tile/neutral{
@@ -6823,14 +6823,14 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aDt" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 6
 	},
 /turf/open/floor/circuit,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aDv" = (
 /obj/effect/turf_decal/bot_white/left,
 /obj/effect/turf_decal/tile/neutral{
@@ -6847,7 +6847,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aDw" = (
 /obj/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -7345,7 +7345,7 @@
 	dir = 5
 	},
 /turf/open/floor/circuit,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aEN" = (
 /obj/effect/turf_decal/bot_white/right,
 /obj/structure/closet/crate/goldcrate,
@@ -7360,14 +7360,14 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aEO" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 9
 	},
 /turf/open/floor/circuit,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aEP" = (
 /obj/effect/turf_decal/bot_white/left,
 /obj/structure/closet/crate/silvercrate,
@@ -7382,7 +7382,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aEQ" = (
 /obj/machinery/computer/gateway_control,
 /turf/open/floor/plasteel/monofloor,
@@ -7862,7 +7862,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aGb" = (
 /obj/effect/turf_decal/bot_white/right,
 /obj/machinery/ore_silo,
@@ -7877,7 +7877,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aGc" = (
 /obj/machinery/camera/motion{
 	c_tag = "Vault";
@@ -7892,7 +7892,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aGd" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -7902,7 +7902,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aGe" = (
 /obj/structure/safe,
 /obj/item/clothing/head/bearpelt,
@@ -7923,7 +7923,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aGf" = (
 /obj/machinery/firealarm{
 	dir = 8;
@@ -8442,7 +8442,7 @@
 "aHF" = (
 /obj/structure/sign/warning/securearea,
 /turf/closed/wall/r_wall,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aHG" = (
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door/airlock/vault{
@@ -8468,7 +8468,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aHH" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Dormitory"
@@ -37138,7 +37138,7 @@
 	dir = 6
 	},
 /turf/open/floor/circuit,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "lwb" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -37237,7 +37237,7 @@
 "lxI" = (
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "lxY" = (
 /obj/structure/showcase/cyborg/old{
 	dir = 4;
@@ -42743,7 +42743,7 @@
 /area/science/xenobiology)
 "sZI" = (
 /turf/open/openspace,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "tav" = (
 /turf/closed/wall,
 /area/commons/vacant_room/commissary)

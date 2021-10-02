@@ -5386,7 +5386,7 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "aMf" = (
 /obj/machinery/door/airlock/public/glass{
 	id_tag = "permabolt3";
@@ -39294,7 +39294,7 @@
 	},
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "eJR" = (
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/plasteel,
@@ -39869,7 +39869,7 @@
 /area/security/execution)
 "eQr" = (
 /turf/open/floor/circuit/green,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "eQB" = (
 /obj/machinery/requests_console/directional/north{
 	department = "Kitchen";
@@ -40798,7 +40798,7 @@
 	dir = 10
 	},
 /turf/open/floor/circuit/green,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "fbr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible{
 	dir = 4
@@ -48219,7 +48219,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "hpD" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
@@ -58524,7 +58524,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "kiB" = (
 /obj/structure/closet/secure_closet/engineering_personal,
 /obj/effect/decal/cleanable/dirt,
@@ -58658,7 +58658,7 @@
 	dir = 6
 	},
 /turf/open/floor/circuit/green,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "kle" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/plasteel/grimy,
@@ -58826,7 +58826,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "koI" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
@@ -62227,7 +62227,7 @@
 /area/cargo/qm)
 "lhY" = (
 /turf/closed/wall/r_wall,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "lia" = (
 /obj/machinery/telecomms/message_server/preset,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
@@ -68660,7 +68660,7 @@
 	dir = 5
 	},
 /turf/open/floor/circuit/green,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "mVN" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -71962,7 +71962,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "nKN" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/white,
@@ -72203,7 +72203,7 @@
 	dir = 10
 	},
 /turf/open/floor/circuit/green,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "nOX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -80571,7 +80571,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "pWU" = (
 /obj/effect/spawner/randomarcade,
 /obj/effect/turf_decal/tile/neutral{
@@ -80896,7 +80896,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "qaJ" = (
 /obj/machinery/light/small/directional/east,
 /obj/machinery/camera{
@@ -85407,7 +85407,7 @@
 "rgL" = (
 /obj/structure/cable,
 /turf/open/floor/circuit/green,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "rgQ" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
 /turf/open/floor/engine,
@@ -87612,7 +87612,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "rNz" = (
 /obj/structure/closet,
 /obj/effect/spawner/lootdrop/maintenance/two,
@@ -88285,7 +88285,7 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "rYJ" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/brown,
@@ -89912,7 +89912,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "suk" = (
 /obj/item/kirbyplants{
 	icon_state = "plant-21"
@@ -91053,7 +91053,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "sHV" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -99091,7 +99091,7 @@
 	},
 /obj/machinery/power/apc/auto_name/east,
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "uRC" = (
 /obj/structure/bonfire,
 /obj/item/reagent_containers/food/drinks/bottle/orangejuice{
@@ -100047,7 +100047,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "vgy" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -102869,7 +102869,7 @@
 	dir = 9
 	},
 /turf/open/floor/circuit/green,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "vUp" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -104720,7 +104720,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ai_monitored/nuke_storage)
+/area/ai_monitored/command/nuke_storage)
 "wuK" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/item/clothing/suit/jacket{

@@ -242,14 +242,14 @@
 	color = "#c6f4ff"
 
 /obj/effect/decal/cleanable/wrapping
-	name = "wrapping shreds"
-	desc = "Torn pieces of cardboard and paper, left over from a package."
+	name = "куча бумаги"
+	desc = "Куча бесполезных клочков бумаги. Кто-то намусорил!"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "paper_shreds"
 
 /obj/effect/decal/cleanable/garbage
-	name = "decomposing garbage"
-	desc = "A split open garbage bag, its stinking content seems to be partially liquified. Yuck!"
+	name = "разлагающийся мусор"
+	desc = "Что-то гниющее лежит на полу. Из этой кучи что-то вытекает..."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "garbage"
 	layer = OBJ_LAYER //To display the decal over wires.
@@ -261,8 +261,8 @@
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLUDGE, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 15)
 
 /obj/effect/decal/cleanable/ants
-	name = "space ants"
-	desc = "A small colony of space ants. They're normally used to the vacuum of space, so they can't climb too well."
+	name = "космические муравьи"
+	desc = "Небольшая колония космических муравьёв. Обычно они находятся в космосе без гравитации, поэтому не могут передвигаться далеко."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "spaceants"
 	beauty = -150
@@ -275,4 +275,9 @@
 	reagents.add_reagent(/datum/reagent/ants, rand(2, 5))
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
-	AddComponent(/datum/component/caltrop, min_damage = 0.2, max_damage = 1, flags = (CALTROP_NOCRAWL | CALTROP_NOSTUN | CALTROP_BYPASS_SHOES), soundfile = 'sound/weapons/bite.ogg')
+	var/memes = 1
+	if(prob(1))
+		name = "легендарные муравьи"
+		desc = "Небольшая колония космических муравьёв. Эти похоже были созданы из пластитана?"
+		memes = 25
+	AddComponent(/datum/component/caltrop, min_damage = 0.2, max_damage = memes, flags = (CALTROP_NOCRAWL | CALTROP_NOSTUN | CALTROP_BYPASS_SHOES), soundfile = 'sound/weapons/bite.ogg')
