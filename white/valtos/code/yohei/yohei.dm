@@ -351,6 +351,7 @@ GLOBAL_VAR(yohei_main_controller)
 
 	internal_radio = new /obj/item/radio(src)
 	internal_radio.listening = 0
+	internal_radio.independent = TRUE
 	internal_radio.set_frequency(FREQ_YOHEI)
 
 /obj/lab_monitor/yohei/Destroy(force)
