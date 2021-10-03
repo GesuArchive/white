@@ -260,9 +260,7 @@
 	R.set_frequency(FREQ_YOHEI)
 	R.freqlock = FALSE
 	R.independent = TRUE
-	if(GLOB.yohei_main_controller)
-		var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
-		ADD_TRAIT(H, TRAIT_YOHEI, JOB_TRAIT)
+	ADD_TRAIT(H, TRAIT_YOHEI, JOB_TRAIT)
 	spawn(1 SECONDS) // fucking
 		var/obj/item/card/id/yohei/Y = H.get_idcard(FALSE)
 		if(Y && H.mind)
