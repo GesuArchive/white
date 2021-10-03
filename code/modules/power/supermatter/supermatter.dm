@@ -377,7 +377,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	data["active"] = TRUE
 	data["SM_integrity"] = get_integrity_percent()
 	data["SM_power"] = power
-	data["SM_ambienttemp"] = air.temperature
+	data["SM_ambienttemp"] = air.return_temperature()
 	data["SM_ambientpressure"] = air.return_pressure()
 	data["SM_bad_moles_amount"] = MOLE_PENALTY_THRESHOLD / gasefficency
 	data["SM_moles"] = 0
@@ -389,15 +389,15 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 	if(air.total_moles())
 		data["SM_moles"] = air.total_moles()
-		for(var/gasid in air.gases)
+		for(var/gasid in air.get_gases())
 			gasdata.Add(list(list(
-			"name"= air.gases[gasid][GAS_META][META_GAS_NAME],
-			"amount" = round(100*air.gases[gasid][MOLES]/air.total_moles(),0.01))))
+			"name"= GLOB.meta_gas_info[gasid][META_GAS_NAME],
+			"amount" = round(100*air.get_moles(gasid)/air.total_moles(),0.01))))
 
 	else
-		for(var/gasid in air.gases)
+		for(var/gasid in air.get_gases())
 			gasdata.Add(list(list(
-				"name"= air.gases[gasid][GAS_META][META_GAS_NAME],
+				"name"= GLOB.meta_gas_info[gasid][META_GAS_NAME],
 				"amount" = 0)))
 
 	data["gases"] = gasdata
