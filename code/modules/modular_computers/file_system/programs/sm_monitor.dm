@@ -132,7 +132,7 @@
 
 		data += active.ui_data()
 		data["singlecrystal"] = FALSE
-		
+
 	else
 		var/list/SMS = list()
 		for(var/obj/machinery/power/supermatter_crystal/S in supermatters)

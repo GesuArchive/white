@@ -10,7 +10,7 @@ const logScale = (value) => Math.log2(16 + Math.max(0, value)) - 4;
 
 export const SupermatterMonitor = () => {
   return (
-    <Window width={600} height={350} theme="ntos" title="Supermatter Monitor">
+    <Window width={600} height={350} theme="ntos" title="Мониторинг суперматерии">
       <Window.Content scrollable>
         <SupermatterMonitorContent />
       </Window.Content>
@@ -46,15 +46,15 @@ export const SupermatterMonitorContent = (props, context) => {
       buttons={!singlecrystal && (
         <Button
           icon="arrow-left"
-          content="Back"
+          content="Назад"
           onClick={() => act('PRG_clear')}
         />
       )}>
       <Stack>
         <Stack.Item width="270px">
-          <Section title="Metrics">
+          <Section title="Метрика">
             <LabeledList>
-              <LabeledList.Item label="Integrity">
+              <LabeledList.Item label="Состояние">
                 <ProgressBar
                   value={SM_integrity / 100}
                   ranges={{
@@ -64,7 +64,7 @@ export const SupermatterMonitorContent = (props, context) => {
                   }}
                 />
               </LabeledList.Item>
-              <LabeledList.Item label="Relative EER">
+              <LabeledList.Item label="Относительный EER">
                 <ProgressBar
                   value={SM_power}
                   minValue={0}
@@ -74,10 +74,10 @@ export const SupermatterMonitorContent = (props, context) => {
                     average: [5000, 7000],
                     bad: [7000, Infinity],
                   }}>
-                  {toFixed(SM_power) + ' MeV/cm3'}
+                  {toFixed(SM_power) + ' MeV/см3'}
                 </ProgressBar>
               </LabeledList.Item>
-              <LabeledList.Item label="Temperature">
+              <LabeledList.Item label="Температура">
                 <ProgressBar
                   value={logScale(SM_ambienttemp)}
                   minValue={0}
@@ -91,7 +91,7 @@ export const SupermatterMonitorContent = (props, context) => {
                   {toFixed(SM_ambienttemp) + ' K'}
                 </ProgressBar>
               </LabeledList.Item>
-              <LabeledList.Item label="Total Moles">
+              <LabeledList.Item label="Всего молей">
                 <ProgressBar
                   value={logScale(SM_moles)}
                   minValue={0}
@@ -104,10 +104,10 @@ export const SupermatterMonitorContent = (props, context) => {
                     ],
                     bad: [logScale(SM_bad_moles_amount), Infinity],
                   }}>
-                  {toFixed(SM_moles) + ' moles'}
+                  {toFixed(SM_moles) + ' молей'}
                 </ProgressBar>
               </LabeledList.Item>
-              <LabeledList.Item label="Pressure">
+              <LabeledList.Item label="Давление">
                 <ProgressBar
                   value={logScale(SM_ambientpressure)}
                   minValue={0}
@@ -117,14 +117,14 @@ export const SupermatterMonitorContent = (props, context) => {
                     average: [-Infinity, logScale(1000)],
                     bad: [logScale(1000), +Infinity],
                   }}>
-                  {toFixed(SM_ambientpressure) + ' kPa'}
+                  {toFixed(SM_ambientpressure) + ' кПа'}
                 </ProgressBar>
               </LabeledList.Item>
             </LabeledList>
           </Section>
         </Stack.Item>
         <Stack.Item grow={1} basis={0}>
-          <Section title="Gases">
+          <Section title="Газы">
             <LabeledList>
               {gases.map((gas) => (
                 <LabeledList.Item key={gas.name} label={getGasLabel(gas.name)}>
@@ -150,11 +150,11 @@ const SupermatterList = (props, context) => {
   const { supermatters = [] } = data;
   return (
     <Section
-      title="Detected Supermatters"
+      title="Обнаруженные кристаллы"
       buttons={
         <Button
           icon="sync"
-          content="Refresh"
+          content="Обновить"
           onClick={() => act('PRG_refresh')}
         />
       }>
@@ -163,7 +163,7 @@ const SupermatterList = (props, context) => {
           <Table.Row key={sm.uid}>
             <Table.Cell>{sm.uid + '. ' + sm.area_name}</Table.Cell>
             <Table.Cell collapsing color="label">
-              Integrity:
+              Состояние:
             </Table.Cell>
             <Table.Cell collapsing width="120px">
               <ProgressBar
@@ -177,7 +177,7 @@ const SupermatterList = (props, context) => {
             </Table.Cell>
             <Table.Cell collapsing>
               <Button
-                content="Details"
+                content="Детали"
                 onClick={() =>
                   act('PRG_set', {
                     target: sm.uid,
