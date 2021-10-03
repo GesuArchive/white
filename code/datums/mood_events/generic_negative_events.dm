@@ -343,3 +343,8 @@
 	description = "<span class='boldwarning'>I have been excommunicated!</span>\n"
 	mood_change = -20
 	timeout = 10 MINUTES
+
+/datum/mood_event/killed_innocent
+	description = "<span class='warning'>Пришлось убить невинового...</span>\n"
+	mood_change = -50
+	timeout = 30 MINUTES

@@ -262,7 +262,6 @@
 	R.independent = TRUE
 	if(GLOB.yohei_main_controller)
 		var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
-		H.maxHealth = MAX_LIVING_HEALTH + LM.reputation[H.ckey]
 		ADD_TRAIT(H, TRAIT_YOHEI, JOB_TRAIT)
 	spawn(1 SECONDS) // fucking
 		var/obj/item/card/id/yohei/Y = H.get_idcard(FALSE)
@@ -276,7 +275,7 @@
 	belt = /obj/item/defibrillator/compact/combat/loaded
 	uniform = /obj/item/clothing/under/syndicate/yohei/blue
 
-	backpack_contents = list(/obj/item/pamk = 3, /obj/item/storage/firstaid/medical = 1, /obj/item/optable = 1)
+	backpack_contents = list(/obj/item/pamk = 3, /obj/item/storage/firstaid/medical = 1, /obj/item/optable = 1, /obj/item/reagent_containers/glass/blastoff_ampoule = 1)
 
 /datum/outfit/yohei/combatant
 	name = "Йохей: Боевик"
@@ -339,42 +338,20 @@ GLOBAL_VAR(yohei_main_controller)
 	var/datum/yohei_task/current_task = null
 	var/list/possible_tasks = list()
 	var/list/action_guys = list()
-	var/list/reputation = list()
 
 /obj/lab_monitor/yohei/Initialize()
 	. = ..()
 	for(var/path in subtypesof(/datum/yohei_task))
 		var/datum/yohei_task/T = path
 		possible_tasks += T
-	load_reputation()
 	GLOB.yohei_main_controller = src
 
-/obj/lab_monitor/yohei/proc/load_reputation()
-	var/json_file = file("data/yohei.json")
-	if(!fexists(json_file))
-		return
-	reputation = json_decode(file2text(json_file))
-
-/obj/lab_monitor/yohei/proc/clear_reputation()
-	var/json_file = file("data/yohei.json")
-	if(!fexists(json_file))
-		return
-	reputation = list()
-	WRITE_FILE(json_file, json_encode(reputation))
-
-/obj/lab_monitor/yohei/proc/adjust_reputation(keyto, amt = 0)
-	if(IsAdminAdvancedProcCall())
-		var/client/C = usr
-		C.holder.deactivate()
-		GLOB.de_admined.Add(C.ckey)
-		message_admins("[key_name_admin(C)] потерял все кнопки, лол!")
-		return
-	if(!keyto)
-		return
-	reputation[keyto] = min(50, max(-75, reputation[keyto] + amt))
-	var/json_file = file("data/yohei.json")
-	fdel(json_file)
-	WRITE_FILE(json_file, json_encode(reputation))
+/obj/lab_monitor/yohei/proc/is_this_target(mob/living/checkmob)
+	if(istype(current_task, /datum/yohei_task/kill))
+		var/datum/yohei_task/kill/KT = current_task
+		if(KT.target == checkmob)
+			return TRUE
+	return FALSE
 
 /obj/lab_monitor/yohei/attacked_by(obj/item/I, mob/living/user)
 	if(istype(I, /obj/item/pamk))
@@ -414,8 +391,6 @@ GLOBAL_VAR(yohei_main_controller)
 
 	if(current_task && current_task.check_task(user))
 		say("Задание выполнено. Награда в размере [current_task.prize] выдана. Получение следующего задания...")
-		for(var/keyto in reputation)
-			reputation[keyto] = reputation[keyto] + 2
 		for(var/mob/living/carbon/human/H in action_guys)
 			inc_metabalance(H, current_task.prize, reason = "Задание выполнено.")
 		action_guys = list()
@@ -435,8 +410,6 @@ GLOBAL_VAR(yohei_main_controller)
 		. += span_notice("<b>Задание:</b> [current_task.desc]")
 		. += "\n<span class='notice'><b>Награда:</b> [current_task.prize]</span>"
 		. += "\n<span class='notice'><b>Исполнители:</b> [english_list(action_guys)]</span>"
-		if(user?.ckey in reputation)
-			. += "\n\n<span class='notice'><b>Моя репутация:</b> [reputation[user.ckey]]</span>"
 
 /datum/yohei_task
 	var/desc = null
