@@ -357,7 +357,7 @@
 			"name" = design["name"],
 			"description" = design["desc"],
 			"materials" = get_material_cost_data(design["materials"]),
-			"categories" = list("Circuitry"),
+			"categories" = list("Схемотехника"),
 		)
 		index++
 

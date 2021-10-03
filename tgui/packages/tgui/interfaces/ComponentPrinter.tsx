@@ -4,7 +4,7 @@ import { Material, MaterialAmount, MaterialFormatting, Materials, MATERIAL_KEYS 
 import { Window } from '../layouts';
 import { Box, Button, Input, Section, Stack, Tabs } from '../components';
 
-const CATEGORY_ALL = "All";
+const CATEGORY_ALL = "Всё";
 
 const searchFor = searchText => createSearch(
   searchText,
@@ -12,7 +12,7 @@ const searchFor = searchText => createSearch(
 );
 
 const getCategory = (category: string[]) => {
-  return category[0] === "Circuitry" ? category[1] : category[0];
+  return category[0] === "Схемотехника" ? category[1] : category[0];
 };
 
 type Design = {
@@ -73,11 +73,11 @@ export const ComponentPrinter = (props, context) => {
   const [searchText, setSearchText] = useLocalState(context, "searchText", "");
 
   return (
-    <Window title="Component Printer" width={900} height={700}>
+    <Window title="Схемопринтер" width={900} height={700}>
       <Window.Content scrollable>
         <Stack vertical>
           <Stack.Item>
-            <Section title="Materials">
+            <Section title="Материалы">
               <Materials
                 materials={data.materials || []}
                 onEject={(ref, amount) => {
@@ -92,7 +92,7 @@ export const ComponentPrinter = (props, context) => {
           <Stack.Item>
             <Stack>
               <Stack.Item>
-                <Section title="Categories" fill>
+                <Section title="Категории" fill>
                   <Tabs vertical fill>
                     {Object.values(data.designs)
                       .reduce<string[]>((categories, design) => {
@@ -118,11 +118,11 @@ export const ComponentPrinter = (props, context) => {
               </Stack.Item>
 
               <Stack.Item basis="100%">
-                <Section title="Parts">
+                <Section title="Запчасти">
                   <Stack vertical>
                     <Stack.Item>
                       <Input
-                        placeholder="Search..."
+                        placeholder="Поиск..."
                         autoFocus
                         fluid
                         value={searchText}
@@ -148,7 +148,7 @@ export const ComponentPrinter = (props, context) => {
                                 }
                                 px={1.5}
                               >
-                                Print
+                                Печать
                               </Button>
                             )}>
                               <Box inline width="100%">

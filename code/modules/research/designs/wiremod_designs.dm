@@ -4,7 +4,7 @@
 	id = "integrated_circuit"
 	build_path = /obj/item/integrated_circuit
 	build_type = IMPRINTER | COMPONENT_PRINTER
-	category = list("Circuitry", "Core")
+	category = list("Схемотехника", "Ядро")
 	materials = list(/datum/material/glass = 1000, /datum/material/iron = 1000)
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -14,7 +14,7 @@
 	id = "circuit_multitool"
 	build_path = /obj/item/multitool/circuit
 	build_type = PROTOLATHE | COMPONENT_PRINTER
-	category = list("Circuitry", "Core")
+	category = list("Схемотехника", "Ядро")
 	materials = list(/datum/material/glass = 1000, /datum/material/iron = 1000)
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -24,7 +24,7 @@
 	id = "usb_cable"
 	build_path = /obj/item/usb_cable
 	build_type = PROTOLATHE | COMPONENT_PRINTER
-	category = list("Circuitry", "Core")
+	category = list("Схемотехника", "Ядро")
 	// Yes, it would make sense to make them take plastic, but then less people would make them, and I think they're cool
 	materials = list(/datum/material/iron = 2500)
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
@@ -35,7 +35,7 @@
 	build_type = IMPRINTER | COMPONENT_PRINTER
 	materials = list(/datum/material/glass = 1000)
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
-	category = list("Circuitry", "Components")
+	category = list("Схемотехника", "Компоненты")
 
 /datum/design/component/New()
 	. = ..()
@@ -44,67 +44,67 @@
 		desc = initial(component_path.desc)
 
 /datum/design/component/arithmetic
-	name = "Arithmetic Component"
+	name = "Arithmetic"
 	id = "comp_arithmetic"
 	build_path = /obj/item/circuit_component/arithmetic
 
 /datum/design/component/clock
-	name = "Clock Component"
+	name = "Clock"
 	id = "comp_clock"
 	build_path = /obj/item/circuit_component/clock
 
 /datum/design/component/comparison
-	name = "Comparison Component"
+	name = "Comparison"
 	id = "comp_comparison"
 	build_path = /obj/item/circuit_component/compare/comparison
 
 /datum/design/component/logic
-	name = "Logic Component"
+	name = "Logic"
 	id = "comp_logic"
 	build_path = /obj/item/circuit_component/compare/logic
 
 /datum/design/component/delay
-	name = "Delay Component"
+	name = "Delay"
 	id = "comp_delay"
 	build_path = /obj/item/circuit_component/delay
 
 /datum/design/component/index
-	name = "Index Component"
+	name = "Index"
 	id = "comp_index"
 	build_path = /obj/item/circuit_component/index
 
 /datum/design/component/length
-	name = "Length Component"
+	name = "Length"
 	id = "comp_length"
 	build_path = /obj/item/circuit_component/length
 
 /datum/design/component/light
-	name = "Light Component"
+	name = "Light"
 	id = "comp_light"
 	build_path = /obj/item/circuit_component/light
 
 /datum/design/component/not
-	name = "Not Component"
+	name = "Not"
 	id = "comp_not"
 	build_path = /obj/item/circuit_component/not
 
 /datum/design/component/random
-	name = "Random Component"
+	name = "Random"
 	id = "comp_random"
 	build_path = /obj/item/circuit_component/random
 
 /datum/design/component/species
-	name = "Get Species Component"
+	name = "Get Species"
 	id = "comp_species"
 	build_path = /obj/item/circuit_component/species
 
 /datum/design/component/speech
-	name = "Speech Component"
+	name = "Speech"
 	id = "comp_speech"
 	build_path = /obj/item/circuit_component/speech
 
 /datum/design/component/tostring
-	name = "To String Component"
+	name = "To String"
 	id = "comp_tostring"
 	build_path = /obj/item/circuit_component/tostring
 
@@ -114,102 +114,102 @@
 	build_path = /obj/item/circuit_component/tonumber
 
 /datum/design/component/typecheck
-	name = "Typecheck Component"
+	name = "Typecheck"
 	id = "comp_typecheck"
 	build_path = /obj/item/circuit_component/compare/typecheck
 
 /datum/design/component/concat
-	name = "Concatenation Component"
+	name = "Concatenation"
 	id = "comp_concat"
 	build_path = /obj/item/circuit_component/concat
 
 /datum/design/component/textcase
-	name = "Textcase Component"
+	name = "Textcase"
 	id = "comp_textcase"
 	build_path = /obj/item/circuit_component/textcase
 
 /datum/design/component/hear
-	name = "Voice Activator Component"
+	name = "Voice Activator"
 	id = "comp_hear"
 	build_path = /obj/item/circuit_component/hear
 
 /datum/design/component/contains
-	name = "String Contains Component"
+	name = "String Contains"
 	id = "comp_string_contains"
 	build_path = /obj/item/circuit_component/compare/contains
 
 /datum/design/component/self
-	name = "Self Component"
+	name = "Self"
 	id = "comp_self"
 	build_path = /obj/item/circuit_component/self
 
 /datum/design/component/radio
-	name = "Radio Component"
+	name = "Radio"
 	id = "comp_radio"
 	build_path = /obj/item/circuit_component/radio
 
 /datum/design/component/gps
-	name = "GPS Component"
+	name = "GPS"
 	id = "comp_gps"
 	build_path = /obj/item/circuit_component/gps
 
 /datum/design/component/direction
-	name = "Direction Component"
+	name = "Direction"
 	id = "comp_direction"
 	build_path = /obj/item/circuit_component/direction
 
 /datum/design/component/health
-	name = "Health Component"
+	name = "Health"
 	id = "comp_health"
 	build_path = /obj/item/circuit_component/health
 
 /datum/design/component/split
-	name = "Split Component"
+	name = "Split"
 	id = "comp_split"
 	build_path = /obj/item/circuit_component/split
 
 /datum/design/component/pull
-	name = "Pull Component"
+	name = "Pull"
 	id = "comp_pull"
 	build_path = /obj/item/circuit_component/pull
 
 /datum/design/component/soundemitter
-	name = "Sound Emitter Component"
+	name = "Sound Emitter"
 	id = "comp_soundemitter"
 	build_path = /obj/item/circuit_component/soundemitter
 
 /datum/design/component/mmi
-	name = "MMI Component"
+	name = "MMI"
 	id = "comp_mmi"
 	build_path = /obj/item/circuit_component/mmi
 
 /datum/design/component/router
-	name = "Router Component"
+	name = "Router"
 	id = "comp_router"
 	build_path = /obj/item/circuit_component/router
 
 /datum/design/component/multiplexer
-	name = "Multiplexer Component"
+	name = "Multiplexer"
 	id = "comp_multiplexer"
 	build_path = /obj/item/circuit_component/router/multiplexer
 
 /datum/design/component/get_column
-	name = "Get Column Component"
+	name = "Get Column"
 	id = "comp_get_column"
 	build_path = /obj/item/circuit_component/get_column
 
 /datum/design/component/index_table
-	name = "Index Table Component"
+	name = "Index Table"
 	id = "comp_index_table"
 	build_path = /obj/item/circuit_component/index_table
 
 /datum/design/component/concat_list
-	name = "Concatenate List Component"
+	name = "Concatenate List"
 	id = "comp_concat_list"
 	build_path = /obj/item/circuit_component/concat_list
 
 /datum/design/component/select_query
-	name = "Select Query Component"
+	name = "Select Query"
 	id = "comp_select_query"
 	build_path = /obj/item/circuit_component/select
 
@@ -219,55 +219,55 @@
 	build_path = /obj/item/circuit_component/pathfind
 
 /datum/design/component/tempsensor
-	name = "Temperature Sensor Component"
+	name = "Temperature Sensor"
 	id = "comp_tempsensor"
 	build_path = /obj/item/circuit_component/tempsensor
 
 /datum/design/component/pressuresensor
-	name = "Pressure Sensor Component"
+	name = "Pressure Sensor"
 	id = "comp_pressuresensor"
 	build_path = /obj/item/circuit_component/pressuresensor
 
 /datum/design/component/module
-	name = "Module Component"
+	name = "Module"
 	id = "comp_module"
 	build_path = /obj/item/circuit_component/module
 
 /datum/design/component/ntnet_receive
-	name = "Pressure NTNet Transmitter"
+	name = "NTNet Receiver"
 	id = "comp_ntnet_receive"
 	build_path = /obj/item/circuit_component/ntnet_receive
 
 /datum/design/component/ntnet_send
-	name = "NTNet Request Component"
+	name = "NTNet Transmitter"
 	id = "comp_ntnet_send"
 	build_path = /obj/item/circuit_component/ntnet_send
 
 /datum/design/component/list_literal
-	name = "List Literal Component"
+	name = "List Literal"
 	id = "comp_list_literal"
 	build_path = /obj/item/circuit_component/list_literal
 
 /datum/design/component/typecast
-	name = "Typecast Component"
+	name = "Typecast"
 	id = "comp_typecast"
 	build_path = /obj/item/circuit_component/typecast
 
 /datum/design/component/bci
-	category = list("Circuitry", "BCI Components")
+	category = list("Схемотехника", "BCI Components")
 
 /datum/design/component/bci/bci_action
-	name = "BCI Action Component"
+	name = "BCI Action"
 	id = "comp_bci_action"
 	build_path = /obj/item/circuit_component/bci_action
 
 /datum/design/component/bci/object_overlay
-	name = "Object Overlay Component"
+	name = "Object Overlay"
 	id = "comp_object_overlay"
 	build_path = /obj/item/circuit_component/object_overlay
 
 /datum/design/component/bci/bar_overlay
-	name = "Bar Overlay Component"
+	name = "Bar Overlay"
 	id = "comp_bar_overlay"
 	build_path = /obj/item/circuit_component/object_overlay/bar
 
@@ -277,66 +277,66 @@
 	build_path = /obj/item/circuit_component/target_intercept
 
 /datum/design/component/bci/counter_overlay
-	name = "Counter Overlay Component"
+	name = "Counter Overlay"
 	id = "comp_counter_overlay"
 	build_path = /obj/item/circuit_component/counter_overlay
 
 /datum/design/compact_remote_shell
-	name = "Compact Remote Shell"
+	name = "Compact Remote"
 	desc = "A handheld shell with one big button."
 	id = "compact_remote_shell"
 	build_path = /obj/item/compact_remote
 	materials = list(/datum/material/glass = 2000, /datum/material/iron = 5000)
 	build_type = PROTOLATHE | COMPONENT_PRINTER
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Оболочки")
 
 /datum/design/controller_shell
-	name = "Controller Shell"
+	name = "Controller"
 	desc = "A handheld shell with several buttons."
 	id = "controller_shell"
 	build_path = /obj/item/controller
 	build_type = PROTOLATHE | COMPONENT_PRINTER
 	materials = list(/datum/material/glass = 2000, /datum/material/iron = 7000)
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Оболочки")
 
 /datum/design/scanner_shell
-	name = "Scanner Shell"
+	name = "Scanner"
 	desc = "A handheld scanner shell that can scan entities."
 	id = "scanner_shell"
 	build_path = /obj/item/wiremod_scanner
 	build_type = PROTOLATHE | COMPONENT_PRINTER
 	materials = list(/datum/material/glass = 2000, /datum/material/iron = 7000)
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Оболочки")
 
 /datum/design/gun_shell
-	name = "Gun Shell"
+	name = "Gun"
 	desc = "A handheld shell that can fire projectiles to output entities."
 	id = "gun_shell"
 	build_path = /obj/item/gun/energy/wiremod_gun
 	build_type = PROTOLATHE | COMPONENT_PRINTER
 	materials = list(/datum/material/glass = 2000, /datum/material/iron = 10000, /datum/material/plasma = 100)
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Оболочки")
 
 /datum/design/bot_shell
-	name = "Bot Shell"
+	name = "Bot"
 	desc = "An immobile shell that can store more components. Has a USB port to be able to connect to computers and machines."
 	id = "bot_shell"
 	build_path = /obj/item/shell/bot
 	build_type = PROTOLATHE | COMPONENT_PRINTER
 	materials = list(/datum/material/glass = 2000, /datum/material/iron = 10000)
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Оболочки")
 
 /datum/design/money_bot_shell
-	name = "Money Bot Shell"
+	name = "Money Bot"
 	desc = "An immobile shell that is similar to a regular bot shell, but accepts monetary inputs and can also dispense money."
 	id = "money_bot_shell"
 	build_path = /obj/item/shell/money_bot
 	build_type = PROTOLATHE | COMPONENT_PRINTER
 	materials = list(/datum/material/glass = 2000, /datum/material/iron = 10000, /datum/material/gold = 50)
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Оболочки")
 
 /datum/design/drone_shell
-	name = "Drone Shell"
+	name = "Drone"
 	desc = "A shell with the ability to move itself around."
 	id = "drone_shell"
 	build_path = /obj/item/shell/drone
@@ -346,10 +346,10 @@
 		/datum/material/iron = 11000,
 		/datum/material/gold = 500,
 	)
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Оболочки")
 
 /datum/design/server_shell
-	name = "Server Shell"
+	name = "Server"
 	desc = "A very large shell that cannot be moved around. Stores the most components."
 	id = "server_shell"
 	materials = list(
@@ -359,10 +359,10 @@
 	)
 	build_path = /obj/item/shell/server
 	build_type = PROTOLATHE | COMPONENT_PRINTER
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Оболочки")
 
 /datum/design/airlock_shell
-	name = "Airlock Shell"
+	name = "Airlock"
 	desc = "A door shell that cannot be moved around when assembled."
 	id = "door_shell"
 	materials = list(
@@ -371,10 +371,10 @@
 	)
 	build_path = /obj/item/shell/airlock
 	build_type = PROTOLATHE | COMPONENT_PRINTER
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Оболочки")
 
 /datum/design/bci_shell
-	name = "Brain-Computer Interface Shell"
+	name = "Brain-Computer Interface"
 	desc = "An implant that can be placed in a user's head to control circuits using their brain."
 	id = "bci_shell"
 	materials = list(
@@ -383,10 +383,10 @@
 	)
 	build_path = /obj/item/shell/bci
 	build_type = PROTOLATHE | COMPONENT_PRINTER
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Оболочки")
 
 /datum/design/scanner_gate_shell
-	name = "Scanner Gate Shell"
+	name = "Scanner Gate"
 	desc = "A scanner gate shell that performs mid-depth scans on people when they pass through it."
 	id = "scanner_gate_shell"
 	materials = list(
@@ -395,7 +395,7 @@
 	)
 	build_path = /obj/item/shell/scanner_gate
 	build_type = PROTOLATHE | COMPONENT_PRINTER
-	category = list("Circuitry", "Shells")
+	category = list("Схемотехника", "Оболочки")
 
 /datum/design/board/bci_implanter
 	name = "Brain-Computer Interface Manipulation Chamber"
@@ -403,4 +403,4 @@
 	id = "bci_implanter"
 	build_path = /obj/item/circuitboard/machine/bci_implanter
 	build_type = IMPRINTER | COMPONENT_PRINTER
-	category = list("Circuitry", "Core")
+	category = list("Схемотехника", "Ядро")
