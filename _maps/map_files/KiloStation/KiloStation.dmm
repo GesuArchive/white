@@ -27987,12 +27987,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/service/chapel)
-"dqC" = (
-/obj/machinery/portable_atmospherics/canister,
-/obj/machinery/atmospherics/components/unary/portables_connector/visible,
-/obj/effect/turf_decal/box,
-/turf/open/floor/plasteel/dark,
-/area/engineering/atmos)
 "dqT" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -31457,10 +31451,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/hop)
-"eLC" = (
-/obj/structure/lattice,
-/turf/open/space,
-/area/engineering/main)
 "eLL" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -31508,10 +31498,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/ai_monitored/command/storage/eva)
-"eMe" = (
-/obj/structure/girder,
-/turf/open/floor/plating/airless,
-/area/engineering/main)
 "eMl" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -35010,9 +34996,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/machinery/atmospherics/components/trinary/filter/atmos{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold/violet/visible,
 /turf/open/floor/plasteel,
 /area/engineering/atmos)
 "ggd" = (
@@ -62897,10 +62881,8 @@
 /turf/open/floor/plasteel/grimy,
 /area/security/prison)
 "qJc" = (
-/obj/machinery/portable_atmospherics/canister,
-/obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /obj/effect/turf_decal/box,
-/obj/machinery/status_display/evac/directional/north,
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer,
 /turf/open/floor/plasteel/dark,
 /area/engineering/atmos)
 "qJj" = (
@@ -68904,7 +68886,7 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/plating/airless,
-/area/engineering/main)
+/area/space/nearstation)
 "sVj" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 4
@@ -111618,7 +111600,7 @@ tJc
 rfL
 xJT
 uCw
-dqC
+qJc
 yke
 dEq
 dXX
@@ -112132,7 +112114,7 @@ snB
 xmd
 uVC
 tth
-dqC
+qJc
 yke
 lcM
 dXX
@@ -120113,8 +120095,8 @@ efC
 efC
 gzJ
 sUB
-eLC
-eMe
+ckk
+aEg
 cnd
 cnu
 cnd
