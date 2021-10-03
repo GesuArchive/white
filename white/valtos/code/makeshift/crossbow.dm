@@ -247,5 +247,5 @@
 	name = "раскалённый металлический стержень"
 	icon = 'white/valtos/icons/crossbow.dmi'
 	icon_state = "e_rod_proj"
-	damage = 7
+	damage = 20
 	range = 20

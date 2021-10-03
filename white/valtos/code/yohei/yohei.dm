@@ -75,14 +75,14 @@
 	heat_protection = CHEST|GROIN|ARMS|LEGS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
-	armor = list(MELEE = 25, BULLET = 25, LASER = 25,ENERGY = 25, BOMB = 40, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
+	armor = list(MELEE = 45, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 40, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
 	hoodtype = /obj/item/clothing/head/hooded/yohei
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/big
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter, /obj/item/gun, /obj/item/pickaxe)
 
 /obj/item/clothing/head/hooded/yohei
 	name = "капюшон йохея"
-	desc = "Не даст башке замёрзнуть и защитит от огня."
+	desc = "Не даст башке замёрзнуть и защитит от большинства угроз."
 	icon_state = "yohei"
 	worn_icon = 'white/valtos/icons/clothing/mob/hat.dmi'
 	icon = 'white/valtos/icons/clothing/hats.dmi'
@@ -92,17 +92,19 @@
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEEYES
-	armor = list(MELEE = 25, BULLET = 25, LASER = 25,ENERGY = 25, BOMB = 40, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
+	armor = list(MELEE = 45, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 40, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
 
 /obj/item/shadowcloak/yohei
 	name = "генератор маскировки"
-	desc = "Делает невидимым на продолжительное время. Заряжается в темноте."
+	desc = "Делает невидимым на непродолжительное время. Заряжается в темноте."
 	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "cloak"
 	worn_icon = 'white/valtos/icons/clothing/mob/belt.dmi'
 	icon = 'white/valtos/icons/clothing/belts.dmi'
 	inhand_icon_state = "assaultbelt"
 	worn_icon_state = "cloak"
+	charge = 100
+	max_charge = 100
 
 /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
 	name = "пистолет Тиберия"
@@ -113,8 +115,8 @@
 	fire_sound = 'white/valtos/sounds/fallout/gunsounds/9mm/9mm2.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 8
-	extra_damage = 25
-	extra_penetration = 20
+	extra_damage = 30
+	extra_penetration = 25
 
 #define MODE_PAINKILLER "болеутоляющее"
 #define MODE_OXYLOSS "кислородное голодание"
@@ -263,6 +265,7 @@
 	ADD_TRAIT(H, TRAIT_YOHEI, JOB_TRAIT)
 	spawn(1 SECONDS) // fucking
 		var/obj/item/card/id/yohei/Y = H.get_idcard(FALSE)
+		H.mind?.adjust_experience(/datum/skill/ranged, SKILL_EXP_MASTER)
 		if(Y && H.mind)
 			Y.assigned_to = H.mind
 
@@ -333,6 +336,8 @@ GLOBAL_VAR(yohei_main_controller)
 /obj/lab_monitor/yohei
 	name = "Монитор исполнения"
 	desc = "Здесь выводятся задания. Стекло всё ещё выглядит не очень крепким..."
+
+	var/obj/item/radio/internal_radio
 	var/datum/yohei_task/current_task = null
 	var/list/possible_tasks = list()
 	var/list/action_guys = list()
@@ -343,6 +348,15 @@ GLOBAL_VAR(yohei_main_controller)
 		var/datum/yohei_task/T = path
 		possible_tasks += T
 	GLOB.yohei_main_controller = src
+
+	internal_radio = new /obj/item/radio(src)
+	internal_radio.listening = 0
+	internal_radio.set_frequency(FREQ_YOHEI)
+
+/obj/lab_monitor/yohei/Destroy(force)
+	. = ..()
+	QDEL_NULL(internal_radio)
+	GLOB.yohei_main_controller = null
 
 /obj/lab_monitor/yohei/proc/is_this_target(mob/living/checkmob)
 	if(istype(current_task, /datum/yohei_task/kill))
@@ -378,20 +392,19 @@ GLOBAL_VAR(yohei_main_controller)
 			return
 
 		if(choice == "Классическая охота")
-			say("Загружаю стандартное задание...")
+			internal_radio.talk_into(src, "Загружаю стандартное задание...", FREQ_YOHEI)
 			var/datum/yohei_task/new_task = pick(possible_tasks)
 			current_task = new new_task()
 			return
 		else
-			say("Загружаю особое задание...")
+			internal_radio.talk_into(src, "Загружаю особое задание...", FREQ_YOHEI)
 			current_task = new /datum/yohei_task/gamemode()
 			return
 
 	if(current_task && current_task.check_task(user))
-		say("Задание выполнено. Награда в размере [current_task.prize] выдана. Получение следующего задания...")
+		internal_radio.talk_into(src, "Задание выполнено. Награда в размере [current_task.prize] выдана. Получение следующего задания...", FREQ_YOHEI)
 		for(var/mob/living/carbon/human/H in action_guys)
 			inc_metabalance(H, current_task.prize, reason = "Задание выполнено.")
-		action_guys = list()
 		qdel(current_task)
 
 		var/datum/yohei_task/new_task = pick(possible_tasks)
@@ -399,7 +412,7 @@ GLOBAL_VAR(yohei_main_controller)
 
 	if(current_task && !(user in action_guys))
 		action_guys += user
-		say("[user.name] был добавлен в список исполнителей задания.")
+		internal_radio.talk_into(src, "[user.name] был добавлен в список исполнителей задания.", FREQ_YOHEI)
 
 /obj/lab_monitor/yohei/examine(mob/user)
 	. = ..()
