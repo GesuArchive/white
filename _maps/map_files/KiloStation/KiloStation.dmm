@@ -7737,6 +7737,9 @@
 	dir = 5
 	},
 /obj/machinery/power/apc/auto_name/east,
+/obj/machinery/embedded_controller/radio/airlock_controller/incinerator_toxmix{
+	pixel_y = 24
+	},
 /turf/open/floor/plasteel/showroomfloor,
 /area/science/mixing/chamber)
 "aMP" = (
@@ -10059,6 +10062,7 @@
 	desc = "A timeless classic.";
 	name = "Kentucky"
 	},
+/obj/machinery/igniter/incinerator_toxmix,
 /turf/open/floor/engine/vacuum,
 /area/science/mixing/chamber)
 "aXO" = (
@@ -10211,6 +10215,9 @@
 /obj/machinery/atmospherics/components/binary/pump,
 /obj/machinery/light/small/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/obj/machinery/airlock_sensor/incinerator_toxmix{
+	pixel_x = 24
+	},
 /turf/open/floor/engine,
 /area/science/mixing/chamber)
 "aYx" = (
@@ -11088,6 +11095,7 @@
 /area/science/mixing)
 "bbt" = (
 /obj/effect/decal/cleanable/blood/old,
+/obj/machinery/air_sensor/atmos/toxins_mixing_tank,
 /turf/open/floor/engine/vacuum,
 /area/science/mixing/chamber)
 "bbu" = (
@@ -11231,6 +11239,7 @@
 /area/science/mixing)
 "bca" = (
 /obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/door/airlock/research/glass/incinerator/toxmix_exterior,
 /turf/open/floor/engine,
 /area/science/mixing/chamber)
 "bcc" = (
@@ -20812,6 +20821,9 @@
 	dir = 4
 	},
 /obj/machinery/airalarm/directional/south,
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/science/mixing)
 "chj" = (
@@ -27713,6 +27725,10 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/module_duplicator,
+/obj/machinery/button/massdriver{
+	id = "toxinsdriver";
+	pixel_y = 24
+	},
 /turf/open/floor/plasteel/dark,
 /area/science/misc_lab)
 "dkX" = (
@@ -37737,6 +37753,19 @@
 /obj/effect/landmark/start/research_director,
 /turf/open/floor/plasteel/showroomfloor,
 /area/command/heads_quarters/rd)
+"hjc" = (
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/door/airlock/research/glass/incinerator/toxmix_interior,
+/obj/machinery/button/ignition/incinerator/toxmix{
+	pixel_x = -25;
+	pixel_y = -5
+	},
+/obj/machinery/button/door/incinerator_vent_toxmix{
+	pixel_x = -25;
+	pixel_y = 5
+	},
+/turf/open/floor/engine,
+/area/science/mixing/chamber)
 "hjk" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -38898,6 +38927,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/starboard/aft)
+"hJD" = (
+/obj/machinery/door/poddoor/incinerator_toxmix,
+/turf/open/floor/engine/vacuum,
+/area/science/mixing/chamber)
 "hJN" = (
 /obj/effect/turf_decal/stripes/corner,
 /obj/effect/turf_decal/stripes/corner{
@@ -46587,6 +46620,9 @@
 	dir = 4
 	},
 /obj/item/radio/intercom/directional/south,
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/science/mixing)
 "kAF" = (
@@ -60250,6 +60286,10 @@
 "pKd" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/poddoor{
+	id = "toxinsdriver";
+	name = "toxins launcher bay door"
+	},
 /turf/open/floor/plasteel/dark,
 /area/maintenance/starboard)
 "pKi" = (
@@ -60707,6 +60747,11 @@
 /area/engineering/main)
 "pSE" = (
 /obj/effect/turf_decal/delivery,
+/obj/structure/fans/tiny,
+/obj/machinery/door/poddoor{
+	id = "toxinsdriver";
+	name = "toxins launcher bay door"
+	},
 /turf/open/floor/plasteel/dark,
 /area/maintenance/starboard)
 "pSH" = (
@@ -74835,6 +74880,10 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/directional/west,
+/obj/machinery/mass_driver{
+	dir = 4;
+	id = "toxinsdriver"
+	},
 /turf/open/floor/plating,
 /area/science/misc_lab)
 "vnR" = (
@@ -124386,7 +124435,7 @@ bkd
 cNC
 ava
 acm
-baX
+hJD
 aXK
 baX
 bbX
@@ -124643,12 +124692,12 @@ aim
 bjs
 cNY
 acK
-baX
+hJD
 aXN
 bbt
 bca
 bbD
-bca
+hjc
 aYn
 oBN
 uyz
@@ -124900,7 +124949,7 @@ kuB
 aim
 cNg
 acm
-baX
+hJD
 baq
 bbw
 hct
