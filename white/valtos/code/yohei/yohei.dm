@@ -78,7 +78,7 @@
 	armor = list(MELEE = 45, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 40, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
 	hoodtype = /obj/item/clothing/head/hooded/yohei
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/big
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter, /obj/item/gun, /obj/item/pickaxe)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter, /obj/item/gun, /obj/item/pickaxe, /obj/item/cat_hook)
 
 /obj/item/clothing/head/hooded/yohei
 	name = "капюшон йохея"
@@ -250,6 +250,8 @@
 	suit = /obj/item/clothing/suit/hooded/yohei
 	id = /obj/item/card/id/yohei
 
+	suit_store = /obj/item/cat_hook
+
 	r_pocket = /obj/item/flashlight/seclite
 	l_pocket = /obj/item/pamk
 
@@ -283,11 +285,10 @@
 
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	belt = /obj/item/shadowcloak/yohei
-	suit_store = /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
 	uniform = /obj/item/clothing/under/syndicate/yohei/red
 	r_pocket = /obj/item/ammo_box/magazine/fallout/m9mm
 
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic/contractor_baton = 1, /obj/item/restraints/handcuffs/energy = 2)
+	backpack_contents = list(/obj/item/melee/classic_baton/telescopic/contractor_baton = 1, /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm = 1, /obj/item/restraints/handcuffs/energy = 2)
 
 /datum/outfit/yohei/breaker
 	name = "Йохей: Взломщик"
@@ -324,7 +325,6 @@
 
 	glasses = /obj/item/clothing/glasses/meson/night
 	belt = /obj/item/shadowcloak/yohei
-	suit_store = /obj/item/pickaxe/mini
 	uniform = /obj/item/clothing/under/syndicate/yohei/green
 	r_pocket = /obj/item/stack/rods/twentyfive
 	back = /obj/item/gun/ballistic/crossbow/energy
@@ -691,7 +691,7 @@ GLOBAL_VAR(yohei_main_controller)
 			assignedrole = "Yohei: Prospector"
 	if(user.ckey)
 		var/datum/donator/D = get_donator(user.ckey)
-		if(D)
+		if(D && D.money >= 1250)
 			D.money -= 1250
 			var/client/C = GLOB.directory[user.ckey]
 			if(C?.prefs)
@@ -751,3 +751,76 @@ GLOBAL_VAR(yohei_main_controller)
 	desc = "Весьма важный путеводитель."
 	icon_state = "stealthmanual"
 	dat = "<center><h1>Положения кодекса</h1></center><i>«Прошу Вас судить обо мне по врагам, которых я приобрёл.»</i></br> — Франклин Делано Рузвельт.<ul><li>Никому не верь, но используй всех.</li><li>Наемник всегда готов отправиться куда угодно и встретить любую опасность.</li><li>Никаких друзей, никаких врагов. Только союзники и противники.</li><li>Всегда будь вежлив с клиентом.</li><li>Наемник никогда не жалуется.</li><li>Наемник не имеет привязанностей.</li><li>Жизнь растет на смерти.</li><li>Меняй распорядок. Шаблон — это ловушка.</li><li>Никогда не привлекай к себе внимания.</li><li>Не говори больше нужного.</li><li>Будь вежлив всегда. Особенно с врагами.</li><li>Тот, кто нанимает мою руку, нанимает всего меня.</li><li>Делай то, чего боишься больше всего, и обретешь храбрость.</li><li>Воображение — главное оружие воина.</li><li>Наемник никогда не отвлекается на общую картину. Мелочи играют главную роль.</li><li>Никогда не говори всю правду, торгуясь.</li><li>Услуга — это инвестиция.</li><li>Деньги — это сила.</li><li>Будь осторожен в любой ситуации.</li><li>Если ты должен умереть, сделай это с честью.</li></ul><b>Следуя данному кодексу Вы в полном праве можете называть себя Йохеем.</b> <i>Наверное.</i>"
+
+/obj/item/cat_hook
+	name = "кошкокрюк"
+	desc = "Элегантный инструмент для внезапного прониковения и исчезновения. Достаточно лишь понять куда им можно выстрелить."
+	icon = 'white/valtos/icons/objects.dmi'
+	icon_state = "cat_hook"
+	inhand_icon_state = "smg10mm"
+	worn_icon_state = "gun"
+	lefthand_file = 'white/valtos/icons/fallout/guns_lefthand.dmi'
+	righthand_file = 'white/valtos/icons/fallout/guns_righthand.dmi'
+	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = ITEM_SLOT_SUITSTORE | ITEM_SLOT_BELT
+
+/obj/item/cat_hook/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	. = ..()
+	if(.)
+		return
+
+	if(!target || !user)
+		return
+
+	if(!proximity_flag)
+		return
+
+	if(!HAS_TRAIT(user, TRAIT_YOHEI))
+		if(do_after(user, 1 SECONDS, target = user))
+			user.visible_message(span_warning("[user] стреляет себе в ногу!"),
+				span_userdanger("Успешно стреляю себе в ногу..."))
+			var/mob/living/carbon/human/thinky = user
+			thinky.apply_damage(30, BRUTE, pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG), wound_bonus = CANT_WOUND)
+			playsound(get_turf(user), 'white/valtos/sounds/cathit.ogg', 60)
+		return
+
+	if(isturf(target))
+		var/turf/T = target
+		var/turf/picked
+		if(isopenspace(T))
+			T = SSmapping.get_turf_below(get_turf(T))
+		if(isspaceturf(T))
+			if(do_after(user, 5 SECONDS, target = T))
+				if(is_station_level(T.z))
+					picked = pick(GLOB.yohei_beacons)
+					to_chat(user, span_notice("Успешно нацеливаюсь на наш корабль..."))
+				else
+					picked = pick(GLOB.blobstart)
+					to_chat(user, span_notice("Успешно нацеливаюсь на станцию..."))
+				if(do_after(user, 1 SECONDS, target = T))
+					to_chat(user, span_notice("Произвожу выстрел..."))
+					playsound(get_turf(user), 'white/valtos/sounds/catlaunch.ogg', 90)
+					if(do_after(user, 10 SECONDS, target = T))
+						if(prob(75))
+							to_chat(user, span_reallybig("ЕСТЬ!"))
+							playsound(get_turf(user), 'white/valtos/sounds/cathit.ogg', 60)
+							if(do_after(user, 5 SECONDS, target = T))
+								var/mob/living/carbon/human/H = user
+								var/atom/movable/AM
+								if(H.pulling)
+									AM = H.pulling
+									AM.forceMove(picked)
+									to_chat(AM, span_danger("Ох..."))
+								for(var/mob/M in H.buckled_mobs)
+									M.forceMove(picked)
+									to_chat(M, span_danger("Ох..."))
+								H.forceMove(picked)
+								H.adjustStaminaLoss(100)
+								to_chat(user, span_notice("Вот я и на месте!"))
+								return
+						else
+							to_chat(user, span_reallybig("МИМО!"))
+							return
+		else
+			to_chat(user, span_danger("Не получится здесь. Нужен космос."))
+	return

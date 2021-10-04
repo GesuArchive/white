@@ -1,6 +1,6 @@
 /obj/item/discovery_scanner
 	name = "нюхер"
-	desc = "Используется учёными для сканирования различных артифактов и неизвестных форм жизни."
+	desc = "Используется учёными для сканирования различных артефактов и неизвестных форм жизни."
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "nuher"
 	inhand_icon_state = "electronic"
