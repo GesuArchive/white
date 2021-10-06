@@ -30,6 +30,8 @@
 		/obj/item/reagent_containers/hypospray/medipen/survival/luxury = 5
 	)
 
+	rpg_title = "Бегущий за трупом"
+
 /datum/outfit/job/paramedic
 	name = "Paramedic"
 	jobtype = /datum/job/paramedic

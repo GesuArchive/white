@@ -27,6 +27,8 @@
 		/obj/item/clothing/head/hardhat/red/upgraded = 1
 	)
 
+	rpg_title = "Кристалломант"
+
 /datum/outfit/job/engineer
 	name = "Station Engineer"
 	jobtype = /datum/job/station_engineer

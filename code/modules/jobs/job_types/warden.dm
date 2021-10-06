@@ -35,6 +35,8 @@
 		/obj/item/storage/box/lethalshot = 5
 	)
 
+	rpg_title = "Тюремщик"
+
 /datum/outfit/job/warden
 	name = "Warden"
 	jobtype = /datum/job/warden

@@ -29,6 +29,8 @@
 		/obj/item/borg/upgrade/ai = 2
 	)
 
+	rpg_title = "Архимагистр"
+
 /datum/job/research_director/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()
 	if(announce_captaincy)

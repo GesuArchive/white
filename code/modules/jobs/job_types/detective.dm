@@ -36,6 +36,8 @@
 		/obj/item/storage/belt/holster/detective/full = 1
 	)
 
+	rpg_title = "Ловец воров"
+
 /datum/outfit/job/detective
 	name = "Detective"
 	jobtype = /datum/job/detective

@@ -28,6 +28,7 @@
 		/obj/item/stack/sheet/mineral/uranium = 5
 	)
 
+	rpg_title = "Чумной доктор"
 
 /datum/outfit/job/virologist
 	name = "Virologist"

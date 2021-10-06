@@ -30,6 +30,8 @@
 		/obj/item/stack/sheet/bone = 5
 	)
 
+	rpg_title = "Квестодатель гильдии"
+
 /datum/job/head_of_personnel/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()
 	if(announce_captaincy)

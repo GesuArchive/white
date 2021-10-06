@@ -23,6 +23,8 @@
 		/obj/item/gun/syringe = 1
 	)
 
+	rpg_title = "Продавец змеиного яда"
+
 /datum/outfit/job/psychologist
 	name = "Psychologist"
 	jobtype = /datum/job/psychologist

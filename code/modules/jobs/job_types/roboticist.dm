@@ -24,6 +24,8 @@
 		/obj/item/modular_computer/tablet/preset/advanced = 5
 	)
 
+	rpg_title = "Некромант"
+
 /datum/outfit/job/roboticist
 	name = "Roboticist"
 	jobtype = /datum/job/roboticist

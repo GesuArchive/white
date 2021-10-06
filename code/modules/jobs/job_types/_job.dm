@@ -80,6 +80,10 @@
 	/// Should this job be allowed to be picked for the bureaucratic error event?
 	var/allow_bureaucratic_error = TRUE
 
+	///RPG job names, for the memes
+	var/rpg_title
+
+
 /datum/job/New()
 	. = ..()
 	var/list/jobs_changes = get_map_changes()

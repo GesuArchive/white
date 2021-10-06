@@ -29,6 +29,8 @@
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 10
 	)
 
+	rpg_title = "Звездный герцог"
+
 /datum/job/captain/announce(mob/living/carbon/human/H, announce_captaincy = TRUE)
 	..()
 	if(announce_captaincy)

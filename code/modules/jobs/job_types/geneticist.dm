@@ -22,6 +22,8 @@
 		/obj/item/storage/box/monkeycubes = 10
 	)
 
+	rpg_title = "Геномансер"
+
 /datum/outfit/job/geneticist
 	name = "Geneticist"
 	jobtype = /datum/job/geneticist
