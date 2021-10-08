@@ -3,6 +3,11 @@
 	id = "fly"
 	say_mod = "жужжит"
 	species_traits = list(NOEYESPRITES,HAS_FLESH,HAS_BONE)
+	inherent_traits = list(
+		TRAIT_ADVANCEDTOOLUSER,
+		TRAIT_CAN_STRIP,
+		TRAIT_CAN_USE_FLIGHT_POTION,
+	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BUG
 	meat = /obj/item/food/meat/slab/human/mutant/fly
 	disliked_food = CLOTH
