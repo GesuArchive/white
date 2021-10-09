@@ -100,7 +100,7 @@
 
 			if(success(user, target, target_zone, tool, surgery))
 				if(user.mind)
-					var/total_experience_gain = 1 + fail_prob
+					var/total_experience_gain = 10 + fail_prob
 					if(repeatable)
 						total_experience_gain *= 0.5
 					user.mind.adjust_experience(/datum/skill/surgery, total_experience_gain)
