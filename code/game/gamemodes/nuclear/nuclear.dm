@@ -164,7 +164,8 @@
 	glasses = /obj/item/clothing/glasses/night
 	mask = /obj/item/clothing/mask/gas/syndicate
 	suit = /obj/item/clothing/suit/space/hardsuit/syndi
-	r_pocket = /obj/item/tank/internals/emergency_oxygen/engi
+	suit_store = /obj/item/tank/internals/tactical
+//	r_pocket = /obj/item/tank/internals/emergency_oxygen/engi	//замена на тактик
 	internals_slot = ITEM_SLOT_RPOCKET
 	belt = /obj/item/storage/belt/military
 	r_hand = /obj/item/gun/ballistic/shotgun/bulldog

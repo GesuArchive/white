@@ -3957,6 +3957,8 @@
 #include "white\Feline\code\med\designes.dm"
 #include "white\Feline\code\med\equipment.dm"
 #include "white\Feline\code\med\tools.dm"
+#include "white\Feline\code\rangers\designes.dm"
+#include "white\Feline\code\rangers\equipment.dm"
 #include "white\fogmann\donations.dm"
 #include "white\fogmann\fogmann.dm"
 #include "white\fogmann\fogmann2.dm"

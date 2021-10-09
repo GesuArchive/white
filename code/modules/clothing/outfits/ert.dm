@@ -30,7 +30,7 @@
 
 	id = /obj/item/card/id/advanced/centcom/ert
 	suit = /obj/item/clothing/suit/space/hardsuit/ert
-	suit_store = /obj/item/gun/energy/e_gun
+	suit_store = /obj/item/tank/internals/tactical/e_gun //тактик
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	back = /obj/item/storage/backpack/ert
 	belt = /obj/item/storage/belt/security/full
@@ -61,7 +61,7 @@
 
 	id = /obj/item/card/id/advanced/centcom/ert/security
 	suit = /obj/item/clothing/suit/space/hardsuit/ert/sec
-	suit_store = /obj/item/gun/energy/e_gun/stun
+	suit_store = /obj/item/tank/internals/tactical/e_gun_taser //тактик
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	back = /obj/item/storage/backpack/ert/security
@@ -93,10 +93,10 @@
 
 	id = /obj/item/card/id/advanced/centcom/ert/medical
 	suit = /obj/item/clothing/suit/space/hardsuit/ert/med
-	suit_store = /obj/item/gun/energy/e_gun
+	suit_store = /obj/item/tank/internals/tactical/e_gun //тактик
 	glasses = /obj/item/clothing/glasses/hud/health
 	back = /obj/item/storage/backpack/ert/medical
-	belt = /obj/item/storage/belt/medical
+	belt = /obj/item/storage/belt/medical/ert
 	l_hand = /obj/item/storage/firstaid/regular
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
 		/obj/item/reagent_containers/hypospray/combat=1,\
@@ -128,7 +128,7 @@
 
 	id = /obj/item/card/id/advanced/centcom/ert/engineer
 	suit = /obj/item/clothing/suit/space/hardsuit/ert/engi
-	suit_store = /obj/item/gun/energy/e_gun
+	suit_store = /obj/item/tank/internals/tactical/e_gun //тактик
 	glasses =  /obj/item/clothing/glasses/meson/engine
 	back = /obj/item/storage/backpack/ert/engineer
 	belt = /obj/item/storage/belt/utility/full
@@ -200,7 +200,7 @@
 	name = "Охранник Инвизиторов"
 
 	suit = /obj/item/clothing/suit/space/hardsuit/ert/paranormal/inquisitor
-	suit_store = /obj/item/gun/energy/e_gun/stun
+	suit_store = /obj/item/tank/internals/tactical/e_gun_taser //тактик
 
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,
 		/obj/item/storage/box/handcuffs=1,
@@ -220,7 +220,7 @@
 	name = "Капеллан ERT"
 
 	suit = /obj/item/clothing/suit/space/hardsuit/ert/paranormal/inquisitor // Chap role always gets this suit
-	suit_store = /obj/item/gun/energy/e_gun
+	suit_store = /obj/item/tank/internals/tactical/e_gun //тактик
 	id = /obj/item/card/id/advanced/centcom/ert/chaplain
 	glasses = /obj/item/clothing/glasses/hud/health
 	back = /obj/item/storage/backpack/cultpack
@@ -431,7 +431,7 @@
 	id_trim = /datum/id_trim/centcom/deathsquad
 	uniform = /obj/item/clothing/under/rank/centcom/commander
 	suit = /obj/item/clothing/suit/space/hardsuit/deathsquad
-	suit_store = /obj/item/tank/internals/emergency_oxygen/double
+	suit_store = /obj/item/tank/internals/tactical //тактик
 	back = /obj/item/storage/backpack/security
 	backpack_contents = list(
 		/obj/item/ammo_box/a357 = 1,

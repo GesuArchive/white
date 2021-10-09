@@ -51,3 +51,16 @@
 /obj/item/medbot_carrier/proc/release()
 	for(var/atom/movable/M in contents)
 		M.forceMove(get_turf(loc))
+
+//Мед пояс для ЕРТ
+
+/obj/item/storage/belt/medical/ert
+
+/obj/item/storage/belt/medical/ert/PopulateContents()
+	new /obj/item/surgical_drapes(src)
+	new /obj/item/scalpel/advanced(src)
+	new /obj/item/retractor/advanced(src)
+	new /obj/item/cautery/advanced(src)
+	new /obj/item/bonesetter/advanced(src)
+	new /obj/item/healthanalyzer/advanced(src)
+

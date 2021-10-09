@@ -1047,7 +1047,12 @@
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/syndicate/eva)
 "cf" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/item/tank/internals/tactical,
+/obj/item/tank/internals/tactical,
+/obj/item/tank/internals/tactical,
+/obj/item/tank/internals/tactical,
+/obj/item/tank/internals/tactical,
+/obj/structure/table/reinforced,
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4

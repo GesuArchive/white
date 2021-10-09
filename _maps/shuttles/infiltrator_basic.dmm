@@ -396,7 +396,12 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/syndicate/airlock)
 "aU" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/item/tank/internals/tactical,
+/obj/item/tank/internals/tactical,
+/obj/item/tank/internals/tactical,
+/obj/item/tank/internals/tactical,
+/obj/item/tank/internals/tactical,
+/obj/structure/table/reinforced,
 /obj/machinery/light{
 	dir = 4
 	},
