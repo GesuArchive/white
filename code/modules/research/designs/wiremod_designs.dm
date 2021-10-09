@@ -301,6 +301,17 @@
 	id = "comp_counter_overlay"
 	build_path = /obj/item/circuit_component/counter_overlay
 
+/datum/design/component/foreach
+	name = "For Each Component"
+	id = "comp_foreach"
+	build_path = /obj/item/circuit_component/foreach
+
+/datum/design/component/filter_list
+	name = "Filter List Component"
+	id = "comp_filter_list"
+	build_path = /obj/item/circuit_component/foreach
+
+
 /datum/design/compact_remote_shell
 	name = "Пульт"
 	desc = "Портативная оболочка с одной большой кнопкой. Используется для приема по удаленной связи входных данных от оболочки. <b>Используйте оболочку в руке</b>, чтобы отправить выходной сигнал."
@@ -410,6 +421,18 @@
 	construction_time = 40
 	category = list("Схемотехника", "Оболочки", "Интегральные схемы")
 	sub_category = list("Оболочки")
+
+/datum/design/dispenser_shell
+	name = "Dispenser Shell"
+	desc = "A dispenser shell that can dispense items."
+	id = "dispenser_shell"
+	materials = list(
+		/datum/material/glass = 5000,
+		/datum/material/iron = 15000,
+	)
+	build_path = /obj/item/shell/dispenser
+	build_type = PROTOLATHE | COMPONENT_PRINTER
+	category = list("Circuitry", "Shells")
 
 /datum/design/bci_shell
 	name = "Интерфейс человек-компьютер (ИЧМ)"

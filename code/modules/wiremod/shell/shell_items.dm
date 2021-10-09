@@ -58,6 +58,11 @@
 	shell_to_spawn = /obj/machinery/door/airlock/shell
 	screw_delay = 10 SECONDS
 
+/obj/item/shell/dispenser
+	name = "circuit dispenser assembly"
+	icon_state = "setup_drone_arms-open"
+	shell_to_spawn = /obj/structure/dispenser_bot
+
 /obj/item/shell/bci
 	name = "сборка интерфейса человек-компьютер (ИЧМ)"
 	desc = "Имплантат, который может быть помещен в голову пользователя для отправки управляющих сигналов."
