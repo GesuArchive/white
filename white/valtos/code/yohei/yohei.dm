@@ -103,8 +103,21 @@
 	icon = 'white/valtos/icons/clothing/belts.dmi'
 	inhand_icon_state = "assaultbelt"
 	worn_icon_state = "cloak"
-	charge = 100
-	max_charge = 100
+	charge = 400
+	max_charge = 400
+
+/obj/item/shadowcloak/yohei/process(delta_time)
+	if(user.get_item_by_slot(ITEM_SLOT_BELT) != src)
+		Deactivate()
+		return
+	var/turf/T = get_turf(src)
+	if(on)
+		var/lumcount = T.get_lumcount()
+		if(lumcount > 0.3)
+			charge = max(0, charge - 25 * delta_time)//Quick decrease in light
+		else
+			charge = min(max_charge, charge + 30 * delta_time) //Charge in the dark
+		animate(user,alpha = clamp(255 - charge,0,255),time = 10)
 
 /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
 	name = "пистолет Тиберия"

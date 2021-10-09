@@ -199,6 +199,11 @@ effective or pretty fucking useless.
 	var/old_alpha = 0
 	actions_types = list(/datum/action/item_action/toggle)
 
+
+/obj/item/shadowcloak/examine(mob/user)
+	. = ..()
+	. += "<hr><span class='notice'><b>Заряд</b>: [charge]/[max_charge]</span>"
+
 /obj/item/shadowcloak/ui_action_click(mob/user)
 	if(user.get_item_by_slot(ITEM_SLOT_BELT) == src)
 		if(!on)
