@@ -1,35 +1,38 @@
 GLOBAL_VAR_INIT(exploration_points, 0)
 
 /obj/machinery/vendor/exploration
-	name = "раздатчик рейнджеров"
+	name = "Торговый автомат рейнджеров"
 	desc = "Различное оборудование для команды исследователей глубин космоса. Очки добываются за выполнение миссий и разделяются между исследователями."
-	icon = 'icons/obj/machines/mining_machines.dmi'
-	icon_state = "mining"
+	icon = 'white/Feline/icons/rangers_vendor.dmi'
+	icon_state = "rangers"
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/exploration_equipment_vendor
 
-	icon_deny = "mining-deny"
+	icon_deny = "rangers-deny"
 	prize_list = list(
-		new /datum/data/vendor_equipment("1 Marker Beacon",				/obj/item/stack/marker_beacon,										50),
-		new /datum/data/vendor_equipment("10 Marker Beacons",			/obj/item/stack/marker_beacon/ten,									300),
-		new /datum/data/vendor_equipment("30 Marker Beacons",			/obj/item/stack/marker_beacon/thirty,								500),
-		new /datum/data/vendor_equipment("Survival Medipen",			/obj/item/reagent_containers/hypospray/medipen/survival,			2000),
-		new /datum/data/vendor_equipment("Brute Healing Kit",			/obj/item/storage/firstaid/brute,									3000),
-		new /datum/data/vendor_equipment("Burn Healing Kit",			/obj/item/storage/firstaid/fire,									3000),
-		new /datum/data/vendor_equipment("Advanced Healing Kit",		/obj/item/storage/firstaid/advanced,								5000),
-		new /datum/data/vendor_equipment("Explorer's Webbing",			/obj/item/storage/belt/mining,										2000),
-		new /datum/data/vendor_equipment("Breaching Charge",			/obj/item/grenade/exploration,										1000),
-		new /datum/data/vendor_equipment("Charge Detonator",			/obj/item/exploration_detonator,									10000),
-		new /datum/data/vendor_equipment("Multi-Purpose Energy Gun",	/obj/item/gun/energy/e_gun/mini/exploration,						20000),
-		new /datum/data/vendor_equipment("Expanded E. Oxygen Tank",		/obj/item/tank/internals/emergency_oxygen/engi,						1000),
-		new /datum/data/vendor_equipment("Survival Knife",				/obj/item/kitchen/knife/combat/survival,							1000),
-		new /datum/data/vendor_equipment("Pizza",						/obj/item/pizzabox/margherita,										200),
-		new /datum/data/vendor_equipment("Whiskey",						/obj/item/reagent_containers/food/drinks/bottle/whiskey,			1000),
-		new /datum/data/vendor_equipment("Absinthe",					/obj/item/reagent_containers/food/drinks/bottle/absinthe/premium,	1000),
-		new /datum/data/vendor_equipment("Cigar",						/obj/item/clothing/mask/cigarette/cigar/havana,						1500),
-		new /datum/data/vendor_equipment("Soap",						/obj/item/soap/nanotrasen,											2000),
-		new /datum/data/vendor_equipment("Laser Pointer",				/obj/item/laser_pointer,											3000),
-		new /datum/data/vendor_equipment("Toy Alien",					/obj/item/clothing/mask/facehugger/toy,								3000),
+		new /datum/data/vendor_equipment("Световой маячок 1 шт.",		/obj/item/stack/marker_beacon,										50),
+		new /datum/data/vendor_equipment("Световой маячок 10 шт.",		/obj/item/stack/marker_beacon/ten,									300),
+		new /datum/data/vendor_equipment("Световой маячок 30 шт.",		/obj/item/stack/marker_beacon/thirty,								500),
+		new /datum/data/vendor_equipment("Чрезвычайный медипен",		/obj/item/reagent_containers/hypospray/medipen/survival,			2000),
+		new /datum/data/vendor_equipment("Аптечка травматологическая",	/obj/item/storage/firstaid/brute,									3000),
+		new /datum/data/vendor_equipment("Аптечка противоожоговая",		/obj/item/storage/firstaid/fire,									3000),
+		new /datum/data/vendor_equipment("Продвинутая аптечка",			/obj/item/storage/firstaid/advanced,								5000),
+		new /datum/data/vendor_equipment("Разгрузка исследователя",		/obj/item/storage/belt/mining,										2000),
+		new /datum/data/vendor_equipment("Пробивной заряд",				/obj/item/grenade/exploration,										1000),
+		new /datum/data/vendor_equipment("Радио-детонатор",				/obj/item/exploration_detonator,									5000),
+		new /datum/data/vendor_equipment("Энергопистолет рейнджера",	/obj/item/gun/energy/e_gun/mini/exploration,						5000),
+		new /datum/data/vendor_equipment("Расширенный баллон",			/obj/item/tank/internals/emergency_oxygen/engi,						1000),
+		new /datum/data/vendor_equipment("Нож выживальщика",			/obj/item/kitchen/knife/combat/survival,							1000),
+		new /datum/data/vendor_equipment("Пицца Маргарита",				/obj/item/pizzabox/margherita,										200),
+		new /datum/data/vendor_equipment("Виски",						/obj/item/reagent_containers/food/drinks/bottle/whiskey,			1000),
+		new /datum/data/vendor_equipment("Абсцент",						/obj/item/reagent_containers/food/drinks/bottle/absinthe/premium,	1000),
+		new /datum/data/vendor_equipment("Сигара",						/obj/item/clothing/mask/cigarette/cigar/havana,						1500),
+		new /datum/data/vendor_equipment("Мыло",						/obj/item/soap/nanotrasen,											2000),
+		new /datum/data/vendor_equipment("Лазерная указка",				/obj/item/laser_pointer,											3000),
+		new /datum/data/vendor_equipment("Игрушечный лицехват",			/obj/item/clothing/mask/facehugger/toy,								3000),
+		new /datum/data/vendor_equipment("Набор рейнджера-медика",		/obj/item/storage/backpack/duffelbag/rangers/med,					10000),
+		new /datum/data/vendor_equipment("Набор рейнджера-инженера",	/obj/item/storage/backpack/duffelbag/rangers/engi,					10000),
+		new /datum/data/vendor_equipment("Набор рейнджера-боевика",		/obj/item/storage/backpack/duffelbag/rangers/gunner,				10000)
 	)
 
 /obj/machinery/vendor/exploration/subtract_points(obj/item/card/id/I, amount)

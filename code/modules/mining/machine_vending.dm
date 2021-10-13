@@ -255,9 +255,9 @@
 /**********************Mining Equipment Voucher**********************/
 
 /obj/item/mining_voucher
-	name = "mining voucher"
-	desc = "A token to redeem a piece of equipment. Use it on a mining equipment vendor."
-	icon = 'icons/obj/mining.dmi'
+	name = "Шахтерский Ваучер"
+	desc = "Талончик, который вы можете обменять на согласованные с ЦК наборы снаряжения. Для использования вставьте его в приемник шахтерского торгового автомата."
+	icon = 'white/Feline/icons/voucher_duffelbag.dmi'
 	icon_state = "mining_voucher"
 	w_class = WEIGHT_CLASS_TINY
 

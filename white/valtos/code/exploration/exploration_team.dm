@@ -18,7 +18,7 @@
 	bounty_types = CIV_JOB_MINE
 
 	metalocked = TRUE
-
+/*
 /datum/job/exploration/equip(mob/living/carbon/human/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source)
 	if(outfit_override)
 		return ..()
@@ -40,7 +40,7 @@
 			to_chat(H, span_notice("Установка взрывчатки и починка корпуса - моя обязанность."))
 			outfit_override = /datum/outfit/job/exploration/engineer
 	. = ..(H, visualsOnly, announce, latejoin, outfit_override, preference_source)
-
+*/
 /datum/outfit/job/exploration
 	name = "Exploration Crew"
 	jobtype = /datum/job/exploration
@@ -51,19 +51,21 @@
 	gloves = /obj/item/clothing/gloves/color/black
 	uniform = /obj/item/clothing/under/rank/cargo/exploration
 	backpack_contents = list(
-		/obj/item/kitchen/knife/combat/survival=1,\
+		/obj/item/kitchen/knife/combat/survival=1,
+		/obj/item/discovery_scanner=1,
+		/obj/item/rangers_voucher=1,
 		/obj/item/stack/marker_beacon/thirty=1)
 	l_pocket = /obj/item/gps/mining/exploration
 	r_pocket = /obj/item/gun/energy/e_gun/mini/exploration
 
 	backpack = /obj/item/storage/backpack/explorer
 	satchel = /obj/item/storage/backpack/satchel/explorer
-	duffelbag = /obj/item/storage/backpack/duffelbag
+	duffelbag = /obj/item/storage/backpack/duffelbag/rangers
 
 	id_trim = /datum/id_trim/job/exploration
 
 	chameleon_extras = /obj/item/gun/energy/e_gun/mini/exploration
-
+/*
 /datum/outfit/job/exploration/engineer
 	name = "Exploration Crew (Engineer)"
 
@@ -115,9 +117,9 @@
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
-
+*/
 /datum/outfit/job/exploration/hardsuit
 	name = "Exploration Crew (Hardsuit)"
 	suit = /obj/item/clothing/suit/space/hardsuit/exploration
-	suit_store = /obj/item/tank/internals/emergency_oxygen/double
+	suit_store = /obj/item/tank/internals/tactical
 	mask = /obj/item/clothing/mask/breath
