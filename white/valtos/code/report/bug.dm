@@ -69,3 +69,5 @@ GLOBAL_LIST_INIT(bug_downs, load_bug_downs())
 
 	to_chat(src, span_notice("Успех!"))
 	message_admins("[key_name_admin(usr)] отправляет в гитхаб сообщение [what_we_should_say].")
+
+	remove_verb(usr, /client/verb/report_a_bug)
