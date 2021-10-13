@@ -463,7 +463,9 @@
 			addtimer(CALLBACK(src, .proc/clear_from_recent_examines, A), EXAMINE_MORE_TIME)
 			handle_eye_contact(A)
 		else
-			result = A.examine_more(src)
+			result = examinify.examine_more(src)
+			if(!length(result))
+				result += span_notice("<i>You examine [examinify] closer, but find nothing of interest...</i>")
 	else
 		result = A.examine(src) // if a tree is examined but no client is there to see it, did the tree ever really exist?
 
