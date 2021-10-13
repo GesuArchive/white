@@ -2,7 +2,7 @@
 	name = "миниатюрный Е-Ган Рейнджера"
 	desc = "Маленькая энергетическая пушка размером с пистолет со встроенным фонариком. У него есть два режима: убить и бурить."
 	pin = /obj/item/firing_pin/off_station
-	ammo_type = list(/obj/item/ammo_casing/energy/laser/anti_creature, /obj/item/ammo_casing/energy/laser/cutting)
+	ammo_type = list(/obj/item/ammo_casing/energy/laser/pve, /obj/item/ammo_casing/energy/laser/cutting)
 
 /obj/item/gun/energy/e_gun/mini/exploration/emag_act(mob/user)
 	. = ..()
@@ -17,7 +17,7 @@
 	obj_flags |= EMAGGED
 
 //Anti-creature - Extra damage against simplemobs
-
+/*
 /obj/item/ammo_casing/energy/laser/anti_creature
 	projectile_type = /obj/projectile/beam/laser/anti_creature
 	select_name = "убить"
@@ -28,12 +28,36 @@
 	tracer_type = /obj/effect/projectile/tracer/laser
 	muzzle_type = /obj/effect/projectile/muzzle/laser
 	impact_type = /obj/effect/projectile/impact/laser
+*/
 
-/obj/projectile/beam/laser/anti_creature/on_hit(atom/target, blocked)
+/obj/item/ammo_casing/energy/laser/pve
+	projectile_type = /obj/projectile/beam/pve
+	select_name = "убить"
+	e_cost = 40
+
+/obj/projectile/beam/pve
+	damage = 30		//В ПВП урон ниже
+	tracer_type = /obj/effect/projectile/tracer/laser
+	muzzle_type = /obj/effect/projectile/muzzle/laser
+	impact_type = /obj/effect/projectile/impact/laser
+	wound_bonus = -30
+	bare_wound_bonus = 40
+
+/obj/projectile/beam/pve/on_hit(atom/target, blocked = FALSE)
+	if(iscarbon(target))
+		damage = 15
+	if(issilicon(target))
+		damage = 15
+	if(isalienadult(target))
+		damage = 30
+
+/*
+/obj/projectile/beam/laser/anti_creature/on_hit(atom/target, blocked) // Не работает
 	damage = initial(damage)
 	if(!iscarbon(target) && !issilicon(target))
 		damage = 30
 	. = ..()
+*/
 
 //Cutting projectile - Damage against objects
 

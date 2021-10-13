@@ -385,7 +385,7 @@
 	worn_icon = 'white/pieceofcrap.dmi'
 	icon_state = "rangerhelm"
 	inhand_icon_state = "helmet"
-	armor = list(MELEE = 40, BULLET = 60, LASER = 10, ENERGY = 10, BOMB = 40, BIO = 0, RAD = 0, FIRE = 50, ACID = 50, WOUND = 5)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0, WOUND = 0)
 	strip_delay = 80
 	can_flashlight = FALSE
 
@@ -396,7 +396,16 @@
 	icon_state = "ranger"
 	worn_icon = 'white/pieceofcrap.dmi'
 	inhand_icon_state = "greatcoat"
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0, WOUND = 0)
 	strip_delay = 80
+
+/obj/item/clothing/suit/armor/hos/ranger/Initialize()
+	. = ..()
+	AddComponent(/datum/component/armor_plate_plasteel)
+
+/obj/item/clothing/head/helmet/alt/ranger/Initialize()
+	. = ..()
+	AddComponent(/datum/component/armor_plate_plasteel)
 
 /datum/crafting_recipe/rangerhelm
 	name = "шлем рейнджера НКР"

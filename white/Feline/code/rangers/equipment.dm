@@ -129,6 +129,8 @@
 			icon_state = "kinetic"
 		if(istype(I,/obj/item/gun/energy/laser))
 			icon_state = "laser"
+		if(istype(I,/obj/item/gun/energy/laser/rangers))
+			icon_state = "rangerlaser"
 		if(istype(I,/obj/item/gun/energy/laser/captain))
 			icon_state = "cap"
 		if(istype(I,/obj/item/gun/energy/e_gun))

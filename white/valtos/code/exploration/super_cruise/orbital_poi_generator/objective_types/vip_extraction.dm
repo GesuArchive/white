@@ -77,7 +77,7 @@
 //=====================
 
 /datum/outfit/centcom_official_vip
-	name = "Centcom VIP"
+	name = "VIP Centcom"
 
 	uniform = /obj/item/clothing/under/rank/centcom/officer
 	shoes = /obj/item/clothing/shoes/sneakers/black
@@ -104,7 +104,7 @@
 	greentext_reward = 25
 
 /datum/outfit/vip_dictator
-	name = "Dictator VIP"
+	name = "VIP Dictator"
 
 	uniform = /obj/item/clothing/under/rank/security/head_of_security
 	suit = /obj/item/clothing/suit/armor/hos
@@ -126,16 +126,24 @@
 //=====================
 
 /datum/outfit/greytide
-	name = "Greytide"
+	name = "VIP Greytide"
 
-	uniform = /obj/item/clothing/under/color/random
+	uniform = /obj/item/clothing/under/color/grey/ancient
 	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/laceup
-	gloves = /obj/item/clothing/gloves/color/yellow
 	ears = /obj/item/radio/headset
 	glasses = /obj/item/clothing/glasses/sunglasses
-	belt = /obj/item/storage/belt/utility/full/engi
+	belt = /obj/item/storage/belt/bandolier/greytide
+	l_pocket = /obj/item/clothing/gloves/color/yellow
+	r_pocket = /obj/item/gps
 	id = /obj/item/card/id
 	head = /obj/item/clothing/head/helmet
-	l_hand = /obj/item/melee/baton/loaded
-	r_hand = /obj/item/gps
+	mask = /obj/item/clothing/mask/gas/german
+	l_hand = /obj/item/gun/ballistic/shotgun/doublebarrel/improvised
+	r_hand = /obj/item/storage/toolbox/mechanical/old
+
+
+/obj/item/storage/belt/bandolier/greytide/PopulateContents()
+	var/static/items_inside = list(
+		/obj/item/ammo_casing/shotgun/improvised = 12)
+	generate_items_inside(items_inside,src)

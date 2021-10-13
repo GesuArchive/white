@@ -116,7 +116,8 @@
 		/obj/item/implanter,
 		/obj/item/pinpointer/crew,
 		/obj/item/holosign_creator/medical,
-		/obj/item/stack/sticky_tape //surgical tape
+		/obj/item/stack/sticky_tape, //surgical tape
+		/obj/item/pamk //Для йохеев медиков, они спавнятся с такой аптечкой а убрать туда 4 своих ПАМКа не могут
 		))
 
 /obj/item/storage/firstaid/medical/PopulateContents()
@@ -465,8 +466,8 @@
 		new /obj/item/reagent_containers/pill/aranesp(src)
 
 /obj/item/storage/pill_bottle/psicodine
-	name = "bottle of psicodine pills"
-	desc = "Contains pills used to treat mental distress and traumas."
+	name = "Баночка с таблетками Псикодина"
+	desc = "Содержит таблетки которые восстанавливают ясность сознания, подавляют фобии и панические атаки."
 
 /obj/item/storage/pill_bottle/psicodine/PopulateContents()
 	for(var/i in 1 to 7)
