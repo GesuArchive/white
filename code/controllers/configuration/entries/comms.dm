@@ -37,3 +37,5 @@
 	protection = CONFIG_ENTRY_HIDDEN
 /datum/config_entry/string/cross_comms_network
 	protection = CONFIG_ENTRY_LOCKED
+/datum/config_entry/string/github_auth_key
+	protection = CONFIG_ENTRY_HIDDEN

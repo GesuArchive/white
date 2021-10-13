@@ -4275,6 +4275,7 @@
 #include "white\valtos\code\randomstation\maint.dm"
 #include "white\valtos\code\randomstation\mapping.dm"
 #include "white\valtos\code\randomstation\station.dm"
+#include "white\valtos\code\report\bug.dm"
 #include "white\valtos\code\ruins\wruins.dm"
 #include "white\valtos\code\serverside\crawler.dm"
 #include "white\valtos\code\serverside\fullscreen.dm"
