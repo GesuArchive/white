@@ -50,10 +50,10 @@ GLOBAL_LIST_INIT(bug_downs, load_bug_downs())
 		to_chat(src, span_warning("Минимум 16 символов!"))
 		return
 
-	var/list/what_we_should_say = list("title" = "\[BUG\] [message_header]", "body" = "[message]\nKey: [key]\nLoc: [AREACOORD(usr)]\nID: [GLOB.round_id]", "labels" = "🐛 баг")
+	var/list/what_we_should_say = list("title" = "\[BUG\] [message_header]", "body" = "[message]\nKey: [key]\nLoc: [AREACOORD(usr)]\nID: [GLOB.round_id]", "labels" = list("🐛 баг"))
 
 	var/datum/http_request/request = new()
-	request.prepare(RUSTG_HTTP_METHOD_POST, "https://api.github.com/repos/white/issues", json_encode(what_we_should_say), list("accept" = "application/vnd.github.v3+json", "Authorization" = "token [CONFIG_GET(string/github_auth_key)]"), null)
+	request.prepare(RUSTG_HTTP_METHOD_POST, "https://api.github.com/repos/frosty-dev/white/issues", json_encode(what_we_should_say), list("accept" = "application/vnd.github.v3+json", "Authorization" = "token [CONFIG_GET(string/github_auth_key)]"), null)
 	request.begin_async()
 	UNTIL(request.is_complete() || !src)
 	if (!src)
