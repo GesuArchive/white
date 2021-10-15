@@ -1701,7 +1701,7 @@
 /obj/machinery/light/small{
 	pixel_y = 0
 	},
-/turf/open/genturf,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "fb" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2740,6 +2740,7 @@
 	dir = 8
 	},
 /obj/structure/reagent_dispensers/fueltank,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
 "ir" = (
@@ -3380,7 +3381,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
-/turf/open/genturf,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "ka" = (
 /obj/machinery/door/airlock/maintenance{
@@ -4256,7 +4257,7 @@
 "mu" = (
 /obj/structure/table,
 /obj/effect/spawner/lootdrop/maintenance/two,
-/turf/open/genturf,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "mv" = (
 /obj/effect/turf_decal/stripes/line{
@@ -4964,6 +4965,7 @@
 /area/maintenance/bottom_station_maints/north)
 "ox" = (
 /obj/structure/closet/emcloset,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/port)
 "oy" = (
@@ -5097,6 +5099,7 @@
 /area/security/execution/transfer)
 "oS" = (
 /obj/structure/closet/emcloset,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "oT" = (
@@ -5126,11 +5129,10 @@
 /turf/open/floor/plasteel/dark,
 /area/engineering/atmospherics_engine)
 "oV" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/open/genturf,
-/area/maintenance/bottom_station_maints/south)
+/obj/machinery/space_heater,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/east)
 "oW" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Atmospherics Maintenance";
@@ -5219,6 +5221,7 @@
 "pi" = (
 /obj/structure/closet/firecloset,
 /obj/machinery/light/floor/directional/east,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/secondary/entry)
 "pk" = (
@@ -6047,6 +6050,7 @@
 	},
 /obj/structure/closet/emcloset/anchored,
 /obj/machinery/light/floor/directional/west,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/secondary/entry)
 "rD" = (
@@ -7410,6 +7414,7 @@
 /area/ai_monitored/storage/eva)
 "vi" = (
 /obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "vj" = (
@@ -7545,6 +7550,7 @@
 /obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable,
 /obj/structure/reagent_dispensers/watertank,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/dark,
 /area/cargo/meeting_room)
 "vH" = (
@@ -7571,6 +7577,7 @@
 /obj/item/food/meat/rawcutlet/plain,
 /obj/item/food/meat/rawcutlet/plain,
 /obj/item/food/meat/rawcutlet/plain,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/white,
 /area/security/prison)
 "vK" = (
@@ -7688,6 +7695,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "vY" = (
@@ -7819,6 +7827,7 @@
 /area/maintenance/bottom_station_maints/north)
 "wq" = (
 /obj/structure/closet/firecloset,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "wr" = (
@@ -8688,6 +8697,7 @@
 /obj/item/storage/bag/tray/cafeteria,
 /obj/item/storage/bag/tray/cafeteria,
 /obj/item/storage/box/drinkingglasses,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/white,
 /area/security/prison)
 "yL" = (
@@ -9899,6 +9909,7 @@
 	},
 /obj/structure/closet/emcloset/anchored,
 /obj/machinery/light/floor/directional/east,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/secondary/entry)
 "CJ" = (
@@ -10189,6 +10200,7 @@
 /area/cargo/meeting_room)
 "DC" = (
 /obj/structure/closet/crate/maint,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/port)
 "DD" = (
@@ -10286,6 +10298,7 @@
 /area/hallway/secondary/entry)
 "DP" = (
 /obj/structure/reagent_dispensers/fueltank,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "DS" = (
@@ -10519,10 +10532,6 @@
 /obj/structure/closet/crate/internals,
 /turf/open/floor/plasteel/monofloor,
 /area/cargo/warehouse)
-"EA" = (
-/obj/structure/closet,
-/turf/open/genturf,
-/area/maintenance/bottom_station_maints/east)
 "EB" = (
 /turf/closed/wall/r_wall,
 /area/engineering/atmospherics_engine)
@@ -10556,6 +10565,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/closet/firecloset,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "EM" = (
@@ -11290,6 +11300,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/closet/emcloset/anchored,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "Ha" = (
@@ -12064,7 +12075,7 @@
 /area/ai_monitored/turret_protected/aisat/hallway)
 "Jk" = (
 /obj/structure/closet/cardboard,
-/turf/open/genturf,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "Jl" = (
 /obj/structure/closet/crate/trashcart,
@@ -12780,6 +12791,7 @@
 /area/science/research/abandoned)
 "Ll" = (
 /obj/structure/closet/firecloset,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/port)
 "Lm" = (
@@ -12793,6 +12805,7 @@
 	},
 /obj/item/multitool,
 /obj/effect/spawner/lootdrop/space/cashmoney,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
 /area/commons/vacant_room/commissary/second)
 "Ln" = (
@@ -14019,6 +14032,7 @@
 /area/service/hydroponics)
 "OX" = (
 /obj/structure/reagent_dispensers/fueltank,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "OY" = (
@@ -14925,10 +14939,6 @@
 /obj/machinery/recharge_station,
 /turf/open/floor/plating,
 /area/security/prison)
-"RC" = (
-/obj/structure/rack,
-/turf/open/genturf,
-/area/maintenance/bottom_station_maints/east)
 "RD" = (
 /obj/machinery/turretid{
 	control_area = "/area/ai_monitored/turret_protected/aisat/atmos";
@@ -15709,7 +15719,7 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/turf/open/genturf,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "TD" = (
 /obj/machinery/door/airlock/security{
@@ -16257,6 +16267,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 5
 	},
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/security/prison)
 "Vt" = (
@@ -16435,6 +16446,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/security/prison)
 "Wa" = (
@@ -17679,6 +17691,7 @@
 "ZF" = (
 /obj/structure/closet/firecloset,
 /obj/machinery/light/floor/directional/west,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/secondary/entry)
 "ZG" = (
@@ -17710,6 +17723,7 @@
 /area/science/xenobiology)
 "ZL" = (
 /obj/structure/closet/toolcloset,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "ZM" = (
@@ -41644,9 +41658,9 @@ Zm
 VC
 oz
 jY
-Np
-oV
-Np
+SF
+ja
+SF
 Np
 Np
 VC
@@ -41903,7 +41917,7 @@ zx
 ye
 ye
 ye
-Np
+SF
 Np
 Np
 VC
@@ -42417,7 +42431,7 @@ oz
 Np
 Np
 ye
-Np
+SF
 Np
 Np
 yw
@@ -42671,10 +42685,10 @@ oz
 oz
 oz
 oz
-Np
-Np
+SF
+SF
 ye
-Np
+SF
 VC
 VC
 VC
@@ -42929,9 +42943,9 @@ Np
 ye
 ye
 ye
-RT
+hc
 ye
-RT
+hc
 VC
 PG
 Zm
@@ -43183,12 +43197,12 @@ jt
 jt
 jt
 EM
-Np
-Np
-Np
-Np
-Np
-Np
+SF
+SF
+SF
+SF
+SF
+SF
 VC
 PG
 Zm
@@ -43445,7 +43459,7 @@ Np
 Np
 Np
 Np
-Np
+SF
 VC
 PG
 Zm
@@ -43702,7 +43716,7 @@ ye
 ye
 ye
 ye
-XI
+St
 VC
 PG
 Zm
@@ -43881,8 +43895,8 @@ Zm
 OL
 RM
 yL
-fF
-fF
+Bt
+Bt
 Xc
 Bt
 Bt
@@ -43959,7 +43973,7 @@ SF
 SF
 mS
 ye
-Np
+SF
 VC
 PG
 Zm
@@ -44138,7 +44152,7 @@ Zm
 OL
 RM
 yL
-fF
+Bt
 Xc
 Xc
 fF
@@ -44216,7 +44230,7 @@ SF
 SF
 SF
 ye
-Np
+SF
 VC
 PG
 PG
@@ -44473,7 +44487,7 @@ SF
 SF
 SF
 XI
-Np
+SF
 yw
 PG
 Zm
@@ -44730,7 +44744,7 @@ SF
 SF
 SF
 ye
-Np
+SF
 VC
 PG
 Zm
@@ -44917,9 +44931,9 @@ Xc
 cw
 wp
 Xc
-Xc
 eH
 Xc
+Bt
 Bt
 Bt
 ap
@@ -45174,9 +45188,9 @@ Xc
 Xq
 Xc
 Xc
-Bt
 yL
 Xc
+Bt
 Bt
 Bt
 ap
@@ -45244,7 +45258,7 @@ ye
 ye
 ye
 ye
-Np
+SF
 VC
 VC
 VC
@@ -45431,9 +45445,9 @@ Bt
 cw
 fF
 dT
-fF
 yL
 Xc
+Bt
 Bt
 Bt
 ap
@@ -45498,8 +45512,8 @@ VC
 EM
 ye
 SF
-Np
-RT
+SF
+hc
 SF
 SJ
 hc
@@ -45689,7 +45703,7 @@ cw
 Bt
 Xc
 Bt
-yL
+Xc
 Xc
 Xc
 OL
@@ -45755,9 +45769,9 @@ VC
 sH
 ye
 hc
-RT
+hc
 ye
-RT
+hc
 ye
 ye
 Cw
@@ -47040,12 +47054,12 @@ Np
 Np
 Np
 EM
-Np
-Np
-Np
-Np
-RT
-Np
+SF
+SF
+SF
+SF
+hc
+SF
 oz
 Zm
 Zm
@@ -53181,8 +53195,8 @@ dP
 dP
 dP
 rm
-dP
-dP
+ln
+ln
 dP
 hN
 ln
@@ -53438,10 +53452,10 @@ dP
 dP
 tp
 rm
-dP
-dP
 ln
-hN
+ln
+ln
+dP
 ln
 EB
 TX
@@ -53698,7 +53712,7 @@ rm
 rm
 ln
 ln
-hN
+dP
 ln
 EB
 ip
@@ -53955,7 +53969,7 @@ dP
 rm
 ln
 dP
-hN
+dP
 ln
 EB
 dS
@@ -54212,7 +54226,7 @@ dP
 rm
 ln
 dP
-hN
+dP
 ln
 EB
 kb
@@ -54469,7 +54483,7 @@ dP
 rm
 ln
 hN
-hN
+dP
 ln
 EB
 de
@@ -54726,7 +54740,7 @@ dP
 rm
 ln
 hN
-hN
+dP
 ln
 EB
 zs
@@ -54983,7 +54997,7 @@ dP
 rm
 ln
 ln
-hN
+dP
 ln
 EB
 EB
@@ -55754,7 +55768,7 @@ dP
 rm
 ln
 ln
-hN
+dP
 rM
 dP
 ln
@@ -56795,7 +56809,7 @@ ln
 rm
 ln
 ln
-ln
+dP
 hM
 hM
 dL
@@ -57052,7 +57066,7 @@ ln
 rm
 ln
 ln
-ln
+dP
 ln
 hM
 dL
@@ -57309,7 +57323,7 @@ ln
 rm
 ln
 ln
-ln
+dP
 ln
 dt
 dL
@@ -57566,7 +57580,7 @@ ln
 rm
 ln
 ln
-ln
+dP
 ln
 dt
 dL
@@ -57823,7 +57837,7 @@ ln
 CJ
 ln
 ln
-ln
+dP
 ln
 hM
 dL
@@ -58076,11 +58090,11 @@ ln
 ln
 dP
 dP
-ln
-CJ
-ln
-ln
-ln
+dP
+FZ
+dP
+dP
+dP
 ln
 hM
 dL
@@ -59874,7 +59888,7 @@ dL
 dL
 dL
 dL
-OT
+oV
 ER
 ER
 ER
@@ -61435,7 +61449,7 @@ Os
 Vb
 Qv
 cO
-RC
+lW
 Qz
 Zm
 Zm
@@ -61949,7 +61963,7 @@ Gz
 Qb
 Qv
 cO
-EA
+hi
 ds
 Zm
 Zm
