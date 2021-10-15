@@ -58,12 +58,6 @@ GLOBAL_LIST_INIT(bug_downs, load_bug_downs())
 	UNTIL(request.is_complete() || !src)
 	if (!src)
 		return
-	var/datum/http_response/response = request.into_response()
-
-	if(response.errored || response.status_code != 200)
-		to_chat(src, span_warning("Что-то не отправилось! Просьба не репортить это."))
-		message_admins("[key_name_admin(usr)] пытается отрепортить [what_we_should_say], но терпит поражение: [response.body]")
-		return
 
 	SSblackbox.record_feedback("amount", "bugs_send", 1) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
