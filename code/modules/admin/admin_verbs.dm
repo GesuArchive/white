@@ -170,6 +170,8 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/debugNatureMapGenerator,
 	/client/proc/check_bomb_impacts,
 	/client/proc/raspidoars,
+	/client/proc/commit_warcrime,
+	/client/proc/uncommit_warcrime,
 	/client/proc/kaboom,
 	/client/proc/smooth_fucking_z_level,
 	/client/proc/get_tacmap_for_test,
