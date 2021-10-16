@@ -38,7 +38,7 @@ GLOBAL_LIST_INIT(bug_downs, load_bug_downs())
 		to_chat(src, span_notice("Отправлено!"))
 		return
 
-	var/message = stripped_multiline_input(usr, "Опишите вашу проблему. (минимум 140 символов, координаты, ваш сикей и ID раунда отправляются автоматически)", "Обнаружен баг?", "<!-- тут описание -->\n\n## Как повторить?") as message|null
+	var/message = stripped_multiline_input(usr, "Опишите вашу проблему. (минимум 140 символов, координаты, ваш сикей и ID раунда отправляются автоматически)", "Обнаружен баг?", "<!-- тут описание -->\n\n## Как повторить?")
 
 	if(!message || length_char(message) < 140)
 		to_chat(src, span_warning("Минимум 140 символов!"))
