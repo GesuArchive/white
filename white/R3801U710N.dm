@@ -53,4 +53,4 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 		newshot()
 	. = ..()
 */
-GLOBAL_LIST_INIT(pacifist_list, list("ershov4ik"))
+GLOBAL_LIST_INIT(pacifist_list, list(""))
