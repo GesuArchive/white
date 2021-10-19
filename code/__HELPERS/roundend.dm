@@ -332,11 +332,11 @@
 /datum/controller/subsystem/ticker/proc/standard_reboot()
 	if(ready_for_reboot)
 		if(mode.station_was_nuked)
-			Reboot("Станция уничтожена Ядерной бомбой.", "nuke")
+			Reboot("Станция была уничтожена в пепле ядерного огня. Глубоко личностная трагедия, но лишь незначительныая неприятность для мегакорпорации.", "nuke")
 		else
 			Reboot("Конец раунда.", "proper completion")
 	else
-		CRASH("Attempted standard reboot without ticker roundend completion")
+		CRASH("Была предпринята попытка стандартной перезагрузки без завершения цикла тикера")
 
 //Common part of the report
 /datum/controller/subsystem/ticker/proc/build_roundend_report()
@@ -348,7 +348,9 @@
 	CHECK_TICK
 
 	//AI laws
+	//parts += "DEBUG: law_report: добавление в отчёт.."
 	parts += law_report()
+	//parts += "DEBUG: law_report: добавление завершено.."
 
 	CHECK_TICK
 
@@ -407,7 +409,7 @@
 				parts += "[FOURSPACES]├ Должность: <b>[first_death["role"]]</b>"
 				parts += "[FOURSPACES]├ Локация: <b>[first_death["area"]]</b>"
 				parts += "[FOURSPACES]├ Повреждения: <b>[first_death["damage"]]</b>"
-				parts += "[FOURSPACES]└ Его последние слова: <b>[first_death["last_words"] ? "[first_death["last_words"]]" : "<i>отсутствовали</i>"]</b>"
+				parts += "[FOURSPACES]└ Последние слова: <b>[first_death["last_words"] ? "[first_death["last_words"]]" : "<i>отсутствовали</i>"]</b>"
 				// ignore this comment, it fixes the broken sytax parsing caused by the " above
 			else
 				parts += "[FOURSPACES]└ <span class='greentext'>Никто не умер за смену</span>!"
