@@ -82,7 +82,7 @@
 	implants = list(/obj/item/implant/sound_implant)
 
 /datum/outfit/sobr/leader/pre_equip(mob/living/carbon/human/H)
-	back = /obj/item/gun/ballistic/automatic/ak47
+	back = /obj/item/gun/ballistic/automatic/aksu74
 
 /datum/outfit/sobr/leader/post_equip(mob/living/carbon/human/H, visualsOnly)
 	var/obj/item/radio/R = H.ears
@@ -97,11 +97,11 @@
 
 /obj/item/storage/belt/military/army/sobr/PopulateContents()
 	if(prob(10))
-		new /obj/item/ammo_box/magazine/ak47mag(src)
+		new /obj/item/ammo_box/magazine/ak74m/orange(src)
 	if(prob(15))
-		new /obj/item/ammo_box/magazine/ak47mag(src)
+		new /obj/item/ammo_box/magazine/ak74m/orange(src)
 	if(prob(20))
-		new /obj/item/ammo_box/magazine/ak47mag(src)
+		new /obj/item/ammo_box/magazine/ak74m/orange(src)
 	if(prob(40))
 		new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
 	if(prob(80))
