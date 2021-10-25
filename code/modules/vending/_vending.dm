@@ -917,7 +917,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 			price_to_use = max(round(price_to_use * VENDING_DISCOUNT), 1) //No longer free, but signifigantly cheaper.
 		if(coin_records.Find(R) || hidden_records.Find(R))
 			price_to_use = (R.custom_premium_price ? R.custom_premium_price : extra_price) * decide_nalog()
-		if(price_to_use && !account.adjust_money(-price_to_use))
+		if(price_to_use && price_to_use >= 1 && !account.adjust_money(-price_to_use))
 			say("You do not possess the funds to purchase [R.name].")
 			flick(icon_deny,src)
 			vend_ready = TRUE

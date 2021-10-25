@@ -252,22 +252,3 @@
  */
 /obj/item/transfer_valve/proc/ready()
 	return tank_one && tank_two
-
-
-/obj/item/transfer_valve/equipped(mob/living/carbon/user, slot)
-	. = ..()
-
-	if(user.ckey == "erring")
-		playsound(user, 'white/rebolution228/sounds/misc/alleiluya.ogg', 80, 1)
-		shake_camera(user, 3, 3)
-		to_chat(user, span_userdanger("† Чувствую, как сила Божья поглощает мое грешное тело! †"))
-		user.overlay_fullscreen("thegod", /atom/movable/screen/fullscreen/pain)
-		user.Paralyze(990)
-		user.set_light_color(COLOR_VERY_SOFT_YELLOW)
-		user.set_light(2)
-		user.add_overlay(mutable_appearance('icons/effects/genetics.dmi', "servitude", -MUTATIONS_LAYER))
-
-		spawn(30)
-		user.dust()
-	else 
-		return ..()
