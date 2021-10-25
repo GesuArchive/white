@@ -505,7 +505,7 @@
 	lefthand_file = 'white/rebolution228/icons/weapons/guns_inhand_left.dmi'
 	righthand_file = 'white/rebolution228/icons/weapons/guns_inhand_right.dmi'
 	worn_icon = 'white/rebolution228/icons/weapons/guns_back.dmi'
-	mag_type = /obj/item/ammo_box/magazine/ak74m
+	mag_type = /obj/item/ammo_box/magazine/ak74m/orange
 	pin = /obj/item/firing_pin
 	fire_delay = 2
 	burst_size = 3
