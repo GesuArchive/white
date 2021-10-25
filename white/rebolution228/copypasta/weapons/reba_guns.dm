@@ -510,6 +510,7 @@
 	fire_delay = 2
 	burst_size = 3
 	spread = 10
+	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_HEAVY
 	worn_icon_state = "aksu74_back"
