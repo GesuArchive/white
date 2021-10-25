@@ -9,7 +9,7 @@
  * First Aid Kits
  */
 /obj/item/storage/firstaid
-	name = "first-aid kit"
+	name = "аптечка первой помощи"
 	desc = "It's an emergency medical kit for those serious boo-boos."
 	icon_state = "firstaid"
 	icon = 'white/valtos/icons/items.dmi'
@@ -22,7 +22,7 @@
 
 /obj/item/storage/firstaid/regular
 	icon_state = "firstaid"
-	desc = "A first aid kit with the ability to heal common types of injuries."
+	desc = "Содержит шовный и перевязочный материал для лечения легких травм."
 
 /obj/item/storage/firstaid/regular/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins giving [user.ru_na()]self aids with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -40,8 +40,8 @@
 
 /obj/item/storage/firstaid/emergency
 	icon_state = "medbriefcase"
-	name = "emergency first-aid kit"
-	desc = "A very simple first aid kit meant to secure and stabilize serious wounds for later treatment."
+	name = "аварийная аптечка первой помощи"
+	desc = "Максимально простой набор медикаментов для стабилизации пациента и последующей транспортировки в мед блок."
 
 /obj/item/storage/firstaid/emergency/PopulateContents()
 	if(empty)
@@ -56,10 +56,10 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/firstaid/medical
-	name = "medical aid kit"
+	name = "аптечка хирурга"
 	icon_state = "firstaid_surgery"
 	inhand_icon_state = "firstaid"
-	desc = "A high capacity aid kit for doctors, full of medical supplies and basic surgical equipment"
+	desc = "Укладка с малым хирургическим набором и шовным материалом. Обладает гораздо большей вместительностью по сравнению с стандартной аптечкой."
 
 /obj/item/storage/firstaid/medical/ComponentInitialize()
 	. = ..()
@@ -137,7 +137,7 @@
 
 /obj/item/storage/firstaid/ancient
 	icon_state = "oldfirstaid"
-	desc = "A first aid kit with the ability to heal common types of injuries."
+	desc = "Содержит медикаменты для лечения достаточно серьезных ран."
 
 /obj/item/storage/firstaid/ancient/PopulateContents()
 	if(empty)
@@ -149,12 +149,12 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/firstaid/ancient/heirloom
-	desc = "A first aid kit with the ability to heal common types of injuries. You start thinking of the good old days just by looking at it."
+	desc = "Содержит медикаменты для лечения достаточно серьезных ран. Глядя на нее вы с ностальгией вспоминаете старые-добрые времена. И свет был ярче, и снабжение лучше ..."
 	empty = TRUE // long since been ransacked by hungry powergaming assistants breaking into med storage
 
 /obj/item/storage/firstaid/fire
-	name = "burn treatment kit"
-	desc = "A specialized medical kit for when the toxins lab <i>-spontaneously-</i> burns down."
+	name = "противоожоговая аптечка"
+	desc = "Пригодится в тех случаях когда лаборатория взрывотехники <i>-случайно-</i> сгорела."
 	icon_state = "ointment"
 	inhand_icon_state = "firstaid-ointment"
 	damagetype_healed = BURN
@@ -162,11 +162,11 @@
 /obj/item/storage/firstaid/fire/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins rubbing <b>[src.name]</b> against [user.ru_na()]self! It looks like [user.p_theyre()] trying to start a fire!"))
 	return FIRELOSS
-
+/*
 /obj/item/storage/firstaid/fire/Initialize(mapload)
 	. = ..()
 	icon_state = pick("ointment","firefirstaid")
-
+*/
 /obj/item/storage/firstaid/fire/PopulateContents()
 	if(empty)
 		return
@@ -178,8 +178,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/firstaid/toxin
-	name = "toxin treatment kit"
-	desc = "Used to treat toxic blood content and radiation poisoning."
+	name = "аптечка для вывода токсинов"
+	desc = "Используется для очищения организма от токсичного и радиоактивного загрязнения, а так же промывки кровотока от химических соединений."
 	icon_state = "antitoxin"
 	inhand_icon_state = "firstaid-toxin"
 	damagetype_healed = TOX
@@ -187,11 +187,11 @@
 /obj/item/storage/firstaid/toxin/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins licking the lead paint off <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return TOXLOSS
-
+/*
 /obj/item/storage/firstaid/toxin/Initialize(mapload)
 	. = ..()
 	icon_state = pick("antitoxin","antitoxfirstaid","antitoxfirstaid2")
-
+*/
 /obj/item/storage/firstaid/toxin/PopulateContents()
 	if(empty)
 		return
@@ -203,8 +203,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/firstaid/o2
-	name = "oxygen deprivation treatment kit"
-	desc = "A box full of oxygen goodies."
+	name = "аптечка для стабилизации"
+	desc = "Содержит препараты для предотвращения асфиксии."
 	icon_state = "o2"
 	inhand_icon_state = "firstaid-o2"
 	damagetype_healed = OXY
@@ -212,11 +212,11 @@
 /obj/item/storage/firstaid/o2/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins hitting [user.ru_ego()] neck with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return OXYLOSS
-
+/*
 /obj/item/storage/firstaid/o2/Initialize(mapload)
 	. = ..()
 	icon_state = pick("o2","o2second")
-
+*/
 /obj/item/storage/firstaid/o2/PopulateContents()
 	if(empty)
 		return
@@ -228,8 +228,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/firstaid/brute
-	name = "brute trauma treatment kit"
-	desc = "A first aid kit for when you get toolboxed."
+	name = "аптечка для физических ран"
+	desc = "Содержит медикаменты для излечения резаных, колотых ран и травм вызванных ударами тупым предметом различной степени тяжести."
 	icon_state = "brute"
 	inhand_icon_state = "firstaid-brute"
 	damagetype_healed = BRUTE
@@ -237,11 +237,11 @@
 /obj/item/storage/firstaid/brute/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins beating [user.ru_na()]self over the head with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
-
+/*
 /obj/item/storage/firstaid/brute/Initialize(mapload)
 	. = ..()
 	icon_state = pick("brute","brute2")
-
+*/
 /obj/item/storage/firstaid/brute/PopulateContents()
 	if(empty)
 		return
@@ -253,9 +253,9 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/firstaid/advanced
-	name = "advanced first aid kit"
-	desc = "An advanced kit to help deal with advanced wounds."
-	icon_state = "radfirstaid"
+	name = "универсальная аптечка"
+	desc = "Продвинутая аптечка первой помощи, содержащая препараты для лечения большинства повреждений."
+	icon_state = "firstaid_advanced"
 	inhand_icon_state = "firstaid-rad"
 	custom_premium_price = PAYCHECK_HARD * 6
 	damagetype_healed = "all"
@@ -271,8 +271,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/firstaid/tactical
-	name = "combat medical kit"
-	desc = "I hope you've got insurance."
+	name = "боевая аптечка"
+	desc = "Набор снаряжения и медикаментов первой помощи для полевых агентов."
 	icon_state = "bezerk"
 	damagetype_healed = "all"
 
@@ -300,10 +300,12 @@
 
 	//Making a medibot!
 	if(contents.len >= 1)
-		to_chat(user, span_warning("You need to empty [src] out first!"))
+		to_chat(user, span_warning("Перед сборкой сначала необходимо опорожнить [src]!"))
 		return
 
 	var/obj/item/bot_assembly/medbot/A = new
+	if (istype(src, /obj/item/storage/firstaid))
+		A.set_skin("brute")
 	if (istype(src, /obj/item/storage/firstaid/fire))
 		A.set_skin("ointment")
 	else if (istype(src, /obj/item/storage/firstaid/toxin))
@@ -312,7 +314,11 @@
 		A.set_skin("o2")
 	else if (istype(src, /obj/item/storage/firstaid/brute))
 		A.set_skin("brute")
+	else if (istype(src, /obj/item/storage/firstaid/regular))
+		A.set_skin("brute")
 	else if (istype(src, /obj/item/storage/firstaid/advanced))
+		A.set_skin("advanced")
+	else if (istype(src, /obj/item/storage/firstaid/tactical))
 		A.set_skin("advanced")
 	user.put_in_hands(A)
 	to_chat(user, span_notice("You add [S] to [src]."))
