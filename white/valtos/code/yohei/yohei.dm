@@ -523,7 +523,9 @@ GLOBAL_VAR(yohei_main_controller)
 	var/datum/antagonist/adatum = null
 
 /datum/yohei_task/gamemode/generate_task()
-	switch(SSticker.mode.type)
+	adatum = null 
+	return FALSE
+/*	switch(SSticker.mode.type)
 		if(/datum/game_mode/traitor)
 			if(prob(50))
 				desc = "Помочь Синдикату"
@@ -581,8 +583,9 @@ GLOBAL_VAR(yohei_main_controller)
 			adatum = pick(subtypesof(/datum/antagonist/gang))
 			return TRUE
 		else
-			adatum = null
+			adatum = null 
 			return FALSE
+*/
 
 /datum/yohei_task/gamemode/check_task(mob/user)
 	if(!adatum)
