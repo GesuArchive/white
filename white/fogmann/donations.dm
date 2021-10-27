@@ -360,3 +360,15 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 	if(D)
 		return D
 	return null
+
+GLOBAL_LIST_INIT(custom_race_donations, list(
+	"woofwoof322" = "athena_s",
+	"oni3288" = "oni",
+	"pisimist29" = "android",
+	"arsenay" = "aandroid",
+	"fiaskin" = "synthman"))
+
+GLOBAL_LIST_INIT(custom_tails_donations, list(
+	"felinemistress" = "Fox",
+	"chilipila" = "Fox",
+	"oni3288" = "Oni"))
