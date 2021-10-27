@@ -77,6 +77,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/jumpsuit_style = PREF_SUIT		//suit/skirt
 	var/hairstyle = "Bald"				//Hair type
 	var/hair_color = "000"				//Hair color
+	var/grad_style = "None"
+	var/grad_color = "000"
 	var/facial_hairstyle = "Shaved"	//Face hair type
 	var/facial_hair_color = "000"		//Facial hair color
 	var/skin_tone = "caucasian1"		//Skin color
@@ -368,6 +370,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				dat += "<span style='border:1px solid #161616; background-color: #[hair_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=hair;task=input'>Изменить</a>"
 				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_HAIR_COLOR]'>[(randomise[RANDOM_HAIR_COLOR]) ? "🔓" : "🔒"]</A></td></tr>"
+
+				dat += "<tr><td><b>Градиент волос:</b></td><td align='right'>"
+				dat += "<a href='?_src_=prefs;preference=grad_style;task=input'>[grad_style]</a>"
+				dat += "<br><span style='border:1px solid #161616; background-color: #[grad_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=grad_color;task=input'>Изменить</a>"
 
 				dat += "<tr><td><b>Борода:</b></td><td align='right'>"
 
@@ -1362,6 +1368,16 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					else
 						hairstyle = next_list_item(hairstyle, GLOB.hairstyles_list)
 
+				if("grad_style")
+					var/new_grad_style = input(user, "Choose a color pattern for your hair:", "Character Preference")  as null|anything in GLOB.hair_gradients_list
+					if(new_grad_style)
+						grad_style = new_grad_style
+
+				if("grad_color")
+					var/new_grad_color = input(user, "Choose your character's secondary hair color:", "Character Preference","#"+grad_color) as color|null
+					if(new_grad_color)
+						grad_color = sanitize_hexcolor(new_grad_color)
+
 				if("previous_hairstyle")
 					if (gender == MALE)
 						hairstyle = previous_list_item(hairstyle, GLOB.hairstyles_male_list)
@@ -2075,6 +2091,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		organ_eyes.old_eye_color = eye_color
 	character.hair_color = hair_color
 	character.facial_hair_color = facial_hair_color
+
+	character.grad_color = grad_color
+	character.grad_style = grad_style
 
 	character.skin_tone = skin_tone
 	character.hairstyle = hairstyle
