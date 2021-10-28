@@ -425,8 +425,8 @@ GLOBAL_VAR(yohei_main_controller)
 				var/datum/objective/O = new /datum/objective/assassinate()
 				O.owner = user.mind
 				O.target = victim
-				O.update_explanation_text
-				A += O
+				O.update_explanation_text()
+				A.objectives += O
 				A.greet()
 				to_chat(victim, span_userdanger("Кто-то ОЧЕНЬ СИЛЬНО хочет мне навредить..."))
 			return
