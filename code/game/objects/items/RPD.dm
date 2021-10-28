@@ -253,10 +253,10 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		return
-	var/atom/throw_target = get_edge_target_turf(target, user.dir)
-	else if(!target.anchored)
+	if(!target.anchored)
+		var/atom/throw_target = get_edge_target_turf(target, user.dir)
 		var/whack_speed = (prob(60) ? 1 : 4)
-		target.throw_at(throw_target, rand(1, 2), whack_speed, user, gentle = TRUE) // sorry friends, 7 speed batting caused wounds to absolutely delete whoever you knocked your target into (and said target)
+		target.throw_at(throw_target, rand(1, 2), whack_speed, user, gentle = TRUE)
 
 /obj/item/pipe_dispenser/Destroy()
 	qdel(spark_system)
