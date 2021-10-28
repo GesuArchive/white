@@ -398,7 +398,8 @@ GLOBAL_VAR(yohei_main_controller)
 	if(!current_task)
 		var/static/list/choices = list(
 			"Классическая охота" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "classic"),
-			"Помочь событиям" 	 = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "gamemode")
+			"Помочь событиям" 	 = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "gamemode"),
+			"Кровавая месть" 	 = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "revenge")
 		)
 		var/choice = show_radial_menu(user, src, choices, tooltips = TRUE)
 		if(!choice)
@@ -410,9 +411,26 @@ GLOBAL_VAR(yohei_main_controller)
 			var/datum/yohei_task/new_task = pick(possible_tasks)
 			current_task = new new_task()
 			return
+		else if (choice == "Кровавая месть")
+			internal_radio.talk_into(src, "Загружаю подпрограмму Феникс для пользователя [user.name]...", FREQ_YOHEI)
+			var/list/victims = list()
+			for(var/V in GLOB.data_core.locked)
+				var/datum/data/record/R = V
+				var/datum/mind/M = R.fields["mindref"]
+				if(M)
+					victims += M
+			var/mob/victim = tgui_input_list(usr, "Кому же мы будем мстить?", "Чилипилки", victims)
+			if(victim)
+				var/datum/antagonist/A = user.mind.add_antag_datum(/datum/antagonist/custom)
+				var/datum/objective/O = new /datum/objective/assassinate()
+				O.owner = user.mind
+				O.target = victim
+				A += O
+				to_chat(victim, span_userdanger("Кто-то ОЧЕНЬ СИЛЬНО хочет мне навредить..."))
+			return
 		else
-			internal_radio.talk_into(src, "Загружаю особое задание...", FREQ_YOHEI)
-			current_task = new /datum/yohei_task/gamemode()
+			internal_radio.talk_into(src, "Особых заданий больше НЕТ!", FREQ_YOHEI)
+			//current_task = new /datum/yohei_task/gamemode()
 			return
 
 	if(current_task && current_task.check_task(user))
@@ -482,6 +500,7 @@ GLOBAL_VAR(yohei_main_controller)
 	target = find_target()
 	desc = "Убить [target.real_name]."
 	prize = max(rand(prize - 30, prize + 30), 1)
+	to_chat(target, span_userdanger("Кто-то хочет мне навредить..."))
 
 /datum/yohei_task/kill/check_task(mob/user)
 	if(target && target.stat != DEAD)
@@ -516,16 +535,14 @@ GLOBAL_VAR(yohei_main_controller)
 	else
 		qdel(src)
 		return FALSE
-
+/*
 /datum/yohei_task/gamemode
 	desc = "Нет особых заданий"
 	prize = 0
 	var/datum/antagonist/adatum = null
 
 /datum/yohei_task/gamemode/generate_task()
-	adatum = null 
-	return FALSE
-/*	switch(SSticker.mode.type)
+	switch(SSticker.mode.type)
 		if(/datum/game_mode/traitor)
 			if(prob(50))
 				desc = "Помочь Синдикату"
@@ -583,9 +600,9 @@ GLOBAL_VAR(yohei_main_controller)
 			adatum = pick(subtypesof(/datum/antagonist/gang))
 			return TRUE
 		else
-			adatum = null 
+			adatum = null
 			return FALSE
-*/
+
 
 /datum/yohei_task/gamemode/check_task(mob/user)
 	if(!adatum)
@@ -597,7 +614,7 @@ GLOBAL_VAR(yohei_main_controller)
 	if(!is_special_character(user))
 		user.mind.add_antag_datum(adatum)
 	return FALSE
-
+*/
 /area/ruin/powered/yohei_base
 	name = "Ресурс Йохеев"
 	icon_state = "dk_yellow"
@@ -765,6 +782,7 @@ GLOBAL_VAR(yohei_main_controller)
 /obj/item/book/yohei_codex
 	name = "Кодекс Йохея"
 	desc = "Весьма важный путеводитель."
+	author = "Сомнительный Господин"
 	icon_state = "stealthmanual"
 	dat = "<center><h1>Положения кодекса</h1></center><i>«Прошу Вас судить обо мне по врагам, которых я приобрёл.»</i></br> — Франклин Делано Рузвельт.<ul><li>Никому не верь, но используй всех.</li><li>Наемник всегда готов отправиться куда угодно и встретить любую опасность.</li><li>Никаких друзей, никаких врагов. Только союзники и противники.</li><li>Всегда будь вежлив с клиентом.</li><li>Наемник никогда не жалуется.</li><li>Наемник не имеет привязанностей.</li><li>Жизнь растет на смерти.</li><li>Меняй распорядок. Шаблон — это ловушка.</li><li>Никогда не привлекай к себе внимания.</li><li>Не говори больше нужного.</li><li>Будь вежлив всегда. Особенно с врагами.</li><li>Тот, кто нанимает мою руку, нанимает всего меня.</li><li>Делай то, чего боишься больше всего, и обретешь храбрость.</li><li>Воображение — главное оружие воина.</li><li>Наемник никогда не отвлекается на общую картину. Мелочи играют главную роль.</li><li>Никогда не говори всю правду, торгуясь.</li><li>Услуга — это инвестиция.</li><li>Деньги — это сила.</li><li>Будь осторожен в любой ситуации.</li><li>Если ты должен умереть, сделай это с честью.</li></ul><b>Следуя данному кодексу Вы в полном праве можете называть себя Йохеем.</b> <i>Наверное.</i>"
 
