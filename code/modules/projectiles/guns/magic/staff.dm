@@ -49,7 +49,7 @@
 /obj/item/gun/magic/staff/change/on_intruder_use(mob/living/user, atom/target)
 	user.dropItemToGround(src, TRUE)
 	var/randomize = pick("monkey","humanoid","animal")
-	var/mob/new_body = user.wabbajack(randomize)
+	var/mob/new_body = wabbajack(user, randomize)
 	balloon_alert(new_body, "wabbajack, wabbajack!")
 
 /obj/item/gun/magic/staff/animate
