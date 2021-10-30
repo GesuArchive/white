@@ -333,7 +333,7 @@ GLOBAL_DATUM(battle_royale, /datum/battle_royale_controller)
 	START_PROCESSING(SSprocessing, src)
 
 /datum/battle_royale_controller/proc/titanfall()
-	var/list/participants = pollGhostCandidates("Желаешь участвовать в КОРОЛЕВСКОЙ БИТВЕ?")
+	var/list/participants = poll_ghost_candidates("Желаешь участвовать в КОРОЛЕВСКОЙ БИТВЕ?")
 	var/turf/spawn_turf = get_safe_random_station_turf()
 	var/obj/structure/closet/supplypod/centcompod/pod = new()
 	pod.setStyle()
