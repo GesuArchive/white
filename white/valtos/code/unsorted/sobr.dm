@@ -96,18 +96,16 @@
 /obj/item/storage/belt/military/army/sobr
 
 /obj/item/storage/belt/military/army/sobr/PopulateContents()
-	if(prob(10))
-		new /obj/item/ammo_box/magazine/ak74m/orange(src)
-	if(prob(15))
-		new /obj/item/ammo_box/magazine/ak74m/orange(src)
-	if(prob(20))
-		new /obj/item/ammo_box/magazine/ak74m/orange(src)
+	new /obj/item/ammo_box/magazine/ak74m/orange(src)
+	new /obj/item/ammo_box/magazine/ak74m/orange(src)
+	new /obj/item/ammo_box/magazine/ak74m/orange(src)
 	if(prob(40))
 		new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
 	if(prob(80))
 		new /obj/item/grenade/flashbang(src)
 	if(prob(30))
 		new /obj/item/grenade/syndieminibomb/concussion(src)
+
 /obj/item/storage/belt/security/sobr
 
 /obj/item/storage/belt/security/sobr/PopulateContents()
