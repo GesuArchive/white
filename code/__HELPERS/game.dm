@@ -33,7 +33,7 @@
 			get_area(get_ranged_target_turf(center, SOUTH, 1)),
 			get_area(get_ranged_target_turf(center, EAST, 1)),
 			get_area(get_ranged_target_turf(center, WEST, 1)))
-	listclearnulls(.)
+	list_clear_nulls(.)
 
 /proc/get_open_turf_in_dir(atom/center, dir)
 	var/turf/open/T = get_ranged_target_turf(center, dir, 1)
@@ -45,7 +45,7 @@
 			get_open_turf_in_dir(center, SOUTH),
 			get_open_turf_in_dir(center, EAST),
 			get_open_turf_in_dir(center, WEST))
-	listclearnulls(.)
+	list_clear_nulls(.)
 
 /proc/get_adjacent_open_areas(atom/center)
 	. = list()
@@ -358,73 +358,76 @@
 			active_players++
 	return active_players
 
-/proc/showCandidatePollWindow(mob/M, poll_time, Question, list/candidates, ignore_category, time_passed, flashwindow = TRUE)
+///Show the poll window to the candidate mobs
+/proc/show_candidate_poll_window(mob/candidate_mob, poll_time, question, list/candidates, ignore_category, time_passed, flashwindow = TRUE)
 	set waitfor = 0
 
-	SEND_SOUND(M, sound('sound/misc/notice2.ogg')) //Alerting them to their consideration
+	SEND_SOUND(candidate_mob, 'sound/misc/notice2.ogg') //Alerting them to their consideration
 	if(flashwindow)
-		window_flash(M.client)
+		window_flash(candidate_mob.client)
 	var/list/answers = ignore_category ? list("Да", "Нет", "Никогда") : list("Да", "Нет")
-	switch(tgui_alert(M, Question, "Предложение получить новое тело!", answers, timeout=poll_time))
+	switch(tgui_alert(candidate_mob, question, "Предложение получить новое тело!", answers, poll_time))
 		if("Да")
-			to_chat(M, span_notice("Выбираем: Да."))
+			to_chat(candidate_mob, span_notice("Выбираем: Да."))
 			if(time_passed + poll_time <= world.time)
-				to_chat(M, span_danger("СЛИШКОМ ПОЗДНО!"))
-				SEND_SOUND(M, sound('sound/machines/buzz-sigh.ogg'))
-				candidates -= M
+				to_chat(candidate_mob, span_danger("СЛИШКОМ ПОЗДНО!"))
+				SEND_SOUND(candidate_mob, 'sound/machines/buzz-sigh.ogg')
+				candidates -= candidate_mob
 			else
-				candidates += M
+				candidates += candidate_mob
 		if("Нет")
-			to_chat(M, span_danger("Выбираем: Нет."))
-			candidates -= M
+			to_chat(candidate_mob, span_danger("Выбираем: Нет."))
+			candidates -= candidate_mob
 		if("Никогда")
-			var/list/L = GLOB.poll_ignore[ignore_category]
-			if(!L)
+			var/list/ignore_list = GLOB.poll_ignore[ignore_category]
+			if(!ignore_list)
 				GLOB.poll_ignore[ignore_category] = list()
-			GLOB.poll_ignore[ignore_category] += M.ckey
-			to_chat(M, span_danger("Выбираем: Не спрашиваем до конца раунда."))
-			candidates -= M
+			GLOB.poll_ignore[ignore_category] += candidate_mob.ckey
+			to_chat(candidate_mob, span_danger("Выбираем: Не спрашиваем до конца раунда."))
+			candidates -= candidate_mob
 		else
-			candidates -= M
+			candidates -= candidate_mob
 
-/proc/pollGhostCandidates(Question, jobbanType, datum/game_mode/gametypeCheck, be_special_flag = 0, poll_time = 300, ignore_category = null, flashwindow = TRUE)
+///Wrapper to send all ghosts the poll to ask them if they want to be considered for a mob.
+/proc/poll_ghost_candidates(question, jobban_type, be_special_flag = 0, poll_time = 300, ignore_category = null, flashwindow = TRUE)
 	var/list/candidates = list()
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_STATION_SENTIENCE))
 		return candidates
 
-	for(var/mob/dead/observer/G in GLOB.player_list)
-		candidates += G
+	for(var/mob/dead/observer/ghost_player in GLOB.player_list)
+		candidates += ghost_player
 
-	return pollCandidates(Question, jobbanType, gametypeCheck, be_special_flag, poll_time, ignore_category, flashwindow, candidates)
+	return poll_candidates(question, jobban_type, be_special_flag, poll_time, ignore_category, flashwindow, candidates)
 
-/proc/pollCandidates(Question, jobbanType, datum/game_mode/gametypeCheck, be_special_flag = 0, poll_time = 300, ignore_category = null, flashwindow = TRUE, list/group = null)
+/proc/poll_candidates(question, jobban_type, be_special_flag = 0, poll_time = 300, ignore_category = null, flashwindow = TRUE, list/group = null)
 	var/time_passed = world.time
-	if (!Question)
-		Question = "Хочешь получить специальную роль?"
+	if (!question)
+		question = "Хочешь получить специальную роль?"
 	var/list/result = list()
-	for(var/m in group)
-		var/mob/M = m
-		if(!M.key || !M.client || (ignore_category && GLOB.poll_ignore[ignore_category] && (M.ckey in GLOB.poll_ignore[ignore_category])))
+	for(var/candidate in group)
+		var/mob/candidate_mob = candidate
+		if(!candidate_mob.key || !candidate_mob.client || (ignore_category && GLOB.poll_ignore[ignore_category] && (candidate_mob.ckey in GLOB.poll_ignore[ignore_category])))
 			continue
 		if(be_special_flag)
-			if(!(M.client.prefs) || !(be_special_flag in M.client.prefs.be_special))
-				continue
-		if(gametypeCheck)
-			if(!gametypeCheck.age_check(M.client))
-				continue
-		if(jobbanType)
-			if(is_banned_from(M.ckey, list(jobbanType, ROLE_SYNDICATE)) || QDELETED(M))
+			if(!(candidate_mob.client.prefs) || !(be_special_flag in candidate_mob.client.prefs.be_special))
 				continue
 
-		showCandidatePollWindow(M, poll_time, Question, result, ignore_category, time_passed, flashwindow)
+			var/required_time = GLOB.special_roles[be_special_flag] || 0
+			if (candidate_mob.client && candidate_mob.client.get_remaining_days(required_time) > 0)
+				continue
+		if(jobban_type)
+			if(is_banned_from(candidate_mob.ckey, list(jobban_type, ROLE_SYNDICATE)) || QDELETED(candidate_mob))
+				continue
+
+		show_candidate_poll_window(candidate_mob, poll_time, question, result, ignore_category, time_passed, flashwindow)
 	sleep(poll_time)
 
 	//Check all our candidates, to make sure they didn't log off or get deleted during the wait period.
-	for(var/mob/M in result)
-		if(!M.key || !M.client)
-			result -= M
+	for(var/mob/asking_mob in result)
+		if(!asking_mob.key || !asking_mob.client)
+			result -= asking_mob
 
-	listclearnulls(result)
+	list_clear_nulls(result)
 
 	return result
 
@@ -447,7 +450,7 @@
 
 	currently_polling_mobs += target_mob
 
-	var/list/possible_candidates = pollGhostCandidates(question, jobban_type, be_special_flag, poll_time, ignore_category)
+	var/list/possible_candidates = poll_ghost_candidates(question, jobban_type, be_special_flag, poll_time, ignore_category)
 
 	currently_polling_mobs -= target_mob
 	if(!target_mob || QDELETED(target_mob) || !target_mob.loc)
@@ -467,7 +470,7 @@
  * * ignore_category - Unknown/needs further documentation.
  */
 /proc/poll_candidates_for_mobs(question, jobban_type, be_special_flag = 0, poll_time = 30 SECONDS, list/mobs, ignore_category = null)
-	var/list/candidate_list = pollGhostCandidates(question, jobban_type, be_special_flag, poll_time, ignore_category)
+	var/list/candidate_list = poll_ghost_candidates(question, jobban_type, be_special_flag, poll_time, ignore_category)
 
 	for(var/mob/potential_mob as anything in mobs)
 		if(QDELETED(potential_mob) || !potential_mob.loc)

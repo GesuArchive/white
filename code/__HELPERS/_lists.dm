@@ -167,9 +167,11 @@
 						L[T] = TRUE
 		return L
 
-//Removes any null entries from the list
-//Returns TRUE if the list had nulls, FALSE otherwise
-/proc/listclearnulls(list/L)
+/**
+ * Removes any null entries from the list
+ * Returns TRUE if the list had nulls, FALSE otherwise
+**/
+/proc/list_clear_nulls(list/L)
 	var/start_len = L.len
 	var/list/N = new(start_len)
 	L -= N

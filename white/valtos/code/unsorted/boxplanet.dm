@@ -181,7 +181,7 @@
 			planted_things += new generating_type(pick(possible_turfs))
 			if(prob(20))
 				new /obj/effect/step_trigger/ambush(pick(possible_turfs))
-			listclearnulls(planted_things)
+			list_clear_nulls(planted_things)
 			return
 
 /obj/effect/flora_spawner/Initialize()

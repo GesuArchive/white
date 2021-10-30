@@ -30,7 +30,7 @@
 	var/teamname = copytext_char(sanitize(team_name), 1, MAX_MESSAGE_LEN)
 
 	message_admins("[Sender] собирается вызвать [teamname_gc] с миссией: [msg]")
-	var/list/mob/dead/observer/candidates = pollGhostCandidates("Хотите быть в специальном отряде быстрого реагирования?", "deathsquad", null)
+	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Хотите быть в специальном отряде быстрого реагирования?", "deathsquad", null)
 	var/teamSpawned = FALSE
 
 	if(candidates.len > 0)

@@ -90,7 +90,7 @@
 /datum/round_event/pirates/proc/spawn_shuttle()
 	shuttle_spawned = TRUE
 
-	var/list/candidates = pollGhostCandidates("Вы хотите попасть в команду пиратов?", ROLE_TRAITOR)
+	var/list/candidates = poll_ghost_candidates("Вы хотите попасть в команду пиратов?", ROLE_TRAITOR)
 	shuffle_inplace(candidates)
 
 	var/datum/map_template/shuttle/pirate/ship = new ship_template

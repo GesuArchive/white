@@ -156,7 +156,7 @@
 			return
 		if(7)
 			to_chat(user, span_neovgre("You feel [I] attempting to communicate with you."))
-			var/list/mob/dead/observer/candidates = pollGhostCandidates("Do you want to play as the spirit of [user.real_name]'s [I]?", ROLE_PAI, null, FALSE, 100, POLL_IGNORE_POSSESSED_BLADE)
+			var/list/mob/dead/observer/candidates = poll_ghost_candidates("Do you want to play as the spirit of [user.real_name]'s [I]?", ROLE_PAI, null, FALSE, 100, POLL_IGNORE_POSSESSED_BLADE)
 			if(LAZYLEN(candidates))
 				var/mob/dead/observer/C = pick(candidates)
 				var/mob/living/simple_animal/shade/S = new(src)

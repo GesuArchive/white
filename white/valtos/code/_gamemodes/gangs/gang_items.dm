@@ -904,7 +904,7 @@
 					identity = "[G.gang.name] gangster"
 				else
 					identity = "Vigilante"
-				var/list/mob/dead/observer/candidates = pollGhostCandidates("Would you to play the role of a revived [identity]?", "pAI", null, FALSE, 100)
+				var/list/mob/dead/observer/candidates = poll_ghost_candidates("Would you to play the role of a revived [identity]?", "pAI", null, FALSE, 100)
 				if(LAZYLEN(candidates) && !QDELETED(src) && icon_state == "implanter1")
 					winner = pick(candidates)
 					H.key = winner.key
