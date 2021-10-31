@@ -120,7 +120,7 @@
 		if(demotes_to)
 			replace_wound(demotes_to)
 		else
-			to_chat(victim, span_green("Порез на моей [ru_parse_zone(limb.name)] перестаёт кровоточить!"))
+			to_chat(victim, span_green("Порез на моей [ru_gde_zone(limb.name)] перестаёт кровоточить!"))
 			qdel(src)
 
 
