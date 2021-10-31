@@ -228,7 +228,7 @@
 		return
 	if(used)
 		return
-	var/list/candidates = poll_candidates_for_mob("Do you want to play as a [initial(demon_type.name)]?", ROLE_ALIEN, null, ROLE_ALIEN, 50, src)
+	var/list/candidates = poll_candidates_for_mob("Do you want to play as a [initial(demon_type.name)]?", ROLE_ALIEN, null, 50, src)
 	if(LAZYLEN(candidates))
 		if(used || QDELETED(src))
 			return
