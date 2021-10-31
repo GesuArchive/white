@@ -464,6 +464,16 @@
 	category = list("Снаряжение")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
+/datum/design/glasses_prescription
+	name = "Prescription Glasses"
+	desc = "Made by Nerd. Co."
+	id = "glasses_prescription"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 500, /datum/material/glass = 2000)
+	build_path = /obj/item/clothing/glasses/regular
+	category = list("Снаряжение")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
 /datum/design/holosignengi
 	name = "Engineering Holobarrier Projector"
 	desc = "A holographic projector that creates holographic engineering barriers."

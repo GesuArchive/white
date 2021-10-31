@@ -58,7 +58,7 @@
 	reqs = list(/obj/item/clothing/glasses/hud/security = 1,
 				  /obj/item/clothing/glasses/sunglasses = 1,
 				  /obj/item/stack/cable_coil = 5)
-	category = CAT_CLOTHING
+	category = CAT_EYEWEAR
 
 /datum/crafting_recipe/hudsunsecremoval
 	name = "Security HUD removal"
@@ -66,7 +66,7 @@
 	time = 20
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	reqs = list(/obj/item/clothing/glasses/hud/security/sunglasses = 1)
-	category = CAT_CLOTHING
+	category = CAT_EYEWEAR
 
 /datum/crafting_recipe/hudsunmed
 	name = "Medical HUDsunglasses"
@@ -76,7 +76,7 @@
 	reqs = list(/obj/item/clothing/glasses/hud/health = 1,
 				  /obj/item/clothing/glasses/sunglasses = 1,
 				  /obj/item/stack/cable_coil = 5)
-	category = CAT_CLOTHING
+	category = CAT_EYEWEAR
 
 /datum/crafting_recipe/hudsunmedremoval
 	name = "Medical HUD removal"
@@ -84,7 +84,7 @@
 	time = 20
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	reqs = list(/obj/item/clothing/glasses/hud/health/sunglasses = 1)
-	category = CAT_CLOTHING
+	category = CAT_EYEWEAR
 
 /datum/crafting_recipe/hudsundiag
 	name = "Diagnostic HUDsunglasses"
@@ -94,7 +94,7 @@
 	reqs = list(/obj/item/clothing/glasses/hud/diagnostic = 1,
 				  /obj/item/clothing/glasses/sunglasses = 1,
 				  /obj/item/stack/cable_coil = 5)
-	category = CAT_CLOTHING
+	category = CAT_EYEWEAR
 
 /datum/crafting_recipe/hudsundiagremoval
 	name = "Diagnostic HUD removal"
@@ -102,7 +102,7 @@
 	time = 20
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	reqs = list(/obj/item/clothing/glasses/hud/diagnostic/sunglasses = 1)
-	category = CAT_CLOTHING
+	category = CAT_EYEWEAR
 
 /datum/crafting_recipe/scienceglasses
 	name = "Science Glasses"
@@ -112,7 +112,7 @@
 	reqs = list(/obj/item/clothing/glasses/science = 1,
 				  /obj/item/clothing/glasses/sunglasses = 1,
 				  /obj/item/stack/cable_coil = 5)
-	category = CAT_CLOTHING
+	category = CAT_EYEWEAR
 
 /datum/crafting_recipe/scienceglassesremoval
 	name = "Chemical Scanner removal"
@@ -120,7 +120,57 @@
 	time = 20
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	reqs = list(/obj/item/clothing/glasses/sunglasses/chemical = 1)
-	category = CAT_CLOTHING
+	category = CAT_EYEWEAR
+
+/datum/crafting_recipe/hudpresmed
+	name = "Prescription Medical HUDglasses"
+	result = /obj/item/clothing/glasses/hud/health/prescription
+	time = 20
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	reqs = list(/obj/item/clothing/glasses/hud/health = 1,
+				  /obj/item/clothing/glasses/regular/ = 1,
+				  /obj/item/stack/cable_coil = 5)
+	category = CAT_EYEWEAR
+
+/datum/crafting_recipe/hudpressec
+	name = "Prescription Security HUDglasses"
+	result = /obj/item/clothing/glasses/hud/security/prescription
+	time = 20
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	reqs = list(/obj/item/clothing/glasses/hud/security = 1,
+				  /obj/item/clothing/glasses/regular/ = 1,
+				  /obj/item/stack/cable_coil = 5)
+	category = CAT_EYEWEAR
+
+/datum/crafting_recipe/hudpressci
+	name = "Prescription Science Goggles"
+	result = /obj/item/clothing/glasses/science/prescription
+	time = 20
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	reqs = list(/obj/item/clothing/glasses/science = 1,
+				  /obj/item/clothing/glasses/regular/ = 1,
+				  /obj/item/stack/cable_coil = 5)
+	category = CAT_EYEWEAR
+
+/datum/crafting_recipe/hudpresmeson
+	name = "Prescription Meson Scanner"
+	result = /obj/item/clothing/glasses/meson/prescription
+	time = 20
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	reqs = list(/obj/item/clothing/glasses/meson = 1,
+				  /obj/item/clothing/glasses/regular/ = 1,
+				  /obj/item/stack/cable_coil = 5)
+	category = CAT_EYEWEAR
+
+/datum/crafting_recipe/hudpresdiag
+	name = "Prescription Diagnostic HUDsunglasses"
+	result = /obj/item/clothing/glasses/hud/diagnostic/prescription
+	time = 20
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	reqs = list(/obj/item/clothing/glasses/hud/diagnostic = 1,
+				  /obj/item/clothing/glasses/regular/ = 1,
+				  /obj/item/stack/cable_coil = 5)
+	category = CAT_EYEWEAR
 
 /datum/crafting_recipe/ghostsheet
 	name = "Ghost Sheet"
