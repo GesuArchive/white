@@ -14,7 +14,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 		return
 
 	if(!holder)
-		if(!GLOB.ooc_allowed && !isnewplayer(mob))
+		if(!GLOB.ooc_allowed)
 			to_chat(src, span_danger("OOC выключен. Приятной игры."))
 			return
 		if(!GLOB.dooc_allowed && (mob.stat == DEAD) && !isnewplayer(mob))
