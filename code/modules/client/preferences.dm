@@ -558,6 +558,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/datum/gear/G = GLOB.gear_datums[gear_name]
 					if(!G)
 						continue
+					if(G.sort_category == "OOC" || G.sort_category == "Роли")
+						continue
 					var/ticked = (G.id in equipped_gear)
 					dat += "<tr style='vertical-align:middle;' class='metaitem buyed'><td width=300>"
 					dat += "[G.get_base64_icon_html()]<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[ticked ? "Экипировано" : "Экипировать"]</a>"
