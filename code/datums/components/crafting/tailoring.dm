@@ -243,6 +243,6 @@
 	name = "Lily Crown"
 	result = /obj/item/clothing/head/lilycrown/
 	time = 20
-	reqs = list(/obj/item/reagent_containers/food/snacks/grown/poppy/lily = 3,
+	reqs = list(/obj/item/food/grown/poppy/lily = 3,
 				/obj/item/stack/cable_coil = 3)
 	category = CAT_CLOTHING

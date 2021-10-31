@@ -233,7 +233,7 @@
 	description = "Commander Zot has his eyes on Quartermaster Maya. Send a shipment of forget-me-nots - her favorite flower - and he'll happily reward you."
 	reward = 7000
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/grown/poppy/geranium/forgetmenot)
+	wanted_types = list(/obj/item/food/grown/poppy/geranium/forgetmenot)
 	format_exception = TRUE
 
 /datum/bounty/item/botany/geranium
@@ -241,7 +241,7 @@
 	description = "Commander Zot has the hots for Commander Zena. Send a shipment of geraniums - her favorite flower - and he'll happily reward you."
 	reward = 6000
 	required_count = 3
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/grown/poppy/geranium)
+	wanted_types = list(/obj/item/food/grown/poppy/geranium)
 	format_exception = TRUE
 
 /datum/bounty/item/botany/rainbowflowercrown

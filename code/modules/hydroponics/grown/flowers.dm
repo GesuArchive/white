@@ -104,7 +104,7 @@
 	icon_state = "seed-forget_me_not"
 	species = "forget_me_not"
 	plantname = "Forget-Me-Not Plants"
-	product = /obj/item/reagent_containers/food/snacks/grown/poppy/geranium/forgetmenot
+	product = /obj/item/food/grown/poppy/geranium/forgetmenot
 	endurance = 30
 	maturation = 5
 	yield = 4
@@ -112,7 +112,7 @@
 	icon_grow = "forget_me_not-grow"
 	icon_dead = "forget_me_not-dead"
 	mutatelist = list()
-	reagents_add = list(/datum/reagent/medicine/kelotane = 0.2, /datum/reagent/consumable/nutriment = 0.05)
+	reagents_add = list(/datum/reagent/medicine/c2/aiuri = 0.2, /datum/reagent/consumable/nutriment = 0.05)
 
 /obj/item/food/grown/poppy/geranium/forgetmenot
 	seed = /obj/item/seeds/poppy/geranium/forgetmenot
