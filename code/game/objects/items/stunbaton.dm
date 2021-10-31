@@ -358,3 +358,14 @@
 
 /obj/item/melee/baton/boomerang/loaded //Same as above, comes with a cell.
 	preload_cell_type = /obj/item/stock_parts/cell/high
+
+/obj/item/melee/baton/gibaton
+	name = "гибатон"
+	desc = "гибает"
+
+/obj/item/melee/baton/gibaton/attack(mob/H, mob/living/carbon/human/user)
+	if(isliving(H))
+		var/mob/living/L = H
+		L.gib()
+	else
+		..()
