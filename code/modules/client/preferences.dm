@@ -555,7 +555,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "</td><td><font size=2><i>[G.description]</i></font></td></tr>"
 			else
 				for(var/gear_name in purchased_gear)
-					var/datum/gear/G = GLOB.gear_datums[gear]
+					var/datum/gear/G = GLOB.gear_datums[gear_name]
 					if(!G)
 						continue
 					var/ticked = (G.id in equipped_gear)
