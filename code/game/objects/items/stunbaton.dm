@@ -363,9 +363,9 @@
 	name = "гибатон"
 	desc = "гибает"
 
-/obj/item/melee/baton/gibaton/attack(mob/H, mob/living/carbon/human/user)
-	if(isliving(H))
-		var/mob/living/L = H
+/obj/item/melee/baton/gibaton/attack(mob/M, mob/living/carbon/human/user)
+	if(isliving(M))
+		var/mob/living/L = M
 		L.gib()
 	else
 		..()
