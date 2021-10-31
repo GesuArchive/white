@@ -360,7 +360,7 @@
 	preload_cell_type = /obj/item/stock_parts/cell/high
 
 /obj/item/melee/baton/gibaton
-	name = "Гибатон"
+	name = "гибатон"
 	desc = "Гибает."
 
 /obj/item/melee/baton/gibaton/attack(mob/M, mob/living/carbon/human/user)
