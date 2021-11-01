@@ -260,10 +260,11 @@ Used by the AI doomsday and the self-destruct nuke.
 		space_levels += add_new_zlevel("[name][i ? " [i + 1]" : ""]", level)
 		++i
 	//Shared orbital body
-	var/datum/orbital_object/z_linked/orbital_body = new orbital_body_type()
-	for(var/datum/space_level/level as() in space_levels)
-		level.orbital_body = orbital_body
-		orbital_body.link_to_z(level)
+	if(orbital_body_type)
+		var/datum/orbital_object/z_linked/orbital_body = new orbital_body_type()
+		for(var/datum/space_level/level as() in space_levels)
+			level.orbital_body = orbital_body
+			orbital_body.link_to_z(level)
 
 	// load the maps
 	for (var/P in parsed_maps)

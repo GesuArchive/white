@@ -11,6 +11,7 @@
 	. = list("[get_examine_string(user, TRUE)].")
 
 	if(is_servant_of_ratvar(user) && clockwork_desc)
+		. += "<hr>"
 		. += clockwork_desc
 	else if(desc)
 		. += desc

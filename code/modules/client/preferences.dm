@@ -501,7 +501,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<tr><td colspan=4 class='bal'><center>"
 			dat += "<b>Баланс: <img src='[SSassets.transport.get_asset_url("mc_32.gif")]' width=16 height=16 border=0>"
 			dat += "<font color='[fcolor]'>[metabalance]</font> метакэша.</b>"
-			dat += "<a href='?_src_=prefs;preference=gear;clear_loadout=1'>Снять надетое</a></center></td></tr>"
+			dat += "<a href='?_src_=prefs;preference=gear;clear_loadout=1'>Снять всё</a></center></td></tr>"
 			dat += "<tr><td colspan=4><center><b>"
 
 
@@ -519,13 +519,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "</b></center></td></tr>"
 
 			dat += "<tr><td colspan=4><hr></td></tr>"
-			dat += "<tr><td><b>Название</b></td>"
-			dat += "<td><b>Цена</b></td>"
-			dat += "<td><b>Роли</b></td>"
-			dat += "<td><b>Описание</b></td></tr>"
-			dat += "<tr><td colspan=4><hr></td></tr>"
 
 			if(gear_tab != "Инвентарь")
+				dat += "<tr><td><b>Название</b></td>"
+				dat += "<td><b>Цена</b></td>"
+				dat += "<td><b>Роли</b></td>"
+				dat += "<td><b>Описание</b></td></tr>"
+				dat += "<tr><td colspan=4><hr></td></tr>"
 				var/datum/loadout_category/LC = GLOB.loadout_categories[gear_tab]
 				for(var/gear_name in LC.gear)
 					var/datum/gear/G = LC.gear[gear_name]
@@ -554,20 +554,24 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						dat += "<font size=2>Все</font>"
 					dat += "</td><td><font size=2><i>[G.description]</i></font></td></tr>"
 			else
+				var/line_num = 0
+				dat += "<tr class='metaitem buyed'><td>"
 				for(var/gear_name in purchased_gear)
 					var/datum/gear/G = GLOB.gear_datums[gear_name]
 					if(!G)
 						continue
+					if(G.sort_category == "OOC" || G.sort_category == "Роли")
+						continue
 					var/ticked = (G.id in equipped_gear)
-					dat += "<tr style='vertical-align:middle;' class='metaitem buyed'><td width=300>"
-					dat += "[G.get_base64_icon_html()]<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[ticked ? "Экипировано" : "Экипировать"]</a>"
-					dat += " - [capitalize(G.display_name)]</td>"
-					dat += "<td width=5% style='vertical-align:middle' class='metaprice'>[G.cost]</td><td>"
-					if(G.allowed_roles)
-						dat += "<font size=2>[english_list(G.allowed_roles)]</font>"
+					if(line_num == 10)
+						dat += "<tr class='metaitem buyed'><td>"
+					dat += "<a style='padding: 10px 2px;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]</a>"
+					if(line_num == 10)
+						dat += "</td></tr>"
+						line_num = 0
 					else
-						dat += "<font size=2>Все</font>"
-					dat += "</td><td><font size=2><i>[G.description]</i></font></td></tr>"
+						line_num++
+				dat += "</td></tr>"
 			dat += "</table>"
 
 		if (2) // Game Preferences
@@ -866,11 +870,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	popup.open(FALSE)
 	onclose(user, "capturekeypress", src)
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 18, list/splitJobs = list("Chief Engineer"), widthPerColumn = 295, height = 620)
+/datum/preferences/proc/SetChoices(mob/user, limit = 11, list/splitJobs = list("Chief Engineer"), widthPerColumn = 295, height = 620)
 	if(!SSjob)
 		return
 
-	//limit - The amount of jobs allowed per column. Defaults to 18 to make it look nice.
+	//limit - The amount of jobs allowed per column. Defaults to 11 to make it look nice.
 	//splitJobs - Allows you split the table by job. You can make different tables for each department by including their heads. Defaults to CE to make it look nice.
 	//widthPerColumn - Screen's width for every column.
 	//height - Screen's height.

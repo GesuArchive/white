@@ -106,7 +106,7 @@
 	design_ids = list("cybernetic_liver", "cybernetic_heart", "cybernetic_lungs","cybernetic_stomach", "scalpel",
 					"blood_filter", "circular_saw", "bonesetter", "surgicaldrill", "retractor", "cautery", "hemostat",
 					"stethoscope", "surgical_drapes", "syringe", "plumbing_rcd", "beaker", "large_beaker", "xlarge_beaker",
-					"dropper", "defibmountdefault", "surgical_tape", "portable_chem_mixer")
+					"dropper", "defibmountdefault", "surgical_tape", "portable_chem_mixer", "glasses_prescription")
 
 /datum/techweb_node/basic_circuitry
 	id = "basic_circuitry"
