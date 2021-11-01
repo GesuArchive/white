@@ -929,5 +929,4 @@
 /obj/item/clothing/under/chameleon/ratvar
 	name = "комбинезон ратварского инженера"
 	desc = "Комбинезон, сотканных из металлических нитей. Может принимать вид других комбинезонов."
-	icon_state = "lightbrown"
-	inhand_icon_state = "lightbrown"
+	greyscale_colors = "#c77700"
