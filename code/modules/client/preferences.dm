@@ -564,13 +564,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						continue
 					var/ticked = (G.id in equipped_gear)
 					if(line_num == 10)
-						dat += "<tr class='metaitem buyed'><td>"
-					dat += "<a style='padding: 10px 2px;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]</a>"
-					if(line_num == 10)
-						dat += "</td></tr>"
+						dat += "</td></tr><tr class='metaitem buyed'><td>"
 						line_num = 0
-					else
-						line_num++
+					dat += "<a style='padding: 10px 2px;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]</a>"
+					line_num++
 				dat += "</td></tr>"
 			dat += "</table>"
 
