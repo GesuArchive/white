@@ -555,6 +555,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "</td><td><font size=2><i>[G.description]</i></font></td></tr>"
 			else
 				var/line_num = 0
+				dat += "<tr class='metaitem buyed'><td>"
 				for(var/gear_name in purchased_gear)
 					var/datum/gear/G = GLOB.gear_datums[gear_name]
 					if(!G)
@@ -563,13 +564,14 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						continue
 					var/ticked = (G.id in equipped_gear)
 					if(line_num == 10)
-						dat += "<tr class='metaitem buyed'>"
-					dat += "<td><a style='padding: 10px 2px;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]]</a></td>"
+						dat += "<tr class='metaitem buyed'><td>"
+					dat += "<a style='padding: 10px 2px;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]</a>"
 					if(line_num == 10)
-						dat += "</tr>"
+						dat += "</td></tr>"
 						line_num = 0
 					else
 						line_num++
+				dat += "</td></tr>"
 			dat += "</table>"
 
 		if (2) // Game Preferences
