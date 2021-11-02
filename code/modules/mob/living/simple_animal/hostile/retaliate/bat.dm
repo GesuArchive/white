@@ -27,7 +27,7 @@
 	attack_vis_effect = ATTACK_EFFECT_BITE
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
-	ventcrawler = VENTCRAWLER_NUDE
+	ventcrawler = VENTCRAWLER_NONE
 	mob_size = MOB_SIZE_TINY
 	speak_emote = list("squeaks")
 	var/max_co2 = 0 //to be removed once metastation map no longer use those for Sgt Araneus
