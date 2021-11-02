@@ -294,7 +294,7 @@
 	equip_delay_other = 50
 
 /obj/item/clothing/shoes/bronze
-	name = "бронзовые ботинки"
+	name = "латунные ботинки"
 	desc = "Гигантская, неуклюжая пара туфель, грубо сделанных из бронзы. Зачем кому-то их носить?"
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_treads"

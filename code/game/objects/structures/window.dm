@@ -933,7 +933,7 @@
 
 /obj/structure/window/bronze
 	name = "латунное окно"
-	desc = "Тонкая, как бумага, панель из полупрозрачной, но усиленной латуни. Да ладно, это слабая бронза!"
+	desc = "Тонкая, как бумага, панель из полупрозрачной, но усиленной латуни. Да ладно, это слабая латунь!"
 	icon = 'icons/obj/smooth_structures/clockwork_window.dmi'
 	icon_state = "clockwork_window_single"
 	glass_type = /obj/item/stack/tile/bronze

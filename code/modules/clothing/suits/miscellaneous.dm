@@ -771,7 +771,7 @@
 		return TRUE
 
 /obj/item/clothing/suit/bronze
-	name = "бронзовый костюм"
+	name = "латунный костюм"
 	desc = "Большой строгий костюм из бронзы, который не защищает и выглядит очень не модно. Отлично."
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_cuirass_old"

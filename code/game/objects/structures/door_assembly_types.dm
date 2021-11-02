@@ -242,7 +242,7 @@
 	glass_type = /obj/machinery/door/airlock/wood/glass
 
 /obj/structure/door_assembly/door_assembly_bronze
-	name = "каркас бронзовой двери"
+	name = "каркас латунной двери"
 	icon = 'icons/obj/doors/airlocks/clockwork/pinion_airlock.dmi'
 	base_name = "bronze airlock"
 	airlock_type = /obj/machinery/door/airlock/bronze

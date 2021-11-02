@@ -19,6 +19,7 @@
 	mappath = "_maps/[typegen]/[file_name].dmm"
 	. = ..(path, rename, TRUE)
 	find_connection_points()
+	name = "[file_name]"
 
 //=======
 // Absolute shitcode of a proc right here

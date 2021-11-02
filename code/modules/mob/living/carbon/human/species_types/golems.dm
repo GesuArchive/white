@@ -817,9 +817,9 @@
 	C.ventcrawler = initial(C.ventcrawler)
 
 /datum/species/golem/bronze
-	name = "бронзовый голем"
+	name = "латунный голем"
 	id = "bronze golem"
-	prefix = "Бронзовый"
+	prefix = "латунный"
 	special_names = list("Bell")
 	fixed_mut_color = "cd7f32"
 	info_text = "Будучи <span class='danger'>бронзовым големом</span> мне не опасны громкие звуки. Если меня кто-то бьёт, я издаю громкие звуки, тем не менее такая способность вредит моим ушам... Звучит логично!"

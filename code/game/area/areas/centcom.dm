@@ -241,6 +241,8 @@
 	has_gravity = STANDARD_GRAVITY
 	area_flags = HIDDEN_AREA | NOTELEPORT
 	ambientsounds = REEBE
+	base_lighting_color = COLOR_WHITE
+	base_lighting_alpha = 255
 
 /area/reebe/city_of_cogs
 	name = "Reebe - City of Cogs"

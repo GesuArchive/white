@@ -213,8 +213,8 @@ GLOBAL_LIST_INIT(clockwork_portals, list())
 GLOBAL_VAR(cult_ratvar)
 
 /obj/ratvar
-	name = "ratvar, the Clockwork Justicar"
-	desc = "Oh, that's ratvar!"
+	name = "ратвар, Механический Юстициар"
+	desc = "Ну да, это точно Ратвар!!!"
 	icon = 'icons/effects/512x512.dmi'
 	icon_state = "ratvar"
 	anchored = TRUE
@@ -242,7 +242,7 @@ GLOBAL_VAR(cult_ratvar)
 	. = ..()
 	desc = "[text2ratvar("That's Ratvar, the Clockwork Justicar. The great one has risen.")]"
 	SEND_SOUND(world, 'sound/effects/ratvar_reveal.ogg')
-	to_chat(world, span_ratvar("The bluespace veil gives way to Ratvar, his light shall shine upon all mortals!"))
+	to_chat(world, span_ratvar("Покров блюспейса уступает место Ратвару, его свет озарит всех смертных!"))
 	UnregisterSignal(src, COMSIG_ATOM_BSA_BEAM)
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/trigger_clockcult_victory, src)
 	check_gods_battle()
