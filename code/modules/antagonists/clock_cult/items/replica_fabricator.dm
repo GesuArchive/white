@@ -12,6 +12,7 @@
 /obj/item/clockwork/replica_fabricator/examine(mob/user)
 	. = ..()
 	if(is_servant_of_ratvar(user))
+		. += "<hr>"
 		. += "Use on brass to convert it into power."
 		. += "Use on other materials to convert them into brass."
 		. += "Use on an empty floor to fabricate brass for 10W/sheet"

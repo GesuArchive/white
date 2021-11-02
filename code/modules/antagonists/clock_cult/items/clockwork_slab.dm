@@ -5,6 +5,7 @@ GLOBAL_LIST_INIT(clockwork_slabs, list())
 	desc = "A mechanical-looking device filled with intricate cogs that swirl to their own accord."
 	clockwork_desc = "A beautiful work of art, harnessing mechanical energy for a variety of useful powers."
 	item_flags = NOBLUDGEON
+	w_class = WEIGHT_CLASS_SMALL
 	icon_state = "dread_ipad"
 	lefthand_file = 'icons/mob/inhands/antag/clockwork_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/antag/clockwork_righthand.dmi'
