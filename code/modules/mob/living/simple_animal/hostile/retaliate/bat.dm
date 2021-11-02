@@ -12,8 +12,8 @@
 	response_disarm_simple = "flail at"
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	speak_chance = 0
-	maxHealth = 1
-	health = 1
+	maxHealth = 20
+	health = 20
 	see_in_dark = 10
 	harm_intent_damage = 6
 	melee_damage_lower = 6
