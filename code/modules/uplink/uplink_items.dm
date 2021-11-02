@@ -743,8 +743,14 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	name = "12g Slug Drum"
 	desc = "An additional 8-round slug magazine for use with the Bulldog shotgun. \
 			Now 8 times less likely to shoot your pals."
-	cost = 3
+	cost = 4
 	item = /obj/item/ammo_box/magazine/m12g/slug
+
+/datum/uplink_item/ammo/shotgun/apslug
+	name = "12g AP Slug Drum"
+	desc = "Барабанный магазин на 8 патронов, заряженный бронебойными патронами, подходит для дробовика Бульдог"
+	cost = 3
+	item = /obj/item/ammo_box/magazine/m12g/apslug
 
 /datum/uplink_item/ammo/revolver
 	name = ".357 Speed Loader"
