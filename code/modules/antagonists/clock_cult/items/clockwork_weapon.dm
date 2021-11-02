@@ -102,20 +102,18 @@
 /obj/item/gun/energy/kinetic_accelerator/crossbow/clockwork
 	name = "латунный лук"
 	desc = "Лук из латуни и других деталей, которые вы не совсем понимаете. Он светится глубокой энергией и сам по себе дробит стрелы."
-	icon = 'icons/obj/clockwork_objects.dmi'
-	lefthand_file = 'icons/mob/inhands/antag/clockwork_lefthand.dmi';
-	righthand_file = 'icons/mob/inhands/antag/clockwork_righthand.dmi'
+	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "bow_clockwork"
-	ammo_type = list(/obj/item/ammo_casing/caseless/arrow/clockbolt)
+	ammo_type = list(/obj/item/ammo_casing/energy/bolt/clockbolt)
 
 /obj/item/gun/energy/kinetic_accelerator/crossbow/clockwork/update_icon()
 	. = ..()
-	if(!chambered)
-		icon_state = "bow"
+	if(!can_shoot())
+		icon_state = "bow_clockwork_unloaded"
 	else
-		icon_state = "bow_[overheat]"
+		icon_state = "bow_clockwork_loaded"
 
-/obj/item/ammo_casing/caseless/arrow/clockbolt
+/obj/item/ammo_casing/energy/bolt/clockbolt
 	name = "энергетическая стрела"
 	desc = "Стрела из странной энергии."
 	icon_state = "arrow_redlight"
