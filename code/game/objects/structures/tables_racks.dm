@@ -549,7 +549,7 @@
 
 /obj/structure/table/bronze
 	name = "латунный стол"
-	desc = "Прочный стол из бронзы."
+	desc = "Прочный стол из латуни."
 	icon = 'icons/obj/smooth_structures/brass_table.dmi'
 	icon_state = "brass_table-0"
 	base_icon_state = "brass_table"

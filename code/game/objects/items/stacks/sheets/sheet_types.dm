@@ -590,7 +590,7 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 /obj/item/stack/tile/bronze
 	name = "латунь"
 	desc = "При внимательном рассмотрении становится понятно, что совершенно-непригодная-для-строительства латунь на самом деле куда более структурно устойчивая латунь."
-	singular_name = "лист бронзы"
+	singular_name = "лист латуни"
 	icon_state = "sheet-brass"
 	inhand_icon_state = "sheet-brass"
 	icon = 'icons/obj/stack_objects.dmi'

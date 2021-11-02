@@ -1,6 +1,6 @@
 /mob/living/simple_animal/eminence
-	name = "\the Eminence"
-	desc = "A glowing ball of light."
+	name = "Преосвященство"
+	desc = "Светящийся шарик."
 	icon = 'icons/effects/clockwork_effects.dmi'
 	icon_state = "eminence"
 	mob_biotypes = list(MOB_SPIRIT)
@@ -71,13 +71,13 @@
 	. = ..()
 	var/datum/antagonist/servant_of_ratvar/S = add_servant_of_ratvar(src, silent=TRUE)
 	S.prefix = CLOCKCULT_PREFIX_EMINENCE
-	to_chat(src, span_large_brass("You are the Eminence!"))
-	to_chat(src, span_brass("Click on objects to perform actions, different objects have different actions, try them out!"))
-	to_chat(src, span_brass("Many of your spells require a target first. Click on a servant to select them!"))
+	to_chat(src, span_large_brass("Я Преосвященство!"))
+	to_chat(src, span_brass("Кликаем на разные штуки и они начинают работать!"))
+	to_chat(src, span_brass("Большая часть заклинаний требует цель. Клик для выбора цели!"))
 
 /mob/living/simple_animal/eminence/say_verb(message as text)
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, span_danger("Speech is currently admin-disabled."))
+		to_chat(usr, span_danger("Не могу говорить."))
 		return
 	if(message)
 		hierophant_message(message, src, span="<span class='large_brass'>", say=FALSE)
@@ -87,7 +87,7 @@
 
 /mob/living/simple_animal/eminence/Move(atom/newloc, direct)
 	if(istype(get_area(newloc), /area/service/chapel))
-		to_chat(usr, span_warning("You cannot move on to holy grounds!"))
+		to_chat(usr, span_warning("Не могу покинуть святые земли!"))
 		return
 	. = ..()
 
@@ -110,8 +110,8 @@
 
 //=====Warp to Reebe=====
 /obj/effect/proc_holder/spell/targeted/eminence/reebe
-	name = "Jump to Reebe"
-	desc = "Teleport yourself to Reebe."
+	name = "Вернуться на Риби"
+	desc = "Телепортирует меня на Риби."
 	action_icon_state = "Abscond"
 
 /obj/effect/proc_holder/spell/targeted/eminence/reebe/cast(mob/living/user)
@@ -121,12 +121,12 @@
 		SEND_SOUND(user, sound('sound/magic/magic_missile.ogg'))
 		flash_color(user, flash_color = "#AF0AAF", flash_time = 25)
 	else
-		to_chat(user, span_warning("There is no Ark!"))
+		to_chat(user, span_warning("Ой-ой!"))
 
 //=====Warp to station=====
 /obj/effect/proc_holder/spell/targeted/eminence/station
-	name = "Jump to Station"
-	desc = "Teleport yourself to the station."
+	name = "Перейти к станции"
+	desc = "Телепортировать себя к станции."
 	action_icon_state = "warp_down"
 
 /obj/effect/proc_holder/spell/targeted/eminence/station/cast(mob/living/user)
@@ -135,12 +135,12 @@
 		SEND_SOUND(user, sound('sound/magic/magic_missile.ogg'))
 		flash_color(user, flash_color = "#AF0AAF", flash_time = 25)
 	else
-		to_chat(user, span_warning("You're already on the station!"))
+		to_chat(user, span_warning("Да я уже на станции!"))
 
 //=====Mass Recall=====
 /obj/effect/proc_holder/spell/targeted/eminence/mass_recall
-	name = "Initiate Mass Recall"
-	desc = "Initiates a mass recall, warping everyone to the Ark."
+	name = "Инициировать массовый призыв"
+	desc = "Инициирует массовый призыв, возвращая всех к ковчегу."
 	action_icon_state = "Spatial Gateway"
 
 /obj/effect/proc_holder/spell/targeted/eminence/mass_recall/cast(list/targets, mob/living/user)
@@ -152,8 +152,8 @@
 
 //=====Purge Reagents=====
 /obj/effect/proc_holder/spell/targeted/eminence/reagent_purge
-	name = "Purge Reagents"
-	desc = "Purges all the reagents from a selected target. You must select a target by left clicking on them first."
+	name = "Вычистить реагенты"
+	desc = "Вычищает все лишние реагенты из цели. Нужно выбрать цель конечно же."
 	action_icon_state = "Mending Mantra"
 	charge_max = 300
 
@@ -174,7 +174,7 @@
 		return FALSE
 	if(!E.selected_mob || !is_servant_of_ratvar(E.selected_mob))
 		E.selected_mob = null
-		to_chat(user, span_neovgre("You need to select a valid target by clicking on them."))
+		to_chat(user, span_neovgre("Нужна правильная цель."))
 		revert_cast(user)
 		return FALSE
 	var/mob/living/L = E.selected_mob
@@ -182,14 +182,14 @@
 		revert_cast(user)
 		return FALSE
 	L.reagents?.clear_reagents()
-	to_chat(user, span_inathneq("You clear the reagents from [L]!"))
-	to_chat(L, span_inathneq("The Eminence has purified your blood!"))
+	to_chat(user, span_inathneq("Очищаю [L]!"))
+	to_chat(L, span_inathneq("Преосвященство очищает мою кровь!"))
 	return TRUE
 
 //=====Linked Abscond=====
 /obj/effect/proc_holder/spell/targeted/eminence/linked_abscond
-	name = "Linked Abscond"
-	desc = "Warps a target to Reebe if they are still for 7 seconds."
+	name = "Связанное возвышение"
+	desc = "Телепортирует цель на Риби, если она не будет двигаться 7 секунд."
 	action_icon_state = "Linked Abscond"
 	charge_max = 1800
 
@@ -206,28 +206,75 @@
 /obj/effect/proc_holder/spell/targeted/eminence/linked_abscond/cast(list/targets, mob/living/user)
 	var/mob/living/simple_animal/eminence/E = user
 	if(!istype(E))
-		to_chat(E, span_brass("You are not the Eminence! (This is a bug)"))
+		to_chat(E, span_brass("Я Преосвященство! (ЧТО-ТО СЛОМАЛОСЬ)"))
 		revert_cast(user)
 		return FALSE
 	if(!E.selected_mob || !is_servant_of_ratvar(E.selected_mob))
 		E.selected_mob = null
-		to_chat(user, span_neovgre("You need to select a valid target by clicking on them."))
+		to_chat(user, span_neovgre("Нужно бы выбрать цель для начала."))
 		revert_cast(user)
 		return FALSE
 	var/mob/living/L = E.selected_mob
 	if(!istype(L))
-		to_chat(E, span_brass("You cannot do that on this mob!"))
+		to_chat(E, span_brass("Не могу взаимодействовать с этим!"))
 		revert_cast(user)
 		return FALSE
-	to_chat(E, span_brass("You begin recalling [L]..."))
-	to_chat(L, span_brass("The Eminence is summoning you..."))
-	L.visible_message(span_warning("[L] flares briefly."))
+	to_chat(E, span_brass("Начинаю процесс возвышения [L]..."))
+	to_chat(L, span_brass("Преосвященство возвышает меня..."))
+	L.visible_message(span_warning("[L] вспыхивает."))
 	if(do_after(E, 70, target=L))
-		L.visible_message(span_warning("[L] phases out of existance!"))
+		L.visible_message(span_warning("[L] исчезает!"))
 		var/turf/T = get_turf(pick(GLOB.servant_spawns))
 		try_warp_servant(L, T, FALSE)
 		return TRUE
 	else
-		to_chat(E, span_brass("You fail to recall [L]."))
+		to_chat(E, span_brass("Не вышло возвысить [L]."))
 		revert_cast(user)
 		return FALSE
+
+/mob/living/eminence_act(mob/living/simple_animal/eminence/eminence)
+	if(is_servant_of_ratvar(src) && !iseminence(src))
+		eminence.selected_mob = src
+		to_chat(eminence, "<span class='brass'>Выбираю [src].</span>")
+
+/obj/machinery/light_switch/eminence_act(mob/living/simple_animal/eminence/eminence)
+	. = ..()
+	to_chat(usr, "<span class='brass'>Начинаю манипулировать с [src]!</span>")
+	if(do_after(eminence, 20, target=get_turf(eminence)))
+		interact(eminence)
+
+/obj/machinery/flasher/eminence_act(mob/living/simple_animal/eminence/eminence)
+	. = ..()
+	to_chat(usr, "<span class='brass'>Начинаю манипулировать с [src]!</span>")
+	if(do_after(eminence, 20, target=get_turf(eminence)))
+		if(anchored)
+			flash()
+
+/obj/machinery/button/eminence_act(mob/living/simple_animal/eminence/eminence)
+	. = ..()
+	to_chat(usr, "<span class='brass'>Начинаю манипулировать с [src]!</span>")
+	if(do_after(eminence, 20, target=get_turf(eminence)))
+		attack_hand(eminence)
+
+/obj/machinery/firealarm/eminence_act(mob/living/simple_animal/eminence/eminence)
+	. = ..()
+	to_chat(usr, "<span class='brass'>Начинаю манипулировать с [src]!</span>")
+	if(do_after(eminence, 20, target=get_turf(eminence)))
+		attack_hand(eminence)
+
+/obj/machinery/power/apc/eminence_act(mob/living/simple_animal/eminence/eminence)
+	. = ..()
+	ui_interact(eminence)
+
+/obj/machinery/door/airlock/eminence_act(mob/living/simple_animal/eminence/eminence)
+	..()
+	to_chat(usr, "<span class='brass'>Начинаю манипулировать с [src]!</span>")
+	if(do_after(eminence, 20, target=get_turf(eminence)))
+		if(welded)
+			to_chat(eminence, text("Шлюз заварен!"))
+		else if(locked)
+			to_chat(eminence, text("Болты опущены!"))
+		else if(!density)
+			close()
+		else
+			open()

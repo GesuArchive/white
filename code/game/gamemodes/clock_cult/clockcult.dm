@@ -176,7 +176,7 @@ GLOBAL_VAR(clockcult_eminence)
 			return FALSE
 	if(!msg)
 		if(sender)
-			to_chat(sender, span_brass("You cannot transmit nothing!"))
+			to_chat(sender, span_brass("Не выходит!"))
 		return FALSE
 	if(use_sanitisation)
 		msg = sanitize(msg)
@@ -185,42 +185,42 @@ GLOBAL_VAR(clockcult_eminence)
 			sender.say("#[text2ratvar(msg)]")
 		msg = sender.treat_message(msg)
 		var/datum/antagonist/servant_of_ratvar/SoR = is_servant_of_ratvar(sender)
-		var/prefix = "Clockbrother"
+		var/prefix = "Механический брат"
 		switch(SoR.prefix)
 			if(CLOCKCULT_PREFIX_EMINENCE)
-				prefix = "Master"
+				prefix = "Мастер"
 			if(CLOCKCULT_PREFIX_MASTER)
 				prefix = sender.gender == MALE\
-					? "Clockfather"\
+					? "Механический отец"\
 					: sender.gender == FEMALE\
-						? "Clockmother"\
-						: "Clockmaster"
+						? "Механическая мать"\
+						: "Механический мастер"
 				hierophant_message = "<span class='leader_brass'>"
 			if(CLOCKCULT_PREFIX_RECRUIT)
 				var/role = sender.mind?.assigned_role
 				//Ew, this could be done better with a dictionary list, but this isn't much slower
 				if(role in GLOB.command_positions)
-					prefix = "High Priest"
+					prefix = "Высший служитель"
 				else if(role in GLOB.engineering_positions)
-					prefix = "Cogturner"
+					prefix = "Поворачиватель"
 				else if(role in GLOB.medical_positions)
-					prefix = "Rejuvinator"
+					prefix = "Воскрешатель"
 				else if(role in GLOB.science_positions)
-					prefix = "Calculator"
+					prefix = "Калькулятор"
 				else if(role in GLOB.supply_positions)
-					prefix = "Pathfinder"
+					prefix = "Следопыт"
 				else if(role in "Assistant")
-					prefix = "Helper"
+					prefix = "Помощник"
 				else if(role in "Mime")
-					prefix = "Cogwatcher"
+					prefix = "Смотрящий за шестерёнками"
 				else if(role in "Clown")
-					prefix = "Clonker"
+					prefix = "Шестехонкер"
 				else if(role in GLOB.security_positions)
-					prefix = "Warrior"
+					prefix = "Воин"
 				else if(role in GLOB.nonhuman_positions)
-					prefix = "CPU"
+					prefix = "ПРОЦЕССОР"
 			//Fallthrough is default of "Clockbrother"
-		hierophant_message += "<b>[prefix] [sender.name]</b> transmits, \"[msg]\""
+		hierophant_message += "<b>[prefix] [sender.name]</b> передаёт, \"[msg]\""
 	else
 		hierophant_message += msg
 	if(span)
@@ -240,6 +240,6 @@ GLOBAL_VAR(clockcult_eminence)
 	if(M.reagents)
 		if(M.reagents.has_reagent(/datum/reagent/water/holywater, 1))
 			if(pick(20))
-				to_chat(M, span_nezbere("You hear the cogs whispering to you, but cannot understand their words."))
+				to_chat(M, span_nezbere("Слышу как шепчут шестерни, но ничего не могу понять."))
 			return
 	to_chat(M, hierophant_message)

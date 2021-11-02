@@ -772,7 +772,7 @@
 
 /obj/item/clothing/suit/bronze
 	name = "латунный костюм"
-	desc = "Большой строгий костюм из бронзы, который не защищает и выглядит очень не модно. Отлично."
+	desc = "Большой строгий костюм из латуни, который не защищает и выглядит очень не модно. Отлично."
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_cuirass_old"
 	armor = list(MELEE = 5, BULLET = 0, LASER = -5, ENERGY = -15, BOMB = 10, BIO = 0, RAD = 0, FIRE = 20, ACID = 20)
