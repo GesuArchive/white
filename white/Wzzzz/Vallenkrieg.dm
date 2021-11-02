@@ -155,17 +155,6 @@
 	icon = 'white/Wzzzz/Valya/clothing/hats.dmi'
 	icon_state = "pickelhelm"
 
-/obj/item/clothing/head/helmet/richard
-	name = "richard's head"
-	desc = "Legendary petuch."
-	worn_icon = 'white/Wzzzz/Valya/clothing/mob/mask.dmi'
-	icon = 'white/Wzzzz/Valya/clothing/hats.dmi'
-	icon_state = "richard"
-	dynamic_fhair_suffix = ""
-	dynamic_hair_suffix = ""
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 9,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 10)
-
 /obj/item/clothing/mask/gas/germanfull
 	name = "old style gas mask"
 	desc = "С›РјРј. вЂ™Р°Р№Р»СЊ В¬Р°Р№С‚."

@@ -365,7 +365,7 @@
 	//Economy & Money
 	parts += market_report()
 
-	listclearnulls(parts)
+	list_clear_nulls(parts)
 
 	return parts.Join()
 
@@ -383,7 +383,7 @@
 	parts += "[FOURSPACES]└ Длительность смены: <b>[DisplayTimeText(world.time - SSticker.round_start_time)]</b>"
 
 	parts += "<hr><b><font color=\"#60b6ff\">ИНФОРМАЦИЯ О СТАНЦИИ //</font></b>"
-	parts += "[FOURSPACES]├ Система ядерного самоуничтожения: <b>[mode.station_was_nuked ? span_redtext("была автивирована")  : span_greentext("не была автивирована") ]</b>"
+	parts += "[FOURSPACES]├ Система ядерного самоуничтожения: <b>[mode.station_was_nuked ? span_redtext("была активирована")  : span_greentext("не была активирована") ]</b>"
 	parts += "[FOURSPACES]└ Состояние станции: <b>[mode.station_was_nuked ? span_redtext("уничтожена системой ядерного самоуничтожения")  : "[popcount["station_integrity"] == 100 ? span_greentext("нетронута")  : "[popcount["station_integrity"]]%"]"]</b>"
 
 	parts += "<hr><b><font color=\"#60b6ff\">ИНФОРМАЦИЯ О ПЕРСОНАЛЕ //</font></b>"

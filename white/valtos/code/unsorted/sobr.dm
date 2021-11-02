@@ -96,18 +96,16 @@
 /obj/item/storage/belt/military/army/sobr
 
 /obj/item/storage/belt/military/army/sobr/PopulateContents()
-	if(prob(10))
-		new /obj/item/ammo_box/magazine/ak74m/orange(src)
-	if(prob(15))
-		new /obj/item/ammo_box/magazine/ak74m/orange(src)
-	if(prob(20))
-		new /obj/item/ammo_box/magazine/ak74m/orange(src)
+	new /obj/item/ammo_box/magazine/ak74m/orange(src)
+	new /obj/item/ammo_box/magazine/ak74m/orange(src)
+	new /obj/item/ammo_box/magazine/ak74m/orange(src)
 	if(prob(40))
 		new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
 	if(prob(80))
 		new /obj/item/grenade/flashbang(src)
 	if(prob(30))
 		new /obj/item/grenade/syndieminibomb/concussion(src)
+
 /obj/item/storage/belt/security/sobr
 
 /obj/item/storage/belt/security/sobr/PopulateContents()
@@ -119,7 +117,7 @@
 /proc/sobr_request(text, mob/Sender)
 	var/msg = copytext_char(sanitize(text), 1, MAX_MESSAGE_LEN)
 	message_admins("[Sender.name] собирается вызвать СОБР с миссией: [msg]")
-	var/list/mob/dead/observer/candidates = pollGhostCandidates("Хотите быть в специальном отряде быстрого реагирования?", "deathsquad", null)
+	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Хотите быть в специальном отряде быстрого реагирования?", "deathsquad", null)
 	var/teamSpawned = FALSE
 
 	if(candidates.len > 0)

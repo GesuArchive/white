@@ -99,35 +99,18 @@
 /obj/item/clockwork/brass_sword/proc/send_message(mob/living/target)
 	to_chat(target, span_brass("[src] glows, indicating the next attack will disrupt electronics of the target."))
 
-/obj/item/gun/ballistic/bow/clockwork
-	name = "Brass Bow"
+/obj/item/gun/energy/kinetic_accelerator/crossbow/clockwork
+	name = "бронзовый лук"
 	desc = "A bow made from brass and other components that you can't quite understand. It glows with a deep energy and frabricates arrows by itself."
 	icon_state = "bow_clockwork"
-	force = 10
-	mag_type = /obj/item/ammo_box/magazine/internal/bow/clockcult
-	var/recharge_time = 15
+	ammo_type = list(/obj/item/ammo_casing/caseless/arrow/clockbolt)
 
-/obj/item/gun/ballistic/bow/clockwork/attack_self(mob/living/user)
-	if(!drawn)
-		to_chat(user, span_notice("Натягиваю тетиву."))
-	if (chambered)
-		drawn = TRUE
+/obj/item/gun/energy/kinetic_accelerator/crossbow/clockwork/update_icon()
+	. = ..()
+	if(!chambered)
+		icon_state = "bow"
 	else
-		recharge_bolt()
-		drawn = TRUE
-		chamber_round()
-	update_icon()
-
-/obj/item/gun/ballistic/bow/clockwork/proc/recharge_bolt()
-	if(magazine.get_round(TRUE))
-		return
-	var/obj/item/ammo_casing/caseless/arrow/clockbolt/CB = new
-	magazine.give_round(CB)
-	update_icon()
-
-/obj/item/ammo_box/magazine/internal/bow/clockcult
-	ammo_type = /obj/item/ammo_casing/caseless/arrow/clockbolt
-	start_empty = FALSE
+		icon_state = "bow_[overheat]"
 
 /obj/item/ammo_casing/caseless/arrow/clockbolt
 	name = "energy bolt"

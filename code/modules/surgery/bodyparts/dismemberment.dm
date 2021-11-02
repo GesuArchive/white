@@ -338,7 +338,7 @@
 		if(held_index > C.hand_bodyparts.len)
 			C.hand_bodyparts.len = held_index
 		C.hand_bodyparts[held_index] = src
-		if(C.dna.species.mutanthands && !is_pseudopart)
+		if(C?.dna?.species?.mutanthands && !is_pseudopart)
 			C.put_in_hand(new C.dna.species.mutanthands(), held_index)
 		if(C.hud_used)
 			var/atom/movable/screen/inventory/hand/hand = C.hud_used.hand_slots["[held_index]"]

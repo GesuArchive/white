@@ -249,9 +249,14 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 
 	recipe = first_atmos
 
-/obj/item/pipe_dispenser/ComponentInitialize()
+/obj/item/pipe_dispenser/attack(mob/living/target, mob/living/user)
 	. = ..()
-	AddComponent(/datum/component/knockback, throw_distance = 2, throw_gentle = TRUE)
+	if(HAS_TRAIT(user, TRAIT_PACIFISM))
+		return
+	if(!target.anchored)
+		var/atom/throw_target = get_edge_target_turf(target, user.dir)
+		var/whack_speed = (prob(60) ? 1 : 4)
+		target.throw_at(throw_target, rand(1, 2), whack_speed, user, gentle = TRUE)
 
 /obj/item/pipe_dispenser/Destroy()
 	qdel(spark_system)

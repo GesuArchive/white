@@ -198,7 +198,10 @@
 	UnregisterSignal(shape, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH))
 	UnregisterSignal(stored, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH))
 	restoring = TRUE
-	stored.forceMove(shape.loc)
+	if(shape?.loc)
+		stored.forceMove(shape.loc)
+	else
+		stored.forceMove(get_turf(src))
 	stored.notransform = FALSE
 	if(shape.mind)
 		shape.mind.transfer_to(stored)

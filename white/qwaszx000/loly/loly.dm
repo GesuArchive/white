@@ -47,9 +47,9 @@
 	race = /datum/species/loly
 
 /mob/living/carbon/human/species/loly/Life()
-	listclearnulls(hand_bodyparts)
+	list_clear_nulls(hand_bodyparts)
 	..()
-	listclearnulls(hand_bodyparts)
+	list_clear_nulls(hand_bodyparts)
 
 /proc/pisk()
 	set name = "squeak"
@@ -88,4 +88,4 @@
 	C.create_internal_organs()
 	C.update_body()
 
-	//listclearnulls(hand_bodyparts)
+	//list_clear_nulls(hand_bodyparts)

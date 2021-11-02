@@ -272,6 +272,10 @@
 		if(!anchored)
 			to_chat(user, span_warning("Мне нужно прикрутить основание прежде чем добавлять туда стекло."))
 			return
+		var/turf/solarturf = get_turf(src)
+		if(locate(/obj/machinery/power/solar) in solarturf)
+			to_chat(user, span_warning("Здесь уже стоит солнечная панель!"))
+			return
 		var/obj/item/stack/sheet/S = W
 		if(S.use(2))
 			glass_type = W.type
