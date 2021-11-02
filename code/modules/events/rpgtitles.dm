@@ -29,7 +29,7 @@ GLOBAL_DATUM(rpgtitle_controller, /datum/rpgtitle_controller)
 	if(isliving(new_login))
 		var/mob/living/living_login = new_login
 		if(living_login.stat != DEAD && !living_login.maptext)
-			on_crewmember_join(source, living_login, living_login.mind.assigned_role.title)
+			on_crewmember_join(source, living_login, living_login.mind.assigned_role)
 
 ///signal sent by a crewmember joining
 /datum/rpgtitle_controller/proc/on_crewmember_join(datum/source, mob/living/new_crewmember, rank)
@@ -49,20 +49,20 @@ GLOBAL_DATUM(rpgtitle_controller, /datum/rpgtitle_controller)
 	var/list/biotype_titles = list(
 		null, //organic is too common to be a descriptor
 		null, //mineral is only used with carbons
-		list("Mechanical", "Robot"),
-		list("Reanimated", "Undead"),
-		list("Bipedal", "Humanoid"),
-		list("Insectile", "Bug"),
-		list("Beastly", "Beast"),
-		list("Monstrous", "Megafauna"),
-		list("Reptilian", "Lizard"),
-		list("Paranormal", "Spirit"),
-		list("Flowering", "Plant"),
+		list("Механический", "Робот"),
+		list("Оживший", "Мертвец"),
+		list("Двуногий", "Гуманоид"),
+		list("Членистоногий", "Жук"),
+		list("Зверский", "Зверь"),
+		list("Монструозный", "Мегазверь"),
+		list("Рептильный", "Ящер"),
+		list("Паранормальный", "Дух"),
+		list("Цветущий", "Овощ"),
 	)
 
 	var/maptext_title = ""
 
-	if(!(isanimal(new_crewmember) || isbasicmob(new_crewmember)))
+	if(!(isanimal(new_crewmember) || ismob(new_crewmember)))
 		maptext_title = job.rpg_title || job.title
 	else
 		//this following code can only be described as bitflag black magic. ye be warned. i tried to comment excessively to explain what the fuck is happening
@@ -73,7 +73,7 @@ GLOBAL_DATUM(rpgtitle_controller, /datum/rpgtitle_controller)
 				if(biotype_titles[biotype_flag_position+1]) //if there is a fitting verbage for this biotype...
 					applicable_biotypes += list(biotype_titles[biotype_flag_position+1])//...add it to the list of applicable biotypes
 		if(!applicable_biotypes.len) //there will never be an adjective anomaly because anomaly is only added when there are no choices
-			applicable_biotypes += list(null, "Anomaly")
+			applicable_biotypes += list(null, "Аномалия")
 
 		//shuffle it to allow for some cool combinations of adjectives and nouns
 		applicable_biotypes = shuffle(applicable_biotypes)
@@ -89,14 +89,14 @@ GLOBAL_DATUM(rpgtitle_controller, /datum/rpgtitle_controller)
 	//mother of all strings...
 	new_crewmember.maptext = "<span class='maptext' style='text-align: center'><span style='color: [new_crewmember.chat_color || rgb(rand(100,255), rand(100,255), rand(100,255))]'>Level [rand(1, 100)] [maptext_title]</span></span>"
 
-	if(!(job.job_flags & JOB_CREW_MEMBER))
+	if(!job)
 		return
 
 	var/obj/item/card/id/card = new_crewmember.get_idcard()
 	if(!card)//since this is called on current crew, some may not have IDs. shame on them for missing out!
 		return
-	card.name = "adventuring license"
-	card.desc = "A written license from the adventuring guild. You're good to go!"
+	card.name = "приключенческая лицензия"
+	card.desc = "Свежая лицензия от гильдии приключений. Время их искать!"
 	card.icon_state = "card_rpg"
 	card.assignment = job.rpg_title
 	if(istype(card, /obj/item/card/id/advanced))
@@ -113,4 +113,4 @@ GLOBAL_DATUM(rpgtitle_controller, /datum/rpgtitle_controller)
  */
 /datum/rpgtitle_controller/proc/handle_current_jobs()
 	for(var/mob/living/player as anything in GLOB.alive_player_list)
-		on_crewmember_join(SSdcs, player, player.mind?.assigned_role.title)
+		on_crewmember_join(SSdcs, player, player.mind?.assigned_role)
