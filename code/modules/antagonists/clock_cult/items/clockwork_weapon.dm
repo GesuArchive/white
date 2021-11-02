@@ -12,7 +12,7 @@
 	armour_penetration = 10
 	custom_materials = list(/datum/material/iron=1150, /datum/material/gold=2750)
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb_simple = list("attacked", "poked", "jabbed", "torn", "gored")
+	attack_verb_simple = list("атакует", "тычет", "накалывает", "рвёт", "насаживает")
 	sharpness = SHARP_EDGED
 	max_integrity = 200
 	var/clockwork_hint = ""
@@ -53,39 +53,39 @@
 	return
 
 /obj/item/clockwork/brass_spear
-	name = "brass spear"
-	desc = "A razor-sharp spear made of brass. It thrums with barely-contained energy."
+	name = "латунное копье"
+	desc = "Острое, как бритва, копье из латуни. Он гудит от едва сдерживаемой энергии."
 	icon_state = "ratvarian_spear"
 	embedding = list("embedded_impact_pain_multiplier" = 3)
 	force = 24
 	throwforce = 36
 	armour_penetration = 24
-	clockwork_hint = "Throwing the spear will deal bonus damage while on Reebe."
+	clockwork_hint = "Бросок копья нанесет дополнительный урон, пока находится на Риби."
 
 /obj/item/clockwork/brass_battlehammer
-	name = "brass battle-hammer"
-	desc = "A brass hammer glowing with energy."
+	name = "латунный боевой молот"
+	desc = "Латунный молот, светящийся энергией."
 	icon_state = "ratvarian_hammer"
 	force = 25
 	throwforce = 25
 	armour_penetration = 6
 	sharpness = NONE
-	attack_verb_simple = list("bashed", "smitted", "hammered", "attacked")
-	clockwork_hint = "Enemies hit by this will be flung back while on Reebe."
+	attack_verb_simple = list("лупит", "дубасит", "бьёт", "хуячит")
+	clockwork_hint = "Враги, пораженные этим, будут отброшены, пока молот находится на Риби."
 
 /obj/item/clockwork/brass_battlehammer/hit_effect(mob/living/target, mob/living/user, thrown=FALSE)
 	var/atom/throw_target = get_edge_target_turf(target, get_dir(src, get_step_away(target, src)))
 	target.throw_at(throw_target, thrown ? 2 : 1, 4)
 
 /obj/item/clockwork/brass_sword
-	name = "brass longsword"
-	desc = "A large sword made of brass."
+	name = "латунный длинный меч"
+	desc = "Большой меч из латуни."
 	icon_state = "ratvarian_sword"
 	force = 26
 	throwforce = 20
 	armour_penetration = 12
-	attack_verb_simple = list("attacked", "slashed", "cut", "torn", "gored")
-	clockwork_hint = "Targets will be struck with a powerful electromagnetic pulse while on Reebe."
+	attack_verb_simple = list("атакует", "рубит", "режет", "рвёт", "протыкает")
+	clockwork_hint = "Находясь на Риби, цели будут поражены мощным электромагнитным импульсом."
 	var/emp_cooldown = 0
 
 /obj/item/clockwork/brass_sword/hit_effect(mob/living/target, mob/living/user, thrown)
@@ -93,15 +93,18 @@
 		target.emp_act(EMP_LIGHT)
 		emp_cooldown = world.time + 300
 		addtimer(CALLBACK(src, .proc/send_message, user), 300)
-		to_chat(user, span_brass("You strike [target] with an electromagnetic pulse!"))
+		to_chat(user, span_brass("Попадаю по [target] мощным электромагнитным импульсом!"))
 		playsound(user, 'sound/magic/lightningshock.ogg', 40)
 
 /obj/item/clockwork/brass_sword/proc/send_message(mob/living/target)
-	to_chat(target, span_brass("[src] glows, indicating the next attack will disrupt electronics of the target."))
+	to_chat(target, span_brass("[capitalize(src.name)] светится, сообщая о готовности следующего электромагнитного удара."))
 
 /obj/item/gun/energy/kinetic_accelerator/crossbow/clockwork
-	name = "бронзовый лук"
-	desc = "A bow made from brass and other components that you can't quite understand. It glows with a deep energy and frabricates arrows by itself."
+	name = "латунный лук"
+	desc = "Лук из латуни и других деталей, которые вы не совсем понимаете. Он светится глубокой энергией и сам по себе дробит стрелы."
+	icon = 'icons/obj/clockwork_objects.dmi'
+	lefthand_file = 'icons/mob/inhands/antag/clockwork_lefthand.dmi';
+	righthand_file = 'icons/mob/inhands/antag/clockwork_righthand.dmi'
 	icon_state = "bow_clockwork"
 	ammo_type = list(/obj/item/ammo_casing/caseless/arrow/clockbolt)
 
@@ -113,18 +116,13 @@
 		icon_state = "bow_[overheat]"
 
 /obj/item/ammo_casing/caseless/arrow/clockbolt
-	name = "energy bolt"
-	desc = "An arrow made from a strange energy."
+	name = "энергетическая стрела"
+	desc = "Стрела из странной энергии."
 	icon_state = "arrow_redlight"
 	projectile_type = /obj/projectile/energy/clockbolt
 
-/obj/item/ammo_casing/caseless/arrow/clockbolt/dropped()
-	. = ..()
-	if(isturf(loc))
-		qdel(src)
-
 /obj/projectile/energy/clockbolt
-	name = "energy bolt"
+	name = "энергетическая стрела"
 	icon_state = "arrow_energy"
 	damage = 4
 	damage_type = BURN

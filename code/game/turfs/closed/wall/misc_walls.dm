@@ -103,8 +103,8 @@
 	ScrapeAway()
 */
 /turf/closed/wall/mineral/bronze
-	name = "бронзовая стена"
-	desc = "Крупная бронзовая стена. Её украшивают также и бронзовые шестерни."
+	name = "латунная стена"
+	desc = "Крупная латунная стена. Её украшивают также и латунные шестерни."
 	icon = 'icons/turf/walls/clockwork_wall.dmi'
 	icon_state = "clockwork_wall"
 	base_icon_state = "clockwork_wall-0"

@@ -426,7 +426,7 @@
 	item_chair = null
 
 /obj/structure/chair/bronze
-	name = "бронзовый стул"
+	name = "латунный стул"
 	desc = "Кругленький стул из бронзы. У него маленькие винтики для колес!"
 	anchored = FALSE
 	icon = 'icons/obj/chairs.dmi'

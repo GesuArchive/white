@@ -35,8 +35,8 @@
 )
 
 /turf/closed/wall/clockwork
-	name = "clockwork wall"
-	desc = "A huge chunk of warm metal. The clanging of machinery emanates from within."
+	name = "латунная стена"
+	desc = "Крупная латунная стена. Её украшивают также и латунные шестерни."
 	icon_state = "clockwork_wall"
 	base_icon_state = "clockwork_wall-0"
 	icon = 'icons/turf/walls/clockwork_wall.dmi'
@@ -161,8 +161,8 @@
 //Clockwork floor: Slowly heals toxin damage on nearby servants.
 //=================================================
 /turf/open/floor/clockwork
-	name = "clockwork floor"
-	desc = "Tightly-pressed brass tiles. They emit minute vibration."
+	name = "механический пол"
+	desc = "Плотная латунная плитка. Она вибрирует."
 	icon_state = "plating"
 	baseturfs = /turf/open/floor/clockwork
 	footstep = FOOTSTEP_PLATING
@@ -203,9 +203,9 @@
 			return TRUE
 	else if(baseturfs == type)
 		return TRUE
-	user.visible_message(span_notice("[user] begins slowly prying up [src]...") , span_notice("You begin painstakingly prying up [src]..."))
+	user.visible_message(span_notice("[user] начинает медленно снимать [src]...") , span_notice("Начинаю медленно снимать [src]..."))
 	if(I.use_tool(src, user, 70, volume=80))
-		user.visible_message(span_notice("[user] pries up [src]!") , span_notice("You pry up [src]!"))
+		user.visible_message(span_notice("[user] отрывает [src]!") , span_notice("Отрываю [src]!"))
 		make_plating()
 	return TRUE
 
@@ -238,8 +238,8 @@
 	return
 
 /turf/open/floor/clockwork/reebe
-	name = "cogplate"
-	desc = "Warm brass plating. You can feel it gently vibrating, as if machinery is on the other side."
+	name = "шестерпол"
+	desc = "Теплая латунная обшивка. Можно почувствовать его легкую вибрацию, как будто машина находится по ту сторону."
 	icon_state = "reebe"
 	baseturfs = /turf/open/floor/clockwork/reebe
 	uses_overlay = FALSE
@@ -279,8 +279,8 @@
 //=================================================
 
 /obj/structure/lattice/clockwork
-	name = "cog lattice"
-	desc = "A lightweight support lattice. These hold the Justicar's station together."
+	name = "зубчатая решетка"
+	desc = "Легкая опорная решетка. Она удерживает станцию Юстициара."
 	icon = 'icons/obj/smooth_structures/lattice_clockwork.dmi'
 
 /obj/structure/lattice/clockwork/Initialize(mapload)
@@ -305,7 +305,7 @@
 //=================================================
 
 /obj/structure/lattice/catwalk/clockwork
-	name = "clockwork catwalk"
+	name = "механический мостик"
 	icon_state = "catwalk"
 	icon = 'icons/obj/smooth_structures/catwalk_clockwork.dmi'
 	smoothing_groups = list(SMOOTH_GROUP_LATTICE, SMOOTH_GROUP_CATWALK, SMOOTH_GROUP_OPEN_FLOOR)
@@ -336,8 +336,8 @@
 //Pinion airlocks: Clockwork doors that only let servants of Ratvar through.
 //=================================================
 /obj/machinery/door/airlock/clockwork
-	name = "pinion airlock"
-	desc = "A massive cogwheel set into two heavy slabs of brass. Contains tiny vents for allowing the flow of pressure."
+	name = "механический шлюз"
+	desc = "Массивное зубчатое колесо вставлено в две тяжелые латунные плиты. Имеет крошечные отверстия для прохождения давления."
 	icon = 'icons/obj/doors/airlocks/clockwork/pinion_airlock.dmi'
 	overlays_file = 'icons/obj/doors/airlocks/clockwork/overlays.dmi'
 	hackProof = TRUE
@@ -472,8 +472,8 @@
 //=================================================
 
 /obj/structure/grille/ratvar
-	name = "cog grille"
-	desc = "A strangely-shaped grille."
+	name = "механическая решётка"
+	desc = "Решетка причудливой формы."
 
 /obj/structure/grille/ratvar/Initialize()
 	. = ..()
@@ -509,8 +509,8 @@
 //=================================================
 
 /obj/structure/window/reinforced/clockwork
-	name = "brass window"
-	desc = "A paper-thin pane of translucent yet reinforced brass."
+	name = "латунное окно"
+	desc = "Тонкая, как бумага, панель из полупрозрачной, но армированной латуни."
 	icon = 'icons/obj/smooth_structures/clockwork_window.dmi'
 	icon_state = "clockwork_window_single"
 	resistance_flags = FIRE_PROOF | ACID_PROOF

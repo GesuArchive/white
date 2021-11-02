@@ -353,10 +353,11 @@
 	canSmoothWith = list(SMOOTH_GROUP_PLASTITANIUM_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_SHUTTLE_PARTS)
 
 /obj/structure/falsewall/bronze
-	name = "clockwork wall"
-	desc = "A huge chunk of warm metal. The clanging of machinery emanates from within."
+	name = "латунная стена"
+	desc = "Крупная латунная стена. Её украшивают также и латунные шестерни."
 	icon = 'icons/turf/walls/clockwork_wall.dmi'
 	icon_state = "clockwork_wall"
+	base_icon_state = "clockwork_wall-0"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	mineral_amount = 1
 	smoothing_flags = SMOOTH_CORNERS

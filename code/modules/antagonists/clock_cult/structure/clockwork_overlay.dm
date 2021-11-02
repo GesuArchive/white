@@ -26,7 +26,7 @@
 	. = ..()
 
 /obj/effect/clockwork/overlay/wall
-	name = "clockwork wall"
+	name = "латунная стена"
 	icon = 'icons/turf/walls/clockwork_wall.dmi'
 	icon_state = "clockwork_wall"
 	smoothing_flags = SMOOTH_CORNERS
