@@ -7,7 +7,7 @@
 	spawn_positions = 2
 	supervisors = "научному руководителю"
 	selection_color = "#ffeeff"
-	exp_requirements = 60
+	exp_requirements = 900
 	exp_type = EXP_TYPE_CREW
 	bounty_types = CIV_JOB_ROBO
 

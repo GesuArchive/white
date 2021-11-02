@@ -8,6 +8,9 @@
 	supervisors = "завхозу и главе персонала"
 	selection_color = "#dcba97"
 
+	exp_type = EXP_TYPE_CREW
+	exp_requirements = 900
+
 	outfit = /datum/outfit/job/miner
 
 	paycheck = PAYCHECK_MEDIUM

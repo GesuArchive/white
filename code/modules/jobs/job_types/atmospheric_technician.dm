@@ -7,7 +7,7 @@
 	spawn_positions = 2
 	supervisors = "старшему инженеру"
 	selection_color = "#fff5cc"
-	exp_requirements = 60
+	exp_requirements = 600
 	exp_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/atmos

@@ -10,6 +10,9 @@
 
 	outfit = /datum/outfit/job/psychologist
 
+	exp_type = EXP_TYPE_CREW
+	exp_requirements = 600
+
 	paycheck = PAYCHECK_MEDIUM
 	paycheck_department = ACCOUNT_SRV
 

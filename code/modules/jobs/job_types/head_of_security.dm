@@ -10,8 +10,8 @@
 	supervisors = "капитану"
 	selection_color = "#ffdddd"
 	req_admin_notify = 1
-	minimal_player_age = 14
-	exp_requirements = 2100
+	minimal_player_age = 45
+	exp_requirements = 9100
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_SECURITY
 

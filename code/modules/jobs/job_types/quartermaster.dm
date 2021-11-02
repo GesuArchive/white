@@ -11,6 +11,9 @@
 
 	outfit = /datum/outfit/job/quartermaster
 
+	exp_type = EXP_TYPE_CREW
+	exp_requirements = 3200
+
 	paycheck = PAYCHECK_MEDIUM
 	paycheck_department = ACCOUNT_CAR
 

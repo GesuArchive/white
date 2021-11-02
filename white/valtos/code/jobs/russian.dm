@@ -6,6 +6,9 @@
 	outfit = /datum/outfit/job/security/omon
 	assign_dep = FALSE
 
+	exp_type = EXP_TYPE_CREW
+	exp_requirements = 12000
+
 	skills = list(/datum/skill/ranged = SKILL_EXP_EXPERT)
 	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_EXPERT)
 
@@ -14,8 +17,8 @@
 	ru_title = "Ветеран"
 	total_positions = 1
 	spawn_positions = 1
-	minimal_player_age = 28
-	exp_requirements = 6000
+	minimal_player_age = 365
+	exp_requirements = 24000
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_SECURITY
 	outfit = /datum/outfit/job/security/veteran

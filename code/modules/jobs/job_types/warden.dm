@@ -8,8 +8,8 @@
 	spawn_positions = 1
 	supervisors = "начальнику охраны"
 	selection_color = "#ffeeee"
-	minimal_player_age = 7
-	exp_requirements = 300
+	minimal_player_age = 20
+	exp_requirements = 2100
 	exp_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/warden
