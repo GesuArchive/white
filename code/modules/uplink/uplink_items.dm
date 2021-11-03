@@ -2064,3 +2064,9 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	cost = 1
 	purchasable_from = UPLINK_CLOWN_OPS
 	illegal_tech = FALSE
+
+/datum/uplink_item/badass/executionersword
+	name = "Меч палача"
+	desc = "Отрубай головы во славу своих фракций"
+	item = /obj/item/melee/execution_sword
+	cost = 1

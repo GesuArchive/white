@@ -3956,6 +3956,7 @@
 #include "white\ClickerOfThings\steklotara\punkt_priema.dm"
 #include "white\ClickerOfThings\super_kinetic\super_kinetic_accelerator.dm"
 #include "white\deda565\Huesoslist.dm"
+#include "white\deda565\prikol.dm"
 #include "white\Feline\code\general\equipment_all.dm"
 #include "white\Feline\code\med\designes.dm"
 #include "white\Feline\code\med\equipment.dm"
