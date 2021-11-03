@@ -35,13 +35,13 @@
 	vote_active = FALSE
 	used = TRUE
 	if(!eminence)
-		var/list/mob/dead/observer/candidates = poll_ghost_candidates("Do you want to play as the eminence?", ROLE_SERVANT_OF_RATVAR, null, null, 100, POLL_IGNORE_PYROSLIME)
+		var/list/mob/dead/observer/candidates = poll_ghost_candidates("Хотите стать Преосвященством?", ROLE_SERVANT_OF_RATVAR, null, 100, POLL_IGNORE_PYROSLIME)
 		if(LAZYLEN(candidates))
 			eminence = pick(candidates)
 	if(!(eminence?.client))
-		hierophant_message("The Eminence remains in slumber, for now, try waking it again soon.")
+		hierophant_message("Преосвященство слишком занята делами, попробуйте позже.")
 		used = FALSE
 		return
 	var/mob/new_mob = new /mob/living/simple_animal/eminence(get_turf(src))
 	new_mob.key = eminence.key
-	hierophant_message("The Eminence has risen!")
+	hierophant_message("Встречайте её Преосвященство!")
