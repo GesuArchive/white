@@ -108,7 +108,7 @@ GLOBAL_VAR_INIT(nasheed_playing, FALSE)
 	user.visible_message("<span class='suicide'>[user] подносит [src] к [user.p_their()] шее! Выглядит будто бы [user.p_theyre()] пытается покончить с жизнью!</span>")
 	if(the_head)
 		user.say("FOR [execution_faction]!!", forced = "execution sword")
-		priority_announce("[user] забрал свою собственную жизнь во имя[execution_faction]!","Сообщение от [execution_faction]!", 'sound/misc/notice1.ogg')
+		priority_announce("[user] забрал свою собственную жизнь во имя [execution_faction]!","Сообщение от [execution_faction]!", 'sound/misc/notice1.ogg')
 		the_head.dismember()
 		return(BRUTELOSS)
 	else
