@@ -238,7 +238,7 @@
 	return
 
 /turf/open/floor/clockwork/reebe
-	name = "шестерпол"
+	name = "механический пол"
 	desc = "Теплая латунная обшивка. Можно почувствовать его легкую вибрацию, как будто машина находится по ту сторону."
 	icon_state = "reebe"
 	baseturfs = /turf/open/floor/clockwork/reebe

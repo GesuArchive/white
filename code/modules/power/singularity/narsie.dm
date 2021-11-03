@@ -90,6 +90,8 @@
 	soul_goal = round(1 + LAZYLEN(souls_needed) * 0.75)
 	INVOKE_ASYNC(GLOBAL_PROC, .proc/begin_the_end)
 
+	check_gods_battle()
+
 /obj/narsie/Destroy()
 	send_to_playing_players(span_narsie("\"<b>[pick("Nooooo...", "Not die. How-", "Die. Mort-", "Sas tyen re-")]\"</b>"))
 	sound_to_playing_players('sound/magic/demon_dies.ogg', 50)

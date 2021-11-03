@@ -5,8 +5,8 @@
 	use_static = USE_STATIC_NONE
 
 /datum/action/innate/clockcult/warp
-	name = "Warp"
-	desc = "Warp to a location."
+	name = "Переместиться"
+	desc = "Прям туда, да."
 	button_icon_state = "warp_down"
 	var/warping = FALSE
 
@@ -19,7 +19,7 @@
 	if(!isliving(owner))
 		return
 	if(GLOB.gateway_opening)
-		to_chat(owner, span_brass("You cannot warp while the gateway is opening!"))
+		to_chat(owner, span_brass("ВРАТА ОТКРЫВАЮТСЯ, НЕКОГДА!"))
 		return
 	if(warping)
 		button_icon_state = "warp_down"
@@ -30,7 +30,7 @@
 	var/mob/camera/ai_eye/remote/ratvar/cam = M.remote_control
 	var/target_loc = get_turf(cam)
 	if(isclosedturf(target_loc))
-		to_chat(owner, span_brass("You cannot warp into dense objects."))
+		to_chat(owner, span_brass("Не могу вот прям сюда телепортироваться."))
 		return
 	do_sparks(5, TRUE, get_turf(cam))
 	warping = TRUE
@@ -48,8 +48,8 @@
 	return warping
 
 /obj/machinery/computer/camera_advanced/ratvar
-	name = "ratvarian observation console"
-	desc = "Used by the servants of Ratvar to conduct operations on Nanotrasen property."
+	name = "пульт наблюдения Ратвара"
+	desc = "Используется слугами Ратвара для проведения операций на собственности Нанотрейзена."
 	icon_screen = "ratvar1"
 	icon_keyboard = "ratvar_key1"
 	icon_state = "ratvarcomputer1"

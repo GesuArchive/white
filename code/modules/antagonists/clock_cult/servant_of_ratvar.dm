@@ -24,12 +24,12 @@
 	if(!owner.current)
 		return
 	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/clockcultalr.ogg', 60, FALSE, pressure_affected = FALSE)
-	to_chat(owner.current, span_heavy_brass("<font size='7'>You feel a flash of light and the world spin around you!</font>"))
-	to_chat(owner.current, span_brass("<font size='5'>Using your clockwork slab you can invoke a variety of powers to help you complete Ratvar's will.</font>"))
-	to_chat(owner.current, span_brass("Use Rat'varian observation consoles to monitor the crew and warp to the station."))
-	to_chat(owner.current, span_brass("Use your Clockwork Slab to summon integration cogs to unlock more scriptures and siphon power."))
-	to_chat(owner.current, span_brass("Unlock Kindle to stun targets, Hateful Manacles to restrain them and use a sigil of submission to convert them!"))
-	to_chat(owner.current, span_brass("When you are ready, gather 6 cultists around the Ark and activate it to summon Rat'var, but be prepared to fight for your life."))
+	to_chat(owner.current, span_heavy_brass("<font size='7'>Чувствую вспышку света, и мир кружится вокруг меня!</font>"))
+	to_chat(owner.current, span_brass("<font size='5'>Используя механизм, я могу призывать различные силы, которые помогут мне выполнить волю Ратвара.</font>"))
+	to_chat(owner.current, span_brass("Используя консоли наблюдения Ратвара, я могу следить за командой и перемещаться на станцию."))
+	to_chat(owner.current, span_brass("Используя мехазим, я могу вызвать интеграционные шестерни, чтобы разблокировать больше Священных Писаний и откачать энергию."))
+	to_chat(owner.current, span_brass("Стоит разблокировать Kindle, чтобы оглушать цели, Hateful Manacles, чтобы сдерживать их, и надо использовать знак подчинения, чтобы конвертировать их!"))
+	to_chat(owner.current, span_brass("В конце нужно будет соберать 6 культистов вокруг Ковчега и активировать его, чтобы вызвать Рат'вара, но сначала надо подготовиться."))
 
 /datum/antagonist/servant_of_ratvar/on_gain()
 	. = ..()

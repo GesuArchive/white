@@ -1,7 +1,7 @@
 //Thing that you stick on the floor
 /obj/item/clockwork/trap_placer
-	name = "trap"
-	desc = "don't trust it"
+	name = "ловушка"
+	desc = "джокера"
 	icon = 'icons/obj/clockwork_objects.dmi'
 	w_class = WEIGHT_CLASS_HUGE
 	var/result_path = /obj/structure/destructible/clockwork/trap
@@ -21,8 +21,8 @@
 
 //Thing you stick on the wall
 /obj/item/wallframe/clocktrap
-	name = "Clockwork trap item"
-	desc = "It's a... wait what?"
+	name = "эээ"
+	desc = "че?"
 	icon = 'icons/obj/clockwork_objects.dmi'
 	pixel_shift = -24
 	w_class = WEIGHT_CLASS_HUGE
@@ -31,16 +31,16 @@
 /obj/item/wallframe/clocktrap/examine(mob/user)
 	. = ..()
 	if(is_servant_of_ratvar(user))
-		. += span_brass("It looks like it can be placed on a wall.")
+		. += span_brass("<hr>Это можно разместить на стене.")
 
 //Wall item (either spawned by a wallframe or directly)
 /obj/structure/destructible/clockwork/trap
-	name = "Clockwork trap item"
-	desc = "monkey noises"
+	name = "ыыы"
+	desc = "пук"
 	icon = 'icons/obj/clockwork_objects.dmi'
 	density = FALSE
 	layer = LOW_OBJ_LAYER
-	break_message = span_warning("The intricate looking device falls apart.")
+	break_message = span_warning("Замысловатое устройство разваливается.")
 	var/unwrench_path = /obj/item/wallframe/clocktrap
 	var/component_datum = /datum/component/clockwork_trap
 
@@ -50,9 +50,9 @@
 
 /obj/structure/destructible/clockwork/trap/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
-	to_chat(user, span_warning("You begin unwrenching [src]..."))
+	to_chat(user, span_warning("Начинаю откручивать [src]..."))
 	if(do_after(user, 50, target=src))
-		to_chat(user, span_warning("You detach [src], clearing all the connections associated with it."))
+		to_chat(user, span_warning("Отсоединяю [src], убирая все подключения к нему."))
 		new unwrench_path(get_turf(src))
 		qdel(src)
 		return TRUE
@@ -90,17 +90,17 @@
 			var/obj/item/clockwork/clockwork_slab/slab = I
 			if(slab.buffer)
 				if(takes_input)
-					to_chat(user, span_brass("You connect [slab.buffer.parent] to [parent]."))
+					to_chat(user, span_brass("Подключаю [slab.buffer.parent] к [parent]."))
 					add_output(slab.buffer)
 					slab.buffer = null
 				else
-					to_chat(user, span_brass("That device does not accept input."))
+					to_chat(user, span_brass("У этого механизма нет входа."))
 			else
 				if(sends_input)
-					to_chat(user, span_brass("You prepare to connect [parent] with other devices."))
+					to_chat(user, span_brass("Буду подключать [parent] к другим механизмам."))
 					slab.buffer = src
 				else
-					to_chat(user, span_brass("That device does not output anything."))
+					to_chat(user, span_brass("Этот механизм не имеет выходов."))
 
 /datum/component/clockwork_trap/proc/trigger_connected()
 	for(var/obj/O in outputs)

@@ -1,12 +1,12 @@
 /obj/item/clockwork/trap_placer/flipper
-	name = "flipper"
-	desc = "A steam powered rotating floor panel. When input is received it will fling anyone on top of it."
+	name = "трамплин"
+	desc = "Панель вращающегося пола, приводимая в действие паром. Когда ввод будет получен, он бросит на него любого."
 	icon_state = "pressure_sensor"
 	result_path = /obj/structure/destructible/clockwork/trap/flipper
 
 /obj/structure/destructible/clockwork/trap/flipper
-	name = "flipper"
-	desc = "A steam powered rotating floor panel. When input is received it will fling anyone on top of it."
+	name = "трамплин"
+	desc = "Панель вращающегося пола, приводимая в действие паром. Когда ввод будет получен, он бросит на него любого."
 	icon_state = "pressure_sensor"
 	component_datum = /datum/component/clockwork_trap/flipper
 	unwrench_path = /obj/item/clockwork/trap_placer/flipper

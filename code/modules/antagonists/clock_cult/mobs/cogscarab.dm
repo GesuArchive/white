@@ -3,7 +3,7 @@ GLOBAL_LIST_INIT(cogscarabs, list())
 //====Cogscarab====
 
 /mob/living/simple_animal/drone/cogscarab
-	name = "Мехскараб"
+	name = "Мехскарабей"
 	desc = "Механическое устройство, наполненное движущимися шестерёнками и механическими частями, создано для Риби."
 	icon_state = "drone_clock"
 	icon_living = "drone_clock"
@@ -15,11 +15,11 @@ GLOBAL_LIST_INIT(cogscarabs, list())
 	visualAppearance = "drone_clock"
 	bubble_icon = "clock"
 	picked = TRUE
-	flavortext = "<span class=brass>You are a cogscarab, an intricate machine that has been granted sentient by Rat'var.<br>\
-		After a long and destructive conflict, Reebe has been left mostly empty; you and the other cogscarabs like you were bought into existence to construct Reebe into the image of Rat'var.<br>\
-		Construct defences, traps and forgeries, for opening the Ark requires an unimaginable amount of power which is bound to get the attention of selfish lifeforms interested only in their own self-preservation.</span>"
-	laws = "You are have been granted the gift of sentience from Rat'var.<br>\
-		You are not bound by any laws, do whatever you must to serve Rat'var!"
+	flavortext = "<span class=brass>Я - Мехскарабей, сложная машина, которую Рат'вар наделил разумом.<br>\
+		После долгого и разрушительного конфликта Риби осталась почти пустой; вы и другие механизмы, подобные вам, были созданы, чтобы превратить Риби в образ Рат'вара.<br>\
+		Создавайте оборонительные сооружения, ловушки и подделки, поскольку для открытия Ковчега требуется невообразимое количество силы, которое обязательно привлечет внимание эгоистичных форм жизни, заинтересованных только в собственном самосохранении.</span>"
+	laws = "Я получил дар разума от Рат'вара.<br>\
+		Я не связан никакими законами, можно делать всё возможное, чтобы служить Рат'вару!"
 	chat_color = LIGHT_COLOR_CLOCKWORK
 	speech_span = "brassmobsay"
 	initial_language_holder = /datum/language_holder/clockmob
@@ -44,8 +44,8 @@ GLOBAL_LIST_INIT(cogscarabs, list())
 //====Shell====
 
 /obj/effect/mob_spawn/drone/cogscarab
-	name = "cogscarab construct"
-	desc = "The shell of an ancient construction drone, loyal to Ratvar."
+	name = "оболочка мехскарабея"
+	desc = "Оболочка древнего строительного дрона, верного Ратвару."
 	icon_state = "drone_clock_hat"
 	mob_type = /mob/living/simple_animal/drone/cogscarab
 
@@ -55,13 +55,13 @@ GLOBAL_LIST_INIT(cogscarabs, list())
 	if(CONFIG_GET(flag/use_age_restriction_for_jobs))
 		if(!isnum(user.client.player_age)) //apparently what happens when there's no DB connected. just don't let anybody be a drone without admin intervention
 			if(user.client.player_age < 14)
-				to_chat(user, span_danger("You're too new to play as a drone! Please try again in [14 - user.client.player_age] days."))
+				to_chat(user, span_danger("Ты слишком слаб. Попробуй через [14 - user.client.player_age] дней."))
 				return
 	if(!SSticker.mode)
-		to_chat(user, "Can't become a cogscarab before the game has started.")
+		to_chat(user, "Невозможно стать мехскарабеем, пока игра не началась.")
 		return
-	var/be_drone = tgui_alert(usr, "Become a cogscarab? (Warning, You can no longer be cloned!)",,"Yes","No")
-	if(be_drone == "No" || QDELETED(src) || !isobserver(user))
+	var/be_drone = tgui_alert(usr, "Будем мехскарабеем? (Внимание, старое тело будет покинуто!)",,"Да","Нет")
+	if(be_drone == "Нет" || QDELETED(src) || !isobserver(user))
 		return
 	var/mob/living/simple_animal/drone/D = new mob_type(get_turf(loc))
 	D.flags_1 |= (flags_1 & ADMIN_SPAWNED_1)

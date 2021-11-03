@@ -2,11 +2,11 @@
 	addtimer(CALLBACK(GLOBAL_PROC, /proc/clockcult_gg), 700)
 	sleep(50)
 	set_security_level("delta")
-	priority_announce("Huge gravitational-energy spike detected emminating from a neutron star near your sector. Event has been determined to be survivable by 0% of life. ESTIMATED TIME UNTIL ENERGY PULSE REACHES [GLOB.station_name]: 56 SECONDS. Godspeed crew, glory to Nanotrasen. -Admiral Telvig.", "Central Command Anomolous Materials Division", 'sound/misc/bloblarm.ogg')
+	priority_announce("Обнаружен огромный всплеск гравитационной энергии, исходящий от нейтронной звезды недалеко от вашего сектора. Было определено, что событие можно выжить с 0% жизни. РАСЧЕТНОЕ ВРЕМЯ, КОГДА ЭНЕРГОИМПУЛЬС ДОЙДЁТ ДО [GLOB.station_name]: 56 СЕКУНД. Успехов и слава Нанотрейзен! - Адмирал Телвиг.", "Отделение аномальных материалов Центрального командования", 'sound/misc/bloblarm.ogg')
 	for(var/client/C in GLOB.clients)
 		SEND_SOUND(C, sound('sound/misc/airraid.ogg', 1))
 	sleep(500)
-	priority_announce("Station [GLOB.station_name] is in the wa#e %o[text2ratvar("YOU WILL SEE THE LIGHT")] action imminent. Glory[text2ratvar(" TO ENG'INE")].","Central Command Anomolous Materials Division", 'sound/machines/alarm.ogg')
+	priority_announce("Станция [GLOB.station_name] находится в во#новом %o[text2ratvar("ВЫ УВИДИТЕ СВЕТ")] неизбежном разрушении. Слава [text2ratvar(" ДВИГ'АТЕЛЮ")].","Отделение аномальных материалов Центрального командования", 'sound/machines/alarm.ogg')
 	for(var/mob/M in GLOB.player_list)
 		if(M.client)
 			M.client.color = COLOR_WHITE

@@ -1,6 +1,6 @@
 /obj/structure/destructible/clockwork/eminence_beacon
-	name = "eminence spire"
-	desc = "An ancient, brass spire which holds the spirit of a powerful entity conceived by Rat'var to oversee his faithful servants."
+	name = "шпиль Преосвященства"
+	desc = "Древний латунный шпиль, в котором заключен дух могущественного существа, созданного Рат'варом для надзора за своими верными слугами."
 	icon_state = "tinkerers_daemon"
 	resistance_flags = INDESTRUCTIBLE
 	var/used = FALSE
@@ -15,19 +15,19 @@
 		deltimer(vote_timer)
 		vote_timer = null
 		vote_active = FALSE
-		hierophant_message("[user] has cancelled the Eminence vote.")
+		hierophant_message("[user] отменяет голосование Преосвященства.")
 		return
 	if(used)
-		to_chat(user, span_brass("The Eminence has already been released."))
+		to_chat(user, span_brass("Преосвященство уже здесь."))
 		return
-	var/option = tgui_alert(user,"Who shall control the Eminence?",,list("Yourself","A ghost", "Cancel"))
-	if(option == "Cancel")
+	var/option = tgui_alert(user,"Кто должен стать Преосвященством?",,list("Я","Призрак", "Отмена"))
+	if(option == "Отмена")
 		return
-	else if(option == "Yourself")
-		hierophant_message("[user] has elected themselves to become the Eminence. Interact with [src] to object.", span="<span=large_brass>")
+	else if(option == "Я")
+		hierophant_message("[user] хочет выбрать себя Преосвященством. Взаимодействовуйте с [src] для отмены.", span="<span=large_brass>")
 		vote_timer = addtimer(CALLBACK(src, .proc/vote_succeed, user), 600, TIMER_STOPPABLE)
-	else if(option == "A ghost")
-		hierophant_message("[user] has elected for a ghost to become the Eminence. Interact with [src] to object.")
+	else if(option == "Призрак")
+		hierophant_message("[user] хочет призрак в качестве Преосвященства. Взаимодействовуйте с [src] для отмены.")
 		vote_timer = addtimer(CALLBACK(src, .proc/vote_succeed), 600, TIMER_STOPPABLE)
 	vote_active = TRUE
 
