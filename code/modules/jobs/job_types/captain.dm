@@ -9,8 +9,8 @@
 	supervisors = "представителям Нанотрейзен и космозакону"
 	selection_color = "#ccccff"
 	req_admin_notify = 1
-	minimal_player_age = 14
-	exp_requirements = 180
+	minimal_player_age = 60
+	exp_requirements = 9600
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_COMMAND
 
@@ -28,6 +28,8 @@
 		/obj/item/storage/fancy/cigarettes/cigars/havana = 15,
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 10
 	)
+
+	rpg_title = "Звездный герцог"
 
 /datum/job/captain/announce(mob/living/carbon/human/H, announce_captaincy = TRUE)
 	..()

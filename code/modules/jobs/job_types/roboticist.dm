@@ -7,7 +7,7 @@
 	spawn_positions = 2
 	supervisors = "научному руководителю"
 	selection_color = "#ffeeff"
-	exp_requirements = 60
+	exp_requirements = 900
 	exp_type = EXP_TYPE_CREW
 	bounty_types = CIV_JOB_ROBO
 
@@ -23,6 +23,8 @@
 		/obj/item/stack/sheet/iron/twenty = 15,
 		/obj/item/modular_computer/tablet/preset/advanced = 5
 	)
+
+	rpg_title = "Некромант"
 
 /datum/outfit/job/roboticist
 	name = "Roboticist"

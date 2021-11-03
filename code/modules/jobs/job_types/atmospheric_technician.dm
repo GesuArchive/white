@@ -7,7 +7,7 @@
 	spawn_positions = 2
 	supervisors = "старшему инженеру"
 	selection_color = "#fff5cc"
-	exp_requirements = 60
+	exp_requirements = 600
 	exp_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/atmos
@@ -19,6 +19,8 @@
 
 	display_order = JOB_DISPLAY_ORDER_ATMOSPHERIC_TECHNICIAN
 	bounty_types = CIV_JOB_ENG
+
+	rpg_title = "Аэромансер"
 
 /datum/outfit/job/atmos
 	name = "Atmospheric Technician"

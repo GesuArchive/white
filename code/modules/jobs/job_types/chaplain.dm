@@ -10,6 +10,10 @@
 
 	outfit = /datum/outfit/job/chaplain
 
+	minimal_player_age = 15
+	exp_requirements = 720
+	exp_type = EXP_TYPE_CREW
+
 	paycheck = PAYCHECK_EASY
 	paycheck_department = ACCOUNT_SRV
 
@@ -22,6 +26,8 @@
 		/obj/item/toy/plush/narplush = 2,
 		/obj/item/toy/plush/ratplush = 1
 	)
+
+	rpg_title = "Паладин"
 
 /datum/job/chaplain/after_spawn(mob/living/H, mob/M)
 	. = ..()

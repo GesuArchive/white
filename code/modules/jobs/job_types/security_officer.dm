@@ -8,8 +8,8 @@
 	spawn_positions = 5 //Handled in /datum/controller/occupations/proc/setup_officer_positions()
 	supervisors = "начальнику охраны и главе назначенного мне отдела (если есть)"
 	selection_color = "#ffeeee"
-	minimal_player_age = 7
-	exp_requirements = 300
+	minimal_player_age = 15
+	exp_requirements = 900
 	exp_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/security
@@ -35,6 +35,8 @@
 		/obj/item/clothing/mask/whistle = 5,
 		/obj/item/melee/baton/boomerang/loaded = 1
 	)
+
+	rpg_title = "Страж"
 
 GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, SEC_DEPT_SCIENCE, SEC_DEPT_SUPPLY))
 

@@ -7,8 +7,8 @@
 	spawn_positions = 1
 	supervisors = "моим законам и ИИ"	//Nodrak
 	selection_color = "#ddffdd"
-	minimal_player_age = 7
-	exp_requirements = 120
+	minimal_player_age = 15
+	exp_requirements = 600
 	exp_type = EXP_TYPE_CREW
 
 	display_order = JOB_DISPLAY_ORDER_CYBORG

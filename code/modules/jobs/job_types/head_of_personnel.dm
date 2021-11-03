@@ -10,8 +10,8 @@
 	supervisors = "капитану"
 	selection_color = "#ddddff"
 	req_admin_notify = 1
-	minimal_player_age = 10
-	exp_requirements = 1800
+	minimal_player_age = 45
+	exp_requirements = 7400
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_SERVICE
 
@@ -29,6 +29,8 @@
 		/obj/item/card/id/advanced/silver = 10,
 		/obj/item/stack/sheet/bone = 5
 	)
+
+	rpg_title = "Квестодатель гильдии"
 
 /datum/job/head_of_personnel/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()

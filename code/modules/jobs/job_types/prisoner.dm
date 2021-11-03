@@ -17,6 +17,8 @@
 		/obj/effect/spawner/lootdrop/prison_contraband = 1
 	)
 
+	rpg_title = "Побежденный минибосс"
+
 /datum/outfit/job/prisoner
 	name = "Prisoner"
 	jobtype = /datum/job/prisoner

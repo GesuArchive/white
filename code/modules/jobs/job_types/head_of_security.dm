@@ -10,8 +10,8 @@
 	supervisors = "капитану"
 	selection_color = "#ffdddd"
 	req_admin_notify = 1
-	minimal_player_age = 14
-	exp_requirements = 2100
+	minimal_player_age = 45
+	exp_requirements = 9100
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_SECURITY
 
@@ -28,6 +28,8 @@
 
 	display_order = JOB_DISPLAY_ORDER_HEAD_OF_SECURITY
 	bounty_types = CIV_JOB_SEC
+
+	rpg_title = "Начальник стражи"
 
 /datum/job/head_of_security/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()

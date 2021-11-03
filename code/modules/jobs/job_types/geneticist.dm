@@ -8,7 +8,8 @@
 	supervisors = "научному руководителю"
 	selection_color = "#ffeef0"
 	exp_type = EXP_TYPE_CREW
-	exp_requirements = 180
+	minimal_player_age = 15
+	exp_requirements = 900
 
 	outfit = /datum/outfit/job/geneticist
 
@@ -21,6 +22,8 @@
 	mail_goodies = list(
 		/obj/item/storage/box/monkeycubes = 10
 	)
+
+	rpg_title = "Геномансер"
 
 /datum/outfit/job/geneticist
 	name = "Geneticist"

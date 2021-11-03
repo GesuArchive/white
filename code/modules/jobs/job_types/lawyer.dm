@@ -19,6 +19,8 @@
 
 	display_order = JOB_DISPLAY_ORDER_LAWYER
 
+	rpg_title = "Магистрат"
+
 /datum/outfit/job/lawyer
 	name = "Lawyer"
 	jobtype = /datum/job/lawyer

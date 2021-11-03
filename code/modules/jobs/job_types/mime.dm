@@ -22,6 +22,8 @@
 		/obj/item/book/mimery = 1,
 	)
 
+	rpg_title = "Шут"
+
 /datum/job/mime/after_spawn(mob/living/carbon/human/H, mob/M)
 	. = ..()
 	H.apply_pref_name("mime", M.client)

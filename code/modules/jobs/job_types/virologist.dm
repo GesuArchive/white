@@ -8,7 +8,7 @@
 	supervisors = "главному врачу"
 	selection_color = "#ffeef0"
 	exp_type = EXP_TYPE_CREW
-	exp_requirements = 60
+	exp_requirements = 900
 
 	outfit = /datum/outfit/job/virologist
 
@@ -28,6 +28,7 @@
 		/obj/item/stack/sheet/mineral/uranium = 5
 	)
 
+	rpg_title = "Чумной доктор"
 
 /datum/outfit/job/virologist
 	name = "Virologist"

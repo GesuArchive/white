@@ -243,6 +243,7 @@
 	ambientsounds = REEBE
 	base_lighting_color = COLOR_WHITE
 	base_lighting_alpha = 255
+	static_lighting = FALSE
 
 /area/reebe/city_of_cogs
 	name = "Reebe - City of Cogs"

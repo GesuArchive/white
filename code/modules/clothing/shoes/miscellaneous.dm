@@ -295,7 +295,7 @@
 
 /obj/item/clothing/shoes/bronze
 	name = "латунные ботинки"
-	desc = "Гигантская, неуклюжая пара туфель, грубо сделанных из бронзы. Зачем кому-то их носить?"
+	desc = "Гигантская, неуклюжая пара туфель, грубо сделанных из латуни. Зачем кому-то их носить?"
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_treads"
 	can_be_tied = FALSE
