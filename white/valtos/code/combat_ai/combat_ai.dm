@@ -368,6 +368,10 @@
 /mob/living/carbon/human/combat_ai
 	ai_controller = /datum/ai_controller/combat_ai
 
+/mob/living/carbon/human/combat_ai/Initialize()
+	. = ..()
+	setMaxHealth(25)
+
 /mob/living/carbon/human/combat_ai/sniper/Initialize()
 	. = ..()
 	equipOutfit(pick(typesof(/datum/outfit/combat_ai/sniper)))
