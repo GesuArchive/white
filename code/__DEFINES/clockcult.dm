@@ -16,9 +16,9 @@
 
 //scripture types
 #define SPELLTYPE_ABSTRACT "Abstract"
-#define SPELLTYPE_SERVITUDE "Servitude"
-#define SPELLTYPE_PRESERVATION "Preservation"
-#define SPELLTYPE_STRUCTURES "Structures"
+#define SPELLTYPE_SERVITUDE "Порабощение"
+#define SPELLTYPE_PRESERVATION "Сохранение"
+#define SPELLTYPE_STRUCTURES "Структуры"
 
 //Trap type
 #define TRAPMOUNT_WALL 1

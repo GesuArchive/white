@@ -9,29 +9,29 @@
 )
 
 #define COGWALL_START_DECON_MESSAGES list(\
-	"You begin welding off the outer plating.",\
-	"You begin screwing out the maintenance hatch.",\
-	"You begin prying open the maintenance hatch.",\
-	"You begin deconstructing the wall."\
+	"Начинаю разваривать внешнюю обшивку.",\
+	"Начинаю откручивать защитную панель.",\
+	"Начинаю открывать защитную панель.",\
+	"Начинаю разбирать стену."\
 )
 
 #define COGWALL_END_DECON_MESSAGES list(\
-	"You weld off the outer plating.",\
-	"You remove the screws from the maintenance hatch.",\
-	"You pry open the maintenance hatch.",\
-	"You deconstruct the wall."\
+	"Развариваю внешнюю обшивку.",\
+	"Откручиваю защитную панель.",\
+	"Открываю защитную панель.",\
+	"Разбираю стену."\
 )
 
 #define COGWALL_START_RECON_MESSAGES list(\
-	"You begin welding the outer plating back together.",\
-	"You begin screwing in the maintenance hatch.",\
-	"You begin to pry the maintenance hatch back into place."\
+	"Начинаю сваривать внешнюю обшивку вместе.",\
+	"Начинаю прикручивать защитную панель.",\
+	"Начинаю ставить защитную панель на место."\
 )
 
 #define COGWALL_END_RECON_MESSAGES list(\
-	"You weld the out plating back together.",\
-	"You insert the screws into the maintenance hatch.",\
-	"You pry the maintenance hatch back into place."\
+	"Свариваю внешнюю обшивку вместе.",\
+	"Прикручиваю защитную панель.",\
+	"Ставлю защитную панель на место."\
 )
 
 /turf/closed/wall/clockwork
@@ -116,29 +116,29 @@
 /turf/closed/wall/clockwork/attack_hulk(mob/user, does_attack_animation)
 	if(prob(10))
 		return ..()
-	to_chat(user, span_warning("Your slightly dent [src]."))
+	to_chat(user, span_warning("Немного царапаю [src]."))
 	return
 
 //========Deconstruction Handled Here=======
 /turf/closed/wall/clockwork/deconstruction_hints(mob/user)
 	switch(d_state)
 		if(INTACT)
-			return span_notice("The wall looks weak enough to <b>weld</b> the brass plates off.")
+			return span_notice("Стена достаточно слабая, чтобы <b>отварить</b> латунные пластины.")
 		if(COG_COVER)
-			return span_notice("The outer cover has been <i>welded</i> open, and an inner plate secured by <b>screws</b> is visable.")
+			return span_notice("Внешняя обшивка <i>отварена</i>, однако внутренняя защитная панель <b>прикручена</b>.")
 		if(COG_EXPOSED)
-			return span_notice("The inner plating has been <i>screwed</i> open. The exterior plating could be easily <b>pried</b> out.")
+			return span_notice("Внутренняя защитная панель <i>откручена</i>. Внешняя обшивка может быть <b>выломана</b>.")
 
 /turf/closed/wall/clockwork/try_decon(obj/item/I, mob/user, turf/T)
 	if(I.tool_behaviour != TOOL_WELDER)
 		return 0
 	if(!I.tool_start_check(user, amount=0))
 		return 0
-	to_chat(user, span_warning("You begin to weld apart the [src]."))
+	to_chat(user, span_warning("Начинаю разваривать [src]."))
 	if(I.use_tool(src, user, 40, volume=100))
 		if(!istype(src, /turf/closed/wall/clockwork) || d_state != INTACT)
 			return 0
-		to_chat(user, span_warning("You weld the [src] apart!"))
+		to_chat(user, span_warning("Развариваю [src] на части!"))
 		dismantle_wall()
 		return 1
 	return
@@ -361,12 +361,13 @@
 
 /obj/machinery/door/airlock/clockwork/examine(mob/user)
 	. = ..()
-	var/gear_text = "The cogwheel is flickering and twisting wildly. Report this to a coder."
+	var/gear_text = "Что-то ебётся и трахается у шлюза. F1"
 	switch(construction_state)
 		if(GEAR_SECURE)
-			gear_text = span_brass("The cogwheel is solidly <b>wrenched</b> to the brass around it.")
+			gear_text = span_brass("Зубчатое колесо прочно <b>прикручено</b> к латуни вокруг него.")
 		if(GEAR_LOOSE)
-			gear_text = span_alloy("The cogwheel has been <i>loosened</i>, but remains <b>connected loosely</b> to the door!")
+			gear_text = span_alloy("Зубчатое колесо <i>ослаблено</i>, но остается <b>неплотно соединенным</b> с дверью!")
+	. += "<hr>"
 	. += gear_text
 
 /obj/machinery/door/airlock/clockwork/emp_act(severity)
@@ -411,30 +412,30 @@
 		return 0
 	else if(I.tool_behaviour == TOOL_WRENCH)
 		if(construction_state == GEAR_SECURE)
-			user.visible_message(span_notice("[user] begins loosening [src]'s cogwheel...") , span_notice("You begin loosening [src]'s cogwheel..."))
+			user.visible_message(span_notice("[user] начинает откручивать шестерню [src]...") , span_notice("Начинаю откручивать шестерню [src]..."))
 			if(!I.use_tool(src, user, 75, volume=50) || construction_state != GEAR_SECURE)
 				return 1
-			user.visible_message(span_notice("[user] loosens [src]'s cogwheel!") , span_notice("[src]'s cogwheel pops off and dangles loosely."))
+			user.visible_message(span_notice("[user] откручивает шестерню [src]!") , span_notice("Шестерня [src] вылетает из пазов."))
 			playsound(src, 'sound/items/deconstruct.ogg', 50, 1)
 			construction_state = GEAR_LOOSE
 		else if(construction_state == GEAR_LOOSE)
-			user.visible_message(span_notice("[user] begins tightening [src]'s cogwheel...") , span_notice("You begin tightening [src]'s cogwheel into place..."))
+			user.visible_message(span_notice("[user] начинает прикручивать шестерню [src]...") , span_notice("Начинаю прикручивать шестерню [src] на место..."))
 			if(!I.use_tool(src, user, 75, volume=50) || construction_state != GEAR_LOOSE)
 				return 1
-			user.visible_message(span_notice("[user] tightens [src]'s cogwheel!") , span_notice("You firmly tighten [src]'s cogwheel into place."))
+			user.visible_message(span_notice("[user] прикручивает шестерню [src]!") , span_notice("Туго прикручиваю шестерню [src] на место."))
 			playsound(src, 'sound/items/deconstruct.ogg', 50, 1)
 			construction_state = GEAR_SECURE
 		return 1
 	else if(I.tool_behaviour == TOOL_CROWBAR)
 		if(construction_state == GEAR_SECURE)
-			to_chat(user, span_warning("[src]'s cogwheel is too tightly secured! Your [I.name] can't reach under it!"))
+			to_chat(user, span_warning("[src] шестерня сидит глубоко! Моя [I.name] не может туда пролезть!"))
 			return 1
 		else if(construction_state == GEAR_LOOSE)
-			user.visible_message(span_notice("[user] begins slowly lifting off [src]'s cogwheel...") , span_notice("You slowly begin lifting off [src]'s cogwheel..."))
+			user.visible_message(span_notice("[user] начинает медленно выковыривать шестерню [src]...") , span_notice("Начинаю медленно выковыривать шестерню [src]..."))
 			if(!I.use_tool(src, user, 75, volume=50) || construction_state != GEAR_LOOSE)
 				return 1
-			user.visible_message(span_notice("[user] lifts off [src]'s cogwheel, causing it to fall apart!") , \
-			span_notice("You lift off [src]'s cogwheel, causing it to fall apart!"))
+			user.visible_message(span_notice("[user] выковыривает шестерню [src] и шлюз разваливается!") , \
+			span_notice("Выковыриваю шестерню [src] и шлюз разваливается!"))
 			deconstruct(TRUE)
 		return 1
 	return 0

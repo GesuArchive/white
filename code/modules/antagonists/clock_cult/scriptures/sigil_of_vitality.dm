@@ -2,9 +2,9 @@
 // !      Sigil of Vitality ! //
 //==================================//
 /datum/clockcult/scripture/create_structure/sigil_vitality
-	name = "Vitality Matrix"
-	desc = "Summons a vitality matrix, which drains the life force of non servants, and can be used to heal or revive servants. Requires 2 invokers."
-	tip = "Heal and revive dead servants, while draining the health from non servants."
+	name = "Матрица жизнеспособности"
+	desc = "Призывает матрицу жизнеспособности, которая истощает жизненную силу не слуг, и может использоваться для исцеления или оживления слуг. Требуется 2 вызывающих."
+	tip = "Исцеляйте и воскрешайте мертвых слуг, высасывая при этом здоровье не-слуг."
 	button_icon_state = "Sigil of Vitality"
 	power_cost = 300
 	invokation_time = 50
@@ -16,9 +16,9 @@
 
 //==========Vitality=========
 /obj/structure/destructible/clockwork/sigil/vitality
-	name = "vitality matrix"
-	desc = "A twisting, confusing artifact that drains the unenlightended on contact."
-	clockwork_desc = "A beautiful artifact that will drain the life of heretics placed on top of it."
+	name = "матрица жизнеспособности"
+	desc = "Извилистый, сбивающий с толку артефакт, истощающий при соприкосновении с неподготовленным."
+	clockwork_desc = "Красивый артефакт, который истощит жизнь еретиков, помещенных на него."
 	icon_state = "sigilvitality"
 	effect_stand_time = 20
 	idle_color = "#5e87c4"
@@ -51,13 +51,13 @@
 				if(M.mind)
 					M.mind.grab_ghost(TRUE)
 				else
-					var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Do you want to play as a [M.name], an inactive clock cultist?", ROLE_SERVANT_OF_RATVAR, null, 50, M)
+					var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Хочешь быть [M.name], который решил выйти из игры?", ROLE_SERVANT_OF_RATVAR, null, 50, M)
 					if(LAZYLEN(candidates))
 						var/mob/dead/observer/C = pick(candidates)
 						message_admins("[key_name_admin(C)] has taken control of ([key_name_admin(M)]) to replace an AFK player.")
 						M.key = C.key
 			else
-				visible_message(span_neovgre("\The [src] fails to revive [M]!"))
+				visible_message(span_neovgre("[src] не может воскресить [M]!"))
 			return
 		var/healing_performed = clamp(M.maxHealth - M.health, 0, 5)	//5 Vitality to heal 5 of all damage types at once
 		if(GLOB.clockcult_vitality >= healing_performed * 0.3)
@@ -69,7 +69,7 @@
 			M.adjustToxLoss(-5, FALSE)
 			M.adjustCloneLoss(-5)
 		else
-			visible_message(span_neovgre("\The [src] fails to heal [M]!") , span_neovgre("There is insufficient vitality to heal your wounds!"))
+			visible_message(span_neovgre("[src] не может воскресить [M]!") , span_neovgre("Недостаточно жизненных сил, чтобы залечить раны!"))
 	else
 		if(M.anti_magic_check())
 			return
@@ -80,13 +80,13 @@
 			M.become_husk()
 			M.death()
 			playsound(loc, 'sound/magic/exit_blood.ogg', 60)
-			to_chat(M, span_neovgre("The last of your life is drained away..."))
-			hierophant_message("[M] has had their vitality drained by the [src]!", null, "<span class='inathneq'>")
+			to_chat(M, span_neovgre("Моя жизнь это ничто..."))
+			hierophant_message("[M] был высосан полностью [src]!", null, "<span class='inathneq'>")
 			var/mob/cogger = new /mob/living/simple_animal/drone/cogscarab(get_turf(M))
 			cogger.key = M.key
 			add_servant_of_ratvar(cogger, silent=TRUE)
 			return
 		if(M.client)
-			M.visible_message(span_neovgre("[src] looks weak as the color fades from their body.") , span_neovgre("You feel your soul faltering..."))
+			M.visible_message(span_neovgre("[src] выглядит слабым, так как цвет его тела бледнеет.") , span_neovgre("ДуША рАЗаЛиВаЕтсЯ..."))
 			GLOB.clockcult_vitality += 30
 		GLOB.clockcult_vitality += 10

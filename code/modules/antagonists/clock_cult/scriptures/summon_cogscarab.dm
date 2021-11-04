@@ -2,14 +2,14 @@
 // !           Cogscarab          ! //
 //==================================//
 /datum/clockcult/scripture/cogscarab
-	name = "Summon Cogscarab"
-	desc = "Summon a Cogscarab shell, which will be possessed by fallen Rat'Varian soldiers. Requires 2 invokers. Takes longer the more cogscarabs are alive. Requires 20 vitality."
-	tip = "Use Cogscarabs to fortify Reebe while the human servants convert and sabotage the crew."
+	name = "Вызвать Мехскарабея"
+	desc = "Призовите панцирь Cogscarab, которым будут владеть павшие солдаты Рат'вара. Требуется 2 вызывающих. Длится дольше, чем больше живы cogscarabs. Требуется 20 живучести."
+	tip = "Используйте мехскарабеев, чтобы укрепить Риби, в то время как человеческие слуги обращаются и саботируют команду."
 	button_icon_state = "Cogscarab"
 	power_cost = 500
 	vitality_cost = 20
 	invokation_time = 120
-	invokation_text = list("My fallen brothers,", "Now is the time we rise", "Protect our lord", "Achieve greatness!")
+	invokation_text = list("Мои павшие братья,", "Пришло время подняться", "Защитить нашего господина", "Достичь величия!")
 	category = SPELLTYPE_PRESERVATION
 	cogs_required = 5
 	invokers_required = 2
@@ -17,13 +17,13 @@
 /datum/clockcult/scripture/cogscarab/begin_invoke(mob/living/M, obj/item/clockwork/clockwork_slab/slab, bypass_unlock_checks)
 	invokation_time = 120 + (60 * GLOB.cogscarabs.len)
 	if(!is_reebe(M.z))
-		to_chat(M, span_warning("You must do this on Reebe!"))
+		to_chat(M, span_warning("Это можно сделать только на Риби!"))
 		return
 	if(GLOB.cogscarabs.len > 8)
-		to_chat(M, span_warning("You can't summon anymore cogscarabs."))
+		to_chat(M, span_warning("Не могу призвать больше мехскарабеев."))
 		return
 	if(GLOB.gateway_opening)
-		to_chat(M, span_warning("It is too late to summon cogscarabs now, Rat'var is coming!"))
+		to_chat(M, span_warning("Слишком поздно, Рат'вар уже идёт!"))
 		return
 	. = ..()
 

@@ -2,25 +2,25 @@
 // !      Prosperity Prism     ! //
 //==================================//
 /datum/clockcult/scripture/create_structure/prosperityprism
-	name = "Prosperity Prism"
-	desc = "Creates a prism that will remove a large amount of toxin damage and a small amount of other forms of damage from nearby servants. Requires power from a sigil of transmission."
-	tip = "Create a prosperity prism to heal servants using sentinel's compromise without taking any damage."
+	name = "Призма процветания"
+	desc = "Создает призму, которая удаляет большое количество токсинов и небольшое количество других видов повреждений у ближайших слуг. Требуется сила от сигила передачи."
+	tip = "Создайте призму процветания, чтобы исцелять слуг, используя компромисс механизмов, не получая при этом никакого ущерба."
 	button_icon_state = "Prolonging Prism"
 	power_cost = 300
 	invokation_time = 80
-	invokation_text = list("Your light shall heal the wounds beneath my skin.")
+	invokation_text = list("Ваш свет исцелит раны под моей кожей.")
 	summoned_structure = /obj/structure/destructible/clockwork/gear_base/prosperityprism
 	cogs_required = 2
 	category = SPELLTYPE_STRUCTURES
 
 //Stargazer structure
 /obj/structure/destructible/clockwork/gear_base/prosperityprism
-	name = "prosperity prism"
-	desc = "A prism that seems to somehow always have its gaze locked to you."
-	clockwork_desc = "A prism that will heal nearby servants of toxin damage."
+	name = "призма процветания"
+	desc = "Призма, которая, кажется, всегда пристально смотрит на меня."
+	clockwork_desc = "Призма, которая исцеляет ближайших слуг от токсинов.."
 	default_icon_state = "prolonging_prism"
 	anchored = TRUE
-	break_message = span_warning("The prism falls apart, toxic liquid leaking out into the air.")
+	break_message = span_warning("Призма разваливается, токсичная жидкость утекает в воздух.")
 	max_integrity = 150
 	obj_integrity = 150
 	minimum_power = 4
@@ -87,10 +87,10 @@
 /obj/structure/destructible/clockwork/gear_base/prosperityprism/attack_hand(mob/user)
 	if(is_servant_of_ratvar(user))
 		if(!anchored)
-			to_chat(user, span_warning("[src] needs to be fastened to the floor!"))
+			to_chat(user, span_warning("[src] хочет быть прикрученной к полу!"))
 			return
 		toggled_on = !toggled_on
-		to_chat(user, span_brass("You flick the switch on [src], turning it [toggled_on?"on":"off"]!"))
+		to_chat(user, span_brass("Дёргаю [src], переводя её в режим [toggled_on?"ВКЛ":"ВЫКЛ"]!"))
 	else
 		. = ..()
 

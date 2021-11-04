@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/targeted/summon_spear
-	name = "Summon Weapon"
-	desc = "Summons your weapon from across time and space."
+	name = "Призвать Оружие"
+	desc = "Призывает оружие через время и пространство."
 
 	charge_max = 20
 	invocation = "none"
@@ -34,9 +34,9 @@
 				var/mob/M = item_to_retrieve.loc
 
 				if(issilicon(M)) //Items in silicons warp the whole silicon
-					M.loc.visible_message(span_warning("[user] suddenly disappears!"))
+					M.loc.visible_message(span_warning("[user] пропадает!"))
 					M.forceMove(user.loc)
-					M.loc.visible_message(span_caution("[user] suddenly appears!"))
+					M.loc.visible_message(span_caution("[user] появляется!"))
 					item_to_retrieve = null
 					break
 				M.dropItemToGround(item_to_retrieve)
@@ -47,7 +47,7 @@
 						var/obj/item/bodypart/part = X
 						if(item_to_retrieve in part.embedded_objects)
 							part.embedded_objects -= item_to_retrieve
-							to_chat(C, span_warning("The [item_to_retrieve] that was embedded in your [user] has mysteriously vanished. How fortunate!"))
+							to_chat(C, span_warning("Ого, [item_to_retrieve], который застрял в [user], внезапно исчезает. Чудо!"))
 							if(!C.has_embedded_objects())
 								C.clear_alert("embeddedobject")
 								SEND_SIGNAL(C, COMSIG_CLEAR_MOOD_EVENT, "embedded")
@@ -67,11 +67,11 @@
 		return
 
 	if(item_to_retrieve.loc)
-		item_to_retrieve.loc.visible_message(span_warning("The [item_to_retrieve.name] suddenly disappears!"))
+		item_to_retrieve.loc.visible_message(span_warning("[capitalize(item_to_retrieve.name)] исчезает!"))
 	if(!user.put_in_hands(item_to_retrieve))
 		item_to_retrieve.forceMove(user.drop_location())
-		item_to_retrieve.loc.visible_message(span_caution("The [item_to_retrieve.name] suddenly appears!"))
+		item_to_retrieve.loc.visible_message(span_caution("[capitalize(item_to_retrieve.name)] появляется!"))
 		playsound(get_turf(user), 'sound/magic/summonitems_generic.ogg', 50, 1)
 	else
-		item_to_retrieve.loc.visible_message(span_caution("The [item_to_retrieve.name] suddenly appears in [user]'s hand!"))
+		item_to_retrieve.loc.visible_message(span_caution("[capitalize(item_to_retrieve.name)] появляется в руке [user]!"))
 		playsound(get_turf(user), 'sound/magic/summonitems_generic.ogg', 50, 1)
