@@ -1,9 +1,9 @@
 /datum/clockcult/scripture/slab/vanguard
-	name = "Vanguard"
+	name = "Авангард"
 	use_time = 300
 	slab_overlay = "vanguard"
-	desc = "Provides the user with 30 seconds of stun immunity, however other spells cannot be invoked while it is active."
-	tip = "Gain temporary immunity against batons and disablers."
+	desc = "Предоставляет пользователю 30-секундную невосприимчивость к оглушению, однако другие заклинания не могут быть задействованы, пока он активен."
+	tip = "Получите временную невосприимчивость к дубинкам и тазерам."
 	invokation_time = 10
 	button_icon_state = "Vanguard"
 	category = SPELLTYPE_PRESERVATION
@@ -20,12 +20,12 @@
 	ADD_TRAIT(invoker, TRAIT_PUSHIMMUNE, VANGUARD_TRAIT)
 	ADD_TRAIT(invoker, TRAIT_IGNOREDAMAGESLOWDOWN, VANGUARD_TRAIT)
 	ADD_TRAIT(invoker, TRAIT_NOLIMBDISABLE, VANGUARD_TRAIT)
-	to_chat(invoker, span_sevtug("You feel like nothing can stop you!"))
+	to_chat(invoker, span_sevtug("Ничто нас не остановит!"))
 
 /datum/clockcult/scripture/slab/vanguard/count_down()
 	. = ..()
 	if(time_left == 50)
-		to_chat(invoker, span_sevtug("You start to feel tired again."))
+		to_chat(invoker, span_sevtug("Начинаю уставать."))
 
 /datum/clockcult/scripture/slab/vanguard/end_invoke()
 	REMOVE_TRAIT(invoker, TRAIT_STUNIMMUNE, VANGUARD_TRAIT)

@@ -3,14 +3,14 @@
 // !            Kindle            ! //
 //==================================//
 /datum/clockcult/scripture/slab/kindle
-	name = "Kindle"
-	desc = "Stuns and mutes a target from a short range. Significantly less effective on Reebe."
-	tip = "Stuns and mutes a target from a short range."
+	name = "Разжечь"
+	desc = "Оглушает и приглушает цель с близкого расстояния. Значительно менее эффективен на Риби."
+	tip = "Оглушает и приглушает цель с близкого расстояния."
 	button_icon_state = "Kindle"
 	power_cost = 125
 	invokation_time = 30
-	invokation_text = list("Divinity, show them your light!")
-	after_use_text = "Let the power flow through you!"
+	invokation_text = list("Божественность, покажи им свой свет!")
+	after_use_text = "Позвольте энергии течь сквозь вас!"
 	slab_overlay = "volt"
 	use_time = 150
 	cogs_required = 1
@@ -31,8 +31,8 @@
 		var/mutable_appearance/forbearance = mutable_appearance('icons/effects/genetics.dmi', "servitude", -MUTATIONS_LAYER)
 		M.add_overlay(forbearance)
 		addtimer(CALLBACK(M, /atom/proc/cut_overlay, forbearance), 100)
-		M.visible_message(span_warning("[M] stares blankly, as a field of energy flows around them.") , \
-									   span_userdanger("You feel a slight shock as a wave of energy flows past you."))
+		M.visible_message(span_warning("[M] просто смотрит, как поток энергии пролетает мимо него.") , \
+									   span_userdanger("Ощущаю как вокруг меня пролетают обрывки энергии."))
 		playsound(invoker, 'sound/magic/mm_hit.ogg', 50, TRUE)
 		return TRUE
 	//Blood Cultist Effect
@@ -44,7 +44,7 @@
 		M.color = LIGHT_COLOR_BLOOD_MAGIC
 		animate(M, color = mob_color, time = 300)
 		M.say("Fwebar uloft'gib mirlig yro'fara!")
-		to_chat(invoker, span_brass("You fail to stun [M]!"))
+		to_chat(invoker, span_brass("Не вышло остановить [M]!"))
 		playsound(invoker, 'sound/magic/mm_hit.ogg', 50, TRUE)
 		return TRUE
 	//Successful Invokation
@@ -53,7 +53,7 @@
 		if(!HAS_TRAIT(M, TRAIT_MINDSHIELD))
 			M.Paralyze(150)
 		else
-			to_chat(invoker, span_brass("[M] seems somewhat resistant to your powers!"))
+			to_chat(invoker, span_brass("[M] кажется несколько устойчивым к моим силам!"))
 			M.set_confusion(clamp(M.get_confusion(), 50, INFINITY))
 	if(issilicon(M))
 		var/mob/living/silicon/S = M

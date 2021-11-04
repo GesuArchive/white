@@ -523,8 +523,8 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 
 //CLOCKCULT
 /atom/movable/screen/alert/clockwork/clocksense
-	name = "The Ark of the Clockwork Justicar"
-	desc = "Shows infomation about the Ark of the Clockwork Justicar"
+	name = "Ковчег Механического Юстициара"
+	desc = "Показывает информацию о Ковчеге Механического Юстициара."
 	icon_state = "clockinfo"
 	alerttooltipstyle = "clockcult"
 
@@ -540,17 +540,17 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 	var/datum/antagonist/servant_of_ratvar/servant_antagonist = is_servant_of_ratvar(owner)
 	if(!(servant_antagonist?.team))
 		return
-	desc = "Stored Power - <b>[DisplayPower(GLOB.clockcult_power)]</b>.<br>"
-	desc += "Stored Vitality - <b>[GLOB.clockcult_vitality]</b>.<br>"
+	desc = "Энергия - <b>[DisplayPower(GLOB.clockcult_power)]</b>.<br>"
+	desc += "Жизнеспособность - <b>[GLOB.clockcult_vitality]</b>.<br>"
 	if(GLOB.ratvar_arrival_tick)
 		if(GLOB.ratvar_arrival_tick - world.time > 6000)
-			desc += "The Ark is preparing to open, it will activate in <b>[round((GLOB.ratvar_arrival_tick - world.time - 6000) / 10)]</b> seconds.<br>"
+			desc += "Ковчег готовится к открытию, он будет открыт через <b>[round((GLOB.ratvar_arrival_tick - world.time - 6000) / 10)]</b> секунд.<br>"
 		else
-			desc += "Ratvar will rise in <b>[round((GLOB.ratvar_arrival_tick - world.time) / 10)]</b> seconds, protect the Ark with your life!<br>"
+			desc += "Ратвар восстанет через <b>[round((GLOB.ratvar_arrival_tick - world.time) / 10)]</b> секунд, нужно защитить Ковчег любой ценой!<br>"
 	if(GLOB.servants_of_ratvar)
-		desc += "There [GLOB.servants_of_ratvar.len == 1?"is" : "are"] currently [GLOB.servants_of_ratvar.len] loyal servant[GLOB.servants_of_ratvar.len == 1 ? "" : "s"].<br>"
+		desc += "У нас есть примерно [GLOB.servants_of_ratvar.len] лояльных служителей.<br>"
 	if(GLOB.critical_servant_count)
-		desc += "Upon reaching [GLOB.critical_servant_count] the Ark will open, or it can be opened immediately by invoking Gateway Activation with 6 servants."
+		desc += "После достижения [GLOB.critical_servant_count] служителей, Ковчег автоматически начнёт открываться."
 
 //GUARDIANS
 
