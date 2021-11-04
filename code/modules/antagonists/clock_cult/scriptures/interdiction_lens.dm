@@ -1,24 +1,24 @@
 #define INTERDICTION_LENS_RANGE 5
 
 /datum/clockcult/scripture/create_structure/interdiction
-	name = "Interdiction Lens"
-	desc = "Creates a device that will slow non servants in the area and damage mechanised exosuits. Requires power from a sigil of transmission."
-	tip = "Construct interdiction lens to slow down a hostile assault."
+	name = "Линза запрета"
+	desc = "Создает устройство, которое будет замедлять не служащих поблизости и повредить механизированные экзокостюмы. Требуется мощность от сигилы передачи."
+	tip = "Создайте блокирующую линзу, чтобы замедлить вражеское нападение."
 	button_icon_state = "Interdiction Lens"
 	power_cost = 500
 	invokation_time = 80
-	invokation_text = list("Oh great lord...", "may your divinity block the outsiders.")
+	invokation_text = list("О великий господин...", "пусть твое божество заблокирует посторонних.")
 	summoned_structure = /obj/structure/destructible/clockwork/gear_base/interdiction_lens
 	cogs_required = 4
 	category = SPELLTYPE_STRUCTURES
 
 /obj/structure/destructible/clockwork/gear_base/interdiction_lens
-	name = "interdiction lens"
-	desc = "A mesmerizing light that flashes to a rhythm that you just can't stop tapping to."
-	clockwork_desc = "A small device which will slow down nearby attackers at a small power cost."
+	name = "линза запрета"
+	desc = "Завораживающий свет, который мигает в ритме, на который невозможно перестать залипать."
+	clockwork_desc = "Небольшое устройство, которое будет замедлять атакующих поблизости при небольшой стоимости энергии."
 	default_icon_state = "interdiction_lens"
 	anchored = TRUE
-	break_message = span_warning("The interdiction lens breaks into multiple fragments, which gently float to the ground.")
+	break_message = span_warning("Линза запрета разбивается на несколько фрагментов, которые плавно падают на землю.")
 	max_integrity = 150
 	obj_integrity = 150
 	minimum_power = 5
@@ -41,16 +41,16 @@
 /obj/structure/destructible/clockwork/gear_base/interdiction_lens/attack_hand(mob/user)
 	if(is_servant_of_ratvar(user))
 		if(!anchored)
-			to_chat(user, span_warning("[src] needs to be fastened to the floor!"))
+			to_chat(user, span_warning("[src] хочет быть прикрученной к полу!"))
 			return
 		enabled = !enabled
-		to_chat(user, span_brass("You flick the switch on [src], turning it [enabled?"on":"off"]!"))
+		to_chat(user, span_brass("Дёргаю переключатель на [src], переводя её в режим [enabled?"ВКЛ":"ВЫКЛ"]!"))
 		if(enabled)
 			if(update_power())
 				repowered()
 			else
 				enabled = FALSE
-				to_chat(user, span_warning("[src] does not have enough power!"))
+				to_chat(user, span_warning("[src] не может найти источник энергии!"))
 		else
 			depowered()
 	else
@@ -94,7 +94,7 @@
 
 //Dampening field
 /datum/proximity_monitor/advanced/peaceborg_dampener/clockwork
-	name = "\improper Reality Distortion Field"
+	name = "Поле искажения реальности"
 
 /datum/proximity_monitor/advanced/peaceborg_dampener/clockwork/setup_edge_turf(turf/T)
 	edge_turfs[T] = new /obj/effect/abstract/proximity_checker/advanced/field_edge(T, src)
@@ -110,7 +110,7 @@
 		tracked += P
 
 /obj/item/borg/projectile_dampen/clockcult
-	name = "internal clockcult projectile dampener"
+	name = "культистский глушитель снарядов"
 
 /obj/item/borg/projectile_dampen/clockcult/process_recharge()
 	energy = maxenergy

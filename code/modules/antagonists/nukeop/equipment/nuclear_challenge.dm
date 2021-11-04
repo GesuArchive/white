@@ -1,6 +1,6 @@
 #define CHALLENGE_TELECRYSTALS 30
 #define CHALLENGE_TIME_LIMIT 3000
-#define CHALLENGE_MIN_PLAYERS 50
+#define CHALLENGE_MIN_PLAYERS 20
 #define CHALLENGE_SHUTTLE_DELAY 15000 // 25 minutes, so the ops have at least 5 minutes before the shuttle is callable.
 
 /obj/item/nuclear_challenge
@@ -107,6 +107,10 @@
 		uplinks += uplink
 
 	var/tc_to_distribute = CHALLENGE_TELECRYSTALS
+
+	if(GLOB.player_list.len < CHALLENGE_MIN_PLAYERS)
+		tc_to_distribute = CHALLENGE_TELECRYSTALS / 2
+
 	var/tc_per_nukie = round(tc_to_distribute / (length(orphans)+length(uplinks)))
 
 	for (var/datum/component/uplink/uplink in uplinks)
@@ -131,11 +135,6 @@
 	if(declaring_war)
 		to_chat(user, span_boldwarning("You are already in the process of declaring war! Make your mind up."))
 		return FALSE
-	/*
-	if(GLOB.player_list.len < CHALLENGE_MIN_PLAYERS)
-		to_chat(user, span_boldwarning("The enemy crew is too small to be worth declaring war on."))
-		return FALSE
-	*/
 	if(!user.onSyndieBase())
 		to_chat(user, span_boldwarning("You have to be at your base to use this."))
 		return FALSE

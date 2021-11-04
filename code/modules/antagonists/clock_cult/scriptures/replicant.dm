@@ -2,13 +2,13 @@
 // !           Replicant          ! //
 //==================================//
 /datum/clockcult/scripture/replicant
-	name = "Replicant"
-	desc = "Causes the slab to summon a copy of itself, allowing you to replace slabs if they get lost."
-	tip = "Make another slab as a backup."
+	name = "Репликант"
+	desc = "Заставляет механизм вызывать свою копию, позволяя вам заменить механизмы, если они потерялись."
+	tip = "Сделать запасной механизм."
 	button_icon_state = "Replicant"
 	power_cost = 50
 	invokation_time = 30
-	invokation_text = list("oh shit, I forgot that...")
+	invokation_text = list("блять, а где механизм...")
 	category = SPELLTYPE_SERVITUDE
 	cogs_required = 0
 
