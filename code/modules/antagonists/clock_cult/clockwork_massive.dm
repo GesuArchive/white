@@ -247,6 +247,19 @@ GLOBAL_VAR(cult_ratvar)
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/trigger_clockcult_victory, src)
 	check_gods_battle()
 
+	AddElement(/datum/element/point_of_interest)
+
+	singularity = WEAKREF(AddComponent(
+		/datum/component/singularity, \
+		bsa_targetable = FALSE, \
+		consume_callback = CALLBACK(src, .proc/consume), \
+		consume_range = NARSIE_CONSUME_RANGE, \
+		disregard_failed_movements = TRUE, \
+		grav_pull = NARSIE_GRAV_PULL, \
+		roaming = FALSE, /* This is set once the animation finishes */ \
+		singularity_size = NARSIE_SINGULARITY_SIZE, \
+	))
+
 	START_PROCESSING(SSobj, src)
 
 //tasty
