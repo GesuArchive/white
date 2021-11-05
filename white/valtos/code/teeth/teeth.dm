@@ -91,9 +91,9 @@
 		if(O.get_teeth() >= O.max_teeth)
 			to_chat(user, "<span class='notice'>Все зубы [target] в порядке.")
 			return -1
-		user.visible_message(span_notice("[user] начинает вставлять [T] во рту [target]."))
+		user.visible_message(span_notice("[user] начинает вставлять [T] в рот [target]."))
 	else
-		user.visible_message(span_notice("[user] проверяет зубы [target]."))
+		user.visible_message(span_notice("[user] начинает вырывать зубы [target]."))
 
 /datum/surgery_step/handle_teeth/success(mob/user, mob/living/carbon/human/target, target_zone, obj/item/stack/teeth/T, datum/surgery/surgery)
 	var/obj/item/bodypart/head/O = locate(/obj/item/bodypart/head) in target.bodyparts
