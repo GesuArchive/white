@@ -28,28 +28,15 @@
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "f" = (
-/obj/structure/closet/boxinggloves,
-/turf/open/floor/plasteel/dark,
-/area/template_noop)
-"g" = (
 /obj/structure/closet/masks,
 /obj/item/food/deadmouse,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
-"h" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/template_noop)
-"i" = (
-/obj/effect/decal/cleanable/vomit/old,
+"g" = (
+/obj/structure/closet/boxinggloves,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
-"j" = (
+"h" = (
 /obj/machinery/door/window/eastright{
 	base_state = "left";
 	dir = 8;
@@ -61,6 +48,23 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 4
+	},
+/turf/open/floor/plating,
+/area/template_noop)
+"i" = (
+/obj/effect/decal/cleanable/vomit/old,
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"j" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/mob/living/simple_animal/chicken{
+	name = "Roscoe Reichard"
 	},
 /turf/open/floor/plating,
 /area/template_noop)
@@ -167,28 +171,13 @@
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "s" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/plating,
+/obj/effect/decal/cleanable/oil,
+/turf/open/floor/plasteel/dark,
 /area/template_noop)
 "t" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/mob/living/simple_animal/chicken{
-	name = "Adam Jensen"
-	},
-/turf/open/floor/plating,
+/obj/structure/table,
+/obj/effect/spawner/lootdrop/maintenance/two,
+/turf/open/floor/plasteel/dark,
 /area/template_noop)
 "u" = (
 /obj/machinery/door/window/eastright{
@@ -241,19 +230,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
-"z" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/mob/living/simple_animal/chicken{
-	name = "Roscoe Reichard"
-	},
-/turf/open/floor/plating,
-/area/template_noop)
 "A" = (
 /obj/effect/decal/cleanable/oil{
 	icon_state = "floor6"
@@ -294,14 +270,20 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
-"G" = (
-/obj/effect/decal/cleanable/oil,
-/turf/open/floor/plasteel/dark,
-/area/template_noop)
 "H" = (
-/obj/structure/table,
-/obj/effect/spawner/lootdrop/maintenance/two,
-/turf/open/floor/plasteel/dark,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/mob/living/simple_animal/chicken{
+	name = "Adam Jensen"
+	},
+/turf/open/floor/plating,
 /area/template_noop)
 "I" = (
 /obj/item/stack/medical/bruise_pack,
@@ -355,12 +337,6 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
-"P" = (
-/obj/structure/table,
-/obj/item/storage/box/mousetraps,
-/obj/effect/spawner/lootdrop/maintenance,
-/turf/open/floor/plasteel/dark,
-/area/template_noop)
 "Q" = (
 /obj/structure/mopbucket,
 /obj/item/mop,
@@ -403,14 +379,14 @@
 
 (1,1,1) = {"
 a
-a
-a
 t
-h
+t
+t
+a
+a
+H
 k
-H
-H
-P
+a
 R
 "}
 (2,1,1) = {"
@@ -498,25 +474,25 @@ a
 W
 "}
 (9,1,1) = {"
-g
 a
 a
 a
 a
-G
+a
+a
 a
 a
 a
 X
 "}
 (10,1,1) = {"
+g
 a
-a
-a
-a
+h
 j
+a
 s
-z
+a
 a
 Q
 O
