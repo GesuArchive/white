@@ -81,7 +81,7 @@ export const ClockworkHelp = (props, context) => {
       <Collapsible title="Что делать" color="average" open={1}>
         <Section>
           После долгой и разрушительной
-          войны, Рат'Вар был заключен в тюрьму
+          войны, Рат&#39;вар был заключен в тюрьму
           внутри измерения страдания.
           <br />
           Вы - группа из его последних оставшихся,
@@ -156,7 +156,7 @@ export const ClockworkHelp = (props, context) => {
       </Collapsible>
       <Collapsible title="Конвертирование" color="average">
         <Section>
-          Вызывай
+          Вызывай&nbsp;
           <b>
             <font color="#D8D98D">
               Разжечь&nbsp;
@@ -228,9 +228,9 @@ export const ClockworkHelp = (props, context) => {
               Производитель реплик:&nbsp;
             </font>
           </b>
-            Мощный инструмент, который может быстро построить
-            Латунные конструкции или преобразовать большинство материалов
-            в латунь.
+          Мощный инструмент, который может быстро построить
+          Латунные конструкции или преобразовать большинство материалов
+          в латунь.
           <br />
           <b>
             <font color="#DED09F">
@@ -312,7 +312,7 @@ export const ClockworkSpellList = (props, context) => {
                       : "average"}
                     content={script.purchased
                       ? "Вызвать " + (convertPower(script.cost))
-                      : script.cog_cost + " Шест."}
+                      : script.cog_cost + " Шестерней"}
                     disabled={false}
                     onClick={() => act("invoke", {
                       scriptureName: script.name,
