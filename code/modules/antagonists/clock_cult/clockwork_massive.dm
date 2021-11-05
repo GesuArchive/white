@@ -210,6 +210,11 @@ GLOBAL_LIST_INIT(clockwork_portals, list())
 	flee_reebe(TRUE)
 
 //=========Ratvar==========
+
+#define RATVAR_CONSUME_RANGE 12
+#define RATVAR_GRAV_PULL 10
+#define RATVAR_SINGULARITY_SIZE 12
+
 GLOBAL_VAR(cult_ratvar)
 
 /obj/ratvar
@@ -235,6 +240,7 @@ GLOBAL_VAR(cult_ratvar)
 	var/range = 1
 	var/atom/ratvar_target
 	var/next_attack_tick
+	var/datum/weakref/singularity
 
 /obj/ratvar/Initialize(mapload, starting_energy = 50)
 	log_game("!!! RATVAR HAS RISEN. !!!")
@@ -253,11 +259,11 @@ GLOBAL_VAR(cult_ratvar)
 		/datum/component/singularity, \
 		bsa_targetable = FALSE, \
 		consume_callback = CALLBACK(src, .proc/consume), \
-		consume_range = NARSIE_CONSUME_RANGE, \
+		consume_range = RATVAR_CONSUME_RANGE, \
 		disregard_failed_movements = TRUE, \
-		grav_pull = NARSIE_GRAV_PULL, \
+		grav_pull = RATVAR_GRAV_PULL, \
 		roaming = FALSE, /* This is set once the animation finishes */ \
-		singularity_size = NARSIE_SINGULARITY_SIZE, \
+		singularity_size = RATVAR_SINGULARITY_SIZE, \
 	))
 
 	START_PROCESSING(SSobj, src)
