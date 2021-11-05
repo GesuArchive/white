@@ -434,7 +434,7 @@
 			var/obj/item/bodypart/BP = X
 			if(prob(50/severity) && !prob(getarmor(BP, BOMB)) && BP.body_zone != BODY_ZONE_HEAD && BP.body_zone != BODY_ZONE_CHEST)
 				BP.brute_dam = BP.max_damage
-				BP.dismember()
+				BP.dismember(BRUTE, TRUE, FALSE)
 				max_limb_loss--
 				if(!max_limb_loss)
 					break

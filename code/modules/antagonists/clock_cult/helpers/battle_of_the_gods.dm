@@ -17,4 +17,4 @@ GLOBAL_VAR(narsie_arrival)
 	var/obj/ratvar/R = GLOB.cult_ratvar
 	var/obj/narsie/N = GLOB.cult_narsie
 	R.ratvar_target = N
-	//N.clashing = R
+	N.clashing = R

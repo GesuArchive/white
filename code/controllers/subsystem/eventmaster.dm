@@ -36,7 +36,7 @@ SUBSYSTEM_DEF(eventmaster)
 /datum/controller/subsystem/eventmaster/proc/execute_ignition_rules()
 	switch(target_event)
 		if(EVENT_TYPE_ZOMBIE)
-			to_chat(world, "Активация правил режима ZE...")
+			to_chat(world, span_heavy_brass("Активация правил режима OpenWorld..."))
 			GLOB.disable_fucking_station_shit_please = TRUE
 			SSair.flags |= SS_NO_FIRE
 			SSevents.flags |= SS_NO_FIRE
@@ -46,14 +46,14 @@ SUBSYSTEM_DEF(eventmaster)
 			SSeconomy.flags |= SS_NO_FIRE
 			SSeconomy.flags |= SS_NO_FIRE
 			SSjob.DisableJobsButThis(/datum/job/assistant)
-			to_chat(world, "Остановка лишних контроллеров успешна!")
+			to_chat(world, span_heavy_brass("Остановка лишних контроллеров успешна!"))
 			action_area = GLOB.areas_by_type[/area/partyhard/outdoors]
 			second_area = GLOB.areas_by_type[/area/partyhard/indoors]
 			action_area.luminosity = 1
 			second_area.luminosity = 1
 			adjust_areas_light()
-			to_chat(world, "Свет готов!")
-			to_chat(world, "Готово!")
+			to_chat(world, span_heavy_brass("Свет готов!"))
+			to_chat(world, span_heavy_brass("Готово!"))
 			return TRUE
 		else
 			return FALSE

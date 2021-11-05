@@ -27,12 +27,12 @@
 			L.emote("agony")
 
 	for(var/turf/closed/wall/W in world)
-		W.ChangeTurf(/turf/closed/wall/clockwork, flags = CHANGETURF_DEFER_CHANGE)
-		CHECK_TICK
+		if(is_station_level(W.z))
+			W.ChangeTurf(/turf/closed/wall/clockwork, flags = CHANGETURF_DEFER_CHANGE)
 
 	for(var/turf/open/floor/O in world)
-		O.ChangeTurf(/turf/open/floor/clockwork, flags = CHANGETURF_DEFER_CHANGE)
-		CHECK_TICK
+		if(is_station_level(O.z))
+			O.ChangeTurf(/turf/open/floor/clockwork, flags = CHANGETURF_DEFER_CHANGE)
 
 /proc/clockcult_gg()
 	SSticker.force_ending = TRUE

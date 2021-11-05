@@ -121,6 +121,11 @@ GLOBAL_LIST_INIT(clockwork_portals, list())
 
 /obj/structure/destructible/clockwork/massive/celestial_gateway/proc/announce_gateway()
 	activated = TRUE
+	for(var/datum/mind/M in GLOB.player_list)
+		if(!is_servant_of_ratvar(M.current))
+			SEND_SOUND(M.current, 'white/valtos/sounds/ratalarm.ogg')
+		else
+			SEND_SOUND(M.current, 'sound/magic/clockwork/invoke_general.ogg')
 	set_security_level(SEC_LEVEL_DELTA)
 	mass_recall(TRUE)
 	var/grace_time = GLOB.narsie_breaching ? 0 : 1800
@@ -146,8 +151,6 @@ GLOBAL_LIST_INIT(clockwork_portals, list())
 			if(servant_antag)
 				servant_antag.forbearance = mutable_appearance('icons/effects/genetics.dmi', "servitude", -MUTATIONS_LAYER)
 				servant.add_overlay(servant_antag.forbearance)
-	for(var/mob/M in GLOB.player_list)
-		SEND_SOUND(M, 'sound/magic/clockwork/invoke_general.ogg')
 
 /obj/structure/destructible/clockwork/massive/celestial_gateway/proc/begin_assault()
 	priority_announce("Вблизи станции обнаружены пространственно-временные аномалии. Источник определен как временный \
@@ -210,6 +213,11 @@ GLOBAL_LIST_INIT(clockwork_portals, list())
 	flee_reebe(TRUE)
 
 //=========Ratvar==========
+
+#define RATVAR_CONSUME_RANGE 12
+#define RATVAR_GRAV_PULL 10
+#define RATVAR_SINGULARITY_SIZE 12
+
 GLOBAL_VAR(cult_ratvar)
 
 /obj/ratvar
@@ -235,6 +243,7 @@ GLOBAL_VAR(cult_ratvar)
 	var/range = 1
 	var/atom/ratvar_target
 	var/next_attack_tick
+	var/datum/weakref/singularity
 
 /obj/ratvar/Initialize(mapload, starting_energy = 50)
 	log_game("!!! RATVAR HAS RISEN. !!!")
@@ -246,6 +255,19 @@ GLOBAL_VAR(cult_ratvar)
 	UnregisterSignal(src, COMSIG_ATOM_BSA_BEAM)
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/trigger_clockcult_victory, src)
 	check_gods_battle()
+
+	AddElement(/datum/element/point_of_interest)
+
+	singularity = WEAKREF(AddComponent(
+		/datum/component/singularity, \
+		bsa_targetable = FALSE, \
+		consume_callback = CALLBACK(src, .proc/consume), \
+		consume_range = RATVAR_CONSUME_RANGE, \
+		disregard_failed_movements = TRUE, \
+		grav_pull = RATVAR_GRAV_PULL, \
+		roaming = FALSE, /* This is set once the animation finishes */ \
+		singularity_size = RATVAR_SINGULARITY_SIZE, \
+	))
 
 	START_PROCESSING(SSobj, src)
 
