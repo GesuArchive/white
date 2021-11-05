@@ -41,7 +41,7 @@
 	add_mob_blood(C)
 	C.bleed(rand(20, 40))
 	if(!detach_limb)
-		new /obj/effect/gibspawner/human/bodypartless(location, src, C.get_static_viruses())
+		new /obj/effect/gibspawner/human/bodypartless(location, C, C.get_static_viruses())
 		qdel(src)
 		return TRUE
 	var/direction = pick(GLOB.cardinals)
