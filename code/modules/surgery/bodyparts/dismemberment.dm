@@ -4,7 +4,7 @@
 		return TRUE
 
 //Dismember a limb
-/obj/item/bodypart/proc/dismember(dam_type = BRUTE, silent=TRUE)
+/obj/item/bodypart/proc/dismember(dam_type = BRUTE, silent = TRUE, detach_limb = TRUE)
 	if(!owner || !dismemberable)
 		return FALSE
 	var/mob/living/carbon/C = owner
@@ -16,11 +16,17 @@
 	var/obj/item/bodypart/affecting = C.get_bodypart(BODY_ZONE_CHEST)
 	affecting.receive_damage(clamp(brute_dam/2 * affecting.body_damage_coeff, 15, 50), clamp(burn_dam/2 * affecting.body_damage_coeff, 0, 50), wound_bonus=CANT_WOUND) //Damage the chest based on limb's existing damage
 	if(!silent)
-		C.visible_message(span_danger("<B>[capitalize(src.name)] отлетает от [C]!</B>"))
+		if(detach_limb)
+			C.visible_message(span_danger("<B>[capitalize(src.name)] отлетает от [C]!</B>"))
+		else
+			C.visible_message(span_danger("<B>[capitalize(src.name)] [C] разлетается на кусочки!</B>"))
 	INVOKE_ASYNC(C, /mob.proc/emote, "agony")
-	playsound(get_turf(C), 'sound/effects/dismember.ogg', 80, TRUE)
 	SEND_SIGNAL(C, COMSIG_ADD_MOOD_EVENT, "dismembered", /datum/mood_event/dismembered)
-	drop_limb()
+	if(detach_limb)
+		playsound(get_turf(C), 'sound/effects/dismember.ogg', 80, TRUE)
+		drop_limb()
+	else
+		playsound(get_turf(C), 'white/valtos/sounds/gibpart.ogg', 80, TRUE)
 
 	C.update_equipment_speed_mods() // Update in case speed affecting item unequipped by dismemberment
 	var/turf/location = C.loc
@@ -34,6 +40,10 @@
 		return TRUE
 	add_mob_blood(C)
 	C.bleed(rand(20, 40))
+	if(!detach_limb)
+		new /obj/effect/gibspawner/human/bodypartless(location, src, C.get_static_viruses())
+		qdel(src)
+		return TRUE
 	var/direction = pick(GLOB.cardinals)
 	var/t_range = rand(2,max(throw_range/2, 2))
 	var/turf/target_turf = get_turf(src)

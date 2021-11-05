@@ -121,6 +121,11 @@ GLOBAL_LIST_INIT(clockwork_portals, list())
 
 /obj/structure/destructible/clockwork/massive/celestial_gateway/proc/announce_gateway()
 	activated = TRUE
+	for(var/datum/mind/M in GLOB.player_list)
+		if(!is_servant_of_ratvar(M.current))
+			SEND_SOUND(M.current, 'white/valtos/sounds/ratalarm.ogg')
+		else
+			SEND_SOUND(M.current, 'sound/magic/clockwork/invoke_general.ogg')
 	set_security_level(SEC_LEVEL_DELTA)
 	mass_recall(TRUE)
 	var/grace_time = GLOB.narsie_breaching ? 0 : 1800
@@ -146,8 +151,6 @@ GLOBAL_LIST_INIT(clockwork_portals, list())
 			if(servant_antag)
 				servant_antag.forbearance = mutable_appearance('icons/effects/genetics.dmi', "servitude", -MUTATIONS_LAYER)
 				servant.add_overlay(servant_antag.forbearance)
-	for(var/mob/M in GLOB.player_list)
-		SEND_SOUND(M, 'sound/magic/clockwork/invoke_general.ogg')
 
 /obj/structure/destructible/clockwork/massive/celestial_gateway/proc/begin_assault()
 	priority_announce("Вблизи станции обнаружены пространственно-временные аномалии. Источник определен как временный \
