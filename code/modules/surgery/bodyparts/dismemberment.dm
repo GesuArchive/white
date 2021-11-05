@@ -24,9 +24,10 @@
 	SEND_SIGNAL(C, COMSIG_ADD_MOOD_EVENT, "dismembered", /datum/mood_event/dismembered)
 	if(detach_limb)
 		playsound(get_turf(C), 'sound/effects/dismember.ogg', 80, TRUE)
-		drop_limb()
 	else
 		playsound(get_turf(C), 'white/valtos/sounds/gibpart.ogg', 80, TRUE)
+
+	drop_limb()
 
 	C.update_equipment_speed_mods() // Update in case speed affecting item unequipped by dismemberment
 	var/turf/location = C.loc
