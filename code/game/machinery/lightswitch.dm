@@ -41,20 +41,24 @@
 		area.lightswitch = FALSE
 		area.power_change()
 
-	update_icon_state()
+	update_icon()
 
 /obj/machinery/light_switch/update_icon_state()
-	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	luminosity = 0
 	if(machine_stat & NOPOWER)
 		icon_state = "light-p"
 	else
 		luminosity = 1
-		SSvis_overlays.add_vis_overlay(src, icon, "light-glow", EMISSIVE_LAYER, EMISSIVE_PLANE, dir, alpha)
 		if(area.lightswitch)
 			icon_state = "light1"
 		else
 			icon_state = "light0"
+
+/obj/machinery/light_switch/update_overlays()
+	. = ..()
+	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
+	if(!(machine_stat & NOPOWER))
+		SSvis_overlays.add_vis_overlay(src, icon, "light-glow", EMISSIVE_LAYER, EMISSIVE_PLANE, dir, alpha)
 
 /obj/machinery/light_switch/examine(mob/user)
 	. = ..()
@@ -69,7 +73,7 @@
 	area.update_icon()
 
 	for(var/obj/machinery/light_switch/L in area)
-		L.update_icon_state()
+		L.update_icon()
 
 	area.power_change()
 
