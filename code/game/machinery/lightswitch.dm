@@ -41,7 +41,7 @@
 		area.lightswitch = FALSE
 		area.power_change()
 
-	update_icon()
+	update_icon_state()
 
 /obj/machinery/light_switch/update_icon_state()
 	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
@@ -69,7 +69,7 @@
 	area.update_icon()
 
 	for(var/obj/machinery/light_switch/L in area)
-		L.update_icon()
+		L.update_icon_state()
 
 	area.power_change()
 
