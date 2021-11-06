@@ -60,7 +60,7 @@
 	force = 24
 	throwforce = 36
 	armour_penetration = 24
-	equip_sound = 'white/valtos/sounds/brasssneath1.ogg'
+	pickup_sound = 'white/valtos/sounds/brasssneath1.ogg'
 	clockwork_hint = "Бросок копья нанесет дополнительный урон, пока находится на Риби."
 
 /obj/item/clockwork/brass_battlehammer
@@ -71,7 +71,7 @@
 	throwforce = 25
 	armour_penetration = 6
 	sharpness = NONE
-	equip_sound = 'white/valtos/sounds/brasssneath1.ogg'
+	pickup_sound = 'white/valtos/sounds/brasssneath1.ogg'
 	attack_verb_simple = list("лупит", "дубасит", "бьёт", "хуячит")
 	clockwork_hint = "Враги, пораженные этим, будут отброшены, пока молот находится на Риби."
 
@@ -86,7 +86,7 @@
 	force = 26
 	throwforce = 20
 	armour_penetration = 12
-	equip_sound = 'white/valtos/sounds/brasssneath2.ogg'
+	pickup_sound = 'white/valtos/sounds/brasssneath2.ogg'
 	attack_verb_simple = list("атакует", "рубит", "режет", "рвёт", "протыкает")
 	clockwork_hint = "Находясь на Риби, цели будут поражены мощным электромагнитным импульсом."
 	var/emp_cooldown = 0
