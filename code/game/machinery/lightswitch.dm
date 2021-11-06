@@ -2,7 +2,7 @@
 /obj/machinery/light_switch
 	name = "переключатель света"
 	icon = 'white/valtos/icons/power.dmi'
-	icon_state = "light1"
+	icon_state = "light0"
 	desc = "Делает тьму или свет."
 	power_channel = AREA_USAGE_LIGHT
 	/// Set this to a string, path, or area instance to control that area
@@ -36,6 +36,10 @@
 
 	if(!name)
 		name = "переключатель света ([area.name])"
+
+	if(area.lightswitch)
+		area.lightswitch = FALSE
+		area.power_change()
 
 	update_icon()
 
