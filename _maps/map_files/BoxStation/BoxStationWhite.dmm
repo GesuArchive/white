@@ -1710,7 +1710,7 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblue,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "anb" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -2800,7 +2800,7 @@
 	pixel_x = -28
 	},
 /turf/open/floor/wood,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "aqp" = (
 /obj/structure/rack,
 /obj/item/clothing/suit/fire/firefighter,
@@ -3041,7 +3041,7 @@
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/wood,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "arj" = (
 /turf/closed/wall,
 /area/service/fitness)
@@ -3051,7 +3051,7 @@
 	},
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/carpet,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "arl" = (
 /obj/structure/disposalpipe/sorting/mail/flip{
 	dir = 2;
@@ -3340,7 +3340,7 @@
 	pixel_x = -28
 	},
 /turf/open/floor/carpet,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "asl" = (
 /obj/machinery/firealarm{
 	dir = 8;
@@ -3356,7 +3356,7 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/wood,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "asn" = (
 /obj/structure/chair/office,
 /obj/effect/landmark/start/lawyer,
@@ -3367,7 +3367,7 @@
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/lavalamp,
 /turf/open/floor/wood,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "asq" = (
 /obj/machinery/camera{
 	c_tag = "Fitness Room"
@@ -3427,7 +3427,7 @@
 	},
 /obj/item/bedsheet/dorms,
 /turf/open/floor/wood,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "asv" = (
 /obj/structure/table,
 /obj/effect/spawner/lootdrop/maintenance/three,
@@ -3540,7 +3540,7 @@
 /obj/item/bedsheet/dorms,
 /obj/item/toy/plush/bear,
 /turf/open/floor/carpet,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "asM" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/neutral{
@@ -3686,7 +3686,7 @@
 /area/service/fitness/kachalka)
 "atm" = (
 /turf/open/floor/carpet,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "ato" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -3887,7 +3887,7 @@
 	dir = 1
 	},
 /turf/open/floor/wood,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "atR" = (
 /obj/effect/landmark/carpspawn,
 /obj/structure/lattice,
@@ -4040,7 +4040,7 @@
 	pixel_y = -28
 	},
 /turf/open/floor/carpet/royalblack,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "aup" = (
 /obj/machinery/door/airlock{
 	id_tag = "Cab2";
@@ -4052,8 +4052,9 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/wood,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "aus" = (
 /obj/structure/cable,
 /obj/structure/railing{
@@ -4083,7 +4084,7 @@
 	},
 /obj/item/bedsheet/dorms,
 /turf/open/floor/carpet/royalblue,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "aux" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -4739,7 +4740,7 @@
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "awq" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -4751,6 +4752,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/commons/dorms)
 "awv" = (
@@ -4763,6 +4765,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/commons/dorms)
 "awx" = (
@@ -5399,7 +5402,7 @@
 	},
 /obj/item/bedsheet/dorms,
 /turf/open/floor/carpet/royalblack,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "ayX" = (
 /obj/machinery/firealarm{
 	dir = 8;
@@ -5763,7 +5766,7 @@
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "aAc" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6358,7 +6361,7 @@
 	},
 /obj/item/bedsheet/dorms,
 /turf/open/floor/carpet/blue,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "aCe" = (
 /obj/effect/landmark/xeno_spawn,
 /obj/item/bikehorn/rubberducky,
@@ -6922,7 +6925,7 @@
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "aDL" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -8311,8 +8314,9 @@
 /obj/effect/landmark/event_spawn,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/carpet,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "aHx" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -14890,7 +14894,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "blV" = (
 /obj/machinery/light/small{
 	pixel_y = 0
@@ -16177,7 +16181,7 @@
 	},
 /obj/structure/table/wood,
 /turf/open/floor/carpet/royalblack,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "btP" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -5;
@@ -18133,9 +18137,9 @@
 /area/cargo/miningdock)
 "bDl" = (
 /obj/effect/light_emitter{
-	light_range = 16;
-	set_cap = 2.5;
-	set_luminosity = 16
+	light_range = 3;
+	set_cap = 1;
+	set_luminosity = 4
 	},
 /turf/open/floor/plating/rust{
 	initial_gas_mix = "TEMP=2.7"
@@ -22078,6 +22082,7 @@
 /obj/structure/railing{
 	dir = 4
 	},
+/obj/machinery/light_switch/directional/west,
 /turf/open/openspace,
 /area/engineering/atmospherics_engine)
 "bRK" = (
@@ -24265,9 +24270,9 @@
 	dir = 4
 	},
 /obj/effect/light_emitter{
-	light_range = 16;
-	set_cap = 2.5;
-	set_luminosity = 16
+	light_range = 3;
+	set_cap = 1;
+	set_luminosity = 4
 	},
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
@@ -31047,9 +31052,9 @@
 "cZn" = (
 /obj/structure/lattice,
 /obj/effect/light_emitter{
-	light_range = 16;
-	set_cap = 2.5;
-	set_luminosity = 16
+	light_range = 3;
+	set_cap = 1;
+	set_luminosity = 4
 	},
 /turf/open/openspace/airless,
 /area/space/nearstation)
@@ -31570,9 +31575,9 @@
 /area/science/xenobiology)
 "dzN" = (
 /obj/effect/light_emitter{
-	light_range = 16;
-	set_cap = 2.5;
-	set_luminosity = 16
+	light_range = 3;
+	set_cap = 1;
+	set_luminosity = 4
 	},
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
@@ -32423,7 +32428,7 @@
 	pixel_y = -28
 	},
 /turf/open/floor/carpet/royalblue,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "eJf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -32517,6 +32522,14 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"eRd" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/light_switch/directional/north,
+/turf/open/floor/plasteel/monofloor,
+/area/engineering/storage_shared)
 "eRz" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -32642,6 +32655,14 @@
 "fdN" = (
 /turf/closed/wall/r_wall,
 /area/security/brig/upper)
+"feC" = (
+/obj/machinery/mech_bay_recharge_port{
+	dir = 2
+	},
+/obj/structure/cable,
+/obj/machinery/light_switch/directional/west,
+/turf/open/floor/plating,
+/area/science/robotics/mechbay)
 "ffQ" = (
 /obj/machinery/camera{
 	c_tag = "Xenobiology Pens Observation - Port Aft";
@@ -33499,6 +33520,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/plasteel,
 /area/science/nanite)
 "goW" = (
@@ -34396,7 +34418,7 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "hxM" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -34701,7 +34723,7 @@
 	},
 /obj/structure/dresser,
 /turf/open/floor/carpet/royalblue,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "hQL" = (
 /obj/structure/chair{
 	dir = 4
@@ -36357,7 +36379,7 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/blue,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "kmh" = (
 /turf/open/floor/plasteel,
 /area/engineering/manufactory)
@@ -37127,9 +37149,6 @@
 	},
 /obj/item/research_disk_pinpointer,
 /obj/structure/railing,
-/obj/machinery/light_switch{
-	pixel_x = -20
-	},
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel,
 /area/science/research)
@@ -37728,7 +37747,7 @@
 "mqq" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/carpet/royalblack,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "mqM" = (
 /obj/machinery/light{
 	dir = 4
@@ -38510,9 +38529,9 @@
 /area/science/misc_lab)
 "nDQ" = (
 /obj/effect/light_emitter{
-	light_range = 16;
-	set_cap = 2.5;
-	set_luminosity = 16
+	light_range = 3;
+	set_cap = 1;
+	set_luminosity = 4
 	},
 /turf/open/floor/engine/hull/reinforced,
 /area/space/nearstation)
@@ -38848,9 +38867,9 @@
 /area/science/mixing)
 "nWq" = (
 /obj/effect/light_emitter{
-	light_range = 16;
-	set_cap = 2.5;
-	set_luminosity = 16
+	light_range = 3;
+	set_cap = 1;
+	set_luminosity = 4
 	},
 /turf/open/floor/engine/hull,
 /area/space/nearstation)
@@ -39532,6 +39551,9 @@
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plating,
 /area/maintenance/port)
+"oRZ" = (
+/turf/closed/wall,
+/area/commons/dorms/barracks/male)
 "oSZ" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -39948,7 +39970,7 @@
 "psY" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/carpet/blue,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "ptd" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -39987,7 +40009,7 @@
 	},
 /obj/structure/table/wood,
 /turf/open/floor/carpet/blue,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "pwU" = (
 /obj/structure/railing{
 	dir = 4
@@ -40543,7 +40565,7 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblue,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "qde" = (
 /obj/item/crowbar,
 /obj/item/wrench,
@@ -41316,7 +41338,7 @@
 	pixel_y = -28
 	},
 /turf/open/floor/carpet/blue,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "rlx" = (
 /obj/machinery/camera{
 	c_tag = "Xenobiology Pens Observation - Starboard Fore";
@@ -41413,9 +41435,9 @@
 /area/service/fitness/kachalka)
 "rvh" = (
 /obj/effect/light_emitter{
-	light_range = 16;
-	set_cap = 2.5;
-	set_luminosity = 16
+	light_range = 3;
+	set_cap = 1;
+	set_luminosity = 4
 	},
 /turf/open/openspace/airless,
 /area/space/nearstation)
@@ -41516,6 +41538,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/yellow,
+/obj/machinery/light_switch/directional/south,
 /turf/open/floor/plasteel,
 /area/engineering/storage)
 "rCp" = (
@@ -41614,7 +41637,7 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "rIz" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/portable_atmospherics/canister/air,
@@ -41914,6 +41937,7 @@
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /obj/item/stock_parts/cell/emproof,
+/obj/machinery/light_switch/directional/south,
 /turf/open/floor/plasteel/dark,
 /area/engineering/engine_smes)
 "sag" = (
@@ -42913,8 +42937,10 @@
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/north,
 /turf/open/floor/carpet,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "tqp" = (
 /obj/structure/table,
 /obj/machinery/newscaster{
@@ -43007,7 +43033,7 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/blue,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "tuQ" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
@@ -43762,6 +43788,7 @@
 /obj/structure/railing/corner{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/commons/dorms)
 "uHA" = (
@@ -44170,9 +44197,9 @@
 	dir = 4
 	},
 /obj/effect/light_emitter{
-	light_range = 16;
-	set_cap = 2.5;
-	set_luminosity = 16
+	light_range = 3;
+	set_cap = 1;
+	set_luminosity = 4
 	},
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
@@ -44851,7 +44878,7 @@
 "whK" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/carpet/royalblue,
-/area/commons/dorms)
+/area/commons/dorms/barracks/male)
 "win" = (
 /obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4{
 	color = "#0000ff";
@@ -68998,7 +69025,7 @@ cqY
 cqY
 cqY
 qJP
-eSP
+eRd
 xek
 xek
 xek
@@ -76360,16 +76387,16 @@ lSB
 cqU
 asg
 nls
-arf
-arf
-arf
-arf
-arf
-arf
-arf
-arf
-arf
-arf
+oRZ
+oRZ
+oRZ
+oRZ
+oRZ
+oRZ
+oRZ
+oRZ
+oRZ
+oRZ
 edu
 ahn
 aaa
@@ -76617,16 +76644,16 @@ wlf
 rHg
 asg
 aqg
-arf
+oRZ
 hQK
 qcV
-arf
+oRZ
 btB
 hxK
-arf
+oRZ
 pwd
 tti
-arf
+oRZ
 edu
 ahn
 aaa
@@ -76874,16 +76901,16 @@ lXr
 dsi
 asg
 aqg
-arf
+oRZ
 whK
 eIS
-arf
+oRZ
 mqq
 aun
-arf
+oRZ
 psY
 rkf
-arf
+oRZ
 edu
 ahn
 aaa
@@ -77131,16 +77158,16 @@ elu
 lwb
 asg
 aqg
-arf
+oRZ
 auw
 amZ
-arf
+oRZ
 ayV
 rHj
-arf
+oRZ
 aCd
 klU
-arf
+oRZ
 edu
 ahn
 aaa
@@ -77388,16 +77415,16 @@ kEN
 wrL
 asg
 aqg
-arf
-arf
+oRZ
+oRZ
 awo
-arf
-arf
+oRZ
+oRZ
 aAb
-arf
-arf
+oRZ
+oRZ
 aDK
-arf
+oRZ
 wbt
 ahn
 aaa
@@ -78156,10 +78183,10 @@ uRH
 gjb
 ajo
 aqg
-arf
-arf
-arf
-arf
+oRZ
+oRZ
+oRZ
+oRZ
 auU
 xWD
 xWD
@@ -78413,10 +78440,10 @@ anU
 anC
 ajo
 aqg
-arf
+oRZ
 aqo
 asp
-arf
+oRZ
 auS
 xWD
 xWD
@@ -78670,7 +78697,7 @@ oeS
 aoH
 ajo
 aqg
-arf
+oRZ
 asm
 blU
 atQ
@@ -78927,10 +78954,10 @@ anV
 ajo
 ajo
 nls
-arf
+oRZ
 ari
 asu
-arf
+oRZ
 auW
 xWD
 xWD
@@ -79184,10 +79211,10 @@ anY
 ajo
 apq
 aqg
-arf
-arf
-arf
-arf
+oRZ
+oRZ
+oRZ
+oRZ
 auW
 xWD
 xWD
@@ -79441,10 +79468,10 @@ anX
 ajo
 app
 aqi
-arf
+oRZ
 ask
 atm
-arf
+oRZ
 avl
 xWD
 xWD
@@ -79698,7 +79725,7 @@ aaA
 ajo
 aps
 jce
-arf
+oRZ
 tqd
 aHw
 aup
@@ -79955,10 +79982,10 @@ gNu
 ajo
 apr
 jce
-arf
+oRZ
 ark
 asL
-arf
+oRZ
 avu
 awt
 axV
@@ -88727,7 +88754,7 @@ bcj
 aYV
 bfT
 cHF
-biG
+feC
 blw
 blu
 bnb
