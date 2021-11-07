@@ -152,3 +152,9 @@
 	reagents.add_reagent(/datum/reagent/toxin/mutetoxin, 6) //;HELP OPS IN MAINT
 	reagents.add_reagent(/datum/reagent/toxin/coniine, 6)
 	reagents.add_reagent(/datum/reagent/toxin/sodium_thiopental, 6)
+
+/obj/item/ammo_casing/shotgun/apslug
+	name = "12g бронебойная пуля"
+	desc = "Бронебойный патрон с копьевидной пулей для ружей 12g."
+	icon_state = "apshell"
+	projectile_type = /obj/projectile/bullet/apslug

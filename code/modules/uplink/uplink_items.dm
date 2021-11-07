@@ -746,6 +746,12 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	cost = 3
 	item = /obj/item/ammo_box/magazine/m12g/slug
 
+/datum/uplink_item/ammo/shotgun/apslug
+	name = "12g AP Slug Drum"
+	desc = "Барабанный магазин на 8 патронов, заряженный бронебойными патронами, подходит для дробовика Бульдог"
+	cost = 4
+	item = /obj/item/ammo_box/magazine/m12g/apslug
+
 /datum/uplink_item/ammo/revolver
 	name = ".357 Speed Loader"
 	desc = "A speed loader that contains seven additional .357 Magnum rounds; usable with the Syndicate revolver. \

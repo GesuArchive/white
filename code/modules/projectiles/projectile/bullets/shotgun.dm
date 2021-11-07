@@ -122,3 +122,10 @@
 
 /obj/projectile/bullet/scattershot
 	damage = 24
+
+/obj/projectile/bullet/apslug
+	name = "12g бронебойная пуля"
+	armour_penetration = 60
+	damage = 40
+	projectile_phasing = (ALL & (~PASSMOB))
+	dismemberment = 0
