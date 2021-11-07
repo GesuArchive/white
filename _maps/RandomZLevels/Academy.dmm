@@ -1114,11 +1114,11 @@
 /turf/open/floor/plating/airless,
 /area/awaymission/academy)
 "eA" = (
-/obj/machinery/door/airlock/public/glass,
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/awaymission/academy/classrooms)
 "eB" = (
@@ -1141,7 +1141,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/turf/open/floor/plasteel/white/corner,
+/turf/open/floor/plasteel/white,
 /area/awaymission/academy/classrooms)
 "eE" = (
 /obj/structure/chair,
@@ -1151,7 +1151,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/turf/open/floor/plasteel/white/corner,
+/turf/open/floor/plasteel/white,
 /area/awaymission/academy/classrooms)
 "eF" = (
 /obj/machinery/light{
@@ -1163,7 +1163,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/turf/open/floor/plasteel/white/corner,
+/turf/open/floor/plasteel/white,
 /area/awaymission/academy/classrooms)
 "eG" = (
 /obj/structure/table/reinforced,
@@ -1239,7 +1239,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/turf/open/floor/plasteel/white/corner,
+/turf/open/floor/plasteel/white,
 /area/awaymission/academy/classrooms)
 "eR" = (
 /obj/structure/table/reinforced,
@@ -1299,7 +1299,7 @@
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/white,
 /area/awaymission/academy/classrooms)
 "eZ" = (
 /obj/structure/chair{
@@ -1311,7 +1311,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/turf/open/floor/plasteel/white/corner,
+/turf/open/floor/plasteel/white,
 /area/awaymission/academy/classrooms)
 "fa" = (
 /obj/structure/table,
@@ -1386,7 +1386,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/turf/open/floor/plasteel/white/corner,
+/turf/open/floor/plasteel/white,
 /area/awaymission/academy/classrooms)
 "fr" = (
 /obj/structure/table,
@@ -1397,7 +1397,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/turf/open/floor/plasteel/white/corner,
+/turf/open/floor/plasteel/white,
 /area/awaymission/academy/classrooms)
 "fs" = (
 /obj/structure/chair{
@@ -1409,7 +1409,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/turf/open/floor/plasteel/white/corner,
+/turf/open/floor/plasteel/white,
 /area/awaymission/academy/classrooms)
 "ft" = (
 /obj/structure/table,
@@ -1461,7 +1461,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/turf/open/floor/plasteel/white/corner,
+/turf/open/floor/plasteel/white,
 /area/awaymission/academy/classrooms)
 "fD" = (
 /turf/closed/wall,
@@ -2682,7 +2682,7 @@
 	dir = 8
 	},
 /mob/living/simple_animal/hostile/wizard,
-/turf/open/floor/plasteel/white/corner,
+/turf/open/floor/plasteel/white,
 /area/awaymission/academy/classrooms)
 "kB" = (
 /obj/structure/chair,
@@ -2730,9 +2730,11 @@
 /turf/open/floor/plating,
 /area/awaymission/academy/classrooms)
 "kM" = (
-/obj/structure/trap/chill,
-/turf/open/floor/plating,
-/area/awaymission/academy/academyaft)
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/awaymission/academy/headmaster)
 "kN" = (
 /obj/structure/trap/fire,
 /turf/open/floor/engine,
@@ -11688,7 +11690,7 @@ ah
 ah
 ah
 ab
-aF
+kM
 aF
 ah
 ah
@@ -12598,7 +12600,7 @@ al
 al
 ah
 ab
-aF
+kM
 aF
 ah
 ah
@@ -13681,7 +13683,7 @@ bs
 bs
 hc
 hm
-kM
+hf
 hm
 hc
 aa

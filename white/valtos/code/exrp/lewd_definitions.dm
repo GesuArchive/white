@@ -23,7 +23,7 @@
 	if (user.lust >= 3)
 		user.visible_message(span_warning("[user] делает глубокий и продолжительный поцелуй с [target]."))
 	else
-		user.visible_message(span_warning("[user] целует [target] по-французки."))
+		user.visible_message(span_warning("[user] целует [target] по-французcки."))
 
 
 

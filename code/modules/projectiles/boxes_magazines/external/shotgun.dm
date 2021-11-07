@@ -40,3 +40,7 @@
 	icon_state = "m12gbc"
 	ammo_type = /obj/item/ammo_casing/shotgun/bombslug
 
+/obj/item/ammo_box/magazine/m12g/apslug
+	name = "shotgun magazine (12g AP slugs)"
+	icon_state = "m12gb"
+	ammo_type = /obj/item/ammo_casing/shotgun/apslug
