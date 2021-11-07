@@ -1,6 +1,6 @@
 /obj/item/clothing/suit/clockwork
-	name = "brass armor"
-	desc = "A strong, brass suit worn by the soldiers of the Ratvarian armies."
+	name = "латунная броня"
+	desc = "Прочный латунный доспех, который носили солдаты армий Ратвара."
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_cuirass"
 	armor = list("melee" = 50, "bullet" = 60, "laser" = 30, "energy" = 80, "bomb" = 80, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
@@ -8,13 +8,13 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	w_class = WEIGHT_CLASS_BULKY
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
-	allowed = list(/obj/item/clockwork, /obj/item/stack/tile/bronze, /obj/item/clockwork, /obj/item/gun/ballistic/bow/clockwork)
+	allowed = list(/obj/item/clockwork, /obj/item/stack/tile/bronze, /obj/item/clockwork, /obj/item/gun/energy/kinetic_accelerator/crossbow/clockwork)
 
 /obj/item/clothing/suit/clockwork/equipped(mob/living/user, slot)
 	. = ..()
 	spawn(20)
 		if(src && user && !is_servant_of_ratvar(user))
-			to_chat(user, span_userdanger("You feel a shock of energy surge through your body!"))
+			to_chat(user, span_userdanger("Чувствую прилив энергии по всему телу!"))
 			user.dropItemToGround(src, TRUE)
 			var/mob/living/carbon/C = user
 			if(ishuman(C))
@@ -27,8 +27,8 @@
 				C.jitteriness = max(C.jitteriness - 990, 10)
 
 /obj/item/clothing/suit/clockwork/speed
-	name = "robes of divinity"
-	desc = "A shiny suit, glowing with a vibrant energy. The wearer will be able to move quickly across battlefields, but will be able to withstand less damage before falling."
+	name = "роба божества"
+	desc = "Блестящий костюм, светящийся яркой энергией. Владелец сможет быстро перемещаться по полям битвы, но сможет выдержать меньший урон перед падением.."
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_cuirass_speed"
 	slowdown = -0.3
@@ -36,8 +36,8 @@
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 10, "energy" = -20, "bomb" = 60, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 
 /obj/item/clothing/suit/clockwork/cloak
-	name = "shrouding cloak"
-	desc = "A faltering cloak that bends light around it, distorting the user's appearance, making it hard to see them with the naked eye. However, it provides very little protection."
+	name = "плащ-покров"
+	desc = "Шатающийся плащ, который рассеивает свет вокруг себя, искажая внешний вид пользователя, из-за чего его трудно увидеть невооруженным глазом. Однако он обеспечивает очень слабую защиту.."
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_cloak"
 	armor = list("melee" = 10, "bullet" = 60, "laser" = 40, "energy" = 20, "bomb" = 40, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
@@ -81,14 +81,14 @@
 		animate(user, alpha=previous_alpha, time=30)
 
 /obj/item/clothing/glasses/clockwork
-	name = "base clock glasses"
+	name = "базовые механические очки"
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_cuirass"
 
 /obj/item/clothing/glasses/clockwork/equipped(mob/user, slot)
 	. = ..()
 	if(!is_servant_of_ratvar(user))
-		to_chat(user, span_userdanger("You feel a shock of energy surge through your body!"))
+		to_chat(user, span_userdanger("Чувствую прилив энергии по всему телу!"))
 		user.dropItemToGround(src, TRUE)
 		var/mob/living/carbon/C = user
 		if(ishuman(C))
@@ -102,8 +102,8 @@
 			C.jitteriness = max(C.jitteriness - 990, 10)
 
 /obj/item/clothing/glasses/clockwork/wraith_spectacles
-	name = "wraith spectacles"
-	desc = "Mystical glasses that glow with a bright energy. Some say they can see things that shouldn't be seen."
+	name = "призрачные очки"
+	desc = "Мистические очки, светящиеся яркой энергией. Некоторые говорят, что могут видеть то, чего не следует видеть."
 	icon_state = "wraith_specs"
 	invis_view = SEE_INVISIBLE_OBSERVER
 	invis_override = null
@@ -126,7 +126,7 @@
 		wearer = user
 		applied_eye_damage = 0
 		START_PROCESSING(SSobj, src)
-		to_chat(user, span_nezbere("You suddenly see so much more, but your eyes begin to faulter..."))
+		to_chat(user, span_nezbere("Внезапно вижу гораздо больше, но мои глаза начинают болеть..."))
 
 /obj/item/clothing/glasses/clockwork/wraith_spectacles/process()
 	. = ..()
@@ -140,15 +140,15 @@
 /obj/item/clothing/glasses/clockwork/wraith_spectacles/dropped(mob/user)
 	. = ..()
 	if(wearer && is_servant_of_ratvar(wearer))
-		to_chat(user, span_nezbere("You feel your eyes slowly recovering."))
+		to_chat(user, span_nezbere("Моим глазам становится лучше."))
 		addtimer(CALLBACK(wearer, /mob/living.proc/adjustOrganLoss, ORGAN_SLOT_EYES, -applied_eye_damage), 600)
 		wearer = null
 		applied_eye_damage = 0
 		STOP_PROCESSING(SSobj, src)
 
 /obj/item/clothing/head/helmet/clockcult
-	name = "brass helmet"
-	desc = "A strong, brass helmet worn by the soldiers of the Ratvarian armies. Includes an integrated light-dimmer for flash protection, as well as occult-grade muffling for factory based environments."
+	name = "латунный шлем"
+	desc = "Прочный латунный шлем, который носили солдаты армий Ратвара. Включает в себя встроенный диммер для защиты от вспышки, а также заглушку скрытого уровня для заводских сред."
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_helmet"
 	armor = list("melee" = 50, "bullet" = 60, "laser" = 30, "energy" = 80, "bomb" = 80, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
@@ -157,14 +157,14 @@
 	flash_protect = 1
 
 /obj/item/clothing/shoes/clockcult
-	name = "brass treads"
-	desc = "A strong pair of brass boots worn by the soldiers of the Ratvarian armies."
+	name = "латунные протекторы"
+	desc = "Пара крепких латунных сапог, которые носили солдаты армий Ратвара."
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_treads"
 
 /obj/item/clothing/gloves/clockcult
-	name = "brass gauntlets"
-	desc = "A strong pair of brass gloves worn by the soldiers of the Ratvarian armies."
+	name = "латунные рукавицы"
+	desc = "Пара крепких латунных перчаток, которые носили солдаты армий Ратвара."
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_gauntlets"
 	siemens_coefficient = 0

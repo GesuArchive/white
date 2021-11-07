@@ -49,5 +49,5 @@
 	set_limb(dismembered_part)
 	second_wind()
 	log_wound(victim, src)
-	dismembered_part.dismember(wounding_type == WOUND_BURN ? BURN : BRUTE)
+	dismembered_part.dismember(wounding_type == WOUND_BURN ? BURN : BRUTE, TRUE, wounding_type == WOUND_BLUNT ? FALSE : TRUE)
 	qdel(src)

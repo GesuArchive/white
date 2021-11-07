@@ -10,7 +10,7 @@
 	density = TRUE
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	var/can_be_repaired = TRUE //if a fabricator can repair it
-	break_message = span_warning("Sparks fly as the brass structure shatters across the ground.")  //The message shown when a structure breaks
+	break_message = span_warning("Искры разлетаются, когда латунная конструкция разбивается о землю.")  //The message shown when a structure breaks
 	break_sound = 'sound/magic/clockwork/anima_fragment_death.ogg' //The sound played when a structure breaks
 	debris = list(/obj/item/clockwork/alloy_shards/large = 1, \
 		/obj/item/clockwork/alloy_shards/medium = 2, \
@@ -22,8 +22,10 @@
 	. = list("[get_examine_string(user, TRUE)].")
 
 	if(is_servant_of_ratvar(user) && clockwork_desc)
+		. += "<hr>"
 		. += clockwork_desc
 	else if(desc)
+		. += "<hr>"
 		. += desc
 
 /obj/structure/destructible/clockwork/attacked_by(obj/item/I, mob/living/user)
@@ -33,8 +35,8 @@
 
 //for the ark and Ratvar
 /obj/structure/destructible/clockwork/massive
-	name = "massive construct"
-	desc = "A very large construction."
+	name = "массивная конструкция"
+	desc = "Огромная блин."
 	layer = MASSIVE_OBJ_LAYER
 	density = FALSE
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF | FREEZE_PROOF

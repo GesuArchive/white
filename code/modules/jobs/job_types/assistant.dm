@@ -27,6 +27,8 @@ Assistant
 		/obj/item/crowbar/large = 1
 	)
 
+	rpg_title = "Деревенщина"
+
 /datum/outfit/job/assistant
 	name = "Assistant"
 	jobtype = /datum/job/assistant

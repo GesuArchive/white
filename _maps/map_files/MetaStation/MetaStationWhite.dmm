@@ -41814,6 +41814,9 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/blue,
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
+	dir = 1
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/cryo)
 "cdr" = (
@@ -44688,7 +44691,6 @@
 /turf/open/floor/plasteel,
 /area/medical/sleeper)
 "cnv" = (
-/obj/structure/table/glass,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
@@ -44699,6 +44701,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/machinery/chem_seller,
 /turf/open/floor/plasteel/white/side{
 	dir = 5
 	},

@@ -2,7 +2,7 @@
 /obj/machinery/light_switch
 	name = "переключатель света"
 	icon = 'white/valtos/icons/power.dmi'
-	icon_state = "light1"
+	icon_state = "light0"
 	desc = "Делает тьму или свет."
 	power_channel = AREA_USAGE_LIGHT
 	/// Set this to a string, path, or area instance to control that area
@@ -37,20 +37,28 @@
 	if(!name)
 		name = "переключатель света ([area.name])"
 
+	if(area.lightswitch)
+		area.lightswitch = FALSE
+		area.power_change()
+
 	update_icon()
 
 /obj/machinery/light_switch/update_icon_state()
-	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	luminosity = 0
 	if(machine_stat & NOPOWER)
 		icon_state = "light-p"
 	else
 		luminosity = 1
-		SSvis_overlays.add_vis_overlay(src, icon, "light-glow", EMISSIVE_LAYER, EMISSIVE_PLANE, dir, alpha)
 		if(area.lightswitch)
 			icon_state = "light1"
 		else
 			icon_state = "light0"
+
+/obj/machinery/light_switch/update_overlays()
+	. = ..()
+	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
+	if(!(machine_stat & NOPOWER))
+		SSvis_overlays.add_vis_overlay(src, icon, "light-glow", EMISSIVE_LAYER, EMISSIVE_PLANE, dir, alpha)
 
 /obj/machinery/light_switch/examine(mob/user)
 	. = ..()

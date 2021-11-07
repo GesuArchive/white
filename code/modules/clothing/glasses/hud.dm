@@ -243,3 +243,20 @@
 	icon_state = "sun"
 	inhand_icon_state = "sunglasses"
 
+/obj/item/clothing/glasses/hud/health/prescription
+	name = "медицинские очки по рецепту"
+	desc = "Здесь встроен медицинский HUD."
+	icon_state = "prescmedhud"
+	vision_correction = TRUE
+
+/obj/item/clothing/glasses/hud/diagnostic/prescription
+	name = "диагностические очки по рецепту"
+	desc = "Здесь встроен диагностический HUD."
+	icon_state = "prescdiaghud"
+	vision_correction = TRUE
+
+/obj/item/clothing/glasses/hud/security/prescription
+	name = "офицерские очки по рецепту"
+	desc = "Здесь встроен офицерский HUD. Не защищают от ярких вспышек."
+	icon_state = "prescsechud"
+	vision_correction = TRUE

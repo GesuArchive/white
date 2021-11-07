@@ -120,7 +120,7 @@
 	if(!active_item || (active_item in src))
 		return
 
-	owner?.visible_message(span_notice("owner] втягивает [active_item] обратно в [owner.ru_ego()] [zone == BODY_ZONE_R_ARM ? "правую" : "левую"] руку."),
+	owner?.visible_message(span_notice("[owner] втягивает [active_item] обратно в [owner.ru_ego()] [zone == BODY_ZONE_R_ARM ? "правую" : "левую"] руку."),
 		span_notice("[capitalize(active_item)] возвращается в мою [zone == BODY_ZONE_R_ARM ? "правую" : "левую"] руку."),
 		span_hear("Слышу короткий механический шелчок."))
 

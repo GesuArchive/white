@@ -2,13 +2,13 @@
 // !      Dimensional Breach      ! //
 //==================================//
 /datum/clockcult/scripture/ark_activation
-	name = "Ark Invigoration"
-	desc = "Prepares the Ark for activation, alerting the crew of your existence. Requires 6 invokers."
-	tip = "Prepares the Ark for activation, alerting the crew of your existence."
+	name = "Активировать Ковчег"
+	desc = "Подготавливает Ковчег к активации, предупреждая экипаж о вашем существовании. Требуется 6 вызывающих."
+	tip = "Подготавливает Ковчег к активации, предупреждая экипаж о вашем существовании."
 	button_icon_state = "Spatial Gateway"
 	power_cost = 5000
 	invokation_time = 140
-	invokation_text = list("Oh great Engine, take my soul...", "it is time for you to rise...", "through rifts you shall come...", "to rise among the stars again!")
+	invokation_text = list("О, великий двигатель, забери мою душу...", "тебе пора вставать...", "через трещины ты придёшь...", "чтобы снова подняться среди звезд!")
 	invokers_required = 6
 	category = SPELLTYPE_SERVITUDE
 	recital_sound = 'sound/magic/clockwork/narsie_attack.ogg'
@@ -21,13 +21,13 @@
 		return FALSE
 	var/area/AR = get_area(invoker)
 	if(!is_reebe(AR.z))
-		to_chat(invoker, span_brass("You need to be near the gateway to channel its energy!"))
+		to_chat(invoker, span_brass("Нужно быть рядом с Ковчегом!"))
 		return FALSE
 	return TRUE
 
 /datum/clockcult/scripture/ark_activation/invoke_success()
 	var/obj/structure/destructible/clockwork/massive/celestial_gateway/gateway = GLOB.celestial_gateway
 	if(!gateway)
-		to_chat(invoker, span_brass("No celestial gateway located, contact the admins."))
+		to_chat(invoker, span_brass("Пук."))
 		return FALSE
 	gateway.open_gateway()

@@ -148,6 +148,7 @@
 			SP = AddComponent(/datum/component/soundplayer)
 			SP.prefs_toggle_flag = null
 			SP.set_channel(CHANNEL_CUSTOM_JUKEBOX)
+			SP.set_sound(sound('white/valtos/sounds/singuloop.ogg'))
 			SP.environmental = TRUE
 			SP.active = TRUE
 		SP.playing_volume = current_size*10

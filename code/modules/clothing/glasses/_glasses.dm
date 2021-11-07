@@ -126,6 +126,13 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
 
+/obj/item/clothing/glasses/meson/prescription
+	name = "мезонные очки по рецепту"
+	desc = "Странная комбинация из обычных очков и мезонного сканера."
+	icon_state = "prescmeson"
+	inhand_icon_state = "glasses"
+	vision_correction = TRUE
+
 /obj/item/clothing/glasses/science
 	name = "научные очки"
 	desc = "Пара шикарных очков, используемых для защиты от химических разливов. Оснащен анализатором для сканирования предметов и реагентов."
@@ -140,6 +147,14 @@
 /obj/item/clothing/glasses/science/item_action_slot_check(slot)
 	if(slot == ITEM_SLOT_EYES)
 		return 1
+
+/obj/item/clothing/glasses/science/prescription
+	name = "научные очки по рецепту"
+	desc = "Странная комбинация из обычных очков и научного сканера."
+	icon_state = "prescscihud"
+	resistance_flags = NONE
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 40, "stamina" = 0)
+	vision_correction = 1
 
 /obj/item/clothing/glasses/night
 	name = "очки ночного видения"

@@ -19,7 +19,7 @@
 	name =".50 усыпляющая пуля"
 	armour_penetration = 0
 	damage = 0
-	dismemberment = 0
+	dismemberment = 25
 	paralyze = 0
 	breakthings = FALSE
 
@@ -35,7 +35,7 @@
 	damage = 60
 	projectile_piercing = PASSMOB
 	projectile_phasing = (ALL & (~PASSMOB))
-	dismemberment = 0 //It goes through you cleanly.
+	dismemberment = 25 //It goes through you cleanly.
 	paralyze = 0
 	breakthings = FALSE
 

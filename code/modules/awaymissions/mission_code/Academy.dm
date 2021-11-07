@@ -4,6 +4,7 @@
 /area/awaymission/academy
 	name = "Астероиды академии"
 	icon_state = "away"
+	requires_power = FALSE
 
 /area/awaymission/academy/headmaster
 	name = "Переднее крыло Академии"

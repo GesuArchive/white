@@ -43,7 +43,7 @@
 	icon = 'white/valtos/icons/clothing/masks.dmi'
 	inhand_icon_state = "sechailer"
 	equip_delay_other = 50
-	armor = list(MELEE = 20, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
+	armor = list(MELEE = 45, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
 
 /obj/item/clothing/shoes/jackboots/yohei
 	name = "сапоги йохея"
@@ -52,7 +52,7 @@
 	worn_icon = 'white/valtos/icons/clothing/mob/shoe.dmi'
 	icon = 'white/valtos/icons/clothing/shoes.dmi'
 	equip_delay_other = 60
-	armor = list(MELEE = 20, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
+	armor = list(MELEE = 45, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
 
 /obj/item/clothing/gloves/combat/yohei
 	name = "перчатки йохея"
@@ -61,7 +61,7 @@
 	worn_icon = 'white/valtos/icons/clothing/mob/glove.dmi'
 	icon = 'white/valtos/icons/clothing/gloves.dmi'
 	inhand_icon_state = "blackgloves"
-	armor = list(MELEE = 20, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
+	armor = list(MELEE = 45, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
 
 /obj/item/clothing/suit/hooded/yohei
 	name = "плащ йохея"
@@ -699,7 +699,7 @@ GLOBAL_VAR(yohei_main_controller)
 	outfit = /datum/outfit/yohei
 	assignedrole = "Yohei"
 	req_sum = 1250
-	uses = 4
+	uses = 16
 
 /obj/effect/mob_spawn/human/donate/yohei/attack_ghost(mob/user)
 	var/static/list/choices = list(

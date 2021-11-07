@@ -8,7 +8,7 @@
 	supervisors = "главному врачу"
 	selection_color = "#ffeef0"
 	exp_type = EXP_TYPE_CREW
-	exp_requirements = 180
+	exp_requirements = 900
 
 	outfit = /datum/outfit/job/chemist
 
@@ -26,6 +26,8 @@
 		/datum/reagent/toxin/leadacetate = 5,
 		/obj/item/paper/secretrecipe = 1
 	)
+	rpg_title = "Алхимик"
+
 
 /datum/outfit/job/chemist
 	name = "Chemist"

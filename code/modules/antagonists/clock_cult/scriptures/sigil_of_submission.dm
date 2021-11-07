@@ -2,22 +2,22 @@
 // !      Sigil of Submission     ! //
 //==================================//
 /datum/clockcult/scripture/create_structure/sigil_submission
-	name = "Sigil of Submission"
-	desc = "Summons a sigil of submission, which will convert anyone placed on top of it to the faith of Rat'var."
-	tip = "Convert the crew into servants using a sigil of submission."
+	name = "Сигил подчинения"
+	desc = "Вызывает сигил подчинения, который обращает любого, кто помещен на нее, в веру Рат'вара."
+	tip = "Превратите экипаж в слуг, используя сигил подчинения."
 	button_icon_state = "Sigil of Submission"
 	power_cost = 250
 	invokation_time = 50
-	invokation_text = list("Relax you animal...", "for I shall show you the truth.")
+	invokation_text = list("Расслабься, животное...", "потому что я покажу тебе правду.")
 	summoned_structure = /obj/structure/destructible/clockwork/sigil/submission
 	cogs_required = 1
 	category = SPELLTYPE_SERVITUDE
 
 //==========Submission=========
 /obj/structure/destructible/clockwork/sigil/submission
-	name = "sigil of submission"
-	desc = "A strange sigil, with otherworldy drawings on it."
-	clockwork_desc = "A sigil pulsating with a glorious light. Anyone held on top of this will become a loyal servant of Rat'var."
+	name = "сигил подчинения"
+	desc = "Странный сигил с потусторонними рисунками на нём."
+	clockwork_desc = "Сигил, пульсирующий великолепным светом. Любой, кто удержится на этом, станет верным слугой Рат'вара."
 	icon_state = "sigilsubmission"
 	effect_stand_time = 80
 	idle_color = "#FFFFFF"
@@ -32,7 +32,7 @@
 
 /obj/structure/destructible/clockwork/sigil/submission/apply_effects(mob/living/M)
 	if(!..())
-		M.visible_message(span_warning("[M] resists conversion!"))
+		M.visible_message(span_warning("[M] сопротивляется!"))
 		return FALSE
 	M.Paralyze(50)
 	if(M.client)

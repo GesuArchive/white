@@ -10,8 +10,8 @@
 	supervisors = "капитану"
 	selection_color = "#ffeeaa"
 	req_admin_notify = 1
-	minimal_player_age = 7
-	exp_requirements = 1800
+	minimal_player_age = 30
+	exp_requirements = 7400
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_ENGINEERING
 
@@ -33,6 +33,7 @@
 		/obj/item/stack/sheet/mineral/gold = 15,
 		/obj/effect/spawner/lootdrop/space/fancytool/engineonly = 3
 	)
+	rpg_title = "Старший Кристалломант"
 
 /datum/job/chief_engineer/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()

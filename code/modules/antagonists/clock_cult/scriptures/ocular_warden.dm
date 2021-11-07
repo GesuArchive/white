@@ -2,13 +2,13 @@
 #define OCULAR_WARDEN_RANGE 3
 
 /datum/clockcult/scripture/create_structure/ocular_warden
-	name = "Ocular Warden"
-	desc = "An eye turret that will fire upon nearby targets. Requires 2 invokers."
-	tip = "Place these around to prevent crew from rushing past your defenses."
+	name = "Окулярный страж"
+	desc = "Глазная турель, которая будет стрелять по ближайшим целям. Требуется 2 вызывающих."
+	tip = "Разместите их вокруг, чтобы экипаж не пробежал мимо вашей защиты."
 	button_icon_state = "Ocular Warden"
 	power_cost = 400
 	invokation_time = 50
-	invokation_text = list("Summon thee to defend our temple")
+	invokation_text = list("Призовись на защиту нашего храма")
 	summoned_structure = /obj/structure/destructible/clockwork/ocular_warden
 	cogs_required = 3
 	invokers_required = 2
@@ -18,18 +18,18 @@
 	if(!..())
 		return FALSE
 	for(var/obj/structure/destructible/clockwork/structure in get_turf(invoker))
-		to_chat(invoker, span_brass("You cannot invoke that here, the tile is occupied by [structure]."))
+		to_chat(invoker, span_brass("Здесь уже есть [structure]."))
 		return FALSE
 	for(var/obj/structure/destructible/clockwork/ocular_warden/AC in range(OCULAR_WARDEN_PLACE_RANGE))
-		to_chat(invoker, span_nezbere("There is another ocular warden nearby, placing them too close will cause them to fight!"))
+		to_chat(invoker, span_nezbere("Рядом есть еще один окулярный страж, размещение их слишком близко заставит их драться!"))
 		return FALSE
 	return TRUE
 
 /obj/structure/destructible/clockwork/ocular_warden
-	name = "ocular warden"
-	desc = "A wide, open eye that stares intently into your soul. It seems resistant to energy based weapons."
-	clockwork_desc = "A defensive device that will fight any nearby intruders."
-	break_message = span_warning("A black ooze leaks from the ocular warden as it slowly sinks to the ground.")
+	name = "окулярный страж"
+	desc = "Широко открытый глаз, пристально смотрящий в вашу душу. Кажется, он устойчив к энергетическому оружию."
+	clockwork_desc = "Защитное устройство, которое будет бороться с любыми злоумышленниками поблизости."
+	break_message = span_warning("Черная слизь вытекает из окулярного стража, медленно вытекая на землю.")
 	icon_state = "ocular_warden"
 	max_integrity = 60
 	armor = list("melee" = -80, "bullet" = -50, "laser" = 40, "energy" = 40, "bomb" = 20, "bio" = 0, "rad" = 0)

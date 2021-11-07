@@ -1,9 +1,9 @@
 /datum/clockcult/scripture/slab/sentinelscompromise
-	name = "Sentinel's Compromise"
+	name = "Компромисс Часового"
 	use_time = 80
 	slab_overlay = "compromise"
-	desc = "Heal any servant within view, but half of their damage healed will be given to you in the form of toxin damage."
-	tip = "Use on any servant in trouble to heal their wounds."
+	desc = "Исцелите любого слугу в пределах видимости, но половина их исцеленного урона будет передана вам в виде урона токсином."
+	tip = "Используйте на любого слугу, попавшего в беду, чтобы залечить его раны."
 	invokation_time = 10
 	button_icon_state = "Sentinel's Compromise"
 	category = SPELLTYPE_PRESERVATION

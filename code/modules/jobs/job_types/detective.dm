@@ -8,8 +8,8 @@
 	spawn_positions = 1
 	supervisors = "начальнику охраны"
 	selection_color = "#ffeeee"
-	minimal_player_age = 7
-	exp_requirements = 300
+	minimal_player_age = 15
+	exp_requirements = 900
 	exp_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/detective
@@ -35,6 +35,8 @@
 		/obj/item/ammo_box/c38/trac = 5,
 		/obj/item/storage/belt/holster/detective/full = 1
 	)
+
+	rpg_title = "Ловец воров"
 
 /datum/outfit/job/detective
 	name = "Detective"

@@ -1,5 +1,8 @@
 /obj/item/camera/coom
 	name = "CoomCamera™"
+	icon_state = "coom"
+	state_on = "coom"
+	state_off = "coom_off"
 	var/last_tags = ""
 	var/gender_discrimination = TRUE
 	var/no_requests = FALSE

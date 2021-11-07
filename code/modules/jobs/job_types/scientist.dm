@@ -7,7 +7,7 @@
 	spawn_positions = 3
 	supervisors = "научному руководителю"
 	selection_color = "#ffeeff"
-	exp_requirements = 60
+	exp_requirements = 1500
 	exp_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/scientist
@@ -23,6 +23,8 @@
 		/obj/item/disk/tech_disk/spaceloot = 2,
 		/obj/item/camera_bug = 1
 	)
+
+	rpg_title = "Тауматург"
 
 /datum/outfit/job/scientist
 	name = "Scientist"

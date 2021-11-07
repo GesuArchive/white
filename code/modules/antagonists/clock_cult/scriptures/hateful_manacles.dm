@@ -2,13 +2,13 @@
 // !       Hateful Manacles       ! //
 //==================================//
 /datum/clockcult/scripture/slab/hateful_manacles
-	name = "Hateful Manacles"
-	desc = "Forms replicant manacles around a target's wrists that function like handcuffs, restraining the target."
-	tip = "Handcuff a target at close range to subdue them for conversion or vitality extraction."
+	name = "Оковы ненависти"
+	desc = "Образует репликантные наручники вокруг запястий цели, которые действуют как наручники, удерживая цель."
+	tip = "Образует репликантные наручники вокруг запястий цели, которые действуют как наручники, удерживая цель."
 	button_icon_state = "Hateful Manacles"
 	power_cost = 25
 	invokation_time = 15
-	invokation_text = list("Shackle the heretic...", "Break them in body and spirit!")
+	invokation_text = list("Заковать еретика...", "Разбейте их телом и духом!")
 	slab_overlay = "hateful_manacles"
 	use_time = 200
 	cogs_required = 0
@@ -22,11 +22,11 @@
 	if(is_servant_of_ratvar(M))
 		return FALSE
 	if(M.handcuffed)
-		to_chat(invoker, span_brass("[M] is already restrained!"))
+		to_chat(invoker, span_brass("[M] уже связан!"))
 		return FALSE
 	playsound(M, 'sound/weapons/handcuffs.ogg', 30, TRUE, -2)
-	M.visible_message(span_danger("[invoker] forms a well of energy around [M], brass appearing at their wrists!") ,\
-						span_userdanger("[invoker] is trying to restrain you!"))
+	M.visible_message(span_danger("[invoker] формирует силовое поле вокруг [M], латунь стягивает руки!") ,\
+						span_userdanger("[invoker] пытается меня связать!"))
 	if(do_after(invoker, 30, target=M))
 		if(M.handcuffed)
 			return FALSE
@@ -36,7 +36,7 @@
 	return FALSE
 
 /obj/item/restraints/handcuffs/clockwork
-	name = "replicant manacles"
-	desc = "Heavy manacles made out of freezing-cold metal. It looks like brass, but feels much more solid."
+	name = "репликантные наручники"
+	desc = "Тяжелые наручники из холодного металла. Похоже на латунь, но кажутся более прочными."
 	icon_state = "brass_manacles"
 	item_flags = DROPDEL

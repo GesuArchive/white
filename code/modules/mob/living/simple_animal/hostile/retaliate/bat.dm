@@ -12,8 +12,8 @@
 	response_disarm_simple = "flail at"
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	speak_chance = 0
-	maxHealth = 15
-	health = 15
+	maxHealth = 20
+	health = 20
 	see_in_dark = 10
 	harm_intent_damage = 6
 	melee_damage_lower = 6
@@ -27,7 +27,7 @@
 	attack_vis_effect = ATTACK_EFFECT_BITE
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
-	ventcrawler = VENTCRAWLER_ALWAYS
+	ventcrawler = VENTCRAWLER_NONE
 	mob_size = MOB_SIZE_TINY
 	speak_emote = list("squeaks")
 	var/max_co2 = 0 //to be removed once metastation map no longer use those for Sgt Araneus

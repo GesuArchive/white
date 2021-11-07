@@ -5,7 +5,7 @@
 	sharpness = NONE
 	wound_bonus = 0
 	projectile_piercing = ALL
-	dismemberment = 0
+	dismemberment = 25
 	paralyze = 5 SECONDS
 	stutter = 10 SECONDS
 	embedding = null

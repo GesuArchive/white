@@ -12,7 +12,7 @@
 	req_admin_notify = 1
 	minimal_player_age = 7
 	exp_type_department = EXP_TYPE_SCIENCE
-	exp_requirements = 180
+	exp_requirements = 12000
 	exp_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/rd
@@ -28,6 +28,8 @@
 		/obj/item/circuitboard/machine/sleeper/party = 3,
 		/obj/item/borg/upgrade/ai = 2
 	)
+
+	rpg_title = "Архимагистр"
 
 /datum/job/research_director/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()

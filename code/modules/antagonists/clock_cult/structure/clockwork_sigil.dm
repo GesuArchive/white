@@ -3,8 +3,8 @@
 
 //==========Sigil Base=========
 /obj/structure/destructible/clockwork/sigil
-	name = "sigil"
-	desc = "It's a sigil that does something."
+	name = "сигил"
+	desc = "Это сигил, который что-то делает."
 	max_integrity = 10
 	icon = 'icons/effects/clockwork_effects.dmi'
 	icon_state = "sigilvitality"
@@ -102,7 +102,7 @@
 
 //==========Transgression=========
 /obj/structure/destructible/clockwork/sigil/transgression
-	name = "sigil of transgression"
+	name = "сигил проступка"
 	icon_state = "sigiltransgression"
 	alpha = 25
 	effect_stand_time = 0

@@ -131,7 +131,6 @@
 /datum/outfit/syndicate/leader
 	name = "Syndicate Leader - Basic"
 	gloves = /obj/item/clothing/gloves/krav_maga/combatglovesplus
-	r_pocket = /obj/item/nuclear_challenge/lowpop
 	command_radio = TRUE
 
 	id_trim = /datum/id_trim/chameleon/operative/nuke_leader

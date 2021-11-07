@@ -99,7 +99,7 @@
 
 /obj/item/organ/ears/bronze
 	name = "оловянные уши"
-	desc = "Крепкие уши бронзового голема."
+	desc = "Крепкие уши латунного голема."
 	damage_multiplier = 0.1 //STRONK
 	bang_protect = 1 //Fear me weaklings.
 
