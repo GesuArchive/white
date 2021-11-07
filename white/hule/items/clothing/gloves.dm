@@ -39,7 +39,7 @@
 	..()
 
 /datum/crafting_recipe/maggloves
-	name = "mag-pulse gloves"
+	name = "Mag-pulse Gloves"
 	result = /obj/item/clothing/gloves/combat/maggloves
 	time = 300
 	reqs = list(/obj/item/clothing/gloves/combat = 1, /obj/item/stock_parts/cell/high/empty = 2,
