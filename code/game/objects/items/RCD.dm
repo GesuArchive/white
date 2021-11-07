@@ -801,8 +801,8 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 /obj/item/rcd_ammo
 	name = "compressed matter cartridge"
 	desc = "Highly compressed matter for the RCD."
-	icon = 'icons/obj/ammo.dmi'
-	icon_state = "rcd"
+	icon = 'icons/obj/tools.dmi'
+	icon_state = "rcdammo"
 	inhand_icon_state = "rcdammo"
 	w_class = WEIGHT_CLASS_TINY
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
