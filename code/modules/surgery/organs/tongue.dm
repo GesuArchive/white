@@ -79,14 +79,14 @@
 /obj/item/organ/tongue/lizard/handle_speech(datum/source, list/speech_args)
 	var/static/regex/lizard_hiss = new("с+", "g")
 	var/static/regex/lizard_hiSS = new("С+", "g")
-	var/static/regex/lizard_kss = new("к+", "g")
-	var/static/regex/lizard_kSS = new("К+", "g")
+//	var/static/regex/lizard_kss = new("к+", "g")
+//	var/static/regex/lizard_kSS = new("К+", "g")
 	var/message = speech_args[SPEECH_MESSAGE]
 	if(message[1] != "*")
 		message = lizard_hiss.Replace_char(message, "ссс")
 		message = lizard_hiSS.Replace_char(message, "ССС")
-		message = lizard_kss.Replace_char(message, "Хсс")
-		message = lizard_kSS.Replace_char(message, "ХСС")
+//		message = lizard_kss.Replace_char(message, "Хсс")
+//		message = lizard_kSS.Replace_char(message, "ХСС")
 	speech_args[SPEECH_MESSAGE] = message
 
 /obj/item/organ/tongue/lizard/silver
