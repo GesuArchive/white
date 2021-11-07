@@ -38,6 +38,7 @@
 /area/awaymission/spacebattle/syndicate2)
 "ak" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/awaymission/spacebattle/syndicate2)
 "al" = (
@@ -118,6 +119,7 @@
 /area/awaymission/spacebattle/syndicate3)
 "aE" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/awaymission/spacebattle/syndicate3)
 "aG" = (
@@ -208,6 +210,7 @@
 /area/awaymission/spacebattle/syndicate2)
 "bb" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/awaymission/spacebattle/syndicate1)
 "bc" = (
@@ -345,6 +348,7 @@
 /area/awaymission/spacebattle/cruiser)
 "bJ" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/awaymission/spacebattle/cruiser)
 "bK" = (
@@ -1255,6 +1259,7 @@
 /area/awaymission/spacebattle/cruiser)
 "fl" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/awaymission/spacebattle/syndicate4)
 "fm" = (
@@ -1926,8 +1931,7 @@
 /area/awaymission/spacebattle/cruiser)
 "hq" = (
 /obj/structure/rack,
-/obj/item/clothing/suit/space/hardsuit,
-/obj/item/clothing/head/helmet/space/hardsuit,
+/obj/item/clothing/suit/space/hardsuit/engine,
 /turf/open/floor/plasteel,
 /area/awaymission/spacebattle/cruiser)
 "hr" = (
@@ -2073,6 +2077,7 @@
 /area/awaymission/spacebattle/syndicate7)
 "hU" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/awaymission/spacebattle/syndicate7)
 "hV" = (
@@ -2251,6 +2256,7 @@
 /area/space/nearstation)
 "iF" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "iG" = (
@@ -2327,6 +2333,7 @@
 /area/awaymission/spacebattle/syndicate6)
 "jf" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/awaymission/spacebattle/syndicate6)
 "ji" = (
@@ -2793,6 +2800,11 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/ion,
 /turf/open/floor/plating,
 /area/awaymission/spacebattle/cruiser)
+"kV" = (
+/obj/machinery/door/unpowered/shuttle,
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/awaymission/spacebattle/cruiser)
 "vw" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/awaymission/spacebattle/syndicate5)
@@ -2802,6 +2814,11 @@
 "BO" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/awaymission/spacebattle/syndicate2)
+"Cw" = (
+/obj/machinery/door/unpowered/shuttle,
+/obj/structure/fans/tiny,
+/turf/open/floor/plasteel,
+/area/awaymission/spacebattle/cruiser)
 "Dv" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/awaymission/spacebattle/syndicate3)
@@ -35567,8 +35584,8 @@ ab
 ab
 ab
 bS
-cJ
-cJ
+kV
+kV
 bT
 cc
 cc
@@ -35597,8 +35614,8 @@ bT
 cp
 cc
 bT
-cJ
-cJ
+kV
+kV
 bS
 ab
 ab
@@ -37887,7 +37904,7 @@ cc
 cc
 bT
 bT
-cd
+Cw
 bT
 bT
 cY
@@ -37904,7 +37921,7 @@ eb
 ha
 bT
 bT
-cd
+Cw
 bT
 bT
 cc
