@@ -6,7 +6,7 @@
 	INVOKE_ASYNC(src, .proc/load_map)
 
 /obj/effect/landmark/ctf/proc/load_map()
-	
+
 	var/list/map_options = subtypesof(/datum/map_template/ctf)
 	var/turf/spawn_area = get_turf(src)
 	var/datum/map_template/ctf/current_map
@@ -49,3 +49,8 @@
 	name = "Crusier"
 	description = "A CTF map that takes place across multiple space ships, one carring a powerful device that can accelerate those who obtain it"
 	mappath = "_maps/map_files/CTF/cruiser.dmm"
+
+/datum/map_template/ctf/miniwarfare
+	name = "Mini-Warfare"
+	description = "Две стороны, одна на юге, другая на севере. Сможет ли кто-то из них одержать победу?"
+	mappath = "_maps/map_files/CTF/miniwarfare.dmm"

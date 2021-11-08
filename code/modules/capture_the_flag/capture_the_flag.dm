@@ -272,8 +272,11 @@
 	ctf_gear = list("blue" = /datum/outfit/ctf/blue)
 	instagib_gear = /datum/outfit/ctf/blue/instagib
 
+/obj/machinery/capture_the_flag/blue/warfare
+	ctf_gear = list("blue" = /datum/outfit/ctf/blue/warfare)
+
 /obj/machinery/capture_the_flag/green
-	name = "Green CTF Controller"
+	name = "Зелёный контроллер \"Захвата Флага\""
 	icon_state = "greenbeacon"
 	team = GREEN_TEAM
 	team_span = "greenteamradio"
@@ -281,12 +284,15 @@
 	instagib_gear = /datum/outfit/ctf/green/instagib
 
 /obj/machinery/capture_the_flag/yellow
-	name = "Yellow CTF Controller"
+	name = "Жёлтый контроллер \"Захвата Флага\""
 	icon_state = "yellowbeacon"
 	team = YELLOW_TEAM
 	team_span = "yellowteamradio"
 	ctf_gear = list("yellow" = /datum/outfit/ctf/yellow)
 	instagib_gear = /datum/outfit/ctf/yellow/instagib
+
+/obj/machinery/capture_the_flag/yellow/warfare
+	ctf_gear = list("yellow" = /datum/outfit/ctf/yellow/warfare)
 
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
 /obj/machinery/capture_the_flag/attack_ghost(mob/user)
@@ -689,6 +695,16 @@
 	r_pocket = /obj/item/ammo_box/magazine/recharge/ctf/blue
 	id = /obj/item/card/id/blue //it's blue
 
+/datum/outfit/ctf/blue/warfare
+	uniform = /obj/item/clothing/under/pants/camo
+	shoes = /obj/item/clothing/shoes/sandal
+	gloves = /obj/item/clothing/gloves/fingerless
+	belt = /obj/item/melee/sabre/officer
+	suit = /obj/item/clothing/suit/hawaiian
+	r_hand = /obj/item/gun/ballistic/rifle/fallout/hunting/scoped
+	l_pocket = /obj/item/ammo_box/magazine/fallout/r308
+	r_pocket = /obj/item/ammo_box/magazine/fallout/r308
+
 /datum/outfit/ctf/blue/instagib
 	r_hand = /obj/item/gun/energy/laser/instakill/blue
 	shoes = /obj/item/clothing/shoes/jackboots/fast
@@ -710,6 +726,16 @@
 	l_pocket = /obj/item/ammo_box/magazine/recharge/ctf/yellow
 	r_pocket = /obj/item/ammo_box/magazine/recharge/ctf/yellow
 	id = /obj/item/card/id/yellow //it's yellow
+
+/datum/outfit/ctf/yellow/warfare
+	uniform = /obj/item/clothing/under/pants/camo
+	shoes = /obj/item/clothing/shoes/sandal
+	gloves = /obj/item/clothing/gloves/fingerless
+	belt = /obj/item/melee/sabre/officer
+	suit = /obj/item/clothing/suit/yakuza
+	r_hand = /obj/item/gun/ballistic/rifle/fallout/hunting/scoped
+	l_pocket = /obj/item/ammo_box/magazine/fallout/r308
+	r_pocket = /obj/item/ammo_box/magazine/fallout/r308
 
 /datum/outfit/ctf/yellow/instagib
 	r_hand = /obj/item/gun/energy/laser/instakill/yellow
