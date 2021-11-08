@@ -5,7 +5,7 @@
 	},
 /area/abductor_ship)
 "ab" = (
-/obj/effect/landmark/mafia_game_area,
+/obj/effect/landmark/ctf,
 /turf/open/space/basic,
 /area/space)
 "ad" = (
@@ -4803,7 +4803,7 @@
 /turf/open/floor/plasteel/grimy,
 /area/centcom/brief)
 "Es" = (
-/obj/effect/landmark/ctf,
+/obj/effect/landmark/mafia_game_area,
 /turf/open/space/basic,
 /area/space)
 "Ev" = (
@@ -46921,7 +46921,7 @@ Co
 Co
 Co
 Co
-Co
+Es
 Co
 Co
 Co
@@ -50142,7 +50142,7 @@ Co
 Co
 Co
 Co
-Co
+ab
 Co
 Co
 Co
@@ -53201,7 +53201,7 @@ Co
 Co
 Co
 Co
-Es
+Co
 Co
 Co
 Co
@@ -57923,7 +57923,7 @@ Co
 Co
 Co
 Co
-ab
+Co
 Co
 Co
 Co
