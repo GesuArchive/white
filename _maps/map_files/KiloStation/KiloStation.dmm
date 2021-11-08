@@ -12853,6 +12853,7 @@
 	pixel_x = 32
 	},
 /obj/effect/turf_decal/bot,
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/port)
 "blM" = (
@@ -54222,6 +54223,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
 "ntU" = (
@@ -67327,6 +67329,7 @@
 	dir = 8
 	},
 /obj/machinery/status_display/evac/directional/north,
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plasteel/dark,
 /area/commons/locker)
 "sko" = (
