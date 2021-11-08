@@ -1,0 +1,78 @@
+"a" = (/turf/closed/wall/mineral/sandstone,/area/ctf)
+"c" = (/obj/effect/turf_decal/tile/blue,/obj/effect/turf_decal/tile/blue{dir = 1},/obj/effect/turf_decal/tile/blue{dir = 8},/obj/effect/turf_decal/tile/blue{dir = 4},/obj/structure/table/reinforced/ctf,/obj/item/ammo_box/magazine/fallout/r308,/turf/open/floor/plasteel,/area/ctf)
+"i" = (/obj/item/ctf/yellow,/obj/effect/turf_decal/tile/yellow,/obj/effect/turf_decal/tile/yellow{dir = 8},/obj/effect/turf_decal/tile/yellow{dir = 1},/obj/effect/turf_decal/tile/yellow{dir = 4},/turf/open/floor/plasteel,/area/ctf)
+"k" = (/obj/item/ctf/blue,/obj/effect/turf_decal/tile/blue,/obj/effect/turf_decal/tile/blue{dir = 1},/obj/effect/turf_decal/tile/blue{dir = 8},/obj/effect/turf_decal/tile/blue{dir = 4},/turf/open/floor/plasteel,/area/ctf)
+"m" = (/obj/effect/turf_decal/tile/blue{dir = 4},/obj/effect/turf_decal/tile/blue{dir = 8},/obj/effect/turf_decal/tile/blue{dir = 1},/obj/effect/turf_decal/tile/blue,/turf/open/floor/plasteel,/area/ctf)
+"n" = (/obj/effect/turf_decal/tile/yellow{dir = 1},/obj/effect/turf_decal/tile/yellow{dir = 8},/obj/effect/turf_decal/tile/yellow{dir = 4},/obj/effect/turf_decal/tile/yellow,/turf/open/floor/plasteel,/area/ctf)
+"o" = (/obj/structure/table/reinforced/ctf,/turf/open/floor/plating/beach/coastline_t{dir = 1},/area/ctf)
+"p" = (/obj/structure/trap/ctf/blue,/turf/open/floor/plasteel,/area/ctf)
+"s" = (/obj/effect/turf_decal/tile/yellow{dir = 1},/obj/effect/turf_decal/tile/yellow{dir = 8},/obj/effect/turf_decal/tile/yellow{dir = 4},/obj/effect/turf_decal/tile/yellow,/obj/machinery/capture_the_flag/yellow/warfare,/turf/open/floor/plasteel,/area/ctf)
+"v" = (/turf/open/floor/plating/beach/coastline_t{dir = 1},/area/ctf)
+"B" = (/obj/effect/turf_decal/tile/yellow,/obj/effect/turf_decal/tile/yellow{dir = 8},/obj/effect/turf_decal/tile/yellow{dir = 1},/obj/effect/turf_decal/tile/yellow{dir = 4},/obj/structure/table/reinforced/ctf,/obj/item/ammo_box/magazine/fallout/r308,/turf/open/floor/plasteel,/area/ctf)
+"D" = (/obj/effect/turf_decal/tile/blue{dir = 4},/obj/effect/turf_decal/tile/blue{dir = 8},/obj/effect/turf_decal/tile/blue{dir = 1},/obj/effect/turf_decal/tile/blue,/obj/machinery/capture_the_flag/blue/warfare,/turf/open/floor/plasteel,/area/ctf)
+"E" = (/turf/closed/wall/mineral/iron,/area/ctf)
+"F" = (/obj/machinery/door/airlock/public/glass{name = "hat store"; resistance_flags = 64},/turf/open/floor/plasteel,/area/ctf)
+"G" = (/obj/structure/window/reinforced/fulltile{max_integrity = 5000; name = "hardened window"; obj_integrity = 5000},/turf/open/floor/plating,/area/ctf)
+"H" = (/obj/structure/barricade/security/ctf,/turf/open/floor/plating/beach/sand,/area/ctf)
+"K" = (/obj/structure/barricade/sandbags{resistance_flags = 64},/turf/open/floor/plating/beach/water,/area/ctf)
+"L" = (/obj/structure/barricade/sandbags{resistance_flags = 64},/turf/open/floor/plating/beach/sand,/area/ctf)
+"N" = (/turf/open/floor/plating/beach/sand,/area/ctf)
+"O" = (/obj/effect/turf_decal/tile/blue,/obj/effect/turf_decal/tile/blue{dir = 1},/obj/effect/turf_decal/tile/blue{dir = 8},/obj/effect/turf_decal/tile/blue{dir = 4},/turf/open/floor/plasteel,/area/ctf)
+"Q" = (/turf/closed/wall/mineral/wood,/area/ctf)
+"U" = (/obj/structure/barricade/security/ctf,/turf/open/floor/plating/beach/water,/area/ctf)
+"V" = (/obj/structure/trap/ctf/yellow,/turf/open/floor/plasteel,/area/ctf)
+"W" = (/obj/effect/turf_decal/tile/yellow,/obj/effect/turf_decal/tile/yellow{dir = 8},/obj/effect/turf_decal/tile/yellow{dir = 1},/obj/effect/turf_decal/tile/yellow{dir = 4},/turf/open/floor/plasteel,/area/ctf)
+"Y" = (/turf/open/floor/plating/beach/water,/area/ctf)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaa
+aDmmmmaYYYYYYYYYYYYYYYYYa
+ammmmmaYKYYYYYYYYYYYYYYYa
+ammmmmpYKYYYYYYYYYYYYYYYa
+ammmmmaYKYYYYYQQQFQQQYYYa
+ammmmmaYKYYYYYQOOOOOQYYYa
+aaapaaaYYYYYYYQOcccOQYYYa
+aYYYYYYYKYYYYYFOckcOFYYYa
+aYKKKKYKKKKYKKQOcccOQYYYa
+aYYYYYYYYYYYYYQOOOOOQYYYa
+aYYYYYYYYYYYYYQQGGGQQKKKa
+aYYYYYYYYYYYYYYYYYYYYYYYa
+aYYYYYYYYYYYYYKYYYYYYYYYa
+aYYYYYYYYYYYYYKYYYYYYYYYa
+aYYYYYYYYYYYYYKYYYYYYYYYa
+aYYYYYYYYYYYYYKYYYYYYYYYa
+aYYYYYYYYYYYYYKYYYYYYYYYa
+aYYYYYYYYYYYYYKYYYYYYYYYa
+aYYYYYYYYYYYYYKYYYYYYYYYa
+aYYYYYYYYYYYYYYYYYYYYYYYa
+aYKKKKKKKKKKKKKKKKKKKKKKa
+aYYYYYYYYYYYYYYYYYYYYYYYa
+aKKKKKKKKKKKKKKKKKKKKKKYa
+aYYYYYYYYYYYYYYYYYYYYYYYa
+aYUYUYUYUYUYYYUYUYUYUYUYa
+aoooooooooovvvooooooooooa
+aNHNHNHNHNHNNNHNHNHNHNHNa
+aNNNNNNNNNNNNNNNNNNNNNNNa
+aNLLLLLLLLLLLLLLLLLLLLLLa
+aNNNNNNNNNNNNNNNNNNNNNNNa
+aLLLLLLLLLLLLLLLLLLLLLLNa
+aNNNNNNNNNNNNNNNNNNNNNNNa
+aNNNNNNNNNLNNNNNNNNNNNNNa
+aNNNNNNNNNLNNNNNNNNNNNNNa
+aNNNNNNNNNLNNNNNNNNNNNNNa
+aNNNNNNNNNLNNNNNNNNNNNNNa
+aNNNNNNNNNLNNNNNNNNNNNNNa
+aNNNNNNNNNLNNNNNNNNNNNNNa
+aNNNNNNNNNNNNNNNNNNNNNNNa
+aLLLEEGGGEENNNNNNNNNNNNNa
+aNNNEWWWWWENNNNNNNNNNNNNa
+aNNNEWBBBWELLNLLLLNLLLLNa
+aNNNFWBiBWFNNNNNLNNNNNNNa
+aNNNEWBBBWENNNNNNNaaaVaaa
+aNNNEWWWWWENNNNNLNannnnna
+aNNNEEEFEEENNNNNLNannnnna
+aNNNNNNNNNNNNNNNLNVnnnnna
+aNNNNNNNNNNNNNNNLNannnnna
+aNNNNNNNNNNNNNNNNNannnnsa
+aaaaaaaaaaaaaaaaaaaaaaaaa
+"}

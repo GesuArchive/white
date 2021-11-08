@@ -19,8 +19,8 @@
 	custom_materials = list(/datum/material/iron = 500)
 
 /obj/item/melee/sabre/officer
-	name = "officer sword"
-	desc = "A curved sword issued to german officers"
+	name = "офицерский меч"
+	desc = "Кривой меч немецких офицеров."
 	icon = 'white/Wzzzz/icons/Weea.dmi'
 	icon_state = "officersword"
 	inhand_icon_state = "officersword"
