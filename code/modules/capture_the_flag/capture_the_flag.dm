@@ -701,9 +701,9 @@
 	gloves = /obj/item/clothing/gloves/fingerless
 	belt = /obj/item/melee/sabre/officer
 	suit = /obj/item/clothing/suit/hawaiian
-	r_hand = /obj/item/gun/ballistic/rifle/fallout/hunting/scoped
-	l_pocket = /obj/item/ammo_box/magazine/fallout/r308
-	r_pocket = /obj/item/ammo_box/magazine/fallout/r308
+	r_hand = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks/scoped
+	l_pocket = /obj/item/ammo_box/fallout/sks
+	r_pocket = /obj/item/ammo_box/fallout/sks
 
 /datum/outfit/ctf/blue/instagib
 	r_hand = /obj/item/gun/energy/laser/instakill/blue
@@ -733,9 +733,9 @@
 	gloves = /obj/item/clothing/gloves/fingerless
 	belt = /obj/item/melee/sabre/officer
 	suit = /obj/item/clothing/suit/yakuza
-	r_hand = /obj/item/gun/ballistic/rifle/fallout/hunting/scoped
-	l_pocket = /obj/item/ammo_box/magazine/fallout/r308
-	r_pocket = /obj/item/ammo_box/magazine/fallout/r308
+	r_hand = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks/scoped
+	l_pocket = /obj/item/ammo_box/fallout/sks
+	r_pocket = /obj/item/ammo_box/fallout/sks
 
 /datum/outfit/ctf/yellow/instagib
 	r_hand = /obj/item/gun/energy/laser/instakill/yellow
@@ -843,6 +843,14 @@
 /obj/effect/ctf/ammo/Initialize(mapload)
 	..()
 	QDEL_IN(src, AMMO_DROP_LIFETIME)
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/effect/ctf/ammo/proc/on_entered(datum/source, atom/movable/movable_atom)
+	SIGNAL_HANDLER
+	trigger(movable_atom)
 
 /obj/effect/ctf/ammo/Bump(atom/A)
 	reload(A)

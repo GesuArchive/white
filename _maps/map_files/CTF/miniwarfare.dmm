@@ -14,7 +14,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/ctf,
-/obj/item/ammo_box/magazine/fallout/r308,
+/obj/item/ammo_box/fallout/sks,
 /turf/open/floor/plasteel,
 /area/ctf)
 "i" = (
@@ -112,7 +112,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/ctf,
-/obj/item/ammo_box/magazine/fallout/r308,
+/obj/item/ammo_box/fallout/sks,
 /turf/open/floor/plasteel,
 /area/ctf)
 "D" = (
