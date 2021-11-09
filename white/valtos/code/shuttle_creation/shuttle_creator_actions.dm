@@ -32,7 +32,7 @@
 	if(..())
 		return
 	var/turf/T = get_turf(remote_eye)
-	if(istype(T, /turf/open/space))
+	if(istype(T, /turf/open/space) || istype(T, /turf/open/openspace))
 		var/connectors_exist = FALSE
 		for(var/obj/structure/lattice/lattice in T)
 			connectors_exist = TRUE
