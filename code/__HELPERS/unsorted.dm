@@ -268,8 +268,6 @@ Turf and target are separate in case you want to teleport some distance from a t
 		moblist += mob_to_sort
 	for(var/mob/living/carbon/true_devil/mob_to_sort in sortmob)
 		moblist += mob_to_sort
-	for(var/mob/living/basic/mob_to_sort in sortmob)
-		moblist += mob_to_sort
 	return moblist
 
 // Format a power value in W, kW, MW, or GW.

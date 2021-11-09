@@ -149,7 +149,7 @@
 	death = FALSE
 	roundstart = FALSE
 
-/obj/effect/mob_spawn/human/tcatwife/create(ckey, newname)
+/obj/effect/mob_spawn/human/tcatwife/create(mob/user, newname)
 	mob_gender = "female"
 	mob_name = random_unique_name("female")
 	. = ..()

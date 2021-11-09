@@ -633,9 +633,9 @@
 	shoes = /obj/item/clothing/shoes/combat/artist
 	r_hand = /obj/item/storage/toolbox/mechanical
 
-/obj/effect/mob_spawn/human/donate/artist/create(ckey, newname)
-	if(ckey)
-		var/client/C = GLOB.directory[ckey]
+/obj/effect/mob_spawn/human/donate/artist/create(mob/user, newname)
+	if(user?.ckey)
+		var/client/C = GLOB.directory[user.ckey]
 		if(C?.prefs)
 			hairstyle =  C.prefs.hairstyle
 			facial_hairstyle = C.prefs.facial_hairstyle
@@ -716,7 +716,7 @@
 		return
 	. = ..()
 
-/obj/effect/mob_spawn/human/donate/artist/create(ckey, newname)
+/obj/effect/mob_spawn/human/donate/artist/create(mob/user, newname)
 	. = ..()
 	var/mob/living/L = .
 	spawned_mobs += L
