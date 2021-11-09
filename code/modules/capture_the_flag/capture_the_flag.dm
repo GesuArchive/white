@@ -850,7 +850,7 @@
 
 /obj/effect/ctf/ammo/proc/on_entered(datum/source, atom/movable/movable_atom)
 	SIGNAL_HANDLER
-	trigger(movable_atom)
+	reload(movable_atom)
 
 /obj/effect/ctf/ammo/Bump(atom/A)
 	reload(A)
