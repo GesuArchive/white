@@ -95,7 +95,7 @@
 
 /obj/structure/barricade/wooden/make_debris()
 	new /obj/item/stack/sheet/mineral/wood(get_turf(src), drop_amount)
-
+/*
 /obj/structure/barricade/sandbags
 	name = "sandbags"
 	desc = "Bags of sand. Self explanatory."
@@ -113,7 +113,7 @@
 /obj/structure/barricade/sandbags/Initialize()
 	. = ..()
 	AddElement(/datum/element/climbable)
-
+*/
 /obj/structure/barricade/security
 	name = "security barrier"
 	desc = "A deployable barrier. Provides good cover in fire fights."
