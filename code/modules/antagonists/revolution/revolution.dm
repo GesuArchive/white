@@ -9,7 +9,6 @@
 	antagpanel_category = "Revolution"
 	job_rank = ROLE_REV
 	antag_moodlet = /datum/mood_event/revolution
-	antag_hud_type = ANTAG_HUD_REV
 	antag_hud_name = "rev"
 	var/datum/team/revolution/rev_team
 	greentext_reward = 20
@@ -29,12 +28,10 @@
 
 /datum/antagonist/rev/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
-	add_antag_hud(antag_hud_type, antag_hud_name, M)
 	handle_clown_mutation(M, mob_override ? null : "Ваши тренировки позволили вам преодолеть свою клоунскую натуру, позволяя вам владеть оружием без вреда для себя.")
 
 /datum/antagonist/rev/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
-	remove_antag_hud(antag_hud_type, M)
 	handle_clown_mutation(M, removing = FALSE)
 
 /datum/antagonist/rev/proc/equip_rev()

@@ -19,27 +19,7 @@ GLOBAL_LIST_INIT(huds, list(
 	DATA_HUD_AI_DETECT = new/datum/atom_hud/ai_detector(),
 	DATA_HUD_HACKER = new/datum/atom_hud/hacker(),
 	DATA_HUD_FAN = new/datum/atom_hud/data/human/fan_hud(),
-	ANTAG_HUD_CULT = new/datum/atom_hud/antag(),
-	ANTAG_HUD_REV = new/datum/atom_hud/antag(),
-	ANTAG_HUD_OPS = new/datum/atom_hud/antag(),
-	ANTAG_HUD_WIZ = new/datum/atom_hud/antag(),
-	ANTAG_HUD_SHADOW = new/datum/atom_hud/antag(),
-	ANTAG_HUD_TRAITOR = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_NINJA = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_CHANGELING = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_ABDUCTOR = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_BROTHER = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_OBSESSED = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_FUGITIVE = new/datum/atom_hud/antag(),
-	ANTAG_HUD_GANGSTER = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_SPACECOP = new/datum/atom_hud/antag(),
-	ANTAG_HUD_HERETIC = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_BLOODSUCKER = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_CLOCKWORK = new/datum/atom_hud/antag(),
-	ANTAG_HUD_DEVIL = new/datum/atom_hud/antag(),
-	ANTAG_HUD_SINTOUCHED = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_SOULLESS = new/datum/atom_hud/antag/hidden()
-	))
+))
 
 /datum/atom_hud
 	///associative list of the form: list(z level = list(hud atom)).

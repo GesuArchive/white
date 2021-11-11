@@ -4,7 +4,6 @@
 	antagpanel_category = "Heretic"
 	antag_moodlet = /datum/mood_event/heretics
 	job_rank = ROLE_HERETIC
-	antag_hud_type = ANTAG_HUD_HERETIC
 	antag_hud_name = "heretic"
 	hijack_speed = 0.5
 	var/give_equipment = TRUE
@@ -150,7 +149,6 @@
 	var/mob/living/current = owner.current
 	if(mob_override)
 		current = mob_override
-	add_antag_hud(antag_hud_type, antag_hud_name, current)
 	handle_clown_mutation(current, mob_override ? null : "Древние знания, описанные в книге, позволяют мне преодолеть свою шутовскую натуру, позволяя эффективно использовать сложные предметы.")
 	current.faction |= "heretics"
 
@@ -159,7 +157,6 @@
 	var/mob/living/current = owner.current
 	if(mob_override)
 		current = mob_override
-	remove_antag_hud(antag_hud_type, current)
 	handle_clown_mutation(current, removing = FALSE)
 	current.faction -= "heretics"
 
