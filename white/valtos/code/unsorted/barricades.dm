@@ -1,6 +1,6 @@
 // Snow, wood, sandbags, metal, plasteel
 
-/obj/structure/barricade
+/obj/structure/deployable_barricade
 	icon = 'white/valtos/icons/barricade.dmi'
 	anchored = TRUE
 	density = TRUE
@@ -26,7 +26,7 @@
 	///is this barriade wired?
 	var/is_wired = FALSE
 
-/obj/structure/barricade/Initialize()
+/obj/structure/deployable_barricade/Initialize()
 	. = ..()
 	update_icon()
 	var/static/list/connections = list(
@@ -35,7 +35,7 @@
 	AddElement(/datum/element/connect_loc, connections)
 	AddElement(/datum/element/climbable)
 
-/obj/structure/barricade/examine(mob/user)
+/obj/structure/deployable_barricade/examine(mob/user)
 	. = ..()
 	if(is_wired)
 		to_chat(user, span_info("There is a length of wire strewn across the top of this barricade."))
@@ -50,7 +50,7 @@
 			to_chat(user, span_warning("It's crumbling apart, just a few more blows will tear it apart."))
 
 
-/obj/structure/barricade/proc/on_try_exit(datum/source, atom/movable/leaving, direction)
+/obj/structure/deployable_barricade/proc/on_try_exit(datum/source, atom/movable/leaving, direction)
 	SIGNAL_HANDLER
 
 	if(leaving == src)
@@ -74,23 +74,32 @@
 	leaving.Bump(src)
 	return COMPONENT_ATOM_BLOCK_EXIT
 
-/obj/structure/barricade/CanPass(atom/movable/mover, border_dir)
+/obj/structure/deployable_barricade/CanPass(atom/movable/mover, border_dir)
 	. = ..()
 	if((border_dir & dir) && !closed)
 		return . || mover.throwing || mover.movement_type & (FLYING | FLOATING)
 	return TRUE
 
+/obj/structure/deployable_barricade/attackby(obj/item/I, mob/living/user, params)
+	if(istype(I, /obj/item/stack/cable_coil) && can_wire)
+		var/obj/item/stack/S = I
+		if(S.use(15))
+			wire()
+		else
+			return
+	else
+		..()
 
-/obj/structure/barricade/attack_animal(mob/user)
+/obj/structure/deployable_barricade/attack_animal(mob/user)
 	return attack_alien(user)
 
-/obj/structure/barricade/proc/wire()
+/obj/structure/deployable_barricade/proc/wire()
 	can_wire = FALSE
 	is_wired = TRUE
 	modify_max_integrity(max_integrity + 50)
 	update_icon()
 
-/obj/structure/barricade/wirecutter_act(mob/living/user, obj/item/I)
+/obj/structure/deployable_barricade/wirecutter_act(mob/living/user, obj/item/I)
 	if(!is_wired)
 		return FALSE
 
@@ -109,7 +118,7 @@
 	update_icon()
 
 
-/obj/structure/barricade/deconstruct(disassembled = TRUE)
+/obj/structure/deployable_barricade/deconstruct(disassembled = TRUE)
 	if(stack_type)
 		var/stack_amt
 		if(!disassembled && destroyed_stack_amount)
@@ -121,7 +130,7 @@
 			new stack_type (loc, stack_amt)
 	return ..()
 
-/obj/structure/barricade/ex_act(severity)
+/obj/structure/deployable_barricade/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
 			visible_message(span_danger("[src] is blown apart!"))
@@ -133,11 +142,11 @@
 			take_damage(rand(10, 33))
 	update_icon()
 
-/obj/structure/barricade/setDir(newdir)
+/obj/structure/deployable_barricade/setDir(newdir)
 	. = ..()
 	update_icon()
 
-/obj/structure/barricade/update_icon()
+/obj/structure/deployable_barricade/update_icon()
 	. = ..()
 	var/damage_state
 	var/percentage = (obj_integrity / max_integrity) * 100
@@ -171,7 +180,7 @@
 			icon_state = "[barricade_type]_closed"
 		layer = OBJ_LAYER
 
-/obj/structure/barricade/update_overlays()
+/obj/structure/deployable_barricade/update_overlays()
 	. = ..()
 	if(is_wired)
 		if(!closed)
@@ -179,7 +188,7 @@
 		else
 			. += image('white/valtos/icons/barricade.dmi', icon_state = "[barricade_type]_closed_wire")
 
-/obj/structure/barricade/verb/rotate()
+/obj/structure/deployable_barricade/verb/rotate()
 	set name = "Rotate Barricade Counter-Clockwise"
 	set category = "Object"
 	set src in oview(1)
@@ -190,7 +199,7 @@
 
 	setDir(turn(dir, 90))
 
-/obj/structure/barricade/verb/revrotate()
+/obj/structure/deployable_barricade/verb/revrotate()
 	set name = "Rotate Barricade Clockwise"
 	set category = "Object"
 	set src in oview(1)
@@ -202,7 +211,7 @@
 	setDir(turn(dir, 270))
 
 
-/obj/structure/barricade/attack_hand_secondary(mob/user, list/modifiers)
+/obj/structure/deployable_barricade/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
 	if(anchored)
 		to_chat(user, span_warning("It is fastened to the floor, you can't rotate it!"))
@@ -215,7 +224,7 @@
 // SNOW
 /*----------------------*/
 
-/obj/structure/barricade/snow
+/obj/structure/deployable_barricade/snow
 	name = "snow barricade"
 	desc = "A mound of snow shaped into a sloped wall. Statistically better than thin air as cover."
 	icon_state = "snow_0"
@@ -230,7 +239,7 @@
 // GUARD RAIL
 /*----------------------*/
 
-/obj/structure/barricade/guardrail
+/obj/structure/deployable_barricade/guardrail
 	name = "guard rail"
 	desc = "A short wall made of rails to prevent entry into dangerous areas."
 	icon_state = "railing_0"
@@ -242,7 +251,7 @@
 	allow_thrown_objs = FALSE
 	can_wire = FALSE
 
-/obj/structure/barricade/guardrail/update_icon()
+/obj/structure/deployable_barricade/guardrail/update_icon()
 	. = ..()
 	if(dir == NORTH)
 		pixel_y = 12
@@ -251,7 +260,7 @@
 // WOOD
 /*----------------------*/
 
-/obj/structure/barricade/wooden/stockade
+/obj/structure/deployable_barricade/wooden
 	name = "wooden barricade"
 	desc = "A wall made out of wooden planks nailed together. Not very sturdy, but can provide some concealment."
 	icon = 'white/valtos/icons/barricade.dmi'
@@ -265,7 +274,7 @@
 	barricade_type = "wooden"
 	can_wire = FALSE
 
-/obj/structure/barricade/wooden/stockade/attackby(obj/item/I, mob/user, params)
+/obj/structure/deployable_barricade/wooden/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
 	if(istype(I, /obj/item/stack/sheet/mineral/wood))
@@ -303,7 +312,7 @@
 
 #define CADE_UPGRADE_REQUIRED_SHEETS 2
 
-/obj/structure/barricade/metal
+/obj/structure/deployable_barricade/metal
 	name = "metal barricade"
 	desc = "A sturdy and easily assembled barricade made of metal plates, often used for quick fortifications. Use a blowtorch to repair."
 	icon_state = "metal_0"
@@ -319,7 +328,7 @@
 	///The type of upgrade and corresponding overlay we have attached
 	var/barricade_upgrade_type
 
-/obj/structure/barricade/metal/update_overlays()
+/obj/structure/deployable_barricade/metal/update_overlays()
 	. = ..()
 	if(!barricade_upgrade_type)
 		return
@@ -342,7 +351,7 @@
 		if(CADE_TYPE_ACID)
 			. += image('white/valtos/icons/barricade.dmi', icon_state = "+burn_upgrade_[damage_state]")
 
-/obj/structure/barricade/metal/attackby(obj/item/I, mob/user, params)
+/obj/structure/deployable_barricade/metal/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
 	if(istype(I, /obj/item/stack/sheet/iron))
@@ -367,7 +376,7 @@
 
 
 
-/obj/structure/barricade/metal/proc/attempt_barricade_upgrade(obj/item/stack/sheet/iron/metal_sheets, mob/user, params)
+/obj/structure/deployable_barricade/metal/proc/attempt_barricade_upgrade(obj/item/stack/sheet/iron/metal_sheets, mob/user, params)
 	if(barricade_upgrade_type)
 		to_chat(user, span_warning("[src] is already upgraded."))
 		return FALSE
@@ -407,7 +416,7 @@
 	update_icon()
 
 
-/obj/structure/barricade/metal/examine(mob/user)
+/obj/structure/deployable_barricade/metal/examine(mob/user)
 	. = ..()
 	switch(build_state)
 		if(BARRICADE_METAL_FIRM)
@@ -419,7 +428,7 @@
 
 	to_chat(user, span_info("It is [barricade_upgrade_type ? "upgraded with [barricade_upgrade_type]" : "not upgraded"]."))
 
-/obj/structure/barricade/metal/welder_act(mob/living/user, obj/item/I)
+/obj/structure/deployable_barricade/metal/welder_act(mob/living/user, obj/item/I)
 
 	var/obj/item/weldingtool/WT = I
 
@@ -456,7 +465,7 @@
 	return TRUE
 
 
-/obj/structure/barricade/metal/screwdriver_act(mob/living/user, obj/item/I)
+/obj/structure/deployable_barricade/metal/screwdriver_act(mob/living/user, obj/item/I)
 	switch(build_state)
 		if(BARRICADE_METAL_ANCHORED) //Protection panel removed step. Screwdriver to put the panel back, wrench to unsecure the anchor bolts
 
@@ -482,7 +491,7 @@
 			return TRUE
 
 
-/obj/structure/barricade/metal/wrench_act(mob/living/user, obj/item/I)
+/obj/structure/deployable_barricade/metal/wrench_act(mob/living/user, obj/item/I)
 	switch(build_state)
 		if(BARRICADE_METAL_ANCHORED) //Protection panel removed step. Screwdriver to put the panel back, wrench to unsecure the anchor bolts
 
@@ -505,7 +514,7 @@
 				to_chat(user, span_warning("We can't anchor the barricade here!"))
 				return TRUE
 
-			for(var/obj/structure/barricade/B in loc)
+			for(var/obj/structure/deployable_barricade/B in loc)
 				if(B != src && B.dir == dir)
 					to_chat(user, span_warning("There's already a barricade here."))
 					return TRUE
@@ -523,7 +532,7 @@
 			return TRUE
 
 
-/obj/structure/barricade/metal/crowbar_act(mob/living/user, obj/item/I)
+/obj/structure/deployable_barricade/metal/crowbar_act(mob/living/user, obj/item/I)
 	switch(build_state)
 		if(BARRICADE_METAL_LOOSE) //Anchor bolts loosened step. Apply crowbar to unseat the panel and take apart the whole thing. Apply wrench to resecure anchor bolts
 
@@ -571,7 +580,7 @@
 			return TRUE
 
 
-/obj/structure/barricade/metal/ex_act(severity)
+/obj/structure/deployable_barricade/metal/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
 			take_damage(rand(400, 600))
@@ -595,7 +604,7 @@
 #define BARRICADE_PLASTEEL_ANCHORED 1
 #define BARRICADE_PLASTEEL_FIRM 2
 
-/obj/structure/barricade/plasteel
+/obj/structure/deployable_barricade/plasteel
 	name = "plasteel barricade"
 	desc = "A very sturdy barricade made out of plasteel panels, the pinnacle of strongpoints. Use a blowtorch to repair. Can be flipped down to create a path."
 	icon_state = "plasteel_closed_0"
@@ -616,7 +625,7 @@
 	var/linked = FALSE
 	COOLDOWN_DECLARE(tool_cooldown) //Delay to apply tools to prevent spamming
 
-/obj/structure/barricade/plasteel/examine(mob/user)
+/obj/structure/deployable_barricade/plasteel/examine(mob/user)
 	. = ..()
 
 	switch(build_state)
@@ -627,7 +636,7 @@
 		if(BARRICADE_PLASTEEL_LOOSE)
 			to_chat(user, span_info("The protection panel has been removed and the anchor bolts loosened. It's ready to be taken apart."))
 
-/obj/structure/barricade/plasteel/attackby(obj/item/I, mob/user, params)
+/obj/structure/deployable_barricade/plasteel/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
 	if(istype(I, /obj/item/stack/sheet/plasteel))
@@ -691,7 +700,7 @@
 		if(BARRICADE_PLASTEEL_FIRM) //Fully constructed step. Use screwdriver to remove the protection panels to reveal the bolts
 			if(I.tool_behaviour == TOOL_SCREWDRIVER)
 
-				for(var/obj/structure/barricade/B in loc)
+				for(var/obj/structure/deployable_barricade/B in loc)
 					if(B != src && B.dir == dir)
 						to_chat(user, span_warning("There's already a barricade here."))
 						return
@@ -708,7 +717,7 @@
 				user.visible_message(span_notice(" [user] [linked ? "un" : "" ]links [src]."), span_notice("You [linked ? "un" : "" ]link [src]."))
 				linked = !linked
 				for(var/direction in GLOB.cardinals)
-					for(var/obj/structure/barricade/plasteel/cade in get_step(src, direction))
+					for(var/obj/structure/deployable_barricade/plasteel/cade in get_step(src, direction))
 						cade.update_icon()
 				update_icon()
 		if(BARRICADE_PLASTEEL_ANCHORED) //Protection panel removed step. Screwdriver to put the panel back, wrench to unsecure the anchor bolts
@@ -760,14 +769,14 @@
 				deconstruct(deconstructed)
 
 
-/obj/structure/barricade/plasteel/attack_hand(mob/living/user)
+/obj/structure/deployable_barricade/plasteel/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
 
 	toggle_open(null, user)
 
-/obj/structure/barricade/plasteel/proc/toggle_open(state, mob/living/user)
+/obj/structure/deployable_barricade/plasteel/proc/toggle_open(state, mob/living/user)
 	if(state == closed)
 		return
 	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
@@ -781,22 +790,22 @@
 		update_icon()
 		return
 	for(var/direction in GLOB.cardinals)
-		for(var/obj/structure/barricade/plasteel/cade in get_step(src, direction))
+		for(var/obj/structure/deployable_barricade/plasteel/cade in get_step(src, direction))
 			if(((dir & (NORTH|SOUTH) && get_dir(src, cade) & (EAST|WEST)) || (dir & (EAST|WEST) && get_dir(src, cade) & (NORTH|SOUTH))) && dir == cade.dir && cade.linked)
 				cade.toggle_open(closed)
 
 	update_icon()
 
-/obj/structure/barricade/plasteel/update_overlays()
+/obj/structure/deployable_barricade/plasteel/update_overlays()
 	. = ..()
 	if(!linked)
 		return
 	for(var/direction in GLOB.cardinals)
-		for(var/obj/structure/barricade/plasteel/cade in get_step(src, direction))
+		for(var/obj/structure/deployable_barricade/plasteel/cade in get_step(src, direction))
 			if(((dir & (NORTH|SOUTH) && get_dir(src, cade) & (EAST|WEST)) || (dir & (EAST|WEST) && get_dir(src, cade) & (NORTH|SOUTH))) && dir == cade.dir && cade.linked && cade.closed == closed)
 				. += image('white/valtos/icons/barricade.dmi', icon_state = "[barricade_type]_[closed ? "closed" : "open"]_connection_[get_dir(src, cade)]")
 
-/obj/structure/barricade/plasteel/ex_act(severity)
+/obj/structure/deployable_barricade/plasteel/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
 			take_damage(rand(450, 650))
@@ -815,7 +824,7 @@
 // SANDBAGS
 /*----------------------*/
 
-/obj/structure/barricade/sandbags
+/obj/structure/deployable_barricade/sandbags
 	name = "sandbag barricade"
 	desc = "A bunch of bags filled with sand, stacked into a small wall. Surprisingly sturdy, albeit labour intensive to set up. Trusted to do the job since 1914."
 	icon_state = "sandbag_0"
@@ -825,7 +834,7 @@
 	barricade_type = "sandbag"
 	can_wire = TRUE
 
-/obj/structure/barricade/sandbags/update_icon()
+/obj/structure/deployable_barricade/sandbags/update_icon()
 	. = ..()
 	if(dir == SOUTH)
 		pixel_y = -7
@@ -835,7 +844,7 @@
 		pixel_y = 0
 
 
-/obj/structure/barricade/sandbags/attackby(obj/item/I, mob/user, params)
+/obj/structure/deployable_barricade/sandbags/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
 	if(istype(I, /obj/item/shovel) && user.a_intent != INTENT_HARM)
@@ -901,7 +910,7 @@
 	return TRUE
 
 /obj/item/quikdeploy/cade
-	thing_to_deploy = /obj/structure/barricade/metal
+	thing_to_deploy = /obj/structure/deployable_barricade/metal
 	icon_state = "metal"
 	delay = 3 SECONDS
 
@@ -934,5 +943,5 @@
 	return TRUE
 
 /obj/item/quikdeploy/cade/plasteel
-	thing_to_deploy = /obj/structure/barricade/plasteel
+	thing_to_deploy = /obj/structure/deployable_barricade/plasteel
 	icon_state = "plasteel"
