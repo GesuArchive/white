@@ -696,12 +696,14 @@
 	id = /obj/item/card/id/blue //it's blue
 
 /datum/outfit/ctf/blue/warfare
-	uniform = /obj/item/clothing/under/pants/camo
-	shoes = /obj/item/clothing/shoes/sandal
+	head = /obj/item/clothing/head/helmet/elite
+	mask = /obj/item/clothing/mask/gas/germanfull
+	uniform = /obj/item/clothing/under/victorian/blred
+	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/fingerless
-	belt = /obj/item/melee/sabre/officer
-	suit = /obj/item/clothing/suit/hawaiian
-	r_hand = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks/scoped
+	belt = /obj/item/melee/sabre/marineofficer
+	suit = /obj/item/clothing/suit/armor/opvest
+	r_hand = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks
 	l_pocket = /obj/item/ammo_box/fallout/sks
 	r_pocket = /obj/item/ammo_box/fallout/sks
 
@@ -728,12 +730,14 @@
 	id = /obj/item/card/id/yellow //it's yellow
 
 /datum/outfit/ctf/yellow/warfare
-	uniform = /obj/item/clothing/under/pants/camo
-	shoes = /obj/item/clothing/shoes/sandal
+	head = /obj/item/clothing/head/helmet/elite
+	mask = /obj/item/clothing/mask/gas/german
+	uniform = /obj/item/clothing/under/victorian/vest
+	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/fingerless
-	belt = /obj/item/melee/sabre/officer
-	suit = /obj/item/clothing/suit/yakuza
-	r_hand = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks/scoped
+	belt = /obj/item/melee/sabre/marineofficer
+	suit = /obj/item/clothing/suit/armor/opvest
+	r_hand = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks
 	l_pocket = /obj/item/ammo_box/fallout/sks
 	r_pocket = /obj/item/ammo_box/fallout/sks
 
