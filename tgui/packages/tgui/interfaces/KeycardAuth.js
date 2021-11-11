@@ -7,7 +7,7 @@ export const KeycardAuth = (props, context) => {
   return (
     <Window
       width={375}
-      height={125}>
+      height={155}>
       <Window.Content>
         <Section>
           <Box>
