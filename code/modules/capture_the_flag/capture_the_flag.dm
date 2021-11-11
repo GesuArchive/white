@@ -707,6 +707,10 @@
 	l_pocket = /obj/item/ammo_box/fallout/sks
 	r_pocket = /obj/item/ammo_box/fallout/sks
 
+/datum/outfit/ctf/blue/warfare/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	H.add_client_colour(/datum/client_colour/warfare)
+
 /datum/outfit/ctf/blue/instagib
 	r_hand = /obj/item/gun/energy/laser/instakill/blue
 	shoes = /obj/item/clothing/shoes/jackboots/fast
@@ -740,6 +744,10 @@
 	r_hand = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks
 	l_pocket = /obj/item/ammo_box/fallout/sks
 	r_pocket = /obj/item/ammo_box/fallout/sks
+
+/datum/outfit/ctf/yellow/warfare/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	H.add_client_colour(/datum/client_colour/warfare)
 
 /datum/outfit/ctf/yellow/instagib
 	r_hand = /obj/item/gun/energy/laser/instakill/yellow

@@ -169,7 +169,9 @@ GLOBAL_VAR_INIT(emergency_access, FALSE)
 
 /proc/toggle_migger_alarm()
 	GLOB.migger_alarm = !GLOB.migger_alarm
-	minor_announce("Отправка новых наёмных рабочих из дальних секторов была [GLOB.migger_alarm? "приостановлена" : "запущена вновь"].", "Миграционная политика станции")
+	spawn(rand(600, 3000))
+		GLOB.migger_alarm = FALSE
+	minor_announce("Отправка новых наёмных рабочих из дальних секторов была [GLOB.migger_alarm? "временно приостановлена" : "запущена вновь"].", "Миграционная политика станции")
 
 #undef KEYCARD_RED_ALERT
 #undef KEYCARD_EMERGENCY_MAINTENANCE_ACCESS
