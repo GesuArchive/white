@@ -55,15 +55,15 @@
 
 	if(O.throwing)
 		if(is_wired && iscarbon(O)) //Leaping mob against barbed wire fails
-			if(direction & dir)
+			if(!(direction & dir))
 				knownblockers += src
 				return COMPONENT_ATOM_BLOCK_EXIT
 		if(!allow_thrown_objs && !istype(O, /obj/projectile))
-			if(direction & dir)
+			if(!(direction & dir))
 				knownblockers += src
 				return COMPONENT_ATOM_BLOCK_EXIT
 		return NONE
-	if(!density || !(flags_1 & ON_BORDER_1) || !(direction & dir))
+	if(!density || !(flags_1 & ON_BORDER_1) || (direction & dir))
 		return NONE
 	knownblockers += src
 	return COMPONENT_ATOM_BLOCK_EXIT
@@ -75,17 +75,17 @@
 
 	if(mover?.throwing)
 		if(is_wired && iscarbon(mover)) //Leaping mob against barbed wire fails
-			if(get_dir(loc, target) & dir)
+			if(get_dir(loc, target) & invertDir(dir))
 				return FALSE
 		if(!allow_thrown_objs && !istype(mover, /obj/projectile))
-			if(get_dir(loc, target) & dir)
+			if(get_dir(loc, target) & invertDir(dir))
 				return FALSE
 		return TRUE
 
-	if((mover.flags_1 & ON_BORDER_1) && get_dir(loc, target) & dir)
+	if((mover.flags_1 & ON_BORDER_1) && get_dir(loc, target) & invertDir(dir))
 		return FALSE
 
-	if(get_dir(loc, target) & dir)
+	if(get_dir(loc, target) & invertDir(dir))
 		return FALSE
 	else
 		return TRUE
@@ -106,7 +106,7 @@
 	user.visible_message(span_notice("[user] begin removing the barbed wire on [src]."),
 	span_notice("You begin removing the barbed wire on [src]."))
 
-	if(!do_after(user, 2 SECONDS, TRUE, src))
+	if(!do_after(user, 2 SECONDS, src))
 		return TRUE
 
 	playsound(loc, 'sound/items/wirecutter.ogg', 25, TRUE)
@@ -260,9 +260,10 @@
 // WOOD
 /*----------------------*/
 
-/obj/structure/barricade/wooden
+/obj/structure/barricade/wooden/stockade
 	name = "wooden barricade"
 	desc = "A wall made out of wooden planks nailed together. Not very sturdy, but can provide some concealment."
+	icon = 'white/valtos/icons/barricade.dmi'
 	icon_state = "wooden"
 	max_integrity = 100
 	layer = OBJ_LAYER
@@ -273,7 +274,7 @@
 	barricade_type = "wooden"
 	can_wire = FALSE
 
-/obj/structure/barricade/wooden/attackby(obj/item/I, mob/user, params)
+/obj/structure/barricade/wooden/stockade/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
 	if(istype(I, /obj/item/stack/sheet/mineral/wood))
@@ -287,7 +288,7 @@
 
 		visible_message(span_notice("[user] begins to repair [src]."))
 
-		if(!do_after(user,20, TRUE, src) || obj_integrity >= max_integrity)
+		if(!do_after(user,20, src) || obj_integrity >= max_integrity)
 			return
 
 		if(!D.use(1))
@@ -364,7 +365,7 @@
 
 		visible_message(span_notice("[user] begins to repair the base of [src]."))
 
-		if(!do_after(user, 2 SECONDS, TRUE, src) || obj_integrity >= max_integrity)
+		if(!do_after(user, 2 SECONDS, src) || obj_integrity >= max_integrity)
 			return FALSE
 
 		if(!metal_sheets.use(2))
@@ -392,7 +393,7 @@
 
 	user.visible_message(span_notice("[user] begins attaching [choice] to [src]."),
 		span_notice("You begin attaching [choice] to [src]."))
-	if(!do_after(user, 2 SECONDS, TRUE, src))
+	if(!do_after(user, 2 SECONDS, src))
 		return FALSE
 
 	if(!metal_sheets.use(CADE_UPGRADE_REQUIRED_SHEETS))
@@ -446,7 +447,7 @@
 	span_notice("You begin repairing the damage to [src]."))
 	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
 
-	if(!do_after(user, 5 SECONDS, TRUE, src))
+	if(!do_after(user, 5 SECONDS, src))
 		return TRUE
 
 	if(obj_integrity <= max_integrity * 0.3 || obj_integrity == max_integrity)
@@ -469,7 +470,7 @@
 		if(BARRICADE_METAL_ANCHORED) //Protection panel removed step. Screwdriver to put the panel back, wrench to unsecure the anchor bolts
 
 			playsound(loc, 'sound/items/screwdriver.ogg', 25, TRUE)
-			if(!do_after(user, 1 SECONDS, TRUE, src))
+			if(!do_after(user, 1 SECONDS, src))
 				return TRUE
 
 			user.visible_message(span_notice("[user] set [src]'s protection panel back."),
@@ -481,7 +482,7 @@
 
 			playsound(loc, 'sound/items/screwdriver.ogg', 25, TRUE)
 
-			if(!do_after(user, 1 SECONDS, TRUE, src))
+			if(!do_after(user, 1 SECONDS, src))
 				return TRUE
 
 			user.visible_message(span_notice("[user] removes [src]'s protection panel."),
@@ -495,7 +496,7 @@
 		if(BARRICADE_METAL_ANCHORED) //Protection panel removed step. Screwdriver to put the panel back, wrench to unsecure the anchor bolts
 
 			playsound(loc, 'sound/items/ratchet.ogg', 25, TRUE)
-			if(!do_after(user, 1 SECONDS, TRUE, src))
+			if(!do_after(user, 1 SECONDS, src))
 				return TRUE
 
 			user.visible_message(span_notice("[user] loosens [src]'s anchor bolts."),
@@ -519,7 +520,7 @@
 					return TRUE
 
 			playsound(loc, 'sound/items/ratchet.ogg', 25, TRUE)
-			if(!do_after(user, 1 SECONDS, TRUE, src))
+			if(!do_after(user, 1 SECONDS, src))
 				return TRUE
 
 			user.visible_message(span_notice("[user] secures [src]'s anchor bolts."),
@@ -539,7 +540,7 @@
 			span_notice("You start unseating [src]'s panels."))
 
 			playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
-			if(!do_after(user, 5 SECONDS, TRUE, src))
+			if(!do_after(user, 5 SECONDS, src))
 				return TRUE
 
 			user.visible_message(span_notice("[user] takes [src]'s panels apart."),
@@ -558,7 +559,7 @@
 			span_notice("You start disassembling [src]'s armor plates."))
 
 			playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
-			if(!do_after(user, 5 SECONDS, TRUE, src))
+			if(!do_after(user, 5 SECONDS, src))
 				return TRUE
 
 			user.visible_message(span_notice("[user] takes [src]'s armor plates apart."),
@@ -649,7 +650,7 @@
 
 		visible_message(span_notice("[user] begins to repair the base of [src]."))
 
-		if(!do_after(user, 2 SECONDS, TRUE, src) || obj_integrity >= max_integrity)
+		if(!do_after(user, 2 SECONDS, src) || obj_integrity >= max_integrity)
 			return
 
 		if(!plasteel_sheets.use(2))
@@ -684,7 +685,7 @@
 		playsound(loc, 'sound/items/welder2.ogg', 25, 1)
 		busy = TRUE
 
-		if(!do_after(user, 50, TRUE, src))
+		if(!do_after(user, 50, src))
 			busy = FALSE
 			return
 
@@ -704,7 +705,7 @@
 						to_chat(user, span_warning("There's already a barricade here."))
 						return
 
-				if(!do_after(user, 1, TRUE, src))
+				if(!do_after(user, 1, src))
 					return
 
 				user.visible_message(span_notice("[user] removes [src]'s protection panel."),
@@ -756,7 +757,7 @@
 				playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 				busy = TRUE
 
-				if(!do_after(user, 50, TRUE, src))
+				if(!do_after(user, 50, src))
 					busy = FALSE
 					return
 
@@ -850,7 +851,7 @@
 		var/obj/item/shovel/ET = I
 		user.visible_message(span_notice("[user] starts disassembling [src]."),
 		span_notice("You start disassembling [src]."))
-		if(do_after(user, ET.toolspeed, TRUE, src))
+		if(do_after(user, ET.toolspeed, src))
 			user.visible_message(span_notice("[user] disassembles [src]."),
 			span_notice("You disassemble [src]."))
 			var/deconstructed = TRUE
@@ -867,7 +868,7 @@
 			return
 		visible_message(span_notice("[user] begins to replace [src]'s damaged sandbags..."))
 
-		if(!do_after(user, 30, TRUE, src) || obj_integrity >= max_integrity)
+		if(!do_after(user, 30, src) || obj_integrity >= max_integrity)
 			return
 
 		if(!D.use(1))
@@ -893,7 +894,7 @@
 
 /obj/item/quikdeploy/attack_self(mob/user)
 	to_chat(user, "<span class='warning'>You start to deploy onto the tile in front of you...")
-	if(!do_after(usr, delay, TRUE, src))
+	if(!do_after(usr, delay, src))
 		to_chat(user, "<span class='warning'>You decide against deploying something here.")
 		return
 	if(can_place(user)) //can_place() handles sending the error and success messages to the user
