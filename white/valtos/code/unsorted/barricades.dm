@@ -50,45 +50,36 @@
 			to_chat(user, span_warning("It's crumbling apart, just a few more blows will tear it apart."))
 
 
-/obj/structure/barricade/proc/on_try_exit(datum/source, atom/movable/O, direction, list/knownblockers)
+/obj/structure/barricade/proc/on_try_exit(datum/source, atom/movable/leaving, direction)
 	SIGNAL_HANDLER
 
-	if(O.throwing)
-		if(is_wired && iscarbon(O)) //Leaping mob against barbed wire fails
-			if(!(direction & dir))
-				knownblockers += src
-				return COMPONENT_ATOM_BLOCK_EXIT
-		if(!allow_thrown_objs && !istype(O, /obj/projectile))
-			if(!(direction & dir))
-				knownblockers += src
-				return COMPONENT_ATOM_BLOCK_EXIT
-		return NONE
-	if(!density || !(flags_1 & ON_BORDER_1) || (direction & dir))
-		return NONE
-	knownblockers += src
+	if(leaving == src)
+		return
+
+	if(!(direction & dir))
+		return
+
+	if (!density)
+		return
+
+	if (leaving.throwing)
+		return
+
+	if (leaving.movement_type & (PHASING | FLYING | FLOATING))
+		return
+
+	if (leaving.move_force >= MOVE_FORCE_EXTREMELY_STRONG)
+		return
+
+	leaving.Bump(src)
 	return COMPONENT_ATOM_BLOCK_EXIT
 
-/obj/structure/barricade/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/structure/barricade/CanPass(atom/movable/mover, border_dir)
 	. = ..()
-	if(closed)
-		return TRUE
+	if((border_dir & dir) && !closed)
+		return . || mover.throwing || mover.movement_type & (FLYING | FLOATING)
+	return TRUE
 
-	if(mover?.throwing)
-		if(is_wired && iscarbon(mover)) //Leaping mob against barbed wire fails
-			if(get_dir(loc, target) & invertDir(dir))
-				return FALSE
-		if(!allow_thrown_objs && !istype(mover, /obj/projectile))
-			if(get_dir(loc, target) & invertDir(dir))
-				return FALSE
-		return TRUE
-
-	if((mover.flags_1 & ON_BORDER_1) && get_dir(loc, target) & invertDir(dir))
-		return FALSE
-
-	if(get_dir(loc, target) & invertDir(dir))
-		return FALSE
-	else
-		return TRUE
 
 /obj/structure/barricade/attack_animal(mob/user)
 	return attack_alien(user)
