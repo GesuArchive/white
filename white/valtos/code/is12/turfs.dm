@@ -32,6 +32,10 @@
 	name = "слякоть"
 	icon_state = "mud"
 	slowdown = 3
+	footstep = FOOTSTEP_WATER
+	barefootstep = FOOTSTEP_WATER
+	clawfootstep = FOOTSTEP_WATER
+	heavyfootstep = FOOTSTEP_WATER
 
 /turf/open/floor/plating/is12/mud/Initialize(mapload)
 	. = ..()

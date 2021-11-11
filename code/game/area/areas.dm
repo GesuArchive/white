@@ -86,7 +86,7 @@
 	var/network_area_id = null
 
 	///Used to decide what kind of reverb the area makes sound have
-	var/sound_environment = SOUND_ENVIRONMENT_NONE
+	var/sound_environment = SOUND_ENVIRONMENT_HANGAR
 
 	//Lighting overlay
 	var/obj/effect/lighting_overlay

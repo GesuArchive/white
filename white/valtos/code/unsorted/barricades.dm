@@ -76,15 +76,8 @@
 
 /obj/structure/deployable_barricade/CanPass(atom/movable/mover, border_dir)
 	. = ..()
-	if((border_dir & dir) && !closed)
-		return . || mover.throwing || mover.movement_type & (FLYING | FLOATING)
-	return TRUE
 
-/obj/structure/deployable_barricade/CanAllowThrough(atom/movable/mover, border_dir)//So bullets will fly over and stuff.
-	. = ..()
-	if(locate(/obj/structure/deployable_barricade) in get_turf(mover))
-		return TRUE
-	else if(istype(mover, /obj/projectile))
+	if(istype(mover, /obj/projectile))
 		if(!anchored)
 			return TRUE
 		var/obj/projectile/proj = mover
@@ -93,6 +86,10 @@
 		if(prob(25))
 			return TRUE
 		return FALSE
+
+	if((border_dir & dir) && !closed)
+		return . || mover.throwing || mover.movement_type & (FLYING | FLOATING)
+	return TRUE
 
 /obj/structure/deployable_barricade/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/stack/cable_coil) && can_wire)
@@ -788,7 +785,8 @@
 	if(.)
 		return
 
-	toggle_open(null, user)
+	if(do_after(user, 50, src))
+		toggle_open(null, user)
 
 /obj/structure/deployable_barricade/plasteel/proc/toggle_open(state, mob/living/user)
 	if(state == closed)
