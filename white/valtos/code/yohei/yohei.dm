@@ -310,7 +310,7 @@
 	belt = /obj/item/storage/belt/military/abductor/full
 	uniform = /obj/item/clothing/under/syndicate/yohei/yellow
 
-	backpack_contents = list(/obj/item/construction/rcd/combat = 1, /obj/item/rcd_ammo/large = 3)
+	backpack_contents = list(/obj/item/construction/rcd/combat = 1, /obj/item/rcd_ammo/large = 1, /obj/item/quikdeploy/cade/plasteel = 5)
 
 /datum/outfit/yohei/breaker/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -702,6 +702,9 @@ GLOBAL_VAR(yohei_main_controller)
 	uses = 16
 
 /obj/effect/mob_spawn/human/donate/yohei/attack_ghost(mob/user)
+	if(GLOB.migger_alarm)
+		to_chat(user, span_userdanger("Последнюю капсулу направлявшуюся сюда недавно сбили в этом секторе. Похоже, пока лететь точно не стоит."))
+		return
 	var/static/list/choices = list(
 		"Медик" 	= image(icon = 'white/valtos/icons/objects.dmi', icon_state = "ymedic"),
 		"Боевик" 	= image(icon = 'white/valtos/icons/objects.dmi', icon_state = "ycombatant"),

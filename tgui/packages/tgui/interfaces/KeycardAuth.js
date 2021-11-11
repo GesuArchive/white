@@ -50,6 +50,11 @@ export const KeycardAuth = (props, context) => {
                       fluid
                       onClick={() => act('bsa_unlock')}
                       content="Разблокировка блюспейс артиллерии" />
+                    <Button
+                      icon="circle"
+                      fluid
+                      onClick={() => act('migger_alarm')}
+                      content="Миграционная политика" />
                   </>
                 )}
               </>
