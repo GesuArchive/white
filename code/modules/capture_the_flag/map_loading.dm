@@ -19,7 +19,7 @@
 		total -= C.weight
 		if (total <= 0)
 			current_map = pickweight(map_options)
-				current_map = new current_map
+			current_map = new current_map
 			break
 
 	if(!spawn_area)
