@@ -84,5 +84,5 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_BOSS_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_BOSS_WALLS)
-	explosion_block = 50
+	explosion_block = INFINITY
 	baseturfs = /turf/closed/indestructible/riveted/dirtystone
