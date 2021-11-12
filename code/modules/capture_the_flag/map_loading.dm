@@ -11,7 +11,8 @@
 	var/datum/map_template/ctf/current_map
 	var/list/maplist = list()
 
-	for(var/datum/map_template/ctf/C in subtypesof(/datum/map_template/ctf))
+	for(var/item in subtypesof(/datum/map_template/ctf))
+		var/datum/map_template/ctf/C = item
 		maplist[C] = C.weight
 
 	current_map = pickweight(maplist)
@@ -63,4 +64,4 @@
 	name = "Mini-Warfare"
 	description = "Две стороны, одна на юге, другая на севере. Сможет ли кто-то из них одержать победу?"
 	mappath = "_maps/map_files/CTF/miniwarfare.dmm"
-	weight = 6
+	weight = 32
