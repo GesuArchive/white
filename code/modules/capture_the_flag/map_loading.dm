@@ -17,7 +17,7 @@
 	for(var/datum/map_template/ctf/C in subtypesof(/datum/map_template/ctf))
 		total -= C.weight
 		if (total <= 0)
-			current_map = C
+			current_map = C.type
 			break
 
 	current_map = new current_map
