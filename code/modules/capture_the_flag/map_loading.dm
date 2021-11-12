@@ -18,8 +18,7 @@
 	for(var/datum/map_template/ctf/C in subtypesof(/datum/map_template/ctf))
 		total -= C.weight
 		if (total <= 0)
-			current_map = pickweight(map_options)
-			current_map = new current_map
+			current_map = new C
 			break
 
 	if(!spawn_area)
