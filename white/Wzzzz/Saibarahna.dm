@@ -49,7 +49,7 @@
 	worn_icon = 'white/Wzzzz/clothing/mob/belt.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	flags_1 = CONDUCT_1
-	force = 28
+	force = 68
 	throwforce = 7
 	w_class = WEIGHT_CLASS_BULKY
 	block_chance = 45

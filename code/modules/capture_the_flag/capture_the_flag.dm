@@ -699,7 +699,7 @@
 	gloves = /obj/item/clothing/gloves/fingerless
 	belt = /obj/item/melee/sabre/marineofficer
 	suit = /obj/item/clothing/suit/armor/opvest
-	r_hand = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks
+	r_hand = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks/warfare
 	l_pocket = /obj/item/ammo_box/fallout/sks
 	r_pocket = /obj/item/ammo_box/fallout/sks
 
@@ -738,7 +738,7 @@
 	gloves = /obj/item/clothing/gloves/fingerless
 	belt = /obj/item/melee/sabre/marineofficer
 	suit = /obj/item/clothing/suit/armor/opvest
-	r_hand = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks
+	r_hand = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks/warfare
 	l_pocket = /obj/item/ammo_box/fallout/sks
 	r_pocket = /obj/item/ammo_box/fallout/sks
 
@@ -782,6 +782,8 @@
 	R.freqlock = TRUE
 	R.independent = TRUE
 	H.dna.species.stunmod = 0
+	spawn(1 SECONDS)
+		H.mind?.adjust_experience(/datum/skill/ranged, SKILL_EXP_JOURNEYMAN)
 
 
 /obj/structure/trap/ctf

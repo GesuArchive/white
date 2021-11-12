@@ -85,6 +85,9 @@
 	extra_damage = 30
 	extra_penetration = 10
 
+/obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks/warfare
+	extra_damage = 60
+	extra_penetration = 20
 
 /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks/scoped
 	name = "Scoped SKS"
