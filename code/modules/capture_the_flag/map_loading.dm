@@ -16,7 +16,6 @@
 		maplist[C] = C.weight
 
 	current_map = pickweight(maplist)
-	current_map = new current_map
 
 	if(!spawn_area)
 		CRASH("No spawn area detected for CTF!")
