@@ -9,17 +9,12 @@
 
 	var/turf/spawn_area = get_turf(src)
 	var/datum/map_template/ctf/current_map
+	var/list/maplist = list()
 
-	var/total = 0
 	for(var/datum/map_template/ctf/C in subtypesof(/datum/map_template/ctf))
-		total += C.weight
-	total = rand(1, total)
-	for(var/datum/map_template/ctf/C in subtypesof(/datum/map_template/ctf))
-		total -= C.weight
-		if (total <= 0)
-			current_map = C.type
-			break
+		maplist[C] = C.weight
 
+	current_map = pickweight(maplist)
 	current_map = new current_map
 
 	if(!spawn_area)
