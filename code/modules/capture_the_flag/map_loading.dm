@@ -12,7 +12,7 @@
 	var/list/maplist = list()
 
 	for(var/item in subtypesof(/datum/map_template/ctf))
-		var/datum/map_template/ctf/C = item
+		var/datum/map_template/ctf/C = new item()
 		maplist[C] = C.weight
 
 	current_map = pickweight(maplist)

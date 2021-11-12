@@ -232,7 +232,7 @@
 /area/awaymission/vietnam)
 "gi" = (
 /obj/effect/light_emitter,
-/obj/structure/barricade/wooden/stockade{
+/obj/structure/deployable_barricade/wooden{
 	dir = 4
 	},
 /turf/open/floor/plating/dirt/jungle,
@@ -275,7 +275,7 @@
 /turf/open/floor/grass/gensgrass/dirty,
 /area/awaymission/vietnam)
 "ia" = (
-/obj/structure/barricade/wooden/stockade{
+/obj/structure/deployable_barricade/wooden{
 	dir = 4
 	},
 /turf/open/floor/plating/dirt/jungle,
@@ -306,7 +306,7 @@
 /area/awaymission/vietnam)
 "je" = (
 /obj/effect/light_emitter,
-/obj/structure/barricade/wooden/stockade{
+/obj/structure/deployable_barricade/wooden{
 	dir = 4;
 	layer = 2.8
 	},
@@ -320,7 +320,7 @@
 /turf/open/floor/plating/grass/jungle,
 /area/awaymission/vietnam)
 "jK" = (
-/obj/structure/barricade/wooden/stockade{
+/obj/structure/deployable_barricade/wooden{
 	dir = 4;
 	layer = 2.8
 	},
@@ -344,25 +344,25 @@
 /turf/open/floor/rospilovo,
 /area/awaymission/vietnam/dark)
 "kc" = (
-/obj/structure/barricade/wooden/stockade{
+/obj/structure/deployable_barricade/wooden{
 	dir = 4
 	},
 /turf/open/floor/plating/grass/jungle,
 /area/awaymission/vietnam)
 "ke" = (
-/obj/structure/barricade/wooden/stockade{
+/obj/structure/deployable_barricade/wooden{
 	dir = 4
 	},
-/obj/structure/barricade/wooden/stockade,
+/obj/structure/deployable_barricade/wooden,
 /turf/open/floor/plating/grass/jungle,
 /area/awaymission/vietnam)
 "ki" = (
-/obj/structure/barricade/wooden/stockade,
+/obj/structure/deployable_barricade/wooden,
 /turf/open/floor/plating/grass/jungle,
 /area/awaymission/vietnam)
 "kw" = (
 /obj/effect/light_emitter,
-/obj/structure/barricade/wooden/stockade,
+/obj/structure/deployable_barricade/wooden,
 /turf/open/floor/plating/dirt/jungle,
 /area/awaymission/vietnam)
 "kZ" = (
@@ -397,7 +397,7 @@
 /turf/open/floor/plating/dirt/jungle/dark,
 /area/awaymission/vietnam)
 "lO" = (
-/obj/structure/barricade/wooden/stockade,
+/obj/structure/deployable_barricade/wooden,
 /turf/open/floor/plating/dirt/jungle,
 /area/awaymission/vietnam)
 "lP" = (
@@ -609,7 +609,7 @@
 /turf/open/floor/plating/dirt/jungle/dark,
 /area/awaymission/vietnam)
 "tH" = (
-/obj/structure/barricade/wooden/stockade{
+/obj/structure/deployable_barricade/wooden{
 	layer = 4
 	},
 /turf/open/floor/plating/grass/jungle,
@@ -890,8 +890,8 @@
 /turf/open/floor/rospilovo/wood,
 /area/awaymission/vietnam/dark)
 "BH" = (
-/obj/structure/barricade/wooden/stockade,
-/obj/structure/barricade/wooden/stockade{
+/obj/structure/deployable_barricade/wooden,
+/obj/structure/deployable_barricade/wooden{
 	dir = 4;
 	layer = 2.8
 	},
@@ -910,11 +910,11 @@
 /turf/open/water,
 /area/awaymission/vietnam/dark)
 "Cl" = (
-/obj/structure/barricade/wooden/stockade{
+/obj/structure/deployable_barricade/wooden{
 	dir = 4;
 	layer = 2.8
 	},
-/obj/structure/barricade/wooden/stockade{
+/obj/structure/deployable_barricade/wooden{
 	layer = 4
 	},
 /turf/open/floor/plating/grass/jungle,
@@ -928,10 +928,10 @@
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
 "CX" = (
-/obj/structure/barricade/wooden/stockade{
+/obj/structure/deployable_barricade/wooden{
 	layer = 4
 	},
-/obj/structure/barricade/wooden/stockade{
+/obj/structure/deployable_barricade/wooden{
 	dir = 4;
 	layer = 2.8
 	},
@@ -973,7 +973,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dark)
 "DM" = (
-/obj/structure/barricade/wooden/stockade{
+/obj/structure/deployable_barricade/wooden{
 	dir = 4;
 	layer = 2.8
 	},
@@ -984,7 +984,7 @@
 /turf/open/water,
 /area/awaymission/vietnam)
 "DU" = (
-/obj/structure/barricade/wooden/stockade{
+/obj/structure/deployable_barricade/wooden{
 	layer = 4
 	},
 /turf/open/floor/plating/dirt/jungle,
