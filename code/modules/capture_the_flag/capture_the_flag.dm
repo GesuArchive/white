@@ -126,7 +126,7 @@
 	reset_path = /obj/effect/ctf/flag_reset/blue
 
 /obj/item/ctf/green
-	name = "green flag"
+	name = "Зелёный флаг"
 	icon_state = "banner-green"
 	inhand_icon_state = "banner-green"
 	desc = "A green banner used to play capture the flag."
@@ -135,7 +135,7 @@
 
 
 /obj/item/ctf/yellow
-	name = "yellow flag"
+	name = "Желтый флаг"
 	icon_state = "banner-yellow"
 	inhand_icon_state = "banner-yellow"
 	desc = "A yellow banner used to play capture the flag."
@@ -159,26 +159,22 @@
 /obj/effect/ctf/flag_reset/red
 	name = "Точка красного флага"
 	icon_state = "banner-red"
-	desc = "Сюда вставляется \
-		красный флаг."
+	desc = "Сюда вставляется красный флаг."
 
 /obj/effect/ctf/flag_reset/blue
 	name = "Точка синего флага"
 	icon_state = "banner-blue"
-	desc = "Сюда вставляется \
-		синий флаг."
+	desc = "Сюда вставляется синий флаг."
 
 /obj/effect/ctf/flag_reset/green
-	name = "green flag landmark"
+	name = "Точка зелёного флага"
 	icon_state = "banner"
-	desc = "This is where a green banner used to play capture the flag \
-		would go."
+	desc = "Сюда вставляется зелёный флаг."
 
 /obj/effect/ctf/flag_reset/yellow
-	name = "yellow flag landmark"
+	name = "Точка жёлтого флага"
 	icon_state = "banner"
-	desc = "This is where a yellow banner used to play capture the flag \
-		would go."
+	desc = "Сюда вставляется жёлтый флаг."
 
 /proc/toggle_id_ctf(user, activated_id, automated = FALSE)
 	var/ctf_enabled = FALSE
