@@ -232,6 +232,12 @@
 /area/ctf/flag_room2
 	name = "Захват флага: Флаг B"
 
+/area/ctf/warfare
+	name = "Астральный Забив"
+	static_lighting = FALSE
+	base_lighting_color = COLOR_WHITE
+	base_lighting_alpha = 5
+
 // REEBE
 
 /area/reebe

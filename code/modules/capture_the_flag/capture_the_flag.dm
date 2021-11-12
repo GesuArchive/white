@@ -710,6 +710,7 @@
 /datum/outfit/ctf/blue/warfare/post_equip(mob/living/carbon/human/H)
 	. = ..()
 	H.add_client_colour(/datum/client_colour/warfare)
+	overlay_fullscreen("noisewwi", /atom/movable/screen/fullscreen/noisescreen/warfare)
 
 /datum/outfit/ctf/blue/instagib
 	r_hand = /obj/item/gun/energy/laser/instakill/blue
@@ -748,6 +749,7 @@
 /datum/outfit/ctf/yellow/warfare/post_equip(mob/living/carbon/human/H)
 	. = ..()
 	H.add_client_colour(/datum/client_colour/warfare)
+	overlay_fullscreen("noisewwi", /atom/movable/screen/fullscreen/noisescreen/warfare)
 
 /datum/outfit/ctf/yellow/instagib
 	r_hand = /obj/item/gun/energy/laser/instakill/yellow

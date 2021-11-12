@@ -1,216 +1,309 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"bq" = (
+"ae" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "m4"
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/ctf/warfare)
+"aP" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 1
+	},
+/obj/structure/cannon{
+	dir = 1
+	},
+/turf/open/floor/plating/is12/wwidirt,
+/area/ctf/warfare)
+"be" = (
+/obj/item/flashlight/flare{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/turf/open/floor/plating/is12/rock,
+/area/ctf/warfare)
+"dz" = (
+/obj/structure/deployable_barricade/sandbags,
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/ctf/warfare)
+"eo" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/ctf/warfare)
+"eN" = (
 /obj/effect/turf_decal/is12,
 /turf/open/floor/plating/is12/dirt,
-/area/ctf)
+/area/ctf/warfare)
 "fh" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "l2"
 	},
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
+/area/ctf/warfare)
 "fy" = (
+/obj/structure/fermenting_barrel/gunpowder,
 /turf/open/floor/plating/is12/wood,
-/area/ctf)
+/area/ctf/warfare)
 "fJ" = (
 /obj/structure/deployable_barricade/sandbags{
 	dir = 1
 	},
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
+/area/ctf/warfare)
+"gQ" = (
+/obj/item/flashlight/flare,
+/turf/open/floor/plating/is12/surface,
+/area/ctf/warfare)
 "gR" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "l3"
 	},
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
+/area/ctf/warfare)
+"im" = (
+/obj/item/flashlight/flare,
+/turf/open/floor/plating/is12/wood,
+/area/ctf/warfare)
 "iQ" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "dirtcornerleft"
 	},
 /turf/open/floor/plating/is12/wood,
-/area/ctf)
+/area/ctf/warfare)
+"jh" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "m3"
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/ctf/warfare)
+"jV" = (
+/turf/open/floor/plating/is12/wwidirt,
+/area/ctf/warfare)
 "ko" = (
 /obj/structure/deployable_barricade/sandbags{
 	dir = 4
 	},
 /turf/open/floor/plating/is12/trenchcenter,
-/area/ctf)
+/area/ctf/warfare)
 "lh" = (
 /turf/open/floor/plating/is12/wwidirtplating,
-/area/ctf)
+/area/ctf/warfare)
 "lO" = (
 /obj/effect/turf_decal/is12,
 /turf/open/floor/plating/is12/wood,
-/area/ctf)
+/area/ctf/warfare)
+"lX" = (
+/obj/item/flashlight/flare{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/turf/open/floor/plating/is12/trenchcenter,
+/area/ctf/warfare)
+"mS" = (
+/obj/machinery/light/red/directional/north,
+/obj/item/flashlight/flare,
+/turf/open/floor/plating/is12/wood,
+/area/ctf/warfare)
 "na" = (
 /obj/item/ctf/blue,
 /turf/open/floor/plating/is12/wood,
-/area/ctf)
+/area/ctf/warfare)
 "nn" = (
 /obj/structure/deployable_barricade/sandbags,
 /obj/item/binoculars,
 /turf/open/floor/plating/is12/wwidirtplating,
-/area/ctf)
+/area/ctf/warfare)
 "oE" = (
 /obj/effect/turf_decal/is12,
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
-"qO" = (
-/obj/effect/turf_decal/is12{
-	icon_state = "m4"
-	},
-/turf/open/floor/plating/is12/dirt,
-/area/ctf)
+/area/ctf/warfare)
+"oW" = (
+/obj/machinery/light/red/directional/south,
+/turf/open/floor/plating/is12/wood,
+/area/ctf/warfare)
 "sd" = (
 /obj/structure/deployable_barricade/sandbags,
 /obj/structure/deployable_barricade/sandbags{
 	dir = 4
 	},
 /turf/open/floor/plating/is12/wwidirtplating,
-/area/ctf)
+/area/ctf/warfare)
 "sp" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "grass"
 	},
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
+/area/ctf/warfare)
 "sv" = (
 /obj/structure/deployable_barricade/sandbags,
 /obj/structure/deployable_barricade/sandbags{
 	dir = 8
 	},
 /turf/open/floor/plating/is12/wwidirtplating,
-/area/ctf)
+/area/ctf/warfare)
+"sM" = (
+/obj/item/flashlight/flare,
+/turf/open/floor/plating/is12/trenchcenter,
+/area/ctf/warfare)
 "sZ" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "l4"
 	},
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
-"tA" = (
-/turf/closed/indestructible/riveted/boss,
-/area/ctf)
+/area/ctf/warfare)
+"tN" = (
+/obj/item/reagent_containers/glass/bucket/wooden,
+/turf/open/floor/plating/is12/wood,
+/area/ctf/warfare)
 "tO" = (
 /obj/machinery/capture_the_flag/blue/warfare,
 /turf/open/floor/plating/is12/wood,
-/area/ctf)
+/area/ctf/warfare)
 "tQ" = (
 /obj/structure/deployable_barricade/sandbags,
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
+/area/ctf/warfare)
 "ut" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "m1"
 	},
 /turf/open/floor/plating/is12/surface,
-/area/ctf)
+/area/ctf/warfare)
 "uR" = (
 /obj/structure/deployable_barricade/sandbags{
 	dir = 8
 	},
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
+/area/ctf/warfare)
 "vj" = (
 /obj/machinery/capture_the_flag/yellow/warfare,
 /obj/effect/turf_decal/is12{
 	icon_state = "dirtcornerleft"
 	},
 /turf/open/floor/plating/is12/wood,
-/area/ctf)
+/area/ctf/warfare)
 "vp" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "l6"
 	},
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
+/area/ctf/warfare)
 "wN" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "m2"
 	},
 /turf/open/floor/plating/is12/surface,
-/area/ctf)
+/area/ctf/warfare)
+"xn" = (
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/plating/is12/wood,
+/area/ctf/warfare)
+"xE" = (
+/obj/item/stack/cannonball/fourteen,
+/turf/open/floor/plating/is12/wood,
+/area/ctf/warfare)
 "yp" = (
 /turf/open/floor/plating/is12/surface,
-/area/ctf)
+/area/ctf/warfare)
 "yQ" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "grass"
 	},
 /turf/open/floor/plating/is12/wwidirtplating,
-/area/ctf)
+/area/ctf/warfare)
+"zp" = (
+/obj/machinery/light/no_nightlight/directional/north,
+/turf/open/floor/plating/is12/rock,
+/area/ctf/warfare)
+"zq" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "m1"
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/ctf/warfare)
 "AN" = (
 /obj/structure/trap/ctf/blue,
 /turf/open/floor/plating/is12/trenchcenter,
-/area/ctf)
+/area/ctf/warfare)
 "Bn" = (
 /turf/open/floor/plating/is12/mud,
-/area/ctf)
-"Bq" = (
-/obj/effect/turf_decal/is12{
-	icon_state = "m3"
-	},
-/turf/open/floor/plating/is12/dirt,
-/area/ctf)
-"Cw" = (
-/turf/open/floor/plating/is12/trenchcenter,
-/area/ctf)
+/area/ctf/warfare)
 "CI" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "l7"
 	},
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
+/area/ctf/warfare)
 "De" = (
 /obj/structure/deployable_barricade/sandbags,
 /turf/open/floor/plating/is12/wwidirt,
-/area/ctf)
+/area/ctf/warfare)
+"Dm" = (
+/obj/item/flashlight/flare,
+/turf/open/floor/plating/is12/wwidirtplating,
+/area/ctf/warfare)
+"Eb" = (
+/obj/structure/deployable_barricade/sandbags,
+/obj/structure/cannon,
+/turf/open/floor/plating/is12/wwidirt,
+/area/ctf/warfare)
 "El" = (
 /obj/structure/deployable_barricade/sandbags{
 	dir = 1
 	},
 /turf/open/floor/plating/is12/wwidirtplating,
-/area/ctf)
-"HI" = (
-/obj/effect/turf_decal/is12{
-	icon_state = "m2"
+/area/ctf/warfare)
+"Ey" = (
+/turf/open/floor/plating/is12/wood,
+/area/ctf/warfare)
+"HY" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
 	},
 /turf/open/floor/plating/is12/dirt,
-/area/ctf)
+/area/ctf/warfare)
 "IB" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "dirtcornerright"
 	},
 /turf/open/floor/plating/is12/wood,
-/area/ctf)
+/area/ctf/warfare)
 "IY" = (
 /obj/structure/deployable_barricade/sandbags{
 	dir = 1
 	},
 /obj/item/binoculars,
 /turf/open/floor/plating/is12/wwidirtplating,
-/area/ctf)
+/area/ctf/warfare)
 "Li" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "l8"
 	},
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
+/area/ctf/warfare)
 "LH" = (
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
+/area/ctf/warfare)
 "MB" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "l5"
 	},
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
+/area/ctf/warfare)
 "MM" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "l1"
 	},
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
+/area/ctf/warfare)
+"MT" = (
+/obj/item/storage/box/firecrackers,
+/turf/open/floor/plating/is12/wood,
+/area/ctf/warfare)
 "Nc" = (
 /obj/structure/deployable_barricade/sandbags{
 	dir = 1
@@ -219,28 +312,33 @@
 	dir = 8
 	},
 /turf/open/floor/plating/is12/wwidirtplating,
-/area/ctf)
-"Ny" = (
-/obj/effect/turf_decal/is12{
-	icon_state = "m1"
+/area/ctf/warfare)
+"Ns" = (
+/obj/structure/deployable_barricade/sandbags,
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
 	},
 /turf/open/floor/plating/is12/dirt,
-/area/ctf)
+/area/ctf/warfare)
 "Of" = (
 /turf/open/floor/plating/is12/dirt,
-/area/ctf)
+/area/ctf/warfare)
 "Qb" = (
 /obj/structure/deployable_barricade/sandbags{
 	dir = 4
 	},
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
+/area/ctf/warfare)
 "Qc" = (
 /obj/structure/deployable_barricade/sandbags{
 	dir = 1
 	},
 /turf/open/floor/plating/is12/wwidirt,
-/area/ctf)
+/area/ctf/warfare)
+"QX" = (
+/obj/machinery/light/no_nightlight/directional/west,
+/turf/open/floor/plating/is12/rock,
+/area/ctf/warfare)
 "Sw" = (
 /obj/structure/deployable_barricade/sandbags{
 	dir = 1
@@ -249,177 +347,170 @@
 	dir = 4
 	},
 /turf/open/floor/plating/is12/wwidirtplating,
-/area/ctf)
+/area/ctf/warfare)
 "TE" = (
-/turf/open/floor/plating/is12/wwidirt,
-/area/ctf)
+/turf/closed/indestructible/riveted/dirtystone,
+/area/ctf/warfare)
+"TL" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "grass"
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/ctf/warfare)
+"Un" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 1
+	},
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/ctf/warfare)
 "Uo" = (
 /obj/item/ctf/yellow,
 /turf/open/floor/plating/is12/wood,
-/area/ctf)
+/area/ctf/warfare)
+"Uy" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "m2"
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/ctf/warfare)
 "Vj" = (
 /obj/structure/trap/ctf/yellow,
 /turf/open/floor/plating/is12/trenchcenter,
-/area/ctf)
+/area/ctf/warfare)
 "VQ" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "m3"
 	},
 /turf/open/floor/plating/is12/surface,
-/area/ctf)
+/area/ctf/warfare)
 "VT" = (
 /obj/structure/deployable_barricade/sandbags{
 	dir = 8
 	},
 /turf/open/floor/plating/is12/trenchcenter,
-/area/ctf)
+/area/ctf/warfare)
+"Wp" = (
+/obj/item/flashlight/flare{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/ctf/warfare)
+"WW" = (
+/obj/machinery/light/no_nightlight/directional/east,
+/turf/open/floor/plating/is12/rock,
+/area/ctf/warfare)
 "WY" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "m4"
 	},
 /turf/open/floor/plating/is12/surface,
-/area/ctf)
+/area/ctf/warfare)
 "Xa" = (
 /obj/structure/deployable_barricade/sandbags,
 /turf/open/floor/plating/is12/wwidirtplating,
-/area/ctf)
+/area/ctf/warfare)
+"Xe" = (
+/obj/machinery/light/no_nightlight/directional/south,
+/turf/open/floor/plating/is12/rock,
+/area/ctf/warfare)
 "Ym" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "l9"
 	},
 /turf/open/floor/plating/is12/rock,
-/area/ctf)
+/area/ctf/warfare)
 "Zy" = (
+/turf/open/floor/plating/is12/trenchcenter,
+/area/ctf/warfare)
+"ZH" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "grass"
 	},
+/obj/structure/deployable_barricade/sandbags{
+	dir = 1
+	},
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
 /turf/open/floor/plating/is12/dirt,
-/area/ctf)
+/area/ctf/warfare)
 
 (1,1,1) = {"
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
 "}
 (2,1,1) = {"
-tA
+TE
 tO
-fy
-fy
-fy
-fy
-tA
+Ey
+Ey
+Ey
+xE
+TE
 LH
 tQ
 LH
 LH
 LH
+QX
 LH
-LH
-Of
-Of
-Of
-Of
-Of
-Of
-Of
-Of
-Of
-Bn
-Bn
-Bn
-Bn
-Bn
-Bn
-Of
-Of
-Of
-Of
-Of
-qO
-Bq
-Of
-LH
-LH
-fJ
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-tA
-"}
-(3,1,1) = {"
-tA
-fy
-fy
-fy
-fy
-fy
-tA
-LH
-tQ
-LH
-LH
-LH
-LH
-LH
-Of
-bq
-Of
 Of
 Zy
+Zy
+Zy
+Xa
 Of
 Of
 Of
@@ -430,13 +521,13 @@ Bn
 Bn
 Bn
 Bn
-Bn
 Of
 Of
 Of
-Of
-HI
-Ny
+El
+Zy
+Zy
+Zy
 Of
 LH
 LH
@@ -450,15 +541,67 @@ LH
 LH
 LH
 LH
-tA
+TE
+"}
+(3,1,1) = {"
+TE
+fy
+Ey
+Ey
+im
+Ey
+TE
+LH
+tQ
+LH
+LH
+LH
+LH
+LH
+eN
+Zy
+Zy
+Zy
+Xa
+TL
+Of
+Of
+Of
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Of
+Of
+El
+Zy
+Zy
+Zy
+Of
+LH
+LH
+fJ
+LH
+be
+LH
+LH
+LH
+LH
+LH
+LH
+LH
+TE
 "}
 (4,1,1) = {"
-tA
-fy
-fy
-fy
-fy
-fy
+TE
+mS
+Ey
+tN
+Ey
+Ey
 AN
 LH
 tQ
@@ -468,13 +611,13 @@ LH
 LH
 LH
 Of
+Zy
+Zy
+Zy
+Xa
 Of
 Of
-Of
-Of
-Of
-Of
-Of
+Wp
 Bn
 Bn
 Bn
@@ -483,12 +626,12 @@ Bn
 Bn
 Bn
 Bn
-Of
-Of
-Of
-Of
-Of
-Of
+ae
+jh
+El
+Zy
+Zy
+Zy
 Of
 LH
 LH
@@ -502,16 +645,16 @@ LH
 LH
 LH
 LH
-tA
+TE
 "}
 (5,1,1) = {"
-tA
-fy
+TE
+Ey
 lO
-fy
-fy
-fy
-tA
+Ey
+Ey
+xE
+TE
 LH
 tQ
 LH
@@ -520,9 +663,9 @@ LH
 LH
 LH
 Of
-Cw
-Cw
-Cw
+Zy
+Zy
+Zy
 Xa
 Of
 Of
@@ -535,35 +678,35 @@ Bn
 Bn
 Bn
 Bn
-Of
-Of
+Uy
+zq
 El
-Cw
-Cw
-Cw
+Zy
+Zy
+Zy
 Of
 LH
 LH
-tA
-tA
-tA
 TE
-tA
-tA
-tA
+TE
+TE
+jV
+TE
+TE
+TE
 LH
 LH
 LH
-tA
+TE
 "}
 (6,1,1) = {"
-tA
-fy
-fy
-fy
-fy
-fy
-tA
+TE
+xE
+Ey
+Ey
+xE
+MT
+TE
 LH
 tQ
 LH
@@ -572,9 +715,9 @@ LH
 LH
 LH
 Of
-Cw
-Cw
-Cw
+Zy
+sM
+Zy
 Xa
 Of
 Of
@@ -590,32 +733,32 @@ Bn
 Of
 Of
 El
-Cw
-Cw
-Cw
+lX
+Zy
+Zy
 Of
 LH
 LH
-tA
-fy
-fy
-fy
-fy
+TE
+Ey
+Ey
+Ey
+Ey
 IB
-tA
+TE
 LH
 sp
 LH
-tA
+TE
 "}
 (7,1,1) = {"
-tA
-tA
-tA
+TE
+TE
+TE
 AN
-tA
-tA
-tA
+TE
+TE
+TE
 LH
 tQ
 LH
@@ -624,9 +767,9 @@ LH
 LH
 LH
 Of
-Cw
-Cw
-Cw
+Zy
+Zy
+Zy
 Xa
 Of
 Of
@@ -642,26 +785,26 @@ Bn
 Of
 Of
 IY
-Cw
-Cw
-Cw
+Zy
+Zy
+Zy
 Of
 LH
 LH
 Qc
-fy
-fy
-fy
-fy
-fy
-tA
+tN
+im
+Ey
+Ey
+Ey
+TE
 LH
 LH
 LH
-tA
+TE
 "}
 (8,1,1) = {"
-tA
+TE
 LH
 LH
 LH
@@ -676,9 +819,9 @@ LH
 LH
 LH
 Of
-Cw
-Cw
-Cw
+Zy
+Zy
+Zy
 Xa
 Of
 Of
@@ -694,26 +837,26 @@ Bn
 Of
 Of
 El
-Cw
-Cw
-Cw
+Zy
+Zy
+Zy
 Of
 LH
 LH
-Qc
-fy
-fy
+aP
+Ey
+Ey
 Uo
-fy
-fy
+Ey
+oW
 TE
 LH
 LH
 LH
-tA
+TE
 "}
 (9,1,1) = {"
-tA
+TE
 Qb
 Qb
 Qb
@@ -744,7 +887,7 @@ Bn
 Bn
 Bn
 Of
-bq
+eN
 Sw
 ko
 ko
@@ -753,19 +896,19 @@ Of
 LH
 LH
 Qc
-fy
-fy
+Ey
+Ey
 lO
-fy
-fy
-tA
+Ey
+Ey
+TE
 LH
 LH
 LH
-tA
+TE
 "}
 (10,1,1) = {"
-tA
+TE
 LH
 LH
 LH
@@ -804,20 +947,20 @@ Of
 Of
 LH
 LH
-tA
-fy
-fy
-fy
-fy
-fy
-tA
+TE
+Ey
+Ey
+Ey
+Ey
+Ey
+TE
 LH
 LH
-LH
-tA
+be
+TE
 "}
 (11,1,1) = {"
-tA
+TE
 LH
 LH
 LH
@@ -826,50 +969,50 @@ LH
 LH
 LH
 sp
-LH
-LH
-LH
-LH
-LH
-Of
-Of
-Of
-Of
-Of
-Of
-Of
-Bn
-Bn
-Bn
-Bn
-Bn
-Bn
-Bn
-Bn
-Bn
-Of
-Of
-Of
-Zy
-Of
-Of
-Of
-LH
-LH
-tA
-tA
-tA
 TE
-tA
-tA
-tA
 LH
 LH
 LH
-tA
+LH
+Of
+Of
+eo
+dz
+Of
+Of
+Of
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Of
+Of
+Of
+ZH
+eo
+Of
+Of
+LH
+LH
+TE
+TE
+TE
+jV
+TE
+TE
+TE
+LH
+LH
+LH
+TE
 "}
 (12,1,1) = {"
-tA
+TE
 LH
 LH
 LH
@@ -878,15 +1021,15 @@ LH
 LH
 LH
 LH
-LH
-LH
+TE
+zp
 LH
 LH
 lh
 lh
 lh
 lh
-lh
+Xa
 lh
 lh
 yp
@@ -902,10 +1045,10 @@ lh
 lh
 lh
 lh
+El
 lh
 lh
 lh
-lh
 LH
 LH
 LH
@@ -918,19 +1061,19 @@ LH
 LH
 LH
 LH
-tA
+TE
 "}
 (13,1,1) = {"
-tA
+TE
+LH
+LH
+be
 LH
 LH
 LH
 LH
 LH
-LH
-LH
-LH
-LH
+TE
 LH
 LH
 lh
@@ -938,12 +1081,12 @@ lh
 lh
 lh
 yQ
+Xa
 lh
-lh
 yp
 yp
 yp
-yp
+gQ
 WY
 VQ
 yp
@@ -954,14 +1097,14 @@ yp
 yp
 yp
 lh
-lh
+El
 lh
 lh
 lh
 lh
 lh
 LH
-LH
+TE
 LH
 LH
 LH
@@ -970,10 +1113,10 @@ CI
 Li
 MM
 LH
-tA
+TE
 "}
 (14,1,1) = {"
-tA
+TE
 LH
 LH
 sp
@@ -990,8 +1133,8 @@ LH
 lh
 lh
 lh
-lh
-lh
+Xa
+Dm
 lh
 lh
 lh
@@ -1006,14 +1149,14 @@ yp
 yp
 lh
 lh
-lh
+El
 lh
 lh
 lh
 lh
 LH
-LH
-LH
+Xe
+TE
 LH
 LH
 LH
@@ -1022,27 +1165,27 @@ vp
 Ym
 fh
 LH
-tA
+TE
 "}
 (15,1,1) = {"
-tA
-LH
-LH
-LH
-tA
-tA
-tA
 TE
-tA
-tA
-tA
+LH
+LH
+LH
+TE
+TE
+TE
+jV
+TE
+TE
+TE
 LH
 LH
 LH
 Of
 Of
-Of
-Of
+HY
+Ns
 Of
 Of
 Of
@@ -1058,14 +1201,14 @@ Bn
 Of
 Of
 Of
-Of
-Of
+Un
+HY
 Of
 Of
 LH
 LH
 LH
-LH
+TE
 LH
 LH
 LH
@@ -1074,20 +1217,20 @@ MB
 sZ
 gR
 LH
-tA
+TE
 "}
 (16,1,1) = {"
-tA
+TE
 LH
 LH
 LH
-tA
-fy
-fy
-fy
-fy
-fy
-tA
+TE
+Ey
+Ey
+Ey
+Ey
+Ey
+TE
 LH
 LH
 LH
@@ -1126,19 +1269,19 @@ LH
 LH
 LH
 LH
-tA
+TE
 "}
 (17,1,1) = {"
-tA
+TE
 LH
 LH
 LH
-tA
-fy
-fy
-fy
-fy
-fy
+TE
+Ey
+Ey
+Ey
+Ey
+Ey
 De
 LH
 sp
@@ -1178,27 +1321,27 @@ uR
 uR
 uR
 uR
-tA
+TE
 "}
 (18,1,1) = {"
-tA
+TE
 LH
 LH
 LH
 TE
-fy
-fy
+xn
+Ey
 na
-fy
-fy
-De
+Ey
+Ey
+Eb
 LH
 LH
 LH
 Of
-Cw
-Cw
-Cw
+Zy
+Zy
+Zy
 Xa
 Of
 Of
@@ -1214,9 +1357,9 @@ Bn
 Of
 Of
 El
-Cw
-Cw
-Cw
+Zy
+Zy
+Zy
 Of
 LH
 LH
@@ -1230,27 +1373,27 @@ LH
 LH
 LH
 LH
-tA
+TE
 "}
 (19,1,1) = {"
-tA
+TE
 LH
 LH
 LH
-tA
-fy
-fy
-fy
-fy
-fy
+TE
+Ey
+im
+Ey
+Ey
+tN
 De
 LH
 LH
 LH
 Of
-Cw
-Cw
-Cw
+Zy
+Zy
+Zy
 nn
 Of
 Of
@@ -1266,9 +1409,9 @@ Bn
 Of
 Of
 El
-Cw
-Cw
-Cw
+Zy
+lX
+Zy
 Of
 LH
 LH
@@ -1276,85 +1419,85 @@ LH
 LH
 fJ
 LH
-tA
-tA
-tA
+TE
+TE
+TE
 Vj
-tA
-tA
-tA
+TE
+TE
+TE
 "}
 (20,1,1) = {"
-tA
+TE
 LH
 LH
 LH
-tA
-fy
-fy
-fy
-fy
+TE
+Ey
+Ey
+Ey
+Ey
 iQ
-tA
+TE
 LH
 LH
 LH
-Of
-Cw
-Cw
-Cw
-Xa
-bq
-Of
-Bn
-Bn
-Bn
-Bn
-Bn
-Bn
-Bn
-Bn
-Bn
 Of
 Zy
+sM
+Zy
+Xa
+eN
+Of
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Of
+TL
 El
-Cw
-Cw
-Cw
+Zy
+Zy
+Zy
 Of
 LH
 LH
-LH
+be
 LH
 fJ
 LH
-tA
-fy
-fy
-fy
-fy
-fy
-tA
+TE
+MT
+xE
+Ey
+Ey
+xE
+TE
 "}
 (21,1,1) = {"
-tA
-LH
-LH
-LH
-tA
-tA
-tA
 TE
-tA
-tA
-tA
+LH
+LH
+LH
+TE
+TE
+TE
+jV
+TE
+TE
+TE
 LH
 LH
 LH
 Of
-Cw
-Cw
-Cw
+Zy
+Zy
+Zy
 Xa
 Of
 Of
@@ -1370,9 +1513,9 @@ Of
 Of
 Of
 El
-Cw
-Cw
-Cw
+Zy
+Zy
+Zy
 Of
 LH
 LH
@@ -1380,16 +1523,16 @@ LH
 LH
 fJ
 LH
-tA
-fy
-fy
-fy
-fy
-fy
-tA
+TE
+xE
+im
+Ey
+Ey
+Ey
+TE
 "}
 (22,1,1) = {"
-tA
+TE
 LH
 LH
 LH
@@ -1404,10 +1547,10 @@ LH
 LH
 LH
 Of
-Of
-Of
-Of
-Of
+Zy
+Zy
+Zy
+Xa
 Of
 Of
 Bn
@@ -1421,10 +1564,10 @@ Bn
 Of
 Of
 Of
-Of
-Of
-Of
-Of
+El
+Zy
+Zy
+Zy
 Of
 LH
 LH
@@ -1433,15 +1576,67 @@ LH
 fJ
 LH
 Vj
-fy
-fy
-fy
-fy
-fy
-tA
+Ey
+Ey
+tN
+Ey
+oW
+TE
 "}
 (23,1,1) = {"
-tA
+TE
+LH
+LH
+LH
+LH
+LH
+LH
+LH
+LH
+LH
+tQ
+LH
+LH
+LH
+TL
+Zy
+Zy
+Zy
+Xa
+Of
+Of
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Of
+Wp
+Of
+Of
+El
+Zy
+Zy
+Zy
+Of
+LH
+LH
+LH
+LH
+fJ
+LH
+TE
+Ey
+Ey
+Ey
+Ey
+fy
+TE
+"}
+(24,1,1) = {"
+TE
 LH
 LH
 LH
@@ -1457,8 +1652,9 @@ LH
 LH
 Of
 Zy
-Of
-Of
+Zy
+Zy
+Xa
 Of
 Of
 Of
@@ -1468,131 +1664,78 @@ Bn
 Bn
 Bn
 Bn
-Bn
 Of
 Of
 Of
 Of
-Of
-Of
-Of
-Of
+El
+Zy
+Zy
+Zy
 Of
 LH
-LH
+WW
 LH
 LH
 fJ
 LH
-tA
-fy
-fy
-fy
-fy
-fy
-tA
-"}
-(24,1,1) = {"
-tA
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-tQ
-LH
-LH
-LH
-Of
-Of
-Of
-Of
-Of
-Of
-Of
-Of
-Bn
-Bn
-Bn
-Bn
-Bn
-Bn
-Of
-Of
-Of
-Of
-Of
-Of
-Of
-Of
-Of
-LH
-LH
-LH
-LH
-fJ
-LH
-tA
-fy
-fy
-fy
-fy
+TE
+xE
+Ey
+Ey
+Ey
 vj
-tA
+TE
 "}
 (25,1,1) = {"
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
-tA
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
 "}

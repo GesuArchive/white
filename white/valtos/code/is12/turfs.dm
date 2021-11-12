@@ -74,3 +74,15 @@
 	barefootstep = FOOTSTEP_WOOD_BAREFOOT
 	clawfootstep = FOOTSTEP_WOOD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+
+/turf/closed/indestructible/riveted/dirtystone
+	name = "твёрдая стена"
+	desc = "Толстая, казалось бы, неразрушимая каменная стена."
+	icon =  'white/valtos/icons/is12/dirtystone.dmi'
+	icon_state = "dirtystone-0"
+	base_icon_state = "dirtystone"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_BOSS_WALLS)
+	canSmoothWith = list(SMOOTH_GROUP_BOSS_WALLS)
+	explosion_block = 50
+	baseturfs = /turf/closed/indestructible/riveted/dirtystone
