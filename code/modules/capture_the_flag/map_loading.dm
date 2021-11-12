@@ -7,7 +7,6 @@
 
 /obj/effect/landmark/ctf/proc/load_map()
 
-	var/list/map_options = list()
 	var/turf/spawn_area = get_turf(src)
 	var/datum/map_template/ctf/current_map
 
