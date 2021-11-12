@@ -234,9 +234,9 @@
 
 /area/ctf/warfare
 	name = "Астральный Забив"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	base_lighting_color = COLOR_WHITE
-	base_lighting_alpha = 5
+	base_lighting_alpha = 0
 
 // REEBE
 
