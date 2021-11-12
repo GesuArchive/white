@@ -18,8 +18,10 @@
 	for(var/datum/map_template/ctf/C in subtypesof(/datum/map_template/ctf))
 		total -= C.weight
 		if (total <= 0)
-			current_map = new C
+			current_map = C
 			break
+
+	current_map = new current_map
 
 	if(!spawn_area)
 		CRASH("No spawn area detected for CTF!")
