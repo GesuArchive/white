@@ -76,7 +76,7 @@
 	if(capitalized)
 		. = capitalize(.)
 
-/client/ru_aya(capitalized, temp_gender)
+/atom/ru_aya(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
 	. = "ой"
