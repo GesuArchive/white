@@ -730,33 +730,31 @@
 		if(body_part.bodypart_disabled)
 			isdisabled = "\[ПАРАЛИЗОВАНА\]"
 			if(no_damage)
-				isdisabled += " но "
+				isdisabled += " но"
 			else
-				isdisabled += " и "
-		combined_msg += "<tr><td><b>[uppertext(body_part.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "info" : "red"]'>[uppertext(status)]</span>\] "
+				isdisabled += " и"
+		var/partmsg += "<tr><td><b>[uppertext(body_part.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "info" : "red"]'>[uppertext(status)]</span>\] "
 
 		for(var/thing in body_part.wounds)
 			var/datum/wound/W = thing
-			var/msg
 			switch(W.severity)
 				if(WOUND_SEVERITY_TRIVIAL)
-					msg = "\[<span class='danger'>[uppertext(W.name)]</span>\] "
+					msg += "\[<span class='danger'>[uppertext(W.name)]</span>\] "
 				if(WOUND_SEVERITY_MODERATE)
-					msg = "\[<span class='red'>[uppertext(W.name)]</span>\] "
+					msg += "\[<span class='red'>[uppertext(W.name)]</span>\] "
 				if(WOUND_SEVERITY_SEVERE || WOUND_SEVERITY_CRITICAL)
-					msg = "\[<span class='red'><b>[uppertext(W.name)]</b></span>\] "
-			combined_msg += msg
+					msg += "\[<span class='red'><b>[uppertext(W.name)]</b></span>\] "
 
 		if(body_part.get_bleed_rate())
-			combined_msg += "\[<span class='red'>КРОВОТЕЧЕНИЕ</span>\] "
+			partmsg += "\[<span class='red'>КРОВОТЕЧЕНИЕ</span>\] "
 
 		for(var/obj/item/I in body_part.embedded_objects)
 			if(I.isEmbedHarmless())
-				combined_msg += "\[<a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(body_part)]' class='info'>[uppertext(I.name)]</a>\]"
+				partmsg += "\[<a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(body_part)]' class='info'>[uppertext(I.name)]</a>\]"
 			else
-				combined_msg += "\[<a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(body_part)]' class='red'>[uppertext(I.name)]</a>\]"
+				partmsg += "\[<a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(body_part)]' class='red'>[uppertext(I.name)]</a>\]"
 
-		combined_msg += "</td></tr>"
+		combined_msg += "[partmsg]</td></tr>"
 
 	for(var/t in missing)
 		combined_msg += "<tr><td><b>[uppertext(ru_exam_parse_zone(parse_zone(t)))]:</b></td><td>\[<span class='boldannounce'>ОТСУТСТВУЕТ</span>\]</td></tr>"
