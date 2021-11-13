@@ -733,17 +733,17 @@
 				isdisabled += " но"
 			else
 				isdisabled += " и"
-		var/partmsg += "<tr><td><b>[uppertext(body_part.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "info" : "red"]'>[uppertext(status)]</span>\] "
+		var/partmsg = "<tr><td><b>[uppertext(body_part.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "info" : "red"]'>[uppertext(status)]</span>\] "
 
 		for(var/thing in body_part.wounds)
 			var/datum/wound/W = thing
 			switch(W.severity)
 				if(WOUND_SEVERITY_TRIVIAL)
-					msg += "\[<span class='danger'>[uppertext(W.name)]</span>\] "
+					partmsg += "\[<span class='danger'>[uppertext(W.name)]</span>\] "
 				if(WOUND_SEVERITY_MODERATE)
-					msg += "\[<span class='red'>[uppertext(W.name)]</span>\] "
+					partmsg += "\[<span class='red'>[uppertext(W.name)]</span>\] "
 				if(WOUND_SEVERITY_SEVERE || WOUND_SEVERITY_CRITICAL)
-					msg += "\[<span class='red'><b>[uppertext(W.name)]</b></span>\] "
+					partmsg += "\[<span class='red'><b>[uppertext(W.name)]</b></span>\] "
 
 		if(body_part.get_bleed_rate())
 			partmsg += "\[<span class='red'>КРОВОТЕЧЕНИЕ</span>\] "
