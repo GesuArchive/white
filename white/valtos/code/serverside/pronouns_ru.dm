@@ -76,6 +76,18 @@
 	if(capitalized)
 		. = capitalize(.)
 
+/client/ru_aya(capitalized, temp_gender)
+	if(!temp_gender)
+		temp_gender = gender
+	. = "ой"
+	switch(temp_gender)
+		if(FEMALE)
+			. = "ая"
+		if(MALE)
+			. = "ой"
+	if(capitalized)
+		. = capitalize(.)
+
 //mobs(and atoms but atoms don't really matter write your own proc overrides) also have gender!
 /atom/ru_who(capitalized, temp_gender)
 	if(!temp_gender)
