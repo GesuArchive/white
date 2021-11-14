@@ -1,5 +1,6 @@
 #define EVENT_TYPE_NONE 0
 #define EVENT_TYPE_ZOMBIE 1
+#define EVENT_TYPE_SPAWN_EVERYONE 2
 
 GLOBAL_VAR_INIT(disable_fucking_station_shit_please, FALSE)
 
@@ -55,6 +56,16 @@ SUBSYSTEM_DEF(eventmaster)
 			to_chat(world, span_heavy_brass("Свет готов!"))
 			to_chat(world, span_heavy_brass("Готово!"))
 			return TRUE
+		if(EVENT_TYPE_SPAWN_EVERYONE)
+			to_chat(world, span_heavy_brass("Активация правил режима перемещения всех в игру..."))
+			if(SSticker.current_state == GAME_STATE_PREGAME)
+				for(var/mob/dead/new_player/player in GLOB.player_list)
+					to_chat(player, "<span class=greenannounce>Ты призрак. Скоро предоставят возможность вступить в схватку за одну из сторон.</span>")
+					player.ready = FALSE
+					player.make_me_an_observer(TRUE)
+				SSticker.start_immediately = TRUE
+			to_chat(world, span_heavy_brass("Готово!"))
+			target_event = EVENT_TYPE_ZOMBIE
 		else
 			return FALSE
 
@@ -142,13 +153,15 @@ SUBSYSTEM_DEF(eventmaster)
 	if(!holder || !check_rights(R_DEBUG))
 		return
 
-	var/list/possible_options = list("ZOMBIES EVENT", "NONE")
+	var/list/possible_options = list("ZOMBIES EVENT", "GHOSTIZE EVERYONE", "NONE")
 
 	var/what_the_fuck = input("SHIT YES?", "Cum") as null|anything in possible_options
 
 	switch(what_the_fuck)
 		if("ZOMBIES EVENT")
 			SSeventmaster.target_event = EVENT_TYPE_ZOMBIE
+		if("GHOSTIZE EVERYONE")
+			SSeventmaster.target_event = EVENT_TYPE_SPAWN_EVERYONE
 		else
 			SSeventmaster.target_event = EVENT_TYPE_NONE
 
@@ -163,3 +176,4 @@ SUBSYSTEM_DEF(eventmaster)
 
 #undef EVENT_TYPE_NONE
 #undef EVENT_TYPE_ZOMBIE
+#undef EVENT_TYPE_SPAWN_EVERYONE
