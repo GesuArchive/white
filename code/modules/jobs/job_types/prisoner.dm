@@ -3,8 +3,8 @@
 	ru_title = "Заключённый"
 	department_head = list("The Security Team")
 	faction = "Station"
-	total_positions = 0
-	spawn_positions = 2
+	total_positions = 5
+	spawn_positions = 5
 	supervisors = "the security team"
 	selection_color = "#ffe1c3"
 	paycheck = PAYCHECK_PRISONER
