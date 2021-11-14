@@ -64,6 +64,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 /obj/effect/landmark/start/prisoner
 	name = "Prisoner"
 	icon_state = "Prisoner"
+	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/bomj
 	name = "Bomj"
