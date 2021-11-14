@@ -140,93 +140,93 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	cant_discount = TRUE
 
 /datum/uplink_item/bundles_tc/chemical
-	name = "Bioterror bundle"
-	desc = "For the madman: Contains a handheld Bioterror chem sprayer, a Bioterror foam grenade, a box of lethal chemicals, a dart pistol, \
-			box of syringes, Donksoft assault rifle, and some riot darts. Remember: Seal suit and equip internals before use."
+	name = "Набор биотеррориста"
+	desc = " Содержит ручной биотеррористический химический распылитель, биотеррористическую пенную гранату, коробку смертельных химикатов, пистолет с дротиками, \
+			коробка со шприцами, штурмовая винтовка Dongsoft и несколько дротиков для борьбы с беспорядками. Помните: Перед использованием герметизируйте костюм и оборудуйте внутренние устройства."
 	item = /obj/item/storage/backpack/duffelbag/syndie/med/bioterrorbundle
 	cost = 30 // normally 42
 	purchasable_from = UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS
 
 /datum/uplink_item/bundles_tc/bulldog
-	name = "Bulldog bundle"
-	desc = "Lean and mean: Optimized for people that want to get up close and personal. Contains the popular \
-			Bulldog shotgun, two 12g buckshot drums, and a pair of Thermal imaging goggles."
+	name = "Набор с Бульдогом"
+	desc = "Оптимизирован для людей, которые хотят быть вести бой на близких дистанциях \
+			Дробовик Бульдог, два барабана с картечью 12g и пара тепловизионных очков."
 	item = /obj/item/storage/backpack/duffelbag/syndie/bulldogbundle
 	cost = 13 // normally 16
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/bundles_tc/c20r
-	name = "C-20r bundle"
-	desc = "Old Faithful: The classic C-20r, bundled with two magazines and a (surplus) suppressor at discount price."
+	name = "Набор с C-20r"
+	desc = "Старый и верный: классический C-20r, в комплекте с двумя магазинами и глушителем по сниженной цене."
 	item = /obj/item/storage/backpack/duffelbag/syndie/c20rbundle
 	cost = 14 // normally 16
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/bundles_tc/cyber_implants
-	name = "Cybernetic Implants Bundle"
-	desc = "A random selection of cybernetic implants. Guaranteed 5 high quality implants. Comes with an autosurgeon."
+	name = "Набор Имплантов"
+	desc = "Случайный набор кибернетических имплантатов. Гарантировано 5 высококачественных имплантатов. Поставляется с автохирургом."
 	item = /obj/item/storage/box/cyber_implants
 	cost = 40
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/bundles_tc/medical
-	name = "Medical bundle"
-	desc = "The support specialist: Aid your fellow operatives with this medical bundle. Contains a tactical medkit, \
-			a Donksoft LMG, a box of riot darts and a pair of magboots to rescue your friends in no-gravity environments."
+	name = "Медицинский Набор"
+	desc = "Специалист службы поддержки: Помогите своим напарникам с этим медицинским набором. Содержит тактическую аптечку, \
+			LMG Donksoft, коробка дротиков для борьбы с беспорядками и пара магнитных ботинок, чтобы спасти ваших друзей в условиях невесомости."
 	item = /obj/item/storage/backpack/duffelbag/syndie/med/medicalbundle
 	cost = 15 // normally 20
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/bundles_tc/sniper
-	name = "Sniper bundle"
-	desc = "Elegant and refined: Contains a collapsed sniper rifle in an expensive carrying case, \
-			two soporific knockout magazines, a free surplus suppressor, and a sharp-looking tactical turtleneck suit. \
-			We'll throw in a free red tie if you order NOW."
+	name = "Набор Снайпера"
+	desc = "Элегантный и изысканный: Содержит разобранную снайперскую винтовку в деловом чехле для переноски, \
+			два снотворных магазина, бесплатный глушитель и стильный тактический костюм. \
+			Мы добавим бесплатный красный галстук, если вы закажете СЕЙЧАС."
 	item = /obj/item/storage/briefcase/sniperbundle
 	cost = 20 // normally 26
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/bundles_tc/firestarter
-	name = "Spetsnaz Pyro bundle"
-	desc = "For systematic suppression of carbon lifeforms in close quarters: Contains a lethal New Russian backpack spray, Elite hardsuit, \
-			Stechkin APS machine pistol, two incendiary magazines, a minibomb and a stimulant syringe. \
-			Order NOW and comrade Boris will throw in an extra tracksuit."
+	name = "Набор Пиротехнических Средств Спецназа"
+	desc = "Для систематического подавления углеродных форм жизни в непосредственной близости: Содержит смертельный спрей в качестве рюкзака, Элитный защитный костюм, \
+			пистолет Стечкина, два магазина с зажигательной смесью, мини-бомба и шприц со стимулятором. \
+			Закажите СЕЙЧАС, и товарищ Борис добавит дополнительный спортивный костюм."
 	item = /obj/item/storage/backpack/duffelbag/syndie/firestarter
 	cost = 30
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/bundles_tc/contract_kit
-	name = "Contract Kit"
-	desc = "The Syndicate have offered you the chance to become a contractor, take on kidnapping contracts for TC and cash payouts. Upon purchase, \
-			you'll be granted your own contract uplink embedded within the supplied tablet computer. Additionally, you'll be granted \
-			standard contractor gear to help with your mission - comes supplied with the tablet, specialised space suit, chameleon jumpsuit and mask, \
-			agent card, specialised contractor baton, and three randomly selected low cost items. Can include otherwise unobtainable items."
+	name = "Набор Контрактника"
+	desc = "Синдикат предложил вам возможность стать подрядчиком, заключать контракты, за похищение членов станции, синдикат будет выплачивать заказы ТК. При покупке \
+			вам будет предоставлен собственный канал связи по контракту, встроенный в прилагаемый планшетный компьютер. Кроме того, вам будет предоставлено \
+			стандартное снаряжение подрядчика для выполнения вашей миссии - поставляется в комплекте с планшетом, специализированным космическим костюмом, комбинезоном-хамелеоном и маской, \
+			карточка агента, телескопическую дубинку специализированного агента и три случайно выбранных недорогих предмета. Может включать в себя предметы, которых нет в аплинке обычного агента.."
 	item = /obj/item/storage/box/syndicate/contract_kit
 	cost = 20
 	player_minimum = 20
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/bundles_tc/bundle_a
-	name = "Syndi-kit Tactical"
-	desc = "Syndicate Bundles, also known as Syndi-Kits, are specialized groups of items that arrive in a plain box. \
-			These items are collectively worth more than 20 telecrystals, but you do not know which specialization \
-			you will receive. May contain discontinued and/or exotic items."
+	name = "Синди-Набор Тактический"
+	desc = "Наборы синдиката, также известные как синди-наборы, представляют собой специализированные группы товаров, которые поступают в простой коробке. \
+			Эти предметы в совокупности стоят более 20 телекристаллов, но вы не знаете, какая специализация \
+			вы получите. Может содержать снятые с производства и/или экзотические товары."
 	item = /obj/item/storage/box/syndicate/bundle_a
 	cost = 20
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/bundles_tc/bundle_b
-	name = "Syndi-kit Special"
-	desc = "Syndicate Bundles, also known as Syndi-Kits, are specialized groups of items that arrive in a plain box. \
-			In Syndi-kit Special, you will receive items used by famous syndicate agents of the past. Collectively worth more than 20 telecrystals, the syndicate loves a good throwback."
+	name = "Синди-Наборы Специальные"
+	desc = "Наборы синдикатов, также известные как синдикаты, представляют собой специализированные группы товаров, которые поступают в простой коробке. \
+			В специальном разделе Синдиката вы получите предметы, которые использовались известными агентами синдиката прошлого. В совокупности они стоят более 20 телекристаллов, синдикат любит хорошую отдачу."
 	item = /obj/item/storage/box/syndicate/bundle_b
 	cost = 20
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/bundles_tc/surplus
-	name = "Syndicate Surplus Crate"
-	desc = "A dusty crate from the back of the Syndicate warehouse. Rumored to contain a valuable assortment of items, \
-			but you never know. Contents are sorted to always be worth 50 TC."
+	name = "Ящик с излишками Синдиката"
+	desc = "Пыльный ящик из задней части склада Синдиката. По слухам, в нем содержится ценный ассортимент предметов, \
+			но никогда не знаешь наверняка. Содержимое сортируется так, чтобы всегда стоило 50 ТС."
 	item = /obj/structure/closet/crate
 	cost = 20
 	player_minimum = 25
@@ -234,9 +234,9 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	var/starting_crate_value = 50
 
 /datum/uplink_item/bundles_tc/surplus/super
-	name = "Super Surplus Crate"
-	desc = "A dusty SUPER-SIZED from the back of the Syndicate warehouse. Rumored to contain a valuable assortment of items, \
-			but you never know. Contents are sorted to always be worth 125 TC."
+	name = "Супер Избыточный Ящик Синдиката"
+	desc = "Пыльный СУПЕРБОЛЬШОЙ с задней части склада Синдиката. По слухам, в нем содержится ценный ассортимент предметов, \
+но никогда не знаешь наверняка. Содержимое сортируется так, чтобы всегда стоило 125 ТС."
 	cost = 40
 	player_minimum = 40
 	starting_crate_value = 125
