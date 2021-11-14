@@ -305,7 +305,8 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 			for(var/area/A in world)
 				if(istype(A, /area/awaymission/vietnam/dwarfgen))
 					A.RunGeneration()
-	message_admins("-- $<b>Мир</b>:> <b>[time]</b> --")
+	to_chat(world, span_green("-- $<b>Мир</b>:> <b>[time]с</b> --"))
+	to_chat(world, span_nzcrentr("-- #<b>Хэш энтропии</b>:> <b>[md5("[random_seed]")]</b> --"))
 	log_world("World init for [time] seconds!")
 
 	spawn(5)
