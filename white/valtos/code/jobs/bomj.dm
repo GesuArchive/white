@@ -20,7 +20,6 @@
 
 	metalocked = TRUE
 
-/datum/job/bomj/after_spawn(mob/living/H, mob/M, latejoin)
-	. = ..()
-	if(latejoin)
-		H.forceMove(pick(GLOB.disposal_bins))
+/datum/job/bomj/override_latejoin_spawn(mob/living/carbon/human/H)
+	H.forceMove(pick(GLOB.disposal_bins))
+	return TRUE

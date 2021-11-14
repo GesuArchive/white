@@ -22,16 +22,16 @@
 
 	rpg_title = "Побежденный минибосс"
 
-/datum/job/prisoner/after_spawn(mob/living/H, mob/M, latejoin)
-	. = ..()
-	if(latejoin)
-		for(var/_sloc in GLOB.start_landmarks_list)
-			var/obj/effect/landmark/start/sloc = _sloc
-			if(sloc.name != title)
-				continue
-			if(locate(/mob/living) in sloc.loc)
-				continue
-			H.forceMove(get_turf(sloc))
+/datum/job/prisoner/override_latejoin_spawn(mob/living/carbon/human/H)
+	for(var/_sloc in GLOB.start_landmarks_list)
+		var/obj/effect/landmark/start/sloc = _sloc
+		if(sloc.name != title)
+			continue
+		if(locate(/mob/living) in sloc.loc)
+			continue
+		H.forceMove(get_turf(sloc))
+		return TRUE
+	return FALSE
 
 /datum/outfit/job/prisoner
 	name = "Prisoner"
