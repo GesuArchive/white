@@ -566,7 +566,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(line_num == 25)
 						dat += "</td></tr><tr class='metaitem buyed'><td>"
 						line_num = 0
-					dat += "<a style='padding: 10px 2px;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]</a>"
+					dat += "<a class='tooltip' style='padding: 10px 2px;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]<span class='tooltiptext'>[G.display_name]</span></a>"
 					line_num++
 				dat += "</td></tr>"
 			dat += "</table>"
