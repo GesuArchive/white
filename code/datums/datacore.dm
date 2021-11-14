@@ -148,7 +148,8 @@
 		"Научный",
 		"Снабжение",
 		"Обслуга",
-		"Синтетики"
+		"Синтетики",
+		"Гости"
 	)
 	var/list/departments = list(
 		"Командование" = GLOB.command_positions,
@@ -158,7 +159,8 @@
 		"Научный" = GLOB.science_positions,
 		"Снабжение" = GLOB.supply_positions,
 		"Обслуга" = GLOB.service_positions,
-		"Синтетики" = GLOB.nonhuman_positions
+		"Синтетики" = GLOB.nonhuman_positions,
+		"Гости" = GLOB.scum_positions
 	)
 	for(var/datum/data/record/t in GLOB.data_core.general)
 		var/name = t.fields["name"]

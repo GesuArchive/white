@@ -217,6 +217,8 @@ GLOBAL_VAR(clockcult_eminence)
 					prefix = "Шестехонкер"
 				else if(role in GLOB.security_positions)
 					prefix = "Воин"
+				else if(role in GLOB.scum_positions)
+					prefix = "Вор"
 				else if(role in GLOB.nonhuman_positions)
 					prefix = "ПРОЦЕССОР"
 			//Fallthrough is default of "Clockbrother"

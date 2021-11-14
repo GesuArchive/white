@@ -12,12 +12,26 @@
 
 	display_order = JOB_DISPLAY_ORDER_PRISONER
 
+	exp_type = EXP_TYPE_CREW
+	exp_type_department = EXP_TYPE_SCUM
+
 	exclusive_mail_goodies = TRUE
 	mail_goodies = list (
 		/obj/effect/spawner/lootdrop/prison_contraband = 1
 	)
 
 	rpg_title = "Побежденный минибосс"
+
+/datum/job/prisoner/after_spawn(mob/living/H, mob/M, latejoin)
+	. = ..()
+	if(latejoin)
+		for(var/_sloc in GLOB.start_landmarks_list)
+			var/obj/effect/landmark/start/sloc = _sloc
+			if(sloc.name != title)
+				continue
+			if(locate(/mob/living) in sloc.loc)
+				continue
+			H.forceMove(get_turf(sloc))
 
 /datum/outfit/job/prisoner
 	name = "Prisoner"
