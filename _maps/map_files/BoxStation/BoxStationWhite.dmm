@@ -62,7 +62,7 @@
 	dir = 10
 	},
 /turf/closed/wall,
-/area/service/fitness)
+/area/commons/fitness)
 "aao" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -149,7 +149,7 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
-/area/service/fitness)
+/area/commons/fitness)
 "aaH" = (
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
@@ -184,11 +184,11 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/service/fitness)
+/area/commons/fitness)
 "aaP" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/service/fitness)
+/area/commons/fitness)
 "aaS" = (
 /obj/structure/grille,
 /obj/structure/lattice,
@@ -218,7 +218,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aaV" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 9
@@ -227,7 +227,7 @@
 	dir = 5
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aaW" = (
 /obj/machinery/computer/holodeck,
 /obj/effect/turf_decal/trimline/red/filled/line{
@@ -237,7 +237,7 @@
 	dir = 5
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aaX" = (
 /obj/machinery/light{
 	dir = 4
@@ -249,7 +249,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aaY" = (
 /obj/effect/landmark/stationroom/engine/random,
 /turf/open/openspace/airless,
@@ -479,7 +479,7 @@
 	dir = 6
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "afa" = (
 /obj/docking_port/stationary{
 	dir = 4;
@@ -1105,7 +1105,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aky" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -1199,7 +1199,7 @@
 	dir = 5
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/service/fitness)
+/area/commons/fitness)
 "akY" = (
 /obj/structure/chair{
 	dir = 1
@@ -1295,7 +1295,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aln" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
@@ -2722,7 +2722,7 @@
 	dir = 8
 	},
 /turf/open/floor/glass/reinforced,
-/area/service/fitness)
+/area/commons/fitness)
 "aqb" = (
 /obj/machinery/button/door{
 	id = "kanyewest";
@@ -2829,13 +2829,13 @@
 	dir = 6
 	},
 /turf/closed/wall,
-/area/service/fitness)
+/area/commons/fitness)
 "aqu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
 /turf/closed/wall,
-/area/service/fitness)
+/area/commons/fitness)
 "aqv" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 4
@@ -2847,7 +2847,7 @@
 	dir = 6
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aqw" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/engineering{
@@ -3044,7 +3044,7 @@
 /area/commons/dorms/barracks/male)
 "arj" = (
 /turf/closed/wall,
-/area/service/fitness)
+/area/commons/fitness)
 "ark" = (
 /obj/machinery/airalarm{
 	pixel_y = 23
@@ -3070,7 +3070,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "arn" = (
 /obj/structure/closet/athletic_mixed,
 /obj/effect/turf_decal/tile/neutral{
@@ -3080,7 +3080,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aro" = (
 /turf/open/floor/engine{
 	name = "Holodeck Projector Floor"
@@ -3288,7 +3288,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "asd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 6
@@ -3305,12 +3305,12 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/service/fitness)
+/area/commons/fitness)
 "asf" = (
 /obj/structure/cable,
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "asg" = (
 /turf/closed/wall,
 /area/commons/vacant_room)
@@ -3380,7 +3380,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "asr" = (
 /obj/structure/closet/boxinggloves,
 /obj/machinery/light{
@@ -3395,7 +3395,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "ass" = (
 /obj/structure/closet/lasertag/red,
 /obj/effect/turf_decal/tile/neutral{
@@ -3405,7 +3405,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "ast" = (
 /obj/structure/closet/lasertag/blue,
 /obj/effect/turf_decal/tile/neutral{
@@ -3415,7 +3415,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "asu" = (
 /obj/structure/bed,
 /obj/machinery/button/door{
@@ -3527,7 +3527,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "asL" = (
 /obj/structure/bed,
 /obj/machinery/button/door{
@@ -3556,7 +3556,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/power/apc/auto_name/west,
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "asO" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating,
@@ -3593,11 +3593,11 @@
 	},
 /obj/structure/railing/corner,
 /turf/open/floor/plasteel/monofloor,
-/area/service/fitness)
+/area/commons/fitness)
 "asY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/closed/wall,
-/area/service/fitness)
+/area/commons/fitness)
 "asZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 5
@@ -3649,11 +3649,11 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "atf" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "atg" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3671,7 +3671,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "atj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3683,7 +3683,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "atm" = (
 /turf/open/floor/carpet,
 /area/commons/dorms/barracks/male)
@@ -3743,7 +3743,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "atv" = (
 /obj/structure/table,
 /obj/item/shard,
@@ -3921,7 +3921,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "atW" = (
 /obj/structure/chair/stool,
 /turf/open/floor/plating,
@@ -3940,14 +3940,14 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aua" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aub" = (
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
@@ -4064,12 +4064,12 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/service/fitness)
+/area/commons/fitness)
 "auu" = (
 /obj/structure/railing,
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/monofloor,
-/area/service/fitness)
+/area/commons/fitness)
 "auw" = (
 /obj/structure/bed,
 /obj/machinery/airalarm{
@@ -4109,7 +4109,7 @@
 	dir = 6
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "auz" = (
 /obj/effect/turf_decal/trimline/red/filled/line,
 /obj/structure/training_machine,
@@ -4118,7 +4118,7 @@
 	dir = 6
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "auA" = (
 /obj/machinery/light{
 	dir = 4
@@ -4137,7 +4137,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "auB" = (
 /obj/effect/landmark/blobstart,
 /obj/structure/cable,
@@ -4451,11 +4451,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "avx" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
-/area/service/fitness)
+/area/commons/fitness)
 "avC" = (
 /obj/machinery/camera{
 	c_tag = "Holodeck - Aft";
@@ -4785,7 +4785,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "awz" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Fitness"
@@ -4803,7 +4803,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "awA" = (
 /obj/machinery/holopad,
 /obj/structure/cable,
@@ -4820,7 +4820,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/service/fitness)
+/area/commons/fitness)
 "awB" = (
 /obj/effect/landmark/start/assistant,
 /obj/effect/turf_decal/tile/green,
@@ -4829,7 +4829,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "awC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -4917,7 +4917,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "awQ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5174,7 +5174,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "axR" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Fitness"
@@ -5187,7 +5187,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "axT" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5199,7 +5199,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/service/fitness)
+/area/commons/fitness)
 "axV" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -5228,7 +5228,7 @@
 	dir = 9
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "axZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 5
@@ -5474,14 +5474,14 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/service/fitness)
+/area/commons/fitness)
 "azh" = (
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "azi" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Garden Maintenance";
@@ -5510,7 +5510,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "azk" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -5528,7 +5528,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/service/fitness)
+/area/commons/fitness)
 "azl" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -5547,7 +5547,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "azm" = (
 /obj/structure/chair/stool{
 	pixel_y = 8
@@ -5559,7 +5559,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/service/fitness)
+/area/commons/fitness)
 "azn" = (
 /obj/structure/table,
 /obj/item/storage/firstaid/regular,
@@ -5570,12 +5570,12 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/service/fitness)
+/area/commons/fitness)
 "azp" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
-/area/service/fitness)
+/area/commons/fitness)
 "azr" = (
 /obj/machinery/priem_steklotara,
 /turf/open/floor/plating,
@@ -5799,7 +5799,7 @@
 	dir = 5
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aAl" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/turf_decal/tile/neutral{
@@ -5811,7 +5811,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aAm" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -5835,7 +5835,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aAn" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -5855,7 +5855,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aAo" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -5866,7 +5866,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aAp" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -5883,7 +5883,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "aAq" = (
 /obj/structure/sign/painting/library,
 /turf/closed/wall,
@@ -6213,7 +6213,7 @@
 "aBD" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/closed/wall,
-/area/service/fitness)
+/area/commons/fitness)
 "aBE" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -6464,19 +6464,19 @@
 	dir = 5
 	},
 /turf/closed/wall,
-/area/service/fitness)
+/area/commons/fitness)
 "aCw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /turf/closed/wall,
-/area/service/fitness)
+/area/commons/fitness)
 "aCx" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 9
 	},
 /turf/closed/wall,
-/area/service/fitness)
+/area/commons/fitness)
 "aCy" = (
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 8
@@ -7920,7 +7920,7 @@
 	},
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "aGl" = (
 /obj/machinery/light_switch{
 	pixel_x = 27
@@ -8150,7 +8150,7 @@
 	},
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "aGU" = (
 /obj/machinery/light/small{
 	dir = 1;
@@ -9092,7 +9092,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "aKe" = (
 /obj/structure/table/glass,
 /turf/open/floor/plasteel/monofloor,
@@ -11801,7 +11801,7 @@
 /area/hallway/secondary/exit)
 "aXF" = (
 /turf/open/openspace,
-/area/service/fitness)
+/area/commons/fitness)
 "aXG" = (
 /obj/structure/chair,
 /turf/open/floor/plasteel/dark/side{
@@ -26537,7 +26537,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "chS" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Port Quarter Solar Access";
@@ -32058,7 +32058,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "eja" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/railing/corner{
@@ -33627,7 +33627,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "gvx" = (
 /obj/structure/marker_beacon,
 /turf/open/floor/plating/rust{
@@ -33881,7 +33881,7 @@
 "gKT" = (
 /obj/structure/lattice,
 /turf/closed/wall,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "gKW" = (
 /obj/spacepod/prebuilt/sec,
 /turf/open/floor/engine,
@@ -34504,7 +34504,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "hBY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
@@ -34666,7 +34666,7 @@
 	dir = 6
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/service/fitness)
+/area/commons/fitness)
 "hNs" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -35009,7 +35009,7 @@
 "ijw" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "ilp" = (
 /obj/structure/grille,
 /turf/open/floor/engine/hull,
@@ -35331,7 +35331,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "iMA" = (
 /obj/structure/flora/rock/jungle,
 /obj/structure/flora/ausbushes/sunnybush,
@@ -35371,7 +35371,7 @@
 "iSc" = (
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "iSv" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -35977,7 +35977,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/service/fitness)
+/area/commons/fitness)
 "jKx" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -38312,7 +38312,7 @@
 	dir = 5
 	},
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "npc" = (
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plating,
@@ -39681,7 +39681,7 @@
 /obj/machinery/light,
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "pck" = (
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
@@ -40076,7 +40076,7 @@
 /area/hallway/secondary/entry)
 "pzs" = (
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "pzA" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -41394,7 +41394,7 @@
 /area/space/nearstation)
 "rpc" = (
 /turf/closed/wall,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "rpp" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -41432,7 +41432,7 @@
 /obj/structure/cable,
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "rvh" = (
 /obj/effect/light_emitter{
 	light_range = 3;
@@ -41975,7 +41975,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "sdg" = (
 /obj/structure/disposalpipe/sorting/mail{
 	sortType = 10
@@ -42078,7 +42078,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/service/fitness)
+/area/commons/fitness)
 "sjr" = (
 /turf/open/openspace,
 /area/science/research)
@@ -44326,7 +44326,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "vtn" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -44896,7 +44896,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "wiz" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -46021,7 +46021,7 @@
 	dir = 5
 	},
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "xFr" = (
 /obj/machinery/airalarm{
 	dir = 1;
@@ -46466,7 +46466,7 @@
 /area/engineering/atmos)
 "yjN" = (
 /turf/open/openspace,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "ylC" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{

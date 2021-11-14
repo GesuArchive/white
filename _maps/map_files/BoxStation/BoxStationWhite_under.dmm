@@ -94,7 +94,7 @@
 "aq" = (
 /obj/item/westposter,
 /turf/open/floor/wood,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "ar" = (
 /obj/structure/cable,
 /obj/machinery/light/small{
@@ -232,7 +232,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "aI" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate/maint,
@@ -291,7 +291,7 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken6"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "aQ" = (
 /turf/open/space/basic,
 /area/maintenance/bottom_station_maints/north)
@@ -417,7 +417,7 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "bk" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
@@ -2013,7 +2013,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "gb" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/trimline/green/filled/end{
@@ -2157,7 +2157,7 @@
 /area/security/prison)
 "gy" = (
 /turf/closed/wall/r_wall,
-/area/service/fitness)
+/area/commons/fitness)
 "gz" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -2425,7 +2425,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "hp" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -2861,7 +2861,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "iE" = (
 /obj/machinery/light{
 	dir = 4
@@ -3034,7 +3034,7 @@
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "iY" = (
 /obj/machinery/light{
 	dir = 8
@@ -3118,7 +3118,7 @@
 	dir = 5
 	},
 /turf/open/floor/wood,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "jl" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -3203,7 +3203,7 @@
 /obj/effect/spawner/lootdrop/maint_drugs,
 /obj/structure/table/rospilovo,
 /turf/open/floor/wood,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "jv" = (
 /obj/structure/sign/departments/xenobio{
 	pixel_x = -32
@@ -3597,7 +3597,7 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
-/area/service/fitness)
+/area/commons/fitness)
 "kD" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
@@ -4095,7 +4095,7 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken6"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "lV" = (
 /obj/machinery/atmospherics/components/binary/circulator/flipped{
 	dir = 8
@@ -4125,7 +4125,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "mc" = (
 /obj/item/radio/intercom{
 	dir = 4;
@@ -4135,7 +4135,7 @@
 	dir = 8
 	},
 /turf/open/floor/carpet/peaks,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "md" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -4391,7 +4391,7 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "mK" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/stripes{
@@ -4680,7 +4680,7 @@
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "ny" = (
 /obj/structure/table,
 /obj/machinery/door/poddoor/shutters{
@@ -4769,7 +4769,7 @@
 /area/service/library)
 "nK" = (
 /turf/closed/wall/r_wall,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "nM" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5221,7 +5221,7 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "pe" = (
 /obj/structure/rospilovo/doski/doski2,
 /obj/structure/rospilovo/painting/stalin{
@@ -5358,7 +5358,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "py" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -5536,7 +5536,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "pZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 5
@@ -6378,7 +6378,7 @@
 	},
 /obj/effect/spawner/randomsnackvend,
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "sp" = (
 /obj/effect/turf_decal/stripes/box,
 /obj/structure/cable/multilayer/multiz,
@@ -6469,7 +6469,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "sA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
@@ -6639,7 +6639,7 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "sX" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
@@ -6703,7 +6703,7 @@
 	pixel_y = 0
 	},
 /turf/open/floor/carpet/peaks,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "tf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -6822,7 +6822,7 @@
 	dir = 9
 	},
 /turf/open/floor/wood,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "tx" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -7254,7 +7254,7 @@
 /area/cargo/qm/perch)
 "uC" = (
 /turf/closed/wall,
-/area/service/fitness)
+/area/commons/fitness)
 "uD" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/violet/visible,
 /obj/structure/cable,
@@ -7631,7 +7631,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "vL" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -8066,7 +8066,7 @@
 "wU" = (
 /obj/machinery/effector,
 /turf/closed/wall/r_wall,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "wV" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -8267,7 +8267,7 @@
 /area/commons/dorms/barracks/female)
 "xz" = (
 /turf/open/floor/wood,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "xA" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
@@ -8572,7 +8572,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "yj" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -8593,7 +8593,7 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "ym" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -8602,7 +8602,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "yq" = (
 /obj/machinery/computer/exoscanner_control{
 	dir = 4
@@ -8772,7 +8772,7 @@
 /obj/effect/decal/cleanable/cum,
 /obj/structure/cable,
 /turf/open/floor/carpet/peaks,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "yS" = (
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
@@ -8865,7 +8865,7 @@
 /area/security/prison)
 "ze" = (
 /turf/closed/wall,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "zf" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -9128,7 +9128,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "Ab" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -9190,7 +9190,7 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken5"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "Al" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -9257,7 +9257,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "Au" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/turf_decal/stripes/line{
@@ -9485,7 +9485,7 @@
 "Bj" = (
 /obj/effect/spawner/randomcolavend,
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "Bl" = (
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 4
@@ -9595,7 +9595,7 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken7"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "BG" = (
 /obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2{
 	color = "#ff0000";
@@ -10691,7 +10691,7 @@
 	dir = 6
 	},
 /turf/open/floor/wood,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "EX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -10794,7 +10794,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
-/area/service/fitness)
+/area/commons/fitness)
 "Fn" = (
 /obj/structure/closet,
 /obj/effect/spawner/lootdrop/maintenance,
@@ -10828,7 +10828,7 @@
 	},
 /obj/structure/cable/multilayer/multiz,
 /turf/open/floor/wood,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "Ft" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 4
@@ -11035,7 +11035,7 @@
 	pixel_y = -23
 	},
 /turf/open/floor/carpet/peaks,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "Gb" = (
 /obj/machinery/porta_turret/ai{
 	dir = 4
@@ -11541,7 +11541,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "HA" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -11669,7 +11669,7 @@
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "HV" = (
 /obj/structure/rospilovo/porog{
 	dir = 4
@@ -11928,7 +11928,7 @@
 /area/maintenance/bottom_station_maints/north)
 "IC" = (
 /turf/open/floor/carpet/peaks,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "ID" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/light,
@@ -11940,7 +11940,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "IG" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -12059,7 +12059,7 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "IW" = (
 /obj/machinery/light/small{
 	brightness = 3;
@@ -12075,7 +12075,7 @@
 	},
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "IY" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
@@ -12252,7 +12252,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "JE" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -12433,7 +12433,7 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "Ki" = (
 /obj/structure/cable,
 /turf/open/floor/plating/rust,
@@ -12594,7 +12594,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "KD" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "xenobio2";
@@ -12788,7 +12788,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "Lc" = (
 /obj/machinery/light_switch{
 	pixel_x = -27
@@ -12822,7 +12822,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "Lh" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -12951,7 +12951,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "Lz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
@@ -13067,7 +13067,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/south,
 /turf/open/floor/carpet/peaks,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "LP" = (
 /turf/closed/wall/r_wall,
 /area/space)
@@ -13105,7 +13105,7 @@
 /obj/effect/decal/cleanable/cum,
 /obj/item/blackmarket_uplink,
 /turf/open/floor/plasteel/freezer,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "LY" = (
 /obj/effect/turf_decal/tile/brown,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -13228,7 +13228,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "Ms" = (
 /turf/closed/wall,
 /area/cargo/meeting_room)
@@ -13242,7 +13242,7 @@
 "Mu" = (
 /obj/structure/lattice,
 /turf/closed/wall/r_wall,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "Mv" = (
 /obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2{
 	color = "#ff0000";
@@ -13279,7 +13279,7 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "Mz" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -13356,7 +13356,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "MK" = (
 /obj/machinery/door/window/northleft{
 	dir = 4;
@@ -13406,7 +13406,7 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "MS" = (
 /mob/living/simple_animal/slime,
 /turf/open/floor/engine,
@@ -13414,7 +13414,7 @@
 "MU" = (
 /obj/structure/cable,
 /turf/open/floor/carpet/peaks,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "MV" = (
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel/monofloor/white,
@@ -14211,7 +14211,7 @@
 	dir = 9
 	},
 /turf/open/floor/wood,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "Pp" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Cargo Bay Maintenance";
@@ -14430,7 +14430,7 @@
 "PT" = (
 /obj/effect/decal/cleanable/blood/xtracks,
 /turf/open/floor/wood,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "PU" = (
 /obj/machinery/power/apc{
 	areastring = "/area/ai_monitored/turret_protected/aisat/hallway";
@@ -14742,7 +14742,7 @@
 /obj/item/clothing/under/costume/jabroni,
 /obj/structure/cable,
 /turf/open/floor/carpet/peaks,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "QL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
@@ -14827,7 +14827,7 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "QY" = (
 /obj/structure/ladder,
 /obj/effect/turf_decal/box,
@@ -14846,7 +14846,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "QZ" = (
 /obj/machinery/hydroponics/soil,
 /turf/open/floor/plating,
@@ -15408,7 +15408,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "SI" = (
 /obj/machinery/light{
 	dir = 8
@@ -15488,7 +15488,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/fitness)
+/area/commons/fitness)
 "SR" = (
 /obj/structure/grille,
 /turf/open/floor/plating,
@@ -15554,7 +15554,7 @@
 	open = 0
 	},
 /turf/open/floor/plasteel/freezer,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "Tc" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -15827,7 +15827,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "TK" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -15982,7 +15982,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "Uj" = (
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/aisat_interior)
@@ -16033,7 +16033,7 @@
 /obj/effect/turf_decal/tile/neutral,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "Ux" = (
 /obj/structure/table,
 /obj/effect/spawner/lootdrop/maintenance/four,
@@ -16072,7 +16072,7 @@
 /area/hallway/secondary/exit/departure_lounge)
 "UB" = (
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "UC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -16160,13 +16160,13 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken6"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "UU" = (
 /obj/structure/weightmachine/weightlifter,
 /obj/effect/decal/cleanable/insectguts,
 /obj/item/clothing/under/costume/jabroni,
 /turf/open/floor/carpet/peaks,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "UV" = (
 /turf/open/floor/plating/rust,
 /area/maintenance/space_hut/plasmaman)
@@ -16475,7 +16475,7 @@
 /obj/item/eastposter,
 /obj/machinery/turntable,
 /turf/open/floor/wood,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "VN" = (
 /turf/open/floor/engine,
 /area/science/research/abandoned)
@@ -16492,7 +16492,7 @@
 /obj/effect/decal/cleanable/cum,
 /obj/machinery/holopad,
 /turf/open/floor/wood,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "VY" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Isolation Cell";
@@ -16717,7 +16717,7 @@
 	pixel_y = -24
 	},
 /turf/open/floor/carpet/peaks,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "WD" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -16862,7 +16862,7 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "Xc" = (
 /turf/closed/wall,
 /area/maintenance/bottom_station_maints/north)
@@ -17211,7 +17211,7 @@
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "XW" = (
 /obj/machinery/door/window/northleft{
 	base_state = "right";
@@ -17317,7 +17317,7 @@
 /obj/structure/weightmachine/weightlifter,
 /obj/effect/decal/cleanable/cum,
 /turf/open/floor/carpet/peaks,
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "Yk" = (
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
@@ -17600,7 +17600,7 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken5"
 	},
-/area/service/fitness/kachalka)
+/area/commons/fitness/kachalka)
 "Zc" = (
 /obj/structure/cable,
 /obj/machinery/camera/autoname{
@@ -17812,7 +17812,7 @@
 	pixel_x = -25
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/fitness)
+/area/commons/fitness)
 "ZP" = (
 /obj/structure/mirror{
 	pixel_y = 30
