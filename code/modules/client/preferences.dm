@@ -110,6 +110,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/clientfps = -1
 
+	var/widescreenwidth = 19
+
 	var/parallax
 
 	var/ambientocclusion = TRUE
@@ -646,6 +648,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<tr><td><b>Полный экран:</b></td><td align='right'><a href='?_src_=prefs;preference=fullscreen'>[fullscreen ? "Вкл" : "Выкл"]</a></td></tr>"
 			if (CONFIG_GET(string/default_view) != CONFIG_GET(string/default_view_square))
 				dat += "<tr><td><b>Широкий экран:</b></td><td align='right'><a href='?_src_=prefs;preference=widescreenpref'>[widescreenpref ? "Вкл ([CONFIG_GET(string/default_view)])" : "Выкл ([CONFIG_GET(string/default_view_square)])"]</a></td></tr>"
+				if(widescreenpref)
+					dat += "<tr><td><b>Своя ширина экрана:</b></td><td align='right'><a href='?_src_=prefs;preference=widescreenwidth;task=input'>[widescreenwidth]</a></td></tr>"
 
 			dat += "<tr><td><b>Названия предметов:</b></td><td align='right'><a href='?_src_=prefs;preference=tooltip_user'>[(w_toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл"]</a></td></tr>"
 			dat += "<tr><td><b>Позиция на экране:</b></td><td align='right'><a href='?_src_=prefs;preference=tooltip_pos'>[(w_toggles & TOOLTIP_USER_POS) ? "Низ" : "Верх"]</a></td></tr>"
@@ -1697,6 +1701,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if (pickedmap)
 						preferred_map = maplist[pickedmap]
 
+				if ("widescreenwidth")
+					var/desiredwidth = input(user, "Какую ширину выберем от до 15-31?", "ВЫБОР", widescreenwidth)  as null|num
+					if (!isnull(desiredwidth))
+						widescreenwidth = sanitize_integer(desiredwidth, 15, 31, widescreenwidth)
+						user.client.view_size.setDefault("[widescreenwidth]x15")
+
 				if ("clientfps")
 					var/desiredfps = input(user, "Choose your desired fps.\n-1 means recommended value (currently:[RECOMMENDED_FPS])\n0 means world fps (currently:[world.fps])", "Character Preference", clientfps)  as null|num
 					if (!isnull(desiredfps))
@@ -2005,6 +2015,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("widescreenpref")
 					widescreenpref = !widescreenpref
 					user.client.view_size.setDefault(getScreenSize(widescreenpref))
+					user.client.view = "[user.client.prefs.widescreenwidth]x15"
 
 				if("disabled_autocap")
 					disabled_autocap = !disabled_autocap
