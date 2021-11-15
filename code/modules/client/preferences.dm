@@ -1704,7 +1704,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if ("widescreenwidth")
 					var/desiredwidth = input(user, "Какую ширину выберем от до 15-31?", "ВЫБОР", widescreenwidth)  as null|num
 					if (!isnull(desiredwidth))
-						widescreenwidth = sanitize_integer(desiredfps, 15, 31, widescreenwidth)
+						widescreenwidth = sanitize_integer(desiredwidth, 15, 31, widescreenwidth)
 						user.client.view_size.setDefault("[widescreenwidth]x15")
 
 				if ("clientfps")

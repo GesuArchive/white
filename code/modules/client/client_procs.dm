@@ -462,7 +462,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	if(isnewplayer(src.mob))
 		view_size = new(src, getScreenSize(prefs.widescreenpref))
-		view = "[widescreenwidth]x15"
+		view = "[prefs.widescreenwidth]x15"
 	else
 		view_size = new(src, getScreenSize(prefs.widescreenpref))
 
