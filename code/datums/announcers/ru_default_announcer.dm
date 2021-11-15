@@ -5,7 +5,7 @@
 	event_sounds = list(ANNOUNCER_AIMALF = 'sound/ai/default/aimalf.ogg',
 						ANNOUNCER_ALIENS = 'sound/ai/announcer/biology.ogg',
 						ANNOUNCER_ANIMES = 'sound/ai/announcer/alert.ogg',
-						ANNOUNCER_GRANOMALIES = 'sound/ai/announcer/anomaly.ogg',
+						ANNOUNCER_GRANOMALIES = ANNOUNCER_SPANOMALIES,
 						ANNOUNCER_INTERCEPT = 'sound/ai/announcer/incoming.ogg',
 						ANNOUNCER_IONSTORM = 'sound/ai/announcer/artificial.ogg',
 						ANNOUNCER_OUTBREAK5 = 'sound/ai/announcer/biology.ogg',

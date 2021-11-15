@@ -24,7 +24,7 @@ PROCESSING_SUBSYSTEM_DEF(station)
 	else if(prob(20))
 		announcer = new /datum/centcom_announcer/intern
 	else
-		announcer = new /datum/centcom_announcer/ru_default
+		announcer = new /datum/centcom_announcer/va
 
 	return ..()
 
