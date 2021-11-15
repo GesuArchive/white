@@ -167,7 +167,7 @@ SUBSYSTEM_DEF(eventmaster)
 	if(!holder || !check_rights(R_DEBUG))
 		return
 
-	var/list/possible_options = list("ZOMBIES EVENT", "GHOSTIZE EVERYONE", "NONE")
+	var/list/possible_options = list("ZOMBIES EVENT", "GHOSTIZE EVERYONE", "SET WARFARE", "NONE")
 
 	var/what_the_fuck = input("SHIT YES?", "Cum") as null|anything in possible_options
 
@@ -176,6 +176,8 @@ SUBSYSTEM_DEF(eventmaster)
 			SSeventmaster.target_event = EVENT_TYPE_ZOMBIE
 		if("GHOSTIZE EVERYONE")
 			SSeventmaster.target_event = EVENT_TYPE_SPAWN_EVERYONE
+		if("SET WARFARE")
+			SSeventmaster.target_event = EVENT_READJUST_TO_WARFARE
 		else
 			SSeventmaster.target_event = EVENT_TYPE_NONE
 
