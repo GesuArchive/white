@@ -649,7 +649,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if (CONFIG_GET(string/default_view) != CONFIG_GET(string/default_view_square))
 				dat += "<tr><td><b>Широкий экран:</b></td><td align='right'><a href='?_src_=prefs;preference=widescreenpref'>[widescreenpref ? "Вкл ([CONFIG_GET(string/default_view)])" : "Выкл ([CONFIG_GET(string/default_view_square)])"]</a></td></tr>"
 				if(widescreenpref)
-					dat += "<tr><td><b>Своя ширина экрана:</b></td><td align='right'><a href='?_src_=prefs;preference=widescreenwidth'>[widescreenwidth]</a></td></tr>"
+					dat += "<tr><td><b>Своя ширина экрана:</b></td><td align='right'><a href='?_src_=prefs;preference=widescreenwidth;task=input'>[widescreenwidth]</a></td></tr>"
 
 			dat += "<tr><td><b>Названия предметов:</b></td><td align='right'><a href='?_src_=prefs;preference=tooltip_user'>[(w_toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл"]</a></td></tr>"
 			dat += "<tr><td><b>Позиция на экране:</b></td><td align='right'><a href='?_src_=prefs;preference=tooltip_pos'>[(w_toggles & TOOLTIP_USER_POS) ? "Низ" : "Верх"]</a></td></tr>"
