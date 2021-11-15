@@ -10,8 +10,16 @@
 		{
 			"Mining": true,
 			"Gravity": true,
-			"Linkage": null,
-			"Baseturf": "/turf/open/floor/plating/is12/dirt"
+			"Up": 1,
+			"Baseturf": "/turf/open/floor/plating/is12/dirt",
+			"Linkage": null
+		},
+		{
+			"Mining": true,
+			"Gravity": true,
+			"Down": -1,
+			"Baseturf": "/turf/open/floor/plating/is12/dirt",
+			"Linkage": null
 		}
 	],
     "shuttles": {
