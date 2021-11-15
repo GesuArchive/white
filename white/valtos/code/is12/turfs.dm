@@ -75,6 +75,12 @@
 	clawfootstep = FOOTSTEP_WOOD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
+/turf/open/floor/plating/is12/setup_broken_states()
+	return list("wwidirtplating", "wwidirt")
+
+/turf/open/floor/plating/is12/setup_burnt_states()
+	return list("surface")
+
 /turf/closed/indestructible/riveted/dirtystone
 	name = "твёрдая стена"
 	desc = "Толстая, казалось бы, неразрушимая каменная стена."

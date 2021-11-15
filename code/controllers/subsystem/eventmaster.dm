@@ -1,6 +1,7 @@
 #define EVENT_TYPE_NONE 0
 #define EVENT_TYPE_ZOMBIE 1
 #define EVENT_TYPE_SPAWN_EVERYONE 2
+#define EVENT_READJUST_TO_WARFARE 3
 
 GLOBAL_VAR_INIT(disable_fucking_station_shit_please, FALSE)
 
@@ -66,6 +67,19 @@ SUBSYSTEM_DEF(eventmaster)
 				SSticker.start_immediately = TRUE
 			to_chat(world, span_heavy_brass("Готово!"))
 			target_event = EVENT_TYPE_ZOMBIE
+			return TRUE
+		if(EVENT_READJUST_TO_WARFARE)
+			to_chat(world, span_heavy_brass("Отключение всех ролей..."))
+			SSjob.DisableAllJobs()
+			to_chat(world, span_heavy_brass("Перестройка под боевые действия..."))
+			action_area = GLOB.areas_by_type[/area/ctf/warfare]
+			second_area = GLOB.areas_by_type[/area/ctf/warfare/indoors]
+			action_area.luminosity = 1
+			second_area.luminosity = 1
+			adjust_areas_light()
+			to_chat(world, span_heavy_brass("Готово!"))
+			target_event = EVENT_TYPE_ZOMBIE
+			return TRUE
 		else
 			return FALSE
 
@@ -177,3 +191,4 @@ SUBSYSTEM_DEF(eventmaster)
 #undef EVENT_TYPE_NONE
 #undef EVENT_TYPE_ZOMBIE
 #undef EVENT_TYPE_SPAWN_EVERYONE
+#undef EVENT_READJUST_TO_WARFARE

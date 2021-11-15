@@ -177,7 +177,6 @@
 
 
 /datum/admins/proc/makeNukeTeam()
-	var/datum/game_mode/nuclear/temp = new
 	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Do you wish to be considered for a nuke team being sent in?", ROLE_OPERATIVE, null)
 	var/list/mob/dead/observer/chosen = list()
 	var/mob/dead/observer/theghost = null
