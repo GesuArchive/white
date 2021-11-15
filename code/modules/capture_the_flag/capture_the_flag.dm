@@ -692,7 +692,7 @@
 	id = /obj/item/card/id/blue //it's blue
 
 /datum/outfit/ctf/blue/warfare
-	head = /obj/item/clothing/head/helmet/elite
+	head = /obj/item/clothing/head/helmet/elite/blue
 	mask = /obj/item/clothing/mask/gas/germanfull
 	uniform = /obj/item/clothing/under/victorian/blred
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -731,7 +731,7 @@
 	id = /obj/item/card/id/yellow //it's yellow
 
 /datum/outfit/ctf/yellow/warfare
-	head = /obj/item/clothing/head/helmet/elite
+	head = /obj/item/clothing/head/helmet/elite/yellow
 	mask = /obj/item/clothing/mask/gas/german
 	uniform = /obj/item/clothing/under/victorian/vest
 	shoes = /obj/item/clothing/shoes/jackboots

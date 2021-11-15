@@ -147,6 +147,14 @@
 	icon = 'white/Wzzzz/Valya/clothing/hats.dmi'
 	armor = list("melee" = 35, "bullet" = 40, "laser" = 40,"energy" = 25, "bomb" = 45, "bio" = 2, "rad" = 0, "fire" = 30, "acid" = 20)
 
+/obj/item/clothing/head/helmet/elite/yellow
+	name = "жёлтый stahlhelm"
+	icon_state = "m35_elite_helmet_yellow"
+
+/obj/item/clothing/head/helmet/elite/blue
+	name = "синий stahlhelm"
+	icon_state = "m35_elite_helmet_blue"
+
 /obj/item/clothing/head/helmet/pickelhelm
 	name = "pickelhaube"
 	desc = "A spiked helmet.On the front is an eagle of gold color. Inspires respect for the Kaiser"
