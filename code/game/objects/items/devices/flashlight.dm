@@ -223,6 +223,7 @@
 	force = 9 // Not as good as a stun baton.
 	light_range = 5 // A little better than the standard flashlight.
 	hitsound = 'sound/weapons/genhit1.ogg'
+	light_color = "#ffffff"
 
 // the desk lamps are a bit special
 /obj/item/flashlight/lamp
@@ -239,6 +240,7 @@
 	flags_1 = CONDUCT_1
 	custom_materials = null
 	on = TRUE
+	light_color = "#ffffff"
 
 
 // green-shaded desk lamp
@@ -263,6 +265,7 @@
 	desc = "Сделать лампу в форме банана может только клоун. Здесь даже есть тупой шнурок."
 	icon_state = "bananalamp"
 	inhand_icon_state = "bananalamp"
+	light_color = "#f1dcac"
 
 // FLARES
 
