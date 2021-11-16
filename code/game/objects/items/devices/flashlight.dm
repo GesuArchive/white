@@ -18,6 +18,7 @@
 	light_power = 1
 	light_on = FALSE
 	var/on = FALSE
+	light_color = "#ffeac1"
 
 
 /obj/item/flashlight/Initialize()
@@ -245,7 +246,7 @@
 	desc = "Классическая настольная лампа с зелёным абажуром."
 	icon_state = "lampgreen"
 	inhand_icon_state = "lampgreen"
-
+	light_color = "#f1dcac"
 
 
 /obj/item/flashlight/lamp/verb/toggle_light()
@@ -364,6 +365,7 @@
 	desc = "Шахтёрский."
 	light_range = 6			// luminosity when on
 	light_system = MOVABLE_LIGHT
+	light_color = "#e7c16d"
 
 /obj/item/flashlight/lantern/heirloom_moth
 	name = "потёртый фонарь"
