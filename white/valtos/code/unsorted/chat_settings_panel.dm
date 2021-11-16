@@ -158,6 +158,7 @@ GLOBAL_LIST_INIT(chat_settings_list_desc, list(
 			C.prefs.toggles ^= SOUND_AMBIENCE
 			usr.stop_sound_channel(CHANNEL_AMBIENCE)
 			usr.stop_sound_channel(CHANNEL_BUZZ)
+			usr.client.update_ambience_pref()
 		if("lobby")
 			C.prefs.toggles ^= SOUND_LOBBY
 			usr.stop_sound_channel(CHANNEL_LOBBYMUSIC)
@@ -168,7 +169,6 @@ GLOBAL_LIST_INIT(chat_settings_list_desc, list(
 		if("ship_ambience")
 			C.prefs.toggles ^= SOUND_SHIP_AMBIENCE
 			usr.stop_sound_channel(CHANNEL_BUZZ)
-			C.ambience_playing = 0
 		if("prayers")
 			C.prefs.toggles ^= SOUND_PRAYERS
 		if("announcements")

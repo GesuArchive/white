@@ -262,28 +262,9 @@
 	icon_state = "purple"
 	area_flags = NOTELEPORT
 	var/playing_ambience = FALSE
+	ambientsounds = REEBE
 
 /area/reebe/Initialize(mapload)
 	. = ..()
 	spawn(5 SECONDS)
 		update_base_lighting()
-
-/area/reebe/city_of_cogs/Entered(atom/movable/AM)
-	. = ..()
-	if(ismob(AM))
-		var/mob/M = AM
-		if(M.client)
-			addtimer(CALLBACK(M.client, /client/proc/play_reebe_ambience), 900)
-
-//Reebe ambience replay
-
-/client/proc/play_reebe_ambience()
-	var/area/A = get_area(mob)
-	if(!istype(A, /area/reebe/city_of_cogs))
-		return
-	var/sound = pick(REEBE)
-	if(!played)
-		SEND_SOUND(src, sound(sound, repeat = 0, wait = 0, volume = 25, channel = CHANNEL_AMBIENCE))
-		played = TRUE
-		addtimer(CALLBACK(src, /client/proc/ResetAmbiencePlayed), 600)
-	addtimer(CALLBACK(src, /client/proc/play_reebe_ambience), 900)

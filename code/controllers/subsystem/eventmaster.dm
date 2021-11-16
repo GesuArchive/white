@@ -1,5 +1,5 @@
 #define EVENT_TYPE_NONE 0
-#define EVENT_TYPE_ZOMBIE 1
+#define EVENT_TYPE_OPENWORLD 1
 #define EVENT_TYPE_SPAWN_EVERYONE 2
 #define EVENT_READJUST_TO_WARFARE 3
 
@@ -37,7 +37,7 @@ SUBSYSTEM_DEF(eventmaster)
 
 /datum/controller/subsystem/eventmaster/proc/execute_ignition_rules()
 	switch(target_event)
-		if(EVENT_TYPE_ZOMBIE)
+		if(EVENT_TYPE_OPENWORLD)
 			to_chat(world, span_heavy_brass("Активация правил режима OpenWorld..."))
 			GLOB.disable_fucking_station_shit_please = TRUE
 			SSair.flags |= SS_NO_FIRE
@@ -51,8 +51,8 @@ SUBSYSTEM_DEF(eventmaster)
 			to_chat(world, span_heavy_brass("Остановка лишних контроллеров успешна!"))
 			action_area = GLOB.areas_by_type[/area/partyhard/outdoors]
 			second_area = GLOB.areas_by_type[/area/partyhard/indoors]
-			action_area.luminosity = 1
-			second_area.luminosity = 1
+			action_area?.luminosity = 1
+			second_area?.luminosity = 1
 			adjust_areas_light()
 			to_chat(world, span_heavy_brass("Свет готов!"))
 			to_chat(world, span_heavy_brass("Готово!"))
@@ -66,7 +66,7 @@ SUBSYSTEM_DEF(eventmaster)
 					player.make_me_an_observer(TRUE)
 				SSticker.start_immediately = TRUE
 			to_chat(world, span_heavy_brass("Готово!"))
-			target_event = EVENT_TYPE_ZOMBIE
+			target_event = EVENT_TYPE_OPENWORLD
 			return TRUE
 		if(EVENT_READJUST_TO_WARFARE)
 			to_chat(world, span_heavy_brass("Отключение всех ролей..."))
@@ -74,18 +74,18 @@ SUBSYSTEM_DEF(eventmaster)
 			to_chat(world, span_heavy_brass("Перестройка под боевые действия..."))
 			action_area = GLOB.areas_by_type[/area/ctf/warfare]
 			second_area = GLOB.areas_by_type[/area/ctf/warfare/indoors]
-			action_area.luminosity = 1
-			second_area.luminosity = 1
+			action_area?.luminosity = 1
+			second_area?.luminosity = 1
 			adjust_areas_light()
 			to_chat(world, span_heavy_brass("Готово!"))
-			target_event = EVENT_TYPE_ZOMBIE
+			target_event = EVENT_TYPE_OPENWORLD
 			return TRUE
 		else
 			return FALSE
 
 /datum/controller/subsystem/eventmaster/fire(resumed)
 	switch(target_event)
-		if(EVENT_TYPE_ZOMBIE)
+		if(EVENT_TYPE_OPENWORLD)
 			adjust_areas_light()
 			calc_alive_and_zombies()
 		else
@@ -155,9 +155,11 @@ SUBSYSTEM_DEF(eventmaster)
 		if(prob(25))
 			SSweather.run_weather(/datum/weather/just_rain)
 		current_time = new_time
-		action_area.set_base_lighting(new_color, new_alpha)
-		second_area.set_base_lighting(new_color, second_area.base_lighting_alpha)
-		action_area.env_temp_relative = new_temp
+		if(action_area)
+			action_area.set_base_lighting(new_color, new_alpha)
+			action_area.env_temp_relative = new_temp
+		if(second_area)
+			second_area.set_base_lighting(new_color, second_area.base_lighting_alpha)
 		to_chat(world, span_greenannounce("<b>[station_time_timestamp("hh:mm")]</b> - [new_time]."))
 
 /client/proc/force_evenmaster_rules()
@@ -167,13 +169,13 @@ SUBSYSTEM_DEF(eventmaster)
 	if(!holder || !check_rights(R_DEBUG))
 		return
 
-	var/list/possible_options = list("ZOMBIES EVENT", "GHOSTIZE EVERYONE", "SET WARFARE", "NONE")
+	var/list/possible_options = list("OPENWORLD EVENT", "GHOSTIZE EVERYONE", "SET WARFARE", "NONE")
 
 	var/what_the_fuck = input("SHIT YES?", "Cum") as null|anything in possible_options
 
 	switch(what_the_fuck)
-		if("ZOMBIES EVENT")
-			SSeventmaster.target_event = EVENT_TYPE_ZOMBIE
+		if("OPENWORLD EVENT")
+			SSeventmaster.target_event = EVENT_TYPE_OPENWORLD
 		if("GHOSTIZE EVERYONE")
 			SSeventmaster.target_event = EVENT_TYPE_SPAWN_EVERYONE
 		if("SET WARFARE")
@@ -191,6 +193,6 @@ SUBSYSTEM_DEF(eventmaster)
 #undef CYCLE_NIGHTTIME
 
 #undef EVENT_TYPE_NONE
-#undef EVENT_TYPE_ZOMBIE
+#undef EVENT_TYPE_OPENWORLD
 #undef EVENT_TYPE_SPAWN_EVERYONE
 #undef EVENT_READJUST_TO_WARFARE
