@@ -4240,6 +4240,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/delivery,
 /obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/maint_drugs,
 /turf/open/floor/plating{
 	icon_state = "platingdmg3"
 	},
@@ -5459,6 +5460,7 @@
 /obj/item/vending_refill/cola,
 /obj/item/screwdriver,
 /obj/effect/turf_decal/stripes/corner,
+/obj/effect/spawner/lootdrop/maintenance/five,
 /turf/open/floor/plating,
 /area/maintenance/starboard)
 "azf" = (
@@ -14360,6 +14362,7 @@
 	name = "bank statement"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/lootdrop/space/cashmoney,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/port)
 "byS" = (
@@ -14595,6 +14598,7 @@
 	icon_state = "crateopen"
 	},
 /obj/item/stock_parts/capacitor,
+/obj/effect/spawner/lootdrop/maintenance/two,
 /turf/open/floor/plating,
 /area/maintenance/port)
 "bzY" = (
@@ -27187,6 +27191,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/maintenance/five,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "daF" = (
@@ -40272,6 +40277,7 @@
 /obj/machinery/status_display/shuttle{
 	pixel_y = -32
 	},
+/obj/effect/spawner/lootdrop/techstorage/command,
 /turf/open/floor/circuit/green{
 	luminosity = 2
 	},
@@ -41066,6 +41072,7 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/item/radio/intercom/directional/north,
+/obj/effect/spawner/lootdrop/techstorage/tcomms,
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "ixF" = (
@@ -42124,6 +42131,7 @@
 /obj/item/storage/backpack/duffelbag{
 	pixel_y = 4
 	},
+/obj/effect/spawner/lootdrop/space/cashmoney,
 /turf/open/floor/plating,
 /area/maintenance/starboard)
 "iQr" = (
@@ -51146,6 +51154,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb,
 /obj/structure/closet/crate/bin,
+/obj/effect/spawner/lootdrop/maintenance/two,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
 	},
@@ -52907,6 +52916,7 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/firealarm/directional/east,
+/obj/effect/spawner/lootdrop/techstorage/medical,
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "mNL" = (
@@ -53342,6 +53352,7 @@
 /obj/structure/sign/warning/securearea{
 	pixel_x = 32
 	},
+/obj/effect/spawner/lootdrop/techstorage/engineering,
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "mUC" = (
@@ -56189,6 +56200,7 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/machinery/light/directional/north,
+/obj/effect/spawner/lootdrop/techstorage/rnd,
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "ohU" = (
@@ -60275,6 +60287,7 @@
 	network = list("ss13","engine")
 	},
 /obj/effect/turf_decal/stripes/corner,
+/obj/effect/spawner/lootdrop/techstorage/security,
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "pGW" = (
@@ -64629,6 +64642,7 @@
 /area/engineering/main)
 "rlW" = (
 /obj/structure/rack,
+/obj/effect/spawner/lootdrop/techstorage/rnd_secure,
 /turf/open/floor/circuit/green{
 	luminosity = 2
 	},
@@ -67739,6 +67753,7 @@
 "sqO" = (
 /obj/structure/rack,
 /obj/machinery/firealarm/directional/south,
+/obj/effect/spawner/lootdrop/techstorage/ai,
 /turf/open/floor/circuit/green{
 	luminosity = 2
 	},
@@ -69401,6 +69416,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "tcq" = (
@@ -71650,6 +71666,7 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/status_display/ai/directional/north,
+/obj/effect/spawner/lootdrop/techstorage/service,
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "tUU" = (
@@ -73170,6 +73187,7 @@
 "uAg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/maintenance/three,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
 	},
@@ -77334,6 +77352,13 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/command/bridge)
+"wiN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/lootdrop/maintenance,
+/turf/open/floor/plating{
+	icon_state = "panelscorched"
+	},
+/area/maintenance/port)
 "wje" = (
 /obj/structure/table/glass,
 /obj/machinery/computer/med_data/laptop,
@@ -81387,6 +81412,7 @@
 "xJP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/space/cashmoney,
 /turf/open/floor/plating,
 /area/maintenance/port)
 "xJS" = (
@@ -94339,7 +94365,7 @@ anD
 mGX
 tRg
 amR
-cnL
+wiN
 cBh
 amR
 ajd
