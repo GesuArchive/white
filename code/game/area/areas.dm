@@ -62,6 +62,7 @@
 	var/ambience_volume = 15
 	var/ambience_index = AMBIENCE_GENERIC
 	var/list/ambientsounds
+	var/list/ambigensounds
 	flags_1 = CAN_BE_DIRTY_1
 
 	var/list/firedoors
@@ -156,8 +157,8 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /area/Initialize(mapload)
 	icon_state = ""
 
-	if(!ambientsounds)
-		ambientsounds = GLOB.ambience_assoc[ambience_index]
+	if(!ambigensounds)
+		ambigensounds = GLOB.ambience_assoc[ambience_index]
 
 	if(area_flags & AREA_USES_STARLIGHT)
 		static_lighting = CONFIG_GET(flag/starlight)
@@ -516,7 +517,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!(L.client && (L.client.prefs.toggles & SOUND_AMBIENCE)))
 		return //General ambience check is below the ship ambience so one can play without the other
 
-/*
 	if(!L.client.played)
 		var/sound/S = sound(pick(ambientsounds))
 
@@ -540,8 +540,8 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 					if(found.file == S.file)
 						soundLen = found.len
 
-				addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), soundLen * 10)
-
+				addtimer(VARSET_CALLBACK(L.client, played, FALSE), soundLen * 10)
+/*
 	if(prob(35) && !istype(src, /area/awaymission))
 		var/sound/AGS = sound(pick(GENERIC_AMBIGEN))
 
