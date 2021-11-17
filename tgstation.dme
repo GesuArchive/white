@@ -3965,6 +3965,7 @@
 #include "white\Feline\code\med\designes.dm"
 #include "white\Feline\code\med\equipment.dm"
 #include "white\Feline\code\med\tools.dm"
+#include "white\Feline\code\med\toxin_heal.dm"
 #include "white\Feline\code\rangers\designes.dm"
 #include "white\Feline\code\rangers\equipment.dm"
 #include "white\Feline\code\rangers\voucher.dm"

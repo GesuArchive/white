@@ -4,7 +4,7 @@
 	surgeries = list(/datum/surgery/advanced/brainwashing)
 
 /datum/surgery/advanced/brainwashing
-	name = "Промывание мозгов"
+	name = "Операция на Мозге: Промывка мозгов"
 	desc = "Хирургическая процедура, которая запечатляет приказ в мозге пациента, делая его основной директивой. Эту директиву можно отменить используя имплант защиты разума."
 	steps = list(
 	/datum/surgery_step/incise,
