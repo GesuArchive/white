@@ -539,7 +539,7 @@ Turf and target are separate in case you want to teleport some distance from a t
 /proc/anyprob(value)
 	return (rand(1,value)==value)
 
-/proc/parse_zone(zone)
+/proc/parse_zone(zone)	// Именительный
 	if(zone == BODY_ZONE_PRECISE_R_HAND)
 		return "правая кисть"
 	else if (zone == BODY_ZONE_PRECISE_L_HAND)
@@ -569,7 +569,7 @@ Turf and target are separate in case you want to teleport some distance from a t
 	else
 		return zone
 
-/proc/ru_parse_zone(zone)
+/proc/ru_parse_zone(zone)	// Винительный
 	if(zone == "правая кисть")
 		return "правую кисть"
 	else if (zone == "левая кисть")
@@ -597,7 +597,7 @@ Turf and target are separate in case you want to teleport some distance from a t
 	else
 		return zone
 
-/proc/ru_gde_zone(zone)
+/proc/ru_gde_zone(zone)	// Дательный
 	if(zone == "правая кисть")
 		return "правой кисти"
 	else if (zone == "левая кисть")
@@ -625,7 +625,7 @@ Turf and target are separate in case you want to teleport some distance from a t
 	else
 		return zone
 
-/proc/ru_otkuda_zone(zone)
+/proc/ru_otkuda_zone(zone)	// Родительный
 	if(zone == "правая кисть")
 		return "правой кисти"
 	else if (zone == "левая кисть")

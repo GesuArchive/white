@@ -166,8 +166,8 @@
 
 /datum/techweb_node/biotech
 	id = "biotech"
-	display_name = "Biological Technology"
-	description = "What makes us tick."	//the MC, silly!
+	display_name = "Биотехнологии"
+	description = "То, что заставляет сердце биться."	//the MC, silly!
 	prereq_ids = list("base")
 	design_ids = list("chem_heater", "chem_master", "chem_dispenser", "pandemic", "defibrillator", "defibmount", "operating", "soda_dispenser", "beer_dispenser", "healthanalyzer", "medigel","genescanner", "med_spray_bottle", "chem_pack", "blood_pack", "medical_kiosk", "crewpinpointerprox", "medipen_refiller", "biopsy_tool", "plumbing_rcd_sci", "medbot_carrier")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
@@ -175,8 +175,8 @@
 
 /datum/techweb_node/adv_biotech
 	id = "adv_biotech"
-	display_name = "Advanced Biotechnology"
-	description = "Advanced Biotechnology"
+	display_name = "Продвинутые Биотехнологии"
+	description = "Расширят границы познания."
 	prereq_ids = list("biotech")
 	design_ids = list("piercesyringe", "crewpinpointer", "smoke_machine", "plasmarefiller", "limbgrower", "meta_beaker", "healthanalyzer_advanced", "harvester", "holobarrier_med", "detective_scanner", "defibrillator_compact", "ph_meter")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
@@ -185,9 +185,9 @@
 
 /datum/techweb_node/xenoorgan_biotech
 	id = "xenoorgan_bio"
-	display_name = "Xeno-organ Biology"
-	description = "Plasmaman, Ethereals, Lizardpeople... What makes our non-human crewmembers tick?"
-	prereq_ids = list("adv_biotech")
+	display_name = "Ксено-органы"
+	description = "Органы характерные для Фелинидов, Ящеров, Плазменов и Этериалов"
+	prereq_ids = list("biotech", "cyber_organs")
 	design_ids = list("limbdesign_felinid", "limbdesign_lizard", "limbdesign_plasmaman", "limbdesign_ethereal")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 6500)
 	discount_experiments = list(/datum/experiment/scanning/random/cytology/easy = 1000, /datum/experiment/scanning/points/slime/expert = 5000)
@@ -205,25 +205,25 @@
 
 /datum/techweb_node/imp_wt_surgery
 	id = "imp_wt_surgery"
-	display_name = "Improved Wound-Tending Surgery"
-	description = "Who would have known being more gentle with a hemostat decreases patient pain?"
+	display_name = "Улучшенная Травматологическая Хирургия"
+	description = "Удивительно, но оказывается, что надежно зафиксированный пациент более не нуждается в анестезии!"
 	prereq_ids = list("biotech")
-	design_ids = list("surgery_heal_brute_upgrade","surgery_heal_burn_upgrade")
+	design_ids = list("surgery_heal_brute_upgrade","surgery_heal_burn_upgrade","surgery_toxin_heal_toxin_upgrade")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000)
 
 
 /datum/techweb_node/adv_surgery
 	id = "adv_surgery"
-	display_name = "Advanced Surgery"
-	description = "When simple medicine doesn't cut it."
+	display_name = "Продвинутая Хирургия"
+	description = "Не бывает лишних органов, есть только их недостаточное количество..."
 	prereq_ids = list("imp_wt_surgery")
-	design_ids = list("surgery_lobotomy", "surgery_heal_brute_upgrade_femto", "surgery_heal_burn_upgrade_femto","surgery_heal_combo","surgery_wing_reconstruction")
+	design_ids = list("surgery_lobotomy", "surgery_heal_brute_upgrade_femto", "surgery_heal_burn_upgrade_femto","surgery_heal_combo", "surgery_toxin_heal_toxin_upgrade_femto","surgery_wing_reconstruction")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1500)
 
 /datum/techweb_node/exp_surgery
 	id = "exp_surgery"
-	display_name = "Experimental Surgery"
-	description = "When evolution isn't fast enough."
+	display_name = "Экспериментальная Хирургия"
+	description = "Когда природная эволюция не поспевает за прогрессом."
 	prereq_ids = list("adv_surgery")
 	design_ids = list("surgery_pacify","surgery_vein_thread","surgery_muscled_veins","surgery_nerve_splice","surgery_nerve_ground","surgery_ligament_hook","surgery_ligament_reinforcement","surgery_cortex_imprint","surgery_cortex_folding","surgery_viral_bond", "surgery_heal_combo_upgrade", "organdoc")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 7500)
@@ -231,8 +231,8 @@
 
 /datum/techweb_node/alien_surgery
 	id = "alien_surgery"
-	display_name = "Alien Surgery"
-	description = "Abductors did nothing wrong."
+	display_name = "Инопланетная Хирургия"
+	description = "Похитители ни в чем не виноваты!"
 	prereq_ids = list("exp_surgery", "alientech")
 	design_ids = list("surgery_brainwashing","surgery_zombie","surgery_heal_combo_upgrade_femto")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 10000)

@@ -693,15 +693,15 @@
 
 /datum/outfit/ctf/blue/warfare
 	head = /obj/item/clothing/head/helmet/elite/blue
-	mask = /obj/item/clothing/mask/gas/germanfull
-	uniform = /obj/item/clothing/under/victorian/blred
+	mask = /obj/item/clothing/mask/gas/german
+	uniform = /obj/item/clothing/under/victorian/vest
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/fingerless
 	belt = /obj/item/melee/sabre/marineofficer
 	suit = /obj/item/clothing/suit/armor/opvest
-	r_hand = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks/warfare
-	l_pocket = /obj/item/ammo_box/fallout/sks
-	r_pocket = /obj/item/ammo_box/fallout/sks
+	r_hand = /obj/item/gun/ballistic/rifle/boltaction/kar98k
+	l_pocket = /obj/item/ammo_box/magazine/a792x57
+	r_pocket = /obj/item/ammo_box/magazine/a792x57
 
 /datum/outfit/ctf/blue/warfare/post_equip(mob/living/carbon/human/H)
 	. = ..()
@@ -738,9 +738,9 @@
 	gloves = /obj/item/clothing/gloves/fingerless
 	belt = /obj/item/melee/sabre/marineofficer
 	suit = /obj/item/clothing/suit/armor/opvest
-	r_hand = /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks/warfare
-	l_pocket = /obj/item/ammo_box/fallout/sks
-	r_pocket = /obj/item/ammo_box/fallout/sks
+	r_hand = /obj/item/gun/ballistic/rifle/boltaction/kar98k
+	l_pocket = /obj/item/ammo_box/magazine/a792x57
+	r_pocket = /obj/item/ammo_box/magazine/a792x57
 
 /datum/outfit/ctf/yellow/warfare/post_equip(mob/living/carbon/human/H)
 	. = ..()
