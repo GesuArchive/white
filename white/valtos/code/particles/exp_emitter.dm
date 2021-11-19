@@ -69,7 +69,7 @@
 	lifespan = 600  // live for 60s max
 	fade = 35       // fade out over the last 3.5s if still on screen
 	// spawn within a certain x,y,z space
-	icon = 'icons/effects/particles.dmi'
+	icon = 'white/valtos/icons/particles.dmi'
 	icon_state = "starsmall"
 	position = generator("box", list(-300,50,0), list(300,300,50))
 	gravity = list(0, -3)
