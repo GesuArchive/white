@@ -44,6 +44,8 @@
 
 /obj/effect/music
 	alpha = 200
+	layer = FLY_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	particles = new/particles/music
 
 /obj/effect/music/New()
@@ -102,6 +104,8 @@
 /obj/effect/rain
 	particles = new/particles/rain
 	alpha = 200
+	layer = FLY_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/static/list/particles/z_particles
 
 /obj/effect/rain/client_attach
@@ -170,6 +174,8 @@
 /obj/effect/snow
 	particles = new/particles/snow
 	var/static/list/particles/z_particles
+	layer = FLY_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/effect/snow/client_attach
 	screen_loc = "CENTER"
