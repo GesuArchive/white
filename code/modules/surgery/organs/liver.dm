@@ -22,6 +22,7 @@
 	/// Scaling factor for how much damage toxins deal to the liver
 	var/toxLethality = LIVER_DEFAULT_TOX_LETHALITY
 	var/filterToxins = TRUE //whether to filter toxins
+	var/operated = FALSE
 
 /obj/item/organ/liver/Initialize()
 	. = ..()

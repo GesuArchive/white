@@ -7,5 +7,5 @@
 	priority = 1
 
 /datum/client_colour/warfare
-	colour = list(rgb(150,22,22), rgb(200,200,150), rgb(28,125,28), rgb(0,0,0))
+	colour = list(rgb(200,0,0), rgb(0,200,0), rgb(0,0,200), rgb(0,0,0))
 	priority = 1

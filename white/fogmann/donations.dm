@@ -365,6 +365,7 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 GLOBAL_LIST_INIT(custom_race_donations, list(
 	"woofwoof322" = "athena_s",
 	"oni3288" = "oni",
+	"0cemeh1tejib6a6yjiek" = "babulet",
 	"pisimist29" = "android",
 	"arsenay" = "aandroid",
 	"fiaskin" = "synthman"))

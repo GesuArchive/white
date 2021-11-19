@@ -233,7 +233,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 	icon_state = "katanus"
 	inhand_icon_state = "katanus"
 	worn_icon_state = "katanus"
-	worn_icon = 'white/valtos/icons/back.dmi'
+	worn_icon = 'white/valtos/icons/weapons/mob/back.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BACK
 	force = 16
@@ -1099,7 +1099,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 	icon_state = "dwarfsord"
 	inhand_icon_state = "dwarfsord"
 	worn_icon_state = "dwarfsord"
-	worn_icon = 'white/valtos/icons/back.dmi'
+	worn_icon = 'white/valtos/icons/weapons/mob/back.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	force = 18

@@ -143,7 +143,7 @@
 
 	if(prob(75))
 		force = 8 // как вы вообще этим бить собрались
-		icon = 'white/valtos/icons/balon.dmi'
+		icon = 'white/valtos/icons/weapons/melee.dmi'
 		icon_state = inhand_icon_state
 		reagents.clear_reagents()
 		max_water = 0

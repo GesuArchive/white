@@ -3,7 +3,7 @@
 	desc = "Полностью стационарная автоматическая шаурмечница!"
 	density = TRUE
 	state_open = FALSE
-	icon = 'white/valtos/icons/autodoc.dmi'
+	icon = 'white/valtos/icons/64x64_autodoc.dmi'
 	icon_state = "autodoc_machine"
 	verb_say = "states"
 	idle_power_usage = 500

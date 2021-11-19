@@ -7,7 +7,7 @@
 	name = "дакимакура"
 	var/custom_name = null
 	desc = "Большая подушка с изображением девушки в компрометирующей позе."
-	icon = 'white/valtos/icons/daki.dmi'
+	icon = 'white/valtos/icons/weapons/daki.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "daki_base"

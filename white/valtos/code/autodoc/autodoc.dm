@@ -36,7 +36,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	name = "Авто-Док МК IX"
 	desc = "Полностью стационарная автоматическа хирургия! Для всей семьи!"
 	circuit = /obj/item/circuitboard/machine/autodoc
-	icon = 'white/valtos/icons/autodoc.dmi'
+	icon = 'white/valtos/icons/64x64_autodoc.dmi'
 	icon_state = "autodoc_base"
 	density = FALSE
 	anchored = TRUE

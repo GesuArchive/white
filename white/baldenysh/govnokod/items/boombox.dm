@@ -12,6 +12,8 @@
 	var/datum/track/selection = null
 	var/obj/item/card/data/music/disk
 	var/playing = FALSE
+	var/obj/effect/music/effect
+	var/obj/machinery/turntable/tt
 
 /proc/open_sound_channel_for_boombox()
 	var/static/next_channel = CHANNEL_WIND_AVAILABLE + 1
@@ -29,6 +31,8 @@
 	load_tracks()
 	name = "Взрыв [pick("каробка",50;"каропка",25;"коропка",10;"коробка")]"
 	color = color_matrix_rotate_hue(rand(0, 360))
+	effect = new
+	src.vis_contents += effect
 
 /obj/item/boombox/update_icon()
 	if(playing)
@@ -74,6 +78,10 @@
 	SP.active = TRUE
 	playing = TRUE
 	update_icon()
+	if(tt)
+		tt.effect.play_notes()
+	else
+		effect.play_notes()
 
 /obj/item/boombox/proc/stopsound()
 	var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
@@ -81,6 +89,18 @@
 	playsound(get_turf(src),'sound/machines/terminal_off.ogg',50,1)
 	playing = FALSE
 	update_icon()
+	if(tt)
+		tt.effect.stop_notes()
+	else
+		effect.stop_notes()
+
+/obj/item/boombox/dropped(mob/user, silent)
+	. = ..()
+	user.vis_contents -= effect
+
+/obj/item/boombox/pickup(mob/user)
+	. = ..()
+	user.vis_contents |= effect
 
 /obj/item/boombox/proc/toggle_env()
 	var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
@@ -224,6 +244,7 @@
 	density = TRUE
 	layer = ABOVE_MOB_LAYER
 	var/obj/item/boombox/bbox
+	var/obj/effect/music/effect
 
 /obj/machinery/turntable/Initialize()
 	. = ..()
@@ -232,6 +253,9 @@
 		name = "младший [name]"
 	bbox = new(src)
 	bbox.name = name
+	effect = new
+	src.vis_contents += effect
+	bbox.tt = src
 
 /obj/machinery/turntable/Destroy()
 	if(bbox)
@@ -240,21 +264,6 @@
 
 /obj/machinery/turntable/ui_interact(mob/user)
 	bbox.ui_interact(user)
-	update_playing()
-
-/obj/machinery/turntable/proc/update_playing()
-	var/filter
-	if(bbox.playing)
-		if(!get_filter("outline"))
-			add_filter("outline", 1, outline_filter(size = 0, color = "#[random_color()]"))
-			filter = get_filter("outline")
-			animate(filter, size = 1, time = 1, loop = -1)
-			animate(size = 0, time = 1)
-	else
-		filter = get_filter("outline")
-		if(filter)
-			animate(filter)
-			remove_filter("outline")
 
 /obj/machinery/turntable/attackby(obj/item/I, mob/user)
 	if(bbox.disk_insert(user, I, bbox.disk))
@@ -288,7 +297,7 @@
 	desc = "Может быть перезапущен с использованием мультитула."
 	icon = 'white/valtos/icons/musicconsole.dmi'
 	icon_state = "off"
-	var/coin = 0
+	var/coin = 1
 	var/mob/retard //current user
 	var/writing = 0
 
