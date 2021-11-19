@@ -102,6 +102,21 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
+/mob/living/carbon/human/species/android/babulet
+	race = /datum/species/android/babulet
+
+/datum/species/android/babulet
+	name = "Babulet"
+	id = "babulet"
+	limbs_id = null
+
+/datum/species/android/babulet/on_species_gain(mob/living/carbon/C)
+	. = ..()
+	C.draw_white_parts()
+	C.update_body()
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
 /datum/species/human/pigman
 	name = "Свиноч"
 	id = "pigman"
