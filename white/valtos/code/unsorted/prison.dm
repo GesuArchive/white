@@ -561,7 +561,7 @@
 	icon = 'white/valtos/icons/prison/prison.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
-	worn_icon = 'white/valtos/icons/back.dmi'
+	worn_icon = 'white/valtos/icons/weapons/mob/back.dmi'
 	icon_state = "kalash"
 	inhand_icon_state = "ak47"
 	worn_icon_state = "ak47"
