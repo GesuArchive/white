@@ -4,6 +4,7 @@
 	icon = 'icons/obj/fluff.dmi'
 	icon_state = "railing"
 	flags_1 = ON_BORDER_1
+	layer = SPACEPOD_LAYER
 	density = TRUE
 	anchored = TRUE
 	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE
