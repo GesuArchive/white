@@ -108,6 +108,14 @@
 /datum/species/android/babulet
 	name = "Babulet"
 	id = "babulet"
+	liked_food = VEGETABLES | DAIRY | CLOTH
+	disliked_food = FRUIT | GROSS
+	toxic_food = MEAT | RAW
+	mutant_bodyparts = list("moth_wings" = "Plain", "moth_markings" = "None")
+	attack_verb = "цапает"
+	attack_effect = ATTACK_EFFECT_CLAW
+	attack_sound = 'sound/weapons/slash.ogg'
+	miss_sound = 'sound/weapons/slashmiss.ogg'
 	limbs_id = null
 	yogs_draw_robot_hair = TRUE
 	use_skintones = TRUE
