@@ -123,15 +123,17 @@
 /datum/component/usb_port/proc/on_examine(datum/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
 
+	examine_text += "<hr>"
+
 	if (isnull(attached_circuit))
-		examine_text += span_notice("There is a USB port on the front.")
+		examine_text += span_notice("Здесь есть USB-порт спереди")
 	else
-		examine_text += span_notice("[attached_circuit.shell || attached_circuit] is connected to [parent.p_them()] by a USB port.")
+		examine_text += span_notice("[attached_circuit.shell || attached_circuit] подключен через USB-порт.")
 
 /datum/component/usb_port/proc/on_examine_shell(datum/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
 
-	examine_text += span_notice("[source.p_they(TRUE)] [source.p_are()] attached to [parent] with a USB cable.")
+	examine_text += span_notice("<hr>Здесь [parent] подключённый через USB-порт.")
 
 /datum/component/usb_port/proc/on_atom_usb_cable_try_attach(datum/source, obj/item/usb_cable/connecting_cable, mob/user)
 	SIGNAL_HANDLER
@@ -140,17 +142,17 @@
 
 	if (!isnull(attached_circuit))
 		if(user)
-			atom_parent.balloon_alert(user, "usb already connected")
+			atom_parent.balloon_alert(user, "usb уже подключен")
 		return COMSIG_CANCEL_USB_CABLE_ATTACK
 
 	if (isnull(connecting_cable.attached_circuit))
 		if(user)
-			connecting_cable.balloon_alert(user, "connect to a shell first")
+			connecting_cable.balloon_alert(user, "подключите обочку сначала")
 		return COMSIG_CANCEL_USB_CABLE_ATTACK
 
 	if (!IN_GIVEN_RANGE(connecting_cable.attached_circuit, parent, USB_CABLE_MAX_RANGE))
 		if(user)
-			connecting_cable.balloon_alert(user, "too far away")
+			connecting_cable.balloon_alert(user, "слишком далеко")
 		return COMSIG_CANCEL_USB_CABLE_ATTACK
 
 	usb_cable_ref = WEAKREF(connecting_cable)

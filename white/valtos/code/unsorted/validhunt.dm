@@ -13,7 +13,8 @@
 	dupe_mode = COMPONENT_DUPE_HIGHLANDER
 
 	var/bounty_size
-	var/datum/beam/ourbeam
+	var/datum/beam/ourbeam_one
+	var/datum/beam/ourbeam_two
 
 /datum/component/bounty/Initialize(_bounty_size)
 	bounty_size = _bounty_size
@@ -29,13 +30,21 @@
 
 	var/turf/T = locate(world.maxx - 1, world.maxy - 1, 2)
 
-	ourbeam = T.Beam(M, icon_state = "sat_beam", time = INFINITY)
+	ourbeam_one = M.Beam(T, icon_state = "sat_beam", time = INFINITY)
+
+	var/turf/MT = get_turf(M)
+
+	if(SSmapping.get_turf_below(MT) || SSmapping.get_turf_above(MT))
+		var/turf/T2 = locate(world.maxx - 1, world.maxy - 1, 3)
+		ourbeam_two = M.Beam(T2, icon_state = "sat_beam", time = INFINITY)
+
 
 /datum/component/bounty/Destroy()
 	var/mob/M = parent
 	M.remove_atom_colour(FIXED_COLOUR_PRIORITY, COLOR_RED)
 	M.set_light(0, 0, 0, 0)
-	qdel(ourbeam)
+	qdel(ourbeam_one)
+	qdel(ourbeam_two)
 	return ..()
 
 /datum/component/bounty/proc/bounty_examine(datum/source, mob/user, list/out)
