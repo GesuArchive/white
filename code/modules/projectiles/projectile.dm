@@ -172,8 +172,6 @@
 	decayedRange = range
 	if(embedding)
 		updateEmbedding()
-	if(isopenspace(original))
-		movement_type = GROUND
 	AddElement(/datum/element/connect_loc, projectile_connections)
 
 /obj/projectile/proc/Range()
@@ -503,6 +501,9 @@
 		return TRUE
 	if(!isliving(target))
 		if(isturf(target))		// non dense turfs
+			if(isopenspace(original))
+				var/turf/TT = get_step_multiz(src, DOWN)
+				forceMove(TT)
 			return FALSE
 		if(target.layer < PROJECTILE_HIT_THRESHHOLD_LAYER)
 			return FALSE
