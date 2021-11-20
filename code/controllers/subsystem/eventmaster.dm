@@ -79,8 +79,6 @@ SUBSYSTEM_DEF(eventmaster)
 			adjust_areas_light()
 			to_chat(world, span_heavy_brass("Готово!"))
 			target_event = EVENT_TYPE_OPENWORLD
-			//for(var/turf/T in action_area)
-			//	new /obj/effect/rain/sideways/tile(T)
 			return TRUE
 		else
 			return FALSE
@@ -154,8 +152,8 @@ SUBSYSTEM_DEF(eventmaster)
 			new_temp = -5
 
 	if(new_time != current_time)
-		//if(prob(25))
-		//	SSweather.run_weather(/datum/weather/just_rain)
+		if(prob(25))
+			SSweather.run_weather(/datum/weather/just_rain)
 		current_time = new_time
 		if(action_area)
 			action_area.set_base_lighting(new_color, new_alpha)
