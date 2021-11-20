@@ -184,8 +184,8 @@
 
 
 /obj/structure/reagent_dispensers/water_cooler
-	name = "liquid cooler"
-	desc = "A machine that dispenses liquid to drink."
+	name = "кулер"
+	desc = "Машина, которая раздаёт воду. Да."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "water_cooler"
 	anchored = TRUE
@@ -196,20 +196,20 @@
 	. = ..()
 	. += "<hr>"
 	if (paper_cups > 1)
-		. += "There are [paper_cups] paper cups left."
+		. += "Внутри осталось [paper_cups] бумажных стаканчиков."
 	else if (paper_cups == 1)
-		. += "There is one paper cup left."
+		. += "Внутри остался один бумажный стаканчик."
 	else
-		. += "There are no paper cups left."
+		. += "Внутри больше нет бумажных стаканчиков."
 
 /obj/structure/reagent_dispensers/water_cooler/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
 	if(!paper_cups)
-		to_chat(user, span_warning("There aren't any cups left!"))
+		to_chat(user, span_warning("Внутри нет стаканчиков!"))
 		return
-	user.visible_message(span_notice("[user] takes a cup from [src].") , span_notice("You take a paper cup from [src]."))
+	user.visible_message(span_notice("[user] достаёт стаканчик из [src].") , span_notice("Достаю стаканчик из [src]."))
 	var/obj/item/reagent_containers/food/drinks/sillycup/S = new(get_turf(src))
 	user.put_in_hands(S)
 	paper_cups--
