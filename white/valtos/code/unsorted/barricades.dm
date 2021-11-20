@@ -85,6 +85,7 @@
 			return TRUE
 		if(prob(25))
 			return TRUE
+		update_icon()
 		return FALSE
 
 	if((border_dir & dir) && !closed)
@@ -100,6 +101,7 @@
 			return
 	else
 		..()
+		update_icon()
 
 /obj/structure/deployable_barricade/attack_animal(mob/user)
 	return attack_alien(user)
