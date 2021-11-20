@@ -79,8 +79,8 @@ SUBSYSTEM_DEF(eventmaster)
 			adjust_areas_light()
 			to_chat(world, span_heavy_brass("Готово!"))
 			target_event = EVENT_TYPE_OPENWORLD
-			for(var/turf/T in action_area)
-				new /obj/effect/rain/sideways/tile(T)
+			//for(var/turf/T in action_area)
+			//	new /obj/effect/rain/sideways/tile(T)
 			return TRUE
 		else
 			return FALSE
