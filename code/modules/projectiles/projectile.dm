@@ -490,8 +490,7 @@
 		return FALSE
 	if(!ignore_loc && (loc != target.loc))
 		return FALSE
-	if(isopenspace(original))
-		var/datum/point/vector/current = trajectory
+	if(isopenspace(original) && isopenspace(target))
 		trajectory.z = z - 1
 	// if pass_flags match, pass through entirely - unless direct target is set.
 	if((target.pass_flags_self & pass_flags) && !direct_target)
