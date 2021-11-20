@@ -1002,6 +1002,8 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/security/prison
 	name = "Тюрьма"
 	icon_state = "sec_prison"
+	mood_bonus = -16
+	mood_message = span_danger("Я здесь точно сгнию...\n")
 
 /area/security/prison/toilet //radproof
 	name = "Тюрьма: Туалет"
