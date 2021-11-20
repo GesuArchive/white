@@ -85,12 +85,15 @@
 			return TRUE
 		if(prob(25))
 			return TRUE
-		update_icon()
 		return FALSE
 
 	if((border_dir & dir) && !closed)
 		return . || mover.throwing || mover.movement_type & (FLYING | FLOATING)
 	return TRUE
+
+/obj/structure/deployable_barricade/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+	. = ..()
+	update_icon()
 
 /obj/structure/deployable_barricade/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/stack/cable_coil) && can_wire)

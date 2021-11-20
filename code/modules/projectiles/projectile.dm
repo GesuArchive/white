@@ -490,6 +490,9 @@
 		return FALSE
 	if(!ignore_loc && (loc != target.loc))
 		return FALSE
+	if(isopenspace(original))
+		var/datum/point/vector/current = trajectory
+		trajectory.z = z - 1
 	// if pass_flags match, pass through entirely - unless direct target is set.
 	if((target.pass_flags_self & pass_flags) && !direct_target)
 		return FALSE
@@ -501,9 +504,6 @@
 		return TRUE
 	if(!isliving(target))
 		if(isturf(target))		// non dense turfs
-			if(isopenspace(original))
-				var/turf/TT = get_step_multiz(src, DOWN)
-				forceMove(TT)
 			return FALSE
 		if(target.layer < PROJECTILE_HIT_THRESHHOLD_LAYER)
 			return FALSE
