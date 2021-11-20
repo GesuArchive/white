@@ -76,17 +76,17 @@
 
 	var/reagent_text
 	user.visible_message(
-		span_danger("[user] splashes the contents of [src] onto [target][punctuation]") ,
-		span_danger("You splash the contents of [src] onto [target][punctuation]") ,
+		span_danger("[user] проливает содержмое [src] на [target][punctuation]") ,
+		span_danger("Проливаю содержимое [src] на [target][punctuation]") ,
 		ignored_mobs = target,
 	)
 
 	if (ismob(target))
 		var/mob/target_mob = target
 		target_mob.show_message(
-			span_userdanger("[user] splash the contents of [src] onto you!") ,
+			span_userdanger("[user] проливает содержимое [src] на меня!") ,
 			MSG_VISUAL,
-			span_userdanger("You feel drenched!") ,
+			span_userdanger("Мокренько!") ,
 		)
 
 	for(var/datum/reagent/reagent as anything in reagents.reagent_list)
@@ -109,12 +109,12 @@
 	var/mob/living/carbon/C = eater
 	var/covered = ""
 	if(C.is_mouth_covered(head_only = 1))
-		covered = "headgear"
+		covered = "шлем"
 	else if(C.is_mouth_covered(mask_only = 1))
-		covered = "mask"
+		covered = "маску"
 	if(covered)
-		var/who = (isnull(user) || eater == user) ? "your" : "[eater.ru_ego()]"
-		to_chat(user, span_warning("You have to remove [who] [covered] first!"))
+		var/who = (isnull(user) || eater == user) ? "мою" : "[eater.ru_ego()]"
+		to_chat(user, span_warning("Нужно снять [who] [covered] сначала!"))
 		return FALSE
 	return TRUE
 
@@ -160,8 +160,8 @@
 			reagents.total_volume *= rand(5,10) * 0.1 //Not all of it makes contact with the target
 		var/mob/M = target
 		var/R
-		target.visible_message(span_danger("[M] is splashed with something!") , \
-						span_userdanger("[M] is splashed with something!"))
+		target.visible_message(span_danger("[M] покрывается чем-то!") , \
+						span_userdanger("[M] покрывается чем-то!"))
 		for(var/datum/reagent/A in reagents.reagent_list)
 			R += "[A.type]  ([num2text(A.volume)]),"
 
@@ -170,7 +170,7 @@
 		reagents.expose(target, TOUCH)
 
 	else if(bartender_check(target) && thrown)
-		visible_message(span_notice("[capitalize(src.name)] lands onto the [target.name] without spilling a single drop."))
+		visible_message(span_notice("[capitalize(src.name)] приземляется на [target.name] не потеряв и капли."))
 		return
 
 	else
@@ -178,7 +178,7 @@
 			log_combat(thrown_by, target, "splashed (thrown) [english_list(reagents.reagent_list)]", "in [AREACOORD(target)]")
 			log_game("[key_name(thrown_by)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [AREACOORD(target)].")
 			message_admins("[ADMIN_LOOKUPFLW(thrown_by)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [ADMIN_VERBOSEJMP(target)].")
-		visible_message("<span class='notice'>[src] spills its contents all over [target].</span>")
+		visible_message("<span class='notice'>[src] проливается на [target].</span>")
 		reagents.expose(target, TOUCH)
 		if(QDELETED(src))
 			return
