@@ -121,7 +121,11 @@
 
 /turf/closed/indestructible/splashscreen/MouseEntered(location,control,params)
 	. = ..()
+	params["screen-loc"] = "CENTER"
 	openToolTip(usr,src,params,title = "Тест1",content = "Тест2", theme = "retro")
+
+/turf/closed/indestructible/splashscreen/MouseExited()
+	closeToolTip(usr)
 
 /turf/closed/indestructible/splashscreen/vv_edit_var(var_name, var_value)
 	. = ..()
