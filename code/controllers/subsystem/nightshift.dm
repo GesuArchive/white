@@ -32,10 +32,11 @@ SUBSYSTEM_DEF(nightshift)
 		high_security_mode = emergency
 		if(night_time)
 			announcing = FALSE
-			if(!emergency)
-				announce("Восстанавливаем нормальный цикл работы освещения.")
-			else
-				announce("Отключаем цикл работы освещения: Ситуация на станции находится в критичическом состоянии.")
+			spawn(10 SECONDS)
+				if(!emergency)
+					announce("Восстанавливаем нормальный цикл работы освещения.")
+				else
+					announce("Отключаем цикл работы освещения: Ситуация на станции находится в критичическом состоянии.")
 	if(emergency)
 		night_time = FALSE
 	if(nightshift_active != night_time)
@@ -44,10 +45,11 @@ SUBSYSTEM_DEF(nightshift)
 /datum/controller/subsystem/nightshift/proc/update_nightshift(active, announce = TRUE)
 	nightshift_active = active
 	if(announce)
-		if (active)
-			announce("Вечер, экипаж. Для снижения энергопотребления и стимулирования циркадных ритмов некоторых видов животных, всё освещение на борту станции было затемнено на ночь.")
-		else
-			announce("Утро, экипаж. Как и днем, функционирование всех светильников на борту станции восстановлено до прежнего состояния.")
+		spawn(10 SECONDS)
+			if (active)
+				announce("Вечер, экипаж. Для снижения энергопотребления и стимулирования циркадных ритмов некоторых видов животных, всё освещение на борту станции было затемнено на ночь.")
+			else
+				announce("Утро, экипаж. Как и днем, функционирование всех светильников на борту станции восстановлено до прежнего состояния.")
 	for(var/A in GLOB.apcs_list)
 		var/obj/machinery/power/apc/APC = A
 		if (APC.area && (APC.area.type in GLOB.the_station_areas))
