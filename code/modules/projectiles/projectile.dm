@@ -172,6 +172,8 @@
 	decayedRange = range
 	if(embedding)
 		updateEmbedding()
+	if(isopenspace(target))
+		movement_type = GROUND
 	AddElement(/datum/element/connect_loc, projectile_connections)
 
 /obj/projectile/proc/Range()

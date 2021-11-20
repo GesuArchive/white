@@ -152,8 +152,8 @@ SUBSYSTEM_DEF(eventmaster)
 			new_temp = -5
 
 	if(new_time != current_time)
-		if(prob(25))
-			SSweather.run_weather(/datum/weather/just_rain)
+		//if(prob(25))
+		//	SSweather.run_weather(/datum/weather/just_rain)
 		current_time = new_time
 		if(action_area)
 			action_area.set_base_lighting(new_color, new_alpha)

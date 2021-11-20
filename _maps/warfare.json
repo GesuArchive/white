@@ -18,7 +18,7 @@
 			"Mining": true,
 			"Gravity": true,
 			"Down": -1,
-			"Baseturf": "/turf/open/floor/plating/is12/dirt",
+			"Baseturf": "/turf/open/openspace",
 			"Linkage": null
 		}
 	],

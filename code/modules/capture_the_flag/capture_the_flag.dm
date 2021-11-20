@@ -269,6 +269,8 @@
 	instagib_gear = /datum/outfit/ctf/blue/instagib
 
 /obj/machinery/capture_the_flag/blue/warfare
+	game_id = "warfare"
+	player_traits = list()
 	ctf_gear = list("blue" = /datum/outfit/ctf/blue/warfare)
 
 /obj/machinery/capture_the_flag/green
@@ -288,6 +290,8 @@
 	instagib_gear = /datum/outfit/ctf/yellow/instagib
 
 /obj/machinery/capture_the_flag/yellow/warfare
+	game_id = "warfare"
+	player_traits = list()
 	ctf_gear = list("yellow" = /datum/outfit/ctf/yellow/warfare)
 
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
@@ -668,6 +672,8 @@
 	for(var/i in no_drops)
 		var/obj/item/I = i
 		ADD_TRAIT(I, TRAIT_NODROP, CAPTURE_THE_FLAG_TRAIT)
+	spawn(1 SECONDS)
+		H.mind?.adjust_experience(/datum/skill/ranged, SKILL_EXP_EXPERT)
 
 /datum/outfit/ctf/instagib
 	r_hand = /obj/item/gun/energy/laser/instakill
@@ -782,8 +788,6 @@
 	R.freqlock = TRUE
 	R.independent = TRUE
 	H.dna.species.stunmod = 0
-	spawn(1 SECONDS)
-		H.mind?.adjust_experience(/datum/skill/ranged, SKILL_EXP_JOURNEYMAN)
 
 
 /obj/structure/trap/ctf
@@ -948,7 +952,7 @@
 				for(var/mob/M in GLOB.player_list)
 					var/area/mob_area = get_area(M)
 					if(istype(mob_area, game_area))
-						to_chat(M, span_userdanger("[user.real_name] захватил \ [src] для [CTF.team]! Иди и забери обратно!"))
+						to_chat(M, span_userdanger("[user.real_name] захватил [src] для [CTF.team]! Иди и забери обратно!"))
 				break
 
 #undef WHITE_TEAM

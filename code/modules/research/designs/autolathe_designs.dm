@@ -1257,3 +1257,27 @@
 	build_path = /obj/item/floor_painter
 	category = list("initial","Инструменты","Рабочие инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SERVICE
+
+/datum/design/cannon_ball
+	name = "пушечное ядро"
+	id = "cannon_ball"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 6000)
+	build_path = /obj/item/stack/cannonball
+	category = list("hacked","Разное")
+
+/datum/design/cannon_ball_exp
+	name = "разрывное пушечное ядро"
+	id = "cannon_ball_exp"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 6000, /datum/material/plasma = 2000)
+	build_path = /obj/item/stack/cannonball/shellball
+	category = list("hacked","Разное")
+
+/datum/design/cannon_ball_big
+	name = "противотанковое пушечное ядро"
+	id = "cannon_ball_big"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 12000, /datum/material/plasma = 6000)
+	build_path = /obj/item/stack/cannonball/the_big_one
+	category = list("hacked","Разное")
