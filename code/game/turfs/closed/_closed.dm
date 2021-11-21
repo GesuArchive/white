@@ -119,6 +119,15 @@
 	SStitle.splash_turf = src
 	..()
 
+/turf/closed/indestructible/splashscreen/Click()
+	..()
+	if(isnewplayer(usr))
+		if(winexists(usr, "pdec"))
+			if(winget(usr, "pdec", "is-visible") == "true")
+				winset(usr, "pdec", "is-visible=false")
+			else
+				winset(usr, "pdec", "is-visible=true")
+
 /turf/closed/indestructible/splashscreen/vv_edit_var(var_name, var_value)
 	. = ..()
 	if(.)

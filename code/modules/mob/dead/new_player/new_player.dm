@@ -107,6 +107,9 @@
 	var/mob/dead/observer/observer = new()
 	spawning = TRUE
 
+	client.kill_lobby()
+	SStitle.update_lobby()
+
 	observer.started_as_observer = TRUE
 	close_spawn_windows()
 	var/obj/effect/landmark/observer_start/O = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
@@ -351,6 +354,8 @@
 		is_antag = TRUE
 
 	client.prefs.copy_to(H, antagonist = is_antag, is_latejoiner = transfer_after)
+
+	client.kill_lobby()
 
 	H.dna.update_dna_identity()
 	if(mind)

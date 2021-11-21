@@ -128,6 +128,7 @@
 	else
 		new_player.ready = PLAYER_NOT_READY
 		base_icon_state = "not_ready"
+	SStitle.update_lobby()
 	update_appearance(UPDATE_ICON)
 
 ///Shown when the game has started

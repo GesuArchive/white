@@ -66,3 +66,60 @@ SUBSYSTEM_DEF(title)
 	splash_turf = SStitle.splash_turf
 	file_path = SStitle.file_path
 	previous_icon = SStitle.previous_icon
+
+/datum/controller/subsystem/title/proc/get_players_table()
+	var/list/caa = list()
+	var/list/cum = list()
+	var/tcc = ""
+	for(var/i in GLOB.new_player_list)
+		var/mob/dead/new_player/player = i
+		if(player.ready == PLAYER_READY_TO_PLAY)
+			var/role_thing = "Неизвестно"
+			if(GLOB.disable_fucking_station_shit_please)
+				caa["Выживший"] += list(player.key)
+				continue
+			if(player.client.prefs.job_preferences["Assistant"])
+				role_thing = "Ассистент"
+			else
+				for(var/j in player.client.prefs.job_preferences)
+					if(player.client.prefs.job_preferences[j] == JP_HIGH)
+						var/datum/job/jobdatum = SSjob.GetJob(j)
+						if(jobdatum)
+							role_thing = jobdatum.ru_title
+							break
+			if(!caa[role_thing])
+				caa[role_thing] = list(player.key)
+			else
+				caa[role_thing] += "[player.key]"
+		else
+			cum += "[player.key]"
+	for(var/line in GLOB.whitelist)
+		cum += "[line]"
+	if(SSticker.current_state <= GAME_STATE_PREGAME)
+		for(var/line in sortList(caa))
+			tcc += "<tr><td class='role'>[line]</td><td>[english_list(caa[line])]</td></tr>"
+		tcc += "<tr><td class='role'>Не готовы</td><td>"
+	else
+		tcc += "<tr><td class='role'>Чат-боты</td><td>"
+	tcc += "[english_list(cum)]</td></tr>"
+	return tcc
+
+/client/proc/show_lobby()
+	usr << browse(file('html/lobby.html'), "window=pdec;display=1;size=300x600;border=0;can_close=0;can_resize=0;can_minimize=0;titlebar=0")
+	winset(usr, "pdec", "pos=10,60")
+	update_lobby()
+	spawn(50)
+		winset(usr, "pdec", "pos=10,60")
+		update_lobby()
+
+/client/proc/kill_lobby()
+	src << browse(null, "window=pdec")
+	winset(src, "pdec", "is-disabled=true;is-visible=false")
+
+/client/proc/update_lobby()
+	src << output(SStitle.get_players_table(), "pdec:set_shit")
+
+/datum/controller/subsystem/title/proc/update_lobby()
+	for(var/mob/dead/new_player/D in GLOB.new_player_list)
+		if(D?.client)
+			D.client.update_lobby()

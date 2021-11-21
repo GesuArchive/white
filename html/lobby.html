@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style>
+			* {margin:0;padding:0;font-size:14px;}
+			body {background:#070705;color:#b9b993;font-family:Tahoma;border:1px solid #221;padding:2px;}
+			th {background: #222;width:100%;padding:4px;}
+			td {background: #111;padding:4px;}
+			.rhead {width:120px;}
+			.role {background: #221;}
+		</style>
+		<script>
+			function set_shit(msg) {
+				document.getElementById("tabletos").innerHTML = msg;
+			}
+		</script>
+	</head>
+
+	<body scroll=no>
+		<table>
+			<thead>
+				<tr><th class="rhead">Роль</th><th>Готовы</th></tr>
+			</thead>
+			<tbody id="tabletos">
+			</tbody>
+		</table>
+	</body>
+</html>
