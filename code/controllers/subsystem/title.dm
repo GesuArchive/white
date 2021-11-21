@@ -118,7 +118,7 @@ SUBSYSTEM_DEF(title)
 	winset(src, "pdec", "is-disabled=true;is-visible=false")
 
 /client/proc/update_lobby()
-	src << output(SStitle.cached_title, "pdec:drawit")
+	src << output(SStitle.cached_title, "pdec.browser:drawit")
 
 /datum/controller/subsystem/title/proc/update_lobby()
 	update_players_table()
