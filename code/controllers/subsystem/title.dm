@@ -7,6 +7,7 @@ SUBSYSTEM_DEF(title)
 	var/icon/icon
 	var/icon/previous_icon
 	var/turf/closed/indestructible/splashscreen/splash_turf
+	var/cached_title
 
 /datum/controller/subsystem/title/Initialize()
 	if(file_path && icon)
@@ -67,10 +68,10 @@ SUBSYSTEM_DEF(title)
 	file_path = SStitle.file_path
 	previous_icon = SStitle.previous_icon
 
-/datum/controller/subsystem/title/proc/get_players_table()
+/datum/controller/subsystem/title/proc/update_players_table()
 	var/list/caa = list()
 	var/list/cum = list()
-	var/tcc = ""
+	var/tcc = "<table><thead><tr><th class='rhead'>Роль</th><th>Готовы</th></tr></thead><tbody>"
 	for(var/i in GLOB.new_player_list)
 		var/mob/dead/new_player/player = i
 		if(player.ready == PLAYER_READY_TO_PLAY)
@@ -101,14 +102,14 @@ SUBSYSTEM_DEF(title)
 		tcc += "<tr><td class='role'>Не готовы</td><td>"
 	else
 		tcc += "<tr><td class='role'>Чат-боты</td><td>"
-	tcc += "[english_list(cum)]</td></tr>"
-	return tcc
+	tcc += "[english_list(cum)]</td></tr></tbody></table>"
+	cached_title = tcc
 
 /client/proc/show_lobby()
-	usr << browse(file('html/lobby.html'), "window=pdec;display=1;size=300x600;border=0;can_close=0;can_resize=0;can_minimize=0;titlebar=0")
+	usr << browse(file('html/lobby.html'), "window=pdec;display=1;size=300x600;border=0;can_close=0;can_resize=0;can_minimize=0;titlebar=0;is-disabled=false;")
 	winset(usr, "pdec", "pos=10,60")
 	update_lobby()
-	spawn(50)
+	spawn(100)
 		winset(usr, "pdec", "pos=10,60")
 		update_lobby()
 
@@ -117,9 +118,10 @@ SUBSYSTEM_DEF(title)
 	winset(src, "pdec", "is-disabled=true;is-visible=false")
 
 /client/proc/update_lobby()
-	src << output(SStitle.get_players_table(), "pdec:set_shit")
+	src << output(SStitle.cached_title, "pdec:drawit")
 
 /datum/controller/subsystem/title/proc/update_lobby()
+	update_players_table()
 	for(var/mob/dead/new_player/D in GLOB.new_player_list)
 		if(D?.client)
 			D.client.update_lobby()
