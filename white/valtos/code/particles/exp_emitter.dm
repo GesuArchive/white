@@ -51,7 +51,7 @@
 /obj/effect/music/New()
 	..()
 	add_filter("outline", 1, outline_filter(size=0.5, color="#444"))
-	src.particles.lifespan = 0
+	src?.particles?.lifespan = 0
 
 /obj/effect/music/proc/is_playing()
 	. = src.particles.lifespan == 2 SECONDS
