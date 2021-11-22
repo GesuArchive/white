@@ -214,7 +214,7 @@
 		return
 
 	var/mob/living/mob_occupant = occupant
-	//check_nap_violations()
+	check_nap_violations()
 	switch(action)
 		if("door")
 			if(state_open)

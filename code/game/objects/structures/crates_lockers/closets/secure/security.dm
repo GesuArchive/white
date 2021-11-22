@@ -101,6 +101,7 @@
 	new /obj/item/storage/photo_album/hos(src)
 	new /obj/item/clothing/head/hos/dermal(src)
 	new /obj/item/inspector(src)
+	new /obj/item/storage/box/firingpins/paywall(src)
 
 /obj/structure/closet/secure_closet/warden
 	name = "шкаф надзирателя"
@@ -126,6 +127,7 @@
 	new /obj/item/flashlight/seclite(src)
 	new /obj/item/clothing/gloves/krav_maga/sec(src)
 	new /obj/item/door_remote/head_of_security(src)
+	new /obj/item/storage/box/firingpins/paywall(src)
 
 /obj/structure/closet/secure_closet/security
 	name = "шкаф офицера"
