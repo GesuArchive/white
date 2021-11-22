@@ -156,11 +156,11 @@
 	. = ..()
 	. += "<hr><span class='notice'>ПКМ [src] to [state_open ? "close" : "open"] it.</span>"
 
-/*
+
 /obj/machinery/sleeper/process()
 	..()
 	check_nap_violations()
-*/
+
 /obj/machinery/sleeper/nap_violation(mob/violator)
 	open_machine()
 
