@@ -101,3 +101,15 @@
 	path = /obj/item/storage/briefcase/surgery
 	allowed_roles = list("Field Medic", "Paramedic", "Medical Doctor", "Chief Medical Officer")
 	cost = 100
+
+/datum/gear/cash50
+	display_name = "50 кредитов"
+	description = "Бюджет на все первостепенные нужды."
+	path = /obj/item/stack/spacecash/c50
+	cost = 250
+
+/datum/gear/cash500
+	display_name = "500 кредитов"
+	description = "Объёмный вклад своих органов в будущее станции."
+	path = /obj/item/stack/spacecash/c500
+	cost = 3200
