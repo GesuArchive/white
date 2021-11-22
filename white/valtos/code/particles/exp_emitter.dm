@@ -56,13 +56,19 @@
 	#endif
 
 /obj/effect/music/proc/is_playing()
+	#ifndef SPACEMAN_DMM
 	. = src.particles.lifespan == 2 SECONDS
+	#endif
 
 /obj/effect/music/proc/play_notes()
+	#ifndef SPACEMAN_DMM
 	src.particles.lifespan = 2 SECONDS
+	#endif
 
 /obj/effect/music/proc/stop_notes()
+	#ifndef SPACEMAN_DMM
 	src.particles.lifespan = 0
+	#endif
 
 /particles/rain
 	width = 672
