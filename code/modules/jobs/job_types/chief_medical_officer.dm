@@ -77,3 +77,10 @@
 	suit_store = /obj/item/tank/internals/oxygen
 	r_pocket = /obj/item/flashlight/pen/paramedic
 
+/datum/outfit/job/cmo/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	..()
+	if(visualsOnly)
+		return
+
+	var/datum/martial_art/krav_maga/sanitar_closed_combat/maga = new
+	maga.teach(H)

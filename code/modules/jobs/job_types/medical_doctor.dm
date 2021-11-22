@@ -59,3 +59,11 @@
 	chameleon_extras = /obj/item/gun/syringe
 
 	id_trim = /datum/id_trim/job/medical_doctor
+
+/datum/outfit/job/doctor/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	..()
+	if(visualsOnly)
+		return
+
+	var/datum/martial_art/krav_maga/sanitar_closed_combat/maga = new
+	maga.teach(H)
