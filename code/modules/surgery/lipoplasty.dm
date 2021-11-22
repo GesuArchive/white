@@ -16,15 +16,15 @@
 	time = 64
 
 /datum/surgery_step/cut_fat/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	user.visible_message(span_notice("[user] начинает отрезать лишний жир у [sklonenie(target.name, RODITELNI, target.gender)].") , span_notice("Вы начинаете отрезать лишний жир у [sklonenie(target.name, RODITELNI, target.gender)]..."))
-	display_results(user, target, span_notice("Вы начинаете отрезать лишний жир у [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает отрезать лишний жир у [sklonenie(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] начинает отрезать лишний жир в [target_zone] у [sklonenie(target.name, RODITELNI, target.gender)] при помощи [tool]."))
+	user.visible_message(span_notice("[user] начинает отрезать лишний жир у [skloname(target.name, RODITELNI, target.gender)].") , span_notice("Вы начинаете отрезать лишний жир у [skloname(target.name, RODITELNI, target.gender)]..."))
+	display_results(user, target, span_notice("Вы начинаете отрезать лишний жир у [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает отрезать лишний жир у [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает отрезать лишний жир в [target_zone] у [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]."))
 
 /datum/surgery_step/cut_fat/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
-	display_results(user, target, span_notice("Вы отрезали лишний жир у [sklonenie(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] отрезал лишний жир у [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-			span_notice("[user] отрезал лишний жир у [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Вы отрезали лишний жир у [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] отрезал лишний жир у [skloname(target.name, RODITELNI, target.gender)]!") ,
+			span_notice("[user] отрезал лишний жир у [skloname(target.name, RODITELNI, target.gender)]."))
 	return 1
 
 //remove fat
@@ -34,14 +34,14 @@
 	time = 32
 
 /datum/surgery_step/remove_fat/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Вы начинаете извлекать лишний жир из [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает извлекать лишний жир из [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-			span_notice("[user] начинает извлекать лишний жир из [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Вы начинаете извлекать лишний жир из [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает извлекать лишний жир из [skloname(target.name, RODITELNI, target.gender)]!") ,
+			span_notice("[user] начинает извлекать лишний жир из [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/remove_fat/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, span_notice("Вы извлекли лишний жир из [sklonenie(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] извлек лишний жир из [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-			span_notice("[user] извлек лишний жир из [sklonenie(target.name, RODITELNI, target.gender)]!"))
+	display_results(user, target, span_notice("Вы извлекли лишний жир из [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] извлек лишний жир из [skloname(target.name, RODITELNI, target.gender)]!") ,
+			span_notice("[user] извлек лишний жир из [skloname(target.name, RODITELNI, target.gender)]!"))
 	target.overeatduration = 0 //patient is unfatted
 	var/removednutriment = target.nutrition
 	target.set_nutrition(NUTRITION_LEVEL_WELL_FED)

@@ -299,10 +299,10 @@
 			return
 
 		if(D.get_amount() < 1)
-			to_chat(user, span_warning("Для ремонта [sklonenie(src.name, RODITELNI, src.gender)] вам понадобится хотя бы одна доска."))
+			to_chat(user, span_warning("Для ремонта [skloname(src.name, RODITELNI, src.gender)] вам понадобится хотя бы одна доска."))
 			return
 
-		visible_message(span_notice("[user] начинает чинить [sklonenie(src.name, VINITELNI, src.gender)]."))
+		visible_message(span_notice("[user] начинает чинить [skloname(src.name, VINITELNI, src.gender)]."))
 
 		if(!do_after(user,20, src) || obj_integrity >= max_integrity)
 			return
@@ -311,7 +311,7 @@
 			return
 
 		repair_damage(max_integrity)
-		visible_message(span_notice("[user] завершает починку [sklonenie(src.name, RODITELNI, src.gender)]."))
+		visible_message(span_notice("[user] завершает починку [skloname(src.name, RODITELNI, src.gender)]."))
 
 
 /*----------------------*/
@@ -376,10 +376,10 @@
 			return attempt_barricade_upgrade(I, user, params)
 
 		if(metal_sheets.get_amount() < 2)
-			to_chat(user, span_warning("Для ремонта каркаса [sklonenie(src.name, RODITELNI, src.gender)] вам понадобится хотя бы два листа металла."))
+			to_chat(user, span_warning("Для ремонта каркаса [skloname(src.name, RODITELNI, src.gender)] вам понадобится хотя бы два листа металла."))
 			return FALSE
 
-		visible_message(span_notice("[user] начинает ремонтировать каркас [sklonenie(src.name, RODITELNI, src.gender)]."))
+		visible_message(span_notice("[user] начинает ремонтировать каркас [skloname(src.name, RODITELNI, src.gender)]."))
 
 		if(!do_after(user, 2 SECONDS, src) || obj_integrity >= max_integrity)
 			return FALSE
@@ -388,7 +388,7 @@
 			return FALSE
 
 		repair_damage(max_integrity * 0.3)
-		visible_message(span_notice("[user] производит ремонт каркаса [sklonenie(src.name, RODITELNI, src.gender)]."))
+		visible_message(span_notice("[user] производит ремонт каркаса [skloname(src.name, RODITELNI, src.gender)]."))
 
 
 
@@ -397,18 +397,18 @@
 		to_chat(user, span_warning("[src] уже улучшена."))
 		return FALSE
 	if(obj_integrity < max_integrity)
-		to_chat(user, span_warning("Перед улучшением [sklonenie(src.name, RODITELNI, src.gender)], сначала вам необходимо полностью восстановить ее прочность."))
+		to_chat(user, span_warning("Перед улучшением [skloname(src.name, RODITELNI, src.gender)], сначала вам необходимо полностью восстановить ее прочность."))
 		return FALSE
 
 	if(metal_sheets.get_amount() < CADE_UPGRADE_REQUIRED_SHEETS)
-		to_chat(user, span_warning("Для ремонта каркаса [sklonenie(src.name, RODITELNI, src.gender)] вам понадобится хотя бы [CADE_UPGRADE_REQUIRED_SHEETS] листа металла."))
+		to_chat(user, span_warning("Для ремонта каркаса [skloname(src.name, RODITELNI, src.gender)] вам понадобится хотя бы [CADE_UPGRADE_REQUIRED_SHEETS] листа металла."))
 		return FALSE
 
 	var/static/list/cade_types = list(CADE_TYPE_BOMB = image(icon = 'white/valtos/icons/barricade.dmi', icon_state = "explosive_obj"), CADE_TYPE_MELEE = image(icon = 'white/valtos/icons/barricade.dmi', icon_state = "brute_obj"), CADE_TYPE_ACID = image(icon = 'white/valtos/icons/barricade.dmi', icon_state = "burn_obj"))
 	var/choice = show_radial_menu(user, src, cade_types, require_near = TRUE, tooltips = TRUE)
 
-	user.visible_message(span_notice("[user] начинает присоединять [choice] к [sklonenie(src.name, DATELNI, src.gender)]."),
-		span_notice("Вы начинаете присоединять [choice] к [sklonenie(src.name, DATELNI, src.gender)]."))
+	user.visible_message(span_notice("[user] начинает присоединять [choice] к [skloname(src.name, DATELNI, src.gender)]."),
+		span_notice("Вы начинаете присоединять [choice] к [skloname(src.name, DATELNI, src.gender)]."))
 	if(!do_after(user, 2 SECONDS, src))
 		return FALSE
 
@@ -425,8 +425,8 @@
 
 	barricade_upgrade_type = choice
 
-	user.visible_message(span_notice("[user] присоединил [choice] к [sklonenie(src.name, DATELNI, src.gender)]."),
-		span_notice("Вы присоединили [choice] к [sklonenie(src.name, DATELNI, src.gender)]."))
+	user.visible_message(span_notice("[user] присоединил [choice] к [skloname(src.name, DATELNI, src.gender)]."),
+		span_notice("Вы присоединили [choice] к [skloname(src.name, DATELNI, src.gender)]."))
 
 	playsound(loc, 'sound/items/screwdriver.ogg', 25, TRUE)
 	update_icon()
@@ -459,8 +459,8 @@
 		to_chat(user, span_warning("[src] не нуждается в ремонте."))
 		return TRUE
 
-	user.visible_message(span_notice("[user] начинает заваривать пробоины в [sklonenie(src.name, DATELNI, src.gender)]."),
-	span_notice("Вы начинаете заваривать пробоины в [sklonenie(src.name, DATELNI, src.gender)]."))
+	user.visible_message(span_notice("[user] начинает заваривать пробоины в [skloname(src.name, DATELNI, src.gender)]."),
+	span_notice("Вы начинаете заваривать пробоины в [skloname(src.name, DATELNI, src.gender)]."))
 	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
 
 	if(!do_after(user, 5 SECONDS, src))
@@ -473,8 +473,8 @@
 		to_chat(user, span_warning("Вам не хватает сварочного топлива для ремонта."))
 		return TRUE
 
-	user.visible_message(span_notice("[user] заварил пробоины в [sklonenie(src.name, DATELNI, src.gender)]."),
-	span_notice("Вы заварили пробоины в [sklonenie(src.name, DATELNI, src.gender)]."))
+	user.visible_message(span_notice("[user] заварил пробоины в [skloname(src.name, DATELNI, src.gender)]."),
+	span_notice("Вы заварили пробоины в [skloname(src.name, DATELNI, src.gender)]."))
 	repair_damage(150)
 	update_icon()
 	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
@@ -489,8 +489,8 @@
 			if(!do_after(user, 1 SECONDS, src))
 				return TRUE
 
-			user.visible_message(span_notice("[user] установил защитную панель [sklonenie(src.name, RODITELNI, src.gender)] на свое место."),
-			span_notice("Вы установили защитную панель [sklonenie(src.name, RODITELNI, src.gender)] на свое место."))
+			user.visible_message(span_notice("[user] установил защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место."),
+			span_notice("Вы установили защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место."))
 			build_state = BARRICADE_METAL_FIRM
 			return TRUE
 
@@ -501,8 +501,8 @@
 			if(!do_after(user, 1 SECONDS, src))
 				return TRUE
 
-			user.visible_message(span_notice("[user] снимает защитную панель с [sklonenie(src.name, RODITELNI, src.gender)]."),
-			span_notice("Вы сняли защитную панель с [sklonenie(src.name, RODITELNI, src.gender)], за ней видны анкерные болты."))
+			user.visible_message(span_notice("[user] снимает защитную панель с [skloname(src.name, RODITELNI, src.gender)]."),
+			span_notice("Вы сняли защитную панель с [skloname(src.name, RODITELNI, src.gender)], за ней видны анкерные болты."))
 			build_state = BARRICADE_METAL_ANCHORED
 			return TRUE
 
@@ -515,8 +515,8 @@
 			if(!do_after(user, 1 SECONDS, src))
 				return TRUE
 
-			user.visible_message(span_notice("[user] расслабляет анкерные болты [sklonenie(src.name, RODITELNI, src.gender)]."),
-			span_notice("Вы расслабляете анкерные болты [sklonenie(src.name, RODITELNI, src.gender)]."))
+			user.visible_message(span_notice("[user] расслабляет анкерные болты [skloname(src.name, RODITELNI, src.gender)]."),
+			span_notice("Вы расслабляете анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
 			build_state = BARRICADE_METAL_LOOSE
 			anchored = FALSE
 			modify_max_integrity(initial(max_integrity) * 0.5)
@@ -539,8 +539,8 @@
 			if(!do_after(user, 1 SECONDS, src))
 				return TRUE
 
-			user.visible_message(span_notice("[user] затягивает анкерные болты [sklonenie(src.name, RODITELNI, src.gender)]."),
-			span_notice("Вы затягиваете анкерные болты [sklonenie(src.name, RODITELNI, src.gender)]."))
+			user.visible_message(span_notice("[user] затягивает анкерные болты [skloname(src.name, RODITELNI, src.gender)]."),
+			span_notice("Вы затягиваете анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
 			build_state = BARRICADE_METAL_ANCHORED
 			anchored = TRUE
 			modify_max_integrity(initial(max_integrity))
@@ -552,15 +552,15 @@
 	switch(build_state)
 		if(BARRICADE_METAL_LOOSE) //Anchor bolts loosened step. Apply crowbar to unseat the panel and take apart the whole thing. Apply wrench to resecure anchor bolts
 
-			user.visible_message(span_notice("[user] начинает разбирать [sklonenie(src.name, VINITELNI, src.gender)]."),
-			span_notice("Вы начинате разбирать [sklonenie(src.name, VINITELNI, src.gender)]."))
+			user.visible_message(span_notice("[user] начинает разбирать [skloname(src.name, VINITELNI, src.gender)]."),
+			span_notice("Вы начинате разбирать [skloname(src.name, VINITELNI, src.gender)]."))
 
 			playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 			if(!do_after(user, 5 SECONDS, src))
 				return TRUE
 
-			user.visible_message(span_notice("[user] разбирает [sklonenie(src.name, VINITELNI, src.gender)]."),
-			span_notice("Вы разбираете [sklonenie(src.name, VINITELNI, src.gender)]."))
+			user.visible_message(span_notice("[user] разбирает [skloname(src.name, VINITELNI, src.gender)]."),
+			span_notice("Вы разбираете [skloname(src.name, VINITELNI, src.gender)]."))
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
 			var/deconstructed = TRUE
 			deconstruct(deconstructed)
@@ -571,15 +571,15 @@
 				to_chat(user, span_warning("У этой баррикады нет улучшений!"))
 				return TRUE
 
-			user.visible_message(span_notice("[user] начинает отсоединять бронепластины от [sklonenie(src.name, RODITELNI, src.gender)]."),
-			span_notice("Вы начинаете отсоединять бронепластины от [sklonenie(src.name, RODITELNI, src.gender)]."))
+			user.visible_message(span_notice("[user] начинает отсоединять бронепластины от [skloname(src.name, RODITELNI, src.gender)]."),
+			span_notice("Вы начинаете отсоединять бронепластины от [skloname(src.name, RODITELNI, src.gender)]."))
 
 			playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 			if(!do_after(user, 5 SECONDS, src))
 				return TRUE
 
-			user.visible_message(span_notice("[user] отсоединяет бронепластины от [sklonenie(src.name, RODITELNI, src.gender)]."),
-			span_notice("Вы отсоединяете бронепластины от [sklonenie(src.name, RODITELNI, src.gender)]."))
+			user.visible_message(span_notice("[user] отсоединяет бронепластины от [skloname(src.name, RODITELNI, src.gender)]."),
+			span_notice("Вы отсоединяете бронепластины от [skloname(src.name, RODITELNI, src.gender)]."))
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
 
 			switch(barricade_upgrade_type)
@@ -661,10 +661,10 @@
 			return
 
 		if(plasteel_sheets.get_amount() < 2)
-			to_chat(user, span_warning("Для ремонта каркаса [sklonenie(src.name, RODITELNI, src.gender)] вам понадобится хотя бы два листа пластали."))
+			to_chat(user, span_warning("Для ремонта каркаса [skloname(src.name, RODITELNI, src.gender)] вам понадобится хотя бы два листа пластали."))
 			return
 
-		visible_message(span_notice("[user] начинает ремонтировать каркас [sklonenie(src.name, RODITELNI, src.gender)]."))
+		visible_message(span_notice("[user] начинает ремонтировать каркас [skloname(src.name, RODITELNI, src.gender)]."))
 
 		if(!do_after(user, 2 SECONDS, src) || obj_integrity >= max_integrity)
 			return
@@ -673,7 +673,7 @@
 			return
 
 		repair_damage(max_integrity * 0.3)
-		visible_message(span_notice("[user] производит ремонт каркаса [sklonenie(src.name, RODITELNI, src.gender)]."))
+		visible_message(span_notice("[user] производит ремонт каркаса [skloname(src.name, RODITELNI, src.gender)]."))
 		return
 
 	if(busy)
@@ -696,8 +696,8 @@
 			return FALSE
 
 
-		user.visible_message(span_notice("[user] начинает заваривать пробоины в [sklonenie(src.name, DATELNI, src.gender)]."),
-		span_notice("Вы начинаете заваривать пробоины в [sklonenie(src.name, DATELNI, src.gender)]."))
+		user.visible_message(span_notice("[user] начинает заваривать пробоины в [skloname(src.name, DATELNI, src.gender)]."),
+		span_notice("Вы начинаете заваривать пробоины в [skloname(src.name, DATELNI, src.gender)]."))
 		playsound(loc, 'sound/items/welder2.ogg', 25, 1)
 		busy = TRUE
 
@@ -706,8 +706,8 @@
 			return
 
 		busy = FALSE
-		user.visible_message(span_notice("[user] заварил пробоины в [sklonenie(src.name, DATELNI, src.gender)]."),
-		span_notice("Вы заварили пробоины в [sklonenie(src.name, DATELNI, src.gender)]."))
+		user.visible_message(span_notice("[user] заварил пробоины в [skloname(src.name, DATELNI, src.gender)]."),
+		span_notice("Вы заварили пробоины в [skloname(src.name, DATELNI, src.gender)]."))
 		repair_damage(150)
 		update_icon()
 		playsound(loc, 'sound/items/welder2.ogg', 25, 1)
@@ -724,9 +724,9 @@
 				if(!do_after(user, 1, src))
 					return
 
-				user.visible_message(span_notice("[user] снимает защитную панель с [sklonenie(src.name, RODITELNI, src.gender)]."),
+				user.visible_message(span_notice("[user] снимает защитную панель с [skloname(src.name, RODITELNI, src.gender)]."),
 
-				span_notice("Вы сняли защитную панель с [sklonenie(src.name, RODITELNI, src.gender)], за ней видны анкерные болты."))
+				span_notice("Вы сняли защитную панель с [skloname(src.name, RODITELNI, src.gender)], за ней видны анкерные болты."))
 				playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
 				build_state = BARRICADE_PLASTEEL_ANCHORED
 			else if(I.tool_behaviour == TOOL_CROWBAR)
@@ -738,14 +738,14 @@
 				update_icon()
 		if(BARRICADE_PLASTEEL_ANCHORED) //Protection panel removed step. Screwdriver to put the panel back, wrench to unsecure the anchor bolts
 			if(I.tool_behaviour == TOOL_SCREWDRIVER)
-				user.visible_message(span_notice("[user] установил защитную панель [sklonenie(src.name, RODITELNI, src.gender)] на свое место."),
-				span_notice("Вы установили защитную панель [sklonenie(src.name, RODITELNI, src.gender)] на свое место."))
+				user.visible_message(span_notice("[user] установил защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место."),
+				span_notice("Вы установили защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место."))
 				playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
 				build_state = BARRICADE_PLASTEEL_FIRM
 
 			else if(I.tool_behaviour == TOOL_WRENCH)
-				user.visible_message(span_notice("[user] расслабляет анкерные болты [sklonenie(src.name, RODITELNI, src.gender)]."),
-				span_notice("Вы расслабляете анкерные болты [sklonenie(src.name, RODITELNI, src.gender)]."))
+				user.visible_message(span_notice("[user] расслабляет анкерные болты [skloname(src.name, RODITELNI, src.gender)]."),
+				span_notice("Вы расслабляете анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
 				playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
 				anchored = FALSE
 				modify_max_integrity(initial(max_integrity) * 0.5)
@@ -759,8 +759,8 @@
 					to_chat(user, span_warning("Невозможно установить баррикаду в данном месте!"))
 					return
 
-				user.visible_message(span_notice("[user] затягивает анкерные болты [sklonenie(src.name, RODITELNI, src.gender)]."),
-				span_notice("Вы затягиваете анкерные болты [sklonenie(src.name, RODITELNI, src.gender)]."))
+				user.visible_message(span_notice("[user] затягивает анкерные болты [skloname(src.name, RODITELNI, src.gender)]."),
+				span_notice("Вы затягиваете анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
 				playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
 				anchored = TRUE
 				modify_max_integrity(initial(max_integrity))
@@ -768,8 +768,8 @@
 				update_icon() //unanchored changes layer
 
 			else if(I.tool_behaviour == TOOL_CROWBAR)
-				user.visible_message(span_notice("[user] начинает разбирать [sklonenie(src.name, VINITELNI, src.gender)]."),
-				span_notice("Вы начинаете разбирать [sklonenie(src.name, VINITELNI, src.gender)]."))
+				user.visible_message(span_notice("[user] начинает разбирать [skloname(src.name, VINITELNI, src.gender)]."),
+				span_notice("Вы начинаете разбирать [skloname(src.name, VINITELNI, src.gender)]."))
 				playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 				busy = TRUE
 
@@ -778,8 +778,8 @@
 					return
 
 				busy = FALSE
-				user.visible_message(span_notice("[user] разбирает [sklonenie(src.name, VINITELNI, src.gender)]."),
-				span_notice("Вы разбираете [sklonenie(src.name, VINITELNI, src.gender)]."))
+				user.visible_message(span_notice("[user] разбирает [skloname(src.name, VINITELNI, src.gender)]."),
+				span_notice("Вы разбираете [skloname(src.name, VINITELNI, src.gender)]."))
 				playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
 				var/deconstructed = TRUE
 				deconstruct(deconstructed)
@@ -800,8 +800,8 @@
 	closed = !closed
 	density = !density
 
-	user?.visible_message(span_notice("[user] [closed ? "закрывает" :"открывает"] [sklonenie(src.name, VINITELNI, src.gender)] ."),
-		span_notice("Вы [closed ? "закрываете" :"открываете"] [sklonenie(src.name, VINITELNI, src.gender)]."))
+	user?.visible_message(span_notice("[user] [closed ? "закрывает" :"открывает"] [skloname(src.name, VINITELNI, src.gender)] ."),
+		span_notice("Вы [closed ? "закрываете" :"открываете"] [skloname(src.name, VINITELNI, src.gender)]."))
 
 	if(!linked)
 		update_icon()

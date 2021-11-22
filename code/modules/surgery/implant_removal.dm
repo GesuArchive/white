@@ -17,19 +17,19 @@
 		I = O
 		break
 	if(I)
-		display_results(user, target, span_notice("Вы начинаете извлекать [I] из [target_zone] [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает извлекать [I] из [target_zone] [sklonenie(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] начинает извлекать что-то из [target_zone] [sklonenie(target.name, RODITELNI, target.gender)]."))
+		display_results(user, target, span_notice("Вы начинаете извлекать [I] из [target_zone] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает извлекать [I] из [target_zone] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает извлекать что-то из [target_zone] [skloname(target.name, RODITELNI, target.gender)]."))
 	else
-		display_results(user, target, span_notice("Вы начинаете искать микроимпланты в [target_zone] [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает искать микроимпланты в [target_zone] [sklonenie(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] начинает искать что-то в [target_zone] [sklonenie(target.name, RODITELNI, target.gender)]."))
+		display_results(user, target, span_notice("Вы начинаете искать микроимпланты в [target_zone] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает искать микроимпланты в [target_zone] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает искать что-то в [target_zone] [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/extract_implant/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(I)
-		display_results(user, target, span_notice("Вы успешно извлекли [I] из [target_zone] [sklonenie(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] успешно извлек [I] из [target_zone] [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-			span_notice("[user] успешно извлек что-то из [target_zone] [sklonenie(target.name, RODITELNI, target.gender)]!"))
+		display_results(user, target, span_notice("Вы успешно извлекли [I] из [target_zone] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] успешно извлек [I] из [target_zone] [skloname(target.name, RODITELNI, target.gender)]!") ,
+			span_notice("[user] успешно извлек что-то из [target_zone] [skloname(target.name, RODITELNI, target.gender)]!"))
 		I.removed(target)
 
 		var/obj/item/implantcase/case
@@ -49,7 +49,7 @@
 			qdel(I)
 
 	else
-		to_chat(user, span_warning("Вы ничего не нашли в [target_zone] [sklonenie(target.name, RODITELNI, target.gender)]!"))
+		to_chat(user, span_warning("Вы ничего не нашли в [target_zone] [skloname(target.name, RODITELNI, target.gender)]!"))
 	return ..()
 
 /datum/surgery/implant_removal/mechanic

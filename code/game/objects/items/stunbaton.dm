@@ -248,7 +248,7 @@
 	if(user)
 //		L.lastattacker = user.real_name
 //		L.lastattackerckey = user.ckey
-		L.visible_message(span_danger("<b>[user]</b> оглушает <b>[sklonenie(L.name, VINITELNI, L.gender)]</b> <b>электрошоковой дубинкой</b>!") , \
+		L.visible_message(span_danger("<b>[user]</b> оглушает <b>[skloname(L.name, VINITELNI, L.gender)]</b> <b>электрошоковой дубинкой</b>!") , \
 								span_userdanger("<b>[user]</b> оглушает меня <b>электрошоковой дубинкой</b>!"))
 		log_combat(user, L, "stunned")
 

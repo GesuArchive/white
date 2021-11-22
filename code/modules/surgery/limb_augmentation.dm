@@ -26,9 +26,9 @@
 		return -1
 	L = surgery.operated_bodypart
 	if(L)
-		display_results(user, target, span_notice("Вы начинаете аугментировать [parse_zone(user.zone_selected)] [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает аугментировать [parse_zone(user.zone_selected)] [sklonenie(target.name, RODITELNI, target.gender)] при помощи [aug].") ,
-			span_notice("[user] начинает аугментировать [parse_zone(user.zone_selected)] [sklonenie(target.name, RODITELNI, target.gender)]."))
+		display_results(user, target, span_notice("Вы начинаете аугментировать [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает аугментировать [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)] при помощи [aug].") ,
+			span_notice("[user] начинает аугментировать [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]."))
 	else
 		user.visible_message(span_notice("[user] пытается найти [parse_zone(user.zone_selected)] [target].") , span_notice("Вы пытаетесь найти [parse_zone(user.zone_selected)] [target]..."))
 
@@ -53,9 +53,9 @@
 			tool = tool.contents[1]
 		if(istype(tool) && user.temporarilyRemoveItemFromInventory(tool))
 			tool.replace_limb(target, TRUE)
-		display_results(user, target, span_notice("Вы успешно аугментировали [parse_zone(user.zone_selected)] [sklonenie(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] успешно аугментировал [parse_zone(user.zone_selected)] [sklonenie(target.name, RODITELNI, target.gender)] при помощи [tool]!") ,
-			span_notice("[user] успешно аугментировал [parse_zone(user.zone_selected)] [sklonenie(target.name, RODITELNI, target.gender)]!"))
+		display_results(user, target, span_notice("Вы успешно аугментировали [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] успешно аугментировал [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]!") ,
+			span_notice("[user] успешно аугментировал [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]!"))
 		log_combat(user, target, "аугментировал", addition="дав ему новую [parse_zone(target_zone)] INTENT: [uppertext(user.a_intent)]")
 	else
 		to_chat(user, span_warning("[target] не имеет органики на [parse_zone(target_zone)]!"))

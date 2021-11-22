@@ -116,7 +116,7 @@
 				O.teeth_list += E
 				// E.forceMove(target)
 				T = E
-			user.visible_message(span_notice("[user] вставляет [amt] [sklonenie(T.name, VINITELNI)] в рот [target]!"))
+			user.visible_message(span_notice("[user] вставляет [amt] [skloname(T.name, VINITELNI)] в рот [target]!"))
 			return 1
 		else //No teeth to speak of.
 			var/amt = min(T.amount, O.max_teeth)
@@ -125,7 +125,7 @@
 			O.teeth_list += F
 			// F.forceMove(target)
 			T = F
-			user.visible_message(span_notice("[user] вставляет [amt] [sklonenie(T.name, VINITELNI)] в рот [target]!"))
+			user.visible_message(span_notice("[user] вставляет [amt] [skloname(T.name, VINITELNI)] в рот [target]!"))
 			return 1
 	else
 		if(O.teeth_list.len)

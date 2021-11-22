@@ -33,14 +33,14 @@
 	return TRUE
 
 /datum/surgery_step/lobotomize/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю проведение лоботомии на мозге [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает проведение лоботомии на мозге [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начинает операцию на мозге [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Начинаю проведение лоботомии на мозге [skloname(target.name, RODITELNI, target.gender)]...") ,
+		span_notice("[user] начинает проведение лоботомии на мозге [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] начинает операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/lobotomize/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, span_notice("Успешно выполнил лоботомию [sklonenie(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] успешно выполнил лоботомию [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-			span_notice("[user] завершает операцию [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Успешно выполнил лоботомию [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] успешно выполнил лоботомию [skloname(target.name, RODITELNI, target.gender)]!") ,
+			span_notice("[user] завершает операцию [skloname(target.name, RODITELNI, target.gender)]."))
 	target.cure_all_traumas(TRAUMA_RESILIENCE_LOBOTOMY)
 	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/brainwashed))
 		target.mind.remove_antag_datum(/datum/antagonist/brainwashed)
@@ -60,8 +60,8 @@
 	var/obj/item/organ/brain/B = target.getorganslot(ORGAN_SLOT_BRAIN)
 	if(B)
 		display_results(user, target, span_warning("Извлек неверную часть, что привело к большим повреждениям!") ,
-			span_notice("[user] успешно выполнил лоботомию [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-			span_notice("[user] завершает операцию на мозге [sklonenie(target.name, RODITELNI, target.gender)]."))
+			span_notice("[user] успешно выполнил лоботомию [skloname(target.name, RODITELNI, target.gender)]!") ,
+			span_notice("[user] завершает операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
 		B.applyOrganDamage(80)
 		switch(rand(1,3))
 			if(1)

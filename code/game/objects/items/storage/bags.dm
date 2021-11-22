@@ -173,7 +173,7 @@
 			span_notice("Загружаю руду под собой в [box]."))
 		else
 			user.visible_message(span_notice("[user] собирает руду под [user.ru_na()].") , \
-				span_notice("Собираю руду под собой в [sklonenie(name, VINITELNI, MALE)]."))
+				span_notice("Собираю руду под собой в [skloname(name, VINITELNI, MALE)]."))
 	spam_protection = FALSE
 
 /obj/item/storage/bag/ore/cyborg

@@ -33,23 +33,23 @@
 	time = 52
 
 /datum/surgery_step/hepatectomy/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Вы начинаете удалять поврежденную долю печени [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает удалять поврежденную долю печени [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начинает удалять поврежденную долю печени [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Вы начинаете удалять поврежденную долю печени [skloname(target.name, RODITELNI, target.gender)]...") ,
+		span_notice("[user] начинает удалять поврежденную долю печени [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] начинает удалять поврежденную долю печени [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/hepatectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/mob/living/carbon/human/H = target
 	var/obj/item/organ/liver/L = H.getorganslot(ORGAN_SLOT_LIVER)
 	L.operated = TRUE
 	H.setOrganLoss(ORGAN_SLOT_LIVER, 60) //not bad, not great
-	display_results(user, target, span_notice("Вы успешно удалили поврежденную долю печени [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] успешно удалил поврежденную долю печени [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] успешно удалил поврежденную долю печени [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Вы успешно удалили поврежденную долю печени [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] успешно удалил поврежденную долю печени [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] успешно удалил поврежденную долю печени [skloname(target.name, RODITELNI, target.gender)]."))
 	return ..()
 
 /datum/surgery_step/hepatectomy/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery)
 	var/mob/living/carbon/human/H = target
 	H.adjustOrganLoss(ORGAN_SLOT_LIVER, 15)
-	display_results(user, target, span_warning("Вы случайно удалили здоровую часть печени [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-		span_warning("[user] случайно удалил здоровую часть печени [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-		span_warning("[user] случайно удалил здоровую часть печени [sklonenie(target.name, RODITELNI, target.gender)]!"))
+	display_results(user, target, span_warning("Вы случайно удалили здоровую часть печени [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_warning("[user] случайно удалил здоровую часть печени [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_warning("[user] случайно удалил здоровую часть печени [skloname(target.name, RODITELNI, target.gender)]!"))

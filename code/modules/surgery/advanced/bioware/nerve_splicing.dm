@@ -17,14 +17,14 @@
 	time = 155
 
 /datum/surgery_step/splice_nerves/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю соединять между собой нервы [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начал соединять между собой нервы [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начал работать с нервной системой [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Начинаю соединять между собой нервы [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] начал соединять между собой нервы [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] начал работать с нервной системой [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/splice_nerves/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, span_notice("Успешно срастил нервную систему [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-		span_notice("[user] успешно переплел нервную систему [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-		span_notice("[user] закончил работать с нервной системой [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Успешно срастил нервную систему [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_notice("[user] успешно переплел нервную систему [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_notice("[user] закончил работать с нервной системой [skloname(target.name, RODITELNI, target.gender)]."))
 	new /datum/bioware/spliced_nerves(target)
 	return ..()
 

@@ -25,7 +25,7 @@
 				for(var/i=1 to log_amount)
 					new /obj/item/grown/log/tree(get_turf(src))
 				var/obj/structure/flora/stump/S = new(loc)
-				S.name = "пенёк [sklonenie(name, VINITELNI, gender)]"
+				S.name = "пенёк [skloname(name, VINITELNI, gender)]"
 				qdel(src)
 	else
 		return ..()

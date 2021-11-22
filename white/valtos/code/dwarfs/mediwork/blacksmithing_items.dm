@@ -1041,7 +1041,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 	if(.)
 		for(var/mob/living/carbon/human/H in contents)
 			if(H.stat == DEAD)
-				name = "саркофаг [sklonenie(H.real_name, VINITELNI, H.gender)]"
+				name = "саркофаг [skloname(H.real_name, VINITELNI, H.gender)]"
 				for(var/obj/item/W in H)
 					if(!H.dropItemToGround(W))
 						qdel(W)

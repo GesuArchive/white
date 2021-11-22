@@ -679,7 +679,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/dead/observer/pointed(atom/A as mob|obj|turf in view(client.view, src))
 	if(!..())
 		return FALSE
-	usr.visible_message(span_deadsay("<b>[src]</b> показывает на [sklonenie(A.name, VINITELNI, A.gender)]."))
+	usr.visible_message(span_deadsay("<b>[src]</b> показывает на [skloname(A.name, VINITELNI, A.gender)]."))
 	return TRUE
 
 /mob/dead/observer/verb/view_manifest()

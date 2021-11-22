@@ -121,14 +121,14 @@
 	var/message_hit_area = ""
 	if(hit_area)
 		message_hit_area = "в [ru_parse_zone(hit_area)]"
-	var/attack_message_spectator = "<b>[src]</b> [message_verb_continuous] [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)][extra_wound_details]</b>!"
-	var/attack_message_victim = "[capitalize(message_verb_continuous)] [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)][extra_wound_details]</b>!"
-	var/attack_message_attacker = "Моя атака [message_verb_simple] <b>[src]</b> [message_hit_area] <b>[sklonenie(I.name, TVORITELNI, I.gender)]</b>!"
+	var/attack_message_spectator = "<b>[src]</b> [message_verb_continuous] [message_hit_area] <b>[skloname(I.name, TVORITELNI, I.gender)][extra_wound_details]</b>!"
+	var/attack_message_victim = "[capitalize(message_verb_continuous)] [message_hit_area] <b>[skloname(I.name, TVORITELNI, I.gender)][extra_wound_details]</b>!"
+	var/attack_message_attacker = "Моя атака [message_verb_simple] <b>[src]</b> [message_hit_area] <b>[skloname(I.name, TVORITELNI, I.gender)]</b>!"
 	if(user in viewers(src, null))
-		attack_message_spectator = "<b>[user]</b> [message_verb_continuous] <b>[sklonenie(src.name, VINITELNI, gender)]</b> [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]![extra_wound_details]!"
-		attack_message_victim = "<b>[user]</b> [message_verb_continuous] меня [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
+		attack_message_spectator = "<b>[user]</b> [message_verb_continuous] <b>[skloname(src.name, VINITELNI, gender)]</b> [message_hit_area] [skloname(I.name, TVORITELNI, I.gender)]![extra_wound_details]!"
+		attack_message_victim = "<b>[user]</b> [message_verb_continuous] меня [message_hit_area] [skloname(I.name, TVORITELNI, I.gender)]!"
 	if(user == src)
-		attack_message_victim = "Моя атака [message_verb_simple] меня [message_hit_area] [sklonenie(I.name, TVORITELNI, I.gender)]!"
+		attack_message_victim = "Моя атака [message_verb_simple] меня [message_hit_area] [skloname(I.name, TVORITELNI, I.gender)]!"
 	visible_message(span_danger("[attack_message_spectator]") ,\
 		span_userdanger("[attack_message_victim]") , null, COMBAT_MESSAGE_RANGE, user)
 	if(user != src)
@@ -289,9 +289,9 @@
 
 	if(target.IsKnockdown() && !target.IsParalyzed())
 		target.Paralyze(SHOVE_CHAIN_PARALYZE)
-		target.visible_message(span_danger("<b>[name]</b> кладет <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> на лопатки!") ,
+		target.visible_message(span_danger("<b>[name]</b> кладет <b>[skloname(target.name, VINITELNI, target.gender)]</b> на лопатки!") ,
 						span_userdanger("<b>[name]</b> кладет меня на лопатки!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , COMBAT_MESSAGE_RANGE, src)
-		to_chat(src, span_danger("Укладываю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> на лопатки!"))
+		to_chat(src, span_danger("Укладываю <b>[skloname(target.name, VINITELNI, target.gender)]</b> на лопатки!"))
 		addtimer(CALLBACK(target, /mob/living/proc/SetKnockdown, 0), SHOVE_CHAIN_PARALYZE)
 		log_combat(src, target, "kicks", "onto their side (paralyzing)")
 
@@ -310,35 +310,35 @@
 						break
 		if((!target_table && !target_collateral_carbon && !target_disposal_bin) || directional_blocked)
 			target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
-			target.visible_message(span_danger("<b>[name]</b> толкает <b>[sklonenie(target.name, VINITELNI, target.gender)]</b>, повалив на пол!") ,
+			target.visible_message(span_danger("<b>[name]</b> толкает <b>[skloname(target.name, VINITELNI, target.gender)]</b>, повалив на пол!") ,
 							span_danger("Меня толкает <b>[name]</b>, повалив на пол!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , COMBAT_MESSAGE_RANGE, src)
-			to_chat(src, span_danger("Толкаю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b>, повалив на пол!"))
+			to_chat(src, span_danger("Толкаю <b>[skloname(target.name, VINITELNI, target.gender)]</b>, повалив на пол!"))
 			log_combat(src, target, "shoved", "knocking them down")
 		else if(target_table)
 			target.Knockdown(SHOVE_KNOCKDOWN_TABLE)
-			target.visible_message(span_danger("<b>[name]</b> заталкивает <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> на [target_table]!") ,
+			target.visible_message(span_danger("<b>[name]</b> заталкивает <b>[skloname(target.name, VINITELNI, target.gender)]</b> на [target_table]!") ,
 							span_userdanger("Меня заталкивает <b>[name]</b> на [target_table]!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , COMBAT_MESSAGE_RANGE, src)
-			to_chat(src, span_danger("Заталкиваю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> на [target_table]!"))
+			to_chat(src, span_danger("Заталкиваю <b>[skloname(target.name, VINITELNI, target.gender)]</b> на [target_table]!"))
 			target.throw_at(target_table, 1, 1, null, FALSE) //1 speed throws with no spin are basically just forcemoves with a hard collision check
 			log_combat(src, target, "shoved", "onto [target_table] (table)")
 		else if(target_collateral_carbon)
 			target.Knockdown(SHOVE_KNOCKDOWN_HUMAN)
 			target_collateral_carbon.Knockdown(SHOVE_KNOCKDOWN_COLLATERAL)
-			target.visible_message(span_danger("<b>[name]</b> толкает <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> в [target_collateral_carbon.name]!") ,
+			target.visible_message(span_danger("<b>[name]</b> толкает <b>[skloname(target.name, VINITELNI, target.gender)]</b> в [target_collateral_carbon.name]!") ,
 				span_userdanger("Меня толкает <b>[name]</b> в [target_collateral_carbon.name]!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , COMBAT_MESSAGE_RANGE, src)
-			to_chat(src, span_danger("Толкаю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> в [target_collateral_carbon.name]!"))
+			to_chat(src, span_danger("Толкаю <b>[skloname(target.name, VINITELNI, target.gender)]</b> в [target_collateral_carbon.name]!"))
 			log_combat(src, target, "shoved", "into [target_collateral_carbon.name]")
 		else if(target_disposal_bin)
 			target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
 			target.forceMove(target_disposal_bin)
-			target.visible_message(span_danger("<b>[name]</b> толкает <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> в [target_disposal_bin]!") ,
+			target.visible_message(span_danger("<b>[name]</b> толкает <b>[skloname(target.name, VINITELNI, target.gender)]</b> в [target_disposal_bin]!") ,
 							span_userdanger("Меня толкает <b>[name]</b> в [target_disposal_bin]!</span>!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , COMBAT_MESSAGE_RANGE, src)
-			to_chat(src, span_danger("Толкаю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> прямо в [target_disposal_bin]!"))
+			to_chat(src, span_danger("Толкаю <b>[skloname(target.name, VINITELNI, target.gender)]</b> прямо в [target_disposal_bin]!"))
 			log_combat(src, target, "shoved", "into [target_disposal_bin] (disposal bin)")
 	else
-		target.visible_message(span_danger("<b>[name]</b> толкает <b>[sklonenie(target.name, VINITELNI, target.gender)]</b>!") ,
+		target.visible_message(span_danger("<b>[name]</b> толкает <b>[skloname(target.name, VINITELNI, target.gender)]</b>!") ,
 						span_userdanger("Меня толкает <b>[name]</b>!") , span_hear("Слышу агрессивную потасовку!") , COMBAT_MESSAGE_RANGE, src)
-		to_chat(src, span_danger("Толкаю <b>[sklonenie(target.name, VINITELNI, target.gender)]</b>!"))
+		to_chat(src, span_danger("Толкаю <b>[skloname(target.name, VINITELNI, target.gender)]</b>!"))
 		var/target_held_item = target.get_active_held_item()
 		var/knocked_item = FALSE
 		if(!is_type_in_typecache(target_held_item, GLOB.shove_disarming_types))
@@ -346,7 +346,7 @@
 		if(!target.has_movespeed_modifier(/datum/movespeed_modifier/shove))
 			target.add_movespeed_modifier(/datum/movespeed_modifier/shove)
 			if(target_held_item)
-				target.visible_message(span_danger("Захват <b>[sklonenie(target.name, VINITELNI, target.gender)]</b> на [target_held_item] слабеет!") ,
+				target.visible_message(span_danger("Захват <b>[skloname(target.name, VINITELNI, target.gender)]</b> на [target_held_item] слабеет!") ,
 					span_warning("Мой захват [target_held_item] слабеет!") , null, COMBAT_MESSAGE_RANGE)
 			addtimer(CALLBACK(target, /mob/living/carbon/proc/clear_shove_slowdown), SHOVE_SLOWDOWN_LENGTH)
 		else if(target_held_item)
@@ -453,9 +453,9 @@
 	else
 		SEND_SIGNAL(src, COMSIG_CARBON_HUGGED, M)
 		SEND_SIGNAL(M, COMSIG_CARBON_HUG, M, src)
-		M.visible_message(span_notice("[M] обнимает [sklonenie(name, VINITELNI, gender)]!") , \
+		M.visible_message(span_notice("[M] обнимает [skloname(name, VINITELNI, gender)]!") , \
 					null, span_hear("Слышу шуршание одежды.") , DEFAULT_MESSAGE_RANGE, list(M, src))
-		to_chat(M, span_notice("Обнимаю [sklonenie(name, VINITELNI, gender)]!"))
+		to_chat(M, span_notice("Обнимаю [skloname(name, VINITELNI, gender)]!"))
 		to_chat(src, span_notice("[M] обнимает меня!"))
 
 		// Warm them up with hugs

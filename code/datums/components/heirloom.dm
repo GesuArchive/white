@@ -17,7 +17,7 @@
 	if(user.mind == owner)
 		examine_list += span_notice("\nА это моя семейная реликвия. Главное - не потерять!")
 	else if(isobserver(user))
-		examine_list += span_notice("\nЭто реликвия семьи [family_name], принадлежащая [sklonenie_do(owner.current.name, DATELNI, owner.current.gender)].")
+		examine_list += span_notice("\nЭто реликвия семьи [family_name], принадлежащая [skloname(owner.current.name, DATELNI, owner.current.gender)].")
 	else
 		var/datum/antagonist/obsessed/creeper = user.mind.has_antag_datum(/datum/antagonist/obsessed)
 		if(creeper && creeper.trauma.obsession == owner)

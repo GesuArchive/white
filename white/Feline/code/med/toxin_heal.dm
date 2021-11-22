@@ -35,20 +35,20 @@
 	var/toxincap = 0
 
 /datum/surgery_step/toxin_heal/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Произвожу фильтрацию лимфы у [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] производит фильтрацию лимфы у [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] производит фильтрацию лимфы у [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Произвожу фильтрацию лимфы у [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] производит фильтрацию лимфы у [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] производит фильтрацию лимфы у [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/toxin_heal/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	target.adjustToxLoss(-1 * min(target.getToxLoss() * 0.5 + toxinstat, toxincap))
-	display_results(user, target, span_notice("Закончив фильтрацию лимфы [sklonenie(target.name, RODITELNI, target.gender)], [tool] издает короткий звон.") ,
+	display_results(user, target, span_notice("Закончив фильтрацию лимфы [skloname(target.name, RODITELNI, target.gender)], [tool] издает короткий звон.") ,
 		span_notice("[tool] заканчивает работы и издает короткий звон.") ,
 		"Закончив работу [tool] издает короткий звон.")
 	return ..()
 
 /datum/surgery_step/toxin_heal/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_warning("[gvorno(TRUE)], но [gvorno(TRUE)], но я делал что-то не так и оставил синяк на груди [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-		span_warning("[user] ошибся, оставив синяк на груди [sklonenie(target.name, RODITELNI, target.gender)]!") ,
+	display_results(user, target, span_warning("[gvorno(TRUE)], но [gvorno(TRUE)], но я делал что-то не так и оставил синяк на груди [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_warning("[user] ошибся, оставив синяк на груди [skloname(target.name, RODITELNI, target.gender)]!") ,
 		span_warning("[user] ошибся!"))
 	target.adjustBruteLoss(5)
 

@@ -17,14 +17,14 @@
 	time = 125
 
 /datum/surgery_step/thread_veins/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю переплетать кровеносную систему [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начал переплетать кровеносную систему [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начал работать над кровеносной системой [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Начинаю переплетать кровеносную систему [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] начал переплетать кровеносную систему [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] начал работать над кровеносной системой [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/thread_veins/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, span_notice("Сплел кровеносную систему [sklonenie(target.name, RODITELNI, target.gender)] в прочную сеть!") ,
-		span_notice("[user] сплел кровеносную систему [sklonenie(target.name, RODITELNI, target.gender)] в прочную сеть!") ,
-		span_notice("[user] закончил работать над кровеносной системой [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Сплел кровеносную систему [skloname(target.name, RODITELNI, target.gender)] в прочную сеть!") ,
+		span_notice("[user] сплел кровеносную систему [skloname(target.name, RODITELNI, target.gender)] в прочную сеть!") ,
+		span_notice("[user] закончил работать над кровеносной системой [skloname(target.name, RODITELNI, target.gender)]."))
 	new /datum/bioware/threaded_veins(target)
 	return ..()
 

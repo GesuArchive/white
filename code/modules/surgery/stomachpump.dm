@@ -29,24 +29,24 @@
 	time = 20
 
 /datum/surgery_step/stomach_pump/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Вы начинаете надавливать на живот [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает надавливать на живот [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начинает надавливать на живот [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Вы начинаете надавливать на живот [skloname(target.name, RODITELNI, target.gender)]...") ,
+		span_notice("[user] начинает надавливать на живот [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] начинает надавливать на живот [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/stomach_pump/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		display_results(user, target, span_notice("[user] принуждает [sklonenie(target.name, RODITELNI, target.gender)] блевать, тем самым очищая желудок от химикатов!") ,
-				span_notice("[user] принуждает [sklonenie(target.name, RODITELNI, target.gender)] блевать, тем самым очищая желудок от химикатов!") ,
-				"[user] принуждает [sklonenie(target.name, RODITELNI, target.gender)] блевать, тем самым очищая желудок от химикатов!")
+		display_results(user, target, span_notice("[user] принуждает [skloname(target.name, RODITELNI, target.gender)] блевать, тем самым очищая желудок от химикатов!") ,
+				span_notice("[user] принуждает [skloname(target.name, RODITELNI, target.gender)] блевать, тем самым очищая желудок от химикатов!") ,
+				"[user] принуждает [skloname(target.name, RODITELNI, target.gender)] блевать, тем самым очищая желудок от химикатов!")
 		H.vomit(20, FALSE, TRUE, 1, TRUE, FALSE, purge_ratio = 0.67) //higher purge ratio than regular vomiting
 	return ..()
 
 /datum/surgery_step/stomach_pump/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		display_results(user, target, span_warning("Вы надавили слишком сильно на живот [sklonenie(target.name, RODITELNI, target.gender)] и оставили синяк!") ,
-			span_warning("[user] надавил слишком сильно на живот [sklonenie(target.name, RODITELNI, target.gender)] и оставил синяк!") ,
+		display_results(user, target, span_warning("Вы надавили слишком сильно на живот [skloname(target.name, RODITELNI, target.gender)] и оставили синяк!") ,
+			span_warning("[user] надавил слишком сильно на живот [skloname(target.name, RODITELNI, target.gender)] и оставил синяк!") ,
 			span_warning("[user] ошибся!"))
 		H.adjustOrganLoss(ORGAN_SLOT_STOMACH, 5)
 		H.adjustBruteLoss(5)

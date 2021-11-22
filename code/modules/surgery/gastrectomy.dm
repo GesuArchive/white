@@ -35,23 +35,23 @@
 	time = 52
 
 /datum/surgery_step/gastrectomy/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю вырезать часть поврежденного желудка [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] делает надрез желудка [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] делает надрез желудка [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Начинаю вырезать часть поврежденного желудка [skloname(target.name, RODITELNI, target.gender)]...") ,
+		span_notice("[user] делает надрез желудка [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] делает надрез желудка [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/gastrectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/mob/living/carbon/human/H = target
 	var/obj/item/organ/stomach/L = H.getorganslot(ORGAN_SLOT_STOMACH)
 	L.operated = TRUE
 	H.setOrganLoss(ORGAN_SLOT_STOMACH, 60) // Stomachs have a threshold for being able to even digest food, so I might tweak this number
-	display_results(user, target, span_notice("Успешно извлек поврежденную часть желудка [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] успешно извлек поврежденную часть желудка [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] успешно извлек поврежденную часть желудка [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Успешно извлек поврежденную часть желудка [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] успешно извлек поврежденную часть желудка [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] успешно извлек поврежденную часть желудка [skloname(target.name, RODITELNI, target.gender)]."))
 	return ..()
 
 /datum/surgery_step/hepatectomy/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery)
 	var/mob/living/carbon/human/H = target
 	H.adjustOrganLoss(ORGAN_SLOT_STOMACH, 15)
-	display_results(user, target, span_warning("Вырезал неверную часть желудка [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-		span_warning("[user] вырезал неверную часть желудка [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-		span_warning("[user] вырезал неверную часть желудка [sklonenie(target.name, RODITELNI, target.gender)]!"))
+	display_results(user, target, span_warning("Вырезал неверную часть желудка [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_warning("[user] вырезал неверную часть желудка [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_warning("[user] вырезал неверную часть желудка [skloname(target.name, RODITELNI, target.gender)]!"))

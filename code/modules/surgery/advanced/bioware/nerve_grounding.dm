@@ -17,14 +17,14 @@
 	time = 155
 
 /datum/surgery_step/ground_nerves/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю перенаправлять нервы [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начал перенаправлять нервы [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начал работать с нервной системой [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Начинаю перенаправлять нервы [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] начал перенаправлять нервы [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] начал работать с нервной системой [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/ground_nerves/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, span_notice("Успешно перенаправил нервную систему [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-		span_notice("[user] успешно перенаправил нервную систему [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-		span_notice("[user] закончил работать с нервной системой [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Успешно перенаправил нервную систему [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_notice("[user] успешно перенаправил нервную систему [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_notice("[user] закончил работать с нервной системой [skloname(target.name, RODITELNI, target.gender)]."))
 	new /datum/bioware/grounded_nerves(target)
 	return ..()
 

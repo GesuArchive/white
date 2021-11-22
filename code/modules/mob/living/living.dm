@@ -403,8 +403,8 @@
 		if(aiming && isliving(A))
 			aiming.aim(src, A)
 			return TRUE
-	visible_message(span_name("[capitalize(src.name)]</span> показывает на <b>[sklonenie(A.name, VINITELNI, A.gender)]</b>."),
-					span_notice("Показываю на <b>[sklonenie(A.name, VINITELNI, A.gender)]</b>."))
+	visible_message(span_name("[capitalize(src.name)]</span> показывает на <b>[skloname(A.name, VINITELNI, A.gender)]</b>."),
+					span_notice("Показываю на <b>[skloname(A.name, VINITELNI, A.gender)]</b>."))
 	return TRUE
 
 
@@ -1335,12 +1335,12 @@
 /mob/living/proc/knockOver(mob/living/carbon/C)
 	if(C.key) //save us from monkey hordes
 		C.visible_message("<span class='warning'>[pick( \
-						"[C] спотыкается об [sklonenie(name, VINITELNI, gender)]!", \
-						"[C] перепрыгивает через [sklonenie(name, VINITELNI, gender)]!", \
-						"[C] сальтует через [sklonenie(name, VINITELNI, gender)]!", \
-						"[C] делает тактический кувырок через [sklonenie(name, VINITELNI, gender)] и падает!", \
-						"[C] стукается об [sklonenie(name, VINITELNI, gender)]!", \
-						"[C] резко отскакивает от [sklonenie(name, VINITELNI, gender)]!")]</span>")
+						"[C] спотыкается об [skloname(name, VINITELNI, gender)]!", \
+						"[C] перепрыгивает через [skloname(name, VINITELNI, gender)]!", \
+						"[C] сальтует через [skloname(name, VINITELNI, gender)]!", \
+						"[C] делает тактический кувырок через [skloname(name, VINITELNI, gender)] и падает!", \
+						"[C] стукается об [skloname(name, VINITELNI, gender)]!", \
+						"[C] резко отскакивает от [skloname(name, VINITELNI, gender)]!")]</span>")
 	C.Paralyze(40)
 
 /mob/living/can_be_pulled()

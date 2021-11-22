@@ -22,9 +22,9 @@
 	time = 42
 
 /datum/surgery_step/lobectomy/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Вы начинаете делать надрез в легких [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает делать надрез в легких [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начинает делать надрез в легких [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Вы начинаете делать надрез в легких [skloname(target.name, RODITELNI, target.gender)]...") ,
+		span_notice("[user] начинает делать надрез в легких [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] начинает делать надрез в легких [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/lobectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))

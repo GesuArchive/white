@@ -75,7 +75,7 @@
 		B.forceMove(T)
 		var/datum/callback/gibspawner = CALLBACK(GLOBAL_PROC, /proc/spawn_atom_to_turf, /obj/effect/gibspawner/generic, B, 1, FALSE, N)
 		B.throw_at(target, 1, 1, callback=gibspawner)
-		N.visible_message(span_suicide("Мозги <b>[sklonenie(N.name, VINITELNI, N.gender)]</b> вырываются из черепной коробки!"))
+		N.visible_message(span_suicide("Мозги <b>[skloname(N.name, VINITELNI, N.gender)]</b> вырываются из черепной коробки!"))
 		return
 	..()
 

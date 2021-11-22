@@ -23,35 +23,35 @@
 	var/obj/item/bodypart/chest/CH = target.get_bodypart(BODY_ZONE_CHEST)
 	IC = CH.cavity_item
 	if(tool)
-		display_results(user, target, span_notice("Вы начинаете помещать [tool] в [ru_parse_zone(parse_zone(target_zone))] [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает помещать [tool] в [ru_parse_zone(parse_zone(target_zone))] [sklonenie(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] начинает помещать что-то в [ru_parse_zone(parse_zone(target_zone))] [sklonenie(target.name, RODITELNI, target.gender)]."))
+		display_results(user, target, span_notice("Вы начинаете помещать [tool] в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает помещать [tool] в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает помещать что-то в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."))
 	else
-		display_results(user, target, span_notice("Вы начинаете искать инородные объекты в [ru_gde_zone(parse_zone(target_zone))] [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает искать инородные объекты в [ru_gde_zone(parse_zone(target_zone))] [sklonenie(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] начинает искать инородные объекты в [ru_gde_zone(parse_zone(target_zone))] [sklonenie(target.name, RODITELNI, target.gender)]."))
+		display_results(user, target, span_notice("Вы начинаете искать инородные объекты в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает искать инородные объекты в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает искать инородные объекты в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/handle_cavity/success(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/surgery/surgery = FALSE)
 	var/obj/item/bodypart/chest/CH = target.get_bodypart(BODY_ZONE_CHEST)
 	if(tool)
 		if(IC || tool.w_class > WEIGHT_CLASS_NORMAL || HAS_TRAIT(tool, TRAIT_NODROP) || istype(tool, /obj/item/organ))
-			to_chat(user, span_warning("Кажется [tool] не поместиться в [ru_gde_zone(parse_zone(target_zone))] [sklonenie(target.name, RODITELNI, target.gender)] из-за слишком крупных размеров!"))
+			to_chat(user, span_warning("Кажется [tool] не поместиться в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)] из-за слишком крупных размеров!"))
 			return FALSE
 		else
-			display_results(user, target, span_notice("Вы успешно поместили [tool] в [ru_parse_zone(parse_zone(target_zone))] [sklonenie(target.name, RODITELNI, target.gender)].") ,
-				span_notice("[user] поместил [tool] в [ru_parse_zone(parse_zone(target_zone))] [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-				span_notice("[user] поместил что-то в [ru_parse_zone(parse_zone(target_zone))] [sklonenie(target.name, RODITELNI, target.gender)]."))
+			display_results(user, target, span_notice("Вы успешно поместили [tool] в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
+				span_notice("[user] поместил [tool] в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
+				span_notice("[user] поместил что-то в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."))
 			user.transferItemToLoc(tool, target, TRUE)
 			CH.cavity_item = tool
 			return ..()
 	else
 		if(IC)
-			display_results(user, target, span_notice("Вы извлекли [IC] из [ru_otkuda_zone(parse_zone(target_zone))] [sklonenie(target.name, RODITELNI, target.gender)].") ,
-				span_notice("[user] извлек [IC] из [ru_otkuda_zone(parse_zone(target_zone))] [sklonenie(target.name, RODITELNI, target.gender)]!") ,
-				span_notice("[user] извлек что-то из [ru_otkuda_zone(parse_zone(target_zone))] [sklonenie(target.name, RODITELNI, target.gender)]."))
+			display_results(user, target, span_notice("Вы извлекли [IC] из [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
+				span_notice("[user] извлек [IC] из [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
+				span_notice("[user] извлек что-то из [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."))
 			user.put_in_hands(IC)
 			CH.cavity_item = null
 			return ..()
 		else
-			to_chat(user, span_warning("Вы ничего не нашли в [ru_gde_zone(parse_zone(target_zone))] [sklonenie(target.name, RODITELNI, target.gender)]."))
+			to_chat(user, span_warning("Вы ничего не нашли в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."))
 			return FALSE

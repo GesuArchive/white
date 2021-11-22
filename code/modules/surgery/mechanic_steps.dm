@@ -9,9 +9,9 @@
 	time = 24
 
 /datum/surgery_step/mechanic_open/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Вы начинаете откручивать винты на корпусе [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает откручивать винты на корпусе [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] начинает откручивать винты на корпусе [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Вы начинаете откручивать винты на корпусе [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает откручивать винты на корпусе [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает откручивать винты на корпусе [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/mechanic_incise/tool_check(mob/user, obj/item/tool)
 	if(implement_type == /obj/item && !tool.get_sharpness())
@@ -30,9 +30,9 @@
 	time = 24
 
 /datum/surgery_step/mechanic_close/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Вы начинаете закручивать винты на корпусе [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает закручивать винты на корпусе [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] начинает закручивать винты на корпусе [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Вы начинаете закручивать винты на корпусе [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает закручивать винты на корпусе [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает закручивать винты на корпусе [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/mechanic_close/tool_check(mob/user, obj/item/tool)
 	if(implement_type == /obj/item && !tool.get_sharpness())
@@ -49,9 +49,9 @@
 	time = 24
 
 /datum/surgery_step/prepare_electronics/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Вы начинаете подготавливать электронику в [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает подготавливать электронику в [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] начинает подготавливать электронику в [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Вы начинаете подготавливать электронику в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает подготавливать электронику в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает подготавливать электронику в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]."))
 
 //unwrench
 /datum/surgery_step/mechanic_unwrench
@@ -62,9 +62,9 @@
 	time = 24
 
 /datum/surgery_step/mechanic_unwrench/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Вы начинаете отвинчивать болты в [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает отвинчивать болты в [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] начинает отвинчивать болты в [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Вы начинаете отвинчивать болты в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает отвинчивать болты в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает отвинчивать болты в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]."))
 
 //wrench
 /datum/surgery_step/mechanic_wrench
@@ -75,9 +75,9 @@
 	time = 24
 
 /datum/surgery_step/mechanic_wrench/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Вы начинаете завинчивать болты в [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает завинчивать болты в [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] начинает завинчивать болты в [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Вы начинаете завинчивать болты в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает завинчивать болты в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает завинчивать болты в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]."))
 
 //open hatch
 /datum/surgery_step/open_hatch
@@ -86,6 +86,6 @@
 	time = 10
 
 /datum/surgery_step/open_hatch/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Вы начинаете открывать люк в [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает открывать люк в [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начинает открывать люк в [parse_zone(target_zone)] [sklonenie(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Вы начинаете открывать люк в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...") ,
+		span_notice("[user] начинает открывать люк в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] начинает открывать люк в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]."))
