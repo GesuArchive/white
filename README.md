@@ -21,6 +21,9 @@
 [<img src="https://i.imgur.com/lOHdByt.png" alt="Discord" width="150" align="left">](https://discord.gg/9uJ7dmM)
 **Наш Discord-сервер.**<br>Обязательно возьмите роль **SS 13** в канале `#▸роли`.
 
+[<img src="https://i.imgur.com/eQF6BOl.png" alt="CR34T1V3" width="150" align="left">](https://discord.gg/fRsn7RxdQp)
+**Альтернативный кодербас для русскоговорящих господ.**<br>Ничего личного, только копипаста. Место, где можно обсудить код и не только.
+
 ## Полезное
 [<img src="https://i.imgur.com/ZOxkRtD.png" alt="Upstream" width="150" align="left">](https://github.com/tgstation/tgstation)
 **Наш Upstream. Ничего особенного.**<br>Основная часть обновлений берётся отсюда.
