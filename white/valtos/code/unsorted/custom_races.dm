@@ -111,15 +111,22 @@
 	liked_food = VEGETABLES | DAIRY | CLOTH
 	disliked_food = FRUIT | GROSS
 	toxic_food = MEAT | RAW
+	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BUG
+	mutanteyes = /obj/item/organ/eyes/moth
 	mutant_bodyparts = list("moth_wings" = "Plain", "moth_markings" = "None")
 	attack_verb = "цапает"
 	attack_effect = ATTACK_EFFECT_CLAW
 	attack_sound = 'sound/weapons/slash.ogg'
 	miss_sound = 'sound/weapons/slashmiss.ogg'
+	meat = /obj/item/food/meat/slab/human/mutant/moth
 	limbs_id = null
 	yogs_draw_robot_hair = TRUE
 	use_skintones = TRUE
-	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,HAS_FLESH,NOBLOOD)
+	species_traits = list(LIPS, NOEYESPRITES, HAS_FLESH, HAS_BONE, HAS_MARKINGS)
+	species_language_holder = /datum/language_holder/moth
+	wings_icon = "Megamoth"
+	has_innate_wings = TRUE
+	payday_modifier = 0.75
 
 /datum/species/android/babulet/on_species_gain(mob/living/carbon/C)
 	. = ..()
