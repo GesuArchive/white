@@ -68,6 +68,8 @@
 	lungpunch.Remove(owner)
 
 /datum/martial_art/krav_maga/proc/check_streak(mob/living/A, mob/living/D)
+	if(!can_use(A))
+		return FALSE
 	switch(streak)
 		if("neck_chop")
 			streak = ""
