@@ -124,6 +124,11 @@
 	use_skintones = TRUE
 	species_traits = list(LIPS, NOEYESPRITES, HAS_FLESH, HAS_BONE, HAS_MARKINGS)
 	species_language_holder = /datum/language_holder/moth
+	inherent_traits = list(
+		TRAIT_ADVANCEDTOOLUSER,
+		TRAIT_CAN_STRIP,
+		TRAIT_CAN_USE_FLIGHT_POTION,
+	)
 	wings_icon = "Megamoth"
 	has_innate_wings = TRUE
 	payday_modifier = 0.75
