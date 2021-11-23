@@ -479,7 +479,7 @@ const PageMain = (props, context) => {
 
           {!!canRequestNuke && <Button
             icon="bullhorn"
-            content="Запросить отряд СОБРа"
+            content="Запросить отряд ОМОНа"
             disabled={!importantActionReady}
             onClick={() => setRequestingSobr(true)}
           />}
@@ -533,10 +533,10 @@ const PageMain = (props, context) => {
       />}
 
       {!!canRequestNuke && requestingSobr && <MessageModal
-        label="Вызов отряда СОБРа"
+        label="Вызов отряда ОМОНа"
         notice="Назовите причину по которой вы собираетесь вызвать специальный отряд быстрого реагирования на станцию."
         icon="bomb"
-        buttonText="Вызвать СОБР"
+        buttonText="Вызвать ОМОН"
         onBack={() => setRequestingSobr(false)}
         onSubmit={reason => {
           setRequestingSobr(false);

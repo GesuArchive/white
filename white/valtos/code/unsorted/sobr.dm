@@ -3,40 +3,46 @@
 	leader_role = /datum/antagonist/ert/sobr/leader
 	teamsize = 7
 	opendoors = FALSE
-	rename_team = "СОБР"
+	rename_team = "ОМОН"
 	mission = "Уничтожить террористов на станции."
 	polldesc = "специальный отряд быстрого реагирования"
 
 /datum/antagonist/ert/sobr
-	name = "СОБР"
+	name = "ОМОН"
 	outfit = /datum/outfit/sobr
 	random_names = TRUE
-	role = "Отряд СОБР"
+	role = "Отряд ОМОН"
 	greentext_reward = 15
 
 /datum/antagonist/ert/sobr/leader
-	name = "Лидер СОБР"
+	name = "Лидер ОМОН"
 	outfit = /datum/outfit/sobr/leader
-	role = "Лидер отряда СОБР"
+	role = "Лидер отряда ОМОН"
 	leader = TRUE
 	greentext_reward = 20
 
 /datum/antagonist/ert/sobr/update_name()
-	owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source)]")
+	if(owner.current.gender == FEMALE)
+		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source)]а")
+	else
+		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source)]")
 
 /datum/antagonist/ert/sobr/leader/update_name()
-	owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source)]")
+	if(owner.current.gender == FEMALE)
+		owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source)]а")
+	else
+		owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source)]")
 
 /datum/outfit/sobr
-	name = "СОБР"
+	name = "ОМОН"
 
 	uniform = /obj/item/clothing/under/rank/sobr
 	suit = /obj/item/clothing/suit/armor/bulletproof/omon
-	suit_store = /obj/item/melee/classic_baton
+	suit_store = /obj/item/melee/classic_baton/german
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/fingerless
 	ears = /obj/item/radio/headset/headset_cent/alt
-	head = /obj/item/clothing/head/beret/durathread
+	head = /obj/item/clothing/head/beret/airborne
 	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/storage/belt/security/sobr
 	id = /obj/item/card/id/advanced/centcom
@@ -67,14 +73,14 @@
 	W.update_label()
 
 /datum/outfit/sobr/leader
-	name = "Лидер СОБР"
+	name = "Лидер ОМОН"
 
 	uniform = /obj/item/clothing/under/rank/sobr
 	suit = /obj/item/clothing/suit/armor/bulletproof/omon
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/fingerless
 	ears = /obj/item/radio/headset/headset_cent/alt
-	head = /obj/item/clothing/head/beret/durathread
+	head = /obj/item/clothing/head/beret/airborne
 	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/storage/belt/military/army/sobr
 	id = /obj/item/card/id/advanced/centcom
@@ -116,8 +122,8 @@
 
 /proc/sobr_request(text, mob/Sender)
 	var/msg = copytext_char(sanitize(text), 1, MAX_MESSAGE_LEN)
-	message_admins("[Sender.name] собирается вызвать СОБР с миссией: [msg]")
-	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Хотите быть в специальном отряде быстрого реагирования?", "deathsquad", null)
+	message_admins("[Sender.name] собирается вызвать ОМОН с миссией: [msg]")
+	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Хотите быть в мобильном отряде особого назначения?", "deathsquad", null)
 	var/teamSpawned = FALSE
 
 	if(candidates.len > 0)
@@ -169,7 +175,7 @@
 			teamSpawned++
 
 		if (teamSpawned)
-			message_admins("[Sender.name] вызывает СОБР с миссией: [msg]")
+			message_admins("[Sender.name] вызывает ОМОН с миссией: [msg]")
 
 		return TRUE
 	else
