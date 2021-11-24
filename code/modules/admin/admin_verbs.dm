@@ -119,7 +119,8 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/centcom_podlauncher, /*Open a window to launch a Supplypod and configure it or it's contents*/
 	/client/proc/huesoslist,
 	/client/proc/battle_royale,
-	/client/proc/load_circuit
+	/client/proc/load_circuit,
+	/client/proc/change_lobby_music
 	))
 GLOBAL_PROTECT(admin_verbs_fun)
 GLOBAL_LIST_INIT(admin_verbs_spawn, list(/datum/admins/proc/spawn_atom, /datum/admins/proc/podspawn_atom,

@@ -156,6 +156,9 @@
 	set name = "Change TM"
 	set desc = "Fucky"
 
+	if(!check_rights(R_FUN))
+		return
+
 	var/msg = input(src, null, "Enter ze paff") as sound|null
 	if(msg)
 		SSticker.login_music = sound(msg)
