@@ -14864,7 +14864,9 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
-/turf/open/floor/wood,
+/turf/open/floor/wood{
+	icon_state = "wood-broken7"
+	},
 /area/service/bar)
 "bnb" = (
 /obj/machinery/recharge_station,
@@ -32406,7 +32408,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wood,
-/turf/open/floor/wood,
+/turf/open/floor/wood{
+	icon_state = "wood-broken6"
+	},
 /area/service/bar)
 "eLn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -35721,6 +35725,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
+	},
+/obj/machinery/button/door{
+	id = "barmankomorka";
+	name = "window button";
+	pixel_y = -26
 	},
 /turf/open/floor/wood,
 /area/service/bar)
@@ -45155,7 +45164,7 @@
 "vHN" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
-	id = "barmanpriv";
+	id = "barmankomorka";
 	name = "bar shutters"
 	},
 /turf/open/floor/plating,
