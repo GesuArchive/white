@@ -2652,10 +2652,6 @@
 	pixel_x = 11
 	},
 /obj/effect/turf_decal/bot/left,
-/obj/machinery/light/small{
-	dir = 1;
-	pixel_y = 0
-	},
 /turf/open/floor/wood,
 /area/service/theater)
 "ht" = (
@@ -11408,6 +11404,10 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/camera/autoname,
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 0
+	},
 /turf/open/floor/wood,
 /area/service/theater)
 "EF" = (
