@@ -6,15 +6,14 @@ export const CryopodConsole = (props, context) => {
   const { data } = useBackend(context);
   const { account_name, allow_items } = data;
 
-  const welcomeTitle = `Hello, ${account_name || '[REDACTED]'}!`;
+  const welcomeTitle = `Привет, ${account_name || '[REDACTED]'}!`;
 
   return (
-    <Window title="Cryopod Console" width={400} height={480}>
+    <Window title="Консоль криокамер" width={400} height={480}>
       <Window.Content>
         <Stack vertical>
           <Section title={welcomeTitle}>
-            This automated cryogenic freezing unit will safely store your
-            corporeal form until your next assignment.
+            Эта автоматизированная система сохранит ваше тело надёжно.
           </Section>
           <CrewList />
           {!!allow_items && <ItemList />}
@@ -29,9 +28,9 @@ const CrewList = (props, context) => {
   const { frozen_crew } = data;
 
   return (
-    <Collapsible title="Stored Crew">
+    <Collapsible title="Хранилище экипажа">
       {!frozen_crew.length ? (
-        <NoticeBox>No stored crew!</NoticeBox>
+        <NoticeBox>Внутри никого нет!</NoticeBox>
       ) : (
         <Section height={10} fill scrollable>
           <LabeledList>
@@ -60,9 +59,9 @@ const ItemList = (props, context) => {
   };
 
   return (
-    <Collapsible title="Stored Items">
+    <Collapsible title="Хранилище предметов">
       {!frozen_items.length ? (
-        <NoticeBox>No stored items!</NoticeBox>
+        <NoticeBox>Внутри ничего нет!</NoticeBox>
       ) : (
         <>
           <Section height={12} fill scrollable>
@@ -84,7 +83,7 @@ const ItemList = (props, context) => {
             </LabeledList>
           </Section>
           <Button
-            content="Drop All Items"
+            content="Выбросить всё"
             color="red"
             onClick={() => act('all_items')}
           />
