@@ -132,7 +132,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 			possible_targets = all_possible_targets
 	if(possible_targets.len > 0)
 		target = pick(possible_targets)
-	if(target.assigned_role in list("Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Field Medic", "AI", "Cyborg"))
+	if(target?.assigned_role in list("Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Field Medic", "AI", "Cyborg"))
 		reward+=reward
 	update_explanation_text()
 	return target
