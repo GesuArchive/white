@@ -6384,9 +6384,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/white/corner,
 /area/hallway/secondary/entry)
-"aCq" = (
-/turf/open/openspace/airless,
-/area/hallway/secondary/service)
 "aCr" = (
 /turf/closed/wall/r_wall,
 /area/hallway/secondary/service)
@@ -31131,13 +31128,6 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/service/kitchen)
-"did" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 6
-	},
-/turf/open/openspace,
-/area/service/bar)
 "dif" = (
 /obj/structure/sign/poster/official/do_not_question{
 	pixel_y = -32
@@ -35366,13 +35356,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/solars/starboard/aft)
-"iCS" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 10
-	},
-/turf/open/openspace,
-/area/service/bar)
 "iCY" = (
 /obj/machinery/door/airlock/external{
 	name = "Escape Pod Two";
@@ -38570,14 +38553,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
-"nlO" = (
-/obj/machinery/door/airlock{
-	name = "Service Hall";
-	req_one_access_txt = "22;25;26;28;35;37;38;46;70"
-	},
-/obj/machinery/door/firedoor,
-/turf/open/floor/plastic,
-/area/hallway/secondary/service)
 "nlV" = (
 /obj/structure/disposalpipe/segment{
 	dir = 9
@@ -41031,12 +41006,6 @@
 /obj/effect/turf_decal/tile/green,
 /turf/open/floor/plasteel,
 /area/service/hydroponics)
-"qft" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/ladder,
-/obj/structure/railing,
-/turf/open/openspace,
-/area/service/bar)
 "qfD" = (
 /obj/machinery/monkey_recycler,
 /obj/structure/cable,
@@ -81528,7 +81497,7 @@ axT
 azl
 aAl
 aaP
-aCq
+aHI
 aDY
 aHZ
 aHI
@@ -81785,7 +81754,7 @@ nml
 azk
 aAk
 aaP
-aCq
+aHZ
 aDY
 aHI
 aHI
@@ -82042,7 +82011,7 @@ lBG
 azn
 aAn
 aaP
-aCq
+aHI
 aEc
 aFk
 biB
@@ -82561,8 +82530,8 @@ aEA
 aBE
 aGz
 bOr
-wyU
-iCS
+aDV
+fDc
 fDc
 fDc
 joT
@@ -82818,8 +82787,8 @@ azI
 azI
 bqR
 bOC
-nlO
-qft
+aDY
+fDc
 fDc
 fDc
 joT
@@ -83075,8 +83044,8 @@ aAq
 azI
 bze
 bOC
-wyU
-did
+aDY
+fDc
 fDc
 fDc
 joT
@@ -83332,7 +83301,7 @@ aDV
 aCl
 bze
 bkk
-wyU
+aDV
 fDc
 fDc
 fDc
