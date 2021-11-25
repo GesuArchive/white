@@ -528,6 +528,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Зона отдыха"
 	icon_state = "rec"
 
+/area/commons/cryopods
+	name = "Криоподы"
+	icon_state = "cryopod"
+
 /area/service/cafeteria
 	name = "Зона отдыха: Кафетерий"
 	icon_state = "cafeteria"
