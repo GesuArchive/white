@@ -7001,7 +7001,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
-/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/airlock/external{
+	req_access_txt = "13"
+	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/hallway/secondary/service)
 "aEh" = (
@@ -7388,6 +7391,7 @@
 /obj/structure/disposalpipe/trunk/multiz/down{
 	dir = 1
 	},
+/obj/structure/lattice,
 /turf/open/openspace,
 /area/hallway/secondary/service)
 "aFm" = (
@@ -13912,7 +13916,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/lattice,
 /turf/open/openspace,
 /area/hallway/secondary/service)
 "biF" = (
@@ -33249,8 +33252,8 @@
 /turf/open/floor/wood,
 /area/service/library/artgallery)
 "fTN" = (
-/turf/closed/wall/r_wall,
-/area/commons/toilet)
+/turf/open/openspace/airless,
+/area/hallway/secondary/service)
 "fUr" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -39593,6 +39596,13 @@
 "owZ" = (
 /turf/closed/wall,
 /area/service/kitchen)
+"oxy" = (
+/obj/machinery/door/airlock/external{
+	req_access_txt = "13"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/hallway/secondary/service)
 "oyB" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -81239,9 +81249,9 @@ awy
 axQ
 azj
 arj
-fTN
-fTN
-fTN
+aAh
+aAh
+aAh
 aAh
 aAh
 aAh
@@ -81497,10 +81507,10 @@ axT
 azl
 aAl
 aaP
-aHI
-aDY
 aHZ
+oxy
 aHI
+aHZ
 aHZ
 aDV
 fDc
@@ -81753,9 +81763,9 @@ lYh
 nml
 azk
 aAk
-aaP
-aHZ
-aDY
+mTR
+aCr
+aCr
 aHI
 aHI
 aHI
@@ -82011,7 +82021,7 @@ lBG
 azn
 aAn
 aaP
-aHI
+fTN
 aEc
 aFk
 biB
