@@ -4121,6 +4121,7 @@
 #include "white\valtos\code\dk\_dungeon_controller.dm"
 #include "white\valtos\code\dk\dungeon_heart.dm"
 #include "white\valtos\code\dk\dungeon_keepers.dm"
+#include "white\valtos\code\dk\hud.dm"
 #include "white\valtos\code\dss\boosters.dm"
 #include "white\valtos\code\dwarfs\clothing.dm"
 #include "white\valtos\code\dwarfs\dwarf.dm"

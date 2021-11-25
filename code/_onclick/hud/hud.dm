@@ -38,6 +38,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 	var/atom/movable/screen/blobpwrdisplay
 
+	var/atom/movable/screen/keeper_magic_display
+
 	var/atom/movable/screen/alien_plasma_display
 	var/atom/movable/screen/alien_queen_finder
 
@@ -132,6 +134,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	devilsouldisplay = null
 	lingstingdisplay = null
 	blobpwrdisplay = null
+	keeper_magic_display = null
 	alien_plasma_display = null
 	alien_queen_finder = null
 
