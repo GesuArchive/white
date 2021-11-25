@@ -38122,12 +38122,12 @@
 /turf/open/floor/plating,
 /area/engineering/manufactory)
 "njb" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 5
+/obj/structure/lattice,
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/open/openspace,
-/area/hallway/secondary/service)
+/area/maintenance/starboard/fore)
 "njO" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/item/radio/intercom/directional/east,
@@ -45705,6 +45705,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
 /turf/open/floor/plasteel,
 /area/engineering/main)
+"xcz" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/hallway/secondary/service)
 "xdE" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/light,
@@ -83958,11 +83962,11 @@ gjX
 xXf
 xXf
 xXf
+xcz
 xXf
+xcz
 xXf
-xXf
-xXf
-xXf
+xcz
 xXf
 xXf
 tFV
@@ -84734,7 +84738,7 @@ wpr
 wpr
 wpr
 wpr
-njb
+pyc
 xXf
 aHZ
 wxZ
@@ -84991,7 +84995,7 @@ wpr
 xzy
 wpr
 xzy
-xzy
+pyc
 xXf
 aYV
 wxZ
@@ -85243,11 +85247,11 @@ xXf
 xXf
 xXf
 xXf
+xcz
 xXf
+xcz
 xXf
-xXf
-xXf
-xXf
+xcz
 xXf
 xXf
 aIr
@@ -85756,11 +85760,11 @@ vLg
 vGf
 rqa
 vGf
-rqa
+njb
 vGf
 rqa
 vGf
-rqa
+njb
 vGf
 vGf
 cRS
@@ -86014,11 +86018,11 @@ vLg
 vLg
 vLg
 vLg
+rJb
 vLg
 rJb
 vLg
-vLg
-vLg
+rJb
 vLg
 xBj
 aYV
@@ -86268,7 +86272,7 @@ vLg
 cjw
 cnE
 vLg
-wVu
+wpb
 vLg
 aAq
 tfW
@@ -86526,7 +86530,7 @@ aKH
 aMI
 vLg
 wVu
-wVu
+wpb
 wVu
 cfI
 aUi
@@ -86783,7 +86787,7 @@ aMs
 cxW
 vLg
 wVu
-wVu
+wpb
 wVu
 aSQ
 vhj
@@ -87040,7 +87044,7 @@ aMz
 aDe
 vLg
 wVu
-wVu
+wpb
 wVu
 wpb
 wVu
@@ -87554,7 +87558,7 @@ aOZ
 djb
 vLg
 xQE
-wVu
+wpb
 wVu
 wpb
 wVu
@@ -87811,7 +87815,7 @@ vBE
 cHx
 bzc
 wVu
-wVu
+wpb
 wVu
 wpb
 wVu
