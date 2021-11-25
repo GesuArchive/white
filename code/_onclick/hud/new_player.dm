@@ -79,7 +79,7 @@
 ///Prefs menu
 /atom/movable/screen/lobby/button/character_setup
 	screen_loc = "EAST-4:26,TOP:-38"
-	icon = 'icons/hud/lobby/character_setup.dmi'
+	icon = 'icons/hud/lobbyv2/character_setup.dmi'
 	icon_state = "character_setup"
 	base_icon_state = "character_setup"
 
@@ -93,7 +93,7 @@
 ///Button that appears before the game has started
 /atom/movable/screen/lobby/button/ready
 	screen_loc = "EAST-4:26,TOP:-2"
-	icon = 'icons/hud/lobby/ready.dmi'
+	icon = 'icons/hud/lobbyv2/ready.dmi'
 	icon_state = "not_ready"
 	base_icon_state = "not_ready"
 	var/ready = FALSE
@@ -180,7 +180,7 @@
 
 /atom/movable/screen/lobby/button/observe
 	screen_loc = "EAST-4:26,TOP:-20"
-	icon = 'icons/hud/lobby/observe.dmi'
+	icon = 'icons/hud/lobbyv2/observe.dmi'
 	icon_state = "observe_disabled"
 	base_icon_state = "observe"
 	enabled = FALSE
