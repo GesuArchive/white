@@ -26,7 +26,6 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	requires_power = TRUE
 	always_unpowered = TRUE
 	static_lighting = FALSE
-	base_lighting_color = COLOR_WHITE
 	base_lighting_alpha = 255
 	power_light = FALSE
 	power_equip = FALSE
@@ -44,8 +43,6 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "space_near"
 	area_flags = UNIQUE_AREA | NO_ALERTS | AREA_USES_STARLIGHT
 	enabled_area_tension = FALSE
-	static_lighting = TRUE
-	base_lighting_alpha = 1
 
 /area/start
 	name = "Лобби"
@@ -77,9 +74,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_ASTEROID
 
 /area/asteroid/nearstation
-	static_lighting = FALSE
-	base_lighting_alpha = 255
-	base_lighting_color = COLOR_WHITE
+	static_lighting = TRUE
 	ambience_index = AMBIENCE_RUINS
 	ambientsounds = RUINS
 	always_unpowered = FALSE
