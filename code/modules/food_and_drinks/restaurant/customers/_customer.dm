@@ -83,8 +83,7 @@
 			/obj/item/food/hotdog = 8,
 			/obj/item/food/pizza/pineapple = 1,
 			/obj/item/food/burger/baconburger = 10,
-			/obj/item/food/pancakes = 4,
-			/obj/item/food/eggsausage = 5,
+			/obj/item/food/pancakes = 4
 		),
 		VENUE_BAR = list(
 			/datum/reagent/consumable/ethanol/b52 = 6,
@@ -198,7 +197,6 @@
 		VENUE_RESTAURANT = list(
 			/obj/item/food/tofu = 5,
 			/obj/item/food/breadslice/plain = 5,
-			/obj/item/food/soup/miso = 10,
 			/obj/item/food/soup/vegetable = 4,
 			/obj/item/food/sashimi = 4,
 			/obj/item/food/chawanmushi = 4,
@@ -407,9 +405,6 @@
 			/obj/item/food/grilled_cheese_sandwich = 5,
 			/obj/item/food/pie/meatpie = 5,
 			/obj/item/food/benedict = 5,
-			/obj/item/food/full_english = 2,
-			/obj/item/food/soup/indian_curry = 3,
-			/obj/item/food/beef_wellington_slice = 2,
 		),
 		VENUE_BAR = list(
 			/datum/reagent/consumable/ethanol/ale = 10,
