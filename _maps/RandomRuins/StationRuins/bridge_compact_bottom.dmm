@@ -204,19 +204,6 @@
 	},
 /turf/open/floor/plasteel/grimy,
 /area/command/heads_quarters/captain)
-"fm" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4;
-	req_access_txt = "12"
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/north)
 "fw" = (
 /obj/machinery/holopad,
 /obj/effect/landmark/blobstart,
@@ -558,10 +545,6 @@
 	},
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain)
-"lr" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/north)
 "lv" = (
 /obj/structure/bed/dogbed/renault,
 /mob/living/simple_animal/pet/fox/renault{
@@ -3741,8 +3724,8 @@ ng
 ng
 eD
 Ws
-Zl
-YS
+Ws
+Ws
 YS
 YS
 YS
@@ -3778,9 +3761,9 @@ ng
 ng
 ng
 ng
+ug
+ng
 Ws
-Zl
-YS
 YS
 YS
 YS
@@ -3817,8 +3800,8 @@ ng
 ng
 ng
 Ws
-Zl
-YS
+ng
+Ws
 YS
 YS
 YS
@@ -3851,12 +3834,12 @@ Ws
 Ws
 Ws
 Ws
-fm
 Ws
 Ws
 Ws
 Ws
-lr
+an
+Ws
 Ws
 Ws
 Ws
