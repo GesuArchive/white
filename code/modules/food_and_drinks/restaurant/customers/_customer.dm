@@ -237,7 +237,6 @@
 	orderable_objects = list(
 		VENUE_RESTAURANT = list(
 			/obj/item/food/tofu = 5,
-			/obj/item/food/soup/miso = 6,
 			/obj/item/food/soup/vegetable = 4,
 			/obj/item/food/sashimi = 4,
 			/obj/item/food/chawanmushi = 4,
