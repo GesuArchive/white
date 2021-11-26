@@ -24,4 +24,5 @@
 						ANNOUNCER_SHUTTLEDOCK = 'sound/ai/va/shuttledock.ogg',
 						ANNOUNCER_SHUTTLERECALLED = 'sound/ai/va/shuttlerecalled.ogg',
 						ANNOUNCER_SPANOMALIES = 'sound/ai/va/anomaly.ogg',
-						ANNOUNCER_WAR = 'sound/ai/va/war.ogg',)
+						ANNOUNCER_WAR = 'sound/ai/va/war.ogg',
+						ANNOUNCER_METEORS = 'sound/ai/va/meteors.ogg')

@@ -1,44 +1,33 @@
 /datum/centcom_announcer/xrenoid
-	welcome_sounds = list('sound/ai/intern/welcome/1.ogg',
-						'sound/ai/intern/welcome/2.ogg',
-						'sound/ai/intern/welcome/3.ogg',
-						'sound/ai/intern/welcome/4.ogg',
-						'sound/ai/intern/welcome/5.ogg',
-						'sound/ai/intern/welcome/6.ogg')
+	welcome_sounds = list('sound/ai/xrenoid/welcome/1.wav',
+						'sound/ai/xrenoid/welcome/2.wav',
+						'sound/ai/xrenoid/welcome/3.wav',
+						'sound/ai/xrenoid/welcome/4.wav',
+						'sound/ai/xrenoid/welcome/5.wav')
 
-	alert_sounds = list('sound/ai/intern/alerts/1.ogg',
-						'sound/ai/intern/alerts/2.ogg',
-						'sound/ai/intern/alerts/3.ogg',
-						'sound/ai/intern/alerts/4.ogg',
-						'sound/ai/intern/alerts/5.ogg',
-						'sound/ai/intern/alerts/6.ogg',
-						'sound/ai/intern/alerts/7.ogg',
-						'sound/ai/intern/alerts/8.ogg',
-						'sound/ai/intern/alerts/9.ogg',
-						'sound/ai/intern/alerts/10.ogg',
-						'sound/ai/intern/alerts/11.ogg',
-						'sound/ai/intern/alerts/12.ogg',
-						'sound/ai/intern/alerts/13.ogg',
-						'sound/ai/intern/alerts/14.ogg')
+	alert_sounds = list('sound/ai/xrenoid/alerts/1.wav',
+						'sound/ai/xrenoid/alerts/2.wav',
+						'sound/ai/xrenoid/alerts/3.wav',
+						'sound/ai/xrenoid/alerts/4.wav')
 
 
-	command_report_sounds = list('sound/ai/intern/commandreport/1.ogg',
-								'sound/ai/intern/commandreport/2.ogg',
-								'sound/ai/intern/commandreport/3.ogg')
+	command_report_sounds = list('sound/ai/xrenoid/commandreport.wav',
+						'sound/ai/xrenoid/commandreport2.wav')
 
-	event_sounds = list(ANNOUNCER_AIMALF = 'sound/ai/intern/aimalf.ogg',
-						ANNOUNCER_ALIENS = 'sound/ai/intern/aliens.ogg',
-						ANNOUNCER_ANIMES = 'sound/ai/intern/animes.ogg',
-						ANNOUNCER_GRANOMALIES = 'sound/ai/intern/granomalies.ogg',
-						ANNOUNCER_INTERCEPT = 'sound/ai/intern/intercept.ogg',
-						ANNOUNCER_IONSTORM = 'sound/ai/intern/ionstorm.ogg',
-						ANNOUNCER_OUTBREAK5 = 'sound/ai/intern/outbreak5.ogg',
-						ANNOUNCER_OUTBREAK7 = 'sound/ai/intern/outbreak7.ogg',
-						ANNOUNCER_POWEROFF = 'sound/ai/intern/poweroff.ogg',
-						ANNOUNCER_POWERON = 'sound/ai/intern/poweron.ogg',
-						ANNOUNCER_RADIATION = 'sound/ai/intern/radiation.ogg',
-						ANNOUNCER_SHUTTLECALLED = 'sound/ai/intern/shuttlecalled.ogg',
-						ANNOUNCER_SHUTTLEDOCK = 'sound/ai/intern/shuttledock.ogg',
-						ANNOUNCER_SHUTTLERECALLED = 'sound/ai/intern/shuttlerecalled.ogg',
-						ANNOUNCER_SPANOMALIES = 'sound/ai/intern/spanomalies.ogg',
-						ANNOUNCER_WAR = 'sound/machines/alarm.ogg',)
+	event_sounds = list(ANNOUNCER_AIMALF = 'sound/ai/xrenoid/aimalf.wav',
+						ANNOUNCER_ALIENS = 'sound/ai/xrenoid/aliens.wav',
+						ANNOUNCER_ANIMES = 'sound/ai/xrenoid/animes.wav',
+						ANNOUNCER_GRANOMALIES = 'sound/ai/xrenoid/anomaly.wav',
+						ANNOUNCER_INTERCEPT = 'sound/ai/xrenoid/intercept.wav',
+						ANNOUNCER_IONSTORM = 'sound/ai/xrenoid/alerts/3.wav',
+						ANNOUNCER_OUTBREAK5 = 'sound/ai/xrenoid/bio5.wav',
+						ANNOUNCER_OUTBREAK7 = 'sound/ai/xrenoid/bio7.wav',
+						ANNOUNCER_POWEROFF = 'sound/ai/xrenoid/powerdown1.wav',
+						ANNOUNCER_POWERON = 'sound/ai/xrenoid/powerup.wav',
+						ANNOUNCER_RADIATION = 'sound/ai/xrenoid/alerts/4.wav',
+						ANNOUNCER_SHUTTLECALLED = 'sound/ai/xrenoid/shuttlecalled.wav',
+						ANNOUNCER_SHUTTLEDOCK = 'sound/ai/xrenoid/shuttledock.wav',
+						ANNOUNCER_SHUTTLERECALLED = 'sound/ai/xrenoid/shuttlerecalled.wav',
+						ANNOUNCER_SPANOMALIES = 'sound/ai/xrenoid/anomaly.wav',
+						ANNOUNCER_WAR = 'sound/ai/xrenoid/war.wav',
+						ANNOUNCER_METEORS = 'sound/ai/xrenoid/meteors.wav')
