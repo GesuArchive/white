@@ -12,6 +12,7 @@
 	shot_glass_icon_state = "shotglassred"
 	penetrates_skin = NONE
 	ph = 7.4
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 	// FEED ME
 /datum/reagent/blood/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray)
@@ -106,6 +107,7 @@
 	material = /datum/material/meat
 	ph = 7.45
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/bone_dust
 	name = "bone dust"
@@ -113,6 +115,7 @@
 	color = "#dbcdcb"
 	description = "Ground up bones, gross!"
 	taste_description = "the most disgusting grain in existence"
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/vaccine
 	//data must contain virus type
@@ -121,6 +124,7 @@
 	color = "#C81040" // rgb: 200, 16, 64
 	taste_description = "слайм"
 	penetrates_skin = NONE
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/vaccine/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection=0)
 	. = ..()
@@ -161,6 +165,7 @@
 	glass_desc = "The father of all refreshments."
 	shot_glass_icon_state = "shotglassclear"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /*
  *	Water reaction to turf
@@ -217,8 +222,6 @@
 	. = ..()
 	if(methods & TOUCH)
 		exposed_mob.extinguish_mob() // extinguish removes all fire stacks
-	if(methods & INGEST)
-		exposed_mob.hydration += reac_volume * DRINK_HYDRATION_FACTOR
 
 /datum/reagent/water/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
@@ -244,6 +247,7 @@
 	self_consuming = TRUE //divine intervention won't be limited by the lack of a liver
 	ph = 7.5 //God is alkaline
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 	// Holy water. Mostly the same as water, it also heals the plant a little with the power of the spirits. Also ALSO increases instability.
 /datum/reagent/water/holywater/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray)
@@ -335,6 +339,7 @@
 	color = "#88878777"
 	taste_description = "пустота"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/hydrogen_peroxide
 	name = "Перекись Водорода"
@@ -349,6 +354,7 @@
 	shot_glass_icon_state = "shotglassclear"
 	ph = 6.2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /*
  *	Water reaction to turf
@@ -378,6 +384,7 @@
 	penetrates_skin = TOUCH|VAPOR
 	ph = 6.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/fuel/unholywater/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(iscultist(M))
@@ -405,6 +412,7 @@
 	taste_description = "сжигание"
 	ph = 0.1
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/hellwater/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.set_fire_stacks(min(M.fire_stacks + (1.5 * delta_time), 5))
@@ -420,6 +428,7 @@
 	description = "Slowly heals all damage types. Has a rather high overdose threshold. Glows with mysterious power."
 	overdose_threshold = 150
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 ///Used for clownery
 /datum/reagent/lube
@@ -430,6 +439,7 @@
 	taste_description = "вишня" // by popular demand
 	var/lube_kind = TURF_WET_LUBE ///What kind of slipperiness gets added to turfs.
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/lube/expose_turf(turf/open/exposed_turf, reac_volume)
 	. = ..()
@@ -445,6 +455,7 @@
 	description = "This \[REDACTED\] has been outlawed after the incident on \[DATA EXPUNGED\]."
 	lube_kind = TURF_WET_SUPERLUBE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/spraytan
 	name = "Спрей для Загара"
@@ -456,6 +467,7 @@
 	taste_description = "кислые апельсины"
 	ph = 5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/spraytan/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message = TRUE)
 	. = ..()
@@ -564,6 +576,7 @@
 									"Your appendages begin morphing." = MUT_MSG_EXTENDED,
 									"You feel as though you're about to change at any moment!" = MUT_MSG_ABOUT2TURN)
 	var/cycles_to_turn = 20 //the current_cycle threshold / iterations needed before one can transform
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/mutationtoxin/on_mob_life(mob/living/carbon/human/H, delta_time, times_fired)
 	. = TRUE
@@ -757,6 +770,7 @@
 	metabolization_rate = INFINITY
 	taste_description = "слайм"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/mulligan/on_mob_life(mob/living/carbon/human/H, delta_time, times_fired)
 	..()
@@ -774,6 +788,7 @@
 	taste_description = "слайм"
 	penetrates_skin = NONE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/aslimetoxin/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection=0)
 	. = ..()
@@ -787,6 +802,7 @@
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	taste_description = "распад"
 	penetrates_skin = NONE
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/gluttonytoxin/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection=0)
 	. = ..()
@@ -799,6 +815,7 @@
 	color = "#fcf807"
 	taste_description = "смех"
 	penetrates_skin = NONE
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/apostletoxin/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection=0)
 	. = ..()
@@ -813,6 +830,7 @@
 	taste_description = "горечь"
 	ph = 10
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/serotrotium/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(ishuman(M))
@@ -1228,6 +1246,7 @@
 	burning_volume = 0.2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/alcohol = 4)
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/fuel/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)//Splashing people with welding fuel to make them easy to ignite!
 	. = ..()

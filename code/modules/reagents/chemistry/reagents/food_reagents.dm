@@ -53,7 +53,7 @@
 			SEND_SIGNAL(exposed_mob, COMSIG_ADD_MOOD_EVENT, "quality_food", /datum/mood_event/amazingtaste)
 
 	if(reagent_state == LIQUID)
-		exposed_mob.hydration += max(0.5, nutriment_factor) * DRINK_HYDRATION_FACTOR
+		exposed_mob.hydration += max(0.5, nutriment_factor) * hydration_factor
 
 /datum/reagent/consumable/nutriment
 	name = "Питательные вещества"
@@ -65,6 +65,7 @@
 
 	var/brute_heal = 1
 	var/burn_heal = 0
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/nutriment/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
 	. = ..()
@@ -153,6 +154,7 @@
 	penetrates_skin = NONE
 	var/fry_temperature = 450 //Around ~350 F (117 C) which deep fryers operate around in the real world
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/cooking_oil/expose_obj(obj/exposed_obj, reac_volume)
 	. = ..()
@@ -208,6 +210,7 @@
 	overdose_threshold = 60 // Hyperglycaemic shock
 	taste_description = "сладость"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 // Plants should not have sugar, they can't use it and it prevents them getting water/ nutients, it is good for mold though...
 /datum/reagent/consumable/sugar/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
@@ -247,6 +250,7 @@
 	color = "#792300" // rgb: 121, 35, 0
 	taste_description = "умами"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/ketchup
 	name = "Кетчуп"
@@ -255,6 +259,7 @@
 	color = "#731008" // rgb: 115, 16, 8
 	taste_description = "кетчуп"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 
 /datum/reagent/consumable/capsaicin
@@ -264,6 +269,7 @@
 	taste_description = "горячие перцы"
 	taste_mult = 1.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/capsaicin/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	var/heating = 0
@@ -296,6 +302,7 @@
 	taste_description = "мята"
 	ph = 13 //HMM! I wonder
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/frostoil/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	var/cooling = 0
@@ -346,6 +353,7 @@
 	penetrates_skin = NONE
 	ph = 7.4
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/condensedcapsaicin/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()
@@ -393,6 +401,7 @@
 	taste_description = "соль"
 	penetrates_skin = NONE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/salt/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection=0)
 	. = ..()
@@ -414,6 +423,7 @@
 	// no color (ie, black)
 	taste_description = "перец"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/coco
 	name = "какао порошок"
@@ -423,6 +433,7 @@
 	color = "#302000" // rgb: 48, 32, 0
 	taste_description = "горечь"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/coco/on_mob_add(mob/living/carbon/M)
 	.=..()
@@ -441,6 +452,7 @@
 	ph = 11
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/hallucinogens = 12)
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/mushroomhallucinogen/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(!M.slurring)
@@ -493,6 +505,7 @@
 	color = "#FF00FF" // rgb: 255, 0, 255
 	taste_description = "каприз детства"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/sprinkles/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	var/obj/item/organ/liver/liver = M.getorganslot(ORGAN_SLOT_LIVER)
@@ -528,6 +541,7 @@
 	color = "#365E30" // rgb: 54, 94, 48
 	taste_description = "сладость"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/dry_ramen
 	name = "Сухой Рамен"
@@ -536,6 +550,7 @@
 	color = "#302000" // rgb: 48, 32, 0
 	taste_description = "сухая и дешевая лапша"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/hot_ramen
 	name = "Горячий Рамен"
@@ -544,6 +559,7 @@
 	color = "#302000" // rgb: 48, 32, 0
 	taste_description = "сырая и дешевая лапша"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/nutraslop
 	name = "Nutraslop"
@@ -552,6 +568,7 @@
 	color = "#3E4A00" // rgb: 62, 74, 0
 	taste_description = "моё заключение"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/hot_ramen/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjust_bodytemperature(10 * TEMPERATURE_DAMAGE_COEFFICIENT * REM * delta_time, 0, M.get_body_temp_normal())
@@ -564,6 +581,7 @@
 	color = "#302000" // rgb: 48, 32, 0
 	taste_description = "мокрая и дешевая лапша в огне"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/hell_ramen/on_mob_life(mob/living/carbon/target_mob, delta_time, times_fired)
 	target_mob.adjust_bodytemperature(10 * TEMPERATURE_DAMAGE_COEFFICIENT * REM * delta_time)
@@ -576,6 +594,7 @@
 	color = "#FFFFFF" // rgb: 0, 0, 0
 	taste_description = "меловая пшеница"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/flour/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
@@ -593,12 +612,14 @@
 	color = "#801E28" // rgb: 128, 30, 40
 	taste_description = "вишня"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/bluecherryjelly
 	name = "Желе из Синей Вишни"
 	description = "Blue and tastier kind of cherry jelly."
 	color = "#00F0FF"
 	taste_description = "синяя вишня"
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/rice
 	name = "Рис"
@@ -625,12 +646,14 @@
 	color = "#FFB500"
 	taste_description = "яйца"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/corn_starch
 	name = "Кукурузный Крахмал"
 	description = "A slippery solution."
 	color = "#DBCE95"
 	taste_description = "слайм"
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/corn_syrup
 	name = "Кукурузный Сироп"
@@ -639,6 +662,7 @@
 	metabolization_rate = 3 * REAGENTS_METABOLISM
 	taste_description = "сладкий слайм"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/corn_syrup/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	holder.add_reagent(/datum/reagent/consumable/sugar, 3 * REM * delta_time)
@@ -652,6 +676,7 @@
 	metabolization_rate = 1 * REAGENTS_METABOLISM
 	taste_description = "сладость"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 	// On the other hand, honey has been known to carry pollen with it rarely. Can be used to take in a lot of plant qualities all at once, or harm the plant.
 /datum/reagent/consumable/honey/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
@@ -688,6 +713,7 @@
 	color = "#DFDFDF"
 	taste_description = "майонез"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/mold // yeah, ok, togopal, I guess you could call that a condiment
 	name = "Плесень"
@@ -703,6 +729,7 @@
 	taste_description = "горечь"
 	ph = 5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/tearjuice/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()
@@ -733,6 +760,7 @@
 	nutriment_factor = 15 * REAGENTS_METABOLISM
 	color = "#664330" // rgb: 102, 67, 48
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/nutriment/stabilized/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(M.nutrition > NUTRITION_LEVEL_FULL - 25)
@@ -749,6 +777,7 @@
 	taste_description = "горький гриб"
 	ph = 12
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/entpoly/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(current_cycle >= 10)
@@ -773,6 +802,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	//Lazy list of mobs affected by the luminosity of this reagent.
 	var/list/mobs_affected
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/tinlux/expose_mob(mob/living/exposed_mob)
 	. = ..()
@@ -806,6 +836,7 @@
 	taste_description = "фруктовый гриб"
 	ph = 10.4
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/vitfro/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(55, delta_time))
@@ -822,6 +853,7 @@
 	taste_description = "скорбный гудок"
 	ph = 9.2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 
 /datum/reagent/consumable/liquidelectricity
@@ -831,6 +863,7 @@
 	color = "#97ee63"
 	taste_description = "чистое электричество"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/liquidelectricity/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume) //can't be on life because of the way blood works.
 	. = ..()
@@ -859,6 +892,7 @@
 	taste_description = "сладость"
 	overdose_threshold = 17
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/astrotame/overdose_process(mob/living/carbon/M, delta_time, times_fired)
 	if(M.disgust < 80)
@@ -875,6 +909,7 @@
 	quality = FOOD_AMAZING
 	taste_mult = 100
 	ph = 6.1
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/nutriment/peptides
 	name = "Пептиды"
@@ -887,6 +922,7 @@
 	inverse_chem = /datum/reagent/peptides_failed//should be impossible, but it's so it appears in the chemical lookup gui
 	inverse_chem_val = 0.2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/caramel
 	name = "Карамель"
@@ -897,6 +933,7 @@
 	taste_description = "карамель"
 	reagent_state = SOLID
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/char
 	name = "Уголь"
@@ -908,6 +945,7 @@
 	taste_description = "дым"
 	overdose_threshold = 15
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/char/overdose_process(mob/living/M, delta_time, times_fired)
 	if(DT_PROB(13, delta_time))
@@ -923,6 +961,7 @@
 	taste_mult = 2.5 //sugar's 1.5, capsacin's 1.5, so a good middle ground.
 	taste_description = "дымчатая сладость"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/chocolatepudding
 	name = "Шоколадный Пудинг"
@@ -936,6 +975,7 @@
 	glass_desc = "Tasty."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/vanillapudding
 	name = "Ванильный Пудинг"
@@ -948,6 +988,7 @@
 	glass_name = "vanilla pudding"
 	glass_desc = "Tasty."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/laughsyrup
 	name = "Сироп Хохотача"
@@ -957,6 +998,7 @@
 	taste_mult = 2
 	taste_description = "fizzy sweetness"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/gravy
 	name = "Подлива"
@@ -965,6 +1007,7 @@
 	color = "#623301"
 	taste_mult = 1.2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/pancakebatter
 	name = "блинное тесто"
@@ -972,3 +1015,4 @@
 	taste_description = "milky batter"
 	color = "#fccc98"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
