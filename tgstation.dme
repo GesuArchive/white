@@ -502,6 +502,7 @@
 #include "code\datums\announcers\intern_announcer.dm"
 #include "code\datums\announcers\ru_default_announcer.dm"
 #include "code\datums\announcers\ru_va_announcer.dm"
+#include "code\datums\announcers\ru_xrenoid_announcer.dm"
 #include "code\datums\atmosphere\_atmosphere.dm"
 #include "code\datums\atmosphere\planetary.dm"
 #include "code\datums\brain_damage\brain_trauma.dm"
