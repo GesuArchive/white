@@ -18,6 +18,7 @@
 	ph = 9
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/hallucinogens = 10) //4 per 2 seconds
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/space_drugs/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.set_drugginess(15 * REM * delta_time)
@@ -112,6 +113,7 @@
 	ph = 10
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/stimulants = 14) //5.6 per 2 seconds
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/crank/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(2.5, delta_time))
@@ -143,6 +145,7 @@
 	ph = 9
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/opiods = 18) //7.2 per 2 seconds
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 
 /datum/reagent/drug/krokodil/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -176,6 +179,7 @@
 	ph = 5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/stimulants = 12) //4.8 per 2 seconds
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/methamphetamine/on_mob_metabolize(mob/living/L)
 	..()
@@ -229,6 +233,7 @@
 	var/datum/brain_trauma/special/psychotic_brawling/bath_salts/rage
 	ph = 8.2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/bath_salts/on_mob_metabolize(mob/living/L)
 	..()
@@ -279,6 +284,7 @@
 	color = "#78FFF0"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/stimulants = 8)
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/aranesp/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	var/high_message = pick("You feel amped up.", "You feel ready.", "You feel like you can push it to the limit.")
@@ -302,6 +308,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	taste_description = "растворитель для краски"
 	addiction_types = list(/datum/addiction/hallucinogens = 18)
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/happiness/on_mob_metabolize(mob/living/L)
 	..()
@@ -348,6 +355,7 @@
 	overdose_threshold = 30
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/stimulants = 6) //2.6 per 2 seconds
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/pumpup/on_mob_metabolize(mob/living/L)
 	..()
@@ -388,6 +396,7 @@
 	name = "Туннельные Наркотики"
 	enname = "Maintenance Drugs"
 	chemical_flags = NONE
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/maint/powder
 	name = "Туннельный порошок"
@@ -400,6 +409,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/maintenance_drugs = 14)
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/maint/powder/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
@@ -428,6 +438,7 @@
 	overdose_threshold = 25
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/maintenance_drugs = 8)
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/maint/sludge/on_mob_metabolize(mob/living/L)
 
@@ -462,6 +473,7 @@
 	overdose_threshold = 30
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/maintenance_drugs = 5)
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/maint/tar/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
@@ -488,6 +500,7 @@
 	ph = 11
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/hallucinogens = 12)
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/mushroomhallucinogen/on_mob_life(mob/living/carbon/psychonaut, delta_time, times_fired)
 	if(!psychonaut.slurring)
@@ -557,6 +570,7 @@
 	var/spin_count = 0
 	///How many flips for a super flip?
 	var/super_flip_requirement = 3
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/blastoff/on_mob_metabolize(mob/living/dancer)
 	. = ..()
@@ -675,6 +689,7 @@
 	ph = 10
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/maintenance_drugs = 20)
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/saturnx/on_mob_life(mob/living/carbon/invisible_man, delta_time, times_fired)
 	. = ..()
@@ -773,6 +788,7 @@
 	metabolization_rate = 0.75 * REAGENTS_METABOLISM
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/stimulants = 20)
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/kronkaine/on_mob_metabolize(mob/living/kronkaine_fiend)
 	..()

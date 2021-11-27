@@ -111,6 +111,8 @@ GLOBAL_LIST_INIT(enname2reagent, build_enname2reagent())
 	var/list/addiction_types = null
 	///A sound. Yes.
 	var/sound/special_sound = null
+	///hydration factor to restore thirst
+	var/hydration_factor = 0
 
 
 /datum/reagent/New()
@@ -143,6 +145,8 @@ GLOBAL_LIST_INIT(enname2reagent, build_enname2reagent())
 		var/amount = round(reac_volume*clamp((1 - touch_protection), 0, 1), 0.1)
 		if(amount >= 0.5)
 			exposed_mob.reagents.add_reagent(type, amount, added_purity = purity)
+	if(methods & INGEST)
+		exposed_mob.hydration += reac_volume * hydration_factor
 
 /datum/reagent/proc/FINISHONMOBLIFE(mob/living/M)
 	current_cycle++

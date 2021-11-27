@@ -12,6 +12,7 @@
 	var/toxpwr = 1.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	var/silent_toxin = FALSE //won't produce a pain message when processed by liver/life() if there isn't another non-silent toxin present.
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 // Are you a bad enough dude to poison your own plants?
 /datum/reagent/toxin/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
