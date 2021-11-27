@@ -48,7 +48,7 @@
 				if(partner.is_nude() && partner.has_vagina())
 					message = "сметанит в пельмешек [partner]."
 				else
-					message = "сметанит на животик[partner]."
+					message = "сметанит на животик [partner]."
 			if(CUM_TARGET_ANUS)
 				if(partner.is_nude() && partner.has_anus())
 					message = "сметанит в шоколадницу [partner]."
