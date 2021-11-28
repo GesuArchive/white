@@ -22,12 +22,11 @@ GLOBAL_LIST_INIT(custom_skin_donators, list("valtosss" = list("bullshit", "asiim
 		icon = I.icon
 		icon_state = I.icon_state
 	var/static/list/skin_appearances = list()
-	var/index = "[REF(icon)]-[icon_state]"
+	var/index = "[REF(icon)]-[_icon_state]"
 	pic = skin_appearances[index]
 
 	if(!pic)
 		var/icon/temp_icon = icon(I.icon, I.icon_state, , 1)
-		temp_icon.Blend("#fff", ICON_ADD)
 		temp_icon.Blend(icon(_icon, _icon_state), ICON_MULTIPLY)
 		pic = mutable_appearance(temp_icon, I.icon_state)
 		skin_appearances[index] = pic
