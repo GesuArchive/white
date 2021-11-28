@@ -90,6 +90,7 @@
 		alight = new(src)
 	build_zooming()
 	makeJamming()
+	RegisterSignal(src, COMSIG_CLICK_CTRL, .proc/change_skin)
 
 /obj/item/gun/Destroy()
 	if(isobj(pin)) //Can still be the initial path, then we skip

@@ -4338,6 +4338,7 @@
 #include "white\valtos\code\unsorted\chat_settings_panel.dm"
 #include "white\valtos\code\unsorted\checkered_table.dm"
 #include "white\valtos\code\unsorted\christmas.dm"
+#include "white\valtos\code\unsorted\custom_guns.dm"
 #include "white\valtos\code\unsorted\custom_races.dm"
 #include "white\valtos\code\unsorted\dagestan.dm"
 #include "white\valtos\code\unsorted\dakis.dm"
