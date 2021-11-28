@@ -541,7 +541,7 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 		return
 	used = TRUE
 	to_chat(user, "[use_message]")
-	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Do you want to play as the [mob_name] of [user.real_name]?", ROLE_PAI, null, FALSE, 100, POLL_IGNORE_HOLOPARASITE)
+	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Do you want to play as the [mob_name] of [user.real_name]?", ROLE_PAI, FALSE, 100, POLL_IGNORE_HOLOPARASITE)
 
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/candidate = pick(candidates)
