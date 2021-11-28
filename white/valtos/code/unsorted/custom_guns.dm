@@ -27,7 +27,7 @@ GLOBAL_LIST_INIT(custom_skin_donators, list("valtosss" = list("bullshit", "asiim
 
 	if(!pic)
 		var/icon/temp_icon = icon(I.icon, I.icon_state, , 1)
-		temp_icon.Blend(icon(_icon, _icon_state), ICON_MULTIPLY)
+		temp_icon.Blend(icon(_icon, _icon_state), ICON_ADD)
 		pic = mutable_appearance(temp_icon, I.icon_state)
 		skin_appearances[index] = pic
 	return TRUE
