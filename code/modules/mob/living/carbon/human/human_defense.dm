@@ -414,6 +414,8 @@
 			if (ears && !HAS_TRAIT_FROM(src, TRAIT_DEAF, CLOTHING_TRAIT))
 				ears.adjustEarDamage(30, 120)
 			Unconscious(20)							//short amount of time for follow up attacks against elusive enemies like wizards
+			playsound_local(get_turf(src), 'sound/weapons/flashbang.ogg', 100, TRUE, 8)
+			flash_act(1, TRUE, TRUE, length = 2.5)
 			Knockdown(200 - (bomb_armor * 1.6)) 	//between ~4 and ~20 seconds of knockdown depending on bomb armor
 
 		if(EXPLODE_LIGHT)
