@@ -22,7 +22,7 @@ GLOBAL_LIST_INIT(custom_skin_donators, list("valtosss" = list("bullshit", "asiim
 		icon = I.icon
 		icon_state = I.icon_state
 	var/static/list/skin_appearances = list()
-	var/index = "[REF(icon)]-[_icon_state]"
+	var/index = "[md5(I.name)]-[_icon_state]"
 	pic = skin_appearances[index]
 
 	if(!pic)
