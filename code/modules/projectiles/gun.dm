@@ -82,6 +82,8 @@
 	var/extra_damage = 0				//Number to add to individual bullets.
 	var/extra_penetration = 0			//Number to add to armor penetration of individual bullets.
 
+	var/custom_skin_name = null
+
 /obj/item/gun/Initialize()
 	. = ..()
 	if(pin)
@@ -90,7 +92,7 @@
 		alight = new(src)
 	build_zooming()
 	makeJamming()
-	RegisterSignal(src, COMSIG_CLICK_CTRL, .proc/change_skin)
+	RegisterSignal(src, COMSIG_CLICK_CTRL_SHIFT, .proc/change_skin)
 
 /obj/item/gun/Destroy()
 	if(isobj(pin)) //Can still be the initial path, then we skip
