@@ -11,7 +11,10 @@ GLOBAL_LIST_INIT(custom_skin_donators, list("valtosss" = list("bullshit", "asiim
 	if(!isatom(target))
 		return ELEMENT_INCOMPATIBLE
 	if(!skin_overlay)
-		skin_overlay = image(icon = skin_icon, icon_state = skin_icon_state)
+		var/icon/temp_icon = icon(target.icon, target.icon_state, , 1)
+		temp_icon.Blend("#fff", ICON_ADD)
+		temp_icon.Blend(icon(skin_icon, skin_icon_state), ICON_MULTIPLY)
+		skin_overlay = mutable_appearance(temp_icon, target.icon_state)
 	RegisterSignal(target, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/apply_skin_overlay)
 	RegisterSignal(target, COMSIG_ATOM_GET_EXAMINE_NAME, .proc/get_examine_name, TRUE)
 	target.update_icon(UPDATE_OVERLAYS)
