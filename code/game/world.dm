@@ -371,6 +371,9 @@ GLOBAL_VAR_INIT(hub_mimic_desc, "GO! GO! GO!")
 			if(5)
 				s += "<img src='https://assets.station13.ru/l/w8.png'>\n\n"
 				s += "\[<big>REMOVE KEBAB</big>"
+			if(6)
+				s += "<img src='https://assets.station13.ru/l/w9.png'>\n\n"
+				s += "\[<big>PROBABLY NOT HARAM</big>"
 	else
 		s += "<big><b>[GLOB.hub_mimic]: RU</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n\n"
 		s += "<img src='https://assets.station13.ru/l/w[rand(4, 8)].gif'>\n\n"
