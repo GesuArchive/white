@@ -94,7 +94,7 @@
 	. = ..()
 	. += "<hr><span class='info'>Примерное время создания объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
 	. += "<span class='info'>Оставшееся время: [timeleft(timer)] секунд.</span>\n"
-	. += "<span class='info'>Внутри запасено: <b>[crystals]/[max_crystals] заукер-кристаллов</b>.</span>\n"
+	. += "<span class='info'>Внутри запасено: <b>[crystals]/[max_crystals] человеческой кожи</b>.</span>\n"
 	. += span_info("Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, 10, reverse = TRUE)] [DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.")
 	. += "<hr><span class='notice'>Похоже, ему требуется подключение к энергосети через кабель.</span>"
 
@@ -110,7 +110,7 @@
 		icon_state = "apparatus"
 
 /obj/machinery/copytech/attacked_by(obj/item/I, mob/living/user)
-	if(istype(I, /obj/item/stack/sheet/mineral/zaukerite))
+	if(istype(I, /obj/item/stack/sheet/animalhide/human))
 		if(crystals >= max_crystals)
 			to_chat(user, span_warning("Перебор!"))
 			return
@@ -141,7 +141,7 @@
 		say("Не обнаружено дизайна. Разберите что-то сперва на дезинтегрирующей платформе!")
 		return
 	if(!crystals)
-		say("Недостаточно заукер-кристаллов для начала работы!")
+		say("Недостаточно человеческой кожи для начала работы!")
 		return
 	start_working()
 
@@ -233,7 +233,6 @@
 	var/working = FALSE
 	var/atom/movable/active_item = null
 	var/list/blacklisted_items = list(
-	/* в связи с введением требования кристаллов заукера и по просьбе фогмана
 			/obj/item/card/id,
 			/obj/item/stack/telecrystal,
 			/obj/item/uplink,
@@ -244,7 +243,6 @@
 			/obj/structure/closet/crate/necropolis,
 			/obj/item/book/granter,
 			/obj/item/storage/box/syndicate
-	*/
 		)
 	var/obj/structure/cable/attached_cable
 	var/siphoned_power = 0
