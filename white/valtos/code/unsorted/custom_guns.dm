@@ -17,10 +17,10 @@ GLOBAL_LIST_INIT(custom_skin_donators, list("valtosss" = list("bullshit", "asiim
 		overlays |= mutable_appearance(temp_icon, icon_state)
 
 		temp_icon = icon(lefthand_file, icon_state, , 1)
-		lefthand_file = new(temp_icon.Blend(icon('white/valtos/icons/custom_guns.dmi', custom_skin_name), ICON_ADD))
+		lefthand_file = new icon(temp_icon.Blend(icon('white/valtos/icons/custom_guns.dmi', custom_skin_name), ICON_ADD))
 
 		temp_icon = icon(righthand_file, icon_state, , 1)
-		righthand_file = new(temp_icon.Blend(icon('white/valtos/icons/custom_guns.dmi', custom_skin_name), ICON_ADD))
+		righthand_file = new icon(temp_icon.Blend(icon('white/valtos/icons/custom_guns.dmi', custom_skin_name), ICON_ADD))
 
 		temp_icon = icon(worn_icon, icon_state, , 1)
 		worn_icon = new(temp_icon.Blend(icon('white/valtos/icons/custom_guns.dmi', custom_skin_name), ICON_ADD))

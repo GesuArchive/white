@@ -50,13 +50,6 @@
 /datum/element/decal/poo
 	//dupe_mode = COMPONENT_DUPE_UNIQUE
 
-/datum/element/decal/poo/Attach(datum/target, _icon, _icon_state, _dir, _cleanable=CLEAN_TYPE_BLOOD, _color, _layer=ABOVE_OBJ_LAYER)
-	if(!isitem(target))
-		return ELEMENT_INCOMPATIBLE
-
-	. = ..()
-
-
 /datum/element/decal/poo/generate_appearance(_icon, _icon_state, _dir, _layer, _color, _alpha, source)
 	var/obj/item/I = source
 	if(!_icon)
@@ -116,6 +109,8 @@
 			H.pooed = TRUE
 			SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "pooed", /datum/mood_event/pooed)
 			SSblackbox.record_feedback("tally", "poo", 1, "Poo Splats")
+	if(isitem(hit_atom))
+		hit_atom.AddElement(/datum/element/decal/poo)
 	qdel(src)
 
 /datum/emote/living/poo
