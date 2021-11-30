@@ -23,17 +23,20 @@ GLOBAL_LIST_INIT(custom_skin_donators, list("valtosss" = list("bullshit", "asiim
 		temp_icon.Blend(icon('white/valtos/icons/custom_guns.dmi', custom_skin_name), ICON_ADD)
 		overlays |= mutable_appearance(temp_icon, icon_state)
 
-		temp_icon = icon(lefthand_file, icon_state, , 1)
-		temp_icon = temp_icon.Blend(icon('white/valtos/icons/custom_guns.dmi', custom_skin_name), ICON_ADD)
-		lefthand_file = mutable_appearance(temp_icon, icon_state)
+		var/icon/temp_left = icon(lefthand_file, icon_state, , 1)
+		temp_left = temp_left.Blend(icon('white/valtos/icons/custom_guns.dmi', custom_skin_name), ICON_ADD)
+		temp_left = fcopy_rsc(temp_left)
+		lefthand_file = temp_left
 
-		temp_icon = icon(righthand_file, icon_state, , 1)
-		temp_icon = temp_icon.Blend(icon('white/valtos/icons/custom_guns.dmi', custom_skin_name), ICON_ADD)
-		righthand_file = mutable_appearance(temp_icon, icon_state)
+		var/icon/temp_right = icon(righthand_file, icon_state, , 1)
+		temp_right = temp_right.Blend(icon('white/valtos/icons/custom_guns.dmi', custom_skin_name), ICON_ADD)
+		temp_right = fcopy_rsc(temp_right)
+		righthand_file = temp_right
 
-		temp_icon = icon(worn_icon, icon_state, , 1)
-		temp_icon = temp_icon.Blend(icon('white/valtos/icons/custom_guns.dmi', custom_skin_name), ICON_ADD)
-		worn_icon = mutable_appearance(temp_icon, icon_state)
+		var/icon/temp_worn = icon(worn_icon, icon_state, , 1)
+		temp_worn = temp_worn.Blend(icon('white/valtos/icons/custom_guns.dmi', custom_skin_name), ICON_ADD)
+		temp_worn = fcopy_rsc(temp_worn)
+		worn_icon = temp_worn
 
 		name = "[name] \"[uppertext(custom_skin_name)]\""
 
