@@ -276,7 +276,7 @@
 
 /mob/living/simple_animal/hostile/proc/CheckAndAttack()
 	var/atom/target_from = GET_TARGETS_FROM(src)
-	if(target && isturf(target_from.loc) && target.Adjacent(target_from) && !incapacitated())
+	if(target && isturf(target_from.loc) && target.Adjacent(target_from))
 		AttackingTarget()
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget(list/possible_targets)//Step 5, handle movement between us and our target
@@ -358,7 +358,7 @@
 /mob/living/simple_animal/hostile/proc/Aggro()
 	vision_range = aggro_vision_range
 	if(target && emote_taunt.len && prob(taunt_chance))
-		manual_emote("[pick(emote_taunt)] at [target].")
+		manual_emote("[pick(emote_taunt)] в сторону [target].")
 		taunt_chance = max(taunt_chance-7,2)
 
 
