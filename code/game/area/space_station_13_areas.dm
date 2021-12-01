@@ -1305,6 +1305,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Хранилище: Западное"
 	icon_state = "emergency_storage"
 
+/area/engineering/storage/backup
+	name = "Хранилище: Запасная техника"
+	icon_state = "aux_storage"
+
 /area/engineering/storage/tech
 	name = "Хранилище: Техника"
 	icon_state = "aux_storage"
