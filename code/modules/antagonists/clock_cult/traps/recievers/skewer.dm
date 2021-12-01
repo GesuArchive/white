@@ -1,12 +1,12 @@
 /obj/item/clockwork/trap_placer/skewer
-	name = "brass skewer"
-	desc = "A spiked, brass skewer attached to a steam powered extension mechanism."
+	name = "латунный шампур"
+	desc = "Латунный шампур с шипами, прикрепленный к механизму выдвижения, приводимому в действие паром."
 	icon_state = "brass_skewer_extended"
 	result_path = /obj/structure/destructible/clockwork/trap/skewer
 
 /obj/structure/destructible/clockwork/trap/skewer
-	name = "brass skewer"
-	desc = "A spiked, brass skewer attached to a steam powered extension mechanism."
+	name = "латунный шампур"
+	desc = "Латунный шампур с шипами, прикрепленный к механизму выдвижения, приводимому в действие паром."
 	icon_state = "brass_skewer"
 	component_datum = /datum/component/clockwork_trap/skewer
 	unwrench_path = /obj/item/clockwork/trap_placer/skewer
@@ -32,7 +32,7 @@
 			continue
 		if(buckle_mob(M, TRUE))
 			target_stabbed = TRUE
-			to_chat(M, span_userdanger("You are impaled by [src]!"))
+			to_chat(M, span_userdanger("Меня протыкает [src]!"))
 			M.emote("agony")
 			M.apply_damage(5, BRUTE, BODY_ZONE_CHEST)
 			if(ishuman(M))
@@ -48,11 +48,11 @@
 		return ..()
 	if(!buckled_mob.break_do_after_checks())
 		return
-	to_chat(buckled_mob, span_warning("You begin climbing out of [src]."))
+	to_chat(buckled_mob, span_warning("Пытаюсь слезть с [src]."))
 	if(do_after(buckled_mob, 50, target=src))
 		. = ..()
 	else
-		to_chat(buckled_mob, span_userdanger("You fail to detach yourself from [src]."))
+		to_chat(buckled_mob, span_userdanger("Не вышло слезть с [src]."))
 
 /obj/structure/destructible/clockwork/trap/skewer/post_unbuckle_mob(mob/living/M)
 	if(!has_buckled_mobs())

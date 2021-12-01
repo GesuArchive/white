@@ -76,7 +76,7 @@
 		message_admins("No invoker for [name]")
 		return FALSE
 	if(invoker.get_active_held_item() != invoking_slab && !iscyborg(invoker))
-		to_chat(invoker, span_brass("You fail to invoke [name]."))
+		to_chat(invoker, span_brass("Не вышло вызвать [name]."))
 		return FALSE
 	var/invokers
 	for(var/mob/living/M in viewers(invoker))
@@ -85,13 +85,13 @@
 		if(is_servant_of_ratvar(M))
 			invokers++
 	if(invokers < invokers_required)
-		to_chat(invoker, span_brass("You need [invokers_required] servants to channel [name]!"))
+		to_chat(invoker, span_brass("Требуется [invokers_required] прислужников для вызова [name]!"))
 		return FALSE
 	return TRUE
 
 /datum/clockcult/scripture/proc/begin_invoke(mob/living/M, obj/item/clockwork/clockwork_slab/slab, bypass_unlock_checks = FALSE)
 	if(M.get_active_held_item() != slab && !iscyborg(M))
-		to_chat(M, span_brass("You need to have the [slab.name] in your active hand to recite scriptures."))
+		to_chat(M, span_brass("Требуется держать [slab.name] в моей активной руке для действа."))
 		return
 	slab.invoking_scripture = src
 	invoker = M
@@ -106,7 +106,7 @@
 	recital()
 	if(do_after(M, invokation_time, target=M, extra_checks=CALLBACK(src, .proc/check_special_requirements)))
 		invoke()
-		to_chat(M, span_brass("You invoke [name]."))
+		to_chat(M, span_brass("Вызываю [name]."))
 		if(end_on_invokation)
 			end_invoke()
 	else
@@ -131,7 +131,7 @@
 	if(!..())
 		return FALSE
 	for(var/obj/structure/destructible/clockwork/structure in get_turf(invoker))
-		to_chat(invoker, span_brass("You cannot invoke that here, the tile is occupied by [structure]."))
+		to_chat(invoker, span_brass("Не могу вызвать это здесь, так как тут есть [structure]."))
 		return FALSE
 	return TRUE
 
@@ -149,7 +149,7 @@
 //(stunning etc.)
 
 /datum/clockcult/scripture/slab
-	name = "Charge Slab"
+	name = "заряд"
 	var/use_time = 10
 	var/slab_overlay = "volt"
 	var/datum/progressbar/progress
@@ -183,7 +183,7 @@
 	invoking_slab.charge_overlay = slab_overlay
 	invoking_slab.update_icon()
 	invoking_slab.active_scripture = src
-	PH.add_ranged_ability(invoker, span_brass("You prepare [name]. <b>Click on a target to use.</b>"))
+	PH.add_ranged_ability(invoker, span_brass("Готовлю [name]. <b>Клик на цели для использования.</b>"))
 	count_down()
 	invoke_success()
 
@@ -213,7 +213,7 @@
 	if(loop_timer_id)
 		deltimer(loop_timer_id)
 		loop_timer_id = null
-	to_chat(invoker, span_brass("You are no longer invoking <b>[name]</b>"))
+	to_chat(invoker, span_brass("Больше не вызываю <b>[name]</b>"))
 	qdel(progress)
 	PH.remove_ranged_ability()
 	invoking_slab.charge_overlay = null
@@ -241,9 +241,9 @@
 	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_CONSCIOUS
 
 /datum/action/innate/clockcult/quick_bind
-	name = "Quick Bind"
+	name = "Быстрый выбор"
 	button_icon_state = "telerune"
-	desc = "A quick bound spell."
+	desc = "Ну быстрый выбор заклинания, м?"
 	var/obj/item/clockwork/clockwork_slab/activation_slab
 	var/datum/clockcult/scripture/scripture
 
@@ -256,7 +256,7 @@
 	desc = scripture.tip
 	button_icon_state = scripture.button_icon_state
 	if(scripture.power_cost)
-		desc += "<br>Draws <b>[scripture.power_cost]W</b> from the ark per use."
+		desc += "<br>Забирает <b>[scripture.power_cost]W</b> за каждое использование."
 	..(M)
 	button.locked = TRUE
 	button.ordered = TRUE
@@ -277,15 +277,15 @@
 	if(!activation_slab.invoking_scripture)
 		scripture.begin_invoke(owner, activation_slab)
 	else
-		to_chat(owner, span_brass("You fail to invoke [name]."))
+		to_chat(owner, span_brass("Не вышло вызвать [name]."))
 
 //==================================//
 // !     Hierophant Transmit      ! //
 //==================================//
 /datum/action/innate/clockcult/transmit
-	name = "Hierophant Transmit"
+	name = "Иерофантовый канал"
 	button_icon_state = "hierophant"
-	desc = "Transmit a message to your allies through the Hierophant."
+	desc = "Передать сообщение союзникам через сети Иерофанта."
 
 /datum/action/innate/clockcult/transmit/IsAvailable()
 	if(!is_servant_of_ratvar(owner))
@@ -296,7 +296,7 @@
 	return ..()
 
 /datum/action/innate/clockcult/transmit/Activate()
-	hierophant_message(stripped_input(owner, "What do you want to tell your allies?", "Hierophant Transmit", ""), owner, "<span class='brass'>")
+	hierophant_message(stripped_input(owner, "Что же мы скажем нашим союзничкам?", "Иерофантовый канал", ""), owner, "<span class='brass'>")
 
 /datum/action/innate/clockcult/transmit/Grant(mob/M)
 	..(M)

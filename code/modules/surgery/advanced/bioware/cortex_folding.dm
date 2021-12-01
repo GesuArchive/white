@@ -1,5 +1,5 @@
 /datum/surgery/advanced/bioware/cortex_folding
-	name = "Сгибание коры головного мозга"
+	name = "Модифицирование: Сгибание Коры"
 	desc = "Хирургическая процедура, при которой кора сгибается в сложную извилину, что открывает возможность образования нестандартных нейронных паттернов."
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
@@ -24,14 +24,14 @@
 	time = 125
 
 /datum/surgery_step/fold_cortex/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начал сгибать внешнюю кору большого мозга [target] в фрактальный паттерн.") ,
-		span_notice("[user] начал сгибать внешнюю кору большого мозга [target] в фрактальный паттерн.") ,
-		span_notice("[user] начинает операцию на мозге [target]."))
+	display_results(user, target, span_notice("Начал сгибать внешнюю кору большого мозга [skloname(target.name, RODITELNI, target.gender)] в фрактальный паттерн.") ,
+		span_notice("[user] начал сгибать внешнюю кору большого мозга [skloname(target.name, RODITELNI, target.gender)] в фрактальный паттерн.") ,
+		span_notice("[user] начинает операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/fold_cortex/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, span_notice("Согнул внешнюю кору большого мозга [target] в фрактальный паттерн!") ,
-		span_notice("[user] согнул внешнюю кору большого мозга [target] в фрактальный паттерн!") ,
-		span_notice("[user] завершил операцию на мозге [target]."))
+	display_results(user, target, span_notice("Согнул внешнюю кору большого мозга [skloname(target.name, RODITELNI, target.gender)] в фрактальный паттерн!") ,
+		span_notice("[user] согнул внешнюю кору большого мозга [skloname(target.name, RODITELNI, target.gender)] в фрактальный паттерн!") ,
+		span_notice("[user] завершил операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
 	new /datum/bioware/cortex_fold(target)
 	return ..()
 
@@ -39,7 +39,7 @@
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
 		display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, повредив мозг!") ,
 			span_warning("[user] облажался, повредив мозг!") ,
-			span_notice("[user] завершил операцию на мозге [target]."))
+			span_notice("[user] завершил операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60)
 		target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)
 	else

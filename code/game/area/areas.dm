@@ -62,6 +62,7 @@
 	var/ambience_volume = 15
 	var/ambience_index = AMBIENCE_GENERIC
 	var/list/ambientsounds
+	var/list/ambigensounds
 	flags_1 = CAN_BE_DIRTY_1
 
 	var/list/firedoors
@@ -86,7 +87,12 @@
 	var/network_area_id = null
 
 	///Used to decide what kind of reverb the area makes sound have
-	var/sound_environment = SOUND_ENVIRONMENT_NONE
+	var/sound_environment = SOUND_ENVIRONMENT_HANGAR
+
+	///Used to decide what the minimum time between ambience is
+	var/min_ambience_cooldown = 30 SECONDS
+	///Used to decide what the maximum time between ambience is
+	var/max_ambience_cooldown = 90 SECONDS
 
 	//Lighting overlay
 	var/obj/effect/lighting_overlay
@@ -150,6 +156,9 @@ GLOBAL_LIST_EMPTY(teleportlocs)
  */
 /area/Initialize(mapload)
 	icon_state = ""
+
+	if(!ambigensounds)
+		ambigensounds = GLOB.ambience_assoc[ambience_index]
 
 	if(area_flags & AREA_USES_STARLIGHT)
 		static_lighting = CONFIG_GET(flag/starlight)
@@ -501,9 +510,8 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!L.ckey)
 		return
 
-	// Ambience goes down here -- make sure to list each area separately for ease of adding things in later, thanks! Note: areas adjacent to each other should have the same sounds to prevent cutoff when possible.- LastyScratch
-	if(L.client && !L.client.ambience_playing && L.client.prefs.toggles & SOUND_SHIP_AMBIENCE)
-		L.client.ambience_playing = 1
+	//Ship ambience just loops if turned on.
+	if(L.client?.prefs.toggles & SOUND_SHIP_AMBIENCE)
 		SEND_SOUND(L, sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 5, channel = CHANNEL_BUZZ))
 
 	if(!(L.client && (L.client.prefs.toggles & SOUND_AMBIENCE)))
@@ -532,8 +540,8 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 					if(found.file == S.file)
 						soundLen = found.len
 
-				addtimer(CALLBACK(L.client, /client/proc/ResetAmbiencePlayed), soundLen * 10)
-
+				addtimer(VARSET_CALLBACK(L.client, played, FALSE), soundLen * 10)
+/*
 	if(prob(35) && !istype(src, /area/awaymission))
 		var/sound/AGS = sound(pick(GENERIC_AMBIGEN))
 
@@ -543,7 +551,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		AGS.status = SOUND_STREAM
 
 		SEND_SOUND(L, AGS)
-
+*/
 
 
 
@@ -569,12 +577,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		return
 	for(var/atom/movable/recipient as anything in gone.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE])
 		SEND_SIGNAL(recipient, COMSIG_EXIT_AREA, src)
-
-/**
- * Reset the played var to false on the client
- */
-/client/proc/ResetAmbiencePlayed()
-	played = FALSE
 
 /**
  * Setup an area (with the given name)

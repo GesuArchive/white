@@ -15,6 +15,8 @@ GLOBAL_VAR_INIT(CELLRATE, 0.002)  // conversion ratio between a watt-tick and ki
 
 GLOBAL_VAR_INIT(bsa_unlock, FALSE)	//BSA unlocked by head ID swipes
 
+GLOBAL_VAR_INIT(migger_alarm, FALSE)	//Yohei shit mostly
+
 GLOBAL_LIST_EMPTY(player_details)	// ckey -> /datum/player_details
 
 ///All currently running polls held as datums
@@ -29,3 +31,5 @@ GLOBAL_VAR_INIT(internal_tick_usage, 0.2 * world.tick_lag)
 
 //shitcode goes here
 GLOBAL_VAR_INIT(remote_control, TRUE)
+
+GLOBAL_VAR_INIT(random_damage_goes_on, FALSE)

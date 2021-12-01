@@ -82,6 +82,8 @@
 	var/extra_damage = 0				//Number to add to individual bullets.
 	var/extra_penetration = 0			//Number to add to armor penetration of individual bullets.
 
+	var/custom_skin_name = null
+
 /obj/item/gun/Initialize()
 	. = ..()
 	if(pin)
@@ -90,6 +92,7 @@
 		alight = new(src)
 	build_zooming()
 	makeJamming()
+	RegisterSignal(src, COMSIG_CLICK_CTRL_SHIFT, .proc/change_skin)
 
 /obj/item/gun/Destroy()
 	if(isobj(pin)) //Can still be the initial path, then we skip
@@ -259,7 +262,7 @@
 		shoot_with_empty_chamber(user)
 		return
 
-	if(check_botched(user))
+	if(check_botched(user, target))
 		return
 
 	var/obj/item/bodypart/other_hand = user.has_hand_for_held_index(user.get_inactive_hand_index()) //returns non-disabled inactive hands
@@ -281,13 +284,13 @@
 
 	return process_fire(target, user, TRUE, params, null, bonus_spread)
 
-/obj/item/gun/proc/check_botched(mob/living/user, params)
+/obj/item/gun/proc/check_botched(mob/living/user, atom/target)
 	if(clumsy_check)
 		if(istype(user))
 			if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(40))
 				to_chat(user, span_userdanger("Стреляю себе в ногу из [src.name]!"))
 				var/shot_leg = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
-				process_fire(user, user, FALSE, params, shot_leg)
+				process_fire(user, user, FALSE, null, shot_leg)
 				SEND_SIGNAL(user, COMSIG_MOB_CLUMSY_SHOOT_FOOT)
 				user.dropItemToGround(src, TRUE)
 				return TRUE

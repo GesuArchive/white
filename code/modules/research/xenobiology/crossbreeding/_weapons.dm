@@ -28,6 +28,10 @@ Slimecrossing Weapons
 	damtype = BRUTE
 
 /obj/item/kitchen/knife/rainbowknife/afterattack(atom/O, mob/user, proximity)
+	random_type_damage(O, proximity)
+	return ..()
+
+/obj/item/proc/random_type_damage(atom/O, proximity)
 	if(proximity && istype(O, /mob/living))
 		damtype = pick(BRUTE, BURN, TOX, OXY, CLONE)
 	switch(damtype)
@@ -51,7 +55,6 @@ Slimecrossing Weapons
 			hitsound = 'sound/items/geiger/ext1.ogg'
 			attack_verb_continuous = string_list(list("радиацинирует","мутирует","чернобылит"))
 			attack_verb_simple = string_list(list("радиацинирует","мутирует","чернобылит"))
-	return ..()
 
 //Adamantine shield - Chilling Adamantine
 /obj/item/shield/adamantineshield

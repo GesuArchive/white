@@ -222,7 +222,7 @@
 	icon = 'white/valtos/icons/gun.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
-	worn_icon = 'white/valtos/icons/back.dmi'
+	worn_icon = 'white/valtos/icons/weapons/mob/back.dmi'
 	fire_sound = 'white/valtos/sounds/ak74_shot.ogg'
 	icon_state = "ak47"
 	inhand_icon_state = "ak47"

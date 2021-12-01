@@ -8,12 +8,18 @@
 	supervisors = "главе персонала"
 	selection_color = "#bbe291"
 
+	minimal_player_age = 15
+	exp_requirements = 720
+	exp_type = EXP_TYPE_CREW
+
 	outfit = /datum/outfit/job/curator
 
 	paycheck = PAYCHECK_EASY
 	paycheck_department = ACCOUNT_SRV
 
 	display_order = JOB_DISPLAY_ORDER_CURATOR
+
+	rpg_title = "Опытный искатель приключений"
 
 /datum/outfit/job/curator
 	name = "Curator"

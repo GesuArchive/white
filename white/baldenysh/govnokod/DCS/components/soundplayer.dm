@@ -121,10 +121,7 @@
 	var/mob/M = parent
 	var/list/sounds = M.client.SoundQuery()
 	for(var/sound/S in sounds)
-		if(S.file == myplayer.cursound.file)
-			return S
-	for(var/sound/S in sounds)
-		if(S.channel == myplayer.playing_channel && S.repeat == myplayer.repeating)
+		if(S.file == myplayer.cursound.file || (S.channel == myplayer.playing_channel && S.repeat == myplayer.repeating))
 			return S
 	return FALSE
 

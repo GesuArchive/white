@@ -4,7 +4,7 @@ SUBSYSTEM_DEF(economy)
 	init_order = INIT_ORDER_ECONOMY
 	runlevels = RUNLEVEL_GAME
 	var/roundstart_paychecks = 5
-	var/budget_pool = 650
+	var/budget_pool = 1250
 	var/list/department_accounts = list(ACCOUNT_STA = ACCOUNT_STA_NAME,
 										ACCOUNT_CIV = ACCOUNT_CIV_NAME,
 										ACCOUNT_ENG = ACCOUNT_ENG_NAME,
@@ -113,7 +113,7 @@ SUBSYSTEM_DEF(economy)
 		if(!is_station_level(V.z))
 			continue
 		V.reset_prices(V.product_records, V.coin_records)
-	earning_report = "Экономический отчет сектора<br /> В настоящее время цены поставщиков в секторе [SSeconomy.inflation_value()*100]%.<br /> Расходная мощность станции в настоящее время <b>[station_total] кредит[get_num_string(station_total)]</b>, а целевое довольствие экипажа составляет <b>[station_target] кредит[get_num_string(station_target)]</b>.<br /> Это всё от <i>Отдел экономистов Нанотрейзен</i>."
+	earning_report = "Экономический отчет сектора<br/> В настоящее время цены поставщиков в секторе [SSeconomy.inflation_value()*100]%.<br /> Расходная мощность станции в настоящее время <b>[station_total] кредит[get_num_string(station_total)]</b>, а целевое довольствие экипажа составляет <b>[station_target] кредит[get_num_string(station_target)]</b>.<br /> Это всё от <i>Отдел экономистов Нанотрейзен</i>."
 	GLOB.news_network.SubmitArticle(earning_report, "Экономический отчет сектора", "Станционные Объявления", null, update_alert = FALSE)
 
 /**

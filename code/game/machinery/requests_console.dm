@@ -110,7 +110,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 
 /obj/machinery/requests_console/Initialize()
 	. = ..()
-	name = "консоль запросов [sklonenie(department, VINITELNI, MALE)]"
+	name = "консоль запросов [skloname(department, VINITELNI, MALE)]"
 	GLOB.allConsoles += src
 
 	if(departmentType)

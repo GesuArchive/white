@@ -28,8 +28,7 @@ GLOBAL_LIST_INIT(science_positions, list(
 	"Scientist",
 	"Exploration Crew",
 	"Geneticist",
-	"Roboticist",
-	"Hacker"))
+	"Roboticist"))
 
 
 GLOBAL_LIST_INIT(supply_positions, list(
@@ -51,8 +50,6 @@ GLOBAL_LIST_INIT(service_positions, list(
 	"Chaplain",
 	"Clown",
 	"Mime",
-	"Prisoner",
-	"Бомж",
 	"Assistant"))
 
 //we really need to split service into civillian positions officially, until then this is my solution
@@ -71,6 +68,10 @@ GLOBAL_LIST_INIT(security_positions, list(
 	"Veteran",
 	"Field Medic"))
 
+GLOBAL_LIST_INIT(scum_positions, list(
+	"Bomj",
+	"Prisoner"))
+
 GLOBAL_LIST_INIT(nonhuman_positions, list(
 	"AI",
 	"Cyborg",
@@ -85,11 +86,12 @@ GLOBAL_LIST_INIT(position_categories, list(
 	EXP_TYPE_SERVICE = list("jobs" = service_positions, "color" = "#449291", "runame" = "Обслуга"),
 	EXP_TYPE_MEDICAL = list("jobs" = medical_positions, "color" = "#ff44a0", "runame" = "Медицинский"),
 	EXP_TYPE_SCIENCE = list("jobs" = science_positions, "color" = "#ff44ff", "runame" = "Научный"),
-	EXP_TYPE_SECURITY = list("jobs" = security_positions, "color" = "#ff4444", "runame" = "Охрана")
+	EXP_TYPE_SECURITY = list("jobs" = security_positions, "color" = "#ff4444", "runame" = "Охрана"),
+	EXP_TYPE_SCUM = list("jobs" = scum_positions, "color" = "#3af779", "runame" = "Гости")
 ))
 
 GLOBAL_LIST_INIT(exp_jobsmap, list(
-	EXP_TYPE_CREW = list("titles" = command_positions | engineering_positions | medical_positions | science_positions | supply_positions | security_positions | service_positions | list("AI","Cyborg")), // crew positions
+	EXP_TYPE_CREW = list("titles" = command_positions | engineering_positions | medical_positions | science_positions | supply_positions | security_positions | service_positions | scum_positions | list("AI","Cyborg")), // crew positions
 	EXP_TYPE_COMMAND = list("titles" = command_positions),
 	EXP_TYPE_ENGINEERING = list("titles" = engineering_positions),
 	EXP_TYPE_MEDICAL = list("titles" = medical_positions),
@@ -97,7 +99,8 @@ GLOBAL_LIST_INIT(exp_jobsmap, list(
 	EXP_TYPE_SUPPLY = list("titles" = supply_positions),
 	EXP_TYPE_SECURITY = list("titles" = security_positions),
 	EXP_TYPE_SILICON = list("titles" = list("AI","Cyborg")),
-	EXP_TYPE_SERVICE = list("titles" = service_positions)
+	EXP_TYPE_SERVICE = list("titles" = service_positions),
+	EXP_TYPE_SCUM = list("titles" = scum_positions)
 ))
 
 GLOBAL_LIST_INIT(exp_specialmap, list(

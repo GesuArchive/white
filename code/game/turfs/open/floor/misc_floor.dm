@@ -150,8 +150,8 @@
 
 
 /turf/open/floor/bronze
-	name = "бронзовый пол"
-	desc = "Тяжелая бронзовая плитка."
+	name = "латунный пол"
+	desc = "Тяжелая латунная плитка."
 	icon = 'icons/obj/clockwork_objects.dmi'
 	icon_state = "clockwork_floor"
 	floor_tile = /obj/item/stack/tile/bronze

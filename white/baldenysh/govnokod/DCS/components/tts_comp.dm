@@ -21,24 +21,14 @@
 
 /datum/component/tts/RegisterWithParent()
 	RegisterSignal(owner, COMSIG_MOB_SAY, .proc/handle_speech)
-	RegisterSignal(owner, COMSIG_MOVABLE_HEAR, .proc/handle_hearing)
 
 /datum/component/tts/UnregisterFromParent()
 	UnregisterSignal(owner, COMSIG_MOB_SAY)
-	UnregisterSignal(owner, COMSIG_MOVABLE_HEAR)
 
 /datum/component/tts/proc/handle_speech(datum/source, list/speech_args)
 	SIGNAL_HANDLER
-	if(GLOB.tts)
+	if(GLOB.tts || creation)
 		INVOKE_ASYNC(src, .proc/prikolize, speech_args[SPEECH_MESSAGE])
-
-/datum/component/tts/proc/handle_hearing(datum/source, list/hearing_args)
-	SIGNAL_HANDLER
-	var/atom/A = hearing_args[HEARING_SPEAKER]
-	var/datum/component/tts/TTS = A.GetComponent(/datum/component/tts)
-	if(!TTS || !TTS.creation || GLOB.tts)
-		return
-	INVOKE_ASYNC(src, .proc/prikolize, hearing_args[HEARING_RAW_MESSAGE])
 
 /datum/component/tts/proc/prikolize(msg)
 	if(world.time < next_line_time)

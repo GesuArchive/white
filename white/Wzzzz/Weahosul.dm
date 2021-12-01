@@ -75,16 +75,16 @@
 	switch(rand(1, 3))
 		if(1)
 			name = "старая [name]"
-			AddElement(/datum/element/jamming, 25)
-			extra_damage = 10
+			AddElement(/datum/element/jamming, 10)
+			extra_damage = 90
 		if(2)
 			name = "старая ржавая [name]"
-			AddElement(/datum/element/jamming, 50)
-			extra_damage = 7
+			AddElement(/datum/element/jamming, 15)
+			extra_damage = 85
 		if(3)
 			name = "старая ржавая погнутая [name]"
-			AddElement(/datum/element/jamming, 75)
-			extra_damage = 3
+			AddElement(/datum/element/jamming, 25)
+			extra_damage = 80
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/empty
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction98/empty

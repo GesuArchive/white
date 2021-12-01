@@ -1,5 +1,5 @@
 /turf/open/indestructible/reebe_void
-	name = "void"
+	name = "пустота"
 	icon_state = "reebemap"
 	layer = SPACE_LAYER
 	baseturfs = /turf/open/indestructible/reebe_void

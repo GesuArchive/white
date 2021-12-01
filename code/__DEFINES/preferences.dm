@@ -84,6 +84,7 @@
 #define EXP_TYPE_SERVICE		"Service"
 #define EXP_TYPE_ANTAG			"Antag"
 #define EXP_TYPE_SPECIAL		"Special"
+#define EXP_TYPE_SCUM			"Scum"
 #define EXP_TYPE_GHOST			"Ghost"
 #define EXP_TYPE_ADMIN			"Admin"
 

@@ -4,7 +4,7 @@
 	collision_flags = COLLISION_Z_LINKED | COLLISION_METEOR
 	var/shuttle_port_id
 	//Shuttle data
-	var/max_thrust = 10
+	var/max_thrust = 5
 	//Controls
 	var/thrust = 0
 	var/angle = 0
@@ -19,7 +19,7 @@
 	var/desired_vel_y = 0
 
 	//They go faster
-	velocity_multiplier = 3
+	velocity_multiplier = 1.5
 
 	//The computer controlling us.
 	var/controlling_computer = null

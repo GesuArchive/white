@@ -6,6 +6,7 @@
 
 // The default UI style is the first one in the list
 GLOBAL_LIST_INIT(available_ui_styles, list(
+	"Glory" = 'icons/hud/screen_glory.dmi',
 	"Oxide" = 'icons/hud/screen_oxide.dmi',
 	"Cyberspess" = 'icons/hud/screen_cyberspess.dmi',
 	"Tetramon" = 'icons/hud/screen_tetramon.dmi',
@@ -36,6 +37,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/atom/movable/screen/ammo_counter
 
 	var/atom/movable/screen/blobpwrdisplay
+
+	var/atom/movable/screen/keeper_magic_display
 
 	var/atom/movable/screen/alien_plasma_display
 	var/atom/movable/screen/alien_queen_finder
@@ -131,6 +134,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	devilsouldisplay = null
 	lingstingdisplay = null
 	blobpwrdisplay = null
+	keeper_magic_display = null
 	alien_plasma_display = null
 	alien_queen_finder = null
 

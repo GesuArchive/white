@@ -1,6 +1,6 @@
 /obj/item/clock_module
-	name = "ratvarian borg module"
-	desc = "cool."
+	name = "ратварский модуль киборга"
+	desc = "норм."
 	icon = 'icons/mob/actions/actions_clockcult.dmi'
 	icon_state = "Replicant"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -27,11 +27,11 @@
 	if(!internal_slab)
 		return
 	if(internal_slab.invoking_scripture)
-		to_chat(user, span_brass("You fail to invoke [name]."))
+		to_chat(user, span_brass("Не вышло вызвать [name]."))
 		return FALSE
 	var/datum/clockcult/scripture/new_scripture = new scripture_datum
 	if(new_scripture.power_cost > GLOB.clockcult_power)
-		to_chat(user, span_neovgre("You need [new_scripture.power_cost]W to invoke [new_scripture.name]."))
+		to_chat(user, span_neovgre("Мне потребуется [new_scripture.power_cost]W для вызова [new_scripture.name]."))
 		qdel(new_scripture)
 		return FALSE
 	//Create a new scripture temporarilly to process, when it's done it will be qdeleted.

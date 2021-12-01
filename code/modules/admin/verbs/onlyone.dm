@@ -8,7 +8,7 @@ GLOBAL_VAR_INIT(highlander, FALSE)
 	sound_to_playing_players('sound/misc/highlander.ogg')
 	send_to_playing_players(span_boldannounce("<font size=6>THERE CAN BE ONLY ONE</font>"))
 
-	for(var/obj/item/disk/nuclear/N in GLOB.poi_list)
+	for(var/obj/item/disk/nuclear/N in SSpoints_of_interest.other_points_of_interest)
 		var/datum/component/stationloving/component = N.GetComponent(/datum/component/stationloving)
 		if (component)
 			component.relocate() //Gets it out of bags and such

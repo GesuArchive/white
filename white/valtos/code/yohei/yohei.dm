@@ -43,7 +43,7 @@
 	icon = 'white/valtos/icons/clothing/masks.dmi'
 	inhand_icon_state = "sechailer"
 	equip_delay_other = 50
-	armor = list(MELEE = 20, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
+	armor = list(MELEE = 45, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
 
 /obj/item/clothing/shoes/jackboots/yohei
 	name = "сапоги йохея"
@@ -52,7 +52,7 @@
 	worn_icon = 'white/valtos/icons/clothing/mob/shoe.dmi'
 	icon = 'white/valtos/icons/clothing/shoes.dmi'
 	equip_delay_other = 60
-	armor = list(MELEE = 20, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
+	armor = list(MELEE = 45, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
 
 /obj/item/clothing/gloves/combat/yohei
 	name = "перчатки йохея"
@@ -61,7 +61,7 @@
 	worn_icon = 'white/valtos/icons/clothing/mob/glove.dmi'
 	icon = 'white/valtos/icons/clothing/gloves.dmi'
 	inhand_icon_state = "blackgloves"
-	armor = list(MELEE = 20, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
+	armor = list(MELEE = 45, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
 
 /obj/item/clothing/suit/hooded/yohei
 	name = "плащ йохея"
@@ -310,7 +310,7 @@
 	belt = /obj/item/storage/belt/military/abductor/full
 	uniform = /obj/item/clothing/under/syndicate/yohei/yellow
 
-	backpack_contents = list(/obj/item/construction/rcd/combat = 1, /obj/item/rcd_ammo/large = 3)
+	backpack_contents = list(/obj/item/construction/rcd/combat = 1, /obj/item/rcd_ammo/large = 1, /obj/item/quikdeploy/cade/plasteel = 5)
 
 /datum/outfit/yohei/breaker/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -398,7 +398,8 @@ GLOBAL_VAR(yohei_main_controller)
 	if(!current_task)
 		var/static/list/choices = list(
 			"Классическая охота" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "classic"),
-			"Помочь событиям" 	 = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "gamemode")
+			"Помочь событиям" 	 = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "gamemode"),
+			"Кровавая месть" 	 = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "revenge")
 		)
 		var/choice = show_radial_menu(user, src, choices, tooltips = TRUE)
 		if(!choice)
@@ -410,9 +411,28 @@ GLOBAL_VAR(yohei_main_controller)
 			var/datum/yohei_task/new_task = pick(possible_tasks)
 			current_task = new new_task()
 			return
+		else if (choice == "Кровавая месть")
+			internal_radio.talk_into(src, "Загружаю подпрограмму Феникс для пользователя [user.name]...", FREQ_YOHEI)
+			var/list/victims = list()
+			for(var/V in GLOB.data_core.locked)
+				var/datum/data/record/R = V
+				var/datum/mind/M = R.fields["mindref"]
+				if(M)
+					victims += M
+			var/mob/victim = tgui_input_list(usr, "Кому же мы будем мстить?", "Чилипилки", victims)
+			if(victim)
+				var/datum/antagonist/A = user.mind.add_antag_datum(/datum/antagonist/custom)
+				var/datum/objective/O = new /datum/objective/assassinate()
+				O.owner = user.mind
+				O.target = victim
+				O.update_explanation_text()
+				A.objectives += O
+				A.greet()
+				to_chat(victim, span_userdanger("Кто-то ОЧЕНЬ СИЛЬНО хочет мне навредить..."))
+			return
 		else
-			internal_radio.talk_into(src, "Загружаю особое задание...", FREQ_YOHEI)
-			current_task = new /datum/yohei_task/gamemode()
+			internal_radio.talk_into(src, "Особых заданий больше НЕТ!", FREQ_YOHEI)
+			//current_task = new /datum/yohei_task/gamemode()
 			return
 
 	if(current_task && current_task.check_task(user))
@@ -482,6 +502,7 @@ GLOBAL_VAR(yohei_main_controller)
 	target = find_target()
 	desc = "Убить [target.real_name]."
 	prize = max(rand(prize - 30, prize + 30), 1)
+	to_chat(target, span_userdanger("Кто-то хочет мне навредить..."))
 
 /datum/yohei_task/kill/check_task(mob/user)
 	if(target && target.stat != DEAD)
@@ -516,7 +537,7 @@ GLOBAL_VAR(yohei_main_controller)
 	else
 		qdel(src)
 		return FALSE
-
+/*
 /datum/yohei_task/gamemode
 	desc = "Нет особых заданий"
 	prize = 0
@@ -584,6 +605,7 @@ GLOBAL_VAR(yohei_main_controller)
 			adatum = null
 			return FALSE
 
+
 /datum/yohei_task/gamemode/check_task(mob/user)
 	if(!adatum)
 		qdel(src)
@@ -594,7 +616,7 @@ GLOBAL_VAR(yohei_main_controller)
 	if(!is_special_character(user))
 		user.mind.add_antag_datum(adatum)
 	return FALSE
-
+*/
 /area/ruin/powered/yohei_base
 	name = "Ресурс Йохеев"
 	icon_state = "dk_yellow"
@@ -677,9 +699,12 @@ GLOBAL_VAR(yohei_main_controller)
 	outfit = /datum/outfit/yohei
 	assignedrole = "Yohei"
 	req_sum = 1250
-	uses = 4
+	uses = 16
 
 /obj/effect/mob_spawn/human/donate/yohei/attack_ghost(mob/user)
+	if(GLOB.migger_alarm)
+		to_chat(user, span_userdanger("Последнюю капсулу направлявшуюся сюда недавно сбили в этом секторе. Похоже, пока лететь точно не стоит."))
+		return
 	var/static/list/choices = list(
 		"Медик" 	= image(icon = 'white/valtos/icons/objects.dmi', icon_state = "ymedic"),
 		"Боевик" 	= image(icon = 'white/valtos/icons/objects.dmi', icon_state = "ycombatant"),
@@ -762,6 +787,7 @@ GLOBAL_VAR(yohei_main_controller)
 /obj/item/book/yohei_codex
 	name = "Кодекс Йохея"
 	desc = "Весьма важный путеводитель."
+	author = "Сомнительный Господин"
 	icon_state = "stealthmanual"
 	dat = "<center><h1>Положения кодекса</h1></center><i>«Прошу Вас судить обо мне по врагам, которых я приобрёл.»</i></br> — Франклин Делано Рузвельт.<ul><li>Никому не верь, но используй всех.</li><li>Наемник всегда готов отправиться куда угодно и встретить любую опасность.</li><li>Никаких друзей, никаких врагов. Только союзники и противники.</li><li>Всегда будь вежлив с клиентом.</li><li>Наемник никогда не жалуется.</li><li>Наемник не имеет привязанностей.</li><li>Жизнь растет на смерти.</li><li>Меняй распорядок. Шаблон — это ловушка.</li><li>Никогда не привлекай к себе внимания.</li><li>Не говори больше нужного.</li><li>Будь вежлив всегда. Особенно с врагами.</li><li>Тот, кто нанимает мою руку, нанимает всего меня.</li><li>Делай то, чего боишься больше всего, и обретешь храбрость.</li><li>Воображение — главное оружие воина.</li><li>Наемник никогда не отвлекается на общую картину. Мелочи играют главную роль.</li><li>Никогда не говори всю правду, торгуясь.</li><li>Услуга — это инвестиция.</li><li>Деньги — это сила.</li><li>Будь осторожен в любой ситуации.</li><li>Если ты должен умереть, сделай это с честью.</li></ul><b>Следуя данному кодексу Вы в полном праве можете называть себя Йохеем.</b> <i>Наверное.</i>"
 

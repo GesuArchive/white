@@ -10,29 +10,29 @@
 
 
 /client/proc/fuck_pie()
-	set name = "TESTPIE"
+	set name = "Test Name Sklonenie"
 	set category = "Особенное"
 	var/pizdos = input("ВВЕДИТЕ ХУЙ")
 	if(pizdos)
 		to_chat(src, "Начальное слово: [pizdos]")
 
-		to_chat(src, "Ж. Родительный: [sklonenie(pizdos, RODITELNI, 	"female")]")
-		to_chat(src, "Ж. Дательный: [sklonenie(pizdos,   DATELNI, 		"female")]")
-		to_chat(src, "Ж. Винительный: [sklonenie(pizdos, VINITELNI, 	"female")]")
-		to_chat(src, "Ж. Творительный: [sklonenie(pizdos,TVORITELNI, 	"female")]")
-		to_chat(src, "Ж. Предложный: [sklonenie(pizdos,  PREDLOZHNI, 	"female")]")
+		to_chat(src, "Ж. Родительный: [skloname(pizdos, RODITELNI, 	"female")]")
+		to_chat(src, "Ж. Дательный: [skloname(pizdos,   DATELNI, 		"female")]")
+		to_chat(src, "Ж. Винительный: [skloname(pizdos, VINITELNI, 	"female")]")
+		to_chat(src, "Ж. Творительный: [skloname(pizdos,TVORITELNI, 	"female")]")
+		to_chat(src, "Ж. Предложный: [skloname(pizdos,  PREDLOZHNI, 	"female")]")
 
-		to_chat(src, "М. Родительный: [sklonenie(pizdos, RODITELNI, 	"male")]")
-		to_chat(src, "М. Дательный: [sklonenie(pizdos, 	 DATELNI, 		"male")]")
-		to_chat(src, "М. Винительный: [sklonenie(pizdos, VINITELNI, 	"male")]")
-		to_chat(src, "М. Творительный: [sklonenie(pizdos,TVORITELNI, 	"male")]")
-		to_chat(src, "М. Предложный: [sklonenie(pizdos,  PREDLOZHNI, 	"male")]")
+		to_chat(src, "М. Родительный: [skloname(pizdos, RODITELNI, 	"male")]")
+		to_chat(src, "М. Дательный: [skloname(pizdos, 	 DATELNI, 		"male")]")
+		to_chat(src, "М. Винительный: [skloname(pizdos, VINITELNI, 	"male")]")
+		to_chat(src, "М. Творительный: [skloname(pizdos,TVORITELNI, 	"male")]")
+		to_chat(src, "М. Предложный: [skloname(pizdos,  PREDLOZHNI, 	"male")]")
 
-		to_chat(src, "С. Родительный: [sklonenie(pizdos, RODITELNI)]")
-		to_chat(src, "С. Дательный: [sklonenie(pizdos,   DATELNI)]")
-		to_chat(src, "С. Винительный: [sklonenie(pizdos, VINITELNI)]")
-		to_chat(src, "С. Творительный: [sklonenie(pizdos,TVORITELNI)]")
-		to_chat(src, "С. Предложный: [sklonenie(pizdos,  PREDLOZHNI)]")
+		to_chat(src, "С. Родительный: [skloname(pizdos, RODITELNI)]")
+		to_chat(src, "С. Дательный: [skloname(pizdos,   DATELNI)]")
+		to_chat(src, "С. Винительный: [skloname(pizdos, VINITELNI)]")
+		to_chat(src, "С. Творительный: [skloname(pizdos,TVORITELNI)]")
+		to_chat(src, "С. Предложный: [skloname(pizdos,  PREDLOZHNI)]")
 
 /proc/sklonenie_item_tvor(msgfrom as text)
 	if(length(msgfrom) <= 2)
@@ -48,34 +48,62 @@
 		return replacetext_char(msgfrom, copytext_char(word_end, -2), "ню", -2)
 	return msgfrom
 
-/proc/sklonenie(msgfrom as text, rule, gender = null)
+/proc/skloname(msgfrom as text, rule, gender = null)
 	var/to_ret = ""
 	for(var/word in splittext_char(msgfrom, " "))
-		to_ret += " [sklonenie_do(word, rule, gender)]"
+		to_ret += " [skloname_do(word, rule, gender)]"
 	return copytext_char(to_ret, 2)
 
-GLOBAL_LIST_INIT(PfemaleOneStop, 		list("б","в","г","д","ж","з","й","к","л","м","н","п","р","с","т","ф","х","ц","ч","ш","щ","ъ","ь"))
-GLOBAL_LIST_INIT(POneStop, 				list("о","е","ё","э","и","ы","у","ю"))
-GLOBAL_LIST_INIT(PTwoStop, 				list("ия","иа","аа","оа","уа","ыа","еа","юа","эа","их","ых"))
+GLOBAL_LIST_INIT(PfemaleOneStop, 		list("б","в","г","д","ж",
+											 "з","й","к","л","м",
+											 "н","п","р","с","т",
+											 "ф","х","ц","ч","ш",
+											 "щ","ъ","ь"))
+GLOBAL_LIST_INIT(POneStop, 				list("о","е","ё","э","и",
+											 "ы","у","ю"))
+GLOBAL_LIST_INIT(PTwoStop, 				list("ия","иа","аа","оа","уа",
+											 "ыа","еа","юа","эа","их",
+											 "ых"))
 GLOBAL_LIST_INIT(PfemaleOneFrom, 		list("ь"))
 GLOBAL_LIST_INIT(PfemaleOneTo, 			list("и","и","ь","ю","и"))
 GLOBAL_LIST_INIT(PmaleOneFrom, 			list("ь"))
 GLOBAL_LIST_INIT(PmaleOneTo, 			list("я","ю","я","ем","е"))
 GLOBAL_LIST_INIT(PfemaleTwoFrom, 		list("ая","на"))
-GLOBAL_LIST_INIT(PfemaleTwoTo, 			list("ой","ой","ую","ой","ой","ой","ой","у","ой","ой"))
+GLOBAL_LIST_INIT(PfemaleTwoTo, 			list("ой","ой","ую","ой","ой",
+											 "ой","ой","у","ой","ой"))
 GLOBAL_LIST_INIT(PfemaleThreeFrom, 		list("ска","цка"))
 GLOBAL_LIST_INIT(PfemaleThreeTo, 		list("ой","ой","ую","ой","ой"))
 GLOBAL_LIST_INIT(POneFrom, 				list("а","ь","я","й"))
-GLOBAL_LIST_INIT(POneTo, 				list("ы","е","у","ой","е","я","ю","я","ем","е","и","у","ю","ей","е","я","ю","я","ем","е"))
+GLOBAL_LIST_INIT(POneTo, 				list("ы","е","у","ой","е",
+											 "я","ю","я","ем","е",
+											 "и","у","ю","ей","е",
+											 "я","ю","я","ем","е"))
 GLOBAL_LIST_INIT(POneListFrom, 			list("ц","ч","ш","щ"))
 GLOBAL_LIST_INIT(POneListTo, 			list("а","у","а","ем","е"))
-GLOBAL_LIST_INIT(POneListOtherFrom, 	list("б","в","г","д","ж","з","к","л","м","н","п","р","с","т","ф","х","ц","ч"))
+GLOBAL_LIST_INIT(POneListOtherFrom, 	list("б","в","г","д","ж",
+											 "з","к","л","м","н",
+											 "п","р","с","т","ф",
+											 "х","ц","ч"))
 GLOBAL_LIST_INIT(POneListOtherTo, 		list("а","у","а","ом","е"))
 GLOBAL_LIST_INIT(POneListTooFrom, 		list("в","н"))
 GLOBAL_LIST_INIT(POneListTooTo, 		list("а","у","а","ым","е"))
-GLOBAL_LIST_INIT(PTwoFrom, 				list("ич","ша","ия","ей","ий","на","уй","ца","ай","ой","ок","ец"))
-GLOBAL_LIST_INIT(PTwoTo, 				list("а", "у", "а", "ем", "е","и", "е", "у", "ей", "е","и", "и", "ю", "ей", "и","я", "ю", "я", "ем", "е","я", "ю", "я", "ем", "и","ы", "е", "у", "ой", "е","я", "ю", "я", "ем", "е","ы", "е", "у", "её", "е","я", "ю", "я", "ем", "е","го","му","го","ым", "м","ка","ку","ка","ком","ке","ца","цу","ца","цом","це"))
-GLOBAL_LIST_INIT(PTwoListFrom, 			list("га","ка","ха","ча","ща","жа"))
+GLOBAL_LIST_INIT(PTwoFrom, 				list("ич","ша","ия","ей","ий",
+											 "на","уй","ца","ай","ой",
+											 "ок","ец"))
+GLOBAL_LIST_INIT(PTwoTo, 				list("а", "у", "а", "ем", "е",
+											 "и", "е", "у", "ей", "е",
+											 "и", "и", "ю", "ей", "и",
+											 "я", "ю", "я", "ем", "е",
+											 "я", "ю", "я", "ем", "и",
+											 "ы", "е", "у", "ой", "е",
+											 "я", "ю", "я", "ем", "е",
+											 "ы", "е", "у", "её", "е",
+											 "я", "ю", "я", "ем", "е",
+											 "го","му","го","ым", "м",
+											 "ка","ку","ка","ком","ке",
+											 "ца","цу","ца","цом","це"))
+GLOBAL_LIST_INIT(PTwoListFrom, 			list("га","ка","ха","ча","ща",
+											 "жа"))
 GLOBAL_LIST_INIT(PTwoListTo, 			list("и","е","у","ой","е"))
 GLOBAL_LIST_INIT(PTwoListOtherFrom, 	list("ян","ан","йн","ах","ив"))
 GLOBAL_LIST_INIT(PTwoListOtherTo, 		list("а","у","а","ом","е"))
@@ -97,7 +125,7 @@ GLOBAL_LIST_INIT(PFourListTo, 			list("ца","цу","ца","цем","це"))
 GLOBAL_LIST_INIT(PFourListOtherFrom, 	list("онец","овец"))
 GLOBAL_LIST_INIT(PFourListOtherTo, 		list("ца","цу","ца","цом","це"))
 
-/proc/sklonenie_do(msgfrom as text, rule, gender = null)
+/proc/skloname_do(msgfrom as text, rule, gender = null)
 	if(length(msgfrom) <= 2)
 		return msgfrom
 

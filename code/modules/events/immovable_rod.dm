@@ -32,7 +32,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	announceWhen = 5
 
 /datum/round_event/immovable_rod/announce(fake)
-	priority_announce("What the fuck was that?!", "General Alert")
+	priority_announce("Что это блять было?!", "Общая тревога")
 
 /datum/round_event/immovable_rod/start()
 	var/datum/round_event_control/immovable_rod/C = control
@@ -81,7 +81,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	special_target = aimed_at
 	loopy_rod = force_looping
 
-	AddElement(/datum/element/point_of_interest)
+	SSpoints_of_interest.make_point_of_interest(src)
 
 	RegisterSignal(src, COMSIG_ATOM_ENTERING, .proc/on_entering_atom)
 
@@ -92,7 +92,6 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 
 /obj/effect/immovablerod/Destroy(force)
 	UnregisterSignal(src, COMSIG_ATOM_ENTERING)
-	RemoveElement(/datum/element/point_of_interest)
 	SSaugury.unregister_doom(src)
 
 	return ..()

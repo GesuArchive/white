@@ -64,7 +64,8 @@ GLOBAL_LIST_INIT(sandstone_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/mineral/sandbags
 
 GLOBAL_LIST_INIT(sandbag_recipes, list ( \
-	new/datum/stack_recipe("sandbags", /obj/structure/barricade/sandbags, 1, time = 25, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("мешки с песком", /obj/structure/barricade/sandbags, 1, time = 25, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("направленные мешки", /obj/structure/deployable_barricade/sandbags, 1, time = 25, one_per_turf = 1, on_floor = 1), \
 	))
 
 /obj/item/stack/sheet/mineral/sandbags/get_main_recipes()
@@ -373,6 +374,7 @@ GLOBAL_LIST_INIT(plastitanium_recipes, list ( \
 GLOBAL_LIST_INIT(snow_recipes, list ( \
 	new/datum/stack_recipe("Стена из Снега", /turf/closed/wall/mineral/snow, 5, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("Снеговик", /obj/structure/statue/snow/snowman, 5, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Баррикада", /obj/structure/deployable_barricade/snow, 2, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("Снежок", /obj/item/toy/snowball, 1), \
 	new/datum/stack_recipe("снежный пол", /obj/item/stack/tile/mineral/snow, 1, 4, 20), \
 	))

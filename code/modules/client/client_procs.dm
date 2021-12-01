@@ -434,6 +434,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(!winexists(src, "asset_cache_browser")) // The client is using a custom skin, tell them.
 		to_chat(src, span_warning("Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you."))
 
+	update_ambience_pref()
 
 	//This is down here because of the browse() calls in tooltip/New()
 	if(!tooltips)
@@ -462,13 +463,15 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	if(isnewplayer(src.mob))
 		view_size = new(src, getScreenSize(prefs.widescreenpref))
-		view = "19x15"
+		view = "[prefs.widescreenwidth]x15"
 	else
 		view_size = new(src, getScreenSize(prefs.widescreenpref))
 
 	view_size.resetFormat()
 	view_size.setZoomMode()
 	fit_viewport()
+
+	SStitle.update_lobby()
 
 	Master.UpdateTickRate()
 
@@ -526,12 +529,14 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		UNSETEMPTY(movingmob.client_mobs_in_contents)
 		movingmob = null
 	active_mousedown_item = null
+	SSambience.remove_ambience_client(src)
 	QDEL_NULL(view_size)
 	QDEL_NULL(void)
 	QDEL_NULL(tooltips)
 	seen_messages = null
 	Master.UpdateTickRate()
 	..() //Even though we're going to be hard deleted there are still some things that want to know the destroy is happening
+	SStitle.update_lobby()
 	return QDEL_HINT_HARDDEL_NOW
 
 /client/proc/set_client_age_from_db(connectiontopic)
@@ -1138,6 +1143,14 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		winset(src, "mapwindow.map", "right-click=false")
 		winset(src, "default.Shift", "is-disabled=true")
 		winset(src, "default.ShiftUp", "is-disabled=true")
+
+/client/proc/update_ambience_pref()
+	if(prefs.toggles & SOUND_AMBIENCE)
+		if(SSambience.ambience_listening_clients[src] > world.time)
+			return // If already properly set we don't want to reset the timer.
+		SSambience.ambience_listening_clients[src] = world.time + 10 SECONDS //Just wait 10 seconds before the next one aight mate? cheers.
+	else
+		SSambience.remove_ambience_client(src)
 
 /// Checks if this client has met the days requirement passed in, or if
 /// they are exempt from it.

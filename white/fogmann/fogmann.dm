@@ -87,7 +87,7 @@
 		if(!H.mind || !H.mind.miming)
 			return 'white/fogmann/blyead.ogg'
 
-/area/service/fitness/kachalka
+/area/commons/fitness/kachalka
 	name = "Техтоннели: Качалка"
 
 /obj/item/westposter

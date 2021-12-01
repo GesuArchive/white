@@ -18,6 +18,7 @@
 	light_power = 1
 	light_on = FALSE
 	var/on = FALSE
+	light_color = "#ffeac1"
 
 
 /obj/item/flashlight/Initialize()
@@ -222,6 +223,7 @@
 	force = 9 // Not as good as a stun baton.
 	light_range = 5 // A little better than the standard flashlight.
 	hitsound = 'sound/weapons/genhit1.ogg'
+	light_color = "#ffffff"
 
 // the desk lamps are a bit special
 /obj/item/flashlight/lamp
@@ -238,6 +240,7 @@
 	flags_1 = CONDUCT_1
 	custom_materials = null
 	on = TRUE
+	light_color = "#ffffff"
 
 
 // green-shaded desk lamp
@@ -245,7 +248,7 @@
 	desc = "Классическая настольная лампа с зелёным абажуром."
 	icon_state = "lampgreen"
 	inhand_icon_state = "lampgreen"
-
+	light_color = "#f1dcac"
 
 
 /obj/item/flashlight/lamp/verb/toggle_light()
@@ -262,6 +265,7 @@
 	desc = "Сделать лампу в форме банана может только клоун. Здесь даже есть тупой шнурок."
 	icon_state = "bananalamp"
 	inhand_icon_state = "bananalamp"
+	light_color = "#f1dcac"
 
 // FLARES
 
@@ -364,6 +368,7 @@
 	desc = "Шахтёрский."
 	light_range = 6			// luminosity when on
 	light_system = MOVABLE_LIGHT
+	light_color = "#e7c16d"
 
 /obj/item/flashlight/lantern/heirloom_moth
 	name = "потёртый фонарь"

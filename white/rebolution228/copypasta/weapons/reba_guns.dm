@@ -491,3 +491,50 @@
 	materials = list(MAT_CATEGORY_RIGID = 2500)
 	build_path = /obj/item/ammo_box/magazine/hs010/empty
 	category = list("Импорт")
+
+// AKSU74
+
+
+/obj/item/gun/ballistic/automatic/aksu74
+	name = "AKС-74У"
+	desc = "Укороченный вариант АКС-74, разработанный примерно 500 лет назад для вооружения десантников и экипажа боевой техники. Использует 5,45мм патроны."
+	icon = 'white/rebolution228/icons/weapons/rguns.dmi'
+	icon_state = "aksu74"
+	inhand_icon_state = "aksu74"
+	selector_switch_icon = TRUE
+	lefthand_file = 'white/rebolution228/icons/weapons/guns_inhand_left.dmi'
+	righthand_file = 'white/rebolution228/icons/weapons/guns_inhand_right.dmi'
+	worn_icon = 'white/rebolution228/icons/weapons/guns_back.dmi'
+	mag_type = /obj/item/ammo_box/magazine/ak74m/orange
+	pin = /obj/item/firing_pin
+	fire_delay = 2
+	burst_size = 3
+	spread = 10
+	slot_flags = ITEM_SLOT_BACK
+	w_class = WEIGHT_CLASS_NORMAL
+	weapon_weight = WEAPON_HEAVY
+	worn_icon_state = "aksu74_back"
+	rack_sound = 'white/rebolution228/sounds/weapons/74_zatvor.ogg'
+	eject_sound = 'white/rebolution228/sounds/weapons/74_magout.ogg'
+	eject_empty_sound = 'white/rebolution228/sounds/weapons/74_magout.ogg'
+	load_sound = 'white/rebolution228/sounds/weapons/74_magout.ogg'
+	load_empty_sound = 'white/rebolution228/sounds/weapons/74_magin.ogg'
+	fire_sound = 'white/rebolution228/sounds/weapons/74_ebashit1.ogg'
+	var/list/aksushoot = list('white/rebolution228/sounds/weapons/74_ebashit1.ogg',
+							'white/rebolution228/sounds/weapons/74_ebashit2.ogg',
+							'white/rebolution228/sounds/weapons/74_ebashit3.ogg')
+	can_suppress = FALSE
+
+/obj/item/gun/ballistic/automatic/aksu74/process_chamber()
+	. = ..()
+	fire_sound = pick(aksushoot)
+
+/obj/item/ammo_box/magazine/ak74m/orange
+	icon_state = "ak74"
+
+/obj/item/ammo_box/magazine/ak74m/orange/update_icon()
+	..()
+	if(ammo_count() <= 0)
+		icon_state = "ak74_e"
+	else
+		icon_state = "ak74"

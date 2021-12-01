@@ -3,13 +3,13 @@
 //==================================//
 
 /datum/clockcult/scripture/abscond
-	name = "Abscond"
-	desc = "Return you and anyone you are dragging back to Reebe."
-	tip = "Transports you and anyone you are dragging to Reebe."
+	name = "Бегство"
+	desc = "Телепорт на Риби. Если тащить кого-то, то он отправится тоже."
+	tip = "Телепорт на Риби. Если тащить кого-то, то он отправится тоже."
 	button_icon_state = "Abscond"
 	power_cost = 5
 	invokation_time = 25
-	invokation_text = list("As we bid farewell, and return to the stars...", "we shall find our way home.")
+	invokation_text = list("Когда мы прощаемся и возвращаемся к звездам...", "мы найдем дорогу домой.")
 	category = SPELLTYPE_SERVITUDE
 	var/client_color
 

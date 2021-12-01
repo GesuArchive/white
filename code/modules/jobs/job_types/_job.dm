@@ -80,6 +80,10 @@
 	/// Should this job be allowed to be picked for the bureaucratic error event?
 	var/allow_bureaucratic_error = TRUE
 
+	///RPG job names, for the memes
+	var/rpg_title
+
+
 /datum/job/New()
 	. = ..()
 	var/list/jobs_changes = get_map_changes()
@@ -245,6 +249,8 @@
 		var/datum/bank_account/bank_account = new(H.real_name, src, H.dna.species.payday_modifier)
 		if(!latejoin)
 			bank_account.payday(STARTING_PAYCHECKS, TRUE)
+		else
+			bank_account.payday(1, TRUE)
 		H.account_id = bank_account.account_id
 
 	//Equip the rest of the gear

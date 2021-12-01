@@ -12,6 +12,7 @@
 	description = "Известный алкоголь с множеством применений."
 	color = "#404030" // rgb: 64, 64, 48
 	nutriment_factor = 0
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 	taste_description = "алкоголь"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	ph = 7.33

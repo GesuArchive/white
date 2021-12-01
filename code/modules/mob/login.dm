@@ -83,6 +83,7 @@
 			client.view_size.resetToDefault() // Resets the client.view in case it was changed.
 		else
 			client.change_view(getScreenSize(client.prefs.widescreenpref))
+			client.view = "[client.prefs.widescreenwidth]x15"
 
 		if(client.player_details.player_actions.len)
 			for(var/datum/action/A in client.player_details.player_actions)
@@ -99,6 +100,8 @@
 	client.init_verbs()
 
 	AddElement(/datum/element/weather_listener, /datum/weather/ash_storm, ZTRAIT_ASHSTORM, GLOB.ash_storm_sounds)
+
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_LOGGED_IN, src)
 
 	return TRUE
 

@@ -35,6 +35,8 @@
 	icon_state = "seed-lily"
 	species = "lily"
 	plantname = "Lily Plants"
+	icon_grow = "lily-grow"
+	icon_dead = "lily-dead"
 	product = /obj/item/food/grown/poppy/lily
 	mutatelist = list(/obj/item/seeds/poppy/lily/trumpet)
 
@@ -90,8 +92,33 @@
 	icon_state = "seed-geranium"
 	species = "geranium"
 	plantname = "Geranium Plants"
+	icon_grow = "geranium-grow"
+	icon_dead = "geranium-dead"
 	product = /obj/item/food/grown/poppy/geranium
-	mutatelist = list(/obj/item/seeds/poppy/geranium/fraxinella)
+	mutatelist = list(/obj/item/seeds/poppy/geranium/fraxinella, /obj/item/seeds/poppy/geranium/forgetmenot)
+
+//Forget-Me-Not
+/obj/item/seeds/poppy/geranium/forgetmenot
+	name = "pack of forget-me-not seeds"
+	desc = "These seeds grow into forget-me-nots."
+	icon_state = "seed-forget_me_not"
+	species = "forget_me_not"
+	plantname = "Forget-Me-Not Plants"
+	product = /obj/item/food/grown/poppy/geranium/forgetmenot
+	endurance = 30
+	maturation = 5
+	yield = 4
+	potency = 25
+	icon_grow = "forget_me_not-grow"
+	icon_dead = "forget_me_not-dead"
+	mutatelist = list()
+	reagents_add = list(/datum/reagent/medicine/c2/aiuri = 0.2, /datum/reagent/consumable/nutriment = 0.05)
+
+/obj/item/food/grown/poppy/geranium/forgetmenot
+	seed = /obj/item/seeds/poppy/geranium/forgetmenot
+	name = "forget-me-not"
+	desc = "A clump of small blue flowers, they are primarily associated with rememberance, respect and loyalty."
+	icon_state = "forget_me_not"
 
 /obj/item/food/grown/poppy/geranium
 	seed = /obj/item/seeds/poppy/geranium

@@ -50,9 +50,9 @@
 	if(istype(surgery,/datum/surgery/healing))
 		var/datum/surgery/healing/the_surgery = surgery
 		if(!the_surgery.antispam)
-			display_results(user, target, span_notice("Пытаюсь залатать [woundtype] [target].") ,
-		span_notice("[user] пытается залатать [woundtype] [target].") ,
-		span_notice("[user] пытается залатать [woundtype] [target]."))
+			display_results(user, target, span_notice("Пытаюсь залатать [woundtype] [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] пытается залатать [woundtype] [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] пытается залатать [woundtype] [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/heal/initiate(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, try_to_fail = FALSE)
 	if(!..())
@@ -62,8 +62,8 @@
 			break
 
 /datum/surgery_step/heal/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	var/umsg = "Успешно залатал некоторые раны [target]" //no period, add initial space to "addons"
-	var/tmsg = "[user] залатал некоторые раны [target]" //see above
+	var/umsg = "Успешно залатал некоторые раны [skloname(target.name, RODITELNI, target.gender)]" //no period, add initial space to "addons"
+	var/tmsg = "[user] залатал некоторые раны [skloname(target.name, RODITELNI, target.gender)]" //see above
 	var/urhealedamt_brute = brutehealing
 	var/urhealedamt_burn = burnhealing
 	if(missinghpbonus)
@@ -76,8 +76,8 @@
 	if(!get_location_accessible(target, target_zone))
 		urhealedamt_brute *= 0.55
 		urhealedamt_burn *= 0.55
-		umsg += " as best as you can while they have clothing on"
-		tmsg += " as best as they can while [target] has clothing on"
+		umsg += " настолько хорошо, насколько смог из-за мешающейся одежды."
+		tmsg += " настолько хорошо, насколько смог из-за мешающейся одежды."
 	target.heal_bodypart_damage(urhealedamt_brute,urhealedamt_burn)
 	display_results(user, target, span_notice("[umsg].") ,
 		"[tmsg].",
@@ -90,7 +90,7 @@
 /datum/surgery_step/heal/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался!") ,
 		span_warning("[user] облажался!") ,
-		span_notice("[user] залатал некоторые раны [target].") , TRUE)
+		span_notice("[user] ошибся.") , TRUE)
 	var/urdamageamt_burn = brutehealing * 0.8
 	var/urdamageamt_brute = burnhealing * 0.8
 	if(missinghpbonus)
@@ -102,27 +102,27 @@
 
 /***************************BRUTE***************************/
 /datum/surgery/healing/brute
-	name = "Лечение ран (Ушибов)"
+	name = "Лечение Ран (Ушибов)"
 
 /datum/surgery/healing/brute/basic
-	name = "Лечение ран (Ушибов, Базовое)"
+	name = "Лечение Ран (Ушибов, Базовое)"
 	replaced_by = /datum/surgery/healing/brute/upgraded
 	healing_step_type = /datum/surgery_step/heal/brute/basic
-	desc = "A surgical procedure that provides basic treatment for a patient's brute traumas. Heals slightly more when the patient is severely injured."
+	desc = "Хирургическая операция которая оказывает базовую медицинскую помощь при физических ранах. Лечение немного более эффективно при серьезных травмах."
 
 /datum/surgery/healing/brute/upgraded
-	name = "Лечение ран (Ушибов, Продвинутое)"
+	name = "Лечение Ран (Ушибов, Продвинутое)"
 	replaced_by = /datum/surgery/healing/brute/upgraded/femto
 	requires_tech = TRUE
 	healing_step_type = /datum/surgery_step/heal/brute/upgraded
-	desc = "A surgical procedure that provides advanced treatment for a patient's brute traumas. Heals more when the patient is severely injured."
+	desc = "Хирургическая операция которая оказывает продвинутую медицинскую помощь при физических ранах. Лечение более эффективно при серьезных травмах."
 
 /datum/surgery/healing/brute/upgraded/femto
-	name = "Лечение ран (Ушибов, Экспертное)"
+	name = "Лечение Ран (Ушибов, Экспертное)"
 	replaced_by = /datum/surgery/healing/combo/upgraded/femto
 	requires_tech = TRUE
 	healing_step_type = /datum/surgery_step/heal/brute/upgraded/femto
-	desc = "A surgical procedure that provides experimental treatment for a patient's brute traumas. Heals considerably more when the patient is severely injured."
+	desc = "Хирургическая операция которая оказывает экспертную медицинскую помощь при физических ранах. Лечение намного более эффективно при серьезных травмах."
 
 /********************BRUTE STEPS********************/
 /datum/surgery_step/heal/brute/basic
@@ -140,27 +140,27 @@
 
 /***************************BURN***************************/
 /datum/surgery/healing/burn
-	name = "Лечение ран (Ожогов)"
+	name = "Лечение Ран (Ожогов)"
 
 /datum/surgery/healing/burn/basic
-	name = "Лечение ран (Ожогов, Базовое)"
+	name = "Лечение Ран (Ожогов, Базовое)"
 	replaced_by = /datum/surgery/healing/burn/upgraded
 	healing_step_type = /datum/surgery_step/heal/burn/basic
-	desc = "A surgical procedure that provides basic treatment for a patient's burns. Heals slightly more when the patient is severely injured."
+	desc = "Хирургическая операция которая оказывает базовую медицинскую помощь при ожоговых ранах. Лечение немного более эффективно при серьезных травмах."
 
 /datum/surgery/healing/burn/upgraded
-	name = "Лечение ран (Ожогов, Продвинутое)"
+	name = "Лечение Ран (Ожогов, Продвинутое)"
 	replaced_by = /datum/surgery/healing/burn/upgraded/femto
 	requires_tech = TRUE
 	healing_step_type = /datum/surgery_step/heal/burn/upgraded
-	desc = "A surgical procedure that provides advanced treatment for a patient's burns. Heals more when the patient is severely injured."
+	desc = "Хирургическая операция которая оказывает продвинутую медицинскую помощь при ожоговых ранах. Лечение более эффективно при серьезных травмах."
 
 /datum/surgery/healing/burn/upgraded/femto
-	name = "Лечение ран (Ожогов, Экспертное)"
+	name = "Лечение Ран (Ожогов, Экспертное)"
 	replaced_by = /datum/surgery/healing/combo/upgraded/femto
 	requires_tech = TRUE
 	healing_step_type = /datum/surgery_step/heal/burn/upgraded/femto
-	desc = "A surgical procedure that provides experimental treatment for a patient's burns. Heals considerably more when the patient is severely injured."
+	desc = "Хирургическая операция которая оказывает экспертную медицинскую помощь при ожоговых ранах. Лечение намного более эффективно при серьезных травмах."
 
 /********************BURN STEPS********************/
 /datum/surgery_step/heal/burn/basic
@@ -185,20 +185,20 @@
 	replaced_by = /datum/surgery/healing/combo/upgraded
 	requires_tech = TRUE
 	healing_step_type = /datum/surgery_step/heal/combo
-	desc = "A surgical procedure that provides basic treatment for a patient's burns and brute traumas. Heals slightly more when the patient is severely injured."
+	desc = "Хирургическая операция которая оказывает базовую медицинскую помощь при смешанных физических и ожоговых ранах. Лечение немного более эффективно при серьезных травмах."
 
 /datum/surgery/healing/combo/upgraded
 	name = "Лечение Ран (Смешанных, Продвинутое)"
 	replaced_by = /datum/surgery/healing/combo/upgraded/femto
 	healing_step_type = /datum/surgery_step/heal/combo/upgraded
-	desc = "A surgical procedure that provides advanced treatment for a patient's burns and brute traumas. Heals more when the patient is severely injured."
+	desc = "Хирургическая операция которая оказывает продвинутую медицинскую помощь при смешанных физических и ожоговых ранах. Лечение более эффективно при серьезных травмах."
 
 
 /datum/surgery/healing/combo/upgraded/femto //no real reason to type it like this except consistency, don't worry you're not missing anything
 	name = "Лечение Ран (Смешанных, Экспертное)"
 	replaced_by = null
 	healing_step_type = /datum/surgery_step/heal/combo/upgraded/femto
-	desc = "A surgical procedure that provides experimental treatment for a patient's burns and brute traumas. Heals considerably more when the patient is severely injured."
+	desc = "Хирургическая операция которая оказывает экспертную медицинскую помощь при смешанных физических и ожоговых ранах. Лечение намного более эффективно при серьезных травмах."
 
 /********************COMBO STEPS********************/
 /datum/surgery_step/heal/combo
@@ -221,5 +221,5 @@
 /datum/surgery_step/heal/combo/upgraded/femto/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался!") ,
 		span_warning("[user] облажался!") ,
-		span_notice("[user] залатал некоторые раны [target].") , TRUE)
+		span_notice("[user] залатал некоторые раны [skloname(target.name, RODITELNI, target.gender)].") , TRUE)
 	target.take_bodypart_damage(5,5)

@@ -77,6 +77,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/jumpsuit_style = PREF_SUIT		//suit/skirt
 	var/hairstyle = "Bald"				//Hair type
 	var/hair_color = "000"				//Hair color
+	var/grad_style = "None"
+	var/grad_color = "000"
 	var/facial_hairstyle = "Shaved"	//Face hair type
 	var/facial_hair_color = "000"		//Facial hair color
 	var/skin_tone = "caucasian1"		//Skin color
@@ -107,6 +109,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/ignoring = list()
 
 	var/clientfps = -1
+
+	var/widescreenwidth = 19
 
 	var/parallax
 
@@ -369,6 +373,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<span style='border:1px solid #161616; background-color: #[hair_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=hair;task=input'>Изменить</a>"
 				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_HAIR_COLOR]'>[(randomise[RANDOM_HAIR_COLOR]) ? "🔓" : "🔒"]</A></td></tr>"
 
+				dat += "<tr><td><b>Градиент волос:</b></td><td align='right'>"
+				dat += "<a href='?_src_=prefs;preference=grad_style;task=input'>[grad_style]</a>"
+				dat += "<br><span style='border:1px solid #161616; background-color: #[grad_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=grad_color;task=input'>Изменить</a>"
+
 				dat += "<tr><td><b>Борода:</b></td><td align='right'>"
 
 				dat += "<a href='?_src_=prefs;preference=facial_hairstyle;task=input'>[facial_hairstyle]</a>"
@@ -472,11 +480,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "</table></td></table>"
 
 		if(1) //Loadout
-			if(!length(equipped_gear))
-				if(SSmetainv)
-					SSmetainv.open_inventory(user.client)
-				else
-					to_chat(user, span_warning("Инвентарь еще не загружен, попробуйте позже!"))
+			//if(!length(equipped_gear))
+			//	if(SSmetainv)
+			//		SSmetainv.open_inventory(user.client)
+			//	else
+			//		to_chat(user, span_warning("Инвентарь еще не загружен, попробуйте позже!"))
 
 			var/list/type_blacklist = list()
 			if(equipped_gear && equipped_gear.len)
@@ -492,55 +500,77 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/fcolor =  "#3366CC"
 			var/metabalance = user.client.get_metabalance()
 			dat += "<table align='center' width='100%' class='metamag'>"
-			dat += "<tr><td colspan=4 class='bal'><center><b>Баланс: <img src='[SSassets.transport.get_asset_url("mc_32.gif")]' width=16 height=16 border=0> <font color='[fcolor]'>[metabalance]</font> метакэша.</b> <a href='?_src_=prefs;preference=gear;clear_loadout=1'>Снять надетое</a></center></td></tr>"
+			dat += "<tr><td colspan=4 class='bal'><center>"
+			dat += "<b>Баланс: <img src='[SSassets.transport.get_asset_url("mc_32.gif")]' width=16 height=16 border=0>"
+			dat += "<font color='[fcolor]'>[metabalance]</font> метакэша.</b>"
+			dat += "<a href='?_src_=prefs;preference=gear;clear_loadout=1'>Снять всё</a></center></td></tr>"
 			dat += "<tr><td colspan=4><center><b>"
 
-			var/firstcat = 1
+
+			if(gear_tab == "Инвентарь")
+				dat += "<span class='linkOff'>Инвентарь</span>"
+			else
+				dat += "<a href='?_src_=prefs;preference=gear;select_category=Инвентарь'>Инвентарь</a>"
+
 			for(var/category in GLOB.loadout_categories)
-				if(firstcat)
-					firstcat = 0
-				else
-					dat += " |"
+				dat += " |"
 				if(category == gear_tab)
 					dat += " <span class='linkOff'>[category]</span> "
 				else
 					dat += " <a href='?_src_=prefs;preference=gear;select_category=[category]'>[category]</a> "
 			dat += "</b></center></td></tr>"
 
-			var/datum/loadout_category/LC = GLOB.loadout_categories[gear_tab]
-
 			dat += "<tr><td colspan=4><hr></td></tr>"
-			dat += "<tr><td><b>Название</b></td>"
-			dat += "<td><b>Цена</b></td>"
-			dat += "<td><b>Роли</b></td>"
-			dat += "<td><b>Описание</b></td></tr>"
-			dat += "<tr><td colspan=4><hr></td></tr>"
-			for(var/gear_name in LC.gear)
-				var/datum/gear/G = LC.gear[gear_name]
-				var/ticked = (G.id in equipped_gear)
 
-				dat += "<tr style='vertical-align:middle;' class='metaitem"
-				if(G.id in purchased_gear)
-					dat += " buyed'><td width=300>"
-					if(G.sort_category == "OOC")
-						dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить ещё</a>"
-					else if(G.sort_category == "Роли")
-						dat += "<a style='white-space:normal;' href='#'>Куплено</a>"
+			if(gear_tab != "Инвентарь")
+				dat += "<tr><td><b>Название</b></td>"
+				dat += "<td><b>Цена</b></td>"
+				dat += "<td><b>Роли</b></td>"
+				dat += "<td><b>Описание</b></td></tr>"
+				dat += "<tr><td colspan=4><hr></td></tr>"
+				var/datum/loadout_category/LC = GLOB.loadout_categories[gear_tab]
+				for(var/gear_name in LC.gear)
+					var/datum/gear/G = LC.gear[gear_name]
+					var/ticked = (G.id in equipped_gear)
+
+					dat += "<tr style='vertical-align:middle;' class='metaitem"
+					if(G.id in purchased_gear)
+						dat += " buyed'><td width=300>"
+						if(G.sort_category == "OOC")
+							dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить ещё</a>"
+						else if(G.sort_category == "Роли")
+							dat += "<a style='white-space:normal;' href='#'>Куплено</a>"
+						else
+							dat += "[G.get_base64_icon_html()]<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[ticked ? "Экипировано" : "Экипировать"]</a>"
 					else
-						dat += "[G.get_base64_icon_html()]<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[ticked ? "Экипировано" : "Экипировать"]</a>"
-				else
-					dat += "'><td width=300>"
+						dat += "'><td width=300>"
+						if(G.sort_category == "OOC" || G.sort_category == "Роли")
+							dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить</a>"
+						else
+							dat += "[G.get_base64_icon_html()]<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить</a>"
+					dat += " - [capitalize(G.display_name)]</td>"
+					dat += "<td width=5% style='vertical-align:middle' class='metaprice'>[G.cost]</td><td>"
+					if(G.allowed_roles)
+						dat += "<font size=2>[english_list(G.allowed_roles)]</font>"
+					else
+						dat += "<font size=2>Все</font>"
+					dat += "</td><td><font size=2><i>[G.description]</i></font></td></tr>"
+			else
+				var/line_num = 0
+				dat += "<tr class='metaitem buyed'><td>"
+				for(var/gear_name in purchased_gear)
+					var/datum/gear/G = GLOB.gear_datums[gear_name]
+					if(!G)
+						continue
 					if(G.sort_category == "OOC" || G.sort_category == "Роли")
-						dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить</a>"
-					else
-						dat += "[G.get_base64_icon_html()]<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить</a>"
-				dat += " - [capitalize(G.display_name)]</td>"
-				dat += "<td width=5% style='vertical-align:middle' class='metaprice'>[G.cost]</td><td>"
-				if(G.allowed_roles)
-					dat += "<font size=2>[english_list(G.allowed_roles)]</font>"
-				else
-					dat += "<font size=2>Все</font>"
-				dat += "</td><td><font size=2><i>[G.description]</i></font></td></tr>"
+						continue
+					var/ticked = (G.id in equipped_gear)
+					if(line_num == 20)
+						dat += "</td></tr><tr class='metaitem buyed'><td>"
+						line_num = 0
+					dat += "<a class='tooltip' style='padding: 10px 2px;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]<span class='tooltiptext'>[G.display_name]</span></a>"
+					line_num++
+				dat += "</td></tr>"
 			dat += "</table>"
 
 		if (2) // Game Preferences
@@ -618,6 +648,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<tr><td><b>Полный экран:</b></td><td align='right'><a href='?_src_=prefs;preference=fullscreen'>[fullscreen ? "Вкл" : "Выкл"]</a></td></tr>"
 			if (CONFIG_GET(string/default_view) != CONFIG_GET(string/default_view_square))
 				dat += "<tr><td><b>Широкий экран:</b></td><td align='right'><a href='?_src_=prefs;preference=widescreenpref'>[widescreenpref ? "Вкл ([CONFIG_GET(string/default_view)])" : "Выкл ([CONFIG_GET(string/default_view_square)])"]</a></td></tr>"
+				if(widescreenpref)
+					dat += "<tr><td><b>Своя ширина экрана:</b></td><td align='right'><a href='?_src_=prefs;preference=widescreenwidth;task=input'>[widescreenwidth]</a></td></tr>"
 
 			dat += "<tr><td><b>Названия предметов:</b></td><td align='right'><a href='?_src_=prefs;preference=tooltip_user'>[(w_toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл"]</a></td></tr>"
 			dat += "<tr><td><b>Позиция на экране:</b></td><td align='right'><a href='?_src_=prefs;preference=tooltip_pos'>[(w_toggles & TOOLTIP_USER_POS) ? "Низ" : "Верх"]</a></td></tr>"
@@ -839,11 +871,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	popup.open(FALSE)
 	onclose(user, "capturekeypress", src)
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 18, list/splitJobs = list("Chief Engineer"), widthPerColumn = 295, height = 620)
+/datum/preferences/proc/SetChoices(mob/user, limit = 11, list/splitJobs = list("Chief Engineer"), widthPerColumn = 295, height = 620)
 	if(!SSjob)
 		return
 
-	//limit - The amount of jobs allowed per column. Defaults to 18 to make it look nice.
+	//limit - The amount of jobs allowed per column. Defaults to 11 to make it look nice.
 	//splitJobs - Allows you split the table by job. You can make different tables for each department by including their heads. Defaults to CE to make it look nice.
 	//widthPerColumn - Screen's width for every column.
 	//height - Screen's height.
@@ -1362,6 +1394,16 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					else
 						hairstyle = next_list_item(hairstyle, GLOB.hairstyles_list)
 
+				if("grad_style")
+					var/new_grad_style = input(user, "Choose a color pattern for your hair:", "Character Preference")  as null|anything in GLOB.hair_gradients_list
+					if(new_grad_style)
+						grad_style = new_grad_style
+
+				if("grad_color")
+					var/new_grad_color = input(user, "Choose your character's secondary hair color:", "Character Preference","#"+grad_color) as color|null
+					if(new_grad_color)
+						grad_color = sanitize_hexcolor(new_grad_color)
+
 				if("previous_hairstyle")
 					if (gender == MALE)
 						hairstyle = previous_list_item(hairstyle, GLOB.hairstyles_male_list)
@@ -1477,17 +1519,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 					var/list/custom_races = list()
 
-					if(user.key == "WoofWoof322")
-						custom_races += "athena_s"
-
-					if(user.key == "Oni3288")
-						custom_races += "oni"
-
-					if(user.key == "Arsenay")
-						custom_races += "aandroid"
-
-					if(user.key == "Fiaskin")
-						custom_races += "synthman"
+					if(user.ckey in GLOB.custom_race_donations)
+						custom_races += GLOB.custom_race_donations[user.ckey]
 
 					var/result = input(user, "Select a species", "Species Selection") as null|anything in GLOB.roundstart_races + custom_races
 
@@ -1527,12 +1560,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("tail_human")
 					var/new_tail
 					new_tail = input(user, "Choose your character's tail:", "Character Preference") as null|anything in GLOB.tails_list_human
-					if((!user.client.holder && user.client.ckey != "felinemistress" && user.client.ckey != "chilipila") && new_tail == "Fox")
+					if((!user.client.holder && !(user.client.ckey in GLOB.custom_tails_donations)) && (new_tail == "Fox" || new_tail == "Oni"))
 						to_chat(user, span_danger("Pedos not allowed? <big>ВАШЕ ДЕЙСТВИЕ БУДЕТ ЗАПИСАНО</big>."))
 						message_admins("[ADMIN_LOOKUPFLW(user)] попытался выбрать фуррятину в виде хвоста.")
-						return
-					if(new_tail == "Oni" && user.client.ckey != "oni3288")
-						to_chat(user, span_danger("<big>NO!</big>"))
 						return
 					if(new_tail)
 						features["tail_human"] = new_tail
@@ -1670,6 +1700,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/pickedmap = input(user, "Choose your preferred map. This will be used to help weight random map selection.", "Character Preference")  as null|anything in sortList(maplist)
 					if (pickedmap)
 						preferred_map = maplist[pickedmap]
+
+				if ("widescreenwidth")
+					var/desiredwidth = input(user, "Какую ширину выберем от до 15-31?", "ВЫБОР", widescreenwidth)  as null|num
+					if (!isnull(desiredwidth))
+						widescreenwidth = sanitize_integer(desiredwidth, 15, 31, widescreenwidth)
+						user.client.view_size.setDefault("[widescreenwidth]x15")
 
 				if ("clientfps")
 					var/desiredfps = input(user, "Choose your desired fps.\n-1 means recommended value (currently:[RECOMMENDED_FPS])\n0 means world fps (currently:[world.fps])", "Character Preference", clientfps)  as null|num
@@ -1979,6 +2015,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("widescreenpref")
 					widescreenpref = !widescreenpref
 					user.client.view_size.setDefault(getScreenSize(widescreenpref))
+					user.client.view = "[user.client.prefs.widescreenwidth]x15"
 
 				if("disabled_autocap")
 					disabled_autocap = !disabled_autocap
@@ -2087,6 +2124,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		organ_eyes.old_eye_color = eye_color
 	character.hair_color = hair_color
 	character.facial_hair_color = facial_hair_color
+
+	character.grad_color = grad_color
+	character.grad_style = grad_style
 
 	character.skin_tone = skin_tone
 	character.hairstyle = hairstyle

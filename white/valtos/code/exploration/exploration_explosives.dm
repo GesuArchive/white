@@ -110,7 +110,7 @@
 	if(.)
 		return
 	var/turf/T = get_turf(user)
-	if(is_station_level(T) && !(obj_flags & EMAGGED))
+	if(is_station_level(T.z) && !(obj_flags & EMAGGED))
 		to_chat(user, span_warning("Файрволл станции блокирует подрыв."))
 		return
 	var/explosives_trigged = 0

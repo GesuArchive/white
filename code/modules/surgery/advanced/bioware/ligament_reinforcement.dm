@@ -1,5 +1,5 @@
 /datum/surgery/advanced/bioware/ligament_reinforcement
-	name = "Укрепление связок"
+	name = "Модифицирование: Укрепление Связок"
 	desc = "Хирургическая процедура, добавляющая защитную ткань и костяную клетку вокруг соединений туловища и конечностей, предотвращая расчленение. \
 	Однако, в результате нервные соединения легче оборвать, что ведет к большему шансу вывести из строя конечности при получении урона."
 	steps = list(/datum/surgery_step/incise,
@@ -18,14 +18,14 @@
 	time = 125
 
 /datum/surgery_step/reinforce_ligaments/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю укреплять связки [target].") ,
-		span_notice("[user] начал укреплять связки [target].") ,
-		span_notice("[user] начал работу со связками [target]."))
+	display_results(user, target, span_notice("Начинаю укреплять связки [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] начал укреплять связки [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] начал работу со связками [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/reinforce_ligaments/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, span_notice("Укрепил связки [target]!") ,
-		span_notice("[user] укрепил связки [target]!") ,
-		span_notice("[user] закончил работу со связками [target]."))
+	display_results(user, target, span_notice("Укрепил связки [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_notice("[user] укрепил связки [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_notice("[user] закончил работу со связками [skloname(target.name, RODITELNI, target.gender)]."))
 	new /datum/bioware/reinforced_ligaments(target)
 	return ..()
 

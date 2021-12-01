@@ -442,8 +442,8 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	return TRUE
 
 /datum/material/bronze
-	name = "бронза"
-	skloname = "бронзы"
+	name = "латунь"
+	skloname = "латуни"
 	desc = "Культ часов? Никогда не слышал об этом."
 	color = "#92661A"
 	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)

@@ -191,10 +191,11 @@
 	///sound file given to the squeaky component we make in Initialize()
 	var/soundfile = 'sound/items/bikehorn.ogg'
 
-/obj/item/bikehorn/Initialize()
+/obj/item/bikehorn/Initialize(mapload)
 	. = ..()
-	//LoadComponent so child types dont stack squeak components
-	LoadComponent(/datum/component/squeak, list(soundfile=1), 50, 0, 0, 0, 0, 20, 0)
+	var/list/sound_list = list()
+	sound_list[soundfile] = 1
+	AddComponent(/datum/component/squeak, sound_list, 50, falloff_exponent = 20)
 
 /obj/item/bikehorn/attack(mob/living/carbon/M, mob/living/carbon/user)
 	if(user != M && ishuman(user))

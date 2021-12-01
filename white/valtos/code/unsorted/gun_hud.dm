@@ -48,7 +48,7 @@
 		var/obj/item/gun/ballistic/pew = parent
 		hud.maptext = null
 		hud.icon_state = "backing"
-		var/backing_color = COLOR_CYAN
+		var/backing_color = COLOR_VERY_PALE_LIME_GREEN
 		if(!pew.magazine)
 			hud.set_hud(backing_color, "oe", "te", "he", "no_mag")
 			return
@@ -100,17 +100,17 @@
 			hud.maptext_x = -8
 		if(!pew.can_shoot())
 			hud.icon_state = "eammo_counter_empty"
-			hud.maptext = span_maptext("<div align='center' valign='middle' style='position:relative'><font color='[COLOR_RED]'><b>[batt_percent]%</b></font><br><font color='[COLOR_CYAN]'>[shot_cost_percent]%</font></div>")
+			hud.maptext = span_maptext("<div align='center' valign='middle' style='position:relative'><font color='[COLOR_RED]'><b>[batt_percent]%</b></font><br><font color='[COLOR_VERY_PALE_LIME_GREEN]'>[shot_cost_percent]%</font></div>")
 			return
 		if(batt_percent <= 25)
-			hud.maptext = span_maptext("<div align='center' valign='middle' style='position:relative'><font color='[COLOR_YELLOW]'><b>[batt_percent]%</b></font><br><font color='[COLOR_CYAN]'>[shot_cost_percent]%</font></div>")
+			hud.maptext = span_maptext("<div align='center' valign='middle' style='position:relative'><font color='[COLOR_YELLOW]'><b>[batt_percent]%</b></font><br><font color='[COLOR_VERY_PALE_LIME_GREEN]'>[shot_cost_percent]%</font></div>")
 			return
-		hud.maptext = span_maptext("<div align='center' valign='middle' style='position:relative'><font color='[COLOR_VIBRANT_LIME]'><b>[batt_percent]%</b></font><br><font color='[COLOR_CYAN]'>[shot_cost_percent]%</font></div>")
+		hud.maptext = span_maptext("<div align='center' valign='middle' style='position:relative'><font color='[COLOR_VIBRANT_LIME]'><b>[batt_percent]%</b></font><br><font color='[COLOR_VERY_PALE_LIME_GREEN]'>[shot_cost_percent]%</font></div>")
 
 	else if(istype(parent, /obj/item/weldingtool))
 		var/obj/item/weldingtool/welder = parent
 		hud.maptext = null
-		var/backing_color = COLOR_TAN_ORANGE
+		var/backing_color = COLOR_THEME_GLASS
 		hud.icon_state = "backing"
 
 		if(welder.get_fuel() < 1)

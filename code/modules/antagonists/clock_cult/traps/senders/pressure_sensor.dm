@@ -1,12 +1,12 @@
 /obj/item/clockwork/trap_placer/pressure_sensor
-	name = "pressure plate"
-	desc = "I wonder what happens if you step on it."
+	name = "нажимная плита"
+	desc = "Интересно, что будет, если на нее наступить."
 	icon_state = "pressure_sensor"
 	result_path = /obj/structure/destructible/clockwork/trap/pressure_sensor
 
 /obj/structure/destructible/clockwork/trap/pressure_sensor
-	name = "pressure plate"
-	desc = "I wonder what happens if you step on it."
+	name = "нажимная плита"
+	desc = "Интересно, что будет, если на нее наступить."
 	icon_state = "pressure_sensor"
 	unwrench_path = /obj/item/clockwork/trap_placer/pressure_sensor
 	component_datum = /datum/component/clockwork_trap/pressure_sensor
@@ -23,7 +23,7 @@
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/on_entered,
 	)
-	AddElement(/datum/element/connect_loc, loc_connections)
+	AddElement(/datum/element/connect_loc, parent, loc_connections)
 
 /datum/component/clockwork_trap/pressure_sensor/proc/on_entered(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER

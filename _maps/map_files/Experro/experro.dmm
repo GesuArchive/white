@@ -4361,13 +4361,6 @@
 /obj/item/ammo_box/magazine/asval,
 /obj/item/ammo_box/magazine/asval,
 /obj/item/ammo_box/magazine/asval,
-/obj/item/ammo_box/magazine/asval,
-/obj/item/ammo_box/magazine/asval,
-/obj/item/ammo_box/magazine/asval,
-/obj/item/ammo_box/magazine/asval,
-/obj/item/ammo_box/magazine/asval,
-/obj/item/ammo_box/magazine/asval,
-/obj/item/ammo_box/magazine/ak74m,
 /obj/item/ammo_box/magazine/ak74m,
 /obj/item/ammo_box/magazine/ak74m,
 /obj/item/ammo_box/magazine/ak74m,
@@ -4376,13 +4369,6 @@
 /obj/item/ammo_casing/a40mm/vog25,
 /obj/item/ammo_casing/a40mm/vog25,
 /obj/item/ammo_casing/a40mm/vog25,
-/obj/item/ammo_box/magazine/asval,
-/obj/item/ammo_box/magazine/asval,
-/obj/item/ammo_box/magazine/asval,
-/obj/item/ammo_box/magazine/ak74m,
-/obj/item/ammo_box/magazine/ak74m,
-/obj/item/ammo_box/magazine/m75,
-/obj/item/ammo_box/magazine/m75,
 /turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "tv" = (
@@ -5673,12 +5659,6 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/partyhard/indoors)
-"yK" = (
-/obj/structure/table/wood/cataclysmdda/sci,
-/obj/item/gun/ballistic/automatic/gyropistol,
-/obj/item/ammo_box/magazine/m75,
-/turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)
 "yL" = (
 /obj/structure/railing{
@@ -11312,7 +11292,6 @@
 /obj/item/clothing/under/suit/blacktwopiece,
 /obj/item/clothing/neck/stripedgreenscarf/grey,
 /obj/item/clothing/neck/tie/red,
-/obj/item/clothing/head/beret/highlander,
 /obj/item/clothing/head/collectable/petehat,
 /obj/item/clothing/head/fedora{
 	icon_state = "curator"
@@ -120502,7 +120481,7 @@ cX
 ov
 ov
 ov
-yK
+cZ
 jl
 jl
 jl

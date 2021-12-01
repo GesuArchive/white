@@ -68,6 +68,8 @@
 	lungpunch.Remove(owner)
 
 /datum/martial_art/krav_maga/proc/check_streak(mob/living/A, mob/living/D)
+	if(!can_use(A))
+		return FALSE
 	switch(streak)
 		if("neck_chop")
 			streak = ""
@@ -84,6 +86,8 @@
 	return FALSE
 
 /datum/martial_art/krav_maga/proc/leg_sweep(mob/living/A, mob/living/D)
+	if(!can_use(A))
+		return FALSE
 	if(D.stat || D.IsParalyzed())
 		return FALSE
 	var/obj/item/bodypart/affecting = D.get_bodypart(BODY_ZONE_CHEST)
@@ -98,6 +102,8 @@
 	return TRUE
 
 /datum/martial_art/krav_maga/proc/quick_choke(mob/living/A, mob/living/D)//is actually lung punch
+	if(!can_use(A))
+		return FALSE
 	D.visible_message(span_warning("[A] pounds [D] on the chest!") , \
 					span_userdanger("Your chest is slammed by [A]! You can't breathe!") , span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, A)
 	to_chat(A, span_danger("You pound [D] on the chest!"))
@@ -109,6 +115,8 @@
 	return TRUE
 
 /datum/martial_art/krav_maga/proc/neck_chop(mob/living/A, mob/living/D)
+	if(!can_use(A))
+		return FALSE
 	D.visible_message(span_warning("[A] karate chops [D] neck!") , \
 					span_userdanger("Your neck is karate chopped by [A], rendering you unable to speak!") , span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, A)
 	to_chat(A, span_danger("You karate chop [D] neck, rendering [D.ru_na()] unable to speak!"))
@@ -122,12 +130,16 @@
 	return TRUE
 
 /datum/martial_art/krav_maga/grab_act(mob/living/A, mob/living/D)
+	if(!can_use(A))
+		return FALSE
 	if(check_streak(A,D))
 		return TRUE
 	log_combat(A, D, "grabbed (Krav Maga)")
 	..()
 
 /datum/martial_art/krav_maga/harm_act(mob/living/A, mob/living/D)
+	if(!can_use(A))
+		return FALSE
 	if(check_streak(A,D))
 		return TRUE
 	log_combat(A, D, "punched")
@@ -152,6 +164,8 @@
 	return TRUE
 
 /datum/martial_art/krav_maga/disarm_act(mob/living/A, mob/living/D)
+	if(!can_use(A))
+		return FALSE
 	if(check_streak(A,D))
 		return TRUE
 	var/obj/item/bodypart/affecting = D.get_bodypart(ran_zone(A.zone_selected))

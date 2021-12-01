@@ -13,15 +13,15 @@
 	time = 64
 
 /datum/surgery_step/sever_limb/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю отрезать от [target] [parse_zone(target_zone)]...") ,
-		span_notice("[user] начинает орезать от [target] [parse_zone(target_zone)]!") ,
-		span_notice("[user] начинает отрезать от [target] [parse_zone(target_zone)]!"))
+	display_results(user, target, span_notice("Начинаю отрезать [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
+		span_notice("[user] начинает отрезать [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_notice("[user] начинает отрезать [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!"))
 
 /datum/surgery_step/sever_limb/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	var/mob/living/carbon/human/L = target
-	display_results(user, target, span_notice("Отрезал от [L] [parse_zone(target_zone)].") ,
-		span_notice("[user] отрезал от [L] [parse_zone(target_zone)]!") ,
-		span_notice("[user] отрезал от [L] [parse_zone(target_zone)]!"))
+//	var/mob/living/carbon/human/L = target
+	display_results(user, target, span_notice("Отрезал [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] отрезал [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_notice("[user] отрезал [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!"))
 	if(surgery.operated_bodypart)
 		var/obj/item/bodypart/target_limb = surgery.operated_bodypart
 		target_limb.drop_limb()

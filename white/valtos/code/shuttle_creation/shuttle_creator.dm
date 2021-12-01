@@ -206,6 +206,8 @@ GLOBAL_LIST_EMPTY(custom_shuttle_machines)		//Machines that require updating (He
 		if(istype(cur_area, recorded_shuttle_area))
 			if(istype(curT, /turf/open/space))
 				continue
+			if(istype(curT, /turf/open/openspace))
+				continue
 			if(length(curT.baseturfs) < 2)
 				continue
 			//Add the shuttle base shit to the shuttle
@@ -337,6 +339,7 @@ GLOBAL_LIST_EMPTY(custom_shuttle_machines)		//Machines that require updating (He
 /obj/item/shuttle_creator/proc/add_saved_area(mob/user)
 	var/static/area_or_turf_fail_types = typecacheof(list(
 		/turf/open/space,
+		/turf/open/openspace,
 		/area/shuttle
 		))
 	//Detect the turfs connected in the curerrent enclosed area

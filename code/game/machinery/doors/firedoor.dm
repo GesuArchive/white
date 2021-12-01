@@ -259,13 +259,13 @@
 		. += "welded_open"
 
 /obj/machinery/door/firedoor/open()
-	. = ..()
 	playsound(src, 'white/valtos/sounds/firelock.ogg', 25)
+	. = ..()
 	latetoggle()
 
 /obj/machinery/door/firedoor/close()
-	. = ..()
 	playsound(src, 'white/valtos/sounds/firelock.ogg', 25)
+	. = ..()
 	latetoggle()
 
 /obj/machinery/door/firedoor/proc/emergency_pressure_stop(consider_timer = TRUE)

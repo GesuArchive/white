@@ -165,6 +165,8 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	update_icon()
 	addtimer(CALLBACK(src, .proc/wash_cycle), 200)
 
+	playsound(get_turf(src), 'white/valtos/sounds/wm.ogg', 80, TRUE)
+
 	START_PROCESSING(SSfastprocess, src)
 
 /obj/machinery/washing_machine/process(delta_time)

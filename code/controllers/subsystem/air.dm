@@ -46,6 +46,7 @@ SUBSYSTEM_DEF(air)
 	var/list/queued_for_activation
 
 	var/list/paused_z_levels	//Paused z-levels will not add turfs to active
+	var/list/disabled_z_levels  //fuck you instead
 	var/list/turfs_to_activate
 
 /datum/controller/subsystem/air/stat_entry(msg)
@@ -317,6 +318,8 @@ SUBSYSTEM_DEF(air)
 		T.eg_garbage_collect()
 
 /datum/controller/subsystem/air/proc/add_to_active(turf/open/T, blockchanges = 1)
+	if(LAZYLEN(disabled_z_levels) && (T.z in disabled_z_levels))
+		return
 	if(LAZYLEN(paused_z_levels) && (T.z in paused_z_levels))
 		LAZYADD(turfs_to_activate, T)
 	else if(istype(T) && T.air)
@@ -341,6 +344,9 @@ SUBSYSTEM_DEF(air)
 
 /datum/controller/subsystem/air/proc/pause_z(z_level)
 	LAZYADD(paused_z_levels, z_level)
+
+/datum/controller/subsystem/air/proc/disable_atmos_in_z(z_level)
+	LAZYADD(disabled_z_levels, z_level)
 
 /datum/controller/subsystem/air/proc/unpause_z(z_level)
 	LAZYREMOVE(paused_z_levels, z_level)

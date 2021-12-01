@@ -14,10 +14,6 @@
 	if (lighting_object)
 		qdel(lighting_object, force=TRUE) //Shitty fix for lighting objects persisting after death
 
-	var/area/our_area = loc
-	if (!our_area.static_lighting && !light_sources)
-		return
-
 	new/datum/lighting_object(src)
 
 // Used to get a scaled lumcount.
@@ -39,6 +35,7 @@
 	L = lighting_corner_NW
 	if (L)
 		totallums += L.lum_r + L.lum_b + L.lum_g
+
 
 	totallums /= 12 // 4 corners, each with 3 channels, get the average.
 

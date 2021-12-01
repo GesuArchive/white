@@ -147,6 +147,14 @@
 	icon = 'white/Wzzzz/Valya/clothing/hats.dmi'
 	armor = list("melee" = 35, "bullet" = 40, "laser" = 40,"energy" = 25, "bomb" = 45, "bio" = 2, "rad" = 0, "fire" = 30, "acid" = 20)
 
+/obj/item/clothing/head/helmet/elite/yellow
+	name = "жёлтый stahlhelm"
+	icon_state = "m35_elite_helmet_yellow"
+
+/obj/item/clothing/head/helmet/elite/blue
+	name = "синий stahlhelm"
+	icon_state = "m35_elite_helmet_blue"
+
 /obj/item/clothing/head/helmet/pickelhelm
 	name = "pickelhaube"
 	desc = "A spiked helmet.On the front is an eagle of gold color. Inspires respect for the Kaiser"
@@ -154,17 +162,6 @@
 	worn_icon = 'white/Wzzzz/Valya/clothing/mob/hat.dmi'
 	icon = 'white/Wzzzz/Valya/clothing/hats.dmi'
 	icon_state = "pickelhelm"
-
-/obj/item/clothing/head/helmet/richard
-	name = "richard's head"
-	desc = "Legendary petuch."
-	worn_icon = 'white/Wzzzz/Valya/clothing/mob/mask.dmi'
-	icon = 'white/Wzzzz/Valya/clothing/hats.dmi'
-	icon_state = "richard"
-	dynamic_fhair_suffix = ""
-	dynamic_hair_suffix = ""
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 9,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 10)
 
 /obj/item/clothing/mask/gas/germanfull
 	name = "old style gas mask"

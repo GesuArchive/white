@@ -77,6 +77,17 @@
 	name = "синий берет"
 	desc = "Простой синий берет. На деле он голубой, но кого это волнует?"
 	icon = 'white/rebolution228/icons/clothing/hats.dmi'
+	icon_state = "blueberet"
 	worn_icon = 'white/rebolution228/icons/clothing/mob/hats_mob.dmi'
+	worn_icon_state = "blueberet"
 	greyscale_colors = "#3f3c40"
 
+/obj/item/clothing/head/beret/airborne
+	name = "берет десанта"
+	desc = "Голубой берет воздушно-десантных войск с красной звездой в венке из колосьев. ВДВ, с неба привет, ультрамариновый на бок берет!"
+	icon = 'white/rebolution228/icons/clothing/hats.dmi'
+	icon_state = "vdv_beret"
+	worn_icon = 'white/rebolution228/icons/clothing/mob/hats_mob.dmi'
+	worn_icon_state = "vdv_beret"
+	greyscale_colors = null //yeah so whaT?
+	armor = list(MELEE = 10, BULLET = 10, LASER = 15, ENERGY = 20, BOMB = 10, BIO = 0, RAD = 0, FIRE = 90, ACID = 5, WOUND = 4)

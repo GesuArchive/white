@@ -548,8 +548,8 @@
 		. = ..()
 
 /obj/structure/table/bronze
-	name = "бронзовый стол"
-	desc = "Прочный стол из бронзы."
+	name = "латунный стол"
+	desc = "Прочный стол из латуни."
 	icon = 'icons/obj/smooth_structures/brass_table.dmi'
 	icon_state = "brass_table-0"
 	base_icon_state = "brass_table"
@@ -619,7 +619,7 @@
 /obj/structure/table/optable/proc/patient_deleted(datum/source)
 	SIGNAL_HANDLER
 	set_patient(null)
-	
+
 /obj/structure/table/optable/proc/check_eligible_patient()
 	get_patient()
 	if(!patient)

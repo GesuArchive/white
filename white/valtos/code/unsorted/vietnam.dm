@@ -90,15 +90,6 @@
 	attack_verb_simple = "прописывает двоечку"
 	loot = list(/obj/item/clothing/under/switer/tracksuit)
 
-/obj/structure/barricade/wooden/stockade
-	name = "частокол"
-	desc = "Дешево и сердито."
-	icon = 'white/valtos/icons/objects.dmi'
-	icon_state = "stockade"
-	drop_amount = 1
-	pixel_y = 16
-	layer = ABOVE_MOB_LAYER
-
 /turf/open/floor/grass/gensgrass/dirty/stone
 	name = "каменный пол"
 	desc = "Классика."

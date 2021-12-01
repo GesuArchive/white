@@ -25,6 +25,11 @@
 	spark_system.set_up(4,1,src)
 	spark_system.attach(src)
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 	if(!ignore_typecache)
 		ignore_typecache = typecacheof(list(
 			/obj/effect,
@@ -108,10 +113,6 @@
 	. = ..()
 	time_between_triggers = 10
 	flare_message = span_warning("[src] snaps shut!")
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-	)
-	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/trap/stun/hunter/Destroy()
 	if(!QDELETED(stored_item))

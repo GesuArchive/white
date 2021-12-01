@@ -1,6 +1,6 @@
 /datum/surgery/revival
-	name = "Revival"
-	desc = "An experimental surgical procedure which involves reconstruction and reactivation of the patient's brain even long after death. The body must still be able to sustain life."
+	name = "Нейронная Реанимация"
+	desc = "Экспериментальная хирургическая операция, которая позволяет вернуть пациента к жизни, даже спустя продолжительное время, главное чтобы тело было в относительно целом состоянии."
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
 				/datum/surgery_step/saw,
@@ -26,7 +26,7 @@
 	return TRUE
 
 /datum/surgery_step/revive
-	name = "shock body"
+	name = "разряд"
 	implements = list(/obj/item/shockpaddles = 100, /obj/item/melee/baton = 75, /obj/item/gun/energy = 60)
 	repeatable = TRUE
 	time = 5 SECONDS
@@ -36,31 +36,31 @@
 	if(istype(tool, /obj/item/shockpaddles))
 		var/obj/item/shockpaddles/S = tool
 		if((S.req_defib && !S.defib.powered) || !S.wielded || S.cooldown || S.busy)
-			to_chat(user, span_warning("You need to wield both paddles, and [S.defib] must be powered!"))
+			to_chat(user, span_warning("Вам необходимо держать электроды в обеих руках, а [S.defib] должен быть заряжен!"))
 			return FALSE
 	if(istype(tool, /obj/item/melee/baton))
 		var/obj/item/melee/baton/B = tool
 		if(!B.turned_on)
-			to_chat(user, span_warning("[B] needs to be active!"))
+			to_chat(user, span_warning("[B] должен быть активирован!"))
 			return FALSE
 	if(istype(tool, /obj/item/gun/energy))
 		var/obj/item/gun/energy/E = tool
 		if(E.chambered && istype(E.chambered, /obj/item/ammo_casing/energy/electrode))
 			return TRUE
 		else
-			to_chat(user, span_warning("You need an electrode for this!"))
+			to_chat(user, span_warning("Неоткуда взять разряд!"))
 			return FALSE
 
 /datum/surgery_step/revive/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("You prepare to give [target] brain the spark of life with [tool].") ,
-		span_notice("[user] prepares to shock [target] brain with [tool].") ,
-		span_notice("[user] prepares to shock [target] brain with [tool]."))
+	display_results(user, target, span_notice("Вы готовитесь послать разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
+		span_notice("[user] готовится послать разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
+		span_notice("[user] готовится послать разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]."))
 	target.notify_ghost_cloning("Someone пытается zap your brain.", source = target)
 
 /datum/surgery_step/revive/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
-	display_results(user, target, span_notice("You successfully shock [target] brain with [tool]...") ,
-		span_notice("[user] send a powerful shock to [target] brain with [tool]...") ,
-		span_notice("[user] send a powerful shock to [target] brain with [tool]..."))
+	display_results(user, target, span_notice("Вы успешно послали разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]...") ,
+		span_notice("[user] успешно послал разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]...") ,
+		span_notice("[user] успешно послал разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]..."))
 	playsound(get_turf(target), 'sound/magic/lightningbolt.ogg', 50, TRUE)
 	if(!(target.grab_ghost())) //sosanie
 		target.ice_cream_mob = TRUE
@@ -68,18 +68,18 @@
 	target.adjustOxyLoss(-50, 0)
 	target.updatehealth()
 	if(target.revive(full_heal = FALSE, admin_revive = FALSE))
-		target.visible_message(span_notice("...[target] wakes up, alive and aware!"))
+		target.visible_message(span_notice("...[target] проснись и пой!"))
 		target.emote("gasp")
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 50, 199) //MAD SCIENCE
 		return TRUE
 	else
-		target.visible_message(span_warning("...[target.ru_who()] convulses, then lies still."))
+		target.visible_message(span_warning("...[target.ru_who()] содрогается и замирает."))
 		return FALSE
 
 /datum/surgery_step/revive/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("You shock [target] brain with [tool], but [target.ru_who()] doesn't react.") ,
-		span_notice("[user] send a powerful shock to [target] brain with [tool], but [target.ru_who()] doesn't react.") ,
-		span_notice("[user] send a powerful shock to [target] brain with [tool], but [target.ru_who()] doesn't react."))
+	display_results(user, target, span_notice("Вы послали разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool], но [target.ru_who()] не реагирует.") ,
+		span_notice("[user] послал разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool], но [target.ru_who()] не реагирует.") ,
+		span_notice("[user] послал разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool], но [target.ru_who()] не реагирует."))
 	playsound(get_turf(target), 'sound/magic/lightningbolt.ogg', 50, TRUE)
 	target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 15, 180)
 	return FALSE

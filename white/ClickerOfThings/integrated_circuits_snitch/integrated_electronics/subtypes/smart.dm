@@ -1,14 +1,6 @@
 /obj/item/integrated_circuit_old/smart
 	category_text = "Smart"
 
-/obj/item/integrated_circuit_old/smart/Initialize(mapload)
-	. = ..()
-	var/list/maybe = list()
-	for(var/mob/living/L in view(1))
-		maybe += ADMIN_LOOKUPFLW(L)
-	if(maybe)
-		message_admins("[capitalize(src.name)] был создан в [get_area_name(get_turf(src))]. Возможные пользователи: [english_list(maybe)]")
-
 /obj/item/integrated_circuit_old/smart/basic_pathfinder
 	name = "basic pathfinder"
 	desc = "This complex circuit is able to determine what direction a given target is."

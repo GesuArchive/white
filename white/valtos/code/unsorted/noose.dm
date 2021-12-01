@@ -49,7 +49,7 @@
 
 /obj/structure/chair/noose/user_unbuckle_mob(mob/living/M,mob/living/user)
 	if(has_buckled_mobs())
-		if(M != user)
+		if(M != user && user)
 			user.visible_message(span_notice("[user] начинает ослаблять вешалку вокруг шеи [M]...") ,\
 				span_notice("Начинаю ослаблять вешалку вокруг шеи [M]..."))
 			if(!do_mob(user, M, 100))

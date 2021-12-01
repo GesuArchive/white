@@ -358,7 +358,7 @@
 	if(sanitize_filename(persistence_id) != persistence_id)
 		stack_trace("Invalid persistence_id - [persistence_id]")
 		return
-	if(!C.painting_name)
+	if(!C.painting_name || C.painting_name == " ")
 		C.painting_name = "Untitled Artwork"
 	var/data = C.get_data_string()
 	var/md5 = md5(lowertext(data))

@@ -462,8 +462,8 @@
 	custom_price = PAYCHECK_EASY
 
 /obj/item/reagent_containers/food/drinks/sillycup
-	name = "paper cup"
-	desc = "A paper water cup."
+	name = "бумажный стаканчик"
+	desc = "Для воды."
 	icon_state = "water_cup_e"
 	possible_transfer_amounts = list()
 	volume = 10

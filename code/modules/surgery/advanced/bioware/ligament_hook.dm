@@ -1,5 +1,5 @@
 /datum/surgery/advanced/bioware/ligament_hook
-	name = "Крючкообразное изменение связок"
+	name = "Модифицирование: Крючкообразные Связки"
 	desc = "Хирургическая процедура, которая изменяет форму соединения между конечностями и туловищем, благодаря чему конечности можно будет прикрепить вручную, если они оторвутся. \
 	Однако, это ослабляет соединение, в результате чего конечности легче отрываются."
 	steps = list(/datum/surgery_step/incise,
@@ -18,14 +18,14 @@
 	time = 125
 
 /datum/surgery_step/reshape_ligaments/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю менять форму связок [target] на крючкообразную.") ,
-		span_notice("[user] начал менять форму связок[target] на крючкообразную.") ,
-		span_notice("[user] начал работать над связками [target]."))
+	display_results(user, target, span_notice("Начинаю менять форму связок [skloname(target.name, RODITELNI, target.gender)] на крючкообразную.") ,
+		span_notice("[user] начал менять форму связок [skloname(target.name, RODITELNI, target.gender)] на крючкообразную.") ,
+		span_notice("[user] начал работать над связками [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/reshape_ligaments/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, span_notice("Изменил форму связок [target] на соединяющий крючок!") ,
-		span_notice("[user] сформировал из связок [target] соединяющий крючок!") ,
-		span_notice("[user] закончил работу над связками [target]."))
+	display_results(user, target, span_notice("Изменил форму связок [skloname(target.name, RODITELNI, target.gender)] на соединяющий крючок!") ,
+		span_notice("[user] сформировал из связок [skloname(target.name, RODITELNI, target.gender)] соединяющий крючок!") ,
+		span_notice("[user] закончил работу над связками [skloname(target.name, RODITELNI, target.gender)]."))
 	new /datum/bioware/hooked_ligaments(target)
 	return ..()
 

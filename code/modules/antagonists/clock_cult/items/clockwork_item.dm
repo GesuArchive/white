@@ -1,6 +1,6 @@
 /obj/item/clockwork
-	name = "Clockcult Item"
-	desc = "The base item for clockcult, please contact coders."
+	name = "механическая штука"
+	desc = "Что-то зачасовалось не так."
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	icon = 'icons/obj/clockwork_objects.dmi'
 	icon_state = "rare_pepe"
@@ -11,6 +11,8 @@
 	. = list("[get_examine_string(user, TRUE)].")
 
 	if(is_servant_of_ratvar(user) && clockwork_desc)
+		. += "<hr>"
 		. += clockwork_desc
 	else if(desc)
+		. += "<hr>"
 		. += desc

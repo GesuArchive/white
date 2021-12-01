@@ -85,6 +85,10 @@
 	extra_damage = 30
 	extra_penetration = 10
 
+/obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks/warfare
+	extra_damage = 60
+	extra_penetration = 20
+	mag_type = /obj/item/ammo_box/magazine/internal/shot/sks/warfare
 
 /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks/scoped
 	name = "Scoped SKS"
@@ -126,6 +130,13 @@
 	ammo_type = /obj/item/ammo_casing/fallout/a762
 	caliber = "a762"
 	max_ammo = 10
+
+
+/obj/item/ammo_box/magazine/internal/shot/sks/warfare
+	name = "SKS internal magazine (7.62)"
+	ammo_type = /obj/item/ammo_casing/fallout/a762
+	caliber = "a762"
+	max_ammo = 5
 
 /obj/item/ammo_box/magazine/internal/shot/lever
 	name = "lever action shotgun internal tube magazine"

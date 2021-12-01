@@ -255,11 +255,20 @@
 // Automatically recharges air (unless off), will flush when ready if pre-set
 // Can hold items and human size things, no other draggables
 
+GLOBAL_LIST_EMPTY(disposal_bins)
+
 /obj/machinery/disposal/bin
 	name = "мусорка"
 	desc = "Пневматическая установка для удаления отходов."
 	icon_state = "disposal"
 
+/obj/machinery/disposal/bin/Initialize(mapload, obj/structure/disposalconstruct/make_from)
+	. = ..()
+	GLOB.disposal_bins += src
+
+/obj/machinery/disposal/bin/Destroy()
+	GLOB.disposal_bins -= src
+	. = ..()
 
 // attack by item places it in to disposal
 /obj/machinery/disposal/bin/attackby(obj/item/I, mob/user, params)

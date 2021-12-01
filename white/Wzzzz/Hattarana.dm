@@ -12,6 +12,8 @@
 /obj/item/clothing/suit/toggle/hawaii
 	name = "hawai skirt"
 	desc = "Shorts! Shirt! Miami! Sexy!"
+	icon = 'white/Wzzzz/clothing/suits.dmi'
+	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "hawaii"
 	inhand_icon_state = "hawaii"
 

@@ -95,7 +95,7 @@ SUBSYSTEM_DEF(zclear)
 				//Zombie level detected.
 				announced_zombie_levels["[level.z_value]"] = TRUE
 				if(level.orbital_body)
-					priority_announce("Nanotrasen long ranged sensors have indicated that all sentient life forms at priority waypoint [level.orbital_body.name] have ceased life functions. Command is recommended to establish a rescue operation to recover the bodies. Due to the nature of the threat at this location, security personnel armed with lethal weaponry is recommended to accompany the rescue team.", "Nanotrasen Long Range Sensors")
+					priority_announce("Датчики дальнего действия Нанотрейзен показали, что все разумные формы жизни находящиеся в приоритетной точке [level.orbital_body.name] более не подают признаков жизни. Командованию рекомендуется организовать спасательную операцию для извлечения тел. В связи с характером угрозы в этом месте, сотрудникам службы безопасности, вооруженным смертоносным оружием, рекомендуется сопровождать спасательную команду.", "Сенсоры дальнего обнаружения Нанотрейзен")
 			continue
 		//Level is free, do the wiping thing.
 		LAZYREMOVE(autowipe, level)

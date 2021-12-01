@@ -28,9 +28,9 @@
 /obj/item/gun/ballistic/automatic/fallout/railgun/Initialize()
 	. = ..()
 	AddComponent(/datum/component/automatic_fire_funny, 0.01)
+	RemoveElement(/datum/element/jamming) // not funny
 
 /obj/item/gun/ballistic/automatic/fallout/railgun/AltClick(mob/user)
-	. = ..()
 	if(user?.client?.holder)
 		fatality_mode = !fatality_mode
 		to_chat(user, span_notice("<b>ЭКСТЕРМИНАТУС:</b> [fatality_mode ? "АКТИВЕН" : "ВЫКЛЮЧЕН"]!"))

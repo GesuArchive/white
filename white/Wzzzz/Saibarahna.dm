@@ -19,8 +19,8 @@
 	custom_materials = list(/datum/material/iron = 500)
 
 /obj/item/melee/sabre/officer
-	name = "officer sword"
-	desc = "A curved sword issued to german officers"
+	name = "офицерский меч"
+	desc = "Кривой меч немецких офицеров."
 	icon = 'white/Wzzzz/icons/Weea.dmi'
 	icon_state = "officersword"
 	inhand_icon_state = "officersword"
@@ -49,7 +49,7 @@
 	worn_icon = 'white/Wzzzz/clothing/mob/belt.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	flags_1 = CONDUCT_1
-	force = 28
+	force = 68
 	throwforce = 7
 	w_class = WEIGHT_CLASS_BULKY
 	block_chance = 45
@@ -99,8 +99,8 @@
 	custom_materials = list(/datum/material/iron = 500)
 
 /obj/item/melee/classic_baton/german // здесь был реба и я официально заявляю что я ебал зергиверги в очко
-	name = "резиновая дубинка"
-	desc = "Резиновая палка 'ПР-60' с поперечной рукояткой, классический инвентарь служб охраны и символ демократии, выполненная из резиновой смеси. Используется для обездвиживания различных криминальных элементов."
+	name = "резиновая тонфа"
+	desc = "Резиновая палка 'ПР-92' с поперечной рукояткой, классический инвентарь служб охраны и символ демократии. Используется для обездвиживания различных криминальных элементов."
 	icon = 'white/Wzzzz/icons/Weea.dmi'
 	icon_state = "baton"
 	cooldown = 20

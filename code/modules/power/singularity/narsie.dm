@@ -35,11 +35,13 @@
 	var/soul_goal = 0
 	var/souls = 0
 	var/resolved = FALSE
+	var/clashing = FALSE
+	var/next_attack_tick
 
 /obj/narsie/Initialize()
 	. = ..()
 
-	AddElement(/datum/element/point_of_interest)
+	SSpoints_of_interest.make_point_of_interest(src)
 
 	singularity = WEAKREF(AddComponent(
 		/datum/component/singularity, \
@@ -90,6 +92,8 @@
 	soul_goal = round(1 + LAZYLEN(souls_needed) * 0.75)
 	INVOKE_ASYNC(GLOBAL_PROC, .proc/begin_the_end)
 
+	check_gods_battle()
+
 /obj/narsie/Destroy()
 	send_to_playing_players(span_narsie("\"<b>[pick("Nooooo...", "Not die. How-", "Die. Mort-", "Sas tyen re-")]\"</b>"))
 	sound_to_playing_players('sound/magic/demon_dies.ogg', 50)
@@ -113,8 +117,29 @@
 /obj/narsie/attack_ghost(mob/user)
 	makeNewConstruct(/mob/living/simple_animal/hostile/construct/harvester, user, cultoverride = TRUE, loc_override = loc)
 
-/obj/narsie/process()
+/obj/narsie/process(delta_time)
 	var/datum/component/singularity/singularity_component = singularity.resolve()
+
+	if(clashing)
+		//Oh god what is it doing...
+		singularity_component?.target = clashing
+		if(get_dist(src, clashing) < 5)
+			if(next_attack_tick < world.time)
+				next_attack_tick = world.time + rand(50, 100)
+				to_chat(world, "<span class='danger'>[pick("You hear the scratching of cogs.","You hear the clanging of pipes.","You feel your bones start to rust...")]</span>")
+				SEND_SOUND(world, 'sound/magic/clockwork/narsie_attack.ogg')
+				SpinAnimation(4, 0)
+				for(var/mob/living/M in GLOB.player_list)
+					shake_camera(M, 25, 6)
+					M.Knockdown(10)
+				if(DT_PROB(max(SSticker.mode?.cult.len/2, 15), delta_time))
+					SEND_SOUND(world, 'sound/magic/clockwork/anima_fragment_death.ogg')
+					SEND_SOUND(world, 'sound/effects/explosionfar.ogg')
+					to_chat(world, "<span class='narsie'>You really thought you could best me twice?</span>")
+					QDEL_NULL(clashing)
+					for(var/datum/mind/M as() in GLOB.servants_of_ratvar)
+						to_chat(M, "<span class='userdanger'>You feel a stabbing pain in your chest... This can't be happening!</span>")
+						M.current?.dust()
 
 	if (!isnull(singularity_component) && (!singularity_component?.target || prob(NARSIE_CHANCE_TO_PICK_NEW_TARGET)))
 		pickcultist()

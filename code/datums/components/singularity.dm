@@ -167,8 +167,9 @@
 
 /datum/component/singularity/proc/eat()
 	var/atom/atom_parent = parent
+	var/list/turfuck = spiral_range_turfs(grav_pull, parent) + spiral_range_turfs(grav_pull, SSmapping.get_turf_above(get_turf(atom_parent)))
 
-	for (var/_tile in spiral_range_turfs(grav_pull, parent))
+	for (var/_tile in turfuck)
 		var/turf/tile = _tile
 		if (!tile || !isturf(atom_parent.loc))
 			continue
@@ -199,6 +200,10 @@
 
 	if (!QDELETED(target) && prob(CHANCE_TO_MOVE_TO_TARGET))
 		drifting_dir = get_dir(parent, target)
+
+	if(SSmapping.get_turf_below(get_turf(parent)))
+		var/atom/movable/S = parent
+		S.forceMove(SSmapping.get_turf_below(get_turf(parent)))
 
 	step(parent, drifting_dir)
 

@@ -42,7 +42,7 @@
 			if(get_location_accessible(target, target_zone) || surgery.ignore_clothes)
 				initiate(user, target, target_zone, tool, surgery, try_to_fail)
 			else
-				to_chat(user, span_warning("Мне нужно иметь доступ к [parse_zone(target_zone)] <b>[target]</b> для проведения хирургической операции!"))
+				to_chat(user, span_warning("Мне нужно иметь доступ к [parse_zone(target_zone)] <b>[skloname(target.name, DATELNI, target.gender)]</b> для проведения хирургической операции!"))
 			return TRUE	//returns TRUE so we don't stab the guy in the dick or wherever.
 
 	if(repeatable)
@@ -122,9 +122,9 @@
 	return advance
 
 /datum/surgery_step/proc/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю выполнять операцию на <b>[target]</b>...") ,
-		span_notice("<b>[user]</b> начинает выполнять операцию на <b>[target]</b>.") ,
-		span_notice("<b>[user]</b> начинает выполнять операцию на <b>[target]</b>."))
+	display_results(user, target, span_notice("Начинаю выполнять операцию на <b>[skloname(target.name, PREDLOZHNI, target.gender)]</b>...") ,
+		span_notice("<b>[user]</b> начинает выполнять операцию на <b>[skloname(target.name, PREDLOZHNI, target.gender)]</b>.") ,
+		span_notice("<b>[user]</b> начинает выполнять операцию на <b>[skloname(target.name, PREDLOZHNI, target.gender)]</b>."))
 
 /datum/surgery_step/proc/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = TRUE)
 	if(default_display_results)

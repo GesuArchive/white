@@ -41814,6 +41814,9 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/blue,
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
+	dir = 1
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/cryo)
 "cdr" = (
@@ -44688,7 +44691,6 @@
 /turf/open/floor/plasteel,
 /area/medical/sleeper)
 "cnv" = (
-/obj/structure/table/glass,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
@@ -44699,6 +44701,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/machinery/chem_seller,
 /turf/open/floor/plasteel/white/side{
 	dir = 5
 	},
@@ -55081,6 +55084,7 @@
 /area/medical/medbay/central)
 "dtM" = (
 /obj/effect/turf_decal/bot,
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plasteel,
 /area/commons/vacant_room/commissary)
 "dtP" = (
@@ -76141,6 +76145,13 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/research)
+"sSk" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/open/floor/plasteel,
+/area/hallway/secondary/entry)
 "sSr" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
@@ -92626,7 +92637,7 @@ lMJ
 lMJ
 aVs
 bvB
-aWT
+sSk
 aVs
 aav
 aav

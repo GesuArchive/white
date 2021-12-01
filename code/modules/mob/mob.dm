@@ -952,7 +952,8 @@
 ///Add a spell to the mobs spell list
 /mob/proc/AddSpell(obj/effect/proc_holder/spell/S)
 	LAZYADD(mob_spell_list, S)
-	S.action.Grant(src)
+	if(S?.action)
+		S.action.Grant(src)
 
 ///Remove a spell from the mobs spell list
 /mob/proc/RemoveSpell(obj/effect/proc_holder/spell/spell)

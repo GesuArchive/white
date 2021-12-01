@@ -1,5 +1,5 @@
 /datum/surgery/coronary_bypass
-	name = "Реваскуляризация миокарда"
+	name = "Реконструкция: Коронарное Шунтирование"
 	steps = list(
 		/datum/surgery_step/incise, /datum/surgery_step/retract_skin, /datum/surgery_step/saw, /datum/surgery_step/clamp_bleeders,
 		/datum/surgery_step/incise_heart, /datum/surgery_step/coronary_bypass, /datum/surgery_step/close,
@@ -22,7 +22,7 @@
 	time = 16
 
 /datum/surgery_step/incise_heart/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю делать надрез в сердце [sklonenie(target, RODITELNI, target.gender)]...") ,
+	display_results(user, target, span_notice("Начинаю делать надрез в сердце [skloname(target.name, RODITELNI, target.gender)]...") ,
 		span_notice("[user] начинает делать надрез в [target.ru_who()] сердце.") ,
 		span_notice("[user] начинает делать надрез в [target.ru_who()] сердце."))
 
@@ -56,7 +56,7 @@
 	time = 90
 
 /datum/surgery_step/coronary_bypass/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю делать обходное штунирование сердца [sklonenie(target, RODITELNI, target.gender)]...") ,
+	display_results(user, target, span_notice("Начинаю делать обходное штунирование сердца [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает делать обходное штунирование [target.ru_who()] сердца!") ,
 			span_notice("[user] начинает делать обходное штунирование [target.ru_who()] сердца!"))
 
@@ -65,7 +65,7 @@
 	var/obj/item/organ/heart/heart = target.getorganslot(ORGAN_SLOT_HEART)
 	if(heart)	//slightly worrying if we lost our heart mid-operation, but that's life
 		heart.operated = TRUE
-	display_results(user, target, span_notice("Успешно выполняю обходное штунирование на сердце [sklonenie(target, RODITELNI, target.gender)].") ,
+	display_results(user, target, span_notice("Успешно выполняю обходное штунирование на сердце [skloname(target.name, RODITELNI, target.gender)].") ,
 			span_notice("[user] успешно выполняет обходное штунирование на [target.ru_who()] сердце.") ,
 			span_notice("[user] успешно выполняет обходное штунирование на [target.ru_who()] сердце."))
 	return ..()

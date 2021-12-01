@@ -172,49 +172,6 @@
 		return
 	smasher.break_an_arm(arm)
 
-/turf/closed/wall/attack_hand(mob/user)
-	. = ..()
-	if(.)
-		return
-	user.changeNext_move(CLICK_CD_MELEE)
-	var/turf/turf_one = SSmapping.get_turf_above(get_turf(user))
-	var/turf/turf_two = SSmapping.get_turf_above(src)
-	playsound(src, 'sound/weapons/genhit.ogg', 25, TRUE)
-	add_fingerprint(user)
-	if(isopenspace(turf_one))
-		if(locate(/obj/structure/lattice) in turf_one)
-			to_chat(user, span_notice("Решётка над головой не даёт пройти"))
-			return
-		if(do_after(user, 3 SECONDS, target = src))
-			if(isopenturf(turf_two))
-				var/obstacles = FALSE
-				for(var/obj/O in turf_two)
-					if(O.density && (istype(O, /obj/structure/window) || istype(O, /obj/machinery/door)))
-						obstacles = TRUE
-				if(!obstacles)
-					user.forceMove(turf_two)
-					if(!HAS_TRAIT(user, TRAIT_FREERUNNING))
-						if(ishuman(user))
-							var/mob/living/carbon/human/H = user
-							H.adjustStaminaLoss(60)
-							H.set_resting(TRUE)
-					to_chat(user, span_notice("Взбираюсь по стене наверх..."))
-					return
-			user.movement_type |= FLYING
-			user.forceMove(turf_one)
-			to_chat(user, span_notice("Взбираюсь по стене наверх осторожно..."))
-			var/time_to_fall = 1 SECONDS
-			if(!HAS_TRAIT(user, TRAIT_FREERUNNING))
-				if(ishuman(user))
-					var/mob/living/carbon/human/H = user
-					H.adjustStaminaLoss(60)
-			else
-				time_to_fall = 2 SECONDS
-			spawn(time_to_fall)
-				user.movement_type &= ~FLYING
-	else
-		to_chat(user, span_notice("Толкаю стену, но ничего не происходит!"))
-
 /turf/closed/wall/attackby(obj/item/W, mob/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(istype(W,/obj/item/melee/baseball_bat/hos/hammer))

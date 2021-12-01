@@ -210,7 +210,7 @@
 	var/enthralling = FALSE
 
 /obj/effect/proc_holder/spell/targeted/enthrall/cast(list/targets,mob/living/carbon/human/user = usr)
-	listclearnulls(SSticker.mode.thralls)
+	list_clear_nulls(SSticker.mode.thralls)
 	if(!(user.mind in SSticker.mode.shadows)) return
 	if(user.dna.species.id != "shadowling")
 		if(SSticker.mode.thralls.len >= 5)

@@ -10,8 +10,8 @@
 	supervisors = "капитану"
 	selection_color = "#ffddf0"
 	req_admin_notify = 1
-	minimal_player_age = 7
-	exp_requirements = 1800
+	minimal_player_age = 30
+	exp_requirements = 7400
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_MEDICAL
 
@@ -34,6 +34,8 @@
 		/obj/effect/spawner/lootdrop/space/fancytool/advmedicalonly = 4,
 		/obj/effect/spawner/lootdrop/space/fancytool/raremedicalonly = 1
 	)
+
+	rpg_title = "Высший Клерик"
 
 /datum/job/chief_medical_officer/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()
@@ -75,3 +77,10 @@
 	suit_store = /obj/item/tank/internals/oxygen
 	r_pocket = /obj/item/flashlight/pen/paramedic
 
+/datum/outfit/job/cmo/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	..()
+	if(visualsOnly)
+		return
+
+	var/datum/martial_art/krav_maga/sanitar_closed_combat/maga = new
+	maga.teach(H)

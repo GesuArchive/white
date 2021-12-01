@@ -9,9 +9,9 @@
 	time = 16
 
 /datum/surgery_step/insert_pill/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю вводить [tool] в [parse_zone(target_zone)] [target]...") ,
-			span_notice("[user] начинет вводить [tool] в [parse_zone(target_zone)] [target].") ,
-			span_notice("[user] начинат вводить что-то в [parse_zone(target_zone)] [target] ."))
+	display_results(user, target, span_notice("Начинаю вводить [tool] в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинет вводить [tool] в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинат вводить что-то в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] ."))
 
 /datum/surgery_step/insert_pill/success(mob/user, mob/living/carbon/target, target_zone, obj/item/reagent_containers/pill/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(!istype(tool))
@@ -24,9 +24,9 @@
 	P.target = tool
 	P.Grant(target)	//The pill never actually goes in an inventory slot, so the owner doesn't inherit actions from it
 
-	display_results(user, target, span_notice("Ввёл [tool] в [parse_zone(target_zone)] [target] .") ,
-			span_notice("[user] ввёл [tool] в [parse_zone(target_zone)] [target]!") ,
-			span_notice("[user] ввёл что-то в [parse_zone(target_zone)] [target] !"))
+	display_results(user, target, span_notice("Ввёл [tool] в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] .") ,
+			span_notice("[user] ввёл [tool] в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!") ,
+			span_notice("[user] ввёл что-то в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] !"))
 	return ..()
 
 /datum/action/item_action/hands_free/activate_pill

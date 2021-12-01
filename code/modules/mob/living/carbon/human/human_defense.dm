@@ -414,6 +414,8 @@
 			if (ears && !HAS_TRAIT_FROM(src, TRAIT_DEAF, CLOTHING_TRAIT))
 				ears.adjustEarDamage(30, 120)
 			Unconscious(20)							//short amount of time for follow up attacks against elusive enemies like wizards
+			playsound_local(get_turf(src), 'sound/weapons/flashbang.ogg', 100, TRUE, 8)
+			flash_act(1, TRUE, TRUE, length = 2.5)
 			Knockdown(200 - (bomb_armor * 1.6)) 	//between ~4 and ~20 seconds of knockdown depending on bomb armor
 
 		if(EXPLODE_LIGHT)
@@ -434,7 +436,7 @@
 			var/obj/item/bodypart/BP = X
 			if(prob(50/severity) && !prob(getarmor(BP, BOMB)) && BP.body_zone != BODY_ZONE_HEAD && BP.body_zone != BODY_ZONE_CHEST)
 				BP.brute_dam = BP.max_damage
-				BP.dismember()
+				BP.dismember(BRUTE, TRUE, FALSE)
 				max_limb_loss--
 				if(!max_limb_loss)
 					break
@@ -680,7 +682,7 @@
 
 	var/list/missing = list(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 
-	combined_msg += "<div class='examine_block'><span class='info'>Моё состояние примерно такое:</span><table>"
+	combined_msg += "<div class='examine_block'><span class='info'>Моё состояние примерно такое:</span><hr><table>"
 
 	for(var/obj/item/bodypart/body_part as anything in bodyparts)
 		missing -= body_part.body_zone
@@ -712,7 +714,7 @@
 			if(brutedamage > (limb_max_damage*0.8))
 				status = body_part.heavy_brute_msg
 			if(brutedamage > 0 && burndamage > 0)
-				status += "</span>\] И \[<span class='warning'>"
+				status += "</span>\] \[<span class='warning'>"
 
 			if(burndamage > (limb_max_damage*0.8))
 				status += body_part.heavy_burn_msg
@@ -722,63 +724,44 @@
 				status += body_part.light_burn_msg
 
 			if(status == "")
-				status = "НОРМАЛЬНО"
+				status = "ЦЕЛАЯ"
 		var/no_damage
-		if(status == "НОРМАЛЬНО" || status == "НЕТ УРОНА")
+		if(status == "ЦЕЛАЯ" || status == "НЕТ УРОНА")
 			no_damage = TRUE
 		var/isdisabled = ""
 		if(body_part.bodypart_disabled)
-			isdisabled = "\[ПАРАЛИЧ\]"
+			isdisabled = "\[ПАРАЛИЗОВАНА\]"
 			if(no_damage)
-				isdisabled += " но "
+				isdisabled += " но"
 			else
-				isdisabled += " и "
-		combined_msg += "<tr><td><b>[uppertext(body_part.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "info" : "warning"]'>[uppertext(status)]</span>\]</td></tr>"
+				isdisabled += " и"
+		var/partmsg = "<tr><td><b>[uppertext(body_part.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "info" : "red"]'>[uppertext(status)]</span>\] "
 
 		for(var/thing in body_part.wounds)
 			var/datum/wound/W = thing
-			var/msg
 			switch(W.severity)
 				if(WOUND_SEVERITY_TRIVIAL)
-					msg = "<tr><td><span class='danger'>[capitalize(body_part.name)] страдает от [lowertext(W.skloname)].</span></td></tr>"
+					partmsg += "\[<span class='danger'>[uppertext(W.name)]</span>\] "
 				if(WOUND_SEVERITY_MODERATE)
-					msg = "<tr><td><span class='warning'>[capitalize(body_part.name)] страдает от [lowertext(W.skloname)]!</span></td></tr>"
-				if(WOUND_SEVERITY_SEVERE)
-					msg = "<tr><td><span class='warning'><b>[capitalize(body_part.name)] страдает от [lowertext(W.skloname)]!</b></span></td></tr>"
-				if(WOUND_SEVERITY_CRITICAL)
-					msg = "<tr><td><span class='warning'><b>[capitalize(body_part.name)] страдает от [lowertext(W.skloname)]!!</b></span></td></tr>"
-			combined_msg += msg
+					partmsg += "\[<span class='red'>[uppertext(W.name)]</span>\] "
+				if(WOUND_SEVERITY_SEVERE || WOUND_SEVERITY_CRITICAL)
+					partmsg += "\[<span class='red'><b>[uppertext(W.name)]</b></span>\] "
+
+		if(body_part.get_bleed_rate())
+			partmsg += "\[<span class='red'>КРОВОТЕЧЕНИЕ</span>\] "
 
 		for(var/obj/item/I in body_part.embedded_objects)
 			if(I.isEmbedHarmless())
-				combined_msg += "<tr><td><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(body_part)]' class='warning'>Похоже [I] прицепился к [ru_gde_zone(body_part.name)]!</a></td></tr>"
+				partmsg += "\[<a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(body_part)]' class='info'>[uppertext(I.name)]</a>\]"
 			else
-				combined_msg += "<tr><td><a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(body_part)]' class='warning'>Похоже [I] торчит из моей [ru_otkuda_zone(body_part.name)]!</a></td></tr>"
+				partmsg += "\[<a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(body_part)]' class='red'>[uppertext(I.name)]</a>\]"
+
+		combined_msg += "[partmsg]</td></tr>"
 
 	for(var/t in missing)
-		combined_msg += "<tr><td>\t <b>[uppertext(ru_exam_parse_zone(parse_zone(t)))]:</b></td><td>\[<span class='boldannounce'>ОТСУТСТВУЕТ</span>\]</td></tr>"
+		combined_msg += "<tr><td><b>[uppertext(ru_exam_parse_zone(parse_zone(t)))]:</b></td><td>\[<span class='boldannounce'>ОТСУТСТВУЕТ</span>\]</td></tr>"
 
 	combined_msg += "</table>"
-
-	if(is_bleeding())
-		var/list/obj/item/bodypart/bleeding_limbs = list()
-		for(var/i in bodyparts)
-			var/obj/item/bodypart/BP = i
-			if(BP.get_bleed_rate())
-				bleeding_limbs += BP
-
-		var/num_bleeds = LAZYLEN(bleeding_limbs)
-		var/bleed_text = "<span class='danger'>У меня кровотечения в"
-		switch(num_bleeds)
-			if(1 to 2)
-				bleed_text += " [ru_gde_zone(bleeding_limbs[1].name)][num_bleeds == 2 ? " и [ru_gde_zone(bleeding_limbs[2].name)]" : ""]"
-			if(3 to INFINITY)
-				for(var/i in 1 to (num_bleeds - 1))
-					var/obj/item/bodypart/BP = bleeding_limbs[i]
-					bleed_text += " [ru_gde_zone(BP.name)],"
-				bleed_text += " и [ru_gde_zone(bleeding_limbs[num_bleeds].name)]"
-		bleed_text += "!</span>"
-		combined_msg += bleed_text
 
 	if(getStaminaLoss())
 		if(getStaminaLoss() > 30)
@@ -846,7 +829,7 @@
 		//Put the items in that list into a string of text
 		for(var/B in broken)
 			broken_message += B
-		combined_msg += span_warning("Похоже [broken_message] не [broken_plural ? "работает" : "работают"]!")
+		combined_msg += span_warning("<hr>Похоже [broken_message] не [broken_plural ? "работает" : "работают"]!")
 	if(damaged.len)
 		if(damaged.len > 1)
 			damaged.Insert(damaged.len, "и ")
@@ -860,7 +843,7 @@
 		combined_msg += span_info("Похоже [damaged_message] [damaged_plural ? "имеет" : "имеют"] повреждения.")
 
 	if(roundstart_quirks.len)
-		combined_msg += span_info("Имею черты: [get_quirk_string(FALSE, CAT_QUIRK_ALL)].")
+		combined_msg += span_info("<hr>Имею черты: [get_quirk_string(FALSE, CAT_QUIRK_ALL)].")
 
 	to_chat(src, combined_msg.Join("\n"))
 

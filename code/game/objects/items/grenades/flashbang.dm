@@ -64,7 +64,7 @@
 		if(B)
 			forceMove(get_turf(C))
 			C.visible_message("<b><span class='danger'>[capitalize(src.name)] goes off in [C] hand, blowing [C.ru_ego()] [B.name] to bloody shreds!</span></b>", span_userdanger("[capitalize(src.name)] goes off in your hand, blowing your [B.name] to bloody shreds!"))
-			B.dismember()
+			B.dismember(BRUTE, TRUE, FALSE)
 
 	. = ..()
 

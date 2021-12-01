@@ -186,6 +186,11 @@
 				injoverlay = "inject"
 		. += injoverlay
 
+/obj/item/reagent_containers/syringe/bluespace/update_overlays()
+	. = ..()
+	var/mutable_appearance/animation_overlay = mutable_appearance('white/Feline/icons/syringe_bluespace.dmi', "animation")
+	. += animation_overlay
+
 ///Used by update_icon() and update_overlays()
 /obj/item/reagent_containers/syringe/proc/get_rounded_vol()
 	if(reagents?.total_volume)
@@ -264,12 +269,14 @@
 /obj/item/reagent_containers/syringe/bluespace
 	name = "блюспейс-шприц"
 	desc = "Эта малышка может хранить 60 единиц в себе."
+	icon = 'white/Feline/icons/syringe_bluespace.dmi'
 	amount_per_transfer_from_this = 20
 	volume = 60
 
 /obj/item/reagent_containers/syringe/piercing
 	name = "бронебойный шприц"
 	desc = "Шприц с алмазным наконечником. Может хранить примерно 10 единиц."
+	icon = 'white/Feline/icons/syringe_piercing.dmi'
 	volume = 10
 	proj_piercing = 1
 

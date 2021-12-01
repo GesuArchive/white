@@ -16,6 +16,8 @@
 	. = ..()
 	if(!keeper)
 		keeper = new(src)
+		keeper.cameramob = new /mob/camera/dungeon_keeper(get_turf(src))
+		keeper.cameramob.our_heart = src
 
 /mob/camera/dungeon_keeper
 	name = "Хранитель подземелья"
@@ -31,4 +33,27 @@
 	pass_flags = PASSKEEPER
 	faction = list(ROLE_DUNGEON_KEEPER)
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
-	hud_type = /datum/hud/blob_overmind
+	hud_type = /datum/hud/dungeon_keeper
+
+	var/obj/dungeon_keeper_heart/our_heart
+
+/mob/camera/dungeon_keeper/Login()
+	. = ..()
+	if(!. || !client)
+		return FALSE
+	update_health_hud()
+
+/mob/camera/dungeon_keeper/update_health_hud()
+	if(our_heart)
+		if(hud_used && hud_used.keeper_magic_display)
+			hud_used.keeper_magic_display.maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#00eded'>[our_heart.keeper.magic]</font></div>")
+
+/mob/camera/dungeon_keeper/proc/create_special(price)
+	return TRUE
+
+/mob/camera/dungeon_keeper/proc/can_buy(cost = 15)
+	if(our_heart.keeper.magic < cost)
+		to_chat(src, span_warning("Не хватает очков маны!"))
+		return FALSE
+	our_heart.keeper.magic -= cost
+	return TRUE

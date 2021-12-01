@@ -443,7 +443,8 @@
 					burn_out()
 			else
 				update_use_power(ACTIVE_POWER_USE)
-				set_light(BR, PO, CO)
+				spawn(rand(0, 15))
+					set_light(BR, PO, CO)
 	else if(has_emergency_power(LIGHT_EMERGENCY_POWER_USE) && !turned_off())
 		update_use_power(IDLE_POWER_USE)
 		emergency_mode = TRUE

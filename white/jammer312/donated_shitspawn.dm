@@ -211,7 +211,7 @@ GLOBAL_LIST_INIT(ones_allowed_to_shitspawn,null)
 	return picked
 
 /proc/makeWizard_adv(exclude)
-	var/list/mob/dead/observer/candidates = pollGhostCandidates("Do you wish to be considered for the position of a Wizard Foundation 'diplomat'?", ROLE_WIZARD, null)
+	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Do you wish to be considered for the position of a Wizard Foundation 'diplomat'?", ROLE_WIZARD, null)
 	if (!candidates.len)
 		return 0
 	var/mob/dead/observer/selected = pick_n_take(candidates)

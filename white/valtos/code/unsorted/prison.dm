@@ -559,7 +559,13 @@
 	name = "\improper AK-47"
 	desc = "Легендарный автомат Калашникова. Использует патроны калибра 7.62"
 	icon = 'white/valtos/icons/prison/prison.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand.dmi'
+	righthand_file = 'white/valtos/icons/righthand.dmi'
+	worn_icon = 'white/valtos/icons/weapons/mob/back.dmi'
 	icon_state = "kalash"
+	inhand_icon_state = "ak47"
+	worn_icon_state = "ak47"
+	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	mag_type = /obj/item/ammo_box/magazine/ak762
 	burst_size = 3
 

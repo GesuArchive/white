@@ -131,7 +131,7 @@
 	blood_volume = BLOOD_VOLUME_NORMAL
 	footstep_type = FOOTSTEP_MOB_SHOE
 
-/mob/living/simple_animal/cow/Initialize()
+/mob/living/simple_animal/cow/Initialize(mapload)
 	AddComponent(/datum/component/udder)
 	AddComponent(/datum/component/tippable, \
 		tip_time = 0.5 SECONDS, \

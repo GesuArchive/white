@@ -34,5 +34,5 @@
 	weapon = /obj/item/clockwork/brass_sword
 
 /datum/outfit/clockcult/armaments/bow
-	name = "Servant of Ratvar - Armaments (sword)"
-	weapon = /obj/item/gun/ballistic/bow/clockwork
+	name = "Servant of Ratvar - Armaments (bow)"
+	weapon = /obj/item/gun/energy/kinetic_accelerator/crossbow/clockwork

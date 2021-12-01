@@ -127,7 +127,7 @@
 	worn_icon_state = "kevlarshield"
 	custom_materials = list(/datum/material/iron = 7500, /datum/material/plastic = 2500)
 	icon = 'white/valtos/icons/objects.dmi'
-	worn_icon = 'white/valtos/icons/back.dmi'
+	worn_icon = 'white/valtos/icons/weapons/mob/back.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 

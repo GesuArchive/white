@@ -1,5 +1,5 @@
 /datum/surgery/brain_surgery
-	name = "Операция на мозге"
+	name = "Операция на Мозге: Нейрохирургия"
 	steps = list(
 	/datum/surgery_step/incise,
 	/datum/surgery_step/retract_skin,
@@ -25,27 +25,27 @@
 	return TRUE
 
 /datum/surgery_step/fix_brain/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю исправлять мозг [target]...") ,
-		span_notice("[user] начинает исправлять мозг [target].") ,
-		span_notice("[user] начинает операцию на мозге [target]."))
+	display_results(user, target, span_notice("Начинаю исправлять мозг [skloname(target.name, RODITELNI, target.gender)]...") ,
+		span_notice("[user] начинает исправлять мозг [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] начинает операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/fix_brain/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, span_notice("Успешно исправил мозг [target].") ,
-		span_notice("[user] успешно исправил мозг [target]!") ,
-		span_notice("[user] завершил операцию на мозге [target]."))
+	display_results(user, target, span_notice("Успешно исправил мозг [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] успешно исправил мозг [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_notice("[user] завершил операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
 	if(target.mind?.has_antag_datum(/datum/antagonist/brainwashed))
 		target.mind.remove_antag_datum(/datum/antagonist/brainwashed)
 	target.setOrganLoss(ORGAN_SLOT_BRAIN, target.getOrganLoss(ORGAN_SLOT_BRAIN) - 50)	//we set damage in this case in order to clear the "failing" flag
 	target.cure_all_traumas(TRAUMA_RESILIENCE_SURGERY)
 	if(target.getOrganLoss(ORGAN_SLOT_BRAIN) > 0)
-		to_chat(user, "Похоже, что в мозгу [target] всё еще можно что-то исправить.")
+		to_chat(user, "Похоже, что в мозгу [skloname(target.name, RODITELNI, target.gender)] всё еще можно что-то исправить.")
 	return ..()
 
 /datum/surgery_step/fix_brain/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
 		display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, нанеся еще больший ущерб!") ,
 			span_warning("[user] облажался, нанеся урон мозгу!") ,
-			span_notice("[user] завершил операцию на мозге [target]."))
+			span_notice("[user] завершил операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60)
 		target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)
 	else

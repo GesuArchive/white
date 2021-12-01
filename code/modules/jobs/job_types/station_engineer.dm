@@ -7,7 +7,7 @@
 	spawn_positions = 5
 	supervisors = "старшему инженеру"
 	selection_color = "#fff5cc"
-	exp_requirements = 60
+	exp_requirements = 900
 	exp_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/engineer
@@ -26,6 +26,8 @@
 		/obj/item/holosign_creator/engineering = 8,
 		/obj/item/clothing/head/hardhat/red/upgraded = 1
 	)
+
+	rpg_title = "Кристалломант"
 
 /datum/outfit/job/engineer
 	name = "Station Engineer"

@@ -1,6 +1,6 @@
 /datum/objective/clockcult
-	name = "serve Rat'var"
-	explanation_text = "Protect the Celestial Gateway so that Rat'var may enlighten this world!"
+	name = "служить Рат'вару"
+	explanation_text = "Защитите Небесные врата, чтобы Рат'вар мог просветить этот мир!"
 	reward = 40
 
 /datum/objective/clockcult/check_completion()

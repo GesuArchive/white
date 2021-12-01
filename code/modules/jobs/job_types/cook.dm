@@ -19,6 +19,8 @@
 	display_order = JOB_DISPLAY_ORDER_COOK
 	bounty_types = CIV_JOB_CHEF
 
+	rpg_title = "Повар Трактира"
+
 	mail_goodies = list(
 		/obj/item/storage/box/ingredients/random = 80,
 		/datum/reagent/consumable/caramel =  20,

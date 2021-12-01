@@ -1,5 +1,5 @@
 /datum/surgery/prosthetic_replacement
-	name = "Замена конечностей"
+	name = "Травматология: Замена конечностей"
 	steps = list(/datum/surgery_step/incise, /datum/surgery_step/clamp_bleeders, /datum/surgery_step/retract_skin, /datum/surgery_step/add_prosthetic)
 	target_mobtypes = list(/mob/living/carbon/human)
 	possible_locs = list(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG, BODY_ZONE_HEAD)
@@ -25,42 +25,42 @@
 /datum/surgery_step/add_prosthetic/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(istype(tool, /obj/item/organ_storage))
 		if(!tool.contents.len)
-			to_chat(user, span_warning("There is nothing inside [tool]!"))
+			to_chat(user, span_warning("[tool] пуст!"))
 			return -1
 		var/obj/item/I = tool.contents[1]
 		if(!isbodypart(I))
-			to_chat(user, span_warning("[I] cannot be attached!"))
+			to_chat(user, span_warning("Невозможно присоединить [I]!"))
 			return -1
 		tool = I
 	if(istype(tool, /obj/item/bodypart))
 		var/obj/item/bodypart/BP = tool
 		if(ismonkey(target))// monkey patient only accept organic monkey limbs
 			if(BP.status == BODYPART_ROBOTIC || BP.animal_origin != MONKEY_BODYPART)
-				to_chat(user, span_warning("[BP] doesn't match the patient's morphology."))
+				to_chat(user, span_warning("[BP] относится к другому селекционному виду."))
 				return -1
 		if(BP.status != BODYPART_ROBOTIC)
 			organ_rejection_dam = 10
 			if(ishuman(target))
 				if(BP.animal_origin)
-					to_chat(user, span_warning("[BP] doesn't match the patient's morphology."))
+					to_chat(user, span_warning("[BP] относится к другому селекционному виду."))
 					return -1
 				var/mob/living/carbon/human/H = target
 				if(H.dna.species.id != BP.species_id)
 					organ_rejection_dam = 30
 
 		if(target_zone == BP.body_zone) //so we can't replace a leg with an arm, or a human arm with a monkey arm.
-			display_results(user, target, span_notice("You begin to replace [target] [parse_zone(target_zone)] with [tool]...") ,
-				span_notice("[user] begins to replace [target] [parse_zone(target_zone)] with [tool].") ,
-				span_notice("[user] begins to replace [target] [parse_zone(target_zone)]."))
+			display_results(user, target, span_notice("Вы начинаете заменять [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] на [tool]...") ,
+				span_notice("[user] начинает заменять [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] на [tool].") ,
+				span_notice("[user] начинает заменять [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]."))
 		else
-			to_chat(user, span_warning("[tool] isn't the right type for [parse_zone(target_zone)]."))
+			to_chat(user, span_warning("[tool] не подходит к [parse_zone(target_zone)]."))
 			return -1
 	else if(target_zone == BODY_ZONE_L_ARM || target_zone == BODY_ZONE_R_ARM)
-		display_results(user, target, span_notice("You begin to attach [tool] onto [target]...") ,
-			span_notice("[user] begins to attach [tool] onto [target] [parse_zone(target_zone)].") ,
-			span_notice("[user] begins to attach something onto [target] [parse_zone(target_zone)]."))
+		display_results(user, target, span_notice("Вы начинаете присоединять [tool] к [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает присоединять [tool] к [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает присоединять [tool] к [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]."))
 	else
-		to_chat(user, span_warning("[tool] must be installed onto an arm."))
+		to_chat(user, span_warning("[tool] должно быть установлено в руку."))
 		return -1
 
 /datum/surgery_step/add_prosthetic/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
@@ -73,29 +73,29 @@
 	if(istype(tool, /obj/item/bodypart) && user.temporarilyRemoveItemFromInventory(tool))
 		var/obj/item/bodypart/L = tool
 		if(!L.attach_limb(target))
-			display_results(user, target, span_warning("You fail in replacing [target] [parse_zone(target_zone)]! Their body has rejected [L]!") ,
-				span_warning("[user] fails to replace [target] [parse_zone(target_zone)]!") ,
-				span_warning("[user] fails to replaces [target] [parse_zone(target_zone)]!"))
+			display_results(user, target, span_warning("Вам не удалось заменить [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]! Тело отвергает [L]!") ,
+				span_warning("[user] не удалось заменить [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!") ,
+				span_warning("[user] не удалось заменить [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!"))
 			return
 		if(organ_rejection_dam)
 			target.adjustToxLoss(organ_rejection_dam)
-		display_results(user, target, span_notice("You succeed in replacing [target] [parse_zone(target_zone)].") ,
-			span_notice("[user] successfully replaces [target] [parse_zone(target_zone)] with [tool]!") ,
-			span_notice("[user] successfully replaces [target] [parse_zone(target_zone)]!"))
+		display_results(user, target, span_notice("Вы успешно заменили [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] на [tool].") ,
+			span_notice("[user] успешно заменил [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] на [tool]!") ,
+			span_notice("[user] успешно заменил [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!"))
 		return
 	else
 		var/obj/item/bodypart/L = target.newBodyPart(target_zone, FALSE, FALSE)
 		L.is_pseudopart = TRUE
 		if(!L.attach_limb(target))
-			display_results(user, target, span_warning("You fail in attaching [target] [parse_zone(target_zone)]! Their body has rejected [L]!") ,
-				span_warning("[user] fails to attach [target] [parse_zone(target_zone)]!") ,
-				span_warning("[user] fails to attach [target] [parse_zone(target_zone)]!"))
+			display_results(user, target, span_warning("Вам не удалось присоединить [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]! Тело отвергает [L]!") ,
+				span_warning("[user] не удалось присоединить [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!") ,
+				span_warning("[user] не удалось присоединить [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!"))
 			L.forceMove(target.loc)
 			return
-		user.visible_message(span_notice("[user] finishes attaching [tool]!") , span_notice("You attach [tool]."))
-		display_results(user, target, span_notice("You attach [tool].") ,
-			span_notice("[user] finishes attaching [tool]!") ,
-			span_notice("[user] finishes the attachment procedure!"))
+		user.visible_message(span_notice("[user] успешно присоединяет [tool]!") , span_notice("Вы присоединили [tool]."))
+		display_results(user, target, span_notice("Вы присоединили [tool].") ,
+			span_notice("[user] успешно присоединяет [tool]!") ,
+			span_notice("[user] успешно присоединяет [tool]!"))
 		qdel(tool)
 		if(istype(tool, /obj/item/chainsaw))
 			var/obj/item/mounted_chainsaw/new_arm = new(target)

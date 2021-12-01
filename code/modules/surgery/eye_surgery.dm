@@ -19,14 +19,14 @@
 	return TRUE
 
 /datum/surgery_step/fix_eyes/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю исправлять глаза [sklonenie(target, RODITELNI, target.gender)]...") ,
+	display_results(user, target, span_notice("Начинаю исправлять глаза [skloname(target.name, RODITELNI, target.gender)]...") ,
 		span_notice("[user] начинает исправлять [target.ru_who()] глаза.") ,
 		span_notice("[user] начинает операцию на [target.ru_who()] глазах."))
 
 /datum/surgery_step/fix_eyes/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/obj/item/organ/eyes/E = target.getorganslot(ORGAN_SLOT_EYES)
-	user.visible_message(span_notice("[user] успешно исправил [target.ru_who()] глаза!") , span_notice("Успешно исправил глаз [sklonenie(target, RODITELNI, target.gender)]."))
-	display_results(user, target, span_notice("Успешно исправил глаза [target].") ,
+	user.visible_message(span_notice("[user] успешно исправил [target.ru_who()] глаза!") , span_notice("Успешно исправил глаз [skloname(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, span_notice("Успешно исправил глаза [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] успешно исправил [target.ru_who()] глаза!") ,
 		span_notice("[user] завершил операцию на [target.ru_who()] глазах."))
 	target.cure_blind(list(EYE_DAMAGE))
@@ -38,12 +38,12 @@
 
 /datum/surgery_step/fix_eyes/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(target.getorgan(/obj/item/organ/brain))
-		display_results(user, target, span_warning("Случайно уколол [sklonenie(target, RODITELNI, target.gender)] прямо в мозг!") ,
+		display_results(user, target, span_warning("Случайно уколол [skloname(target.name, RODITELNI, target.gender)] прямо в мозг!") ,
 			span_warning("[user] случайно уколол [target.ru_who()] прямо в мозг!") ,
 			span_warning("[user] случайно уколол [target.ru_who()] прямо в мозг!"))
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 70)
 	else
-		display_results(user, target, span_warning("Случайно уколол [sklonenie(target, RODITELNI, target.gender)] прямо в мозг! Ну, точнее уколол бы, если бы у [target.ru_who()] был мозг.") ,
+		display_results(user, target, span_warning("Случайно уколол [skloname(target.name, RODITELNI, target.gender)] прямо в мозг! Ну, точнее уколол бы, если бы у [target.ru_who()] был мозг.") ,
 			span_warning("[user] случайно уколол [target.ru_who()] прямо в мозг! Ну, точнее уколол бы, если бы у [target.ru_who()] был мозг.") ,
 			span_warning("[user] случайно уколол [target.ru_who()] прямо в мозг!"))
 	return FALSE

@@ -172,7 +172,7 @@
 				return
 			make_announcement(usr)
 		if ("messageAssociates")
-			if (!authenticated_as_non_silicon_captain(usr))
+			if (!authenticated(usr))
 				return
 			if (!COOLDOWN_FINISHED(src, important_action_cooldown))
 				return
@@ -183,10 +183,10 @@
 			var/emagged = obj_flags & EMAGGED
 			if (emagged)
 				message_syndicate(message, usr)
-				to_chat(usr, span_danger("SYSERR @l(19833)of(transmit.dm): !@$ MESSAGE TRANSMITTED TO SYNDICATE COMMAND."))
+				to_chat(usr, span_danger("ССИСТЕ @l(19833)of(transmit.dm): !@$ СООБЩЕНИЕ ПЕРЕДАНО КОМАНДОВАНИЮ СИНДИКАТА."))
 			else
 				message_centcom(message, usr)
-				to_chat(usr, span_notice("Message transmitted to Central Command."))
+				to_chat(usr, span_notice("Сообщение передано Центральному Командованию."))
 
 			var/associates = emagged ? "Синдикату": "ЦК"
 			usr.log_talk(message, LOG_SAY, tag = "message to [associates]")
@@ -260,8 +260,8 @@
 			var/input = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
 			bank_account.adjust_money(-250)
 			to_chat(usr, span_notice("Запрос отправлен. Со счёта карго было списано 250 кредитов."))
-			usr.log_message("has requested SOBR team from CentCom with reason \"[input]\"", LOG_SAY)
-			priority_announce("Отряд СОБРа был вызван [usr].", "Экстренный запрос",'sound/ai/announcer/alert.ogg')
+			usr.log_message("has requested OMON team from CentCom with reason \"[input]\"", LOG_SAY)
+			priority_announce("Отряд ОМОНа был вызван [usr].", "Экстренный запрос")
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
 			sobr_ert_request(input, usr)
@@ -278,7 +278,7 @@
 			bank_account.adjust_money(-500)
 			to_chat(usr, span_notice("Запрос отправлен. Со счёта карго было списано 500 кредитов."))
 			usr.log_message("has requested the janitor team from CentCom with reason \"[input]\"", LOG_SAY)
-			priority_announce("Отряд уборщиков был вызван [usr].", "Экстренный запрос",'sound/ai/announcer/alert.ogg')//А надо ли оно?
+			priority_announce("Отряд уборщиков был вызван [usr].", "Экстренный запрос")//А надо ли оно? net
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
 			janitor_ert_request(input, usr)
@@ -295,7 +295,7 @@
 			bank_account.adjust_money(-750)
 			to_chat(usr, span_notice("Запрос отправлен. Со счёта карго было списано 750 кредитов."))
 			usr.log_message("has requested the engineer team from CentCom with reason \"[input]\"", LOG_SAY)
-			priority_announce("[prob(15) ? "Экстренный отряд таджиков был вызван ":"Ремонтная бригада была вызвана "][usr].", "Экстренный запрос",'sound/ai/announcer/alert.ogg')//tajik = funny
+			priority_announce("[prob(15) ? "Экстренный отряд таджиков был вызван ":"Ремонтная бригада была вызвана "][usr].", "Экстренный запрос")//tajik = funny
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
 			engineer_ert_request(input, usr)
@@ -421,7 +421,7 @@
 			if (STATE_MAIN)
 				data["canBuyShuttles"] = can_buy_shuttles(user)
 				data["canMakeAnnouncement"] = FALSE
-				data["canMessageAssociates"] = FALSE
+				data["canMessageAssociates"] = !issilicon(user)
 				data["canRecallShuttles"] = !issilicon(user)
 				data["isheremajormode"] = GLOB.major_mode_active
 				data["canRequestNuke"] = FALSE
@@ -438,7 +438,6 @@
 				data["shuttleCanEvacOrFailReason"] = SSshuttle.canEvac(user, TRUE)
 
 				if (authenticated_as_non_silicon_captain(user))
-					data["canMessageAssociates"] = TRUE
 					data["canRequestNuke"] = TRUE
 
 				if (can_send_messages_to_other_sectors(user))

@@ -8,6 +8,9 @@
 	supervisors = "завхозу и главе персонала"
 	selection_color = "#dcba97"
 
+	exp_type = EXP_TYPE_CREW
+	exp_requirements = 900
+
 	outfit = /datum/outfit/job/miner
 
 	paycheck = PAYCHECK_MEDIUM
@@ -15,6 +18,8 @@
 
 	display_order = JOB_DISPLAY_ORDER_SHAFT_MINER
 	bounty_types = CIV_JOB_MINE
+
+	rpg_title = "Искатель приключений"
 
 /datum/outfit/job/miner
 	name = "Shaft Miner"

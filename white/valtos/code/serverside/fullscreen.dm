@@ -20,6 +20,7 @@
 		return
 	user.prefs.widescreenpref = !user.prefs.widescreenpref
 	user.view_size.setDefault(getScreenSize(user.prefs.widescreenpref))
+	user.view = "[user.prefs.widescreenwidth]x15"
 	return TRUE
 
 /datum/keybinding/client/fullscreen_toggle

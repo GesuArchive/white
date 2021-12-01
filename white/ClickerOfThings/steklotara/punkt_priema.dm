@@ -2,7 +2,7 @@
 	name = "пункт приёма стеклотары"
 	desc = "Пункт приёма стеклотары позволяет за пустые алкобутылки получать деньги. Как кэшбек, только лучше!"
 	icon = 'white/ClickerOfThings/steklotara/punkt_priema.dmi'
-	icon_state = "default"
+	icon_state = "open"
 	density = TRUE
 	anchored = TRUE
 	var/processing = FALSE
@@ -18,7 +18,10 @@
 			to_chat(user, span_warning("Бутылка должна быть пуста!"))
 			return
 		qdel(I)
-		to_chat(user, span_info("Пункт приёма захавало бутылку."))
+		flick("closing", src)
+		spawn(4)
+			icon_state = "closed"
+		to_chat(user, span_info("Пункт приёма захавал бутылку."))
 		playsound(src, 'sound/machines/chime.ogg', 100, 0)
 		say("Бутылка обнаружена! Подождите...")
 		processing = TRUE
@@ -42,5 +45,8 @@
 		else if (cost < 10)
 			new /obj/item/coin/iron(src.loc)
 			cost -= 1
+	flick("opening", src)
+	spawn(4)
+		icon_state = "open"
 	playsound(src, 'sound/machines/ping.ogg', 100, 0)
 	processing = FALSE

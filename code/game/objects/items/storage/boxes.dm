@@ -803,7 +803,7 @@
 	..()
 	user.changeNext_move(CLICK_CD_MELEE)
 	playsound(loc, "rustle", 50, TRUE, -5)
-	user.visible_message(span_notice("[user] обнимает <b>[sklonenie(name, VINITELNI, gender)]</b>.") ,span_notice("Обнимаю <b>[sklonenie(name, VINITELNI, gender)]</b>."))
+	user.visible_message(span_notice("[user] обнимает <b>[skloname(name, VINITELNI, gender)]</b>.") ,span_notice("Обнимаю <b>[skloname(name, VINITELNI, gender)]</b>."))
 
 /////clown box & honkbot assembly
 /obj/item/storage/box/clown

@@ -28,23 +28,23 @@
 		if(!heart_winner.client)
 			return
 		heart_winner.client.prefs.save_preferences()
-		tgui_alert(heart_winner, "Someone anonymously thanked you for being kind during the last round!", "<3!", list("Okay"))
+		tgui_alert(heart_winner, "Кто-то поблагодарил меня за прошлый раунд!", "<3!", list("Лан"))
 
 /// Ask someone if they'd like to award a commendation for the round, 3 tries to get the name they want before we give up
 /mob/proc/query_heart(attempt=1)
 	if(!mind || !client || attempt > 3)
 		return
-	if(attempt == 1 && tgui_alert(usr, "Was there another character you noticed being kind this round that you would like to anonymously thank?", "<3?", list("Yes", "No"), timeout = 30 SECONDS) != "Yes")
+	if(attempt == 1 && tgui_alert(usr, "Понравился ли тебе кто-то в этом раунде?", "<3?", list("Да", "Нет"), timeout = 30 SECONDS) != "Да")
 		return
 
 	var/heart_nominee
 	switch(attempt)
 		if(1)
-			heart_nominee = input(src, "What was their name? Just a first or last name may be enough. (Leave blank to cancel)", "<3?")
+			heart_nominee = input(src, "Как его зовут? Можешь ввести имя или фамилию. (оставь пустым для отмены)", "<3?")
 		if(2)
-			heart_nominee = input(src, "Try again, what was their name? Just a first or last name may be enough. (Leave blank to cancel)", "<3?")
+			heart_nominee = input(src, "Погоди, как там зовут? Можешь ввести имя или фамилию. (оставь пустым для отмены)", "<3?")
 		if(3)
-			heart_nominee = input(src, "One more try, what was their name? Just a first or last name may be enough. (Leave blank to cancel)", "<3?")
+			heart_nominee = input(src, "Давай попробуем ещё, как зовут душку? Можешь ввести имя или фамилию. (оставь пустым для отмены)", "<3?")
 
 	if(isnull(heart_nominee) || heart_nominee == "")
 		return
@@ -61,13 +61,13 @@
 		if(heart_contender == src)
 			continue
 
-		switch(tgui_alert(usr, "Is this the person: [heart_contender.real_name]?", "<3?", list("Yes!", "Nope", "Cancel"), timeout = 15 SECONDS))
-			if("Yes!")
+		switch(tgui_alert(usr, "Это нужный господин/госпожа: [heart_contender.real_name]?", "<3?", list("Да!", "Не", "Отмена"), timeout = 15 SECONDS))
+			if("Да!")
 				nominate_heart(heart_contender)
 				return
-			if("Nope")
+			if("Не")
 				continue
-			if("Cancel")
+			if("Отмена")
 				return
 
 	query_heart(attempt + 1)
@@ -76,7 +76,7 @@
 /mob/proc/nominate_heart(mob/heart_recepient)
 	if(!mind || !client)
 		return
-	to_chat(src, span_nicegreen("Commendation sent!"))
+	to_chat(src, span_nicegreen("Отправлено!"))
 	message_admins("[key_name(src)] commended [key_name(heart_recepient)] (<a href='?src=[REF(SSticker)];cancel_heart=1;heart_source=[REF(src)];heart_target=[REF(heart_recepient)]'>CANCEL</a>)") // cancel is probably unnecessary without messages
 	log_admin("[key_name(src)] commended [key_name(heart_recepient)]")
 	LAZYADD(SSticker.hearts, heart_recepient)

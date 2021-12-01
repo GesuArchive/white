@@ -1,5 +1,5 @@
 /datum/surgery/advanced/bioware/cortex_imprint
-	name = "Импринтинг коры головного мозга"
+	name = "Модифицирование: Импринтинг Мозга"
 	desc = "Хирургическая процедура, которая модифицирует кору большого мозга в повторяющийся нейронный паттерн, позволяющая могзу справляться с трудностями, вызванными небольшими повреждениями мозга."
 	steps = list(/datum/surgery_step/incise,
 				/datum/surgery_step/retract_skin,
@@ -24,14 +24,14 @@
 	time = 125
 
 /datum/surgery_step/imprint_cortex/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю вырезать на коре большого мозга [target] само-импринтирующий паттерн.") ,
-		span_notice("[user] начинает вырезать на коре большого мозга [target]само-импринтирующий паттерн.") ,
-		span_notice("[user] начинает проводить операцию на мозге [target]."))
+	display_results(user, target, span_notice("Начинаю вырезать на коре большого мозга [skloname(target.name, RODITELNI, target.gender)] само-импринтирующий паттерн.") ,
+		span_notice("[user] начинает вырезать на коре большого мозга [skloname(target.name, RODITELNI, target.gender)] само-импринтирующий паттерн.") ,
+		span_notice("[user] начинает проводить операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/imprint_cortex/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, span_notice("Изменил форму коры большого мозга [target] на само-импринтирующий паттерн!") ,
-		span_notice("[user] изменил форму коры большого мозга [target] на само-импринтирующий паттерн!") ,
-		span_notice("[user] завершил операцию на мозге [target]."))
+	display_results(user, target, span_notice("Изменил форму коры большого мозга [skloname(target.name, RODITELNI, target.gender)] на само-импринтирующий паттерн!") ,
+		span_notice("[user] изменил форму коры большого мозга [skloname(target.name, RODITELNI, target.gender)] на само-импринтирующий паттерн!") ,
+		span_notice("[user] завершил операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
 	new /datum/bioware/cortex_imprint(target)
 	return ..()
 
@@ -39,7 +39,7 @@
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
 		display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, повредив мозг!") ,
 			span_warning("[user] облажался, повредив мозг!") ,
-			span_notice("[user] завершил операцию на мозге [target]"))
+			span_notice("[user] завершил операцию на мозге [skloname(target.name, RODITELNI, target.gender)]"))
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60)
 		target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)
 	else

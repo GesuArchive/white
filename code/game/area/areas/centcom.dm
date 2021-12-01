@@ -232,6 +232,18 @@
 /area/ctf/flag_room2
 	name = "Захват флага: Флаг B"
 
+/area/ctf/warfare
+	name = "Астральный Забив"
+	static_lighting = TRUE
+	base_lighting_color = COLOR_WHITE
+	base_lighting_alpha = 0
+
+/area/ctf/warfare/indoors
+	name = "Астральный Забив: Помещения"
+	static_lighting = TRUE
+	base_lighting_color = COLOR_WHITE
+	base_lighting_alpha = 0
+
 // REEBE
 
 /area/reebe
@@ -241,29 +253,18 @@
 	has_gravity = STANDARD_GRAVITY
 	area_flags = HIDDEN_AREA | NOTELEPORT
 	ambientsounds = REEBE
+	static_lighting = FALSE
+	base_lighting_color = COLOR_WHITE
+	base_lighting_alpha = 255
 
 /area/reebe/city_of_cogs
 	name = "Reebe - City of Cogs"
 	icon_state = "purple"
 	area_flags = NOTELEPORT
 	var/playing_ambience = FALSE
+	ambientsounds = REEBE
 
-/area/reebe/city_of_cogs/Entered(atom/movable/AM)
+/area/reebe/Initialize(mapload)
 	. = ..()
-	if(ismob(AM))
-		var/mob/M = AM
-		if(M.client)
-			addtimer(CALLBACK(M.client, /client/proc/play_reebe_ambience), 900)
-
-//Reebe ambience replay
-
-/client/proc/play_reebe_ambience()
-	var/area/A = get_area(mob)
-	if(!istype(A, /area/reebe/city_of_cogs))
-		return
-	var/sound = pick(REEBE)
-	if(!played)
-		SEND_SOUND(src, sound(sound, repeat = 0, wait = 0, volume = 25, channel = CHANNEL_AMBIENCE))
-		played = TRUE
-		addtimer(CALLBACK(src, /client/proc/ResetAmbiencePlayed), 600)
-	addtimer(CALLBACK(src, /client/proc/play_reebe_ambience), 900)
+	spawn(5 SECONDS)
+		update_base_lighting()

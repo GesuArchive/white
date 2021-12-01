@@ -367,7 +367,7 @@
 
 
 /obj/machinery/door/window/brigdoor
-	name = "secure door"
+	name = "крепкая дверь"
 	icon_state = "leftsecure"
 	base_state = "leftsecure"
 	var/id = null
@@ -376,12 +376,12 @@
 	explosion_block = 1
 
 /obj/machinery/door/window/brigdoor/security/cell
-	name = "cell door"
-	desc = "For keeping in criminal scum."
+	name = "дверь камеры"
+	desc = "Для удержания преступных элементов."
 	req_access = list(ACCESS_BRIG)
 
 /obj/machinery/door/window/brigdoor/security/holding
-	name = "holding cell door"
+	name = "дверь камеры сдерживания"
 	req_one_access = list(ACCESS_SEC_DOORS, ACCESS_LAWYER) //love for the lawyer
 
 /obj/machinery/door/window/northleft

@@ -53,7 +53,7 @@
 			jobs_to_revolt = GLOB.supply_positions
 			nation_name = pick("Cargo", "Guna", "Suppli", "Mule", "Crate", "Ore", "Mini", "Shaf")
 		if("whatevercolorrepresentstheservicepeople") //the few, the proud, the technically aligned
-			jobs_to_revolt = GLOB.service_positions.Copy() - list("Assistant", "Prisoner")
+			jobs_to_revolt = GLOB.service_positions.Copy() - list("Assistant")
 			nation_name = pick("Honka", "Boozo", "Fatu", "Danka", "Mimi", "Libra", "Jani", "Religi")
 
 	nation_name += pick("stan", "topia", "land", "nia", "ca", "tova", "dor", "ador", "tia", "sia", "ano", "tica", "tide", "cis", "marea", "co", "taoide", "slavia", "stotzka")

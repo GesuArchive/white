@@ -191,7 +191,10 @@
 #define HYDRATION_LEVEL_START_MIN 60
 #define HYDRATION_LEVEL_START_MAX 90
 #define HYDRATION_LOSS_PER_LIFE 0.005
-#define DRINK_HYDRATION_FACTOR 1
+#define DRINK_HYDRATION_FACTOR_HIGH 1.5
+#define DRINK_HYDRATION_FACTOR_MEDIUM 1
+#define DRINK_HYDRATION_FACTOR_LOW 0.5
+#define DRINK_HYDRATION_FACTOR_SALTY -1
 #define HYDRATION_STUTTER_RATE 15
 
 //Disgust levels for humans
@@ -427,6 +430,9 @@
 #define EXAMINE_MORE_TIME	1 SECONDS
 /// How far away you can be to make eye contact with someone while examining
 #define EYE_CONTACT_RANGE	5
+
+/// If you yawn while someone nearby has examined you within this time frame, it will force them to yawn as well. Tradecraft!
+#define YAWN_PROPAGATION_EXAMINE_WINDOW 2 SECONDS
 
 #define SILENCE_RANGED_MESSAGE (1<<0)
 

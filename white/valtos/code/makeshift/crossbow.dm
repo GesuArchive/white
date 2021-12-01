@@ -1,7 +1,7 @@
 /obj/item/gun/ballistic/crossbow
 	name = "арбалет"
 	desc = "Мощный арбалет, который умеет стрелять металлическими стержнями. Очень полезен в целях охоты."
-	icon = 'white/valtos/icons/crossbow.dmi'
+	icon = 'white/valtos/icons/weapons/crossbow.dmi'
 	icon_state = "crossbow_body"
 	inhand_icon_state = "crossbow_body"
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
@@ -157,7 +157,7 @@
 
 /obj/projectile/rod
 	name = "металлический стержень"
-	icon = 'white/valtos/icons/crossbow.dmi'
+	icon = 'white/valtos/icons/weapons/crossbow.dmi'
 	icon_state = "rod_proj"
 	suppressed = TRUE
 	damage = 10 // multiply by how drawn the bow string is
@@ -245,7 +245,7 @@
 
 /obj/projectile/rod/energy
 	name = "раскалённый металлический стержень"
-	icon = 'white/valtos/icons/crossbow.dmi'
+	icon = 'white/valtos/icons/weapons/crossbow.dmi'
 	icon_state = "e_rod_proj"
-	damage = 20
+	damage = 17
 	range = 20

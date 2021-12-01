@@ -162,7 +162,8 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("TTS ears",					/obj/item/organ/ears/cat/tts,                   500),
 		new /datum/donate_info("DIY Shuttle Kit",			/obj/item/storage/box/diy_shuttle,				500),
 		new /datum/donate_info("Anonist Mask",				/obj/item/clothing/mask/gas/anonist,			100),
-		new /datum/donate_info("Glitch Gun",				/obj/item/gun/magic/glitch,						300)
+		new /datum/donate_info("Glitch Gun",				/obj/item/gun/magic/glitch,						300),
+		new /datum/donate_info("CoomCamera™",				/obj/item/camera/coom,							300)
 	)
 ))
 
@@ -360,3 +361,16 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 	if(D)
 		return D
 	return null
+
+GLOBAL_LIST_INIT(custom_race_donations, list(
+	"woofwoof322" = "athena_s",
+	"oni3288" = "oni",
+	"0cemeh1tejib6a6yjiek" = "babulet",
+	"pisimist29" = "android",
+	"arsenay" = "aandroid",
+	"fiaskin" = "synthman"))
+
+GLOBAL_LIST_INIT(custom_tails_donations, list(
+	"felinemistress" = "Fox",
+	"chilipila" = "Fox",
+	"oni3288" = "Oni"))

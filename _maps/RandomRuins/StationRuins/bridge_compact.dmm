@@ -277,14 +277,20 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "aQ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 10
+/obj/structure/railing{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 10
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -337,6 +343,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
 "be" = (
@@ -1048,10 +1060,6 @@
 /obj/machinery/light{
 	pixel_y = 0
 	},
-/obj/machinery/light_switch{
-	pixel_x = -6;
-	pixel_y = -22
-	},
 /obj/effect/turf_decal/tile/blue,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -1317,6 +1325,7 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "dJ" = (
+/obj/machinery/light_switch/directional/south,
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/gravity_generator)
 "dM" = (
@@ -3449,6 +3458,12 @@
 /obj/effect/spawner/lootdrop/grille_or_trash,
 /turf/open/floor/plating,
 /area/maintenance/central)
+"xB" = (
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "xG" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
@@ -4132,6 +4147,7 @@
 	name = "Captain's Intercom";
 	pixel_x = -26
 	},
+/obj/machinery/light_switch/directional/south,
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain)
 "Sa" = (
@@ -4247,6 +4263,19 @@
 "UJ" = (
 /turf/open/openspace,
 /area/command/heads_quarters/captain)
+"UT" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "UX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5702,8 +5731,8 @@ ab
 ab
 ab
 ab
-be
-fS
+aQ
+UT
 aj
 ar
 ms
@@ -5740,7 +5769,7 @@ ko
 ab
 ab
 ab
-aQ
+TS
 bd
 yU
 yU
@@ -5778,8 +5807,8 @@ at
 ab
 ab
 ab
-aj
-aj
+TS
+xB
 aj
 aj
 Do

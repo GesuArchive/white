@@ -113,7 +113,7 @@
 		return
 
 	if(prob(5))
-		audible_message("[capitalize(src.name)] издаёт омерзительный писк!")
+		playsound(src, 'sound/machines/chime.ogg', 50, FALSE)
 
 	action = ATMOSBOT_NOTHING
 	if(!isspaceturf(get_turf(src)))

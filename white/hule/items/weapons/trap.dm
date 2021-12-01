@@ -54,11 +54,6 @@
 			qdel(src)
 	..()
 
-
-
-
-
-
 /obj/structure/tripwire/CheckParts(list/parts_list)
 	prikl = locate() in parts_list
 	if(!prikl)

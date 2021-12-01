@@ -9,7 +9,7 @@
 	selection_color = "#ffeef0"
 
 	exp_type = EXP_TYPE_CREW
-	exp_requirements = 120
+	exp_requirements = 1200
 
 	outfit = /datum/outfit/job/doctor
 
@@ -34,6 +34,8 @@
 		/obj/effect/spawner/lootdrop/memeorgans = 1
 	)
 
+	rpg_title = "Клерик"
+
 /datum/outfit/job/doctor
 	name = "Medical Doctor"
 	jobtype = /datum/job/doctor
@@ -57,3 +59,11 @@
 	chameleon_extras = /obj/item/gun/syringe
 
 	id_trim = /datum/id_trim/job/medical_doctor
+
+/datum/outfit/job/doctor/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	..()
+	if(visualsOnly)
+		return
+
+	var/datum/martial_art/krav_maga/sanitar_closed_combat/maga = new
+	maga.teach(H)

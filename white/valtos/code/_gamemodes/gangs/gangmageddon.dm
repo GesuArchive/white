@@ -165,7 +165,7 @@
 
 
 /datum/game_mode/hell_march/proc/vigilante_vengeance()
-	var/list/mob/dead/observer/candidates = pollGhostCandidates("Would you like be a part of a Vigilante posse?", ROLE_PAI, null, FALSE, 100)
+	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Would you like be a part of a Vigilante posse?", ROLE_PAI, null, FALSE, 100)
 	var/list/mob/dead/observer/finalists = list()
 	var/posse_size = 1+round(GLOB.joined_player_list.len * 0.05)+round(world.time/5000)
 	if(candidates.len)

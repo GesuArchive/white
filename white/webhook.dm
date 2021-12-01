@@ -32,6 +32,7 @@ GLOBAL_VAR_INIT(webhook_can_fire, 0)
 
 /proc/webhook_send_ahelp(var/ckey, var/message)
 	var/list/query = list("ckey" = ckey, "message" = message)
+	webhook_send_invst("ahelpmessage", query)
 	webhook_send("ahelpmessage", query)
 
 /proc/webhook_send_garbage(var/ckey, var/message)

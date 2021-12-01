@@ -40,7 +40,7 @@
 	energy = starting_energy
 
 	START_PROCESSING(SSobj, src)
-	AddElement(/datum/element/point_of_interest)
+	SSpoints_of_interest.make_point_of_interest(src)
 	GLOB.singularities |= src
 
 	var/datum/component/singularity/new_component = AddComponent(
@@ -148,6 +148,7 @@
 			SP = AddComponent(/datum/component/soundplayer)
 			SP.prefs_toggle_flag = null
 			SP.set_channel(CHANNEL_CUSTOM_JUKEBOX)
+			SP.set_sound(sound('white/valtos/sounds/singuloop.ogg'))
 			SP.environmental = TRUE
 			SP.active = TRUE
 		SP.playing_volume = current_size*10

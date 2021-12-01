@@ -22,8 +22,8 @@
 	var/damage = rand(5, 8) + species.punchdamagelow
 	if(!damage)
 		playsound(D.loc, species.miss_sound, 25, TRUE, -1)
-		D.visible_message(span_warning("[A] [atk_verb] мимо [D]!") , \
-			span_userdanger("[A] [atk_verb] мимо меня!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, A)
+		D.visible_message(span_warning("[A] бьёт [atk_verb] мимо [D]!") , \
+			span_userdanger("[A] бьёт [atk_verb] мимо меня!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, A)
 		to_chat(A, span_warning("Промахиваюсь [atk_verb], пытаясь ударить [D]!"))
 		log_combat(A, D, "attempted to hit", atk_verb)
 		return FALSE

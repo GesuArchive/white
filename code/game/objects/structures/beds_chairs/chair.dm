@@ -275,7 +275,7 @@
 			return
 		if(!usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 			return
-		usr.visible_message(span_notice("[usr] хватает [sklonenie(src.name, VINITELNI, src.gender)].") , span_notice("Хватаю [sklonenie(src.name, VINITELNI, src.gender)]."))
+		usr.visible_message(span_notice("[usr] хватает [skloname(src.name, VINITELNI, src.gender)].") , span_notice("Хватаю [skloname(src.name, VINITELNI, src.gender)]."))
 		var/obj/item/C = new item_chair(loc)
 		C.set_custom_materials(custom_materials)
 		TransferComponents(C)
@@ -361,7 +361,7 @@
 
 /obj/item/chair/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(attack_type == UNARMED_ATTACK && prob(hit_reaction_chance))
-		owner.visible_message(span_danger("[owner] отражает [attack_text] [sklonenie(src.name, TVORITELNI, src.gender)]!"))
+		owner.visible_message(span_danger("[owner] отражает [attack_text] [skloname(src.name, TVORITELNI, src.gender)]!"))
 		return TRUE
 	return FALSE
 
@@ -426,8 +426,8 @@
 	item_chair = null
 
 /obj/structure/chair/bronze
-	name = "бронзовый стул"
-	desc = "Кругленький стул из бронзы. У него маленькие винтики для колес!"
+	name = "латунный стул"
+	desc = "Кругленький стул из латуни. У него маленькие винтики для колес!"
 	anchored = FALSE
 	icon = 'icons/obj/chairs.dmi'
 	icon_state = "brass_chair"

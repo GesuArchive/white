@@ -298,8 +298,8 @@
 		user.update_inv_head()
 
 /obj/item/clothing/head/bronze
-	name = "бронзовая шапка"
-	desc = "Необработанный шлем из бронзовых пластин. Она предлагает очень мало возможностей для защиты."
+	name = "латунный шлем"
+	desc = "Необработанный шлем из латунных пластин. Она предлагает очень мало возможностей для защиты."
 	icon = 'icons/obj/clothing/clockwork_garb.dmi'
 	icon_state = "clockwork_helmet_old"
 	clothing_flags = SNUG_FIT

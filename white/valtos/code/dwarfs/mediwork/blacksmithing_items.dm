@@ -233,7 +233,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 	icon_state = "katanus"
 	inhand_icon_state = "katanus"
 	worn_icon_state = "katanus"
-	worn_icon = 'white/valtos/icons/back.dmi'
+	worn_icon = 'white/valtos/icons/weapons/mob/back.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BACK
 	force = 16
@@ -1008,17 +1008,17 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 
 /obj/machinery/microwave/furnace/update_icon_state()
 	if(broken)
-		icon_state = "peeech"
+		icon_state = "peech"
 	else if(dirty_anim_playing)
-		icon_state = "peeech"
+		icon_state = "peech"
 	else if(dirty == 100)
-		icon_state = "peeech"
+		icon_state = "peech"
 	else if(operating)
-		icon_state = "peeech1"
+		icon_state = "peech1"
 	else if(panel_open)
-		icon_state = "peeech"
+		icon_state = "peech"
 	else
-		icon_state = "peeech"
+		icon_state = "peech"
 
 /obj/machinery/microwave/furnace/attackby(obj/item/O, mob/user, params)
 	efficiency = 4
@@ -1041,7 +1041,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 	if(.)
 		for(var/mob/living/carbon/human/H in contents)
 			if(H.stat == DEAD)
-				name = "саркофаг [sklonenie(H.real_name, VINITELNI, H.gender)]"
+				name = "саркофаг [skloname(H.real_name, VINITELNI, H.gender)]"
 				for(var/obj/item/W in H)
 					if(!H.dropItemToGround(W))
 						qdel(W)
@@ -1099,7 +1099,7 @@ GLOBAL_LIST_EMPTY(dwarf_crowns)
 	icon_state = "dwarfsord"
 	inhand_icon_state = "dwarfsord"
 	worn_icon_state = "dwarfsord"
-	worn_icon = 'white/valtos/icons/back.dmi'
+	worn_icon = 'white/valtos/icons/weapons/mob/back.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	force = 18

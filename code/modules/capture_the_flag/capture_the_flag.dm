@@ -126,7 +126,7 @@
 	reset_path = /obj/effect/ctf/flag_reset/blue
 
 /obj/item/ctf/green
-	name = "green flag"
+	name = "Зелёный флаг"
 	icon_state = "banner-green"
 	inhand_icon_state = "banner-green"
 	desc = "A green banner used to play capture the flag."
@@ -135,7 +135,7 @@
 
 
 /obj/item/ctf/yellow
-	name = "yellow flag"
+	name = "Желтый флаг"
 	icon_state = "banner-yellow"
 	inhand_icon_state = "banner-yellow"
 	desc = "A yellow banner used to play capture the flag."
@@ -159,26 +159,22 @@
 /obj/effect/ctf/flag_reset/red
 	name = "Точка красного флага"
 	icon_state = "banner-red"
-	desc = "Сюда вставляется \
-		красный флаг."
+	desc = "Сюда вставляется красный флаг."
 
 /obj/effect/ctf/flag_reset/blue
 	name = "Точка синего флага"
 	icon_state = "banner-blue"
-	desc = "Сюда вставляется \
-		синий флаг."
+	desc = "Сюда вставляется синий флаг."
 
 /obj/effect/ctf/flag_reset/green
-	name = "green flag landmark"
+	name = "Точка зелёного флага"
 	icon_state = "banner"
-	desc = "This is where a green banner used to play capture the flag \
-		would go."
+	desc = "Сюда вставляется зелёный флаг."
 
 /obj/effect/ctf/flag_reset/yellow
-	name = "yellow flag landmark"
+	name = "Точка жёлтого флага"
 	icon_state = "banner"
-	desc = "This is where a yellow banner used to play capture the flag \
-		would go."
+	desc = "Сюда вставляется жёлтый флаг."
 
 /proc/toggle_id_ctf(user, activated_id, automated = FALSE)
 	var/ctf_enabled = FALSE
@@ -272,8 +268,13 @@
 	ctf_gear = list("blue" = /datum/outfit/ctf/blue)
 	instagib_gear = /datum/outfit/ctf/blue/instagib
 
+/obj/machinery/capture_the_flag/blue/warfare
+	game_id = "warfare"
+	player_traits = list()
+	ctf_gear = list("blue" = /datum/outfit/ctf/blue/warfare)
+
 /obj/machinery/capture_the_flag/green
-	name = "Green CTF Controller"
+	name = "Зелёный контроллер \"Захвата Флага\""
 	icon_state = "greenbeacon"
 	team = GREEN_TEAM
 	team_span = "greenteamradio"
@@ -281,12 +282,17 @@
 	instagib_gear = /datum/outfit/ctf/green/instagib
 
 /obj/machinery/capture_the_flag/yellow
-	name = "Yellow CTF Controller"
+	name = "Жёлтый контроллер \"Захвата Флага\""
 	icon_state = "yellowbeacon"
 	team = YELLOW_TEAM
 	team_span = "yellowteamradio"
 	ctf_gear = list("yellow" = /datum/outfit/ctf/yellow)
 	instagib_gear = /datum/outfit/ctf/yellow/instagib
+
+/obj/machinery/capture_the_flag/yellow/warfare
+	game_id = "warfare"
+	player_traits = list()
+	ctf_gear = list("yellow" = /datum/outfit/ctf/yellow/warfare)
 
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
 /obj/machinery/capture_the_flag/attack_ghost(mob/user)
@@ -666,6 +672,8 @@
 	for(var/i in no_drops)
 		var/obj/item/I = i
 		ADD_TRAIT(I, TRAIT_NODROP, CAPTURE_THE_FLAG_TRAIT)
+	spawn(1 SECONDS)
+		H.mind?.adjust_experience(/datum/skill/ranged, SKILL_EXP_EXPERT)
 
 /datum/outfit/ctf/instagib
 	r_hand = /obj/item/gun/energy/laser/instakill
@@ -689,6 +697,23 @@
 	r_pocket = /obj/item/ammo_box/magazine/recharge/ctf/blue
 	id = /obj/item/card/id/blue //it's blue
 
+/datum/outfit/ctf/blue/warfare
+	head = /obj/item/clothing/head/helmet/elite/blue
+	mask = /obj/item/clothing/mask/gas/german
+	uniform = /obj/item/clothing/under/victorian/vest
+	shoes = /obj/item/clothing/shoes/jackboots
+	gloves = /obj/item/clothing/gloves/fingerless
+	belt = /obj/item/melee/sabre/marineofficer
+	suit = /obj/item/clothing/suit/armor/opvest
+	r_hand = /obj/item/gun/ballistic/rifle/boltaction/kar98k
+	l_pocket = /obj/item/ammo_box/magazine/a792x57
+	r_pocket = /obj/item/ammo_box/magazine/a792x57
+
+/datum/outfit/ctf/blue/warfare/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	H.add_client_colour(/datum/client_colour/warfare)
+	H.overlay_fullscreen("noisewwi", /atom/movable/screen/fullscreen/noisescreen/warfare)
+
 /datum/outfit/ctf/blue/instagib
 	r_hand = /obj/item/gun/energy/laser/instakill/blue
 	shoes = /obj/item/clothing/shoes/jackboots/fast
@@ -710,6 +735,23 @@
 	l_pocket = /obj/item/ammo_box/magazine/recharge/ctf/yellow
 	r_pocket = /obj/item/ammo_box/magazine/recharge/ctf/yellow
 	id = /obj/item/card/id/yellow //it's yellow
+
+/datum/outfit/ctf/yellow/warfare
+	head = /obj/item/clothing/head/helmet/elite/yellow
+	mask = /obj/item/clothing/mask/gas/german
+	uniform = /obj/item/clothing/under/victorian/vest
+	shoes = /obj/item/clothing/shoes/jackboots
+	gloves = /obj/item/clothing/gloves/fingerless
+	belt = /obj/item/melee/sabre/marineofficer
+	suit = /obj/item/clothing/suit/armor/opvest
+	r_hand = /obj/item/gun/ballistic/rifle/boltaction/kar98k
+	l_pocket = /obj/item/ammo_box/magazine/a792x57
+	r_pocket = /obj/item/ammo_box/magazine/a792x57
+
+/datum/outfit/ctf/yellow/warfare/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	H.add_client_colour(/datum/client_colour/warfare)
+	H.overlay_fullscreen("noisewwi", /atom/movable/screen/fullscreen/noisescreen/warfare)
 
 /datum/outfit/ctf/yellow/instagib
 	r_hand = /obj/item/gun/energy/laser/instakill/yellow
@@ -817,6 +859,14 @@
 /obj/effect/ctf/ammo/Initialize(mapload)
 	..()
 	QDEL_IN(src, AMMO_DROP_LIFETIME)
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/effect/ctf/ammo/proc/on_entered(datum/source, atom/movable/movable_atom)
+	SIGNAL_HANDLER
+	reload(movable_atom)
 
 /obj/effect/ctf/ammo/Bump(atom/A)
 	reload(A)
@@ -902,7 +952,7 @@
 				for(var/mob/M in GLOB.player_list)
 					var/area/mob_area = get_area(M)
 					if(istype(mob_area, game_area))
-						to_chat(M, span_userdanger("[user.real_name] захватил \ [src] для [CTF.team]! Иди и забери обратно!"))
+						to_chat(M, span_userdanger("[user.real_name] захватил [src] для [CTF.team]! Иди и забери обратно!"))
 				break
 
 #undef WHITE_TEAM

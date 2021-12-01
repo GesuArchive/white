@@ -57,6 +57,8 @@
 		switch(mecha_attacker.damtype)
 			if(BRUTE)
 				Unconscious(20)
+				playsound_local(get_turf(src), 'sound/weapons/flashbang.ogg', 100, TRUE, 8)
+				flash_act(1, TRUE, TRUE, length = 2.5)
 				take_overall_damage(rand(mecha_attacker.force/2, mecha_attacker.force))
 				playsound(src, 'sound/weapons/punch4.ogg', 50, TRUE)
 			if(BURN)

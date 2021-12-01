@@ -19,7 +19,7 @@
 	var/boom_sizes = list(0, 0, 3)
 	var/full_damage_on_mobs = FALSE
 
-/obj/item/grenade/c4/Initialize()
+/obj/item/grenade/c4/Initialize(mapload)
 	. = ..()
 	plastic_overlay = mutable_appearance(icon, "[inhand_icon_state]2", HIGH_OBJ_LAYER)
 	wires = new /datum/wires/explosive/c4(src)
@@ -32,7 +32,7 @@
 	qdel(wires)
 	wires = null
 	target = null
-	..()
+	return ..()
 
 /obj/item/grenade/c4/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
@@ -79,18 +79,18 @@
 		det_time = newtime
 		to_chat(user, "Timer set for [det_time] seconds.")
 
-/obj/item/grenade/c4/afterattack(atom/movable/AM, mob/user, flag)
+/obj/item/grenade/c4/afterattack(atom/movable/bomb_target, mob/user, flag)
 	. = ..()
-	aim_dir = get_dir(user,AM)
+	aim_dir = get_dir(user,bomb_target)
 	if(!flag)
 		return
 
 	to_chat(user, span_notice("You start planting [src]. The timer is set to [det_time]..."))
 
-	if(do_after(user, 30, target = AM, timed_action_flags = IGNORE_USER_LOC_CHANGE))
+	if(do_after(user, 30, target = bomb_target))
 		if(!user.temporarilyRemoveItemFromInventory(src))
 			return
-		target = AM
+		target = bomb_target
 
 		message_admins("[ADMIN_LOOKUPFLW(user)] planted [name] on [target.name] at [ADMIN_VERBOSEJMP(target)] with [det_time] second fuse")
 		log_game("[key_name(user)] planted [name] on [target.name] at [AREACOORD(user)] with a [det_time] second fuse")
@@ -99,14 +99,14 @@
 
 		moveToNullspace()	//Yep
 
-		if(istype(AM, /obj/item)) //your crappy throwing star can't fly so good with a giant brick of c4 on it.
-			var/obj/item/I = AM
-			I.throw_speed = max(1, (I.throw_speed - 3))
-			I.throw_range = max(1, (I.throw_range - 3))
-			if(I.embedding)
-				I.embedding["embed_chance"] = 0
-				I.updateEmbedding()
-		else if(istype(AM, /mob/living))
+		if(istype(bomb_target, /obj/item)) //your crappy throwing star can't fly so good with a giant brick of c4 on it.
+			var/obj/item/thrown_weapon = bomb_target
+			thrown_weapon.throw_speed = max(1, (thrown_weapon.throw_speed - 3))
+			thrown_weapon.throw_range = max(1, (thrown_weapon.throw_range - 3))
+			if(thrown_weapon.embedding)
+				thrown_weapon.embedding["embed_chance"] = 0
+				thrown_weapon.updateEmbedding()
+		else if(istype(bomb_target, /mob/living))
 			plastic_overlay.layer = FLOAT_LAYER
 
 		target.add_overlay(plastic_overlay)

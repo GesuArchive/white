@@ -4,13 +4,13 @@
 // !      Sigil of Transmission     ! //
 //==================================//
 /datum/clockcult/scripture/create_structure/sigil_transmission
-	name = "Sigil of Transmission"
-	desc = "Summons a sigil of transmission, required to power clockwork structures. Will also charge clockwork cyborgs on top of it, and drain power from objects with power. Requires 2 invokers."
-	tip = "Power structures using this."
+	name = "Сигил передачи"
+	desc = "Вызывает сигил передачи, необходимый для питания механизмов. Также будет заряжать на нем механических киборгов и высасывать энергию из объектов с помощью энергии. Требуется 2 вызывающих."
+	tip = "Силовые структуры, используют это."
 	button_icon_state = "Sigil of Transmission"
 	power_cost = 100
 	invokation_time = 50
-	invokation_text = list("Oh great holy one...", "your energy...", "the power of the holy light!")
+	invokation_text = list("О великий святой...", "твоя энергия...", "сила святого света!")
 	summoned_structure = /obj/structure/destructible/clockwork/sigil/transmission
 	cogs_required = 0
 	invokers_required = 2
@@ -18,9 +18,9 @@
 
 //==========Submission=========
 /obj/structure/destructible/clockwork/sigil/transmission
-	name = "sigil of transmission"
-	desc = "A strange sigil, swirling with a yellow light."
-	clockwork_desc = "A glorious sigil used to power Rat'varian structures."
+	name = "сигил передачи"
+	desc = "Странный сигил, окружённый желтым светом."
+	clockwork_desc = "Великий сигил, используемый для подпитки структур Рат'вара."
 	icon_state = "sigiltransmission"
 	effect_stand_time = 10
 	idle_color = "#f1a746"

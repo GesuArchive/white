@@ -404,9 +404,9 @@
 
 		switch(stat)
 			if(UNCONSCIOUS, HARD_CRIT)
-				msg += "[t_on] не реагирует на происходящее вокруг.\n"
+				msg += "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг.</span>\n"
 			if(SOFT_CRIT)
-				msg += "[t_on] едва в сознании.\n"
+				msg += "<span class='deadsay'>[t_on] едва в сознании.</span>\n"
 			if(CONSCIOUS)
 				if(HAS_TRAIT(src, TRAIT_DUMB))
 					msg += "[t_on] имеет глупое выражение лица.\n"
@@ -505,15 +505,18 @@
 	var/age_text
 	switch(age)
 		if(-INFINITY to 25)
-			age_text = "very young"
+			age_text = "очень молод[ru_aya()]"
 		if(26 to 35)
-			age_text = "of adult age"
+			age_text = "молод[ru_aya()]"
 		if(36 to 55)
-			age_text = "middle-aged"
+			age_text = "среднего возраста"
 		if(56 to 75)
-			age_text = "rather old"
+			age_text = "достаточно взросл[ru_aya()]"
 		if(76 to 100)
-			age_text = "very old"
+			if(gender == FEMALE)
+				age_text = "старуха"
+			else
+				age_text = "старик"
 		if(101 to INFINITY)
-			age_text = "withering away"
-	. += list(span_notice("[p_they(TRUE)] appear[p_s()] to be [age_text]."))
+			age_text = "сейчас превратится в пыль"
+	. += list(span_notice("<hr>[ru_who(TRUE)] на вид [age_text]."))

@@ -9,6 +9,7 @@
 		diag_hud.add_to_hud(src)
 	faction += "[REF(src)]"
 	GLOB.mob_living_list += src
+	SSpoints_of_interest.make_point_of_interest(src)
 
 	spawn(5 SECONDS)
 		if(ckey in GLOB.pacifist_list)
@@ -402,8 +403,8 @@
 		if(aiming && isliving(A))
 			aiming.aim(src, A)
 			return TRUE
-	visible_message(span_name("[capitalize(src.name)]</span> показывает на <b>[sklonenie(A.name, VINITELNI, A.gender)]</b>."),
-					span_notice("Показываю на <b>[sklonenie(A.name, VINITELNI, A.gender)]</b>."))
+	visible_message(span_name("[capitalize(src.name)]</span> показывает на <b>[skloname(A.name, VINITELNI, A.gender)]</b>."),
+					span_notice("Показываю на <b>[skloname(A.name, VINITELNI, A.gender)]</b>."))
 	return TRUE
 
 
@@ -1334,12 +1335,12 @@
 /mob/living/proc/knockOver(mob/living/carbon/C)
 	if(C.key) //save us from monkey hordes
 		C.visible_message("<span class='warning'>[pick( \
-						"[C] спотыкается об [sklonenie(name, VINITELNI, gender)]!", \
-						"[C] перепрыгивает через [sklonenie(name, VINITELNI, gender)]!", \
-						"[C] сальтует через [sklonenie(name, VINITELNI, gender)]!", \
-						"[C] делает тактический кувырок через [sklonenie(name, VINITELNI, gender)] и падает!", \
-						"[C] стукается об [sklonenie(name, VINITELNI, gender)]!", \
-						"[C] резко отскакивает от [sklonenie(name, VINITELNI, gender)]!")]</span>")
+						"[C] спотыкается об [skloname(name, VINITELNI, gender)]!", \
+						"[C] перепрыгивает через [skloname(name, VINITELNI, gender)]!", \
+						"[C] сальтует через [skloname(name, VINITELNI, gender)]!", \
+						"[C] делает тактический кувырок через [skloname(name, VINITELNI, gender)] и падает!", \
+						"[C] стукается об [skloname(name, VINITELNI, gender)]!", \
+						"[C] резко отскакивает от [skloname(name, VINITELNI, gender)]!")]</span>")
 	C.Paralyze(40)
 
 /mob/living/can_be_pulled()
@@ -1788,7 +1789,8 @@
 	. = buckled
 	buckled = new_buckled
 	if(buckled)
-		ADD_TRAIT(src, TRAIT_IMMOBILIZED, BUCKLED_TRAIT)
+		if(!HAS_TRAIT(buckled, TRAIT_NO_IMMOBILIZE))
+			ADD_TRAIT(src, TRAIT_IMMOBILIZED, BUCKLED_TRAIT)
 		switch(buckled.buckle_lying)
 			if(NO_BUCKLE_LYING) // The buckle doesn't force a lying angle.
 				REMOVE_TRAIT(src, TRAIT_FLOORED, BUCKLED_TRAIT)

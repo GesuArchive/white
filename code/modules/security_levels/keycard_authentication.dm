@@ -2,6 +2,7 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 
 #define KEYCARD_RED_ALERT "Red Alert"
 #define KEYCARD_EMERGENCY_MAINTENANCE_ACCESS "Emergency Maintenance Access"
+#define KEYCARD_MIGGER_ALARM "Иммиграционная политика"
 #define KEYCARD_BSA_UNLOCK "Bluespace Artillery Unlock"
 
 /obj/machinery/keycard_auth
@@ -96,6 +97,10 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 			if(!event_source)
 				sendEvent(KEYCARD_BSA_UNLOCK)
 				. = TRUE
+		if("migger_alarm")
+			if(!event_source)
+				sendEvent(KEYCARD_MIGGER_ALARM)
+				. = TRUE
 
 /obj/machinery/keycard_auth/proc/sendEvent(event_type)
 	triggerer = usr
@@ -134,6 +139,8 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 			make_maint_all_access()
 		if(KEYCARD_BSA_UNLOCK)
 			toggle_bluespace_artillery()
+		if(KEYCARD_MIGGER_ALARM)
+			toggle_migger_alarm()
 
 GLOBAL_VAR_INIT(emergency_access, FALSE)
 /proc/make_maint_all_access()
@@ -156,9 +163,17 @@ GLOBAL_VAR_INIT(emergency_access, FALSE)
 
 /proc/toggle_bluespace_artillery()
 	GLOB.bsa_unlock = !GLOB.bsa_unlock
-	minor_announce("Протоколы блюспейс артиллерии были [GLOB.bsa_unlock? "разблокированы" : "заблокированы"]", "Обновление систем вооружения:")
+	minor_announce("Протоколы блюспейс артиллерии были [GLOB.bsa_unlock? "разблокированы" : "заблокированы"].", "Обновление систем вооружения")
 	SSblackbox.record_feedback("nested tally", "keycard_auths", 1, list("bluespace artillery", GLOB.bsa_unlock? "unlocked" : "locked"))
+
+
+/proc/toggle_migger_alarm()
+	GLOB.migger_alarm = !GLOB.migger_alarm
+	spawn(rand(600, 3000))
+		GLOB.migger_alarm = FALSE
+	minor_announce("Отправка новых наёмных рабочих из дальних секторов была [GLOB.migger_alarm? "временно приостановлена" : "запущена вновь"].", "Миграционная политика станции")
 
 #undef KEYCARD_RED_ALERT
 #undef KEYCARD_EMERGENCY_MAINTENANCE_ACCESS
+#undef KEYCARD_MIGGER_ALARM
 #undef KEYCARD_BSA_UNLOCK

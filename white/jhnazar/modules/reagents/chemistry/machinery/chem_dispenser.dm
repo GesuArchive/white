@@ -27,3 +27,20 @@
 	emagged_reagents = list(
 		/datum/reagent/medicine/strange_reagent
 		)
+
+/obj/machinery/chem_dispenser/gunpowder
+	name = "генератор пороха"
+	desc = "Создаёт порох..."
+	anchored = TRUE
+	color = "#999999"
+	circuit = /obj/item/circuitboard/machine/chem_dispenser/gunpowder
+
+	dispensable_reagents = list(
+		/datum/reagent/gunpowder
+		)
+	upgrade_reagents = list(
+		/datum/reagent/drug/zvezdochka
+		)
+	emagged_reagents = list(
+		/datum/reagent/drug/labebium
+		)

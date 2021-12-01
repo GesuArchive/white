@@ -58,7 +58,7 @@
 
 /obj/structure/swarmer_beacon/Initialize()
 	. = ..()
-	AddElement(/datum/element/point_of_interest)
+	SSpoints_of_interest.make_point_of_interest(src)
 
 /obj/structure/swarmer_beacon/attack_ghost(mob/user)
 	. = ..()
@@ -129,13 +129,6 @@
 	icon_state = "trap"
 	max_integrity = 10
 	density = FALSE
-
-/obj/structure/swarmer/trap/Initialize(mapload)
-	. = ..()
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-	)
-	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/swarmer/trap/proc/on_entered(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER

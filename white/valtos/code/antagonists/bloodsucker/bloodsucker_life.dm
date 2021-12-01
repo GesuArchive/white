@@ -290,7 +290,7 @@
 	// V.Low:   Blur Vision
 	// EMPTY:	Frenzy!
 
-	// BLOOD_VOLUME_GOOD: [336]  Pale (handled in bloodsucker_integration.dm
+	// BLOOD_VOLUME_GOOD: [336]  Pale (handled in bloodsucker_integration.dm)
 
 
 	// BLOOD_VOLUME_BAD: [224]  Jitter

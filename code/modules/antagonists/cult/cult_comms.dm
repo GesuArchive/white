@@ -103,7 +103,7 @@
 		if(B.current && B.current != Nominee && !B.current.incapacitated())
 			SEND_SOUND(B.current, sound('sound/magic/exit_blood.ogg'))
 			asked_cultists += B.current
-	var/list/yes_voters = pollCandidates("[Nominee] seeks to lead your cult, do you support [Nominee.ru_na()]?", poll_time = 300, group = asked_cultists)
+	var/list/yes_voters = poll_candidates("[Nominee] seeks to lead your cult, do you support [Nominee.ru_na()]?", poll_time = 300, group = asked_cultists)
 	if(QDELETED(Nominee) || Nominee.incapacitated())
 		team.cult_vote_called = FALSE
 		for(var/datum/mind/B in team.members)

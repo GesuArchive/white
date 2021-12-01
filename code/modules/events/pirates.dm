@@ -90,7 +90,7 @@
 /datum/round_event/pirates/proc/spawn_shuttle()
 	shuttle_spawned = TRUE
 
-	var/list/candidates = pollGhostCandidates("Вы хотите попасть в команду пиратов?", ROLE_TRAITOR)
+	var/list/candidates = poll_ghost_candidates("Вы хотите попасть в команду пиратов?", ROLE_TRAITOR)
 	shuffle_inplace(candidates)
 
 	var/datum/map_template/shuttle/pirate/ship = new ship_template
@@ -107,10 +107,10 @@
 	for(var/turf/A in ship.get_affected_turfs(T))
 		for(var/obj/effect/mob_spawn/human/pirate/spawner in A)
 			if(candidates.len > 0)
-				var/mob/M = candidates[1]
-				spawner.create(M.ckey)
-				candidates -= M
-				announce_to_ghosts(M)
+				var/mob/our_candidate = candidates[1]
+				spawner.create(our_candidate)
+				candidates -= our_candidate
+				announce_to_ghosts(our_candidate)
 			else
 				announce_to_ghosts(spawner)
 
