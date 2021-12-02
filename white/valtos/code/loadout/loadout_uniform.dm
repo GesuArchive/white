@@ -256,3 +256,30 @@
 	display_name = "костюм волшебницы"
 	path = /obj/item/clothing/under/costume/wizgirl
 	cost = 250
+
+/datum/gear/uniform/kimono
+	display_name = "кимоно"
+	path = /obj/item/clothing/under/costume/kimono
+	cost = 900
+
+/datum/gear/uniform/kimono/dark
+	display_name = "тёмное кимоно"
+	path = /obj/item/clothing/under/costume/kimono/dark
+
+/datum/gear/uniform/kimono/sakura
+	display_name = "кимоно цвета сакуры"
+	path = /obj/item/clothing/under/costume/kimono/sakura
+
+/datum/gear/uniform/kimono/fancy
+	display_name = "красивое кимоно"
+	path = /obj/item/clothing/under/costume/kimono/fancy
+
+/datum/gear/uniform/kamishimo
+	display_name = "камишимо"
+	path = /obj/item/clothing/under/costume/kamishimo
+	cost = 750
+
+/datum/gear/uniform/bathrobe
+	display_name = "камишимо"
+	path = /obj/item/clothing/under/costume/bathrobe
+	cost = 600

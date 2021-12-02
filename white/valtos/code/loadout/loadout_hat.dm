@@ -53,3 +53,16 @@
 	path = /obj/item/clothing/head/helmet/alt/ranger
 	cost = 2499
 
+/datum/gear/hat/kabuto
+	display_name = "кабуто"
+	path = /obj/item/clothing/head/costume/kabuto
+	cost = 950
+
+/datum/gear/hat/widehat
+	display_name = "чёрная широкая шляпа"
+	path = /obj/item/clothing/head/costume/widehat
+	cost = 5000
+
+/datum/gear/hat/widehat/red
+	display_name = "красная широкая шляпа"
+	path = /obj/item/clothing/head/costume/widehat/red

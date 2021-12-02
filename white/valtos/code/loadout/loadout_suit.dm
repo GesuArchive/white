@@ -138,3 +138,8 @@
 /datum/gear/suit/poncho/red
 	display_name = "красный пончо"
 	path = /obj/item/clothing/suit/poncho/red
+
+/datum/gear/suit/samurai
+	display_name = "броня самурая"
+	path = /obj/item/clothing/suit/costume/samurai
+	cost = 1200
