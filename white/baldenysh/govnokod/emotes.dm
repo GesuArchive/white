@@ -6,7 +6,8 @@
 
 /datum/emote/living/snort/run_emote(mob/user, params)
 	. = ..()
-	playsound(user, 'white/baldenysh/sounds/snort.ogg', 50, 1)
+	if(. && isliving(user))
+		playsound(get_turf(user), 'white/baldenysh/sounds/snort.ogg', 50, 1)
 
 /datum/emote/living/carbon/human/rsalute
 	key = "rsalute"
