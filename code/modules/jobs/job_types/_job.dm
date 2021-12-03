@@ -167,7 +167,7 @@
 					permitted = FALSE
 
 				if(!permitted)
-					to_chat(M, span_warning("Должность или раса не позволяют мне иметь [G.display_name]!"))
+					to_chat(M, span_warning("Не удалость пронести <b>[G.display_name]</b> на станцию!"))
 					continue
 
 				if(G.slot)

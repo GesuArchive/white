@@ -212,7 +212,7 @@ GLOBAL_LIST_EMPTY(objectives)
 /datum/objective/assassinate/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Убить [target.name], на должности [!target_role_type ? target.assigned_role : target.special_role]."
+		explanation_text = "Убить [target.name], на должности [ru_job_parse(!target_role_type ? target.assigned_role : target.special_role)]."
 	else
 		explanation_text = "Ничего."
 
@@ -247,7 +247,7 @@ GLOBAL_LIST_EMPTY(objectives)
 /datum/objective/mutiny/update_explanation_text()
 	..()
 	if(target && target.current)
-		explanation_text = "Убить или проимплантировать и отправить в ссылку в гейтвей [target.name], на должности [!target_role_type ? target.assigned_role : target.special_role]."
+		explanation_text = "Убить или проимплантировать и отправить в ссылку в гейтвей [target.name], на должности [ru_job_parse(!target_role_type ? target.assigned_role : target.special_role)]."
 	else
 		explanation_text = "Ничего."
 
@@ -267,7 +267,7 @@ GLOBAL_LIST_EMPTY(objectives)
 
 /datum/objective/maroon/update_explanation_text()
 	if(target && target.current)
-		explanation_text = "Не дать [target.name], на должности [!target_role_type ? target.assigned_role : target.special_role], покинуть станцию в живом виде."
+		explanation_text = "Не дать [target.name], на должности [ru_job_parse(!target_role_type ? target.assigned_role : target.special_role)], покинуть станцию в живом виде."
 	else
 		explanation_text = "Ничего."
 
@@ -302,7 +302,7 @@ GLOBAL_LIST_EMPTY(objectives)
 /datum/objective/debrain/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Украсть мозг [target.name], на должности [!target_role_type ? target.assigned_role : target.special_role]."
+		explanation_text = "Украсть мозг [target.name], на должности [ru_job_parse(!target_role_type ? target.assigned_role : target.special_role)]."
 	else
 		explanation_text = "Ничего."
 
@@ -332,7 +332,7 @@ GLOBAL_LIST_EMPTY(objectives)
 /datum/objective/protect/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Защитить [target.name], на должности [!target_role_type ? target.assigned_role : target.special_role]."
+		explanation_text = "Защитить [target.name], на должности [ru_job_parse(!target_role_type ? target.assigned_role : target.special_role)]."
 	else
 		explanation_text = "Ничего."
 
@@ -360,7 +360,7 @@ GLOBAL_LIST_EMPTY(objectives)
 /datum/objective/jailbreak/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Убедиться в том, что [target.name], на должноости [!target_role_type ? target.assigned_role : target.special_role] сбежит живым и вне заключения."
+		explanation_text = "Убедиться в том, что [target.name], на должности [ru_job_parse(!target_role_type ? target.assigned_role : target.special_role)] сбежит живым и вне заключения."
 	else
 		explanation_text = "Ничего."
 
@@ -377,7 +377,7 @@ GLOBAL_LIST_EMPTY(objectives)
 /datum/objective/jailbreak/detain/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Убедиться в том, что [target.name], на должноости [!target_role_type ? target.assigned_role : target.special_role] будет доставлен в зоне заключения и в наручниках."
+		explanation_text = "Убедиться в том, что [target.name], на должности [ru_job_parse(!target_role_type ? target.assigned_role : target.special_role)] будет доставлен в зоне заключения и в наручниках."
 	else
 		explanation_text = "Ничего."
 
@@ -401,8 +401,8 @@ GLOBAL_LIST_EMPTY(objectives)
 
 /datum/objective/elimination
 	name = "elimination"
-	explanation_text = "Slaughter all loyalist crew aboard the shuttle. You, and any likeminded individuals, must be the only remaining people on the shuttle."
-	team_explanation_text = "Slaughter all loyalist crew aboard the shuttle. You, and any likeminded individuals, must be the only remaining people on the shuttle. Leave no team member behind."
+	explanation_text = "Убить всех лоялистов на шаттле. Только ты и твои соратники должны остаться на шаттле."
+	team_explanation_text = "Убить всех лоялистов на шаттле. Только ты и твои соратники должны остаться на шаттле. Не оставляйте товарищей на станции."
 	martyr_compatible = FALSE
 	reward = 25
 
@@ -417,7 +417,7 @@ GLOBAL_LIST_EMPTY(objectives)
 
 /datum/objective/elimination/highlander
 	name="highlander elimination"
-	explanation_text = "Escape on the shuttle alone. Ensure that nobody else makes it out."
+	explanation_text = "Сбежать на шаттле в одиночестве. Нужно точно убедиться, что никого не будет на нём."
 	reward = 40
 
 /datum/objective/elimination/highlander/check_completion()
@@ -504,7 +504,7 @@ GLOBAL_LIST_EMPTY(objectives)
 /datum/objective/escape/escape_with_identity/update_explanation_text()
 	if(target?.current)
 		target_real_name = target.current.real_name
-		explanation_text = "Сбежать на шаттле или спасательной капсуле под личностью [target_real_name], на должности [target.assigned_role]"
+		explanation_text = "Сбежать на шаттле или спасательной капсуле под личностью [target_real_name], на должности [ru_job_parse(target.assigned_role)]"
 		var/mob/living/carbon/human/H
 		if(ishuman(target.current))
 			H = target.current
@@ -601,7 +601,7 @@ GLOBAL_LIST_EMPTY(objectives)
 
 /datum/objective/survive/malf //Like survive, but for Malf AIs
 	name = "survive AI"
-	explanation_text = "Prevent your own deactivation."
+	explanation_text = "Не допустить собственную деактивацию."
 	reward = 10
 
 /datum/objective/survive/malf/check_completion()
@@ -784,7 +784,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 
 /datum/objective/capture/update_explanation_text()
 	. = ..()
-	explanation_text = "Capture [target_amount] lifeform\s with an energy net. Live, rare specimens are worth more."
+	explanation_text = "Захватить [target_amount] жизненных форм энергосетью. Живые и редкие космонавты будут дороже."
 
 /datum/objective/capture/check_completion()//Basically runs through all the mobs in the area to determine how much they are worth.
 	var/captured_amount = 0
@@ -832,7 +832,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 /datum/objective/protect_object/update_explanation_text()
 	. = ..()
 	if(protect_target)
-		explanation_text = "Protect [protect_target] at all costs."
+		explanation_text = "Защитить [protect_target] любой ценой."
 	else
 		explanation_text = "Ничего."
 
@@ -865,7 +865,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 
 /datum/objective/absorb/update_explanation_text()
 	. = ..()
-	explanation_text = "Extract [target_amount] compatible genome\s."
+	explanation_text = "Извлечь [target_amount] совместимых геномов."
 
 /datum/objective/absorb/admin_edit(mob/admin)
 	var/count = input(admin,"How many people to absorb?","absorb",target_amount) as num|null
@@ -887,7 +887,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 
 /datum/objective/absorb_most
 	name = "absorb most"
-	explanation_text = "Extract more compatible genomes than any other Changeling."
+	explanation_text = "Извлечь геномов больше, чем все остальные Генокрады."
 	reward = 20
 
 /datum/objective/absorb_most/check_completion()
@@ -909,7 +909,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 
 /datum/objective/absorb_changeling
 	name = "absorb changeling"
-	explanation_text = "Absorb another Changeling."
+	explanation_text = "Поглотить другого Генокрада."
 	reward = 20
 
 /datum/objective/absorb_changeling/check_completion()
@@ -951,7 +951,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 /datum/objective/destroy/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Destroy [target.name], the experimental AI."
+		explanation_text = "Уничтожить [target.name], экспериментальный ИИ."
 	else
 		explanation_text = "Ничего."
 
@@ -969,7 +969,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 
 /datum/objective/steal_five_of_type
 	name = "steal five of"
-	explanation_text = "Steal at least five items!"
+	explanation_text = "Украсть пять предметов!"
 	var/list/wanted_items = list()
 	reward = 10
 
@@ -991,13 +991,13 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 
 /datum/objective/steal_five_of_type/summon_guns
 	name = "steal guns"
-	explanation_text = "Steal at least five guns!"
+	explanation_text = "Украсть пять пушек!"
 	wanted_items = list(/obj/item/gun)
 	reward = 10
 
 /datum/objective/steal_five_of_type/summon_magic
 	name = "steal magic"
-	explanation_text = "Steal at least five magical artefacts!"
+	explanation_text = "Украсть пять магических штук!"
 	wanted_items = list()
 	reward = 10
 
