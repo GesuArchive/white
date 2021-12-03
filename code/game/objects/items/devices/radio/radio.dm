@@ -325,11 +325,13 @@
 
 	// allow checks: are we listening on that frequency?
 	if (freq == frequency)
+		playsound(get_turf(src), radiosound, rand(5, 10), 0, 0, 0)
 		return TRUE
 	for(var/ch_name in channels)
 		if(channels[ch_name] & FREQ_LISTENING)
 			//the GLOB.radiochannels list is located in communications.dm
 			if(GLOB.radiochannels[ch_name] == text2num(freq) || syndie)
+				playsound(get_turf(src), radiosound, rand(5, 10), 0, 0, 0)
 				return TRUE
 	return FALSE
 
