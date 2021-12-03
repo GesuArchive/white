@@ -71,7 +71,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 
 /obj/machinery/announcement_system/proc/CompileText(str, user, rank) //replaces user-given variables with actual thingies.
 	str = replacetext(str, "%PERSON", "[user]")
-	str = replacetext(str, "%RANK", "[rank]")
+	str = replacetext(str, "%RANK", "[ru_job_parse(rank)]")
 	return str
 
 /obj/machinery/announcement_system/proc/announce(message_type, user, rank, list/channels)
@@ -85,9 +85,13 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	else if(message_type == "NEWHEAD" && newheadToggle)
 		message = CompileText(newhead, user, rank)
 	else if(message_type == "CRYOSTORAGE")
-		message = "[user][rank ? ", [rank]" : ""] уходит в криосон."
+		message = "[user][rank ? ", [ru_job_parse(rank)]" : ""] уходит в криосон."
 	else if(message_type == "ARRIVALS_BROKEN")
 		message = "Шаттл прибытия был поврежден. Пристыковка для ремонта..."
+
+	for(var/mob/M in GLOB.player_list)
+		if(!isnewplayer(M) && M.can_hear() && (is_station_level(M.z) || is_mining_level(M.z) || is_centcom_level(M.z)))
+			SEND_SOUND(M, 'white/valtos/sounds/newmate.ogg')
 
 	if(channels.len == 0)
 		radio.talk_into(src, message, null)

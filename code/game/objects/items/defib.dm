@@ -451,7 +451,7 @@
 		return
 
 	if(H.can_defib() == DEFIB_POSSIBLE)
-		H.notify_ghost_cloning("Your heart is being defibrillated!")
+		H.notify_ghost_cloning("Кто-то пытается мне откачать!")
 		//H.grab_ghost() // Shove them back in their body. оно ломает приколы с возвращением артистов
 
 	do_help(H, user)
