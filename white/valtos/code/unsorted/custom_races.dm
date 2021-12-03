@@ -164,9 +164,9 @@
 	. = ..()
 
 /datum/species/human/pigman/harm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
+	if(target.stat && prob(25))
+		playsound(get_turf(target), pick('white/valtos/sounds/pig/hru.ogg', 'white/valtos/sounds/pig/oink.ogg', 'white/valtos/sounds/pig/squeak.ogg'), 50, TRUE)
 	. = ..()
-	if(user.stat && prob(25))
-		playsound(get_turf(user), pick('white/valtos/sounds/pig/hru.ogg', 'white/valtos/sounds/pig/oink.ogg', 'white/valtos/sounds/pig/squeak.ogg'), 50, TRUE)
 
 /datum/language_holder/xoxol
 	understood_languages = list(/datum/language/common = list(LANGUAGE_ATOM),
