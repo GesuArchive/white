@@ -89,9 +89,10 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	else if(message_type == "ARRIVALS_BROKEN")
 		message = "Шаттл прибытия был поврежден. Пристыковка для ремонта..."
 
-	for(var/mob/M in GLOB.player_list)
-		if(!isnewplayer(M) && M.can_hear() && (is_station_level(M.z) || is_mining_level(M.z) || is_centcom_level(M.z)))
-			SEND_SOUND(M, 'white/valtos/sounds/newmate.ogg')
+	if(world.time - SSticker.round_start_time > 10)
+		for(var/mob/M in GLOB.player_list)
+			if(!isnewplayer(M) && M.can_hear() && (is_station_level(M.z) || is_mining_level(M.z) || is_centcom_level(M.z)))
+				SEND_SOUND(M, 'white/valtos/sounds/newmate.ogg')
 
 	if(channels.len == 0)
 		radio.talk_into(src, message, null)
