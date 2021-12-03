@@ -148,6 +148,7 @@
 			for(var/obj/item/radio/R in GLOB.all_radios["[frequency]"])
 				if(R.can_receive(frequency, levels))
 					radios += R
+					playsound(get_turf(R), R.radiosound, rand(10, 20), 0, 0, 0)
 
 			// Syndicate radios can hear all well-known radio channels
 			if (num2text(frequency) in GLOB.reverseradiochannels)
@@ -160,12 +161,14 @@
 			for(var/obj/item/radio/R in GLOB.all_radios["[frequency]"])
 				if(!R.subspace_transmission && R.can_receive(frequency, levels))
 					radios += R
+					playsound(get_turf(R), R.radiosound, rand(10, 20), 0, 0, 0)
 
 		if (TRANSMISSION_SUPERSPACE)
 			// Only radios which are independent
 			for(var/obj/item/radio/R in GLOB.all_radios["[frequency]"])
 				if(R.independent && R.can_receive(frequency, levels))
 					radios += R
+					playsound(get_turf(R), R.radiosound, rand(10, 20), 0, 0, 0)
 
 	// From the list of radios, find all mobs who can hear those.
 	var/list/receive = get_mobs_in_radio_ranges(radios)

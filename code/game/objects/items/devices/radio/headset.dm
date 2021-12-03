@@ -28,7 +28,6 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	slot_flags = ITEM_SLOT_EARS
 	var/obj/item/encryptionkey/keyslot2 = null
 	dog_fashion = null
-	var/radiosound = 'white/valtos/sounds/radio/common.ogg'
 
 /obj/item/radio/headset/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins putting <b>[src.name]</b>'s antenna up [user.ru_ego()] nose! It looks like [user.p_theyre()] trying to give [user.ru_na()]self cancer!"))
@@ -66,8 +65,6 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 /obj/item/radio/headset/talk_into(mob/living/M, message, channel, list/spans, datum/language/language, list/message_mods)
 	if (!listening)
 		return ITALICS | REDUCE_RANGE
-	if(ishuman(M) && radiosound)
-		playsound(M, radiosound, rand(10, 20), 0, 0, 0)
 	return ..()
 
 /obj/item/radio/headset/can_receive(freq, level, AIuser)
