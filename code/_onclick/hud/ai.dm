@@ -296,3 +296,6 @@
 	using.screen_loc = ui_ai_add_multicam
 	using.hud = src
 	static_inventory += using
+
+	if(owner)
+		add_multiz_buttons(owner)
