@@ -5850,11 +5850,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
-"aAB" = (
-/obj/structure/cable,
-/obj/machinery/power/smes,
-/turf/open/floor/plating,
-/area/maintenance/department/electrical)
 "aAC" = (
 /obj/structure/sign/warning/docking,
 /turf/closed/wall/r_wall,
@@ -31514,11 +31509,11 @@
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/atmos)
 "dJQ" = (
-/obj/machinery/power/smes,
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/machinery/power/smes/engineering,
 /turf/open/floor/engine,
 /area/engineering/storage/tech)
 "dKO" = (
@@ -33107,6 +33102,10 @@
 	},
 /turf/open/openspace,
 /area/science/xenobiology)
+"fKc" = (
+/obj/structure/extinguisher_cabinet/directional/north,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "fKF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible/layer1{
 	dir = 4
@@ -35611,8 +35610,8 @@
 /turf/open/floor/plating/rust,
 /area/maintenance/space_hut/plasmaman)
 "iBZ" = (
-/obj/machinery/power/smes,
 /obj/structure/cable,
+/obj/machinery/power/smes/engineering,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
 "iCi" = (
@@ -37591,11 +37590,11 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "ljJ" = (
-/obj/machinery/power/smes,
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
+/obj/machinery/power/smes/engineering,
 /turf/open/floor/engine,
 /area/engineering/storage/tech)
 "ljU" = (
@@ -39193,11 +39192,11 @@
 /turf/open/floor/plasteel/monofloor,
 /area/cargo/office)
 "nrt" = (
-/obj/machinery/power/smes,
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
+/obj/machinery/power/smes/engineering,
 /turf/open/floor/engine,
 /area/engineering/storage/tech)
 "nru" = (
@@ -41395,8 +41394,8 @@
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/fore)
 "pLn" = (
-/obj/machinery/power/smes,
 /obj/structure/cable,
+/obj/machinery/power/smes/engineering,
 /turf/open/floor/plating,
 /area/maintenance/port)
 "pLB" = (
@@ -62266,7 +62265,7 @@ aUQ
 czK
 bjk
 aPz
-aSg
+fKc
 bkB
 bhJ
 aSg
@@ -94624,7 +94623,7 @@ auJ
 xeu
 auI
 cgt
-aAB
+iBZ
 asB
 aoP
 aCI
@@ -95138,7 +95137,7 @@ auI
 xeu
 auI
 toG
-aAB
+iBZ
 asB
 aCR
 aEi

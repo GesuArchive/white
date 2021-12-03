@@ -350,6 +350,11 @@
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/cargo/qm/perch)
+"aV" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "aW" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
@@ -1009,10 +1014,8 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/storage/eva)
 "cz" = (
-/obj/structure/table,
-/obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plating,
-/area/maintenance/port)
+/area/ai_monitored/command/nuke_storage)
 "cA" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/white,
@@ -17340,6 +17343,20 @@
 "Pl" = (
 /turf/open/floor/plasteel/monofloor,
 /area/maintenance/solars/port/fore)
+"Pm" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	name = "Disposal Access";
+	req_access_txt = "12"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/disposal)
 "Pn" = (
 /obj/machinery/airalarm{
 	dir = 4;
@@ -18609,6 +18626,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/cafeteria,
 /area/security/prison)
+"SB" = (
+/obj/effect/landmark/stationroom/maintenance/rdm3x3,
+/turf/open/floor/plating,
+/area/ai_monitored/command/nuke_storage)
 "SC" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/window/reinforced{
@@ -30804,7 +30825,7 @@ PG
 PG
 PG
 PG
-PG
+bw
 PG
 PG
 Zm
@@ -31334,7 +31355,7 @@ rw
 li
 Vv
 Vv
-PG
+bw
 Zm
 Zm
 Zm
@@ -32342,7 +32363,7 @@ Zm
 Zm
 Zm
 bw
-PG
+bw
 Vv
 wI
 fK
@@ -33904,9 +33925,9 @@ Ew
 Ij
 RE
 GC
-PG
 bw
-PG
+bw
+bw
 PG
 PG
 PG
@@ -34163,8 +34184,8 @@ CZ
 GC
 PG
 Zm
-Zm
-Zm
+bw
+bw
 Zm
 Zm
 Zm
@@ -34421,8 +34442,8 @@ GC
 PG
 Zm
 Zm
-Zm
-Zm
+bw
+bw
 Zm
 Zm
 Zm
@@ -34679,8 +34700,8 @@ PG
 Zm
 Zm
 Zm
-Zm
-Zm
+bw
+bw
 Zm
 Vn
 Vn
@@ -34937,8 +34958,8 @@ Zm
 Zm
 Zm
 Zm
-Zm
-PG
+bw
+bw
 kK
 AN
 AM
@@ -35195,7 +35216,7 @@ Zm
 Zm
 Zm
 Zm
-PG
+bw
 Vn
 OR
 zI
@@ -36485,9 +36506,9 @@ PG
 PG
 PG
 Vn
+Pm
 Vn
-Vn
-PG
+aV
 Vn
 wZ
 fD
@@ -36741,10 +36762,10 @@ PG
 PG
 PG
 bw
-bw
-PG
-PG
-PG
+pf
+fD
+fD
+fD
 pf
 RZ
 fD
@@ -36998,12 +37019,12 @@ PG
 PG
 bw
 bw
-PG
-PG
-PG
-PG
 pf
-cz
+pf
+pf
+fD
+fD
+fD
 GW
 fD
 vV
@@ -37257,8 +37278,8 @@ bw
 Zm
 Zm
 PG
-PG
-PG
+pf
+pf
 pf
 pf
 pf
@@ -40578,9 +40599,9 @@ PG
 lp
 Ac
 hx
-hx
-hx
-hx
+cz
+cz
+SB
 hx
 hx
 PG
@@ -40835,10 +40856,10 @@ Zm
 hx
 Ac
 hx
-Zm
-Zm
-Zm
-Zm
+cz
+cz
+cz
+lp
 Zm
 Zm
 Zm
@@ -41092,10 +41113,10 @@ bw
 hx
 Ac
 hx
-bw
-bw
-Zm
-Zm
+cz
+cz
+cz
+hx
 Zm
 Zm
 Zm
@@ -41350,9 +41371,9 @@ rz
 en
 rz
 aM
-bw
-PG
-PG
+hx
+hx
+hx
 PG
 Zm
 Zm
