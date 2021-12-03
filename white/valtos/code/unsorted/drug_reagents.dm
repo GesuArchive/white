@@ -10,7 +10,7 @@
     if(ishuman(M))
         var/mob/living/carbon/human/H = M
         if(prob(5+(current_cycle*0.6))) //burping intensifies
-            H.emote("poo")
+            H.emote("burp")
             if(prob(5))
                 to_chat(H, span_danger("Чувствую, что мой раздутый живот грохочет газом."))
 
@@ -29,14 +29,14 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(prob(7))
-			H.emote("poo")
+			H.emote("fart")
 	return ..()
 
 /datum/reagent/drug/fartium/overdose_process(mob/living/M)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(prob(9))
-			H.emote("poo")
+			H.emote("fart")
 	return ..()
 
 /datum/reagent/drug/crank/on_mob_life(mob/living/M)
