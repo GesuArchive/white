@@ -4,15 +4,15 @@
 	gender = FEMALE //All xenos are girls!!
 	dna = null
 	faction = list(ROLE_ALIEN)
-	ventcrawler = VENTCRAWLER_ALWAYS
 	sight = SEE_MOBS
 	see_in_dark = 4
 	verb_say = "hisses"
 	initial_language_holder = /datum/language_holder/alien
 	bubble_icon = "alien"
 	type_of_meat = /obj/item/food/meat/slab/xeno
+	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
 
-	var/obj/item/card/id/wear_id = null // Fix for station bounced radios -- Skie
+	var/obj/item/card/id/wear_id = null
 	var/has_fine_manipulation = 0
 	var/move_delay_add = 0 // movement delay to add
 
@@ -26,7 +26,7 @@
 
 	var/static/regex/alien_name_regex = new("alien (larva|sentinel|drone|hunter|praetorian|queen)( \\(\\d+\\))?")
 
-/mob/living/carbon/alien/Initialize()
+/mob/living/carbon/alien/Initialize(mapload)
 	add_verb(src, /mob/living/proc/mob_sleep)
 	add_verb(src, /mob/living/proc/toggle_resting)
 
@@ -34,7 +34,9 @@
 
 	create_internal_organs()
 
-	ADD_TRAIT(src, TRAIT_NEVER_WOUNDED, ROUNDSTART_TRAIT)
+	ADD_TRAIT(src, TRAIT_CAN_STRIP, INNATE_TRAIT)
+	ADD_TRAIT(src, TRAIT_NEVER_WOUNDED, INNATE_TRAIT)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 	. = ..()
 
@@ -128,6 +130,7 @@ Des: Removes all infected images from the alien.
 		new_xeno.name = name
 		new_xeno.real_name = real_name
 	if(mind)
+		mind.name = new_xeno.real_name
 		mind.transfer_to(new_xeno)
 	var/datum/component/nanites/nanites = GetComponent(/datum/component/nanites)
 	if(nanites)
