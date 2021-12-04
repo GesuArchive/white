@@ -12,6 +12,8 @@
 	light_range = 6
 	appearance_flags = LONG_GLIDE
 
+	invisibility = INVISIBILITY_MAXIMUM
+
 	/// The singularity component itself.
 	/// A weak ref in case an admin removes the component to preserve the functionality.
 	var/datum/weakref/singularity_component
@@ -37,6 +39,10 @@
 /obj/singularity/Initialize(mapload, starting_energy = 50)
 	. = ..()
 
+	new /obj/effect/singularity_creation(loc)
+
+	addtimer(CALLBACK(src, .proc/make_visible), 62)
+
 	energy = starting_energy
 
 	START_PROCESSING(SSobj, src)
@@ -58,7 +64,10 @@
 			break
 
 	if (!mapload)
-		notify_ghosts("IT'S LOOSE", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, ghost_sound = 'sound/machines/warning-buzzer.ogg', header = "IT'S LOOSE", notify_volume = 75)
+		notify_ghosts("О, НЕТ!", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, ghost_sound = 'sound/machines/warning-buzzer.ogg', header = "IT'S LOOSE", notify_volume = 75)
+
+/obj/singularity/proc/make_visible()
+	invisibility = NONE
 
 /obj/singularity/proc/be_free()
 	var/datum/component/singularity/new_component = AddComponent(
