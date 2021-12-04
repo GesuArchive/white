@@ -438,6 +438,20 @@
 			SSjob.forced_num++
 	..()
 
+/datum/round_aspect/key
+	name = "Key"
+	desc = "Ключевые события теперь подпитаны правдой."
+	weight = 4
+	forbidden = TRUE
+
+/datum/round_aspect/key/run_aspect()
+	SSjob.forced_name = "KEY"
+	spawn(5 SECONDS)
+		for(var/mob/living/carbon/human/H in GLOB.mob_list)
+			H.fully_replace_character_name(H.real_name, "[H.key]")
+			SSjob.forced_num++
+	..()
+
 /datum/round_aspect/rdmg
 	name = "Random DMG"
 	desc = "Везёт же некоторым, а может и не везёт. Наше восприятие искажено до такой степени, что мы можем прожечь себе руку холодным ножом."
