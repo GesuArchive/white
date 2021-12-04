@@ -266,7 +266,10 @@
 	H.dna.species.after_equip_job(src, H, visualsOnly)
 
 	if(latejoin && SSjob.forced_name)
-		H.fully_replace_character_name(H.real_name, "[SSjob.forced_name] \Roman[SSjob.forced_num]")
+		if(SSjob.forced_name = "KEY")
+			H.fully_replace_character_name(H.real_name, "[H.key]")
+		else
+			H.fully_replace_character_name(H.real_name, "[SSjob.forced_name] \Roman[SSjob.forced_num]")
 		SSjob.forced_num++
 
 	if(!visualsOnly && announce)
