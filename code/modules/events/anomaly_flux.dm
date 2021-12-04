@@ -12,4 +12,4 @@
 	anomaly_path = /obj/effect/anomaly/flux
 
 /datum/round_event/anomaly/anomaly_flux/announce(fake)
-	priority_announce("Обнаружен гипер-энергетический поток на сканерах большой дальности. Ожидаемое место: [impact_area.name].", "Аномальная тревога", ANNOUNCER_RADIATION)
+	priority_announce("Обнаружен гипер-энергетический поток на сканерах большой дальности. Ожидаемое место: [impact_area.name].", "Аномальная тревога")
