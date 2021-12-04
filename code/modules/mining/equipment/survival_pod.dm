@@ -207,6 +207,8 @@
 
 /obj/machinery/smartfridge/survival_pod/preloaded/Initialize(mapload)
 	. = ..()
+	var/obj/item/reagent_containers/food/drinks/waterbottle/A = new(src)
+	load(A)
 	for(var/i in 1 to 5)
 		var/obj/item/food/donkpocket/warm/W = new(src)
 		load(W)

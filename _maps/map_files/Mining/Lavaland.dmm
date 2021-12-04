@@ -943,19 +943,23 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/structure/closet/crate/secure/loot,
 /obj/structure/sign/warning/electricshock{
 	pixel_y = 32
 	},
-/obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/machinery/power/port_gen/pacman{
+	anchored = 1
+	},
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "cU" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "cV" = (
+/obj/structure/closet/crate/secure/loot,
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "cW" = (
@@ -1111,21 +1115,15 @@
 /turf/open/floor/plasteel/white,
 /area/mine/living_quarters)
 "do" = (
-/obj/machinery/power/terminal{
-	dir = 1
-	},
 /obj/structure/cable,
-/obj/machinery/power/port_gen/pacman{
-	anchored = 1
-	},
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "dp" = (
 /obj/machinery/meter,
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 6
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "dq" = (
@@ -1252,15 +1250,15 @@
 /turf/open/floor/plasteel/white,
 /area/mine/living_quarters)
 "dF" = (
-/obj/machinery/power/port_gen/pacman{
-	anchored = 1
-	},
 /obj/structure/cable,
+/obj/machinery/power/smes{
+	charge = 5e+006
+	},
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "dH" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/components/binary/pump/on,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "dI" = (
@@ -2083,6 +2081,7 @@
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
 "fJ" = (
@@ -3672,6 +3671,15 @@
 	},
 /turf/open/floor/plasteel,
 /area/mine/laborcamp/security)
+"pY" = (
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/machinery/power/port_gen/pacman{
+	anchored = 1
+	},
+/turf/open/floor/plating,
+/area/mine/living_quarters)
 "qk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/public/glass{
@@ -4737,12 +4745,8 @@
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)
 "Qo" = (
-/obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/book/manual/chef_recipes{
-	pixel_x = 2;
-	pixel_y = 6
-	},
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)
 "QN" = (
@@ -15770,8 +15774,8 @@ aj
 aj
 cM
 cT
-cV
-cV
+do
+pY
 cM
 ea
 YA
