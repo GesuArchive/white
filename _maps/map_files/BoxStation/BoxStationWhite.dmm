@@ -8806,8 +8806,11 @@
 /turf/open/floor/plasteel/monofloor,
 /area/service/chapel/main)
 "aKh" = (
-/obj/structure/disposalpipe/junction/yjunction,
 /obj/structure/cable,
+/obj/structure/disposalpipe/sorting/mail{
+	dir = 4;
+	sortType = 21
+	},
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
 "aKj" = (
@@ -27647,13 +27650,8 @@
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/main)
 "cpX" = (
-/obj/machinery/computer{
-	desc = "A computer long since rendered non-functional due to lack of maintenance. Spitting out error messages.";
-	dir = 8;
-	name = "Broken Computer"
-	},
-/obj/item/shard{
-	icon_state = "small"
+/obj/machinery/computer/sat_control{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
