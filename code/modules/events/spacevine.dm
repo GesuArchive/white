@@ -115,7 +115,7 @@
 		QDEL_IN(holder, 5)
 
 /datum/spacevine_mutation/explosive/on_death(obj/structure/spacevine/holder, mob/hitter, obj/item/I)
-	explosion(holder.loc, 0, 0, severity, 0, 0)
+	explosion(holder, light_impact_range = severity, adminlog = FALSE)
 
 /datum/spacevine_mutation/fire_proof
 	name = "fire proof"
@@ -168,7 +168,7 @@
 			C.apply_damage(50, BRUTE, def_zone = limb, wound_bonus = rand(-20,10), sharpness = SHARP_POINTY) //This one gets a bit lower damage because it ignores armor.
 			C.Stun(1 SECONDS) //Stopped in place for a moment.
 			playsound(M, 'sound/weapons/pierce.ogg', 50, TRUE, -1)
-			M.visible_message(span_danger("[M] is nailed by a sharp thorn!") , \
+			M.visible_message(span_danger("[M] is nailed by a sharp thorn!"), \
 			span_userdanger("You are nailed by a sharp thorn!"))
 			log_combat(S, M, "aggressively pierced") //"Aggressively" for easy ctrl+F'ing in the attack logs.
 		else
@@ -176,7 +176,7 @@
 				C.apply_damage(60, BRUTE, def_zone = limb, blocked = armor, wound_bonus = rand(-20,10), sharpness = SHARP_EDGED)
 				C.Knockdown(2 SECONDS)
 				playsound(M, 'sound/weapons/whip.ogg', 50, TRUE, -1)
-				M.visible_message(span_danger("[M] is lacerated by an outburst of vines!") , \
+				M.visible_message(span_danger("[M] is lacerated by an outburst of vines!"), \
 				span_userdanger("You are lacerated by an outburst of vines!"))
 				log_combat(S, M, "aggressively lacerated")
 			else
@@ -185,13 +185,13 @@
 				var/atom/throw_target = get_edge_target_turf(C, get_dir(S, get_step_away(C, S)))
 				C.throw_at(throw_target, 3, 6)
 				playsound(M, 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
-				M.visible_message(span_danger("[M] is smashed by a large vine!") , \
+				M.visible_message(span_danger("[M] is smashed by a large vine!"), \
 				span_userdanger("You are smashed by a large vine!"))
 				log_combat(S, M, "aggressively smashed")
 	else //Living but not a carbon? Maybe a silicon? Can't be wounded so have a big chunk of simple bruteloss with no special effects. They can be entangled.
 		M.adjustBruteLoss(75)
 		playsound(M, 'sound/weapons/whip.ogg', 50, TRUE, -1)
-		M.visible_message(span_danger("[M] is brutally threshed by [S]!") , \
+		M.visible_message(span_danger("[M] is brutally threshed by [S]!"), \
 		span_userdanger("You are brutally threshed by [S]!"))
 		log_combat(S, M, "aggressively spread into") //You aren't being attacked by the vines. You just happen to stand in their way.
 
@@ -241,7 +241,7 @@
 		GM.set_moles(/datum/gas/carbon_dioxide, max(GM.get_moles(/datum/gas/carbon_dioxide) - severity * holder.energy, 0))
 
 /datum/spacevine_mutation/plasma_eater
-	name = "toxins consuming"
+	name = "plasma consuming"
 	hue = "#ffbbff"
 	severity = 3
 	quality = POSITIVE
@@ -269,7 +269,7 @@
 		var/mob/living/M = hitter
 		M.adjustBruteLoss(5)
 		to_chat(M, span_alert("You cut yourself on the thorny vines."))
-	. =	expected_damage
+	. = expected_damage
 
 /datum/spacevine_mutation/woodening
 	name = "hardened"
@@ -280,7 +280,6 @@
 	if(holder.energy)
 		holder.set_density(TRUE)
 	holder.modify_max_integrity(100)
-	holder.obj_integrity = holder.max_integrity
 
 /datum/spacevine_mutation/woodening/on_hit(obj/structure/spacevine/holder, mob/living/hitter, obj/item/I, expected_damage)
 	if(I?.get_sharpness())
@@ -330,7 +329,7 @@
 
 /obj/structure/spacevine/examine(mob/user)
 	. = ..()
-	var/text = "<hr>This one is a"
+	var/text = "This one is a"
 	if(mutations.len)
 		for(var/A in mutations)
 			var/datum/spacevine_mutation/SM = A
@@ -395,18 +394,18 @@
 		SM.on_cross(src, AM)
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/structure/spacevine/attack_hand(mob/user)
+/obj/structure/spacevine/attack_hand(mob/user, list/modifiers)
 	for(var/datum/spacevine_mutation/SM in mutations)
 		SM.on_hit(src, user)
 	user_unbuckle_mob(user, user)
 	. = ..()
 
-/obj/structure/spacevine/attack_paw(mob/living/user)
+/obj/structure/spacevine/attack_paw(mob/living/user, list/modifiers)
 	for(var/datum/spacevine_mutation/SM in mutations)
 		SM.on_hit(src, user)
 	user_unbuckle_mob(user,user)
 
-/obj/structure/spacevine/attack_alien(mob/living/user)
+/obj/structure/spacevine/attack_alien(mob/living/user, list/modifiers)
 	eat(user)
 
 /datum/spacevine_controller
@@ -442,8 +441,8 @@
 		if(tgui_alert(usr, "Are you sure you want to delete this spacevine cluster?", "Delete Vines", list("Yes", "No")) == "Yes")
 			DeleteVines()
 
-/datum/spacevine_controller/proc/DeleteVines()	//this is kill
-	QDEL_LIST(vines)	//this will also qdel us
+/datum/spacevine_controller/proc/DeleteVines() //this is kill
+	QDEL_LIST(vines) //this will also qdel us
 
 /datum/spacevine_controller/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -462,12 +461,12 @@
 		var/parentcolor = parent.atom_colours[FIXED_COLOUR_PRIORITY]
 		SV.add_atom_colour(parentcolor, FIXED_COLOUR_PRIORITY)
 		if(prob(mutativeness))
-			var/datum/spacevine_mutation/randmut = pick(vine_mutations_list - SV.mutations)
-			randmut.add_mutation_to_vinepiece(SV)
+			var/datum/spacevine_mutation/random_mutate = pick(vine_mutations_list - SV.mutations)
+			random_mutate.add_mutation_to_vinepiece(SV)
 
 	for(var/datum/spacevine_mutation/SM in SV.mutations)
 		SM.on_birth(SV)
-	location.Entered(SV)
+	location.Entered(SV, null)
 	return SV
 
 /datum/spacevine_controller/proc/VineDestroyed(obj/structure/spacevine/S)
@@ -559,19 +558,18 @@
 	var/i
 	for(var/datum/spacevine_mutation/SM in mutations)
 		i += SM.on_explosion(severity, target, src)
-	if(!i && prob(100/severity))
+	if(!i && prob(34 * severity))
 		qdel(src)
 
 /obj/structure/spacevine/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
-	return TRUE
+	return exposed_temperature > FIRE_MINIMUM_TEMPERATURE_TO_SPREAD //if you're cold you're safe
 
 /obj/structure/spacevine/atmos_expose(datum/gas_mixture/air, exposed_temperature)
 	var/volume = air.return_volume()
-	var/override = 0
 	for(var/datum/spacevine_mutation/SM in mutations)
-		override += SM.process_temperature(src, exposed_temperature, volume)
-	if(!override)
-		qdel(src)
+		if(SM.process_temperature(src, exposed_temperature, volume)) //If it's ever true we're safe
+			return
+	qdel(src)
 
 /obj/structure/spacevine/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
