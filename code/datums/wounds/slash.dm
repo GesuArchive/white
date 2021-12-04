@@ -173,7 +173,7 @@
 			continue
 		user.ForceContractDisease(iter_disease)
 
-	user.visible_message(span_notice("<b>[user]</b> начинает зализывать рану на [ru_gde_zone(limb.name)] <b>[victim]</b>.") , span_notice("Начинаю заливать рану на [ru_gde_zone(limb.name)] <b>[victim]</b>...") , ignored_mobs=victim)
+	user.visible_message(span_notice("<b>[user]</b> начинает зализывать рану на [ru_gde_zone(limb.name)] <b>[victim]</b>.") , span_notice("Начинаю зализывать рану на [ru_gde_zone(limb.name)] <b>[victim]</b>...") , ignored_mobs=victim)
 	to_chat(victim, "<span class='notice'><b>[user]</b> начинает зализывать рану на моей [ru_gde_zone(limb.name)].</span")
 	if(!do_after(user, base_treat_time, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return

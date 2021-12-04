@@ -544,8 +544,8 @@
 				add_fingerprint(user)
 			locked = !locked
 			playsound(src, 'white/valtos/sounds/locker.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
-			user.visible_message(span_notice("[user] [locked ? "блокирует" : "разблокирывает"] [src].") ,
-							span_notice("[locked ? "Блокирую" : "Разблокирываю"] [src]."))
+			user.visible_message(span_notice("[user] [locked ? "блокирует" : "разблокировывает"] [src].") ,
+							span_notice("[locked ? "Блокирую" : "Разблокировываю"] [src]."))
 			update_icon()
 		else if(!silent)
 			to_chat(user, span_alert("Доступ запрещён."))
