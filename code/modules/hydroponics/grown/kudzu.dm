@@ -44,7 +44,7 @@
 	qdel(src)
 
 /obj/item/seeds/kudzu/attack_self(mob/user)
-	user.visible_message(span_danger("[user] начинает выбрасывать семена на пол..."))
+	user.visible_message(span_danger("[user] начинает раскидывать семена..."))
 	if(do_after(user, 5 SECONDS, target = user.drop_location(), progress = TRUE))
 		plant(user)
 		to_chat(user, span_notice("Вы посадили кудзу. Вы - монстр."))
@@ -102,7 +102,6 @@
 	name = "Стручок кудзу"
 	desc = "<I>Пуэрария Вираллис</I>: Инвазивный вид с виноградными лозами, которые быстро ползают и обвивают все, с чем они соприкасаются."
 	icon_state = "kudzupod"
-	bite_consumption_mod = 2
 	foodtypes = VEGETABLES | GROSS
 	tastes = list("kudzu" = 1)
 	wine_power = 20
