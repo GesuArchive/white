@@ -35051,12 +35051,28 @@
 /turf/open/floor/plasteel,
 /area/security/brig/upper)
 "hQV" = (
-/obj/machinery/computer/operating{
-	dir = 8
+/obj/structure/table/glass,
+/obj/item/reagent_containers/syringe{
+	pixel_x = -5;
+	pixel_y = 2
 	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/item/reagent_containers/glass/bottle/epinephrine{
+	pixel_x = -5;
+	pixel_y = 9
+	},
+/obj/item/storage/box/masks{
+	pixel_x = -7;
+	pixel_y = -4
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = 2;
+	pixel_y = -5
+	},
+/obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/white,
 /area/medical/abandoned)
 "hRv" = (
@@ -38862,7 +38878,7 @@
 /area/commons/fitness)
 "mTW" = (
 /obj/structure/sign/departments/medbay/alt,
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/medical/abandoned)
 "mVj" = (
 /obj/structure/cable,
@@ -42862,11 +42878,7 @@
 /turf/open/floor/plasteel/white,
 /area/science/research)
 "rCv" = (
-/obj/structure/table/optable,
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 4
-	},
-/turf/open/floor/plasteel/white,
+/turf/closed/wall/r_wall,
 /area/medical/abandoned)
 "rCO" = (
 /obj/effect/turf_decal/tile/red{
@@ -43199,23 +43211,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "rTB" = (
-/obj/structure/table/glass,
-/obj/item/reagent_containers/syringe{
-	pixel_x = -5;
-	pixel_y = 2
-	},
-/obj/item/reagent_containers/glass/bottle/epinephrine{
-	pixel_x = -5;
-	pixel_y = 9
-	},
-/obj/item/storage/box/masks{
-	pixel_x = -7;
-	pixel_y = -4
-	},
-/obj/item/storage/box/gloves{
-	pixel_x = 2;
-	pixel_y = -5
-	},
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 4
 	},
@@ -57353,17 +57348,17 @@ gXs
 alU
 alU
 amC
-apJ
-apJ
-apJ
-apJ
-apJ
-apJ
-apJ
-apJ
-apJ
-apJ
-apJ
+rCv
+rCv
+rCv
+rCv
+rCv
+rCv
+rCv
+rCv
+rCv
+rCv
+rCv
 avP
 iEJ
 asE
@@ -57610,7 +57605,7 @@ gXs
 alU
 akP
 cpV
-apJ
+rCv
 apN
 jCz
 kIu
@@ -57620,7 +57615,7 @@ apJ
 oMa
 wdc
 hwb
-apJ
+rCv
 aBB
 ayk
 wIs
@@ -57867,7 +57862,7 @@ gXs
 caI
 akY
 amC
-apJ
+rCv
 aTu
 kzu
 kzu
@@ -57877,7 +57872,7 @@ xmw
 kuM
 cFF
 xXk
-apJ
+rCv
 wMY
 aQG
 nUc
@@ -58124,7 +58119,7 @@ gXs
 caI
 aqJ
 amC
-apJ
+rCv
 hDx
 kzu
 oBE
@@ -58134,7 +58129,7 @@ apJ
 lYX
 eEb
 xLd
-apJ
+rCv
 pLY
 lJC
 azy
@@ -58381,17 +58376,17 @@ gXs
 caI
 bkD
 amC
-apJ
+rCv
 owD
 hQV
-rCv
+gwJ
 rTB
 pbj
 apJ
 lCi
 hua
 lCi
-apJ
+rCv
 cxY
 rXH
 awW
@@ -58638,7 +58633,7 @@ gXs
 caI
 akY
 aKY
-apJ
+rCv
 gpr
 gcn
 eiX
@@ -58895,7 +58890,7 @@ gXs
 alU
 cpe
 amC
-apJ
+rCv
 iDg
 kzu
 mvc
@@ -59152,7 +59147,7 @@ gXs
 alU
 alU
 amC
-apJ
+rCv
 waC
 kzu
 rBY
@@ -59162,7 +59157,7 @@ apJ
 tec
 apJ
 apJ
-apJ
+rCv
 rXH
 rXH
 rXH
@@ -59409,7 +59404,7 @@ gXs
 aaa
 alU
 bLU
-apJ
+rCv
 khT
 vfn
 gnK
@@ -59419,7 +59414,7 @@ apJ
 pjl
 lgC
 itd
-apJ
+rCv
 rXH
 rXH
 dti
@@ -59666,7 +59661,7 @@ gXs
 aaa
 alU
 amC
-apJ
+rCv
 uEI
 apJ
 lCi
@@ -59676,7 +59671,7 @@ ehW
 neO
 eHs
 dGX
-apJ
+rCv
 cyb
 rXH
 awW
@@ -59923,9 +59918,9 @@ eRz
 gXs
 alU
 amC
-apJ
-apJ
-apJ
+rCv
+rCv
+rCv
 ajZ
 asF
 atp
@@ -60182,7 +60177,7 @@ caI
 amC
 cqq
 qbW
-apJ
+rCv
 asH
 atI
 nhK
@@ -60439,7 +60434,7 @@ caI
 amC
 cqq
 qbW
-apJ
+rCv
 asI
 aCX
 aCX
@@ -60696,7 +60691,7 @@ caI
 amC
 cqq
 qbW
-apJ
+rCv
 asJ
 cTE
 avQ
@@ -60953,15 +60948,15 @@ alU
 amC
 cjc
 amC
-apJ
-apJ
-apJ
-apJ
-apJ
-apJ
-apJ
-apJ
-apJ
+rCv
+rCv
+rCv
+rCv
+rCv
+rCv
+rCv
+rCv
+rCv
 axG
 dGP
 ifu
