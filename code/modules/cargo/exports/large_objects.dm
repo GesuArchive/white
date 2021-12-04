@@ -82,12 +82,12 @@
 	export_types = list(/obj/machinery/power/tesla_coil)
 
 /datum/export/large/pa
-	cost = 35
+	cost = CARGO_CRATE_VALUE * 3
 	unit_name = "часть ускорителя частиц"
 	export_types = list(/obj/structure/particle_accelerator)
 
 /datum/export/large/pa/controls
-	cost = 50
+	cost = CARGO_CRATE_VALUE * 5
 	unit_name = "консоль ускорителя частиц"
 	export_types = list(/obj/machinery/particle_accelerator/control_box)
 
@@ -102,12 +102,12 @@
 	export_types = list(/obj/machinery/power/grounding_rod)
 
 /datum/export/large/tesla_gen
-	cost = 40
+	cost = CARGO_CRATE_VALUE * 4
 	unit_name = "генератор теслы"
 	export_types = list(/obj/machinery/the_singularitygen/tesla)
 
 /datum/export/large/singulo_gen
-	cost = 40
+	cost = CARGO_CRATE_VALUE * 4
 	unit_name = "генератор сингулярности"
 	export_types = list(/obj/machinery/the_singularitygen)
 	include_subtypes = FALSE

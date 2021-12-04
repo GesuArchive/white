@@ -3,7 +3,7 @@
 //6 Tiers to start with, working from cheapest (Available roundstart) to most expensive (Has to be made with considerable luck and preperation.)
 
 /datum/export/food
-	cost = 10 // Default cost, Because something WILL get missed somewhere. Perhaps out of active ignorance or not.
+	cost = 3 // Default cost, Because something WILL get missed somewhere. Perhaps out of active ignorance or not.
 	unit_name = "serving"
 	message = "еды"
 	export_types = list(/obj/item/reagent_containers/food/snacks)
