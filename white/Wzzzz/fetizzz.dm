@@ -3,10 +3,10 @@
 	icon_state = "golemmeat"
 //что это блядь такое и зачем оно нам нужно
 /datum/species/human/husk
-	name = "husk"
+	name = "говно зергиверги"
 	id = "husk"
 	species_traits = list(NOBLOOD,NOEYESPRITES,NO_DNA_COPY)
-	inherent_traits = list(TRAIT_RADIMMUNE,TRAIT_VIRUSIMMUNE, TRAIT_STRONG_GRABBER)
+	inherent_traits = list(TRAIT_RADIMMUNE,TRAIT_VIRUSIMMUNE, TRAIT_STRONG_GRABBER, TRAIT_CAN_STRIP)
 	changesource_flags = null
 	mutanteyes = /obj/item/organ/eyes/night_vision
 	meat = /obj/item/food/meat/slab/human/mutant/shadow

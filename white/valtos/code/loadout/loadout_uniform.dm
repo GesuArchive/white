@@ -280,6 +280,6 @@
 	cost = 750
 
 /datum/gear/uniform/bathrobe
-	display_name = "камишимо"
+	display_name = "халат"
 	path = /obj/item/clothing/under/costume/bathrobe
 	cost = 600
