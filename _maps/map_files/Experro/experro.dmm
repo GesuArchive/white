@@ -2954,7 +2954,7 @@
 /area/partyhard/indoors)
 "mY" = (
 /obj/structure/rack/cataclysmdda/metal/alt,
-/obj/item/clothing/suit/armor/opvest/spetsnaz,
+/obj/item/clothing/suit/armor/opvest/sobr,
 /obj/item/clothing/suit/armor/bulletproof{
 	pixel_x = 3;
 	pixel_y = -3
@@ -3944,7 +3944,7 @@
 /area/partyhard/outdoors)
 "rx" = (
 /obj/structure/closet,
-/obj/item/clothing/suit/armor/opvest/spetsnaz,
+/obj/item/clothing/suit/armor/opvest/sobr,
 /obj/item/clothing/glasses/night,
 /obj/item/radio/off,
 /turf/open/floor/plasteel/tile,
@@ -4384,7 +4384,7 @@
 /area/partyhard/indoors)
 "tB" = (
 /obj/structure/closet,
-/obj/item/clothing/suit/armor/opvest/spetsnaz,
+/obj/item/clothing/suit/armor/opvest/sobr,
 /obj/item/gun/ballistic/automatic/ak74m/gp25,
 /obj/item/radio/off,
 /turf/open/floor/plasteel/tile,
@@ -5772,7 +5772,7 @@
 /area/partyhard/indoors)
 "zl" = (
 /obj/structure/table/wood/cataclysmdda/sci,
-/obj/item/clothing/suit/armor/opvest/spetsnaz,
+/obj/item/clothing/suit/armor/opvest/sobr,
 /obj/item/grenade/c4,
 /turf/open/floor/plasteel/tile,
 /area/partyhard/indoors)

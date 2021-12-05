@@ -262,7 +262,7 @@
 	fire_sound = pick(huipizdaaa)
 
 /obj/item/ammo_box/magazine/ak74m
-	name = "AK-74 Magazine (5.45)"
+	name = "Магазин АК-74 (5.45)"
 	icon = 'white/rebolution228/icons/weapons/rammo.dmi'
 	icon_state = "ak74m"
 	ammo_type = /obj/item/ammo_casing/a545

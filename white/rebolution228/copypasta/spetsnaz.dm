@@ -1,13 +1,13 @@
-/datum/ert/spetsnaz
-	roles = list(/datum/antagonist/ert/spetsnaz, /datum/antagonist/ert/spetsnaz/grenadier)
-	leader_role = /datum/antagonist/ert/spetsnaz/leader
+/datum/ert/sobr
+	roles = list(/datum/antagonist/ert/sobr, /datum/antagonist/ert/sobr/grenadier)
+	leader_role = /datum/antagonist/ert/sobr/leader
 	teamsize = 5
 	opendoors = FALSE
 	rename_team = "Спецназ"
 	mission = "Уничтожить особо опасных террористов на станции."
 	polldesc = "группе специального назначения"
 
-/datum/antagonist/ert/spetsnaz/greet()
+/datum/antagonist/ert/sobr/greet()
 	if(!ert_team)
 		return
 
@@ -23,40 +23,40 @@
 		to_chat(owner, "По возможности <B>избегайте</B> жертв среди гражданского населения.")
 	to_chat(owner, "<BR><B>МИССИЯ:</B> [ert_team.mission.explanation_text]")
 
-/datum/antagonist/ert/spetsnaz/on_gain()
+/datum/antagonist/ert/sobr/on_gain()
 	. = ..()
 	givespaceproof()
 
-/datum/antagonist/ert/spetsnaz/proc/givespaceproof()
+/datum/antagonist/ert/sobr/proc/givespaceproof()
 	var/mob/living/carbon/C = owner.current
 	if(!istype(C))
 		return
 	C.dna.add_mutation(/datum/mutation/human/spaceproof)
 
-/datum/antagonist/ert/spetsnaz
-	name = "Спецназ"
-	outfit = /datum/outfit/spetsnaz
+/datum/antagonist/ert/sobr
+	name = "СОБР"
+	outfit = /datum/outfit/sobr
 	random_names = TRUE
-	role = "Спецназовец"
+	role = "СОБР"
 	greentext_reward = 15
 
-/datum/antagonist/ert/spetsnaz/grenadier
-	outfit = /datum/outfit/spetsnaz/grenadier
+/datum/antagonist/ert/sobr/grenadier
+	outfit = /datum/outfit/sobr/grenadier
 
-/datum/antagonist/ert/spetsnaz/leader
-	name = "Лидер Спецназа"
-	outfit = /datum/outfit/spetsnaz/leader
-	role = "Лидер Спецназа"
+/datum/antagonist/ert/sobr/leader
+	name = "Лидер СОБР"
+	outfit = /datum/outfit/sobr/leader
+	role = "Лидер СОБР"
 	leader = TRUE
 	greentext_reward = 20
 
-/datum/antagonist/ert/spetsnaz/update_name()
+/datum/antagonist/ert/sobr/update_name()
 	if(owner.current.gender == FEMALE)
 		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Капитан", "Майор", "Подполковник")] [pick(name_source)]а")
 	else
 		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Капитан", "Майор", "Подполковник")] [pick(name_source)]")
 
-/datum/antagonist/ert/spetsnaz/leader/update_name()
+/datum/antagonist/ert/sobr/leader/update_name()
 	if(owner.current.gender == FEMALE)
 		owner.current.fully_replace_character_name(owner.current.real_name,"Полковник [pick(name_source)]а")
 	else
@@ -65,16 +65,16 @@
 
 ////////////////OUTFITS//////////////////////
 
-/datum/outfit/spetsnaz
-	name = "Спецназовец-стрелок"
+/datum/outfit/sobr
+	name = "СОБР-стрелок"
 
-	uniform = /obj/item/clothing/under/rank/spetsnaz
-	suit = /obj/item/clothing/suit/armor/opvest/spetsnaz
+	uniform = /obj/item/clothing/under/rank/sobr
+	suit = /obj/item/clothing/suit/armor/opvest/sobr
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	ears = /obj/item/radio/headset/headset_cent/alt
 	mask = /obj/item/clothing/mask/balaclava/swat
-	belt = /obj/item/storage/belt/military/spetsnaz
+	belt = /obj/item/storage/belt/military/sobr
 	id = /obj/item/card/id/advanced/centcom/spetsnaz
 	id_trim = /datum/id_trim/centcom/spetsnaz
 	r_pocket = /obj/item/kitchen/knife/combat
@@ -86,7 +86,7 @@
 		/obj/item/melee/classic_baton/german=1,\
 		/obj/item/crowbar/red=1)
 
-/datum/outfit/spetsnaz/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/sobr/pre_equip(mob/living/carbon/human/H)
 	suit_store = /obj/item/gun/ballistic/automatic/ak74m
 	var/randomhelmet = pick(/obj/item/clothing/head/helmet/maska, \
 						/obj/item/clothing/head/helmet/maska/black, \
@@ -97,7 +97,7 @@
 	else
 		head = randomhelmet
 
-/datum/outfit/spetsnaz/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/sobr/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
 		return
 
@@ -113,12 +113,12 @@
 	var/obj/item/implant/mindshield/L = new/obj/item/implant/mindshield(H)
 	L.implant(H, null, 1)
 
-/datum/outfit/spetsnaz/grenadier
-	name = "Спецназовец-гранатометчик"
+/datum/outfit/sobr/grenadier
+	name = "СОБР-гранатометчик"
 
-	belt = /obj/item/storage/belt/military/spetsnaz/grenadier
+	belt = /obj/item/storage/belt/military/sobr/grenadier
 
-/datum/outfit/spetsnaz/grenadier/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/sobr/grenadier/pre_equip(mob/living/carbon/human/H)
 	suit_store = /obj/item/gun/ballistic/automatic/ak74m/gp25
 	var/randomhelmet = pick(/obj/item/clothing/head/helmet/maska, \
 						/obj/item/clothing/head/helmet/maska/black, \
@@ -129,7 +129,7 @@
 	else
 		head = randomhelmet
 
-/datum/outfit/spetsnaz/grenadier/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/sobr/grenadier/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
 		return
 
@@ -146,18 +146,18 @@
 	L.implant(H, null, 1)
 
 
-/datum/outfit/spetsnaz/leader
-	name = "Спецназовец-лидер☆"
+/datum/outfit/sobr/leader
+	name = "СОБР-лидер☆"
 
-	uniform = /obj/item/clothing/under/rank/spetsnaz
-	suit = /obj/item/clothing/suit/armor/opvest/spetsnaz
+	uniform = /obj/item/clothing/under/rank/sobr
+	suit = /obj/item/clothing/suit/armor/opvest/sobr
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	ears = /obj/item/radio/headset/headset_cent/alt
-	head = /obj/item/clothing/head/hos/beret/spetsnaz
+	head = /obj/item/clothing/head/hos/beret/sobr
 	mask = null
 	glasses = /obj/item/clothing/glasses/sunglasses
-	belt = /obj/item/storage/belt/military/spetsnaz/leader
+	belt = /obj/item/storage/belt/military/sobr/leader
 	id = /obj/item/card/id/advanced/centcom/spetsnaz/leader
 	id_trim = /datum/id_trim/centcom/spetsnaz/leader
 	r_pocket = /obj/item/kitchen/knife/combat
@@ -168,10 +168,10 @@
 		/obj/item/melee/classic_baton/german=1,\
 		/obj/item/crowbar/red=1)
 
-/datum/outfit/spetsnaz/leader/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/sobr/leader/pre_equip(mob/living/carbon/human/H)
 	suit_store = /obj/item/gun/ballistic/automatic/asval
 
-/datum/outfit/spetsnaz/leader/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/sobr/leader/post_equip(mob/living/carbon/human/H, visualsOnly)
 	var/obj/item/radio/R = H.ears
 	R.keyslot = new /obj/item/encryptionkey/heads/hos
 	R.recalculateChannels()
@@ -186,10 +186,10 @@
 
 ////////////////////ITEMS//////////////////////
 
-/obj/item/storage/belt/military/spetsnaz
+/obj/item/storage/belt/military/sobr
 	desc = "Набор тактических ремней, которые носят некоторые вооруженные отряды."
 
-/obj/item/storage/belt/military/spetsnaz/PopulateContents()
+/obj/item/storage/belt/military/sobr/PopulateContents()
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/ammo_box/magazine/ak74m(src)
@@ -197,9 +197,9 @@
 		new /obj/item/reagent_containers/hypospray/medipen/stimpack/traitor(src)
 		new /obj/item/grenade/stingbang(src)
 
-/obj/item/storage/belt/military/spetsnaz/grenadier
+/obj/item/storage/belt/military/sobr/grenadier
 
-/obj/item/storage/belt/military/spetsnaz/grenadier/PopulateContents()
+/obj/item/storage/belt/military/sobr/grenadier/PopulateContents()
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/ammo_box/magazine/ak74m(src)
@@ -208,9 +208,9 @@
 		new /obj/item/reagent_containers/hypospray/medipen/stimpack/traitor(src)
 		new /obj/item/grenade/stingbang(src)
 
-/obj/item/storage/belt/military/spetsnaz/leader
+/obj/item/storage/belt/military/sobr/leader
 
-/obj/item/storage/belt/military/spetsnaz/leader/PopulateContents()
+/obj/item/storage/belt/military/sobr/leader/PopulateContents()
 		new /obj/item/ammo_box/magazine/asval(src)
 		new /obj/item/ammo_box/magazine/asval(src)
 		new /obj/item/ammo_box/magazine/asval(src)
@@ -218,10 +218,10 @@
 		new /obj/item/reagent_containers/hypospray/medipen/stimpack/traitor(src)
 		new /obj/item/reagent_containers/hypospray/medipen/stimpack/traitor(src)
 
-/obj/item/clothing/suit/armor/opvest/spetsnaz
+/obj/item/clothing/suit/armor/opvest/sobr
 	armor = list(MELEE = 70, BULLET = 70, LASER = 40, ENERGY = 40, BOMB = 50, BIO = 20, RAD = 20, WOUND = 10)
 	strip_delay = 100
 
-/obj/item/clothing/head/hos/beret/spetsnaz // ДАААААА БЛЯДЬ МЫ СОЗДАЕМ 99993393 ТИПОВ ОБЪЕКТОВ С РАЗНИЦЕЙ ЛИШЬ В ОПИСАНИИ ДААА БЛЯЯДЬ ДАА!!!!11
+/obj/item/clothing/head/hos/beret/sobr // ДАААААА БЛЯДЬ МЫ СОЗДАЕМ 99993393 ТИПОВ ОБЪЕКТОВ С РАЗНИЦЕЙ ЛИШЬ В ОПИСАНИИ ДААА БЛЯЯДЬ ДАА!!!!11
 	name = "берет спецназа"
 	desc = "Прочный черный берет, показывающий его обладателя как самого настоящего профессионала в своем деле. В каком - пока что неизвестно."

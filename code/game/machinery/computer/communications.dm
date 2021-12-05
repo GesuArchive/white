@@ -248,7 +248,7 @@
 			priority_announce("Коды ядерной авторизации для самоуничтожения станции были запрошены [usr]. Подтверждение или отклонение данного запроса возможно в скором времени.", "Запрос кодов ядерной авторизации", SSstation.announcer.get_rand_report_sound())
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
-		if("callSobr")
+		if("callOmon")
 			if (!authenticated_as_non_silicon_captain(usr))
 				return
 			if (!COOLDOWN_FINISHED(src, important_action_cooldown))
@@ -264,7 +264,7 @@
 			priority_announce("Отряд ОМОНа был вызван [usr].", "Экстренный запрос")
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
-			sobr_ert_request(input, usr)
+			omon_ert_request(input, usr)
 		if("callJanitors")
 			if (!authenticated_as_non_silicon_captain(usr))
 				return

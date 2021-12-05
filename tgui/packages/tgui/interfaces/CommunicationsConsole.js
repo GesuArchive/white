@@ -329,8 +329,8 @@ const PageMain = (props, context) => {
     context, "messaing_sector", null);
   const [requestingNukeCodes, setRequestingNukeCodes] = useLocalState(
     context, "requesting_nuke_codes", false);
-  const [requestingSobr, setRequestingSobr] = useLocalState(
-    context, "requesting_sobr", false);
+  const [requestingOmon, setRequestingOmon] = useLocalState(
+    context, "requesting_omon", false);
   const [requestingJanitors, setRequestingJanitors] = useLocalState(
     context, "requesting_janitors", false);
   const [requestingEngineers, setRequestingEngineers] = useLocalState(
@@ -481,7 +481,7 @@ const PageMain = (props, context) => {
             icon="bullhorn"
             content="Запросить отряд ОМОНа"
             disabled={!importantActionReady}
-            onClick={() => setRequestingSobr(true)}
+            onClick={() => setRequestingOmon(true)}
           />}
 
           {!!canRequestNuke && <Button
@@ -532,15 +532,15 @@ const PageMain = (props, context) => {
         }}
       />}
 
-      {!!canRequestNuke && requestingSobr && <MessageModal
+      {!!canRequestNuke && requestingOmon && <MessageModal
         label="Вызов отряда ОМОНа"
         notice="Назовите причину по которой вы собираетесь вызвать специальный отряд быстрого реагирования на станцию."
         icon="bomb"
         buttonText="Вызвать ОМОН"
-        onBack={() => setRequestingSobr(false)}
+        onBack={() => setRequestingOmon(false)}
         onSubmit={reason => {
-          setRequestingSobr(false);
-          act("callSobr", {
+          setRequestingOmon(false);
+          act("callOmon", {
             reason,
           });
         }}

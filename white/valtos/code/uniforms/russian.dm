@@ -16,7 +16,7 @@
 	icon_state = "omon-2"
 	inhand_icon_state = "g_suit"
 
-/obj/item/clothing/under/rank/sobr
+/obj/item/clothing/under/rank/omon/telnajka
 	name = "тельняшка"
 	desc = "Типичная нательная рубашка с окраской в виде чередующихся белых и синих полос."
 	worn_icon = 'white/valtos/icons/clothing/mob/uniform.dmi'

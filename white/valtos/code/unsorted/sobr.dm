@@ -1,42 +1,42 @@
-/datum/ert/sobr
-	roles = list(/datum/antagonist/ert/sobr)
-	leader_role = /datum/antagonist/ert/sobr/leader
+/datum/ert/omon
+	roles = list(/datum/antagonist/ert/omon)
+	leader_role = /datum/antagonist/ert/omon/leader
 	teamsize = 7
 	opendoors = FALSE
 	rename_team = "ОМОН"
 	mission = "Уничтожить террористов на станции."
 	polldesc = "специальный отряд быстрого реагирования"
 
-/datum/antagonist/ert/sobr
+/datum/antagonist/ert/omon
 	name = "ОМОН"
-	outfit = /datum/outfit/sobr
+	outfit = /datum/outfit/omon
 	random_names = TRUE
 	role = "Отряд ОМОН"
 	greentext_reward = 15
 
-/datum/antagonist/ert/sobr/leader
+/datum/antagonist/ert/omon/leader
 	name = "Лидер ОМОН"
-	outfit = /datum/outfit/sobr/leader
+	outfit = /datum/outfit/omon/leader
 	role = "Лидер отряда ОМОН"
 	leader = TRUE
 	greentext_reward = 20
 
-/datum/antagonist/ert/sobr/update_name()
+/datum/antagonist/ert/omon/update_name()
 	if(owner.current.gender == FEMALE)
 		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source)]а")
 	else
 		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source)]")
 
-/datum/antagonist/ert/sobr/leader/update_name()
+/datum/antagonist/ert/omon/leader/update_name()
 	if(owner.current.gender == FEMALE)
 		owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source)]а")
 	else
 		owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source)]")
 
-/datum/outfit/sobr
+/datum/outfit/omon
 	name = "ОМОН"
 
-	uniform = /obj/item/clothing/under/rank/sobr
+	uniform = /obj/item/clothing/under/rank/omon/telnajka
 	suit = /obj/item/clothing/suit/armor/bulletproof/omon
 	suit_store = /obj/item/melee/classic_baton/german
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -44,22 +44,22 @@
 	ears = /obj/item/radio/headset/headset_cent/alt
 	head = /obj/item/clothing/head/beret/airborne
 	glasses = /obj/item/clothing/glasses/sunglasses
-	belt = /obj/item/storage/belt/security/sobr
+	belt = /obj/item/storage/belt/security/omon
 	id = /obj/item/card/id/advanced/centcom
 
 	implants = list(/obj/item/implant/sound_implant)
 
-/datum/outfit/sobr/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/omon/pre_equip(mob/living/carbon/human/H)
 	if (prob(10))
 		back = /obj/item/shield/riot/flash
 	else
 		back = /obj/item/storage/backpack
 		backpack_contents = list(/obj/item/storage/box/survival/engineer=1)
 	if (prob(1))
-		r_hand = /obj/item/gun/ballistic/rocketlauncher/unrestricted //I'm just a SOBR with a rocket launcher
+		r_hand = /obj/item/gun/ballistic/rocketlauncher/unrestricted //I'm just a OMON with a rocket launcher
 		l_hand = /obj/item/ammo_casing/caseless/rocket/weak
 
-/datum/outfit/sobr/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/omon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
 		return
 
@@ -72,25 +72,25 @@
 	W.registered_name = H.real_name
 	W.update_label()
 
-/datum/outfit/sobr/leader
+/datum/outfit/omon/leader
 	name = "Лидер ОМОН"
 
-	uniform = /obj/item/clothing/under/rank/sobr
+	uniform = /obj/item/clothing/under/rank/omon/telnajka
 	suit = /obj/item/clothing/suit/armor/bulletproof/omon
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/fingerless
 	ears = /obj/item/radio/headset/headset_cent/alt
 	head = /obj/item/clothing/head/beret/airborne
 	glasses = /obj/item/clothing/glasses/sunglasses
-	belt = /obj/item/storage/belt/military/army/sobr
+	belt = /obj/item/storage/belt/military/army/omon
 	id = /obj/item/card/id/advanced/centcom
 
 	implants = list(/obj/item/implant/sound_implant)
 
-/datum/outfit/sobr/leader/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/omon/leader/pre_equip(mob/living/carbon/human/H)
 	back = /obj/item/gun/ballistic/automatic/aksu74
 
-/datum/outfit/sobr/leader/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/omon/leader/post_equip(mob/living/carbon/human/H, visualsOnly)
 	var/obj/item/radio/R = H.ears
 	R.keyslot = new /obj/item/encryptionkey/heads/hos
 	R.recalculateChannels()
@@ -99,9 +99,9 @@
 	W.registered_name = H.real_name
 	W.update_label()
 
-/obj/item/storage/belt/military/army/sobr
+/obj/item/storage/belt/military/army/omon
 
-/obj/item/storage/belt/military/army/sobr/PopulateContents()
+/obj/item/storage/belt/military/army/omon/PopulateContents()
 	new /obj/item/ammo_box/magazine/ak74m/orange(src)
 	new /obj/item/ammo_box/magazine/ak74m/orange(src)
 	new /obj/item/ammo_box/magazine/ak74m/orange(src)
@@ -112,15 +112,15 @@
 	if(prob(30))
 		new /obj/item/grenade/syndieminibomb/concussion(src)
 
-/obj/item/storage/belt/security/sobr
+/obj/item/storage/belt/security/omon
 
-/obj/item/storage/belt/security/sobr/PopulateContents()
+/obj/item/storage/belt/security/omon/PopulateContents()
 	new /obj/item/grenade/flashbang(src)
 	new	/obj/item/grenade/stingbang(src)
 	new /obj/item/restraints/handcuffs/cable/zipties(src)
 	new /obj/item/restraints/handcuffs(src)
 
-/proc/sobr_request(text, mob/Sender)
+/proc/omon_request(text, mob/Sender)
 	var/msg = copytext_char(sanitize(text), 1, MAX_MESSAGE_LEN)
 	message_admins("[Sender.name] собирается вызвать ОМОН с миссией: [msg]")
 	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Хотите быть в мобильном отряде особого назначения?", "deathsquad", null)
@@ -162,9 +162,9 @@
 			var/datum/antagonist/ert/ert_antag
 
 			if(numagents == 1)
-				ert_antag = new /datum/antagonist/ert/sobr/leader
+				ert_antag = new /datum/antagonist/ert/omon/leader
 			else
-				ert_antag = new /datum/antagonist/ert/sobr
+				ert_antag = new /datum/antagonist/ert/omon
 
 			ERTOperative.mind.add_antag_datum(ert_antag,ert_team)
 			ERTOperative.mind.assigned_role = ert_antag.name

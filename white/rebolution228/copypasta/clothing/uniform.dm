@@ -1,4 +1,4 @@
-/obj/item/clothing/under/rank/spetsnaz
+/obj/item/clothing/under/rank/sobr
 	name = "униформа спецназа"
 	desc = "Униформа, носимая специальными подразделениями Новой России. Имеет нашивку в виде красной звезды на черном фоне и кулака, держащего автомат Калашникова."
 	worn_icon = 'white/rebolution228/icons/clothing/mob/uniforms_mob.dmi'
