@@ -453,7 +453,7 @@
 		if(HAS_TRAIT(src, TRAIT_BADTOUCH))
 			to_chat(M, span_warning("[src] выглядит расстроенно, как только вы гладите [ru_ego()] по голове."))
 
-	else if ((M.zone_selected == BODY_ZONE_PRECISE_R_HAND) || (M.zone_selected == BODY_ZONE_PRECISE_L_HAND))
+	else if((check_zone(M.zone_selected) == BODY_ZONE_L_ARM) || ((check_zone(M.zone_selected) == BODY_ZONE_R_ARM)))
 		M.visible_message(span_notice("[M] крепко пожимает руку [skloname(name, VINITELNI, gender)]!"), \
 					null, span_hear("Слышу, как пожимают руки."), DEFAULT_MESSAGE_RANGE, list(M, src))
 		to_chat(M, span_notice("Пожимаю руку [skloname(name, VINITELNI, gender)]!"))
