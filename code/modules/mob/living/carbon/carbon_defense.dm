@@ -457,7 +457,7 @@
 		M.visible_message(span_notice("[M] крепко пожимает руку [skloname(name, VINITELNI, gender)]!"), \
 					null, span_hear("Слышу, как пожимают руки."), DEFAULT_MESSAGE_RANGE, list(M, src))
 		to_chat(M, span_notice("Пожимаю руку [skloname(name, VINITELNI, gender)]!"))
-		to_chat(src, span_notice("[M] пожимает мою руку!"))
+		to_chat(src, span_notice("[M] пожимает мне руку!"))
 
 	else
 		SEND_SIGNAL(src, COMSIG_CARBON_HUGGED, M)
