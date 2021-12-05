@@ -445,10 +445,19 @@
 		to_chat(src, span_notice("[M] пытается поднять меня!"))
 	else if(check_zone(M.zone_selected) == BODY_ZONE_HEAD) //Headpats!
 		SEND_SIGNAL(src, COMSIG_CARBON_HEADPAT, M)
-		M.visible_message(span_notice("[M] гладит по головке [src]!") , \
+		M.visible_message(span_notice("[M] гладит по головке [skloname(name, VINITELNI, gender)]!") , \
 					null, span_hear("Слышу мягкое похлопывание.") , DEFAULT_MESSAGE_RANGE, list(M, src))
-		to_chat(M, span_notice("Глажу [src] по головке!"))
+		to_chat(M, span_notice("Глажу [skloname(name, VINITELNI, gender)] по головке!"))
 		to_chat(src, span_notice("[M] гладит меня по головке! "))
+
+		if(HAS_TRAIT(src, TRAIT_BADTOUCH))
+			to_chat(M, span_warning("[src] выглядит расстроенно, как только вы гладите [ru_ego()] по голове."))
+
+	else if ((M.zone_selected == BODY_ZONE_PRECISE_R_HAND) || (M.zone_selected == BODY_ZONE_PRECISE_L_HAND))
+		M.visible_message(span_notice("[M] крепко пожимает руку [skloname(name, VINITELNI, gender)]!"), \
+					null, span_hear("Слышу, как пожимают руки."), DEFAULT_MESSAGE_RANGE, list(M, src))
+		to_chat(M, span_notice("Пожимаю руку [skloname(name, VINITELNI, gender)]!"))
+		to_chat(src, span_notice("[M] пожимает мою руку!"))
 
 	else
 		SEND_SIGNAL(src, COMSIG_CARBON_HUGGED, M)
@@ -491,6 +500,9 @@
 				SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "friendly_hug", /datum/mood_event/besthug, M)
 			else if (hugger_mood.sanity >= SANITY_DISTURBED)
 				SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "friendly_hug", /datum/mood_event/betterhug, M)
+
+		if(HAS_TRAIT(src, TRAIT_BADTOUCH))
+			to_chat(M, span_warning("[src] выглядит расстроенно, как только вы обнимаете [ru_ego()]."))
 
 	AdjustStun(-60)
 	AdjustKnockdown(-60)
