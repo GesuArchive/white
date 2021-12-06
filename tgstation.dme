@@ -3961,6 +3961,8 @@
 #include "white\ClickerOfThings\shitspawn_deck\shitspawn_deck.dm"
 #include "white\ClickerOfThings\steklotara\punkt_priema.dm"
 #include "white\ClickerOfThings\super_kinetic\super_kinetic_accelerator.dm"
+#include "white\deda565\coop.dm"
+#include "white\deda565\Hecate.dm"
 #include "white\deda565\Huesoslist.dm"
 #include "white\deda565\prikol.dm"
 #include "white\Feline\code\general\equipment_all.dm"
