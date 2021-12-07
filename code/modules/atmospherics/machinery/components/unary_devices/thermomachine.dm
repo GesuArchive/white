@@ -2,7 +2,7 @@
 	icon = 'icons/obj/atmospherics/components/thermomachine.dmi'
 	icon_state = "freezer"
 
-	name = "термомашина"
+	name = "Термомашина"
 	desc = "Нагревает или охлаждает газ в трубах. Потребляет очень много энергии."
 
 	density = TRUE

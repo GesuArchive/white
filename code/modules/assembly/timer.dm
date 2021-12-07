@@ -1,5 +1,5 @@
 /obj/item/assembly/timer
-	name = "timer"
+	name = "таймер"
 	desc = "Used to time things. Works well with contraptions which has to count down. Tick tock."
 	icon_state = "timer"
 	custom_materials = list(/datum/material/iron=500, /datum/material/glass=50)

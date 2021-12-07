@@ -26650,7 +26650,7 @@
 /turf/closed/wall/r_wall,
 /area/engineering/atmos)
 "vbz" = (
-/obj/machinery/rnd/production/techfab/department/medical,
+/obj/machinery/mecha_part_fabricator/med,
 /turf/open/floor/plasteel/white,
 /area/medical/storage)
 "vcs" = (

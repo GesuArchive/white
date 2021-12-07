@@ -3,8 +3,8 @@
 
 
 /obj/machinery/medical_kiosk
-	name = "medical kiosk"
-	desc = "A freestanding medical kiosk, which can provide a wide range of medical analysis for diagnosis."
+	name = "Медицинский киоск"
+	desc = "За небольшую плату поможет продиагностировать пациента на основные виды повреждений и заболеваний."
 	icon = 'icons/obj/machines/medical_kiosk.dmi'
 	icon_state = "kiosk"
 	layer = ABOVE_MOB_LAYER

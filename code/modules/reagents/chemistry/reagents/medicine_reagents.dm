@@ -469,9 +469,9 @@
 	..()
 
 /datum/reagent/medicine/pen_acid
-	name = "Диэтилентриаминпентауксусная кислота"
+	name = "Пентетовая кислота"
 	enname = "Pentetic Acid"
-	description = "Reduces massive amounts of radiation and toxin damage while purging other chemicals from the body."
+	description = "ДТПА, она же диэтилентриаминпентауксусная кислота. Вещество выводящее из тела токсины, радиацию и химикаты."
 	reagent_state = LIQUID
 	color = "#E6FFF0"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM

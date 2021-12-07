@@ -134,7 +134,7 @@
  * Emergency Oxygen
  */
 /obj/item/tank/internals/emergency_oxygen
-	name = "запасной кислородный баллон"
+	name = "аварийный кислородный баллон"
 	desc = "Используется в экстренных случаях. Содержит очень мало кислорода, поэтому постарайтесь сохранить его, пока он вам не понадобится."
 	icon_state = "emergency"
 	worn_icon_state = "emergency"

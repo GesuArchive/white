@@ -74,7 +74,7 @@
 /obj/item/wrench/cyborg
 	name = "гидравлический гаечный ключ"
 	desc = "Усовершенствованный роботизированный ключ, приводимый в действие внутренней гидравликой. В два раза быстрее, чем версия для портативных устройств."
-	icon = 'icons/obj/items_cyborg.dmi'
+	icon = 'white/Feline/icons/cyber_arm_tools.dmi'
 	icon_state = "wrench_cyborg"
 	toolspeed = 0.5
 

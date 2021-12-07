@@ -19,7 +19,7 @@ GENE SCANNER
 #define SCANNER_VERBOSE 	1
 
 /obj/item/t_scanner
-	name = "анализатор Т-луч"
+	name = "терагерцовый сканер"
 	desc = "Терагерцовый излучатель лучей и просто сканнер, который подсвечивает провода и трубы под полом."
 	custom_price = PAYCHECK_ASSISTANT * 0.7
 	icon = 'white/valtos/icons/items.dmi'
@@ -559,7 +559,7 @@ GENE SCANNER
 
 /obj/item/analyzer
 	desc = "Ручной анализатор, который сканирует состояние воздуха в помещении. ПКМ, чтобы использовать барометр."
-	name = "анализатор"
+	name = "газоанализатор"
 	custom_price = PAYCHECK_ASSISTANT * 0.9
 	icon = 'white/valtos/icons/items.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
@@ -844,7 +844,7 @@ GENE SCANNER
 		to_chat(user, span_info("Не обнаружено нанитов в пациенте."))
 
 /obj/item/sequence_scanner
-	name = "анализатор генетического кода"
+	name = "анализатор ДНК"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gene"
 	inhand_icon_state = "healthanalyzer"

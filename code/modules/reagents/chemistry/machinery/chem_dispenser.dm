@@ -12,7 +12,7 @@
 			return lowertext(id)
 
 /obj/machinery/chem_dispenser
-	name = "раздатчик химикатов"
+	name = "Хим-раздатчик"
 	desc = "Создает и выдает химикаты."
 	density = TRUE
 	icon = 'icons/obj/chemical.dmi'

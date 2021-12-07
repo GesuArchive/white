@@ -126,8 +126,8 @@
 			qdel(E)
 
 /obj/item/extinguisher_refill
-	name = "envirosuit extinguisher cartridge"
-	desc = "A cartridge loaded with a compressed extinguisher mix, used to refill the automatic extinguisher on plasma envirosuits."
+	name = "картридж перезарядки огнетушителя плазмена"
+	desc = "Картридж для перезарядки встроенного огнетушителя в комбинезоне плазменов."
 	icon_state = "plasmarefill"
 	icon = 'icons/obj/device.dmi'
 

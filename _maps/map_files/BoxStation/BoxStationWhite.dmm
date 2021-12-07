@@ -45323,7 +45323,7 @@
 /turf/open/floor/plasteel,
 /area/cargo/office)
 "uEI" = (
-/obj/machinery/rnd/production/techfab/department/medical,
+/obj/machinery/mecha_part_fabricator/med,
 /obj/effect/turf_decal/stripes/end{
 	dir = 4
 	},

@@ -210,8 +210,8 @@
 
 // Welding shield implant
 /obj/item/organ/eyes/robotic/shield
-	name = "экранированные глаза робота"
-	desc = "Эти реактивные микрозащиты защитят вас от сварки и вспышек, не закрывая обзор."
+	name = "кибернетические глаза"
+	desc = "Встроенные светофильтры защитят вас от сварки и вспышек, не ограничивая обзор."
 	flash_protect = FLASH_PROTECTION_WELDER
 
 /obj/item/organ/eyes/robotic/shield/emp_act(severity)
@@ -220,8 +220,8 @@
 #define RGB2EYECOLORSTRING(definitionvar) ("[copytext_char(definitionvar, 2, 3)][copytext_char(definitionvar, 4, 5)][copytext_char(definitionvar, 6, 7)]")
 
 /obj/item/organ/eyes/robotic/glow
-	name = "глаза высокой яркости"
-	desc = "Особые светящиеся глаза, которыми пользуются педики, которые хотят быть особенными."
+	name = "люминесцирующие глаза"
+	desc = "Особые светящиеся глаза, так же играют роль фонариков, однако не могут быть выключены. Цвет свечения можно изменять."
 	eye_color = "000"
 	actions_types = list(/datum/action/item_action/organ_action/use, /datum/action/item_action/organ_action/toggle)
 	var/current_color_string = "#ffffff"

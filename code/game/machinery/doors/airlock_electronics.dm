@@ -1,5 +1,5 @@
 /obj/item/electronics/airlock
-	name = "airlock electronics"
+	name = "контролер шлюза"
 	req_access = list(ACCESS_MAINT_TUNNELS)
 	/// A list of all granted accesses
 	var/list/accesses = list()

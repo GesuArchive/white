@@ -14,8 +14,8 @@
  * Welding mask
  */
 /obj/item/clothing/head/welding
-	name = "сварочный шлем"
-	desc = "Установленная на голове крышка для лица, предназначенная для полной защиты пользователя от космической дуги."
+	name = "сварочная маска"
+	desc = "Закрепляемый на голове лицевой щиток, предназначеннай для полной защиты пользователя от космической дуги."
 	icon_state = "welding"
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 	inhand_icon_state = "welding"

@@ -5554,7 +5554,7 @@
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
 "po" = (
-/obj/machinery/rnd/production/techfab/department/medical,
+/obj/machinery/mecha_part_fabricator/med,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
 "pq" = (

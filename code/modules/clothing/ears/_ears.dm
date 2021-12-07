@@ -8,7 +8,7 @@
 	resistance_flags = NONE
 
 /obj/item/clothing/ears/earmuffs
-	name = "защитные наушники"
+	name = "беруши"
 	desc = "Защищают владельца от нытья из внешнего мира."
 	icon_state = "earmuffs"
 	inhand_icon_state = "earmuffs"

@@ -65,7 +65,8 @@
 
 /// Cryo cell
 /obj/machinery/atmospherics/components/unary/cryo_cell
-	name = "криокамера"
+	name = "Криокамера"
+	desc = "Огромная стеклянная колба использующая целительные свойства холода."
 	icon = 'icons/obj/cryogenics.dmi'
 	icon_state = "pod-off"
 	density = TRUE

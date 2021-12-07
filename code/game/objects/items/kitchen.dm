@@ -20,7 +20,7 @@
 	ADD_TRAIT(src, TRAIT_APC_SHOCKING, INNATE_TRAIT)
 
 /obj/item/kitchen/fork
-	name = "fork"
+	name = "вилка"
 	desc = "Pointy."
 	icon_state = "fork"
 	force = 4
@@ -64,7 +64,7 @@
 		return ..()
 
 /obj/item/kitchen/fork/plastic
-	name = "plastic fork"
+	name = "пластиковая вилка"
 	desc = "Really takes you back to highschool lunch."
 	icon_state = "plastic_fork"
 	force = 0
@@ -81,7 +81,7 @@
 		qdel(src)
 
 /obj/item/kitchen/knife
-	name = "kitchen knife"
+	name = "кухонный нож"
 	icon_state = "knife"
 	inhand_icon_state = "knife"
 	worn_icon_state = "knife"
@@ -119,7 +119,7 @@
 	return (BRUTELOSS)
 
 /obj/item/kitchen/knife/plastic
-	name = "plastic knife"
+	name = "пластиковый нож"
 	icon_state = "plastic_knife"
 	inhand_icon_state = "knife"
 	desc = "A very safe, barely sharp knife made of plastic. Good for cutting food and not much else."
@@ -141,7 +141,7 @@
 		qdel(src)
 
 /obj/item/kitchen/knife/ritual
-	name = "ritual knife"
+	name = "ритуальный серп"
 	desc = "The unearthly energies that once powered this blade are now dormant."
 	icon = 'icons/obj/eldritch.dmi'
 	icon_state = "bone_blade"
@@ -154,7 +154,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/kitchen/knife/bloodletter
-	name = "bloodletter"
+	name = "кровопускатель"
 	desc = "An occult looking dagger that is cold to the touch. Somehow, the flawless orb on the pommel is made entirely of liquid blood."
 	icon = 'icons/obj/ice_moon/artifacts.dmi'
 	icon_state = "bloodletter"
@@ -177,7 +177,7 @@
 		B.add_stacks(bleed_stacks_per_hit)
 
 /obj/item/kitchen/knife/butcher
-	name = "butcher's cleaver"
+	name = "тесак мясника"
 	icon_state = "butch"
 	inhand_icon_state = "butch"
 	desc = "A huge thing used for chopping and chopping up meat. This includes clowns and clown by-products."
@@ -192,7 +192,7 @@
 	wound_bonus = 25
 
 /obj/item/kitchen/knife/hunting
-	name = "hunting knife"
+	name = "охотничий нож"
 	desc = "Despite its name, it's mainly used for cutting meat from dead prey rather than actual hunting."
 	inhand_icon_state = "huntingknife"
 	icon_state = "huntingknife"
@@ -201,7 +201,7 @@
 	AddComponent(/datum/component/butchering, 80 - force, 100, force + 10)
 
 /obj/item/kitchen/knife/combat
-	name = "combat knife"
+	name = "боевой нож"
 	icon_state = "buckknife"
 	desc = "A military combat utility survival knife."
 	embedding = list("pain_mult" = 4, "embed_chance" = 65, "fall_chance" = 10, "ignore_throwspeed_threshold" = TRUE)
@@ -212,7 +212,7 @@
 	bayonet = TRUE
 
 /obj/item/kitchen/knife/combat/survival
-	name = "survival knife"
+	name = "нож выживальщика"
 	icon_state = "survivalknife"
 	embedding = list("pain_mult" = 4, "embed_chance" = 35, "fall_chance" = 10)
 	desc = "A hunting grade survival knife."
@@ -221,7 +221,7 @@
 	bayonet = TRUE
 
 /obj/item/kitchen/knife/combat/bone
-	name = "bone dagger"
+	name = "костяной нож"
 	inhand_icon_state = "bone_dagger"
 	icon_state = "bone_dagger"
 	worn_icon_state = "bone_dagger"
@@ -234,13 +234,13 @@
 	custom_materials = null
 
 /obj/item/kitchen/knife/combat/cyborg
-	name = "cyborg knife"
+	name = "нож киборга"
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "knife_cyborg"
 	desc = "A cyborg-mounted plasteel knife. Extremely sharp and durable."
 
 /obj/item/kitchen/knife/shiv
-	name = "glass shiv"
+	name = "стеклянная заточка"
 	icon = 'icons/obj/shards.dmi'
 	icon_state = "shiv"
 	inhand_icon_state = "shiv"
@@ -255,7 +255,7 @@
 	custom_materials = list(/datum/material/glass=400)
 
 /obj/item/kitchen/knife/shiv/carrot
-	name = "carrot shiv"
+	name = "морковная заточка"
 	icon_state = "carrotshiv"
 	inhand_icon_state = "carrotshiv"
 	icon = 'icons/obj/kitchen.dmi'
@@ -267,7 +267,7 @@
 	return BRUTELOSS
 
 /obj/item/kitchen/rollingpin
-	name = "rolling pin"
+	name = "скалка"
 	desc = "Used to knock out the Bartender."
 	icon_state = "rolling_pin"
 	worn_icon_state = "rolling_pin"
@@ -288,7 +288,7 @@
 /* Trays  moved to /obj/item/storage/bag */
 
 /obj/item/kitchen/spoon
-	name = "spoon"
+	name = "ложка"
 	desc = "Just be careful your food doesn't melt the spoon first."
 	icon_state = "spoon"
 	w_class = WEIGHT_CLASS_TINY
@@ -305,7 +305,7 @@
 	toolspeed = 25 // Literally 25 times worse than the base pickaxe
 
 /obj/item/kitchen/spoon/plastic
-	name = "plastic spoon"
+	name = "пластиковая ложка"
 	icon_state = "plastic_spoon"
 	force = 0
 	custom_materials = list(/datum/material/plastic=120)

@@ -1,3 +1,4 @@
+
 /obj/machinery/mecha_part_fabricator
 	icon = 'icons/obj/robotics.dmi'
 	icon_state = "fab-idle"
@@ -12,6 +13,9 @@
 	processing_flags = START_PROCESSING_MANUALLY
 
 	subsystem_type = /datum/controller/subsystem/processing/fastprocess
+
+	/// Флаг куда будут сбрасываться предметы: TRUE - на клетку ниже, FALSE - на клетку фабрикатора
+	var/drop_zone = TRUE
 
 	/// Current items in the build queue.
 	var/list/queue = list()
@@ -119,7 +123,7 @@
 	var/obj/built_item = D.build_path
 
 	var/list/category_override = null
-	var/list/sub_category = null
+/*	var/list/sub_category = null		\\ Переход на другую систему группирования
 
 	if(categories)
 		// Handle some special cases to build up sub-categories for the fab interface.
@@ -163,6 +167,7 @@
 				if(mech_types & EXOSUIT_MODULE_PHAZON)
 					category_override += "Phazon"
 
+*/
 
 	var/list/part = list(
 		"name" = D.name,
@@ -170,7 +175,7 @@
 		"printTime" = get_construction_time_w_coeff(initial(D.construction_time))/10,
 		"cost" = cost,
 		"id" = D.id,
-		"subCategory" = sub_category,
+		"subCategory" = D.sub_category,
 		"categoryOverride" = category_override,
 		"searchMeta" = D.search_metadata
 	)
@@ -322,17 +327,22 @@
 	I.set_custom_materials(build_materials)
 
 	being_built = null
-
+	var/drop_location = drop_location()
 	var/turf/exit = get_step(src,(dir))
-	if(exit.density)
-		say("Ошибка! Выход заблокирован.")
-		desc = "Пытается выдавить [D.name], но выход заблокирован."
-		stored_part = I
-		return FALSE
+	if(drop_zone)
+		if(exit.density)
+			say("Ошибка! Выход заблокирован.")
+			desc = "Пытается выдавить [D.name], но выход заблокирован."
+			stored_part = I
+			return FALSE
 
-	say("[capitalize(I.name)] готова.")
-	I.forceMove(exit)
-	return TRUE
+		say("[capitalize(I.name)] готова.")
+		I.forceMove(exit)
+		return TRUE
+	else
+		say("[capitalize(I.name)] готова.")
+		I.forceMove(drop_location)
+		return TRUE
 
 /**
  * Adds a list of datum designs to the build queue.

@@ -332,10 +332,10 @@
  */
 
 /obj/item/storage/pill_bottle
-	name = "pill bottle"
-	desc = "It's an airtight container for storing medication."
-	icon_state = "pill_canister"
-	icon = 'icons/obj/chemical.dmi'
+	name = "баночка для таблеток"
+	desc = "Хранит в себе разноцветные пилюльки и таблетки."
+	icon = 'white/Feline/icons/med_items.dmi'
+	icon_state = "pill_bottle"
 	inhand_icon_state = "contsolid"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -346,6 +346,9 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.allow_quick_gather = TRUE
 	STR.click_gather = TRUE
+	STR.display_numerical_stacking = TRUE
+	STR.max_items = 10
+	STR.max_combined_w_class = 20
 	STR.set_holdable(list(/obj/item/reagent_containers/pill, /obj/item/dice))
 
 /obj/item/storage/pill_bottle/suicide_act(mob/user)
@@ -357,13 +360,13 @@
 	desc = "Contains pills used to counter toxins."
 
 /obj/item/storage/pill_bottle/multiver/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 10)
 		new /obj/item/reagent_containers/pill/multiver(src)
 
 /obj/item/storage/pill_bottle/multiver/less
 
 /obj/item/storage/pill_bottle/multiver/less/PopulateContents()
-	for(var/i in 1 to 3)
+	for(var/i in 1 to 6)
 		new /obj/item/reagent_containers/pill/multiver(src)
 
 /obj/item/storage/pill_bottle/epinephrine
@@ -371,7 +374,7 @@
 	desc = "Contains pills used to stabilize patients."
 
 /obj/item/storage/pill_bottle/epinephrine/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 10)
 		new /obj/item/reagent_containers/pill/epinephrine(src)
 
 /obj/item/storage/pill_bottle/mutadone
@@ -379,7 +382,7 @@
 	desc = "Contains pills used to treat genetic abnormalities."
 
 /obj/item/storage/pill_bottle/mutadone/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 10)
 		new /obj/item/reagent_containers/pill/mutadone(src)
 
 /obj/item/storage/pill_bottle/potassiodide
@@ -387,7 +390,7 @@
 	desc = "Contains pills used to reduce radiation damage."
 
 /obj/item/storage/pill_bottle/potassiodide/PopulateContents()
-	for(var/i in 1 to 3)
+	for(var/i in 1 to 6)
 		new /obj/item/reagent_containers/pill/potassiodide(src)
 
 /obj/item/storage/pill_bottle/probital
@@ -395,7 +398,7 @@
 	desc = "Contains pills used to treat brute damage.The tag in the bottle states 'Eat before ingesting, may cause fatigue'."
 
 /obj/item/storage/pill_bottle/probital/PopulateContents()
-	for(var/i in 1 to 4)
+	for(var/i in 1 to 8)
 		new /obj/item/reagent_containers/pill/probital(src)
 
 /obj/item/storage/pill_bottle/iron
@@ -403,7 +406,7 @@
 	desc = "Contains pills used to reduce blood loss slowly.The tag in the bottle states 'Only take one each five minutes'."
 
 /obj/item/storage/pill_bottle/iron/PopulateContents()
-	for(var/i in 1 to 4)
+	for(var/i in 1 to 8)
 		new /obj/item/reagent_containers/pill/iron(src)
 
 /obj/item/storage/pill_bottle/mannitol
@@ -411,7 +414,7 @@
 	desc = "Contains pills used to treat brain damage."
 
 /obj/item/storage/pill_bottle/mannitol/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 10)
 		new /obj/item/reagent_containers/pill/mannitol(src)
 
 //Contains 4 pills instead of 7, and 5u pills instead of 50u (50u pills heal 250 brain damage, 5u pills heal 25)
@@ -419,7 +422,7 @@
 	desc = "Contains diluted pills used to treat brain tumor symptoms. Take one when feeling lightheaded."
 
 /obj/item/storage/pill_bottle/mannitol/braintumor/PopulateContents()
-	for(var/i in 1 to 4)
+	for(var/i in 1 to 8)
 		new /obj/item/reagent_containers/pill/mannitol/braintumor(src)
 
 /obj/item/storage/pill_bottle/stimulant
@@ -427,7 +430,7 @@
 	desc = "Guaranteed to give you that extra burst of energy during a long shift!"
 
 /obj/item/storage/pill_bottle/stimulant/PopulateContents()
-	for(var/i in 1 to 5)
+	for(var/i in 1 to 10)
 		new /obj/item/reagent_containers/pill/stimulant(src)
 
 /obj/item/storage/pill_bottle/mining
@@ -436,7 +439,7 @@
 
 /obj/item/storage/pill_bottle/mining/PopulateContents()
 	new /obj/item/reagent_containers/pill/patch/aiuri(src)
-	for(var/i in 1 to 3)
+	for(var/i in 1 to 6)
 		new /obj/item/reagent_containers/pill/patch/libital(src)
 
 /obj/item/storage/pill_bottle/zoom
@@ -444,7 +447,7 @@
 	desc = "The label is pretty old and almost unreadable, you recognize some chemical compounds."
 
 /obj/item/storage/pill_bottle/zoom/PopulateContents()
-	for(var/i in 1 to 5)
+	for(var/i in 1 to 10)
 		new /obj/item/reagent_containers/pill/zoom(src)
 
 /obj/item/storage/pill_bottle/happy
@@ -452,7 +455,7 @@
 	desc = "There is a smiley on the top."
 
 /obj/item/storage/pill_bottle/happy/PopulateContents()
-	for(var/i in 1 to 5)
+	for(var/i in 1 to 10)
 		new /obj/item/reagent_containers/pill/happy(src)
 
 /obj/item/storage/pill_bottle/lsd
@@ -460,7 +463,7 @@
 	desc = "There is a crude drawing which could be either a mushroom, or a deformed moon."
 
 /obj/item/storage/pill_bottle/lsd/PopulateContents()
-	for(var/i in 1 to 5)
+	for(var/i in 1 to 10)
 		new /obj/item/reagent_containers/pill/lsd(src)
 
 /obj/item/storage/pill_bottle/aranesp
@@ -468,7 +471,7 @@
 	desc = "The label has 'fuck disablers' hastily scrawled in black marker."
 
 /obj/item/storage/pill_bottle/aranesp/PopulateContents()
-	for(var/i in 1 to 5)
+	for(var/i in 1 to 10)
 		new /obj/item/reagent_containers/pill/aranesp(src)
 
 /obj/item/storage/pill_bottle/psicodine
@@ -476,7 +479,7 @@
 	desc = "Содержит таблетки которые восстанавливают ясность сознания, подавляют фобии и панические атаки."
 
 /obj/item/storage/pill_bottle/psicodine/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 10)
 		new /obj/item/reagent_containers/pill/psicodine(src)
 
 /obj/item/storage/pill_bottle/penacid
@@ -484,7 +487,7 @@
 	desc = "Contains pills to expunge radiation and toxins."
 
 /obj/item/storage/pill_bottle/penacid/PopulateContents()
-	for(var/i in 1 to 3)
+	for(var/i in 1 to 6)
 		new /obj/item/reagent_containers/pill/penacid(src)
 
 
@@ -493,7 +496,7 @@
 	desc = "Contains pills to treat non-severe mental traumas."
 
 /obj/item/storage/pill_bottle/neurine/PopulateContents()
-	for(var/i in 1 to 5)
+	for(var/i in 1 to 10)
 		new /obj/item/reagent_containers/pill/neurine(src)
 
 /obj/item/storage/pill_bottle/maintenance_pill

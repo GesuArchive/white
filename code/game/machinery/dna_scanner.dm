@@ -1,6 +1,6 @@
 /obj/machinery/dna_scannernew
-	name = "\improper DNA scanner"
-	desc = "It scans DNA structures."
+	name = "Манипулятор ДНК"
+	desc = "При подключении к консоли позволяет видоизменять ДНК подопытного для получения ценной информации и коррекции генетического кода."
 	icon = 'icons/obj/machines/cloning.dmi'
 	icon_state = "scanner"
 	density = TRUE
@@ -159,7 +159,7 @@
 
 //Just for transferring between genetics machines.
 /obj/item/disk/data
-	name = "DNA data disk"
+	name = "ДНК диск"
 	icon_state = "datadisk0" //Gosh I hope syndies don't mistake them for the nuke disk.
 	var/list/genetic_makeup_buffer = list()
 	var/list/mutations = list()

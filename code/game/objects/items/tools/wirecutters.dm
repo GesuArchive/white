@@ -82,7 +82,7 @@
 /obj/item/wirecutters/cyborg
 	name = "механизированные кусачки"
 	desc = "Обрезает провода силой ЭЛЕКТРИЧЕСКОсти. Быстрее, чем обычные канаторезы."
-	icon = 'icons/obj/items_cyborg.dmi'
+	icon = 'white/Feline/icons/cyber_arm_tools.dmi'
 	icon_state = "wirecutters_cyborg"
 	worn_icon_state = "cutters"
 	toolspeed = 0.5

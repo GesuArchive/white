@@ -85,7 +85,7 @@
 	. += "[initial(icon_state)]_[syringe_count ? clamp(syringe_count, 1, initial(max_syringes)) : "empty"]"
 
 /obj/item/gun/syringe/rapidsyringe
-	name = "многозарядный шприцевой пистолет"
+	name = "многозарядный шприцемет"
 	desc = "Модификация шприцевого пистолета с использованием вращающегося барабана, способного вместить до шести шприцов."
 	icon_state = "rapidsyringegun"
 	max_syringes = 6

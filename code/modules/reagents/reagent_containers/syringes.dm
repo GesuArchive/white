@@ -267,7 +267,7 @@
 	list_reagents = list(/datum/reagent/apostletoxin = 1)
 
 /obj/item/reagent_containers/syringe/bluespace
-	name = "блюспейс-шприц"
+	name = "блюспейс шприц"
 	desc = "Эта малышка может хранить 60 единиц в себе."
 	icon = 'white/Feline/icons/syringe_bluespace.dmi'
 	amount_per_transfer_from_this = 20

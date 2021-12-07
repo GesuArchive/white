@@ -1,5 +1,5 @@
 /obj/item/storage/cans
-	name = "can ring"
+	name = "держатель банок"
 	desc = "Holds up to six drink cans, and select bottles."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "canholder"

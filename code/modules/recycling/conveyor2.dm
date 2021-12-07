@@ -6,7 +6,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 /obj/machinery/conveyor
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "conveyor_map"
-	name = "conveyor belt"
+	name = "конвейерная лента"
 	desc = "A conveyor belt."
 	layer = BELOW_OPEN_DOOR_LAYER
 	processing_flags = START_PROCESSING_MANUALLY
@@ -242,7 +242,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 //
 
 /obj/machinery/conveyor_switch
-	name = "conveyor switch"
+	name = "переключатель конвейерной ленты"
 	desc = "A conveyor control switch."
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "switch-off"
@@ -381,7 +381,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 		invert_icon = TRUE
 
 /obj/item/conveyor_switch_construct
-	name = "conveyor switch assembly"
+	name = "незакрепленный переключатель конвейерной ленты"
 	desc = "A conveyor control switch assembly."
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "switch-off"
@@ -414,7 +414,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 	qdel(src)
 
 /obj/item/stack/conveyor
-	name = "conveyor belt assembly"
+	name = "незакрепленная конвейерная лента"
 	desc = "A conveyor belt assembly."
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "conveyor_construct"

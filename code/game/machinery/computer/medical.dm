@@ -1,8 +1,8 @@
 
 
 /obj/machinery/computer/med_data//TODO:SANITY
-	name = "medical records console"
-	desc = "This can be used to check medical records."
+	name = "Консоль Медицинских записей"
+	desc = "Используется для просмотра больничных карт и биометрических данных членов экипажа."
 	icon_screen = "medcomp"
 	icon_keyboard = "med_key"
 	req_one_access = list(ACCESS_MEDICAL, ACCESS_FORENSICS_LOCKERS)

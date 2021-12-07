@@ -132,7 +132,7 @@
 /obj/item/crowbar/cyborg
 	name = "гидравлический ломик"
 	desc = "Гидравлический инструмент, простой, но мощный."
-	icon = 'icons/obj/items_cyborg.dmi'
+	icon = 'white/Feline/icons/cyber_arm_tools.dmi'
 	icon_state = "crowbar_cyborg"
 	worn_icon_state = "crowbar"
 	usesound = 'sound/items/jaws_pry.ogg'

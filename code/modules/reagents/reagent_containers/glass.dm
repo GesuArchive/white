@@ -204,9 +204,8 @@
 	fill_icon_thresholds = list(0, 1, 10, 25, 35, 50, 60, 80, 100)
 
 /obj/item/reagent_containers/glass/beaker/noreact
-	name = "химический стакан криостазиса"
-	desc = "Химический стакан криостазиса, позволяющий хранить химикаты \
-		не начиная реакцию. Вместимость до 50 единиц."
+	name = "криостатический химический стакан"
+	desc = "Химический стакан криостазиса, позволяющий хранить химикаты не начиная реакцию. Вместимость до 50 единиц."
 	icon_state = "beakernoreact"
 	custom_materials = list(/datum/material/iron=3000)
 	reagent_flags = OPENCONTAINER | NO_REACT
@@ -214,10 +213,8 @@
 	amount_per_transfer_from_this = 10
 
 /obj/item/reagent_containers/glass/beaker/bluespace
-	name = "химический стакан блюспейс"
-	desc = "химический стакан разработанный с использованием экспериментальной блюспейс технологии \
-		and Element Cuban combined with the Compound Pete. Can hold up to \
-		300 units."
+	name = "блюспейс химический стакан"
+	desc = "химический стакан разработанный с использованием экспериментальной блюспейс технологии, вмещает до 300 единиц."
 	icon_state = "beakerbluespace"
 	custom_materials = list(/datum/material/glass = 5000, /datum/material/plasma = 3000, /datum/material/diamond = 1000, /datum/material/bluespace = 1000)
 	volume = 300

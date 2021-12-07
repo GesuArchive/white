@@ -2,8 +2,8 @@
 //You can activate the mount with an empty hand to grab the paddles
 //Not being adjacent will cause the paddles to snap back
 /obj/machinery/defibrillator_mount
-	name = "defibrillator mount"
-	desc = "Holds defibrillators. You can grab the paddles if one is mounted."
+	name = "крепеж для дефибриллятора"
+	desc = "Рама для закрепления дефибриллятора на стене."
 	icon = 'icons/obj/machines/defib_mount.dmi'
 	icon_state = "defibrillator_mount"
 	density = FALSE
@@ -204,8 +204,8 @@
 	update_icon()
 
 /obj/machinery/defibrillator_mount/charging
-	name = "PENLITE defibrillator mount"
-	desc = "Holds defibrillators. You can grab the paddles if one is mounted. This PENLITE variant also allows for slow, passive recharging of the defibrillator."
+	name = "крепеж для дефибриллятора PENLITE"
+	desc = "Рама для закрепления дефибриллятора на стене. Подключает устройство к станционной энергосети."
 	icon_state = "penlite_mount"
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 1
@@ -236,8 +236,8 @@
 
 //wallframe, for attaching the mounts easily
 /obj/item/wallframe/defib_mount
-	name = "unhooked defibrillator mount"
-	desc = "A frame for a defibrillator mount. Once placed, it can be removed with a wrench."
+	name = "настенный крепеж для дефибриллятора"
+	desc = "Рама для закрепления дефибриллятора на стене"
 	icon = 'icons/obj/machines/defib_mount.dmi'
 	icon_state = "defibrillator_mount"
 	custom_materials = list(/datum/material/iron = 300, /datum/material/glass = 100)
@@ -246,8 +246,8 @@
 	pixel_shift = -28
 
 /obj/item/wallframe/defib_mount/charging
-	name = "unhooked PENLITE defibrillator mount"
-	desc = "A frame for a PENLITE defibrillator mount. Unlike the normal mount, it can passively recharge the unit inside."
+	name = "настенный крепеж для дефибриллятора PENLITE"
+	desc = "Рама для закрепления дефибриллятора на стене. Подключает устройство к станционной энергосети."
 	icon_state = "penlite_mount"
 	custom_materials = list(/datum/material/iron = 300, /datum/material/glass = 100, /datum/material/silver = 50)
 	result_path = /obj/machinery/defibrillator_mount/charging

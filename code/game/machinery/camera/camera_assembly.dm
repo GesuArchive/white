@@ -4,7 +4,7 @@
 #define STATE_FINISHED 4
 
 /obj/item/wallframe/camera
-	name = "camera assembly"
+	name = "сборка камеры"
 	desc = "The basic construction for Nanotrasen-Always-Watching-You cameras."
 	icon = 'icons/obj/machines/camera.dmi'
 	icon_state = "cameracase"

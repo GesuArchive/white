@@ -1,6 +1,6 @@
 /obj/item/retractor
 	name = "расширитель"
-	desc = "Расширяет штуки."
+	desc = "Позволяет получить оперативный простор в зоне проведения операции."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "retractor"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -14,13 +14,16 @@
 	toolspeed = 1
 
 /obj/item/retractor/augment
-	desc = "Микромеханический манипулятор для расширения штук."
+	name = "кибернетический расширитель"
+	icon = 'white/Feline/icons/cyber_arm_surgery.dmi'
+	icon_state = "retractor"
+	desc = "Позволяет получить оперативный простор в зоне проведения операции."
 	toolspeed = 0.5
 
 
 /obj/item/hemostat
 	name = "зажим"
-	desc = "Вы думаете, что видели это раньше."
+	desc = "Используется для манипуляций в рабочей области и остановки внутренних кровотечений."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "hemostat"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -36,13 +39,16 @@
 	toolspeed = 1
 
 /obj/item/hemostat/augment
-	desc = "Крошечные сервоприводы приводят пару клещей в действие, чтобы остановить кровотечение."
+	name = "кибернетический зажим"
+	icon = 'white/Feline/icons/cyber_arm_surgery.dmi'
+	icon_state = "hemostat"
+	desc = "Крошечные сервоприводы приводят пару зажимов в действие, чтобы остановить кровотечение."
 	toolspeed = 0.5
 
 
 /obj/item/cautery
-	name = "термокаутер"
-	desc = "Это останавливает кровотечения."
+	name = "прижигатель"
+	desc = "Останавливает кровотечения и дезинфецирует рабочую зону после завершения операции."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "cautery"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -61,12 +67,15 @@
 	. = span_notice("[user] притрагивается раскалённым концом [src.name] к [A.name].")
 
 /obj/item/cautery/augment
+	name = "кибернетический прижигатель"
+	icon = 'white/Feline/icons/cyber_arm_surgery.dmi'
+	icon_state = "cautery"
 	desc = "Нагревательный элемент, который прижигает раны."
 	toolspeed = 0.5
 
 /obj/item/cautery/advanced
-	name = "жгучий инструмент"
-	desc = "Он проектирует мощный лазер для медицинского применения."
+	name = "лазерный прижигатель"
+	desc = "Устройство, используемое для дезинфекции и прижигания раны за счёт излучения низкочастотного лазерного луча. Так же можно сфокусирувать луч до мощности небольшого зубного сверла."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "e_cautery"
 	hitsound = 'sound/items/welder.ogg'
@@ -94,13 +103,13 @@
 	SIGNAL_HANDLER
 
 	tool_behaviour = (active ? TOOL_DRILL : TOOL_CAUTERY)
-	balloon_alert(user, "lenses set to [active ? "drill" : "mend"]")
+	balloon_alert(user, "Линза [active ? "сфокусирована" : "расфокусирована"]")
 	playsound(user ? user : src, 'sound/weapons/tap.ogg', 50, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/cautery/advanced/examine()
 	. = ..()
-	. += span_notice("It's set to [tool_behaviour == TOOL_CAUTERY ? "mending" : "drilling"] mode.")
+	. += span_notice("Переключатель установлен на режиме [tool_behaviour == TOOL_CAUTERY ? "прижигателя" : "сверла"].")
 
 /obj/item/surgicaldrill
 	name = "хирургическая дрель"
@@ -135,6 +144,9 @@
 	return (MANUAL_SUICIDE)
 
 /obj/item/surgicaldrill/augment
+	name = "кибернетическая дрель"
+	icon = 'white/Feline/icons/cyber_arm_surgery.dmi'
+	icon_state = "surgicaldrill"
 	desc = "По сути, небольшая электрическая дрель, содержащаяся в руке, края притуплены, чтобы предотвратить повреждение тканей. Может или не может пронзить небеса."
 	hitsound = 'sound/weapons/circsawhit.ogg'
 	w_class = WEIGHT_CLASS_SMALL
@@ -143,7 +155,7 @@
 
 /obj/item/scalpel
 	name = "скальпель"
-	desc = "Резать, резать и еще раз резать."
+	desc = "Очень острое лезвие с микронной заточкой."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "scalpel"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -172,6 +184,9 @@
 	AddElement(/datum/element/eyestab)
 
 /obj/item/scalpel/augment
+	name = "кибернетический скальпель"
+	icon = 'white/Feline/icons/cyber_arm_surgery.dmi'
+	icon_state = "scalpel"
 	desc = "Ультра-острое лезвие прикреплено непосредственно к кости для дополнительной точности."
 	toolspeed = 0.5
 
@@ -182,7 +197,7 @@
 
 /obj/item/circular_saw
 	name = "циркулярная пила"
-	desc = "Для тяжелой резки."
+	desc = "Для работы с костью при полостных операциях."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "saw"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -210,6 +225,9 @@
 	AddComponent(/datum/component/butchering, 40 * toolspeed, 100, 5, 'sound/weapons/circsawhit.ogg') //saws are very accurate and fast at butchering
 
 /obj/item/circular_saw/augment
+	name = "кибернетическая пила"
+	icon = 'white/Feline/icons/cyber_arm_surgery.dmi'
+	icon_state = "circular_saw"
 	desc = "Маленькая, но очень быстро вращающаяся пила."
 	w_class = WEIGHT_CLASS_SMALL
 	toolspeed = 0.5
@@ -305,7 +323,7 @@
 
 /obj/item/scalpel/advanced
 	name = "лазерный скальпель"
-	desc = "Усовершенствованный скальпель, который использует лазерную технологию для резки."
+	desc = "Усовершенствованный скальпель, который использует лазерную технологию для резки. Переключателем можно увеличить мощность излучателя для работы с костью."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "e_scalpel"
 	hitsound = 'sound/weapons/blade1.ogg'
@@ -343,17 +361,17 @@
 		tool_behaviour = TOOL_SCALPEL
 		set_light_range(1)
 
-	balloon_alert(user, "[active ? "enabled" : "disabled"] bone-cutting mode")
+	balloon_alert(user, "[active ? "Увеличиваю" : "Уменьшаю"] мощность")
 	playsound(user ? user : src, 'sound/machines/click.ogg', 50, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/scalpel/advanced/examine()
 	. = ..()
-	. += span_notice("It's set to [tool_behaviour == TOOL_SCALPEL ? "scalpel" : "saw"] mode.")
+	. += span_notice("Переключатель мощности установлен на режиме [tool_behaviour == TOOL_SCALPEL ? "скальпеля" : "пилы"].")
 
 /obj/item/retractor/advanced
-	name = "механические зажимы"
-	desc = "Агломерация шатунов и зубчатых колес."
+	name = "механический зажим"
+	desc = "Сложный инструмент состоящий из шестеренок и манипуляторов."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "adv_retractor"
 	toolspeed = 0.7
@@ -377,13 +395,13 @@
 	SIGNAL_HANDLER
 
 	tool_behaviour = (active ? TOOL_HEMOSTAT : TOOL_RETRACTOR)
-	balloon_alert(user, "gears set to [active ? "clamp" : "retract"]")
+	balloon_alert(user, "Шестерни установлены в положении [active ? "зажима" : "расширителя"]")
 	playsound(user ? user : src, 'sound/items/change_drill.ogg', 50, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/retractor/advanced/examine()
 	. = ..()
-	. += span_notice("It resembles a [tool_behaviour == TOOL_RETRACTOR ? "retractor" : "hemostat"].")
+	. += span_notice("Шестерни установлены в положении  [tool_behaviour == TOOL_RETRACTOR ? "расширителя" : "зажима"].")
 
 /obj/item/shears
 	name = "ножницы для ампутации"
@@ -469,7 +487,7 @@
 
 /obj/item/bonesetter
 	name = "костоправ"
-	desc = "Для правильной настройки."
+	desc = "Для правильной ориентации костей при вывихах и переломах."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bone setter"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -483,9 +501,16 @@
 	tool_behaviour = TOOL_BONESET
 	toolspeed = 1
 
+/obj/item/bonesetter/augment
+	name = "кибернетический костоправ"
+	icon = 'white/Feline/icons/cyber_arm_surgery.dmi'
+	icon_state = "bone_setter"
+	desc = "Для правильной ориентации костей при вывихах и переломах."
+	toolspeed = 0.5
+
 /obj/item/blood_filter
-	name = "blood filter"
-	desc = "For filtering the blood."
+	name = "фильтр крови"
+	desc = "Для фильтрации крови и лимфы."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bloodfilter"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'

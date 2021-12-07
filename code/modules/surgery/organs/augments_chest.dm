@@ -7,7 +7,7 @@
 
 /obj/item/organ/cyberimp/chest/nutriment
 	name = "имплант \"питательный насос\""
-	desc = "Этот имплант синтезирует и закачаивает в ваш кровосток небольшое количество питательных веществ если вы голодаете."
+	desc = "Этот имплант синтезирует и закачаивает в ваш кровосток небольшое количество питательных веществ и жидкости если вы голодаете."
 	icon_state = "chest_implant"
 	implant_color = "#00AA00"
 	var/hunger_threshold = NUTRITION_LEVEL_STARVING
@@ -45,7 +45,7 @@
 
 /obj/item/organ/cyberimp/chest/nutriment/plus
 	name = "имплант \"питательный насос ПЛЮС\""
-	desc = "Этот имплант синтезирует и закачаивает в ваш кровосток небольшое количество питательных веществ если вы голодаете."
+	desc = "Этот имплант полностью перекрывает все ваши потребности в пище и жидкости."
 	icon_state = "chest_implant"
 	implant_color = "#006607"
 	hunger_threshold = NUTRITION_LEVEL_HUNGRY

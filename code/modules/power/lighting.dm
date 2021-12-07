@@ -885,7 +885,7 @@
 		return BRUTELOSS
 
 /obj/item/light/tube
-	name = "световая трубка"
+	name = "лампа дневного света"
 	desc = "Запасная, наверное."
 	icon_state = "ltube"
 	base_state = "ltube"

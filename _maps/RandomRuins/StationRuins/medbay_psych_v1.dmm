@@ -721,7 +721,7 @@
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
 "ee" = (
-/obj/machinery/rnd/production/techfab/department/medical,
+/obj/machinery/mecha_part_fabricator/med,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},

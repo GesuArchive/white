@@ -74,12 +74,15 @@
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/thermomachine
-	name = "Оборудование (Freezer/Heater Board)"
-	desc = "The circuit board for a freezer/heater."
+	name = "Термомашина"
+	desc = "Нагревает или охлаждает газ в трубах. Потребляет очень много энергии."
 	id = "thermomachine"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/thermomachine
-	category = list ("Инженерное оборудование")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+	category = list ("Инженерное оборудование", "Медицинское оборудование")
+	sub_category = list("Криостазис")
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/space_heater
 	name = "Оборудование (Space Heater Board)"
@@ -138,51 +141,70 @@
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/cryotube
-	name = "Оборудование (Cryotube Board)"
-	desc = "The circuit board for a cryotube."
+	name = "Криокамера"
+	desc = "Огромная стеклянная колба использующая целительные свойства холода."
 	id = "cryotube"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/cryo_tube
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_MEDICAL
 	category = list ("Медицинское оборудование")
+	sub_category = list("Криостазис")
 
 /datum/design/board/chem_dispenser
-	name = "Оборудование (Portable Chem Dispenser Board)"
-	desc = "The circuit board for a portable chem dispenser."
+	name = "Хим-раздатчик"
+	desc = "Создает и выдает химикаты."
 	id = "chem_dispenser"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/chem_dispenser
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_MEDICAL
 	category = list ("Медицинское оборудование")
+	sub_category = list("Химпроизводство")
 
 /datum/design/board/chem_master
-	name = "Оборудование (Chem Master Board)"
-	desc = "The circuit board for a Chem Master 3000."
+	name = "ХимМастер 3000"
+	desc = "Используется для разделения химикатов и их распределения в различных состояниях."
 	id = "chem_master"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_MEDICAL
 	build_path = /obj/item/circuitboard/machine/chem_master
 	category = list ("Медицинское оборудование")
+	sub_category = list("Химпроизводство")
 
 /datum/design/board/chem_heater
-	name = "Оборудование (Chemical Heater Board)"
-	desc = "The circuit board for a chemical heater."
+	name = "Реакционная камера"
+	desc = "Миниатюрная термомашина способная быстро изменять и удерживать температуру состава, а так же мануально контролировать баланс ПШ."
 	id = "chem_heater"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_MEDICAL
 	build_path = /obj/item/circuitboard/machine/chem_heater
 	category = list ("Медицинское оборудование")
+	sub_category = list("Химпроизводство")
 
 /datum/design/board/smoke_machine
-	name = "Оборудование (Smoke Machine)"
-	desc = "The circuit board for a smoke machine."
+	name = "Дымогенератор"
+	desc = "Аппарат с установленной внутри центрифугой. Производит дым с любыми реагентами, помещенными в него вами."
 	id = "smoke_machine"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/smoke_machine
 	category = list ("Медицинское оборудование")
+	sub_category = list("Химпроизводство")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/reagentgrinder
-	name = "Оборудование (All-In-One Grinder)"
-	desc = "The circuit board for an All-In-One Grinder."
+	name = "Миксер"
+	desc = "От BlenderTech. Замиксуется? Давайте узнаем!"
 	id = "reagentgrinder"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/reagentgrinder
 	category = list ("Медицинское оборудование")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+	sub_category = list("Химпроизводство")
 
 /datum/design/board/hypnochair
 	name = "Оборудование (Enhanced Interrogation Chamber)"
@@ -321,12 +343,15 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/dnascanner
-	name = "Оборудование (DNA Scanner)"
-	desc = "The circuit board for a DNA Scanner."
+	name = "Манипулятор ДНК"
+	desc = "При подключении к консоли позволяет видоизменять ДНК подопытного для получения ценной информации и коррекции генетического кода."
 	id = "dnascanner"
+	build_type = IMPRINTER | PROTOLATHE | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 	build_path = /obj/item/circuitboard/machine/dnascanner
-	category = list("Исследовательское оборудование")
+	category = list("Исследовательское оборудование", "Медицинское оборудование")
+	sub_category = list("Биоманипулирование")
 
 /datum/design/board/destructive_scanner
 	name = "Machine Design (Destructive Scanner Board)"
@@ -514,19 +539,25 @@
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/limbgrower
-	name = "Оборудование (Limb Grower Board)"
-	desc = "The circuit board for a limb grower."
+	name = "Биосинтезатор"
+	desc = "Выращивает органы и конечности из синтетической плоти."
 	id = "limbgrower"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/limbgrower
 	category = list("Медицинское оборудование")
+	sub_category = list("Биоманипулирование")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/harvester
-	name = "Оборудование (Organ Harvester Board)"
-	desc = "The circuit board for an organ harvester."
+	name = "Авто-Потрошитель МК II"
+	desc = "Извлекает из тела ВСЁ лишнее, включая органы, конечности и голову."
 	id = "harvester"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/harvester
 	category = list("Медицинское оборудование")
+	sub_category = list("Автохирургия")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/deepfryer
@@ -602,51 +633,69 @@
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/board/paystand
-	name = "Оборудование (Pay Stand)"
-	desc = "The circuit board for a paystand."
+	name = "Терминал оплаты"
+	desc = "Налоговый сбор проверен и одобрен корпорацией Нано-Трейзен."
 	id = "paystand"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/paystand
-	category = list ("Различное оборудование")
+	category = list ("Различное оборудование", "Медицинское оборудование")
+	sub_category = list("Прочее")
 
 
 /datum/design/board/fat_sucker
-	name = "Оборудование (Lipid Extractor)"
-	desc = "The circuit board for a lipid extractor."
+	name = "Авто-Экстрактор липидов МК IV"
+	desc = "Безопасно и эффективно удаляет лишний жир."
 	id = "fat_sucker"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/fat_sucker
-	category = list ("Различное оборудование")
-	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
+	category = list ("Различное оборудование", "Медицинское оборудование")
+	sub_category = list("Автохирургия")
+	departmental_flags = DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/stasis
-	name = "Оборудование (Lifeform Stasis Unit)"
-	desc = "The circuit board for a stasis unit."
+	name = "Стазисная кровать"
+	desc = "Не очень комфортная кровать, которая постоянно жужжит, однако она помещает пациента в стазис с надеждой, что когда-нибудь он все-таки дождется помощи."
 	id = "stasis"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/stasis
 	category = list("Медицинское оборудование")
+	sub_category = list("Криостазис")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/medical_kiosk
-	name = "Оборудование (Medical Kiosk)"
-	desc = "The circuit board for a Medical Kiosk."
+	name = "Медицинский киоск"
+	desc = "За небольшую плату поможет продиагностировать пациента на основные виды повреждений и заболеваний."
 	id = "medical_kiosk"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/medical_kiosk
 	category = list ("Медицинское оборудование")
+	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/medipen_refiller
-	name = "Оборудование (Medipen Refiller)"
-	desc = "The circuit board for a Medipen Refiller."
+	name = "Наполнитель медипенов"
+	desc = "Машина перезаряжающая медипены химикатами."
 	id = "medipen_refiller"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/medipen_refiller
 	category = list ("Медицинское оборудование")
+	sub_category = list("Химпроизводство")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/plumbing_receiver
-	name = "Оборудование (Chemical Recipient)"
-	desc = "The circuit board for a Chemical Recipient."
+	name = "Химический приемник"
+	desc = "Принимает химикаты с маяков. Используйте мультитул для связи с маяками через буфер. Для сброса открутите крышку и перекусите главный провод."
 	id = "plumbing_receiver"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/plumbing_receiver
-	category = list ("Телепортация")
+	category = list ("Медицинское оборудование")
+	sub_category = list("Химпроизводство")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 

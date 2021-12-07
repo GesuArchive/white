@@ -248,7 +248,7 @@
 	return (TOXLOSS)
 
 /obj/item/cultivator
-	name = "Культиватор"
+	name = "тяпка"
 	desc = "Используется для удаления сорняков и чесания спины."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "cultivator"
@@ -382,7 +382,7 @@
 	return TRUE
 
 /obj/item/secateurs
-	name = "Секаторы"
+	name = "Секатор"
 	desc = "Инструмент, чтобы срезать лоскутки с растений."
 	icon = 'icons/obj/hydroponics/equipment.dmi'
 	icon_state = "secateurs"

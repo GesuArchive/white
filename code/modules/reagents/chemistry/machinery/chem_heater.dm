@@ -9,7 +9,8 @@
 #define TUT_MISSING 10
 
 /obj/machinery/chem_heater
-	name = "камера реакций"
+	name = "Реакционная камера"
+	desc = "Миниатюрная термомашина способная быстро изменять и удерживать температуру состава, а так же мануально контролировать баланс ПШ."
 	density = TRUE
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "mixer0b"

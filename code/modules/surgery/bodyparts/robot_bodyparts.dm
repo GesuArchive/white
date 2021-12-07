@@ -305,7 +305,7 @@
 
 /obj/item/bodypart/l_arm/robot/surplus
 	name = "бюджетный протез левой руки"
-	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
+	desc = "Скелетообразная кибер-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
 	burn_reduction = 0
@@ -313,7 +313,7 @@
 
 /obj/item/bodypart/r_arm/robot/surplus
 	name = "бюджетный протез правой руки"
-	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
+	desc = "Скелетообразная кибер-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
 	burn_reduction = 0
@@ -321,7 +321,7 @@
 
 /obj/item/bodypart/l_leg/robot/surplus
 	name = "бюджетный протез левой ноги"
-	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
+	desc = "Скелетообразная кибер-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
 	burn_reduction = 0
@@ -329,7 +329,7 @@
 
 /obj/item/bodypart/r_leg/robot/surplus
 	name = "бюджетный протез правой ноги"
-	desc = "Скелетная робото-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
+	desc = "Скелетообразная кибер-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
 	brute_reduction = 0
 	burn_reduction = 0

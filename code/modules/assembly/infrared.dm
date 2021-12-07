@@ -1,5 +1,5 @@
 /obj/item/assembly/infra
-	name = "infrared emitter"
+	name = "инфракрасный излучатель"
 	desc = "Emits a visible or invisible beam and is triggered when the beam is interrupted."
 	icon_state = "infrared"
 	custom_materials = list(/datum/material/iron=1000, /datum/material/glass=500)
@@ -219,7 +219,7 @@
 /***************************IBeam*********************************/
 
 /obj/effect/beam/i_beam
-	name = "infrared beam"
+	name = "инфракрасный луч"
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "ibeam"
 	anchored = TRUE

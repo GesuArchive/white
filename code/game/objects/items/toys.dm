@@ -116,7 +116,7 @@
 #define BALLOON_COLORS list("red", "blue", "green", "yellow")
 
 /obj/item/toy/balloon
-	name = "balloon"
+	name = "воздушный шарик"
 	desc = "No birthday is complete without it."
 	icon = 'icons/obj/balloons.dmi'
 	icon_state = "balloon"
@@ -235,8 +235,8 @@
  * Toy gun: Why isn't this an /obj/item/gun?
  */
 /obj/item/toy/gun
-	name = "cap gun"
-	desc = "Looks almost like the real thing! Ages 8 and up. Please recycle in an autolathe when you're out of caps."
+	name = "игрушечный пистолет"
+	desc = "Почти как настоящий! Для детей от 8 лет и старше."
 	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "revolver"
 	inhand_icon_state = "gun"
@@ -297,7 +297,7 @@
 		span_italics("Слышу выстрел!"))
 
 /obj/item/toy/ammo/gun
-	name = "capgun ammo"
+	name = "Пистоны"
 	desc = "Make sure to recyle the box in an autolathe when it gets empty."
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "357OLD-7"
@@ -386,7 +386,7 @@
  * Foam armblade
  */
 /obj/item/toy/foamblade
-	name = "foam armblade"
+	name = "пенопластовая рука-лезвие"
 	desc = "It says \"Sternside Changs #1 fan\" on it."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "foamblade"

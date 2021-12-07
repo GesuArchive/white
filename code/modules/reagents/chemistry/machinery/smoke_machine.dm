@@ -1,7 +1,7 @@
 #define REAGENTS_BASE_VOLUME 100 // actual volume is REAGENTS_BASE_VOLUME plus REAGENTS_BASE_VOLUME * rating for each matterbin
 
 /obj/machinery/smoke_machine
-	name = "генератор дыма"
+	name = "Дымогенератор"
 	desc = "Аппарат с установленной внутри центрифугой. Производит дым с любыми реагентами, помещенными в него вами."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "smoke0"

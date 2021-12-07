@@ -586,7 +586,7 @@
 //	icon states.
 
 /obj/item/reagent_containers/food/drinks/shaker
-	name = "shaker"
+	name = "шейкер"
 	desc = "A metal shaker to mix drinks in."
 	icon_state = "shaker"
 	custom_materials = list(/datum/material/iron=1500)
@@ -595,7 +595,7 @@
 	isGlass = FALSE
 
 /obj/item/reagent_containers/food/drinks/flask
-	name = "flask"
+	name = "фляжка"
 	desc = "Every good spaceman knows it's a good idea to bring along a couple of pints of whiskey wherever they go."
 	custom_price = PAYCHECK_HARD * 2
 	icon_state = "flask"
@@ -604,13 +604,13 @@
 	isGlass = FALSE
 
 /obj/item/reagent_containers/food/drinks/flask/gold
-	name = "captain's flask"
+	name = "фляжка капитана"
 	desc = "A gold flask belonging to the captain."
 	icon_state = "flask_gold"
 	custom_materials = list(/datum/material/gold=500)
 
 /obj/item/reagent_containers/food/drinks/flask/det
-	name = "detective's flask"
+	name = "фляжка детектива"
 	desc = "The detective's only true friend."
 	icon_state = "detflask"
 	list_reagents = list(/datum/reagent/consumable/ethanol/whiskey = 30)

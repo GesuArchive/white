@@ -297,4 +297,6 @@
 /obj/item/organ/cyberimp/arm/surgery
 	name = "имплант хирургических инструментов"
 	desc = "Набор хирургических инструментов скрывающийся за скрытой панелью на руке пользователя."
-	items_to_create = list(/obj/item/retractor/augment, /obj/item/hemostat/augment, /obj/item/cautery/augment, /obj/item/surgicaldrill/augment, /obj/item/scalpel/augment, /obj/item/circular_saw/augment, /obj/item/surgical_drapes)
+	icon = 'white/Feline/icons/cyber_arm_surgery.dmi'
+	icon_state = "cyber_arm_surgery"
+	items_to_create = list(/obj/item/surgical_drapes, /obj/item/scalpel/augment, /obj/item/circular_saw/augment, /obj/item/hemostat/augment, /obj/item/retractor/augment, /obj/item/cautery/augment, /obj/item/bonesetter/augment)

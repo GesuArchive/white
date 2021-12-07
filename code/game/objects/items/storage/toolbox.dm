@@ -1,6 +1,6 @@
 /obj/item/storage/toolbox
-	name = "toolbox"
-	desc = "Danger. Very robust."
+	name = "ящик с инструментами"
+	desc = "Опасно! Хранить в недоступном для ассистентов месте!"
 	icon_state = "toolbox_default"
 	inhand_icon_state = "toolbox_default"
 	lefthand_file = 'icons/mob/inhands/equipment/toolbox_lefthand.dmi'
@@ -42,7 +42,7 @@
 	return (BRUTELOSS)
 
 /obj/item/storage/toolbox/emergency
-	name = "emergency toolbox"
+	name = "аварийный ящик"
 	icon_state = "red"
 	inhand_icon_state = "toolbox_red"
 	material_flags = NONE
@@ -62,13 +62,13 @@
 	new /obj/item/grenade/chem_grenade/smart_metal_foam(src)
 
 /obj/item/storage/toolbox/emergency/old
-	name = "rusty red toolbox"
+	name = "ржавый красный ящик"
 	icon_state = "toolbox_red_old"
 	has_latches = FALSE
 	material_flags = NONE
 
 /obj/item/storage/toolbox/mechanical
-	name = "mechanical toolbox"
+	name = "ящик с инструментами"
 	icon_state = "blue"
 	inhand_icon_state = "toolbox_blue"
 	material_flags = NONE
@@ -84,14 +84,14 @@
 	new /obj/item/wirecutters(src)
 
 /obj/item/storage/toolbox/mechanical/old
-	name = "rusty blue toolbox"
+	name = "ржавый синий ящик"
 	icon_state = "toolbox_blue_old"
 	has_latches = FALSE
 	has_soul = TRUE
 
 /obj/item/storage/toolbox/mechanical/old/heirloom
-	name = "toolbox" //this will be named "X family toolbox"
-	desc = "It's seen better days."
+	name = "ящик с инструментами" //this will be named "X family toolbox"
+	desc = "Похоже, он знавал лучшие дни."
 	force = 5
 	w_class = WEIGHT_CLASS_NORMAL
 
@@ -99,8 +99,8 @@
 	return
 
 /obj/item/storage/toolbox/mechanical/old/clean // the assistant traitor toolbox, damage scales with TC inside
-	name = "toolbox"
-	desc = "An old, blue toolbox, it looks robust."
+	name = "ящик с инструментами"
+	desc = "Не так нов и чист, но еще задаст жару."
 	icon_state = "oldtoolboxclean"
 	inhand_icon_state = "toolbox_blue"
 	has_latches = FALSE
@@ -132,7 +132,7 @@
 	new /obj/item/clothing/gloves/color/yellow(src)
 
 /obj/item/storage/toolbox/electrical
-	name = "electrical toolbox"
+	name = "ящик электрика"
 	icon_state = "yellow"
 	inhand_icon_state = "toolbox_yellow"
 	material_flags = NONE
@@ -151,7 +151,7 @@
 		new /obj/item/stack/cable_coil(src,MAXCOIL,pickedcolor)
 
 /obj/item/storage/toolbox/syndicate
-	name = "suspicious looking toolbox"
+	name = "подозрительно выглядящий ящик с инструментами"
 	icon_state = "syndicate"
 	inhand_icon_state = "toolbox_syndi"
 	force = 15
@@ -173,7 +173,7 @@
 	new /obj/item/clothing/gloves/combat(src)
 
 /obj/item/storage/toolbox/drone
-	name = "mechanical toolbox"
+	name = "ящик с инструментами"
 	icon_state = "blue"
 	inhand_icon_state = "toolbox_blue"
 	material_flags = NONE
@@ -189,8 +189,8 @@
 	new /obj/item/multitool(src)
 
 /obj/item/storage/toolbox/artistic
-	name = "artistic toolbox"
-	desc = "A toolbox painted bright green. Why anyone would store art supplies in a toolbox is beyond you, but it has plenty of extra space."
+	name = "актерский ящик"
+	desc = "Ящик с инструментами, выкрашенный в ярко-зеленый цвет. Зачем кому-то хранить актерские принадлежности в ящике для инструментов, вам непонятно, но зато в нем много дополнительного места."
 	icon_state = "green"
 	inhand_icon_state = "artistic_toolbox"
 	w_class = WEIGHT_CLASS_GIGANTIC //Holds more than a regular toolbox!
@@ -215,8 +215,8 @@
 	new /obj/item/stack/pipe_cleaner_coil/white(src)
 
 /obj/item/storage/toolbox/ammo
-	name = "ammo box"
-	desc = "It contains a few clips."
+	name = "ящик с патронами"
+	desc = "Хранит несколько магазинов."
 	icon_state = "ammobox"
 	inhand_icon_state = "ammobox"
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
@@ -232,8 +232,8 @@
 	new /obj/item/ammo_box/a762(src)
 
 /obj/item/storage/toolbox/infiltrator
-	name = "insidious case"
-	desc = "Bearing the emblem of the Syndicate, this case contains a full infiltrator stealth suit, and has enough room to fit weaponry if necessary."
+	name = "кейс проникновенца"
+	desc = "На его крышке провокационно изображена эмблема Синдиката, хранит в себе полный комплект снаряжения проникновенца, в нем достаточно места для помещения внутрь оружия."
 	icon_state = "infiltrator_case"
 	inhand_icon_state = "infiltrator_case"
 	force = 15
@@ -306,7 +306,7 @@
 
 
 /obj/item/storage/toolbox/haunted
-	name = "old toolbox"
+	name = "старый ящик"
 	custom_materials = list(/datum/material/hauntium = 500)
 
 

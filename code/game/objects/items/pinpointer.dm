@@ -86,8 +86,8 @@
 				return "pinon[alert ? "alert" : "far"][icon_suffix]"
 
 /obj/item/pinpointer/crew // A replacement for the old crew monitoring consoles
-	name = "crew pinpointer"
-	desc = "A handheld tracking device that points to crew suit sensors."
+	name = "продвинутый поисковый навигатор"
+	desc = "Дает четкое направление на членов экипажа с подключенными датчиками жизни."
 	icon_state = "pinpointer_crew"
 	custom_price = PAYCHECK_MEDIUM * 4
 	custom_premium_price = PAYCHECK_MEDIUM * 6
@@ -164,8 +164,8 @@
 		active = FALSE
 
 /obj/item/pinpointer/crew/prox //Weaker version of crew monitor primarily for EMT
-	name = "proximity crew pinpointer"
-	desc = "A handheld tracking device that displays its proximity to crew suit sensors."
+	name = "поисковый навигатор"
+	desc = "Показывает приблизительное направление на членов экипажа с включенными датчиками жизни по принципу тепло-холодно."
 	icon_state = "pinpointer_crewprox"
 	custom_price = PAYCHECK_MEDIUM * 3
 

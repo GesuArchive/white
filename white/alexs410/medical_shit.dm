@@ -17,5 +17,5 @@
 	new /obj/item/retractor/advanced(src)
 	new /obj/item/cautery/advanced(src)
 	new /obj/item/bonesetter/advanced(src)
-	new /obj/item/reagent_containers/glass/bottle/penacid(src)
-	new /obj/item/reagent_containers/glass/bottle/sal_acid(src)
+	new /obj/item/reagent_containers/medigel/sal_acid_oxandrolone(src)
+	new /obj/item/reagent_containers/medigel/pen_acid(src)

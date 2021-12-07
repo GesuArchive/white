@@ -1,5 +1,5 @@
 /obj/item/assembly/control
-	name = "blast door controller"
+	name = "Контролер взрывостойкого шлюза"
 	desc = "A small electronic device able to control a blast door remotely."
 	icon_state = "control"
 	attachable = TRUE
