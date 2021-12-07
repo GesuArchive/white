@@ -213,9 +213,9 @@
 
 //Large chem grenades accept slime cores and use the appropriately.
 /obj/item/grenade/chem_grenade/large
-	name = "Химическая граната"
-	desc = "Большой каркас химической гранаты. Больший радиус взрыва и поддержка более емких или экзотичных носителей."
-	casedesc = "Поддерживает блюспейс хим-стаканы и ядра слимов. При детонации нагревает состав на 25°K."
+	name = "большая химическая граната"
+	desc = "Большой каркас химической гранаты. В отличие от обычных каркасов, этот имеет больший радиус взрыва и поддерживает блюспейс или различные экзотичные носители."
+	casedesc = "Поддерживает блюспейс хим-стаканы и ядра слаймов. При детонации нагревает состав на 25°K."
 	icon_state = "large_grenade"
 	allowed_containers = list(/obj/item/reagent_containers/glass, /obj/item/reagent_containers/food/condiment, /obj/item/reagent_containers/food/drinks)
 	banned_containers = list()

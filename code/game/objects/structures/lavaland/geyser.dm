@@ -119,7 +119,7 @@
 
 /obj/item/plunger/reinforced
 	name = "усиленный вантуз"
-	desc = "Вытяжная сила сравнимая с вакуумом."
+	desc = "Имеет вытяжную силу, сравнивую с вакуумом."
 	icon_state = "reinforced_plunger"
 	reinforced = TRUE
 	plunge_mod = 0.8

@@ -237,7 +237,7 @@
 
 /obj/item/defibrillator/compact
 	name = "компактный дефибриллятор"
-	desc = "Продвинутая версия, более компактный дизайн позволил закрепить дефибриллятор на поясе."
+	desc = "Более компактная и продвинутая версия дефибриллятора. Можно носить на поясе."
 	icon_state = "defibcompact"
 	inhand_icon_state = "defibcompact"
 	worn_icon_state = "defibcompact"
@@ -255,7 +255,7 @@
 
 /obj/item/defibrillator/compact/combat
 	name = "боевой дефибриллятор"
-	desc = "Военный образец. Мощные конденсаторы позволяют пробивать легкую одежду, а так же использовать его в бою для разоружения или агрессивного электрошока."
+	desc = "Военный образец дефибриллятора. Его мощные конденсаторы позволяют реанимировать пациента через одежду, а так же он может быть использован в бою в обезоруживающей или агрессивной манере."
 	icon_state = "defibcombat" //needs defib inhand sprites
 	inhand_icon_state = "defibcombat"
 	worn_icon_state = "defibcombat"

@@ -50,7 +50,7 @@
 
 //For the Condenser, which functions like the igniter but makes things colder.
 /obj/item/assembly/igniter/condenser
-	name = "кондиционер"
+	name = "конденсатор"
 	desc = "A small electronic device able to chill their surroundings."
 	icon_state = "freezer"
 	custom_materials = list(/datum/material/iron=250, /datum/material/glass=300)

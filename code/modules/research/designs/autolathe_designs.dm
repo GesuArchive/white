@@ -701,7 +701,7 @@
 	category = list("initial", "Разное")
 
 /datum/design/condenser
-	name = "Кондиционер"
+	name = "Конденсатор"
 	id = "condenser"
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron=250, /datum/material/glass=300)
@@ -750,7 +750,7 @@
 
 /datum/design/health_sensor
 	name = "Датчик жизни"
-	desc = "Мониторит основные жизненные показатели, может отправлять сигналы при смерти или критическом состоянии носителя."
+	desc = "Следит за основными жизненными показателями пользователя, может отправлять сигналы при смерти или критическом состоянии носителя."
 	id = "health_sensor"
 	build_type = AUTOLATHE | MECHFAB
 	construction_time = 20
