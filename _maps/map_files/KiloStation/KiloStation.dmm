@@ -8743,7 +8743,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/fore)
 "aRx" = (
-/obj/machinery/rnd/production/techfab/department/medical,
+/obj/machinery/mecha_part_fabricator/med,
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/stripes/box,
 /turf/open/floor/plasteel/dark,

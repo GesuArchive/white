@@ -1,5 +1,5 @@
 /obj/item/implantcase
-	name = "чехол для импланта"
+	name = "кейс микроимпланта"
 	desc = "Удобное хранилище для имплантов."
 	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "implantcase-0"
@@ -32,9 +32,9 @@
 		if(!user.canUseTopic(src, BE_CLOSE))
 			return
 		if(t)
-			name = "чехол для импланта - '[t]'"
+			name = "микроимплант - '[t]'"
 		else
-			name = "чехол для импланта"
+			name = "микроимплант"
 	else if(istype(W, /obj/item/implanter))
 		var/obj/item/implanter/I = W
 		if(I.imp)
@@ -70,16 +70,16 @@
 
 
 /obj/item/implantcase/tracking
-	name = "чехол для импланта - 'Слежка'"
+	name = "микроимплант - 'Слежка'"
 	desc = "Содержит имплант для отслеживания позиции."
 	imp_type = /obj/item/implant/tracking
 
 /obj/item/implantcase/weapons_auth
-	name = "чехол для импланта - 'Аутентификация на оружие'"
+	name = "микроимплант - 'Аутентификация на оружие'"
 	desc = "Содержит имплант, который дозволяет стрелять из специального оружия."
 	imp_type = /obj/item/implant/weapons_auth
 
 /obj/item/implantcase/adrenaline
-	name = "чехол для импланта - 'Адреналин'"
+	name = "микроимплант - 'Адреналин'"
 	desc = "Содержит имплант с инъектором адреналина."
 	imp_type = /obj/item/implant/adrenalin

@@ -607,169 +607,206 @@
 /////////////////////////////////////////
 
 /datum/design/borg_upgrade_rename
-	name = "Cyborg Upgrade (Rename Board)"
+	name = "Модуль смены имени"
+	desc = "Используется для смены позывного у киборга."
 	id = "borg_upgrade_rename"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/rename
 	materials = list(/datum/material/iron = 5000)
 	construction_time = 120
 	category = list("Улучшения киборгов")
+	sub_category = list("Обслуживание Киборгов")
 
 /datum/design/borg_upgrade_restart
-	name = "Cyborg Upgrade (Emergency Reboot Board)"
+	name = "Модуль аварийной перезагрузки"
+	desc = "Используется для форсированной перезагрузки киборга после критических повреждений и запуска операционной системы."
 	id = "borg_upgrade_restart"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/restart
 	materials = list(/datum/material/iron = 20000 , /datum/material/glass = 5000)
 	construction_time = 120
 	category = list("Улучшения киборгов")
+	sub_category = list("Обслуживание Киборгов")
 
 /datum/design/borg_upgrade_thrusters
-	name = "Cyborg Upgrade (Ion Thrusters)"
+	name = "Ионные двигатели"
+	desc = "Модернизация которая позволяет перемещатся в безгравитационном пространстве при помощи миниатюрных двигателей. Потребляет энергию при использовании."
 	id = "borg_upgrade_thrusters"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/thrusters
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 6000, /datum/material/plasma = 5000, /datum/material/uranium = 6000)
 	construction_time = 120
 	category = list("Улучшения киборгов")
+	sub_category = list("Универсальные Модули")
 
 /datum/design/borg_upgrade_disablercooler
-	name = "Cyborg Upgrade (Rapid Disabler Cooling Module)"
+	name = "Радиатор Усмирителя"
+	desc = "Устанавливает дополнительные системы охлаждения, тем самым повышая скорострельность."
 	id = "borg_upgrade_disablercooler"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/disablercooler
 	materials = list(/datum/material/iron = 20000 , /datum/material/glass = 6000, /datum/material/gold = 2000, /datum/material/diamond = 2000)
 	construction_time = 120
 	category = list("Улучшения киборгов")
+	sub_category = list("Киборг Охранник")
 
 /datum/design/borg_upgrade_diamonddrill
-	name = "Cyborg Upgrade (Diamond Drill)"
+	name = "Алмазный бур"
+	desc = "Заменяет стандартный бур на его продвинутый аналог."
 	id = "borg_upgrade_diamonddrill"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/ddrill
 	materials = list(/datum/material/iron=10000, /datum/material/glass = 6000, /datum/material/diamond = 2000)
 	construction_time = 80
 	category = list("Улучшения киборгов")
+	sub_category = list("Киборг Шахтер")
 
 /datum/design/borg_upgrade_holding
-	name = "Cyborg Upgrade (Ore Satchel of Holding)"
+	name = "Безразмерная сумка для руды"
+	desc = "Снимает ограничение емкости для Рудной Сумки."
 	id = "borg_upgrade_holding"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/soh
 	materials = list(/datum/material/iron = 10000, /datum/material/gold = 2000, /datum/material/uranium = 1000)
 	construction_time = 40
 	category = list("Улучшения киборгов")
+	sub_category = list("Киборг Шахтер")
 
 /datum/design/borg_upgrade_lavaproof
-	name = "Cyborg Upgrade (Lavaproof Tracks)"
+	name = "Лава-стойкие траки"
+	desc = "Дает возможность перемещаться по лаве."
 	id = "borg_upgrade_lavaproof"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/lavaproof
 	materials = list(/datum/material/iron = 10000, /datum/material/plasma = 4000, /datum/material/titanium = 5000)
 	construction_time = 120
 	category = list("Улучшения киборгов")
+	sub_category = list("Киборг Шахтер")
 
 /datum/design/borg_syndicate_module
-	name = "Cyborg Upgrade (Illegal Modules)"
+	name = "Модуль нелегальной модернизации"
+	desc = "Разблокирует Киборгу нелегальные модернизации, это действие не меняет его Законы, но может нарушить работу других устройств (не обязательно)."
 	id = "borg_syndicate_module"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/syndicate
 	materials = list(/datum/material/iron = 15000, /datum/material/glass = 15000, /datum/material/diamond = 10000)
 	construction_time = 120
 	category = list("Улучшения киборгов")
+	sub_category = list("Универсальные Модули")
 
 /datum/design/borg_transform_clown
-	name = "Cyborg Upgrade (Clown Module)"
+	name = "Модуль специализации (Клоун)"
+	desc = "Модуль специа@#$# HOONK!"
 	id = "borg_transform_clown"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/transform/clown
 	materials = list(/datum/material/iron = 15000, /datum/material/glass = 15000, /datum/material/bananium = 1000)
 	construction_time = 120
 	category = list("Улучшения киборгов")
+	sub_category = list("Обслуживание Киборгов")
 
 /datum/design/borg_upgrade_selfrepair
-	name = "Cyborg Upgrade (Self-repair)"
+	name = "Модуль саморемонта"
+	desc = "Позволяет медленно восстанавливать текущую прочность за счет энергии."
 	id = "borg_upgrade_selfrepair"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/selfrepair
 	materials = list(/datum/material/iron = 15000, /datum/material/glass = 15000)
 	construction_time = 80
 	category = list("Улучшения киборгов")
+	sub_category = list("Универсальные Модули")
 
 /datum/design/borg_upgrade_expandedsynthesiser
-	name = "Cyborg Upgrade (Hypospray Expanded Synthesiser)"
+	name = "Расширенный медицинский гипоспрей"
+	desc = "Значительно увеличивает диапазон синтезируемых Медицинский Киборгаментов."
 	id = "borg_upgrade_expandedsynthesiser"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/hypospray/expanded
 	materials = list(/datum/material/iron = 15000, /datum/material/glass = 15000, /datum/material/plasma = 8000, /datum/material/uranium = 8000)
 	construction_time = 80
 	category = list("Улучшения киборгов")
+	sub_category = list("Медицинский Киборг")
 
 /datum/design/borg_upgrade_piercinghypospray
-	name = "Cyborg Upgrade (Piercing Hypospray)"
+	name = "Пробивающий гипоспрей"
+	desc = "Позволяет колоть химикаты из Гипоспрея сквозь РИГи или другие прочные материалы. Так же поддерживает другие модели киборгов."
 	id = "borg_upgrade_piercinghypospray"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/piercing_hypospray
 	materials = list(/datum/material/iron = 15000, /datum/material/glass = 15000, /datum/material/titanium = 5000, /datum/material/diamond = 3000)
 	construction_time = 80
 	category = list("Улучшения киборгов")
+	sub_category = list("Медицинский Киборг")
 
 /datum/design/borg_upgrade_defibrillator
-	name = "Cyborg Upgrade (Defibrillator)"
+	name = "Дефибриллятор"
+	desc = "Позволяет реанимировать людей."
 	id = "borg_upgrade_defibrillator"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/defib
 	materials = list(/datum/material/iron = 8000, /datum/material/glass = 5000, /datum/material/silver = 4000, /datum/material/gold = 3000)
 	construction_time = 80
 	category = list("Улучшения киборгов")
+	sub_category = list("Медицинский Киборг")
 
 /datum/design/borg_upgrade_surgicalprocessor
-	name = "Cyborg Upgrade (Surgical Processor)"
+	name = "Хирургический процессор"
+	desc = "После синхронизации с Операционный Компьютером позволяет проводить все операции которые были загружены в него"
 	id = "borg_upgrade_surgicalprocessor"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/processor
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 4000, /datum/material/silver = 4000)
 	construction_time = 40
 	category = list("Улучшения киборгов")
+	sub_category = list("Медицинский Киборг")
 
 /datum/design/borg_upgrade_trashofholding
-	name = "Cyborg Upgrade (Trash Bag of Holding)"
+	name = "Безразмерный мешок для мусора"
+	desc = "Снимает ограничение емкости для Мусорного Мешка."
 	id = "borg_upgrade_trashofholding"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/tboh
 	materials = list(/datum/material/gold = 2000, /datum/material/uranium = 1000)
 	construction_time = 40
 	category = list("Улучшения киборгов")
+	sub_category = list("Киборг Уборщик")
 
 /datum/design/borg_upgrade_advancedmop
-	name = "Cyborg Upgrade (Advanced Mop)"
+	name = "Экспериментальная швабра"
+	desc = "Заменяет швабру на продвинутую, при активации та начинает со временем собирать влагу из воздуха."
 	id = "borg_upgrade_advancedmop"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/amop
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 2000)
 	construction_time = 40
 	category = list("Улучшения киборгов")
+	sub_category = list("Киборг Уборщик")
 
 /datum/design/borg_upgrade_prt
-	name = "Cyborg Upgrade (Plating Repair Tool)"
+	name = "Инструмент для ремонта плитки"
+	desc = "Позволяет ремонтировать поврежденный пол под собой."
 	id = "borg_upgrade_prt"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/prt
 	materials = list(/datum/material/iron = 2500, /datum/material/glass = 750) //same price as a cautery
 	construction_time = 40
 	category = list("Улучшения киборгов")
+	sub_category = list("Киборг Уборщик")
 
 /datum/design/borg_upgrade_expand
-	name = "Cyborg Upgrade (Expand)"
+	name = "Модуль расширения"
+	desc = "Визуально увеличивает Киборга."
 	id = "borg_upgrade_expand"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/expand
 	materials = list(/datum/material/iron = 200000, /datum/material/titanium = 5000)
 	construction_time = 120
 	category = list("Улучшения киборгов")
+	sub_category = list("Универсальные Модули")
 
 /datum/design/boris_ai_controller
-	name = "B.O.R.I.S. AI-Cyborg Remote Control Module"
+	name = "Модуль Б.О.Р.И.С."
+	desc = "Подключает модуль удаленного управления для ИИ. Занимает слот Позитронного Мозга и MMI. Киборг становится оболочкой ИИ с открытым каналом связи."
 	id = "borg_ai_control"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/ai
@@ -779,49 +816,59 @@
 	search_metadata = "boris"
 
 /datum/design/borg_upgrade_rped
-	name = "Cyborg Upgrade (RPED)"
+	name = "Кибернетический РПЕД"
+	desc = "позволяет переносить 50 электронных компонентов, а так же устанавливать их в каркас Машины или Консоли."
 	id = "borg_upgrade_rped"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/rped
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000)
 	construction_time = 120
 	category = list("Улучшения киборгов")
+	sub_category = list("Инженерный Киборг")
 
 /datum/design/borg_upgrade_circuit_app
-	name = "Cyborg Upgrade (Circuit Manipulator)"
+	name = "Манипулятор плат"
+	desc = "Позволяет переносить 1 плату, а так же устанавливать ее в каркас Машины или Консоли."
 	id = "borg_upgrade_circuitapp"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/circuit_app
 	materials = list(/datum/material/iron = 2000, /datum/material/titanium = 500)
 	construction_time = 120
 	category = list("Улучшения киборгов")
+	sub_category = list("Инженерный Киборг")
 
 /datum/design/borg_upgrade_beaker_app
-	name = "Cyborg Upgrade (Beaker Storage)"
+	name = "Дополнительный манипулятор хим посуды"
+	desc = "Если одного недостаточно."
 	id = "borg_upgrade_beakerapp"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/beaker_app
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 2250) //Need glass for the new beaker too
 	construction_time = 120
 	category = list("Улучшения киборгов")
+	sub_category = list("Медицинский Киборг")
 
 /datum/design/borg_upgrade_pinpointer
-	name = "Cyborg Upgrade (Crew pinpointer)"
+	name = "Монитор жизненных показателей экипажа"
+	desc = "Позволяет наблюдать данные с датчиков жизнеобеспечения аналогично Консоли наблюдения за Экипажем, а так же добавляет трекер для поиска Экипажа."
 	id = "borg_upgrade_pinpointer"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/pinpointer
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500)
 	construction_time = 120
 	category = list("Улучшения киборгов")
+	sub_category = list("Медицинский Киборг")
 
 /datum/design/borg_upgrade_broomer
-	name = "Cyborg Upgrade (Experimental Push Broom)"
+	name = "Экспериментальный толкатель"
+	desc = "При активации позволяет толкать предметы перед собой в большой куче."
 	id = "borg_upgrade_broomer"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/broomer
 	materials = list(/datum/material/iron = 4000, /datum/material/glass = 500)
 	construction_time = 120
 	category = list("Улучшения киборгов")
+	sub_category = list("Киборг Уборщик")
 
 //Misc
 /datum/design/mecha_tracking

@@ -1,6 +1,6 @@
 /obj/machinery/organdoc
 	name = "Орган-Док МК IIX"
-	desc = "Полностью стационарная автоматическая шаурмечница!"
+	desc = "Автоматический хирургически комплекс специализированный на имплантационных и трансплантационных операциях."
 	density = TRUE
 	state_open = FALSE
 	icon = 'white/valtos/icons/64x64_autodoc.dmi'
@@ -168,7 +168,8 @@
 	to_chat(user, span_warning("Переделываю программу в режим готовки шаурмы."))
 
 /obj/item/circuitboard/machine/organdoc
-	name = "Органдок (Оборудование)"
+	name = "Плата Орган-Дока МК IIX"
+	desc = "Автоматический хирургически комплекс специализированный на имплантационных и трансплантационных операциях."
 	build_path = /obj/machinery/organdoc
 	req_components = list(/obj/item/scalpel/advanced = 1,
 		/obj/item/retractor/advanced = 1,
@@ -178,9 +179,12 @@
 		/obj/item/stock_parts/matter_bin = 1)
 
 /datum/design/board/organdoc
-	name = "Оборудование (Organdoc)"
-	desc = "The circuit board for an Organdoc."
+	name = "Орган-Док МК IIX"
+	desc = "Автоматический хирургически комплекс специализированный на имплантационных и трансплантационных операциях."
 	id = "organdoc"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/organdoc
 	category = list("Медицинское оборудование")
+	sub_category = list("Автохирургия")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL

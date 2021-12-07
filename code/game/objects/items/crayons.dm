@@ -650,7 +650,7 @@
 //Spraycan stuff
 
 /obj/item/toy/crayon/spraycan
-	name = "баллончик"
+	name = "баллончик с краской"
 	icon_state = "spraycan"
 
 	icon_capped = "spraycan_cap"

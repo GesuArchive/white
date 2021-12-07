@@ -65,36 +65,48 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/med_data
-	name = "Дизайн консоли (Medical Records)"
-	desc = "Allows for the construction of circuit boards used to build a medical records console."
+	name = "Консоль Медицинских записей"
+	desc = "Используется для просмотра больничных карт и биометрических данных членов экипажа."
 	id = "med_data"
+	build_type = IMPRINTER | PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/computer/med_data
-	category = list("Консоли")
+	category = list("Консоли", "Медицинское оборудование")
+	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/operating
-	name = "Дизайн консоли (Operating Computer)"
-	desc = "Allows for the construction of circuit boards used to build an operating computer console."
+	name = "Операционный компьютер"
+	desc = "Контролирует жизненно важные функции пациента и отображает этапы операции. Может быть загружен хирургическими дисками для выполнения экспериментальных процедур. Автоматически синхронизируется со стазис-кроватями в пределах прямой видимости для улучшения хирургических технологий."
 	id = "operating"
+	build_type = IMPRINTER | PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/computer/operating
-	category = list("Консоли")
+	category = list("Консоли", "Медицинское оборудование")
+	sub_category = list("Реанимация и хирургия")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/pandemic
-	name = "Дизайн консоли (PanD.E.M.I.C. 2200)"
-	desc = "Allows for the construction of circuit boards used to build a PanD.E.M.I.C. 2200 console."
+	name = "ПанД.Е.М.И.Я 2200"
+	desc = "Используется при работе с вирусами."
 	id = "pandemic"
+	build_type = IMPRINTER | PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/computer/pandemic
-	category = list("Консоли")
+	category = list("Консоли", "Медицинское оборудование")
+	sub_category = list("Биоманипулирование")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/scan_console
-	name = "Дизайн консоли (DNA Console)"
-	desc = "Allows for the construction of circuit boards used to build a new DNA console."
+	name = "Консоль сканера ДНК"
+	desc = "Отображает визуальную информацию о генетической структуре подопытного, позволяет вносить изменения и синтезировать мутаторы. Для разблокировки полного функционала требует подключения к манипулятору ДНК. Поддерживает синхронизацию с компактным сканером ДНК."
 	id = "scan_console"
+	build_type = IMPRINTER | PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/computer/scan_consolenew
-	category = list("Консоли")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list("Консоли", "Медицинское оборудование")
+	sub_category = list("Биоманипулирование")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL |DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/comconsole
 	name = "Дизайн консоли (Communications)"
@@ -105,11 +117,14 @@
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SECURITY				//Honestly should have a bridge techfab for this sometime.
 
 /datum/design/board/crewconsole
-	name = "Дизайн консоли (Crew monitoring computer)"
-	desc = "Allows for the construction of circuit boards used to build a Crew monitoring computer."
+	name = "Консоль мониторинга за экипажем"
+	desc = "Используется для контроля активных датчиков здоровья, встроенных в большую часть формы экипажа."
 	id = "crewconsole"
+	build_type = IMPRINTER | PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/computer/crew
-	category = list("Консоли")
+	category = list("Консоли", "Медицинское оборудование")
+	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/secdata

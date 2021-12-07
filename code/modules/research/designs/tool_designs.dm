@@ -230,63 +230,75 @@
 /////////////////////////////////////////
 
 /datum/design/alienscalpel
-	name = "Alien Scalpel"
-	desc = "An advanced scalpel obtained through Abductor technology."
+	name = "Инопланетный скальпель"
+	desc = "Это сверкающий острый нож, сделанный из серебристо-зеленого металла."
 	id = "alien_scalpel"
 	build_path = /obj/item/scalpel/alien
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 80
 	materials = list(/datum/material/iron = 2000, /datum/material/silver = 1500, /datum/material/plasma = 500, /datum/material/titanium = 1500)
-	category = list("Рабочие инструменты")
+	category = list("Рабочие инструменты", "Хирургические инструменты")
+	sub_category = list("Инопланетные инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/alienhemostat
-	name = "Alien Hemostat"
-	desc = "An advanced hemostat obtained through Abductor technology."
+	name = "Инопланетный зажим"
+	desc = "Как эта штука вообще работает?"
 	id = "alien_hemostat"
 	build_path = /obj/item/hemostat/alien
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 80
 	materials = list(/datum/material/iron = 2000, /datum/material/silver = 1500, /datum/material/plasma = 500, /datum/material/titanium = 1500)
-	category = list("Рабочие инструменты")
+	category = list("Рабочие инструменты", "Хирургические инструменты")
+	sub_category = list("Инопланетные инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/alienretractor
-	name = "Alien Retractor"
-	desc = "An advanced retractor obtained through Abductor technology."
+	name = "Инопланетный расширитель"
+	desc = "Вы точно не хотите знать как эта штука работает."
 	id = "alien_retractor"
 	build_path = /obj/item/retractor/alien
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 80
 	materials = list(/datum/material/iron = 2000, /datum/material/silver = 1500, /datum/material/plasma = 500, /datum/material/titanium = 1500)
-	category = list("Рабочие инструменты")
+	category = list("Рабочие инструменты", "Хирургические инструменты")
+	sub_category = list("Инопланетные инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/aliensaw
-	name = "Alien Circular Saw"
-	desc = "An advanced surgical saw obtained through Abductor technology."
+	name = "Инопланетная пила"
+	desc = "Уберите это от меня!"
 	id = "alien_saw"
 	build_path = /obj/item/circular_saw/alien
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 80
 	materials = list(/datum/material/iron = 10000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 1500)
-	category = list("Рабочие инструменты")
+	category = list("Рабочие инструменты", "Хирургические инструменты")
+	sub_category = list("Инопланетные инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/aliendrill
-	name = "Alien Drill"
-	desc = "An advanced drill obtained through Abductor technology."
+	name = "Инопланетная дрель"
+	desc = "Может хотя бы инопланетяне знают зачем нужна хирургическая дрель?"
 	id = "alien_drill"
 	build_path = /obj/item/surgicaldrill/alien
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 80
 	materials = list(/datum/material/iron = 10000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 1500)
-	category = list("Рабочие инструменты")
+	category = list("Рабочие инструменты", "Хирургические инструменты")
+	sub_category = list("Инопланетные инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/aliencautery
-	name = "Alien Cautery"
-	desc = "An advanced cautery obtained through Abductor technology."
+	name = "Инопланетный прижигатель"
+	desc = "Зачем вообще инопланетянам инструмент для остановки кровотечений? Разве только для..."
 	id = "alien_cautery"
 	build_path = /obj/item/cautery/alien
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 80
 	materials = list(/datum/material/iron = 2000, /datum/material/silver = 1500, /datum/material/plasma = 500, /datum/material/titanium = 1500)
-	category = list("Рабочие инструменты")
+	category = list("Рабочие инструменты", "Хирургические инструменты")
+	sub_category = list("Инопланетные инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/discoveryscanner

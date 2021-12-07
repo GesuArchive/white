@@ -34,7 +34,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 
 /obj/machinery/autodoc
 	name = "Авто-Док МК IX"
-	desc = "Полностью стационарная автоматическа хирургия! Для всей семьи!"
+	desc = "Автоматический хирургически комплекс специализированный на восстановительных и модернизирующих операциях."
 	circuit = /obj/item/circuitboard/machine/autodoc
 	icon = 'white/valtos/icons/64x64_autodoc.dmi'
 	icon_state = "autodoc_base"
@@ -337,7 +337,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 
 
 /obj/item/circuitboard/machine/autodoc
-	name = "микросхема (Авто-Док МК IX)"
+	name = "Плата Авто-Дока МК IX"
 	build_path = /obj/machinery/autodoc
 	req_components = list(
 							/obj/item/stock_parts/capacitor = 5,
@@ -350,17 +350,20 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 							/obj/item/stack/sheet/glass = 15)
 
 /datum/design/board/autodoc
-	name = "Оборудование (Авто-Док МК IX)"
-	desc = "Allows for the construction of circuit boards used to build a Авто-Док МК IX."
+	name = "Авто-Док МК IX"
+	desc = "Автоматический хирургически комплекс специализированный на восстановительных и модернизирующих операциях."
 	id = "autodoc"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/autodoc
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
 	category = list ("Медицинское оборудование")
+	sub_category = list("Автохирургия")
 
 /datum/techweb_node/autodoc
 	id = "autodoc"
-	display_name = "Complex Anatomical Automation"
-	description = "Advanced automation and complex anatomical knowhow combined to make advanced surgical things!"
+	display_name = "Авто-Док МК IX"
+	description = "Автоматический хирургически комплекс специализированный на восстановительных и модернизирующих операциях."
 	prereq_ids = list("exp_surgery", "bio_process", "adv_datatheory", "adv_engi", "high_efficiency")
 	design_ids = list("autodoc")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 15000)

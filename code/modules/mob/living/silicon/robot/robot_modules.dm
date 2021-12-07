@@ -251,27 +251,27 @@
 /obj/item/robot_module/medical
 	name = "Medical"
 	basic_modules = list(
-		/obj/item/assembly/flash/cyborg,
+		/obj/item/surgical_drapes,
+		/obj/item/retractor/augment,
+		/obj/item/hemostat/augment,
+		/obj/item/cautery/augment,
+		/obj/item/surgicaldrill/augment,
+		/obj/item/scalpel/augment,
+		/obj/item/circular_saw/augment,
+		/obj/item/bonesetter/augment,
 		/obj/item/healthanalyzer,
 		/obj/item/reagent_containers/borghypo,
-		/obj/item/borg/apparatus/beaker,
-		/obj/item/reagent_containers/dropper,
-		/obj/item/reagent_containers/syringe,
-		/obj/item/surgical_drapes,
-		/obj/item/retractor,
-		/obj/item/hemostat,
-		/obj/item/cautery,
-		/obj/item/surgicaldrill,
-		/obj/item/scalpel,
-		/obj/item/circular_saw,
-		/obj/item/bonesetter,
-		/obj/item/extinguisher/mini,
-		/obj/item/roller/robo,
-		/obj/item/borg/cyborghug/medical,
 		/obj/item/stack/medical/gauze,
 		/obj/item/stack/medical/bone_gel,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/borg/apparatus/beaker,
 		/obj/item/organ_storage,
-		/obj/item/borg/lollipop)
+		/obj/item/roller/robo,
+		/obj/item/borg/cyborghug/medical,
+		/obj/item/borg/lollipop,
+		/obj/item/extinguisher/mini,
+		/obj/item/assembly/flash/cyborg)
 	radio_channels = list(RADIO_CHANNEL_MEDICAL)
 	emag_modules = list(/obj/item/reagent_containers/borghypo/hacked)
 	ratvar_modules = list(
@@ -305,30 +305,31 @@
 /obj/item/robot_module/engineering
 	name = "Engineering"
 	basic_modules = list(
-		/obj/item/assembly/flash/cyborg,
-		/obj/item/borg/sight/meson,
-		/obj/item/construction/rcd/borg,
-		/obj/item/pipe_dispenser,
-		/obj/item/extinguisher,
-		/obj/item/holosign_creator/atmos,
-		/obj/item/weldingtool/largetank/cyborg,
+		/obj/item/crowbar/cyborg,
 		/obj/item/screwdriver/cyborg,
 		/obj/item/wrench/cyborg,
-		/obj/item/crowbar/cyborg,
 		/obj/item/wirecutters/cyborg,
+		/obj/item/weldingtool/largetank/cyborg,
 		/obj/item/multitool/cyborg,
+		/obj/item/construction/rcd/borg,
+		/obj/item/pipe_dispenser,
+		/obj/item/stack/cable_coil,
+		/obj/item/lightreplacer/cyborg,
+		/obj/item/holosign_creator/atmos,
+		/obj/item/borg/sight/meson,
 		/obj/item/t_scanner,
 		/obj/item/analyzer,
 		/obj/item/geiger_counter/cyborg,
 		/obj/item/assembly/signaler/cyborg,
 		/obj/item/areaeditor/blueprints/cyborg,
 		/obj/item/electroadaptive_pseudocircuit,
+		/obj/item/extinguisher,
 		/obj/item/stack/sheet/iron,
 		/obj/item/stack/sheet/glass,
 		/obj/item/stack/sheet/rglass/cyborg,
 		/obj/item/stack/rods/cyborg,
 		/obj/item/stack/tile/plasteel,
-		/obj/item/stack/cable_coil)
+		/obj/item/assembly/flash/cyborg)
 	radio_channels = list(RADIO_CHANNEL_ENGINEERING)
 	emag_modules = list(/obj/item/borg/stun)
 	ratvar_modules = list(
@@ -424,7 +425,9 @@
 		/obj/item/paint/paint_remover,
 		/obj/item/lightreplacer/cyborg,
 		/obj/item/holosign_creator/janibarrier,
-		/obj/item/reagent_containers/spray/cyborg_drying)
+		/obj/item/reagent_containers/spray/cyborg_drying,
+		/obj/item/stack/sheet/iron,
+		/obj/item/stack/cable_coil)
 	radio_channels = list(RADIO_CHANNEL_SERVICE)
 	emag_modules = list(/obj/item/reagent_containers/spray/cyborg_lube)
 	ratvar_modules = list(

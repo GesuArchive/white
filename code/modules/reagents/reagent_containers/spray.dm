@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/spray
-	name = "spray bottle"
-	desc = "A spray bottle, with an unscrewable top."
+	name = "спрей"
+	desc = "Бутылочка с распылителем жидкости вместо крышки."
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "sprayer_large"
 	inhand_icon_state = "cleaner"
@@ -147,7 +147,7 @@
 	return ..()
 
 /obj/item/reagent_containers/spray/verb/empty()
-	set name = "Empty Spray Bottle"
+	set name = "пустой спрей"
 	set category = "Объект"
 	set src in usr
 	if(usr.incapacitated())
@@ -205,15 +205,15 @@
 
 //spray tan
 /obj/item/reagent_containers/spray/spraytan
-	name = "spray tan"
+	name = "спрей для загара"
 	volume = 50
-	desc = "Gyaro brand spray tan. Do not spray near eyes or other orifices."
+	desc = "Для сочного цвета гуяро. Избегать попадания в глаза."
 	list_reagents = list(/datum/reagent/spraytan = 50)
 
 
 //pepperspray
 /obj/item/reagent_containers/spray/pepper
-	name = "pepperspray"
+	name = "перцовка"
 	desc = "Manufactured by UhangInc, used to blind and down an opponent quickly."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "pepperspray"
@@ -240,8 +240,8 @@
 
 //water flower
 /obj/item/reagent_containers/spray/waterflower
-	name = "water flower"
-	desc = "A seemingly innocent sunflower...with a twist."
+	name = "цвяточек"
+	desc = "Невинность и коварство в одном флаконе."
 	icon = 'icons/obj/hydroponics/harvest.dmi'
 	icon_state = "sunflower"
 	inhand_icon_state = "sunflower"
@@ -254,8 +254,8 @@
 
 ///Subtype used for the lavaland clown ruin.
 /obj/item/reagent_containers/spray/waterflower/superlube
-	name = "clown flower"
-	desc = "A delightly devilish flower... you got a feeling where this is going."
+	name = "скользскопол"
+	desc = "Это точно порождение Хонкоматери, ноги разъезжаются просто при взгляде на него."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "clownflower"
 	volume = 30
@@ -272,8 +272,8 @@
 	can_fill_from_container = FALSE
 
 /obj/item/reagent_containers/spray/waterflower/cyborg/hacked
-	name = "nova flower"
-	desc = "This doesn't look safe at all..."
+	name = "дьявольский цвяточек"
+	desc = "Кажется запахло жареным..."
 	list_reagents = list(/datum/reagent/clf3 = 3)
 	volume = 3
 	generate_type = /datum/reagent/clf3
@@ -303,8 +303,8 @@
 
 //chemsprayer
 /obj/item/reagent_containers/spray/chemsprayer
-	name = "chem sprayer"
-	desc = "A utility used to spray large amounts of reagents in a given area."
+	name = "Хим-распылитель"
+	desc = "Пушка с мощными форсунками и большим баком для начала биологической войны."
 	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "chemsprayer"
 	inhand_icon_state = "chemsprayer"
@@ -401,7 +401,7 @@
 	icon_state = pick("sprayer_sus_1", "sprayer_sus_2", "sprayer_sus_3", "sprayer_sus_4", "sprayer_sus_5","sprayer_sus_6", "sprayer_sus_7", "sprayer_sus_8")
 
 /obj/item/reagent_containers/spray/medical
-	name = "medical spray bottle"
+	name = "Медицинский спрей"
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "sprayer_med_red"
 	inhand_icon_state = "sprayer_med_red"
@@ -428,7 +428,7 @@
 	M.update_inv_hands()
 
 /obj/item/reagent_containers/spray/hercuri
-	name = "medical spray (hercuri)"
+	name = "Медицинский спрей (Херкурин)"
 	desc = "A medical spray bottle.This one contains hercuri, a medicine used to negate the effects of dangerous high-temperature environments. Careful not to freeze the patient!"
 	icon_state = "sprayer_large"
 	list_reagents = list(/datum/reagent/medicine/c2/hercuri = 100)

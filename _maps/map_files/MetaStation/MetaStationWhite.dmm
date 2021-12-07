@@ -44643,7 +44643,7 @@
 /turf/open/floor/plasteel/white,
 /area/medical/storage)
 "cnq" = (
-/obj/machinery/rnd/production/techfab/department/medical,
+/obj/machinery/mecha_part_fabricator/med,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},

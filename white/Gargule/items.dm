@@ -1,5 +1,5 @@
 /obj/item/circular_saw/folding
-	name = "Folding surgical saw"
+	name = "Раскладная пила"
 	desc = "Elder surgical tool. Sometimes doing strange things"
 	icon = 'white/Gargule/icons.dmi'
 	icon_state = "saw"

@@ -4,7 +4,7 @@
 #define MAX_FREEZE_TEMP 1000000
 
 /obj/item/assembly/igniter
-	name = "igniter"
+	name = "воспламенитель"
 	desc = "A small electronic device able to ignite combustible substances."
 	icon_state = "igniter"
 	custom_materials = list(/datum/material/iron=500, /datum/material/glass=50)
@@ -50,7 +50,7 @@
 
 //For the Condenser, which functions like the igniter but makes things colder.
 /obj/item/assembly/igniter/condenser
-	name = "condenser"
+	name = "конденсатор"
 	desc = "A small electronic device able to chill their surroundings."
 	icon_state = "freezer"
 	custom_materials = list(/datum/material/iron=250, /datum/material/glass=300)

@@ -1,6 +1,6 @@
 /obj/item/grenade/chem_grenade
-	name = "chemical grenade"
-	desc = "A custom made grenade."
+	name = "Химическая граната"
+	desc = "Каркас химической гранаты."
 	icon_state = "chemg"
 	inhand_icon_state = "flashbang"
 	w_class = WEIGHT_CLASS_SMALL
@@ -13,7 +13,7 @@
 	var/ignition_temp = 10 // The amount of heat added to the reagents when this grenade goes off.
 	var/threatscale = 1 // Used by advanced grenades to make them slightly more worthy.
 	var/no_splash = FALSE //If the grenade deletes even if it has no reagents to splash with. Used for slime core reactions.
-	var/casedesc = "This basic model accepts both beakers and bottles. It heats contents by 10°K upon ignition." // Appears when examining empty casings.
+	var/casedesc = "Поддерживает стандартные емкости. При детонации нагревает состав на 25°K." // Appears when examining empty casings.
 	var/obj/item/assembly/prox_sensor/landminemode = null
 
 /obj/item/grenade/chem_grenade/ComponentInitialize()
@@ -64,7 +64,17 @@
 			else
 				to_chat(user, span_warning("You need to add at least one beaker before locking the [initial(name)] assembly!"))
 		else if(stage == GRENADE_READY)
-			det_time = det_time == 50 ? 30 : 50 //toggle between 30 and 50
+//			det_time = det_time == 50 ? 30 : 50 //toggle between 30 and 50
+			var/previous_time = det_time
+			switch(det_time)
+				if (0)
+					det_time = 30
+				if (30)
+					det_time = 50
+				if (50)
+					det_time = 0
+			if(det_time == previous_time)
+				det_time = 50
 			if(landminemode)
 				landminemode.time = det_time * 0.1	//overwrites the proxy sensor activation timer
 
@@ -203,9 +213,9 @@
 
 //Large chem grenades accept slime cores and use the appropriately.
 /obj/item/grenade/chem_grenade/large
-	name = "large grenade"
-	desc = "A custom made large grenade. Larger splash range and increased ignition temperature compared to basic grenades. Fits exotic and bluespace based containers."
-	casedesc = "This casing affects a larger area than the basic model and can fit exotic containers, including slime cores and bluespace beakers. Heats contents by 25°K upon ignition."
+	name = "большая химическая граната"
+	desc = "Большой каркас химической гранаты. В отличие от обычных каркасов, этот имеет больший радиус взрыва и поддерживает блюспейс или различные экзотичные носители."
+	casedesc = "Поддерживает блюспейс хим-стаканы и ядра слаймов. При детонации нагревает состав на 25°K."
 	icon_state = "large_grenade"
 	allowed_containers = list(/obj/item/reagent_containers/glass, /obj/item/reagent_containers/food/condiment, /obj/item/reagent_containers/food/drinks)
 	banned_containers = list()
@@ -248,24 +258,24 @@
 		return ..()
 
 /obj/item/grenade/chem_grenade/cryo // Intended for rare cryogenic mixes. Cools the area moderately upon detonation.
-	name = "cryo grenade"
-	desc = "A custom made cryogenic grenade. Rapidly cools contents upon ignition."
-	casedesc = "Upon ignition, it rapidly cools contents by 100°K. Smaller splash range than regular casings."
+	name = "Крио граната"
+	desc = "Экспериментальный каркас химической гранаты. После активации резко охлаждает реагенты внутри себя."
+	casedesc = "После детонации охлаждает состав на 100°K. Радиус взрыва понижен."
 	icon_state = "cryog"
 	affected_area = 2
 	ignition_temp = -100
 
 /obj/item/grenade/chem_grenade/pyro // Intended for pyrotechnical mixes. Produces a small fire upon detonation, igniting potentially flammable mixtures.
-	name = "pyro grenade"
-	desc = "A custom made pyrotechnical grenade. Heats up contents upon ignition."
-	casedesc = "Upon ignition, it rapidly heats contents by 500°K."
+	name = "Пиро граната"
+	desc = "Экспериментальный каркас химической гранаты. После активации резко нагревает реагенты внутри себя."
+	casedesc = "После детонации нагревает состав на 500°K."
 	icon_state = "pyrog"
 	ignition_temp = 500 // This is enough to expose a hotspot.
 
 /obj/item/grenade/chem_grenade/adv_release // Intended for weaker, but longer lasting effects. Could have some interesting uses.
-	name = "advanced release grenade"
-	desc = "A custom made advanced release grenade. It is able to be detonated more than once. Can be configured using a multitool."
-	casedesc = "This casing is able to detonate more than once. Can be configured using a multitool."
+	name = "Инжекторная граната"
+	desc = "Экспериментальный каркас химической гранаты. Может использоваться больше одного раза. При помощи мультитула можно настроить количество выбрасываемого вещества."
+	casedesc = "Объем распыляемого вещества устанавливается мультитулом в диапазоне от 5 до 100 единиц."
 	icon_state = "timeg"
 	var/unit_spread = 10 // Amount of units per repeat. Can be altered with a multitool.
 

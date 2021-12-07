@@ -328,22 +328,26 @@
 //Medical
 
 /obj/item/circuitboard/computer/crew
-	name = "Crew Monitoring Console (Консоль)"
+	name = "плата консоли Мониторинга за экипажем"
+	desc = "Используется для контроля активных датчиков здоровья, встроенных в большую часть формы экипажа."
 	icon_state = "medical"
 	build_path = /obj/machinery/computer/crew
 
 /obj/item/circuitboard/computer/med_data
-	name = "Medical Records Console (Консоль)"
+	name = "плата консоли Медицинских записей"
+	desc = "Используется для просмотра больничных карт и биометрических данных членов экипажа."
 	icon_state = "medical"
 	build_path = /obj/machinery/computer/med_data
 
 /obj/item/circuitboard/computer/operating
-	name = "Operating Computer (Консоль)"
+	name = "плата Операционного компьютера"
+	desc = "Контролирует жизненно важные функции пациента и отображает этапы операции. Может быть загружен хирургическими дисками для выполнения экспериментальных процедур. Автоматически синхронизируется со стазис-кроватями в пределах прямой видимости для улучшения хирургических технологий."
 	icon_state = "medical"
 	build_path = /obj/machinery/computer/operating
 
 /obj/item/circuitboard/computer/pandemic
-	name = "PanD.E.M.I.C. 2200 (Консоль)"
+	name = "плата ПанД.Е.М.И.Я 2200"
+	desc = "Используется при работе с вирусами."
 	icon_state = "medical"
 	build_path = /obj/machinery/computer/pandemic
 
@@ -410,7 +414,8 @@
 	build_path = /obj/machinery/computer/camera_advanced/xenobio
 
 /obj/item/circuitboard/computer/scan_consolenew
-	name = "DNA Console (Консоль)"
+	name = "плата консоли Сканера ДНК"
+	desc = "Отображает визуальную информацию о генетической структуре подопытного, позволяет вносить изменения и синтезировать мутаторы. Для разблокировки полного функционала требует подключения к манипулятору ДНК. Поддерживает синхронизацию с компактным сканером ДНК."
 	icon_state = "science"
 	build_path = /obj/machinery/computer/scan_consolenew
 

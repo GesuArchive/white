@@ -1,5 +1,5 @@
 /obj/item/reagent_containers/medigel
-	name = "Медицинский спрей"
+	name = "медицинский аэрозоль"
 	desc = "Аппликатор спроектированный для быстрого и точечного нанесения лекарственного состава в виде аэрозоля."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "medigel"
@@ -76,21 +76,21 @@
 	return
 
 /obj/item/reagent_containers/medigel/libital
-	name = "Медицинский спрей (Либитал)"
+	name = "Медицинский аэрозоль (Либитал)"
 	desc = "Аппликатор спроектированный для быстрого и точечного нанесения лекарственного состава в виде аэрозоля. Содержит Либитал - вещество для лечения физических повреждений. Наносит небольшой урон печени. Разбавлен Гранибиталирином."
 	icon_state = "brutegel"
 	current_skin = "brutegel"
 	list_reagents = list(/datum/reagent/medicine/c2/libital = 24, /datum/reagent/medicine/granibitaluri = 36)
 
 /obj/item/reagent_containers/medigel/aiuri
-	name = "Медицинский спрей (Аурин)"
+	name = "Медицинский аэрозоль (Аурин)"
 	desc = "Аппликатор спроектированный для быстрого и точечного нанесения лекарственного состава в виде аэрозоля. Содержит Аурин - вещество для лечения ожоговых повреждений. Наносит небольшой урон глазам. Разбавлен Гранибиталирином."
 	icon_state = "burngel"
 	current_skin = "burngel"
 	list_reagents = list(/datum/reagent/medicine/c2/aiuri = 24, /datum/reagent/medicine/granibitaluri = 36)
 
 /obj/item/reagent_containers/medigel/synthflesh
-	name = "Медицинский спрей (Синтеплоть)"
+	name = "Медицинский аэрозоль (Синтеплоть)"
 	desc = "Аппликатор спроектированный для быстрого и точечного нанесения лекарственного состава в виде аэрозоля. Содержит Синтеплоть - вещество для лечения физических и ожоговых повреждений. Токсична и вызывает отравление. Восстанавливает тело после получения ожогов высшей степени тяжести."
 	icon_state = "synthgel"
 	current_skin = "synthgel"
@@ -98,7 +98,7 @@
 	custom_price = PAYCHECK_MEDIUM * 5
 
 /obj/item/reagent_containers/medigel/sterilizine
-	name = "Стерилизационный спрей"
+	name = "Стерилизационный аэрозоль"
 	desc = "Аппликатор спроектированный для быстрого и точечного нанесения лекарственного состава в виде аэрозоля. Содержит стерилизатор для повышения шанса успеха и скорости хирургических операций."
 	icon_state = "medigel_blue"
 	current_skin = "medigel_blue"

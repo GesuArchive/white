@@ -64,3 +64,33 @@
 	new /obj/item/bonesetter/advanced(src)
 	new /obj/item/healthanalyzer/advanced(src)
 
+/obj/item/reagent_containers/medigel/sal_acid_oxandrolone
+	name = "Оксандролон и Салицил"
+	desc = "Аппликатор спроектированный для быстрого и точечного нанесения лекарственного состава в виде аэрозоля. Содержит Оксандролон и Салициловую кислоту - вещеста для лечения тяжелых физических и ожоговых повреждений. Крайне не эффективны при низких уровнях повреждений. Передозировка 25 единиц. Без побочных эффектов."
+	icon = 'white/Feline/icons/med_items.dmi'
+	icon_state = "medigel_red_orange"
+	current_skin = "medigel_red_orange"
+	list_reagents = list(/datum/reagent/medicine/sal_acid = 30, /datum/reagent/medicine/oxandrolone = 30)
+
+/obj/item/reagent_containers/medigel/pen_acid
+	name = "Пентетовая кислота"
+	desc = "Аппликатор спроектированный для быстрого и точечного нанесения лекарственного состава в виде аэрозоля. Содержит Пентетовую кислоту - вещество для вывода токсинов, радиации и химикатов из крови. Без побочных эффектов."
+	icon_state = "medigel_green"
+	current_skin = "medigel_green"
+	list_reagents = list(/datum/reagent/medicine/pen_acid = 60)
+
+/obj/item/storage/pill_bottle/big
+	name = "Большая баночка для таблеток"
+	desc = "Вмещает в себя много пилюлек и таблеток."
+	icon = 'white/Feline/icons/med_items.dmi'
+	icon_state = "pill_bottle_big"
+
+/obj/item/storage/pill_bottle/big/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.allow_quick_gather = TRUE
+	STR.click_gather = TRUE
+	STR.display_numerical_stacking = TRUE
+	STR.max_items = 20
+	STR.max_combined_w_class = 40
+	STR.set_holdable(list(/obj/item/reagent_containers/pill, /obj/item/dice))

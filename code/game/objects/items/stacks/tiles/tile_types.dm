@@ -355,7 +355,7 @@
 
 //Circuit
 /obj/item/stack/tile/circuit
-	name = "синий circuit tile"
+	name = "синяя электронная плитка"
 	singular_name = "синий circuit tile"
 	desc = "A blue circuit tile."
 	icon_state = "tile_bcircuit"
@@ -364,7 +364,7 @@
 	merge_type = /obj/item/stack/tile/circuit
 
 /obj/item/stack/tile/circuit/green
-	name = "зелёный circuit tile"
+	name = "зелёная электронная плитка"
 	singular_name = "зелёный circuit tile"
 	desc = "A green circuit tile."
 	icon_state = "tile_gcircuit"
@@ -377,8 +377,8 @@
 	merge_type = /obj/item/stack/tile/circuit/green/anim
 
 /obj/item/stack/tile/circuit/red
-	name = "красный circuit tile"
-	singular_name = "красный circuit tile"
+	name = "красная электронная плитка"
+	singular_name = "красная электронная плитка"
 	desc = "Красная плитка схем."
 	icon_state = "tile_rcircuit"
 	inhand_icon_state = "tile-rcircuit"

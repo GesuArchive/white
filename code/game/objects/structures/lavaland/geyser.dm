@@ -55,8 +55,8 @@
 	reagent_id = pickweight(options)
 
 /obj/item/plunger
-	name = "plunger"
-	desc = "It's a plunger for plunging."
+	name = "вантуз"
+	desc = "Не для унитаза!"
 	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "plunger"
 
@@ -118,8 +118,8 @@
 		target_layer = layers[new_layer]
 
 /obj/item/plunger/reinforced
-	name = "reinforced plunger"
-	desc = "It's an M. 7 Reinforced PlungerВ© for heavy duty plunging."
+	name = "усиленный вантуз"
+	desc = "Имеет вытяжную силу, сравнивую с вакуумом."
 	icon_state = "reinforced_plunger"
 	reinforced = TRUE
 	plunge_mod = 0.8

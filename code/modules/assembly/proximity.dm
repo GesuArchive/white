@@ -1,5 +1,5 @@
 /obj/item/assembly/prox_sensor
-	name = "proximity sensor"
+	name = "датчик движения"
 	desc = "Used for scanning and alerting when someone enters a certain proximity."
 	icon_state = "prox"
 	custom_materials = list(/datum/material/iron=800, /datum/material/glass=200)

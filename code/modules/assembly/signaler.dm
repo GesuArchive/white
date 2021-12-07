@@ -1,5 +1,5 @@
 /obj/item/assembly/signaler
-	name = "remote signaling device"
+	name = "сигналер"
 	desc = "Used to remotely activate devices. Allows for syncing when using a secure signaler on another."
 	icon_state = "signaller"
 	inhand_icon_state = "signaler"

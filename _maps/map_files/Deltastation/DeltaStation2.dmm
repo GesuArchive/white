@@ -21232,7 +21232,7 @@
 /area/medical/storage)
 "cRf" = (
 /obj/machinery/light/directional/west,
-/obj/machinery/rnd/production/techfab/department/medical,
+/obj/machinery/mecha_part_fabricator/med,
 /obj/effect/turf_decal/stripes/box,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{

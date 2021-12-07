@@ -28,11 +28,9 @@
 		"doppler_array",
 		"experi_scanner",
 		"experimentor",
-		"handlabel",
 		"mechfab",
 		"micro_mani",
 		"packagewrap",
-		"paystand",
 		"plasmaglass",
 		"plasmareinforcedglass",
 		"plasteel",
@@ -59,6 +57,19 @@
 		"plasmaman_gas_filter",
 		"oven_tray"
 	)
+
+/datum/techweb_node/basic_medical
+	id = "basic_medical"
+	starting_node = TRUE
+	display_name = "Basic Medical Equipment"
+	description = "Basic medical tools and equipment."
+	design_ids = list("cybernetic_liver", "cybernetic_heart", "cybernetic_lungs","cybernetic_stomach", "scalpel", "circular_saw",
+					"hemostat", "retractor", "cautery", "bonesetter", "surgicaldrill", "blood_filter",
+					"beaker", "large_beaker", "xlarge_beaker", "syringe", "health_sensor", "portable_chem_mixer", "stethoscope", "surgical_drapes", "plumbing_rcd",
+					"dropper", "defibmountdefault", "surgical_tape", "glasses_prescription",
+					"robot_low_arm_left", "robot_low_arm_right", "robot_low_leg_left", "robot_low_leg_right", "teeth_box_32",
+					"body_bag", "fluid_ducts", "optable_folding", "pillbottle", "pill_bottle_big", "rollerbed",
+					"prox_sensor")
 
 /datum/techweb_node/mmi
 	id = "mmi"
@@ -96,17 +107,7 @@
 	display_name = "Basic Tools"
 	description = "Basic mechanical, electronic, surgical and botanical tools."
 	design_ids = list("screwdriver", "wrench", "wirecutters", "crowbar", "multitool", "welding_tool", "tscanner", "analyzer", "cable_coil", "pipe_painter", "airlock_painter", "decal_painter",
-					"cultivator", "plant_analyzer", "shovel", "spade", "floor_painter", "hatchet", "secateurs", "mop", "pushbroom", "plunger", "spraycan", "swab", "petri_dish", "normtrash")
-
-/datum/techweb_node/basic_medical
-	id = "basic_medical"
-	starting_node = TRUE
-	display_name = "Basic Medical Equipment"
-	description = "Basic medical tools and equipment."
-	design_ids = list("cybernetic_liver", "cybernetic_heart", "cybernetic_lungs","cybernetic_stomach", "scalpel",
-					"blood_filter", "circular_saw", "bonesetter", "surgicaldrill", "retractor", "cautery", "hemostat",
-					"stethoscope", "surgical_drapes", "syringe", "plumbing_rcd", "beaker", "large_beaker", "xlarge_beaker",
-					"dropper", "defibmountdefault", "surgical_tape", "portable_chem_mixer", "glasses_prescription")
+					"cultivator", "plant_analyzer", "shovel", "spade", "floor_painter", "hatchet", "secateurs", "mop", "pushbroom", "plunger", "spraycan", "swab", "petri_dish", "normtrash", "handlabel", "paystand")
 
 /datum/techweb_node/basic_circuitry
 	id = "basic_circuitry"

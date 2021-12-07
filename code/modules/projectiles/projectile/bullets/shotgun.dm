@@ -125,7 +125,7 @@
 
 /obj/projectile/bullet/apslug
 	name = "12g бронебойная пуля"
-	armour_penetration = 60
+	armour_penetration = 40
 	damage = 40
 	projectile_phasing = (ALL & (~PASSMOB))
 	dismemberment = 0

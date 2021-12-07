@@ -352,6 +352,8 @@
 		/datum/reagent/medicine/c2/synthflesh = 0.25,
 		/datum/reagent/medicine/sal_acid = 0.33,
 		/datum/reagent/medicine/oxandrolone = 0.33,
+		/datum/reagent/medicine/pen_acid = 0.33,
+		/datum/reagent/medicine/salbutamol = 0.33,
 		/datum/reagent/medicine/cryoxadone = 0.2,
 		/datum/reagent/medicine/c2/penthrite = 1,
 		//misc//

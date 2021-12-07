@@ -135,7 +135,7 @@
 
 
 /obj/item/reagent_containers/glass/bowl
-	name = "bowl"
+	name = "чаша"
 	desc = "A simple bowl, used for soups and salads."
 	icon = 'icons/obj/food/soupsalad.dmi'
 	icon_state = "bowl"

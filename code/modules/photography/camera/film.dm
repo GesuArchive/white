@@ -2,7 +2,7 @@
  * Film
  */
 /obj/item/camera_film
-	name = "film cartridge"
+	name = "фотопленка"
 	icon = 'icons/obj/items_and_weapons.dmi'
 	desc = "A camera film cartridge. Insert it into a camera to reload it."
 	icon_state = "film"

@@ -210,7 +210,7 @@ RLD
 #define RCD_DESTRUCTIVE_SCAN_COOLDOWN (RCD_HOLOGRAM_FADE_TIME + 1 SECONDS)
 
 /obj/item/construction/rcd
-	name = "rapid-construction-device (RCD)"
+	name = "автоматический строительный комплекс (РЦД)"
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcd"
 	worn_icon_state = "RCD"
@@ -791,7 +791,7 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 	matter = 160
 
 /obj/item/construction/rcd/combat
-	name = "industrial RCD"
+	name = "промышленный РЦД"
 	icon_state = "ircd"
 	inhand_icon_state = "ircd"
 	max_matter = 500
@@ -799,8 +799,8 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 	canRturf = TRUE
 
 /obj/item/rcd_ammo
-	name = "compressed matter cartridge"
-	desc = "Highly compressed matter for the RCD."
+	name = "картридж спрессованной материи"
+	desc = "А на вид он выглядит значительно легче."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcdammo"
 	inhand_icon_state = "rcdammo"
@@ -826,8 +826,8 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 
 
 /obj/item/construction/rcd/arcd
-	name = "advanced rapid-construction-device (ARCD)"
-	desc = "A prototype RCD with ranged capability and extended capacity. Reload with iron, plasteel, glass or compressed matter cartridges."
+	name = "продвинутый РЦД"
+	desc = "Прототип РЦД с дистанционными протоколами строительства и увеличенной емкостью. Заряжается металлом, стеклом, пласталью и картриджами."
 	max_matter = 300
 	matter = 300
 	delay_mod = 0.6
@@ -1020,8 +1020,8 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 
 ///The plumbing RCD. All the blueprints are located in _globalvars > lists > construction.dm
 /obj/item/construction/plumbing
-	name = "Plumbing Constructor"
-	desc = "An expertly modified RCD outfitted to construct plumbing machinery."
+	name = "Хим-фаб конструктор"
+	desc = "Модификация РЦД для создания химических фабрик."
 	icon_state = "plumberer2"
 	inhand_icon_state = "plumberer"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'

@@ -155,7 +155,7 @@
 /obj/item/screwdriver/cyborg
 	name = "автоматическая отвертка"
 	desc = "Мощная автоматическая отвертка, разработанная для быстрой и точной работы."
-	icon = 'icons/obj/items_cyborg.dmi'
+	icon = 'white/Feline/icons/cyber_arm_tools.dmi'
 	icon_state = "screwdriver_cyborg"
 	hitsound = 'sound/items/drill_hit.ogg'
 	usesound = 'sound/items/drill_use.ogg'

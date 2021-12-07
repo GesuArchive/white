@@ -1,5 +1,5 @@
 /obj/item/implant/chem
-	name = "chem implant"
+	name = "микроимплант - 'Химическая мина'"
 	desc = "Injects things."
 	icon_state = "reagents"
 	activated = FALSE
@@ -53,8 +53,8 @@
 
 
 /obj/item/implantcase/chem
-	name = "implant case - 'Remote Chemical'"
-	desc = "A glass case containing a remote chemical implant."
+	name = "микроимплант - 'Химическая мина'"
+	desc = "По команде вводит содержащиеся в нем химические вещества носителю."
 	imp_type = /obj/item/implant/chem
 
 /obj/item/implantcase/chem/attackby(obj/item/W, mob/user, params)

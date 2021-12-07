@@ -1,5 +1,5 @@
 /obj/item/airlock_painter
-	name = "airlock painter"
+	name = "маркировщик шлюзов"
 	desc = "An advanced autopainter preprogrammed with several paintjobs for airlocks. Use it on an airlock during or after construction to change the paintjob."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "paint sprayer"
@@ -145,8 +145,8 @@
 		ink = null
 
 /obj/item/airlock_painter/decal
-	name = "decal painter"
-	desc = "An airlock painter, reprogramed to use a different style of paint in order to apply decals for floor tiles as well, in addition to repainting doors. Decals break when the floor tiles are removed. ПКМ to change design."
+	name = "маркировщик пола"
+	desc = "Создает разметку на полу. ПКМ для смены дизайна."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "decal_sprayer"
 	inhand_icon_state = "decalsprayer"

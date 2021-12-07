@@ -1,6 +1,6 @@
 /obj/item/assembly/health
-	name = "health sensor"
-	desc = "Used for scanning and monitoring health."
+	name = "датчик жизни"
+	desc = "Следит за основными жизненными показателями пользователя, может отправлять сигналы при смерти или критическом состоянии носителя."
 	icon_state = "health"
 	custom_materials = list(/datum/material/iron=800, /datum/material/glass=200)
 	attachable = TRUE

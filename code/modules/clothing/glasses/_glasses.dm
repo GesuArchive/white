@@ -213,7 +213,7 @@
 
 /obj/item/clothing/glasses/regular
 	name = "очки по рецепту"
-	desc = "Было изготовлено, собрано, доставлено и продано корп. Зануда."
+	desc = "Было изготовлено, собрано, доставлено и продано компанией Ботан-корп."
 	icon_state = "glasses"
 	inhand_icon_state = "glasses"
 	vision_correction = TRUE //corrects nearsightedness

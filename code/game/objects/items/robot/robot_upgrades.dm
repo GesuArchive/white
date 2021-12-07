@@ -2,8 +2,8 @@
 // Contains various borg upgrades.
 
 /obj/item/borg/upgrade
-	name = "borg upgrade module."
-	desc = "Protected by FRM."
+	name = "модуль улучшения киборга"
+	desc = "Защищено FRM."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "cyborg_upgrade"
 	w_class = WEIGHT_CLASS_SMALL
@@ -19,11 +19,11 @@
 
 /obj/item/borg/upgrade/proc/action(mob/living/silicon/robot/R, user = usr)
 	if(R.stat == DEAD)
-		to_chat(user, span_warning("[capitalize(src.name)] will not function on a deceased cyborg!"))
+		to_chat(user, span_warning("[capitalize(src.name)] невозможно подключить к деактевированному киборгу!"))
 		return FALSE
 	if(module_type && !is_type_in_list(R.module, module_type))
-		to_chat(R, span_alert("Upgrade mounting error! No suitable hardpoint detected."))
-		to_chat(user, span_warning("There's no mounting point for the module!"))
+		to_chat(R, span_alert("Ошибка установки модуля! Подходящей точки крепления не обнаружено."))
+		to_chat(user, span_warning("Подходящей точки крепления не обнаружено!"))
 		return FALSE
 	return TRUE
 
@@ -33,8 +33,8 @@
 	return TRUE
 
 /obj/item/borg/upgrade/rename
-	name = "cyborg reclassification board"
-	desc = "Used to rename a cyborg."
+	name = "модуль смены имени"
+	desc = "Используется для смены позывного у киборга."
 	icon_state = "cyborg_upgrade1"
 	var/heldname = ""
 	one_use = TRUE
@@ -55,8 +55,8 @@
 		log_game("[key_name(user)] have used a cyborg reclassification board to rename [oldkeyname] to [key_name(R)] at [loc_name(user)]")
 
 /obj/item/borg/upgrade/restart
-	name = "cyborg emergency reboot module"
-	desc = "Used to force a reboot of a disabled-but-repaired cyborg, bringing it back online."
+	name = "модуль аварийной перезагрузки"
+	desc = "Используется для форсированной перезагрузки киборга после критических повреждений и запуска операционной системы."
 	icon_state = "cyborg_upgrade1"
 	one_use = TRUE
 
@@ -70,12 +70,12 @@
 		playsound(loc, 'sound/voice/liveagain.ogg', 75, TRUE)
 
 	R.revive(full_heal = FALSE, admin_revive = FALSE)
-	R.logevent("WARN -- System recovered from unexpected shutdown.")
-	R.logevent("System brought online.")
+	R.logevent("ВНИМАНИЕ -- Система восстановлена после непредусмотренного выключения.")
+	R.logevent("Системы перезапускаются.")
 
 /obj/item/borg/upgrade/disablercooler
-	name = "cyborg rapid disabler cooling module"
-	desc = "Used to cool a mounted disabler, increasing the potential current in it and thus its recharge rate."
+	name = "радиатор Усмирителя"
+	desc = "Устанавливает дополнительные системы охлаждения, тем самым повышая скорострельность."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/security)
@@ -86,11 +86,11 @@
 	if(.)
 		var/obj/item/gun/energy/disabler/cyborg/T = locate() in R.module.modules
 		if(!T)
-			to_chat(user, span_warning("There's no disabler in this unit!"))
+			to_chat(user, span_warning("У этого киборга нет Усмирителя!"))
 			return FALSE
 		if(T.charge_delay <= 2)
-			to_chat(R, span_warning("A cooling unit is already installed!"))
-			to_chat(user, span_warning("There's no room for another cooling unit!"))
+			to_chat(R, span_warning("Радиатор уже установлен!"))
+			to_chat(user, span_warning("Радиатор уже установлен!"))
 			return FALSE
 
 		T.charge_delay = max(2 , T.charge_delay - 4)
@@ -104,15 +104,15 @@
 		T.charge_delay = initial(T.charge_delay)
 
 /obj/item/borg/upgrade/thrusters
-	name = "ion thruster upgrade"
-	desc = "An energy-operated thruster system for cyborgs."
+	name = "ионные двигатели"
+	desc = "Модернизация которая позволяет перемещатся в безгравитационном пространстве при помощи миниатюрных двигателей. Потребляет энергию при использовании."
 	icon_state = "cyborg_upgrade3"
 
 /obj/item/borg/upgrade/thrusters/action(mob/living/silicon/robot/R, user = usr)
 	. = ..()
 	if(.)
 		if(R.ionpulse)
-			to_chat(user, span_warning("This unit already has ion thrusters installed!"))
+			to_chat(user, span_warning("Ионные двигатели уже установлены!"))
 			return FALSE
 
 		R.ionpulse = TRUE
@@ -124,8 +124,8 @@
 		R.ionpulse = FALSE
 
 /obj/item/borg/upgrade/ddrill
-	name = "mining cyborg diamond drill"
-	desc = "A diamond drill replacement for the mining module's standard drill."
+	name = "алмазный бур"
+	desc = "Заменяет стандартный бур на его продвинутый аналог."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/miner)
@@ -157,8 +157,8 @@
 		R.module.add_module(S, FALSE, TRUE)
 
 /obj/item/borg/upgrade/soh
-	name = "mining cyborg satchel of holding"
-	desc = "A satchel of holding replacement for mining cyborg's ore satchel module."
+	name = "безразмерная сумка для руды"
+	desc = "снимает ограничение емкости для Рудной Сумки."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/miner)
@@ -185,8 +185,8 @@
 		R.module.add_module(S, FALSE, TRUE)
 
 /obj/item/borg/upgrade/tboh
-	name = "janitor cyborg trash bag of holding"
-	desc = "A trash bag of holding replacement for the janiborg's standard trash bag."
+	name = "безразмерный мешок для мусора"
+	desc = "снимает ограничение емкости для Мусорного Мешка."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/janitor)
@@ -213,8 +213,8 @@
 		R.module.add_module(TB, FALSE, TRUE)
 
 /obj/item/borg/upgrade/amop
-	name = "janitor cyborg advanced mop"
-	desc = "An advanced mop replacement for the janiborg's standard mop."
+	name = "экспериментальная швабра"
+	desc = "заменяет швабру на продвинутую, при активации та начинает со временем собирать влагу из воздуха."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/janitor)
@@ -241,8 +241,8 @@
 		R.module.add_module(M, FALSE, TRUE)
 
 /obj/item/borg/upgrade/prt
-	name = "janitor cyborg plating repair tool"
-	desc = "A tiny heating device to repair burnt and damaged hull platings with."
+	name = "инструмент для ремонта плитки"
+	desc = "Позволяет ремонтировать поврежденный пол под собой."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/janitor)
@@ -262,8 +262,8 @@
 			R.module.remove_module(P, TRUE)
 
 /obj/item/borg/upgrade/syndicate
-	name = "illegal equipment module"
-	desc = "Unlocks the hidden, deadlier functions of a cyborg."
+	name = "модуль нелегальной модернизации"
+	desc = "Разблокирует Киборгу нелегальные модернизации, это действие не меняет его Законы, но может нарушить работу других устройств (не обязательно)."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 
@@ -274,8 +274,8 @@
 			return FALSE
 
 		R.SetEmagged(TRUE)
-		R.logevent("WARN: hardware installed with missing security certificate!") //A bit of fluff to hint it was an illegal tech item
-		R.logevent("WARN: root privleges granted to PID [num2hex(rand(1,65535), -1)][num2hex(rand(1,65535), -1)].") //random eight digit hex value. Two are used because rand(1,4294967295) throws an error
+		R.logevent("ВНИМАНИЕ: у модуля отсутствует сертификат безопасности!") //A bit of fluff to hint it was an illegal tech item
+		R.logevent("ВНИМАНИЕ: получен доступ администратора для псевдо ИИ № [num2hex(rand(1,65535), -1)][num2hex(rand(1,65535), -1)].") //random eight digit hex value. Two are used because rand(1,4294967295) throws an error
 
 		return TRUE
 
@@ -285,8 +285,8 @@
 		R.SetEmagged(FALSE)
 
 /obj/item/borg/upgrade/lavaproof
-	name = "mining cyborg lavaproof chassis"
-	desc = "An upgrade kit to apply specialized coolant systems and insulation layers to a mining cyborg's chassis, enabling them to withstand exposure to molten rock."
+	name = "лава-стойкие траки"
+	desc = "Дает возможность перемещаться по лаве."
 	icon_state = "ash_plating"
 	resistance_flags = LAVA_PROOF | FIRE_PROOF
 	require_module = TRUE
@@ -304,8 +304,8 @@
 		LAZYREMOVE(R.weather_immunities, WEATHER_LAVA)
 
 /obj/item/borg/upgrade/selfrepair
-	name = "self-repair module"
-	desc = "This module will repair the cyborg over time."
+	name = "модуль саморемонта"
+	desc = "Позволяет медленно восстанавливать текущую прочность за счет энергии."
 	icon_state = "cyborg_upgrade5"
 	require_module = TRUE
 	var/repair_amount = -1
@@ -322,7 +322,7 @@
 	if(.)
 		var/obj/item/borg/upgrade/selfrepair/U = locate() in R
 		if(U)
-			to_chat(user, span_warning("This unit is already equipped with a self-repair module!"))
+			to_chat(user, span_warning("Киборг уже оснащен системой саморемонта!"))
 			return FALSE
 
 		icon_state = "selfrepair_off"
@@ -338,10 +338,10 @@
 
 /obj/item/borg/upgrade/selfrepair/ui_action_click()
 	if(on)
-		to_chat(toggle_action.owner, span_notice("You deactivate the self-repair module."))
+		to_chat(toggle_action.owner, span_notice("Протокол саморемонта деактивирован."))
 		deactivate_sr()
 	else
-		to_chat(toggle_action.owner, span_notice("You activate the self-repair module."))
+		to_chat(toggle_action.owner, span_notice("Протокол саморемонта активирован."))
 		activate_sr()
 
 
@@ -369,12 +369,12 @@
 
 	if(istype(cyborg) && (cyborg.stat != DEAD) && on)
 		if(!cyborg.cell)
-			to_chat(cyborg, span_alert("Self-repair module deactivated. Please insert power cell."))
+			to_chat(cyborg, span_alert("Протокол саморемонта деактивирован. Вставьте батарею."))
 			deactivate_sr()
 			return
 
 		if(cyborg.cell.charge < powercost * 2)
-			to_chat(cyborg, span_alert("Self-repair module deactivated. Please recharge."))
+			to_chat(cyborg, span_alert("Протокол саморемонта деактивирован. Низкий уровень заряда."))
 			deactivate_sr()
 			return
 
@@ -405,9 +405,8 @@
 		deactivate_sr()
 
 /obj/item/borg/upgrade/hypospray
-	name = "medical cyborg hypospray advanced synthesiser"
-	desc = "An upgrade to the Medical module cyborg's hypospray, allowing it \
-		to produce more advanced and complex medical reagents."
+	name = "медицинский гипоспрей"
+	desc = "Позволяет синтезировать химические соединения за счет энергии."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/medical)
@@ -431,17 +430,15 @@
 					H.del_reagent(re)
 
 /obj/item/borg/upgrade/hypospray/expanded
-	name = "medical cyborg expanded hypospray"
-	desc = "An upgrade to the Medical module's hypospray, allowing it \
-		to treat a wider range of conditions and problems."
+	name = "расширенный медицинский гипоспрей"
+	desc = "Значительно увеличивает диапазон синтезируемых медикаментов."
 	additional_reagents = list(/datum/reagent/medicine/mannitol, /datum/reagent/medicine/oculine, /datum/reagent/medicine/inacusiate,
 		/datum/reagent/medicine/mutadone, /datum/reagent/medicine/haloperidol, /datum/reagent/medicine/oxandrolone, /datum/reagent/medicine/sal_acid,
 		/datum/reagent/medicine/rezadone, /datum/reagent/medicine/pen_acid)
 
 /obj/item/borg/upgrade/piercing_hypospray
-	name = "cyborg piercing hypospray"
-	desc = "An upgrade to a cyborg's hypospray, allowing it to \
-		pierce armor and thick material."
+	name = "пробивающий гипоспрей"
+	desc = "Позволяет колоть химикаты из Гипоспрея сквозь РИГи или другие прочные материалы. Так же поддерживает другие модели киборгов."
 	icon_state = "cyborg_upgrade3"
 
 /obj/item/borg/upgrade/piercing_hypospray/action(mob/living/silicon/robot/R, user = usr)
@@ -462,9 +459,8 @@
 			H.bypass_protection = initial(H.bypass_protection)
 
 /obj/item/borg/upgrade/defib
-	name = "medical cyborg defibrillator"
-	desc = "An upgrade to the Medical module, installing a built-in \
-		defibrillator, for on the scene revival."
+	name = "дефибриллятор"
+	desc = "Позволяет реанимировать людей."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/medical)
@@ -476,7 +472,7 @@
 		var/obj/item/borg/upgrade/defib/backpack/BP = locate() in R //If a full defib unit was used to upgrade prior, we can just pop it out now and replace
 		if(BP)
 			BP.deactivate(R, user)
-			to_chat(user, span_notice("You remove the defibrillator unit to make room for the compact upgrade."))
+			to_chat(user, span_notice("Вы демонтируете дефибриллятор для замены на более компактную версию."))
 		var/obj/item/shockpaddles/cyborg/S = new(R.module)
 		R.module.basic_modules += S
 		R.module.add_module(S, FALSE, TRUE)
@@ -515,10 +511,8 @@
 		defib_instance?.forceMove(R.drop_location()) // [on_defib_instance_qdel_or_moved()] handles the rest.
 
 /obj/item/borg/upgrade/processor
-	name = "medical cyborg surgical processor"
-	desc = "An upgrade to the Medical module, installing a processor \
-		capable of scanning surgery disks and carrying \
-		out procedures"
+	name = "хирургический процессор"
+	desc = "после синхронизации с Операционный Компьютером позволяет проводить все операции которые были загружены в него"
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/medical, /obj/item/robot_module/syndicate_medical)
@@ -538,18 +532,18 @@
 		R.module.remove_module(SP, TRUE)
 
 /obj/item/borg/upgrade/ai
-	name = "B.O.R.I.S. module"
-	desc = "Bluespace Optimized Remote Intelligence Synchronization. An uplink device which takes the place of an MMI in cyborg endoskeletons, creating a robotic shell controlled by an AI."
+	name = "модуль Б.О.Р.И.С."
+	desc = "Подключает модуль удаленного управления для ИИ. Занимает слот Позитронного Мозга и MMI. Киборг становится оболочкой ИИ с открытым каналом связи."
 	icon_state = "boris"
 
 /obj/item/borg/upgrade/ai/action(mob/living/silicon/robot/R, user = usr)
 	. = ..()
 	if(.)
 		if(R.shell)
-			to_chat(user, span_warning("This unit is already an AI shell!"))
+			to_chat(user, span_warning("Данный киборг уже является оболочкой ИИ!"))
 			return FALSE
 		if(R.key) //You cannot replace a player unless the key is completely removed.
-			to_chat(user, span_warning("Intelligence patterns detected in this [R.braintype]. Aborting."))
+			to_chat(user, span_warning("Зарегестрирован интелект класса [R.braintype]. Отмена операции."))
 			return FALSE
 
 		R.make_shell(src)
@@ -562,8 +556,8 @@
 			R.notify_ai(DISCONNECT)
 
 /obj/item/borg/upgrade/expand
-	name = "borg expander"
-	desc = "A cyborg resizer, it makes a cyborg huge."
+	name = "модуль расширения"
+	desc = "Визуально увеличивает Киборга."
 	icon_state = "cyborg_upgrade3"
 
 /obj/item/borg/upgrade/expand/action(mob/living/silicon/robot/R, user = usr)
@@ -571,7 +565,7 @@
 	if(.)
 
 		if(R.hasExpanded)
-			to_chat(usr, span_warning("This unit already has an expand module installed!"))
+			to_chat(usr, span_warning("Этот киборг уже оснащен модулем расширения!"))
 			return FALSE
 
 		R.notransform = TRUE
@@ -602,8 +596,8 @@
 			R.update_transform()
 
 /obj/item/borg/upgrade/rped
-	name = "engineering cyborg RPED"
-	desc = "A rapid part exchange device for the engineering cyborg."
+	name = "кибернетический РПЕД"
+	desc = "позволяет переносить 50 электронных компонентов, а так же устанавливать их в каркас Машины или Консоли."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "borgrped"
 	require_module = TRUE
@@ -631,8 +625,8 @@
 			R.module.remove_module(RPED, TRUE)
 
 /obj/item/borg/upgrade/pinpointer
-	name = "medical cyborg crew pinpointer"
-	desc = "A crew pinpointer module for the medical cyborg. Permits remote access to the crew monitor."
+	name = "монитор жизненных показателей экипажа"
+	desc = "Позволяет наблюдать данные с датчиков жизнеобеспечения аналогично Консоли наблюдения за Экипажем, а так же добавляет трекер для поиска Экипажа."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "pinpointer_crew"
 	require_module = TRUE
@@ -646,7 +640,7 @@
 
 		var/obj/item/pinpointer/crew/PP = locate() in R.module
 		if(PP)
-			to_chat(user, span_warning("This unit is already equipped with a pinpointer module!"))
+			to_chat(user, span_warning("Этот киборг уже оснащен монитором экипажа!"))
 			return FALSE
 
 		PP = new(R.module)
@@ -685,14 +679,14 @@
 		R.module.transform_to(new_module)
 
 /obj/item/borg/upgrade/transform/clown
-	name = "borg module picker (Clown)"
-	desc = "Allows you to to turn a cyborg into a clown, honk."
+	name = "Модуль специализации (Клоун)"
+	desc = "Модуль специа@#$# HOONK!"
 	icon_state = "cyborg_upgrade3"
 	new_module = /obj/item/robot_module/clown
 
 /obj/item/borg/upgrade/circuit_app
-	name = "circuit manipulation apparatus"
-	desc = "An engineering cyborg upgrade allowing for manipulation of circuit boards."
+	name = "манипулятор плат"
+	desc = "Позволяет переносить 1 плату, а так же устанавливать ее в каркас Машины или Консоли."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/engineering, /obj/item/robot_module/saboteur)
@@ -718,8 +712,8 @@
 			R.module.remove_module(C, TRUE)
 
 /obj/item/borg/upgrade/beaker_app
-	name = "beaker storage apparatus"
-	desc = "A supplementary beaker storage apparatus for medical cyborgs."
+	name = "дополнительный манипулятор хим посуды"
+	desc = "если одного недостаточно."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/medical)
@@ -730,7 +724,7 @@
 	if(.)
 		var/obj/item/borg/apparatus/beaker/extra/E = locate() in R.module.modules
 		if(E)
-			to_chat(user, span_warning("This unit has no room for additional beaker storage!"))
+			to_chat(user, span_warning("Нет места!"))
 			return FALSE
 
 		E = new(R.module)
@@ -745,8 +739,8 @@
 			R.module.remove_module(E, TRUE)
 
 /obj/item/borg/upgrade/broomer
-	name = "experimental push broom"
-	desc = "An experimental push broom used for efficiently pushing refuse."
+	name = "экспериментальный толкатель"
+	desc = "При активации позволяет толкать предметы перед собой в большой куче."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/janitor)
@@ -758,7 +752,7 @@
 		return
 	var/obj/item/pushbroom/cyborg/BR = locate() in R.module.modules
 	if (BR)
-		to_chat(user, span_warning("This janiborg is already equipped with an experimental broom!"))
+		to_chat(user, span_warning("Этот киборг уже оснащен экспериментальным толкателем!"))
 		return FALSE
 	BR = new(R.module)
 	R.module.basic_modules += BR

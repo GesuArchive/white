@@ -1,6 +1,6 @@
 ///Tool capable of taking biological samples from mobs
 /obj/item/swab
-	name = "swab"
+	name = "губка"
 	desc = "Some men use these for different reasons."
 	icon = 'icons/obj/xenobiology/vatgrowing.dmi'
 	icon_state = "swab"

@@ -155,10 +155,11 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/rapidsyringe
-	name = "Rapid Syringe Gun"
-	desc = "A gun that fires many syringes."
+	name = "Многозарядный шприцемет"
+	desc = "Модификация шприцевого пистолета с использованием вращающегося барабана, способного вместить до шести шприцов."
 	id = "rapidsyringe"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 100
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 1000)
 	build_path = /obj/item/gun/syringe/rapidsyringe
 	category = list("Вооружение")
@@ -185,40 +186,44 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/large_grenade
-	name = "Large Grenade"
-	desc = "A grenade that affects a larger area and use larger containers."
+	name = "Большая химическая граната"
+	desc = "Большой каркас химической гранаты. В отличие от обычных каркасов, этот имеет больший радиус взрыва и поддерживает блюспейс или различные экзотичные носители."
 	id = "large_Grenade"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 60
 	materials = list(/datum/material/iron = 3000)
 	build_path = /obj/item/grenade/chem_grenade/large
 	category = list("Вооружение")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/pyro_grenade
-	name = "Pyro Grenade"
-	desc = "An advanced grenade that is able to self ignite its mixture."
+	name = "Пиро граната"
+	desc = "Экспериментальный каркас химической гранаты. После активации резко нагревает реагенты внутри себя."
 	id = "pyro_Grenade"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 60
 	materials = list(/datum/material/iron = 2000, /datum/material/plasma = 500)
 	build_path = /obj/item/grenade/chem_grenade/pyro
 	category = list("Вооружение")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cryo_grenade
-	name = "Cryo Grenade"
-	desc = "An advanced grenade that rapidly cools its contents upon detonation."
+	name = "Крио граната"
+	desc = "Экспериментальный каркас химической гранаты. После активации резко охлаждает реагенты внутри себя."
 	id = "cryo_Grenade"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 60
 	materials = list(/datum/material/iron = 2000, /datum/material/silver = 500)
 	build_path = /obj/item/grenade/chem_grenade/cryo
 	category = list("Вооружение")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/adv_grenade
-	name = "Advanced Release Grenade"
-	desc = "An advanced grenade that can be detonated several times, best used with a repeating igniter."
+	name = "Инжекторная граната"
+	desc = "Экспериментальный каркас химической гранаты. Может использоваться больше одного раза. При помощи мультитула можно настроить количество выбрасываемого вещества."
 	id = "adv_Grenade"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 60
 	materials = list(/datum/material/iron = 3000, /datum/material/glass = 500)
 	build_path = /obj/item/grenade/chem_grenade/adv_release
 	category = list("Вооружение")

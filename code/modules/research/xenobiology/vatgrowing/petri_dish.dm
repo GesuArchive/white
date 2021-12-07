@@ -1,6 +1,6 @@
 ///Holds a biological sample which can then be put into the growing vat
 /obj/item/petri_dish
-	name = "petri dish"
+	name = "Чаша Петри"
 	desc = "This makes you feel well-cultured."
 	icon = 'icons/obj/xenobiology/vatgrowing.dmi'
 	icon_state = "petri_dish"

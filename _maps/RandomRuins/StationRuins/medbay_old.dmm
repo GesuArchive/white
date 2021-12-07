@@ -2370,7 +2370,7 @@
 /area/medical/virology)
 "yM" = (
 /obj/machinery/light,
-/obj/machinery/rnd/production/techfab/department/medical,
+/obj/machinery/mecha_part_fabricator/med,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/storage)
 "yR" = (

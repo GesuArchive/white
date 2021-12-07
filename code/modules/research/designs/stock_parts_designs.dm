@@ -24,19 +24,21 @@
 
 //Capacitors
 /datum/design/basic_capacitor
-	name = "Basic Capacitor"
-	desc = "A stock part used in the construction of various devices."
+	name = "Базовый конденсатор"
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "basic_capacitor"
-	build_type = PROTOLATHE | AUTOLATHE
+	build_type = PROTOLATHE | AUTOLATHE | MECHFAB
+	construction_time = 10
 	materials = list(/datum/material/iron = 100, /datum/material/glass = 100)
 	build_path = /obj/item/stock_parts/capacitor
-	category = list("Запчасти оборудования","Оборудование","initial")
+	category = list("Запчасти оборудования","Оборудование","initial","Медицинское оборудование")
+	sub_category = list("Базовые компоненты")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/adv_capacitor
 	name = "Advanced Capacitor"
-	desc = "A stock part used in the construction of various devices."
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "adv_capacitor"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 150, /datum/material/glass = 150)
@@ -47,7 +49,7 @@
 
 /datum/design/super_capacitor
 	name = "Super Capacitor"
-	desc = "A stock part used in the construction of various devices."
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "super_capacitor"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 200, /datum/material/glass = 200, /datum/material/gold = 100)
@@ -58,7 +60,7 @@
 
 /datum/design/quadratic_capacitor
 	name = "Quadratic Capacitor"
-	desc = "A stock part used in the construction of various devices."
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "quadratic_capacitor"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 200, /datum/material/glass = 200, /datum/material/gold = 100, /datum/material/diamond = 100)
@@ -69,19 +71,21 @@
 
 //Scanning modules
 /datum/design/basic_scanning
-	name = "Basic Scanning Module"
-	desc = "A stock part used in the construction of various devices."
+	name = "Базовый модуль сканирования"
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "basic_scanning"
-	build_type = PROTOLATHE | AUTOLATHE
+	build_type = PROTOLATHE | AUTOLATHE | MECHFAB
+	construction_time = 10
 	materials = list(/datum/material/iron = 100, /datum/material/glass = 50)
 	build_path = /obj/item/stock_parts/scanning_module
-	category = list("Запчасти оборудования","Оборудование","initial")
+	category = list("Запчасти оборудования","Оборудование","initial","Медицинское оборудование")
+	sub_category = list("Базовые компоненты")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/adv_scanning
 	name = "Advanced Scanning Module"
-	desc = "A stock part used in the construction of various devices."
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "adv_scanning"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 150, /datum/material/glass = 100)
@@ -92,7 +96,7 @@
 
 /datum/design/phasic_scanning
 	name = "Phasic Scanning Module"
-	desc = "A stock part used in the construction of various devices."
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "phasic_scanning"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 200, /datum/material/glass = 150, /datum/material/silver = 60)
@@ -103,7 +107,7 @@
 
 /datum/design/triphasic_scanning
 	name = "Triphasic Scanning Module"
-	desc = "A stock part used in the construction of various devices."
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "triphasic_scanning"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 200, /datum/material/glass = 200, /datum/material/diamond = 30, /datum/material/bluespace = 30)
@@ -114,19 +118,21 @@
 
 //Maipulators
 /datum/design/micro_mani
-	name = "Micro Manipulator"
-	desc = "A stock part used in the construction of various devices."
+	name = "Базовый микроманипулятор"
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "micro_mani"
-	build_type = PROTOLATHE | AUTOLATHE
+	build_type = PROTOLATHE | AUTOLATHE | MECHFAB
+	construction_time = 10
 	materials = list(/datum/material/iron = 100)
 	build_path = /obj/item/stock_parts/manipulator
-	category = list("Запчасти оборудования","Оборудование","initial")
+	category = list("Запчасти оборудования","Оборудование","initial","Медицинское оборудование")
+	sub_category = list("Базовые компоненты")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/nano_mani
 	name = "Nano Manipulator"
-	desc = "A stock part used in the construction of various devices."
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "nano_mani"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 150)
@@ -137,7 +143,7 @@
 
 /datum/design/pico_mani
 	name = "Pico Manipulator"
-	desc = "A stock part used in the construction of various devices."
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "pico_mani"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 200)
@@ -148,7 +154,7 @@
 
 /datum/design/femto_mani
 	name = "Femto Manipulator"
-	desc = "A stock part used in the construction of various devices."
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "femto_mani"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 200, /datum/material/diamond = 30, /datum/material/titanium = 30)
@@ -159,19 +165,21 @@
 
 //Micro-lasers
 /datum/design/basic_micro_laser
-	name = "Basic Micro-Laser"
-	desc = "A stock part used in the construction of various devices."
+	name = "Базовый микролазер"
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "basic_micro_laser"
-	build_type = PROTOLATHE | AUTOLATHE
+	build_type = PROTOLATHE | AUTOLATHE | MECHFAB
+	construction_time = 10
 	materials = list(/datum/material/iron = 100, /datum/material/glass = 50)
 	build_path = /obj/item/stock_parts/micro_laser
-	category = list("Запчасти оборудования","Оборудование","initial")
+	category = list("Запчасти оборудования","Оборудование","initial","Медицинское оборудование")
+	sub_category = list("Базовые компоненты")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/high_micro_laser
 	name = "High-Power Micro-Laser"
-	desc = "A stock part used in the construction of various devices."
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "high_micro_laser"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 150, /datum/material/glass = 100)
@@ -182,7 +190,7 @@
 
 /datum/design/ultra_micro_laser
 	name = "Ultra-High-Power Micro-Laser"
-	desc = "A stock part used in the construction of various devices."
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "ultra_micro_laser"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 200, /datum/material/glass = 150, /datum/material/uranium = 60)
@@ -193,7 +201,7 @@
 
 /datum/design/quadultra_micro_laser
 	name = "Quad-Ultra Micro-Laser"
-	desc = "A stock part used in the construction of various devices."
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "quadultra_micro_laser"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 200, /datum/material/glass = 200, /datum/material/uranium = 100, /datum/material/diamond = 60)
@@ -203,19 +211,21 @@
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/basic_matter_bin
-	name = "Basic Matter Bin"
-	desc = "A stock part used in the construction of various devices."
+	name = "Базовый резервуар материи"
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "basic_matter_bin"
-	build_type = PROTOLATHE | AUTOLATHE
+	build_type = PROTOLATHE | AUTOLATHE | MECHFAB
+	construction_time = 10
 	materials = list(/datum/material/iron = 100)
 	build_path = /obj/item/stock_parts/matter_bin
-	category = list("Запчасти оборудования","Оборудование","initial")
+	category = list("Запчасти оборудования","Оборудование","initial","Медицинское оборудование")
+	sub_category = list("Базовые компоненты")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/adv_matter_bin
 	name = "Advanced Matter Bin"
-	desc = "A stock part used in the construction of various devices."
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "adv_matter_bin"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 150)
@@ -226,7 +236,7 @@
 
 /datum/design/super_matter_bin
 	name = "Super Matter Bin"
-	desc = "A stock part used in the construction of various devices."
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "super_matter_bin"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 200)
@@ -237,7 +247,7 @@
 
 /datum/design/bluespace_matter_bin
 	name = "Bluespace Matter Bin"
-	desc = "A stock part used in the construction of various devices."
+	desc = "Схемотехнический компонент используемый при сборке машин и приборов."
 	id = "bluespace_matter_bin"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 250, /datum/material/diamond = 100, /datum/material/bluespace = 100)

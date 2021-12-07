@@ -2076,3 +2076,8 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	desc = "Отрубай головы во славу своих фракций"
 	item = /obj/item/melee/execution_sword
 	cost = 1
+/datum/uplink_item/bundles_tc/syndicate_team
+	name = "Командный набор"
+	desc = "Набор, предназначенный для двух агентов синдиката"
+	item = /obj/item/storage/box/syndicate_team
+	cost = 40

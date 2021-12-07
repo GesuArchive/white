@@ -1,5 +1,5 @@
 /obj/machinery/fat_sucker
-	name = "экстрактор липидов"
+	name = "Авто-Экстрактор липидов МК IV"
 	desc = "Безопасно и эффективно удаляет лишний жир."
 	icon = 'icons/obj/machines/fat_sucker.dmi'
 	icon_state = "fat"

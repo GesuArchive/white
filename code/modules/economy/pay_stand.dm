@@ -1,6 +1,6 @@
 /obj/machinery/paystand
-	name = "unregistered pay stand"
-	desc = "See title."
+	name = "Терминал оплаты"
+	desc = "Налоговый сбор проверен и одобрен корпорацией Нано-Трейзен."
 	icon = 'icons/obj/economy.dmi'
 	icon_state = "card_scanner"
 	density = TRUE

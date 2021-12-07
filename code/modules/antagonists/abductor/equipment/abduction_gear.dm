@@ -717,39 +717,38 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 	spawned_machine = /obj/machinery/chem_dispenser/abductor
 
 /obj/item/scalpel/alien
-	name = "alien scalpel"
-	desc = "It's a gleaming sharp knife made out of silvery-green metal."
+	name = "инопланетный скальпель"
+	desc = "Это сверкающий острый нож, сделанный из серебристо-зеленого металла."
 	icon = 'icons/obj/abductor.dmi'
 	toolspeed = 0.25
 
 /obj/item/hemostat/alien
-	name = "alien hemostat"
-	desc = "You've never seen this before."
+	name = "инопланетный зажим"
+	desc = "Как эта штука вообще работает?"
 	icon = 'icons/obj/abductor.dmi'
 	toolspeed = 0.25
 
 /obj/item/retractor/alien
-	name = "alien retractor"
-	desc = "You're not sure if you want the veil pulled back."
+	name = "инопланетный расширитель"
+	desc = "Вы точно не хотите знать как эта штука работает."
 	icon = 'icons/obj/abductor.dmi'
 	toolspeed = 0.25
 
 /obj/item/circular_saw/alien
-	name = "alien saw"
-	desc = "Do the aliens also lose this, and need to find an alien hatchet?"
+	name = "инопланетная пила"
+	desc = "Уберите это от меня!"
 	icon = 'icons/obj/abductor.dmi'
 	toolspeed = 0.25
 
 /obj/item/surgicaldrill/alien
-	name = "alien drill"
-	desc = "Maybe alien surgeons have finally found a use for the drill."
+	name = "инопланетная дрель"
+	desc = "Может хотя бы инопланетяне знают зачем нужна хирургическая дрель?"
 	icon = 'icons/obj/abductor.dmi'
 	toolspeed = 0.25
 
 /obj/item/cautery/alien
-	name = "alien cautery"
-	desc = "Why would bloodless aliens have a tool to stop bleeding? \
-		Unless..."
+	name = "инопланетный прижигатель"
+	desc = "Зачем вообще инопланетянам инструмент для остановки кровотечений? Разве только для..."
 	icon = 'icons/obj/abductor.dmi'
 	toolspeed = 0.25
 
