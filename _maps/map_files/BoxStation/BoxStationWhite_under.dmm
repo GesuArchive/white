@@ -4626,6 +4626,7 @@
 /obj/item/reagent_containers/food/condiment/peppermill{
 	pixel_x = 3
 	},
+/obj/machinery/light,
 /turf/open/floor/plasteel/cafeteria,
 /area/service/kitchen)
 "li" = (
@@ -6024,11 +6025,11 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/door/airlock/maintenance{
-	dir = 4;
-	req_access_txt = "12"
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock{
+	name = "Kitchen";
+	req_access_txt = "28"
+	},
 /turf/open/floor/plasteel,
 /area/service/kitchen)
 "oE" = (
