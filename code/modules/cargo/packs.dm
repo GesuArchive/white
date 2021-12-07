@@ -1093,7 +1093,7 @@
 	cost = CARGO_CRATE_VALUE * 4
 	contains = list(/obj/item/stack/sheet/mineral/wood/fifty)
 	crate_name = "wood planks crate"
-
+/*
 /datum/supply_pack/materials/bz
 	name = "BZ Canister Crate"
 	desc = "Contains a canister of BZ. Requires Toxins access to open."
@@ -1103,7 +1103,7 @@
 	contains = list(/obj/machinery/portable_atmospherics/canister/bz)
 	crate_name = "BZ canister crate"
 	crate_type = /obj/structure/closet/crate/secure/science
-
+*/
 /datum/supply_pack/materials/carbon_dio
 	name = "Carbon Dioxide Canister"
 	desc = "Contains a canister of Carbon Dioxide."
