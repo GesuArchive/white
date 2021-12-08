@@ -242,7 +242,8 @@
 			/obj/item/storage/box/syndie_kit,
 			/obj/structure/closet/crate/necropolis,
 			/obj/item/book/granter,
-			/obj/item/storage/box/syndicate
+			/obj/item/storage/box/syndicate,
+			/obj/item/spellbook
 		)
 	var/obj/structure/cable/attached_cable
 	var/siphoned_power = 0
