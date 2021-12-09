@@ -107,7 +107,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 		to_chat(user, span_warning("[capitalize(src.name)] тихо шипит. Жалко, что суицидники не принимаются!"))
 		return
 	var/posi_ask = tgui_alert(usr, "Быть [name]? (Внимание! Прошлого тебя не смогут воскресить, придётся забыть старые обиды)","Готов?",list("Да","Нет"))
-	if(posi_ask == "Нет" || QDELETED(src))
+	if(posi_ask != "Да" || QDELETED(src))
 		return
 	if(brainmob.suiciding) //clear suicide status if the old occupant suicided.
 		brainmob.set_suicide(FALSE)

@@ -59,7 +59,7 @@
 		return
 	if(recipe && inventory.len && !ready)
 		var/answer = tgui_alert(user, "Отменить нынешнюю сборку?", "Верстак", list("Да", "Нет"))
-		if(answer == "Нет" || !answer)
+		if(answer != "Да" || !answer)
 			return
 		for(var/I in inventory)
 			var/atom/movable/M = I
@@ -203,7 +203,7 @@
 	if(!active)
 		return FALSE
 	var/dwarf_ask = tgui_alert(usr, "Стать дворфом?", "КОПАТЬ?", list("Да", "Нет"))
-	if(dwarf_ask == "Нет" || !src || QDELETED(src) || QDELETED(user))
+	if(dwarf_ask != "Да" || !src || QDELETED(src) || QDELETED(user))
 		return FALSE
 	if(!active)
 		to_chat(user, span_warning("Уже занято!"))
@@ -240,7 +240,7 @@
 			return
 		var/mob/living/carbon/human/M = user
 		var/dwarf_ask = tgui_alert(M, "Стать дворфом?", "КОПАТЬ?", list("Да", "Нет"))
-		if(dwarf_ask == "Нет" || !src || QDELETED(src) || QDELETED(M))
+		if(dwarf_ask != "Да" || !src || QDELETED(src) || QDELETED(M))
 			return FALSE
 		if(!active)
 			to_chat(M, span_warning("Не повезло!"))

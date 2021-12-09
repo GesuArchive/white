@@ -47,7 +47,7 @@
 		return
 	if(!radial_based)
 		var/ghost_role = tgui_alert(usr, "Точно хочешь занять этот спаунер? (внимание, текущее тело будет покинуто)",,list("Да","Нет"))
-		if(ghost_role == "Нет" || !loc || QDELETED(user))
+		if(ghost_role != "Да" || !loc || QDELETED(user))
 			return
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SPAWNER) && !(flags_1 & ADMIN_SPAWNED_1))
 		to_chat(user, span_warning("Администраторы временно отключили гост-роли"))

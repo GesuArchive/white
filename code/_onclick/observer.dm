@@ -64,15 +64,9 @@
 		healthscan(user, src, 1, TRUE)
 	if(user.client && user.chem_scan)
 		chemscan(user, src)
-	if(HAS_TRAIT(src, TRAIT_CLIENT_LEAVED))
-		var/ghost_role = tgui_alert(user, "Точно хочешь занять это тело? (Вы больше не сможете вернуться в своё прошлое тело!)",,list("Да","Нет"))
-		if(ghost_role == "Нет" || !user.loc || QDELETED(user))
-			return
-		if(is_banned_from(user.key, ROLE_ICECREAM))
-			to_chat(user, span_warning("[prob(10)? "А хуй тебе!" : "Упс, у вас джоббан на данную роль. Проконсультируйтесь с педаляцией."]"))
-			return
-		if(isslimeperson(src))
-			to_chat(user, span_warning("Слаймолюдей занимать нельзя. Смирись."))
+	if(!isslimeperson(src) && HAS_TRAIT(src, TRAIT_CLIENT_LEAVED) && !is_banned_from(user.key, ROLE_ICECREAM))
+		var/ghost_role = tgui_alert(user, "Точно хочешь занять это тело? (Больше не сможешь вернуться в своё прошлое тело!)",,list("Да","Нет"))
+		if(ghost_role != "Да" || !user.loc || QDELETED(user))
 			return
 		if(QDELETED(src) || QDELETED(user))
 			return

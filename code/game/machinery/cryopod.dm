@@ -352,7 +352,7 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 			to_chat(user, "<span class='danger'>Не могу уложить [target] в [src], пока цель в сознании.</span>")
 		return
 	else if(target.client)
-		if(alert(target,"Войдём в криокамеру?",,"Да","Нет") == "Нет")
+		if(alert(target,"Войдём в криокамеру?",,"Да","Нет") != "Да")
 			return
 
 	if(target == user && COOLDOWN_FINISHED(target.client, cryo_warned))

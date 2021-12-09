@@ -44,7 +44,7 @@
 // Прок заселения госта во всех клоунов, кроме мамки
 /mob/living/simple_animal/hostile/clown/proc/humanize_clown(mob/user)
 	var/pod_ask = tgui_alert(usr, "Стать клоуном?", "Хонк?", list("Да", "Нет"))
-	if(pod_ask == "Нет" || !src || QDELETED(src))
+	if(pod_ask != "Да" || !src || QDELETED(src))
 		return
 	if(key)
 		to_chat(user, span_warning("Кто-то уже занял этого клоуна!"))
@@ -55,7 +55,7 @@
 // Прок заселения госта в матку
 /mob/living/simple_animal/hostile/clown/proc/humanize_glutton(mob/user)
 	var/pod_ask = tgui_alert(usr, "Стать Апостолом клоунов?", "Хонк?", list("Да", "Нет"))
-	if(pod_ask == "Нет" || !src || QDELETED(src))
+	if(pod_ask != "Да" || !src || QDELETED(src))
 		return
 	if(key)
 		to_chat(user, span_warning("Кто-то уже занял этого клоуна!"))

@@ -852,7 +852,7 @@
 		return
 
 	var/ghost_role = tgui_alert(usr, "Точно хочешь начать дуэль? (Ты не сможешь вернуться в своё прошлое тело, так что выбирай с умом!)",,list("Да","Нет"))
-	if(ghost_role == "Нет" || !loc || QDELETED(user))
+	if(ghost_role != "Да" || !loc || QDELETED(user))
 		return
 	var/betinput = input("Сколько метакэша готов поставить? (Не меньше 50!)", "1XBET", 50) as num
 	if(betinput < 0)

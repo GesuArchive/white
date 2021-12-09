@@ -415,7 +415,7 @@
 		return FALSE
 	if(!whispered)
 		var/response = tgui_alert(usr, "Преждевременный выход из тела отбирает у меня право на донос.\nОно мне нужно?", "Ты УВЕРЕН?", list("Да", "Нет"))
-		if(response == "Нет")
+		if(response != "Да")
 			to_chat(src, span_boldnotice("Пока ещё живу."))
 			return
 	log_message("Has [whispered ? "whispered his final words" : "succumbed to death"] with [round(health, 0.1)] points of health!", LOG_ATTACK)
