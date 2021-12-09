@@ -12,7 +12,14 @@ export const Objective = (props, context) => {
     <Window
       width={400}
       height={500}
-      resizable>
+      resizable
+      buttons={(
+        <Button
+          icon="trash"
+          content="Отказаться"
+          disabled={!selected_objective}
+          onClick={() => act('remove')} />
+      )}>
       <Window.Content
         scrollable>
         {!selected_objective || <SelectedObjective

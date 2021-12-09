@@ -37,6 +37,10 @@
 	linked_beacon.name = "(ЗАДАНИЕ) [linked_beacon.name]"
 	linked_beacon.linked_objective = src
 
+/datum/orbital_objective/proc/remove_objective()
+	priority_announce("Основное задание было отменено.", "Центральное командование", SSstation.announcer.get_rand_report_sound())
+	QDEL_NULL(src)
+
 /datum/orbital_objective/proc/complete_objective()
 	if(completed)
 		//Delete
