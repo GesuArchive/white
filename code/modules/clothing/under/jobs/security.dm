@@ -37,7 +37,7 @@
 	inhand_icon_state = "r_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	fitted = FEMALE_UNIFORM_TOP
+	fitted = NO_FEMALE_UNIFORM
 
 /obj/item/clothing/under/rank/security/officer/blueshirt
 	name = "голубая рубашка и галстук"
