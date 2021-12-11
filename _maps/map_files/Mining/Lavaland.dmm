@@ -946,16 +946,12 @@
 /obj/structure/sign/warning/electricshock{
 	pixel_y = 32
 	},
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/machinery/power/port_gen/pacman{
-	anchored = 1
-	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "cU" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "cV" = (
@@ -1115,15 +1111,21 @@
 /turf/open/floor/plasteel/white,
 /area/mine/living_quarters)
 "do" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
 /obj/structure/cable,
+/obj/machinery/power/port_gen/pacman{
+	anchored = 1
+	},
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "dp" = (
 /obj/machinery/meter,
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 6
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "dq" = (
@@ -1250,15 +1252,15 @@
 /turf/open/floor/plasteel/white,
 /area/mine/living_quarters)
 "dF" = (
-/obj/structure/cable,
-/obj/machinery/power/smes{
-	charge = 5e+006
+/obj/machinery/power/port_gen/pacman{
+	anchored = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "dH" = (
-/obj/machinery/atmospherics/components/binary/pump/on,
 /obj/structure/cable,
+/obj/machinery/atmospherics/components/binary/pump/on,
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "dI" = (
@@ -3672,12 +3674,6 @@
 /turf/open/floor/plasteel,
 /area/mine/laborcamp/security)
 "pY" = (
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/machinery/power/port_gen/pacman{
-	anchored = 1
-	},
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "qk" = (
@@ -15774,7 +15770,7 @@ aj
 aj
 cM
 cT
-do
+pY
 pY
 cM
 ea
