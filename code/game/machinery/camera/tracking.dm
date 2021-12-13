@@ -69,7 +69,8 @@
 
 	var/datum/weakref/target = (isnull(track.humans[target_name]) ? track.others[target_name] : track.humans[target_name])
 
-	ai_actual_track(target.resolve())
+	if(target)
+		ai_actual_track(target.resolve())
 
 /mob/living/silicon/ai/proc/ai_actual_track(mob/living/target)
 	if(!istype(target))
