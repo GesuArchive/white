@@ -454,11 +454,11 @@
 		set_light(0)
 	update_icon()
 
-	active_power_usage = (brightness * 100)
+	active_power_usage = (brightness * 250)
 	if(on != on_gs)
 		on_gs = on
 		if(on)
-			static_power_used = brightness * 20 //20W per unit luminosity
+			static_power_used = brightness * 200 //200W per unit luminosity
 			addStaticPower(static_power_used, AREA_USAGE_STATIC_LIGHT)
 		else
 			removeStaticPower(static_power_used, AREA_USAGE_STATIC_LIGHT)
