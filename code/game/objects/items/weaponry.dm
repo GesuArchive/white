@@ -733,136 +733,6 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 			else
 				qdel(target)
 
-/obj/item/circlegame
-	name = "circled hand"
-	desc = "If somebody looks at this while it's below your waist, you get to bop them."
-	icon_state = "madeyoulook"
-	force = 0
-	throwforce = 0
-	item_flags = DROPDEL | ABSTRACT | HAND_ITEM
-	attack_verb_continuous = list("шлёпает")
-	attack_verb_simple = list("шлёпает")
-
-/obj/item/circlegame/Initialize()
-	. = ..()
-	var/mob/living/owner = loc
-	if(!istype(owner))
-		return
-	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, .proc/ownerExamined)
-
-/obj/item/circlegame/Destroy()
-	var/mob/owner = loc
-	if(istype(owner))
-		UnregisterSignal(owner, COMSIG_PARENT_EXAMINE)
-	return ..()
-
-/obj/item/circlegame/dropped(mob/user)
-	UnregisterSignal(user, COMSIG_PARENT_EXAMINE)		//loc will have changed by the time this is called, so Destroy() can't catch it
-	// this is a dropdel item.
-	return ..()
-
-/// Stage 1: The mistake is made
-/obj/item/circlegame/proc/ownerExamined(mob/living/owner, mob/living/sucker)
-	SIGNAL_HANDLER
-
-	if(!istype(sucker) || !in_range(owner, sucker))
-		return
-	addtimer(CALLBACK(src, .proc/waitASecond, owner, sucker), 4)
-
-/// Stage 2: Fear sets in
-/obj/item/circlegame/proc/waitASecond(mob/living/owner, mob/living/sucker)
-	if(QDELETED(sucker) || QDELETED(src) || QDELETED(owner))
-		return
-
-	if(owner == sucker) // big mood
-		to_chat(owner, span_danger("Wait a second... you just looked at your own [src.name]!"))
-		addtimer(CALLBACK(src, .proc/selfGottem, owner), 10)
-	else
-		to_chat(sucker, span_danger("Wait a second... was that a-"))
-		addtimer(CALLBACK(src, .proc/GOTTEM, owner, sucker), 6)
-
-/// Stage 3A: We face our own failures
-/obj/item/circlegame/proc/selfGottem(mob/living/owner)
-	if(QDELETED(src) || QDELETED(owner))
-		return
-
-	playsound(get_turf(owner), 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
-	owner.visible_message(span_danger("[owner] shamefully bops [owner.ru_na()]self with [owner.ru_ego()] [src.name].") , span_userdanger("You shamefully bop yourself with your [src.name].") , \
-		span_hear("You hear a dull thud!"))
-	log_combat(owner, owner, "bopped", src.name, "(self)")
-	owner.do_attack_animation(owner)
-	owner.apply_damage(100, STAMINA)
-	owner.Knockdown(10)
-	qdel(src)
-
-/// Stage 3B: We face our reckoning (unless we moved away or they're incapacitated)
-/obj/item/circlegame/proc/GOTTEM(mob/living/owner, mob/living/sucker)
-	if(QDELETED(sucker))
-		return
-
-	if(QDELETED(src) || QDELETED(owner))
-		to_chat(sucker, span_warning("Nevermind... must've been your imagination..."))
-		return
-
-	if(!in_range(owner, sucker) || !(owner.mobility_flags & MOBILITY_USE))
-		to_chat(sucker, span_notice("Phew... you moved away before [owner] noticed you saw [owner.ru_ego()] [src.name]..."))
-		return
-
-	to_chat(owner, span_warning("[sucker] looks down at your [src.name] before trying to avert [sucker.ru_ego()] eyes, but it's too late!"))
-	to_chat(sucker, span_danger("<b>[owner] sees the fear in your eyes as you try to look away from [owner.ru_ego()] [src.name]!</b>"))
-
-	owner.face_atom(sucker)
-	if(owner.client)
-		owner.client.give_award(/datum/award/achievement/misc/gottem, owner) // then everybody clapped
-
-	playsound(get_turf(owner), 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
-	owner.do_attack_animation(sucker)
-
-	if(HAS_TRAIT(owner, TRAIT_HULK))
-		owner.visible_message(span_danger("[owner] bops [sucker] with [owner.ru_ego()] [src.name] much harder than intended, sending [sucker.ru_na()] flying!") , \
-			span_danger("You bop [sucker] with your [src.name] much harder than intended, sending [sucker.ru_na()] flying!") , span_hear("Слышу звук разрывающейся плоти!") , ignored_mobs=list(sucker))
-		to_chat(sucker, span_userdanger("[owner] bops you incredibly hard with [owner.ru_ego()] [src.name], sending you flying!"))
-		sucker.apply_damage(50, STAMINA)
-		sucker.Knockdown(50)
-		log_combat(owner, sucker, "bopped", src.name, "(setup- Hulk)")
-		var/atom/throw_target = get_edge_target_turf(sucker, owner.dir)
-		sucker.throw_at(throw_target, 6, 3, owner)
-	else
-		owner.visible_message(span_danger("[owner] bops [sucker] with [owner.ru_ego()] [src.name]!") , span_danger("You bop [sucker] with your [src.name]!") , \
-			span_hear("You hear a dull thud!") , ignored_mobs=list(sucker))
-		sucker.apply_damage(15, STAMINA)
-		log_combat(owner, sucker, "bopped", src.name, "(setup)")
-		to_chat(sucker, span_userdanger("[owner] bops you with [owner.ru_ego()] [src.name]!"))
-	qdel(src)
-
-/obj/item/slapper
-	name = "slapper"
-	desc = "This is how real men fight."
-	icon_state = "latexballon"
-	inhand_icon_state = "nothing"
-	force = 0
-	throwforce = 0
-	item_flags = DROPDEL | ABSTRACT | HAND_ITEM
-	attack_verb_continuous = list("шлёпает")
-	attack_verb_simple = list("шлёпает")
-	hitsound = 'sound/effects/snap.ogg'
-
-/obj/item/slapper/attack(mob/M, mob/living/carbon/human/user)
-	if(ishuman(M))
-		var/mob/living/carbon/human/L = M
-		if(L && L.dna && L.dna.species)
-			L.dna.species.stop_wagging_tail(M)
-	user.do_attack_animation(M)
-	playsound(M, 'sound/weapons/slap.ogg', 50, TRUE, -1)
-	user.visible_message(span_danger("[user] slaps [M]!") ,
-	span_notice("You slap [M]!") ,\
-	span_hear("You hear a slap."))
-	return
-/obj/item/proc/can_trigger_gun(mob/living/user)
-	if(!user.can_use_guns(src))
-		return FALSE
-	return TRUE
-
 /obj/item/extendohand
 	name = "extendo-hand"
 	desc = "Futuristic tech has allowed these classic spring-boxing toys to essentially act as a fully functional hand-operated hand prosthetic."
@@ -978,3 +848,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 
+/obj/item/proc/can_trigger_gun(mob/living/user)
+	if(!user.can_use_guns(src))
+		return FALSE
+	return TRUE

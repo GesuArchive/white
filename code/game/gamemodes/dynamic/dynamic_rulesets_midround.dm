@@ -783,6 +783,10 @@
 	var/mob/living/simple_animal/hostile/clown/mutant/glutton/apostle = new(pick(spawn_locs))
 	apostle.key = applicant.key
 
+	message_admins("[ADMIN_LOOKUPFLW(apostle)] has been made into a Clown Apostle by the midround ruleset.")
+	log_game("DYNAMIC: [key_name(apostle)] was spawned as a Clown Apostle by the midround ruleset.")
+	return apostle
+
 /// Obsessed ruleset
 /datum/dynamic_ruleset/midround/obsessed
 	name = "Obsessed"
@@ -818,7 +822,3 @@
 	message_admins("[ADMIN_LOOKUPFLW(obsessed)] has been made Obsessed by the midround ruleset.")
 	log_game("[key_name(obsessed)] was made Obsessed by the midround ruleset.")
 	return ..()
-
-	message_admins("[ADMIN_LOOKUPFLW(apostle)] has been made into a Clown Apostle by the midround ruleset.")
-	log_game("DYNAMIC: [key_name(apostle)] was spawned as a Clown Apostle by the midround ruleset.")
-	return apostle

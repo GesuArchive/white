@@ -180,14 +180,14 @@
 	gang_objectives = list(
 
 		/datum/antagonist/gang/saints = "Hey man, welcome to the Third Street Saints! Check out this sweet new pad! \
-		Well it WOULD be a sweet new pad, but we got some rivals to deal with. People don't love us as much as they love those Grove Street fools and those Tunnel Snake greasers. \
+		Well it WOULD be a sweet new pad, but we got some rivals to deal with. People don't love us as much as they love those Tunnel Snake greasers. \
 		We need to make the Third Street Saints the most popular group on the station! \
-		Get rid of those Grove Street and Tunnel Snake kids.",
+		Destroy the reputation of the Tunnel Snakes!",
 
 		/datum/antagonist/gang/tunnel_snakes = "TUNNEL SNAKES RULE!!! \
 		We're the Tunnel Snakes, and we rule! \
-		Make sure the station knows that the Tunnel Snakes RULE!!! And that the other two gangs are LAME and DO NOT RULE! \
-		Get rid of those Third Street Saint and Grove Street cowards."
+		Make sure the station knows that the Tunnel Snakes RULE!!! And that the Saints are LAME and DO NOT RULE! \
+		Destroy the reputation of the Third Street Saints!",
 	)
 
 /datum/gang_theme/steelport_shuffle
@@ -225,17 +225,17 @@
 	gang_objectives = list(
 
 		/datum/antagonist/gang/saints = "Thank you for volunteering within the organization for the Saints Flow Recovery Project! \
-		This station is currently illegally in posession of a data disk containing the secret recipe for Saints Flow. \
+		This station is currently illegally in possession of a data disk containing the secret recipe for Saints Flow. \
 		It has been disguised as the nuclear authentication disk and entrusted to the Captain. Your objective is simple. \
 		Get that fucking disk. You have been provided with a Pinpointer to assist in this task.",
 
 		/datum/antagonist/gang/morningstar = "Greetings, agent. Welcome to the Garment Recovery Task Force. \
-		This station is currently illegally in posession of a data disk containing as of yet unreleased clothing patterns. \
+		This station is currently illegally in possession of a data disk containing as of yet unreleased clothing patterns. \
 		It has been disguised as the nuclear authentication disk and entrusted to the Captain. Your objective is simple. \
 		Get that fucking disk. You have been provided with a Pinpointer to assist in this task.",
 
 		/datum/antagonist/gang/yakuza = "Congratulations on your promotion! Welcome to the Evidence Recovery Squad. \
-		This station is currently illegally in posession of a data disk containing compromising evidence of the Boss. \
+		This station is currently illegally in possession of a data disk containing compromising evidence of the Boss. \
 		It has been disguised as the nuclear authentication disk and entrusted to the Captain. Your objective is simple. \
 		Get that fucking disk. You have been provided with a Pinpointer to assist in this task.",
 	)

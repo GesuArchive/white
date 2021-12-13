@@ -305,6 +305,16 @@
 	mood_change = -10
 	timeout = 4 MINUTES
 
+/datum/mood_event/noogie
+	description = "<span class='warning'>Ow! This is like space high school all over again...</span>\n"
+	mood_change = -10
+	timeout = 60 SECONDS
+
+/datum/mood_event/noogie_harsh
+	description = "<span class='warning'>OW!! That was even worse than a regular noogie!</span>\n"
+	mood_change = -20
+	timeout = 60 SECONDS
+
 /datum/mood_event/aquarium_negative
 	description = "<span class='warning'>Жалко рыбок...</span>\n"
 	mood_change = -6
