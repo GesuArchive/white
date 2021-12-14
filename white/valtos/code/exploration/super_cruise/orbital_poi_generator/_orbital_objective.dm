@@ -39,7 +39,7 @@
 
 /datum/orbital_objective/proc/remove_objective()
 	priority_announce("Основное задание было отменено.", "Центральное командование", SSstation.announcer.get_rand_report_sound())
-	QDEL_NULL(src)
+	QDEL_NULL(SSorbits.current_objective)
 
 /datum/orbital_objective/proc/complete_objective()
 	if(completed)
