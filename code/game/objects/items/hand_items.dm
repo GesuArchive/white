@@ -237,6 +237,15 @@
 		user.visible_message(span_danger("[user] slaps [M] in the face!"),
 			span_notice("You slap [M] in the face!"),
 			span_hear("You hear a slap."))
+	else if(user.zone_selected == BODY_ZONE_PRECISE_GROIN && ishuman(M))
+		var/mob/living/carbon/human/L = M
+		if(istype(L.w_uniform, /obj/item/clothing/under/costume/jabroni))
+			user.do_attack_animation(M)
+			playsound(M, 'white/Gargule/sounds/pidr_oret.ogg', 75, 1, -1)//bringigng gachislaps
+			playsound(M, 'sound/weapons/slap.ogg', 50, 1, -1)
+			user.visible_message(span_danger("[user] slaps the ass of [M]!") ,
+			span_notice("You slap the ass of [M]!") ,\
+			"You hear a slap.")
 	else
 		user.visible_message(span_danger("[user] slaps [M]!"),
 			span_notice("You slap [M]!"),

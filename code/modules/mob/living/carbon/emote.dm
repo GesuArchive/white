@@ -157,7 +157,7 @@
 	. = ..()
 	if(!.)
 		return
-	var/obj/item/slapper_mark_two/N = new(user)
+	var/obj/item/slapper/N = new(user)
 	if(user.put_in_hands(N))
 		to_chat(user, span_notice("Готовлюсь шлёпать."))
 	else
