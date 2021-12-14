@@ -43,7 +43,6 @@
 	forge_objectives()
 	. = ..()
 	equip_op()
-	memorize_code()
 	if(send_to_spawnpoint)
 		move_to_spawnpoint()
 		// grant extra TC for the people who start in the nukie base ie. not the lone op
@@ -51,6 +50,7 @@
 		var/datum/component/uplink/U = owner.find_syndicate_uplink()
 		if (U)
 			U.telecrystals += extra_tc
+	memorize_code()
 
 
 
