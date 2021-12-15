@@ -148,8 +148,6 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	show_data_huds()
 	data_huds_on = 1
 
-	overlay_fullscreen("noise", /atom/movable/screen/fullscreen/noisescreen)
-
 	if(fexists("data/custom_ghosts/[ckey].dmi"))
 		swap_icons()
 
