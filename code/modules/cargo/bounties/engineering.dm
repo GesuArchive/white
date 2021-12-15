@@ -53,11 +53,11 @@
 /datum/bounty/item/engineering/emitter
 	name = "Эмиттер"
 	description = "Мы думаем, что в конструкции эмиттера вашей станции может быть дефект, основанный на огромном количестве отслоений, которые, похоже, видит ваш сектор. Отправьте нам один из ваших."
-	reward = CARGO_CRATE_VALUE * 5
+	reward = 100
 	wanted_types = list(/obj/machinery/power/emitter)
 
 /datum/bounty/item/engineering/hydro_tray
 	name = "Гидропонические лотки"
 	description = "Лаборанты пытаются выяснить, как снизить потребление энергии лотками для гидропоники, но мы поджарили последний. Сделаете один для нас?"
-	reward = CARGO_CRATE_VALUE * 4
+	reward = 70
 	wanted_types = list(/obj/machinery/hydroponics/constructable)
