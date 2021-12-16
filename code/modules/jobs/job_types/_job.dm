@@ -210,9 +210,9 @@
 			qdel(item)
 
 	// новый год 2021
-	//var/obj/item/stack/garland_pack/fifty/garl = new(get_turf(H))
-	//H.put_in_hands(garl)
-	//H.equip_to_slot(garl, ITEM_SLOT_BACKPACK)
+	var/obj/item/stack/garland_pack/fifty/garl = new(get_turf(H))
+	H.put_in_hands(garl)
+	H.equip_to_slot(garl, ITEM_SLOT_BACKPACK)
 
 /datum/job/proc/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	if(head_announce)
