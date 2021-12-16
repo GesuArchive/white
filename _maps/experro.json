@@ -33,14 +33,6 @@
 			"total_positions": 0,
 			"spawn_positions": 0
 		},
-		"bomj": {
-			"total_positions": 0,
-			"spawn_positions": 0
-		},
-		"mechanic": {
-			"total_positions": 0,
-			"spawn_positions": 0
-		},
 		"hop": {
 			"total_positions": 0,
 			"spawn_positions": 0
@@ -166,6 +158,34 @@
 			"spawn_positions": 0
 		},
 		"psychologist": {
+			"total_positions": 0,
+			"spawn_positions": 0
+		},
+		"botanist": {
+			"total_positions": 0,
+			"spawn_positions": 0
+		},
+		"quartermaster": {
+			"total_positions": 0,
+			"spawn_positions": 0
+		},
+		"cargo_technician": {
+			"total_positions": 0,
+			"spawn_positions": 0
+		},
+		"bomj": {
+			"total_positions": 0,
+			"spawn_positions": 0
+		},
+		"prisoner": {
+			"total_positions": 0,
+			"spawn_positions": 0
+		},
+		"security_officer": {
+			"total_positions": 0,
+			"spawn_positions": 0
+		},
+		"russian_officer": {
 			"total_positions": 0,
 			"spawn_positions": 0
 		}
