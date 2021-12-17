@@ -5,4 +5,6 @@
 	lefthand_file = 'white/hule/icons/onmob/ballistic_l.dmi'
 	righthand_file = 'white/hule/icons/onmob/ballistic_r.dmi'
 	force = 15
+	inhand_x_dimension = 32
+	inhand_y_dimension = 32
 
