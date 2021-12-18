@@ -6,13 +6,14 @@
 	icon_state = "swatclava"
 	inhand_icon_state = "swatclava"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
-	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
+	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT|HIDEEARS
 
 /obj/item/clothing/mask/balaclava/swat/alt
 	icon_state = "swatclava2"
 	inhand_icon_state = "swatclava"
-	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEEARS
-	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
+	desc = "Легко скроет ваше красивое личико."
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT|HIDEEARS
 
 /obj/item/clothing/mask/rag
 	name = "тряпка"
