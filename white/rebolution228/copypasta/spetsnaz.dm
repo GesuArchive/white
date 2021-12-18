@@ -92,9 +92,9 @@
 						/obj/item/clothing/head/helmet/maska/black, \
 						/obj/item/clothing/head/helmet/maska/altyn, \
 						/obj/item/clothing/head/helmet/maska/altyn/black)
-	if(prob(50))
+	if(prob(40))
 		mask = /obj/item/clothing/mask/balaclava/swat/alt
-	else if(prob(40))
+	else if(prob(30))
 		mask = /obj/item/clothing/mask/rag
 	else
 		mask = /obj/item/clothing/mask/balaclava/swat
