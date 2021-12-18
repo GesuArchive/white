@@ -10,33 +10,26 @@
 	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	icon = 'icons/obj/device.dmi'
 	name = "пульт управления"
-	desc = "Удалённый доступ к шлюзам."
+	desc = "Устройство для удаленного управления шлюзами."
 	w_class = WEIGHT_CLASS_TINY
 	var/mode = WAND_OPEN
 	var/region_access = REGION_GENERAL
 	var/list/access_list
 	network_id = NETWORK_DOOR_REMOTES
 
-/obj/item/door_remote/Initialize()
+/obj/item/door_remote/Initialize(mapload)
 	. = ..()
 	access_list = SSid_access.get_region_access_list(list(region_access))
 	RegisterSignal(src, COMSIG_COMPONENT_NTNET_NAK, .proc/bad_signal)
-	RegisterSignal(src, COMSIG_COMPONENT_NTNET_ACK, .proc/good_signal)
 
 /obj/item/door_remote/proc/bad_signal(datum/source, datum/netdata/data, error_code)
+	SIGNAL_HANDLER
 	if(QDELETED(data.user))
 		return // can't send a message to a missing user
 	if(error_code == NETWORK_ERROR_UNAUTHORIZED)
 		to_chat(data.user, span_notice("Этот пульт управления не хочет работать с этим шлюзом."))
 	else
-		to_chat(data.user, span_notice("Ошибка: [error_code]"))
-
-
-/obj/item/door_remote/proc/good_signal(datum/source, datum/netdata/data, error_code)
-	if(QDELETED(data.user))
-		return
-	var/toggled = data.data["data"]
-	to_chat(data.user, span_notice("Шлюз [toggled] переключен."))
+		to_chat(data.user, span_notice(": [error_code]"))
 
 /obj/item/door_remote/attack_self(mob/user)
 	var/static/list/desc = list(WAND_OPEN = "Открыть шлюз", WAND_BOLT = "Переключить болты", WAND_EMERGENCY = "Переключить экстренный доступ", WAND_SHOCK = "Медиум-рейр")
@@ -66,18 +59,22 @@
 	. = ..()
 	var/datum/component/ntnet_interface/target_interface = A.GetComponent(/datum/component/ntnet_interface)
 
+	// Try to find an airlock in the clicked turf
+	if(!target_interface)
+		var/obj/machinery/door/airlock/door = locate() in get_turf(A)
+		if(door)
+			target_interface = door.GetComponent(/datum/component/ntnet_interface)
+
 	if(!target_interface)
 		return
-
-	if(obj_flags & EMAGGED)
-		playsound(get_turf(src), 'sound/machines/ping.ogg', 25, TRUE)
 
 	user.set_machine(src)
 	// Generate a control packet.
 	var/datum/netdata/data = new(list("data" = mode,"data_secondary" = "toggle"))
 	data.receiver_id = target_interface.hardware_id
 	data.passkey = access_list
-	data.user = user	// for responce message
+	data.user = user // for responce message
+
 	ntnet_send(data)
 
 /obj/item/door_remote/omni
@@ -108,7 +105,7 @@
 
 /obj/item/door_remote/quartermaster
 	name = "пульт управления снабжения"
-	desc = "Удалённый доступ к шлюзам. Этот имеет доступ к хранилищу."
+	desc = "Устройство удаленного доступа к шлюзам. Этот имеет доступ к хранилищу."
 	icon_state = "gangtool-green"
 	region_access = REGION_SUPPLY
 
