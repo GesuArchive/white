@@ -571,7 +571,7 @@
 /obj/structure/displaycase/forsale/examine(mob/user)
 	. = ..()
 	if(showpiece && !open)
-		. += "<<hr>span class='notice'>[showpiece] is for sale for [sale_price] credits.</span>"
+		. += "<hr><span class='notice'>[showpiece] стоят [sale_price] кредитов.</span>"
 	if(broken)
 		. += "<hr><span class='notice'>[capitalize(src.name)] искрит и генератор антигравитационного поля выглядит перегруженным. Используйте мультитул чтобы исправить это.</span>"
 
