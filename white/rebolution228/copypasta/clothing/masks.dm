@@ -5,10 +5,14 @@
 	icon = 'white/rebolution228/icons/clothing/masks.dmi'
 	icon_state = "swatclava"
 	inhand_icon_state = "swatclava"
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
 
 /obj/item/clothing/mask/balaclava/swat/alt
 	icon_state = "swatclava2"
 	inhand_icon_state = "swatclava"
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEEARS
+	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
 
 /obj/item/clothing/mask/rag
 	name = "тряпка"
@@ -17,6 +21,6 @@
 	icon = 'white/rebolution228/icons/clothing/masks.dmi'
 	icon_state = "rag"
 	inhand_icon_state = "rag"
-	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+	flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
 	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
 	w_class = WEIGHT_CLASS_SMALL
