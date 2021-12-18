@@ -73,13 +73,13 @@
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	ears = /obj/item/radio/headset/headset_cent/alt
-	mask = /obj/item/clothing/mask/balaclava/swat
 	belt = /obj/item/storage/belt/military/sobr
 	id = /obj/item/card/id/advanced/centcom/spetsnaz
 	id_trim = /datum/id_trim/centcom/spetsnaz
 	r_pocket = /obj/item/kitchen/knife/combat
 	l_pocket = /obj/item/flashlight/seclite
 	head = null
+	mask = null
 	back = /obj/item/storage/backpack/security
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
 		/obj/item/storage/box/handcuffs=1,\
@@ -92,6 +92,13 @@
 						/obj/item/clothing/head/helmet/maska/black, \
 						/obj/item/clothing/head/helmet/maska/altyn, \
 						/obj/item/clothing/head/helmet/maska/altyn/black)
+	if(prob(33))
+		mask = /obj/item/clothing/mask/balaclava/swat/alt
+	if(prob(10))
+		mask = /obj/item/clothing/mask/rag
+	else
+		mask = /obj/item/clothing/mask/balaclava/swat
+
 	if(prob(3))
 		head = /obj/item/clothing/head/helmet/maska/adidas
 	else
@@ -124,6 +131,13 @@
 						/obj/item/clothing/head/helmet/maska/black, \
 						/obj/item/clothing/head/helmet/maska/altyn, \
 						/obj/item/clothing/head/helmet/maska/altyn/black)
+	if(prob(33))
+		mask = /obj/item/clothing/mask/balaclava/swat/alt
+	if(prob(10))
+		mask = /obj/item/clothing/mask/rag
+	else
+		mask = /obj/item/clothing/mask/balaclava/swat
+	
 	if(prob(3))
 		head = /obj/item/clothing/head/helmet/maska/adidas
 	else

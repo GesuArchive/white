@@ -187,7 +187,8 @@
 	fire_delay = 1
 	slot_flags = ITEM_SLOT_BACK
 	burst_size = 3
-	empty_indicator = FALSE
+	empty_indicator = TRUE
+	empty_alarm = TRUE
 	spread = 3
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'white/rebolution228/sounds/weapons/fire_asval.ogg'
@@ -197,7 +198,22 @@
 	load_sound = 'white/rebolution228/sounds/weapons/asval_magout.ogg'
 	load_empty_sound = 'white/rebolution228/sounds/weapons/asval_magin.ogg'
 	can_suppress = FALSE
+/* лень с этим ебаться, потом
+/obj/item/gun/ballistic/automatic/asval/proc/update_inhand_icon_state(obj/item/ammo_box/magazine/AM)
+	if(istype(AM,/obj/item/ammo_box/magazine/asval))
+		inhand_icon_state = "asval"
+	else
+		inhand_icon_state = "asval_nmag"
 
+
+/obj/item/gun/ballistic/automatic/asval/eject_magazine(mob/user)
+	. = ..()
+	update_inhand_icon_state()
+
+/obj/item/gun/ballistic/automatic/asval/insert_magazine(mob/user)
+	. = ..()
+	update_inhand_icon_state()
+*/
 /obj/item/ammo_box/magazine/asval
 	name = "9х39 магазин"
 	icon = 'white/rebolution228/icons/weapons/rammo.dmi'
@@ -242,7 +258,8 @@
 	fire_delay = 2
 	slot_flags = ITEM_SLOT_BACK
 	burst_size = 3
-	empty_indicator = FALSE
+	empty_indicator = TRUE
+	empty_alarm = TRUE
 	spread = 5
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
@@ -256,6 +273,11 @@
 							'white/rebolution228/sounds/weapons/74_ebashit2.ogg',
 							'white/rebolution228/sounds/weapons/74_ebashit3.ogg')
 	can_suppress = FALSE
+
+/obj/item/gun/ballistic/automatic/ak74m/update_overlays()
+	. = ..()
+	if(!chambered && empty_indicator)
+		. += "[icon_state]_empty"
 
 /obj/item/gun/ballistic/automatic/ak74m/process_chamber()
 	. = ..()
@@ -296,6 +318,11 @@
 	icon_state = "ak74mgl"
 	inhand_icon_state = "ak74mgl"
 	worn_icon_state = "ak74mgl_back"
+
+/obj/item/gun/ballistic/automatic/ak74m/gp25/update_overlays()
+	. = ..()
+	if(!chambered && empty_indicator)
+		. += "[icon_state]_empty"
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted/gp25
 	fire_sound = 'white/rebolution228/sounds/weapons/fire_m41agrenadelauncher.ogg'

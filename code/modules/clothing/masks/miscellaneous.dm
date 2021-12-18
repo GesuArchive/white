@@ -163,7 +163,7 @@
 
 /obj/item/clothing/mask/gondola
 	name = "Маска гондолы"
-	desc = "Из настоящего гондольего меха "
+	desc = "Из настоящего гондольего меха."
 	icon_state = "gondola"
 	inhand_icon_state = "gondola"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
