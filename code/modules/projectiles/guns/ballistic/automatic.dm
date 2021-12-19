@@ -433,6 +433,9 @@
 	AddElement(/datum/element/update_icon_updates_onmob)
 	AddComponent(/datum/component/automatic_fire, 0.1 SECONDS)
 
+/obj/item/gun/ballistic/automatic/evgenii/update_icon_state()
+	inhand_icon_state = "[initial(icon_state)][magazine ? "_mag":""]"
+
 /obj/item/ammo_box/magazine/evgenii
 	name = "странный магазин"
 	icon = 'white/valtos/icons/mags.dmi'
