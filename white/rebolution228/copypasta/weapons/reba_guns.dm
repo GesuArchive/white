@@ -188,7 +188,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	burst_size = 3
 	empty_indicator = TRUE
-	empty_alarm = TRUE
+	mag_display = TRUE
 	spread = 3
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'white/rebolution228/sounds/weapons/fire_asval.ogg'
@@ -198,22 +198,14 @@
 	load_sound = 'white/rebolution228/sounds/weapons/asval_magout.ogg'
 	load_empty_sound = 'white/rebolution228/sounds/weapons/asval_magin.ogg'
 	can_suppress = FALSE
-/* лень с этим ебаться, потом
-/obj/item/gun/ballistic/automatic/asval/proc/update_inhand_icon_state(obj/item/ammo_box/magazine/AM)
-	if(istype(AM,/obj/item/ammo_box/magazine/asval))
-		inhand_icon_state = "asval"
-	else
-		inhand_icon_state = "asval_nmag"
 
-
-/obj/item/gun/ballistic/automatic/asval/eject_magazine(mob/user)
+/obj/item/gun/ballistic/automatic/asval/ComponentInitialize()
 	. = ..()
-	update_inhand_icon_state()
+	AddElement(/datum/element/update_icon_updates_onmob)
 
-/obj/item/gun/ballistic/automatic/asval/insert_magazine(mob/user)
-	. = ..()
-	update_inhand_icon_state()
-*/
+/obj/item/gun/ballistic/automatic/asval/update_icon_state()
+	inhand_icon_state = "[initial(icon_state)][magazine ? "":"_nmag"]"
+
 /obj/item/ammo_box/magazine/asval
 	name = "9х39 магазин"
 	icon = 'white/rebolution228/icons/weapons/rammo.dmi'
@@ -260,6 +252,7 @@
 	burst_size = 3
 	empty_indicator = TRUE
 	empty_alarm = TRUE
+	mag_display = TRUE
 	spread = 5
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
@@ -273,6 +266,13 @@
 							'white/rebolution228/sounds/weapons/74_ebashit2.ogg',
 							'white/rebolution228/sounds/weapons/74_ebashit3.ogg')
 	can_suppress = FALSE
+
+/obj/item/gun/ballistic/automatic/ak74m/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
+
+/obj/item/gun/ballistic/automatic/ak74m/update_icon_state()
+	inhand_icon_state = "[initial(icon_state)][magazine ? "":"_nmag"]"
 
 /obj/item/gun/ballistic/automatic/ak74m/update_overlays()
 	. = ..()
@@ -319,10 +319,12 @@
 	inhand_icon_state = "ak74mgl"
 	worn_icon_state = "ak74mgl_back"
 
-/obj/item/gun/ballistic/automatic/ak74m/gp25/update_overlays()
+/obj/item/gun/ballistic/automatic/ak74m/gp25/ComponentInitialize()
 	. = ..()
-	if(!chambered && empty_indicator)
-		. += "[icon_state]_empty"
+	AddElement(/datum/element/update_icon_updates_onmob)
+
+/obj/item/gun/ballistic/automatic/ak74m/gp25/update_icon_state()
+	inhand_icon_state = "[initial(icon_state)][magazine ? "":"_nmag"]"
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted/gp25
 	fire_sound = 'white/rebolution228/sounds/weapons/fire_m41agrenadelauncher.ogg'
@@ -351,7 +353,7 @@
 	projectile_type = /obj/projectile/bullet/vog25
 
 /obj/projectile/bullet/vog25
-	name = "40mm grenade"
+	name = "40mm round VOG"
 	icon = 'white/rebolution228/icons/weapons/projectile.dmi'
 	icon_state = "vog25"
 	damage = 150
@@ -565,3 +567,10 @@
 		icon_state = "ak74_e"
 	else
 		icon_state = "ak74"
+
+/obj/item/gun/ballistic/automatic/aksu74/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
+
+/obj/item/gun/ballistic/automatic/aksu74/update_icon_state()
+	inhand_icon_state = "[initial(icon_state)][magazine ? "":"_nmag"]"
