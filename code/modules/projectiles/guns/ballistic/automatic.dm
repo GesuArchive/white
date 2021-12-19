@@ -414,7 +414,7 @@
 	righthand_file = 'white/valtos/icons/righthand_big.dmi'
 	icon_state = "evgenii"
 	inhand_icon_state = "evgenii"
-	fire_sound = 'sound/weapons/gun/shotgun/shot_alt.ogg'
+	fire_sound = 'white/valtos/sounds/fallout/gunsounds/assault/graar.ogg'
 	rack_sound = 'sound/weapons/gun/shotgun/rack.ogg'
 	load_sound = 'sound/weapons/gun/shotgun/insert_shell.ogg'
 	w_class = WEIGHT_CLASS_BULKY
@@ -426,6 +426,12 @@
 	mag_display = TRUE
 	internal_magazine = FALSE
 	tac_reloads = TRUE
+	actions_types = list()
+
+/obj/item/gun/ballistic/automatic/evgenii/Initialize()
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
+	AddComponent(/datum/component/automatic_fire, 0.1 SECONDS)
 
 /obj/item/ammo_box/magazine/evgenii
 	name = "странный магазин"
