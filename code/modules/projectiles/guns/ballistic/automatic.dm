@@ -405,3 +405,35 @@
 	actions_types = list()
 	fire_sound = 'sound/weapons/laser.ogg'
 	casing_ejector = FALSE
+
+/obj/item/gun/ballistic/automatic/evgenii
+	name = "автоматический дробовик \"Евгений\""
+	desc = "Простая винтовка, которая разорвёт твоего противника нахуй."
+	icon = 'white/valtos/icons/gun.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand_big.dmi'
+	righthand_file = 'white/valtos/icons/righthand_big.dmi'
+	icon_state = "evgenii"
+	inhand_icon_state = "evgenii"
+	fire_sound = 'sound/weapons/gun/shotgun/shot_alt.ogg'
+	rack_sound = 'sound/weapons/gun/shotgun/rack.ogg'
+	load_sound = 'sound/weapons/gun/shotgun/insert_shell.ogg'
+	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_OCLOTHING
+	mag_type = /obj/item/ammo_box/magazine/evgenii
+	can_suppress = FALSE
+	burst_size = 1
+	fire_delay = 0
+	mag_display = TRUE
+	internal_magazine = FALSE
+	tac_reloads = TRUE
+
+/obj/item/ammo_box/magazine/evgenii
+	name = "странный магазин"
+	icon = 'white/valtos/icons/mags.dmi'
+	icon_state = "hornet"
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
+	caliber = "shotgun"
+	max_ammo = 24
+
+/obj/item/ammo_box/magazine/evgenii/fuckyou
+	max_ammo = 500
