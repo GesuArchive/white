@@ -319,13 +319,6 @@
 	inhand_icon_state = "ak74mgl"
 	worn_icon_state = "ak74mgl_back"
 
-/obj/item/gun/ballistic/automatic/ak74m/gp25/ComponentInitialize()
-	. = ..()
-	AddElement(/datum/element/update_icon_updates_onmob)
-
-/obj/item/gun/ballistic/automatic/ak74m/gp25/update_icon_state()
-	inhand_icon_state = "[initial(icon_state)][magazine ? "":"_nmag"]"
-
 /obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted/gp25
 	fire_sound = 'white/rebolution228/sounds/weapons/fire_m41agrenadelauncher.ogg'
 	mag_type = /obj/item/ammo_box/magazine/internal/grenadelauncher/gp25
