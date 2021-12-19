@@ -22,7 +22,6 @@
 
 /obj/item/circuit_component/ntnet_receive/Initialize()
 	. = ..()
-	AddComponent(/datum/component/ntnet_interface)
 	data_package = add_output_port("Data Package", PORT_TYPE_ANY)
 	secondary_package = add_output_port("Secondary Package", PORT_TYPE_ANY)
 	enc_key = add_input_port("Encryption Key", PORT_TYPE_STRING)

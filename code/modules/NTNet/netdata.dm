@@ -66,7 +66,6 @@
 	var/receiver_id
 	var/network_id
 	var/passkey = null // sends auth data used to check if we can connect or send data to a device
-	var/broadcast = FALSE
 	var/list/data = list()
 	// Used for packet queuing
 	var/datum/netdata/next = null
@@ -97,7 +96,7 @@
 	else
 		C.data = data
 	return C
-
+	
 
 /datum/netdata/proc/json_to_data(json)
 	data = json_decode(json)
@@ -108,7 +107,7 @@
 /datum/netdata/proc/data_to_json()
 	return json_encode(data)
 
-/datum/netdata/proc/json_list_generation_admin()	//for admin logs and such.
+/datum/netdata/proc/json_list_generation_admin() //for admin logs and such.
 	. = list()
 	. |= json_list_generation()
 
@@ -125,8 +124,3 @@
 
 /datum/netdata/proc/generate_netlog()
 	return "[json_encode(json_list_generation_netlog())]"
-
-/datum/netdata/proc/standard_format_data(primary, secondary, passkey)
-	data["data"] = primary
-	data["data_secondary"] = secondary
-	data["encrypted_passkey"] = passkey

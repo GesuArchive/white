@@ -821,13 +821,13 @@
 
 /obj/item/integrated_circuit_old/input/ntnet_packet/do_work()
 	var/target_address = get_pin_data(IC_INPUT, 1)
-	var/message = get_pin_data(IC_INPUT, 2)
-	var/text = get_pin_data(IC_INPUT, 3)
+//	var/message = get_pin_data(IC_INPUT, 2)
+//	var/text = get_pin_data(IC_INPUT, 3)
 
 	var/datum/netdata/data = new
 	data.receiver_id = target_address
-	var/key = get_pin_data(IC_INPUT, 4) // hippie start -- adds passkey back in
-	data.standard_format_data(message, text, key) // hippie end
+//	var/key = get_pin_data(IC_INPUT, 4) // hippie start -- adds passkey back in
+//	data.standard_format_data(message, text, key) // hippie end
 	ntnet_send(data)
 
 /obj/item/integrated_circuit_old/input/ntnet_packet/proc/ntnet_receive(datum/source, datum/netdata/data)
@@ -835,9 +835,9 @@
 	set_pin_data(IC_OUTPUT, 2, data.data["data"])
 	set_pin_data(IC_OUTPUT, 3, data.data["data_secondary"])
 	set_pin_data(IC_OUTPUT, 4, data.data["encrypted_passkey"])
-	set_pin_data(IC_OUTPUT, 5, data.broadcast)
+//	set_pin_data(IC_OUTPUT, 5, data.broadcast) // нахуй отсЮБДА БЛЯДЬ
 
-	push_data()
+	push_data() 
 	activate_pin(2)
 
 /obj/item/integrated_circuit_old/input/ntnet_advanced
@@ -884,7 +884,7 @@
 
 /obj/item/integrated_circuit_old/input/ntnet_advanced/proc/ntnet_receive(datum/source, datum/netdata/data)
 	set_pin_data(IC_OUTPUT, 1, data.data)
-	set_pin_data(IC_OUTPUT, 2, data.broadcast)
+//	set_pin_data(IC_OUTPUT, 2, data.broadcast) // пошел ТЫ НАХУ
 	push_data()
 	activate_pin(2)
 
