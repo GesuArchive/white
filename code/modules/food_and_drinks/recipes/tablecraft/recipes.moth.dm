@@ -43,7 +43,7 @@
 /datum/crafting_recipe/food/squeaking_stir_fry
 	name = "Skeklitmischtpoppl (Squeaking stir fry)"
 	reqs = list(
-		/obj/item/food/cheesewedge_curds = 1,
+		/obj/item/food/cheese_curds = 1,
 		/obj/item/food/tofu = 1,
 		/obj/item/food/grown/chili = 1,
 		/obj/item/food/salad/boiledrice = 1,
@@ -68,7 +68,7 @@
 /datum/crafting_recipe/food/loaded_curds
 	name = "Ozlsettitæloskekllön ede pommes (Loaded curds and fries)"
 	reqs = list(
-		/obj/item/food/cheesewedge_curds = 1,
+		/obj/item/food/cheese_curds = 1,
 		/obj/item/food/soup/vegetarian_chili = 1,
 		/obj/item/food/onion_slice = 1,
 		/obj/item/food/cheesewedge = 1,
@@ -411,7 +411,7 @@
 		/obj/item/food/cheesewedge = 1,
 		/obj/item/food/mozzarella = 1,
 		/obj/item/food/herby_cheese = 1,
-		/obj/item/food/cheesewedge_curds = 1
+		/obj/item/food/cheese_curds = 1
 	)
 	result = /obj/item/food/raw_mothic_five_cheese
 	subcategory = CAT_MOTH

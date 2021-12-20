@@ -878,13 +878,13 @@
 	name = "curd cheese"
 	desc = "Known by many names throughout human cuisine, curd cheese is useful for a wide variety of dishes."
 	icon_state = "curd_cheese"
-	microwaved_type = /obj/item/food/cheesewedge_curds
+	microwaved_type = /obj/item/food/cheese_curds
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/cream = 1)
 	tastes = list("cream" = 1, "cheese" = 1)
 	foodtypes = DAIRY
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/food/cheesewedge_curds
+/obj/item/food/cheese_curds
 	name = "cheese curds"
 	desc = "Not to be mistaken for curd cheese. Tasty deep fried."
 	icon_state = "cheese_curds"
@@ -893,7 +893,7 @@
 	foodtypes = DAIRY
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/food/cheesewedge_curds/Initialize(mapload)
+/obj/item/food/cheese_curds/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/dryable,  /obj/item/food/firm_cheese)
 
