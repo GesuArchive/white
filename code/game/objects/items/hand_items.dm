@@ -418,7 +418,7 @@
 	if(HAS_TRAIT(user, TRAIT_GARLIC_BREATH))
 		kiss_type = /obj/projectile/kiss/french
 	var/obj/projectile/blown_kiss = new kiss_type(get_turf(user))
-	user.visible_message("<b>[user]</b> отправляет воздушный поцелуй [blown_kiss] at [target]!", span_notice("Отправляю воздушный поцелуй \a [blown_kiss] at [target]!"))
+	user.visible_message("<b>[user]</b> отправляет воздушный [blown_kiss] [target]!", span_notice("Отправляю воздушный [blown_kiss] [target]!"))
 
 	//Shooting Code:
 	blown_kiss.original = target
