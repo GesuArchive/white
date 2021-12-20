@@ -400,7 +400,7 @@
 
 
 /obj/item/kisser
-	name = "kiss"
+	name = "поцелуй"
 	desc = "I want you all to know, everyone and anyone, to seal it with a kiss."
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "heart"
@@ -418,7 +418,7 @@
 	if(HAS_TRAIT(user, TRAIT_GARLIC_BREATH))
 		kiss_type = /obj/projectile/kiss/french
 	var/obj/projectile/blown_kiss = new kiss_type(get_turf(user))
-	user.visible_message("<b>[user]</b> blows \a [blown_kiss] at [target]!", span_notice("You blow \a [blown_kiss] at [target]!"))
+	user.visible_message("<b>[user]</b> отправляет воздушный поцелуй [blown_kiss] at [target]!", span_notice("Отправляю воздушный поцелуй \a [blown_kiss] at [target]!"))
 
 	//Shooting Code:
 	blown_kiss.original = target
@@ -434,15 +434,19 @@
 		return TRUE
 
 	cheek_kiss = (offerer.zone_selected != BODY_ZONE_PRECISE_MOUTH)
-	offerer.visible_message(span_notice("[offerer] leans in slightly, offering a kiss[cheek_kiss ? " on the cheek" : ""]!"),
-		span_notice("You lean in slightly, indicating you'd like to offer a kiss[cheek_kiss ? " on the cheek" : ""]!"), null, 2)
+	offerer.visible_message(span_notice("[offerer] слегка наклоняется, предлагая поцеловать [offerer.ru_ego()][cheek_kiss ? " в щеку" : ""]!"),
+		span_notice("Немного наклоняюсь, предлагая поцеловать меня[cheek_kiss ? " в щеку" : ""]!"), null, 2)
 	offerer.apply_status_effect(STATUS_EFFECT_OFFERING, src)
 	return TRUE
 
 /obj/item/kisser/on_offer_taken(mob/living/carbon/offerer, mob/living/carbon/taker)
 	var/obj/projectile/blown_kiss = new kiss_type(get_turf(offerer))
-	offerer.visible_message("<b>[offerer]</b> gives [taker] \a [blown_kiss][cheek_kiss ? " on the cheek" : ""]!!", span_notice("You give [taker] \a [blown_kiss][cheek_kiss ? " on the cheek" : ""]!"), ignored_mobs = taker)
-	to_chat(taker, span_nicegreen("[offerer] gives you \a [blown_kiss][cheek_kiss ? " on the cheek" : ""]!"))
+	if(offerer.zone_selected != BODY_ZONE_PRECISE_MOUTH)
+		offerer.visible_message("<b>[offerer]</b> целует [taker] в щеку!", span_notice("Целую [taker] в щеку!"), ignored_mobs = taker)
+		to_chat(taker, span_nicegreen("[offerer] целует меня в щеку"))
+	else
+		offerer.visible_message("<b>[offerer]</b> целует [taker]!!", span_notice("Целую [taker]!"), ignored_mobs = taker)
+		to_chat(taker, span_nicegreen("[offerer] целует меня!"))
 	offerer.face_atom(taker)
 	taker.face_atom(offerer)
 	offerer.do_item_attack_animation(taker, used_item=src)
@@ -458,13 +462,13 @@
 	return TRUE // so the core offering code knows to halt
 
 /obj/item/kisser/death
-	name = "kiss of death"
+	name = "поцелуй смерти"
 	desc = "If looks could kill, they'd be this."
 	color = COLOR_BLACK
 	kiss_type = /obj/projectile/kiss/death
 
 /obj/projectile/kiss
-	name = "kiss"
+	name = "поцелуй"
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "heart"
 	hitsound = 'sound/effects/kiss.ogg'
@@ -478,7 +482,7 @@
 
 /obj/projectile/kiss/fire(angle, atom/direct_target)
 	if(firer)
-		name = "[name] blown by [firer]"
+		name = "[name] посылает воздушный поцелуй [firer]!"
 	return ..()
 
 /obj/projectile/kiss/Impact(atom/A)
@@ -518,21 +522,20 @@
 	var/roll = rand(1, 3)
 	switch(roll)
 		if(1)
-			other_msg = "stumbles slightly, turning a bright red!"
-			self_msg = "You lose control of your limbs for a moment as your blood rushes to your face, turning it bright red!"
+			other_msg = "немного отступается, погружаясь в красный цвет!"
+			self_msg = "Теряю контроль над своими конечностями на мгновение, когда моя кровь приливается к моему лицу, делая его ярко-красным!"
 			living_target.add_confusion(rand(5, 10))
 		if(2)
-			other_msg = "stammers softly for a moment before choking on something!"
-			self_msg = "You feel your tongue disappear down your throat as you fight to remember how to make words!"
-			addtimer(CALLBACK(living_target, /atom/movable.proc/say, pick("Uhhh...", "O-oh, uhm...", "I- uhhhhh??", "You too!!", "What?")), rand(0.5 SECONDS, 1.5 SECONDS))
+			other_msg = "тихо заикается на мгновение, нервно глотая!"
+			self_msg = "Чувствую, будто мой язык совсем исчез, как только пытаюсь вспомнить, как составлять слова!"
 			living_target.stuttering += rand(5, 15)
 		if(3)
-			other_msg = "locks up with a stunned look on [living_target.p_their()] face, staring at [firer ? firer : "the ceiling"]!"
-			self_msg = "Your brain completely fails to process what just happened, leaving you rooted in place staring at [firer ? "[firer]" : "the ceiling"] for what feels like an eternity!"
+			other_msg = "запирается с ошеломленным взглядом на [living_target.ru_ego()] лице, уставливаясь на [firer ? firer : "потолок"]!"
+			self_msg = "Ваш мозг не может полностью проанализировать, что только что произошло, и вы уставились своим взглядом на [firer ? "[firer]" : "потолок"], как будто на целую вечность!"
 			living_target.face_atom(firer)
 			living_target.Stun(rand(3 SECONDS, 8 SECONDS))
 
-	living_target.visible_message("<b>[living_target]</b> [other_msg]", "<span class='userdanger'>Whoa! [self_msg]<span>")
+	living_target.visible_message("<b>[living_target]</b> [other_msg]", "<span class='userdanger'>Ой-ой! [self_msg]<span>")
 
 /obj/projectile/kiss/on_hit(atom/target, blocked, pierce_hit)
 	def_zone = BODY_ZONE_HEAD // let's keep it PG, people
@@ -542,7 +545,7 @@
 		try_fluster(target)
 
 /obj/projectile/kiss/death
-	name = "kiss of death"
+	name = "поцелуй смерти"
 	nodamage = FALSE // okay i kinda lied about love not being able to hurt you
 	damage = 35
 	wound_bonus = 0
@@ -559,7 +562,7 @@
 
 
 /obj/projectile/kiss/french
-	name = "french kiss (is that a hint of garlic?)"
+	name = "французский поцелуй (с намеком на чеснок?)"
 	color = "#f2e9d2" //Scientifically proven to be the colour of garlic
 
 /obj/projectile/kiss/french/harmless_on_hit(mob/living/living_target)
@@ -568,4 +571,4 @@
 	if(! living_target.has_reagent(/datum/reagent/consumable/garlic) )
 		//Phwoar
 		living_target.reagents.add_reagent(/datum/reagent/consumable/garlic, 1)
-	living_target.visible_message("[living_target] has a funny look on [living_target.p_their()] face.", "Wow, that is a strong after taste of garlic!", vision_distance=COMBAT_MESSAGE_RANGE)
+	living_target.visible_message("[living_target] имеет смешной взгляд на [living_target.ru_ego()] лице.", "Воу! Какое резкое послевкусие от чеснока!", vision_distance=COMBAT_MESSAGE_RANGE)

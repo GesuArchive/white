@@ -287,8 +287,6 @@
 	key = "kiss"
 	ru_name = "поцеловать"
 	key_third_person = "kisses"
-	message = "отправляет воздушный поцелуй."
-	message_param = "отправляет воздушный поцелуй %t."
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/kiss/run_emote(mob/living/user, params, type_override, intentional)

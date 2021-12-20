@@ -243,9 +243,9 @@
 	if(!beau)
 		return
 	if(direct)
-		description = "<span class='nicegreen'>[beau.name] поцеловал меня, а-х-х!!</span>\n"
+		description = "<span class='nicegreen'>[beau.name] поцеловал[beau.ru_a()] меня, а-х-х!!</span>\n"
 	else
-		description = "<span class='nicegreen'>[beau.name] отправил мне воздушный поцелуй! Должно быть, [beau.ru_who()] в меня влюбился!</span>\n"
+		description = "<span class='nicegreen'>[beau.name] отправил[beau.ru_a()] мне воздушный поцелуй! Это так мило!</span>\n"
 
 /datum/mood_event/honorbound
 	description = "<span class='nicegreen'>Following my honorbound code is fulfilling!</span>\n"
