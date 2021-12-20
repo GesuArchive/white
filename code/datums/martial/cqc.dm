@@ -231,12 +231,3 @@
 	if(!is_type_in_list(get_area(owner), valid_areas))
 		return FALSE
 	return ..()
-
-/datum/martial_art/krav_maga/sanitar_closed_combat
-	name = "Close Sanitar Combat"
-	var/list/valid_areas = list(/area/medical)
-
-/datum/martial_art/krav_maga/sanitar_closed_combat/can_use(mob/living/owner)
-	if(!is_type_in_list(get_area(owner), valid_areas))
-		return FALSE
-	return ..()
