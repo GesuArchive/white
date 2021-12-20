@@ -8,10 +8,13 @@
 	slot = ORGAN_SLOT_TAIL
 	var/tail_type = "None"
 
-/obj/item/organ/tail/Remove(mob/living/carbon/human/H,  special = 0)
-	..()
-	if(H && H.dna && H.dna.species)
-		H.dna.species.stop_wagging_tail(H)
+/obj/item/organ/tail/Insert(mob/living/carbon/human/tail_owner, special = FALSE, drop_if_replaced = TRUE)
+	. = ..()
+	tail_owner?.dna?.species?.on_tail_regain(tail_owner, src, special)
+
+/obj/item/organ/tail/Remove(mob/living/carbon/human/tail_owner, special = FALSE)
+	. = ..()
+	tail_owner?.dna?.species?.on_tail_lost(tail_owner, src, special)
 
 /obj/item/organ/tail/cat
 	name = "кошачий хвост"

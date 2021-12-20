@@ -279,6 +279,25 @@
 	mood_change *= people_laughing_at_you
 	return ..()
 
+/datum/mood_event/tail_lost
+	description = "<span class='boldwarning'>А-А-А-А! МОЙ ХВОСТ! ЗА ЧТО?!!</span>\n"
+	mood_change = -40
+	timeout = 120 MINUTES
+
+/datum/mood_event/tail_balance_lost
+	description = "<span class='warning'>Чувствую, что не могу держать баланс без своего хвостика...</span>\n"
+	mood_change = -4
+
+/datum/mood_event/tail_regained_right
+	description = "<span class='warning'>О-ох. Мой хвост возвращен, но это было больно!</span>\n"
+	mood_change = -4
+	timeout = 5 MINUTES
+
+/datum/mood_event/tail_regained_wrong
+	description = "<span class='boldwarning'>Это что, какая-то больная шутка?! Это не МОЙ хвост!!</span>\n"
+	mood_change = -40 // -8 for tail still missing + -4 bonus for being frakenstein's monster
+	timeout = 180 MINUTES
+
 //These are unused so far but I want to remember them to use them later
 /datum/mood_event/surgery
 	description = "<span class='boldwarning'>МЕНЯ РЕЖУТ НА КУСОЧКИ!!</span>\n"
@@ -320,29 +339,10 @@
 	mood_change = -6
 	timeout = 90 SECONDS
 
-/datum/mood_event/tail_lost
-	description = "<span class='boldwarning'>My tail!! Why?!</span>\n"
-	mood_change = -16
-	timeout = 10 MINUTES
-
-/datum/mood_event/tail_balance_lost
-	description = "<span class='warning'>I feel off-balance without my tail.</span>\n"
-	mood_change = -4
-
-/datum/mood_event/tail_regained_right
-	description = "<span class='warning'>My tail is back, but that was traumatic...</span>\n"
-	mood_change = -4
-	timeout = 5 MINUTES
-
-/datum/mood_event/tail_regained_wrong
-	description = "<span class='boldwarning'>Is this some kind of sick joke?! This is NOT the right tail.</span>\n"
-	mood_change = -24 // -8 for tail still missing + -4 bonus for being frakenstein's monster
-	timeout = 5 MINUTES
-
 /datum/mood_event/burnt_wings
 	description = "<span class='boldwarning'>MY PRECIOUS WINGS!!</span>\n"
 	mood_change = -20
-	timeout = 10 MINUTES
+	timeout = 20 MINUTES
 
 /datum/mood_event/holy_smite //punished
 	description = "<span class='warning'>I have been punished by my deity!</span>\n"

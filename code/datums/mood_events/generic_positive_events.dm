@@ -235,7 +235,7 @@
 	mood_change = 6
 
 /datum/mood_event/kiss
-	description = "<span class='nicegreen'>Someone blew a kiss at me, I must be a real catch!</span>\n"
+	description = "<span class='nicegreen'>Кто-то отправил мне воздушный поцелуй! Должно быть, я кому-то нравлюсь!</span>\n"
 	mood_change = 1.5
 	timeout = 2 MINUTES
 
@@ -243,9 +243,9 @@
 	if(!beau)
 		return
 	if(direct)
-		description = "<span class='nicegreen'>[beau.name] gave me a kiss, ahh!!</span>\n"
+		description = "<span class='nicegreen'>[beau.name] поцеловал меня, а-х-х!!</span>\n"
 	else
-		description = "<span class='nicegreen'>[beau.name] blew a kiss at me, I must be a real catch!</span>\n"
+		description = "<span class='nicegreen'>[beau.name] отправил мне воздушный поцелуй! Должно быть, [beau.ru_who()] в меня влюбился!</span>\n"
 
 /datum/mood_event/honorbound
 	description = "<span class='nicegreen'>Following my honorbound code is fulfilling!</span>\n"

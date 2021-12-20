@@ -291,6 +291,22 @@
 	message_param = "отправляет воздушный поцелуй %t."
 	emote_type = EMOTE_AUDIBLE
 
+/datum/emote/living/kiss/run_emote(mob/living/user, params, type_override, intentional)
+	. = ..()
+	if(!.)
+		return
+	var/kiss_type = /obj/item/kisser
+
+	if(HAS_TRAIT(user, TRAIT_KISS_OF_DEATH))
+		kiss_type = /obj/item/kisser/death
+
+	var/obj/item/kiss_blower = new kiss_type(user)
+	if(user.put_in_hands(kiss_blower))
+		to_chat(user, span_notice("Готовлю свою руку для воздушного поцелуя."))
+	else
+		qdel(kiss_blower)
+		to_chat(user, span_warning("Не могу пока целовать!"))
+
 /datum/emote/living/laugh
 	key = "laugh"
 	ru_name = "смеяться"
