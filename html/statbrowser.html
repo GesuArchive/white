@@ -112,7 +112,7 @@
 		border-width: 1px;
 		border-style: solid;
 		color: rgba(0, 0, 0, 0.7);
-		padding: 4px 3px;
+		padding: 0;
 		text-align: center;
 		text-decoration: none;
 		font-size: 13px;
@@ -120,7 +120,7 @@
 		cursor: pointer;
 		transition-duration: 0.25s;
 		order: 3;
-		min-width: 40px;
+		min-width: 0px;
 	}
 
 	.dark button {
@@ -436,6 +436,7 @@ function createStatusTab(name) {
 	B.id = name;
 	B[textContentKey] = name;
 	B.className = "button";
+	B.innerHTML = "<img src=\"" + get_icon_for_tab_by_name(name) + "\">";
 	//ORDERING ALPHABETICALLY
 	B.style.order = name.charCodeAt(0);
 	if(name == "Состояние" || name == "MC")
@@ -444,6 +445,39 @@ function createStatusTab(name) {
 	menu.appendChild(B);
 	SendTabToByond(name);
 	under_menu.style.height = menu.clientHeight + 'px';
+}
+
+function get_icon_for_tab_by_name(name) {
+	switch(name) {
+		case 'Состояние':
+			return 'https://cdn.discordapp.com/attachments/891936642380759050/922266065113858118/test.png';
+		case 'IC':
+			return 'https://cdn.discordapp.com/attachments/891936642380759050/922276501490110494/ic.png';
+		case 'OOC':
+			return 'https://cdn.discordapp.com/attachments/891936642380759050/922276501666275428/ooc.png';
+		case 'Настройки':
+			return 'https://media.discordapp.net/attachments/891936642380759050/922270099711352892/cog.png';
+		case 'Объект':
+			return 'https://media.discordapp.net/attachments/891936642380759050/922271046613225492/obj.png';
+		case 'Особенное':
+			return 'https://cdn.discordapp.com/attachments/891936642380759050/922272459418402847/sprite.png';
+		case 'Призрак':
+			return 'https://cdn.discordapp.com/attachments/891936642380759050/922273417649070081/ghost.png';
+		case 'Адм':
+			return 'https://cdn.discordapp.com/attachments/891936642380759050/922275501916164186/pidor.png';
+		case 'Дбг':
+			return 'https://cdn.discordapp.com/attachments/891936642380759050/922279552418476052/debug.png';
+		case 'Срв':
+			return 'https://cdn.discordapp.com/attachments/891936642380759050/922276126137647114/pidor.png';
+		case 'Тикеты':
+			return 'https://cdn.discordapp.com/attachments/891936642380759050/922276835482538014/pidor.png';
+		case 'MC':
+			return 'https://cdn.discordapp.com/attachments/891936642380759050/922278631504502795/MC.png';
+		case 'Магия':
+			return 'https://cdn.discordapp.com/attachments/891936642380759050/922279819700494346/amogus.png';
+		default:
+			return 'https://cdn.discordapp.com/attachments/891936642380759050/922279819700494346/amogus.png';
+	}
 }
 
 function removeStatusTab(name) {
