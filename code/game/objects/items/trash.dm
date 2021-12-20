@@ -104,7 +104,7 @@
 	icon = 'icons/obj/food/canned.dmi'
 	icon_state = "beans_empty"
 
-obj/item/trash/can/food/tomatoes
+/obj/item/trash/can/food/tomatoes
 	name = "canned San Marzano tomatoes"
 	icon = 'icons/obj/food/canned.dmi'
 	icon_state = "tomatoescan_empty"
