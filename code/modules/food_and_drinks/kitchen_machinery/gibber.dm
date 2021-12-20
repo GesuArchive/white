@@ -179,18 +179,19 @@
 	var/occupant_volume
 	if(occupant?.reagents)
 		occupant_volume = occupant.reagents.total_volume
-	for (var/i=1 to meat_produced)
-		var/obj/item/food/meat/slab/newmeat = new typeofmeat
-		newmeat.name = "[sourcename] [newmeat.name]"
-		newmeat.set_custom_materials(list(GET_MATERIAL_REF(/datum/material/meat/mob_meat, occupant) = 4 * MINERAL_MATERIAL_AMOUNT))
-		if(istype(newmeat))
-			newmeat.subjectname = sourcename
-			newmeat.reagents.add_reagent (/datum/reagent/consumable/nutriment, sourcenutriment / meat_produced) // Thehehe. Fat guys go first
-			if(occupant_volume)
-				occupant.reagents.trans_to(newmeat, occupant_volume / meat_produced, remove_blacklisted = TRUE)
-			if(sourcejob)
-				newmeat.subjectjob = sourcejob
-		allmeat[i] = newmeat
+	if(typeofmeat)
+		for (var/i=1 to meat_produced)
+			var/obj/item/food/meat/slab/newmeat = new typeofmeat
+			newmeat.name = "[sourcename] [newmeat.name]"
+			newmeat.set_custom_materials(list(GET_MATERIAL_REF(/datum/material/meat/mob_meat, occupant) = 4 * MINERAL_MATERIAL_AMOUNT))
+			if(istype(newmeat))
+				newmeat.subjectname = sourcename
+				newmeat.reagents.add_reagent (/datum/reagent/consumable/nutriment, sourcenutriment / meat_produced) // Thehehe. Fat guys go first
+				if(occupant_volume)
+					occupant.reagents.trans_to(newmeat, occupant_volume / meat_produced, remove_blacklisted = TRUE)
+				if(sourcejob)
+					newmeat.subjectjob = sourcejob
+			allmeat[i] = newmeat
 
 	if(typeofskin)
 		skin = new typeofskin
