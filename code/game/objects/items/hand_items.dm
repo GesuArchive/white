@@ -482,7 +482,7 @@
 
 /obj/projectile/kiss/fire(angle, atom/direct_target)
 	if(firer)
-		name = "[name] посылает воздушный поцелуй [firer]!"
+		name = "[name] от [firer]"
 	return ..()
 
 /obj/projectile/kiss/Impact(atom/A)
