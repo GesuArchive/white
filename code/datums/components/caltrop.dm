@@ -87,8 +87,8 @@
 	if(!(flags & CALTROP_SILENT) && !H.has_status_effect(/datum/status_effect/caltropped))
 		H.apply_status_effect(/datum/status_effect/caltropped)
 		H.visible_message(
-			span_danger("[H] наступает на [source]."),
-			span_userdanger("Наступаю на [source]!")
+			span_danger("[H] наступает на [parent]."),
+			span_userdanger("Наступаю на [parent]!")
 		)
 
 	H.apply_damage(damage, BRUTE, picked_def_zone, wound_bonus = CANT_WOUND)
