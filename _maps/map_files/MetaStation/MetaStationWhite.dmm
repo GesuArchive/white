@@ -41559,6 +41559,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
+/obj/item/food/grown/poppy/lily,
 /turf/open/floor/plasteel,
 /area/service/hydroponics)
 "ccI" = (
@@ -77443,11 +77444,11 @@
 /area/commons/locker)
 "tPD" = (
 /obj/structure/table,
-/obj/item/food/grown/poppy/lily,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
 /obj/machinery/light,
+/obj/machinery/plantgenes,
 /turf/open/floor/plasteel,
 /area/service/hydroponics)
 "tPH" = (

@@ -44823,6 +44823,7 @@
 	},
 /obj/structure/table,
 /obj/effect/turf_decal/delivery,
+/obj/machinery/plantgenes,
 /turf/open/floor/plasteel,
 /area/service/hydroponics)
 "gko" = (

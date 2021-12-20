@@ -53869,6 +53869,10 @@
 /obj/item/wirecutters,
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/circuitboard/machine/biogenerator,
+/obj/item/seeds/random{
+	pixel_x = -6;
+	pixel_y = 6
+	},
 /turf/open/floor/plasteel/dark,
 /area/service/hydroponics)
 "ngH" = (
@@ -74615,23 +74619,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/seeds/random{
-	pixel_x = -6;
-	pixel_y = 6
-	},
-/obj/item/seeds/wheat{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/seeds/sugarcane{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/seeds/potato{
-	pixel_x = -1;
-	pixel_y = 1
-	},
-/obj/item/reagent_containers/spray/cleaner,
+/obj/machinery/plantgenes,
 /turf/open/floor/plasteel/dark,
 /area/service/hydroponics)
 "vfO" = (
