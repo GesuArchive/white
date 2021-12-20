@@ -11,11 +11,14 @@
 	burns_in_oven = TRUE
 	/// type is spawned 6 at a time and replaces this pizza when processed by cutting tool
 	var/obj/item/food/pizzaslice/slice_type
+	///What label pizza boxes use if this pizza spawns in them.
+	var/boxtag = ""
 
 /obj/item/food/pizza/raw
 	foodtypes =  GRAIN | DAIRY | VEGETABLES | RAW
 	burns_in_oven = FALSE
 	slice_type = null
+	boxtag = "Хуй в пизду"
 
 /obj/item/food/pizza/raw/MakeBakeable()
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
@@ -45,6 +48,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/margherita
+	boxtag = "Margherita Deluxe"
 
 
 /obj/item/food/pizza/margherita/raw
@@ -78,6 +82,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 8)
 	foodtypes = GRAIN | VEGETABLES| DAIRY | MEAT
 	slice_type = /obj/item/food/pizzaslice/meat
+	boxtag = "Meatlovers' Supreme"
 
 /obj/item/food/pizza/meat/raw
 	name = "raw meatpizza"
@@ -104,6 +109,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "грибы" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/mushroom
+	boxtag = "Mushroom Special"
 
 /obj/item/food/pizza/mushroom/raw
 	name = "raw mushroom pizza"
@@ -132,6 +138,7 @@
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/vegetable
 	venue_value = FOOD_PRICE_NORMAL
+	boxtag = "Gourmet Vegetable"
 
 /obj/item/food/pizza/vegetable/raw
 	name = "raw vegetable pizza"
@@ -159,6 +166,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1, "лень" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | JUNKFOOD
 	slice_type = /obj/item/food/pizzaslice/donkpocket
+	boxtag = "Bangin' Donk"
 
 /obj/item/food/pizza/donkpocket/raw
 	name = "raw donkpocket pizza"
@@ -186,6 +194,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/dank
+	boxtag = "Fresh Herb"
 
 /obj/item/food/pizza/dank/raw
 	name = "raw dank pizza"
@@ -213,6 +222,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/sassysage
+	boxtag = "Sausage Lovers"
 
 /obj/item/food/pizza/sassysage/raw
 	name = "raw sassysage pizza"
@@ -240,6 +250,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "ананас" = 2, "ветчина" = 2)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE
 	slice_type = /obj/item/food/pizzaslice/pineapple
+	boxtag = "Honolulu Chew"
 
 /obj/item/food/pizza/pineapple/raw
 	name = "raw Hawaiian pizza"
@@ -283,6 +294,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 9, /datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/iron = 10, /datum/reagent/medicine/omnizine = 30)
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "пепперони" = 2, "9-ти миллиметровые пули" = 2)
 	slice_type = /obj/item/food/pizzaslice/arnold
+	boxtag = "9mm Pepperoni"
 
 /obj/item/food/pizza/arnold/raw
 	name = "raw Arnold pizza"
@@ -348,6 +360,7 @@
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "insects" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | GROSS
 	slice_type = /obj/item/food/pizzaslice/ants
+	boxtag = "Anthill Deluxe"
 
 /obj/item/food/pizzaslice/ants
 	name = "\improper Ant Party pizza slice"

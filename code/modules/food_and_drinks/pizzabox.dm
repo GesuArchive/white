@@ -19,6 +19,8 @@
 	var/open = FALSE
 	var/can_open_on_fall = TRUE //if FALSE, this pizza box will never open if it falls from a stack
 	var/boxtag = ""
+	///Used to make sure artisinal box tags aren't overwritten.
+	var/boxtag_set = FALSE
 	var/list/boxes = list()
 
 	var/obj/item/food/pizza/pizza
@@ -41,9 +43,12 @@
 	unprocess()
 	return ..()
 
-/obj/item/pizzabox/update_icon()
-	// Description
+/obj/item/pizzabox/update_desc()
 	desc = initial(desc)
+	. = ..()
+	if(pizza && pizza.boxtag && !boxtag_set)
+		boxtag = pizza.boxtag
+		boxtag_set = TRUE
 	if(open)
 		if(pizza)
 			desc = "[desc] It appears to have \a [pizza] inside. Use your other hand to take it out."

@@ -168,3 +168,84 @@
 	foodtypes = TOXIC
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/food/peanuts
+	name = "\improper Gallery's peanuts"
+	desc = "A favourite amongst the terminally angry."
+	icon_state = "peanuts"
+	trash_type = /obj/item/trash/peanuts
+	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
+	tastes = list("peanuts" = 4, "anger" = 1)
+	foodtypes = JUNKFOOD | NUTS
+	custom_price = PAYCHECK_ASSISTANT * 0.8 //nuts are expensive in real life, and this is the best food in the vendor.
+	junkiness = 10 //less junky than other options, since peanuts are a decently healthy snack option
+	w_class = WEIGHT_CLASS_SMALL
+	grind_results = list(/datum/reagent/consumable/peanut_butter = 5, /datum/reagent/consumable/cooking_oil = 2)
+	var/safe_for_consumption = TRUE
+
+/obj/item/food/peanuts/salted
+	name = "\improper Gallery's salt reserves peanuts"
+	desc = "Tastes salty."
+	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/salt = 1)
+	tastes = list("peanuts" = 3, "salt" = 1, "high blood pressure" = 1)
+
+/obj/item/food/peanuts/wasabi
+	name = "\improper Gallery's raging wasabi peanuts"
+	desc = "The angriest of all peanut flavours."
+	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/capsaicin = 1)
+	tastes = list("peanuts" = 3, "wasabi" = 1, "rage" = 1)
+
+/obj/item/food/peanuts/honey_roasted
+	name = "\improper Gallery's delete sweet peanuts"
+	desc = "Oddly bitter for a sweet treat."
+	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/sugar = 1)
+	tastes = list("peanuts" = 3, "honey" = 1, "bitterness" = 1)
+
+/obj/item/food/peanuts/barbecue
+	name = "\improper Gallery's IDEDBBQ peanuts"
+	desc = "Where there's smoke, there's not necessarily fire- sometimes it's just BBQ sauce."
+	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/bbqsauce = 1)
+	tastes = list("peanuts" = 3, "bbq sauce" = 1, "arguments" = 1)
+
+/obj/item/food/peanuts/ban_appeal
+	name = "\improper Gallery's peanuts Ban Appel mix"
+	desc = "An ill-fated attempt at trail mix, banned in 6 sectors. Yearly lobbying to overturn is denied not because the apples are toxic, but because they keep evading the ban."
+	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/toxin/cyanide = 1) //uses dried poison apples
+	tastes = list("peanuts" = 3, "apples" = 1, "regret" = 1)
+	safe_for_consumption = FALSE
+
+/obj/item/food/peanuts/random
+	name = "\improper Gallery's every-flavour peanuts"
+	desc = "What flavour will you get?"
+	icon_state = "peanuts"
+	safe_for_consumption = FALSE
+
+/obj/item/food/cnds
+	name = "\improper C&Ds"
+	desc = "Legally, we cannot say that these won't melt in your hands."
+	icon_state = "cnds"
+	trash_type = /obj/item/trash/cnds
+	food_reagents = list(/datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/coco = 1)
+	tastes = list("chocolate candy" = 3)
+	junkiness = 25
+	foodtypes = JUNKFOOD
+	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/food/cnds/suicide_act(mob/user)
+	. = ..()
+	user.visible_message(span_suicide("[user] is letting [src] melt in [user.p_their()] hand! It looks like [user.p_theyre()] trying to commit suicide!"))
+	return TOXLOSS
+
+/obj/item/food/cnds/random
+	name = "mystery filled C&Ds"
+	desc = "Filled with one of four delicious flavours!"
+
+/obj/item/food/cnds/random/Initialize(mapload)
+	var/random_flavour = pick(subtypesof(/obj/item/food/cnds) - /obj/item/food/cnds/random)
+	var/obj/item/food/sample = new random_flavour(loc)
+	name = sample.name
+	desc = sample.desc
+	food_reagents = sample.food_reagents
+	tastes = sample.tastes
+	qdel(sample)
+	. = ..()

@@ -22,7 +22,7 @@
 		/obj/item/food/breadslice/plain = 2,
 		/obj/item/food/cheesewedge = 2
 	)
-	result = /obj/item/food/cheese_sandwich
+	result = /obj/item/food/cheesewedge_sandwich
 	subcategory = CAT_SANDWICH
 
 /datum/crafting_recipe/food/slimesandwich

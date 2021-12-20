@@ -167,6 +167,15 @@
 				/obj/item/trash/can/food/peaches/maint = 4,
 				/obj/item/trash/semki = 2)
 
+/obj/effect/spawner/lootdrop/pizzaparty
+	name = "oi pizda spawner"
+	loot = list(
+		/obj/item/pizzabox/margherita = 2,
+		/obj/item/pizzabox/meat = 2,
+		/obj/item/pizzabox/mushroom = 2,
+		/obj/item/pizzabox/pineapple = 2,
+		/obj/item/pizzabox/vegetable = 2)
+
 /obj/effect/spawner/lootdrop/botanical_waste
 	name = "botanical waste spawner"
 	loot = list(/obj/item/grown/bananapeel = 60,

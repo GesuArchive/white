@@ -23,7 +23,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	burns_on_grill = TRUE
 
-/obj/item/food/cheese_sandwich
+/obj/item/food/cheesewedge_sandwich
 	name = "cheese sandwich"
 	desc = "A light snack for a warm day. ...but what if you grilled it?"
 	icon = 'icons/obj/food/burgerbread.dmi'
@@ -35,7 +35,7 @@
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/food/cheese_sandwich/MakeGrillable()
+/obj/item/food/cheesewedge_sandwich/MakeGrillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/grilled_cheese_sandwich, rand(30 SECONDS, 60 SECONDS), TRUE)
 
 /obj/item/food/jellysandwich

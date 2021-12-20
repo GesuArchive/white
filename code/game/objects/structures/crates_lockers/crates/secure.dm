@@ -54,6 +54,21 @@
 	name = "защищенный ящик гидропоники"
 	icon_state = "hydrosecurecrate"
 
+/obj/structure/closet/crate/secure/freezer
+	desc = "Холодильник с замком, используемый для хранения еды."
+	name = "защищенный кухонный ящик"
+	icon_state = "kitchen_secure_crate"
+
+/obj/structure/closet/crate/secure/freezer/pizza
+	name = "защищенный ящик с пиццей"
+	desc = "Холодильник с замком, используемый для, очевидно, хранения пиццы."
+	req_access = list(28)
+	tamperproof = 10
+
+/obj/structure/closet/crate/secure/freezer/pizza/PopulateContents()
+	. = ..()
+	new /obj/effect/spawner/lootdrop/pizzaparty(src)
+
 /obj/structure/closet/crate/secure/engineering
 	desc = "Ящик с замком, на нём нарисована эмблема инженеров станции."
 	name = "защищенный ящик инженеров"

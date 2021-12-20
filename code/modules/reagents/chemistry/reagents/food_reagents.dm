@@ -1024,3 +1024,47 @@
 	color = "#fccc98"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
+
+/datum/reagent/consumable/cornmeal
+	name = "Cornmeal"
+	description = "Ground cornmeal, for making corn related things."
+	taste_description = "raw cornmeal"
+	color = "#ebca85"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/consumable/yoghurt
+	name = "Йогурт"
+	description = "Creamy natural yoghurt, with applications in both food and drinks."
+	taste_description = "йогурт"
+	color = "#efeff0"
+	nutriment_factor = 2 * REAGENTS_METABOLISM
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/consumable/cornmeal_batter
+	name = "Cornmeal Batter"
+	description = "An eggy, milky, corny mixture that's not very good raw."
+	taste_description = "raw batter"
+	color = "#ebca85"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/consumable/peanut_butter
+	name = "Peanut Butter"
+	description = "A rich, creamy spread produced by grinding peanuts."
+	taste_description = "peanuts"
+	color = "#D9A066"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/consumable/vinegar
+	name = "Vinegar"
+	description = "Useful for pickling, or putting on chips."
+	taste_description = "acid"
+	color = "#661F1E"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+//A better oil, representing choices like olive oil, argan oil, avocado oil, etc.
+/datum/reagent/consumable/quality_oil
+	name = "Quality Oil"
+	description = "A high quality oil, suitable for dishes where the oil is a key flavour."
+	taste_description = "olive oil"
+	color = "#DBCF5C"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED

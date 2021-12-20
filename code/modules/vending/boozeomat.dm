@@ -26,9 +26,11 @@
 					/obj/item/reagent_containers/food/drinks/bottle/vodka = 5,
 					/obj/item/reagent_containers/food/drinks/bottle/vermouth = 5,
 					/obj/item/reagent_containers/food/drinks/bottle/rum = 5,
+					/obj/item/reagent_containers/food/drinks/bottle/navy_rum = 5,
 					/obj/item/reagent_containers/food/drinks/bottle/wine = 5,
 					/obj/item/reagent_containers/food/drinks/bottle/cognac = 5,
 					/obj/item/reagent_containers/food/drinks/bottle/kahlua = 5,
+					/obj/item/reagent_containers/food/drinks/bottle/curacao = 5,
 					/obj/item/reagent_containers/food/drinks/bottle/hcider = 5,
 					/obj/item/reagent_containers/food/drinks/bottle/absinthe = 5,
 					/obj/item/reagent_containers/food/drinks/bottle/grappa = 5,
@@ -45,6 +47,7 @@
 	premium = list(/obj/item/reagent_containers/glass/bottle/ethanol = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/trappist = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/bitters = 5,
 	)
 
 	product_slogans = "Надеюсь, никто не попросит у меня чашку кровавого чая...;Алкоголь - друг человечества. Вы бы бросили друга?;Очень рад служить вам!;На этой станции никто не хочет пить?"

@@ -105,6 +105,7 @@
 #define CAT_STRUCTURE "Structures"
 #define CAT_DRINK "Drinks"
 #define CAT_CHEMISTRY "Chemistry"
+#define CAT_MOTH "Mothic Food"
 
 // these aren't even used as bitflags so who even knows why they are treated like them
 #define RCD_FLOORWALL (1<<0)
