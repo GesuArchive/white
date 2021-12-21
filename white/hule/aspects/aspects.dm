@@ -528,7 +528,7 @@
 		var/turf/TT = get_turf(W)
 		if(TT)
 			if(istype(W, /obj/structure/window/reinforced))
-				TT.ChangeTurf(/turf/closed/wall/reinforced, flags = CHANGETURF_DEFER_CHANGE)
+				TT.ChangeTurf(/turf/closed/wall/r_wall, flags = CHANGETURF_DEFER_CHANGE)
 			else
 				TT.ChangeTurf(/turf/closed/wall, flags = CHANGETURF_DEFER_CHANGE)
 			qdel(W)

@@ -178,6 +178,10 @@
 		SStgui.update_uis(parent)
 
 
+/// Called when trying to get the physical location of this object
+/obj/item/circuit_component/proc/get_location()
+	return get_turf(src) || get_turf(parent?.shell)
+
 /**
  * Called whenever an input is received from one of the ports.
  *
