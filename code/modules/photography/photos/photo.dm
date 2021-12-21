@@ -10,9 +10,8 @@
 	resistance_flags = FLAMMABLE
 	max_integrity = 50
 	grind_results = list(/datum/reagent/iodine = 4)
-	material_flags = MATERIAL_NO_EFFECTS
 	var/datum/picture/picture
-	var/scribble		//Scribble on the back.
+	var/scribble //Scribble on the back.
 
 /obj/item/photo/Initialize(mapload, datum/picture/P, datum_name = TRUE, datum_desc = TRUE)
 	set_picture(P, datum_name, datum_desc, TRUE)
@@ -22,7 +21,7 @@
 	if(!istype(P))
 		return
 	picture = P
-	update_icon()
+	update_icon_state()
 	if(P.caption)
 		scribble = P.caption
 	if(setname && P.picture_name)
@@ -43,12 +42,14 @@
 
 /obj/item/photo/update_icon_state()
 	if(!istype(picture) || !picture.picture_image)
-		return
+		return ..()
 	var/icon/I = picture.get_small_icon(initial(icon_state))
-	overlays += I
+	if(I)
+		icon = I
+	return ..()
 
 /obj/item/photo/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] is taking one last look at <b>[src.name]</b>! It looks like [user.p_theyre()] giving in to death!"))//when you wanna look at photo of waifu one last time before you die...
+	user.visible_message(span_suicide("[user] is taking one last look at \the [src]! It looks like [user.p_theyre()] giving in to death!"))//when you wanna look at photo of waifu one last time before you die...
 	if (user.gender == MALE)
 		playsound(user, 'sound/voice/human/manlaugh1.ogg', 50, TRUE)//EVERY TIME I DO IT MAKES ME LAUGH
 	else if (user.gender == FEMALE)
@@ -77,14 +78,14 @@
 	if(in_range(src, user) || isobserver(user))
 		show(user)
 	else
-		. += "<hr><span class='warning'>You need to get closer to get a good look at this photo!</span>"
+		. += span_warning("<hr>You need to get closer to get a good look at this photo!")
 
 /obj/item/photo/proc/show(mob/user)
 	if(!istype(picture) || !picture.picture_image)
-		to_chat(user, span_warning("[capitalize(src.name)] seems to be blank..."))
+		to_chat(user, span_warning("[src] seems to be blank..."))
 		return
 	user << browse_rsc(picture.picture_image, "tmp_photo.png")
-	user << browse("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>[name]</title></head>" \
+	user << browse("<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>[name]</title></head>" \
 		+ "<body style='overflow:hidden;margin:0;text-align:center'>" \
 		+ "<img src='tmp_photo.png' width='480' style='-ms-interpolation-mode:nearest-neighbor' />" \
 		+ "[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]"\
