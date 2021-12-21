@@ -464,3 +464,75 @@
 /datum/round_aspect/rdmg/run_aspect()
 	GLOB.random_damage_goes_on = TRUE
 	..()
+
+/datum/round_aspect/fireunlock
+	name = "Fireunlock"
+	desc = "Пожарные шлюзы украли!"
+	weight = 3
+	forbidden = TRUE
+
+/datum/round_aspect/fireunlock/run_aspect()
+	for(var/obj/machinery/door/firedoor/F in world)
+		qdel(F)
+	..()
+
+/datum/round_aspect/ihavetwobuttsbutimustseat
+	name = "I Have Two Butts But I must Seat"
+	desc = "Стулья украли!"
+	weight = 5
+
+/datum/round_aspect/ihavetwobuttsbutimustseat/run_aspect()
+	for(var/obj/structure/chair/C in world)
+		qdel(C)
+	..()
+
+/datum/round_aspect/hungry_bin
+	name = "Hungry Bin"
+	desc = "Мусорки проголодались!"
+	weight = 5
+	forbidden = TRUE
+
+/datum/round_aspect/hungry_bin/run_aspect()
+	GLOB.disposals_are_hungry = TRUE
+	..()
+
+/datum/round_aspect/stolen_floor
+	name = "Stolen Floor"
+	desc = "Рабочие забыли положить плитку при строительстве станции."
+	weight = 4
+
+/datum/round_aspect/stolen_floor/run_aspect()
+	for(var/turf/open/floor/P in world)
+		P.ChangeTurf(/turf/open/floor/plating, flags = CHANGETURF_DEFER_CHANGE)
+		CHECK_TICK
+	..()
+
+/datum/round_aspect/strong_floor
+	name = "Strong Floor"
+	desc = "Пол был кем-то укреплён."
+	weight = 3
+
+/datum/round_aspect/strong_floor/run_aspect()
+	for(var/turf/open/floor/P in world)
+		P.ChangeTurf(/turf/open/floor/engine, flags = CHANGETURF_DEFER_CHANGE)
+		CHECK_TICK
+	..()
+
+/datum/round_aspect/are_we_in_dungeon
+	name = "Are We In Dungeon"
+	desc = "В связи с невероятной хрупкостью окон было решено заменить их на стены."
+	weight = 3
+
+/datum/round_aspect/are_we_in_dungeon/run_aspect()
+	for(var/obj/structure/window/W in world)
+		var/turf/TT = get_turf(W)
+		if(TT)
+			if(istype(W, /obj/structure/window/reinforced))
+				TT.ChangeTurf(/turf/closed/wall/reinforced, flags = CHANGETURF_DEFER_CHANGE)
+			else
+				TT.ChangeTurf(/turf/closed/wall, flags = CHANGETURF_DEFER_CHANGE)
+			qdel(W)
+	for(var/obj/structure/grille/G in world)
+		qdel(G)
+		CHECK_TICK
+	..()

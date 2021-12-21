@@ -1,5 +1,7 @@
 // Disposal bin and Delivery chute.
 
+GLOBAL_VAR_INIT(disposals_are_hungry, FALSE)
+
 #define SEND_PRESSURE (0.05*ONE_ATMOSPHERE)
 
 /obj/machinery/disposal
@@ -110,7 +112,12 @@
 
 /obj/machinery/disposal/proc/place_item_in_disposal(obj/item/I, mob/user)
 	I.forceMove(src)
-	user.visible_message(span_notice("[user.name] закидывает [I] в [src].") , span_notice("Закидываю [I] в [src]."))
+	if(GLOB.disposals_are_hungry)
+		user.visible_message(span_danger("[user.name] кормит [src] используя [I]."), span_danger("Кормлю [src] используя [I]."))
+		playsound(get_turf(src), 'sound/items/eatfood.ogg', 100, TRUE)
+		qdel(I)
+	else
+		user.visible_message(span_notice("[user.name] закидывает [I] в [src]."), span_notice("Закидываю [I] в [src]."))
 
 //mouse drop another mob or self
 /obj/machinery/disposal/MouseDrop_T(mob/living/target, mob/living/user)
@@ -149,6 +156,9 @@
 			log_combat(user, target, "stuffed", addition="into [src]")
 			target.LAssailant = WEAKREF(user)
 			. = TRUE
+		if(GLOB.disposals_are_hungry)
+			playsound(get_turf(src), 'sound/items/eatfood.ogg', 100, TRUE)
+			target.gib()
 		update_icon()
 
 /obj/machinery/disposal/relaymove(mob/living/user, direction)
