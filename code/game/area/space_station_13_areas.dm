@@ -379,6 +379,9 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Коридоры: Шаттл прибытия"
 	icon_state = "entry"
 
+/area/hallway/secondary/entry/south
+	name = "Коридоры: Южное прибытие"
+
 /area/hallway/secondary/service
 	name = "Коридоры: Обслуга"
 	icon_state = "hall_service"
@@ -1352,6 +1355,12 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/commons/vacant_room/commissary/second
 	name = "Нижний магазин"
+
+/area/commons/vacant_room/commissary/third
+	name = "Дополнительный магазин"
+
+/area/commons/vacant_room/commissary/fourth
+	name = "Интересный магазин"
 
 //AI
 
