@@ -275,6 +275,7 @@
 	name = "Fast and Furious"
 	desc = "Люди спешат и не важно куда."
 	weight = 9
+	forbidden = TRUE
 
 /datum/round_aspect/fast_and_furious/run_aspect()
 	CONFIG_SET(number/movedelay/run_delay, 1)
@@ -284,6 +285,7 @@
 	name = "Weak"
 	desc = "Удары стали слабее. Пули мягче. К чему это приведёт?"
 	weight = 6
+	forbidden = TRUE
 
 /datum/round_aspect/weak/run_aspect()
 	CONFIG_SET(number/damage_multiplier, 0.5)
@@ -303,6 +305,7 @@
 	name = "Bloody"
 	desc = "В эту смену любая незначительная травма может оказаться летальной."
 	weight = 6
+	forbidden = TRUE
 
 /datum/round_aspect/bloody/run_aspect()
 	CONFIG_SET(number/damage_multiplier, 3)
@@ -429,6 +432,7 @@
 	name = "Oleg"
 	desc = "Олег."
 	weight = 5
+	forbidden = TRUE
 
 /datum/round_aspect/oleg/run_aspect()
 	SSjob.forced_name = "Олег"
