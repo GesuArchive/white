@@ -104,7 +104,7 @@
 	update_health_overlay()
 
 /obj/structure/blob/proc/update_health_overlay()
-	if(obj_integrity < max_integritydrea)
+	if(obj_integrity < max_integrity)
 		var/hurt_percentage = round((obj_integrity * 100) / max_integrity)
 		var/hurt_icon
 		switch(hurt_percentage)
@@ -443,3 +443,12 @@
 		BS.overmind = overmind
 		BS.update_icons()
 		overmind.blob_mobs.Add(BS)
+
+/obj/effect/temp_visual/blobthing
+	name = "масса"
+	icon = 'icons/mob/blob_64.dmi'
+	icon_state = "nothing"
+	duration = 8
+	randomdir = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	layer = RIPPLE_LAYER
