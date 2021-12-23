@@ -1,9 +1,9 @@
 //I will need to recode parts of this but I am way too tired atm //I don't know who left this comment but they never did come back
 /obj/structure/blob
-	name = "blob"
-	icon = 'icons/mob/blob.dmi'
+	name = "масса"
+	icon = 'icons/mob/blob_64.dmi'
 	light_range = 2
-	desc = "A thick wall of writhing tendrils."
+	desc = "Крепкая стена."
 	density = TRUE
 	opacity = FALSE
 	anchored = TRUE
@@ -29,7 +29,8 @@
 	/// If the blob blocks atmos and heat spread
 	var/atmosblock = FALSE
 	var/mob/camera/blob/overmind
-
+	pixel_x = -WORLD_ICON_SIZE/2
+	pixel_y = -WORLD_ICON_SIZE/2
 
 /obj/structure/blob/Initialize(mapload, owner_overmind)
 	. = ..()
@@ -91,6 +92,31 @@
 		add_atom_colour(overmind.blobstrain.color, FIXED_COLOUR_PRIORITY)
 	else
 		remove_atom_colour(FIXED_COLOUR_PRIORITY)
+
+	cut_overlays()
+
+	for(var/obj/structure/blob/B in orange(src,1))
+		overlays += image(icon, "connect", dir = get_dir(src,B))
+
+	underlays.len = 0
+	underlays += image(icon,"roots")
+
+	update_health_overlay()
+
+/obj/structure/blob/proc/update_health_overlay()
+	if(health < maxhealth)
+		var/hurt_percentage = round((health * 100) / maxhealth)
+		var/hurt_icon
+		switch(hurt_percentage)
+			if(0 to 25)
+				hurt_icon = "hurt_100"
+			if(26 to 50)
+				hurt_icon = "hurt_75"
+			if(51 to 75)
+				hurt_icon = "hurt_50"
+			else
+				hurt_icon = "hurt_25"
+		overlays += image(icon,hurt_icon)
 
 /obj/structure/blob/proc/Be_Pulsed()
 	if(COOLDOWN_FINISHED(src, pulse_timestamp))
@@ -205,13 +231,13 @@
 /obj/structure/blob/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_ANALYZER)
 		user.changeNext_move(CLICK_CD_MELEE)
-		to_chat(user, "<b>The analyzer beeps once, then reports:</b><br>")
+		to_chat(user, "<b>Анализатор пищит и выдаёт:</b><br>")
 		SEND_SOUND(user, sound('sound/machines/ping.ogg'))
 		if(overmind)
-			to_chat(user, "<b>Progress to Critical Mass:</b> <span class='notice'>[overmind.blobs_legit.len]/[overmind.blobwincount].</span>")
+			to_chat(user, "<b>Прогресс до критической массы:</b> <span class='notice'>[overmind.blobs_legit.len]/[overmind.blobwincount].</span>")
 			to_chat(user, chemeffectreport(user).Join("\n"))
 		else
-			to_chat(user, "<b>Blob core neutralized. Critical mass no longer attainable.</b>")
+			to_chat(user, "<b>Ядро массы нейтрализовано. Набор критической массы более невозможен.</b>")
 		to_chat(user, typereport(user).Join("\n"))
 	else
 		return ..()
@@ -220,17 +246,17 @@
 	RETURN_TYPE(/list)
 	. = list()
 	if(overmind)
-		. += list("\n<b>Material: <font color=\"[overmind.blobstrain.color]\">[overmind.blobstrain.name]</font><span class='notice'>.</span></b>",
-		"\n<b>Material Effects:</b> <span class='notice'>[overmind.blobstrain.analyzerdescdamage]</span>",
-		"\n<b>Material Properties:</b> <span class='notice'>[overmind.blobstrain.analyzerdesceffect || "N/A"]</span>")
+		. += list("\n<b>Материал: <font color=\"[overmind.blobstrain.color]\">[overmind.blobstrain.name]</font><span class='notice'>.</span></b>",
+		"\n<b>Эффекты:</b> <span class='notice'>[overmind.blobstrain.analyzerdescdamage]</span>",
+		"\n<b>Свойства:</b> <span class='notice'>[overmind.blobstrain.analyzerdesceffect || "N/A"]</span>")
 	else
-		. += "\n<b>No Material Detected!</b>"
+		. += "\n<b>Не обнаружен материал!</b>"
 
 /obj/structure/blob/proc/typereport(mob/user)
 	RETURN_TYPE(/list)
-	return list("\n<b>Blob Type:</b> <span class='notice'>[uppertext(initial(name))]</span>",
-							"\n<b>Health:</b> <span class='notice'>[obj_integrity]/[max_integrity]</span>",
-							"\n<b>Effects:</b> <span class='notice'>[scannerreport()]</span>")
+	return list("\n<b>Тип массы:</b> <span class='notice'>[uppertext(initial(name))]</span>",
+							"\n<b>Здоровье:</b> <span class='notice'>[obj_integrity]/[max_integrity]</span>",
+							"\n<b>Эффекты:</b> <span class='notice'>[scannerreport()]</span>")
 
 
 /obj/structure/blob/attack_animal(mob/living/simple_animal/M)
@@ -289,29 +315,29 @@
 	. = ..()
 	var/datum/atom_hud/hud_to_check = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
 	if(user.research_scanner || hud_to_check.hudusers[user])
-		. += "<hr><b>Your HUD displays an extensive report...</b><br>"
+		. += "<hr><b>HUD показывает расширенный отчёт...</b><br>"
 		if(overmind)
 			. += overmind.blobstrain.examine(user)
 		else
-			. += "\n<b>Core neutralized. Critical mass no longer attainable.</b>"
+			. += "\n<b>Ядро массы нейтрализовано. Набор критической массы более невозможен.</b>"
 		. += chemeffectreport(user)
 		. += typereport(user)
 	else
 		if((user == overmind || isobserver(user)) && overmind)
 			. += overmind.blobstrain.examine(user)
-		. += "<hr>It seems to be made of [get_chem_name()]."
+		. += "<hr>Материал судя по всему [get_chem_name()]."
 
 /obj/structure/blob/proc/scannerreport()
-	return "A generic blob. Looks like someone forgot to override this proc, adminhelp this."
+	return "Обычная масса. Блять."
 
 /obj/structure/blob/proc/get_chem_name()
 	if(overmind)
 		return overmind.blobstrain.name
-	return "some kind of organic tissue"
+	return "какая-то органика"
 
 /obj/structure/blob/normal
-	name = "normal blob"
-	icon_state = "blob"
+	name = "обычная масса"
+	icon_state = "node"
 	light_range = 0
 	max_integrity = BLOB_REGULAR_MAX_HP
 	health_regen = BLOB_REGULAR_HP_REGEN
@@ -319,19 +345,17 @@
 
 /obj/structure/blob/normal/scannerreport()
 	if(obj_integrity <= 15)
-		return "Currently weak to brute damage."
+		return "Сильный удар и эта штука развалится."
 	return "N/A"
 
 /obj/structure/blob/normal/update_icon_state()
-	icon_state = "blob[(obj_integrity <= 15) ? "_damaged" : null]"
-
-	name = "[(obj_integrity <= 15) ? "fragile " : (overmind ? null : "dead ")][initial(name)]"
+	name = "[(obj_integrity <= 15) ? "хрупкая " : (overmind ? null : "мёртвая ")][initial(name)]"
 	if(obj_integrity <= 15)
-		desc = "A thin lattice of slightly twitching tendrils."
+		desc = "Крепкая стена, которая сейчас развалится."
 	else if(overmind)
-		desc = "A thick wall of writhing tendrils."
+		desc = "Крепкая стена."
 	else
-		desc = "A thick wall of lifeless tendrils."
+		desc = "Крепкая стена."
 
 	/// - [] TODO: Move this elsewhere
 	if(obj_integrity <= 15)

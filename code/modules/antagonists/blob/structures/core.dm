@@ -1,8 +1,8 @@
 /obj/structure/blob/special/core
-	name = "blob core"
-	icon = 'icons/mob/blob.dmi'
-	icon_state = "blank_blob"
-	desc = "A huge, pulsating yellow mass."
+	name = "ядро массы"
+	icon = 'icons/mob/blob_64.dmi'
+	icon_state = "core"
+	desc = "Огромная, пульсирующая масса."
 	max_integrity = BLOB_CORE_MAX_HP
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 75, ACID = 90)
 	explosion_block = 6
@@ -30,16 +30,22 @@
 	. = ..()
 
 /obj/structure/blob/special/core/scannerreport()
-	return "Directs the blob's expansion, gradually expands, and sustains nearby blob spores and blobbernauts."
+	return "Собственно, ядро. Главный руководящий центр всей этой штуки."
 
 /obj/structure/blob/special/core/update_icon()
 	cut_overlays()
 	color = null
-	var/mutable_appearance/blob_overlay = mutable_appearance('icons/mob/blob.dmi', "blob")
+	var/mutable_appearance/blob_overlay = mutable_appearance('icons/mob/blob.dmi', "corepulse")
 	if(overmind)
 		blob_overlay.color = overmind.blobstrain.color
+	for(var/obj/structure/blob/B in orange(src,1))
+		overlays += image(icon, "coreconnect", dir = get_dir(src,B))
 	add_overlay(blob_overlay)
-	add_overlay(mutable_appearance('icons/mob/blob.dmi', "blob_core_overlay"))
+
+	underlays.len = 0
+	underlays += image(icon,"roots")
+
+	update_health_overlay()
 
 /obj/structure/blob/special/core/Destroy()
 	GLOB.blob_cores -= src
