@@ -111,7 +111,7 @@ SUBSYSTEM_DEF(title)
 	update_lobby()
 	spawn(100)
 		winset(usr, "pdec", "is-visible=true;pos=10,60")
-		update_lobby()
+		SStitle.update_lobby()
 
 /client/proc/kill_lobby()
 	src << browse(null, "window=pdec")
