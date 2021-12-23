@@ -3592,7 +3592,7 @@
 	dir = 8
 	},
 /obj/structure/chair/stool{
-	dir = 1
+	dir = 2
 	},
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
@@ -4593,12 +4593,14 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/structure/chair/stool/bar,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/chair/stool/bar{
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
@@ -11968,8 +11970,10 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/structure/chair/stool/bar,
 /obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/chair/stool/bar{
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
@@ -17352,7 +17356,6 @@
 /turf/open/floor/plating,
 /area/ai_monitored/turret_protected/aisat/atmos)
 "Oh" = (
-/obj/effect/landmark/stationroom/maintenance/rdm5x3,
 /obj/structure/dresser,
 /obj/machinery/light_switch{
 	pixel_x = -28
@@ -44516,9 +44519,9 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
+mP
+OL
+mP
 bw
 aM
 aM
@@ -44773,9 +44776,9 @@ Zm
 Zm
 Zm
 Zm
-Zm
-Zm
-Zm
+mP
+Bt
+mP
 bw
 bw
 bw
@@ -45028,15 +45031,15 @@ Zm
 Zm
 Zm
 PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-bw
-Zm
-Zm
+mP
+mP
+mP
+Bt
+mP
+mP
+mP
+mP
+mP
 mP
 mP
 mP
@@ -45285,16 +45288,16 @@ Zm
 Zm
 Zm
 PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-bw
-Zm
-Zm
-OL
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
 Bt
 Bt
 Bt
@@ -45542,16 +45545,16 @@ Zm
 Zm
 Zm
 PG
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-bw
-Zm
-mP
-mP
+OL
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
 Bt
 Bt
 Bt
@@ -45799,15 +45802,15 @@ bw
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-bw
-bw
-PG
 OL
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
 Mw
 eU
 eU
@@ -46056,15 +46059,15 @@ Zm
 Zm
 Zm
 PG
-Zm
-Zm
-PG
-Zm
-bw
-bw
-PG
-Zm
 OL
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
 eU
 Bt
 Bt
@@ -46313,13 +46316,13 @@ Zm
 Zm
 Zm
 PG
-Zm
-Zm
-PG
-Zm
-bw
-Zm
-PG
+mP
+Bt
+Bt
+Bt
+Bt
+Bt
+Bt
 mP
 mP
 Eq
@@ -46570,12 +46573,12 @@ Zm
 Zm
 Zm
 PG
-Zm
-Zm
-PG
-Zm
-bw
-Zm
+mP
+mP
+mP
+mP
+mP
+mP
 mP
 mP
 cV
@@ -46827,10 +46830,10 @@ Zm
 Zm
 Zm
 PG
-Zm
-Zm
+bw
 PG
-Zm
+bw
+PG
 bw
 Zm
 OL
@@ -47085,9 +47088,9 @@ bw
 PG
 bw
 bw
+PG
 bw
-bw
-bw
+PG
 bw
 Zm
 OL
@@ -47341,11 +47344,11 @@ PG
 PG
 PG
 PG
+bw
 PG
+bw
 PG
-PG
-PG
-PG
+bw
 PG
 OL
 Bt

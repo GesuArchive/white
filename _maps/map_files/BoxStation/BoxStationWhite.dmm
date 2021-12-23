@@ -17888,6 +17888,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/item/radio/intercom/directional/north,
 /turf/open/floor/plasteel/monofloor,
 /area/service/janitor)
 "bDK" = (
