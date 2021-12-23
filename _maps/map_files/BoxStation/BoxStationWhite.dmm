@@ -3401,10 +3401,6 @@
 /area/commons/fitness)
 "asr" = (
 /obj/structure/closet/boxinggloves,
-/obj/machinery/light{
-	dir = 1;
-	pixel_y = 0
-	},
 /obj/item/clothing/shoes/jackboots,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -3421,6 +3417,10 @@
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
 	},
 /turf/open/floor/plasteel,
 /area/commons/fitness)
@@ -5728,9 +5728,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/light{
-	pixel_y = 0
-	},
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -5773,6 +5770,7 @@
 /obj/machinery/light_switch{
 	pixel_y = -25
 	},
+/obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/commons/fitness)
 "aAp" = (
@@ -30501,6 +30499,9 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/structure/sign/picture_frame/showroom/three{
+	pixel_x = -40
+	},
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/ce)
 "cSM" = (
@@ -31036,6 +31037,7 @@
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light/floor/directional/north,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry/south)
 "dkX" = (
@@ -35242,6 +35244,12 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard)
+"hUW" = (
+/obj/structure/lattice,
+/obj/machinery/light/floor/directional/west,
+/obj/machinery/light/floor/directional/east,
+/turf/open/openspace,
+/area/service/bar)
 "hWx" = (
 /turf/open/floor/plasteel/monofloor/dark,
 /area/engineering/atmospherics_engine)
@@ -35948,6 +35956,11 @@
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/construction/mining/aux_base)
+"iWR" = (
+/obj/structure/lattice,
+/obj/machinery/light/floor/directional/south,
+/turf/open/openspace,
+/area/service/bar)
 "iXf" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -37820,6 +37833,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/fore)
+"lsC" = (
+/obj/structure/lattice,
+/obj/machinery/light/floor/directional/north,
+/turf/open/openspace,
+/area/service/bar)
 "lsJ" = (
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/plasteel/dark,
@@ -38179,6 +38197,12 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/hallway/secondary/service)
+"lIz" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light/floor/directional/east,
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/secondary/entry/south)
 "lJt" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -39934,6 +39958,12 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/engine,
 /area/service/electronic_marketing_den)
+"nTy" = (
+/obj/structure/sign/picture_frame/showroom/four{
+	pixel_y = 32
+	},
+/turf/open/openspace/airless,
+/area/space)
 "nTP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -40515,6 +40545,26 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/main)
+"oAU" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/railing,
+/obj/machinery/door/firedoor/border_only,
+/obj/structure/sign/picture_frame/showroom{
+	pixel_y = 32
+	},
+/turf/open/floor/plasteel,
+/area/commons/dorms)
 "oBE" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/plasteel/monofloor/white,
@@ -41177,6 +41227,12 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
 /area/commons/storage/primary)
+"ppJ" = (
+/obj/structure/lattice,
+/obj/machinery/light/floor/directional/east,
+/obj/machinery/light/floor/directional/west,
+/turf/open/openspace,
+/area/service/hydroponics)
 "pqt" = (
 /obj/machinery/porta_turret/ai{
 	dir = 4
@@ -41969,6 +42025,7 @@
 	dir = 8;
 	pixel_x = 23
 	},
+/obj/machinery/light/floor/directional/east,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry/south)
 "qea" = (
@@ -42400,6 +42457,15 @@
 	},
 /turf/open/floor/wood,
 /area/commons/fitness/recreation)
+"qFY" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light/floor/directional/east,
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/secondary/entry/south)
 "qGG" = (
 /obj/structure/chair/office/light{
 	dir = 8
@@ -42920,6 +42986,12 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/engine/hull,
 /area/space/nearstation)
+"rsX" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/floor/directional/east,
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/secondary/entry/south)
 "rtc" = (
 /obj/structure/railing/corner{
 	dir = 4
@@ -45414,6 +45486,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 27
 	},
+/obj/machinery/light/floor/directional/east,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry/south)
 "urf" = (
@@ -62637,7 +62710,7 @@ tTI
 nhk
 qiT
 qiT
-qiT
+qFY
 qiT
 coI
 fWl
@@ -62888,7 +62961,7 @@ cAD
 qdS
 ahP
 mlp
-tTI
+lIz
 tTI
 tTI
 duY
@@ -62901,12 +62974,12 @@ duY
 fWl
 fWl
 fWl
-fWl
+rsX
 fWl
 fWl
 mUD
 oLj
-fWl
+rsX
 fWl
 fWl
 xQC
@@ -81608,7 +81681,7 @@ oRZ
 oRZ
 oRZ
 oRZ
-auW
+oAU
 xWD
 xWD
 tde
@@ -82613,7 +82686,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+nTy
 aaa
 aaa
 aaa
@@ -82908,11 +82981,11 @@ aAh
 aAh
 fDc
 fDc
-joT
+lsC
 fDc
 fDc
 fDc
-joT
+iWR
 fDc
 fDc
 fDc
@@ -83934,15 +84007,15 @@ alP
 alP
 alP
 eao
+hUW
 joT
 joT
 joT
+hUW
 joT
 joT
 joT
-joT
-joT
-joT
+hUW
 joT
 gmX
 sVe
@@ -84707,11 +84780,11 @@ alO
 fDc
 fDc
 fDc
-joT
+lsC
 fDc
 fDc
 fDc
-joT
+iWR
 fDc
 fDc
 fDc
@@ -89592,7 +89665,7 @@ cRz
 vLg
 wpb
 wpb
-wpb
+ppJ
 wpb
 wpb
 wpb
