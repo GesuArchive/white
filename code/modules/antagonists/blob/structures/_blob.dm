@@ -104,7 +104,7 @@
 	update_health_overlay()
 
 /obj/structure/blob/proc/update_health_overlay()
-	if(obj_integrity < max_integrity)
+	if(obj_integrity < max_integritydrea)
 		var/hurt_percentage = round((obj_integrity * 100) / max_integrity)
 		var/hurt_icon
 		switch(hurt_percentage)
@@ -337,7 +337,7 @@
 
 /obj/structure/blob/normal
 	name = "обычная масса"
-	icon_state = "node"
+	icon_state = "center"
 	light_range = 0
 	max_integrity = BLOB_REGULAR_MAX_HP
 	health_regen = BLOB_REGULAR_HP_REGEN
