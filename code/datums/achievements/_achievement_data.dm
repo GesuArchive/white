@@ -56,7 +56,7 @@
 ///Updates local cache with db data for the given achievement type if it wasn't loaded yet.
 /datum/achievement_data/proc/get_data(achievement_type)
 	var/datum/award/A = SSachievements.awards[achievement_type]
-	if(!A.name)
+	if(!A?.name)
 		return FALSE
 	if(!data[achievement_type])
 		data[achievement_type] = A.load(owner_ckey)

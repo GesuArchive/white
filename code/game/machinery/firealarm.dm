@@ -58,8 +58,9 @@
 	AddElement(/datum/element/atmos_sensitive)
 
 /obj/machinery/firealarm/Destroy()
-	myarea.firereset(src)
-	LAZYREMOVE(myarea.firealarms, src)
+	if(myarea)
+		myarea.firereset(src)
+		LAZYREMOVE(myarea.firealarms, src)
 	return ..()
 
 /obj/machinery/firealarm/update_icon_state()
