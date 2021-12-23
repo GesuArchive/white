@@ -49,4 +49,4 @@
 /obj/structure/blob/special/factory/Be_Pulsed()
 	. = ..()
 	produce_spores()
-	flick("factorypulse")
+	flick("factorypulse", src)

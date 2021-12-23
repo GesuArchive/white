@@ -29,8 +29,8 @@
 	/// If the blob blocks atmos and heat spread
 	var/atmosblock = FALSE
 	var/mob/camera/blob/overmind
-	pixel_x = -WORLD_ICON_SIZE/2
-	pixel_y = -WORLD_ICON_SIZE/2
+	pixel_x = -16
+	pixel_y = -16
 
 /obj/structure/blob/Initialize(mapload, owner_overmind)
 	. = ..()
@@ -104,8 +104,8 @@
 	update_health_overlay()
 
 /obj/structure/blob/proc/update_health_overlay()
-	if(health < maxhealth)
-		var/hurt_percentage = round((health * 100) / maxhealth)
+	if(obj_integrity < max_integrity)
+		var/hurt_percentage = round((obj_integrity * 100) / max_integrity)
 		var/hurt_icon
 		switch(hurt_percentage)
 			if(0 to 25)
