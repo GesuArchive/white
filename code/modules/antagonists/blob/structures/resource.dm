@@ -11,11 +11,12 @@
 /obj/structure/blob/special/resource/update_icon()
 	cut_overlays()
 	color = null
-	var/mutable_appearance/blob_overlay = mutable_appearance('icons/mob/blob_64.dmi', "strongpulse")
+	var/mutable_appearance/blob_overlay = mutable_appearance(icon, "strongpulse")
 	if(overmind)
 		blob_overlay.color = overmind.blobstrain.color
-	for(var/obj/structure/blob/B in orange(src,1))
-		overlays += image(icon, "resourceconnect", dir = get_dir(src,B))
+	spawn(10)
+		for(var/obj/structure/blob/B in orange(src,1))
+			overlays += image(icon, "resourceconnect", dir = get_dir(src,B))
 	add_overlay(blob_overlay)
 
 	underlays.len = 0
@@ -39,7 +40,7 @@
 	. = ..()
 	if(resource_delay > world.time)
 		return
-	flick("resourcepulse", src)
+	anim(target = loc, a_icon = icon, flick_anim = "resourcepulse", sleeptime = 15, lay = layer+0.5, offX = -16, offY = -16, alph = 220)
 	if(overmind)
 		overmind.add_points(BLOB_RESOURCE_GATHER_AMOUNT)
 		resource_delay = world.time + BLOB_RESOURCE_GATHER_DELAY + overmind.resource_blobs.len * BLOB_RESOURCE_GATHER_ADDED_DELAY //4 seconds plus a quarter second for each resource blob the overmind has

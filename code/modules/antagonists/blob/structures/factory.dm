@@ -12,11 +12,12 @@
 /obj/structure/blob/special/factory/update_icon()
 	cut_overlays()
 	color = null
-	var/mutable_appearance/blob_overlay = mutable_appearance('icons/mob/blob_64.dmi', "pulse")
+	var/mutable_appearance/blob_overlay = mutable_appearance(icon, "pulse")
 	if(overmind)
 		blob_overlay.color = overmind.blobstrain.color
-	for(var/obj/structure/blob/B in orange(src,1))
-		overlays += image(icon, "factoryconnect", dir = get_dir(src,B))
+	spawn(10)
+		for(var/obj/structure/blob/B in orange(src,1))
+			overlays += image(icon, "factoryconnect", dir = get_dir(src,B))
 	add_overlay(blob_overlay)
 
 	underlays.len = 0
@@ -48,5 +49,13 @@
 
 /obj/structure/blob/special/factory/Be_Pulsed()
 	. = ..()
-	produce_spores()
-	flick("factorypulse", src)
+	if(produce_spores())
+		anim(target = loc, a_icon = icon, flick_anim = "sporepulse", sleeptime = 15, lay = layer+0.5, offX = -16, offY = -16, alph = 220)
+	else
+		icon_state = "factorypulse"
+		spawn(7)
+			icon_state = initial(icon_state)
+
+
+
+

@@ -29,11 +29,12 @@
 /obj/structure/blob/shield/update_icon()
 	cut_overlays()
 	color = null
-	var/mutable_appearance/blob_overlay = mutable_appearance('icons/mob/blob_64.dmi', "strongpulse")
+	var/mutable_appearance/blob_overlay = mutable_appearance(icon, "strongpulse")
 	if(overmind)
 		blob_overlay.color = overmind.blobstrain.color
-	for(var/obj/structure/blob/B in orange(src,1))
-		overlays += image(icon, "strongconnect", dir = get_dir(src,B))
+	spawn(10)
+		for(var/obj/structure/blob/B in orange(src,1))
+			overlays += image(icon, "strongconnect", dir = get_dir(src,B))
 	add_overlay(blob_overlay)
 
 	underlays.len = 0
@@ -47,9 +48,9 @@
 	return ..()
 
 /obj/structure/blob/shield/reflective
-	name = "reflective blob"
-	desc = "A solid wall of slightly twitching tendrils with a reflective glow."
-	damaged_desc = "A wall of twitching tendrils with a reflective glow."
+	name = "отражающая масса"
+	desc = "Сплошная стена из слегка подергивающихся усиков с отражающим свечением."
+	damaged_desc = "Стена из подергивающихся усиков с отражающим светом."
 	icon_state = "blob_glow"
 	flags_ricochet = RICOCHET_SHINY
 	point_return = BLOB_REFUND_REFLECTOR_COST

@@ -26,7 +26,7 @@
 /obj/structure/blob/special/node/update_icon()
 	cut_overlays()
 	color = null
-	var/mutable_appearance/blob_overlay = mutable_appearance('icons/mob/blob_64.dmi', "nodepulse")
+	var/mutable_appearance/blob_overlay = mutable_appearance(icon, "nodepulse")
 	if(overmind)
 		blob_overlay.color = overmind.blobstrain.color
 	add_overlay(blob_overlay)

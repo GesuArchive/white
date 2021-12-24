@@ -1560,6 +1560,7 @@
 #include "code\game\turfs\baseturf_skipover.dm"
 #include "code\game\turfs\change_turf.dm"
 #include "code\game\turfs\turf.dm"
+#include "code\game\turfs\turf_flick_animations.dm"
 #include "code\game\turfs\closed\_closed.dm"
 #include "code\game\turfs\closed\minerals.dm"
 #include "code\game\turfs\closed\walls.dm"

@@ -48,6 +48,13 @@
 	ConsumeTile()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_BLOB, CELL_VIRUS_TABLE_GENERIC, 2, 2)
 
+	icon_state = initial(icon_state) + "_spawn"
+	spawn(10)
+		icon_state = initial(icon_state)
+
+	for(var/obj/structure/blob/B in orange(src,1))
+		anim(target = loc, a_icon = icon, flick_anim = "connect_spawn", sleeptime = 15, direction = get_dir(src, B), lay = layer, offX = -16, offY = -16,plane = plane)
+
 /obj/structure/blob/proc/creation_action() //When it's created by the overmind, do this.
 	return
 
@@ -61,6 +68,11 @@
 		overmind = null
 	GLOB.blobs -= src //it's no longer in the all blobs list either
 	playsound(src.loc, 'sound/effects/splat.ogg', 50, TRUE) //Expand() is no longer broken, no check necessary.
+
+	for(var/obj/structure/blob/B in orange(loc,1))
+		B.update_icon()
+		anim(target = B.loc, a_icon = icon, flick_anim = "connect_die", sleeptime = 50, direction = get_dir(B, src), plane = src.plane, lay = layer+0.3, offX = -16, offY = -16, col = "red")
+
 	return ..()
 
 /obj/structure/blob/blob_act()
@@ -95,8 +107,9 @@
 
 	cut_overlays()
 
-	for(var/obj/structure/blob/B in orange(src,1))
-		overlays += image(icon, "connect", dir = get_dir(src,B))
+	spawn(10)
+		for(var/obj/structure/blob/B in orange(src,1))
+			overlays += image(icon, "connect", dir = get_dir(src,B))
 
 	underlays.len = 0
 	underlays += image(icon,"roots")
@@ -432,17 +445,18 @@
 
 /obj/structure/blob/special/proc/produce_spores()
 	if(naut)
-		return
+		return FALSE
 	if(spores.len >= max_spores)
-		return
+		return FALSE
 	if(!COOLDOWN_FINISHED(src, spore_delay))
-		return
+		return FALSE
 	COOLDOWN_START(src, spore_delay, spore_cooldown)
 	var/mob/living/simple_animal/hostile/blob/blobspore/BS = new (loc, src)
 	if(overmind) //if we don't have an overmind, we don't need to do anything but make a spore
 		BS.overmind = overmind
 		BS.update_icons()
 		overmind.blob_mobs.Add(BS)
+	return TRUE
 
 /obj/effect/temp_visual/blobthing
 	name = "масса"

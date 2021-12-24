@@ -6,8 +6,8 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 
 
 /mob/camera/blob
-	name = "Надмозг Массы"
-	real_name = "Надмозг Массы"
+	name = "Надмозг массы"
+	real_name = "Надмозг массы"
 	desc = "Высший разум. Он управляет массой."
 	icon = 'icons/mob/cameramob.dmi'
 	icon_state = "marker"
@@ -165,7 +165,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 			if(!(A.area_flags & BLOBS_ALLOWED))
 				continue
 			A.color = blobstrain.color
-			A.name = "blob"
+			A.name = "масса"
 			A.icon = 'icons/mob/blob.dmi'
 			A.icon_state = "blob_shield"
 			A.layer = BELOW_MOB_LAYER

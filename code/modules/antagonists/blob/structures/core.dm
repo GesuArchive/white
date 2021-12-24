@@ -35,11 +35,12 @@
 /obj/structure/blob/special/core/update_icon()
 	cut_overlays()
 	color = null
-	var/mutable_appearance/blob_overlay = mutable_appearance('icons/mob/blob.dmi', "corepulse")
+	var/mutable_appearance/blob_overlay = mutable_appearance(icon, "corepulse")
 	if(overmind)
 		blob_overlay.color = overmind.blobstrain.color
-	for(var/obj/structure/blob/B in orange(src,1))
-		overlays += image(icon, "coreconnect", dir = get_dir(src,B))
+	spawn(10)
+		for(var/obj/structure/blob/B in orange(src,1))
+			overlays += image(icon, "coreconnect", dir = get_dir(src,B))
 	add_overlay(blob_overlay)
 
 	underlays.len = 0
