@@ -20,7 +20,7 @@
 /obj/item/clothing/neck/explosive_collar/examine(mob/user)
 	. = ..()
 	if(scheduled_explosion_time)
-		. += "<hr><span class='deadsay'>Ошейник взорвётся в [worldtime2text(scheduled_explosion_time)].</span>"
+		. += "<hr><span class='deadsay'>Ошейник взорвётся в [time2text(scheduled_explosion_time, "hh:mm:ss")].</span>"
 
 /obj/item/clothing/neck/explosive_collar/equipped(mob/user, slot)
 	. = ..()
