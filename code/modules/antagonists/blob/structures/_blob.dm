@@ -1,7 +1,7 @@
 //I will need to recode parts of this but I am way too tired atm //I don't know who left this comment but they never did come back
 /obj/structure/blob
 	name = "масса"
-	icon = 'icons/mob/blob_64.dmi'
+	icon = BLOB_CURRENT_ICON
 	light_range = 2
 	desc = "Крепкая стена."
 	density = TRUE
@@ -460,7 +460,7 @@
 
 /obj/effect/temp_visual/blobthing
 	name = "масса"
-	icon = 'icons/mob/blob_64.dmi'
+	icon = BLOB_CURRENT_ICON
 	icon_state = "nothing"
 	duration = 8
 	randomdir = 0

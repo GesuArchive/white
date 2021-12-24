@@ -1,3 +1,5 @@
+#define BLOB_CURRENT_ICON 							'icons/mob/blob_64.dmi'
+
 // Overmind defines
 
 #define OVERMIND_MAX_POINTS_DEFAULT                 60         // Max point storage

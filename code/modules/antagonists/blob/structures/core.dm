@@ -1,6 +1,6 @@
 /obj/structure/blob/special/core
 	name = "ядро массы"
-	icon = 'icons/mob/blob_64.dmi'
+	icon = BLOB_CURRENT_ICON
 	icon_state = "core"
 	desc = "Огромная, пульсирующая масса."
 	max_integrity = BLOB_CORE_MAX_HP

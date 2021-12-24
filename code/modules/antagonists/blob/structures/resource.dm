@@ -1,6 +1,6 @@
 /obj/structure/blob/special/resource
 	name = "ресурсная масса"
-	icon = 'icons/mob/blob_64.dmi'
+	icon = BLOB_CURRENT_ICON
 	icon_state = "resource"
 	desc = "Огромная штука, которая заполнена чем-то."
 	max_integrity = 60

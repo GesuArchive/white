@@ -1,6 +1,6 @@
 /obj/structure/blob/special/node
 	name = "родительская масса"
-	icon = 'icons/mob/blob_64.dmi'
+	icon = BLOB_CURRENT_ICON
 	icon_state = "node"
 	desc = "Большая, пульсирующая масса."
 	max_integrity = BLOB_NODE_MAX_HP
