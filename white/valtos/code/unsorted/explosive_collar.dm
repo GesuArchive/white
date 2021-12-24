@@ -106,7 +106,7 @@
 	var/time_limit = input("Сколько минут даём:", "После истечения таймера будет проверка", 30) as num|null
 
 	if(time_limit && ishuman(target))
-		var/obj/item/clothing/collar = new /obj/item/clothing/neck/explosive_collar/engineer(target)
+		var/obj/item/clothing/neck/explosive_collar/engineer/collar = new /obj/item/clothing/neck/explosive_collar/engineer(target)
 		collar.time_until_explosion = time_limit MINUTES
 		var/mob/living/carbon/human/H = target
 		var/obj/item/I = H.get_item_by_slot(ITEM_SLOT_NECK)
