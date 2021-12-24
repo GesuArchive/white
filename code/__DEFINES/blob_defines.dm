@@ -1,13 +1,13 @@
 // Overmind defines
 
-#define OVERMIND_MAX_POINTS_DEFAULT                 100         // Max point storage
+#define OVERMIND_MAX_POINTS_DEFAULT                 60         // Max point storage
 #define OVERMIND_STARTING_POINTS                    60          // Points granted upon start
 #define OVERMIND_STARTING_REROLLS                   1           // Free strain rerolls at the start
 #define OVERMIND_STARTING_MIN_PLACE_TIME            1 MINUTES   // Minimum time before the core can be placed
-#define OVERMIND_STARTING_AUTO_PLACE_TIME           6 MINUTES   // After this time, randomly place the core somewhere viable
-#define OVERMIND_WIN_CONDITION_AMOUNT               400         // Blob structures required to win
+#define OVERMIND_STARTING_AUTO_PLACE_TIME           3 MINUTES   // After this time, randomly place the core somewhere viable
+#define OVERMIND_WIN_CONDITION_AMOUNT               800         // Blob structures required to win
 #define OVERMIND_ANNOUNCEMENT_MIN_SIZE              75          // Once the blob has this many structures, announce their presence
-#define OVERMIND_ANNOUNCEMENT_MAX_TIME              10 MINUTES  // If the blob hasn't reached the minimum size before this time, announce their presence
+#define OVERMIND_ANNOUNCEMENT_MAX_TIME              5 MINUTES  // If the blob hasn't reached the minimum size before this time, announce their presence
 #define OVERMIND_MAX_CAMERA_STRAY                   "3x3"       // How far the overmind camera is allowed to stray from blob tiles. 3x3 is 1 tile away, 5x5 2 tiles etc
 
 
@@ -81,7 +81,7 @@
 
 // Blob power properties
 
-#define BLOB_POWER_RELOCATE_COST                    80          // Resource cost to move your core to a different node
+#define BLOB_POWER_RELOCATE_COST                    60          // Resource cost to move your core to a different node
 #define BLOB_POWER_REROLL_COST                      40          // Strain reroll
 #define BLOB_POWER_REROLL_FREE_TIME                 4 MINUTES   // Gain a free strain reroll every x minutes
 #define BLOB_POWER_REROLL_CHOICES                   6           // Possibilities to choose from; keep in mind increasing this might fuck with the radial menu
