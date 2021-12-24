@@ -6,9 +6,9 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 
 
 /mob/camera/blob
-	name = "Blob Overmind"
-	real_name = "Blob Overmind"
-	desc = "The overmind. It controls the blob."
+	name = "Надмозг Массы"
+	real_name = "Надмозг Массы"
+	desc = "Высший разум. Он управляет массой."
 	icon = 'icons/mob/cameramob.dmi'
 	icon_state = "marker"
 	mouse_opacity = MOUSE_OPACITY_ICON
@@ -91,10 +91,10 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 		blobstrain = new new_strain(src)
 		blobstrain.on_gain()
 		if (hadstrain)
-			to_chat(src, "Your strain is now: <b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font>!")
-			to_chat(src, "The <b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> strain [blobstrain.description]")
+			to_chat(src, "Моя структура теперь: <b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font>!")
+			to_chat(src, "<b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> структура [blobstrain.description]")
 			if(blobstrain.effectdesc)
-				to_chat(src, "The <b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> strain [blobstrain.effectdesc]")
+				to_chat(src, "<b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> структура [blobstrain.effectdesc]")
 
 /mob/camera/blob/can_zFall(turf/source, levels)
 	// Prevent blob from falling through zlevels
@@ -110,8 +110,8 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	if(!blob_core)
 		if(!placed)
 			if(manualplace_min_time && world.time >= manualplace_min_time)
-				to_chat(src, "<b><span class='big'><font color=\"#EE4000\">You may now place your blob core.</font></span></b>")
-				to_chat(src, span_big("<font color=\"#EE4000\">You will automatically place your blob core in [DisplayTimeText(autoplace_max_time - world.time)].</font>"))
+				to_chat(src, "<b><span class='big'><font color=\"#EE4000\">Теперь можно разместить ядро.</font></span></b>")
+				to_chat(src, span_big("<font color=\"#EE4000\">Ядро будет автоматически установлено через [DisplayTimeText(autoplace_max_time - world.time)].</font>"))
 				manualplace_min_time = 0
 			if(autoplace_max_time && world.time >= autoplace_max_time)
 				place_blob_core(1)
@@ -119,20 +119,20 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 			qdel(src)
 	else if(!victory_in_progress && (blobs_legit.len >= blobwincount))
 		victory_in_progress = TRUE
-		priority_announce("Biohazard has reached critical mass. Station loss is imminent.", "Biohazard Alert")
+		priority_announce("Угроза достигла критической массы. Station loss is imminent.", "Биологическая тревога")
 		set_security_level("delta")
 		max_blob_points = INFINITY
 		blob_points = INFINITY
 		addtimer(CALLBACK(src, .proc/victory), 450)
 	else if(!free_strain_rerolls && (last_reroll_time + BLOB_POWER_REROLL_FREE_TIME<world.time))
-		to_chat(src, "<b><span class='big'><font color=\"#EE4000\">You have gained another free strain re-roll.</font></span></b>")
+		to_chat(src, "<b><span class='big'><font color=\"#EE4000\">Доступно одно бесплатное перестроение структуры.</font></span></b>")
 		free_strain_rerolls = 1
 
 	if(!victory_in_progress && max_count < blobs_legit.len)
 		max_count = blobs_legit.len
 
 	if(announcement_time && (world.time >= announcement_time || blobs_legit.len >= announcement_size) && !has_announced)
-		priority_announce("Confirmed outbreak of level 5 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", ANNOUNCER_OUTBREAK5)
+		priority_announce("Подтверждена биологическая угроза 5 уровня на борту [station_name()]. Всем персоналу стоит немедленно её устранить.", "Биологическая тревога", ANNOUNCER_OUTBREAK5)
 		has_announced = TRUE
 
 /mob/camera/blob/proc/victory()
@@ -176,7 +176,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 		var/datum/objective/blob_takeover/main_objective = locate() in B.objectives
 		if(main_objective)
 			main_objective.completed = TRUE
-	to_chat(world, "<B>[real_name] consumed the station in an unstoppable tide!</B>")
+	to_chat(world, "<B>[real_name] пожрал станцию!</B>")
 	SSticker.news_report = BLOB_WIN
 	SSticker.force_ending = 1
 
@@ -211,7 +211,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	. = ..()
 	if(!. || !client)
 		return FALSE
-	to_chat(src, span_notice("You are the overmind!"))
+	to_chat(src, span_notice("Я высший разум!"))
 	blob_help()
 	update_health_hud()
 	add_points(0)
@@ -219,7 +219,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 /mob/camera/blob/examine(mob/user)
 	. = ..()
 	if(blobstrain)
-		. += "<hr>Its strain is <font color=\"[blobstrain.color]\">[blobstrain.name]</font>."
+		. += "<hr>Её структура это <font color=\"[blobstrain.color]\">[blobstrain.name]</font>."
 
 /mob/camera/blob/update_health_hud()
 	if(blob_core)
@@ -239,7 +239,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 
 	if (src.client)
 		if(client.prefs.muted & MUTE_IC)
-			to_chat(src, span_boldwarning("You cannot send IC messages (muted)."))
+			to_chat(src, span_boldwarning("НЕ МОГУ!"))
 			return
 		if (!(ignore_spam || forced) && src.client.handle_spam_prevention(message,MUTE_IC))
 			return
@@ -259,7 +259,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	src.log_talk(message, LOG_SAY)
 
 	var/message_a = say_quote(message)
-	var/rendered = span_big("<font color=\"#EE4000\"><b>\[Blob Telepathy\] [name](<font color=\"[blobstrain.color]\">[blobstrain.name]</font>)</b> [message_a]</font>")
+	var/rendered = span_big("<font color=\"#EE4000\"><b>\[Телепатия\] [name](<font color=\"[blobstrain.color]\">[blobstrain.name]</font>)</b> [message_a]</font>")
 
 	for(var/mob/M in GLOB.mob_list)
 		if(isovermind(M) || istype(M, /mob/living/simple_animal/hostile/blob))
@@ -274,15 +274,15 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 /mob/camera/blob/get_status_tab_items()
 	. = ..()
 	if(blob_core)
-		. += "Core Health: [blob_core.obj_integrity]"
-		. += "Power Stored: [blob_points]/[max_blob_points]"
-		. += "Blobs to Win: [blobs_legit.len]/[blobwincount]"
+		. += "Здоровье ядра: [blob_core.obj_integrity]"
+		. += "Энергии накоплено: [blob_points]/[max_blob_points]"
+		. += "Массы для победы: [blobs_legit.len]/[blobwincount]"
 	if(free_strain_rerolls)
-		. += "You have [free_strain_rerolls] Free Strain Reroll\s Remaining"
+		. += "В наличии есть [free_strain_rerolls] перестроений структуры"
 	if(!placed)
 		if(manualplace_min_time)
-			. +=  "Time Before Manual Placement: [max(round((manualplace_min_time - world.time)*0.1, 0.1), 0)]"
-		. += "Time Before Automatic Placement: [max(round((autoplace_max_time - world.time)*0.1, 0.1), 0)]"
+			. +=  "Время до установки: [max(round((manualplace_min_time - world.time)*0.1, 0.1), 0)]"
+		. += "Время до автоматической установки: [max(round((autoplace_max_time - world.time)*0.1, 0.1), 0)]"
 
 /mob/camera/blob/Move(NewLoc, Dir = 0)
 	if(placed)

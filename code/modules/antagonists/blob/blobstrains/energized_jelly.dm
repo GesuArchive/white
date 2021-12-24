@@ -1,10 +1,10 @@
 //does tons of oxygen damage and a little stamina, immune to tesla bolts, weak to EMP
 /datum/blobstrain/reagent/energized_jelly
-	name = "Energized Jelly"
-	description = "will cause low stamina and high oxygen damage, and cause targets to be unable to breathe."
-	effectdesc = "will also conduct electricity, but takes damage from EMPs."
-	analyzerdescdamage = "Does low stamina damage, high oxygen damage, and prevents targets from breathing."
-	analyzerdesceffect = "Is immune to electricity and will easily conduct it, but is weak to EMPs."
+	name = "Заряженное желе"
+	description = "вызовет низкую выносливость и высокий кислородный урон, а также лишит цели возможности дышать."
+	effectdesc = "также будет проводить электричество, но получает урон от ЭМИ."
+	analyzerdescdamage = "Наносит низкий урон выносливости, высокий кислородный урон и не дает целям дышать."
+	analyzerdesceffect = "Невосприимчив к электричеству и легко проводит его, но слаб к ЭМИ."
 	color = "#EFD65A"
 	complementary_color = "#00E5B1"
 	reagent = /datum/reagent/blob/energized_jelly
@@ -22,7 +22,8 @@
 	B.take_damage(damage, BURN, ENERGY)
 
 /datum/reagent/blob/energized_jelly
-	name = "Energized Jelly"
+	name = "Заряженное желе"
+	enname = "Energized Jelly"
 	taste_description = "желатин"
 	color = "#EFD65A"
 

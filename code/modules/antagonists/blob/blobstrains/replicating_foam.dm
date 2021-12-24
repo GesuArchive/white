@@ -1,12 +1,12 @@
 /datum/blobstrain/reagent/replicating_foam
-	name = "Replicating Foam"
-	description = "will do medium brute damage and occasionally expand again when expanding."
-	shortdesc = "will do medium brute damage."
-	effectdesc = "will also expand when attacked with burn damage, but takes more brute damage."
+	name = "Воспроизводящая пена"
+	description = "будет наносить средний грубый урон и иногда снова расширяться при расширении."
+	shortdesc = "нанесет средний грубый урон."
+	effectdesc = "также будет расширяться при атаке ожоговым уроном, но получает больше грубого урона."
 	color = "#7B5A57"
 	complementary_color = "#57787B"
-	analyzerdescdamage = "Does medium brute damage."
-	analyzerdesceffect = "Expands when attacked with burn damage, will occasionally expand again when expanding, and is fragile to brute damage."
+	analyzerdescdamage = "Наносит средний грубый урон."
+	analyzerdesceffect = "Расширяется при атаке ожоговым повреждением, иногда снова расширяется при расширении и уязвим для грубого урона."
 	reagent = /datum/reagent/blob/replicating_foam
 
 
@@ -26,7 +26,8 @@
 		newB.expand(null, null, 0) //do it again!
 
 /datum/reagent/blob/replicating_foam
-	name = "Replicating Foam"
+	name = "Воспроизводящая пена"
+	enname = "Replicating Foam"
 	taste_description = "дублирование"
 	color = "#7B5A57"
 
