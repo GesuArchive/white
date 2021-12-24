@@ -50,7 +50,7 @@
 	name = "отражающая масса"
 	desc = "Сплошная стена из слегка подергивающихся усиков с отражающим свечением."
 	damaged_desc = "Стена из подергивающихся усиков с отражающим светом."
-	icon_state = "blob_glow"
+	icon_state = "strong"
 	flags_ricochet = RICOCHET_SHINY
 	point_return = BLOB_REFUND_REFLECTOR_COST
 	explosion_block = 2
