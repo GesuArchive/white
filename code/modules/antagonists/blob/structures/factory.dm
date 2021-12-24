@@ -15,9 +15,8 @@
 	var/mutable_appearance/blob_overlay = mutable_appearance(icon, "pulse")
 	if(overmind)
 		blob_overlay.color = overmind.blobstrain.color
-	spawn(10)
-		for(var/obj/structure/blob/B in orange(src,1))
-			overlays += image(icon, "factoryconnect", dir = get_dir(src,B))
+	for(var/obj/structure/blob/B in orange(src,1))
+		overlays += image(icon, "factoryconnect", dir = get_dir(src,B))
 	add_overlay(blob_overlay)
 
 	underlays.len = 0

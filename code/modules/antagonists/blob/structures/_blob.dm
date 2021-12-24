@@ -53,7 +53,7 @@
 		icon_state = initial(icon_state)
 
 	for(var/obj/structure/blob/B in orange(src,1))
-		anim(target = loc, a_icon = icon, flick_anim = "connect_spawn", sleeptime = 15, direction = get_dir(src, B), lay = layer, offX = -16, offY = -16,plane = plane)
+		anim(target = loc, a_icon = icon, flick_anim = "connect_spawn", sleeptime = 15, direction = get_dir(src, B), lay = layer, offX = -16, offY = -16, plane = plane)
 
 /obj/structure/blob/proc/creation_action() //When it's created by the overmind, do this.
 	return
@@ -107,9 +107,8 @@
 
 	cut_overlays()
 
-	spawn(10)
-		for(var/obj/structure/blob/B in orange(src,1))
-			overlays += image(icon, "connect", dir = get_dir(src,B))
+	for(var/obj/structure/blob/B in orange(src,1))
+		overlays += image(icon, "connect", dir = get_dir(src,B))
 
 	underlays.len = 0
 	underlays += image(icon,"roots")
