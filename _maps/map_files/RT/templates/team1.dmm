@@ -1,16 +1,36 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /obj/effect/baseturf_helper/asteroid,
-/turf/open/floor/grass,
+/turf/template_noop,
 /area/ctf)
 "c" = (
 /turf/closed/indestructible/fakeglass,
 /area/ctf)
+"d" = (
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/trot,
+/area/ctf)
 "e" = (
 /turf/open/floor/grass/gensgrass/dirty,
 /area/ctf)
+"f" = (
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/turf/open/floor/trot,
+/area/ctf)
+"g" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/grass,
+/area/ctf)
 "h" = (
 /turf/closed/indestructible/iron,
+/area/ctf)
+"j" = (
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/grass,
 /area/ctf)
 "l" = (
 /obj/structure/closet/crate/trashcart/filled{
@@ -24,6 +44,12 @@
 "o" = (
 /obj/effect/mob_spawn/human/corpse/assistant/brainrot_infection,
 /turf/open/indestructible/labfloor,
+/area/ctf)
+"p" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/trot,
 /area/ctf)
 "q" = (
 /obj/structure/closet/crate/trashcart/filled{
@@ -56,6 +82,12 @@
 	dir = 4
 	},
 /area/ctf)
+"y" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/trot,
+/area/ctf)
 "z" = (
 /obj/structure/rack,
 /obj/item/newspaper{
@@ -81,12 +113,24 @@
 	dir = 1
 	},
 /area/ctf)
+"E" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/grass,
+/area/ctf)
 "J" = (
 /obj/structure/trash_pile,
 /turf/open/floor/trot,
 /area/ctf)
 "L" = (
 /turf/closed/indestructible/fakedoor,
+/area/ctf)
+"M" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/grass,
 /area/ctf)
 "N" = (
 /obj/structure/flora/tree/jungle,
@@ -113,11 +157,18 @@
 /obj/structure/trash_pile,
 /turf/open/floor/grass,
 /area/ctf)
+"S" = (
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/turf/open/floor/trot,
+/area/ctf)
 "T" = (
 /obj/machinery/door/poddoor{
 	id = "arena_default";
 	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
 	},
+/obj/effect/turf_decal/stripes/full,
 /turf/open/floor/trot,
 /area/ctf)
 "U" = (
@@ -131,6 +182,15 @@
 /area/ctf)
 "X" = (
 /turf/open/floor/plasteel/stairs,
+/area/ctf)
+"Y" = (
+/turf/template_noop,
+/area/ctf)
+"Z" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/trot,
 /area/ctf)
 
 (1,1,1) = {"
@@ -153,10 +213,10 @@ V
 V
 e
 h
-V
+Y
 "}
 (2,1,1) = {"
-V
+Y
 h
 V
 V
@@ -175,10 +235,10 @@ V
 V
 e
 h
-V
+Y
 "}
 (3,1,1) = {"
-V
+Y
 h
 A
 V
@@ -197,10 +257,10 @@ P
 V
 V
 h
-V
+Y
 "}
 (4,1,1) = {"
-V
+Y
 h
 R
 A
@@ -219,10 +279,10 @@ P
 V
 D
 h
-V
+Y
 "}
 (5,1,1) = {"
-V
+Y
 h
 A
 V
@@ -241,10 +301,10 @@ P
 V
 V
 h
-V
+Y
 "}
 (6,1,1) = {"
-V
+Y
 h
 V
 V
@@ -263,10 +323,10 @@ P
 V
 V
 h
-V
+Y
 "}
 (7,1,1) = {"
-V
+Y
 h
 A
 V
@@ -285,10 +345,10 @@ P
 V
 V
 h
-V
+Y
 "}
 (8,1,1) = {"
-V
+Y
 h
 R
 A
@@ -307,10 +367,10 @@ P
 V
 D
 h
-V
+Y
 "}
 (9,1,1) = {"
-V
+Y
 h
 A
 V
@@ -329,10 +389,10 @@ P
 V
 V
 h
-V
+Y
 "}
 (10,1,1) = {"
-V
+Y
 h
 V
 V
@@ -351,10 +411,10 @@ P
 V
 V
 h
-V
+Y
 "}
 (11,1,1) = {"
-V
+Y
 h
 X
 V
@@ -373,10 +433,10 @@ P
 V
 V
 h
-V
+Y
 "}
 (12,1,1) = {"
-V
+Y
 h
 e
 V
@@ -395,10 +455,10 @@ P
 V
 D
 h
-V
+Y
 "}
 (13,1,1) = {"
-V
+Y
 h
 V
 V
@@ -406,10 +466,10 @@ V
 V
 u
 V
-V
-P
-P
-V
+j
+f
+f
+g
 V
 u
 V
@@ -417,7 +477,7 @@ V
 e
 e
 h
-V
+Y
 "}
 (14,1,1) = {"
 h
@@ -450,10 +510,10 @@ P
 P
 P
 P
-P
-P
-P
-P
+y
+S
+S
+Z
 P
 P
 P
@@ -824,10 +884,10 @@ P
 P
 P
 P
-P
-P
-P
-P
+d
+f
+f
+p
 P
 P
 P
@@ -860,7 +920,7 @@ h
 h
 "}
 (34,1,1) = {"
-V
+Y
 h
 V
 V
@@ -868,10 +928,10 @@ V
 V
 u
 V
-V
-P
-P
-V
+E
+S
+S
+M
 V
 u
 V
@@ -879,10 +939,10 @@ V
 e
 e
 h
-V
+Y
 "}
 (35,1,1) = {"
-V
+Y
 h
 V
 V
@@ -901,10 +961,10 @@ P
 V
 D
 h
-V
+Y
 "}
 (36,1,1) = {"
-V
+Y
 h
 X
 V
@@ -923,10 +983,10 @@ P
 V
 V
 h
-V
+Y
 "}
 (37,1,1) = {"
-V
+Y
 h
 V
 V
@@ -945,10 +1005,10 @@ P
 V
 V
 h
-V
+Y
 "}
 (38,1,1) = {"
-V
+Y
 h
 V
 V
@@ -967,10 +1027,10 @@ P
 V
 V
 h
-V
+Y
 "}
 (39,1,1) = {"
-V
+Y
 h
 X
 V
@@ -989,10 +1049,10 @@ P
 V
 D
 h
-V
+Y
 "}
 (40,1,1) = {"
-V
+Y
 h
 V
 V
@@ -1011,10 +1071,10 @@ P
 V
 V
 h
-V
+Y
 "}
 (41,1,1) = {"
-V
+Y
 h
 V
 V
@@ -1033,10 +1093,10 @@ P
 V
 V
 h
-V
+Y
 "}
 (42,1,1) = {"
-V
+Y
 h
 V
 V
@@ -1055,10 +1115,10 @@ P
 V
 V
 h
-V
+Y
 "}
 (43,1,1) = {"
-V
+Y
 h
 X
 V
@@ -1077,10 +1137,10 @@ P
 V
 D
 h
-V
+Y
 "}
 (44,1,1) = {"
-V
+Y
 h
 V
 V
@@ -1099,10 +1159,10 @@ P
 V
 V
 h
-V
+Y
 "}
 (45,1,1) = {"
-V
+Y
 h
 V
 V
@@ -1121,10 +1181,10 @@ V
 V
 e
 h
-V
+Y
 "}
 (46,1,1) = {"
-V
+Y
 h
 e
 V
@@ -1143,5 +1203,5 @@ V
 V
 e
 h
-V
+Y
 "}

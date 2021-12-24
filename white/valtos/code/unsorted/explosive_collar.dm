@@ -4,6 +4,9 @@
 	icon = 'white/valtos/icons/clothing/necks.dmi'
 	worn_icon = 'white/valtos/icons/clothing/mob/neck.dmi'
 
+	icon_state = "bombcollaroff"
+	worn_icon_state = "bombcollaroff"
+
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	var/primed = FALSE
 	var/condition_for_release_text = "Ждать смерти"
@@ -26,6 +29,7 @@
 
 /obj/item/clothing/neck/explosive_collar/update_icon()
 	icon_state = primed ? "bombcollaron" : "bombcollaroff"
+	worn_icon_state = primed ? "bombcollaron" : "bombcollaroff"
 
 /obj/item/clothing/neck/explosive_collar/proc/explode()
 	if(istype(slave))
