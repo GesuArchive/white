@@ -90,7 +90,7 @@
 /mob/living/simple_animal/hostile/blob/blobspore
 	name = "спора массы"
 	desc = "Летающая, хрупкая масса."
-	icon = BLOB_CURRENT_ICON
+	icon = 'icons/mob/blob_64.dmi'
 	icon_state = "blobpod"
 	icon_living = "blobpod"
 	health_doll_icon = "blobpod"

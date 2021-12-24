@@ -1,6 +1,6 @@
 /obj/structure/blob/special/factory
 	name = "производящая масса"
-	icon = BLOB_CURRENT_ICON
+	icon = 'icons/mob/blob_64.dmi'
 	icon_state = "factory"
 	desc = "Узкая постройка..."
 	max_integrity = BLOB_FACTORY_MAX_HP

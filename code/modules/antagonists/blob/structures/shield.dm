@@ -1,6 +1,6 @@
 /obj/structure/blob/shield
 	name = "крепкая масса"
-	icon = BLOB_CURRENT_ICON
+	icon = 'icons/mob/blob_64.dmi'
 	icon_state = "strong"
 	desc = "Твёрдая живая стена."
 	var/damaged_desc = "Твёрдая живая стена."

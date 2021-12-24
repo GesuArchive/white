@@ -1,7 +1,9 @@
+GLOBAL_VAR_INIT(blob_current_icon, pick('icons/mob/blob_64.dmi', 'icons/mob/blob_skeleton_64.dmi', 'icons/mob/blob_ame_64.dmi'))
+
 //I will need to recode parts of this but I am way too tired atm //I don't know who left this comment but they never did come back
 /obj/structure/blob
 	name = "масса"
-	icon = BLOB_CURRENT_ICON
+	icon = 'icons/mob/blob_64.dmi'
 	light_range = 2
 	desc = "Крепкая стена."
 	density = TRUE
@@ -34,6 +36,9 @@
 
 /obj/structure/blob/Initialize(mapload, owner_overmind)
 	. = ..()
+
+	icon = GLOB.blob_current_icon
+
 	if(owner_overmind)
 		overmind = owner_overmind
 		overmind.all_blobs += src
@@ -459,7 +464,7 @@
 
 /obj/effect/temp_visual/blobthing
 	name = "масса"
-	icon = BLOB_CURRENT_ICON
+	icon = 'icons/mob/blob_64.dmi'
 	icon_state = "nothing"
 	duration = 8
 	randomdir = 0
