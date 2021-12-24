@@ -142,7 +142,7 @@
 
 	B.naut = TRUE //temporary placeholder to prevent creation of more than one per factory.
 	to_chat(src, span_notice("Пытаюсь произвести массанаута."))
-	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Хочешь быть массанаутом [blobstrain.name]?", ROLE_BLOB, null, ROLE_BLOB, 50) //players must answer rapidly
+	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Хочешь быть массанаутом [blobstrain.name]?", ROLE_BLOB, null, 50) //players must answer rapidly
 	if(LAZYLEN(candidates)) //if we got at least one candidate, they're a blobbernaut now.
 		B.max_integrity = initial(B.max_integrity) * 0.25 //factories that produced a blobbernaut have much lower health
 		B.obj_integrity = min(B.obj_integrity, B.max_integrity)
