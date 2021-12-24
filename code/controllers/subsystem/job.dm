@@ -775,14 +775,14 @@ SUBSYSTEM_DEF(job)
 		"Special Ops Officer","Admiral","CentCom Commander","CentCom Bartender","Private Security Force")
 
 /obj/item/paper/fluff/spare_id_safe_code
-	name = "Nanotrasen-Approved Spare ID Safe Code"
-	desc = "Proof that you have been approved for Captaincy, with all its glory and all its horror."
+	name = "Запасные коды от сейфа"
+	desc = "Доказательство того, что вы точно заслужили должность Капитана этой станции."
 
 /obj/item/paper/fluff/spare_id_safe_code/Initialize()
 	. = ..()
 	var/safe_code = SSid_access.spare_id_safe_code
 
-	info = "Captain's Spare ID safe code combination: [safe_code ? safe_code : "\[REDACTED\]"]<br><br>The spare ID can be found in its dedicated safe on the bridge.<br><br>If your job would not ordinarily have Head of Staff access, your ID card has been specially modified to possess it."
+	info = "Комбинацией является: [safe_code ? safe_code : "\[REDACTED\]"]<br><br>Сейф может быть обнаружен на мостике, либо в каюте капитана.<br><br>Если работа не позволяет пройти туда, будет добавлен специальный доступ."
 
 /datum/controller/subsystem/job/proc/promote_to_captain(mob/living/carbon/human/new_captain, acting_captain = FALSE)
 	var/id_safe_code = SSid_access.spare_id_safe_code
@@ -797,12 +797,12 @@ SUBSYSTEM_DEF(job)
 		LOCATION_BACKPACK = ITEM_SLOT_BACKPACK,
 		LOCATION_HANDS = ITEM_SLOT_HANDS
 	)
-	var/where = new_captain.equip_in_one_of_slots(paper, slots, FALSE) || "at your feet"
+	var/where = new_captain.equip_in_one_of_slots(paper, slots, FALSE) || "мои ляшки"
 
 	if(acting_captain)
-		to_chat(new_captain, span_notice("Due to your position in the chain of command, you have been promoted to Acting Captain. You can find in important note about this [where]."))
+		to_chat(new_captain, span_notice("Учитывая мою должность на станции, меня назначили её Капитаном. Важный документ подкинули в [ru_parse_zone(where)]."))
 	else
-		to_chat(new_captain, span_notice("You can find the code to obtain your spare ID from the secure safe on the Bridge [where]."))
+		to_chat(new_captain, span_notice("Сейф можно найти в капитанской каюте, либо на мостике. Важный документ положили в [ru_parse_zone(where)]."))
 
 	// Force-give their ID card bridge access.
 	var/obj/item/id_slot = new_captain.get_item_by_slot(ITEM_SLOT_ID)
@@ -810,5 +810,7 @@ SUBSYSTEM_DEF(job)
 		var/obj/item/card/id/id_card = id_slot.GetID()
 		if(!(ACCESS_HEADS in id_card.access))
 			id_card.add_wildcards(list(ACCESS_HEADS), mode=FORCE_ADD_ALL)
+		if(!(ACCESS_CAPTAIN in id_card.access))
+			id_card.add_wildcards(list(ACCESS_CAPTAIN), mode=FORCE_ADD_ALL)
 
 	assigned_captain = TRUE
