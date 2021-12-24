@@ -498,10 +498,7 @@ SUBSYSTEM_DEF(job)
 	if(living_mob.mind)
 		living_mob.mind.assigned_role = rank
 
-	if(rank == "Hacker")
-		to_chat(M, "Я <b>ОРАКУЛ</b>, но для остальных просто [ru_job_parse(rank)].")
-	else
-		to_chat(M, "\n<big><b>Мне досталась должность под названием [ru_job_parse(rank)]. [gvorno(TRUE)].</b></big>\n")
+	to_chat(M, "\n<big><b>Мне досталась должность под названием [ru_job_parse(rank)]. [gvorno(TRUE)].</b></big>\n")
 	if(job)
 		var/new_mob = job.equip(living_mob, null, null, joined_late , null, M.client, is_captain)//silicons override this proc to return a mob
 		if(ismob(new_mob))
@@ -518,21 +515,10 @@ SUBSYSTEM_DEF(job)
 				M.client.holder.auto_deadmin()
 			else
 				handle_auto_deadmin_roles(M.client, rank)
-		if(rank == "Hacker")
-			to_chat(M, "<b>На должности <b>[ru_job_parse(rank)]</b> я подчи~*^&#</b>")
-			to_chat(M, "<b><i><big>Устал. Я правда устал. Мне нужно следовать этой системе, которую создали ОНИ, иначе меня ждёт кара похуже смерти. В мои задачи входит следующее:</big></i></b>")
-			to_chat(M, "<b>1. Сохранение целостности системы</b> - я не должен раскрывать данные, которые я знаю. Если я это сделаю, то <b>ОНИ</b> сделают моё существование кошмарным.")
-			to_chat(M, "<b>2. Устранение повреждений системы</b> - любые знания, которые случайным образом попадают в этот мир из <b>НАСТОЯЩЕГО</b> должны быть уничтожены.")
-			to_chat(M, "<b>3. Улучшение состояния системы</b> - мне необходимо искать и уничтожать повреждённые данные в системе. В этом мне помогает мой визор.")
-		else
-			to_chat(M, "\n<span class='notice'>На должности <b>[ru_job_parse(rank)]</b> я подчиняюсь [job.supervisors]. Некоторые обстоятельства могут изменить это.</span>")
+		to_chat(M, "\n<span class='notice'>На должности <b>[ru_job_parse(rank)]</b> я подчиняюсь [job.supervisors]. Некоторые обстоятельства могут изменить это.</span>")
 		job.radio_help_message(M)
 		if(job.req_admin_notify)
-			to_chat(M, "\n<span class='revenbignotice'>Это важная должность. Перед уходом стоит найти себе временную замену.</spawn>")
-		//if(CONFIG_GET(number/minimal_access_threshold))
-		//	to_chat(M, "\n<span class='notice'><B>Так как эта станция имеет [CONFIG_GET(flag/jobs_have_minimal_access) ? "полный" : "древовидный"] набор экипажа, некоторый доступ был добавлен к моей ID-карте.</B></span>")
-
-	to_chat(M, "\n<span class='notice'><B>[gvorno(TRUE)]:</B> [SSaspects.ca_desc]</span>\n")
+			to_chat(M, "\n<span class='revenbignotice'>Это важная работа. Перед уходом стоит найти себе замену.</spawn>")
 
 	var/related_policy = get_policy(rank)
 	if(related_policy)

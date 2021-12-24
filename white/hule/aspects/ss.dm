@@ -40,3 +40,7 @@ SUBSYSTEM_DEF(aspects)
 		current_aspect.run_aspect()
 		ca_name = current_aspect.name
 		ca_desc = current_aspect.desc
+
+	for(var/P in GLOB.mob_living_list)
+		spawn(5 SECONDS)
+			to_chat(P, "\n<span class='notice'><B>[gvorno(TRUE)]:</B> [ca_desc]</span>\n")
