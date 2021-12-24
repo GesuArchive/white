@@ -16,7 +16,8 @@
 
 /obj/item/clothing/neck/explosive_collar/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='deadsay'>Ошейник взорвётся в [worldtime2text(scheduled_explosion_time)].</span>"
+	if(scheduled_explosion_time)
+		. += "<hr><span class='deadsay'>Ошейник взорвётся в [worldtime2text(scheduled_explosion_time)].</span>"
 
 /obj/item/clothing/neck/explosive_collar/equipped(mob/user, slot)
 	. = ..()
@@ -96,7 +97,42 @@
 			var/const/minimum_power_cell_charge_percent = 80
 			if(some_apc.cell?.percent() > minimum_power_cell_charge_percent || some_apc.charging)
 				charged_apcs++
-	return (100*charged_apcs/total_apcs) >= apc_req_charge
+	return (100 * charged_apcs / total_apcs) >= apc_req_charge
+
+/obj/item/clothing/neck/explosive_collar/assistant
+	var/time_until_explosion = 30 MINUTES
+	condition_for_release_text = "Найти работу"
+
+/obj/item/clothing/neck/explosive_collar/assistant/activate()
+	scheduled_explosion_time = time_until_explosion + world.time
+	..()
+
+/obj/item/clothing/neck/explosive_collar/assistant/condition_is_fullfilled()
+	if(slave.wear_id)
+		var/obj/item/card/id/our_id = slave.wear_id.GetID()
+		if(our_id.assignment != "Assistant" && our_id.registered_name == slave.real_name)
+			return TRUE
+	return FALSE
+
+/obj/item/clothing/neck/explosive_collar/shaft_miner
+	var/time_until_explosion = 30 MINUTES
+	condition_for_release_text = "Накопать как можно больше руды"
+
+/obj/item/clothing/neck/explosive_collar/shaft_miner/activate()
+	scheduled_explosion_time = time_until_explosion + world.time
+	..()
+
+/obj/item/clothing/neck/explosive_collar/shaft_miner/condition_is_fullfilled()
+	if(GLOB.ore_silo_default)
+		var/obj/machinery/ore_silo/OS = GLOB.ore_silo_default
+		var/datum/component/material_container/materials = OS.GetComponent(/datum/component/material_container)
+		for(var/MAT in materials.materials)
+			if(istype(MAT, /datum/material/bananium))
+				continue
+			if(materials.materials[MAT] <= 1999)
+				return FALSE
+			return TRUE
+	return FALSE
 
 /datum/smite/motivate_engineer
 	name = "Motivate Engineer"
@@ -107,6 +143,38 @@
 
 	if(time_limit && ishuman(target))
 		var/obj/item/clothing/neck/explosive_collar/engineer/collar = new /obj/item/clothing/neck/explosive_collar/engineer(target)
+		collar.time_until_explosion = time_limit MINUTES
+		var/mob/living/carbon/human/H = target
+		var/obj/item/I = H.get_item_by_slot(ITEM_SLOT_NECK)
+		if(I)
+			H.dropItemToGround(I)
+		H.equip_to_appropriate_slot(collar, TRUE)
+
+/datum/smite/motivate_assistant
+	name = "Motivate Assistant"
+
+/datum/smite/motivate_assistant/effect(client/user, mob/living/target)
+	. = ..()
+	var/time_limit = input("Сколько минут даём:", "После истечения таймера будет проверка", 30) as num|null
+
+	if(time_limit && ishuman(target))
+		var/obj/item/clothing/neck/explosive_collar/assistant/collar = new /obj/item/clothing/neck/explosive_collar/assistant(target)
+		collar.time_until_explosion = time_limit MINUTES
+		var/mob/living/carbon/human/H = target
+		var/obj/item/I = H.get_item_by_slot(ITEM_SLOT_NECK)
+		if(I)
+			H.dropItemToGround(I)
+		H.equip_to_appropriate_slot(collar, TRUE)
+
+/datum/smite/motivate_miner
+	name = "Motivate Miner"
+
+/datum/smite/motivate_miner/effect(client/user, mob/living/target)
+	. = ..()
+	var/time_limit = input("Сколько минут даём:", "После истечения таймера будет проверка", 30) as num|null
+
+	if(time_limit && ishuman(target))
+		var/obj/item/clothing/neck/explosive_collar/shaft_miner/collar = new /obj/item/clothing/neck/explosive_collar/shaft_miner(target)
 		collar.time_until_explosion = time_limit MINUTES
 		var/mob/living/carbon/human/H = target
 		var/obj/item/I = H.get_item_by_slot(ITEM_SLOT_NECK)
