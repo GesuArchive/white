@@ -366,18 +366,37 @@
 
 /mob/living/carbon/human/try_pee(forced_pee = FALSE)
 	var/obj/item/organ/O = getorganslot(ORGAN_SLOT_KIDNEYS)
+	var/obj/effect/decal/cleanable/mocha
 	var/bloody = FALSE
 	if(O.damage > 51)
 		bloody = TRUE
 	var/turf/T = get_turf(src)
-	if(locate(/obj/structure/toilet) in T || locate(/obj/structure/toilet/greyscale) in T)
-		if(!O.reagents.trans_to(T, 10, transfered_by = src) && forced_pee)
-			O.setOrganDamage(1)
-			hydration -= 10
+	for(var/atom/A in T)
+		if(istype(A, /obj/structure/toilet))
+			if(!O.reagents.trans_to(T, 10, transfered_by = src) && hydration > 10)
+				O.setOrganDamage(1)
+				hydration -= 10
+			else if (hydration < 10 && forced_pee)
+				O.setOrganDamage(5)
+				blood_volume -= 10
+				bloody = TRUE
 			visible_message(span_notice("<b>[src]</b> писает[bloody ? " кровью" : ""] в туалет!") , \
 				span_notice("Писаю[bloody ? " кровью" : ""] в туалет."))
-		return
-	var/obj/effect/decal/cleanable/mocha
+			playsound(src, 'sound/effects/splat.ogg', 50, 1)
+			return
+		else if(istype(A, /obj/item/reagent_containers))
+			if(!O.reagents.trans_to(A, 10, transfered_by = src) && hydration > 10)
+				O.setOrganDamage(1)
+				hydration -= 10
+			else if (hydration < 10 && forced_pee)
+				O.setOrganDamage(5)
+				blood_volume -= 10
+				bloody = TRUE
+				A.reagents.add_reagent(/datum/reagent/blood, 10)
+			visible_message(span_notice("<b>[src]</b> писает[bloody ? " кровью" : ""] в [A]!") , \
+				span_notice("Писаю[bloody ? " кровью" : ""] в [A]."))
+			playsound(src, 'sound/effects/splat.ogg', 50, 1)
+			return
 	if(bloody)
 		mocha = new /obj/effect/decal/cleanable/blood(get_turf(src))
 	else
@@ -386,22 +405,32 @@
 		Stun(4 SECONDS)
 		if(bloody)
 			add_blood_DNA(return_blood_DNA())
-		if(!O.reagents.trans_to(mocha, 5, transfered_by = src) && forced_pee)
-			mocha.reagents.add_reagent(/datum/reagent/water, 5)
+		if(!O.reagents.trans_to(mocha, 5, transfered_by = src) && hydration > 10)
+			if(bloody)
+				mocha.reagents.add_reagent(/datum/reagent/blood, 5)
+			else
+				mocha.reagents.add_reagent(/datum/reagent/water, 5)
 			O.setOrganDamage(5)
 			hydration -= 5
 			visible_message("<b>[capitalize(src.name)]</b> мочится себе в трусы[bloody ? " кровью" : ""]!")
-		for(var/mob/M in viewers(src, 7))
-			if(ishuman(M) && M != src)
-				M.emote("laugh")
+			playsound(src, 'sound/effects/splat.ogg', 50, 1)
+			if(!bloody)
+				for(var/mob/M in viewers(src, 7))
+					if(ishuman(M) && M != src)
+						M.emote("laugh")
 	else
 		Stun(2 SECONDS)
-		if(!O.reagents.trans_to(mocha, 10, transfered_by = src) && forced_pee)
-			mocha.reagents.add_reagent(/datum/reagent/water, 10)
+		if(!O.reagents.trans_to(mocha, 10, transfered_by = src) && hydration > 10)
 			O.setOrganDamage(1)
 			hydration -= 10
-			visible_message("<b>[capitalize(src.name)]</b> обильно ссыт[bloody ? " кровью" : ""] на пол!")
-	playsound(src, 'sound/effects/splat.ogg', 50, 1)
+		else if (hydration < 10 && forced_pee)
+			O.setOrganDamage(5)
+			blood_volume -= 10
+			bloody = TRUE
+		if(bloody)
+			mocha.reagents.add_reagent(/datum/reagent/blood, 10)
+		visible_message("<b>[capitalize(src.name)]</b> обильно ссыт[bloody ? " кровью" : ""] на пол!")
+		playsound(src, 'sound/effects/splat.ogg', 50, 1)
 
 #undef THERMAL_PROTECTION_HEAD
 #undef THERMAL_PROTECTION_CHEST
