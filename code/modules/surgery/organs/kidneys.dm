@@ -30,7 +30,7 @@
 /obj/item/organ/kidneys/on_life(delta_time, times_fired)
 	. = ..()
 	var/mob/living/carbon/human/body = owner
-	var/datum/reagent/uri = locate(/datum/reagent/water/urine) in reagents.reagent_list
+	var/datum/reagent/uri = locate(/datum/reagent/toxin/urine) in reagents.reagent_list
 
 	if(uri?.volume > 200)
 		body.try_pee(TRUE)
@@ -40,7 +40,7 @@
 
 	if(body.hydration)
 		body.hydration -= delta_time * metabolism_efficiency
-		reagents.add_reagent(/datum/reagent/water/urine, delta_time * metabolism_efficiency)
+		reagents.add_reagent(/datum/reagent/toxin/urine, delta_time * metabolism_efficiency)
 
 	if(damage < low_threshold)
 		return

@@ -144,6 +144,16 @@
 	brute_heal = 0.3
 	nutriment_factor = 18 * REAGENTS_METABOLISM
 
+/datum/reagent/consumable/nutriment/protein/semen/expose_turf(turf/exposed_turf, reac_volume)
+	. = ..()
+	if(isspaceturf(exposed_turf))
+		return
+
+	var/obj/effect/decal/cleanable/cum/reagentdecal = new(exposed_turf)
+	reagentdecal = locate() in exposed_turf
+	if(reagentdecal)
+		reagentdecal.reagents.add_reagent(/datum/reagent/consumable/nutriment/protein/semen, reac_volume)
+
 /datum/reagent/consumable/nutriment/organ_tissue
 	name = "Органная Ткань"
 	description = "Natural tissues that make up the bulk of organs, providing many vitamins and minerals."
