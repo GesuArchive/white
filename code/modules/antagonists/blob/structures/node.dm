@@ -29,6 +29,7 @@
 	var/mutable_appearance/blob_overlay = mutable_appearance(icon, "nodepulse")
 	if(overmind)
 		blob_overlay.color = overmind.blobstrain.color
+	color = overmind.blobstrain.color
 	add_overlay(blob_overlay)
 
 	underlays.len = 0
