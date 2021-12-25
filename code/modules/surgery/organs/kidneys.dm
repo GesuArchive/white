@@ -1,0 +1,72 @@
+/obj/item/organ/kidneys
+	name = "почки"
+	desc = "Пахнут приятно"
+	icon_state = "kidneys"
+	zone = BODY_ZONE_CHEST
+	slot = ORGAN_SLOT_KIDNEYS
+
+	healing_factor = STANDARD_ORGAN_HEALING
+	decay_factor = STANDARD_ORGAN_DECAY
+
+	low_threshold_passed = span_info("Ноющая боль появляется и исчезает в боку...")
+	high_threshold_passed = span_warning("Что-то в боку болит, и боль не утихает. Хочется в туалет.")
+	now_fixed = span_info("В боку перестаёт болеть.")
+	high_threshold_cleared = span_info("Боль в боку утихла и больше не хочется в туалет.")
+
+	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5)
+
+	reagent_vol = 200
+
+/obj/item/organ/kidneys/Initialize()
+	. = ..()
+	//None edible organs do not get a reagent holder by default
+	if(!reagents)
+		create_reagents(reagent_vol, REAGENT_HOLDER_ALIVE)
+	else
+		reagents.flags |= REAGENT_HOLDER_ALIVE
+
+/obj/item/organ/kidneys/on_life(delta_time, times_fired)
+	. = ..()
+
+	//Manage species digestion
+	if(istype(owner, /mob/living/carbon/human))
+		var/mob/living/carbon/human/humi = owner
+		if(!(organ_flags & ORGAN_FAILING))
+			humi.dna.species.handle_digestion(humi, delta_time, times_fired)
+
+	var/mob/living/carbon/human/body = owner
+
+	var/datum/reagent/uri = locate(/datum/reagent/water/urine) in reagents.reagent_list
+
+	if(uri.volume > 200)
+		body.try_pee()
+
+	if(damage < low_threshold)
+		return
+
+	if(damage > high_threshold && DT_PROB(0.5 * damage, delta_time))
+		to_chat(body, span_warning("В боку болит и больше не выходит сдерживаться!"))
+		body.try_pee(TRUE)
+
+	if(body.hydration <= 5)
+		applyOrganDamage(1)
+
+/obj/effect/decal/cleanable/urine
+	name = "моча"
+	desc = "Выглядит не вкусно."
+	icon_state = "urine"
+	density = 0
+	layer = 3
+	icon = 'white/valtos/icons/exrp/smetanka.dmi'
+	anchored = 1
+
+/datum/emote/living/pee
+	key = "pee"
+	ru_name = "намочить"
+	key_third_person = "pees on the floor"
+	emote_type = EMOTE_AUDIBLE
+
+/datum/emote/living/pee/run_emote(mob/living/user, params)
+	. = ..()
+	if(.)
+		user.try_pee()

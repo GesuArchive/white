@@ -141,6 +141,7 @@
 #define ORGAN_SLOT_EYES "eye_sight"
 #define ORGAN_SLOT_LUNGS "lungs"
 #define ORGAN_SLOT_HEART "heart"
+#define ORGAN_SLOT_KIDNEYS "kidneys"
 #define ORGAN_SLOT_ZOMBIE "zombie_infection"
 #define ORGAN_SLOT_THRUSTERS "thrusters"
 #define ORGAN_SLOT_HUD "eye_hud"
@@ -187,6 +188,7 @@ GLOBAL_LIST_INIT(organ_process_order, list(
 	ORGAN_SLOT_RIGHT_ARM_AUG,
 	ORGAN_SLOT_LEFT_ARM_AUG,
 	ORGAN_SLOT_STOMACH,
+	ORGAN_SLOT_KIDNEYS,
 	ORGAN_SLOT_STOMACH_AID,
 	ORGAN_SLOT_BREATHING_TUBE,
 	ORGAN_SLOT_EARS,

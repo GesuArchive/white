@@ -137,6 +137,12 @@
 	nutriment_factor = 9 * REAGENTS_METABOLISM //45% as calorie dense as corn oil.
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
+/datum/reagent/consumable/nutriment/protein/semen
+	name = "Сперма"
+	description = "Натуральный биопродукт."
+	brute_heal = 0.3
+	nutriment_factor = 18 * REAGENTS_METABOLISM
+
 /datum/reagent/consumable/nutriment/organ_tissue
 	name = "Органная Ткань"
 	description = "Natural tissues that make up the bulk of organs, providing many vitamins and minerals."

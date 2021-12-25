@@ -235,6 +235,17 @@
 		//You don't belong in this world, monster!
 		chems.remove_reagent(/datum/reagent/water, chems.get_reagent_amount(src.type))
 
+/datum/reagent/water/urine
+	name = "Моча"
+	enname = "Urine"
+	description = "Почти святая вода."
+	color = "#f8ff7a" // rgb: 224, 232, 239
+	glass_icon_state  = "glass_clear"
+	glass_name = "стакан мочи"
+	glass_desc = "Моча."
+	ph = 10
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
+
 /datum/reagent/water/holywater
 	name = "Святая Вода"
 	enname = "Holy Water"
