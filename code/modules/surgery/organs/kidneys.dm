@@ -85,7 +85,7 @@
 	if(. & EMP_PROTECT_SELF)
 		return
 	if(!COOLDOWN_FINISHED(src, severe_cooldown))
-		owner.pee(TRUE)
+		owner.try_pee(TRUE)
 		COOLDOWN_START(src, severe_cooldown, 10 SECONDS)
 	if(prob(emp_vulnerability/severity))
 		organ_flags |= ORGAN_SYNTHETIC_EMP

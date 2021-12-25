@@ -361,7 +361,10 @@
 		if(DT_PROB(5, delta_time))
 			try_pee()
 
-/mob/living/carbon/human/proc/try_pee(bloody = FALSE)
+/mob/living/proc/try_pee(bloody = FALSE)
+	return
+
+/mob/living/carbon/human/try_pee(bloody = FALSE)
 	var/obj/item/organ/O = getorganslot(ORGAN_SLOT_KIDNEYS)
 	if(O.damage > 51)
 		bloody = TRUE
