@@ -15,6 +15,8 @@
 
 	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5)
 
+	var/metabolism_efficiency = 0.5
+
 	reagent_vol = 200
 
 /obj/item/organ/kidneys/Initialize()
@@ -27,19 +29,15 @@
 
 /obj/item/organ/kidneys/on_life(delta_time, times_fired)
 	. = ..()
-
-	//Manage species digestion
-	if(istype(owner, /mob/living/carbon/human))
-		var/mob/living/carbon/human/humi = owner
-		if(!(organ_flags & ORGAN_FAILING))
-			humi.dna.species.handle_digestion(humi, delta_time, times_fired)
-
 	var/mob/living/carbon/human/body = owner
-
 	var/datum/reagent/uri = locate(/datum/reagent/water/urine) in reagents.reagent_list
 
 	if(uri.volume > 200)
-		body.try_pee()
+		body.try_pee(TRUE)
+
+	if(body.hydration)
+		body.hydration -= delta_time * metabolism_efficiency
+		reagents.add_reagent(/datum/reagent/water/urine, delta_time * metabolism_efficiency)
 
 	if(damage < low_threshold)
 		return
@@ -63,6 +61,7 @@
 	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.5
 	var/emp_vulnerability = 80
 	reagent_vol = 100
+	metabolism_efficiency = 0.7
 
 /obj/item/organ/kidneys/cybernetic/tier2
 	name = "кибернетические почки"
@@ -71,6 +70,7 @@
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	emp_vulnerability = 40
 	reagent_vol = 300
+	metabolism_efficiency = 0.07
 
 /obj/item/organ/kidneys/cybernetic/tier3
 	name = "продвинутые кибернетические почки"
@@ -79,6 +79,7 @@
 	maxHealth = 2 * STANDARD_ORGAN_THRESHOLD
 	emp_vulnerability = 20
 	reagent_vol = 600
+	metabolism_efficiency = 0.01
 
 /obj/item/organ/kidneys/cybernetic/emp_act(severity)
 	. = ..()
