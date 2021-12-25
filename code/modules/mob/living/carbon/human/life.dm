@@ -379,7 +379,7 @@
 			else if(forced_pee)
 				if(hydration > 10)
 					hydration -= 10
-				O.setOrganDamage(5)
+				O.setOrganDamage(1)
 				blood_volume -= 10
 				visible_message(span_notice("<b>[src]</b> писает кровью в туалет!") , \
 					span_notice("Писаю кровью в туалет."))
@@ -393,7 +393,7 @@
 			else if(forced_pee)
 				if(hydration > 10)
 					hydration -= 10
-				O.setOrganDamage(5)
+				O.setOrganDamage(1)
 				blood_volume -= 10
 				A.reagents.add_reagent(/datum/reagent/blood, 10)
 				visible_message(span_notice("<b>[src]</b> писает кровью в [A]!") , \
@@ -415,7 +415,7 @@
 					M.emote("laugh")
 		else if(forced_pee)
 			add_blood_DNA(return_blood_DNA())
-			O.setOrganDamage(5)
+			O.setOrganDamage(1)
 			if(hydration > 5)
 				hydration -= 5
 			blood_volume -= 5
@@ -430,7 +430,7 @@
 			playsound(src, 'sound/effects/splat.ogg', 50, 1)
 			return
 		else if(forced_pee)
-			O.setOrganDamage(5)
+			O.setOrganDamage(1)
 			if(hydration > 5)
 				hydration -= 10
 			blood_volume -= 10
