@@ -139,15 +139,15 @@
 			continue
 		griddled_item.fire_act(1000) //Hot hot hot!
 		if(prob(10))
-			visible_message(span_danger("[griddled_item] doesn't seem to be doing too great on the [src]!"))
+			visible_message(span_danger("[griddled_item] не очень рад быть на [src]!"))
 
 /obj/machinery/griddle/update_icon_state()
 	icon_state = "griddle[variant]_[on ? "on" : "off"]"
 	return ..()
 
 /obj/machinery/griddle/stand
-	name = "griddle stand"
-	desc = "A more commercialized version of your traditional griddle. What happened to the good old days where people griddled with passion?"
+	name = "стойка с гридлем"
+	desc = "Более коммерциализированная версия гридля. Все стандарты проебали?"
 	variant = "stand"
 
 /obj/machinery/griddle/stand/update_overlays()
