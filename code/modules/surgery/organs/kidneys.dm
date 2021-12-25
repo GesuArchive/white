@@ -32,7 +32,7 @@
 	var/mob/living/carbon/human/body = owner
 	var/datum/reagent/uri = locate(/datum/reagent/water/urine) in reagents.reagent_list
 
-	if(uri.volume > 200)
+	if(uri?.volume > 200)
 		body.try_pee(TRUE)
 
 	if(body.hydration)
