@@ -61,6 +61,7 @@
 	desc = "Базовое устройство, имитирующее функции человеческих почек."
 	organ_flags = ORGAN_SYNTHETIC
 	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.5
+	var/emp_vulnerability = 80
 	reagent_vol = 100
 
 /obj/item/organ/kidneys/cybernetic/tier2
