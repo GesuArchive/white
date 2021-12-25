@@ -92,9 +92,9 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 		blobstrain.on_gain()
 		if (hadstrain)
 			to_chat(src, "Моя структура теперь: <b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font>!")
-			to_chat(src, "<b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> структура [blobstrain.description]")
+			to_chat(src, "<b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> [blobstrain.description]")
 			if(blobstrain.effectdesc)
-				to_chat(src, "<b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> структура [blobstrain.effectdesc]")
+				to_chat(src, "<b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> [blobstrain.effectdesc]")
 
 /mob/camera/blob/can_zFall(turf/source, levels)
 	// Prevent blob from falling through zlevels

@@ -88,7 +88,7 @@
 ////////////////
 
 /mob/living/simple_animal/hostile/blob/blobspore
-	name = "спора массы"
+	name = "Спора массы"
 	desc = "Летающая, хрупкая масса."
 	icon = 'icons/mob/blob_64.dmi'
 	icon_state = "blobpod"
@@ -118,6 +118,9 @@
 
 /mob/living/simple_animal/hostile/blob/blobspore/Initialize(mapload, obj/structure/blob/special/linked_node)
 	. = ..()
+
+	icon = GLOB.blob_current_icon
+
 	AddElement(/datum/element/simple_flying)
 	if(istype(linked_node))
 		factory = linked_node
@@ -237,7 +240,7 @@
 	independent = TRUE
 
 /mob/living/simple_animal/hostile/blob/blobspore/weak
-	name = "хрупкая спора массы"
+	name = "Хрупкая спора массы"
 	health = 15
 	maxHealth = 15
 	melee_damage_lower = 1

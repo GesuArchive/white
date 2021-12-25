@@ -106,7 +106,7 @@ GLOBAL_LIST_INIT(valid_blobstrains, subtypesof(/datum/blobstrain) - list(/datum/
 		BM.health *= max_mob_health_multiplier
 		BM.update_icons() //If it's getting a new strain, tell it what it does!
 		to_chat(BM, "Структура массы теперь: <b><font color=\"[color]\">[name]</b></font>!")
-		to_chat(BM, "<b><font color=\"[color]\">[name]</b></font> структура [shortdesc ? "[shortdesc]" : "[description]"]")
+		to_chat(BM, "<b><font color=\"[color]\">[name]</b></font> [shortdesc ? "[shortdesc]" : "[description]"]")
 
 /datum/blobstrain/proc/on_lose()
 	if(overmind.blob_core)

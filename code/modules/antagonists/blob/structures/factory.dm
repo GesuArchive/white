@@ -51,9 +51,7 @@
 	if(produce_spores())
 		anim(target = loc, a_icon = icon, flick_anim = "sporepulse", sleeptime = 15, lay = layer+0.5, offX = -16, offY = -16, alph = 220)
 	else
-		icon_state = "factorypulse"
-		spawn(7)
-			icon_state = initial(icon_state)
+		anim(target = loc, a_icon = icon, flick_anim = "factorypulse", sleeptime = 7, lay = layer+0.5, offX = -16, offY = -16, alph = 220)
 
 
 
