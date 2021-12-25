@@ -243,6 +243,7 @@
 	glass_icon_state  = "glass_clear"
 	glass_name = "стакан мочи"
 	glass_desc = "Моча."
+	taste_description = "моча"
 	ph = 10
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
