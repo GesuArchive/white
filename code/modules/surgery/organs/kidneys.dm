@@ -1,6 +1,6 @@
 /obj/item/organ/kidneys
 	name = "почки"
-	desc = "Пахнут приятно"
+	desc = "Пахнут неприятно."
 	icon_state = "kidneys"
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_KIDNEYS
@@ -50,6 +50,44 @@
 
 	if(body.hydration <= 5)
 		applyOrganDamage(1)
+
+/obj/item/organ/kidneys/fly
+	desc = "Почернели от ракетного топлива. Ну ксеносы, ну тупые!"
+	icon_state = "kidneys-x"
+
+/obj/item/organ/kidneys/cybernetic
+	name = "базовые кибернетические почки"
+	icon_state = "kidneys-c"
+	desc = "Базовое устройство, имитирующее функции человеческих почек."
+	organ_flags = ORGAN_SYNTHETIC
+	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.5
+	reagent_vol = 100
+
+/obj/item/organ/kidneys/cybernetic/tier2
+	name = "кибернетические почки"
+	icon_state = "kidneys-c-u"
+	desc = "Усовершенствованное устройство, превосходящее функции человеческих почек."
+	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
+	emp_vulnerability = 40
+	reagent_vol = 300
+
+/obj/item/organ/kidneys/cybernetic/tier3
+	name = "продвинутые кибернетические почки"
+	icon_state = "kidneys-c-u2"
+	desc = "Эта версия кибернетических почек имеет огромный внутренний запас."
+	maxHealth = 2 * STANDARD_ORGAN_THRESHOLD
+	emp_vulnerability = 20
+	reagent_vol = 600
+
+/obj/item/organ/kidneys/cybernetic/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF)
+		return
+	if(!COOLDOWN_FINISHED(src, severe_cooldown))
+		owner.pee(TRUE)
+		COOLDOWN_START(src, severe_cooldown, 10 SECONDS)
+	if(prob(emp_vulnerability/severity))
+		organ_flags |= ORGAN_SYNTHETIC_EMP
 
 /obj/effect/decal/cleanable/urine
 	name = "моча"
