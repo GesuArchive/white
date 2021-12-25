@@ -406,7 +406,6 @@
 	else
 		mocha = new /obj/effect/decal/cleanable/urine(get_turf(src))
 	if(w_uniform)
-		Stun(4 SECONDS)
 		if(O.reagents.trans_to(mocha, 5, transfered_by = src) && !bloody)
 			visible_message("<b>[capitalize(src.name)]</b> мочится себе в трусы!")
 			playsound(src, 'sound/effects/splat.ogg', 50, 1)
@@ -414,6 +413,7 @@
 				if(ishuman(M) && M != src)
 					M.emote("laugh")
 		else if(forced_pee)
+			Stun(4 SECONDS)
 			add_blood_DNA(return_blood_DNA())
 			O.setOrganDamage(1)
 			if(hydration > 5)
@@ -424,12 +424,12 @@
 			playsound(src, 'sound/effects/splat.ogg', 50, 1)
 			return
 	else
-		Stun(2 SECONDS)
 		if(O.reagents.trans_to(mocha, 10, transfered_by = src) && !bloody)
 			visible_message("<b>[capitalize(src.name)]</b> обильно ссыт на пол!")
 			playsound(src, 'sound/effects/splat.ogg', 50, 1)
 			return
 		else if(forced_pee)
+			Stun(2 SECONDS)
 			O.setOrganDamage(1)
 			if(hydration > 5)
 				hydration -= 10
