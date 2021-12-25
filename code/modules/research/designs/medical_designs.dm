@@ -757,9 +757,9 @@
 /datum/design/cybernetic_kidneys/tier2
 	name = "Кибернетические почки"
 	desc = "Усовершенствованное устройство, превосходящее функции человеческих почек."
-	id = "cybernetic_stomach_tier2"
+	id = "cybernetic_kidneys_tier2"
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
-	build_path = /obj/item/organ/stomach/cybernetic/tier2
+	build_path = /obj/item/organ/kidneys/cybernetic/tier2
 	sub_category = list("Стандартные кибернетические органы")
 
 /datum/design/cybernetic_kidneys/tier3

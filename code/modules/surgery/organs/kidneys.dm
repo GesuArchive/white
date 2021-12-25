@@ -15,7 +15,7 @@
 
 	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5)
 
-	var/metabolism_efficiency = 0.5
+	var/metabolism_efficiency = 0.05
 
 	reagent_vol = 200
 
@@ -35,6 +35,9 @@
 	if(uri?.volume > 200)
 		body.try_pee(TRUE)
 
+	if(body.hydration <= 5)
+		applyOrganDamage(1)
+
 	if(body.hydration)
 		body.hydration -= delta_time * metabolism_efficiency
 		reagents.add_reagent(/datum/reagent/water/urine, delta_time * metabolism_efficiency)
@@ -45,9 +48,6 @@
 	if(damage > high_threshold && DT_PROB(0.5 * damage, delta_time))
 		to_chat(body, span_warning("В боку болит и больше не выходит сдерживаться!"))
 		body.try_pee(TRUE)
-
-	if(body.hydration <= 5)
-		applyOrganDamage(1)
 
 /obj/item/organ/kidneys/fly
 	desc = "Почернели от ракетного топлива. Ну ксеносы, ну тупые!"
@@ -61,7 +61,7 @@
 	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.5
 	var/emp_vulnerability = 80
 	reagent_vol = 100
-	metabolism_efficiency = 0.7
+	metabolism_efficiency = 0.07
 
 /obj/item/organ/kidneys/cybernetic/tier2
 	name = "кибернетические почки"
@@ -70,7 +70,7 @@
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	emp_vulnerability = 40
 	reagent_vol = 300
-	metabolism_efficiency = 0.07
+	metabolism_efficiency = 0.04
 
 /obj/item/organ/kidneys/cybernetic/tier3
 	name = "продвинутые кибернетические почки"
