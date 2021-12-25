@@ -418,6 +418,7 @@
 			O.setOrganDamage(5)
 			if(hydration > 5)
 				hydration -= 5
+			blood_volume -= 5
 			mocha.reagents.add_reagent(/datum/reagent/blood, 5)
 			visible_message("<b>[capitalize(src.name)]</b> мочится себе в трусы кровью!")
 			playsound(src, 'sound/effects/splat.ogg', 50, 1)
@@ -431,7 +432,8 @@
 		else if(forced_pee)
 			O.setOrganDamage(5)
 			if(hydration > 5)
-				hydration -= 5
+				hydration -= 10
+			blood_volume -= 10
 			mocha.reagents.add_reagent(/datum/reagent/blood, 10)
 			visible_message("<b>[capitalize(src.name)]</b> обильно ссыт кровью на пол!")
 			playsound(src, 'sound/effects/splat.ogg', 50, 1)
