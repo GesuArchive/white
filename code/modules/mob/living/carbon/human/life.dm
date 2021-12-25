@@ -373,10 +373,7 @@
 	var/turf/T = get_turf(src)
 	var/atom/target = null
 	for(var/atom/A in T)
-		if(istype(A, /obj/structure/toilet))
-			target = T
-			break
-		else if(istype(A, /obj/item/reagent_containers))
+		if(istype(A, /obj/structure/toilet) || istype(A, /obj/item/reagent_containers))
 			target = A
 			break
 	if(target)
