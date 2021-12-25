@@ -8,6 +8,8 @@
 	worn_icon_state = "bombcollaroff"
 
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	item_flags = DROPDEL
+
 	var/primed = FALSE
 	var/condition_for_release_text = "Ждать смерти"
 	var/scheduled_explosion_time = 0
