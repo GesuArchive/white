@@ -158,9 +158,9 @@
 	sound2 = 'sound/magic/teleport_app.ogg'
 
 /obj/effect/proc_holder/spell/targeted/area_teleport/teleport/santa
-	name = "Santa Teleport"
+	name = "Телепорт Санты"
 
-	invocation = "HO HO HO"
+	invocation = "ХОУ! ХОУ! ХОУ!"
 	clothes_req = FALSE
 	say_destination = FALSE // Santa moves in mysterious ways
 
