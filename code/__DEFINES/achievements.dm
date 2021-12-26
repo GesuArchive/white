@@ -108,6 +108,9 @@
 // DB ID for amount of consumed maintenance pills
 #define MAINTENANCE_PILL_SCORE "Maintenance Pill Score"
 
+// DB ID for amount of consumed poo
+#define POO_EATEN_SCORE "Poo Eaten Score"
+
 // DB ID for intento score
 #define INTENTO_SCORE "Intento Score"
 
