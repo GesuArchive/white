@@ -103,8 +103,12 @@
 /datum/component/decomposition/proc/decompose()
 	var/obj/decomp = parent //Lets us spawn things at decomp
 	new /obj/effect/decal/cleanable/ants(decomp.loc)
-	new /obj/item/food/badrecipe/moldy(decomp.loc)
-	decomp.visible_message(span_notice("[capitalize(decomp.name)] покрывается плесенью и муравьями! Фу!"))
+	var/obj/item/I = new /obj/item/food/badrecipe/moldy(decomp.loc)
+	I.icon = decomp.icon
+	I.icon_state = decomp.icon_state
+	I.name = "гнилая [decomp.name]"
+	I.desc = "Фу. [decomp.desc]"
+	decomp.visible_message(span_notice("[capitalize(decomp.name)] портится!"))
 	qdel(decomp)
 	return
 

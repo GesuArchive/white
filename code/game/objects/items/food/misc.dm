@@ -171,9 +171,10 @@
 	RegisterSignal(src, COMSIG_ITEM_GRILLED, .proc/OnGrill)
 
 /obj/item/food/badrecipe/moldy
-	name = "moldy mess"
-	desc = "A rancid, disgusting culture of mold and ants. Somewhere under there, at <i>some point,</i> there was food."
+	name = "гниль"
+	desc = "Фу."
 	food_reagents = list(/datum/reagent/consumable/mold = 30)
+	color = "#781948"
 
 /obj/item/food/badrecipe/moldy/Initialize()
 	. = ..()
