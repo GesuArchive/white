@@ -11,8 +11,8 @@
 GLOBAL_LIST_EMPTY(possible_gifts)
 
 /obj/item/a_gift
-	name = "gift"
-	desc = "PRESENTS!!!! eek!"
+	name = "подарок"
+	desc = "ПОДАРКИ!!!! Ых!"
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "giftdeliverypackage3"
 	inhand_icon_state = "gift"
@@ -36,17 +36,17 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 	. = ..()
 	. += "<hr>"
 	if((M.mind && HAS_TRAIT(M.mind, TRAIT_PRESENT_VISION)) || isobserver(M))
-		. += span_notice("It contains \a [initial(contains_type.name)].")
+		. += span_notice("Содержит [initial(contains_type.name)].")
 
 /obj/item/a_gift/attack_self(mob/M)
 	if(M.mind && HAS_TRAIT(M.mind, TRAIT_CANNOT_OPEN_PRESENTS))
-		to_chat(M, span_warning("You're supposed to be spreading gifts, not opening them yourself!"))
+		to_chat(M, span_warning("Не, не умею. Подарки нужно другим открывать!"))
 		return
 
 	qdel(src)
 
 	var/obj/item/I = new contains_type(get_turf(M))
-	M.visible_message(span_notice("[M] unwraps <b>[src.name]</b>, finding \a [I] inside!"))
+	M.visible_message(span_notice("[M] разворачивает <b>[src.name]</b>, находя [I] внутри!"))
 	I.investigate_log("([I.type]) was found in a present by [key_name(M)].", INVESTIGATE_PRESENTS)
 	M.put_in_hands(I)
 	I.add_fingerprint(M)
@@ -98,8 +98,8 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 
 
 /obj/item/a_gift/anything
-	name = "рождественский gift"
-	desc = "It could be anything!"
+	name = "рождественский подарок"
+	desc = "Внутри может быть что угодно!"
 
 /obj/item/a_gift/anything/get_gift_type()
 	if(!GLOB.possible_gifts.len)

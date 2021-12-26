@@ -439,9 +439,9 @@
 		if(buckled)
 			to_chat(M, span_warning("Тебе нужно отстегнуться от [src.name], чтобы сделать это!"))
 			return
-		M.visible_message(span_notice("[M] встряхивает [src] пытаесь поднять [ru_ego()]!") , \
+		M.visible_message(span_notice("[M] встряхивает [src] пытаясь поднять [ru_ego()]!") , \
 						null, span_hear("Слышу шуршание одежды.") , DEFAULT_MESSAGE_RANGE, list(M, src))
-		to_chat(M, span_notice("Встряхиваю [src] пытаесь поднять [ru_ego()]!"))
+		to_chat(M, span_notice("Встряхиваю [src] пытаясь поднять [ru_ego()]!"))
 		to_chat(src, span_notice("[M] пытается поднять меня!"))
 	else if(check_zone(M.zone_selected) == BODY_ZONE_HEAD) //Headpats!
 		SEND_SIGNAL(src, COMSIG_CARBON_HEADPAT, M)
