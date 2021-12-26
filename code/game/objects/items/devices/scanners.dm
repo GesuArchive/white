@@ -229,7 +229,7 @@ GENE SCANNER
 					if(TRAUMA_RESILIENCE_LOBOTOMY)
 						trauma_desc += "глубокого "
 					if(TRAUMA_RESILIENCE_WOUND)
-						trauma_desc += "переломов "
+						trauma_desc += "травматического "
 					if(TRAUMA_RESILIENCE_MAGIC, TRAUMA_RESILIENCE_ABSOLUTE)
 						trauma_desc += "вечного "
 				trauma_desc += B.scan_desc
@@ -383,10 +383,10 @@ GENE SCANNER
 		var/list/wounded_parts = C.get_wounded_bodyparts()
 		for(var/i in wounded_parts)
 			var/obj/item/bodypart/wounded_part = i
-			render_list += "<span class='alert ml-1'><b>Warning: Physical trauma[LAZYLEN(wounded_part.wounds) > 1? "s" : ""] detected in [wounded_part.name]</b>"
+			render_list += "<span class='alert ml-1'><b>Внимание: [LAZYLEN(wounded_part.wounds) > 1? "Обнаружены физические травмы" : "Обнаружена физическая травма"] в [wounded_part.name]</b>"
 			for(var/k in wounded_part.wounds)
 				var/datum/wound/W = k
-				render_list += "<div class='ml-2'>Type: [W.name]\nSeverity: [W.severity_text()]\nRecommended Treatment: [W.treat_text]</div>\n" // less lines than in woundscan() so we don't overload people trying to get basic med info
+				render_list += "<div class='ml-2'>Тип: [W.name]\nТяжесть: [W.severity_text()]</div>\n" // \nRecommended Treatment: [W.treat_text] выкинул рекомендованное лечение - слишком громоздко,less lines than in woundscan() so we don't overload people trying to get basic med info
 			render_list += "</span>"
 
 	for(var/thing in M.diseases)

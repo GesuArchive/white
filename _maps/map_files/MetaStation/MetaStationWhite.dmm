@@ -40103,6 +40103,7 @@
 	dir = 1
 	},
 /obj/structure/table/glass,
+/obj/item/stack/sheet/plastic/fifty,
 /obj/item/book/manual/wiki/medicine,
 /obj/item/clothing/neck/stethoscope,
 /obj/item/wrench/medical,
@@ -45038,8 +45039,9 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
 	},
-/obj/structure/bedsheetbin,
 /obj/structure/table/glass,
+/obj/structure/bedsheetbin,
+/obj/item/stack/sheet/plastic/fifty,
 /turf/open/floor/plasteel/dark,
 /area/medical/storage)
 "coD" = (
@@ -65130,6 +65132,7 @@
 	dir = 1;
 	pixel_y = -24
 	},
+/obj/machinery/limbgrower,
 /turf/open/floor/plasteel/white,
 /area/medical/sleeper)
 "kBo" = (

@@ -28359,6 +28359,7 @@
 	name = "medbay camera";
 	network = list("ss13","medbay")
 	},
+/obj/item/stack/sheet/plastic/fifty,
 /obj/item/book/manual/wiki/medicine,
 /obj/item/clothing/neck/stethoscope,
 /obj/item/wrench/medical,
@@ -56182,6 +56183,7 @@
 "jxO" = (
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/limbgrower,
 /turf/open/floor/plasteel/white,
 /area/medical/paramedic)
 "jya" = (
@@ -103114,6 +103116,7 @@
 	dir = 8
 	},
 /obj/machinery/newscaster/directional/north,
+/obj/machinery/chem_seller,
 /turf/open/floor/plasteel/white,
 /area/medical/paramedic)
 "vPs" = (

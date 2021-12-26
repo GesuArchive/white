@@ -315,6 +315,7 @@
 /area/medical/medbay)
 "cn" = (
 /obj/structure/table,
+/obj/item/stack/sheet/plastic/fifty,
 /obj/item/book/manual/wiki/medicine,
 /obj/item/reagent_containers/spray/cleaner,
 /obj/item/clothing/glasses/hud/health,

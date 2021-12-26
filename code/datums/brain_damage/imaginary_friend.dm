@@ -1,7 +1,7 @@
 /datum/brain_trauma/special/imaginary_friend
-	name = "Imaginary Friend"
-	desc = "Patient can see and hear an imaginary person."
-	scan_desc = "partial schizophrenia"
+	name = "Воображаемый друг"
+	desc = "Пациент может видеть и слышать воображаемого человека."
+	scan_desc = "<b>шизофренического расщепления личности</b>"
 	gain_text = span_notice("У меня похоже есть друг. Круто!")
 	lose_text = span_warning("Мой друг пропал...")
 	var/mob/camera/imaginary_friend/friend

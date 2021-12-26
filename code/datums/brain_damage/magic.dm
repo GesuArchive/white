@@ -8,7 +8,7 @@
 /datum/brain_trauma/magic/lumiphobia
 	name = "Светочувствительность"
 	desc = "Пациент имеет необъяснимую неблагоприятную реакцию на свет."
-	scan_desc = "лёгкая светочувствительность"
+	scan_desc = "<b>лёгкой светочувствительности</b>"
 	gain_text = span_warning("Чувствую тягу к темноте.")
 	lose_text = span_notice("Свет больше не беспокоит меня.")
 	/// Cooldown to prevent warning spam
@@ -32,7 +32,7 @@
 /datum/brain_trauma/magic/poltergeist
 	name = "Полтергейст"
 	desc = "Пациент, кажется, подвергается нападению со стороны невидимого объекта."
-	scan_desc = "паранормальная активность"
+	scan_desc = "<b>паранормальной активности</b>"
 	gain_text = span_warning("Чувствую ненавистное присутствие рядом со мной.")
 	lose_text = span_notice("Чувствую, что ненавистное присутствие исчезает.")
 
@@ -53,9 +53,9 @@
 		throwing.throw_at(owner, 8, 2)
 
 /datum/brain_trauma/magic/antimagic
-	name = "Athaumasia"
+	name = "Нулификация"
 	desc = "Пациент совершенно инертен к магическим силам."
-	scan_desc = "таумически-пуст"
+	scan_desc = "<b>нулификации</b>"
 	gain_text = span_notice("Понимаю, что магия не может быть реальной.")
 	lose_text = span_notice("Понимаю, что магия может быть реальной.")
 
@@ -70,7 +70,7 @@
 /datum/brain_trauma/magic/stalker
 	name = "Преследующий призрак"
 	desc = "Пациент преследуется фантомом, который видит только он."
-	scan_desc = "экстрасенсорная паранойя"
+	scan_desc = "<b>экстрасенсорной паранойи</b>"
 	gain_text = span_warning("Чувствую, что что-то хочет меня убить...")
 	lose_text = span_notice("Больше не чувствую глаза на спине.")
 	var/obj/effect/hallucination/simple/stalker_phantom/stalker
