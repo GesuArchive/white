@@ -7,7 +7,7 @@
 
 /obj/structure/flora/rock/boulder/Destroy()
 	. = ..()
-	for(var/obj/structure/flora/rock/boulder/B in orange(1))
+	for(var/obj/structure/flora/rock/boulder/B in orange(2))
 		if(mineResult && mineAmount)
 			new mineResult(B.loc, mineAmount)
 		qdel(B)
