@@ -3,6 +3,7 @@
 	desc = "Пахнет чудесно."
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "boulder1"
+	randomize_icon = FALSE
 
 /obj/structure/flora/rock/boulder/Destroy()
 	. = ..()
