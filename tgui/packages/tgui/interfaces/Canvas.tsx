@@ -222,7 +222,7 @@ export const Canvas = (props, context) => {
               <Flex.Item>
                 <Button.Confirm
                   onClick={() => act("finalize")}
-                  content="Finalize" />
+                  content="Закончить" />
               </Flex.Item>
             )}
             {!!data.finalized && !!data.show_plaque && (
@@ -240,7 +240,7 @@ export const Canvas = (props, context) => {
                 </Box>
                 <Box italic>{data.medium}</Box>
                 <Box italic>
-                  {!!data.patron && `Sponsored by ${data.patron} `}
+                  {!!data.patron && `Спонсировано ${data.patron} `}
                   <Button icon="hand-holding-usd" color="transparent" iconColor="black" onClick={() => act("patronage")} />
                 </Box>
               </Flex.Item>

@@ -188,7 +188,7 @@ GLOBAL_DATUM_INIT(known_alts, /datum/known_alts, new)
 	client << browse(html, "window=known_alts;size=700x400")
 
 /datum/admins/proc/known_alts_panel()
-	set name = "! Мультиакки"
+	set name = "Мультиакки"
 	set category = "Адм"
 
 	GLOB.known_alts.show_panel(usr.client)

@@ -75,15 +75,15 @@ export const PaintingAdminPanel = (props, context) => {
                   icon="plus-circle"
                   onClick={() => act("add_tag", { ref: chosenPainting.ref })} />
               </LabeledList.Item>
-              <LabeledList.Item label="сикей разместившего" content={chosenPainting.patron_ckey} />
-              <LabeledList.Item label="имя разместившего" content={chosenPainting.patron_name} />
+              <LabeledList.Item label="сикей спонсора" content={chosenPainting.patron_ckey} />
+              <LabeledList.Item label="имя спонсора" content={chosenPainting.patron_name} />
               <LabeledList.Item label="стоимость" content={chosenPainting.credit_value} />
               <LabeledList.Item label="ширина" content={chosenPainting.width} />
               <LabeledList.Item label="высота" content={chosenPainting.height} />
             </LabeledList>
             <Section title="Действия">
               <Button.Confirm onClick={() => { setChosenPaintingRef(null); act("delete", { ref: chosenPainting.ref }); }}>Удалить</Button.Confirm>
-              <Button onClick={() => act("dumpit", { ref: chosenPainting.ref })}>Сбросить разместившего</Button>
+              <Button onClick={() => act("dumpit", { ref: chosenPainting.ref })}>Сбросить спонсора</Button>
             </Section>
           </Section>
         )}

@@ -1,5 +1,5 @@
 /datum/admins/proc/paintings_manager()
-	set name = "! Управление картинами"
+	set name = "Управление картинами"
 	set category = "Адм"
 
 	if(!check_rights(R_ADMIN))
