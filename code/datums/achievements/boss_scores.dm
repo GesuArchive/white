@@ -1,54 +1,54 @@
 /datum/award/score/tendril_score
-	name = "Tendril Score"
-	desc = "Смотрите под ноги."
+	name = "Тендрилов уничтожено"
+	desc = "Смотри под ноги."
 	database_id = TENDRIL_CLEAR_SCORE
 
 /datum/award/score/boss_score
-	name = "Bosses Killed"
+	name = "Боссов убито"
 	desc = "СКОЛЬКИХ ТЫ УБИЛ?"
 	database_id = BOSS_SCORE
 
 /datum/award/score/blood_miner_score
-	name = "Blood-Drunk Miners Killed"
+	name = "Кроваво-пьяных шахтёров убито"
 	desc = "СКОЛЬКИХ ТЫ УБИЛ?"
 	database_id = MINER_SCORE
 
 /datum/award/score/demonic_miner_score
-	name = "Demonic-Frost Miners Killed"
+	name = "Демонически-морозных шахтёров убито"
 	desc = "СКОЛЬКИХ ТЫ УБИЛ?"
 	database_id = FROST_MINER_SCORE
 
 /datum/award/score/bubblegum_score
-	name = "Bubblegums Killed"
+	name = "Бубликов убито"
 	desc = "СКОЛЬКИХ ТЫ УБИЛ?"
 	database_id = BUBBLEGUM_SCORE
 
 /datum/award/score/colussus_score
-	name = "Colossus Killed"
+	name = "Колоссов убито"
 	desc = "СКОЛЬКИХ ТЫ УБИЛ?"
 	database_id = COLOSSUS_SCORE
 
 /datum/award/score/drake_score
-	name = "Drakes Killed"
+	name = "Драконов убито"
 	desc = "СКОЛЬКИХ ТЫ УБИЛ?"
 	database_id = DRAKE_SCORE
 
 /datum/award/score/hierophant_score
-	name = "Hierophants Killed"
+	name = "Иерофантов убито"
 	desc = "СКОЛЬКИХ ТЫ УБИЛ?"
 	database_id = HIEROPHANT_SCORE
 
 /datum/award/score/legion_score
-	name = "Legions Killed"
+	name = "Легионов убито"
 	desc = "СКОЛЬКИХ ТЫ УБИЛ?"
 	database_id = LEGION_SCORE
 
 /datum/award/score/swarmer_beacon_score
-	name = "Swarmer Beacons Killed"
+	name = "Маяков свармеров убито"
 	desc = "СКОЛЬКИХ ТЫ УБИЛ?"
 	database_id = SWARMER_BEACON_SCORE
 
 /datum/award/score/wendigo_score
-	name = "Wendigos Killed"
+	name = "Вендиго убито"
 	desc = "СКОЛЬКИХ ТЫ УБИЛ?"
 	database_id = WENDIGO_SCORE

@@ -1,14 +1,14 @@
 //does brute damage, bonus damage for each nearby blob, and spreads damage out
 /datum/blobstrain/reagent/synchronous_mesh
-	name = "Synchronous Mesh"
-	description = "will do massively increased brute damage for each blob near the target."
-	effectdesc = "will also spread damage between each blob near the attacked blob."
-	analyzerdescdamage = "Does brute damage, increasing for each blob near the target."
-	analyzerdesceffect = "When attacked, spreads damage between all blobs near the attacked blob."
+	name = "Синхронная сетка"
+	description = "нанесет значительно увеличенный грубый урон за каждую массу рядом с целью."
+	effectdesc = "также распределяет урон между каждой массой рядом с атакованной массой."
+	analyzerdescdamage = "Наносит грубый урон, увеличивающийся за каждую массу рядом с целью."
+	analyzerdesceffect = "При атаке распределяет урон между всеми массами рядом с атакованной массой."
 	color = "#65ADA2"
 	complementary_color = "#AD6570"
-	blobbernaut_message = "synchronously strikes"
-	message = "The blobs strike you"
+	blobbernaut_message = "синхронно ударяет"
+	message = "Масса ударяет меня"
 	reagent = /datum/reagent/blob/synchronous_mesh
 
 /datum/blobstrain/reagent/synchronous_mesh/damage_reaction(obj/structure/blob/B, damage, damage_type, damage_flag)
@@ -25,7 +25,8 @@
 		return damage * 1.25
 
 /datum/reagent/blob/synchronous_mesh
-	name = "Synchronous Mesh"
+	name = "Синхронная сетка"
+	enname = "Synchronous Mesh"
 	taste_description = "токсичная плесень"
 	color = "#65ADA2"
 

@@ -75,10 +75,10 @@
 	var/mob/living/carbon/human/santa //who is our santa?
 
 /datum/round_event/santa/announce(fake)
-	priority_announce("Santa is coming to town!", "Unknown Transmission")
+	priority_announce("Санта отправляется на станцию!", "Неопознанная передача")
 
 /datum/round_event/santa/start()
-	var/list/candidates = poll_ghost_candidates("Santa is coming to town! Do you want to be Santa?", poll_time=150)
+	var/list/candidates = poll_ghost_candidates("Санта отправляется на станцию! Хотите быть Сантой?", poll_time=150)
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
 		santa = new /mob/living/carbon/human(pick(GLOB.blobstart))

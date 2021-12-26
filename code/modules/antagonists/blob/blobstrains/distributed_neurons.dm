@@ -1,19 +1,19 @@
 //kills unconscious targets and turns them into blob zombies, produces fragile spores when killed.  Spore produced by factories are sentient.
 /datum/blobstrain/reagent/distributed_neurons
-	name = "Distributed Neurons"
-	description = "will do very low toxin damage and turns unconscious targets into blob zombies."
-	effectdesc = "will also produce fragile spores when killed.  Spores produced by factories are sentient."
-	shortdesc = "will do very low toxin damage and will kill any unconcious targets when attacked.  Spores produced by factories are sentient."
-	analyzerdescdamage = "Does very low toxin damage and kills unconscious humans."
-	analyzerdesceffect = "Produces spores when killed.  Spores produced by factories are sentient."
+	name = "Распределенные нейроны"
+	description = "нанесет очень низкий урон токсином и превратит потерявшие сознание цели в зомби-массы."
+	effectdesc = "при гибели также образует хрупкие споры. Споры, производимые фабриками, разумны."
+	shortdesc = "нанесет очень низкий урон токсинами и убьет любые находящиеся в бессознательном состоянии цели при атаке. Споры, производимые фабриками, разумны."
+	analyzerdescdamage = "Наносит очень низкий урон токсинами и убивает людей без сознания."
+	analyzerdesceffect = "При смерти образует споры. Споры, производимые фабриками, разумны."
 	color = "#E88D5D"
 	complementary_color = "#823ABB"
-	message_living = ", and you feel tired"
+	message_living = " и хочется спать"
 	reagent = /datum/reagent/blob/distributed_neurons
 
 /datum/blobstrain/reagent/distributed_neurons/damage_reaction(obj/structure/blob/B, damage, damage_type, damage_flag)
 	if((damage_flag == MELEE || damage_flag == BULLET || damage_flag == LASER) && damage <= 20 && B.obj_integrity - damage <= 0 && prob(15)) //if the cause isn't fire or a bomb, the damage is less than 21, we're going to die from that damage, 15% chance of a shitty spore.
-		B.visible_message(span_warning("<b>A spore floats free of the blob!</b>"))
+		B.visible_message(span_warning("<b>Спора вылетает из массы!</b>"))
 		var/mob/living/simple_animal/hostile/blob/blobspore/weak/BS = new/mob/living/simple_animal/hostile/blob/blobspore/weak(B.loc)
 		BS.overmind = B.overmind
 		BS.update_icons()
@@ -21,7 +21,8 @@
 	return ..()
 
 /datum/reagent/blob/distributed_neurons
-	name = "Distributed Neurons"
+	name = "Распределенные нейроны"
+	enname = "Distributed Neurons"
 	color = "#E88D5D"
 
 /datum/reagent/blob/distributed_neurons/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/overmind)
@@ -38,4 +39,4 @@
 			overmind.blob_mobs.Add(spore)
 			spore.Zombify(exposed_mob)
 			overmind.add_points(-5)
-			to_chat(overmind, span_notice("Spent 5 resources for the zombification of [exposed_mob]."))
+			to_chat(overmind, span_notice("Тратим 5 ресурсов на зомбификацию [exposed_mob]."))

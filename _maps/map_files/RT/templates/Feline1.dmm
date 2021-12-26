@@ -1,0 +1,2638 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bb" = (
+/obj/effect/turf_decal/trimline/red/filled/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/red/filled/corner{
+	dir = 1
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"bp" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 6
+	},
+/obj/effect/mob_spawn/human/corpse/cat_butcher,
+/obj/structure/closet/body_bag,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"bI" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6;
+	invisibility = 100
+	},
+/obj/item/shard{
+	icon_state = "small"
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/cobweb,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"bR" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/obj/effect/mob_spawn/human/corpse/cat_butcher,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"bX" = (
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"cb" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/xtracks{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ct" = (
+/obj/machinery/door/poddoor,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"cG" = (
+/obj/structure/disposalpipe/segment{
+	invisibility = 100
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/closed/indestructible/syndicate,
+/area/ctf)
+"cR" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"dq" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/iv_drip,
+/obj/item/radio/intercom{
+	pixel_y = -29
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"dw" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"dA" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/xenoblood,
+/obj/effect/decal/cleanable/xenoblood/xgibs/up,
+/obj/effect/decal/cleanable/blood/xtracks,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"dJ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ctf)
+"dR" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/structure/table/glass,
+/obj/item/clothing/neck/stethoscope,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -30
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ei" = (
+/obj/machinery/dna_scannernew,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"eL" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"fr" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"fy" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"fJ" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/shreds,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"fQ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/cobweb,
+/turf/open/floor/plasteel/freezer,
+/area/ctf)
+"fU" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"gh" = (
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/xtracks{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"gi" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"gk" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/closet/body_bag,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"gL" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"hd" = (
+/obj/machinery/arena_spawn/red,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"hD" = (
+/obj/effect/decal/cleanable/blood/gibs/old,
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/carbon/human/raper,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"hF" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
+/obj/machinery/camera{
+	c_tag = "Stasis Center";
+	dir = 1;
+	network = list("ss13","medbay")
+	},
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"hP" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/closet/crate/trashcart/laundry,
+/obj/structure/plasticflaps,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"hT" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 5
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"hW" = (
+/obj/effect/mob_spawn/human/corpse/cat_butcher,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ig" = (
+/obj/effect/decal/cleanable/blood/gibs/core,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ik" = (
+/obj/effect/decal/cleanable/blood/gibs/body,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/gibs/bubblegum,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/item/organ/tail/monkey,
+/obj/item/stack/sheet/animalhide/monkey,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"it" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/structure/bed/roller,
+/obj/effect/mob_spawn/human/corpse/assistant/beesease_infection,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"iM" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"iY" = (
+/obj/structure/showcase/horrific_experiment,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ja" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"je" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/closed/indestructible/fakeglass,
+/area/ctf)
+"jM" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ka" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/machinery/defibrillator_mount{
+	pixel_y = -28
+	},
+/obj/effect/turf_decal/box,
+/obj/structure/table/optable,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/item/organ/body_egg/alien_embryo,
+/obj/item/bodypart/chest/monkey,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"kh" = (
+/obj/structure/alien/weeds,
+/obj/structure/bed/nest,
+/mob/living/simple_animal/hostile/alien/sentinel,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"kB" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"kS" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10;
+	invisibility = 100
+	},
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"kT" = (
+/obj/effect/decal/cleanable/greenglow,
+/obj/effect/decal/cleanable/leaper_sludge,
+/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/zombie,
+/turf/open/floor/engine,
+/area/ctf)
+"lk" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/machinery/defibrillator_mount{
+	pixel_y = -28
+	},
+/obj/effect/turf_decal/box,
+/obj/structure/table/optable,
+/obj/effect/decal/cleanable/blood/old,
+/obj/item/bodypart/head/monkey,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"lw" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"lD" = (
+/obj/effect/decal/cleanable/blood/gibs/torso,
+/obj/effect/decal/cleanable/blood/bubblegum,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/food/grown/banana,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 5
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"mq" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"mv" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"my" = (
+/obj/machinery/computer/scan_consolenew,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"mN" = (
+/turf/closed/indestructible/syndicate,
+/area/ctf)
+"mQ" = (
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"mW" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ctf)
+"nk" = (
+/obj/effect/turf_decal/trimline/green/filled/corner,
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"nq" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/gibs/old,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/food/grown/banana,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"nr" = (
+/obj/structure/clownweeds,
+/mob/living/simple_animal/hostile/clown/infestor,
+/obj/item/bikehorn,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"nt" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine,
+/area/ctf)
+"nI" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/obj/item/kitchen/knife/shiv,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"nP" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"nS" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ctf)
+"nW" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/dnainjector/h2m,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 10
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ok" = (
+/obj/structure/table/glass,
+/obj/item/folder/white{
+	pixel_x = 2
+	},
+/obj/item/storage/pill_bottle/mutadone{
+	pixel_x = 11;
+	pixel_y = 7
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"op" = (
+/obj/structure/disposalpipe/segment{
+	invisibility = 100
+	},
+/turf/closed/indestructible/syndicate,
+/area/ctf)
+"ou" = (
+/obj/machinery/computer/scan_consolenew,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ox" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"oH" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/closet/body_bag,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"oO" = (
+/obj/structure/closet/secure_closet/medical3,
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 9
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"oX" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner,
+/obj/effect/turf_decal/trimline/red/filled/corner{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"oY" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/turf_decal/trimline/red/filled/corner{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"oZ" = (
+/obj/structure/clownweeds,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ph" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 9
+	},
+/obj/item/bodypart/l_arm/monkey,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"pl" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/food/grown/banana,
+/obj/item/dnainjector/h2m,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 10
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"pv" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/structure/trash_pile,
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"pw" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/xtracks{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"pI" = (
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/food/grown/banana,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"pO" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"pR" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/blood/gibs/down,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"qo" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/radio/intercom{
+	pixel_y = -29
+	},
+/obj/effect/turf_decal/trimline/green/filled/line,
+/obj/structure/closet/body_bag,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"qz" = (
+/obj/effect/decal/cleanable/blood/gibs/core,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"qD" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/door/airlock/public/glass{
+	name = "Prison Common Room"
+	},
+/obj/effect/decal/cleanable/blood/xtracks{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"qK" = (
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/disposalpipe/segment{
+	invisibility = 100
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/engine,
+/area/ctf)
+"qT" = (
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/gibs/old,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"qV" = (
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/ants,
+/obj/effect/decal/cleanable/xenoblood/xgibs/core,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"rs" = (
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"sp" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/structure/closet/crate/trashcart,
+/obj/structure/plasticflaps,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/cobweb,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"sM" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/obj/structure/table,
+/obj/item/paper_bin{
+	pixel_x = -2;
+	pixel_y = 5
+	},
+/obj/item/pen/red,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"th" = (
+/obj/structure/sign/warning/bodysposal,
+/turf/closed/indestructible/syndicate,
+/area/ctf)
+"tn" = (
+/obj/structure/closet/secure_closet/medical3,
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 5
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"tM" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/gorilla,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ua" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ud" = (
+/obj/structure/sign/warning/biohazard,
+/obj/structure/disposalpipe/segment{
+	invisibility = 100
+	},
+/turf/closed/indestructible/fakeglass,
+/area/ctf)
+"uy" = (
+/obj/machinery/door/poddoor,
+/obj/effect/decal/cleanable/blood/xtracks{
+	dir = 4
+	},
+/obj/structure/fans/tiny,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"uP" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"vd" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/trimline/green/filled/line,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"vh" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10;
+	invisibility = 100
+	},
+/obj/effect/turf_decal/trimline/green/filled/line,
+/turf/open/floor/plasteel/freezer,
+/area/ctf)
+"vq" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"vr" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/filled/corner,
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"vs" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"vv" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ctf)
+"vJ" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/structure/closet/body_bag,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"vK" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/structure/table/glass,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -30
+	},
+/obj/machinery/requests_console{
+	department = "Medbay";
+	departmentType = 1;
+	name = "Medbay RC";
+	pixel_x = -30
+	},
+/obj/item/reagent_containers/chem_pack{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/chem_pack{
+	pixel_x = 7;
+	pixel_y = 10
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"vN" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"vP" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"vR" = (
+/obj/machinery/arena_spawn/red,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"vS" = (
+/obj/machinery/door/poddoor{
+	max_integrity = 60000
+	},
+/obj/structure/fans/tiny,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"vW" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/item/dnainjector/h2m,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"vY" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 10
+	},
+/obj/effect/mob_spawn/human/corpse/cat_butcher,
+/obj/structure/closet/body_bag,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"wa" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/structure/table/glass,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -30
+	},
+/obj/item/reagent_containers/chem_pack{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/chem_pack{
+	pixel_x = 7;
+	pixel_y = 10
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"wd" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 6
+	},
+/obj/machinery/newscaster{
+	pixel_y = -28
+	},
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"wr" = (
+/obj/structure/alien/weeds,
+/obj/effect/decal/cleanable/blood/xtracks{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/xtracks,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"wP" = (
+/obj/effect/decal/cleanable/xenoblood,
+/obj/effect/decal/cleanable/insectguts,
+/obj/effect/turf_decal/trimline/green/filled/line,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"wR" = (
+/obj/structure/bed/roller,
+/obj/effect/turf_decal/trimline/green/filled/line,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"xc" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/obj/item/kitchen/knife/shiv,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"xz" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6;
+	invisibility = 100
+	},
+/obj/effect/turf_decal/trimline/green/filled/line,
+/turf/open/floor/plasteel/freezer,
+/area/ctf)
+"xN" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/door/airlock/public/glass{
+	name = "Prison Common Room"
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"xQ" = (
+/obj/effect/decal/cleanable/blood/innards,
+/obj/effect/decal/cleanable/blood/gibs/core,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 6
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"xT" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/red/filled/corner{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"yc" = (
+/obj/effect/turf_decal/trimline/green/filled/line,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"yQ" = (
+/obj/effect/turf_decal/stripes/red/box,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/disposal/delivery_chute,
+/turf/open/floor/plasteel/white/side{
+	dir = 6
+	},
+/area/ctf)
+"zD" = (
+/obj/effect/decal/cleanable/blood/gibs/up,
+/obj/effect/decal/cleanable/ants,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Am" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/obj/effect/mob_spawn/human/corpse/cat_butcher,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Aq" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/insectguts,
+/obj/effect/decal/cleanable/vomit/old,
+/obj/effect/decal/cleanable/xenoblood/xgibs/down,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"AL" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10;
+	invisibility = 100
+	},
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ctf)
+"AM" = (
+/obj/item/shard/plasma,
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
+/obj/item/kitchen/knife/combat{
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/obj/item/kitchen/knife/combat{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"BI" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/eggcluster,
+/turf/open/floor/engine,
+/area/ctf)
+"BW" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/door/airlock/public/glass{
+	name = "Prison Common Room"
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Cp" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"CG" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 1
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"CJ" = (
+/obj/effect/decal/cleanable/blood/gibs/down,
+/obj/effect/decal/cleanable/blood/gibs/bubblegum,
+/obj/effect/decal/cleanable/ants,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
+	},
+/obj/structure/chair/office/light{
+	dir = 1
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"CU" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/vomit,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/food/grown/banana,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"CX" = (
+/obj/machinery/door/poddoor,
+/obj/structure/disposalpipe/segment{
+	invisibility = 100
+	},
+/obj/structure/fans/tiny,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Dg" = (
+/obj/effect/turf_decal/trimline/green/filled/line,
+/obj/structure/bed/roller,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Ds" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 1
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Dy" = (
+/obj/effect/turf_decal/trimline/green/filled/corner,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Em" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner,
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Eq" = (
+/obj/machinery/arena_spawn/green,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 6
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Et" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/item/trash/energybar,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"EC" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6;
+	invisibility = 100
+	},
+/turf/closed/indestructible/syndicate,
+/area/ctf)
+"Fa" = (
+/obj/machinery/arena_spawn/green,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 5
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Fb" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/closed/indestructible/syndicate,
+/area/ctf)
+"Fo" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/structure/table/glass,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/item/clothing/neck/stethoscope,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -30
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Ga" = (
+/obj/structure/table,
+/obj/item/cartridge/signal/toxins{
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/obj/item/cartridge/signal/toxins{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/obj/item/cartridge/signal/toxins,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/item/reagent_containers/food/drinks/soda_cans/monkey_energy,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Gh" = (
+/obj/structure/alien/weeds,
+/obj/structure/alien/egg/burst,
+/obj/effect/decal/cleanable/insectguts,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Gs" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Gt" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -30
+	},
+/obj/effect/turf_decal/trimline/green/filled/line,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Gx" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/dnainjector/h2m,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"GA" = (
+/obj/item/food/grown/banana,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 10
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"GR" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/obj/item/shard{
+	icon_state = "small"
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Hv" = (
+/obj/structure/showcase/horrific_experiment,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"HD" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Ie" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/xtracks{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 1
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Ig" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Io" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/turf_decal/trimline/red/filled/corner{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"IC" = (
+/obj/structure/closet/firecloset,
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 9
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"IY" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/dnainjector/h2m,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Jg" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 6
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Ji" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/ctf)
+"Jo" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/turf/open/floor/plasteel/freezer,
+/area/ctf)
+"Jw" = (
+/mob/living/simple_animal/hostile/poison/giant_spider/midwife,
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/ctf)
+"JJ" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/food/tomato_smudge,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"JR" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10;
+	invisibility = 100
+	},
+/turf/closed/indestructible/syndicate,
+/area/ctf)
+"Kv" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"KK" = (
+/obj/effect/baseturf_helper/asteroid,
+/turf/closed/indestructible/syndicate,
+/area/ctf)
+"KN" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/xtracks{
+	dir = 4
+	},
+/obj/item/shard,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"KS" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Lq" = (
+/obj/structure/table,
+/obj/item/paper_bin{
+	pixel_x = -2;
+	pixel_y = 5
+	},
+/obj/item/pen/red,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"LH" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"LJ" = (
+/obj/structure/alien/weeds/node,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/mob/living/simple_animal/hostile/alien/queen,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Mg" = (
+/obj/machinery/dna_scannernew,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Ml" = (
+/obj/structure/bed/roller,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Ms" = (
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/xenoblood,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"MT" = (
+/obj/structure/disposalpipe/segment{
+	invisibility = 100
+	},
+/mob/living/simple_animal/hostile/poison/giant_spider/tarantula,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine,
+/area/ctf)
+"Nv" = (
+/turf/closed/indestructible/fakeglass,
+/area/ctf)
+"NE" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/ants,
+/obj/effect/decal/cleanable/blood/gibs/old,
+/mob/living/carbon/human/species/monkey,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Oa" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/iv_drip,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Of" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/turf/closed/indestructible/syndicate,
+/area/ctf)
+"Oz" = (
+/obj/structure/disposalpipe/segment{
+	invisibility = 100
+	},
+/obj/structure/sign/warning/biohazard,
+/turf/closed/indestructible/fakeglass,
+/area/ctf)
+"OL" = (
+/obj/machinery/arena_spawn/red,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 10
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ON" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6;
+	invisibility = 100
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ctf)
+"Pj" = (
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"PS" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Qc" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 8
+	},
+/obj/machinery/door/airlock/public/glass{
+	name = "Prison Common Room"
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Qd" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/reagent_containers/food/drinks/soda_cans/monkey_energy,
+/obj/structure/table,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Qg" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 5
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Qi" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/structure/trash_pile,
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/cobweb,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Qx" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Ri" = (
+/obj/effect/decal/cleanable/blood/old,
+/mob/living/carbon/human/species/monkey,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 6
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Rs" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Ru" = (
+/obj/structure/disposalpipe/segment{
+	invisibility = 100
+	},
+/mob/living/simple_animal/hostile/clown/worm,
+/obj/structure/clownweeds,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"RG" = (
+/obj/effect/decal/cleanable/blood/gibs/core,
+/obj/effect/decal/cleanable/blood/bubblegum,
+/obj/item/organ/tail/monkey,
+/obj/item/food/meat/slab/monkey,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 10
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"RM" = (
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"RX" = (
+/obj/effect/decal/cleanable/blood/gibs/bubblegum,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Sl" = (
+/obj/effect/turf_decal/trimline/green/filled/line,
+/obj/structure/disposalpipe/segment{
+	invisibility = 100
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plasteel/freezer,
+/area/ctf)
+"SB" = (
+/obj/structure/disposalpipe/segment{
+	invisibility = 100
+	},
+/obj/effect/turf_decal/trimline/green/filled/line,
+/obj/structure/bed/roller,
+/turf/open/floor/plasteel/freezer,
+/area/ctf)
+"SD" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"SF" = (
+/obj/effect/turf_decal/trimline/green/filled/line,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"SH" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/closet/body_bag,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"SJ" = (
+/obj/effect/decal/cleanable/blood/gibs/body,
+/obj/effect/decal/cleanable/blood/gibs/old,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 9
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"SY" = (
+/obj/structure/bed/roller,
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Tk" = (
+/obj/effect/decal/cleanable/vomit,
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/zombie,
+/turf/open/floor/engine,
+/area/ctf)
+"Tp" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/effect/turf_decal/trimline/green/filled/corner,
+/turf/open/floor/plasteel/freezer,
+/area/ctf)
+"Tv" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/closed/indestructible/syndicate,
+/area/ctf)
+"TC" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/dnainjector/h2m,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Ud" = (
+/obj/structure/table,
+/obj/item/folder/white,
+/obj/item/pen,
+/obj/item/stamp/rd{
+	pixel_x = 3;
+	pixel_y = -2
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Uj" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/structure/table/glass,
+/obj/item/storage/backpack/duffelbag/med/surgery,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"UG" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/obj/item/reagent_containers/food/drinks/soda_cans/monkey_energy,
+/obj/structure/table,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"UR" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
+	},
+/obj/structure/chair/office/light{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/xenoblood/xgibs/body,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Vj" = (
+/obj/structure/table,
+/obj/item/storage/secure/briefcase,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"VP" = (
+/obj/structure/sign/warning/biohazard,
+/turf/closed/indestructible/fakeglass,
+/area/ctf)
+"Wa" = (
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 1
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"WE" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/poo,
+/obj/effect/decal/cleanable/plastic,
+/obj/effect/decal/cleanable/shreds,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"WF" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/effect/turf_decal/trimline/green/filled/line,
+/turf/open/floor/plasteel/freezer,
+/area/ctf)
+"WL" = (
+/obj/structure/disposalpipe/segment{
+	invisibility = 100
+	},
+/turf/closed/indestructible/fakeglass,
+/area/ctf)
+"WP" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Xa" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plasteel,
+/area/ctf)
+"Xi" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/food/grown/banana,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"XC" = (
+/obj/structure/closet/firecloset,
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 5
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"XQ" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner,
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/xenoblood/xgibs/body,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Ya" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ctf)
+"YE" = (
+/obj/effect/decal/cleanable/blood/gibs/old,
+/obj/effect/decal/cleanable/blood/innards,
+/obj/effect/decal/cleanable/ants,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"Zu" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ZM" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/xtracks,
+/obj/effect/decal/cleanable/blood/xtracks{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ZN" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/obj/item/shard{
+	icon_state = "small"
+	},
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ZQ" = (
+/obj/structure/disposalpipe/segment{
+	invisibility = 100
+	},
+/mob/living/simple_animal/hostile/clown/mutant,
+/obj/structure/clownweeds,
+/obj/item/bikehorn,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"ZZ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	invisibility = 100
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+
+(1,1,1) = {"
+KK
+mN
+mN
+mN
+mN
+mN
+mN
+mN
+mN
+mN
+mN
+mN
+mN
+"}
+(2,1,1) = {"
+mN
+vR
+pR
+Nv
+IY
+OL
+Nv
+tM
+it
+Nv
+ph
+hd
+mN
+"}
+(3,1,1) = {"
+mN
+Xi
+Gx
+Nv
+nq
+SD
+Nv
+NE
+Jg
+Nv
+TC
+CU
+mN
+"}
+(4,1,1) = {"
+mN
+Nv
+lw
+Nv
+lw
+Nv
+Nv
+ct
+Nv
+Nv
+lw
+Nv
+mN
+"}
+(5,1,1) = {"
+mN
+KS
+HD
+ox
+HD
+Qd
+iM
+ja
+Lq
+iM
+fJ
+fU
+mN
+"}
+(6,1,1) = {"
+mN
+ua
+Dy
+GR
+PS
+kB
+bR
+Ig
+vP
+vP
+qT
+Gt
+mN
+"}
+(7,1,1) = {"
+mN
+ua
+Dg
+Nv
+Nv
+Nv
+Nv
+Nv
+Nv
+Nv
+fy
+wR
+mN
+"}
+(8,1,1) = {"
+mN
+ON
+Sl
+CX
+ZQ
+Ru
+WL
+Ji
+Tk
+vS
+WE
+wR
+mN
+"}
+(9,1,1) = {"
+mN
+nS
+xz
+ud
+oZ
+nr
+Nv
+kT
+nt
+VP
+Kv
+SF
+mN
+"}
+(10,1,1) = {"
+mN
+Ya
+WF
+Nv
+Nv
+Nv
+je
+Nv
+Nv
+Nv
+gL
+vd
+mN
+"}
+(11,1,1) = {"
+mN
+vv
+Xa
+iM
+nI
+iM
+gk
+vs
+nP
+jM
+mQ
+qo
+mN
+"}
+(12,1,1) = {"
+mN
+Jo
+mW
+kB
+nk
+kB
+kB
+rs
+kB
+vr
+kB
+bp
+mN
+"}
+(13,1,1) = {"
+mN
+hP
+Tv
+Nv
+BW
+Nv
+Fb
+Fb
+je
+xN
+Nv
+mN
+mN
+"}
+(14,1,1) = {"
+mN
+Et
+Of
+oO
+oY
+dR
+mN
+Hv
+ok
+qz
+Uj
+vK
+mN
+"}
+(15,1,1) = {"
+mN
+Qi
+Of
+XC
+xT
+Ml
+Nv
+my
+CJ
+RX
+uP
+lk
+mN
+"}
+(16,1,1) = {"
+mN
+ZZ
+JR
+yQ
+Zu
+SY
+Nv
+Mg
+ik
+Pj
+WP
+hF
+mN
+"}
+(17,1,1) = {"
+mN
+kS
+op
+yQ
+Ds
+Gs
+Nv
+mv
+CG
+Ud
+YE
+Oa
+mN
+"}
+(18,1,1) = {"
+mN
+AM
+Fb
+th
+bb
+Em
+Qc
+LH
+hW
+Ga
+Pj
+Gs
+mN
+"}
+(19,1,1) = {"
+mN
+bI
+cG
+yQ
+Zu
+fr
+Nv
+vq
+cR
+Vj
+ig
+dq
+mN
+"}
+(20,1,1) = {"
+mN
+ZZ
+EC
+yQ
+Ds
+vJ
+Nv
+ei
+JJ
+qV
+Qx
+wd
+mN
+"}
+(21,1,1) = {"
+mN
+pv
+Of
+IC
+oX
+SH
+Nv
+ou
+UR
+XQ
+zD
+ka
+mN
+"}
+(22,1,1) = {"
+mN
+vN
+Of
+tn
+Io
+wa
+mN
+iY
+ok
+pw
+Uj
+Fo
+mN
+"}
+(23,1,1) = {"
+mN
+sp
+Of
+Nv
+BW
+Nv
+mN
+mN
+Nv
+qD
+Nv
+mN
+mN
+"}
+(24,1,1) = {"
+mN
+fQ
+dJ
+iM
+Wa
+iM
+iM
+RM
+Rs
+Ie
+ZM
+vY
+mN
+"}
+(25,1,1) = {"
+mN
+nS
+Tp
+kB
+xc
+PS
+oH
+PS
+PS
+kB
+gh
+qo
+mN
+"}
+(26,1,1) = {"
+mN
+Ya
+WF
+Nv
+Nv
+Nv
+Nv
+Nv
+Nv
+Nv
+cb
+SF
+mN
+"}
+(27,1,1) = {"
+mN
+nS
+vh
+Oz
+Jw
+BI
+Nv
+Gh
+kh
+Nv
+KN
+SF
+mN
+"}
+(28,1,1) = {"
+mN
+AL
+SB
+CX
+qK
+MT
+WL
+LJ
+wr
+uy
+dA
+SF
+mN
+"}
+(29,1,1) = {"
+mN
+mq
+yc
+Nv
+Nv
+Nv
+Nv
+Nv
+Nv
+je
+Aq
+wP
+mN
+"}
+(30,1,1) = {"
+mN
+mq
+bX
+ZN
+ox
+iM
+Am
+iM
+ox
+ox
+Ms
+Gt
+mN
+"}
+(31,1,1) = {"
+mN
+Qg
+Cp
+kB
+Cp
+UG
+dw
+gi
+sM
+kB
+Cp
+Jg
+mN
+"}
+(32,1,1) = {"
+mN
+Nv
+lw
+Nv
+eL
+Nv
+Nv
+ct
+Nv
+Nv
+pO
+Nv
+mN
+"}
+(33,1,1) = {"
+mN
+SJ
+pl
+Nv
+vW
+GA
+Nv
+hD
+RG
+Nv
+pI
+nW
+mN
+"}
+(34,1,1) = {"
+mN
+Fa
+xQ
+Nv
+hT
+Eq
+Nv
+lD
+Ri
+Nv
+Qg
+Eq
+mN
+"}
+(35,1,1) = {"
+mN
+mN
+mN
+mN
+mN
+mN
+mN
+mN
+mN
+mN
+mN
+mN
+mN
+"}

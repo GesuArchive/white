@@ -146,7 +146,8 @@ GLOBAL_LIST_INIT(enname2reagent, build_enname2reagent())
 		if(amount >= 0.5)
 			exposed_mob.reagents.add_reagent(type, amount, added_purity = purity)
 	if(methods & INGEST)
-		exposed_mob.hydration += reac_volume * hydration_factor
+		if(exposed_mob.getorganslot(ORGAN_SLOT_KIDNEYS))
+			exposed_mob.hydration += reac_volume * hydration_factor
 
 /datum/reagent/proc/FINISHONMOBLIFE(mob/living/M)
 	current_cycle++

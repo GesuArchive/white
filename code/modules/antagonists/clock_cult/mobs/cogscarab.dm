@@ -60,7 +60,7 @@ GLOBAL_LIST_INIT(cogscarabs, list())
 	if(!SSticker.mode)
 		to_chat(user, "Невозможно стать мехскарабеем, пока игра не началась.")
 		return
-	var/be_drone = tgui_alert(usr, "Будем мехскарабеем? (Внимание, старое тело будет покинуто!)",,"Да","Нет")
+	var/be_drone = tgui_alert(usr, "Будем мехскарабеем? (Внимание, старое тело будет покинуто!)",,list("Да","Нет"))
 	if(be_drone != "Да" || QDELETED(src) || !isobserver(user))
 		return
 	var/mob/living/simple_animal/drone/D = new mob_type(get_turf(loc))

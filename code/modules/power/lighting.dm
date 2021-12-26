@@ -827,7 +827,8 @@
 /obj/machinery/light/power_change()
 	SHOULD_CALL_PARENT(FALSE)
 	var/area/A = get_area(src)
-	seton(A.lightswitch && A.power_light)
+	if(A)
+		seton(A.lightswitch && A.power_light)
 
 // called when heated
 

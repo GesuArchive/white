@@ -1663,7 +1663,8 @@
 	var/postfix = "[sobject][saddition][hp]"
 
 	var/message = "has [what_done] [starget][postfix]"
-	user.log_message(message, LOG_ATTACK, color="red")
+	if(user)
+		user.log_message(message, LOG_ATTACK, color="red")
 
 	if(user != target)
 		var/reverse_message = "has been [what_done] by [ssource][postfix]"

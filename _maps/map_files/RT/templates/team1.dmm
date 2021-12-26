@@ -1,0 +1,1207 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/baseturf_helper/asteroid,
+/turf/template_noop,
+/area/ctf)
+"c" = (
+/turf/closed/indestructible/fakeglass,
+/area/ctf)
+"d" = (
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/trot,
+/area/ctf)
+"e" = (
+/turf/open/floor/grass/gensgrass/dirty,
+/area/ctf)
+"f" = (
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/turf/open/floor/trot,
+/area/ctf)
+"g" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/grass,
+/area/ctf)
+"h" = (
+/turf/closed/indestructible/iron,
+/area/ctf)
+"j" = (
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/grass,
+/area/ctf)
+"l" = (
+/obj/structure/closet/crate/trashcart/filled{
+	anchorable = 0;
+	anchored = 1
+	},
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/turf/open/floor/trot,
+/area/ctf)
+"o" = (
+/obj/effect/mob_spawn/human/corpse/assistant/brainrot_infection,
+/turf/open/indestructible/labfloor,
+/area/ctf)
+"p" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/trot,
+/area/ctf)
+"q" = (
+/obj/structure/closet/crate/trashcart/filled{
+	anchorable = 0;
+	anchored = 1
+	},
+/turf/open/floor/trot,
+/area/ctf)
+"s" = (
+/turf/closed/indestructible/riveted,
+/area/ctf)
+"t" = (
+/obj/machinery/arena_spawn/green,
+/turf/open/floor/plasteel/stairs{
+	dir = 4
+	},
+/area/ctf)
+"u" = (
+/turf/open/floor/plasteel/stairs{
+	dir = 8
+	},
+/area/ctf)
+"v" = (
+/obj/structure/flora/tree/jungle/small,
+/turf/open/floor/grass,
+/area/ctf)
+"w" = (
+/obj/machinery/arena_spawn/red,
+/turf/open/floor/plasteel/stairs{
+	dir = 4
+	},
+/area/ctf)
+"y" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/trot,
+/area/ctf)
+"z" = (
+/obj/structure/rack,
+/obj/item/newspaper{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/newspaper,
+/obj/item/newspaper{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/turf/open/indestructible/labfloor,
+/area/ctf)
+"A" = (
+/obj/structure/trash_pile,
+/turf/open/floor/grass,
+/area/ctf)
+"B" = (
+/turf/closed/indestructible/cult,
+/area/ctf)
+"D" = (
+/turf/open/floor/plasteel/stairs{
+	dir = 1
+	},
+/area/ctf)
+"E" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/grass,
+/area/ctf)
+"J" = (
+/obj/structure/trash_pile,
+/turf/open/floor/trot,
+/area/ctf)
+"L" = (
+/turf/closed/indestructible/fakedoor,
+/area/ctf)
+"M" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/grass,
+/area/ctf)
+"N" = (
+/obj/structure/flora/tree/jungle,
+/turf/open/floor/grass/gensgrass/dirty,
+/area/ctf)
+"O" = (
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/turf/open/floor/trot,
+/area/ctf)
+"P" = (
+/turf/open/floor/trot,
+/area/ctf)
+"Q" = (
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/turf/open/floor/trot,
+/area/ctf)
+"R" = (
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/turf/open/floor/grass,
+/area/ctf)
+"S" = (
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/turf/open/floor/trot,
+/area/ctf)
+"T" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/trot,
+/area/ctf)
+"U" = (
+/turf/open/floor/asphalt,
+/area/ctf)
+"V" = (
+/turf/open/floor/grass,
+/area/ctf)
+"W" = (
+/turf/open/indestructible/labfloor,
+/area/ctf)
+"X" = (
+/turf/open/floor/plasteel/stairs,
+/area/ctf)
+"Y" = (
+/turf/template_noop,
+/area/ctf)
+"Z" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/trot,
+/area/ctf)
+
+(1,1,1) = {"
+a
+h
+e
+V
+V
+V
+w
+V
+V
+V
+w
+V
+V
+V
+w
+V
+V
+e
+h
+Y
+"}
+(2,1,1) = {"
+Y
+h
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+e
+h
+Y
+"}
+(3,1,1) = {"
+Y
+h
+A
+V
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+V
+V
+h
+Y
+"}
+(4,1,1) = {"
+Y
+h
+R
+A
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+V
+D
+h
+Y
+"}
+(5,1,1) = {"
+Y
+h
+A
+V
+P
+P
+V
+V
+V
+V
+V
+V
+V
+V
+P
+P
+V
+V
+h
+Y
+"}
+(6,1,1) = {"
+Y
+h
+V
+V
+P
+P
+V
+V
+V
+V
+V
+V
+V
+V
+P
+P
+V
+V
+h
+Y
+"}
+(7,1,1) = {"
+Y
+h
+A
+V
+P
+P
+V
+V
+V
+e
+e
+V
+V
+V
+P
+P
+V
+V
+h
+Y
+"}
+(8,1,1) = {"
+Y
+h
+R
+A
+P
+P
+V
+V
+V
+N
+e
+V
+V
+V
+P
+P
+V
+D
+h
+Y
+"}
+(9,1,1) = {"
+Y
+h
+A
+V
+P
+P
+V
+V
+V
+V
+V
+V
+V
+V
+P
+P
+V
+V
+h
+Y
+"}
+(10,1,1) = {"
+Y
+h
+V
+V
+P
+P
+V
+V
+V
+V
+V
+V
+V
+V
+P
+P
+V
+V
+h
+Y
+"}
+(11,1,1) = {"
+Y
+h
+X
+V
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+V
+V
+h
+Y
+"}
+(12,1,1) = {"
+Y
+h
+e
+V
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+V
+D
+h
+Y
+"}
+(13,1,1) = {"
+Y
+h
+V
+V
+V
+V
+u
+V
+j
+f
+f
+g
+V
+u
+V
+V
+e
+e
+h
+Y
+"}
+(14,1,1) = {"
+h
+h
+h
+h
+h
+h
+h
+h
+h
+T
+T
+h
+h
+h
+h
+h
+h
+h
+h
+h
+"}
+(15,1,1) = {"
+B
+P
+P
+P
+P
+P
+P
+P
+y
+S
+S
+Z
+P
+P
+P
+P
+P
+P
+P
+B
+"}
+(16,1,1) = {"
+B
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+B
+"}
+(17,1,1) = {"
+B
+P
+P
+s
+s
+L
+s
+s
+P
+P
+P
+P
+P
+V
+V
+V
+V
+P
+P
+B
+"}
+(18,1,1) = {"
+B
+P
+P
+s
+W
+o
+z
+s
+P
+P
+P
+P
+P
+V
+V
+v
+V
+P
+P
+B
+"}
+(19,1,1) = {"
+B
+P
+P
+s
+s
+c
+s
+s
+P
+P
+P
+P
+P
+V
+V
+V
+V
+P
+P
+B
+"}
+(20,1,1) = {"
+B
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+B
+"}
+(21,1,1) = {"
+B
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+B
+"}
+(22,1,1) = {"
+B
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+B
+"}
+(23,1,1) = {"
+B
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+B
+"}
+(24,1,1) = {"
+B
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+B
+"}
+(25,1,1) = {"
+B
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+B
+"}
+(26,1,1) = {"
+B
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+U
+B
+"}
+(27,1,1) = {"
+B
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+J
+J
+P
+B
+"}
+(28,1,1) = {"
+B
+P
+P
+V
+V
+V
+V
+P
+P
+P
+P
+P
+P
+q
+J
+l
+l
+l
+J
+B
+"}
+(29,1,1) = {"
+B
+P
+P
+V
+V
+v
+V
+P
+P
+P
+P
+P
+P
+P
+P
+Q
+Q
+O
+J
+B
+"}
+(30,1,1) = {"
+B
+P
+P
+V
+V
+V
+V
+P
+P
+P
+P
+P
+P
+P
+q
+P
+l
+q
+J
+B
+"}
+(31,1,1) = {"
+B
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+J
+P
+B
+"}
+(32,1,1) = {"
+B
+P
+P
+P
+P
+P
+P
+P
+d
+f
+f
+p
+P
+P
+P
+P
+P
+P
+P
+B
+"}
+(33,1,1) = {"
+h
+h
+h
+h
+h
+h
+h
+h
+h
+T
+T
+h
+h
+h
+h
+h
+h
+h
+h
+h
+"}
+(34,1,1) = {"
+Y
+h
+V
+V
+V
+V
+u
+V
+E
+S
+S
+M
+V
+u
+V
+V
+e
+e
+h
+Y
+"}
+(35,1,1) = {"
+Y
+h
+V
+V
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+V
+D
+h
+Y
+"}
+(36,1,1) = {"
+Y
+h
+X
+V
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+V
+V
+h
+Y
+"}
+(37,1,1) = {"
+Y
+h
+V
+V
+P
+P
+V
+V
+V
+V
+V
+V
+V
+V
+P
+P
+V
+V
+h
+Y
+"}
+(38,1,1) = {"
+Y
+h
+V
+V
+P
+P
+V
+V
+V
+V
+V
+V
+V
+V
+P
+P
+V
+V
+h
+Y
+"}
+(39,1,1) = {"
+Y
+h
+X
+V
+P
+P
+V
+V
+V
+N
+e
+V
+V
+V
+P
+P
+V
+D
+h
+Y
+"}
+(40,1,1) = {"
+Y
+h
+V
+V
+P
+P
+V
+V
+V
+e
+e
+V
+V
+V
+P
+P
+V
+V
+h
+Y
+"}
+(41,1,1) = {"
+Y
+h
+V
+V
+P
+P
+V
+V
+V
+V
+V
+V
+V
+V
+P
+P
+V
+V
+h
+Y
+"}
+(42,1,1) = {"
+Y
+h
+V
+V
+P
+P
+V
+V
+V
+V
+V
+V
+V
+V
+P
+P
+V
+V
+h
+Y
+"}
+(43,1,1) = {"
+Y
+h
+X
+V
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+V
+D
+h
+Y
+"}
+(44,1,1) = {"
+Y
+h
+V
+V
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+V
+V
+h
+Y
+"}
+(45,1,1) = {"
+Y
+h
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+e
+h
+Y
+"}
+(46,1,1) = {"
+Y
+h
+e
+V
+V
+V
+t
+V
+V
+V
+t
+V
+V
+V
+t
+V
+V
+e
+h
+Y
+"}

@@ -230,7 +230,7 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 				to_chat(mind.current, "<BR><span class='userdanger'>Цели более не существует. Задачи обновлены!</span>")
 				mind.announce_objectives()
 		else if(objective.target && istype(objective.target, /datum/mind))
-			if(objective.target == mob_occupant.mind)
+			if(objective.target == mob_occupant?.mind)
 				var/old_target = objective.target
 				objective.target = null
 				if(!objective)

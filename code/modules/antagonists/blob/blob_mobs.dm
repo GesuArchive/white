@@ -44,7 +44,7 @@
 /mob/living/simple_animal/hostile/blob/get_status_tab_items()
 	. = ..()
 	if(overmind)
-		. += "Blobs to Win: [overmind.blobs_legit.len]/[overmind.blobwincount]"
+		. += "Массы до победы: [overmind.blobs_legit.len]/[overmind.blobwincount]"
 
 /mob/living/simple_animal/hostile/blob/blob_act(obj/structure/blob/B)
 	if(stat != DEAD && health < maxHealth)
@@ -75,7 +75,7 @@
 
 /mob/living/simple_animal/hostile/blob/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
 	var/spanned_message = say_quote(message)
-	var/rendered = "<font color=\"#EE4000\"><b>\[Blob Telepathy\] [real_name]</b> [spanned_message]</font>"
+	var/rendered = "<font color=\"#EE4000\"><b>\[Телепатия\] [real_name]</b> [spanned_message]</font>"
 	for(var/M in GLOB.mob_list)
 		if(isovermind(M) || istype(M, /mob/living/simple_animal/hostile/blob))
 			to_chat(M, rendered)
@@ -88,17 +88,18 @@
 ////////////////
 
 /mob/living/simple_animal/hostile/blob/blobspore
-	name = "blob spore"
-	desc = "A floating, fragile spore."
+	name = "Спора массы"
+	desc = "Летающая, хрупкая масса."
+	icon = 'icons/mob/blob_64.dmi'
 	icon_state = "blobpod"
 	icon_living = "blobpod"
 	health_doll_icon = "blobpod"
 	health = BLOBMOB_SPORE_HEALTH
 	maxHealth = BLOBMOB_SPORE_HEALTH
-	verb_say = "psychically pulses"
-	verb_ask = "psychically probes"
-	verb_exclaim = "psychically yells"
-	verb_yell = "psychically screams"
+	verb_say = "физически пульсирует"
+	verb_ask = "физически вопрошает"
+	verb_exclaim = "физически громогласит"
+	verb_yell = "физически пищит"
 	melee_damage_lower = BLOBMOB_SPORE_DMG_LOWER
 	melee_damage_upper = BLOBMOB_SPORE_DMG_UPPER
 	environment_smash = ENVIRONMENT_SMASH_NONE
@@ -107,7 +108,7 @@
 	attack_verb_simple = "бьёт"
 	attack_sound = 'sound/weapons/genhit1.ogg'
 	del_on_death = TRUE
-	deathmessage = "explodes into a cloud of gas!"
+	deathmessage = "взрывается!"
 	gold_core_spawnable = NO_SPAWN //gold slime cores should only spawn the independent subtype
 	var/death_cloud_size = 1 //size of cloud produced from a dying spore
 	var/mob/living/carbon/human/oldguy
@@ -117,12 +118,15 @@
 
 /mob/living/simple_animal/hostile/blob/blobspore/Initialize(mapload, obj/structure/blob/special/linked_node)
 	. = ..()
+
+	icon = GLOB.blob_current_icon
+
 	AddElement(/datum/element/simple_flying)
 	if(istype(linked_node))
 		factory = linked_node
 		factory.spores += src
 		if(linked_node.overmind && istype(linked_node.overmind.blobstrain, /datum/blobstrain/reagent/distributed_neurons) && !istype(src, /mob/living/simple_animal/hostile/blob/blobspore/weak))
-			notify_ghosts("A controllable spore has been created in [get_area(src)].", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Sentient Spore Created")
+			notify_ghosts("Свободная спора доступна в [get_area(src)].", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Спора создана")
 		add_cell_sample()
 
 /mob/living/simple_animal/hostile/blob/blobspore/Life(delta_time = SSMOBS_DT, times_fired)
@@ -146,11 +150,11 @@
 		return
 	if(key || stat)
 		return
-	var/pod_ask = tgui_alert(usr,"Become a blob spore?", "Are you bulbous enough?", list("Yes", "No"))
-	if(pod_ask == "No" || !src || QDELETED(src))
+	var/pod_ask = tgui_alert(usr,"Стать спорой?", "Ты долбоёб?", list("Да", "Нет"))
+	if(pod_ask == "Нет" || !src || QDELETED(src))
 		return
 	if(key)
-		to_chat(user, span_warning("Someone else already took this spore!"))
+		to_chat(user, span_warning("Кто-то уже забрал спору"))
 		return
 	key = user.key
 	log_game("[key_name(src)] took control of [name].")
@@ -162,8 +166,8 @@
 		maxHealth += A.armor.melee //That zombie's got armor, I want armor!
 	maxHealth += 40
 	health = maxHealth
-	name = "blob zombie"
-	desc = "A shambling corpse animated by the blob."
+	name = "зомби массы"
+	desc = "Труп, который управляется массой."
 	mob_biotypes |= MOB_HUMANOID
 	melee_damage_lower += 8
 	melee_damage_upper += 11
@@ -178,9 +182,9 @@
 	H.forceMove(src)
 	oldguy = H
 	update_icons()
-	visible_message(span_warning("The corpse of [H.name] suddenly rises!"))
+	visible_message(span_warning("Тело [H.name] внезапно восстаёт из мёртвых!"))
 	if(!key)
-		notify_ghosts("<b>[src.name]</b> has been created in [get_area(src)].", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Blob Zombie Created")
+		notify_ghosts("<b>[src.name]</b> был создан в [get_area(src)].", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Зомби массы создан")
 
 /mob/living/simple_animal/hostile/blob/blobspore/death(gibbed)
 	// On death, create a small smoke of harmful gas (s-Acid)
@@ -236,7 +240,7 @@
 	independent = TRUE
 
 /mob/living/simple_animal/hostile/blob/blobspore/weak
-	name = "fragile blob spore"
+	name = "Хрупкая спора массы"
 	health = 15
 	maxHealth = 15
 	melee_damage_lower = 1
@@ -249,8 +253,8 @@
 /////////////////
 
 /mob/living/simple_animal/hostile/blob/blobbernaut
-	name = "blobbernaut"
-	desc = "A hulking, mobile chunk of blobmass."
+	name = "Массанаут"
+	desc = "Огромный мобильный кусок массы."
 	icon_state = "blobbernaut"
 	icon_living = "blobbernaut"
 	icon_dead = "blobbernaut_dead"
@@ -263,10 +267,10 @@
 	attack_verb_continuous = "раздавливает"
 	attack_verb_simple = "раздавливает"
 	attack_sound = 'sound/effects/blobattack.ogg'
-	verb_say = "gurgles"
-	verb_ask = "demands"
-	verb_exclaim = "roars"
-	verb_yell = "bellows"
+	verb_say = "булькает"
+	verb_ask = "требует"
+	verb_exclaim = "рычит"
+	verb_yell = "воздыхает"
 	force_threshold = 10
 	pressure_resistance = 50
 	mob_size = MOB_SIZE_LARGE

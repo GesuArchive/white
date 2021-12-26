@@ -468,6 +468,35 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "dorms"
 	area_flags = VALID_TERRITORY | BLOBS_ALLOWED | UNIQUE_AREA
 
+/area/commons/dorms/one
+	name = "Комната: Первая"
+
+/area/commons/dorms/two
+	name = "Комната: Вторая"
+
+/area/commons/dorms/three
+	name = "Комната: Третья"
+
+/area/commons/dorms/four
+	name = "Комната: Четвёртая"
+
+/area/commons/dorms/five
+	name = "Комната: Пятая"
+
+/area/commons/dorms/six
+	name = "Комната: Шестая"
+
+/area/commons/dorms/seven
+	name = "Комната: Седьмая"
+
+/area/commons/dorms/eight
+	name = "Комната: Восьмая"
+
+/area/commons/dorms/nine
+	name = "Комната: Девятая"
+
+/area/commons/dorms/ten
+	name = "Комната: Десятая"
 /area/commons/dorms/barracks
 	name = "Зона отдыха: Бараки"
 

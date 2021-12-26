@@ -1,0 +1,337 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/ctf)
+"d" = (
+/obj/effect/baseturf_helper/asteroid,
+/turf/template_noop,
+/area/ctf)
+"f" = (
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"j" = (
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/obj/structure/stone_tile/center/cracked,
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"m" = (
+/obj/structure/stone_tile/block/burnt{
+	dir = 1
+	},
+/obj/structure/stone_tile/surrounding_tile,
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"n" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"o" = (
+/obj/effect/turf_decal/stripes{
+	dir = 6
+	},
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"p" = (
+/obj/machinery/arena_spawn/green,
+/obj/effect/turf_decal/stripes{
+	dir = 5
+	},
+/obj/structure/stone_tile/slab,
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"r" = (
+/obj/structure/stone_tile/slab/cracked,
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"s" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/obj/effect/turf_decal/stripes,
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"t" = (
+/obj/effect/turf_decal/stripes,
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"u" = (
+/obj/effect/turf_decal/stripes,
+/obj/structure/stone_tile/center,
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"w" = (
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"x" = (
+/obj/effect/turf_decal/stripes{
+	dir = 9
+	},
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"y" = (
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/obj/structure/stone_tile,
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"z" = (
+/turf/closed/indestructible/necropolis,
+/area/ctf)
+"A" = (
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/obj/structure/stone_tile/burnt{
+	dir = 4
+	},
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"B" = (
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/obj/structure/stone_tile/center/burnt,
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"C" = (
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"E" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"F" = (
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/obj/structure/stone_tile/burnt,
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"H" = (
+/obj/structure/stone_tile/block/cracked,
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 4
+	},
+/obj/structure/stone_tile{
+	dir = 1
+	},
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"K" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"L" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"P" = (
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/obj/structure/stone_tile/center,
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"Q" = (
+/obj/structure/stone_tile/slab/burnt,
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"R" = (
+/obj/machinery/arena_spawn/red,
+/obj/effect/turf_decal/stripes{
+	dir = 10
+	},
+/obj/structure/stone_tile/slab,
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"S" = (
+/obj/structure/stone_tile,
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"T" = (
+/obj/structure/stone_tile/slab,
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"Y" = (
+/obj/structure/stone_tile/block{
+	dir = 4
+	},
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 8
+	},
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+"Z" = (
+/obj/structure/stone_tile/block{
+	dir = 8
+	},
+/obj/structure/stone_tile/surrounding_tile/burnt{
+	dir = 1
+	},
+/obj/structure/stone_tile,
+/turf/open/indestructible/necropolis/air,
+/area/ctf)
+
+(1,1,1) = {"
+d
+a
+z
+a
+a
+a
+a
+z
+a
+a
+"}
+(2,1,1) = {"
+a
+z
+z
+z
+z
+z
+z
+z
+z
+a
+"}
+(3,1,1) = {"
+z
+z
+x
+A
+C
+j
+L
+R
+z
+z
+"}
+(4,1,1) = {"
+a
+z
+w
+S
+T
+Q
+E
+s
+z
+a
+"}
+(5,1,1) = {"
+a
+z
+w
+T
+H
+Y
+r
+u
+z
+a
+"}
+(6,1,1) = {"
+a
+z
+P
+Q
+Z
+m
+T
+t
+z
+a
+"}
+(7,1,1) = {"
+a
+z
+K
+E
+r
+T
+y
+t
+z
+a
+"}
+(8,1,1) = {"
+z
+z
+p
+n
+B
+f
+F
+o
+z
+z
+"}
+(9,1,1) = {"
+a
+z
+z
+z
+z
+z
+z
+z
+z
+a
+"}
+(10,1,1) = {"
+a
+a
+z
+a
+a
+a
+a
+z
+a
+a
+"}

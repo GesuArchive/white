@@ -1,10 +1,10 @@
 //does brute damage, shifts away when damaged
 /datum/blobstrain/reagent/shifting_fragments
-	name = "Shifting Fragments"
-	description = "will do medium brute damage."
-	effectdesc = "will also cause blob parts to shift away when attacked."
-	analyzerdescdamage = "Does medium brute damage."
-	analyzerdesceffect = "When attacked, may shift away from the attacker."
+	name = "Сдвигающиеся фрагменты"
+	description = "нанесет средний грубый урон."
+	effectdesc = "также заставит части массы отодвигаться при атаке."
+	analyzerdescdamage = "Наносит средний грубый урон."
+	analyzerdesceffect = "При атаке может отойти от нападающего."
 	color = "#C8963C"
 	complementary_color = "#3C6EC8"
 	reagent = /datum/reagent/blob/shifting_fragments
@@ -28,7 +28,8 @@
 	return ..()
 
 /datum/reagent/blob/shifting_fragments
-	name = "Shifting Fragments"
+	name = "Сдвигающиеся фрагменты"
+	enname = "Shifting Fragments"
 	color = "#C8963C"
 
 /datum/reagent/blob/shifting_fragments/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/overmind)

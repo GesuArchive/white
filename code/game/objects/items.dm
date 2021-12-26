@@ -332,22 +332,24 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/examine(mob/user) //This might be spammy. Remove?
 	. = ..()
 
+	. += "<hr><span class='smalldanger'>"
+
 	if(resistance_flags & INDESTRUCTIBLE)
-		. += "<hr><span class='smalldanger'>[capitalize(src.name)] выглядит сверхкрепким и практически неуязвимым!</span>"
+		. += icon2html('icons/emoji.dmi', user, "indestructible")
 	else
 		var/list/rfm = list()
 		if(resistance_flags & LAVA_PROOF)
-			rfm += "сверхвысоким температурам"
+			rfm += icon2html('icons/emoji.dmi', user, "lava")
 		if(resistance_flags & (ACID_PROOF | UNACIDABLE))
-			rfm += "кислоте"
+			rfm += icon2html('icons/emoji.dmi', user, "acid")
 		if(resistance_flags & FREEZE_PROOF)
-			rfm += "холоду"
+			rfm += icon2html('icons/emoji.dmi', user, "cold")
 		if(resistance_flags & FIRE_PROOF)
-			rfm += "огню"
+			rfm += icon2html('icons/emoji.dmi', user, "fire")
 		if(rfm.len)
-			. += "<hr><span class='smalldanger'>[capitalize(src.name)] выглядит устойчивым к [english_list(rfm)].</span>"
+			. += rfm.Join()
 
-	. += "<hr><span class='smallnoticeital'>Это [weightclass2text(w_class)] размера предмет.</span>"
+	. += "[weightclass2icon(w_class, user)]</span>"
 
 	if(!user.research_scanner)
 		return

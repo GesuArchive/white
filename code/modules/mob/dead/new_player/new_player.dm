@@ -404,6 +404,7 @@
 	src << browse(null, "window=playersetup") //closes the player setup window
 	src << browse(null, "window=preferences") //closes job selection
 	src << browse(null, "window=mob_occupation")
+	src << browse(null, "window=pdec")
 	src << browse(null, "window=latechoices") //closes late job selection
 
 // Used to make sure that a player has a valid job preference setup, used to knock players out of eligibility for anything if their prefs don't make sense.

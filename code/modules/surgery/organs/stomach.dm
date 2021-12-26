@@ -250,7 +250,7 @@
 	maxHealth = 2 * STANDARD_ORGAN_THRESHOLD
 	disgust_metabolism = 3
 	emp_vulnerability = 20
-	metabolism_efficiency = 0.1
+	metabolism_efficiency = 0.01
 
 /obj/item/organ/stomach/cybernetic/emp_act(severity)
 	. = ..()

@@ -1,26 +1,27 @@
 //does brute damage through armor and bio resistance
 /datum/blobstrain/reagent/reactive_spines
-	name = "Reactive Spines"
-	description = "will do medium brute damage through armor and bio resistance."
-	effectdesc = "will also react when attacked with burn or brute damage, attacking everything in melee range."
-	analyzerdescdamage = "Does medium brute damage, ignoring armor and bio resistance."
-	analyzerdesceffect = "When attacked with burn or brute damage it violently lashes out, attacking everything nearby."
+	name = "Реактивные шипы"
+	description = "нанесет средний грубый урон через броню и биологическое сопротивление."
+	effectdesc = "также будет реагировать при атаке ожогом или грубым уроном, атакуя все в ближнем бою."
+	analyzerdescdamage = "Наносит средний грубый урон, игнорируя броню и биологическое сопротивление.."
+	analyzerdesceffect = "Когда атакован ожогом или грубым уроном, он яростно набрасывается, атакуя все вокруг.."
 	color = "#9ACD32"
 	complementary_color = "#FFA500"
-	blobbernaut_message = "stabs"
-	message = "The blob stabs you"
+	blobbernaut_message = "протыкает"
+	message = "Масса протыкает меня"
 	reagent = /datum/reagent/blob/reactive_spines
 
 /datum/blobstrain/reagent/reactive_spines/damage_reaction(obj/structure/blob/B, damage, damage_type, damage_flag)
 	if(damage && ((damage_type == BRUTE) || (damage_type == BURN)) && B.obj_integrity - damage > 0) //is there any damage, is it burn or brute, and will we be alive
 		if(damage_flag == MELEE)
-			B.visible_message(span_boldwarning("The blob retaliates, lashing out!"))
+			B.visible_message(span_boldwarning("Масса мстит, набрасываясь!"))
 		for(var/atom/A in range(1, B))
 			A.blob_act(B)
 	return ..()
 
 /datum/reagent/blob/reactive_spines
-	name = "Reactive Spines"
+	name = "Реактивные шипы"
+	enname = "Reactive Spines"
 	taste_description = "камень"
 	color = "#9ACD32"
 

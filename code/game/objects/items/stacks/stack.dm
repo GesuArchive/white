@@ -161,7 +161,7 @@
 		. += "Здесь [get_amount()] в куче."
 	else
 		. += "Здесь [get_amount()] в куче."
-	. += "</br><span class='notice'>ПКМ для изъятия произвольного количества.</span>"
+	. += "<hr><span class='notice'>ПКМ для изъятия произвольного количества.</span>"
 
 /obj/item/stack/proc/get_amount()
 	if(is_cyborg)

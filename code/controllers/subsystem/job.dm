@@ -498,10 +498,7 @@ SUBSYSTEM_DEF(job)
 	if(living_mob.mind)
 		living_mob.mind.assigned_role = rank
 
-	if(rank == "Hacker")
-		to_chat(M, "Я <b>ОРАКУЛ</b>, но для остальных просто [ru_job_parse(rank)].")
-	else
-		to_chat(M, "\n<big><b>Мне досталась должность под названием [ru_job_parse(rank)]. [gvorno(TRUE)].</b></big>\n")
+	to_chat(M, "\n<big><b>Мне досталась должность под названием [ru_job_parse(rank)]. [gvorno(TRUE)].</b></big>\n")
 	if(job)
 		var/new_mob = job.equip(living_mob, null, null, joined_late , null, M.client, is_captain)//silicons override this proc to return a mob
 		if(ismob(new_mob))
@@ -518,19 +515,10 @@ SUBSYSTEM_DEF(job)
 				M.client.holder.auto_deadmin()
 			else
 				handle_auto_deadmin_roles(M.client, rank)
-		if(rank == "Hacker")
-			to_chat(M, "<b>На должности <b>[ru_job_parse(rank)]</b> я подчи~*^&#</b>")
-			to_chat(M, "<b><i><big>Устал. Я правда устал. Мне нужно следовать этой системе, которую создали ОНИ, иначе меня ждёт кара похуже смерти. В мои задачи входит следующее:</big></i></b>")
-			to_chat(M, "<b>1. Сохранение целостности системы</b> - я не должен раскрывать данные, которые я знаю. Если я это сделаю, то <b>ОНИ</b> сделают моё существование кошмарным.")
-			to_chat(M, "<b>2. Устранение повреждений системы</b> - любые знания, которые случайным образом попадают в этот мир из <b>НАСТОЯЩЕГО</b> должны быть уничтожены.")
-			to_chat(M, "<b>3. Улучшение состояния системы</b> - мне необходимо искать и уничтожать повреждённые данные в системе. В этом мне помогает мой визор.")
-		else
-			to_chat(M, "\n<span class='notice'>На должности <b>[ru_job_parse(rank)]</b> я подчиняюсь [job.supervisors]. Некоторые обстоятельства могут изменить это.</span>")
+		to_chat(M, "\n<span class='notice'>На должности <b>[ru_job_parse(rank)]</b> я подчиняюсь [job.supervisors]. Некоторые обстоятельства могут изменить это.</span>")
 		job.radio_help_message(M)
 		if(job.req_admin_notify)
-			to_chat(M, "\n<span class='revenbignotice'>Это важная должность. Перед уходом стоит найти себе временную замену.</spawn>")
-		//if(CONFIG_GET(number/minimal_access_threshold))
-		//	to_chat(M, "\n<span class='notice'><B>Так как эта станция имеет [CONFIG_GET(flag/jobs_have_minimal_access) ? "полный" : "древовидный"] набор экипажа, некоторый доступ был добавлен к моей ID-карте.</B></span>")
+			to_chat(M, "\n<span class='revenbignotice'>Это важная работа. Перед уходом стоит найти себе замену.</spawn>")
 
 	var/related_policy = get_policy(rank)
 	if(related_policy)
@@ -776,24 +764,25 @@ SUBSYSTEM_DEF(job)
 	station_jobs = list("Assistant", "Captain", "Head of Personnel", "Bartender", "Cook", "Botanist", "Quartermaster", "Cargo Technician", \
 		"Shaft Miner", "Clown", "Mime", "Janitor", "Curator", "Lawyer", "Chaplain", "Chief Engineer", "Station Engineer", \
 		"Atmospheric Technician", "Chief Medical Officer", "Medical Doctor", "Paramedic", "Chemist", "Geneticist", "Virologist", "Psychologist", \
-		"Research Director", "Scientist", "Roboticist", "Head of Security", "Warden", "Detective", "Security Officer", "Prisoner")
+		"Research Director", "Scientist", "Roboticist", "Head of Security", "Warden", "Detective", "Security Officer", "Russian Officer", \
+		"Veteran", "Field Medic", "Mechanic", "Bomj", "Prisoner")
 
 	additional_jobs_with_icons = list("Emergency Response Team Commander", "Security Response Officer", "Engineering Response Officer", "Medical Response Officer", \
 		"Entertainment Response Officer", "Religious Response Officer", "Janitorial Response Officer", "Death Commando", "Security Officer (Engineering)", \
-		"Security Officer (Cargo)", "Security Officer (Medical)", "Security Officer (Science)", "СОБР", "Лидер СОБР")
+		"Security Officer (Cargo)", "Security Officer (Medical)", "Security Officer (Science)")
 
 	centcom_jobs = list("Central Command","VIP Guest","Custodian","Thunderdome Overseer","CentCom Official","Medical Officer","Research Officer", \
 		"Special Ops Officer","Admiral","CentCom Commander","CentCom Bartender","Private Security Force")
 
 /obj/item/paper/fluff/spare_id_safe_code
-	name = "Nanotrasen-Approved Spare ID Safe Code"
-	desc = "Proof that you have been approved for Captaincy, with all its glory and all its horror."
+	name = "Запасные коды от сейфа"
+	desc = "Доказательство того, что вы точно заслужили должность Капитана этой станции."
 
 /obj/item/paper/fluff/spare_id_safe_code/Initialize()
 	. = ..()
 	var/safe_code = SSid_access.spare_id_safe_code
 
-	info = "Captain's Spare ID safe code combination: [safe_code ? safe_code : "\[REDACTED\]"]<br><br>The spare ID can be found in its dedicated safe on the bridge.<br><br>If your job would not ordinarily have Head of Staff access, your ID card has been specially modified to possess it."
+	info = "Комбинацией является: [safe_code ? safe_code : "\[REDACTED\]"]<br><br>Сейф может быть обнаружен на мостике, либо в каюте капитана.<br><br>Если работа не позволяет пройти туда, будет добавлен специальный доступ."
 
 /datum/controller/subsystem/job/proc/promote_to_captain(mob/living/carbon/human/new_captain, acting_captain = FALSE)
 	var/id_safe_code = SSid_access.spare_id_safe_code
@@ -808,12 +797,12 @@ SUBSYSTEM_DEF(job)
 		LOCATION_BACKPACK = ITEM_SLOT_BACKPACK,
 		LOCATION_HANDS = ITEM_SLOT_HANDS
 	)
-	var/where = new_captain.equip_in_one_of_slots(paper, slots, FALSE) || "at your feet"
+	var/where = new_captain.equip_in_one_of_slots(paper, slots, FALSE) || "мои ляшки"
 
 	if(acting_captain)
-		to_chat(new_captain, span_notice("Due to your position in the chain of command, you have been promoted to Acting Captain. You can find in important note about this [where]."))
+		to_chat(new_captain, span_notice("Учитывая мою должность на станции, меня назначили её Капитаном. Важный документ подкинули в [ru_parse_zone(where)]."))
 	else
-		to_chat(new_captain, span_notice("You can find the code to obtain your spare ID from the secure safe on the Bridge [where]."))
+		to_chat(new_captain, span_notice("Сейф можно найти в капитанской каюте, либо на мостике. Важный документ положили в [ru_parse_zone(where)]."))
 
 	// Force-give their ID card bridge access.
 	var/obj/item/id_slot = new_captain.get_item_by_slot(ITEM_SLOT_ID)
@@ -821,5 +810,7 @@ SUBSYSTEM_DEF(job)
 		var/obj/item/card/id/id_card = id_slot.GetID()
 		if(!(ACCESS_HEADS in id_card.access))
 			id_card.add_wildcards(list(ACCESS_HEADS), mode=FORCE_ADD_ALL)
+		if(!(ACCESS_CAPTAIN in id_card.access))
+			id_card.add_wildcards(list(ACCESS_CAPTAIN), mode=FORCE_ADD_ALL)
 
 	assigned_captain = TRUE

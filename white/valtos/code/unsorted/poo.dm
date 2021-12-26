@@ -32,7 +32,9 @@
 	toxpwr = 2.5
 	taste_description = "говно"
 
-/datum/reagent/toxin/poo/on_mob_life(mob/living/carbon/C)
+/datum/reagent/toxin/poo/on_mob_add(mob/living/C)
+	if(C?.client)
+		C.client.give_award(/datum/award/score/poo_eaten, C, 1)
 	SSblackbox.record_feedback("tally", "poo", 1, "Poo Eaten")
 	return ..()
 

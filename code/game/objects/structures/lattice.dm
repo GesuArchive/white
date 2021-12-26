@@ -1,6 +1,6 @@
 /obj/structure/lattice
-	name = "lattice"
-	desc = "A lightweight support lattice. These hold our station together."
+	name = "опорная балка"
+	desc = "Легкая опорная балка состоящая из стержней. Она позволяет нашей станции не развалиться на части."
 	icon = 'icons/obj/smooth_structures/lattice.dmi'
 	icon_state = "lattice-255"
 	base_icon_state = "lattice"
@@ -23,14 +23,14 @@
 	. += deconstruction_hints(user)
 
 /obj/structure/lattice/proc/deconstruction_hints(mob/user)
-	return "<hr><span class='notice'>The rods look like they could be <b>cut</b>. There's space for more <i>rods</i> or a <i>tile</i>.</span>"
+	return "<hr><span class='notice'>Эти стержни можно <b>отрезать</b>. Здесь есть ещё место для <i>стержней</i> или для <i>плитки</i>.</span>"
 
 /obj/structure/lattice/Initialize(mapload)
 	. = ..()
 	for(var/obj/structure/lattice/LAT in loc)
 		if(LAT == src)
 			continue
-		stack_trace("multiple lattices found in ([loc.x], [loc.y], [loc.z])")
+		log_runtime("multiple lattices found in ([loc.x], [loc.y], [loc.z])")
 		return INITIALIZE_HINT_QDEL
 
 /obj/structure/lattice/blob_act(obj/structure/blob/B)
@@ -40,7 +40,7 @@
 	if(resistance_flags & INDESTRUCTIBLE)
 		return
 	if(C.tool_behaviour == TOOL_WIRECUTTER)
-		to_chat(user, span_notice("Slicing [name] joints ..."))
+		to_chat(user, span_notice("Режем [name]..."))
 		deconstruct()
 	else
 		var/turf/T = get_turf(src)
@@ -57,7 +57,7 @@
 
 /obj/structure/lattice/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	if(passed_mode == RCD_FLOORWALL)
-		to_chat(user, span_notice("You build a floor."))
+		to_chat(user, span_notice("Создаю пол."))
 		var/turf/T = src.loc
 		if(isspaceturf(T))
 			T.PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
@@ -70,8 +70,8 @@
 		deconstruct()
 
 /obj/structure/lattice/catwalk
-	name = "catwalk"
-	desc = "A catwalk for easier EVA maneuvering and cable placement."
+	name = "помост"
+	desc = "Помост для более легкого маневрирования в открытом космосе и прокладки кабелей."
 	icon = 'icons/obj/smooth_structures/catwalk.dmi'
 	icon_state = "catwalk-0"
 	base_icon_state = "catwalk"
@@ -82,7 +82,7 @@
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
 
 /obj/structure/lattice/catwalk/deconstruction_hints(mob/user)
-	return span_notice("The supporting rods look like they could be <b>cut</b>.")
+	return span_notice("Эти стержни можно <b>отрезать</b>.")
 
 /obj/structure/lattice/catwalk/Move()
 	var/turf/T = loc
@@ -97,8 +97,8 @@
 	..()
 
 /obj/structure/lattice/lava
-	name = "heatproof support lattice"
-	desc = "A specialized support beam for building across lava. Watch your step."
+	name = "жаропрочная балка"
+	desc = "Специализированная опорная балка для строительства на лаве. Смотри куда идёшь."
 	icon = 'icons/obj/smooth_structures/catwalk.dmi'
 	icon_state = "catwalk-0"
 	base_icon_state = "catwalk"
@@ -111,16 +111,16 @@
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /obj/structure/lattice/lava/deconstruction_hints(mob/user)
-	return span_notice("The rods look like they could be <b>cut</b>, but the <i>heat treatment will shatter off</i>. There's space for a <i>tile</i>.")
+	return span_notice("Эти стержни можно <b>отрезать</b>, но <i>термозащита будет уничтожена</i>. Здесь есть место для установки <i>плитки</i>.")
 
 /obj/structure/lattice/lava/attackby(obj/item/C, mob/user, params)
 	. = ..()
 	if(istype(C, /obj/item/stack/tile/plasteel))
 		var/obj/item/stack/tile/plasteel/P = C
 		if(P.use(1))
-			to_chat(user, span_notice("You construct a floor plating, as lava settles around the rods."))
+			to_chat(user, span_notice("Создаю обшивку и в это же время лава поглощает стержни."))
 			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 			new /turf/open/floor/plating(locate(x, y, z))
 		else
-			to_chat(user, span_warning("You need one floor tile to build atop [src]."))
+			to_chat(user, span_warning("Требуется хотя бы одна единица плитки для создания обшивки на [src]."))
 		return

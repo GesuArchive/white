@@ -1,11 +1,11 @@
 //does massive brute and burn damage, but can only expand manually
 /datum/blobstrain/reagent/networked_fibers
-	name = "Networked Fibers"
-	description = "will do high brute and burn damage and will generate resources quicker, but can only expand manually using the core or nodes."
-	shortdesc = "will do high brute and burn damage."
-	effectdesc = "will move your core or node when manually expanding near it."
-	analyzerdescdamage = "Does high brute and burn damage."
-	analyzerdesceffect = "Is highly mobile and generates resources rapidly."
+	name = "Сетевые волокна"
+	description = "будет наносить большой грубый урон и сжигать и быстрее генерировать ресурсы, но может расширяться только вручную, используя ядро или узлы."
+	shortdesc = "нанесет большой грубый и ожоговый урон."
+	effectdesc = "переместит ядро или узел при ручном расширении рядом с ним."
+	analyzerdescdamage = "Наносит высокий грубый и ожоговый урон."
+	analyzerdesceffect = "Высокая мобильность и быстрое генерирование ресурсов."
 	color = "#4F4441"
 	complementary_color = "#414C4F"
 	reagent = /datum/reagent/blob/networked_fibers
@@ -29,7 +29,8 @@
 
 //does massive brute and burn damage, but can only expand manually
 /datum/reagent/blob/networked_fibers
-	name = "Networked Fibers"
+	name = "Сетевые волокна"
+	enname = "Networked Fibers"
 	taste_description = "эффективность"
 	color = "#4F4441"
 

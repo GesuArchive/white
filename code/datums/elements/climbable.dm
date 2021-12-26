@@ -30,7 +30,7 @@
 
 /datum/element/climbable/proc/on_examine(atom/source, mob/user, list/examine_texts)
 	SIGNAL_HANDLER
-	examine_texts += span_notice("\nПохоже, на [source] можно забраться.")
+	examine_texts += span_notice("<hr>Похоже, на [source] можно забраться.")
 
 /datum/element/climbable/proc/can_climb(atom/source, mob/user)
 	var/dir_step = get_dir(user, source.loc)

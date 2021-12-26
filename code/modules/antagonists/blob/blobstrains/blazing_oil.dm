@@ -1,16 +1,16 @@
 
 //sets you on fire, does burn damage, explodes into flame when burnt, weak to water
 /datum/blobstrain/reagent/blazing_oil
-	name = "Blazing Oil"
-	description = "will do medium burn damage and set targets on fire."
-	effectdesc = "will also release bursts of flame when burnt, but takes damage from water."
-	analyzerdescdamage = "Does medium burn damage and sets targets on fire."
-	analyzerdesceffect = "Releases fire when burnt, but takes damage from water and other extinguishing liquids."
+	name = "Пылающее масло"
+	description = "нанесет средний урон от ожога и подожжет цели."
+	effectdesc = "также будет выпускать вспышки пламени при горении, но получает урон от воды."
+	analyzerdescdamage = "Наносит средний урон от ожога и поджигает цели."
+	analyzerdesceffect = "Вызывает огонь при горении, но получает повреждения от воды и других средств пожаротушения."
 	color = "#B68D00"
 	complementary_color = "#BE5532"
-	blobbernaut_message = "splashes"
-	message = "The blob splashes you with burning oil"
-	message_living = ", and you feel your skin char and melt"
+	blobbernaut_message = "брызгается"
+	message = "Масса обливает меня горящим маслом"
+	message_living = " и моя кожа горит"
 	reagent = /datum/reagent/blob/blazing_oil
 	fire_based = TRUE
 
@@ -28,7 +28,8 @@
 	return ..()
 
 /datum/reagent/blob/blazing_oil
-	name = "Blazing Oil"
+	name = "Пылающее масло"
+	enname = "Blazing Oil"
 	taste_description = "горящее масло"
 	color = "#B68D00"
 

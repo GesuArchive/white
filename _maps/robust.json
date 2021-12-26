@@ -1,8 +1,8 @@
 {
 	"version": 1,
-    "map_name": "Robust Tournament: Cyberspess",
+    "map_name": "Robust Tournament: Junglebass",
     "map_path": "map_files/RT",
-    "map_file": "RT1.dmm",
+    "map_file": "RT2.dmm",
     "shuttles": {
 	    "cargo": "cargo_box",
 	    "ferry": "ferry_fancy",

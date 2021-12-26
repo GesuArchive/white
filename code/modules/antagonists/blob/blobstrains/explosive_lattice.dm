@@ -1,14 +1,14 @@
 //does aoe brute damage when hitting targets, is immune to explosions
 /datum/blobstrain/reagent/explosive_lattice
-	name = "Explosive Lattice"
-	description = "will do brute damage in an area around targets."
-	effectdesc = "will also resist explosions, but takes increased damage from fire and other energy sources."
-	analyzerdescdamage = "Does medium brute damage and causes damage to everyone near its targets.  Spores explode on death."
-	analyzerdesceffect = "Is highly resistant to explosions, but takes increased damage from fire and other energy sources."
+	name = "Взрывная решетка"
+	description = "нанесет грубый урон в области вокруг целей."
+	effectdesc = "также будет сопротивляться взрывам, но получает повышенный урон от огня и других источников энергии."
+	analyzerdescdamage = "Наносит средний грубый урон и наносит урон всем, кто находится рядом с его целями. При смерти споры взрываются."
+	analyzerdesceffect = "Обладает высокой устойчивостью к взрывам, но получает повышенный урон от огня и других источников энергии."
 	color = "#8B2500"
 	complementary_color = "#00668B"
-	blobbernaut_message = "blasts"
-	message = "The blob blasts you"
+	blobbernaut_message = "лупит"
+	message = "Масса лупит меня"
 	reagent = /datum/reagent/blob/explosive_lattice
 
 /datum/blobstrain/reagent/explosive_lattice/damage_reaction(obj/structure/blob/B, damage, damage_type, damage_flag)
@@ -27,7 +27,8 @@
 		actor.apply_damage(20, BRUTE, wound_bonus=CANT_WOUND)
 
 /datum/reagent/blob/explosive_lattice
-	name = "Explosive Lattice"
+	name = "Взрывная решетка"
+	enname = "Explosive Lattice"
 	taste_description = "бомба"
 	color = "#8B2500"
 
