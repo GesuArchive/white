@@ -8,6 +8,12 @@
 /obj/effect/landmark/ctf,
 /turf/open/space/basic,
 /area/space)
+"ac" = (
+/obj/structure/flora/rock/boulder{
+	icon_state = "boulder4"
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/centcom/control)
 "ad" = (
 /turf/open/floor/plasteel/stairs/old{
 	dir = 4
@@ -235,6 +241,10 @@
 /obj/structure/flora/ausbushes/palebush,
 /turf/open/floor/plating/beach/sand,
 /area/syndicate_mothership)
+"bA" = (
+/obj/machinery/light,
+/turf/open/floor/plasteel/grimy,
+/area/centcom/control)
 "bC" = (
 /obj/structure/sink/oil_well,
 /turf/open/floor/plating/beach/sand,
@@ -247,6 +257,12 @@
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/plating/beach/sand,
 /area/syndicate_mothership)
+"bM" = (
+/obj/structure/flora/rock/boulder{
+	icon_state = "boulder3"
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/centcom/control)
 "bO" = (
 /obj/effect/light_emitter{
 	set_cap = 1;
@@ -3108,6 +3124,13 @@
 /obj/effect/landmark/ert_spawn,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/centcom/brief)
+"tH" = (
+/obj/structure/chair/office{
+	dir = 4
+	},
+/obj/effect/mob_spawn/human/corpse/nanotrasensoldier,
+/turf/open/floor/carpet,
+/area/centcom/control)
 "tJ" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/trimline/neutral/line{
@@ -3345,6 +3368,12 @@
 /obj/structure/closet/crate,
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
+"vS" = (
+/obj/structure/flora/rock/boulder{
+	icon_state = "boulder2"
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/centcom/control)
 "vY" = (
 /obj/structure/table/optable/abductor,
 /turf/open/floor/plating/abductor,
@@ -4414,6 +4443,10 @@
 /obj/item/kitchen/knife/ritual,
 /turf/open/floor/engine/cult,
 /area/wizard_station)
+"Ck" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/carpet,
+/area/centcom/control)
 "Cl" = (
 /obj/item/clothing/shoes/sandal/marisa,
 /obj/item/clothing/suit/wizrobe/marisa,
@@ -5153,6 +5186,12 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/circus)
+"Ge" = (
+/obj/machinery/door/airlock/centcom{
+	name = "CentCom"
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/centcom/control)
 "Gf" = (
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 9
@@ -5362,6 +5401,10 @@
 /obj/item/food/sashimi,
 /turf/open/floor/wood,
 /area/centcom/holding)
+"Hu" = (
+/obj/structure/flora/rock/boulder,
+/turf/open/floor/plasteel/grimy,
+/area/centcom/control)
 "Hw" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Briefing Room";
@@ -7750,6 +7793,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
+"WU" = (
+/obj/structure/table/wood,
+/obj/structure/madman_computer{
+	pixel_y = 12
+	},
+/turf/open/floor/carpet,
+/area/centcom/control)
 "WV" = (
 /obj/machinery/light{
 	dir = 8
@@ -20213,8 +20263,8 @@ TO
 TO
 TO
 ZU
-ZU
-ZU
+tH
+Ck
 vo
 wi
 FH
@@ -20470,8 +20520,8 @@ TO
 TO
 TO
 ZU
-ZU
-ZU
+WU
+bA
 ZU
 Pd
 wx
@@ -20727,8 +20777,8 @@ TO
 TO
 TO
 ZU
-ZU
-ZU
+Hu
+bM
 ZU
 gg
 FH
@@ -20984,9 +21034,9 @@ EG
 EG
 EG
 ZU
-ZU
-ZU
-Qn
+vS
+ac
+Ge
 FH
 FH
 FH
@@ -21241,7 +21291,7 @@ Dc
 Dc
 Dc
 ZU
-ZU
+EG
 ZU
 ZU
 kK

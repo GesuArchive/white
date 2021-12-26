@@ -4341,6 +4341,7 @@
 #include "white\valtos\code\uniforms\japanese.dm"
 #include "white\valtos\code\uniforms\russian.dm"
 #include "white\valtos\code\uniforms\whatever.dm"
+#include "white\valtos\code\unsorted\4udo.dm"
 #include "white\valtos\code\unsorted\antimatter.dm"
 #include "white\valtos\code\unsorted\assv2.dm"
 #include "white\valtos\code\unsorted\barricades.dm"
