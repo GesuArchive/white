@@ -1342,6 +1342,22 @@ GLOBAL_REAL_VAR(list/stack_trace_storage)
 		else
 			. = ""
 
+/proc/weightclass2icon(w_class, user)
+	switch(w_class)
+		if(WEIGHT_CLASS_TINY)
+			w_class = "tiny"
+		if(WEIGHT_CLASS_SMALL)
+			w_class = "small"
+		if(WEIGHT_CLASS_NORMAL)
+			w_class = "normal"
+		if(WEIGHT_CLASS_BULKY)
+			w_class = "bulky"
+		if(WEIGHT_CLASS_HUGE)
+			w_class = "huge"
+		if(WEIGHT_CLASS_GIGANTIC)
+			w_class = "gigantic"
+	return icon2html('icons/emoji.dmi', user, w_class)
+
 GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 
 //Version of view() which ignores darkness, because BYOND doesn't have it (I actually suggested it but it was tagged redundant, BUT HEARERS IS A T- /rant).
