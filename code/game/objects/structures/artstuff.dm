@@ -69,7 +69,7 @@
 	reset_grid()
 
 	painting_metadata = new
-	painting_metadata.title = "Untitled Artwork"
+	painting_metadata.title = "Безымянная картина"
 	painting_metadata.creation_round_id = GLOB.round_id
 	painting_metadata.width = width
 	painting_metadata.height = height
@@ -140,7 +140,7 @@
 				grid[x][y] = tool_color
 			var/medium = get_paint_tool_medium(I)
 			if(medium && painting_metadata.medium && painting_metadata.medium != medium)
-				painting_metadata.medium = "Mixed medium"
+				painting_metadata.medium = "Микс медиум"
 			else
 				painting_metadata.medium = medium
 			used = TRUE
@@ -170,29 +170,29 @@
 	var/mob/living/living_user = user
 	var/obj/item/card/id/id_card = living_user.get_idcard(TRUE)
 	if(!id_card)
-		to_chat(user,span_notice("You don't even have a id and you want to be an art patron?"))
+		to_chat(user,span_notice("А где карта?"))
 		return
 	if(!id_card.registered_account || !id_card.registered_account.account_job)
-		to_chat(user,span_notice("No valid non-departamental account found."))
+		to_chat(user,span_notice("Неправильная карта."))
 		return
 	var/datum/bank_account/account = id_card.registered_account
 	if(account.account_balance < painting_metadata.credit_value)
-		to_chat(user,span_notice("You can't afford this."))
+		to_chat(user,span_notice("Недостаточно средств."))
 		return
 	var/sniped_amount = painting_metadata.credit_value
-	var/offer_amount = input(user,"How much do you want to offer ? Minimum : [painting_metadata.credit_value]","Patronage Amount", painting_metadata.credit_value + 1) as num|null
+	var/offer_amount = input(user,"Сколько мы предложим? Минимум: [painting_metadata.credit_value]", "Объём пожертвований", painting_metadata.credit_value + 1) as num|null
 	if(account.account_balance < offer_amount)
-		to_chat(user,span_notice("You can't afford this."))
+		to_chat(user,span_notice("Недостаточно средств."))
 		return
 	if(!offer_amount || sniped_amount != painting_metadata.credit_value || offer_amount < painting_metadata.credit_value+1 || !user.canUseTopic(src))
 		return
 	if(!account.adjust_money(-offer_amount))
-		to_chat(user,span_warning("Transaction failure. Please try again."))
+		to_chat(user,span_warning("Ошибка транзакции, попробуйте ещё."))
 		return
 	painting_metadata.patron_ckey = user.ckey
 	painting_metadata.patron_name = user.real_name
 	painting_metadata.credit_value = offer_amount
-	to_chat(user,span_notice("Nanotrasen Trust Foundation thanks you for your contribution. You're now offical patron of this painting."))
+	to_chat(user,span_notice("Нанотрейзен благодарит вас за пожертвование. Теперь вы официальный спонсор данной картины."))
 
 /obj/item/canvas/update_overlays()
 	. = ..()
@@ -258,27 +258,27 @@
 	if(!painting_implement)
 		return
 	if(istype(painting_implement, /obj/item/paint_palette))
-		return "Oil on canvas"
+		return "Масло на холсте"
 	else if(istype(painting_implement, /obj/item/toy/crayon/spraycan))
-		return "Spraycan on canvas"
+		return "Краска на холсте"
 	else if(istype(painting_implement, /obj/item/toy/crayon))
-		return "Crayon on canvas"
+		return "Мелок на холсте"
 	else if(istype(painting_implement, /obj/item/pen))
-		return "Ink on canvas"
+		return "Краска на холсте"
 	else if(istype(painting_implement, /obj/item/soap) || istype(painting_implement, /obj/item/reagent_containers/glass/rag))
 		return //These are just for cleaning, ignore them
 	else
-		return "Unknown medium"
+		return "Неизвестный медиум"
 
 /obj/item/canvas/proc/try_rename(mob/user)
 	if(painting_metadata.loaded_from_json) // No renaming old paintings
 		return
-	var/new_name = stripped_input(user,"What do you want to name the painting?")
+	var/new_name = stripped_input(user,"Как назовём наш шедевр?")
 	if(new_name != painting_metadata.title && new_name && user.canUseTopic(src, BE_CLOSE))
 		painting_metadata.title = new_name
-	var/sign_choice = tgui_alert(user, "Do you want to sign it or remain anonymous?", "Sign painting?", list("Yes", "No"))
-	if(sign_choice != "Yes")
-		painting_metadata.creator_name = "Anonymous"
+	var/sign_choice = tgui_alert(user, "Подпишем или оставим анонимным?", "Подпись?", list("Да", "Нет"))
+	if(sign_choice != "Да")
+		painting_metadata.creator_name = "Аноним"
 	SStgui.update_uis(src)
 
 
@@ -368,17 +368,17 @@
 /obj/structure/sign/painting/examine(mob/user)
 	. = ..()
 	if(persistence_id)
-		. += span_notice("Any painting placed here will be archived at the end of the shift.")
+		. += span_notice("<hr>Все картины помещённые сюда будут сохранены.")
 	if(current_canvas)
 		current_canvas.ui_interact(user)
-		. += span_notice("Use wirecutters to remove the painting.")
+		. += span_notice("<hr>Кусачки помогут снять картину.")
 
 /obj/structure/sign/painting/wirecutter_act(mob/living/user, obj/item/I)
 	. = ..()
 	if(current_canvas)
 		current_canvas.forceMove(drop_location())
 		current_canvas = null
-		to_chat(user, span_notice("You remove the painting from the frame."))
+		to_chat(user, span_notice("Достаю картину из рамки."))
 		update_appearance()
 		return TRUE
 
@@ -387,7 +387,7 @@
 		current_canvas = new_canvas
 		if(!current_canvas.finalized)
 			current_canvas.finalize(user)
-		to_chat(user,span_notice("You frame [current_canvas]."))
+		to_chat(user,span_notice("Устанавливаю в рамку [current_canvas]."))
 	update_appearance()
 
 /obj/structure/sign/painting/proc/try_rename(mob/user)
@@ -395,7 +395,7 @@
 		current_canvas.try_rename(user)
 
 /obj/structure/sign/painting/update_name(updates)
-	name = current_canvas ? "painting - [current_canvas.painting_metadata.title]" : initial(name)
+	name = current_canvas ? "картина - [current_canvas.painting_metadata.title]" : initial(name)
 	return ..()
 
 /obj/structure/sign/painting/update_desc(updates)
@@ -449,7 +449,7 @@
 	new_canvas.generated_icon = I
 	new_canvas.icon_generated = TRUE
 	new_canvas.finalized = TRUE
-	new_canvas.name = "painting - [painting.title]"
+	new_canvas.name = "картина - [painting.title]"
 	current_canvas = new_canvas
 	current_canvas.update_appearance()
 	update_appearance()
@@ -488,27 +488,27 @@
 
 //Presets for art gallery mapping, for paintings to be shared across stations
 /obj/structure/sign/painting/library
-	name = "\improper Public Painting Exhibit mounting"
-	desc = "For art pieces hung by the public."
-	desc_with_canvas = "A piece of art (or \"art\"). Anyone could've hung it."
+	name = "публичная рамка"
+	desc = "Искусство для публики от публики."
+	desc_with_canvas = "Искусство (или \"искусство\"). Да это любой сможет."
 	persistence_id = "library"
 
 /obj/structure/sign/painting/library_secure
-	name = "\improper Curated Painting Exhibit mounting"
-	desc = "For masterpieces hand-picked by the curator."
-	desc_with_canvas = "A masterpiece hand-picked by the curator, supposedly."
+	name = "особая рамка"
+	desc = "Для шедевров."
+	desc_with_canvas = "Шедевр."
 	persistence_id = "library_secure"
 
 /obj/structure/sign/painting/library_private // keep your smut away from prying eyes, or non-librarians at least
-	name = "\improper Private Painting Exhibit mounting"
-	desc = "For art pieces deemed too subversive or too illegal to be shared outside of curators."
-	desc_with_canvas = "A painting hung away from lesser minds."
+	name = "приватная рамка"
+	desc = "Слишком нелегальный экземпляр."
+	desc_with_canvas = "Это искусство лучше упрятать от смердов."
 	persistence_id = "library_private"
 
 /// Simple painting utility.
 /obj/item/paint_palette
-	name = "paint palette"
-	desc = "paintbrush included"
+	name = "палитра"
+	desc = "Кисточка включена."
 	icon = 'icons/obj/artstuff.dmi'
 	icon_state = "palette"
 	lefthand_file = 'icons/mob/inhands/equipment/palette_lefthand.dmi'
