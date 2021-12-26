@@ -332,7 +332,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/examine(mob/user) //This might be spammy. Remove?
 	. = ..()
 
-	. += "<hr><span class='smalldanger'>
+	. += "<hr><span class='smalldanger'>"
 
 	if(resistance_flags & INDESTRUCTIBLE)
 		. += icon2html('icons/emoji.dmi', user, "indestructible")
