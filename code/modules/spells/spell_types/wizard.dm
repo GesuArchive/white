@@ -160,7 +160,7 @@
 /obj/effect/proc_holder/spell/targeted/area_teleport/teleport/santa
 	name = "Телепорт Санты"
 
-	invocation = "ХОУ! ХОУ! ХОУ!"
+	invocation = "Хо-хо-хо!"
 	clothes_req = FALSE
 	say_destination = FALSE // Santa moves in mysterious ways
 
