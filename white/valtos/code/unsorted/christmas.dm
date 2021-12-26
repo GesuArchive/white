@@ -14,6 +14,7 @@
 /obj/item/stack/garland_pack/afterattack(atom/target, mob/user, proximity)
 	. = ..()
 	if(isclosedturf(target) && proximity)
+		user.changeNext_move(1)
 		var/turf/closed/T = target
 		if(locate(/obj/structure/garland) in T)
 			to_chat(user, span_warning("Здесь уже есть гирлянда!"))
