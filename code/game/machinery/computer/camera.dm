@@ -88,6 +88,11 @@
 		ui = new(user, src, "CameraConsole", name)
 		ui.open()
 
+/obj/machinery/computer/security/ui_status(mob/user)
+	if(!in_range(user, src) && !isobserver(user))
+		return UI_CLOSE
+	return ..()
+
 /obj/machinery/computer/security/ui_data()
 	var/list/data = list()
 	data["network"] = network
@@ -264,14 +269,13 @@
 		icon_state += "b"
 
 /obj/machinery/computer/security/telescreen/entertainment
-	name = "entertainment monitor"
-	desc = "Damn, they better have the /tg/ channel on these things."
+	name = "экран развлечений"
+	desc = "Лучшее шоу, которое только можно увидеть."
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "entertainment_blank"
 	network = list("thunder")
 	density = FALSE
 	circuit = null
-	interaction_flags_atom = NONE  // interact() is called by BigClick()
 	var/icon_state_off = "entertainment_blank"
 	var/icon_state_on = "entertainment"
 
@@ -304,10 +308,10 @@
 /obj/machinery/computer/security/telescreen/entertainment/proc/notify(on)
 	if(on && icon_state == icon_state_off)
 		say(pick(
-			"Feats of bravery live now at the thunderdome!",
-			"Two enter, one leaves! Tune in now!",
-			"Violence like you've never seen it before!",
-			"Spears! Camera! Action! LIVE NOW!"))
+			"Цирк в эфире, все сюда!",
+			"Двое входит, один выходит! Смотри сейчас!",
+			"Насилие, которое вы ещё не видели ранее!",
+			"Копья! Камера! Мотор! ЭФИР НАЧАЛСЯ!"))
 		icon_state = icon_state_on
 	else
 		icon_state = icon_state_off
