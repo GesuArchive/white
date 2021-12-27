@@ -224,6 +224,7 @@
 	if(!client && (mob_size < MOB_SIZE_SMALL))
 		return
 	now_pushing = TRUE
+	SEND_SIGNAL(src, COMSIG_LIVING_PUSHING_MOVABLE, AM)
 	var/t = get_dir(src, AM)
 	var/push_anchored = FALSE
 	if((AM.move_resist * MOVE_FORCE_CRUSH_RATIO) <= force)
