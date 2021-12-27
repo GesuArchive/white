@@ -60,6 +60,8 @@
 	icon = 'icons/obj/toy.dmi'
 	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
+	inhand_x_dimension = 32
+	inhand_y_dimension = 32
 	icon_state = "foamcrossbow"
 	inhand_icon_state = "crossbow"
 	worn_icon_state = "gun"
