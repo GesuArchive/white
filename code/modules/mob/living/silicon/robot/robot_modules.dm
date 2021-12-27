@@ -517,7 +517,7 @@
 			cyborg_base_icon = "janitor"
 		if("Zoomba")
 			cyborg_base_icon = "zoomba_jani"
-		if("Zoomba")
+		if("Flynn")
 			cyborg_base_icon = "flynn"
 		if("Heavy")
 			cyborg_base_icon = "heavyres"
