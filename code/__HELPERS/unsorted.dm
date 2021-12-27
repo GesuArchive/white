@@ -1356,7 +1356,7 @@ GLOBAL_REAL_VAR(list/stack_trace_storage)
 			w_class = "huge"
 		if(WEIGHT_CLASS_GIGANTIC)
 			w_class = "gigantic"
-	return icon2html('icons/emoji.dmi', user, w_class)
+	return icon2html(EMOJI_SET, user, w_class)
 
 GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 

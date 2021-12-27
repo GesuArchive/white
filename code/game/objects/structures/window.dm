@@ -35,7 +35,6 @@
 
 /obj/structure/window/examine(mob/user)
 	. = ..()
-	. += "<hr>"
 	if(reinf)
 		if(anchored && state == WINDOW_SCREWED_TO_FRAME)
 			. += span_notice("Окно <b>прикручено</b> к рамке.")
@@ -594,7 +593,6 @@
 
 /obj/structure/window/plasma/reinforced/examine(mob/user)
 	. = ..()
-	. += "<hr>"
 	switch(state)
 		if(RWINDOW_SECURE)
 			. += "<hr><span class='notice'>Окно прикручено одноразовыми винтами. Придётся <b>нагреть их</b>, чтобы получить хоть какой-то шанс выкрутить их обратно.</span>"

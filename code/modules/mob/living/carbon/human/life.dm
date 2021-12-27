@@ -384,7 +384,7 @@
 			O.setOrganDamage(1)
 			blood_volume -= 10
 		if(peeed)
-			visible_message(span_notice("<b>[src]</b> писает [bloody ? "кровью" : ""] в [target]!"), span_notice("Писаю [bloody ? "кровью" : ""] в [target]."))
+			visible_message(span_notice("<b>[src]</b> писает[bloody ? " кровью" : ""] в [target]!"), span_notice("Писаю[bloody ? " кровью" : ""] в [target]."))
 			playsound(src, 'sound/effects/splat.ogg', 50, 1)
 	else
 		var/obj/effect/decal/cleanable/mocha = bloody ?  new/obj/effect/decal/cleanable/blood(get_turf(src)) : new /obj/effect/decal/cleanable/urine(get_turf(src))
@@ -400,7 +400,7 @@
 				blood_volume -= 10
 				mocha.reagents.add_reagent(/datum/reagent/blood, 10)
 			if(peeed)
-				visible_message("<b>[capitalize(src.name)]</b> мочится себе в трусы [bloody ? "кровью" : ""]!")
+				visible_message("<b>[capitalize(src.name)]</b> мочится себе в трусы[bloody ? " кровью" : ""]!")
 				playsound(src, 'sound/effects/splat.ogg', 50, 1)
 				if(!bloody)
 					for(var/mob/M in viewers(src, 7))
@@ -415,7 +415,7 @@
 				blood_volume -= 10
 				mocha.reagents.add_reagent(/datum/reagent/blood, 10)
 			if(peeed)
-				visible_message("<b>[capitalize(src.name)]</b> обильно ссыт [bloody ? "кровью" : ""] на пол!")
+				visible_message("<b>[capitalize(src.name)]</b> обильно ссыт[bloody ? " кровью" : ""] на пол!")
 				playsound(src, 'sound/effects/splat.ogg', 50, 1)
 	if(!peeed)
 		to_chat(src, "Нечем мочиться!")
