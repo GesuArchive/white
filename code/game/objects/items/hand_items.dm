@@ -443,7 +443,7 @@
 	var/obj/projectile/blown_kiss = new kiss_type(get_turf(offerer))
 	if(offerer.zone_selected != BODY_ZONE_PRECISE_MOUTH)
 		offerer.visible_message("<b>[offerer]</b> целует [taker] в щеку!", span_notice("Целую [taker] в щеку!"), ignored_mobs = taker)
-		to_chat(taker, span_nicegreen("[offerer] целует меня в щеку"))
+		to_chat(taker, span_nicegreen("[offerer] целует меня в щеку!"))
 	else
 		offerer.visible_message("<b>[offerer]</b> целует [taker]!!", span_notice("Целую [taker]!"), ignored_mobs = taker)
 		to_chat(taker, span_nicegreen("[offerer] целует меня!"))
