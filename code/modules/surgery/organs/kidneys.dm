@@ -18,7 +18,7 @@
 	var/metabolism_efficiency = 0.05
 	var/operated = FALSE
 
-	reagent_vol = 200
+	reagent_vol = 100
 
 /obj/item/organ/kidneys/Initialize()
 	. = ..()
@@ -33,7 +33,7 @@
 	var/mob/living/carbon/human/body = owner
 	var/datum/reagent/uri = locate(/datum/reagent/toxin/urine) in reagents.reagent_list
 
-	if(uri?.volume > 200)
+	if(uri?.volume > reagent_vol)
 		body.try_pee(TRUE)
 
 	if(body.hydration <= 5)
@@ -61,7 +61,7 @@
 	organ_flags = ORGAN_SYNTHETIC
 	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.5
 	var/emp_vulnerability = 80
-	reagent_vol = 100
+	reagent_vol = 50
 	metabolism_efficiency = 0.07
 
 /obj/item/organ/kidneys/cybernetic/tier2
@@ -70,7 +70,7 @@
 	desc = "Усовершенствованное устройство, превосходящее функции человеческих почек."
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	emp_vulnerability = 40
-	reagent_vol = 300
+	reagent_vol = 150
 	metabolism_efficiency = 0.04
 
 /obj/item/organ/kidneys/cybernetic/tier3
@@ -79,7 +79,7 @@
 	desc = "Эта версия кибернетических почек имеет огромный внутренний запас."
 	maxHealth = 2 * STANDARD_ORGAN_THRESHOLD
 	emp_vulnerability = 20
-	reagent_vol = 600
+	reagent_vol = 200
 	metabolism_efficiency = 0.01
 
 /obj/item/organ/kidneys/cybernetic/emp_act(severity)
