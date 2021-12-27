@@ -759,9 +759,9 @@
 	switch(syndicate_robot_icon)
 		if("Default")
 			cyborg_base_icon = "synd_sec"
-		if("Zoomba")
+		if("Chesty")
 			cyborg_base_icon = "chesty"
-		if("Zoomba")
+		if("Heavy")
 			cyborg_base_icon = "syndieheavy"
 		else
 			return FALSE
