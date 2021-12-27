@@ -38,16 +38,16 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 	if(item_flags & IN_INVENTORY && loc == user)
 		// construction of frequency description
-		var/list/avail_chans = list("Используй [RADIO_KEY_COMMON] для текущей настроенной частоты.")
+		var/list/avail_chans = list("[RADIO_KEY_COMMON] для текущей частоты.")
 		if(translate_binary)
-			avail_chans += "Используй [MODE_TOKEN_BINARY] для [MODE_BINARY]"
+			avail_chans += "[MODE_TOKEN_BINARY] для [MODE_BINARY]"
 		if(length(channels))
 			for(var/i in 1 to length(channels))
 				if(i == 1)
-					avail_chans += "Используй [MODE_TOKEN_DEPARTMENT] или [GLOB.channel_tokens[channels[i]]] для [lowertext(channels[i])]"
+					avail_chans += "[MODE_TOKEN_DEPARTMENT] или [GLOB.channel_tokens[channels[i]]] для [lowertext(ru_comms(channels[i]))]"
 				else
-					avail_chans += "Используй [GLOB.channel_tokens[channels[i]]] для [lowertext(channels[i])]"
-		. += "<hr><span class='notice'>На небольшом экране гарнитуры отображаются следующие доступные частоты:\n[english_list(avail_chans)].</span>"
+					avail_chans += "[GLOB.channel_tokens[channels[i]]] для [lowertext(ru_comms(channels[i]))]"
+		. += "<hr><span class='notice'>Дисплей показывает следующие частоты:\n[avail_chans.Join("\n")].</span>"
 
 		if(command)
 			. += "<hr><span class='info'>ПКМ для переключения режима высокой громкости вещания.</span>"
