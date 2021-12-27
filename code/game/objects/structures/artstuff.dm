@@ -519,6 +519,6 @@
 
 /obj/item/paint_palette/attack_self(mob/user, modifiers)
 	. = ..()
-	var/chosen_color = input(user,"Pick new color","Palette") as color|null
+	var/chosen_color = input(user, "Выбери новый цвет", "Палитра") as color|null
 	if(chosen_color)
 		current_color = chosen_color
