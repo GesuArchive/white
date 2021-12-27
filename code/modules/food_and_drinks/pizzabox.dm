@@ -1,4 +1,4 @@
-obj/item/bombcore/miniature/pizza
+/obj/item/bombcore/miniature/pizza
 	name = "pizza bomb"
 	desc = "Special delivery!"
 	icon_state = "pizzabomb_inactive"
