@@ -32,7 +32,6 @@ SUBSYSTEM_DEF(persistence)
 	if(CONFIG_GET(flag/use_antag_rep))
 		LoadAntagReputation()
 	LoadRandomizedRecipes()
-	LoadPaintings()
 
 	GLOB.explorer_drone_adventures = load_adventures()
 	return ..()
@@ -181,7 +180,6 @@ SUBSYSTEM_DEF(persistence)
 	if(CONFIG_GET(flag/use_antag_rep))
 		CollectAntagReputation()
 	SaveRandomizedRecipes()
-	SavePaintings()
 	SaveScars()
 
 /datum/controller/subsystem/persistence/proc/GetPhotoAlbums()
@@ -379,22 +377,6 @@ SUBSYSTEM_DEF(persistence)
 
 	fdel(json_file)
 	WRITE_FILE(json_file, json_encode(file_data))
-
-/datum/controller/subsystem/persistence/proc/LoadPaintings()
-	var/json_file = file("data/paintings.json")
-	if(fexists(json_file))
-		paintings = json_decode(file2text(json_file))
-
-	for(var/obj/structure/sign/painting/P in painting_frames)
-		P.load_persistent()
-
-/datum/controller/subsystem/persistence/proc/SavePaintings()
-	for(var/obj/structure/sign/painting/P in painting_frames)
-		P.save_persistent()
-
-	var/json_file = file("data/paintings.json")
-	fdel(json_file)
-	WRITE_FILE(json_file, json_encode(paintings))
 
 /datum/controller/subsystem/persistence/proc/SaveScars()
 	for(var/i in GLOB.joined_player_list)
