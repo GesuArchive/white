@@ -497,6 +497,19 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/commons/dorms/ten
 	name = "Комната: Десятая"
+
+/area/commons/dorms/cabin/one
+	name = "Кабина дорм: Первая"
+
+/area/commons/dorms/cabin/two
+	name = "Кабина дорм: Вторая"
+
+/area/commons/dorms/cabin/three
+	name = "Кабина дорм: Третья"
+
+/area/commons/dorms/cabin/four
+	name = "Кабина дорм: Четвертая"
+
 /area/commons/dorms/barracks
 	name = "Зона отдыха: Бараки"
 
