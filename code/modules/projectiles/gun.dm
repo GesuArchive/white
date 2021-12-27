@@ -135,30 +135,22 @@
 	if(!pinless)
 		. += "<hr>"
 		if(pin)
-			. += "Внутри установлен [pin]."
-			. += "<hr>"
-			. += span_info("Похоже, [pin] можно вытащить при помощи <b>инструментов</b>.")
+			. += span_info("Внутри установлен [pin] и его можно вытащить при помощи <b>инструментов</b>.")
 		else
-			. += "Внутри отсутствует <b>ударник</b>, поэтому огонь вести невозможно."
+			. += span_danger("Внутри отсутствует <b>ударник</b>, поэтому огонь вести невозможно.")
 
 	if(gun_light)
-		. += "<hr>"
-		. += "На нём установлен [gun_light], который [can_flashlight ? "" : "надёжно "]прикручен к нему."
-		if(can_flashlight) //if it has a light and this is false, the light is permanent.
-			. += "<hr>"
-			. += span_info("Похоже, [gun_light] может быть <b>откручен</b> от [src].")
+		. += "\n"
+		. += span_info("На нём установлен [gun_light], который [can_flashlight ? "" : "<b>надёжно</b> "]прикручен к нему.")
 	else if(can_flashlight)
-		. += "<hr>"
-		. += "Здесь присутствует посадочное место для <b>фонарика</b>."
+		. += "\n"
+		. += span_info("Здесь присутствует посадочное место для <b>фонарика</b>.")
 
 	if(bayonet)
-		. += "<hr>"
-		. += "На нём установлен [bayonet], который [can_bayonet ? "" : "надёжно "]прикреплён к нему."
-		if(can_bayonet) //if it has a bayonet and this is false, the bayonet is permanent.
-			. += "<hr>"
-			. += span_info("Похоже [bayonet] может быть <b>откручен</b> от [src].")
-	if(can_bayonet)
-		. += "<hr>"
+		. += "\n"
+		. += span_info("На нём установлен [bayonet], который [can_bayonet ? "" : "<b>надёжно</b> "]прикреплён к нему.")
+	else if(can_bayonet)
+		. += "\n"
 		. += "Сюда можно прикрепить <b>штык</b>."
 
 /obj/item/gun/equipped(mob/living/user, slot)

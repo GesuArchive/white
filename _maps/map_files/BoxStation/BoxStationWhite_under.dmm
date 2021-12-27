@@ -845,6 +845,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/science/xenobiology)
 "ce" = (
+/obj/structure/closet,
 /turf/open/floor/plating,
 /area/maintenance/disposal)
 "cf" = (
@@ -11416,7 +11417,6 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "Aa" = (
-/obj/structure/closet,
 /turf/open/floor/plating,
 /area/maintenance/disposal)
 "Ab" = (
@@ -12524,7 +12524,7 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/structure/rack,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/cell/hyper,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/cargo/exploration_dock)
 "CS" = (

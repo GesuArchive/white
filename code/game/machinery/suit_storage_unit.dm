@@ -3,7 +3,8 @@
 	name = "блок хранения костюма"
 	desc = "Промышленная установка, предназначенная для хранения и дезактивации облученного оборудования. Он оснащен встроенным механизмом УФ-прижигания. Небольшая предупреждающая этикетка сообщает, что органические вещества не должны попадать внутрь устройства."
 	icon = 'icons/obj/machines/suit_storage.dmi'
-	icon_state = "close"
+	icon_state = "classic"
+	base_icon_state = "classic"
 	use_power = ACTIVE_POWER_USE
 	active_power_usage = 6000
 	power_channel = AREA_USAGE_EQUIP
@@ -50,9 +51,10 @@
 	/// How fast it charges cells in a suit
 	var/charge_rate = 250
 
-/obj/machinery/suit_storage_unit/Initialize()
-	. = ..()
-	interaction_flags_machine |= INTERACT_MACHINE_OFFLINE
+/obj/machinery/suit_storage_unit/industrial
+	name = "промышленный блок хранения костюма"
+	icon_state = "industrial"
+	base_icon_state = "industrial"
 
 /obj/machinery/suit_storage_unit/standard_unit
 	suit_type = /obj/item/clothing/suit/space/eva
@@ -166,27 +168,35 @@
 
 /obj/machinery/suit_storage_unit/update_overlays()
 	. = ..()
-
-	if(uv)
-		if(uv_super)
-			. += "super"
-		else if(occupant)
-			. += "uvhuman"
+	//if things arent powered, these show anyways
+	if(panel_open)
+		. += "[base_icon_state]_panel"
+	if(state_open)
+		. += "[base_icon_state]_open"
+		if(suit)
+			. += "[base_icon_state]_suit"
+		if(helmet)
+			. += "[base_icon_state]_helm"
+		if(storage)
+			. += "[base_icon_state]_storage"
+		if(uv && uv_super)
+			. += "[base_icon_state]_super"
+	if(!(machine_stat & BROKEN || machine_stat & NOPOWER))
+		if(state_open)
+			. += "[base_icon_state]_lights_open"
 		else
-			. += "uv"
-	else if(state_open)
-		if(machine_stat & BROKEN)
-			. += "broken"
+			if(uv)
+				. += "[base_icon_state]_lights_red"
+			else
+				. += "[base_icon_state]_lights_closed"
+		//top lights
+		if(uv)
+			if(uv_super)
+				. += "[base_icon_state]_uvstrong"
+			else
+				. += "[base_icon_state]_uv"
 		else
-			. += "open"
-			if(suit)
-				. += "suit"
-			if(helmet)
-				. += "helm"
-			if(storage)
-				. += "storage"
-	else if(occupant)
-		. += "human"
+			. += "[base_icon_state]_ready"
 
 /obj/machinery/suit_storage_unit/power_change()
 	. = ..()
@@ -285,10 +295,12 @@
 			if (item_to_dispense)
 				vars[choice] = null
 				try_put_in_hand(item_to_dispense, user)
+				update_icon()
 			else
 				var/obj/item/in_hands = user.get_active_held_item()
 				if (in_hands)
 					attackby(in_hands, user)
+				update_icon()
 
 	interact(user)
 
@@ -515,7 +527,7 @@
 		wires.interact(user)
 		return
 	if(!state_open)
-		if(default_deconstruction_screwdriver(user, "panel", "close", I))
+		if(default_deconstruction_screwdriver(user, "[base_icon_state]", "close", I))
 			return
 	if(default_pry_open(I))
 		dump_inventory_contents()

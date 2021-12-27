@@ -36145,6 +36145,7 @@
 	name = "emergency shower"
 	},
 /obj/effect/turf_decal/box,
+/obj/machinery/limbgrower,
 /turf/open/floor/plasteel/showroomfloor,
 /area/medical/exam_room)
 "gBn" = (
@@ -39320,6 +39321,7 @@
 	pixel_y = 4
 	},
 /obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/cell/hyper,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
 "hPm" = (
@@ -44653,6 +44655,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
+/obj/item/stack/sheet/plastic/fifty,
 /obj/item/storage/box/beakers,
 /obj/item/gun/syringe{
 	pixel_y = 5

@@ -34,7 +34,7 @@
 	return (OXYLOSS)
 
 /obj/item/melee/synthetic_arm_blade
-	name = "synthetic arm blade"
+	name = "синтетическая рука-лезвие"
 	desc = "A grotesque blade that on closer inspection seems to be made out of synthetic flesh, it still feels like it would hurt very badly as a weapon."
 	icon = 'icons/obj/changeling_items.dmi'
 	icon_state = "arm_blade"
@@ -172,8 +172,8 @@
 	return TOXLOSS
 
 /obj/item/melee/classic_baton
-	name = "police baton"
-	desc = "A wooden truncheon for beating criminal scum. Left click to stun, right click to harm."
+	name = "полицейская дубинка"
+	desc = "Деревянная дубинка для ломания позвоничника. Левый клик - оглушение, правый - ломание."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "classic_baton"
 	inhand_icon_state = "classic_baton"
@@ -209,7 +209,7 @@
 	. = ..()
 	// Adding an extra break for the sake of presentation
 	if(stamina_damage != 0)
-		offensive_notes = "\nVarious interviewed security forces report being able to beat criminals into exhaustion with only [span_warning("[round(100 / stamina_damage, 0.1)] hit\s!")]"
+		offensive_notes = "\nБольшая часть опрошенных офицеров сообщает о том, что достаточно всего [span_warning("[round(100 / stamina_damage, 0.1)] ударов, чтобы приложить ублюдка!")]"
 
 /// Description for trying to stun when still on cooldown.
 /obj/item/melee/classic_baton/proc/get_wait_description()
@@ -219,8 +219,8 @@
 /obj/item/melee/classic_baton/proc/get_stun_description(mob/living/target, mob/living/user)
 	. = list()
 
-	.["visible"] =  "<span class ='danger'>[user] knocks [target] down with [src]!</span>"
-	.["local"] = "<span class ='userdanger'>[user] knocks you down with [src]!</span>"
+	.["visible"] =  "<span class ='danger'>[user] укладывает [target] используя [src]!</span>"
+	.["local"] = "<span class ='userdanger'>[user] укладывает меня [src]!</span>"
 
 	return .
 
@@ -228,8 +228,8 @@
 /obj/item/melee/classic_baton/proc/get_cyborg_stun_description(mob/living/target, mob/living/user)
 	. = list()
 
-	.["visible"] = span_danger("[user] pulses [target]'s sensors with the baton!")
-	.["local"] = span_danger("You pulse [target]'s sensors with the baton!")
+	.["visible"] = span_danger("[user] тыкает сенсоры [target] используя дубинку!")
+	.["local"] = span_danger("Тыкаю сенсоры [target] используя дубинку!")
 
 	return .
 
@@ -237,8 +237,8 @@
 /obj/item/melee/classic_baton/proc/get_unga_dunga_cyborg_stun_description(mob/living/target, mob/living/user)
 	. = list()
 
-	.["visible"] = "<span class='danger'>[user] tries to knock down [target] with [src], and predictably fails!</span>" //look at this duuuuuude
-	.["local"] = "<span class='userdanger'>[target] tries to... knock you down with [src]?</span>" //look at the top of his head!
+	.["visible"] = "<span class='danger'>[user] пытается уложить [target] используя [src] и конечно же проваливает попытку!</span>" //look at this duuuuuude
+	.["local"] = "<span class='userdanger'>[target] пытается... уложить меня [src]?</span>" //look at the top of his head!
 
 	return .
 
@@ -256,7 +256,7 @@
 
 	add_fingerprint(user)
 	if((HAS_TRAIT(user, TRAIT_CLUMSY)) && prob(50))
-		user.visible_message(span_danger("[user] accidentally hits [user.p_them()]self over the head with [src]! What a doofus!"), span_userdanger("You accidentally hit yourself over the head with [src]!"))
+		user.visible_message(span_danger("[user] случайно бьёт себя по лицу используя [src]! Что за придурок!"), span_userdanger("Случайно бью себя в голову используя [src]!"))
 
 		if(iscyborg(user))
 			if(affect_cyborg)
@@ -292,7 +292,7 @@
 		return
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		if (H.check_shields(src, 0, "[user]'s [name]", MELEE_ATTACK))
+		if (H.check_shields(src, 0, "[user] [name]", MELEE_ATTACK))
 			return
 		if(check_martial_counter(H, user))
 			return

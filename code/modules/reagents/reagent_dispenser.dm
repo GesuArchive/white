@@ -1,5 +1,5 @@
 /obj/structure/reagent_dispensers
-	name = "Dispenser"
+	name = "Раздатчик"
 	desc = "..."
 	icon = 'icons/obj/chemical_tanks.dmi'
 	icon_state = "water"
@@ -19,7 +19,7 @@
 /obj/structure/reagent_dispensers/examine(mob/user)
 	. = ..()
 	if(can_be_tanked)
-		. += "<hr><span class='notice'>Use a sheet of metal to convert this into a plumbing-compatible tank.</span>"
+		. += "<hr><span class='notice'>Можно использовать лист метала, чтобы заставить это работать с химическими трубами.</span>"
 
 /obj/structure/reagent_dispensers/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
 	. = ..()
@@ -36,7 +36,7 @@
 		var/obj/structure/reagent_dispensers/plumbed/storage/new_tank = new /obj/structure/reagent_dispensers/plumbed/storage(drop_location())
 		new_tank.reagents.maximum_volume = reagents.maximum_volume
 		reagents.trans_to(new_tank, reagents.total_volume)
-		new_tank.name = "stationary [name]"
+		new_tank.name = "стационарный [name]"
 		new_tank.update_overlays()
 		new_tank.anchored = anchored
 		qdel(src)
@@ -51,7 +51,7 @@
 	. = ..()
 
 /obj/structure/reagent_dispensers/proc/boom()
-	visible_message(span_danger("<b>[src.name]</b> ruptures!"))
+	visible_message(span_danger("<b>[src.name]</b> разрывается!"))
 	chem_splash(loc, 5, list(reagents))
 	qdel(src)
 
@@ -63,26 +63,26 @@
 		qdel(src)
 
 /obj/structure/reagent_dispensers/watertank
-	name = "water tank"
-	desc = "A water tank."
+	name = "бак с водой"
+	desc = "С водой."
 	icon_state = "water"
 
 /obj/structure/reagent_dispensers/watertank/high
-	name = "high-capacity water tank"
-	desc = "A highly pressurized water tank made to hold gargantuan amounts of water."
+	name = "бак с водой под высоким давлением"
+	desc = "Эта штука может хранить ОЧЕНЬ много воды."
 	icon_state = "water_high" //I was gonna clean my room...
 	tank_volume = 100000
 
 /obj/structure/reagent_dispensers/foamtank
-	name = "firefighting foam tank"
-	desc = "A tank full of firefighting foam."
+	name = "бак с пеной для огнетушителей"
+	desc = "Раствор используется для быстрого тушения пожаров."
 	icon_state = "foam"
 	reagent_id = /datum/reagent/firefighting_foam
 	tank_volume = 500
 
 /obj/structure/reagent_dispensers/fueltank
-	name = "fuel tank"
-	desc = "A tank full of industrial welding fuel. Do not consume."
+	name = "топливный бак"
+	desc = "Заполнен сварочным топливом. Не пить."
 	icon_state = "fuel"
 	reagent_id = /datum/reagent/fuel
 
@@ -114,19 +114,19 @@
 /obj/structure/reagent_dispensers/fueltank/attackby(obj/item/I, mob/living/user, params)
 	if(I.tool_behaviour == TOOL_WELDER)
 		if(!reagents.has_reagent(/datum/reagent/fuel))
-			to_chat(user, span_warning("[capitalize(src.name)] is out of fuel!"))
+			to_chat(user, span_warning("[capitalize(src.name)] пуст!"))
 			return
 		var/obj/item/weldingtool/W = I
 		if(istype(W) && !W.welding)
 			if(W.reagents.has_reagent(/datum/reagent/fuel, W.max_fuel))
-				to_chat(user, span_warning("Your [W.name] is already full!"))
+				to_chat(user, span_warning("Мой [W.name] полон!"))
 				return
 			reagents.trans_to(W, W.max_fuel, transfered_by = user)
-			user.visible_message(span_notice("[user] refills [user.ru_ego()] [W.name].") , span_notice("You refill [W]."))
+			user.visible_message(span_notice("[user] заправляет [user.ru_ego()] [W.name].") , span_notice("Заправляю [W]."))
 			playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
 			W.update_icon()
 		else
-			user.visible_message(span_danger("[user] catastrophically fails at refilling [user.ru_ego()] [I.name]!") , span_userdanger("That was stupid of you."))
+			user.visible_message(span_danger("[user] делает глупую ошибку пытаясь заправить [user.ru_ego()] [I.name]!") , span_userdanger("Это было глупо."))
 			log_bomber(user, "detonated a", src, "via welding tool")
 			boom()
 		return
@@ -144,8 +144,8 @@
 				qdel(src)
 
 /obj/structure/reagent_dispensers/fueltank/large
-	name = "high capacity fuel tank"
-	desc = "A tank full of a high quantity of welding fuel. Keep away from open flames."
+	name = "бак с топливом под высоким давлением"
+	desc = "Заполнен сварочным топливом под высоким давлением. Держать вдали от огня."
 	icon_state = "fuel_high"
 	tank_volume = 5000
 
@@ -154,8 +154,8 @@
 	qdel(src)
 
 /obj/structure/reagent_dispensers/peppertank
-	name = "pepper spray refiller"
-	desc = "Contains condensed capsaicin for use in law \"enforcement.\""
+	name = "бак с капсаицином"
+	desc = "Содержит конденсированный капсаицин для \"правосудия.\""
 	icon_state = "pepper"
 	anchored = TRUE
 	density = FALSE
@@ -180,7 +180,7 @@
 /obj/structure/reagent_dispensers/peppertank/Initialize()
 	. = ..()
 	if(prob(1))
-		desc = "IT'S PEPPER TIME, BITCH!"
+		desc = "ВРЕМЯ ПЕРЦА, СУКА!"
 
 
 /obj/structure/reagent_dispensers/water_cooler
@@ -215,8 +215,8 @@
 	paper_cups--
 
 /obj/structure/reagent_dispensers/beerkeg
-	name = "beer keg"
-	desc = "Beer is liquid bread, it's good for you..."
+	name = "пивная кега"
+	desc = "Пиво это жидкий хлеб, оно полезное..."
 	icon_state = "beer"
 	reagent_id = /datum/reagent/consumable/ethanol/beer
 
@@ -235,8 +235,8 @@
 
 
 /obj/structure/reagent_dispensers/virusfood
-	name = "virus food dispenser"
-	desc = "A dispenser of low-potency virus mutagenic."
+	name = "раздатчик питательных веществ для вирусов"
+	desc = "Для слабых мутаций вирусов."
 	icon_state = "virus_food"
 	anchored = TRUE
 	density = FALSE
@@ -259,25 +259,25 @@
 	pixel_x = -30
 
 /obj/structure/reagent_dispensers/cooking_oil
-	name = "vat of cooking oil"
-	desc = "A huge metal vat with a tap on the front. Filled with cooking oil for use in frying food."
+	name = "бочка с маслом"
+	desc = "Огромная металлическая бочка заполненная маслом, которое используется для жарки еды."
 	icon_state = "vat"
 	anchored = TRUE
 	reagent_id = /datum/reagent/consumable/cooking_oil
 
 /obj/structure/reagent_dispensers/servingdish
-	name = "serving dish"
-	desc = "A dish full of food slop for your bowl."
+	name = "посудина с чем-то"
+	desc = "Заполнена вкусняхой."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "serving"
 	anchored = TRUE
 	reagent_id = /datum/reagent/consumable/nutraslop
 
 /obj/structure/reagent_dispensers/plumbed
-	name = "stationary water tank"
+	name = "стационарный бак с водой"
 	anchored = TRUE
 	icon_state = "water_stationary"
-	desc = "A stationary, plumbed, water tank."
+	desc = "Для химических задач."
 	can_be_tanked = FALSE
 
 /obj/structure/reagent_dispensers/plumbed/wrench_act(mob/living/user, obj/item/I)
@@ -289,7 +289,7 @@
 	AddComponent(/datum/component/plumbing/simple_supply)
 
 /obj/structure/reagent_dispensers/plumbed/storage
-	name = "stationary storage tank"
+	name = "стационарный бак"
 	icon_state = "tank_stationary"
 	reagent_id = null //start empty
 
@@ -313,7 +313,6 @@
 	return !anchored
 
 /obj/structure/reagent_dispensers/plumbed/fuel
-	name = "stationary fuel tank"
+	name = "стационарный топливный бак"
 	icon_state = "fuel_stationary"
-	desc = "A stationary, plumbed, fuel tank."
 	reagent_id = /datum/reagent/fuel

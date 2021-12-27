@@ -1792,7 +1792,7 @@
 		ui_reaction_index = index
 	var/list/sub_reactions = get_recipe_from_reagent_product(path)
 	if(!length(sub_reactions))
-		to_chat(usr, "There is no recipe associated with this product.")
+		to_chat(usr, "Рецептов не существует для этого реагента.")
 		return FALSE
 	if(ui_reaction_index > length(sub_reactions))
 		ui_reaction_index = 1
@@ -1814,20 +1814,20 @@
 			ui_reaction_id = text2path(params["id"])
 			return TRUE
 		if("search_reagents")
-			var/input_reagent = (input("Enter the name of any reagent", "Input") as text|null)
+			var/input_reagent = (input("Введите имя реагента", "Ввод") as text|null)
 			input_reagent = get_reagent_type_from_product_string(input_reagent) //from string to type
 			var/datum/reagent/reagent = find_reagent_object_from_type(input_reagent)
 			if(!reagent)
-				to_chat(usr, "Could not find reagent!")
+				to_chat(usr, "Невозможно найти реагент!")
 				return FALSE
 			ui_reagent_id = reagent.type
 			return TRUE
 		if("search_recipe")
-			var/input_reagent = (input("Enter the name of product reagent", "Input") as text|null)
+			var/input_reagent = (input("Введите имя реагента", "Ввод") as text|null)
 			input_reagent = get_reagent_type_from_product_string(input_reagent) //from string to type
 			var/datum/reagent/reagent = find_reagent_object_from_type(input_reagent)
 			if(!reagent)
-				to_chat(usr, "Could not find product reagent!")
+				to_chat(usr, "Невозможно найти реагент!")
 				return
 			ui_reaction_id = get_reaction_from_indexed_possibilities(reagent.type)
 			return TRUE

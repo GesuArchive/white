@@ -1,7 +1,7 @@
 /datum/brain_trauma/mild/phobia
 	name = "Фобия"
 	desc = "Пациент чего-то беспричинно боится."
-	scan_desc = "фобия"
+	scan_desc = "<b>фобии</b>"
 	gain_text = span_warning("You start finding default values very unnerving...")
 	lose_text = span_notice("You no longer feel afraid of default values.")
 	var/phobia_type
@@ -154,87 +154,87 @@
 
 /datum/brain_trauma/mild/phobia/spiders
 	phobia_type = "spiders"
-	phobia_ru = "пауки"
+	phobia_ru = "пауков"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/space
 	phobia_type = "space"
-	phobia_ru = "космосы"
+	phobia_ru = "космоса"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/security
 	phobia_type = "security"
-	phobia_ru = "охранники"
+	phobia_ru = "охранников"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/clowns
 	phobia_type = "clowns"
-	phobia_ru = "клоуны"
+	phobia_ru = "клоунов"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/greytide
 	phobia_type = "greytide"
-	phobia_ru = "ассистенты"
+	phobia_ru = "ассистентов"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/lizards
 	phobia_type = "lizards"
-	phobia_ru = "ящеры"
+	phobia_ru = "ящеров"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/skeletons
 	phobia_type = "skeletons"
-	phobia_ru = "скелеты"
+	phobia_ru = "скелетов"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/snakes
 	phobia_type = "snakes"
-	phobia_ru = "змеи"
+	phobia_ru = "змей"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/robots
 	phobia_type = "robots"
-	phobia_ru = "роботы"
+	phobia_ru = "роботов"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/doctors
 	phobia_type = "doctors"
-	phobia_ru = "врачи"
+	phobia_ru = "врачей"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/authority
 	phobia_type = "authority"
-	phobia_ru = "главы"
+	phobia_ru = "глав"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/supernatural
 	phobia_type = "the supernatural"
-	phobia_ru = "сверхъестественные вещи"
+	phobia_ru = "сверхъестественных вещей"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/aliens
 	phobia_type = "aliens"
-	phobia_ru = "пришельцы"
+	phobia_ru = "пришельцев"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/strangers
 	phobia_type = "strangers"
-	phobia_ru = "незнакомцы"
+	phobia_ru = "незнакомцев"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/birds
 	phobia_type = "birds"
-	phobia_ru = "птицы"
+	phobia_ru = "птиц"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/falling
 	phobia_type = "falling"
-	phobia_ru = "падения"
+	phobia_ru = "на падения"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/anime
 	phobia_type = "anime"
-	phobia_ru = "анимешники"
+	phobia_ru = "анимешников"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/conspiracies
@@ -244,7 +244,7 @@
 
 /datum/brain_trauma/mild/phobia/insects
 	phobia_type = "insects"
-	phobia_ru = "насекомые"
+	phobia_ru = "насекомых"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/ptsdr

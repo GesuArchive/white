@@ -3033,6 +3033,7 @@
 "Eu" = (
 /obj/structure/table,
 /obj/machinery/light,
+/obj/item/stack/sheet/plastic/fifty,
 /obj/item/book/manual/wiki/medicine,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/glasses/hud/health,

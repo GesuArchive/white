@@ -6,9 +6,9 @@
 	resilience = TRAUMA_RESILIENCE_SURGERY
 
 /datum/brain_trauma/severe/mute
-	name = "Mutism"
+	name = "Немота"
 	desc = "Пациент совершенно не может говорить."
-	scan_desc = "обширное повреждение речевого центра мозга"
+	scan_desc = "<b>обширного повреждения речевого центра мозга</b>"
 	gain_text = span_warning("А как говорить?!")
 	lose_text = span_notice("Ага, вот так вот можно говорить.")
 
@@ -21,9 +21,9 @@
 	..()
 
 /datum/brain_trauma/severe/aphasia
-	name = "Aphasia"
+	name = "Проклятие Вавилона"
 	desc = "Пациент не может говорить или понимать какой-либо язык."
-	scan_desc = "обширное повреждение языкового центра мозга"
+	scan_desc = "<b>обширного повреждения языкового центра мозга</b>"
 	gain_text = span_warning("Проблемы с формированием слов в голове...")
 	lose_text = span_notice("А, вот как работают слова.")
 
@@ -38,9 +38,9 @@
 	..()
 
 /datum/brain_trauma/severe/blindness
-	name = "Cerebral Blindness"
+	name = "Церебральная слепота"
 	desc = "Мозг пациента больше не связан с его глазами."
-	scan_desc = "обширное повреждение затылочной доли головного мозга"
+	scan_desc = "<b>повреждения зрительного нерва головного мозга</b>"
 	gain_text = span_warning("Ничерта не вижу!")
 	lose_text = span_notice("Зрение возвращается.")
 
@@ -53,9 +53,9 @@
 	..()
 
 /datum/brain_trauma/severe/paralysis
-	name = "Paralysis"
+	name = "Паралич"
 	desc = "Мозг пациента больше не может контролировать часть своих двигательных функций."
-	scan_desc = "церебральный паралич"
+	scan_desc = "<b>церебрального паралича</b>"
 	gain_text = ""
 	lose_text = ""
 	var/paralysis_type
@@ -120,7 +120,7 @@
 /datum/brain_trauma/severe/narcolepsy
 	name = "Нарколепсия"
 	desc = "Пациент может непроизвольно заснуть во время обычных занятий."
-	scan_desc = "травматическая нарколепсия"
+	scan_desc = "<b>нарколепсии</b>"
 	gain_text = span_warning("Пора спать...")
 	lose_text = span_notice("Бодрячком.")
 
@@ -134,17 +134,17 @@
 	if(owner.drowsyness)
 		sleep_chance += 3
 	if(DT_PROB(0.5 * sleep_chance, delta_time))
-		to_chat(owner, span_warning("You fall asleep."))
+		to_chat(owner, span_warning("Вы засыпаете..."))
 		owner.Sleeping(60)
 	else if(!owner.drowsyness && DT_PROB(sleep_chance, delta_time))
-		to_chat(owner, span_warning("You feel tired..."))
+		to_chat(owner, span_warning("Вы очень устали..."))
 		owner.drowsyness += 10
 
 /datum/brain_trauma/severe/monophobia
-	name = "Monophobia"
+	name = "монофобия"
 	desc = "Пациент чувствует себя больным и расстроенным, когда его нет рядом с другими людьми, что приводит к потенциально смертельному стрессу."
-	scan_desc = "монофобия"
-	gain_text = ""
+	scan_desc = "<b>монофобии</b>"
+	gain_text = span_warning("Я очень боюсь остаться в одиночестве!")
 	lose_text = span_notice("Похоже можно побыть и в одиночестве.")
 	var/stress = 0
 
@@ -220,9 +220,9 @@
 					owner.adjustOxyLoss(8)
 
 /datum/brain_trauma/severe/discoordination
-	name = "Discoordination"
+	name = "Нарушение координации"
 	desc = "Пациент не может использовать сложные инструменты или оборудование."
-	scan_desc = "крайняя дискоординация"
+	scan_desc = "<b>нарушения тонкой моторики</b>"
 	gain_text = span_warning("Едва могу контролировать свои руки!")
 	lose_text = span_notice("Руки снова работают как надо.")
 
@@ -235,9 +235,9 @@
 	..()
 
 /datum/brain_trauma/severe/pacifism
-	name = "Traumatic Non-Violence"
+	name = "Дефект миролюбия"
 	desc = "Пациент крайне не желает насильственно причинять вред другим."
-	scan_desc = "тихоокеанский синдром"
+	scan_desc = "<b>тихоокеанского синдрома</b>"
 	gain_text = span_notice("Чувствую себя на удивление спокойно.")
 	lose_text = span_notice("Больше не чувствую себя обязанным не причинять вреда.")
 
@@ -250,9 +250,9 @@
 	..()
 
 /datum/brain_trauma/severe/hypnotic_stupor
-	name = "Hypnotic Stupor"
+	name = "Гипнотический ступор"
 	desc = "Пациент склонен к приступам сильного ступора, что делает его чрезвычайно внушаемым."
-	scan_desc = "онейрическая петля обратной связи"
+	scan_desc = "<b>аутонейрической петли обратной связи</b>"
 	gain_text = span_warning("Немного ошеломлен.")
 	lose_text = span_notice("Туман уходит из моей головы.")
 
@@ -266,9 +266,9 @@
 		owner.apply_status_effect(/datum/status_effect/trance, rand(100,300), FALSE)
 
 /datum/brain_trauma/severe/hypnotic_trigger
-	name = "Hypnotic Trigger"
+	name = "Гипнотический триггер"
 	desc = "У пациента в подсознании есть триггерная фраза, которая вызывает внушаемое состояние, подобное трансу."
-	scan_desc = "онейрическая петля обратной связи"
+	scan_desc = "<b>онейрической петли обратной связи</b>"
 	gain_text = span_warning("Что-то забыл... Что-то важное?")
 	lose_text = span_notice("Груз сняли с моего ума. Чудно.")
 	random_gain = FALSE

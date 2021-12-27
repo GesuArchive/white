@@ -122,6 +122,7 @@
 /area/service/bar/atrium)
 "adp" = (
 /obj/structure/table/glass,
+/obj/item/stack/sheet/plastic/fifty,
 /obj/item/book/manual/wiki/medicine,
 /obj/item/wrench/medical,
 /obj/item/clothing/neck/stethoscope,

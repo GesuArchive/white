@@ -279,6 +279,10 @@
 	var/sign_choice = tgui_alert(user, "Подпишем или оставим анонимным?", "Подпись?", list("Да", "Нет"))
 	if(sign_choice != "Да")
 		painting_metadata.creator_name = "Аноним"
+
+	if(user.client)
+		inc_metabalance(user, METACOIN_ART_REWARD, reason="Новая картина!")
+
 	SStgui.update_uis(src)
 
 
@@ -519,6 +523,6 @@
 
 /obj/item/paint_palette/attack_self(mob/user, modifiers)
 	. = ..()
-	var/chosen_color = input(user,"Pick new color","Palette") as color|null
+	var/chosen_color = input(user, "Выбери новый цвет", "Палитра") as color|null
 	if(chosen_color)
 		current_color = chosen_color

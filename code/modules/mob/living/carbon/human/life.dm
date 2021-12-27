@@ -54,6 +54,14 @@
 			if(nutrition < NUTRITION_LEVEL_STARVING)
 				to_chat(src, span_warning("[pick("Голодно...", "Кушать хочу...", "Вот бы что-нибудь съесть...", "Мой живот урчит...")]"))
 				take_overall_damage(stamina = 60)
+			var/obj/item/organ/O = getorganslot(ORGAN_SLOT_KIDNEYS)
+			switch(O.reagents.total_volume)
+				if((O.reagent_vol - 25) to (O.reagent_vol - 15))
+					to_chat(src, span_warning("[pick("Где тут уборная?", "Хочу в туалет.", "Надо в туалет.")]"))
+				if((O.reagent_vol -14) to (O.reagent_vol - 10))
+					to_chat(src, span_warning("[pick("СРОЧНО В ТУАЛЕТ!", "Я СЕЙЧАС ОПИСАЮСЬ!", "ХОЧУ В ТУАЛЕТ!")]"))
+				if((O.reagent_vol - 9) to INFINITY)
+					try_pee()
 			switch(pooition)
 				if(75 to 100)
 					to_chat(src, span_warning("[pick("Где тут уборная?", "Хочу в туалет.", "Надо в туалет.")]"))
@@ -384,7 +392,7 @@
 			O.setOrganDamage(1)
 			blood_volume -= 10
 		if(peeed)
-			visible_message(span_notice("<b>[src]</b> писает [bloody ? "кровью" : ""] в [target]!"), span_notice("Писаю [bloody ? "кровью" : ""] в [target]."))
+			visible_message(span_notice("<b>[src]</b> писает[bloody ? " кровью" : ""] в [target]!"), span_notice("Писаю[bloody ? " кровью" : ""] в [target]."))
 			playsound(src, 'sound/effects/splat.ogg', 50, 1)
 	else
 		var/obj/effect/decal/cleanable/mocha = bloody ?  new/obj/effect/decal/cleanable/blood(get_turf(src)) : new /obj/effect/decal/cleanable/urine(get_turf(src))
@@ -400,7 +408,7 @@
 				blood_volume -= 10
 				mocha.reagents.add_reagent(/datum/reagent/blood, 10)
 			if(peeed)
-				visible_message("<b>[capitalize(src.name)]</b> мочится себе в трусы [bloody ? "кровью" : ""]!")
+				visible_message("<b>[capitalize(src.name)]</b> мочится себе в трусы[bloody ? " кровью" : ""]!")
 				playsound(src, 'sound/effects/splat.ogg', 50, 1)
 				if(!bloody)
 					for(var/mob/M in viewers(src, 7))
@@ -415,7 +423,7 @@
 				blood_volume -= 10
 				mocha.reagents.add_reagent(/datum/reagent/blood, 10)
 			if(peeed)
-				visible_message("<b>[capitalize(src.name)]</b> обильно ссыт [bloody ? "кровью" : ""] на пол!")
+				visible_message("<b>[capitalize(src.name)]</b> обильно ссыт[bloody ? " кровью" : ""] на пол!")
 				playsound(src, 'sound/effects/splat.ogg', 50, 1)
 	if(!peeed)
 		to_chat(src, "Нечем мочиться!")

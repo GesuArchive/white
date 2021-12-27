@@ -613,8 +613,8 @@
 		var/list/materials_list = list()
 		for(var/i in custom_materials)
 			var/datum/material/M = i
-			materials_list += "[M.skloname]"
-		. += span_small("Вероятно, этот предмет создан из <u>[english_list(materials_list)]</u>.")
+			materials_list += "<font color='[M.color]'>[M.skloname]</font>"
+		. += span_small("Этот предмет создан из <u>[english_list(materials_list)]</u>.")
 	if(reagents)
 		. += "<hr>"
 		if(reagents.flags & TRANSPARENT)

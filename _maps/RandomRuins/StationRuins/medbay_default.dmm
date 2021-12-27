@@ -463,6 +463,7 @@
 	dir = 8
 	},
 /obj/structure/table,
+/obj/item/stack/sheet/plastic/fifty,
 /obj/item/book/manual/wiki/medicine,
 /obj/item/storage/belt/medical{
 	pixel_y = 2
