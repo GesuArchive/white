@@ -335,7 +335,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	. += "<hr>"
 
 	if(resistance_flags & INDESTRUCTIBLE)
-		. += icon2html(EMOJI_SET, user, "indestructible")
+		. += span_smallnotice("<b>Защитные свойства:</b> [icon2html(EMOJI_SET, user, "indestructible")]\n")
 	else
 		var/list/rfm = list()
 		if(resistance_flags & LAVA_PROOF)
@@ -347,9 +347,9 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		if(resistance_flags & FIRE_PROOF)
 			rfm += icon2html(EMOJI_SET, user, "fire")
 		if(rfm.len)
-			. += "<span class='smallnotice'><b>Защитные свойства:</b> [rfm.Join(" ")]</span>"
+			. += span_smallnotice("<b>Защитные свойства:</b> [rfm.Join(" ")]\n")
 
-	. += "\n<span class='smallnotice'<b>>Размер:</b> [weightclass2icon(w_class, user)]</span>"
+	. += span_smallnotice("<b>Размер:</b> [weightclass2icon(w_class, user)]")
 
 	if(!user.research_scanner)
 		return
