@@ -18,7 +18,7 @@
 	speak_chance = 1
 	a_intent = INTENT_HARM
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
-	minbodytemp = 0
+	minbodytemp = 20
 	maxHealth = 50
 	health = 50
 	speed = 2
@@ -30,7 +30,8 @@
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	del_on_death = 1
 	faction = list("clown")
-	loot = list(/obj/effect/mob_spawn/human/clown/corpse)
+	damage_coeff = list(BRUTE = 1, BURN = 2, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 0)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam)
 	footstep_type = FOOTSTEP_MOB_SHOE
 	see_in_dark = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
@@ -93,12 +94,20 @@
 	else
 		clear_alert("temp")
 
+/mob/living/simple_animal/hostile/clown/AttackingTarget()
+	if(istype(src.loc,/turf/closed/wall/clown/))
+		return FALSE
+	. = ..()
+
 /mob/living/simple_animal/hostile/clown/attack_hand(mob/living/carbon/human/M)
 	..()
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, TRUE)
 
+
 /mob/living/simple_animal/hostile/clown/Life(delta_time = SSMOBS_DT, times_fired)
 	. = ..()
+	if (!istype(loc,/turf/closed/wall/clown/))
+		src.invisibility = 0
 	if(banana_time && banana_time < world.time)
 		new banana_type(pick(src.loc))
 		banana_time = world.time + rand(30,60)
@@ -109,7 +118,7 @@
 			heal_time = world.time + 10
 			if ((istype(src, /mob/living/simple_animal/hostile/clown/mutant/glutton))||(istype(src, /mob/living/simple_animal/hostile/clown/fleshclown)))
 				var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = src
-				glutton.biomass += 1
+				glutton.biomass += 2
 
 
 /mob/living/simple_animal/hostile/clown/AttackingTarget()
@@ -150,7 +159,7 @@
 	maxHealth = 120
 	health = 120
 	speed = 1
-	loot = list(/obj/effect/mob_spawn/human/clown/corpse,/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap, /obj/item/seeds/banana)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap, /obj/item/seeds/banana)
 	banana_time = 20
 
 /mob/living/simple_animal/hostile/clown/honkling
@@ -192,7 +201,8 @@
 	obj_damage = 5
 	var/biomass = 25
 	var/datum/action/innate/glutton/plantSkin/plantSkin
-	loot = list(/obj/effect/mob_spawn/human/clown/corpse, /obj/item/clothing/suit/hooded/bloated_human, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
+	var/datum/action/innate/glutton/lesser/build/build
+	loot = list(/obj/item/clothing/suit/hooded/bloated_human, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
 
 /mob/living/simple_animal/hostile/clown/fleshclown/get_status_tab_items()
 		. = ..()
@@ -221,7 +231,7 @@
 	melee_damage_lower = 10
 	attack_verb_continuous = "YA-HONKs"
 	attack_verb_simple = "YA-HONK"
-	loot = list(/obj/effect/mob_spawn/human/clown/corpse, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
 
 /mob/living/simple_animal/hostile/clown/clownhulk
 	name = "Honk Hulk"
@@ -446,13 +456,15 @@
 	. = ..()
 	plantSkin = new
 	plantSkin.Grant(src)
+	build = new
+	build.Grant(src)
 
 //Пожирание трупов матерью
 /mob/living/simple_animal/hostile/clown/mutant/glutton/proc/eat(atom/movable/A)
 	if(A && A.loc != src)
 		playsound(src, 'sound/items/eatfood.ogg', 100, TRUE)
 		visible_message(span_warning("[capitalize(src.name)] пожирает [A]!"))
-		biomass += 50
+		biomass += 75
 		qdel(A)
 		return TRUE
 	return FALSE
@@ -512,10 +524,10 @@
 	flick("glutton_tongue",usr)
 	for(var/obj/machinery/light/L in view(6, user))
 		if (L.icon_state != "tube-broken")
-			user.adjustHealth(-50)
+			user.adjustHealth(-100)
 		L.on = 1
 		L.break_light_tube()
-	for(var/mob/living/carbon/human/M in get_hearers_in_view(4, user))
+	for(var/mob/living/carbon/human/M in get_hearers_in_view(10, user))
 		SEND_SOUND(M, sound('sound/effects/screech.ogg'))
 		M.add_confusion(25)
 		M.Jitter(50)
@@ -725,27 +737,60 @@
 	canSmoothWith = list(SMOOTH_GROUP_ALIEN_WALLS)
 
 
+
 /mob/living/simple_animal/hostile/clown/Bump(atom/AM)
 	. = ..()
-	if(istype(AM, /turf/closed/wall/clown/) && AM != loc) //we can go through cult walls
-		var/atom/movable/stored_pulling = pulling
-		if(stored_pulling)
-			stored_pulling.setDir(get_dir(stored_pulling.loc, loc))
-			stored_pulling.forceMove(loc)
-		forceMove(AM)
-		playsound(src.loc, 'sound/effects/gib_step.ogg', 50, TRUE)
-		if(stored_pulling)
-			start_pulling(stored_pulling, supress_message = TRUE) //drag anything we're pulling through the wall with us by magic
+
+	if(istype(AM, /turf/closed/wall/clown/))
+		if(!istype(loc, /turf/closed/wall/clown/))
+			if(do_after(src, 2 SECONDS, AM))
+				forceMove(AM)
+				src.invisibility = INVISIBILITY_ABSTRACT
+				playsound(src.loc, 'sound/effects/gib_step.ogg', 50, TRUE)
+				return
+
+		else
+			forceMove(AM)
+			playsound(src.loc, 'sound/effects/gib_step.ogg', 50, TRUE)
+			return
+
+
+/mob/living/simple_animal/hostile/clown/Move(atom/newloc, dir , step_x , step_y)
+	if(!(istype(newloc,/turf/closed/wall/clown/))&&(istype(loc,/turf/closed/wall/clown/)))
+		var/turf/closed/wall/clown/oldturf = get_turf(src)
+		oldturf.add_filter("stasis_status_ripple", 2, list("type" = "ripple", "flags" = WAVE_BOUNDED, "radius" = 0, "size" = 2))
+		var/filter = oldturf.get_filter("stasis_status_ripple")
+		animate(filter, radius = 22, time = 20, size = 0, loop = -1)
+		visible_message(span_warning("Кожистая стена начинает чавкать..."))
+		if(do_after(src, 2 SECONDS, newloc))
+			src.invisibility = 0
+			forceMove(newloc)
+			oldturf.remove_filter("stasis_status_ripple")
+		else
+			return FALSE
+	. = ..()
+
 
 /datum/action/innate/glutton/build
-	name = "Flesh sculpting"
+	name = "Лепка плоти"
 	desc = "Слепить из накопленной плоти органическое здание."
 	var/list/structures = list(
-		"small clowns(80)" = /obj/structure/spawner/clown/clownsmall,
-		"flesh clowns(120)" = /obj/structure/spawner/clown/clownbuilder,
-		"banana clowns(150)" = /obj/structure/spawner/clown/clownana,
-		"spider clowns(200)" = /obj/structure/spawner/clown/clownspider,
-		"elite clowns(300)" = /obj/structure/spawner/clown/clownbig)
+		"Маленькие клоуны (100)" = /obj/structure/spawner/clown/clownsmall,
+		"Клоуны-строители (200)" = /obj/structure/spawner/clown/clownbuilder,
+		"Банановые клоуны (250)" = /obj/structure/spawner/clown/clownana,
+		"Клоуны-пауки (300)" = /obj/structure/spawner/clown/clownspider,
+		"Элитные клоуны (400)" = /obj/structure/spawner/clown/clownbig)
+
+	icon_icon = 'icons/mob/actions/actions_clown.dmi'
+	button_icon_state = "alien_resin"
+	background_icon_state = "bg_changeling"
+
+
+/datum/action/innate/glutton/lesser/build
+	name = "Лепка плоти"
+	desc = "Слепить из накопленной плоти органическое здание."
+	var/list/lesserStructures = list(
+		"Преобразователь атмосферы (120)" = /obj/fleshbuilding/clownatmos)
 
 	icon_icon = 'icons/mob/actions/actions_clown.dmi'
 	button_icon_state = "alien_resin"
@@ -753,7 +798,7 @@
 
 /datum/action/innate/glutton/build/Activate()
 	var/mob/living/simple_animal/hostile/clown/mutant/glutton/glutton = owner
-	var/choice = tgui_input_list(glutton, "Choose what to build.","Flesh sculpting", structures)
+	var/choice = tgui_input_list(glutton, "Что будем строить.","Лепка плоти", structures)
 	if(!choice)
 		return FALSE
 	choice =  structures[choice]
@@ -768,3 +813,60 @@
 		glutton.visible_message(span_notice("[glutton] формирует неестественное строение из накопленной плоти."))
 		glutton.biomass -= ccost
 		return TRUE
+
+/datum/action/innate/glutton/lesser/build/Activate()
+	var/mob/living/simple_animal/hostile/clown/fleshclown/glutton = owner
+	var/choice = tgui_input_list(glutton, "Что будем строить.","Лепка плоти", lesserStructures)
+	if(!choice)
+		return FALSE
+	choice =  lesserStructures[choice]
+	var/obj/fleshbuilding/building =  new choice
+	var/ccost = building.cost
+	if(ccost > glutton.biomass)
+		to_chat(glutton, span_notice("Недостаточно плоти."))
+		return FALSE
+	else
+		new choice(glutton.loc)
+		to_chat(glutton, span_notice("Леплю из плоти [choice]."))
+		glutton.visible_message(span_notice("[glutton] формирует неестественное строение из накопленной плоти."))
+		glutton.biomass -= ccost
+		return TRUE
+
+
+
+
+
+
+/obj/fleshbuilding
+	name = "абстрактная мясная постройка, которая ничего не делает потому что ее не должно существовать"
+	desc = "да."
+	icon_state = "clownbuilder"
+	icon = 'icons/obj/device.dmi'
+	var/cost = 0
+	anchored = 1
+
+/obj/fleshbuilding/clownatmos
+	name = "Дышалка"
+	desc = "Легкие планеты клоунов. Ничего не вдыхают и создают веселящий газ из пустоты."
+	icon_state = "clownatmos"
+	cost = 120
+	icon = 'icons/obj/device.dmi'
+	resistance_flags = ACID_PROOF|FIRE_PROOF
+	var/spawn_temp = T20C
+	var/spawn_id = /datum/gas/nitrous_oxide
+	var/spawn_mol = MOLES_CELLSTANDARD * 0.005
+
+/obj/fleshbuilding/clownatmos/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj, src)
+
+/obj/fleshbuilding/clownatmos/process()
+	var/turf/open/O = get_turf(src)
+	if(!isopenturf(O))
+		return FALSE
+	var/datum/gas_mixture/merger = new
+	merger.set_moles(spawn_id, spawn_mol)
+	merger.set_temperature(spawn_temp)
+	O.assume_air(merger)
+	O.air_update_turf(TRUE, FALSE)
+

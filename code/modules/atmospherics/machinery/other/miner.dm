@@ -147,6 +147,11 @@
 	overlay_color = "#FFCCCC"
 	spawn_id = /datum/gas/nitrous_oxide
 
+/obj/machinery/atmospherics/miner/n2o/clown
+	name = "газодобытчик N2O"
+	overlay_color = "#FFCCCC"
+	spawn_id = /datum/gas/nitrous_oxide
+
 /obj/machinery/atmospherics/miner/nitrogen
 	name = "газодобытчик N2"
 	overlay_color = "#CCFFCC"
