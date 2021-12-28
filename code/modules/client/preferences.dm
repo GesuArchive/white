@@ -374,8 +374,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_HAIR_COLOR]'>[(randomise[RANDOM_HAIR_COLOR]) ? "🔓" : "🔒"]</A></td></tr>"
 
 				dat += "<tr><td><b>Градиент волос:</b></td><td align='right'>"
-				dat += "<a href='?_src_=prefs;preference=grad_style;task=input'>[grad_style]</a>"
-				dat += "<br><span style='border:1px solid #161616; background-color: #[grad_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=grad_color;task=input'>Изменить</a>"
+				dat += "<span style='border:1px solid #161616; background-color: #[grad_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=grad_color;task=input'>Изменить</a><a href='?_src_=prefs;preference=grad_style;task=input'>[grad_style]</a></td></tr>"
 
 				dat += "<tr><td><b>Борода:</b></td><td align='right'>"
 
