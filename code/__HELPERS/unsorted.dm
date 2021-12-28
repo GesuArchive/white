@@ -762,41 +762,41 @@ Turf and target are separate in case you want to teleport some distance from a t
 
 /proc/jumpsuit_to_ru_conversion(jumpsuit)
 	switch(jumpsuit)
-		if(PREF_SUIT)
+		if("Jumpsuit")
 			return "Комбез"
-		if(PREF_SKIRT)
+		if("Jumpskirt")
 			return "Юбкомбез"
 		else
 			return jumpsuit
 
 /proc/backpack_to_ru_conversion(backpack)
 	switch(backpack)
-		if(GBACKPACK)
+		if("Grey Backpack")
 			return "Серый рюкзак"
-		if(GSATCHEL)
+		if("Grey Satchel")
 			return "Серая сумка"
-		if(GDUFFELBAG)
+		if("Grey Duffel Bag")
 			return "Серый вещмешок"
-		if(LSATCHEL)
+		if("Leather Satchel")
 			return "Кожаная сумка"
-		if(DBACKPACK)
+		if("Department Backpack")
 			return "Рюкзак отдела"
-		if(DSATCHEL)
+		if("Department Satchel")
 			return "Сумка отдела"
-		if(DDUFFELBAG)
+		if("Department Duffel Bag")
 			return "Вещмешок отдела"
 		else
 			return backpack
 
 /proc/uplink_to_ru_conversion(uplink)
 	switch(uplink)
-		if(UPLINK_PDA)
+		if("PDA")
 			return "ПДА"
-		if(UPLINK_RADIO)
+		if("Radio")
 			return "Наушник"
-		if(UPLINK_PEN)
+		if("Pen")
 			return "Ручка"
-		if(UPLINK_IMPLANT)
+		if("Implant")
 			return "Имплант"
 		else
 			return uplink
