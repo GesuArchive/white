@@ -223,7 +223,7 @@ SUBSYSTEM_DEF(persistence)
 	var/list/album_json = list()
 
 	if(fexists(album_path))
-		album_json = r_json_decode(file2text(album_path))
+		album_json = json_decode(file2text(album_path))
 		fdel(album_path)
 
 	for(var/i in photo_albums)
@@ -238,7 +238,7 @@ SUBSYSTEM_DEF(persistence)
 	WRITE_FILE(album_path, album_json)
 
 	if(fexists(frame_path))
-		frame_json = r_json_decode(file2text(frame_path))
+		frame_json = json_decode(file2text(frame_path))
 		fdel(frame_path)
 
 	for(var/i in photo_frames)

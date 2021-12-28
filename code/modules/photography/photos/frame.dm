@@ -66,7 +66,7 @@
 	icon_state = "frame-overlay"
 	custom_materials = list(/datum/material/wood = 2000)
 	var/obj/item/photo/framed
-	var/persistence_id
+	var/persistence_id = "random"
 	var/can_decon = TRUE
 
 #define FRAME_DEFINE(id) /obj/structure/sign/picture_frame/##id/persistence_id = #id
