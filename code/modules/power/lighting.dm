@@ -454,7 +454,7 @@
 		set_light(0)
 	update_icon()
 
-	active_power_usage = (brightness * 250)
+	active_power_usage = (brightness * 25)
 	if(on != on_gs)
 		on_gs = on
 		if(on)
