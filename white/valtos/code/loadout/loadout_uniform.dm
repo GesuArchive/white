@@ -201,7 +201,7 @@
 
 /datum/gear/uniform/rank/cargo
 	subtype_path = /datum/gear/uniform/rank/cargo
-	allowed_roles = list("Quartermaster", "Cargo Technician", "Shaft Miner")
+	allowed_roles = list("Quartermaster", "Cargo Technician", "Shaft Miner", "Hunter")
 
 /datum/gear/uniform/rank/cargo/overalls
 	display_name = "рабочий комбинезон"
@@ -213,7 +213,7 @@
 	display_name = "старый комбинезон шахтера"
 	description = "Пурпурный, грязный комбинезон. Стандартная одежда шахтера шахт Нанотразен, когда Лаваленд еще не был открыт и использован для плазмы."
 	path = /obj/item/clothing/under/rank/cargo/miner
-	allowed_roles = list ("Shaft Miner")
+	allowed_roles = list ("Shaft Miner", "Hunter")
 	cost = 100
 
 //MEDICAL ALT UNIS

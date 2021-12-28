@@ -116,7 +116,7 @@
 		if("Cargo Technician", "Quartermaster")
 			O = new /datum/outfit/plasmaman/cargo
 
-		if("Shaft Miner")
+		if("Shaft Miner" || "Hunter")
 			O = new /datum/outfit/plasmaman/mining
 
 		if("Medical Doctor" || "Field Medic")

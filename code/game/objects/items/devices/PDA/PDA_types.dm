@@ -175,6 +175,11 @@
 	greyscale_config = /datum/greyscale_config/pda/stripe_thick
 	greyscale_colors = "#af9366#8f36c6#8f36c6"
 
+/obj/item/pda/hunter
+	name = "hunter PDA"
+	greyscale_config = /datum/greyscale_config/pda/stripe_thick
+	greyscale_colors = "#af2326#8f1626#8f36c6"
+
 /obj/item/pda/exploration
 	name = "рейнджерский PDA"
 	greyscale_config = /datum/greyscale_config/pda/stripe_thick

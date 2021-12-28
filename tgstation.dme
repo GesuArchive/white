@@ -4272,6 +4272,7 @@
 #include "white\valtos\code\is12\turfs.dm"
 #include "white\valtos\code\jobs\bomj.dm"
 #include "white\valtos\code\jobs\hacker.dm"
+#include "white\valtos\code\jobs\hunter.dm"
 #include "white\valtos\code\jobs\job_defines.dm"
 #include "white\valtos\code\jobs\mechanic.dm"
 #include "white\valtos\code\jobs\medic.dm"
