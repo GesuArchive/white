@@ -13,7 +13,7 @@ again.
 	if(spawn_list?.len)
 		for(var/I in spawn_list)
 			new I(get_turf(src))
-		// новый год 2021
+		// новый год 2022
 		if(prob(10))
 			new /obj/structure/snowflakes(get_turf(src))
 	return INITIALIZE_HINT_QDEL

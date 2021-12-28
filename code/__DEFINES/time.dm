@@ -14,7 +14,7 @@
 #define DECEMBER	12
 
 //Select holiday names -- If you test for a holiday in the code, make the holiday's name a define and test for that instead
-#define NEW_YEAR				"Новый Год"
+#define NEW_YEAR				"Новый Год 2022"
 #define VALENTINES				"День Святого Валентина"
 #define APRIL_FOOLS				"День дурака"
 #define EASTER					"Пасха"
