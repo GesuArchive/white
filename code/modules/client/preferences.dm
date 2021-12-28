@@ -556,13 +556,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "</td><td><font size=2><i>[G.description]</i></font></td></tr>"
 			else
 				for(var/category in GLOB.loadout_categories)
-					dat += "<tr class='metaitem buyed'><td><b>[category]:</b>"
+					if(category == "OOC" || category == "Роли")
+						continue
+					dat += "<tr class='metaitem buyed'><td><b>[category]:</b></td><td>"
 					for(var/gear_name in purchased_gear)
 						var/datum/gear/G = GLOB.gear_datums[gear_name]
-						if(!G || category != G.sort_category || G.sort_category == "OOC" || G.sort_category == "Роли")
+						if(!G || category != G.sort_category)
 							continue
 						var/ticked = (G.id in equipped_gear)
-						dat += "<a class='tooltip' style='padding: 10px 2px;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]<span class='tooltiptext'>[G.display_name]</span></a>"
+						dat += "<a class='tooltip[ticked ? " linkOn" : ""]' style='padding: 10px 2px;' href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]<span class='tooltiptext'>[G.display_name]</span></a>"
 					dat += "</td></tr>"
 			dat += "</table>"
 
