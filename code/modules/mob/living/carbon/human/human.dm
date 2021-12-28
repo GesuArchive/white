@@ -31,12 +31,6 @@
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-	if(gender == FEMALE)
-		var/matrix/M = matrix()
-		transform = M.Scale(0.9, 1)
-	else
-		transform = initial(transform)
-
 /mob/living/carbon/human/proc/setup_human_dna()
 	//initialize dna. for spawned humans; overwritten by other code
 	create_dna(src)

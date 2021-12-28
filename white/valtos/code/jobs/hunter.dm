@@ -60,9 +60,10 @@
 	if(istype(H.wear_suit, /obj/item/clothing/suit/hooded))
 		var/obj/item/clothing/suit/hooded/S = H.wear_suit
 		S.ToggleHood()
-	var/obj/item/card/id/ID = H.get_idcard()
-	if(ID)
-		ID.mining_points = 2000
+	spawn(10)
+		var/obj/item/card/id/ID = H.get_idcard()
+		if(ID)
+			ID.mining_points = 2000
 
 /datum/id_trim/job/hunter
 	assignment = "Hunter"
