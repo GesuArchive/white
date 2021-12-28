@@ -54,7 +54,7 @@
 			species.disliked_food &= ~MEAT
 
 /datum/quirk/snob
-	name = "Snob"
+	name = "Сноб"
 	desc = "Вас заботит чистый вид помещений. Если комната выглядит не такой уж и красивой, стоит ли это того?"
 	value = 0
 	gain_text = span_notice("Чуствую, как-будто знаю, как по-настоящему должны выглядеть комнаты.")
@@ -299,10 +299,10 @@
 	H.regenerate_icons()
 
 /datum/quirk/colorist
-	name = "Colorist"
-	desc = "You like carrying around a hair dye spray to quickly apply color patterns to your hair."
+	name = "Колорист"
+	desc = "Обожаю перекрашивать свои и чужи волосы, поэтому ношу с собой краску и делаю это быстро!"
 	value = 0
-	medical_record_text = "Patient enjoys dyeing their hair with pretty colors."
+	medical_record_text = "Пациенту нравится перекрашивать свою причёску в разные цвета."
 
 /datum/quirk/colorist/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
