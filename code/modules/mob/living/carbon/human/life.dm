@@ -425,8 +425,10 @@
 			if(peeed)
 				visible_message("<b>[capitalize(src.name)]</b> обильно ссыт[bloody ? " кровью" : ""] на пол!")
 				playsound(src, 'sound/effects/splat.ogg', 50, 1)
+		if(!peeed)
+			qdel(mocha)
 	if(!peeed)
-		to_chat(src, "Нечем мочиться!")
+		to_chat(src, span_notice("Нечем мочиться!"))
 
 #undef THERMAL_PROTECTION_HEAD
 #undef THERMAL_PROTECTION_CHEST
