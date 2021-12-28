@@ -128,6 +128,7 @@
 	new /obj/item/clothing/gloves/krav_maga/sec(src)
 	new /obj/item/door_remote/head_of_security(src)
 	new /obj/item/storage/box/firingpins/paywall(src)
+	new /obj/item/gun/grenadelauncher(src)
 
 /obj/structure/closet/secure_closet/security
 	name = "шкаф офицера"
