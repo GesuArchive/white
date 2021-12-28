@@ -40,8 +40,8 @@
 		applyOrganDamage(1)
 
 	if(body.hydration)
-		body.hydration -= delta_time * metabolism_efficiency * 0.1
-		reagents.add_reagent(/datum/reagent/toxin/urine, delta_time * metabolism_efficiency * 0.1)
+		body.hydration -= delta_time * metabolism_efficiency
+		reagents.add_reagent(/datum/reagent/toxin/urine, delta_time * metabolism_efficiency)
 
 	if(damage < low_threshold)
 		return
