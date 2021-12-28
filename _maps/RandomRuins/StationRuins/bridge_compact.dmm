@@ -4023,6 +4023,9 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/central)
+"Pc" = (
+/turf/template_noop,
+/area/commons/fitness/recreation)
 "PC" = (
 /obj/structure/sign/poster/contraband/random,
 /turf/closed/wall/r_wall,
@@ -4931,7 +4934,7 @@ ia
 "}
 (13,1,1) = {"
 ab
-ab
+Pc
 nd
 az
 Bi
@@ -4969,7 +4972,7 @@ ia
 "}
 (14,1,1) = {"
 ab
-ab
+Pc
 nd
 az
 Bi

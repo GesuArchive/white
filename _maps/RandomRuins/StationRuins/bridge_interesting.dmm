@@ -5056,6 +5056,9 @@
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
+"Ii" = (
+/turf/template_noop,
+/area/commons/fitness/recreation)
 "JP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
@@ -5834,7 +5837,7 @@ ax
 "}
 (13,1,1) = {"
 ab
-ab
+Ii
 BK
 jd
 QH
@@ -5872,7 +5875,7 @@ ax
 "}
 (14,1,1) = {"
 ab
-ab
+Ii
 QJ
 aj
 ut

@@ -1967,6 +1967,9 @@
 "As" = (
 /turf/closed/wall,
 /area/commons/fitness/recreation)
+"At" = (
+/turf/template_noop,
+/area/commons/fitness/recreation)
 "AG" = (
 /obj/structure/railing/corner{
 	dir = 4
@@ -4056,7 +4059,7 @@ bW
 "}
 (13,1,1) = {"
 sV
-sV
+At
 uP
 bC
 cX
@@ -4094,7 +4097,7 @@ bW
 "}
 (14,1,1) = {"
 sV
-sV
+At
 uP
 ES
 cX
