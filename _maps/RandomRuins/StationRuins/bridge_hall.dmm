@@ -1219,6 +1219,13 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/teleporter)
+"qQ" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/item/radio/intercom/directional/north,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "qU" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -1423,10 +1430,14 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "tc" = (
-/obj/item/radio/intercom/directional/north,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -3681,7 +3692,7 @@ sV
 sV
 sV
 sV
-bC
+tc
 LQ
 MO
 Oc
@@ -3757,7 +3768,7 @@ nu
 sV
 sV
 sV
-tc
+ES
 Qs
 ip
 Oc
@@ -3795,7 +3806,7 @@ nu
 sV
 sV
 sV
-bC
+qQ
 cX
 pi
 yD
