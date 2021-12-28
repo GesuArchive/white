@@ -9,8 +9,10 @@
 
 /datum/action/changeling/headcrab/sting_action(mob/living/user)
 	set waitfor = FALSE
-	if(tgui_alert("Мы уверены, что хотим покончить с собой и создать сосуд?",,list("Да", "Нет")) != "Да")
+	var/confirm = tgui_alert(user, "Точно хотим покончить с собой и стать червем?", "Последний шанс", list("Да", "Нет"))
+	if(confirm != "Да")
 		return
+
 	..()
 	var/datum/mind/M = user.mind
 	var/list/organs = user.getorganszone(BODY_ZONE_HEAD, 1)
