@@ -556,7 +556,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "</td><td><font size=2><i>[G.description]</i></font></td></tr>"
 			else
 				for(var/datum/loadout_category/LC in GLOB.loadout_categories)
-					dat += "<tr class='metaitem buyed'><td><b>[G.sort_category]:</b>"
+					dat += "<tr class='metaitem buyed'><td><b>[LC.category]:</b>"
 					for(var/gear_name in purchased_gear)
 						var/datum/gear/G = GLOB.gear_datums[gear_name]
 						if(!G || LC.category != G.sort_category || G.sort_category == "OOC" || G.sort_category == "Роли")
