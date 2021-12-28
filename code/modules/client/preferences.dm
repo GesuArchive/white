@@ -555,20 +555,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						dat += "<font size=2>Все</font>"
 					dat += "</td><td><font size=2><i>[G.description]</i></font></td></tr>"
 			else
-				dat += "<tr class='metaitem buyed'><td>"
-				var/prev_cat
-				for(var/gear_name in purchased_gear)
-					var/datum/gear/G = GLOB.gear_datums[gear_name]
-					if(!G)
-						continue
-					if(G.sort_category == "OOC" || G.sort_category == "Роли")
-						continue
-					var/ticked = (G.id in equipped_gear)
-					if(prev_cat != G.sort_category)
-						prev_cat = G.sort_category
-						dat += "\n<b>[G.sort_category]:</b>"
-					dat += "<a class='tooltip' style='padding: 10px 2px;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]<span class='tooltiptext'>[G.display_name]</span></a>"
-				dat += "</td></tr>"
+				for(var/datum/loadout_category/LC in GLOB.loadout_categories)
+					dat += "<tr class='metaitem buyed'><td><b>[G.sort_category]:</b>"
+					for(var/gear_name in purchased_gear)
+						var/datum/gear/G = GLOB.gear_datums[gear_name]
+						if(!G || LC.category != G.sort_category || G.sort_category == "OOC" || G.sort_category == "Роли")
+							continue
+						var/ticked = (G.id in equipped_gear)
+						dat += "<a class='tooltip' style='padding: 10px 2px;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]<span class='tooltiptext'>[G.display_name]</span></a>"
+					dat += "</td></tr>"
 			dat += "</table>"
 
 		if (2) // Game Preferences
