@@ -555,8 +555,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						dat += "<font size=2>Все</font>"
 					dat += "</td><td><font size=2><i>[G.description]</i></font></td></tr>"
 			else
-				var/line_num = 0
 				dat += "<tr class='metaitem buyed'><td>"
+				var/prev_cat
 				for(var/gear_name in purchased_gear)
 					var/datum/gear/G = GLOB.gear_datums[gear_name]
 					if(!G)
@@ -564,11 +564,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(G.sort_category == "OOC" || G.sort_category == "Роли")
 						continue
 					var/ticked = (G.id in equipped_gear)
-					if(line_num == 20)
-						dat += "</td></tr><tr class='metaitem buyed'><td>"
-						line_num = 0
+					if(prev_cat != G.sort_category)
+						prev_cat = G.sort_category
+						dat += "\n<b>[G.sort_category]:</b>"
 					dat += "<a class='tooltip' style='padding: 10px 2px;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]<span class='tooltiptext'>[G.display_name]</span></a>"
-					line_num++
 				dat += "</td></tr>"
 			dat += "</table>"
 
