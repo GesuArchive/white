@@ -93,7 +93,7 @@
 	onclose(user, "[name]")
 
 /obj/item/photo/verb/rename()
-	set name = "Переименовать фотографию
+	set name = "Переименовать фотографию"
 	set category = "Объект"
 	set src in usr
 
