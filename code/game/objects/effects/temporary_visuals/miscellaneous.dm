@@ -278,6 +278,7 @@
 	icon = 'icons/mob/mob.dmi'
 	duration = 15
 
+
 /obj/effect/temp_visual/gib_animation/Initialize(mapload, gib_icon)
 	icon_state = gib_icon // Needs to be before ..() so icon is correct
 	. = ..()

@@ -111,7 +111,7 @@
 	if(banana_time && banana_time < world.time)
 		new banana_type(pick(src.loc))
 		banana_time = world.time + rand(30,60)
-	if ((locate(/obj/structure/clownweeds) in src.loc))
+	if ((locate(/obj/structure/fleshbuilding/clownweeds) in src.loc))
 		if(heal_time < world.time)
 			if (src.health < src.maxHealth)
 				adjustHealth(-1)
@@ -156,8 +156,8 @@
 	response_harm_simple = "peel"
 	turns_per_move = 1
 	emote_see = list("хонкает", "вгрызается в банан", "берет банан с головы", "фотосинтезирует")
-	maxHealth = 120
-	health = 120
+	maxHealth = 90
+	health = 90
 	speed = 1
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap, /obj/item/seeds/banana)
 	banana_time = 20
@@ -192,8 +192,8 @@
 	emote_see = list("honks", "sweats", "jiggles", "contemplates its existence")
 	speak_chance = 5
 	ventcrawler = VENTCRAWLER_ALWAYS
-	maxHealth = 150
-	health = 150
+	maxHealth = 90
+	health = 90
 	speed = 2
 	melee_damage_upper = 5
 	attack_verb_continuous = "limply slaps"
@@ -222,8 +222,8 @@
 	response_harm_simple = "try to shut up"
 	emote_see = list("honks", "squeaks")
 	speak_chance = 60
-	maxHealth = 100
-	health = 100
+	maxHealth = 75
+	health = 75
 	pixel_x = -16
 	base_pixel_x = -16
 	speed = 1
@@ -345,8 +345,8 @@
 	speak = list("aaaaaahhhhuuhhhuhhhaaaaa", "AAAaaauuuaaAAAaauuhhh", "huuuuuh... hhhhuuuooooonnnnkk", "HuaUAAAnKKKK")
 	emote_see = list("squirms", "writhes", "pulsates", "froths", "oozes")
 	speak_chance = 10
-	maxHealth = 100
-	health = 100
+	maxHealth = 75
+	health = 75
 	pixel_x = -16
 	base_pixel_x = -16
 	speed = 2
@@ -366,18 +366,17 @@
 	speak = list("hey, buddy", "HONK!!!", "H-h-h-H-HOOOOONK!!!!", "HONKHONKHONK!!!", "HEY, BUCKO, GET BACK HERE!!!", "HOOOOOOOONK!!!")
 	emote_see = list("jiggles", "wobbles")
 	maxHealth = 1800
-	health = 1800
+	health = 1200
 	mob_size = MOB_SIZE_LARGE
 	speed = 5
 	melee_damage_lower = 20
 	melee_damage_upper = 25
 	force_threshold = 10 //lots of fat to cushion blows.
-	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 2, STAMINA = 0, OXY = 0)
+	damage_coeff = list(BRUTE = 1, BURN = 2, TOX = 1, CLONE = 2, STAMINA = 0, OXY = 0)
 	attack_verb_continuous = "slams"
 	attack_verb_simple = "slam"
 	loot = list(/obj/effect/gibspawner/xeno/bodypartless, /obj/effect/gibspawner/generic, /obj/effect/gibspawner/generic/animal, /obj/effect/gibspawner/human/bodypartless)
 	deathsound = 'sound/misc/sadtrombone.ogg'
-	food_type = list(/obj/item/food/cheesiehonkers, /obj/item/food/cornchips)
 	var/obj/effect/proc_holder/spell/aoe_turf/Lighteater/my_regurgitate
 	var/biomass = 70
 	var/datum/action/innate/glutton/plantSkin/plantSkin
@@ -443,7 +442,6 @@
 	environment_smash = ENVIRONMENT_SMASH_NONE
 
 
-// Добавляем абилки матери
 /mob/living/simple_animal/hostile/clown/mutant/glutton/Initialize()
 	. = ..()
 	AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/lighteater)
@@ -486,7 +484,7 @@
 /mob/living/simple_animal/hostile/clown/infestor/proc/eat(atom/movable/A)
 	if(A && A.loc != src)
 		playsound(src, 'sound/effects/splat.ogg', 100, TRUE)
-		new /mob/living/simple_animal/hostile/clown/mutant(A.loc)
+		new /obj/structure/spawner/clown/clowncorpse(get_turf(A.loc))
 		new /obj/effect/particle_effect/foam(get_turf(A.loc))
 		visible_message(span_warning("[capitalize(src.name)] заражает тело [A] хонкочервями!"))
 		qdel(A)
@@ -545,7 +543,7 @@
 		rally_clowns(T)
 
 /mob/living/simple_animal/hostile/clown/mutant/glutton/verb/rally_clowns_power()
-	set category = "Blob"
+	set category = "Clown"
 	set name = "Rally Clowns"
 	set desc = "Rally your clowns to move to a target location."
 	var/turf/T = get_turf(src)
@@ -563,118 +561,6 @@
 				BS.Goto(pick(surrounding_turfs), BS.move_to_delay)
 
 
-// Кожистый пол
-#define NODERANGE 6
-/obj/structure/clownweeds
-	gender = PLURAL
-	name = "кожистый пол"
-	desc = "Толстый слой кожи и мяса, покрывающий пол."
-	anchored = TRUE
-	density = FALSE
-	layer = TURF_LAYER
-	plane = FLOOR_PLANE
-	icon = 'icons/obj/smooth_structures/alien/weeds1.dmi'
-	icon_state = "weeds1-0"
-	base_icon_state = "weeds1"
-	max_integrity = 15
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN, SMOOTH_GROUP_ALIEN_WEEDS)
-	canSmoothWith = list(SMOOTH_GROUP_ALIEN_WEEDS, SMOOTH_GROUP_WALLS)
-	var/last_expand = 0 //last world.time this weed expanded
-	var/growth_cooldown_low = 150
-	var/growth_cooldown_high = 200
-	var/static/list/blacklisted_turfs
-
-/obj/structure/clownweeds/Initialize()
-	pixel_x = -4
-	pixel_y = -4 //so the sprites line up right in the map editor
-
-	. = ..()
-
-	if(!blacklisted_turfs)
-		blacklisted_turfs = typecacheof(list(
-			/turf/open/space,
-			/turf/open/chasm,
-			/turf/open/lava,
-			/turf/open/openspace))
-
-	set_base_icon()
-
-	last_expand = world.time + rand(growth_cooldown_low, growth_cooldown_high)
-
-
-///Randomizes the weeds' starting icon, gets redefined by children for them not to share the behavior.
-/obj/structure/clownweeds/proc/set_base_icon()
-	. = base_icon_state
-	icon = 'icons/obj/smooth_structures/alien/clownweeds1.dmi'
-	base_icon_state = "weeds1"
-	set_smoothed_icon_state(smoothing_junction)
-
-
-/obj/structure/clownweeds/ComponentInitialize()
-	. = ..()
-	AddElement(/datum/element/atmos_sensitive)
-
-/obj/structure/clownweeds/proc/expand()
-	var/turf/U = get_turf(src)
-	if(is_type_in_typecache(U, blacklisted_turfs))
-		qdel(src)
-		return FALSE
-	for(var/turf/T in U.GetAtmosAdjacentTurfs())
-		if(locate(/obj/structure/clownweeds/) in T)
-			continue
-
-		if(is_type_in_typecache(T, blacklisted_turfs))
-			continue
-
-		new /obj/structure/clownweeds/(T)
-		for (var/turf/V in range(1,T))
-			if(istype(V, /turf/closed/wall))
-				V.ChangeTurf(/turf/closed/wall/clown)
-				if(prob(1))
-					new /obj/structure/spawner/clown/clownworm(V)
-
-	return TRUE
-
-/obj/structure/clownweeds/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
-	return exposed_temperature > 300
-
-/obj/structure/clownweeds/atmos_expose(datum/gas_mixture/air, exposed_temperature)
-	take_damage(5, BURN, 0, 0)
-
-//Weed nodes
-/obj/structure/clownweeds/node
-	name = "рассадник кожи"
-	desc = "На этом участке кожи много странных розовых прыщей."
-	icon = 'icons/obj/smooth_structures/alien/clownnode.dmi'
-	icon_state = "weednode-0"
-	base_icon_state = "weednode"
-	var/lon_range = 4
-	var/node_range = NODERANGE
-
-
-/obj/structure/clownweeds/node/Initialize()
-	. = ..()
-	var/obj/structure/clownweeds/W = locate(/obj/structure/clownweeds/) in loc
-	if(W && W != src)
-		qdel(W)
-	START_PROCESSING(SSobj, src)
-
-
-/obj/structure/clownweeds/node/Destroy()
-	STOP_PROCESSING(SSobj, src)
-	return ..()
-
-
-/obj/structure/clownweeds/node/process()
-	for(var/obj/structure/clownweeds/W in range(node_range, src))
-		if(W.last_expand <= world.time)
-			if(W.expand())
-				W.last_expand = world.time + rand(growth_cooldown_low, growth_cooldown_high)
-
-
-/obj/structure/clownweeds/node/set_base_icon()
-	return //No icon randomization at init. The node's icon is already well defined.
 
 // посадка кожи
 /datum/action/innate/glutton/plantSkin
@@ -701,11 +587,11 @@
 	if (glutton.biomass < 25)
 		to_chat(glutton, span_warning("Недостаточно плоти!"))
 		return FALSE
-	if(locate(/obj/structure/clownweeds/node/) in glutton_turf)
+	if(locate(/obj/structure/fleshbuilding/clownweeds/node/) in glutton_turf)
 		to_chat(glutton, span_warning("Здесь уже есть рассадник кожи!"))
 		return FALSE
 	glutton.visible_message(span_alertalien("[glutton] выращивает на полу рассадник кожи!"))
-	new/obj/structure/clownweeds/node/(glutton.loc)
+	new/obj/structure/fleshbuilding/clownweeds/node/(glutton.loc)
 	glutton.biomass = glutton.biomass - 25
 	return TRUE
 
@@ -719,23 +605,13 @@
 	if (glutton.biomass < 25)
 		to_chat(glutton, span_warning("Недостаточно плоти!"))
 		return FALSE
-	if(locate(/obj/structure/clownweeds/node/) in glutton_turf)
+	if(locate(/obj/structure/fleshbuilding/clownweeds/node/) in glutton_turf)
 		to_chat(glutton, span_warning("Здесь уже есть рассадник кожи!"))
 		return FALSE
 	glutton.visible_message(span_alertalien("[glutton] выращивает на полу рассадник кожи!"))
-	new/obj/structure/clownweeds/node/(glutton.loc)
+	new/obj/structure/fleshbuilding/clownweeds/node/(glutton.loc)
 	glutton.biomass = glutton.biomass - 25
 	return TRUE
-
-/turf/closed/wall/clown
-	name = "Кожистая стена"
-	desc = "Эта стена покрыта кожей."
-	icon = 'icons/obj/smooth_structures/alien/clownwall.dmi'
-	icon_state = "resin_wall-0"
-	base_icon_state = "resin_wall"
-	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN, SMOOTH_GROUP_ALIEN_WALLS)
-	canSmoothWith = list(SMOOTH_GROUP_ALIEN_WALLS)
-
 
 
 /mob/living/simple_animal/hostile/clown/Bump(atom/AM)
@@ -760,8 +636,8 @@
 		var/turf/closed/wall/clown/oldturf = get_turf(src)
 		oldturf.add_filter("stasis_status_ripple", 2, list("type" = "ripple", "flags" = WAVE_BOUNDED, "radius" = 0, "size" = 2))
 		var/filter = oldturf.get_filter("stasis_status_ripple")
+		audible_message(span_warning("Кожистая стена начинает чавкать..."))
 		animate(filter, radius = 22, time = 20, size = 0, loop = -1)
-		visible_message(span_warning("Кожистая стена начинает чавкать..."))
 		if(do_after(src, 2 SECONDS, newloc))
 			src.invisibility = 0
 			forceMove(newloc)
@@ -790,7 +666,8 @@
 	name = "Лепка плоти"
 	desc = "Слепить из накопленной плоти органическое здание."
 	var/list/lesserStructures = list(
-		"Преобразователь атмосферы (120)" = /obj/fleshbuilding/clownatmos)
+		"Преобразователь атмосферы (120)" = /obj/structure/fleshbuilding/clownatmos,
+		"Клоунская стена (50)" = /turf/closed/wall/clown)
 
 	icon_icon = 'icons/mob/actions/actions_clown.dmi'
 	button_icon_state = "alien_resin"
@@ -815,13 +692,18 @@
 		return TRUE
 
 /datum/action/innate/glutton/lesser/build/Activate()
+	var/ccost = 0
 	var/mob/living/simple_animal/hostile/clown/fleshclown/glutton = owner
 	var/choice = tgui_input_list(glutton, "Что будем строить.","Лепка плоти", lesserStructures)
 	if(!choice)
 		return FALSE
 	choice =  lesserStructures[choice]
-	var/obj/fleshbuilding/building =  new choice
-	var/ccost = building.cost
+	if (istype(choice, /obj/structure/fleshbuilding/ ))
+		var/obj/structure/fleshbuilding/building =  new choice
+		ccost = building.cost
+	if (istype(choice, /turf/closed/wall/clown/ ))
+		var/turf/closed/wall/clown/building =  new choice
+		ccost = building.cost
 	if(ccost > glutton.biomass)
 		to_chat(glutton, span_notice("Недостаточно плоти."))
 		return FALSE
@@ -836,37 +718,4 @@
 
 
 
-
-/obj/fleshbuilding
-	name = "абстрактная мясная постройка, которая ничего не делает потому что ее не должно существовать"
-	desc = "да."
-	icon_state = "clownbuilder"
-	icon = 'icons/obj/device.dmi'
-	var/cost = 0
-	anchored = 1
-
-/obj/fleshbuilding/clownatmos
-	name = "Дышалка"
-	desc = "Легкие планеты клоунов. Ничего не вдыхают и создают веселящий газ из пустоты."
-	icon_state = "clownatmos"
-	cost = 120
-	icon = 'icons/obj/device.dmi'
-	resistance_flags = ACID_PROOF|FIRE_PROOF
-	var/spawn_temp = T20C
-	var/spawn_id = /datum/gas/nitrous_oxide
-	var/spawn_mol = MOLES_CELLSTANDARD * 0.005
-
-/obj/fleshbuilding/clownatmos/Initialize()
-	. = ..()
-	START_PROCESSING(SSobj, src)
-
-/obj/fleshbuilding/clownatmos/process()
-	var/turf/open/O = get_turf(src)
-	if(!isopenturf(O))
-		return FALSE
-	var/datum/gas_mixture/merger = new
-	merger.set_moles(spawn_id, spawn_mol)
-	merger.set_temperature(spawn_temp)
-	O.assume_air(merger)
-	O.air_update_turf(TRUE, FALSE)
 
