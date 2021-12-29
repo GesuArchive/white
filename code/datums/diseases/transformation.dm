@@ -1,20 +1,20 @@
 /datum/disease/transformation
-	name = "Transformation"
+	name = "Трансформация"
 	max_stages = 5
-	spread_text = "Acute"
+	spread_text = "Проникновение"
 	spread_flags = DISEASE_SPREAD_SPECIAL
-	cure_text = "A coder's love (theoretical)."
-	agent = "Shenanigans"
+	cure_text = "Любовь кодера (возможно)."
+	agent = "Шенаниганы"
 	viable_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/alien, /mob/living/carbon/human/species/monkey)
 	severity = DISEASE_SEVERITY_BIOHAZARD
 	stage_prob = 5
 	visibility_flags = HIDDEN_SCANNER|HIDDEN_PANDEMIC
 	disease_flags = CURABLE
-	var/list/stage1 = list("You feel unremarkable.")
-	var/list/stage2 = list("You feel boring.")
-	var/list/stage3 = list("You feel utterly plain.")
-	var/list/stage4 = list("You feel white bread.")
-	var/list/stage5 = list("Oh the humanity!")
+	var/list/stage1 = list("Чувствую себя непримечательно.")
+	var/list/stage2 = list("Мне хочется что-то делать.")
+	var/list/stage3 = list("Чувствую равнодушие.")
+	var/list/stage4 = list("Чувствую белый хлеб.")
+	var/list/stage5 = list("О, человечество!")
 	var/new_form = /mob/living/carbon/human
 	var/bantype
 	var/transformed_antag_datum //Do we add a specific antag datum once the transformation is complete?
@@ -83,15 +83,15 @@
 /datum/disease/transformation/proc/replace_banned_player(mob/living/new_mob) // This can run well after the mob has been transferred, so need a handle on the new mob to kill it if needed.
 	set waitfor = FALSE
 
-	var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Do you want to play as [affected_mob.real_name]?", bantype, null, 50, affected_mob)
+	var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Хочешь быть [affected_mob.real_name]?", bantype, null, 50, affected_mob)
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
-		to_chat(affected_mob, span_userdanger("Your mob has been taken over by a ghost! Appeal your job ban if you want to avoid this in the future!"))
+		to_chat(affected_mob, span_userdanger("Тело захватил призрак! Подай апелляцию, если хочешь избежать этого в будущем!"))
 		message_admins("[key_name_admin(C)] has taken control of ([key_name_admin(affected_mob)]) to replace a jobbanned player.")
 		affected_mob.ghostize(0)
 		affected_mob.key = C.key
 	else
-		to_chat(new_mob, span_userdanger("Your mob has been claimed by death! Appeal your job ban if you want to avoid this in the future!"))
+		to_chat(new_mob, span_userdanger("Тело захвачено смертью. Подай апелляцию, если хочешь избежать этого в будущем!"))
 		new_mob.death()
 		if (!QDELETED(new_mob))
 			new_mob.ghostize(can_reenter_corpse = FALSE)

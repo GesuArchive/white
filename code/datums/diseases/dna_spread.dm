@@ -1,16 +1,16 @@
 /datum/disease/dnaspread
-	name = "Space Retrovirus"
+	name = "Космический ретровирус"
 	max_stages = 4
-	spread_text = "On contact"
+	spread_text = "При контакте"
 	spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_CONTACT_FLUIDS
-	cure_text = "Mutadone"
+	cure_text = "Мутадон"
 	cures = list(/datum/reagent/medicine/mutadone)
 	disease_flags = CAN_CARRY|CAN_RESIST|CURABLE
-	agent = "S4E1 retrovirus"
+	agent = "S4E1 ретровирус"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	var/datum/dna/original_dna = null
 	var/transformed = 0
-	desc = "This disease transplants the genetic code of the initial vector into new hosts."
+	desc = "Это заболевание пересаживает генетический код исходного вектора новым хозяевам."
 	severity = DISEASE_SEVERITY_MEDIUM
 
 
@@ -55,7 +55,7 @@
 				original_dna = new affected_mob.dna.type
 				affected_mob.dna.copy_dna(original_dna)
 
-				to_chat(affected_mob, span_danger("You don't feel like yourself.."))
+				to_chat(affected_mob, span_danger("Я это не я.."))
 				var/datum/dna/transform_dna = strain_data["dna"]
 
 				transform_dna.transfer_identity(affected_mob, transfer_SE = 1)
@@ -74,5 +74,5 @@
 		affected_mob.updateappearance(mutcolor_update=1)
 		affected_mob.domutcheck()
 
-		to_chat(affected_mob, span_notice("You feel more like yourself."))
+		to_chat(affected_mob, span_notice("Я это я."))
 	return ..()
