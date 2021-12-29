@@ -995,3 +995,8 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 			continue
 		out += prob(replaceprob)? pick(replacementchars) : char
 	return out.Join("")
+
+/proc/add_zero(t, u)
+	while(length(t) < u)
+		t = "0[t]"
+	return t
