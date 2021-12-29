@@ -9,7 +9,6 @@
 /area/template_noop)
 "c" = (
 /obj/structure/window/reinforced/spawner,
-/obj/structure/sink,
 /turf/open/floor/grass,
 /area/template_noop)
 "e" = (
@@ -127,6 +126,9 @@
 /area/template_noop)
 "H" = (
 /obj/structure/flora/grass/jungle/b,
+/obj/structure/sink{
+	pixel_y = 18
+	},
 /turf/open/floor/grass,
 /area/template_noop)
 "I" = (

@@ -16,7 +16,9 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "e" = (
-/obj/structure/chair,
+/obj/structure/chair{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/template_noop)
 "f" = (
@@ -37,11 +39,11 @@ f
 "}
 (2,1,1) = {"
 b
-e
+b
 b
 "}
 (3,1,1) = {"
 c
-b
+e
 h
 "}

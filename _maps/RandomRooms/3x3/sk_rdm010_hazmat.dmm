@@ -25,6 +25,7 @@
 	dir = 4;
 	icon_state = "shower"
 	},
+/obj/effect/decal/cleanable/glitter/white,
 /turf/open/floor/plating,
 /area/template_noop)
 "f" = (

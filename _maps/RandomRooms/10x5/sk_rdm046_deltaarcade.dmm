@@ -16,7 +16,6 @@
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "b" = (
-/obj/machinery/computer/arcade,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -27,10 +26,10 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/effect/spawner/randomarcade,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "c" = (
-/obj/machinery/computer/arcade,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -42,6 +41,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/effect/spawner/randomarcade,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "d" = (
@@ -66,7 +66,7 @@
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "g" = (
-/obj/machinery/computer/arcade,
+/obj/effect/spawner/randomarcade,
 /turf/open/floor/plating,
 /area/template_noop)
 "h" = (
@@ -275,8 +275,10 @@
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "y" = (
-/obj/machinery/computer/arcade,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/randomarcade{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/template_noop)
 "z" = (
@@ -291,7 +293,7 @@
 /area/template_noop)
 "A" = (
 /obj/structure/table/wood,
-/obj/item/gun/ballistic/automatic/toy/pistol/unrestricted,
+/obj/item/gun/ballistic/automatic/pistol/toy,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -301,6 +303,45 @@
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"F" = (
+/obj/effect/spawner/randomarcade{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/template_noop)
+"X" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/spawner/randomarcade{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"Z" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/spawner/randomarcade{
+	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
@@ -317,14 +358,14 @@ b
 l
 e
 u
-c
+X
 "}
 (3,1,1) = {"
 c
 m
 n
 l
-g
+F
 "}
 (4,1,1) = {"
 d
@@ -352,7 +393,7 @@ g
 n
 n
 l
-b
+Z
 "}
 (8,1,1) = {"
 h

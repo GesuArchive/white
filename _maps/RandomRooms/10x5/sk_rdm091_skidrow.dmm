@@ -53,7 +53,9 @@
 /area/template_noop)
 "l" = (
 /obj/effect/decal/cleanable/cobweb,
-/obj/machinery/computer/arcade/amputation,
+/obj/machinery/computer/arcade/amputation{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/template_noop)
 "m" = (

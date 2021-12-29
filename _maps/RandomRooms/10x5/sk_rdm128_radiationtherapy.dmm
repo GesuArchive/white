@@ -265,6 +265,10 @@
 /mob/living/simple_animal/hostile/cat_butcherer,
 /turf/open/floor/plasteel,
 /area/template_noop)
+"V" = (
+/mob/living/simple_animal/pet/cat/space,
+/turf/open/floor/mineral/uranium,
+/area/template_noop)
 
 (1,1,1) = {"
 a
@@ -318,7 +322,7 @@ G
 (8,1,1) = {"
 h
 n
-n
+V
 n
 H
 "}

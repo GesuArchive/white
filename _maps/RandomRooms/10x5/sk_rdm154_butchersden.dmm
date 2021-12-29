@@ -29,6 +29,10 @@
 "o" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/food/meat/slab/human,
+/obj/item/food/meat/slab/human,
+/obj/item/food/meat/slab/human,
+/obj/item/food/meat/slab/human,
 /turf/open/floor/plating,
 /area/template_noop)
 "u" = (
@@ -69,6 +73,9 @@
 "E" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /obj/effect/decal/cleanable/blood/old,
+/obj/item/food/meat/slab/human,
+/obj/item/food/meat/slab/human,
+/obj/item/food/meat/slab/human,
 /turf/open/floor/plating,
 /area/template_noop)
 "F" = (
@@ -104,6 +111,7 @@
 /obj/structure/closet/secure_closet/freezer/meat,
 /obj/effect/decal/cleanable/blood/old,
 /obj/item/kitchen/knife/butcher,
+/obj/item/food/meat/slab/human,
 /turf/open/floor/plating,
 /area/template_noop)
 "O" = (

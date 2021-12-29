@@ -74,7 +74,7 @@
 /area/template_noop)
 "l" = (
 /obj/structure/sink{
-	dir = 4;
+	dir = 8;
 	pixel_x = 11
 	},
 /obj/effect/turf_decal/bot,
@@ -82,7 +82,7 @@
 /area/template_noop)
 "m" = (
 /obj/structure/sink{
-	dir = 8;
+	dir = 4;
 	pixel_x = -12;
 	pixel_y = 2
 	},

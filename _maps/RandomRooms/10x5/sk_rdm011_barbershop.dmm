@@ -50,9 +50,7 @@
 /turf/closed/wall,
 /area/template_noop)
 "k" = (
-/turf/open/floor/carpet{
-	icon_state = "carpetsymbol"
-	},
+/turf/open/floor/carpet,
 /area/template_noop)
 "l" = (
 /obj/item/hemostat,
@@ -111,15 +109,11 @@
 "r" = (
 /obj/structure/window/spawner/west,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/carpet{
-	icon_state = "carpetsymbol"
-	},
+/turf/open/floor/carpet,
 /area/template_noop)
 "s" = (
 /obj/machinery/door/window/westleft,
-/turf/open/floor/carpet{
-	icon_state = "carpetsymbol"
-	},
+/turf/open/floor/carpet,
 /area/template_noop)
 "t" = (
 /turf/open/floor/plasteel,
@@ -133,15 +127,11 @@
 "v" = (
 /obj/structure/window/spawner/west,
 /obj/structure/table/wood,
-/turf/open/floor/carpet{
-	icon_state = "carpetsymbol"
-	},
+/turf/open/floor/carpet,
 /area/template_noop)
 "w" = (
 /obj/structure/chair/sofa/left,
-/turf/open/floor/carpet{
-	icon_state = "carpetsymbol"
-	},
+/turf/open/floor/carpet,
 /area/template_noop)
 "x" = (
 /obj/effect/decal/cleanable/vomit/old,
@@ -173,16 +163,12 @@
 /obj/item/reagent_containers/food/drinks/soda_cans/space_up,
 /obj/item/reagent_containers/food/drinks/soda_cans/starkist,
 /obj/item/storage/pill_bottle/happy,
-/turf/open/floor/carpet{
-	icon_state = "carpetsymbol"
-	},
+/turf/open/floor/carpet,
 /area/template_noop)
 "A" = (
 /obj/structure/chair/sofa/right,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/carpet{
-	icon_state = "carpetsymbol"
-	},
+/turf/open/floor/carpet,
 /area/template_noop)
 "B" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -190,17 +176,13 @@
 /area/template_noop)
 "C" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/carpet{
-	icon_state = "carpetsymbol"
-	},
+/turf/open/floor/carpet,
 /area/template_noop)
 "D" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/open/floor/carpet{
-	icon_state = "carpetsymbol"
-	},
+/turf/open/floor/carpet,
 /area/template_noop)
 "E" = (
 /obj/structure/table/wood,
