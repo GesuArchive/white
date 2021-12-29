@@ -2,7 +2,7 @@
  * Photo
  */
 /obj/item/photo
-	name = "photo"
+	name = "фото"
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "photo"
 	inhand_icon_state = "paper"
@@ -28,7 +28,7 @@
 		if(name_override)
 			name = P.picture_name
 		else
-			name = "photo - [P.picture_name]"
+			name = "фото - [P.picture_name]"
 	if(setdesc && P.picture_desc)
 		desc = P.picture_desc
 
@@ -64,9 +64,9 @@
 		return
 	if(istype(P, /obj/item/pen) || istype(P, /obj/item/toy/crayon))
 		if(!user.is_literate())
-			to_chat(user, span_notice("You scribble illegibly on [src]!"))
+			to_chat(user, span_notice("Царапаю [src]!"))
 			return
-		var/txt = stripped_input(user, "What would you like to write on the back?", "Photo Writing", "", 128)
+		var/txt = stripped_input(user, "Что же мы напишем?", "Фотописательство", "", 128)
 		if(txt && user.canUseTopic(src, BE_CLOSE))
 			scribble = txt
 	else
@@ -78,29 +78,29 @@
 	if(in_range(src, user) || isobserver(user))
 		show(user)
 	else
-		. += span_warning("<hr>You need to get closer to get a good look at this photo!")
+		. += span_warning("<hr>Стоит подойти поближе!")
 
 /obj/item/photo/proc/show(mob/user)
 	if(!istype(picture) || !picture.picture_image)
-		to_chat(user, span_warning("[src] seems to be blank..."))
+		to_chat(user, span_warning("[src] пустая..."))
 		return
 	user << browse_rsc(picture.picture_image, "tmp_photo.png")
 	user << browse("<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>[name]</title></head>" \
 		+ "<body style='overflow:hidden;margin:0;text-align:center'>" \
 		+ "<img src='tmp_photo.png' width='480' style='-ms-interpolation-mode:nearest-neighbor' />" \
-		+ "[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]"\
+		+ "[scribble ? "<br>На обороте написано:<br><i>[scribble]</i>" : ""]"\
 		+ "</body></html>", "window=photo_showing;size=480x608")
 	onclose(user, "[name]")
 
 /obj/item/photo/verb/rename()
-	set name = "Rename photo"
+	set name = "Переименовать фотографию
 	set category = "Объект"
 	set src in usr
 
-	var/n_name = stripped_input(usr, "What would you like to label the photo?", "Photo Labelling", "", MAX_NAME_LEN)
+	var/n_name = stripped_input(usr, "Как мы назовём нашу фотографию?", "Фотографирование", "", MAX_NAME_LEN)
 	//loc.loc check is for making possible renaming photos in clipboards
 	if(n_name && (loc == usr || loc.loc && loc.loc == usr) && usr.stat == CONSCIOUS && !usr.incapacitated())
-		name = "photo[(n_name ? text("- '[n_name]'") : null)]"
+		name = "фото[(n_name ? text("- '[n_name]'") : null)]"
 	add_fingerprint(usr)
 
 /obj/item/photo/old

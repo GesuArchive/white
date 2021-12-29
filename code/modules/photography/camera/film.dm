@@ -4,7 +4,7 @@
 /obj/item/camera_film
 	name = "фотопленка"
 	icon = 'icons/obj/items_and_weapons.dmi'
-	desc = "A camera film cartridge. Insert it into a camera to reload it."
+	desc = "Используется для заправки фотокамер."
 	icon_state = "film"
 	inhand_icon_state = "electropack"
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'

@@ -40,7 +40,7 @@
 	for(var/mob/living/living_content in contents)
 		if(issilicon(living_content) || isbrain(living_content))
 			continue
-		to_chat(actor, span_warning("An organism has been detected inside this object. Aborting."))
+		to_chat(actor, span_warning("Внутри объекта обнаружен организм. Прерывание."))
 		return FALSE
 	return ..()
 
@@ -84,7 +84,7 @@
 	return TRUE
 
 /obj/structure/swarmer_beacon/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("This machine is required for further reproduction of swarmers. Aborting."))
+	to_chat(actor, span_warning("Эта машина нужна для дальнейшего размножения роевиков. Прерывание."))
 	return FALSE
 
 /obj/structure/flora/swarmer_act()
@@ -115,17 +115,17 @@
 		var/area/turf_area = get_area(turf_in_range)
 		//Check for dangerous pressure differences
 		if (turf_in_range.return_turf_delta_p() > DANGEROUS_DELTA_P)
-			to_chat(actor, span_warning("Destroying this object has the potential to cause an explosive pressure release. Aborting."))
+			to_chat(actor, span_warning("Уничтожение этого объекта может вызвать взрывной сброс давления. Прерывание."))
 			actor.target = null
 			return TRUE
 		//Check if breaking this door will expose the station to space/planetary atmos
 		else if(turf_in_range.is_nearby_planetary_atmos() || isspaceturf(turf_in_range) || (!isonshuttle && (istype(turf_area, /area/shuttle) || istype(turf_area, /area/space))) || (isonshuttle && !istype(turf_area, /area/shuttle)))
-			to_chat(actor, span_warning("Destroying this object has the potential to cause a hull breach. Aborting."))
+			to_chat(actor, span_warning("Уничтожение этого объекта может привести к повреждению корпуса. Прерывание."))
 			actor.target = null
 			return FALSE
 		//Check if this door is important in supermatter containment
 		else if(istype(turf_area, /area/engineering/supermatter))
-			to_chat(actor, span_warning("Disrupting the containment of a supermatter crystal would not be to our benefit. Aborting."))
+			to_chat(actor, span_warning("Нарушение условий содержания кристалла суперматериалы не пойдет нам на пользу. Прерывание."))
 			actor.target = null
 			return FALSE
 	actor.dis_integrate(src)
@@ -154,43 +154,43 @@
 	return TRUE
 
 /obj/machinery/chem_dispenser/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("The volatile chemicals in this machine would destroy us. Aborting."))
+	to_chat(actor, span_warning("Летучие химические вещества в этой машине уничтожат нас. Прерывание."))
 	return FALSE
 
 /obj/machinery/nuclearbomb/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("This device's destruction would result in the extermination of everything in the area. Aborting."))
+	to_chat(actor, span_warning("Уничтожение этого устройства приведет к уничтожению всего в этом районе. Прерывание."))
 	return FALSE
 
 /obj/effect/rune/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("Searching... sensor malfunction! Target lost. Aborting."))
+	to_chat(actor, span_warning("Поиск... неисправность датчика! Цель потеряна. Прерывание."))
 	return FALSE
 
 /obj/structure/reagent_dispensers/fueltank/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("Destroying this object could cause a chain reaction. Aborting."))
+	to_chat(actor, span_warning("Уничтожение этого объекта могло вызвать цепную реакцию. Прерывание."))
 	return FALSE
 
 /obj/structure/cable/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("Disrupting the power grid would bring no benefit to us. Aborting."))
+	to_chat(actor, span_warning("Нарушение энергосистемы не принесет нам пользы. Прерывание."))
 	return FALSE
 
 /obj/machinery/portable_atmospherics/canister/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("An inhospitable area may be created as a result of destroying this object. Aborting."))
+	to_chat(actor, span_warning("В результате разрушения этого объекта может образоваться негостеприимный район. Прерывание."))
 	return FALSE
 
 /obj/machinery/telecomms/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("This communications relay should be preserved, it will be a useful resource to our masters in the future. Aborting."))
+	to_chat(actor, span_warning("Этот коммуникационный ретранслятор следует сохранить, он будет полезным ресурсом для наших мастеров в будущем. Прерывание."))
 	return FALSE
 
 /obj/machinery/deepfryer/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("This kitchen appliance should be preserved, it will make delicious unhealthy snacks for our masters in the future. Aborting."))
+	to_chat(actor, span_warning("Этот кухонный прибор стоит консервировать, он в будущем станет для наших мастеров вкусными нездоровыми закусками. Прерывание."))
 	return FALSE
 
 /obj/machinery/power/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("Disrupting the power grid would bring no benefit to us. Aborting."))
+	to_chat(actor, span_warning("Нарушение энергосистемы не принесет нам пользы. Прерывание."))
 	return FALSE
 
 /obj/machinery/gateway/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("This bluespace source will be important to us later. Aborting."))
+	to_chat(actor, span_warning("Этот источник bluespace будет важен для нас позже. Прерывание."))
 	return FALSE
 
 /turf/closed/wall/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
@@ -198,15 +198,15 @@
 	for(var/turf/turf_in_range in range(1, src))
 		var/area/turf_area = get_area(turf_in_range)
 		if (turf_in_range.return_turf_delta_p() > DANGEROUS_DELTA_P)
-			to_chat(actor, span_warning("Destroying this object has the potential to cause an explosive pressure release. Aborting."))
+			to_chat(actor, span_warning("Уничтожение этого объекта может вызвать взрывной сброс давления. Прерывание."))
 			actor.target = null
 			return TRUE
 		else if(turf_in_range.is_nearby_planetary_atmos() || isspaceturf(turf_area) || (!isonshuttle && (istype(turf_area, /area/shuttle) || istype(turf_area, /area/space))) || (isonshuttle && !istype(turf_area, /area/shuttle) ))
-			to_chat(actor, span_warning("Destroying this object has the potential to cause a hull breach. Aborting."))
+			to_chat(actor, span_warning("Уничтожение этого объекта может привести к повреждению корпуса. Прерывание."))
 			actor.target = null
 			return TRUE
 		else if(istype(turf_area, /area/engineering/supermatter))
-			to_chat(actor, span_warning("Disrupting the containment of a supermatter crystal would not be to our benefit. Aborting."))
+			to_chat(actor, span_warning("Нарушение условий содержания кристалла суперматериалы не пойдет нам на пользу. Прерывание."))
 			actor.target = null
 			return TRUE
 	return ..()
@@ -217,57 +217,57 @@
 		var/turf/turf_in_range = t
 		var/area/turf_area = get_area(turf_in_range)
 		if (turf_in_range.return_turf_delta_p() > DANGEROUS_DELTA_P)
-			to_chat(actor, span_warning("Destroying this object has the potential to cause an explosive pressure release. Aborting."))
+			to_chat(actor, span_warning("Уничтожение этого объекта может вызвать взрывной сброс давления. Прерывание."))
 			actor.target = null
 			return TRUE
 		else if(turf_in_range.is_nearby_planetary_atmos() || isspaceturf(turf_in_range) || (!is_on_shuttle && (istype(turf_area, /area/shuttle) || istype(turf_area, /area/space))) || (is_on_shuttle && !istype(turf_area, /area/shuttle)))
-			to_chat(actor, span_warning("Destroying this object has the potential to cause a hull breach. Aborting."))
+			to_chat(actor, span_warning("Уничтожение этого объекта может привести к повреждению корпуса. Прерывание."))
 			actor.target = null
 			return TRUE
 		else if(istype(turf_area, /area/engineering/supermatter))
-			to_chat(actor, span_warning("Disrupting the containment of a supermatter crystal would not be to our benefit. Aborting."))
+			to_chat(actor, span_warning("Нарушение условий содержания кристалла суперматериалы не пойдет нам на пользу. Прерывание."))
 			actor.target = null
 			return TRUE
 	return ..()
 
 /obj/item/stack/cable_coil/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)//Wiring would be too effective as a resource
-	to_chat(actor, span_warning("This object does not contain enough materials to work with."))
+	to_chat(actor, span_warning("Этот объект не содержит достаточно материалов для работы."))
 	return FALSE
 
 /obj/machinery/porta_turret/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("Attempting to dismantle this machine would result in an immediate counterattack. Aborting."))
+	to_chat(actor, span_warning("Попытка демонтировать эту машину приведет к немедленной контратаке. Прерывание."))
 	return FALSE
 
 /obj/machinery/porta_turret_cover/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("Attempting to dismantle this machine would result in an immediate counterattack. Aborting."))
+	to_chat(actor, span_warning("Попытка демонтировать эту машину приведет к немедленной контратаке. Прерывание."))
 	return FALSE
 
 /obj/structure/lattice/catwalk/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
 	var/turf/here = get_turf(src)
 	for(var/a in here.contents)
 		if(istype(a, /obj/structure/cable))
-			to_chat(actor, span_warning("Disrupting the power grid would bring no benefit to us. Aborting."))
+			to_chat(actor, span_warning("Нарушение энергосистемы не принесет нам пользы. Прерывание."))
 			return FALSE
 	return ..()
 
 /obj/machinery/hydroponics/soil/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("This object does not contain enough materials to work with."))
+	to_chat(actor, span_warning("Этот объект не содержит достаточно материалов для работы."))
 	return FALSE
 
 /obj/machinery/field/generator/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("Destroying this object would cause a catastrophic chain reaction. Aborting."))
+	to_chat(actor, span_warning("Уничтожение этого объекта вызовет катастрофическую цепную реакцию. Прерывание."))
 	return FALSE
 
 /obj/machinery/field/containment/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("This object does not contain solid matter. Aborting."))
+	to_chat(actor, span_warning("Этот объект не содержит твердого вещества. Прерывание."))
 	return FALSE
 
 /obj/machinery/power/shieldwallgen/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("Destroying this object would have an unpredictable effect on structure integrity. Aborting."))
+	to_chat(actor, span_warning("Уничтожение этого объекта может непредсказуемо повлиять на целостность конструкции. Прерывание."))
 	return FALSE
 
 /obj/machinery/shieldwall/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("This object does not contain solid matter. Aborting."))
+	to_chat(actor, span_warning("Этот объект не содержит твердого вещества. Прерывание."))
 	return FALSE
 
 #undef DANGEROUS_DELTA_P

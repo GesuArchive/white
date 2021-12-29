@@ -1,6 +1,6 @@
 /obj/item/camera/spooky
-	name = "camera obscura"
-	desc = "A polaroid camera, some say it can see ghosts!"
+	name = "камера обскура"
+	desc = "Полароид с функцией захвата призраков в объектив!"
 	see_ghosts = CAMERA_SEE_GHOSTS_BASIC
 
 /obj/item/camera/spooky/badmin
@@ -8,7 +8,7 @@
 	see_ghosts = CAMERA_SEE_GHOSTS_ORBIT
 
 /obj/item/camera/detective
-	name = "Detective's camera"
-	desc = "A polaroid camera with extra capacity for crime investigations."
+	name = "камера детектива"
+	desc = "Полароид с большим запасом фотографий."
 	pictures_max = 30
 	pictures_left = 30

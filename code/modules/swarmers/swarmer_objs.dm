@@ -40,8 +40,8 @@
  */
 
 /obj/structure/swarmer_beacon
-	name = "swarmer beacon"
-	desc = "A machine that prints swarmers."
+	name = "маяк роя"
+	desc = "Машина, печатающая роевиков."
 	icon = 'icons/mob/swarmer.dmi'
 	icon_state = "swarmer_console"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 100, BOMB = 50, BIO = 100, RAD = 100, FIRE = 100, ACID = 100)
@@ -63,7 +63,7 @@
 /obj/structure/swarmer_beacon/attack_ghost(mob/user)
 	. = ..()
 	if(processing_swarmer)
-		to_chat(user, "<b>A swarmer is currently being created. Try again soon.</b>")
+		to_chat(user, "<b>В настоящее время создается роевик. Повторите попытку в ближайшее время.</b>")
 		return
 	que_swarmer(user)
 
@@ -75,13 +75,13 @@
  * * user - A reference to the ghost interacting with the beacon
  */
 /obj/structure/swarmer_beacon/proc/que_swarmer(mob/user)
-	var/swarm_ask = tgui_alert(usr, "Become a swarmer?", "Do you wish to consume the station?", list("Yes", "No"))
-	if(swarm_ask == "No" || QDELETED(src) || QDELETED(user) || processing_swarmer)
+	var/swarm_ask = tgui_alert(usr, "Стать роевиком?", "Хочешь пожрать станцию?", list("Да", "Нет"))
+	if(swarm_ask == "Нет" || QDELETED(src) || QDELETED(user) || processing_swarmer)
 		return FALSE
 	var/mob/living/simple_animal/hostile/swarmer/newswarmer = new /mob/living/simple_animal/hostile/swarmer(src)
 	newswarmer.key = user.key
 	addtimer(CALLBACK(src, .proc/release_swarmer, newswarmer), (LAZYLEN(swarmerlist) * 2 SECONDS) + 5 SECONDS)
-	to_chat(newswarmer, span_boldannounce("SWARMER CONSTRUCTION INITIALIZED."))
+	to_chat(newswarmer, span_boldannounce("ИНИЦИАЛИЗАЦИЯ КОНСТРУКЦИИ РОЕВИКА."))
 	processing_swarmer = TRUE
 	return TRUE
 
@@ -93,16 +93,16 @@
  * * swarmer - The swarmer being released and told what to do
  */
 /obj/structure/swarmer_beacon/proc/release_swarmer(mob/swarmer)
-	to_chat(swarmer, "<span class='bold'>SWARMER CONSTRUCTION COMPLETED. OBJECTIVES:\n\
-		1. CONSUME RESOURCES AND REPLICATE UNTIL THERE ARE NO MORE RESOURCES LEFT\n\
-		2. ENSURE PROTECTION OF THE BEACON SO THIS LOCATION CAN BE INVADED AT A LATER DATE; DO NOT PERFORM ACTIONS THAT WOULD RENDER THIS LOCATION DANGEROUS OR INHOSPITABLE\n\
-		3. BIOLOGICAL RESOURCES WILL BE HARVESTED AT A LATER DATE: DO NOT HARM THEM\n\
-		OPERATOR NOTES:\n\
-		- CONSUME RESOURCES TO CONSTRUCT TRAPS, BARRIERS, AND FOLLOWER DRONES\n\
-		- FOLLOWER DRONES WILL FOLLOW YOU AUTOMATCIALLY UNLESS THEY POSSESS A TARGET. WHILE DRONES CANNOT ASSIST IN RESOURCE HARVESTING, THEY CAN PROTECT YOU FROM THREATS\n\
-		- LCTRL + ATTACKING AN ORGANIC WILL ALOW YOU TO REMOVE SAID ORGANIC FROM THE AREA\n\
-		- YOU AND YOUR DRONES HAVE A STUN EFFECT ON MELEE. YOU ARE ALSO ARMED WITH A DISABLER PROJECTILE, USE THESE TO PREVENT ORGANICS FROM HALTING YOUR PROGRESS\n\
-		GLORY TO !*# $*#^</span>")
+	to_chat(swarmer, "<span class='bold'>СОЗДАНИЕ РОЕВИКА ЗАВЕРШЕНО. ЗАДАЧИ:\n\
+		1. ПОТРЕБЛЯТЬ РЕСУРСЫ И ПОВТОРЯТЬ, ПОКА НЕ ОСТАНЕТСЯ БОЛЬШЕ РЕСУРСОВ.\n\
+		2. ОБЕСПЕЧИВАТЬ ЗАЩИТУ МАЯКА, ЧТОБЫ ЭТО МЕСТО МОГЛО БЫТЬ ВЗЛОМАНО ПОЗЖЕ; НЕ ВЫПОЛНЯТЬ ДЕЙСТВИЯ, КОТОРЫЕ МОГУТЬ БЫТЬ ОПАСНЫМИ ИЛИ ДЕСТРУКТИВНЫМИ ДЛЯ ДАННОГО МЕСТОПОЛОЖЕНИЯ.\n\
+		3. БИОЛОГИЧЕСКИЕ РЕСУРСЫ БУДУТ СОБИРАТЬСЯ ПОЗЖЕ: НЕ ВРЕДИТЬ ИМ.\n\
+		ЗАМЕТКИ ДЛЯ ОПЕРАТОРА:\n\
+		- ПОТРАТЬТЕ РЕСУРСЫ ДЛЯ СТРОИТЕЛЬСТВА ЛОВУШЕК, БАРЬЕРОВ И ДРОНОВ.\n\
+		- ДРОНЫ СЛЕДУЮТ ЗА ВАМИ АВТОМАТИЧЕСКИ, ЕСЛИ ОНИ НЕ ИМЕЮТ ЦЕЛИ. В ТО ВРЕМЯ КАК ДРОНЫ НЕ МОГУТ ПОМОЧЬ В СБОРЕ РЕСУРСОВ, ОНИ МОГУТ ЗАЩИТИТЬ ВАС ОТ УГРОЗ.\n\
+		- ЛЕВЫЙ-CTRL+КЛИК ПОЗВОЛЯЕТ ВАМ УДАЛИТЬ УКАЗАННЫЙ ОРГАНИЧЕСКИЙ КОМПОНЕНТ ИЗ ЗОНЫ.\n\
+		- У ВАС И У ВАШИХ ДРОНОВ ОГЛУШАЮЩИЙ ЭФФЕКТ В БЛИЖНЕМ БОЮ. ВЫ ТАКЖЕ ВООРУЖЕННЫ УСМИРИТЕЛЕМ, ИСПОЛЬЗУЙТЕ ЕГО, ЧТОБЫ УСТРАНИТЬ ОРГАНИЧЕСКИЕ ПРЕПЯТСТВИЯ, МЕШАЮЩИЕ ВАШЕМУ ПРОГРЕССУ.\n\
+		СЛАВА !*# $*#^</span>")
 	swarmer.forceMove(get_turf(src))
 	LAZYADD(swarmerlist, swarmer)
 	RegisterSignal(swarmer, COMSIG_PARENT_QDELETING, .proc/remove_swarmer, swarmer)
@@ -124,8 +124,8 @@
 	swarmerlist -= swarmer
 
 /obj/structure/swarmer/trap
-	name = "swarmer trap"
-	desc = "A quickly assembled trap that electrifies living beings and overwhelms machine sensors. Will not retain its form if damaged enough."
+	name = "ловушка роя"
+	desc = "Быстро собранная ловушка, которая электризует живые существа и разрушает сенсоры машин. При достаточном повреждении разрушится."
 	icon_state = "trap"
 	max_integrity = 10
 	density = FALSE
@@ -142,8 +142,8 @@
 			qdel(src)
 
 /obj/structure/swarmer/blockade
-	name = "swarmer blockade"
-	desc = "A quickly assembled energy blockade. Will not retain its form if damaged enough, but disabler beams and swarmers pass right through."
+	name = "баррикада роевиков"
+	desc = "Быстро налаженная энергетическая баррикада. Разрушится, если будет достаточно повреждена, но лучи обезвреживания и роевики проходят сквозь него."
 	icon_state = "barricade"
 	light_range = MINIMUM_USEFUL_LIGHT_RANGE
 	max_integrity = 50

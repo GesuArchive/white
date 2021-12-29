@@ -2,8 +2,8 @@
  * Photo album
  */
 /obj/item/storage/photo_album
-	name = "photo album"
-	desc = "A big book used to store photos and mementos."
+	name = "фотоальбом"
+	desc = "Большая книга для хранения ваших воспоминаний."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "album"
 	inhand_icon_state = "album"
@@ -57,62 +57,62 @@
 				qdel(P)
 
 /obj/item/storage/photo_album/hos
-	name = "photo album (Head of Security)"
+	name = "фотоальбом начальника охраны"
 	icon_state = "album_blue"
 	persistence_id = "HoS"
 
 /obj/item/storage/photo_album/rd
-	name = "photo album (Research Director)"
+	name = "фотоальбом научного руководителя"
 	icon_state = "album_blue"
 	persistence_id = "RD"
 
 /obj/item/storage/photo_album/hop
-	name = "photo album (Head of Personnel)"
+	name = "фотоальбом главы персонала"
 	icon_state = "album_blue"
 	persistence_id = "HoP"
 
 /obj/item/storage/photo_album/captain
-	name = "photo album (Captain)"
+	name = "фотоальбом капитана"
 	icon_state = "album_blue"
 	persistence_id = "Captain"
 
 /obj/item/storage/photo_album/cmo
-	name = "photo album (Chief Medical Officer)"
+	name = "фотоальбом главного врача"
 	icon_state = "album_blue"
 	persistence_id = "CMO"
 
 /obj/item/storage/photo_album/qm
-	name = "photo album (Quartermaster)"
+	name = "фотоальбом завхоза"
 	icon_state = "album_blue"
 	persistence_id = "QM"
 
 /obj/item/storage/photo_album/ce
-	name = "photo album (Chief Engineer)"
+	name = "фотоальбом старшего инженера"
 	icon_state = "album_blue"
 	persistence_id = "CE"
 
 /obj/item/storage/photo_album/bar
-	name = "photo album (Bar)"
+	name = "фотоальбом бара"
 	icon_state = "album_blue"
 	persistence_id = "bar"
 
 /obj/item/storage/photo_album/syndicate
-	name = "photo album (Syndicate)"
+	name = "фотоальбом синдиката"
 	icon_state = "album_red"
 	persistence_id = "syndicate"
 
 /obj/item/storage/photo_album/library
-	name = "photo album (Library)"
+	name = "фотоальбом библиотеки"
 	icon_state = "album_blue"
 	persistence_id = "library"
 
 /obj/item/storage/photo_album/chapel
-	name = "photo album (Chapel)"
+	name = "фотоальбом церкви"
 	icon_state = "album_blue"
 	persistence_id = "chapel"
 
 /obj/item/storage/photo_album/prison
-	name = "photo album (Prison)"
+	name = "фотоальбом тюрьмы"
 	icon_state = "album_blue"
 	persistence_id = "prison"
 
