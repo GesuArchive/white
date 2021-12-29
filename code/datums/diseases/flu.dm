@@ -1,14 +1,14 @@
 /datum/disease/flu
-	name = "The Flu"
+	name = "Грипп"
 	max_stages = 3
-	spread_text = "Airborne"
-	cure_text = "Spaceacillin"
+	spread_text = "Воздушное"
+	cure_text = "Космоцилин"
 	cures = list(/datum/reagent/medicine/spaceacillin)
 	cure_chance = 5
-	agent = "H13N1 flu virion"
+	agent = "H13N1 вирион гриппа"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	permeability_mod = 0.75
-	desc = "If left untreated the subject will feel quite unwell."
+	desc = "Если не лечить, субъект будет плохо себя чувствовать."
 	severity = DISEASE_SEVERITY_MINOR
 
 

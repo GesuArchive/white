@@ -2996,22 +2996,24 @@
 /turf/open/floor/plating,
 /area/security/brig)
 "iN" = (
-/obj/item/radio/intercom{
-	desc = "Talk through this. It looks like it has been modified to not broadcast.";
-	name = "Prison Intercom (General)";
-	pixel_x = -25;
-	pixel_y = -2;
-	prison_radio = 1
-	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 4
+/obj/structure/cable,
+/obj/machinery/power/treadmill{
+	dir = 8;
+	id = "Cell 1"
+	},
+/obj/machinery/treadmill_monitor{
+	id = "Cell 1";
+	pixel_x = -32
 	},
 /turf/open/floor/plasteel,
 /area/security/brig)
 "iO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/security/brig)
 "iP" = (
@@ -3021,6 +3023,13 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
+	},
+/obj/item/radio/intercom{
+	desc = "Talk through this. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_x = 25;
+	pixel_y = -2;
+	prison_radio = 1
 	},
 /turf/open/floor/plasteel,
 /area/security/brig)
@@ -3243,6 +3252,19 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /turf/open/floor/plating,
+/area/security/brig)
+"la" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/power/treadmill{
+	dir = 8;
+	id = "Cell 3"
+	},
+/obj/machinery/treadmill_monitor{
+	id = "Cell 3";
+	pixel_x = -32
+	},
+/turf/open/floor/plasteel,
 /area/security/brig)
 "mK" = (
 /obj/machinery/door/airlock/security{
@@ -4688,7 +4710,7 @@ aY
 bF
 bX
 iH
-iN
+la
 jh
 js
 ab

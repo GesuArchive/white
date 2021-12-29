@@ -18,7 +18,7 @@ Bonus
 /datum/symptom/deafness
 
 	name = "Глухота"
-	desc = "The virus causes inflammation of the eardrums, causing intermittent deafness."
+	desc = "Вирус вызывает воспаление барабанных перепонок, вызывая периодическую глухоту."
 	stealth = -1
 	resistance = -2
 	stage_speed = -1
@@ -29,8 +29,8 @@ Bonus
 	symptom_delay_min = 25
 	symptom_delay_max = 80
 	threshold_descs = list(
-		"Resistance 9" = "Causes permanent deafness, instead of intermittent.",
-		"Stealth 4" = "The symptom remains hidden until active.",
+		"Сопротивление 9" = "Вызывает постоянную глухоту, а не периодическую.",
+		"Скрытность 4" = "Симптом остается скрытым до тех пор, пока не станет активным.",
 	)
 
 /datum/symptom/deafness/Start(datum/disease/advance/A)
@@ -55,9 +55,9 @@ Bonus
 		if(5)
 			if(power >= 2)
 				if(ears.damage < ears.maxHealth)
-					to_chat(M, span_userdanger("Your ears pop painfully and start bleeding!"))
+					to_chat(M, span_userdanger("Уши болезненно стреляют и начинают кровоточить!"))
 					ears.damage = max(ears.damage, ears.maxHealth)
 					M.emote("agony")
 			else
-				to_chat(M, span_userdanger("Your ears pop and begin ringing loudly!"))
+				to_chat(M, span_userdanger("В УШАХ ЗВЕНИТ!"))
 				ears.deaf = min(20, ears.deaf + 15)

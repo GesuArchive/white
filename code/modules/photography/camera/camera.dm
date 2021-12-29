@@ -4,7 +4,7 @@
 /obj/item/camera
 	name = "фотокамера"
 	icon = 'icons/obj/items_and_weapons.dmi'
-	desc = "A polaroid camera."
+	desc = "Полароид."
 	icon_state = "camera"
 	inhand_icon_state = "camera"
 	worn_icon_state = "camera"
@@ -48,21 +48,21 @@
 /obj/item/camera/attack_self(mob/user)
 	if(!disk)
 		return
-	to_chat(user, span_notice("You eject [disk] out the back of [src]."))
+	to_chat(user, span_notice("Достаю [disk] из [src]."))
 	user.put_in_hands(disk)
 	disk = null
 
 /obj/item/camera/examine(mob/user)
 	. = ..()
-	. += span_notice("Alt-click to change its focusing, allowing you to set how big of an area it will capture.")
+	. += span_notice("<hr>ALT-Клик для настройки фокуса, позволит выбрать насколько большую фотографию мы собираемся сделать.")
 
 /obj/item/camera/proc/adjust_zoom(mob/user)
-	var/desired_x = input(user, "How wide do you want the camera to shoot, between [picture_size_x_min] and [picture_size_x_max]?", "Zoom", picture_size_x) as num|null
+	var/desired_x = input(user, "Насколько широко будем делать нашу фотографию, [picture_size_x_min] и [picture_size_x_max]?", "Зум", picture_size_x) as num|null
 
 	if (isnull(desired_x))
 		return
 
-	var/desired_y = input(user, "How high do you want the camera to shoot, between [picture_size_y_min] and [picture_size_y_max]?", "Zoom", picture_size_y) as num|null
+	var/desired_y = input(user, "Насколько высоко будем делать нашу фотографию, [picture_size_y_min] и [picture_size_y_max]?", "Зум", picture_size_y) as num|null
 
 	if (isnull(desired_y))
 		return
@@ -81,29 +81,29 @@
 /obj/item/camera/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/camera_film))
 		if(pictures_left)
-			to_chat(user, span_notice("[src] still has some film in it!"))
+			to_chat(user, span_notice("[src] уже имеет плёнку!"))
 			return
 		if(!user.temporarilyRemoveItemFromInventory(I))
 			return
-		to_chat(user, span_notice("You insert [I] into [src]."))
+		to_chat(user, span_notice("Вставляю [I] в [src]."))
 		qdel(I)
 		pictures_left = pictures_max
 		return
 	if(istype(I, /obj/item/disk/holodisk))
 		if (!disk)
 			if(!user.transferItemToLoc(I, src))
-				to_chat(user, span_warning("[I] is stuck to your hand!"))
+				to_chat(user, span_warning("[I] застряла в моей руке!"))
 				return TRUE
-			to_chat(user, span_notice("You slide [I] into the back of [src]."))
+			to_chat(user, span_notice("Вставляю [I] в [src]."))
 			disk = I
 		else
-			to_chat(user, span_warning("There's already a disk inside [src]."))
+			to_chat(user, span_warning("Здесь есть диск внутри [src]."))
 		return TRUE //no afterattack
 	..()
 
 /obj/item/camera/examine(mob/user)
 	. = ..()
-	. += "It has [pictures_left] photos left."
+	. += "<hr>В наличии [pictures_left] фотографий."
 
 //user can be atom or mob
 /obj/item/camera/proc/can_target(atom/target, mob/user, prox_flag)
@@ -135,7 +135,7 @@
 			disk.record.caller_name = M.name
 			disk.record.set_caller_image(M)
 		else
-			to_chat(user, span_warning("Invalid holodisk target."))
+			to_chat(user, span_warning("Неправильная цель для голодиска."))
 			return
 
 	if(!can_target(target, user, flag))
@@ -171,7 +171,7 @@
 		return FALSE
 	size_x = clamp(size_x, 0, CAMERA_PICTURE_SIZE_HARD_LIMIT)
 	size_y = clamp(size_y, 0, CAMERA_PICTURE_SIZE_HARD_LIMIT)
-	var/list/desc = list("This is a photo of an area of [size_x+1] meters by [size_y+1] meters.")
+	var/list/desc = list("Это фото [size_x+1]х[size_y+1] метров.")
 	var/list/mobs_spotted = list()
 	var/list/dead_spotted = list()
 	var/ai_user = isAI(user)
@@ -229,14 +229,14 @@
 		if(!ispAI(user))
 			user.put_in_hands(p)
 			pictures_left--
-			to_chat(user, span_notice("[pictures_left] photos left."))
-		var/customise = "No"
+			to_chat(user, span_notice("[pictures_left] фотографий осталось."))
+		var/customise = "Нет"
 		if(can_customise)
-			customise = tgui_alert(user, "Do you want to customize the photo?", "Customization", list("Yes", "No"))
-		if(customise == "Yes")
-			var/name1 = stripped_input(user, "Set a name for this photo, or leave blank. 32 characters max.", "Name", max_length = 32)
-			var/desc1 = stripped_input(user, "Set a description to add to photo, or leave blank. 128 characters max.", "Caption", max_length = 128)
-			var/caption = stripped_input(user, "Set a caption for this photo, or leave blank. 256 characters max.", "Caption", max_length = 256)
+			customise = tgui_alert(user, "Настроим нашу фотографию?", "Кастомизация", list("Да", "Нет"))
+		if(customise == "Да")
+			var/name1 = stripped_input(user, "Нужно выбрать имя фотографии, либо оставить его пустым. 32 символа максимум.", "Имя", max_length = 32)
+			var/desc1 = stripped_input(user, "Дадим описание фотографии, либо оставим его пустым. 128 символа максимум.", "Описание", max_length = 128)
+			var/caption = stripped_input(user, "Напишем что-то на обороте, либо оставим его пустым. 256 символа максимум.", "Оборот", max_length = 256)
 			if(name1)
 				picture.picture_name = name1
 			if(desc1)

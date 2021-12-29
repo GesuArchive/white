@@ -17,8 +17,8 @@ Bonus
 
 /datum/symptom/fire
 
-	name = "Spontaneous Combustion"
-	desc = "The virus turns fat into an extremely flammable compound, and raises the body's temperature, making the host burst into flames spontaneously."
+	name = "Случайное возгорание"
+	desc = "Вирус превращает жир в чрезвычайно легковоспламеняющееся соединение и повышает температуру тела, в результате чего хозяин самопроизвольно загорается."
 	stealth = -1
 	resistance = -4
 	stage_speed = -3
@@ -30,10 +30,10 @@ Bonus
 	symptom_delay_max = 75
 	var/infective = FALSE
 	threshold_descs = list(
-		"Stage Speed 4" = "Increases the intensity of the flames.",
-		"Stage Speed 8" = "Further increases flame intensity.",
-		"Transmission 8" = "Host will spread the virus through skin flakes when bursting into flame.",
-		"Stealth 4" = "The symptom remains hidden until active.",
+		"Скорость 4" = "Увеличивает интенсивность пламени.",
+		"Скорость 8" = "Еще больше увеличивает интенсивность пламени.",
+		"Передача 8" = "Хозяин будет распространять вирус через чешуйки кожи, когда вспыхивает.",
+		"Скрытность 4" = "Симптом остается скрытым до тех пор, пока не станет активным..",
 	)
 
 /datum/symptom/fire/Start(datum/disease/advance/A)
@@ -55,11 +55,11 @@ Bonus
 	switch(A.stage)
 		if(3)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, span_warning("[pick("You feel hot.", "You hear a crackling noise.", "You smell smoke.")]"))
+				to_chat(M, span_warning("[pick("Жарко.", "Что-то щёлкает.", "Пахнет дымом.")]"))
 		if(4)
 			Firestacks_stage_4(M, A)
 			M.IgniteMob()
-			to_chat(M, span_userdanger("Your skin bursts into flames!"))
+			to_chat(M, span_userdanger("КОЖА ГОРИТ!"))
 			M.emote("agony")
 		if(5)
 			Firestacks_stage_5(M, A)
@@ -101,8 +101,8 @@ Bonus
 
 /datum/symptom/alkali
 
-	name = "Alkali perspiration"
-	desc = "The virus attaches to sudoriparous glands, synthesizing a chemical that bursts into flames when reacting with water, leading to self-immolation."
+	name = "Щелочной пот"
+	desc = "Вирус прикрепляется к потовым железам, синтезируя химическое вещество, которое загорается при реакции с водой, что приводит к самосожжению."
 	stealth = 2
 	resistance = -2
 	stage_speed = -2
@@ -115,9 +115,9 @@ Bonus
 	var/chems = FALSE
 	var/explosion_power = 1
 	threshold_descs = list(
-		"Resistance 9" = "Doubles the intensity of the immolation effect, but reduces the frequency of all of this symptom's effects.",
-		"Stage Speed 8" = "Increases explosion radius and explosion damage to the host when the host is wet.",
-		"Transmission 8" = "Additionally synthesizes chlorine trifluoride and napalm inside the host. More chemicals are synthesized if the resistance 9 threshold has been met."
+		"Сопротивление 9" = "Удваивает интенсивность эффекта жертвоприношения, но снижает частоту всех эффектов этого симптома.",
+		"Скорость 8" = "Увеличивает радиус взрыва и урон от взрыва хозяину, когда он мокрый.",
+		"Передача 8" = "Дополнительно внутри хозяина синтезирует трифторид хлора и напалм. Если достигнут порог устойчивости 9, синтезируется больше химикатов."
 	)
 
 /datum/symptom/alkali/Start(datum/disease/advance/A)
@@ -139,18 +139,18 @@ Bonus
 	switch(A.stage)
 		if(3)
 			if(prob(base_message_chance))
-				to_chat(M, span_warning("[pick("Your veins boil.", "You feel hot.", "You smell meat cooking.")]"))
+				to_chat(M, span_warning("[pick("Вены кипят.", "Жарко.", "Кто-то готовит мясо.")]"))
 		if(4)
 			if(M.fire_stacks < 0)
-				M.visible_message(span_warning("[M] sweat sizzles and pops on contact with water!"))
+				M.visible_message(span_warning("Потная кожа [M] шипит и трескается при контакте с водой!"))
 				explosion(get_turf(M),-1,(-1 + explosion_power),(2 * explosion_power))
 			Alkali_fire_stage_4(M, A)
 			M.IgniteMob()
-			to_chat(M, span_userdanger("Your sweat bursts into flames!"))
+			to_chat(M, span_userdanger("Ваш пот загорается!"))
 			M.emote("agony")
 		if(5)
 			if(M.fire_stacks < 0)
-				M.visible_message(span_warning("[M] sweat sizzles and pops on contact with water!"))
+				M.visible_message(span_warning("Потная кожа [M] шипит и трескается при контакте с водой!"))
 				explosion(get_turf(M),-1,(-1 + explosion_power),(2 * explosion_power))
 			Alkali_fire_stage_5(M, A)
 			M.IgniteMob()

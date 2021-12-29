@@ -190,6 +190,7 @@
 		cut_overlay(mutable_appearance('white/valtos/icons/poo.dmi', "uniformpoo"))
 		cut_overlay(mutable_appearance('white/valtos/icons/poo.dmi', "suitpoo"))
 		pooed = FALSE
+		SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "pooed")
 
 /datum/quirk/legkoserya
 	name = "Легкосеря"

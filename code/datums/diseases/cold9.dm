@@ -1,13 +1,13 @@
 /datum/disease/cold9
-	name = "The Cold"
+	name = "Холод"
 	max_stages = 3
-	spread_text = "On contact"
+	spread_text = "При контакте"
 	spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_CONTACT_FLUIDS
-	cure_text = "Common Cold Anti-bodies & Spaceacillin"
+	cure_text = "Антитела к простуде и космоциллин"
 	cures = list(/datum/reagent/medicine/spaceacillin)
-	agent = "ICE9-rhinovirus"
+	agent = "ICE9-риновирус"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	desc = "If left untreated the subject will slow, as if partly frozen."
+	desc = "Если не лечить, объект будет замедляться, как если бы он был частично заморожен."
 	severity = DISEASE_SEVERITY_HARMFUL
 
 

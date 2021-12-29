@@ -1,11 +1,11 @@
 /datum/disease/rhumba_beat
-	name = "The Rhumba Beat"
+	name = "Румба Бит"
 	max_stages = 5
-	spread_text = "On contact"
+	spread_text = "При контакте"
 	spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_CONTACT_FLUIDS
-	cure_text = "Chick Chicky Boom!"
+	cure_text = "Чики-чики-бум!"
 	cures = list("plasma")
-	agent = "Unknown"
+	agent = "Неизвестный"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	permeability_mod = 1
 	severity = DISEASE_SEVERITY_BIOHAZARD
@@ -20,14 +20,14 @@
 			if(DT_PROB(26, delta_time))
 				affected_mob.adjustFireLoss(5, FALSE)
 			if(DT_PROB(0.5, delta_time))
-				to_chat(affected_mob, span_danger("You feel strange..."))
+				to_chat(affected_mob, span_danger("Чувствую себя странно..."))
 		if(3)
 			if(DT_PROB(2.5, delta_time))
-				to_chat(affected_mob, span_danger("You feel the urge to dance..."))
+				to_chat(affected_mob, span_danger("Пора танцевать..."))
 			else if(DT_PROB(2.5, delta_time))
 				affected_mob.emote("gasp")
 			else if(DT_PROB(5, delta_time))
-				to_chat(affected_mob, span_danger("You feel the need to chick chicky boom..."))
+				to_chat(affected_mob, span_danger("Нужно срочно чики-чики-бум..."))
 		if(4)
 			if(DT_PROB(10, delta_time))
 				if(prob(50))
@@ -35,8 +35,8 @@
 					affected_mob.IgniteMob()
 				else
 					affected_mob.emote("gasp")
-					to_chat(affected_mob, span_danger("You feel a burning beat inside..."))
+					to_chat(affected_mob, span_danger("Ощущаю горящий бит внутри..."))
 		if(5)
-			to_chat(affected_mob, span_danger("Your body is unable to contain the Rhumba Beat..."))
+			to_chat(affected_mob, span_danger("Моё тело не может сдержать ритм Румбы..."))
 			if(DT_PROB(29, delta_time))
 				explosion(get_turf(affected_mob), -1, 0, 2, 3, 0, 2) // This is equivalent to a lvl 1 fireball

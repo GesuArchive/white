@@ -1,12 +1,12 @@
 /datum/disease/cold
-	name = "The Cold"
+	name = "Холод"
 	max_stages = 3
-	cure_text = "Rest & Spaceacillin"
+	cure_text = "Отдых и космоцилин"
 	cures = list(/datum/reagent/medicine/spaceacillin)
-	agent = "XY-rhinovirus"
+	agent = "XY-риновирус"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	permeability_mod = 0.5
-	desc = "If left untreated the subject will contract the flu."
+	desc = "Если не лечить, субъект заразится гриппом."
 	severity = DISEASE_SEVERITY_NONTHREAT
 
 

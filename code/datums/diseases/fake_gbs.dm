@@ -1,13 +1,13 @@
 /datum/disease/fake_gbs
 	name = "GBS"
 	max_stages = 5
-	spread_text = "On contact"
+	spread_text = "При контакте"
 	spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_CONTACT_FLUIDS
-	cure_text = "Synaptizine & Sulfur"
+	cure_text = "Синаптизин и сера"
 	cures = list(/datum/reagent/medicine/synaptizine,/datum/reagent/sulfur)
-	agent = "Gravitokinetic Bipotential SADS-"
+	agent = "Гравитокинетические бипотенциальные SADS-"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	desc = "If left untreated death will occur."
+	desc = "Если не лечить, наступит смерть."
 	severity = DISEASE_SEVERITY_BIOHAZARD
 
 
@@ -26,7 +26,7 @@
 			else if(DT_PROB(2.5, delta_time))
 				affected_mob.emote("gasp")
 			if(DT_PROB(5, delta_time))
-				to_chat(affected_mob, span_danger("You're starting to feel very weak..."))
+				to_chat(affected_mob, span_danger("Ощущаю сильную слабость..."))
 		if(4)
 			if(DT_PROB(5, delta_time))
 				affected_mob.emote("cough")

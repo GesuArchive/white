@@ -2971,22 +2971,24 @@
 /turf/open/floor/engine,
 /area/security/brig)
 "iE" = (
-/obj/item/radio/intercom{
-	desc = "Talk through this. It looks like it has been modified to not broadcast.";
-	name = "Prison Intercom (General)";
-	pixel_x = -25;
-	pixel_y = -2;
-	prison_radio = 1
-	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 4
+/obj/structure/cable,
+/obj/machinery/power/treadmill{
+	dir = 8;
+	id = "Cell 1"
+	},
+/obj/machinery/treadmill_monitor{
+	id = "Cell 1";
+	pixel_x = -32
 	},
 /turf/open/floor/engine,
 /area/security/brig)
 "iF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
 /turf/open/floor/engine,
 /area/security/brig)
 "iG" = (
@@ -2996,6 +2998,13 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
+	},
+/obj/item/radio/intercom{
+	desc = "Talk through this. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_x = 25;
+	pixel_y = -2;
+	prison_radio = 1
 	},
 /turf/open/floor/engine,
 /area/security/brig)
@@ -3431,6 +3440,32 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/security/main)
+"EV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/power/treadmill{
+	dir = 8;
+	id = "Cell 3"
+	},
+/obj/machinery/treadmill_monitor{
+	id = "Cell 3";
+	pixel_x = -32
+	},
+/turf/open/floor/engine,
+/area/security/brig)
+"If" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/power/treadmill{
+	dir = 8;
+	id = "Cell 2"
+	},
+/obj/machinery/treadmill_monitor{
+	id = "Cell 2";
+	pixel_x = -32
+	},
+/turf/open/floor/engine,
+/area/security/brig)
 "TC" = (
 /obj/machinery/suit_storage_unit/security,
 /obj/effect/turf_decal/tile/hex/red,
@@ -4668,7 +4703,7 @@ iz
 hT
 gA
 ix
-iE
+If
 iW
 jj
 ab
@@ -4844,7 +4879,7 @@ hw
 hU
 gA
 ix
-iE
+EV
 iY
 jj
 ab

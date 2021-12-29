@@ -15,8 +15,8 @@ BONUS
 */
 
 /datum/symptom/shedding
-	name = "Alopecia"
-	desc = "The virus causes rapid shedding of head and body hair."
+	name = "Алопеция"
+	desc = "Вирус вызывает быстрое выпадение волос на голове и теле."
 	stealth = 0
 	resistance = 1
 	stage_speed = 2
@@ -33,17 +33,17 @@ BONUS
 
 	var/mob/living/M = A.affected_mob
 	if(prob(base_message_chance))
-		to_chat(M, span_warning("[pick("Your scalp itches.", "Your skin feels flaky.")]"))
+		to_chat(M, span_warning("[pick("Скальп чешется.", "Кожа шелушится.")]"))
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		switch(A.stage)
 			if(3, 4)
 				if(!(H.hairstyle == "Bald") && !(H.hairstyle == "Balding Hair"))
-					to_chat(H, span_warning("Мои волосы начинают выпадать..."))
+					to_chat(H, span_warning("Волосы начинают выпадать..."))
 					addtimer(CALLBACK(src, .proc/Shed, H, FALSE), 50)
 			if(5)
 				if(!(H.facial_hairstyle == "Shaved") || !(H.hairstyle == "Bald"))
-					to_chat(H, span_warning("Мои волосы начинают выпадать..."))
+					to_chat(H, span_warning("Волосы начинают выпадать..."))
 					addtimer(CALLBACK(src, .proc/Shed, H, TRUE), 50)
 
 /datum/symptom/shedding/proc/Shed(mob/living/carbon/human/H, fullbald)

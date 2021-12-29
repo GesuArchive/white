@@ -247,7 +247,7 @@
 	armor = list("melee" = 40, "bullet" = 25, "laser" = 20,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 
 /obj/item/clothing/head/helmet/voxstealth
-	name = "stealth helmet"
+	name = "Скрытность helmet"
 	desc = "Not for humans, but looks great"
 	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	icon = 'white/Wzzzz/clothing/head.dmi'
@@ -353,7 +353,7 @@
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
 
 /obj/item/clothing/mask/gas/stealth_rig
-	name = "stealth mask"
+	name = "Скрытность mask"
 	body_parts_covered = HEAD
 	var/lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	var/darkness_view = 10
