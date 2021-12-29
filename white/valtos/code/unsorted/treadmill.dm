@@ -72,7 +72,7 @@
 			if(mobs_running[M])
 				last_move = mobs_running[M]
 			else
-				last_move = M?.client..move_delay
+				last_move = M?.client?.move_delay
 			mobs_running[M] = M?.client?.move_delay
 			// if we "stepped" in right direction, add to speed, else throw the person off like a common obj
 			if(last_move != M?.client?.move_delay && dir == M.dir)
