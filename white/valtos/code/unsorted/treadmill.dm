@@ -12,7 +12,7 @@
 
 	var/speed = 0
 	var/friction = 0.15		// lose this much speed every ptick
-	var/inertia = 0.25		// multiplier to mob speed, when increasing treadmill speed
+	var/inertia = 1			// multiplier to mob speed, when increasing treadmill speed
 	var/throw_dist = 2		// distance to throw the person, worst case
 	var/power_gen = 40000	// amount of power output at max speed
 	var/list/mobs_running[0]
@@ -143,7 +143,7 @@
 	var/line1 = ""
 	var/line2 = ""
 	var/frame = 0				// on 0, show labels, on 1 show numbers
-	var/redeem_immediately = 0	// redeem immediately for holding cell
+	var/redeem_immediately = TRUE// redeem immediately for holding cell
 
 /obj/machinery/treadmill_monitor/Initialize()
 	. = ..()
