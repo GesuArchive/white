@@ -17,8 +17,8 @@ Bonus
 
 /datum/symptom/visionloss
 
-	name = "Hyphema"
-	desc = "The virus causes inflammation of the retina, leading to eye damage and eventually blindness."
+	name = "Гифема"
+	desc = "Вирус вызывает воспаление сетчатки, что приводит к повреждению глаз и, в конечном итоге, к слепоте."
 	stealth = -1
 	resistance = -4
 	stage_speed = -4
@@ -30,8 +30,8 @@ Bonus
 	symptom_delay_max = 80
 	var/remove_eyes = FALSE
 	threshold_descs = list(
-		"Resistance 12" = "Weakens extraocular muscles, eventually leading to complete detachment of the eyes.",
-		"Stealth 4" = "The symptom remains hidden until active.",
+		"Сопротивление 12" = "Ослабляет экстраокулярные мышцы, что в конечном итоге приводит к полному отслоению глаза.",
+		"Скрытность 4" = "Симптом остается скрытым до тех пор, пока не станет активным.",
 	)
 
 /datum/symptom/visionloss/Start(datum/disease/advance/A)
@@ -51,9 +51,9 @@ Bonus
 		switch(A.stage)
 			if(1, 2)
 				if(prob(base_message_chance) && !suppress_warning)
-					to_chat(M, span_warning("Your eyes itch."))
+					to_chat(M, span_warning("Глаза чешутся."))
 			if(3, 4)
-				to_chat(M, span_warning("<b>Your eyes burn!</b>"))
+				to_chat(M, span_warning("<b>ГЛАЗА ГОРЯТ!</b>"))
 				M.blur_eyes(10)
 				eyes.applyOrganDamage(1)
 			else
@@ -64,11 +64,11 @@ Bonus
 				if(prob(eyes.damage - 10 + 1))
 					if(!remove_eyes)
 						if(!M.is_blind())
-							to_chat(M, span_userdanger("You go blind!"))
+							to_chat(M, span_userdanger("Слепну!"))
 							eyes.applyOrganDamage(eyes.maxHealth)
 					else
-						M.visible_message(span_warning("[M] eyes fall out of their sockets!") , span_userdanger("Your eyes fall out of their sockets!"))
+						M.visible_message(span_warning("Глаза [M] выпадают!"), span_userdanger("Глаза выпадают из орбит!"))
 						eyes.Remove(M)
 						eyes.forceMove(get_turf(M))
 				else
-					to_chat(M, span_userdanger("Your eyes burn horrifically!"))
+					to_chat(M, span_userdanger("ГЛАЗА УЖАСНО БОЛЯТ!"))

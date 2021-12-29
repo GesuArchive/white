@@ -36,6 +36,8 @@
 	var/list/flashers = list()
 	///List of weakrefs to nearby closets
 	var/list/closets = list()
+	///List of weakrefs to nearby treadmills
+	var/list/treadmills = list()
 
 	var/obj/item/radio/Radio //needed to send messages to sec radio
 
@@ -63,6 +65,10 @@
 		for(var/obj/structure/closet/secure_closet/brig/C in urange(20, src))
 			if(C.id == id)
 				closets += WEAKREF(C)
+
+		for(var/obj/machinery/treadmill_monitor/T in urange(20, src))
+			if(T.id == id)
+				treadmills += WEAKREF(T)
 
 	if(!length(doors) && !length(flashers) && length(closets))
 		obj_break()
@@ -110,6 +116,14 @@
 			continue
 		closet.locked = TRUE
 		closet.update_icon()
+
+	for(var/datum/weakref/treadmill_ref as anything in treadmills)
+		var/obj/machinery/treadmill_monitor/treadmill = treadmill_ref.resolve()
+		if(!treadmill)
+			treadmills -= treadmill_ref
+			continue
+		treadmill.total_joules = 0
+		treadmill.on = TRUE
 	return 1
 
 
@@ -147,6 +161,15 @@
 			continue
 		closet.locked = FALSE
 		closet.update_icon()
+
+	for(var/datum/weakref/treadmill_ref as anything in treadmills)
+		var/obj/machinery/treadmill_monitor/treadmill = treadmill_ref.resolve()
+		if(!treadmill)
+			treadmills -= treadmill_ref
+			continue
+		if(!treadmill.machine_stat)
+			treadmill.redeem()
+		treadmill.on = FALSE
 
 	return 1
 

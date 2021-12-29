@@ -1,14 +1,14 @@
 /datum/disease/fluspanish
-	name = "Spanish inquisition Flu"
+	name = "Грипп Испанской инквизиции"
 	max_stages = 3
-	spread_text = "Airborne"
-	cure_text = "Spaceacillin & Anti-bodies to the common flu"
+	spread_text = "Воздушное"
+	cure_text = "Космоциллин и антитела к простому гриппу"
 	cures = list(/datum/reagent/medicine/spaceacillin)
 	cure_chance = 5
-	agent = "1nqu1s1t10n flu virion"
+	agent = "1nqu1s1t10n вирион гриппа"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	permeability_mod = 0.75
-	desc = "If left untreated the subject will burn to death for being a heretic."
+	desc = "Если не лечить, субъект сгорит за то, что был еретиком."
 	severity = DISEASE_SEVERITY_DANGEROUS
 
 

@@ -52,7 +52,7 @@
 /datum/gear/suit/wintercoat/miner
 	display_name = "шахтёрское зимнее пальто"
 	path = /obj/item/clothing/suit/hooded/wintercoat/miner
-	allowed_roles = list("Shaft Miner")
+	allowed_roles = list("Shaft Miner", "Hunter")
 
 /datum/gear/suit/karabakh
 	display_name = "куртка рейнджера Карабаха"

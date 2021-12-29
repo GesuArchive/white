@@ -61,14 +61,14 @@
 
 /datum/holiday/new_year
 	name = NEW_YEAR
-	begin_day = 30
+	begin_day = 29
 	begin_month = DECEMBER
 	end_day = 2
 	end_month = JANUARY
 	drone_hat = /obj/item/clothing/head/festive
 
 /datum/holiday/new_year/getStationPrefix()
-	return pick("Пати","Новый","Похмельный","Развалистый", "Старый")
+	return pick("Праздничный","Новый","Похмельный","Новогодний")
 
 /datum/holiday/groundhog
 	name = "День Сурка"
@@ -392,7 +392,7 @@
 	return pick("Tofu", "Tempeh", "Seitan", "Tofurkey")
 
 /datum/holiday/october_revolution
-	name = "Октябрьская Революция"
+	name = "День, когда ебанные коммунисты взяли эту страну."
 	begin_day = 6
 	begin_month = NOVEMBER
 	end_day = 7

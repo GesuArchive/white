@@ -128,6 +128,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		"Shaft Miner" = 52,
 		"Cargo Technician" = 53,
 		"Trader" = 54,
+		"Hunter" = 55,
 		// 60+: Civilian/other
 		"Bartender" = 61,
 		"Cook" = 62,

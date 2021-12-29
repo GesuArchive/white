@@ -1,8 +1,8 @@
 // Picture frames
 
 /obj/item/wallframe/picture
-	name = "picture frame"
-	desc = "The perfect showcase for your favorite deathtrap memories."
+	name = "рамка картины"
+	desc = "Лучший способ показать всем ваши лучшие смертельные ловушки."
 	icon = 'icons/obj/decals.dmi'
 	custom_materials = list(/datum/material/wood = 2000)
 	flags_1 = 0
@@ -18,7 +18,7 @@
 			displayed = I
 			update_icon()
 		else
-			to_chat(user, "<span class=notice><b>[src.name]</b> already contains a photo.</span>")
+			to_chat(user, "<span class=notice><b>[src.name]</b> уже содержит фотографию.</span>")
 	..()
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
@@ -29,7 +29,7 @@
 	if(contents.len)
 		var/obj/item/I = pick(contents)
 		user.put_in_hands(I)
-		to_chat(user, span_notice("You carefully remove the photo from <b>[src.name]</b>."))
+		to_chat(user, span_notice("Аккуратно достаю фотографию из <b>[src.name]</b>."))
 		displayed = null
 		update_icon()
 	return ..()
@@ -60,16 +60,18 @@
 		I.forceMove(PF)
 
 /obj/structure/sign/picture_frame
-	name = "picture frame"
-	desc = "Every time you look it makes you laugh."
+	name = "фоторамка"
+	desc = "Заставляет ржать после каждого просмотра."
 	icon = 'icons/obj/decals.dmi'
 	icon_state = "frame-overlay"
 	custom_materials = list(/datum/material/wood = 2000)
 	var/obj/item/photo/framed
-	var/persistence_id
+	var/persistence_id = "random"
 	var/can_decon = TRUE
 
 #define FRAME_DEFINE(id) /obj/structure/sign/picture_frame/##id/persistence_id = #id
+
+FRAME_DEFINE(centcom)
 
 //Put default persistent frame defines here!
 
@@ -118,16 +120,16 @@
 
 /obj/structure/sign/picture_frame/attackby(obj/item/I, mob/user, params)
 	if(can_decon && (I.tool_behaviour == TOOL_SCREWDRIVER || I.tool_behaviour == TOOL_WRENCH))
-		to_chat(user, span_notice("You start unsecuring [name]..."))
+		to_chat(user, span_notice("Начинаю разбирать [name]..."))
 		if(I.use_tool(src, user, 30, volume=50))
 			playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-			to_chat(user, span_notice("You unsecure [name]."))
+			to_chat(user, span_notice("Разбираю [name]."))
 			deconstruct()
 
 	else if(I.tool_behaviour == TOOL_WIRECUTTER && framed)
 		framed.forceMove(drop_location())
 		framed = null
-		user.visible_message(span_warning("[user] cuts away [framed] from [src]!"))
+		user.visible_message(span_warning("[user] снимает [framed] с [src]!"))
 		return
 
 	else if(istype(I, /obj/item/photo))
@@ -138,7 +140,7 @@
 			framed = P
 			update_icon()
 		else
-			to_chat(user, "<span class=notice><b>[src.name]</b> already contains a photo.</span>")
+			to_chat(user, "<span class=notice><b>[src.name]</b> уже содержит фотографию.</span>")
 
 	..()
 
@@ -168,8 +170,8 @@
 
 
 /obj/structure/sign/picture_frame/showroom
-	name = "distinguished crew display"
-	desc = "A photo frame to commemorate crewmembers that distinguished themselves in the line of duty. WARNING: unauthorized tampering will be severely punished."
+	name = "фоторамка героев"
+	desc = "Здесь вы точно увидите настоящего героя. ВНИМАНИЕ: Замена фотографии без разрешения может караться баллоном в жопе."
 	can_decon = FALSE
 
 //persistent frames, make sure the same ID doesn't appear more than once per map

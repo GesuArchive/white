@@ -16,8 +16,8 @@ Bonus
 */
 
 /datum/symptom/genetic_mutation
-	name = "Dormant DNA Activator"
-	desc = "The virus bonds with the DNA of the host, activating random dormant mutations within their DNA. When the virus is cured, the host's genetic alterations are undone."
+	name = "Активатор дремлющей ДНК"
+	desc = "Вирус связывается с ДНК хозяина, активируя случайные спящие мутации в их ДНК. Когда вирус излечивается, генетические изменения хозяина отменяются."
 	stealth = -2
 	resistance = -3
 	stage_speed = 0
@@ -31,10 +31,10 @@ Bonus
 	var/no_reset = FALSE
 	var/mutadone_proof = NONE
 	threshold_descs = list(
-		"Resistance 8" = "The negative and mildly negative mutations caused by the virus are mutadone-proof (but will still be undone when the virus is cured if the resistance 14 threshold is not met).",
-		"Resistance 14" = "The host's genetic alterations are not undone when the virus is cured.",
-		"Stage Speed 10" = "The virus activates dormant mutations at a much faster rate.",
-		"Stealth 5" = "Only activates negative mutations in hosts."
+		"Сопротивление 8" = "Отрицательные и умеренно отрицательные мутации, вызванные вирусом, устойчивы к мутадону (но все равно будут отменены, когда вирус будет излечен, если не будет достигнут порог устойчивости 14).",
+		"Сопротивление 14" = "Генетические изменения хозяина не отменяются, когда вирус излечивается.",
+		"Скорость 10" = "Вирус активирует спящие мутации гораздо быстрее.",
+		"Скрытность 5" = "Активирует только отрицательные мутации у хозяев."
 	)
 
 /datum/symptom/genetic_mutation/Start(datum/disease/advance/A)
@@ -58,7 +58,7 @@ Bonus
 		return
 	switch(A.stage)
 		if(4, 5)
-			to_chat(C, span_warning("[pick("Your skin feels itchy.", "You feel light headed.")]"))
+			to_chat(C, span_warning("[pick("Кожа чешется.", "Голова кружится.")]"))
 			C.easy_randmut((NEGATIVE | MINOR_NEGATIVE | POSITIVE) - excludemuts, TRUE, TRUE, TRUE, mutadone_proof)
 
 /datum/symptom/genetic_mutation/End(datum/disease/advance/A)

@@ -1,6 +1,6 @@
 /datum/symptom/mind_restoration
-	name = "Mind Restoration"
-	desc = "The virus strengthens the bonds between neurons, reducing the duration of any ailments of the mind."
+	name = "Восстановление разума"
+	desc = "Вирус укрепляет связи между нейронами, сокращая продолжительность любых психических заболеваний."
 	stealth = -1
 	resistance = -2
 	stage_speed = 1
@@ -12,9 +12,9 @@
 	var/trauma_heal_mild = FALSE
 	var/trauma_heal_severe = FALSE
 	threshold_descs = list(
-		"Resistance 6" = "Heals minor brain traumas.",
-		"Resistance 9" = "Heals severe brain traumas.",
-		"Transmission 8" = "Purges alcohol in the bloodstream.",
+		"Сопротивление 6" = "Лечит незначительные травмы головного мозга.",
+		"Сопротивление 9" = "Лечит тяжелые травмы головного мозга.",
+		"Передача 8" = "Удаляет алкоголь из кровотока.",
 	)
 
 /datum/symptom/mind_restoration/Start(datum/disease/advance/A)
@@ -65,8 +65,8 @@
 
 
 /datum/symptom/sensory_restoration
-	name = "Sensory Restoration"
-	desc = "The virus stimulates the production and replacement of sensory tissues, causing the host to regenerate eyes and ears when damaged."
+	name = "Сенсорное восстановление"
+	desc = "Вирус стимулирует производство и замену сенсорных тканей, заставляя хозяина регенерировать глаза и уши при повреждении."
 	stealth = 0
 	resistance = 1
 	stage_speed = -2
@@ -93,14 +93,14 @@
 			eyes.applyOrganDamage(-2)
 			if(HAS_TRAIT_FROM(M, TRAIT_BLIND, EYE_DAMAGE))
 				if(prob(20))
-					to_chat(M, span_warning("Your vision slowly returns..."))
+					to_chat(M, span_warning("Зрение возвращается..."))
 					M.cure_blind(EYE_DAMAGE)
 					M.cure_nearsighted(EYE_DAMAGE)
 					M.blur_eyes(35)
 			else if(HAS_TRAIT_FROM(M, TRAIT_NEARSIGHT, EYE_DAMAGE))
-				to_chat(M, span_warning("The blackness in your peripheral vision fades."))
+				to_chat(M, span_warning("Темнота уходит из периферийного зрения."))
 				M.cure_nearsighted(EYE_DAMAGE)
 				M.blur_eyes(10)
 		else
 			if(prob(base_message_chance))
-				to_chat(M, span_notice("[pick("Your eyes feel great.","You feel like your eyes can focus more clearly.", "You don't feel the need to blink.","Your ears feel great.","Your hearing feels more acute.")]"))
+				to_chat(M, span_notice("[pick("Глазам стало лучше.","Глаза теперь могут видеть лучше.", "Можно не моргать.","Ушам стало лучше.","Слышу всё гораздо лучше.")]"))

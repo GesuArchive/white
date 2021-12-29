@@ -18,8 +18,8 @@ BONUS
 
 /datum/symptom/itching
 
-	name = "Itching"
-	desc = "The virus irritates the skin, causing itching."
+	name = "Чесотка"
+	desc = "Вирус раздражает кожу, вызывая чесотку."
 	stealth = 0
 	resistance = 3
 	stage_speed = 3
@@ -30,8 +30,8 @@ BONUS
 	symptom_delay_max = 25
 	var/scratch = FALSE
 	threshold_descs = list(
-		"Transmission 6" = "Increases frequency of itching.",
-		"Stage Speed 7" = "The host will scrath itself when itching, causing superficial damage.",
+		"Передача 6" = "Увеличивает частоту чесотки.",
+		"Скорость 7" = "Носитель будет царапать себя при чесотке, вызывая огромный урон.",
 	)
 
 /datum/symptom/itching/Start(datum/disease/advance/A)
@@ -51,6 +51,6 @@ BONUS
 	var/obj/item/bodypart/bodypart = M.get_bodypart(picked_bodypart)
 	if(bodypart && bodypart.status == BODYPART_ORGANIC && !bodypart.is_pseudopart)	 //robotic limbs will mean less scratching overall (why are golems able to damage themselves with self-scratching, but not androids? the world may never know)
 		var/can_scratch = scratch && !M.incapacitated()
-		M.visible_message("[can_scratch ? span_warning("[M] scratches [M.ru_ego()] [bodypart.name].")  : ""]", span_warning("Your [bodypart.name] itches. [can_scratch ? " You scratch it." : ""]"))
+		M.visible_message("[can_scratch ? span_warning("[M] чешет [M.ru_ego()] [ru_parse_zone(bodypart.name)].")  : ""]", span_warning("[capitalize(bodypart.name)] чешется. [can_scratch ? " Чешу её." : ""]"))
 		if(can_scratch)
 			bodypart.receive_damage(0.5)

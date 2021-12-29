@@ -208,23 +208,29 @@
 	pixel_x = 5;
 	pixel_y = 30
 	},
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
-"ba" = (
 /obj/machinery/camera{
 	c_tag = "Central Hallway North-West"
 	},
-/obj/machinery/airalarm{
-	pixel_y = 23
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
+"ba" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/machinery/firealarm{
+	pixel_y = 24
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "bb" = (
-/obj/machinery/light{
+/obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/machinery/firealarm{
-	pixel_y = 24
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/machinery/airalarm{
+	pixel_y = 23
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -4588,6 +4594,9 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
+"rt" = (
+/turf/template_noop,
+/area/commons/fitness/recreation)
 "rw" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -5028,7 +5037,7 @@ ab
 ab
 ab
 ab
-ba
+aH
 xf
 aH
 gd
@@ -5066,7 +5075,7 @@ aL
 ab
 ab
 ab
-bb
+br
 XI
 eC
 aD
@@ -5104,7 +5113,7 @@ aL
 ab
 ab
 ab
-gd
+ba
 XI
 eC
 aD
@@ -5142,7 +5151,7 @@ aL
 ab
 ab
 ab
-aJ
+bb
 XI
 eC
 aD
@@ -5368,7 +5377,7 @@ ad
 "}
 (13,1,1) = {"
 ab
-ab
+rt
 Oe
 bd
 xR
@@ -5406,7 +5415,7 @@ ad
 "}
 (14,1,1) = {"
 ab
-ab
+rt
 Oe
 aH
 XI

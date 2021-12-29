@@ -316,13 +316,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<tr><td><b>Носки:</b></td><td align='right'><a href='?_src_=prefs;preference=socks;task=input'>[socks]</a></td>"
 			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SOCKS]'>[(randomise[RANDOM_SOCKS]) ? "🔓" : "🔒"]</A></td></tr>"
 
-			dat += "<tr><td><b>Рюкзак:</b></td><td align='right'><a href='?_src_=prefs;preference=bag;task=input'>[backpack]</a>"
+			dat += "<tr><td><b>Рюкзак:</b></td><td align='right'><a href='?_src_=prefs;preference=bag;task=input'>[backpack_to_ru_conversion(backpack)]</a>"
 			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_BACKPACK]'>[(randomise[RANDOM_BACKPACK]) ? "🔓" : "🔒"]</A></td></tr>"
 
-			dat += "<tr><td><b>Комбез:</b></td><td align='right'><a href='?_src_=prefs;preference=suit;task=input'>[jumpsuit_style]</a>"
+			dat += "<tr><td><b>Комбез:</b></td><td align='right'><a href='?_src_=prefs;preference=suit;task=input'>[jumpsuit_to_ru_conversion(jumpsuit_style)]</a>"
 			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_JUMPSUIT_STYLE]'>[(randomise[RANDOM_JUMPSUIT_STYLE]) ? "🔓" : "🔒"]</A></td></tr>"
 
-			dat += "<tr><td><b>Аплинк:</b></td><td align='right'><a href='?_src_=prefs;preference=uplink_loc;task=input'>[uplink_spawn_loc]</a></td></tr>"
+			dat += "<tr><td><b>Аплинк:</b></td><td align='right'><a href='?_src_=prefs;preference=uplink_loc;task=input'>[uplink_to_ru_conversion(uplink_spawn_loc)]</a></td></tr>"
 
 			//Adds a thing to select which phobia because I can't be assed to put that in the quirks window
 			if("Phobia" in all_quirks)
@@ -374,8 +374,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_HAIR_COLOR]'>[(randomise[RANDOM_HAIR_COLOR]) ? "🔓" : "🔒"]</A></td></tr>"
 
 				dat += "<tr><td><b>Градиент волос:</b></td><td align='right'>"
-				dat += "<a href='?_src_=prefs;preference=grad_style;task=input'>[grad_style]</a>"
-				dat += "<br><span style='border:1px solid #161616; background-color: #[grad_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=grad_color;task=input'>Изменить</a>"
+				dat += "<span style='border:1px solid #161616; background-color: #[grad_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=grad_color;task=input'>Изменить</a><a href='?_src_=prefs;preference=grad_style;task=input'>[grad_style]</a></td></tr>"
 
 				dat += "<tr><td><b>Борода:</b></td><td align='right'>"
 
@@ -556,21 +555,17 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						dat += "<font size=2>Все</font>"
 					dat += "</td><td><font size=2><i>[G.description]</i></font></td></tr>"
 			else
-				var/line_num = 0
-				dat += "<tr class='metaitem buyed'><td>"
-				for(var/gear_name in purchased_gear)
-					var/datum/gear/G = GLOB.gear_datums[gear_name]
-					if(!G)
+				for(var/category in GLOB.loadout_categories)
+					if(category == "OOC" || category == "Роли")
 						continue
-					if(G.sort_category == "OOC" || G.sort_category == "Роли")
-						continue
-					var/ticked = (G.id in equipped_gear)
-					if(line_num == 20)
-						dat += "</td></tr><tr class='metaitem buyed'><td>"
-						line_num = 0
-					dat += "<a class='tooltip' style='padding: 10px 2px;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]<span class='tooltiptext'>[G.display_name]</span></a>"
-					line_num++
-				dat += "</td></tr>"
+					dat += "<tr class='metaitem buyed'><td><b>[category]:</b></td><td>"
+					for(var/gear_name in purchased_gear)
+						var/datum/gear/G = GLOB.gear_datums[gear_name]
+						if(!G || category != G.sort_category)
+							continue
+						var/ticked = (G.id in equipped_gear)
+						dat += "<a class='tooltip[ticked ? " linkOn" : ""]' style='padding: 10px 2px;' href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]<span class='tooltiptext'>[G.display_name]</span></a>"
+					dat += "</td></tr>"
 			dat += "</table>"
 
 		if (2) // Game Preferences

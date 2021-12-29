@@ -31,3 +31,9 @@
 	description = "Храбрый исследователь космоса."
 	cost = 1000
 	job_path = /datum/job/exploration
+
+/datum/gear/roles/hunter
+	display_name = "Охотник"
+	description = "Опытный боец с неплохим снаряжением, специализируется на истреблении фауны в экстремальных условиях. Имеет запас шахтёрских очков для быстрого старта."
+	cost = 2000
+	job_path = /datum/job/hunter

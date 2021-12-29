@@ -727,6 +727,8 @@ Turf and target are separate in case you want to teleport some distance from a t
 		return "Грузчик"
 	else if (job == "Shaft Miner")
 		return "Шахтёр"
+	else if (job == "Hunter")
+		return "Охотник"
 	else if (job == "Exploration Crew")
 		return "Рейнджер"
 	else if (job == "Trader")
@@ -760,6 +762,46 @@ Turf and target are separate in case you want to teleport some distance from a t
 	else
 		return job
 
+/proc/jumpsuit_to_ru_conversion(jumpsuit)
+	switch(jumpsuit)
+		if("Jumpsuit")
+			return "Комбез"
+		if("Jumpskirt")
+			return "Юбкомбез"
+		else
+			return jumpsuit
+
+/proc/backpack_to_ru_conversion(backpack)
+	switch(backpack)
+		if("Grey Backpack")
+			return "Серый рюкзак"
+		if("Grey Satchel")
+			return "Серая сумка"
+		if("Grey Duffel Bag")
+			return "Серый вещмешок"
+		if("Leather Satchel")
+			return "Кожаная сумка"
+		if("Department Backpack")
+			return "Рюкзак отдела"
+		if("Department Satchel")
+			return "Сумка отдела"
+		if("Department Duffel Bag")
+			return "Вещмешок отдела"
+		else
+			return backpack
+
+/proc/uplink_to_ru_conversion(uplink)
+	switch(uplink)
+		if("PDA")
+			return "ПДА"
+		if("Radio")
+			return "Наушник"
+		if("Pen")
+			return "Ручка"
+		if("Implant")
+			return "Имплант"
+		else
+			return uplink
 
 /*
 
@@ -1677,3 +1719,22 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 		if(-INFINITY to 0, 11 to INFINITY)
 			CRASH("Can't turn invalid directions!")
 	return turn(input_dir, 180)
+
+/proc/get_distant_turf(var/turf/T, var/direction, var/distance)
+	if(!T || !direction || !distance)
+		return
+
+	var/dest_x = T.x
+	var/dest_y = T.y
+	var/dest_z = T.z
+
+	if(direction & NORTH)
+		dest_y = min(world.maxy, dest_y + distance)
+	if(direction & SOUTH)
+		dest_y = max(0, dest_y - distance)
+	if(direction & EAST)
+		dest_x = min(world.maxy, dest_x + distance)
+	if(direction & WEST)
+		dest_x = max(0, dest_x - distance)
+
+	return locate(dest_x,dest_y, dest_z)

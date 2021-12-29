@@ -14,7 +14,7 @@
 
 /obj/item/gun/grenadelauncher/examine(mob/user)
 	. = ..()
-	. += "<hr>[grenades.len] / [max_grenades] grenades loaded."
+	. += "<hr>[grenades.len]/[max_grenades] гранат внутри."
 
 /obj/item/gun/grenadelauncher/attackby(obj/item/I, mob/user, params)
 
@@ -23,8 +23,8 @@
 			if(!user.transferItemToLoc(I, src))
 				return
 			grenades += I
-			to_chat(user, span_notice("Поместил гранату в гранатомет."))
-			to_chat(user, span_notice("[grenades.len] / [max_grenades] Гранат."))
+			to_chat(user, span_notice("Помещаю гранату в гранатомет."))
+			to_chat(user, span_notice("[grenades.len]/[max_grenades] гранат."))
 		else
 			to_chat(usr, span_warning("Гранатомет полностью заряжен!"))
 
@@ -32,8 +32,8 @@
 	return grenades.len
 
 /obj/item/gun/grenadelauncher/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
-	user.visible_message(span_danger("[user] выстрелил гранату!") , \
-						span_danger("Выстрелил из гранатомета!"))
+	user.visible_message(span_danger("[user] выстреливает гранатой!") , \
+						span_danger("Стреляю из гранатомета!"))
 	var/obj/item/grenade/F = grenades[1] //Now with less copypasta!
 	grenades -= F
 	F.forceMove(user.loc)

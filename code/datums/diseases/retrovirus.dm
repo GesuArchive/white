@@ -1,13 +1,13 @@
 /datum/disease/dna_retrovirus
-	name = "Retrovirus"
+	name = "Ретровирус"
 	max_stages = 4
-	spread_text = "Contact"
+	spread_text = "Контактное"
 	spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_CONTACT_FLUIDS
-	cure_text = "Rest or an injection of mutadone"
+	cure_text = "Отдых или укол мутадона"
 	cure_chance = 3
 	agent = ""
 	viable_mobtypes = list(/mob/living/carbon/human)
-	desc = "A DNA-altering retrovirus that scrambles the structural and unique enzymes of a host constantly."
+	desc = "Ретровирус, изменяющий ДНК, который постоянно перемешивает структурные и уникальные ферменты хозяина."
 	severity = DISEASE_SEVERITY_HARMFUL
 	permeability_mod = 0.4
 	stage_prob = 1
@@ -15,7 +15,7 @@
 
 /datum/disease/dna_retrovirus/New()
 	..()
-	agent = "Virus class [pick("A","B","C","D","E","F")][pick("A","B","C","D","E","F")]-[rand(50,300)]"
+	agent = "Класс вируса [pick("A","B","C","D","E","F")][pick("A","B","C","D","E","F")]-[rand(50,300)]"
 	if(prob(40))
 		cures = list(/datum/reagent/medicine/mutadone)
 	else

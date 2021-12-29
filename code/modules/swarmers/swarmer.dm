@@ -15,9 +15,9 @@
  */
 
 /mob/living/simple_animal/hostile/swarmer
-	name = "swarmer"
+	name = "Роевик"
 	icon = 'icons/mob/swarmer.dmi'
-	desc = "Robotic constructs of unknown design, swarmers seek only to consume materials and replicate themselves indefinitely."
+	desc = "Роботизированные конструкции неизвестного дизайна, роевики стремятся только потреблять материалы и бесконечно воспроизводить себя."
 	speak_emote = list("tones")
 	initial_language_holder = /datum/language_holder/swarmer
 	bubble_icon = "swarmer"
@@ -45,8 +45,8 @@
 	attack_verb_continuous = "шокирует"
 	attack_verb_simple = "шокирует"
 	attack_sound = 'sound/effects/empulse.ogg'
-	friendly_verb_continuous = "pinches"
-	friendly_verb_simple = "pinch"
+	friendly_verb_continuous = "тычет"
+	friendly_verb_simple = "тычет"
 	speed = 0
 	faction = list("swarmer")
 	AIStatus = AI_OFF
@@ -58,7 +58,7 @@
 	projectilesound = 'sound/weapons/taser2.ogg'
 	loot = list(/obj/effect/decal/cleanable/robot_debris, /obj/item/stack/ore/bluespace_crystal)
 	del_on_death = TRUE
-	deathmessage = "explodes with a sharp pop!"
+	deathmessage = "лопается!"
 	light_system = MOVABLE_LIGHT
 	light_range = 3
 	light_color = LIGHT_COLOR_CYAN
@@ -103,7 +103,7 @@
 
 /mob/living/simple_animal/hostile/swarmer/get_status_tab_items()
 	. = ..()
-	. += "Resources: [resources]"
+	. += "Ресурсы: [resources]"
 
 /mob/living/simple_animal/hostile/swarmer/emp_act()
 	. = ..()
@@ -154,10 +154,10 @@
  */
 /mob/living/simple_animal/hostile/swarmer/proc/Fabricate(atom/fabrication_object,fabrication_cost = 0)
 	if(!isturf(loc))
-		to_chat(src, span_warning("This is not a suitable location for fabrication. We need more space."))
+		to_chat(src, span_warning("Эта локация не подходит. Нужно больше места."))
 		return
 	if(resources < fabrication_cost)
-		to_chat(src, span_warning("You do not have the necessary resources to fabricate this object."))
+		to_chat(src, span_warning("Недостаточно ресурсов для этого объекта."))
 		return
 	resources -= fabrication_cost
 	return new fabrication_object(drop_location())
@@ -172,10 +172,10 @@
 /mob/living/simple_animal/hostile/swarmer/proc/Integrate(obj/target)
 	var/resource_gain = target.integrate_amount()
 	if(resources + resource_gain > max_resources)
-		to_chat(src, span_warning("We cannot hold more materials!"))
+		to_chat(src, span_warning("Мы не можем хранить больше материалов!"))
 		return TRUE
 	if(!resource_gain)
-		to_chat(src, span_warning("[target] is incompatible with our internal matter recycler."))
+		to_chat(src, span_warning("[target] не подходит нам."))
 		return FALSE
 	resources += resource_gain
 	do_attack_animation(target)
@@ -217,10 +217,10 @@
 		return
 
 	if(!is_station_level(z) && !is_mining_level(z))
-		to_chat(src, span_warning("Our bluespace transceiver cannot locate a viable bluespace link, our teleportation abilities are useless in this area."))
+		to_chat(src, span_warning("Наш блюспейс-передатчик не может найти блюспейс канал для связи, телепортация будет бесполезна в этой зоне."))
 		return
 
-	to_chat(src, span_info("Attempting to remove this being from our presence."))
+	to_chat(src, span_info("Пытаемся убрать это существо подальше."))
 
 	if(!do_mob(src, target, 30))
 		return
@@ -262,13 +262,13 @@
  */
 /mob/living/simple_animal/hostile/swarmer/proc/dismantle_machine(obj/machinery/target)
 	do_attack_animation(target)
-	to_chat(src, span_info("We begin to dismantle this machine. We will need to be uninterrupted."))
+	to_chat(src, span_info("Начинаем разбирать эту машину. Необходимо невмешательство."))
 	var/obj/effect/temp_visual/swarmer/dismantle/dismantle_effect = new /obj/effect/temp_visual/swarmer/dismantle(get_turf(target))
 	dismantle_effect.pixel_x = target.pixel_x
 	dismantle_effect.pixel_y = target.pixel_y
 	dismantle_effect.pixel_z = target.pixel_z
 	if(do_mob(src, target, 100))
-		to_chat(src, span_info("Dismantling complete."))
+		to_chat(src, span_info("Разборка машины успешна."))
 		var/atom/target_loc = target.drop_location()
 		new /obj/item/stack/sheet/iron(target_loc, 5)
 		for(var/p in target.component_parts)
@@ -291,14 +291,14 @@
  * Proc used to allow a swarmer to create a trap.  Checks if a trap is on the tile, then if the swarmer can afford, and then places the trap.
  */
 /mob/living/simple_animal/hostile/swarmer/proc/create_trap()
-	set name = "Create trap"
+	set name = "Создать ловушку"
 	set category = "Swarmer"
-	set desc = "Creates a simple trap that will non-lethally electrocute anything that steps on it. Costs 4 resources."
+	set desc = "Создает простую ловушку, которая ударит током тех, кто на нее наступит, без смертельного исхода. Стоит 4 ресурса."
 	if(locate(/obj/structure/swarmer/trap) in loc)
-		to_chat(src, span_warning("There is already a trap here. Aborting."))
+		to_chat(src, span_warning("Здесь уже есть ловушка. Прерывание."))
 		return
 	if(resources < 4)
-		to_chat(src, span_warning("We do not have the resources for this!"))
+		to_chat(src, span_warning("У нас нет ресурсов для этого!"))
 		return
 	Fabricate(/obj/structure/swarmer/trap, 4)
 
@@ -308,14 +308,14 @@
  * Proc used to allow a swarmer to create a barricade.  Checks if a barricade is on the tile, then if the swarmer can afford it, and then will attempt to create a barricade after a second delay.
  */
 /mob/living/simple_animal/hostile/swarmer/proc/create_barricade()
-	set name = "Create barricade"
+	set name = "Создать баррикаду"
 	set category = "Swarmer"
-	set desc = "Creates a barricade that will stop anything but swarmers and disabler beams from passing through.  Costs 4 resources."
+	set desc = "Создает баррикаду, которая остановит прохождение чего угодно, кроме роевиков и лучей усмирителей. Стоит 4 ресурса."
 	if(locate(/obj/structure/swarmer/blockade) in loc)
-		to_chat(src, span_warning("There is already a blockade here. Aborting."))
+		to_chat(src, span_warning("Здесь уже баррикада. Прерывание."))
 		return
 	if(resources < 4)
-		to_chat(src, span_warning("We do not have the resources for this!"))
+		to_chat(src, span_warning("У нас нет ресурсов для этого!"))
 		return
 	if(!do_mob(src, src, 1 SECONDS))
 		return
@@ -327,15 +327,15 @@
  * Proc used to allow a swarmer to create a drone.  Checks if the swarmer can afford the drone, then creates it after 5 seconds, and also registers it to the creating swarmer so it can command it
  */
 /mob/living/simple_animal/hostile/swarmer/proc/create_swarmer()
-	set name = "Replicate"
+	set name = "Репликация"
 	set category = "Swarmer"
-	set desc = "Creates a duplicate of ourselves, capable of protecting us while we complete our objectives."
-	to_chat(src, span_info("We are attempting to replicate ourselves. We will need to stand still until the process is complete."))
+	set desc = "Создает дубликат нас самих, способный защитить нас, пока мы добиваемся своих целей."
+	to_chat(src, span_info("Мы пытаемся копировать самих себя. Нам нужно будет стоять на месте, пока процесс не завершится."))
 	if(resources < 20)
-		to_chat(src, span_warning("We do not have the resources for this!"))
+		to_chat(src, span_warning("У нас нет ресурсов для этого!"))
 		return
 	if(!isturf(loc))
-		to_chat(src, span_warning("This is not a suitable location for replicating ourselves. We need more room."))
+		to_chat(src, span_warning("Это не подходящее место для самовоспроизведения. Нам нужно больше места."))
 		return
 	if(!do_mob(src, src, 5 SECONDS))
 		return
@@ -362,11 +362,11 @@
 /mob/living/simple_animal/hostile/swarmer/proc/repair_self()
 	if(!isturf(loc))
 		return
-	to_chat(src, span_info("Attempting to repair damage to our body, stand by..."))
+	to_chat(src, span_info("Пытаемся восстановить повреждение нашего тела, ожидание..."))
 	if(!do_mob(src, src, 10 SECONDS))
 		return
 	adjustHealth(-maxHealth)
-	to_chat(src, span_info("We successfully repaired ourselves."))
+	to_chat(src, span_info("Мы успешно отремонтировали нас."))
 
 /**
  * Called when a swarmer toggles its light
@@ -402,7 +402,7 @@
  * * msg - The message the swarmer is sending, gotten from ContactSwarmers()
  */
 /mob/living/simple_animal/hostile/swarmer/proc/swarmer_chat(msg)
-	var/rendered = "<B>Swarm communication - [src]</b> [say_quote(msg)]"
+	var/rendered = "<B>Общение роя - [src]</b> [say_quote(msg)]"
 	for(var/i in GLOB.mob_list)
 		var/mob/listener = i
 		if(isswarmer(listener))
@@ -417,7 +417,7 @@
  * Proc which is used for a swarmer to input a message on a pop-up box, then attempt to send that message to the other swarmers
  */
 /mob/living/simple_animal/hostile/swarmer/proc/contact_swarmers()
-	var/message = stripped_input(src, "Announce to other swarmers", "Swarmer contact")
+	var/message = stripped_input(src, "Объявить другим роевикам", "Общение роя")
 	// TODO get swarmers their own colour rather than just boldtext
 	if(message)
 		swarmer_chat(message)
