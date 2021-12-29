@@ -2998,13 +2998,14 @@
 "iN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/treadmill{
-	dir = 4;
+	dir = 8;
 	id = "cell1"
 	},
 /obj/machinery/treadmill_monitor{
 	id = "cell1";
 	pixel_x = -32
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "iO" = (
@@ -3255,13 +3256,14 @@
 "la" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/treadmill{
-	dir = 4;
+	dir = 8;
 	id = "cell2"
 	},
 /obj/machinery/treadmill_monitor{
 	id = "cell2";
 	pixel_x = -32
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "mK" = (

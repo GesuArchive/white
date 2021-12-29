@@ -2738,9 +2738,10 @@
 	pixel_x = -32
 	},
 /obj/machinery/power/treadmill{
-	dir = 4;
+	dir = 8;
 	id = "cell1"
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "iE" = (
@@ -3223,9 +3224,10 @@
 	pixel_x = -32
 	},
 /obj/machinery/power/treadmill{
-	dir = 4;
+	dir = 8;
 	id = "cell2"
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "le" = (
@@ -3378,9 +3380,10 @@
 	pixel_x = -32
 	},
 /obj/machinery/power/treadmill{
-	dir = 4;
+	dir = 8;
 	id = "cell3"
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "Fi" = (

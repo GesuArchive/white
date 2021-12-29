@@ -39,7 +39,7 @@
 			if(!istype(H) || H.dir != dir)
 				throw_off(H)
 			else
-				mobs_running[H] = H.last_move
+				mobs_running[H] = H?.client?.move_delay
 
 /obj/machinery/power/treadmill/proc/on_exited(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER
@@ -72,10 +72,10 @@
 			if(mobs_running[M])
 				last_move = mobs_running[M]
 			else
-				last_move = M.last_move
-			mobs_running[M] = M.last_move
+				last_move = M?.client..move_delay
+			mobs_running[M] = M?.client?.move_delay
 			// if we "stepped" in right direction, add to speed, else throw the person off like a common obj
-			if(last_move != M.last_move && dir == M.dir)
+			if(last_move != M?.client?.move_delay && dir == M.dir)
 				// a reasonable approximation of movement speed
 				var/mob_speed = M.total_multiplicative_slowdown()
 				switch(M.m_intent)
@@ -176,7 +176,7 @@
 	update_icon()
 
 /obj/machinery/treadmill_monitor/examine(mob/user)
-	..()
+	. = ..()
 	. += "Дисплей:<div style='text-align: center'>[line1]<br>[line2]</div>"
 
 /obj/machinery/treadmill_monitor/update_icon()
