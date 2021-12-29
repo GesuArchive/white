@@ -17,9 +17,8 @@ BONUS
 
 /datum/symptom/youth
 
-	name = "Eternal Youth"
-	desc = "The virus becomes symbiotically connected to the cells in the host's body, preventing and reversing aging. \
-	The virus, in turn, becomes more resistant, spreads faster, and is harder to spot, although it doesn't thrive as well without a host."
+	name = "Вечная молодость"
+	desc = "Вирус становится симбиотически связанным с клетками тела хозяина, предотвращая и обращая вспять старение. Вирус, в свою очередь, становится более устойчивым, быстрее распространяется и его труднее обнаружить, хотя без хозяина он не процветает."
 	stealth = 3
 	resistance = 4
 	stage_speed = 4
@@ -39,20 +38,20 @@ BONUS
 			if(1)
 				if(H.age > 41)
 					H.age = 41
-					to_chat(H, span_notice("You haven't had this much energy in years!"))
+					to_chat(H, span_notice("У меня не было столько энергии годами!"))
 			if(2)
 				if(H.age > 36)
 					H.age = 36
-					to_chat(H, span_notice("You're suddenly in a good mood."))
+					to_chat(H, span_notice("Моё настроение повысилось."))
 			if(3)
 				if(H.age > 31)
 					H.age = 31
-					to_chat(H, span_notice("You begin to feel more lithe."))
+					to_chat(H, span_notice("Я более гибкий."))
 			if(4)
 				if(H.age > 26)
 					H.age = 26
-					to_chat(H, span_notice("You feel reinvigorated."))
+					to_chat(H, span_notice("Ощущаю воодушевление."))
 			if(5)
 				if(H.age > 21)
 					H.age = 21
-					to_chat(H, span_notice("You feel like you can take on the world!"))
+					to_chat(H, span_notice("Пора захватывать мир!"))

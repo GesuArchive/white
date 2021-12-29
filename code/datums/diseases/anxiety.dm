@@ -1,14 +1,14 @@
 /datum/disease/anxiety
-	name = "Severe Anxiety"
-	form = "Infection"
+	name = "Сильное беспокойство"
+	form = "Инфекционное заболевание"
 	max_stages = 4
-	spread_text = "On contact"
+	spread_text = "При контакте"
 	spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_CONTACT_FLUIDS
-	cure_text = "Ethanol"
+	cure_text = "Этанол"
 	cures = list(/datum/reagent/consumable/ethanol)
-	agent = "Excess Lepidopticides"
+	agent = "Избыток лепидоптицидов"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	desc = "If left untreated subject will regurgitate butterflies."
+	desc = "Если не лечить, у субъекта будут извергаться бабочки."
 	severity = DISEASE_SEVERITY_MINOR
 
 
@@ -20,25 +20,25 @@
 	switch(stage)
 		if(2) //also changes say, see say.dm
 			if(DT_PROB(2.5, delta_time))
-				to_chat(affected_mob, span_notice("You feel anxious."))
+				to_chat(affected_mob, span_notice("Беспокойно."))
 		if(3)
 			if(DT_PROB(5, delta_time))
-				to_chat(affected_mob, span_notice("Your stomach flutters."))
+				to_chat(affected_mob, span_notice("Живот трепещет."))
 			if(DT_PROB(2.5, delta_time))
-				to_chat(affected_mob, span_notice("You feel panicky."))
+				to_chat(affected_mob, span_notice("Паника накатывает."))
 			if(DT_PROB(1, delta_time))
-				to_chat(affected_mob, span_danger("You're overtaken with panic!"))
+				to_chat(affected_mob, span_danger("ПАНИКУЮ!"))
 				affected_mob.add_confusion(rand(2,3))
 		if(4)
 			if(DT_PROB(5, delta_time))
-				to_chat(affected_mob, span_danger("You feel butterflies in your stomach."))
+				to_chat(affected_mob, span_danger("Ощущаю бабочек в своём животе."))
 			if(DT_PROB(2.5, delta_time))
-				affected_mob.visible_message(span_danger("[affected_mob] stumbles around in a panic.") , \
-												span_userdanger("You have a panic attack!"))
+				affected_mob.visible_message(span_danger("[affected_mob] спотыкается в панике.") , \
+												span_userdanger("ПАНИЧЕСКАЯ АТАКА!"))
 				affected_mob.add_confusion(rand(6,8))
 				affected_mob.jitteriness += (rand(6,8))
 			if(DT_PROB(1, delta_time))
-				affected_mob.visible_message(span_danger("[affected_mob] coughs up butterflies!") , \
-													span_userdanger("You cough up butterflies!"))
+				affected_mob.visible_message(span_danger("[affected_mob] выкашливает бабочек!") , \
+													span_userdanger("Выкашливаю бабочек!"))
 				new /mob/living/simple_animal/butterfly(affected_mob.loc)
 				new /mob/living/simple_animal/butterfly(affected_mob.loc)

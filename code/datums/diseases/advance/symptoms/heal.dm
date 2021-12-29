@@ -1,6 +1,6 @@
 /datum/symptom/heal
-	name = "Basic Healing (does nothing)" //warning for adminspawn viruses
-	desc = "You should not be seeing this."
+	name = "Лечение (ничего не делает)" //warning for adminspawn viruses
+	desc = "Мудила."
 	stealth = 0
 	resistance = 0
 	stage_speed = 0
@@ -11,8 +11,8 @@
 	symptom_delay_max = 1
 	var/passive_message = "" //random message to infected but not actively healing people
 	threshold_descs = list(
-		"Stage Speed 6" = "Doubles healing speed.",
-		"Stealth 4" = "Healing will no longer be visible to onlookers.",
+		"Скорость 6" = "Удваивает скорость исцеления.",
+		"Скрытность 4" = "Исцеление больше не будет видно посторонним.",
 	)
 
 /datum/symptom/heal/Start(datum/disease/advance/A)
@@ -47,18 +47,18 @@
 
 
 /datum/symptom/heal/starlight
-	name = "Starlight Condensation"
-	desc = "The virus reacts to direct starlight, producing regenerative chemicals. Works best against toxin-based damage."
+	name = "Конденсация звездного света"
+	desc = "Вирус реагирует на прямой звездный свет, производя регенеративные химические вещества. Лучше всего работает против повреждений, вызванных токсинами."
 	stealth = -1
 	resistance = -2
 	stage_speed = 0
 	transmittable = 1
 	level = 6
-	passive_message = span_notice("You miss the feeling of starlight on your skin.")
+	passive_message = span_notice("Скучаю по ощущению звездного света на коже.")
 	var/nearspace_penalty = 0.3
 	threshold_descs = list(
-		"Stage Speed 6" = "Increases healing speed.",
-		"Transmission 6" = "Removes penalty for only being close to space.",
+		"Скорость 6" = "Увеличивает скорость исцеления.",
+		"Передача 6" = "Снимает штраф только за нахождение рядом с космосом.",
 	)
 
 /datum/symptom/heal/starlight/Start(datum/disease/advance/A)
@@ -81,7 +81,7 @@
 /datum/symptom/heal/starlight/Heal(mob/living/carbon/M, datum/disease/advance/A, actual_power)
 	var/heal_amt = actual_power
 	if(M.getToxLoss() && prob(5))
-		to_chat(M, span_notice("Your skin tingles as the starlight seems to heal you."))
+		to_chat(M, span_notice("Кожа колется, поскольку звездный свет, кажется, исцеляет меня."))
 
 	M.adjustToxLoss(-(4 * heal_amt)) //most effective on toxins
 
@@ -101,17 +101,17 @@
 	return FALSE
 
 /datum/symptom/heal/chem
-	name = "Toxolysis"
+	name = "Токсолиз"
 	stealth = 0
 	resistance = -2
 	stage_speed = 2
 	transmittable = -2
 	level = 7
 	var/food_conversion = FALSE
-	desc = "The virus rapidly breaks down any foreign chemicals in the bloodstream."
+	desc = "Вирус быстро разрушает любые посторонние химические вещества в кровотоке."
 	threshold_descs = list(
-		"Resistance 7" = "Increases chem removal speed.",
-		"Stage Speed 6" = "Consumed chemicals nourish the host.",
+		"Сопротивление 7" = "Увеличивает скорость удаления химикатов.",
+		"Скорость 6" = "Потребляемые химические вещества питают хозяина.",
 	)
 
 /datum/symptom/heal/chem/Start(datum/disease/advance/A)
@@ -128,13 +128,13 @@
 		if(food_conversion)
 			M.adjust_nutrition(0.3)
 		if(prob(2))
-			to_chat(M, span_notice("You feel a mild warmth as your blood purifies itself."))
+			to_chat(M, span_notice("Кровь очищается, ощущаю при этом легкое тепло."))
 	return 1
 
 
 
 /datum/symptom/heal/metabolism
-	name = "Metabolic Boost"
+	name = "Метаболический импульс"
 	stealth = -1
 	resistance = -2
 	stage_speed = 2
@@ -142,11 +142,10 @@
 	level = 7
 	var/triple_metabolism = FALSE
 	var/reduced_hunger = FALSE
-	desc = "The virus causes the host's metabolism to accelerate rapidly, making them process chemicals twice as fast,\
-		but also causing increased hunger."
+	desc = "Вирус заставляет метаболизм хозяина быстро ускоряться, заставляя его обрабатывать химические вещества в два раза быстрее, но также вызывает усиление голода."
 	threshold_descs = list(
-		"Stealth 3" = "Reduces hunger rate.",
-		"Stage Speed 10" = "Chemical metabolization is tripled instead of doubled.",
+		"Скрытность 3" = "Снижает уровень голода.",
+		"Скорость 10" = "Химический метаболизм увеличивается втрое, а не вдвое.",
 	)
 
 /datum/symptom/heal/metabolism/Start(datum/disease/advance/A)
@@ -166,20 +165,20 @@
 	var/lost_nutrition = 9 - (reduced_hunger * 5)
 	C.adjust_nutrition(-lost_nutrition * HUNGER_FACTOR) //Hunger depletes at 10x the normal speed
 	if(prob(2))
-		to_chat(C, span_notice("You feel an odd gurgle in your stomach, as if it was working much faster than normal."))
+		to_chat(C, span_notice("Чувствуете странное бульканье в животе, как будто оно работает намного быстрее, чем обычно."))
 	return 1
 
 /datum/symptom/heal/darkness
-	name = "Nocturnal Regeneration"
-	desc = "The virus is able to mend the host's flesh when in conditions of low light, repairing physical damage. More effective against brute damage."
+	name = "Ночная регенерация"
+	desc = "Вирус способен лечить плоть хозяина в условиях низкой освещенности, устраняя физические повреждения. Более эффективен против грубого урона."
 	stealth = 2
 	resistance = -1
 	stage_speed = -2
 	transmittable = -1
 	level = 6
-	passive_message = span_notice("You feel tingling on your skin as light passes over it.")
+	passive_message = span_notice("Чувствую покалывание на коже при прохождении через нее света.")
 	threshold_descs = list(
-		"Stage Speed 8" = "Doubles healing speed.",
+		"Скорость 8" = "Удваивает скорость исцеления.",
 	)
 
 /datum/symptom/heal/darkness/Start(datum/disease/advance/A)
@@ -206,7 +205,7 @@
 		return
 
 	if(prob(5))
-		to_chat(M, span_notice("The darkness soothes and mends your wounds."))
+		to_chat(M, span_notice("Тьма успокаивает и лечит раны."))
 
 	for(var/obj/item/bodypart/L in parts)
 		if(L.heal_damage(heal_amt/parts.len, heal_amt/parts.len * 0.5, null, BODYPART_ORGANIC)) //more effective on brute
@@ -219,21 +218,21 @@
 	return FALSE
 
 /datum/symptom/heal/coma
-	name = "Regenerative Coma"
-	desc = "The virus causes the host to fall into a death-like coma when severely damaged, then rapidly fixes the damage."
+	name = "Регенеративная кома"
+	desc = "Вирус заставляет хозяина впадать в смертельную кому при серьезном повреждении, а затем быстро устраняет повреждения."
 	stealth = 0
 	resistance = 2
 	stage_speed = -3
 	transmittable = -2
 	level = 8
-	passive_message = span_notice("The pain from your wounds makes you feel oddly sleepy...")
+	passive_message = span_notice("Боль от ран заставляет чувствовать странную сонливость...")
 	var/deathgasp = FALSE
 	var/stabilize = FALSE
 	var/active_coma = FALSE //to prevent multiple coma procs
 	threshold_descs = list(
-		"Stealth 2" = "Host appears to die when falling into a coma.",
-		"Resistance 4" = "The virus also stabilizes the host while they are in critical condition.",
-		"Stage Speed 7" = "Increases healing speed.",
+		"Скрытность 2" = "Хозяин, кажется, умирает при впадении в кому.",
+		"Сопротивление 4" = "Вирус также стабилизирует хозяина, пока он находится в критическом состоянии.",
+		"Скорость 7" = "Увеличивает скорость исцеления.",
 	)
 
 /datum/symptom/heal/coma/Start(datum/disease/advance/A)
@@ -274,7 +273,7 @@
 		if(SOFT_CRIT)
 			return power * 0.5
 	if(M.getBruteLoss() + M.getFireLoss() >= 70 && !active_coma)
-		to_chat(M, span_warning("You feel yourself slip into a regenerative coma..."))
+		to_chat(M, span_warning("Пора спать..."))
 		active_coma = TRUE
 		addtimer(CALLBACK(src, .proc/coma, M), 60)
 
@@ -314,18 +313,18 @@
 	return FALSE
 
 /datum/symptom/heal/water
-	name = "Tissue Hydration"
-	desc = "The virus uses excess water inside and outside the body to repair damaged tissue cells. More effective when using holy water and against burns."
+	name = "Увлажнение тканей"
+	desc = "Вирус использует избыток воды внутри и снаружи тела для восстановления поврежденных клеток ткани. Более эффективен при использовании святой воды и против ожогов."
 	stealth = 0
 	resistance = -1
 	stage_speed = 0
 	transmittable = 1
 	level = 6
-	passive_message = span_notice("Your skin feels oddly dry...")
+	passive_message = span_notice("Кожа очень сухая...")
 	var/absorption_coeff = 1
 	threshold_descs = list(
-		"Resistance 5" = "Water is consumed at a much slower rate.",
-		"Stage Speed 7" = "Increases healing speed.",
+		"Сопротивление 5" = "Вода расходуется гораздо медленнее.",
+		"Скорость 7" = "Увеличивает скорость исцеления.",
 	)
 
 /datum/symptom/heal/water/Start(datum/disease/advance/A)
@@ -348,6 +347,9 @@
 	else if(M.reagents.has_reagent(/datum/reagent/water, needs_metabolizing = FALSE))
 		M.reagents.remove_reagent(/datum/reagent/water, 0.5 * absorption_coeff)
 		. += power * 0.5
+	else if(M.hydration)
+		M.hydration -= 0.5 * absorption_coeff
+		. += power * 0.25
 
 /datum/symptom/heal/water/Heal(mob/living/carbon/M, datum/disease/advance/A, actual_power)
 	var/heal_amt = 2 * actual_power
@@ -358,7 +360,7 @@
 		return
 
 	if(prob(5))
-		to_chat(M, span_notice("You feel yourself absorbing the water around you to soothe your damaged skin."))
+		to_chat(M, span_notice("Чувствую, что впитываю воду вокруг себя, чтобы успокоить поврежденную кожу."))
 
 	for(var/obj/item/bodypart/L in parts)
 		if(L.heal_damage(heal_amt/parts.len * 0.5, heal_amt/parts.len, null, BODYPART_ORGANIC))
@@ -372,18 +374,18 @@
 	return FALSE
 
 /datum/symptom/heal/plasma
-	name = "Plasma Fixation"
-	desc = "The virus draws plasma from the atmosphere and from inside the body to heal and stabilize body temperature."
+	name = "Плазменная фиксация"
+	desc = "Вирус вытягивает плазму из атмосферы и изнутри тела, чтобы лечить и стабилизировать температуру тела."
 	stealth = 0
 	resistance = 3
 	stage_speed = -2
 	transmittable = -2
 	level = 8
-	passive_message = span_notice("You feel an odd attraction to plasma.")
+	passive_message = span_notice("Чувствую странную тягу к плазме.")
 	var/temp_rate = 1
 	threshold_descs = list(
-		"Transmission 6" = "Increases temperature adjustment rate.",
-		"Stage Speed 7" = "Increases healing speed.",
+		"Передача 6" = "Увеличивает скорость регулировки температуры.",
+		"Скорость 7" = "Увеличивает скорость исцеления.",
 	)
 
 /datum/symptom/heal/plasma/Start(datum/disease/advance/A)
@@ -412,17 +414,17 @@
 	var/heal_amt = 4 * actual_power
 
 	if(prob(5))
-		to_chat(M, span_notice("You feel yourself absorbing plasma inside and around you..."))
+		to_chat(M, span_notice("Чувствуете, что поглощаю плазму внутри и вокруг себя..."))
 
 	var/target_temp = M.get_body_temp_normal()
 	if(M.bodytemperature > target_temp)
 		M.adjust_bodytemperature(-20 * temp_rate * TEMPERATURE_DAMAGE_COEFFICIENT, target_temp)
 		if(prob(5))
-			to_chat(M, span_notice("You feel less hot."))
+			to_chat(M, span_notice("Уже не так жарко."))
 	else if(M.bodytemperature < (M.get_body_temp_normal() + 1))
 		M.adjust_bodytemperature(20 * temp_rate * TEMPERATURE_DAMAGE_COEFFICIENT, 0, target_temp)
 		if(prob(5))
-			to_chat(M, span_notice("You feel warmer."))
+			to_chat(M, span_notice("Тепло."))
 
 	M.adjustToxLoss(-heal_amt)
 
@@ -430,7 +432,7 @@
 	if(!parts.len)
 		return
 	if(prob(5))
-		to_chat(M, span_notice("The pain from your wounds fades rapidly."))
+		to_chat(M, span_notice("Боль от ран быстро исчезает."))
 	for(var/obj/item/bodypart/L in parts)
 		if(L.heal_damage(heal_amt/parts.len, heal_amt/parts.len, null, BODYPART_ORGANIC))
 			M.update_damage_overlays()
@@ -438,8 +440,8 @@
 
 
 /datum/symptom/heal/radiation
-	name = "Radioactive Resonance"
-	desc = "The virus uses radiation to fix damage through dna mutations."
+	name = "Радиоактивный резонанс"
+	desc = "Вирус использует радиацию, чтобы исправить повреждения, вызванные мутациями ДНК."
 	stealth = -1
 	resistance = -2
 	stage_speed = 2
@@ -447,11 +449,11 @@
 	level = 6
 	symptom_delay_min = 1
 	symptom_delay_max = 1
-	passive_message = span_notice("Your skin glows faintly for a moment.")
+	passive_message = span_notice("Кожа на мгновение слегка светится.")
 	var/cellular_damage = FALSE
 	threshold_descs = list(
-		"Transmission 6" = "Additionally heals cellular damage.",
-		"Resistance 7" = "Increases healing speed.",
+		"Передача 6" = "Дополнительно лечит повреждение клеток.",
+		"Сопротивление 7" = "Увеличивает скорость исцеления.",
 	)
 
 /datum/symptom/heal/radiation/Start(datum/disease/advance/A)
@@ -492,7 +494,7 @@
 		return
 
 	if(prob(4))
-		to_chat(M, span_notice("Your skin glows faintly, and you feel your wounds mending themselves."))
+		to_chat(M, span_notice("Кожа светится тускло, раны понемногу затягиваются."))
 
 	for(var/obj/item/bodypart/L in parts)
 		if(L.heal_damage(heal_amt/parts.len, heal_amt/parts.len, null, BODYPART_ORGANIC))

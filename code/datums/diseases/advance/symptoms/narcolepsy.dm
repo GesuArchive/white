@@ -14,7 +14,7 @@ Bonus
 */
 /datum/symptom/narcolepsy
 	name = "Нарколепсия"
-	desc = "The virus causes a hormone imbalance, making the host sleepy and narcoleptic."
+	desc = "Вирус вызывает гормональный дисбаланс, вызывая сонливость и нарколепсию."
 	stealth = -1
 	resistance = -2
 	stage_speed = -3
@@ -25,8 +25,8 @@ Bonus
 	severity = 4
 	var/yawning = FALSE
 	threshold_descs = list(
-		"Transmission 4" = "Causes the host to periodically emit a yawn that spreads the virus in a manner similar to that of a sneeze.",
-		"Stage Speed 10" = "Causes narcolepsy more often, increasing the chance of the host falling asleep.",
+		"Передача 4" = "Заставляет хозяина периодически зевать, распространяя вирус аналогично чиханию.",
+		"Скорость 10" = "Чаще вызывает нарколепсию, увеличивая вероятность того, что хозяин заснет.",
 	)
 
 /datum/symptom/narcolepsy/Start(datum/disease/advance/A)
@@ -43,19 +43,19 @@ Bonus
 	switch(A.stage)
 		if(1)
 			if(prob(50))
-				to_chat(M, span_warning("You feel tired."))
+				to_chat(M, span_warning("Надо отдохнуть."))
 		if(2)
 			if(prob(50))
-				to_chat(M, span_warning("You feel very tired."))
+				to_chat(M, span_warning("Надо подремать."))
 		if(3)
 			if(prob(50))
-				to_chat(M, span_warning("Пытаюсь focus on staying awake."))
+				to_chat(M, span_warning("Пытаюсь не заснуть."))
 			if(M.drowsyness < 70)
 				M.drowsyness += 5
 		if(4)
 			if(prob(50))
 				if(yawning)
-					to_chat(M, span_warning("You try and fail to suppress a yawn."))
+					to_chat(M, span_warning("Пытаюсь не зевнуть."))
 				else
 					to_chat(M, span_warning("Засыпаю на мгновение.")) //you can't really yawn while nodding off, can you?
 			if(M.drowsyness < 70)
@@ -66,7 +66,7 @@ Bonus
 					A.spread(6)
 		if(5)
 			if(prob(50))
-				to_chat(M, span_warning("[pick("So tired...","You feel very sleepy.","You have a hard time keeping your eyes open.","You try to stay awake.")]"))
+				to_chat(M, span_warning("[pick("Спать...","Очень хочется спать.","Трудно держать глаза открытыми.","Пытаюсь не заснуть.")]"))
 			if(M.drowsyness < 70)
 				M.drowsyness += 40
 			if(yawning)

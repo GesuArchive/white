@@ -17,8 +17,8 @@ Bonus
 
 /datum/symptom/voice_change
 
-	name = "Voice Change"
-	desc = "The virus alters the pitch and tone of the host's vocal cords, changing how their voice sounds."
+	name = "Изменение голоса"
+	desc = "Вирус изменяет высоту и тон голосовых связок хозяина, изменяя звучание их голоса."
 	stealth = -1
 	resistance = -2
 	stage_speed = -2
@@ -31,9 +31,9 @@ Bonus
 	var/scramble_language = FALSE
 	var/datum/language/current_language
 	threshold_descs = list(
-		"Transmission 14" = "The host's language center of the brain is damaged, leading to complete inability to speak or understand any language.",
-		"Stage Speed 7" = "Changes voice more often.",
-		"Stealth 3" = "The symptom remains hidden until active."
+		"Передача 14" = "Языковой центр мозга хозяина поврежден, что приводит к полной неспособности говорить или понимать какой-либо язык.",
+		"Скорость 7" = "Чаще меняет голос.",
+		"Скрытность 3" = "Симптом остается скрытым до тех пор, пока не станет активным."
 	)
 
 /datum/symptom/voice_change/Start(datum/disease/advance/A)

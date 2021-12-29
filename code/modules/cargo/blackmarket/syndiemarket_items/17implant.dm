@@ -79,7 +79,7 @@
 	availability_prob = 25
 
 /datum/blackmarket_item/simplants/stealthimplant
-	name = "Stealth Implant"
+	name = "Скрытность Implant"
 	desc = "This one-of-a-kind implant will make you almost invisible if you play your cards right. \
 			On activation, it will conceal you inside a chameleon cardboard box that is only revealed once someone bumps into it."
 	item = /obj/item/storage/box/syndie_kit/imp_stealth

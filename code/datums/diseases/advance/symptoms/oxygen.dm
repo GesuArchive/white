@@ -17,8 +17,8 @@ Bonus
 
 /datum/symptom/oxygen
 
-	name = "Self-Respiration"
-	desc = "The virus rapidly synthesizes oxygen, effectively removing the need for breathing."
+	name = "Самодыхание"
+	desc = "Вирус быстро синтезирует кислород, эффективно устраняя потребность в дыхании."
 	stealth = 1
 	resistance = -3
 	stage_speed = -3
@@ -29,7 +29,7 @@ Bonus
 	symptom_delay_max = 1
 	var/regenerate_blood = FALSE
 	threshold_descs = list(
-		"Resistance 8" = "Additionally regenerates lost blood."
+		"Сопротивление 8" = "Дополнительно восстанавливает потерянную кровь."
 	)
 
 /datum/symptom/oxygen/Start(datum/disease/advance/A)
@@ -50,7 +50,7 @@ Bonus
 				M.blood_volume += 1
 		else
 			if(prob(base_message_chance))
-				to_chat(M, span_notice("[pick("Your lungs feel great.", "You realize you haven't been breathing.", "You don't feel the need to breathe.")]"))
+				to_chat(M, span_notice("[pick("Лёгким стало легче.", "Можно не дышать.", "Могу обходиться без дыхания.")]"))
 	return
 
 /datum/symptom/oxygen/on_stage_change(datum/disease/advance/A)

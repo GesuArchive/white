@@ -21,8 +21,8 @@ Bonus
 
 /datum/symptom/vomit
 
-	name = "Vomiting"
-	desc = "The virus causes nausea and irritates the stomach, causing occasional vomit."
+	name = "Рвота"
+	desc = "Вирус вызывает тошноту и раздражает желудок, иногда вызывая рвоту."
 	stealth = -2
 	resistance = -1
 	stage_speed = -1
@@ -35,9 +35,9 @@ Bonus
 	var/vomit_blood = FALSE
 	var/proj_vomit = 0
 	threshold_descs = list(
-		"Resistance 7" =  "Host will vomit blood, causing internal damage.",
-		"Transmission 7" =  "Host will projectile vomit, increasing vomiting range.",
-		"Stealth 4" =  "The symptom remains hidden until active."
+		"Сопротивление 7" =  "Хозяина будет рвать кровью, что приведет к повреждению внутренних органов.",
+		"Передача 7" =  "Хозяина рвёт струёй, увеличивая дальность рвоты.",
+		"Скрытность 4" =  "Симптом остается скрытым до тех пор, пока не станет активным."
 	)
 
 /datum/symptom/vomit/Start(datum/disease/advance/A)

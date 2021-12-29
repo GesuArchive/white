@@ -18,8 +18,8 @@ BONUS
 
 /datum/symptom/headache
 
-	name = "Headache"
-	desc = "The virus causes inflammation inside the brain, causing constant headaches."
+	name = "Головная боль"
+	desc = "Вирус вызывает воспаление внутри мозга, вызывая постоянные головные боли."
 	stealth = -1
 	resistance = 4
 	stage_speed = 2
@@ -30,9 +30,9 @@ BONUS
 	symptom_delay_min = 15
 	symptom_delay_max = 30
 	threshold_descs = list(
-		"Stage Speed 6" = "Headaches will cause severe pain, that weakens the host.",
-		"Stage Speed 9" = "Headaches become less frequent but far more intense, preventing any action from the host.",
-		"Stealth 4" = "Reduces headache frequency until later stages.",
+		"Скорость 6" = "Головные боли вызывают сильную боль, которая ослабляет хозяина.",
+		"Скорость 9" = "Головные боли становятся менее частыми, но гораздо более интенсивными, что не позволяет хозяину выполнять какие-либо действия.",
+		"Скрытность 4" = "Уменьшает частоту головной боли до более поздних стадий.",
 	)
 
 /datum/symptom/headache/Start(datum/disease/advance/A)

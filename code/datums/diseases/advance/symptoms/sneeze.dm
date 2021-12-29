@@ -17,8 +17,8 @@ Bonus
 */
 
 /datum/symptom/sneeze
-	name = "Sneezing"
-	desc = "The virus causes irritation of the nasal cavity, making the host sneeze occasionally. Sneezes from this symptom will spread the virus in a 4 meter cone in front of the host."
+	name = "Чихание"
+	desc = "Вирус вызывает раздражение носовой полости, иногда заставляя хозяина чихать. Чихание, вызванное этим симптомом, будет распространять вирус в конусе длиной 4 метра перед носителем."
 	stealth = -2
 	resistance = 3
 	stage_speed = 0
@@ -30,9 +30,9 @@ Bonus
 	var/spread_range = 4
 	var/cartoon_sneezing = FALSE //ah, ah, AH, AH-CHOO!!
 	threshold_descs = list(
-		"Transmission 9" = "Increases sneezing range, spreading the virus over 6 meter cone instead of over a 4 meter cone.",
-		"Stealth 4" = "The symptom remains hidden until active.",
-		"Stage Speed 17" = "The force of each sneeze catapults the host backwards, potentially stunning and lightly damaging them if they hit a wall or another person mid-flight."
+		"Передача 9" = "Увеличивает дальность чихания, распространяя вирус по конусу длиной 6 метров вместо конуса длиной 4 метра.",
+		"Скрытность 4" = "Симптом остается скрытым до тех пор, пока не станет активным.",
+		"Скорость 17" = "Сила каждого чихания отбрасывает носителя назад, потенциально оглушая его и слегка повреждая его, если он ударится о стену или другого человека в полете."
 	)
 
 /datum/symptom/sneeze/Start(datum/disease/advance/A)

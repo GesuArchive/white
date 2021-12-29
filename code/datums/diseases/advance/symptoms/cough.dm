@@ -19,7 +19,7 @@ BONUS
 /datum/symptom/cough
 
 	name = "Кашель"
-	desc = "The virus irritates the throat of the host, causing occasional coughing. Each cough will try to infect bystanders who are within 1 tile of the host with the virus."
+	desc = "Вирус раздражает горло хозяина, вызывая периодический кашель. Каждый кашель будет пытаться заразить вирусом прохожих, находящихся в пределах 1 клетки от хозяина."
 	stealth = -1
 	resistance = 3
 	stage_speed = 1
@@ -31,11 +31,11 @@ BONUS
 	symptom_delay_max = 15
 	var/spread_range = 1
 	threshold_descs = list(
-		"Resistance 11" = "The host will drop small items when coughing.",
-		"Resistance 15" = "Occasionally causes coughing fits that stun the host. The extra coughs do not spread the virus.",
-		"Stage Speed 6" = "Increases cough frequency.",
-		"Transmission 7" = "Coughing will now infect bystanders up to 2 tiles away.",
-		"Stealth 4" = "The symptom remains hidden until active.",
+		"Сопротивление 11" = "При кашле хозяин роняет мелкие предметы.",
+		"Сопротивление 15" = "Иногда вызывает приступы кашля, оглушающие хозяина. Дополнительный кашель не распространяет вирус.",
+		"Скорость 6" = "Увеличивает частоту кашля.",
+		"Передача 7" = "Кашель теперь поражает посторонних на расстоянии до 2 клеток.",
+		"Скрытность 4" = "Симптом остается скрытым до тех пор, пока не станет активным.",
 	)
 
 /datum/symptom/cough/Start(datum/disease/advance/A)
@@ -61,7 +61,7 @@ BONUS
 	switch(A.stage)
 		if(1, 2, 3)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, "<span notice='warning'>[pick("Сглатываю излишки слизи.", "Я слегка покашливаю.")]</span>")
+				to_chat(M, "<span notice='warning'>[pick("Сглатываю излишки слизи.", "Слегка покашливаю.")]</span>")
 		else
 			M.emote("cough")
 			if(M.CanSpreadAirborneDisease())
@@ -71,7 +71,7 @@ BONUS
 				if(I && I.w_class == WEIGHT_CLASS_TINY)
 					M.dropItemToGround(I)
 			if(power >= 2 && prob(30))
-				to_chat(M, "<span notice='userdanger'>[pick("You have a coughing fit!", "You can't stop coughing!")]</span>")
+				to_chat(M, "<span notice='userdanger'>[pick("Кашель давит!", "Не могу перестать кашлять!")]</span>")
 				M.Immobilize(20)
 				addtimer(CALLBACK(M, /mob/.proc/emote, "cough"), 6)
 				addtimer(CALLBACK(M, /mob/.proc/emote, "cough"), 12)
