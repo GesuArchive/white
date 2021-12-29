@@ -72,7 +72,6 @@
 #define FRAME_DEFINE(id) /obj/structure/sign/picture_frame/##id/persistence_id = #id
 
 FRAME_DEFINE(centcom)
-	desc = "Для особенных дятлов."
 
 //Put default persistent frame defines here!
 
