@@ -54,14 +54,17 @@
 			if(nutrition < NUTRITION_LEVEL_STARVING)
 				to_chat(src, span_warning("[pick("Голодно...", "Кушать хочу...", "Вот бы что-нибудь съесть...", "Мой живот урчит...")]"))
 				take_overall_damage(stamina = 60)
-			var/obj/item/organ/O = getorganslot(ORGAN_SLOT_KIDNEYS)
-			switch(O.reagents.total_volume)
-				if((O.reagents.maximum_volume - 25) to (O.reagents.maximum_volume - 15))
-					to_chat(src, span_warning("[pick("Где тут уборная?", "Хочу в туалет.", "Надо в туалет.")]"))
-				if((O.reagents.maximum_volume -14) to (O.reagents.maximum_volume - 10))
-					to_chat(src, span_warning("[pick("СРОЧНО В ТУАЛЕТ!", "Я СЕЙЧАС ОПИСАЮСЬ!", "ХОЧУ В ТУАЛЕТ!")]"))
-				if((O.reagents.maximum_volume - 9) to INFINITY)
-					try_pee()
+			var/obj/item/organ/O = internal_organs_slot[ORGAN_SLOT_KIDNEYS]
+			if(O?.reagents.total_volume)
+				var/urine_amount = O.reagents.get_reagent_amount(/datum/reagent/toxin/urine)
+				var/max_amount = O.reagents.maximum_volume
+				switch(urine_amount)
+					if((max_amount - 25) to (max_amount - 15))
+						to_chat(src, span_warning("[pick("Где тут уборная?", "Хочу в туалет.", "Надо в туалет.")]"))
+					if((max_amount -14) to (max_amount - 10))
+						to_chat(src, span_warning("[pick("СРОЧНО В ТУАЛЕТ!", "Я СЕЙЧАС ОПИСАЮСЬ!", "ХОЧУ В ТУАЛЕТ!")]"))
+					if((max_amount - 9) to INFINITY)
+						try_pee()
 			switch(pooition)
 				if(75 to 100)
 					to_chat(src, span_warning("[pick("Где тут уборная?", "Хочу в туалет.", "Надо в туалет.")]"))
@@ -373,13 +376,14 @@
 	return
 
 /mob/living/carbon/human/try_pee(forced_pee = FALSE)
-	var/obj/item/organ/O = getorganslot(ORGAN_SLOT_KIDNEYS)
+	var/obj/item/organ/O = internal_organs_slot[ORGAN_SLOT_KIDNEYS]
 	var/bloody = FALSE
 	var/peeed = FALSE // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 	if(O.damage > 51)
 		bloody = TRUE
 	var/turf/T = get_turf(src)
 	var/atom/target = null
+	var/obj/effect/decal/cleanable/mocha = bloody ?  new/obj/effect/decal/cleanable/blood(get_turf(src)) : new /obj/effect/decal/cleanable/urine(get_turf(src))
 	for(var/atom/A in T)
 		if(istype(A, /obj/structure/toilet) || istype(A, /obj/item/reagent_containers))
 			target = A
@@ -395,8 +399,6 @@
 			visible_message(span_notice("<b>[src]</b> писает[bloody ? " кровью" : ""] в [target]!"), span_notice("Писаю[bloody ? " кровью" : ""] в [target]."))
 			playsound(src, 'sound/effects/splat.ogg', 50, 1)
 	else
-		var/obj/effect/decal/cleanable/mocha = bloody ?  new/obj/effect/decal/cleanable/blood(get_turf(src)) : new /obj/effect/decal/cleanable/urine(get_turf(src))
-
 		if(w_uniform)
 			if(O.reagents.trans_to(mocha, 5, transfered_by = src) && !bloody)
 				peeed = TRUE
@@ -428,6 +430,7 @@
 		if(!peeed)
 			qdel(mocha)
 	if(!peeed)
+		qdel(mocha) // this is how we deal bussines
 		to_chat(src, span_notice("Нечем мочиться!"))
 
 #undef THERMAL_PROTECTION_HEAD

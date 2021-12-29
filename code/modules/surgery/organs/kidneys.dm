@@ -16,7 +16,6 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5)
 
 	var/metabolism_efficiency = 0.05
-	var/operated = FALSE
 
 	reagent_vol = 100
 
