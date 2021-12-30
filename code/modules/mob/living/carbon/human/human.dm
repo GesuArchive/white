@@ -987,10 +987,14 @@
 /mob/living/carbon/human/adjust_nutrition(change) //Honestly FUCK the oldcoders for putting nutrition on /mob someone else can move it up because holy hell I'd have to fix SO many typechecks
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
 		return FALSE
+	if(!getorganslot(ORGAN_SLOT_GUTS))
+		return FALSE
 	return ..()
 
 /mob/living/carbon/human/set_nutrition(change) //Seriously fuck you oldcoders.
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
+		return FALSE
+	if(!getorganslot(ORGAN_SLOT_GUTS))
 		return FALSE
 	return ..()
 

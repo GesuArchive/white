@@ -64,13 +64,16 @@
 						to_chat(src, span_warning("[pick("СРОЧНО В ТУАЛЕТ!", "Я СЕЙЧАС ОПИСАЮСЬ!", "ХОЧУ В ТУАЛЕТ!")]"))
 					if(96 to INFINITY)
 						try_pee()
-			switch(pooition)
-				if(75 to 100)
-					to_chat(src, span_warning("[pick("Где тут уборная?", "Хочу в туалет.", "Надо в туалет.")]"))
-				if(101 to 129)
-					to_chat(src, span_warning("[pick("СРОЧНО В ТУАЛЕТ!", "ЖОПНЫЙ КЛАПАН НА ПРЕДЕЛЕ!", "ХОЧУ В ТУАЛЕТ!")]"))
-				if(130 to INFINITY)
-					try_poo()
+			var/obj/item/organ/G = internal_organs_slot[ORGAN_SLOT_GUTS]
+			if(G?.reagents.total_volume)
+				var/poo_amount = G.reagents.get_reagent_amount(/datum/reagent/toxin/poo)
+				switch(poo_amount)
+					if(75 to 100)
+						to_chat(src, span_warning("[pick("Где тут уборная?", "Хочу в туалет.", "Надо в туалет.")]"))
+					if(101 to 129)
+						to_chat(src, span_warning("[pick("СРОЧНО В ТУАЛЕТ!", "ЖОПНЫЙ КЛАПАН НА ПРЕДЕЛЕ!", "ХОЧУ В ТУАЛЕТ!")]"))
+					if(130 to INFINITY)
+						try_poo()
 		return TRUE
 
 
@@ -382,13 +385,16 @@
 		bloody = TRUE
 	var/turf/T = get_turf(src)
 	var/atom/target = null
-	var/obj/effect/decal/cleanable/mocha = bloody ?  new/obj/effect/decal/cleanable/blood(get_turf(src)) : new /obj/effect/decal/cleanable/urine(get_turf(src))
+	var/obj/effect/decal/cleanable/mocha = bloody ?  new /obj/effect/decal/cleanable/blood(get_turf(src)) : new /obj/effect/decal/cleanable/urine(get_turf(src))
 	for(var/atom/A in T)
+		if(istype(A, /obj/effect/decal/cleanable/urine))
+			mocha = A
+			break
 		if(istype(A, /obj/structure/toilet) || istype(A, /obj/item/reagent_containers))
 			target = A
 			break
 	if(target)
-		if(O.reagents.trans_to(target, 10, transfered_by = src) && !bloody)
+		if(O.reagents.trans_to(target, 50, transfered_by = src) && !bloody)
 			peeed = TRUE
 		else if(forced_pee)
 			peeed = TRUE
@@ -397,17 +403,18 @@
 		if(peeed)
 			visible_message(span_notice("<b>[src]</b> писает[bloody ? " кровью" : ""] в [target]!"), span_notice("Писаю[bloody ? " кровью" : ""] в [target]."))
 			playsound(src, 'sound/effects/splat.ogg', 50, 1)
+			qdel(mocha)
 	else
 		if(w_uniform)
-			if(O.reagents.trans_to(mocha, 5, transfered_by = src) && !bloody)
+			if(O.reagents.trans_to(mocha, 25, transfered_by = src) && !bloody)
 				peeed = TRUE
 			else if(forced_pee)
 				peeed = TRUE
 				Stun(4 SECONDS)
 				add_blood_DNA(return_blood_DNA())
 				O.setOrganDamage(1)
-				blood_volume -= 10
-				mocha.reagents.add_reagent(/datum/reagent/blood, 10)
+				blood_volume -= 50
+				mocha.reagents.add_reagent(/datum/reagent/blood, 50)
 			if(peeed)
 				extinguish_mob()
 				visible_message("<b>[capitalize(src.name)]</b> мочится себе в трусы[bloody ? " кровью" : ""]!")
@@ -417,13 +424,13 @@
 						if(ishuman(M) && M != src)
 							M.emote("laugh")
 		else
-			if(O.reagents.trans_to(mocha, 10, transfered_by = src) && !bloody)
+			if(O.reagents.trans_to(mocha, 50, transfered_by = src) && !bloody)
 				peeed = TRUE
 			else if(forced_pee)
 				Stun(2 SECONDS)
 				O.setOrganDamage(1)
-				blood_volume -= 10
-				mocha.reagents.add_reagent(/datum/reagent/blood, 10)
+				blood_volume -= 50
+				mocha.reagents.add_reagent(/datum/reagent/blood, 50)
 			if(peeed)
 				visible_message("<b>[capitalize(src.name)]</b> обильно ссыт[bloody ? " кровью" : ""] на пол!")
 				playsound(src, 'sound/effects/splat.ogg', 50, 1)

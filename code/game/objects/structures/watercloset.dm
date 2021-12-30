@@ -16,7 +16,8 @@
 	. = ..()
 	open = round(rand(0, 1))
 	update_icon()
-
+	if(!reagents)
+		create_reagents(500, OPENCONTAINER)
 
 /obj/structure/toilet/attack_hand(mob/living/user)
 	. = ..()
@@ -144,7 +145,7 @@
 			cube.Expand()
 			return
 		var/obj/item/reagent_containers/RG = I
-		RG.reagents.add_reagent(/datum/reagent/water, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
+		reagents.trans_to(RG, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
 		to_chat(user, span_notice("You fill [RG] from [src]. Gross."))
 		return TRUE
 	. = ..()

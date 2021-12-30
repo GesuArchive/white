@@ -1405,7 +1405,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						hair_grad_color = sanitize_hexcolor(new_grad_color)
 
 				if("facial_grad_style")
-					var/new_grad_style = input(user, "Choose a color pattern for your facial:", "Character Preference")  as null|anything in GLOB.hair_gradients_list
+					var/new_grad_style = input(user, "Choose a color pattern for your facial:", "Character Preference")  as null|anything in GLOB.facial_hair_gradients_list
 					if(new_grad_style)
 						facial_grad_style = new_grad_style
 
@@ -2136,13 +2136,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	character.facial_hair_color = facial_hair_color
 
 	LAZYSETLEN(character.grad_color, GRADIENTS_LEN)
+	LAZYSETLEN(character.grad_style, GRADIENTS_LEN)
 	character.grad_color[GRADIENT_HAIR_KEY] = hair_grad_color
-	LAZYSETLEN(character.grad_style, GRADIENTS_LEN)
 	character.grad_style[GRADIENT_HAIR_KEY] = hair_grad_style
-
-	LAZYSETLEN(character.grad_color, GRADIENTS_LEN)
 	character.grad_color[GRADIENT_FACIAL_HAIR_KEY] = facial_grad_color
-	LAZYSETLEN(character.grad_style, GRADIENTS_LEN)
 	character.grad_style[GRADIENT_FACIAL_HAIR_KEY] = facial_grad_style
 
 	character.skin_tone = skin_tone
