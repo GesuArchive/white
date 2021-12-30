@@ -129,8 +129,8 @@
 /mob/living/proc/try_poo()
 	var/list/random_poo = list("покакунькивает", "срёт", "какает", "производит акт дефекации", "обсирается", "выдавливает какулину")
 	if(ishuman(src))
-		var/obj/item/organ/guts = artist.internal_organs_slot[ORGAN_SLOT_GUTS]
 		var/mob/living/carbon/human/H = src
+		var/obj/item/organ/guts = H.internal_organs_slot[ORGAN_SLOT_GUTS]
 		var/turf/T = get_turf(src)
 		var/poo_amount = guts.reagents.get_reagent_amount(/datum/reagent/toxin/poo)
 		if(poo_amount >= 25)
