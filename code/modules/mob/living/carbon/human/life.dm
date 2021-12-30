@@ -409,6 +409,7 @@
 				blood_volume -= 10
 				mocha.reagents.add_reagent(/datum/reagent/blood, 10)
 			if(peeed)
+				extinguish_mob()
 				visible_message("<b>[capitalize(src.name)]</b> мочится себе в трусы[bloody ? " кровью" : ""]!")
 				playsound(src, 'sound/effects/splat.ogg', 50, 1)
 				if(!bloody)
