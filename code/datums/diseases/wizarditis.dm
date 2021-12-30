@@ -1,15 +1,15 @@
 /datum/disease/wizarditis
-	name = "Wizarditis"
+	name = "Визардитис"
 	max_stages = 4
-	spread_text = "Airborne"
-	cure_text = "The Manly Dorf"
+	spread_text = "Воздушное"
+	cure_text = "Мэнли Дорф"
 	cures = list(/datum/reagent/consumable/ethanol/manly_dorf)
 	cure_chance = 100
-	agent = "Rincewindus Vulgaris"
+	agent = "Ринсвиндус Вульгарис"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	disease_flags = CAN_CARRY|CAN_RESIST|CURABLE
 	permeability_mod = 0.75
-	desc = "Some speculate that this virus is the cause of the Space Wizard Federation's existence. Subjects affected show the signs of brain damage, yelling obscure sentences or total gibberish. On late stages subjects sometime express the feelings of inner power, and, cite, 'the ability to control the forces of cosmos themselves!' A gulp of strong, manly spirits usually reverts them to normal, humanlike, condition."
+	desc = "Некоторые предполагают, что этот вирус является причиной существования Федерации космических волшебников. Пострадавшие субъекты проявляют признаки повреждения мозга, выкрикивают непонятные предложения или полную тарабарщину. На поздних стадиях субъекты иногда выражают чувство внутренней силы и, цитируют, «способность управлять самими силами космоса!» Глоток сильных, мужественных духов обычно возвращает их в нормальное, человеческое состояние."
 	severity = DISEASE_SEVERITY_HARMFUL
 	required_organs = list(/obj/item/bodypart/head)
 
@@ -31,20 +31,20 @@ STI KALY - blind
 	switch(stage)
 		if(2)
 			if(DT_PROB(0.25, delta_time))
-				affected_mob.say(pick("You shall not pass!", "Expeliarmus!", "By Merlins beard!", "Feel the power of the Dark Side!"), forced = "wizarditis")
+				affected_mob.say(pick("Ты не пройдёшь!", "Экспеллиармус!", "Бородой Мерлина!", "Почувствуй мощь Темной стороны!"), forced = "wizarditis")
 			if(DT_PROB(0.25, delta_time))
-				to_chat(affected_mob, span_danger("You feel [pick("that you don't have enough mana", "that the winds of magic are gone", "an urge to summon familiar")]."))
+				to_chat(affected_mob, span_danger("Ощущаю, что [pick("у меня недостаточно маны", "потоки магии закончились", "надо кого-то призвать")]."))
 		if(3)
 			if(DT_PROB(0.25, delta_time))
 				affected_mob.say(pick("NEC CANTIO!","AULIE OXIN FIERA!", "STI KALY!", "TARCOL MINTI ZHERI!"), forced = "wizarditis")
 			if(DT_PROB(0.25, delta_time))
-				to_chat(affected_mob, span_danger("You feel [pick("the magic bubbling in your veins","that this location gives you a +1 to INT","an urge to summon familiar")]."))
+				to_chat(affected_mob, span_danger("Ощущаю [pick("кипящую магию в моих венах", "эта местность даёт мне +1 к INT", "надобность кого-то призвать")]."))
 		if(4)
 			if(DT_PROB(0.5, delta_time))
 				affected_mob.say(pick("NEC CANTIO!","AULIE OXIN FIERA!","STI KALY!","EI NATH!"), forced = "wizarditis")
 				return
 			if(DT_PROB(0.25, delta_time))
-				to_chat(affected_mob, span_danger("You feel [pick("the tidal wave of raw power building inside","that this location gives you a +2 to INT and +1 to WIS","an urge to teleport")]."))
+				to_chat(affected_mob, span_danger("Ощущаю [pick("приливную волну новой силы внутри меня", "эта местность даёт мне +2 к INT и +1 к WIS", "надобность телепортироваться")]."))
 				spawn_wizard_clothes(50)
 			if(DT_PROB(0.005, delta_time))
 				teleport()
