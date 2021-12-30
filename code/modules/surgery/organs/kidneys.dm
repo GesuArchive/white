@@ -36,10 +36,10 @@
 	if(uri?.volume > reagent_vol)
 		body.try_pee(TRUE)
 
-	if(body.hydration <= 5)
+	if(body?.hydration <= 5)
 		applyOrganDamage(1)
 
-	if(body.hydration)
+	if(body?.hydration)
 		body.hydration -= delta_time * metabolism_efficiency
 		reagents.add_reagent(/datum/reagent/toxin/urine, delta_time * metabolism_efficiency)
 
@@ -49,6 +49,9 @@
 	if(damage > high_threshold && DT_PROB(0.5 * damage, delta_time))
 		to_chat(body, span_warning("В боку болит и больше не выходит сдерживаться!"))
 		body.try_pee(TRUE)
+
+/obj/item/organ/kidneys/get_availability(datum/species/S)
+	return !(NOKIDNEYS in S.inherent_traits)
 
 /obj/item/organ/kidneys/fly
 	desc = "Почернели от ракетного топлива. Ну ксеносы, ну тупые!"

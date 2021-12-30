@@ -64,13 +64,16 @@
 						to_chat(src, span_warning("[pick("СРОЧНО В ТУАЛЕТ!", "Я СЕЙЧАС ОПИСАЮСЬ!", "ХОЧУ В ТУАЛЕТ!")]"))
 					if(96 to INFINITY)
 						try_pee()
-			switch(pooition)
-				if(75 to 100)
-					to_chat(src, span_warning("[pick("Где тут уборная?", "Хочу в туалет.", "Надо в туалет.")]"))
-				if(101 to 129)
-					to_chat(src, span_warning("[pick("СРОЧНО В ТУАЛЕТ!", "ЖОПНЫЙ КЛАПАН НА ПРЕДЕЛЕ!", "ХОЧУ В ТУАЛЕТ!")]"))
-				if(130 to INFINITY)
-					try_poo()
+			var/obj/item/organ/G = internal_organs_slot[ORGAN_SLOT_GUTS]
+			if(G?.reagents.total_volume)
+				var/poo_amount = G.reagents.get_reagent_amount(/datum/reagent/toxin/poo)
+				switch(poo_amount)
+					if(75 to 100)
+						to_chat(src, span_warning("[pick("Где тут уборная?", "Хочу в туалет.", "Надо в туалет.")]"))
+					if(101 to 129)
+						to_chat(src, span_warning("[pick("СРОЧНО В ТУАЛЕТ!", "ЖОПНЫЙ КЛАПАН НА ПРЕДЕЛЕ!", "ХОЧУ В ТУАЛЕТ!")]"))
+					if(130 to INFINITY)
+						try_poo()
 		return TRUE
 
 

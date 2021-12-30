@@ -129,9 +129,11 @@
 /mob/living/proc/try_poo()
 	var/list/random_poo = list("покакунькивает", "срёт", "какает", "производит акт дефекации", "обсирается", "выдавливает какулину")
 	if(ishuman(src))
+		var/obj/item/organ/guts = artist.internal_organs_slot[ORGAN_SLOT_GUTS]
 		var/mob/living/carbon/human/H = src
 		var/turf/T = get_turf(src)
-		if(H.pooition >= 25)
+		var/poo_amount = guts.reagents.get_reagent_amount(/datum/reagent/toxin/poo)
+		if(poo_amount >= 25)
 			if(HAS_TRAIT(H, TRAIT_LIGHT_POOER))
 				H.visible_message(span_notice("<b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] себе прямо в руку!") , \
 					span_notice("Выдавливаю какаху из своего тела."))
@@ -140,7 +142,7 @@
 				H.put_in_hands(P)
 				if(!H.throw_mode)
 					H.throw_mode_on(THROW_MODE_TOGGLE)
-				H.pooition -= 25
+				guts.reagents.remove_reagent(/datum/reagent/toxin/poo, 25)
 				SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 				return
 			else
@@ -148,7 +150,7 @@
 					H.visible_message(span_notice("<b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] себе в штаны!") , \
 						span_notice("Сру себе в штаны."))
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
-					H.pooition -= 25
+					guts.reagents.remove_reagent(/datum/reagent/toxin/poo, 25)
 					if(!H.pooed)
 						var/mutable_appearance/pooverlay = mutable_appearance('white/valtos/icons/poo.dmi')
 						pooverlay.icon_state = "uniformpoo"
@@ -163,7 +165,7 @@
 					H.visible_message(span_notice("<b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] в туалет!") , \
 						span_notice("Выдавливаю какаху прямиком в туалет."))
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
-					H.pooition -= 25
+					guts.reagents.remove_reagent(/datum/reagent/toxin/poo, 25)
 					SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 					return
 				else
@@ -171,7 +173,7 @@
 						span_notice("Выдавливаю какаху из своего тела."))
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
 					new /obj/item/food/poo(T)
-					H.pooition -= 25
+					guts.reagents.remove_reagent(/datum/reagent/toxin/poo, 25)
 					SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 					return
 		else if(H.stat == CONSCIOUS)

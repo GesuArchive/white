@@ -739,7 +739,7 @@
 		if(!i)
 			spawned_mobs -= i
 			continue
-		var/mob/living/artist = i
+		var/mob/living/carbon/human/artist = i
 		if(HAS_TRAIT(artist, TRAIT_CRITICAL_CONDITION) || artist.stat == DEAD || !artist.key)
 			spawned_mobs.Remove(artist)
 			artist.alpha = 0 //because dust animation does not hide the body while playing, which look really fuckiing weird
@@ -751,7 +751,9 @@
 			spawned_mobs.Remove(artist)
 			to_chat(artist, span_userdanger("Ох, лучше бы я не покидал Цирк...")) //let them know they fucked up
 			message_admins("Игрок [artist.ckey], будучи Артистом, каким-то образом сбежал из цирка, за что был казнён и лишён доступа к спавнеру до конца раунда. Такого быть не должно: выясните, как он этого добился и передайте кодербасу. Если же это произошло по вине админбаса, удалите сикей игрока из переменной спавнера (round_banned_ckeys). Позиция игрока на момент обнаружения побега: x=[artist.x], y=[artist.y], z=[artist.z], название зоны - [get_area_name(artist)]")
-			artist.pooition = 10000
+			var/obj/item/organ/O = artist.internal_organs_slot[ORGAN_SLOT_GUTS]
+			if(O)
+				O.reagents.add_reagent(/datum/reagent/toxin/poo, 10000)
 			artist.emote("agony")
 
 

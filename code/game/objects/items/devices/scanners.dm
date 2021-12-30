@@ -216,6 +216,10 @@ GENE SCANNER
 			render_list += "<span class='alert ml-1'>Нет печени.</span>\n"
 		if (!(NOSTOMACH in the_dudes_species.species_traits) && !the_dude.getorganslot(ORGAN_SLOT_STOMACH))
 			render_list += "<span class='alert ml-1'>Нет желудка.</span>\n"
+		if (!(NOKIDNEYS in the_dudes_species.species_traits) && !the_dude.getorganslot(ORGAN_SLOT_KIDNEYS))
+			render_list += "<span class='alert ml-1'>Нет почек.</span>\n"
+		if (!(NOGUTS in the_dudes_species.species_traits) && !the_dude.getorganslot(ORGAN_SLOT_GUTS))
+			render_list += "<span class='alert ml-1'>Нет кишок.</span>\n"
 
 	if(iscarbon(M))
 		var/mob/living/carbon/C = M
