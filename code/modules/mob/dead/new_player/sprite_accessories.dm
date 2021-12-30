@@ -868,7 +868,7 @@
 	gradient_category = GRADIENT_APPLIES_TO_HAIR
 
 /datum/sprite_accessory/gradient/striped
-	name = "striped"
+	name = "Striped"
 	icon_state = "striped"
 
 /datum/sprite_accessory/gradient/striped_vertical

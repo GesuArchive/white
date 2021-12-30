@@ -1405,7 +1405,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						hair_grad_color = sanitize_hexcolor(new_grad_color)
 
 				if("facial_grad_style")
-					var/new_grad_style = input(user, "Choose a color pattern for your facial:", "Character Preference")  as null|anything in GLOB.hair_gradients_list
+					var/new_grad_style = input(user, "Choose a color pattern for your facial:", "Character Preference")  as null|anything in GLOB.facial_hair_gradients_list
 					if(new_grad_style)
 						facial_grad_style = new_grad_style
 
