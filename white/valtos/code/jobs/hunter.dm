@@ -32,12 +32,12 @@
 	shoes = /obj/item/clothing/shoes/workboots/mining
 	gloves = /obj/item/clothing/gloves/color/black
 	uniform = /obj/item/clothing/under/rank/cargo/miner/lavaland
-	suit = /obj/item/clothing/suit/hooded/explorer
+	suit = /obj/item/clothing/suit/space/hardsuit/berserker
 	mask = /obj/item/clothing/mask/gas/explorer
 	glasses = /obj/item/clothing/glasses/meson/night
 	suit_store = /obj/item/tank/internals/oxygen/red
 	l_pocket = /obj/item/reagent_containers/hypospray/medipen/survival/luxury
-	r_pocket = /obj/item/kitchen/knife/combat/survival
+	r_pocket = /obj/item/kitchen/knife/combat
 	backpack_contents = list(
 		/obj/item/flashlight/seclite=1,\
 		/obj/item/mining_voucher=1,\
@@ -57,10 +57,10 @@
 	..()
 	if(visualsOnly)
 		return
-	if(istype(H.wear_suit, /obj/item/clothing/suit/hooded))
-		var/obj/item/clothing/suit/hooded/S = H.wear_suit
-		S.ToggleHood()
-	spawn(10)
+	if(istype(H.wear_suit, /obj/item/clothing/suit/space/hardsuit))
+		var/obj/item/clothing/suit/space/hardsuit/S = H.wear_suit
+		S.ToggleHelmet()
+	spawn(50)
 		var/obj/item/card/id/ID = H.get_idcard()
 		if(ID)
 			ID.mining_points = 2000
