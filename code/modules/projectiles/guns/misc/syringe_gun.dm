@@ -171,7 +171,7 @@
 /obj/item/gun/syringe/blowgun
 	name = "blowgun"
 	desc = "Стреляет шприцами на небольшой дистанции."
-	icon = 'icons/obj/guns/ballistic.dmi'
+	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "blowgun"
 	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
