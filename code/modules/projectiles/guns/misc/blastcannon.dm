@@ -20,8 +20,6 @@
 	item_flags = NONE
 	clumsy_check = FALSE
 	randomspread = FALSE
-	/// The icon state used when this is loaded with a bomb.
-	var/icon_state_loaded = "loaded_blastcannon"
 
 	/// The TTV this contains that will be used to create the projectile
 	var/obj/item/transfer_valve/bomb
