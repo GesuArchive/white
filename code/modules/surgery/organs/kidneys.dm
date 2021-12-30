@@ -61,7 +61,6 @@
 	organ_flags = ORGAN_SYNTHETIC
 	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.5
 	var/emp_vulnerability = 80
-	reagent_vol = 50
 	metabolism_efficiency = 0.07
 
 /obj/item/organ/kidneys/cybernetic/tier2
@@ -70,7 +69,6 @@
 	desc = "Усовершенствованное устройство, превосходящее функции человеческих почек."
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	emp_vulnerability = 40
-	reagent_vol = 150
 	metabolism_efficiency = 0.04
 
 /obj/item/organ/kidneys/cybernetic/tier3
@@ -79,7 +77,6 @@
 	desc = "Эта версия кибернетических почек имеет огромный внутренний запас."
 	maxHealth = 2 * STANDARD_ORGAN_THRESHOLD
 	emp_vulnerability = 20
-	reagent_vol = 200
 	metabolism_efficiency = 0.01
 
 /obj/item/organ/kidneys/cybernetic/emp_act(severity)

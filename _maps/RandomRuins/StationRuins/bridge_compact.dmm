@@ -82,15 +82,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
-"al" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/hallway/primary/central)
 "am" = (
 /obj/effect/turf_decal/plaque{
 	icon_state = "L1"
@@ -158,9 +149,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "ax" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
@@ -4121,12 +4109,6 @@
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
 "Rz" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
@@ -4758,7 +4740,7 @@ an
 ab
 ab
 ab
-al
+aj
 Bi
 cZ
 aK
@@ -4796,7 +4778,7 @@ ia
 ab
 ab
 ab
-al
+aj
 Bi
 cZ
 ep
@@ -4834,7 +4816,7 @@ ia
 ab
 ab
 ab
-ai
+aj
 Bi
 cr
 ep
@@ -4872,7 +4854,7 @@ ia
 ab
 ab
 ab
-az
+aj
 Bi
 cZ
 aK
@@ -4910,7 +4892,7 @@ ia
 ab
 ab
 ab
-az
+aj
 Bi
 cZ
 aK
@@ -4948,7 +4930,7 @@ ia
 ab
 Pc
 nd
-az
+aj
 Bi
 cZ
 aK
@@ -4986,7 +4968,7 @@ ia
 ab
 Pc
 nd
-az
+aj
 Bi
 cZ
 ep
@@ -5024,7 +5006,7 @@ ia
 ab
 eU
 uH
-az
+aj
 Bi
 hr
 ep

@@ -208,7 +208,7 @@
 	..()
 	unbuckle_mob(M)
 
-/obj/structure/bloodsucker/vassalrack/unbuckle_mob(mob/living/buckled_mob, force=FALSE)//, force=FALSE)
+/obj/structure/bloodsucker/vassalrack/unbuckle_mob(mob/living/buckled_mob, force = FALSE, can_fall = TRUE)
 	if (!..())
 		return
 	var/matrix/m180 = matrix(buckled_mob.transform)

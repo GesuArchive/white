@@ -22,7 +22,7 @@
 	form = "Спроектированное заболевание" // Will let med-scanners know that this disease was engineered.
 	agent = "спроектированные микробы"
 	max_stages = 5
-	spread_text = "Unknown"
+	spread_text = "Неизвестно"
 	viable_mobtypes = list(/mob/living/carbon/human)
 
 	// NEW VARS
@@ -267,22 +267,22 @@
 	switch(spread_id)
 		if(DISEASE_SPREAD_NON_CONTAGIOUS)
 			spread_flags = DISEASE_SPREAD_NON_CONTAGIOUS
-			spread_text = "None"
+			spread_text = "Нет"
 		if(DISEASE_SPREAD_SPECIAL)
 			spread_flags = DISEASE_SPREAD_SPECIAL
-			spread_text = "None"
+			spread_text = "Нет"
 		if(DISEASE_SPREAD_BLOOD)
 			spread_flags = DISEASE_SPREAD_BLOOD
-			spread_text = "Blood"
+			spread_text = "Кровеносное"
 		if(DISEASE_SPREAD_CONTACT_FLUIDS)
 			spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_FLUIDS
-			spread_text = "Fluids"
+			spread_text = "Жидкостное"
 		if(DISEASE_SPREAD_CONTACT_SKIN)
 			spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_FLUIDS | DISEASE_SPREAD_CONTACT_SKIN
-			spread_text = "On contact"
+			spread_text = "При контакте"
 		if(DISEASE_SPREAD_AIRBORNE)
 			spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_FLUIDS | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_AIRBORNE
-			spread_text = "Airborne"
+			spread_text = "Воздушное"
 
 /datum/disease/advance/proc/SetSeverity(level_sev)
 
@@ -303,7 +303,7 @@
 		if(6 to INFINITY)
 			severity = DISEASE_SEVERITY_BIOHAZARD
 		else
-			severity = "Unknown"
+			severity = "Неизвестно"
 
 
 // Will generate a random cure, the more resistance the symptoms have, the harder the cure.
