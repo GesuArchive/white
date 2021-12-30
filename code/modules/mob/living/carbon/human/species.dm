@@ -29,11 +29,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/hair_color
 	///The alpha used by the hair. 255 is completely solid, 0 is invisible.
 	var/hair_alpha = 255
-	///The gradient style used for the mob's hair.
-	var/grad_style
-	///The gradient color used to color the gradient.
-	var/grad_color
-
 	///Does the species use skintones or not? As of now only used by humans.
 	var/use_skintones = FALSE
 	///If your race bleeds something other than bog standard blood, change this to reagent id. For example, ethereals bleed liquid electricity.
@@ -555,6 +550,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				fhair_file = 'icons/mob/facialhair_extensions.dmi'
 
 			var/mutable_appearance/facial_overlay = mutable_appearance(fhair_file, fhair_state, -HAIR_LAYER)
+			var/mutable_appearance/gradient_overlay
 
 			if(!forced_colour)
 				if(hair_color)
@@ -566,6 +562,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 						facial_overlay.color = "#" + hair_color
 				else
 					facial_overlay.color = "#" + H.facial_hair_color
+				//Gradients
+				var/grad_style = LAZYACCESS(H.grad_style, GRADIENT_FACIAL_HAIR_KEY)
+				if(grad_style)
+					var/grad_color = LAZYACCESS(H.grad_color, GRADIENT_FACIAL_HAIR_KEY)
+					gradient_overlay = make_gradient_overlay(fhair_file, fhair_state, HAIR_LAYER, GLOB.facial_hair_gradients_list[grad_style], grad_color)
 			else
 				facial_overlay.color = forced_colour
 
@@ -576,6 +577,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				facial_overlay.pixel_y += H.dna.species.offset_features[OFFSET_FACE][2]
 
 			standing += facial_overlay
+			if(gradient_overlay)
+				standing += gradient_overlay
 
 	if(H.head)
 		var/obj/item/I = H.head
@@ -603,7 +606,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	if(!hair_hidden || dynamic_hair_suffix)
 		var/mutable_appearance/hair_overlay = mutable_appearance(layer = -HAIR_LAYER)
-		var/mutable_appearance/gradient_overlay = mutable_appearance(layer = -HAIR_LAYER)
+		var/mutable_appearance/gradient_overlay
 		if(!hair_hidden && !H.getorgan(/obj/item/organ/brain)) //Applies the debrained overlay if there is no brain
 			if(!(NOBLOOD in species_traits))
 				hair_overlay.icon = 'icons/mob/human_face.dmi'
@@ -643,15 +646,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					else
 						hair_overlay.color = "#" + H.hair_color
 						//Gradients
-					grad_style = H.grad_style
-					grad_color = H.grad_color
+					var/grad_style = LAZYACCESS(H.grad_style, GRADIENT_HAIR_KEY)
 					if(grad_style)
-						var/datum/sprite_accessory/gradient = GLOB.hair_gradients_list[grad_style]
-						var/icon/temp = icon(gradient.icon, gradient.icon_state)
-						var/icon/temp_hair = icon(hair_file, hair_state)
-						temp.Blend(temp_hair, ICON_ADD)
-						gradient_overlay.icon = temp
-						gradient_overlay.color = "#" + grad_color
+						var/grad_color = LAZYACCESS(H.grad_color, GRADIENT_HAIR_KEY)
+						gradient_overlay = make_gradient_overlay(hair_file, hair_state, HAIR_LAYER, GLOB.hair_gradients_list[grad_style], grad_color)
 				else
 					hair_overlay.color = forced_colour
 				hair_overlay.alpha = hair_alpha
@@ -660,12 +658,22 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					hair_overlay.pixel_y += H.dna.species.offset_features[OFFSET_FACE][2]
 		if(hair_overlay.icon)
 			standing += hair_overlay
-			standing += gradient_overlay
+			if(gradient_overlay)
+				standing += gradient_overlay
 
 	if(standing.len)
 		H.overlays_standing[HAIR_LAYER] = standing
 
 	H.apply_overlay(HAIR_LAYER)
+
+/datum/species/proc/make_gradient_overlay(file, icon, layer, datum/sprite_accessory/gradient, grad_color)
+	var/mutable_appearance/gradient_overlay = mutable_appearance(layer = -layer)
+	var/icon/temp = icon(gradient.icon, gradient.icon_state)
+	var/icon/temp_hair = icon(file, icon)
+	temp.Blend(temp_hair, ICON_ADD)
+	gradient_overlay.icon = temp
+	gradient_overlay.color = grad_color
+	return gradient_overlay
 
 /**
  * Handles the body of a human

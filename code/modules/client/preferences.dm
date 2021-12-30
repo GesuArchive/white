@@ -77,10 +77,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/jumpsuit_style = PREF_SUIT		//suit/skirt
 	var/hairstyle = "Bald"				//Hair type
 	var/hair_color = "000"				//Hair color
-	var/grad_style = "None"
-	var/grad_color = "000"
+	var/hair_grad_style = "None"
+	var/hair_grad_color = "000"
 	var/facial_hairstyle = "Shaved"	//Face hair type
 	var/facial_hair_color = "000"		//Facial hair color
+	var/facial_grad_style = "None"
+	var/facial_grad_color = "000"
 	var/skin_tone = "caucasian1"		//Skin color
 	var/eye_color = "000"				//Eye color
 	var/datum/species/pref_species = new /datum/species/human()	//Mutant race
@@ -374,7 +376,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_HAIR_COLOR]'>[(randomise[RANDOM_HAIR_COLOR]) ? "🔓" : "🔒"]</A></td></tr>"
 
 				dat += "<tr><td><b>Градиент волос:</b></td><td align='right'>"
-				dat += "<span style='border:1px solid #161616; background-color: #[grad_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=grad_color;task=input'>Изменить</a><a href='?_src_=prefs;preference=grad_style;task=input'>[grad_style]</a></td></tr>"
+				dat += "<span style='border:1px solid #161616; background-color: #[hair_grad_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=hair_grad_color;task=input'>Изменить</a><a href='?_src_=prefs;preference=hair_grad_style;task=input'>[hair_grad_style]</a></td></tr>"
+
+				dat += "<tr><td><b>Градиент бороды:</b></td><td align='right'>"
+				dat += "<span style='border:1px solid #161616; background-color: #[facial_grad_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=facial_grad_color;task=input'>Изменить</a><a href='?_src_=prefs;preference=facial_grad_style;task=input'>[facial_grad_style]</a></td></tr>"
 
 				dat += "<tr><td><b>Борода:</b></td><td align='right'>"
 
@@ -1389,15 +1394,25 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					else
 						hairstyle = next_list_item(hairstyle, GLOB.hairstyles_list)
 
-				if("grad_style")
+				if("hair_grad_style")
 					var/new_grad_style = input(user, "Choose a color pattern for your hair:", "Character Preference")  as null|anything in GLOB.hair_gradients_list
 					if(new_grad_style)
-						grad_style = new_grad_style
+						hair_grad_style = new_grad_style
 
-				if("grad_color")
-					var/new_grad_color = input(user, "Choose your character's secondary hair color:", "Character Preference","#"+grad_color) as color|null
+				if("hair_grad_color")
+					var/new_grad_color = input(user, "Choose your character's secondary hair color:", "Character Preference","#"+hair_grad_color) as color|null
 					if(new_grad_color)
-						grad_color = sanitize_hexcolor(new_grad_color)
+						hair_grad_color = sanitize_hexcolor(new_grad_color)
+
+				if("facial_grad_style")
+					var/new_grad_style = input(user, "Choose a color pattern for your facial:", "Character Preference")  as null|anything in GLOB.hair_gradients_list
+					if(new_grad_style)
+						facial_grad_style = new_grad_style
+
+				if("facial_grad_color")
+					var/new_grad_color = input(user, "Choose your character's secondary facial color:", "Character Preference","#"+facial_grad_color) as color|null
+					if(new_grad_color)
+						facial_grad_color = sanitize_hexcolor(new_grad_color)
 
 				if("previous_hairstyle")
 					if (gender == MALE)
@@ -2120,8 +2135,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	character.hair_color = hair_color
 	character.facial_hair_color = facial_hair_color
 
-	character.grad_color = grad_color
-	character.grad_style = grad_style
+	LAZYSETLEN(character.grad_color, GRADIENTS_LEN)
+	character.grad_color[GRADIENT_HAIR_KEY] = hair_grad_color
+	LAZYSETLEN(character.grad_style, GRADIENTS_LEN)
+	character.grad_style[GRADIENT_HAIR_KEY] = hair_grad_style
+
+	LAZYSETLEN(character.grad_color, GRADIENTS_LEN)
+	character.grad_color[GRADIENT_FACIAL_HAIR_KEY] = facial_grad_color
+	LAZYSETLEN(character.grad_style, GRADIENTS_LEN)
+	character.grad_style[GRADIENT_FACIAL_HAIR_KEY] = facial_grad_style
 
 	character.skin_tone = skin_tone
 	character.hairstyle = hairstyle
