@@ -1720,7 +1720,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 			CRASH("Can't turn invalid directions!")
 	return turn(input_dir, 180)
 
-/proc/get_distant_turf(var/turf/T, var/direction, var/distance)
+/proc/get_distant_turf(turf/T, direction, distance)
 	if(!T || !direction || !distance)
 		return
 
