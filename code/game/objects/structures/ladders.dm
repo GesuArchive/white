@@ -83,30 +83,16 @@
 			return
 		show_fluff_message(going_up, user)
 
-	var/turf/T = get_turf(ladder)
-	var/atom/movable/AM
-	if(user.pulling)
-		AM = user.pulling
-		AM.forceMove(T)
-	for(var/mob/M in user.buckled_mobs)
-		M.forceMove(T)
-	user.forceMove(T)
-	if(AM)
-		user.start_pulling(AM, supress_message = TRUE)
-
 	if(!HAS_TRAIT(user, TRAIT_KNOW_ENGI_WIRES) && !HAS_TRAIT(user, TRAIT_FREERUNNING))
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			H.adjustStaminaLoss(5)
 
-	//reopening ladder radial menu ahead
-	T = get_turf(user)
+	playsound(get_turf(user), 'white/valtos/sounds/ladder.ogg', 55, TRUE)
 
-	playsound(T, 'white/valtos/sounds/ladder.ogg', 55, TRUE)
-
-	var/obj/structure/ladder/ladder_structure = locate() in T
-	if (ladder_structure)
-		ladder_structure.use(user)
+	var/turf/target = get_turf(ladder)
+	user.zMove(target = target, z_move_flags = ZMOVE_CHECK_PULLEDBY|ZMOVE_ALLOW_BUCKLED|ZMOVE_INCLUDE_PULLED)
+	ladder.use(user) //reopening ladder radial menu ahead
 
 /obj/structure/ladder/proc/use(mob/user, is_ghost=FALSE)
 	if (!is_ghost && !in_range(src, user))

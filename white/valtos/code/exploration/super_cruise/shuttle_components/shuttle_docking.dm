@@ -311,7 +311,7 @@
 	src.origin = origin
 	return ..()
 
-/mob/camera/ai_eye/remote/shuttle_docker/setLoc(T)
+/mob/camera/ai_eye/remote/shuttle_docker/setLoc(T, force_update = FALSE)
 	..()
 	var/obj/machinery/computer/shuttle_flight/console = origin
 	console.checkLandingSpot()
