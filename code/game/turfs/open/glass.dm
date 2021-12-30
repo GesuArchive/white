@@ -13,6 +13,7 @@
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	floor_tile = /obj/item/stack/tile/glass
 
 /turf/open/floor/glass/setup_broken_states()
 	return list("glass-damaged1", "glass-damaged2", "glass-damaged3")
@@ -34,6 +35,7 @@
 	icon = 'icons/turf/floors/reinf_glass.dmi'
 	icon_state = "reinf_glass-0"
 	base_icon_state = "reinf_glass"
+	floor_tile = /obj/item/stack/tile/rglass
 
 /turf/open/floor/glass/reinforced/setup_broken_states()
 	return list("reinf_glass-damaged1", "reinf_glass-damaged2", "reinf_glass-damaged3")

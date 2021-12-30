@@ -481,3 +481,42 @@
 	icon_state = "tile_eightiesred"
 	turf_type = /turf/open/floor/eighties/red
 	merge_type = /obj/item/stack/tile/eighties/red
+
+/obj/item/stack/tile/catwalk_tile
+	name = "помостовый пол"
+	singular_name = "помостовый пол"
+	desc = "Сквозь него можно смотреть на другой пол. Чудесно."
+	icon_state = "catwalk_floor"
+	inhand_icon_state = "tile-catwalk"
+	turf_type = /turf/open/floor/plating/catwalk_floor
+	merge_type = /obj/item/stack/tile/catwalk_tile
+
+/obj/item/stack/tile/catwalk_tile/fifty
+	amount = 50
+
+// Glass floors
+/obj/item/stack/tile/glass
+	name = "стеклянный пол"
+	singular_name = "стеклянный пол"
+	desc = "Какой мудак это придумал?"
+	icon_state = "tile_glass"
+	turf_type = /turf/open/floor/glass
+	inhand_icon_state = "tile-glass"
+	merge_type = /obj/item/stack/tile/glass
+	mats_per_unit = list(/datum/material/glass = MINERAL_MATERIAL_AMOUNT * 0.25) // 4 tiles per sheet
+
+/obj/item/stack/tile/glass/fifty
+	amount = 50
+
+/obj/item/stack/tile/rglass
+	name = "армированный стеклянный пол"
+	singular_name = "армированный стеклянный пол"
+	desc = "Вот это уже другое дело!"
+	icon_state = "tile_rglass"
+	inhand_icon_state = "tile-rglass"
+	turf_type = /turf/open/floor/glass/reinforced
+	merge_type = /obj/item/stack/tile/rglass
+	mats_per_unit = list(/datum/material/iron = MINERAL_MATERIAL_AMOUNT * 0.125, /datum/material/glass = MINERAL_MATERIAL_AMOUNT * 0.25) // 4 tiles per sheet
+
+/obj/item/stack/tile/rglass/fifty
+	amount = 50
