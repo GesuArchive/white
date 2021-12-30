@@ -382,13 +382,16 @@
 		bloody = TRUE
 	var/turf/T = get_turf(src)
 	var/atom/target = null
-	var/obj/effect/decal/cleanable/mocha = bloody ?  new/obj/effect/decal/cleanable/blood(get_turf(src)) : new /obj/effect/decal/cleanable/urine(get_turf(src))
+	var/obj/effect/decal/cleanable/mocha = bloody ?  new /obj/effect/decal/cleanable/blood(get_turf(src)) : new /obj/effect/decal/cleanable/urine(get_turf(src))
 	for(var/atom/A in T)
+		if(istype(A, /obj/effect/decal/cleanable/urine))
+			mocha = A
+			break
 		if(istype(A, /obj/structure/toilet) || istype(A, /obj/item/reagent_containers))
 			target = A
 			break
 	if(target)
-		if(O.reagents.trans_to(target, 10, transfered_by = src) && !bloody)
+		if(O.reagents.trans_to(target, 50, transfered_by = src) && !bloody)
 			peeed = TRUE
 		else if(forced_pee)
 			peeed = TRUE
@@ -399,15 +402,15 @@
 			playsound(src, 'sound/effects/splat.ogg', 50, 1)
 	else
 		if(w_uniform)
-			if(O.reagents.trans_to(mocha, 5, transfered_by = src) && !bloody)
+			if(O.reagents.trans_to(mocha, 25, transfered_by = src) && !bloody)
 				peeed = TRUE
 			else if(forced_pee)
 				peeed = TRUE
 				Stun(4 SECONDS)
 				add_blood_DNA(return_blood_DNA())
 				O.setOrganDamage(1)
-				blood_volume -= 10
-				mocha.reagents.add_reagent(/datum/reagent/blood, 10)
+				blood_volume -= 50
+				mocha.reagents.add_reagent(/datum/reagent/blood, 50)
 			if(peeed)
 				extinguish_mob()
 				visible_message("<b>[capitalize(src.name)]</b> мочится себе в трусы[bloody ? " кровью" : ""]!")
@@ -417,13 +420,13 @@
 						if(ishuman(M) && M != src)
 							M.emote("laugh")
 		else
-			if(O.reagents.trans_to(mocha, 10, transfered_by = src) && !bloody)
+			if(O.reagents.trans_to(mocha, 50, transfered_by = src) && !bloody)
 				peeed = TRUE
 			else if(forced_pee)
 				Stun(2 SECONDS)
 				O.setOrganDamage(1)
-				blood_volume -= 10
-				mocha.reagents.add_reagent(/datum/reagent/blood, 10)
+				blood_volume -= 50
+				mocha.reagents.add_reagent(/datum/reagent/blood, 50)
 			if(peeed)
 				visible_message("<b>[capitalize(src.name)]</b> обильно ссыт[bloody ? " кровью" : ""] на пол!")
 				playsound(src, 'sound/effects/splat.ogg', 50, 1)

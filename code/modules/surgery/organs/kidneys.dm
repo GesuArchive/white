@@ -90,7 +90,7 @@
 		organ_flags |= ORGAN_SYNTHETIC_EMP
 
 /obj/effect/decal/cleanable/urine
-	name = "моча"
+	name = "лужа мочи"
 	desc = "Выглядит не вкусно."
 	icon_state = "urine"
 	density = 0
