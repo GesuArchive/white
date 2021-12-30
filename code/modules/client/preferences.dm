@@ -2136,13 +2136,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	character.facial_hair_color = facial_hair_color
 
 	LAZYSETLEN(character.grad_color, GRADIENTS_LEN)
+	LAZYSETLEN(character.grad_style, GRADIENTS_LEN)
 	character.grad_color[GRADIENT_HAIR_KEY] = hair_grad_color
-	LAZYSETLEN(character.grad_style, GRADIENTS_LEN)
 	character.grad_style[GRADIENT_HAIR_KEY] = hair_grad_style
-
-	LAZYSETLEN(character.grad_color, GRADIENTS_LEN)
 	character.grad_color[GRADIENT_FACIAL_HAIR_KEY] = facial_grad_color
-	LAZYSETLEN(character.grad_style, GRADIENTS_LEN)
 	character.grad_style[GRADIENT_FACIAL_HAIR_KEY] = facial_grad_style
 
 	character.skin_tone = skin_tone
