@@ -403,6 +403,7 @@
 		if(peeed)
 			visible_message(span_notice("<b>[src]</b> писает[bloody ? " кровью" : ""] в [target]!"), span_notice("Писаю[bloody ? " кровью" : ""] в [target]."))
 			playsound(src, 'sound/effects/splat.ogg', 50, 1)
+			qdel(mocha)
 	else
 		if(w_uniform)
 			if(O.reagents.trans_to(mocha, 25, transfered_by = src) && !bloody)
