@@ -38,15 +38,27 @@
 	desc = "Костюм, который защищает от небольших разливов химикатов. Имеет оранжевую полосу на плече."
 	icon_state = "labcoat_chem"
 
+/obj/item/clothing/suit/toggle/labcoat/chemist/Initialize(mapload)
+	. = ..()
+	allowed += /obj/item/storage/bag/chemistry
+
 /obj/item/clothing/suit/toggle/labcoat/virologist
 	name = "лабораторный халат вирусолога"
 	desc = "Костюм, который защищает от небольших разливов химикатов. Предлагает немного больше защиты от биологической опасности, чем стандартная модель. Имеет зеленую полосу на плече."
 	icon_state = "labcoat_vir"
 
+/obj/item/clothing/suit/toggle/labcoat/virologist/Initialize(mapload)
+	. = ..()
+	allowed += /obj/item/storage/bag/bio
+
 /obj/item/clothing/suit/toggle/labcoat/science
 	name = "лабораторный халат учёного"
 	desc = "Костюм, который защищает от небольших разливов химикатов. Имеет фиолетовую полоску на плече."
 	icon_state = "labcoat_tox"
+
+/obj/item/clothing/suit/toggle/labcoat/science/Initialize(mapload)
+	. = ..()
+	allowed += /obj/item/storage/bag/bio
 
 /obj/item/clothing/suit/toggle/labcoat/roboticist
 	name = "лабораторный халат роботехника"
