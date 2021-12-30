@@ -577,13 +577,13 @@
 	var/datum/admin_help/AH = admin_ticket_log(player_ckey, msg)
 	//var/appeal_url = "No ban appeal url set!"
 	//appeal_url = CONFIG_GET(string/banappeals)
-	var/is_admin = FALSE
+	//var/is_admin = FALSE
 	if(C)
 		build_ban_cache(C)
 		to_chat(C, span_boldannounce("Сработала защита от детей. Этот раунд - последний."))
 		//to_chat(C, span_boldannounce("You have been [applies_to_admins ? "admin " : ""]banned by [usr.client.key] from [roles_to_ban[1] == "Server" ? "the server" : " Roles: [roles_to_ban.Join(", ")]"].\nReason: [reason]</span><br><span class='danger'>This ban is [isnull(duration) ? "permanent." : "temporary, it will be removed in [time_message]."] The round ID is [GLOB.round_id].</span><br><span class='danger'>To appeal this ban go to [appeal_url]"))
-		if(GLOB.admin_datums[C.ckey] || GLOB.deadmins[C.ckey])
-			is_admin = TRUE
+		//if(GLOB.admin_datums[C.ckey] || GLOB.deadmins[C.ckey])
+		//	is_admin = TRUE
 		//if(roles_to_ban[1] == "Server" && (!is_admin || (is_admin && applies_to_admins)))
 		//	qdel(C)
 	if(roles_to_ban[1] == "Server" && AH)
@@ -593,8 +593,8 @@
 			build_ban_cache(i)
 			to_chat(i, span_boldannounce("Сработала защита от детей. Этот раунд - последний."))
 			//to_chat(i, span_boldannounce("You have been [applies_to_admins ? "admin " : ""]banned by [usr.client.key] from [roles_to_ban[1] == "Server" ? "the server" : " Roles: [roles_to_ban.Join(", ")]"].\nReason: [reason]</span><br><span class='danger'>This ban is [isnull(duration) ? "permanent." : "temporary, it will be removed in [time_message]."] The round ID is [GLOB.round_id].</span><br><span class='danger'>To appeal this ban go to [appeal_url]"))
-			if(GLOB.admin_datums[i.ckey] || GLOB.deadmins[i.ckey])
-				is_admin = TRUE
+			//if(GLOB.admin_datums[i.ckey] || GLOB.deadmins[i.ckey])
+			//	is_admin = TRUE
 			//if(roles_to_ban[1] == "Server" && (!is_admin || (is_admin && applies_to_admins)))
 			//	qdel(i)
 
