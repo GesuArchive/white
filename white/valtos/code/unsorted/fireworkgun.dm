@@ -1,5 +1,6 @@
 /obj/item/gun/magic/fireworkgun
 	name = "фейрпушка"
+	desc = "Заправь её реагентами, давай!"
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "fireworkgun"
 	inhand_icon_state = "fireworkgun"
@@ -20,7 +21,7 @@
 /obj/item/gun/magic/fireworkgun/attackby(obj/item/I, mob/user, params)
 	. = ..()
 	color_variations.Cut()
-	if(!reagents.reagent_list.len)
+	if(!reagents.total_volume)
 		color_variations = list("#FFFFFF")
 		return
 	for(var/datum/reagent/R in reagents.reagent_list)
@@ -85,7 +86,7 @@
 		S.color = pick(color_variations)
 		S.alpha = 255
 		sparkles += S
-	spawn(2)
+	spawn(6)
 		QDEL_LIST(sparkles)
 		qdel(src)
 
@@ -98,5 +99,5 @@
 
 /obj/effect/overlay/sparkles/fireworkgun/Initialize()
 	icon_state = pick("ministar", "microstar")
-	animate(src, pixel_y = rand(-128, 128), pixel_x = rand(-128, 128), time = 1, loop = 0)
+	animate(src, pixel_y = rand(-128, 128), pixel_x = rand(-128, 128), time = 5, alpha = 0, loop = 0)
 	. = ..()
