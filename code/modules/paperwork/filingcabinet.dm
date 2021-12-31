@@ -135,7 +135,7 @@
 				P.info += "[S.fields["com_[counter]"]]<BR>"
 				counter++
 			P.info += "</TT>"
-			P.name = "paper - '[G.fields["name"]]'"
+			P.name = "бумага - '[G.fields["name"]]'"
 			virgin = FALSE	//tabbing here is correct- it's possible for people to try and use it
 						//before the records have been generated, so we do this inside the loop.
 
@@ -169,7 +169,7 @@
 				P.info += "[M.fields["com_[counter]"]]<BR>"
 				counter++
 			P.info += "</TT>"
-			P.name = "paper - '[G.fields["name"]]'"
+			P.name = "бумага - '[G.fields["name"]]'"
 			virgin = FALSE	//tabbing here is correct- it's possible for people to try and use it
 						//before the records have been generated, so we do this inside the loop.
 

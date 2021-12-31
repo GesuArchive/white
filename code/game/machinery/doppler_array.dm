@@ -1,8 +1,8 @@
 #define PRINTER_TIMEOUT 40
 
 /obj/machinery/doppler_array
-	name = "tachyon-doppler array"
-	desc = "A highly precise directional sensor array which measures the release of quants from decaying tachyons. The doppler shifting of the mirror-image formed by these quants can reveal the size, location and temporal affects of energetic disturbances within a large radius ahead of the array.\n"
+	name = "тахионно-доплеровский массив"
+	desc = "Высокоточная матрица направленных датчиков, которая измеряет высвобождение квантов из распадающихся тахионов. Доплеровское смещение зеркального изображения, сформированного этими квантами, может выявить размер, местоположение и временные эффекты энергетических возмущений в пределах большого радиуса перед решеткой.\n"
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "tdoppler"
 	density = TRUE
@@ -28,7 +28,7 @@
 	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE,null,null,CALLBACK(src,.proc/rot_message))
 
 /datum/data/tachyon_record
-	name = "Log Recording"
+	name = "Журнал"
 	var/timestamp
 	var/coordinates = ""
 	var/displacement = 0
@@ -87,29 +87,29 @@
 		printer_ready = world.time + PRINTER_TIMEOUT
 		new /obj/item/paper/record_printout(loc, record)
 	else if(user)
-		to_chat(user, span_warning("[capitalize(src.name)] is busy right now."))
+		to_chat(user, span_warning("[capitalize(src.name)] занят."))
 
 /obj/item/paper/record_printout
-	name = "paper - Log Recording"
+	name = "бумага - Журнал"
 
 /obj/item/paper/record_printout/Initialize(mapload, datum/data/tachyon_record/record)
 	. = ..()
 
 	if(record)
-		name = "paper - [record.name]"
+		name = "бумага - [record.name]"
 
 		info += {"<h2>[record.name]</h2>
-		<ul><li>Timestamp: [record.timestamp]</li>
-		<li>Coordinates: [record.coordinates]</li>
-		<li>Displacement: [record.displacement] seconds</li>
-		<li>Epicenter Radius: [record.factual_radius["epicenter_radius"]]</li>
-		<li>Outer Radius: [record.factual_radius["outer_radius"]]</li>
-		<li>Shockwave Radius: [record.factual_radius["shockwave_radius"]]</li></ul>"}
+		<ul><li>Время: [record.timestamp]</li>
+		<li>Координаты: [record.coordinates]</li>
+		<li>Смещение: [record.displacement] секунд</li>
+		<li>Эпицентр: [record.factual_radius["epicenter_radius"]]</li>
+		<li>Внешний радиус: [record.factual_radius["outer_radius"]]</li>
+		<li>Взрывная волна: [record.factual_radius["shockwave_radius"]]</li></ul>"}
 
 		if(length(record.theory_radius))
-			info += {"<ul><li>Theoretical Epicenter Radius: [record.theory_radius["epicenter_radius"]]</li>
-			<li>Theoretical Outer Radius: [record.theory_radius["outer_radius"]]</li>
-			<li>Theoretical Shockwave Radius: [record.theory_radius["shockwave_radius"]]</li></ul>"}
+			info += {"<ul><li>Теоретический радиус эпицентра: [record.theory_radius["epicenter_radius"]]</li>
+			<li>Теоретический внешний радиус: [record.theory_radius["outer_radius"]]</li>
+			<li>Теоретическиая взрывная волна: [record.theory_radius["shockwave_radius"]]</li></ul>"}
 
 		update_icon()
 
@@ -117,16 +117,16 @@
 	if(I.tool_behaviour == TOOL_WRENCH)
 		if(!anchored && !isinspace())
 			set_anchored(TRUE)
-			to_chat(user, span_notice("You fasten [src]."))
+			to_chat(user, span_notice("Прикручиваю [src]."))
 		else if(anchored)
 			set_anchored(FALSE)
-			to_chat(user, span_notice("You unfasten [src]."))
+			to_chat(user, span_notice("Откручиваю [src]."))
 		I.play_tool_sound(src)
 		return
 	return ..()
 
 /obj/machinery/doppler_array/proc/rot_message(mob/user)
-	to_chat(user, span_notice("You adjust [src] dish to face to the [dir2ru_text(dir)]."))
+	to_chat(user, span_notice("Настраиваю блюдце [src] на [dir2ru_text(dir)]."))
 	playsound(src, 'sound/items/screwdriver2.ogg', 50, TRUE)
 
 /obj/machinery/doppler_array/proc/sense_explosion(datum/source, turf/epicenter, devastation_range, heavy_impact_range, light_impact_range,
@@ -147,7 +147,7 @@
 		return FALSE
 
 	var/datum/data/tachyon_record/R = new /datum/data/tachyon_record()
-	R.name = "Log Recording #[record_number]"
+	R.name = "Журнал #[record_number]"
 	R.timestamp = station_time_timestamp()
 	R.coordinates = "[epicenter.x], [epicenter.y]"
 	R.displacement = took
@@ -156,13 +156,13 @@
 	R.factual_radius["shockwave_radius"] = light_impact_range
 
 	var/list/messages = list("Explosive disturbance detected.",
-		"Epicenter at: grid ([epicenter.x], [epicenter.y]). Temporal displacement of tachyons: [took] seconds.",
-		"Factual: Epicenter radius: [devastation_range]. Outer radius: [heavy_impact_range]. Shockwave radius: [light_impact_range].",
+		"Эпицентр: сетка ([epicenter.x], [epicenter.y]). Временное смещение тахионов: [took] секунд.",
+		"Фактический: Радиус эпицентра: [devastation_range]. Внешний радиус: [heavy_impact_range]. Взрывная волна: [light_impact_range].",
 	)
 
 	// If the bomb was capped, say its theoretical size.
 	if(devastation_range < orig_dev_range || heavy_impact_range < orig_heavy_range || light_impact_range < orig_light_range)
-		messages += "Theoretical: Epicenter radius: [orig_dev_range]. Outer radius: [orig_heavy_range]. Shockwave radius: [orig_light_range]."
+		messages += "Теоретический: Радиус эпицентра: [orig_dev_range]. Внешний радиус: [orig_heavy_range]. Взрывная волна: [orig_light_range]."
 		R.theory_radius["epicenter_radius"] = orig_dev_range
 		R.theory_radius["outer_radius"] = orig_heavy_range
 		R.theory_radius["shockwave_radius"] = orig_light_range
@@ -189,8 +189,8 @@
 		icon_state = "[initial(icon_state)]-off"
 
 /obj/machinery/doppler_array/research
-	name = "tachyon-doppler research array"
-	desc = "A specialized tachyon-doppler bomb detection array that uses complex on-board software to record data for experiments."
+	name = "ТДИМ"
+	desc = "Тахионно-доплеровский исследовательский массив. Специализированная система обнаружения тахионно-доплеровских бомб, в которой используется сложное бортовое программное обеспечение для записи данных для экспериментов."
 	circuit = /obj/item/circuitboard/machine/doppler_array
 	var/datum/techweb/linked_techweb
 
@@ -220,7 +220,7 @@
 		return
 
 	if(!istype(linked_techweb))
-		say("Warning: no linked research system!")
+		say("Внимание: нет связанной исследовательской системы!")
 		return
 
 	var/cash_gain = 0

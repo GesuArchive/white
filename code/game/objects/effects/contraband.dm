@@ -45,9 +45,9 @@
 // The poster sign/structure
 
 /obj/structure/sign/poster
-	name = "poster"
+	name = "плакат"
 	var/original_name
-	desc = "A large piece of space-resistant printed paper."
+	desc = "Большой кусок плотной печатной бумаги."
 	icon = 'icons/obj/contraband.dmi'
 	anchored = TRUE
 	buildable_sign = FALSE //Cannot be unwrenched from a wall.
@@ -66,8 +66,8 @@
 		randomise(random_basetype)
 	if(!ruined)
 		original_name = name // can't use initial because of random posters
-		name = "poster - [name]"
-		desc = "A large piece of space-resistant printed paper. [desc]"
+		name = "плакат - [name]"
+		desc = "Большой кусок плотной печатной бумаги. [desc]"
 
 	AddComponent(/datum/component/beauty, 300)
 
@@ -94,10 +94,10 @@
 	if(I.tool_behaviour == TOOL_WIRECUTTER)
 		I.play_tool_sound(src, 100)
 		if(ruined)
-			to_chat(user, span_notice("You remove the remnants of the poster."))
+			to_chat(user, span_notice("Снимаю остатки плаката со стены."))
 			qdel(src)
 		else
-			to_chat(user, span_notice("You carefully remove the poster from the wall."))
+			to_chat(user, span_notice("Аккуратно снимаю плакат со стены."))
 			roll_and_drop(user.loc)
 
 /obj/structure/sign/poster/attack_hand(mob/user)
@@ -106,7 +106,7 @@
 		return
 	if(ruined)
 		return
-	visible_message(span_notice("[user] rips [src] in a single, decisive motion!")  )
+	visible_message(span_notice("[user] срывает [src] одним решительным движением!")  )
 	playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, TRUE)
 
 	var/obj/structure/sign/poster/ripped/R = new(loc)
@@ -125,7 +125,7 @@
 //separated to reduce code duplication. Moved here for ease of reference and to unclutter r_wall/attackby()
 /turf/closed/wall/proc/place_poster(obj/item/poster/P, mob/user)
 	if(!P.poster_structure)
-		to_chat(user, span_warning("[P] has no poster... inside it? Inform a coder!"))
+		to_chat(user, span_warning("[P] не имеет плаката... внутри? Че бля!"))
 		return
 
 	// Deny placing posters on currently-diagonal walls, although the wall may change in the future.
@@ -138,14 +138,14 @@
 	var/stuff_on_wall = 0
 	for(var/obj/O in contents) //Let's see if it already has a poster on it or too much stuff
 		if(istype(O, /obj/structure/sign/poster))
-			to_chat(user, span_warning("The wall is far too cluttered to place a poster!"))
+			to_chat(user, span_warning("Стена слишком загромождена, чтобы разместить плакат!"))
 			return
 		stuff_on_wall++
 		if(stuff_on_wall == 3)
-			to_chat(user, span_warning("The wall is far too cluttered to place a poster!"))
+			to_chat(user, span_warning("Стена слишком загромождена, чтобы разместить плакат!"))
 			return
 
-	to_chat(user, span_notice("You start placing the poster on the wall...") 	)
+	to_chat(user, span_notice("Начинаю вешать плакат на стену...") 	)
 
 	var/obj/structure/sign/poster/D = P.poster_structure
 
@@ -160,10 +160,10 @@
 			return
 
 		if(iswallturf(src) && user && user.loc == temp_loc)	//Let's check if everything is still there
-			to_chat(user, span_notice("You place the poster!"))
+			to_chat(user, span_notice("Вешаю плакат!"))
 			return
 
-	to_chat(user, span_notice("The poster falls down!"))
+	to_chat(user, span_notice("Плакат падает!"))
 	D.roll_and_drop(get_turf(user))
 
 // Various possible posters follow
@@ -171,8 +171,8 @@
 /obj/structure/sign/poster/ripped
 	ruined = TRUE
 	icon_state = "poster_ripped"
-	name = "ripped poster"
-	desc = "You can't make out anything from the poster's original print. It's ruined."
+	name = "cорванный плакат"
+	desc = "По оригинальному принту плаката ничего не разобрать. Он испорчен."
 
 /obj/structure/sign/poster/random
 	name = "random poster" // could even be ripped
@@ -181,8 +181,8 @@
 	random_basetype = /obj/structure/sign/poster
 
 /obj/structure/sign/poster/contraband
-	poster_item_name = "contraband poster"
-	poster_item_desc = "This poster comes with its own automatic adhesive mechanism, for easy pinning to any vertical surface. Its vulgar themes have marked it as contraband aboard Nanotrasen space facilities."
+	poster_item_name = "контрабандный плакат"
+	poster_item_desc = "Этот плакат снабжен собственным автоматическим клеевым механизмом, который легко прикрепляется к любой вертикальной поверхности. Его вульгарные мотивы обозначили его как контрабанду на борту космических объектов Nanotrasen."
 	poster_item_icon_state = "rolled_poster"
 
 /obj/structure/sign/poster/contraband/random
@@ -445,8 +445,8 @@
 	icon_state = "poster51"
 
 /obj/structure/sign/poster/official
-	poster_item_name = "motivational poster"
-	poster_item_desc = "An official Nanotrasen-issued poster to foster a compliant and obedient workforce. It comes with state-of-the-art adhesive backing, for easy pinning to any vertical surface."
+	poster_item_name = "мотивационный плакат"
+	poster_item_desc = "Официальный плакат, выпущенный Nanotrasen для воспитания послушных и послушных сотрудников. Поставляется с ультрасовременной клейкой подложкой для легкого прикрепления к любой вертикальной поверхности."
 	poster_item_icon_state = "rolled_legit"
 
 /obj/structure/sign/poster/official/random
