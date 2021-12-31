@@ -799,7 +799,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	var/i = 0
 	for(var/word in msglist)
 		i++
-		if(word[1] != "@")
+		if(word.len && word[1] != "@")
 			continue
 		var/ckey_check = lowertext(copytext(word, 2))
 		var/client/client_check = GLOB.directory[ckey_check]

@@ -53,6 +53,8 @@ GLOBAL_LIST_INIT(skill_types, subtypesof(/datum/skill))
  * level_lost: See level_gained, same idea but fires on skill level-down
  */
 /datum/skill/proc/level_lost(datum/mind/mind, new_level, old_level)
+	if(old_level > levelDownMessages.len)
+		return
 	to_chat(mind.current, levelDownMessages[old_level]) //old_level will be a value from 1 to 6, so we get appropriate message from the 6-element levelUpMessages list
 
 /**
