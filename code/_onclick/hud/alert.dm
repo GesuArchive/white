@@ -618,7 +618,7 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 	alerttooltipstyle = "parasite"
 
 /atom/movable/screen/alert/canstealth
-	name = "Скрытность Ready"
+	name = "Stealth Ready"
 	desc = "You are ready to enter stealth!"
 	icon_state = "guardian_canstealth"
 	alerttooltipstyle = "parasite"

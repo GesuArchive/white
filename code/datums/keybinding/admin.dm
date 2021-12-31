@@ -64,7 +64,7 @@
 /datum/keybinding/admin/stealthmode
 	hotkey_keys = list("CtrlF8")
 	name = "stealth_mode"
-	full_name = "Скрытность mode"
+	full_name = "Stealth mode"
 	description = "Enters stealth mode"
 	keybind_signal = COMSIG_KB_ADMIN_STEALTHMODETOGGLE_DOWN
 

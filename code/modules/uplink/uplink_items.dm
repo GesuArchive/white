@@ -1175,7 +1175,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 // Stealth Items
 /datum/uplink_item/stealthy_tools
-	category = "Скрытность Gadgets"
+	category = "Stealth Gadgets"
 
 /datum/uplink_item/stealthy_tools/agent_card
 	name = "Agent Identification Card"

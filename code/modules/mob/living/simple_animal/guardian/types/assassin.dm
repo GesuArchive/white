@@ -31,7 +31,7 @@
 /mob/living/simple_animal/hostile/guardian/assassin/get_status_tab_items()
 	. = ..()
 	if(stealthcooldown >= world.time)
-		. += "Скрытность Cooldown Remaining: [DisplayTimeText(stealthcooldown - world.time)]"
+		. += "Stealth Cooldown Remaining: [DisplayTimeText(stealthcooldown - world.time)]"
 
 /mob/living/simple_animal/hostile/guardian/assassin/AttackingTarget()
 	. = ..()
