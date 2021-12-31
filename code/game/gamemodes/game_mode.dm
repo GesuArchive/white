@@ -298,6 +298,7 @@
 		for(var/datum/station_goal/G in station_goals)
 			G.on_report()
 			intercepttext += G.get_report()
+	intercepttext += generate_station_trait_report()
 	print_command_report(intercepttext, "Отчёт Безопасности Центрального Командования", announce=FALSE)
 	priority_announce("Сводная информация была скопирована и распечатана на всех коммуникационных консолях.", "Вражеская связь перехвачена. Уровень безопасности повышен.", ANNOUNCER_INTERCEPT)
 	if(GLOB.security_level < SEC_LEVEL_BLUE)
@@ -435,7 +436,7 @@
 /datum/game_mode/proc/generate_station_trait_report()
 	if(!SSstation.station_traits.len)
 		return
-	. = "<hr><b>Identified shift divergencies:</b><BR>"
+	. = "<hr><b>Возможные обстоятельства смены:</b><BR>"
 	for(var/datum/station_trait/station_trait as anything in SSstation.station_traits)
 		if(!station_trait.show_in_report)
 			continue
