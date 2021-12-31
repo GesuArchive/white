@@ -1,6 +1,6 @@
 /obj/item/dyespray
-	name = "hair dye spray"
-	desc = "A spray to dye your hair any gradients you'd like."
+	name = "краска для волос"
+	desc = "Можно покрасить волосы во всякие цвета."
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/dyespray.dmi'
 	icon_state = "dyespray"
@@ -23,23 +23,23 @@
 	if(!ishuman(target))
 		return
 	var/mob/living/carbon/human/human_target = target
-	var/beard_or_hair = input(user, "What do you want to dye?", "Character Preference")  as null|anything in list("Hair", "Facial Hair")
+	var/beard_or_hair = input(user, "Что будем красить?", "Краска")  as null|anything in list("Волосы", "Бороду")
 	if(!beard_or_hair || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE))
 		return
 
-	var/list/choices = beard_or_hair == "Hair" ? GLOB.hair_gradients_list : GLOB.facial_hair_gradients_list
-	var/new_grad_style = input(user, "Choose a color pattern:", "Character Preference")  as null|anything in choices
+	var/list/choices = beard_or_hair == "Волосы" ? GLOB.hair_gradients_list : GLOB.facial_hair_gradients_list
+	var/new_grad_style = input(user, "Выберем шаблон:", "Краска")  as null|anything in choices
 	if(!new_grad_style || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE))
 		return
 
-	var/new_grad_color = input(user, "Choose a secondary hair color:", "Character Preference",human_target.grad_color) as color|null
+	var/new_grad_color = input(user, "Выберем цвет:", "Краска",human_target.grad_color) as color|null
 	if(!new_grad_color || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE) || !user.CanReach(target))
 		return
 
-	to_chat(user, span_notice("You start applying the hair dye..."))
+	to_chat(user, span_notice("Начинаю красить [lowertext(beard_or_hair)]..."))
 	if(!do_after(user, 3 SECONDS, target))
 		return
-	var/gradient_key = beard_or_hair == "Hair" ? GRADIENT_HAIR_KEY : GRADIENT_FACIAL_HAIR_KEY
+	var/gradient_key = beard_or_hair == "Волосы" ? GRADIENT_HAIR_KEY : GRADIENT_FACIAL_HAIR_KEY
 	LAZYSETLEN(human_target.grad_style, GRADIENTS_LEN)
 	LAZYSETLEN(human_target.grad_color, GRADIENTS_LEN)
 	human_target.grad_style[gradient_key] = new_grad_style
