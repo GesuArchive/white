@@ -674,7 +674,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/icon/temp_hair = icon(file, icon)
 	temp.Blend(temp_hair, ICON_ADD)
 	gradient_overlay.icon = temp
-	gradient_overlay.color = sanitize_hexcolor(grad_color)
+	gradient_overlay.color = "#" + grad_color
 	return gradient_overlay
 
 /**
