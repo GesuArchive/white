@@ -79,7 +79,7 @@
 /area/centcom/supplypod/loading
 	name = "Дропподы ЦК: Загрузка"
 	icon_state = "supplypod_loading"
-	var/loading_id = ""
+	var/loading_id = "fuck"
 
 /area/centcom/supplypod/loading/Initialize()
 	. = ..()
