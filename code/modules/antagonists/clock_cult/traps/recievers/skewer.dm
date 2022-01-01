@@ -43,7 +43,7 @@
 			stab_overlay = mutable_appearance('icons/obj/clockwork_objects.dmi', "brass_skewer_pokeybit", layer=ABOVE_MOB_LAYER)
 		add_overlay(stab_overlay)
 
-/obj/structure/destructible/clockwork/trap/skewer/unbuckle_mob(mob/living/buckled_mob, force)
+/obj/structure/destructible/clockwork/trap/skewer/unbuckle_mob(mob/living/buckled_mob, force, can_fall = TRUE)
 	if(force)
 		return ..()
 	if(!buckled_mob.break_do_after_checks())

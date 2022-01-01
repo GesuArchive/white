@@ -9,11 +9,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "h" = (
-/obj/item/caution{
-	desc = "CAUTION! BIOHAZARD QUARANTINE!";
-	name = "biohazard warning sign"
-	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/clothing/suit/caution,
 /turf/open/floor/plating,
 /area/template_noop)
 "i" = (
@@ -60,10 +57,7 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "y" = (
-/obj/item/caution{
-	desc = "CAUTION! BIOHAZARD QUARANTINE!";
-	name = "biohazard warning sign"
-	},
+/obj/item/clothing/suit/caution,
 /turf/open/floor/plating,
 /area/template_noop)
 "A" = (
@@ -122,6 +116,7 @@
 "Q" = (
 /obj/item/ammo_casing/spent,
 /obj/item/ammo_casing/spent{
+	dir = 5;
 	pixel_y = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,

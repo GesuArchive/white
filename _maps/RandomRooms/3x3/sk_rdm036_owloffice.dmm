@@ -37,7 +37,10 @@
 /area/template_noop)
 "f" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/modular_computer/tablet/preset/cheap,
+/obj/item/modular_computer/tablet/preset/cheap{
+	pixel_x = 10;
+	pixel_y = 7
+	},
 /obj/structure/table_frame/wood,
 /turf/open/floor/plating,
 /area/template_noop)

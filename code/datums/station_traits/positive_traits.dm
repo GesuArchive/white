@@ -3,11 +3,11 @@
 
 
 /datum/station_trait/lucky_winner
-	name = "Lucky winner"
+	name = "Везунчик"
 	trait_type = STATION_TRAIT_POSITIVE
 	weight = 1
 	show_in_report = TRUE
-	report_message = "Your station has won the grand prize of the annual station charity event. Free snacks will be delivered to the bar every now and then."
+	report_message = "Ваша радиостанция выиграла главный приз ежегодного благотворительного мероприятия радиостанции. Время от времени в бар будут доставлять бесплатные закуски."
 	trait_processes = TRUE
 	COOLDOWN_DECLARE(party_cooldown)
 
@@ -32,11 +32,11 @@
 	new /obj/effect/pod_landingzone(T, toLaunch)
 
 /datum/station_trait/galactic_grant
-	name = "Galactic grant"
+	name = "Галактический грант"
 	trait_type = STATION_TRAIT_POSITIVE
 	weight = 5
 	show_in_report = TRUE
-	report_message = "Your station has been selected for a special grant. Some extra funds has been made available to your cargo department."
+	report_message = "Ваша станция была выбрана для получения специального гранта. Вашему грузовому отделу были предоставлены дополнительные средства."
 
 /datum/station_trait/galactic_grant/on_round_start()
 	var/datum/bank_account/cargo_bank = SSeconomy.get_dep_account(ACCOUNT_CAR)
@@ -51,21 +51,21 @@
 	trait_to_give = STATION_TRAIT_PREMIUM_INTERNALS
 */
 /datum/station_trait/bountiful_bounties
-	name = "Bountiful bounties"
+	name = "Щедрые щедрости"
 	trait_type = STATION_TRAIT_POSITIVE
 	weight = 5
 	show_in_report = TRUE
-	report_message = "It seems collectors in this system are extra keen to on bounties, and will pay more to see their completion."
+	report_message = "Похоже, что коллекционеры в этой системе особенно заинтересованы в вознаграждениях и будут платить больше, чтобы увидеть их выполнение."
 
 /datum/station_trait/bountiful_bounties/on_round_start()
 	SSeconomy.bounty_modifier *= 1.2
 
 /datum/station_trait/strong_supply_lines
-	name = "Strong supply lines"
+	name = "Сильные линии снабжения"
 	trait_type = STATION_TRAIT_POSITIVE
 	weight = 5
 	show_in_report = TRUE
-	report_message = "Prices are low in this system, BUY BUY BUY!"
+	report_message = "В этой системе низкие цены, ПОКУПАТЬ ПОКУПАТЬ ПОКУПАТЬ!"
 	blacklist = list(/datum/station_trait/distant_supply_lines)
 
 
@@ -73,7 +73,7 @@
 	SSeconomy.pack_price_modifier *= 0.8
 
 /datum/station_trait/scarves
-	name = "Scarves"
+	name = "Шарфы"
 	trait_type = STATION_TRAIT_POSITIVE
 	weight = 5
 	show_in_report = TRUE
@@ -82,12 +82,12 @@
 /datum/station_trait/scarves/New()
 	. = ..()
 	report_message = pick(
-		"Nanotrasen is experimenting with seeing if neck warmth improves employee morale.",
-		"After Space Fashion Week, scarves are the hot new accessory.",
-		"Everyone was simultaneously a little bit cold when they packed to go to the station.",
-		"The station is definitely not under attack by neck grappling aliens masquerading as wool. Definitely not.",
-		"You all get free scarves. Don't ask why.",
-		"A shipment of scarves was delivered to the station.",
+		"Нанотрейзен экспериментирует с тем, чтобы увидеть, улучшает ли тепло шеи моральный дух сотрудников.",
+		"После Недели космической моды шарфы - новый модный аксессуар.",
+		"Всем одновременно было немного холодно, когда они собирались на вокзал.",
+		"Станцию определенно не атакуют инопланетяне, маскирующиеся под шерсть. Точно нет.",
+		"Вы все получаете бесплатные шарфы. Не спрашивайте почему.",
+		"На станцию доставили партию шарфов.",
 	)
 	scarves = typesof(/obj/item/clothing/neck/scarf) + list(
 		/obj/item/clothing/neck/stripedredscarf,
@@ -115,11 +115,11 @@
 	trait_to_give = STATION_TRAIT_FILLED_MAINT
 */
 /datum/station_trait/quick_shuttle
-	name = "Quick Shuttle"
+	name = "Быстрый шаттл"
 	trait_type = STATION_TRAIT_POSITIVE
 	weight = 5
 	show_in_report = TRUE
-	report_message = "Due to proximity to our supply station, the cargo shuttle will have a quicker flight time to your cargo department."
+	report_message = "Благодаря близости к нашей станции снабжения грузовой шаттл будет быстрее добираться до вашего грузового отдела."
 	blacklist = list(/datum/station_trait/slow_shuttle)
 
 /datum/station_trait/quick_shuttle/on_round_start()
@@ -200,11 +200,11 @@
 	department_name = "Medical"
 */
 /datum/station_trait/deathrattle_all
-	name = "deathrattled station"
+	name = "Предсмертная станция"
 	trait_type = STATION_TRAIT_POSITIVE
 	show_in_report = TRUE
 	weight = 1
-	report_message = "All members of the station have received an implant to notify each other if one of them dies. This should help improve job-safety!"
+	report_message = "Все члены станции получили имплант, чтобы уведомить друг-друга, если один из них умирает. Это должно помочь повысить безопасность труда!"
 	var/datum/deathrattle_group/deathrattle_group
 
 
@@ -224,11 +224,11 @@
 
 
 /datum/station_trait/wallets
-	name = "Wallets!"
+	name = "Кошельки!"
 	trait_type = STATION_TRAIT_POSITIVE
 	show_in_report = TRUE
 	weight = 10
-	report_message = "It has become temporarily fashionable to use a wallet, so everyone on the station has been issued one."
+	report_message = "Временно стало модно пользоваться кошельком, поэтому каждый на станции получил его."
 
 /datum/station_trait/wallets/New()
 	. = ..()

@@ -28,11 +28,9 @@
 			set_nutrition(NUTRITION_LEVEL_FED - 1)	//just less than feeling vigorous
 		else if(nutrition && stat != DEAD)
 			adjust_nutrition(-(HUNGER_FACTOR/10))
-			adjust_pooition(HUNGER_FACTOR/10)
 			hydration -= HYDRATION_LOSS_PER_LIFE
 			if(m_intent == MOVE_INTENT_RUN)
 				adjust_nutrition(-(HUNGER_FACTOR/10))
-				adjust_pooition(HUNGER_FACTOR/10)
 				hydration -= HYDRATION_LOSS_PER_LIFE
 
 

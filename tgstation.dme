@@ -3602,6 +3602,7 @@
 #include "code\modules\surgery\organs\autosurgeon.dm"
 #include "code\modules\surgery\organs\ears.dm"
 #include "code\modules\surgery\organs\eyes.dm"
+#include "code\modules\surgery\organs\guts.dm"
 #include "code\modules\surgery\organs\heart.dm"
 #include "code\modules\surgery\organs\helpers.dm"
 #include "code\modules\surgery\organs\kidneys.dm"

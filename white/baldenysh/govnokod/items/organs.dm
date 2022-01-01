@@ -38,9 +38,12 @@
 /obj/item/organ/snus_mycosis/proc/feed(delta_time)
 	if(nutrition_leeching_factor <= 0)
 		return 0
-	if(owner.pooition > nutrition_leeching_factor * delta_time * 5)
-		owner.pooition -= nutrition_leeching_factor * delta_time * 5
-		return nutrition_leeching_factor * delta_time
+	var/obj/item/organ/guts = owner.internal_organs_slot[ORGAN_SLOT_GUTS]
+	if(guts?.reagents)
+		var/datum/reagent/poo = locate(/datum/reagent/toxin/poo) in guts.reagents.reagent_list
+		if(poo.volume > nutrition_leeching_factor * delta_time * 5)
+			guts.reagents.remove_reagent(/datum/reagent/toxin/poo, nutrition_leeching_factor * delta_time * 5)
+			return nutrition_leeching_factor * delta_time
 	if(owner.nutrition > nutrition_leeching_factor * delta_time)
 		owner.nutrition -= nutrition_leeching_factor * delta_time
 		return nutrition_leeching_factor * delta_time

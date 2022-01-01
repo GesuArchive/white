@@ -19664,7 +19664,11 @@
 	},
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/effect/decal/cleanable/vomit/old,
-/mob/living/simple_animal/hostile/retaliate/goose/vomit,
+/mob/living/simple_animal/hostile/retaliate/goose/vomit{
+	desc = "It's a sick-looking goose, probably ate too much pedalique trash. Best not to move it around too much.";
+	name = "Maxsc";
+	real_name = "Maxsc"
+	},
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
 	},
@@ -54501,6 +54505,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/corner,
+/obj/machinery/computer/shuttle_flight/mining{
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/cargo/miningoffice)
 "nyd" = (
@@ -59253,6 +59260,7 @@
 	req_access_txt = "12"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "poZ" = (
@@ -60483,6 +60491,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating/airless,
 /area/engineering/atmos)
 "pKt" = (
@@ -66050,6 +66059,16 @@
 	},
 /turf/open/floor/plasteel,
 /area/ai_monitored/command/storage/eva)
+"rLb" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access_txt = "12"
+	},
+/obj/effect/mapping_helpers/airlock/abandoned,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel/dark,
+/area/maintenance/port)
 "rLk" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -81202,6 +81221,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/event_spawn,
 /obj/structure/cable,
+/obj/machinery/computer/shuttle_flight/mining{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/cargo/miningoffice)
 "xEu" = (
@@ -81347,6 +81369,9 @@
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
+	},
+/obj/machinery/computer/shuttle_flight/mining{
+	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/cargo/miningoffice)
@@ -92046,10 +92071,10 @@ ahV
 aeu
 aeu
 aeu
-cry
 acm
-cry
-cry
+acm
+acm
+acm
 acK
 aaa
 aaa
@@ -95125,7 +95150,7 @@ ydd
 tNI
 tof
 amA
-tLz
+rLb
 amR
 cpX
 beO

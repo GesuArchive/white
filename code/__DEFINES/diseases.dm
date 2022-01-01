@@ -21,16 +21,16 @@
 
 //Severity Defines
 /// Diseases that buff, heal, or at least do nothing at all
-#define DISEASE_SEVERITY_POSITIVE	"Positive"
+#define DISEASE_SEVERITY_POSITIVE	"Позитивная"
 /// Diseases that may have annoying effects, but nothing disruptive (sneezing)
-#define DISEASE_SEVERITY_NONTHREAT	"Harmless"
+#define DISEASE_SEVERITY_NONTHREAT	"Безвредная"
 /// Diseases that can annoy in concrete ways (dizziness)
-#define DISEASE_SEVERITY_MINOR		"Minor"
+#define DISEASE_SEVERITY_MINOR		"Низкая"
 /// Diseases that can do minor harm, or severe annoyance (vomit)
-#define DISEASE_SEVERITY_MEDIUM		"Medium"
+#define DISEASE_SEVERITY_MEDIUM		"Средняя"
 /// Diseases that can do significant harm, or severe disruption (brainrot)
-#define DISEASE_SEVERITY_HARMFUL	"Harmful"
+#define DISEASE_SEVERITY_HARMFUL	"Вредная"
 /// Diseases that can kill or maim if left untreated (flesh eating, blindness)
-#define DISEASE_SEVERITY_DANGEROUS 	"Dangerous"
+#define DISEASE_SEVERITY_DANGEROUS 	"Опасная"
 /// Diseases that can quickly kill an unprepared victim (fungal tb, gbs)
-#define DISEASE_SEVERITY_BIOHAZARD	"BIOHAZARD"
+#define DISEASE_SEVERITY_BIOHAZARD	"БИО-ОРУЖИЕ"

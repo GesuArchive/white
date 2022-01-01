@@ -4291,9 +4291,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "qA" = (
-/obj/machinery/camera{
-	c_tag = "Central Hallway North-West"
-	},
 /obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/hidden{
 	dir = 4
 	},

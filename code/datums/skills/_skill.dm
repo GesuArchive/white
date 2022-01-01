@@ -53,6 +53,8 @@ GLOBAL_LIST_INIT(skill_types, subtypesof(/datum/skill))
  * level_lost: See level_gained, same idea but fires on skill level-down
  */
 /datum/skill/proc/level_lost(datum/mind/mind, new_level, old_level)
+	if(old_level > levelDownMessages.len)
+		return
 	to_chat(mind.current, levelDownMessages[old_level]) //old_level will be a value from 1 to 6, so we get appropriate message from the 6-element levelUpMessages list
 
 /**
@@ -67,15 +69,15 @@ GLOBAL_LIST_INIT(skill_types, subtypesof(/datum/skill))
 	if (new_level != SKILL_LEVEL_LEGENDARY)
 		return
 	if (!ispath(skill_cape_path))
-		to_chat(mind.current, span_nicegreen("My legendary [name] skill is quite impressive, though it seems the Professional [title] Association doesn't have any status symbols to commemorate my abilities with. I should let Centcom know of this travesty, maybe they can do something about it."))
+		to_chat(mind.current, span_nicegreen("Мой легендарный навык [name] весьма крут, однако Ассоциация Профессионалов [title] не имеет особых символов чтобы отметить это."))
 		return
 	if (LAZYFIND(mind.skills_rewarded, src.type))
-		to_chat(mind.current, span_nicegreen("It seems the Professional [title] Association won't send me another status symbol."))
+		to_chat(mind.current, span_nicegreen("Похоже,  Ассоциация Профессионалов [title] не хочет давать мне больше символов навыка."))
 		return
 	var/obj/structure/closet/supplypod/bluespacepod/pod = new()
 	pod.delays[POD_TRANSIT] = 150
 	pod.explosionSize = list(0,0,0,0)
-	to_chat(mind.current, span_nicegreen("My legendary skill has attracted the attention of the Professional [title] Association. It seems they are sending me a status symbol to commemorate my abilities."))
+	to_chat(mind.current, span_nicegreen("Мой легендарный навык привлёк Ассоциацию Профессионалов [title]. Похоже, они выслали мне особый символ, чтобы отметить это."))
 	var/turf/T = get_turf(mind.current)
 	new /obj/effect/pod_landingzone(T, pod , new skill_cape_path(T))
 	LAZYADD(mind.skills_rewarded, src.type)

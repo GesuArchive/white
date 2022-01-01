@@ -94,7 +94,7 @@
 /obj/item/storage/box/mime/Moved(oldLoc, dir)
 	if (iscarbon(oldLoc))
 		alpha = 0
-	..()
+	return ..()
 
 //Disk boxes
 

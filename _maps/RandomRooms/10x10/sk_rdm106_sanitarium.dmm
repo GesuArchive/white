@@ -250,14 +250,9 @@
 /obj/item/tape/random,
 /obj/item/camera,
 /obj/item/camera_film,
-/obj/item/storage/pill_bottle/happiness{
-	pixel_x = -7
-	},
-/obj/item/storage/pill_bottle/happiness{
-	pixel_x = -7
-	},
-/obj/item/storage/pill_bottle/mannitol,
 /obj/item/clothing/glasses/hud/health,
+/obj/item/storage/pill_bottle/happinesspsych,
+/obj/item/storage/pill_bottle/happinesspsych,
 /turf/open/floor/carpet/blue,
 /area/template_noop)
 "Cz" = (

@@ -2,14 +2,14 @@
 // A chain of satellites encircles the station
 // Satellites be actived to generate a shield that will block unorganic matter from passing it.
 /datum/station_goal/station_shield
-	name = "Station Shield"
+	name = "Станционный щит"
 	var/coverage_goal = 5000
 
 /datum/station_goal/station_shield/get_report()
-	return {"The station is located in a zone full of space debris.
-		We have a prototype shielding system you must deploy to reduce collision-related accidents.
-
-		You can order the satellites and control systems at cargo.
+	return {"\nСтанция находится в зоне, заполненной космическим мусором.
+		\nУ нас есть прототип системы защиты, которую вы должны развернуть, чтобы уменьшить количество аварий, связанных с столкновениями.
+		\n
+		\nВы можете заказать спутники и системы управления в грузовом отсеке.
 		"}
 
 

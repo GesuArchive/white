@@ -63,7 +63,7 @@
 	name = NEW_YEAR
 	begin_day = 29
 	begin_month = DECEMBER
-	end_day = 2
+	end_day = 3
 	end_month = JANUARY
 	drone_hat = /obj/item/clothing/head/festive
 
@@ -470,7 +470,8 @@
 	name = CHRISTMAS
 	begin_day = 22
 	begin_month = DECEMBER
-	end_day = 27
+	end_day = 3
+	end_month = JANUARY
 	drone_hat = /obj/item/clothing/head/santa
 
 /datum/holiday/xmas/greet()

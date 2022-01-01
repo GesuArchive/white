@@ -177,7 +177,7 @@
 
 /obj/machinery/treadmill_monitor/examine(mob/user)
 	. = ..()
-	. += "Дисплей:<div style='text-align: center'>[line1]<br>[line2]</div>"
+	. += "<hr>Дисплей:<div style='text-align: center'>[line1]<br>[line2]</div>"
 
 /obj/machinery/treadmill_monitor/update_icon()
 	overlays.Cut()
@@ -190,8 +190,8 @@
 		line2 = "729%!"
 	else
 		if(!frame)
-			line1 = "-W/S-"
-			line2 = "-TIX-"
+			line1 = "-В/С-"
+			line2 = "-ТИК-"
 		else
 			if(!treadmill || treadmill.machine_stat)
 				line1 = "???"
@@ -216,7 +216,7 @@
 /obj/machinery/treadmill_monitor/proc/redeem()
 	if(total_joules >= J_per_ticket && J_per_ticket)
 		playsound(loc, 'sound/machines/chime.ogg', 50, 1)
-		new /obj/item/stack/arcadeticket(get_turf(src), round(total_joules / J_per_ticket))
+		new /obj/item/stack/spacecash/c50(get_turf(src), round(total_joules / J_per_ticket))
 		total_joules = 0
 
 /obj/machinery/treadmill_monitor/emp_act(severity)

@@ -13,6 +13,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/white,
 /area/template_noop)
 "b" = (
@@ -79,16 +80,15 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/white,
 /area/template_noop)
 "h" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plating,
 /area/template_noop)
 "i" = (
 /obj/structure/closet,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/white,
 /area/template_noop)
 "j" = (
@@ -105,7 +105,26 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/white,
+/area/template_noop)
+"x" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel/white,
+/area/template_noop)
+"O" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel/white,
+/area/template_noop)
+"X" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
 /area/template_noop)
 
 (1,1,1) = {"
@@ -116,20 +135,20 @@ i
 (2,1,1) = {"
 b
 g
-j
+h
 "}
 (3,1,1) = {"
 c
-k
-j
+h
+X
 "}
 (4,1,1) = {"
 k
-f
+x
 j
 "}
 (5,1,1) = {"
 e
 h
-j
+O
 "}

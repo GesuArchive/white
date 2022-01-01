@@ -3,14 +3,14 @@
 // Requires high amount of power
 // Requires high level stock parts
 /datum/station_goal/bluespace_cannon
-	name = "Bluespace Artillery"
+	name = "Блюспейс артиллерия"
 
 /datum/station_goal/bluespace_cannon/get_report()
-	return {"Our military presence is inadequate in your sector.
-		We need you to construct BSA-[rand(1,99)] Artillery position aboard your station.
-
-		Base parts are available for shipping via cargo.
-		-Nanotrasen Naval Command"}
+	return {"\nНашего военного присутствия в вашем секторе недостаточно.
+		\nНам нужно, чтобы вы построили БСА-[rand(1,99)] Артиллерию на борту вашей станции.
+		\n
+		\nБазовые части доступны для отправки грузовым транспортом.
+		\n - Военно-космическое Командование Нанотрейзен"}
 
 /datum/station_goal/bluespace_cannon/on_report()
 	//Unlock BSA parts

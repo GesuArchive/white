@@ -1,32 +1,32 @@
 /datum/station_trait/bananium_shipment
-	name = "Bananium Shipment"
+	name = "Отгрузка бананиума"
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 5
-	report_message = "Rumors has it that the clown planet has been sending support packages to clowns in this system"
+	report_message = "Ходят слухи, что планета клоунов отправляет пакеты поддержки клоунам в этой системе."
 	trait_to_give = STATION_TRAIT_BANANIUM_SHIPMENTS
 
 /datum/station_trait/unnatural_atmosphere
-	name = "Unnatural atmospherical properties"
+	name = "Неестественные атмосферные свойства"
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 5
 	show_in_report = TRUE
-	report_message = "System's local planet has irregular atmospherical properties"
+	report_message = "Локальная планета системы имеет необычные атмосферные свойства."
 	trait_to_give = STATION_TRAIT_UNNATURAL_ATMOSPHERE
 
 /datum/station_trait/unique_ai
-	name = "Unique AI"
+	name = "Уникальный ИИ"
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 5
 	show_in_report = TRUE
-	report_message = "For experimental purposes, this station AI might show divergence from default lawset. Do not meddle with this experiment."
+	report_message = "В экспериментальных целях ИИ этой станции может показывать отклонение от установленного по умолчанию закона. Не вмешивайтесь в этот эксперимент."
 	trait_to_give = STATION_TRAIT_UNIQUE_AI
 
 /datum/station_trait/ian_adventure
-	name = "Ian's Adventure"
+	name = "Приключение Яна"
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 5
 	show_in_report = FALSE
-	report_message = "Ian has gone exploring somewhere in the station."
+	report_message = "Ян отправился исследовать что-то на станции."
 
 /datum/station_trait/ian_adventure/on_round_start()
 	for(var/mob/living/simple_animal/pet/dog/corgi/dog in GLOB.mob_list)

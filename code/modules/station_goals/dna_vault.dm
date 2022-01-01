@@ -12,7 +12,7 @@
 #define VAULT_QUICK "Arm Muscle Stimulus"
 
 /datum/station_goal/dna_vault
-	name = "DNA Vault"
+	name = "Хранилище ДНК"
 	var/animal_count
 	var/human_count
 	var/plant_count
@@ -32,15 +32,15 @@
 			.++
 
 /datum/station_goal/dna_vault/get_report()
-	return {"Our long term prediction systems indicate a 99% chance of system-wide cataclysm in the near future.
-		We need you to construct a DNA Vault aboard your station.
-
-		The DNA Vault needs to contain samples of:
-		[animal_count] unique animal data
-		[plant_count] unique non-standard plant data
-		[human_count] unique sapient humanoid DNA data
-
-		Base vault parts are available for shipping via cargo."}
+	return {"\nНаши системы долгосрочного прогнозирования указывают на 99% вероятность общесистемного катаклизма в ближайшем будущем.
+		\nНам нужно, чтобы вы построили Хранилище ДНК на борту своей станции.
+		\n
+		\nХранилище ДНК должно содержать образцы:
+		\n[animal_count] уникальных данных о животных
+		\n[plant_count] уникальных нестандартных данных растений
+		\n[human_count] уникальных данных о ДНК разумных гуманоидах
+		\n
+		\nДетали базового хранилища доступны для доставки грузовым транспортом."}
 
 
 /datum/station_goal/dna_vault/on_report()

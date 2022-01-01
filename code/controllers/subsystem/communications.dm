@@ -72,7 +72,7 @@ SUBSYSTEM_DEF(communications)
 				C.add_message(M)
 			if(print)
 				var/obj/item/paper/P = new /obj/item/paper(C.loc)
-				P.name = "paper - '[sending.title]'"
+				P.name = "бумага - '[sending.title]'"
 				P.info = sending.content
 				P.update_icon()
 

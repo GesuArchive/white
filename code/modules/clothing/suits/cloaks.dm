@@ -204,3 +204,9 @@
 
 /obj/item/clothing/neck/cloak/skill_reward/playing/check_wearable(mob/user)
 	return user.client?.get_exp_living(TRUE) >= PLAYTIME_VETERAN
+
+/obj/item/clothing/neck/cloak/skill_reward/ranged
+	name = "плащ легендарного стрелка"
+	desc = "Этот плащ носят только те, кто умеет правильно стрелять. Конечно, легендарный уровень, сказали бы вы, но только вдумайтесь какой человек его получил. Разве он достоит вообще СТРЕЛЯТЬ? Взгляните на него, это же просто глупый РЕБЁНОК с оружием. Тьфу."
+	icon_state = "rangedcloak"
+	associated_skill_path = /datum/skill/ranged

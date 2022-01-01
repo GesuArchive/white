@@ -115,7 +115,7 @@
 	linked_console = console_link
 	return ..()
 
-/mob/camera/ai_eye/remote/base_construction/setLoc(t)
+/mob/camera/ai_eye/remote/base_construction/setLoc(t, force_update = FALSE)
 	var/area/curr_area = get_area(t)
 	//Only move if we're in the allowed area. If no allowed area is defined, then we're free to move wherever.
 	if(!linked_console.allowed_area || istype(curr_area, linked_console.allowed_area))

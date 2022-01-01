@@ -18,7 +18,7 @@
 
 /obj/item/clothing/shoes/combat/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/squeak, list('white/valtos/sounds/suitstep1.ogg' = 1, 'white/valtos/sounds/suitstep2.ogg' = 1), 25, 25, falloff_exponent = 20)
+	AddComponent(/datum/component/squeak, list('white/valtos/sounds/suitstep1.ogg' = 1, 'white/valtos/sounds/suitstep2.ogg' = 1), 25, 75, falloff_exponent = 20)
 
 /obj/item/clothing/shoes/combat/sneakboots
 	name = "скрытные ботинки"
@@ -152,7 +152,7 @@
 
 /obj/item/clothing/shoes/jackboots/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/squeak, list('white/valtos/sounds/suitstep1.ogg' = 1, 'white/valtos/sounds/suitstep2.ogg' = 1), 25, 25, falloff_exponent = 20)
+	AddComponent(/datum/component/squeak, list('white/valtos/sounds/suitstep1.ogg' = 1, 'white/valtos/sounds/suitstep2.ogg' = 1), 25, 75, falloff_exponent = 20)
 
 /obj/item/clothing/shoes/jackboots/fast
 	slowdown = -1

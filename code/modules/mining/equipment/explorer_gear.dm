@@ -1,7 +1,7 @@
 /****************Explorer's Suit and Mask****************/
 /obj/item/clothing/suit/hooded/explorer
-	name = "explorer suit"
-	desc = "An armoured suit for exploring harsh environments."
+	name = "костюм исследователя"
+	desc = "Бронированный костюм для общения с весьма недружелюбными созданиями."
 	icon_state = "explorer"
 	inhand_icon_state = "explorer"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -11,12 +11,12 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
 	hoodtype = /obj/item/clothing/head/hooded/explorer
 	armor = list(MELEE = 30, BULLET = 10, LASER = 10, ENERGY = 20, BOMB = 50, BIO = 100, RAD = 50, FIRE = 50, ACID = 50)
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/resonator, /obj/item/mining_scanner, /obj/item/t_scanner/adv_mining_scanner, /obj/item/gun/energy/kinetic_accelerator, /obj/item/pickaxe)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/resonator, /obj/item/mining_scanner, /obj/item/t_scanner/adv_mining_scanner, /obj/item/gun/energy/kinetic_accelerator, /obj/item/pickaxe, /obj/item/storage/bag/ore)
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/head/hooded/explorer
-	name = "explorer hood"
-	desc = "An armoured hood for exploring harsh environments."
+	name = "капюшон исследователя"
+	desc = "Бронированный капюшон для общения с весьма недружелюбными созданиями."
 	icon_state = "explorer"
 	body_parts_covered = HEAD
 	flags_inv = HIDEHAIR|HIDEFACE|HIDEEARS
@@ -36,8 +36,8 @@
 	AddComponent(/datum/component/armor_plate)
 
 /obj/item/clothing/mask/gas/explorer
-	name = "explorer gas mask"
-	desc = "A military-grade gas mask that can be connected to an air supply."
+	name = "противогаз исследователя"
+	desc = "Маска военного образца, которая может быть подключена к баллону."
 	icon_state = "gas_mining"
 	visor_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS
 	visor_flags_inv = HIDEFACIALHAIR

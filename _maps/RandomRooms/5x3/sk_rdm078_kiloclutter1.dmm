@@ -10,7 +10,7 @@
 /obj/machinery/status_display/evac{
 	pixel_y = 32
 	},
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plating,
 /area/template_noop)
 "b" = (
 /obj/effect/turf_decal/bot,
@@ -68,9 +68,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
 /area/template_noop)
 "h" = (
 /obj/structure/table,
@@ -83,9 +81,7 @@
 "i" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
 /area/template_noop)
 "j" = (
 /obj/effect/turf_decal/bot,
@@ -98,6 +94,10 @@
 	},
 /turf/open/floor/plating,
 /area/template_noop)
+"k" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/template_noop)
 
 (1,1,1) = {"
 a
@@ -106,11 +106,11 @@ h
 "}
 (2,1,1) = {"
 b
-c
+k
 c
 "}
 (3,1,1) = {"
-c
+k
 g
 c
 "}
@@ -121,6 +121,6 @@ i
 "}
 (5,1,1) = {"
 e
-c
+k
 j
 "}

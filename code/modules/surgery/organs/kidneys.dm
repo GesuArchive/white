@@ -36,10 +36,10 @@
 	if(uri?.volume > reagent_vol)
 		body.try_pee(TRUE)
 
-	if(body.hydration <= 5)
+	if(body?.hydration <= 5)
 		applyOrganDamage(1)
 
-	if(body.hydration)
+	if(body?.hydration)
 		body.hydration -= delta_time * metabolism_efficiency
 		reagents.add_reagent(/datum/reagent/toxin/urine, delta_time * metabolism_efficiency)
 
@@ -49,6 +49,9 @@
 	if(damage > high_threshold && DT_PROB(0.5 * damage, delta_time))
 		to_chat(body, span_warning("В боку болит и больше не выходит сдерживаться!"))
 		body.try_pee(TRUE)
+
+/obj/item/organ/kidneys/get_availability(datum/species/S)
+	return !(NOKIDNEYS in S.inherent_traits)
 
 /obj/item/organ/kidneys/fly
 	desc = "Почернели от ракетного топлива. Ну ксеносы, ну тупые!"
@@ -61,7 +64,6 @@
 	organ_flags = ORGAN_SYNTHETIC
 	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.5
 	var/emp_vulnerability = 80
-	reagent_vol = 50
 	metabolism_efficiency = 0.07
 
 /obj/item/organ/kidneys/cybernetic/tier2
@@ -70,7 +72,6 @@
 	desc = "Усовершенствованное устройство, превосходящее функции человеческих почек."
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	emp_vulnerability = 40
-	reagent_vol = 150
 	metabolism_efficiency = 0.04
 
 /obj/item/organ/kidneys/cybernetic/tier3
@@ -79,7 +80,6 @@
 	desc = "Эта версия кибернетических почек имеет огромный внутренний запас."
 	maxHealth = 2 * STANDARD_ORGAN_THRESHOLD
 	emp_vulnerability = 20
-	reagent_vol = 200
 	metabolism_efficiency = 0.01
 
 /obj/item/organ/kidneys/cybernetic/emp_act(severity)
@@ -93,7 +93,7 @@
 		organ_flags |= ORGAN_SYNTHETIC_EMP
 
 /obj/effect/decal/cleanable/urine
-	name = "моча"
+	name = "лужа мочи"
 	desc = "Выглядит не вкусно."
 	icon_state = "urine"
 	density = 0

@@ -2972,15 +2972,15 @@
 /area/security/brig)
 "iE" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
 /obj/machinery/power/treadmill{
 	dir = 8;
-	id = "cell1"
+	id = "Cell 1"
 	},
 /obj/machinery/treadmill_monitor{
-	id = "cell1";
+	id = "Cell 1";
 	pixel_x = -32
 	},
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/security/brig)
 "iF" = (
@@ -3442,28 +3442,28 @@
 /area/security/main)
 "EV" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
 /obj/machinery/power/treadmill{
 	dir = 8;
-	id = "cell3"
+	id = "Cell 3"
 	},
 /obj/machinery/treadmill_monitor{
-	id = "cell3";
+	id = "Cell 3";
 	pixel_x = -32
 	},
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/security/brig)
 "If" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
 /obj/machinery/power/treadmill{
 	dir = 8;
-	id = "cell2"
+	id = "Cell 2"
 	},
 /obj/machinery/treadmill_monitor{
-	id = "cell2";
+	id = "Cell 2";
 	pixel_x = -32
 	},
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/security/brig)
 "TC" = (

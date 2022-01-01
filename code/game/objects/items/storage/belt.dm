@@ -720,7 +720,8 @@
 	if(length(contents))
 		. += span_notice("ПКМ, чтобы немедленно достать саблю.")
 
-/obj/item/storage/belt/sabre/AltClick(mob/user)
+/obj/item/storage/belt/sabre/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		return
 	if(length(contents))

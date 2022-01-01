@@ -1,0 +1,2412 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bR" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/button/door{
+	id = "ex_cab";
+	name = "Cabin Bolt Control";
+	normaldoorcontrol = 1;
+	pixel_y = 32;
+	req_access_txt = "49";
+	specialfunctions = 4
+	},
+/obj/machinery/camera/autoname,
+/obj/structure/table/reinforced,
+/obj/item/tank/jetpack/oxygen/harness,
+/obj/item/tank/jetpack/oxygen/harness,
+/obj/item/tank/jetpack/oxygen/harness,
+/obj/item/tank/jetpack/oxygen/harness,
+/obj/item/clothing/mask/breath{
+	pixel_y = 5
+	},
+/obj/item/clothing/mask/breath{
+	pixel_y = 5
+	},
+/obj/item/clothing/mask/breath{
+	pixel_y = 5
+	},
+/obj/item/clothing/mask/breath{
+	pixel_y = 5
+	},
+/turf/open/floor/plating,
+/area/ctf)
+"cp" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/north{
+	cell_type = /obj/item/stock_parts/cell/high/plus
+	},
+/obj/machinery/button/door{
+	id = "ex_cab";
+	name = "Cabin Bolt Control";
+	normaldoorcontrol = 1;
+	pixel_y = -25;
+	req_access_txt = "49";
+	specialfunctions = 4
+	},
+/obj/machinery/light/small,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium,
+/area/ctf)
+"ct" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/ctf)
+"cC" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium,
+/area/ctf)
+"cT" = (
+/obj/structure/table,
+/obj/machinery/recharger{
+	pixel_y = 5
+	},
+/turf/open/floor/mineral/titanium,
+/area/ctf)
+"dd" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ctf)
+"dD" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/bounty_board/directional/south,
+/obj/structure/table/reinforced,
+/turf/open/floor/plating,
+/area/ctf)
+"dK" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/turf/open/space/basic,
+/area/ctf)
+"dL" = (
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = 24
+	},
+/obj/structure/window/reinforced,
+/obj/structure/table,
+/obj/machinery/cell_charger{
+	pixel_y = 5
+	},
+/turf/open/floor/mineral/titanium/purple,
+/area/ctf)
+"ei" = (
+/obj/item/pickaxe/rusted,
+/turf/open/floor/wood/airless,
+/area/ctf)
+"gx" = (
+/obj/machinery/modular_computer/console/preset/civilian,
+/turf/open/floor/plasteel/kitchen_coldroom,
+/area/ctf)
+"gS" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/table/wood,
+/obj/item/storage/box/lethalshot,
+/obj/item/gun/ballistic/shotgun/automatic/combat,
+/turf/open/floor/wood/airless,
+/area/ctf)
+"gZ" = (
+/turf/closed/indestructible/wood,
+/area/ctf)
+"id" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/table/reinforced,
+/obj/item/tank/internals/tactical,
+/obj/item/tank/internals/tactical,
+/obj/item/tank/internals/tactical,
+/obj/item/tank/internals/tactical,
+/turf/open/floor/plating,
+/area/ctf)
+"if" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium,
+/area/ctf)
+"it" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/door/poddoor/shutters{
+	dir = 8;
+	id = "ex_cargo1";
+	name = "Cargo Shutters"
+	},
+/turf/closed/indestructible/syndicate,
+/area/ctf)
+"iw" = (
+/obj/machinery/porta_turret/syndicate/robast,
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 1
+	},
+/obj/structure/railing{
+	color = "#4C3117";
+	dir = 6;
+	name = "wooden railing"
+	},
+/obj/structure/railing{
+	color = "#4C3117";
+	dir = 8;
+	name = "wooden railing"
+	},
+/turf/open/floor/plating/airless,
+/area/ctf)
+"iS" = (
+/obj/machinery/power/solar/fake,
+/obj/structure/cable,
+/turf/open/floor/plasteel/airless/solarpanel,
+/area/ctf)
+"iT" = (
+/obj/effect/turf_decal/loading_area{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium/blue,
+/area/ctf)
+"ja" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ctf)
+"jC" = (
+/obj/structure/railing{
+	color = "#4C3117";
+	dir = 6;
+	name = "wooden railing"
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/airless,
+/area/ctf)
+"kt" = (
+/mob/living/simple_animal/hostile/carp/megacarp,
+/turf/open/space/basic,
+/area/ctf)
+"ld" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/bounty_board/directional/south,
+/obj/structure/table/reinforced,
+/turf/open/floor/plating,
+/area/ctf)
+"lu" = (
+/obj/machinery/computer/objective,
+/turf/open/floor/plasteel/kitchen_coldroom,
+/area/ctf)
+"lw" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/button/door{
+	id = "ex_cab";
+	name = "Cabin Bolt Control";
+	normaldoorcontrol = 1;
+	pixel_y = -32;
+	req_access_txt = "49";
+	specialfunctions = 4
+	},
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ctf)
+"lA" = (
+/obj/machinery/light/directional/north,
+/obj/machinery/airalarm{
+	pixel_y = 23
+	},
+/obj/effect/turf_decal/bot,
+/obj/structure/table/reinforced,
+/obj/item/tank/jetpack/oxygen/harness,
+/obj/item/tank/jetpack/oxygen/harness,
+/obj/item/tank/jetpack/oxygen/harness,
+/obj/item/tank/jetpack/oxygen/harness,
+/obj/item/clothing/mask/breath{
+	pixel_y = 5
+	},
+/obj/item/clothing/mask/breath{
+	pixel_y = 5
+	},
+/obj/item/clothing/mask/breath{
+	pixel_y = 5
+	},
+/obj/item/clothing/mask/breath{
+	pixel_y = 5
+	},
+/turf/open/floor/plating,
+/area/ctf)
+"mF" = (
+/obj/structure/railing{
+	color = "#4C3117";
+	name = "wooden railing"
+	},
+/obj/structure/window/shuttle/survival_pod,
+/turf/open/floor/wood/airless,
+/area/ctf)
+"mS" = (
+/obj/machinery/computer/objective,
+/turf/open/floor/mineral/titanium/white,
+/area/ctf)
+"nq" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/north{
+	cell_type = /obj/item/stock_parts/cell/high/plus
+	},
+/obj/machinery/button/door{
+	id = "ex_cab";
+	name = "Cabin Bolt Control";
+	normaldoorcontrol = 1;
+	pixel_y = -25;
+	req_access_txt = "49";
+	specialfunctions = 4
+	},
+/obj/machinery/light/small,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ctf)
+"nG" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/structure/table/wood,
+/obj/item/gun/energy/laser{
+	pixel_x = -3;
+	pixel_y = 6
+	},
+/obj/item/gun/energy/laser{
+	pixel_y = 3
+	},
+/turf/open/floor/wood/airless,
+/area/ctf)
+"oo" = (
+/turf/closed/mineral/gibtonite,
+/area/ctf)
+"oR" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/shuttle{
+	id_tag = "ex_cab";
+	req_access_txt = "49"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/closed/indestructible/riveted/plastinum,
+/area/ctf)
+"qn" = (
+/obj/structure/railing{
+	color = "#4C3117";
+	dir = 6;
+	name = "wooden railing"
+	},
+/turf/open/floor/wood/airless,
+/area/ctf)
+"qN" = (
+/obj/structure/festivus{
+	anchored = 1;
+	color = "#825427";
+	name = "mast";
+	pixel_x = -16;
+	pixel_y = 2
+	},
+/obj/effect/turf_decal/siding/wood/end,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/ctf)
+"qT" = (
+/obj/structure/window/reinforced/survival_pod{
+	dir = 1
+	},
+/obj/structure/shuttle/engine/heater,
+/turf/open/floor/plating,
+/area/ctf)
+"qZ" = (
+/obj/structure/railing{
+	color = "#4C3117";
+	name = "wooden railing"
+	},
+/obj/item/pickaxe/emergency,
+/turf/open/floor/wood/airless,
+/area/ctf)
+"ry" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/carpet/royalblack/airless,
+/area/ctf)
+"rA" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/arena_spawn/red,
+/turf/open/floor/plating,
+/area/ctf)
+"rB" = (
+/obj/structure/railing{
+	color = "#4C3117";
+	dir = 10;
+	name = "wooden railing"
+	},
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/ctf)
+"si" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/mineral/plastitanium,
+/area/ctf)
+"tE" = (
+/obj/structure/railing{
+	color = "#4C3117";
+	dir = 8;
+	name = "wooden railing"
+	},
+/obj/structure/railing{
+	color = "#4C3117";
+	dir = 4;
+	name = "wooden railing"
+	},
+/turf/open/floor/wood/airless,
+/area/ctf)
+"tM" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/fans/tiny,
+/obj/machinery/door/poddoor/shutters{
+	dir = 8;
+	id = "ex_cargo1";
+	name = "Cargo Shutters"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/button/door{
+	id = "ex_cargo1";
+	name = "Cargo Shutters Control";
+	pixel_y = 32;
+	req_access_txt = "49"
+	},
+/turf/closed/indestructible/syndicate,
+/area/ctf)
+"vn" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/button/door{
+	id = "ex_cab";
+	name = "Cabin Bolt Control";
+	normaldoorcontrol = 1;
+	pixel_y = 32;
+	req_access_txt = "49";
+	specialfunctions = 4
+	},
+/obj/machinery/camera/autoname,
+/obj/machinery/arena_spawn/green,
+/turf/open/floor/plating,
+/area/ctf)
+"ww" = (
+/turf/closed/indestructible/riveted/plastinum,
+/area/ctf)
+"wN" = (
+/obj/structure/cable,
+/turf/open/floor/mineral/titanium,
+/area/ctf)
+"wT" = (
+/obj/structure/cable,
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/ctf)
+"xi" = (
+/obj/machinery/porta_turret/syndicate/robast,
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 1
+	},
+/obj/structure/railing{
+	color = "#4C3117";
+	dir = 10;
+	name = "wooden railing"
+	},
+/obj/structure/railing{
+	color = "#4C3117";
+	dir = 4;
+	name = "wooden railing"
+	},
+/turf/open/floor/plating/airless,
+/area/ctf)
+"yg" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
+/obj/machinery/arena_spawn/green,
+/turf/open/floor/plating,
+/area/ctf)
+"yx" = (
+/obj/effect/baseturf_helper/asteroid,
+/turf/closed/indestructible/rock,
+/area/ctf)
+"yB" = (
+/turf/open/floor/wood/airless,
+/area/ctf)
+"yR" = (
+/obj/structure/shuttle/engine/propulsion/burst,
+/turf/closed/indestructible/rock,
+/area/ctf)
+"AR" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/ctf)
+"Cr" = (
+/obj/machinery/power/tracker{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel/airless/solarpanel,
+/area/ctf)
+"CP" = (
+/obj/machinery/light_switch/directional/south,
+/obj/machinery/sleeper{
+	dir = 8
+	},
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/mineral/titanium/blue,
+/area/ctf)
+"Dg" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/plasteel/dark,
+/area/ctf)
+"Dy" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ctf)
+"DN" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/mineral/titanium,
+/area/ctf)
+"EU" = (
+/obj/machinery/light/directional/north,
+/obj/machinery/airalarm{
+	pixel_y = 23
+	},
+/obj/effect/turf_decal/bot,
+/obj/machinery/arena_spawn/red,
+/turf/open/floor/plating,
+/area/ctf)
+"EV" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plating,
+/area/ctf)
+"Fw" = (
+/obj/structure/railing{
+	color = "#4C3117";
+	name = "wooden railing"
+	},
+/obj/structure/cable,
+/turf/open/floor/wood/airless,
+/area/ctf)
+"FP" = (
+/obj/structure/railing{
+	color = "#4C3117";
+	dir = 10;
+	name = "wooden railing"
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/airless,
+/area/ctf)
+"Gt" = (
+/obj/structure/shuttle/engine/propulsion/burst,
+/turf/open/floor/plating,
+/area/ctf)
+"Gw" = (
+/obj/structure/table/wood,
+/obj/machinery/recharger{
+	pixel_y = 2
+	},
+/obj/item/stack/cannonball/emp{
+	pixel_x = -8
+	},
+/turf/open/floor/wood/airless,
+/area/ctf)
+"Gx" = (
+/obj/machinery/light/directional/west,
+/obj/machinery/airalarm{
+	dir = 1;
+	pixel_y = -22
+	},
+/turf/open/floor/plasteel/dark,
+/area/ctf)
+"GR" = (
+/obj/structure/window/reinforced,
+/obj/structure/table,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/dice/d6{
+	pixel_x = -1;
+	pixel_y = 7
+	},
+/obj/item/gps/mining{
+	pixel_x = 12;
+	pixel_y = 2
+	},
+/turf/open/floor/plasteel/dark,
+/area/ctf)
+"GV" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ctf)
+"Hc" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/table/reinforced,
+/turf/open/floor/plating,
+/area/ctf)
+"Hl" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/carpet/royalblack/airless,
+/area/ctf)
+"Hs" = (
+/turf/open/floor/mineral/titanium,
+/area/ctf)
+"Hw" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/button/door{
+	id = "ex_cargo1";
+	name = "Cargo Shutters Control";
+	pixel_y = 32;
+	req_access_txt = "49"
+	},
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/floor/plating,
+/area/ctf)
+"HD" = (
+/turf/open/floor/plasteel/dark,
+/area/ctf)
+"HI" = (
+/obj/machinery/modular_computer/console/preset/civilian,
+/turf/open/floor/mineral/titanium/white,
+/area/ctf)
+"Ig" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/ctf)
+"Il" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium,
+/area/ctf)
+"Is" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/mineral/plastitanium,
+/area/ctf)
+"IS" = (
+/obj/structure/window/reinforced,
+/obj/structure/table,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/dice/d6{
+	pixel_x = -1;
+	pixel_y = 7
+	},
+/obj/item/gps/mining{
+	pixel_x = 12;
+	pixel_y = 2
+	},
+/turf/open/floor/mineral/titanium/purple,
+/area/ctf)
+"IY" = (
+/obj/docking_port/mobile{
+	dir = 4;
+	dwidth = 5;
+	height = 7;
+	id = "exploration";
+	name = "Шаттл Рейнджеров";
+	port_direction = 8;
+	width = 13
+	},
+/obj/structure/cable,
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/shuttle{
+	req_access_txt = "49"
+	},
+/turf/open/floor/mineral/titanium,
+/area/ctf)
+"Jg" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ctf)
+"Ji" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/button/door{
+	id = "ex_cargo2";
+	name = "Cargo Shutters Control";
+	pixel_y = 32;
+	req_access_txt = "49"
+	},
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/floor/plating,
+/area/ctf)
+"KK" = (
+/turf/closed/mineral/random,
+/area/ctf)
+"Lb" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/door/airlock/shuttle{
+	id_tag = "ex_cab";
+	req_access_txt = "49"
+	},
+/turf/open/floor/mineral/titanium,
+/area/ctf)
+"Lq" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ctf)
+"Mn" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/button/door{
+	id = "ex_cab";
+	name = "Cabin Bolt Control";
+	normaldoorcontrol = 1;
+	pixel_y = -32;
+	req_access_txt = "49";
+	specialfunctions = 4
+	},
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium,
+/area/ctf)
+"Mt" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/obj/structure/table/wood,
+/obj/item/claymore/cutlass{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/claymore/cutlass,
+/turf/open/floor/wood/airless,
+/area/ctf)
+"MK" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ctf)
+"Ne" = (
+/obj/structure/fermenting_barrel/gunpowder,
+/obj/item/reagent_containers/glass/bucket/wooden,
+/turf/open/floor/wood/airless,
+/area/ctf)
+"No" = (
+/obj/structure/railing{
+	color = "#4C3117";
+	name = "wooden railing"
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/airless,
+/area/ctf)
+"Nv" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ctf)
+"NC" = (
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/ctf)
+"NE" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/ctf)
+"Oh" = (
+/obj/machinery/light_switch/directional/south,
+/obj/machinery/sleeper{
+	dir = 8
+	},
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/circuit/red,
+/area/ctf)
+"ON" = (
+/turf/closed/indestructible/opsglass,
+/area/ctf)
+"PS" = (
+/obj/effect/turf_decal/loading_area{
+	dir = 8
+	},
+/turf/open/floor/circuit/red,
+/area/ctf)
+"Qd" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/shuttle{
+	id_tag = "ex_cab";
+	req_access_txt = "49"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/closed/indestructible/syndicate,
+/area/ctf)
+"QD" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/arena_spawn/green,
+/turf/open/floor/plating,
+/area/ctf)
+"RE" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
+/obj/machinery/arena_spawn/red,
+/turf/open/floor/plating,
+/area/ctf)
+"Sd" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/space/basic,
+/area/ctf)
+"Sh" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 5;
+	pixel_y = 10
+	},
+/obj/item/multitool{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/turf/open/floor/mineral/titanium,
+/area/ctf)
+"Sq" = (
+/obj/structure/railing{
+	color = "#4C3117";
+	dir = 10;
+	name = "wooden railing"
+	},
+/turf/open/floor/wood/airless,
+/area/ctf)
+"SH" = (
+/turf/closed/indestructible/rock,
+/area/ctf)
+"SW" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/airless,
+/area/ctf)
+"Tk" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/floor/plating,
+/area/ctf)
+"Tz" = (
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = 24
+	},
+/obj/structure/window/reinforced,
+/obj/structure/table,
+/obj/machinery/cell_charger{
+	pixel_y = 5
+	},
+/turf/open/floor/plasteel/dark,
+/area/ctf)
+"Up" = (
+/obj/machinery/door/airlock/vault{
+	color = "#825427";
+	name = "ye olde strong door"
+	},
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/ctf)
+"Uy" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel/dark,
+/area/ctf)
+"Vd" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/floor/plating,
+/area/ctf)
+"Vl" = (
+/obj/structure/railing{
+	color = "#4C3117";
+	name = "wooden railing"
+	},
+/turf/open/floor/wood/airless,
+/area/ctf)
+"VD" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/obj/structure/table/wood,
+/obj/item/stack/cannonball/fourteen,
+/obj/item/flashlight/flare/torch,
+/turf/open/floor/wood/airless,
+/area/ctf)
+"VW" = (
+/obj/structure/railing{
+	color = "#4C3117";
+	dir = 6;
+	name = "wooden railing"
+	},
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/ctf)
+"Wa" = (
+/turf/open/floor/plating/asteroid/airless,
+/area/ctf)
+"Wb" = (
+/obj/machinery/computer/shuttle_flight/exploration,
+/turf/open/floor/mineral/titanium/white,
+/area/ctf)
+"Wg" = (
+/obj/docking_port/mobile{
+	dir = 4;
+	dwidth = 5;
+	height = 7;
+	id = "exploration";
+	name = "Шаттл Рейнджеров";
+	port_direction = 8;
+	width = 13
+	},
+/obj/structure/cable,
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/shuttle{
+	req_access_txt = "49"
+	},
+/turf/closed/indestructible/riveted/plastinum,
+/area/ctf)
+"Wv" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/fans/tiny,
+/obj/machinery/door/poddoor/shutters{
+	dir = 4;
+	id = "ex_cargo2";
+	name = "Cargo Shutters"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/button/door{
+	id = "ex_cargo2";
+	name = "Cargo Shutters Control";
+	pixel_y = 32;
+	req_access_txt = "49"
+	},
+/turf/closed/indestructible/riveted/plastinum,
+/area/ctf)
+"WE" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/ctf)
+"Xd" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/tank/air{
+	dir = 1;
+	piping_layer = 4
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plating,
+/area/ctf)
+"Xi" = (
+/obj/structure/table,
+/obj/machinery/recharger{
+	pixel_y = 5
+	},
+/turf/open/floor/plasteel/dark,
+/area/ctf)
+"Xw" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 5;
+	pixel_y = 10
+	},
+/obj/item/multitool{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ctf)
+"Ye" = (
+/obj/machinery/computer/shuttle_flight/exploration,
+/turf/open/floor/plasteel/kitchen_coldroom,
+/area/ctf)
+"Yv" = (
+/obj/machinery/light/directional/west,
+/obj/machinery/airalarm{
+	dir = 1;
+	pixel_y = -22
+	},
+/turf/open/floor/mineral/titanium,
+/area/ctf)
+"YK" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/table/wood,
+/obj/item/shield/energy,
+/turf/open/floor/wood/airless,
+/area/ctf)
+"YP" = (
+/turf/open/floor/carpet/royalblack/airless,
+/area/ctf)
+"YW" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/door/poddoor/shutters{
+	dir = 4;
+	id = "ex_cargo2";
+	name = "Cargo Shutters"
+	},
+/turf/closed/indestructible/riveted/plastinum,
+/area/ctf)
+"YY" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/atmospherics/components/unary/tank/air{
+	dir = 1;
+	piping_layer = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ctf)
+"ZQ" = (
+/turf/closed/indestructible/syndicate,
+/area/ctf)
+"ZZ" = (
+/turf/open/space/basic,
+/area/ctf)
+
+(1,1,1) = {"
+SH
+yx
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+"}
+(2,1,1) = {"
+SH
+SH
+Wa
+Wa
+ZZ
+ZZ
+Wa
+Wa
+Wa
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ON
+ON
+ZQ
+ZQ
+IY
+ZQ
+ZQ
+tM
+it
+ZQ
+WE
+SH
+SH
+"}
+(3,1,1) = {"
+SH
+Wa
+Wa
+kt
+ZZ
+ZZ
+Wa
+KK
+ZZ
+Wa
+Wa
+Wa
+kt
+ZZ
+ZZ
+ON
+ON
+Xi
+Gx
+ZQ
+nq
+ZQ
+rA
+NE
+Jg
+RE
+ZQ
+WE
+SH
+"}
+(4,1,1) = {"
+SH
+Wa
+ZZ
+ZZ
+ZZ
+Wa
+KK
+oo
+ZZ
+Wa
+KK
+Wa
+ZZ
+ZZ
+ZZ
+ON
+lu
+Nv
+lw
+ZQ
+Lb
+ZQ
+EU
+ct
+Jg
+rA
+qT
+Gt
+SH
+"}
+(5,1,1) = {"
+SH
+ZZ
+ZZ
+ZZ
+Wa
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+KK
+ZZ
+ZZ
+ZZ
+ZZ
+ON
+Ye
+Nv
+HD
+HD
+Uy
+Qd
+EV
+ja
+Lq
+Xd
+qT
+Gt
+SH
+"}
+(6,1,1) = {"
+SH
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ON
+gx
+Nv
+Dy
+GR
+PS
+ZQ
+bR
+Ig
+Jg
+Hc
+qT
+Gt
+SH
+"}
+(7,1,1) = {"
+gZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ON
+ON
+Xw
+Dg
+Tz
+Oh
+ZQ
+id
+NE
+Jg
+ld
+ZQ
+WE
+SH
+"}
+(8,1,1) = {"
+gZ
+AR
+ZZ
+ZZ
+ZZ
+iS
+ZZ
+iS
+ZZ
+ZZ
+ZZ
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ON
+ON
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
+Ji
+Tk
+ZQ
+WE
+ZZ
+SH
+"}
+(9,1,1) = {"
+gZ
+AR
+AR
+ZZ
+ZZ
+iS
+dK
+iS
+ZZ
+ZZ
+Wa
+KK
+KK
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+SH
+"}
+(10,1,1) = {"
+gZ
+NC
+FP
+ZZ
+ZZ
+iS
+dK
+iS
+iS
+ZZ
+ZZ
+ZZ
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+SH
+"}
+(11,1,1) = {"
+yB
+NC
+No
+ZZ
+ZZ
+ZZ
+dK
+dK
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+SH
+"}
+(12,1,1) = {"
+yB
+NC
+SW
+Sq
+ZZ
+dK
+dK
+iS
+iS
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+SH
+"}
+(13,1,1) = {"
+yB
+wT
+ry
+Fw
+dK
+dK
+iS
+iS
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+oo
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+Wa
+ZZ
+ZZ
+ZZ
+SH
+"}
+(14,1,1) = {"
+yB
+Up
+Hl
+yB
+Sq
+dK
+dK
+dK
+dK
+Cr
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+KK
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+KK
+KK
+ZZ
+ZZ
+ZZ
+SH
+"}
+(15,1,1) = {"
+yB
+NC
+Hl
+YP
+Vl
+AR
+iS
+iS
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+Wa
+ZZ
+ZZ
+SH
+"}
+(16,1,1) = {"
+yB
+NC
+Hl
+YP
+NC
+rB
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+ZZ
+ZZ
+SH
+"}
+(17,1,1) = {"
+yB
+NC
+Hl
+qN
+yB
+yB
+xi
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+Wa
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+KK
+ZZ
+SH
+"}
+(18,1,1) = {"
+yB
+NC
+Hl
+YP
+VD
+mF
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+KK
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+ZZ
+SH
+"}
+(19,1,1) = {"
+yB
+Up
+Hl
+YP
+Ne
+mF
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+Wa
+oo
+KK
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+SH
+"}
+(20,1,1) = {"
+yB
+NC
+Hl
+YP
+ei
+yB
+xi
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+Wa
+Wa
+Wa
+ZZ
+ZZ
+ZZ
+Wa
+Wa
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+SH
+"}
+(21,1,1) = {"
+yB
+NC
+Hl
+nG
+gS
+Vl
+AR
+AR
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+KK
+oo
+KK
+Wa
+ZZ
+ZZ
+ZZ
+Wa
+SH
+SH
+"}
+(22,1,1) = {"
+yB
+NC
+Hl
+qN
+YK
+yB
+tE
+Sd
+Sd
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+KK
+KK
+KK
+KK
+KK
+Wa
+ZZ
+Wa
+oo
+SH
+SH
+"}
+(23,1,1) = {"
+yB
+NC
+Hl
+Mt
+Gw
+qZ
+AR
+AR
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+KK
+oo
+KK
+Wa
+ZZ
+ZZ
+ZZ
+Wa
+SH
+SH
+"}
+(24,1,1) = {"
+yB
+NC
+Hl
+YP
+yB
+yB
+iw
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+Wa
+Wa
+Wa
+ZZ
+ZZ
+ZZ
+Wa
+Wa
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+SH
+"}
+(25,1,1) = {"
+yB
+Up
+Hl
+YP
+Ne
+mF
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+Wa
+oo
+KK
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+SH
+"}
+(26,1,1) = {"
+yB
+NC
+Hl
+YP
+VD
+mF
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+KK
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+ZZ
+SH
+"}
+(27,1,1) = {"
+yB
+NC
+Hl
+qN
+yB
+yB
+iw
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+Wa
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+KK
+ZZ
+SH
+"}
+(28,1,1) = {"
+yB
+NC
+Hl
+YP
+NC
+VW
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+ZZ
+ZZ
+SH
+"}
+(29,1,1) = {"
+yB
+NC
+Hl
+YP
+Vl
+AR
+iS
+iS
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+Wa
+ZZ
+ZZ
+SH
+"}
+(30,1,1) = {"
+yB
+Up
+Hl
+yB
+qn
+dK
+dK
+dK
+dK
+Cr
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+KK
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+KK
+KK
+ZZ
+ZZ
+ZZ
+SH
+"}
+(31,1,1) = {"
+yB
+wT
+ry
+Fw
+dK
+dK
+iS
+iS
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+oo
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+Wa
+Wa
+ZZ
+ZZ
+ZZ
+SH
+"}
+(32,1,1) = {"
+yB
+NC
+SW
+qn
+ZZ
+dK
+dK
+iS
+iS
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+SH
+"}
+(33,1,1) = {"
+yB
+NC
+No
+ZZ
+ZZ
+ZZ
+dK
+dK
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+SH
+"}
+(34,1,1) = {"
+gZ
+NC
+jC
+ZZ
+ZZ
+iS
+dK
+iS
+iS
+ZZ
+ZZ
+ZZ
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+SH
+"}
+(35,1,1) = {"
+gZ
+AR
+AR
+ZZ
+ZZ
+iS
+dK
+iS
+ZZ
+ZZ
+Wa
+KK
+KK
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+SH
+"}
+(36,1,1) = {"
+gZ
+AR
+ZZ
+ZZ
+ZZ
+iS
+ZZ
+iS
+ZZ
+ZZ
+ZZ
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ON
+ON
+ww
+ww
+Wg
+ww
+ww
+Hw
+Vd
+ww
+ww
+ZZ
+SH
+"}
+(37,1,1) = {"
+gZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ON
+ON
+cT
+Yv
+ww
+cp
+ww
+id
+dd
+si
+dD
+ww
+ww
+SH
+"}
+(38,1,1) = {"
+SH
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ON
+mS
+if
+Mn
+ww
+Lb
+ww
+lA
+MK
+si
+Hc
+qT
+Gt
+SH
+"}
+(39,1,1) = {"
+SH
+ZZ
+ZZ
+ZZ
+Wa
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+KK
+ZZ
+ZZ
+ZZ
+ZZ
+ON
+Wb
+if
+Hs
+Hs
+wN
+oR
+EV
+cC
+Is
+YY
+qT
+Gt
+SH
+"}
+(40,1,1) = {"
+SH
+Wa
+ZZ
+ZZ
+ZZ
+Wa
+KK
+oo
+ZZ
+Wa
+KK
+Wa
+ZZ
+ZZ
+ZZ
+ON
+HI
+if
+Il
+IS
+iT
+ww
+vn
+GV
+si
+QD
+qT
+yR
+SH
+"}
+(41,1,1) = {"
+SH
+Wa
+Wa
+kt
+ZZ
+ZZ
+Wa
+KK
+ZZ
+Wa
+Wa
+Wa
+kt
+ZZ
+ZZ
+ON
+ON
+Sh
+DN
+dL
+CP
+ww
+QD
+dd
+si
+yg
+ww
+ww
+SH
+"}
+(42,1,1) = {"
+SH
+SH
+Wa
+Wa
+ZZ
+ZZ
+Wa
+Wa
+Wa
+Wa
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ON
+ON
+ww
+ww
+ww
+ww
+ww
+Wv
+YW
+ww
+ww
+SH
+SH
+"}
+(43,1,1) = {"
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+SH
+"}

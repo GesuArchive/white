@@ -10,12 +10,20 @@
 	allowed_area = A.name
 	. = ..()
 
-/mob/camera/ai_eye/remote/xenobio/setLoc(atom/T, force_update, _pixel_x, _pixel_y)
-	var/area/new_area = get_area(T)
+/mob/camera/ai_eye/remote/xenobio/setLoc(turf/destination, force_update = FALSE)
+	var/area/new_area = get_area(destination)
 	if(new_area && new_area.name == allowed_area || new_area && (new_area.area_flags & XENOBIOLOGY_COMPATIBLE))
 		return ..()
 	else
 		return
+
+/mob/camera/ai_eye/remote/xenobio/can_z_move(direction, turf/start, turf/destination, z_move_flags = NONE, mob/living/rider)
+	. = ..()
+	if(!.)
+		return
+	var/area/new_area = get_area(.)
+	if(new_area.name != allowed_area && !(new_area.area_flags & XENOBIOLOGY_COMPATIBLE))
+		return FALSE
 
 /mob/camera/ai_eye/remote/xenobio/relaymove(mob/user, direct)
 	var/area/new_area = get_area(get_step(src, direct))
