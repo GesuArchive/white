@@ -46194,6 +46194,16 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/dark,
 /area/medical/surgery/room_b)
+"ksm" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access_txt = "12"
+	},
+/obj/effect/mapping_helpers/airlock/abandoned,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel/dark,
+/area/maintenance/port)
 "ksw" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -54501,6 +54511,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/corner,
+/obj/machinery/computer/shuttle_flight/mining{
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/cargo/miningoffice)
 "nyd" = (
@@ -59253,6 +59266,7 @@
 	req_access_txt = "12"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "poZ" = (
@@ -81202,6 +81216,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/event_spawn,
 /obj/structure/cable,
+/obj/machinery/computer/shuttle_flight/mining{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/cargo/miningoffice)
 "xEu" = (
@@ -81347,6 +81364,9 @@
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
+	},
+/obj/machinery/computer/shuttle_flight/mining{
+	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/cargo/miningoffice)
@@ -95125,7 +95145,7 @@ ydd
 tNI
 tof
 amA
-tLz
+ksm
 amR
 cpX
 beO
