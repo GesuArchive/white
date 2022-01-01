@@ -53,7 +53,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "as" = (
 /turf/closed/indestructible/wood,
@@ -88,7 +88,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "az" = (
 /turf/closed/mineral/ash_rock,
@@ -107,19 +107,6 @@
 /obj/machinery/computer/security/telescreen/entertainment/directional/west,
 /turf/open/floor/plasteel/grimy,
 /area/centcom/office)
-"aE" = (
-/obj/structure/flora/ausbushes/reedbush,
-/obj/structure/flora/ausbushes/rospilovo/stalkybush,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/pointybush,
-/obj/structure/flora/ausbushes/rospilovo/ywflowers,
-/obj/structure/flora/ausbushes/sunnybush,
-/obj/machinery/light/small{
-	brightness = 3;
-	dir = 8
-	},
-/turf/open/floor/grass,
-/area/centcom/brief)
 "aG" = (
 /obj/machinery/abductor/experiment{
 	team_number = 4
@@ -277,7 +264,7 @@
 	dir = 4
 	},
 /obj/item/clipboard,
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "bh" = (
 /turf/closed/indestructible/syndicate,
@@ -578,6 +565,13 @@
 /obj/effect/baseturf_helper/asteroid/snow,
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/syndicate_mothership/control)
+"cK" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Scarlet Dawn Access";
+	req_access_txt = "CentCom"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/centcom/control)
 "cO" = (
 /obj/machinery/abductor/experiment{
 	team_number = 3
@@ -2396,13 +2390,6 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/outdoors)
-"kJ" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/caution,
-/turf/open/floor/plasteel,
-/area/centcom/control)
 "kK" = (
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 10
@@ -2616,7 +2603,7 @@
 	name = "bridge access control";
 	pixel_x = 5
 	},
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "lE" = (
 /obj/machinery/mech_bay_recharge_port{
@@ -2653,7 +2640,7 @@
 /obj/item/storage/toolbox/emergency,
 /obj/item/assembly/flash,
 /obj/item/wrench,
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "lO" = (
 /obj/machinery/suit_storage_unit/mining,
@@ -2729,7 +2716,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "mo" = (
 /obj/structure/flora/ausbushes/genericbush,
@@ -2741,7 +2728,7 @@
 /area/centcom/control)
 "mp" = (
 /obj/effect/turf_decal/tile/neutral,
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "mr" = (
 /obj/structure/window/reinforced{
@@ -3003,15 +2990,6 @@
 "nE" = (
 /turf/open/floor/grass,
 /area/centcom/holding)
-"nI" = (
-/obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/flora/ausbushes/genericbush,
-/obj/machinery/light/directional/east,
-/turf/open/floor/grass,
-/area/centcom/control)
 "nJ" = (
 /obj/structure/flora/rock/pile,
 /obj/structure/rospilovo/tree/leafless,
@@ -3032,6 +3010,21 @@
 "nQ" = (
 /turf/closed/indestructible/syndicate,
 /area/ruin/powered/yohei_base)
+"nR" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/green{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/centcom/control)
 "nS" = (
 /turf/closed/indestructible/opsglass,
 /area/ruin/powered/yohei_base)
@@ -3083,7 +3076,7 @@
 	},
 /obj/effect/turf_decal/tile/green,
 /obj/machinery/recharger,
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "oi" = (
 /obj/machinery/computer/telecomms/monitor,
@@ -3262,7 +3255,7 @@
 /obj/machinery/computer/crew{
 	dir = 1
 	},
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "oW" = (
 /turf/open/floor/plasteel/dark/side,
@@ -4655,7 +4648,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/red,
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "vb" = (
 /obj/structure/table,
@@ -4974,6 +4967,19 @@
 	},
 /turf/open/floor/circuit/green,
 /area/ruin/powered/yohei_base)
+"xh" = (
+/obj/structure/flora/ausbushes/reedbush,
+/obj/structure/flora/ausbushes/rospilovo/stalkybush,
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/pointybush,
+/obj/structure/flora/ausbushes/rospilovo/ywflowers,
+/obj/structure/flora/ausbushes/sunnybush,
+/obj/machinery/light/small{
+	brightness = 3;
+	dir = 8
+	},
+/turf/open/floor/grass,
+/area/centcom/brief)
 "xk" = (
 /obj/machinery/door/airlock/centcom{
 	req_access_txt = "220"
@@ -5598,21 +5604,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin/powered/yohei_base)
-"An" = (
-/obj/effect/turf_decal/trimline/neutral/line{
-	dir = 4
-	},
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/green{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/plasteel,
-/area/centcom/control)
 "Ap" = (
 /obj/structure/table/wood/fancy,
 /obj/item/storage/photo_album,
@@ -6223,7 +6214,7 @@
 /obj/machinery/computer/secure_data{
 	dir = 1
 	},
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "CI" = (
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -6333,7 +6324,7 @@
 /obj/machinery/computer/communications{
 	dir = 1
 	},
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "Ds" = (
 /obj/effect/turf_decal/trimline/neutral/line{
@@ -6451,14 +6442,6 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/centcom/control)
-"DL" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/arrows/white,
-/obj/effect/turf_decal/caution,
-/turf/open/floor/plasteel/monofloor,
 /area/centcom/control)
 "DN" = (
 /obj/item/kirbyplants/random,
@@ -7021,7 +7004,7 @@
 	dir = 4
 	},
 /obj/machinery/cell_charger,
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "Ga" = (
 /turf/open/floor/wood{
@@ -7151,6 +7134,13 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/circus)
+"GF" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/caution,
+/turf/open/floor/plasteel,
+/area/centcom/control)
 "GI" = (
 /turf/open/floor/carpet/black,
 /area/centcom/holding)
@@ -7171,7 +7161,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/yellow,
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "GS" = (
 /obj/machinery/door/airlock/external{
@@ -7649,7 +7639,7 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen,
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "JC" = (
 /obj/effect/turf_decal/stripes/line{
@@ -8048,6 +8038,15 @@
 "Ly" = (
 /turf/open/floor/plasteel/stairs,
 /area/centcom/holding)
+"Lz" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/ausbushes/genericbush,
+/obj/machinery/light/directional/east,
+/turf/open/floor/grass,
+/area/centcom/control)
 "LB" = (
 /obj/structure/chair/stool/bar,
 /turf/open/floor/wood,
@@ -8199,6 +8198,14 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/centcom/control)
+"MF" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/arrows/white,
+/obj/effect/turf_decal/caution,
+/turf/open/floor/plasteel/monofloor,
+/area/centcom/control)
 "MG" = (
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 6
@@ -8338,7 +8345,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/green,
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "Nj" = (
 /obj/machinery/computer/operating{
@@ -8873,21 +8880,6 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
-"Qf" = (
-/obj/effect/turf_decal/trimline/neutral/line{
-	dir = 4
-	},
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/green{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
-/area/centcom/control)
 "Qg" = (
 /obj/structure/chair/wood/wings{
 	dir = 8
@@ -10108,7 +10100,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/neutral,
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "Vg" = (
 /obj/structure/flora/ausbushes/fullgrass,
@@ -10205,13 +10197,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
-"VO" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Scarlet Dawn Access";
-	req_access_txt = "CentCom"
-	},
-/turf/open/floor/plasteel/monofloor,
-/area/centcom/control)
 "VP" = (
 /obj/item/kirbyplants{
 	icon_state = "plant-21"
@@ -10275,7 +10260,7 @@
 	dir = 8
 	},
 /obj/item/storage/firstaid/regular,
-/turf/open/floor/plasteel/airless/dark,
+/turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "Wd" = (
 /obj/structure/table/abductor,
@@ -10683,6 +10668,21 @@
 	id = "centcombridge"
 	},
 /turf/open/floor/plating,
+/area/centcom/control)
+"Xr" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/green{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
 /area/centcom/control)
 "Xu" = (
 /obj/structure/rack,
@@ -13215,7 +13215,7 @@ Co
 Co
 Co
 mS
-aE
+xh
 mS
 mS
 YQ
@@ -19101,13 +19101,13 @@ Co
 Co
 rk
 Cq
-An
+Xr
 sm
 fL
-Qf
-An
+nR
+Xr
 sm
-An
+Xr
 tq
 mO
 mO
@@ -19614,7 +19614,7 @@ Co
 Co
 Co
 Rv
-DL
+MF
 FH
 FH
 FH
@@ -20899,7 +20899,7 @@ Co
 Co
 Co
 rm
-kJ
+GF
 oW
 Yo
 Yo
@@ -22184,7 +22184,7 @@ Co
 Co
 Co
 Rv
-DL
+MF
 FH
 FH
 FH
@@ -22223,7 +22223,7 @@ Nv
 wk
 FH
 FH
-VO
+cK
 FR
 hS
 NE
@@ -27099,7 +27099,7 @@ XB
 ZU
 ZU
 CI
-nI
+Lz
 Hf
 Pd
 EV
