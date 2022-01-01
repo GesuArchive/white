@@ -89,6 +89,8 @@ GLOBAL_PROTECT(protected_ranks)
 				flag = R_DBRANKS
 			if("SECURED")
 				flag = R_SECURED
+			if("SDQL")
+				flag = R_SDQL
 			if("@")
 				if(previous_rank)
 					switch(group_count)
