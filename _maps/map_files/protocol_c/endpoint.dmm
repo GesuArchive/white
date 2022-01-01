@@ -118,7 +118,7 @@
 /obj/structure/mirror/directional/east,
 /obj/machinery/light/small/red/directional/east,
 /turf/open/floor/carpet/royalblack,
-/area/centcom/office)
+/area/centcom/office/living)
 "aL" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/tile/green{
@@ -600,7 +600,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/centcom,
 /turf/open/floor/carpet/royalblack,
-/area/centcom/office)
+/area/centcom/office/living)
 "cC" = (
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
@@ -1334,7 +1334,7 @@
 /obj/machinery/firealarm/directional/west,
 /obj/item/card/id/advanced/centcom/ert/security,
 /turf/open/floor/carpet/royalblack,
-/area/centcom/office)
+/area/centcom/office/living)
 "fq" = (
 /turf/closed/indestructible/abductor{
 	icon_state = "alien13"
@@ -2087,7 +2087,7 @@
 	},
 /obj/machinery/status_display/ai/directional/south,
 /turf/open/floor/carpet/royalblack,
-/area/centcom/office)
+/area/centcom/office/living)
 "hQ" = (
 /obj/structure/flora/grass/jungle,
 /turf/open/floor/plating/grass{
@@ -5665,6 +5665,9 @@
 /obj/structure/table,
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
+"vu" = (
+/turf/closed/indestructible/syndicate,
+/area/centcom/office/living)
 "vv" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 8
@@ -7187,7 +7190,7 @@
 /obj/item/book/codex_gigas,
 /obj/machinery/airalarm/directional/east,
 /turf/open/floor/carpet/royalblack,
-/area/centcom/office)
+/area/centcom/office/living)
 "AQ" = (
 /obj/machinery/light/small{
 	brightness = 3;
@@ -8907,7 +8910,7 @@
 "HJ" = (
 /obj/machinery/light_switch/directional/west,
 /turf/open/floor/carpet/royalblack,
-/area/centcom/office)
+/area/centcom/office/living)
 "HL" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -10273,7 +10276,7 @@
 "Mi" = (
 /obj/structure/sign/nanotrasen,
 /turf/closed/indestructible/syndicate,
-/area/centcom/office)
+/area/centcom/office/living)
 "Mj" = (
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/four)
@@ -12399,7 +12402,7 @@
 /obj/item/flashlight/lamp,
 /obj/machinery/status_display/evac/directional/south,
 /turf/open/floor/carpet/royalblack,
-/area/centcom/office)
+/area/centcom/office/living)
 "Tw" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -13825,7 +13828,7 @@
 	},
 /obj/machinery/computer/security/telescreen/entertainment/directional/west,
 /turf/open/floor/plasteel/grimy,
-/area/centcom/office)
+/area/centcom/office/living)
 "Yr" = (
 /obj/structure/table/wood,
 /obj/item/clipboard,
@@ -13836,7 +13839,7 @@
 /obj/item/melee/chainofcommand,
 /obj/item/stamp/centcom,
 /turf/open/floor/plasteel/grimy,
-/area/centcom/office)
+/area/centcom/office/living)
 "Ys" = (
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
@@ -13851,7 +13854,7 @@
 /obj/machinery/status_display/ai/directional/east,
 /obj/structure/reagent_dispensers/peppertank/directional/north,
 /turf/open/floor/plasteel/grimy,
-/area/centcom/office)
+/area/centcom/office/living)
 "Yv" = (
 /obj/structure/sign/nanotrasen,
 /turf/closed/indestructible/syndicate,
@@ -14172,20 +14175,20 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/centcom/office)
+/area/centcom/office/living)
 "Zs" = (
 /turf/open/floor/plasteel/stairs/old/chilly/single,
 /area/centcom/control)
 "Zt" = (
 /turf/open/floor/carpet/royalblack,
-/area/centcom/office)
+/area/centcom/office/living)
 "Zu" = (
 /obj/structure/chair/comfy/brown{
 	color = "#596479";
 	dir = 1
 	},
 /turf/open/floor/carpet/royalblack,
-/area/centcom/office)
+/area/centcom/office/living)
 "Zw" = (
 /turf/closed/indestructible/syndicate,
 /area/centcom/supplypod)
@@ -14195,7 +14198,7 @@
 	},
 /obj/machinery/status_display/evac/directional/east,
 /turf/open/floor/carpet/royalblack,
-/area/centcom/office)
+/area/centcom/office/living)
 "Zy" = (
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
@@ -39278,13 +39281,13 @@ Co
 Co
 Co
 Co
-Ui
-Ui
+vu
+vu
 Zr
-Ui
-Ui
-Ui
-Ui
+vu
+vu
+vu
+vu
 Bw
 zV
 Ff
@@ -39535,13 +39538,13 @@ Co
 Co
 Co
 Co
-Ui
+vu
 Yq
 Zt
 HJ
 fp
 Tv
-Ui
+vu
 Bw
 zV
 Ff
@@ -39792,7 +39795,7 @@ Co
 Co
 Co
 Co
-Ui
+vu
 Yr
 Zu
 Zt
@@ -40049,13 +40052,13 @@ Co
 Co
 Co
 Co
-Ui
+vu
 Yt
 Zx
 aK
 AO
 hP
-Ui
+vu
 Bw
 zV
 Ff
@@ -40306,13 +40309,13 @@ Co
 Co
 Co
 Co
-Ui
-Ui
-Ui
-Ui
-Ui
-Ui
-Ui
+vu
+vu
+vu
+vu
+vu
+vu
+vu
 zh
 So
 zh

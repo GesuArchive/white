@@ -59,8 +59,12 @@
 /area/centcom/office
 	name = "ЦК: Офис"
 
+/area/centcom/office/living
+	name = "ЦК: Жилое помещение"
+
 /area/centcom/officetwo
 	name = "ЦК: Офицерский кабинет"
+
 /area/centcom/supplypod/supplypod_temp_holding
 	name = "Дропподы ЦК: Канал полёта"
 	icon_state = "supplypod_flight"
