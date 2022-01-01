@@ -701,18 +701,29 @@
 	if (istype(choice, /obj/structure/fleshbuilding/ ))
 		var/obj/structure/fleshbuilding/building =  new choice
 		ccost = building.cost
+		if(ccost > glutton.biomass)
+			to_chat(glutton, span_notice("Недостаточно плоти."))
+			return FALSE
+		else
+			new choice(glutton.loc)
+			to_chat(glutton, span_notice("Леплю из плоти [choice]."))
+			glutton.visible_message(span_notice("[glutton] формирует неестественное строение из накопленной плоти."))
+			glutton.biomass -= ccost
+			return TRUE
 	if (istype(choice, /turf/closed/wall/clown/ ))
 		var/turf/closed/wall/clown/building =  new choice
 		ccost = building.cost
-	if(ccost > glutton.biomass)
-		to_chat(glutton, span_notice("Недостаточно плоти."))
-		return FALSE
-	else
-		new choice(glutton.loc)
-		to_chat(glutton, span_notice("Леплю из плоти [choice]."))
-		glutton.visible_message(span_notice("[glutton] формирует неестественное строение из накопленной плоти."))
-		glutton.biomass -= ccost
-		return TRUE
+		if(ccost > glutton.biomass)
+			to_chat(glutton, span_notice("Недостаточно плоти."))
+			return FALSE
+		else
+			new choice(glutton.loc)
+			to_chat(glutton, span_notice("Леплю из плоти [choice]."))
+			glutton.visible_message(span_notice("[glutton] создает стену из кожи и плоти."))
+			glutton.biomass -= ccost
+			return TRUE
+
+
 
 
 
