@@ -5842,7 +5842,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shuttledock,
+/obj/machinery/door/poddoor/shuttledock{
+	checkdir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "wk" = (
@@ -5855,7 +5857,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shuttledock,
+/obj/machinery/door/poddoor/shuttledock{
+	checkdir = 1
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/centcom/control)
 "wl" = (
@@ -5867,7 +5871,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shuttledock,
+/obj/machinery/door/poddoor/shuttledock{
+	checkdir = 1
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/centcom/control)
 "wp" = (
@@ -5905,7 +5911,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shuttledock,
+/obj/machinery/door/poddoor/shuttledock{
+	checkdir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "ww" = (
@@ -5926,7 +5934,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shuttledock,
+/obj/machinery/door/poddoor/shuttledock{
+	checkdir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "wy" = (
@@ -5952,7 +5962,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shuttledock,
+/obj/machinery/door/poddoor/shuttledock{
+	checkdir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "wC" = (
