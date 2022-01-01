@@ -27,13 +27,6 @@
 "ak" = (
 /turf/open/floor/carpet,
 /area/wizard_station)
-"al" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Scarlet Dawn Access";
-	req_access_txt = "CentCom"
-	},
-/turf/open/floor/plasteel/monofloor,
-/area/centcom/control)
 "am" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/tile/neutral{
@@ -114,6 +107,19 @@
 /obj/machinery/computer/security/telescreen/entertainment/directional/west,
 /turf/open/floor/plasteel/grimy,
 /area/centcom/office)
+"aE" = (
+/obj/structure/flora/ausbushes/reedbush,
+/obj/structure/flora/ausbushes/rospilovo/stalkybush,
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/pointybush,
+/obj/structure/flora/ausbushes/rospilovo/ywflowers,
+/obj/structure/flora/ausbushes/sunnybush,
+/obj/machinery/light/small{
+	brightness = 3;
+	dir = 8
+	},
+/turf/open/floor/grass,
+/area/centcom/brief)
 "aG" = (
 /obj/machinery/abductor/experiment{
 	team_number = 4
@@ -368,7 +374,6 @@
 /turf/open/floor/plating/beach/sand,
 /area/syndicate_mothership)
 "bA" = (
-/obj/machinery/light,
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 6
 	},
@@ -2391,6 +2396,13 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/outdoors)
+"kJ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/caution,
+/turf/open/floor/plasteel,
+/area/centcom/control)
 "kK" = (
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 10
@@ -2991,6 +3003,15 @@
 "nE" = (
 /turf/open/floor/grass,
 /area/centcom/holding)
+"nI" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/ausbushes/genericbush,
+/obj/machinery/light/directional/east,
+/turf/open/floor/grass,
+/area/centcom/control)
 "nJ" = (
 /obj/structure/flora/rock/pile,
 /obj/structure/rospilovo/tree/leafless,
@@ -4767,11 +4788,14 @@
 /turf/closed/indestructible/syndicate,
 /area/centcom/circus)
 "wi" = (
-/obj/item/kirbyplants/random,
 /obj/effect/turf_decal/trimline/neutral/line,
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
+/obj/structure/table,
+/obj/item/dualsaber/toy,
+/obj/item/gun/ballistic/shotgun/toy,
+/obj/item/gun/ballistic/shotgun/toy/crossbow,
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "wj" = (
@@ -4939,15 +4963,6 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/centcom/control)
-"wX" = (
-/obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/flora/ausbushes/genericbush,
-/obj/machinery/light/directional/east,
-/turf/open/floor/grass,
 /area/centcom/control)
 "xd" = (
 /obj/effect/light_emitter,
@@ -5583,6 +5598,21 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin/powered/yohei_base)
+"An" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/green{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/centcom/control)
 "Ap" = (
 /obj/structure/table/wood/fancy,
 /obj/item/storage/photo_album,
@@ -6093,6 +6123,9 @@
 "Ck" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/weather/snow/corner,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/carpet,
 /area/centcom/control)
 "Cl" = (
@@ -6418,6 +6451,14 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
+/area/centcom/control)
+"DL" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/arrows/white,
+/obj/effect/turf_decal/caution,
+/turf/open/floor/plasteel/monofloor,
 /area/centcom/control)
 "DN" = (
 /obj/item/kirbyplants/random,
@@ -7340,6 +7381,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
+/obj/item/kirbyplants/random,
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "Ii" = (
@@ -8831,6 +8873,21 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding)
+"Qf" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/green{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/centcom/control)
 "Qg" = (
 /obj/structure/chair/wood/wings{
 	dir = 8
@@ -9090,19 +9147,16 @@
 /turf/open/floor/wood,
 /area/centcom/holding)
 "Rt" = (
-/obj/effect/turf_decal/trimline/neutral/line{
-	dir = 4
-	},
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/green{
-	dir = 1
+/obj/structure/fans/tiny/invisible,
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
 	},
 /obj/effect/turf_decal/stripes/line{
-	dir = 8
+	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/centcom/control)
 "Ru" = (
 /obj/structure/window/paperframe{
@@ -9111,19 +9165,11 @@
 /turf/open/floor/wood,
 /area/centcom/holding)
 "Rv" = (
-/obj/effect/turf_decal/trimline/neutral/line{
-	dir = 4
-	},
-/obj/structure/railing{
-	dir = 8
-	},
+/obj/structure/fans/tiny/invisible,
 /obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/centcom/control)
 "Rw" = (
 /obj/structure/bookcase/random,
@@ -10159,6 +10205,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"VO" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Scarlet Dawn Access";
+	req_access_txt = "CentCom"
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/centcom/control)
 "VP" = (
 /obj/item/kirbyplants{
 	icon_state = "plant-21"
@@ -10196,19 +10249,6 @@
 /obj/structure/closet/secure_closet/ert_com,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel/dark,
-/area/centcom/brief)
-"VW" = (
-/obj/structure/flora/ausbushes/reedbush,
-/obj/structure/flora/ausbushes/rospilovo/stalkybush,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/pointybush,
-/obj/structure/flora/ausbushes/rospilovo/ywflowers,
-/obj/structure/flora/ausbushes/sunnybush,
-/obj/machinery/light/small{
-	brightness = 3;
-	dir = 8
-	},
-/turf/open/floor/grass,
 /area/centcom/brief)
 "VX" = (
 /obj/structure/chair/wood/wings{
@@ -13175,7 +13215,7 @@ Co
 Co
 Co
 mS
-VW
+aE
 mS
 mS
 YQ
@@ -19061,13 +19101,13 @@ Co
 Co
 rk
 Cq
-Rt
+An
 sm
 fL
-Rv
-Rt
+Qf
+An
 sm
-Rt
+An
 tq
 mO
 mO
@@ -19316,7 +19356,7 @@ Co
 Co
 Co
 Co
-rm
+Rt
 ry
 FH
 FH
@@ -19573,8 +19613,8 @@ Co
 Co
 Co
 Co
-Zw
-ry
+Rv
+DL
 FH
 FH
 FH
@@ -19830,7 +19870,7 @@ Co
 Co
 Co
 Co
-rm
+Rt
 ry
 FH
 FH
@@ -20859,7 +20899,7 @@ Co
 Co
 Co
 rm
-BY
+kJ
 oW
 Yo
 Yo
@@ -21886,7 +21926,7 @@ Co
 Co
 Co
 Co
-rm
+Rt
 ry
 FH
 FH
@@ -22143,8 +22183,8 @@ Co
 Co
 Co
 Co
-Zw
-ry
+Rv
+DL
 FH
 FH
 FH
@@ -22183,7 +22223,7 @@ Nv
 wk
 FH
 FH
-al
+VO
 FR
 hS
 NE
@@ -22400,7 +22440,7 @@ Co
 Co
 Co
 Co
-rm
+Rt
 ry
 FH
 FH
@@ -27059,7 +27099,7 @@ XB
 ZU
 ZU
 CI
-wX
+nI
 Hf
 Pd
 EV
