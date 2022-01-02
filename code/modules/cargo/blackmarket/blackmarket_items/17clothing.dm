@@ -335,7 +335,7 @@
 	availability_prob = 50
 
 /datum/blackmarket_item/clothing/jackboots
-	name = "Военный ботинки"
+	name = "Ботинки"
 	desc = "jackass"
 	item = /obj/item/clothing/shoes/jackboots
 

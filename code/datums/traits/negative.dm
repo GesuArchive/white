@@ -357,6 +357,11 @@
 	medical_record_text = "Пациент является пацифистом и не может заставить себя причинить вред кому-либо."
 	hardcore_value = 6
 
+/datum/quirk/nonviolent/on_process()
+	if(quirk_holder.mind && LAZYLEN(quirk_holder.mind.antag_datums))
+		to_chat(quirk_holder, "<span class='boldannounce'>Моя антагонистическая натура заставила меня обдумать свой пацифизм...</span>")
+		qdel(src)
+
 /datum/quirk/paraplegic
 	name = "Инвалид"
 	desc = "Ваши ноги не функционируют и больше ничего не может помочь вам вновь встать на ноги. По крайней мере, у вас есть инвалидная коляска."

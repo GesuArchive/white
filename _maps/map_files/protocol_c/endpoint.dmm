@@ -7843,10 +7843,6 @@
 "Di" = (
 /turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
-"Dk" = (
-/obj/structure/statue/gold/robust,
-/turf/closed/indestructible/syndicate,
-/area/centcom/control)
 "Dl" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -16153,15 +16149,15 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
-Co
+TO
+TO
+TO
+TO
+TO
+TO
+TO
+TO
+TO
 Co
 Co
 Co
@@ -30809,7 +30805,7 @@ vP
 vP
 vP
 ZU
-Dk
+ZU
 Yj
 ZU
 Co
@@ -31068,7 +31064,7 @@ zV
 zV
 Yj
 FK
-Dk
+ZU
 Co
 Dc
 Co
