@@ -1333,6 +1333,7 @@
 /obj/item/clothing/glasses/eyepatch,
 /obj/machinery/firealarm/directional/west,
 /obj/item/card/id/advanced/centcom/ert/security,
+/obj/item/clothing/head/beret/sec/navyofficer,
 /turf/open/floor/carpet/royalblack,
 /area/centcom/office/living)
 "fq" = (
