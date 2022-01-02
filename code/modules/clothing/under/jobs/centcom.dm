@@ -17,15 +17,18 @@
 
 /obj/item/clothing/under/rank/centcom/officer
 	name = "водолазка офицера ЦентКома"
+	desc = "Обыкновенная, но изящная водолазка, которую используют представители ЦК. Пахнет алоэ."
 	icon_state = "officer"
 	inhand_icon_state = "dg_suit"
 	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/centcom/officer/replica
 	name = "реплика водолазки офицера ЦентКома"
+	desc = "Дешевая копия водолазки, которую носят представители ЦК. На шее можно увидеть лого Donk Co."
 
 /obj/item/clothing/under/rank/centcom/officer_skirt
 	name = "водоюбка офицера ЦентКома"
+	desc = "Вариант водолазки представителей ЦК в виде юбки, более редкий и более востребованный, чем её оригинал."
 	icon_state = "officer_skirt"
 	inhand_icon_state = "dg_suit"
 	alt_covers_chest = TRUE
@@ -33,9 +36,11 @@
 
 /obj/item/clothing/under/rank/centcom/officer_skirt/replica
 	name = "реплика водоюбки офицера ЦентКома"
+	desc = "Дешевая копия водолазки, которую носят представители ЦК. На шее можно увидеть лого Donk Co."
 
 /obj/item/clothing/under/rank/centcom/centcom_skirt
 	name = "юбкомбез офицера ЦентКома"
+	desc = "Юбкомбез, который носят только высшие офицеры ЦентКома."
 	icon_state = "centcom_skirt"
 	inhand_icon_state = "dg_suit"
 	fitted = FEMALE_UNIFORM_TOP

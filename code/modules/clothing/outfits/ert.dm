@@ -161,7 +161,6 @@
 /datum/outfit/centcom/centcom_official
 	name = "CentCom Official"
 
-	uniform = /obj/item/clothing/under/rank/centcom/officer
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	gloves = /obj/item/clothing/gloves/color/black
 	ears = /obj/item/radio/headset/headset_cent
@@ -174,6 +173,13 @@
 	id = /obj/item/card/id/advanced/centcom
 	backpack_contents = list(/obj/item/stamp/centcom=1)
 	id_trim = /datum/id_trim/centcom/official
+
+/datum/outfit/centcom/centcom_official/pre_equip(mob/living/carbon/human/H)
+	..()
+	if(H.jumpsuit_style == PREF_SUIT)
+		uniform = /obj/item/clothing/under/rank/centcom/officer
+	else
+		uniform = /obj/item/clothing/under/rank/centcom/officer_skirt
 
 /datum/outfit/centcom/centcom_official/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)

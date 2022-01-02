@@ -266,9 +266,8 @@
 	W.update_icon()
 
 /datum/outfit/centcom/commander
-	name = "Комамндующий ЦентКома"
+	name = "Командующий ЦентКома"
 
-	uniform = /obj/item/clothing/under/rank/centcom/commander
 	suit = /obj/item/clothing/suit/armor/bulletproof
 	shoes = /obj/item/clothing/shoes/combat/swat
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
@@ -282,6 +281,13 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	id = /obj/item/card/id/advanced/centcom
 	id_trim = /datum/id_trim/centcom/commander
+
+/datum/outfit/centcom/commander/pre_equip(mob/living/carbon/human/H)
+	..()
+	if(H.jumpsuit_style == PREF_SUIT)
+		uniform = /obj/item/clothing/under/rank/centcom/commander
+	else
+		uniform = /obj/item/clothing/under/rank/centcom/centcom_skirt
 
 /datum/outfit/centcom/commander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
