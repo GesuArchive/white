@@ -380,7 +380,8 @@
 	name = "Тёмное подземелье"
 	icon_state = "unexplored"
 	outdoors = TRUE
-	static_lighting = FALSE
+	static_lighting = TRUE
+	base_lighting_alpha = 0
 	ambientsounds = AWAY_MISSION
 	requires_power = FALSE
 	sound_environment = SOUND_ENVIRONMENT_CAVE
