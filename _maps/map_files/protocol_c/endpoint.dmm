@@ -2199,7 +2199,7 @@
 "ix" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Scarlet Dawn Access";
-	req_access_txt = "CentCom"
+	req_access_txt = "109"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/centcom/control)
@@ -3521,7 +3521,7 @@
 "nI" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Centcom Bridge";
-	req_access_txt = "CentCom"
+	req_access_txt = "109"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/centcom/control)
@@ -4826,8 +4826,7 @@
 	name = "Thunderdome";
 	req_access_txt = "101"
 	},
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/monofloor,
 /area/tdome/tdomeobserve)
 "sp" = (
 /obj/effect/turf_decal/tile/brown,
@@ -5768,7 +5767,7 @@
 /area/centcom/circus)
 "vU" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Centcom Sector A"
+	name = "CentCom Sector A"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/centcom/control)
@@ -9111,7 +9110,7 @@
 /area/tdome/tdomeobserve)
 "Iz" = (
 /turf/closed/indestructible/fakedoor{
-	name = "Centcom Sector A"
+	name = "CentCom Sector A"
 	},
 /area/centcom/control)
 "IC" = (
@@ -9529,6 +9528,7 @@
 "JJ" = (
 /obj/machinery/vending/cigarette,
 /obj/machinery/status_display/evac/directional/north,
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/tdome/tdomeobserve)
 "JK" = (
