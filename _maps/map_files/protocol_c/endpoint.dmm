@@ -116,7 +116,7 @@
 	icon_state = "plant-21"
 	},
 /obj/structure/mirror/directional/east,
-/obj/machinery/light/small/red/directional/east,
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/carpet/royalblack,
 /area/centcom/office/living)
 "aL" = (
