@@ -503,7 +503,7 @@
 /obj/item/clothing/head/centom_cap
 	name = "шляпа офицера ЦентКома"
 	icon_state = "centcom_cap"
-	desc = "Внутри есть какие-то мутные инициалы, которые уже невозможно прочитать."
+	desc = "На шляпе есть какие-то мутные инициалы, которые уже невозможно прочитать."
 	inhand_icon_state = "that"
 	flags_inv = 0
 	armor = list(MELEE = 30, BULLET = 15, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, RAD = 0, FIRE = 50, ACID = 50)

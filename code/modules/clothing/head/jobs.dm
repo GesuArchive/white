@@ -353,7 +353,7 @@
 
 /obj/item/clothing/head/beret/centcom_formal
 	name = "берет офицера центрального командования"
-	desc = "Иногда приходится идти на компромисс между модой и защитой. Благодаря последним усовершенствованиям наноткани от Central Command на этот раз дело обстоит не так."
+	desc = "Иногда приходится идти на компромисс между модой и защитой. Благодаря последним усовершенствованиям наноткани от ЦК на этот раз дело обстоит не так."
 	icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn

@@ -159,7 +159,7 @@
 
 
 /datum/outfit/centcom/centcom_official
-	name = "CentCom Official"
+	name = "Представитель ЦК"
 
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	gloves = /obj/item/clothing/gloves/color/black
