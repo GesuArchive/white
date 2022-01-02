@@ -13,6 +13,7 @@
 	foodtypes = JUNKFOOD | SUGAR
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_TINY
+	preserved_food = TRUE
 
 /obj/item/food/candy/bronx
 	name = "South Bronx Paradise bar"
@@ -28,6 +29,7 @@
 	custom_price = PAYCHECK_ASSISTANT * 1.6 //Joke adjusted for inflation
 	w_class = WEIGHT_CLASS_TINY
 	var/revelation = FALSE
+	preserved_food = TRUE
 
 /obj/item/food/candy/bronx/MakeEdible()
 	AddComponent(/datum/component/edible,\
@@ -67,6 +69,7 @@
 	tastes = list("сушеное мясо" = 1)
 	w_class = WEIGHT_CLASS_SMALL
 	foodtypes = JUNKFOOD | MEAT | SUGAR
+	preserved_food = TRUE
 
 /obj/item/food/sosjerky/healthy
 	name = "homemade beef jerky"
@@ -85,6 +88,7 @@
 	tastes = list("соль" = 1, "чипсы" = 1)
 	foodtypes = JUNKFOOD | FRIED
 	w_class = WEIGHT_CLASS_SMALL
+	preserved_food = TRUE
 
 /obj/item/food/chips/MakeLeaveTrash()
 	if(trash_type)
@@ -102,6 +106,7 @@
 	food_flags = FOOD_FINGER_FOOD
 	custom_price = PAYCHECK_ASSISTANT * 0.7
 	w_class = WEIGHT_CLASS_SMALL
+	preserved_food = TRUE
 
 /obj/item/food/no_raisin/healthy
 	name = "homemade raisins"
@@ -121,6 +126,7 @@
 	food_flags = FOOD_FINGER_FOOD
 	custom_price = PAYCHECK_PRISONER
 	w_class = WEIGHT_CLASS_SMALL
+	preserved_food = TRUE
 
 /obj/item/food/candy_trash
 	name = "candy cigarette butt"
@@ -132,6 +138,7 @@
 	foodtypes = JUNKFOOD | SUGAR
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_TINY
+	preserved_food = TRUE
 
 /obj/item/food/candy_trash/nicotine
 	desc = "The leftover from a smoked-out candy cigarette. Smells like nicotine..?"
@@ -147,6 +154,7 @@
 	tastes = list("сыр" = 5, "чипсы" = 2)
 	foodtypes = JUNKFOOD | DAIRY | SUGAR
 	w_class = WEIGHT_CLASS_SMALL
+	preserved_food = TRUE
 
 /obj/item/food/syndicake
 	name = "syndi-cakes"
@@ -157,6 +165,7 @@
 	tastes = list("сладость" = 3, "торт" = 1)
 	foodtypes = GRAIN | FRUIT | VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
+	preserved_food = TRUE
 
 /obj/item/food/energybar
 	name = "High-power energy bars"
@@ -168,6 +177,7 @@
 	foodtypes = TOXIC
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
+	preserved_food = TRUE
 
 /obj/item/food/peanuts
 	name = "\improper Gallery's peanuts"
@@ -182,6 +192,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	grind_results = list(/datum/reagent/consumable/peanut_butter = 5, /datum/reagent/consumable/cooking_oil = 2)
 	var/safe_for_consumption = TRUE
+	preserved_food = TRUE
 
 /obj/item/food/peanuts/salted
 	name = "\improper Gallery's salt reserves peanuts"
@@ -230,6 +241,7 @@
 	junkiness = 25
 	foodtypes = JUNKFOOD
 	w_class = WEIGHT_CLASS_SMALL
+	preserved_food = TRUE
 
 /obj/item/food/cnds/suicide_act(mob/user)
 	. = ..()
