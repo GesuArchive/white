@@ -1,0 +1,82 @@
+"aY" = (/obj/machinery/arena_spawn/red,/obj/effect/turf_decal/box,/turf/open/floor/plating,/area/ctf)
+"bn" = (/obj/machinery/arena_spawn/green,/obj/effect/turf_decal/box,/turf/open/floor/plating/snowed/temperatre,/area/ctf)
+"bR" = (/obj/effect/turf_decal/weather/side/corner{dir = 1},/turf/open/floor/grass/snow/safe/oxy,/area/ctf)
+"bS" = (/turf/open/floor/grass/snow/safe/oxy,/area/ctf)
+"cs" = (/obj/structure/barricade/wooden/snowed,/turf/open/floor/plating/snowed/temperatre,/area/ctf)
+"cK" = (/turf/closed/wall/ice,/area/ctf)
+"cZ" = (/obj/effect/turf_decal/weather/side{dir = 4},/obj/structure/railing{dir = 8},/turf/open/floor/plating/ice/smooth/oxy,/area/ctf)
+"dB" = (/obj/effect/turf_decal/weather/side{dir = 1},/obj/structure/railing,/turf/open/floor/plating/ice/smooth/oxy,/area/ctf)
+"dS" = (/obj/effect/turf_decal/weather/side{dir = 10},/obj/structure/railing{dir = 5},/turf/open/floor/plating/ice/smooth/oxy,/area/ctf)
+"eA" = (/obj/structure/fence/end{dir = 1},/turf/open/floor/grass/snow/safe/oxy,/area/ctf)
+"fg" = (/turf/open/floor/plating,/area/ctf)
+"gk" = (/obj/effect/turf_decal/weather/side{dir = 5},/turf/open/floor/plating/ice/smooth/oxy,/area/ctf)
+"jF" = (/turf/open/floor/wood,/area/ctf)
+"jI" = (/obj/effect/turf_decal/weather/snow/corner{dir = 6},/obj/effect/turf_decal/weather/snow/corner{dir = 1},/obj/structure/barricade/wooden/snowed,/turf/open/floor/plating/snowed/temperatre,/area/ctf)
+"lB" = (/turf/open/floor/plating/ice/smooth/oxy,/area/ctf)
+"mK" = (/obj/structure/flora/rock/icy,/turf/open/floor/grass/snow/safe/oxy,/area/ctf)
+"na" = (/obj/effect/baseturf_helper/asteroid,/turf/template_noop,/area/ctf)
+"nM" = (/obj/machinery/arena_spawn/red,/obj/effect/turf_decal/box,/turf/open/floor/plating/snowed/temperatre,/area/ctf)
+"oe" = (/obj/effect/turf_decal/weather/snow/corner{dir = 10},/obj/effect/turf_decal/weather/snow/corner{dir = 1},/obj/structure/barricade/wooden/snowed,/turf/open/floor/plating/snowed/temperatre,/area/ctf)
+"rs" = (/obj/effect/turf_decal/weather/side{dir = 8},/obj/structure/railing{dir = 4},/turf/open/floor/plating/ice/smooth/oxy,/area/ctf)
+"rY" = (/obj/effect/turf_decal/weather/side{dir = 1},/turf/open/floor/plating/ice/smooth/oxy,/area/ctf)
+"tW" = (/obj/effect/turf_decal/weather/side{dir = 6},/obj/structure/railing{dir = 9},/turf/open/floor/plating/ice/smooth/oxy,/area/ctf)
+"uU" = (/obj/machinery/arena_spawn/green,/obj/effect/turf_decal/box,/turf/open/floor/plating,/area/ctf)
+"uV" = (/obj/structure/deployable_barricade/snow{dir = 4},/turf/open/floor/plating/snowed/smoothed/temperatre,/area/ctf)
+"ws" = (/obj/effect/turf_decal/weather/snow/corner{dir = 5},/obj/machinery/door/poddoor{id = "arena_default"; name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"},/turf/open/floor/plating/snowed/temperatre,/area/ctf)
+"xC" = (/obj/structure/statue/snow/snowlegion,/turf/open/floor/grass/snow/safe/oxy,/area/ctf)
+"yC" = (/obj/effect/turf_decal/weather/side/corner,/obj/effect/turf_decal/weather/side/corner,/turf/open/floor/grass/snow/safe/oxy,/area/ctf)
+"BV" = (/obj/effect/turf_decal/weather/side{dir = 8},/turf/open/floor/plating/ice/smooth/oxy,/area/ctf)
+"DU" = (/obj/effect/turf_decal/weather/snow/corner{dir = 5},/turf/open/floor/plating/snowed/temperatre,/area/ctf)
+"Ek" = (/obj/effect/turf_decal/weather/snow/corner{dir = 9},/obj/machinery/door/poddoor{id = "arena_default"; name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"},/turf/open/floor/plating/snowed/temperatre,/area/ctf)
+"FL" = (/obj/effect/spawner/structure/window/ice,/obj/machinery/door/poddoor{id = "arena_default"; name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"},/turf/open/floor/plating,/area/ctf)
+"Hq" = (/obj/effect/turf_decal/weather/side/corner{dir = 4},/turf/open/floor/grass/snow/safe/oxy,/area/ctf)
+"IB" = (/obj/effect/turf_decal/weather/side{dir = 4},/turf/open/floor/plating/ice/smooth/oxy,/area/ctf)
+"IC" = (/obj/effect/turf_decal/weather/snow/corner{dir = 6},/turf/open/floor/plating/snowed/temperatre,/area/ctf)
+"IF" = (/obj/effect/turf_decal/weather/snow/corner{dir = 10},/obj/machinery/door/poddoor{id = "arena_default"; name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"},/turf/open/floor/plating/snowed/temperatre,/area/ctf)
+"Ke" = (/obj/effect/turf_decal/weather/snow/corner{dir = 6},/obj/machinery/door/poddoor{id = "arena_default"; name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"},/turf/open/floor/plating/snowed/temperatre,/area/ctf)
+"Ko" = (/obj/structure/barricade/wooden/snowed,/turf/open/floor/plating,/area/ctf)
+"Lb" = (/turf/open/floor/plating/snowed/smoothed/temperatre,/area/ctf)
+"Mc" = (/obj/effect/turf_decal/weather/side,/turf/open/floor/plating/ice/smooth/oxy,/area/ctf)
+"MN" = (/turf/template_noop,/area/ctf)
+"Nr" = (/obj/effect/turf_decal/weather/side/corner{dir = 8},/turf/open/floor/grass/snow/safe/oxy,/area/ctf)
+"Pq" = (/obj/structure/fence,/turf/open/floor/grass/snow/safe/oxy,/area/ctf)
+"Su" = (/obj/structure/statue/snow/snowman,/turf/open/floor/grass/snow/safe/oxy,/area/ctf)
+"SY" = (/obj/structure/flora/rock/pile/icy,/turf/open/floor/grass/snow/safe/oxy,/area/ctf)
+"Tf" = (/obj/effect/turf_decal/weather/side{dir = 9},/obj/structure/railing{dir = 6},/turf/open/floor/plating/ice/smooth/oxy,/area/ctf)
+"Vk" = (/obj/structure/fence,/obj/structure/fence/end,/turf/open/floor/grass/snow/safe/oxy,/area/ctf)
+"VO" = (/obj/effect/turf_decal/weather/side/corner,/turf/open/floor/grass/snow/safe/oxy,/area/ctf)
+"WA" = (/obj/effect/turf_decal/weather/snow/corner{dir = 10},/turf/open/floor/plating/snowed/temperatre,/area/ctf)
+"WL" = (/obj/effect/spawner/structure/window/ice,/turf/open/floor/plating,/area/ctf)
+"Yq" = (/obj/structure/deployable_barricade/snow{dir = 8},/turf/open/floor/plating/snowed/smoothed/temperatre,/area/ctf)
+"YR" = (/turf/closed/indestructible/rock/snow,/area/ctf)
+"Zm" = (/turf/open/floor/plating/snowed/temperatre,/area/ctf)
+"Zx" = (/obj/effect/turf_decal/weather/snow/corner{dir = 9},/turf/open/floor/plating/snowed/temperatre,/area/ctf)
+"ZE" = (/obj/effect/turf_decal/weather/side,/obj/structure/railing{dir = 1},/turf/open/floor/plating/ice/smooth/oxy,/area/ctf)
+
+(1,1,1) = {"
+naMNMNMNMNMNMNMNMNMNMNMNMNYRYRYRYRYRYRYRYRYRYRYRYRMNMNMNMNMNMNMNMNMNMNMNMNMNMN
+MNMNMNMNMNMNMNMNMNMNMNMNMNYRbSbSbSbSbSbSbSbSbSbSYRMNMNMNMNMNMNMNMNMNMNMNMNMNMN
+MNMNMNMNMNMNMNMNMNMNMNMNMNYRbScKcKWLWLWLWLcKcKbSYRMNMNMNMNMNMNMNMNMNMNMNMNMNMN
+MNMNMNMNMNMNMNMNMNMNMNYRYRYRbSoefgfgfgfgfgfgjIbSYRYRYRMNMNMNMNMNMNMNMNMNMNMNMN
+YRYRYRYRYRYRYRYRYRYRYRYRbSPqbScKfgfgfgfgfgfgcKbSPqbSYRYRYRYRYRYRYRYRYRYRYRYRMN
+YRbSbSbSbSbSbSbSbSbSbSbSbSPqbScKKofgfgZmfgcscKbSPqbSbSbSbSbSbSbSmKbSbSbSbSYRMN
+YRLbLbLbLbLbLbLbLbLbLbxCbSPqbScKcKcKWAICcKcKcKbSPqbSSuLbLbLbLbLbLbLbLbLbLbYRMN
+YRLbbSbSbSbSbSbSbSbSLbbSmKPqbSbSbSNrjFjFHqbSbSbSPqbSbSLbbSbSbSbSbSbSbSbSLbYRMN
+YRLbcKcKcKFLcKcKcKbSuVbSbSPqbSlBlBrsjFjFcZlBlBbSPqbSbSYqbScKcKcKFLcKcKcKLbYRMN
+YRLbcKZmbnZmuUfgcKbSuVbSbSPqlBlBlBrsjFjFcZlBlBlBPqbSbSYqbScKfgaYfgaYZmcKLbYRMN
+YRLbcKZmZmfgfgfgcKbSuVbSbSVklBlBlBBVjFjFcZlBlBlBVkbSbSYqbScKZmfgfgfgZmcKLbYRMN
+YRLbEkZmfgZmfgfgcKbSuVbSbSNrdBdBrYTfjFjFgkdBdBdBHqbSbSYqbScKZmfgfgfgZmwsLbYRMN
+YRLbIFZmfgfgfgZmcKbSLbLbLbjFjFjFjFjFjFjFjFjFjFjFjFLbLbLbbScKZmfgfgfgZmKeLbYRMN
+YRLbcKZmfgfgfgfgcKbSLbbSbSbRMcZEZEdSjFjFtWZEZEZEVObSbSYqbScKfgfgfgZmfgcKLbYRMN
+YRLbcKZmbnfguUZmcKbSuVbSbSeAlBlBlBBVjFjFcZlBlBlBeAbSbSYqbScKfgaYZmnMZmcKLbYRMN
+YRLbcKcKcKFLcKcKcKbSuVbSbSPqlBlBlBrsjFjFIBlBlBlBPqbSbSYqbScKcKcKFLcKcKcKLbYRMN
+YRLbbSbSbSbSbSbSbSbSuVbSbSPqbSlBlBBVjFjFcZlBlBbSPqbSbSYqbSbSbSbSbSbSbSbSLbYRMN
+YRLbLbLbLbLbLbLbLbLbLbbSbSPqbSbSbSbRjFjFyCbSbSbSPqbSbSLbLbLbLbLbLbLbLbLbLbYRMN
+YRbSbSbSbSbSbSbSbSbSbSbSbSPqbScKcKcKZxDUcKcKcKbSPqbSbSbSbSbSbSbSbSbSbSbSbSYRMN
+YRbSbSbSbSbSbSbSSYbSbSbSbSPqbScKcsfgfgfgfgKocKbSPqSYbSbSbSbSbSbSbSbSbSSYbSYRMN
+YRbSbSmKbSbSbSbSbSbSbSSYbSPqbScKfgfgfgZmfgfgcKbSPqbSbSbSbSmKbSbSbSbSbSbSbSYRMN
+YRYRYRYRYRYRYRYRYRYRYRYRYRYRbSoeZmZmfgfgfgZmjIbSYRYRYRYRYRYRYRYRYRYRYRYRYRYRMN
+MNMNMNMNMNMNMNMNMNMNMNMNMNYRbScKcKWLWLWLWLcKcKbSYRMNMNMNMNMNMNMNMNMNMNMNMNMNMN
+MNMNMNMNMNMNMNMNMNMNMNMNMNYRbSbSbSbSbSbSbSbSbSbSYRMNMNMNMNMNMNMNMNMNMNMNMNMNMN
+MNMNMNMNMNMNMNMNMNMNMNMNMNYRYRYRYRYRYRYRYRYRYRYRYRMNMNMNMNMNMNMNMNMNMNMNMNMNMN
+"}
