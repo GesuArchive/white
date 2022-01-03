@@ -171,7 +171,10 @@
 			SSticker.queued_players += new_player
 			to_chat(new_player, span_notice("Тебя добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len]."))
 		return
-	new_player.LateChoices()
+	if(!GLOB.is_tournament_rules)
+		new_player.LateChoices()
+	else
+		new_player.make_me_an_observer(TRUE)
 
 /atom/movable/screen/lobby/button/join/proc/show_join_button(status)
 	SIGNAL_HANDLER

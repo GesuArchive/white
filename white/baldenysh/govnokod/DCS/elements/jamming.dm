@@ -11,7 +11,7 @@
 
 /datum/element/jamming/Attach(datum/target, chance, type_override)
 	. = ..()
-	if(!isgun(target))
+	if(!isgun(target) || GLOB.is_tournament_rules)
 		return ELEMENT_INCOMPATIBLE
 	if(chance <= 0)
 		stack_trace("Заклиниевое сосание")
