@@ -266,6 +266,7 @@
 	},
 /obj/effect/landmark/latejoin,
 /obj/effect/landmark/start,
+/obj/effect/snow/dense,
 /turf/open/floor/wood,
 /area/ctf)
 "GC" = (
