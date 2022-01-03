@@ -166,7 +166,11 @@
 	map_generator = /datum/map_generator/snowy_generator
 	ambientsounds = AWAY_MISSION
 	enabled_area_tension = FALSE
+	blend_mode = 0
 
 /area/awaymission/snowy/Initialize(mapload)
 	. = ..()
 	RunGeneration()
+	icon = 'white/valtos/icons/cliffs.dmi'
+	icon_state = "snow_storm"
+	layer = OPENSPACE_LAYER
