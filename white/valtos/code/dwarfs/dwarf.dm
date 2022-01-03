@@ -28,8 +28,7 @@
 /datum/species/dwarf
 	name = "Dwarf"
 	id = "dwarf"
-	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS)
-	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,NO_UNDERWEAR)
+	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,NO_UNDERWEAR,NOGUTS,NOKIDNEYS)
 	mutant_bodyparts = list("mcolor" = "FFF", "wings" = "None")
 	use_skintones = 1
 	disliked_food = GROSS | RAW
@@ -123,8 +122,6 @@
 /obj/item/organ/lungs/dwarven
 	name = "dwarven lungs"
 	desc = "A pair of quite small lungs. They look different than normal human's ones."
-	safe_oxygen_min = 0
-	safe_nitro_min = 16
 
 /datum/language/dwarven
 	name = "Дварфийский"
@@ -157,7 +154,6 @@
 	name = "Dwarf"
 	uniform = /obj/item/clothing/under/dwarf
 	shoes = /obj/item/clothing/shoes/dwarf
-	back = /obj/item/storage/backpack
 
 /datum/outfit/dwarf/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()

@@ -987,6 +987,9 @@
 /mob/living/carbon/human/adjust_nutrition(change) //Honestly FUCK the oldcoders for putting nutrition on /mob someone else can move it up because holy hell I'd have to fix SO many typechecks
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
 		return FALSE
+	if(NOGUTS in dna.species.species_traits || NOBLOOD in dna.species.species_traits || NOKIDNEYS in dna.species.species_traits)
+		nutrition = NUTRITION_LEVEL_START_MAX
+		return FALSE
 	if(!getorganslot(ORGAN_SLOT_GUTS))
 		return FALSE
 	return ..()

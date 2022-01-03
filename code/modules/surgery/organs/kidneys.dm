@@ -15,7 +15,7 @@
 
 	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5)
 
-	var/metabolism_efficiency = 0.05
+	var/metabolism_efficiency = 0.03
 	var/operated = FALSE
 
 	reagent_vol = 100
@@ -64,7 +64,7 @@
 	organ_flags = ORGAN_SYNTHETIC
 	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.5
 	var/emp_vulnerability = 80
-	metabolism_efficiency = 0.07
+	metabolism_efficiency = 0.05
 
 /obj/item/organ/kidneys/cybernetic/tier2
 	name = "кибернетические почки"
@@ -72,7 +72,7 @@
 	desc = "Усовершенствованное устройство, превосходящее функции человеческих почек."
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	emp_vulnerability = 40
-	metabolism_efficiency = 0.04
+	metabolism_efficiency = 0.02
 
 /obj/item/organ/kidneys/cybernetic/tier3
 	name = "продвинутые кибернетические почки"
