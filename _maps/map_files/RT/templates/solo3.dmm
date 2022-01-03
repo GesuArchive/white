@@ -2,34 +2,20 @@
 "a" = (
 /turf/template_noop,
 /area/ctf)
-"b" = (
-/obj/structure/reflector{
-	dir = 6
-	},
-/turf/open/floor/dz/hot_plates,
-/area/ctf)
 "e" = (
 /obj/machinery/arena_spawn/red,
 /turf/open/floor/dz/cyber,
-/area/ctf)
-"h" = (
-/obj/structure/reflector{
-	dir = 10
-	},
-/turf/open/floor/dz/hot_plates,
 /area/ctf)
 "m" = (
 /turf/open/floor/dz/cyber,
 /area/ctf)
 "n" = (
-/obj/structure/reflector/box/anchored{
-	dir = 10
-	},
+/obj/structure/reflector/box/anchored,
 /turf/open/floor/dz/hot_plates,
 /area/ctf)
 "q" = (
-/obj/structure/reflector{
-	dir = 9
+/obj/structure/reflector/box/anchored{
+	dir = 8
 	},
 /turf/open/floor/dz/hot_plates,
 /area/ctf)
@@ -38,13 +24,13 @@
 /area/ctf)
 "D" = (
 /obj/structure/reflector/box/anchored{
-	dir = 5
+	dir = 1
 	},
 /turf/open/floor/dz/hot_plates,
 /area/ctf)
 "E" = (
-/obj/structure/reflector{
-	dir = 5
+/obj/structure/reflector/box/anchored{
+	dir = 4
 	},
 /turf/open/floor/dz/hot_plates,
 /area/ctf)
@@ -122,7 +108,7 @@ W
 "}
 (5,1,1) = {"
 W
-b
+E
 K
 K
 K
@@ -199,7 +185,7 @@ W
 "}
 (12,1,1) = {"
 W
-h
+q
 K
 K
 K
