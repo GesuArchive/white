@@ -1,31 +1,25 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aO" = (
-/obj/structure/railing{
-	dir = 9
-	},
-/turf/open/floor/plating/grass/jungle,
-/area/awaymission/vietnam)
 "bq" = (
 /turf/open/floor/rospilovo/plitka/full,
 /area/ctf)
 "cs" = (
-/turf/open/water/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/snowy)
 "cD" = (
 /obj/structure/railing{
 	dir = 10
 	},
-/turf/open/water/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/snowy)
 "dt" = (
 /obj/structure/railing{
 	dir = 9
 	},
-/turf/open/floor/plating/dirt/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/snowy)
 "gx" = (
 /obj/effect/landmark/arena/end,
-/turf/open/floor/plating/dirt/jungle,
+/turf/open/floor/grass/snow/safe/oxy,
 /area/ctf)
 "gy" = (
 /obj/structure/table/wood,
@@ -46,9 +40,6 @@
 /obj/machinery/computer/arena,
 /turf/open/floor/stone,
 /area/ctf)
-"jj" = (
-/turf/open/floor/plating/dirt/jungle,
-/area/awaymission/vietnam)
 "jA" = (
 /turf/closed/indestructible/wood,
 /area/ctf)
@@ -74,8 +65,8 @@
 /area/ctf)
 "ms" = (
 /obj/structure/railing/corner,
-/turf/open/floor/plating/dirt/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/snowy)
 "mI" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/beer{
@@ -89,33 +80,27 @@
 /area/ctf)
 "oF" = (
 /obj/structure/railing,
-/turf/open/floor/plating/dirt/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/snowy)
 "oG" = (
 /obj/structure/railing,
-/turf/open/water/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/snowy)
 "oX" = (
 /turf/open/genturf,
-/area/awaymission/vietnam)
+/area/awaymission/snowy)
 "pf" = (
 /obj/structure/railing{
 	dir = 1
 	},
 /turf/open/genturf,
-/area/awaymission/vietnam)
+/area/awaymission/snowy)
 "pG" = (
 /obj/structure/railing/corner{
 	dir = 1
 	},
-/turf/open/water/jungle,
-/area/awaymission/vietnam)
-"pV" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/turf/open/floor/plating/grass/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/snowy)
 "rj" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/beer,
@@ -137,7 +122,7 @@
 	dir = 4
 	},
 /turf/open/genturf,
-/area/awaymission/vietnam)
+/area/awaymission/snowy)
 "tf" = (
 /obj/machinery/turntable,
 /obj/effect/turf_decal/siding/wood{
@@ -149,30 +134,18 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/water/jungle,
-/area/awaymission/vietnam)
-"uR" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/open/floor/plating/grass/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/snowy)
 "vk" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/stone,
 /area/ctf)
-"wg" = (
-/obj/structure/railing{
-	dir = 5
-	},
-/turf/open/floor/plating/grass/jungle,
-/area/awaymission/vietnam)
 "xs" = (
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/floor/plating/dirt/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/snowy)
 "xV" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
@@ -186,8 +159,8 @@
 /obj/structure/railing/corner{
 	dir = 8
 	},
-/turf/open/floor/plating/dirt/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/snowy)
 "zj" = (
 /obj/structure/table/wood,
 /obj/item/binoculars,
@@ -249,7 +222,7 @@
 	dir = 1
 	},
 /turf/open/genturf,
-/area/awaymission/vietnam)
+/area/awaymission/snowy)
 "AY" = (
 /obj/structure/chair/sofa/corp/left{
 	dir = 4
@@ -270,25 +243,15 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood,
 /area/ctf)
-"Ca" = (
-/obj/structure/flora/tree/jungle/small,
-/turf/open/floor/plating/grass/jungle,
-/area/awaymission/vietnam)
 "Du" = (
 /obj/structure/railing/corner{
 	dir = 1
 	},
-/turf/open/floor/plating/dirt/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/snowy)
 "Em" = (
-/turf/open/floor/plating/grass/jungle,
-/area/awaymission/vietnam)
-"EP" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/open/floor/plating/grass/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/snowy)
 "Fd" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/beer{
@@ -309,8 +272,8 @@
 /obj/structure/railing{
 	dir = 5
 	},
-/turf/open/floor/plating/dirt/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/snowy)
 "GL" = (
 /obj/structure/sign/barsign,
 /turf/closed/indestructible/wood,
@@ -334,24 +297,17 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/floor/plating/dirt/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/snowy)
 "Jh" = (
 /turf/open/floor/stone,
 /area/ctf)
-"JE" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/structure/flora/tree/jungle,
-/turf/open/floor/plating/grass/jungle,
-/area/awaymission/vietnam)
 "Mc" = (
 /obj/structure/railing/corner{
 	dir = 4
 	},
-/turf/open/floor/plating/dirt/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/snowy)
 "Nu" = (
 /turf/open/chasm,
 /area/ctf)
@@ -367,7 +323,7 @@
 /area/ctf)
 "OB" = (
 /obj/effect/landmark/arena/start,
-/turf/open/floor/plating/dirt/jungle,
+/turf/open/floor/grass/snow/safe/oxy,
 /area/ctf)
 "QV" = (
 /obj/structure/table/wood,
@@ -385,14 +341,18 @@
 /turf/open/floor/wood,
 /area/ctf)
 "SU" = (
-/turf/open/floor/plasteel/stairs/left,
-/area/awaymission/vietnam)
+/obj/effect/turf_decal/weather/snow/corner,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/stairs/old,
+/area/awaymission/snowy)
 "TH" = (
 /obj/structure/railing{
 	dir = 8
 	},
 /turf/open/genturf,
-/area/awaymission/vietnam)
+/area/awaymission/snowy)
 "TJ" = (
 /obj/structure/table/wood,
 /obj/item/clothing/glasses/thermal/xray,
@@ -446,7 +406,7 @@
 	dir = 4
 	},
 /turf/open/genturf,
-/area/awaymission/vietnam)
+/area/awaymission/snowy)
 "Wq" = (
 /obj/machinery/vending/boozeomat/all_access,
 /turf/open/floor/rospilovo/plitka/full,
@@ -465,8 +425,8 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/open/floor/plating/dirt/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/grass/snow/safe/oxy,
+/area/awaymission/snowy)
 "Xo" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/beer{
@@ -482,8 +442,8 @@
 /turf/open/floor/wood,
 /area/ctf)
 "XS" = (
-/turf/open/floor/stone,
-/area/awaymission/vietnam)
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/snowy)
 "XU" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 8
@@ -496,16 +456,17 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/open/water/jungle,
-/area/awaymission/vietnam)
+/turf/open/floor/plating/ice/smooth/oxy,
+/area/awaymission/snowy)
 "Yp" = (
 /obj/machinery/door/airlock/wood,
+/obj/effect/turf_decal/weather/snow/corner,
 /turf/open/floor/plasteel/stairs/left,
 /area/ctf)
 "Zj" = (
 /obj/effect/landmark/observer_start,
-/turf/open/floor/stone,
-/area/awaymission/vietnam)
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/awaymission/snowy)
 "ZC" = (
 /turf/closed/indestructible/fakeglass,
 /area/ctf)
@@ -24760,37 +24721,37 @@ oX
 oX
 oX
 oX
-jj
-jj
-jj
-jj
-jj
-jj
-jj
+Em
+Em
+Em
+Em
+Em
+Em
+Em
 oX
 oX
 oX
 oX
 oX
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
 oX
 oX
 oX
@@ -25015,43 +24976,43 @@ oX
 oX
 oX
 oX
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
 oX
 oX
 oX
@@ -25781,7 +25742,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -26038,7 +25999,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -26295,7 +26256,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -26552,7 +26513,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -26595,7 +26556,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -26809,7 +26770,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -26852,7 +26813,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -27066,7 +27027,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -27109,7 +27070,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -27366,8 +27327,8 @@ WG
 XS
 XS
 Xb
-jj
-jj
+Em
+Em
 oX
 oX
 oX
@@ -27623,8 +27584,8 @@ WG
 XS
 XS
 Xb
-jj
-jj
+Em
+Em
 oX
 oX
 oX
@@ -27880,8 +27841,8 @@ WG
 XS
 XS
 Xb
-jj
-jj
+Em
+Em
 oX
 oX
 oX
@@ -28094,7 +28055,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -28137,8 +28098,8 @@ WG
 XS
 XS
 Xb
-jj
-jj
+Em
+Em
 oX
 oX
 oX
@@ -28351,7 +28312,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -28394,8 +28355,8 @@ WG
 XS
 XS
 Xb
-jj
-jj
+Em
+Em
 oX
 oX
 oX
@@ -28651,7 +28612,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -28865,7 +28826,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -28908,7 +28869,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -29122,7 +29083,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -29165,7 +29126,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -29379,7 +29340,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -29422,8 +29383,8 @@ WG
 XS
 XS
 Xb
-jj
-jj
+Em
+Em
 oX
 oX
 oX
@@ -29679,8 +29640,8 @@ WG
 XS
 XS
 Xb
-jj
-jj
+Em
+Em
 oX
 oX
 oX
@@ -29936,8 +29897,8 @@ WG
 XS
 XS
 Xb
-jj
-jj
+Em
+Em
 oX
 oX
 oX
@@ -30193,7 +30154,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -30407,7 +30368,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -30450,7 +30411,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -30664,7 +30625,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -30707,7 +30668,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -30921,7 +30882,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -30964,7 +30925,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -31178,7 +31139,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -31435,7 +31396,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -31692,7 +31653,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -31949,7 +31910,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -31991,8 +31952,8 @@ Nu
 WG
 XS
 XS
-aO
-EP
+dt
+IO
 HE
 ZC
 ZC
@@ -32000,7 +31961,7 @@ ZC
 HE
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -32206,7 +32167,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -32248,7 +32209,7 @@ Nu
 WG
 XS
 XS
-JE
+Xb
 Em
 ZC
 vk
@@ -32257,7 +32218,7 @@ vk
 ZC
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -32462,8 +32423,8 @@ oX
 oX
 oX
 oX
-jj
-jj
+Em
+Em
 oF
 XS
 XS
@@ -32505,7 +32466,7 @@ Nu
 WG
 XS
 Zj
-pV
+Xb
 Em
 ZC
 iD
@@ -32514,7 +32475,7 @@ Jh
 xZ
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -32719,8 +32680,8 @@ oX
 oX
 oX
 oX
-jj
-jj
+Em
+Em
 oF
 XS
 XS
@@ -32762,8 +32723,8 @@ Nu
 WG
 XS
 XS
-pV
-Ca
+Xb
+Em
 ZC
 Ha
 Jh
@@ -32771,7 +32732,7 @@ vk
 ZC
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -32976,8 +32937,8 @@ oX
 oX
 oX
 oX
-jj
-jj
+Em
+Em
 oF
 XS
 XS
@@ -33019,8 +32980,8 @@ Nu
 WG
 XS
 XS
-wg
-uR
+GC
+xs
 HE
 ZC
 ZC
@@ -33233,8 +33194,8 @@ oX
 oX
 oX
 oX
-jj
-jj
+Em
+Em
 oF
 XS
 XS
@@ -33490,8 +33451,8 @@ oX
 oX
 oX
 oX
-jj
-jj
+Em
+Em
 oF
 XS
 XS
@@ -33748,7 +33709,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -33791,7 +33752,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -34005,7 +33966,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -34048,7 +34009,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -34262,7 +34223,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -34305,7 +34266,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -34518,8 +34479,8 @@ oX
 oX
 oX
 oX
-jj
-jj
+Em
+Em
 oF
 XS
 XS
@@ -34562,7 +34523,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -34775,8 +34736,8 @@ oX
 oX
 oX
 oX
-jj
-jj
+Em
+Em
 oF
 XS
 XS
@@ -35032,8 +34993,8 @@ oX
 oX
 oX
 oX
-jj
-jj
+Em
+Em
 oF
 XS
 XS
@@ -35289,8 +35250,8 @@ oX
 oX
 oX
 oX
-jj
-jj
+Em
+Em
 oF
 XS
 XS
@@ -35333,7 +35294,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -35546,8 +35507,8 @@ oX
 oX
 oX
 oX
-jj
-jj
+Em
+Em
 oF
 XS
 XS
@@ -35590,7 +35551,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -35802,9 +35763,9 @@ oX
 oX
 oX
 oX
-jj
-jj
-jj
+Em
+Em
+Em
 oF
 XS
 XS
@@ -35847,8 +35808,8 @@ WG
 XS
 XS
 Xb
-jj
-jj
+Em
+Em
 oX
 oX
 oX
@@ -36059,9 +36020,9 @@ oX
 oX
 oX
 oX
-jj
-jj
-jj
+Em
+Em
+Em
 oF
 XS
 XS
@@ -36104,8 +36065,8 @@ WG
 XS
 XS
 Xb
-jj
-jj
+Em
+Em
 oX
 oX
 oX
@@ -36316,9 +36277,9 @@ oX
 oX
 oX
 oX
-jj
-jj
-jj
+Em
+Em
+Em
 oF
 XS
 XS
@@ -36361,8 +36322,8 @@ WG
 XS
 XS
 Xb
-jj
-jj
+Em
+Em
 oX
 oX
 oX
@@ -36573,9 +36534,9 @@ oX
 oX
 oX
 oX
-jj
-jj
-jj
+Em
+Em
+Em
 oF
 XS
 XS
@@ -36618,8 +36579,8 @@ WG
 XS
 XS
 Xb
-jj
-jj
+Em
+Em
 oX
 oX
 oX
@@ -36830,9 +36791,9 @@ oX
 oX
 oX
 oX
-jj
-jj
-jj
+Em
+Em
+Em
 oF
 XS
 XS
@@ -36875,7 +36836,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -37087,9 +37048,9 @@ oX
 oX
 oX
 oX
-jj
-jj
-jj
+Em
+Em
+Em
 oF
 XS
 XS
@@ -37132,7 +37093,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -37344,9 +37305,9 @@ oX
 oX
 oX
 oX
-jj
-jj
-jj
+Em
+Em
+Em
 oF
 XS
 XS
@@ -37601,9 +37562,9 @@ oX
 oX
 oX
 oX
-jj
-jj
-jj
+Em
+Em
+Em
 oF
 XS
 XS
@@ -37646,7 +37607,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -37858,9 +37819,9 @@ oX
 oX
 oX
 oX
-jj
-jj
-jj
+Em
+Em
+Em
 oF
 XS
 XS
@@ -37903,7 +37864,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -38116,8 +38077,8 @@ oX
 oX
 oX
 oX
-jj
-jj
+Em
+Em
 oF
 XS
 XS
@@ -38373,8 +38334,8 @@ oX
 oX
 oX
 oX
-jj
-jj
+Em
+Em
 oF
 XS
 XS
@@ -38630,8 +38591,8 @@ oX
 oX
 oX
 oX
-jj
-jj
+Em
+Em
 oF
 XS
 XS
@@ -38674,7 +38635,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -38887,8 +38848,8 @@ oX
 oX
 oX
 oX
-jj
-jj
+Em
+Em
 oF
 XS
 XS
@@ -38931,7 +38892,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -39145,7 +39106,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -39188,7 +39149,7 @@ WG
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -39402,7 +39363,7 @@ oX
 oX
 oX
 oX
-jj
+Em
 oF
 XS
 XS
@@ -39445,7 +39406,7 @@ XS
 XS
 XS
 Xb
-jj
+Em
 oX
 oX
 oX
@@ -40180,39 +40141,39 @@ oX
 oX
 oX
 oX
-jj
-jj
+Em
+Em
 oX
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
 oX
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
-jj
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
+Em
 cs
 oG
 XS
 XS
 Yf
-jj
-jj
-jj
-jj
+Em
+Em
+Em
+Em
 oX
 oX
 oX
@@ -40442,11 +40403,11 @@ oX
 oX
 oX
 oX
-jj
-jj
-jj
-jj
-jj
+Em
+Em
+Em
+Em
+Em
 oX
 oX
 oX
@@ -40456,12 +40417,12 @@ oX
 oX
 oX
 oX
-jj
-jj
-jj
-jj
-jj
-jj
+Em
+Em
+Em
+Em
+Em
+Em
 oF
 XS
 XS

@@ -87,3 +87,27 @@
 
 /datum/biome/mountain
 	turf_type = /turf/closed/mineral/random/vietnam
+
+/datum/biome/snows
+	turf_type = /turf/open/floor/grass/snow/safe/oxy
+	flora_types = list(/obj/structure/flora/grass/both, /obj/structure/flora/grass/brown, /obj/structure/flora/grass/green, /obj/structure/flora/rock/icy, /obj/structure/flora/tree/pine, /obj/structure/flora/tree/dead, /obj/structure/flora/rock/pile/icy)
+	flora_density = 10
+
+/datum/biome/icelands
+	turf_type = /turf/open/floor/plating/ice/smooth/oxy
+	flora_types = list(/obj/structure/flora/grass/both, /obj/structure/flora/grass/brown, /obj/structure/flora/grass/green, /obj/structure/flora/rock/icy, /obj/structure/flora/tree/pine, /obj/structure/flora/tree/dead, /obj/structure/flora/rock/pile/icy)
+	flora_density = 1
+
+/datum/biome/ice
+	turf_type = /turf/open/floor/plating/ice/smooth/oxy
+
+/datum/biome/snowforest
+	turf_type = /turf/open/floor/plating/grass/jungle
+	flora_types = list(/obj/structure/flora/grass/both, /obj/structure/flora/grass/brown, /obj/structure/flora/grass/green, /obj/structure/flora/tree/pine, /obj/structure/flora/tree/dead)
+	flora_density = 40
+
+/datum/biome/snowforest/deep
+	flora_density = 65
+
+/datum/biome/mountain/ice
+	turf_type = /turf/closed/mineral/snowmountain/cavern/oxy
