@@ -156,3 +156,17 @@
 	endTurfY = 157
 	startTurfX = 37
 	startTurfY = 35
+
+/area/awaymission/snowy
+	name = "Морозный лес"
+	icon_state = "unexplored"
+	static_lighting = FALSE
+	base_lighting_alpha = 255
+	base_lighting_color = COLOR_WHITE
+	map_generator = /datum/map_generator/snowy
+	ambientsounds = AWAY_MISSION
+	enabled_area_tension = FALSE
+
+/area/awaymission/snowy/Initialize(mapload)
+	. = ..()
+	RunGeneration()
