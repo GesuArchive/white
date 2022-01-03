@@ -22,6 +22,8 @@
 	mutantears = /obj/item/organ/ears/cybernetic
 	mutantliver = /obj/item/organ/liver/cybernetic
 	mutantstomach = /obj/item/organ/stomach/cybernetic
+	mutantkidneys = /obj/item/organ/kidneys/cybernetic
+	mutantguts = /obj/item/organ/guts/cybernetic
 	changesource_flags = MIRROR_BADMIN | WABBAJACK
 
 	var/datum/action/innate/monitor_change/screen

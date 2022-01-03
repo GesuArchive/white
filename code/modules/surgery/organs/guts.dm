@@ -19,7 +19,7 @@
 	var/metabolism_efficiency = 0.03
 	var/operated = FALSE
 
-	reagent_vol = 150
+	reagent_vol = 300
 
 /obj/item/organ/guts/Initialize()
 	. = ..()
@@ -41,7 +41,7 @@
 		body.try_poo()
 
 	if(body?.nutrition <= 50)
-		applyOrganDamage(1)
+		applyOrganDamage(0.1)
 		update_icon()
 
 	if(body?.nutrition)

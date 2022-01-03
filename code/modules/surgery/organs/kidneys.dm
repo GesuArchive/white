@@ -18,7 +18,7 @@
 	var/metabolism_efficiency = 0.03
 	var/operated = FALSE
 
-	reagent_vol = 100
+	reagent_vol = 300
 
 /obj/item/organ/kidneys/Initialize()
 	. = ..()
@@ -37,7 +37,7 @@
 		body.try_pee(TRUE)
 
 	if(body?.hydration <= 5)
-		applyOrganDamage(1)
+		applyOrganDamage(0.1)
 
 	if(body?.hydration)
 		body.hydration -= delta_time * metabolism_efficiency
