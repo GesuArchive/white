@@ -30,7 +30,7 @@
 
 /obj/item/organ/guts/update_icon_state()
 	. = ..()
-	icon_state = "[base_icon_state][damage > 50 ? "damaged" : ""]"
+	icon_state = "[base_icon_state][damage > 50 ? "-damaged" : ""]"
 
 /obj/item/organ/guts/on_life(delta_time, times_fired)
 	. = ..()
