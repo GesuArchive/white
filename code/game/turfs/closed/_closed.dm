@@ -82,6 +82,11 @@
 				time_to_fall = 2 SECONDS
 			spawn(time_to_fall)
 				user.movement_type &= ~FLYING
+				var/turf/feetson = get_turf(user)
+				if(isgroundlessturf(feetson))
+					if(locate(/obj/structure/lattice) in feetson)
+						return
+					feetson.zFall(user)
 	else
 		to_chat(user, span_notice("Толкаю стену, но ничего не происходит!"))
 
