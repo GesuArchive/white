@@ -102,7 +102,7 @@
 	turf_type = /turf/open/floor/plating/ice/smooth/oxy
 
 /datum/biome/snowforest
-	turf_type = /turf/open/floor/plating/grass/jungle
+	turf_type = /turf/open/floor/grass/snow/safe/oxy
 	flora_types = list(/obj/structure/flora/grass/both, /obj/structure/flora/grass/brown, /obj/structure/flora/grass/green, /obj/structure/flora/tree/pine, /obj/structure/flora/tree/dead)
 	flora_density = 40
 
