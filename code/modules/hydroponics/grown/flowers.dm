@@ -27,7 +27,6 @@
 	bite_consumption_mod = 3
 	foodtypes = VEGETABLES | GROSS
 	distill_reagent = /datum/reagent/consumable/ethanol/vermouth
-	preserved_food = TRUE
 
 // Lily
 /obj/item/seeds/poppy/lily
@@ -46,7 +45,6 @@
 	name = "Лилия"
 	desc = "Красочный оранжевый цветок."
 	icon_state = "lily"
-	preserved_food = TRUE
 
 	//Spacemans's Trumpet
 /obj/item/seeds/poppy/lily/trumpet
@@ -86,7 +84,6 @@
 	icon_state = "spacemanstrumpet"
 	bite_consumption_mod = 3
 	foodtypes = VEGETABLES
-	preserved_food = TRUE
 
 // Geranium
 /obj/item/seeds/poppy/geranium
@@ -122,14 +119,12 @@
 	name = "forget-me-not"
 	desc = "A clump of small blue flowers, they are primarily associated with rememberance, respect and loyalty."
 	icon_state = "forget_me_not"
-	preserved_food = TRUE
 
 /obj/item/food/grown/poppy/geranium
 	seed = /obj/item/seeds/poppy/geranium
 	name = "Герань"
 	desc = "Красивый синий цветок."
 	icon_state = "geranium"
-	preserved_food = TRUE
 
 ///Fraxinella seeds.
 /obj/item/seeds/poppy/geranium/fraxinella
@@ -150,7 +145,6 @@
 	desc = "Красивый светло-розовый цветок."
 	icon_state = "fraxinella"
 	distill_reagent = /datum/reagent/ash
-	preserved_food = TRUE
 
 // Harebell
 /obj/item/seeds/harebell
@@ -215,7 +209,6 @@
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 1
 	throw_range = 3
-	preserved_food = TRUE
 
 /obj/item/grown/sunflower/attack(mob/M, mob/user)
 	to_chat(M, "<font color='green'>[user] шлёпает меня подсолнухом!<font color='orange'><b>ЦВЕТОЧНАЯ СИЛА!</b></font></font>")
@@ -247,7 +240,6 @@
 	slot_flags = ITEM_SLOT_HEAD
 	bite_consumption_mod = 2
 	distill_reagent = /datum/reagent/consumable/ethanol/absinthe //It's made from flowers.
-	preserved_food = TRUE
 
 // Novaflower
 /obj/item/seeds/sunflower/novaflower
@@ -280,7 +272,6 @@
 	attack_verb_continuous = list("жарит", "поджигает", "выжигает")
 	attack_verb_simple = list("жарит", "поджигает", "выжигает")
 	grind_results = list(/datum/reagent/consumable/capsaicin = 0, /datum/reagent/consumable/condensedcapsaicin = 0)
-	preserved_food = TRUE
 
 /obj/item/grown/novaflower/Initialize(mapload, obj/item/seeds/new_seed)
 	. = ..()
@@ -349,7 +340,6 @@
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
 	bite_consumption_mod = 3
 	foodtypes = VEGETABLES | GROSS
-	preserved_food = TRUE
 
 /obj/item/food/grown/rose/Initialize(mapload, obj/item/seeds/new_seed)
 	. = ..()
@@ -403,4 +393,3 @@
 	slot_flags = ITEM_SLOT_HEAD
 	throw_speed = 1
 	throw_range = 3
-	preserved_food = TRUE
