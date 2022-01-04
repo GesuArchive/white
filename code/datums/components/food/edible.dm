@@ -289,6 +289,7 @@ Behavior that's still missing from this component that original food items had t
 			eater.visible_message(span_notice("[eater] жадно [eatverb] [parent], проглатывая кусками!") , span_notice("Жадно кусаю [parent], проглатывая кусками!"))
 		else if(fullness > 50 && fullness < 150)
 			eater.visible_message(span_notice("[eater] жадно [eatverb] [parent].") , span_notice("Жадно пожираю [parent]."))
+		else if(fullness > 150 && fullness < 500)
 			eater.visible_message(span_notice("[eater] [eatverb] [parent].") , span_notice("Кушаю [parent]."))
 		else if(fullness > 500 && fullness < 600)
 			eater.visible_message(span_notice("[eater] нехотя [eatverb] кусочек [parent].") , span_notice("Нямкаю кусочек [parent]."))
