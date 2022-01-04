@@ -3018,6 +3018,7 @@
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "aid" = (
@@ -3427,6 +3428,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/solars/port/fore)
 "aji" = (
@@ -4372,6 +4374,7 @@
 	req_access_txt = "65"
 	},
 /obj/effect/mapping_helpers/airlock/abandoned,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "alG" = (
@@ -5728,6 +5731,7 @@
 	req_access_txt = "12"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/disposal)
 "apt" = (
@@ -5748,6 +5752,7 @@
 	req_access_txt = "12"
 	},
 /obj/effect/mapping_helpers/airlock/abandoned,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "apw" = (
@@ -7161,6 +7166,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/solars/starboard/fore)
 "atl" = (
@@ -7183,6 +7189,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "atp" = (
@@ -7285,6 +7292,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "atC" = (
@@ -7323,6 +7331,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "atH" = (
@@ -7343,6 +7352,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "atK" = (
@@ -7996,6 +8006,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "avw" = (
@@ -8048,6 +8059,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "avA" = (
@@ -8504,6 +8516,7 @@
 	req_access_txt = "12"
 	},
 /obj/effect/mapping_helpers/airlock/abandoned,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "awJ" = (
@@ -9618,6 +9631,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/security/brig)
+"azC" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating{
+	icon_state = "panelscorched"
+	},
+/area/maintenance/port)
 "azD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -9909,6 +9932,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "aAj" = (
@@ -11823,6 +11847,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/fore)
 "aFc" = (
@@ -12651,6 +12676,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating{
 	icon_state = "platingdmg3"
 	},
@@ -12841,6 +12867,7 @@
 	req_access_txt = "38"
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/fore)
 "aHI" = (
@@ -17813,6 +17840,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Escape Pod One"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "aUd" = (
@@ -18279,6 +18307,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating{
 	icon_state = "platingdmg3"
 	},
@@ -21574,6 +21603,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "bcy" = (
@@ -22899,6 +22929,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "bfo" = (
@@ -27790,6 +27821,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/starboard)
 "brr" = (
@@ -28869,6 +28901,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/port)
 "bue" = (
@@ -37899,6 +37932,7 @@
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/port)
 "bTs" = (
@@ -38394,6 +38428,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "bUT" = (
@@ -38852,6 +38887,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/port)
 "bWg" = (
@@ -44307,6 +44343,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 8
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/starboard/secondary)
 "clX" = (
@@ -48179,6 +48216,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "cHN" = (
@@ -48216,6 +48254,7 @@
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "cIA" = (
@@ -48874,6 +48913,7 @@
 /obj/machinery/door/airlock/maintenance{
 	req_one_access_txt = "12;5;39;6"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "cLl" = (
@@ -48998,6 +49038,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/aft/secondary)
 "cLC" = (
@@ -49236,6 +49277,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/aft/secondary)
 "cMl" = (
@@ -49982,6 +50024,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/service/chapel/office)
 "cOd" = (
@@ -50320,6 +50363,7 @@
 /obj/machinery/navbeacon/wayfinding,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/service/chapel/office)
 "cPm" = (
@@ -55991,6 +56035,7 @@
 /obj/effect/landmark/event_spawn,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/starboard/secondary)
 "dDr" = (
@@ -56127,6 +56172,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "dFg" = (
@@ -56382,6 +56428,7 @@
 	name = "Toxins Lab Maintenance";
 	req_access_txt = "8"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/science/mixing)
 "dNL" = (
@@ -56546,6 +56593,7 @@
 	name = "Maintenance Bathroom";
 	req_access_txt = "12"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "dYu" = (
@@ -63115,6 +63163,13 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/carpet,
 /area/service/theater)
+"jcx" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "jcz" = (
 /obj/machinery/firealarm{
 	pixel_y = 26
@@ -67027,6 +67082,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/commons/fitness/recreation)
 "mfR" = (
@@ -67284,6 +67340,13 @@
 /obj/structure/disposalpipe/trunk,
 /turf/open/floor/wood,
 /area/cargo/qm)
+"mpg" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/maintenance/aft)
 "mpy" = (
 /obj/machinery/light_switch{
 	pixel_x = -26;
@@ -67297,6 +67360,17 @@
 	},
 /turf/open/floor/wood,
 /area/service/theater)
+"mpC" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/maintenance/starboard/secondary)
 "mpD" = (
 /obj/structure/cable,
 /obj/machinery/holopad,
@@ -67979,6 +68053,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "mSz" = (
@@ -68671,6 +68746,13 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard)
+"nAU" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/maintenance/fore)
 "nBA" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating{
@@ -68819,6 +68901,17 @@
 /obj/machinery/portable_atmospherics/canister/toxins,
 /turf/open/floor/plasteel/dark,
 /area/science/storage)
+"nGm" = (
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/maintenance/starboard/aft)
 "nGu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -78750,6 +78843,15 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/science/robotics/lab)
+"uQN" = (
+/obj/effect/spawner/lootdrop/maintenance,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "uRe" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -80902,6 +81004,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "wzr" = (
@@ -82040,6 +82143,7 @@
 	req_one_access_txt = "12;27"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "xwk" = (
@@ -100364,7 +100468,7 @@ aof
 aob
 alC
 alK
-bSu
+azC
 dux
 bUW
 bXE
@@ -101156,7 +101260,7 @@ gnT
 wdc
 fFJ
 gnT
-gnT
+jcx
 cbB
 wdc
 njJ
@@ -107859,7 +107963,7 @@ ore
 cCe
 cCe
 cHI
-cJx
+mpg
 cJx
 cJx
 cLj
@@ -115279,7 +115383,7 @@ bSS
 bSS
 bSS
 bSS
-ceZ
+mpC
 cgd
 eDK
 xWI
@@ -115483,7 +115587,7 @@ axy
 ahx
 azW
 aBq
-aqb
+nAU
 aDO
 aqb
 aGy
@@ -116583,7 +116687,7 @@ vNu
 ipr
 eee
 nOc
-pDY
+nGm
 crR
 crR
 crS
@@ -119097,7 +119201,7 @@ aJh
 aJh
 aUM
 aUM
-biq
+uQN
 dnh
 aav
 aav
