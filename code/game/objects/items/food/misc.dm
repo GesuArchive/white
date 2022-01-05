@@ -40,6 +40,7 @@
 	desc = "A slice of watery goodness."
 	icon_state = "watermelonslice"
 	tastes = list("арбуз" = 1)
+	food_reagents = list(/datum/reagent/water = 1, /datum/reagent/consumable/nutriment/vitamin = 0.2, /datum/reagent/consumable/nutriment = 1)
 	foodtypes = FRUIT
 	food_flags = FOOD_FINGER_FOOD
 	juice_results = list(/datum/reagent/consumable/watermelonjuice = 5)
