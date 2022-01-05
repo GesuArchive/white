@@ -18,7 +18,7 @@
 	ph = 9
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/hallucinogens = 10) //4 per 2 seconds
-	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/drug/space_drugs/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.set_drugginess(15 * REM * delta_time)
