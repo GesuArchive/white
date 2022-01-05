@@ -31,7 +31,7 @@
 /obj/structure/workbench
 	name = "верстак"
 	desc = "Почти майнкрафт"
-	icon = 'white/white/kacherkin/icons/dwarfs/obj/workbench.dmi'
+	icon = 'white/kacherkin/icons/dwarfs/obj/workbench.dmi'
 	icon_state = "workbench"
 	density = TRUE
 	anchored = TRUE
