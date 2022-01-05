@@ -93,7 +93,7 @@
 
 /obj/structure/statue/gold/robust
 	name = "Статуя Rick Miller"
-	desc = "Победитель робаст-турнира 2022. Надпись снизу гласит: \"...\".<hr><b>Zarri</b> - первое место!"
+	desc = "Победитель робаст-турнира 2022. Надпись снизу гласит: \"Продам гараж\".<hr><b>Zarri</b> - первое место!"
 	icon = 'white/valtos/icons/robust.dmi'
 	icon_state = "gold_2022"
 	can_be_unanchored = FALSE
