@@ -132,6 +132,8 @@
 				log_admin("[key_name(usr)] spawned a blob with base resource gain [strength].")
 				new/datum/round_event/ghost_role/blob(TRUE, strength)
 			if("centcom")
+//				if(!check_rights(R_PERMISSIONS))
+//					return
 				message_admins("[key_name(usr)] is creating a CentCom response team...")
 				if(src.makeEmergencyresponseteam())
 					message_admins("[key_name(usr)] created a CentCom response team.")
