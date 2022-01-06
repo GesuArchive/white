@@ -318,6 +318,13 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	duration = 4
 
+/obj/effect/temp_visual/lance_impact
+	name = "lance impact"
+	icon = 'white/valtos/icons/objects.dmi'
+	icon_state = "lanceimpact"
+	layer = ABOVE_ALL_MOB_LAYER
+	duration = 8
+
 /obj/effect/temp_visual/explosion
 	name = "explosion"
 	icon = 'icons/effects/96x96.dmi'
