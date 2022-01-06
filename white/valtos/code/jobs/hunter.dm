@@ -148,8 +148,8 @@
 			var/def_check = L.getarmor(type = BOMB)
 			var/target_health = L.health
 			if((user.dir & backstab_dir) && (L.dir & backstab_dir))
-				var/received_damage = L.apply_damage(48, BRUTE, blocked = def_check)
+				L.apply_damage(48, BRUTE, blocked = def_check)
 				playsound(user, 'sound/weapons/kenetic_accel.ogg', 100, TRUE)
-				if(QDELETED(L) || (received_damage > target_health && target_health > 1))
-					collected_force++
-					to_chat(user, span_green("Копьё усилено."))
+			if(QDELETED(L) || (L && L.health < 0 && target_health > 1 && L.maxHealth > 90))
+				collected_force++
+				to_chat(user, span_green("Копьё усилено."))
