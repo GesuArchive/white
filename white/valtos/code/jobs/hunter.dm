@@ -53,7 +53,7 @@
 
 	id_trim = /datum/id_trim/job/hunter
 
-/datum/outfit/job/hunter/equipped/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/hunter/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
 	if(visualsOnly)
 		return
@@ -83,7 +83,7 @@
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	worn_icon = 'white/valtos/icons/clothing/mob/belt.dmi'
 	worn_icon_state = "energylance"
-	embedding = list("embedded_impact_pain_multiplier" = 3)
+	embedding = list("embed_chance" = 55, "embedded_fall_chance" = 0.5, "embedded_impact_pain_multiplier" = 3)
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 	force = 6
 	throwforce = 12
@@ -130,7 +130,7 @@
 	slot_flags = active ? NONE : (ITEM_SLOT_BACK | ITEM_SLOT_BELT)
 	icon_state = active ? "energylanceon" : "energylance"
 	inhand_icon_state = active ? "energylanceon" : "energylance"
-	balloon_alert(user, "[active ? "активно" : "не активно"] [src]")
+	balloon_alert(user, "[src] [active ? "активно" : "не активно"]")
 	playsound(user ? user : src, sound('sound/weapons/batonextend.ogg'), 50, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
@@ -138,18 +138,18 @@
 	. = ..()
 	if(!extended)
 		return
-	if(lavaland_equipment_pressure_check(get_turf(target)))
+	if(!lavaland_equipment_pressure_check(get_turf(target)))
 		return
 	if(proximity_flag && isliving(target))
 		var/mob/living/L = target
 		if(!QDELETED(L))
-			new /obj/effect/temp_visual/lance_impact(get_turf(L))
 			var/backstab_dir = get_dir(user, L)
 			var/def_check = L.getarmor(type = BOMB)
 			var/target_health = L.health
 			if((user.dir & backstab_dir) && (L.dir & backstab_dir))
+				new /obj/effect/temp_visual/lance_impact(get_turf(L))
 				L.apply_damage((active_force + collected_force) * 1.5, BRUTE, blocked = def_check)
 				playsound(user, 'sound/weapons/kenetic_accel.ogg', 100, TRUE)
-			if(QDELETED(L) || (L && L.health < 0 && target_health > 1 && L.maxHealth > 90) && !ishuman(L))
+			if(!L || (L && L.health < 0 && target_health > 1 && L.maxHealth > 90) && !ishuman(L))
 				collected_force++
 				to_chat(user, span_green("Копьё усилено."))
