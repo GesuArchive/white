@@ -96,7 +96,7 @@
 	item_flags = NONE
 	bare_wound_bonus = 5
 	var/extended = FALSE
-	var/active_force = 24
+	var/active_force = 12
 	var/collected_force = 0
 
 /obj/item/energylance/examine(mob/user)
@@ -111,8 +111,8 @@
 /obj/item/energylance/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/transforming, \
-		force_on = active_force, \
-		throwforce_on = active_force * 2, \
+		force_on = active_force + collected_force, \
+		throwforce_on = (active_force + collected_force) * 2, \
 		hitsound_on = hitsound, \
 		w_class_on = WEIGHT_CLASS_BULKY, \
 		clumsy_check = FALSE, \
@@ -148,8 +148,8 @@
 			var/def_check = L.getarmor(type = BOMB)
 			var/target_health = L.health
 			if((user.dir & backstab_dir) && (L.dir & backstab_dir))
-				L.apply_damage(48, BRUTE, blocked = def_check)
+				L.apply_damage((active_force + collected_force) * 1.5, BRUTE, blocked = def_check)
 				playsound(user, 'sound/weapons/kenetic_accel.ogg', 100, TRUE)
-			if(QDELETED(L) || (L && L.health < 0 && target_health > 1 && L.maxHealth > 90))
+			if(QDELETED(L) || (L && L.health < 0 && target_health > 1 && L.maxHealth > 90) && !ishuman(L))
 				collected_force++
 				to_chat(user, span_green("Копьё усилено."))
