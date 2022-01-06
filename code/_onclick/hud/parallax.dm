@@ -30,13 +30,14 @@
 	if(screenmob != mymob)
 		C.screen -= locate(/atom/movable/screen/plane_master/parallax_white) in C.screen
 		C.screen += PM
-	PM.color = list(
-		0, 0, 0, 0,
-		0, 0, 0, 0,
-		0, 0, 0, 0,
-		1, 1, 1, 1,
-		0, 0, 0, 0
-		)
+	if(PM)
+		PM.color = list(
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			1, 1, 1, 1,
+			0, 0, 0, 0
+			)
 
 
 /datum/hud/proc/remove_parallax(mob/viewmob)
@@ -47,7 +48,8 @@
 	if(screenmob != mymob)
 		C.screen -= locate(/atom/movable/screen/plane_master/parallax_white) in C.screen
 		C.screen += PM
-	PM.color = initial(PM.color)
+	if(PM)
+		PM.color = initial(PM.color)
 	C.parallax_layers = null
 
 /datum/hud/proc/apply_parallax_pref(mob/viewmob)

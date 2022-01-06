@@ -461,7 +461,7 @@ Behavior that's still missing from this component that original food items had t
 	SIGNAL_HANDLER
 
 	var/datum/component/edible/E = ingredient
-	if (LAZYLEN(E.tastes))
+	if (LAZYLEN(E.tastes) && tastes)
 		tastes = tastes.Copy()
 		for (var/t in E.tastes)
 			tastes[t] += E.tastes[t]

@@ -209,7 +209,7 @@
 			to_chat(M, span_danger("Что-то пришлось оставить..."))
 			qdel(item)
 	// новый год 2022
-	if(SSevents.holidays[NEW_YEAR])
+	if(SSevents.holidays && SSevents.holidays[NEW_YEAR])
 		var/obj/item/storage/backpack/b = locate() in H.contents
 		var/givegift = pick(/obj/item/storage/box/festive/cartonbox,
 							/obj/item/storage/box/festive/cartonbox/alt,
