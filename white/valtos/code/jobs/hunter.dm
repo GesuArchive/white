@@ -127,6 +127,8 @@
 	inhand_x_dimension = active ? -32 : 32
 	extended = active
 	reach = active ? 2 : 1
+	slot_flags = active ? NONE : (ITEM_SLOT_BACK | ITEM_SLOT_BELT)
+	icon_state = active ? "energylanceon" : "energylance"
 	inhand_icon_state = active ? "energylanceon" : "energylance"
 	balloon_alert(user, "[active ? "активно" : "не активно"] [src]")
 	playsound(user ? user : src, sound('sound/weapons/batonextend.ogg'), 50, TRUE)
@@ -136,6 +138,8 @@
 	. = ..()
 	if(!extended)
 		return
+	if(lavaland_equipment_pressure_check(get_turf(target)))
+		return
 	if(proximity_flag && isliving(target))
 		var/mob/living/L = target
 		if(!QDELETED(L))
@@ -144,8 +148,8 @@
 			var/def_check = L.getarmor(type = BOMB)
 			var/target_health = L.health
 			if((user.dir & backstab_dir) && (L.dir & backstab_dir))
-				L.apply_damage(48, BRUTE, blocked = def_check)
+				var/received_damage = L.apply_damage(48, BRUTE, blocked = def_check)
 				playsound(user, 'sound/weapons/kenetic_accel.ogg', 100, TRUE)
-				if(L && L.health < 0 && target_health > 1 && L.maxHealth > 90)
+				if(QDELETED(L) || (received_damage > target_health && target_health > 1))
 					collected_force++
 					to_chat(user, span_green("Копьё усилено."))
