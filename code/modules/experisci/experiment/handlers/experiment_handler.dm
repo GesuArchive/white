@@ -171,7 +171,7 @@
 		playsound(src, 'sound/machines/ping.ogg', 25)
 	else
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 25)
-		our_array.say("Insufficient explosion to contribute to current experiment.")
+		our_array.say("Недостаточно сильный взрыв для завершения эксперимента.")
 
 /**
  * Announces a message to all experiment handlers

@@ -6,7 +6,7 @@
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "tdoppler"
 	density = TRUE
-	verb_say = "states coldly"
+	verb_say = "холодно констатирует"
 	var/cooldown = 10
 	var/next_announce = 0
 	var/max_dist = 150
@@ -155,7 +155,7 @@
 	R.factual_radius["outer_radius"] = heavy_impact_range
 	R.factual_radius["shockwave_radius"] = light_impact_range
 
-	var/list/messages = list("Explosive disturbance detected.",
+	var/list/messages = list("Обнаружена взрывная волна.",
 		"Эпицентр: сетка ([epicenter.x], [epicenter.y]). Временное смещение тахионов: [took] секунд.",
 		"Фактический: Радиус эпицентра: [devastation_range]. Внешний радиус: [heavy_impact_range]. Взрывная волна: [light_impact_range].",
 	)
