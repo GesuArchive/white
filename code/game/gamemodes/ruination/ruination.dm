@@ -62,6 +62,8 @@ GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
 			H.station_height.update_height()
 
 /datum/game_mode/ruination/check_finished()
+	if(!started_at)
+		return ..()
 	if(GLOB.station_orbit_height < HEIGHT_CRASH)
 		result = 1
 	else if ((started_at + win_time) > world.time)
