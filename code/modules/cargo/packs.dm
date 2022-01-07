@@ -298,17 +298,17 @@
 
 /datum/supply_pack/security/ammo
 	name = "Ammo Crate"
-	desc = "Contains two 20-round magazines for the WT-550 Auto Rifle, three boxes of rubber ammo and special .38 speedloarders and AK-47 mags. Requires Security access to open."
+	desc = "Contains five 20-round magazines for the WT-550 Auto Rifle, three boxes of rubber ammo and special .38 speedloarders. Requires Security access to open."
 	cost = CARGO_CRATE_VALUE * 12
 	access_view = ACCESS_ARMORY
 	contains = list(/obj/item/ammo_box/magazine/wt550m9,
 					/obj/item/ammo_box/magazine/wt550m9,
+					/obj/item/ammo_box/magazine/wt550m9,
+					/obj/item/ammo_box/magazine/wt550m9,
+					/obj/item/ammo_box/magazine/wt550m9,
 					/obj/item/storage/box/rubbershot,
 					/obj/item/storage/box/rubbershot,
 					/obj/item/storage/box/rubbershot,
-					/obj/item/ammo_box/magazine/ak47mag,
-					/obj/item/ammo_box/magazine/ak47mag,
-					/obj/item/ammo_box/magazine/ak47mag,
 					/obj/item/ammo_box/c38/trac,
 					/obj/item/ammo_box/c38/hotshot,
 					/obj/item/ammo_box/c38/iceblox)

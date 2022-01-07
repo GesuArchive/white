@@ -68,8 +68,8 @@
 	icon_state = "water"
 
 /obj/structure/reagent_dispensers/watertank/high
-	name = "бак с водой под высоким давлением"
-	desc = "Эта штука может хранить ОЧЕНЬ много воды."
+	name = "огромный бак с водой"
+	desc = "Бак, содержащий в себе ОЧЕНЬ много воды."
 	icon_state = "water_high" //I was gonna clean my room...
 	tank_volume = 100000
 
