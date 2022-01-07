@@ -81224,9 +81224,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/event_spawn,
 /obj/structure/cable,
-/obj/machinery/computer/shuttle_flight/mining{
-	dir = 1
-	},
 /turf/open/floor/plasteel,
 /area/cargo/miningoffice)
 "xEu" = (
