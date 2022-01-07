@@ -150,6 +150,6 @@
 				new /obj/effect/temp_visual/lance_impact(get_turf(L))
 				L.apply_damage((active_force + collected_force) * 1.5, BRUTE, blocked = def_check)
 				playsound(user, 'sound/weapons/kenetic_accel.ogg', 100, TRUE)
-		if(!L || (L && L.health < 0 && target_health > 1 && L.maxHealth > 90) && !ishuman(L))
+		if(!L || ((L && L.health < 0 && target_health > 1 && L.maxHealth > 90) && !ishuman(L)))
 			collected_force++
 			to_chat(user, span_green("Копьё усилено."))
