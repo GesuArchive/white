@@ -204,7 +204,7 @@ GLOBAL_LIST_INIT(circuit_dupe_whitelisted_types, list(
 
 	var/list/errors = list()
 
-	var/option = tgui_alert(usr, "Load by file or direct input?", "Load by file or string", "File", "Direct Input")
+	var/option = tgui_alert(usr, "Load by file or direct input?", "Load by file or string", list("File", "Direct Input"))
 	var/txt
 	switch(option)
 		if("File")
