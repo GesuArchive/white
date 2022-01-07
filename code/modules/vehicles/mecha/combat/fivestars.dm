@@ -10,7 +10,7 @@
 	pixel_x = -32
 	pixel_y = -32
 
-/obj/vehicle/sealed/mecha/combat/loaded/Initialize()
+/obj/vehicle/sealed/mecha/combat/five_stars/loaded/Initialize()
 	. = ..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack(src)
 	ME.attach(src)

@@ -225,7 +225,7 @@
 
 
 		if(!areaobj.parallax_movedir && C.dont_animate_parallax <= world.time && (offset_x || offset_y) && abs(offset_x) <= max(C.parallax_throttle/world.tick_lag+1,1) && abs(offset_y) <= max(C.parallax_throttle/world.tick_lag+1,1) && (round(abs(change_x)) > 1 || round(abs(change_y)) > 1))
-			L.transform = matrix(1, 0, offset_x*L.speed, 0, 1, offset_y*L.speed)
+			L.transform = matrix(GLOB.station_orbit_parallax_resize, 0, offset_x*L.speed, 0, GLOB.station_orbit_parallax_resize, offset_y*L.speed)
 			animate(L, transform=matrix(), time = last_delay)
 
 		L.screen_loc = "CENTER-7:[round(L.offset_x,1)],CENTER-7:[round(L.offset_y,1)]"

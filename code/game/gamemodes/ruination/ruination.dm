@@ -6,6 +6,7 @@
 
 GLOBAL_LIST_EMPTY(pulse_engines)
 GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
+GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 
 /datum/game_mode/ruination
 	name = "ruination"
@@ -104,6 +105,18 @@ GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
 				continue
 			var/datum/hud/H = M.hud_used
 			H.station_height.update_height()
+
+	switch(GLOB.station_orbit_height)
+		if(HEIGHT_OPTIMAL to INFINITY)
+			GLOB.station_orbit_parallax_resize = 1
+		if(HEIGHT_DANGER to HEIGHT_OPTIMAL)
+			GLOB.station_orbit_parallax_resize = 3
+		if(HEIGHT_CRITICAL to HEIGHT_DANGER)
+			GLOB.station_orbit_parallax_resize = 6
+		if(HEIGHT_DEADEND to HEIGHT_CRITICAL)
+			GLOB.station_orbit_parallax_resize = 8
+		if(HEIGHT_CRASH to HEIGHT_DEADEND)
+			GLOB.station_orbit_parallax_resize = 16
 
 /datum/game_mode/ruination/check_finished()
 	if(!started_at)

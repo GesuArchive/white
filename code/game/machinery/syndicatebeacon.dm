@@ -145,3 +145,7 @@
 /obj/item/sbeacondrop/clownbomb
 	desc = "A label on it reads: <i>Warning: Activating this device will send a silly explosive to your location</i>."
 	droptype = /obj/machinery/syndicatebomb/badmin/clown
+
+/obj/item/sbeacondrop/pulse_engine
+	desc = "Надпись гласит: <i>Внимание: Активация данного устройства отправит импульсный двигатель в точку вызова</i>."
+	droptype = /obj/structure/pulse_engine

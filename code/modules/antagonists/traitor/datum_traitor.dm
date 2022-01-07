@@ -368,3 +368,8 @@
 	var/datum/objective/ruiner/ruiner_objective = new
 	ruiner_objective.owner = owner
 	add_objective(ruiner_objective)
+
+	var/mob/living/carbon/H = owner.current
+	if(!istype(H))
+		return
+	. += cult_give_item(/obj/item/sbeacondrop/pulse_engine, H)
