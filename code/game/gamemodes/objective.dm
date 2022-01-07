@@ -1080,3 +1080,14 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 	var/area/target_area = get_area(target)
 
 	return (istype(user_area, dropoff) && istype(target_area, dropoff))
+
+/datum/objective/ruiner
+	name = "ruiner"
+	explanation_text = "Уничтожить станцию уронив её при помощи импульсных двигателей."
+	martyr_compatible = TRUE
+	reward = 50
+
+/datum/objective/ruiner/check_completion()
+	if(SSticker && SSticker.mode && SSticker.mode.station_was_nuked)
+		return TRUE
+	return FALSE

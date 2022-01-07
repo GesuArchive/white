@@ -12,15 +12,59 @@ GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
 	config_tag = "ruination"
 	report_type = "ruination"
 	false_report_weight = 1
-	required_players = 0
+	required_players = 30
+	required_enemies = 4
+	recommended_enemies = 4
+	reroll_friendly = 1
+	enemy_minimum_age = 0
+
+	restricted_jobs = list("Cyborg", "AI")
+	protected_jobs = list("Prisoner", "Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Field Medic")
 
 	announce_span = "danger"
 	announce_text = "Синдикат решил уронить станцию прямиком на ПЛАНЕТУ!"
+
+	var/list/datum/mind/ruiners = list()
+
+	traitor_name = "Террорист Синдиката"
 
 	var/win_time = 15 MINUTES
 	var/result = 0
 	var/started_at = 0
 	var/finale = FALSE
+
+/datum/game_mode/ruination/pre_setup()
+	for(var/j = 0, j < max(1, min(num_players(), 4)), j++)
+		if (!antag_candidates.len)
+			break
+		var/datum/mind/traitor = antag_pick(antag_candidates)
+		ruiners += traitor
+		traitor.special_role = traitor_name
+		traitor.restricted_roles = restricted_jobs
+		log_game("[key_name(traitor)] has been selected as a [traitor_name]")
+		antag_candidates.Remove(traitor)
+
+	var/enough_tators = 4 || ruiners.len > 0
+
+	if(!enough_tators)
+		setup_error = "Требуется 4 кандидата"
+		return FALSE
+	else
+		for(var/antag in ruiners)
+			GLOB.pre_setup_antags += antag
+		return TRUE
+
+/datum/game_mode/ruination/post_setup()
+	for(var/datum/mind/traitor in ruiners)
+		var/datum/antagonist/traitor/ruiner/new_antag = new antag_datum()
+		addtimer(CALLBACK(traitor, /datum/mind.proc/add_antag_datum, new_antag), rand(10,100))
+		GLOB.pre_setup_antags -= traitor
+
+	..()
+
+	gamemode_ready = FALSE
+	addtimer(VARSET_CALLBACK(src, gamemode_ready, TRUE), 101)
+	return TRUE
 
 /datum/game_mode/ruination/process()
 	if(!started_at && GLOB.pulse_engines.len)
@@ -52,7 +96,7 @@ GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
 			priority_announce("Осталось 3 минуты до прибытия тягача.", null, 'sound/misc/announce_dig.ogg', "Priority")
 		var/total_speed = 0
 		for(var/obj/structure/pulse_engine/PE in GLOB.pulse_engines)
-			total_speed += PE.engine_power
+			total_speed += PE.engine_power * 5
 		GLOB.station_orbit_height -= total_speed
 		for(var/i in GLOB.player_list)
 			var/mob/M = i
@@ -65,7 +109,10 @@ GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
 	if(!started_at)
 		return ..()
 	if(GLOB.station_orbit_height < HEIGHT_CRASH)
+		if(SSticker && SSticker.mode && SSticker.mode.station_was_nuked)
+			SSticker.mode.station_was_nuked = TRUE
 		result = 1
+		Cinematic(CINEMATIC_NUKE_WIN, world, CALLBACK(SSticker, /datum/controller/subsystem/ticker/proc/station_explosion_detonation, src))
 	else if ((started_at + win_time) < world.time)
 		result = 2
 	if(result)
