@@ -57,9 +57,6 @@
 	..()
 	if(visualsOnly)
 		return
-	if(istype(H.wear_suit, /obj/item/clothing/suit/space/hardsuit))
-		var/obj/item/clothing/suit/space/hardsuit/S = H.wear_suit
-		S.ToggleHelmet()
 	spawn(50)
 		var/obj/item/card/id/ID = H.get_idcard()
 		if(ID)
