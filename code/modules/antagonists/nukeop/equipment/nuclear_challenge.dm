@@ -4,15 +4,15 @@
 #define CHALLENGE_SHUTTLE_DELAY 15000 // 25 minutes, so the ops have at least 5 minutes before the shuttle is callable.
 
 /obj/item/nuclear_challenge
-	name = "Declaration of War (Challenge Mode)"
+	name = "Объявление войны (Challenge Mode)"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gangtool-red"
 	inhand_icon_state = "radio"
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
-	desc = "Use to send a declaration of hostilities to the target, delaying your shuttle departure for 20 minutes while they prepare for your assault. \
-			Such a brazen move will attract the attention of powerful benefactors within the Syndicate, who will supply your team with a massive amount of bonus telecrystals. \
-			Must be used within five minutes, or your benefactors will lose interest."
+	desc = "Аппарат для объявления войны. Используйте его, чтобы объявить ваше намерение вести боевые действия на станции вашего противника. \
+			Это задержит ваш шаттл на 20 минут, давая экипажу время на подготовку, однако это привлечет внимание некоторых влиятельных фигур в Синдикате, которые поддержат вас большим количеством телекристаллов. \
+			Должно быть использовано не позже, чем через 5 минут, иначе ваши благодетели потеряют интерес."
 	var/declaring_war = FALSE
 	var/uplink_type = /obj/item/uplink/nuclear
 
@@ -21,28 +21,28 @@
 		return
 
 	declaring_war = TRUE
-	var/are_you_sure = tgui_alert(user, "Consult your team carefully before you declare war on [station_name()]]. Are you sure you want to alert the enemy crew? You have [DisplayTimeText(world.time-SSticker.round_start_time - CHALLENGE_TIME_LIMIT)] to decide", "Declare war?", list("Yes", "No"))
+	var/are_you_sure = tgui_alert(user, "Спросите своих товарищей по команде перед тем, как объявить войну [station_name()]]. Вы уверены в своем выборе? У вас осталось [DisplayTimeText(world.time-SSticker.round_start_time - CHALLENGE_TIME_LIMIT)] для решения.", "ОБЪЯВИТЬ ВОЙНУ?", list("Да", "Нет"))
 	declaring_war = FALSE
 
 	if(!check_allowed(user))
 		return
 
-	if(are_you_sure == "No")
-		to_chat(user, "On second thought, the element of surprise isn't so bad after all.")
+	if(are_you_sure == "Нет")
+		to_chat(user, "Какой же я трус...")
 		return
 
-	var/war_declaration = "A syndicate fringe group has declared their intent to utterly destroy [station_name()] with a nuclear device, and dares the crew to try and stop them."
+	var/war_declaration = "Штурмовая боевая группа Синдиката объявляют о своем намерении полностью уничтожить [station_name()] с помощью ядерного устройства, и УМОЛЯЕТ членов экипажа остановить их."
 
 	declaring_war = TRUE
-	var/custom_threat = tgui_alert(user, "Do you want to customize your declaration?", "Customize?", list("Yes", "No"))
+	var/custom_threat = tgui_alert(user, "Хотите написать что-то свое?", "Кастомизируем?", list("Да", "Нет"))
 	declaring_war = FALSE
 
 	if(!check_allowed(user))
 		return
 
-	if(custom_threat == "Yes")
+	if(custom_threat == "Да")
 		declaring_war = TRUE
-		war_declaration = stripped_input(user, "Insert your custom declaration", "Declaration")
+		war_declaration = stripped_input(user, "Пишем!", "Объявление")
 		declaring_war = FALSE
 
 	if(!check_allowed(user) || !war_declaration)
@@ -50,13 +50,15 @@
 
 	priority_announce(war_declaration, title = "Объявление войны", sound = ANNOUNCER_WAR, has_important_message = TRUE, sender_override = "Синдикат")
 
-	to_chat(user, "You've attracted the attention of powerful forces within the syndicate. A bonus bundle of telecrystals has been granted to your team. Great things await you if you complete the mission.")
+	to_chat(user, "Вы привлекли внимание крайне могущественных фигур в Синдикате. Ваша команда получила бонусные телекристаллы. Великие вещи ждут вас после выполнения миссии.")
 
 	for(var/V in GLOB.syndicate_shuttle_boards)
 		var/obj/item/circuitboard/computer/syndicate_shuttle/board = V
 		board.challenge = TRUE
 
 	distribute_tc()
+
+	GLOB.shuttle_docking_jammed = TRUE
 
 	CONFIG_SET(number/shuttle_refuel_delay, max(CONFIG_GET(number/shuttle_refuel_delay), CHALLENGE_SHUTTLE_DELAY))
 	SSblackbox.record_feedback("amount", "nuclear_challenge_mode", 1)
@@ -88,6 +90,8 @@
 		board.challenge = TRUE
 
 	distribute_tc()
+
+	GLOB.shuttle_docking_jammed = TRUE
 
 	CONFIG_SET(number/shuttle_refuel_delay, max(CONFIG_GET(number/shuttle_refuel_delay), CHALLENGE_SHUTTLE_DELAY))
 
@@ -127,24 +131,24 @@
 			if (C.stat != DEAD)
 				var/obj/item/stack/telecrystal/TC = new(C.drop_location(), tc_to_distribute)
 				TC.throw_at(get_step(C, C.dir), 3, 3)
-				C.visible_message(span_notice("[C] coughs up a half-digested telecrystal") ,span_notice("You cough up a half-digested telecrystal!"))
+				C.visible_message(span_notice("[C] вырыгивает телекристаллы!") ,span_notice("Вы вырыгиваете телекристаллы!"))
 				break
 
 
 /obj/item/nuclear_challenge/proc/check_allowed(mob/living/user)
 	if(declaring_war)
-		to_chat(user, span_boldwarning("You are already in the process of declaring war! Make your mind up."))
+		to_chat(user, span_boldwarning("Вы уже объявляете войну!"))
 		return FALSE
 	if(!user.onSyndieBase())
-		to_chat(user, span_boldwarning("You have to be at your base to use this."))
+		to_chat(user, span_boldwarning("Вы должны быть на своей базе для объявления войны."))
 		return FALSE
 	if(world.time-SSticker.round_start_time > CHALLENGE_TIME_LIMIT)
-		to_chat(user, span_boldwarning("It's too late to declare hostilities. Your benefactors are already busy with other schemes. You'll have to make do with what you have on hand."))
+		to_chat(user, span_boldwarning("Слишком поздно. Ваши благодетели заняты уже другими вещами. Придётся обходиться с тем, что имеется под рукой."))
 		return FALSE
 	for(var/V in GLOB.syndicate_shuttle_boards)
 		var/obj/item/circuitboard/computer/syndicate_shuttle/board = V
 		if(board.moved)
-			to_chat(user, span_boldwarning("The shuttle has already been moved! You have forfeit the right to declare war."))
+			to_chat(user, span_boldwarning("Шаттл был перемещен! Вы потеряли свое право объявить войну!"))
 			return FALSE
 	return TRUE
 
