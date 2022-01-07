@@ -802,8 +802,7 @@
 		"address received"			= IC_PINTYPE_STRING,
 		"data received"				= IC_PINTYPE_STRING,
 		"secondary text received"	= IC_PINTYPE_STRING,
-		"passkey"					= IC_PINTYPE_STRING,
-		"is_broadcast"				= IC_PINTYPE_BOOLEAN
+		"passkey"					= IC_PINTYPE_STRING
 		)
 	activators = list("send data" = IC_PINTYPE_PULSE_IN, "on data received" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -821,23 +820,19 @@
 
 /obj/item/integrated_circuit_old/input/ntnet_packet/do_work()
 	var/target_address = get_pin_data(IC_INPUT, 1)
-//	var/message = get_pin_data(IC_INPUT, 2)
-//	var/text = get_pin_data(IC_INPUT, 3)
-
 	var/datum/netdata/data = new
 	data.receiver_id = target_address
-//	var/key = get_pin_data(IC_INPUT, 4) // hippie start -- adds passkey back in
-//	data.standard_format_data(message, text, key) // hippie end
-	ntnet_send(data)
+	ntnet_send(list("data" = get_pin_data(IC_INPUT, 2), "data_secondary" = get_pin_data(IC_INPUT, 3), "enc_key" = get_pin_data(IC_INPUT, 4)))
 
 /obj/item/integrated_circuit_old/input/ntnet_packet/proc/ntnet_receive(datum/source, datum/netdata/data)
+	SIGNAL_HANDLER
+
 	set_pin_data(IC_OUTPUT, 1, data.sender_id)
 	set_pin_data(IC_OUTPUT, 2, data.data["data"])
 	set_pin_data(IC_OUTPUT, 3, data.data["data_secondary"])
-	set_pin_data(IC_OUTPUT, 4, data.data["encrypted_passkey"])
-//	set_pin_data(IC_OUTPUT, 5, data.broadcast) // нахуй отсЮБДА БЛЯДЬ
+	set_pin_data(IC_OUTPUT, 4, data.data["enc_key"])
 
-	push_data() 
+	push_data()
 	activate_pin(2)
 
 /obj/item/integrated_circuit_old/input/ntnet_advanced
@@ -855,7 +850,7 @@
 		"data"					= IC_PINTYPE_LIST,
 		"network_id"			= IC_PINTYPE_STRING,
 		)
-	outputs = list("received data" = IC_PINTYPE_LIST, "is_broadcast" = IC_PINTYPE_BOOLEAN)
+	outputs = list("received data" = IC_PINTYPE_LIST)
 	activators = list("send data" = IC_PINTYPE_PULSE_IN, "on data received" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	action_flags = IC_ACTION_LONG_RANGE
@@ -883,8 +878,9 @@
 	ntnet_send(data)
 
 /obj/item/integrated_circuit_old/input/ntnet_advanced/proc/ntnet_receive(datum/source, datum/netdata/data)
+	SIGNAL_HANDLER
+
 	set_pin_data(IC_OUTPUT, 1, data.data)
-//	set_pin_data(IC_OUTPUT, 2, data.broadcast) // пошел ТЫ НАХУ
 	push_data()
 	activate_pin(2)
 
