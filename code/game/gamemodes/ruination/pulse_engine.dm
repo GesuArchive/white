@@ -45,6 +45,7 @@
 	. = ..()
 	if(I.force)
 		engine_power -= min(I.force, 15)
+		engine_power = max(engine_power, 0)
 
 /obj/structure/pulse_engine/process(delta_time)
 	. = ..()
