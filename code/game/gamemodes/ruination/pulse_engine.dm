@@ -39,6 +39,9 @@
 			add_overlay("peoverlay")
 			soundloop.start()
 			START_PROCESSING(SSfastprocess, src)
+			priority_announce("Был обнаружен импульсный двигатель в локации [get_area_name(src, TRUE)].", null, 'sound/misc/announce_dig.ogg', "Priority")
+			light_color = "#f79947"
+			light_range = 8
 		to_chat(user, span_notice("Включаю двигатель."))
 
 /obj/structure/pulse_engine/attackby(obj/item/I, mob/living/user, params)
