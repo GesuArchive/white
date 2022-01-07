@@ -5,6 +5,7 @@
 	icon_state = "peoff"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	layer = ABOVE_ALL_MOB_LAYER
+	density = TRUE
 	var/engine_power = 0
 	var/engine_active = FALSE
 	var/datum/looping_sound/pulse_engine/soundloop

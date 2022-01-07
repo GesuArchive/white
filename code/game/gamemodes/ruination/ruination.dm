@@ -45,11 +45,11 @@ GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
 							H.mymob.client.screen += sh
 							H.mymob.client.screen += shbg
 				break
-	if((started_at + (win_time - 3 MINUTES)) > world.time && !finale)
-		finale = TRUE
-		sound_to_playing_players('white/valtos/sounds/rf.ogg', 75, FALSE, channel = CHANNEL_RUINATION_OST)
-		priority_announce("Осталось 3 минуты до прибытия тягача.", null, 'sound/misc/announce_dig.ogg', "Priority")
 	if(started_at)
+		if((started_at + (win_time - 3 MINUTES)) > world.time && !finale)
+			finale = TRUE
+			sound_to_playing_players('white/valtos/sounds/rf.ogg', 75, FALSE, channel = CHANNEL_RUINATION_OST)
+			priority_announce("Осталось 3 минуты до прибытия тягача.", null, 'sound/misc/announce_dig.ogg', "Priority")
 		var/total_speed = 0
 		for(var/obj/structure/pulse_engine/PE in GLOB.pulse_engines)
 			total_speed += PE.engine_power
