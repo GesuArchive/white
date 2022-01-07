@@ -73,6 +73,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/atom/movable/screen/tooltip
 	var/atom/movable/screen/wanted/wanted_lvl
 	var/atom/movable/screen/spacesuit
+	var/atom/movable/screen/station_height/station_height
+	var/atom/movable/screen/station_height_bg/station_height_bg
 	// subtypes can override this to force a specific UI style
 	var/ui_style
 

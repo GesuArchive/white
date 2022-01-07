@@ -136,3 +136,11 @@
 	volume = 50
 	falloff_distance = 5
 	falloff_exponent = 10
+
+/datum/looping_sound/pulse_engine
+	mid_sounds = list('white/valtos/sounds/pulseengine.ogg' = 1)
+	mid_length = 16 SECONDS
+	extra_range = 14
+	volume = 50
+	falloff_distance = 5
+	falloff_exponent = 10
