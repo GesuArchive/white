@@ -141,6 +141,6 @@
 	mid_sounds = list('white/valtos/sounds/pulseengine.ogg' = 1)
 	mid_length = 16 SECONDS
 	extra_range = 14
-	volume = 50
-	falloff_distance = 5
-	falloff_exponent = 10
+	volume = 25
+	falloff_distance = 2
+	falloff_exponent = 20

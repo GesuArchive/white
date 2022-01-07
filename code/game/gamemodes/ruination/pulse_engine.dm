@@ -26,7 +26,7 @@
 
 /obj/structure/pulse_engine/attack_hand(mob/user)
 	. = ..()
-	if(user?.mind?.has_antag_datum(/datum/antagonist/traitor))
+	if(user?.mind?.has_antag_datum(/datum/antagonist/traitor/ruiner) && is_station_level(user.z))
 		if(engine_active)
 			to_chat(user, span_danger("Уже включён."))
 			return
@@ -37,14 +37,14 @@
 		spawn(66)
 			icon_state = "peon"
 			add_overlay("peoverlay")
-		START_PROCESSING(SSfastprocess, src)
+			soundloop.start()
+			START_PROCESSING(SSfastprocess, src)
 		to_chat(user, span_notice("Включаю двигатель."))
-		soundloop.start()
 
 /obj/structure/pulse_engine/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
 	if(I.force)
-		engine_power -= min(I.force, 15)
+		engine_power -= min(I.force, 25)
 		engine_power = max(engine_power, 0)
 
 /obj/structure/pulse_engine/process(delta_time)

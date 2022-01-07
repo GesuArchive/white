@@ -357,3 +357,14 @@
 
 /datum/antagonist/traitor/is_gamemode_hero()
 	return SSticker.mode.name == "traitor"
+
+/datum/antagonist/traitor/ruiner
+	name = "Террорист Синдиката"
+	give_objectives = FALSE
+	greentext_reward = 150
+
+/datum/antagonist/traitor/ruiner/on_gain()
+	. = ..()
+	var/datum/objective/ruiner/ruiner_objective = new
+	ruiner_objective.owner = owner
+	add_objective(ruiner_objective)
