@@ -46,7 +46,7 @@ GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
 							H.mymob.client.screen += shbg
 				break
 	if(started_at)
-		if((started_at + (win_time - 3 MINUTES)) > world.time && !finale)
+		if((started_at + (win_time - 3 MINUTES)) < world.time && !finale)
 			finale = TRUE
 			sound_to_playing_players('white/valtos/sounds/rf.ogg', 75, FALSE, channel = CHANNEL_RUINATION_OST)
 			priority_announce("Осталось 3 минуты до прибытия тягача.", null, 'sound/misc/announce_dig.ogg', "Priority")
@@ -66,7 +66,7 @@ GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
 		return ..()
 	if(GLOB.station_orbit_height < HEIGHT_CRASH)
 		result = 1
-	else if ((started_at + win_time) > world.time)
+	else if ((started_at + win_time) < world.time)
 		result = 2
 	if(result)
 		return TRUE
@@ -93,9 +93,7 @@ GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
 
 /atom/movable/screen/station_height
 	icon = 'white/valtos/icons/line.png'
-	screen_loc = ui_station_height
-	pixel_x = 48
-	pixel_y = 420
+	screen_loc = "SOUTH:420, EAST-3:48"
 	maptext_y = -4
 	maptext_width = 96
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -107,7 +105,7 @@ GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
 	maptext = "<span style='color: #A35D5B; font-size: 8px;'>[GLOB.station_orbit_height]KM</span>"
 
 /atom/movable/screen/station_height/proc/update_height()
-	pixel_y = round((GLOB.station_orbit_height * 0.001), 1) - 60
+	screen_loc = "SOUTH:[round((GLOB.station_orbit_height * 0.001), 1) - 60], EAST-3:48"
 	maptext = "<span style='color: #A35D5B; font-size: 8px;'>[GLOB.station_orbit_height]KM</span>"
 
 /atom/movable/screen/station_height_bg

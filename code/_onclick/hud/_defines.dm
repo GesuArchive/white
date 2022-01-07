@@ -184,4 +184,4 @@
 #define ui_ammocounter "EAST-1:12,CENTER-5:8"
 
 //Ruination
-#define ui_station_height "SOUTH, EAST-4"
+#define ui_station_height "SOUTH, EAST-3"
