@@ -7771,7 +7771,9 @@
 	},
 /obj/machinery/button/door/directional/west{
 	id = "toiletbolt_dorm1";
-	name = "Privacy Toggle"
+	name = "Privacy Toggle";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
 	},
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet)
@@ -7785,7 +7787,9 @@
 /obj/effect/landmark/blobstart,
 /obj/machinery/button/door/directional/west{
 	id = "toiletbolt_dorm2";
-	name = "Privacy Toggle"
+	name = "Privacy Toggle";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
 	},
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet)
@@ -7809,7 +7813,9 @@
 /obj/machinery/recharge_station,
 /obj/machinery/button/door/directional/west{
 	id = "toiletbolt_dorm3";
-	name = "Privacy Toggle"
+	name = "Privacy Toggle";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
 	},
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet)
@@ -11952,7 +11958,10 @@
 	dir = 8
 	},
 /obj/machinery/button/door/directional/south{
-	id = "toiletbolt_lockerroom1"
+	id = "toiletbolt_lockerroom1";
+	name = "Privacy Toggle";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
 	},
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet/locker)
@@ -36216,7 +36225,10 @@
 	dir = 8
 	},
 /obj/machinery/button/door/directional/south{
-	id = "toiletbolt_lockerroom2"
+	id = "toiletbolt_lockerroom2";
+	name = "Privacy Toggle";
+	normaldoorcontrol = 1;
+	specialfunctions = 4]
 	},
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet/locker)
@@ -41899,7 +41911,10 @@
 	},
 /obj/machinery/recharge_station,
 /obj/machinery/button/door/directional/south{
-	id = "toiletbolt_lockerroom4"
+	id = "toiletbolt_lockerroom4";
+	name = "Privacy Toggle";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
 	},
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet/locker)
@@ -45868,7 +45883,10 @@
 	dir = 8
 	},
 /obj/machinery/button/door/directional/south{
-	id = "toiletbolt_lockerroom3"
+	id = "toiletbolt_lockerroom3";
+	name = "Privacy Toggle";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
 	},
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet/locker)
