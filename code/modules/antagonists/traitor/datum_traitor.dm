@@ -372,4 +372,18 @@
 	var/mob/living/carbon/H = owner.current
 	if(!istype(H))
 		return
-	. += cult_give_item(/obj/item/sbeacondrop/pulse_engine, H)
+
+	var/list/slots = list(
+		"сумку" = ITEM_SLOT_BACKPACK,
+		"левый карман" = ITEM_SLOT_LPOCKET,
+		"правый карман" = ITEM_SLOT_RPOCKET
+	)
+
+	var/T = new /obj/item/sbeacondrop/pulse_engine(H)
+	var/where = H.equip_in_one_of_slots(T, slots)
+	if(!where)
+		return
+	else
+		to_chat(H, span_danger("Мне подкинули маяк в [where]."))
+		if(where == "сумку")
+			SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
