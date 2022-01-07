@@ -27,12 +27,8 @@
 /turf/open/floor/carpet,
 /area/shuttle/escape)
 "ah" = (
-/obj/structure/table/wood,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/carpet,
-/area/shuttle/escape)
+/turf/closed/wall/mineral/titanium,
+/area/template_noop)
 "ai" = (
 /obj/machinery/computer/atmos_alert{
 	dir = 4
@@ -52,10 +48,6 @@
 /obj/structure/chair/comfy/brown{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
 /turf/open/floor/carpet,
 /area/shuttle/escape)
 "am" = (
@@ -82,10 +74,12 @@
 /turf/open/floor/carpet,
 /area/shuttle/escape)
 "ap" = (
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/effect/turf_decal/tile/bar,
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
 	},
-/turf/open/floor/carpet,
+/obj/machinery/light,
+/turf/open/floor/plasteel,
 /area/shuttle/escape)
 "aq" = (
 /obj/machinery/door/airlock/titanium{
@@ -203,23 +197,11 @@
 "aH" = (
 /obj/structure/table,
 /obj/item/storage/firstaid/regular,
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle/escape)
-"aI" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/item/radio/intercom{
 	name = "Station Intercom (General)";
 	pixel_y = 23
 	},
 /turf/open/floor/mineral/titanium/blue,
-/area/shuttle/escape)
-"aJ" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "aK" = (
 /obj/machinery/door/airlock/titanium{
@@ -234,15 +216,6 @@
 "aL" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
-	},
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle/escape)
-"aM" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
 	},
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
@@ -292,12 +265,6 @@
 /obj/machinery/recharger,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
-"aW" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle/escape)
 "aX" = (
 /turf/open/floor/plasteel/grimy,
 /area/shuttle/escape)
@@ -318,18 +285,6 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -30
 	},
-/obj/effect/turf_decal/tile/bar,
-/obj/effect/turf_decal/tile/bar{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
-/area/shuttle/escape)
-"bb" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/barricade/wooden,
-/obj/machinery/light,
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
@@ -542,7 +497,7 @@ aG
 aw
 aL
 ac
-av
+ap
 bc
 be
 ab
@@ -578,7 +533,7 @@ bn
 ac
 af
 ak
-ap
+ak
 ar
 av
 ac
@@ -589,8 +544,8 @@ ac
 aG
 aw
 aL
+ab
 ac
-bb
 ad
 ab
 ab
@@ -600,9 +555,9 @@ bn
 "}
 (8,1,1) = {"
 ac
-ah
+ae
 al
-aa
+ac
 ac
 ac
 aB
@@ -623,9 +578,9 @@ aa
 aa
 "}
 (9,1,1) = {"
-aa
-aa
-aa
+ah
+ac
+ac
 aa
 as
 aw
@@ -678,13 +633,13 @@ aa
 aa
 aa
 ab
-aI
-aJ
-aM
-aM
-aM
-aJ
-aW
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ab
 aa
 aa

@@ -125,9 +125,7 @@
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/escape)
 "ax" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/closet/emcloset,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -139,16 +137,15 @@
 	pixel_x = 6;
 	pixel_y = -24
 	},
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/open/floor/glass/reinforced,
 /area/shuttle/escape)
 "az" = (
 /turf/open/floor/glass/reinforced,
 /area/shuttle/escape)
 "aA" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/closet/emcloset,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -408,10 +405,11 @@
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "bg" = (
-/obj/machinery/door/airlock/titanium{
-	name = "Emergency Shuttle Airlock"
+/obj/machinery/light/small{
+	dir = 1
 	},
-/turf/open/floor/mineral/titanium/white,
+/obj/structure/closet/emcloset,
+/turf/open/floor/glass/reinforced,
 /area/shuttle/escape)
 "bh" = (
 /obj/structure/window/reinforced{
@@ -423,30 +421,6 @@
 "bi" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/open/floor/plating/airless,
-/area/shuttle/escape)
-"bj" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/open/floor/glass/reinforced,
-/area/shuttle/escape)
-"bk" = (
-/obj/structure/window/reinforced,
-/turf/open/floor/glass/reinforced,
-/area/shuttle/escape)
-"bl" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/open/floor/glass/reinforced,
 /area/shuttle/escape)
 
 (1,1,1) = {"
@@ -525,7 +499,7 @@ al
 aq
 aq
 av
-ax
+ab
 ak
 aC
 aI
@@ -534,7 +508,7 @@ aO
 aR
 aS
 av
-ax
+ab
 ak
 aF
 aK
@@ -543,13 +517,13 @@ aK
 aK
 aE
 av
-ax
+ab
 ak
 aY
 aZ
 aZ
 ak
-bj
+aU
 "}
 (4,1,1) = {"
 ab
@@ -568,7 +542,7 @@ ak
 aE
 aS
 ab
-az
+aA
 ab
 aE
 aL
@@ -577,13 +551,13 @@ aL
 aL
 aE
 ab
-az
+aA
 ab
 aZ
 aZ
 aZ
 ab
-bk
+aU
 "}
 (5,1,1) = {"
 ab
@@ -616,8 +590,8 @@ aT
 aZ
 aZ
 aZ
-bg
-bk
+ab
+aU
 "}
 (6,1,1) = {"
 ab
@@ -627,7 +601,7 @@ am
 an
 am
 ab
-az
+ax
 ab
 aE
 aK
@@ -636,7 +610,7 @@ aK
 aK
 aE
 ab
-az
+bg
 ab
 aE
 aK
@@ -645,13 +619,13 @@ aK
 aK
 aE
 ab
-az
+bg
 ab
 aZ
 aZ
 aZ
 ab
-bk
+aU
 "}
 (7,1,1) = {"
 ab
@@ -661,7 +635,7 @@ ao
 ar
 ar
 av
-aA
+ab
 ak
 aF
 aL
@@ -670,7 +644,7 @@ aL
 aL
 aE
 av
-aA
+ab
 ak
 aR
 aL
@@ -679,13 +653,13 @@ aL
 aL
 aE
 av
-aA
+ab
 ak
 ba
 aZ
 aZ
 ak
-bl
+aU
 "}
 (8,1,1) = {"
 aa
