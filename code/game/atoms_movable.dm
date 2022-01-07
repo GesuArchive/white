@@ -916,7 +916,7 @@
 	if(QDELETED(src))
 		CRASH("Qdeleted thing being thrown around. Thing: [src], thrower: [thrower], target: [target]")
 
-	if (!target || speed <= 0)
+	if (!target || !istype(target) || speed <= 0)
 		return
 
 	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_THROW, args) & COMPONENT_CANCEL_THROW)
