@@ -82,7 +82,7 @@
 /datum/interaction/lewd/evaluate_target(var/mob/user, var/mob/target, var/silent=1)
 	if(..(user, target, silent))
 		if(target_not_tired && target.refactory_period)
-			to_chat(user, span_warning("."))
+			to_chat(user, span_warning("Вашей цели не хочется."))
 			return 0
 		if(require_target_naked && !target.is_nude())
 			if(!silent) to_chat(user, "<span class = 'warning'>Цели мешает одежда.</span>")
