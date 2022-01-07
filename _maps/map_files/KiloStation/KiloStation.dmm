@@ -32447,14 +32447,6 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "eZS" = (
-/obj/machinery/door/window{
-	base_state = "rightsecure";
-	dir = 4;
-	icon_state = "rightsecure";
-	max_integrity = 300;
-	name = "Primary AI Core Access";
-	req_access_txt = "16"
-	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "AI Core shutters";
 	name = "AI Core Shutter"
@@ -32467,6 +32459,13 @@
 	department = "AI";
 	departmentType = 5;
 	name = "AI Requests Console"
+	},
+/obj/machinery/door/window{
+	dir = 4;
+	layer = 4.1;
+	max_integrity = 300;
+	name = "Tertiary AI Core Access";
+	req_access_txt = "16"
 	},
 /turf/open/floor/engine,
 /area/ai_monitored/turret_protected/ai)
@@ -41652,14 +41651,11 @@
 	pixel_x = 8
 	},
 /obj/machinery/door/window{
-	base_state = "leftsecure";
 	dir = 8;
-	icon_state = "leftsecure";
 	layer = 4.1;
 	max_integrity = 300;
 	name = "Tertiary AI Core Access";
-	obj_integrity = 300;
-	pixel_x = -3;
+	pixel_x = -2;
 	req_access_txt = "16"
 	},
 /turf/open/floor/circuit/red,
@@ -61063,20 +61059,18 @@
 	pixel_x = 3;
 	pixel_y = 28
 	},
-/obj/machinery/door/window{
-	base_state = "leftsecure";
-	dir = 8;
-	icon_state = "leftsecure";
-	max_integrity = 300;
-	name = "Primary AI Core Access";
-	obj_integrity = 300;
-	req_access_txt = "16"
-	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "AI Core shutters";
 	name = "AI Core Shutter"
 	},
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/window{
+	dir = 8;
+	layer = 4.1;
+	max_integrity = 300;
+	name = "Tertiary AI Core Access";
+	req_access_txt = "16"
+	},
 /turf/open/floor/engine,
 /area/ai_monitored/turret_protected/ai)
 "pUN" = (
@@ -76473,14 +76467,11 @@
 	pixel_x = -8
 	},
 /obj/machinery/door/window{
-	base_state = "rightsecure";
 	dir = 4;
-	icon_state = "rightsecure";
 	layer = 4.1;
 	max_integrity = 300;
-	name = "Secondary AI Core Access";
-	obj_integrity = 300;
-	pixel_x = 4;
+	name = "Tertiary AI Core Access";
+	pixel_x = 2;
 	req_access_txt = "16"
 	},
 /turf/open/floor/circuit/red,
