@@ -1084,6 +1084,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 /datum/objective/ruiner
 	name = "ruiner"
 	explanation_text = "Уничтожить станцию уронив её при помощи импульсных двигателей."
+	team_explanation_text = "Уничтожить станцию уронив её при помощи импульсных двигателей."
 	martyr_compatible = TRUE
 	reward = 50
 

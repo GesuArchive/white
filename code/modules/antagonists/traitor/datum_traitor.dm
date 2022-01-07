@@ -368,6 +368,7 @@
 	var/datum/objective/ruiner/ruiner_objective = new
 	ruiner_objective.owner = owner
 	add_objective(ruiner_objective)
+	owner.announce_objectives()
 
 	var/mob/living/carbon/H = owner.current
 	if(!istype(H))
