@@ -142,10 +142,10 @@
 		return
 	if(proximity_flag && isliving(target))
 		var/mob/living/L = target
+		var/target_health = L?.health
 		if(!QDELETED(L))
 			var/backstab_dir = get_dir(user, L)
 			var/def_check = L.getarmor(type = BOMB)
-			var/target_health = L.health
 			if((user.dir & backstab_dir) && (L.dir & backstab_dir))
 				new /obj/effect/temp_visual/lance_impact(get_turf(L))
 				L.apply_damage((active_force + collected_force) * 1.5, BRUTE, blocked = def_check)
