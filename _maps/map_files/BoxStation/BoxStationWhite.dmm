@@ -7769,6 +7769,10 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/button/door/directional/west{
+	id = "toiletbolt_dorm1";
+	name = "Privacy Toggle"
+	},
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet)
 "aGn" = (
@@ -7779,6 +7783,10 @@
 	dir = 8
 	},
 /obj/effect/landmark/blobstart,
+/obj/machinery/button/door/directional/west{
+	id = "toiletbolt_dorm2";
+	name = "Privacy Toggle"
+	},
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet)
 "aGo" = (
@@ -7799,6 +7807,10 @@
 	dir = 8
 	},
 /obj/machinery/recharge_station,
+/obj/machinery/button/door/directional/west{
+	id = "toiletbolt_dorm3";
+	name = "Privacy Toggle"
+	},
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet)
 "aGq" = (
@@ -8253,18 +8265,21 @@
 /area/commons/toilet)
 "aHV" = (
 /obj/machinery/door/airlock{
+	id_tag = "toiletbolt_dorm1";
 	name = "Unit 1"
 	},
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet)
 "aHW" = (
 /obj/machinery/door/airlock{
+	id_tag = "toiletbolt_dorm2";
 	name = "Unit 2"
 	},
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet)
 "aHX" = (
 /obj/machinery/door/airlock{
+	id_tag = "toiletbolt_dorm3";
 	name = "Unit B"
 	},
 /turf/open/floor/plasteel/freezer,
@@ -11936,10 +11951,14 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/button/door/directional/south{
+	id = "toiletbolt_lockerroom1"
+	},
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet/locker)
 "aZv" = (
 /obj/machinery/door/airlock{
+	id_tag = "toiletbolt_lockerroom1";
 	name = "Unit 1"
 	},
 /turf/open/floor/plasteel/freezer,
@@ -12337,6 +12356,7 @@
 /area/maintenance/port)
 "bbL" = (
 /obj/machinery/door/airlock{
+	id_tag = "toiletbolt_lockerroom2";
 	name = "Unit 2"
 	},
 /turf/open/floor/plasteel/freezer,
@@ -12799,6 +12819,7 @@
 /area/maintenance/port)
 "bdJ" = (
 /obj/machinery/door/airlock{
+	id_tag = "toiletbolt_lockerroom3";
 	name = "Unit 3"
 	},
 /turf/open/floor/plasteel/freezer,
@@ -13414,6 +13435,7 @@
 /area/science/research)
 "bgr" = (
 /obj/machinery/door/airlock{
+	id_tag = "toiletbolt_lockerroom4";
 	name = "Unit 4"
 	},
 /turf/open/floor/plasteel/freezer,
@@ -36186,6 +36208,18 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry/south)
+"jis" = (
+/obj/structure/toilet{
+	pixel_y = 8
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/button/door/directional/south{
+	id = "toiletbolt_lockerroom2"
+	},
+/turf/open/floor/plasteel/freezer,
+/area/commons/toilet/locker)
 "jiz" = (
 /obj/machinery/vending/wardrobe/bar_wardrobe,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -41864,6 +41898,9 @@
 	dir = 8
 	},
 /obj/machinery/recharge_station,
+/obj/machinery/button/door/directional/south{
+	id = "toiletbolt_lockerroom4"
+	},
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet/locker)
 "pNZ" = (
@@ -45823,6 +45860,18 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"uGR" = (
+/obj/structure/toilet{
+	pixel_y = 8
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/button/door/directional/south{
+	id = "toiletbolt_lockerroom3"
+	},
+/turf/open/floor/plasteel/freezer,
+/area/commons/toilet/locker)
 "uGU" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -65684,9 +65733,9 @@ aPA
 aXQ
 aZt
 aXQ
-aZt
+jis
 aXQ
-aZt
+uGR
 aXQ
 pNV
 aXQ
