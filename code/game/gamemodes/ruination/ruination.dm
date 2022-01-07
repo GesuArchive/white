@@ -56,7 +56,7 @@ GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
 
 /datum/game_mode/ruination/post_setup()
 	for(var/datum/mind/traitor in ruiners)
-		var/datum/antagonist/traitor/ruiner/new_antag = new antag_datum()
+		var/datum/antagonist/traitor/ruiner/new_antag = new /datum/antagonist/traitor/ruiner()
 		addtimer(CALLBACK(traitor, /datum/mind.proc/add_antag_datum, new_antag), rand(10,100))
 		GLOB.pre_setup_antags -= traitor
 
