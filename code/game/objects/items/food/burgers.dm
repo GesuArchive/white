@@ -157,6 +157,7 @@
 	verb_say = "moans"
 	verb_yell = "wails"
 	venue_value = FOOD_PRICE_EXOTIC
+	preserved_food = TRUE
 
 /obj/item/food/burger/ghost/Initialize()
 	. = ..()
