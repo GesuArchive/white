@@ -27,6 +27,8 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 
 	var/list/datum/mind/ruiners = list()
 
+	var/datum/team/ruiners/ruiners_team
+
 	traitor_name = "Террорист Синдиката"
 
 	var/win_time = 15 MINUTES
@@ -56,10 +58,15 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 		return TRUE
 
 /datum/game_mode/ruination/post_setup()
-	for(var/datum/mind/traitor in ruiners)
-		var/datum/antagonist/traitor/ruiner/new_antag = new /datum/antagonist/traitor/ruiner()
-		addtimer(CALLBACK(traitor, /datum/mind.proc/add_antag_datum, new_antag), rand(10,100))
-		GLOB.pre_setup_antags -= traitor
+
+	var/datum/mind/leader_mind = ruiners[1]
+	var/datum/antagonist/traitor/ruiner/L = leader_mind.add_antag_datum(/datum/antagonist/traitor/ruiner)
+	ruiners_team = L.ruiners_team
+
+	for(var/i = 2 to ruiners.len)
+		var/datum/mind/ruiner_mind = ruiners[i]
+		ruiner_mind.add_antag_datum(/datum/antagonist/traitor/ruiner)
+		GLOB.pre_setup_antags -= ruiners[i]
 
 	..()
 
@@ -72,8 +79,8 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 		for(var/obj/structure/pulse_engine/PE in GLOB.pulse_engines)
 			if(PE.engine_active)
 				started_at = world.time
-				sound_to_playing_players('white/valtos/sounds/rp0.ogg', 25, FALSE, channel = CHANNEL_RUINATION_OST)
-				priority_announce("На вашей станции был обнаружен запуск одного или нескольких импульсных двигателей. Вам необходимо найти и постараться помешать их работе любым доступным способом. Как сообщают наши инженеры: \"Хоть эта хуёвина и крепкая, однако, внутри этой поеботины блевотина равно болтается, что создаёт проблемы при работе данного агрегата\". Вероятнее всего это дело рук агентов Синдиката, постарайтесь продержаться 15 минут до прилёта гравитационного тягача.", null, 'sound/misc/announce_dig.ogg', "Priority")
+				sound_to_playing_players('white/valtos/sounds/rp0.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
+				priority_announce("На вашей станции был обнаружен запуск одного или нескольких импульсных двигателей. Вам необходимо найти и постараться помешать их работе любым доступным способом. Как сообщают наши инженеры: \"Хоть эта хуёвина и крепкая, однако, внутри этой поеботины блевотина равно болтается, что создаёт тяговую силу данного агрегата\". Вероятнее всего это дело рук агентов Синдиката, постарайтесь продержаться 15 минут до прилёта гравитационного тягача.", null, 'sound/misc/announce_dig.ogg', "Priority")
 				for(var/m in GLOB.player_list)
 					if(ismob(m) && !isnewplayer(m))
 						var/mob/M = m
@@ -93,7 +100,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 	if(started_at)
 		if((started_at + (win_time - 3 MINUTES)) < world.time && !finale)
 			finale = TRUE
-			sound_to_playing_players('white/valtos/sounds/rf.ogg', 75, FALSE, channel = CHANNEL_RUINATION_OST)
+			sound_to_playing_players('white/valtos/sounds/rf.ogg', 55, FALSE, channel = CHANNEL_RUINATION_OST)
 			priority_announce("Осталось 3 минуты до прибытия тягача.", null, 'sound/misc/announce_dig.ogg', "Priority")
 		var/total_speed = 0
 		for(var/obj/structure/pulse_engine/PE in GLOB.pulse_engines)
@@ -162,11 +169,11 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 	. = ..()
 	flicker_animation()
 	overlays += icon('white/valtos/icons/station.png')
-	maptext = "<span style='color: #A35D5B; font-size: 8px;'>[GLOB.station_orbit_height]KM</span>"
+	maptext = "<span style='color: #A35D5B; font-size: 8px;'>[GLOB.station_orbit_height]M</span>"
 
 /atom/movable/screen/station_height/proc/update_height()
-	screen_loc = "SOUTH:[round((GLOB.station_orbit_height * 0.001), 1) - 60], EAST-3:48"
-	maptext = "<span style='color: #A35D5B; font-size: 8px;'>[GLOB.station_orbit_height]KM</span>"
+	screen_loc = "SOUTH:[min(round((GLOB.station_orbit_height * 0.001), 1) + 100, 480)], EAST-3:48"
+	maptext = "<span style='color: #A35D5B; font-size: 8px;'>[GLOB.station_orbit_height]M</span>"
 
 /atom/movable/screen/station_height_bg
 	icon = 'white/valtos/icons/graph.png'
@@ -184,6 +191,53 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 		if(prob(25))
 			haste -= 0.2
 	animate(alpha = 255, time = 1, easing = JUMP_EASING)
+
+/datum/team/ruiners
+	name = "Террористы Синдиката"
+
+/datum/antagonist/traitor/ruiner
+	name = "Смертник Синдиката"
+	give_objectives = FALSE
+	greentext_reward = 150
+	antag_hud_type = ANTAG_HUD_OPS
+	antag_hud_name = "synd"
+	antag_moodlet = /datum/mood_event/focused
+	job_rank = ROLE_OPERATIVE
+	var/datum/team/ruiners/ruiners_team
+
+/datum/antagonist/traitor/ruiner/get_team()
+	return ruiners_team
+
+/datum/antagonist/traitor/ruiner/on_gain()
+	. = ..()
+	var/datum/objective/ruiner/ruiner_objective = new
+	ruiner_objective.owner = owner
+	add_objective(ruiner_objective)
+	owner.announce_objectives()
+
+	var/mob/living/carbon/H = owner.current
+	if(!istype(H))
+		return
+
+	to_chat(H, span_userdanger("ДАВАЙ! ДАВАЙ! ДАВАЙ!"))
+
+	H.hallucination = 500
+
+	var/list/slots = list(
+		"сумку" = ITEM_SLOT_BACKPACK,
+		"левый карман" = ITEM_SLOT_LPOCKET,
+		"правый карман" = ITEM_SLOT_RPOCKET
+	)
+
+	var/T = new /obj/item/sbeacondrop/pulse_engine(H)
+	var/where = H.equip_in_one_of_slots(T, slots)
+	if(!where)
+		return
+	else
+		to_chat(H, span_danger("Мне подкинули маяк в [where]."))
+		if(where == "сумку")
+			SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
+
 
 #undef HEIGHT_OPTIMAL
 #undef HEIGHT_DANGER

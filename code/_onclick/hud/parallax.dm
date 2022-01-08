@@ -129,7 +129,8 @@
 				shortesttimer = T
 			if (T < shortesttimer)
 				shortesttimer = T
-			L.transform = newtransform * GLOB.station_orbit_parallax_resize
+			newtransform.Scale(GLOB.station_orbit_parallax_resize, GLOB.station_orbit_parallax_resize)
+			L.transform = newtransform
 			animate(L, transform = matrix(), time = T, easing = QUAD_EASING | (new_parallax_movedir ? EASE_IN : EASE_OUT), flags = ANIMATION_END_NOW)
 			if (new_parallax_movedir)
 				L.transform = newtransform
@@ -162,7 +163,8 @@
 			L.icon_state = newstate
 			L.update_o(C.view)
 
-		L.transform = newtransform * GLOB.station_orbit_parallax_resize
+		newtransform.Scale(GLOB.station_orbit_parallax_resize, GLOB.station_orbit_parallax_resize)
+		L.transform = newtransform
 
 		animate(L, transform = L.transform, time = 0, loop = -1, flags = ANIMATION_END_NOW)
 		animate(transform = matrix(), time = T)

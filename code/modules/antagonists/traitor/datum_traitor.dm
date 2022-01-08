@@ -357,34 +357,3 @@
 
 /datum/antagonist/traitor/is_gamemode_hero()
 	return SSticker.mode.name == "traitor"
-
-/datum/antagonist/traitor/ruiner
-	name = "Террорист Синдиката"
-	give_objectives = FALSE
-	greentext_reward = 150
-
-/datum/antagonist/traitor/ruiner/on_gain()
-	. = ..()
-	var/datum/objective/ruiner/ruiner_objective = new
-	ruiner_objective.owner = owner
-	add_objective(ruiner_objective)
-	owner.announce_objectives()
-
-	var/mob/living/carbon/H = owner.current
-	if(!istype(H))
-		return
-
-	var/list/slots = list(
-		"сумку" = ITEM_SLOT_BACKPACK,
-		"левый карман" = ITEM_SLOT_LPOCKET,
-		"правый карман" = ITEM_SLOT_RPOCKET
-	)
-
-	var/T = new /obj/item/sbeacondrop/pulse_engine(H)
-	var/where = H.equip_in_one_of_slots(T, slots)
-	if(!where)
-		return
-	else
-		to_chat(H, span_danger("Мне подкинули маяк в [where]."))
-		if(where == "сумку")
-			SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)

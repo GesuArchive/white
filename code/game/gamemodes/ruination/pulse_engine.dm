@@ -13,7 +13,7 @@
 /obj/structure/pulse_engine/examine(mob/user)
 	. = ..()
 	. += span_danger("<hr>Текущая мощность: [engine_power]%")
-	. += span_notice("<hr>Похоже, если его неплохо так поколотить, то он станет работать <b>намного хуже</b>.")
+	. += span_notice("<hr>Похоже, если его неплохо так поколотить, то он станет работать <b>намного лучше</b>.")
 
 /obj/structure/pulse_engine/Initialize()
 	. = ..()
@@ -47,8 +47,8 @@
 /obj/structure/pulse_engine/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
 	if(I.force)
-		engine_power -= min(I.force, 25)
-		engine_power = max(engine_power, 0)
+		engine_power += min(I.force, 25)
+		engine_power = min(engine_power, 100)
 
 /obj/structure/pulse_engine/process(delta_time)
-	engine_power = min(engine_power + 1, 100)
+	engine_power = min(engine_power - 1, 100)
