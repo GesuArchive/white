@@ -150,6 +150,17 @@
 	flick("station_intact_fade_red",screen)
 	screen.icon_state = "summary_nukefail"
 
+/datum/cinematic/ruiners_win
+	id = CINEMATIC_RUINERS_WIN
+
+/datum/cinematic/ruiners_win/content()
+	flick("station_planet",screen)
+	sleep(35)
+	flick("station_crash",screen)
+	cinematic_sound(sound('sound/effects/explosion_distant.ogg'))
+	special()
+	screen.icon_state = "station_planet"
+
 //Also used for blob
 /datum/cinematic/nuke_selfdestruct
 	id = CINEMATIC_SELFDESTRUCT
