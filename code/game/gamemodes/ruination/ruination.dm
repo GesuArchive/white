@@ -172,7 +172,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 	maptext = "<span style='color: #A35D5B; font-size: 8px;'>[GLOB.station_orbit_height]M</span>"
 
 /atom/movable/screen/station_height/proc/update_height()
-	screen_loc = "SOUTH:[min(round((GLOB.station_orbit_height * 0.001), 1) + 100, 480)], EAST-3:48"
+	screen_loc = "SOUTH:[min(round((GLOB.station_orbit_height * 0.001), 1) + 20, 440)], EAST-3:48"
 	maptext = "<span style='color: #A35D5B; font-size: 8px;'>[GLOB.station_orbit_height]M</span>"
 
 /atom/movable/screen/station_height_bg
