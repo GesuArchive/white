@@ -51,4 +51,4 @@
 		engine_power = min(engine_power, 100)
 
 /obj/structure/pulse_engine/process(delta_time)
-	engine_power = min(engine_power - 1, 100)
+	engine_power = max(engine_power - 1, 0)
