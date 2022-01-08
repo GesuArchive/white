@@ -36228,7 +36228,7 @@
 	id = "toiletbolt_lockerroom2";
 	name = "Privacy Toggle";
 	normaldoorcontrol = 1;
-	specialfunctions = 4]
+	specialfunctions = 4
 	},
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet/locker)
