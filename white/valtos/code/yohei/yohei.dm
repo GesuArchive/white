@@ -327,7 +327,7 @@
 			BT.tension = 80
 		to_chat(H, span_revenbignotice("Давно не виделись, а?"))
 		if(H?.hud_used)
-			H.hud_used.update_parallax_pref(H, TRUE)
+			H.hud_used.update_parallax_pref(H, 1)
 
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/head)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/suit)

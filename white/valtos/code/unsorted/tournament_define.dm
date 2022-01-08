@@ -17,7 +17,7 @@ GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
 			animate(transform = null, time = rand(15, 35), easing = SINE_EASING)
 
 		for(var/mob/M in GLOB.player_list)
-			M.hud_used.update_parallax_pref(M, TRUE)
+			M.hud_used.update_parallax_pref(M, 1)
 			SEND_SOUND(M, sound('white/valtos/sounds/impact.ogg'))
 
 		if(SSticker.current_state == GAME_STATE_PREGAME)

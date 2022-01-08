@@ -1,24 +1,29 @@
 
-/datum/hud/proc/create_parallax(mob/viewmob, forced_parallax = FALSE)
+/datum/hud/proc/create_parallax(mob/viewmob, forced_parallax = 0)
 	var/mob/screenmob = viewmob || mymob
 	var/client/C = screenmob.client
 	if (!apply_parallax_pref(viewmob)) //don't want shit computers to crash when specing someone with insane parallax, so use the viewer's pref
 		return
 
-	if(forced_parallax)
-		C.parallax_layers_cached = list()
+	C.parallax_layers_cached = list()
+
+	if(forced_parallax == 1)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/cyberspess(null, C.view)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/mazespace(null, C.view)
-	else if(!length(C.parallax_layers_cached))
-		C.parallax_layers_cached = list()
+	else if(forced_parallax == 3)
+		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/ice_surface(null, C.view)
+		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/clouds(null, C.view)
+	else if(forced_parallax == 4)
+		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/fucking(null, C.view)
+	else if(forced_parallax == 5)
+		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/ice_surface(null, C.view)
+	else
 		C.parallax_layers_cached += new SSparallax.random_space(null, C.view)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_2(null, C.view)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet(null, C.view)
 		if(SSparallax.random_layer)
 			C.parallax_layers_cached += new SSparallax.random_layer
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_3(null, C.view)
-		//C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/clouds(null, C.view)
-		//C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/ice_surface(null, C.view)
 
 	C.parallax_layers = C.parallax_layers_cached.Copy()
 
@@ -83,7 +88,7 @@
 	C.parallax_layers_max = 5
 	return TRUE
 
-/datum/hud/proc/update_parallax_pref(mob/viewmob, forced_parallax = FALSE)
+/datum/hud/proc/update_parallax_pref(mob/viewmob, forced_parallax = 0)
 	remove_parallax(viewmob)
 	create_parallax(viewmob, forced_parallax)
 	update_parallax(viewmob)
@@ -361,6 +366,22 @@
 	layer = 4
 	blend_mode = 3
 	color = "#ffff00"
+
+/atom/movable/screen/parallax_layer/ice_surface
+	icon_state = "ice_surface"
+	speed = 4
+	layer = 3
+
+/atom/movable/screen/parallax_layer/fucking
+	icon_state = "fucking"
+	speed = 0
+	layer = 4
+
+/atom/movable/screen/parallax_layer/clouds
+	icon_state = "clouds"
+	speed = 2.5
+	layer = 4
+	blend_mode = 3
 
 /atom/movable/screen/parallax_layer/cyberspess
 	icon_state = "cyberspess"

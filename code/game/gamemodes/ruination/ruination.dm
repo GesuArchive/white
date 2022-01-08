@@ -1,8 +1,8 @@
 #define HEIGHT_OPTIMAL 	480000
-#define HEIGHT_DANGER 	400000
-#define HEIGHT_CRITICAL 300000
-#define HEIGHT_DEADEND 	200000
-#define HEIGHT_CRASH 	50000
+#define HEIGHT_DANGER 	350000
+#define HEIGHT_CRITICAL 200000
+#define HEIGHT_DEADEND 	100000
+#define HEIGHT_CRASH 	0
 
 GLOBAL_LIST_EMPTY(pulse_engines)
 GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
@@ -113,17 +113,26 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 			var/datum/hud/H = M.hud_used
 			H.station_height.update_height()
 
+	var/cur_height = GLOB.station_orbit_parallax_resize
+
 	switch(GLOB.station_orbit_height)
 		if(HEIGHT_OPTIMAL to INFINITY)
-			GLOB.station_orbit_parallax_resize = 1
+			GLOB.station_orbit_parallax_resize = 0
 		if(HEIGHT_DANGER to HEIGHT_OPTIMAL)
-			GLOB.station_orbit_parallax_resize = 3
+			GLOB.station_orbit_parallax_resize = 2
 		if(HEIGHT_CRITICAL to HEIGHT_DANGER)
-			GLOB.station_orbit_parallax_resize = 6
+			GLOB.station_orbit_parallax_resize = 3
 		if(HEIGHT_DEADEND to HEIGHT_CRITICAL)
-			GLOB.station_orbit_parallax_resize = 8
+			GLOB.station_orbit_parallax_resize = 4
 		if(HEIGHT_CRASH to HEIGHT_DEADEND)
-			GLOB.station_orbit_parallax_resize = 16
+			GLOB.station_orbit_parallax_resize = 5
+
+	if(cur_height != GLOB.station_orbit_parallax_resize)
+		for(var/m in GLOB.player_list)
+			if(ismob(m) && !isnewplayer(m))
+				var/mob/M = m
+				if(M.hud_used)
+					M?.hud_used?.update_parallax_pref(M, GLOB.station_orbit_parallax_resize)
 
 /datum/game_mode/ruination/check_finished()
 	if(!started_at)
