@@ -11,7 +11,7 @@
 	maxHealth = 350
 	health = 350
 	faction = list("mining")
-	weather_immunities = list("ash")
+	weather_immunities = list("lava","ash")
 	see_in_dark = 1
 	butcher_results = list(/obj/item/food/meat/slab = 3, /obj/item/stack/ore/stone = 10)
 	response_help_continuous = "отталкивает"
@@ -26,12 +26,15 @@
 	attack_verb_simple = "ударяет"
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 10, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
-	maxbodytemp = 1600
+	maxbodytemp = INFINITY
 	gold_core_spawnable = HOSTILE_SPAWN
 	var/rockfalling_last = 0
 
+	discovery_points = 10000
+
 /mob/living/simple_animal/hostile/troll/Life()
 	. = ..()
+	flick("troll_spawn", src)
 	if(target && rockfalling_last < world.time && prob(50))
 		rockfalling_last = world.time + 60 SECONDS
 		for(var/turf/open/T in view(7, src))
