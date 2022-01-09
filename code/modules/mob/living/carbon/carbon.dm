@@ -224,8 +224,9 @@
 		changeNext_move(CLICK_CD_BREAKOUT)
 		last_special = world.time + CLICK_CD_BREAKOUT
 		var/buckle_break_chance = 5
+		var/obj/item/restraints/O
 		if(handcuffed)
-			var/obj/item/restraints/O = src.get_item_by_slot(ITEM_SLOT_HANDCUFFED)
+			O = src.get_item_by_slot(ITEM_SLOT_HANDCUFFED)
 			buckle_break_chance = O.breakoutchance
 		visible_message(span_warning("[capitalize(src.name)] пытается выбраться из наручников!") , \
 					span_notice("Пытаюсь выбраться из наручников...)"))
@@ -234,6 +235,10 @@
 				return
 			if(prob(buckle_break_chance))
 				buckled.user_unbuckle_mob(src,src)
+			else
+				if(O)
+					O.breakoutchance++
+				to_chat(src, span_notice("Ещё..."))
 		else
 			if(src && buckled)
 				to_chat(src, span_warning("Не получилось выбраться из наручников!"))
@@ -284,6 +289,9 @@
 		if(do_after(src, 3 SECONDS, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			if(prob(breakoutchance))
 				. = clear_cuffs(I, cuff_break)
+			else
+				I.breakoutchance++
+				to_chat(src, span_notice("Ещё..."))
 		else
 			to_chat(src, span_warning("Не получилось снять [I]!"))
 
@@ -292,8 +300,11 @@
 		visible_message(span_warning("[capitalize(src.name)] пытается разорвать [I]!"))
 		to_chat(src, span_notice("Пытаюсь разорвать [I]..."))
 		if(do_after(src, 1 SECONDS, target = src, timed_action_flags = IGNORE_HELD_ITEM))
-			if(breakoutchance)
+			if(prob(breakoutchance))
 				. = clear_cuffs(I, cuff_break)
+			else
+				I.breakoutchance++
+				to_chat(src, span_notice("Ещё..."))
 		else
 			to_chat(src, span_warning("У меня не вышло разорвать [I]!"))
 
