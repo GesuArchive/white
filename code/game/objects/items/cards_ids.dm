@@ -1021,6 +1021,7 @@
 /obj/item/card/id/advanced/chameleon
 	name = "карта агента"
 	desc = "Невероятно продвинутая ID-карта. Достаточно всего лишь дотронуться этой картой до другой и доступ будет скопирован."
+	trim = /datum/id_trim/chameleon
 	wildcard_slots = WILDCARD_LIMIT_CHAMELEON
 
 	/// Have we set a custom name and job assignment, or will we use what we're given when we chameleon change?
@@ -1030,8 +1031,9 @@
 	/// Weak ref to the ID card we're currently attempting to steal access from.
 	var/datum/weakref/theft_target
 
-/obj/item/card/id/advanced/chameleon/Initialize()
+/obj/item/card/id/advanced/chameleon/Initialize(mapload)
 	. = ..()
+
 	var/datum/action/item_action/chameleon/change/id/chameleon_card_action = new(src)
 	chameleon_card_action.chameleon_type = /obj/item/card/id/advanced
 	chameleon_card_action.chameleon_name = "ID-карта"
@@ -1041,26 +1043,26 @@
 	theft_target = null
 	. = ..()
 
-/obj/item/card/id/advanced/chameleon/afterattack(obj/item/O, mob/user, proximity)
+/obj/item/card/id/advanced/chameleon/afterattack(atom/target, mob/user, proximity)
 	if(!proximity)
 		return
-	if(istype(O, /obj/item/card/id))
-		theft_target = WEAKREF(O)
+
+	if(istype(target, /obj/item/card/id))
+		theft_target = WEAKREF(target)
 		ui_interact(user)
 		return
 
 	return ..()
-
 
 /obj/item/card/id/advanced/chameleon/pre_attack_secondary(atom/target, mob/living/user, params)
 	// If we're attacking a human, we want it to be covert. We're not ATTACKING them, we're trying
 	// to sneakily steal their accesses by swiping our agent ID card near them. As a result, we
 	// return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN to cancel any part of the following the attack chain.
 	if(istype(target, /mob/living/carbon/human))
-		to_chat(user, span_notice("You covertly start to scan [target] with \the [src], hoping to pick up a wireless ID card signal..."))
+		to_chat(user, "<span class='notice'>You covertly start to scan [target] with \the [src], hoping to pick up a wireless ID card signal...</span>")
 
 		if(!do_mob(user, target, 2 SECONDS))
-			to_chat(user, span_notice("The scan was interrupted."))
+			to_chat(user, "<span class='notice'>The scan was interrupted.</span>")
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 		var/mob/living/carbon/human/human_target = target
@@ -1068,11 +1070,11 @@
 		var/list/target_id_cards = human_target.get_all_contents_type(/obj/item/card/id)
 
 		if(!length(target_id_cards))
-			to_chat(user, span_notice("The scan failed to locate any ID cards."))
+			to_chat(user, "<span class='notice'>The scan failed to locate any ID cards.</span>")
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 		var/selected_id = pick(target_id_cards)
-		to_chat(user, span_notice("You successfully sync your [src] with \the [selected_id]."))
+		to_chat(user, "<span class='notice'>You successfully sync your [src] with \the [selected_id].</span>")
 		theft_target = WEAKREF(selected_id)
 		ui_interact(user)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -1080,7 +1082,7 @@
 	if(istype(target, /obj/item))
 		var/obj/item/target_item = target
 
-		to_chat(user, span_notice("You covertly start to scan [target] with your [src], hoping to pick up a wireless ID card signal..."))
+		to_chat(user, "<span class='notice'>You covertly start to scan [target] with your [src], hoping to pick up a wireless ID card signal...</span>")
 
 		var/list/target_id_cards = target_item.get_all_contents_type(/obj/item/card/id)
 
@@ -1090,11 +1092,11 @@
 			target_id_cards |= target_item_id
 
 		if(!length(target_id_cards))
-			to_chat(user, span_notice("The scan failed to locate any ID cards."))
+			to_chat(user, "<span class='notice'>The scan failed to locate any ID cards.</span>")
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 		var/selected_id = pick(target_id_cards)
-		to_chat(user, span_notice("You successfully sync your [src] with \the [selected_id]."))
+		to_chat(user, "<span class='notice'>You successfully sync your [src] with \the [selected_id].</span>")
 		theft_target = WEAKREF(selected_id)
 		ui_interact(user)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -1114,6 +1116,33 @@
 	data["accessFlags"] = SSid_access.flags_by_access
 	return data
 
+/obj/item/card/id/advanced/chameleon/ui_host(mob/user)
+	// Hook our UI to the theft target ID card for UI state checks.
+	return theft_target?.resolve()
+
+/obj/item/card/id/advanced/chameleon/ui_state(mob/user)
+	return GLOB.always_state
+
+/obj/item/card/id/advanced/chameleon/ui_status(mob/user)
+	var/target = theft_target?.resolve()
+
+	if(!target)
+		return UI_CLOSE
+
+	var/status = min(
+		ui_status_user_strictly_adjacent(user, target),
+		ui_status_user_is_advanced_tool_user(user),
+		max(
+			ui_status_user_is_conscious_and_lying_down(user),
+			ui_status_user_is_abled(user, target),
+		),
+	)
+
+	if(status < UI_INTERACTIVE)
+		return UI_CLOSE
+
+	return status
+
 /obj/item/card/id/advanced/chameleon/ui_data(mob/user)
 	var/list/data = list()
 
@@ -1121,7 +1150,7 @@
 
 	var/list/regions = list()
 
-	var/obj/item/card/id/target_card = theft_target?.resolve()
+	var/obj/item/card/id/target_card = theft_target.resolve()
 	if(target_card)
 		var/list/tgui_region_data = SSid_access.all_region_access_tgui
 		for(var/region in SSid_access.station_regions)
@@ -1130,7 +1159,7 @@
 	data["accesses"] = regions
 	data["ourAccess"] = access
 	data["ourTrimAccess"] = trim ? trim.access : list()
-	data["theftAccess"] = target_card ? target_card.access.Copy() : list()
+	data["theftAccess"] = target_card.access.Copy()
 	data["wildcardSlots"] = wildcard_slots
 	data["selectedList"] = access
 	data["trimAccess"] = list()
@@ -1232,7 +1261,10 @@
 
 				var/new_age = input(user, "Выберем же возраст:\n([AGE_MIN]-[AGE_MAX])", "Возраст агента") as num|null
 				if(new_age)
-					registered_age = max(round(text2num(new_age)), 0)
+					registered_age = round(new_age)
+
+				if(stripped_input(user, "Активировать подмену ID-карты в кошельке, позволяя этой карте занять видимый слот идентификатора в кошельках?", "Подменяем...", list("Да", "Нет")) == "Да")
+					ADD_TRAIT(src, TRAIT_MAGNETIC_ID_CARD, CHAMELEON_ITEM_TRAIT)
 
 				update_label()
 				update_icon()
@@ -1253,8 +1285,9 @@
 			if(forged)
 				registered_name = initial(registered_name)
 				assignment = initial(assignment)
-				SSid_access.remove_trim_from_card(src)
-				log_game("[key_name(user)] has reset [initial(name)] named \"[src]\" to default.")
+				SSid_access.remove_trim_from_chameleon_card(src)
+				REMOVE_TRAIT(src, TRAIT_MAGNETIC_ID_CARD, CHAMELEON_ITEM_TRAIT)
+				log_game("[key_name(user)] has reset \the [initial(name)] named \"[src]\" to default.")
 				update_label()
 				update_icon()
 				forged = FALSE
