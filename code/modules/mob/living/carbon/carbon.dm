@@ -229,7 +229,7 @@
 			O = src.get_item_by_slot(ITEM_SLOT_HANDCUFFED)
 			buckle_break_chance = O.breakoutchance
 		visible_message(span_warning("[capitalize(src.name)] пытается выбраться из наручников!") , \
-					span_notice("Пытаюсь выбраться из наручников...)"))
+					span_notice("Пытаюсь выбраться из наручников..."))
 		if(do_after(src, 3 SECONDS, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			if(!buckled)
 				return
