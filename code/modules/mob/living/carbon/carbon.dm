@@ -232,7 +232,7 @@
 		if(do_after(src, 3 SECONDS, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			if(!buckled)
 				return
-			if(prob(breakoutchance))
+			if(prob(buckle_break_chance))
 				buckled.user_unbuckle_mob(src,src)
 		else
 			if(src && buckled)
