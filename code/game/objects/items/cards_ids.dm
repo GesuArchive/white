@@ -1263,7 +1263,7 @@
 				if(new_age)
 					registered_age = round(new_age)
 
-				if(stripped_input(user, "Активировать подмену ID-карты в кошельке, позволяя этой карте занять видимый слот идентификатора в кошельках?", "Подменяем...", list("Да", "Нет")) == "Да")
+				if(tgui_alert(user, "Активировать подмену ID-карты в кошельке, позволяя этой карте занять видимый слот идентификатора в кошельках?", "Подменяем...", list("Да", "Нет")) == "Да")
 					ADD_TRAIT(src, TRAIT_MAGNETIC_ID_CARD, CHAMELEON_ITEM_TRAIT)
 
 				update_label()
