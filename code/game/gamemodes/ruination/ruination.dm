@@ -226,14 +226,13 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 
 /datum/antagonist/traitor/ruiner/create_team(datum/team/ruiners/new_team)
 	if(!new_team)
-		if(!always_new_team)
-			for(var/datum/antagonist/traitor/ruiner/N in GLOB.antagonists)
-				if(!N.owner)
-					stack_trace("Antagonist datum without owner in GLOB.antagonists: [N]")
-					continue
-				if(N.ruiners_team)
-					ruiners_team = N.ruiners_team
-					return
+		for(var/datum/antagonist/traitor/ruiner/N in GLOB.antagonists)
+			if(!N.owner)
+				stack_trace("Antagonist datum without owner in GLOB.antagonists: [N]")
+				continue
+			if(N.ruiners_team)
+				ruiners_team = N.ruiners_team
+				return
 		ruiners_team = new /datum/team/ruiners
 		ruiners_team.update_objectives()
 		return
