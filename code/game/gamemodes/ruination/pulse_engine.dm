@@ -34,7 +34,7 @@
 			to_chat(user, span_danger("ДВИГАТЕЛЬ ВКЛЮЧЁН!"))
 			playsound(T, 'sound/vehicles/rocketlaunch.ogg', 80, TRUE, 20)
 			animate(src, pixel_z = -300, time = 30, easing = LINEAR_EASING)
-			qdel(src)
+			QDEL_IN(src, 30)
 			return
 		if(engine_active)
 			to_chat(user, span_danger("Уже включён."))
