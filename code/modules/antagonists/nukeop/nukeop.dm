@@ -91,7 +91,7 @@
 		antag_memory += "<B>[nuke_team.tracked_nuke] Код</B>: [nuke_team.memorized_code]<br>"
 		to_chat(owner, "Код авторизации ядерного устройства: <B>[nuke_team.memorized_code]</B>")
 	else
-		to_chat(owner, "Произошла хуйня и вас не смогли обеспечить кодом. Охуенно.")
+		to_chat(owner, "<img src='https://media.discordapp.net/attachments/669610129548640257/828761933812334632/negrpng.png'")
 
 /datum/antagonist/nukeop/proc/forge_objectives()
 	if(nuke_team)
@@ -371,7 +371,7 @@
 		return "Syndicates"
 
 /datum/team/nuclear/antag_listing_entry()
-	var/disk_report = "<b>ебать где диск нахуй</b><br>"
+	var/disk_report = "<b>Nuclear Disk(s)</b><br>"
 	disk_report += "<table cellspacing=5>"
 	for(var/obj/item/disk/nuclear/N in SSpoints_of_interest.real_nuclear_disks)
 		disk_report += "<tr><td>[N.name], "
