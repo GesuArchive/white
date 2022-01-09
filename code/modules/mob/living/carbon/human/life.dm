@@ -401,7 +401,12 @@
 			O.setOrganDamage(1)
 			blood_volume -= 10
 		if(peeed)
-			visible_message(span_notice("<b>[src]</b> писает[bloody ? " кровью" : ""] в [target]!"), span_notice("Писаю[bloody ? " кровью" : ""] в [target]."))
+			var/mob/living/M = locate(/mob/living) in T
+			if(M)
+				visible_message(span_notice("<b>[src]</b> ссыт на лицо [M][bloody ? " кровью" : ""]!"), span_notice("Писаю на лицо [M][bloody ? " кровью" : ""]."))
+				M.extinguish_mob()
+			else
+				visible_message(span_notice("<b>[src]</b> писает[bloody ? " кровью" : ""] в [target]!"), span_notice("Писаю[bloody ? " кровью" : ""] в [target]."))
 			playsound(src, 'sound/effects/splat.ogg', 50, 1)
 			qdel(mocha)
 	else
@@ -432,7 +437,12 @@
 				blood_volume -= 50
 				mocha.reagents.add_reagent(/datum/reagent/blood, 50)
 			if(peeed)
-				visible_message("<b>[capitalize(src.name)]</b> обильно ссыт[bloody ? " кровью" : ""] на пол!")
+				var/mob/living/M = locate(/mob/living) in T
+				if(M)
+					visible_message(span_notice("<b>[src]</b> обильно ссыт на лицо [M][bloody ? " кровью" : ""]!"), span_notice("Обильно писаю на лицо [M][bloody ? " кровью" : ""]."))
+					M.extinguish_mob()
+				else
+					visible_message("<b>[capitalize(src.name)]</b> обильно ссыт[bloody ? " кровью" : ""] на пол!")
 				playsound(src, 'sound/effects/splat.ogg', 50, 1)
 		if(!peeed)
 			qdel(mocha)

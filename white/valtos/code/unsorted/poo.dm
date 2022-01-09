@@ -169,8 +169,20 @@
 					SSblackbox.record_feedback("tally", "poo", 1, "Poo Created")
 					return
 				else
-					H.visible_message(span_notice("<b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] на пол!") , \
-						span_notice("Выдавливаю какаху из своего тела."))
+					var/mob/living/M = locate(/mob/living) in T
+					if(M)
+						visible_message(span_notice("<b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] на лицо [M]!"), span_notice("Сру на лицо [M]."))
+						if(ishuman(M))
+							var/mob/living/carbon/human/pooguy = M
+							if(pooguy.pooed)
+								var/mutable_appearance/pooverlay = mutable_appearance('white/valtos/icons/poo.dmi')
+								pooverlay.icon_state = "facepoo"
+								pooguy.add_overlay(pooverlay)
+								pooguy.pooed = TRUE
+								SEND_SIGNAL(pooguy, COMSIG_ADD_MOOD_EVENT, "pooed", /datum/mood_event/pooed)
+					else
+						H.visible_message(span_notice("<b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] на пол!") , \
+							span_notice("Выдавливаю какаху из своего тела."))
 					playsound(H, 'white/valtos/sounds/poo2.ogg', 50, 1)
 					new /obj/item/food/poo(T)
 					guts.reagents.remove_reagent(/datum/reagent/toxin/poo, 25)
