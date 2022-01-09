@@ -33,7 +33,7 @@
 		addtimer(CALLBACK(src, .proc/dissolve_legcuffs, user, O), 30)
 		used = TRUE
 
-	if(user.wear_suit && user.wear_suit.breakouttime && !used)
+	if(user.wear_suit && user.wear_suit.breakoutchance && !used)
 		var/obj/item/clothing/suit/S = user.get_item_by_slot(ITEM_SLOT_OCLOTHING)
 		if(!istype(S))
 			return FALSE

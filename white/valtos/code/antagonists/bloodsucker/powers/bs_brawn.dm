@@ -145,7 +145,7 @@
 	// Destroy Straightjacket
 	if (ishuman(owner))
 		var/mob/living/carbon/human/user_H = owner
-		if(user_H.wear_suit && user_H.wear_suit.breakouttime)
+		if(user_H.wear_suit && user_H.wear_suit.breakoutchance)
 			var/obj/item/clothing/suit/S = user_H.get_item_by_slot(ITEM_SLOT_OCLOTHING)
 			if(istype(S))
 				user_C.visible_message(span_warning("[user_C] attempts to remove [S]!") , \

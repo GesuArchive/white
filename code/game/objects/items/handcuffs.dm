@@ -1,5 +1,5 @@
 /obj/item/restraints
-	breakouttime = 600
+	breakoutchance = 6
 	dye_color = DYE_PRISONER
 
 /obj/item/restraints/suicide_act(mob/living/carbon/user)
@@ -37,7 +37,7 @@
 	throw_speed = 3
 	throw_range = 5
 	custom_materials = list(/datum/material/iron=500)
-	breakouttime = 1 MINUTES
+	breakoutchance = 3
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 50)
 	custom_price = PAYCHECK_HARD * 0.35
 	var/cuffsound = 'sound/weapons/handcuffs.ogg'
@@ -116,7 +116,7 @@
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	custom_materials = list(/datum/material/iron=150, /datum/material/glass=75)
-	breakouttime = 30 SECONDS
+	breakoutchance = 5
 	cuffsound = 'sound/weapons/cablecuff.ogg'
 
 /obj/item/restraints/handcuffs/cable/red
@@ -149,7 +149,7 @@
 /obj/item/restraints/handcuffs/fake
 	name = "поддельные наручники"
 	desc = "Поддельные наручники, предназначенные для фетишей."
-	breakouttime = 1 SECONDS
+	breakoutchance = 80
 
 /obj/item/restraints/handcuffs/cable/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/stack/rods))
@@ -188,7 +188,7 @@
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	custom_materials = null
-	breakouttime = 45 SECONDS
+	breakoutchance = 4
 	trashtype = /obj/item/restraints/handcuffs/cable/zipties/used
 	color = null
 
@@ -214,7 +214,7 @@
 	throwforce = 0
 	w_class = WEIGHT_CLASS_NORMAL
 	slowdown = 7
-	breakouttime = 30 SECONDS
+	breakoutchance = 5
 
 /obj/item/restraints/legcuffs/beartrap
 	name = "медвежий капкан"
@@ -295,7 +295,7 @@
 	armed = 1
 	icon_state = "e_snare"
 	trap_damage = 0
-	breakouttime = 30
+	breakoutchance = 50
 	item_flags = DROPDEL
 	flags_1 = NONE
 
@@ -313,7 +313,7 @@
 	return ..()
 
 /obj/item/restraints/legcuffs/beartrap/energy/cyborg
-	breakouttime = 20 // Cyborgs shouldn't have a strong restraint
+	breakoutchance = 70 // Cyborgs shouldn't have a strong restraint
 
 /obj/item/restraints/legcuffs/bola
 	name = "бола"
@@ -322,7 +322,7 @@
 	inhand_icon_state = "bola"
 	lefthand_file = 'icons/mob/inhands/weapons/thrown_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/thrown_righthand.dmi'
-	breakouttime = 35//easy to apply, easy to break out of
+	breakoutchance = 25//easy to apply, easy to break out of
 	gender = NEUTER
 	var/knockdown = 0
 
@@ -359,7 +359,7 @@
 	desc = "Прочная бола, сделанная из длинной стальной цепи. Он выглядит тяжелым, достаточно, чтобы кого-нибудь споткнуть."
 	icon_state = "bola_r"
 	inhand_icon_state = "bola_r"
-	breakouttime = 70
+	breakoutchance = 15
 	knockdown = 35
 
 /obj/item/restraints/legcuffs/bola/energy //For Security
@@ -369,7 +369,7 @@
 	inhand_icon_state = "ebola"
 	hitsound = 'sound/weapons/taserhit.ogg'
 	w_class = WEIGHT_CLASS_SMALL
-	breakouttime = 60
+	breakoutchance = 10
 	custom_price = PAYCHECK_HARD * 0.35
 
 /obj/item/restraints/legcuffs/bola/energy/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
@@ -385,7 +385,7 @@
 	desc = "Эй, если тебя что-то обнимает за ноги, то с таким же успехом это может быть этот маленький парень."
 	icon_state = "gonbola"
 	inhand_icon_state = "bola_r"
-	breakouttime = 300
+	breakoutchance = 5
 	slowdown = 0
 	var/datum/status_effect/gonbola_pacify/effectReference
 
