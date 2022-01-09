@@ -6,6 +6,7 @@
 
 GLOBAL_LIST_EMPTY(pulse_engines)
 GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
+GLOBAL_VAR_INIT(station_orbit_speed, 0)
 GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 
 /datum/game_mode/ruination
@@ -178,11 +179,10 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 	. = ..()
 	flicker_animation()
 	overlays += icon('white/valtos/icons/station.png')
-	maptext = "<span style='color: #A35D5B; font-size: 8px;'>[GLOB.station_orbit_height]M</span>"
 
 /atom/movable/screen/station_height/proc/update_height()
 	screen_loc = "SOUTH:[min(round((GLOB.station_orbit_height * 0.001), 1) + 20, 440)], EAST-3:48"
-	maptext = "<span style='color: #A35D5B; font-size: 8px;'>[GLOB.station_orbit_height]M</span>"
+	maptext = "<span style='color: #A35D5B; font-size: 8px;'>[GLOB.station_orbit_height] M</br>[GLOB.station_orbit_speed] M/C</span>"
 
 /atom/movable/screen/station_height_bg
 	icon = 'white/valtos/icons/graph.png'
@@ -203,19 +203,43 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 
 /datum/team/ruiners
 	name = "Террористы Синдиката"
+	var/core_objective = /datum/objective/ruiner
+
+/datum/team/ruiners/proc/update_objectives()
+	if(core_objective)
+		var/datum/objective/O = new core_objective
+		O.team = src
+		objectives += O
 
 /datum/antagonist/traitor/ruiner
 	name = "Смертник Синдиката"
 	give_objectives = FALSE
 	greentext_reward = 150
 	antag_hud_type = ANTAG_HUD_OPS
-	antag_hud_name = "synd"
+	antag_hud_name = "hog-red-2"
 	antag_moodlet = /datum/mood_event/focused
 	job_rank = ROLE_OPERATIVE
 	var/datum/team/ruiners/ruiners_team
 
 /datum/antagonist/traitor/ruiner/get_team()
 	return ruiners_team
+
+/datum/antagonist/traitor/ruiner/create_team(datum/team/ruiners/new_team)
+	if(!new_team)
+		if(!always_new_team)
+			for(var/datum/antagonist/traitor/ruiner/N in GLOB.antagonists)
+				if(!N.owner)
+					stack_trace("Antagonist datum without owner in GLOB.antagonists: [N]")
+					continue
+				if(N.ruiners_team)
+					ruiners_team = N.ruiners_team
+					return
+		ruiners_team = new /datum/team/ruiners
+		ruiners_team.update_objectives()
+		return
+	if(!istype(new_team))
+		stack_trace("Wrong team type passed to [type] initialization.")
+	ruiners_team = new_team
 
 /datum/antagonist/traitor/ruiner/on_gain()
 	. = ..()
