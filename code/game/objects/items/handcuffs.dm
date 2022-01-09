@@ -8,7 +8,7 @@
 
 /obj/item/restraints/examine(mob/user)
 	. = ..()
-	. += span_notice("Шансы выбраться из таких оков примерно равны <b>[breakoutchance]%</b>.")
+	. += span_notice("<hr>Шансы выбраться из таких оков примерно равны <b>[breakoutchance]%</b>.")
 
 /obj/item/restraints/Destroy()
 	if(iscarbon(loc))

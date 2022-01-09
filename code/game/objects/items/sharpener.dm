@@ -7,10 +7,10 @@
 *
 */
 /obj/item/sharpener
-	name = "whetstone"
+	name = "точильный камень"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "sharpener"
-	desc = "A block that makes things sharp."
+	desc = "Используется для заточки штук."
 	force = 5
 	///Amount of uses the whetstone has. Set to -1 for functionally infinite uses.
 	var/uses = 1
