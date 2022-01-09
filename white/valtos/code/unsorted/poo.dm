@@ -170,7 +170,7 @@
 					return
 				else
 					var/mob/living/M = locate(/mob/living) in T
-					if(M)
+					if(M && M != src)
 						visible_message(span_notice("<b>[H]</b> [prob(75) ? pick(random_poo) : uppertext(pick(random_poo))] на лицо [M]!"), span_notice("Сру на лицо [M]."))
 						if(ishuman(M))
 							var/mob/living/carbon/human/pooguy = M

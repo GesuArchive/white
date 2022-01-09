@@ -113,6 +113,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 				continue
 			var/datum/hud/H = M.hud_used
 			H.station_height.update_height()
+		GLOB.station_orbit_speed = total_speed
 
 	var/cur_height = GLOB.station_orbit_parallax_resize
 
@@ -134,6 +135,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 				var/mob/M = m
 				if(M.hud_used)
 					M?.hud_used?.update_parallax_pref(M, GLOB.station_orbit_parallax_resize)
+					shake_camera(M, 1, 7)
 
 /datum/game_mode/ruination/check_finished()
 	if(!started_at)

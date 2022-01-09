@@ -373,6 +373,7 @@
 	if(hydration >= HYDRATION_LEVEL_OVERHYDRATED)
 		if(DT_PROB(5, delta_time))
 			try_pee()
+			hydration -= 25
 
 /mob/living/proc/try_pee(forced_pee = FALSE)
 	return
@@ -402,7 +403,7 @@
 			blood_volume -= 10
 		if(peeed)
 			var/mob/living/M = locate(/mob/living) in T
-			if(M)
+			if(M && M != src)
 				visible_message(span_notice("<b>[src]</b> ссыт на лицо [M][bloody ? " кровью" : ""]!"), span_notice("Писаю на лицо [M][bloody ? " кровью" : ""]."))
 				M.extinguish_mob()
 			else
@@ -438,7 +439,7 @@
 				mocha.reagents.add_reagent(/datum/reagent/blood, 50)
 			if(peeed)
 				var/mob/living/M = locate(/mob/living) in T
-				if(M)
+				if(M && M != src)
 					visible_message(span_notice("<b>[src]</b> обильно ссыт на лицо [M][bloody ? " кровью" : ""]!"), span_notice("Обильно писаю на лицо [M][bloody ? " кровью" : ""]."))
 					M.extinguish_mob()
 				else
