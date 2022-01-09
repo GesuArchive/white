@@ -190,7 +190,7 @@
 				body += "<A href='?_src_=holder;[HrefToken()];makerobot=[REF(M)]'>Робот</A>"
 				body += "<A href='?_src_=holder;[HrefToken()];makealien=[REF(M)]'>Чужой</A>"
 				body += "<A href='?_src_=holder;[HrefToken()];makeslime=[REF(M)]'>Слайм</A>"
-				body += "<A href='?_src_=holder;[HrefToken()];makeblob=[REF(M)]'>Блоб</A>"
+				body += "<A href='?_src_=holder;[HrefToken()];makeblob=[REF(M)]'>Масса</A>"
 
 			//Simple Animals
 			if(isanimal(M))

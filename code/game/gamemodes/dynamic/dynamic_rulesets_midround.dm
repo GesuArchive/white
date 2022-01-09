@@ -464,7 +464,7 @@
 //////////////////////////////////////////////
 
 /datum/dynamic_ruleset/midround/from_ghosts/blob
-	name = "Блоб"
+	name = "Масса"
 	antag_datum = /datum/antagonist/blob
 	antag_flag = ROLE_BLOB
 	enemy_roles = list("Russian Officer", "Hacker","Veteran", "Security Officer", "Detective", "Head of Security", "Captain", "Field Medic")

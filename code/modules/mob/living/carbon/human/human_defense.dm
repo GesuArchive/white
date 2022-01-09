@@ -145,6 +145,7 @@
 	//	return TRUE
 	if(mind)
 		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && throw_mode && !incapacitated(FALSE, TRUE))
+			playsound(src, 'white/valtos/sounds/block_hand.ogg', 100)
 			return TRUE
 	return FALSE
 
@@ -266,6 +267,7 @@
 		visible_message(span_danger("[M] пытается дотронуться до [src]!") , \
 						span_danger("[M] пытается дотронуться до меня!") , span_hear("Слышу взмах!") , null, M)
 		to_chat(M, span_warning("Пытаюсь дотронуться до [src]!"))
+		playsound(src, 'white/valtos/sounds/block_hand.ogg', 100)
 		return FALSE
 	. = ..()
 	if(!.)
@@ -445,7 +447,7 @@
 /mob/living/carbon/human/blob_act(obj/structure/blob/B)
 	if(stat == DEAD)
 		return
-	show_message(span_userdanger("Блоб атакует меня!"))
+	show_message(span_userdanger("Масса атакует меня!"))
 	var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 	var/obj/item/bodypart/affecting = get_bodypart(ran_zone(dam_zone))
 	apply_damage(5, BRUTE, affecting, run_armor_check(affecting, MELEE))
