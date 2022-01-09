@@ -132,6 +132,10 @@
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/energylance/afterattack(atom/target, mob/living/user, proximity_flag, clickparams)
+	var/target_health = 0
+	if(isliving(target))
+		var/mob/living/L = target
+		target_health = L?.health
 	. = ..()
 	if(!extended)
 		return
@@ -139,7 +143,6 @@
 		return
 	if(proximity_flag && isliving(target))
 		var/mob/living/L = target
-		var/target_health = L?.health
 		if(!QDELETED(L))
 			var/backstab_dir = get_dir(user, L)
 			var/def_check = L.getarmor(type = BOMB)
@@ -147,6 +150,6 @@
 				new /obj/effect/temp_visual/lance_impact(get_turf(L))
 				L.apply_damage((active_force + collected_force) * 1.5, BRUTE, blocked = def_check)
 				playsound(user, 'sound/weapons/kenetic_accel.ogg', 100, TRUE)
-		if(!L || ((L && L.health < 0 && target_health > 1 && L.maxHealth > 90) && !ishuman(L)))
+		if(!L || (L && L.health <= 0 && target_health >= 1 && L.maxHealth > 90))
 			collected_force++
 			to_chat(user, span_green("Копьё усилено."))
