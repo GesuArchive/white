@@ -357,6 +357,9 @@
 		return TRUE
 
 	else
+
+		I.breakoutchance = initial(I.breakoutchance)
+
 		if(I == handcuffed)
 			handcuffed.forceMove(drop_location())
 			set_handcuffed(null)

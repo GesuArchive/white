@@ -6,6 +6,10 @@
 	user.visible_message(span_suicide("[user] is strangling [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return(OXYLOSS)
 
+/obj/item/restraints/examine(mob/user)
+	. = ..()
+	. += span_notice("Шансы выбраться из таких оков примерно равны <b>[breakoutchance]%</b>.")
+
 /obj/item/restraints/Destroy()
 	if(iscarbon(loc))
 		var/mob/living/carbon/M = loc
