@@ -4,6 +4,8 @@
 	radius = 150
 	forced_docking = TRUE
 	random_docking = TRUE
+	render_mode = RENDER_MODE_PLANET
+	priority = 90
 
 /datum/orbital_object/z_linked/lavaland/post_map_setup()
 	//Orbit around the systems sun

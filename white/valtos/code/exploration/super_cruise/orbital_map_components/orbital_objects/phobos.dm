@@ -5,6 +5,8 @@
 	mass = 50000
 	radius = 300
 	static_object = TRUE
+	render_mode = RENDER_MODE_PLANET
+	priority = 20
 
 /datum/orbital_object/z_linked/phobos/New()
 	. = ..()

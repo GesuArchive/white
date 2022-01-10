@@ -2,6 +2,7 @@
 	name = "Космическая Станция 13"
 	mass = 0
 	radius = 60
+	priority = 50
 	//The station maintains its orbit around lavaland by adjustment thrusters.
 	maintain_orbit = TRUE
 	//Sure, why not?

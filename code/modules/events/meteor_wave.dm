@@ -46,7 +46,7 @@
 		meteor.velocity.x = (station_target.position.x - meteor.start_x * 10) / meteor_time
 		meteor.velocity.y = (station_target.position.y - meteor.start_y * 10) / meteor_time
 		meteor.end_tick = world.time + meteor_time
-		meteor.target = station_target
+		station_target.RegisterReference(meteor)
 
 /datum/round_event/meteor_wave/proc/determine_wave_type()
 	if(!wave_name)
