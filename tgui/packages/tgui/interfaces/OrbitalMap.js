@@ -88,7 +88,7 @@ export const OrbitalMap = (props, context) => {
           )}
         </div>
         <div class="OrbitalMap__panel">
-          <ScrollableBox overflowY="scroll" overflowX ="hidden" height="100%">
+          <ScrollableBox overflowY="scroll" overflowX="hidden" height="100%">
             <Section title="Отслеживание тел">
               <Box bold>
                 Отслеживание
