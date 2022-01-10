@@ -2,7 +2,7 @@
 	name = "Лаваленд"
 	mass = 10000
 	radius = 100
-	forced_docking = TRUE
+	forced_docking = FALSE
 	random_docking = TRUE
 	render_mode = RENDER_MODE_PLANET
 	priority = 90
