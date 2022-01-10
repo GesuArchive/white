@@ -1133,6 +1133,7 @@
 	name = "syndicate blast door";
 	turftype = /turf/open/floor/grass/snow/safe/oxy
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/syndicate_mothership/control)
 "eI" = (
@@ -2470,7 +2471,11 @@
 	name = "Auxillary Dock";
 	req_access_txt = ""
 	},
-/turf/open/floor/plasteel,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/turf/open/floor/plasteel/dark,
 /area/syndicate_mothership/control)
 "jx" = (
 /obj/structure/table/wood,
@@ -2879,10 +2884,6 @@
 /obj/machinery/door/airlock/centcom{
 	name = "Equipment Room";
 	req_access_txt = "150"
-	},
-/obj/effect/turf_decal/tile/bar,
-/obj/effect/turf_decal/tile/bar{
-	dir = 1
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -4587,6 +4588,13 @@
 	icon_state = "alien21"
 	},
 /area/abductor_ship)
+"rb" = (
+/obj/machinery/door/airlock/external{
+	req_access_txt = "150"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/syndicate_mothership/control)
 "rd" = (
 /obj/structure/table/wood,
 /obj/machinery/chem_dispenser/drinks{
@@ -8489,6 +8497,13 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"Fc" = (
+/obj/machinery/door/airlock/external{
+	req_access_txt = "150"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plasteel/dark,
+/area/syndicate_mothership/control)
 "Fe" = (
 /obj/item/coin/antagtoken,
 /obj/effect/turf_decal/bot,
@@ -28087,7 +28102,7 @@ lr
 lr
 lr
 cF
-gU
+rb
 cF
 lr
 qm
@@ -31183,7 +31198,7 @@ lg
 lg
 ms
 lg
-ms
+Fc
 ec
 ec
 ec

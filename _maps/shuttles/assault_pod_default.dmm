@@ -1,4 +1,8 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/assault_pod)
 "b" = (
 /obj/machinery/porta_turret/syndicate/pod,
 /turf/closed/wall/mineral/plastitanium,
@@ -6,6 +10,9 @@
 "c" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/assault_pod)
@@ -23,13 +30,36 @@
 	port_direction = 4;
 	preferred_direction = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
+/area/shuttle/assault_pod)
+"f" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/assault_pod)
 "h" = (
 /obj/machinery/computer/shuttle_flight/syndicate/drop_pod,
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/assault_pod)
+"i" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/assault_pod)
+"j" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/assault_pod)
 "p" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/assault_pod)
 "t" = (
@@ -38,18 +68,64 @@
 	name = "Assault Pod";
 	req_access_txt = "150"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
+/area/shuttle/assault_pod)
+"w" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/assault_pod)
+"z" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/assault_pod)
+"A" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/assault_pod)
+"B" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/assault_pod)
 "D" = (
 /obj/structure/chair/comfy/shuttle,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/assault_pod)
+"E" = (
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/assault_pod)
+"F" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/assault_pod)
 "H" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/assault_pod)
@@ -58,6 +134,13 @@
 	dir = 1
 	},
 /obj/machinery/light,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/assault_pod)
+"O" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/assault_pod)
 "R" = (
@@ -65,6 +148,7 @@
 	name = "Assault Pod";
 	req_access_txt = "150"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/assault_pod)
 "V" = (
@@ -84,18 +168,18 @@ V
 b
 d
 c
-p
-c
+i
+F
 d
 b
 "}
 (3,1,1) = {"
 d
 c
-p
-H
-p
-c
+j
+f
+w
+F
 d
 "}
 (4,1,1) = {"
@@ -104,24 +188,24 @@ p
 L
 h
 D
-p
+a
 e
 "}
 (5,1,1) = {"
 d
 H
-p
-c
-p
-H
+O
+A
+E
+z
 d
 "}
 (6,1,1) = {"
 b
 d
 H
-p
-H
+B
+z
 d
 b
 "}
