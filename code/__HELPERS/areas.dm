@@ -105,3 +105,5 @@ GLOBAL_LIST_INIT(typecache_powerfailure_safe_areas, typecacheof(/area/engineerin
 #undef BP_MAX_ROOM_SIZE
 
 #define REALITY_TEAR_VIRTUAL_Z -999999
+//The number virtual Z stats counting from
+#define VIRTUAL_Z_START 1100

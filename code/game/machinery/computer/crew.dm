@@ -184,68 +184,89 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		return data_by_z["[z]"]
 
 	var/list/results = list()
-	for(var/tracked_mob in GLOB.suit_sensors_list | GLOB.nanite_sensors_list)
-		var/mob/living/carbon/human/H = tracked_mob
+	var/obj/item/clothing/under/U
+	var/obj/item/card/id/I
+	var/turf/pos
+	var/ijob
+	var/name
+	var/assignment
+	var/oxydam
+	var/toxdam
+	var/burndam
+	var/brutedam
+	var/area
+	var/pos_x
+	var/pos_y
+	var/life_status
 
-		// Check if z-level is correct
-		var/turf/pos = get_turf(H)
-		if (pos.z != z)
-			continue
+	for(var/mob/living/carbon/human/H in GLOB.carbon_list)
+		var/nanite_sensors = FALSE
+		if(H in SSnanites.nanite_monitored_mobs)
+			nanite_sensors = TRUE
+		// Check if their z-level is correct and if they are wearing a uniform.
+		// Accept H.z==0 as well in case the mob is inside an object.
+		if ((H.z == 0 || H.get_virtual_z_level() == z || (is_station_level(H.z) && is_station_level(z))) && (istype(H.w_uniform, /obj/item/clothing/under) || nanite_sensors))
+			U = H.w_uniform
 
-		// Determine if this person is using nanites for sensors,
-		// in which case the sensors are always set to full detail
-		var/using_nanites = (H in GLOB.nanite_sensors_list)
+			//Radio transmitters are jammed
+			if(nanite_sensors ? H.is_jammed() : U.is_jammed())
+				continue
 
-		// Check for a uniform if not using nanites
-		var/obj/item/clothing/under/uniform = H.w_uniform
-		if (!using_nanites && !uniform)
-			continue
+			// Are the suit sensors on?
+			if (nanite_sensors || ((U.has_sensor > 0) && U.sensor_mode))
+				pos = H.z == 0 || (nanite_sensors || U.sensor_mode == SENSOR_COORDS) ? get_turf(H) : null
 
-		// Check that sensors are present and active
-		if (!using_nanites && (!uniform.has_sensor || !uniform.sensor_mode))
-			continue
+				// Special case: If the mob is inside an object confirm the z-level on turf level.
+				if (H.z == 0 && (!pos || (pos.get_virtual_z_level() != z) && !(is_station_level(pos.z) && is_station_level(z))))
+					continue
 
-		// The entry for this human
-		var/list/entry = list(
-			"ref" = REF(H),
-			"name" = "Неизвестный",
-			"ijob" = UNKNOWN_JOB_ID
-		)
+				I = H.wear_id ? H.wear_id.GetID() : null
 
-		// ID and id-related data
-		var/obj/item/card/id/id_card = H.get_idcard(hand_first = FALSE)
-		if (id_card)
-			entry["name"] = id_card.registered_name
-			entry["assignment"] = id_card.assignment
-			entry["ijob"] = jobs[id_card.assignment]
+				if (I)
+					name = I.registered_name
+					assignment = I.assignment
+					ijob = jobs[I.assignment]
+				else
+					name = "Неизвестный"
+					assignment = ""
+					ijob = UNKNOWN_JOB_ID
 
-		// Binary living/dead status
-		if (using_nanites || uniform.sensor_mode >= SENSOR_LIVING)
-			entry["life_status"] = !H.stat
+				if (nanite_sensors || U.sensor_mode >= SENSOR_LIVING)
+					life_status = (!H.stat ? TRUE : FALSE)
+				else
+					life_status = null
 
-		// Damage
-		if (using_nanites || uniform.sensor_mode >= SENSOR_VITALS)
-			entry += list(
-				"oxydam" = round(H.getOxyLoss(), 1),
-				"toxdam" = round(H.getToxLoss(), 1),
-				"burndam" = round(H.getFireLoss(), 1),
-				"brutedam" = round(H.getBruteLoss(), 1)
-			)
+				if (nanite_sensors || U.sensor_mode >= SENSOR_VITALS)
+					oxydam = round(H.getOxyLoss(),1)
+					toxdam = round(H.getToxLoss(),1)
+					burndam = round(H.getFireLoss(),1)
+					brutedam = round(H.getBruteLoss(),1)
+				else
+					oxydam = null
+					toxdam = null
+					burndam = null
+					brutedam = null
 
-		// Location
-		if (pos && (using_nanites || uniform.sensor_mode >= SENSOR_COORDS))
-			entry["area"] = get_area_name(H, format_text = TRUE)
+				if (nanite_sensors || U.sensor_mode >= SENSOR_COORDS)
+					if (!pos)
+						pos = get_turf(H)
+					area = get_area_name(H, TRUE)
+					pos_x = pos.x
+					pos_y = pos.y
+				else
+					area = null
+					pos_x = null
+					pos_y = null
 
-		// Trackability
-		entry["can_track"] = H.can_track()
+				results[++results.len] = list("name" = name, "assignment" = assignment, "ijob" = ijob, "life_status" = life_status, "oxydam" = oxydam, "toxdam" = toxdam, "burndam" = burndam, "brutedam" = brutedam, "area" = area, "pos_x" = pos_x, "pos_y" = pos_y, "can_track" = H.can_track(null))
 
-		results[++results.len] = entry
-
-	// Cache result
-	data_by_z["[z]"] = results
+	data_by_z["[z]"] = sortTim(results,/proc/sensor_compare)
 	last_update["[z]"] = world.time
 
 	return results
+
+/proc/sensor_compare(list/a,list/b)
+	return a["ijob"] - b["ijob"]
 
 /datum/crewmonitor/ui_act(action,params)
 	. = ..()
