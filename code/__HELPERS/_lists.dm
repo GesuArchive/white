@@ -149,6 +149,11 @@
 			return TRUE
 	return FALSE
 
+/// Return either pick(list) or null if list is not of type /list or is empty
+/proc/safepick(list/L)
+	if(LAZYLEN(L))
+		return pick(L)
+
 //Checks for specific types in specifically structured (Assoc "type" = TRUE) lists ('typecaches')
 #define is_type_in_typecache(A, L) (A && length(L) && L[(ispath(A) ? A : A:type)])
 

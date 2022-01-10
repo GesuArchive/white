@@ -35,7 +35,7 @@
 
 /obj/machinery/computer/shuttle_flight/syndicate/drop_pod
 	name = "пульт управления дроппода синдиката"
-	desc = "Контроллирует систему запуска штурмового дроппода."
+	desc = "Контролирует систему запуска штурмового дроппода."
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "dorm_available"
 	light_color = LIGHT_COLOR_BLUE
