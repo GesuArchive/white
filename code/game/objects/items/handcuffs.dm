@@ -1,5 +1,6 @@
 /obj/item/restraints
-	breakoutchance = 6
+	breakoutchance = 100 
+	breakouttime = 60 SECONDS
 	dye_color = DYE_PRISONER
 
 /obj/item/restraints/suicide_act(mob/living/carbon/user)
@@ -8,7 +9,17 @@
 
 /obj/item/restraints/examine(mob/user)
 	. = ..()
-	. += span_notice("<hr>Шансы выбраться из таких оков примерно равны <b>[breakoutchance]%</b>.")
+	switch(breakoutchance)
+		if(100)
+			if(breakouttime % 600 == 0)
+				. += span_notice("<hr>От таких оков можно избавиться примерно за <b>[breakouttime/600]</b> [getNoun(breakouttime/600, "минуту","минуты","минут")].")
+			else
+				. += span_notice("<hr>От таких оков можно избавиться примерно за <b>[breakouttime/10]</b> [getNoun(breakouttime/10, "секунду","секунды","секунд")].")
+		if(90 to 100)
+			. += span_notice("<hr>Из таких оков можно вырваться с первой попытки за <b>[breakouttime/10]</b> [getNoun(breakouttime/10, "секунду","секунды","секунд")].")
+		if(0 to 90)
+			. += span_notice("<hr>Из таких оков можно вырваться с шансом приблизительно <b>[round(breakoutchance,10)]%</b> за <b>[breakouttime/10]</b> [getNoun(breakouttime/10, "секунду","секунды","секунд")].")
+
 
 /obj/item/restraints/Destroy()
 	if(iscarbon(loc))
@@ -27,7 +38,7 @@
 
 /obj/item/restraints/handcuffs
 	name = "наручники"
-	desc = "Используется для удержания животных в загоне."
+	desc = "Используются для удержания животных в загоне."
 	gender = PLURAL
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "handcuff"
@@ -41,7 +52,8 @@
 	throw_speed = 3
 	throw_range = 5
 	custom_materials = list(/datum/material/iron=500)
-	breakoutchance = 3
+	breakouttime = 20 SECONDS
+	breakoutchance = 53.7 // 78.563% and 90.075% to break out on second and third try respectively
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 50)
 	custom_price = PAYCHECK_HARD * 0.35
 	var/cuffsound = 'sound/weapons/handcuffs.ogg'
@@ -54,7 +66,7 @@
 	SEND_SIGNAL(C, COMSIG_CARBON_CUFF_ATTEMPTED, user)
 
 	if(iscarbon(user) && (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50)))
-		to_chat(user, span_warning("Хыы... как это работает?!"))
+		to_chat(user, span_warning("[pick("Хыы", "Эээ", "Ммм", "Аыэ", "Оаэ", "Ааа", "Амм", "Омм")]... как это работает?!"))
 		apply_cuffs(user,user)
 		return
 
@@ -120,7 +132,8 @@
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	custom_materials = list(/datum/material/iron=150, /datum/material/glass=75)
-	breakoutchance = 5
+	breakouttime = 10 SECONDS
+	breakoutchance = 53.7 // 78.563% and 90.075% to break out on second and third try respectively
 	cuffsound = 'sound/weapons/cablecuff.ogg'
 
 /obj/item/restraints/handcuffs/cable/red
@@ -151,9 +164,10 @@
 	icon_state = "handcuffAlien"
 
 /obj/item/restraints/handcuffs/fake
-	name = "поддельные наручники"
-	desc = "Поддельные наручники, предназначенные для фетишей."
-	breakoutchance = 80
+	name = "наручники"
+	desc = "Поддельные наручники, предназначенные для ролевых игр."
+	breakoutchance = 100
+	breakouttime = 1 SECONDS
 
 /obj/item/restraints/handcuffs/cable/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/stack/rods))
@@ -187,12 +201,13 @@
 
 /obj/item/restraints/handcuffs/cable/zipties
 	name = "стяжки"
-	desc = "Одноразовые пластиковые стяжки, которые можно использовать для временного сдерживания, но которые после использования разрушаются."
+	desc = "Одноразовые пластиковые стяжки, которые можно использовать для временного сдерживания. После снятия разрушаются."
 	icon_state = "cuff"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	custom_materials = null
-	breakoutchance = 4
+	breakouttime = 15 SECONDS
+	breakoutchance = 53.7 // 78.563% and 90.075% to break out on second and third try respectively
 	trashtype = /obj/item/restraints/handcuffs/cable/zipties/used
 	color = null
 
@@ -208,7 +223,7 @@
 
 /obj/item/restraints/legcuffs
 	name = "кандалы"
-	desc = "Используйте это, чтобы держать заключенных в очереди."
+	desc = "Упрощает надзор за заключёнными."
 	gender = PLURAL
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "handcuff"
@@ -218,7 +233,8 @@
 	throwforce = 0
 	w_class = WEIGHT_CLASS_NORMAL
 	slowdown = 7
-	breakoutchance = 5
+	breakouttime = 10 SECONDS
+	breakoutchance = 53.7 // 78.563% and 90.075% to break out on second and third try respectively
 
 /obj/item/restraints/legcuffs/beartrap
 	name = "медвежий капкан"
@@ -226,6 +242,8 @@
 	throw_range = 1
 	icon_state = "beartrap"
 	desc = "Ловушка, используемая для ловли медведей и других существ с длинными ногами.."
+	breakouttime = 10 SECONDS
+	breakoutchance = 100
 	var/armed = 0
 	var/trap_damage = 20
 
@@ -299,7 +317,8 @@
 	armed = 1
 	icon_state = "e_snare"
 	trap_damage = 0
-	breakoutchance = 50
+	breakouttime = 7 SECONDS
+	breakoutchance = 100
 	item_flags = DROPDEL
 	flags_1 = NONE
 
@@ -326,7 +345,8 @@
 	inhand_icon_state = "bola"
 	lefthand_file = 'icons/mob/inhands/weapons/thrown_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/thrown_righthand.dmi'
-	breakoutchance = 25//easy to apply, easy to break out of
+	breakouttime = 4 SECONDS
+	breakoutchance = 100
 	gender = NEUTER
 	var/knockdown = 0
 
@@ -358,22 +378,24 @@
 		C.Knockdown(knockdown)
 		playsound(src, 'sound/effects/snap.ogg', 50, TRUE)
 
-/obj/item/restraints/legcuffs/bola/tactical//traitor variant
+/obj/item/restraints/legcuffs/bola/tactical //traitor variant
 	name = "крепкая бола"
 	desc = "Прочная бола, сделанная из длинной стальной цепи. Он выглядит тяжелым, достаточно, чтобы кого-нибудь споткнуть."
 	icon_state = "bola_r"
 	inhand_icon_state = "bola_r"
-	breakoutchance = 15
+	breakouttime = 8 SECONDS
+	breakoutchance = 100
 	knockdown = 35
 
 /obj/item/restraints/legcuffs/bola/energy //For Security
 	name = "энергобола"
-	desc = "Специализированная бола с жестким освещением, предназначенная для ловли убегающих преступников и помощи в арестах."
+	desc = "Специализированная hardlight-бола, предназначенная для ловли убегающих преступников и помощи в арестах."
 	icon_state = "ebola"
 	inhand_icon_state = "ebola"
 	hitsound = 'sound/weapons/taserhit.ogg'
 	w_class = WEIGHT_CLASS_SMALL
-	breakoutchance = 10
+	breakouttime = 4 SECONDS
+	breakoutchance = 100
 	custom_price = PAYCHECK_HARD * 0.35
 
 /obj/item/restraints/legcuffs/bola/energy/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)

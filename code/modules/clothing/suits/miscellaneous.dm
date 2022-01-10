@@ -372,7 +372,8 @@
 	clothing_flags = DANGEROUS_OBJECT
 	equip_delay_self = 50
 	strip_delay = 60
-	breakoutchance = 1
+	breakouttime = 2 MINUTES
+	breakoutchance = 53.7 // 78.563% and 90.075% to break out on second and third try respectively
 	slowdown = 4
 	var/mob/straight_user
 
