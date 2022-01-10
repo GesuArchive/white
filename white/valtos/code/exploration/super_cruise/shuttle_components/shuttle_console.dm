@@ -370,7 +370,7 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 			//Special check
 			if(params["port"] == "custom_location")
 				//Open up internal docking computer if any location is allowed.
-				if(shuttleObject?.docking_target?.can_dock_anywhere)
+				if(shuttleObject.docking_target.can_dock_anywhere)
 					if(GLOB.shuttle_docking_jammed)
 						say("Консоль блокирована.")
 						return
@@ -409,7 +409,7 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 					QDEL_NULL(shuttleObject)
 					//Hold the shuttle in the docking position until ready.
 					mobile_port.setTimer(INFINITY)
-					say("Ожидаем очищение гиперпространственных пробок... А вы что думали?")
+					say("Ожидаем очищение гиперпространственных пробок...")
 					INVOKE_ASYNC(src, .proc/unfreeze_shuttle, mobile_port, SSmapping.get_level(target_port.z))
 				if(1)
 					to_chat(usr, span_warning("Неправильный шаттл запрошен."))
@@ -543,3 +543,11 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 	req_access = list()
 	obj_flags |= EMAGGED
 	to_chat(user, span_notice("Сжигаю консоль."))
+
+// temp solution
+
+/obj/machinery/computer/shuttle_flight/proc/RegisterReference(datum/source_object)
+	return
+
+/obj/machinery/computer/shuttle_flight/proc/UnregisterReference(datum/source_object)
+	return

@@ -310,7 +310,7 @@ Behavior that's still missing from this component that original food items had t
 			to_chat(feeder, span_warning("[eater] похоже не имеет рта!"))
 			return
 		if(fullness <= (600 * (1 + eater.overeatduration / (2000 SECONDS))))
-			eater.visible_message(span_danger("[feeder] пытает дать [eater] попробовать [parent].") , \
+			eater.visible_message(span_danger("[feeder] пытается дать [eater] попробовать [parent].") , \
 									span_userdanger("[feeder] пытается дать мне попробовать [parent]."))
 		else
 			eater.visible_message(span_warning("[feeder] не может больше запихнуть [parent] внутрь [eater]!") , \
