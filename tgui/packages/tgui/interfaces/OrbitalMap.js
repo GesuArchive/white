@@ -62,8 +62,8 @@ export const OrbitalMap = (props, context) => {
 
   return (
     <Window
-      width={1136}
-      height={770}
+      width={1089}
+      height={720}
       resizable
       overflowY="hidden">
       <Window.Content overflowY="hidden">
@@ -88,8 +88,8 @@ export const OrbitalMap = (props, context) => {
           )}
         </div>
         <div class="OrbitalMap__panel">
-          <ScrollableBox overflowY="scroll" height="100%">
-            <Section title="Orbital Body Tracking">
+          <ScrollableBox overflowY="scroll" overflowX ="hidden" height="100%">
+            <Section title="Отслеживание тел">
               <Box bold>
                 Отслеживание
               </Box>
@@ -529,7 +529,7 @@ export const ShuttleControls = (props, context) => {
         Нажми на основной дисплей чтобы лететь.
       </NoticeBox>
       <Box bold>
-        Торможение
+        Скорость
       </Box>
       <Box>
         Ускорение: {shuttleThrust}

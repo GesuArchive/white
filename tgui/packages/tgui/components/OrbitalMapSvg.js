@@ -146,7 +146,7 @@ export class OrbitalMapSvg extends Component {
               height={100 * lockedZoomScale}
               fill="url(#smallgrid)" />
             <path
-              fill="none" stroke="#4665DE" stroke-width="1"
+              fill="none" stroke="#32252E" stroke-width="1"
               d={"M " + (100 * lockedZoomScale)+ " 0 L 0 0 0 " + (100 * lockedZoomScale)} />
           </pattern>
           <pattern id="smallgrid"
@@ -156,10 +156,10 @@ export class OrbitalMapSvg extends Component {
             <rect
               width={50 * lockedZoomScale}
               height={50 * lockedZoomScale}
-              fill="#2B2E3B" />
+              fill="#3B2E2B" />
             <path
               fill="none"
-              stroke="#4665DE"
+              stroke="#36252E"
               stroke-width="0.5"
               d={"M " + (50 * lockedZoomScale) + " 0 L 0 0 0 "
               + (50 * lockedZoomScale)} />
@@ -436,7 +436,7 @@ class RenderableObjectType {
 class PlanettaryBody extends RenderableObjectType {
   constructor() {
     super();
-    this.outlineColour = "#fca635";
+    this.outlineColour = "#fc5635";
     this.outlineWidth = 1;
     this.fill = "url(#planetfill)";
     // this.fill = "rgba(252, 166, 53, 0.1)";
@@ -465,7 +465,7 @@ class Beacon extends RenderableObjectType {
     };
     this.velocityLengthMult = 10;
     this.beacon_radius = 500;
-    this.beacon_colour = "#f58473";
+    this.beacon_colour = "#45f443";
     this.random_offset = Math.random();
   }
 
@@ -703,7 +703,7 @@ class Shuttle extends RenderableObjectType {
             fill={this.fontFill}
             fontSize={Math.min(this.textSize * lockedZoomScale, 14)}>
             {Math.round(Math.sqrt(this.velocity_x * this.velocity_x
-              + this.velocity_y * this.velocity_y) * 100) / 100} bkts.
+              + this.velocity_y * this.velocity_y) * 100) / 100} бктс.
           </text>
         )}
         {path.map(point => (
