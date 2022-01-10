@@ -1,7 +1,7 @@
 /datum/orbital_object/z_linked/beacon
 	name = "Неопознанный Сигнал"
 	mass = 0
-	radius = 30
+	radius = 10
 	can_dock_anywhere = TRUE
 	render_mode = RENDER_MODE_BEACON
 	//The attached event
@@ -36,7 +36,7 @@
 
 /datum/orbital_object/z_linked/beacon/ruinasteroid/New()
 	. = ..()
-	radius = rand(30, 70)
+	radius = rand(5, 15)
 
 /datum/orbital_object/z_linked/beacon/ruin/asteroid/assign_z_level()
 	var/datum/space_level/assigned_space_level = SSzclear.get_free_z_level()

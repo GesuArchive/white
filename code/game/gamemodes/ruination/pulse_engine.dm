@@ -7,13 +7,15 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	density = TRUE
 	var/engine_power = 0
+	var/minimum_power = 25
 	var/engine_active = FALSE
 	var/datum/looping_sound/pulse_engine/soundloop
 
 /obj/structure/pulse_engine/examine(mob/user)
 	. = ..()
 	. += span_danger("<hr>Текущая мощность: [engine_power]%")
-	. += span_notice("<hr>Похоже, если его неплохо так поколотить, то он станет работать <b>намного лучше</b>.")
+	. += span_danger("\nМинимальная мощность: [minimum_power]%")
+	. += span_notice("<hr>Похоже, если его неплохо так поколотить, то он станет работать <b>намного [user?.mind?.has_antag_datum(/datum/antagonist/traitor/ruiner) ? "лучше" : "хуже"]</b>.")
 
 /obj/structure/pulse_engine/Initialize()
 	. = ..()
@@ -47,7 +49,7 @@
 			icon_state = "peon"
 			add_overlay("peoverlay")
 			soundloop.start()
-			START_PROCESSING(SSfastprocess, src)
+			START_PROCESSING(SSmachines, src)
 			priority_announce("Был обнаружен импульсный двигатель в локации [get_area_name(src, TRUE)].", null, 'sound/misc/announce_dig.ogg', "Priority")
 			light_color = "#f79947"
 			light_range = 8
@@ -56,8 +58,12 @@
 /obj/structure/pulse_engine/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
 	if(I.force)
-		engine_power += min(I.force, 25)
-		engine_power = min(engine_power, 100)
+		if(user?.mind?.has_antag_datum(/datum/antagonist/traitor/ruiner))
+			engine_power += min(I.force, 25)
+			engine_power = min(engine_power, 100)
+		else
+			engine_power -= min(I.force, 25)
+			engine_power = max(engine_power, minimum_power)
 
 /obj/structure/pulse_engine/process(delta_time)
-	engine_power = max(engine_power - 1, 0)
+	engine_power = max(engine_power - 5, minimum_power)

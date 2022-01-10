@@ -19,7 +19,7 @@
 	. = ..()
 	start_tick = world.time
 	end_tick = world.time + 10 MINUTES
-	radius = rand(10, 50)
+	radius = rand(5, 15)
 
 /datum/orbital_object/meteor/Destroy()
 	target.UnregisterReference(src)

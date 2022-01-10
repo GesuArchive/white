@@ -2,7 +2,7 @@
 /datum/orbital_object/star
 	name = "Звёздное тело"
 	mass = 100000
-	radius = 200
+	radius = 500
 	static_object = TRUE
 	collision_flags = ALL
 	priority = 100
