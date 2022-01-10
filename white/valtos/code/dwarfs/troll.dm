@@ -32,9 +32,12 @@
 
 	discovery_points = 10000
 
-/mob/living/simple_animal/hostile/troll/Life()
+/mob/living/simple_animal/hostile/troll/Initialize()
 	. = ..()
 	flick("troll_spawn", src)
+
+/mob/living/simple_animal/hostile/troll/Life()
+	. = ..()
 	if(target && rockfalling_last < world.time && prob(50))
 		rockfalling_last = world.time + 60 SECONDS
 		for(var/turf/open/T in view(7, src))
