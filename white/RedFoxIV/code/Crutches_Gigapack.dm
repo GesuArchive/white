@@ -99,3 +99,19 @@
 
 /proc/deathsquad_request(input, cumshit)
 	general_ert_request(input, "Отряд смерти", "отряд смерти", new /datum/antagonist/ert/deathsquad/leader, new /datum/antagonist/ert/deathsquad, cumshit)
+
+
+
+/proc/getNoun(number, one, two, five)
+	var/n = abs(number)
+	n = n % 100
+	if (n >= 11 &&  n <= 19)
+		return five
+
+	n = n % 10
+	switch(n)
+		if(1)
+			return one
+		if(2 to 4)
+			return two
+	return five

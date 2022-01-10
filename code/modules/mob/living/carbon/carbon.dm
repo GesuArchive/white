@@ -223,22 +223,23 @@
 	if(HAS_TRAIT(src, TRAIT_RESTRAINED))
 		changeNext_move(CLICK_CD_BREAKOUT)
 		last_special = world.time + CLICK_CD_BREAKOUT
-		var/buckle_break_chance = 5
+		var/buckle_break_chance = 100
+		var/buckle_time = 1 SECONDS
+		
 		var/obj/item/restraints/O
 		if(handcuffed)
 			O = src.get_item_by_slot(ITEM_SLOT_HANDCUFFED)
 			buckle_break_chance = O.breakoutchance
+			buckle_time = O.breakouttime
 		visible_message(span_warning("[capitalize(src.name)] пытается выбраться из наручников!") , \
 					span_notice("Пытаюсь выбраться из наручников..."))
-		if(do_after(src, 3 SECONDS, target = src, timed_action_flags = IGNORE_HELD_ITEM))
+		if(do_after(src, buckle_time, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			if(!buckled)
 				return
 			if(prob(buckle_break_chance))
 				buckled.user_unbuckle_mob(src,src)
 			else
-				if(O)
-					O.breakoutchance++
-				to_chat(src, span_notice("Ещё..."))
+				to_chat(src, span_notice(pick("Ещё раз...", "Почти получилось...", "А ну-ка...", "А если так...", "Чёрт...", "Ну давай же...")))
 		else
 			if(src && buckled)
 				to_chat(src, span_warning("Не получилось выбраться из наручников!"))
@@ -286,30 +287,30 @@
 	if(!cuff_break)
 		visible_message(span_warning("[capitalize(src.name)] пытается снять [I]!"))
 		to_chat(src, span_notice("Пытаюсь снять [I]..."))
-		if(do_after(src, 3 SECONDS, target = src, timed_action_flags = IGNORE_HELD_ITEM))
+		if(do_after(src, I.breakouttime, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			if(prob(breakoutchance))
 				. = clear_cuffs(I, cuff_break)
 			else
-				I.breakoutchance++
-				to_chat(src, span_notice("Ещё..."))
+				//I.breakoutchance++
+				to_chat(src, span_notice(pick("Ещё раз...", "Почти получилось...", "А ну-ка...", "А если так...", "Чёрт...", "Ну давай же...")))
 		else
 			to_chat(src, span_warning("Не получилось снять [I]!"))
 
 	else if(cuff_break == FAST_CUFFBREAK)
-		breakoutchance = breakoutchance * 5
+		breakoutchance = 100 - 100 * (100-breakoutchance/100)**2 //equivalent to the chance of breaking the cuff in 2 tries or less. because fancy maths	// see https://www.desmos.com/calculator/gdlyhnente
 		visible_message(span_warning("[capitalize(src.name)] пытается разорвать [I]!"))
 		to_chat(src, span_notice("Пытаюсь разорвать [I]..."))
 		if(do_after(src, 1 SECONDS, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			if(prob(breakoutchance))
 				. = clear_cuffs(I, cuff_break)
 			else
-				I.breakoutchance++
-				to_chat(src, span_notice("Ещё..."))
+				to_chat(src, span_alert(pick("СУКА!", "ДА БЛЯТЬ!", "ЧЁРТ!", "УКУСИ МЕНЯ ПЧЕЛА!", "ДО ЧЕГО ЖЕ КРЕПКИЕ, СУКА!", "УХ МЛЯ!")))
 		else
 			to_chat(src, span_warning("У меня не вышло разорвать [I]!"))
 
 	else if(cuff_break == INSTANT_CUFFBREAK)
 		. = clear_cuffs(I, cuff_break)
+		to_chat(src, span_alert("Опа!"))
 	I.item_flags &= ~BEING_REMOVED
 
 /mob/living/carbon/proc/uncuff()
