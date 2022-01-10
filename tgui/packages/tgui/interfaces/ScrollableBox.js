@@ -1,4 +1,4 @@
-import { Box } from './Box';
+import { Box } from './components';
 import { addScrollableNode, removeScrollableNode } from '../events';
 
 export const ScrollableBox = props => {
