@@ -171,7 +171,7 @@
 
 
 ////////////////////////
-// WHITE DREAM: Trim for Spetsnaz Soldier. General Centcom access, no station access. 
+// WHITE DREAM: Trim for Spetsnaz/OMON Soldier. General Centcom access, maint access. 
 
 /datum/id_trim/centcom/spetsnaz
 	assignment = "СОБР"
@@ -183,7 +183,16 @@
 
 	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_WEAPONS, ACCESS_MAINT_TUNNELS)
 
-// WHITE DREAM: Trim for Spetsnaz Leader. Full access.
+//
+/datum/id_trim/centcom/omon
+	assignment = "ОМОН"
+
+/datum/id_trim/centcom/omon/New()
+	. = ..()
+
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_WEAPONS, ACCESS_MAINT_TUNNELS)
+
+// Trim for Spetsnaz Leader. Full access.
 
 /datum/id_trim/centcom/spetsnaz/leader
 	assignment = "Лидер СОБР"
@@ -194,3 +203,14 @@
 	. = ..()
 
 	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
+
+// Trim for omono Leaderio suckkio peniso. Centcom access, only maint access.
+
+/datum/id_trim/centcom/omon/leader
+	assignment = "Лидер ОМОН"
+
+/datum/id_trim/centcom/omon/leader/New()
+	. = ..()
+
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_WEAPONS, ACCESS_MAINT_TUNNELS)
+
