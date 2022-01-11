@@ -554,7 +554,8 @@
 	for(var/turf/open/P in world)
 		if(!is_station_level(P.z))
 			continue
-		var/pickedtrash = pickweight(GLOB.trash_loot)
-		new pickedtrash(P)
+		if(prob(5))
+			var/pickedtrash = pickweight(pickweight(GLOB.trash_loot))
+			new pickedtrash(P)
 		CHECK_TICK
 	..()
