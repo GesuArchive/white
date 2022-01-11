@@ -1,6 +1,6 @@
 /obj/effect/eldritch
-	name = "Generic rune"
-	desc = "A flowing circle of shapes and runes is etched into the floor, filled with a thick black tar-like fluid."
+	name = "Родовая руна"
+	desc = "На полу выгравирован плавный круг из фигур и рун, заполненный густой черной жидкостью, похожей на смолу."
 	anchored = TRUE
 	icon_state = ""
 	resistance_flags = FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -100,10 +100,10 @@
 		is_in_use = FALSE
 		return
 	is_in_use = FALSE
-	to_chat(user,span_warning("Your ritual failed! You either used the wrong components or are missing something important!"))
+	to_chat(user,span_warning("наш ритуал провалился! Вы либо использовали неправильные компоненты, либо упустили что-то важное!"))
 
 /obj/effect/eldritch/big
-	name = "transmutation rune"
+	name = "руна трансмутации"
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "eldritch_rune1"
 	pixel_x = -32 //So the big ol' 96x96 sprite shows up right
@@ -149,7 +149,7 @@
 		smashes++
 
 /obj/effect/broken_illusion
-	name = "pierced reality"
+	name = "пронзенная реальность"
 	icon = 'icons/effects/eldritch.dmi'
 	icon_state = "pierced_illusion"
 	anchored = TRUE
@@ -178,15 +178,15 @@
 		return ..()
 	var/mob/living/carbon/human/human_user = user
 	if(IS_HERETIC(human_user))
-		to_chat(human_user,span_boldwarning("You know better than to tempt forces out of your control!"))
+		to_chat(human_user,span_boldwarning("Вы знаете, что лучше не искушать силы, вышедшие из-под вашего контроля!"))
 	else
 		var/obj/item/bodypart/arm = human_user.get_active_hand()
 		if(prob(25))
-			to_chat(human_user,span_userdanger("An otherwordly presence tears and atomizes your arm as you try to touch the hole in the very fabric of reality!"))
+			to_chat(human_user,span_userdanger("Потустороннее присутствие разрывает вашу руку, когда вы пытаетесь прикоснуться к разлому в самой ткани реальности!"))
 			arm.dismember()
 			qdel(arm)
 		else
-			to_chat(human_user,span_danger("You pull your hand away from the hole as the eldritch energy flails trying to latch onto existance itself!"))
+			to_chat(human_user,span_danger("Вы отдергиваете руку от дыры, когда сверхъестественная энергия мечется, пытаясь зацепиться за само существование!"))
 
 
 /obj/effect/broken_illusion/attack_tk(mob/user)
@@ -195,10 +195,10 @@
 	. = COMPONENT_CANCEL_ATTACK_CHAIN
 	var/mob/living/carbon/human/human_user = user
 	if(IS_HERETIC(human_user))
-		to_chat(human_user,span_boldwarning("You know better than to tempt forces out of your control!"))
+		to_chat(human_user,span_boldwarning("Вы знаете, что лучше не искушать силы, вышедшие из-под вашего контроля!"))
 		return
 	//a very elaborate way to suicide
-	to_chat(human_user,span_userdanger("Eldritch energy lashes out, piercing your fragile mind, tearing it to pieces!"))
+	to_chat(human_user,span_userdanger("Сверхъестественная энергия вырывается наружу, пронзая твой хрупкий разум, разрывая его на куски!"))
 	human_user.ghostize()
 	var/obj/item/bodypart/head/head = locate() in human_user.bodyparts
 	if(head)
@@ -216,12 +216,12 @@
 	. = ..()
 	if(!IS_HERETIC(user) && ishuman(user))
 		var/mob/living/carbon/human/human_user = user
-		to_chat(human_user,span_warning("Your mind burns as you stare at the tear!"))
+		to_chat(human_user,span_warning("Твой разум горит, когда ты смотришь на слезу!"))
 		human_user.adjustOrganLoss(ORGAN_SLOT_BRAIN,10,190)
 		SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "gates_of_mansus", /datum/mood_event/gates_of_mansus)
 
 /obj/effect/reality_smash
-	name = "reality smash"
+	name = "разрушение реальности"
 	icon = 'icons/effects/eldritch.dmi'
 	anchored = TRUE
 	resistance_flags = FIRE_PROOF | UNACIDABLE | ACID_PROOF
