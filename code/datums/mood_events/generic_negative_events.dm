@@ -132,6 +132,11 @@
 	description = "<span class='warning'>Здесь темновато...</span>\n"
 	mood_change = -6
 
+/datum/mood_event/claustrophobia
+	description = "<span class='warning'>Почему я чувствую себя в ловушке?! Выпустите меня!!!</span>\n"
+	mood_change = -7
+	timeout = 1 MINUTES
+
 /datum/mood_event/bright_light
 	description = "<span class='boldwarning'>Ненавижу белых... Хочу срочно стать негром...</span>\n"
 	mood_change = -24

@@ -9,6 +9,7 @@
 					/obj/item/seeds/ambrosia = 3,
 					/obj/item/seeds/apple = 3,
 					/obj/item/seeds/banana = 3,
+					/obj/item/seeds/chili/bell_pepper = 3,
 					/obj/item/seeds/berry = 3,
 					/obj/item/seeds/cabbage = 3,
 					/obj/item/seeds/carrot = 3,
@@ -25,6 +26,7 @@
 					/obj/item/seeds/grass = 3,
 					/obj/item/seeds/lemon = 3,
 					/obj/item/seeds/lime = 3,
+					/obj/item/seeds/herbs = 3,
 					/obj/item/seeds/onion = 3,
 					/obj/item/seeds/orange = 3,
 					/obj/item/seeds/peas = 3,
@@ -41,6 +43,7 @@
 					/obj/item/seeds/tobacco = 3,
 					/obj/item/seeds/tomato = 3,
 					/obj/item/seeds/tower = 3,
+					/obj/item/seeds/toechtauese = 3,
 					/obj/item/seeds/watermelon = 3,
 					/obj/item/seeds/wheat = 3,
 					/obj/item/seeds/whitebeet = 3)

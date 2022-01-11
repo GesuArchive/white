@@ -944,7 +944,6 @@
 	desc = "A piece of hot spicy meat."
 	icon_state = "meatsteak"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/nutriment/vitamin = 1)
-	trash_type = /obj/item/trash/plate
 	foodtypes = MEAT
 	tastes = list("мясо" = 1)
 	burns_on_grill = TRUE

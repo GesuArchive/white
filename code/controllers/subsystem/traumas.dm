@@ -14,7 +14,7 @@ SUBSYSTEM_DEF(traumas)
 	//phobia types is to pull from randomly for brain traumas, e.g. conspiracies is for special assignment only
 	phobia_types = sortList(list("spiders", "space", "security", "clowns", "greytide", "lizards",
 						"skeletons", "snakes", "robots", "doctors", "authority", "the supernatural",
-						"aliens", "strangers", "birds", "falling", "anime", "insects"))
+						"aliens", "strangers", "birds", "falling", "anime", "insects", "blood"))
 
 	phobia_regexes = list("spiders"          = construct_phobia_regex("spiders"),
 		"space"            = construct_phobia_regex("space"),
@@ -34,7 +34,8 @@ SUBSYSTEM_DEF(traumas)
 		"birds"            = construct_phobia_regex("birds"),
 		"falling"          = construct_phobia_regex("falling"),
 		"anime"            = construct_phobia_regex("anime"),
-		"insects"			 = construct_phobia_regex("insects"),
+		"insects"			= construct_phobia_regex("insects"),
+		"blood"				= construct_phobia_regex("blood"),
 	)
 
 	phobia_mobs = list("spiders"  = typecacheof(list(/mob/living/simple_animal/hostile/poison/giant_spider)),
@@ -167,6 +168,8 @@ SUBSYSTEM_DEF(traumas)
 			/obj/item/clothing/under/costume/griffin, /obj/item/clothing/shoes/griffin, /obj/item/clothing/head/griffin,
 			/obj/item/clothing/head/helmet/space/freedom, /obj/item/clothing/suit/space/freedom
 		)),
+
+		"blood" = typecacheof(list(/obj/machinery/iv_drip, /obj/item/reagent_containers/syringe, /obj/item/reagent_containers/blood, /obj/effect/decal/cleanable/blood)),
 
 	"insects" = typecacheof(list(/obj/item/toy/plush/moth, /obj/item/toy/plush/beeplushie, /obj/item/clothing/mask/animal/rat/bee, /obj/item/clothing/suit/hooded/bee_costume, /obj/structure/beebox)),
 
