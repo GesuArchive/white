@@ -288,6 +288,7 @@
 	prereq_ids = list("engineering", "datatheory")
 	design_ids = list("pico_mani", "super_matter_bin")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 7500)
+	discount_experiments = list(/datum/experiment/scanning/points/machinery_tiered_scan/tier2_lathes = 5000)
 
 /datum/techweb_node/adv_power
 	id = "adv_power"
@@ -295,7 +296,8 @@
 	description = "How to get more zap."
 	prereq_ids = list("engineering")
 	design_ids = list("smes", "super_cell", "hyper_cell", "super_capacitor", "superpacman", "mrspacman", "power_turbine", "power_turbine_console", "power_compressor", "circulator", "teg")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 3500)
+	discount_experiments = list(/datum/experiment/scanning/points/machinery_pinpoint_scan/tier2_capacitors = 2500)
 
 /////////////////////////Bluespace tech/////////////////////////
 /datum/techweb_node/bluespace_basic //Bluespace-memery
@@ -313,6 +315,7 @@
 	prereq_ids = list("practical_bluespace")
 	design_ids = list("tele_station", "tele_hub", "teleconsole", "quantumpad", "launchpad", "launchpad_console", "bluespace_pod")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
+	discount_experiments = list(/datum/experiment/scanning/points/machinery_tiered_scan/tier3_bluespacemachines = 4000)
 
 /datum/techweb_node/micro_bluespace
 	id = "micro_bluespace"
@@ -321,7 +324,8 @@
 	prereq_ids = list("bluespace_travel", "practical_bluespace", "high_efficiency")
 	design_ids = list("bluespace_matter_bin", "femto_mani", "bluespacebodybag", "triphasic_scanning", "quantum_keycard", "wormholeprojector", "swapper")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 10000)
-	discount_experiments = list(/datum/experiment/exploration_scan/random/condition)
+	discount_experiments = list(/datum/experiment/scanning/points/machinery_tiered_scan/tier3_variety = 5000)
+		/* /datum/experiment/exploration_scan/random/condition) this should have a point cost but im not even sure the experiment works properly lmao*/
 
 /datum/techweb_node/advanced_bluespace
 	id = "bluespace_storage"
@@ -338,6 +342,7 @@
 	prereq_ids = list("bluespace_basic", "engineering")
 	design_ids = list("bs_rped","minerbag_holding", "bluespacebeaker", "bluespacesyringe", "phasic_scanning", "roastingstick", "ore_silo", "plumbing_receiver")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
+	discount_experiments = list(/datum/experiment/scanning/points/machinery_pinpoint_scan/tier2_scanmodules = 3500)
 
 /datum/techweb_node/bluespace_power
 	id = "bluespace_power"
@@ -346,6 +351,7 @@
 	prereq_ids = list("adv_power", "practical_bluespace")
 	design_ids = list("bluespace_cell", "quadratic_capacitor")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
+	discount_experiments = list(/datum/experiment/scanning/points/machinery_pinpoint_scan/tier3_cells = 3000)
 
 /datum/techweb_node/unregulated_bluespace
 	id = "unregulated_bluespace"
@@ -509,6 +515,7 @@
 	prereq_ids = list("emp_basic")
 	design_ids = list("ultra_micro_laser")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 3000)
+	discount_experiments = list(/datum/experiment/scanning/points/machinery_pinpoint_scan/tier2_microlaser = 1500)
 
 /datum/techweb_node/emp_super
 	id = "emp_super"
@@ -516,7 +523,8 @@
 	description = "Even better electromagnetic technology."
 	prereq_ids = list("emp_adv")
 	design_ids = list("quadultra_micro_laser")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 3000)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
+	discount_experiments = list(/datum/experiment/scanning/points/machinery_pinpoint_scan/tier3_microlaser = 4000)
 
 /////////////////////////Clown tech/////////////////////////
 /datum/techweb_node/clown
@@ -851,7 +859,8 @@
 	prereq_ids = list("adv_mecha", "weaponry")
 	design_ids = list("gygax_chassis", "gygax_torso", "gygax_head", "gygax_left_arm", "gygax_right_arm", "gygax_left_leg", "gygax_right_leg", "gygax_main",
 	"gygax_peri", "gygax_targ", "gygax_armor")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
+	discount_experiments = list(/datum/experiment/scanning/points/machinery_tiered_scan/tier3_mechbay = 5000)
 
 /datum/techweb_node/durand
 	id = "mech_durand"
@@ -860,7 +869,8 @@
 	prereq_ids = list("adv_mecha", "adv_weaponry")
 	design_ids = list("durand_chassis", "durand_torso", "durand_head", "durand_left_arm", "durand_right_arm", "durand_left_leg", "durand_right_leg", "durand_main",
 	"durand_peri", "durand_targ", "durand_armor")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
+	discount_experiments = list(/datum/experiment/scanning/points/machinery_tiered_scan/tier3_mechbay = 3500)
 
 /datum/techweb_node/phazon
 	id = "mecha_phazon"
@@ -869,7 +879,29 @@
 	prereq_ids = list("adv_mecha", "weaponry" , "micro_bluespace")
 	design_ids = list("phazon_chassis", "phazon_torso", "phazon_head", "phazon_left_arm", "phazon_right_arm", "phazon_left_leg", "phazon_right_leg", "phazon_main",
 	"phazon_peri", "phazon_targ", "phazon_armor")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
+	discount_experiments = list(/datum/experiment/scanning/points/machinery_tiered_scan/tier3_mechbay = 2500)
+
+/datum/techweb_node/savannah_ivanov
+	id = "mecha_savannah_ivanov"
+	display_name = "EXOSUIT: Savannah-Ivanov"
+	description = "Savannah-Ivanov exosuit designs"
+	prereq_ids = list("adv_mecha", "weaponry", "exp_tools")
+	design_ids = list(
+		"savannah_ivanov_armor",
+		"savannah_ivanov_chassis",
+		"savannah_ivanov_head",
+		"savannah_ivanov_left_arm",
+		"savannah_ivanov_left_leg",
+		"savannah_ivanov_main",
+		"savannah_ivanov_peri",
+		"savannah_ivanov_right_arm",
+		"savannah_ivanov_right_leg",
+		"savannah_ivanov_targ",
+		"savannah_ivanov_torso",
+	)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
+	discount_experiments = list(/datum/experiment/scanning/points/machinery_tiered_scan/tier3_mechbay = 3000)
 
 /datum/techweb_node/adv_mecha_tools
 	id = "adv_mecha_tools"

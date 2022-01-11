@@ -92,3 +92,6 @@
 
 #define COMSIG_KB_CLIENT_FULLSCREEN "keybinding_client_fullscreen"
 #define COMSIG_KB_CLIENT_WIDESCREEN "keybinding_client_widescreen"
+
+#define COMSIG_KB_CLIENT_MULTIZ_UP "multiz_up_hotkeys"
+#define COMSIG_KB_CLIENT_MULTIZ_DOWN "multiz_down_hotkeys"

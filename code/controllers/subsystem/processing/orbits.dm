@@ -78,7 +78,8 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 	//Create asteroid belt
 	for(var/i in 1 to initial_asteroids)
 		new /datum/orbital_object/z_linked/beacon/ruin/asteroid()
-	//new /datum/orbital_object/z_linked/habitable()
+	//Create some derelict station
+	new /datum/orbital_object/z_linked/habitable()
 
 /datum/controller/subsystem/processing/orbits/fire(resumed)
 	if(resumed)

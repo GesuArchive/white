@@ -124,8 +124,13 @@
 	chassis.toggle_strafe()
 
 /obj/vehicle/sealed/mecha/AltClick(mob/living/user)
-	if((user in occupants) && user.canUseTopic(src))
-		toggle_strafe()
+	if(!(user in occupants) || !user.canUseTopic(src))
+		return
+	if(!(user in return_controllers_with_flag(VEHICLE_CONTROL_DRIVE)))
+		to_chat(user, span_warning("Неправильное место для взаимодействия с оборудованием!"))
+		return
+
+	toggle_strafe()
 
 /obj/vehicle/sealed/mecha/proc/toggle_strafe()
 	if(!(mecha_flags & CANSTRAFE))
@@ -215,14 +220,14 @@
 		return
 	var/new_damtype
 	switch(chassis.damtype)
-		if("tox")
-			new_damtype = "brute"
+		if(TOX)
+			new_damtype = BRUTE
 			to_chat(owner, "[icon2html(chassis, owner)]<span class='notice'>Теперь рука будет бить.</span>")
-		if("brute")
-			new_damtype = "fire"
+		if(BRUTE)
+			new_damtype = FIRE
 			to_chat(owner, "[icon2html(chassis, owner)]<span class='notice'>Теперь рука будет жарить.</span>")
-		if("fire")
-			new_damtype = "tox"
+		if(FIRE)
+			new_damtype = TOX
 			to_chat(owner, "[icon2html(chassis, owner)]<span class='notice'>Теперь рука будет вводить токсины.</span>")
 	chassis.damtype = new_damtype
 	button_icon_state = "mech_damtype_[new_damtype]"
@@ -236,7 +241,37 @@
 /datum/action/vehicle/sealed/mecha/mech_toggle_phasing/Trigger()
 	if(!owner || !chassis || !(owner in chassis.occupants))
 		return
-	chassis.phasing = !chassis.phasing
+	chassis.phasing = chassis.phasing ? "" : "фазирование"
 	button_icon_state = "mech_phasing_[chassis.phasing ? "on" : "off"]"
 	to_chat(owner, "[icon2html(chassis, owner)]<font color=\"[chassis.phasing?"#00f\">Включаем":"#f00\">Выключаем"] фазирование.</font>")
 	UpdateButtonIcon()
+
+///swap seats, for two person mecha
+/datum/action/vehicle/sealed/mecha/swap_seat
+	name = "Сменить место"
+	button_icon_state = "mech_seat_swap"
+
+/datum/action/vehicle/sealed/mecha/swap_seat/Trigger()
+	if(!owner || !chassis || !(owner in chassis.occupants))
+		return
+
+	if(chassis.occupants.len == chassis.max_occupants)
+		chassis.balloon_alert(owner, "другое место занято!")
+		return
+	var/list/drivers = chassis.return_drivers()
+	chassis.balloon_alert(owner, "перелезаем...")
+	chassis.is_currently_ejecting = TRUE
+	if(!do_after(owner, chassis.has_gravity() ? chassis.exit_delay : 0 , target = chassis))
+		chassis.balloon_alert(owner, "помешали!")
+		chassis.is_currently_ejecting = FALSE
+		return
+	chassis.is_currently_ejecting = FALSE
+	if(owner in drivers)
+		chassis.balloon_alert(owner, "место стрелка")
+		chassis.remove_control_flags(owner, VEHICLE_CONTROL_DRIVE|VEHICLE_CONTROL_SETTINGS)
+		chassis.add_control_flags(owner, VEHICLE_CONTROL_MELEE|VEHICLE_CONTROL_EQUIPMENT)
+	else
+		chassis.balloon_alert(owner, "место пилота")
+		chassis.remove_control_flags(owner, VEHICLE_CONTROL_MELEE|VEHICLE_CONTROL_EQUIPMENT)
+		chassis.add_control_flags(owner, VEHICLE_CONTROL_DRIVE|VEHICLE_CONTROL_SETTINGS)
+	chassis.update_icon_state()

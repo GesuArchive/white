@@ -51,17 +51,17 @@
 		to_chat(M, span_notice("[uses] use[uses > 1 ? "s" : ""] remaining on the [src]."))
 
 /obj/item/choice_beacon/proc/spawn_option(obj/choice,mob/living/M)
-	var/obj/structure/closet/supplypod/bluespacepod/pod = new()
-	new choice(pod)
-	pod.explosionSize = list(0,0,0,0)
+	podspawn(list(
+		"target" = get_turf(src),
+		"style" = STYLE_BLUESPACE,
+		"spawn" = choice,
+	))
 	var/msg = "<span class=danger>Странный символ целеуказания появляется прямо у меня перед ногами. Вероятно, стоит отойти подальше!</span>"
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(istype(H.ears, /obj/item/radio/headset))
 			msg = "Наушники начинают шуршать, затем из них раздаётся голос, который говорит:  \"Пожалуйста, прослушайте сообщение от Центрального Командования. Сообщение гласит: <span class='bold'>Запрос принят. Посылка уже в пути. Пожалуйста, отойдите от зоны приземления на безопасное расстояние.</span> Конец сообщения.\""
 	to_chat(M, msg)
-
-	new /obj/effect/pod_landingzone(get_turf(src), pod)
 
 /obj/item/choice_beacon/ingredient
 	name = "ingredient delivery beacon"

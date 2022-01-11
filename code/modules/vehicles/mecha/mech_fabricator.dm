@@ -57,6 +57,7 @@
 								"Durand",
 								"H.O.N.K",
 								"Phazon",
+								"Savannah-Ivanov",
 								"Модули экзоскелетов",
 								"Аммуниция",
 								"Улучшения киборгов",
@@ -123,51 +124,6 @@
 	var/obj/built_item = D.build_path
 
 	var/list/category_override = null
-/*	var/list/sub_category = null		\\ Переход на другую систему группирования
-
-	if(categories)
-		// Handle some special cases to build up sub-categories for the fab interface.
-		// Start with checking if this design builds a cyborg module.
-		if(built_item in typesof(/obj/item/borg/upgrade))
-			var/obj/item/borg/upgrade/U = built_item
-			var/module_types = initial(U.module_flags)
-			sub_category = list()
-			if(module_types)
-				if(module_types & BORG_MODULE_SECURITY)
-					sub_category += "Охранный"
-				if(module_types & BORG_MODULE_MINER)
-					sub_category += "Шахтёрский"
-				if(module_types & BORG_MODULE_JANITOR)
-					sub_category += "Уборщик"
-				if(module_types & BORG_MODULE_MEDICAL)
-					sub_category += "Медицинский"
-				if(module_types & BORG_MODULE_ENGINEERING)
-					sub_category += "Инженерный"
-			else
-				sub_category += "Все киборги"
-		// Else check if this design builds a piece of exosuit equipment.
-		else if(built_item in typesof(/obj/item/mecha_parts/mecha_equipment))
-			var/obj/item/mecha_parts/mecha_equipment/E = built_item
-			var/mech_types = initial(E.mech_flags)
-			sub_category = "Снаряжение"
-			if(mech_types)
-				category_override = list()
-				if(mech_types & EXOSUIT_MODULE_RIPLEY)
-					category_override += "Ripley"
-				if(mech_types & EXOSUIT_MODULE_ODYSSEUS)
-					category_override += "Odysseus"
-				if(mech_types & EXOSUIT_MODULE_CLARKE)
-					category_override += "Clarke"
-				if(mech_types & EXOSUIT_MODULE_GYGAX)
-					category_override += "Gygax"
-				if(mech_types & EXOSUIT_MODULE_DURAND)
-					category_override += "Durand"
-				if(mech_types & EXOSUIT_MODULE_HONK)
-					category_override += "H.O.N.K"
-				if(mech_types & EXOSUIT_MODULE_PHAZON)
-					category_override += "Phazon"
-
-*/
 
 	var/list/part = list(
 		"name" = D.name,

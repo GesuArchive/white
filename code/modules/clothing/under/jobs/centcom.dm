@@ -44,3 +44,17 @@
 	icon_state = "centcom_skirt"
 	inhand_icon_state = "dg_suit"
 	fitted = FEMALE_UNIFORM_TOP
+	can_adjust = FALSE
+
+/obj/item/clothing/under/rank/centcom/military
+	name = "тактическая униформа"
+	desc = "Униформа темного цвета, которую носят мобилизованные вооруженные силы ЦК."
+	icon_state = "military"
+	inhand_icon_state = "bl_suit"
+	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 40)
+	can_adjust = FALSE
+
+/obj/item/clothing/under/rank/centcom/military/eng
+	name = "тактическая униформа инженера"
+	desc = "Униформа темного цвета, которую носят военные инженеры ЦК."
+	icon_state = "military_eng"

@@ -110,7 +110,7 @@
 	AI = null
 
 /obj/structure/mecha_wreckage/gygax
-	name = "\improper Gygax wreckage"
+	name = "Gygax wreckage"
 	icon_state = "gygax-broken"
 	parts = list(
 				/obj/item/mecha_parts/part/gygax_torso,
@@ -122,30 +122,30 @@
 				)
 
 /obj/structure/mecha_wreckage/gygax/dark
-	name = "\improper Dark Gygax wreckage"
+	name = "Dark Gygax wreckage"
 	icon_state = "darkgygax-broken"
 
 /obj/structure/mecha_wreckage/marauder
-	name = "\improper Marauder wreckage"
+	name = "Marauder wreckage"
 	icon_state = "marauder-broken"
 
 /obj/structure/mecha_wreckage/mauler
-	name = "\improper Mauler wreckage"
+	name = "Mauler wreckage"
 	icon_state = "mauler-broken"
 	desc = "The syndicate won't be very happy about this..."
 
 /obj/structure/mecha_wreckage/seraph
-	name = "\improper Seraph wreckage"
+	name = "Seraph wreckage"
 	icon_state = "seraph-broken"
 
 /obj/structure/mecha_wreckage/reticence
-	name = "\improper Reticence wreckage"
+	name = "Reticence wreckage"
 	icon_state = "reticence-broken"
 	color = "#87878715"
 	desc = "..."
 
 /obj/structure/mecha_wreckage/ripley
-	name = "\improper Ripley wreckage"
+	name = "Ripley wreckage"
 	icon_state = "ripley-broken"
 	parts = list(
 				/obj/item/mecha_parts/part/ripley_torso,
@@ -155,11 +155,11 @@
 				/obj/item/mecha_parts/part/ripley_right_leg)
 
 /obj/structure/mecha_wreckage/ripley/mk2
-	name = "\improper Ripley MK-II wreckage"
+	name = "Ripley MK-II wreckage"
 	icon_state = "ripleymkii-broken"
 
 /obj/structure/mecha_wreckage/clarke
-	name = "\improper Clarke wreckage"
+	name = "Clarke wreckage"
 	icon_state = "clarke-broken"
 	parts = list(
 				/obj/item/mecha_parts/part/clarke_torso,
@@ -169,12 +169,12 @@
 				/obj/item/stack/conveyor)
 
 /obj/structure/mecha_wreckage/ripley/deathripley
-	name = "\improper Death-Ripley wreckage"
+	name = "Death-Ripley wreckage"
 	icon_state = "deathripley-broken"
 	parts = null
 
 /obj/structure/mecha_wreckage/honker
-	name = "\improper H.O.N.K wreckage"
+	name = "H.O.N.K wreckage"
 	icon_state = "honker-broken"
 	desc = "All is right in the universe."
 	parts = list(
@@ -186,7 +186,7 @@
 				/obj/item/mecha_parts/part/honker_right_leg)
 
 /obj/structure/mecha_wreckage/durand
-	name = "\improper Durand wreckage"
+	name = "Durand wreckage"
 	icon_state = "durand-broken"
 	parts = list(
 			/obj/item/mecha_parts/part/durand_torso,
@@ -197,7 +197,7 @@
 			/obj/item/mecha_parts/part/durand_right_leg)
 
 /obj/structure/mecha_wreckage/phazon
-	name = "\improper Phazon wreckage"
+	name = "Phazon wreckage"
 	icon_state = "phazon-broken"
 	parts = list(
 		/obj/item/mecha_parts/part/phazon_torso,
@@ -207,10 +207,20 @@
 		/obj/item/mecha_parts/part/phazon_left_leg,
 		/obj/item/mecha_parts/part/phazon_right_leg)
 
-
+/obj/structure/mecha_wreckage/savannah_ivanov
+	name = "Savannah-Ivanov wreckage"
+	icon = 'icons/mecha/coop_mech.dmi'
+	icon_state = "savannah_ivanov-broken"
+	parts = list(
+		/obj/item/mecha_parts/part/savannah_ivanov_torso,
+		/obj/item/mecha_parts/part/savannah_ivanov_head,
+		/obj/item/mecha_parts/part/savannah_ivanov_left_arm,
+		/obj/item/mecha_parts/part/savannah_ivanov_right_arm,
+		/obj/item/mecha_parts/part/savannah_ivanov_left_leg,
+		/obj/item/mecha_parts/part/savannah_ivanov_right_leg)
 
 /obj/structure/mecha_wreckage/odysseus
-	name = "\improper Odysseus wreckage"
+	name = "Odysseus wreckage"
 	icon_state = "odysseus-broken"
 	parts = list(
 			/obj/item/mecha_parts/part/odysseus_torso,

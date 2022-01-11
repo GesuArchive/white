@@ -169,8 +169,3 @@
 				investigate_log("[key_name(usr)] edited [program.name] trigger delay timer into [timer/10] s", INVESTIGATE_NANITES)
 			. = TRUE
 
-/obj/machinery/nanite_programmer/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
-	. = ..()
-	var/static/regex/when = regex("(?:^\\W*when|when\\W*$)", "i") //starts or ends with when
-	if(findtext(raw_message, when) && !istype(speaker, /obj/machinery/nanite_programmer))
-		say("When you code it!!")

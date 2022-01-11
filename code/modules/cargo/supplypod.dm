@@ -74,6 +74,11 @@
 	explosionSize = list(0,0,1,2)
 	delays = list(POD_TRANSIT = 25, POD_FALLING = 4, POD_OPENING = 30, POD_LEAVING = 30)
 
+//type used for one drop spawning items. doesn't have a style as style is set by the helper that creates this
+/obj/structure/closet/supplypod/podspawn
+	bluespace = TRUE
+	explosionSize = list(0,0,0,0)
+
 /obj/structure/closet/supplypod/centcompod
 	style = STYLE_CENTCOM
 	bluespace = TRUE

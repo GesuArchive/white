@@ -74,10 +74,12 @@ GLOBAL_LIST_INIT(skill_types, subtypesof(/datum/skill))
 	if (LAZYFIND(mind.skills_rewarded, src.type))
 		to_chat(mind.current, span_nicegreen("Похоже,  Ассоциация Профессионалов [title] не хочет давать мне больше символов навыка."))
 		return
-	var/obj/structure/closet/supplypod/bluespacepod/pod = new()
-	pod.delays[POD_TRANSIT] = 150
-	pod.explosionSize = list(0,0,0,0)
+	podspawn(list(
+		"target" = get_turf(mind.current),
+		"path" = /obj/structure/closet/supplypod/mechpod,
+		"style" = STYLE_BLUESPACE,
+		"spawn" = skill_cape_path,
+		"delays" = list(POD_TRANSIT = 150, POD_FALLING = 4, POD_OPENING = 30, POD_LEAVING = 30)
+	))
 	to_chat(mind.current, span_nicegreen("Мой легендарный навык привлёк Ассоциацию Профессионалов [title]. Похоже, они выслали мне особый символ, чтобы отметить это."))
-	var/turf/T = get_turf(mind.current)
-	new /obj/effect/pod_landingzone(T, pod , new skill_cape_path(T))
 	LAZYADD(mind.skills_rewarded, src.type)

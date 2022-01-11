@@ -1332,3 +1332,145 @@
 			else
 				user.visible_message(span_notice("<b>[user]</b> откручивает внешнюю обшивку.") , span_notice("Откручиваю внешнюю обшивку."))
 	return TRUE
+
+//savannah_ivanov
+
+/datum/component/construction/unordered/mecha_chassis/savannah_ivanov
+	result = /datum/component/construction/mecha/savannah_ivanov
+	steps = list(
+		/obj/item/mecha_parts/part/savannah_ivanov_torso,
+		/obj/item/mecha_parts/part/savannah_ivanov_head,
+		/obj/item/mecha_parts/part/savannah_ivanov_left_arm,
+		/obj/item/mecha_parts/part/savannah_ivanov_right_arm,
+		/obj/item/mecha_parts/part/savannah_ivanov_left_leg,
+		/obj/item/mecha_parts/part/savannah_ivanov_right_leg
+	)
+
+/datum/component/construction/mecha/savannah_ivanov
+	result = /obj/vehicle/sealed/mecha/combat/savannah_ivanov
+	base_icon = "savannah_ivanov"
+
+	circuit_control = /obj/item/circuitboard/mecha/savannah_ivanov/main
+	circuit_periph = /obj/item/circuitboard/mecha/savannah_ivanov/peripherals
+	circuit_weapon = /obj/item/circuitboard/mecha/savannah_ivanov/targeting
+
+	inner_plating = /obj/item/stack/sheet/plasteel
+	inner_plating_amount = 10
+
+	outer_plating = /obj/item/mecha_parts/part/savannah_ivanov_armor
+	outer_plating_amount = 1
+
+/datum/component/construction/mecha/savannah_ivanov/custom_action(obj/item/I, mob/living/user, diff)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	switch(index)
+		if(1)
+			user.visible_message("<span class='notice'>[user] присоединяет гидравлическую систему [parent].</span>", "<span class='notice'>Подключаю гидравлическую систему [parent].</span>")
+		if(2)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] активирует гидравлическую систему [parent].</span>", "<span class='notice'>Активирую гидравлическую систему [parent].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] отключает гидравлическую систему [parent].</span>", "<span class='notice'>Отключаю гидравлическую систему [parent].</span>")
+		if(3)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] добавляет проводку в [parent].</span>", "<span class='notice'>Добавляю проводку в [parent].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] дeактивирует гидравлическую систему [parent].</span>", "<span class='notice'>Деактивирую гидравлическую систему [parent].</span>")
+		if(4)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] настраивает проводку [parent].</span>", "<span class='notice'>Настраиваю проводку [parent].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] удаляет проводку из [parent].</span>", "<span class='notice'>Удаляю проводку из [parent].</span>")
+		if(5)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] устанавливает [I] в [parent].</span>", "<span class='notice'>Устанавливаю [I] в [parent].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] отключает проводку [parent].</span>", "<span class='notice'>Отключаю проводку [parent].</span>")
+		if(6)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] прикручивает основную плату.</span>", "<span class='notice'>Прикручиваю основную плату.</span>")
+			else
+				user.visible_message("<span class='notice'>[user] удаляет основную плату из [parent].</span>", "<span class='notice'>Удаляю основную плату из [parent].</span>")
+		if(7)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] устанавливает [I] в [parent].</span>", "<span class='notice'>Устанавливаю [I] в [parent].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] Откручивает основную плату.</span>", "<span class='notice'>Откручиваю основную плату.</span>")
+		if(8)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] прикручивает периферийный модуль Иванова.</span>", "<span class='notice'>Прикручиваю периферийный модуль Иванова.</span>")
+			else
+				user.visible_message("<span class='notice'>[user] удаляет периферийный модуль Иванова из [parent].</span>", "<span class='notice'>Удаляю периферийный модуль Иванова из [parent].</span>")
+		if(9)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] устанавливает [I] в [parent].</span>", "<span class='notice'>Устанавливаю [I] в [parent].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] откручивает периферийный модуль Иванова.</span>", "<span class='notice'>Откручиваю периферийный модуль Иванова.</span>")
+		if(10)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] прикручивает модуль управления оружием.</span>", "<span class='notice'>Прикручиваю модуль управления оружием.</span>")
+			else
+				user.visible_message("<span class='notice'>[user] удаляет модуль управления оружием из [parent].</span>", "<span class='notice'>Удаляю модуль управления оружием из [parent].</span>")
+		if(11)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] устанавливает [I] в [parent].</span>", "<span class='notice'>Устанавливаю [I] в [parent].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] откручивает модуль управления оружием.</span>", "<span class='notice'>Откручиваю модуль управления оружием.</span>")
+		if(12)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] прикручивает модуль сканера.</span>", "<span class='notice'>Прикручиваю модуль сканера.</span>")
+			else
+				user.visible_message("<span class='notice'>[user] удаляет модуль сканера из [parent].</span>", "<span class='notice'>Удаляю модуль сканера из [parent].</span>")
+		if(13)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] устанавливает [I] в [parent].</span>", "<span class='notice'>Устанавливаю [I] в [parent].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] откручивает модуль сканера.</span>", "<span class='notice'>Откручиваю модуль сканера.</span>")
+		if(14)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] прикручивает конденсатор.</span>", "<span class='notice'>Прикручиваю конденсатор.</span>")
+			else
+				user.visible_message("<span class='notice'>[user] удаляет конденсатор из [parent].</span>", "<span class='notice'>Удаляю конденсатор из [parent].</span>")
+		if(15)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] устанавливает [I] в [parent].</span>", "<span class='notice'>Устанавливаю [I] в [parent].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] откручивает конденсатор.</span>", "<span class='notice'>Откручиваю конденсатор.</span>")
+		if(16)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] прикручивает аккумулятор.</span>", "<span class='notice'>Прикручиваю аккумулятор.</span>")
+			else
+				user.visible_message("<span class='notice'>[user] вытаскивает аккумулятор из [parent].</span>", "<span class='notice'>Вытаскиваю аккумулятор из [parent].</span>")
+		if(17)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] устанавливает внутреннюю обшивку в [parent].</span>", "<span class='notice'>Устанавливаю внутреннюю обшивку в [parent].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] откручивает аккумулятор.</span>", "<span class='notice'>Откручиваю аккумулятор.</span>")
+		if(18)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] прикручивает внутреннюю обшивку.</span>", "<span class='notice'>Прикручиваю внутреннюю обшивку.</span>")
+			else
+				user.visible_message("<span class='notice'>[user] срывает внутреннюю обшивку с [parent].</span>", "<span class='notice'>Срываю внутреннюю обшивку с [parent].</span>")
+		if(19)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] приваривает внутреннюю обшивку к [parent].</span>", "<span class='notice'>Привариваю внутреннюю обшивку к [parent].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] откручивает внутреннюю обшивку.</span>", "<span class='notice'>Откручиваю внутреннюю обшивку.</span>")
+		if(20)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] устанавливает [I] в [parent].</span>", "<span class='notice'>Устанавливаю [I] в [parent].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] срезает внутреннюю обшивку с [parent].</span>", "<span class='notice'>Срезаю внутреннюю обшивку с [parent].</span>")
+		if(21)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] устанавливает бронепластины Саванны-Иванова.</span>", "<span class='notice'>Устанавливаю бронепластины Саванны-Иванова.</span>")
+			else
+				user.visible_message("<span class='notice'>[user] срывает бронепластины Саванны-Иванова с [parent].</span>", "<span class='notice'>Срываю бронепластины Саванны-Иванова с [parent].</span>")
+		if(22)
+			if(diff==FORWARD)
+				user.visible_message("<span class='notice'>[user] приваривает бронепластины Саванны-Иванова к [parent].</span>", "<span class='notice'>Привариваю бронепластины Саванны-Иванова к [parent].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] откручивает бронепластины Саванны-Иванова.</span>", "<span class='notice'>Откручиваю бронепластины Саванны-Иванова.</span>")
+	return TRUE
