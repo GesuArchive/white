@@ -33,7 +33,7 @@
 	. = ..()
 	add_overlay(overlay)
 	AddElement(/datum/element/ridable, /datum/component/riding/vehicle/forklift)
-	initialize_controller_action_type(/datum/action/vehicle/forkmove, VEHICLE_CONTROL_PERMISSION)
+	initialize_controller_action_type(/datum/action/vehicle/forkmove)
 
 /obj/vehicle/ridden/forklift/Bump(atom/A)
 	. = ..()
