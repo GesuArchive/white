@@ -226,6 +226,7 @@
 /area/shuttle/exploration
 	name = "Шаттл Рейнджеров"
 	requires_power = TRUE
+	ambientsounds = RANGERS_AMB
 
 /area/shuttle/custom
 	name = "DIY-шаттл"

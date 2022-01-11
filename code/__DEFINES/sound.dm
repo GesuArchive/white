@@ -129,6 +129,12 @@
 						'white/valtos/sounds/prison/amb7.ogg',\
 						'white/valtos/sounds/prison/amb8.ogg')
 
+#define RANGERS_AMB list('white/valtos/sounds/rangers/1.ogg',\
+						'white/valtos/sounds/rangers/2.ogg',\
+						'white/valtos/sounds/rangers/3.ogg',\
+						'white/valtos/sounds/rangers/4.ogg',\
+						'white/valtos/sounds/rangers/5.ogg')
+
 #define SOVIET_AMB_CAVES list('white/valtos/sounds/prison/ambout1.ogg')
 
 #define SCARLET_DAWN_AMBIENT list('white/valtos/sounds/dz/ambidawn.ogg')
