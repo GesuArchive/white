@@ -705,7 +705,6 @@
 
 /obj/effect/mob_spawn/human/donate/artist/Initialize()
 	. = ..()
-	round_banned_ckeys += "sanecman"
 	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/mob_spawn/human/donate/artist/Destroy()
@@ -823,7 +822,6 @@
 
 /obj/effect/duel_controller/Initialize(mapload)
 	. = ..()
-	banned_ckeys += "sanecman"
 
 /obj/effect/duel_controller/attack_ghost(mob/user)
 	if(banned_ckeys.Find(user.ckey))
