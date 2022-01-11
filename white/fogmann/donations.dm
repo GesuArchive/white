@@ -356,11 +356,11 @@ GLOBAL_LIST_EMPTY(donators)
 
 			prize.stock--
 
-			var/obj/structure/closet/supplypod/bluespacepod/pod = new()
-			new prize.path_to(pod)
-			pod.explosionSize = list(0,0,0,0)
-
-			new /obj/effect/pod_landingzone(get_turf(user), pod)
+			podspawn(list(
+				"target" = get_turf(user),
+				"path" = /obj/structure/closet/supplypod/battleroyale,
+				"spawn" = prize.path_to
+			))
 
 			to_chat(user, span_info("[capitalize(prize.name)] был создан!"))
 

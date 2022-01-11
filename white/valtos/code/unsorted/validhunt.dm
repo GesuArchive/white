@@ -54,10 +54,11 @@
 /datum/component/bounty/proc/bounty_death()
 	SIGNAL_HANDLER
 
-	var/obj/structure/closet/supplypod/bluespacepod/pod = new()
-	new /obj/item/holochip(pod, bounty_size)
-	pod.explosionSize = list(0,0,0,0)
+	var/obj/structure/closet/supplypod/pod = podspawn(list(
+		"target" = get_turf(user),
+		"path" = /obj/structure/closet/supplypod/battleroyale
+	))
 
-	new /obj/effect/pod_landingzone(get_turf(parent), pod)
+	I.forceMove(pod)
 
 	qdel(src)

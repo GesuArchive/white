@@ -64,9 +64,10 @@ GLOBAL_LIST_EMPTY(decomission_bombs)
 	GLOB.decomission_bombs += src
 	r_code = "[rand(10000, 99999)]"
 	print_command_report("Код взрыва ядерной бомбы: [r_code]")
-	var/obj/structure/closet/supplypod/bluespacepod/pod = new()
-	pod.explosionSize = list(0,0,0,4)
-	new /obj/effect/pod_landingzone(get_turf(src), pod)
+	var/obj/structure/closet/supplypod/pod = podspawn(list(
+		"target" = get_turf(src),
+		"path" = /obj/structure/closet/supplypod/battleroyale
+	))
 	forceMove(pod)
 
 /obj/machinery/nuclearbomb/decomission/Destroy()
