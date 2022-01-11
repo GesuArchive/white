@@ -55,10 +55,8 @@
 /obj/item/clothing/under/syndicate/sniper
 	name = "тактический костюм"
 	desc = "Тактическая водолазка с двойным швом, замаскированная под шелковый костюм гражданского уровня. Предназначен для самого деловитого оператора. Воротник действительно острый."
-	icon = 'icons/obj/clothing/under/suits.dmi'
-	icon_state = "really_black_suit"
+	icon_state = "tactical_suit"
 	inhand_icon_state = "bl_suit"
-	worn_icon = 'icons/mob/clothing/under/suits.dmi'
 	can_adjust = FALSE
 
 /obj/item/clothing/under/syndicate/camo
