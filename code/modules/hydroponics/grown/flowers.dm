@@ -44,7 +44,7 @@
 /obj/item/food/grown/poppy/lily
 	seed = /obj/item/seeds/poppy/lily
 	name = "Лилия"
-	desc = "Красочный оранжевый цветок."
+	desc = "Красочный беленький цветок."
 	icon_state = "lily"
 	preserved_food = TRUE
 
