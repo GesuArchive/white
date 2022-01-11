@@ -23,16 +23,13 @@
 
 /turf/open/space/basic/New()	//Do not convert to Initialize
 	//This is used to optimize the map loader
-	return
-
-/turf/open/space/basic/Initialize() // test
 	icon_state = SPACE_ICON_STATE
 	air = space_gas
 	update_air_ref()
 	vis_contents.Cut()
 	visibilityChanged()
 	flags_1 |= INITIALIZED_1
-	return INITIALIZE_HINT_NORMAL
+	return
 
 /**
  * Space Initialize
