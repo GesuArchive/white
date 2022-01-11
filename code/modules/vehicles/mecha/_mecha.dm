@@ -263,8 +263,8 @@
 	if((mecha_flags & SILICON_PILOT) && silicon_icon_state)
 		return silicon_icon_state
 	if(LAZYLEN(occupants))
-		return base_icon_state
-	return "[base_icon_state]-open"
+		return initial(icon_state)
+	return "[initial(icon_state)]-open"
 
 /obj/vehicle/sealed/mecha/CanPassThrough(atom/blocker, movement_dir, blocker_opinion)
 	if(!phasing || get_charge() <= phasing_energy_drain || throwing)
