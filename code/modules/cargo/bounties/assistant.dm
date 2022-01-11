@@ -1,31 +1,31 @@
 /datum/bounty/item/assistant/strange_object
 	name = "Странный обьект"
-	description = "Нанотрейзен интересуется странными предметами. Найите один в исправности и сразу же отправьте его на ЦК."
+	description = "Нанотрейзен интересуется странными предметами. Найдите один в исправности и сразу же отправьте его на ЦК."
 	reward = 20
 	wanted_types = list(/obj/item/relic)
 
 /datum/bounty/item/assistant/scooter
 	name = "Скутер"
-	description = "Нанотрейзен решила что ходить бесполезно. Отправьте скутер на ЦК, чтобы ускорить работу."
+	description = "Нанотрейзен решила, что пеший шаг вышел из моды. Отправьте скутер на ЦК, чтобы ускорить работу."
 	reward = 50
 	wanted_types = list(/obj/vehicle/ridden/scooter)
 	include_subtypes = FALSE
 
 /datum/bounty/item/assistant/skateboard
 	name = "Скейтборд"
-	description = "Нанотрейзен решила что ходить бесполезно. Отправьте скейтборд на ЦК, чтобы ускорить работу."
+	description = "Нанотрейзен решила, что ходить бессмысленно. Отправьте скейтборд на ЦК, чтобы ускорить работу."
 	reward = 40
 	wanted_types = list(/obj/vehicle/ridden/scooter/skateboard, /obj/item/melee/skateboard)
 
 /datum/bounty/item/assistant/stunprod
 	name = "Палка-Оглушалка"
-	description = "ЦК требует использовать палка-оглушалки против диссидентов. Сделайте один, и затем отправьте на ЦК."
+	description = "ЦК требует использовать палка-оглушалки против диссидентов. Сделайте одну и отправьте на ЦК."
 	reward = 30
 	wanted_types = list(/obj/item/melee/baton/cattleprod)
 
 /datum/bounty/item/assistant/soap
 	name = "Мыло"
-	description = "Мыло пропало из ванных комнат ЦК. Никто не знает кто его взял. Отправьте мыло и станьте героем, в котором нуждается ЦК."
+	description = "Мыло пропало из ванных комнат ЦК. Никто не знает, кто его взял. Отправьте мыло и станьте героем, в котором нуждается ЦК."
 	reward = 40
 	required_count = 3
 	wanted_types = list(/obj/item/soap)
@@ -39,20 +39,20 @@
 
 /datum/bounty/item/assistant/toolbox
 	name = "Тулбоксы"
-	description = "На ЦК нехватка робаста! Поспешите и отправьте несколько наборов инструментов в качестве решения проблемы."
+	description = "На ЦК нехватка робаста! Поспешите и отправьте несколько ящиков с инструментами в качестве решения проблемы."
 	reward = 50
 	required_count = 6
 	wanted_types = list(/obj/item/storage/toolbox)
 
 /datum/bounty/item/assistant/statue
 	name = "Статуя"
-	description = "ЦК заказало статую художника для вестибюля. Отправьте один, когда это будет возможно."
+	description = "ЦК заказало статую художника для вестибюля. Отправьте одну, когда это будет возможно."
 	reward = 100
 	wanted_types = list(/obj/structure/statue)
 
 /datum/bounty/item/assistant/clown_box
 	name = "Коробка клоуна"
-	description = "Вселенной нужен смех. Отпечатайте корбку штампом клоуна и отправьте его."
+	description = "Вселенной нужен смех. Отпечатайте коробку штампом клоуна и отправьте его."
 	reward = 50
 	wanted_types = list(/obj/item/storage/box/clown)
 
@@ -72,20 +72,20 @@
 
 /datum/bounty/item/assistant/extendohand
 	name = "Расширяющаяся рука"
-	description = "Коммандер Бетси стареет и больше не может наклоняться, чтобы получить дистанционный пульт. Руководство попросило отправить руку, чтобы помочь ей."
+	description = "Коммандер Бетси стареет и больше не может наклоняться, чтобы достать пульт. Руководство попросило отправить руку, чтобы помочь ей."
 	reward = 55
 	wanted_types = list(/obj/item/extendohand)
 
 /datum/bounty/item/assistant/donut
 	name = "Пончики"
-	description = "Силы безопасности CentCom несут большие потери против Синдиката. Отправьте им пончики, чтобы поднять боевой дух."
+	description = "Силы безопасности ЦК несут большие потери против Синдиката. Отправьте им пончики, чтобы поднять боевой дух."
 	reward = 100
 	required_count = 10
 	wanted_types = list(/obj/item/food/donut)
 
 /datum/bounty/item/assistant/donkpocket
 	name = "Донк-Покеты"
-	description = "отзыв безопасности потребителей: Внимание! Донк-Покеты, изготовленные в прошлом году, содержат опасную биоматерию ящерицы. Верните их на ЦК немедленно."
+	description = "Отзыв безопасности потребителей: Внимание! Донк-Покеты, изготовленные в прошлом году, содержат опасную биоматерию ящерицы. Верните их на ЦК немедленно."
 	reward = 75
 	required_count = 10
 	wanted_types = list(/obj/item/food/donkpocket)
@@ -106,20 +106,20 @@
 
 /datum/bounty/item/assistant/monkey_hide
 	name = "Кожа обезьяны"
-	description = "One of the scientists at CentCom is interested in testing products on monkey skin. Your mission is to acquire monkey's hide and ship it."
+	description = "Один из учёных с ЦК заинтересован тестированием продуктов из кожи обезьяны. Ваша задача достать кожу и отправить её на ЦК."
 	reward = 25
 	wanted_types = list(/obj/item/stack/sheet/animalhide/monkey)
 
 /datum/bounty/item/assistant/shard
 	name = "Осколки стекла"
-	description = "ЦК преследует убийцу-клоуна и сотрудники не могут поймать его потому что она не носит обувь. Пожалуйста, отправьте несколько осколков, чтобы сделать ловушку."
+	description = "ЦК преследует убийцу-клоуна и сотрудники не могут поймать его, потому что он не носит обувь. Пожалуйста, отправьте несколько осколков, чтобы сделать ловушку."
 	reward = 35
 	required_count = 15
 	wanted_types = list(/obj/item/shard)
 
 /datum/bounty/item/assistant/comfy_chair
 	name = "Удобные кресла"
-	description = "Коммандер Пэт недоволен своим креслом. Он утверждает, что у него болит спина. Отправьте несколько кресел чтобы ублажить его."
+	description = "Коммандер Пэт недоволен своим креслом. Он утверждает, что у него болит спина. Отправьте несколько кресел, чтобы ублажить его."
 	reward = 15
 	required_count = 5
 	wanted_types = list(/obj/structure/chair/comfy)
@@ -142,7 +142,7 @@
 
 /datum/bounty/item/assistant/shadyjims
 	name = "Шейди Джим"
-	description = "В ЦК разгневанный офицер требует, чтобы он получил пачку сигарет Шейди Джима. Пожалуйста, отправьте один. Он начинает угрожать."
+	description = "В ЦК разгневанный офицер требует, чтобы он получил пачку сигарет Шейди Джима. Пожалуйста, отправьте одну. Он начинает угрожать."
 	reward = CARGO_CRATE_VALUE
 	wanted_types = list(/obj/item/storage/fancy/cigarettes/cigpack_shadyjims)
 
@@ -181,7 +181,7 @@
 
 /datum/bounty/item/assistant/ied
 	name = "Самодельная зажигательная бомба"
-	description = "Тюрьма строгого режима НТ на ЦК проходит обучение персонала. Отправьте несколько устройств IED, которые будут служить им учебным пособием..."
+	description = "Тюрьма строгого режима НТ на ЦК проходит обучение персонала. Отправьте несколько устройств самодельной взрывчатки, которые будут служить им учебным пособием..."
 	reward = 40
 	required_count = 3
 	wanted_types = list(/obj/item/grenade/iedcasing)
@@ -219,7 +219,7 @@
 
 /datum/bounty/item/assistant/dead_mice
 	name = "Мёртвая мышь"
-	description = "Недавно открылась сеть ресторанов быстрого питания RatGood. Отправьте партию свежих мертвых мышей."
+	description = "Недавно открылась сеть ресторанов быстрого питания Хорошая Мышь. Отправьте партию свежих мертвых мышей."
 	reward = 35
 	required_count = 5
 	wanted_types = list(/obj/item/food/deadmouse)
@@ -233,7 +233,7 @@
 
 /datum/bounty/item/assistant/crayons
 	name = "Мелки"
-	description = "Ребенок доктора Джонса снова съел все наши мелки. Пожалуйста, пришлите нам свой."
+	description = "Ребенок доктора Джонса снова съел все наши мелки. Пожалуйста, пришлите нам свои."
 	reward = 100
 	required_count = 24
 	wanted_types = list(/obj/item/toy/crayon)
@@ -335,7 +335,7 @@
 
 /datum/bounty/item/assistant/closet
 	name = "Шкафчики и ящики"
-	description = "После пожара на одном из штабов ЦК, командованию некуда складывать свои личные вещи. Отправьте им шкафчики или ящики со своей станции.."
+	description = "После пожара на одном из штабов ЦК, командованию некуда складывать свои личные вещи. Отправьте им шкафчики или ящики со своей станции."
 	reward = 100
 	required_count = 10
 	include_subtypes = TRUE
@@ -415,7 +415,7 @@
 
 /datum/bounty/item/assistant/blackmarket_uplink
 	name = "Терминал Чёрного Рынка"
-	description = "Не забывайте что у нас действует программа устранения источников контрабанды!"
+	description = "Не забывайте, что у нас действует программа устранения источников контрабанды!"
 	reward = 100
 	required_count = 1
 	include_subtypes = TRUE

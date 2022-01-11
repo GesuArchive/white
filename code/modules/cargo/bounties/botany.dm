@@ -28,7 +28,7 @@
 	name = "золотых яблок"
 	wanted_types = list(/obj/item/food/grown/apple/gold)
 	multiplier = 4
-	foodtype = "вкусный дессерт"
+	foodtype = "вкусный десерт"
 
 /datum/bounty/item/botany/banana
 	name = "бананов"
@@ -122,7 +122,7 @@
 	multiplier = 2
 
 /datum/bounty/item/botany/citrus_lemon
-	name = "лемона"
+	name = "лимона"
 	wanted_types = list(/obj/item/food/grown/citrus/lemon)
 	foodtype = "вкусный сорбет"
 	multiplier = 2
@@ -130,7 +130,7 @@
 /datum/bounty/item/botany/citrus_oranges
 	name = "апельсина"
 	wanted_types = list(/obj/item/food/grown/citrus/orange)
-	bonus_desc = "Не отправлять лемоны и лаймы." //I vanted orahnge!
+	bonus_desc = "Не отправлять лимоны и лаймы." //I vanted orahnge!
 	foodtype = "вкусный сорбет"
 	multiplier = 2
 
@@ -155,14 +155,14 @@
 /datum/bounty/item/botany/watermelon
 	name = "арбуза"
 	wanted_types = list(/obj/item/food/grown/watermelon)
-	foodtype = "вкусный дессерт"
+	foodtype = "вкусный десерт"
 	multiplier = 2
 
 /datum/bounty/item/botany/watermelon_holy
 	name = "святого арбуза"
 	wanted_types = list(/obj/item/food/grown/holymelon)
 	multiplier = 8
-	foodtype = "вкусный дессерт"
+	foodtype = "вкусный десерт"
 
 /datum/bounty/item/botany/glowshroom
 	name = "светящегося гриба"

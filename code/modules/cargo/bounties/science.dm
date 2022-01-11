@@ -1,6 +1,6 @@
 /datum/bounty/item/science/boh
 	name = "Блюспейс сумка"
-	description = "НТ хорошо использовали бы рюкзаки большой вместимости. Если у вас есть, пожалуйста, отправьте их."
+	description = "НТ пригодились бы рюкзаки большой вместимости. Если у вас есть, пожалуйста, отправьте их."
 	reward = 1000
 	wanted_types = list(/obj/item/storage/backpack/holding)
 
@@ -24,7 +24,7 @@
 
 /datum/bounty/item/science/nightvision_goggles
 	name = "Очки ночного видения"
-	description = "Электрический шторм сломал все лампы на ЦК. Пока руководство ожидает замены, возможно, несколько очков ночного видениможнот быть отправлены?"
+	description = "Электромагнитный шторм сломал все лампы на ЦК. Пока руководство ожидает замены, можете отправить несколько очков ночного видения?"
 	reward = 1000
 	wanted_types = list(/obj/item/clothing/glasses/night, /obj/item/clothing/glasses/meson/night, /obj/item/clothing/glasses/hud/health/night, /obj/item/clothing/glasses/hud/security/night, /obj/item/clothing/glasses/hud/diagnostic/night)
 
@@ -42,8 +42,8 @@
 	wanted_types = list(/obj/item/reagent_containers/glass/beaker/noreact)
 
 /datum/bounty/item/science/diamond_drill
-	name = "Алмазная шахтёрская дрель"
-	description = "Центральное командование готово выплачивать трехмесячную зарплату в обмен на одну алмазную дрель"
+	name = "Алмазный шахтёрский бур."
+	description = "Центральное командование готово выплатить трехмесячную зарплату в обмен на один алмазный бур."
 	reward = 1500
 	wanted_types = list(/obj/item/pickaxe/drill/diamonddrill, /obj/item/mecha_parts/mecha_equipment/drill/diamonddrill)
 

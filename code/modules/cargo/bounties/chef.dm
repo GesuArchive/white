@@ -27,13 +27,13 @@
 
 /datum/bounty/item/chef/icecreamsandwich
 	name = "Бутерброды с мороженым" // бутерброд это кринж полнейший // ебало свое завали пидрила - teqsun
-	description = "Высшее руководство безостановочно нуждается в мороженном. Пожалуйста, пришлите им немного."
+	description = "Высшее руководство безостановочно нуждается в мороженом. Пожалуйста, пришлите им немного."
 	reward = 100
 	required_count = 3
 	wanted_types = list(/obj/item/food/icecreamsandwich)
 
 /datum/bounty/item/chef/strawberryicecreamsandwich
-	name = "Бутерброд с клубничным мороженным"
+	name = "Бутерброд с клубничным мороженым"
 	description = "Высшее руководство безостановочно кричит о более ароматном мороженом. Пожалуйста, пришлите немного."
 	reward = 115
 	required_count = 3
@@ -91,14 +91,14 @@
 
 /datum/bounty/item/chef/eggplantparm
 	name = "Пармиджано"
-	description = "Знаменитая певица скоро прибудет на ЦК, и их контракт требует, чтобы их обслуживали только баклажанами пермиджано. Отправьте их на ЦК!"
+	description = "Знаменитая певица скоро прибудет на ЦК, и их контракт требует, чтобы их обслуживали только баклажанами пармиджано. Отправьте их на ЦК!"
 	reward = 60
 	required_count = 3
 	wanted_types = list(/obj/item/food/eggplantparm)
 
 /datum/bounty/item/chef/muffin
 	name = "Кексы"
-	description = "Человек Кекс посещает ЦК, но он забыл свои кексы! Ваш заказ должен исправить это!"
+	description = "Человек-Кекс посещает ЦК, но он забыл свои кексы! Ваш заказ должен исправить это!"
 	reward = 100
 	required_count = 3
 	wanted_types = list(/obj/item/food/muffin)
@@ -111,7 +111,7 @@
 
 /datum/bounty/item/chef/kebab
 	name = "Кебаб"
-	description = "Султан турецкого филиала NanoTrasen запросил кебаб. Отправьте ему десять кебабов, чтобы утолить его голод."
+	description = "Султан турецкого филиала НТ запросил кебаб. Отправьте ему десять кебабов, чтобы утолить его голод."
 	reward = CARGO_CRATE_VALUE * 7
 	required_count = 10
 	wanted_types = list(/obj/item/food/kebab)
