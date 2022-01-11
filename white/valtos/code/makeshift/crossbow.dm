@@ -160,8 +160,8 @@
 	icon = 'white/valtos/icons/weapons/crossbow.dmi'
 	icon_state = "rod_proj"
 	suppressed = TRUE
-	damage = 10 // multiply by how drawn the bow string is
-	range = 10 // also multiply by the bow string
+	damage = 6 // multiply by how drawn the bow string is
+	range = 12 // also multiply by the bow string
 	damage_type = BRUTE
 	flag = BULLET
 	hitsound = null // We use our own for different circumstances
@@ -171,7 +171,7 @@
 
 /obj/projectile/rod/on_range()
 	// we didn't hit anything, place a rod here
-	new /obj/item/bent_rod(get_turf(src))
+	new /obj/item/stack/rods(get_turf(src))
 	..()
 
 /obj/projectile/rod/proc/Impale(mob/living/carbon/human/H)
@@ -237,8 +237,22 @@
 	inhand_icon_state = "crossbow_body_improv"
 	insert_sound = 'white/valtos/sounds/rodgun_reload.ogg'
 	bow_type_overlay = "e_"
-	charge_time = 1
+	charge_time = 5
 	rod_type = /obj/item/ammo_casing/rod/energy
+
+/obj/item/gun/ballistic/crossbow/energy/attack_self(mob/living/user)
+	charge_time = initial(charge_time)
+	switch(charge)
+		if(0)
+			charge_time = 5
+		if(1)
+			charge_time = 7
+		if(2)
+			charge_time = 9
+		if(3)
+			charge_time = 11
+	. = ..()
+	
 
 /obj/item/ammo_casing/rod/energy
 	projectile_type = /obj/projectile/rod/energy
@@ -247,5 +261,5 @@
 	name = "раскалённый металлический стержень"
 	icon = 'white/valtos/icons/weapons/crossbow.dmi'
 	icon_state = "e_rod_proj"
-	damage = 17
-	range = 20
+	damage = 12
+	range = 14
