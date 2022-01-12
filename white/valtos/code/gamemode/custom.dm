@@ -177,6 +177,7 @@
 	ambientsounds = RUINS
 	outdoors = TRUE
 	static_lighting = TRUE
+	env_temp_relative = -25
 
 /area/partyhard/surface/Initialize()
 	. = ..()
