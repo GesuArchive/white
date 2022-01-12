@@ -2482,6 +2482,7 @@
 /area/cargo/storage)
 "EO" = (
 /obj/machinery/power/apc/auto_name/north,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/command/gateway)
 "ET" = (

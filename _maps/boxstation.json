@@ -1,22 +1,44 @@
 {
 	"version": 1,
-	"map_name": "Box Station",
-	"map_path": "map_files/BoxStation",
-	"space_ruin_levels": 3,
-	"map_file": [
-		"BoxStationWhite_under.dmm",
-		"BoxStationWhite.dmm"
-	],
+	"map_name": "Coldstone",
+	"map_path": "map_files/Coldstone",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	"minetype": "none",
+	"map_file": "Coldstone.dmm",
 	"traits": [
 		{
 			"Up": 1,
-			"Baseturf": "/turf/open/space",
-			"Linkage": "Cross"
+			"Baseturf": "/turf/open/floor/grass/snow/safe/oxy",
+			"Linkage": null,
+			"Gravity": true
+		},
+		{
+			"Up": 1,
+			"Down": -1,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": null,
+			"Gravity": true
+		},
+		{
+			"Up": 1,
+			"Down": -1,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": null,
+			"Gravity": true
+		},
+		{
+			"Up": 1,
+			"Down": -1,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": null,
+			"Gravity": true
 		},
 		{
 			"Down": -1,
 			"Baseturf": "/turf/open/openspace",
-			"Linkage": "Cross"
+			"Linkage": null,
+			"Gravity": true
 		}
 	],
 	"shuttles": {

@@ -178,6 +178,12 @@
 	outdoors = TRUE
 	static_lighting = TRUE
 
+/area/partyhard/surface/Initialize()
+	. = ..()
+	icon = 'white/valtos/icons/cliffs.dmi'
+	icon_state = "snow_storm"
+	layer = OPENSPACE_LAYER
+
 /area/shuttle/partyhard
 	name = "Station Elevator"
 
