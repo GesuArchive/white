@@ -91,25 +91,22 @@
 	icon_state = "1f"
 	name = "partyhard"
 	has_gravity = STANDARD_GRAVITY
+	ambientsounds = RUINS
 
 /area/partyhard/outdoors
 	icon_state = "1f"
 	name = "пустоши"
 	static_lighting = TRUE
 	always_unpowered = TRUE
-//	//poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
 	requires_power = TRUE
 	outdoors = TRUE
 	base_lighting_color = "#ffd1b3"
-	base_lighting_alpha = 55
+	base_lighting_alpha = 255
 	luminosity = 1
 	sound_environment = SOUND_ENVIRONMENT_PLAIN
-	ambience_index = AMBIENCE_NONE
-	ambientsounds = CITY_SOUNDS
-	map_generator = /datum/map_generator/forest_generator
 	env_temp_relative = -10
 
 /area/partyhard/Entered(atom/movable/AM)
@@ -129,15 +126,13 @@
 	static_lighting = TRUE
 	outdoors = FALSE
 	sound_environment = SOUND_ENVIRONMENT_ROOM
-	ambience_index = AMBIENCE_NONE
 	base_lighting_color = "#ffd1b3"
 	base_lighting_alpha = 3
 
 /area/partyhard/outdoors/unexplored
 	icon_state = "2f"
-	name = "far away"
+	name = "где-то далеко"
 	always_unpowered = TRUE
-///	//poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
@@ -147,29 +142,28 @@
 
 /area/partyhard/odin
 	icon_state = "1f"
-	name = "1st floor"
+	name = "первый этаж"
 
 /area/partyhard/dva
 	icon_state = "2f"
-	name = "2nd floor"
+	name = "второй этаж"
 
 /area/partyhard/tri
 	icon_state = "3f"
-	name = "3rd floor"
+	name = "третий этаж"
 
 /area/partyhard/chetyre
 	icon_state = "4f"
-	name = "4th floor"
+	name = "четвёртый этаж"
 
 /area/partyhard/pyat
 	icon_state = "5f"
-	name = "5th floor"
+	name = "пятый этаж"
 
 /area/partyhard/surface
 	icon_state = "4f"
-	name = "surface"
+	name = "поверхность"
 	always_unpowered = TRUE
-	//poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
@@ -178,24 +172,13 @@
 	outdoors = TRUE
 	static_lighting = TRUE
 	env_temp_relative = -25
+	map_generator = /datum/map_generator/snowy_generator
 
 /area/partyhard/surface/Initialize()
 	. = ..()
 	icon = 'white/valtos/icons/cliffs.dmi'
 	icon_state = "snow_storm"
 	layer = OPENSPACE_LAYER
-
-/area/shuttle/partyhard
-	name = "Station Elevator"
-
-/obj/machinery/computer/shuttle_flight/partyhard
-	name = "elevator console"
-	desc = "A elevator control computer."
-	icon_screen = "shuttle"
-	icon_keyboard = "tech_key"
-	light_color = LIGHT_COLOR_CYAN
-	shuttleId = "partyhard_elevator"
-	possible_destinations = "ph_station_bottom;ph_station_top"
 
 /obj/effect/turf_decal/partyhard/lines
 	icon = 'white/valtos/icons/decals.dmi'
@@ -295,7 +278,6 @@
 	name = "Mining Theta"
 	icon_state = "purple"
 	always_unpowered = TRUE
-	//poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = TRUE
@@ -309,7 +291,6 @@
 	icon_state = "red"
 	always_unpowered = TRUE
 	requires_power = TRUE
-	//poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
