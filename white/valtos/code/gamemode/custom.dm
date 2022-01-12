@@ -184,6 +184,7 @@
 		icon = 'white/valtos/icons/cliffs.dmi'
 		icon_state = "snow_storm"
 		layer = OPENSPACE_LAYER
+		luminosity = 1
 
 /obj/effect/turf_decal/partyhard/lines
 	icon = 'white/valtos/icons/decals.dmi'
