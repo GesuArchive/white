@@ -104,7 +104,7 @@
 	requires_power = TRUE
 	outdoors = TRUE
 	base_lighting_color = "#ffd1b3"
-	base_lighting_alpha = 255
+	base_lighting_alpha = 0
 	luminosity = 1
 	sound_environment = SOUND_ENVIRONMENT_PLAIN
 	env_temp_relative = -10
