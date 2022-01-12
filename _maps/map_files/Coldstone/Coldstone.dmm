@@ -4993,6 +4993,10 @@
 "uD" = (
 /turf/closed/wall/rust,
 /area/science/research)
+"uL" = (
+/obj/effect/mob_spawn/slime,
+/turf/open/floor/engine,
+/area/science/xenobiology)
 "uO" = (
 /obj/effect/light_emitter{
 	light_range = 3;
@@ -5436,8 +5440,11 @@
 /turf/open/floor/plating,
 /area/partyhard/surface)
 "Ig" = (
-/turf/open/genturf,
-/area/hallway/secondary/entry)
+/obj/item/storage/secure/safe/caps_spare{
+	pixel_y = 32
+	},
+/turf/open/floor/plasteel/dark,
+/area/partyhard/chetyre)
 "Ij" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
@@ -6048,9 +6055,6 @@
 /obj/structure/table,
 /obj/item/storage/firstaid/fire,
 /obj/item/crowbar,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 27
-	},
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -236856,7 +236860,7 @@ jc
 cV
 eO
 fg
-fg
+uL
 ml
 RJ
 me
@@ -237884,7 +237888,7 @@ jc
 cV
 eQ
 fg
-fg
+uL
 ml
 RJ
 me
@@ -238912,7 +238916,7 @@ jc
 cV
 eR
 fg
-fg
+uL
 ml
 RJ
 me
@@ -242466,7 +242470,7 @@ bc
 bc
 bc
 bc
-cn
+Ig
 cn
 cn
 db
@@ -275984,7 +275988,7 @@ Dv
 Hc
 Vd
 Lr
-Lr
+dp
 dp
 dp
 dp
@@ -276241,8 +276245,8 @@ Lr
 Lr
 Lr
 Lr
-Lr
-Lr
+dp
+dp
 dp
 Vs
 Vs
@@ -277008,12 +277012,12 @@ Lr
 Zd
 GH
 GH
-Lr
-Lr
-Lr
+dp
+dp
+dp
 Dv
 GH
-Ig
+Vs
 Vs
 Vs
 Vs
@@ -277244,9 +277248,9 @@ dp
 dp
 dp
 dp
-Vs
-Vs
-Vs
+dp
+dp
+dp
 Vs
 Vs
 Vs
@@ -277499,10 +277503,10 @@ Vs
 Vs
 Vs
 Vs
-Vs
 dp
-Vs
-Vs
+dp
+dp
+dp
 Vs
 Vs
 Vs
@@ -277756,9 +277760,9 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
-Vs
+dp
+dp
+dp
 Vs
 Vs
 Vs
@@ -278013,9 +278017,9 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
-Vs
+dp
+dp
+dp
 Vs
 Vs
 Vs
@@ -278270,9 +278274,9 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
-Vs
+dp
+dp
+dp
 Vs
 Vs
 Vs
@@ -278527,9 +278531,9 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
-Vs
+dp
+dp
+dp
 Vs
 Vs
 Vs
@@ -278784,9 +278788,9 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
-Vs
+dp
+dp
+dp
 Vs
 Vs
 Vs
@@ -279041,9 +279045,9 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
-Vs
+dp
+dp
+dp
 Vs
 Vs
 Vs
@@ -279297,8 +279301,8 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
+dp
+dp
 Vs
 Vs
 Vs
@@ -279554,8 +279558,8 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
+dp
+dp
 Vs
 Vs
 Vs
@@ -279811,8 +279815,8 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
+dp
+dp
 Vs
 Vs
 Vs
@@ -280067,8 +280071,8 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
+dp
+dp
 Vs
 Vs
 Vs
@@ -280838,7 +280842,7 @@ Vs
 Vs
 Vs
 Vs
-Vs
+dp
 Vs
 Vs
 Vs
@@ -281095,7 +281099,7 @@ Vs
 Vs
 Vs
 Vs
-Vs
+dp
 Vs
 Vs
 Vs
@@ -281352,7 +281356,7 @@ Vs
 Vs
 Vs
 Vs
-Vs
+dp
 Vs
 Vs
 Vs
@@ -281609,7 +281613,7 @@ Vs
 Vs
 Vs
 Vs
-Vs
+dp
 Vs
 Vs
 Vs
@@ -281866,7 +281870,7 @@ Vs
 Vs
 Vs
 Vs
-Vs
+dp
 Vs
 Vs
 Vs
@@ -282122,8 +282126,8 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
+dp
+dp
 Vs
 Vs
 Vs
@@ -282379,7 +282383,7 @@ Vs
 Vs
 Vs
 Vs
-Vs
+dp
 Vs
 Vs
 Vs
@@ -282636,7 +282640,7 @@ Vs
 Vs
 Vs
 Vs
-Vs
+dp
 Vs
 Vs
 Vs
@@ -282893,7 +282897,7 @@ Vs
 Vs
 Vs
 Vs
-Vs
+dp
 Vs
 Vs
 Vs
@@ -283405,7 +283409,7 @@ Vs
 Vs
 Vs
 Vs
-Vs
+dp
 Vs
 Vs
 Vs
@@ -283662,9 +283666,9 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
-Vs
+dp
+dp
+dp
 Vs
 Vs
 Vs
@@ -283920,8 +283924,8 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
+dp
+dp
 Vs
 Vs
 Vs
@@ -284177,8 +284181,8 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
+dp
+dp
 Vs
 Vs
 Vs
@@ -284689,8 +284693,8 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
+dp
+dp
 Vs
 Vs
 Vs
@@ -284946,8 +284950,8 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
+dp
+dp
 Vs
 Vs
 Vs
@@ -285204,7 +285208,7 @@ Vs
 Vs
 Vs
 dp
-Vs
+dp
 Vs
 Vs
 Vs
