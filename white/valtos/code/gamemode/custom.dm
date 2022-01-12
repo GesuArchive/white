@@ -110,9 +110,9 @@
 	ambience_index = AMBIENCE_NONE
 	ambientsounds = CITY_SOUNDS
 	map_generator = /datum/map_generator/forest_generator
-	env_temp_relative = -5
+	env_temp_relative = -10
 
-/area/partyhard/outdoors/Entered(atom/movable/AM)
+/area/partyhard/Entered(atom/movable/AM)
 	. = ..()
 	if(ismob(AM))
 		var/mob/M = AM
