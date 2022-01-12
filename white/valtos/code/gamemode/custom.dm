@@ -170,15 +170,18 @@
 	requires_power = TRUE
 	ambientsounds = RUINS
 	outdoors = TRUE
+	base_lighting_alpha = 255
 	static_lighting = TRUE
 	env_temp_relative = -25
 	map_generator = /datum/map_generator/snowy_generator
 
 /area/partyhard/surface/Initialize()
 	. = ..()
-	icon = 'white/valtos/icons/cliffs.dmi'
-	icon_state = "snow_storm"
-	layer = OPENSPACE_LAYER
+	RunGeneration()
+	spawn(50)
+		icon = 'white/valtos/icons/cliffs.dmi'
+		icon_state = "snow_storm"
+		layer = OPENSPACE_LAYER
 
 /obj/effect/turf_decal/partyhard/lines
 	icon = 'white/valtos/icons/decals.dmi'
