@@ -42,7 +42,7 @@
 		}
 	],
 	"shuttles": {
-		"cargo": "cargo_box",
+		"cargo": "cargo_partyhard",
 		"ferry": "ferry_fancy",
 		"whiteship": "whiteship_box",
 		"emergency": "emergency_box"

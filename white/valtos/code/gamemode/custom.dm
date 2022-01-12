@@ -163,6 +163,7 @@
 /area/partyhard/surface
 	icon_state = "4f"
 	name = "поверхность"
+	base_icon_state = "snow_storm"
 	always_unpowered = TRUE
 	power_environ = FALSE
 	power_equip = FALSE
@@ -173,12 +174,13 @@
 	base_lighting_alpha = 255
 	static_lighting = TRUE
 	env_temp_relative = -25
+	luminosity = 1
 	map_generator = /datum/map_generator/snowy_generator
 
 /area/partyhard/surface/Initialize()
 	. = ..()
 	RunGeneration()
-	spawn(50)
+	spawn(2 MINUTES)
 		icon = 'white/valtos/icons/cliffs.dmi'
 		icon_state = "snow_storm"
 		layer = OPENSPACE_LAYER
