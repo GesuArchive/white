@@ -48,7 +48,6 @@
 	for(var/i in 1 to I)
 		available_chems |= possible_chems[i]
 	reset_chem_buttons()
-	ui_update()
 
 /obj/machinery/sleeper/update_icon()
 	if(state_open)
@@ -56,7 +55,7 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/machinery/sleeper/container_resist(mob/living/user)
+/obj/machinery/sleeper/container_resist_act(mob/living/user)
 	visible_message("<span class='notice'>[occupant] emerges from [src]!</span>",
 		"<span class='notice'>You climb out of [src]!</span>")
 	open_machine()
@@ -64,13 +63,12 @@
 /obj/machinery/sleeper/Exited(atom/movable/gone, direction)
 	. = ..()
 	if (!state_open && gone == occupant)
-		container_resist(gone)
+		container_resist_act(gone)
 
 /obj/machinery/sleeper/relaymove(mob/user)
 	if (!state_open)
-		container_resist(user)
+		container_resist_act(user)
 
-//Note: open_machine and close_machine already ui_update()
 /obj/machinery/sleeper/open_machine()
 	if(!state_open && !panel_open)
 		flick("[initial(icon_state)]-anim", src)
@@ -88,11 +86,11 @@
 	. = ..()
 	if (. & EMP_PROTECT_SELF)
 		return
-	if(is_operational() && occupant)
+	if(is_operational && occupant)
 		open_machine()
 
 /obj/machinery/sleeper/MouseDrop_T(mob/target, mob/user)
-	if(user.stat || !Adjacent(user) || !user.Adjacent(target) || !iscarbon(target) || !user.IsAdvancedToolUser())
+	if(user.stat || !Adjacent(user) || !user.Adjacent(target) || !iscarbon(target) || !ISADVANCEDTOOLUSER(user))
 		return
 	if(isliving(user))
 		var/mob/living/L = user
@@ -130,13 +128,6 @@
 		I.play_tool_sound(src, 50)
 		visible_message("<span class='notice'>[usr] pries open [src].</span>", "<span class='notice'>You pry open [src].</span>")
 		open_machine()
-
-
-/obj/machinery/sleeper/ui_requires_update(mob/user, datum/tgui/ui)
-	. = ..()
-
-	if(occupant)
-		. = TRUE // Only autoupdate when occupied
 
 /obj/machinery/sleeper/ui_state(mob/user)
 	if(controls_inside)
@@ -224,7 +215,7 @@
 			. = TRUE
 		if("inject")
 			var/chem = text2path(params["chem"])
-			if(!is_operational() || !mob_occupant || isnull(chem))
+			if(!is_operational || !mob_occupant || isnull(chem))
 				return
 			if(mob_occupant.health < min_health && chem != /datum/reagent/medicine/epinephrine)
 				return
@@ -269,9 +260,6 @@
 /obj/machinery/sleeper/syndie
 	icon_state = "sleeper_s"
 	controls_inside = TRUE
-
-/obj/machinery/sleeper/syndie/fullupgrade
-	circuit = /obj/item/circuitboard/machine/sleeper/fullupgrade
 
 /obj/machinery/sleeper/clockwork
 	name = "soothing sleeper"
