@@ -17,7 +17,6 @@
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	slowdown = 1 // кто убрал тот лох
 
 	var/attachment_holes = TRUE
 
