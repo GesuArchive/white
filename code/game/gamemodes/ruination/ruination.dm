@@ -220,7 +220,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 		if(result == 1)
 			return "<div class='panel redborder'><span class='redtext big'>СТАНЦИЯ БЫЛА СБРОШЕНА НА ПЛАНЕТУ! ВЫЖИВШИХ ОБНАРУЖЕНО НЕ БЫЛО...</span></div>"
 		else if(result == 2)
-			return "<div class='panel redborder'><span class='redtext big'>Экипаж станции смог продержаться до прибытия гравитационного тягача!</span></div>"
+			return "<div class='panel redborder'><span class='redtext big'>Экипаж станции смог продержаться до блюспейс-транслокации!</span></div>"
 	else if (current_stage == 2)
 		return "<div class='panel redborder'><span class='redtext big'>Некоторая часть персонала смогла выжить при падении. Все они были уволены за свою некомпетентность и невероятные убытки!</span></div>"
 
