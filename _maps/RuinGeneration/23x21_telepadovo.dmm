@@ -290,7 +290,7 @@
 	},
 /area/ruin/space/has_grav/telepadovo)
 "BY" = (
-/obj/machinery/sleeper/syndie/fullupgrade{
+/obj/machinery/sleeper/syndie{
 	dir = 8
 	},
 /turf/open/floor/partyhard/steel{
