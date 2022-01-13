@@ -11,7 +11,7 @@
 	assignedrole = "Больной"
 	faction = list("shiz")
 	important_info = "Однако, каждый может быть опасным для меня... Доверять можно только моему психологу, хотя тот в последнее время что-то недоговаривает..."
-	oxy_damage = 40
+	oxy_damage = 12
 
 /datum/outfit/durka
 	name = "Больной"
