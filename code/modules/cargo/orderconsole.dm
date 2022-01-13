@@ -164,7 +164,7 @@
 			if(SSshuttle.supply.getDockedId() == "supply_home")
 				SSshuttle.supply.export_categories = get_export_categories()
 				SSshuttle.moveShuttle("supply", "supply_away", TRUE)
-				say("шаттл снабжения отправляется.")
+				say("Шаттл снабжения отправляется.")
 				investigate_log("[key_name(usr)] отправил шаттл снабжения на ЦК.", INVESTIGATE_CARGO)
 			else
 				investigate_log("[key_name(usr)] вызвал шаттл снабжения.", INVESTIGATE_CARGO)
