@@ -201,7 +201,7 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 								new_name += pick(GLOB.last_names)
 								. += new_name
 					if(2)
-						. += pick(SSjob.station_jobs)//Returns a job.
+						. += ru_job_parse(pick(SSjob.station_jobs))//Returns a job.
 				safety -= 1
 			if(2)
 				switch(rand(1,3))//Food, drinks, or places. Only selectable once.
