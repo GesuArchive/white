@@ -21,7 +21,7 @@
 /datum/orbital_object/z_linked/beacon/post_map_setup()
 	//Orbit around the systems sun
 	var/datum/orbital_map/linked_map = SSorbits.orbital_maps[orbital_map_index]
-	set_orbitting_around_body(linked_map.center, 2000 + 250 * linked_z_level[1].z_value)
+	set_orbitting_around_body(linked_map.center, 2000 + 25 * linked_z_level[1].z_value)
 
 /datum/orbital_object/z_linked/beacon/weak
 	name = "Слабый Сигнал"
@@ -48,7 +48,7 @@
 	//Orbit around the systems central gravitional body
 	//Pack closely together to make an asteriod belt.
 	var/datum/orbital_map/linked_map = SSorbits.orbital_maps[orbital_map_index]
-	set_orbitting_around_body(linked_map.center, 800 + 20 * rand(-190, 190))
+	set_orbitting_around_body(linked_map.center, 800 + 20 * rand(-19, 19))
 
 //====================
 // Regular Ruin Z-levels
@@ -74,7 +74,7 @@
 /datum/orbital_object/z_linked/beacon/ruin/spaceruin/post_map_setup()
 	//Orbit around the systems sun
 	var/datum/orbital_map/linked_map = SSorbits.orbital_maps[orbital_map_index]
-	set_orbitting_around_body(linked_map.center, 2000 + 250 * rand(400, 200))
+	set_orbitting_around_body(linked_map.center, 2000 + 25 * rand(40, 20))
 
 //====================
 // Random-Ruin z-levels
@@ -99,7 +99,7 @@
 /datum/orbital_object/z_linked/beacon/ruin/post_map_setup()
 	//Orbit around the systems sun
 	var/datum/orbital_map/linked_map = SSorbits.orbital_maps[orbital_map_index]
-	set_orbitting_around_body(linked_map.center, 2000 + 250 * rand(400, 200))
+	set_orbitting_around_body(linked_map.center, 2000 + 25 * rand(40, 20))
 
 
 //====================
