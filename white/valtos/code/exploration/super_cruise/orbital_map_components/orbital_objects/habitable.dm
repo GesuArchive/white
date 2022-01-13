@@ -18,4 +18,4 @@
 	generate_space_ruin(world.maxx / 2, world.maxy / 2, assigned_space_level.z_value, 100, 100, allowed_flags = RUIN_PART_DEFAULT | RUIN_PART_HABITABLE)
 
 	var/datum/orbital_map/linked_map = SSorbits.orbital_maps[orbital_map_index]
-	set_orbitting_around_body(linked_map.center, 4800 + 250 * rand(4, 20))
+	set_orbitting_around_body(linked_map.center, 2800 + 250 * rand(400, 200))
