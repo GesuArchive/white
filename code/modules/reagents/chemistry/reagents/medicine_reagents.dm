@@ -405,7 +405,7 @@
 	reagent_state = LIQUID
 	color = "#DCDCDC"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
-	overdose_threshold = 30
+	overdose_threshold = 60
 	var/healing = 0.5
 	ph = 2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
