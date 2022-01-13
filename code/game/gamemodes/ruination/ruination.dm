@@ -37,7 +37,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 	var/started_at = 0
 	var/announce_stage = 0
 
-	var/current_stage = 1
+	var/current_stage = 0
 
 /datum/game_mode/ruination/pre_setup()
 
@@ -191,7 +191,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 
 /datum/game_mode/ruination/check_finished()
 	if(current_stage == 1)
-		current_stage = 2
+		current_stage = 0
 		save_stage()
 		spawn(30 SECONDS)
 			sound_to_playing_players('white/valtos/sounds/rp3.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
