@@ -70,6 +70,8 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 
 	if(current_stage == 1)
 		CONFIG_SET(flag/allow_random_events, FALSE)
+		gamemode_ready = FALSE
+		addtimer(VARSET_CALLBACK(src, gamemode_ready, TRUE), 101)
 		return TRUE
 
 	var/datum/mind/leader_mind = ruiners[1]
