@@ -102,7 +102,7 @@
 	var/on = TRUE
 	var/alert = FALSE
 
-/obj/machinery/airlock_sensor/incinerator_ordmix
+/obj/machinery/airlock_sensor/incinerator_toxmix
 	id_tag = INCINERATOR_ORDMIX_AIRLOCK_SENSOR
 	master_tag = INCINERATOR_ORDMIX_AIRLOCK_CONTROLLER
 
