@@ -29,7 +29,8 @@
 	var/teamname_gc = copytext_char(sanitize(team_name_genitive_case), 1, MAX_MESSAGE_LEN)
 	var/teamname = copytext_char(sanitize(team_name), 1, MAX_MESSAGE_LEN)
 
-	message_admins("[Sender] собирается вызвать [teamname_gc] с миссией: [msg]")
+	if(Sender)
+		message_admins("[Sender] собирается вызвать [teamname_gc] с миссией: [msg]")
 	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Хотите быть в специальном отряде быстрого реагирования?", "deathsquad", null)
 	var/teamSpawned = FALSE
 
@@ -81,7 +82,7 @@
 			numagents--
 			teamSpawned++
 
-		if (teamSpawned)
+		if (teamSpawned && Sender)
 			message_admins("[Sender] вызывает [teamname] с миссией: [msg]")
 
 		return TRUE
