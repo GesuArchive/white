@@ -56,7 +56,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
 "gc" = (
-/obj/machinery/microwave/furnace,
+/obj/structure/bonfire/prelit,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "gr" = (
@@ -121,9 +121,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "kL" = (
-/obj/item/food/grown/mushroom/plumphelmet,
-/obj/item/food/grown/mushroom/plumphelmet,
-/obj/structure/table/stone,
+/obj/item/stack/rods/ten,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "lq" = (
@@ -162,8 +160,8 @@
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarfgen)
 "mn" = (
-/obj/item/flashlight/lantern,
-/turf/closed/wall/stonewall,
+/obj/machinery/microwave/furnace,
+/turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "nC" = (
 /obj/structure/table/stone,
@@ -190,6 +188,10 @@
 /obj/structure/bed/prison/bed,
 /obj/effect/mob_spawn/human/dwarf,
 /turf/open/floor/grass/gensgrass/dirty/stone,
+/area/awaymission/vietnam/dwarf)
+"qu" = (
+/obj/item/flashlight/lantern,
+/turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
 "qy" = (
 /obj/structure/stone_tile/center/cracked,
@@ -273,8 +275,6 @@
 "zx" = (
 /obj/item/reagent_containers/glass/bucket/wooden,
 /obj/structure/table/stone,
-/obj/item/flashlight/lantern,
-/obj/item/kitchen/knife,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "Ak" = (
@@ -284,6 +284,12 @@
 "Bg" = (
 /mob/living/simple_animal/pet/cat/male,
 /turf/open/floor/grass/gensgrass/dirty/stone,
+/area/awaymission/vietnam/dwarf)
+"Bz" = (
+/obj/structure/table/stone,
+/obj/item/flashlight/lantern,
+/obj/item/kitchen/knife,
+/turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
 "Cw" = (
 /obj/structure/table/stone,
@@ -320,6 +326,12 @@
 "HG" = (
 /obj/machinery/biogenerator,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
+/area/awaymission/vietnam/dwarf)
+"II" = (
+/obj/structure/table/stone,
+/obj/item/food/grown/mushroom/plumphelmet,
+/obj/item/food/grown/mushroom/plumphelmet,
+/turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "IO" = (
 /obj/machinery/torch_fixture{
@@ -385,6 +397,10 @@
 	on = 1;
 	pixel_y = 32
 	},
+/turf/open/floor/grass/gensgrass/dirty/stone/raw,
+/area/awaymission/vietnam/dwarf)
+"PW" = (
+/obj/machinery/torch_fixture,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
 "QJ" = (
@@ -12165,8 +12181,8 @@ eQ
 lH
 vK
 vK
-MB
-MB
+oD
+oD
 vK
 ha
 vK
@@ -12417,8 +12433,8 @@ lH
 lH
 lq
 vK
-MB
-MB
+oD
+oD
 MB
 lq
 MB
@@ -12669,8 +12685,8 @@ lq
 lq
 MV
 vK
-MB
-MB
+oD
+oD
 MB
 lq
 MB
@@ -12921,8 +12937,8 @@ lq
 lq
 lq
 vK
-MB
-MB
+oD
+oD
 vK
 ha
 vK
@@ -13173,8 +13189,8 @@ lq
 lq
 lq
 vK
-MB
-MB
+oD
+oD
 vK
 lq
 MB
@@ -13425,8 +13441,8 @@ TA
 vK
 vK
 vK
-MB
-MB
+oD
+oD
 vK
 lq
 Zf
@@ -13683,7 +13699,7 @@ MB
 MB
 vK
 MB
-mn
+vK
 MB
 lq
 vK
@@ -13935,7 +13951,7 @@ ha
 ha
 lq
 lq
-ha
+qu
 lq
 lq
 lq
@@ -15185,11 +15201,11 @@ vK
 vK
 MB
 MB
-MB
-MB
-MB
-vK
 gc
+lq
+ha
+vK
+Sc
 ha
 lq
 ha
@@ -15436,12 +15452,12 @@ oD
 oD
 oD
 oD
-oD
-oD
-oD
-MB
-MB
+vK
 kL
+ha
+PW
+MB
+lq
 ha
 Sc
 Sc
@@ -15688,11 +15704,11 @@ oD
 oD
 oD
 oD
-oD
-oD
-oD
-MB
 vK
+mn
+ha
+ha
+TA
 ha
 lq
 lq
@@ -15940,10 +15956,10 @@ oD
 oD
 oD
 oD
-oD
-oD
-oD
-MB
+vK
+oI
+Bz
+II
 vK
 lq
 lq
@@ -16192,9 +16208,9 @@ oD
 oD
 oD
 oD
-oD
-oD
-oD
+vK
+vK
+vK
 vK
 vK
 lq
@@ -16452,15 +16468,15 @@ eV
 lq
 ha
 MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 vK
 IO
 lq
@@ -16704,15 +16720,15 @@ eV
 gW
 hk
 MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 vK
 lq
 lq
@@ -16956,15 +16972,15 @@ vK
 vK
 MB
 vK
-MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 vK
 vK
 rv
