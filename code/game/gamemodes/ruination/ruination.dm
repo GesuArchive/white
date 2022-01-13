@@ -195,7 +195,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 		save_stage()
 		spawn(30 SECONDS)
 			sound_to_playing_players('white/valtos/sounds/rp3.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
-			priority_announce("Приём. Слышит ещё кто-то? Похоже, вы здорово ударились при падении и мы наблюдаем признаки некоторой жизненной активности нашими сенсорами. На северо-востоке есть заброшенный аванпост, постарайтесь вызвать подмогу оттуда, мы уже взломали для вас шаттл. До связи.", "Синдикат", 'sound/misc/announce_dig.ogg')
+			priority_announce("Приём. Слышит ещё кто-то? Похоже, вы здорово ударились при падении и мы наблюдаем признаки некоторой жизненной активности нашими сенсорами. На северо-востоке есть заброшенный аванпост, постарайтесь вызвать подмогу оттуда, мы уже взломали для вас шаттл. До связи.", null, 'sound/misc/announce_dig.ogg', sender_override = "Синдикат")
 			SSshuttle.emergency.hijack_status = 5
 		return ..()
 	if(!started_at)
