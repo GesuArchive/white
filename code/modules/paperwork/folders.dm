@@ -1,6 +1,6 @@
 /obj/item/folder
-	name = "Папка"
-	desc = "Просто папка"
+	name = "папка"
+	desc = "Просто папка."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "folder"
 	w_class = WEIGHT_CLASS_SMALL
@@ -8,7 +8,7 @@
 	resistance_flags = FLAMMABLE
 
 /obj/item/folder/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] начинает оформление мнимого смертного приговора! Судя по всему, [user.p_theyre()] пытается совершить суицид!"))
+	user.visible_message(span_suicide("[user] начинает оформление мнимого смертного приговора! Судя по всему, он[user.ru_a()] пытается совершить суицид!"))
 	return OXYLOSS
 
 /obj/item/folder/blue
@@ -47,13 +47,13 @@
 			to_chat(user, span_notice("Неразборчиво калякаю на обложке [src]!"))
 			return
 
-		var/inputvalue = stripped_input(user, "What would you like to label the folder?", "Folder Labelling", "", MAX_NAME_LEN)
+		var/inputvalue = stripped_input(user, "Как подпишем папку?", "Переименование папки", "", MAX_NAME_LEN)
 
 		if(!inputvalue)
 			return
 
 		if(user.canUseTopic(src, BE_CLOSE))
-			name = "folder[(inputvalue ? " - '[inputvalue]'" : null)]"
+			name = "папка[(inputvalue ? " - '[inputvalue]'" : null)]"
 
 
 /obj/item/folder/Destroy()
@@ -65,12 +65,13 @@
 
 
 /obj/item/folder/attack_self(mob/user)
-	var/dat = "<title>[name]</title>"
+	var/dat = "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head>"
 
 	for(var/obj/item/I in src)
-		dat += "<A href='?src=[REF(src)];remove=[REF(I)]'>Remove</A> - <A href='?src=[REF(src)];read=[REF(I)]'>[I.name]</A><BR>"
-	user << browse(dat, "window=folder")
-	onclose(user, "folder")
+		dat += "<a href='?src=[REF(src)];read=[REF(I)]'>[I.name]</a><a href='?src=[REF(src)];remove=[REF(I)]'>Изъять</a></br>"
+	var/datum/browser/folder = new(user, "folder", "[name]", 300, 500)
+	folder.set_content(dat)
+	folder.open()
 	add_fingerprint(usr)
 
 
@@ -97,7 +98,7 @@
 		update_icon()
 
 /obj/item/folder/documents
-	name = "folder- 'СОВЕРШЕННО СЕКРЕТНО'"
+	name = "папка - 'СОВЕРШЕННО СЕКРЕТНО'"
 	desc = "Папка со штампом \"Совершенно секретно — собственность корпорации Нанотразен. Несанкционированное распространение карается смертью.\""
 
 /obj/item/folder/documents/Initialize()
@@ -107,7 +108,7 @@
 
 /obj/item/folder/syndicate
 	icon_state = "folder_syndie"
-	name = "Папка — 'СОВЕРШЕННО СЕКРЕТНО'"
+	name = "папка - 'СОВЕРШЕННО СЕКРЕТНО'"
 	desc = "Папка со штампом \"Совершенно секретно — собственность Синдиката.\""
 
 /obj/item/folder/syndicate/red
