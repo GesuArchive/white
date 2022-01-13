@@ -21,6 +21,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/engineering/main)
 "ar" = (
@@ -1405,6 +1406,13 @@
 	},
 /turf/open/floor/engine,
 /area/engineering/main)
+"CS" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/engine,
+/area/engineering/main)
 "Fw" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/aft/upper)
@@ -2127,7 +2135,7 @@ ab
 "}
 (20,1,1) = {"
 ao
-aV
+CS
 cg
 cx
 bh
