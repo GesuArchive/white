@@ -76,7 +76,7 @@
 	desc = "Очень странный пол."
 	icon_state = "tile-crypto"
 	inhand_icon_state = "tile-crypto"
-	turf_type = /turf/open/floor/crypto
+	turf_type = /turf/open/floor/resin/crypto
 	resistance_flags = FIRE_PROOF
 	merge_type = /obj/item/stack/tile/crypto
 
