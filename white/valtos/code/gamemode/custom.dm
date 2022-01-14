@@ -187,10 +187,6 @@
 		layer = OPENSPACE_LAYER
 		luminosity = 1
 
-/area/shuttle/partyhard // меня заебал этот крестик в гитхабе
-	icon_state = "4f"
-	name = "Party Hard Shuttle"
-
 /obj/effect/turf_decal/partyhard/lines
 	icon = 'white/valtos/icons/decals.dmi'
 	icon_state = "s-1"
@@ -222,7 +218,6 @@
 		transform = M
 		icon = smooth_icon
 		icon_state = "[icon_state]-[smoothing_junction]"
-
 
 /obj/structure/pillar
 	name = "pillar"
