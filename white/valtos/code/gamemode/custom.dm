@@ -63,11 +63,11 @@
 	icon_state = "crypto-255"
 	base_icon_state = "crypto"
 	floor_tile = /obj/item/stack/tile/crypto
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_RESIN_FLOOR)
-	canSmoothWith = list(SMOOTH_GROUP_RESIN_FLOOR)
-	footstep = FOOTSTEP_CARPET
-	barefootstep = FOOTSTEP_CARPET_BAREFOOT
-	clawfootstep = FOOTSTEP_CARPET_BAREFOOT
+	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_CRYPTO_FLOOR)
+	canSmoothWith = list(SMOOTH_GROUP_CRYPTO_FLOOR)
+	footstep = FOOTSTEP_PLATING
+	barefootstep = FOOTSTEP_HARD_BAREFOOT
+	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /obj/item/stack/tile/crypto
