@@ -522,7 +522,7 @@
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 50
 	ext_cooldown = 1
-	var/max_grab = GRAB_PASSIVE
+	var/max_grab = GRAB_NECK
 
 /obj/item/integrated_circuit_old/manipulation/claw/do_work(ord)
 	var/obj/acting_object = get_object()
