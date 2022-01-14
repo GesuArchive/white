@@ -1,5 +1,5 @@
 /obj/effect/eldritch
-	name = "Родовая руна"
+	name = "Руна призыва"
 	desc = "На полу выгравирован плавный круг из фигур и рун, заполненный густой черной жидкостью, похожей на смолу."
 	anchored = TRUE
 	icon_state = ""
@@ -100,7 +100,7 @@
 		is_in_use = FALSE
 		return
 	is_in_use = FALSE
-	to_chat(user,span_warning("наш ритуал провалился! Вы либо использовали неправильные компоненты, либо упустили что-то важное!"))
+	to_chat(user,span_warning("Наш ритуал провалился! Я либо использовал неправильные компоненты, либо упустили что-то важное!"))
 
 /obj/effect/eldritch/big
 	name = "руна трансмутации"
@@ -178,7 +178,7 @@
 		return ..()
 	var/mob/living/carbon/human/human_user = user
 	if(IS_HERETIC(human_user))
-		to_chat(human_user,span_boldwarning("Вы знаете, что лучше не искушать силы, вышедшие из-под вашего контроля!"))
+		to_chat(human_user,span_boldwarning("Я знаю, что лучше не искушать силы, вышедшие из-под вашего контроля!"))
 	else
 		var/obj/item/bodypart/arm = human_user.get_active_hand()
 		if(prob(25))
@@ -186,7 +186,7 @@
 			arm.dismember()
 			qdel(arm)
 		else
-			to_chat(human_user,span_danger("Вы отдергиваете руку от дыры, когда сверхъестественная энергия мечется, пытаясь зацепиться за само существование!"))
+			to_chat(human_user,span_danger("Я отдергиваю руку от дыры, когда сверхъестественная энергия мечется, пытаясь зацепиться за само существование!"))
 
 
 /obj/effect/broken_illusion/attack_tk(mob/user)
@@ -195,10 +195,10 @@
 	. = COMPONENT_CANCEL_ATTACK_CHAIN
 	var/mob/living/carbon/human/human_user = user
 	if(IS_HERETIC(human_user))
-		to_chat(human_user,span_boldwarning("Вы знаете, что лучше не искушать силы, вышедшие из-под вашего контроля!"))
+		to_chat(human_user,span_boldwarning("Я знаею, что лучше не искушать силы, вышедшие из-под вашего контроля!"))
 		return
 	//a very elaborate way to suicide
-	to_chat(human_user,span_userdanger("Сверхъестественная энергия вырывается наружу, пронзая твой хрупкий разум, разрывая его на куски!"))
+	to_chat(human_user,span_userdanger("Сверхъестественная энергия вырывается наружу, пронзая мой хрупкий разум, разрывая его на куски!"))
 	human_user.ghostize()
 	var/obj/item/bodypart/head/head = locate() in human_user.bodyparts
 	if(head)
@@ -216,7 +216,7 @@
 	. = ..()
 	if(!IS_HERETIC(user) && ishuman(user))
 		var/mob/living/carbon/human/human_user = user
-		to_chat(human_user,span_warning("Твой разум горит, когда ты смотришь на слезу!"))
+		to_chat(human_user,span_warning("Мой разум горит, когда я смотрю на разлом!"))
 		human_user.adjustOrganLoss(ORGAN_SLOT_BRAIN,10,190)
 		SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "gates_of_mansus", /datum/mood_event/gates_of_mansus)
 

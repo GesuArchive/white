@@ -1,7 +1,7 @@
 /datum/eldritch_knowledge/base_flesh
-	name = "Principle of Hunger"
-	desc = "Opens up the Path of Flesh to you. Allows you to transmute a pool of blood with a kitchen knife, or its derivatives, into a Flesh Blade."
-	gain_text = "Hundreds of us starved, but not me... I found strength in my greed."
+	name = "Принцип Голода"
+	desc = "Открывает перед тобой Путь Плоти. Позволяет трансмутировать лужу крови и кухонный нож в Лезвие из Плоти.."
+	gain_text = "Сотни из нас голодали, но не я... Я нашел силу в своей жадности."
 	banned_knowledge = list(/datum/eldritch_knowledge/base_ash,/datum/eldritch_knowledge/base_rust,/datum/eldritch_knowledge/final/ash_final,/datum/eldritch_knowledge/final/rust_final,/datum/eldritch_knowledge/final/void_final,/datum/eldritch_knowledge/base_void)
 	next_knowledge = list(/datum/eldritch_knowledge/flesh_grasp)
 	required_atoms = list(/obj/item/kitchen/knife,/obj/effect/decal/cleanable/blood)
@@ -10,9 +10,9 @@
 	route = PATH_FLESH
 
 /datum/eldritch_knowledge/flesh_ghoul
-	name = "Imperfect Ritual"
-	desc = "Allows you to resurrect the dead as voiceless dead by sacrificing them on the transmutation rune with a poppy. Voiceless dead are mute and have 50 HP. You can only have 2 at a time."
-	gain_text = "I found notes of a dark ritual, unfinished... yet still, I pushed forward."
+	name = "незавершенный Ритуал"
+	desc = "Позволяет воскрешать мертвых как немых мертвецов, принося их в жертву на руне трансмутации с маком. Немые мертвецы слабее обычного человека в два раза. У вас может быть только два за раз."
+	gain_text = "Я нашел записи о темном ритуале, незаконченные... и все же я продолжал двигаться вперед."
 	cost = 1
 	required_atoms = list(/mob/living/carbon/human,/obj/item/food/grown/poppy)
 	next_knowledge = list(/datum/eldritch_knowledge/flesh_mark,/datum/eldritch_knowledge/void_cloak,/datum/eldritch_knowledge/ashen_eyes)
@@ -65,9 +65,9 @@
 	UnregisterSignal(source,COMSIG_LIVING_DEATH)
 
 /datum/eldritch_knowledge/flesh_grasp
-	name = "Grasp of Flesh"
-	gain_text = "My new found desires drove me to greater and greater heights."
-	desc = "Empowers your mansus grasp to be able to create a single ghoul out of a dead person. Ghouls have only 25 HP and look like husks to the heathens' eyes."
+	name = "Хватка Плоти"
+	gain_text = "Мои вновь обретенные желания вели меня ко все большим и большим высотам."
+	desc = "Наделяет вашу хватку мансуса способностью некромантии, позволяет наделить жизнью мёртвого человека, но тот станет упырем. Упыри очень слабые и не представляют весомой угрозы.." //Тут немного перефразировал
 	cost = 1
 	next_knowledge = list(/datum/eldritch_knowledge/flesh_ghoul)
 	var/ghoul_amt = 1
@@ -134,9 +134,9 @@
 	UnregisterSignal(source, COMSIG_LIVING_DEATH)
 
 /datum/eldritch_knowledge/flesh_mark
-	name = "Mark of Flesh"
-	gain_text = "I saw them, the marked ones. The screams... the silence."
-	desc = "Your Mansus Grasp now applies the Mark of Flesh on hit. Attack the afflicted with your Sickly Blade to detonate the mark. Upon detonation, the Mark of Flesh causes additional bleeding."
+	name = "Метка Плоти"
+	gain_text = "Я видел их, помеченных. Крики... тишина."
+	desc = "Ваша хватка Мансуса теперь оставляет Метку Плоти при попадании. Атакуйте пораженных своим Клинком Плоти, чтобы активировать метку. При активации метка вызывает кровотечение у жертвы.."
 	cost = 2
 	next_knowledge = list(/datum/eldritch_knowledge/summon/raw_prophet)
 	banned_knowledge = list(/datum/eldritch_knowledge/rust_mark,/datum/eldritch_knowledge/ash_mark,/datum/eldritch_knowledge/void_mark)
@@ -150,9 +150,9 @@
 		living_target.apply_status_effect(/datum/status_effect/eldritch/flesh)
 
 /datum/eldritch_knowledge/flesh_blade_upgrade
-	name = "Bleeding Steel"
-	gain_text = "And then, blood rained from the heavens. That's when I finally understood the Marshal's teachings."
-	desc = "Your Sickly Blade will now cause additional bleeding."
+	name = "Кровоточащая сталь"
+	gain_text = "А потом с небес полилась кровь. Вот тогда я наконец понял учение Маршала."
+	desc = "Ваш Клинок Плоти теперь вызовет дополнительное кровотечения."
 	cost = 2
 	next_knowledge = list(/datum/eldritch_knowledge/summon/stalker)
 	banned_knowledge = list(/datum/eldritch_knowledge/ash_blade_upgrade,/datum/eldritch_knowledge/rust_blade_upgrade,/datum/eldritch_knowledge/void_blade_upgrade)
@@ -167,9 +167,9 @@
 		crit_wound.apply_wound(bodypart)
 
 /datum/eldritch_knowledge/summon/raw_prophet
-	name = "Raw Ritual"
-	gain_text = "The Uncanny Man, who walks alone in the valley between the worlds... I was able to summon his aid."
-	desc = "You can now summon a Raw Prophet by transmutating a pair of eyes, a left arm and a pool of blood. Raw prophets have increased seeing range, as well as X-Ray vision, but they are very fragile."
+	name = "Сырой Ритуал"
+	gain_text = "Сверхъестественное существо, которое в одиночестве бродит по долине между мирами... Я смог призвать его на помощь."
+	desc = "Теперь вы можете вызвать Настоящего Пророка, трансмутируя пару глаз, левую руку и лужу крови. Пророки обладают увеличенной дальностью обзора, а также рентгеновским зрением, но они очень слабые.."
 	cost = 1
 	required_atoms = list(/obj/item/organ/eyes,/obj/effect/decal/cleanable/blood,/obj/item/bodypart/l_arm)
 	mob_to_summon = /mob/living/simple_animal/hostile/eldritch/raw_prophet
@@ -177,9 +177,9 @@
 	route = PATH_FLESH
 
 /datum/eldritch_knowledge/summon/stalker
-	name = "Lonely Ritual"
-	gain_text = "I was able to combine my greed and desires to summon an eldritch beast I had never seen before. An ever shapeshifting mass of flesh, it knew well my goals."
-	desc = "You can now summon a Stalker by transmutating a pair of eyes, a candle, a pen and a piece of paper. Stalkers can shapeshift into harmless animals to get close to the victim."
+	name = "Одинокий Ритуал"
+	gain_text = "Я смог объединить свою жадность и желания, чтобы призвать жуткого зверя, которого я никогда раньше не видел. Постоянно меняющаяся масса плоти, она хорошо знала мои цели."
+	desc = "Теперь вы можете вызвать Преследователя, преобразовав пару глаз, свечу, ручку и лист бумаги. Преследователи могут превращаться в безобидных животных, чтобы подобраться поближе к жертве."
 	cost = 1
 	required_atoms = list(/obj/item/pen,/obj/item/organ/eyes,/obj/item/candle,/obj/item/paper)
 	mob_to_summon = /mob/living/simple_animal/hostile/eldritch/stalker
@@ -187,42 +187,42 @@
 	route = PATH_FLESH
 
 /datum/eldritch_knowledge/summon/ashy
-	name = "Ashen Ritual"
-	gain_text = "I combined my principle of hunger with my desire for destruction. And the Nightwatcher knew my name."
-	desc = "You can now summon an Ash Man by transmutating a pile of ash, a head and a book."
+	name = "Пепельный Ритуал"
+	gain_text = "Я объединил свой принцип голода с моим желанием разрушения. И Ночной Сторож знал мое имя."
+	desc = "Теперь вы можете призвать Пепельного Человека, преобразовав кучу пепла, голову и книгу."
 	cost = 1
 	required_atoms = list(/obj/effect/decal/cleanable/ash,/obj/item/bodypart/head,/obj/item/book)
 	mob_to_summon = /mob/living/simple_animal/hostile/eldritch/ash_spirit
 	next_knowledge = list(/datum/eldritch_knowledge/summon/stalker,/datum/eldritch_knowledge/spell/flame_birth)
 
 /datum/eldritch_knowledge/summon/rusty
-	name = "Rusted Ritual"
-	gain_text = "I combined my principle of hunger with my desire for corruption. And the Rusted Hills called my name."
-	desc = "You can now summon a Rust Walker by transmutating a vomit pool, a severed head and a book."
+	name = "Ржавый Ритуал"
+	gain_text = "Я объединил свой принцип голода с моим стремлением к разложению. И Ржавые Холмы звали меня по имени."
+	desc = "Теперь вы можете призвать Ржавого Ходока, преобразовав лужу рвоты, голову и книгу."
 	cost = 1
 	required_atoms = list(/obj/effect/decal/cleanable/vomit,/obj/item/book,/obj/item/bodypart/head)
 	mob_to_summon = /mob/living/simple_animal/hostile/eldritch/rust_spirit
 	next_knowledge = list(/datum/eldritch_knowledge/spell/voidpull,/datum/eldritch_knowledge/spell/entropic_plume)
 
 /datum/eldritch_knowledge/spell/blood_siphon
-	name = "Blood Siphon"
-	gain_text = "No matter the man, we bleed all the same. That's what the Marshal told me."
-	desc = "You gain a spell that drains health from your enemies to restores your own."
+	name = "Кровавый Сифон"
+	gain_text = "Неважно, кто это, мы все равно истекаем кровью. Вот что сказал мне маршал."
+	desc = "Вы обучаетесь заклинанию, которое высасывает жизненные силы у ваших врагов, чтобы восстановить ваше собственные."
 	cost = 1
 	spell_to_add = /obj/effect/proc_holder/spell/pointed/blood_siphon
 	next_knowledge = list(/datum/eldritch_knowledge/summon/stalker,/datum/eldritch_knowledge/spell/voidpull)
 
 /datum/eldritch_knowledge/final/flesh_final
-	name = "Priest's Final Hymn"
-	gain_text = "Men of this world. Hear me, for the time of the Lord of Arms has come! The Emperor of Flesh guides my army!"
-	desc = "Bring 3 bodies onto a transmutation rune to shed your human form and ascend to untold power."
+	name = "Заключительный Гимн Священника"
+	gain_text = "Люди этого мира. Услышьте меня, ибо пришло время Повелителя Рук! Император Плоти ведет мою армию!"
+	desc = "Положи 3 тела на руну трансмутации, чтобы отречься от своей человеческой формы и вознестись к несказанной силе."
 	required_atoms = list(/mob/living/carbon/human)
 	cost = 3
 	route = PATH_FLESH
 
 /datum/eldritch_knowledge/final/flesh_final/on_finished_recipe(mob/living/user, list/atoms, loc)
 	. = ..()
-	priority_announce("$^@&#*$^@(#&$(@&#^$&#^@# Ever coiling vortex. Reality unfolded. THE LORD OF ARMS, [user.real_name] has ascended! Fear the ever twisting hand! $^@&#*$^@(#&$(@&#^$&#^@#","#$^@&#*$^@(#&$(@&#^$&#^@#", ANNOUNCER_SPANOMALIES)
+	priority_announce("$^@&#*$^@(#&$(@&#^$&#^@# Постоянно остывающий вихрь. Реальность перешатнулас. ПОВЕЛИТЕЛЬ РУК, [user.real_name] вознесся! Бойтесь вечно извивающейся руки! $^@&#*$^@(#&$(@&#^$&#^@#","#$^@&#*$^@(#&$(@&#^$&#^@#", ANNOUNCER_SPANOMALIES)
 	user.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/shed_human_form)
 	if(!ishuman(user))
 		return
