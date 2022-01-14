@@ -1,23 +1,222 @@
 /turf/open/floor/partyhard
-	name = "пол"
+	name = "древний пол"
 	icon = 'white/valtos/icons/turfs.dmi'
 	baseturfs = /turf/open/openspace
-	icon_state = "b-1"
+	icon_state = "p-1"
 	floor_tile = null
 
+/turf/open/floor/resin
+	name = "резиновый пол"
+	desc = "Мягкий, но в то же время весьма крепкий."
+	icon = 'white/valtos/icons/resin.dmi'
+	icon_state = "resin-255"
+	base_icon_state = "resin"
+	floor_tile = /obj/item/stack/tile/resin
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_RESIN_FLOOR)
+	canSmoothWith = list(SMOOTH_GROUP_RESIN_FLOOR)
+	flags_1 = NONE
+	bullet_bounce_sound = null
+	footstep = FOOTSTEP_CARPET
+	barefootstep = FOOTSTEP_CARPET_BAREFOOT
+	clawfootstep = FOOTSTEP_CARPET_BAREFOOT
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	tiled_dirt = FALSE
+
+/obj/item/stack/tile/resin
+	name = "резиновый пол"
+	singular_name = "резиновый пол"
+	desc = "Мягкий, но в то же время весьма крепкий."
+	icon_state = "tile-resin"
+	inhand_icon_state = "tile-resin"
+	turf_type = /turf/open/floor/resin
+	resistance_flags = FIRE_PROOF
+	merge_type = /obj/item/stack/tile/resin
+
+/turf/open/floor/resin/setup_broken_states()
+	return list("damaged")
+
+/turf/open/floor/resin/examine(mob/user)
+	. = ..()
+	. += "<hr><span class='notice'>Здесь есть <b>небольшая щель</b> с краю.</span>"
+
+/turf/open/floor/resin/Initialize()
+	. = ..()
+	update_icon()
+
+/turf/open/floor/resin/update_icon()
+	. = ..()
+	if(!.)
+		return
+	if(!broken && !burnt)
+		if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
+			QUEUE_SMOOTH(src)
+	else
+		make_plating()
+		if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
+			QUEUE_SMOOTH_NEIGHBORS(src)
+
+/turf/open/floor/resin/crypto
+	name = "криптопол"
+	desc = "Очень странный пол."
+	icon = 'white/valtos/icons/crypto.dmi'
+	icon_state = "crypto-255"
+	base_icon_state = "crypto"
+	floor_tile = /obj/item/stack/tile/crypto
+	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_RESIN_FLOOR)
+	canSmoothWith = list(SMOOTH_GROUP_RESIN_FLOOR)
+	footstep = FOOTSTEP_CARPET
+	barefootstep = FOOTSTEP_CARPET_BAREFOOT
+	clawfootstep = FOOTSTEP_CARPET_BAREFOOT
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+
+/obj/item/stack/tile/crypto
+	name = "криптопол"
+	singular_name = "криптопол"
+	desc = "Очень странный пол."
+	icon_state = "tile-crypto"
+	inhand_icon_state = "tile-crypto"
+	turf_type = /turf/open/floor/crypto
+	resistance_flags = FIRE_PROOF
+	merge_type = /obj/item/stack/tile/crypto
+
+/turf/open/floor/plasteel/durasteel
+	name = "дюрасталевый пол"
+	icon = 'white/valtos/icons/turfs.dmi'
+	icon_state = "mm-1"
+	base_icon_state = "mm"
+	floor_tile = /obj/item/stack/tile/durasteel
+
+/turf/open/floor/plasteel/durasteel/Initialize(mapload)
+	. = ..()
+	icon_state = "[base_icon_state]-[rand(1, 5)]"
+
+/obj/item/stack/tile/durasteel
+	name = "дюрасталевый пол"
+	singular_name = "дюрасталевый пол"
+	desc = "Крепкий пол."
+	icon_state = "tile-durasteel"
+	inhand_icon_state = "tile-durasteel"
+	turf_type = /turf/open/floor/plasteel/durasteel
+	merge_type = /obj/item/stack/tile/durasteel
+
 /turf/open/floor/partyhard/steel
-	icon_state = "g-4"
+	icon_state = "p-1"
+	base_icon_state = "p"
 	footstep = FOOTSTEP_PLATING
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	var/max_random_states = 4
+
+/turf/open/floor/partyhard/steel/Initialize(mapload)
+	. = ..()
+	if(max_random_states)
+		icon_state = "[base_icon_state]-[rand(1, max_random_states)]"
+
+/turf/open/floor/partyhard/steel/cross
+	icon_state = "x-1"
+	base_icon_state = "x"
+
+/turf/open/floor/partyhard/steel/vertical
+	icon_state = "g-1"
+	base_icon_state = "g"
+
+/turf/open/floor/partyhard/steel/horizontal
+	icon_state = "rg-1"
+	base_icon_state = "rg"
+
+/turf/open/floor/partyhard/steel/dotted
+	icon_state = "d-1"
+	base_icon_state = "d"
+
+/turf/open/floor/partyhard/steel/reinforced // actually not
+	icon_state = "r-1"
+	base_icon_state = "r"
+
+/turf/open/floor/partyhard/steel/shaped
+	icon_state = "f-1"
+	base_icon_state = "f"
+
+/turf/open/floor/partyhard/steel/linear
+	icon_state = "fl-1"
+	max_random_states = 0
+
+/turf/open/floor/partyhard/steel/strange
+	icon_state = "st-4"
+	max_random_states = 0
+
+/turf/open/floor/partyhard/steel/strange/another
+	icon_state = "st-5"
+
+/turf/open/floor/partyhard/steel/strange/fucky
+	icon_state = "st-6"
+
+/turf/open/floor/partyhard/steel/strange/shitty
+	icon_state = "st-7"
+
+/turf/open/floor/partyhard/steel/strange/holy
+	icon_state = "st-8"
+
+/turf/open/floor/partyhard/steel/strange/cyber
+	icon_state = "st-9"
+
+/turf/open/floor/partyhard/steel/strange/cyber/some
+	icon_state = "st-10"
+
+/turf/open/floor/partyhard/steel/strange/cyber/fart
+	icon_state = "st-11"
+
+/turf/open/floor/partyhard/steel/strange/grid
+	icon_state = "z-1"
+
+/turf/open/floor/partyhard/steel/strange/grid/another
+	icon_state = "z-2"
 
 /turf/open/floor/partyhard/wood
 	icon_state = "w-1"
+	base_icon_state = "w"
 	footstep = FOOTSTEP_WOOD
 	barefootstep = FOOTSTEP_WOOD_BAREFOOT
 	clawfootstep = FOOTSTEP_WOOD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+
+/turf/open/floor/partyhard/wood/Initialize(mapload)
+	. = ..()
+	icon_state = "[base_icon_state]-[rand(1, 3)]"
+
+/turf/open/floor/partyhard/wood/long
+	icon_state = "s-1"
+	base_icon_state = "s"
+
+/turf/open/floor/partyhard/wood_cross
+	icon_state = "bw-1"
+	footstep = FOOTSTEP_WOOD
+	barefootstep = FOOTSTEP_WOOD_BAREFOOT
+	clawfootstep = FOOTSTEP_WOOD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+
+/turf/open/floor/partyhard/wood_cross/another
+	icon_state = "aw-1"
+
+/turf/open/floor/partyhard/stone
+	icon_state = "st-1"
+
+/turf/open/floor/partyhard/stone/mini
+	icon_state = "st-2"
+
+/turf/open/floor/partyhard/stone/normal
+	icon_state = "st-12"
+
+/turf/open/floor/partyhard/stone/tiled
+	icon_state = "a-1"
+
+/turf/open/floor/partyhard/stone/tiled/Initialize(mapload)
+	. = ..()
+	icon_state = "a-[rand(1, 3)]"
+
+/turf/open/floor/partyhard/stone/big
+	icon_state = "st-13"
 
 /turf/open/floor/partyhard/break_tile()
 	return //unbreakable
@@ -40,6 +239,7 @@
 	name = "стена"
 	desc = "Очень крепкая."
 	icon = 'white/valtos/icons/walls.dmi'
+	icon_state = "wall"
 	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_WINDOW_FULLTILE)
 
@@ -59,7 +259,7 @@
 
 /obj/effect/spawner/structure/window/reinforced/partyhard
 	icon = 'icons/obj/smooth_structures/pod_window.dmi'
-	icon_state = "smooth"
+	icon_state = "pod_window-0"
 	spawn_list = list(/obj/structure/grille, /obj/structure/window/reinforced/fulltile/partyhard)
 
 /turf/closed/mineral/partyhard

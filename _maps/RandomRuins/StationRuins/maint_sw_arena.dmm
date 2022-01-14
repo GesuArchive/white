@@ -18,11 +18,6 @@
 /obj/item/clothing/under/victorian/reddress,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
-"g" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-3"
-	},
-/area/maintenance/port/aft)
 "h" = (
 /obj/structure/barricade/wooden{
 	name = "wooden barricade (CLOSED)"
@@ -33,16 +28,6 @@
 	},
 /obj/effect/mapping_helpers/airlock/abandoned,
 /turf/open/floor/plating,
-/area/maintenance/port/aft)
-"i" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-9"
-	},
-/area/maintenance/port/aft)
-"j" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-4"
-	},
 /area/maintenance/port/aft)
 "k" = (
 /obj/machinery/door/airlock/maintenance{
@@ -56,64 +41,20 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
-"l" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-7"
-	},
-/area/maintenance/port/aft)
 "m" = (
 /obj/structure/chair/sofa/right,
-/turf/open/floor/partyhard/steel{
-	icon_state = "s-3"
-	},
+/turf/open/floor/partyhard/wood/long,
 /area/maintenance/port/aft)
 "n" = (
 /obj/item/clothing/under/victorian/vest,
 /obj/item/melee/baseball_bat/ablative,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
-/area/maintenance/port/aft)
-"o" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-8"
-	},
+/turf/open/floor/resin,
 /area/maintenance/port/aft)
 "p" = (
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-7"
-	},
-/area/maintenance/port/aft)
-"q" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-6"
-	},
-/area/maintenance/port/aft)
-"r" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-10"
-	},
-/area/maintenance/port/aft)
-"t" = (
-/obj/structure/chair/sofa,
-/turf/open/floor/partyhard/steel{
-	icon_state = "w-2"
-	},
-/area/maintenance/port/aft)
-"u" = (
-/obj/structure/chair/sofa,
-/turf/open/floor/partyhard/steel{
-	icon_state = "s-3"
-	},
-/area/maintenance/port/aft)
-"v" = (
-/obj/structure/chair/sofa,
-/turf/open/floor/partyhard/steel{
-	icon_state = "s-2"
-	},
+/turf/open/floor/resin,
 /area/maintenance/port/aft)
 "w" = (
 /obj/structure/barricade/wooden{
@@ -133,9 +74,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "z" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-5"
-	},
+/turf/open/floor/resin,
 /area/maintenance/port/aft)
 "A" = (
 /obj/effect/turf_decal/stripes/line{
@@ -157,77 +96,59 @@
 	dir = 9;
 	icon_state = "trimline"
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/maintenance/port/aft)
 "D" = (
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 1;
 	icon_state = "trimline"
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/maintenance/port/aft)
 "E" = (
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 5;
 	icon_state = "trimline"
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/maintenance/port/aft)
 "F" = (
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 8;
 	icon_state = "trimline"
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/maintenance/port/aft)
 "G" = (
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 4;
 	icon_state = "trimline"
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/maintenance/port/aft)
 "H" = (
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 10;
 	icon_state = "trimline"
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/maintenance/port/aft)
 "I" = (
 /obj/effect/turf_decal/trimline/neutral/line,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/maintenance/port/aft)
 "J" = (
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 6;
 	icon_state = "trimline"
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/maintenance/port/aft)
 "K" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/item/clothing/under/victorian/vest,
 /obj/item/melee/baseball_bat/ablative,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/maintenance/port/aft)
 "L" = (
 /obj/structure/table/wood,
@@ -240,75 +161,36 @@
 "M" = (
 /obj/item/clothing/under/victorian/blred,
 /obj/item/melee/baseball_bat/ablative,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/maintenance/port/aft)
 "N" = (
 /obj/structure/chair/sofa,
-/turf/open/floor/partyhard/steel{
-	icon_state = "w-3"
-	},
+/turf/open/floor/partyhard/wood/long,
 /area/maintenance/port/aft)
 "O" = (
 /obj/structure/chair/sofa/left,
-/turf/open/floor/partyhard/steel{
-	icon_state = "s-3"
-	},
+/turf/open/floor/partyhard/wood/long,
 /area/maintenance/port/aft)
 "P" = (
 /obj/structure/chair/sofa/left{
 	dir = 1;
 	icon_state = "sofaend_left"
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "s-3"
-	},
-/area/maintenance/port/aft)
-"Q" = (
-/obj/structure/chair/sofa{
-	dir = 1;
-	icon_state = "sofamiddle"
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "s-2"
-	},
-/area/maintenance/port/aft)
-"R" = (
-/obj/structure/chair/sofa{
-	dir = 1;
-	icon_state = "sofamiddle"
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "w-3"
-	},
-/area/maintenance/port/aft)
-"S" = (
-/obj/structure/chair/sofa{
-	dir = 1;
-	icon_state = "sofamiddle"
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "s-3"
-	},
+/turf/open/floor/partyhard/wood/long,
 /area/maintenance/port/aft)
 "T" = (
 /obj/structure/chair/sofa{
 	dir = 1;
 	icon_state = "sofamiddle"
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "w-2"
-	},
+/turf/open/floor/partyhard/wood/long,
 /area/maintenance/port/aft)
 "U" = (
 /obj/structure/chair/sofa/right{
 	dir = 1;
 	icon_state = "sofaend_right"
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "s-3"
-	},
+/turf/open/floor/partyhard/wood/long,
 /area/maintenance/port/aft)
 "V" = (
 /obj/structure/sign/warning/nosmoking{
@@ -373,12 +255,12 @@ b
 y
 W
 m
-g
-l
+z
+z
 p
-l
-l
-q
+z
+z
+z
 P
 W
 x
@@ -388,14 +270,14 @@ c
 W
 y
 W
-t
-i
+N
+z
 C
 F
 F
 H
-r
-Q
+z
+T
 W
 x
 c
@@ -404,14 +286,14 @@ c
 W
 y
 W
-u
-i
+N
+z
 D
 n
 M
 I
-r
-R
+z
+T
 W
 x
 c
@@ -420,14 +302,14 @@ c
 W
 y
 W
-v
-i
+N
+z
 D
 K
 M
 I
-r
-S
+z
+T
 W
 x
 c
@@ -437,12 +319,12 @@ c
 y
 W
 N
-i
+z
 E
 G
 G
 J
-r
+z
 T
 W
 x
@@ -453,11 +335,11 @@ c
 y
 W
 O
-j
-o
-o
-o
-o
+z
+z
+z
+z
+z
 z
 U
 W

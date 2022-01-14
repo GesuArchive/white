@@ -1,20 +1,16 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/open/space/basic,
-/area/shuttle/escape)
+/turf/template_noop,
+/area/template_noop)
 "b" = (
 /turf/closed/wall/r_wall/syndicate,
 /area/shuttle/escape)
 "c" = (
 /obj/machinery/computer/secure_data,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
+/turf/open/floor/partyhard/stone/tiled,
 /area/shuttle/escape)
 "d" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
+/turf/open/floor/partyhard/stone/tiled,
 /area/shuttle/escape)
 "e" = (
 /obj/effect/spawner/structure/window/reinforced/partyhard,
@@ -26,77 +22,57 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
+/turf/open/floor/partyhard/stone/tiled,
 /area/shuttle/escape)
 "g" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
+/turf/open/floor/partyhard/stone/tiled,
 /area/shuttle/escape)
 "h" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
+/turf/open/floor/partyhard/stone/tiled,
 /area/shuttle/escape)
 "i" = (
 /obj/machinery/computer/emergency_shuttle,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
+/turf/open/floor/partyhard/stone/tiled,
 /area/shuttle/escape)
 "j" = (
 /obj/machinery/computer/communications,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
+/turf/open/floor/partyhard/stone/tiled,
 /area/shuttle/escape)
 "k" = (
 /obj/machinery/computer/crew,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
+/turf/open/floor/partyhard/stone/tiled,
 /area/shuttle/escape)
 "l" = (
 /obj/machinery/computer/med_data{
 	dir = 4
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
+/turf/open/floor/partyhard/stone/tiled,
 /area/shuttle/escape)
 "m" = (
 /obj/machinery/computer/security{
 	dir = 8
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-5"
-	},
+/turf/open/floor/partyhard/stone/tiled,
 /area/shuttle/escape)
 "n" = (
 /obj/machinery/door/airlock/command/glass{
 	name = "Cockpit";
 	req_access_txt = "19"
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
+/turf/open/floor/partyhard/stone/tiled,
 /area/shuttle/escape)
 "o" = (
 /obj/machinery/door/airlock/shuttle{
 	name = "Emergency Shuttle Airlock"
 	},
 /obj/structure/fans/tiny,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-4"
-	},
+/turf/open/floor/partyhard/stone/tiled,
 /area/shuttle/escape)
 "p" = (
 /obj/docking_port/mobile/emergency{
