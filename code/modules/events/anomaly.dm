@@ -24,6 +24,7 @@
 		/area/holodeck,
 		/area/shuttle,
 		/area/maintenance,
+		/area/partyhard,
 		/area/science/test_area)
 		)
 

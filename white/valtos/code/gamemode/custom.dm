@@ -136,6 +136,7 @@
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
+	base_lighting_alpha = 3
 	requires_power = TRUE
 	ambientsounds = MINING
 	outdoors = TRUE
