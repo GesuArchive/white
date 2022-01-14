@@ -244,8 +244,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_WINDOW_FULLTILE)
 
 /turf/closed/wall/r_wall/partyhard
-	name = "durable reinforced wall"
-	desc = "A huge chunk of durable reinforced metal."
+	name = "армированная стена из дюрастали"
 	icon = 'white/valtos/icons/r_walls.dmi'
 	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_WINDOW_FULLTILE)
@@ -418,60 +417,6 @@
 		transform = M
 		icon = smooth_icon
 		icon_state = "[icon_state]-[smoothing_junction]"
-
-/obj/structure/pillar
-	name = "pillar"
-	desc = "Заборчик. Круто."
-	icon = 'white/valtos/icons/objects.dmi'
-	icon_state = "b-1"
-	density = TRUE
-	layer = BYOND_LIGHTING_LAYER
-	plane = BYOND_LIGHTING_PLANE
-	pressure_resistance = 4*ONE_ATMOSPHERE
-	anchored = TRUE
-	flags_1 = ON_BORDER_1
-	max_integrity = 250
-	can_be_unanchored = FALSE
-	resistance_flags = ACID_PROOF
-	armor = list("melee" = 90, "bullet" = 90, "laser" = 100, "energy" = 100, "bomb" = 50, "bio" = 100, "rad" = 100, "fire" = 80, "acid" = 100)
-	CanAtmosPass = ATMOS_PASS_YES
-	rad_insulation = RAD_NO_INSULATION
-	var/real_explosion_block	//ignore this, just use explosion_block
-
-/obj/structure/pillar/Initialize()
-	. = ..()
-	if(density && flags_1 & ON_BORDER_1) // blocks normal movement from and to the direction it's facing.
-		var/static/list/loc_connections = list(
-			COMSIG_ATOM_EXIT = .proc/on_exit,
-		)
-		AddElement(/datum/element/connect_loc, loc_connections)
-
-/obj/structure/pillar/proc/on_exit(datum/source, atom/movable/leaving, direction)
-	SIGNAL_HANDLER
-
-	if(leaving == src)
-		return // Let's not block ourselves.
-
-	if(!(direction & dir))
-		return
-
-	if (!density)
-		return
-
-	if (leaving.throwing)
-		return
-
-	if (leaving.movement_type & (PHASING | FLYING | FLOATING))
-		return
-
-	if (leaving.move_force >= MOVE_FORCE_EXTREMELY_STRONG)
-		return
-
-	leaving.Bump(src)
-	return COMPONENT_ATOM_BLOCK_EXIT
-
-/obj/structure/pillar/CanAtmosPass(turf/T)
-	return TRUE
 
 /********************** New mining areas **************************/
 
