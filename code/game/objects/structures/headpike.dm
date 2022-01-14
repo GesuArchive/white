@@ -1,17 +1,21 @@
 /obj/structure/headpike
 	name = "spooky head on a spear"
-	desc = "When you really want to send a message."
+	desc = "Когда реально хочется что-то сказать."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "headpike"
 	density = FALSE
 	anchored = TRUE
-	var/bonespear = FALSE
 	var/obj/item/spear/spear
+	var/obj/item/spear/speartype
 	var/obj/item/bodypart/head/victim
 
 /obj/structure/headpike/bone //for bone spears
 	icon_state = "headpike-bone"
-	bonespear = TRUE
+	speartype = /obj/item/spear/bonespear
+
+/obj/structure/headpike/bamboo //for bamboo spears
+	icon_state = "headpike-bamboo"
+	speartype = /obj/item/spear/bamboospear
 
 /obj/structure/headpike/Initialize(mapload)
 	. = ..()
@@ -23,10 +27,10 @@
 	if(!victim) //likely a mapspawned one
 		victim = new(src)
 		victim.real_name = random_unique_name(prob(50))
-	name = "[victim.real_name] on a spear"
-	spear = locate(bonespear ? /obj/item/spear/bonespear : /obj/item/spear) in parts_list
+	name = "голова [victim.real_name] на копье"
+	spear = locate(speartype) in parts_list
 	if(!spear)
-		spear = bonespear ? new/obj/item/spear/bonespear(src) : new/obj/item/spear(src)
+		spear = new speartype(src)
 	update_icon()
 	return ..()
 
@@ -71,5 +75,5 @@
 	. = ..()
 	if(.)
 		return
-	to_chat(user, span_notice("You take down [src]."))
+	to_chat(user, span_notice("Снимаю [src]."))
 	deconstruct(TRUE)

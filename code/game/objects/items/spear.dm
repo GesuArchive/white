@@ -179,3 +179,18 @@
 
 /obj/item/spear/bonespear/update_icon_state()
 	icon_state = "bone_spear0"
+
+/*
+ * Bamboo Spear
+ */
+/obj/item/spear/bamboospear //Blatant imitation of spear, but all natural. Also not valid for explosive modification.
+	icon_state = "bamboo_spear0"
+	base_icon_state = "bamboo_spear0"
+	icon_prefix = "bamboo_spear"
+	name = "бамбуковое копьё"
+	desc = "Бамбуковая палка с острым концом. Невероятно смертельное оружие."
+	throwforce = 22	//Better to throw
+
+/obj/item/spear/bonespear/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/two_handed, force_unwielded=10, force_wielded=18, icon_wielded="[icon_prefix]1")

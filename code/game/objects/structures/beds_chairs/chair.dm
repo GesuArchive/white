@@ -292,6 +292,16 @@
 	icon_state = "bar"
 	item_chair = /obj/item/chair/stool/bar
 
+/obj/structure/chair/stool/bamboo
+	name = "бамбуковый стул"
+	desc = "Самодельный стул, выглядит прикольно."
+	icon_state = "bamboo_stool"
+	resistance_flags = FLAMMABLE
+	max_integrity = 60
+	buildstacktype = /obj/item/stack/sheet/mineral/bamboo
+	buildstackamount = 2
+	item_chair = /obj/item/chair/stool/bamboo
+
 /obj/item/chair
 	name = "стул"
 	desc = "Особенность потасовок в баре."
@@ -388,6 +398,14 @@
 	inhand_icon_state = "stool"
 	origin_type = /obj/structure/chair/stool
 	break_chance = 0 //It's too sturdy.
+
+/obj/item/chair/stool/bamboo
+	name = "бамбуковый стул"
+	icon_state = "bamboo_stool"
+	inhand_icon_state = "stool_bamboo"
+	hitsound = 'sound/weapons/genhit1.ogg'
+	origin_type = /obj/structure/chair/stool/bamboo
+	break_chance = 50	//Submissive and breakable unlike the chad iron stool
 
 /obj/item/chair/stool/bar
 	name = "барный стул"

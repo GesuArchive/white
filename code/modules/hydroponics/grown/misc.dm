@@ -145,7 +145,7 @@
 	maturation = 3
 	yield = 4
 	instability = 15
-	growthstages = 2
+	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/sugar = 0.25)
 	mutatelist = list(/obj/item/seeds/bamboo)
 
