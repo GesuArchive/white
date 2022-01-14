@@ -35,15 +35,15 @@
 		var/verb
 		switch(CEILING(MAX_LIVING_HEALTH / throwforce, 1)) //throws to crit a human
 			if(1 to 3)
-				verb = "superb"
+				verb = "идеальное"
 			if(4 to 6)
-				verb = "great"
+				verb = "великолепное"
 			if(7 to 9)
-				verb = "good"
+				verb = "крутое"
 			if(10 to 12)
-				verb = "fairly decent"
+				verb = "обычное"
 			if(13 to 15)
-				verb = "mediocre"
+				verb = "плохое"
 		if(!verb)
 			return
 		. += span_notice("Они могут работать как [verb] метательное оружие.")
