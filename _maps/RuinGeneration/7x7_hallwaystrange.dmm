@@ -41,7 +41,7 @@
 /turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/unpowered)
 "q" = (
-/turf/open/floor/plating/catwalk_floor,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/ruin/unpowered)
 "r" = (
 /obj/effect/abstract/doorway_marker,

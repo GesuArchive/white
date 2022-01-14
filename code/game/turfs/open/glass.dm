@@ -1,6 +1,6 @@
 /turf/open/floor/glass
-	name = "Glass floor"
-	desc = "Dont jump on it, or do, I'm not your mom."
+	name = "стеклянный пол"
+	desc = "Не прыгай по нему! Или прыгай. Я не твоя мамаша."
 	icon = 'icons/turf/floors/glass.dmi'
 	icon_state = "glass-0"
 	base_icon_state = "glass"
@@ -30,8 +30,8 @@
 
 
 /turf/open/floor/glass/reinforced
-	name = "Reinforced glass floor"
-	desc = "Do jump on it, it can take it."
+	name = "армированный стеклянный пол"
+	desc = "Не прыгай по нему! Он выдержит."
 	icon = 'icons/turf/floors/reinf_glass.dmi'
 	icon_state = "reinf_glass-0"
 	base_icon_state = "reinf_glass"

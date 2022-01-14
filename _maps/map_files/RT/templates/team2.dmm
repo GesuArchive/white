@@ -4,13 +4,13 @@
 /area/ctf)
 "d" = (
 /obj/structure/closet/abductor,
-/turf/open/floor/plating/catwalk_floor,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/ctf)
 "i" = (
 /obj/item/kirbyplants/photosynthetic{
 	anchored = 1
 	},
-/turf/open/floor/plating/catwalk_floor,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/ctf)
 "o" = (
 /obj/effect/baseturf_helper/asteroid,
@@ -25,22 +25,22 @@
 "s" = (
 /obj/structure/bed/abductor,
 /obj/machinery/arena_spawn/green,
-/turf/open/floor/plating/catwalk_floor,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/ctf)
 "x" = (
 /turf/closed/indestructible/alien,
 /area/ctf)
 "y" = (
-/turf/open/floor/plating/catwalk_floor,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/ctf)
 "F" = (
 /obj/machinery/door/airlock/abductor,
-/turf/open/floor/plating/catwalk_floor,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/ctf)
 "G" = (
 /obj/structure/bed/abductor,
 /obj/machinery/arena_spawn/red,
-/turf/open/floor/plating/catwalk_floor,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/ctf)
 "O" = (
 /turf/open/floor/plating/abductor,
@@ -50,7 +50,7 @@
 	id = "arena_default";
 	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
 	},
-/turf/open/floor/plating/catwalk_floor,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/ctf)
 "Z" = (
 /obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
