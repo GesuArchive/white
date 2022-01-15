@@ -631,8 +631,6 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 	icon_state = "cuff" // Needs sprite
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
-	breakoutchance = 60 //хз
-	breakouttime 20
 	trashtype = /obj/item/restraints/handcuffs/energy/used
 	flags_1 = NONE
 
