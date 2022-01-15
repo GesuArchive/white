@@ -456,6 +456,6 @@
 	name = "следы"
 	icon_state = "strail"
 	desc = "Точно стоит идти по этим следам."
-	layer = ABOVE_BELOW_NORMAL_TURF_LAYER
+	layer = ABOVE_NORMAL_TURF_LAYER
 	random_icon_states = null
 	var/list/existing_dirs = list()
