@@ -1909,18 +1909,6 @@
 	pixel_y = 4
 	},
 /obj/structure/flora/rock,
-/obj/item/clothing/head/helmet/space/hardsuit/ert/sec{
-	desc = "You ever wonder why we're here?";
-	name = "Red combat armor helmet";
-	pixel_x = -8;
-	pixel_y = -4
-	},
-/obj/item/clothing/head/helmet/space/hardsuit/ert/engi{
-	desc = "It's one of life's great mysteries, isn't it?";
-	name = "orange combat armor helmet";
-	pixel_x = 10;
-	pixel_y = -8
-	},
 /turf/open/floor/plating/grass{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
