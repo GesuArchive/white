@@ -134,6 +134,7 @@
 //"entered-[blood_state]-[dir_of_image]"
 //or: "exited-[blood_state]-[dir_of_image]"
 GLOBAL_LIST_EMPTY(bloody_footprints_cache)
+GLOBAL_LIST_EMPTY(snowy_footprints_cache)
 
 //Bloody shoes/footprints
 #define BLOODY_FOOTPRINT_BASE_ALPHA 20 /// Minimum alpha of footprints

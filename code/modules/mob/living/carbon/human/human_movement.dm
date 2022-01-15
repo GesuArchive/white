@@ -48,6 +48,23 @@
 	if(shoes && body_position == STANDING_UP && loc == NewLoc && has_gravity(loc))
 		SEND_SIGNAL(shoes, COMSIG_SHOES_STEP_ACTION)
 
+	var/turf/T = get_turf(src)
+
+	//Snow footprints
+	if(istype(T, /turf/open/floor/grass/snow) || istype(T, /turf/open/floor/plating/snowed))
+		if(!buckled && !(movement_type & FLYING))
+			if(loc == NewLoc)
+				if(!has_gravity(loc))
+					return
+				var/obj/effect/decal/cleanable/snow_footprints/oldFP = locate(/obj/effect/decal/cleanable/snow_footprints) in T
+				if(oldFP)
+					oldFP.entered_dirs |= dir
+					oldFP.update_icon()
+				else
+					var/obj/effect/decal/cleanable/snow_footprints/FP = new /obj/effect/decal/cleanable/snow_footprints(T)
+					FP.entered_dirs |= dir
+					FP.update_icon()
+
 /mob/living/carbon/human/Process_Spacemove(movement_dir = 0) //Temporary laziness thing. Will change to handles by species reee.
 	if(dna.species.space_move(src))
 		return TRUE

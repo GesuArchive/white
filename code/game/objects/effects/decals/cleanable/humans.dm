@@ -271,7 +271,6 @@
 				GLOB.bloody_footprints_cache["exited-[blood_state]-[Ddir]"] = bloodstep_overlay = image(icon, "[blood_state]2", dir = Ddir)
 			. += bloodstep_overlay
 
-
 /obj/effect/decal/cleanable/blood/footprints/examine(mob/user)
 	. = ..()
 	if((shoe_types.len + species_types.len) > 0)
@@ -394,3 +393,69 @@
 	the_window.vis_contents += final_splatter
 	the_window.bloodied = TRUE
 	qdel(src)
+
+/obj/effect/decal/cleanable/snow_footprints
+	name = "следы"
+	icon = 'icons/effects/footprints.dmi'
+	icon_state = "snow1"
+	desc = "Кто тут ходил?"
+	var/entered_dirs = 0
+	var/exited_dirs = 0
+
+/obj/effect/decal/cleanable/snow_footprints/Initialize(mapload)
+	. = ..()
+	icon_state = ""
+	if(mapload)
+		entered_dirs |= dir
+		update_icon()
+
+/obj/effect/decal/cleanable/snow_footprints/setDir(newdir)
+	if(dir == newdir)
+		return ..()
+
+	var/ang_change = dir2angle(newdir) - dir2angle(dir)
+	var/old_entered_dirs = entered_dirs
+	var/old_exited_dirs = exited_dirs
+	entered_dirs = 0
+	exited_dirs = 0
+
+	for(var/Ddir in GLOB.cardinals)
+		if(old_entered_dirs & Ddir)
+			entered_dirs |= angle2dir_cardinal(dir2angle(Ddir) + ang_change)
+		if(old_exited_dirs & Ddir)
+			exited_dirs |= angle2dir_cardinal(dir2angle(Ddir) + ang_change)
+
+	update_icon()
+	return ..()
+
+/obj/effect/decal/cleanable/snow_footprints/update_icon()
+	. = ..()
+	alpha = min(BLOODY_FOOTPRINT_BASE_ALPHA + (255 - BLOODY_FOOTPRINT_BASE_ALPHA) * bloodiness / (BLOOD_ITEM_MAX / 2), 255)
+
+/obj/effect/decal/cleanable/snow_footprints/replace_decal(obj/effect/decal/cleanable/C)
+	if(icon_state != C.icon_state)
+		return FALSE
+	return ..()
+
+/obj/effect/decal/cleanable/snow_footprints/update_overlays()
+	. = ..()
+	for(var/Ddir in GLOB.cardinals)
+		if(entered_dirs & Ddir)
+			var/image/snowstep_overlay = GLOB.snowy_footprints_cache["entered-snow-[Ddir]"]
+			if(!snowstep_overlay)
+				GLOB.snowy_footprints_cache["entered-snow-[Ddir]"] = snowstep_overlay = image(icon, "snow1", dir = Ddir)
+			. += snowstep_overlay
+
+		if(exited_dirs & Ddir)
+			var/image/snowstep_overlay = GLOB.snowy_footprints_cache["exited-snow-[Ddir]"]
+			if(!snowstep_overlay)
+				GLOB.snowy_footprints_cache["exited-snow-[Ddir]"] = snowstep_overlay = image(icon, "snow2", dir = Ddir)
+			. += snowstep_overlay
+
+/obj/effect/decal/cleanable/snow_trail
+	name = "следы"
+	icon_state = "strail"
+	desc = "Точно стоит идти по этим следам."
+	layer = ABOVE_BELOW_NORMAL_TURF_LAYER
+	random_icon_states = null
+	var/list/existing_dirs = list()
