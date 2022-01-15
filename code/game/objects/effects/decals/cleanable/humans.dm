@@ -430,7 +430,7 @@
 
 /obj/effect/decal/cleanable/snow_footprints/update_icon()
 	. = ..()
-	alpha = min(BLOODY_FOOTPRINT_BASE_ALPHA + (255 - BLOODY_FOOTPRINT_BASE_ALPHA) * bloodiness / (BLOOD_ITEM_MAX / 2), 255)
+	alpha = min(70 + (255 - 70) * bloodiness / (BLOOD_ITEM_MAX / 2), 255)
 
 /obj/effect/decal/cleanable/snow_footprints/replace_decal(obj/effect/decal/cleanable/C)
 	if(icon_state != C.icon_state)
