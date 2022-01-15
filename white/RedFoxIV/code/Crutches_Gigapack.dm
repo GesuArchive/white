@@ -102,7 +102,7 @@
 
 
 
-/proc/getNoun(number, one, two, five)
+/proc/getnoun(number, one, two, five)
 	var/n = abs(number)
 	n = n % 100
 	if (n >= 11 &&  n <= 19)

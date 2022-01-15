@@ -12,13 +12,13 @@
 	switch(breakoutchance)
 		if(100)
 			if(breakouttime % 600 == 0)
-				. += span_notice("<hr>От таких оков можно избавиться примерно за <b>[breakouttime/600]</b> [getNoun(breakouttime/600, "минуту","минуты","минут")].")
+				. += span_notice("<hr>От таких оков можно избавиться примерно за <b>[breakouttime/600]</b> [getnoun(breakouttime/600, "минуту","минуты","минут")].")
 			else
-				. += span_notice("<hr>От таких оков можно избавиться примерно за <b>[breakouttime/10]</b> [getNoun(breakouttime/10, "секунду","секунды","секунд")].")
+				. += span_notice("<hr>От таких оков можно избавиться примерно за <b>[breakouttime/10]</b> [getnoun(breakouttime/10, "секунду","секунды","секунд")].")
 		if(90 to 100)
-			. += span_notice("<hr>Из таких оков можно вырваться с первой попытки за <b>[breakouttime/10]</b> [getNoun(breakouttime/10, "секунду","секунды","секунд")].")
+			. += span_notice("<hr>Из таких оков можно вырваться с первой попытки за <b>[breakouttime/10]</b> [getnoun(breakouttime/10, "секунду","секунды","секунд")].")
 		if(0 to 90)
-			. += span_notice("<hr>Из таких оков можно вырваться с шансом приблизительно <b>[round(breakoutchance,10)]%</b> за <b>[breakouttime/10]</b> [getNoun(breakouttime/10, "секунду","секунды","секунд")].")
+			. += span_notice("<hr>Из таких оков можно вырваться с шансом приблизительно <b>[round(breakoutchance,10)]%</b> за <b>[breakouttime/10]</b> [getnoun(breakouttime/10, "секунду","секунды","секунд")].")
 
 
 /obj/item/restraints/Destroy()

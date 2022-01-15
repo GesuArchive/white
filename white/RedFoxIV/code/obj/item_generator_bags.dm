@@ -25,6 +25,7 @@
 	var/list/items = list(/obj/item/stack/sheet/mineral/diamond, /obj/item/stack/sheet/mineral/gold, /obj/item/stack/sheet/mineral/uranium, /obj/item/stack/sheet/mineral/wood, /obj/item/stack/sheet/iron, /obj/item/stack/sheet/mineral/silver, /obj/item/stack/sheet/mineral/titanium, /obj/item/stack/sheet/glass)
 	var/timer
 
+/*
 //возможно будет хорошей идеей вывести этот прок в глобальные, но я хз.
 //"прямой" "порт" отсюда, потому что я не хочу ломать голову над этим говном:
 //http://www.seoded.ru/webmaster/sozdanie-saita/sklonenie-suschestvitelnykh-s-ciframi.html
@@ -40,6 +41,7 @@
 			return src.word2
 		if(2)
 			return src.word5
+*/
 
 ///Returns an item path to spawn. Override this proc if you don't want to choose randomly from a list.
 /obj/item/item_generator/proc/pick_item()
@@ -53,7 +55,7 @@
 /obj/item/item_generator/examine()
 	. = ..()
 	if(precise_display)
-		. += "<br>Внутри [charges] [incline(charges)]."
+		. += "<br>Внутри [charges] [getnoun(charges, word1, word2, word5)]."
 	else
 		. += "<br>Внутри [charges ? "что-то есть!" : "ничего нет."]"
 
@@ -123,7 +125,7 @@
 	if(istype(item, /obj/item)) //required because a some stuff in maintenance loottable is not an item and does not have a lot of item related stuff. (duh)
 		return item
 	else
-		to_chat(user, "<span class = 'notice'>Из что-то выпадает!</span>")
+		to_chat(user, "<span class = 'notice'>Из [skloname(src.name, RODITELNI)] что-то выпадает!</span>")
 		return FALSE
 
 /obj/item/item_generator/proc/recharge()
