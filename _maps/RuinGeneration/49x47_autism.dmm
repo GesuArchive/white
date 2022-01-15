@@ -2142,7 +2142,7 @@
 /area/ruin/space/has_grav/austation/med)
 "vp" = (
 /obj/structure/lattice,
-/obj/item/shuttlespawner/diyshuttle,
+/obj/item/shuttlespawner/explorer_mini,
 /turf/open/space/basic,
 /area/ruin/space/has_grav/austation/rnd)
 "vr" = (

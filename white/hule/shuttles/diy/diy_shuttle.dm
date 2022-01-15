@@ -69,6 +69,11 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	if(used)
 		GLOB.diy_shuttle_count++
 
+/obj/item/shuttlespawner/explorer_mini
+	name = "bluespace shuttle capsule"
+	desc = "Zopa."
+	template = new /datum/map_template/shuttle/ruin/explorer_mini
+
 ///////////////////////////////////////
 
 /obj/docking_port/mobile/diy/big
