@@ -27,7 +27,7 @@
 	name = "резиновый пол"
 	singular_name = "резиновый пол"
 	desc = "Мягкий, но в то же время весьма крепкий."
-	icon_state = "tile-resin"
+	icon_state = "tile_resin"
 	inhand_icon_state = "tile-resin"
 	turf_type = /turf/open/floor/resin
 	resistance_flags = FIRE_PROOF
@@ -74,7 +74,7 @@
 	name = "криптопол"
 	singular_name = "криптопол"
 	desc = "Очень странный пол."
-	icon_state = "tile-crypto"
+	icon_state = "tile_crypto"
 	inhand_icon_state = "tile-crypto"
 	turf_type = /turf/open/floor/resin/crypto
 	resistance_flags = FIRE_PROOF
@@ -87,7 +87,7 @@
 	base_icon_state = "mm"
 	floor_tile = /obj/item/stack/tile/durasteel
 
-/turf/open/floor/plasteel/durasteel/Initialize(mapload)
+/turf/open/floor/plasteel/durasteel/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]-[rand(1, 5)]"
 
@@ -95,7 +95,7 @@
 	name = "дюрасталевый пол"
 	singular_name = "дюрасталевый пол"
 	desc = "Крепкий пол."
-	icon_state = "tile-durasteel"
+	icon_state = "tile_durasteel"
 	inhand_icon_state = "tile-durasteel"
 	turf_type = /turf/open/floor/plasteel/durasteel
 	merge_type = /obj/item/stack/tile/durasteel
