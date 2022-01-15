@@ -52,8 +52,8 @@
 	throw_speed = 3
 	throw_range = 5
 	custom_materials = list(/datum/material/iron=500)
-	breakouttime = 20 SECONDS
-	breakoutchance = 53.7 // 78.563% and 90.075% to break out on second and third try respectively
+	breakouttime = 30 SECONDS
+	breakoutchance = 50
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 50)
 	custom_price = PAYCHECK_HARD * 0.35
 	var/cuffsound = 'sound/weapons/handcuffs.ogg'
@@ -132,8 +132,8 @@
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	custom_materials = list(/datum/material/iron=150, /datum/material/glass=75)
-	breakouttime = 10 SECONDS
-	breakoutchance = 53.7 // 78.563% and 90.075% to break out on second and third try respectively
+	breakouttime = 20 SECONDS
+	breakoutchance = 50
 	cuffsound = 'sound/weapons/cablecuff.ogg'
 
 /obj/item/restraints/handcuffs/cable/red
@@ -206,8 +206,8 @@
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	custom_materials = null
-	breakouttime = 15 SECONDS
-	breakoutchance = 53.7 // 78.563% and 90.075% to break out on second and third try respectively
+	breakouttime = 10 SECONDS
+	breakoutchance = 35
 	trashtype = /obj/item/restraints/handcuffs/cable/zipties/used
 	color = null
 
