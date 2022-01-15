@@ -559,3 +559,16 @@
 			new pickedtrash(P)
 		CHECK_TICK
 	..()
+
+/datum/round_aspect/traitored
+	name = "Traitored"
+	desc = "Кто-то сдал всех предателей!"
+	weight = 15
+
+/datum/round_aspect/traitored/run_aspect()
+	spawn(30 SECONDS)
+		var/list/our_pussies = list()
+		for(var/datum/antagonist/A in GLOB.antagonists)
+			our_pussies += "[A.name] - [A.owner.name] под видом [A.owner.assigned_role].[prob(1) ? " УБЕЙТЕ ЕГО НАХУЙ!" : ""]"
+		priority_announce("Прива, я тут немного собрал для вас имён интересных, надеюсь, они вам понадобятся! Список психов: [our_pussies.Join("\n")]", sender_override = "Апегио Крысус")
+	..()
