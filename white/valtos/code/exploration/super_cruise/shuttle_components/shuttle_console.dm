@@ -54,7 +54,7 @@ GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
 /obj/machinery/computer/shuttle_flight/Destroy()
 	. = ..()
 	SSorbits.open_orbital_maps -= SStgui.get_all_open_uis(src)
-	shuttleObject.UnregisterReference(src)
+	shuttleObject?.UnregisterReference(src)
 
 /obj/machinery/computer/shuttle_flight/process()
 	. = ..()

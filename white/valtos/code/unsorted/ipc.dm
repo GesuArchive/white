@@ -3,8 +3,8 @@
 	id = "ipc"
 	say_mod = "бип-бупает" //inherited from a user's real species
 	sexes = 0
-	species_traits = list(NOTRANSSTING, NOBLOOD, TRAIT_EASYDISMEMBER, TRAIT_NOFLASH, NOEYESPRITES) //all of these + whatever we inherit from the real species
-	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_VIRUSIMMUNE,TRAIT_NOLIMBDISABLE,TRAIT_NOHUNGER,TRAIT_NOBREATH,TRAIT_RADIMMUNE,TRAIT_LIMBATTACHMENT, TRAIT_CAN_STRIP)
+	species_traits = list(NOTRANSSTING, NOBLOOD, NOGUTS, NOKIDNEYS, TRAIT_EASYDISMEMBER, TRAIT_NOFLASH, NOEYESPRITES) //all of these + whatever we inherit from the real species
+	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_VIRUSIMMUNE,TRAIT_NOLIMBDISABLE,TRAIT_NOHUNGER,TRAIT_NOBREATH,TRAIT_RADIMMUNE,TRAIT_LIMBATTACHMENT, TRAIT_CAN_STRIP, TRAIT_NOHUNGER)
 	inherent_biotypes = list(MOB_ROBOTIC, MOB_HUMANOID)
 	meat = null
 	exotic_blood = /datum/reagent/fuel/oil

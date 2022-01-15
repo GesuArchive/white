@@ -14,6 +14,8 @@
 	CanAtmosPass = ATMOS_PASS_PROC
 	rad_insulation = RAD_VERY_LIGHT_INSULATION
 	pass_flags_self = PASSGLASS
+	flags_ricochet = RICOCHET_HARD
+	receive_ricochet_chance_mod = 0.5
 	var/ini_dir = null
 	var/state = WINDOW_OUT_OF_FRAME
 	var/reinf = FALSE
@@ -29,8 +31,8 @@
 	var/knocksound = 'sound/effects/Glassknock.ogg'
 	var/bashsound = 'sound/effects/Glassbash.ogg'
 	var/hitsound = 'sound/effects/Glasshit.ogg'
-	flags_ricochet = RICOCHET_HARD
-	receive_ricochet_chance_mod = 0.5
+	/// If some inconsiderate jerk has had their blood spilled on this window, thus making it cleanable
+	var/bloodied = FALSE
 
 
 /obj/structure/window/examine(mob/user)

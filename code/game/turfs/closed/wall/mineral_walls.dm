@@ -187,6 +187,17 @@
 	girder_type = /obj/structure/barricade/wooden
 	hardness = 50
 
+/turf/closed/wall/mineral/bamboo
+	name = "бамбуковая стена"
+	desc = "Стена с бамбуковой отделкой."
+	icon = 'icons/turf/walls/bamboo_wall.dmi'
+	icon_state = "bamboo"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_BAMBOO_WALLS)
+	canSmoothWith = list(SMOOTH_GROUP_BAMBOO_WALLS)
+	sheet_type = /obj/item/stack/sheet/mineral/bamboo
+	hardness = 60
+
 /turf/closed/wall/mineral/iron
 	name = "грубая металлическая стена"
 	desc = "Стена с металлическим покрытием"

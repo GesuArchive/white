@@ -81,7 +81,7 @@
 	desc = "Для самых отбитых. Гарантированно ведёт в никуда."
 	circuit = /obj/item/circuitboard/computer/explorer_mini
 	shuttleId = "explorer_mini"
-	possible_destinations = "explorer_mini_custom;explorer_mini_station"
+	possible_destinations = "explorer_mini_custom;landing_zone_dock;explorer_mini_station"
 
 /obj/item/paper/crumpled/ruins/autism
 	info = "<i>Ты пидор.</i>"

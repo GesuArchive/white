@@ -66,7 +66,7 @@
 			if(!(M in introduced) && (stat != DEAD))
 				introduction(M)
 
-/mob/living/simple_animal/hostile/megafauna/sans/apply_damage(damage = 0,damagetype = BRUTE, def_zone = null, blocked = FALSE, forced = FALSE, spread_damage = FALSE, wound_bonus = 0, bare_wound_bonus = 0, sharpness = NONE) //skyrat edit
+/mob/living/simple_animal/hostile/megafauna/sans/apply_damage(damage = 0,damagetype = BRUTE, def_zone = null, blocked = FALSE, forced = FALSE, spread_damage = FALSE, wound_bonus = 0, bare_wound_bonus = 0, sharpness = NONE, attack_direction = null) //skyrat edit
 	if(speen)
 		visible_message("<span class='danger'>[capitalize(src.name)] уворачивается всех входящих атак!")
 		step(src, pick(GLOB.cardinals))

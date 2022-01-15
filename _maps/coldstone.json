@@ -1,0 +1,50 @@
+{
+	"version": 1,
+	"map_name": "Coldstone",
+	"map_path": "map_files/Coldstone",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	"minetype": "none",
+	"map_file": "Coldstone.dmm",
+	"traits": [
+		{
+			"Up": 1,
+			"Baseturf": "/turf/open/floor/grass/snow/safe/oxy",
+			"Linkage": null,
+			"Gravity": true
+		},
+		{
+			"Up": 1,
+			"Down": -1,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": null,
+			"Gravity": true
+		},
+		{
+			"Up": 1,
+			"Down": -1,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": null,
+			"Gravity": true
+		},
+		{
+			"Up": 1,
+			"Down": -1,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": null,
+			"Gravity": true
+		},
+		{
+			"Down": -1,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": null,
+			"Gravity": true
+		}
+	],
+	"shuttles": {
+		"cargo": "cargo_partyhard",
+		"ferry": "ferry_fancy",
+		"whiteship": "whiteship_box",
+		"emergency": "emergency_box"
+	}
+}

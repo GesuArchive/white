@@ -14,9 +14,7 @@
 "af" = (
 /obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "ag" = (
 /obj/machinery/light{
@@ -29,9 +27,7 @@
 /obj/item/stack/sheet/glass,
 /obj/item/stack/sheet/glass,
 /obj/item/stack/sheet/glass,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "ah" = (
 /obj/structure/table,
@@ -39,45 +35,21 @@
 /obj/item/gps/science,
 /obj/item/gps/science,
 /obj/item/gps/science,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "ai" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/mechanical,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aj" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/electrical,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"ak" = (
-/obj/structure/cable,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-3"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"al" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-9"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"am" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-4"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "an" = (
 /obj/structure/cable,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-7"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/telepadovo)
 "ao" = (
 /obj/machinery/power/port_gen/pacman,
@@ -85,41 +57,23 @@
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 30
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"ap" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/telepadovo)
 "aq" = (
 /obj/machinery/telepad,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/telepadovo)
 "ar" = (
 /obj/machinery/computer/telescience{
 	dir = 8
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-8"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"as" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-7"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/telepadovo)
 "at" = (
 /obj/machinery/computer/camera_advanced/syndie{
 	dir = 8
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-8"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/telepadovo)
 "au" = (
 /obj/effect/spawner/structure/window/reinforced/partyhard,
@@ -127,42 +81,21 @@
 	icon_state = "st-6"
 	},
 /area/ruin/space/has_grav/telepadovo)
-"av" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-12"
-	},
-/area/ruin/space/has_grav/telepadovo)
 "aw" = (
 /obj/item/flashlight,
 /obj/structure/closet/cabinet,
 /obj/item/radio,
 /obj/item/crowbar/red,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-12"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"ax" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-6"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"ay" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-10"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "az" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-5"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/telepadovo)
 "aA" = (
-/obj/machinery/sleeper/syndie/fullupgrade{
+/obj/machinery/sleeper/syndie{
 	dir = 8
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-12"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aB" = (
 /obj/machinery/light/small{
@@ -175,128 +108,86 @@
 	important_info = "И мне нельзя покидать это место, если только ему совсем не придут кранты.";
 	short_desc = "Я телепадовец"
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-12"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aC" = (
 /obj/machinery/door/airlock/hatch,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-6"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aD" = (
 /obj/machinery/vending/games,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"aE" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aF" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aG" = (
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aH" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aI" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/melee/baton/loaded/german,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aJ" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -32
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"aK" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aL" = (
 /obj/structure/chair/comfy/black,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aN" = (
 /obj/structure/table/reinforced,
 /obj/item/flashlight/lamp,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-7"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aO" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /obj/machinery/modular_computer/console/preset/civilian,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-7"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aP" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-7"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aQ" = (
 /obj/structure/chair{
 	dir = 4
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aR" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/reagent_containers/food/condiment/saltshaker,
 /obj/item/reagent_containers/food/condiment/peppermill,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aS" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/reagent_containers/food/condiment/milk,
 /obj/item/reagent_containers/food/condiment/soymilk,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aT" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/radio,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aU" = (
 /obj/structure/chair{
@@ -305,46 +196,22 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aV" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
 /obj/item/pen,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-7"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"aW" = (
-/obj/structure/chair{
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-7"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aX" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/reagent_containers/hypospray/combat/nanites,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "aY" = (
 /obj/structure/table/wood/fancy/royalblack,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"ba" = (
-/obj/structure/chair{
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bb" = (
 /obj/structure/chair{
@@ -354,62 +221,33 @@
 	dir = 1;
 	pixel_y = -23
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"bc" = (
-/obj/machinery/light/small,
-/obj/structure/chair{
-	dir = 1
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"bd" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "be" = (
 /obj/machinery/vending/cigarette/syndicate,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bf" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/spawner/randomcolavend,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bg" = (
 /obj/machinery/vending/coffee,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bh" = (
 /obj/structure/table/reinforced,
 /obj/item/phone,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bi" = (
 /obj/structure/chair{
 	dir = 8
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bj" = (
 /obj/machinery/status_display,
@@ -419,9 +257,7 @@
 /obj/structure/chair{
 	dir = 1
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bl" = (
 /obj/structure/chair{
@@ -430,34 +266,26 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -32
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bm" = (
 /obj/machinery/light/small,
 /obj/structure/chair{
 	dir = 1
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bn" = (
 /obj/machinery/door/airlock/external,
 /obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-6"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bo" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bp" = (
 /obj/machinery/door/airlock/external,
@@ -465,46 +293,32 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-6"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bq" = (
 /obj/machinery/portable_atmospherics/canister/air,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "br" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bs" = (
 /obj/machinery/portable_atmospherics/scrubber,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bt" = (
 /obj/machinery/portable_atmospherics/pump,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bu" = (
 /obj/machinery/ntnet_relay,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "iP" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/restraints/handcuffs/cable/zipties,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 
 (1,1,1) = {"
@@ -634,8 +448,8 @@ aa
 ab
 ad
 be
-aK
-aK
+aP
+aP
 bn
 bo
 bp
@@ -661,7 +475,7 @@ ab
 ab
 ad
 bf
-aK
+aP
 bk
 ad
 ad
@@ -688,7 +502,7 @@ ab
 ab
 ad
 bg
-aK
+aP
 bk
 ad
 ab
@@ -715,7 +529,7 @@ ad
 ad
 ad
 bh
-aK
+aP
 bl
 ad
 ab
@@ -736,13 +550,13 @@ bq
 bq
 ad
 aD
-aE
+aP
 aC
-aK
-aK
+aP
+aP
 aC
-aK
-aK
+aP
+aP
 bk
 ad
 ab
@@ -756,20 +570,20 @@ ab
 ab
 ad
 af
-ak
 an
-as
-ax
-aK
+an
+az
+az
+aP
 au
-aE
-aE
+aP
+aP
 ad
 aN
 aV
 ad
-aK
-aK
+aP
+aP
 bm
 ad
 ab
@@ -782,21 +596,21 @@ aa
 ab
 ab
 ad
-aK
-al
+aP
+az
 ao
-ap
-ay
-aK
+az
+az
+aP
 ad
-aE
+aP
 aJ
 ad
 aO
-aW
+bi
 au
-aK
-aK
+aP
+aP
 ad
 ad
 ab
@@ -810,14 +624,14 @@ aa
 ab
 ad
 bu
-al
-ap
-ap
-ay
-aK
+az
+az
+az
+az
+aP
 aC
-aE
-aE
+aP
+aP
 ad
 aP
 aP
@@ -837,14 +651,14 @@ aa
 ab
 ad
 ag
-al
+az
 aq
-ap
-ay
-aK
+az
+az
+aP
 aC
-aE
-aE
+aP
+aP
 ad
 aC
 ad
@@ -864,18 +678,18 @@ aa
 ab
 ad
 ah
-al
-ap
-ap
-ay
-aK
+az
+az
+az
+az
+aP
 ad
 aF
-aE
-aE
+aP
+aP
 aQ
 aQ
-aE
+aP
 ad
 ab
 ab
@@ -891,15 +705,15 @@ ab
 ab
 ad
 ai
-am
+az
 ar
 at
 az
-aK
+aP
 au
-aE
-aE
-aE
+aP
+aP
+aP
 aR
 aX
 bb
@@ -918,18 +732,18 @@ ab
 ab
 ad
 aj
-aK
-aK
-aK
-aK
-aK
+aP
+aP
+aP
+aP
+aP
 ad
 aG
-aE
+aP
 aL
 aS
 aY
-bc
+bm
 ad
 ab
 ab
@@ -951,12 +765,12 @@ au
 au
 au
 ad
-aE
-aE
-aE
+aP
+aP
+aP
 aT
 aY
-bd
+bk
 ad
 ab
 ab
@@ -974,16 +788,16 @@ ab
 ab
 ab
 ad
-av
-av
-av
+aP
+aP
+aP
 aC
 aH
 aH
 aH
 aU
-ba
-aE
+bi
+aP
 ad
 ab
 aa

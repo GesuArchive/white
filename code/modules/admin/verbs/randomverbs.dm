@@ -764,7 +764,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	SSshuttle.adminEmergencyNoRecall = TRUE
 	SSshuttle.emergency.setTimer(0)
 	SSshuttle.emergency.mode = SHUTTLE_DISABLED
-	priority_announce("Warning: Emergency Shuttle uplink failure, shuttle disabled until further notice.", "Emergency Shuttle Uplink Alert", 'sound/misc/announce_dig.ogg')
+	priority_announce("Внимание: эвакуационный шаттл был заблокирован.", "Сбой эвакуационного шаттла", 'sound/misc/announce_dig.ogg')
 
 /client/proc/admin_enable_shuttle()
 	set category = "Адм.События"

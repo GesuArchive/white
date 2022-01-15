@@ -51,18 +51,21 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
 "fS" = (
-/obj/structure/table/stone,
-/obj/item/clothing/mask/cigarette/pipe/cobpipe,
-/turf/open/floor/grass/gensgrass/dirty/stone/raw,
-/area/awaymission/vietnam/dwarf)
+/obj/machinery/torch_fixture{
+	dir = 2;
+	on = 1;
+	pixel_y = 0
+	},
+/turf/closed/mineral/random/dwarf_lustress,
+/area/awaymission/vietnam/dwarfgen)
 "gc" = (
-/obj/machinery/microwave/furnace,
+/obj/structure/bonfire/prelit,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "gr" = (
-/obj/structure/bed/prison/bed,
-/obj/effect/mob_spawn/human/dwarf,
-/turf/open/floor/grass/gensgrass/dirty/stone/raw,
+/obj/structure/table/stone,
+/obj/item/pickaxe/rusted,
+/turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "gW" = (
 /obj/item/reagent_containers/food/drinks/bottle/wine,
@@ -121,9 +124,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "kL" = (
-/obj/item/food/grown/mushroom/plumphelmet,
-/obj/item/food/grown/mushroom/plumphelmet,
-/obj/structure/table/stone,
+/obj/item/stack/rods/ten,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "lq" = (
@@ -162,8 +163,8 @@
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarfgen)
 "mn" = (
-/obj/item/flashlight/lantern,
-/turf/closed/wall/stonewall,
+/obj/machinery/microwave/furnace,
+/turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "nC" = (
 /obj/structure/table/stone,
@@ -190,6 +191,10 @@
 /obj/structure/bed/prison/bed,
 /obj/effect/mob_spawn/human/dwarf,
 /turf/open/floor/grass/gensgrass/dirty/stone,
+/area/awaymission/vietnam/dwarf)
+"qu" = (
+/obj/item/flashlight/lantern,
+/turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
 "qy" = (
 /obj/structure/stone_tile/center/cracked,
@@ -255,13 +260,8 @@
 /turf/closed/indestructible/black,
 /area/awaymission/vietnam/dwarf)
 "wU" = (
-/obj/machinery/torch_fixture{
-	dir = 4;
-	on = 1;
-	pixel_x = 32
-	},
 /obj/structure/table/stone,
-/obj/item/pickaxe/rusted,
+/obj/item/clothing/mask/cigarette/pipe,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "xc" = (
@@ -273,8 +273,6 @@
 "zx" = (
 /obj/item/reagent_containers/glass/bucket/wooden,
 /obj/structure/table/stone,
-/obj/item/flashlight/lantern,
-/obj/item/kitchen/knife,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "Ak" = (
@@ -285,15 +283,16 @@
 /mob/living/simple_animal/pet/cat/male,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
+"Bz" = (
+/obj/structure/table/stone,
+/obj/item/flashlight/lantern,
+/obj/item/kitchen/knife,
+/turf/open/floor/grass/gensgrass/dirty/stone/raw,
+/area/awaymission/vietnam/dwarf)
 "Cw" = (
 /obj/structure/table/stone,
 /obj/item/blacksmith/ingot,
 /obj/item/blacksmith/ingot,
-/turf/open/floor/grass/gensgrass/dirty/stone,
-/area/awaymission/vietnam/dwarf)
-"CE" = (
-/obj/structure/table/stone,
-/obj/item/pickaxe/rusted,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "DC" = (
@@ -320,6 +319,12 @@
 "HG" = (
 /obj/machinery/biogenerator,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
+/area/awaymission/vietnam/dwarf)
+"II" = (
+/obj/structure/table/stone,
+/obj/item/food/grown/mushroom/plumphelmet,
+/obj/item/food/grown/mushroom/plumphelmet,
+/turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "IO" = (
 /obj/machinery/torch_fixture{
@@ -385,6 +390,10 @@
 	on = 1;
 	pixel_y = 32
 	},
+/turf/open/floor/grass/gensgrass/dirty/stone/raw,
+/area/awaymission/vietnam/dwarf)
+"PW" = (
+/obj/machinery/torch_fixture,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
 "QJ" = (
@@ -11159,18 +11168,18 @@ oD
 oD
 oD
 oD
-vK
-vK
-MB
-MB
-MB
-vK
-vK
-vK
-MB
-vK
-vK
-MB
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 oD
 oD
 oD
@@ -11411,18 +11420,18 @@ oD
 oD
 oD
 oD
-vK
-Mu
-lq
-ha
-ha
-lq
-ha
-lq
-ha
-Mu
-MB
-MB
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 oD
 oD
 oD
@@ -11663,18 +11672,18 @@ oD
 oD
 oD
 oD
-MB
-ha
-MB
-ha
-MB
-MB
-lq
-vK
-MB
-ha
-vK
-MB
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 oD
 oD
 oD
@@ -11915,18 +11924,18 @@ vK
 oD
 oD
 oD
-vK
-lq
-MB
-ha
-MV
-vK
-lq
-MV
-vK
-ha
-ha
-vK
+oD
+oD
+oD
+oD
+fS
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 oD
 oD
 oD
@@ -12165,20 +12174,20 @@ eQ
 lH
 vK
 vK
-MB
-MB
-vK
-ha
-vK
-fS
-oN
-MB
-oI
-gr
-vK
-wU
-gr
-MB
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 oD
 oD
 oD
@@ -12417,16 +12426,16 @@ lH
 lH
 lq
 vK
-MB
-MB
-MB
-lq
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 MB
 MB
 vK
-MB
-MB
-MB
 MB
 vK
 vK
@@ -12669,18 +12678,18 @@ lq
 lq
 MV
 vK
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 MB
-MB
-MB
-lq
-MB
-CE
 gr
-vK
-Sc
 oN
 MB
-Sc
+wU
 oN
 MB
 oD
@@ -12921,13 +12930,13 @@ lq
 lq
 lq
 vK
-MB
-MB
-vK
-ha
-vK
-lq
-sf
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 vK
 ha
 MV
@@ -13173,16 +13182,16 @@ lq
 lq
 lq
 vK
-MB
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 MB
 vK
-lq
-MB
-lq
-vK
-MB
-lq
-MB
+ha
 MB
 ha
 vK
@@ -13425,14 +13434,14 @@ TA
 vK
 vK
 vK
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 MB
-MB
-vK
-lq
-Zf
-lq
-lq
-lq
 ha
 lq
 ha
@@ -13683,8 +13692,8 @@ MB
 MB
 vK
 MB
-mn
-MB
+vK
+vK
 lq
 vK
 vK
@@ -13935,7 +13944,7 @@ ha
 ha
 lq
 lq
-ha
+qu
 lq
 lq
 lq
@@ -14193,7 +14202,7 @@ ha
 lq
 lq
 lq
-ha
+lq
 lq
 ha
 ha
@@ -15185,11 +15194,11 @@ vK
 vK
 MB
 MB
-MB
-MB
-MB
-vK
 gc
+lq
+ha
+vK
+Sc
 ha
 lq
 ha
@@ -15436,12 +15445,12 @@ oD
 oD
 oD
 oD
-oD
-oD
-oD
-MB
-MB
+vK
 kL
+ha
+PW
+MB
+lq
 ha
 Sc
 Sc
@@ -15688,11 +15697,11 @@ oD
 oD
 oD
 oD
-oD
-oD
-oD
-MB
 vK
+mn
+ha
+ha
+TA
 ha
 lq
 lq
@@ -15940,10 +15949,10 @@ oD
 oD
 oD
 oD
-oD
-oD
-oD
-MB
+vK
+oI
+Bz
+II
 vK
 lq
 lq
@@ -16192,9 +16201,9 @@ oD
 oD
 oD
 oD
-oD
-oD
-oD
+vK
+vK
+vK
 vK
 vK
 lq
@@ -16452,15 +16461,15 @@ eV
 lq
 ha
 MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 vK
 IO
 lq
@@ -16704,15 +16713,15 @@ eV
 gW
 hk
 MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 vK
 lq
 lq
@@ -16956,15 +16965,15 @@ vK
 vK
 MB
 vK
-MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
-MB
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
+oD
 vK
 vK
 rv

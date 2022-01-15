@@ -175,7 +175,8 @@
 
 /obj/structure/bonfire/prelit/Initialize()
 	. = ..()
-	StartBurning()
+	spawn(10)
+		StartBurning()
 
 /obj/structure/bonfire/Initialize()
 	. = ..()

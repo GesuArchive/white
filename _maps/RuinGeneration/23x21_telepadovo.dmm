@@ -2,103 +2,57 @@
 "ac" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/mechanical,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bw" = (
 /obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "bA" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /obj/machinery/modular_computer/console/preset/civilian,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-7"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "da" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
 /obj/item/pen,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-7"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"dc" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-5"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "dS" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/reagent_containers/food/condiment/saltshaker,
 /obj/item/reagent_containers/food/condiment/peppermill,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"dV" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "ea" = (
 /obj/machinery/ntnet_relay,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "eE" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "eP" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -32
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"fv" = (
-/obj/structure/chair{
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-7"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "gj" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "hp" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/reagent_containers/food/condiment/milk,
 /obj/item/reagent_containers/food/condiment/soymilk,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"iL" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-9"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "kd" = (
 /turf/template_noop,
@@ -109,22 +63,13 @@
 "om" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/reagent_containers/hypospray/combat/nanites,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"oD" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-12"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "oS" = (
 /obj/machinery/computer/telescience{
 	dir = 8
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-8"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/telepadovo)
 "qE" = (
 /obj/effect/spawner/structure/window/reinforced/partyhard,
@@ -132,24 +77,9 @@
 	icon_state = "st-6"
 	},
 /area/ruin/space/has_grav/telepadovo)
-"rd" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"rE" = (
-/obj/structure/chair{
-	dir = 8
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/ruin/space/has_grav/telepadovo)
 "rG" = (
 /obj/effect/abstract/doorway_marker,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-6"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "sf" = (
 /obj/machinery/light/small{
@@ -162,32 +92,24 @@
 	important_info = "И мне нельзя покидать это место, если только ему совсем не придут кранты.";
 	short_desc = "Я телепадовец"
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-12"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "ta" = (
 /obj/structure/chair{
 	dir = 4
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "tJ" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/spawner/randomcolavend,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "uq" = (
 /obj/machinery/vending/coffee,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "uR" = (
 /obj/structure/chair{
@@ -197,9 +119,7 @@
 	dir = 1;
 	pixel_y = -23
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "vN" = (
 /obj/structure/chair{
@@ -208,61 +128,44 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -32
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "wl" = (
 /obj/structure/chair/comfy/black,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "wr" = (
 /obj/machinery/vending/games,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "wC" = (
 /obj/machinery/portable_atmospherics/pump,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "xT" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/melee/baton/loaded/german,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"Ac" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "Av" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/radio,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "Az" = (
 /obj/structure/chair{
 	dir = 8
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/telepadovo)
+"AA" = (
+/obj/effect/spawner/structure/window/reinforced/partyhard,
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "AG" = (
 /obj/structure/table/reinforced,
 /obj/item/phone,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "Br" = (
 /obj/machinery/power/port_gen/pacman,
@@ -270,63 +173,38 @@
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 30
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/telepadovo)
 "Bs" = (
 /turf/open/floor/plating/asteroid/airless,
 /area/ruin/space/has_grav/telepadovo)
 "Bz" = (
 /obj/machinery/door/airlock/hatch,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-6"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"BT" = (
-/obj/structure/cable,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-3"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "BY" = (
-/obj/machinery/sleeper/syndie/fullupgrade{
+/obj/machinery/sleeper/syndie{
 	dir = 8
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-12"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "CU" = (
 /obj/structure/table/reinforced,
 /obj/item/flashlight/lamp,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-7"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "CV" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/electrical,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"DR" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-4"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "Eq" = (
 /obj/machinery/vending/cigarette/syndicate,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "EC" = (
 /obj/structure/table/wood/fancy/royalblack,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "FJ" = (
 /obj/structure/chair{
@@ -335,17 +213,13 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "GX" = (
 /obj/structure/chair{
 	dir = 1
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "Il" = (
 /obj/machinery/light{
@@ -358,56 +232,27 @@
 /obj/item/stack/sheet/glass,
 /obj/item/stack/sheet/glass,
 /obj/item/stack/sheet/glass,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "Ip" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-7"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "JT" = (
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "KK" = (
 /obj/machinery/computer/camera_advanced/syndie{
 	dir = 8
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-8"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/telepadovo)
 "Mq" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/restraints/handcuffs/cable/zipties,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"Nb" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-10"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"Nq" = (
-/obj/machinery/light/small,
-/obj/structure/chair{
-	dir = 1
-	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
-/area/ruin/space/has_grav/telepadovo)
-"Qf" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-7"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "RJ" = (
 /obj/structure/table,
@@ -415,27 +260,18 @@
 /obj/item/gps/science,
 /obj/item/gps/science,
 /obj/item/gps/science,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "Sb" = (
 /obj/machinery/status_display,
 /turf/closed/wall/partyhard,
-/area/ruin/space/has_grav/telepadovo)
-"Si" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
 /area/ruin/space/has_grav/telepadovo)
 "Sw" = (
 /obj/machinery/light/small,
 /obj/structure/chair{
 	dir = 1
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "Ui" = (
 /turf/closed/mineral/random,
@@ -444,47 +280,33 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-2"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "WZ" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-6"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/telepadovo)
 "Xj" = (
 /obj/machinery/telepad,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/telepadovo)
 "Xl" = (
 /obj/machinery/portable_atmospherics/canister/air,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "XP" = (
 /obj/structure/cable,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-7"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/telepadovo)
 "Ys" = (
 /obj/item/flashlight,
 /obj/structure/closet/cabinet,
 /obj/item/radio,
 /obj/item/crowbar/red,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-12"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 "ZY" = (
 /obj/machinery/portable_atmospherics/scrubber,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-1"
-	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/telepadovo)
 
 (1,1,1) = {"
@@ -598,8 +420,8 @@ kd
 Ui
 mX
 Eq
-Ac
-Ac
+Ip
+Ip
 rG
 "}
 (6,1,1) = {"
@@ -621,7 +443,7 @@ Ui
 Ui
 mX
 tJ
-Ac
+Ip
 GX
 mX
 "}
@@ -644,7 +466,7 @@ Ui
 Ui
 mX
 uq
-Ac
+Ip
 GX
 mX
 "}
@@ -667,7 +489,7 @@ mX
 mX
 mX
 AG
-Ac
+Ip
 vN
 mX
 "}
@@ -684,13 +506,13 @@ Xl
 Xl
 mX
 wr
-rd
+Ip
 Bz
-Ac
-Ac
+Ip
+Ip
 Bz
-Ac
-Ac
+Ip
+Ip
 GX
 mX
 "}
@@ -700,21 +522,21 @@ Ui
 Ui
 mX
 bw
-BT
 XP
-Qf
+XP
 WZ
-Ac
-qE
-rd
-rd
+WZ
+Ip
+AA
+Ip
+Ip
 mX
 CU
 da
 mX
-Ac
-Ac
-Nq
+Ip
+Ip
+Sw
 mX
 "}
 (11,1,1) = {"
@@ -722,21 +544,21 @@ kd
 Ui
 Ui
 mX
-Ac
-iL
+Ip
+WZ
 Br
-Si
-Nb
-Ac
+WZ
+WZ
+Ip
 mX
-rd
+Ip
 eP
 mX
 bA
-fv
+Az
 qE
-Ac
-Ac
+Ip
+Ip
 mX
 mX
 "}
@@ -746,20 +568,20 @@ kd
 Ui
 mX
 ea
-iL
-Si
-Si
-Nb
-Ac
+WZ
+WZ
+WZ
+WZ
+Ip
 Bz
-rd
-rd
+Ip
+Ip
 mX
 Ip
 Ip
 qE
-rE
-rE
+Az
+Az
 mX
 Ui
 "}
@@ -769,14 +591,14 @@ kd
 Ui
 mX
 Il
-iL
+WZ
 Xj
-Si
-Nb
-Ac
+WZ
+WZ
+Ip
 Bz
-rd
-rd
+Ip
+Ip
 mX
 Bz
 mX
@@ -792,18 +614,18 @@ kd
 Ui
 mX
 RJ
-iL
-Si
-Si
-Nb
-Ac
+WZ
+WZ
+WZ
+WZ
+Ip
 mX
 eE
-rd
-rd
+Ip
+Ip
 ta
 ta
-rd
+Ip
 mX
 Ui
 Ui
@@ -815,15 +637,15 @@ Ui
 Ui
 mX
 ac
-DR
+WZ
 oS
 KK
-dc
-Ac
-qE
-rd
-rd
-rd
+WZ
+Ip
+AA
+Ip
+Ip
+Ip
 dS
 om
 uR
@@ -838,14 +660,14 @@ Ui
 Ui
 mX
 CV
-Ac
-Ac
-Ac
-Ac
-Ac
+Ip
+Ip
+Ip
+Ip
+Ip
 mX
 JT
-rd
+Ip
 wl
 hp
 EC
@@ -863,16 +685,16 @@ mX
 mX
 mX
 mX
-qE
-qE
-qE
+AA
+AA
+AA
 mX
-rd
-rd
-rd
+Ip
+Ip
+Ip
 Av
 EC
-dV
+GX
 mX
 Ui
 Ui
@@ -886,16 +708,16 @@ Ui
 Ui
 Ui
 mX
-oD
-oD
-oD
+Ip
+Ip
+Ip
 Bz
 Vm
 Vm
 Vm
 FJ
 Az
-rd
+Ip
 mX
 Ui
 kd

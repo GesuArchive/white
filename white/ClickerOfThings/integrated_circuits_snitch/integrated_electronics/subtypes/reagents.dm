@@ -16,13 +16,10 @@
 	set_pin_data(IC_OUTPUT, 1, reagents.total_volume)
 	push_data()
 
-// Hydroponics trays have no reagents holder and handle reagents in their own snowflakey way.
-// This is a dirty hack to make injecting reagents into them work.
-// TODO: refactor that.
 /obj/item/integrated_circuit_old/reagent/proc/inject_tray(obj/machinery/hydroponics/tray, atom/movable/source, amount)
 	var/atom/movable/acting_object = get_object()
 	var/list/trays = list(tray)
-	var/visi_msg = "[acting_object] transfers fluid into [tray]"
+	var/visi_msg = "[acting_object] вкачивает жидкость в [tray]"
 
 	acting_object.visible_message(span_notice("[visi_msg]."))
 	playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
@@ -30,14 +27,7 @@
 	var/split = round(amount/trays.len)
 
 	for(var/obj/machinery/hydroponics/H in trays)
-		var/datum/reagents/temp_reagents = new /datum/reagents()
-		temp_reagents.my_atom = H
-
-		source.reagents.trans_to(temp_reagents, split)
-		H.apply_chemicals(temp_reagents)
-
-		temp_reagents.clear_reagents()
-		qdel(temp_reagents)
+		source.reagents.trans_to(H, split)
 
 /obj/item/integrated_circuit_old/reagent/injector
 	name = "integrated hypo-injector"

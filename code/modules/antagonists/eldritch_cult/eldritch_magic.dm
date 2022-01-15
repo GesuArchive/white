@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/targeted/ethereal_jaunt/shift/ash
-	name = "Ashen Passage"
-	desc = "A short range spell allowing you to pass unimpeded through a few walls."
+	name = "Пепельный Сдвиг"
+	desc = "Заклинание короткого действия, позволяющее вам беспрепятственно проходить через несколько стен."
 	school = SCHOOL_FORBIDDEN
 	invocation = "ASH'N P'SSG'"
 	invocation_type = INVOCATION_WHISPER
@@ -30,8 +30,8 @@
 	icon_state = "ash_shift"
 
 /obj/effect/proc_holder/spell/targeted/touch/mansus_grasp
-	name = "Mansus Grasp"
-	desc = "A touch spell that lets you channel the power of the Old Gods through your grip."
+	name = "Хватка Мансуса"
+	desc = "Заклинание прикосновения, которое позволяет вам направлять силу Древних Богов через вашу руку."
 	hand_path = /obj/item/melee/touch_attack/mansus_fist
 	school = SCHOOL_EVOCATION
 	charge_max = 100
@@ -41,8 +41,8 @@
 	action_background_icon_state = "bg_ecult"
 
 /obj/item/melee/touch_attack/mansus_fist
-	name = "Mansus Grasp"
-	desc = "A sinister looking aura that distorts the flow of reality around it. Causes knockdown and major stamina damage in addition to some brute. It gains additional beneficial effects as you expand your knowledge of the Mansus."
+	name = "Хватка Мансуса"
+	desc = "Зловещего вида аура, которая искажает поток реальности вокруг него. Сбивает с ног и наносит большой урон выносливости и оставляет небольшие ожоги. Хватка приобретает дополнительные полезные эффекты по мере того, как вы расширяете свои знания о Мансусе."
 	icon_state = "mansus"
 	inhand_icon_state = "mansus"
 	catchphrase = "R'CH T'H TR'TH"
@@ -81,8 +81,8 @@
 		return ..()
 
 /obj/effect/proc_holder/spell/aoe_turf/rust_conversion
-	name = "Aggressive Spread"
-	desc = "Spreads rust onto nearby surfaces."
+	name = "Агрессивное распространение"
+	desc = "Распространяет ржавчину на близлежащие поверхности."
 	school = SCHOOL_FORBIDDEN
 	charge_max = 300 //twice as long as mansus grasp
 	clothes_req = FALSE
@@ -103,13 +103,13 @@
 		T.rust_heretic_act()
 
 /obj/effect/proc_holder/spell/aoe_turf/rust_conversion/small
-	name = "Rust Conversion"
-	desc = "Spreads rust onto nearby surfaces."
+	name = "Преобразование ржавчины"
+	desc = "Распространяет ржавчину на близлежащие поверхности."
 	range = 2
 
 /obj/effect/proc_holder/spell/pointed/blood_siphon
-	name = "Blood Siphon"
-	desc = "A touch spell that heals your wounds while damaging the enemy. It has a chance to transfer wounds between you and your enemy."
+	name = "Кровавый Сифон"
+	desc = "Заклинание прикосновения, которое исцеляет ваши раны, нанося урон врагу. У него есть шанс перенести раны между вами и вашим врагом."
 	school = SCHOOL_EVOCATION
 	charge_max = 150
 	clothes_req = FALSE
@@ -164,8 +164,8 @@
 	return TRUE
 
 /obj/effect/proc_holder/spell/targeted/projectile/dumbfire/rust_wave
-	name = "Patron's Reach"
-	desc = "Channels energy into your gauntlet- unleashing it creates a wave of rust in its wake."
+	name = "Досягаемость покровителя"
+	desc = "Направляет энергию в вашу перчатку, высвобождение её создаст волну ржавчины."
 	proj_type = /obj/projectile/magic/spell/rust_wave
 	school = SCHOOL_FORBIDDEN
 	charge_max = 350
@@ -215,8 +215,8 @@
 	speed = 2
 
 /obj/effect/proc_holder/spell/pointed/cleave
-	name = "Cleave"
-	desc = "Causes severe bleeding on a target and several targets around them."
+	name = "Рассечение"
+	desc = "Вызывает сильное кровотечение у цели и нескольких целей вокруг них."
 	school = SCHOOL_FORBIDDEN
 	charge_max = 350
 	clothes_req = FALSE
@@ -270,7 +270,7 @@
 	charge_max = 650
 
 /obj/effect/proc_holder/spell/pointed/touch/mad_touch
-	name = "Touch of Madness"
+	name = "Прикосновение безумия"
 	desc = "A touch spell that drains your enemy's sanity."
 	school = SCHOOL_FORBIDDEN
 	charge_max = 150
@@ -304,7 +304,7 @@
 			SEND_SIGNAL(target, COMSIG_ADD_MOOD_EVENT, "gates_of_mansus", /datum/mood_event/gates_of_mansus)
 
 /obj/effect/proc_holder/spell/pointed/ash_final
-	name = "Nightwatcher's Rite"
+	name = "Обряд Ночного Сторожа"
 	desc = "A powerful spell that releases 5 streams of fire away from you."
 	school = SCHOOL_FORBIDDEN
 	invocation = "F'RE"
@@ -395,8 +395,8 @@
 	emp_light = 10
 
 /obj/effect/proc_holder/spell/aoe_turf/fire_cascade
-	name = "Fire Cascade"
-	desc = "Heats the air around you."
+	name = "Огненный каскад"
+	desc = "Нагревает воздух вокруг тебя."
 	school = SCHOOL_FORBIDDEN
 	charge_max = 300 //twice as long as mansus grasp
 	clothes_req = FALSE
@@ -432,8 +432,8 @@
 	action_background_icon_state = "bg_ecult"
 
 /obj/effect/proc_holder/spell/targeted/fire_sworn
-	name = "Oath of Fire"
-	desc = "For a minute, you will passively create a ring of fire around you."
+	name = "Клятва Огня"
+	desc = "На минуту создайте огненное кольцо вокруг себя."
 	invocation = "FL'MS"
 	invocation_type = INVOCATION_WHISPER
 	school = SCHOOL_FORBIDDEN
@@ -503,8 +503,8 @@
 	duration = 10
 
 /obj/effect/proc_holder/spell/targeted/fiery_rebirth
-	name = "Nightwatcher's Rebirth"
-	desc = "Drains nearby alive people that are engulfed in flames. It heals 10 of each damage type per person. If a target is in critical condition it drains the last of their vitality, killing them."
+	name = "Возрождение Ночного Стража"
+	desc = "Опустошает здоровье близлежащих живых людей, охваченных пламенем и исцеляет еретика. Если цель находится в критическом состоянии, заклинание высасывает из нее последние жизненные силы, убивая ее."
 	invocation = "GL'RY T' TH' N'GHT'W'TCH'ER"
 	invocation_type = INVOCATION_WHISPER
 	school = SCHOOL_FORBIDDEN
@@ -536,8 +536,8 @@
 		human_user.adjustOxyLoss(-10)
 
 /obj/effect/proc_holder/spell/pointed/manse_link
-	name = "Mansus Link"
-	desc = "Piercing through reality, connecting minds. This spell allows you to add people to a Mansus Net, allowing them to communicate with each other from afar."
+	name = "Связь Мансуса"
+	desc = "Пронизывающий реальность, соединяющий умы. Это заклинание позволяет добавлять людей в сеть Мансуса, позволяя им общаться друг с другом издалека."
 	school = SCHOOL_FORBIDDEN
 	charge_max = 300
 	clothes_req = FALSE
@@ -570,8 +570,8 @@
 
 
 /datum/action/innate/mansus_speech
-	name = "Mansus Link"
-	desc = "Send a psychic message to everyone connected to your Mansus Net."
+	name = "Связь Мансуса"
+	desc = "Отправьте психическое сообщение всем, кто подключен к вашей сети Mansus."
 	button_icon_state = "link_speech"
 	icon_icon = 'icons/mob/actions/actions_slime.dmi'
 	background_icon_state = "bg_ecult"
@@ -642,8 +642,8 @@
 	update_icon()
 
 /obj/effect/proc_holder/spell/cone/staggered/entropic_plume
-	name = "Entropic Plume"
-	desc = "Spews forth a disorienting plume that causes enemies to strike each other, briefly blinds them(increasing with range) and poisons them(decreasing with range). Also spreads rust in the path of the plume."
+	name = "Энтропийный шлейф"
+	desc = "Извергает дезориентирующий шлейф, который заставляет врагов атаковать  друг друга, ненадолго ослепляет их (увеличивается с увеличением дальности) и отравляет их (уменьшается с увеличением дальности). Также распространяет ржавчину на пути шлейфа."
 	school = SCHOOL_FORBIDDEN
 	invocation = "'NTR'P'C PL'M'"
 	invocation_type = INVOCATION_WHISPER
@@ -726,8 +726,8 @@
 		return
 
 /obj/effect/proc_holder/spell/pointed/void_blink
-	name = "Void Phase"
-	desc = "Let's you blink to your pointed destination, causes 3x3 aoe damage bubble around your pointed destination and your current location. It has a minimum range of 3 tiles and a maximum range of 9 tiles."
+	name = "Фаза Пустоты"
+	desc = "Вы можете телепортироваться, создаст пузырь урона 3x3 вокруг указанного вами пункта назначения и вашего текущего местоположения. Он имеет минимальный диапазон из 3 тайлов и максимальный диапазон из 9 плиток."
 	invocation_type = INVOCATION_WHISPER
 	school = SCHOOL_FORBIDDEN
 	invocation = "RE'L'TY PH'S'E"
@@ -784,8 +784,8 @@
 	pixel_y = -32
 
 /obj/effect/proc_holder/spell/targeted/void_pull
-	name = "Void Pull"
-	desc = "Call the void, this pulls all nearby people closer to you, damages people already around you. If they are 4 tiles or closer they are also knocked down and a micro-stun is applied."
+	name = "Пустотная Тяга"
+	desc = "Вызовите пустоту, это притянет всех ближайших людей ближе к вам, оглушит людей, которые уже окружают вас. Если они стоят в диапазоне 4 тайлов или ближе, то их собьёт с ног и на мгновение оглушит ."
 	invocation_type = INVOCATION_WHISPER
 	invocation = "BR'NG F'RTH TH'M T' M'"
 	school = SCHOOL_FORBIDDEN

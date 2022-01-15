@@ -1,5 +1,5 @@
 /obj/item/forbidden_book
-	name = "Кодекс Шрама"
+	name = "Кодекс Цикатрикса"
 	desc = "Эта книга описывает тайны завесы между мирами."
 	icon = 'icons/obj/eldritch.dmi'
 	icon_state = "book"
@@ -24,7 +24,7 @@
 	. += "<hr>В этом Томе содержится [charge] зарядов."
 	. += "\nИспользуйте его на полу, чтобы создать руну трансмутации, используемую для выполнения ритуалов."
 	. += "\nУдарьте им по разлому, чтобы получить заряд."
-	. += "\nНажмите на руну трансмутации, чтобы стереть её."
+	. += "\nИспользуйте на руне трансмутации, чтобы стереть её."
 
 /obj/item/forbidden_book/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -40,7 +40,7 @@
 ///Gives you a charge and destroys a corresponding influence
 /obj/item/forbidden_book/proc/get_power_from_influence(atom/target, mob/user)
 	var/obj/effect/reality_smash/RS = target
-	to_chat(user, span_danger("Вы начинаете вычерпывать силу из разлома..."))
+	to_chat(user, span_danger("Я начинаю вычерпывать силу из разлома..."))
 	if(do_after(user, 10 SECONDS, RS))
 		qdel(RS)
 		charge += 1
@@ -53,7 +53,7 @@
 			to_chat(user, span_warning("Местность не поддерживает руны!"))
 			return
 	var/A = get_turf(target)
-	to_chat(user, span_danger("ты начинаешь рисовать руну..."))
+	to_chat(user, span_danger("Я начинаю рисовать руну..."))
 
 	if(do_after(user,30 SECONDS,A))
 
@@ -62,7 +62,7 @@
 ///Removes runes from the selected turf
 /obj/item/forbidden_book/proc/remove_rune(atom/target,mob/user)
 
-	to_chat(user, span_danger("Вы начинаете стирать руну..."))
+	to_chat(user, span_danger("Я начинаю стирать руну..."))
 	if(do_after(user,2 SECONDS,user))
 		qdel(target)
 

@@ -7,7 +7,6 @@
 #define INSTAGIB_RESPAWN 50 //5 seconds
 #define DEFAULT_RESPAWN 150 //15 seconds
 #define AMMO_DROP_LIFETIME 300
-#define CTF_REQUIRED_PLAYERS 4
 
 /obj/item/ctf
 	name = "Баннер"
@@ -269,7 +268,6 @@
 	instagib_gear = /datum/outfit/ctf/blue/instagib
 
 /obj/machinery/capture_the_flag/blue/warfare
-	game_id = "warfare"
 	player_traits = list()
 	ctf_gear = list("blue" = /datum/outfit/ctf/blue/warfare)
 
@@ -290,7 +288,6 @@
 	instagib_gear = /datum/outfit/ctf/yellow/instagib
 
 /obj/machinery/capture_the_flag/yellow/warfare
-	game_id = "warfare"
 	player_traits = list()
 	ctf_gear = list("yellow" = /datum/outfit/ctf/yellow/warfare)
 
@@ -964,4 +961,3 @@
 #undef INSTAGIB_RESPAWN
 #undef DEFAULT_RESPAWN
 #undef AMMO_DROP_LIFETIME
-#undef CTF_REQUIRED_PLAYERS

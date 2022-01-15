@@ -6,7 +6,7 @@
 /obj/effect/abstract/doorway_marker{
 	dir = 1
 	},
-/turf/open/floor/plating/catwalk_floor,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/ruin/unpowered)
 "l" = (
 /obj/effect/turf_decal/stripes/line{
@@ -25,7 +25,7 @@
 /area/ruin/unpowered)
 "q" = (
 /obj/effect/abstract/doorway_marker,
-/turf/open/floor/plating/catwalk_floor,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/ruin/unpowered)
 "t" = (
 /obj/effect/turf_decal/stripes/line{
@@ -103,7 +103,7 @@
 /turf/open/floor/engine,
 /area/ruin/unpowered)
 "N" = (
-/turf/open/floor/plating/catwalk_floor,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/ruin/unpowered)
 "T" = (
 /obj/effect/turf_decal/stripes/line{

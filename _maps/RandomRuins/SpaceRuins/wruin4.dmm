@@ -23,9 +23,7 @@
 /area/ruin/space/has_grav/terrorship)
 "ah" = (
 /obj/structure/fluff/divine/conduit,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-9"
-	},
+/turf/open/floor/resin/crypto,
 /area/ruin/space/has_grav/terrorship)
 "ai" = (
 /obj/structure/closet/crate,
@@ -208,9 +206,7 @@
 "aP" = (
 /obj/item/mecha_ammo/lmg,
 /obj/structure/table,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "aQ" = (
 /obj/effect/turf_decal/stripes/line{
@@ -243,11 +239,6 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/space/has_grav/terrorship)
-"aV" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "cx-9"
-	},
 /area/ruin/space/has_grav/terrorship)
 "aX" = (
 /obj/effect/turf_decal/stripes/line{
@@ -304,25 +295,11 @@
 /obj/structure/fluff/big_chain,
 /obj/item/mecha_ammo/lmg,
 /obj/structure/table,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
-/area/ruin/space/has_grav/terrorship)
-"bf" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-8"
-	},
-/area/ruin/space/has_grav/terrorship)
-"bg" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "cx-7"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "bh" = (
 /obj/structure/fluff/divine/powerpylon,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-9"
-	},
+/turf/open/floor/resin/crypto,
 /area/ruin/space/has_grav/terrorship)
 "bi" = (
 /obj/machinery/computer/monitor/secret{
@@ -334,22 +311,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
-"bk" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
-/area/ruin/space/has_grav/terrorship)
-"bl" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "cx-8"
-	},
-/area/ruin/space/has_grav/terrorship)
 "bm" = (
 /obj/item/mecha_ammo/flashbang,
 /obj/structure/table,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "bn" = (
 /obj/effect/turf_decal/tile/blue{
@@ -373,9 +338,7 @@
 /area/ruin/space/has_grav/terrorship)
 "br" = (
 /mob/living/simple_animal/hostile/syndicate/ranged/smg/space/stormtrooper,
-/turf/open/floor/partyhard/steel{
-	icon_state = "cx-2"
-	},
+/turf/open/floor/resin/crypto,
 /area/ruin/space/has_grav/terrorship)
 "bt" = (
 /obj/machinery/light{
@@ -421,9 +384,7 @@
 "bz" = (
 /obj/machinery/power/rtg/abductor,
 /obj/effect/turf_decal/bot,
-/turf/open/floor/partyhard/steel{
-	icon_state = "mm-3"
-	},
+/turf/open/floor/resin/crypto,
 /area/ruin/space/has_grav/terrorship)
 "bA" = (
 /obj/effect/turf_decal/tile/blue{
@@ -622,34 +583,18 @@
 /area/ruin/space/has_grav/terrorship)
 "ck" = (
 /obj/machinery/porta_turret/syndicate,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-3"
-	},
-/area/ruin/space/has_grav/terrorship)
-"co" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-9"
-	},
-/area/ruin/space/has_grav/terrorship)
-"cp" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-4"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "cq" = (
 /obj/item/mecha_ammo/missiles_br,
 /obj/structure/table,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "cr" = (
 /obj/item/mecha_ammo/missiles_he,
 /obj/structure/table,
 /obj/effect/spawner/lootdrop/gloves,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "cs" = (
 /obj/structure/closet/crate,
@@ -667,9 +612,7 @@
 /area/ruin/space/has_grav/terrorship)
 "cv" = (
 /mob/living/simple_animal/hostile/syndicate/ranged/shotgun,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "cw" = (
 /obj/item/scythe,
@@ -707,9 +650,7 @@
 /obj/structure/fluff/big_chain,
 /obj/item/mecha_ammo/missiles_br,
 /obj/structure/table,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "cH" = (
 /mob/living/simple_animal/hostile/syndicate/civilian,
@@ -779,17 +720,13 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-7"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "cW" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-8"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "cX" = (
 /obj/structure/closet/crate/bin,
@@ -837,9 +774,7 @@
 "dh" = (
 /obj/item/mecha_ammo/clusterbang,
 /obj/structure/table,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "di" = (
 /obj/machinery/gibber,
@@ -962,9 +897,7 @@
 /obj/structure/fluff/big_chain,
 /obj/item/mecha_ammo/incendiary,
 /obj/structure/table,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "eg" = (
 /obj/structure/shuttle/engine/large,
@@ -1007,11 +940,6 @@
 /mob/living/simple_animal/hostile/syndicate/civilian,
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/terrorship)
-"eY" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "cx-2"
-	},
-/area/ruin/space/has_grav/terrorship)
 "eZ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4;
@@ -1021,9 +949,7 @@
 /area/ruin/space/has_grav/terrorship)
 "fa" = (
 /obj/structure/fluff/divine/nexus,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-9"
-	},
+/turf/open/floor/resin/crypto,
 /area/ruin/space/has_grav/terrorship)
 "fb" = (
 /obj/structure/curtain,
@@ -1054,9 +980,7 @@
 /area/ruin/space/has_grav/terrorship)
 "ff" = (
 /obj/structure/fluff/divine/defensepylon,
-/turf/open/floor/partyhard/steel{
-	icon_state = "st-9"
-	},
+/turf/open/floor/resin/crypto,
 /area/ruin/space/has_grav/terrorship)
 "fg" = (
 /obj/item/kirbyplants/random,
@@ -1067,9 +991,7 @@
 /obj/item/mecha_ammo/clusterbang,
 /obj/structure/table,
 /obj/effect/spawner/lootdrop/gloves,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "fi" = (
 /obj/machinery/light{
@@ -1079,11 +1001,6 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/space/has_grav/terrorship)
-"fj" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-6"
-	},
 /area/ruin/space/has_grav/terrorship)
 "fk" = (
 /obj/effect/turf_decal/stripes/line{
@@ -1095,49 +1012,29 @@
 /obj/item/mecha_ammo/lmg,
 /obj/structure/table,
 /obj/effect/spawner/lootdrop/gloves,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "fm" = (
 /obj/item/mecha_ammo/missiles_he,
 /obj/structure/table,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
-/area/ruin/space/has_grav/terrorship)
-"fn" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-7"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "fo" = (
 /obj/structure/fluff/big_chain,
 /obj/item/mecha_ammo/missiles_he,
 /obj/structure/table,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "fp" = (
 /obj/item/mecha_ammo/incendiary,
 /obj/structure/table,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-2"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "fq" = (
 /obj/structure/fluff/big_chain,
 /obj/item/mecha_ammo/clusterbang,
 /obj/structure/table,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-10"
-	},
-/area/ruin/space/has_grav/terrorship)
-"fr" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-10"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "fs" = (
 /obj/structure/closet/crate/eva,
@@ -1159,9 +1056,7 @@
 /obj/structure/fluff/big_chain,
 /obj/item/mecha_ammo/flashbang,
 /obj/structure/table,
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-10"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "fx" = (
 /obj/structure/table/reinforced,
@@ -1183,9 +1078,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "fB" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "dd-5"
-	},
+/turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "fC" = (
 /obj/effect/mob_spawn/human/corpse/assistant,
@@ -1210,9 +1103,7 @@
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "fG" = (
-/turf/open/floor/partyhard/steel{
-	icon_state = "cx-10"
-	},
+/turf/open/floor/resin/crypto,
 /area/ruin/space/has_grav/terrorship)
 "fH" = (
 /obj/item/shard{
@@ -2722,17 +2613,17 @@ bc
 ad
 ad
 ck
-fn
-fn
-fn
-fn
+fB
+fB
+fB
+fB
 cV
-fn
-fn
-fn
-fn
-fn
-fj
+fB
+fB
+fB
+fB
+fB
+fB
 aF
 bG
 ad
@@ -2788,15 +2679,15 @@ bc
 ad
 ad
 cg
-co
+fB
 cq
 cq
 cG
-bk
+fB
 fp
 fp
 dW
-bk
+fB
 dh
 fh
 fq
@@ -2855,18 +2746,18 @@ ad
 ad
 bN
 ch
-co
-bk
+fB
+fB
 cv
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-fr
+fB
+fB
+fB
+fB
+fB
+fB
+fB
+fB
+fB
 fz
 fd
 ad
@@ -2922,18 +2813,18 @@ ad
 bN
 bR
 ay
-co
-bk
+fB
+fB
 cv
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-fr
+fB
+fB
+fB
+fB
+fB
+fB
+fB
+fB
+fB
 fz
 fd
 ad
@@ -2989,15 +2880,15 @@ bN
 bR
 cb
 ay
-co
+fB
 cr
 fm
 fo
-bk
+fB
 aP
 fl
 be
-bk
+fB
 bm
 bm
 fw
@@ -3056,17 +2947,17 @@ bR
 cb
 cb
 ay
-cp
-bf
-bf
-bf
-bf
+fB
+fB
+fB
+fB
+fB
 cW
-bf
-bf
-bf
-bf
-bf
+fB
+fB
+fB
+fB
+fB
 fB
 aF
 fd
@@ -3450,11 +3341,11 @@ ad
 ad
 an
 ah
-bg
-bg
+fG
+fG
 fa
-bg
-bg
+fG
+fG
 ah
 as
 ad
@@ -3516,11 +3407,11 @@ af
 ad
 ad
 an
-aV
+fG
 bh
-eY
-eY
-eY
+fG
+fG
+fG
 bh
 fG
 as
@@ -3583,12 +3474,12 @@ aN
 ad
 ad
 an
-aV
-eY
+fG
+fG
 br
 ff
 br
-eY
+fG
 fG
 as
 ad
@@ -3651,11 +3542,11 @@ ad
 ak
 ax
 fa
-eY
+fG
 ff
 bz
 ff
-eY
+fG
 fa
 cc
 ad
@@ -3717,12 +3608,12 @@ af
 ad
 ad
 an
-aV
-eY
+fG
+fG
 br
 ff
 br
-eY
+fG
 fG
 as
 ad
@@ -3784,11 +3675,11 @@ aB
 ad
 ad
 an
-aV
+fG
 bh
-eY
-eY
-eY
+fG
+fG
+fG
 bh
 fG
 as
@@ -3852,11 +3743,11 @@ ad
 ad
 an
 ah
-bl
-bl
+fG
+fG
 fa
-bl
-bl
+fG
+fG
 ah
 as
 ad

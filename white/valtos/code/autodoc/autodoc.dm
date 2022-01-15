@@ -60,6 +60,7 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 	. = ..()
 	if(occupant)
 		. += "<hr><span class='notice'>Вижу <b>[occupant]</b> внутри.</span>"
+		. += "<hr><span class='notice'><b>ПКМ</b> для экстренного извлечения.</span>"
 	. += "<hr><span class='notice'><b>Ctrl-Клик</b>, чтобы открыть внутреннее хранилище.</span>"
 
 /obj/machinery/autodoc/CanPass(atom/movable/mover, border_dir)
@@ -102,6 +103,17 @@ GLOBAL_LIST_INIT(autodoc_supported_surgery_steps, typecacheof(list(
 
 /obj/machinery/autodoc/CtrlClick(mob/user)
 	playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
+
+/obj/machinery/autodoc/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
+	active_surgery.complete()
+	active_surgery = null
+	active_step = null
+	in_use = FALSE
+	if(!state_open)
+		open_machine()
+	update_icon()
 
 /obj/machinery/autodoc/ui_act(action, list/params)
 	if(..())

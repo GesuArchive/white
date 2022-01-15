@@ -226,6 +226,17 @@
 /area/shuttle/exploration
 	name = "Шаттл Рейнджеров"
 	requires_power = TRUE
+	ambientsounds = RANGERS_AMB
+
+/area/shuttle/exploration/play_ambience(client/C)
+
+	if(!C?.mob)
+		return
+
+	C.played = FALSE
+	C.mob.stop_sound_channel(CHANNEL_AMBIENCE)
+
+	. = ..()
 
 /area/shuttle/custom
 	name = "DIY-шаттл"

@@ -796,45 +796,12 @@
 	registered_age = null
 
 /obj/item/card/id/advanced/gold/captains_spare/trap
-	desc = "Запасная ID-карта самого Верховного Лорда. К ней привязана какая-то микросхема..."
-	anchored = TRUE
-	var/first_try = TRUE
+	name = "запасная ID-карта приколиста"
+	desc = "К ней привязана какая-то блюспейс-микросхема..."
 
-/obj/item/card/id/advanced/gold/captains_spare/trap/attackby(obj/item/I, mob/user, params)
-	if(I.tool_behaviour == TOOL_WIRECUTTER && first_try)
-		to_chat(user, span_notice("Начинаю обезвреживать карту. (это займёт примерно одну минуту и нужно не шевелиться)"))
-		if(do_after(user, 30 SECONDS, target = src) && first_try)
-			to_chat(user, span_notice("Карта разминирована."))
-			first_try = FALSE
-			anchored = FALSE
-			if(prob(10))
-				priority_announce("Кто-то пытается украсть капитанскую карту. Остановите [user.ru_ego()]!", title = "Кража", sound = 'white/valtos/sounds/che.ogg')
-	else
-		return ..()
-
-/obj/item/card/id/advanced/gold/captains_spare/trap/attack_hand(mob/user)
+/obj/item/card/id/advanced/gold/captains_spare/trap/Initialize(mapload)
 	. = ..()
-	if(.)
-		return
-	if(iscarbon(user) && first_try && !HAS_TRAIT(user, TRAIT_DISK_VERIFIER))
-		var/mob/living/carbon/C = user
-		to_chat(C, span_warning("Пытаюсь подобрать карту... Что может пойти не тка~"))
-		if(do_after(C, 10, target = src) && first_try)
-			to_chat(C, span_userdanger("КАРТА БЫЛА ЗАМИНИРОВАНА!"))
-			electrocute_mob(user, get_area(src))
-			playsound(loc, 'sound/weapons/slice.ogg', 25, TRUE, -1)
-			var/which_hand = BODY_ZONE_L_ARM
-			if(!(C.active_hand_index % 2))
-				which_hand = BODY_ZONE_R_ARM
-			var/obj/item/bodypart/chopchop = C.get_bodypart(which_hand)
-			chopchop.dismember()
-			C.gain_trauma(/datum/brain_trauma/magic/stalker)
-			first_try = FALSE
-			anchored = FALSE
-	else if (HAS_TRAIT(user, TRAIT_DISK_VERIFIER))
-		to_chat(user, span_notice("Карта разминирована."))
-		first_try = FALSE
-		anchored = FALSE
+	AddComponent(/datum/component/areabound)
 
 /obj/item/card/id/advanced/gold/captains_spare/update_label() //so it doesn't change to Captain's ID card (Captain) on a sneeze
 	if(registered_name == "Captain")

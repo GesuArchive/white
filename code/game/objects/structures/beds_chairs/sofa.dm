@@ -55,3 +55,19 @@
 
 /obj/structure/chair/sofa/corp/corner
 	icon_state = "corp_sofacorner"
+
+// Bamboo benches
+/obj/structure/chair/sofa/bamboo
+	name = "бамбуковая скамья"
+	desc = "Самодельная, хы."
+	icon_state = "bamboo_sofamiddle"
+	resistance_flags = FLAMMABLE
+	max_integrity = 60
+	buildstacktype = /obj/item/stack/sheet/mineral/bamboo
+	buildstackamount = 3
+
+/obj/structure/chair/sofa/bamboo/left
+	icon_state = "bamboo_sofaend_left"
+
+/obj/structure/chair/sofa/bamboo/right
+	icon_state = "bamboo_sofaend_right"

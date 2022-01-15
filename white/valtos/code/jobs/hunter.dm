@@ -133,9 +133,10 @@
 
 /obj/item/energylance/afterattack(atom/target, mob/living/user, proximity_flag, clickparams)
 	. = ..()
-	if(!extended)
-		return
-	if(!lavaland_equipment_pressure_check(get_turf(target)))
+	check_backstab(target, user, proximity_flag)
+
+/obj/item/energylance/proc/check_backstab(atom/target, mob/living/user, proximity_flag)
+	if(!extended || !lavaland_equipment_pressure_check(get_turf(target)))
 		return
 	if(proximity_flag && isliving(target))
 		var/mob/living/L = target
@@ -146,7 +147,17 @@
 				new /obj/effect/temp_visual/lance_impact(get_turf(L))
 				L.apply_damage((active_force + collected_force) * 1.5, BRUTE, blocked = def_check)
 				playsound(user, 'sound/weapons/kenetic_accel.ogg', 100, TRUE)
+		check_upgrade(target, user, proximity_flag)
+
+/obj/item/energylance/proc/check_upgrade(atom/target, mob/living/user, proximity_flag)
+	if(proximity_flag && isliving(target))
+		var/mob/living/L = target
 		if(!L || (L && L.health <= 0 && L.maxHealth > 90))
 			collected_force++
 			L.dust(TRUE, TRUE)
-			to_chat(user, span_green("Копьё усилено."))
+			if(user)
+				to_chat(user, span_green("Копьё усилено."))
+
+/obj/item/energylance/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+	. = ..()
+	check_upgrade(hit_atom, proximity_flag = TRUE)

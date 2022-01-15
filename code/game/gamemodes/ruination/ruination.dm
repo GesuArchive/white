@@ -24,20 +24,28 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 	protected_jobs = list("Prisoner", "Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Field Medic")
 
 	announce_span = "danger"
-	announce_text = "Синдикат решил уронить станцию прямиком на ПЛАНЕТУ!"
+	announce_text = "Кто-то решил уронить станцию прямиком на ПЛАНЕТУ!"
 
 	var/list/datum/mind/ruiners = list()
 
 	var/datum/team/ruiners/ruiners_team
 
-	traitor_name = "Террорист Синдиката"
+	traitor_name = "Террорист"
 
-	var/win_time = 15 MINUTES
+	var/win_time = 20 MINUTES
 	var/result = 0
 	var/started_at = 0
-	var/finale = FALSE
+	var/announce_stage = 0
+
+	var/current_stage = 0
 
 /datum/game_mode/ruination/pre_setup()
+
+	load_stage()
+
+	if(current_stage == 1)
+		return TRUE
+
 	for(var/j = 0, j < max(1, min(num_players(), 4)), j++)
 		if (!antag_candidates.len)
 			break
@@ -60,6 +68,12 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 
 /datum/game_mode/ruination/post_setup()
 
+	if(current_stage == 1)
+		CONFIG_SET(flag/allow_random_events, FALSE)
+		gamemode_ready = FALSE
+		addtimer(VARSET_CALLBACK(src, gamemode_ready, TRUE), 101)
+		return TRUE
+
 	var/datum/mind/leader_mind = ruiners[1]
 	var/datum/antagonist/traitor/ruiner/L = leader_mind.add_antag_datum(/datum/antagonist/traitor/ruiner)
 	ruiners_team = L.ruiners_team
@@ -75,34 +89,72 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 	addtimer(VARSET_CALLBACK(src, gamemode_ready, TRUE), 101)
 	return TRUE
 
+/datum/game_mode/ruination/proc/load_stage()
+	var/json_file = file("data/ruination.json")
+	if(!fexists(json_file))
+		return
+	var/list/json = json_decode(file2text(json_file))
+	current_stage = json["current_stage"]
+
+/datum/game_mode/ruination/proc/save_stage()
+	var/json_file = file("data/ruination.json")
+	var/list/file_data = list()
+	file_data["current_stage"] = current_stage
+	fdel(json_file)
+	WRITE_FILE(json_file, json_encode(file_data))
+
 /datum/game_mode/ruination/process()
 	if(!started_at && GLOB.pulse_engines.len)
 		for(var/obj/structure/pulse_engine/PE in GLOB.pulse_engines)
 			if(PE.engine_active)
 				started_at = world.time
+				priority_announce("На вашей станции был обнаружен запуск одного или нескольких импульсных двигателей. Не паникуйте, это всего лишь запланированное перемещение вашей станции на новую орбиту.", null, 'sound/misc/announce_dig.ogg', "Priority")
 				sound_to_playing_players('white/valtos/sounds/rp0.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
-				priority_announce("На вашей станции был обнаружен запуск одного или нескольких импульсных двигателей. Вам необходимо найти и постараться помешать их работе любым доступным способом. Как сообщают наши инженеры: \"Хоть эта хуёвина и крепкая, однако, внутри этой поеботины блевотина равно болтается, что создаёт тяговую силу данного агрегата\". Вероятнее всего это дело рук агентов Синдиката, постарайтесь продержаться 15 минут до прилёта гравитационного тягача.", null, 'sound/misc/announce_dig.ogg', "Priority")
-				for(var/m in GLOB.player_list)
-					if(ismob(m) && !isnewplayer(m))
-						var/mob/M = m
-						if(M.hud_used)
-							var/datum/hud/H = M.hud_used
-							var/atom/movable/screen/station_height/sh = new /atom/movable/screen/station_height()
-							var/atom/movable/screen/station_height_bg/shbg = new /atom/movable/screen/station_height_bg()
-							H.station_height = sh
-							H.station_height_bg = shbg
-							sh.hud = H
-							shbg.hud = H
-							H.infodisplay += sh
-							H.infodisplay += shbg
-							H.mymob.client.screen += sh
-							H.mymob.client.screen += shbg
+				spawn(300)
+					SSshuttle.lastMode = SSshuttle.emergency.mode
+					SSshuttle.lastCallTime = SSshuttle.emergency.timeLeft(1)
+					SSshuttle.adminEmergencyNoRecall = TRUE
+					SSshuttle.emergency.setTimer(0)
+					SSshuttle.emergency.mode = SHUTTLE_DISABLED
+					priority_announce("Внимание: эвакуационный шаттл был заблокирован.", "Сбой эвакуационного шаттла", 'sound/misc/announce_dig.ogg')
+				spawn(600)
+					sound_to_playing_players('white/valtos/sounds/rf.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
+					spawn(50)
+						set_security_level(SEC_LEVEL_DELTA)
+					priority_announce("Внимание, сотрудники Нанотрейзен, спешим сообщить вам, что корпорация вас снова обманывает. Они дошли до такого уровня маразма, что ради прибыли готовы утилизировать станцию вместе с вами. Мы перехватили данные сообщающие о том, что на вашей станции на данный момент находится 4 агента Нанотрейзен под прикрытием. Постарайтесь им помешать, пока мы готовим блюспейс-транслокатор для перемещения вашей станции. Это займёт примерно 20 минут.", null, 'sound/misc/announce_dig.ogg', sender_override = "Синдикат")
+					spawn(150)
+						priority_announce("Вы в курсе, что большая часть сотрудников Нанотрейзен имеют встроенный в их черепную коробку, при клонировании, HUD? Показываем как он работает.", null, 'sound/misc/announce_dig.ogg', sender_override = "Синдикат")
+						for(var/m in GLOB.player_list)
+							if(ismob(m) && !isnewplayer(m))
+								var/mob/M = m
+								if(M.hud_used)
+									var/datum/hud/H = M.hud_used
+									var/atom/movable/screen/station_height/sh = new /atom/movable/screen/station_height()
+									var/atom/movable/screen/station_height_bg/shbg = new /atom/movable/screen/station_height_bg()
+									H.station_height = sh
+									H.station_height_bg = shbg
+									sh.hud = H
+									shbg.hud = H
+									H.infodisplay += sh
+									H.infodisplay += shbg
+									H.mymob.client.screen += sh
+									H.mymob.client.screen += shbg
 				break
 	if(started_at)
-		if((started_at + (win_time - 3 MINUTES)) < world.time && !finale)
-			finale = TRUE
-			sound_to_playing_players('white/valtos/sounds/rf.ogg', 55, FALSE, channel = CHANNEL_RUINATION_OST)
-			priority_announce("Осталось 3 минуты до прибытия тягача.", null, 'sound/misc/announce_dig.ogg', "Priority")
+		if((started_at + (win_time - 16 MINUTES)) < world.time && announce_stage == 0)
+			announce_stage = 1
+			sound_to_playing_players('white/valtos/sounds/rp6.ogg', 25, FALSE, channel = CHANNEL_RUINATION_OST)
+			priority_announce("Осталось 15 минут до активации блюспейс-транслокатора.", null, 'sound/misc/announce_dig.ogg', sender_override = "Синдикат")
+			general_ert_request("Помешать террористам, мешающим работе невероятно важного оборудования на станции в виде импульсных двигателей.")
+		if((started_at + (win_time - 10 MINUTES)) < world.time && announce_stage == 1)
+			announce_stage = 2
+			sound_to_playing_players('white/valtos/sounds/rp7.ogg', 35, FALSE, channel = CHANNEL_RUINATION_OST)
+			priority_announce("Осталось 10 минут до активации блюспейс-транслокатора.", null, 'sound/misc/announce_dig.ogg', sender_override = "Синдикат")
+		if((started_at + (win_time - 5 MINUTES)) < world.time && announce_stage == 2)
+			deathsquad_request("Уничтожить свидетелей.")
+			announce_stage = 3
+			sound_to_playing_players('white/valtos/sounds/rp5.ogg', 45, FALSE, channel = CHANNEL_RUINATION_OST)
+			priority_announce("Осталось 5 минут до активации блюспейс-транслокатора. Держитесь.", null, 'sound/misc/announce_dig.ogg', sender_override = "Синдикат")
 		var/total_speed = 0
 		for(var/obj/structure/pulse_engine/PE in GLOB.pulse_engines)
 			total_speed += PE.engine_power * 5
@@ -138,6 +190,14 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 					shake_camera(M, 1, 7)
 
 /datum/game_mode/ruination/check_finished()
+	if(current_stage == 1)
+		current_stage = 0
+		save_stage()
+		spawn(30 SECONDS)
+			sound_to_playing_players('white/valtos/sounds/rp3.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
+			priority_announce("Приём. Слышит ещё кто-то? Похоже, вы здорово ударились при падении и мы наблюдаем признаки некоторой жизненной активности нашими сенсорами. На северо-востоке есть заброшенный аванпост, постарайтесь вызвать подмогу оттуда, мы уже взломали для вас шаттл. До связи.", null, 'sound/misc/announce_dig.ogg', sender_override = "Синдикат")
+			SSshuttle.emergency.hijack_status = 5
+		return ..()
 	if(!started_at)
 		return ..()
 	if(GLOB.station_orbit_height < HEIGHT_CRASH)
@@ -145,6 +205,9 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 			SSticker.mode.station_was_nuked = TRUE
 		result = 1
 		Cinematic(CINEMATIC_RUINERS_WIN, world, CALLBACK(SSticker, /datum/controller/subsystem/ticker/proc/station_explosion_detonation, src))
+		SSmapping.changemap(config.maplist["Coldstone"])
+		current_stage = 1
+		save_stage()
 	else if ((started_at + win_time) < world.time)
 		result = 2
 	if(result)
@@ -153,20 +216,26 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 		return ..()
 
 /datum/game_mode/ruination/special_report()
-	if(result == 1)
-		return "<div class='panel redborder'><span class='redtext big'>СТАНЦИЯ БЫЛА СБРОШЕНА НА ПЛАНЕТУ! ВЫЖИВШИХ ОБНАРУЖЕНО НЕ БЫЛО...</span></div>"
-	else if(result == 2)
-		return "<div class='panel redborder'><span class='redtext big'>Экипаж станции смог продержаться до прибытия гравитационного тягача!</span></div>"
+	if(current_stage == 0)
+		if(result == 1)
+			return "<div class='panel redborder'><span class='redtext big'>СТАНЦИЯ БЫЛА СБРОШЕНА НА ПЛАНЕТУ! ВЫЖИВШИХ ОБНАРУЖЕНО НЕ БЫЛО...</span></div>"
+		else if(result == 2)
+			return "<div class='panel redborder'><span class='redtext big'>Экипаж станции смог продержаться до блюспейс-транслокации!</span></div>"
+	else if (current_stage == 2)
+		return "<div class='panel redborder'><span class='redtext big'>Некоторая часть персонала смогла выжить при падении. Все они были уволены за свою некомпетентность и невероятные убытки!</span></div>"
 
 /datum/game_mode/ruination/set_round_result()
 	..()
-	if(result == 1)
-		SSticker.mode_result = "станция уничтожена"
-	else if(result == 2)
-		SSticker.mode_result = "станция стабилизирована"
+	if(current_stage == 0)
+		if(result == 1)
+			SSticker.mode_result = "станция уничтожена"
+		else if(result == 2)
+			SSticker.mode_result = "станция стабилизирована"
+	else if (current_stage == 2)
+		SSticker.mode_result = "экипаж эвакуировался"
 
 /datum/game_mode/ruination/generate_report()
-	return "Синдикат недавно выкрал несколько импульсных двигателей, которые предназначены для выведения объектов с орбит. \
+	return "Кто-то недавно выкрал несколько импульсных двигателей, которые предназначены для выведения объектов с орбит. \
 	Система защиты данных устройств невероятно крутая, что можно говорить и об их удивительно высокой цене производства! \
 	Обязательно сообщите нам, если случайно найдёте парочку таких."
 
@@ -183,7 +252,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 	overlays += icon('white/valtos/icons/station.png')
 
 /atom/movable/screen/station_height/proc/update_height()
-	screen_loc = "SOUTH:[min(round((GLOB.station_orbit_height * 0.001), 1) + 20, 440)], EAST-3:48"
+	screen_loc = "SOUTH:[min(round((GLOB.station_orbit_height * 0.001), 1) + 120, 440)], EAST-3:48"
 	maptext = "<span style='color: #A35D5B; font-size: 8px;'>[GLOB.station_orbit_height] M</br>[GLOB.station_orbit_speed] M/C</span>"
 
 /atom/movable/screen/station_height_bg
@@ -204,7 +273,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 	animate(alpha = 255, time = 1, easing = JUMP_EASING)
 
 /datum/team/ruiners
-	name = "Террористы Синдиката"
+	name = "Террористы"
 	var/core_objective = /datum/objective/ruiner
 
 /datum/team/ruiners/proc/update_objectives()
@@ -214,7 +283,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 		objectives += O
 
 /datum/antagonist/traitor/ruiner
-	name = "Смертник Синдиката"
+	name = "Смертник"
 	give_objectives = FALSE
 	greentext_reward = 150
 	antag_hud_type = ANTAG_HUD_OPS

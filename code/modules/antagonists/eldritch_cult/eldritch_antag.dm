@@ -22,9 +22,9 @@
 /datum/antagonist/heretic/greet()
 	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ecult_op.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)//subject to change
 	to_chat(owner, "<span class='boldannounce'>Да я же Еретик!</span><br>\
-	<B>The old ones gave you these tasks to fulfill:</B>")
+	<B>Древние Боги дали мне эти задания:</B>")
 	owner.announce_objectives()
-	to_chat(owner, "<span class='cult'>Вас пробил холодный пот, в вашей голове зашумел гул, вы чувствуете, как древние, запретные знания охватывают ваш разум. Книга тихо шепчет вам, что тайны, которые она в себе хранит, будут править этим местом. Древние Боги благословили меня знаниями, я должен выполнить их желания!<br>\
+	to_chat(owner, "<span class='cult'>Меня пробил холодный пот, в моей голове зашумел гул, я чувствую, как древние, запретные знания охватывают мой разум. Книга тихо шепчет мне, что тайны, которые она в себе хранит, будут править этим местом. Древние Боги благословили меня знаниями, я должен выполнить их желания!<br>\
 	Ваша книга позволяет вам исследовать способности. Прочтите это очень внимательно, потому что вы не можете отменить то, что было изучено!<br>\
 	Вы получаете заряды, либо собирая разломы в реальности, либо принося людей в жертву Древним Богам. Живое сердце может помочь в поиске жертвы.<br> \
 	Базовое руководство по ссылке : https://wiki.station13.ru/Heretic </span>")
@@ -35,7 +35,7 @@
 		forge_primary_objectives()
 		for(var/eldritch_knowledge in GLOB.heretic_start_knowledge)
 			gain_knowledge(eldritch_knowledge)
-	current.log_message("был обращен в культ забытых!", LOG_ATTACK, color="#960000")
+	current.log_message("has renounced the cult of the old ones!", LOG_ATTACK, color="#960000")
 	GLOB.reality_smash_track.Generate()
 	START_PROCESSING(SSprocessing,src)
 	RegisterSignal(owner.current,COMSIG_LIVING_DEATH,.proc/on_death)
@@ -50,8 +50,8 @@
 		EK.on_lose(owner.current)
 
 	if(!silent)
-		to_chat(owner.current, span_userdanger("Ваш разум начинает вспыхивать, когда потустороннее знание ускользает от вашего понимания!"))
-		owner.current.log_message("отрекся от культа древних!", LOG_ATTACK, color="#960000")
+		to_chat(owner.current, span_userdanger("Your mind begins to flare as the otherwordly knowledge escapes your grasp!"))
+		owner.current.log_message("has been converted to the cult of the forgotten ones!", LOG_ATTACK, color="#960000")
 	GLOB.reality_smash_track.targets--
 	STOP_PROCESSING(SSprocessing,src)
 
@@ -151,7 +151,7 @@
 	if(mob_override)
 		current = mob_override
 	add_antag_hud(antag_hud_type, antag_hud_name, current)
-	handle_clown_mutation(current, mob_override ? null : "Древние знания, описанные в книге, позволяют вам преодолеть свою шутовскую натуру, позволяя эффективно использовать сложные предметы.")
+	handle_clown_mutation(current, mob_override ? null : "Древние знания, описанные в книге, позволяют мне преодолеть свою шутовскую натуру, позволяя эффективно использовать сложные предметы.")
 	current.faction |= "heretics"
 
 /datum/antagonist/heretic/remove_innate_effects(mob/living/mob_override)

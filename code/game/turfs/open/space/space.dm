@@ -21,15 +21,16 @@
 	bullet_bounce_sound = null
 	vis_flags = VIS_INHERIT_ID	//when this be added to vis_contents of something it be associated with something on clicking, important for visualisation of turf in openspace and interraction with openspace that show you turf.
 
-/turf/open/space/basic/New()	//Do not convert to Initialize
-	//This is used to optimize the map loader
+/turf/open/space/basic/Initialize() // fast enough
+	SHOULD_CALL_PARENT(FALSE)
 	icon_state = SPACE_ICON_STATE
 	air = space_gas
 	update_air_ref()
 	vis_contents.Cut()
 	visibilityChanged()
 	flags_1 |= INITIALIZED_1
-	return
+	add_overlay(GLOB.fullbright_overlay)
+	return INITIALIZE_HINT_NORMAL
 
 /**
  * Space Initialize

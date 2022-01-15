@@ -1,6 +1,6 @@
 /obj/item/living_heart
-	name = "Living Heart"
-	desc = "A link to the worlds beyond."
+	name = "Живое сердце"
+	desc = "Связь с потусторонними мирами."
 	icon = 'icons/obj/eldritch.dmi'
 	icon_state = "living_heart"
 	w_class = WEIGHT_CLASS_SMALL
@@ -12,12 +12,12 @@
 	if(!IS_HERETIC(user))
 		return
 	if(!target)
-		to_chat(user,span_warning("No target could be found. Put the living heart on a transmutation rune and activate the rune to recieve a target."))
+		to_chat(user,span_warning("Цель не была найдена. Поместите живое сердце на руну трансмутации и активируйте руну, чтобы получить цель."))
 		return
 	var/dist = get_dist(get_turf(user),get_turf(target))
 	var/dir = get_dir(get_turf(user),get_turf(target))
 	if(user.z != target.z)
-		to_chat(user,span_warning("[target.real_name] is on another plane of existence!"))
+		to_chat(user,span_warning("[target.real_name] находится на другом плане существования!"))
 	else
 		switch(dist)
 			if(0 to 15)
@@ -33,8 +33,8 @@
 		to_chat(user,span_warning("[target.real_name] is dead. Bring them to a transmutation rune!"))
 
 /datum/action/innate/heretic_shatter
-	name = "Shattering Offer"
-	desc = "By breaking your blade, you will be granted salvation from a dire situation. (Teleports you to a random safe turf on your current z level, but destroys your blade.)"
+	name = "Потрясающее Подношение"
+	desc = "Сломав свой клинок, вы получите спасение от ужасной ситуации. (Телепортирует вас на случайную безопасную территорию на вашем текущем уровне z, но уничтожает ваш клинок.)"
 	background_icon_state = "bg_ecult"
 	button_icon_state = "shatter"
 	icon_icon = 'icons/mob/actions/actions_ecult.dmi'
@@ -57,13 +57,13 @@
 /datum/action/innate/heretic_shatter/Activate()
 	var/turf/safe_turf = find_safe_turf(zlevels = sword.z, extended_safety_checks = TRUE)
 	do_teleport(holder,safe_turf,forceMove = TRUE)
-	to_chat(holder,span_warning("You feel a gust of energy flow through your body... the Rusted Hills heard your call..."))
+	to_chat(holder,span_warning("Я чувствую порыв энергии, проходящий через моё тело... Горы Ржавчины услышали мой зов..."))
 	qdel(sword)
 
 
 /obj/item/melee/sickly_blade
-	name = "\improper Sickly Blade"
-	desc = "A sickly green crescent blade, decorated with an ornamental eye. You feel like you're being watched..."
+	name = "\improper Болезненный Клинок"
+	desc = "Болезненно-зеленое лезвие в виде полумесяца, украшенное декоративным глазом. Вы чувствуете, что за вами наблюдают..."
 	icon = 'icons/obj/eldritch.dmi'
 	icon_state = "eldritch_blade"
 	inhand_icon_state = "eldritch_blade"
@@ -87,7 +87,7 @@
 
 /obj/item/melee/sickly_blade/attack(mob/living/M, mob/living/user)
 	if(!(IS_HERETIC(user) || IS_HERETIC_MONSTER(user)))
-		to_chat(user,span_danger("You feel a pulse of alien intellect lash out at your mind!"))
+		to_chat(user,span_danger("Вы чувствуете, как импульс инопланетного интеллекта обрушивается на ваш разум!"))
 		var/mob/living/carbon/human/human_user = user
 		human_user.AdjustParalyzed(5 SECONDS)
 		return FALSE
@@ -117,32 +117,32 @@
 			eldritch_knowledge_datum.on_ranged_attack_eldritch_blade(target,user,click_parameters)
 
 /obj/item/melee/sickly_blade/rust
-	name = "\improper Rusted Blade"
-	desc = "This crescent blade is decrepit, wasting to rust. Yet still it bites, ripping flesh and bone with jagged, rotten teeth."
+	name = "\improper Ржавый Клинок"
+	desc = "Этот серповидный клинок обветшал, начал ржаветь. И все же он кусается, разрывая плоть и кости зазубренными, гнилыми зубами."
 	icon_state = "rust_blade"
 	inhand_icon_state = "rust_blade"
 
 /obj/item/melee/sickly_blade/ash
-	name = "\improper Ashen Blade"
-	desc = "Molten and unwrought, a hunk of metal warped to cinders and slag. Unmade, it aspires to be more than it is, and shears soot-filled wounds with a blunt edge."
+	name = "\improper Пепельный Клинок"
+	desc = "Расплавленный и необработанный кусок металла, искореженный до пепла и шлака. Разобранный, он стремится быть больше, чем есть на самом деле, и режет заполненные сажей раны тупым краем."
 	icon_state = "ash_blade"
 	inhand_icon_state = "ash_blade"
 
 /obj/item/melee/sickly_blade/flesh
-	name = "Flesh Blade"
-	desc = "A crescent blade born from a fleshwarped creature. Keenly aware, it seeks to spread to others the suffering it has endured from its dreadful origins."
+	name = "Клинок из Плоти"
+	desc = "Клинок в форме полумесяца, рожденный из искривленной плоти существа. Остро осознающий это, он стремится распространить на других страдания, которые он перенес из-за своего ужасного происхождения."
 	icon_state = "flesh_blade"
 	inhand_icon_state = "flesh_blade"
 
 /obj/item/melee/sickly_blade/void
-	name = "Void Blade"
-	desc = "Devoid of any substance, this blade reflects nothingness. It is a real depiction of purity, and chaos that ensues after its implementation."
+	name = "Пустотный Клинок"
+	desc = "Лишенный какой-либо субстанции, этот клинок отражает ничто. Это реальное изображение чистоты и хаоса, который возникает после ее реализации."
 	icon_state = "void_blade"
 	inhand_icon_state = "void_blade"
 
 /obj/item/clothing/neck/eldritch_amulet
-	name = "Warm Eldritch Medallion"
-	desc = "A strange medallion. Peering through the crystalline surface, the world around you melts away. You see your own beating heart, and the pulsing of a thousand others."
+	name = "Теплый Сверхъестественный Медальон"
+	desc = "Странный медальон. Вглядываясь сквозь кристаллическую поверхность, мир вокруг вас тает. Вы видите свое собственное бьющееся сердце и пульсацию тысячи других."
 	icon = 'icons/obj/eldritch.dmi'
 	icon_state = "eye_medalion"
 	w_class = WEIGHT_CLASS_SMALL
@@ -161,21 +161,21 @@
 	user.update_sight()
 
 /obj/item/clothing/neck/eldritch_amulet/piercing
-	name = "Piercing Eldritch Medallion"
-	desc = "A strange medallion. Peering through the crystalline surface, the light refracts into new and terrifying spectrums of color. You see yourself, reflected off cascading mirrors, warped into impossible shapes."
+	name = "Пронзающий Сверхъестественный Медальон"
+	desc = "Странный медальон. Заглядывая сквозь кристаллическую поверхность, свет преломляется в новый и ужасающий спектр цветов. Вы видите себя, отраженного в каскадных зеркалах, искаженного в невозможные формы."
 	trait = TRAIT_XRAY_VISION
 
 /obj/item/clothing/head/hooded/cult_hoodie/eldritch
-	name = "ominous hood"
+	name = "Зловещий капюшон"
 	icon_state = "eldritch"
-	desc = "A torn, dust-caked hood. Strange eyes line the inside."
+	desc = "Порванный, покрытый пылью капюшон. Странные глаза вырисовываются внутри."
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	flash_protect = FLASH_PROTECTION_WELDER
 
 /obj/item/clothing/suit/hooded/cultrobes/eldritch
-	name = "ominous armor"
-	desc = "A ragged, dusty set of robes. Strange eyes line the inside."
+	name = "Зловещая броня"
+	desc = "Рваная, пыльная роба. Странные глаза вырисовываются внутри."
 	icon_state = "eldritch_armor"
 	inhand_icon_state = "eldritch_armor"
 	flags_inv = HIDESHOES|HIDEJUMPSUIT
@@ -186,24 +186,24 @@
 	armor = list(MELEE = 50, BULLET = 50, LASER = 50,ENERGY = 50, BOMB = 35, BIO = 20, RAD = 0, FIRE = 20, ACID = 20)
 
 /obj/item/reagent_containers/glass/beaker/eldritch
-	name = "flask of eldritch essence"
-	desc = "Toxic to the closed minded, yet refreshing to those with knowledge of the beyond."
+	name = "флакон со сверхъестественной эссенцией"
+	desc = "Ядовитый для неверных, но освежающий для тех, кто знает о запредельном."
 	icon = 'icons/obj/eldritch.dmi'
 	icon_state = "eldrich_flask"
 	list_reagents = list(/datum/reagent/eldritch = 50)
 
 /obj/item/clothing/head/hooded/cult_hoodie/void
-	name = "void hood"
+	name = "Пустотный капюшон"
 	icon_state = "void_cloak"
 	flags_inv = NONE
 	flags_cover = NONE
-	desc = "Black like tar, doesn't reflect any light. Runic symbols line the outside, with each flash you loose comprehension of what you are seeing."
+	desc = "Черный, как смола, не отражает никакого света. Рунические символы выстилают внешнюю сторону, с каждой вспышкой вы теряете понимание того, что видите."
 	item_flags = EXAMINE_SKIP
 	armor = list(MELEE = 30, BULLET = 30, LASER = 30,ENERGY = 30, BOMB = 15, BIO = 0, RAD = 0, FIRE = 0, ACID = 0)
 
 /obj/item/clothing/suit/hooded/cultrobes/void
-	name = "void cloak"
-	desc = "Black like tar, doesn't reflect any light. Runic symbols line the outside, with each flash you loose comprehension of what you are seeing."
+	name = "Пустотный плащ"
+	desc = "Черный, как смола, не отражает никакого света. Рунические символы выстилают внешнюю сторону, с каждой вспышкой вы теряете понимание того, что видите."
 	icon_state = "void_cloak"
 	inhand_icon_state = "void_cloak"
 	allowed = list(/obj/item/melee/sickly_blade, /obj/item/forbidden_book, /obj/item/living_heart)
@@ -231,8 +231,8 @@
 
 
 /obj/item/clothing/mask/void_mask
-	name = "Abyssal Mask"
-	desc = "Mask created from the suffering of existance, you can look down it's eyes, and notice something gazing back at you."
+	name = "Маска Бездны"
+	desc = "Маска, созданная из страданий существования, вы можете посмотреть ей в глаза и заметить, что что-то смотрит на вас в ответ."
 	icon_state = "mad_mask"
 	inhand_icon_state = "mad_mask"
 	w_class = WEIGHT_CLASS_SMALL
@@ -287,8 +287,8 @@
 			human_in_range.Dizzy(5)
 
 /obj/item/melee/rune_knife
-	name = "Carving Knife"
-	desc = "Cold Steel, pure, perfect, this knife can carve the floor in many ways, but only few can evoke the dangers that lurk beneath reality."
+	name = "Нож для резьбы"
+	desc = "Холодная сталь, чистая, совершенная, этот нож может резать пол многими способами, но лишь немногие могут вызвать опасности, которые скрываются за реальностью."
 	icon = 'icons/obj/eldritch.dmi'
 	icon_state = "rune_carver"
 	flags_1 = CONDUCT_1
@@ -407,7 +407,7 @@
 
 /obj/item/eldritch_potion/attack_self(mob/user)
 	. = ..()
-	to_chat(user,span_notice("You drink the potion and with the viscous liquid, the glass dematerializes."))
+	to_chat(user,span_notice("Я пью зелье, и вместе с вязкой жидкостью стакан дематериализуется."))
 	effect(user)
 	qdel(src)
 
@@ -419,19 +419,19 @@
 	carbie.apply_status_effect(status_effect)
 
 /obj/item/eldritch_potion/crucible_soul
-	name = "Brew of Crucible Soul"
-	desc = "Allows you to phase through walls for 15 seconds, after the time runs out, you get teleported to your original location."
+	name = "Варево из Тигельной Души"
+	desc = "Позволяет вам проходить сквозь стены в течение 15 секунд, по истечении времени вы телепортируетесь в исходное местоположение."
 	icon_state = "crucible_soul"
 	status_effect = /datum/status_effect/crucible_soul
 
 /obj/item/eldritch_potion/duskndawn
-	name = "Brew of Dusk and Dawn"
-	desc = "Allows you to see clearly through walls and objects for 60 seconds."
+	name = "Варево Сумерек и Рассвета"
+	desc = "Позволяет четко видеть сквозь стены и предметы в течение 60 секунд."
 	icon_state = "clarity"
 	status_effect = /datum/status_effect/duskndawn
 
 /obj/item/eldritch_potion/wounded
-	name = "Brew of Wounded Soldier"
-	desc = "For the next 60 seconds each wound will heal you, minor wounds heal 1 of it's damage type per second, moderate heal 3 and critical heal 6. You also become immune to damage slowdon."
+	name = "Варево Раненного Солдата"
+	desc = "В течение следующих 60 секунд каждая рана будет исцелять вас, незначительные раны исцеляют 1 тип урона в секунду, умеренное исцеление 3 и критическое исцеление 6. Вы также становитесь невосприимчивы к замедлению от урона."
 	icon_state = "marshal"
 	status_effect = /datum/status_effect/marshal

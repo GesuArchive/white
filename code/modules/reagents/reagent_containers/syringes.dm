@@ -280,6 +280,13 @@
 	volume = 10
 	proj_piercing = 1
 
+/obj/item/reagent_containers/syringe/crude
+	name = "примитивный шприц"
+	desc = "Экологически правильный продукт."
+	icon_state = "crude_0"
+	possible_transfer_amounts = list(1,5)
+	volume = 5
+
 /obj/item/reagent_containers/syringe/spider_extract
 	name = "шприц с экстрактом паука"
 	desc = "Cодержит <b>экстракт паука</b> - заставляет любое золотое ядро создавать самых смертоносных товарищей в мире."

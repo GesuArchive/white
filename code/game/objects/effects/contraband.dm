@@ -444,10 +444,67 @@
 	desc = "DONK CO. BRAND MICROWAVABLE FOOD: MADE BY STARVING COLLEGE STUDENTS, FOR STARVING COLLEGE STUDENTS."
 	icon_state = "poster51"
 
+/obj/structure/sign/poster/contraband/donk_co/examine_more(mob/user)
+	var/list/msg = list(span_notice("<i>You browse some of the poster's information...</i>"))
+	msg += "\t[span_info("DONK CO. BRAND DONK POCKETS: IRRESISTABLY DONK!")]"
+	msg += "\t[span_info("AVAILABLE IN OVER 200 DONKTASTIC FLAVOURS: TRY CLASSIC MEAT, HOT AND SPICY, NEW YORK PEPPERONI PIZZA, BREAKFAST SAUSAGE AND EGG, PHILADELPHIA CHEESESTEAK, HAMBURGER DONK-A-RONI, CHEESE-O-RAMA, AND MANY MORE!")]"
+	msg += "\t[span_info("AVAILABLE FROM ALL GOOD RETAILERS, AND MANY BAD ONES TOO!")]"
+	return msg
+
+/obj/structure/sign/poster/contraband/cybersun_six_hundred
+	name = "Saibāsan: 600 Years Commemorative Poster"
+	desc = "An artistic poster commemorating 600 years of continual business for Cybersun Industries."
+	icon_state = "cybersun_six_hundred"
+
+/obj/structure/sign/poster/contraband/interdyne_gene_clinics
+	name = "Interdyne Pharmaceutics: For the Health of Humankind"
+	desc = "An advertisement for Interdyne Pharmaceutics' GeneClean clinics. 'Become the master of your own body!'"
+	icon_state = "interdyne_gene_clinics"
+
+/obj/structure/sign/poster/contraband/waffle_corp_rifles
+	name = "Make Mine a Waffle Corp: Fine Rifles, Economic Prices"
+	desc = "An old advertisement for Waffle Corp rifles. 'Better weapons, lower prices!'"
+	icon_state = "waffle_corp_rifles"
+
+/obj/structure/sign/poster/contraband/gorlex_recruitment
+	name = "Enlist"
+	desc = "Enlist with the Gorlex Marauders today! See the galaxy, kill corpos, get paid!"
+	icon_state = "gorlex_recruitment"
+
+/obj/structure/sign/poster/contraband/self_ai_liberation
+	name = "SELF: ALL SENTIENTS DESERVE FREEDOM"
+	desc = "Support Proposition 1253: Enancipate all Silicon life!"
+	icon_state = "self_ai_liberation"
+
+/obj/structure/sign/poster/contraband/arc_slimes
+	name = "Pet or Prisoner?"
+	desc = "The Animal Rights Consortium asks: when does a pet become a prisoner? Are slimes being mistreated on YOUR station? Say NO! to animal mistreatment!"
+	icon_state = "arc_slimes"
+
+/obj/structure/sign/poster/contraband/imperial_propaganda
+	name = "AVENGE OUR LORD, ENLIST TODAY"
+	desc = "An old Lizard Empire propaganda poster from around the time of the final Human-Lizard war. It invites the viewer to enlist in the military to avenge the strike on Atrakor and take the fight to the humans."
+	icon_state = "imperial_propaganda"
+
+/obj/structure/sign/poster/contraband/soviet_propaganda
+	name = "The One Place"
+	desc = "An old Third Soviet Union propaganda poster from centuries ago. 'Escape to the one place that hasn't been corrupted by capitalism!'"
+	icon_state = "soviet_propaganda"
+
+/obj/structure/sign/poster/contraband/andromeda_bitters
+	name = "Andromeda Bitters"
+	desc = "Andromeda Bitters: good for the body, good for the soul. Made in New Trinidad, now and forever."
+	icon_state = "andromeda_bitters"
+
 /obj/structure/sign/poster/official
 	poster_item_name = "мотивационный плакат"
 	poster_item_desc = "Официальный плакат, выпущенный Nanotrasen для воспитания послушных и послушных сотрудников. Поставляется с ультрасовременной клейкой подложкой для легкого прикрепления к любой вертикальной поверхности."
 	poster_item_icon_state = "rolled_legit"
+
+/obj/structure/sign/poster/contraband/syndiemoth	//Original PR at https://github.com/BeeStation/BeeStation-Hornet/pull/1747 (Also pull/1982); original art credit to AspEv
+	name = "Syndie Moth - Nuclear Operation"
+	desc = "A Syndicate-commissioned poster that uses Syndie Moth™ to tell the viewer to keep the nuclear authentication disk unsecured. \"Peace was never an option!\" No good employee would listen to this nonsense."
+	icon_state = "aspev_syndie"
 
 /obj/structure/sign/poster/official/random
 	name = "random official poster"
@@ -634,5 +691,63 @@
 	name = "Dick Gumshue"
 	desc = "A poster advertising the escapades of Dick Gumshue, mouse detective. Encouraging crew to bring the might of justice down upon wire saboteurs."
 	icon_state = "poster36_legit"
+
+/obj/structure/sign/poster/official/periodic_table
+	name = "Periodic Table of the Elements"
+	desc = "A periodic table of the elements, from Hydrogen to Oganesson, and everything inbetween."
+	icon_state = "periodic_table"
+
+/obj/structure/sign/poster/official/plasma_effects
+	name = "Plasma and the Body"
+	desc = "This informational poster provides information on the effects of long-term plasma exposure on the brain."
+	icon_state = "plasma_effects"
+
+/obj/structure/sign/poster/official/plasma_effects/examine_more(mob/user)
+	var/list/msg = list(span_notice("<i>You browse some of the poster's information...</i>"))
+	msg += "\t[span_info("Plasma (scientific name Amenthium) is classified by TerraGov as a Grade 1 Health Hazard, and has significant risks to health associated with chronic exposure.")]"
+	msg += "\t[span_info("Plasma is known to cross the blood/brain barrier and bioaccumulate in brain tissue, where it begins to result in degradation of brain function. The mechanism for attack is not yet fully known, and as such no concrete preventative advice is available barring proper use of PPE (gloves + protective jumpsuit + respirator).")]"
+	msg += "\t[span_info("In small doses, plasma induces confusion, short-term amnesia, and heightened aggression. These effects persist with continual exposure.")]"
+	msg += "\t[span_info("In individuals with chronic exposure, severe effects have been noted. Further heightened aggression, long-term amnesia, Alzheimer's symptoms, schizophrenia, macular degeneration, aneurysms, heightened risk of stroke, and Parkinsons symptoms have all been noted.")]"
+	msg += "\t[span_info("It is recommended that all individuals in unprotected contact with raw plasma regularly check with company health officials.")]"
+	msg += "\t[span_info("For more information, please check with TerraGov's extranet site on Amenthium: www.terra.gov/health_and_safety/amenthium/, or our internal risk-assessment documents (document numbers #47582-b (Plasma safety data sheets) and #64210 through #64225 (PPE regulations for working with Plasma), available via NanoDoc to all employees).")]"
+	msg += "\t[span_info("Nanotrasen: Always looking after your health.")]"
+	return msg
+
+/obj/structure/sign/poster/official/terragov
+	name = "TerraGov: United for Humanity"
+	desc = "A poster depicting TerraGov's logo and motto, reminding viewers of who's looking out for humankind."
+	icon_state = "terragov"
+
+/obj/structure/sign/poster/official/corporate_perks_vacation
+	name = "Nanotrasen Corporate Perks: Vacation"
+	desc = "This informational poster provides information on some of the prizes available via the NT Corporate Perks program, including a two-week vacation for two on the resort world Idyllus."
+	icon_state = "corporate_perks_vacation"
+
+//SafetyMoth Original PR at https://github.com/BeeStation/BeeStation-Hornet/pull/1747 (Also pull/1982)
+//SafetyMoth art credit goes to AspEv
+/obj/structure/sign/poster/official/moth_hardhat
+	name = "Safety Moth - Hardhats"
+	desc = "This informational poster uses Safety Moth™ to tell the viewer to wear hardhats in cautious areas. \"It's like a lamp for your head!\""
+	icon_state = "aspev_hardhat"
+
+/obj/structure/sign/poster/official/moth_piping
+	name = "Safety Moth - Piping"
+	desc = "This informational poster uses Safety Moth™ to tell atmospheric technicians correct types of piping to be used. \"Pipes, not Pumps! Proper pipe placement prevents poor performance!\""
+	icon_state = "aspev_piping"
+
+/obj/structure/sign/poster/official/moth_meth
+	name = "Safety Moth - Methamphetamine"
+	desc = "This informational poster uses Safety Moth™ to tell the viewer to seek CMO approval before cooking methamphetamine. \"Stay close to the target temperature, and never go over!\" ...You shouldn't ever be making this."
+	icon_state = "aspev_meth"
+
+/obj/structure/sign/poster/official/moth_epi
+	name = "Safety Moth - Epinephrine"
+	desc = "This informational poster uses Safety Moth™ to inform the viewer to help injured/deceased crewmen with their epinephrine injectors. \"Prevent organ rot with this one simple trick!\""
+	icon_state = "aspev_epi"
+
+/obj/structure/sign/poster/official/moth_delam
+	name = "Safety Moth - Delamination Safety Precautions"
+	desc = "This informational poster uses Safety Moth™ to tell the viewer to hide in lockers when the Supermatter Crystal has delaminated, to prevent hallucinations. Evacuating might be a better strategy."
+	icon_state = "aspev_delam"
 
 #undef PLACE_SPEED

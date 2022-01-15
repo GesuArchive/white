@@ -172,7 +172,7 @@
 #define ui_ghost_mafia "SOUTH: 6, CENTER+2:24"
 #define ui_ghost_language_menu "SOUTH: 22,CENTER+3:8"
 #define ui_ghost_pai "SOUTH: 6, CENTER+3:8"
-#define ui_ghost_ctf "SOUTH: 6, CENTER+4:8"
+#define ui_ghost_minigames "SOUTH: 6, CENTER+2:24"
 
 //Blobbernauts
 #define ui_blobbernaut_overmind_health "EAST-1:28,CENTER+0:19"

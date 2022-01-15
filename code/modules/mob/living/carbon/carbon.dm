@@ -225,7 +225,7 @@
 		last_special = world.time + CLICK_CD_BREAKOUT
 		var/buckle_break_chance = 100
 		var/buckle_time = 1 SECONDS
-		
+
 		var/obj/item/restraints/O
 		if(handcuffed)
 			O = src.get_item_by_slot(ITEM_SLOT_HANDCUFFED)
@@ -1301,3 +1301,21 @@
 /mob/living/carbon/proc/attach_rot(mapload)
 	SIGNAL_HANDLER
 	AddComponent(/datum/component/rot, 6 MINUTES, 10 MINUTES, 1)
+
+/**
+ * This proc is a helper for spraying blood for things like slashing/piercing wounds and dismemberment.
+ *
+ * The strength of the splatter in the second argument determines how much it can dirty and how far it can go
+ *
+ * Arguments:
+ * * splatter_direction: Which direction the blood is flying
+ * * splatter_strength: How many tiles it can go, and how many items it can pass over and dirty
+ */
+/mob/living/carbon/proc/spray_blood(splatter_direction, splatter_strength = 3)
+	if(!isturf(loc))
+		return
+	var/obj/effect/decal/cleanable/blood/hitsplatter/our_splatter = new(loc)
+	our_splatter.add_blood_DNA(return_blood_DNA())
+	our_splatter.blood_dna_info = get_blood_dna_list()
+	var/turf/targ = get_ranged_target_turf(src, splatter_direction, splatter_strength)
+	INVOKE_ASYNC(our_splatter, /obj/effect/decal/cleanable/blood/hitsplatter/.proc/fly_towards, targ, splatter_strength)

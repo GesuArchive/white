@@ -517,7 +517,7 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	name = "бамбук"
 	skloname = "бамбука"
 	desc = "Если это хорошо для панд, то скорее всего будет хорошо и для тебя."
-	color = "#339933"
+	color = "#87a852"
 	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)
 	sheet_type = /obj/item/stack/sheet/mineral/bamboo
 	value_per_unit = 0.0025

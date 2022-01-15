@@ -65,42 +65,13 @@
 	var/mob/dead/observer/G = usr
 	G.register_pai()
 
-/atom/movable/screen/ghost/mafia
-	name = "Мафия"
-	icon_state = "mafia"
+/atom/movable/screen/ghost/minigames_menu
+	name ="Мини-игры"
+	icon_state = "minigames"
 
-/atom/movable/screen/ghost/mafia/Click()
-	var/mob/dead/observer/G = usr
-	G.mafia_signup()
-
-/atom/movable/screen/ghost/ctf
-	name = "Захват флага"
-	icon_state = "ctf"
-	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
-
-/atom/movable/screen/ghost/ctf/Click(location, control, params)
-	var/_x = text2num(params2list(params)["icon-x"])
-	var/_y = text2num(params2list(params)["icon-y"])
-
-	if(_x<=16 && _y<=16)
-		for(var/obj/machinery/capture_the_flag/CTF in GLOB.machines)
-			if(istype(CTF, /obj/machinery/capture_the_flag/red))
-				CTF.attack_ghost(usr)
-
-	else if(_x<=16 && _y>=17)
-		for(var/obj/machinery/capture_the_flag/CTF in GLOB.machines)
-			if(istype(CTF, /obj/machinery/capture_the_flag/green))
-				CTF.attack_ghost(usr)
-
-	else if(_x>=17 && _y<=16)
-		for(var/obj/machinery/capture_the_flag/CTF in GLOB.machines)
-			if(istype(CTF, /obj/machinery/capture_the_flag/yellow))
-				CTF.attack_ghost(usr)
-
-	else if(_x>=17 && _y>=17)
-		for(var/obj/machinery/capture_the_flag/CTF in GLOB.machines)
-			if(istype(CTF, /obj/machinery/capture_the_flag/blue))
-				CTF.attack_ghost(usr)
+/atom/movable/screen/ghost/minigames_menu/Click()
+	var/mob/dead/observer/observer = usr
+	observer.open_minigames_menu()
 
 /datum/hud/ghost/New(mob/owner)
 	..()
@@ -139,13 +110,8 @@
 	using.hud = src
 	static_inventory += using
 
-	using = new /atom/movable/screen/ghost/ctf()
-	using.screen_loc = ui_ghost_ctf
-	using.hud = src
-	static_inventory += using
-
-	using = new /atom/movable/screen/ghost/mafia()
-	using.screen_loc = ui_ghost_mafia
+	using = new /atom/movable/screen/ghost/minigames_menu()
+	using.screen_loc = ui_ghost_minigames
 	using.hud = src
 	static_inventory += using
 
