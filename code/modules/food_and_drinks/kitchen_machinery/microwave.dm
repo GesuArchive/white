@@ -266,11 +266,24 @@
 	soundloop.start()
 	update_icon()
 
+/particles/sparks
+	width = 64
+	height = 64
+	count = 10
+	spawning = 20
+	lifespan = 2 SECONDS
+	fade = 1 SECONDS
+	color = "#ffd000"
+	position = generator("box", list(-3,-3,-3), list(3,3,3))
+	velocity = generator("circle", 3, 5)
+
 /obj/machinery/microwave/proc/spark()
+	playsound(src, 'sound/effects/sparks1.ogg', 50, TRUE)
 	visible_message(span_warning("Sparks fly around [src]!"))
-	var/datum/effect_system/spark_spread/s = new
-	s.set_up(2, 1, src)
-	s.start()
+	particles = new /particles/sparks
+	spawn(2 SECONDS)
+		QDEL_NULL(particles)
+
 
 #define MICROWAVE_NORMAL 0
 #define MICROWAVE_MUCK 1
