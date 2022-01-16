@@ -19,6 +19,9 @@
 	var/obj/effect/overlay/vis/mattress_on
 	var/obj/machinery/computer/operating/op_computer
 
+	var/handbeltsmod = FALSE
+	var/handbeltsmod_active = FALSE
+
 /obj/machinery/stasis/Initialize()
 	. = ..()
 	for(var/direction in GLOB.alldirs)
@@ -34,8 +37,10 @@
 
 /obj/machinery/stasis/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>ПКМ to [stasis_enabled ? "turn off" : "turn on"] the machine.</span>"
-	. += span_notice("\n<b>[src.name]</b> is [op_computer ? "linked" : "<b>NOT</b> linked"] to a nearby operating computer.")
+	. += "<hr><span class='notice'>Alt + Клик для [stasis_enabled ? "<b>выключения</b>" : "<b>включения</b>"] машины.</span>"
+	if(handbeltsmod)
+		. += "<hr><span class='notice'>ПКМ для активации <b>энергетических ремней</b>, ЛКМ для отстегивания.</span>"
+	. += span_notice("\n<b>[src.name]</b> [op_computer ? "синхронизирована" : "<b>НЕ</b> синхронизирована"] с операционным компьютером.")
 
 /obj/machinery/stasis/proc/play_power_sound()
 	var/_running = stasis_running()
@@ -52,9 +57,9 @@
 		stasis_enabled = !stasis_enabled
 		stasis_can_toggle = world.time + STASIS_TOGGLE_COOLDOWN
 		playsound(src, 'sound/machines/click.ogg', 60, TRUE)
-		user.visible_message(span_notice("<b>[src.name]</b> [stasis_enabled ? "powers on" : "shuts down"].") , \
-					span_notice("You [stasis_enabled ? "power on" : "shut down"] <b>[src.name]</b>.") , \
-					span_hear("You hear a nearby machine [stasis_enabled ? "power on" : "shut down"]."))
+		user.visible_message(span_notice("<b>[src.name]</b> [stasis_enabled ? "включается" : "выключается"].") , \
+					span_notice("[stasis_enabled ? "Включаю" : "Выключаю"] <b>[src.name]</b>.") , \
+					span_hear("Вы слышите звук [stasis_enabled ? "включения" : "выключения"] машины."))
 		play_power_sound()
 		update_icon()
 

@@ -712,7 +712,7 @@
 	id = "sec_basic"
 	display_name = "Базовое оборудование службы безопасности"
 	description = "Стандартная экипировка для СБ."
-	design_ids = list("seclite", "pepperspray", "bola_energy", "zipties", "evidencebag", "internals_tactical")
+	design_ids = list("seclite", "pepperspray", "bola_energy", "zipties", "evidencebag", "internals_tactical", "handbeltsmodif")
 	prereq_ids = list("base")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000)
 

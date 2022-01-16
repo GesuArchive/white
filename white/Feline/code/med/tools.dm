@@ -19,3 +19,4 @@
 /obj/item/bonesetter/advanced/examine()
 	. = ..()
 	. += "<hr>Устройство готово к [tool_behaviour == TOOL_BLOODFILTER ? "фильтрации крови" : "манипуляции с костями"]."
+
