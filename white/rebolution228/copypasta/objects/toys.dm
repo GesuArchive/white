@@ -7,8 +7,3 @@
 	attack_verb_continuous = list("hugs", "squeezes")
 	attack_verb_simple = list("hug", "squeeze")
 	squeak_override = list('sound/weapons/thudswoosh.ogg'=1)
-
-/obj/item/toy/plush/moth/geksonya
-	desc = "A plushie depicting an adorable mothperson with the black beret and blue-striped scarf. It's a huggable bug!"
-	icon = 'white/rebolution228/icons/obj/toys.dmi'
-	icon_state = "geksonya"
