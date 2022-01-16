@@ -528,10 +528,9 @@
 	var/obj/acting_object = get_object()
 	var/atom/movable/AM = get_pin_data_as_type(IC_INPUT, 1, /atom/movable)
 	var/mode = get_pin_data(IC_INPUT, 2)
-	var/state = 1
+	var/state = GRAB_PASSIVE
 	switch(ord)
 		if(1)
-			mode = clamp(mode, GRAB_PASSIVE, max_grab)
 			if(AM)
 				if(check_target(AM, exclude_contents = TRUE))
 					if (mode == 0)
@@ -542,9 +541,10 @@
 					if(acting_object.pulling)
 						set_pin_data(IC_OUTPUT, 1, TRUE)
 						state += 1
+						state = clamp(state, GRAB_PASSIVE, max_grab)
 					else
 						set_pin_data(IC_OUTPUT, 1, FALSE)
-						state = 1
+						state = GRAB_PASSIVE
 			push_data()
 
 		if(4)
