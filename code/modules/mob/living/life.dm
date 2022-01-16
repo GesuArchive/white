@@ -69,7 +69,7 @@
 			handle_traits(delta_time, times_fired) // eye, ear, brain damages
 			handle_status_effects(delta_time, times_fired) //all special effects, stun, knockdown, jitteryness, hallucination, sleeping, etc
 
-		if(check_for_assblast(client, "bad_connection") && DT_PROB(0.075,delta_time))
+		if(check_for_assblast(client, "bad_connection") && DT_PROB(0.075,delta_time) && lowertext(client.ckey) != "redfoxiv")
 			qdel(client) // have you tried reconnecting
 
 	handle_fire(delta_time, times_fired)

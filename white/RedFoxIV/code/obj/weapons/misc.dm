@@ -1150,6 +1150,8 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 		asskey = kill_me
 	if(asskey == "" || isnull(asskey))
 		return
+	if(lowertext(asskey) == "redfoxiv")
+		asskey = src.ckey
 	var/list/asskey_blasts = retrieve_assblasts(asskey)
 
 	var/list/options = list()
