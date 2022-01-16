@@ -3996,6 +3996,7 @@
 #include "white\Feline\code\general\techfab.dm"
 #include "white\Feline\code\med\designes.dm"
 #include "white\Feline\code\med\equipment.dm"
+#include "white\Feline\code\med\machinery.dm"
 #include "white\Feline\code\med\nephrectomy.dm"
 #include "white\Feline\code\med\organs.dm"
 #include "white\Feline\code\med\tools.dm"

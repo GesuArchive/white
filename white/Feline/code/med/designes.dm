@@ -118,6 +118,18 @@
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
+/datum/design/handbeltsmodif
+	name = "Комплект модернизации: Энергетические захваты"
+	desc = "Добавляет к стазисной кровати энергетические плети хватающие добычу и удерживающие ее в различных интересных позах, кажется вы уже видели что-то подобное в каком-то древнем анимационном журнале с девочками-волшебницами..."
+	id = "handbeltsmodif"
+	build_type = MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 4000, /datum/material/plastic = 4000, /datum/material/glass = 2000)
+	build_path = /obj/item/handbeltsmodif
+	category = list("Медицинское оборудование")
+	sub_category = list("Реанимация и хирургия")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
 /*
 /datum/design/surgery/toxin_healing //PLEASE ACCOUNT FOR UNIQUE HEALING BRANCHES IN THE hptech HREF (currently 2 for Brute/Burn; Combo is bonus)
 	name = "Фильтрация лимфы (токсины)"

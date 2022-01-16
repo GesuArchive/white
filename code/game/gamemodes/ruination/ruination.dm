@@ -151,10 +151,10 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 			sound_to_playing_players('white/valtos/sounds/rp7.ogg', 35, FALSE, channel = CHANNEL_RUINATION_OST)
 			priority_announce("Осталось 10 минут до активации блюспейс-транслокатора.", null, 'sound/misc/announce_dig.ogg', sender_override = "Синдикат")
 		if((started_at + (win_time - 5 MINUTES)) < world.time && announce_stage == 2)
-			deathsquad_request("Уничтожить свидетелей.")
 			announce_stage = 3
 			sound_to_playing_players('white/valtos/sounds/rp5.ogg', 45, FALSE, channel = CHANNEL_RUINATION_OST)
 			priority_announce("Осталось 5 минут до активации блюспейс-транслокатора. Держитесь.", null, 'sound/misc/announce_dig.ogg', sender_override = "Синдикат")
+			deathsquad_request("Уничтожить свидетелей.")
 		var/total_speed = 0
 		for(var/obj/structure/pulse_engine/PE in GLOB.pulse_engines)
 			total_speed += PE.engine_power * 5
@@ -206,8 +206,6 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 		result = 1
 		Cinematic(CINEMATIC_RUINERS_WIN, world, CALLBACK(SSticker, /datum/controller/subsystem/ticker/proc/station_explosion_detonation, src))
 		SSmapping.changemap(config.maplist["Coldstone"])
-		current_stage = 1
-		save_stage()
 	else if ((started_at + win_time) < world.time)
 		result = 2
 	if(result)
@@ -228,6 +226,8 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 	..()
 	if(current_stage == 0)
 		if(result == 1)
+			current_stage = 1
+			save_stage()
 			SSticker.mode_result = "станция уничтожена"
 		else if(result == 2)
 			SSticker.mode_result = "станция стабилизирована"
