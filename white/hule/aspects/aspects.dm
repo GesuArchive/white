@@ -572,5 +572,5 @@
 			var/datum/antagonist/A = D
 			if(A?.name && A?.owner)
 				our_pussies += "[A.name] - [A.owner.name] под видом [A.owner.assigned_role].[prob(1) ? " УБЕЙТЕ ЕГО НАХУЙ!" : ""]"
-		priority_announce("Прива, я тут немного собрал для вас имён интересных, надеюсь, они вам понадобятся! Список психов: [our_pussies.Join("\n")]", sender_override = "Апегио Крысус")
+		priority_announce("Прива, я тут немного собрал для вас имён интересных, надеюсь, они вам понадобятся! Список психов: [our_pussies.Join("</br>")]", sender_override = "Апегио Крысус")
 	..()
