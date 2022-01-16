@@ -365,8 +365,9 @@
 	currently_selected = available_chems[1]
 	update_icon() //for subtypes which use overlays to look different
 
-	explosion(src, 0, 0, 1, 7, "Химкиоск ([src.x], [src.y], [src.z]) взорвался с силой 0,0,1, \ [mapload ? 	"так как был временно \"отключён\"." :\
-																							 				"после того, как его собрал какой-то гений."]") //немного менее временная мера
+	//no fun allowed :(
+	//explosion(src, 0, 0, 1, 7, "Химкиоск ([src.x], [src.y], [src.z]) взорвался с силой 0,0,1, \ [mapload ? 	"так как был временно \"отключён\"." : "после того, как его собрал какой-то гений."]") //немного менее временная мера
+	
 	qdel(src) //временная мера
 
 /obj/machinery/chem_seller/process() //wtf
