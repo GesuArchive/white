@@ -537,6 +537,7 @@
 						acting_object.stop_pulling()
 						return
 					acting_object.investigate_log("grabbed ([AM]) using [src].", INVESTIGATE_CIRCUIT)
+					acting_object.stop_pulling()
 					acting_object.start_pulling(AM,grabstate)
 					if(acting_object.pulling)
 						set_pin_data(IC_OUTPUT, 1, TRUE)
