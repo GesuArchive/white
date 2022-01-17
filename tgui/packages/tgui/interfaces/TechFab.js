@@ -249,7 +249,7 @@ const Recipe = (props, context) => {
   let max = 50;
 
   const material_objects = Object.keys(recipe.materials).map(id => {
-    const material = materials[id] || materials[substitutions[id]];
+    const material = materials[id];
     const total = material.amount;
     const amountNeeded = Math.floor(recipe.materials[id]
       / (recipe.efficiency_affects ? efficiency : 1))
