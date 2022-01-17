@@ -7,7 +7,7 @@ export const MinigamesMenu = (props, context) => {
   return (
     <Window
       title="Мини-игры"
-      width={450}
+      width={550}
       height={200}>
       <Window.Content>
         <Section title="Выбирай с умом" textAlign="center">
