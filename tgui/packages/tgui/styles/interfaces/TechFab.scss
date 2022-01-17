@@ -47,7 +47,7 @@ $bg-map: colors.$bg-map !default;
 //Accent the design names using a grey shadow
 //Previous alternatives used are left commented out for reference
 .TechFab__RecipeName {
-  //font-size: 1.15em;
-  //font-weight: bold;
-  text-shadow: colors.$grey base.em(1px) base.em(1px);
+  font-size: 1.15em;
+  font-weight: bold;
+  //text-shadow: colors.$grey base.em(1px) base.em(1px);
 }
