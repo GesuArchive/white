@@ -169,7 +169,7 @@
 	if(istype(W, /obj/item/handbeltsmodif))
 		if(!handbeltsmod)
 			handbeltsmod = TRUE
-			to_chat(user, span_notice("Устанавливаю програмное обеспечение для модификации энергетических захватов."))
+			to_chat(user, span_notice("Устанавливаю хардлайт-прожекторы на стазис-кровать, теперь на ней можно фиксировать пациентов."))
 			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 			qdel(W)
 		else
