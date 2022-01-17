@@ -19,7 +19,7 @@ Difficulty: Extremely Hard
 	light_color = COLOR_LIGHT_GRAYISH_RED
 	movement_type = GROUND
 	weather_immunities = list(WEATHER_SNOW)
-	speak_emote = list("roars")
+	speak_emote = list("рычит")
 	armour_penetration = 100
 	melee_damage_lower = 10
 	melee_damage_upper = 10

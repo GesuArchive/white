@@ -9,7 +9,7 @@
 	mouse_opacity = MOUSE_OPACITY_ICON
 	friendly_verb_continuous = "stares down"
 	friendly_verb_simple = "stare down"
-	speak_emote = list("roars")
+	speak_emote = list("рычит")
 	speed = 30
 	move_to_delay = 7
 	ranged = TRUE

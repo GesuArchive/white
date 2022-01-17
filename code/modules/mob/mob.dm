@@ -138,7 +138,7 @@
  * Return the desc of this mob for a photo
  */
 /mob/proc/get_photo_description(obj/item/camera/camera)
-	return "a ... thing?"
+	return "э... что это?"
 
 /**
  * Show a message to this mob (visual or audible)
@@ -513,7 +513,7 @@
 		examine_delay_length *= 2
 
 	if(examine_delay_length > 0 && !do_after(src, examine_delay_length, target = examined_thing))
-		to_chat(src, span_notice("Не понятно че это. ДА КАК ОН НАЗВАЛ МОЮ МАТЬ?!"))
+		to_chat(src, span_notice("Начинаю осматривать что-то... ДА КАК ОН НАЗВАЛ МОЮ МАТЬ?!"))
 		return FALSE
 
 	//now we touch the thing we're examining
@@ -1173,10 +1173,10 @@
 ///Can this mob read (is literate and not blind)
 /mob/proc/can_read(obj/O)
 	if(is_blind())
-		to_chat(src, span_warning("Пытаясь прочитать [O], внезапно вы чувствуете себя слишком тупым!"))
+		to_chat(src, span_warning("Пытаясь прочитать [O], но внезапно чувствую себя слишком тупым!"))
 		return
 	if(!is_literate())
-		to_chat(src, span_notice("Пытаюсь read [O], but can't comprehend any of it."))
+		to_chat(src, span_notice("Пытаюсь прочитать [O], но внезапно понимаю, что не умею читать."))
 		return
 	return TRUE
 

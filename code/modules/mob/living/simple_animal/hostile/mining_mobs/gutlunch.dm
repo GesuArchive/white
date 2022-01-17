@@ -7,9 +7,9 @@
 	icon_living = "gutlunch"
 	icon_dead = "gutlunch"
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	speak_emote = list("warbles", "quavers")
-	emote_hear = list("trills.")
-	emote_see = list("sniffs.", "burps.")
+	speak_emote = list("поёт", "трясётся")
+	emote_hear = list("издаёт трели.")
+	emote_see = list("нюхает.", "отрыгивает.")
 	weather_immunities = list(WEATHER_LAVA, WEATHER_ASH)
 	faction = list("mining", "ashwalker")
 	density = FALSE
@@ -18,8 +18,8 @@
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	move_to_delay = 15
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
 	response_disarm_continuous = "gently pushes aside"
 	response_disarm_simple = "gently push aside"
 	response_harm_continuous = "squishes"

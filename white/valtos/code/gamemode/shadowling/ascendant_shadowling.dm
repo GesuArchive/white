@@ -4,10 +4,10 @@
 	icon = 'white/valtos/icons/sling.dmi'
 	icon_state = "shadowling_ascended"
 	icon_living = "shadowling_ascended"
-	verb_say = "telepathically thunders"
-	verb_ask = "telepathically thunders"
-	verb_exclaim = "telepathically thunders"
-	verb_yell = "telepathically thunders"
+	verb_say = "телепатически гремит"
+	verb_ask = "телепатически гремит"
+	verb_exclaim = "телепатически гремит"
+	verb_yell = "телепатически гремит"
 	force_threshold = INFINITY //Can't die by normal means
 	health = 9999
 	maxHealth = 9999

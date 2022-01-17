@@ -650,8 +650,8 @@ This section is for the crystal monsters variations
 	gender = NEUTER
 	mob_biotypes = MOB_MINERAL|MOB_HUMANOID
 	turns_per_move = 1
-	speak_emote = list("resonates")
-	emote_see = list("resonates")
+	speak_emote = list("резонирует")
+	emote_see = list("резонирует")
 	a_intent = INTENT_HARM
 	minbodytemp = 0
 	maxbodytemp = 1500

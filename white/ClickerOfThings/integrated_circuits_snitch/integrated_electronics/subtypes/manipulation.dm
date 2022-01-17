@@ -514,7 +514,7 @@
 	extended_desc = "This circuit accepts a reference to a thing to be pulled. Modes: 0 for release. 1 for pull."
 	w_class = WEIGHT_CLASS_SMALL
 	size = 3
-	cooldown_per_use = 20
+	cooldown_per_use = 5
 	complexity = 10
 	inputs = list("target" = IC_PINTYPE_REF,"mode" = IC_PINTYPE_INDEX,"dir" = IC_PINTYPE_DIR)
 	outputs = list("is pulling" = IC_PINTYPE_BOOLEAN)
@@ -522,7 +522,7 @@
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 50
 	ext_cooldown = 1
-	var/max_grab = GRAB_NECK
+	var/max_grab = GRAB_PASSIVE
 
 /obj/item/integrated_circuit_old/manipulation/claw/do_work(ord)
 	var/obj/acting_object = get_object()
@@ -534,7 +534,7 @@
 			if(AM)
 				if(check_target(AM, exclude_contents = TRUE))
 					acting_object.investigate_log("grabbed ([AM]) using [src].", INVESTIGATE_CIRCUIT)
-					acting_object.start_pulling(AM,mode)
+					acting_object.start_pulling(AM, mode)
 					if(acting_object.pulling)
 						set_pin_data(IC_OUTPUT, 1, TRUE)
 					else

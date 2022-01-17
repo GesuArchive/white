@@ -17,8 +17,8 @@
 	icon_living = ""
 	icon = 'icons/mob/bees.dmi'
 	gender = FEMALE
-	speak_emote = list("buzzes")
-	emote_hear = list("buzzes")
+	speak_emote = list("жужжит")
+	emote_hear = list("жужжит")
 	turns_per_move = 0
 	melee_damage_lower = 1
 	melee_damage_upper = 1

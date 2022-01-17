@@ -33,7 +33,7 @@
 	friendly_verb_continuous = "stares down"
 	friendly_verb_simple = "stare down"
 	icon = 'icons/mob/lavaland/96x96megafauna.dmi'
-	speak_emote = list("roars")
+	speak_emote = list("рычит")
 	armour_penetration = 40
 	melee_damage_lower = 40
 	melee_damage_upper = 40
@@ -547,7 +547,7 @@
 	response_disarm_simple = "brush aside"
 	response_harm_continuous = "disrupts"
 	response_harm_simple = "disrupt"
-	speak_emote = list("oscillates")
+	speak_emote = list("колеблется")
 	maxHealth = 2
 	health = 2
 	harm_intent_damage = 5
@@ -560,10 +560,10 @@
 	ventcrawler = VENTCRAWLER_ALWAYS
 	mob_size = MOB_SIZE_TINY
 	gold_core_spawnable = HOSTILE_SPAWN
-	verb_say = "warps"
-	verb_ask = "floats inquisitively"
-	verb_exclaim = "zaps"
-	verb_yell = "bangs"
+	verb_say = "сжимает"
+	verb_ask = "плавает вопросительно"
+	verb_exclaim = "молниеносит"
+	verb_yell = "бахает"
 	initial_language_holder = /datum/language_holder/lightbringer
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 0, CLONE = 0, STAMINA = 0, OXY = 0)
 	light_range = 4

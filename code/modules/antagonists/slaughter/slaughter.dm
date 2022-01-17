@@ -4,8 +4,8 @@
 	name = "демон бойни"
 	real_name = "slaughter demon"
 	unique_name = FALSE
-	speak_emote = list("gurgles")
-	emote_hear = list("wails","screeches")
+	speak_emote = list("булькает")
+	emote_hear = list("вопит","визжит")
 	icon_state = "daemon"
 	icon_living = "daemon"
 	minbodytemp = 0
@@ -150,9 +150,9 @@
 	name = "демон смеха"
 	real_name = "laughter demon"
 	desc = "Большое, милое существо, облаченное в доспехи с розовыми бантиками."
-	speak_emote = list("giggles","titters","chuckles")
-	emote_hear = list("guffaws","laughs")
-	response_help_continuous = "hugs"
+	speak_emote = list("хихикает","смеётся","посмеивается")
+	emote_hear = list("хохочет","ржёт")
+	response_help_continuous = "обнимает"
 	attack_verb_continuous = "яростно зажимает"
 	attack_verb_simple = "яростно зажимает"
 

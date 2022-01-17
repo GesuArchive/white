@@ -6,7 +6,7 @@
 	faction = list(ROLE_ALIEN)
 	sight = SEE_MOBS
 	see_in_dark = 4
-	verb_say = "hisses"
+	verb_say = "шипит"
 	initial_language_holder = /datum/language_holder/alien
 	bubble_icon = "alien"
 	type_of_meat = /obj/item/food/meat/slab/xeno

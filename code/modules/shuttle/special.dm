@@ -54,7 +54,7 @@
 	name = "wabbajack altar"
 	desc = "Whether you're sleeping or waking, it's going to be quite chaotic."
 	max_integrity = 1000
-	verb_say = "chants"
+	verb_say = "поёт"
 	var/obj/machinery/power/emitter/energycannon/magical/our_statue
 	var/list/mob/living/sleepers = list()
 	var/never_spoken = TRUE

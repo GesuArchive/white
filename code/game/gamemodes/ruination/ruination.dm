@@ -7,7 +7,7 @@
 GLOBAL_LIST_EMPTY(pulse_engines)
 GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
 GLOBAL_VAR_INIT(station_orbit_speed, 0)
-GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
+GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 
 /datum/game_mode/ruination
 	name = "ruination"
@@ -167,26 +167,26 @@ GLOBAL_VAR_INIT(station_orbit_parallax_resize, 1)
 			H.station_height.update_height()
 		GLOB.station_orbit_speed = total_speed
 
-	var/cur_height = GLOB.station_orbit_parallax_resize
+	var/cur_height = GLOB.station_orbit_parallax_type
 
 	switch(GLOB.station_orbit_height)
 		if(HEIGHT_OPTIMAL to INFINITY)
-			GLOB.station_orbit_parallax_resize = 0
+			GLOB.station_orbit_parallax_type = 0
 		if(HEIGHT_DANGER to HEIGHT_OPTIMAL)
-			GLOB.station_orbit_parallax_resize = 2
+			GLOB.station_orbit_parallax_type = 2
 		if(HEIGHT_CRITICAL to HEIGHT_DANGER)
-			GLOB.station_orbit_parallax_resize = 3
+			GLOB.station_orbit_parallax_type = 3
 		if(HEIGHT_DEADEND to HEIGHT_CRITICAL)
-			GLOB.station_orbit_parallax_resize = 4
+			GLOB.station_orbit_parallax_type = 4
 		if(HEIGHT_CRASH to HEIGHT_DEADEND)
-			GLOB.station_orbit_parallax_resize = 5
+			GLOB.station_orbit_parallax_type = 5
 
-	if(cur_height != GLOB.station_orbit_parallax_resize)
+	if(cur_height != GLOB.station_orbit_parallax_type)
 		for(var/m in GLOB.player_list)
 			if(ismob(m) && !isnewplayer(m))
 				var/mob/M = m
 				if(M.hud_used)
-					M?.hud_used?.update_parallax_pref(M, GLOB.station_orbit_parallax_resize)
+					M?.hud_used?.update_parallax_pref(M)
 					shake_camera(M, 1, 7)
 
 /datum/game_mode/ruination/check_finished()

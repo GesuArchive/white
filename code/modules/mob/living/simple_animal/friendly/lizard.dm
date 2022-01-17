@@ -4,7 +4,7 @@
 	icon_state = "lizard"
 	icon_living = "lizard"
 	icon_dead = "lizard_dead"
-	speak_emote = list("hisses")
+	speak_emote = list("шипит")
 	health = 5
 	maxHealth = 5
 	faction = list("Lizard")
@@ -12,12 +12,12 @@
 	attack_verb_simple = "кусает"
 	melee_damage_lower = 1
 	melee_damage_upper = 2
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
-	response_disarm_continuous = "shoos"
-	response_disarm_simple = "shoo"
-	response_harm_continuous = "stomps on"
-	response_harm_simple = "stomp on"
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
+	response_disarm_continuous = "прогоняет"
+	response_disarm_simple = "прогоняет"
+	response_harm_continuous = "давит"
+	response_harm_simple = "давит"
 	ventcrawler = VENTCRAWLER_ALWAYS
 	density = FALSE
 	pass_flags = PASSTABLE | PASSMOB

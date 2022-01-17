@@ -21,7 +21,7 @@
 	obj_damage = 0
 	gold_core_spawnable = HOSTILE_SPAWN
 	environment_smash = ENVIRONMENT_SMASH_NONE
-	speak_emote = list("squeaks")
+	speak_emote = list("пищит")
 	ventcrawler = VENTCRAWLER_ALWAYS
 	var/datum/mind/origin
 	var/egg_lain = 0

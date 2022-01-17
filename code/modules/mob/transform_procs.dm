@@ -20,7 +20,7 @@
 
 /mob/living/carbon/proc/finish_monkeyize()
 	transformation_timer = null
-	to_chat(src, "<B>Теперь вы обезьяна.</B>")
+	to_chat(src, "<B>Теперь я обезьяна.</B>")
 	notransform = FALSE
 	icon = initial(icon)
 	invisibility = 0
@@ -50,7 +50,7 @@
 
 /mob/living/carbon/proc/finish_humanize(species = /datum/species/human)
 	transformation_timer = null
-	to_chat(src, "<B>Теперь вы человек.</B>")
+	to_chat(src, "<B>Теперь я человек.</B>")
 	notransform = FALSE
 	icon = initial(icon)
 	invisibility = 0
@@ -189,7 +189,7 @@
 	new_xeno.key = key
 	update_atom_languages()
 
-	to_chat(new_xeno, "<B>Теперь вы инопланетянин.</B>")
+	to_chat(new_xeno, "<B>Теперь я инопланетянин.</B>")
 	. = new_xeno
 	qdel(src)
 
@@ -222,7 +222,7 @@
 	new_slime.a_intent = INTENT_HARM
 	new_slime.key = key
 
-	to_chat(new_slime, "<B>Теперь вы слайм. Скреее!</B>")
+	to_chat(new_slime, "<B>Теперь я слайм. Скреее!</B>")
 	. = new_slime
 	qdel(src)
 
@@ -250,7 +250,7 @@
 	new_corgi.a_intent = INTENT_HARM
 	new_corgi.key = key
 
-	to_chat(new_corgi, "<B>Теперь вы Корги! Ура-ура!</B>")
+	to_chat(new_corgi, "<B>Теперь я Корги! Ура-ура!</B>")
 	. = new_corgi
 	qdel(src)
 
@@ -276,7 +276,7 @@
 		mind.transfer_to(new_gorilla)
 	else
 		new_gorilla.key = key
-	to_chat(new_gorilla, "<B>Теперь вы горилла! Ар-р!</B>")
+	to_chat(new_gorilla, "<B>Теперь я горилла! Ар-р!</B>")
 	. = new_gorilla
 	qdel(src)
 

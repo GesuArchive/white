@@ -9,8 +9,8 @@
 	maxHealth = 10
 	health = 10
 	butcher_results = list(/obj/item/food/hugemushroomslice = 1)
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
 	response_disarm_continuous = "gently pushes aside"
 	response_disarm_simple = "gently push aside"
 	response_harm_continuous = "whacks"
@@ -32,7 +32,7 @@
 	ventcrawler = VENTCRAWLER_ALWAYS
 	robust_searching = 1
 	unique_name = 1
-	speak_emote = list("squeaks")
+	speak_emote = list("пищит")
 	deathmessage = "fainted."
 	var/cap_color = "#ffffff"
 	var/powerlevel = 0 //Tracks our general strength level gained from eating other shrooms

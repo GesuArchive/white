@@ -192,7 +192,8 @@
 		if(item_materials[MAT] > max_mat_value)
 			max_mat_value = item_materials[MAT]
 			primary_mat = MAT
-
+	if(primary_mat)
+		SEND_SIGNAL(parent, COMSIG_MATERIAL_CONTAINER_CHANGED)
 	return primary_mat
 
 /**
@@ -231,6 +232,7 @@
 		for(var/i in materials)
 			materials[i] += amt
 			total_amount += amt
+	SEND_SIGNAL(parent, COMSIG_MATERIAL_CONTAINER_CHANGED)
 	return (total_amount - total_amount_saved)
 
 /// Uses an amount of a specific material, effectively removing it.
@@ -246,6 +248,7 @@
 
 	materials[mat] -= amt
 	total_amount -= amt
+	SEND_SIGNAL(parent, COMSIG_MATERIAL_CONTAINER_CHANGED)
 	return amt
 
 /// Proc for transfering materials to another container.
@@ -260,6 +263,7 @@
 	if(tr)
 		use_amount_mat(tr, mat)
 		T.insert_amount_mat(tr, mat)
+		SEND_SIGNAL(parent, COMSIG_MATERIAL_CONTAINER_CHANGED)
 		return tr
 	return FALSE
 

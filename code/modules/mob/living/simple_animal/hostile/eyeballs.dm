@@ -14,13 +14,13 @@
 	speed = 0
 	gender = NEUTER
 	mob_biotypes = MOB_ORGANIC
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
 	response_disarm_continuous = "gently pushes aside"
 	response_disarm_simple = "gently push aside"
 	emote_taunt = list("glares")
 	taunt_chance = 25
-	speak_emote = list("telepathically cries")
+	speak_emote = list("телепатически плачет")
 	turns_per_move = 5
 	attack_verb_continuous = "моргает в"
 	attack_verb_simple = "моргает в"

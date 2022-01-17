@@ -9,7 +9,7 @@
 	mouse_opacity = MOUSE_OPACITY_ICON
 	friendly_verb_continuous = "growls at"
 	friendly_verb_simple = "growl at"
-	speak_emote = list("growls")
+	speak_emote = list("рычит")
 	speed = 12
 	move_to_delay = 5
 	maxHealth = 300

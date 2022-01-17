@@ -14,7 +14,7 @@
 	move_to_delay = 10
 	friendly_verb_continuous = "floats near"
 	friendly_verb_simple = "float near"
-	speak_emote = list("puffs")
+	speak_emote = list("раздувает")
 	vision_range = 5
 	speed = 0
 	maxHealth = 50

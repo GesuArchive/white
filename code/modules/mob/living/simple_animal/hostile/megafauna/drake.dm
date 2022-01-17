@@ -50,7 +50,7 @@
 	health_doll_icon = "dragon"
 	friendly_verb_continuous = "гениально смотрит на"
 	friendly_verb_simple = "гениально смотрит на"
-	speak_emote = list("roars")
+	speak_emote = list("рычит")
 	armour_penetration = 40
 	melee_damage_lower = 40
 	melee_damage_upper = 40

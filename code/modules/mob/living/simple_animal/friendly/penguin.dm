@@ -1,16 +1,16 @@
 //Penguins
 
 /mob/living/simple_animal/pet/penguin
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
 	response_disarm_continuous = "bops"
 	response_disarm_simple = "bop"
 	response_harm_continuous = "kicks"
 	response_harm_simple = "kick"
-	speak = list("Gah Gah!", "NOOT NOOT!", "NOOT!", "Noot", "noot", "Prah!", "Grah!")
-	speak_emote = list("squawks", "gakkers")
-	emote_hear = list("squawk!", "gakkers!", "noots.","NOOTS!")
-	emote_see = list("shakes its beak.", "flaps it's wings.","preens itself.")
+	speak = list("Га Га!", "НУТ НУТ!", "НУТ!", "Нут", "нут", "Пра!", "Гра!")
+	speak_emote = list("кричит", "гогочет")
+	emote_hear = list("каааакает!", "гаааакает!", "ерундит.","ЕРУНДИТ!")
+	emote_see = list("трясет клювом.", "хлопает крыльями.","чистит себя.")
 	faction = list("penguin")
 	minbodytemp = 0
 	see_in_dark = 5

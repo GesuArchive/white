@@ -11,7 +11,7 @@
 	response_disarm_simple = "brush aside"
 	response_harm_continuous = "squashes"
 	response_harm_simple = "squash"
-	speak_emote = list("flutters")
+	speak_emote = list("порхает")
 	maxHealth = 2
 	health = 2
 	harm_intent_damage = 1
@@ -23,10 +23,10 @@
 	mob_size = MOB_SIZE_TINY
 	mob_biotypes = MOB_ORGANIC|MOB_BUG
 	gold_core_spawnable = FRIENDLY_SPAWN
-	verb_say = "flutters"
-	verb_ask = "flutters inquisitively"
-	verb_exclaim = "flutters intensely"
-	verb_yell = "flutters intensely"
+	verb_say = "трепетает"
+	verb_ask = "трепетает вопросительно"
+	verb_exclaim = "трепетает интенсивно"
+	verb_yell = "трепетает интенсивно"
 
 /mob/living/simple_animal/butterfly/Initialize()
 	. = ..()

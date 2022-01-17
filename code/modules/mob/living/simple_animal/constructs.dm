@@ -5,7 +5,7 @@
 	desc = ""
 	gender = NEUTER
 	mob_biotypes = NONE
-	speak_emote = list("hisses")
+	speak_emote = list("шипит")
 	response_help_continuous = "thinks better of touching"
 	response_help_simple = "think better of touching"
 	response_disarm_continuous = "flails at"
@@ -74,7 +74,7 @@
 /mob/living/simple_animal/hostile/construct/Destroy()
 	QDEL_NULL(our_rune)
 	return ..()
-	
+
 /mob/living/simple_animal/hostile/construct/Login()
 	. = ..()
 	if(!. || !client)

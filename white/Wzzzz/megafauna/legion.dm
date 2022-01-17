@@ -25,7 +25,7 @@
 	desc = "One of many."
 	icon = 'white/Wzzzz/disneyland/legion.dmi'
 	attack_sound = 'sound/magic/demon_attack1.ogg'
-	speak_emote = list("echoes")
+	speak_emote = list("эхоирует")
 	attack_verb_continuous = "кусает"
 	attack_verb_simple = "кусает"
 	armour_penetration = 50
