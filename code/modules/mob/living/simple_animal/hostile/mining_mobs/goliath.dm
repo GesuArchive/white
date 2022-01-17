@@ -15,7 +15,7 @@
 	ranged_cooldown_time = 120
 	friendly_verb_continuous = "wails at"
 	friendly_verb_simple = "wail at"
-	speak_emote = list("bellows")
+	speak_emote = list("выдувает")
 	speed = 3
 	maxHealth = 300
 	health = 300

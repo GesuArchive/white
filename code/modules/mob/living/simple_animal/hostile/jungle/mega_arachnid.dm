@@ -18,7 +18,7 @@
 	base_pixel_x = -16
 	move_to_delay = 10
 	aggro_vision_range = 9
-	speak_emote = list("chitters")
+	speak_emote = list("трепещет")
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	ranged_cooldown_time = 60

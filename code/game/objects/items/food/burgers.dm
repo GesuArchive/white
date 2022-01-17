@@ -154,8 +154,8 @@
 	tastes = list("bun" = 2, "ectoplasm" = 4)
 	foodtypes = GRAIN
 	alpha = 170
-	verb_say = "moans"
-	verb_yell = "wails"
+	verb_say = "стонет"
+	verb_yell = "пищит"
 	venue_value = FOOD_PRICE_EXOTIC
 	preserved_food = TRUE
 

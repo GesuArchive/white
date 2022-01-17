@@ -121,8 +121,8 @@
 	icon = 'icons/mob/mob.dmi'
 	maxHealth = 1e6
 	health = 1e6
-	speak_emote = list("howls")
-	emote_hear = list("wails","screeches")
+	speak_emote = list("воет")
+	emote_hear = list("вопит","визжит")
 	density = FALSE
 	anchored = TRUE
 	incorporeal_move = 1

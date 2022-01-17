@@ -16,7 +16,7 @@
 	icon_state = "snake"
 	icon_living = "snake"
 	icon_dead = "snake_dead"
-	speak_emote = list("hisses")
+	speak_emote = list("шипит")
 	health = 20
 	maxHealth = 20
 	attack_verb_continuous = "кусает"
@@ -25,10 +25,10 @@
 	attack_vis_effect = ATTACK_EFFECT_BITE
 	melee_damage_lower = 5
 	melee_damage_upper = 6
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
-	response_disarm_continuous = "shoos"
-	response_disarm_simple = "shoo"
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
+	response_disarm_continuous = "прогоняет"
+	response_disarm_simple = "прогоняет"
 	response_harm_continuous = "steps on"
 	response_harm_simple = "step on"
 	faction = list("hostile")

@@ -18,7 +18,7 @@
 	melee_damage_upper = 5
 	attack_verb_continuous = "унижает"
 	a_intent = INTENT_HARM
-	speak_emote = list("chants")
+	speak_emote = list("поёт")
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	aggro_vision_range = 9
 	turns_per_move = 5

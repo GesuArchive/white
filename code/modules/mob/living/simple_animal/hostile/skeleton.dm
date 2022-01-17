@@ -8,8 +8,8 @@
 	gender = NEUTER
 	mob_biotypes = MOB_UNDEAD|MOB_HUMANOID
 	turns_per_move = 5
-	speak_emote = list("rattles")
-	emote_see = list("rattles")
+	speak_emote = list("гремит костями")
+	emote_see = list("гремит костями")
 	a_intent = INTENT_HARM
 	maxHealth = 40
 	health = 40

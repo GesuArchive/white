@@ -51,9 +51,9 @@ That's it, ok bye!
 	density = FALSE
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	verb_say = "beeps"
-	verb_ask = "beeps"
-	verb_exclaim = "beeps"
+	verb_say = "бипает"
+	verb_ask = "бипает"
+	verb_exclaim = "бипает"
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
 	var/obj/machinery/lazylift/lift = null //Pointer to the lift controller in our area on this deck, we then ask its master to path the lift to us, assuming it isn't busy or anything.

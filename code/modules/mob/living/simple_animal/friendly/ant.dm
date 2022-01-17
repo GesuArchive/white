@@ -6,9 +6,9 @@
 	icon_living = "ant"
 	icon_dead = "ant_dead"
 	speak = list("BZZZZT!", "CHTCHTCHT!", "Bzzz", "ChtChtCht")
-	speak_emote = list("buzzes", "chitters")
-	emote_hear = list("buzzes.", "clacks.")
-	emote_see = list("shakes its head.", "twitches its antennae.")
+	speak_emote = list("жужжит", "болтает")
+	emote_hear = list("жужжит.", "щёлкает.")
+	emote_see = list("качает головой.", "дергает антеннами.")
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
@@ -19,8 +19,8 @@
 	maxbodytemp = 400
 	unsuitable_atmos_damage = 1
 	butcher_results = list(/obj/item/food/meat/slab = 2, /obj/effect/decal/cleanable/ants = 1) //It's just a bunch of ants glued together into a larger ant
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
 	response_disarm_continuous = "gently pushes aside"
 	response_disarm_simple = "gently push aside"
 	response_harm_continuous = "kicks"

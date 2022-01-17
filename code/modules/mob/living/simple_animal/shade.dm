@@ -10,8 +10,8 @@
 	maxHealth = 40
 	health = 40
 	healable = 0
-	speak_emote = list("hisses")
-	emote_hear = list("wails.","screeches.")
+	speak_emote = list("шипит")
+	emote_hear = list("вопит.","визжит.")
 	response_help_continuous = "puts their hand through"
 	response_help_simple = "put your hand through"
 	response_disarm_continuous = "flails at"

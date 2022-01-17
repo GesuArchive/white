@@ -38,9 +38,9 @@
 	icon_living = "rabbit_white"
 	icon_dead = "rabbit_white_dead"
 	speak = list("Hop into Easter!","Come get your eggs!","Prizes for everyone!")
-	speak_emote = list("sniffles","twitches")
-	emote_hear = list("hops.")
-	emote_see = list("hops around","bounces up and down")
+	speak_emote = list("всхлипывает","трусится")
+	emote_hear = list("подпрыгивает.")
+	emote_see = list("прыгает вокруг","подпрыгивает вверх и вниз")
 	butcher_results = list(/obj/item/food/meat/slab = 1)
 	//egg_type = /obj/item/food/egg/loaded
 	food_type = /obj/item/food/grown/carrot
@@ -50,7 +50,7 @@
 	//feedMessages = list("It nibbles happily.","It noms happily.")
 	//layMessage = list("hides an egg.","scampers around suspiciously.","begins making a huge racket.","begins shuffling.")
 	pet_bonus = TRUE
-	pet_bonus_emote = "hops around happily!"
+	pet_bonus_emote = "радостно прыгает!"
 
 /mob/living/simple_animal/chicken/rabbit/space
 	//icon_prefix = "s_rabbit"

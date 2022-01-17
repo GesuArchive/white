@@ -7,17 +7,17 @@
 	icon_dead = "bear_dead"
 	icon_gib = "bear_gib"
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	speak = list("RAWR!","Rawr!","GRR!","Growl!")
-	speak_emote = list("growls", "roars")
-	emote_hear = list("rawrs.","grumbles.","grawls.")
-	emote_taunt = list("stares ferociously", "stomps")
+	speak = list("РРР!","Раар!","ГРР!","ГРУ!")
+	speak_emote = list("рычит", "ревёт")
+	emote_hear = list("ревёт.","ворчит.","рычит.")
+	emote_taunt = list("свирепо смотрит", "топает")
 	speak_chance = 1
 	taunt_chance = 25
 	turns_per_move = 5
 	see_in_dark = 6
 	butcher_results = list(/obj/item/food/meat/slab/bear = 5, /obj/item/clothing/head/bearpelt = 1)
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
 	response_disarm_continuous = "gently pushes aside"
 	response_disarm_simple = "gently push aside"
 	maxHealth = 60

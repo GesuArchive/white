@@ -18,7 +18,7 @@
 	name = "Роевик"
 	icon = 'icons/mob/swarmer.dmi'
 	desc = "Роботизированные конструкции неизвестного дизайна, роевики стремятся только потреблять материалы и бесконечно воспроизводить себя."
-	speak_emote = list("tones")
+	speak_emote = list("тонирует")
 	initial_language_holder = /datum/language_holder/swarmer
 	bubble_icon = "swarmer"
 	mob_biotypes = MOB_ROBOTIC

@@ -26,7 +26,7 @@
 	melee_damage_upper = 12
 	attack_verb_continuous = "вгрызается в"
 	attack_verb_simple = "вгрызается в"
-	speak_emote = list("chitters")
+	speak_emote = list("трепещет")
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	attack_vis_effect = ATTACK_EFFECT_BITE
 	aggro_vision_range = 9
@@ -110,7 +110,7 @@
 	attack_verb_continuous = "протыкает"
 	attack_verb_simple = "протыкает"
 	a_intent = INTENT_HARM
-	speak_emote = list("telepathically cries")
+	speak_emote = list("телепатически плачет")
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	attack_vis_effect = null // doesn't bite unlike the parent type.
 	stat_attack = HARD_CRIT

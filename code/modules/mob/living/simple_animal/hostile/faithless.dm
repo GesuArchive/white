@@ -25,7 +25,7 @@
 	attack_verb_continuous = "душит"
 	attack_verb_simple = "душит"
 	attack_sound = 'sound/hallucinations/growl1.ogg'
-	speak_emote = list("growls")
+	speak_emote = list("рычит")
 
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0

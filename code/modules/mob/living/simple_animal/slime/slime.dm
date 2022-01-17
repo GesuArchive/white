@@ -13,14 +13,14 @@
 	harm_intent_damage = 5
 	icon_living = "grey baby slime"
 	icon_dead = "grey baby slime dead"
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
-	response_disarm_continuous = "shoos"
-	response_disarm_simple = "shoo"
-	response_harm_continuous = "stomps on"
-	response_harm_simple = "stomp on"
-	emote_see = list("jiggles", "bounces in place")
-	speak_emote = list("blorbles")
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
+	response_disarm_continuous = "прогоняет"
+	response_disarm_simple = "прогоняет"
+	response_harm_continuous = "давит"
+	response_harm_simple = "давит"
+	emote_see = list("трясётся", "подпрыгивает")
+	speak_emote = list("слизнявит")
 	bubble_icon = "slime"
 	initial_language_holder = /datum/language_holder/slime
 
@@ -33,10 +33,10 @@
 	melee_damage_upper = 25
 	see_in_dark = 8
 
-	verb_say = "blorbles"
-	verb_ask = "inquisitively blorbles"
-	verb_exclaim = "loudly blorbles"
-	verb_yell = "loudly blorbles"
+	verb_say = "слизнявит"
+	verb_ask = "вопросительно слизнявит"
+	verb_exclaim = "громко слизнявит"
+	verb_yell = "громко слизнявит"
 
 	// canstun and canknockdown don't affect slimes because they ignore stun and knockdown variables
 	// for the sake of cleanliness, though, here they are.

@@ -23,7 +23,7 @@
 	attack_verb_simple = "влетает в"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	a_intent = INTENT_HELP
-	speak_emote = list("screeches")
+	speak_emote = list("визжит")
 	throw_message = "sinks in slowly, before being pushed out of "
 	deathmessage = "stops moving as green liquid oozes from the carcass!"
 	status_flags = CANPUSH

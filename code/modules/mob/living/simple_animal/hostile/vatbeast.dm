@@ -10,7 +10,7 @@
 	mob_size = MOB_SIZE_LARGE
 	gender = NEUTER
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
-	speak_emote = list("roars")
+	speak_emote = list("рычит")
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	health = 250
 	maxHealth = 250

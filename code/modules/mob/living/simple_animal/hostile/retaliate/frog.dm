@@ -15,8 +15,8 @@
 	melee_damage_upper = 5
 	attack_verb_continuous = "кусает"
 	attack_verb_simple = "кусает"
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
 	response_disarm_continuous = "pokes"
 	response_disarm_simple = "poke"
 	response_harm_continuous = "splats"

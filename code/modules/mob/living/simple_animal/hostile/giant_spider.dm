@@ -40,15 +40,15 @@
 	icon_living = "guard"
 	icon_dead = "guard_dead"
 	mob_biotypes = MOB_ORGANIC|MOB_BUG
-	speak_emote = list("chitters")
-	emote_hear = list("chitters")
+	speak_emote = list("трепещет")
+	emote_hear = list("трепещет")
 	speak_chance = 5
 	speed = 0
 	turns_per_move = 5
 	see_in_dark = 4
 	butcher_results = list(/obj/item/food/meat/slab/spider = 2, /obj/item/food/spiderleg = 8)
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
 	response_disarm_continuous = "gently pushes aside"
 	response_disarm_simple = "gently push aside"
 	initial_language_holder = /datum/language_holder/spider

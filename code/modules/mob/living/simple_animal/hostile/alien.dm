@@ -18,7 +18,7 @@
 	melee_damage_upper = 25
 	attack_verb_continuous = "режет"
 	attack_verb_simple = "режет"
-	speak_emote = list("hisses")
+	speak_emote = list("шипит")
 	bubble_icon = "alien"
 	a_intent = INTENT_HARM
 	attack_sound = 'sound/weapons/bladeslice.ogg'

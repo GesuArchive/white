@@ -21,7 +21,7 @@
 	melee_damage_upper = 12
 	attack_sound = 'sound/weapons/punch1.ogg'
 	emote_taunt = list("growls")
-	speak_emote = list("creaks")
+	speak_emote = list("скрипит")
 	taunt_chance = 30
 
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
@@ -41,7 +41,7 @@
 /mob/living/simple_animal/hostile/mimic/crate
 	attack_verb_continuous = "кусает"
 	attack_verb_simple = "кусает"
-	speak_emote = list("clatters")
+	speak_emote = list("гремит")
 	stop_automated_movement = 1
 	wander = 0
 	var/attempt_open = FALSE
@@ -284,7 +284,7 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 	maxHealth = 210
 	attack_verb_continuous = "кусает"
 	attack_verb_simple = "кусает"
-	speak_emote = list("clatters")
+	speak_emote = list("гремит")
 	gold_core_spawnable = HOSTILE_SPAWN
 	var/opened = FALSE
 	var/open_sound = 'sound/machines/crate_open.ogg'

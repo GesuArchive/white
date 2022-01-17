@@ -29,7 +29,7 @@
 	attack_verb_simple = "кусает"
 	attack_sound = 'sound/magic/demon_attack1.ogg'
 	attack_vis_effect = ATTACK_EFFECT_BITE
-	speak_emote = list("echoes")
+	speak_emote = list("резонирует")
 	armour_penetration = 50
 	melee_damage_lower = 25
 	melee_damage_upper = 25

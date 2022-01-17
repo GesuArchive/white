@@ -21,7 +21,7 @@
 	melee_damage_upper = 0
 	attack_verb_continuous = "набрасывается на"
 	attack_verb_simple = "набрасывается на"
-	speak_emote = list("telepathically cries")
+	speak_emote = list("телепатически плачет")
 	attack_sound = 'sound/weapons/pierce.ogg'
 	throw_message = "falls right through the strange body of the"
 	ranged_cooldown = 0
@@ -79,7 +79,7 @@
 	melee_damage_upper = 2
 	attack_verb_continuous = "разрывает"
 	attack_verb_simple = "разрывает"
-	speak_emote = list("telepathically cries")
+	speak_emote = list("телепатически плачет")
 	attack_sound = 'sound/weapons/pierce.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	throw_message = "falls right through the strange body of the"
@@ -112,7 +112,7 @@
 	melee_damage_upper = 15
 	attack_verb_continuous = "набрасывается на"
 	attack_verb_simple = "набрасывается на"
-	speak_emote = list("echoes")
+	speak_emote = list("эхует")
 	attack_sound = 'sound/weapons/pierce.ogg'
 	throw_message = "bounces harmlessly off of"
 	crusher_loot = /obj/item/crusher_trophy/legion_skull
@@ -182,7 +182,7 @@
 	attack_verb_continuous = "кусает"
 	attack_verb_simple = "кусает"
 	attack_vis_effect = ATTACK_EFFECT_BITE
-	speak_emote = list("echoes")
+	speak_emote = list("эхует")
 	attack_sound = 'sound/weapons/pierce.ogg'
 	throw_message = "is shrugged off by"
 	del_on_death = TRUE

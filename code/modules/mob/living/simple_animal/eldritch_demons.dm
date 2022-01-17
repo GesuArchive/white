@@ -4,7 +4,7 @@
 	desc = ""
 	gender = NEUTER
 	mob_biotypes = NONE
-	speak_emote = list("screams")
+	speak_emote = list("кричит")
 	response_help_continuous = "thinks better of touching"
 	response_help_simple = "think better of touching"
 	response_disarm_continuous = "flails at"

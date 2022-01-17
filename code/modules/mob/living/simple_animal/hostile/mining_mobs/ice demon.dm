@@ -8,7 +8,7 @@
 	icon_gib = "syndicate_gib"
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	mouse_opacity = MOUSE_OPACITY_ICON
-	speak_emote = list("telepathically cries")
+	speak_emote = list("телепатически плачет")
 	speed = 2
 	move_to_delay = 2
 	projectiletype = /obj/projectile/temp/basilisk/ice

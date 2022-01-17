@@ -5,7 +5,7 @@
 	state_open = FALSE
 	icon = 'white/valtos/icons/64x64_autodoc.dmi'
 	icon_state = "autodoc_machine"
-	verb_say = "states"
+	verb_say = "констатирует"
 	idle_power_usage = 500
 	circuit = /obj/item/circuitboard/machine/organdoc
 	var/obj/item/organ/storedorgan

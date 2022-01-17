@@ -32,7 +32,7 @@ Difficulty: Medium
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	light_color = COLOR_LIGHT_GRAYISH_RED
 	movement_type = GROUND
-	speak_emote = list("roars")
+	speak_emote = list("рычит")
 	speed = 3
 	move_to_delay = 3
 	projectiletype = /obj/projectile/kinetic/miner
