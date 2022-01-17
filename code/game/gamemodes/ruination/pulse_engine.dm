@@ -7,7 +7,7 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	density = TRUE
 	var/engine_power = 0
-	var/minimum_power = 25
+	var/minimum_power = 15
 	var/engine_active = FALSE
 	var/datum/looping_sound/pulse_engine/soundloop
 
@@ -67,4 +67,4 @@
 			engine_power = max(engine_power, minimum_power)
 
 /obj/structure/pulse_engine/process(delta_time)
-	engine_power = max(engine_power - 5, minimum_power)
+	engine_power = max(engine_power - 2, minimum_power)
