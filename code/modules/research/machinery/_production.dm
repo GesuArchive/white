@@ -128,7 +128,7 @@
 		L += list(build_design(design))
 	return L
 
-/obj/machinery/rnd/production/proc/build_design(var/datum/design/design)
+/obj/machinery/rnd/production/proc/build_design(datum/design/design)
 	return list(
 			name = design.name,
 			description = design.desc,
@@ -140,7 +140,7 @@
 			reagents = build_recipe_reagents(design.reagents_list),
 		)
 
-/obj/machinery/rnd/production/proc/build_recipe_reagents(var/list/reagents)
+/obj/machinery/rnd/production/proc/build_recipe_reagents(list/reagents)
 	var/list/L = list()
 
 	for(var/id in reagents)
