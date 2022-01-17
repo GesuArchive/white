@@ -39,12 +39,14 @@
 /datum/movement_detector/proc/move_react(atom/movable/mover, atom/oldloc, direction)
 	SIGNAL_HANDLER
 
+	var/turf/newturf = get_turf(tracked)
+
 	if(oldloc && !isturf(oldloc))
 		var/atom/target = oldloc
 		while(ismovable(target))
 			UnregisterSignal(target, COMSIG_MOVABLE_MOVED)
 			target = target.loc
-	else
+	if(tracked.loc != newturf)
 		var/atom/target = mover.loc
 		while(ismovable(target))
 			RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/move_react, TRUE)
