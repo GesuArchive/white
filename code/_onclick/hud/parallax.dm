@@ -7,15 +7,15 @@
 
 	C.parallax_layers_cached = list()
 
-	if(forced_parallax == 1)
+	if(forced_parallax)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/cyberspess(null, C.view)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/mazespace(null, C.view)
-	else if(forced_parallax == 3)
+	else if(GLOB.station_orbit_parallax_type == 3)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/ice_surface(null, C.view)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/clouds(null, C.view)
-	else if(forced_parallax == 4)
+	else if(GLOB.station_orbit_parallax_type == 4)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/fucking(null, C.view)
-	else if(forced_parallax == 5)
+	else if(GLOB.station_orbit_parallax_type == 5)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/ice_surface(null, C.view)
 	else
 		C.parallax_layers_cached += new SSparallax.random_space(null, C.view)
