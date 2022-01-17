@@ -409,9 +409,9 @@
 	. = ..()
 	var/obj/item/organ/alien/plasmavessel/vessel = getorgan(/obj/item/organ/alien/plasmavessel)
 	if(vessel)
-		. += "Plasma Stored: [vessel.storedPlasma]/[vessel.max_plasma]"
+		. += "Плазма: [vessel.storedPlasma]/[vessel.max_plasma]"
 	if(locate(/obj/item/assembly/health) in src)
-		. += "Health: [health]"
+		. += "Здоровье: [health]"
 
 /mob/living/carbon/get_proc_holders()
 	. = ..()
