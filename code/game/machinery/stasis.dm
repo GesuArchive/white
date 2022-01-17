@@ -188,7 +188,7 @@
 					if(handbeltsmod_active)
 						M.visible_message(span_warning("[M.name] пытается вырваться из удерживающих его ремней!") ,\
 							span_notice("Пытаюсь освободиться от удерживающих меня ремней!"))
-						if(!do_after(M, 60 SECONDS, target = src))
+						if(!do_after(M, 30 SECONDS, target = src))
 							if(M?.buckled)
 								to_chat(M, span_warning("Не получается!"))
 							return
