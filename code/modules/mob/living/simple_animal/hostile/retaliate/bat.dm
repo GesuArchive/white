@@ -29,7 +29,7 @@
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	ventcrawler = VENTCRAWLER_NONE
 	mob_size = MOB_SIZE_TINY
-	speak_emote = list("squeaks")
+	speak_emote = list("пищит")
 	var/max_co2 = 0 //to be removed once metastation map no longer use those for Sgt Araneus
 	var/min_oxy = 0
 	var/max_tox = 0
@@ -61,8 +61,8 @@
 	melee_damage_upper = 20
 	min_oxy = 5
 	movement_type = GROUND
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
 	turns_per_move = 10
 	pet_bonus = TRUE
 	pet_bonus_emote = "chitters proudly!"
