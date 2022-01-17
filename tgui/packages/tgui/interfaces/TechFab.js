@@ -10,7 +10,7 @@ import { sendLogEntry } from 'tgui-dev-server/link/client';
 export const TechFab = (props, context) => {
   return (
     <Window
-      width={590}
+      width={650}
       height={700}>
       <Window.Content>
         <Stack vertical fill>
@@ -245,7 +245,6 @@ const Recipe = (props, context) => {
   } = props;
 
   const craft_amounts = [1, 5, 10];
-  const substitutions = { "bluespace crystal": "bluespace_crystal" };
 
   let max = 50;
 

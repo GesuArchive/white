@@ -85,7 +85,7 @@
 
 	var/list/L = list()
 	for(var/datum/material/material as() in materials.mat_container.materials)
-		L[material.id] = list(
+		L[material.name] = list(
 				name = material.name,
 				amount = materials.mat_container.materials[material]/MINERAL_MATERIAL_AMOUNT,
 				id = material.id,
