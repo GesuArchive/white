@@ -523,12 +523,12 @@
 	power_draw_per_use = 50
 	ext_cooldown = 1
 	var/max_grab = GRAB_NECK
+	var/grabstate = GRAB_PASSIVE
 
 /obj/item/integrated_circuit_old/manipulation/claw/do_work(ord)
 	var/obj/acting_object = get_object()
 	var/atom/movable/AM = get_pin_data_as_type(IC_INPUT, 1, /atom/movable)
 	var/mode = get_pin_data(IC_INPUT, 2)
-	var/state = GRAB_PASSIVE
 	switch(ord)
 		if(1)
 			if(AM)
@@ -537,14 +537,14 @@
 						acting_object.stop_pulling()
 						return
 					acting_object.investigate_log("grabbed ([AM]) using [src].", INVESTIGATE_CIRCUIT)
-					acting_object.start_pulling(AM,state)
+					acting_object.start_pulling(AM,grabstate)
 					if(acting_object.pulling)
 						set_pin_data(IC_OUTPUT, 1, TRUE)
-						state += 1
-						state = clamp(state, GRAB_PASSIVE, max_grab)
+						grabstate += 1
+						grabstate = clamp(grabstate, GRAB_PASSIVE, max_grab)
 					else
 						set_pin_data(IC_OUTPUT, 1, FALSE)
-						state = GRAB_PASSIVE
+						grabstate = GRAB_PASSIVE
 			push_data()
 
 		if(4)
