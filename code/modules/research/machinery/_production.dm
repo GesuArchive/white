@@ -36,11 +36,6 @@
 
 /obj/machinery/rnd/production/proc/on_materials_changed()
 	SIGNAL_HANDLER
-	ui_update()
-
-/obj/machinery/rnd/production/on_reagent_change(changetype)
-	. = ..()
-	ui_update()
 
 /obj/machinery/rnd/production/proc/update_designs()
 	cached_designs.Cut()
@@ -52,7 +47,6 @@
 
 /obj/machinery/rnd/production/RefreshParts()
 	calculate_efficiency()
-	ui_update()
 
 /obj/machinery/rnd/production/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -167,7 +161,7 @@
 			user_try_print_id(params["design_id"], params["amount"])
 			. = TRUE
 	if(action == "sync_research")
-		update_research()
+		update_designs()
 		say("Синхронизация исследований с базой данных хост-технологий.")
 		. = TRUE
 	if(action == "dispose")
