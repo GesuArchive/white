@@ -160,7 +160,7 @@
 		pai_card.setPersonality(src)
 	forceMove(pai_card)
 	card = pai_card
-	job = JOB_PERSONAL_AI
+	job = "Персональный ИИ"
 	atmos_analyzer = new /obj/item/analyzer(src)
 	signaler = new /obj/item/assembly/signaler/internal(src)
 	hostscan = new /obj/item/healthanalyzer(src)

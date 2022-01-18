@@ -67,7 +67,7 @@
 		if("camera_zoom")
 			aicamera.adjust_zoom(usr)
 		if("change_image")
-			var/newImage = tgui_input_list(usr, "Select your new display image", "Display Image", sort_list(list("Happy", "Cat", "Extremely Happy", "Face", "Laugh", "Off", "Sad", "Angry", "What", "Sunglasses", "None")))
+			var/newImage = tgui_input_list(usr, "Select your new display image", "Display Image", sortList(list("Happy", "Cat", "Extremely Happy", "Face", "Laugh", "Off", "Sad", "Angry", "What", "Sunglasses", "None")))
 			if(isnull(newImage))
 				return FALSE
 			switch(newImage)
