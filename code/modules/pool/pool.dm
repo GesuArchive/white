@@ -69,7 +69,7 @@ Place a pool filter somewhere in the pool if you want people to be able to modif
 	. = ..()
 	if(!istype(newloc, /turf/open/indestructible/pool))
 		var/datum/component/swimming/S = Obj.GetComponent(/datum/component/swimming) //Handling admin TPs here.
-		qdel(S)
+		S?.ClearFromParent()
 
 /turf/open/MouseDrop_T(atom/dropping, mob/user)
 	if(!isliving(user) || !isliving(dropping)) //No I don't want ghosts to be able to dunk people into the pool.
@@ -78,7 +78,7 @@ Place a pool filter somewhere in the pool if you want people to be able to modif
 	var/datum/component/swimming/S = dropping.GetComponent(/datum/component/swimming)
 	if(S)
 		if(do_after(user, 1 SECONDS, target=src))
-			qdel(S)
+			S?.ClearFromParent()
 			visible_message("<span class='notice'>[dropping] climbs out of the pool.</span>")
 			AM.forceMove(src)
 	else
@@ -141,16 +141,10 @@ Place a pool filter somewhere in the pool if you want people to be able to modif
 		to_chat(user, "<span class='userdanger'>WARNING: WATER DAMAGE DETECTED!</span>")
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "robotpool", /datum/mood_event/robotpool)
 	else
-		if(!check_clothes(user))
+		if(!isfelinid(H))
 			SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "pool", /datum/mood_event/poolparty)
 			return
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "pool", /datum/mood_event/poolwet)
-
-/turf/open/indestructible/pool/proc/check_clothes(mob/living/carbon/human/H)
-	if(!istype(H) || isfelinid(H))
-		return FALSE
-
-	. = TRUE
 
 /obj/effect/turf_decal/pool
 	name = "Pool siding"
@@ -265,7 +259,7 @@ GLOBAL_LIST_EMPTY(pool_filters)
 	if(S)
 		to_chat(user, "<span class='notice'>You start to climb out of the pool...</span>")
 		if(do_after(user, 1 SECONDS, target=src))
-			qdel(S)
+			S?.ClearFromParent()
 			visible_message("<span class='notice'>[user] climbs out of the pool.</span>")
 			user.forceMove(get_turf(get_step(src, NORTH))) //Ladders shouldn't adjoin another pool section. Ever.
 	else
