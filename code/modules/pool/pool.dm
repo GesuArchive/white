@@ -189,7 +189,7 @@ GLOBAL_LIST_EMPTY(pool_filters)
 
 /obj/machinery/pool_filter/examine(mob/user)
 	. = ..()
-	. += "<span class='boldnotice'>The thermostat on it reads [current_temperature].</span>"
+	. += "\n<span class='boldnotice'>The thermostat on it reads [current_temperature].</span>"
 
 /obj/machinery/pool_filter/Initialize()
 	. = ..()

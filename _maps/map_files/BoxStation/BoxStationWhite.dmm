@@ -37051,6 +37051,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
+"khO" = (
+/obj/structure/ladder,
+/turf/open/floor/plasteel/monofloor,
+/area/commons/locker)
 "khR" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -68315,7 +68319,7 @@ aOl
 aPA
 aQU
 aQN
-aQN
+khO
 aQN
 aWq
 aXw
