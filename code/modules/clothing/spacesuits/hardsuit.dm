@@ -825,9 +825,9 @@
 /obj/item/clothing/suit/space/hardsuit/shielded/ctf
 	name = "белый силовой костюм"
 	desc = "Стандартный предмет для игры в захват флага."
-	icon_state = "ert_medical"
+	icon_state = "ctf_white"
 	inhand_icon_state = "ert_medical"
-	hardsuit_type = "ert_medical"
+	hardsuit_type = "ctf_white"
 	// Adding TRAIT_NODROP is done when the CTF spawner equips people
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/shielded/ctf
 	armor = list(MELEE = 0, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 50, BIO = 100, RAD = 100, FIRE = 95, ACID = 95)
@@ -836,32 +836,32 @@
 
 /obj/item/clothing/suit/space/hardsuit/shielded/ctf/red
 	name = "красный силовой костюм"
-	icon_state = "ert_security"
+	icon_state = "ctf_red"
 	inhand_icon_state = "ert_security"
-	hardsuit_type = "ert_security"
+	hardsuit_type = "ctf_red"
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/shielded/ctf/red
 	shield_icon = "shield-red"
 
 /obj/item/clothing/suit/space/hardsuit/shielded/ctf/blue
 	name = "синий силовой костюм"
 	desc = "Стандартный предмет для игры в захват флага."
-	icon_state = "ert_command"
+	icon_state = "ctf_blue"
 	inhand_icon_state = "ert_command"
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/shielded/ctf/blue
 
 /obj/item/clothing/suit/space/hardsuit/shielded/ctf/green
 	name = "green shielded hardsuit"
-	icon_state = "ert_green"
+	icon_state = "ctf_green"
 	inhand_icon_state = "ert_green"
-	hardsuit_type = "ert_green"
+	hardsuit_type = "ctf_green"
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/shielded/ctf/green
 	shield_icon = "shield-green"
 
 /obj/item/clothing/suit/space/hardsuit/shielded/ctf/yellow
 	name = "yellow shielded hardsuit"
-	icon_state = "ert_engineer"
+	icon_state = "ctf_yellow"
 	inhand_icon_state = "ert_engineer"
-	hardsuit_type = "ert_engineer"
+	hardsuit_type = "ctf_yellow"
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/shielded/ctf/yellow
 	shield_icon = "shield-yellow"
 
@@ -869,35 +869,33 @@
 /obj/item/clothing/head/helmet/space/hardsuit/shielded/ctf
 	name = "экранированый герметичный шлем"
 	desc = "Стандартный предмет для игры в захват флага."
-	icon_state = "hardsuit0-ert_medical"
+	icon_state = "hardsuit0-ctf_white"
 	inhand_icon_state = "hardsuit0-ert_medical"
-	hardsuit_type = "ert_medical"
+	hardsuit_type = "ctf_white"
 	armor = list(MELEE = 0, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 50, BIO = 100, RAD = 100, FIRE = 95, ACID = 95)
 
 
 /obj/item/clothing/head/helmet/space/hardsuit/shielded/ctf/red
-	icon_state = "hardsuit0-ert_security"
+	icon_state = "hardsuit0-ctf_red"
 	inhand_icon_state = "hardsuit0-ert_security"
-	hardsuit_type = "ert_security"
+	hardsuit_type = "ctf_red"
 
 /obj/item/clothing/head/helmet/space/hardsuit/shielded/ctf/blue
 	name = "экранированый герметичный шлем"
 	desc = "Стандартный предмет для игры в захват флага."
-	icon_state = "hardsuit0-ert_commander"
+	icon_state = "hardsuit0-ctf_blue"
 	inhand_icon_state = "hardsuit0-ert_commander"
-	hardsuit_type = "ert_commander"
+	hardsuit_type = "ctf_blue"
 
 /obj/item/clothing/head/helmet/space/hardsuit/shielded/ctf/green
-	icon_state = "hardsuit0-ert_green"
+	icon_state = "hardsuit0-ctf_green"
 	inhand_icon_state = "hardsuit0-ert_green"
-	hardsuit_type = "ert_green"
+	hardsuit_type = "ctf_green"
 
 /obj/item/clothing/head/helmet/space/hardsuit/shielded/ctf/yellow
-	icon_state = "hardsuit0-ert_engineer"
+	icon_state = "hardsuit0-ctf_yellow"
 	inhand_icon_state = "hardsuit0-ert_engineer"
-	hardsuit_type = "ert_engineer"
-
-
+	hardsuit_type = "ctf_yellow"
 
 //////Syndicate Version
 
