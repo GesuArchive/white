@@ -119,12 +119,13 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 
 	return TRUE
 
+GLOBAL_VAR_INIT(cryopods_enabled, FALSE)
 // Cryopods themselves.
 /obj/machinery/cryopod
 	name = "криокамера"
 	desc = "Подходит для людей и не только людей."
 	icon = 'icons/obj/machines/cryopod.dmi'
-	icon_state = "cryopod-open"
+	icon_state = "cryopod-off"
 	density = TRUE
 	anchored = TRUE
 	state_open = TRUE
@@ -147,6 +148,10 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 /obj/machinery/cryopod/LateInitialize()
 	update_icon()
 	find_control_computer()
+
+/obj/machinery/cryopod/proc/PowerOn()
+	if(!occupant)
+		open_machine()
 
 // This is not a good situation
 /obj/machinery/cryopod/Destroy()
@@ -186,7 +191,7 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 
 /obj/machinery/cryopod/open_machine()
 	..()
-	icon_state = "cryopod-open"
+	icon_state = GLOB.cryopods_enabled ? "cryopod-open" : "cryopod-off"
 	density = TRUE
 	name = initial(name)
 
@@ -335,6 +340,10 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 
 /obj/machinery/cryopod/MouseDrop_T(mob/living/target, mob/user)
 	if(!istype(target) || !can_interact(user) || !target.Adjacent(user) || !ismob(target) || isanimal(target) || !istype(user.loc, /turf) || target.buckled)
+		return
+
+	if(!GLOB.cryopods_enabled)
+		to_chat(user, "<span class='boldnotice'>Криокамера отключена на данный момент времени. Она заработает через [round(((30 MINUTES) - world.time) / (1 MINUTES))] минут.</span>")
 		return
 
 	if(occupant)
