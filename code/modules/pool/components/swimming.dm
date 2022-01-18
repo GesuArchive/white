@@ -45,7 +45,7 @@
 	if(do_after(parent, 1 SECONDS, target=clicked_turf))
 		L.forceMove(clicked_turf)
 		L.visible_message("<span class='notice'>[parent] climbs out of the pool.</span>")
-		qdel(src)
+		qdel(S)
 
 /datum/component/swimming/UnregisterFromParent()
 	exit_pool()

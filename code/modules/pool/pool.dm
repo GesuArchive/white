@@ -44,32 +44,28 @@ Place a pool filter somewhere in the pool if you want people to be able to modif
 	. = ..()
 
 /turf/open/CanPass(atom/movable/mover, turf/target)
-	var/datum/component/swimming/S = mover.GetComponent(/datum/component/swimming) //If you're swimming around, you don't really want to stop swimming just like that do you?
-	if(S)
+	if(mover.GetComponent(/datum/component/swimming))
 		return FALSE //If you're swimming, you can't swim into a regular turf, y'dig?
 	. = ..()
 
 /turf/open/indestructible/pool/CanPass(atom/movable/mover, turf/target)
-	var/datum/component/swimming/S = mover.GetComponent(/datum/component/swimming) //You can't get in the pool unless you're swimming.
-	return (isliving(mover)) ? S : ..() //So you can do stuff like throw beach balls around the pool!
+	return (isliving(mover)) ? mover.GetComponent(/datum/component/swimming) : ..() //So you can do stuff like throw beach balls around the pool!
 
 /turf/open/indestructible/pool/Entered(atom/movable/AM)
 	. = ..()
 	AM.wash(CLEAN_WASH)
 	if(isliving(AM))
-		var/datum/component/swimming/S = AM.GetComponent(/datum/component/swimming) //You can't get in the pool unless you're swimming.
-		if(!S)
+		if(!AM.GetComponent(/datum/component/swimming))
 			var/mob/living/carbon/C = AM
 			var/component_type = /datum/component/swimming
 			if(istype(C) && C?.dna?.species)
 				component_type = C.dna.species.swimming_component
 			AM.AddComponent(component_type)
 
-/turf/open/indestructible/pool/Exited(atom/movable/Obj, atom/newloc)
+/turf/open/indestructible/pool/Exited(atom/movable/AM, atom/newloc)
 	. = ..()
 	if(!istype(newloc, /turf/open/indestructible/pool))
-		var/datum/component/swimming/S = Obj.GetComponent(/datum/component/swimming) //Handling admin TPs here.
-		S?.ClearFromParent()
+		qdel(AM.GetComponent(/datum/component/swimming))
 
 /turf/open/MouseDrop_T(atom/dropping, mob/user)
 	if(!isliving(user) || !isliving(dropping)) //No I don't want ghosts to be able to dunk people into the pool.
@@ -78,7 +74,7 @@ Place a pool filter somewhere in the pool if you want people to be able to modif
 	var/datum/component/swimming/S = dropping.GetComponent(/datum/component/swimming)
 	if(S)
 		if(do_after(user, 1 SECONDS, target=src))
-			S?.ClearFromParent()
+			qdel(S)
 			visible_message("<span class='notice'>[dropping] climbs out of the pool.</span>")
 			AM.forceMove(src)
 	else
@@ -87,8 +83,7 @@ Place a pool filter somewhere in the pool if you want people to be able to modif
 /turf/open/indestructible/pool/MouseDrop_T(atom/dropping, mob/user)
 	if(!isliving(user) || !isliving(dropping)) //No I don't want ghosts to be able to dunk people into the pool.
 		return
-	var/datum/component/swimming/S = dropping.GetComponent(/datum/component/swimming) //If they're already swimming, don't let them start swimming again.
-	if(S)
+	if(dropping.GetComponent(/datum/component/swimming))
 		return FALSE
 	. = ..()
 	if(user != dropping)
@@ -101,17 +96,17 @@ Place a pool filter somewhere in the pool if you want people to be able to modif
 
 /datum/mood_event/poolparty
 	description = "<span class='nicegreen'>I love swimming!.</span>\n"
-	mood_change = 2
+	mood_change = 8
 	timeout = 2 MINUTES
 
 /datum/mood_event/robotpool
 	description = "<span class='warning'>I really wasn't built with water resistance in mind...</span>\n"
-	mood_change = -3
+	mood_change = -6
 	timeout = 2 MINUTES
 
 /datum/mood_event/poolwet
 	description = "<span class='warning'>Eugh! my clothes are soaking wet from that swim.</span>\n"
-	mood_change = -4
+	mood_change = -10
 	timeout = 4 MINUTES
 
 /turf/open/indestructible/pool/proc/splash(mob/user)
@@ -136,7 +131,7 @@ Place a pool filter somewhere in the pool if you want people to be able to modif
 				zap --
 	if(zap > 0)
 		user.emp_act(zap)
-		user.emote("scream") //Chad coders use M.say("*scream")
+		user.emote("agony") //Chad coders use M.say("*scream")
 		do_sparks(zap, TRUE, user)
 		to_chat(user, "<span class='userdanger'>WARNING: WATER DAMAGE DETECTED!</span>")
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "robotpool", /datum/mood_event/robotpool)
@@ -259,7 +254,7 @@ GLOBAL_LIST_EMPTY(pool_filters)
 	if(S)
 		to_chat(user, "<span class='notice'>You start to climb out of the pool...</span>")
 		if(do_after(user, 1 SECONDS, target=src))
-			S?.ClearFromParent()
+			qdel(S)
 			visible_message("<span class='notice'>[user] climbs out of the pool.</span>")
 			user.forceMove(get_turf(get_step(src, NORTH))) //Ladders shouldn't adjoin another pool section. Ever.
 	else
