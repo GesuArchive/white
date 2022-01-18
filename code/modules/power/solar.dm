@@ -283,6 +283,7 @@
 			user.visible_message(span_notice("[user] вставляет стекло в основание солнечной панели.") , span_notice("Вставляю стекло в основание солнейчной панели."))
 			if(tracker)
 				new /obj/machinery/power/tracker(get_turf(src), src)
+				return TRUE
 			if (istype(W, /obj/item/stack/sheet/plasmaglass))
 				new /obj/machinery/power/solar/plasma(get_turf(src), src)
 			else if (istype(W, /obj/item/stack/sheet/plastitaniumglass))
