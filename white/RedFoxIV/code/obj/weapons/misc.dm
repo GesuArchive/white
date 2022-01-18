@@ -1188,3 +1188,121 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 /datum/smite/cumjar/effect(client/user, mob/living/target)
 	. = ..()
 	new /obj/item/cum_jar(target)
+
+/obj/item/gun/energy/broom
+	name = "энергетическая метла"
+	desc = "Новейшая разработка отдела РнД, позволяет вам эффективно подметать мусор, не вставая с кресла."
+	icon = 'white/redfoxiv/icons/obj/weapons/misc.dmi'
+	icon_state = "broomgun"
+	lefthand_file = 'white/redfoxiv/icons/obj/weapons/guns_lefthand.dmi'
+	righthand_file = 'white/redfoxiv/icons/obj/weapons/guns_righthand.dmi'
+	inhand_icon_state = "broomgun"
+	w_class = WEIGHT_CLASS_NORMAL
+	charge_sections = 0
+	can_charge = FALSE
+	selfcharge = TRUE
+	charge_delay = 2
+	ammo_type = list(/obj/item/ammo_casing/energy/broom)
+
+/obj/item/gun/energy/broom/fire_gun(atom/target, mob/living/user, flag, params)
+	. = ..()
+	if(.)
+		flick("broomgun_shoot", src)
+
+#define PUSHING 0
+#define STOP_PUSHING 1
+#define STOP_PUSHING_FOR_ONE_TILE 2
+
+/obj/item/ammo_casing/energy/broom
+	projectile_type = /obj/projectile/broom
+	e_cost = 150
+
+/obj/projectile/broom
+	icon = 'white/redfoxiv/icons/obj/weapons/misc.dmi'
+	icon_state = "broom_wave2"
+	speed = 2.5
+	range = 2
+	damage = 0
+	var/list/mob/living/losers = list()
+	var/list/atom/movable/pushedstuff = list() // can't use the contents var for whatever reason
+	var/pushing = PUSHING 
+
+/obj/projectile/broom/Moved(atom/OldLoc, Dir)
+	. = ..()
+	if(pushing != PUSHING)
+		if(pushing == STOP_PUSHING_FOR_ONE_TILE)
+			pushing = PUSHING
+		return
+
+	for(var/atom/movable/AM in get_turf(OldLoc))
+		var/C = can_push(AM)
+		if(C)
+			AM.forceMove(src)
+			pushedstuff.Add(AM)
+			vis_contents.Add(AM)
+
+	for(var/mob/living/L in get_turf(src)) // so cl*wns get pwned immediately when the projectile enters the same tile they're on
+		var/C = can_push(L)
+		if(C == TRUE*2)
+			speed = speed * 0.75
+			L.visible_message(span_alert("Энергетическая волна подхватывает [L.name] и уносит его!"),\
+								span_userdanger("Энергетическая волна подхватила меня и понесла куда-то! \
+			[pick("Блять-блять-бляяять!", "Чё-ё-ёрт!", "Сука-а-а!", "Ох бля-я-ять!", "Мля-я-я!", "Ёбаный в рот этой станции!!")]"))
+			losers.Add(L)
+			L.Knockdown(5)
+			if(isnull(fired_from))
+				continue
+			var/obj/item/gun/energy/FF = fired_from
+			if(istype(FF))
+				FF.cell.give(100) // half a charge for one shot, as a reward. Acquire 3 or more cl*wns to effectively prevent the heat death of the universe.
+				
+
+/obj/projectile/broom/Destroy()
+	pushing = STOP_PUSHING
+	drop_everything()	
+	return ..()
+
+/obj/projectile/broom/on_ricochet(atom/A)
+	pushing = STOP_PUSHING_FOR_ONE_TILE
+	drop_everything()	
+	return ..()
+
+
+/obj/projectile/broom/proc/drop_everything()
+	for(var/thing in pushedstuff)
+		var/atom/movable/AM = thing
+		AM.forceMove(get_turf(src))
+	for(var/mob/living/L in losers)
+		L.Knockdown(rand(3,7))
+	vis_contents = list()
+	losers = list()
+	pushedstuff = list()
+
+/obj/projectile/broom/can_hit_target(atom/target, direct_target, ignore_loc, cross_failed)
+	. = ..()
+	if(can_push(target))
+		return FALSE
+	/*
+	if(ismachinery(target))
+		var/obj/machinery/M = target
+		if(!M.anchored)
+			return FALSE
+	*/
+
+/obj/projectile/broom/proc/can_push(atom/movable/AM)
+	if(!ismovable(AM))
+		return FALSE
+	if(AM.anchored)
+		return FALSE
+	if(isitem(AM) /*|| ismachinery(AM)*/ )
+		return TRUE
+	if(ismob(AM))
+		var/mob/M = AM
+		if(M.mind?.assigned_role == "Clown")
+			return TRUE*2
+	if(islizard(AM) || isclown(AM)  || isdrone(AM) || isswarmer(AM) || isdead(AM) || ismouse(AM) || isfelinid(AM) ) 
+		return TRUE*2 // reserved for mob/living //refactor later, this is ugly
+	
+#undef PUSHING
+#undef STOP_PUSHING
+#undef STOP_PUSHING_FOR_ONE_TILE
