@@ -718,7 +718,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 			return
 
 	if(tilted && !user.buckled && !isAI(user))
-		to_chat(user, span_notice("Начинаю настраивать [src]."))
+		to_chat(user, span_notice("Поднимаю [src]."))
 		if(do_after(user, 50, target=src))
 			untilt(user)
 		return
