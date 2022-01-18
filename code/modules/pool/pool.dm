@@ -141,7 +141,7 @@ Place a pool filter somewhere in the pool if you want people to be able to modif
 		to_chat(user, "<span class='userdanger'>WARNING: WATER DAMAGE DETECTED!</span>")
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "robotpool", /datum/mood_event/robotpool)
 	else
-		if(!isfelinid(H))
+		if(!isfelinid(user))
 			SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "pool", /datum/mood_event/poolparty)
 			return
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "pool", /datum/mood_event/poolwet)
