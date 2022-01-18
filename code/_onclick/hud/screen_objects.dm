@@ -773,7 +773,7 @@
 /atom/movable/screen/cooldown_overlay/proc/set_maptext(time)
 	maptext = "<div style=\"font-size:6pt;font:'Arial Black';text-align:center;\">[time]</div>"
 
-/proc/start_cooldown(obj/screen/button, time, datum/callback/callback)
+/proc/start_cooldown(atom/movable/screen/cooldown_overlay/button, time, datum/callback/callback)
 	if(!time)
 		return
 	var/atom/movable/screen/cooldown_overlay/cooldown = new(button, button)
