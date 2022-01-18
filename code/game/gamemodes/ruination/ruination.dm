@@ -270,7 +270,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 		haste += 0.1
 		if(prob(25))
 			haste -= 0.2
-	animate(alpha = 255, time = 1, easing = JUMP_EASING)
+	animate(alpha = initial(alpha), time = 1, easing = JUMP_EASING)
 
 /datum/team/ruiners
 	name = "Террористы"
