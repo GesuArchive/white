@@ -27,6 +27,7 @@
 	bodytemp_cold_damage_limit = (T20C - 10) // about 10c
 	hair_color = "fixedmutcolor"
 	hair_alpha = 140
+	swimming_component = /datum/component/swimming/ethereal
 	var/current_color
 	var/EMPeffect = FALSE
 	var/emageffect = FALSE

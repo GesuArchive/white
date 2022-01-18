@@ -271,6 +271,7 @@
 	var/mob/living/carbon/target_collateral_carbon
 	var/obj/structure/table/target_table
 	var/obj/machinery/disposal/bin/target_disposal_bin
+	var/turf/open/indestructible/pool/target_pool	//This list is getting pretty long, but its better than calling shove_act or something on every atom
 	var/shove_blocked = FALSE //Used to check if a shove is blocked so that if it is knockdown logic can be applied
 
 	//Thank you based whoneedsspace
@@ -287,6 +288,7 @@
 		if(get_turf(target) == target_oldturf)
 			target_table = locate(/obj/structure/table) in target_shove_turf.contents
 			target_disposal_bin = locate(/obj/machinery/disposal/bin) in target_shove_turf.contents
+			target_pool = istype(target_shove_turf, /turf/open/indestructible/pool) ? target_shove_turf : null
 			shove_blocked = TRUE
 
 	if(target.IsKnockdown() && !target.IsParalyzed())
@@ -310,7 +312,7 @@
 					if(obj_content.flags_1 & ON_BORDER_1 && obj_content.dir == turn(shove_dir, 180) && obj_content.density)
 						directional_blocked = TRUE
 						break
-		if((!target_table && !target_collateral_carbon && !target_disposal_bin) || directional_blocked)
+		if((!target_table && !target_collateral_carbon && !target_disposal_bin && !target_pool) || directional_blocked)
 			target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
 			target.visible_message(span_danger("<b>[name]</b> толкает <b>[skloname(target.name, VINITELNI, target.gender)]</b>, повалив на пол!") ,
 							span_danger("Меня толкает <b>[name]</b>, повалив на пол!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , COMBAT_MESSAGE_RANGE, src)
@@ -334,9 +336,15 @@
 			target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
 			target.forceMove(target_disposal_bin)
 			target.visible_message(span_danger("<b>[name]</b> толкает <b>[skloname(target.name, VINITELNI, target.gender)]</b> в [target_disposal_bin]!") ,
-							span_userdanger("Меня толкает <b>[name]</b> в [target_disposal_bin]!</span>!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , COMBAT_MESSAGE_RANGE, src)
+				span_userdanger("Меня толкает <b>[name]</b> в [target_disposal_bin]!</span>!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , COMBAT_MESSAGE_RANGE, src)
 			to_chat(src, span_danger("Толкаю <b>[skloname(target.name, VINITELNI, target.gender)]</b> прямо в [target_disposal_bin]!"))
 			log_combat(src, target, "shoved", "into [target_disposal_bin] (disposal bin)")
+		else if(target_pool)
+			target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
+			target.forceMove(target_pool)
+			target.visible_message(span_danger("<b>[name]</b> толкает <b>[skloname(target.name, VINITELNI, target.gender)]</b> в [target_pool]!") ,
+				span_userdanger("Меня толкает <b>[name]</b> в [target_pool]!</span>!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , COMBAT_MESSAGE_RANGE, src)
+			log_combat(src, target, "shoved", "into [target_pool] (swimming pool)")
 	else
 		target.visible_message(span_danger("<b>[name]</b> толкает <b>[skloname(target.name, VINITELNI, target.gender)]</b>!") ,
 						span_userdanger("Меня толкает <b>[name]</b>!") , span_hear("Слышу агрессивную потасовку!") , COMBAT_MESSAGE_RANGE, src)

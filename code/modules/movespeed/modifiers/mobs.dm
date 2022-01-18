@@ -121,3 +121,6 @@
 
 /datum/movespeed_modifier/metabolicboost
 	multiplicative_slowdown = -1.5
+
+/datum/movespeed_modifier/swimming
+	multiplicative_slowdown = 4

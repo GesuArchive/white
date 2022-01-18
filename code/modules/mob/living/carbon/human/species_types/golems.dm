@@ -24,6 +24,7 @@
 	// changes, only the Random Golem type can be chosen
 	limbs_id = "golem"
 	fixed_mut_color = "aaa"
+	swimming_component = /datum/component/swimming/golem
 	var/info_text = "Будучи <span class='danger'>железным големом</span>, я не имею какой-либо характерной черты."
 	var/random_eligible = TRUE //If false, the golem subtype can't be made through golem mutation toxin
 

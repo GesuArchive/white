@@ -16,6 +16,8 @@
 	payday_modifier = 0.75
 	ass_image = 'icons/ass/asscat.png'
 
+	swimming_component = /datum/component/swimming/felinid
+
 //Curiosity killed the cat's wagging tail.
 /datum/species/human/felinid/spec_death(gibbed, mob/living/carbon/human/H)
 	if(H)
