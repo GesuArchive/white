@@ -244,13 +244,13 @@
 	charge_time = initial(charge_time)
 	switch(charge)
 		if(0)
-			charge_time = 5
+			charge_time = 10
 		if(1)
-			charge_time = 7
+			charge_time = 14
 		if(2)
-			charge_time = 9
+			charge_time = 18
 		if(3)
-			charge_time = 11
+			charge_time = 22
 	. = ..()
 	
 
@@ -261,5 +261,5 @@
 	name = "раскалённый металлический стержень"
 	icon = 'white/valtos/icons/weapons/crossbow.dmi'
 	icon_state = "e_rod_proj"
-	damage = 12
-	range = 14
+	damage = 10
+	range = 12
