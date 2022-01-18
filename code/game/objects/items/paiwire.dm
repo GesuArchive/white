@@ -10,7 +10,6 @@
 	machine = null
 	return ..()
 
-
 /obj/item/pai_cable/proc/plugin(obj/machinery/M, mob/living/user)
 	if(!user.transferItemToLoc(src, M))
 		return

@@ -21,6 +21,7 @@
 #define POLL_IGNORE_CONTRACTOR_SUPPORT "contractor_support"
 #define POLL_IGNORE_ACADEMY_WIZARD "academy_wizard"
 #define POLL_IGNORE_CLOCKWORK "clockwork"
+#define POLL_IGNORE_PAI "pai"
 
 
 GLOBAL_LIST_INIT(poll_ignore_desc, list(
@@ -43,7 +44,8 @@ GLOBAL_LIST_INIT(poll_ignore_desc, list(
 	POLL_IGNORE_IMAGINARYFRIEND = "Воображаемый друг",
 	POLL_IGNORE_SPLITPERSONALITY = "Раздвоение личности",
 	POLL_IGNORE_CONTRACTOR_SUPPORT = "Помощник наёмника",
-	POLL_IGNORE_ACADEMY_WIZARD = "Защитник академии магов"
+	POLL_IGNORE_ACADEMY_WIZARD = "Защитник академии магов",
+	POLL_IGNORE_PAI = "Персональный ИИ"
 ))
 GLOBAL_LIST_INIT(poll_ignore, init_poll_ignore())
 
