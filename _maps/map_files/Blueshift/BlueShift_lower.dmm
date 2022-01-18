@@ -13320,7 +13320,7 @@
 /area/security/checkpoint)
 "jkC" = (
 /obj/effect/turf_decal/caution/stand_clear,
-/turf/open/space/basic,
+/turf/open/floor/plating/airless,
 /area/hallway/secondary/entry)
 "jkI" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
@@ -16043,7 +16043,7 @@
 /area/hallway/secondary/entry)
 "lqw" = (
 /obj/effect/turf_decal/delivery,
-/turf/open/space/basic,
+/turf/open/floor/plating/airless,
 /area/maintenance/port)
 "lrh" = (
 /obj/structure/sign/warning/fire,
@@ -20385,7 +20385,7 @@
 "oNm" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/caution/stand_clear,
-/turf/open/space/basic,
+/turf/open/floor/plating/airless,
 /area/maintenance/port)
 "oND" = (
 /obj/effect/turf_decal/bot,
