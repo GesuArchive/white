@@ -34,6 +34,10 @@
 	var/del_on_map_removal = TRUE
 	var/last_word
 
+/atom/movable/screen/Initialize(mapload)
+	. = ..()
+	flicker_animation()
+
 /atom/movable/screen/Destroy()
 	master = null
 	hud = null
