@@ -34,9 +34,6 @@
 	matching_designs = null
 	return ..()
 
-/obj/machinery/rnd/production/proc/on_materials_changed()
-	SIGNAL_HANDLER
-
 /obj/machinery/rnd/production/proc/update_designs()
 	cached_designs.Cut()
 	for(var/i in stored_research.researched_designs)
