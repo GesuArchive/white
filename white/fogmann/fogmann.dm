@@ -399,14 +399,6 @@
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0, WOUND = 0)
 	strip_delay = 80
 
-/obj/item/clothing/suit/armor/hos/ranger/Initialize()
-	. = ..()
-	AddComponent(/datum/component/armor_plate/plasteel)
-
-/obj/item/clothing/head/helmet/alt/ranger/Initialize()
-	. = ..()
-	AddComponent(/datum/component/armor_plate/plasteel)
-
 /datum/crafting_recipe/rangerhelm
 	name = "шлем рейнджера НКР"
 	result =  /obj/item/clothing/head/helmet/alt/ranger

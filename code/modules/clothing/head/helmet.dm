@@ -21,6 +21,7 @@
 
 /obj/item/clothing/head/helmet/Initialize()
 	. = ..()
+	AddComponent(/datum/component/armor_plate/plasteel)
 	if(attached_light)
 		alight = new(src)
 
