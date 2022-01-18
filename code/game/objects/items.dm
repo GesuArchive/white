@@ -351,7 +351,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		if(rfm.len)
 			. += span_smallnotice("<b>Защитные свойства:</b> [rfm.Join(" ")]\n")
 
-	. += span_smallnotice("<b>Размер:</b> [weightclass2icon(w_class, user)]")
+	. += span_smallnotice("<b>Размер:</b> [weightclass2icon(w_class, user, TRUE)]")
 
 	if(!user.research_scanner)
 		return

@@ -3,7 +3,7 @@
 
 /obj/item/pushbroom
 	name = "метла"
-	desc = "Это мой BROOMSTICK! Его можно использовать вручную или закрепить двумя руками, чтобы подметать предметы во время движения. Имеет телескопическую ручку для компактного хранения."
+	desc = "This is my BROOMSTICK! Её можно использовать вручную или взяться за неё двумя руками, чтобы подметать предметы на ходу. Имеет телескопическую ручку для компактного хранения."
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "broom0"
 	lefthand_file = 'icons/mob/inhands/equipment/custodial_lefthand.dmi'
