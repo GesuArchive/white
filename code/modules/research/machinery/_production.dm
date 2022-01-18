@@ -47,6 +47,11 @@
 
 /obj/machinery/rnd/production/RefreshParts()
 	calculate_efficiency()
+	update_viewer_statics()
+
+/obj/machinery/rnd/production/proc/on_materials_changed()
+	SIGNAL_HANDLER
+	update_viewer_statics()
 
 /obj/machinery/rnd/production/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -73,9 +78,6 @@
 
 	data["category"] = selected_category
 	data["search"] = search
-
-	data += build_materials()
-	data += build_reagents()
 
 	return data
 
@@ -119,6 +121,9 @@
 	data["recipes"] = build_recipes()
 	data["categories"] = categories
 	data["stack_to_mineral"] = MINERAL_MATERIAL_AMOUNT
+
+	data += build_materials()
+	data += build_reagents()
 
 	return data
 
