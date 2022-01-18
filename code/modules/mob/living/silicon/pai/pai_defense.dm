@@ -6,9 +6,8 @@
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
 		return
-	take_holo_damage(50/severity)
-	Paralyze(400/severity)
-	silent = max(20/severity, silent)
+	take_holo_damage(50 / severity)
+	Stun(400 / severity)
 	if(holoform)
 		fold_in(force = TRUE)
 	//Need more effects that aren't instadeath or permanent law corruption.
@@ -70,8 +69,9 @@
 /mob/living/silicon/pai/stripPanelEquip(obj/item/what, mob/who, where) //prevents stripping
 	to_chat(src, span_warning("Your holochassis stutters and warps intensely as you attempt to interact with the object, forcing you to cease lest the field fail."))
 
-/mob/living/silicon/pai/IgniteMob(mob/living/silicon/pai/P)
-	return FALSE //No we're not flammable
+/mob/living/silicon/pai/IgniteMob()
+	fire_stacks = 0
+	. = ..()
 
 /mob/living/silicon/pai/proc/take_holo_damage(amount)
 	emitterhealth = clamp((emitterhealth - amount), -50, emittermaxhealth)

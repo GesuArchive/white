@@ -1,45 +1,11 @@
-/mob/living/silicon/pai/var/list/available_software = list(
-															//Nightvision
-															//T-Ray
-															//radiation eyes
-															//chem goggs
-															//mesons
-															"crew manifest" = 5,
-															"digital messenger" = 5,
-															"atmosphere sensor" = 5,
-															"photography module" = 5,
-															"camera zoom" = 10,
-															"printer module" = 10,
-															"remote signaler" = 10,
-															"medical records" = 10,
-															"security records" = 10,
-															"host scan" = 10,
-															"medical HUD" = 20,
-															"security HUD" = 20,
-															"loudness booster" = 20,
-															"newscaster" = 20,
-															"door jack" = 25,
-															"encryption keys" = 25,
-															"internal gps" = 35,
-															"universal translator" = 35
-															)
-/// Bool that determines if the pAI can refresh medical/security records.
-/mob/living/silicon/pai/var/refresh_spam = FALSE
-/// Cached list for medical records to send as static data
-/mob/living/silicon/pai/var/list/medical_records = list()
-/// Cached list for security records to send as static data
-/mob/living/silicon/pai/var/list/security_records = list()
-
-/mob/living/silicon/pai/ui_status(mob/user, state)
-	return UI_INTERACTIVE
-
+// Opens TGUI interface
 /mob/living/silicon/pai/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "PaiInterface", name)
-		ui.set_autoupdate(TRUE)
 		ui.open()
 
+// Static UI data
 /mob/living/silicon/pai/ui_static_data(mob/user)
 	var/list/data = list()
 	var/mob/living/silicon/pai/pai = user
@@ -51,6 +17,7 @@
 		data["records"]["security"] = security_records
 	return data
 
+// Variables sent to TGUI
 /mob/living/silicon/pai/ui_data(mob/user)
 	var/list/data = list()
 	data["directives"] = laws.supplied
@@ -71,6 +38,7 @@
 		data["master"]["dna"] = master_dna
 	return data
 
+// Actions received from TGUI
 /mob/living/silicon/pai/ui_act(action, list/params, datum/tgui/ui)
 	. = ..()
 	if(.)
@@ -86,12 +54,12 @@
 					var/datum/hud/pai/pAIhud = hud_used
 					pAIhud?.update_software_buttons()
 				else
-					to_chat(usr, "<span class='notice'>Insufficient RAM available.</span>")
+					to_chat(usr, span_notice("Insufficient RAM available."))
 			else
-				to_chat(usr, "<span class='notice'>Software not found.</span>")
+				to_chat(usr, span_notice("Software not found."))
 		if("atmosphere_sensor")
 			if(!holoform)
-				to_chat(usr, "<span class='notice'>You must be mobile to do this!</span>")
+				to_chat(usr, span_notice("You must be mobile to do this!"))
 				return FALSE
 			if(!atmos_analyzer)
 				atmos_analyzer = new(src)
@@ -99,38 +67,38 @@
 		if("camera_zoom")
 			aicamera.adjust_zoom(usr)
 		if("change_image")
-			var/newImage = input(usr, "Select your new display image.", "Display Image", sortList(list("Happy", "Cat", "Extremely Happy", "Face", "Laugh", "Off", "Sad", "Angry", "What", "Sunglasses")))
+			var/newImage = tgui_input_list(usr, "Select your new display image", "Display Image", sort_list(list("Happy", "Cat", "Extremely Happy", "Face", "Laugh", "Off", "Sad", "Angry", "What", "Sunglasses", "None")))
+			if(isnull(newImage))
+				return FALSE
 			switch(newImage)
-				if(null)
+				if("None")
 					card.emotion_icon = "null"
 				if("Extremely Happy")
 					card.emotion_icon = "extremely-happy"
 				else
 					card.emotion_icon = "[lowertext(newImage)]"
-			card.update_icon() // have to do it like this until update_appearance() port
+			card.update_appearance()
 		if("check_dna")
 			if(!master_dna)
-				to_chat(src, "<span class='warning'>You do not have a master DNA to compare to!</span>")
+				to_chat(src, span_warning("You do not have a master DNA to compare to!"))
 				return FALSE
 			if(iscarbon(card.loc))
 				CheckDNA(card.loc, src) //you should only be able to check when directly in hand, muh immersions?
 			else
-				to_chat(src, "<span class='warning'>You are not being carried by anyone!</span>")
+				to_chat(src, span_warning("You are not being carried by anyone!"))
 				return FALSE
 		if("crew_manifest")
 			ai_roster()
 		if("door_jack")
 			if(params["jack"] == "jack")
 				if(hacking_cable?.machine)
-					hackdoor = hacking_cable.machine
-					hackloop()
+					hack_door()
 			if(params["jack"]  == "cancel")
-				hackdoor = null
 				QDEL_NULL(hacking_cable)
 			if(params["jack"]  == "cable")
 				extendcable()
 		if("encryption_keys")
-			to_chat(src, "<span class='notice'>You have [!encryptmod ? "enabled" : "disabled"] encrypted radio frequencies.</span>")
+			to_chat(src, span_notice("You have [!encryptmod ? "enabled" : "disabled"] encrypted radio frequencies."))
 			encryptmod = !encryptmod
 			radio.subspace_transmission = !radio.subspace_transmission
 		if("host_scan")
@@ -141,7 +109,7 @@
 			if(params["scan"] == "wounds")
 				hostscan.attack_self(usr)
 			if(params["scan"] == "limbs")
-				hostscan.attack_self()
+				hostscan.AltClick(usr)
 		if("internal_gps")
 			if(!internal_gps)
 				internal_gps = new(src)
@@ -209,22 +177,22 @@
 /mob/living/silicon/pai/proc/CheckDNA(mob/living/carbon/master, mob/living/silicon/pai/pai)
 	if(!istype(master))
 		return
-	to_chat(pai, "<span class='notice'>Requesting a DNA sample.</span>")
-	var/confirm = alert(master, "[pai] is requesting a DNA sample from you. Will you allow it to confirm your identity?", "Checking DNA", list("Yes", "No"))
-	if(confirm == "Yes")
-		master.visible_message("<span class='notice'>[master] presses [master.p_their()] thumb against [pai].</span>",\
-						"<span class='notice'>You press your thumb against [pai].</span>",\
-						"<span class='notice'>[pai] makes a sharp clicking sound as it extracts DNA material from [master].</span>")
-		if(!master.has_dna())
-			to_chat(pai, "<b>No DNA detected.</b>")
-			return
-		to_chat(pai, "<font color = red><h3>[master]'s UE string : [master.dna.unique_enzymes]</h3></font>")
-		if(master.dna.unique_enzymes == pai.master_dna)
-			to_chat(pai, "<b>DNA is a match to stored Master DNA.</b>")
-		else
-			to_chat(pai, "<b>DNA does not match stored Master DNA.</b>")
+	to_chat(pai, span_notice("Requesting a DNA sample."))
+	var/confirm = tgui_alert(master, "[pai] is requesting a DNA sample from you. Will you allow it to confirm your identity?", "Checking DNA", list("Yes", "No"))
+	if(confirm != "Yes")
+		to_chat(pai, span_warning("[master] does not seem like [master.p_theyre()] going to provide a DNA sample willingly."))
+		return
+	master.visible_message(span_notice("[master] presses [master.p_their()] thumb against [pai]."),\
+					span_notice("You press your thumb against [pai]."),\
+					span_notice("[pai] makes a sharp clicking sound as it extracts DNA material from [master]."))
+	if(!master.has_dna())
+		to_chat(pai, "<b>No DNA detected.</b>")
+		return
+	to_chat(pai, "<font color = red><h3>[master]'s UE string : [master.dna.unique_enzymes]</h3></font>")
+	if(master.dna.unique_enzymes == pai.master_dna)
+		to_chat(pai, span_bold("DNA is a match to stored Master DNA."))
 	else
-		to_chat(pai, "<span class='warning'>[master] does not seem like [master.p_theyre()] going to provide a DNA sample willingly.</span>")
+		to_chat(pai, span_bold("DNA does not match stored Master DNA."))
 
 /**
  * Host scan supporting proc
@@ -238,7 +206,7 @@
 	if(holder)
 		pAI.hostscan.attack(holder, pAI)
 	else
-		to_chat(usr, "<span class='warning'>You are not being carried by anyone!</span>")
+		to_chat(usr, span_warning("You are not being carried by anyone!"))
 		return FALSE
 
 /**
@@ -251,35 +219,47 @@
 /mob/living/silicon/pai/proc/extendcable()
 	QDEL_NULL(hacking_cable) //clear any old cables
 	hacking_cable = new
-	var/transfered_to_mob
-	if(isliving(card.loc))
-		var/mob/living/hacker = card.loc
-		if(hacker.put_in_hands(hacking_cable))
-			transfered_to_mob = TRUE
-			hacker.visible_message("<span class='warning'>A port on [src] opens to reveal \a [hacking_cable], which you quickly grab hold of.", "<span class='hear'>You hear the soft click of something light and manage to catch hold of [hacking_cable].</span></span>")
-		if(!transfered_to_mob)
-			hacking_cable.forceMove(drop_location())
-			hacking_cable.visible_message("<span class='warning'>A port on [src] opens to reveal \a [hacking_cable], which promptly falls to the floor.", "<span class='hear'>You hear the soft click of something light and hard falling to the ground.</span></span>")
+	if(!isliving(card.loc))
+		return
+	var/mob/living/hacker = card.loc
+	if(hacker.put_in_hands(hacking_cable))
+		hacker.visible_message(span_warning("A port on [src] opens to reveal \a [hacking_cable], which you quickly grab hold of."), span_hear("You hear the soft click of something light and manage to catch hold of [hacking_cable]."))
+		return
+	hacking_cable.forceMove(drop_location())
+	hacking_cable.visible_message(span_warning("A port on [src] opens to reveal \a [hacking_cable], which promptly falls to the floor."), span_hear("You hear the soft click of something light and hard falling to the ground."))
 
 /**
  * Door jacking supporting proc
  *
- * This begins the hacking process on a door.
- * Mostly, this gives UI feedback, while the "hack"
- * is handled inside pai.dm itself.
+ * This will, after alerting any AIs on station, begin to hack open a door.
+ * After a 10 second timer, the door will crack open, provided they don't move out of the way.
  */
-/mob/living/silicon/pai/proc/hackloop()
+
+/mob/living/silicon/pai/proc/hack_door()
 	var/turf/turf = get_turf(src)
 	playsound(src, 'sound/machines/airlock_alien_prying.ogg', 50, TRUE)
-	to_chat(usr, "<span class='boldnotice'>You begin overriding the airlock security protocols.</span>")
-	for(var/mob/living/silicon/ai/AI in GLOB.player_list)
+	to_chat(usr, span_boldnotice("You begin overriding the airlock security protocols."))
+	for(var/mob/living/silicon/ai/all_ais in GLOB.player_list)
+		if(!all_ais.stat)
+			continue
 		if(turf.loc)
-			to_chat(AI, "<font color = red><b>Network Alert: Brute-force security override in progress in [turf.loc].</b></font>")
+			to_chat(all_ais, span_boldannounce("Network Alert: Brute-force security override in progress in [turf.loc]."))
 		else
-			to_chat(AI, "<font color = red><b>Network Alert: Brute-force security override in progress. Unable to pinpoint location.</b></font>")
-	hacking = TRUE
-	if(!hackbar)
-		hackbar = new(src, HACK_COMPLETE, hacking_cable.machine)
+			to_chat(all_ais, span_boldannounce("Network Alert: Brute-force security override in progress. Unable to pinpoint location."))
+	//Now begin hacking
+	if(!do_after(src, 10 SECONDS, hacking_cable.machine, timed_action_flags = NONE, progress = TRUE))
+		to_chat(src, span_notice("Door Jack: Connection to airlock has been lost. Hack aborted."))
+		hacking_cable.visible_message(
+			span_warning("[hacking_cable] rapidly retracts back into its spool."),\
+			span_hear("You hear a click and the sound of wire spooling rapidly."))
+		QDEL_NULL(hacking_cable)
+		if(!QDELETED(card))
+			card.update_appearance()
+		return
+	var/obj/machinery/door/door = hacking_cable.machine
+	door.open()
+	QDEL_NULL(hacking_cable)
+
 /**
  * Proc that switches whether a pAI can refresh
  * the records window again.

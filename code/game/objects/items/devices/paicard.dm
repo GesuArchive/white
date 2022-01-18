@@ -12,10 +12,16 @@
 	var/slotted = FALSE
 	/// Any pAI personalities inserted
 	custom_premium_price = PAYCHECK_HARD * 1.25
-	var/alert_cooldown ///don't spam alart messages.
-	var/mob/living/silicon/pai/pai
-	var/emotion_icon = "off" ///what emotion icon we have. handled in /mob/living/silicon/pai/Topic()
 	resistance_flags = FIRE_PROOF | ACID_PROOF | INDESTRUCTIBLE
+
+	/// Spam alert prevention
+	var/alert_cooldown
+	/// If the pAIcard is slotted in a PDA
+	var/slotted = FALSE
+	/// Any pAI personalities inserted
+	var/mob/living/silicon/pai/pai
+	///what emotion icon we have. handled in /mob/living/silicon/pai/Topic()
+	var/emotion_icon = "off"
 
 /obj/item/paicard/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] is staring sadly at [src]! [user.ru_who()] can't keep living without real human intimacy!"))
@@ -103,16 +109,16 @@
 					break
 			if(isnull(candidate))
 				return FALSE
-			if(src.pai)
+			if(pai)
 				return FALSE
 			if(SSpai.check_ready(candidate) != candidate)
 				return FALSE
 			/// The newly downloaded pAI personality
-			var/mob/living/silicon/pai/pai = new(src)
-			pai.name = candidate.name || pick(GLOB.ninja_names)
-			pai.real_name = pai.name
-			pai.key = candidate.key
-			src.setPersonality(pai)
+			var/mob/living/silicon/pai/new_pai = new(src)
+			new_pai.name = candidate.name || pick(GLOB.ninja_names)
+			new_pai.real_name = new_pai.name
+			new_pai.key = candidate.key
+			setPersonality(new_pai)
 			SSpai.candidates -= candidate
 		if("fix_speech")
 			to_chat(pai, "<span class='notice'>Your owner has corrected your speech modulation!</span>")
@@ -161,13 +167,15 @@
 			to_chat(pai, "<span class='notice'>Your owner has [transmit_holder ? "enabled" : "disabled"] your [transmitting ? "outgoing" : "incoming"] radio transmissions!</span>")
 		if("wipe_pai")
 			var/confirm = alert(usr, "Are you certain you wish to delete the current personality? This action cannot be undone.", "Personality Wipe", list("Yes", "No"))
-			if(confirm == "Yes")
-				if(pai)
-					to_chat(pai, "<span class='warning'>You feel yourself slipping away from reality.</span>")
-					to_chat(pai, "<span class='danger'>Byte by byte you lose your sense of self.</span>")
-					to_chat(pai, "<span class='userdanger'>Your mental faculties leave you.</span>")
-					to_chat(pai, "<span class='rose'>oblivion... </span>")
-					qdel(pai)
+			if(confirm != "Yes")
+				return
+			if(!pai)
+				return
+			to_chat(pai, span_warning("You feel yourself slipping away from reality."))
+			to_chat(pai, span_danger("Byte by byte you lose your sense of self."))
+			to_chat(pai, span_userdanger("Your mental faculties leave you."))
+			to_chat(pai, span_rose("oblivion... "))
+			qdel(pai)
 	return
 
 // 		WIRE_SIGNAL = 1
