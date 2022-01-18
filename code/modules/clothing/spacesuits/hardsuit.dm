@@ -295,7 +295,7 @@
 	SIGNAL_HANDLER
 
 	if(amount)
-		name = "reinforced [initial(name)]"
+		name = "бронированный [initial(name)]"
 		hardsuit_type = "mining_goliath"
 		if(amount == maxamount)
 			hardsuit_type = "mining_goliath_full"
@@ -327,7 +327,7 @@
 	SIGNAL_HANDLER
 
 	if(amount)
-		name = "reinforced [initial(name)]"
+		name = "бронированный [initial(name)]"
 		hardsuit_type = "mining_goliath"
 		if(amount == maxamount)
 			hardsuit_type = "mining_goliath_full"

@@ -73,10 +73,10 @@
 	if(ismecha(O))
 		var/obj/vehicle/sealed/mecha/R = O
 		R.update_icon()
-		to_chat(user, span_info("Вы усилили показатели защиты [R]."))
+		to_chat(user, span_info("Усиляю показатели защиты [R]."))
 	else
 		SEND_SIGNAL(O, COMSIG_ARMOR_PLATED, amount, maxamount)
-		to_chat(user, span_info("Вы усилили показатели защиты [O]."))
+		to_chat(user, span_info("Усиляю показатели защиты [O]."))
 
 
 /datum/component/armor_plate/proc/dropplates(datum/source, force)
@@ -96,3 +96,24 @@
 		if(!LAZYLEN(mech.occupants))
 			overlay_string += "-open"
 		overlays += overlay_string
+
+/datum/component/armor_plate/plasteel
+	upgrade_item = /obj/item/stack/sheet/plasteel_armor_plate
+	datum/armor/added_armor = list(MELEE = 10, BULLET = 10, LASER = 10, ENERGY = 13, BOMB = 10)
+
+/datum/crafting_recipe/plasteel_armor_plate
+	name = "бронепластина из пластали"
+	result =  /obj/item/stack/sheet/plasteel_armor_plate
+	time = 80
+	reqs = list(/obj/item/stack/sheet/plasteel = 10)
+	tool_behaviors = list(TOOL_WELDER)
+	category = CAT_PRIMAL
+
+/obj/item/stack/sheet/plasteel_armor_plate
+	name = "бронепластина из пластали"
+	singular_name = "бронепластина из пластали"
+	desc = "Самодельный броневой лист грубо вырезанный из листа пластали, напоминает поделки рейнджеров НКР"
+	icon = 'white/Feline/icons/armor_plate.dmi'
+	icon_state = "plasteel_armor_plate"
+	max_amount = 6
+	merge_type = /obj/item/stack/sheet/plasteel_armor_plate

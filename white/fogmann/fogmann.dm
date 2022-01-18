@@ -401,11 +401,11 @@
 
 /obj/item/clothing/suit/armor/hos/ranger/Initialize()
 	. = ..()
-	AddComponent(/datum/component/armor_plate_plasteel)
+	AddComponent(/datum/component/armor_plate/plasteel)
 
 /obj/item/clothing/head/helmet/alt/ranger/Initialize()
 	. = ..()
-	AddComponent(/datum/component/armor_plate_plasteel)
+	AddComponent(/datum/component/armor_plate/plasteel)
 
 /datum/crafting_recipe/rangerhelm
 	name = "шлем рейнджера НКР"
