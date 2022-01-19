@@ -422,6 +422,8 @@ GLOBAL_LIST_INIT(custom_race_donations, list(
 	"arsenay" = "aandroid",
 	"fiaskin" = "synthman",
 	"felinemistress" = "felinid",
+	"chilipila" = "felinid",
+	"oni3288" = "felinid",
 	"valtosss" = "felinid",))
 
 GLOBAL_LIST_INIT(custom_tails_donations, list(

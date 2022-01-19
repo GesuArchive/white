@@ -28,9 +28,6 @@
 
 	var/datum/action/innate/monitor_change/screen
 
-/datum/species/ipc/check_roundstart_eligible()
-	return TRUE
-
 /datum/species/ipc/military/check_roundstart_eligible()
 	return FALSE //yes
 
