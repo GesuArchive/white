@@ -443,7 +443,6 @@
 		else
 			eye_lights.icon_state = "[module.special_light_key ? "[module.special_light_key]":"[module.cyborg_base_icon]"]_e[ratvar ? "_r" : ""]"
 			eye_lights.color = COLOR_WHITE
-			eye_lights.plane = -1
 		eye_lights.icon = icon
 		add_overlay(eye_lights)
 

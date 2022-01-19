@@ -17,4 +17,3 @@
 	maptext_x = -112
 	maptext_y = 18
 	layer = 23
-	plane = 23

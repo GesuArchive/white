@@ -291,7 +291,7 @@
 	anchored = 1
 	density = 0
 	opacity = 0
-	plane = -2
+	plane = FLOOR_PLANE
 
 /obj/machinery/oldvents/variant1
 	icon_state = "vent1_1"

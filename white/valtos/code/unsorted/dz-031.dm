@@ -92,7 +92,7 @@
 /turf/closed/dz/lab
 	name = "сверхкрепкая стена"
 	icon_state = "labwall-h"
-	plane = -2
+	plane = FLOOR_PLANE
 
 
 // structures --------------------------------------------------
@@ -156,7 +156,7 @@
 	icon = 'white/valtos/icons/dz-031.dmi'
 	icon_state = "monitor"
 	flags_1 = INDESTRUCTIBLE
-	plane = -2
+	plane = FLOOR_PLANE
 	anchored = TRUE
 	var/what_pic = "anonist"
 
