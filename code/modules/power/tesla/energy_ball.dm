@@ -40,6 +40,8 @@
 	var/energy_to_lower = -20
 	var/list/shocked_things = list()
 
+	var/atom/movable/singularity_effect/singulo_effect
+
 /obj/energy_ball/Initialize(mapload, starting_energy = 50, is_miniball = FALSE)
 	. = ..()
 
@@ -54,10 +56,15 @@
 		message_admins("A tesla has been created at [ADMIN_VERBOSEJMP(spawned_turf)].")
 		investigate_log("(tesla) was created at [AREACOORD(spawned_turf)].", INVESTIGATE_SINGULO)
 
+	update_icon(STAGE_ONE)
+
 /obj/energy_ball/Destroy()
 	if(orbiting && istype(orbiting.parent, /obj/energy_ball))
 		var/obj/energy_ball/parent_energy_ball = orbiting.parent
 		parent_energy_ball.orbiting_balls -= src
+
+	vis_contents -= singulo_effect
+	QDEL_NULL(singulo_effect)
 
 	QDEL_LIST(orbiting_balls)
 	STOP_PROCESSING(SSobj, src)
@@ -199,6 +206,17 @@
 			return
 	var/mob/living/carbon/C = A
 	C.dust()
+
+/obj/energy_ball/update_icon(stage)
+	if(!singulo_effect)
+		singulo_effect = new(src)
+		singulo_effect.transform = matrix().Scale(2)
+		vis_contents += singulo_effect
+
+	singulo_effect.icon = icon
+	singulo_effect.icon_state = icon_state
+
+	. = ..()
 
 /proc/tesla_zap(atom/source, zap_range = 3, power, zap_flags = ZAP_DEFAULT_FLAGS, list/shocked_targets = list())
 	if(QDELETED(source))

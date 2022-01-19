@@ -1,3 +1,7 @@
+/atom/movable/singularity_effect
+	plane = -11
+	appearance_flags = PIXEL_SCALE
+
 /// The gravitational singularity
 /obj/singularity
 	name = "гравитационная сингулярность"
@@ -7,6 +11,7 @@
 	anchored = TRUE
 	density = TRUE
 	move_resist = INFINITY
+	plane = EMISSIVE_BLOCKER_PLANE
 	layer = MASSIVE_OBJ_LAYER
 	plane = ABOVE_LIGHTING_PLANE
 	light_range = 6
@@ -35,6 +40,8 @@
 	flags_1 = SUPERMATTER_IGNORES_1
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	obj_flags = CAN_BE_HIT | DANGEROUS_POSSESSION
+
+	var/atom/movable/singularity_effect/singulo_effect
 
 /obj/singularity/Initialize(mapload, starting_energy = 50)
 	. = ..()
@@ -81,6 +88,7 @@
 	. = ..()
 	if(timeleft)
 		QDEL_IN(src, timeleft)
+	update_icon(STAGE_ONE)
 
 /obj/effect/singularity_creation/singularity_act()
 	return
@@ -97,6 +105,8 @@
 	singularity_component = WEAKREF(new_component)
 
 /obj/singularity/Destroy()
+	vis_contents -= singulo_effect
+	QDEL_NULL(singulo_effect)
 	STOP_PROCESSING(SSobj, src)
 	GLOB.singularities.Remove(src)
 	return ..()
@@ -215,11 +225,6 @@
 	switch(temp_allowed_size)
 		if(STAGE_ONE)
 			current_size = STAGE_ONE
-			icon = 'icons/obj/singularity.dmi'
-			icon_state = "singularity_s1"
-
-			pixel_x = 0
-			pixel_y = 0
 			new_grav_pull = 4
 			new_consume_range = 0
 			dissipate_delay = 10
@@ -228,11 +233,6 @@
 		if(STAGE_TWO)
 			if(check_cardinals_range(1, TRUE))
 				current_size = STAGE_TWO
-				icon = 'icons/effects/96x96.dmi'
-				icon_state = "singularity_s3"
-
-				pixel_x = -32
-				pixel_y = -32
 				new_grav_pull = 6
 				new_consume_range = 1
 				dissipate_delay = 5
@@ -241,11 +241,6 @@
 		if(STAGE_THREE)
 			if(check_cardinals_range(2, TRUE))
 				current_size = STAGE_THREE
-				icon = 'icons/effects/160x160.dmi'
-				icon_state = "singularity_s5"
-
-				pixel_x = -64
-				pixel_y = -64
 				new_grav_pull = 8
 				new_consume_range = 2
 				dissipate_delay = 4
@@ -254,11 +249,6 @@
 		if(STAGE_FOUR)
 			if(check_cardinals_range(3, TRUE))
 				current_size = STAGE_FOUR
-				icon = 'icons/effects/224x224.dmi'
-				icon_state = "singularity_s7"
-
-				pixel_x = -96
-				pixel_y = -96
 				new_grav_pull = 10
 				new_consume_range = 3
 				dissipate_delay = 10
@@ -266,21 +256,11 @@
 				dissipate_strength = 10
 		if(STAGE_FIVE)//this one also lacks a check for gens because it eats everything
 			current_size = STAGE_FIVE
-			icon = 'icons/effects/288x288.dmi'
-			icon_state = "singularity_s9"
-
-			pixel_x = -128
-			pixel_y = -128
 			new_grav_pull = 10
 			new_consume_range = 4
 			dissipate = FALSE //It cant go smaller due to e loss
 		if(STAGE_SIX) //This only happens if a stage 5 singulo consumes a supermatter shard.
 			current_size = STAGE_SIX
-			icon = 'icons/effects/352x352.dmi'
-			icon_state = "singularity_s11"
-
-			pixel_x = -160
-			pixel_y = -160
 			new_grav_pull = 15
 			new_consume_range = 5
 			dissipate = FALSE
@@ -295,11 +275,48 @@
 
 	if(current_size == allowed_size)
 		investigate_log("<font color='red'>grew to size [current_size]</font>", INVESTIGATE_SINGULO)
+		update_icon(temp_allowed_size)
 		return TRUE
 	else if(current_size < (--temp_allowed_size))
 		expand(temp_allowed_size)
 	else
 		return FALSE
+
+/obj/singularity/update_icon(stage)
+	switch(stage)
+		if(STAGE_ONE)
+			icon = 'icons/obj/singularity.dmi'
+			icon_state = "singularity_s1"
+			pixel_x = 0
+			pixel_y = 0
+		if(STAGE_TWO)
+			icon = 'icons/effects/96x96.dmi'
+			icon_state = "singularity_s3"
+			pixel_x = -32
+			pixel_y = -32
+		if(STAGE_THREE)
+			icon = 'icons/effects/160x160.dmi'
+			icon_state = "singularity_s5"
+			pixel_x = -64
+			pixel_y = -64
+		if(STAGE_FOUR)
+			icon = 'icons/effects/224x224.dmi'
+			icon_state = "singularity_s7"
+			pixel_x = -96
+			pixel_y = -96
+		if(STAGE_FIVE)
+			icon = 'icons/effects/288x288.dmi'
+			icon_state = "singularity_s9"
+			pixel_x = -128
+			pixel_y = -128
+
+	if(!singulo_effect)
+		singulo_effect = new(src)
+		singulo_effect.transform = matrix().Scale(2.4)
+		vis_contents += singulo_effect
+
+	singulo_effect.icon = icon
+	singulo_effect.icon_state = icon_state
 
 /obj/singularity/proc/check_energy()
 	if(energy <= 0)
