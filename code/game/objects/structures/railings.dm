@@ -3,6 +3,7 @@
 	desc = "Basic railing meant to protect idiots like you from falling."
 	icon = 'icons/obj/fluff.dmi'
 	icon_state = "railing"
+	layer = ABOVE_MOB_LAYER
 	flags_1 = ON_BORDER_1
 	density = TRUE
 	anchored = TRUE
