@@ -13,7 +13,8 @@
 	    "cargo": "cargo_box",
 	    "ferry": "ferry_fancy",
 	    "whiteship": "whiteship_meta",
-	    "emergency": "emergency_meta"
+	    "emergency": "emergency_meta",
+		"minning": "minning_common_kilo"
     },
 	"traits": [
 		{

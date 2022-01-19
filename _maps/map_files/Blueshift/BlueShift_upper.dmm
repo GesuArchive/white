@@ -1369,6 +1369,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/fore/upper)
 "alp" = (
@@ -1875,6 +1876,7 @@
 	space_dir = 1
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/fore/upper)
 "aos" = (
@@ -4188,6 +4190,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes,
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/upper)
 "aVE" = (
@@ -7711,6 +7714,7 @@
 	name = "Structural Support Section";
 	req_access_txt = "13"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/department/science)
 "bYf" = (
@@ -10613,6 +10617,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/hallway/secondary/exit)
 "dcI" = (
@@ -12043,6 +12048,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/engineering/transit_tube)
 "dDO" = (
@@ -14001,6 +14007,7 @@
 	req_access_txt = "19"
 	},
 /obj/structure/cable,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating/airless,
 /area/maintenance/fore/upper)
 "esZ" = (
@@ -14165,6 +14172,18 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/command/heads_quarters/cmo)
+"ewd" = (
+/obj/machinery/door/airlock/external{
+	name = "External Airlock";
+	req_access_txt = "13";
+	space_dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/maintenance/fore/upper)
 "ewm" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -19804,6 +19823,7 @@
 	req_one_access_txt = "10;24";
 	space_dir = 8
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/fore/upper)
 "gGH" = (
@@ -20823,6 +20843,9 @@
 /obj/effect/turf_decal/stripes{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/upper)
 "hct" = (
@@ -21186,6 +21209,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/fore/upper)
 "hkD" = (
@@ -21372,6 +21396,7 @@
 	space_dir = 2
 	},
 /obj/structure/cable,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/solars/starboard/aft)
 "hoM" = (
@@ -23109,6 +23134,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/fore/upper)
 "iaq" = (
@@ -23175,6 +23201,7 @@
 	req_one_access_txt = "32;19"
 	},
 /obj/structure/cable,
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
 /area/space)
 "ibl" = (
@@ -23233,6 +23260,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/department/science)
 "idY" = (
@@ -24008,6 +24036,7 @@
 /obj/effect/turf_decal/stripes{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/fore/upper)
 "isS" = (
@@ -27406,6 +27435,7 @@
 	name = "MiniSat Space Access Airlock";
 	req_one_access_txt = "32;19"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
 /area/space)
 "jIP" = (
@@ -27936,6 +27966,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/department/science)
 "jSG" = (
@@ -32853,6 +32884,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "EVA Shed"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "lKS" = (
@@ -34683,6 +34715,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/department/science/xenobiology)
 "muH" = (
@@ -35946,6 +35979,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/aisat_interior)
 "mUh" = (
@@ -40747,6 +40781,9 @@
 /obj/effect/turf_decal/stripes{
 	dir = 8
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/upper)
 "oTN" = (
@@ -42370,6 +42407,7 @@
 /obj/effect/turf_decal/stripes{
 	dir = 8
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "pyX" = (
@@ -44683,6 +44721,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/department/science)
 "qvr" = (
@@ -48561,6 +48600,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/aft/upper)
 "rUV" = (
@@ -51798,6 +51838,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/department/science)
 "teg" = (
@@ -52342,6 +52383,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
+/obj/structure/fluff/hedge,
 /turf/open/floor/plasteel,
 /area/hallway/primary/upper)
 "tnb" = (
@@ -52571,6 +52613,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/aisat_interior)
 "ttg" = (
@@ -56856,6 +56899,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/department/science)
 "uZP" = (
@@ -56981,6 +57025,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "vcq" = (
@@ -57342,6 +57387,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
+/obj/structure/fluff/hedge,
 /turf/open/floor/plasteel,
 /area/hallway/primary/upper)
 "vmA" = (
@@ -59323,6 +59369,7 @@
 	space_dir = 8
 	},
 /obj/structure/cable,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/radshelter)
 "vUG" = (
@@ -59518,6 +59565,7 @@
 	name = "EVA Shed";
 	req_access_txt = "19"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating/airless,
 /area/maintenance/fore/upper)
 "vYG" = (
@@ -65611,6 +65659,9 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
@@ -85131,7 +85182,7 @@ tIB
 tIB
 tIB
 tIB
-mcc
+ewd
 tIB
 ylQ
 ylQ

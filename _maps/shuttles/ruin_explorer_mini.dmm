@@ -36,9 +36,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/shuttle/explorer_mini)
-"g" = (
-/turf/open/floor/mineral/titanium/white,
-/area/shuttle/explorer_mini)
 "h" = (
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/explorer_mini)
@@ -133,8 +130,8 @@ d
 (4,1,1) = {"
 e
 k
-g
-g
+h
+h
 d
 "}
 (5,1,1) = {"

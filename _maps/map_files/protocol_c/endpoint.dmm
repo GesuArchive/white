@@ -6311,8 +6311,12 @@
 /turf/closed/indestructible/syndicate,
 /area/centcom/control)
 "xq" = (
-/turf/open/floor/plasteel/dark/side,
-/area/centcom/control)
+/obj/structure/chair/office{
+	dir = 4
+	},
+/obj/effect/mob_spawn/human/corpse/nanotrasensoldier,
+/turf/open/floor/carpet,
+/area/syndicate_mothership)
 "xr" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -6465,6 +6469,9 @@
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
 "xP" = (
+/obj/structure/chair/sofa/corp/right{
+	dir = 8
+	},
 /turf/open/floor/dz/green,
 /area/centcom/control)
 "xQ" = (
@@ -6901,11 +6908,8 @@
 	},
 /area/centcom/holding)
 "zt" = (
-/obj/structure/fluff/arc{
-	pixel_x = 1;
-	pixel_y = 10
-	},
-/turf/open/floor/dz/green,
+/obj/structure/fluff/hedge,
+/turf/open/floor/wood,
 /area/centcom/that_zone)
 "zu" = (
 /obj/effect/turf_decal/trimline/neutral/line{
@@ -7062,12 +7066,12 @@
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "zQ" = (
-/obj/structure/chair/office{
-	dir = 4
+/obj/structure/table/wood,
+/obj/structure/madman_computer{
+	pixel_y = 12
 	},
-/obj/effect/mob_spawn/human/corpse/nanotrasensoldier,
 /turf/open/floor/carpet,
-/area/centcom/control)
+/area/syndicate_mothership)
 "zR" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -7092,16 +7096,6 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
 "zU" = (
-/obj/structure/table/wood,
-/obj/structure/madman_computer{
-	pixel_y = 12
-	},
-/turf/open/floor/carpet,
-/area/centcom/control)
-"zV" = (
-/turf/open/floor/plasteel/monofloor,
-/area/centcom/control)
-"zW" = (
 /obj/structure/flora/rock/boulder,
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 6
@@ -7110,17 +7104,24 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/grimy,
+/area/syndicate_mothership)
+"zV" = (
+/turf/open/floor/plasteel/monofloor,
 /area/centcom/control)
+"zW" = (
+/obj/structure/flora/rock/boulder{
+	icon_state = "boulder2"
+	},
+/turf/open/floor/grass/snow/safe/oxy,
+/area/syndicate_mothership)
 "zX" = (
 /obj/machinery/vending/magivend,
 /turf/open/floor/engine/cult,
 /area/wizard_station)
 "zY" = (
-/obj/structure/flora/rock/boulder{
-	icon_state = "boulder2"
-	},
-/turf/open/floor/grass/snow/safe/oxy,
-/area/centcom/control)
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/floor/carpet,
+/area/syndicate_mothership)
 "Ab" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -7219,8 +7220,8 @@
 	},
 /area/centcom/control)
 "As" = (
-/obj/structure/chair/sofa/corp/right{
-	dir = 1
+/obj/structure/chair/sofa/corp/left{
+	dir = 8
 	},
 /turf/open/floor/dz/green,
 /area/centcom/control)
@@ -7254,10 +7255,8 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
 "Aw" = (
-/obj/structure/chair/sofa/corp{
-	dir = 1
-	},
-/turf/open/floor/dz/green,
+/obj/structure/fluff/hedge,
+/turf/open/floor/wood,
 /area/centcom/control)
 "Ax" = (
 /obj/machinery/shuttle_manipulator,
@@ -7269,8 +7268,8 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
 "AA" = (
-/obj/structure/chair/sofa/corp/left{
-	dir = 1
+/obj/structure/chair/sofa/corp/right{
+	dir = 4
 	},
 /turf/open/floor/dz/green,
 /area/centcom/control)
@@ -7295,13 +7294,11 @@
 /turf/open/floor/wood,
 /area/centcom/holding)
 "AF" = (
-/obj/item/kirbyplants/random,
-/obj/effect/turf_decal/weather/snow/corner,
-/obj/machinery/light{
-	dir = 8
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
 	},
 /turf/open/floor/carpet,
-/area/centcom/control)
+/area/syndicate_mothership)
 "AH" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
@@ -7319,11 +7316,11 @@
 /turf/open/floor/plasteel/dark,
 /area/tdome/tdomeobserve)
 "AK" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 6
+/obj/structure/flora/rock/boulder{
+	icon_state = "boulder3"
 	},
-/turf/open/floor/carpet,
-/area/centcom/control)
+/turf/open/floor/grass/snow/safe/oxy,
+/area/syndicate_mothership)
 "AN" = (
 /obj/effect/turf_decal/siding/wideplating/dark,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -7343,15 +7340,15 @@
 /area/wizard_station)
 "AR" = (
 /obj/structure/flora/rock/boulder{
-	icon_state = "boulder3"
-	},
-/turf/open/floor/grass/snow/safe/oxy,
-/area/centcom/control)
-"AS" = (
-/obj/structure/flora/rock/boulder{
 	icon_state = "boulder4"
 	},
 /turf/open/floor/grass/snow/safe/oxy,
+/area/syndicate_mothership)
+"AS" = (
+/obj/structure/chair/sofa/corp/left{
+	dir = 4
+	},
+/turf/open/floor/dz/green,
 /area/centcom/control)
 "AT" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
@@ -7379,7 +7376,10 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
 "AZ" = (
-/turf/open/space/basic,
+/obj/structure/chair/sofa/corp{
+	dir = 8
+	},
+/turf/open/floor/dz/green,
 /area/centcom/control)
 "Bb" = (
 /obj/machinery/door/airlock{
@@ -7481,10 +7481,10 @@
 /turf/open/floor/engine/cult,
 /area/wizard_station)
 "Bp" = (
-/obj/machinery/door/airlock/centcom{
-	name = "CentCom"
+/obj/structure/chair/sofa/corp{
+	dir = 4
 	},
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/dz/green,
 /area/centcom/control)
 "Br" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -8273,6 +8273,11 @@
 /turf/open/floor/plasteel/monofloor,
 /area/centcom/control)
 "Em" = (
+/obj/structure/fluff/arc{
+	density = 0;
+	pixel_x = 1;
+	pixel_y = 10
+	},
 /turf/open/floor/plasteel/goonplaque{
 	desc = "This is a plaque commemorating the thunderdome and all those who have died at its pearly blast doors."
 	},
@@ -24730,9 +24735,9 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
+aV
+aV
+aV
 aV
 aV
 qm
@@ -24987,9 +24992,9 @@ Co
 Co
 Co
 Co
-Co
-Co
-Co
+aV
+xq
+zY
 aV
 qm
 qm
@@ -25244,9 +25249,9 @@ Co
 Co
 Co
 Co
-Co
-Co
 aV
+zQ
+AF
 aV
 qm
 qm
@@ -25501,9 +25506,9 @@ Co
 Co
 Co
 Co
-Co
-Co
 aV
+zU
+AK
 qm
 qm
 qm
@@ -25676,15 +25681,15 @@ Co
 Co
 wv
 wO
-xq
+Yj
 xP
+AZ
+As
 xP
+AZ
+As
 xP
-xP
-xP
-xP
-xP
-xP
+AZ
 As
 Yj
 CA
@@ -25758,9 +25763,9 @@ Co
 Co
 Co
 Co
-Co
 aV
-aV
+zW
+AR
 qm
 qm
 qm
@@ -25933,15 +25938,15 @@ Co
 Co
 wx
 wQ
-xq
-xP
-xP
-xP
-xP
+Yj
+Aw
+Aw
+Aw
+Aw
 zt
-xP
-xP
-xP
+Aw
+Aw
+Aw
 Aw
 Yj
 CA
@@ -26190,15 +26195,15 @@ Co
 Co
 wv
 wO
-xq
-xP
-xP
-xP
-xP
-xP
-xP
-xP
-xP
+Yj
+AS
+Bp
+AA
+AS
+Bp
+AA
+AS
+Bp
 AA
 Yj
 CA
@@ -27997,8 +28002,8 @@ xh
 zy
 xh
 ZU
-ZU
-ZU
+Yj
+Yj
 xo
 CS
 zV
@@ -28254,9 +28259,9 @@ xh
 xh
 xh
 ZU
-zQ
-AF
-Bj
+zL
+Al
+Yj
 CT
 zV
 Gf
@@ -28511,8 +28516,8 @@ xh
 xh
 xh
 ZU
-zU
-AK
+ZU
+ZU
 ZU
 Yj
 Er
@@ -28768,9 +28773,9 @@ xh
 xh
 xh
 ZU
-zW
-AR
 ZU
+ZU
+Bj
 Db
 zV
 Gg
@@ -29025,9 +29030,9 @@ xd
 xd
 xd
 ZU
-zY
-AS
-Bp
+ZU
+ZU
+Ei
 zV
 zV
 zV
@@ -29282,7 +29287,7 @@ Dc
 Dc
 Dc
 ZU
-xd
+ZU
 ZU
 ZU
 Dg
@@ -29540,7 +29545,7 @@ Co
 Co
 Dc
 Ag
-AZ
+Co
 ZU
 ZU
 ED
