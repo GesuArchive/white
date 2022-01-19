@@ -424,7 +424,8 @@ GLOBAL_LIST_INIT(custom_race_donations, list(
 	"felinemistress" = "felinid",
 	"chilipila" = "felinid",
 	"oni3288" = "felinid",
-	"valtosss" = "felinid",))
+	"valtosss" = "felinid",
+	"tequilasunr1se" = "felinid",))
 
 GLOBAL_LIST_INIT(custom_tails_donations, list(
 	"felinemistress" = "Fox",
