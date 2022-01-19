@@ -417,3 +417,5 @@
 
 /datum/config_entry/flag/sdql_spells
 	config_entry_value = TRUE  //похуй ебал конфиги
+
+/datum/config_entry/flag/native_fov

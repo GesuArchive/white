@@ -385,15 +385,15 @@ GLOBAL_LIST_EMPTY(disposal_bins)
 	//check for items in disposal - occupied light
 	if(contents.len > 0)
 		. += "dispover-full"
-		SSvis_overlays.add_vis_overlay(src, icon, "dispover-full", EMISSIVE_LAYER, EMISSIVE_PLANE, dir, alpha)
+		SSvis_overlays.add_vis_overlay(src, icon, "dispover-full", plane = EMISSIVE_PLANE, dir = src.dir, alpha = src.alpha)
 
 	//charging and ready light
 	if(pressure_charging)
 		. += "dispover-charge"
-		SSvis_overlays.add_vis_overlay(src, icon, "dispover-charge-glow", EMISSIVE_LAYER, EMISSIVE_PLANE, dir, alpha)
+		SSvis_overlays.add_vis_overlay(src, icon, "dispover-charge-glow", plane = EMISSIVE_PLANE, dir = src.dir, alpha = src.alpha)
 	else if(full_pressure)
 		. += "dispover-ready"
-		SSvis_overlays.add_vis_overlay(src, icon, "dispover-ready-glow", EMISSIVE_LAYER, EMISSIVE_PLANE, dir, alpha)
+		SSvis_overlays.add_vis_overlay(src, icon, "dispover-ready-glow", plane = EMISSIVE_PLANE, dir = src.dir, alpha = src.alpha)
 
 /obj/machinery/disposal/bin/proc/do_flush()
 	set waitfor = FALSE

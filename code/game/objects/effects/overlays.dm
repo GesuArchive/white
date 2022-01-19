@@ -64,5 +64,4 @@
 	invisibility = INVISIBILITY_ABSTRACT
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-	layer = ATMOS_GROUP_LAYER
 	plane = ATMOS_GROUP_PLANE

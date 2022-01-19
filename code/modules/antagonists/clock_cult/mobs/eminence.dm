@@ -8,7 +8,6 @@
 	invisibility = INVISIBILITY_OBSERVER
 	health = INFINITY
 	maxHealth = INFINITY
-	layer = GHOST_LAYER
 	healable = FALSE
 	sight = SEE_SELF
 	throwforce = 0

@@ -266,7 +266,7 @@
 			user.visible_message(span_notice("[user] разваривает фильтр.") , span_notice("Развариваю фильтр.") , span_hear("Слышу сварку."))
 			welded = FALSE
 		update_icon()
-		pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)
+		pipe_vision_img = image(src, loc, dir = dir)
 		pipe_vision_img.plane = ABOVE_HUD_PLANE
 		investigate_log("was [welded ? "welded shut" : "unwelded"] by [key_name(user)]", INVESTIGATE_ATMOS)
 		add_fingerprint(user)
@@ -294,7 +294,7 @@
 	user.visible_message(span_warning("[user] яростно разрывает фильтр!") , span_notice("Удалось разблокировать доступ к фильтру.") , span_hear("Слышу громкий лязг металла."))
 	welded = FALSE
 	update_icon()
-	pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)
+	pipe_vision_img = image(src, loc, dir = dir)
 	pipe_vision_img.plane = ABOVE_HUD_PLANE
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 100, TRUE)
 

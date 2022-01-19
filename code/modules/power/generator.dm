@@ -50,7 +50,7 @@
 	else
 		var/L = min(round(lastgenlev/100000),11)
 		if(L != 0)
-			SSvis_overlays.add_vis_overlay(src, icon, "teg-op[L]", ABOVE_LIGHTING_LAYER, ABOVE_LIGHTING_PLANE, dir)
+			SSvis_overlays.add_vis_overlay(src, icon, "teg-op[L]", plane = ABOVE_LIGHTING_PLANE, dir = src.dir)
 
 /obj/machinery/power/generator/process_atmos()
 

@@ -179,10 +179,10 @@
 	if (charging)
 		if(using_power)
 			SSvis_overlays.add_vis_overlay(src, icon, "recharger-charging", layer, plane, dir, alpha)
-			SSvis_overlays.add_vis_overlay(src, icon, "recharger-charging", EMISSIVE_LAYER, EMISSIVE_PLANE, dir, alpha)
+			SSvis_overlays.add_vis_overlay(src, icon, "recharger-charging", plane = EMISSIVE_PLANE, dir = src.dir, alpha = src.alpha)
 		else
 			SSvis_overlays.add_vis_overlay(src, icon, "recharger-full", layer, plane, dir, alpha)
-			SSvis_overlays.add_vis_overlay(src, icon, "recharger-full", EMISSIVE_LAYER, EMISSIVE_PLANE, dir, alpha)
+			SSvis_overlays.add_vis_overlay(src, icon, "recharger-full", plane = EMISSIVE_PLANE, dir = src.dir, alpha = src.alpha)
 	else
 		SSvis_overlays.add_vis_overlay(src, icon, "recharger-empty", layer, plane, dir, alpha)
-		SSvis_overlays.add_vis_overlay(src, icon, "recharger-empty", EMISSIVE_LAYER, EMISSIVE_PLANE, dir, alpha)
+		SSvis_overlays.add_vis_overlay(src, icon, "recharger-empty", plane = EMISSIVE_PLANE, dir = src.dir, alpha = src.alpha)

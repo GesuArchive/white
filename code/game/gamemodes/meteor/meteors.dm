@@ -398,7 +398,6 @@ GLOBAL_LIST_INIT(meteorsSPOOKY, list(/obj/effect/meteor/pumpkin))
 	var/obj/effect/meteor_shadow/shadow
 	var/falltime = 2 SECONDS
 	var/prefalltime = 8 SECONDS
-	layer = METEOR_LAYER
 
 /obj/effect/falling_meteor/Initialize(loc, meteor_type)
 	. = ..()
@@ -441,7 +440,6 @@ GLOBAL_LIST_INIT(meteorsSPOOKY, list(/obj/effect/meteor/pumpkin))
 	name = "тень"
 	desc = "Что это такое? Потолок существует???"
 	alpha = 0
-	layer = METEOR_SHADOW_LAYER
 
 /obj/effect/meteor_shadow/Initialize()
 	. = ..()

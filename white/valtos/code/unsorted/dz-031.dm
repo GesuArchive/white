@@ -39,7 +39,7 @@
 		air.copy_from_turf(src)
 		update_air_ref()
 
-	SSvis_overlays.add_vis_overlay(src, icon, "fucked", EMISSIVE_LAYER, PLANE_SPACE)
+	SSvis_overlays.add_vis_overlay(src, icon, "fucked", plane = PLANE_SPACE)
 
 	return INITIALIZE_HINT_NORMAL
 

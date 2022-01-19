@@ -106,7 +106,6 @@
 
 /atom/movable/screen/fullscreen/scarlet
 	icon = 'white/valtos/icons/fullscreen_scarlet.dmi'
-	layer = SPLASHSCREEN_LAYER
 	plane = SPLASHSCREEN_PLANE
 	icon_state = "scarlet"
 

@@ -35,7 +35,7 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 0
 	screen_loc = "12,1"
-	layer = SPLASHSCREEN_LAYER
+	layer = LOBBY_BACKGROUND_LAYER
 	var/client/parent
 	var/matrix/target
 

@@ -480,7 +480,6 @@
 	desc = "Большой старый ящик."
 	opacity = 1
 	density = 1
-	layer = MASSIVE_OBJ_LAYER
 
 /obj/structure/rospilovo/propane
 	name = "пропан"
@@ -494,7 +493,6 @@
 	icon = 'white/valtos/icons/rospilovo/decorations_32x64.dmi'
 	icon_state = "stolb"
 	desc = "Столб с висящими остатками проводов."
-	layer = MASSIVE_OBJ_LAYER
 	density = 0
 
 /obj/structure/rospilovo/propane/dual

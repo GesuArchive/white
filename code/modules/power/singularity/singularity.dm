@@ -12,7 +12,6 @@
 	density = TRUE
 	move_resist = INFINITY
 	plane = EMISSIVE_BLOCKER_PLANE
-	layer = MASSIVE_OBJ_LAYER
 	plane = ABOVE_LIGHTING_PLANE
 	light_range = 6
 	appearance_flags = LONG_GLIDE

@@ -36,6 +36,8 @@
 		BT.pick_sound()
 	med_hud_set_status()
 
+	update_fov_client()
+
 /mob/living/carbon/Login()
 	. = ..()
 	if(!. || !client)

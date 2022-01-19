@@ -4,6 +4,7 @@
 	see_in_dark = 2
 	hud_possible = list(HEALTH_HUD,STATUS_HUD,ANTAG_HUD,NANITE_HUD,DIAG_NANITE_FULL_HUD,HACKER_HUD)
 	pressure_resistance = 10
+	plane = GAME_PLANE_FOV_HIDDEN
 
 	hud_type = /datum/hud/living
 
@@ -182,3 +183,10 @@
 	var/body_position_pixel_y_offset = 0
 
 	var/list/known_reagent_sounds = list()
+
+	/// FOV view that is applied from either nativeness or traits
+	var/fov_view
+	/// Native FOV that will be applied if a config is enabled
+	var/native_fov = FOV_90_DEGREES
+	/// Lazy list of FOV traits that will apply a FOV view when handled.
+	var/list/fov_traits

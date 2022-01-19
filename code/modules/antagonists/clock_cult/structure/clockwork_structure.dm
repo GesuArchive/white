@@ -37,7 +37,6 @@
 /obj/structure/destructible/clockwork/massive
 	name = "массивная конструкция"
 	desc = "Огромная блин."
-	layer = MASSIVE_OBJ_LAYER
 	density = FALSE
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF | FREEZE_PROOF
 

@@ -11,7 +11,6 @@
 	unwrench_path = /obj/item/clockwork/trap_placer/pressure_sensor
 	component_datum = /datum/component/clockwork_trap/pressure_sensor
 	alpha = 60
-	layer = PRESSURE_PLATE_LAYER
 	max_integrity = 5
 	obj_integrity = 5
 

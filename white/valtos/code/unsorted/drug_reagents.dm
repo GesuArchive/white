@@ -499,7 +499,6 @@
 	desc = "<big>АААААААААААААААААААААААА!!!</big>"
 	image_icon = 'white/valtos/icons/lifeweb/water.dmi'
 	image_state = "water0"
-	image_layer = BYOND_LIGHTING_LAYER
 	var/triggered_shit = FALSE
 
 /obj/effect/hallucination/simple/water/New(turf/location_who_cares_fuck, mob/living/carbon/C, forced = TRUE)
@@ -543,7 +542,6 @@
 		"ashroom", "cshroom", "eshroom", "fshroom", "amanita", "gshroom", "bshroom", "dshroom", \
 		"bezglaznik", "krovnik", "pumpkin", "rice", "goldenapple", "gryab", "curer", "otorvyannik", \
 		"glig", "beet", "turnip")
-	image_layer = BYOND_LIGHTING_LAYER
 
 /obj/effect/hallucination/simple/ovoshi/New(turf/location_who_cares_fuck, mob/living/carbon/C, forced = TRUE, list/phrases = list())
 	image_state = pick(states)
@@ -581,7 +579,6 @@
 
 /atom/movable/screen/fullscreen/labeb
 	icon = 'white/valtos/icons/ruzone_went_up.dmi'
-	layer = SPLASHSCREEN_LAYER
 	plane = SPLASHSCREEN_PLANE
 	screen_loc = "CENTER-7,SOUTH"
 	icon_state = ""

@@ -112,7 +112,6 @@
 	desc = "Поколение странных увлечений."
 	icon = 'icons/runtime/default_title.dmi'
 	icon_state = "station_intact"
-	layer = SPLASHSCREEN_LAYER
 	plane = SPLASHSCREEN_PLANE
 	bullet_bounce_sound = null
 	maptext_height = 480

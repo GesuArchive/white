@@ -420,7 +420,9 @@ GLOBAL_LIST_INIT(custom_race_donations, list(
 	"0cemeh1tejib6a6yjiek" = "babulet",
 	"pisimist29" = "android",
 	"arsenay" = "aandroid",
-	"fiaskin" = "synthman"))
+	"fiaskin" = "synthman",
+	"felinemistress" = "felinid",
+	"valtosss" = "felinid",))
 
 GLOBAL_LIST_INIT(custom_tails_donations, list(
 	"felinemistress" = "Fox",

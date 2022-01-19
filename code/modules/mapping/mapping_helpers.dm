@@ -10,8 +10,6 @@
 	var/list/baseturf_to_replace
 	var/baseturf
 
-	layer = POINT_LAYER
-
 /obj/effect/baseturf_helper/Initialize()
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD

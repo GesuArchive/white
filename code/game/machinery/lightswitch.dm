@@ -58,7 +58,7 @@
 	. = ..()
 	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	if(!(machine_stat & NOPOWER))
-		SSvis_overlays.add_vis_overlay(src, icon, "light-glow", EMISSIVE_LAYER, EMISSIVE_PLANE, dir, alpha)
+		SSvis_overlays.add_vis_overlay(src, icon, "light-glow", plane = EMISSIVE_PLANE, dir = src.dir, alpha = src.alpha)
 
 /obj/machinery/light_switch/examine(mob/user)
 	. = ..()

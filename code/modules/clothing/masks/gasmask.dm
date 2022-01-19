@@ -17,6 +17,7 @@
 
 /obj/item/clothing/mask/gas/Initialize()
 	. = ..()
+	init_fov()
 	if(!max_filters)
 		return
 	for(var/i in 1 to max_filters)
@@ -58,6 +59,10 @@
 	if(LAZYLEN(gas_filters) <= 0)
 		has_filter = FALSE
 	return filtered_breath
+
+/// Initializes the FoV component for the gas mask
+/obj/item/clothing/mask/gas/proc/init_fov()
+	AddComponent(/datum/component/clothing_fov_visor, FOV_90_DEGREES)
 
 /**
  * Getter for overall filter durability, takes into consideration all filters filter_status
@@ -152,6 +157,9 @@
 	species_exception = list(/datum/species/golem/bananium)
 	var/list/clownmask_designs = list()
 
+/obj/item/clothing/mask/gas/clown_hat/init_fov()
+	return
+
 /obj/item/clothing/mask/gas/clown_hat/Initialize(mapload)
 	.=..()
 	clownmask_designs = list(
@@ -197,6 +205,9 @@
 	resistance_flags = FLAMMABLE
 	species_exception = list(/datum/species/golem/bananium)
 
+/obj/item/clothing/mask/gas/sexyclown/init_fov()
+	return
+
 /obj/item/clothing/mask/gas/mime
 	name = "маска мима"
 	desc = "Традиционная маска мима. У него жуткая поза лица."
@@ -209,6 +220,9 @@
 	actions_types = list(/datum/action/item_action/adjust)
 	species_exception = list(/datum/species/golem)
 	var/list/mimemask_designs = list()
+
+/obj/item/clothing/mask/gas/mime/init_fov()
+	return
 
 /obj/item/clothing/mask/gas/mime/Initialize(mapload)
 	.=..()
@@ -260,6 +274,9 @@
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
 	species_exception = list(/datum/species/golem)
+
+/obj/item/clothing/mask/gas/sexymime/init_fov()
+	return
 
 /obj/item/clothing/mask/gas/cyborg
 	name = "забрало киборга"

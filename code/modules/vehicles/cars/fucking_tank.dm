@@ -5,7 +5,6 @@
 	icon_state = "tank"
 	engine_sound = 'white/valtos/sounds/tonkloop.ogg'
 	engine_sound_length = 5 SECONDS
-	layer = SPACEPOD_LAYER
 	max_buckled_mobs = 1
 	pixel_y = -48
 	pixel_x = -48

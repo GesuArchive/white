@@ -15,7 +15,6 @@
 	appearance_flags = LONG_GLIDE
 	density = FALSE
 	gender = FEMALE
-	layer = MASSIVE_OBJ_LAYER
 	light_color = COLOR_RED
 	light_power = 0.7
 	light_range = 15

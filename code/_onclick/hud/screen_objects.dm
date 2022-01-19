@@ -9,7 +9,6 @@
 /atom/movable/screen
 	name = ""
 	icon = 'icons/hud/screen_gen.dmi'
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 	animate_movement = SLIDE_STEPS
 	speech_span = SPAN_ROBOT
@@ -57,7 +56,6 @@
 	maptext_width = 480
 
 /atom/movable/screen/swap_hand
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 	name = "сменить руки"
 
@@ -130,7 +128,6 @@
 	var/icon_full
 	/// The overlay when hovering over with an item in your hand
 	var/image/object_overlay
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/inventory/Click(location, control, params)
@@ -245,7 +242,6 @@
 
 /atom/movable/screen/close
 	name = "закрыть"
-	layer = ABOVE_HUD_LAYER
 	plane = ABOVE_HUD_PLANE
 	icon_state = "backpack_close"
 
@@ -262,7 +258,6 @@
 	name = "бросить"
 	icon = 'icons/hud/screen_midnight.dmi'
 	icon_state = "act_drop"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/drop/Click()
@@ -413,7 +408,6 @@
 	name = "сопротивляться"
 	icon = 'icons/hud/screen_midnight.dmi'
 	icon_state = "act_resist"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/resist/Click()
@@ -426,7 +420,6 @@
 	icon = 'icons/hud/screen_midnight.dmi'
 	icon_state = "act_rest"
 	base_icon_state = "act_rest"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/rest/Click()
@@ -446,7 +439,6 @@
 	name = "хранилище"
 	icon_state = "block"
 	screen_loc = "7,7 to 10,8"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/storage/Initialize(mapload, new_master)
@@ -526,7 +518,6 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 128
 	anchored = TRUE
-	layer = ABOVE_HUD_LAYER
 	plane = ABOVE_HUD_PLANE
 
 /atom/movable/screen/zone_sel/MouseExited(location, control, params)
@@ -682,7 +673,6 @@
 	icon = 'icons/blank_title.png'
 	icon_state = ""
 	screen_loc = "1,1"
-	layer = SPLASHSCREEN_LAYER
 	plane = SPLASHSCREEN_PLANE
 	var/client/holder
 

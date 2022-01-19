@@ -58,7 +58,6 @@
 	name = "test overlay"
 	icon = 'icons/hud/screen_full.dmi'
 	icon_state = "curse1"
-	layer = ABOVE_HUD_LAYER
 	plane = ABOVE_HUD_PLANE
 
 	var/default_width_tiles = 15

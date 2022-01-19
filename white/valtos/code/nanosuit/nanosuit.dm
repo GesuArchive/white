@@ -1185,7 +1185,6 @@
 /datum/radial_menu/extract_image(E)
 	var/mutable_appearance/MA = new /mutable_appearance(E)
 	if(MA)
-		MA.layer = ABOVE_HUD_LAYER
 		MA.appearance_flags |= RESET_TRANSFORM | RESET_ALPHA
 	return MA
 
