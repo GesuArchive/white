@@ -100,6 +100,9 @@
 
 #define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
 
+#define SINGULARITY_PLANE 10
+#define SINGULARITY_LAYER 1
+#define ABOVE_SINGULARITY_LAYER 2
 
 #define AREA_PLANE 60
 #define MASSIVE_OBJ_PLANE 70
@@ -167,6 +170,7 @@
 
 //-------------------- Rendering ---------------------
 #define RENDER_PLANE_GAME 990
+#define RENDER_PLANE_ABOVE_GAME 991
 #define RENDER_PLANE_NON_GAME 995
 #define RENDER_PLANE_MASTER 999
 

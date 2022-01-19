@@ -266,3 +266,8 @@
 	plane = FIELD_OF_VISION_BLOCKER_PLANE
 	render_target = FIELD_OF_VISION_BLOCKER_RENDER_TARGET
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/atom/movable/screen/plane_master/singularity
+	name = "singularity plane"
+	plane = SINGULARITY_PLANE
+	render_relay_plane = RENDER_PLANE_ABOVE_GAME

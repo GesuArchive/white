@@ -1,5 +1,5 @@
 /atom/movable/singularity_effect
-	plane = -11
+	plane = GRAVITY_PULSE_PLANE
 	appearance_flags = PIXEL_SCALE
 
 /// The gravitational singularity
@@ -11,8 +11,8 @@
 	anchored = TRUE
 	density = TRUE
 	move_resist = INFINITY
-	plane = EMISSIVE_BLOCKER_PLANE
-	plane = ABOVE_LIGHTING_PLANE
+	plane = SINGULARITY_PLANE
+	layer = SINGULARITY_LAYER
 	light_range = 6
 	appearance_flags = LONG_GLIDE
 
