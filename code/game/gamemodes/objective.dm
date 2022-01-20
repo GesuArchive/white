@@ -1092,3 +1092,20 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 	if(SSticker && SSticker.mode && SSticker.mode.station_was_nuked)
 		return TRUE
 	return FALSE
+
+/datum/objective/sabotage
+	name = "sabotage engine"
+	martyr_compatible = TRUE
+	reward = 30
+
+/datum/objective/sabotage/find_target(dupe_search_range)
+	return TRUE
+
+/datum/objective/sabotage/check_completion()
+	if(GLOB.is_engine_sabotaged)
+		return TRUE
+	return FALSE
+
+/datum/objective/sabotage/update_explanation_text()
+	..()
+	explanation_text = "Саботировать работу основного двигателя на станции."

@@ -70,7 +70,8 @@
 			break
 
 	if (!mapload)
-		notify_ghosts("О, НЕТ!", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, ghost_sound = 'sound/machines/warning-buzzer.ogg', header = "IT'S LOOSE", notify_volume = 75)
+		GLOB.is_engine_sabotaged = TRUE
+		notify_ghosts("О, НЕТ!", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, ghost_sound = 'sound/machines/warning-buzzer.ogg', header = "НЕВЕРОЯТНО", notify_volume = 75)
 
 /obj/effect/singularity_creation
 	name = "временной сдвиг"
@@ -344,8 +345,8 @@
 	var/gain = thing.singularity_act(current_size, src)
 	energy += gain
 	if(istype(thing, /obj/machinery/power/supermatter_crystal) && !consumed_supermatter)
-		desc = "[initial(desc)] It glows fiercely with inner fire."
-		name = "supermatter-charged [initial(name)]"
+		desc = "[initial(desc)] Светится, ха!"
+		name = "суперматериальная [initial(name)]"
 		consumed_supermatter = TRUE
 		set_light(10)
 

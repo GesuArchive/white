@@ -129,6 +129,7 @@
 
 /obj/machinery/power/am_control_unit/process()
 	if(exploding)
+		GLOB.is_engine_sabotaged = TRUE
 		explosion(get_turf(src),8,12,18,12)
 		if(src)
 			qdel(src)

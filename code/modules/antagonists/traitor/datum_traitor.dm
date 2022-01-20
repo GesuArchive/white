@@ -144,6 +144,11 @@
 			maroon_objective.owner = owner
 			maroon_objective.find_target()
 			add_objective(maroon_objective)
+		else if(prob(30))
+			var/datum/objective/sabotage/sabotage_objective = new
+			sabotage_objective.owner = owner
+			sabotage_objective.find_target()
+			add_objective(sabotage_objective)
 		else
 			var/datum/objective/assassinate/kill_objective = new
 			kill_objective.owner = owner

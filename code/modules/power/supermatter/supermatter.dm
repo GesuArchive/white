@@ -483,6 +483,9 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	explode()
 
 /obj/machinery/power/supermatter_crystal/proc/explode()
+
+	GLOB.is_engine_sabotaged = TRUE
+
 	for(var/mob in GLOB.alive_mob_list)
 		var/mob/living/L = mob
 		if(istype(L) && (L.z == z || (is_station_level(L.z) && is_station_level(z))))
