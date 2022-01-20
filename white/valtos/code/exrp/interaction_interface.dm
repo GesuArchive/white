@@ -12,8 +12,6 @@
 
 /mob/living/try_interaction(var/mob/partner)
 
-	var/CW = TRUE
-
 	if (!check_rights_for(client, R_ADMIN) && !check_whitelist_exrp(ckey))
 		return
 

@@ -5,7 +5,7 @@ GLOBAL_LIST_INIT(gachisounds, list(
 	'white/valtos/sounds/gachi/fuck_you.ogg',
 	'white/valtos/sounds/gachi/fuck_you_leather_man.ogg',
 	'white/valtos/sounds/gachi/fucking_cumming.ogg',
-	'white/valtos/sounds/gachi/i_dont_do_dancor.ogg',
+	'white/valtos/sounds/gachi/i_dont_do_anal.ogg',
 	'white/valtos/sounds/gachi/its_so_fucking_deep.ogg',
 	'white/valtos/sounds/gachi/penetration_1.ogg',
 	'white/valtos/sounds/gachi/penetration_2.ogg',
