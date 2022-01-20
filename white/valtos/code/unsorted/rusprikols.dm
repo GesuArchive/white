@@ -39,9 +39,10 @@
 	lethal_projectile = /obj/projectile/beam/laser/heavylaser/penetrator
 	lethal_projectile_sound = 'sound/weapons/lasercannonfire.ogg'
 	mode = TURRET_LETHAL
-	turret_flags = TURRET_FLAG_SHOOT_UNSHIELDED | TURRET_FLAG_SHOOT_CRIMINALS | TURRET_FLAG_AUTH_WEAPONS
-	//stun_all = 1
-	always_up = 1
+	uses_stored = FALSE
+	always_up = TRUE
+	turret_flags = TURRET_FLAG_SHOOT_ALL_REACT
+	has_cover = FALSE
 	scan_range = 9
 	use_power = NO_POWER_USE
 	faction = list("silicon","turret")
@@ -56,9 +57,16 @@
 /obj/machinery/porta_turret/armory/interact(mob/user)
 	return
 
+/obj/machinery/porta_turret/armory/assess_perp(mob/living/carbon/human/perp)
+	var/area/A = get_area(perp)
+	if(GLOB.security_level < SEC_LEVEL_RED && istype(A, /area/ai_monitored/security/armory))
+		return 10
+	return 0
+
 /obj/projectile/beam/laser/heavylaser/penetrator
 	projectile_piercing = PASSMOB
 	projectile_phasing = (ALL & (~PASSMOB))
+	damage = 45 // блядь
 	range = 12
 
 /obj/item/melee/classic_baton/dildon

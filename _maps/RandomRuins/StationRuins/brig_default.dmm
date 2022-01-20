@@ -333,12 +333,6 @@
 /area/ai_monitored/security/armory)
 "cb" = (
 /obj/vehicle/ridden/secway,
-/obj/machinery/turretid{
-	lethal = 1;
-	name = "Armory Turret Control";
-	pixel_x = 27;
-	req_one_access_txt = "3"
-	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/security/armory)
 "cc" = (
