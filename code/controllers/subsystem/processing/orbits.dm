@@ -99,7 +99,6 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 	//Check objective
 	if(current_objective)
 		if(current_objective.check_failed())
-			priority_announce("Основное задание провалено.", "Центральное командование", SSstation.announcer.get_rand_report_sound())
 			QDEL_NULL(current_objective)
 	//Process events
 	for(var/datum/ruin_event/ruin_event as() in ruin_events)
@@ -148,7 +147,6 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 		return "Задание уже выбрано и должно быть выполнено."
 	objective.on_assign(objective_computer)
 	objective.generate_attached_beacon()
-	objective.announce()
 	current_objective = objective
 	possible_objectives.Remove(objective)
 	update_objective_computers()

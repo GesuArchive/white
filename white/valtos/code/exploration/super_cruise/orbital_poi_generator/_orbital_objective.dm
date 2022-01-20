@@ -26,9 +26,6 @@
 /datum/orbital_objective/proc/get_text()
 	return ""
 
-/datum/orbital_objective/proc/announce()
-	priority_announce(get_text(), "Центральное командование", SSstation.announcer.get_rand_report_sound())
-
 /datum/orbital_objective/proc/generate_payout()
 	payout = rand(min_payout, max_payout)
 
@@ -38,7 +35,6 @@
 	linked_beacon.linked_objective = src
 
 /datum/orbital_objective/proc/remove_objective()
-	priority_announce("Основное задание было отменено.", "Центральное командование", SSstation.announcer.get_rand_report_sound())
 	QDEL_NULL(SSorbits.current_objective)
 
 /datum/orbital_objective/proc/complete_objective()
@@ -61,11 +57,11 @@
 	for(var/B in SSeconomy.bank_accounts_by_id)
 		var/datum/bank_account/A = SSeconomy.bank_accounts_by_id[B]
 		if(istype(A.account_job, /datum/job/exploration))
+			A.bank_card_talk("Было получено [israel] кредитов за выполнение задания.")
 			A.adjust_money(israel)
 		else
+			A.bank_card_talk("Было получено [goyam] кредитов за содействие выполнению поручений Нанотрейзен.")
 			A.adjust_money(goyam)
-	GLOB.exploration_points += payout * 50
-	//Announcement
-	priority_announce("Задание выполнено. [payout] кредитов было распределено между всем экипажем. [payout * 50] очков было также выдано Рейнджерам за работу.", "Центральное Командование", SSstation.announcer.get_rand_report_sound())
+	GLOB.exploration_points += payout * 5
 	//Delete
 	QDEL_NULL(SSorbits.current_objective)
