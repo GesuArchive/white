@@ -1,7 +1,5 @@
 // Код для репорта багов прямо в гитхаб, чудеса?
 
-GLOBAL_LIST_INIT(bug_downs, load_bug_downs())
-
 /client/proc/add_bug_down()
 	set name = "Запретить репортить"
 	set category = "Особенное"

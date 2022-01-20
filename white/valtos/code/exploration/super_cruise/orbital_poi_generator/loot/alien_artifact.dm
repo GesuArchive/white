@@ -230,10 +230,6 @@
 //===================
 // Reality Destabilizer
 //===================
-
-GLOBAL_LIST_EMPTY(destabilization_spawns)
-GLOBAL_LIST_EMPTY(destabliization_exits)
-
 /obj/effect/landmark/destabilization_loc
 	name = "destabilization spawn"
 

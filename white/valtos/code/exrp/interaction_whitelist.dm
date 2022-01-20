@@ -1,8 +1,3 @@
-#define WHITELISTEXRPFILE "[global.config.directory]/whitelist_exrp.txt"
-
-GLOBAL_LIST(whitelist_exrp)
-GLOBAL_PROTECT(whitelist_exrp)
-
 /proc/load_whitelist_exrp()
 	GLOB.whitelist_exrp = list()
 	for(var/line in world.file2list(WHITELISTEXRPFILE))

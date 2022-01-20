@@ -1,5 +1,3 @@
-GLOBAL_LIST_EMPTY(dwarf_crowns)
-
 /obj/item/blacksmith
 	name = "штука"
 	icon = 'white/valtos/icons/objects.dmi'

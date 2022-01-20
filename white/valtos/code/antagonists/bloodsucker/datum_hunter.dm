@@ -1,8 +1,3 @@
-#define HUNTER_SCAN_MIN_DISTANCE 8
-#define HUNTER_SCAN_MAX_DISTANCE 35
-#define HUNTER_SCAN_PING_TIME 20 //5s update time.
-
-
 /datum/antagonist/vamphunter
 	name = "Hunter"
 	roundend_category = "hunters"

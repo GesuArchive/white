@@ -1,10 +1,3 @@
-#define TIME_BLOODSUCKER_NIGHT	720 		// 12 minutes
-#define TIME_BLOODSUCKER_DAY_WARN	90 		// 1.5 minutes
-#define TIME_BLOODSUCKER_DAY_FINAL_WARN	25 	// 25 sec
-#define TIME_BLOODSUCKER_DAY	60 			// 1.5 minutes // 10 is a second, 600 is a minute.
-#define TIME_BLOODSUCKER_BURN_INTERVAL	40 	// 4 sec
-
-
 // Over Time, tick down toward a "Solar Flare" of UV buffeting the station. This period is harmful to vamps.
 /obj/effect/sunlight
 	//var/amDay = FALSE

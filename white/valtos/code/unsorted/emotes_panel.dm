@@ -1,5 +1,3 @@
-#define ui_emotes "EAST-1:44,SOUTH+2:8"
-
 /datum/hud/proc/add_emote_panel(mob/owner)
 	var/atom/movable/screen/using
 

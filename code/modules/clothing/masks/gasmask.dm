@@ -14,6 +14,8 @@
 	var/max_filters = 1
 	///List to keep track of each filter
 	var/list/gas_filters
+	///Does the mask have an FOV?
+	var/has_fov = TRUE
 
 /obj/item/clothing/mask/gas/Initialize()
 	. = ..()
@@ -62,7 +64,8 @@
 
 /// Initializes the FoV component for the gas mask
 /obj/item/clothing/mask/gas/proc/init_fov()
-	AddComponent(/datum/component/clothing_fov_visor, FOV_90_DEGREES)
+	if(has_fov)
+		AddComponent(/datum/component/clothing_fov_visor, FOV_90_DEGREES)
 
 /**
  * Getter for overall filter durability, takes into consideration all filters filter_status
@@ -160,9 +163,7 @@
 	dog_fashion = /datum/dog_fashion/head/clown
 	species_exception = list(/datum/species/golem/bananium)
 	var/list/clownmask_designs = list()
-
-/obj/item/clothing/mask/gas/clown_hat/init_fov()
-	return
+	has_fov = FALSE
 
 /obj/item/clothing/mask/gas/clown_hat/Initialize(mapload)
 	.=..()
@@ -208,9 +209,7 @@
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
 	species_exception = list(/datum/species/golem/bananium)
-
-/obj/item/clothing/mask/gas/sexyclown/init_fov()
-	return
+	has_fov = FALSE
 
 /obj/item/clothing/mask/gas/mime
 	name = "маска мима"
@@ -224,9 +223,7 @@
 	actions_types = list(/datum/action/item_action/adjust)
 	species_exception = list(/datum/species/golem)
 	var/list/mimemask_designs = list()
-
-/obj/item/clothing/mask/gas/mime/init_fov()
-	return
+	has_fov = FALSE
 
 /obj/item/clothing/mask/gas/mime/Initialize(mapload)
 	.=..()
@@ -279,9 +276,7 @@
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
 	species_exception = list(/datum/species/golem)
-
-/obj/item/clothing/mask/gas/sexymime/init_fov()
-	return
+	has_fov = FALSE
 
 /obj/item/clothing/mask/gas/cyborg
 	name = "забрало киборга"

@@ -349,8 +349,6 @@
 
 	backpack_contents = list()
 
-GLOBAL_VAR(yohei_main_controller)
-
 /obj/lab_monitor/yohei
 	name = "Монитор исполнения"
 	desc = "Здесь выводятся задания. Стекло всё ещё выглядит не очень крепким..."

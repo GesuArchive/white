@@ -1,8 +1,6 @@
 
 // Для турниров
 
-GLOBAL_VAR_INIT(is_tournament_rules, FALSE)
-
 /client/proc/toggle_tournament_rules()
 	set name = "ПЕРЕКЛЮЧИТЬ РЕЖИМ ТУРНИРА"
 	set category = "Особенное"

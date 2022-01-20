@@ -1,8 +1,3 @@
-#define VASSAL_SCAN_MIN_DISTANCE 5
-#define VASSAL_SCAN_MAX_DISTANCE 500
-#define VASSAL_SCAN_PING_TIME 20 //2s update time.
-
-
 /datum/antagonist/bloodsucker/proc/attempt_turn_vassal(mob/living/carbon/C)
 	return SSticker.mode.make_vassal(C,owner)
 

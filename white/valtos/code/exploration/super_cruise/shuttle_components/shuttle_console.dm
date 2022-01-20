@@ -1,5 +1,3 @@
-GLOBAL_VAR_INIT(shuttle_docking_jammed, FALSE)
-
 /obj/machinery/computer/shuttle_flight
 	name = "shuttle console"
 	desc = "A shuttle control computer."

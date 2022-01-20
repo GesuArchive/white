@@ -309,8 +309,6 @@
 			located_vein = I
 	return located_vein
 
-GLOBAL_LIST_EMPTY(ore_vein_landmarks)
-
 /obj/effect/landmark/ore_vein
 	name = "ore vein"
 	var/resource

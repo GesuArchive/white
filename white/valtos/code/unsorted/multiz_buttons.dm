@@ -1,6 +1,3 @@
-#define ui_multiz_up "EAST-1:44,SOUTH+3:8"
-#define ui_multiz_down "EAST-1:44,SOUTH+2:24"
-
 /datum/hud/proc/add_multiz_buttons(mob/owner)
 	var/atom/movable/screen/using
 

@@ -2,9 +2,6 @@
 //-------------Engine Thrusters------------------
 //-----------------------------------------------
 
-#define ENGINE_HEAT_TARGET 600
-#define ENGINE_HEATING_POWER 5000000
-
 /obj/machinery/shuttle/engine
 	name = "shuttle thruster"
 	desc = "A thruster for shuttles."

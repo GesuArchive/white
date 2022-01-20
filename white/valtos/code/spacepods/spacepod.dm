@@ -4,8 +4,6 @@
 // - damages shit if you run into it too fast instead of just stopping. You have to have a huge running start to do that though and damages the spacepod as well.
 // - doesn't explode
 
-GLOBAL_LIST_INIT(spacepods_list, list())
-
 /obj/spacepod
 	name = "space pod"
 	desc = "A frame for a spacepod."

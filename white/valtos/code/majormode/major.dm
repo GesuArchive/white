@@ -1,5 +1,3 @@
-GLOBAL_VAR_INIT(major_mode_active, FALSE)
-
 /datum/major_mode
 	var/name = "основной режим"
 	var/required_players = 0

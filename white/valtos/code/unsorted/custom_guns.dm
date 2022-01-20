@@ -1,6 +1,4 @@
 // !скины на всякое
-GLOBAL_LIST_INIT(custom_skin_donators, list("valtosss" = list("bullshit", "asiimov")))
-
 /obj/item/gun/proc/change_skin(datum/source, mob/user)
 	if(ishuman(user) && (user?.ckey in GLOB.custom_skin_donators) && !custom_skin_name)
 		var/list/possible_skins = GLOB.custom_skin_donators[user.ckey]

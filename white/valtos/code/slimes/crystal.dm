@@ -23,8 +23,6 @@
 
 	qdel(src)
 
-GLOBAL_LIST_EMPTY(bluespace_slime_crystals)
-
 /obj/structure/slime_crystal
 	name = "slimic pylon"
 	desc = "Glassy, pure, transparent. Powerful artifact that relays the slimecore's influence onto space around it."

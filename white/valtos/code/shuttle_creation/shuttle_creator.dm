@@ -1,11 +1,5 @@
-#define SHUTTLE_CREATOR_MAX_SIZE 300
-#define CUSTOM_SHUTTLE_LIMIT 6
 #define CARDINAL_DIRECTIONS_X list(1, 0, -1, 0)
 #define CARDINAL_DIRECTIONS_Y list(0, 1, 0, -1)
-
-GLOBAL_VAR_INIT(custom_shuttle_count, 0)		//The amount of custom shuttles created to prevent creating hundreds
-GLOBAL_LIST_EMPTY(custom_shuttle_machines)		//Machines that require updating (Heaters, engines)
-
 //============ Shuttle Creator Object ============
 /obj/item/shuttle_creator
 	name = "Rapid Shuttle Designator"

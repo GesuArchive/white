@@ -1,6 +1,3 @@
-
-GLOBAL_LIST_EMPTY(objective_computers)
-
 /obj/machinery/computer/objective
 	name = "консоль заданий"
 	desc = "Консоль, которая загружает список свежих заданий от Центрального Командования."

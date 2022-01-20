@@ -1,5 +1,3 @@
-GLOBAL_LIST_EMPTY(interactions)
-
 /proc/make_interactions(interaction)
 	if(!GLOB.interactions.len)
 		for(var/itype in subtypesof(/datum/interaction))

@@ -47,8 +47,6 @@
 //The bomb
 //==============
 
-GLOBAL_LIST_EMPTY(decomission_bombs)
-
 /obj/machinery/nuclearbomb/decomission
 	desc = "Ядерная бомба для уничтожения станций. Использует старую версию дисков ядерной аутентификации."
 	proper_bomb = FALSE

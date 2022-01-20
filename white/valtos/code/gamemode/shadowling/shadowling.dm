@@ -1,10 +1,3 @@
-#define LIGHT_HEAL_THRESHOLD 2
-#define LIGHT_DAMAGE_TAKEN 7
-#define LIGHT_DAM_THRESHOLD 0.25
-
-#define ANTAG_DATUM_THRALL		/datum/antagonist/thrall
-#define ANTAG_DATUM_SLING		/datum/antagonist/shadowling
-
 /*
 SHADOWLING: A gamemode based on previously-run events
 Aliens called shadowlings are on the station.

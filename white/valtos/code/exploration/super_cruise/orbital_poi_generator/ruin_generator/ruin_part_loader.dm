@@ -1,5 +1,3 @@
-GLOBAL_LIST_EMPTY(loaded_ruin_parts)
-
 //Reads all ruin parts from the ruin generation file and processes them.
 /proc/load_ruin_parts()
 	GLOB.loaded_ruin_parts.Cut()

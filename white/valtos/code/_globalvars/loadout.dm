@@ -1,0 +1,2 @@
+GLOBAL_LIST_EMPTY(loadout_categories)
+GLOBAL_LIST_EMPTY(gear_datums)

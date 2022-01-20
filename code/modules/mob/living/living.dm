@@ -400,12 +400,6 @@
 		return FALSE
 	if(!..())
 		return FALSE
-	var/obj/item/held = get_active_held_item()
-	if(held)
-		var/datum/component/aiming/aiming = held?.GetComponent(/datum/component/aiming)
-		if(aiming && isliving(A))
-			aiming.aim(src, A)
-			return TRUE
 	visible_message(span_name("[capitalize(src.name)]</span> показывает на <b>[skloname(A.name, VINITELNI, A.gender)]</b>."),
 					span_notice("Показываю на <b>[skloname(A.name, VINITELNI, A.gender)]</b>."))
 	return TRUE

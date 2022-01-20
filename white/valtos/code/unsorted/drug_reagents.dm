@@ -1,4 +1,3 @@
-#define BADTRIP_COOLDOWN 180
 /datum/reagent/drug/burpinate
     name = "Burpinate"
     description = "Они называют меня газообразной глиной."
@@ -261,7 +260,7 @@
 
 /datum/reagent/drug/grape_blast/proc/end_bad_trip(mob/living/carbon/human/H)
 	bad_trip = FALSE
-	badtrip_cooldown = world.time + BADTRIP_COOLDOWN
+	badtrip_cooldown = world.time + 3 MINUTES
 	H.visible_message(span_notice("[H] похоже, успокаивается."))
 	H.emote("me", 1, pick("делает глубокий вдох", "расслабляется"))
 
