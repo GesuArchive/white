@@ -131,7 +131,9 @@
 	desc = "Модернизированная версия классического дизайна, эта маска не только отфильтровывает токсины, но также может быть подключена к источнику воздуха."
 	icon_state = "plaguedoctor"
 	inhand_icon_state = "gas_mask"
-	armor = list(MELEE = 0, BULLET = 0, LASER = 2,ENERGY = 2, BOMB = 0, BIO = 75, RAD = 0, FIRE = 0, ACID = 0)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 2,ENERGY = 2, BOMB = 0, BIO = 75, FIRE = 0, ACID = 0)
+	has_fov = FALSE
+	flags_cover = MASKCOVERSEYES
 
 /obj/item/clothing/mask/gas/syndicate
 	name = "синдимаска"
@@ -141,6 +143,8 @@
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	strip_delay = 60
+	w_class = WEIGHT_CLASS_SMALL
+	has_fov = FALSE
 
 /obj/item/clothing/mask/gas/clown_hat
 	name = "парик клоуна и маска"
@@ -264,6 +268,7 @@
 	inhand_icon_state = "monkeymask"
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
+	has_fov = FALSE
 
 /obj/item/clothing/mask/gas/sexymime
 	name = "сексуальная маска мима"
@@ -283,6 +288,8 @@
 	desc = "Бип буп."
 	icon_state = "death"
 	resistance_flags = FLAMMABLE
+	has_fov = FALSE
+	flags_cover = MASKCOVERSEYES
 
 /obj/item/clothing/mask/gas/owl_mask
 	name = "маска совы"
@@ -291,11 +298,14 @@
 	clothing_flags = MASKINTERNALS
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
+	has_fov = FALSE
 
 /obj/item/clothing/mask/gas/carp
 	name = "маска карпа"
 	desc = "Кусь-кусь."
 	icon_state = "carp_mask"
+	has_fov = FALSE
+	flags_cover = MASKCOVERSEYES
 
 /obj/item/clothing/mask/gas/tiki_mask
 	name = "маска тики"
@@ -304,6 +314,8 @@
 	inhand_icon_state = "tiki_eyebrow"
 	custom_materials = list(/datum/material/wood = MINERAL_MATERIAL_AMOUNT * 1.25)
 	resistance_flags = FLAMMABLE
+	has_fov = FALSE
+	flags_cover = MASKCOVERSEYES
 	max_integrity = 100
 	actions_types = list(/datum/action/item_action/adjust)
 	dog_fashion = null
@@ -351,6 +363,7 @@
 	inhand_icon_state = "hunter"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	flags_inv = HIDEFACIALHAIR|HIDEFACE|HIDEEYES|HIDEEARS|HIDEHAIR|HIDESNOUT
+	has_fov = FALSE
 
 /obj/item/clothing/mask/gas/driscoll
 	name = "driscoll mask"
