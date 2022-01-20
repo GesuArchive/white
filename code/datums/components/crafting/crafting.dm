@@ -445,6 +445,7 @@
 				else
 					result.forceMove(user.drop_location())
 				to_chat(user, span_notice("[TR.name] constructed."))
+				user.investigate_log("[key_name(user)] crafted [TR.name]", INVESTIGATE_CRAFTING)
 				TR.on_craft_completion(user, result)
 			else
 				to_chat(user, span_warning("Construction failed[result]"))

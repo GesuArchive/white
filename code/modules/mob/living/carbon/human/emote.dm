@@ -21,7 +21,10 @@
 						'white/rebolution228/sounds/emotes/female_crying03.ogg',\
 						'white/rebolution228/sounds/emotes/female_crying04.ogg')
 		else
-			return pick('white/rebolution228/sounds/emotes/male_crying01.ogg', 'white/rebolution228/sounds/emotes/male_crying02.ogg', 'white/rebolution228/sounds/emotes/male_crying03.ogg', 'white/rebolution228/sounds/emotes/male_crying04.ogg')
+			return pick('white/rebolution228/sounds/emotes/male_crying01.ogg',\
+						'white/rebolution228/sounds/emotes/male_crying02.ogg',\
+						'white/rebolution228/sounds/emotes/male_crying03.ogg',\
+						'white/rebolution228/sounds/emotes/male_crying04.ogg')
 	else if(ismonkey(user))
 		return
 
@@ -133,6 +136,14 @@
 	var/mob/living/carbon/human/H = user
 	if(H.mind?.miming)
 		return
+	if(ismonkey(user))
+		return pick('sound/creatures/monkey/monkey_screech_1.ogg',\
+					'sound/creatures/monkey/monkey_screech_2.ogg',\
+					'sound/creatures/monkey/monkey_screech_3.ogg',\
+					'sound/creatures/monkey/monkey_screech_4.ogg',\
+					'sound/creatures/monkey/monkey_screech_5.ogg',\
+					'sound/creatures/monkey/monkey_screech_6.ogg',\
+					'sound/creatures/monkey/monkey_screech_7.ogg')
 	if(user.gender == FEMALE)
 		return pick('white/valtos/sounds/emotes/agony_female_1.ogg',\
 					'white/valtos/sounds/emotes/agony_female_2.ogg',\
