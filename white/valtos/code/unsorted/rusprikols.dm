@@ -66,7 +66,7 @@
 /obj/projectile/beam/laser/heavylaser/penetrator
 	projectile_piercing = PASSMOB
 	projectile_phasing = (ALL & (~PASSMOB))
-	damage = 90
+	damage = 45 // блядь
 	range = 12
 
 /obj/item/melee/classic_baton/dildon
