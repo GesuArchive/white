@@ -96,17 +96,17 @@ Place a pool filter somewhere in the pool if you want people to be able to modif
 		splash(dropping)
 
 /datum/mood_event/poolparty
-	description = "<span class='nicegreen'>I love swimming!.</span>\n"
+	description = "<span class='nicegreen'>Как классно купатьсЯ!</span>\n"
 	mood_change = 8
 	timeout = 2 MINUTES
 
 /datum/mood_event/robotpool
-	description = "<span class='warning'>I really wasn't built with water resistance in mind...</span>\n"
+	description = "<span class='warning'>Бип. Вода - плохо для меня.</span>\n"
 	mood_change = -6
 	timeout = 2 MINUTES
 
 /datum/mood_event/poolwet
-	description = "<span class='warning'>Eugh! my clothes are soaking wet from that swim.</span>\n"
+	description = "<span class='warning'>Тьфу! Моя одежда вся промокла от бассейна!</span>\n"
 	mood_change = -10
 	timeout = 4 MINUTES
 
