@@ -4259,7 +4259,6 @@
 #include "white\valtos\code\exrp\_interaction.dm"
 #include "white\valtos\code\exrp\_dance.dm"
 #include "white\valtos\code\exrp\interaction_interface.dm"
-#include "white\valtos\code\exrp\interaction_mob.dm"
 #include "white\valtos\code\exrp\interaction_whitelist.dm"
 #include "white\valtos\code\exrp\dance_code.dm"
 #include "white\valtos\code\exrp\dance_definitions.dm"
