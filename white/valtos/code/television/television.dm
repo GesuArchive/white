@@ -23,7 +23,7 @@
 
 	var/matrix/M = matrix()
 	M.Translate((-16 * viewsize) - 8, (-16 * viewsize) - 8)
-	M.Scale(0.5, 0.5)
+	//M.Scale(0.5, 0.5)
 
 	ourthing.transform = M
 	ourthing.vis_contents = visible_turfs
@@ -40,8 +40,10 @@
 
 /obj/effect/abstract/television
 	name = "Телевизор"
-	appearance_flags = KEEP_TOGETHER|TILE_BOUND
+	appearance_flags = TILE_BOUND
 	layer = TURF_LAYER
+	pixel_x = -64
+	pixel_y = -64
 
 /obj/effect/abstract/television/New()
 	. = ..()
