@@ -1115,7 +1115,6 @@
 /mob/living/carbon/wash(clean_types)
 	. = ..()
 
-	wash_poo()
 	RemoveElement(/datum/element/glitch)
 	// Wash equipped stuff that cannot be covered
 	for(var/obj/item/held_thing in held_items)

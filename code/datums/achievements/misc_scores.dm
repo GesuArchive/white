@@ -4,11 +4,6 @@
 	desc = "Почему?"
 	database_id = MAINTENANCE_PILL_SCORE
 
-///How many pooes did you eat?
-/datum/award/score/poo_eaten
-	name = "Фекалий съедено"
-	desc = "Почему?!"
-	database_id = POO_EATEN_SCORE
 
 ///How many times did we survive being a cripple?
 /datum/award/score/hardcore_random

@@ -632,7 +632,6 @@
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
 		H.wash()
-		H.wash_poo()
 		if(H.fire_stacks)
 			H.fire_stacks = 0
 			H.extinguish_mob()

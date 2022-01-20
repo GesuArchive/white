@@ -23,7 +23,6 @@
 	mutantlungs = /obj/item/organ/lungs/fly
 	mutantliver = /obj/item/organ/liver/fly
 	mutantstomach = /obj/item/organ/stomach/fly
-	mutantkidneys = /obj/item/organ/kidneys/fly
 	mutantappendix = /obj/item/organ/appendix/fly
 	mutant_organs = list(/obj/item/organ/fly, /obj/item/organ/fly/groin)
 

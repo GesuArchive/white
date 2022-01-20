@@ -235,29 +235,6 @@
 		//You don't belong in this world, monster!
 		chems.remove_reagent(/datum/reagent/water, chems.get_reagent_amount(src.type))
 
-/datum/reagent/toxin/urine
-	name = "Моча"
-	enname = "Urine"
-	description = "Почти святая вода."
-	color = "#f8ff7a" // rgb: 224, 232, 239
-	glass_icon_state  = "glass_clear"
-	glass_name = "стакан мочи"
-	glass_desc = "Моча."
-	taste_description = "моча"
-	ph = 10
-	toxpwr = 0.8
-	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
-
-/datum/reagent/toxin/urine/expose_turf(turf/exposed_turf, reac_volume)
-	. = ..()
-	if(isspaceturf(exposed_turf))
-		return
-
-	var/obj/effect/decal/cleanable/urine/reagentdecal = new(exposed_turf)
-	reagentdecal = locate() in exposed_turf
-	if(reagentdecal)
-		reagentdecal.reagents.add_reagent(/datum/reagent/toxin/urine, reac_volume)
-
 /datum/reagent/water/holywater
 	name = "Святая Вода"
 	enname = "Holy Water"
@@ -1316,7 +1293,6 @@
 	. = ..()
 	if(methods & (TOUCH|VAPOR))
 		exposed_mob.wash(clean_types)
-		exposed_mob.wash_poo()
 		exposed_mob.RemoveElement(/datum/element/glitch)
 
 /datum/reagent/space_cleaner/ez_clean

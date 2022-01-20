@@ -742,64 +742,6 @@
 	build_path = /obj/item/organ/stomach/cybernetic/tier3
 	sub_category = list("Продвинутые кибернетические органы")
 
-/datum/design/cybernetic_kidneys
-	name = "Базовые кибернетические почки"
-	desc = "Базовое устройство, имитирующее функции человеческих почек."
-	id = "cybernetic_kidneys"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
-	build_path = /obj/item/organ/kidneys/cybernetic
-	category = list("Кибернетика", "Медицинские разработки")
-	sub_category = list("Базовые кибернетические органы")
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
-
-/datum/design/cybernetic_kidneys/tier2
-	name = "Кибернетические почки"
-	desc = "Усовершенствованное устройство, превосходящее функции человеческих почек."
-	id = "cybernetic_kidneys_tier2"
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
-	build_path = /obj/item/organ/kidneys/cybernetic/tier2
-	sub_category = list("Стандартные кибернетические органы")
-
-/datum/design/cybernetic_kidneys/tier3
-	name = "Продвинутые кибернетические почки"
-	desc = "Эта версия кибернетических почек имеет огромный внутренний запас."
-	id = "cybernetic_kidneys_tier3"
-	construction_time = 50
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 500, /datum/material/silver = 500)
-	build_path = /obj/item/organ/kidneys/cybernetic/tier3
-	sub_category = list("Продвинутые кибернетические органы")
-
-/datum/design/cybernetic_guts
-	name = "Базовые кибернетические кишки"
-	desc = "Базовое устройство, имитирующее функции человеческих почек."
-	id = "cybernetic_guts"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
-	build_path = /obj/item/organ/guts/cybernetic
-	category = list("Кибернетика", "Медицинские разработки")
-	sub_category = list("Базовые кибернетические органы")
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
-
-/datum/design/cybernetic_guts/tier2
-	name = "Кибернетические кишки"
-	desc = "Усовершенствованное устройство, превосходящее функции человеческих почек."
-	id = "cybernetic_guts_tier2"
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
-	build_path = /obj/item/organ/guts/cybernetic/tier2
-	sub_category = list("Стандартные кибернетические органы")
-
-/datum/design/cybernetic_guts/tier3
-	name = "Продвинутые кибернетические кишки"
-	desc = "Эта версия кибернетических почек имеет огромный внутренний запас."
-	id = "cybernetic_guts_tier3"
-	construction_time = 50
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 500, /datum/material/silver = 500)
-	build_path = /obj/item/organ/guts/cybernetic/tier3
-	sub_category = list("Продвинутые кибернетические органы")
-
 /datum/design/cybernetic_ears
 	name = "Кибернетические уши"
 	desc = "Основной кибернетический орган, имитирующий работу ушей."

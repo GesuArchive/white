@@ -6,7 +6,6 @@
 	announce_type 	 = "announce"
 	announce_text 	 = "Работать."
 	var/list/possbile_things = list(
-		/obj/item/food/poo = 20,
 		/obj/item/food/pie/applepie = 15,
 		/obj/item/circuitboard/machine/gibber = 30,
 		/obj/item/crowbar = 30,

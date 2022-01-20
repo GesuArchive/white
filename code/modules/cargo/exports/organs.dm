@@ -31,11 +31,6 @@
 	unit_name = "гуманоидный желудок"
 	export_types = list(/obj/item/organ/stomach)
 
-/datum/export/organ/kidneys
-	cost = CARGO_CRATE_VALUE * 1
-	unit_name = "гуманоидные почки"
-	export_types = list(/obj/item/organ/kidneys)
-
 /datum/export/organ/tongue
 	cost = CARGO_CRATE_VALUE * 0.1
 	unit_name = "гуманоидный язык"
