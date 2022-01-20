@@ -990,14 +990,10 @@
 	if((NOGUTS in dna.species.species_traits) || (NOBLOOD in dna.species.species_traits) || (NOKIDNEYS in dna.species.species_traits))
 		nutrition = NUTRITION_LEVEL_START_MAX
 		return FALSE
-	if(!getorganslot(ORGAN_SLOT_GUTS))
-		return FALSE
 	return ..()
 
 /mob/living/carbon/human/set_nutrition(change) //Seriously fuck you oldcoders.
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
-		return FALSE
-	if(!getorganslot(ORGAN_SLOT_GUTS))
 		return FALSE
 	return ..()
 

@@ -53,8 +53,7 @@
 			SEND_SIGNAL(exposed_mob, COMSIG_ADD_MOOD_EVENT, "quality_food", /datum/mood_event/amazingtaste)
 
 	if(reagent_state == LIQUID)
-		if(exposed_mob.getorganslot(ORGAN_SLOT_KIDNEYS))
-			exposed_mob.hydration += max(0.5, nutriment_factor) * hydration_factor
+		exposed_mob.hydration += max(0.5, nutriment_factor) * hydration_factor
 
 /datum/reagent/consumable/nutriment
 	name = "Питательные вещества"

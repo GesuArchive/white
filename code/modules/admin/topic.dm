@@ -1283,30 +1283,6 @@
 		to_chat(H, span_adminnotice("Your prayers have been answered!! You received the <b>best [new_item.name]!</b>") , confidential = TRUE)
 		SEND_SOUND(H, sound('sound/effects/pray_chaplain.ogg'))
 
-	else if(href_list["adminspawnpoop"])
-		if(!check_rights(R_ADMIN|R_FUN))
-			return
-
-		var/mob/living/carbon/human/H = locate(href_list["adminspawnpoop"])
-		if(!ishuman(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human.", confidential = TRUE)
-			return
-
-		var/obj/item/food/poo/cookie = new(H)
-		if(H.put_in_hands(cookie))
-			H.update_inv_hands()
-		else
-			qdel(cookie)
-			log_admin("[key_name(H)] has their hands full, so they did not receive their cookie, spawned by [key_name(src.owner)].")
-			message_admins("[key_name(H)] has their hands full, so they did not receive their cookie, spawned by [key_name(src.owner)].")
-			return
-
-		log_admin("[key_name(H)] got their poop, spawned by [key_name(src.owner)].")
-		message_admins("[key_name(H)] got their poop, spawned by [key_name(src.owner)].")
-		SSblackbox.record_feedback("amount", "admin_poop_spawned", 1)
-		to_chat(H, span_adminnotice("Your prayers have been answered!! You received <font size='16'><b>вонючий кусок кала</b></font>!") , confidential = TRUE)
-		SEND_SOUND(H, sound('sound/effects/pray_chaplain.ogg'))
-
 	else if(href_list["adminsmite"])
 		if(!check_rights(R_ADMIN|R_FUN))
 			return

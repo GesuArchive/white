@@ -755,9 +755,6 @@
 			spawned_mobs.Remove(artist)
 			to_chat(artist, span_userdanger("Ох, лучше бы я не покидал Цирк...")) //let them know they fucked up
 			message_admins("Игрок [artist.ckey], будучи Артистом, каким-то образом сбежал из цирка, за что был казнён и лишён доступа к спавнеру до конца раунда. Такого быть не должно: выясните, как он этого добился и передайте кодербасу. Если же это произошло по вине админбаса, удалите сикей игрока из переменной спавнера (round_banned_ckeys). Позиция игрока на момент обнаружения побега: x=[artist.x], y=[artist.y], z=[artist.z], название зоны - [get_area_name(artist)]")
-			var/obj/item/organ/O = artist.internal_organs_slot[ORGAN_SLOT_GUTS]
-			if(O)
-				O.reagents.add_reagent(/datum/reagent/toxin/poo, 10000)
 			artist.emote("agony")
 
 
@@ -1225,7 +1222,7 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 	damage = 0
 	var/list/mob/living/losers = list()
 	var/list/atom/movable/pushedstuff = list() // can't use the contents var for whatever reason
-	var/pushing = PUSHING 
+	var/pushing = PUSHING
 
 /obj/projectile/broom/Moved(atom/OldLoc, Dir)
 	. = ..()
@@ -1255,16 +1252,16 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 			var/obj/item/gun/energy/FF = fired_from
 			if(istype(FF))
 				FF.cell.give(100) // half a charge for one shot, as a reward. Acquire 3 or more cl*wns to effectively prevent the heat death of the universe.
-				
+
 
 /obj/projectile/broom/Destroy()
 	pushing = STOP_PUSHING
-	drop_everything()	
+	drop_everything()
 	return ..()
 
 /obj/projectile/broom/on_ricochet(atom/A)
 	pushing = STOP_PUSHING_FOR_ONE_TILE
-	drop_everything()	
+	drop_everything()
 	return ..()
 
 
@@ -1300,9 +1297,9 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 		var/mob/M = AM
 		if(M.mind?.assigned_role == "Clown")
 			return TRUE*2
-	if(islizard(AM) || isclown(AM)  || isdrone(AM) || isswarmer(AM) || isdead(AM) || ismouse(AM) || isfelinid(AM) ) 
+	if(islizard(AM) || isclown(AM)  || isdrone(AM) || isswarmer(AM) || isdead(AM) || ismouse(AM) || isfelinid(AM) )
 		return TRUE*2 // reserved for mob/living //refactor later, this is ugly
-	
+
 #undef PUSHING
 #undef STOP_PUSHING
 #undef STOP_PUSHING_FOR_ONE_TILE

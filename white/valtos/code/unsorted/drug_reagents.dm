@@ -750,4 +750,4 @@
 
 /datum/chemical_reaction/labebium
 	results = list(/datum/reagent/drug/labebium = 1)
-	required_reagents = list(/datum/reagent/toxin/poo = 8, /datum/reagent/drug/pupupipi = 1)
+	required_reagents = list(/datum/reagent/consumable/ethanol/boyarka = 8, /datum/reagent/drug/pupupipi = 1)
