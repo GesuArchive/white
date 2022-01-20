@@ -92,8 +92,8 @@
 	return mutable_appearance('white/valtos/icons/belt_overlays.dmi', "screwdriver_nuke")
 
 /obj/item/screwdriver/power
-	name = "hand drill"
-	desc = "A simple powered hand drill."
+	name = "дрель"
+	desc = "Простая на вид, но довольно функциональная."
 	icon_state = "drill"
 	belt_icon_state = null
 	inhand_icon_state = "drill"

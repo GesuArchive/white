@@ -288,7 +288,7 @@
 		/obj/item/organ/butt = 1
 	)
 	result = /obj/item/food/kebab/butt
-	category = CAT_MEAT
+	subcategory = CAT_MEAT
 
 /obj/item/food/kebab/butt
 	name = "butt-kebab"

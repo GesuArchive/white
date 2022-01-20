@@ -200,23 +200,23 @@
 			if(R.one_per_turf)
 				for(var/content in get_turf(a))
 					if(istype(content, R.result))
-						return ", object already present."
+						return ", уже создано."
 			//If we're a mob we'll try a do_after; non mobs will instead instantly construct the item
 			if(ismob(a) && !do_after(a, R.time, target = a))
 				return "."
 			contents = get_surroundings(a,R.blacklist)
 			if(!check_contents(a, R, contents))
-				return ", missing component."
+				return ", не хватает компонента."
 			if(!check_tools(a, R, contents))
-				return ", missing tool."
+				return ", нет инструмента."
 			var/list/parts = del_reqs(R, a)
 			var/atom/movable/I = new R.result (get_turf(a.loc))
 			I.CheckParts(parts, R)
 			if(send_feedback)
 				SSblackbox.record_feedback("tally", "object_crafted", 1, I.type)
 			return I //Send the item back to whatever called this proc so it can handle whatever it wants to do with the new item
-		return ", missing tool."
-	return ", missing component."
+		return ", нет инструмента."
+	return ", не хватает компонента."
 
 /*Del reqs works like this:
 
@@ -444,11 +444,11 @@
 					user.put_in_hands(result)
 				else
 					result.forceMove(user.drop_location())
-				to_chat(user, span_notice("[TR.name] constructed."))
+				to_chat(user, span_notice("[TR.name] создано."))
 				user.investigate_log("[key_name(user)] crafted [TR.name]", INVESTIGATE_CRAFTING)
 				TR.on_craft_completion(user, result)
 			else
-				to_chat(user, span_warning("Construction failed[result]"))
+				to_chat(user, span_warning("Создание провалено[result]"))
 			busy = FALSE
 		if("toggle_recipes")
 			display_craftable_only = !display_craftable_only
