@@ -137,7 +137,7 @@
 	if(!eyeobj.eye_initialized)
 		var/camera_location
 		var/turf/myturf = get_turf(src)
-		if(eyeobj.use_static != USE_STATIC_NONE)
+		if(eyeobj.use_static != FALSE)
 			if((!z_lock.len || (myturf.z in z_lock)) && GLOB.cameranet.checkTurfVis(myturf))
 				camera_location = myturf
 			else

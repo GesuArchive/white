@@ -143,6 +143,11 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	..()
 
 /obj/effect/statclick/ticket_list/Click()
+	if (!usr.client?.holder)
+		message_admins("[key_name_admin(usr)] non-holder clicked on a ticket list statclick! ([src])")
+		log_game("[key_name(usr)] non-holder clicked on a ticket list statclick! ([src])")
+		return
+
 	GLOB.ahelp_tickets.BrowseTickets(current_state)
 
 //called by admin topic
@@ -501,6 +506,11 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	return ..(ahelp_datum.name)
 
 /obj/effect/statclick/ahelp/Click()
+	if (!usr.client?.holder)
+		message_admins("[key_name_admin(usr)] non-holder clicked on an ahelp statclick! ([src])")
+		log_game("[key_name(usr)] non-holder clicked on an ahelp statclick! ([src])")
+		return
+
 	ahelp_datum.TicketPanel()
 
 /obj/effect/statclick/ahelp/Destroy()
