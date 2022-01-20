@@ -276,6 +276,7 @@
 	name = "map mask plane"
 	plane = MAP_MASK_PLANE
 	render_target = MAP_MASK_RENDER_TARGET
+	appearance_flags = NONE
 	render_relay_plane = null
 
 /atom/movable/screen/plane_master/radtext
