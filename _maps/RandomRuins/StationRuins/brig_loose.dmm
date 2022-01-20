@@ -3293,6 +3293,21 @@
 /obj/effect/landmark/start/field_medic,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
+"TR" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/machinery/porta_turret/armory,
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/security/armory)
 "Xp" = (
 /turf/open/floor/plasteel{
 	icon_state = "damaged4"
@@ -4873,7 +4888,7 @@ ab
 aR
 cl
 cL
-de
+TR
 dw
 dK
 fb
