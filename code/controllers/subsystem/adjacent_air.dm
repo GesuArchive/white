@@ -5,6 +5,7 @@ SUBSYSTEM_DEF(adjacent_air)
 	wait = 10
 	priority = FIRE_PRIORITY_ATMOS_ADJACENCY
 	var/list/queue = list()
+	var/list/disable_queue = list()
 
 /datum/controller/subsystem/adjacent_air/stat_entry(msg)
 #ifdef TESTING
@@ -20,6 +21,21 @@ SUBSYSTEM_DEF(adjacent_air)
 	return ..()
 
 /datum/controller/subsystem/adjacent_air/fire(resumed = FALSE, mc_check = TRUE)
+
+	var/list/disable_queue = src.disable_queue
+
+	while (length(disable_queue))
+		var/turf/terf = disable_queue[1]
+		var/arg = disable_queue[terf]
+		disable_queue.Cut(1,2)
+
+		terf.ImmediateDisableAdjacency(arg)
+
+		if(mc_check)
+			if(MC_TICK_CHECK)
+				return
+		else
+			CHECK_TICK
 
 	var/list/queue = src.queue
 

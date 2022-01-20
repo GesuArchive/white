@@ -69,6 +69,19 @@
 	src.atmos_adjacent_turfs = atmos_adjacent_turfs
 	__update_extools_adjacent_turfs()
 
+/turf/proc/ImmediateDisableAdjacency(disable_adjacent = TRUE)
+	if(disable_adjacent)
+		for(var/direction in GLOB.cardinals_multiz)
+			var/turf/T = get_step_multiz(src, direction)
+			if(!istype(T))
+				continue
+			if (T.atmos_adjacent_turfs)
+				T.atmos_adjacent_turfs -= src
+			UNSETEMPTY(T.atmos_adjacent_turfs)
+			T.__update_extools_adjacent_turfs()
+	LAZYCLEARLIST(atmos_adjacent_turfs)
+	__update_extools_adjacent_turfs()
+
 /turf/proc/__update_extools_adjacent_turfs()
 
 //returns a list of adjacent turfs that can share air with this one.
