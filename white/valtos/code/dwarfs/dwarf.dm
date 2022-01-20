@@ -24,7 +24,7 @@
 /datum/species/dwarf
 	name = "Dwarf"
 	id = "dwarf"
-	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, NO_UNDERWEAR, NOGUTS, NOKIDNEYS)
+	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, NO_UNDERWEAR)
 	mutant_bodyparts = list("mcolor" = "FFF", "wings" = "None")
 	use_skintones = 1
 	disliked_food = GROSS | RAW

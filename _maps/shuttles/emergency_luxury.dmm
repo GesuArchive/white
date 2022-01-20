@@ -922,18 +922,6 @@
 /obj/effect/spawner/structure/window/shuttle,
 /turf/open/floor/plating,
 /area/shuttle/escape/luxury)
-"dc" = (
-/obj/structure/chair/comfy/shuttle,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/structure/window{
-	dir = 1
-	},
-/obj/item/food/poo/cooked,
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/shuttle/escape/luxury)
 "hl" = (
 /obj/structure/table/wood/fancy/blue,
 /obj/item/storage/fancy/cigarettes/cigars/havana{
@@ -1186,7 +1174,7 @@ bO
 bJ
 Mx
 bO
-dc
+SU
 cx
 bC
 ab
