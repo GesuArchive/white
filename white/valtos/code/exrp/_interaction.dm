@@ -2,18 +2,9 @@ GLOBAL_LIST_EMPTY(interactions)
 
 /proc/make_interactions(interaction)
 	if(!GLOB.interactions.len)
-		for(var/itype in typesof(/datum/interaction)-/datum/interaction)
+		for(var/itype in subtypesof(/datum/interaction))
 			var/datum/interaction/I = new itype()
 			GLOB.interactions[I.command] = I
-
-/mob/proc/list_interaction_attributes()
-	var/dat = ""
-	if(ishuman(src))
-		dat += "...имеет руки."
-	if(dat != "")
-		dat += "<br>"
-	dat += "...имеет рот, который [mouth_is_free() ? "не прикрыт" : "прикрыт"]."
-	return dat
 
 /datum/interaction
 	var/command = "interact"
@@ -23,34 +14,30 @@ GLOBAL_LIST_EMPTY(interactions)
 	var/write_log_user = "tested"
 	var/write_log_target = "was tested by"
 
-	var/interaction_sound = null
-	var/interaction_sound_age_pitch = 1
-
 	var/max_distance = 1
-	var/require_user_mouth
-	var/require_user_hands
-	var/require_target_mouth
-	var/require_target_hands
-	var/needs_physical_contact
+	var/require_user_mouth = FALSE
+	var/require_user_hands = FALSE
+	var/require_target_mouth = FALSE
+	var/needs_physical_contact = FALSE
 
 	var/cooldaun = 0
 
-	var/user_not_tired
-	var/target_not_tired
+	var/user_not_tired = FALSE
+	var/target_not_tired = FALSE
 
-	var/require_user_naked
-	var/require_target_naked
+	var/require_user_naked = FALSE
+	var/require_target_naked = FALSE
 
-	var/require_user_dancer
-	var/require_user_dancor
-	var/require_user_danceress
+	var/require_user_dancer = FALSE
+	var/require_user_dancor = FALSE
+	var/require_user_danceress = FALSE
 
-	var/require_target_dancer
-	var/require_target_dancor
-	var/require_target_danceress
+	var/require_target_dancer = FALSE
+	var/require_target_dancor = FALSE
+	var/require_target_danceress = FALSE
 
-	var/user_dancing_cost
-	var/target_dancing_cost
+	var/user_dancing_cost = 1
+	var/target_dancing_cost = 1
 
 /datum/interaction/proc/evaluate_user(mob/user, silent = TRUE)
 	if(require_user_mouth && !user.mouth_is_free())
@@ -84,7 +71,7 @@ GLOBAL_LIST_EMPTY(interactions)
 		if(!silent)
 			to_chat(user, "<span class = 'warning'>Рот <b>[target.name]</b> прикрыт.</span>")
 		return FALSE
-	if(require_target_hands && !ishuman(target))
+	if(!ishuman(target))
 		if(!silent)
 			to_chat(user, "<span class = 'warning'>У <b>[target.name]</b> нет рук.</span>")
 		return FALSE
@@ -126,9 +113,9 @@ GLOBAL_LIST_EMPTY(interactions)
 	if(needs_physical_contact && !(user.Adjacent(target) && target.Adjacent(user)))
 		to_chat(user, span_warning("Не могу добраться до <b>[target.name]</b>."))
 		return
-	if(!evaluate_user(user, silent=0))
+	if(!evaluate_user(user, silent = FALSE))
 		return
-	if(!evaluate_target(user, target, silent=0))
+	if(!evaluate_target(user, target, silent = FALSE))
 		return
 	if(user.stat != CONSCIOUS)
 		return
