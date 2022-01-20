@@ -1,5 +1,6 @@
 /// Projects a shuttle with visual juice while it docks/launches with vis_contents
 /obj/effect/abstract/shuttle_projector
+	plane = LOWER_SHUTTLE_MOVEMENT_PLANE
 	appearance_flags = KEEP_TOGETHER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	icon = 'icons/effects/alphacolors.dmi'
