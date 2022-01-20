@@ -3,23 +3,23 @@
 	description = "Шлёпнуть по заднице."
 	simple_message = "USER шлёпает TARGET по заднице!"
 	simple_style = "danger"
-	interaction_sound = 'white/valtos/sounds/exrp/interactions/slap.ogg'
-	needs_physical_contact = 1
-	max_distance = 1
+	needs_physical_contact = TRUE
 	write_log_user = "ass-slapped"
 	write_log_target = "was ass-slapped by"
+
+/datum/interaction/dancero/display_interaction(var/mob/living/user, var/mob/living/target)
+	. = ..()
+	playsound(get_turf(src), 'white/valtos/sounds/exrp/interactions/slap.ogg', 50, 1, -1)
 
 /datum/interaction/dancero
 	command = "dancero"
 	description = "Отполировать пельмешку."
-	require_user_mouth = 1
-	require_target_danceress = 1
+	require_user_mouth = TRUE
+	require_target_danceress = TRUE
 	write_log_user = "gave head to"
 	write_log_target = "was given head by"
-	interaction_sound = null
-	user_not_tired = 1
-	require_target_naked = 1
-	max_distance = 1
+	user_not_tired = TRUE
+	require_target_naked = TRUE
 	write_log_user = "dancered"
 	write_log_target = "was dancered by"
 
@@ -30,23 +30,21 @@
 /datum/interaction/dancero/dancejob
 	command = "dancejob"
 	description = "Отполировать огурец."
-	require_target_danceress = 0
-	require_target_dancer = 1
-	target_not_tired = 1
+	require_target_dancer = TRUE
+	target_not_tired = TRUE
 	write_log_user = "dancejobed"
 	write_log_target = "was dancejobed by"
 
 /datum/interaction/dance
 	command = "dance"
 	description = "Раскромсать вареник."
-	require_user_dancer = 1
-	require_target_danceress = 1
+	require_user_dancer = TRUE
+	require_target_danceress = TRUE
 	write_log_user = "danced"
 	write_log_target = "was danced by"
-	interaction_sound = null
-	user_not_tired = 1
-	require_user_naked = 1
-	require_target_naked = 1
+	user_not_tired = TRUE
+	require_user_naked = TRUE
+	require_target_naked = TRUE
 	max_distance = 0
 	write_log_user = "danced"
 	write_log_target = "was danced by"
@@ -58,9 +56,8 @@
 /datum/interaction/dance/dancor
 	command = "danceass"
 	description = "Пробить шоколадницу."
-	require_target_danceress = 0
-	require_target_dancor = 1
-	user_not_tired = 1
+	require_target_dancor = TRUE
+	user_not_tired = TRUE
 	write_log_user = "ass-danced"
 	write_log_target = "was ass-danced by"
 
@@ -72,12 +69,10 @@
 /datum/interaction/dancering
 	command = "dancering"
 	description = "Засунуть сигарету в пепельницу."
-	require_user_hands = 1
-	require_target_danceress = 1
-	interaction_sound = null
-	user_not_tired = 1
-	require_target_naked = 1
-	max_distance = 1
+	require_user_hands = TRUE
+	require_target_danceress = TRUE
+	user_not_tired = TRUE
+	require_target_naked = TRUE
 	write_log_user = "dancered"
 	write_log_target = "was dancered by"
 
@@ -88,12 +83,10 @@
 /datum/interaction/fingerdance
 	command = "fingerdance"
 	description = "Почесать шоколадный глаз."
-	interaction_sound = null
-	require_user_hands = 1
-	require_target_dancor = 1
-	user_not_tired = 1
-	require_target_naked = 1
-	max_distance = 1
+	require_user_hands = TRUE
+	require_target_dancor = TRUE
+	user_not_tired = TRUE
+	require_target_naked = TRUE
 	write_log_user = "fingerdanced"
 	write_log_target = "was fingerdanced by"
 
@@ -105,10 +98,9 @@
 /datum/interaction/facedance
 	command = "facedance"
 	description = "Проверить глубину проруби."
-	interaction_sound = null
-	require_target_mouth = 1
-	user_not_tired = 1
-	require_user_naked = 1
+	require_target_mouth = TRUE
+	user_not_tired = TRUE
+	require_user_naked = TRUE
 	max_distance = 0
 	write_log_user = "face-danced"
 	write_log_target = "was face-danced by"
@@ -120,11 +112,10 @@
 /datum/interaction/throatdance
 	command = "throatdance"
 	description = "Утопить муму в проруби."
-	interaction_sound = null
-	require_user_dancer = 1
-	require_target_mouth = 1
-	user_not_tired = 1
-	require_user_naked = 1
+	require_user_dancer = TRUE
+	require_target_mouth = TRUE
+	user_not_tired = TRUE
+	require_user_naked = TRUE
 	max_distance = 0
 	write_log_user = "throat-danced"
 	write_log_target = "was throat-danced by"
@@ -136,12 +127,10 @@
 /datum/interaction/handdance
 	command = "handdance"
 	description = "Полировать ствол."
-	interaction_sound = null
-	require_user_hands = 1
-	require_target_dancer = 1
-	target_not_tired = 1
-	require_target_naked = 1
-	max_distance = 1
+	require_user_hands = TRUE
+	require_target_dancer = TRUE
+	target_not_tired = TRUE
+	require_target_naked = TRUE
 	write_log_user = "danced-off"
 	write_log_target = "was danced-off by"
 
@@ -152,12 +141,11 @@
 /datum/interaction/breastdance
 	command = "breastdance"
 	description = "Проскользить между двух горок."
-	interaction_sound = null
-	require_user_dancer = 1
-	user_not_tired = 1
-	require_user_naked = 1
-	require_target_naked = 1
-	require_target_danceress = 1
+	require_user_dancer = TRUE
+	user_not_tired = TRUE
+	require_user_naked = TRUE
+	require_target_naked = TRUE
+	require_target_danceress = TRUE
 	max_distance = 0
 	write_log_user = "breast-danced"
 	write_log_target = "was breast-danced by"
@@ -169,13 +157,12 @@
 /datum/interaction/mount
 	command = "mount"
 	description = "Покататься на карусели."
-	interaction_sound = null
-	require_user_danceress = 1
-	require_target_dancer = 1
-	user_not_tired = 1
-	target_not_tired = 1
-	require_user_naked = 1
-	require_target_naked = 1
+	require_user_danceress = TRUE
+	require_target_dancer = TRUE
+	user_not_tired = TRUE
+	target_not_tired = TRUE
+	require_user_naked = TRUE
+	require_target_naked = TRUE
 	max_distance = 0
 	write_log_user = "rode"
 	write_log_target = "was rode by"
@@ -187,14 +174,12 @@
 /datum/interaction/assdance
 	command = "assdance"
 	description = "Присесть на выступ."
-	interaction_sound = null
-	require_user_danceress = 0
-	require_user_dancor = 1
-	require_target_dancer = 1
-	user_not_tired = 1
-	target_not_tired = 1
-	require_user_naked = 1
-	require_target_naked = 1
+	require_user_dancor = TRUE
+	require_target_dancer = TRUE
+	user_not_tired = TRUE
+	target_not_tired = TRUE
+	require_user_naked = TRUE
+	require_target_naked = TRUE
 	max_distance = 0
 	write_log_user = "assdance"
 	write_log_target = "was assdance by"
@@ -206,11 +191,10 @@
 /datum/interaction/rimdance
 	command = "rimdance"
 	description = "Скушать шоколад."
-	interaction_sound = null
-	require_user_mouth = 1
-	require_target_dancor = 1
-	user_not_tired = 1
-	require_target_naked = 1
+	require_user_mouth = TRUE
+	require_target_dancor = TRUE
+	user_not_tired = TRUE
+	require_target_naked = TRUE
 	max_distance = 0
 	write_log_user = "rimdanced"
 	write_log_target = "was rimdanced by"
@@ -222,11 +206,10 @@
 /datum/interaction/mountdance
 	command = "mountdance"
 	description = "Промариновать лимончик."
-	interaction_sound = null
-	require_target_mouth = 1
-	require_user_dancor = 1
-	user_not_tired = 1
-	require_user_naked = 1
+	require_target_mouth = TRUE
+	require_user_dancor = TRUE
+	user_not_tired = TRUE
+	require_user_naked = TRUE
 	max_distance = 0
 	write_log_user = "made-them-rim"
 	write_log_target = "was made-to-rim by"
@@ -238,8 +221,7 @@
 /datum/interaction/danceface
 	command = "danceface"
 	description = "Дать понюхать ноги."
-	interaction_sound = null
-	require_target_mouth = 1
+	require_target_mouth = TRUE
 	max_distance = 0
 	write_log_user = "feet-faced"
 	write_log_target = "had feet grinded against their face by"
@@ -251,8 +233,7 @@
 /datum/interaction/dancemouth
 	command = "dancemouth"
 	description = "Угостить ногами."
-	interaction_sound = null
-	require_target_mouth = 1
+	require_target_mouth = TRUE
 	max_distance = 0
 	write_log_user = "feet-mouthed"
 	write_log_target = "had feet grinding against their tongue by"
@@ -264,10 +245,9 @@
 /datum/interaction/eggs
 	command = "eggs"
 	description = "Накормить яишницей."
-	interaction_sound = null
-	require_user_naked = 1
-	require_user_dancer = 1
-	require_target_mouth = 1
+	require_user_naked = TRUE
+	require_user_dancer = TRUE
+	require_target_mouth = TRUE
 	max_distance = 0
 	write_log_user = "make-them-eat-some-eggs"
 	write_log_target = "was made to eat eggs by"
@@ -279,10 +259,9 @@
 /datum/interaction/thighs
 	command = "thighs"
 	description = "Взять в захват ногами."
-	interaction_sound = null
 	max_distance = 0
-	require_user_naked = 1
-	require_target_mouth = 1
+	require_user_naked = TRUE
+	require_target_mouth = TRUE
 	write_log_user = "thigh-trapped"
 	write_log_target = "was smothered by"
 

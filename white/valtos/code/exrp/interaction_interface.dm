@@ -17,9 +17,6 @@
 
 	var/dat = "<B><HR><FONT size=3>Взаимодействие с [partner].</FONT></B><HR>"
 
-	dat += "Моё тело...<br>[list_interaction_attributes()]<hr>"
-	dat += "Цель...<br>[partner.list_interaction_attributes()]<hr>"
-
 	make_interactions()
 	for(var/interaction_key in GLOB.interactions)
 		var/datum/interaction/I = GLOB.interactions[interaction_key]

@@ -9,29 +9,10 @@
 	var/last_dancer
 	var/last_dancing
 
-/mob/list_interaction_attributes()
-	var/dat = ..()
-	if(dancing_period)
-		dat += "<br>...не голоден."
-	if(is_literally_ready_to_dance())
-		dat += "<br>...голый."
-		if(gender == FEMALE)
-			dat += "<br>...имеет горы."
-			dat += "<br>...имеет пельмени."
-		if(gender == MALE)
-			dat += "<br>...имеет стан-батон."
-		dat += "<br>...имеет шоколад."
-	else
-		dat += "<br>...в одежде."
-	return dat
-
 /mob/living/Life()
 	if(dancing_period)
 		dancing_period--
 	return ..()
-
-/datum/interaction/get_action_link_for(var/mob/user, var/mob/target)
-	return "<font color='#FF0000'><b>ТАНЦЫ:</b></font> [..()]"
 
 #define DANCE_TARGET_MOUTH "mouth"
 #define DANCE_TARGET_THROAT "throat"
