@@ -63,13 +63,13 @@
 		if(src.client.prefs.muted & MUTE_DEADCHAT)
 			to_chat(src, span_danger("Не хочу говорить."))
 			return
-
+/*
 		if(SSlag_switch.measures[SLOWMODE_SAY] && !HAS_TRAIT(src, TRAIT_BYPASS_MEASURES) && src == usr)
 			if(!COOLDOWN_FINISHED(client, say_slowmode))
 				to_chat(src, span_warning("Сообщение не было отправлено из-за ограничений. Подождите [SSlag_switch.slowmode_cooldown/10] секунд.\n\"[message]\""))
 				return
 			COOLDOWN_START(client, say_slowmode, SSlag_switch.slowmode_cooldown)
-
+*/
 		if(src.client.handle_spam_prevention(message,MUTE_DEADCHAT))
 			return
 
