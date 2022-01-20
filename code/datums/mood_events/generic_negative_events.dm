@@ -74,7 +74,7 @@
 /datum/mood_event/shameful_suicide //suicide_acts that return SHAME, like sord
 	description = "<span class='boldwarning'>Даже не могу покончить со всем этим!</span>\n"
 	mood_change = -30
-	timeout = 1 MINUTE
+	timeout = 1 MINUTES
 
 /datum/mood_event/dismembered
 	description = "<span class='boldwarning'>АА-А! МНЕ НУЖНА БЫЛА ЭТА КОНЕЧНОСТЬ!</span>\n"
@@ -167,7 +167,7 @@
 /datum/mood_event/painful_medicine
 	description = "<span class='warning'>Медицина может быть и хороша для меня, но сейчас она адово жалит!</span>\n"
 	mood_change = -10
-	timeout = 1 MINUTE
+	timeout = 1 MINUTES
 
 /datum/mood_event/spooked
 	description = "<span class='warning'>Дребезжание тех костей... Я не могу это забыть.</span>\n"
