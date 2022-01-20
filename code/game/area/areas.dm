@@ -191,7 +191,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 
 /area/update_overlays()
 	. = ..()
-	. += mutable_appearance(icon, "area_plane_mask", layer, MAP_MASK_PLANE, alpha = 255, appearance_flags = NONE)
+	. += mutable_appearance(icon, "area_plane_mask", layer, MAP_MASK_PLANE, appearance_flags = NONE)
 
 /**
  * Sets machine power levels in the area
