@@ -19,7 +19,8 @@
 	inhand_icon_state = "gy_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	fitted = FEMALE_UNIFORM_TOP
+	fitted = NO_FEMALE_UNIFORM
+	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/engineering/atmospheric_technician
 	desc = "Это комбинезон, который носят технические специалисты по атмосфере."
@@ -36,7 +37,8 @@
 	inhand_icon_state = "atmos_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	fitted = FEMALE_UNIFORM_TOP
+	fitted = NO_FEMALE_UNIFORM
+	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/engineering/engineer
 	desc = "Это оранжевый комбинезон с высокой видимостью, который носят инженеры. Он имеет незначительную радиационную защиту."
@@ -61,5 +63,6 @@
 	inhand_icon_state = "engi_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	fitted = FEMALE_UNIFORM_TOP
+	fitted = NO_FEMALE_UNIFORM
+	can_adjust = FALSE
 

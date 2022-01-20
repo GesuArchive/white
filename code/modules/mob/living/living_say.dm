@@ -148,13 +148,13 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		if(DEAD)
 			say_dead(original_message)
 			return
-
+/*
 	if(client && SSlag_switch.measures[SLOWMODE_SAY] && !HAS_TRAIT(src, TRAIT_BYPASS_MEASURES) && !forced && src == usr)
 		if(!COOLDOWN_FINISHED(client, say_slowmode))
 			to_chat(src, span_warning("Сообщение не было отправлено из-за ограничений. Подождите [SSlag_switch.slowmode_cooldown/10] секунд перед отправкой нового.\n\"[message]\""))
 			return
 		COOLDOWN_START(client, say_slowmode, SSlag_switch.slowmode_cooldown)
-
+*/
 	if(!can_speak_basic(original_message, ignore_spam, forced))
 		return
 
