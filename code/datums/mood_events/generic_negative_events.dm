@@ -286,7 +286,7 @@
 /datum/mood_event/tail_lost
 	description = "<span class='boldwarning'>А-А-А-А! МОЙ ХВОСТ! ЗА ЧТО?!!</span>\n"
 	mood_change = -50
-	timeout = 2 MINUTES
+	timeout = 2 HOURS
 
 /datum/mood_event/tail_balance_lost
 	description = "<span class='warning'>Чувствую, что не могу держать баланс без своего хвостика...</span>\n"
