@@ -89,16 +89,6 @@
 	category = list("Снаряжение")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
-/datum/design/bright_helmet
-	name = "Workplace-Ready Firefighter Helmet"
-	desc = "By applying state of the art lighting technology to a fire helmet with industry standard photo-chemical hardening methods, this hardhat will protect you from robust workplace hazards."
-	id = "bright_helmet"
-	build_type = PROTOLATHE
-	materials = list(/datum/material/iron = 4000, /datum/material/glass = 1000, /datum/material/plastic = 3000, /datum/material/silver = 500)
-	build_path = /obj/item/clothing/head/hardhat/red/upgraded
-	category = list("Снаряжение")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_CARGO
-
 /datum/design/mauna_mug
 	name = "Mauna Mug"
 	desc = "This awesome mug will ensure your coffee never stays cold!"
