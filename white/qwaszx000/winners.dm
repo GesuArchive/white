@@ -136,7 +136,7 @@
 	if(!(user.name in coomers))
 		if(isliving(user))
 			var/mob/living/L = user
-			L.cum(null, null)
+			L.end_dance(null, null)
 			coomers += user.name
 
 /obj/structure/sign/plaques/robust/bronze

@@ -1,17 +1,6 @@
-/**********************************
-*******Interactions code by HONKERTRON feat TestUnit********
-**Contains a lot ammount of ERP and MEHANOYEBLYA**
-**CREDIT TO ATMTA STATION FOR MOST OF THIS CODE, I ONLY MADE IT WORK IN /vg/ - Matt
-** Rewritten 30/08/16 by Zuhayr, sry if I removed anything important.
-**I removed ERP and replaced it with handholding. Nothing of worth was lost. - Vic
-**Fuck you, Vic. ERP is back. - TT
-***********************************/
-
-
-// Rectum? Damn near killed 'em.
 GLOBAL_LIST_EMPTY(interactions)
 
-/proc/make_interactions(var/interaction)
+/proc/make_interactions(interaction)
 	if(!GLOB.interactions.len)
 		for(var/itype in typesof(/datum/interaction)-/datum/interaction)
 			var/datum/interaction/I = new itype()
@@ -19,25 +8,23 @@ GLOBAL_LIST_EMPTY(interactions)
 
 /mob/proc/list_interaction_attributes()
 	var/dat = ""
-	if(has_hands())
+	if(ishuman(src))
 		dat += "...имеет руки."
-	if(has_mouth())
-		if(dat != "")
-			dat += "<br>"
-		dat += "...имеет рот, который [mouth_is_free() ? "не прикрыт" : "прикрыт"]."
+	if(dat != "")
+		dat += "<br>"
+	dat += "...имеет рот, который [mouth_is_free() ? "не прикрыт" : "прикрыт"]."
 	return dat
 
 /datum/interaction
 	var/command = "interact"
 	var/description = "Interact with them."
-	var/simple_message
-	var/simple_style = "notice"
-	var/write_log_user
-	var/write_log_target
-	var/whitelisted = TRUE
+	var/simple_message = null
+	var/simple_style = "danger"
+	var/write_log_user = "tested"
+	var/write_log_target = "was tested by"
 
-	var/interaction_sound
-	var/interaction_sound_age_pitch
+	var/interaction_sound = null
+	var/interaction_sound_age_pitch = 1
 
 	var/max_distance = 1
 	var/require_user_mouth
@@ -48,46 +35,89 @@ GLOBAL_LIST_EMPTY(interactions)
 
 	var/cooldaun = 0
 
-/datum/interaction/proc/evaluate_user(var/mob/user, var/silent=1)
+	var/user_not_tired
+	var/target_not_tired
 
-	if(require_user_mouth)
-		if(!user.has_mouth())
-			if(!silent) to_chat(user, "<span class = 'warning'>У меня нет рта!.</span>")
-			return 0
-		if(!user.mouth_is_free())
-			if(!silent) to_chat(user, "<span class = 'warning'>Мой рот прикрыт.</span>")
-			return 0
-	if(require_user_hands && !user.has_hands())
-		if(!silent) to_chat(user, "<span class = 'warning'>У меня нет рук.</span>")
-		return 0
-	return 1
+	var/require_user_naked
+	var/require_target_naked
 
-/datum/interaction/proc/evaluate_target(var/mob/user, var/mob/target, var/silent=1)
+	var/require_user_dancer
+	var/require_user_dancor
+	var/require_user_danceress
 
-	if(require_target_mouth)
-		if(!target.has_mouth())
-			if(!silent) to_chat(user, "<span class = 'warning'>У <b>[target.name]</b> нет рта.</span>")
-			return 0
-		if(!target.mouth_is_free())
-			if(!silent) to_chat(user, "<span class = 'warning'>Рот <b>[target.name]</b> прикрыт.</span>")
-			return 0
-	if(require_target_hands && !target.has_hands())
-		if(!silent) to_chat(user, "<span class = 'warning'>У <b>[target.name]</b> нет рук.</span>")
-		return 0
-	return 1
+	var/require_target_dancer
+	var/require_target_dancor
+	var/require_target_danceress
 
-/datum/interaction/proc/get_action_link_for(var/mob/user, var/mob/target)
+	var/user_dancing_cost
+	var/target_dancing_cost
+
+/datum/interaction/proc/evaluate_user(mob/user, silent = TRUE)
+	if(require_user_mouth && !user.mouth_is_free())
+		if(!silent)
+			to_chat(user, "<span class = 'warning'>Мой рот прикрыт.</span>")
+		return FALSE
+	if(require_user_hands && !ishuman(user))
+		if(!silent)
+			to_chat(user, "<span class = 'warning'>У меня нет рук.</span>")
+		return FALSE
+	if(user_not_tired && user.dancing_period)
+		if(!silent)
+			to_chat(user, span_warning("Всё еще не хочу после прошлого раза."))
+		return FALSE
+	if(require_user_naked && !user.is_literally_ready_to_dance())
+		if(!silent)
+			to_chat(user, "<span class = 'warning'>Вам мешает одежда.</span>")
+		return FALSE
+	if(require_user_dancer && user.gender == FEMALE)
+		if(!silent)
+			to_chat(user, "<span class = 'warning'>У вас нет огурца.</span>")
+		return FALSE
+	if(require_user_danceress && user.gender == MALE)
+		if(!silent)
+			to_chat(user, "<span class = 'warning'>У вас нет пельмешка.</span>")
+		return FALSE
+	return TRUE
+
+/datum/interaction/proc/evaluate_target(mob/user, mob/target, silent = TRUE)
+	if(require_target_mouth && !target.mouth_is_free())
+		if(!silent)
+			to_chat(user, "<span class = 'warning'>Рот <b>[target.name]</b> прикрыт.</span>")
+		return FALSE
+	if(require_target_hands && !ishuman(target))
+		if(!silent)
+			to_chat(user, "<span class = 'warning'>У <b>[target.name]</b> нет рук.</span>")
+		return FALSE
+	if(target_not_tired && target.dancing_period)
+		if(!silent)
+			to_chat(user, span_warning("Вашей цели не хочется."))
+		return FALSE
+	if(require_target_naked && !target.is_literally_ready_to_dance())
+		if(!silent)
+			to_chat(user, "<span class = 'warning'>Цели мешает одежда.</span>")
+		return FALSE
+	if(require_target_dancer && target.gender == FEMALE)
+		if(!silent)
+			to_chat(user, "<span class = 'warning'>У цели нет огурца.</span>")
+		return FALSE
+	if(require_target_danceress && target.gender == MALE)
+		if(!silent)
+			to_chat(user, "<span class = 'warning'>У цели нет пельмешка.</span>")
+		return FALSE
+	return TRUE
+
+/datum/interaction/proc/get_action_link_for(mob/user, mob/target)
 	return "<a href='?src=\ref[src];action=1;action_user=\ref[user];action_target=\ref[target]'>[description]</a><br>"
 
 /datum/interaction/Topic(href, href_list)
 	if(..())
-		return 1
+		return TRUE
 	if(href_list["action"])
 		do_action(locate(href_list["action_user"]), locate(href_list["action_target"]))
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
-/datum/interaction/proc/do_action(var/mob/user, var/mob/target)
+/datum/interaction/proc/do_action(mob/user, mob/target)
 	if(cooldaun)
 		return
 	if(get_dist(user, target) > max_distance)
@@ -102,7 +132,7 @@ GLOBAL_LIST_EMPTY(interactions)
 		return
 	if(user.stat != CONSCIOUS)
 		return
-	if(whitelisted && (!check_rights_for(user.client, R_ADMIN) && !check_whitelist_exrp(user.ckey)))
+	if(!check_rights_for(user.client, R_ADMIN) && !check_whitelist_exrp(user.ckey))
 		return
 
 	cooldaun = 3
@@ -113,23 +143,20 @@ GLOBAL_LIST_EMPTY(interactions)
 
 	if(write_log_user)
 		log_exrp("([key_name(src)]) [user.real_name] [write_log_user] [target]")
-		SSblackbox.record_feedback("tally", "lewd_actions", 1, write_log_user)
+		SSblackbox.record_feedback("tally", "dance_actions", 1, write_log_user)
 	if(write_log_target)
 		log_exrp("([key_name(src)]) [user.real_name] [write_log_target] [target]")
-		// no bb, we recorded it early
 
-/datum/interaction/proc/display_interaction(var/mob/user, var/mob/target)
+/datum/interaction/proc/display_interaction(mob/user, mob/target)
 	if(simple_message)
 		var/use_message = replacetext(simple_message, "USER", "<b>[user]</b>")
 		use_message = replacetext(use_message, "TARGET", "<b>[target]</b>")
 		user.visible_message("<span class='[simple_style] purple'>[capitalize(use_message)]</span>")
 
-/datum/interaction/proc/post_interaction(var/mob/user, var/mob/target)
-	spawn (5)
+/datum/interaction/proc/post_interaction(mob/user, mob/target)
+	spawn(1)
 		cooldaun = 0
-	if(interaction_sound)
-		if(interaction_sound_age_pitch)
-			playsound(get_turf(user), interaction_sound, 50, 1, -1)
-		else
-			playsound(get_turf(user), interaction_sound, 50, 1, -1)
-	return
+	if(user_dancing_cost)
+		user.dancing_period += user_dancing_cost
+	if(target_dancing_cost)
+		target.dancing_period += target_dancing_cost

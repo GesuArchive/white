@@ -1,14 +1,7 @@
-/mob/var/lastmoan
-
 /mob/proc/moan()
 
-	if(!(prob(lust / lust_tolerance * 65)))
+	if(!(prob(dancing / dancing_tolerance * 65)))
 		return
-
-	var/moan = rand(1, 7)
-	if (moan == lastmoan)
-		moan--
-	lastmoan = moan
 
 	visible_message(span_purple("<b>[src]</b> [pick("стонет", "стонет в наслаждении")]."))
 
@@ -21,63 +14,63 @@
 	if (gender == FEMALE && temp_age < 30)
 		playsound(get_turf(src), "white/valtos/sounds/love/shot[rand(1, 8)].ogg", 90, 1, 0)
 	else
-		playsound(get_turf(src), "white/valtos/sounds/exrp/interactions/moan_[gender == FEMALE ? "f" : "m"][moan].ogg", 70, 1, 0)
+		playsound(get_turf(src), "white/valtos/sounds/exrp/interactions/moan_[gender == FEMALE ? "f" : "m"][rand(1, 7)].ogg", 70, 1, 0)
 
-/mob/proc/cum(var/mob/living/partner, var/target_orifice)
+/mob/proc/end_dance(mob/living/partner, target_dancise)
 
 	var/message
-	if(has_penis())
+	if(gender == MALE)
 
 		if(!istype(partner))
-			target_orifice = null
+			target_dancise = null
 
-		switch(target_orifice)
-			if(CUM_TARGET_MOUTH)
-				if(partner.has_mouth() && partner.mouth_is_free())
+		switch(target_dancise)
+			if(DANCE_TARGET_MOUTH)
+				if(partner.mouth_is_free())
 					message = pick("сметанит прямо в рот [partner]","спустил на язычок [partner]","брызгает сметанкой в рот [partner]","заполняет рот [partner] сметанкой","обильно сметанит в рот [partner], так, что стекает изо рта","выпускает в ротик [partner] порцию густого молочка")
 					partner.reagents.add_reagent("cum", 10)
 				else
 					message = "сметанит на лицо [partner]"
-			if(CUM_TARGET_THROAT)
-				if(partner.has_mouth() && partner.mouth_is_free())
+			if(DANCE_TARGET_THROAT)
+				if(partner.mouth_is_free())
 					message = "засунул свой стан-батон как можно глубже в глотку [partner] и сметанит"
 					partner.reagents.add_reagent("cum", 15)
 				else
 					message = "сметанит на лицо [partner]"
-			if(CUM_TARGET_VAGINA)
-				if(partner.is_nude() && partner.has_vagina())
+			if(DANCE_TARGET_DANCERESS)
+				if(partner.is_literally_ready_to_dance() && partner.gender == FEMALE)
 					message = "сметанит в пельмешек [partner]"
 				else
 					message = "сметанит на животик [partner]"
-			if(CUM_TARGET_ANUS)
-				if(partner.is_nude() && partner.has_anus())
+			if(DANCE_TARGET_DANCOR)
+				if(partner.is_literally_ready_to_dance())
 					message = "сметанит в шоколадницу [partner]"
 				else
 					message = "сметанит на спинку [partner]"
-			if(CUM_TARGET_HAND)
-				if(partner.has_hand())
+			if(DANCE_TARGET_HAND)
+				if(ishuman(partner))
 					message = "сметанит в руку [partner]"
 				else
 					message = "сметанит на [partner]"
-			if(CUM_TARGET_BREASTS)
-				if(partner.is_nude() && partner.has_vagina())
+			if(DANCE_TARGET_CHEST)
+				if(partner.is_literally_ready_to_dance() && partner.gender == FEMALE)
 					message = "сметанит на грудь [partner]"
 				else
 					message = "сметанит на шею и грудь [partner]"
-			if(NUTS_TO_FACE)
-				if(partner.has_mouth() && partner.mouth_is_free())
+			if(DANCE_TO_FACE)
+				if(partner.mouth_is_free())
 					message = "нещадно принуждает [partner] съесть яишницу с колбасой"
-			if(THIGH_SMOTHERING)
+			if(THIGH_DANCE)
 				message = "удерживает [partner] в очень крепком захвате не давая выбраться попутно смазывая лицо майонезиком"
 			else
 				message = "спустил на пол сметанку"
 
-		lust = 5
-		lust_tolerance += 50
+		dancing = 5
+		dancing_tolerance += 50
 
 	else
 		message = pick("прикрывает глаза и мелко дрожит", "дёргается в удовлетворении","замирает, закатив глаза","содрогается, а затем резко расслабляется","извивается в приступе сытости")
-		lust -= pick(50, 55, 80, 125)
+		dancing -= pick(50, 55, 80, 125)
 
 	if(gender == MALE)
 		if (prob(75))
@@ -105,264 +98,261 @@
 			var/obj/effect/decal/cleanable/cum/spew = new(floor, C.get_static_viruses())
 			spew.transfer_mob_blood_dna(src)
 
-	multiorgasms += 1
-	if(multiorgasms == 1)
+	multidances += 1
+	if(multidances == 1)
 		log_combat(partner, src, "came on")
 
-	if(multiorgasms > (sexual_potency/3))
-		refactory_period = 100 //sex cooldown
+	if(multidances > (dancing_potency/3))
+		dancing_period = 100 //sex cooldown
 		adjust_drugginess(35)
 	else
-		refactory_period = 100
+		dancing_period = 100
 		adjust_drugginess(12)
 
-/mob/var/last_partner
-/mob/var/last_orifice
+/mob/proc/is_fucking(mob/living/partner, dancise)
+	if(partner == last_dancer && dancise == last_dancing)
+		return TRUE
+	return FALSE
 
-/mob/proc/is_fucking(var/mob/living/partner, var/orifice)
-	if(partner == last_partner && orifice == last_orifice)
-		return 1
-	return 0
+/mob/proc/set_is_dancing(mob/living/partner, dancise)
+	last_dancer = partner
+	last_dancing = dancise
 
-/mob/proc/set_is_fucking(var/mob/living/partner, var/orifice)
-	last_partner = partner
-	last_orifice = orifice
+#define ACTOR_DANCER (1<<0)
+#define VICTIM_DANCER (1<<1)
 
-#define ACTOR_TARD (1<<0)
-#define VICTIM_TARD (1<<1)
-
-/mob/living/proc/do_sex(var/mob/living/partner, var/action_to_do) // собак ебать будете в другом билде
+/mob/living/proc/do_dance(mob/living/partner, action_to_do)
 
 	if(stat != CONSCIOUS) return
 
 	var/message = "пританцовывает"
-	var/lust_increase = 0
-	var/lust_which = ACTOR_TARD | VICTIM_TARD
-	var/c_target = null
-	var/stp
+	var/dancing_increase = 0
+	var/dancing_which = ACTOR_DANCER | VICTIM_DANCER
+	var/dancing_target = null
+	var/sound_to_play
 
 	switch(action_to_do)
-		if ("do_oral")
-			lust_increase = 10
-			c_target = CUM_TARGET_MOUTH
-			lust_which = VICTIM_TARD
-			stp = "white/valtos/sounds/exrp/interactions/bj[rand(1, 11)].ogg"
-			if(partner.is_fucking(src, CUM_TARGET_MOUTH))
-				if(prob(partner.sexual_potency))
+		if ("do_dancero")
+			dancing_increase = 10
+			dancing_target = DANCE_TARGET_MOUTH
+			dancing_which = VICTIM_DANCER
+			sound_to_play = "white/valtos/sounds/exrp/interactions/bj[rand(1, 11)].ogg"
+			if(partner.is_fucking(src, DANCE_TARGET_MOUTH))
+				if(prob(partner.dancing_potency))
 					message = "зарывается языком в пельмешек [partner]"
-					lust_increase += 5
+					dancing_increase += 5
 				else
-					if(partner.has_vagina())
+					if(partner.gender == FEMALE)
 						message = "лижет пельмешек [partner]"
-					else if(partner.has_penis())
+					else if(partner.gender == MALE)
 						message = "посасывает стан-батон [partner]"
 					else
 						message = "лижет стан-батон [partner]"
 			else
-				if(partner.has_vagina())
+				if(partner.gender == FEMALE)
 					message = "прижимается лицом к пельмешку [partner]"
-				else if(partner.has_penis())
+				else if(partner.gender == MALE)
 					message = "берёт стан-батон [partner] в свой ротик"
 				else
 					message = "принимается лизать стан-батон [partner]"
-				partner.set_is_fucking(src, CUM_TARGET_MOUTH)
+				partner.set_is_dancing(src, DANCE_TARGET_MOUTH)
 
-		if ("do_facefuck")
-			lust_increase = 10
-			c_target = CUM_TARGET_MOUTH
-			lust_which = ACTOR_TARD
-			stp = "white/valtos/sounds/exrp/interactions/oral[rand(1, 2)].ogg"
-			if(is_fucking(partner, CUM_TARGET_MOUTH))
-				if(has_vagina())
+		if ("do_facedance")
+			dancing_increase = 10
+			dancing_target = DANCE_TARGET_MOUTH
+			dancing_which = ACTOR_DANCER
+			sound_to_play = "white/valtos/sounds/exrp/interactions/oral[rand(1, 2)].ogg"
+			if(is_fucking(partner, DANCE_TARGET_MOUTH))
+				if(gender == FEMALE)
 					message = "елозит своим пельмешком по лицу [partner]"
-				else if(has_penis())
+				else if(gender == MALE)
 					message = pick("грубо исследует [partner] в рот","сильно прижимает голову [partner] к себе")
 			else
-				if(has_vagina())
+				if(gender == FEMALE)
 					message = "пихает [partner] лицом в свой пельмешек"
-				else if(has_penis())
-					if(is_fucking(partner, CUM_TARGET_THROAT))
+				else if(gender == MALE)
+					if(is_fucking(partner, DANCE_TARGET_THROAT))
 						message = "достал свой стан-батон из проруби [partner]"
 					else
 						message = "просовывает свой стан-батон еще глубже в прорубь [partner]"
 				else
 					message = "елозит пельмешком по лицу [partner]"
-				set_is_fucking(partner, CUM_TARGET_MOUTH)
+				set_is_dancing(partner, DANCE_TARGET_MOUTH)
 
-		if ("do_throatfuck")
-			lust_increase = 10
-			c_target = CUM_TARGET_MOUTH
-			lust_which = ACTOR_TARD
-			stp = "white/valtos/sounds/exrp/interactions/oral[rand(1, 2)].ogg"
-			if(is_fucking(partner, CUM_TARGET_THROAT))
+		if ("do_throatdance")
+			dancing_increase = 10
+			dancing_target = DANCE_TARGET_MOUTH
+			dancing_which = ACTOR_DANCER
+			sound_to_play = "white/valtos/sounds/exrp/interactions/oral[rand(1, 2)].ogg"
+			if(is_fucking(partner, DANCE_TARGET_THROAT))
 				message = pick(list("невероятно сильно ловит клёв в проруби [partner]", "топит карпика в проруби [partner]"))
 				if(rand(3) == 1) // 33%
 					partner.manual_emote("задыхается в захвате [src]")
 					if(iscarbon(partner))
 						partner.adjustOxyLoss(1)
-			else if(is_fucking(partner, CUM_TARGET_MOUTH))
+			else if(is_fucking(partner, DANCE_TARGET_MOUTH))
 				message = "суёт стан-батон глубже, заходя уже в прорубь [partner]"
 
 			else
 				message = "силой запихивает свой стан-батон в прорубь [partner]"
-				set_is_fucking(partner , CUM_TARGET_THROAT)
+				set_is_dancing(partner , DANCE_TARGET_THROAT)
 
-		if ("do_anal")
-			lust_increase = 10
-			c_target = CUM_TARGET_ANUS
-			stp = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
-			if(is_fucking(partner, CUM_TARGET_ANUS))
+		if ("do_dancor")
+			dancing_increase = 10
+			dancing_target = DANCE_TARGET_DANCOR
+			sound_to_play = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
+			if(is_fucking(partner, DANCE_TARGET_DANCOR))
 				message = pick("исследует [partner] в шоколадницу","нежно исследует пещеру [partner]","всаживает стан-батон в шоколадницу [partner] по самые гренки")
 			else
 				message = "безжалостно прорывает шоколадницу [partner]"
-				set_is_fucking(partner, CUM_TARGET_ANUS)
+				set_is_dancing(partner, DANCE_TARGET_DANCOR)
 
-		if ("do_vaginal")
-			lust_increase = 10
-			c_target = CUM_TARGET_VAGINA
-			stp = "white/valtos/sounds/exrp/interactions/champ[rand(1, 2)].ogg"
-			if(is_fucking(partner, CUM_TARGET_VAGINA))
+		if ("do_dance")
+			dancing_increase = 10
+			dancing_target = DANCE_TARGET_DANCERESS
+			sound_to_play = "white/valtos/sounds/exrp/interactions/champ[rand(1, 2)].ogg"
+			if(is_fucking(partner, DANCE_TARGET_DANCERESS))
 				message = "проникает в пельмешек [partner]"
 			else
 				message = "резким движением погружается внутрь [partner]"
-				set_is_fucking(partner, CUM_TARGET_VAGINA)
+				set_is_dancing(partner, DANCE_TARGET_DANCERESS)
 
 		if ("do_mount")
-			lust_increase = 10
-			c_target = CUM_TARGET_VAGINA
-			stp = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
-			if(partner.is_fucking(src, CUM_TARGET_VAGINA))
+			dancing_increase = 10
+			dancing_target = DANCE_TARGET_DANCERESS
+			sound_to_play = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
+			if(partner.is_fucking(src, DANCE_TARGET_DANCERESS))
 				message = "скачет на стан-батоне [partner]"
 			else
 				message = "насаживает свой пельмешек на стан-батон [partner]"
-				partner.set_is_fucking(src, CUM_TARGET_VAGINA)
+				partner.set_is_dancing(src, DANCE_TARGET_DANCERESS)
 
-		if ("do_mountass")
-			lust_increase = 10
-			c_target = CUM_TARGET_ANUS
-			stp = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
-			if(partner.is_fucking(src, CUM_TARGET_ANUS))
+		if ("do_assdance")
+			dancing_increase = 10
+			dancing_target = DANCE_TARGET_DANCOR
+			sound_to_play = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
+			if(partner.is_fucking(src, DANCE_TARGET_DANCOR))
 				message = "скачет на стан-батоне [partner]"
 			else
 				message = "опускает свой шоколадный завод на стан-батон [partner]"
-				partner.set_is_fucking(src, CUM_TARGET_ANUS)
+				partner.set_is_dancing(src, DANCE_TARGET_DANCOR)
 
-		if ("do_fingering")
-			lust_increase = 10
-			c_target = null
-			lust_which = VICTIM_TARD
-			stp = "white/valtos/sounds/exrp/interactions/champ_fingering.ogg"
+		if ("do_dancering")
+			dancing_increase = 10
+			dancing_target = null
+			dancing_which = VICTIM_DANCER
+			sound_to_play = "white/valtos/sounds/exrp/interactions/champ_fingering.ogg"
 			message = pick(list("анализирует пельмешек [partner]", "измеряет глубину пельмешка [partner]", "проверяет на прочность пельмешек [partner]"))
 
-		if ("do_fingerass")
-			lust_increase = 10
-			c_target = null
-			lust_which = VICTIM_TARD
-			stp = "white/valtos/sounds/exrp/interactions/champ_fingering.ogg"
+		if ("do_fingerdance")
+			dancing_increase = 10
+			dancing_target = null
+			dancing_which = VICTIM_DANCER
+			sound_to_play = "white/valtos/sounds/exrp/interactions/champ_fingering.ogg"
 			message = pick(list("анализирует шоколадницу [partner]", "измеряет глубину скважины [partner]", "проверяет на прочность задний привод [partner]"))
 
-		if ("do_rimjob")
-			lust_increase = 10
-			c_target = null
-			lust_which = VICTIM_TARD
-			stp = "white/valtos/sounds/exrp/interactions/champ_fingering.ogg"
+		if ("do_rimdance")
+			dancing_increase = 10
+			dancing_target = null
+			dancing_which = VICTIM_DANCER
+			sound_to_play = "white/valtos/sounds/exrp/interactions/champ_fingering.ogg"
 			message = "<b>[src]<b> вынюхивает след на заднем дворе [partner]"
 
-		if ("do_handjob")
-			lust_increase = 10
-			c_target = CUM_TARGET_HAND
-			lust_which = VICTIM_TARD
-			stp = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
-			if(partner.is_fucking(src, CUM_TARGET_HAND))
+		if ("do_handdance")
+			dancing_increase = 10
+			dancing_target = DANCE_TARGET_HAND
+			dancing_which = VICTIM_DANCER
+			sound_to_play = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
+			if(partner.is_fucking(src, DANCE_TARGET_HAND))
 				message = pick(list("шакалит [partner]", "работает рукой с головкой стан-батона [partner]", "включает и выключает стан-батон [partner] быстрее"))
 			else
 				message = "нежно обхватывает стан-батон [partner] рукой"
-				partner.set_is_fucking(src, CUM_TARGET_HAND)
+				partner.set_is_dancing(src, DANCE_TARGET_HAND)
 
-		if ("do_breastfuck")
-			lust_increase = 10
-			c_target = CUM_TARGET_BREASTS
-			lust_which = ACTOR_TARD
-			stp = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
-			if(is_fucking(partner, CUM_TARGET_BREASTS))
+		if ("do_breastdance")
+			dancing_increase = 10
+			dancing_target = DANCE_TARGET_CHEST
+			dancing_which = ACTOR_DANCER
+			sound_to_play = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
+			if(is_fucking(partner, DANCE_TARGET_CHEST))
 				message = pick(list("исследует [partner] между горок", "прокатывается у [partner] между горок"))
 			else
 				message = "взял горки [partner] рукой и включет и выключает ими свой стан-батон"
-				set_is_fucking(partner , CUM_TARGET_BREASTS)
+				set_is_dancing(partner , DANCE_TARGET_CHEST)
 
-		if ("do_mountface")
-			lust_increase = 1
-			c_target = null
-			lust_which = ACTOR_TARD
-			stp = "white/valtos/sounds/exrp/interactions/squelch[rand(1, 3)].ogg"
-			if(is_fucking(partner, GRINDING_FACE_WITH_ANUS))
+		if ("do_mountdance")
+			dancing_increase = 1
+			dancing_target = null
+			dancing_which = ACTOR_DANCER
+			sound_to_play = "white/valtos/sounds/exrp/interactions/squelch[rand(1, 3)].ogg"
+			if(is_fucking(partner, DANCING_FACE_WITH_DANCOR))
 				message = pick(list("кормит булочками [partner]", "даёт покушать булочек [partner]"))
 			else
 				message = pick(list("видит, что [partner] голоден и срочно принимается кормить булочками его", "хочет накормить [partner] булочками"))
-				set_is_fucking(partner , GRINDING_FACE_WITH_ANUS)
+				set_is_dancing(partner , DANCING_FACE_WITH_DANCOR)
 
-		if ("do_grindface")
-			lust_increase = 1
-			c_target = null
-			lust_which = ACTOR_TARD
-			stp = "white/valtos/sounds/exrp/interactions/foot_dry[rand(1, 4)].ogg"
+		if ("do_danceface")
+			dancing_increase = 1
+			dancing_target = null
+			dancing_which = ACTOR_DANCER
+			sound_to_play = "white/valtos/sounds/exrp/interactions/foot_dry[rand(1, 4)].ogg"
 			if(src.get_item_by_slot(ITEM_SLOT_FEET) != null)
 				message = pick(list("поставил [get_shoes()] подошвой на лицо [partner]", "опускает свои [get_shoes()] на лицо [partner] и надавливает ими", "грубо давит [get_shoes()] на лицо [partner]"))
 			else
 				message = pick(list("ставит свои оголённые ноги на лицо [partner]", "опускает свои массивные ступни на лицо [partner], и мнёт ими его", "выставляет ноги на лицо [partner]"))
-			set_is_fucking(partner , GRINDING_FACE_WITH_FEET)
+			set_is_dancing(partner , DANCING_FACE_WITH_FEET)
 
-		if ("do_grindmouth")
-			lust_increase = 1
-			c_target = null
-			lust_which = ACTOR_TARD
-			stp = "white/valtos/sounds/exrp/interactions/foot_wet[rand(1, 3)].ogg"
+		if ("do_dancemouth")
+			dancing_increase = 1
+			dancing_target = null
+			dancing_which = ACTOR_DANCER
+			sound_to_play = "white/valtos/sounds/exrp/interactions/foot_wet[rand(1, 3)].ogg"
 			if(src.get_item_by_slot(ITEM_SLOT_FEET) != null)
 				message = pick(list("заставляет [partner] попробовать [get_shoes()]", "даёт слизать грязь с [get_shoes()] [partner]"))
 			else
 				message = pick(list("принуждает [partner] попробовать свой грязный палец на ноге", "предлагает [partner] вкусить ступню", "прикрывает рот и нос [partner] ступнёй, затем ждёт пока [partner] отключится и резко отпускает ступню"))
-			set_is_fucking(partner , GRINDING_MOUTH_WITH_FEET)
+			set_is_dancing(partner , DANCING_MOUTH_WITH_FEET)
 
-		if ("do_nuts")
-			lust_increase = 1
-			c_target = CUM_TARGET_MOUTH
-			lust_which = ACTOR_TARD
-			stp = "white/valtos/sounds/exrp/interactions/nuts[rand(1, 4)].ogg"
-			if(is_fucking(partner, NUTS_TO_FACE))
+		if ("do_eggs")
+			dancing_increase = 1
+			dancing_target = DANCE_TARGET_MOUTH
+			dancing_which = ACTOR_DANCER
+			sound_to_play = "white/valtos/sounds/exrp/interactions/nuts[rand(1, 4)].ogg"
+			if(is_fucking(partner, DANCE_TO_FACE))
 				message = pick(list("хватает [partner] за голову и принуждает вкусить яишницы", "умоляет [partner] попробовать ещё больше божественной яишенки", "нещадно принимается кормить [partner] яишницей", "вытаскивает всё то, что [partner] не скушал и ждёт пока тот проглотит остатки"))
 			else
 				message = pick(list("видит, что [partner] очень голоден и спешит накормить его яишницей", "стоит в сантиметре от лица [partner] держа в руках омлетик, затем резко впихивает в рот [partner] благословлённый омлетик"))
-				set_is_fucking(partner , NUTS_TO_FACE)
+				set_is_dancing(partner , DANCE_TO_FACE)
 
 		if ("do_thighs")
-			lust_increase = 10
-			c_target = THIGH_SMOTHERING
+			dancing_increase = 10
+			dancing_target = THIGH_DANCE
 			var file = pick(list("bj10", "bj3", "foot_wet1", "foot_dry3"))
-			stp = "white/valtos/sounds/exrp/interactions/[file].ogg"
-			if(is_fucking(partner, THIGH_SMOTHERING))
-				if(has_vagina())
+			sound_to_play = "white/valtos/sounds/exrp/interactions/[file].ogg"
+			if(is_fucking(partner, THIGH_DANCE))
+				if(gender == FEMALE)
 					message = pick(list("берёт в ещё более крепкий захват ногами голову [partner] блокируя его обзор целиком", "обхватывает голову [partner] ногами принуждая вкусить пельменей"))
-				else if(has_penis())
+				else if(gender == MALE)
 					message = pick(list("берёт в ещё более крепкий захват ногами голову [partner] блокируя его обзор целиком", "обхватывает голову [partner] ногами ещё сильнее и начинает усиленно кормить яишницей", "вставляет кусок омлетика в беспомощный рот [partner], удерживая его лицо ловким захватом ногой"))
 				else
 					message = "захватывает голову [partner] ногами"
 			else
 				message = pick(list("залезает на плечи [partner] и берёт в умелый захват своими ногами", "хватает голову [partner] ногами"))
-				set_is_fucking(partner , THIGH_SMOTHERING)
+				set_is_dancing(partner , THIGH_DANCE)
 			if(prob(15))
 				partner.adjustOxyLoss(1)
 
 	visible_message("<span class='notice purple small'><b>[capitalize(src.name)]</b> [message].</span>")
-	playsound(get_turf(src), stp, 50, 1, -1)
-	if(lust_which & ACTOR_TARD)
-		handle_post_sex(lust_increase, c_target, partner)
-	if(lust_which & VICTIM_TARD)
-		partner.handle_post_sex(lust_increase, c_target, src)
+	playsound(get_turf(src), sound_to_play, 50, 1, -1)
+	if(dancing_which & ACTOR_DANCER)
+		handle_post_dance(dancing_increase, dancing_target, partner)
+	if(dancing_which & VICTIM_DANCER)
+		partner.handle_post_dance(dancing_increase, dancing_target, src)
 	partner.dir = get_dir(partner,src)
-	do_fucking_animation(get_dir(src, partner))
+	do_dancing_animation(get_dir(src, partner))
 
-#undef ACTOR_TARD
-#undef VICTIM_TARD
+#undef ACTOR_DANCER
+#undef VICTIM_DANCER
 
 /mob/proc/get_shoes()
 	var/obj/A = get_item_by_slot(ITEM_SLOT_FEET)
@@ -371,15 +361,12 @@
 	else
 		return A.name
 
-/mob/proc/handle_post_sex(var/amount, var/orifice, var/mob/partner)
-
-	sleep(0.5 SECONDS)
-
+/mob/proc/handle_post_dance(var/amount, var/dancise, var/mob/partner)
 	if(stat != CONSCIOUS)
 		return
 	if(amount)
-		lust += amount
-	if (lust >= lust_tolerance)
-		cum(partner, orifice)
+		dancing += amount
+	if (dancing >= dancing_tolerance)
+		end_dance(partner, dancise)
 	else
 		moan()
