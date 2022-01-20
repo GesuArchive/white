@@ -83,6 +83,7 @@ GLOBAL_PROTECT(admin_verbs_sounds)
 GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/enforce_containment_procedures,
 	/client/proc/invisimin,				/*allows our mob to go invisible/visible*/
+	/datum/admins/proc/show_lag_switch_panel,
 	/client/proc/game_panel,			/*game panel, allows to change game-mode etc*/
 	/datum/admins/proc/announce,		/*priority announce something to all clients.*/
 	/datum/admins/proc/set_admin_notice, /*announcement all clients see when joining the server.*/

@@ -383,6 +383,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	client.view_size.setDefault(getScreenSize(client.prefs.widescreenpref))//Let's reset so people can't become allseeing gods
 	client.view = "[client.prefs.widescreenwidth]x15"
 	SStgui.on_transfer(src, mind.current) // Transfer NanoUIs.
+	if(mind.current.stat == DEAD && SSlag_switch.measures[DISABLE_DEAD_KEYLOOP])
+		to_chat(src, span_warning("Чтобы покинуть тело используй кнопку Призрак."))
 	mind.current.key = key
 	mind.current.client.init_verbs()
 	return TRUE
@@ -537,6 +539,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Радиус обзора"
 	set desc = "Change your view range."
 
+	if(SSlag_switch.measures[DISABLE_GHOST_ZOOM_TRAY] && !client?.holder)
+		to_chat(usr, span_notice("Запрещено."))
+		return
+
 	var/max_view = client.prefs.unlock_content ? GHOST_MAX_VIEW_RANGE_MEMBER : GHOST_MAX_VIEW_RANGE_DEFAULT
 	if(client.view_size.getView() == client.view_size.default)
 		var/list/views = list()
@@ -551,6 +557,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/dead/observer/verb/add_view_range(input as num)
 	set name = "Add View Range"
 	set hidden = TRUE
+
+	if(SSlag_switch.measures[DISABLE_GHOST_ZOOM_TRAY] && !client?.holder)
+		to_chat(usr, span_notice("Запрещено."))
+		return
+
 	var/max_view = client.prefs.unlock_content ? GHOST_MAX_VIEW_RANGE_MEMBER : GHOST_MAX_VIEW_RANGE_DEFAULT
 	if(input)
 		client.rescale_view(input, 0, ((max_view*2)+1) - 15)
@@ -997,6 +1008,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set desc = "Toggles a view of sub-floor objects"
 
 	var/static/t_ray_view = FALSE
+
+	if(SSlag_switch.measures[DISABLE_GHOST_ZOOM_TRAY] && !client?.holder && !t_ray_view)
+		to_chat(usr, span_notice("Запрещено."))
+		return
+
 	t_ray_view = !t_ray_view
 
 	var/list/t_ray_images = list()

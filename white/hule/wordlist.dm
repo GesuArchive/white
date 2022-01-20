@@ -37,6 +37,6 @@ GLOBAL_LIST_INIT(neobuchaemie_debili, world.file2list("cfg/autoeban/debix_list.f
 
 			SEND_SOUND(target, sound('sound/effects/singlebeat.ogg'))
 
-			message_admins("[ADMIN_LOOKUPFLW(target)] попытался насрать на ИС словом \"[W]\". ([msg]) [ADMIN_SMITE(target)]")
+			message_admins("[ADMIN_LOOKUPFLW(target)] попытался насрать на ИС словом \"[W]\". ([strip_html(msg)]) [ADMIN_SMITE(target)]")
 			return FALSE
 	return TRUE

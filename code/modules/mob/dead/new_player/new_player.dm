@@ -60,7 +60,7 @@
 			to_chat(usr, span_danger("Раунд ещё не начался или уже завершился..."))
 			return
 
-		if(!GLOB.enter_allowed)
+		if(SSlag_switch.measures[DISABLE_NON_OBSJOBS])
 			to_chat(usr, span_notice("Нельзя!"))
 			return
 
@@ -95,9 +95,10 @@
 		ready = PLAYER_NOT_READY
 		return FALSE
 
-	var/this_is_like_playing_right = "Да"
-	if(!force_observe)
-		this_is_like_playing_right = tgui_alert(usr,"Действительно хочешь следить? У меня не будет возможности зайти в этот раунд (исключая частые ивенты и спаунеры)!","Странный господин",list("Да","Нет"))
+	var/less_input_message
+	if(SSlag_switch.measures[DISABLE_DEAD_KEYLOOP])
+		less_input_message = " - Заметка: Призраки на данный момент ограничены."
+	var/this_is_like_playing_right = tgui_alert(usr, "Действительно хочешь следить? У меня не будет возможности зайти в этот раунд (исключая частые ивенты и спаунеры)![less_input_message]","Странный господин",list("Да","Нет"))
 
 	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Да")
 		ready = PLAYER_NOT_READY
@@ -182,10 +183,6 @@
 	var/error = IsJobUnavailable(rank)
 	if(error != JOB_AVAILABLE)
 		tgui_alert(usr, get_job_unavailable_error_message(error, rank))
-		return FALSE
-
-	if(SSticker.late_join_disabled)
-		tgui_alert(usr, "Нельзя!")
 		return FALSE
 
 	var/arrivals_docked = TRUE
@@ -285,7 +282,10 @@
 
 
 /mob/dead/new_player/proc/LateChoices()
-	var/list/dat = list("<div class='notice'>Длительность раунда: [DisplayTimeText(world.time - SSticker.round_start_time)]</div>")
+	var/list/dat = list()
+	if(SSlag_switch.measures[DISABLE_NON_OBSJOBS])
+		dat += "<div class='notice red' style='font-size: 125%'>Разрешено только следить на данный момент.</div><br>"
+	dat += "<div class='notice'>Длительность раунда: [DisplayTimeText(world.time - SSticker.round_start_time)]</div>"
 	if(SSshuttle.emergency)
 		switch(SSshuttle.emergency.mode)
 			if(SHUTTLE_ESCAPE)
