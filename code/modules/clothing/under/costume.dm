@@ -218,29 +218,6 @@
 	can_adjust = FALSE
 	resistance_flags = NONE
 
-/obj/item/clothing/under/costume/mech_suit
-	name = "красный костюм пилота меха"
-	desc = "Красный костюм, в котором ваша задница выглядит больше."
-	icon_state = "red_mech_suit"
-	inhand_icon_state = "red_mech_suit"
-	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	fitted = NO_FEMALE_UNIFORM
-	alternate_worn_layer = GLOVES_LAYER //covers hands but gloves can go over it. This is how these things work in my head.
-	can_adjust = FALSE
-
-/obj/item/clothing/under/costume/mech_suit/white
-	name = "белый костюм пилота меха"
-	desc = "Костюм пилота меха. Привлекательный."
-	icon_state = "white_mech_suit"
-	inhand_icon_state = "white_mech_suit"
-
-/obj/item/clothing/under/costume/mech_suit/blue
-	name = "синий костюм пилота меха"
-	desc = "Синий костюм для ленивых задниц."
-	icon_state = "blue_mech_suit"
-	inhand_icon_state = "blue_mech_suit"
-
 /obj/item/clothing/under/costume/russian_officer
 	name = "\improper униформа русского офицера"
 	desc = "Последнее в модных российских нарядах."
