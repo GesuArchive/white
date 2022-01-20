@@ -76,7 +76,7 @@
 	write_log_user = "dancered"
 	write_log_target = "was dancered by"
 
-/datum/interaction/finger/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/dancering/display_interaction(var/mob/living/user, var/mob/living/target)
 	. = ..()
 	user.do_dance(target, "do_dancering")
 

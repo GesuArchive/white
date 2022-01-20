@@ -89,7 +89,7 @@
 
 	visible_message(span_purple("<b>[src]</b> [message]."))
 
-	SSblackbox.record_feedback("amount", "orgasms", 1)
+	SSblackbox.record_feedback("amount", "dances", 1)
 
 	if(iscarbon(src))
 		var/mob/living/carbon/C = src
@@ -100,7 +100,7 @@
 
 	multidances += 1
 	if(multidances == 1)
-		log_combat(partner, src, "came on")
+		log_combat(partner, src, "danced on")
 
 	if(multidances > (dancing_potency/3))
 		dancing_period = 100 //sex cooldown

@@ -23,6 +23,6 @@
 		if(I.evaluate_user(src) && I.evaluate_target(src, partner))
 			dat += I.get_action_link_for(src, partner)
 
-	var/datum/browser/popup = new(usr, "interactions", "Взаимодействие", 340, 580)
+	var/datum/browser/popup = new(usr, "interactions", "Взаимодействие", 340, 380)
 	popup.set_content(dat)
 	popup.open()
