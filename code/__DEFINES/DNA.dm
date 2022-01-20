@@ -110,8 +110,6 @@
 #define DIGITIGRADE		10
 #define NO_UNDERWEAR	11
 #define NOSTOMACH		12
-#define NOKIDNEYS		13
-#define NOGUTS			14
 #define NO_DNA_COPY     15
 #define DRINKSBLOOD		16
 /// Use this if you want to change the race's color without the player being able to pick their own color. AKA special color shifting

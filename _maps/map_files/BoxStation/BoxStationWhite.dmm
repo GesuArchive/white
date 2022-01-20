@@ -36676,12 +36676,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
 /turf/open/floor/plating,
 /area/engineering/atmos)
-"jGc" = (
-/obj/effect/decal/cleanable/poo,
-/turf/open/floor/plating/rust{
-	initial_gas_mix = "TEMP=2.7"
-	},
-/area/space/nearstation)
 "jHt" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -68049,7 +68043,7 @@ aaa
 aaa
 aaa
 mSz
-jGc
+mSz
 mSz
 mSz
 qvP
