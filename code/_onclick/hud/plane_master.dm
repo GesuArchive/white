@@ -133,10 +133,6 @@
 	//byond internal end
 	render_relay_plane = RENDER_PLANE_GAME
 
-/atom/movable/screen/plane_master/blackness/Initialize(mapload)
-	. = ..()
-	add_filter("map_bounds", 1, alpha_mask_filter(render_source = MAP_MASK_RENDER_TARGET))
-
 ///Contains all lighting objects
 /atom/movable/screen/plane_master/lighting
 	name = "lighting plane master"
@@ -164,7 +160,6 @@
 	. = ..()
 	add_filter("emissives", 1, alpha_mask_filter(render_source = EMISSIVE_RENDER_TARGET, flags = MASK_INVERSE))
 	add_filter("object_lighting", 2, alpha_mask_filter(render_source = O_LIGHTING_VISUAL_RENDER_TARGET, flags = MASK_INVERSE))
-	add_filter("border", 3, alpha_mask_filter(render_source = MAP_MASK_RENDER_TARGET))
 
 
 /**
@@ -200,28 +195,6 @@
 	name = "parallax whitifier plane master"
 	plane = PLANE_SPACE
 	render_relay_plane = RENDER_PLANE_GAME
-	/// A screen object to make parallax apply to the map borders.
-	var/atom/movable/render_plane_relay/border_mask
-
-/atom/movable/screen/plane_master/parallax_white/Destroy()
-	if (border_mask)
-		QDEL_NULL(border_mask)
-	return ..()
-
-/atom/movable/screen/plane_master/parallax_white/backdrop(mob/mymob)
-	. = ..()
-	if(!border_mask)
-		border_mask = new()
-		border_mask.plane = plane
-		border_mask.render_source = MAP_MASK_RENDER_TARGET
-		border_mask.color = list( // Invert alpha:
-			0, 0, 0, 0,
-			0, 0, 0, 0,
-			0, 0, 0, 0,
-			0, 0, 0, -1,
-			1, 1, 1, 1,
-		)
-	mymob.client?.screen |= border_mask
 
 /atom/movable/screen/plane_master/camera_static
 	name = "camera static plane master"
@@ -271,13 +244,6 @@
 	name = "area plane"
 	plane = AREA_PLANE
 	render_relay_plane = RENDER_PLANE_GAME
-
-/atom/movable/screen/plane_master/map_mask
-	name = "map mask plane"
-	plane = MAP_MASK_PLANE
-	render_target = MAP_MASK_RENDER_TARGET
-	appearance_flags = NONE
-	render_relay_plane = null
 
 /atom/movable/screen/plane_master/radtext
 	name = "radtext plane"

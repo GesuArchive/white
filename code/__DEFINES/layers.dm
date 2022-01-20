@@ -104,11 +104,6 @@
 
 #define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
 
-/// The map used to mask the plane.
-#define MAP_MASK_PLANE -1
-/// The render target used to prevent the map mask from being rendered.
-#define MAP_MASK_RENDER_TARGET "*MAP_MASK_RENDER_TARGET"
-
 #define SINGULARITY_PLANE 10
 #define SINGULARITY_LAYER 1
 #define ABOVE_SINGULARITY_LAYER 2
