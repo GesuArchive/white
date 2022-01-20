@@ -32,20 +32,20 @@
 
 /obj/machinery/porta_turret/armory
 	name = "armory defense turret"
-	desc = "An energy blaster auto-turret."
+	desc = "An energy blaster auto-turret with an internal fusion core. Not dangerous in the slightest."
 	installation = null
 	stun_projectile = /obj/projectile/energy/electrode
 	stun_projectile_sound = 'sound/weapons/taser.ogg'
 	lethal_projectile = /obj/projectile/beam/laser/penetrator
 	lethal_projectile_sound = 'sound/weapons/lasercannonfire.ogg'
-	max_integrity = 900
+	max_integrity = 200
 	mode = TURRET_LETHAL
 	uses_stored = FALSE
 	always_up = TRUE
 	turret_flags = TURRET_FLAG_SHOOT_ALL_REACT
 	has_cover = FALSE
 	scan_range = 9
-	shot_delay = 1
+	shot_delay = 15
 	use_power = NO_POWER_USE
 	faction = list("silicon","turret")
 
@@ -60,21 +60,13 @@
 	return
 
 /obj/machinery/porta_turret/armory/assess_perp(mob/living/carbon/human/perp)
-	var/area/A = get_area(perp)
-	if(GLOB.security_level < SEC_LEVEL_RED && istype(A, /area/ai_monitored/security/armory))
+	. = ..()
+	if(. && istype(get_area(perp), /area/ai_monitored/security/armory))
 		return 10
 	return 0
 
-/obj/machinery/porta_turret/armory/target(atom/movable/target)
-	if(target)
-		setDir(get_dir(base, target))//even if you can't shoot, follow the target
-		shootAt(target)
-		for(var/i in 1 to 15)
-			addtimer(CALLBACK(src, .proc/shootAt, target), i)
-		return TRUE
-
 /obj/projectile/beam/laser/penetrator
-	damage = 5
+	damage = 40
 	projectile_piercing = PASSMOB
 	projectile_phasing = (ALL & (~PASSMOB))
 	range = 9
