@@ -37,6 +37,10 @@
 			reagents.clear_reagents()
 		else
 			if(M != user)
+				if(M.hydration >= HYDRATION_LEVEL_OVERHYDRATED)
+					M.visible_message(span_danger("[user] не может больше напоить [M] содержимым [src.name]."), \
+					span_userdanger("[user] больше не может напоить меня содержимым [src.name]."))
+					return
 				M.visible_message(span_danger("[user] пытается напоить [M] из [src].") , \
 							span_userdanger("[user] пытается напоить меня из [src]."))
 				if(!do_mob(user, M))
@@ -47,6 +51,9 @@
 							span_userdanger("[user] поит меня чем-то из [src]."))
 				log_combat(user, M, "fed", reagents.log_list())
 			else
+				if(user.hydration >= HYDRATION_LEVEL_OVERHYDRATED)
+					to_chat(M, span_warning("В меня больше не лезет содержимое [src.name]!"))
+					return
 				to_chat(user, span_notice("Делаю глоток из [src]."))
 
 			for(var/datum/reagent/R in reagents.reagent_list)

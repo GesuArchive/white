@@ -29,12 +29,19 @@
 		return FALSE
 
 	if(M == user)
+		if(user.hydration >= HYDRATION_LEVEL_OVERHYDRATED)
+			to_chat(M, span_warning("В меня больше не лезет содержимое [src.name]!"))
+			return
 		user.visible_message(span_notice("[user] делает глоток из [src.name].") , \
 			span_notice("Делаю глоток из [src.name]."))
 		if(HAS_TRAIT(M, TRAIT_VORACIOUS))
 			M.changeNext_move(CLICK_CD_MELEE * 0.5) //chug! chug! chug!
 
 	else
+		if(M.hydration >= HYDRATION_LEVEL_OVERHYDRATED)
+			M.visible_message(span_danger("[user] не может больше напоить [M] содержимым [src.name]."), \
+			span_userdanger("[user] больше не может напоить меня содержимым [src.name]."))
+			return
 		M.visible_message(span_danger("[user] пытается напоить [M] содержимым [src.name].") , \
 			span_userdanger("[user] пытается напоить меня содержимым [src.name]."))
 		if(!do_mob(user, M))
