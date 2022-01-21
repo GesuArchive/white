@@ -6801,11 +6801,7 @@
 /area/centcom/officetwo)
 "zb" = (
 /obj/machinery/vending/boozeomat,
-/turf/closed/indestructible{
-	icon = 'icons/turf/walls/wood_wall.dmi';
-	icon_state = "wood";
-	smoothing_flags = 1
-	},
+/turf/closed/indestructible/wood,
 /area/centcom/holding)
 "zc" = (
 /obj/structure/table/reinforced,
@@ -6901,11 +6897,7 @@
 /area/tdome/tdomeobserve)
 "zq" = (
 /obj/machinery/smartfridge,
-/turf/closed/indestructible{
-	icon = 'icons/turf/walls/wood_wall.dmi';
-	icon_state = "wood";
-	smoothing_flags = 1
-	},
+/turf/closed/indestructible/wood,
 /area/centcom/holding)
 "zt" = (
 /obj/structure/fluff/hedge,
