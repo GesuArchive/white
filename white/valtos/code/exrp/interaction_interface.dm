@@ -15,7 +15,7 @@
 	if (!check_rights_for(client, R_ADMIN) && !check_whitelist_exrp(ckey))
 		return
 
-	var/dat = "<B><HR><FONT size=3>Взаимодействие с [partner].</FONT></B><HR>"
+	var/dat = ""
 
 	make_interactions()
 	for(var/interaction_key in GLOB.interactions)
@@ -23,6 +23,6 @@
 		if(I.evaluate_user(src) && I.evaluate_target(src, partner))
 			dat += I.get_action_link_for(src, partner)
 
-	var/datum/browser/popup = new(usr, "interactions", "Взаимодействие", 340, 380)
+	var/datum/browser/popup = new(usr, "interactions", "Взаимодействие с [partner]", 400, 300)
 	popup.set_content(dat)
 	popup.open()

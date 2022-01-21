@@ -1,6 +1,6 @@
 /datum/interaction/assslap
 	command = "assslap"
-	description = "Шлёпнуть по заднице."
+	description = "Шлёпнуть по заднице"
 	simple_message = "USER шлёпает TARGET по заднице!"
 	simple_style = "danger"
 	needs_physical_contact = TRUE
@@ -13,7 +13,7 @@
 
 /datum/interaction/dancero
 	command = "dancero"
-	description = "Отполировать пельмешку."
+	description = "Отполировать пельмешку"
 	require_user_mouth = TRUE
 	require_target_danceress = TRUE
 	write_log_user = "gave head to"
@@ -29,7 +29,7 @@
 
 /datum/interaction/dancero/dancejob
 	command = "dancejob"
-	description = "Отполировать огурец."
+	description = "Отполировать огурец"
 	require_target_dancer = TRUE
 	target_not_tired = TRUE
 	write_log_user = "dancejobed"
@@ -37,7 +37,7 @@
 
 /datum/interaction/dance
 	command = "dance"
-	description = "Раскромсать вареник."
+	description = "Раскромсать вареник"
 	require_user_dancer = TRUE
 	require_target_danceress = TRUE
 	write_log_user = "danced"
@@ -55,7 +55,7 @@
 
 /datum/interaction/dance/dancor
 	command = "danceass"
-	description = "Пробить шоколадницу."
+	description = "Пробить шоколадницу"
 	require_target_dancor = TRUE
 	user_not_tired = TRUE
 	write_log_user = "ass-danced"
@@ -68,7 +68,7 @@
 
 /datum/interaction/dancering
 	command = "dancering"
-	description = "Засунуть сигарету в пепельницу."
+	description = "Засунуть сигарету в пепельницу"
 	require_user_hands = TRUE
 	require_target_danceress = TRUE
 	user_not_tired = TRUE
@@ -82,7 +82,7 @@
 
 /datum/interaction/fingerdance
 	command = "fingerdance"
-	description = "Почесать шоколадный глаз."
+	description = "Почесать шоколадный глаз"
 	require_user_hands = TRUE
 	require_target_dancor = TRUE
 	user_not_tired = TRUE
@@ -97,7 +97,7 @@
 
 /datum/interaction/facedance
 	command = "facedance"
-	description = "Проверить глубину проруби."
+	description = "Проверить глубину проруби"
 	require_target_mouth = TRUE
 	user_not_tired = TRUE
 	require_user_naked = TRUE
@@ -111,7 +111,7 @@
 
 /datum/interaction/throatdance
 	command = "throatdance"
-	description = "Утопить муму в проруби."
+	description = "Утопить муму в проруби"
 	require_user_dancer = TRUE
 	require_target_mouth = TRUE
 	user_not_tired = TRUE
@@ -126,7 +126,7 @@
 
 /datum/interaction/handdance
 	command = "handdance"
-	description = "Полировать ствол."
+	description = "Полировать ствол"
 	require_user_hands = TRUE
 	require_target_dancer = TRUE
 	target_not_tired = TRUE
@@ -140,7 +140,7 @@
 
 /datum/interaction/breastdance
 	command = "breastdance"
-	description = "Проскользить между двух горок."
+	description = "Проскользить между двух горок"
 	require_user_dancer = TRUE
 	user_not_tired = TRUE
 	require_user_naked = TRUE
@@ -156,7 +156,7 @@
 
 /datum/interaction/mount
 	command = "mount"
-	description = "Покататься на карусели."
+	description = "Покататься на карусели"
 	require_user_danceress = TRUE
 	require_target_dancer = TRUE
 	user_not_tired = TRUE
@@ -173,7 +173,7 @@
 
 /datum/interaction/assdance
 	command = "assdance"
-	description = "Присесть на выступ."
+	description = "Присесть на выступ"
 	require_user_dancor = TRUE
 	require_target_dancer = TRUE
 	user_not_tired = TRUE
@@ -190,7 +190,7 @@
 
 /datum/interaction/rimdance
 	command = "rimdance"
-	description = "Скушать шоколад."
+	description = "Скушать шоколад"
 	require_user_mouth = TRUE
 	require_target_dancor = TRUE
 	user_not_tired = TRUE
@@ -205,7 +205,7 @@
 
 /datum/interaction/mountdance
 	command = "mountdance"
-	description = "Промариновать лимончик."
+	description = "Промариновать лимончик"
 	require_target_mouth = TRUE
 	require_user_dancor = TRUE
 	user_not_tired = TRUE
@@ -220,7 +220,7 @@
 
 /datum/interaction/danceface
 	command = "danceface"
-	description = "Дать понюхать ноги."
+	description = "Дать понюхать ноги"
 	require_target_mouth = TRUE
 	max_distance = 0
 	write_log_user = "feet-faced"
@@ -232,7 +232,7 @@
 
 /datum/interaction/dancemouth
 	command = "dancemouth"
-	description = "Угостить ногами."
+	description = "Угостить ногами"
 	require_target_mouth = TRUE
 	max_distance = 0
 	write_log_user = "feet-mouthed"
@@ -244,7 +244,7 @@
 
 /datum/interaction/eggs
 	command = "eggs"
-	description = "Накормить яишницей."
+	description = "Накормить яишницей"
 	require_user_naked = TRUE
 	require_user_dancer = TRUE
 	require_target_mouth = TRUE
@@ -258,7 +258,7 @@
 
 /datum/interaction/thighs
 	command = "thighs"
-	description = "Взять в захват ногами."
+	description = "Взять в захват ногами"
 	max_distance = 0
 	require_user_naked = TRUE
 	require_target_mouth = TRUE

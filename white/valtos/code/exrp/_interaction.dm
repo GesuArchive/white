@@ -6,7 +6,7 @@
 
 /datum/interaction
 	var/command = "interact"
-	var/description = "Interact with them."
+	var/description = "Interact with them"
 	var/simple_message = null
 	var/simple_style = "danger"
 	var/write_log_user = "tested"
