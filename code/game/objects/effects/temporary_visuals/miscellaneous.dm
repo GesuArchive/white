@@ -406,6 +406,7 @@
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "heart"
 	duration = 25
+	plane = ABOVE_GAME_PLANE
 
 /obj/effect/temp_visual/heart/Initialize(mapload)
 	. = ..()
