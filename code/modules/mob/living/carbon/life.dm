@@ -351,14 +351,7 @@
 	if((NOBLOOD in dna.species.species_traits) || HAS_TRAIT(src, TRAIT_NOBLEED) || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
 		hydration = HYDRATION_LEVEL_START_MIN
 		return
-
 	hydration -= HYDRATION_LOSS_PER_LIFE
-
-	if(hydration <= HYDRATION_LEVEL_DEHYDRATED)
-		if(DT_PROB(5, delta_time))
-			emote("plot")
-			adjustToxLoss(1)
-			adjustStaminaLoss(5)
 
 /mob/living/carbon/proc/handle_bodyparts(delta_time, times_fired)
 	var/stam_regen = FALSE
