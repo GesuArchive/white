@@ -351,6 +351,8 @@
 	if((NOBLOOD in dna.species.species_traits) || HAS_TRAIT(src, TRAIT_NOBLEED) || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
 		hydration = HYDRATION_LEVEL_START_MIN
 		return
+	if(hydration < HYDRATION_LEVEL_MIN_CAP)
+		hydration = HYDRATION_LEVEL_MIN_CAP
 	hydration -= HYDRATION_LOSS_PER_LIFE
 
 /mob/living/carbon/proc/handle_bodyparts(delta_time, times_fired)
