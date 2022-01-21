@@ -13,7 +13,9 @@
 	w_class = WEIGHT_CLASS_SMALL
 	var/obj/item/stock_parts/cell/emergency_shield/cell
 	var/active = FALSE
-	var/charge_use = 60
+	var/upkeep_cost_per_second = 60
+	var/activation_cost = 500
+	var/minimum_energy_to_activate = 1500
 	var/time_used //stores world.time of last activation for cooldowns.
 	var/mob/living/current_user
 	var/shield_effect
@@ -56,7 +58,7 @@
 		else
 			. += "It has no charge at all."
 
-	if(cell.charge < 1500)
+	if(cell.charge < minimum_energy_to_activate)
 		if(active)
 			. += span_alert("<br>Turning it off now means you won't be able to turn it back on until recharged!")
 		else
@@ -66,23 +68,23 @@
 	. = ..()
 	if(I.tool_behaviour == TOOL_SCREWDRIVER && cell)
 		if(active)
-			to_chat(user, span_alert("Сначала выключи прожектор!"))
+			to_chat(user, span_alert("Сначала надо выключить прожектор!"))
 			return
 		cell.forceMove(src.drop_location())
 		cell.update_icon()
 		I.play_tool_sound(src,50)
-		visible_message("[user.name] вытаскивает [cell.name] из прожектора щита!", "Вытаскиваю [cell.name] из прожектора щита!")
+		visible_message(span_notice("[user.name] вытаскивает [cell.name] из прожектора щита."), span_notice("Вытаскиваю [cell.name] из прожектора щита."))
 		icon_state = "nocell"
 		cell = null
 
 	if(istype(I, /obj/item/stock_parts/cell) && !cell)
 		if(!istype(I, /obj/item/stock_parts/cell/emergency_shield))
-			to_chat(user, span_alert("Аварийный прожектор щита можно запитать только специальной батарейкой для прожекторов!.."))
+			to_chat(user, span_notice("Аварийный прожектор щита можно запитать только специальной батарейкой для прожекторов."))
 			return
 		cell = I
 		cell.forceMove(src)
 		playsound(src, 'sound/items/crowbar.ogg', 15, TRUE)
-		visible_message("[user.name] вставляет батарею в аварийный прожектор щита.", "Вставляю [cell.name] в прожектор щита!")
+		visible_message(span_notice("[user.name] вставляет батарею в аварийный прожектор щита."), span_notice("Вставляю [cell.name] в прожектор щита."))
 		icon_state = "inactive"
 
 /obj/item/emergency_shield/attack_self(mob/user)
@@ -92,20 +94,19 @@
 		return
 	time_used = world.time
 
-	if((cell.charge<1500 || HAS_TRAIT_FROM(user, TRAIT_RESISTLOWPRESSURE, "emergency_shield")) && !active) //cell charge too low or the user already has the trait AND it's inactive.
+		// if the charge is too low or if we already have an active projector in the other hand              and we're not trying to turn off
+	if((cell.charge < minimum_energy_to_activate || HAS_TRAIT_FROM(user, TRAIT_RESISTLOWPRESSURE, "emergency_shield") && !active) )
 		playsound(src, 'white/RedFoxIV/sounds/mechcomp/generic_energy_dryfire.ogg', 15, FALSE)
 		return
 
-	active = !active
-	if(active)
+	if(!active)
 		current_user = user
 		activate_shield()
-		icon_state = "active"
-		cell.use(500) // we are not afraid of trying to drain 500 power of an empty cell because we did a check earlier
+		cell.use(activation_cost)
 		START_PROCESSING(SSprocessing, src)
 	else
 		deactivate_shield()
-		icon_state = "inactive"
+		
 		STOP_PROCESSING(SSprocessing, src)
 
 //the following 2 procs is a load of shitcode just to get the projector to turn off when dropped/put into inventory WHILE also staying on if you move it from hand to hand.
@@ -117,7 +118,6 @@
 		//first of all check if the item is still in the user. If not, it means the item has been dropped on the floor/table/crate/inventory outside the player.
 		if(!(src.loc == current_user))
 			deactivate_shield()
-			icon_state = "inactive"
 			STOP_PROCESSING(SSprocessing, src)
 			return
 
@@ -125,7 +125,6 @@
 		spawn(0.1) //костыль уровня ктулху, по какой-то неведомой причине при перекладывании из руки в руку вызывается прок dropped и предмет оказывается НЕ В РУКАХ на момент вызова. Я ебал.
 			if(!(src in current_user.held_items))
 				deactivate_shield()
-				icon_state = "inactive"
 				STOP_PROCESSING(SSprocessing, src)
 
 
@@ -134,23 +133,20 @@
 	. = ..()
 	if(active && (slot != ITEM_SLOT_HANDS))
 		deactivate_shield()
-		icon_state = "inactive"
 		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/emergency_shield/process(delta_time)
-	if(!cell.use(min(cell.charge, charge_use)))
+	if(!cell.use(min(cell.charge, upkeep_cost_per_second * delta_time)))
 		return
 
 	if(!cell.charge)
 		deactivate_shield()
-		icon_state = "inactive"
 		playsound(src, 'white/RedFoxIV/sounds/mechcomp/generic_energy_dryfire.ogg', 20, FALSE)
 		return PROCESS_KILL
 
 	//прожектор каким-то образом выпал из рук, не триггеря dropped()
 	if(!(src in current_user.held_items))
 		deactivate_shield()
-		icon_state = "inactive"
 		return PROCESS_KILL
 
 /obj/item/stock_parts/cell/emergency_shield
@@ -163,18 +159,12 @@
 
 
 /obj/item/stock_parts/cell/emergency_shield/update_overlays()
-	. = ..()
-	. = list() // FUCK YOU
-	if(charge < 0.01)
-		return
-	else if(charge/maxcharge >=0.995)
-		. += mutable_appearance(icon, "cell-o2")
-	else
-		. += mutable_appearance(icon, "cell-o1")
+	..(icon, 0.5, 0.995)
 
 
 /obj/item/emergency_shield/proc/activate_shield()
 	active = TRUE
+	icon_state = "active"
 	ADD_TRAIT(current_user, TRAIT_RESISTLOWPRESSURE, "emergency_shield")
 	ADD_TRAIT(current_user, TRAIT_RESISTHIGHPRESSURE, "emergency_shield")
 
@@ -184,6 +174,7 @@
 
 /obj/item/emergency_shield/proc/deactivate_shield()
 	active = FALSE
+	icon_state = "inactive"
 	REMOVE_TRAIT(current_user, TRAIT_RESISTLOWPRESSURE, "emergency_shield")
 	ADD_TRAIT(current_user, TRAIT_RESISTHIGHPRESSURE, "emergency_shield")
 

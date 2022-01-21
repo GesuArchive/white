@@ -53,16 +53,31 @@
 	UnregisterSignal(reagents, list(COMSIG_REAGENTS_NEW_REAGENT, COMSIG_REAGENTS_ADD_REAGENT, COMSIG_REAGENTS_DEL_REAGENT, COMSIG_REAGENTS_REM_REAGENT, COMSIG_PARENT_QDELETING))
 	return NONE
 
-/obj/item/stock_parts/cell/update_overlays()
+/**
+ * supply own icon file if your cell uses different overlays.
+ * upper_charge_percent - charge % above which cell shows the "fully charged" overlay.
+ * lower_charge_percent - charge % below which cell shows no overlay.
+ * Inbetween those the cell shows the default blinking yellow overlay.
+ * If you want to have more overlays, call it as ..(override = TRUE) to not get any of the default cell overlays, including wires for grown cells.
+ **/
+/obj/item/stock_parts/cell/update_overlays(var/icon_file = FALSE, lower_charge_percent = 0.01, upper_charge_percent = 0.995, var/override = FALSE) 
 	. = ..()
-	if(grown_battery)
-		. += mutable_appearance('white/valtos/icons/power.dmi', "grown_wires")
-	if(charge < 0.01)
+	if(override)
 		return
-	else if(charge/maxcharge >=0.995)
-		. += mutable_appearance('white/valtos/icons/power.dmi', "cell-o2")
+		
+	if(!icon_file)
+		icon_file = 'white/valtos/icons/power.dmi'
+	
+	if(grown_battery)
+		. += mutable_appearance(icon_file, "grown_wires")
+	
+	if(charge/maxcharge < lower_charge_percent)
+		return
+	
+	if(charge/maxcharge >= upper_charge_percent)
+		. += mutable_appearance(icon_file, "cell-o2")
 	else
-		. += mutable_appearance('white/valtos/icons/power.dmi', "cell-o1")
+		. += mutable_appearance(icon_file, "cell-o1")
 
 /obj/item/stock_parts/cell/proc/percent()		// return % charge of cell
 	return 100*charge/maxcharge
