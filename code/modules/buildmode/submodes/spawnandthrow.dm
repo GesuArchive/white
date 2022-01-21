@@ -24,7 +24,7 @@
 	to_chat(c, span_notice("Right Mouse Button - Call attack_self() and throw object. (similiar to using item in hand, uses a stub mob for this, may be buggy with items that are more complex than regular grenades.)"))
 	to_chat(c, span_notice("Alt click - Instead of throwing uses newtonian_move() to nudge object in selected direction. Only works with no gravity."))
 	to_chat(c, span_notice("Use the button in the upper left corner to"))
-	to_chat(c, "<span class='notice'>configure throwing. If range is 0, it will spawn and throw the object on the same tile you clicked on.<span>")
+	to_chat(c, "<span class='notice'>configure throwing. If range is 0, it will spawn and throw the object on the same tile you clicked on.</span>")
 	to_chat(c, span_notice("***********************************************************"))
 
 /datum/buildmode_mode/spawnandthrow/change_settings(client/c)

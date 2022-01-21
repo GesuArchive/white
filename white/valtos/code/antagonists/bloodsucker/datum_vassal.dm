@@ -88,7 +88,7 @@
 /datum/antagonist/vassal/greet()
 	to_chat(owner, span_userdanger("You are now the mortal servant of [master.owner.current], a bloodsucking vampire!"))
 	to_chat(owner, "<span class='boldannounce'>The power of [master.owner.current.ru_ego()] immortal blood compells you to obey [master.owner.current.ru_na()] in all things, even offering your own life to prolong theirs.<br>\
-			You are not required to obey any other Bloodsucker, for only [master.owner.current] is your master. The laws of Nanotransen do not apply to you now; only your vampiric master's word must be obeyed.<span>")
+			You are not required to obey any other Bloodsucker, for only [master.owner.current] is your master. The laws of Nanotransen do not apply to you now; only your vampiric master's word must be obeyed.</span>")
 	// Effects...
 	owner.current.playsound_local(null, 'sound/magic/mutate.ogg', 100, FALSE, pressure_affected = FALSE)
 	//owner.store_memory("You became the mortal servant of [master.owner.current], a bloodsucking vampire!")

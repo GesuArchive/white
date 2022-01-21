@@ -51,11 +51,11 @@
 	msg += "<hr><span class='notice'>Психика:</span>\n" //Long term
 	switch(sanity)
 		if(SANITY_GREAT to INFINITY)
-			msg += "<span class='nicegreen'>Мой разум словно храм!<span>\n"
+			msg += "<span class='nicegreen'>Мой разум словно храм!</span>\n"
 		if(SANITY_NEUTRAL to SANITY_GREAT)
-			msg += "<span class='nicegreen'>Чувствую себя прекрасно в последнее время!<span>\n"
+			msg += "<span class='nicegreen'>Чувствую себя прекрасно в последнее время!</span>\n"
 		if(SANITY_DISTURBED to SANITY_NEUTRAL)
-			msg += "<span class='nicegreen'>Чувствую себя вполне нормально в последнее время..<span>\n"
+			msg += "<span class='nicegreen'>Чувствую себя вполне нормально в последнее время..</span>\n"
 		if(SANITY_UNSTABLE to SANITY_DISTURBED)
 			msg += "<span class='warning'>Немного не в себе....</span>\n"
 		if(SANITY_CRAZY to SANITY_UNSTABLE)
@@ -66,23 +66,23 @@
 	msg += "<hr><span class='notice'>Настроение:</span>\n" //Short term
 	switch(mood_level)
 		if(1)
-			msg += "<span class='boldwarning'>Хотелось бы мне умереть!<span>\n"
+			msg += "<span class='boldwarning'>Хотелось бы мне умереть!</span>\n"
 		if(2)
-			msg += "<span class='boldwarning'>Чувствую себя ужасно...<span>\n"
+			msg += "<span class='boldwarning'>Чувствую себя ужасно...</span>\n"
 		if(3)
-			msg += "<span class='boldwarning'>Мне очень грустно.<span>\n"
+			msg += "<span class='boldwarning'>Мне очень грустно.</span>\n"
 		if(4)
-			msg += "<span class='boldwarning'>Мне грустно.<span>\n"
+			msg += "<span class='boldwarning'>Мне грустно.</span>\n"
 		if(5)
-			msg += "<span class='nicegreen'>В порядке.<span>\n"
+			msg += "<span class='nicegreen'>В порядке.</span>\n"
 		if(6)
-			msg += "<span class='nicegreen'>Чувствую себя хорошо.<span>\n"
+			msg += "<span class='nicegreen'>Чувствую себя хорошо.</span>\n"
 		if(7)
-			msg += "<span class='nicegreen'>Чувствую себя довольно хорошо.<span>\n"
+			msg += "<span class='nicegreen'>Чувствую себя довольно хорошо.</span>\n"
 		if(8)
-			msg += "<span class='nicegreen'>Чувствую себя потрясающе!<span>\n"
+			msg += "<span class='nicegreen'>Чувствую себя потрясающе!</span>\n"
 		if(9)
-			msg += "<span class='nicegreen'>Люблю жизнь!<span>\n"
+			msg += "<span class='nicegreen'>Люблю жизнь!</span>\n"
 
 	msg += "<hr><span class='notice'>Факторы:</span>\n"//All moodlets
 	if(mood_events.len)
@@ -90,7 +90,7 @@
 			var/datum/mood_event/event = mood_events[i]
 			msg += event.description
 	else
-		msg += "<span class='nicegreen'>Да как-то всё равно на всё в данный момент.<span>\n"
+		msg += "<span class='nicegreen'>Да как-то всё равно на всё в данный момент.</span>\n"
 	to_chat(user, "<div class='examine_block'>[msg]</div>")
 
 ///Called after moodevent/s have been added/removed.

@@ -46,7 +46,7 @@
 		else
 			to_chat(user, span_warning("Стоит натянуть тетиву перед установкой снаряда!"))
 	else
-		to_chat(user, "<span class='warning'>Здесь уже есть [chambered.BB] внутри!<span>")
+		to_chat(user, "<span class='warning'>Здесь уже есть [chambered.BB] внутри!</span>")
 
 	update_icon()
 	return
@@ -252,7 +252,7 @@
 		if(3)
 			charge_time = 22
 	. = ..()
-	
+
 
 /obj/item/ammo_casing/rod/energy
 	projectile_type = /obj/projectile/rod/energy

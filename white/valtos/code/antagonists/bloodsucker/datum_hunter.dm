@@ -78,9 +78,9 @@
 /datum/antagonist/vamphunter/greet()
 	to_chat(owner, span_userdanger("You are a fearless Monster Hunter!"))
 	to_chat(owner, "<span class='boldannounce'>You know there's one or more filthy creature onboard the station, though their identities elude you. \
-											It's your job to root them out, destroy their nests, and save the crew.<span>")
+											It's your job to root them out, destroy their nests, and save the crew.</span>")
 	to_chat(owner, "<span class='boldannounce'>Use <b>WHATEVER MEANS NECESSARY</b> to find these creatures...no matter who gets hurt or what you have to destroy to do it. \
-	 										<i>There are greater stakes at hand than the safety of the station!</i> However, security may detain you if they discover your mission...<span>")
+	 										<i>There are greater stakes at hand than the safety of the station!</i> However, security may detain you if they discover your mission...</span>")
 	antag_memory += "You remember your training:<br>"
 	antag_memory += " -Bloodsuckers are weak to fire, or a stake to the heart. Removing their head or heart will also destroy them permanently.<br>"
 	antag_memory += " -Wooden stakes can be made from planks, and hardened by a welding tool. Your recipes list has ways of making them even stronger.<br>"
