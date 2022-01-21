@@ -7,7 +7,7 @@
 	write_log_user = "ass-slapped"
 	write_log_target = "was ass-slapped by"
 
-/datum/interaction/dancero/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/assslap/display_interaction(var/mob/living/user, var/mob/living/target)
 	. = ..()
 	playsound(get_turf(target), 'white/valtos/sounds/exrp/interactions/slap.ogg', 50, 1, -1)
 
