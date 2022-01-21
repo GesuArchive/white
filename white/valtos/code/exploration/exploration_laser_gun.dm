@@ -16,23 +16,9 @@
 	update_ammo_types()
 	obj_flags |= EMAGGED
 
-//Anti-creature - Extra damage against simplemobs
-/*
-/obj/item/ammo_casing/energy/laser/anti_creature
-	projectile_type = /obj/projectile/beam/laser/anti_creature
-	select_name = "убить"
-	e_cost = 40
-
-/obj/projectile/beam/laser/anti_creature
-	damage = 15
-	tracer_type = /obj/effect/projectile/tracer/laser
-	muzzle_type = /obj/effect/projectile/muzzle/laser
-	impact_type = /obj/effect/projectile/impact/laser
-*/
-
 /obj/item/ammo_casing/energy/laser/pve
 	projectile_type = /obj/projectile/beam/pve
-	select_name = "убить"
+	select_name = "kill"
 	e_cost = 40
 
 /obj/projectile/beam/pve
@@ -51,19 +37,10 @@
 	if(isalienadult(target))
 		damage = 30
 
-/*
-/obj/projectile/beam/laser/anti_creature/on_hit(atom/target, blocked) // Не работает
-	damage = initial(damage)
-	if(!iscarbon(target) && !issilicon(target))
-		damage = 30
-	. = ..()
-*/
-
 //Cutting projectile - Damage against objects
-
 /obj/item/ammo_casing/energy/laser/cutting
 	projectile_type = /obj/projectile/beam/laser/cutting
-	select_name = "бурить"
+	select_name = "dig"
 	e_cost = 30
 
 /obj/projectile/beam/laser/cutting
@@ -83,10 +60,9 @@
 	. = ..()
 
 //Emagged ammo types
-
 /obj/item/ammo_casing/energy/laser/exploration_kill
 	projectile_type = /obj/projectile/beam/laser/exploration_kill
-	select_name = "УБИТЬ"
+	select_name = "KILL"
 	e_cost = 80
 
 /obj/projectile/beam/laser/exploration_kill
@@ -106,10 +82,9 @@
 	. = ..()
 
 //destroy
-
 /obj/item/ammo_casing/energy/laser/exploration_destroy
 	projectile_type = /obj/projectile/beam/laser/exploration_destroy
-	select_name = "УНИЧТОЖИТЬ"
+	select_name = "DESTROY"
 	e_cost = 120
 
 /obj/projectile/beam/laser/exploration_destroy
