@@ -127,6 +127,7 @@
 	var/mask_type = /obj/item/clothing/mask/breath/cheap
 	var/internal_type = /obj/item/tank/internals/emergency_oxygen
 	var/medipen_type = /obj/item/reagent_containers/hypospray/medipen
+	var/bottle_type = /obj/item/reagent_containers/food/drinks/waterbottle/large
 
 /obj/item/storage/box/survival/PopulateContents()
 	new mask_type(src)
@@ -138,6 +139,7 @@
 	else
 		new /obj/item/tank/internals/plasmaman/belt(src)
 	new /obj/item/emergency_shield(src)
+	new bottle_type(src)
 
 /obj/item/storage/box/survival/radio/PopulateContents()
 	..() // we want the survival stuff too.

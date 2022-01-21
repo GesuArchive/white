@@ -307,9 +307,9 @@
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "smallbottle"
 	inhand_icon_state = "bottle"
-	list_reagents = list(/datum/reagent/water = 49.5, /datum/reagent/fluorine = 0.5)//see desc, don't think about it too hard
+	list_reagents = list(/datum/reagent/water = 99.5, /datum/reagent/fluorine = 0.5)//see desc, don't think about it too hard
 	custom_materials = list(/datum/material/plastic=1000)
-	volume = 50
+	volume = 100
 	amount_per_transfer_from_this = 10
 	fill_icon_thresholds = list(0, 10, 25, 50, 75, 80, 90)
 	isGlass = FALSE
@@ -422,8 +422,8 @@
 	desc = "A fresh commercial-sized bottle of water."
 	icon_state = "largebottle"
 	custom_materials = list(/datum/material/plastic=3000)
-	list_reagents = list(/datum/reagent/water = 100)
-	volume = 100
+	list_reagents = list(/datum/reagent/water = 150)
+	volume = 150
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,20,25,30,50,100)
 	cap_icon_state = "bottle_cap"
