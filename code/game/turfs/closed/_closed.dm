@@ -25,6 +25,9 @@
 	desc = "Достаточно крепкая для попытки хоть как-то поцарапать её."
 	icon = 'icons/turf/walls.dmi'
 	explosion_block = 50
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_WALLS)
+	canSmoothWith = list()
 
 /turf/closed/indestructible/rust_heretic_act()
 	return
