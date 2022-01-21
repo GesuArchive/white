@@ -968,11 +968,11 @@
 		revert_cast()
 		return
 	if(is_shadow(boom)) //Used to not work on thralls. Now it does so you can PUNISH THEM LIKE THE WRATHFUL GOD YOU ARE.
-		to_chat(user, "<span class='warning'>Making an ally explode seems unwise.</span>")
+		to_chat(user, span_warning("Making an ally explode seems unwise."))
 		revert_cast()
 		return
 	if(istype(boom, /mob/living/simple_animal/pet/dog/corgi))
-		to_chat(user, "<span class='warning'>Not even we are that bad of monsters..</span>")
+		to_chat(user, span_warning("Not even we are that bad of monsters.."))
 		revert_cast()
 		return
 	if (!boom.is_holding(/obj/item/storage/backpack/holding)) //so people actually have a chance to kill ascended slings without being insta-sploded
@@ -983,8 +983,8 @@
 		boom.visible_message(span_userdanger("[boom] explodes!"))
 		boom.gib()
 	else
-		to_chat(user, "<span class='warning'>The telekinetic energy is absorbed by the bluespace portal in [boom] hand!</span>")
-		to_chat(boom, "<span class='userdanger'>You feel a slight recoil from the bag of holding!</span>")
+		to_chat(user, span_warning("The telekinetic energy is absorbed by the bluespace portal in [boom] hand!"))
+		to_chat(boom, span_userdanger("You feel a slight recoil from the bag of holding!"))
 
 /obj/effect/proc_holder/spell/targeted/sling/hypnosis //Enthralls someone instantly. Nonlethal alternative to Annihilate
 	name = "Hypnosis"

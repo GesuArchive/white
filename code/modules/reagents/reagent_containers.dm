@@ -178,7 +178,7 @@
 			log_combat(thrown_by, target, "splashed (thrown) [english_list(reagents.reagent_list)]", "in [AREACOORD(target)]")
 			log_game("[key_name(thrown_by)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [AREACOORD(target)].")
 			message_admins("[ADMIN_LOOKUPFLW(thrown_by)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [ADMIN_VERBOSEJMP(target)].")
-		visible_message("<span class='notice'>[src] проливается на [target].</span>")
+		visible_message(span_notice("[src] проливается на [target]."))
 		reagents.expose(target, TOUCH)
 		if(QDELETED(src))
 			return

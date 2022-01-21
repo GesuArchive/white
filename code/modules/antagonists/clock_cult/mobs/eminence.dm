@@ -234,30 +234,30 @@
 /mob/living/eminence_act(mob/living/simple_animal/eminence/eminence)
 	if(is_servant_of_ratvar(src) && !iseminence(src))
 		eminence.selected_mob = src
-		to_chat(eminence, "<span class='brass'>Выбираю [src].</span>")
+		to_chat(eminence, span_brass("Выбираю [src]."))
 
 /obj/machinery/light_switch/eminence_act(mob/living/simple_animal/eminence/eminence)
 	. = ..()
-	to_chat(usr, "<span class='brass'>Начинаю манипулировать с [src]!</span>")
+	to_chat(usr, span_brass("Начинаю манипулировать с [src]!"))
 	if(do_after(eminence, 20, target=get_turf(eminence)))
 		interact(eminence)
 
 /obj/machinery/flasher/eminence_act(mob/living/simple_animal/eminence/eminence)
 	. = ..()
-	to_chat(usr, "<span class='brass'>Начинаю манипулировать с [src]!</span>")
+	to_chat(usr, span_brass("Начинаю манипулировать с [src]!"))
 	if(do_after(eminence, 20, target=get_turf(eminence)))
 		if(anchored)
 			flash()
 
 /obj/machinery/button/eminence_act(mob/living/simple_animal/eminence/eminence)
 	. = ..()
-	to_chat(usr, "<span class='brass'>Начинаю манипулировать с [src]!</span>")
+	to_chat(usr, span_brass("Начинаю манипулировать с [src]!"))
 	if(do_after(eminence, 20, target=get_turf(eminence)))
 		attack_hand(eminence)
 
 /obj/machinery/firealarm/eminence_act(mob/living/simple_animal/eminence/eminence)
 	. = ..()
-	to_chat(usr, "<span class='brass'>Начинаю манипулировать с [src]!</span>")
+	to_chat(usr, span_brass("Начинаю манипулировать с [src]!"))
 	if(do_after(eminence, 20, target=get_turf(eminence)))
 		attack_hand(eminence)
 
@@ -267,7 +267,7 @@
 
 /obj/machinery/door/airlock/eminence_act(mob/living/simple_animal/eminence/eminence)
 	..()
-	to_chat(usr, "<span class='brass'>Начинаю манипулировать с [src]!</span>")
+	to_chat(usr, span_brass("Начинаю манипулировать с [src]!"))
 	if(do_after(eminence, 20, target=get_turf(eminence)))
 		if(welded)
 			to_chat(eminence, text("Шлюз заварен!"))

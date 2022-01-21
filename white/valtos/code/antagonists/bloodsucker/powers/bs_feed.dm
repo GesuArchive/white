@@ -225,7 +225,7 @@
 				break
 
 			if (amSilent)
-				to_chat(user, "<span class='warning'>Your feeding has been interrupted...but [target.ru_who()] didn't seem to notice you.</span>")
+				to_chat(user, span_warning("Your feeding has been interrupted...but [target.ru_who()] didn't seem to notice you."))
 			else
 				to_chat(user, span_warning("Your feeding has been interrupted!"))
 				user.visible_message(span_danger("[user] is ripped from [target] throat. [target.ru_ego(TRUE)] blood sprays everywhere!") , \

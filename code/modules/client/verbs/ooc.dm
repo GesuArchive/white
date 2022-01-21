@@ -88,12 +88,12 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 					if(check_rights_for(src, R_ADMIN))
 						to_chat(C, "<span class='adminooc'>[CONFIG_GET(flag/allow_admin_ooccolor) && prefs.ooccolor ? "<font color=[prefs.ooccolor]>" :"" ]<span class='prefix'>[tagmsg]:</span> <EM>[keyname][holder.fakekey ? "/([holder.fakekey])" : ""]:</EM> <span class='message linkify'>[msg]</span></span></font>")
 					else
-						to_chat(C, span_adminobserverooc("<span class='prefix'>[tagmsg]:</span> <EM>[keyname][holder.fakekey ? "/([holder.fakekey])" : ""]:</EM> <span class='message linkify'>[msg]</span>"))
+						to_chat(C, span_adminobserverooc(span_prefix("[tagmsg]:</span> <EM>[keyname][holder.fakekey ? "/([holder.fakekey])" : ""]:</EM> <span class='message linkify'>[msg]")))
 				else
 					if(GLOB.OOC_COLOR)
 						to_chat(C, "<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'>[tagmsg]:</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]</span></b></font>")
 					else
-						to_chat(C, span_ooc("<span class='prefix'>[tagmsg]:</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]</span>"))
+						to_chat(C, span_ooc(span_prefix("[tagmsg]:</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]")))
 
 			else if(!(key in C.prefs.ignoring))
 				if(check_donations(ckey) >= 100)
@@ -101,7 +101,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 				else if(GLOB.OOC_COLOR)
 					to_chat(C, "<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'>[tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font>")
 				else
-					to_chat(C, span_ooc("<span class='prefix'>[tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span>"))
+					to_chat(C, span_ooc(span_prefix("[tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]")))
 	if(isnewplayer(mob))
 		webhook_send_lobby(key, msg)
 	else

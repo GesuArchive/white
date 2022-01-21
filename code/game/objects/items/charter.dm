@@ -142,7 +142,7 @@
 
 /obj/item/station_charter/revolution/attack_self(mob/living/user)
 	if(COOLDOWN_FINISHED(src, cutoff) && !used)
-		to_chat(user, "<span class='warning'>You have lost the victorious fervor to declare a new name.</span>")
+		to_chat(user, span_warning("You have lost the victorious fervor to declare a new name."))
 		return
 	. = ..()
 

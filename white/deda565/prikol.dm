@@ -24,7 +24,7 @@ GLOBAL_VAR_INIT(nasheed_playing, FALSE)
 
 /obj/item/melee/execution_sword/attack_self(mob/living/user)
 	if(faction_chosen == TRUE && execution_faction)
-		to_chat(user, "<span class='notice'>Ты уже поклялся в верности [execution_faction]!</span>")
+		to_chat(user, span_notice("Ты уже поклялся в верности [execution_faction]!"))
 		return
 	else
 		var/custom_faction = alert(user, "Ты хочешь поклясться в верности новой фракции?", "Кастомизировать?", "Yes", "No")
@@ -44,10 +44,10 @@ GLOBAL_VAR_INIT(nasheed_playing, FALSE)
 	if(user.a_intent != INTENT_HARM || user.zone_selected != "head" || !ishuman(target))
 		return ..()
 	if(!can_execute)
-		to_chat(user, "<span class='notice'>Внутренним передатчикам нужно перезарядиться.</span>")
+		to_chat(user, span_notice("Внутренним передатчикам нужно перезарядиться."))
 		return
 	if(executing)
-		to_chat(user, "<span class='notice'>Ты уже кого-то казнишь.</span>")
+		to_chat(user, span_notice("Ты уже кого-то казнишь."))
 		return
 	var/obj/item/bodypart/head/infidel_head = target.get_bodypart("head")
 	if(!infidel_head || target.stat == DEAD)
@@ -105,7 +105,7 @@ GLOBAL_VAR_INIT(nasheed_playing, FALSE)
 
 /obj/item/melee/execution_sword/suicide_act(mob/living/user)
 	var/obj/item/bodypart/head/the_head = user.get_bodypart("head")
-	user.visible_message("<span class='suicide'>[user] подносит [src] к [user.p_their()] шее! Выглядит будто бы [user.p_theyre()] пытается покончить с жизнью!</span>")
+	user.visible_message(span_suicide("[user] подносит [src] к [user.p_their()] шее! Выглядит будто бы [user.p_theyre()] пытается покончить с жизнью!"))
 	if(the_head)
 		user.say("FOR [execution_faction]!!", forced = "execution sword")
 		priority_announce("[user] забрал свою собственную жизнь во имя [execution_faction]!","Сообщение от [execution_faction]!", 'sound/misc/notice1.ogg')

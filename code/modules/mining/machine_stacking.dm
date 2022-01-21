@@ -115,7 +115,7 @@
 		if(istype(M.buffer, /obj/machinery/mineral/stacking_unit_console))
 			console = M.buffer
 			console.machine = src
-			to_chat(user, "<span class='notice'>You link [src] to the console in [M]'s buffer.</span>")
+			to_chat(user, span_notice("You link [src] to the console in [M]'s buffer."))
 			return TRUE
 
 /obj/machinery/mineral/stacking_machine/proc/process_sheet(obj/item/stack/sheet/inp)

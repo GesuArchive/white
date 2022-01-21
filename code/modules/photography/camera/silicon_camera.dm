@@ -94,7 +94,7 @@
 	var/mob/living/silicon/pai/paimob = loc
 	var/datum/picture/selection = selectpicture(user)
 	if(!istype(selection))
-		to_chat(user, "<span class='warning'>Invalid Image.</span>")
+		to_chat(user, span_warning("Invalid Image."))
 		return
 	printpicture(user,selection)
-	user.visible_message("<span class='notice'>A picture appears on top of the chassis of [paimob.name]!</span>", "<span class='notice'>You print a photograph.</span>")
+	user.visible_message(span_notice("A picture appears on top of the chassis of [paimob.name]!"), span_notice("You print a photograph."))

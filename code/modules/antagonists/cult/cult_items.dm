@@ -507,7 +507,7 @@
 		return
 	if(totalcurses >= MAX_SHUTTLE_CURSES)
 		to_chat(user, span_warning("Пытаюсь shatter the orb, but it remains as solid as a rock!"))
-		to_chat(user, span_danger("<span class='big'>It seems that the blood cult has exhausted its ability to curse the emergency escape shuttle. It would be unwise to create more cursed orbs or to continue to try to shatter this one.</span>"))
+		to_chat(user, span_danger(span_big("It seems that the blood cult has exhausted its ability to curse the emergency escape shuttle. It would be unwise to create more cursed orbs or to continue to try to shatter this one.")))
 		return
 	if(locate(/obj/narsie) in SSpoints_of_interest.narsies)
 		to_chat(user, span_warning("Nar'Sie is already on this plane, there is no delaying the end of all things."))
@@ -545,11 +545,11 @@
 		message += " The shuttle will be delayed by three minutes."
 		priority_announce("[message]", "System Failure", 'sound/misc/notice1.ogg')
 		if(MAX_SHUTTLE_CURSES-totalcurses <= 0)
-			to_chat(user, span_danger("<span class='big'>You sense that the emergency escape shuttle can no longer be cursed. It would be unwise to create more cursed orbs.</span>"))
+			to_chat(user, span_danger(span_big("You sense that the emergency escape shuttle can no longer be cursed. It would be unwise to create more cursed orbs.")))
 		else if(MAX_SHUTTLE_CURSES-totalcurses == 1)
-			to_chat(user, span_danger("<span class='big'>You sense that the emergency escape shuttle can only be cursed one more time.</span>"))
+			to_chat(user, span_danger(span_big("You sense that the emergency escape shuttle can only be cursed one more time.")))
 		else
-			to_chat(user, span_danger("<span class='big'>You sense that the emergency escape shuttle can only be cursed [MAX_SHUTTLE_CURSES-totalcurses] more times.</span>"))
+			to_chat(user, span_danger(span_big("You sense that the emergency escape shuttle can only be cursed [MAX_SHUTTLE_CURSES-totalcurses] more times.")))
 		qdel(src)
 
 #undef MAX_SHUTTLE_CURSES

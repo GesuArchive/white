@@ -61,8 +61,8 @@
 	if(!affecting || U == user || U.stat == DEAD) //no chest???!!!!
 		return
 
-	U.visible_message("<span class='danger'>[user] наносит удар в спину [U] при помощи [src]!</span>", \
-						"<span class='userdanger'>[user] наносит мне удар в спину при помощи [src]!</span>")
+	U.visible_message(span_danger("[user] наносит удар в спину [U] при помощи [src]!"), \
+						span_userdanger("[user] наносит мне удар в спину при помощи [src]!"))
 
 	src.add_fingerprint(user)
 	playsound(loc,'white/rebolution228/sounds/weapons/knifecrit.ogg', 40, 1, -1)

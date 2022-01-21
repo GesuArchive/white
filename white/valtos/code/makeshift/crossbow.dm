@@ -46,7 +46,7 @@
 		else
 			to_chat(user, span_warning("Стоит натянуть тетиву перед установкой снаряда!"))
 	else
-		to_chat(user, "<span class='warning'>Здесь уже есть [chambered.BB] внутри!</span>")
+		to_chat(user, span_warning("Здесь уже есть [chambered.BB] внутри!"))
 
 	update_icon()
 	return

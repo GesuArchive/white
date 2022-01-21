@@ -50,15 +50,15 @@
 	M.apply_status_effect(/datum/status_effect/stoned)
 	if(DT_PROB(1, delta_time))
 		var/smoke_message = pick("Чувствую себя расслабленно.","Чувствую спокойствие.","Чувствую, что мой рот сухой.","Хочется пить...","Мое сердце быстро бьётся.","Чувствую себя неуклюжим.","Хочется чего-то поесть...","Замечаю, что двигаюсь медленнее.")
-		to_chat(M, "<span class='notice'>[smoke_message]</span>")
+		to_chat(M, span_notice("[smoke_message]"))
 	if(DT_PROB(2, delta_time))
 		M.emote(pick("smile","laugh","giggle"))
 	M.adjust_nutrition(-1 * REM * delta_time) //munchies
 	if(DT_PROB(4, delta_time) && M.body_position == LYING_DOWN && !M.IsSleeping()) //chance to fall asleep if lying down
-		to_chat(M, "<span class='warning'>Хочется поспать...</span>")
+		to_chat(M, span_warning("Хочется поспать..."))
 		M.Sleeping(10 SECONDS)
 	if(DT_PROB(4, delta_time) && M.buckled && M.body_position != LYING_DOWN && !M.IsParalyzed()) //chance to be couchlocked if sitting
-		to_chat(M, "<span class='warning'>Слишком удобно, чтобы двигаться...</span>")
+		to_chat(M, span_warning("Слишком удобно, чтобы двигаться..."))
 		M.Paralyze(10 SECONDS)
 	return ..()
 

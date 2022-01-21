@@ -62,7 +62,7 @@
 	if (current_playtime < required_playtime)
 		var/minutes_left = required_playtime - current_playtime
 		var/playtime_left = DisplayTimeText(minutes_left * (1 MINUTES))
-		to_chat(user, "<span class='danger'>You need to play [playtime_left] more as [required_role] to spawn as a Maintenance Drone!</span>")
+		to_chat(user, span_danger("You need to play [playtime_left] more as [required_role] to spawn as a Maintenance Drone!"))
 		return FALSE
 	return ..()
 */

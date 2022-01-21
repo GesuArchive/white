@@ -237,8 +237,8 @@
 /obj/item/melee/classic_baton/proc/get_unga_dunga_cyborg_stun_description(mob/living/target, mob/living/user)
 	. = list()
 
-	.["visible"] = "<span class='danger'>[user] пытается уложить [target] используя [src] и конечно же проваливает попытку!</span>" //look at this duuuuuude
-	.["local"] = "<span class='userdanger'>[target] пытается... уложить меня [src]?</span>" //look at the top of his head!
+	.["visible"] = span_danger("[user] пытается уложить [target] используя [src] и конечно же проваливает попытку!") //look at this duuuuuude
+	.["local"] = span_userdanger("[target] пытается... уложить меня [src]?") //look at the top of his head!
 
 	return .
 

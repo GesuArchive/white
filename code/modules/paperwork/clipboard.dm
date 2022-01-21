@@ -57,7 +57,7 @@
 		return
 	paper.forceMove(user.loc)
 	user.put_in_hands(paper)
-	to_chat(user, "<span class='notice'>Достаю [paper] из [src].</span>")
+	to_chat(user, span_notice("Достаю [paper] из [src]."))
 	var/obj/item/paper/toppaper = toppaper_ref?.resolve()
 	if(paper == toppaper)
 		toppaper_ref = null
@@ -71,7 +71,7 @@
 /obj/item/clipboard/proc/remove_pen(mob/user)
 	pen.forceMove(user.loc)
 	user.put_in_hands(pen)
-	to_chat(user, "<span class='notice'>Достаю [pen] из [src].</span>")
+	to_chat(user, span_notice("Достаю [pen] из [src]."))
 	pen = null
 	update_icon()
 
@@ -105,7 +105,7 @@
 		if(!user.transferItemToLoc(weapon, src))
 			return
 		toppaper_ref = WEAKREF(weapon)
-		to_chat(user, "<span class='notice'>Укладываю [weapon] на [src].</span>")
+		to_chat(user, span_notice("Укладываю [weapon] на [src]."))
 	else if(istype(weapon, /obj/item/pen) && !pen)
 		//Add a pen into the clipboard, attack (write) if there is already one
 		if(!usr.transferItemToLoc(weapon, src))
@@ -179,7 +179,7 @@
 			var/obj/item/paper/paper = locate(params["ref"]) in src
 			if(istype(paper))
 				toppaper_ref = WEAKREF(paper)
-				to_chat(usr, "<span class='notice'>Перемещаю [paper] на самый верх.</span>")
+				to_chat(usr, span_notice("Перемещаю [paper] на самый верх."))
 				update_icon()
 				. = TRUE
 		// Rename the paper (it's a verb)

@@ -119,8 +119,8 @@
 			setPersonality(new_pai)
 			SSpai.candidates -= candidate
 		if("fix_speech")
-			to_chat(pai, "<span class='notice'>Your owner has corrected your speech modulation!</span>")
-			to_chat(usr, "<span class='notice'>You fix the pAI's speech modulator.</span>")
+			to_chat(pai, span_notice("Your owner has corrected your speech modulation!"))
+			to_chat(usr, span_notice("You fix the pAI's speech modulator."))
 			pai.stuttering = 0
 			pai.slurring = 0
 			pai.derpspeech = 0
@@ -161,8 +161,8 @@
 				pai.can_receive = !pai.can_receive
 			pai.radio.wires.cut(transmit_holder)//wires.cut toggles cut and uncut states
 			transmit_holder = (transmitting ? pai.can_transmit : pai.can_receive) //recycling can be fun!
-			to_chat(usr, "<span class='notice'>You [transmit_holder ? "enable" : "disable"] your pAI's [transmitting ? "outgoing" : "incoming"] radio transmissions!</span>")
-			to_chat(pai, "<span class='notice'>Your owner has [transmit_holder ? "enabled" : "disabled"] your [transmitting ? "outgoing" : "incoming"] radio transmissions!</span>")
+			to_chat(usr, span_notice("You [transmit_holder ? "enable" : "disable"] your pAI's [transmitting ? "outgoing" : "incoming"] radio transmissions!"))
+			to_chat(pai, span_notice("Your owner has [transmit_holder ? "enabled" : "disabled"] your [transmitting ? "outgoing" : "incoming"] radio transmissions!"))
 		if("wipe_pai")
 			var/confirm = alert(usr, "Are you certain you wish to delete the current personality? This action cannot be undone.", "Personality Wipe", list("Yes", "No"))
 			if(confirm != "Yes")

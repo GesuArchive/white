@@ -509,14 +509,14 @@
 	var/turf/above_turf = SSmapping.get_turf_above(current_turf)
 
 	if(!above_turf)
-		to_chat(src, "<span class='warning'>НЕКУДА!</span>")
+		to_chat(src, span_warning("НЕКУДА!"))
 		return
 
 	if(can_z_move(DOWN, above_turf, current_turf, ZMOVE_FALL_FLAGS)) //Will we fall down if we go up?
 		if(buckled)
-			to_chat(src, "<span class='notice'>[buckled] не умеет летать.</span>")
+			to_chat(src, span_notice("[buckled] не умеет летать."))
 		else
-			to_chat(src, "<span class='notice'>Не умею летать.</span>")
+			to_chat(src, span_notice("Не умею летать."))
 		return
 
 	if(zMove(UP, z_move_flags = ZMOVE_FLIGHT_FLAGS|ZMOVE_FEEDBACK))

@@ -277,7 +277,7 @@
 	. += "<hr>"
 
 	if(damaged_clothes == CLOTHING_SHREDDED)
-		. += "<span class='warning'><b>Полностью разорвано и требует починки!</b></span>"
+		. += span_warning("<b>Полностью разорвано и требует починки!</b>")
 		return
 
 	switch (max_heat_protection_temperature)
@@ -293,11 +293,11 @@
 		var/zone_name = parse_zone(zone)
 		switch(pct_damage_part)
 			if(100 to INFINITY)
-				. += span_smalldanger("<span class='warning'><b>[capitalize(zone_name)] бесполезна и требует починки!</b></span>")
+				. += span_smalldanger(span_warning("<b>[capitalize(zone_name)] бесполезна и требует починки!</b>"))
 			if(60 to 99)
-				. += span_notice("<span class='warning'>[capitalize(zone_name)] достаточно разорвана!</span>")
+				. += span_notice(span_warning("[capitalize(zone_name)] достаточно разорвана!"))
 			if(30 to 59)
-				. += span_smallnotice("<span class='danger'>[capitalize(zone_name)] немного порвана.</span>")
+				. += span_smallnotice(span_danger("[capitalize(zone_name)] немного порвана."))
 
 	var/datum/component/storage/pockets = GetComponent(/datum/component/storage)
 	if(pockets)

@@ -512,7 +512,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 
 			if(gear_tab == "Инвентарь")
-				dat += "<span class='linkOff'>Инвентарь</span>"
+				dat += span_linkoff("Инвентарь")
 			else
 				dat += "<a href='?_src_=prefs;preference=gear;select_category=Инвентарь'>Инвентарь</a>"
 

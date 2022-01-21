@@ -42,9 +42,9 @@
 			if("Devil")
 				to_chat(user, "<span class='notice'>[O] имеет следы влияния <B><font size =2 font color=#ff0000>Господина Ада</B>")
 			if("Jesus")
-				to_chat(user, "<span class='notice'>[O] имеет следы влияния <B><font size =2 font color=#e1f7f2>Космического Мессии</B></span>")
+				to_chat(user, span_notice("[O] имеет следы влияния <B><font size =2 font color=#e1f7f2>Космического Мессии</B>"))
 			if("none")
-				to_chat(user, "<span class='notice'>[O] чист от влияния псевдобожественных сущностей</span>")
+				to_chat(user, span_notice("[O] чист от влияния псевдобожественных сущностей"))
 		return
 	. = ..()
 
