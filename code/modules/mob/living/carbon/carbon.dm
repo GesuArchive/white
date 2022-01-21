@@ -453,6 +453,7 @@
 	var/turf/T = get_turf(src)
 	if(!blood)
 		adjust_nutrition(-lost_nutrition)
+		hydration-=lost_nutrition
 		adjustToxLoss(-3)
 
 	for(var/i=0 to distance)
