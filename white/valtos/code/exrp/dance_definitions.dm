@@ -9,7 +9,7 @@
 
 /datum/interaction/dancero/display_interaction(var/mob/living/user, var/mob/living/target)
 	. = ..()
-	playsound(get_turf(src), 'white/valtos/sounds/exrp/interactions/slap.ogg', 50, 1, -1)
+	playsound(get_turf(target), 'white/valtos/sounds/exrp/interactions/slap.ogg', 50, 1, -1)
 
 /datum/interaction/dancero
 	command = "dancero"
