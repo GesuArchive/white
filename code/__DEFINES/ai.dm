@@ -29,6 +29,13 @@
 ///This subtree should cancel any further planning, (Including from other subtrees)
 #define SUBTREE_RETURN_FINISH_PLANNING 1
 
+//for songs
+
+///song datum blackboard, set by instrument subtrees
+#define BB_SONG_DATUM "BB_SONG_DATUM"
+///song lines blackboard, set by default on controllers
+#define BB_SONG_LINES "song_lines"
+
 // Monkey AI controller blackboard keys
 
 #define BB_MONKEY_AGRESSIVE "BB_monkey_agressive"

@@ -38,10 +38,10 @@
 	var/mob/living/big_guy = controller.pawn //he was molded by the darkness
 
 	if(batman.stat)
-		finish_action(controller, TRUE)
+		finish_action(controller, TRUE, target_key)
 
 	if(get_dist(batman, big_guy) >= give_up_distance)
-		finish_action(controller, FALSE)
+		finish_action(controller, FALSE, target_key)
 
 	big_guy.start_pulling(batman)
 	big_guy.setDir(get_dir(big_guy, batman))
@@ -57,11 +57,11 @@
 	else
 		batman.adjustBruteLoss(150)
 
-	finish_action(controller, TRUE)
+	finish_action(controller, TRUE, target_key)
 
 /datum/ai_behavior/break_spine/finish_action(datum/ai_controller/controller, succeeded, target_key)
 	if(succeeded)
-		controller.blackboard[target_key] = null
+		controller.blackboard -= target_key
 	return ..()
 
 /// Use in hand the currently held item
@@ -259,3 +259,30 @@
 /datum/ai_behavior/follow/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
 	controller.blackboard[BB_FOLLOW_TARGET] = null
+
+//song behaviors
+
+/datum/ai_behavior/setup_instrument
+
+/datum/ai_behavior/setup_instrument/perform(delta_time, datum/ai_controller/controller, song_datum_key, song_lines_key)
+	. = ..()
+
+	var/datum/song/song = controller.blackboard[song_datum_key]
+	var/song_lines = controller.blackboard[song_lines_key]
+
+	//just in case- it won't do anything if the instrument isn't playing
+	song.stop_playing()
+	song.ParseSong(song_lines)
+	song.repeat = 10
+	song.volume = song.max_volume - 10
+	finish_action(controller, TRUE)
+
+/datum/ai_behavior/play_instrument
+
+/datum/ai_behavior/play_instrument/perform(delta_time, datum/ai_controller/controller, song_datum_key)
+	. = ..()
+
+	var/datum/song/song = controller.blackboard[song_datum_key]
+
+	song.start_playing(controller.pawn)
+	finish_action(controller, TRUE)
