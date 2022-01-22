@@ -55,17 +55,16 @@
 
 /obj/machinery/accounting/update_overlays()
 	. = ..()
-	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	luminosity = 0
 	if(machine_stat & (NOPOWER|BROKEN) || !anchored)
 		return
 	if(panel_open)
-		SSvis_overlays.add_vis_overlay(src, icon, "recharger-open", layer, plane, dir, alpha)
+		. += mutable_appearance(icon, "recharger-open", layer, plane, alpha)
 		return
 	luminosity = 1
 	if(inserted_id)
-		SSvis_overlays.add_vis_overlay(src, icon, "recharger-full", layer, plane, dir, alpha)
-		SSvis_overlays.add_vis_overlay(src, icon, "recharger-full", plane = EMISSIVE_PLANE, dir = src.dir, alpha = src.alpha)
+		. += mutable_appearance(icon, "recharger-full", layer, plane, alpha)
+		. += mutable_appearance(icon, "recharger-full", 0, EMISSIVE_PLANE, alpha)
 	else
-		SSvis_overlays.add_vis_overlay(src, icon, "recharger-empty", layer, plane, dir, alpha)
-		SSvis_overlays.add_vis_overlay(src, icon, "recharger-empty", plane = EMISSIVE_PLANE, dir = src.dir, alpha = src.alpha)
+	. += mutable_appearance(icon, "recharger-empty", layer, plane, alpha)
+	. += mutable_appearance(icon, "recharger-empty", 0, EMISSIVE_PLANE, alpha)

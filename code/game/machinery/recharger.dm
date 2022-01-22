@@ -167,22 +167,20 @@
 
 /obj/machinery/recharger/update_overlays()
 	. = ..()
-	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
-	luminosity = 0
 	if(machine_stat & (NOPOWER|BROKEN) || !anchored)
 		return
 	if(panel_open)
-		SSvis_overlays.add_vis_overlay(src, icon, "recharger-open", layer, plane, dir, alpha)
+		. += mutable_appearance(icon, "[base_icon_state]-open", layer, plane, alpha)
 		return
 
-	luminosity = 1
-	if (charging)
-		if(using_power)
-			SSvis_overlays.add_vis_overlay(src, icon, "recharger-charging", layer, plane, dir, alpha)
-			SSvis_overlays.add_vis_overlay(src, icon, "recharger-charging", plane = EMISSIVE_PLANE, dir = src.dir, alpha = src.alpha)
-		else
-			SSvis_overlays.add_vis_overlay(src, icon, "recharger-full", layer, plane, dir, alpha)
-			SSvis_overlays.add_vis_overlay(src, icon, "recharger-full", plane = EMISSIVE_PLANE, dir = src.dir, alpha = src.alpha)
-	else
-		SSvis_overlays.add_vis_overlay(src, icon, "recharger-empty", layer, plane, dir, alpha)
-		SSvis_overlays.add_vis_overlay(src, icon, "recharger-empty", plane = EMISSIVE_PLANE, dir = src.dir, alpha = src.alpha)
+	if(!charging)
+		. += mutable_appearance(icon, "[base_icon_state]-empty", layer, plane, alpha)
+		. += mutable_appearance(icon, "[base_icon_state]-empty", 0, EMISSIVE_PLANE, alpha)
+		return
+	if(using_power)
+		. += mutable_appearance(icon, "[base_icon_state]-charging", layer, plane, alpha)
+		. += mutable_appearance(icon, "[base_icon_state]-charging", 0, EMISSIVE_PLANE, alpha)
+		return
+
+	. += mutable_appearance(icon, "[base_icon_state]-full", layer, plane, alpha)
+	. += mutable_appearance(icon, "[base_icon_state]-full", 0, EMISSIVE_PLANE, alpha)
