@@ -60,7 +60,7 @@
  * Inbetween those the cell shows the default blinking yellow overlay.
  * If you want to have more overlays, call it as ..(override = TRUE) to not get any of the default cell overlays, including wires for grown cells.
  **/
-/obj/item/stock_parts/cell/update_overlays(icon_file = FALSE, lower_charge_percent = 0.01, upper_charge_percent = 0.995, var/override = FALSE)
+/obj/item/stock_parts/cell/update_overlays(icon_file = FALSE, lower_charge_percent = 0.01, upper_charge_percent = 0.995, override = FALSE)
 	. = ..()
 	if(override)
 		return
