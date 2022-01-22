@@ -843,10 +843,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //VAPE NATION//
 ///////////////
 /obj/item/clothing/mask/vape
-	name = "\improper E-Cigarette"
-	desc = "A classy and highly sophisticated electronic cigarette, for classy and dignified gentlemen. A warning label reads \"Warning: Do not fill with flammable materials.\""//<<< i'd vape to that.
+	name = "электронная сигарета"
+	desc = "Стильная и крайне изысканная электронная сигарета, для таких же стильных и изысканных джентельменов. На предупреждающей этикетке написано: \"ВНИМАНИЕ: Не заполняйте горючими веществами.\""//<<< i'd vape to that.
 	icon = 'icons/obj/clothing/masks.dmi'
-	icon_state = "red_vape"
+	icon_state = "redVape"
 	inhand_icon_state = null
 	w_class = WEIGHT_CLASS_TINY
 	var/chem_volume = 100
@@ -867,14 +867,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents.add_reagent(/datum/reagent/drug/nicotine, 50)
 	if(!param_color)
 		param_color = pick("red","blue","black","white","green","purple","yellow","orange")
-	icon_state = "[param_color]_vape"
+	icon_state = "[param_color]Vape"
 	inhand_icon_state = "[param_color]_vape"
 
 /obj/item/clothing/mask/vape/attackby(obj/item/O, mob/user, params)
 	if(O.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!screw)
 			screw = TRUE
-			to_chat(user, span_notice("You open the cap on [src]."))
+			to_chat(user, span_notice("Вскрываю крышку [src]."))
 			reagents.flags |= OPENCONTAINER
 			if(obj_flags & EMAGGED)
 				add_overlay("vapeopen_high")
@@ -884,7 +884,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				add_overlay("vapeopen_low")
 		else
 			screw = FALSE
-			to_chat(user, span_notice("You close the cap on [src]."))
+			to_chat(user, span_notice("Закрываю крышку [src]."))
 			reagents.flags &= ~(OPENCONTAINER)
 			cut_overlays()
 
@@ -893,16 +893,16 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			if(!super)
 				cut_overlays()
 				super = TRUE
-				to_chat(user, span_notice("You increase the voltage of [src]."))
+				to_chat(user, span_notice("Увеличиваю напряжение [src]."))
 				add_overlay("vapeopen_med")
 			else
 				cut_overlays()
 				super = FALSE
-				to_chat(user, span_notice("You decrease the voltage of [src]."))
+				to_chat(user, span_notice("Уменьшаю напряжение [src]."))
 				add_overlay("vapeopen_low")
 
 		if(screw && (obj_flags & EMAGGED))
-			to_chat(user, span_warning("[capitalize(src.name)] can't be modified!"))
+			to_chat(user, span_warning("[capitalize(src.name)] нельзя модифицировать!"))
 		else
 			..()
 
@@ -913,30 +913,30 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			cut_overlays()
 			obj_flags |= EMAGGED
 			super = FALSE
-			to_chat(user, span_warning("You maximize the voltage of [src]."))
+			to_chat(user, span_warning("Увеличиваю напряжение [src] до максимума!"))
 			add_overlay("vapeopen_high")
 			var/datum/effect_system/spark_spread/sp = new /datum/effect_system/spark_spread //for effect
 			sp.set_up(5, 1, src)
 			sp.start()
 		else
-			to_chat(user, span_warning("[capitalize(src.name)] is already emagged!"))
+			to_chat(user, span_warning("[capitalize(src.name)] уже взломан!"))
 	else
-		to_chat(user, span_warning("You need to open the cap to do that!"))
+		to_chat(user, span_warning("Сначала надо открыть крышку!"))
 
 /obj/item/clothing/mask/vape/attack_self(mob/user)
 	if(reagents.total_volume > 0)
-		to_chat(user, span_notice("You empty [src] of all reagents."))
+		to_chat(user, span_notice("Вы опустошили содержимое [src] от всех реагентов."))
 		reagents.clear_reagents()
 
 /obj/item/clothing/mask/vape/equipped(mob/user, slot)
 	. = ..()
 	if(slot == ITEM_SLOT_MASK)
 		if(!screw)
-			to_chat(user, span_notice("You start puffing on the vape."))
+			to_chat(user, span_notice("Начинаю парить."))
 			reagents.flags &= ~(NO_REACT)
 			START_PROCESSING(SSobj, src)
 		else //it will not start if the vape is opened.
-			to_chat(user, span_warning("You need to close the cap first!"))
+			to_chat(user, span_warning("Сначала надо закрыть крышку!"))
 
 /obj/item/clothing/mask/vape/dropped(mob/user)
 	. = ..()
@@ -976,7 +976,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 	if(!reagents.total_volume)
 		if(ismob(loc))
-			to_chat(M, span_warning("[capitalize(src.name)] is empty!"))
+			to_chat(M, span_warning("[capitalize(src.name)] пуст!"))
 			STOP_PROCESSING(SSobj, src)
 			//it's reusable so it won't unequip when empty
 		return
@@ -1000,7 +1000,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			var/datum/effect_system/spark_spread/sp = new /datum/effect_system/spark_spread
 			sp.set_up(5, 1, src)
 			sp.start()
-			to_chat(M, span_userdanger("[capitalize(src.name)] suddenly explodes in your mouth!"))
+			to_chat(M, span_userdanger("[capitalize(src.name)] внезапно взрывается в моем рту!"))
 			qdel(src)
 			return
 
