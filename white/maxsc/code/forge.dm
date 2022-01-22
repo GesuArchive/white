@@ -7,42 +7,25 @@
 	icon_state = "2"
 	density = TRUE
 	var/list/parts = list()
-	var/datum/reagent/material
-	var/max_material = 150
+	var/datum/reagent/selected_material
 
 /obj/machinery/forge/main/Initialize()
 	. = ..()
 	setup_parts()
+	create_reagents(150, REFILLABLE)
+	AddComponent(/datum/component/plumbing/simple_supply, TRUE, layer, FALSE)
 
 /obj/machinery/forge/main/Destroy()
 	. = ..()
 	for(var/P in parts)
 		qdel(P)
 
-/obj/machinery/forge/main/attackby(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/reagent_containers))
-		var/obj/item/reagent_containers/C = attacking_item
-		var/datum/reagent/master_reagent = C.reagents.get_master_reagent()
-		if(!master_reagent)
-			to_chat(user, span_warning("Нечего переливать!"))
-			return ..()
-		var/to_transfer = (master_reagent.volume-C.amount_per_transfer_from_this)>=0 ? C.amount_per_transfer_from_this : 0
-		if(to_transfer <=0)
-			to_chat(user, span_warning("Нечего переливать!"))
-			return ..()
-		if(material)
-			if(material.volume+C.amount_per_transfer_from_this>max_material)
-				to_chat(user, span_warning("Больше не влезет!"))
-				return
-		if(material && material?.type != master_reagent.type)
-			to_chat(user, span_warning("Внутри другая жидкость!"))
-			return ..()
-		if(!material)
-			material = new master_reagent.type
-		material.volume += to_transfer
-		C.reagents.remove_reagent(master_reagent.type, to_transfer)
-		src.visible_message(span_notice("[user] переливает немного [lowertext(material.name)] в [src]"), \
-		span_notice("Переливаю немного [lowertext(material.name)] в [src]"))
+/obj/machinery/forge/main/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/C = I
+		if(C.reagents.trans_to(src, C.amount_per_transfer_from_this))
+			src.visible_message(span_notice("[user] переливает немного содержимого [I.name] в [src]"), \
+			span_notice("Переливаю немного содержимого [I.name] в [src]"))
 	else
 		. = ..()
 
@@ -70,9 +53,13 @@
 /obj/machinery/forge/main/ui_data(mob/user)
 	var/list/data = list()
 	var/list/crafts = get_crafts()
-	data["material"] = material ? material.name : "No material"
-	data["amount"] = material ? material.volume : 0
-	data["max_amount"] = max_material
+	data["reagent_list"] = list()
+	if(reagents && reagents.reagent_list.len)
+		for(var/datum/reagent/R in reagents.reagent_list)
+			data["reagent_list"] += list(list("name" = R.name, "volume" = R.volume))
+	data["selected_material"] = selected_material ? selected_material.name : "Не выбран реагент"
+	data["amount"] = selected_material ? selected_material.volume : 0
+	data["max_amount"] = reagents ? reagents.maximum_volume : "SHIT BROKEN"
 	data["crafts"] = crafts
 
 	return data
@@ -84,13 +71,21 @@
 
 	switch(action)
 		if("create")
-			var/obj/item/melee/forge/I = params["path"]
-			I = new I(get_turf(src))
-			I.material = material.type
-			I.setup()
-			material.volume-=params["cost"]
+			if(!reagents.remove_reagent(selected_material, params["cost"]))
+				message_admins("[ADMIN_LOOKUPFLW(usr)] пытается создать [params["path"]] в реагентной печке без реагентов в локации [AREACOORD(usr)]")
+				return
+			if(!istype(text2path(params["path"]), /datum/reagent))
+				message_admins("[ADMIN_LOOKUPFLW(usr)] пытается создать [params["path"]] в реагентной печке в локации [AREACOORD(usr)]")
+				return
+			var/obj/item/melee/forge/forged_item = params["path"]
+			forged_item = new forged_item(get_turf(src))
+			forged_item.material = selected_material.type
+			forged_item.setup()
+		if("select")
+			selected_material = reagents.get_reagent(params["reagent"])
 		if("dump")
-			QDEL_NULL(material)
+			reagents.remove_all(reagents.total_volume)
+			QDEL_NULL(selected_material)
 
 /obj/machinery/forge/part/attackby(obj/item/attacking_item, mob/user, params)
 	return main_part.attackby(attacking_item, user, params)

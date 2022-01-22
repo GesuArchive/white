@@ -6,26 +6,43 @@ export const Forge = (props, context) => {
   const { act, data } = useBackend(context);
   // Extract `health` and `color` variables from the `data` object.
   const {
-    material,
+    selected_material,
     amount,
     max_amount,
+    reagent_list,
     crafts,
   } = data;
   return (
     <Window>
       <Box textAlign="center">
-        Forge
+        Плавильня
       </Box>
       <Section>
       <Box textAlign="center">
-        {material}: {amount}/{max_amount}
+        {material}: {amount}
       </Box>
+      <LabeledList>
+        {reagent_list.map(reagent => (
+          <Button
+            key={reagent.name}
+            content={reagent.name}
+            tooltip={reagent.volume}
+            width="30px"
+            selected={reagent.name === selected_material}
+            textAlign="center"
+            color="transparent"
+            onClick={() => act('select', {
+              reagent: reagent.name,
+            })}>
+          </Button>
+        ))}
+      </LabeledList>
       <Button
         fontColor="white"
         color="transparent"
         icon="arrow-right"
         onClick={() => act('dump')}>
-        Dump
+        Очистить
       </Button>
       </Section>
       <Stack vertical>
@@ -43,7 +60,7 @@ export const Forge = (props, context) => {
                     path: craft.path,
                     cost: craft.cost,
                   })} >
-                  Craft
+                  Создать
                 </Button>
               )} >
               <Box
