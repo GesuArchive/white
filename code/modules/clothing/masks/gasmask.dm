@@ -15,7 +15,7 @@
 	///List to keep track of each filter
 	var/list/gas_filters
 	///Does the mask have an FOV?
-	var/has_fov = TRUE
+	var/has_fov = FALSE
 
 /obj/item/clothing/mask/gas/Initialize()
 	. = ..()
