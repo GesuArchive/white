@@ -80,32 +80,31 @@
 	icon_state = "super_elite_army_coat"
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
-/obj/item/clothing/suit/cowl
+/obj/item/clothing/neck/cowl
 	name = "платок"
 	desc = "Красивый."
 	worn_icon = 'white/valtos/icons/clothing/mob/neck.dmi'
 	icon = 'white/valtos/icons/clothing/necks.dmi'
 	icon_state = "cowl"
-	slot_flags = ITEM_SLOT_NECK
 
-/obj/item/clothing/suit/cowl/robe
+/obj/item/clothing/neck/cowl/robe
 	name = "синяя роба"
 	desc = "Модное покрывало."
 	icon_state = "robes_blue"
 
-/obj/item/clothing/suit/cowl/robe/red
+/obj/item/clothing/neck/cowl/robe/red
 	name = "красная роба"
 	icon_state = "robes_red"
 
-/obj/item/clothing/suit/cowl/terran
+/obj/item/clothing/neck/cowl/terran
 	name = "терранская роба"
 	icon_state = "terrandress"
 
-/obj/item/clothing/suit/cowl/terran/off
+/obj/item/clothing/neck/cowl/terran/off
 	name = "терранская роба"
 	icon_state = "terrandress_off"
 
-/obj/item/clothing/suit/cowl/terran/comm
+/obj/item/clothing/neck/cowl/terran/comm
 	name = "терранская роба"
 	icon_state = "terrandress_comm"
 

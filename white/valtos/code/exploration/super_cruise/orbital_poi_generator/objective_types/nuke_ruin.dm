@@ -64,7 +64,7 @@
 	print_command_report("Код взрыва ядерной бомбы: [r_code]")
 	var/obj/structure/closet/supplypod/pod = podspawn(list(
 		"target" = get_turf(src),
-		"path" = /obj/structure/closet/supplypod/battleroyale
+		"path" = /obj/structure/closet/supplypod/box
 	))
 	forceMove(pod)
 
