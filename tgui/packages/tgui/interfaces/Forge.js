@@ -21,6 +21,8 @@ export const Forge = (props, context) => {
         <Box textAlign="center">
           {selected_material}: {amount}/{max_amount}
         </Box>
+      </Section>
+      <Section>
         <LabeledList>
           {reagent_list.map(reagent => (
             <Button

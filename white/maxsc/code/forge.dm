@@ -13,7 +13,7 @@
 	. = ..()
 	setup_parts()
 	create_reagents(150, REFILLABLE)
-	AddComponent(/datum/component/plumbing/simple_demand, TRUE, layer, FALSE)
+	AddComponent(/datum/component/plumbing/simple_demand, TRUE, _turn_connects = FALSE)
 
 /obj/machinery/forge/main/Destroy()
 	. = ..()
@@ -71,9 +71,9 @@
 
 	switch(action)
 		if("create")
-			if(!reagents.remove_reagent(selected_material, text2num(params["cost"])))
+			if(!reagents.remove_reagent(selected_material.type, text2num(params["cost"])))
 				return
-			if(!istype(text2path(params["path"]), /datum/reagent))
+			if(!istype(text2path(params["path"]), /obj/item/melee/forge))
 				message_admins("[ADMIN_LOOKUPFLW(usr)] пытается создать [params["path"]] в реагентной печке в локации [AREACOORD(usr)]")
 				return
 			var/obj/item/melee/forge/forged_item = params["path"]
