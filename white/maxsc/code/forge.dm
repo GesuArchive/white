@@ -73,9 +73,10 @@
 		if("create")
 			if(!reagents.remove_reagent(selected_material.type, text2num(params["cost"])))
 				return
-			if(!istype(text2path(params["path"]), /obj/item/melee/forge))
-				message_admins("[ADMIN_LOOKUPFLW(usr)] пытается создать [params["path"]] в реагентной печке в локации [AREACOORD(usr)]")
-				return
+			// да похуй блядь
+			//if(!istype(text2path(params["path"]), /obj/item/melee/forge))
+			//	message_admins("[ADMIN_LOOKUPFLW(usr)] пытается создать [params["path"]] в реагентной печке в локации [AREACOORD(usr)]")
+			//	return
 			var/obj/item/melee/forge/forged_item = params["path"]
 			forged_item = new forged_item(get_turf(src))
 			forged_item.material = selected_material.type
