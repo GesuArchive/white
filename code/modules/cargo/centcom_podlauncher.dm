@@ -349,7 +349,7 @@
 			var/shrapnelInput
 			var/search = input("Input typepath of projectile you're looking for or leave the bar empty to show all projectiles.")
 			if(isnull(search) || search == "")
-				shrapnelInput = input("Please enter the type of pellet cloud you'd like to create on landing (Can be any projectile!)", "Projectile Typepath",  0) in sortList(subtypesof(/obj/projectile), /proc/cmp_typepaths_asc)
+				shrapnelInput = input("Please enter the type of pellet cloud you'd like to create on landing (Can be any projectile!)", "Projectile Typepath",  0) in sort_list(subtypesof(/obj/projectile), /proc/cmp_typepaths_asc)
 			else
 				shrapnelInput = pick_closest_path(search, matches = get_fancy_list_of_projectile_types())
 			if (isnull(shrapnelInput))

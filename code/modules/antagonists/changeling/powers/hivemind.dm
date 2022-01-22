@@ -23,7 +23,7 @@ GLOBAL_LIST_EMPTY(hivemind_bank)
 		to_chat(user, span_warning("В эфире уже есть наш ДНК!"))
 		return
 
-	var/chosen_name = input("Выбрать бы ДНК для отправки: ", "Обмен ДНК с роем", null) as null|anything in sortList(names)
+	var/chosen_name = input("Выбрать бы ДНК для отправки: ", "Обмен ДНК с роем", null) as null|anything in sort_list(names)
 	if(!chosen_name)
 		return
 
@@ -68,7 +68,7 @@ GLOBAL_LIST_EMPTY(hivemind_bank)
 		to_chat(user, span_warning("Похоже ещё никто не делился ДНК!"))
 		return
 
-	var/S = input("Какое ДНК мы поглотим сегодня: ", "Поглощение ДНК", null) as null|anything in sortList(names)
+	var/S = input("Какое ДНК мы поглотим сегодня: ", "Поглощение ДНК", null) as null|anything in sort_list(names)
 	if(!S)
 		return
 	var/datum/changelingprofile/chosen_prof = names[S]

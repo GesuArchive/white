@@ -109,7 +109,7 @@
 	for(var/line in GLOB.whitelist)
 		Lines += "\t[line] - ([rand(10, 50)]мс)"
 
-	for(var/line in sortList(Lines))
+	for(var/line in sort_list(Lines))
 		msg += "[line]\n"
 
 	if(check_rights(R_ADMIN, 0))

@@ -68,7 +68,7 @@
 		var/obj/item/item = item_type
 		display_names[initial(item.name)] = item
 		bat_icons += list(initial(item.name) = image(icon = initial(item.icon), icon_state = initial(item.icon_state)))
-	bat_icons = sortList(bat_icons)
+	bat_icons = sort_list(bat_icons)
 	var/choice = show_radial_menu(user, src , bat_icons, custom_check = CALLBACK(src, .proc/check_menu, user), radius = 42, require_near = TRUE)
 	if(!choice || !check_menu(user))
 		return

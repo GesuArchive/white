@@ -97,7 +97,7 @@ SUBSYSTEM_DEF(title)
 	for(var/line in GLOB.whitelist)
 		cum += "[line]"
 	if(SSticker.current_state <= GAME_STATE_PREGAME)
-		for(var/line in sortList(caa))
+		for(var/line in sort_list(caa))
 			tcc += "<tr><td class='role'>[line]</td><td>[english_list(caa[line])]</td></tr>"
 		tcc += "<tr><td class='role'>Не готовы</td><td>"
 	else
