@@ -70,7 +70,7 @@
 	icon_state = "brown_jacket"
 	body_parts_covered = CHEST|ARMS
 	inhand_icon_state = "brown_jacket"
-
+/*
 
 /obj/item/clothing/neck/stripedgreenscarf/black
 	name = "striped black scarf"
@@ -79,7 +79,7 @@
 	custom_price = 25
 	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
 	icon = 'white/Wzzzz/clothing/ties.dmi'
-
+*/
 /obj/item/clothing/mask/skull
 	name = "skull mask"
 	desc = "Life is full of cruel. That's one of examples."
@@ -94,6 +94,7 @@
 	force = 5
 	throwforce = 3
 
+/*
 /obj/item/clothing/neck/stripedgreenscarf/grey
 	name = "striped grey scarf"
 	icon_state = "stripedgreyscarf"
@@ -101,7 +102,7 @@
 	custom_price = 25
 	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
 	icon = 'white/Wzzzz/clothing/ties.dmi'
-
+*/
 /obj/item/clothing/suit/armor/vest/leather/tailcoat
 	name = "tail coat"
 	desc = "Stylish armored coat."
