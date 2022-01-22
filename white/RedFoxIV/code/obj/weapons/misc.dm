@@ -1303,3 +1303,32 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 #undef PUSHING
 #undef STOP_PUSHING
 #undef STOP_PUSHING_FOR_ONE_TILE
+
+
+
+/datum/reagent/drug/soldier
+	name = "Soldier's concoction"
+	enname = "Soldier's concoction"
+	metabolization_rate = 2.5 * REAGENTS_METABOLISM
+	taste_description = "резня"
+	trippy = FALSE //Does this drug make you trip?
+	color = "#E7F3A3"
+
+
+/datum/reagent/drug/soldier/on_mob_metabolize(mob/living/L)
+	//to_chat(L, span_clown("oh boy"))
+	L.next_move_adjust += -750
+	//commando = L
+	//RegisterSignal(L, COMSIG_CLICK, .proc/reset_clickcd)
+
+
+/datum/reagent/drug/soldier/on_mob_end_metabolize(mob/living/L)
+	//to_chat(L, span_clown("aww"))
+	L.next_move_adjust -= -750
+	//UnregisterSignal(L, COMSIG_CLICK)
+
+/obj/item/reagent_containers/syringe/soldier
+	name = "\"Soldier syringe\""
+	desc = "\"I ain't much for drugs... but hell, when fortune is knockin', ya gotta greet that door with a smile and a nod. Salud!\""
+	list_reagents = list(/datum/reagent/drug/soldier = 15)
+	amount_per_transfer_from_this = 15	
