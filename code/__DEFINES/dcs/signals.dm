@@ -91,9 +91,6 @@
 /// fires on the target datum when an element is attached to it  (/datum/element)
 #define COMSIG_ELEMENT_DETACH "element_detach"
 
-/// Sent when the amount of materials in material_container changes
-#define COMSIG_MATERIAL_CONTAINER_CHANGED "material_container_changed"
-
 ///Subsystem signals
 ///From base of datum/controller/subsystem/Initialize: (start_timeofday)
 #define COMSIG_SUBSYSTEM_POST_INITIALIZE "subsystem_post_initialize"
@@ -254,9 +251,6 @@
 #define COMSIG_ATOM_SET_OPACITY "atom_set_opacity"
 ///from base of atom/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 #define COMSIG_ATOM_HITBY "atom_hitby"
-
-/// Sent when the amount of materials in silo connected to remote_materials changes. Does not apply when remote_materials is not connected to a silo.
-#define COMSIG_REMOTE_MATERIALS_CHANGED "remote_materials_changed"
 
 //from base of atom/movable/on_enter_storage(): (datum/component/storage/concrete/master_storage)
 #define COMSIG_STORAGE_ENTERED "storage_entered"

@@ -25,8 +25,6 @@
 	update_designs()
 	materials = AddComponent(/datum/component/remote_materials, "lathe", mapload, mat_container_flags=BREAKDOWN_FLAGS_LATHE)
 	RefreshParts()
-	RegisterSignal(src, COMSIG_MATERIAL_CONTAINER_CHANGED, .proc/on_materials_changed)
-	RegisterSignal(src, COMSIG_REMOTE_MATERIALS_CHANGED, .proc/on_materials_changed)
 
 /obj/machinery/rnd/production/Destroy()
 	materials = null
@@ -44,10 +42,6 @@
 
 /obj/machinery/rnd/production/RefreshParts()
 	calculate_efficiency()
-	update_viewer_statics()
-
-/obj/machinery/rnd/production/proc/on_materials_changed()
-	SIGNAL_HANDLER
 	update_viewer_statics()
 
 /obj/machinery/rnd/production/ui_interact(mob/user, datum/tgui/ui)

@@ -116,7 +116,6 @@ handles linking back and forth.
 		silo.updateUsrDialog()
 		mat_container = silo.GetComponent(/datum/component/material_container)
 		to_chat(user, span_notice("Подключаю [parent] к [silo] используя буффер мультитула."))
-		SEND_SIGNAL(parent, COMSIG_REMOTE_MATERIALS_CHANGED)
 		return COMPONENT_BLOCK_TOOL_ATTACK
 
 /datum/component/remote_materials/proc/on_hold()
@@ -151,14 +150,5 @@ handles linking back and forth.
 	return count
 
 /datum/component/remote_materials/proc/set_silo(obj/machinery/ore_silo/new_silo)
-	if(silo)
-		UnregisterSignal(silo, COMSIG_MATERIAL_CONTAINER_CHANGED)
-
 	silo = new_silo
 
-	if(!QDELETED(silo))
-		RegisterSignal(silo, COMSIG_MATERIAL_CONTAINER_CHANGED, .proc/propagate_signal)
-
-/datum/component/remote_materials/proc/propagate_signal()
-	SIGNAL_HANDLER
-	SEND_SIGNAL(parent, COMSIG_REMOTE_MATERIALS_CHANGED)
