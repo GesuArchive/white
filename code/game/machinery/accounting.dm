@@ -66,5 +66,5 @@
 		. += mutable_appearance(icon, "recharger-full", layer, plane, alpha)
 		. += mutable_appearance(icon, "recharger-full", 0, EMISSIVE_PLANE, alpha)
 	else
-	. += mutable_appearance(icon, "recharger-empty", layer, plane, alpha)
-	. += mutable_appearance(icon, "recharger-empty", 0, EMISSIVE_PLANE, alpha)
+		. += mutable_appearance(icon, "recharger-empty", layer, plane, alpha)
+		. += mutable_appearance(icon, "recharger-empty", 0, EMISSIVE_PLANE, alpha)
