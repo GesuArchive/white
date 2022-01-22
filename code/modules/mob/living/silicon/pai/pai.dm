@@ -251,7 +251,7 @@
 	emitterhealth = clamp((emitterhealth + (emitter_regen_per_second * delta_time)), -50, emittermaxhealth)
 
 /mob/living/silicon/pai/can_interact_with(atom/A)
-	if(A == signaler) // Bypass for signaler
+	if(A == signaler || A = src) // Bypass for FUCKO
 		return TRUE
 
 	return ..()
