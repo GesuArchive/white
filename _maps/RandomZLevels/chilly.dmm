@@ -115,7 +115,7 @@
 /obj/structure/rack,
 /obj/item/clothing/shoes/winterboots/ice_boots,
 /obj/item/storage/backpack/satchel/leather,
-/obj/item/clothing/neck/stripedgreenscarf/black,
+/obj/item/clothing/neck/stripedblackscarf,
 /turf/open/floor/wood,
 /area/awaymission/chilly/facility4)
 "at" = (
@@ -630,7 +630,7 @@
 /obj/effect/turf_decal/dust,
 /obj/item/clothing/suit/jacket/puffer,
 /obj/item/clothing/under/color/white,
-/obj/item/clothing/neck/stripedgreenscarf/grey,
+/obj/item/clothing/neck/stripedgrayscarf,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility3)
 "bU" = (
@@ -1769,7 +1769,7 @@
 /obj/item/clothing/shoes/winterboots,
 /obj/item/clothing/head/beanie,
 /obj/item/key,
-/obj/item/clothing/neck/stripedgreenscarf/black,
+/obj/item/clothing/neck/stripedblackscarf,
 /turf/open/floor/carpet/red,
 /area/awaymission/chilly/facility4)
 "fb" = (
