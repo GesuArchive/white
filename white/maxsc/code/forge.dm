@@ -71,8 +71,7 @@
 
 	switch(action)
 		if("create")
-			if(!reagents.remove_reagent(selected_material, params["cost"]))
-				message_admins("[ADMIN_LOOKUPFLW(usr)] пытается создать [params["path"]] в реагентной печке без реагентов в локации [AREACOORD(usr)]")
+			if(!reagents.remove_reagent(selected_material, text2num(params["cost"])))
 				return
 			if(!istype(text2path(params["path"]), /datum/reagent))
 				message_admins("[ADMIN_LOOKUPFLW(usr)] пытается создать [params["path"]] в реагентной печке в локации [AREACOORD(usr)]")
@@ -82,7 +81,7 @@
 			forged_item.material = selected_material.type
 			forged_item.setup()
 		if("select")
-			selected_material = reagents.get_reagent(params["reagent"])
+			selected_material = reagents.get_reagent(get_chem_id(params["reagent"]))
 		if("dump")
 			reagents.remove_all(reagents.total_volume)
 			QDEL_NULL(selected_material)
@@ -109,7 +108,10 @@
 			continue
 		var/obj/machinery/forge/part/part = new(T)
 		part.icon_state = "[count]"
-		part.set_density(TRUE)
+		if(count < 7)
+			part.set_density(TRUE)
+		else
+			part.plane = ABOVE_GAME_PLANE
 		part.main_part = src
 		parts += part
 

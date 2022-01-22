@@ -27,7 +27,6 @@ export const Forge = (props, context) => {
               key={reagent.name}
               content={reagent.name}
               tooltip={reagent.volume}
-              width="30px"
               selected={reagent.name === selected_material}
               textAlign="center"
               color="transparent"
