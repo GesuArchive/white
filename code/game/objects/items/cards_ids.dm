@@ -1218,7 +1218,7 @@
 							trim_list[fake_trim_name] = trim_path
 
 					var/selected_trim_path
-					selected_trim_path = input("Какой же образ мы выберем.\nЗаметка: это не добавит доступа.", "Модификация карты", selected_trim_path) as null|anything in sortList(trim_list, /proc/cmp_typepaths_asc)
+					selected_trim_path = input("Какой же образ мы выберем.\nЗаметка: это не добавит доступа.", "Модификация карты", selected_trim_path) as null|anything in sort_list(trim_list, /proc/cmp_typepaths_asc)
 					if(selected_trim_path)
 						SSid_access.apply_trim_to_chameleon_card(src, trim_list[selected_trim_path])
 

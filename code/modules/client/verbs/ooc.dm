@@ -291,7 +291,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 		return
 
 	// Sort the list
-	players = sortList(players)
+	players = sort_list(players)
 
 	// Request the player to ignore
 	var/selection = input("Please, select a player!", "Ignore", null, null) as null|anything in players

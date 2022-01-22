@@ -11,7 +11,7 @@
 			var/datum/species/S = speciestype
 			if(initial(S.changesource_flags) & MIRROR_MAGIC)
 				pickable_races += initial(S.id)
-		pickable_races = sortList(pickable_races)
+		pickable_races = sort_list(pickable_races)
 
 		to_chat(H, span_warning("ПРЕВРАЩАЮСЬ!"))
 		var/species_type = pick(pickable_races)

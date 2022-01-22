@@ -1,5 +1,5 @@
 ///All colors available to pipes and atmos components
-GLOBAL_LIST_INIT(pipe_paint_colors, sortList(list(
+GLOBAL_LIST_INIT(pipe_paint_colors, sort_list(list(
 	"grey" = COLOR_VERY_LIGHT_GRAY,
 	"blue" = COLOR_BLUE,
 	"red" = COLOR_RED,
@@ -15,7 +15,7 @@ GLOBAL_LIST_INIT(pipe_paint_colors, sortList(list(
 )))
 
 ///List that sorts the colors and is used for setting up the pipes layer so that they overlap correctly
-GLOBAL_LIST_INIT(pipe_colors_ordered, sortList(list(
+GLOBAL_LIST_INIT(pipe_colors_ordered, sort_list(list(
 	COLOR_AMETHYST = -6,
 	COLOR_BLUE = -5,
 	COLOR_BROWN = -4,
@@ -31,7 +31,7 @@ GLOBAL_LIST_INIT(pipe_colors_ordered, sortList(list(
 )))
 
 ///Names shown in the examine for every colored atmos component
-GLOBAL_LIST_INIT(pipe_color_name, sortList(list(
+GLOBAL_LIST_INIT(pipe_color_name, sort_list(list(
 	COLOR_VERY_LIGHT_GRAY = "серая",
 	COLOR_BLUE = "синяя",
 	COLOR_RED = "красная",

@@ -1172,7 +1172,7 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 		log_admin_private("[usr.ckey] granted \"[svin]\" punishment to [asskey]. ")
 		message_admins("[usr.ckey] granted \"[svin]\" punishment to [asskey]. ")
 	if(asskey_blasts.len)
-		sortList(asskey_blasts, /proc/cmp_text_asc)
+		sort_list(asskey_blasts, /proc/cmp_text_asc)
 		GLOB.assblasted_people[asskey] = jointext(asskey_blasts,"|")
 	else
 		GLOB.assblasted_people.Remove(asskey)

@@ -1168,12 +1168,6 @@
 			toggle_mode(NANO_STRENGTH)
 			return
 
-/datum/radial_menu/extract_image(E)
-	var/mutable_appearance/MA = new /mutable_appearance(E)
-	if(MA)
-		MA.appearance_flags |= RESET_TRANSFORM | RESET_ALPHA
-	return MA
-
 //Nanosuit uplink item, available in all traitor rounds and nuke.
 /datum/uplink_item/dangerous/nanosuit
 	name = "CryNet Nanosuit"

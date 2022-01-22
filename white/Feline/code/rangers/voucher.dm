@@ -18,7 +18,7 @@
 /obj/machinery/vendor/proc/RedeemVoucherRanger(obj/item/rangers_voucher/voucher, mob/redeemer)
 	var/items = list("Набор экипировки рейнджера-медика", "Набор экипировки рейнджера-инженера", "Набор экипировки рейнджера-боевика")
 
-	var/selection = input(redeemer, "Выберите специализацию", "Ваучер будет погашен") as null|anything in sortList(items)
+	var/selection = input(redeemer, "Выберите специализацию", "Ваучер будет погашен") as null|anything in sort_list(items)
 	if(!selection || !Adjacent(redeemer) || QDELETED(voucher) || voucher.loc != redeemer)
 		return
 	var/drop_location = drop_location()

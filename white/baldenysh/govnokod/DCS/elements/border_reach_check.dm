@@ -69,7 +69,7 @@
 	if(!(checking_dir & border_atom.dir))
 		return
 	checking_dir = REVERSE_DIR(checking_dir)
-	for(var/obj/blocker in sortList(border_atom.loc.contents, /proc/cmp_atom_layer_dsc))
+	for(var/obj/blocker in sort_list(border_atom.loc.contents, /proc/cmp_atom_layer_dsc))
 		if(blocker == border_atom)
 			continue
 		if(!blocker.CanPass(user, checking_dir))
