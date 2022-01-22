@@ -33,11 +33,6 @@
 	path = /obj/item/clothing/head/beret
 	cost = 100
 
-/datum/gear/hat/blue_beret
-	display_name = "Берет, синий"
-	path = /obj/item/clothing/head/beret/blue
-	cost = 100
-
 /datum/gear/hat/black_beret
 	display_name = "Берет, чёрный"
 	path = /obj/item/clothing/head/beret/black
