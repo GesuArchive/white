@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, Section, Stack, Box, BlockQuote, Icon } from '../components';
+import { Button, Section, Stack, Box, Icon, LabeledList } from '../components';
 import { Window } from '../layouts';
 
 export const Forge = (props, context) => {
@@ -18,32 +18,31 @@ export const Forge = (props, context) => {
         Плавильня
       </Box>
       <Section>
-      <Box textAlign="center">
-        {selected_material}: {amount}/{max_amount}
-      </Box>
-      <LabeledList>
-        {reagent_list.map(reagent => (
-          <Button
-            key={reagent.name}
-            content={reagent.name}
-            tooltip={reagent.volume}
-            width="30px"
-            selected={reagent.name === selected_material}
-            textAlign="center"
-            color="transparent"
-            onClick={() => act('select', {
-              reagent: reagent.name,
-            })}>
-          </Button>
-        ))}
-      </LabeledList>
-      <Button
-        fontColor="white"
-        color="transparent"
-        icon="arrow-right"
-        onClick={() => act('dump')}>
-        Очистить
-      </Button>
+        <Box textAlign="center">
+          {selected_material}: {amount}/{max_amount}
+        </Box>
+        <LabeledList>
+          {reagent_list.map(reagent => (
+            <Button
+              key={reagent.name}
+              content={reagent.name}
+              tooltip={reagent.volume}
+              width="30px"
+              selected={reagent.name === selected_material}
+              textAlign="center"
+              color="transparent"
+              onClick={() => act('select', {
+                reagent: reagent.name,
+              })} />
+          ))}
+        </LabeledList>
+        <Button
+          fontColor="white"
+          color="transparent"
+          icon="arrow-right"
+          onClick={() => act('dump')}>
+          Очистить
+        </Button>
       </Section>
       <Stack vertical>
         {crafts.map(craft => (
