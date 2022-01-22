@@ -1331,4 +1331,4 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 	name = "\"Soldier syringe\""
 	desc = "\"I ain't much for drugs... but hell, when fortune is knockin', ya gotta greet that door with a smile and a nod. Salud!\""
 	list_reagents = list(/datum/reagent/drug/soldier = 15)
-	amount_per_transfer_from_this = 15	
+	amount_per_transfer_from_this = 15
