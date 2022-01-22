@@ -925,7 +925,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/vape/attack_self(mob/user)
 	if(reagents.total_volume > 0)
-		to_chat(user, span_notice("Вы опустошили содержимое [src] от всех реагентов."))
+		to_chat(user, span_notice("Опустошаю содержимое [src] от всех реагентов."))
 		reagents.clear_reagents()
 
 /obj/item/clothing/mask/vape/equipped(mob/user, slot)
