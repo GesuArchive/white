@@ -337,7 +337,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	. += "<hr>"
 
 	if(resistance_flags & INDESTRUCTIBLE)
-		. += span_smallnotice("<b>Защитные свойства:</b> [icon2html(EMOJI_SET, user, "indestructible")]\n")
+		. += span_smallnotice("<b>Защитные свойства:</b> [icon2html(EMOJI_SET, user, "indestructible")] Неуязвимый.\n")
 	else
 		var/list/rfm = list()
 		if(resistance_flags & LAVA_PROOF)
