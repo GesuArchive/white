@@ -51,6 +51,11 @@
 	paint_color = COLOR_WHITE
 	icon_state = "paint_white"
 
+/obj/item/paint/gray
+	name = "gray paint"
+	paint_color = COLOR_GRAY
+	icon_state = "paint_gray"
+
 /obj/item/paint/anycolor
 	gender = PLURAL
 	name = "adaptive paint"
@@ -64,7 +69,8 @@
 		"red" = image(icon = src.icon, icon_state = "paint_red"),
 		"violet" = image(icon = src.icon, icon_state = "paint_violet"),
 		"white" = image(icon = src.icon, icon_state = "paint_white"),
-		"yellow" = image(icon = src.icon, icon_state = "paint_yellow")
+		"yellow" = image(icon = src.icon, icon_state = "paint_yellow"),
+		"gray" = image(icon = src.icon, icon_state = "paint_gray")
 		)
 	var/picked_color = show_radial_menu(user, src, possible_colors, custom_check = CALLBACK(src, .proc/check_menu, user), radius = 38, require_near = TRUE)
 	switch(picked_color)
@@ -82,6 +88,8 @@
 			paint_color = COLOR_WHITE
 		if("yellow")
 			paint_color = COLOR_YELLOW
+		if("gray")
+			paint_color = COLOR_GRAY
 		else
 			return
 	icon_state = "paint_[picked_color]"
