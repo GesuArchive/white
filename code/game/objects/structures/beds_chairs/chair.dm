@@ -125,8 +125,10 @@
 /obj/structure/chair/proc/handle_layer()
 	if(has_buckled_mobs() && dir == NORTH)
 		layer = ABOVE_MOB_LAYER
+		plane = ABOVE_GAME_PLANE
 	else
-		layer = initial(layer)
+		layer = OBJ_LAYER
+		plane = GAME_PLANE
 
 /obj/structure/chair/post_buckle_mob(mob/living/M)
 	. = ..()
@@ -573,8 +575,10 @@
 /obj/machinery/painmachine/proc/handle_layer()
 	if(has_buckled_mobs() && dir == NORTH)
 		layer = ABOVE_MOB_LAYER
+		plane = ABOVE_GAME_PLANE
 	else
-		layer = initial(layer)
+		layer = OBJ_LAYER
+		plane = GAME_PLANE
 
 /obj/machinery/painmachine/post_buckle_mob(mob/living/M)
 	. = ..()
