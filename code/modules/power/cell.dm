@@ -60,20 +60,20 @@
  * Inbetween those the cell shows the default blinking yellow overlay.
  * If you want to have more overlays, call it as ..(override = TRUE) to not get any of the default cell overlays, including wires for grown cells.
  **/
-/obj/item/stock_parts/cell/update_overlays(var/icon_file = FALSE, lower_charge_percent = 0.01, upper_charge_percent = 0.995, var/override = FALSE) 
+/obj/item/stock_parts/cell/update_overlays(icon_file = FALSE, lower_charge_percent = 0.01, upper_charge_percent = 0.995, var/override = FALSE)
 	. = ..()
 	if(override)
 		return
-		
+
 	if(!icon_file)
 		icon_file = 'white/valtos/icons/power.dmi'
-	
+
 	if(grown_battery)
 		. += mutable_appearance(icon_file, "grown_wires")
-	
+
 	if(charge/maxcharge < lower_charge_percent)
 		return
-	
+
 	if(charge/maxcharge >= upper_charge_percent)
 		. += mutable_appearance(icon_file, "cell-o2")
 	else
