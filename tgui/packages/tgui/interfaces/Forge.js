@@ -19,7 +19,7 @@ export const Forge = (props, context) => {
       </Box>
       <Section>
       <Box textAlign="center">
-        {material}: {amount}
+        {selected_material}: {amount}/{max_amount}
       </Box>
       <LabeledList>
         {reagent_list.map(reagent => (
