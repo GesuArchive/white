@@ -57,7 +57,7 @@
 	var/obj/item/I = new /obj/item/holochip(src, bounty_size)
 	var/obj/structure/closet/supplypod/pod = podspawn(list(
 		"target" = get_turf(parent),
-		"path" = /obj/structure/closet/supplypod/battleroyale
+		"path" = /obj/structure/closet/supplypod/box
 	))
 	I.forceMove(pod)
 
