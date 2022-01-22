@@ -2,6 +2,7 @@
 	name = "зарядник"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "recharger"
+	base_icon_state = "recharger"
 	desc = "Заряжает штуки. В частности оружие."
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 400
