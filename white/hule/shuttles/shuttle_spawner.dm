@@ -23,13 +23,14 @@
 		used = TRUE
 		sleep(50)
 		var/turf/deploy_location = get_turf(src)
-		var/status = template.check_deploy(deploy_location)
+		var/datum/map_template/shuttle/capsule/temp_template = new template // ultra shit
+		var/status = temp_template.check_deploy(deploy_location)
 		switch(status)
 			if("bad area")
 				src.loc.visible_message(span_warning("<b>[src.name]</b> will not function in this area."))
 			if("bad turfs", "anchored objects")
-				var/width = template.width
-				var/height = template.height
+				var/width = temp_template.width
+				var/height = temp_template.height
 				src.loc.visible_message(span_warning("<b>[src.name]</b> doesn't have room to deploy! You need to clear a [width]x[height] area!"))
 
 		if(status != "allowed")
@@ -40,7 +41,7 @@
 
 		var/turf/T = deploy_location
 		message_admins("[ADMIN_LOOKUPFLW(usr)] activated a shuttle capsule! [ADMIN_VERBOSEJMP(T)]")
-		template.load(deploy_location, centered = TRUE, register = FALSE)
+		temp_template.load(deploy_location, centered = TRUE, register = FALSE)
 		new /obj/effect/particle_effect/smoke(get_turf(src))
 		qdel(src)
 
