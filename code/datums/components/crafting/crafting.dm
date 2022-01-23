@@ -117,10 +117,9 @@
 		return
 
 	for(var/atom/movable/AM in range(radius_range, a))
-		if((AM.flags_1 & HOLOGRAM_1)  || (blacklist && (AM.type in blacklist)))
+		if((AM.flags_1 & HOLOGRAM_1) || (blacklist && (AM.type in blacklist)))
 			continue
 		. += AM
-
 
 /datum/component/personal_crafting/proc/get_surroundings(atom/a, list/blacklist=null)
 	. = list()
@@ -147,8 +146,6 @@
 				.["other"][item.type] += 1
 		else if (ismachinery(object))
 			LAZYADDASSOCLIST(.["machinery"], object.type, object)
-
-
 
 /// Returns a boolean on whether the tool requirements of the input recipe are satisfied by the input source and surroundings.
 /datum/component/personal_crafting/proc/check_tools(atom/source, datum/crafting_recipe/recipe, list/surroundings)
@@ -219,7 +216,6 @@
 	return ", не хватает компонента."
 
 /*Del reqs works like this:
-
 	Loop over reqs var of the recipe
 	Set var amt to the value current cycle req is pointing to, its amount of type we need to delete
 	Get var/surroundings list of things accessable to crafting by get_environment()
@@ -233,12 +229,9 @@
 			If no put all of the stack in the deletion list, substract its amount from amt and keep searching
 			While doing above stuff check deletion list if it already has such stack type, if yes try to merge them instead of adding new one
 		If its anything else just locate() in in the list in a while loop, each find --s the amt var and puts the found stuff in deletion loop
-
 	Then do a loop over parts var of the recipe
 		Do similar stuff to what we have done above, but now in deletion list, until the parts conditions are satisfied keep taking from the deletion list and putting it into parts list for return
-
 	After its done loop over deletion list and delete all the shit that wasn't taken by parts loop
-
 	del_reqs return the list of parts resulting object will receive as argument of CheckParts proc, on the atom level it will add them all to the contents, on all other levels it calls ..() and does whatever is needed afterwards but from contents list already
 */
 

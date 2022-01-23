@@ -5,6 +5,7 @@
  * since time_entered, which is world.time when the occupant moves in.
  * ~ Zuhayr
  */
+GLOBAL_LIST_EMPTY(cryopods)
 GLOBAL_LIST_EMPTY(cryopod_computers)
 
 //Main cryopod console.
@@ -144,6 +145,7 @@ GLOBAL_VAR_INIT(cryopods_enabled, FALSE)
 
 /obj/machinery/cryopod/Initialize()
 	..()
+	GLOB.cryopods += src
 	return INITIALIZE_HINT_LATELOAD //Gotta populate the cryopod computer GLOB first
 
 /obj/machinery/cryopod/LateInitialize()
@@ -156,6 +158,7 @@ GLOBAL_VAR_INIT(cryopods_enabled, FALSE)
 
 // This is not a good situation
 /obj/machinery/cryopod/Destroy()
+	GLOB.cryopods -= src
 	control_computer = null
 	return ..()
 

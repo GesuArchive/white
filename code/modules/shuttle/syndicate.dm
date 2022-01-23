@@ -44,6 +44,6 @@
 	shuttleId = "steel_rain"
 	possible_destinations = null
 	recall_docking_port_id = "null"	//Make it a recall shuttle, with no default dest
-	request_shuttle_message = "ВАЛЕРА СЛОМАЛ НАХУЙ"
+	request_shuttle_message = "НАЧАТЬ ШТУРМ"
 
 #undef SYNDICATE_CHALLENGE_TIMER
