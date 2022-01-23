@@ -44,7 +44,7 @@
 	can_charge = FALSE
 	use_cyborg_cell = TRUE
 
-/obj/item/gun/energy/e_gun/advtaser/cyborg/makeJamming()
+/obj/item/gun/energy/e_gun/advtaser/cyborg/make_jamming()
 	return
 
 /obj/item/gun/energy/disabler
@@ -65,7 +65,7 @@
 	can_charge = FALSE
 	use_cyborg_cell = TRUE
 
-/obj/item/gun/energy/disabler/cyborg/makeJamming()
+/obj/item/gun/energy/disabler/cyborg/make_jamming()
 	return
 
 /obj/item/gun/energy/taser/triser

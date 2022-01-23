@@ -67,7 +67,7 @@
 	knife_x_offset = 27
 	knife_y_offset = 13
 
-/obj/item/gun/ballistic/rifle/boltaction/kar98k/makeJamming() //прикручиваеца в инишалайзе
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/make_jamming() //прикручиваеца в инишалайзе
 	return
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/Initialize()

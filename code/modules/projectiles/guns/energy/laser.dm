@@ -61,7 +61,7 @@
 	desc = "Основанная на энергии лазерная пушка, которая получает энергию непосредственно от внутренней энергетической ячейки киборга. Так вот как выглядит свобода?"
 	use_cyborg_cell = TRUE
 
-/obj/item/gun/energy/laser/cyborg/makeJamming()
+/obj/item/gun/energy/laser/cyborg/make_jamming()
 	return
 
 /obj/item/gun/energy/laser/cyborg/emp_act()

@@ -111,6 +111,9 @@
 
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/enchanted/arcane_barrage
 
+/obj/item/gun/ballistic/rifle/boltaction/enchanted/arcane_barrage/make_jamming()
+	return
+
 /obj/item/gun/ballistic/rifle/boltaction/enchanted/dropped()
 	. = ..()
 	guns_left = 0

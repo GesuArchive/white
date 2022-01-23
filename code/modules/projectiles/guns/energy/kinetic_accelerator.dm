@@ -27,7 +27,7 @@
 
 	var/recharge_timerid
 
-/obj/item/gun/energy/kinetic_accelerator/makeJamming()
+/obj/item/gun/energy/kinetic_accelerator/make_jamming()
 	return
 
 /obj/item/gun/energy/kinetic_accelerator/examine(mob/user)

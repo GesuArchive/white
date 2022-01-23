@@ -91,7 +91,7 @@
 	if(gun_light)
 		alight = new(src)
 	build_zooming()
-	makeJamming()
+	make_jamming()
 	RegisterSignal(src, COMSIG_CLICK_CTRL_SHIFT, .proc/change_skin)
 
 /obj/item/gun/Destroy()

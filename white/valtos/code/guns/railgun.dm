@@ -25,6 +25,9 @@
 	actions_types = null
 	var/fatality_mode = FALSE
 
+/obj/item/gun/ballistic/automatic/fallout/railgun/make_jamming()
+	return
+
 /obj/item/gun/ballistic/automatic/fallout/railgun/Initialize()
 	. = ..()
 	AddComponent(/datum/component/automatic_fire_funny, 0.01)

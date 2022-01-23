@@ -22,7 +22,7 @@
 	var/use_cyborg_cell = FALSE //whether the gun's cell drains the cyborg user's cell to recharge
 	var/dead_cell = FALSE //set to true so the gun is given an empty cell
 
-/obj/item/gun/energy/makeJamming()
+/obj/item/gun/energy/make_jamming()
 	AddElement(/datum/element/jamming/energy, 0.1, /datum/component/jammed/energy)
 
 /obj/item/gun/energy/emp_act(severity)

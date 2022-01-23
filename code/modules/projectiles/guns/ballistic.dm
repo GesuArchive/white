@@ -109,7 +109,7 @@
 	update_icon()
 	//RegisterSignal(src, COMSIG_ITEM_RECHARGED, .proc/instant_reload)
 
-/obj/item/gun/ballistic/makeJamming()
+/obj/item/gun/ballistic/make_jamming()
 	AddElement(/datum/element/jamming, 0.5)
 
 /obj/item/gun/ballistic/add_weapon_description()
