@@ -216,6 +216,8 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 		switch(soundin)
 			if ("shatter")
 				soundin = pick('sound/effects/glassbr1.ogg','sound/effects/glassbr2.ogg','sound/effects/glassbr3.ogg')
+			if ("ricochet_armor")
+				soundin = pick('white/valtos/sounds/ricochet1.ogg','white/valtos/sounds/ricochet2.ogg','white/valtos/sounds/ricochet3.ogg','white/valtos/sounds/ricochet4.ogg','white/valtos/sounds/ricochet5.ogg')
 			if ("explosion")
 				soundin = pick('sound/effects/explosion1.ogg','sound/effects/explosion2.ogg')
 			if ("explosion_creaking")

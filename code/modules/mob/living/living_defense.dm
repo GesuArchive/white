@@ -19,6 +19,7 @@
 			to_chat(src, span_notice("[absorb_text]"))
 		else
 			to_chat(src, span_notice("Броня поглотила удар!"))
+		playsound(src, "ricochet_armor", 60)
 	else
 		if(soften_text)
 			to_chat(src, span_warning("[soften_text]"))
