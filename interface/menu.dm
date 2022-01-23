@@ -66,17 +66,14 @@ GLOBAL_LIST_EMPTY(menulist)
 /datum/verbs/menu/verb/wiki()
 	set name = "Вики"
 	set desc = "Вики"
-	set hidden = TRUE
 	usr.client.wiki()
 
 /datum/verbs/menu/verb/discord()
 	set name = "Discord"
 	set desc = "Discord"
-	set hidden = TRUE
 	usr.client.forum()
 
 /datum/verbs/menu/verb/donate()
 	set name = "Магазин"
 	set desc = "Магазин"
-	set hidden = TRUE
 	usr.client.new_donates_panel()
