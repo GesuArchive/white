@@ -287,6 +287,8 @@
 			playsound(src,'white/hule/SFX/csSFX/headshot.wav', 100, 5, pressure_affected = FALSE)
 
 		L.on_hit(src)
+	else
+		playsound(src, "white/valtos/sounds/ricochet[rand(1, 5)].ogg", 60)
 
 	var/reagent_note
 	if(reagents?.reagent_list)
