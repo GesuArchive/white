@@ -86,7 +86,6 @@
 	name = "сгусток нитропены"
 	damage = 3
 	damage_type = STAMINA
-	dismemberment = 0
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "frozen_smoke_capsule"
 
