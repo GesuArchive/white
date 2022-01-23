@@ -158,10 +158,14 @@
 /obj/item/ammo_box/magazine/fallout/m9mm
 	name = "13 round magazine (9mm)"
 	icon = 'white/valtos/icons/fallout/ammo.dmi'
-	icon_state = "9mm"
+	icon_state = "9mm-13"
 	ammo_type = /obj/item/ammo_casing/fallout/c9mm
 	caliber = "9mm"
 	max_ammo = 13
+
+/obj/item/ammo_box/magazine/fallout/m9mm/update_icon()
+	..()
+	icon_state = "9mm-[ammo_count()]"
 
 /obj/item/ammo_box/magazine/fallout/m22
 	name = "16 round magazine (.22)"

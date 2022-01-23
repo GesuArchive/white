@@ -65,7 +65,6 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/asteroid
 	name = "Астероид"
 	icon_state = "asteroid"
-	static_lighting = FALSE
 	requires_power = FALSE
 	has_gravity = STANDARD_GRAVITY
 	area_flags = UNIQUE_AREA

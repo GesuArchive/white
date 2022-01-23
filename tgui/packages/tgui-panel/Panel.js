@@ -12,7 +12,6 @@ import { useGame } from './game';
 import { Notifications } from './Notifications';
 import { PingIndicator } from './ping';
 import { SettingsPanel, useSettings } from './settings';
-import { useLocalState } from 'tgui/backend';
 
 export const Panel = (props, context) => {
   // IE8-10: Needs special treatment due to missing Flex support
@@ -24,7 +23,6 @@ export const Panel = (props, context) => {
   const audio = useAudio(context);
   const settings = useSettings(context);
   const game = useGame(context);
-  const [things, setThings] = useLocalState(context, 'things', 1);
   if (process.env.NODE_ENV !== 'production') {
     const { useDebug, KitchenSink } = require('tgui/debug');
     const debug = useDebug(context);
@@ -43,50 +41,6 @@ export const Panel = (props, context) => {
               <Stack.Item grow overflowX="auto">
                 <ChatTabs />
               </Stack.Item>
-              <Stack.Item>
-                <Button
-                  color="grey"
-                  tooltip={things ? "Скрыть" : "Показать"}
-                  tooltipPosition="bottom"
-                  icon={things ? "angle-double-right" : "angle-double-left"}
-                  onClick={() => setThings(!things)} />
-              </Stack.Item>
-              {!!things && (
-                <Stack.Item>
-                  <Button
-                    color="green"
-                    tooltip="Wiki"
-                    tooltipPosition="bottom"
-                    icon="book"
-                    onClick={() => Byond.command('wiki')}>
-                    Вики
-                  </Button>
-                </Stack.Item>
-              )}
-              {!!things && (
-                <Stack.Item>
-                  <Button
-                    color="teal"
-                    tooltip="Наша Discord-конференция"
-                    tooltipPosition="bottom"
-                    icon="comments"
-                    onClick={() => Byond.command('forum')}>
-                    Discord
-                  </Button>
-                </Stack.Item>
-              )}
-              {!!things && (
-                <Stack.Item>
-                  <Button
-                    color="yellow"
-                    tooltip="Донат-панель"
-                    tooltipPosition="bottom"
-                    icon="shopping-basket"
-                    onClick={() => Byond.command('Панель-благотворца')}>
-                    Донат
-                  </Button>
-                </Stack.Item>
-              )}
               <Stack.Item>
                 <PingIndicator />
               </Stack.Item>

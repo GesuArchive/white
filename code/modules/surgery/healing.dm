@@ -62,8 +62,8 @@
 			break
 
 /datum/surgery_step/heal/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	var/umsg = "Успешно залатал некоторые раны [skloname(target.name, RODITELNI, target.gender)]" //no period, add initial space to "addons"
-	var/tmsg = "[user] залатал некоторые раны [skloname(target.name, RODITELNI, target.gender)]" //see above
+	var/umsg = "Успешно залатываю некоторые раны [skloname(target.name, RODITELNI, target.gender)]" //no period, add initial space to "addons"
+	var/tmsg = "[user] залатывает некоторые раны [skloname(target.name, RODITELNI, target.gender)]" //see above
 	var/urhealedamt_brute = brutehealing
 	var/urhealedamt_burn = burnhealing
 	if(missinghpbonus)
@@ -80,8 +80,8 @@
 		tmsg += " настолько хорошо, насколько смог из-за мешающейся одежды."
 	target.heal_bodypart_damage(urhealedamt_brute,urhealedamt_burn)
 	display_results(user, target, span_notice("[umsg].") ,
-		"[tmsg].",
-		"[tmsg].")
+		span_notice("[tmsg]."),
+		span_notice("[tmsg]."))
 	if(istype(surgery, /datum/surgery/healing))
 		var/datum/surgery/healing/the_surgery = surgery
 		the_surgery.antispam = TRUE
@@ -221,5 +221,5 @@
 /datum/surgery_step/heal/combo/upgraded/femto/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался!") ,
 		span_warning("[user] облажался!") ,
-		span_notice("[user] залатал некоторые раны [skloname(target.name, RODITELNI, target.gender)].") , TRUE)
+		span_notice("[user] залатывает некоторые раны [skloname(target.name, RODITELNI, target.gender)].") , TRUE)
 	target.take_bodypart_damage(5,5)

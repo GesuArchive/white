@@ -74,11 +74,19 @@
 /obj/item/ammo_box/magazine/fallout/r308
 	name = "5 round magazine (.308)"
 	icon = 'white/valtos/icons/fallout/ammo.dmi'
-	icon_state = "r308"
+	icon_state = "r308-5"
 	ammo_type = /obj/item/ammo_casing/fallout/a308
 	caliber = "a308"
 	max_ammo = 5
 	multiple_sprites = 2
+
+/obj/item/ammo_box/magazine/fallout/r308/update_icon()
+	..()
+	if(ammo_count())
+		icon_state = "r308-5"
+	else
+		icon_state = "r308-0"
+
 /*
 /obj/item/ammo_box/magazine/fallout/amr
 	name = "6 round magazine (.50)"
