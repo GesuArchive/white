@@ -6,7 +6,6 @@
 	paralyze = 100
 	damage = 40
 	damage_type = STAMINA
-	dismemberment = 0
 	stutter = 5
 	jitter = 20
 	hitsound = 'sound/weapons/taserhit.ogg'

@@ -6,7 +6,6 @@
 	hitsound_wall = "shatter"
 	embedding = null
 	shrapnel_type = null
-	dismemberment = 0
 
 /obj/projectile/bullet/dnainjector/on_hit(atom/target, blocked = FALSE)
 	if(iscarbon(target))
