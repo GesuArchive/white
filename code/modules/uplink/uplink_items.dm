@@ -76,7 +76,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			discount *= 0.5
 		A.category = category_name
 		A.cost = max(round(A.cost * discount),1)
-		A.name += " Скидка ([round(((initial(A.cost)-A.cost)/initial(A.cost))*100)]%!)"
+		A.name += " |СКИДКА| ([round(((initial(A.cost)-A.cost)/initial(A.cost))*100)]%!)"
 		A.desc += " Оригинальная стоимость [initial(A.cost)] ТК. Цены окончательные. [pick(disclaimer)]"
 		A.item = I.item
 
