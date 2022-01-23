@@ -5221,10 +5221,6 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/powered/yohei_base)
-"tl" = (
-/obj/machinery/smartfridge,
-/turf/closed/indestructible/wood,
-/area/centcom/holding)
 "tm" = (
 /obj/structure/filingcabinet/security,
 /obj/effect/turf_decal/tile/neutral{
@@ -13675,6 +13671,15 @@
 /area/centcom/brief)
 "WO" = (
 /obj/structure/table/abductor,
+/obj/item/spacepod_key/yohei{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/spacepod_key/yohei,
+/obj/item/spacepod_key/yohei{
+	pixel_x = -2;
+	pixel_y = -5
+	},
 /turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "WP" = (
@@ -14241,20 +14246,7 @@
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "YG" = (
-/obj/item/spacepod_key/yohei{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/spacepod_key/yohei{
-	pixel_x = -6;
-	pixel_y = -1
-	},
-/obj/item/spacepod_key/yohei{
-	pixel_x = -2;
-	pixel_y = -5
-	},
-/obj/item/spacepod_key/yohei,
-/obj/structure/table/abductor,
+/obj/machinery/vending/yoheiking,
 /turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "YI" = (
@@ -16506,7 +16498,7 @@ as
 kj
 as
 as
-tl
+zq
 as
 eS
 lz

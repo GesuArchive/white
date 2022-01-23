@@ -442,6 +442,8 @@
 		internal_radio.talk_into(src, "Задание выполнено. Награда в размере [current_task.prize] выдана. Получение следующего задания...", FREQ_YOHEI)
 		for(var/mob/living/carbon/human/H in action_guys)
 			inc_metabalance(H, current_task.prize, reason = "Задание выполнено.")
+			var/obj/item/card/id/cardid = H.get_idcard(FALSE)
+			cardid?.registered_account?.adjust_money(rand(500, 1000))
 		qdel(current_task)
 
 		var/datum/yohei_task/new_task = pick(possible_tasks)
@@ -626,8 +628,6 @@
 	parallax_movedir = NORTH
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | BLOCK_SUICIDE | NOTELEPORT
 	static_lighting = FALSE
-	base_lighting_alpha = 255
-	base_lighting_color = COLOR_WHITE
 
 /obj/item/card/id/yohei
 	name = "странная карточка"
@@ -644,6 +644,7 @@
 	. = ..()
 	var/datum/bank_account/bank_account = new /datum/bank_account(name)
 	registered_account = bank_account
+	registered_account.adjust_money(1200)
 
 /obj/item/card/id/yohei/update_label()
 	if(assigned_by)
@@ -792,6 +793,7 @@
 	name = "Кодекс Йохея"
 	desc = "Весьма важный путеводитель."
 	author = "Сомнительный Господин"
+	title = "Кодекс Йохея"
 	icon_state = "stealthmanual"
 	dat = "<center><h1>Положения кодекса</h1></center><i>«Прошу Вас судить обо мне по врагам, которых я приобрёл.»</i></br> — Франклин Делано Рузвельт.<ul><li>Никому не верь, но используй всех.</li><li>Наемник всегда готов отправиться куда угодно и встретить любую опасность.</li><li>Никаких друзей, никаких врагов. Только союзники и противники.</li><li>Всегда будь вежлив с клиентом.</li><li>Наемник никогда не жалуется.</li><li>Наемник не имеет привязанностей.</li><li>Жизнь растет на смерти.</li><li>Меняй распорядок. Шаблон — это ловушка.</li><li>Никогда не привлекай к себе внимания.</li><li>Не говори больше нужного.</li><li>Будь вежлив всегда. Особенно с врагами.</li><li>Тот, кто нанимает мою руку, нанимает всего меня.</li><li>Делай то, чего боишься больше всего, и обретешь храбрость.</li><li>Воображение — главное оружие воина.</li><li>Наемник никогда не отвлекается на общую картину. Мелочи играют главную роль.</li><li>Никогда не говори всю правду, торгуясь.</li><li>Услуга — это инвестиция.</li><li>Деньги — это сила.</li><li>Будь осторожен в любой ситуации.</li><li>Если ты должен умереть, сделай это с честью.</li></ul><b>Следуя данному кодексу Вы в полном праве можете называть себя Йохеем.</b> <i>Наверное.</i>"
 
@@ -867,3 +869,34 @@
 		else
 			to_chat(user, span_danger("Не получится здесь. Нужен космос."))
 	return
+
+/obj/machinery/vending/yoheiking
+	name = "ЙохейКинг"
+	desc = "Здесь обязательно можно найти то, что нужно."
+	icon_state = "yohei"
+	product_slogans = "Убей или будь убитым!;Предай друга!;Качественные приблуды по низким ценам!;Лучше быть убийцей, чем трупом!"
+	product_ads = "МОЧИ-И-И!;Контракт должен быть выполнен любой ценой!;Пушки не убивают людей, но вы можете!;Кому нужны контракты, когда у вас есть оружие?"
+	vend_reply = "Ничего личного, только бизнес!"
+	products = list(/obj/item/ammo_box/magazine/fallout/m9mm = 10,
+					/obj/item/ammo_box/magazine/fallout/r308 = 5,
+					/obj/item/rcd_ammo/large = 5,
+					/obj/item/stack/sheet/iron/fifty = 3,
+					/obj/item/stack/sheet/glass/fifty = 3,
+					/obj/item/stack/sheet/plasteel/fifty = 1,
+					/obj/item/storage/mre = 3,
+					/obj/item/storage/mre/vegan = 3,
+					/obj/item/storage/mre/protein = 3,
+					/obj/item/stack/medical/aloe = 5,
+					/obj/item/stack/medical/suture/medicated = 5)
+	premium = list(/obj/item/shadowcloak/yohei = 1,
+		           /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm = 3,
+				   /obj/item/gun/ballistic/automatic/fallout/marksman/sniper = 1,
+		           /obj/item/pamk = 5,
+		           /obj/item/storage/belt/military/abductor/full = 1,
+				   /obj/item/storage/firstaid/tactical = 3)
+	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 50)
+	resistance_flags = INDESTRUCTIBLE
+	default_price = CARGO_CRATE_VALUE * 2.5
+	extra_price = CARGO_CRATE_VALUE * 5
+	payment_department = ACCOUNT_TRA
+	light_mask = "yohei-light-mask"
