@@ -18,7 +18,7 @@
 	reflectable = REFLECT_NORMAL
 	wound_bonus = -20
 	bare_wound_bonus = 10
-	dismemberment = 20
+	dismemberment = 5
 
 
 /obj/projectile/beam/laser
