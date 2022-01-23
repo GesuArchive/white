@@ -25,14 +25,14 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 		if (uplink_flag & UPLINK_NUKE_OPS) // uplink code kind of needs a redesign
 			nuclear_team = locate() in GLOB.antagonist_teams // the team discounts could be in a GLOB with this design but it would make sense for them to be team specific...
 		if (!nuclear_team)
-			create_uplink_sales(3, "Discounted Gear", 1, sale_items, filtered_uplink_items)
+			create_uplink_sales(3, "Скидки", 1, sale_items, filtered_uplink_items)
 		else
 			if (!nuclear_team.team_discounts)
 				// create 5 unlimited stock discounts
-				create_uplink_sales(5, "Discounted Team Gear", -1, sale_items, filtered_uplink_items)
+				create_uplink_sales(5, "Скидки", -1, sale_items, filtered_uplink_items)
 				// Create 10 limited stock discounts
-				create_uplink_sales(10, "Limited Stock Team Gear", 1, sale_items, filtered_uplink_items)
-				nuclear_team.team_discounts = list("Discounted Team Gear" = filtered_uplink_items["Discounted Team Gear"], "Limited Stock Team Gear" = filtered_uplink_items["Limited Stock Team Gear"])
+				create_uplink_sales(10, "Командные скидки", 1, sale_items, filtered_uplink_items)
+				nuclear_team.team_discounts = list("Скидки" = filtered_uplink_items["Скидки"], "Командные скидки" = filtered_uplink_items["Командные скидки"])
 			else
 				for(var/cat in nuclear_team.team_discounts)
 					for(var/item in nuclear_team.team_discounts[cat])
@@ -40,8 +40,8 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 						var/datum/uplink_item/O = filtered_uplink_items[initial(D.category)][initial(D.name)]
 						O.refundable = FALSE
 
-				filtered_uplink_items["Discounted Team Gear"] = nuclear_team.team_discounts["Discounted Team Gear"]
-				filtered_uplink_items["Limited Stock Team Gear"] = nuclear_team.team_discounts["Limited Stock Team Gear"]
+				filtered_uplink_items["Скидки"] = nuclear_team.team_discounts["Скидки"]
+				filtered_uplink_items["Командные скидки"] = nuclear_team.team_discounts["Командные скидки"]
 
 
 	return filtered_uplink_items
@@ -57,7 +57,18 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 		var/datum/uplink_item/I = pick_n_take(sale_items)
 		var/datum/uplink_item/A = new I.type
 		var/discount = A.get_discount()
-		var/list/disclaimer = list("Void where prohibited.", "Not recommended for children.", "Contains small parts.", "Check local laws for legality in region.", "Do not taunt.", "Not responsible for direct, indirect, incidental or consequential damages resulting from any defect, error or failure to perform.", "Keep away from fire or flames.", "Product is provided \"as is\" without any implied or expressed warranties.", "As seen on TV.", "For recreational use only.", "Use only as directed.", "16% sales tax will be charged for orders originating within Space Nebraska.")
+		var/list/disclaimer = list("Не действует там, где запрещено законом.",\
+									"Не рекомендуется для детей.",\
+									"Содержит мелкие детали.",\
+									"Проверьте регионные законы на легальность.",\
+									"Не игрушка.",\
+									"Не несет ответственности за прямые, косвенные, случайные или косвенные убытки, возникшие в результате любого дефекта, ошибки или сбоя.",\
+									"Keep away from fire or flames.",\
+									"Продукт предоставлен \"как есть\" без каких-либо подразумеваемых или выраженных гарантий.",\
+									"Как было в рекламе.",\
+									"Только для рекреационного пользования.",\ 
+									"Используйте только по назнечению.",\
+									"Взимается 16% налог с заказа, отправленный с Космической Небраски.")
 		A.limited_stock = limited_stock
 		I.refundable = FALSE //THIS MAN USES ONE WEIRD TRICK TO GAIN FREE TC, CODERS HATES HIM!
 		A.refundable = FALSE
@@ -65,8 +76,8 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			discount *= 0.5
 		A.category = category_name
 		A.cost = max(round(A.cost * discount),1)
-		A.name += " ([round(((initial(A.cost)-A.cost)/initial(A.cost))*100)]% off!)"
-		A.desc += " Normally costs [initial(A.cost)] TC. All sales final. [pick(disclaimer)]"
+		A.name += " Скидка ([round(((initial(A.cost)-A.cost)/initial(A.cost))*100)]%!)"
+		A.desc += " Оригинальная стоимость [initial(A.cost)] ТК. Цены окончательные. [pick(disclaimer)]"
 		A.item = I.item
 
 		uplink_items[category_name][A.name] = A
@@ -131,26 +142,26 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 //Discounts (dynamically filled above)
 /datum/uplink_item/discounts
-	category = "Discounts"
+	category = "Скидки"
 
 //All bundles and telecrystals
 /datum/uplink_item/bundles_tc
-	category = "Bundles"
+	category = "Наборы"
 	surplus = 0
 	cant_discount = TRUE
 
 /datum/uplink_item/bundles_tc/chemical
 	name = "Набор биотеррориста"
-	desc = " Содержит ручной биотеррористический химический распылитель, биотеррористическую пенную гранату, коробку смертельных химикатов, пистолет с дротиками, \
-			коробка со шприцами, штурмовая винтовка Dongsoft и несколько дротиков для борьбы с беспорядками. Помните: Перед использованием герметизируйте костюм и оборудуйте внутренние устройства."
+	desc = "Содержит ручной биотеррористический химический распылитель, вирусную пенную гранату, коробку ядовитых химикатов, шприцемёт, \
+			коробка со шприцами, игрушечная винтовка DonkSoft и несколько пенных дротиков для борьбы с беспорядками. Помните: Перед использованием герметизируйте костюм и включите подачу воздуха."
 	item = /obj/item/storage/backpack/duffelbag/syndie/med/bioterrorbundle
 	cost = 30 // normally 42
 	purchasable_from = UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS
 
 /datum/uplink_item/bundles_tc/bulldog
-	name = "Набор с Бульдогом"
-	desc = "Оптимизирован для людей, которые хотят быть вести бой на близких дистанциях \
-			Дробовик Бульдог, два барабана с картечью 12g и пара тепловизионных очков."
+	name = "Набор с дробовиком \"Bulldog\""
+	desc = "Предназначен для ведения боя на близких дистанциях. \
+			Содержит автоматический дробовик \"Bulldog\", два барабана с патронами 12х70мм калибра и пара термальных очков."
 	item = /obj/item/storage/backpack/duffelbag/syndie/bulldogbundle
 	cost = 13 // normally 16
 	purchasable_from = UPLINK_NUKE_OPS
@@ -163,33 +174,33 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/bundles_tc/cyber_implants
-	name = "Набор Имплантов"
+	name = "Набор имплантов"
 	desc = "Случайный набор кибернетических имплантатов. Гарантировано 5 высококачественных имплантатов. Поставляется с автохирургом."
 	item = /obj/item/storage/box/cyber_implants
 	cost = 40
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/bundles_tc/medical
-	name = "Медицинский Набор"
-	desc = "Специалист службы поддержки: Помогите своим напарникам с этим медицинским набором. Содержит тактическую аптечку, \
-			LMG Donksoft, коробка дротиков для борьбы с беспорядками и пара магнитных ботинок, чтобы спасти ваших друзей в условиях невесомости."
+	name = "Медицинский набор"
+	desc = "Набор боевого медика. С этим набором вы сможете оказать своим напарникам медицинскую помощь. Содержит тактическую аптечку, \
+			Игрушечный пулемёт DonkSoft, коробка пенных дротиков для борьбы с беспорядками и пара магнитных ботинок, чтобы спасти ваших друзей в условиях невесомости."
 	item = /obj/item/storage/backpack/duffelbag/syndie/med/medicalbundle
 	cost = 15 // normally 20
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/bundles_tc/sniper
-	name = "Набор Снайпера"
-	desc = "Элегантный и изысканный: Содержит разобранную снайперскую винтовку в деловом чехле для переноски, \
-			два снотворных магазина, бесплатный глушитель и стильный тактический костюм. \
-			Мы добавим бесплатный красный галстук, если вы закажете СЕЙЧАС."
+	name = "Снайперский набор"
+	desc = "Элегантный и изысканный: Содержит разобранную снайперскую винтовку в чемодане для переноски, \
+			два усыпляющих магазина, универсальный глушитель и стильный тактический костюм. \
+			Мы добавим бесплатный красный галстук, если вы закажете ПРЯМО СЕЙЧАС."
 	item = /obj/item/storage/briefcase/sniperbundle
 	cost = 20 // normally 26
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/bundles_tc/firestarter
 	name = "Набор Пиротехнических Средств Спецназа"
-	desc = "Для систематического подавления углеродных форм жизни в непосредственной близости: Содержит смертельный спрей в качестве рюкзака, Элитный защитный костюм, \
-			пистолет Стечкина, два магазина с зажигательной смесью, мини-бомба и шприц со стимулятором. \
+	desc = "Для систематического подавления углеродных форм жизни в непосредственной близости: Содержит рюкзак с смертельным спреем, элитный защитный костюм, \
+			пистолет Стечкина, два магазина с зажигательной смесью, граната и шприц со стимулятором. \
 			Закажите СЕЙЧАС, и товарищ Борис добавит дополнительный спортивный костюм."
 	item = /obj/item/storage/backpack/duffelbag/syndie/firestarter
 	cost = 30
@@ -207,18 +218,18 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/bundles_tc/bundle_a
-	name = "Синди-Набор Тактический"
-	desc = "Наборы синдиката, также известные как синди-наборы, представляют собой специализированные группы товаров, которые поступают в простой коробке. \
-			Эти предметы в совокупности стоят более 20 телекристаллов, но вы не знаете, какая специализация \
+	name = "Тактический Синди-Набор"
+	desc = "Комплект Синдиката, также известные как синди-наборы, представляют из себя специальные группы товаров, которые поступают в простой коробке. \
+			Эти предметы в общей стоимости стоят более 20 телекристаллов, но вы не знаете, какую специальность \
 			вы получите. Может содержать снятые с производства и/или экзотические товары."
 	item = /obj/item/storage/box/syndicate/bundle_a
 	cost = 20
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/bundles_tc/bundle_b
-	name = "Синди-Наборы Специальные"
-	desc = "Наборы синдикатов, также известные как синдикаты, представляют собой специализированные группы товаров, которые поступают в простой коробке. \
-			В специальном разделе Синдиката вы получите предметы, которые использовались известными агентами синдиката прошлого. В совокупности они стоят более 20 телекристаллов, синдикат любит хорошую отдачу."
+	name = "Специальный Синди-Набор"
+	desc = "Комплект Синдиката, также известные как синди-наборы, представляют из себя специальные группы товаров, которые поступают в простой коробке. \
+			В этом синди-наборе вы получите предметы, которые использовались известными агентами синдиката прошлого. Имея в общей стоимости более 20 ТК, товары имеют хорошую отдачу далекого прошлого."
 	item = /obj/item/storage/box/syndicate/bundle_b
 	cost = 20
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
@@ -226,7 +237,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 /datum/uplink_item/bundles_tc/surplus
 	name = "Ящик с излишками Синдиката"
 	desc = "Пыльный ящик из задней части склада Синдиката. По слухам, в нем содержится ценный ассортимент предметов, \
-			но никогда не знаешь наверняка. Содержимое сортируется так, чтобы всегда стоило 50 ТС."
+			но неизвестно, каких. Содержимое сортируется так, чтобы их общая стоимость всегда была 50 ТК."
 	item = /obj/structure/closet/crate
 	cost = 20
 	player_minimum = 25
@@ -236,7 +247,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 /datum/uplink_item/bundles_tc/surplus/super
 	name = "Супер Избыточный Ящик Синдиката"
 	desc = "Пыльный СУПЕРБОЛЬШОЙ с задней части склада Синдиката. По слухам, в нем содержится ценный ассортимент предметов, \
-но никогда не знаешь наверняка. Содержимое сортируется так, чтобы всегда стоило 125 ТС."
+			но неизвестно, каких. Содержимое сортируется так, чтобы их общая стоимость всегда была 125 ТК."
 	cost = 40
 	player_minimum = 40
 	starting_crate_value = 125
@@ -246,7 +257,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 	var/crate_value = starting_crate_value
 	var/obj/structure/closet/crate/C = spawn_item(/obj/structure/closet/crate, user, U)
-	//log_uplink("[key_name(user)] puchased [src] worth [crate_value] telecrystals for [cost] telecrystals using [U.parent]'s uplink")
+	log_uplink("[key_name(user)] puchased [src] worth [crate_value] telecrystals for [cost] telecrystals using [U.parent]'s uplink")
 	if(U.purchase_log)
 		U.purchase_log.LogPurchase(C, src, cost)
 	while(crate_value)
@@ -260,14 +271,14 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			continue
 		crate_value -= I.cost
 		var/obj/goods = new I.item(C)
-		//log_uplink("- [key_name(user)] received [goods] from [src]")
+		log_uplink("- [key_name(user)] received [goods] from [src]")
 		if(U.purchase_log)
 			U.purchase_log.LogPurchase(goods, I, 0)
 	return C
 
 /datum/uplink_item/bundles_tc/random
-	name = "Random Item"
-	desc = "Picking this will purchase a random item. Useful if you have some TC to spare or if you haven't decided on a strategy yet."
+	name = "Случайный предмет"
+	desc = "Покупает абсолютно случайный предмет из доступного списка. Полезно, если вы не можете самому определить свою стратегию."
 	item = /obj/effect/gibspawner/generic // non-tangible item because techwebs use this path to determine illegal tech
 	cost = 0
 
@@ -292,8 +303,8 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 		U.MakePurchase(user, I)
 
 /datum/uplink_item/bundles_tc/telecrystal
-	name = "1 Raw Telecrystal"
-	desc = "A telecrystal in its rawest and purest form; can be utilized on active uplinks to increase their telecrystal count."
+	name = "1 телекристалл"
+	desc = "Телекристалл в его самой чистой и необработанной форме. Может быть использован в аплинках."
 	item = /obj/item/stack/telecrystal
 	cost = 1
 	// Don't add telecrystals to the purchase_log since
@@ -301,40 +312,40 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	purchase_log_vis = FALSE
 
 /datum/uplink_item/bundles_tc/telecrystal/five
-	name = "5 Raw Telecrystals"
-	desc = "Five telecrystals in their rawest and purest form; can be utilized on active uplinks to increase their telecrystal count."
+	name = "5 телекристаллов"
+	desc = "5 телекристаллов в их самых чистых и необработанных формах. Может быть использован в аплинках."
 	item = /obj/item/stack/telecrystal/five
 	cost = 5
 
 /datum/uplink_item/bundles_tc/telecrystal/twenty
-	name = "20 Raw Telecrystals"
-	desc = "Twenty telecrystals in their rawest and purest form; can be utilized on active uplinks to increase their telecrystal count."
+	name = "20 телекристаллов"
+	desc = "20 телекристаллов в их самых чистых и необработанных формах. Может быть использован в аплинках."
 	item = /obj/item/stack/telecrystal/twenty
 	cost = 20
 
 // Dangerous Items
 /datum/uplink_item/dangerous
-	category = "Conspicuous Weapons"
+	category = "Заметное оружие"
 
 /datum/uplink_item/dangerous/rawketlawnchair
-	name = "84mm Rocket Propelled Grenade Launcher"
-	desc = "A reusable rocket propelled grenade launcher preloaded with a low-yield 84mm HE round. \
-		Guaranteed to send your target out with a bang or your money back!"
+	name = "84-мм реактивный гранатомёт"
+	desc = "Многоразовый реактивный гранатомет с заряженным 84-мм осколочно-фугасным снарядом. \
+			Гарантированно отправит вашу цель к небесам, или мы вернем ваши деньги!"
 	item = /obj/item/gun/ballistic/rocketlauncher
 	cost = 8
 	surplus = 30
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/dangerous/pie_cannon
-	name = "Banana Cream Pie Cannon"
-	desc = "A special pie cannon for a special clown, this gadget can hold up to 20 pies and automatically fabricates one every two seconds!"
+	name = "Банановая пироговая пушка"
+	desc = "Особая пироговая пушка для такого же особого клоуна, это оружие может вмещать до 20 пирогов и автоматически изготавливает по одному каждые две секунды!"
 	cost = 10
 	item = /obj/item/pneumatic_cannon/pie/selfcharge
 	surplus = 0
 	purchasable_from = UPLINK_CLOWN_OPS
 
 /datum/uplink_item/dangerous/bananashield
-	name = "Bananium Energy Shield"
+	name = "Bananium Energy Shield" // лень переводить
 	desc = "A clown's most powerful defensive weapon, this personal shield provides near immunity to ranged energy attacks \
 		by bouncing them back at the ones who fired them. It can also be thrown to bounce off of people, slipping them, \
 		and returning to you even if you miss. WARNING: DO NOT ATTEMPT TO STAND ON SHIELD WHILE DEPLOYED, EVEN IF WEARING ANTI-SLIP SHOES."
@@ -344,7 +355,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	purchasable_from = UPLINK_CLOWN_OPS
 
 /datum/uplink_item/dangerous/clownsword
-	name = "Bananium Energy Sword"
+	name = "Bananium Energy Sword"  // лень переводить
 	desc = "An energy sword that deals no damage, but will slip anyone it contacts, be it by melee attack, thrown \
 	impact, or just stepping on it. Beware friendly fire, as even anti-slip shoes will not protect against it."
 	item = /obj/item/melee/energy/sword/bananium
@@ -353,7 +364,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	purchasable_from = UPLINK_CLOWN_OPS
 
 /datum/uplink_item/dangerous/clownoppin
-	name = "Ultra Hilarious Firing Pin"
+	name = "Ultra Hilarious Firing Pin" // лень переводить
 	desc = "A firing pin that, when inserted into a gun, makes that gun only useable by clowns and clumsy people and makes that gun honk whenever anyone tries to fire it."
 	cost = 1 //much cheaper for clown ops than for clowns
 	item = /obj/item/firing_pin/clown/ultra
@@ -361,7 +372,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	illegal_tech = FALSE
 
 /datum/uplink_item/dangerous/clownopsuperpin
-	name = "Super Ultra Hilarious Firing Pin"
+	name = "Super Ultra Hilarious Firing Pin" // лень переводить
 	desc = "Like the ultra hilarious firing pin, except the gun you insert this pin into explodes when someone who isn't clumsy or a clown tries to fire it."
 	cost = 4 //much cheaper for clown ops than for clowns
 	item = /obj/item/firing_pin/clown/ultra/selfdestruct
@@ -369,45 +380,45 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	illegal_tech = FALSE
 
 /datum/uplink_item/dangerous/bioterror
-	name = "Biohazardous Chemical Sprayer"
-	desc = "A handheld chemical sprayer that allows a wide dispersal of selected chemicals. Especially tailored by the Tiger \
-			Cooperative, the deadly blend it comes stocked with will disorient, damage, and disable your foes... \
-			Use with extreme caution, to prevent exposure to yourself and your fellow operatives."
+	name = "Биотоксичный Химический спрей"
+	desc = "Ручной химический распылитель, который позволяет распылять выбранные химические вещества. Будучи изготовленными организацией Tiger \
+			Cooperative, смесь, которой снабжен спрей, дезориентирует, повреждает, и вырубает ваших оппонентов. \
+			Используйте с крайней осторожностью, чтобы предотвратить попадание смеси на вас или ваших товарищей по команде."
 	item = /obj/item/reagent_containers/spray/chemsprayer/bioterror
 	cost = 20
 	surplus = 0
 	purchasable_from = UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS
 
 /datum/uplink_item/dangerous/throwingweapons
-	name = "Box of Throwing Weapons"
-	desc = "A box of shurikens and reinforced bolas from ancient Earth martial arts. They are highly effective \
-			throwing weapons. The bolas can knock a target down and the shurikens will embed into limbs."
+	name = "Коробка метательного оружия"
+	desc = "Коробка сюрикенов и крепких бол, используемые различными древними боевыми искусствами. \
+			Крепкие болы при успешном метании сбивают с ног противника, а сюрикены впиваются в конечности и вызывают кровотечение."
 	item = /obj/item/storage/box/syndie_kit/throwing_weapons
 	cost = 3
 	illegal_tech = FALSE
 
 /datum/uplink_item/dangerous/shotgun
-	name = "Bulldog Shotgun"
-	desc = "A fully-loaded semi-automatic drum-fed shotgun. Compatible with all 12g rounds. Designed for close \
-			quarter anti-personnel engagements."
+	name = "Автоматический дробовик \"Bulldog\""
+	desc = "Полуавтоматический дробовик с барабанным питанием. Совместим со всеми барабанами 12 калибра. Предназначен для \
+			боя на близких дистанциях."
 	item = /obj/item/gun/ballistic/shotgun/bulldog
 	cost = 8
 	surplus = 40
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/dangerous/smg
-	name = "C-20r Submachine Gun"
-	desc = "A fully-loaded Scarborough Arms bullpup submachine gun. The C-20r fires .45 rounds with a \
-			24-round magazine and is compatible with suppressors."
+	name = "Автомат C-20r"
+	desc = "Снаряжённый пистолет-пулемёт в компоновке буллпап, изготовленный концерном \"Scarborough Arms\". C20-r использует патроны .45 калибра \
+			с магазинами на 24 патрона и имеет совместимость с глушителями."
 	item = /obj/item/gun/ballistic/automatic/c20r
 	cost = 13
 	surplus = 40
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/dangerous/doublesword
-	name = "Double-Bladed Energy Sword"
-	desc = "The double-bladed energy sword does slightly more damage than a standard energy sword and will deflect \
-			all energy projectiles, but requires two hands to wield."
+	name = "Двойной энергетический меч"
+	desc = "Мощный двойной энергетический меч, позволяющий полностью отражать энергетические снаряды обратно в стрелка \
+			и имеет некоторый шанс парировать оружие ближнего боя, однако требует обе руки для использования."
 	item = /obj/item/dualsaber
 	player_minimum = 25
 	cost = 16
@@ -417,26 +428,26 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	return pick(4;0.8,2;0.65,1;0.5)
 
 /datum/uplink_item/dangerous/sword
-	name = "Energy Sword"
-	desc = "The energy sword is an edged weapon with a blade of pure energy. The sword is small enough to be \
-			pocketed when inactive. Activating it produces a loud, distinctive noise."
+	name = "Энергетический меч"
+	desc = "Активируемое холодное энергетическое оружие с лезвием из чистой энергии. Его размера достаточно, чтобы \
+			поместить меч в карман. Активация меча издает характерный и громкий звук."
 	item = /obj/item/melee/energy/sword/saber
 	cost = 8
 	purchasable_from = ~UPLINK_CLOWN_OPS
 
 /datum/uplink_item/dangerous/shield
-	name = "Energy Shield"
-	desc = "An incredibly useful personal shield projector, capable of reflecting energy projectiles and defending \
-			against other attacks. Pair with an Energy Sword for a killer combination."
+	name = "Энергетический щит"
+	desc = "Персональный энергетический щит, отражающий любые энергетические снаряды обратно в стрелка, но \
+			крайне неэффективен против пуль и оружия ближнего боя."
 	item = /obj/item/shield/energy
 	cost = 16
 	surplus = 20
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/dangerous/flamethrower
-	name = "Flamethrower"
-	desc = "A flamethrower, fueled by a portion of highly flammable plasma stolen previously from Nanotrasen \
-			stations. Make a statement by roasting the filth in their own greed. Use with caution."
+	name = "Огнемёт"
+	desc = "Огнемёт, заправленный легковоспленяющейся плазмой, украденная с одного из комплексов NanoTrasen \
+			Заявите о себе, поджарив гниль в их собственной жадности. Используйте с осторожностью."
 	item = /obj/item/flamethrower/full/tank
 	cost = 4
 	surplus = 40
@@ -444,13 +455,14 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	illegal_tech = FALSE
 
 /datum/uplink_item/dangerous/rapid
-	name = "Gloves of the North Star"
-	desc = "These gloves let the user punch people very fast. Does not improve weapon attack speed or the meaty fists of a hulk."
+	name = "Перчатки северной звезды"
+	desc = "Перчатки, позволяющие наносить носителю быстрые удары кулаками. Не работает, если используется любое оружие \
+			ближнего боя, или если носитель является халком"
 	item = /obj/item/clothing/gloves/rapid
 	cost = 8
 
 /datum/uplink_item/dangerous/guardian
-	name = "Holoparasites"
+	name = "Голопаразит"
 	desc = "Though capable of near sorcerous feats via use of hardlight holograms and nanomachines, they require an \
 			organic host as a home base and source of fuel. Holoparasites come in various types and share damage with their host."
 	item = /obj/item/storage/box/syndie_kit/guardian
@@ -461,25 +473,25 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	restricted = TRUE
 
 /datum/uplink_item/dangerous/machinegun
-	name = "L6 Squad Automatic Weapon"
-	desc = "A fully-loaded Aussec Armoury belt-fed machine gun. \
-			This deadly weapon has a massive 50-round magazine of devastating 7.12x82mm ammunition."
+	name = "Ручной пулемёт L6"
+	desc = "Заряженный ручной пулемёт компании \"Aussec Armoury\" с ленточным питанием. \
+			Это смертоносное оружие оснащается магазином на 50 патронов с не менее смертоносным 7,12х82мм калибром."
 	item = /obj/item/gun/ballistic/automatic/l6_saw
 	cost = 18
 	surplus = 0
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/dangerous/carbine
-	name = "M-90gl Carbine"
-	desc = "A fully-loaded, specialized three-round burst carbine that fires 5.56mm ammunition from a 30 round magazine \
-			with a 40mm underbarrel grenade launcher. Use secondary-fire to fire the grenade launcher."
+	name = "Боевой карабин M-90gl"
+	desc = "Специализированный и мощный карабин с режимом выстрела по три патрона. Использует 30-ти зарядные магазины 5.56 калибра, пробивающий броню и \
+			имеющий подствольный 40мм гранатомёт. Используйте вторичный огонь для ведения стрельбы из подствольника."
 	item = /obj/item/gun/ballistic/automatic/m90
 	cost = 14
 	surplus = 50
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/dangerous/powerfist
-	name = "Power Fist"
+	name = "Силовой кулак"
 	desc = "The power-fist is a metal gauntlet with a built-in piston-ram powered by an external gas supply.\
 			Upon hitting a target, the piston-ram will extend forward to make contact for some serious damage. \
 			Using a wrench on the piston valve will allow you to tweak the amount of gas used per punch to \

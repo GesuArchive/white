@@ -239,7 +239,7 @@
 
 /obj/item/shield/energy
 	name = "энергетический боевой щит"
-	desc = "Щит, который отражает почти все энергетические снаряды, но бесполезен против физических атак. Его можно убирать, расширять и хранить где угодно."
+	desc = "Щит, который отражает все энергетические снаряды, но бесполезен против физических атак. Его можно убирать, расширять и хранить где угодно."
 	icon_state = "eshield"
 	lefthand_file = 'icons/mob/inhands/equipment/shields_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/shields_righthand.dmi'

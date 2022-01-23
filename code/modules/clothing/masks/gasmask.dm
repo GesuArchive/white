@@ -139,7 +139,7 @@
 	flags_cover = MASKCOVERSEYES
 
 /obj/item/clothing/mask/gas/syndicate
-	name = "синдимаска"
+	name = "тактическая маска"
 	desc = "Обтягивающая тактическая маска, которая может быть подключена к источнику воздуха."
 	icon_state = "syndicate"
 	inhand_icon_state = "gas_mask"
@@ -288,7 +288,7 @@
 
 /obj/item/clothing/mask/gas/owl_mask
 	name = "маска совы"
-	desc = "Туууу!"
+	desc = "У-УУУ!"
 	icon_state = "owl"
 	clothing_flags = MASKINTERNALS
 	flags_cover = MASKCOVERSEYES
@@ -352,7 +352,7 @@
 	actions_types = list()
 
 /obj/item/clothing/mask/gas/hunter
-	name = "маска охотника"
+	name = "маска педераста"
 	desc = "Тактическая маска с добавленными отличительными знаками."
 	icon_state = "hunter"
 	inhand_icon_state = "hunter"
