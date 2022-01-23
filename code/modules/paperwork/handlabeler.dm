@@ -49,7 +49,7 @@
 	if(!label || !length(label))
 		to_chat(user, span_warning("Не выбран текст!"))
 		return
-	if(length(A.name) + length(label) > 64)
+	if(length(A.name) + length(label) > MAX_NAME_LEN * 2)
 		to_chat(user, span_warning("Текст слишком большой!"))
 		return
 	if(ismob(A))
