@@ -14246,7 +14246,9 @@
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "YG" = (
-/obj/machinery/vending/yoheiking,
+/obj/machinery/vending/yoheiking{
+	onstation_override = 1
+	},
 /turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/powered/yohei_base)
 "YI" = (
