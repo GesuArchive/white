@@ -143,6 +143,7 @@ GLOBAL_VAR(restart_counter)
 	GLOB.world_shuttle_log = "[GLOB.log_directory]/shuttle.log"
 	GLOB.world_mechcomp_log = "[GLOB.log_directory]/mechcomp.log"
 	GLOB.world_exrp_log = "[GLOB.log_directory]/exrp.log"
+	GLOB.world_uplink_log = "[GLOB.log_directory]/uplink.log"
 
 	GLOB.demo_log = "[GLOB.log_directory]/demo.log"
 
@@ -160,6 +161,7 @@ GLOBAL_VAR(restart_counter)
 	start_log(GLOB.world_qdel_log)
 	start_log(GLOB.world_runtime_log)
 	start_log(GLOB.world_job_debug_log)
+	start_log(GLOB.world_uplink_log)
 	start_log(GLOB.tgui_log)
 	start_log(GLOB.world_shuttle_log)
 	start_log(GLOB.world_mechcomp_log)
@@ -319,7 +321,7 @@ sssyhoyo.```````````````````````.``````````````````````````````````.:+shhhmNdhhm
 sssho./os/.````````````````````````````````````````````````````````````-:odmhyyhdmNMMMMMdo-``+dmmssyyyyhhhhhhddddyoohmmN
 sssm:`.-:/+/:-.````````````````````````````````````````````````````````````-/syhhdNm/sNMMMmo:`dNyssyyyyyhhhhhdddhoosmmNm
 sssm.`````````````````````````````````````````````````````````````````````````.:smh. `:mMMMy::mysssyyyyyhhhhddddo+odmmmd
-sssm````````````````````````````````````````````````````...-------.````````.`````.```.:osssymdhssssyyyyyyhhhdddsoohmmNmh
+sssm```````````````````````````````````````ХУЙ``````````...-------.````````.`````.```.:osssymdhssssyyyyyykahdddsoohmmNmh
 sssm` `````````````````````````````````````````````````````````........----.```````````````/syssssyyyyyyhhhhdds+osdmNmdm
 sssm. ``````````````:.`````````````````````````````````````----................-.`````````+sssssssyyyyyhhhhddy++odmNmdyy
 sssd/ ``````````````.:-```````````````````````````````````````.......----.......```..````+ssssssssyyyyhhhhhdho+ohdmNmhoo
