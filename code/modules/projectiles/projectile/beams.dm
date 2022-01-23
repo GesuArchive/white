@@ -18,6 +18,7 @@
 	reflectable = REFLECT_NORMAL
 	wound_bonus = -20
 	bare_wound_bonus = 10
+	dismemberment = 20
 
 
 /obj/projectile/beam/laser
@@ -63,6 +64,7 @@
 /obj/projectile/beam/practice
 	name = "безвредный луч"
 	damage = 0
+	dismemberment = 0
 	nodamage = TRUE
 
 /obj/projectile/beam/scatter
@@ -90,6 +92,7 @@
 	icon_state = "omnilaser"
 	damage = 30
 	damage_type = STAMINA
+	dismemberment = 0
 	flag = ENERGY
 	hitsound = 'sound/weapons/tap.ogg'
 	eyeblur = 0
@@ -151,6 +154,7 @@
 	hitsound = null
 	damage = 0
 	damage_type = STAMINA
+	dismemberment = 0
 	flag = LASER
 	var/suit_types = list(/obj/item/clothing/suit/redtag, /obj/item/clothing/suit/bluetag)
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/blue_laser
@@ -228,6 +232,7 @@
 	hitsound = 'sound/weapons/shrink_hit.ogg'
 	damage = 0
 	damage_type = STAMINA
+	dismemberment = 0
 	flag = ENERGY
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/shrink
 	light_color = LIGHT_COLOR_BLUE

@@ -10,6 +10,7 @@
 	range = 10
 	var/modified = FALSE
 	var/obj/item/pen/pen = null
+	dismemberment = 0
 
 /obj/projectile/bullet/reusable/foam_dart/handle_drop()
 	if(dropped)

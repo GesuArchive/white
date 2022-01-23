@@ -39,6 +39,7 @@
 	light_range = 2
 	eyeblur = 0
 	damage_type = STAMINA
+	dismemberment = 0
 	light_color = LIGHT_COLOR_PINK
 
 /obj/projectile/beam/lovegun/on_hit(atom/target, blocked = FALSE)

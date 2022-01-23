@@ -6,6 +6,7 @@
 	shrapnel_type = null
 	var/piercing = FALSE
 	speed = 0.9
+	dismemberment = 0
 
 /obj/projectile/bullet/dart/Initialize()
 	. = ..()
