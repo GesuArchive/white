@@ -1707,9 +1707,9 @@
 
 /atom/proc/add_filter(name,priority,list/params)
 	LAZYINITLIST(filter_data)
-	var/list/p = params.Copy()
-	p["priority"] = priority
-	filter_data[name] = p
+	var/list/copied_parameters = params.Copy()
+	copied_parameters["priority"] = priority
+	filter_data[name] = copied_parameters
 	update_filters()
 
 /atom/proc/update_filters()
