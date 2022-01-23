@@ -17,6 +17,14 @@
 	if(!allowed)
 		allowed = GLOB.security_vest_allowed
 
+/obj/item/clothing/suit/armor/worn_overlays(isinhands)
+	. = ..()
+	if(!isinhands)
+		var/datum/component/armor_plate/plasteel/ap = GetComponent(/datum/component/armor_plate/plasteel)
+		if(ap?.amount)
+			var/mutable_appearance/armor_overlay = mutable_appearance('icons/mob/clothing/suit.dmi', "armor_plasteel_[ap.amount]")
+			. += armor_overlay
+
 /obj/item/clothing/suit/armor/vest
 	name = "бронежилет"
 	desc = "Тонкий бронированный жилет Тип I, обеспечивающий достойную защиту от большинства видов повреждений."

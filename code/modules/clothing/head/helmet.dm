@@ -25,6 +25,13 @@
 	if(attached_light)
 		alight = new(src)
 
+/obj/item/clothing/head/helmet/worn_overlays(isinhands)
+	. = ..()
+	if(!isinhands)
+		var/datum/component/armor_plate/plasteel/ap = GetComponent(/datum/component/armor_plate/plasteel)
+		if(ap?.amount)
+			var/mutable_appearance/armor_overlay = mutable_appearance('icons/mob/clothing/head.dmi', "armor_plasteel_[ap.amount]")
+			. += armor_overlay
 
 /obj/item/clothing/head/helmet/Destroy()
 	var/obj/item/flashlight/seclite/old_light = set_attached_light(null)

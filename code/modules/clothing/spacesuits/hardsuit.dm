@@ -289,9 +289,9 @@
 /obj/item/clothing/head/helmet/space/hardsuit/mining/Initialize()
 	. = ..()
 	AddComponent(/datum/component/armor_plate)
-	RegisterSignal(src, COMSIG_ARMOR_PLATED, .proc/upgrade_icon)
+	RegisterSignal(src, COMSIG_ARMOR_PLATED, .proc/upgrade_icon_mining)
 
-/obj/item/clothing/head/helmet/space/hardsuit/mining/proc/upgrade_icon(datum/source, amount, maxamount)
+/obj/item/clothing/head/helmet/space/hardsuit/mining/proc/upgrade_icon_mining(datum/source, amount, maxamount)
 	SIGNAL_HANDLER
 
 	if(amount)
@@ -321,9 +321,9 @@
 /obj/item/clothing/suit/space/hardsuit/mining/Initialize()
 	. = ..()
 	AddComponent(/datum/component/armor_plate)
-	RegisterSignal(src, COMSIG_ARMOR_PLATED, .proc/upgrade_icon)
+	RegisterSignal(src, COMSIG_ARMOR_PLATED, .proc/upgrade_icon_mining)
 
-/obj/item/clothing/suit/space/hardsuit/mining/proc/upgrade_icon(datum/source, amount, maxamount)
+/obj/item/clothing/suit/space/hardsuit/mining/proc/upgrade_icon_mining(datum/source, amount, maxamount)
 	SIGNAL_HANDLER
 
 	if(amount)
