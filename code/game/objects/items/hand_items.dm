@@ -501,7 +501,7 @@
 /obj/projectile/kiss/proc/harmless_on_hit(mob/living/living_target)
 	playsound(get_turf(living_target), hitsound, 100, TRUE)
 	if(!suppressed)  // direct
-		living_target.visible_message(span_userdanger("Мне отправили воздушный поцелуй!"), vision_distance=COMBAT_MESSAGE_RANGE)
+		living_target.visible_message(span_userdanger("Слышно, как отправляют воздушный поцелуй!"), vision_distance=COMBAT_MESSAGE_RANGE)
 
 	//living_target.mind?.add_memory(MEMORY_KISS, list(DETAIL_PROTAGONIST = living_target, DETAIL_KISSER = firer), story_value = STORY_VALUE_OKAY)
 	SEND_SIGNAL(living_target, COMSIG_ADD_MOOD_EVENT, "kiss", /datum/mood_event/kiss, firer, suppressed)
