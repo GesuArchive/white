@@ -407,7 +407,7 @@
 		if(emergency_mode || (A?.fire))
 			. += mutable_appearance(overlayicon, "[base_state]_emergency")
 		else if (nightshift_enabled)
-			. += mutable_appearance(overlayicon, "[base_state]_nightshift"
+			. += mutable_appearance(overlayicon, "[base_state]_nightshift")
 		else
 			. += mutable_appearance(overlayicon, base_state)
 
