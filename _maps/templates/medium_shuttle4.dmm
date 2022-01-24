@@ -31,9 +31,7 @@
 	},
 /area/ruin/powered/shuttle/medium_4)
 "i" = (
-/obj/structure/closet{
-	icon_state = "oldcloset"
-	},
+/obj/structure/closet,
 /turf/open/floor/oldshuttle,
 /area/ruin/powered/shuttle/medium_4)
 "j" = (
