@@ -7151,12 +7151,14 @@
 /turf/open/floor/plating,
 /area/science/xenobiology)
 "qk" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /obj/machinery/light_switch{
 	pixel_y = -25
+	},
+/obj/machinery/cryopod{
+	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/commons/cryopods)
@@ -10370,11 +10372,13 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/engineering/atmospherics_engine)
 "xo" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/cryopod{
+	dir = 8
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/commons/cryopods)
 "xp" = (
@@ -11143,11 +11147,13 @@
 /turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints)
 "yP" = (
-/obj/machinery/cryopod,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /obj/item/radio/intercom/directional/east,
+/obj/machinery/cryopod{
+	dir = 8
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/commons/cryopods)
 "yR" = (
@@ -14503,13 +14509,15 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/cargo/warehouse)
 "GJ" = (
-/obj/machinery/cryopod,
 /obj/structure/extinguisher_cabinet/directional/east,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/cryopod{
+	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/commons/cryopods)
@@ -16082,13 +16090,6 @@
 	icon_state = "wood-broken"
 	},
 /area/commons/fitness/kachalka)
-"Kg" = (
-/obj/effect/turf_decal/pool{
-	dir = 4
-	},
-/obj/item/pool/pool_noodle,
-/turf/open/floor/plasteel/freezer,
-/area/commons/locker)
 "Kh" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -19905,10 +19906,12 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "SV" = (
-/obj/machinery/cryopod,
 /obj/machinery/airalarm/directional/east,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
+	},
+/obj/machinery/cryopod{
+	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/commons/cryopods)
@@ -42436,7 +42439,7 @@ DY
 DY
 uH
 UJ
-Kg
+ab
 ab
 In
 Zk
