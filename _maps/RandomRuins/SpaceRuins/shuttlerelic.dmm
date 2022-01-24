@@ -32,7 +32,6 @@
 /area/ruin/powered)
 "i" = (
 /obj/structure/closet{
-	icon_state = "oldcloset";
 	name = "strange closet"
 	},
 /turf/open/floor/oldshuttle,

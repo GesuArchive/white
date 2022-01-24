@@ -407,6 +407,9 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	if(stuttering)
 		message = stutter(message)
 
+	if(fucking_anime_girl_noises_oh_nya)
+		message = ddlc_text(message)
+
 	if(cultslurring && slurring)
 		message = cultslur(message)
 	else if(slurring)

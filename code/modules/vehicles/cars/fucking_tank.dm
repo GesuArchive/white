@@ -101,7 +101,7 @@
 		to_chat(user, "Рано еще!")
 		return NONE
 	var/turf/firing_turf = get_turf(src) //поправишь если захочш ебнешь оффсеты там ченить такое придумаешь карочи
-	var/firing_angle = Get_Angle(firing_turf, A)
+	var/firing_angle = get_angle(firing_turf, A)
 	if(angle_diff(dir2angle(dir), firing_angle) > 45)
 		to_chat(user, "Надо бы повернуться!")
 		return NONE

@@ -226,9 +226,10 @@ Doesn't work on other aliens/AI.*/
 	if(!isturf(U) || !isturf(T))
 		return FALSE
 
+	var/modifiers = params2list(params)
 	user.visible_message(span_danger("[user] spits neurotoxin!") , span_alertalien("You spit neurotoxin."))
 	var/obj/projectile/neurotoxin/neurotoxin = new /obj/projectile/neurotoxin(user.loc)
-	neurotoxin.preparePixelProjectile(target, user, params)
+	neurotoxin.preparePixelProjectile(target, user, modifiers)
 	neurotoxin.fire()
 	user.newtonian_move(get_dir(U, T))
 	user.adjustPlasma(-p_cost)

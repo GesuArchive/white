@@ -5,7 +5,7 @@
 		_generate_exoplanet(center_z, new /datum/exoplanet_biome/lavaland)
 	catch(var/exception/e)
 		message_admins("Exoplanet failed to generate!")
-		stack_trace("Exoplanet failed to generate! [e] on [e.file]:[e.line]")
+		log_runtime("Exoplanet failed to generate! [e] on [e.file]:[e.line]")
 	space_level.generating = FALSE
 
 /proc/_generate_exoplanet(center_z, datum/exoplanet_biome/biome)

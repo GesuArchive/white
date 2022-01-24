@@ -873,7 +873,7 @@
 		return
 	var/C = user.client
 	if(ishuman(user) && C)
-		var/list/angle_vector = calculate_projectile_angle_and_pixel_offsets(user, params)
+		var/list/angle_vector = calculate_projectile_angle_and_pixel_offsets(user, A, params)
 		angle = angle_vector[1]
 	else
 		qdel(src)
@@ -927,7 +927,7 @@
 		playsound(src, 'sound/magic/exit_blood.ogg', 75, TRUE)
 		new /obj/effect/temp_visual/dir_setting/cult/phase(user.loc, user.dir)
 		var/turf/temp_target = get_turf_in_angle(set_angle, targets_from, 40)
-		for(var/turf/T in getline(targets_from,temp_target))
+		for(var/turf/T in get_line(targets_from,temp_target))
 			if (locate(/obj/effect/blessing, T))
 				temp_target = T
 				playsound(T, 'sound/machines/clockcult/ark_damage.ogg', 50, TRUE)

@@ -45,7 +45,7 @@ clamping the Knockback_Force value below. */
 		var/knockback_force = Get_Knockback_Force(clamp(CEILING((I.force / 10), 1), 1, 5))
 		var/knockback_speed = Get_Knockback_Speed(clamp(knockback_force, 1, 5))
 
-		var/target_angle = Get_Angle(attacktarget, usertarget)
+		var/target_angle = get_angle(attacktarget, usertarget)
 		var/move_target = get_ranged_target_turf(usertarget, angle2dir(target_angle), knockback_force)
 		usertarget.throw_at(move_target, knockback_force, knockback_speed)
 		usertarget.visible_message(span_warning("[usertarget] отлетает благодаря силе [I] ударившей [attacktarget]!") , span_warning("Сила удара [I] по [attacktarget] принуждает меня отлететь!"))

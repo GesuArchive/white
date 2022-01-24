@@ -43,7 +43,7 @@
 
 /mob/living/simple_animal/hostile/asteroid/ice_whelp/OpenFire()
 	var/turf/T = get_ranged_target_turf_direct(src, target, fire_range)
-	var/list/burn_turfs = getline(src, T) - get_turf(src)
+	var/list/burn_turfs = get_line(src, T) - get_turf(src)
 	dragon_fire_line(src, burn_turfs)
 
 /mob/living/simple_animal/hostile/asteroid/ice_whelp/Life(delta_time = SSMOBS_DT, times_fired)

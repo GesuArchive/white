@@ -75,7 +75,7 @@
 		if(istype(D, /datum/disease/advance))
 			var/datum/disease/advance/A = D
 			var/disease_name = SSdisease.get_disease_name(A.GetDiseaseID())
-			this["can_rename"] = ((disease_name == "Unknown") && A.mutable)
+			this["can_rename"] = ((disease_name == "Неизвестный") && A.mutable)
 			this["name"] = disease_name
 			this["is_adv"] = TRUE
 			this["symptoms"] = list()

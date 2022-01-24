@@ -79,7 +79,7 @@
 				. = TRUE
 		if("mass_apply")
 			if(!check_rights_for(usr.client, R_FUN))
-				to_chat(usr, "<span class='userdanger>Stay in your lane, jannie.</span>'")
+				to_chat(usr, span_userdanger("Stay in your lane, jannie."))
 				return
 			var/target_path = text2path(params["path"])
 			if(!target_path)
@@ -95,5 +95,3 @@
 					count += 1
 			message_admins("LOCAL CLOWN [usr.ckey] JUST MASS FILTER EDITED [count] WITH PATH OF [params["path"]]!")
 			log_admin("LOCAL CLOWN [usr.ckey] JUST MASS FILTER EDITED [count] WITH PATH OF [params["path"]]!")
-
-

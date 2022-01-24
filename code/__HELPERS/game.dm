@@ -258,7 +258,7 @@
 #undef SIGNV
 
 
-/proc/isInSight(atom/A, atom/B)
+/proc/is_in_sight(atom/A, atom/B)
 	var/turf/Aturf = get_turf(A)
 	var/turf/Bturf = get_turf(B)
 

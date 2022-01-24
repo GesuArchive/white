@@ -79,7 +79,7 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 	for(var/i in 1 to initial_asteroids)
 		new /datum/orbital_object/z_linked/beacon/ruin/asteroid()
 	//Create some derelict station
-	new /datum/orbital_object/z_linked/habitable()
+	//new /datum/orbital_object/z_linked/habitable()
 
 /datum/controller/subsystem/processing/orbits/fire(resumed)
 	if(resumed)

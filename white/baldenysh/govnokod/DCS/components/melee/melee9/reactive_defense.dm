@@ -16,7 +16,7 @@
 
 /datum/component/reactive_defense/proc/onDisarm(mob/living/carbon/disarmed, mob/living/attacker, zone_targeted)
 	SIGNAL_HANDLER
-	apply_impulse(Get_Angle(disarmed, attacker), 10)
+	apply_impulse(get_angle(disarmed, attacker), 10)
 
 
 /datum/component/reactive_defense/proc/apply_impulse(angle, amount)

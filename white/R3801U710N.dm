@@ -35,8 +35,8 @@ GLOBAL_LIST_INIT(petushiniy_list, list("ambrosiafumari"))
 	if(istype(A, /obj/item/ammo_box))
 		var/obj/item/ammo_box/AB = A
 		for(var/obj/item/ammo_casing/R in AB.stored_ammo)
-			qdel(R.BB)
-			R.BB = new /obj/projectile/bullet/pisun
+			qdel(R.loaded_projectile)
+			R.loaded_projectile = new /obj/projectile/bullet/pisun
 		return
 
 

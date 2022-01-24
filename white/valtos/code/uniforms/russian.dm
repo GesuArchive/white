@@ -79,3 +79,37 @@
 	icon = 'white/valtos/icons/clothing/uniforms.dmi'
 	inhand_icon_state = "darkholme"
 	can_adjust = FALSE
+
+/obj/item/clothing/mask/gas/heavy
+	name = "дырявый противогаз"
+	desc = "Данный образец был найден при раскопках на \"дырявом\" астероиде."
+	icon_state = "gp5_mask"
+	armor = list(MELEE = 5, BULLET = 5, LASER = 5, ENERGY = 5, BOMB = 10, BIO = 25, RAD = 25, FIRE = 25, ACID = 35)
+
+/obj/item/clothing/mask/gas/heavy/gp5
+	name = "GP-5"
+	icon_state = "gp5_mask"
+
+/obj/item/clothing/mask/gas/heavy/gp7
+	name = "GP-7"
+	icon_state = "gp7_mask"
+
+/obj/item/clothing/mask/gas/heavy/pmg
+	name = "PMG"
+	icon_state = "pmg_mask"
+
+/obj/item/clothing/mask/gas/heavy/m38
+	name = "M38"
+	icon_state = "m38_mask"
+
+/obj/item/clothing/mask/gas/heavy/m17
+	name = "M17"
+	icon_state = "m17_mask"
+
+/obj/item/clothing/mask/gas/heavy/gp7vm
+	name = "GP-7VM"
+	icon_state = "gp7vm_mask"
+
+/obj/item/clothing/mask/gas/heavy/m40
+	name = "M40"
+	icon_state = "m40_mask"

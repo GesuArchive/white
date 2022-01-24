@@ -123,7 +123,7 @@
 		return FALSE
 	if(get_dist(A,B) != required_distance)
 		return FALSE
-	for(var/turf/T in getline(get_turf(A),get_turf(B)))
+	for(var/turf/T in get_line(get_turf(A),get_turf(B)))
 		if(T.is_blocked_turf(TRUE))
 			return FALSE
 	return TRUE
@@ -248,7 +248,7 @@
 
 /obj/item/ammo_casing/energy/duel/ready_proj(atom/target, mob/living/user, quiet, zone_override, extra_damage = 0, extra_penetration = 0)
 	. = ..()
-	var/obj/projectile/energy/duel/D = BB
+	var/obj/projectile/energy/duel/D = loaded_projectile
 	D.setting = setting
 	D.update_icon()
 

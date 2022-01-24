@@ -16,7 +16,7 @@
 	try
 		target_phrase = new("(\\b[REGEX_QUOTE(hypnotic_phrase)]\\b)","ig")
 	catch(var/exception/e)
-		stack_trace("[e] on [e.file]:[e.line]")
+		log_runtime("[e] on [e.file]:[e.line]")
 		qdel(src)
 	..()
 

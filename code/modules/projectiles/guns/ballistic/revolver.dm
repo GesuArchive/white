@@ -105,7 +105,7 @@
 	var/skip_357_missfire_check = FALSE
 
 /obj/item/gun/ballistic/revolver/detective/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
-	if(magazine && magazine.caliber != initial(magazine.caliber) && chambered.BB && !skip_357_missfire_check)
+	if(magazine && magazine.caliber != initial(magazine.caliber) && chambered.loaded_projectile && !skip_357_missfire_check)
 		if(prob(70 - (magazine.ammo_count() * 10)))	//minimum probability of 10, maximum of 60
 			to_chat(user, span_userdanger("<b>[src.name]</b> приставил к лицу!"))
 			if(user.get_item_for_held_index(1) == src)
@@ -126,11 +126,11 @@
 		return TRUE
 	if(magazine.ammo_count()) //If it has any ammo inside....
 		user.visible_message(span_danger("[capitalize(src.name)] hammer drops while you're handling it!")) //...you learn an important lesson about firearms safety.
-		var/drop_the_gun_it_actually_fired = chambered.BB ? TRUE : FALSE //Is a live round chambered?
+		var/drop_the_gun_it_actually_fired = chambered.loaded_projectile ? TRUE : FALSE //Is a live round chambered?
 		skip_357_missfire_check = TRUE //We set this true, then back to false after process_fire, to reduce redundacy of a round "misfiring" when it's already misfiring from wrench_act
 		process_fire(user, user, FALSE)
 		skip_357_missfire_check = FALSE
-		if(drop_the_gun_it_actually_fired) //We do it like this instead of directly checking chambered.BB here because process_fire will cycle the chamber.
+		if(drop_the_gun_it_actually_fired) //We do it like this instead of directly checking chambered.loaded_projectile here because process_fire will cycle the chamber.
 			user.dropItemToGround(src)
 		return TRUE
 	if(magazine.caliber == "38")

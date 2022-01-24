@@ -276,7 +276,7 @@
 		INVOKE_ASYNC(src, .proc/async_fire_weapons_at, object)
 		//weapon.fire_weapons(object)
 	else
-		//desired_angle = Get_Angle(src, object)
+		//desired_angle = get_angle(src, object)
 		var/list/sl_list = splittext(modifiers["screen-loc"],",")
 		var/list/sl_x_list = splittext(sl_list[1], ":")
 		var/list/sl_y_list = splittext(sl_list[2], ":")

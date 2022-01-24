@@ -154,7 +154,7 @@
 /datum/artifact_effect/projreflect/process(delta_time)
 	for(var/obj/projectile/P in range(3, src))
 		//Reflect projectile
-		P.setAngle(rand(0, 360))
+		P.set_angle(rand(0, 360))
 
 //===================
 // Air Blocker

@@ -201,7 +201,8 @@
 		if(!istype(curloc))
 			return
 		targloc = get_turf_in_angle(lastangle, curloc, 10)
-	P.preparePixelProjectile(targloc, current_user, current_user.client.mouseParams, 0)
+	var/mouse_modifiers = params2list(current_user.client.mouseParams)
+	P.preparePixelProjectile(targloc, current_user, mouse_modifiers, 0)
 	P.fire(lastangle)
 
 /obj/item/gun/energy/beam_rifle/process()
@@ -361,7 +362,7 @@
 
 /obj/item/ammo_casing/energy/beam_rifle/ready_proj(atom/target, mob/living/user, quiet, zone_override = "", extra_damage = 0, extra_penetration = 0)
 	. = ..()
-	var/obj/projectile/beam/beam_rifle/hitscan/HS_BB = BB
+	var/obj/projectile/beam/beam_rifle/hitscan/HS_BB = loaded_projectile
 	if(!istype(HS_BB))
 		return
 	HS_BB.impact_direct_damage = projectile_damage
@@ -382,7 +383,7 @@
 
 /obj/item/ammo_casing/energy/beam_rifle/throw_proj(atom/target, turf/targloc, mob/living/user, params, spread)
 	var/turf/curloc = get_turf(user)
-	if(!istype(curloc) || !BB)
+	if(!istype(curloc) || !loaded_projectile)
 		return FALSE
 	var/obj/item/gun/energy/beam_rifle/gun = loc
 	if(!targloc && gun)
@@ -390,13 +391,14 @@
 	else if(!targloc)
 		return FALSE
 	var/firing_dir
-	if(BB.firer)
-		firing_dir = BB.firer.dir
-	if(!BB.suppressed && firing_effect_type)
+	if(loaded_projectile.firer)
+		firing_dir = loaded_projectile.firer.dir
+	if(!loaded_projectile.suppressed && firing_effect_type)
 		new firing_effect_type(get_turf(src), firing_dir)
-	BB.preparePixelProjectile(target, user, params, spread)
-	BB.fire(gun? gun.lastangle : null, null)
-	BB = null
+	var/modifiers = params2list(params)
+	loaded_projectile.preparePixelProjectile(target, user, modifiers, spread)
+	loaded_projectile.fire(gun? gun.lastangle : null, null)
+	loaded_projectile = null
 	return TRUE
 
 /obj/item/ammo_casing/energy/beam_rifle/hitscan

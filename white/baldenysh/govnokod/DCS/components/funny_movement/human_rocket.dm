@@ -30,7 +30,7 @@
 		mymovement.desired_thrust_dir = 1
 		mymovement.brakes = 0
 
-	//mymovement.desired_angle = Get_Angle(pilot, object)
+	//mymovement.desired_angle = get_angle(pilot, object)
 
 	var/list/sl_list = splittext(modifiers["screen-loc"],",")
 	var/list/sl_x_list = splittext(sl_list[1], ":")

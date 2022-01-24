@@ -235,23 +235,30 @@
 	update_icon()
 
 /obj/item/clothing/head/wig/update_icon_state()
-	var/datum/sprite_accessory/S = GLOB.hairstyles_list[hairstyle]
-	if(!S)
-		return
-	else
-		icon_state = S.icon_state
-
+	var/datum/sprite_accessory/hair_style = GLOB.hairstyles_list[hairstyle]
+	if(hair_style)
+		icon_state = hair_style.icon_state
+	return ..()
 
 /obj/item/clothing/head/wig/worn_overlays(isinhands = FALSE, file2use)
-	. = list()
-	if(!isinhands)
-		var/datum/sprite_accessory/S = GLOB.hairstyles_list[hairstyle]
-		if(!S)
-			return
-		var/mutable_appearance/M = mutable_appearance(S.icon, S.icon_state,layer = -HAIR_LAYER)
-		M.appearance_flags |= RESET_COLOR
-		M.color = color
-		. += M
+	. = ..()
+
+	if(isinhands)
+		return
+
+	var/datum/sprite_accessory/hair = GLOB.hairstyles_list[hairstyle]
+
+	if(!hair)
+		return
+
+	var/mutable_appearance/hair_overlay = mutable_appearance(hair.icon, hair.icon_state, layer = -HAIR_LAYER, appearance_flags = RESET_COLOR)
+	hair_overlay.color = color
+	. += hair_overlay
+
+	// So that the wig actually blocks emissives.
+	var/mutable_appearance/hair_blocker = mutable_appearance(hair.icon, hair.icon_state, plane = EMISSIVE_PLANE, appearance_flags = KEEP_APART)
+	hair_blocker.color = GLOB.em_block_color
+	hair_overlay.overlays += hair_blocker
 
 /obj/item/clothing/head/wig/attack_self(mob/user)
 	var/new_style = input(user, "Выберите прическу", "Wig Styling")  as null|anything in (GLOB.hairstyles_list - "Bald")

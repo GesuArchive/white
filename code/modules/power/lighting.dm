@@ -405,11 +405,11 @@
 	if(on && status == LIGHT_OK)
 		var/area/A = get_area(src)
 		if(emergency_mode || (A?.fire))
-			. += mutable_appearance(overlayicon, "[base_state]_emergency", layer, plane)
+			. += mutable_appearance(overlayicon, "[base_state]_emergency")
 		else if (nightshift_enabled)
-			. += mutable_appearance(overlayicon, "[base_state]_nightshift", layer, plane)
+			. += mutable_appearance(overlayicon, "[base_state]_nightshift")
 		else
-			. += mutable_appearance(overlayicon, base_state, layer, plane)
+			. += mutable_appearance(overlayicon, base_state)
 
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(trigger = TRUE)

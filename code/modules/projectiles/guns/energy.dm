@@ -144,11 +144,11 @@
 		var/obj/item/ammo_casing/energy/AC = ammo_type[select]
 		if(cell.charge >= AC.e_cost) //if there's enough power in the cell cell...
 			chambered = AC //...prepare a new shot based on the current ammo type selected
-			if(!chambered.BB)
+			if(!chambered.loaded_projectile)
 				chambered.newshot()
 
 /obj/item/gun/energy/handle_chamber()
-	if(chambered && !chambered.BB) //if BB is null, i.e the shot has been fired...
+	if(chambered && !chambered.loaded_projectile) //if loaded_projectile is null, i.e the shot has been fired...
 		var/obj/item/ammo_casing/energy/shot = chambered
 		cell.use(shot.e_cost)//... drain the cell cell
 	chambered = null //either way, released the prepared shot
@@ -262,25 +262,25 @@
 		. = ""
 	else
 		var/obj/item/ammo_casing/energy/E = ammo_type[select]
-		var/obj/projectile/energy/BB = E.BB
-		if(!BB)
+		var/obj/projectile/energy/loaded_projectile = E.loaded_projectile
+		if(!loaded_projectile)
 			. = ""
-		else if(BB.nodamage || !BB.damage || BB.damage_type == STAMINA)
+		else if(loaded_projectile.nodamage || !loaded_projectile.damage || loaded_projectile.damage_type == STAMINA)
 			user.visible_message(span_danger("[user] пытается зажечь [A.loc == user ? "[user.ru_ego()] [A.name]" : A] используя [src], но не выходит. Тупица."))
 			playsound(user, E.fire_sound, 50, TRUE)
-			playsound(user, BB.hitsound, 50, TRUE)
+			playsound(user, loaded_projectile.hitsound, 50, TRUE)
 			cell.use(E.e_cost)
 			. = ""
-		else if(BB.damage_type != BURN)
+		else if(loaded_projectile.damage_type != BURN)
 			user.visible_message(span_danger("[user] пытается поджечь [A.loc == user ? "[user.ru_ego()] [A.name]" : A] при помощи [src], но в итоге просто уничтожил это. Тупица."))
 			playsound(user, E.fire_sound, 50, TRUE)
-			playsound(user, BB.hitsound, 50, TRUE)
+			playsound(user, loaded_projectile.hitsound, 50, TRUE)
 			cell.use(E.e_cost)
 			qdel(A)
 			. = ""
 		else
 			playsound(user, E.fire_sound, 50, TRUE)
-			playsound(user, BB.hitsound, 50, TRUE)
+			playsound(user, loaded_projectile.hitsound, 50, TRUE)
 			cell.use(E.e_cost)
 			. = span_danger("[user] непринужденно зажигает [A.loc == user ? "[user.ru_ego()] [A.name]" : A] при помощи [src]. Вот блин.")
 

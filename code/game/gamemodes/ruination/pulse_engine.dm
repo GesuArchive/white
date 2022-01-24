@@ -5,6 +5,7 @@
 	icon_state = "peoff"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	layer = ABOVE_ALL_MOB_LAYER
+	plane = GAME_PLANE_FOV_HIDDEN
 	density = TRUE
 	var/engine_power = 0
 	var/minimum_power = 15

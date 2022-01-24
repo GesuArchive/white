@@ -65,7 +65,7 @@
 /datum/ai_behavior/carbon_ballistic_reload/proc/try_load_casings(obj/item/ammo_box/magazine/mag, list/atom/possible_casings)
 	var/found_live_casing = FALSE
 	for(var/obj/item/ammo_casing/casing in possible_casings)
-		if(casing.type != mag.ammo_type || !casing.BB)
+		if(casing.type != mag.ammo_type || !casing.loaded_projectile)
 			continue
 		found_live_casing = TRUE
 		do_reloading(casing)

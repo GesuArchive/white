@@ -3,6 +3,7 @@
 	jobtype = /datum/job/security_officer/omon
 
 	belt = /obj/item/gun/ballistic/automatic/pistol/traumatic
+	mask = /obj/item/clothing/mask/gas/heavy/gp7vm
 	ears = /obj/item/radio/headset/headset_sec/alt
 	uniform = /obj/item/clothing/under/rank/omon/green
 	gloves = /obj/item/clothing/gloves/color/black
@@ -38,6 +39,7 @@
 	name = "Veteran"
 	jobtype = /datum/job/security_officer/veteran
 
+	mask = /obj/item/clothing/mask/gas/heavy/gp7vm
 	belt = /obj/item/gun/ballistic/automatic/pistol/makarov
 	ears = /obj/item/radio/headset/headset_sec/alt/department/engi
 	uniform = /obj/item/clothing/under/rank/security/veteran
