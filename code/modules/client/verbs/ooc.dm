@@ -1,6 +1,7 @@
 GLOBAL_VAR_INIT(OOC_COLOR, null)//If this is null, use the CSS for OOC. Otherwise, use a custom colour.
 GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД ЕБУТ", "оникс" = "говно", "опух" = "говнище", "валтос" = "мяу"))
+GLOBAL_LIST_INIT(alko_list, list("zarri", "maxsc", "nfogmann", "sanecman", "redfoxiv"))
 
 /client/verb/ooc(msg as text)
 	set name = "OOC" //Gave this shit a shorter name so you only have to time out "ooc" rather than "ooc message" to use it --NeoFite
@@ -31,6 +32,7 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 		return
 
 	msg = copytext_char(sanitize(msg), 1, MAX_MESSAGE_LEN)
+
 	var/raw_msg = msg
 
 	if(!msg)
@@ -40,6 +42,9 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 		msg = replacetext_char(msg, word, GLOB.retard_words[word])
 
 	msg = emoji_parse(msg)
+
+	if(ckey in GLOB.alko_list)
+		msg = slur(msg)
 
 	if(SSticker.HasRoundStarted() && (msg[1] in list(".",";",":","#") || findtext_char(msg, "say", 1, 5)))
 		if(tgui_alert(usr, "Похоже \"[raw_msg]\" выглядит как внутриигровое сообщение, написать его в OOC?", "Для OOC?", list("Да", "Нет")) != "Да")
@@ -103,9 +108,9 @@ GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД Е�
 				else
 					to_chat(C, span_ooc(span_prefix("[tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]")))
 	if(isnewplayer(mob))
-		webhook_send_lobby(key, msg)
+		webhook_send_lobby(key, raw_msg)
 	else
-		webhook_send_ooc(key, msg)
+		webhook_send_ooc(key, raw_msg)
 
 /proc/toggle_ooc(toggle = null)
 	if(toggle != null) //if we're specifically en/disabling ooc
