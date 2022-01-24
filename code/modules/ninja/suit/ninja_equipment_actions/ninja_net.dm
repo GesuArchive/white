@@ -20,7 +20,7 @@
 	if(locate(/obj/structure/energy_net) in get_turf(net_target))//Check if they are already being affected by an energy net.
 		to_chat(ninja, span_warning("[net_target.ru_who(TRUE)] уже заперты внутри энергетической сети!"))
 		return
-	for(var/turf/between_turf in getline(get_turf(ninja), get_turf(net_target)))
+	for(var/turf/between_turf in get_line(get_turf(ninja), get_turf(net_target)))
 		if(between_turf.density)//Don't want them shooting nets through walls. It's kind of cheesy.
 			to_chat(ninja, span_warning("Не могу использовать энергетическую сеть через твёрдые препятствия!"))
 			return

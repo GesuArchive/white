@@ -249,7 +249,7 @@
 				if(SOUTH)
 					target = locate(x,1,z)
 					point = locate(x,y - (catch_power + 1),z)
-			for(var/T in getline(get_step(point, dir), target))
+			for(var/T in get_line(get_step(point, dir), target))
 				var/turf/tile = T
 				if(isclosedturf(tile))
 					Beam(tile, icon_state = "nzcrentrs_power", time = 5 SECONDS)

@@ -120,7 +120,7 @@
 		A.visible_message(span_danger("<b>[A]</b> отражает снаряд рукой!") , span_userdanger("Отражаю снаряд!"))
 		playsound(get_turf(A), pick('sound/weapons/bulletflyby.ogg', 'sound/weapons/bulletflyby2.ogg', 'sound/weapons/bulletflyby3.ogg'), 75, TRUE)
 		P.firer = A
-		P.setAngle(rand(0, 360))//SHING
+		P.set_angle(rand(0, 360))//SHING
 		return BULLET_ACT_FORCE_PIERCE
 
 /datum/martial_art/the_sleeping_carp/teach(mob/living/H, make_temporary = FALSE)

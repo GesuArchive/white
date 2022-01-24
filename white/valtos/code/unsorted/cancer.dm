@@ -219,7 +219,7 @@
 	var/list/hit_things = list()
 	for(var/turf/T in speenturfs)
 		src.dir = get_dir(src, T)
-		for(var/turf/U in (getline(src, T) - get_turf(src)))
+		for(var/turf/U in (get_line(src, T) - get_turf(src)))
 			var/obj/effect/temp_visual/bone/bonk = new /obj/effect/temp_visual/bone(U)
 			QDEL_IN(bonk, 1.25)
 			for(var/mob/living/M in U)

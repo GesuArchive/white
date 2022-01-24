@@ -175,7 +175,7 @@
 		desc = "Тута нету."
 		return
 
-	var/target_angle = Get_Angle(Q, P)
+	var/target_angle = get_angle(Q, P)
 	cut_overlays()
 	desc = "Тама..."
 	switch(min_dist)

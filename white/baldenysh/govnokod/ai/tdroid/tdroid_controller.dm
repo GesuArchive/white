@@ -275,7 +275,7 @@
 	return TRUE
 
 /datum/ai_controller/tdroid/proc/ShouldFireGunAt(obj/item/gun/G, atom/A)
-	var/list/turf/turfs_in_line = getline(pawn, A) //кривая хуйня, не детектит углы нормально
+	var/list/turf/turfs_in_line = get_line(pawn, A) //кривая хуйня, не детектит углы нормально
 	turfs_in_line -= get_turf(pawn)
 	turfs_in_line -= get_turf(A)
 	for(var/turf/T in turfs_in_line)
