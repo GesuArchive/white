@@ -224,7 +224,7 @@ GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, /proc/possess, /proc/r
 GLOBAL_PROTECT(admin_verbs_possess)
 GLOBAL_LIST_INIT(admin_verbs_permissions, list(/client/proc/edit_admin_permissions, /client/proc/retrieve_file, /client/proc/manage_lists, /client/proc/add_bug_down))
 GLOBAL_PROTECT(admin_verbs_permissions)
-GLOBAL_LIST_INIT(admin_verbs_secured, list(/client/proc/de_admin))
+GLOBAL_LIST_INIT(admin_verbs_secured, list(/client/proc/de_admin, /client/proc/manage_some_donations))
 GLOBAL_PROTECT(admin_verbs_secured)
 GLOBAL_LIST_INIT(admin_verbs_poll, list(/client/proc/poll_panel))
 GLOBAL_PROTECT(admin_verbs_poll)
