@@ -239,3 +239,9 @@
 			return gender == FEMALE ? "пожилая женщина" : "пожилой мужчина"
 		if(76 to INFINITY)
 			return gender == FEMALE ? "старушка" : "старик"
+
+/proc/ddlc_text(text)
+	var/t = ""
+	for(var/i = 1, i <= length_char(text), i++)
+		t += pick(GLOB.ddlc_chars)
+	return t
