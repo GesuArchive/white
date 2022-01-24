@@ -251,7 +251,7 @@
 	for(var/obj/item/ammo_box/box in accessible_atoms)
 		accessible_atoms |= box.stored_ammo
 	for(var/obj/item/ammo_casing/casing in accessible_atoms)
-		if(B.magazine && casing.type == B.magazine.ammo_type && casing.BB)
+		if(B.magazine && casing.type == B.magazine.ammo_type && casing.loaded_projectile)
 			return TRUE
 	for(var/obj/item/ammo_box/magazine/mag in accessible_atoms)
 		if(mag.type == B.mag_type && mag.ammo_count(FALSE))

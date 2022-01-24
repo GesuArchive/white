@@ -329,7 +329,7 @@
 	living_pawn.face_atom(target)
 
 	if(weapon)
-		if(!weapon?.chambered?.BB)
+		if(!weapon?.chambered?.loaded_projectile)
 			controller.blackboard[BB_COMBAT_AI_STUPIDITY]++
 			weapon.attack_self(living_pawn)
 			if(!weapon.magazine)

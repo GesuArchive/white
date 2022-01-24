@@ -105,7 +105,7 @@
 	if(auto_eject == NO_AUTO_EJECT)
 		return
 	for(var/obj/item/ammo_casing/AC in magazine)
-		if(AC.BB && auto_eject != AUTO_EJECT_ALL)
+		if(AC.loaded_projectile && auto_eject != AUTO_EJECT_ALL)
 			continue
 		magazine.Remove(AC)
 		AC.forceMove(drop_location())
@@ -126,7 +126,7 @@
 
 		if(MANUAL_EJECT_SPENT to MANUAL_EJECT_ALL)
 			for(var/obj/item/ammo_casing/AC in magazine)
-				if(AC.BB && manual_eject != MANUAL_EJECT_ALL)
+				if(AC.loaded_projectile && manual_eject != MANUAL_EJECT_ALL)
 					continue
 				magazine -= AC
 				AC.forceMove(drop_location())
@@ -191,7 +191,7 @@
 	if(!magazine.len)
 		return FALSE
 	for(var/obj/item/ammo_casing/AC in magazine)
-		if(AC.BB)
+		if(AC.loaded_projectile)
 			chambered = AC
 			process_fire(user, user, FALSE)
 			. = TRUE

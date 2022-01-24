@@ -23,7 +23,7 @@
 	return bolon
 
 /obj/item/gun/gloogun/process_chamber()
-	if(chambered && !chambered.BB && bolon)
+	if(chambered && !chambered.loaded_projectile && bolon)
 		var/datum/gas_mixture/removed = bolon.air_contents.remove(moles_drawn)
 
 		var/co_amount = removed.get_moles(/datum/gas/carbon_dioxide)
@@ -47,7 +47,7 @@
 		if(amount_mul)
 			chambered.newshot()
 
-			var/obj/projectile/bullet/gloo/GL = chambered.BB
+			var/obj/projectile/bullet/gloo/GL = chambered.loaded_projectile
 			GL.foam_str = amount_mul
 
 /obj/item/gun/gloogun/attackby(obj/item/I, mob/user, params)
