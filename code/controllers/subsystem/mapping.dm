@@ -121,19 +121,10 @@ SUBSYSTEM_DEF(mapping)
 		for (var/ice_z in ice_ruins_underground)
 			spawn_rivers(ice_z, 4, level_trait(ice_z, ZTRAIT_BASETURF), /area/icemoon/underground/unexplored/rivers)
 
-	/*
-	var/list/planet_ruins = levels_by_trait(ZTRAIT_STATION)
-	if (planet_ruins.len)
-		// needs to be whitelisted for underground too so place_below ruins work
-		seedRuins(planet_ruins, CONFIG_GET(number/lavaland_budget), list(/area/boxplanet/underground/unexplored), lava_ruins_templates)
-		for (var/ice_z in planet_ruins)
-			spawn_rivers(ice_z, 6, /turf/open/floor/plating/asteroid/boxplanet/caves, /area/boxplanet/underground/unexplored)
-	*/
-
 	// Generate deep space ruins
-	/*var/list/space_ruins = levels_by_trait(ZTRAIT_DYNAMIC_LEVEL)
+	var/list/space_ruins = levels_by_trait(ZTRAIT_DYNAMIC_LEVEL)
 	if (space_ruins.len)
-		seedRuins(space_ruins, CONFIG_GET(number/space_budget), list(/area/space), space_ruins_templates)*/
+		seedRuins(space_ruins, CONFIG_GET(number/space_budget), list(/area/space), space_ruins_templates)
 	seedStation() //yogs - random station rooms
 	loading_ruins = FALSE
 #endif
