@@ -1,0 +1,34 @@
+{
+  "directory": "_maps/RandomRuins/SpaceRuins/DJstation/",
+  "rooms": {
+    "kitchen": {
+      "modules": [
+        "kitchen_1.dmm",
+        "kitchen_2.dmm",
+        "kitchen_3.dmm",
+        "kitchen_4.dmm"
+      ]
+    },
+    "quarters": {
+      "modules": [
+        "quarters_1.dmm",
+        "quarters_2.dmm",
+        "quarters_3.dmm",
+        "quarters_4.dmm"
+      ]
+    },
+    "radioroom": {
+      "modules": [
+        "radioroom_1.dmm",
+        "radioroom_2.dmm",
+        "radioroom_3.dmm"
+      ]
+    },
+    "solars": {
+      "modules": [
+        "solars_1.dmm",
+        "solars_2.dmm"
+      ]
+    }
+  }
+}

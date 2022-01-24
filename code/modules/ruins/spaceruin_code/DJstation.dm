@@ -7,4 +7,4 @@
 /////////// djstation module roots
 
 /obj/modular_map_root/djstation
-	config_file = "strings/modular_maps/DJstation.toml"
+	config_file = "strings/modular_maps/DJstation.json"
