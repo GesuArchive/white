@@ -224,6 +224,9 @@
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	temperature = 255.37
 
+/turf/open/floor/engine/hull/shipceiling
+	name = "обшивка шаттла"
+
 /turf/open/floor/plating/ice/smooth/oxy
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = FALSE
