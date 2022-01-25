@@ -27,6 +27,55 @@
 	atmos_requirements = list("min_oxy" = 1, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 40, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = 1600
+
+/mob/living/simple_animal/hostile/shrooman
+	name = "Миконид"
+	desc = "Я смотрю в глазок – на пороге грибы. Уж лучше б это были свидетели Иеговы."
+	icon = 'white/kacherkin/icons/dwarfs/mobs/dwarfmobs.dmi'
+	icon_state = "muchroom2"
+	icon_dead = "muchroom_dead"
+	turns_per_move = 2
+	faction = list("mining")
+	maxHealth = 100
+	health = 100
+	weather_immunities = list("ash")
+	see_in_dark = 1
+	melee_damage_lower = 8
+	melee_damage_upper = 12
+	attack_verb_continuous = "вмазывает"
+	attack_verb_simple = "вмазывает"
+	response_help_continuous = "отталкивает"
+	response_help_simple = "отталкивает"
+	response_disarm_continuous = "толкает"
+	response_disarm_simple = "толкает"
+	response_harm_continuous = "вмазывает"
+	response_harm_simple = "вмазывает"
+	atmos_requirements = list("min_oxy" = 1, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 40, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	minbodytemp = 0
+	maxbodytemp = 1600
+	loot =  list()
+
+/mob/living/simple_animal/hostile/shrooman/Initialize()
+	. = ..()
+	for (var/i in 1 to (rand(2,4)))
+		src.loot += pick(subtypesof(/obj/item/food/grown/mushroom))
+
+
+
+/mob/living/simple_animal/hostile/shrooman/fighter
+	name = "Миконид-боец"
+	desc = "Среднее растение, законно-нейтральное."
+	icon = 'white/kacherkin/icons/dwarfs/mobs/dwarfmobs.dmi'
+	icon_state = "muchroom1"
+	icon_dead = "muchroom_dead"
+	maxHealth = 140
+	health = 140
+	melee_damage_lower = 12
+	melee_damage_upper = 20
+
+
+
+
 /mob/living/simple_animal/hostile/mech_frog
 	name = "Меха-лягуха"
 	desc = "All systems nominal."
