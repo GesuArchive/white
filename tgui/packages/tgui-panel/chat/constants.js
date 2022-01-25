@@ -36,6 +36,7 @@ export const MESSAGE_TYPE_EVENTCHAT = 'eventchat';
 export const MESSAGE_TYPE_ADMINLOG = 'adminlog';
 export const MESSAGE_TYPE_ATTACKLOG = 'attacklog';
 export const MESSAGE_TYPE_DEBUG = 'debug';
+export const MESSAGE_TYPE_MENTOR = 'mentor';
 
 // Metadata for each message type
 export const MESSAGE_TYPES = [
@@ -134,5 +135,11 @@ export const MESSAGE_TYPES = [
     name: 'Debug Log',
     description: 'DEBUG: SSPlanets subsystem Recover().',
     admin: true,
+  },
+  {
+    type: MESSAGE_TYPE_MENTOR,
+    name: 'Знатоки',
+    description: 'Всё связанное со Знатоками (менторами).',
+    selector: '.mentor, .mentornotice',
   },
 ];

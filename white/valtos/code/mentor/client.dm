@@ -37,9 +37,20 @@
 		mentor_datum.owner = src
 		GLOB.mentors[src] = TRUE
 		add_mentor_verbs()
-		if(check_rights_for(src, R_ADMIN, FALSE))
+		if(check_rights_for(src, R_ADMIN, FALSE) && prefs.auto_dementor)
 			cmd_mentor_dementor()
 
 /client/proc/is_mentor() // admins are mentors too.
 	if(mentor_datum || check_rights_for(src, R_ADMIN, FALSE))
 		return TRUE
+
+/client/verb/toggle_auto_dementor()
+	set name = "Переключить Авто-ДеЗнаток"
+	set category = "Знаток"
+
+	if(!holder || !check_rights_for(src, R_ADMIN))
+		return
+
+	prefs.auto_dementor = !prefs.auto_dementor
+	to_chat(src, "Переключаю Авто-ДеЗнаток в состояние [(prefs.auto_dementor) ? "вкл" : "выкл"].")
+	prefs.save_preferences()

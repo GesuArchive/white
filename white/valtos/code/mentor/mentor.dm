@@ -68,7 +68,7 @@
 		C.remove_mentor_verbs()
 		C.mentor_datum = null
 	GLOB.mentors.Cut()
-	var/list/lines = world.file2list("[global.config.directory]/mentors.txt")
+	var/list/lines = world.file2list("cfg/mentors.txt")
 	for(var/line in lines)
 		if(!length(line))
 			continue
