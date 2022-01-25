@@ -512,7 +512,7 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 		var/list/fucktorio = splittext_char(motherlover, "-")
 
 		if(length(fucktorio?[1]) && length(fucktorio?[2]))
-			LAZYADDASSOC(lte_nuclear_war, ckey(fucktorio[1]), ckey(fucktorio[2]))
+			LAZYADDASSOCLIST(lte_nuclear_war, ckey(fucktorio[1]), fucktorio[2])
 			message_admins("[key_name_admin(src)] открывает [fucktorio[1]] доступ к [fucktorio[2]].")
 		return
 	else
@@ -535,7 +535,7 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 		save_tails_donations()
 	return
 
-/proc/load_some_donations()
+/proc/load_race_donations()
 	var/json_file = file("data/donations/race.json")
 	if(!fexists(json_file))
 		return
@@ -569,20 +569,5 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 
 	WRITE_FILE(json_file, json_encode(GLOB.custom_tails_donations))
 
-GLOBAL_LIST_INIT(custom_race_donations, list(
-	"woofwoof322" = list("athena_s"),
-	"oni3288" = list("oni"),
-	"0cemeh1tejib6a6yjiek" = list("babulet"),
-	"pisimist29" = list("android"),
-	"arsenay" = list("aandroid"),
-	"fiaskin" = list("synthman"),
-	"felinemistress" = list("felinid"),
-	"chilipila" = list("felinid"),
-	"oni3288" = list("felinid"),
-	"valtosss" = list("felinid"),
-	"tequilasunr1se" = list("felinid")))
-
-GLOBAL_LIST_INIT(custom_tails_donations, list(
-	"felinemistress" = list("Fox"),
-	"chilipila" = list("Fox"),
-	"oni3288" = list("Oni")))
+GLOBAL_LIST_INIT(custom_race_donations,  load_race_donations())
+GLOBAL_LIST_INIT(custom_tails_donations, load_tails_donations())
