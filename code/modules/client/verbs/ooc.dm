@@ -46,7 +46,8 @@ GLOBAL_LIST_INIT(alko_list, list("zarri", "maxsc", "nfogmann", "sanecman", "sran
 	if(ckey in GLOB.alko_list)
 		msg = slur(msg)
 
-	if(SSticker.HasRoundStarted() && (msg[1] in list(".",";",":","#") || findtext_char(msg, "say", 1, 5)))
+
+	if(SSticker.HasRoundStarted() && (msg[1] in list(".",";",":","#") || findtext_char(msg, "Сказать", 1, 5)))
 		if(tgui_alert(usr, "Похоже \"[raw_msg]\" выглядит как внутриигровое сообщение, написать его в OOC?", "Для OOC?", list("Да", "Нет")) != "Да")
 			return
 

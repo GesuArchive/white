@@ -577,6 +577,11 @@ export const Secrets = (props, context) => {
                 <>
                   <Button
                     color="blue"
+                    icon="arrow-circle-right"
+                    content="Mentor Log"
+                    onClick={() => act("mentor_log")} />
+                  <Button
+                    color="blue"
                     icon="address-card"
                     content="Admin Log"
                     onClick={() => act("admin_log")} />

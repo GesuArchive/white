@@ -1567,11 +1567,11 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	if(length(list_or_datum))
 		list_or_datum[var_name] = var_value
 		return
-	var/datum/D = list_or_datum
+	var/datum/datum = list_or_datum
 	if(IsAdminAdvancedProcCall())
-		D.vv_edit_var(var_name, var_value)	//same result generally, unless badmemes
+		datum.vv_edit_var(var_name, var_value) //same result generally, unless badmemes
 	else
-		D.vars[var_name] = var_value
+		datum.vars[var_name] = var_value
 
 #define	TRAIT_CALLBACK_ADD(target, trait, source) CALLBACK(GLOBAL_PROC, /proc/___TraitAdd, ##target, ##trait, ##source)
 #define	TRAIT_CALLBACK_REMOVE(target, trait, source) CALLBACK(GLOBAL_PROC, /proc/___TraitRemove, ##target, ##trait, ##source)

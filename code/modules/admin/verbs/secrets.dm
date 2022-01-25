@@ -46,7 +46,7 @@
 	. = ..()
 	if(.)
 		return
-	if((action != "admin_log" || action != "show_admins") && !check_rights(R_ADMIN))
+	if((action != "admin_log" || action != "show_admins" || action != "mentor_log") && !check_rights(R_ADMIN))
 		return
 	var/datum/round_event/E
 	var/ok = FALSE
@@ -59,6 +59,13 @@
 			if(!GLOB.admin_log.len)
 				dat += "No-one has done anything this round!"
 			holder << browse(dat, "window=admin_log")
+		if("mentor_log")
+			var/dat = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><B>Mentor Log<HR></B>"
+			for(var/l in GLOB.mentor_log)
+				dat += "<li>[l]</li>"
+			if(!GLOB.mentor_log.len)
+				dat += "No-one has done anything this round!"
+			holder << browse(dat, "window=mentor_log")
 		if("show_admins")
 			var/dat = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><B>Current admins:</B><HR>"
 			if(GLOB.admin_datums)
