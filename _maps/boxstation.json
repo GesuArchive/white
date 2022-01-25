@@ -11,12 +11,12 @@
 		{
 			"Up": 1,
 			"Baseturf": "/turf/open/space",
-			"Linkage": "Self"
+			"Linkage": "Cross"
 		},
 		{
 			"Down": -1,
 			"Baseturf": "/turf/open/openspace",
-			"Linkage": "Self"
+			"Linkage": "Cross"
 		}
 	],
 	"shuttles": {
