@@ -545,7 +545,10 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 					if(found.file == S.file)
 						soundLen = found.len
 
-				addtimer(VARSET_CALLBACK(C, played, FALSE), soundLen * 10)
+				addtimer(CALLBACK(src, /area/.proc/reset_ambience_played, C), soundLen * 10)
+
+/area/proc/reset_ambience_played(client/C)
+	C?.played = FALSE
 
 ///Divides total beauty in the room by roomsize to allow us to get an average beauty per tile.
 /area/proc/update_beauty()
