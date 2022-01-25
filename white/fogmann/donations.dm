@@ -482,6 +482,10 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 	return null
 
 /client/proc/manage_some_donations()
+	set name = "Manage Some Donations"
+	set hidden = TRUE
+	set category = "Дбг"
+
 	if(!check_rights_for(src, R_SECURED))
 		return
 
@@ -517,7 +521,7 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 		for(var/fucker in lte_nuclear_war)
 			if(fucker != fuckoboingo)
 				continue
-			temp_list = fucker
+			temp_list += fucker
 		var/fuckate = tgui_input_list(src, "AHH", "DIGGER", sort_list(temp_list))
 		if(!fuckate)
 			return
@@ -532,14 +536,14 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 		save_tails_donations()
 	return
 
-/proc/load_races_donations()
-	var/json_file = file("donations/race.json")
+/proc/load_some_donations()
+	var/json_file = file("data/donations/race.json")
 	if(!fexists(json_file))
 		return
 	return json_decode(file2text(json_file))
 
 /proc/load_tails_donations()
-	var/json_file = file("donations/tails.json")
+	var/json_file = file("data/donations/tails.json")
 	if(!fexists(json_file))
 		return
 	return json_decode(file2text(json_file))
@@ -549,7 +553,7 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 		message_admins("[key_name_admin(usr)] сосёт хуй и лижет яйца.")
 		return
 
-	var/json_file = file("donations/race.json")
+	var/json_file = file("data/donations/race.json")
 
 	fdel(json_file)
 
@@ -560,26 +564,26 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 		message_admins("[key_name_admin(usr)] сосёт хуй и лижет яйца.")
 		return
 
-	var/json_file = file("donations/tails.json")
+	var/json_file = file("data/donations/tails.json")
 
 	fdel(json_file)
 
 	WRITE_FILE(json_file, json_encode(GLOB.custom_tails_donations))
 
 GLOBAL_LIST_INIT(custom_race_donations, list(
-	"woofwoof322" = "athena_s",
-	"oni3288" = "oni",
-	"0cemeh1tejib6a6yjiek" = "babulet",
-	"pisimist29" = "android",
-	"arsenay" = "aandroid",
-	"fiaskin" = "synthman",
-	"felinemistress" = "felinid",
-	"chilipila" = "felinid",
-	"oni3288" = "felinid",
-	"valtosss" = "felinid",
-	"tequilasunr1se" = "felinid"))
+	"woofwoof322" = list("athena_s"),
+	"oni3288" = list("oni"),
+	"0cemeh1tejib6a6yjiek" = list("babulet"),
+	"pisimist29" = list("android"),
+	"arsenay" = list("aandroid"),
+	"fiaskin" = list("synthman"),
+	"felinemistress" = list("felinid"),
+	"chilipila" = list("felinid"),
+	"oni3288" = list("felinid"),
+	"valtosss" = list("felinid"),
+	"tequilasunr1se" = list("felinid")))
 
 GLOBAL_LIST_INIT(custom_tails_donations, list(
-	"felinemistress" = "Fox",
-	"chilipila" = "Fox",
-	"oni3288" = "Oni"))
+	"felinemistress" = list("Fox"),
+	"chilipila" = list("Fox"),
+	"oni3288" = list("Oni")))

@@ -1,16 +1,3 @@
-/client/proc/retrieve_file()
-	set category = "Дбг"
-	set name = "Retrieve file"
-
-	if(!check_rights())
-		return
-
-	var/filepath = input("Enter file path", "SALO RETRIEVAL TERMINAL V0.77") as null|text
-	if(fexists(filepath))
-		usr << ftp("[filepath]")
-	else
-		to_chat(usr,span_warning("Такого файла не существует."))
-
 /client/proc/manage_lists()
 	set category = "Дбг"
 	set name = "Manage autoeban"
@@ -19,11 +6,10 @@
 		return
 
 	var/list/listoflists = list(
-								"bad words" = list(GLOB.bad_words, "cfg/autoeban/bad_words.fackuobema"),
-								"exclusions (start)" =  list(GLOB.exc_start, "cfg/autoeban/exc_start.fackuobema"),
-								"exclusions (end)" =  list(GLOB.exc_end, "cfg/autoeban/exc_end.fackuobema"),
-								"exclusions (full)" = list(GLOB.exc_full, "cfg/autoeban/exc_full.fackuobema"),
-								"debix list" = list(GLOB.neobuchaemie_debili, "cfg/autoeban/debix_list.fackuobema")
+								"плохие слова" = list(GLOB.bad_words, "cfg/autoeban/bad_words.fackuobema"),
+								"исключ. (начало)" =  list(GLOB.exc_start, "cfg/autoeban/exc_start.fackuobema"),
+								"исключ. (конец)" =  list(GLOB.exc_end, "cfg/autoeban/exc_end.fackuobema"),
+								"исключ. (целое)" = list(GLOB.exc_full, "cfg/autoeban/exc_full.fackuobema")
 								)
 
 	var/selected = input("Main Menu", "Manage autoeban") as null|anything in listoflists
