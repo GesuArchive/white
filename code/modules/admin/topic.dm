@@ -2268,13 +2268,10 @@
 		poll_option_parse_href(href_list, poll, option)
 
 	else if(href_list["admincommend"])
-		if(!SSticker.IsRoundInProgress())
-			to_chat(usr, span_warning("The round must be in progress to use this!"))
-			return
 		var/mob/heart_recepient = locate(href_list["admincommend"])
-		if(tgui_alert(usr, "Are you sure you'd like to anonymously commend [heart_recepient.ckey]? NOTE: This is logged, please use this sparingly and only for actual kind behavior, not as a reward for your friends.", "<3?", list("Yes", "No")) == "No")
+		if(tgui_alert(usr, "Хочешь выдать сердечко в ООС [heart_recepient.ckey]?", "<3?", list("Да", "Нет")) == "Нет")
 			return
-		usr.nominate_heart(heart_recepient)
+		heart_recepient.receive_heart(usr, instant = TRUE)
 
 	else if(href_list["force_war"])
 		if(!check_rights(R_ADMIN))
