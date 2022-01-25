@@ -483,7 +483,6 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 
 /client/proc/manage_some_donations()
 	set name = "Manage Some Donations"
-	set hidden = TRUE
 	set category = "Дбг"
 
 	if(!check_rights_for(src, R_SECURED))
@@ -521,7 +520,7 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 		for(var/fucker in lte_nuclear_war)
 			if(fucker != fuckoboingo)
 				continue
-			temp_list += fucker
+			temp_list += lte_nuclear_war[fucker]
 		var/fuckate = tgui_input_list(src, "AHH", "DIGGER", sort_list(temp_list))
 		if(!fuckate)
 			return

@@ -13,6 +13,5 @@
 
 	msg = keywords_lookup(msg)
 
-	if(check_rights_for(src, R_ADMIN, 0))
-		msg = "<span class='mentor'><span class='prefix'>ЗНАТОК:</span> <EM>[key_name(src, 0, 0)]</EM>: <span class='message linkify'>[msg]</span></span>"
+	msg = "<span class='mentor'><span class='prefix'>ЗНАТОК:</span> <EM>[key_name(src, 0, 0)]</EM>: <span class='message linkify'>[msg]</span></span>"
 	to_chat(GLOB.admins | GLOB.mentors, msg)
