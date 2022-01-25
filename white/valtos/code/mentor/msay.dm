@@ -13,6 +13,4 @@
 
 	msg = span_mentor("<span class='prefix'>ЗНАТОК:</span> <EM>[key_name(src, 0, 0)]</EM>: <span class='message'>[msg]</span>")
 
-	// я не доверяю прошлой конструкции, поэтому так
-	to_chat(GLOB.mentors, msg)
-	to_chat(GLOB.admins, msg)
+	to_chat(GLOB.mentors | GLOB.admins, msg)
