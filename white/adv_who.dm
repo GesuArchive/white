@@ -154,6 +154,8 @@
 		if(!C)
 			GLOB.mentors -= C
 			continue
+		if(C in GLOB.admins) // мы уже это вывели
+			continue
 		var/suffix = ""
 		if(holder)
 			if(isobserver(C.mob))
