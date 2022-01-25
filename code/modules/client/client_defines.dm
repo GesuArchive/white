@@ -216,3 +216,5 @@
 	var/interviewee = FALSE
 	// Ambients
 	var/played = FALSE
+
+	var/datum/mentors/mentor_datum

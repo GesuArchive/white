@@ -131,7 +131,7 @@
 				msg += " <i>(как [C.holder.fakekey])</i>"
 
 			if(isobserver(C.mob))
-				msg += " - следит"
+				msg += " - Следит"
 			else if(isnewplayer(C.mob))
 				msg += " - Лобби"
 			else
@@ -146,7 +146,27 @@
 				continue //Don't show afk admins to adminwho
 			if(!C.holder.fakekey)
 				msg += "\t[C] - [C.holder.rank]\n"
-		msg += span_info("Ахелпы также отправляются в Discord, если нет педалей онлайн.")
+		msg += span_info("Ахелпы также отправляются в Discord, если нет педалей онлайн.\n")
+
+	msg += "<b>Знатоки:</b>\n"
+	for(var/X in GLOB.mentors)
+		var/client/C = X
+		if(!C)
+			GLOB.mentors -= C
+			continue
+		var/suffix = ""
+		if(holder)
+			if(isobserver(C.mob))
+				suffix += " - Следит"
+			else if(istype(C.mob,/mob/dead/new_player))
+				suffix += " - Лобби"
+			else
+				suffix += " - <b>Играет</b>"
+
+			if(C.is_afk())
+				suffix += " (AFK)"
+		msg += "\t[C][suffix]\n"
+
 	to_chat(src, msg)
 
 /client/proc/inactivity2text()
