@@ -596,7 +596,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/service/bar/Initialize(mapload)
 	. = ..()
-	GLOB.bar_areas += srcal
+	GLOB.bar_areas += src
 
 /area/service/bar/atrium
 	name = "Зона отдыха: Атриум"
