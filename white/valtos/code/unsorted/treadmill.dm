@@ -52,7 +52,7 @@
 	// if 2fast, throw the person, otherwise they just slide off, if there's reasonable speed at all
 	if(speed)
 		var/dist = max(throw_dist * speed / MAX_SPEED, 1)
-		A.throw_at(get_distant_turf(get_turf(src), REVERSE_DIR(dir), dist), A.throw_range, A.throw_speed, src, 1)
+		A.throw_at(get_distant_turf(get_turf(src), REVERSE_DIR(dir), dist), A.throw_range, A.throw_speed)
 
 /obj/machinery/power/treadmill/process()
 	if(!anchored)

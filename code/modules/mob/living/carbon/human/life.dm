@@ -39,6 +39,15 @@
 			//heart attack stuff
 			handle_heart(delta_time, times_fired)
 			handle_liver(delta_time, times_fired)
+			if(dancing_period)
+				dancing_period--
+			if(prob(2))
+				if(nutrition < NUTRITION_LEVEL_STARVING)
+					to_chat(src, span_warning("[pick("Голодно...", "Кушать хочу...", "Вот бы что-нибудь съесть...", "Мой живот урчит...")]"))
+					take_overall_damage(stamina = 60)
+				if(hydration <= HYDRATION_LEVEL_DEHYDRATED)
+					to_chat(src, span_warning("[pick("Пить хочется...", "В горле пересохло...", "Водички бы сейчас...")]"))
+					take_overall_damage(stamina = 60)
 
 		dna.species.spec_life(src, delta_time, times_fired) // for mutantraces
 	else
@@ -49,17 +58,15 @@
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
-	if(stat != DEAD)
-		if(prob(2))
-			if(nutrition < NUTRITION_LEVEL_STARVING)
-				to_chat(src, span_warning("[pick("Голодно...", "Кушать хочу...", "Вот бы что-нибудь съесть...", "Мой живот урчит...")]"))
-				take_overall_damage(stamina = 60)
-		if(prob(2))
-			if(hydration <= HYDRATION_LEVEL_DEHYDRATED)
-				to_chat(src, span_warning("[pick("Пить хочется...", "В горле пересохло...", "Водички бы сейчас...")]"))
-				take_overall_damage(stamina = 60)
-		return TRUE
+	if(!stat && mind && client)
+		var/ourtext = get_input_text()
+		if(ourtext && ourtext[1] != "*")
+			create_typing_indicator()
+		else
+			remove_typing_indicator()
 
+	if(stat != DEAD)
+		return TRUE
 
 /mob/living/carbon/human/calculate_affecting_pressure(pressure)
 	var/chest_covered = FALSE

@@ -8,9 +8,3 @@
 	var/dancing_period = 0
 	var/last_dancer
 	var/last_dancing
-
-/mob/living/carbon/human/Life()
-	if(dancing_period)
-		dancing_period--
-	return ..()
-

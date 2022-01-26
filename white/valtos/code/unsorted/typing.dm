@@ -11,19 +11,6 @@ GLOBAL_DATUM_INIT(human_typing_indicator, /mutable_appearance, mutable_appearanc
 	if(.)
 		remove_typing_indicator()
 
-/mob/Logout()
-	remove_typing_indicator()
-	. = ..()
-
-/mob/living/carbon/human/Life()
-	. = ..()
-	if(!stat && mind && client)
-		var/ourtext = get_input_text()
-		if(ourtext && ourtext[1] != "*")
-			create_typing_indicator()
-		else
-			remove_typing_indicator()
-
 /mob/proc/get_input_text()
 	return copytext_char(winget(src, "outputwindow.input", "text"), 10)
 
