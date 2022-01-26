@@ -496,17 +496,15 @@
 	Cinematic(get_cinematic_type(off_station),world,CALLBACK(SSticker,/datum/controller/subsystem/ticker/proc/station_explosion_detonation,src))
 	//INVOKE_ASYNC(GLOBAL_PROC,.proc/KillEveryoneOnZLevel, z) //Эта хуйня не работает, меняю на свое.
 
-/obj/machinery/nuclearbomb/proc/grab_dat_fence(nukez)
-	var/nukedstation = is_station_level(nukez)
-	for(var/i in GLOB.mob_living_list)
-		var/mob/living/L = i
-		if (nukedstation && !is_station_level(L.z))
-			continue
-		else if (!nukedstation && L.z != nukez)
+/obj/machinery/nuclearbomb/proc/grab_dat_fence(nuked_z_level)
+	for(var/i in GLOB.human_list)
+		var/mob/living/carbon/human/L = i
+		if (L.z != nuked_z_level)
 			continue
 		L.say("ААААААААА!!!")
 		L.emote("agony")
 		L.adjustFireLoss(500)
+		L.adjustBruteLoss(500)
 		L.set_species(/datum/species/skeleton)
 
 /obj/machinery/nuclearbomb/proc/get_cinematic_type(off_station)
