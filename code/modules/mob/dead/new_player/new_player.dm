@@ -109,7 +109,6 @@
 	spawning = TRUE
 
 	client.kill_lobby()
-	SStitle.update_lobby()
 
 	observer.started_as_observer = TRUE
 	close_spawn_windows()
@@ -132,6 +131,9 @@
 	deadchat_broadcast(" становится призраком.", "<b>[observer.real_name]</b>", follow_target = observer, turf_target = get_turf(observer), message_type = DEADCHAT_DEATHRATTLE)
 	QDEL_NULL(mind)
 	qdel(src)
+
+	SStitle.update_lobby()
+
 	return TRUE
 
 /proc/get_job_unavailable_error_message(retval, jobtitle)
@@ -270,6 +272,8 @@
 
 	if(humanc && SSaspects.current_aspect)
 		to_chat(humanc, "\n<span class='notice'><B>[gvorno(TRUE)]:</B> [SSaspects.current_aspect.desc]</span><BR> ")
+
+	SStitle.update_lobby()
 
 	log_manifest(character.mind.key,character.mind,character,latejoin = TRUE)
 
