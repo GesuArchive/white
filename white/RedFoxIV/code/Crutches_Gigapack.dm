@@ -191,7 +191,6 @@
 						"Karasik Dvachev", \
 						"Grifon Debilov", \
 						"Kommit Valtosov")
-	var/name
 	if(prob(special_name_chance))
 		return pick(S)
 	return "[pick(L1)] [pick(L2)]"
