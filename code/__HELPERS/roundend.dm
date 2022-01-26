@@ -386,7 +386,6 @@
 	parts += "[FOURSPACES]└ Длительность смены: <b>[DisplayTimeText(world.time - SSticker.round_start_time)]</b>"
 
 	parts += "<hr><b><font color=\"#60b6ff\">ИНФОРМАЦИЯ О СТАНЦИИ //</font></b>"
-	parts += "[FOURSPACES]├ Система ядерного самоуничтожения: <b>[mode.station_was_nuked ? span_redtext("была активирована")  : span_greentext("не была активирована") ]</b>"
 	parts += "[FOURSPACES]└ Состояние станции: <b>[mode.station_was_nuked ? span_redtext("уничтожена системой ядерного самоуничтожения")  : "[popcount["station_integrity"] == 100 ? span_greentext("нетронута")  : "[popcount["station_integrity"]]%"]"]</b>"
 
 	parts += "<hr><b><font color=\"#60b6ff\">ИНФОРМАЦИЯ О ПЕРСОНАЛЕ //</font></b>"
@@ -417,8 +416,8 @@
 	else
 		parts += "[FOURSPACES]└ <i><span class='redtext'>Персонал станции отсутствует. Кто вызвал шаттл и закончил раунд</span>?</i>"
 
-	parts += "<hr><b><font color=\"#60b6ff\">ИНФОРМАЦИЯ О ДИНАМИЧЕСКОМ РЕЖИМЕ //</font></b>"
 	if(istype(SSticker.mode, /datum/game_mode/dynamic))
+		parts += "<hr><b><font color=\"#60b6ff\">ИНФОРМАЦИЯ О ДИНАМИЧЕСКОМ РЕЖИМЕ //</font></b>"
 		var/datum/game_mode/dynamic/mode = SSticker.mode
 		parts += "[FOURSPACES]├ Уровень угрозы: [mode.threat_level]"
 		parts += "[FOURSPACES]├ Оставшаяся угроза: [mode.mid_round_budget]"
@@ -427,8 +426,6 @@
 			parts += "[FOURSPACES]─ [rule.ruletype] - <b>[rule.name]</b>: -[rule.cost + rule.scaled_times * rule.scaling_cost] очков угрозы"
 		if(!mode.executed_rules.len)
 			parts += "[FOURSPACES]└ <i>Вычиты очков угрозы отсутствуют</i>."
-	else
-		parts += "[FOURSPACES]└ <i>Текущий режим не динамический</i>."
 	return parts.Join("<br>")
 
 /client/proc/roundend_report_file()
@@ -558,8 +555,6 @@
 
 			if(!minion_spacer)
 				minion_spacer = TRUE
-	else
-		parts += "[FOURSPACES]└ <i>ИИ отсутствовали в эту смену</i>."
 
 	parts += "<hr><b><font color=\"#60b6ff\">ИНФОРМАЦИЯ О САМОСТОЯТЕЛЬНЫХ КИБОРГАХ //</font></b>"
 	var/count_silicon = 0
@@ -579,10 +574,8 @@
 
 				if(!minion_spacer)
 					minion_spacer = TRUE
-	else
-		parts += "[FOURSPACES]└ <i>Самостоятельные киборги без связи с ИИ отсутствовали в эту смену</i>."
 
-	if(parts.len)
+	if(parts.len && (count_silicon || count_ai))
 		return "<div class='panel stationborder'>[parts.Join("<br>")]</div>"
 	else
 		return ""
