@@ -112,7 +112,7 @@
 /obj/item/trash/can/food/pine_nuts
 	name = "canned pine nuts"
 	icon = 'icons/obj/food/canned.dmi'
-	icon_state = "pine_nuts_empty"
+	icon_state = "pinenutscan_empty"
 
 /obj/item/trash/spacers_sidekick
 	name = "\improper Spacer's Sidekick packet"
