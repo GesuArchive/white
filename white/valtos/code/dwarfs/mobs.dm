@@ -107,13 +107,10 @@
 	maxbodytemp = 1600
 
 /mob/living/simple_animal/hostile/froggernaut
-	name = "Фроггернаут"
-	desc = "Это конец"
+	name = "\"Лягушатник\""
+	desc = "Гроза подземелья. Плюётся ядом, разъедающим кости и вызывающим дизентерию."
 	icon = 'white/rashcat/icons/dwarfs/mobs/46x46.dmi'
 	icon_state = "froggernaut"
-	speak_chance = 1
-	speak = list("ПОКАЙТЕСЬ", "ЭТО КОНЕЦ")
-	speak_emote = list("орет")
 	speed = 2
 	move_to_delay = 2
 	del_on_death = TRUE
