@@ -60,7 +60,6 @@
 				to_chat(H, span_userdanger("ТЕРЯЮ ПОСЛЕДНИЙ ОГОНЕК РАЗУМА!!"))
 				H.ai_controller = new /datum/ai_controller/raper(H)
 				H.ghostize(FALSE)
-				var/mob/living/carbon/human/H = H
 				H.eye_color = "f00"
 				H.dna.update_ui_block(DNA_EYE_COLOR_BLOCK)
 				H.update_body()
