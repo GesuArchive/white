@@ -37,8 +37,8 @@
 	var/user_dancing_cost = 1
 	var/target_dancing_cost = 1
 
-/datum/interaction/proc/evaluate_user(mob/user, silent = TRUE)
-	if(require_user_mouth && !user.mouth_is_free())
+/datum/interaction/proc/evaluate_user(mob/living/carbon/human/user, silent = TRUE)
+	if(require_user_mouth && user.wear_mask)
 		if(!silent)
 			to_chat(user, "<span class = 'warning'>Мой рот прикрыт.</span>")
 		return FALSE
@@ -64,8 +64,8 @@
 		return FALSE
 	return TRUE
 
-/datum/interaction/proc/evaluate_target(mob/user, mob/target, silent = TRUE)
-	if(require_target_mouth && !target.mouth_is_free())
+/datum/interaction/proc/evaluate_target(mob/living/carbon/human/user, mob/living/carbon/human/target, silent = TRUE)
+	if(require_target_mouth && target.wear_mask)
 		if(!silent)
 			to_chat(user, "<span class = 'warning'>Рот <b>[target.name]</b> прикрыт.</span>")
 		return FALSE
@@ -91,7 +91,7 @@
 		return FALSE
 	return TRUE
 
-/datum/interaction/proc/get_action_link_for(mob/user, mob/target)
+/datum/interaction/proc/get_action_link_for(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	return "<a href='?src=\ref[src];action=1;action_user=\ref[user];action_target=\ref[target]'>[description]</a><br>"
 
 /datum/interaction/Topic(href, href_list)
@@ -102,7 +102,7 @@
 		return TRUE
 	return FALSE
 
-/datum/interaction/proc/do_action(mob/user, mob/target)
+/datum/interaction/proc/do_action(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(cooldaun)
 		return
 	if(get_dist(user, target) > max_distance)
@@ -132,13 +132,13 @@
 	if(write_log_target)
 		log_exrp("([key_name(src)]) [user.real_name] [write_log_target] [target]")
 
-/datum/interaction/proc/display_interaction(mob/user, mob/target)
+/datum/interaction/proc/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(simple_message)
 		var/use_message = replacetext(simple_message, "USER", "<b>[user]</b>")
 		use_message = replacetext(use_message, "TARGET", "<b>[target]</b>")
 		user.visible_message("<span class='[simple_style] purple'>[capitalize(use_message)]</span>")
 
-/datum/interaction/proc/post_interaction(mob/user, mob/target)
+/datum/interaction/proc/post_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	spawn(1)
 		cooldaun = 0
 	if(user_dancing_cost)

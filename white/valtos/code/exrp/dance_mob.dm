@@ -1,9 +1,9 @@
-/mob/living/New(var/new_loc, var/new_species_name = null, var/delay_ready_dna=0)
+/mob/living/carbon/human/Initialize()
 	. = ..()
 	dancing_potency = (prob(80) ? rand(9, 14) : pick(rand(5, 13), rand(15, 20)))
 	dancing_tolerance = (prob(80) ? rand(150, 300) : pick(rand(10, 100), rand(350,600)))
 
-/mob/proc/do_dancing_animation(var/dancedir)
+/mob/proc/do_dancing_animation(dancedir)
 
 	dir = dancedir
 
@@ -31,20 +31,5 @@
 	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = 2)
 	animate(pixel_x = initial(pixel_x), pixel_y = final_pixel_y, time = 2)
 
-/mob/proc/is_literally_ready_to_dance()
-	return TRUE
-
-/mob/living/carbon/human/is_literally_ready_to_dance()
+/mob/living/carbon/human/proc/is_literally_ready_to_dance()
 	return (!wear_suit || !(wear_suit.body_parts_covered)) && (!w_uniform || !(w_uniform.body_parts_covered))
-
-/mob/proc/mouth_is_free()
-	return TRUE
-
-/mob/living/carbon/human/mouth_is_free()
-	return !wear_mask
-
-/mob/proc/foot_is_free()
-	return TRUE
-
-/mob/living/carbon/human/foot_is_free()
-	return !shoes

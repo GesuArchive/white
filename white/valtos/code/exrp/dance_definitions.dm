@@ -7,7 +7,7 @@
 	write_log_user = "ass-slapped"
 	write_log_target = "was ass-slapped by"
 
-/datum/interaction/assslap/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/assslap/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	playsound(get_turf(target), 'white/valtos/sounds/exrp/interactions/slap.ogg', 50, 1, -1)
 
@@ -23,7 +23,7 @@
 	write_log_user = "dancered"
 	write_log_target = "was dancered by"
 
-/datum/interaction/dancero/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/dancero/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_dancero")
 
@@ -49,7 +49,7 @@
 	write_log_user = "danced"
 	write_log_target = "was danced by"
 
-/datum/interaction/dance/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/dance/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_dance")
 
@@ -61,7 +61,7 @@
 	write_log_user = "ass-danced"
 	write_log_target = "was ass-danced by"
 
-/datum/interaction/dance/dancor/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/dance/dancor/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_dancor")
 
@@ -76,7 +76,7 @@
 	write_log_user = "dancered"
 	write_log_target = "was dancered by"
 
-/datum/interaction/dancering/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/dancering/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_dancering")
 
@@ -90,7 +90,7 @@
 	write_log_user = "fingerdanced"
 	write_log_target = "was fingerdanced by"
 
-/datum/interaction/fingerdance/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/fingerdance/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_fingerdance")
 
@@ -105,7 +105,7 @@
 	write_log_user = "face-danced"
 	write_log_target = "was face-danced by"
 
-/datum/interaction/facedance/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/facedance/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_facedance")
 
@@ -120,7 +120,7 @@
 	write_log_user = "throat-danced"
 	write_log_target = "was throat-danced by"
 
-/datum/interaction/throatdance/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/throatdance/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_throatdance")
 
@@ -134,7 +134,7 @@
 	write_log_user = "danced-off"
 	write_log_target = "was danced-off by"
 
-/datum/interaction/handdance/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/handdance/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_handdance")
 
@@ -150,7 +150,7 @@
 	write_log_user = "breast-danced"
 	write_log_target = "was breast-danced by"
 
-/datum/interaction/breastdance/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/breastdance/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_breastdance")
 
@@ -167,7 +167,7 @@
 	write_log_user = "rode"
 	write_log_target = "was rode by"
 
-/datum/interaction/mount/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/mount/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_mount")
 
@@ -184,7 +184,7 @@
 	write_log_user = "assdance"
 	write_log_target = "was assdance by"
 
-/datum/interaction/assdance/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/assdance/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_assdance")
 
@@ -199,7 +199,7 @@
 	write_log_user = "rimdanced"
 	write_log_target = "was rimdanced by"
 
-/datum/interaction/rimdance/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/rimdance/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_rimdance")
 
@@ -214,7 +214,7 @@
 	write_log_user = "made-them-rim"
 	write_log_target = "was made-to-rim by"
 
-/datum/interaction/mountdance/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/mountdance/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_mountdance")
 
@@ -226,7 +226,7 @@
 	write_log_user = "feet-faced"
 	write_log_target = "had feet grinded against their face by"
 
-/datum/interaction/danceface/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/danceface/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_danceface")
 
@@ -238,7 +238,7 @@
 	write_log_user = "feet-mouthed"
 	write_log_target = "had feet grinding against their tongue by"
 
-/datum/interaction/dancemouth/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/dancemouth/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_dancemouth")
 
@@ -252,7 +252,7 @@
 	write_log_user = "make-them-eat-some-eggs"
 	write_log_target = "was made to eat eggs by"
 
-/datum/interaction/eggs/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/eggs/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_eggs")
 
@@ -265,6 +265,6 @@
 	write_log_user = "thigh-trapped"
 	write_log_target = "was smothered by"
 
-/datum/interaction/thighs/display_interaction(var/mob/living/user, var/mob/living/target)
+/datum/interaction/thighs/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_thighs")

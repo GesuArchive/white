@@ -1,4 +1,4 @@
-/mob/proc/moan()
+/mob/living/carbon/human/proc/moan()
 
 	if(!(prob(dancing / dancing_tolerance * 65)))
 		return
@@ -16,7 +16,7 @@
 	else
 		playsound(get_turf(src), "white/valtos/sounds/exrp/interactions/moan_[gender == FEMALE ? "f" : "m"][rand(1, 7)].ogg", 70, 1, 0)
 
-/mob/proc/end_dance(mob/living/partner, target_dancise)
+/mob/living/carbon/human/proc/end_dance(mob/living/carbon/human/partner, target_dancise)
 
 	var/message
 	if(gender == MALE)
@@ -26,13 +26,13 @@
 
 		switch(target_dancise)
 			if(DANCE_TARGET_MOUTH)
-				if(partner.mouth_is_free())
+				if(!partner.wear_mask)
 					message = pick("сметанит прямо в рот [partner]","спустил на язычок [partner]","брызгает сметанкой в рот [partner]","заполняет рот [partner] сметанкой","обильно сметанит в рот [partner], так, что стекает изо рта","выпускает в ротик [partner] порцию густого молочка")
 					partner.reagents.add_reagent("cum", 10)
 				else
 					message = "сметанит на лицо [partner]"
 			if(DANCE_TARGET_THROAT)
-				if(partner.mouth_is_free())
+				if(!partner.wear_mask)
 					message = "засунул свой стан-батон как можно глубже в глотку [partner] и сметанит"
 					partner.reagents.add_reagent("cum", 15)
 				else
@@ -58,7 +58,7 @@
 				else
 					message = "сметанит на шею и грудь [partner]"
 			if(DANCE_TO_FACE)
-				if(partner.mouth_is_free())
+				if(!partner.wear_mask)
 					message = "нещадно принуждает [partner] съесть яишницу с колбасой"
 			if(THIGH_DANCE)
 				message = "удерживает [partner] в очень крепком захвате не давая выбраться попутно смазывая лицо майонезиком"
@@ -109,19 +109,19 @@
 		dancing_period = 100
 		adjust_drugginess(12)
 
-/mob/proc/is_fucking(mob/living/partner, dancise)
+/mob/living/carbon/human/proc/is_dancing(mob/living/carbon/human/partner, dancise)
 	if(partner == last_dancer && dancise == last_dancing)
 		return TRUE
 	return FALSE
 
-/mob/proc/set_is_dancing(mob/living/partner, dancise)
+/mob/living/carbon/human/proc/set_is_dancing(mob/living/carbon/human/partner, dancise)
 	last_dancer = partner
 	last_dancing = dancise
 
 #define ACTOR_DANCER (1<<0)
 #define VICTIM_DANCER (1<<1)
 
-/mob/living/proc/do_dance(mob/living/partner, action_to_do)
+/mob/living/carbon/human/proc/do_dance(mob/living/carbon/human/partner, action_to_do)
 
 	if(stat != CONSCIOUS) return
 
@@ -137,7 +137,7 @@
 			dancing_target = DANCE_TARGET_MOUTH
 			dancing_which = VICTIM_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/bj[rand(1, 11)].ogg"
-			if(partner.is_fucking(src, DANCE_TARGET_MOUTH))
+			if(partner.is_dancing(src, DANCE_TARGET_MOUTH))
 				if(prob(partner.dancing_potency))
 					message = "зарывается языком в пельмешек [partner]"
 					dancing_increase += 5
@@ -162,7 +162,7 @@
 			dancing_target = DANCE_TARGET_MOUTH
 			dancing_which = ACTOR_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/oral[rand(1, 2)].ogg"
-			if(is_fucking(partner, DANCE_TARGET_MOUTH))
+			if(is_dancing(partner, DANCE_TARGET_MOUTH))
 				if(gender == FEMALE)
 					message = "елозит своим пельмешком по лицу [partner]"
 				else if(gender == MALE)
@@ -171,7 +171,7 @@
 				if(gender == FEMALE)
 					message = "пихает [partner] лицом в свой пельмешек"
 				else if(gender == MALE)
-					if(is_fucking(partner, DANCE_TARGET_THROAT))
+					if(is_dancing(partner, DANCE_TARGET_THROAT))
 						message = "достал свой стан-батон из проруби [partner]"
 					else
 						message = "просовывает свой стан-батон еще глубже в прорубь [partner]"
@@ -184,13 +184,13 @@
 			dancing_target = DANCE_TARGET_MOUTH
 			dancing_which = ACTOR_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/oral[rand(1, 2)].ogg"
-			if(is_fucking(partner, DANCE_TARGET_THROAT))
+			if(is_dancing(partner, DANCE_TARGET_THROAT))
 				message = pick(list("невероятно сильно ловит клёв в проруби [partner]", "топит карпика в проруби [partner]"))
 				if(rand(3) == 1) // 33%
 					partner.manual_emote("задыхается в захвате [src]")
 					if(iscarbon(partner))
 						partner.adjustOxyLoss(1)
-			else if(is_fucking(partner, DANCE_TARGET_MOUTH))
+			else if(is_dancing(partner, DANCE_TARGET_MOUTH))
 				message = "суёт стан-батон глубже, заходя уже в прорубь [partner]"
 
 			else
@@ -201,7 +201,7 @@
 			dancing_increase = 10
 			dancing_target = DANCE_TARGET_DANCOR
 			sound_to_play = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
-			if(is_fucking(partner, DANCE_TARGET_DANCOR))
+			if(is_dancing(partner, DANCE_TARGET_DANCOR))
 				message = pick("исследует [partner] в шоколадницу","нежно исследует пещеру [partner]","всаживает стан-батон в шоколадницу [partner] по самые гренки")
 			else
 				message = "безжалостно прорывает шоколадницу [partner]"
@@ -211,7 +211,7 @@
 			dancing_increase = 10
 			dancing_target = DANCE_TARGET_DANCERESS
 			sound_to_play = "white/valtos/sounds/exrp/interactions/champ[rand(1, 2)].ogg"
-			if(is_fucking(partner, DANCE_TARGET_DANCERESS))
+			if(is_dancing(partner, DANCE_TARGET_DANCERESS))
 				message = "проникает в пельмешек [partner]"
 			else
 				message = "резким движением погружается внутрь [partner]"
@@ -221,7 +221,7 @@
 			dancing_increase = 10
 			dancing_target = DANCE_TARGET_DANCERESS
 			sound_to_play = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
-			if(partner.is_fucking(src, DANCE_TARGET_DANCERESS))
+			if(partner.is_dancing(src, DANCE_TARGET_DANCERESS))
 				message = "скачет на стан-батоне [partner]"
 			else
 				message = "насаживает свой пельмешек на стан-батон [partner]"
@@ -231,7 +231,7 @@
 			dancing_increase = 10
 			dancing_target = DANCE_TARGET_DANCOR
 			sound_to_play = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
-			if(partner.is_fucking(src, DANCE_TARGET_DANCOR))
+			if(partner.is_dancing(src, DANCE_TARGET_DANCOR))
 				message = "скачет на стан-батоне [partner]"
 			else
 				message = "опускает свой шоколадный завод на стан-батон [partner]"
@@ -263,7 +263,7 @@
 			dancing_target = DANCE_TARGET_HAND
 			dancing_which = VICTIM_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
-			if(partner.is_fucking(src, DANCE_TARGET_HAND))
+			if(partner.is_dancing(src, DANCE_TARGET_HAND))
 				message = pick(list("шакалит [partner]", "работает рукой с головкой стан-батона [partner]", "включает и выключает стан-батон [partner] быстрее"))
 			else
 				message = "нежно обхватывает стан-батон [partner] рукой"
@@ -274,7 +274,7 @@
 			dancing_target = DANCE_TARGET_CHEST
 			dancing_which = ACTOR_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
-			if(is_fucking(partner, DANCE_TARGET_CHEST))
+			if(is_dancing(partner, DANCE_TARGET_CHEST))
 				message = pick(list("исследует [partner] между горок", "прокатывается у [partner] между горок"))
 			else
 				message = "взял горки [partner] рукой и включет и выключает ими свой стан-батон"
@@ -285,7 +285,7 @@
 			dancing_target = null
 			dancing_which = ACTOR_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/squelch[rand(1, 3)].ogg"
-			if(is_fucking(partner, DANCING_FACE_WITH_DANCOR))
+			if(is_dancing(partner, DANCING_FACE_WITH_DANCOR))
 				message = pick(list("кормит булочками [partner]", "даёт покушать булочек [partner]"))
 			else
 				message = pick(list("видит, что [partner] голоден и срочно принимается кормить булочками его", "хочет накормить [partner] булочками"))
@@ -318,7 +318,7 @@
 			dancing_target = DANCE_TARGET_MOUTH
 			dancing_which = ACTOR_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/nuts[rand(1, 4)].ogg"
-			if(is_fucking(partner, DANCE_TO_FACE))
+			if(is_dancing(partner, DANCE_TO_FACE))
 				message = pick(list("хватает [partner] за голову и принуждает вкусить яишницы", "умоляет [partner] попробовать ещё больше божественной яишенки", "нещадно принимается кормить [partner] яишницей", "вытаскивает всё то, что [partner] не скушал и ждёт пока тот проглотит остатки"))
 			else
 				message = pick(list("видит, что [partner] очень голоден и спешит накормить его яишницей", "стоит в сантиметре от лица [partner] держа в руках омлетик, затем резко впихивает в рот [partner] благословлённый омлетик"))
@@ -329,7 +329,7 @@
 			dancing_target = THIGH_DANCE
 			var file = pick(list("bj10", "bj3", "foot_wet1", "foot_dry3"))
 			sound_to_play = "white/valtos/sounds/exrp/interactions/[file].ogg"
-			if(is_fucking(partner, THIGH_DANCE))
+			if(is_dancing(partner, THIGH_DANCE))
 				if(gender == FEMALE)
 					message = pick(list("берёт в ещё более крепкий захват ногами голову [partner] блокируя его обзор целиком", "обхватывает голову [partner] ногами принуждая вкусить пельменей"))
 				else if(gender == MALE)
@@ -354,14 +354,14 @@
 #undef ACTOR_DANCER
 #undef VICTIM_DANCER
 
-/mob/proc/get_shoes()
+/mob/living/carbon/human/proc/get_shoes()
 	var/obj/A = get_item_by_slot(ITEM_SLOT_FEET)
 	if(findtext_char(A.name,"the"))
 		return copytext_char(A.name, 3, (length(A.name)) + 1)
 	else
 		return A.name
 
-/mob/proc/handle_post_dance(var/amount, var/dancise, var/mob/partner)
+/mob/living/carbon/human/proc/handle_post_dance(amount, dancise, mob/living/carbon/human/partner)
 	if(stat != CONSCIOUS)
 		return
 	if(amount)

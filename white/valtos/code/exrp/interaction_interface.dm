@@ -1,16 +1,20 @@
-/mob/proc/try_interaction()
-	return
-
-/mob/living/MouseDrop_T(mob/M as mob, mob/user as mob)
+/mob/living/carbon/human/MouseDrop_T(mob/M, mob/user)
 	. = ..()
+
 	if(M == src || src == usr || M != usr)
 		return
+
 	if(HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED))
 		return
 
-	user.try_interaction(src)
+	if(!ishuman(user))
+		return
 
-/mob/living/try_interaction(var/mob/partner)
+	var/mob/living/carbon/human/H = user
+
+	H.try_interaction(src)
+
+/mob/living/carbon/human/proc/try_interaction(mob/partner)
 
 	if (!check_rights_for(client, R_ADMIN) && !check_whitelist_exrp(ckey))
 		return
