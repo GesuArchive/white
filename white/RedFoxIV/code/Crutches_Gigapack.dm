@@ -116,3 +116,82 @@
 		if(2 to 4)
 			return two
 	return five
+
+
+
+/proc/get_funny_name(special_name_chance = 0)
+	var/static/list/L1 = list (
+						"Ushat", \
+						"Ulov", \
+						"Buket", \
+						"Rekort", \
+						"Otryad", \
+						"Podriv", \
+						"Pogrom", \
+						"Podzhog", \
+						"Zahvat", \
+						"Ishod", \
+						"Pobeg", \
+						"Obval", \
+						"Ugon", \
+						"Udel", \
+						"Kamaz", \
+						"Razvod", \
+						"Zabeg", \
+						"Parad", \
+						"Vagon", \
+						"Rulon", \
+						"Kvartet", \
+						"Zagul", \
+						"Uchet", \
+						"Razbor", \
+						"Karman", \
+						"Obed", \
+						"Meshok", \
+						"Polet", \
+						"Barak", \
+						"Ukral")
+	var/static/list/L2 = list(
+						"Pomoev" , \
+						"Nalimov" , \
+						"Kovboev" , \
+						"Ustoev" , \
+						"Evreev" , \
+						"Saraev" , \
+						"Pokoev" , \
+						"Isgoev" , \
+						"Zlodeev" , \
+						"Zaboev" , \
+						"Plebeev" , \
+						"Othodov" , \
+						"Suprugov" , \
+						"Debilov" , \
+						"Urodov" , \
+						"Gandonov" , \
+						"Huev" , \
+						"Oboev" , \
+						"Bratanov" , \
+						"Rashodov" , \
+						"Limonov" , \
+						"Poletov" , \
+						"Lemurov" , \
+						"Pistonov" , \
+						"Gormonov" , \
+						"Zaboev" , \
+						"Fazanov" , \
+						"Pingvinov" , \
+						"Arabov" , \
+						"Mongolov" , \
+						"Baranov" , \
+						"Morozov" , \
+						"Matrosov" , \
+						"Shakalov" , \
+						"Pigmeev")
+	var/static/list/S = list(
+						"Karasik Dvachev", \
+						"Grifon Debilov", \
+						"Kommit Valtosov")
+	var/name
+	if(prob(special_name_chance))
+		return pick(S)
+	return "[pick(L1) pick(L2)]"

@@ -155,7 +155,7 @@
 		return pick(possible_areas)
 
 /datum/round_event/ghost_role/schoolshooters/spawn_role()
-	var/list/funny_names = list("Podjog Saraev", "Rulon Oboev", "Ushat Pomoev", "Barak Mongolov", "Ulov Nalimov", "Zabeg Debilov", "Kompil Bildov", "Razriv Ochkov", "Anban Debilov", "Ali Rezun", "Obser Shtanov", "Krazha Donatov", "Nerf Debilov", "Progib Kozlov", "Podsos Pindosov")
+	//var/list/funny_names = list("Podjog Saraev", "Rulon Oboev", "Ushat Pomoev", "Barak Mongolov", "Ulov Nalimov", "Zabeg Debilov", "Kompil Bildov", "Razriv Ochkov", "Anban Debilov", "Ali Rezun", "Obser Shtanov", "Krazha Donatov", "Nerf Debilov", "Progib Kozlov", "Podsos Pindosov")
 
 	var/list/turf/valid_turfs = get_area_turfs(impact_area)
 		//Only target non-dense turfs to prevent wall-embedded pods
@@ -179,26 +179,21 @@
 	first.equipOutfit(/datum/outfit/schoolshooter/typeone)
 	second.equipOutfit(/datum/outfit/schoolshooter/typetwo)
 
-	var/obj/structure/closet/supplypod/extractionpod/columbine_pod = new()
-	columbine_pod.bluespace = FALSE
-	columbine_pod.explosionSize = list(0,0,0,3)
-	columbine_pod.style = STYLE_SYNDICATE
-	columbine_pod.name = "Террористический дроппод"
-	columbine_pod.desc = "Прямиком из группировок, запрещенных на территории НТ "
+	var/obj/structure/closet/supplypod/extractionpod/terrorist_pod = new()
+	terrorist_pod.bluespace = FALSE
+	terrorist_pod.explosionSize = list(0,0,0,3)
+	terrorist_pod.style = STYLE_SYNDICATE
+	terrorist_pod.name = "Террористический дроппод"
+	terrorist_pod.desc = "Прямиком из группировок, запрещенных на территории НТ "
 
 	for(var/mob/living/carbon/human/M in spawned_mobs)
 		M.mind.add_antag_datum(/datum/antagonist/schoolshooter, T)
-		M.forceMove(columbine_pod)
+		M.forceMove(terrorist_pod)
 		log_game("[key_name(M)] has been selected as Terrorist.")
-		var/namae
-		if(prob(99))
-			namae = pick(funny_names)
-			funny_names -= namae
-		else
-			namae = "Valtos" // ඞ //
-		M.real_name = namae
-	new /obj/effect/pod_landingzone(landing, columbine_pod)
-	priority_announce("Зафиксированна десантная капсула неизвестной террористической группировки","ТРЕВОГА!", 'sound/ai/announcer/alert.ogg') //мне это так глаза резало, что я не мог не исправить этот viser
+		M.real_name = get_funny_name(15)
+	new /obj/effect/pod_landingzone(landing, terrorist_pod)
+	spawn(rand(5 SECONDS, 30 SECONDS))
+		priority_announce("Зафиксированна десантная капсула неизвестной террористической группировки","ТРЕВОГА!", 'sound/ai/announcer/alert.ogg') //мне это так глаза резало, что я не мог не исправить этот viser
 
 	return SUCCESSFUL_SPAWN
 
