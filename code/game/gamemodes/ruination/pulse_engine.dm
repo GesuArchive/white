@@ -51,7 +51,7 @@
 			add_overlay("peoverlay")
 			soundloop.start()
 			START_PROCESSING(SSmachines, src)
-			priority_announce("Был обнаружен импульсный двигатель в локации [get_area_name(src, TRUE)].", null, 'sound/misc/announce_dig.ogg', "Priority")
+			priority_announce("Был обнаружен импульсный двигатель в локации [get_area_name(src, TRUE)].", null, 'white/valtos/sounds/trevoga2.ogg', "Priority")
 			light_color = "#f79947"
 			light_range = 8
 			update_light()

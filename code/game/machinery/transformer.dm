@@ -75,7 +75,7 @@
 		return
 
 	if(!transform_dead && H.stat == DEAD)
-		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
+		playsound(src.loc, 'white/valtos/sounds/error1.ogg', 50, FALSE)
 		return
 
 	// Activate the cooldown

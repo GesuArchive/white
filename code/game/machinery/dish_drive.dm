@@ -115,7 +115,7 @@
 	if(!bin)
 		if(manual)
 			visible_message(span_warning("[capitalize(src.name)] buzzes. There are no disposal bins in range!"))
-			playsound(src, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
+			playsound(src, 'white/valtos/sounds/error1.ogg', 50, TRUE)
 		return
 	var/disposed = 0
 	for(var/obj/item/I in dish_drive_contents)

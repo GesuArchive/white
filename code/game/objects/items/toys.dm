@@ -1108,7 +1108,7 @@
 	if (cooldown < world.time)
 		cooldown = (world.time + 300) // Sets cooldown at 30 seconds
 		user.visible_message(span_warning("[user] presses the big red button.") , span_notice("You press the button, it plays a loud noise!") , span_hear("The button clicks loudly."))
-		playsound(src, 'sound/effects/explosionfar.ogg', 50, FALSE)
+		playsound(src, pick(FAR_EXPLOSION_SOUNDS), 50, FALSE)
 		for(var/mob/M in urange(10, src)) // Checks range
 			if(!M.stat && !isAI(M)) // Checks to make sure whoever's getting shaken is alive/not the AI
 				// Short delay to match up with the explosion sound

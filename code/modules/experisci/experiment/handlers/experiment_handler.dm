@@ -100,7 +100,7 @@
 	SIGNAL_HANDLER
 	if (!proximity_flag || (selected_experiment == null && !(config_flags & EXPERIMENT_CONFIG_ALWAYS_ACTIVE)))
 		return
-	playsound(user, 'sound/machines/buzz-sigh.ogg', 25)
+	playsound(user, 'white/valtos/sounds/error1.ogg', 25)
 	to_chat(user, span_notice("[target] is not related to your currently selected experiment."))
 
 /**
@@ -134,7 +134,7 @@
 		playsound(user, 'sound/machines/ping.ogg', 25)
 		to_chat(user, span_notice("You scan [target]."))
 	else
-		playsound(user, 'sound/machines/buzz-sigh.ogg', 25)
+		playsound(user, 'white/valtos/sounds/error1.ogg', 25)
 		to_chat(user, span_notice("[target] is not related to your currently selected experiment."))
 
 
@@ -145,7 +145,7 @@
 	SIGNAL_HANDLER
 	var/atom/movable/our_scanner = parent
 	if (selected_experiment == null)
-		playsound(our_scanner, 'sound/machines/buzz-sigh.ogg', 25)
+		playsound(our_scanner, 'white/valtos/sounds/error1.ogg', 25)
 		to_chat(our_scanner, span_notice("No experiment selected!"))
 		return
 	var/successful_scan
@@ -157,7 +157,7 @@
 		playsound(our_scanner, 'sound/machines/ping.ogg', 25)
 		to_chat(our_scanner, span_notice("The scan succeeds."))
 	else
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 25)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 25)
 		our_scanner.say("The scan did not result in anything.")
 /**
  * Hooks on successful explosions on the doppler array this is attached to
@@ -170,7 +170,7 @@
 	if(action_experiment(source, devastation_range, heavy_impact_range, light_impact_range))
 		playsound(src, 'sound/machines/ping.ogg', 25)
 	else
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 25)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 25)
 		our_array.say("Недостаточно сильный взрыв для завершения эксперимента.")
 
 /**

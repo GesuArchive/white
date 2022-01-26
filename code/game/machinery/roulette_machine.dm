@@ -120,7 +120,7 @@
 			var/obj/item/card/id/player_card = W
 			if(player_card.registered_account.account_balance < chosen_bet_amount) //Does the player have enough funds
 				audible_message(span_warning("You do not have the funds to play! Lower your bet or get more money."))
-				playsound(src, 'sound/machines/buzz-two.ogg', 30, TRUE)
+				playsound(src, 'white/valtos/sounds/error2.ogg', 30, TRUE)
 				return FALSE
 			if(!chosen_bet_amount || isnull(chosen_bet_type))
 				return FALSE
@@ -320,7 +320,7 @@
 	if(my_card.registered_account.account_balance >= payout)
 		return TRUE //We got the betting amount
 	audible_message(span_warning("The bank account of [my_card.registered_account.account_holder] does not have enough funds to pay out the potential prize, contact them to fill up their account or lower your bet!"))
-	playsound(src, 'sound/machines/buzz-two.ogg', 30, TRUE)
+	playsound(src, 'white/valtos/sounds/error2.ogg', 30, TRUE)
 	return FALSE
 
 /obj/machinery/roulette/update_icon(payout, color, rolled_number, is_winner = FALSE)

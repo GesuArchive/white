@@ -52,7 +52,7 @@
 			if(!id_card)
 				return
 			if(!id_card.registered_account)
-				playsound(get_turf(ui_host()), 'sound/machines/buzz-sigh.ogg', 50, TRUE, -1)
+				playsound(get_turf(ui_host()), 'white/valtos/sounds/error1.ogg', 50, TRUE, -1)
 				return
 			payments_acc = id_card.registered_account
 			playsound(get_turf(ui_host()), 'sound/machines/ping.ogg', 50, TRUE, -1)

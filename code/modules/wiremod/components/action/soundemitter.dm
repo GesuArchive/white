@@ -33,8 +33,8 @@
 
 /obj/item/circuit_component/soundemitter/populate_options()
 	var/static/component_options = list(
-		"Buzz" = 'sound/machines/buzz-sigh.ogg',
-		"Buzz Twice" = 'sound/machines/buzz-two.ogg',
+		"Buzz" = 'white/valtos/sounds/error1.ogg',
+		"Buzz Twice" = 'white/valtos/sounds/error2.ogg',
 		"Chime" = 'sound/machines/chime.ogg',
 		"Honk" = 'sound/items/bikehorn.ogg',
 		"Ping" = 'sound/machines/ping.ogg',

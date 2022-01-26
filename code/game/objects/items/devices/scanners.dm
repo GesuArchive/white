@@ -539,7 +539,7 @@ GENE SCANNER
 		to_chat(user, span_warning("<b>[src.name]</b> displays an eerily high-definition frowny face, chastizing you for asking it for too much encouragement."))
 		greedy = TRUE
 	else
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 50, FALSE)
 		if(isliving(user))
 			var/mob/living/L = user
 			to_chat(L, span_warning("<b>[src.name]</b> makes a disappointed buzz and pricks your finger for being greedy. Ow!"))
@@ -551,7 +551,7 @@ GENE SCANNER
 	user.visible_message(span_notice("[user] scans [patient] for serious injuries.") , span_notice("You scan [patient] for serious injuries."))
 
 	if(!istype(patient))
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 		to_chat(user, span_notice("<b>[src.name]</b> makes a sad buzz and briefly displays a frowny face, indicating it can't scan [patient]."))
 		return
 

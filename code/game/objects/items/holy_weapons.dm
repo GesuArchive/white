@@ -48,7 +48,7 @@
 	if(user.mind && user.mind.holy_role)
 		return ..()
 	else
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 40, TRUE)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 40, TRUE)
 		return FALSE
 
 /obj/item/choice_beacon/holy/generate_display_names()

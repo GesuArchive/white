@@ -81,6 +81,8 @@
 		var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transfered_by = user)
 		to_chat(user, span_notice("Заполняю [src] с [trans] единицами содержимого [target]."))
 
+		playsound(get_turf(user), pick(WATER_FLOW_MINI), 50, TRUE)
+
 	//Something like a glass or a food item. Player probably wants to transfer TO it.
 	else if(target.is_drainable() || IS_EDIBLE(target))
 		if(!reagents.total_volume)
@@ -91,6 +93,8 @@
 			return
 		var/trans = src.reagents.trans_to(target, amount_per_transfer_from_this, transfered_by = user)
 		to_chat(user, span_notice("Переливаю [trans] единиц в [target]."))
+
+		playsound(get_turf(user), pick(WATER_FLOW_MINI), 50, TRUE)
 
 /obj/item/reagent_containers/food/condiment/enzyme
 	name = "universal enzyme"

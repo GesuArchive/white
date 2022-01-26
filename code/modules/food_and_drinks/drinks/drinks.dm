@@ -104,6 +104,8 @@
 		var/trans = src.reagents.trans_to(target, amount_per_transfer_from_this, transfered_by = user)
 		to_chat(user, span_notice("Переливаю [trans] единиц жидкости в [target]."))
 
+		playsound(get_turf(user), pick(WATER_FLOW_MINI), 50, TRUE)
+
 		if(iscyborg(user)) //Cyborg modules that include drinks automatically refill themselves, but drain the borg's cell
 			var/mob/living/silicon/robot/bro = user
 			bro.cell.use(30)
@@ -124,6 +126,8 @@
 
 		var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transfered_by = user)
 		to_chat(user, span_notice("Переливаю в [src.name] [trans] единиц из [target]."))
+
+		playsound(get_turf(user), pick(WATER_FLOW_MINI), 50, TRUE)
 
 /obj/item/reagent_containers/food/drinks/attackby(obj/item/I, mob/user, params)
 	var/hotness = I.get_temperature()

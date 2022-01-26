@@ -457,7 +457,7 @@
 		var/mob/living/something = user
 		to_chat(something, span_boldnotice("На секунду ощутил колющую боль в затылке."))
 		something.apply_damage(5,BRUTE,BODY_ZONE_HEAD,FALSE,FALSE,FALSE) //notably: no damage resist (it's in your helmet), no damage spread (it's in your helmet)
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 		return
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_STATION_SENTIENCE))
 		say("ERROR: Центральное командование временно запретило использование шлемов по увеличению обезьянего интеллекта в этом секторе. БЛИЖАЙШИЙ ЗАКОННЫЙ СЕКТОР: в 2,537 миллионов световых лет от вас.")
@@ -470,7 +470,7 @@
 	if(!candidates.len)
 		magnification = null
 		visible_message(span_notice("[capitalize(src.name)] замолкает и падает на пол. Может стоит попробовать позже?"))
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 		user.dropItemToGround(src)
 		return
 	var/mob/picked = pick(candidates)
@@ -504,7 +504,7 @@
 				if(4) //genetic mass susceptibility (gib)
 					magnification.gib()
 	//either used up correctly or taken off before polling finished (punish this by destroying the helmet)
-	playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
+	playsound(src, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 	playsound(src, "sparks", 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	visible_message(span_warning("[capitalize(src.name)] шипит и распадается"))
 	magnification = null

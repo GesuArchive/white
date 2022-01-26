@@ -133,7 +133,7 @@
 					M.Knockdown(10)
 				if(DT_PROB(max(SSticker.mode?.cult.len/2, 15), delta_time))
 					SEND_SOUND(world, 'sound/magic/clockwork/anima_fragment_death.ogg')
-					SEND_SOUND(world, 'sound/effects/explosionfar.ogg')
+					SEND_SOUND(world, pick(FAR_EXPLOSION_SOUNDS))
 					to_chat(world, span_narsie("You really thought you could best me twice?"))
 					QDEL_NULL(clashing)
 					for(var/datum/mind/M as() in GLOB.servants_of_ratvar)

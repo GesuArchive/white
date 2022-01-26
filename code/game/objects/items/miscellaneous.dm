@@ -32,7 +32,7 @@
 	if(user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return TRUE
 	else
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 40, TRUE)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 40, TRUE)
 		return FALSE
 
 /obj/item/choice_beacon/proc/generate_options(mob/living/M)

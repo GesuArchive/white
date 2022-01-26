@@ -41,7 +41,7 @@
 		if(!geyser) //we didnt find one, abort
 			geyserless = TRUE
 			visible_message(span_warning("The [name] makes a sad beep!"))
-			playsound(src, 'sound/machines/buzz-sigh.ogg', 50)
+			playsound(src, 'white/valtos/sounds/error1.ogg', 50)
 			return
 
 	pump(delta_time)

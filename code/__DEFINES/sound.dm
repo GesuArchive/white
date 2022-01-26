@@ -154,8 +154,25 @@
 						'sound/ambience/ambigen15.ogg')
 
 #define TURBOLIFT list('white/jhnazar/sound/effects/lift/elevatormusic.ogg',\
-					'white/jhnazar/sound/effects/turbolift/elevatormusic1.ogg',\
-					'white/jhnazar/sound/effects/turbolift/elevatormusic2.ogg')
+						'white/jhnazar/sound/effects/turbolift/elevatormusic1.ogg',\
+						'white/jhnazar/sound/effects/turbolift/elevatormusic2.ogg')
+
+#define FAR_EXPLOSION_SOUNDS list('white/valtos/sounds/farexplosion/1.ogg',\
+						'white/valtos/sounds/farexplosion/2.ogg',\
+						'white/valtos/sounds/farexplosion/3.ogg',\
+						'white/valtos/sounds/farexplosion/4.ogg',\
+						'white/valtos/sounds/farexplosion/5.ogg',\
+						'white/valtos/sounds/farexplosion/6.ogg',\
+						'white/valtos/sounds/farexplosion/7.ogg',\
+						'white/valtos/sounds/farexplosion/8.ogg',\
+						'white/valtos/sounds/farexplosion/9.ogg',\
+						'sound/effects/explosionfar.ogg')
+
+#define WATER_FLOW_MINI list('white/valtos/sounds/voda1.ogg',\
+						'white/valtos/sounds/voda2.ogg',\
+						'white/valtos/sounds/voda3.ogg',\
+						'white/valtos/sounds/voda4.ogg',\
+						'white/valtos/sounds/voda5.ogg')
 
 #define INTERACTION_SOUND_RANGE_MODIFIER -3
 #define EQUIP_SOUND_VOLUME 30

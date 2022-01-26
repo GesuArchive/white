@@ -920,7 +920,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_price = DRINK_PRICE_EASY
 
 /datum/reagent/consumable/ethanol/b52/on_mob_metabolize(mob/living/M)
-	playsound(M, 'sound/effects/explosion_distant.ogg', 100, FALSE)
+	playsound(M, 'white/valtos/sounds/nuclearexplosion.ogg', 100, FALSE)
 
 /datum/reagent/consumable/ethanol/irishcoffee
 	name = "Ирландский Кофе"
@@ -1305,7 +1305,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/syndicatebomb/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(2.5, delta_time))
-		playsound(get_turf(M), 'sound/effects/explosionfar.ogg', 100, TRUE)
+		playsound(get_turf(M), pick(FAR_EXPLOSION_SOUNDS), 100, TRUE)
 	return ..()
 
 /datum/reagent/consumable/ethanol/hiveminderaser

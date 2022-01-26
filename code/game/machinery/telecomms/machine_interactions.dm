@@ -107,7 +107,7 @@
 			if(params["value"])
 				if(length(params["value"]) > 32)
 					to_chat(operator, span_warning("Error: Machine ID too long!"))
-					playsound(src, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
+					playsound(src, 'white/valtos/sounds/error1.ogg', 50, TRUE)
 					return
 				else
 					id = params["value"]
@@ -117,7 +117,7 @@
 			if(params["value"])
 				if(length(params["value"]) > 15)
 					to_chat(operator, span_warning("Error: Network name too long!"))
-					playsound(src, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
+					playsound(src, 'white/valtos/sounds/error1.ogg', 50, TRUE)
 					return
 				else
 					for(var/obj/machinery/telecomms/T in links)
@@ -133,7 +133,7 @@
 			var/newfreq = tempfreq
 			if(newfreq == FREQ_SYNDICATE)
 				to_chat(operator, span_warning("Error: Interference preventing filtering frequency: \"[newfreq / 10] GHz\""))
-				playsound(src, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
+				playsound(src, 'white/valtos/sounds/error1.ogg', 50, TRUE)
 			else
 				if(!(newfreq in freq_listening) && newfreq < 10000)
 					freq_listening.Add(newfreq)

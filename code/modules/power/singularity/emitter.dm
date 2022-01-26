@@ -517,5 +517,5 @@
 		E.fire_beam(user)
 		delay = world.time + 10
 	else if (E.charge < 10)
-		playsound(src,'sound/machines/buzz-sigh.ogg', 50, TRUE)
+		playsound(src,'white/valtos/sounds/error1.ogg', 50, TRUE)
 

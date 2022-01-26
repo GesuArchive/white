@@ -83,11 +83,11 @@
 
 /obj/machinery/hypnochair/proc/interrogate()
 	if(!trigger_phrase)
-		playsound(get_turf(src), 'sound/machines/buzz-sigh.ogg', 25, TRUE)
+		playsound(get_turf(src), 'white/valtos/sounds/error1.ogg', 25, TRUE)
 		return
 	var/mob/living/carbon/C = occupant
 	if(!istype(C))
-		playsound(get_turf(src), 'sound/machines/buzz-sigh.ogg', 25, TRUE)
+		playsound(get_turf(src), 'white/valtos/sounds/error1.ogg', 25, TRUE)
 		return
 	victim = C
 	if(!(C.get_eye_protection() > 0))

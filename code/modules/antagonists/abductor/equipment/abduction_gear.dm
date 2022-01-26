@@ -709,7 +709,7 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 		visible_message(span_notice("[new_machine] warps on top of the beacon!"))
 		qdel(src)
 	else
-		playsound(src, 'sound/machines/buzz-two.ogg', 50)
+		playsound(src, 'white/valtos/sounds/error2.ogg', 50)
 
 /obj/item/abductor_machine_beacon/chem_dispenser
 	name = "beacon - Reagent Synthesizer"

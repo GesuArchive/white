@@ -75,11 +75,11 @@
 			speed_mult = 0.1
 
 /obj/machinery/autodoc/CtrlClick(mob/user)
-	playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
+	playsound(src, 'white/valtos/sounds/error2.ogg', 50, FALSE)
 
 /obj/machinery/autodoc/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
-	playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
+	playsound(src, 'white/valtos/sounds/error2.ogg', 50, FALSE)
 	active_surgery.complete()
 	active_surgery = null
 	active_step = null
@@ -142,11 +142,11 @@
 	var/mob/living/carbon/patient
 	if(in_use)
 		say("Авто-Док уже используется!")
-		playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
+		playsound(src, 'white/valtos/sounds/error2.ogg', 50, FALSE)
 		return
 	if(!target_surgery || !target_zone)
 		say("Неверные настройки!")
-		playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
+		playsound(src, 'white/valtos/sounds/error2.ogg', 50, FALSE)
 		if(!state_open)
 			open_machine()
 		return
@@ -158,30 +158,30 @@
 		break
 	if(!patient)
 		say("Не обнаружен пациент!")
-		playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
+		playsound(src, 'white/valtos/sounds/error2.ogg', 50, FALSE)
 		if(!state_open)
 			open_machine()
 		return
 	var/obj/item/bodypart/affecting = patient.get_bodypart(check_zone(target_zone))
 	if(affecting)
 		if(!target_surgery.requires_bodypart)
-			playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
+			playsound(src, 'white/valtos/sounds/error2.ogg', 50, FALSE)
 			if(!state_open)
 				open_machine()
 			return
 		if(target_surgery.requires_bodypart_type && affecting.status != target_surgery.requires_bodypart_type)
 			say("Авто-Док не умеет работать с этой частью тела!")
-			playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
+			playsound(src, 'white/valtos/sounds/error2.ogg', 50, FALSE)
 			if(!state_open)
 				open_machine()
 			return
 		if(target_surgery.requires_real_bodypart && affecting.is_pseudopart)
-			playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
+			playsound(src, 'white/valtos/sounds/error2.ogg', 50, FALSE)
 			if(!state_open)
 				open_machine()
 			return
 	else if(patient && target_surgery.requires_bodypart) //mob with no limb in surgery zone when we need a limb
-		playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
+		playsound(src, 'white/valtos/sounds/error2.ogg', 50, FALSE)
 		if(!state_open)
 			open_machine()
 		return
@@ -190,7 +190,7 @@
 		var/datum/surgery_step/SS = new surgery_type
 		if(!SS.autodoc_check(target_zone, src, FALSE, patient))
 			qdel(SS)
-			playsound(src, 'sound/machines/buzz-two.ogg', 50, FALSE)
+			playsound(src, 'white/valtos/sounds/error2.ogg', 50, FALSE)
 			if(!state_open)
 				open_machine()
 			return

@@ -14,13 +14,13 @@
 	key_third_person = "buzzes"
 	message = "гудит."
 	message_param = "гудит на %t."
-	sound = 'sound/machines/buzz-sigh.ogg'
+	sound = 'white/valtos/sounds/error1.ogg'
 
 /datum/emote/silicon/buzz2
 	key = "buzz2"
 	ru_name = "гудеть дважды"
 	message = "гудит дважды."
-	sound = 'sound/machines/buzz-two.ogg'
+	sound = 'white/valtos/sounds/error2.ogg'
 
 /datum/emote/silicon/chime
 	key = "chime"

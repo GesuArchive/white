@@ -162,7 +162,7 @@
 			if("lightningbolt")
 				playsound(src, 'sound/magic/lightningbolt.ogg', 50)
 			if("explosionfar")
-				playsound(src, 'sound/effects/explosionfar.ogg', 50)
+				playsound(src, pick(FAR_EXPLOSION_SOUNDS), 50)
 
 
 //DARK H.O.N.K.

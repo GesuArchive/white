@@ -33,7 +33,7 @@
 		visible_message(span_notice("Пол начинает притягивать меня к себе!"))
 		qdel(src)
 	else
-		playsound(src, 'sound/machines/buzz-two.ogg', 50)
+		playsound(src, 'white/valtos/sounds/error2.ogg', 50)
 
 /datum/supply_pack/engineering/graviton_beacon
 	name = "Гравитоновые маяки"

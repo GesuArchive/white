@@ -122,10 +122,13 @@ GLOBAL_LIST_INIT(clockwork_portals, list())
 /obj/structure/destructible/clockwork/massive/celestial_gateway/proc/announce_gateway()
 	activated = TRUE
 	for(var/datum/mind/M in GLOB.player_list)
-		if(!is_servant_of_ratvar(M.current))
-			SEND_SOUND(M.current, 'white/valtos/sounds/ratalarm.ogg')
+		var/mob/living/motherlov = M?.current
+		if(!motherlov)
+			continue
+		if(!is_servant_of_ratvar(motherlov))
+			SEND_SOUND(motherlov, 'white/valtos/sounds/ratalarm.ogg')
 		else
-			SEND_SOUND(M.current, 'sound/magic/clockwork/invoke_general.ogg')
+			SEND_SOUND(motherlov, 'sound/magic/clockwork/invoke_general.ogg')
 	set_security_level(SEC_LEVEL_DELTA)
 	mass_recall(TRUE)
 	var/grace_time = GLOB.narsie_breaching ? 0 : 1800

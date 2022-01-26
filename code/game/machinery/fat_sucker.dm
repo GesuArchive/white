@@ -167,7 +167,7 @@
 			set_light(2, 1, "#ff0000")
 		else
 			say("Пациент недостаточно жирный.")
-			playsound(src, 'sound/machines/buzz-sigh.ogg', 40, FALSE)
+			playsound(src, 'white/valtos/sounds/error1.ogg', 40, FALSE)
 			overlays += "[icon_state]_red" //throw a red light icon over it, to show that it won't work
 
 /obj/machinery/fat_sucker/proc/stop()

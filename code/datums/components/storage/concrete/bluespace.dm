@@ -18,5 +18,5 @@
 				M.Beam(dumping_location, icon_state="rped_upgrade", time=5)
 				return TRUE
 		to_chat(M, span_hear("The [A.name] buzzes."))
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 50, FALSE)
 	return FALSE

@@ -66,7 +66,7 @@
 	addtimer(CALLBACK(src, .proc/limiting_spam_false), 18) // calibrates before starting the honk
 
 /mob/living/simple_animal/bot/honkbot/proc/react_buzz()
-	playsound(src, 'sound/machines/buzz-sigh.ogg', 50, TRUE, -1)
+	playsound(src, 'white/valtos/sounds/error1.ogg', 50, TRUE, -1)
 	sensor_blink()
 
 /mob/living/simple_animal/bot/honkbot/bot_reset()

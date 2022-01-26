@@ -335,7 +335,7 @@
 					if(!dispensable_reagents.Find(reagent_id))
 						visible_message(span_warning("[capitalize(src.name)] гудит.") , span_hear("Слышу слабое гудение."))
 						to_chat(usr, "<span class ='danger'>[capitalize(src.name)] не может найти <b>[reagent]</b>!</span>")
-						playsound(src, 'sound/machines/buzz-two.ogg', 50, TRUE)
+						playsound(src, 'white/valtos/sounds/error2.ogg', 50, TRUE)
 						return
 				saved_recipes[name] = recording_recipe
 				recording_recipe = null

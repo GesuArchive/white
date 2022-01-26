@@ -160,7 +160,7 @@
 	icon_state = "holo_medical"
 	if(ishuman(AM) && !CheckHuman(AM))
 		if(buzzcd < world.time)
-			playsound(get_turf(src),'sound/machines/buzz-sigh.ogg',65,TRUE,4)
+			playsound(get_turf(src),'white/valtos/sounds/error1.ogg',65,TRUE,4)
 			buzzcd = (world.time + 60)
 		icon_state = "holo_medical-deny"
 

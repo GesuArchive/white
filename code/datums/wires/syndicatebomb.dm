@@ -38,7 +38,7 @@
 					B.delayedbig = TRUE
 		if(WIRE_PROCEED)
 			holder.visible_message(span_danger("[icon2html(B, viewers(holder))] Зловеще гудит!"))
-			playsound(B, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
+			playsound(B, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 			var/seconds = B.seconds_remaining()
 			if(seconds >= 61) // Long fuse bombs can suddenly become more dangerous if you tinker with them.
 				B.detonation_timer = world.time + 600

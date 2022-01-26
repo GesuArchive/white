@@ -504,7 +504,7 @@
 		var/obj/item/organ/cyberimp/bci/existing_bci_organ = carbon_occupant.getorgan(/obj/item/organ/cyberimp/bci)
 		if (isnull(existing_bci_organ) && isnull(bci_to_implant?.resolve()))
 			say("No brain-computer interface inserted, and occupant does not have one. Insert a BCI to implant one.")
-			playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
+			playsound(src, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 			return FALSE
 
 	addtimer(CALLBACK(src, .proc/start_process), 1 SECONDS)

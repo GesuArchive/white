@@ -483,7 +483,7 @@
 			if(!potential_acc || !potential_acc.registered_account)
 				return
 			if(!check_access(potential_acc))
-				playsound(src, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
+				playsound(src, 'white/valtos/sounds/error1.ogg', 50, TRUE)
 				return
 			toggle_lock()
 			SStgui.update_uis(src)
@@ -493,13 +493,13 @@
 			if(!potential_acc || !potential_acc.registered_account)
 				return
 			if(!check_access(potential_acc))
-				playsound(src, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
+				playsound(src, 'white/valtos/sounds/error1.ogg', 50, TRUE)
 				return
 			payments_acc = potential_acc.registered_account
 			playsound(src, 'sound/machines/click.ogg', 20, TRUE)
 		if("Adjust")
 			if(!check_access(potential_acc) || potential_acc.registered_account != payments_acc)
-				playsound(src, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
+				playsound(src, 'white/valtos/sounds/error1.ogg', 50, TRUE)
 				return
 
 			var/new_price_input = input(usr,"Set the sale price for this vend-a-tray.","new price",0) as num|null

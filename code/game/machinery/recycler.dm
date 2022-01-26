@@ -159,7 +159,7 @@
 	if(nom.len && sound)
 		playsound(src, item_recycle_sound, (50 + nom.len*5), TRUE, nom.len, ignore_walls = (nom.len - 10)) // As a substitute for playing 50 sounds at once.
 	if(not_eaten)
-		playsound(src, 'sound/machines/buzz-sigh.ogg', (50 + not_eaten*5), FALSE, not_eaten, ignore_walls = (not_eaten - 10)) // Ditto.
+		playsound(src, 'white/valtos/sounds/error1.ogg', (50 + not_eaten*5), FALSE, not_eaten, ignore_walls = (not_eaten - 10)) // Ditto.
 	if(!ismob(AM0))
 		qdel(AM0)
 	else // Lets not move a mob to nullspace and qdel it, yes?
@@ -186,7 +186,7 @@
 
 
 /obj/machinery/recycler/proc/emergency_stop()
-	playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
+	playsound(src, 'white/valtos/sounds/error1.ogg', 50, FALSE)
 	safety_mode = TRUE
 	update_appearance()
 	addtimer(CALLBACK(src, .proc/reboot), SAFETY_COOLDOWN)

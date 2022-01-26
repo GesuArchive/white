@@ -226,7 +226,7 @@
 					return
 
 			if(pack.goody && !self_paid)
-				playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
+				playsound(src, 'white/valtos/sounds/error1.ogg', 50, FALSE)
 				computer.say("ERROR: Small crates may only be purchased by private accounts.")
 				return
 

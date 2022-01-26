@@ -243,7 +243,7 @@
 
 	if(wire_disabled)
 		audible_message("[src] buzzes.")
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 50, FALSE)
 		return
 
 	if(prob(max((5 / efficiency) - 5, dirty * 5))) //a clean unupgraded microwave has no risk of failure

@@ -187,7 +187,7 @@
 		assembly_turf.visible_message("<span class='notice'>[src] has linked up to a nearby trapdoor! \
 		You may now use it to check where the trapdoor is... be careful!</span>", vision_distance = SAMETILE_MESSAGE_RANGE)
 	else
-		playsound(assembly_turf, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
+		playsound(assembly_turf, 'white/valtos/sounds/error1.ogg', 50, FALSE)
 		assembly_turf.visible_message(span_warning("[src] has failed to find a trapdoor nearby to link to."), vision_distance = SAMETILE_MESSAGE_RANGE)
 
 /**

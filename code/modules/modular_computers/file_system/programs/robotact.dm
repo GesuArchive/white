@@ -113,7 +113,7 @@
 				if(!borgo.cell || !borgo.cell.charge)
 					borgo.visible_message(span_notice("Индикатор питания <span class='name'>[borgo]</span> постоянно мигает.") , \
 						"Вы объявляете, что работаете в режиме пониженного энергопотребления.")
-					playsound(borgo, 'sound/machines/buzz-two.ogg', 50, FALSE)
+					playsound(borgo, 'white/valtos/sounds/error2.ogg', 50, FALSE)
 
 		if("toggleSensors")
 			borgo.toggle_sensors()

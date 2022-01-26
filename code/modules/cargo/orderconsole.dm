@@ -230,7 +230,7 @@
 					return
 
 			if(pack.goody && !self_paid)
-				playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
+				playsound(src, 'white/valtos/sounds/error1.ogg', 50, FALSE)
 				say("ОШИБКА: Малые ящики могут быть приобретены только частными аккаунтами.")
 				return
 

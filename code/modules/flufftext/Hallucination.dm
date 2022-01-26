@@ -944,7 +944,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			else
 				target.playsound_local(source, 'sound/effects/explosion2.ogg', 50, 1)
 		if("far explosion")
-			target.playsound_local(source, 'sound/effects/explosionfar.ogg', 50, 1)
+			target.playsound_local(source, pick(FAR_EXPLOSION_SOUNDS), 50, 1)
 		if("glass")
 			target.playsound_local(source, pick('sound/effects/glassbr1.ogg','sound/effects/glassbr2.ogg','sound/effects/glassbr3.ogg'), 50, 1)
 		if("alarm")
@@ -1055,7 +1055,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 				target,
 				/mob/.proc/playsound_local,
 				target,
-				'sound/effects/explosion_distant.ogg',
+				'white/valtos/sounds/nuclearexplosion.ogg',
 				50,
 				FALSE,
 				/* frequency = */ null,

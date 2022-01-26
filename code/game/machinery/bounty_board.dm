@@ -123,7 +123,7 @@ GLOBAL_LIST_EMPTY(request_list)
 	switch(action)
 		if("createBounty")
 			if(!current_user || !bounty_text)
-				playsound(src, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
+				playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 				return TRUE
 			for(var/datum/station_request/i in GLOB.request_list)
 				if("[i.req_number]" == "[current_user.account_id]")
@@ -139,14 +139,14 @@ GLOBAL_LIST_EMPTY(request_list)
 				say("Please swipe a valid ID first.")
 				return TRUE
 			if(current_user.account_holder == active_request.owner)
-				playsound(src, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
+				playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 				return TRUE
 			active_request.applicants += list(current_user)
 		if("payApplicant")
 			if(!current_user)
 				return
 			if(!current_user.has_money(active_request.value) || (current_user.account_holder != active_request.owner))
-				playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
+				playsound(src, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 				return
 			request_target.transfer_money(current_user, active_request.value)
 			say("Paid out [active_request.value] credits.")
@@ -158,10 +158,10 @@ GLOBAL_LIST_EMPTY(request_list)
 				return TRUE
 		if("deleteRequest")
 			if(!active_request || !current_user)
-				playsound(src, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
+				playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 				return FALSE
 			if(active_request?.owner != current_user?.account_holder)
-				playsound(src, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
+				playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 				return TRUE
 			say("Deleted current request.")
 			GLOB.request_list.Remove(active_request)

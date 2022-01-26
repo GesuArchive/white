@@ -509,6 +509,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	raising = 1
 	if(cover)
 		flick("popup", cover)
+	playsound(get_turf(src), 'white/valtos/sounds/trevoga1.ogg', 40)
 	sleep(POPUP_ANIM_TIME)
 	raising = 0
 	if(cover)
