@@ -3,6 +3,7 @@
 	name = "переключатель света"
 	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "light0"
+	base_icon_state = "light"
 	desc = "Делает тьму или свет."
 	power_channel = AREA_USAGE_LIGHT
 	/// Set this to a string, path, or area instance to control that area
