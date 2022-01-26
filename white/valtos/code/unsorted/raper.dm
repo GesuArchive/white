@@ -245,8 +245,6 @@
 
 /datum/ai_behavior/fuck_mob/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
-	var/mob/living/carbon/human/target = controller.blackboard[BB_RAPER_CURRENT_ATTACK_TARGET]
-	var/mob/living/carbon/human/living_pawn = controller.pawn
 	if(!controller.blackboard[BB_RAPER_CURRENT_ATTACK_TARGET])
 		controller.blackboard[BB_RAPER_CURRENT_ATTACK_TARGET] = null
 		controller.blackboard[BB_RAPER_FUCKING] = FALSE
