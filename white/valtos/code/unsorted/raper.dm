@@ -245,9 +245,8 @@
 
 /datum/ai_behavior/fuck_mob/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
-	if(!controller.blackboard[BB_RAPER_CURRENT_ATTACK_TARGET])
-		controller.blackboard[BB_RAPER_CURRENT_ATTACK_TARGET] = null
-		controller.blackboard[BB_RAPER_FUCKING] = FALSE
+	controller.blackboard[BB_RAPER_CURRENT_ATTACK_TARGET] = null
+	controller.blackboard[BB_RAPER_FUCKING] = FALSE
 
 /datum/ai_behavior/fuck_mob/perform(delta_time, datum/ai_controller/controller)
 	. = ..()
@@ -271,10 +270,9 @@
 
 	if(living_pawn.Adjacent(target))
 		living_pawn.forceMove(get_turf(target))
-		INVOKE_ASYNC(src, .proc/try_fuck_mob, controller) //put him in!
-		addtimer(CALLBACK(src, .proc/try_fuck_mob, controller), 5)
-		addtimer(CALLBACK(src, .proc/try_fuck_mob, controller), 10)
-		addtimer(CALLBACK(src, .proc/try_fuck_mob, controller), 15)
+		for(var/i in 1 to 30 step 2)
+			addtimer(CALLBACK(src, .proc/try_fuck_mob, controller), i)
+
 	else //This means we might be getting pissed!
 		return
 
