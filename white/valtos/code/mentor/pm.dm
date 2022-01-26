@@ -67,8 +67,8 @@
 	var/show_char = CONFIG_GET(flag/mentors_mobname_only)
 	if(target.is_mentor())
 		if(is_mentor())//both are mentors
-			to_chat(target, span_mentor("Сообщение от Знатока <b>[key_name_mentor(src, target, 1, 0, 0)]</b>: [msg]<"))
-			to_chat(src, span_mentor("Обращение Знатока к <b>[key_name_mentor(target, target, 1, 0, 0)]</b>: [msg]"))
+			to_chat(target, span_mentor("Сообщение от <b>Знатока [key_name_mentor(src, target, 1, 0, 0)]</b>: [msg]"))
+			to_chat(src, span_mentor("Обращение <b>Знатока</b> к <b>[key_name_mentor(target, target, 1, 0, 0)]</b>: [msg]"))
 
 		else		//recipient is a mentor but sender is not
 			to_chat(target, span_mentor("Ответ от <b>[key_name_mentor(src, target, 1, 0, show_char)]</b>: [msg]"))
@@ -76,8 +76,8 @@
 
 	else
 		if(is_mentor())	//sender is a mentor but recipient is not.
-			to_chat(target, span_mentor("Сообщение от Знатока <b>[key_name_mentor(src, target, 1, 0, 0)]</b>: [msg]"))
-			to_chat(src, span_mentor("Обращение Знатока к <b>[key_name_mentor(target, target, 1, 0, show_char)]</b>: [msg]"))
+			to_chat(target, span_mentor("Сообщение от <b>Знатока [key_name_mentor(src, target, 1, 0, 0)]</b>: [msg]"))
+			to_chat(src, span_mentor("Обращение <b>Знатока</b> к <b>[key_name_mentor(target, target, 1, 0, show_char)]</b>: [msg]"))
 
 	//we don't use message_Mentors here because the sender/receiver might get it too
 	var/show_char_sender = !is_mentor() && CONFIG_GET(flag/mentors_mobname_only)
