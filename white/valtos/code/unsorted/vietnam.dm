@@ -93,7 +93,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone
 	name = "каменный пол"
 	desc = "Классика."
-	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
+	icon = 'white/kacherkin/icons/dwarfs/obj/turfs1.dmi'
 	icon_state = "stone_floor"
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SAND
@@ -119,7 +119,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	name = "уродливый камень"
 	desc = "Ужас."
-	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
+	icon = 'white/kacherkin/icons/dwarfs/obj/turfs1.dmi'
 	icon_state = "stone"
 	stoned = FALSE
 	slowdown = 1
@@ -175,7 +175,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone/fancy
 	name = "красивый каменный пол"
 	desc = "Красивая классика."
-	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
+	icon = 'white/kacherkin/icons/dwarfs/obj/turfs1.dmi'
 	icon_state = "stone_floor_fancy"
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SAND

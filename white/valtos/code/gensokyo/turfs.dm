@@ -1,7 +1,7 @@
 /turf/open/floor/grass/gensgrass
 	gender = FEMALE
 	name = "трава"
-	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
+	icon = 'white/kacherkin/icons/dwarfs/obj/turfs1.dmi'
 	icon_state = "grass1"
 	footstep = FOOTSTEP_GRASS
 	barefootstep = FOOTSTEP_GRASS
@@ -21,7 +21,7 @@
 	gender = FEMALE
 	name = "грязь"
 	desc = "Прям как ты."
-	icon = 'white/valtos/icons/gensokyo/turfs.dmi'
+	icon = 'white/kacherkin/icons/dwarfs/obj/turfs1.dmi'
 	icon_state = "dirt"
 	nospawn = TRUE
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty

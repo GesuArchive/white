@@ -834,7 +834,7 @@
 /obj/item/blacksmith/shpatel/attack_self(mob/user)
 	..()
 	var/list/choices = list(
-		"Пол" = image(icon = 'white/valtos/icons/gensokyo/turfs.dmi', icon_state = "stone_floor"),
+		"Пол" = image(icon = 'white/kacherkin/icons/dwarfs/obj/turfs1.dmi', icon_state = "stone_floor"),
 		"Стена" = image(icon = 'white/valtos/icons/stonewall.dmi', icon_state = "wallthefuck")
 	)
 	var/choice = show_radial_menu(user, src, choices, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
