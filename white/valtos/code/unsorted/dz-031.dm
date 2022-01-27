@@ -156,7 +156,7 @@
 	icon = 'white/valtos/icons/dz-031.dmi'
 	icon_state = "monitor"
 	flags_1 = INDESTRUCTIBLE
-	plane = FLOOR_PLANE
+	plane = GAME_PLANE
 	anchored = TRUE
 	var/what_pic = "anonist"
 
