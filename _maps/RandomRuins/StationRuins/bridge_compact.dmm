@@ -84,7 +84,7 @@
 /area/hallway/primary/central)
 "am" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L1"
+	icon_state = "W1"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
@@ -185,7 +185,7 @@
 /area/hallway/primary/central)
 "aI" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L3"
+	icon_state = "W2"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
@@ -302,7 +302,7 @@
 /area/hallway/primary/central)
 "aU" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L5"
+	icon_state = "W3"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
@@ -393,7 +393,7 @@
 /area/command/teleporter)
 "bk" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L7"
+	icon_state = "W4"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
@@ -405,13 +405,13 @@
 /area/hallway/primary/central)
 "bm" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L9"
+	icon_state = "W5"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
 "bn" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L11"
+	icon_state = "W6"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
@@ -444,7 +444,7 @@
 /area/hallway/primary/central)
 "br" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L13"
+	icon_state = "W7"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
@@ -586,7 +586,7 @@
 /area/command/teleporter)
 "bR" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L2"
+	icon_state = "W8"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
@@ -652,7 +652,7 @@
 /area/hallway/primary/central)
 "ca" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L4"
+	icon_state = "W9"
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -696,7 +696,7 @@
 /area/engineering/gravity_generator)
 "cn" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L6"
+	icon_state = "W10"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
@@ -708,7 +708,7 @@
 /area/hallway/primary/central)
 "co" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L10"
+	icon_state = "W12"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -720,7 +720,7 @@
 /area/hallway/primary/central)
 "cp" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L12"
+	icon_state = "W13"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -733,7 +733,7 @@
 "cq" = (
 /obj/effect/landmark/event_spawn,
 /obj/effect/turf_decal/plaque{
-	icon_state = "L14"
+	icon_state = "W14"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -2498,7 +2498,7 @@
 /area/maintenance/central/secondary)
 "hS" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L8"
+	icon_state = "W11"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4

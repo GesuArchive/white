@@ -78,13 +78,14 @@
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
 "aP" = (
-/obj/effect/turf_decal/plaque{
-	icon_state = "L8"
-	},
-/obj/structure/cable,
+/obj/effect/landmark/observer_start,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/effect/turf_decal/plaque{
+	icon_state = "W11"
+	},
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
@@ -337,13 +338,13 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "eC" = (
-/obj/effect/turf_decal/plaque{
-	icon_state = "L4"
-	},
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/effect/turf_decal/plaque{
+	icon_state = "W9"
+	},
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
@@ -432,7 +433,7 @@
 /area/hallway/primary/central)
 "fD" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L9"
+	icon_state = "W5"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
@@ -684,7 +685,7 @@
 /area/command/meeting_room)
 "ja" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L5"
+	icon_state = "W3"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
@@ -2004,7 +2005,7 @@
 /area/hallway/primary/central)
 "AL" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L11"
+	icon_state = "W6"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
@@ -2114,19 +2115,19 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central)
 "Cg" = (
-/obj/effect/turf_decal/plaque{
-	icon_state = "L6"
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
 /obj/machinery/navbeacon{
 	codes_txt = "patrol;next_patrol=Lockers";
 	location = "EVA"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/effect/turf_decal/plaque{
+	icon_state = "W10"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
@@ -2195,7 +2196,7 @@
 /area/hallway/primary/central)
 "Dm" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L13"
+	icon_state = "W7"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
@@ -2222,18 +2223,18 @@
 /area/hallway/primary/central)
 "DL" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L3"
+	icon_state = "W2"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
 "DN" = (
-/obj/effect/turf_decal/plaque{
-	icon_state = "L2"
-	},
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/effect/turf_decal/plaque{
+	icon_state = "W8"
+	},
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
@@ -2277,7 +2278,7 @@
 /area/template_noop)
 "EX" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L1"
+	icon_state = "W1"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
@@ -2518,13 +2519,13 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "HI" = (
-/obj/effect/turf_decal/plaque{
-	icon_state = "L12"
-	},
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/effect/turf_decal/plaque{
+	icon_state = "W13"
+	},
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
@@ -2931,17 +2932,16 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
 "OP" = (
-/obj/effect/turf_decal/plaque{
-	icon_state = "L14"
-	},
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/effect/turf_decal/plaque{
+	icon_state = "W14"
+	},
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
 "OW" = (
@@ -2998,7 +2998,7 @@
 /area/hallway/primary/central)
 "Pi" = (
 /obj/effect/turf_decal/plaque{
-	icon_state = "L7"
+	icon_state = "W4"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
@@ -3560,19 +3560,19 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
 "Zk" = (
-/obj/effect/turf_decal/plaque{
-	icon_state = "L10"
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
 /obj/machinery/navbeacon{
 	codes_txt = "patrol;next_patrol=Security";
 	location = "EVA2"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/effect/turf_decal/plaque{
+	icon_state = "W12"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central)
