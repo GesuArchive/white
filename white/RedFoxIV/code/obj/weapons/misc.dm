@@ -779,6 +779,9 @@
 #define DUEL_FINISH 3
 #define DUEL_ERROR 4
 
+#define FIRST_FIGHTER 1
+#define SECOND_FIGHTER 2
+
 
 /area/duel
 	name = "Дуэлянты"
@@ -798,6 +801,12 @@
 
 
 //GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой отладки // счастливой иди нахуй
+
+/obj/effect/duel_spawnpoint
+	var/duel_outfit = /datum/outfit/artist
+	var/obj/effect/duel_controller/linked_controller
+
+	invisibility = INVISIBILITY_ABSTRACT
 /obj/effect/duel_controller
 	name = "Duel Controller"
 	desc = "Controls duels."
@@ -807,7 +816,9 @@
 	invisibility = INVISIBILITY_OBSERVER
 	var/duel_outfit = /datum/outfit/artist
 	var/duel_status = DUEL_NODUEL
-	var/list/mob/living/carbon/human/duelists = list()
+	var/list/mob/living/carbon/human/fighter1
+	var/list/mob/living/carbon/human/fighter2
+	
 	var/bet
 	/// Время на каждый бой. Не меньше 30 секунд.
 	var/duel_timelimit = 60
@@ -816,22 +827,50 @@
 	/// Станы любого рода считаются за поражение.
 	var/stun_is_deadly = FALSE
 
-	var/list/first_spawnpoint = list(-3,3)
-	var/list/second_spawnpoint	 = list(3,-3)
+	var/obj/effect/landmark/duel_spawnpoint/first_spawnpoint
+	var/obj/effect/landmark/duel_spawnpoint/second_spawnpoint
 	var/list/banned_ckeys = list()
 
 	var/list/announcement_timers = list()
 
 /obj/effect/duel_controller/Initialize(mapload)
 	. = ..()
+	if(!istype(get_area(src), /area/duel/arena))
+		if(mapload)
+			stack_trace("Duel controller outside of /area/duel/arena. Check mapper's iq.")
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/duel_controller/LateInitialize()
+	. = ..()
+	for(var/obj/effect/effect in get_area(src))
+		if(istype(effect, /obj/effect/duel_controller))
+			stack_trace("Multiple duel controllers in one area, deleting both - notify mapper that he is not very smart.")
+			qdel(effect)
+			qdel(src)
+			return
+		if(istype(effect, /obj/effect/duel_spawnpoint))
+			var/obj/effect/duel_spawnpoint/spawnpoint = effect
+			if(!isnull(spawnpoint.linked_controller))
+				stack_trace("Multiple duel controllers in one area, deleting both - notify mapper that he is not very smart.")
+				qdel(spawnpoint.linked_controller)
+				qdel(src)
+				return
+			spawnpoint.linked_controller = src
+			if(isnull(first_spawnpoint))
+				first_spawnpoint = spawnpoint
+			else
+				second_spawnpoint = spawnpoint
+				return
+	stack_trace("[isnull(first_spawnpoint) ? "No spawnpoints" : "Only one spawnpoint"] found in the area. Please add another one.")
+	second_spawnpoint = first_spawnpoint
 
 /obj/effect/duel_controller/attack_ghost(mob/user)
 	if(banned_ckeys.Find(user.ckey))
-		to_chat(user, "<span class='warning'>runtime error: cannot read null.stat.<br><br> \
+		to_chat(user, span_warning("runtime error: cannot read null.stat.<br><br> \
 						proc name: attack_ghost (/obj/effect/duel_controller/attack_ghost)<br> \
 						usr: [user.ckey] ([user.type])<br> \
 						src: [src.name] ([src.type])<br> \
-						src.loc: null</span>")
+						src.loc: null"))
 		return
 	if(!SSticker.HasRoundStarted() || !loc)
 		return
@@ -846,10 +885,13 @@
 		return
 
 	if(duel_status == DUEL_PENDING)
-		if(duelists.Find(user))
-			CRASH("A ghost tried to join a duel when he already was in the list of duelists. WTF?")
 		var/alert = tgui_alert(usr, "Точно хочешь поучавствовать в дуэли на [bet] метакэша?",,list("Да","Нет"))
 		if(alert == "Да")
+			if(bet > user.client.mc_cached)
+				to_chat(user, "Где деньги, Лебовски?")
+				return
+			//inc_metabalance(user, -bet, TRUE, "Оплатил входной билет.")
+			to_chat(user, span_clown("Потеряно [bet] дублей. Оплатил входной билет."))
 			spawn_user()
 		return
 
@@ -868,11 +910,10 @@
 	if(duel_status != DUEL_NODUEL)
 		to_chat(user, "Ты опоздал, дружок!")
 		return
-	if(duelists.Find(user))
-		CRASH("A ghost tried to initiate a duel when he already was in the list of duelists. WTF?")
 	bet = betinput
 	duel_status = DUEL_PENDING
-	inc_metabalance(user, -bet, TRUE, "Оплатил входной билет.")
+	//inc_metabalance(user, -bet, TRUE, "Оплатил входной билет.")
+	to_chat(user, span_clown("Потеряно [bet] дублей. Оплатил входной билет."))
 	spawn_user(user, bet)
 	to_chat(user, span_notice("Создали предложение о дуэли. Если никто не откликнется за 30 секунд, дуэль будет отменена и вам вернут деньги."))
 	notify_ghosts("[user.name] ([user.ckey]) приглашает всех желающих поучавствовать в дуэли на [bet] метакэша.", source = src, action = NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY)
@@ -880,82 +921,83 @@
 
 
 /obj/effect/duel_controller/proc/spawn_user(mob/user)
-	if(duelists.len >= 2)
-		stack_trace("Duel controller tried to spawn a new participant when it already had [duelists.len] duelists. There never should be more than 2 participants.")
-		return
-
 	var/mob/living/carbon/human/H = new(get_turf(src))
-	H.equipOutfit()
+	H.equipOutfit(duel_outfit)
 	H.ckey = user.ckey
-	duelists.Add(H)
-	if(duelists.len == 2)
+	if(isnull(fighter1))
+		fighter1 = H
+	else
+		fighter2 = H
 		start_duel()
-	START_PROCESSING(SSfastprocess, src)
+		
 
 /obj/effect/duel_controller/proc/start_duel()
-	if(duelists.len != 2)
-		stack_trace("Duel controller tried to start a duel with [duelists.len] duelists. It should only do that with 2 duelists.")
-		finish_duel() // bad keyword argument
-		return
+
 	deltimer(timeout_timer)
 	duel_status = DUEL_IN_PROGRESS
 
 	if(duel_timelimit< 30)
 		duel_timelimit = 30
 
+	fighter1.forceMove(get_turf(first_spawnpoint))
+	fighter1.Paralyze(3 SECONDS)
+
+	fighter2.forceMove(get_turf(second_spawnpoint))
+	fighter2.Paralyze(3 SECONDS)
+
+	announce(span_alert("Дуэль начнётся через 3 секунды..."))
+	announce_timer(span_userdanger("2..."), 			1 SECONDS, FALSE)
+	announce_timer(span_userdanger("1..."), 			2 SECONDS, FALSE)
+	announce_timer(span_hypnophrase("Дуэль началась!"), 3 SECONDS, FALSE)
+
 	// i fucking hate this
+
+	announce_timer(span_warning("30 секунд до окончания боя!"), 30 SECONDS)
+	announce_timer(span_warning("15 секунд до окончания боя!"), 15 SECONDS)
+	announce_timer(span_warning("10 секунд до окончания боя!"), 10 SECONDS)
+
+	announce_timer(span_userdanger("5..."), 5 SECONDS)
+	announce_timer(span_userdanger("4..."), 4 SECONDS)
+	announce_timer(span_userdanger("3..."), 3 SECONDS)
+	announce_timer(span_userdanger("2..."), 2 SECONDS)
+	announce_timer(span_userdanger("1..."), 1 SECONDS)
 	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), duel_timelimit SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
-	announcement_timers += addtimer(CALLBACK(src, .proc/announce, "30 секунд до окончания боя!"), (duel_timelimit-30) SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
-	announcement_timers += addtimer(CALLBACK(src, .proc/announce, "15 секунд до окончания боя!"), (duel_timelimit-15) SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
-	announcement_timers += addtimer(CALLBACK(src, .proc/announce, "10 секунд до окончания боя!"), (duel_timelimit-10) SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
-
-	announcement_timers += addtimer(CALLBACK(src, .proc/announce, "5..."), (duel_timelimit-5) SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
-	announcement_timers += addtimer(CALLBACK(src, .proc/announce, "4..."), (duel_timelimit-4) SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
-	announcement_timers += addtimer(CALLBACK(src, .proc/announce, "3..."), (duel_timelimit-3) SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
-	announcement_timers += addtimer(CALLBACK(src, .proc/announce, "2..."), (duel_timelimit-2) SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
-	announcement_timers += addtimer(CALLBACK(src, .proc/announce, "1..."), (duel_timelimit-1) SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
-
-	var/mob/M1 = duelists[1]
-	var/mob/M2 = duelists[2]
-
-	M1.forceMove(locate(x+first_spawnpoint[1], y+first_spawnpoint[2], z))   // undefined proc "forceMove" on /list
-	M2.forceMove(locate(x+second_spawnpoint[1], y+second_spawnpoint[2], z)) // undefined proc "forceMove" on /list
-	for(var/mob/living/D in duelists)
-		D.Paralyze(3 SECONDS)
-		to_chat(D, span_alert("Дуэль начнётся через 3 секунды..."))
-		spawn(3 SECONDS)
-			to_chat(D, span_hypnophrase("Дуэль началась!"))
-
+	START_PROCESSING(SSfastprocess, src)
 
 /obj/effect/duel_controller/proc/timeout()
-	if(duelists.len != 1)
-		stack_trace("Duel controller timed out with [duelists.len] duelists instead of 2.")
-		finish_duel() // bad keyword argument
 	switch(duel_status)
 		if(DUEL_NODUEL)
 			stack_trace("Duel controller timed out with with duel_status equal to NODUEL. This is dumb.")
-			finish_duel(state = DUEL_ERROR)
+			finish_duel(DUEL_ERROR)
 		if(DUEL_PENDING)
-			to_chat(duelists[1], "Никто не принял твой вызов за 30 секунд.")
-			finish_duel(state = DUEL_PENDING_TIMEOUT)
+			to_chat(fighter1, span_notice("Никто не принял твой вызов за 30 секунд."))
+			finish_duel(DUEL_PENDING_TIMEOUT)
 		if(DUEL_IN_PROGRESS)
-			announce("Время вышло! Никто не победил.")
-			finish_duel(state = DUEL_TIMEOUT)
+			announce(span_notice("Время вышло! Никто не победил."))
+			finish_duel(DUEL_TIMEOUT)
 
 
 /obj/effect/duel_controller/proc/announce(msg)
-	visible_message(span_alert("[msg]"))
+	to_chat(fighter1, msg)
+	if(!isnull(fighter2))
+		to_chat(fighter2, msg)
 
-/obj/effect/duel_controller/proc/finish_duel(mob/loser, state = DUEL_FINISH)
-	//дичайшее говнище
+/obj/effect/duel_controller/proc/announce_timer(msg, time, in_before_duel_timeout = TRUE)
+	if(in_before_duel_timeout)	
+		announcement_timers += addtimer(CALLBACK(src, .proc/announce, msg), duel_timelimit SECONDS - time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
+	else
+		announcement_timers += addtimer(CALLBACK(src, .proc/announce, msg), time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
+
+
+/obj/effect/duel_controller/proc/finish_duel(state = DUEL_FINISH, first_lost = FALSE, second_lost = FALSE)
 	var/pay_mul = 1
 	var/msg
 	switch(state)
 		if(DUEL_ERROR)
 			msg = "Дуэль была прервана по непредвиденным обстоятельствам."
 		if(DUEL_FINISH)
-			if(!loser)
-				CRASH("finish_duel called on duel finish but no loser was passed to the proc. The duel controller is going to seize up, good luck fixing that lol.")
+			if(!first_lost && !second_lost)
+				CRASH("finish_duel called with DUEL_FINISH state, but noone lost.")
 			msg = "Победа в дуэли!"
 			pay_mul = 2
 		if(DUEL_PENDING_TIMEOUT)
@@ -963,39 +1005,51 @@
 		if(DUEL_TIMEOUT)
 			msg = "Время вышло, никто так и не победил. Деньги ушли в фонд борьбы с Валтосом."
 			pay_mul = 0
+	
 
-	for(var/mob/living/D in duelists)
-		if(D != loser)
-			inc_metabalance(D, bet*pay_mul, TRUE, msg)
+	if(!first_lost)
+		//inc_metabalance(fighter1, bet*pay_mul, TRUE, msg)
+		to_chat(fighter1, span_clown("Начислено [bet*pay_mul] дублей. [msg]"))
+	if(!second_lost)
+		//inc_metabalance(fighter2, bet*pay_mul, TRUE, msg)
+		to_chat(fighter2, span_clown("Начислено [bet*pay_mul] дублей. [msg]"))
 
+	fighter1?.dust(FALSE, FALSE, TRUE)
+	fighter2?.dust(FALSE, FALSE, TRUE)
+	for(var/timer in announcement_timers)
+		deltimer(timer)
+	announcement_timers = list()
 	deltimer(timeout_timer)
-	for(var/mob/living/D in duelists)
-		D.dust(FALSE, FALSE, TRUE)
-	for(var/t in announcement_timers)
-		deltimer(t)
-	announcement_timers.Cut()
-	duelists.Cut()
+	timeout_timer = null
 	duel_status = DUEL_NODUEL
 	bet = null
-	STOP_PROCESSING(SSfastprocess, src)
+	fighter1 = null
+	fighter2 = null
 
 /obj/effect/duel_controller/process(delta_time)
-	for(var/mob/living/D in duelists)
-		if(!istype(get_area(D), /area/duel/arena))
-			to_chat(D, span_warning("<b>Вы покинули арену. [pick("Очень глупо с вашей стороны.", "Мнда.", "Лох..")]</b>"))
-			finish_duel(D)
-			return
+	var/first_lost = check(fighter1)
+	var/second_lost = check(fighter2)
 
-		if( (D.status_traits.Find("floored") && stun_is_deadly) || HAS_TRAIT(D, TRAIT_CRITICAL_CONDITION) || D.stat == DEAD || !D.key)
-			D.dust(FALSE, FALSE, TRUE)
-			if(duel_status == DUEL_PENDING)
-				announce("<b>Вы проиграли до начала дуэли. [pick("Впечатляюще.", "Поразительно.", "Поздравляю...")]</b>")
-				finish_duel(D)
-				return
-			else
-				announce("<b>Вы проиграли. [pick("Повезёт в следующий раз.", "Лох.", "На это было смешно смотреть.")]</b>")
-				finish_duel(D)
-				return
+
+	if(first_lost || second_lost)
+		STOP_PROCESSING(SSfastprocess, src)
+		finish_duel(DUEL_FINISH, first_lost, second_lost)
+		return
+	
+
+/obj/effect/duel_controller/proc/check(mob/living/carbon/human/D)
+	if(!istype(get_area(D), /area/duel/arena))
+		to_chat(D, span_warning("<b>Вы покинули арену. [pick("Очень глупо с вашей стороны.", "Мнда.", "Лох..")]</b>"))
+		return TRUE
+
+	if( (D.status_traits.Find("floored") && stun_is_deadly) || HAS_TRAIT(D, TRAIT_CRITICAL_CONDITION) || D.stat == DEAD)
+		if(duel_status == DUEL_PENDING)
+			announce("<b>Вы проиграли до начала дуэли. [pick("Впечатляюще.", "Поразительно.", "Поздравляю...")]</b>")
+			return TRUE
+		else
+			announce("<b>Вы проиграли. [pick("Повезёт в следующий раз.", "Лох.", "На это было смешно смотреть.")]</b>")
+			return TRUE
+		
 
 
 #undef DUEL_NODUEL
