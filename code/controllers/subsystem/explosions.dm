@@ -254,7 +254,7 @@ SUBSYSTEM_DEF(explosions)
 		var/sound/far_explosion_sound = sound(pick(FAR_EXPLOSION_SOUNDS))
 		var/sound/creaking_explosion_sound = sound(get_sfx("explosion_creaking"))
 		var/sound/hull_creaking_sound = sound(get_sfx("hull_creaking"))
-		var/sound/explosion_echo_sound = sound('sound/effects/explosion_distant.ogg')
+		var/sound/explosion_echo_sound = sound(pick(FAR_EXPLOSION_SOUNDS))
 		var/on_station = SSmapping.level_trait(epicenter.z, ZTRAIT_STATION)
 		var/creaking_explosion = FALSE
 
