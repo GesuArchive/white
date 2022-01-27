@@ -843,6 +843,8 @@
 /obj/effect/duel_controller/LateInitialize()
 	. = ..()
 	for(var/obj/effect/effect in get_area(src))
+		if(effect == src)
+			continue
 		if(istype(effect, /obj/effect/duel_controller))
 			stack_trace("Multiple duel controllers in one area, deleting both - notify mapper that he is not very smart.")
 			qdel(effect)
