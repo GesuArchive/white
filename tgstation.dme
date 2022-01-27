@@ -4095,6 +4095,7 @@
 #include "white\jhnazar\modules\turbolift\turbolift_docks.dm"
 #include "white\jhnazar\modules\turbolift\turbolift_machines.dm"
 #include "white\maxsc\code\axe.dm"
+#include "white\maxsc\code\closet_hacking.dm"
 #include "white\maxsc\code\deadmin.dm"
 #include "white\maxsc\code\forge.dm"
 #include "white\other\telescience\telepad.dm"
