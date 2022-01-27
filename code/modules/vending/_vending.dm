@@ -897,11 +897,6 @@ GLOBAL_LIST_EMPTY(vending_products)
 			flick(icon_deny,src)
 			vend_ready = TRUE
 			return
-		else if(!C.registered_account.account_job)
-			say("Счета отделов не подходят для оплаты.")
-			flick(icon_deny, src)
-			vend_ready = TRUE
-			return
 		else if(age_restrictions && R.age_restricted && (!C.registered_age || C.registered_age < AGE_MINOR))
 			say("Слишком малый возраст для покупки [R.name].")
 			if(!(usr in GLOB.narcd_underages))
