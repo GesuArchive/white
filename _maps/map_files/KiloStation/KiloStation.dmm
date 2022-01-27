@@ -83234,9 +83234,6 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/machinery/computer/shuttle_flight/mining{
-	dir = 1
-	},
 /turf/open/floor/plasteel/dark,
 /area/cargo/miningoffice)
 "xIs" = (
