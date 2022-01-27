@@ -106,11 +106,6 @@
 	charge = 400
 	max_charge = 400
 
-/obj/item/shadowcloak/yohei/Initialize()
-	. = ..()
-	visible_message(span_clown("no fun allowed."))
-	qdel(src)
-
 /obj/item/shadowcloak/yohei/process(delta_time)
 	if(user.get_item_by_slot(ITEM_SLOT_BELT) != src || user.pooed)
 		Deactivate()
@@ -122,7 +117,7 @@
 			charge = max(0, charge - 25 * delta_time)//Quick decrease in light
 		else
 			charge = min(max_charge, charge + 30 * delta_time) //Charge in the dark
-		animate(user,alpha = clamp(255 - charge,0,255),time = 10)
+		plane = GRAVITY_PULSE_PLANE
 
 /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
 	name = "пистолет Тиберия"
@@ -132,7 +127,7 @@
 	mag_type = /obj/item/ammo_box/magazine/fallout/m9mm
 	fire_sound = 'white/valtos/sounds/fallout/gunsounds/9mm/9mm2.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 8
+	fire_delay = 4
 	extra_damage = 30
 	extra_penetration = 25
 
@@ -542,86 +537,7 @@
 	else
 		qdel(src)
 		return FALSE
-/*
-/datum/yohei_task/gamemode
-	desc = "Нет особых заданий"
-	prize = 0
-	var/datum/antagonist/adatum = null
 
-/datum/yohei_task/gamemode/generate_task()
-	switch(SSticker.mode.type)
-		if(/datum/game_mode/traitor)
-			if(prob(50))
-				desc = "Помочь Синдикату"
-				adatum = /datum/antagonist/traitor
-			else
-				desc = "Помочь Станции"
-				adatum = /datum/antagonist/traitor/internal_affairs
-			return TRUE
-		if(/datum/game_mode/wizard)
-			if(prob(50))
-				desc = "Помочь Волшебникам"
-				adatum = /datum/antagonist/wizard/apprentice
-			else
-				desc = "Затроллить всех"
-				adatum = /datum/antagonist/wizard/apprentice/imposter
-			return TRUE
-		if(/datum/game_mode/nuclear)
-			desc = "Помочь Оперативникам Синдиката"
-			adatum = /datum/antagonist/nukeop/reinforcement
-			return TRUE
-		if(/datum/game_mode/cult)
-			desc = "Помочь Культистам Нар-Си"
-			adatum = /datum/antagonist/cult
-			return TRUE
-		if(/datum/game_mode/clockcult)
-			desc = "Помочь Служителям Ратвара"
-			adatum = /datum/antagonist/servant_of_ratvar
-			return TRUE
-		if(/datum/game_mode/bloodsucker)
-			desc = "Помочь Вампирам"
-			adatum = /datum/antagonist/vassal
-			return TRUE
-		if(/datum/game_mode/changeling)
-			desc = "Помочь Генокрадам"
-			adatum = /datum/antagonist/changeling
-			return TRUE
-		if(/datum/game_mode/heretics)
-			desc = "Помочь Еретикам"
-			adatum = /datum/antagonist/heretic
-			return TRUE
-		if(/datum/game_mode/monkey)
-			desc = "Помочь Мартышкам"
-			adatum = /datum/antagonist/monkey
-			return TRUE
-		if(/datum/game_mode/shadowling)
-			desc = "Помочь Теневикам"
-			adatum = /datum/antagonist/thrall
-			return TRUE
-		if(/datum/game_mode/revolution)
-			desc = "Помочь Революции"
-			adatum = /datum/antagonist/rev
-			return TRUE
-		if(/datum/game_mode/gang)
-			desc = "Помочь Гангстерам"
-			adatum = pick(subtypesof(/datum/antagonist/gang))
-			return TRUE
-		else
-			adatum = null
-			return FALSE
-
-
-/datum/yohei_task/gamemode/check_task(mob/user)
-	if(!adatum)
-		qdel(src)
-		if(GLOB.yohei_main_controller)
-			var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
-			LM.current_task = null
-		return FALSE
-	if(!is_special_character(user))
-		user.mind.add_antag_datum(adatum)
-	return FALSE
-*/
 /area/ruin/powered/yohei_base
 	name = "Ресурс Йохеев"
 	icon_state = "dk_yellow"
@@ -805,7 +721,7 @@
 	worn_icon_state = "gun"
 	lefthand_file = 'white/valtos/icons/fallout/guns_lefthand.dmi'
 	righthand_file = 'white/valtos/icons/fallout/guns_righthand.dmi'
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_SUITSTORE | ITEM_SLOT_BELT
 
 /obj/item/cat_hook/afterattack(atom/target, mob/user, proximity_flag, click_parameters)

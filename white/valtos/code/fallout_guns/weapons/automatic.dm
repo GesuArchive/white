@@ -197,8 +197,8 @@
 	inhand_icon_state = "sniper"
 	fire_sound = 'white/valtos/sounds/fallout/gunsounds/sniper/sniper2.ogg'
 	fire_delay = 6
-	extra_damage = 45
-	extra_penetration = 10
+	extra_damage = 65
+	extra_penetration = 50
 	mag_type = /obj/item/ammo_box/magazine/fallout/r308
 
 //Magazines
