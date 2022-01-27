@@ -27,6 +27,7 @@
 	var/secure = FALSE //secure locker or not, also used if overriding a non-secure locker with a secure door overlay to add fancy lights
 	var/opened = FALSE
 	var/welded = FALSE
+	var/reinforced = FALSE
 	var/locked = FALSE
 	var/large = TRUE
 	var/wall_mounted = 0 //never solid (You can always pass over it)
@@ -50,6 +51,7 @@
 	var/delivery_icon = "deliverycloset" //which icon to use when packagewrapped. null to be unwrappable.
 	var/anchorable = TRUE
 	var/icon_welded = "welded"
+	var/icon_reinforced = "reinforced"
 
 	var/hack_progress = 0
 	var/datum/gas_mixture/air_contents
@@ -174,6 +176,10 @@
 
 	if(broken || !secure)
 		return
+
+	if(reinforced)
+		. += icon_reinforced
+
 	//Overlay is similar enough for both that we can use the same mask for both
 	. += emissive_appearance(icon, "locked", alpha = src.alpha)
 	. += locked ? "locked" : "unlocked"
@@ -182,6 +188,8 @@
 	. = ..()
 	if(welded)
 		. += "<hr><span class='notice'>Это приварено.</span>"
+	if(reinforced)
+		. += "<hr><span class='notice'>Шкаф укреплён пласталью.</span>"
 	if(anchored)
 		. += "<hr><span class='notice'>Это <b>прикручено</b> к полу.</span>"
 	if(opened)
@@ -371,15 +379,15 @@
 		if(!W.tool_start_check(user, amount=0))
 			return
 
-		to_chat(user, span_notice("Начинаю резать [welded ? "развариваю":"свариваю"] <b>[src.name]</b>..."))
+		to_chat(user, span_notice("Начинаю [welded ? "разваривать":"заваривать"] <b>[src.name]</b>..."))
 		if(W.use_tool(src, user, 40, volume=50))
 			if(opened)
 				return
 			welded = !welded
 			after_weld(welded)
 			update_airtightness()
-			user.visible_message(span_notice("[user] [welded ? "сварные швы заварены" : "разварено"] <b>[src.name]</b>.") ,
-							span_notice("[welded ? "сварил" : "разварил"] <b>[src.name]</b> с помощью [W].") ,
+			user.visible_message(span_notice("[user] [welded ? "заваривает" : "разваривает"] <b>[src.name]</b>.") ,
+							span_notice("[welded ? "Завариваю" : "Развариваю"] <b>[src.name]</b> используя [W].") ,
 							span_hear("Слышу сварку."))
 			log_game("[key_name(user)] [welded ? "welded":"unwelded"] closet [src] with [W] at [AREACOORD(src)]")
 			update_icon()
@@ -391,6 +399,21 @@
 		user.visible_message(span_notice("<b>[user]</b> [anchored ? "прикручивает" : "откручивает"] <b>[src.name]</b> [anchored ? "к полу" : "от пола"].") , \
 						span_notice("[anchored ? "Прикручиваю" : "Откручиваю"] <b>[src.name]</b> [anchored ? "к полу" : "от полу"].") , \
 						span_hear("Слышу трещотку."))
+	else if(istype(W, /obj/item/stack/sheet/plasteel) && secure)
+		if(reinforced)
+			to_chat(user, span_warning("Уже укреплено. Если поставить больше, то шкаф развалится."))
+			return
+		var/obj/item/stack/S = W
+		if(!S.use(5))
+			to_chat(user, span_warning("Нужно 5 листов пластали для укрепления шкафа."))
+			return
+		user.visible_message(span_notice("<b>[user]</b> укрепляет <b>[src.name]</b> пласталью.") , \
+						span_notice("Укрепляю <b>[src.name]</b> пласталью. Теперь ему не страшны копья.") , \
+						span_hear("Слышу лязг метала."))
+		armor = armor.modifyRating(melee = 10, bullet = 10, laser = 10, energy = 10, bomb = 10, fire = 10)
+		reinforced = TRUE
+		update_icon()
+		return
 	else if(W.tool_behaviour == TOOL_SCREWDRIVER && secure)
 		if(!locked)
 			var/list/choices = list(
@@ -427,59 +450,6 @@
 				playsound(src, 'white/maxsc/sound/numpad-button.ogg', 20, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 			to_chat(user, span_notice("Заканчиваю взлом [src]."))
 			busy_hacked = FALSE
-/*	if(W.tool_behaviour == TOOL_MULTITOOL && secure)
-
-		if(!locked)
-			user.visible_message(span_warning("[user] блокирует <b>[src]</b> используя [W].") ,
-									span_warning("Блокирую <b>[src]</b>."))
-			locked = TRUE
-			update_icon()
-			return
-
-		var/list/choices = list(
-			"красный"    = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "red"),
-			"зелёный"    = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "green"),
-			"синий"      = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "blue"),
-			"жёлтый"     = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "yellow"),
-			"фиолетовый" = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "violet"),
-			"оранжевый"  = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "orange"),
-			"белый"      = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "white"),
-			"чёрный"     = image(icon = 'white/valtos/icons/hacking.dmi', icon_state = "black")
-		)
-
-		var/true_pick = pick("красный", "зелёный", "синий", "жёлтый", "фиолетовый", "оранжевый", "белый", "чёрный")
-
-		to_chat(user, span_revenbignotice("Фаза [hack_progress + 1]/6. Нужен <b>[true_pick]</b> провод!"))
-
-		var/pick = show_radial_menu(user, src, choices, require_near = TRUE)
-
-		if(W.use_tool(src, user, 5, volume=15))
-
-			if(!pick)
-				hack_progress = 0
-				to_chat(user, span_warning("Выбрать надо было провод! Начинаем сначала."))
-				return
-
-			if(pick != true_pick)
-				hack_progress = 0
-				to_chat(user, span_warning("НЕПРАВИЛЬНО! Начинаем сначала."))
-				return
-
-			hack_progress++
-
-			if(hack_progress != 6)
-				return
-
-			locked = FALSE
-
-			hack_progress = 0
-
-			update_icon()
-
-			user.visible_message(span_warning("[user] взламывает <b>[src]</b> используя [W].") ,
-									span_warning("Взламываю замок <b>[src]</b>."))
-			return
-*/
 	else if(user.a_intent != INTENT_HARM)
 		var/item_is_id = W.GetID()
 		if(!item_is_id)

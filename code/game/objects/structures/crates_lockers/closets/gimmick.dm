@@ -114,6 +114,7 @@
 	name = "грязный минихолодильник"
 	desc = "Небольшое приспособление, предназначенное для охлаждения напитков. Однако сейчас используется только как домик для тараканов"
 	icon_state = "mini_fridge"
+	icon_reinforced = null
 	icon_welded = "welded_small"
 	max_mob_size = MOB_SIZE_SMALL
 	storage_capacity = 7
