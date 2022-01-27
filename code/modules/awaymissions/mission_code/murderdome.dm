@@ -21,7 +21,7 @@
 	qdel(power_source)
 	. = ..()
 
-/obj/structure/grille/proc/shock(mob/user, prb)
+/obj/structure/grille/indestructable/shocking/shock(mob/user, prb)
 	if(!prob(prb))
 		return FALSE
 	if(!in_range(src, user))//To prevent TK and mech users from getting shocked

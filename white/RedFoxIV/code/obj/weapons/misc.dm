@@ -838,6 +838,8 @@
 	if(!istype(get_area(src), /area/duel/arena))
 		if(mapload)
 			stack_trace("Duel controller outside of /area/duel/arena. Check mapper's iq.")
+			qdel(src)
+			return
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/duel_controller/LateInitialize()
@@ -846,7 +848,7 @@
 		if(effect == src)
 			continue
 		if(istype(effect, /obj/effect/duel_controller))
-			stack_trace("Multiple duel controllers in one area, deleting both - notify mapper that he is not very smart.")
+			stack_trace("Multiple duel controllers in one area, deleting both - notify mapper that he is not very smart. [effect.x], [effect.y]; [src.x], [src.y].")
 			qdel(effect)
 			qdel(src)
 			return
