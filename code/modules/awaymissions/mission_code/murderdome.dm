@@ -8,6 +8,32 @@
 	flags_1 = CONDUCT_1 | NODECONSTRUCT_1
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
+
+/obj/structure/grille/indestructable/shocking
+	var/obj/item/stock_parts/cell/infinite/power_source
+
+
+/obj/structure/grille/indestructable/shocking/Initialize()
+	. = ..()
+	power_source = new
+
+/obj/structure/grille/indestructable/shocking/Destroy()
+	qdel(power_source)
+	. = ..()
+
+/obj/structure/grille/proc/shock(mob/user, prb)
+	if(!prob(prb))
+		return FALSE
+	if(!in_range(src, user))//To prevent TK and mech users from getting shocked
+		return FALSE
+
+	if(electrocute_mob(user, power_source, src, 1, TRUE))
+		var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
+		s.set_up(3, 1, src)
+		s.start()
+		return TRUE
+	return FALSE
+
 /obj/effect/spawner/structure/window/reinforced/indestructable
 	spawn_list = list(/obj/structure/grille/indestructable, /obj/structure/window/reinforced/fulltile/indestructable)
 
