@@ -37,6 +37,15 @@ GLOBAL_DATUM_INIT(maploader, /datum/dmm_suite, new())
 #define DMM_IGNORE_MOBS 24
 #define DMM_USE_JSON 32
 
+/datum/dmm_suite/proc/save_station()
+	var/our_map = save_map(locate(1, 1, 2), locate(world.maxx, world.maxy, 2), GLOB.round_id)
+
+	var/map_path = file("data/map_saves/[GLOB.round_id].dmm")
+
+	fdel(map_path)
+
+	WRITE_FILE(map_path, our_map)
+
 /datum/dmm_suite/proc/save_map(turf/t1, turf/t2, map_name = "", flags = 0)
 	// Check for illegal characters in file name... in a cheap way.
 	if(!((ckeyEx(map_name) == map_name) && ckeyEx(map_name)))

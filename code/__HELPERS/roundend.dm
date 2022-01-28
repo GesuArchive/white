@@ -312,6 +312,12 @@
 
 	CHECK_TICK
 
+	to_chat(world, span_notice("Выполняется сохранение карты для дальнейшего анализа, возможно небольшие подтормаживания."))
+
+	GLOB.maploader.save_station()
+
+	CHECK_TICK
+
 	//Now print them all into the log!
 	log_game("Antagonists at round end were...")
 	for(var/antag_name in total_antagonists)
