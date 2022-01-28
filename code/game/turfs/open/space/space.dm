@@ -167,19 +167,19 @@
 		else
 			to_chat(user, span_warning("Надо бы опору сначала сделать. Подойдёт несколько прутьев."))
 
-/turf/open/space/Entered(atom/movable/A)
+/turf/open/space/Entered(atom/movable/arrived)
 	. = ..()
-	if ((!(A) || src != A.loc))
+	if(!arrived || src != arrived.loc)
 		return
 
-	if(destination_z && destination_x && destination_y && !A.pulledby && !A.currently_z_moving)
+	if(destination_z && destination_x && destination_y && !arrived.pulledby && !arrived.currently_z_moving)
 		var/tx = destination_x
 		var/ty = destination_y
 		var/turf/DT = locate(tx, ty, destination_z)
 		var/itercount = 0
 		while(DT.density || istype(DT.loc,/area/shuttle)) // Extend towards the center of the map, trying to look for a better place to arrive
 			if (itercount++ >= 100)
-				log_game("SPACE Z-TRANSIT ERROR: Could not find a safe place to land [A] within 100 iterations.")
+				log_game("SPACE Z-TRANSIT ERROR: Could not find a safe place to land [arrived] within 100 iterations.")
 				break
 			if (tx < 128)
 				tx++
@@ -191,9 +191,9 @@
 				ty--
 			DT = locate(tx, ty, destination_z)
 
-		A.zMove(null, DT, ZMOVE_ALLOW_BUCKLED)
+		arrived.zMove(null, DT, ZMOVE_ALLOW_BUCKLED)
 
-		var/atom/movable/current_pull = A.pulling
+		var/atom/movable/current_pull = arrived.pulling
 		while (current_pull)
 			var/turf/target_turf = get_step(current_pull.pulledby.loc, REVERSE_DIR(current_pull.pulledby.dir)) || current_pull.pulledby.loc
 			current_pull.zMove(null, target_turf, ZMOVE_ALLOW_BUCKLED)
