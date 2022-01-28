@@ -25,14 +25,14 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 		if (uplink_flag & UPLINK_NUKE_OPS) // uplink code kind of needs a redesign
 			nuclear_team = locate() in GLOB.antagonist_teams // the team discounts could be in a GLOB with this design but it would make sense for them to be team specific...
 		if (!nuclear_team)
-			create_uplink_sales(3, "Скидки", 1, sale_items, filtered_uplink_items)
+			create_uplink_sales(3, "Discounted Gear", 1, sale_items, filtered_uplink_items)
 		else
 			if (!nuclear_team.team_discounts)
 				// create 5 unlimited stock discounts
-				create_uplink_sales(5, "Скидки", -1, sale_items, filtered_uplink_items)
+				create_uplink_sales(5, "Discounted Team Gear", -1, sale_items, filtered_uplink_items)
 				// Create 10 limited stock discounts
-				create_uplink_sales(10, "Командные скидки", 1, sale_items, filtered_uplink_items)
-				nuclear_team.team_discounts = list("Скидки" = filtered_uplink_items["Скидки"], "Командные скидки" = filtered_uplink_items["Командные скидки"])
+				create_uplink_sales(10, "Limited Stock Team Gear", 1, sale_items, filtered_uplink_items)
+				nuclear_team.team_discounts = list("Discounted Team Gear" = filtered_uplink_items["Discounted Team Gear"], "Limited Stock Team Gear" = filtered_uplink_items["Limited Stock Team Gear"])
 			else
 				for(var/cat in nuclear_team.team_discounts)
 					for(var/item in nuclear_team.team_discounts[cat])
@@ -40,8 +40,8 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 						var/datum/uplink_item/O = filtered_uplink_items[initial(D.category)][initial(D.name)]
 						O.refundable = FALSE
 
-				filtered_uplink_items["Скидки"] = nuclear_team.team_discounts["Скидки"]
-				filtered_uplink_items["Командные скидки"] = nuclear_team.team_discounts["Командные скидки"]
+				filtered_uplink_items["Discounted Team Gear"] = nuclear_team.team_discounts["Discounted Team Gear"]
+				filtered_uplink_items["Limited Stock Team Gear"] = nuclear_team.team_discounts["Limited Stock Team Gear"]
 
 
 	return filtered_uplink_items
