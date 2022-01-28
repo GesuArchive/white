@@ -122,8 +122,8 @@
 /obj/item/morozko_nuzzle/proc/line_target(offset, range, atom/A)
 	if(!A)
 		return
-	var/turf/T = get_ranged_target_turf_direct(src, A, range, offset)
-	return (get_line(src, T) - get_turf(src))
+	var/turf/T = get_ranged_target_turf_direct(get_turf(src), A, range, offset)
+	return (get_line(get_turf(src), T) - get_turf(src))
 
 /obj/item/morozko_nuzzle/afterattack(atom/A, mob/user, proximity)
 	if(A.loc == loc)
