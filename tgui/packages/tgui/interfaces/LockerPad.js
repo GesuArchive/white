@@ -11,7 +11,7 @@ export const LockerPad = (props, context) => {
     ['3', '6', '9', 'E'],
   ];
   const {
-    keypad
+    keypad,
   } = data;
   return (
     <Window
