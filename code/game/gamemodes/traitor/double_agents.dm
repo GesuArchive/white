@@ -18,9 +18,9 @@
 	num_modifier = 4 // Four additional traitors
 	antag_datum = /datum/antagonist/traitor/internal_affairs
 
-	announce_text = "There are Nanotrasen Internal Affairs Agents trying to kill each other!\n\
-	<span class='danger'>IAA</span>: Eliminate your targets and protect yourself!\n\
-	<span class='notice'>Crew</span>: Stop the IAA agents before they can cause too much mayhem."
+	announce_text = "На станции действуют агенты внутренних дел с целью ликвидировать друг-друга!\n\
+	<span class='danger'>АВД</span>: Ликвидируйте вашу цель и выживите!\n\
+	<span class='notice'>Экипаж</span>: Остановите агентов, прежде чем они устроят хаос."
 
 
 
@@ -79,6 +79,6 @@
 
 
 /datum/game_mode/traitor/internal_affairs/generate_report()
-	return "Нанотрейзен отрицает любые обвинения в размещении на вашей станции агентов внутренних \
+	return "NanoTrasen отрицает любые обвинения в размещении на вашей станции агентов внутренних \
 	дел для устранения неудобных сотрудников. Дальнейшие обвинения в таких действиях против ЦентКома \
 	будут встречены разговором с официальным агентом внутренних дел."
