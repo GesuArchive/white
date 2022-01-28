@@ -275,12 +275,17 @@
 	glasses = /obj/item/clothing/glasses/sunglasses 
 	mask = /obj/item/clothing/mask/cigarette/cigar/cohiba
 	head = /obj/item/clothing/head/centom_cap
-	belt = /obj/item/gun/ballistic/revolver/mateba
+	belt = /obj/item/gun/ballistic/automatic/pistol/deagle
 	r_pocket = /obj/item/lighter
-	l_pocket = /obj/item/ammo_box/a357
+	l_pocket = /obj/item/ammo_box/magazine/m50
 	back = /obj/item/storage/backpack/satchel/leather
 	id = /obj/item/card/id/advanced/centcom
 	id_trim = /datum/id_trim/centcom/commander
+	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
+							/obj/item/ammo_box/magazine/m50=2,\
+							/obj/item/stamp/centcom=1,\
+							/obj/item/clipboard=1)
+
 
 /datum/outfit/centcom/commander/pre_equip(mob/living/carbon/human/H)
 	..()
