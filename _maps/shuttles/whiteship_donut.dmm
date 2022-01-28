@@ -21,6 +21,7 @@
 	port_direction = 2;
 	width = 9
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating/airless,
 /area/shuttle/abandoned)
 "ae" = (

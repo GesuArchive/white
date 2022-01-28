@@ -23,6 +23,7 @@
 	width = 13
 	},
 /obj/structure/fans/tiny,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "ae" = (
@@ -88,6 +89,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/external/glass,
 /obj/structure/cable,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "ao" = (
@@ -245,6 +247,7 @@
 /obj/machinery/door/poddoor{
 	id = "whiteship_blastdoor_topleft"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/cargo)
 "aM" = (
@@ -312,6 +315,7 @@
 /obj/machinery/door/poddoor{
 	id = "whiteship_blastdoor_topright"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/cargo)
 "aV" = (
@@ -789,6 +793,7 @@
 /obj/machinery/door/poddoor{
 	id = "whiteship_blastdoor_bottomleft"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/cargo)
 "cg" = (
@@ -812,6 +817,7 @@
 /obj/machinery/door/poddoor{
 	id = "whiteship_blastdoor_bottomright"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/cargo)
 "cj" = (
@@ -1170,10 +1176,6 @@
 	},
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/shuttle/abandoned/medbay)
-"cZ" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/mineral/titanium/tiled/blue,
-/area/shuttle/abandoned/bridge)
 "da" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
@@ -1724,10 +1726,10 @@ cy
 cF
 cK
 cR
-cZ
+dw
 de
 dk
-cZ
+dw
 du
 cV
 cM
@@ -1810,10 +1812,10 @@ cz
 aJ
 cL
 cT
-cZ
+dw
 df
-cZ
-cZ
+dw
+dw
 dw
 cV
 cM

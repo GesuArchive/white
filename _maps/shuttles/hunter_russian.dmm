@@ -78,7 +78,8 @@
 /turf/open/floor/plating,
 /area/shuttle/hunter)
 "q" = (
-/turf/open/floor/mineral/plastitanium,
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/plating,
 /area/shuttle/hunter)
 "r" = (
 /obj/effect/turf_decal/arrows{
@@ -99,6 +100,7 @@
 /obj/structure/closet/crate/large{
 	icon_state = "crittercrate"
 	},
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/plating,
 /area/shuttle/hunter)
 "u" = (
@@ -218,9 +220,36 @@
 /obj/item/book/manual/ripley_build_and_repair,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/hunter)
+"R" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/closet/crate{
+	icon_state = "crateopen"
+	},
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/plating,
+/area/shuttle/hunter)
+"S" = (
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/hunter)
+"V" = (
+/obj/effect/turf_decal/arrows{
+	dir = 4
+	},
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/hunter)
+"X" = (
+/obj/machinery/light/small/directional,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/hunter)
 "Y" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/open/floor/mineral/plastitanium,
+/area/shuttle/hunter)
+"Z" = (
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/hunter)
 
 (1,1,1) = {"
@@ -287,7 +316,7 @@ p
 t
 x
 B
-B
+R
 F
 b
 b
@@ -301,10 +330,10 @@ e
 g
 b
 j
-q
+E
 u
-q
-q
+E
+E
 u
 u
 H
@@ -334,7 +363,7 @@ b
 (7,1,1) = {"
 b
 f
-g
+q
 b
 x
 k
@@ -345,7 +374,7 @@ Y
 Q
 I
 b
-g
+q
 L
 b
 "}
@@ -373,12 +402,12 @@ b
 b
 b
 m
-k
+X
 b
 y
 y
 b
-k
+Z
 N
 b
 b
@@ -446,10 +475,10 @@ a
 b
 o
 k
-r
+V
 z
 z
-k
+S
 k
 o
 b

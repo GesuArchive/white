@@ -664,6 +664,7 @@
 /obj/machinery/door/airlock/external{
 	id_tag = "caravanpirate_bolt_starboard"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/caravan/pirate)
 "Av" = (
@@ -850,6 +851,7 @@
 	preferred_direction = 4;
 	width = 22
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/caravan/pirate)
 "Jv" = (
@@ -872,6 +874,7 @@
 /obj/machinery/door/airlock/external{
 	id_tag = "caravanpirate_bolt_starboard"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/caravan/pirate)
 "Ld" = (
@@ -933,6 +936,7 @@
 /obj/machinery/door/airlock/external{
 	id_tag = "caravanpirate_bolt_port"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/caravan/pirate)
 "RC" = (

@@ -15,6 +15,7 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/abandoned)
 "e" = (
@@ -39,9 +40,6 @@
 	},
 /obj/structure/table/glass,
 /obj/item/gun/medbeam,
-/turf/open/floor/plating/abductor,
-/area/shuttle/abandoned)
-"i" = (
 /turf/open/floor/plating/abductor,
 /area/shuttle/abandoned)
 "j" = (
@@ -92,6 +90,7 @@
 	port_direction = 4;
 	width = 9
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/abandoned)
 "p" = (
@@ -174,7 +173,7 @@ s
 d
 f
 f
-i
+m
 m
 q
 f

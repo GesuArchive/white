@@ -619,7 +619,7 @@
 			if(iscarbon(user))
 				add_fingerprint(user)
 			if(locked)
-				ui_interact(user)
+				INVOKE_ASYNC(src, /datum/.proc/ui_interact, user)
 			else
 				locked = !locked
 				playsound(src, 'white/valtos/sounds/locker.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
@@ -639,7 +639,7 @@
 			if(iscarbon(user))
 				add_fingerprint(user)
 			if(locked)
-				ui_interact(user)
+				INVOKE_ASYNC(src, /datum/.proc/ui_interact, user)
 		else if(!silent)
 			to_chat(user, span_alert("Доступ запрещён."))
 	else if(secure && broken)

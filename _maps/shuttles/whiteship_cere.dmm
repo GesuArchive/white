@@ -20,6 +20,7 @@
 	port_direction = 8;
 	width = 16
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/abandoned)
 "ad" = (
@@ -249,6 +250,7 @@
 /obj/machinery/door/poddoor{
 	id = "cerewhiteleft"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/abandoned)
 "aG" = (
@@ -260,6 +262,7 @@
 /obj/machinery/door/poddoor{
 	id = "cerewhiteright"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/abandoned)
 "aI" = (
@@ -341,10 +344,6 @@
 /area/shuttle/abandoned)
 "aR" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle/abandoned)
-"aS" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/abandoned)
@@ -493,7 +492,7 @@ aJ
 ab
 aP
 aU
-aS
+bb
 ab
 ab
 "}
@@ -545,8 +544,8 @@ aG
 aG
 aG
 aN
-aS
-aS
+bb
+bb
 We
 bb
 ar
