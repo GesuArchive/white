@@ -248,6 +248,9 @@
 /datum/action/item_action/toggle_mister
 	name = "Toggle Mister"
 
+/datum/action/item_action/toggle_morozko
+	name = "Распылитель"
+
 /datum/action/item_action/activate_injector
 	name = "Activate Injector"
 

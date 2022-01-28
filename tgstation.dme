@@ -4320,6 +4320,7 @@
 #include "white\valtos\code\gensokyo\ruins.dm"
 #include "white\valtos\code\gensokyo\turfs.dm"
 #include "white\valtos\code\guns\lovegun.dm"
+#include "white\valtos\code\guns\morozko.dm"
 #include "white\valtos\code\guns\railgun.dm"
 #include "white\valtos\code\guns\tanner.dm"
 #include "white\valtos\code\guns\traumat.dm"
