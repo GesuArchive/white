@@ -16,6 +16,7 @@
 	name = "Supply Shuttle Airlock";
 	req_access_txt = "31"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/partyhard/steel/reinforced,
 /area/shuttle/supply)
 "d" = (

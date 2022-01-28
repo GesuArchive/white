@@ -32,10 +32,6 @@
 /obj/machinery/suit_storage_unit/pirate,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
-"bZ" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/turf/open/floor/plasteel/dark,
-/area/shuttle/pirate)
 "cE" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 1
@@ -58,6 +54,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "dI" = (
@@ -160,6 +157,7 @@
 	preferred_direction = 4;
 	width = 26
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "jo" = (
@@ -268,6 +266,7 @@
 /obj/machinery/door/airlock/external/glass{
 	id_tag = "pirateportexternal"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "pk" = (
@@ -412,13 +411,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "Ae" = (
 /obj/machinery/shuttle_scrambler,
-/turf/open/floor/plasteel/dark,
-/area/shuttle/pirate)
-"Ai" = (
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "Aj" = (
@@ -1080,7 +1077,7 @@ DX
 am
 dT
 xs
-Ai
+Mo
 fT
 Oo
 HD
@@ -1091,13 +1088,13 @@ RH
 ue
 lk
 ZD
-Ai
+Mo
 am
 eU
 xj
 DX
 am
-Ai
+Mo
 ZD
 ei
 Ch
@@ -1106,7 +1103,7 @@ rB
 "}
 (12,1,1) = {"
 HD
-Ai
+Mo
 ue
 Aj
 jo
@@ -1137,7 +1134,7 @@ vz
 YD
 Ae
 xs
-Ai
+Mo
 fT
 Ig
 HD

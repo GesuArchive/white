@@ -26,9 +26,6 @@
 /obj/machinery/computer/emergency_shuttle,
 /turf/open/floor/carpet,
 /area/shuttle/escape)
-"ah" = (
-/turf/closed/wall/mineral/titanium,
-/area/template_noop)
 "ai" = (
 /obj/machinery/computer/atmos_alert{
 	dir = 4
@@ -100,6 +97,7 @@
 	name = "Emergency Shuttle Airlock";
 	req_access_txt = "2"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "at" = (
@@ -578,7 +576,7 @@ aa
 aa
 "}
 (9,1,1) = {"
-ah
+ab
 ac
 ac
 aa

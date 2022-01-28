@@ -261,6 +261,7 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "First Class"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "aJ" = (
@@ -677,6 +678,7 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Economy Class"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "bL" = (
@@ -699,12 +701,14 @@
 	name = "Cockpit";
 	req_access_txt = "19"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "bQ" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Service"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "bT" = (
@@ -712,24 +716,12 @@
 	name = "Brig";
 	req_access_txt = "2"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape/brig)
-"xt" = (
-/obj/structure/window/reinforced{
-	dir = 8;
-	layer = 2.9
-	},
-/turf/open/floor/plating,
-/area/shuttle/escape)
 "Lu" = (
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/escape/brig)
-"Uu" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/shuttle/escape)
 
 (1,1,1) = {"
 aa
@@ -833,7 +825,7 @@ ad
 al
 br
 ab
-aa
+ac
 ab
 aE
 aV
@@ -843,7 +835,7 @@ aA
 au
 aK
 ab
-aa
+ac
 ab
 aT
 au
@@ -853,7 +845,7 @@ aP
 au
 aY
 ab
-aa
+ac
 ab
 aZ
 bb
@@ -863,7 +855,7 @@ bl
 bg
 bn
 ab
-aa
+ac
 bs
 bH
 ax
@@ -881,7 +873,7 @@ ae
 ah
 aH
 bO
-xt
+bj
 aI
 ar
 ar
@@ -891,7 +883,7 @@ ar
 ar
 ar
 aI
-xt
+bj
 bK
 ar
 ar
@@ -901,7 +893,7 @@ ar
 ar
 ar
 bK
-xt
+bj
 bQ
 au
 au
@@ -911,7 +903,7 @@ au
 au
 au
 bQ
-xt
+bj
 bT
 ax
 ax
@@ -929,7 +921,7 @@ af
 ah
 aH
 bO
-Uu
+bj
 aI
 ar
 ar
@@ -939,7 +931,7 @@ ar
 ar
 ar
 aI
-Uu
+bj
 bK
 ar
 ar
@@ -949,7 +941,7 @@ ar
 ar
 ar
 bK
-Uu
+bj
 bQ
 au
 au
@@ -959,7 +951,7 @@ au
 au
 au
 bQ
-Uu
+bj
 bT
 ax
 ax
@@ -977,7 +969,7 @@ ad
 aq
 bt
 ab
-aa
+ac
 ab
 aE
 av
@@ -987,7 +979,7 @@ aA
 au
 aK
 ab
-aa
+ac
 ab
 aT
 au
@@ -997,7 +989,7 @@ aP
 au
 aY
 ab
-aa
+ac
 ab
 aG
 ba
@@ -1007,7 +999,7 @@ bj
 bo
 bG
 ab
-aa
+ac
 bs
 bH
 ax
