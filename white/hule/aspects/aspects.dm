@@ -449,7 +449,7 @@
 	forbidden = FALSE
 
 /datum/round_aspect/grifon_kosmonavtov/run_aspect()
-	SSjob.forced_name = "Олег"
+	SSjob.forced_name = "TATAR"
 	spawn(3 SECONDS)
 		for(var/mob/living/carbon/human/H in GLOB.mob_list)
 			H.fully_replace_character_name(H.real_name, "[SSjob.forced_name] \Roman[SSjob.forced_num]")

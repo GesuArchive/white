@@ -289,7 +289,7 @@
 			if("KEY")
 				H.fully_replace_character_name(H.real_name, "[H.key]")
 			if("TATAR")
-				H.fully_replace_character_name(H.real_name, get_funny_name(0))
+				H.fully_replace_character_name(H.real_name, get_funny_name(3))
 			else
 				H.fully_replace_character_name(H.real_name, "[SSjob.forced_name] \Roman[SSjob.forced_num]")
 		SSjob.forced_num++
