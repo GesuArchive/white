@@ -7,7 +7,7 @@
 
 /datum/bounty/item/security/recharger
 	name = "Зарядные устройства"
-	description = "Военная академия НТ проводит стрелковые учения. Они требуют, чтобы зарядные устройства были отправлены."
+	description = "Военная академия NanoTrasen проводит стрелковые учения. Они требуют, чтобы зарядные устройства были отправлены."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 3
 	wanted_types = list(/obj/machinery/recharger)

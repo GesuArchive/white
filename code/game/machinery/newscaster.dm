@@ -304,7 +304,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 		switch(screen)
 			if(0)
 				dat += "Новостник #[unit_no].<BR> Интерфейс и сеть оптимальны и готовы к работе."
-				dat += "<BR><FONT SIZE=1>Собственность Нанотрейзен</FONT>"
+				dat += "<BR><FONT SIZE=1>Собственность NanoTrasen</FONT>"
 				if(GLOB.news_network.wanted_issue.active)
 					dat+= "<HR><A href='?src=[REF(src)];view_wanted=1'>Создать объявление о розыске</A>"
 				dat+= "<HR><BR><A href='?src=[REF(src)];create_channel=1'>Создать свой канал</A>"
@@ -320,7 +320,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 					dat+="<HR><B>Служба безопаснотси:</B><BR>"
 					dat+="<BR><A href='?src=[REF(src)];menu_wanted=1'>[(wanted_already) ? ("Настроить") : ("Опубликовать")] объявление о \"Розыске\"</A>"
 					dat+="<BR><A href='?src=[REF(src)];menu_censor_story=1'>Применить цензуру на пост</A>"
-					dat+="<BR><A href='?src=[REF(src)];menu_censor_channel=1'>Потребовать вмешательство НТ к каналу</A>"
+					dat+="<BR><A href='?src=[REF(src)];menu_censor_channel=1'>Потребовать вмешательство NT к каналу</A>"
 				dat+="<BR><HR>Новостник определяет вас как: <FONT COLOR='green'>[scanned_user]</FONT>"
 			if(1)
 				dat+= "Станционные каналы<HR>"
@@ -428,7 +428,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 				dat+="<BR><HR><A href='?src=[REF(src)];refresh=1'>Обновить</A>"
 				dat+="<BR><A href='?src=[REF(src)];setScreen=[1]'>Назад</A>"
 			if(10)
-				dat+="<B>Инструмент цензуры Нанотрейзен</B><BR>"
+				dat+="<B>Инструмент цензуры NanoTrasen</B><BR>"
 				dat+="<FONT SIZE=1>ЗАМЕТКА: Учитывая свободу слова, полное удаление канала невозможно.<BR>"
 				dat+="Но также учтите, что пользователи будут видеть на зацензуренных каналах \[REDACTED\] тэг, вместо сообщения.</FONT>"
 				dat+="<HR>Выбрать канал:<BR>"
@@ -439,7 +439,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 						dat+="<A href='?src=[REF(src)];pick_censor_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ""]<BR>"
 				dat+="<BR><A href='?src=[REF(src)];setScreen=[0]'>Отмена</A>"
 			if(11)
-				dat+="<B>D-метка Нанотрейзен</B><HR>"
+				dat+="<B>D-метка NanoTrasen</B><HR>"
 				dat+="<FONT SIZE=1>D-метка была размещена, так как этот новостной канал создаёт угрозу для безопасности станции, морали персонала "
 				dat+="и другого. D-метка запрещает размещение новых сообщений в этом канале, но может быть снята со временем."
 				dat+="Вы можете снять эту метку, если у вас есть соответствующий доступ.</FONT><HR>"
@@ -643,14 +643,14 @@ GLOBAL_LIST_EMPTY(allCasters)
 						screen = 15
 					else
 						if(GLOB.news_network.wanted_issue.isAdminMsg)
-							tgui_alert(usr,"Объявление о розыске создано офицером Нанотрейзен. Я не могу это редактировать.","Лан")
+							tgui_alert(usr,"Объявление о розыске создано офицером NanoTrasen. Я не могу это редактировать.","Лан")
 							return
 						GLOB.news_network.submitWanted(channel_name, msg, scanned_user, picture)
 						screen = 19
 			updateUsrDialog()
 		else if(href_list["cancel_wanted"])
 			if(GLOB.news_network.wanted_issue.isAdminMsg)
-				tgui_alert(usr, "Объявление о розыске создано офицером Нанотрейзен. Я не могу это снять","Лан")
+				tgui_alert(usr, "Объявление о розыске создано офицером NanoTrasen. Я не могу это снять","Лан")
 				return
 			var/choice = tgui_alert(usr, "Подвердить бы удаление розыска","Служба безопасности",list("Подтвердить","Отменить"))
 			if(choice=="Подтвердить")
@@ -663,21 +663,21 @@ GLOBAL_LIST_EMPTY(allCasters)
 		else if(href_list["censor_channel_author"])
 			var/datum/newscaster/feed_channel/FC = locate(href_list["censor_channel_author"]) in GLOB.news_network.network_channels
 			if(FC.is_admin_channel)
-				tgui_alert(usr, "Этот канал создан офицером Нанотрейзен. Я не могу зацензурить это.","Лан")
+				tgui_alert(usr, "Этот канал создан офицером NanoTrasen. Я не могу зацензурить это.","Лан")
 				return
 			FC.toggleCensorAuthor()
 			updateUsrDialog()
 		else if(href_list["censor_channel_story_author"])
 			var/datum/newscaster/feed_message/MSG = locate(href_list["censor_channel_story_author"]) in viewing_channel.messages
 			if(MSG.is_admin_message)
-				tgui_alert(usr, "Это сообщение создано офицером Нанотрейзен. Я не могу зацензурить автора.","Лан")
+				tgui_alert(usr, "Это сообщение создано офицером NanoTrasen. Я не могу зацензурить автора.","Лан")
 				return
 			MSG.toggleCensorAuthor()
 			updateUsrDialog()
 		else if(href_list["censor_channel_story_body"])
 			var/datum/newscaster/feed_message/MSG = locate(href_list["censor_channel_story_body"]) in viewing_channel.messages
 			if(MSG.is_admin_message)
-				tgui_alert(usr, "Этот канал создан офицером Нанотрейзен. Я не могу зацензурить это.","Лан")
+				tgui_alert(usr, "Этот канал создан офицером NanoTrasen. Я не могу зацензурить это.","Лан")
 				return
 			MSG.toggleCensorBody()
 			updateUsrDialog()
@@ -689,7 +689,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 		else if(href_list["toggle_d_notice"])
 			var/datum/newscaster/feed_channel/FC = locate(href_list["toggle_d_notice"]) in GLOB.news_network.network_channels
 			if(FC.is_admin_channel)
-				tgui_alert(usr, "Этот канал создан офицером Нанотрейзен. Я не могу оставлять заметки тут.","Лан")
+				tgui_alert(usr, "Этот канал создан офицером NanoTrasen. Я не могу оставлять заметки тут.","Лан")
 				return
 			FC.toggleCensorDclass()
 			updateUsrDialog()

@@ -5,7 +5,7 @@
 	weight = 20
 
 /datum/round_event/wisdomcow/announce(fake)
-	priority_announce("В этом районе была замечена мудрая корова. Обязательно спросите у нее совета.", "Агентство по разведению коров Нанотрейзен")
+	priority_announce("В этом районе была замечена мудрая корова. Обязательно спросите у нее совета.", "Агентство NanoTrasen по разведению коров")
 
 /datum/round_event/wisdomcow/start()
 	var/turf/targetloc = get_random_station_turf()

@@ -499,7 +499,7 @@
 
 /obj/item/storage/bag/pissbox
 	name = "Коробка стансфер"
-	desc = "Сделано в Нанотрейзен."
+	desc = "Сделано в NanoTrasen."
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "pissbox"
 	w_class = WEIGHT_CLASS_SMALL

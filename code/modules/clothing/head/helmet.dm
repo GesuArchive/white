@@ -250,7 +250,7 @@
 
 /obj/item/clothing/head/helmet/swat/nanotrasen
 	name = "шлем спецназа"
-	desc = "Чрезвычайно прочный, космический шлем с логотипом Нанотрансен, украшенный сверху."
+	desc = "Чрезвычайно прочный, космический шлем с логотипом NanoTrasen, украшенный сверху."
 	icon_state = "swat"
 	inhand_icon_state = "swat"
 

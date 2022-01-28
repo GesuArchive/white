@@ -2,7 +2,7 @@
 //this is meant to hold reagents/obj/item/gun/syringe
 /obj/item/gun/chem
 	name = "пистолет для реагентов"
-	desc = "Нанотрейсеновский шприцевой пистолет, модифицированный для автоматического синтеза химических дротиков, заряжается реагентами."
+	desc = "Шприцевой пистолет NanoTrasen, модифицированный для автоматического синтеза химических дротиков, заряжается реагентами."
 	icon_state = "chemgun"
 	inhand_icon_state = "chemgun"
 	w_class = WEIGHT_CLASS_NORMAL

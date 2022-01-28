@@ -138,7 +138,7 @@
 
 /obj/item/clothing/shoes/jackboots
 	name = "сапоги"
-	desc = "Боевые ботинки Нанотрейзен для боевых сценариев или боевых ситуаций. Все время в бою."
+	desc = "Боевые ботинки NanoTrasen для боевых сценариев или боевых ситуаций. Все время в бою."
 	icon_state = "jackboots"
 	inhand_icon_state = "jackboots"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
@@ -179,7 +179,7 @@
 
 /obj/item/clothing/shoes/workboots
 	name = "рабочие ботинки"
-	desc = "Нанотрейзен выпускает инженерные шнуровочные рабочие ботинки для особо рабочих воротничков."
+	desc = "NanoTrasen выпускает инженерные шнуровочные рабочие ботинки для особо рабочих воротничков."
 	icon_state = "workboots"
 	inhand_icon_state = "jackboots"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'

@@ -192,7 +192,7 @@
 	painting_metadata.patron_ckey = user.ckey
 	painting_metadata.patron_name = user.real_name
 	painting_metadata.credit_value = offer_amount
-	to_chat(user,span_notice("Нанотрейзен благодарит вас за пожертвование. Теперь вы официальный спонсор данной картины."))
+	to_chat(user,span_notice("NanoTrasen благодарит вас за пожертвование. Теперь вы официальный спонсор данной картины."))
 
 /obj/item/canvas/update_overlays()
 	. = ..()

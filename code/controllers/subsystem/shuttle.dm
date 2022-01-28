@@ -293,7 +293,7 @@ SUBSYSTEM_DEF(shuttle)
 
 	if(!admiral_message)
 		admiral_message = pick(GLOB.admiral_messages)
-	var/intercepttext = "<font size = 3><b>Обновление Нанотрейзен</b>: Запрос шаттла.</font><hr>\
+	var/intercepttext = "<font size = 3><b>Обновление NanoTrasen</b>: Запрос шаттла.</font><hr>\
 						Для предъявления по месту требования:<br><br>\
 						Мы приняли к сведению ситуацию по [station_name()] и подошли \
 						к выводу о том, что это не является основанием для отказа от данной станции.<br>\

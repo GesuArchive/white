@@ -101,7 +101,7 @@
 				var/datum/orbital_object/z_linked/beacon/z_linked = new /datum/orbital_object/z_linked/beacon/ruin/stranded_shuttle(new /datum/orbital_vector(shuttleObject.position.x, shuttleObject.position.y))
 				z_linked.name = "Заблудший [shuttleObject]"
 				if(!z_linked)
-					say("Невозможно остановить шаттл, свяжитесь с Нанотрейзен.")
+					say("Невозможно остановить шаттл, свяжитесь с NanoTrasen.")
 					return
 				shuttleObject.commence_docking(z_linked, TRUE)
 		shuttleObject.docking_frozen = TRUE

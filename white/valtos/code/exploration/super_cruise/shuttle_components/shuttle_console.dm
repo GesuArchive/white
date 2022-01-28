@@ -240,7 +240,7 @@
 							shuttleObject.controlling_computer = src
 							say("Шаттл запрошен.")
 							return
-				say("Место стыковки в жопе. Свяжитесь с техниками Нанотрейзен.")
+				say("Место стыковки в жопе. Свяжитесь с техниками NanoTrasen.")
 		return
 
 	switch(action)

@@ -30,7 +30,7 @@
 	dat += "Locked on<BR>"
 	dat += "<B>Charge progress: [reload]/[reload_cooldown]:</B><BR>"
 	dat += "<A href='byond://?src=[REF(src)];fire=1'>Open Fire</A><BR>"
-	dat += "Запуск оружия авторизирован <br>Командованием Флота Нанотрейзен<br><br>Помните, дружественный огонь будет стоить вам контракта и жизни.<HR>"
+	dat += "Запуск оружия авторизирован <br>Командованием Флота NanoTrasen<br><br>Помните, дружественный огонь будет стоить вам контракта и жизни.<HR>"
 	user << browse(dat, "window=scroll")
 	onclose(user, "scroll")
 

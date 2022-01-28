@@ -56,7 +56,7 @@
 
 /obj/item/clothing/gloves/combat/yohei
 	name = "перчатки йохея"
-	desc = "Образец того как Нанотрейзен не доверяет своим работникам. Защищают неплохо от всего"
+	desc = "Образец того как NanoTrasen не доверяет своим работникам. Защищают неплохо от всего"
 	icon_state = "yohei"
 	worn_icon = 'white/valtos/icons/clothing/mob/glove.dmi'
 	icon = 'white/valtos/icons/clothing/gloves.dmi'

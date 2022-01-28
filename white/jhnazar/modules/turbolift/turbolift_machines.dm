@@ -28,13 +28,13 @@ GLOBAL_LIST_EMPTY(turbolifts)
 	if (machine_stat & NOPOWER)
 		to_chat(user, span_warning("[capitalize(src.name)] не отвечает."))
 	if(!shuttle_id || !floor_id)
-		say("Произошла неизвестная ошибка. Пожалуйста, свяжитесь со службой починки лифтов Нанотрейзен.")
+		say("Произошла неизвестная ошибка. Пожалуйста, свяжитесь со службой починки лифтов NanoTrasen.")
 		return
 
 	var/obj/docking_port/mobile/turbolift/M = SSshuttle.getShuttle(shuttle_id)
 	var/obj/machinery/computer/turbolift/T = M?.turbolift_computer?.resolve()
 	if(!M || !T)
-		say("Произошла неизвестная ошибка. Пожалуйста, свяжитесь со службой починки лифтов Нанотрейзен.")
+		say("Произошла неизвестная ошибка. Пожалуйста, свяжитесь со службой починки лифтов NanoTrasen.")
 		return
 
 	if("[floor_id]" in T.destination_queue)
@@ -42,7 +42,7 @@ GLOBAL_LIST_EMPTY(turbolifts)
 	else if(T.z == src.z)
 		say("Лифт уже в месте назначения.")
 	else
-		say("Лифт скоро прибудет в точку назначения. Спасибо за использование лифтов Нанотрейзен.")
+		say("Лифт скоро прибудет в точку назначения. Спасибо за использование лифтов NanoTrasen.")
 		T.destination_queue += "[floor_id]"
 		START_PROCESSING(SSmachines, T)
 
@@ -213,7 +213,7 @@ GLOBAL_LIST_EMPTY(turbolifts)
 /obj/machinery/computer/turbolift/proc/move(var/destination_id)
 	var/obj/docking_port/mobile/turbolift/M = SSshuttle.getShuttle(shuttle_id)
 	if(!M)
-		say("Произошла неизвестная ошибка. Лифт больше не может работать. Пожалуйста, свяжитесь со службой починки лифтов Нанотрейзен.")
+		say("Произошла неизвестная ошибка. Лифт больше не может работать. Пожалуйста, свяжитесь со службой починки лифтов NanoTrasen.")
 		STOP_PROCESSING(SSmachines, src)
 		online = FALSE
 		log_mapping("TURBOLIFT: [src] could not find mobile dock: [shuttle_id] at [AREACOORD(src)]")

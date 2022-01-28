@@ -15,7 +15,7 @@
 	inhand_icon_state = "banner"
 	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
-	desc = "Баннер с логотипом Нанотрейзен."
+	desc = "Баннер с логотипом NanoTrasen."
 	slowdown = 2
 	throw_speed = 0
 	throw_range = 1
@@ -145,7 +145,7 @@
 	name = "Точка знамени"
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "banner"
-	desc = "Сюда вставляется знамя Нанотрейзен."
+	desc = "Сюда вставляется знамя NanoTrasen."
 	layer = LOW_ITEM_LAYER
 	var/obj/item/ctf/flag
 

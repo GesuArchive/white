@@ -2,7 +2,7 @@
 #define WELDER_FUEL_BURN_INTERVAL 26
 /obj/item/weldingtool
 	name = "сварочный аппарат"
-	desc = "Сварка стандартного исполнения, предоставленная компанией Нанотрейзен."
+	desc = "Сварка стандартного исполнения, предоставленная компанией NanoTrasen."
 	icon = 'white/valtos/icons/items.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'

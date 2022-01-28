@@ -505,7 +505,7 @@
 
 /obj/item/clothing/suit/jacket/letterman_nanotrasen
 	name = "синяя куртка леттерман"
-	desc = "Синяя курта леттерман с зачетной Нанотрейсеновской N на спине. На бирке сказано что её сшили в Космическом Китае."
+	desc = "Синяя курта леттерман с зачетной буквой N на спине. На бирке сказано что её сшили в Космическом Китае."
 	icon_state = "letterman_n"
 	inhand_icon_state = "letterman_n"
 	species_exception = list(/datum/species/golem)

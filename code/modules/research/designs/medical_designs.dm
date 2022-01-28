@@ -16,7 +16,7 @@
 
 /datum/design/mmi
 	name = "MMI"
-	desc = "Мягкое сокращение Воина, MMI, скрывает истинный ужас этого чудовища, которое, тем не менее, стало стандартным для станций Нанотрейзен."
+	desc = "Мягкое сокращение Воина, MMI, скрывает истинный ужас этого чудовища, которое, тем не менее, стало стандартным для станций NanoTrasen."
 	id = "mmi"
 	build_type = PROTOLATHE | MECHFAB
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500)
@@ -270,7 +270,7 @@
 
 /datum/design/surgical_drapes
 	name = "Хирургическая простыня"
-	desc = "Хирургические простыни марки Нанотрейзен обеспечивают оптимальную безопасность и защиту от инфекций."
+	desc = "Хирургические простыни марки NanoTrasen обеспечивают оптимальную безопасность и защиту от инфекций."
 	id = "surgical_drapes"
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40

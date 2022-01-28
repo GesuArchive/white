@@ -126,11 +126,11 @@
 	return ..()
 
 /obj/item/organ/cyberimp/cyberlink/nt_low
-	name = "Киберлинк НТ 1.0"
+	name = "Киберлинк NT 1.0"
 	encode_info = AUGMENT_NT_LOWLEVEL
 
 /obj/item/organ/cyberimp/cyberlink/nt_high
-	name = "Киберлинк НТ 2.0"
+	name = "Киберлинк NT 2.0"
 	encode_info = AUGMENT_NT_HIGHLEVEL
 
 /obj/item/organ/cyberimp/cyberlink/terragov

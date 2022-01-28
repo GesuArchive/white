@@ -49,7 +49,7 @@
 
 /obj/machinery/computer/camera_advanced/ratvar
 	name = "пульт наблюдения Ратвара"
-	desc = "Используется слугами Ратвара для проведения операций на собственности Нанотрейзена."
+	desc = "Используется слугами Ратвара для проведения операций на собственности NanoTrasen."
 	icon_screen = "ratvar1"
 	icon_keyboard = "ratvar_key1"
 	icon_state = "ratvarcomputer1"

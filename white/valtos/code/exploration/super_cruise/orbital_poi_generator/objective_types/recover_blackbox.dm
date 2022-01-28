@@ -41,7 +41,7 @@
 
 /obj/item/blackbox/objective/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Активируй это в руке <b>на мостике</b> станции, чтобы отправить Нанотрейзен нужные данные и завершить контракт.</span>"
+	. += "<hr><span class='notice'>Активируй это в руке <b>на мостике</b> станции, чтобы отправить NanoTrasen нужные данные и завершить контракт.</span>"
 
 /datum/component/recoverable
 	var/recovered = FALSE

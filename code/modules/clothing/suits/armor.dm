@@ -121,7 +121,7 @@
 
 /obj/item/clothing/suit/armor/vest/leather
 	name = "защитное пальто"
-	desc = "Кожаное пальто в легкой броне предназначалось как повседневная одежда для высокопоставленных офицеров. Несет герб Безопасности Нанотрейзена."
+	desc = "Кожаное пальто в легкой броне предназначалось как повседневная одежда для высокопоставленных офицеров. Несет герб Безопасности NanoTrasen."
 	icon_state = "leathercoat-sec"
 	inhand_icon_state = "hostrench"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS

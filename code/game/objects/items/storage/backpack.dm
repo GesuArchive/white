@@ -149,7 +149,7 @@
 
 /obj/item/storage/backpack/captain
 	name = "капитанский рюкзак"
-	desc = "Это специальный рюкзак, сделанный исключительно для офицеров Нанотрейзена."
+	desc = "Это специальный рюкзак, сделанный исключительно для офицеров NanoTrasen."
 	icon_state = "captainpack"
 	inhand_icon_state = "captainpack"
 
@@ -301,7 +301,7 @@
 
 /obj/item/storage/backpack/satchel/cap
 	name = "сумка капитана"
-	desc = "Эксклюзивная сумка для офицеров Нанотрейзена."
+	desc = "Эксклюзивная сумка для офицеров NanoTrasen."
 	icon_state = "satchel-cap"
 	inhand_icon_state = "satchel-cap"
 

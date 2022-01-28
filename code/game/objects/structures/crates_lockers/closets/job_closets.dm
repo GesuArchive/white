@@ -94,7 +94,7 @@
 
 /obj/structure/closet/wardrobe/chaplain_black
 	name = "гардероб часовни"
-	desc = "Это хранилище, для одобренной НаноТрейсеном, религиозной одежды."
+	desc = "Это хранилище, для одобренной NanoTrasen религиозной одежды."
 	icon_door = "black"
 
 /obj/structure/closet/wardrobe/chaplain_black/PopulateContents()

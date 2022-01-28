@@ -21,7 +21,7 @@
 
 /datum/bounty/item/adamantine
 	name = "Адамантин"
-	description = "Отделение аномальных материалов НТ остро нуждается в адамантине. Отправьте им крупный груз, и мы сделаем так, чтобы оно того стоило."
+	description = "Отделение аномальных материалов NT остро нуждается в адамантине. Отправьте им крупный груз, и мы сделаем так, чтобы оно того стоило."
 	reward = CARGO_CRATE_VALUE * 70
 	required_count = 10
 	wanted_types = list(/obj/item/stack/sheet/mineral/adamantine)

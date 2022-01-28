@@ -1,12 +1,12 @@
 /datum/bounty/item/chef/birthday_cake
 	name = "Праздничный торт"
-	description = "Скоро День рождения НТ! Отправьте им праздничный торт на день рождения!"
+	description = "Скоро День рождения NanoTrasen! Отправьте им праздничный торт на день рождения!"
 	reward = 150
 	wanted_types = list(/obj/item/food/cake/birthday, /obj/item/food/cakeslice/birthday)
 
 /datum/bounty/item/chef/soup
 	name = "Суп"
-	description = "Чтобы подавить восстание бездомных, НТ будет разносить суп всем работникам с недостаточной оплатой. Отправьте им любой вид супа."
+	description = "Чтобы подавить восстание бездомных, NanoTrasen будет разносить суп всем работникам с недостаточной оплатой. Отправьте им любой вид супа."
 	reward = 50
 	required_count = 3
 	wanted_types = list(/obj/item/food/soup)
@@ -111,7 +111,7 @@
 
 /datum/bounty/item/chef/kebab
 	name = "Кебаб"
-	description = "Султан турецкого филиала НТ запросил кебаб. Отправьте ему десять кебабов, чтобы утолить его голод."
+	description = "Султан турецкого филиала NanoTrasen запросил кебаб. Отправьте ему десять кебабов, чтобы утолить его голод."
 	reward = CARGO_CRATE_VALUE * 7
 	required_count = 10
 	wanted_types = list(/obj/item/food/kebab)

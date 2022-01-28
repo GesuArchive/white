@@ -147,7 +147,7 @@
 					span_notice("Пытаюсь повесить <b>[src.name]</b> на грудь <b>[M]</b>."))
 			var/input
 			if(!commended && user != M)
-				input = stripped_input(user,"Напишите комментарий к награде. Это будет рассматриваться Нанотрейзеном в дальнейшем.", ,"", 140)
+				input = stripped_input(user,"Напишите комментарий к награде. Это будет рассматриваться NanoTrasen в дальнейшем.", ,"", 140)
 			if(do_after(user, delay, target = M))
 				if(U.attach_accessory(src, user, 0, params)) //Attach it, do not notify the user of the attachment
 					if(user == M)
@@ -199,11 +199,11 @@
 
 /obj/item/clothing/accessory/medal/silver/security
 	name = "надежная награда за безопасность"
-	desc = "Награда за выдающиеся бои и жертвы в защиту коммерческих интересов Нанотрейзена. Часто присуждается сотрудникам службы безопасности."
+	desc = "Награда за выдающиеся бои и жертвы в защиту коммерческих интересов NanoTrasen. Часто присуждается сотрудникам службы безопасности."
 
 /obj/item/clothing/accessory/medal/silver/excellence
 	name = "награда руководителя персонала за выдающиеся достижения в области передового опыта"
-	desc = "Словарь Нанотрейзен определяет превосходство как \"качество или условие отличного качества\". Это присуждается тем редким членам экипажа, которые соответствуют этому определению."
+	desc = "Словарь NanoTrasen определяет превосходство как \"качество или условие отличного качества\". Это присуждается тем редким членам экипажа, которые соответствуют этому определению."
 
 /obj/item/clothing/accessory/medal/silver/bureaucracy
 	name = "\improper Excellence in Bureaucracy Medal"
@@ -219,7 +219,7 @@
 
 /obj/item/clothing/accessory/medal/gold/captain
 	name = "медаль капитана"
-	desc = "Золотая медаль присуждается исключительно тем, кто получил звание капитана. Это означает кодифицированную ответственность капитана перед Нанотрейзен и их бесспорную власть над своей командой."
+	desc = "Золотая медаль присуждается исключительно тем, кто получил звание капитана. Это означает кодифицированную ответственность капитана перед NanoTrasen и их бесспорную власть над своей командой."
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/accessory/medal/gold/heroism

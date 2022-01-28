@@ -393,7 +393,7 @@
 	outfit = /datum/outfit/nanotrasencommandercorpse
 
 /datum/outfit/nanotrasencommandercorpse
-	name = "\improper Глава Внутренней Безопасности Нанотрейзен"
+	name = "\improper Глава Внутренней Безопасности NanoTrasen"
 	uniform = /obj/item/clothing/under/rank/centcom/commander
 	suit = /obj/item/clothing/suit/armor/bulletproof
 	ears = /obj/item/radio/headset/heads/captain
@@ -407,7 +407,7 @@
 	id_trim = /datum/id_trim/centcom/corpse/commander
 
 /obj/effect/mob_spawn/human/nanotrasensoldier
-	name = "Офицер Внутренней Безопасности Нанотрейзен"
+	name = "Офицер Внутренней Безопасности NanoTrasen"
 	outfit = /datum/outfit/nanotrasensoldiercorpse
 
 /datum/outfit/nanotrasensoldiercorpse

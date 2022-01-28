@@ -1,19 +1,19 @@
 /datum/bounty/item/assistant/strange_object
 	name = "Странный обьект"
-	description = "Нанотрейзен интересуется странными предметами. Найдите один в исправности и сразу же отправьте его на ЦК."
+	description = "NanoTrasen интересуется странными предметами. Найдите один в исправности и сразу же отправьте его на ЦК."
 	reward = 20
 	wanted_types = list(/obj/item/relic)
 
 /datum/bounty/item/assistant/scooter
 	name = "Скутер"
-	description = "Нанотрейзен решила, что пеший шаг вышел из моды. Отправьте скутер на ЦК, чтобы ускорить работу."
+	description = "NanoTrasen решила, что пеший шаг вышел из моды. Отправьте скутер на ЦК, чтобы ускорить работу."
 	reward = 50
 	wanted_types = list(/obj/vehicle/ridden/scooter)
 	include_subtypes = FALSE
 
 /datum/bounty/item/assistant/skateboard
 	name = "Скейтборд"
-	description = "Нанотрейзен решила, что ходить бессмысленно. Отправьте скейтборд на ЦК, чтобы ускорить работу."
+	description = "NanoTrasen решила, что ходить бессмысленно. Отправьте скейтборд на ЦК, чтобы ускорить работу."
 	reward = 40
 	wanted_types = list(/obj/vehicle/ridden/scooter/skateboard, /obj/item/melee/skateboard)
 
@@ -181,7 +181,7 @@
 
 /datum/bounty/item/assistant/ied
 	name = "Самодельная зажигательная бомба"
-	description = "Тюрьма строгого режима НТ на ЦК проходит обучение персонала. Отправьте несколько устройств самодельной взрывчатки, которые будут служить им учебным пособием..."
+	description = "Тюрьма строгого режима NT на ЦК проходит обучение персонала. Отправьте несколько устройств самодельной взрывчатки, которые будут служить им учебным пособием..."
 	reward = 40
 	required_count = 3
 	wanted_types = list(/obj/item/grenade/iedcasing)

@@ -99,7 +99,7 @@
 
 
 /obj/item/station_charter/flag
-	name = "знамя Нанотрейзен"
+	name = "знамя NanoTrasen"
 	icon = 'icons/obj/banner.dmi'
 	name_type = "planet"
 	icon_state = "banner"
@@ -115,7 +115,7 @@
 	minor_announce("[ureal_name] переименовывает нашу станцию в [station_name()]", "Капитанское знамя", 0)
 	log_game("[ukey] has renamed the planet as [station_name()].")
 	name = "знамя [station_name()]"
-	desc = "На баннере изображен официальный герб Нанотрейзен, означающий, что [station_name()] принадлежит капитану [uname] во имя корпорации."
+	desc = "На баннере изображен официальный герб NanoTrasen, означающий, что [station_name()] принадлежит капитану [uname] во имя корпорации."
 	SSblackbox.record_feedback("text", "station_renames", 1, "[station_name()]")
 	if(!unlimited_uses)
 		used = TRUE

@@ -33,13 +33,13 @@
 	rename_team = "Deathsquad"
 	code = "Дельта"
 	mission = "Не оставляйте свидетелей."
-	polldesc = "элитной ударной команде Нанотрейзен"
+	polldesc = "элитной ударной команде NanoTrasen"
 
 /datum/ert/marine
 	leader_role = /datum/antagonist/ert/marine
 	roles = list(/datum/antagonist/ert/marine/security, /datum/antagonist/ert/marine/engineer, /datum/antagonist/ert/marine/medic)
 	rename_team = "Marine Squad"
-	polldesc = "'элитной' ударной команде Нанотрейзен"
+	polldesc = "'элитной' ударной команде NanoTrasen"
 	opendoors = FALSE
 
 /datum/ert/centcom_official
@@ -59,7 +59,7 @@
 	leader_role = /datum/antagonist/ert/commander/inquisitor
 	rename_team = "Инкцизиция"
 	mission = "Уничтожьте все следы паранормальной активности на борту станции."
-	polldesc = "группе реагирования на паранормальные явления Нанотрейзен"
+	polldesc = "группе реагирования на паранормальные явления NanoTrasen"
 
 /datum/ert/janitor
 	roles = list(/datum/antagonist/ert/janitor, /datum/antagonist/ert/janitor/heavy)
@@ -68,7 +68,7 @@
 	opendoors = FALSE
 	rename_team = "Уборщик"
 	mission = "Убери ВСЁ."
-	polldesc = "группе специальных уборщиков Нанотрейзен"
+	polldesc = "группе специальных уборщиков NanoTrasen"
 
 /datum/ert/intern
 	roles = list(/datum/antagonist/ert/intern)
@@ -77,7 +77,7 @@
 	opendoors = FALSE
 	rename_team = "Орда Интернов"
 	mission = "Помочь в разрешении конфликтов."
-	polldesc = "возможности неоплачиваемой стажировки в Нанотрейзен"
+	polldesc = "возможности неоплачиваемой стажировки в NanoTrasen"
 
 /datum/ert/erp
 	roles = list(/datum/antagonist/ert/security/party, /datum/antagonist/ert/clown/party, /datum/antagonist/ert/engineer/party, /datum/antagonist/ert/janitor/party)
@@ -85,5 +85,5 @@
 	opendoors = FALSE
 	rename_team = "ЕРП"
 	mission = "Создайте развлечение для экипажа."
-	polldesc = "группе партийного реагирования Нанотрейзен. Код: Радужный"
+	polldesc = "группе партийного реагирования NanoTrasen. Код: Радужный"
 	code = "Радужный"

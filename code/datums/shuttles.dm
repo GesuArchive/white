@@ -181,7 +181,7 @@
 /datum/map_template/shuttle/emergency/asteroid
 	suffix = "asteroid"
 	name = "Эвакуационный Шатл Астероидной Станции"
-	description = "Респектабельный шатл среднего размера, который впервые заступил на службу доставляя экипаж Нанотрансена на их внутренные объекты в поясе астероидов и обратно."
+	description = "Респектабельный шатл среднего размера, который впервые заступил на службу доставляя экипаж NanoTrasen на их внутренные объекты в поясе астероидов и обратно."
 	credit_cost = CARGO_CRATE_VALUE * 6
 
 /datum/map_template/shuttle/emergency/bar

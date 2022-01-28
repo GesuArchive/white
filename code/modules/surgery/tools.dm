@@ -234,7 +234,7 @@
 
 /obj/item/surgical_drapes
 	name = "хирургическая простыня"
-	desc = "Хирургические простыни марки Нанотрейзен обеспечивают оптимальную безопасность и защиту от инфекций."
+	desc = "Хирургические простыни марки NanoTrasen обеспечивают оптимальную безопасность и защиту от инфекций."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "surgical_drapes"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'

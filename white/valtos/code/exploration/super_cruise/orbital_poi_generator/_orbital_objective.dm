@@ -60,7 +60,7 @@
 			A.bank_card_talk("Было получено [israel] кредитов за выполнение задания.")
 			A.adjust_money(israel)
 		else
-			A.bank_card_talk("Было получено [goyam] кредитов за содействие выполнению поручений Нанотрейзен.")
+			A.bank_card_talk("Было получено [goyam] кредитов за содействие выполнению поручений NanoTrasen.")
 			A.adjust_money(goyam)
 	GLOB.exploration_points += payout * 5
 	//Delete

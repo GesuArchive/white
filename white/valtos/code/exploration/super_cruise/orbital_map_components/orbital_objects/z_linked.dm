@@ -33,7 +33,7 @@
 				break
 	//Prevent access to the z-level.
 	//Announcement
-	priority_announce("Орбитальное тело [name] было уничтожено. Переход в эту зону более невозможен.", "Отслеживание космоса Нанотрейзен")
+	priority_announce("Орбитальное тело [name] было уничтожено. Переход в эту зону более невозможен.", "Отслеживание космоса NanoTrasen")
 	qdel(src)
 
 /datum/orbital_object/z_linked/collision(datum/orbital_object/other)

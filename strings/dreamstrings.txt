@@ -27,7 +27,7 @@ the %ADJECTIVE% капитан
 %ADJECTIVE% бриг
 %A% %ADJECTIVE% шаттл
 %A% %ADJECTIVE% лаборатория
-Нанотрейзен
+NanoTrasen
 Синдикат
 Федерация Волшебников
 %ADJECTIVE% кровь

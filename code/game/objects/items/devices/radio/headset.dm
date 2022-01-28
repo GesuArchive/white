@@ -277,7 +277,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/headset_cent
 	name = "гарнитура ЦентКома"
-	desc = "Гарнитура, используемая в высших эшелонах Нанотрейзена."
+	desc = "Гарнитура, используемая в высших эшелонах NanoTrasen."
 	icon_state = "cent_headset"
 	keyslot = new /obj/item/encryptionkey/headset_com
 	keyslot2 = new /obj/item/encryptionkey/headset_cent

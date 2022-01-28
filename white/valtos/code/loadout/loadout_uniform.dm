@@ -211,7 +211,7 @@
 
 /datum/gear/uniform/rank/cargo/mining_classic
 	display_name = "старый комбинезон шахтера"
-	description = "Пурпурный, грязный комбинезон. Стандартная одежда шахтера шахт Нанотразен, когда Лаваленд еще не был открыт и использован для плазмы."
+	description = "Пурпурный, грязный комбинезон. Стандартная одежда шахтера шахт NanoTrasen, когда Лаваленд еще не был открыт и использован для плазмы."
 	path = /obj/item/clothing/under/rank/cargo/miner
 	allowed_roles = list ("Shaft Miner", "Hunter")
 	cost = 100

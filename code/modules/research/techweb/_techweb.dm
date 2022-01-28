@@ -68,11 +68,11 @@
 
 /datum/techweb/science	//Global science techweb for RND consoles.
 	id = "SCIENCE"
-	organization = "Нанотрейзен"
+	organization = "NanoTrasen"
 
 /datum/techweb/bepis	//Should contain only 1 BEPIS tech selected at random.
 	id = "EXPERIMENTAL"
-	organization = "Нанотрейзен R&D"
+	organization = "NanoTrasen R&D"
 
 /datum/techweb/bepis/New(remove_tech = TRUE)
 	. = ..()

@@ -92,7 +92,7 @@
 
 /obj/item/clothing/mask/gas/atmos/captain
 	name = "противогаз капитана"
-	desc = "Нанотрейзен срезал углы и перекрасил запасной противогаз, но никому не говори."
+	desc = "NanoTrasen срезал углы и перекрасил запасной противогаз, но никому не говори."
 	icon_state = "gas_cap"
 	inhand_icon_state = "gas_cap"
 	resistance_flags = FIRE_PROOF | ACID_PROOF

@@ -184,7 +184,7 @@
 	terrorist_pod.explosionSize = list(0,0,0,3)
 	terrorist_pod.style = STYLE_SYNDICATE
 	terrorist_pod.name = "Террористический дроппод"
-	terrorist_pod.desc = "Прямиком из группировок, запрещенных на территории НТ "
+	terrorist_pod.desc = "Прямиком из группировок, запрещенных на территории NT."
 
 	for(var/mob/living/carbon/human/M in spawned_mobs)
 		M.mind.add_antag_datum(/datum/antagonist/schoolshooter, T)
