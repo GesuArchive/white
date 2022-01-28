@@ -2,6 +2,7 @@
 	name = "генератор \"Морозко\""
 	desc = "Модифицированный бак с фреоном, который был снят с древнего хладогенного устройства. Позволяет замораживать что угодно и где угодно."
 	icon = 'white/valtos/icons/objects.dmi'
+	worn_icon = 'white/valtos/icons/clothing/mob/belt.dmi'
 	icon_state = "morozko"
 	inhand_icon_state = "morozko"
 	w_class = WEIGHT_CLASS_BULKY
