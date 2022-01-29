@@ -804,7 +804,7 @@
 "dp" = (
 /obj/effect/duel_spawnpoint,
 /turf/open/floor/plating/asteroid/basalt,
-/area/duel/arena)
+/area/duel/one)
 "ds" = (
 /obj/machinery/computer/camera_advanced/abductor{
 	team_number = 4
@@ -1862,7 +1862,7 @@
 /area/centcom/outdoors)
 "hg" = (
 /turf/open/floor/plasteel/monofloor,
-/area/duel/arena)
+/area/duel/four)
 "hh" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/fullgrass,
@@ -2044,7 +2044,7 @@
 /area/centcom/outdoors)
 "hR" = (
 /turf/closed/indestructible/sandstone,
-/area/duel/arena)
+/area/duel/two)
 "hS" = (
 /obj/structure/flora/rock/pile,
 /obj/structure/flora/ausbushes/rospilovo/pointybush{
@@ -2913,7 +2913,7 @@
 /area/centcom/officetwo)
 "la" = (
 /turf/closed/indestructible/necropolis,
-/area/duel/arena)
+/area/duel/one)
 "lc" = (
 /turf/closed/indestructible/fakedoor{
 	desc = "Дверь, ведущая на свободу.";
@@ -3023,7 +3023,7 @@
 /area/centcom/brief)
 "lp" = (
 /turf/open/floor/wood/parquet,
-/area/duel/arena)
+/area/duel/three)
 "lr" = (
 /obj/effect/light_emitter{
 	set_cap = 1;
@@ -3249,7 +3249,7 @@
 /area/syndicate_mothership/control)
 "mf" = (
 /turf/open/floor/wood/tile,
-/area/duel/arena)
+/area/duel/three)
 "mi" = (
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel/monofloor,
@@ -3260,7 +3260,7 @@
 /area/awaymission/chilly/surface)
 "ml" = (
 /turf/open/lava/smooth,
-/area/duel/arena)
+/area/duel/one)
 "mn" = (
 /obj/machinery/vending/boozeomat/all_access{
 	resistance_flags = 64
@@ -4690,7 +4690,7 @@
 "ro" = (
 /obj/effect/duel_spawnpoint,
 /turf/open/indestructible/cataclysmdda/sand,
-/area/duel/arena)
+/area/duel/two)
 "rq" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -5344,7 +5344,7 @@
 /area/centcom/circus)
 "tz" = (
 /turf/open/floor/plating/asteroid/basalt,
-/area/duel/arena)
+/area/duel/one)
 "tB" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/machinery/newscaster/security_unit{
@@ -5479,7 +5479,7 @@
 "uh" = (
 /obj/effect/duel_controller,
 /turf/open/floor/plasteel/monofloor,
-/area/duel/arena)
+/area/duel/four)
 "ui" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
 	locked = 0
@@ -6075,7 +6075,7 @@
 "wu" = (
 /obj/effect/duel_controller,
 /turf/open/floor/plating/asteroid/basalt,
-/area/duel/arena)
+/area/duel/one)
 "wv" = (
 /obj/structure/fans/tiny/invisible,
 /obj/effect/turf_decal/stripes/line{
@@ -6452,6 +6452,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"xA" = (
+/obj/structure/grille/indestructable/shocking,
+/obj/structure/cable,
+/turf/open/floor/plasteel/monofloor,
+/area/duel)
 "xB" = (
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 8
@@ -7421,7 +7426,7 @@
 "AX" = (
 /obj/effect/duel_controller,
 /turf/open/indestructible/cataclysmdda/sand,
-/area/duel/arena)
+/area/duel/two)
 "AY" = (
 /obj/machinery/light/directional/south,
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -9087,7 +9092,7 @@
 /obj/structure/grille/indestructable/shocking,
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
-/area/duel/arena)
+/area/duel/four)
 "Hk" = (
 /obj/effect/turf_decal/tile/green,
 /turf/open/floor/plasteel,
@@ -9300,7 +9305,7 @@
 /obj/structure/grille/indestructable/shocking,
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
-/area/duel/arena)
+/area/duel/four)
 "Ic" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 1
@@ -9662,7 +9667,7 @@
 "Jo" = (
 /obj/effect/duel_controller,
 /turf/open/floor/wood/tile,
-/area/duel/arena)
+/area/duel/three)
 "Jp" = (
 /obj/item/kirbyplants{
 	icon_state = "plant-22"
@@ -11578,7 +11583,7 @@
 	resistance_flags = 68
 	},
 /turf/open/floor/wood/parquet,
-/area/duel/arena)
+/area/duel/three)
 "Px" = (
 /obj/structure/table/glass,
 /obj/structure/window/reinforced{
@@ -12074,7 +12079,7 @@
 /area/centcom/control)
 "QV" = (
 /turf/open/indestructible/cataclysmdda/sand,
-/area/duel/arena)
+/area/duel/two)
 "QW" = (
 /obj/structure/flora/ausbushes/rospilovo/grassybush,
 /obj/structure/flora/ausbushes/leafybush,
@@ -12808,7 +12813,7 @@
 "Ts" = (
 /obj/effect/duel_spawnpoint,
 /turf/open/floor/wood/parquet,
-/area/duel/arena)
+/area/duel/three)
 "Tu" = (
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor,
@@ -13348,7 +13353,7 @@
 "Vh" = (
 /obj/effect/duel_spawnpoint,
 /turf/open/floor/plasteel/monofloor,
-/area/duel/arena)
+/area/duel/four)
 "Vi" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -13416,7 +13421,7 @@
 /area/centcom/supplypod)
 "Vp" = (
 /turf/closed/indestructible/wood,
-/area/duel/arena)
+/area/duel/three)
 "Vq" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -46944,7 +46949,7 @@ Ib
 Hh
 Hh
 Hh
-Hh
+xA
 Hh
 Ib
 aw
