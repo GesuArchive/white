@@ -16,12 +16,53 @@
 	START_PROCESSING(SSobj, src)
 	our_dreamer = parent
 
+	if(!our_dreamer?.client)
+		stack_trace("DREAMER ADDED IN MOB WITHOUT CLIENT!")
+
+	our_dreamer.sound_environment_override = SOUND_ENVIRONMENT_PSYCHOTIC
+
+	make_sounds()
+
+	if(our_dreamer?.dna?.species)
+		our_dreamer.dna.species.armor = 50
+		our_dreamer.dna.species.heatmod = 0.1
+		our_dreamer.dna.species.coldmod = 0.1
+		our_dreamer.dna.species.stunmod = 0.1
+		our_dreamer.dna.species.siemens_coeff = 0.1
+		our_dreamer.dna.species.punchdamagelow = 25
+		our_dreamer.dna.species.punchdamagehigh = 50
+	else
+		stack_trace("DREAMER IS FUCKED UP SOMEHOW!")
+
+/datum/component/dreamer/proc/make_sounds()
+	SIGNAL_HANDLER
+
+	var/client/C = our_dreamer.client
+
+	fucked_turfs = list()
+
+	if(C.prefs.toggles & SOUND_SHIP_AMBIENCE)
+		C.prefs.toggles ^= SOUND_SHIP_AMBIENCE
+
+	if(our_dreamer?.client?.prefs.toggles & SOUND_JUKEBOX)
+		C.prefs.toggles ^= SOUND_JUKEBOX
+
+	if(our_dreamer?.client?.prefs.toggles & SOUND_AMBIENCE)
+		C.prefs.toggles ^= SOUND_AMBIENCE
+
+	DIRECT_OUTPUT(our_dreamer, sound(null))
+	C?.tgui_panel?.stop_music()
+
+	SEND_SOUND(our_dreamer, sound('white/valtos/sounds/lifeweb/dreamer_is_still_asleep.ogg', repeat = TRUE, wait = 0, volume = 75, channel = CHANNEL_BUZZ))
+
 /datum/component/dreamer/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOB_SAY, .proc/handle_speech)
+	RegisterSignal(parent, COMSIG_MOB_LOGIN, .proc/make_sounds)
 	return
 
 /datum/component/dreamer/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOB_SAY)
+	UnregisterSignal(parent, COMSIG_MOB_LOGIN)
 	return
 
 /datum/component/dreamer/Destroy()
@@ -52,6 +93,17 @@
 
 		fucked_turfs += T
 		fuckfloorlist += I
+
+	our_dreamer.heal_overall_damage(5, 5, 5)
+	our_dreamer.setOxyLoss(0)
+	our_dreamer.setToxLoss(0)
+	our_dreamer.blood_volume = BLOOD_VOLUME_NORMAL
+
+	if(our_dreamer.handcuffed)
+		var/obj/O = our_dreamer.get_item_by_slot(ITEM_SLOT_HANDCUFFED)
+		if(istype(O))
+			our_dreamer.clear_cuffs(O, TRUE)
+			playsound(get_turf(our_dreamer), 'sound/effects/grillehit.ogg', 80, 1, -1)
 
 	if(prob(speak_probability))
 		speak_from_above()
@@ -94,9 +146,16 @@
 		what_we_should_say = "[what_we_should_say]! [what_we_should_say]! [what_we_should_say]!"
 
 	for(var/i in 1 to rand(1, 3))
-		var/atom/A = pick(view(6, our_dreamer))
+		var/list/tlist = list()
 
-		var/image/speech_overlay = image('icons/mob/talk.dmi', src, "default2", FLY_LAYER)
+		for(var/obj/O in view(6, our_dreamer))
+			if(!isobj(O))
+				continue
+			tlist += O
+
+		var/atom/A = pick(tlist)
+
+		var/image/speech_overlay = image('icons/mob/talk.dmi', A, "default2", FLY_LAYER)
 		spawn(rand(10, 50))
 			INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_overlay, list(our_dreamer?.client), 30)
 			our_dreamer.Hear(what_we_should_say, A, our_dreamer.get_random_understood_language(), what_we_should_say)
