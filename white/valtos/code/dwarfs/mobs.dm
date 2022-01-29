@@ -61,6 +61,21 @@
 		src.loot += pick(subtypesof(/obj/item/food/grown/mushroom))
 
 
+/mob/living/simple_animal/hostile/shrooman/death(gibbed)
+	// On death, create a small smoke of harmful gas (s-Acid)
+	var/datum/effect_system/smoke_spread/chem/S = new
+	var/turf/location = get_turf(src)
+
+	// Create the reagents to put into the air
+	create_reagents(10)
+	reagents.add_reagent(/datum/reagent/drug/labebium, 10)
+
+	// Attach the smoke spreader and setup/start it.
+	S.attach(location)
+	S.set_up(reagents, 1, location, silent = TRUE)
+	S.start()
+	..()
+
 
 /mob/living/simple_animal/hostile/shrooman/fighter
 	name = "Миконид-боец"
