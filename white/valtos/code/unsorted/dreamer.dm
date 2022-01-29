@@ -3,8 +3,8 @@
 
 	var/prob_variability = 23
 	var/animation_intensity = 7
-	var/turf_plane = FLOOR_PLANE
-	var/speak_probability = 5
+	var/turf_plane
+	var/speak_probability = 7
 
 	var/mob/living/carbon/human/our_dreamer
 	var/list/fucked_turfs = list()
@@ -42,7 +42,7 @@
 		var/image/I = image(icon = T.icon, icon_state = T.icon_state, loc = T)
 
 		I.alpha = rand(200, 255)
-		I.plane = turf_plane
+		I.plane = turf_plane ? turf_plane : T.plane
 
 		var/matrix/M = matrix()
 		M.Translate(0, rand(-animation_intensity, animation_intensity))
@@ -63,9 +63,11 @@
 	SIGNAL_HANDLER
 
 	if(speaker == our_dreamer || prob(25))
-		speak_from_above(speech_args[SPEECH_MESSAGE])
-		if(prob(50))
-			SEND_SOUND(our_dreamer, 'white/hule/SFX/rjach.ogg')
+		spawn(rand(10, 50))
+			speak_from_above(speech_args[SPEECH_MESSAGE])
+		spawn(rand(10, 50))
+			if(prob(25))
+				SEND_SOUND(our_dreamer, sound('white/hule/SFX/rjach.ogg'))
 
 /datum/component/dreamer/proc/speak_from_above(what_we_should_say)
 
@@ -93,8 +95,11 @@
 
 	for(var/i in 1 to rand(1, 3))
 		var/atom/A = pick(view(6, our_dreamer))
-		var/image/speech_overlay = image('icons/mob/talk.dmi', src, "default2", FLY_LAYER)
-		INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_overlay, list(our_dreamer?.client), 30)
-		our_dreamer.Hear(what_we_should_say, A, our_dreamer.get_random_understood_language(), what_we_should_say)
 
-	SEND_SOUND(our_dreamer, pick(RANDOM_DREAMER_SOUNDS))
+		var/image/speech_overlay = image('icons/mob/talk.dmi', src, "default2", FLY_LAYER)
+		spawn(rand(10, 50))
+			INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_overlay, list(our_dreamer?.client), 30)
+			our_dreamer.Hear(what_we_should_say, A, our_dreamer.get_random_understood_language(), what_we_should_say)
+
+	spawn(rand(10, 50))
+		SEND_SOUND(our_dreamer, pick(RANDOM_DREAMER_SOUNDS))

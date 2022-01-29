@@ -174,13 +174,14 @@
 						'white/valtos/sounds/voda4.ogg',\
 						'white/valtos/sounds/voda5.ogg')
 
-#define RANDOM_DREAMER_SOUNDS list('white/valtos/sounds/lifeweb/deeph1.ogg',\
+#define RANDOM_DEEPH_SOUNDS list('white/valtos/sounds/lifeweb/deeph1.ogg',\
 						'white/valtos/sounds/lifeweb/deeph2.ogg',\
 						'white/valtos/sounds/lifeweb/deeph3.ogg',\
 						'white/valtos/sounds/lifeweb/deeph4.ogg',\
 						'white/valtos/sounds/lifeweb/deeph5.ogg',\
-						'white/valtos/sounds/lifeweb/deeph6.ogg',\
-						'white/valtos/sounds/lifeweb/dream1.ogg',\
+						'white/valtos/sounds/lifeweb/deeph6.ogg')
+
+#define RANDOM_DREAMER_SOUNDS list('white/valtos/sounds/lifeweb/dream1.ogg',\
 						'white/valtos/sounds/lifeweb/dream2.ogg',\
 						'white/valtos/sounds/lifeweb/dream3.ogg',\
 						'white/valtos/sounds/lifeweb/dream4.ogg',\
