@@ -305,7 +305,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 	set category = "Особенное"
 
 
-	if(!SSticker || SSticker.HasRoundStarted())
+	if(!SSticker || SSticker.current_state < GAME_STATE_PLAYING)
 		to_chat(src, span_warning("Не так быстро, игра ещё не началась!"))
 		return
 
