@@ -83,6 +83,7 @@
 		var/image/I = image(icon = T.icon, icon_state = T.icon_state, loc = T)
 
 		I.alpha = rand(200, 255)
+		I.copy_overlays(T)
 		I.plane = turf_plane ? turf_plane : T.plane
 
 		var/matrix/M = matrix()
@@ -115,8 +116,9 @@
 	SIGNAL_HANDLER
 
 	if(speaker == our_dreamer || prob(25))
+		var/tmp_msg = speech_args[SPEECH_MESSAGE]
 		spawn(rand(10, 50))
-			speak_from_above(speech_args[SPEECH_MESSAGE])
+			speak_from_above(tmp_msg)
 		spawn(rand(10, 50))
 			if(prob(25))
 				SEND_SOUND(our_dreamer, sound('white/hule/SFX/rjach.ogg'))
