@@ -96,8 +96,6 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/head/shadowling(H), ITEM_SLOT_HEAD)
 			H.set_species(/datum/species/shadow/ling) //can't be a shadowling without being a shadowling
 			H.mind.RemoveSpell(src)
-			if(!do_mob(H,H,10,1))
-				return
 			to_chat(H, span_shadowling("<b><i>Your powers are awoken. You may now live to your fullest extent. Remember your goal. Cooperate with your thralls and allies.</b></i>"))
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/enthrall(null))
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/sling/glare(null))
