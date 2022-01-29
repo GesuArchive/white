@@ -61,7 +61,7 @@
 		src.loot += pick(subtypesof(/obj/item/food/grown/mushroom))
 
 
-/mob/living/simple_animal/hostile/shrooman/death(gibbed)
+/mob/living/simple_animal/hostile/shrooman/death()
 	// On death, create a small smoke of harmful gas (s-Acid)
 	var/datum/effect_system/smoke_spread/chem/S = new
 	var/turf/location = get_turf(src)
