@@ -121,7 +121,7 @@ GLOBAL_LIST_INIT(alko_list, list("zarri", "maxsc", "nfogmann", "sanecman", "sran
 			return
 	else //otherwise just toggle it
 		GLOB.ooc_allowed = !GLOB.ooc_allowed
-	message_admins(span_bold("OOC [GLOB.ooc_allowed ? "включен" : "выключен"]."))
+	to_chat(world, "<B>Чат ООС был глобально [GLOB.ooc_allowed ? "включен" : "отключен"]!</B>")
 
 /proc/toggle_dooc(toggle = null)
 	if(toggle != null)
