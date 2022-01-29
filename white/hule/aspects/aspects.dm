@@ -452,7 +452,7 @@
 	SSjob.forced_name = "TATAR"
 	spawn(3 SECONDS)
 		for(var/mob/living/carbon/human/H in GLOB.mob_list)
-			H.fully_replace_character_name(H.real_name, "[SSjob.forced_name] \Roman[SSjob.forced_num]")
+			H.fully_replace_character_name(H.real_name, get_funny_name(3))
 			SSjob.forced_num++
 	..()
 /datum/round_aspect/key
