@@ -4108,6 +4108,7 @@
 #include "white\qwaszx000\winners.dm"
 #include "white\qwaszx000\loly\loly.dm"
 #include "white\rebolution228\map_stuff.dm"
+#include "white\rebolution228\copypasta\mapping_helpers.dm"
 #include "white\rebolution228\copypasta\mutations.dm"
 #include "white\rebolution228\copypasta\newyear_stuff.dm"
 #include "white\rebolution228\copypasta\spetsnaz.dm"

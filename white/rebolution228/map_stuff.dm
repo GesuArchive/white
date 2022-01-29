@@ -1250,13 +1250,3 @@
 
 /obj/effect/turf_decal/cataclysmdda/grass/alt
 	icon_state = "grassdecal2"
-
-
-/obj/effect/invisiblewall
-	name = "Invisible Wall"
-	icon = 'white/rebolution228/map_sprites.dmi'
-	icon_state = "blocker"
-	anchored = TRUE
-	density = 1
-	opacity = 0
-	invisibility = 101
