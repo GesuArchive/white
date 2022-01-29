@@ -9,9 +9,9 @@
 	earliest_start = 25 MINUTES
 
 /datum/round_event/meteor_wave
-	announceWhen = 	150
-	startWhen = 	1
-	endWhen = 		151
+	announceWhen = 	1
+	startWhen = 	6
+	endWhen = 		66
 	var/list/wave_type
 	var/wave_name = "normal"
 	var/start_x
