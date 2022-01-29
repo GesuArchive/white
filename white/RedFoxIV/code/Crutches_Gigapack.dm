@@ -124,7 +124,7 @@
 						"Ushat", \
 						"Ulov", \
 						"Buket", \
-						"Rekort", \
+						"Rekord", \
 						"Otryad", \
 						"Podriv", \
 						"Pogrom", \
