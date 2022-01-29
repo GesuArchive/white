@@ -194,3 +194,10 @@
 	if(prob(special_name_chance))
 		return pick(S)
 	return "[pick(L1)] [pick(L2)]"
+
+/proc/programmify(text, color1 = "#ff6090", color2 = "#eeeeee")
+	var/result
+	for(var/i = 1, i < length(text)+1, i += 2)
+		result += "<font color='[color1]'>[text[i]]</font>"
+		result += "<font color='[color2]'>[text[i+1]]</font>"
+	return result

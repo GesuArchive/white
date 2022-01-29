@@ -784,8 +784,8 @@
 
 
 /area/duel
-	name = "Дуэлянты"
-	icon_state = "duel"
+	name = "Дуэлянты: Арена"
+	icon_state = "duel_arena"
 	area_flags = NO_ALERTS | ABDUCTOR_PROOF | BLOCK_SUICIDE | HIDDEN_AREA | NOTELEPORT | UNIQUE_AREA
 	static_lighting = FALSE
 	requires_power = FALSE
@@ -793,11 +793,11 @@
 	base_lighting_alpha = 255
 	base_lighting_color = COLOR_WHITE
 
-/area/duel/arena
-	name = "Дуэлянты: Арена"
-	icon_state = "duel_arena"
+/area/duel/one
+/area/duel/two
+/area/duel/three
+/area/duel/four
 
-/obj/effect/landmark/duel_spawnpoint
 
 
 //GENERAL_PROTECT_DATUM(/obj/effect/duel_controller) // счастливой отладки // счастливой иди нахуй
@@ -818,7 +818,7 @@
 	var/duel_status = DUEL_NODUEL
 	var/list/mob/living/carbon/human/fighter1
 	var/list/mob/living/carbon/human/fighter2
-	
+	var/arena_area
 	var/bet
 	/// Время на каждый бой. Не меньше 30 секунд.
 	var/duel_timelimit = 60
@@ -827,24 +827,25 @@
 	/// Станы любого рода считаются за поражение.
 	var/stun_is_deadly = FALSE
 
-	var/obj/effect/landmark/duel_spawnpoint/first_spawnpoint
-	var/obj/effect/landmark/duel_spawnpoint/second_spawnpoint
+	var/obj/effect/duel_spawnpoint/first_spawnpoint
+	var/obj/effect/duel_spawnpoint/second_spawnpoint
 	var/list/banned_ckeys = list()
 
 	var/list/announcement_timers = list()
 
 /obj/effect/duel_controller/Initialize(mapload)
 	. = ..()
-	if(!istype(get_area(src), /area/duel/arena))
+	arena_area = get_area(src)
+	if(!istype(arena_area, /area/duel))
 		if(mapload)
-			stack_trace("Duel controller outside of /area/duel/arena. Check mapper's iq.")
+			stack_trace("Duel controller outside of /area/duel subtype. Check mapper's iq.")
 			qdel(src)
 			return
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/duel_controller/LateInitialize()
 	. = ..()
-	for(var/obj/effect/effect in get_area(src))
+	for(var/obj/effect/effect in arena_area)
 		if(effect == src)
 			continue
 		if(istype(effect, /obj/effect/duel_controller))
@@ -1042,7 +1043,7 @@
 	
 
 /obj/effect/duel_controller/proc/check(mob/living/carbon/human/D)
-	if(!istype(get_area(D), /area/duel/arena))
+	if(get_area(D) != arena_area)
 		to_chat(D, span_warning("<b>Вы покинули арену. [pick("Очень глупо с вашей стороны.", "Мнда.", "Лох..")]</b>"))
 		return TRUE
 
