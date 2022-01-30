@@ -1,11 +1,11 @@
 {
 	"recommendations": [
-		"arcanis.vscode-zipfs",
-		"dbaeumer.vscode-eslint",
-		"Donkie.vscode-tgstation-test-adapter",
-		"EditorConfig.EditorConfig",
 		"gbasood.byond-dm-language-support",
 		"platymuus.dm-langclient",
-		"stylemistake.auto-comment-blocks"
+		"EditorConfig.EditorConfig",
+		"arcanis.vscode-zipfs",
+		"dbaeumer.vscode-eslint",
+		"stylemistake.auto-comment-blocks",
+		"Donkie.vscode-tgstation-test-adapter"
 	]
 }
