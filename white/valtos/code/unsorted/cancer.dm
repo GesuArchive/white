@@ -27,7 +27,7 @@
 	var/phase = 1
 	var/list/introduced = list()
 	var/speen = FALSE
-	var/speenrange = 7
+	var/speenrange = 4
 	var/obj/savedloot = null
 	var/charging = FALSE
 	var/chargetiles = 0

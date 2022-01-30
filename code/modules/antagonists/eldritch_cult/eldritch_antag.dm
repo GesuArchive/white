@@ -88,7 +88,7 @@
 
 /datum/antagonist/heretic/process()
 
-	if(owner.current.stat == DEAD)
+	if(owner?.current?.stat == DEAD)
 		return
 
 	for(var/X in researched_knowledge)

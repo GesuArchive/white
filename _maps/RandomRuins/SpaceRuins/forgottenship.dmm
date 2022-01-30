@@ -654,8 +654,7 @@
 /obj/machinery/computer/security/telescreen/interrogation{
 	name = "Cameras monitor";
 	network = list("fsci");
-	req_one_access_txt = "150";
-	screen_loc = ""
+	req_one_access_txt = "150"
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)

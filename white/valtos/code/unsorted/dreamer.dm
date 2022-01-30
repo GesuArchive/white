@@ -1,7 +1,7 @@
 /datum/component/dreamer
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 
-	var/prob_variability = 10
+	var/prob_variability = 5
 	var/animation_intensity = 7
 	var/turf_plane
 	var/speak_probability = 7
@@ -181,26 +181,28 @@
 /datum/martial_art/dreamer
 	name = "Dreamer Willpower"
 	id = MARTIALART_DREAMER
+	smashes_tables = TRUE
+	block_chance = 75
 
-	var/chance_to_not_dodge = 25
-
-/datum/martial_art/dreamer/harm_act(mob/living/A, mob/living/D)
+/datum/martial_art/dreamer/disarm_act(mob/living/A, mob/living/D)
 	A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 	var/atk_verb = pick("лупит", "пинает", "вмазывает")
 	D.visible_message(span_danger("<b>[A]</b> [atk_verb] <b>[D]</b> с НЕВЕРОЯТНОЙ СИЛОЙ!"), \
-					span_userdanger("Пинаю <b>[D]</b> с НЕВЕРОЯТНОЙ СИЛОЙ!"), \
+					span_userdanger("<b>[A]</b> [atk_verb] меня с НЕВЕРОЯТНОЙ СИЛОЙ!"), \
 					span_hear("Слышу звук разрывающейся плоти!") , null, A)
-	D.apply_damage(rand(25, 50), A.get_attack_type())
+	to_chat(A, span_danger("Пинаю свинью <b>[D]</b>!"))
+	D.apply_damage(rand(5, 10), A.get_attack_type())
 	var/throwtarget = get_edge_target_turf(A, get_dir(A, get_step_away(D, A)))
 	playsound(get_turf(D), 'sound/effects/tableheadsmash.ogg', 50, TRUE, -1)
 	D.throw_at(throwtarget, rand(1, 3), 2, A, FALSE)
+	D.Paralyze(rand(10, 30))
 	if(atk_verb)
 		log_combat(A, D, "[atk_verb] (Dreamer Willpower)")
 	return TRUE
 
 /datum/martial_art/dreamer/on_projectile_hit(mob/living/A, obj/projectile/P, def_zone)
 	. = ..()
-	if(!isturf(A.loc) || prob(chance_to_not_dodge))
+	if(!isturf(A.loc) || !prob(block_chance))
 		return BULLET_ACT_HIT
 	else
 		A.visible_message(span_danger("<b>[A]</b> игнорирует попадание [P.name]!"), span_userdanger("Отвергаю существование [P.name]!"))

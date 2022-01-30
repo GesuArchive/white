@@ -356,7 +356,7 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 
 	if(!offerer.CanReach(taker))
 		to_chat(owner, span_warning("You moved out of range of [offerer]!"))
-		owner.clear_alert("[offerer]")
+		owner?.clear_alert("[offerer]")
 
 /atom/movable/screen/alert/give/highfive/setup(mob/living/carbon/taker, mob/living/carbon/offerer, obj/item/receiving)
 	. = ..()
