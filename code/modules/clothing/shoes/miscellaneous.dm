@@ -150,10 +150,6 @@
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	can_be_tied = FALSE
 
-/obj/item/clothing/shoes/jackboots/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/squeak, list('white/valtos/sounds/suitstep1.ogg' = 1, 'white/valtos/sounds/suitstep2.ogg' = 1), 25, 75, falloff_exponent = 20)
-
 /obj/item/clothing/shoes/jackboots/fast
 	slowdown = -1
 
