@@ -816,8 +816,8 @@
 	invisibility = INVISIBILITY_OBSERVER
 	var/duel_outfit = /datum/outfit/artist
 	var/duel_status = DUEL_NODUEL
-	var/list/mob/living/carbon/human/fighter1
-	var/list/mob/living/carbon/human/fighter2
+	var/mob/living/carbon/human/fighter1
+	var/mob/living/carbon/human/fighter2
 	var/arena_area
 	var/bet
 	/// Время на каждый бой. Не меньше 30 секунд.
@@ -934,7 +934,7 @@
 	else
 		fighter2 = H
 		start_duel()
-		
+
 
 /obj/effect/duel_controller/proc/start_duel()
 
@@ -988,7 +988,7 @@
 		to_chat(fighter2, msg)
 
 /obj/effect/duel_controller/proc/announce_timer(msg, time, in_before_duel_timeout = TRUE)
-	if(in_before_duel_timeout)	
+	if(in_before_duel_timeout)
 		announcement_timers += addtimer(CALLBACK(src, .proc/announce, msg), duel_timelimit SECONDS - time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
 	else
 		announcement_timers += addtimer(CALLBACK(src, .proc/announce, msg), time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
@@ -1010,7 +1010,7 @@
 		if(DUEL_TIMEOUT)
 			msg = "Время вышло, никто так и не победил. Деньги ушли в фонд борьбы с Валтосом."
 			pay_mul = 0
-	
+
 
 	if(!first_lost)
 		//inc_metabalance(fighter1, bet*pay_mul, TRUE, msg)
@@ -1040,7 +1040,7 @@
 		STOP_PROCESSING(SSfastprocess, src)
 		finish_duel(DUEL_FINISH, first_lost, second_lost)
 		return
-	
+
 
 /obj/effect/duel_controller/proc/check(mob/living/carbon/human/D)
 	if(get_area(D) != arena_area)
@@ -1054,7 +1054,7 @@
 		else
 			announce("<b>Вы проиграли. [pick("Повезёт в следующий раз.", "Лох.", "На это было смешно смотреть.")]</b>")
 			return TRUE
-		
+
 
 
 #undef DUEL_NODUEL
