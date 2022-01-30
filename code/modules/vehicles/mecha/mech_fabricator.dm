@@ -121,8 +121,6 @@
 		var/datum/material/M = c
 		cost[M.name] = get_resource_cost_w_coeff(D, M)
 
-	var/obj/built_item = D.build_path
-
 	var/list/category_override = null
 
 	var/list/part = list(
