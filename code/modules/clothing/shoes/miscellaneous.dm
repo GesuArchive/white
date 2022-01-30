@@ -16,10 +16,6 @@
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	lace_time = 12 SECONDS
 
-/obj/item/clothing/shoes/combat/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/squeak, list('white/valtos/sounds/suitstep1.ogg' = 1, 'white/valtos/sounds/suitstep2.ogg' = 1), 25, 75, falloff_exponent = 20)
-
 /obj/item/clothing/shoes/combat/sneakboots
 	name = "скрытные ботинки"
 	desc = "Это ботинки со специальной шумоподавляющей подошвой. Были бы идеальны для скрытного проникновения, если бы не их цветовая гамма."
