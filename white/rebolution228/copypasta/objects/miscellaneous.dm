@@ -79,7 +79,7 @@
 				user.visible_message(span_notice("[user] тушит [cig] об пепельницу."))
 				var/obj/item/butt = new cig.type_butt(src)
 				cig.transfer_fingerprints_to(butt)
-				del(cig)
+				qdel(cig)
 			else if (cig.lit == 0)
 				to_chat(user, span_notice("Пепельница явно не для того, чтобы складывать туда простые сигареты."))
 				return
