@@ -8889,7 +8889,7 @@
 /obj/item/airlock_painter,
 /obj/structure/lattice,
 /obj/structure/closet,
-/turf/open/openspace/airless,
+/turf/open/space/basic,
 /area/space/nearstation)
 "tN" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -9940,10 +9940,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
-"wc" = (
-/obj/structure/lattice,
-/turf/open/openspace/airless,
-/area/space/nearstation)
 "wd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -39232,7 +39228,7 @@ Zm
 yS
 yS
 tM
-wc
+PG
 yS
 Zm
 Zm

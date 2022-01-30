@@ -563,6 +563,9 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Зона отдыха: Женская раздевалка"
 	icon_state = "locker_female"
 
+/area/commons/spacepod_docks
+	name = "Прибытие: Точка прибытия спейсподов"
+	icon_state = "locker_female" // впадлу иконку пилить
 
 /area/commons/fitness/recreation
 	name = "Зона отдыха"

@@ -1192,7 +1192,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 9
 	},
-/obj/structure/closet/firecloset,
 /turf/open/floor/plating,
 /area/maintenance/fore)
 "akP" = (
@@ -7251,8 +7250,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/command/gateway)
 "aEV" = (
-/obj/structure/rack,
-/obj/effect/spawner/lootdrop/maintenance/two,
+/obj/structure/closet/firecloset,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/maintenance/fore)
 "aEY" = (
@@ -12469,14 +12467,14 @@
 /area/maintenance/port)
 "bbZ" = (
 /turf/closed/wall/r_wall,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "bca" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "bcb" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
@@ -14031,6 +14029,8 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
+/obj/structure/closet,
+/obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plating,
 /area/maintenance/port)
 "bjg" = (
@@ -30329,7 +30329,7 @@
 /area/cargo/sorting)
 "cNN" = (
 /turf/closed/wall,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "cNR" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -30516,7 +30516,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "cRS" = (
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
@@ -31388,7 +31388,7 @@
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "dyD" = (
 /obj/structure/chair,
 /turf/open/floor/plating,
@@ -32260,7 +32260,7 @@
 	dir = 1
 	},
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "ewM" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/docking_port/stationary/random/icemoon{
@@ -32634,7 +32634,7 @@
 	dir = 8
 	},
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "eVy" = (
 /turf/open/floor/plasteel/monofloor,
 /area/maintenance/fore/upper)
@@ -32768,6 +32768,9 @@
 "ffV" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/entry)
@@ -33083,6 +33086,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/science/robotics)
+"fwC" = (
+/obj/structure/cable,
+/obj/structure/closet/firecloset,
+/turf/open/floor/plating,
+/area/maintenance/fore)
 "fxj" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -33604,7 +33612,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "geE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 5
@@ -33918,7 +33926,7 @@
 /area/space/nearstation)
 "gvF" = (
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "gvI" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -34054,7 +34062,7 @@
 	pixel_x = 32
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "gCA" = (
 /obj/machinery/disposal/bin,
 /obj/structure/window/reinforced{
@@ -34342,7 +34350,7 @@
 	dir = 1
 	},
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "gQv" = (
 /obj/machinery/light/floor/directional/south,
 /turf/open/floor/plasteel/monofloor,
@@ -34576,7 +34584,7 @@
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "hdj" = (
 /obj/structure/ladder,
 /obj/effect/decal/cleanable/dirt,
@@ -35147,6 +35155,19 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/cargo/miningdock)
+"hJK" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/hallway/secondary/entry)
 "hKG" = (
 /obj/structure/cable,
 /obj/structure/lattice/catwalk,
@@ -35462,7 +35483,7 @@
 	dir = 10
 	},
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "ico" = (
 /obj/machinery/door/airlock/research{
 	name = "Xenobiology Lab";
@@ -36135,7 +36156,7 @@
 /obj/structure/cable,
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plasteel/dark,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "jaL" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -36165,7 +36186,7 @@
 	pixel_y = 24
 	},
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "jeT" = (
 /obj/machinery/door/airlock/command/glass{
 	name = "Research Director";
@@ -37528,9 +37549,7 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 1
 	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/plasteel/grimy,
 /area/hallway/secondary/entry/south)
 "kJd" = (
@@ -38061,8 +38080,8 @@
 /obj/effect/turf_decal/tile/neutral,
 /obj/machinery/light,
 /obj/structure/closet/secure_closet/personal,
-/obj/item/stack/spacecash/c1000,
 /obj/effect/turf_decal/bot,
+/obj/item/stack/spacecash/c200,
 /turf/open/floor/plasteel,
 /area/commons/vacant_room)
 "lwo" = (
@@ -38207,7 +38226,7 @@
 	dir = 8
 	},
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "lCd" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -38382,7 +38401,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "lJB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/layer_manifold/visible,
@@ -38673,7 +38692,7 @@
 "mbn" = (
 /obj/effect/turf_decal/box/corners,
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "mbX" = (
 /obj/structure/chair{
 	dir = 1
@@ -38948,7 +38967,7 @@
 	dir = 1
 	},
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "mzW" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -38992,7 +39011,7 @@
 	dir = 1
 	},
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "mFD" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Space Pods";
@@ -39056,7 +39075,7 @@
 "mJV" = (
 /obj/machinery/light/floor/directional/north,
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "mKh" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -39285,7 +39304,7 @@
 	dir = 5
 	},
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "ndH" = (
 /obj/structure/sign/painting/library,
 /turf/closed/wall,
@@ -39385,7 +39404,7 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "nhK" = (
 /obj/effect/landmark/start/medical_doctor,
 /obj/structure/cable,
@@ -39629,7 +39648,7 @@
 /obj/machinery/door/airlock/public/glass,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "ntc" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -39925,7 +39944,7 @@
 "nGZ" = (
 /obj/machinery/light/floor/directional/west,
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "nHd" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -40140,7 +40159,7 @@
 	dir = 9
 	},
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "nTy" = (
 /obj/structure/sign/picture_frame/showroom/four{
 	pixel_y = 32
@@ -40350,7 +40369,7 @@
 	},
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plasteel/dark,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "oeS" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -40628,6 +40647,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/effect/turf_decal/tile/blue,
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/entry)
 "ovq" = (
@@ -41207,7 +41227,7 @@
 	},
 /obj/machinery/door/airlock/public/glass,
 /turf/open/floor/plasteel/dark,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "pcT" = (
 /obj/machinery/light{
 	dir = 1;
@@ -41760,7 +41780,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "pGt" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 9
@@ -42035,7 +42055,7 @@
 	pixel_y = -32
 	},
 /turf/open/floor/plasteel/dark,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "pSN" = (
 /obj/effect/turf_decal/tile/purple,
 /obj/effect/turf_decal/tile/purple{
@@ -42489,7 +42509,7 @@
 "qrm" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "qrH" = (
 /obj/machinery/door/window/westleft{
 	base_state = "right";
@@ -42713,7 +42733,7 @@
 	},
 /obj/machinery/camera/autoname,
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "qKu" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -42951,7 +42971,7 @@
 	},
 /obj/structure/closet/secure_closet/engineering_welding,
 /turf/open/floor/plasteel/dark,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "qWw" = (
 /obj/structure/chair{
 	dir = 1
@@ -44258,7 +44278,7 @@
 	dir = 6
 	},
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "sFL" = (
 /obj/structure/closet,
 /obj/effect/spawner/lootdrop/maintenance/two,
@@ -45760,7 +45780,7 @@
 	pixel_y = 23
 	},
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "uxp" = (
 /obj/structure/table,
 /obj/item/paper_bin{
@@ -46152,7 +46172,7 @@
 "uTV" = (
 /obj/machinery/light/floor/directional/east,
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "uUp" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
@@ -47592,7 +47612,7 @@
 "wwi" = (
 /obj/machinery/light/floor/directional/south,
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "wxu" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/plasteel/white,
@@ -48187,7 +48207,7 @@
 	pixel_y = -29
 	},
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "xdF" = (
 /obj/structure/sign/warning/nosmoking{
 	pixel_x = -25
@@ -48600,7 +48620,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/service/electronic_marketing_den)
+/area/commons/spacepod_docks)
 "xBQ" = (
 /obj/machinery/light{
 	dir = 8
@@ -59357,7 +59377,7 @@ ptd
 kiB
 hoH
 kiB
-fZo
+hJK
 jKx
 wbI
 aOg
@@ -60124,7 +60144,7 @@ dti
 rxu
 mjy
 dEM
-ptd
+kiB
 kiB
 eJf
 kiB
@@ -64261,7 +64281,7 @@ aSg
 aSg
 aYf
 aSg
-aQL
+aSg
 aPz
 sfq
 oLz
@@ -74250,7 +74270,7 @@ aph
 aph
 aph
 aph
-apS
+fwC
 aqR
 axt
 cyg
