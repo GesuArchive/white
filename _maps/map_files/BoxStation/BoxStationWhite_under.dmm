@@ -784,7 +784,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/space)
+/area/maintenance/solars/starboard/aft)
 "bP" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -1329,7 +1329,7 @@
 "di" = (
 /obj/structure/sign/warning/securearea,
 /turf/closed/wall/r_wall,
-/area/space)
+/area/maintenance/solars/starboard/aft)
 "dj" = (
 /turf/closed/wall,
 /area/commons/dorms)
@@ -2710,7 +2710,7 @@
 	dir = 5
 	},
 /turf/open/floor/plasteel/dark,
-/area/space)
+/area/maintenance/solars/starboard/aft)
 "gq" = (
 /obj/structure/displaycase/trophy,
 /obj/structure/extinguisher_cabinet/directional/north,
@@ -3767,7 +3767,7 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
-/area/space)
+/area/maintenance/solars/starboard/aft)
 "iH" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -4463,7 +4463,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/space)
+/area/maintenance/solars/starboard/aft)
 "kg" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
@@ -8725,7 +8725,7 @@
 	pixel_y = -23
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/space)
+/area/maintenance/solars/starboard/aft)
 "ts" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/grille/broken,
@@ -12485,7 +12485,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/space)
+/area/maintenance/solars/starboard/aft)
 "BH" = (
 /obj/structure/chair/stool{
 	pixel_y = 8
@@ -12649,7 +12649,7 @@
 /area/cargo/meeting_room)
 "Cb" = (
 /turf/open/floor/plasteel/monofloor,
-/area/space)
+/area/maintenance/solars/starboard/aft)
 "Cc" = (
 /obj/machinery/atmospherics/components/binary/pump,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -16991,7 +16991,7 @@
 /area/commons/fitness/kachalka)
 "LP" = (
 /turf/closed/wall/r_wall,
-/area/space)
+/area/maintenance/solars/starboard/aft)
 "LQ" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -22831,7 +22831,7 @@
 	dir = 5
 	},
 /turf/open/floor/plasteel/monofloor,
-/area/space)
+/area/maintenance/solars/starboard/aft)
 "Zh" = (
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
