@@ -434,8 +434,8 @@
 		return TRUE
 
 	cheek_kiss = (offerer.zone_selected != BODY_ZONE_PRECISE_MOUTH)
-	offerer.visible_message(span_notice("[offerer] слегка наклоняется, предлагая поцеловать [offerer.ru_ego()][cheek_kiss ? " в щеку" : ""]!"),
-		span_notice("Немного наклоняюсь, предлагая поцеловать меня[cheek_kiss ? " в щеку" : ""]!"), null, 2)
+	offerer.visible_message(span_notice("[offerer] слегка наклоняется, предлагая поцелуй [cheek_kiss ? " в щеку" : ""]!"),
+		span_notice("Немного наклоняюсь, предлагая поцелуй[cheek_kiss ? " в щеку" : ""]!"), null, 2)
 	offerer.apply_status_effect(STATUS_EFFECT_OFFERING, src)
 	return TRUE
 
