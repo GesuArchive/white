@@ -9,3 +9,4 @@
 #define MARTIALART_CQC "CQC"
 #define MARTIALART_PLASMAFIST "plasma fist"
 #define MARTIALART_DAGESTAN "shaitanka"
+#define MARTIALART_DREAMER "dreamer willpower"

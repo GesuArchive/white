@@ -5,9 +5,9 @@
 	var/animation_intensity = 7
 	var/turf_plane
 	var/speak_probability = 7
+	var/turf_loop_duration = 3
 
 	var/mob/living/carbon/human/our_dreamer
-	var/list/fucked_turfs = list()
 
 /datum/component/dreamer/Initialize()
 	if(!ishuman(parent))
@@ -23,8 +23,13 @@
 
 	make_sounds()
 
+	var/datum/martial_art/dreamer/dream = new(null)
+	dream.teach(our_dreamer)
+
 	if(our_dreamer?.dna?.species)
 		our_dreamer.dna.species.armor = 50
+		our_dreamer.dna.species.brutemod = 0.5
+		our_dreamer.dna.species.burnmod = 0.5
 		our_dreamer.dna.species.heatmod = 0.1
 		our_dreamer.dna.species.coldmod = 0.1
 		our_dreamer.dna.species.stunmod = 0.1
@@ -38,8 +43,6 @@
 	SIGNAL_HANDLER
 
 	var/client/C = our_dreamer.client
-
-	fucked_turfs = list()
 
 	if(C.prefs.toggles & SOUND_SHIP_AMBIENCE)
 		C.prefs.toggles ^= SOUND_SHIP_AMBIENCE
@@ -58,11 +61,19 @@
 /datum/component/dreamer/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOB_SAY, .proc/handle_speech)
 	RegisterSignal(parent, COMSIG_MOB_LOGIN, .proc/make_sounds)
+	ADD_TRAIT(parent, TRAIT_SHOCKIMMUNE, "dreamer")
+	ADD_TRAIT(parent, TRAIT_STUNIMMUNE,  "dreamer")
+	ADD_TRAIT(parent, TRAIT_SLEEPIMMUNE, "dreamer")
+	ADD_TRAIT(parent, TRAIT_NODEATH, 	 "dreamer") // just can't
 	return
 
 /datum/component/dreamer/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOB_SAY)
 	UnregisterSignal(parent, COMSIG_MOB_LOGIN)
+	REMOVE_TRAIT(parent, TRAIT_SHOCKIMMUNE, "dreamer")
+	REMOVE_TRAIT(parent, TRAIT_STUNIMMUNE,  "dreamer")
+	REMOVE_TRAIT(parent, TRAIT_SLEEPIMMUNE, "dreamer")
+	REMOVE_TRAIT(parent, TRAIT_NODEATH, 	"dreamer")
 	return
 
 /datum/component/dreamer/Destroy()
@@ -76,8 +87,6 @@
 	for(var/turf/T in RANGE_TURFS(15, our_dreamer))
 		if(!prob(prob_variability))
 			continue
-		if(T in fucked_turfs)
-			continue
 		if(isgroundlessturf(T))
 			continue
 		var/image/I = image(icon = T.icon, icon_state = T.icon_state, loc = T)
@@ -89,10 +98,9 @@
 		var/matrix/M = matrix()
 		M.Translate(0, rand(-animation_intensity, animation_intensity))
 
-		animate(I, transform = M, time = rand(animation_intensity * 2, animation_intensity * 4), loop = -1, easing = SINE_EASING)
+		animate(I, transform = M, time = rand(animation_intensity * 2, animation_intensity * 4), loop = turf_loop_duration, easing = SINE_EASING)
 		animate(transform = null, time = rand(animation_intensity * 2, animation_intensity * 4), easing = SINE_EASING)
 
-		fucked_turfs += T
 		fuckfloorlist += I
 
 	our_dreamer.heal_overall_damage(5, 5, 5)
@@ -164,3 +172,35 @@
 
 	spawn(rand(10, 50))
 		SEND_SOUND(our_dreamer, pick(RANDOM_DREAMER_SOUNDS))
+
+/datum/martial_art/dreamer
+	name = "Dreamer Willpower"
+	id = MARTIALART_DREAMER
+
+	var/chance_to_not_dodge = 25
+
+/datum/martial_art/dreamer/harm_act(mob/living/A, mob/living/D)
+	A.do_attack_animation(D, ATTACK_EFFECT_KICK)
+	var/atk_verb = pick("лупит", "пинает", "вмазывает")
+	D.visible_message(span_danger("<b>[A]</b> [atk_verb] <b>[D]</b> с НЕВЕРОЯТНОЙ СИЛОЙ!"), \
+					span_userdanger("Пинаю <b>[D]</b> с НЕВЕРОЯТНОЙ СИЛОЙ!"), \
+					span_hear("Слышу звук разрывающейся плоти!") , null, A)
+	D.apply_damage(rand(15,30), A.get_attack_type())
+	var/throwtarget = get_edge_target_turf(A, get_dir(A, get_step_away(D, A)))
+	D.throw_at(throwtarget, 4, 2, A)
+	if(atk_verb)
+		log_combat(A, D, "[atk_verb] (Dreamer Willpower)")
+	return TRUE
+
+
+/datum/martial_art/dreamer/on_projectile_hit(mob/living/A, obj/projectile/P, def_zone)
+	. = ..()
+	var/datum/dna/dna = A.has_dna()
+	if(!isturf(A.loc) || prob(chance_to_not_dodge))
+		return BULLET_ACT_HIT
+	else
+		A.visible_message(span_danger("<b>[A]</b> отражает снаряд рукой!") , span_userdanger("Отражаю снаряд!"))
+		playsound(get_turf(A), pick('sound/weapons/bulletflyby.ogg', 'sound/weapons/bulletflyby2.ogg', 'sound/weapons/bulletflyby3.ogg'), 75, TRUE)
+		P.firer = A
+		P.set_angle(rand(0, 360))
+		return BULLET_ACT_FORCE_PIERCE
