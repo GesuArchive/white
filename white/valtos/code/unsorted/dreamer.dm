@@ -195,7 +195,6 @@
 
 /datum/martial_art/dreamer/on_projectile_hit(mob/living/A, obj/projectile/P, def_zone)
 	. = ..()
-	var/datum/dna/dna = A.has_dna()
 	if(!isturf(A.loc) || prob(chance_to_not_dodge))
 		return BULLET_ACT_HIT
 	else
