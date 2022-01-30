@@ -1,7 +1,7 @@
 /datum/component/dreamer
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 
-	var/prob_variability = 23
+	var/prob_variability = 10
 	var/animation_intensity = 7
 	var/turf_plane
 	var/speak_probability = 7
@@ -98,10 +98,14 @@
 		var/matrix/M = matrix()
 		M.Translate(0, rand(-animation_intensity, animation_intensity))
 
-		animate(I, transform = M, time = rand(animation_intensity * 2, animation_intensity * 4), loop = turf_loop_duration, easing = SINE_EASING)
-		animate(transform = null, time = rand(animation_intensity * 2, animation_intensity * 4), easing = SINE_EASING)
+		var/ttd = rand(animation_intensity * 2, animation_intensity * 4)
+
+		animate(I, transform = M, time = ttd, loop = rand(1, turf_loop_duration), easing = SINE_EASING)
+		animate(transform = null, time = ttd, easing = SINE_EASING)
 
 		fuckfloorlist += I
+
+		QDEL_IN(I, ttd)
 
 	our_dreamer.heal_overall_damage(5, 5, 5)
 	our_dreamer.setOxyLoss(0)
@@ -170,8 +174,9 @@
 			INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_overlay, list(our_dreamer?.client), 30)
 			our_dreamer.Hear(what_we_should_say, A, our_dreamer.get_random_understood_language(), what_we_should_say)
 
-	spawn(rand(10, 50))
-		SEND_SOUND(our_dreamer, pick(RANDOM_DREAMER_SOUNDS))
+	if(prob(23))
+		spawn(rand(10, 50))
+			SEND_SOUND(our_dreamer, pick(RANDOM_DREAMER_SOUNDS))
 
 /datum/martial_art/dreamer
 	name = "Dreamer Willpower"
@@ -185,21 +190,19 @@
 	D.visible_message(span_danger("<b>[A]</b> [atk_verb] <b>[D]</b> с НЕВЕРОЯТНОЙ СИЛОЙ!"), \
 					span_userdanger("Пинаю <b>[D]</b> с НЕВЕРОЯТНОЙ СИЛОЙ!"), \
 					span_hear("Слышу звук разрывающейся плоти!") , null, A)
-	D.apply_damage(rand(15,30), A.get_attack_type())
+	D.apply_damage(rand(25, 50), A.get_attack_type())
 	var/throwtarget = get_edge_target_turf(A, get_dir(A, get_step_away(D, A)))
-	D.throw_at(throwtarget, 4, 2, A)
+	playsound(get_turf(D), 'sound/effects/tableheadsmash.ogg', 50, TRUE, -1)
+	D.throw_at(throwtarget, rand(1, 3), 2, A, FALSE)
 	if(atk_verb)
 		log_combat(A, D, "[atk_verb] (Dreamer Willpower)")
 	return TRUE
-
 
 /datum/martial_art/dreamer/on_projectile_hit(mob/living/A, obj/projectile/P, def_zone)
 	. = ..()
 	if(!isturf(A.loc) || prob(chance_to_not_dodge))
 		return BULLET_ACT_HIT
 	else
-		A.visible_message(span_danger("<b>[A]</b> отражает снаряд рукой!") , span_userdanger("Отражаю снаряд!"))
-		playsound(get_turf(A), pick('sound/weapons/bulletflyby.ogg', 'sound/weapons/bulletflyby2.ogg', 'sound/weapons/bulletflyby3.ogg'), 75, TRUE)
-		P.firer = A
-		P.set_angle(rand(0, 360))
-		return BULLET_ACT_FORCE_PIERCE
+		A.visible_message(span_danger("<b>[A]</b> игнорирует попадание [P.name]!"), span_userdanger("Отвергаю существование [P.name]!"))
+		qdel(P)
+		return BULLET_ACT_BLOCK
