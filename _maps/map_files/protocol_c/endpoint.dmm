@@ -3323,6 +3323,9 @@
 /obj/structure/flora/grass/brown,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/awaymission/chilly/surface)
+"mx" = (
+/turf/open/floor/dz/green,
+/area/centcom/control)
 "mz" = (
 /obj/machinery/light{
 	dir = 4
@@ -8270,6 +8273,7 @@
 	},
 /obj/structure/fans/tiny/invisible,
 /obj/effect/turf_decal/stripes/box,
+/obj/machinery/door/poddoor/shutters/indestructible,
 /turf/open/floor/plasteel/elevatorshaft,
 /area/centcom/control)
 "DT" = (
@@ -9087,9 +9091,6 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
 /area/tdome/arena)
-"Hg" = (
-/turf/open/floor/dz/green,
-/area/centcom/control)
 "Hh" = (
 /obj/structure/grille/indestructable/shocking,
 /obj/structure/cable,
@@ -25838,9 +25839,9 @@ Yj
 xP
 AZ
 As
-Hg
-Hg
-Hg
+mx
+mx
+mx
 xP
 AZ
 As
@@ -26095,9 +26096,9 @@ Yj
 Aw
 Aw
 Aw
-Hg
+mx
 zt
-Hg
+mx
 Aw
 Aw
 Aw
@@ -26352,9 +26353,9 @@ Yj
 AS
 Bp
 AA
-Hg
-Hg
-Hg
+mx
+mx
+mx
 AS
 Bp
 AA
