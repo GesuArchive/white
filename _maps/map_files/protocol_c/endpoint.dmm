@@ -6963,8 +6963,7 @@
 /turf/closed/indestructible/wood,
 /area/centcom/holding)
 "zt" = (
-/obj/structure/fluff/hedge,
-/turf/open/floor/wood,
+/turf/open/floor/dz/green,
 /area/centcom/that_zone)
 "zu" = (
 /obj/effect/turf_decal/trimline/neutral/line{
@@ -9088,6 +9087,9 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
 /area/tdome/arena)
+"Hg" = (
+/turf/open/floor/dz/green,
+/area/centcom/control)
 "Hh" = (
 /obj/structure/grille/indestructable/shocking,
 /obj/structure/cable,
@@ -25836,9 +25838,9 @@ Yj
 xP
 AZ
 As
-xP
-AZ
-As
+Hg
+Hg
+Hg
 xP
 AZ
 As
@@ -26093,9 +26095,9 @@ Yj
 Aw
 Aw
 Aw
-Aw
+Hg
 zt
-Aw
+Hg
 Aw
 Aw
 Aw
@@ -26350,9 +26352,9 @@ Yj
 AS
 Bp
 AA
-AS
-Bp
-AA
+Hg
+Hg
+Hg
 AS
 Bp
 AA
