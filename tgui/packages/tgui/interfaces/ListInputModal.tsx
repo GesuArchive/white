@@ -66,10 +66,9 @@ export const ListInputModal = (_, context) => {
     setSearchBarVisible(true);
   };
   // User presses a letter key with no searchbar visible
-  const onLetterSearch = (key: number) => {
-    const keyChar = String.fromCharCode(key);
+  const onLetterSearch = (key: String) => {
     const foundItem = items.find((item) => {
-      return item?.toLowerCase().startsWith(keyChar?.toLowerCase());
+      return item?.toLowerCase().startsWith(key?.toLowerCase());
     });
     if (foundItem) {
       const foundIndex = items.indexOf(foundItem);
@@ -118,7 +117,7 @@ export const ListInputModal = (_, context) => {
           }
           if (!searchBarVisible && keyCode >= KEY_A && keyCode <= KEY_Z) {
             event.preventDefault();
-            onLetterSearch(keyCode);
+            onLetterSearch(event.key);
           }
           if (keyCode === KEY_ESCAPE) {
             event.preventDefault();
