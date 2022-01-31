@@ -82,8 +82,8 @@
 	new /obj/item/stack/cable_coil(src)
 	new /obj/item/stack/cable_coil(src)
 
-/datum/design/cable_coil
-	name = "Моток кабеля"
+/datum/design/cable_coil_box
+	name = "Комплект проводов"
 	id = "cable_coil_box"
 	build_type = MECHFAB
 	construction_time = 60
