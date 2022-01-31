@@ -72,7 +72,7 @@
 	return (BRUTELOSS)
 
 /obj/item/wirecutters/abductor
-	name = "чужеродные кусачки"
+	name = "инопланетные кусачки"
 	desc = "Очень острые канаторезы, изготовленные из серебристо-зеленого металла."
 	icon = 'icons/obj/abductor.dmi'
 	icon_state = "cutters"

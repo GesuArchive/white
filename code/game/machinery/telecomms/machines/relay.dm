@@ -7,9 +7,9 @@
 */
 
 /obj/machinery/telecomms/relay
-	name = "telecommunication relay"
+	name = "Телекоммуникационный ретранслятор"
 	icon_state = "relay"
-	desc = "A mighty piece of hardware used to send massive amounts of data far away."
+	desc = "Мощное аппаратное обеспечение, используемое для передачи огромных объемов данных на огромное расстояние."
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 30

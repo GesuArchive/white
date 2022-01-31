@@ -73,7 +73,7 @@
 	maxstack = 32
 
 /datum/surgery/teeth_reinsertion
-	name = "вставка зуба"
+	name = "Вставка зуба"
 	steps = list(/datum/surgery_step/handle_teeth)
 	possible_locs = list("mouth")
 

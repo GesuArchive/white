@@ -1,6 +1,6 @@
 /obj/vehicle/sealed/mecha/combat/gygax
-	desc = "A lightweight, security exosuit. Popular among private and corporate security."
-	name = "\improper Gygax"
+	desc = "Легкий боевой экзокостюм. Популярен среди наемников и корпоративных армий."
+	name = "Гигакс"
 	icon_state = "gygax"
 	allow_diagonal_movement = TRUE
 	movedelay = 3

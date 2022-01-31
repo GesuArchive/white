@@ -4020,6 +4020,7 @@
 #include "white\deda565\Hecate.dm"
 #include "white\deda565\Huesoslist.dm"
 #include "white\deda565\prikol.dm"
+#include "white\Feline\code\general\designes.dm"
 #include "white\Feline\code\general\equipment_all.dm"
 #include "white\Feline\code\general\techfab.dm"
 #include "white\Feline\code\med\designes.dm"

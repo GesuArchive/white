@@ -53,6 +53,11 @@
 	bound_width = 96
 	dir = EAST
 
+/obj/machinery/door/poddoor/multi_tile/three_tile_hor/preopen
+	icon_state = "open"
+	density = FALSE
+	opacity = FALSE
+
 /obj/machinery/door/poddoor/multi_tile/two_tile_hor/
 	icon = 'white/valtos/icons/spacepods/doors/1x2blast_hor.dmi'
 	bound_width = 64

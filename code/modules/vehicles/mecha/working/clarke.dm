@@ -1,7 +1,7 @@
 ///Lavaproof, fireproof, fast mech with low armor and higher energy consumption, cannot strafe and has an internal ore box.
 /obj/vehicle/sealed/mecha/working/clarke
-	desc = "Combining man and machine for a better, stronger engineer. Can even resist lava!"
-	name = "\improper Clarke"
+	desc = "Экзокостюм разработанный в равной степени для горнодобывающей и инженерной отрасли. Имеет 7 универсальных слотов для крепежа инженерного оборудования, оснащен интегрированным танком для руды и лавастойкими траками."
+	name = "Кларк"
 	icon_state = "clarke"
 	max_temperature = 65000
 	max_integrity = 200

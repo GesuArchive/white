@@ -49,22 +49,23 @@
 
 	/// A list of categories that valid MECHFAB design datums will broadly categorise themselves under.
 	var/list/part_sets = list(
-								"Cyborg",
-								"Ripley",
-								"Odysseus",
-								"Clarke",
-								"Gygax",
-								"Durand",
-								"H.O.N.K",
-								"Phazon",
-								"Savannah-Ivanov",
-								"Модули экзоскелетов",
+								"Киборги",
+								"Модули киборгов",
+								"Рипли",
+								"Одиссей",
+								"Кларк",
+								"Гигакс",
+								"Дюранд",
+								"Х.О.Н.К",
+								"Фазон",
+								"Саванна-Иванов",
+								"Модули экзокостюмов",
+								"Орудийные модули",
 								"Аммуниция",
-								"Улучшения киборгов",
+								"Управление",
 								"Кибернетика",
 								"Импланты",
-								"Управление",
-								"Разное"
+								"Батареи и прочее"
 								)
 
 /obj/machinery/mecha_part_fabricator/Initialize(mapload)

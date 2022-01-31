@@ -133,14 +133,32 @@
 /area/medical/sleeper)
 "cq" = (
 /obj/structure/table/glass,
-/obj/item/storage/firstaid/toxin{
-	pixel_x = 3;
+/obj/structure/window/reinforced,
+/obj/item/storage/firstaid/fire{
+	pixel_x = 7;
 	pixel_y = 3
 	},
-/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/fire{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = -1;
+	pixel_y = -1
+	},
 /obj/item/storage/firstaid/regular{
-	pixel_x = -3;
+	pixel_x = -5;
 	pixel_y = -3
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
 	},
 /obj/machinery/door/window/northleft{
 	dir = 8;
@@ -148,21 +166,12 @@
 	red_alert_access = 1;
 	req_access_txt = "5"
 	},
-/obj/structure/window/reinforced,
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/blue,
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plasteel/dark,
 /area/medical/storage)
 "cs" = (
-/obj/structure/extinguisher_cabinet/directional/east,
+/obj/structure/extinguisher_cabinet/directional/east{
+	pixel_x = 38
+	},
 /obj/machinery/reagentgrinder{
 	pixel_y = 2
 	},
@@ -173,9 +182,8 @@
 	},
 /obj/machinery/button/door{
 	id = "durka_quarantine";
-	name = "Quarantine";
-	pixel_x = 32;
-	pixel_y = 32
+	name = "Карантин";
+	pixel_x = 25
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/virology)
@@ -264,6 +272,10 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/fans/tiny,
+/obj/machinery/door/poddoor/preopen{
+	id = "durka_hub";
+	name = "Panic Bunker"
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/lobby)
 "dU" = (
@@ -283,13 +295,31 @@
 /area/medical/medbay/central)
 "eh" = (
 /obj/structure/table/glass,
-/obj/item/storage/firstaid/fire{
-	pixel_x = 3;
+/obj/structure/window/reinforced,
+/obj/item/storage/firstaid/toxin{
+	pixel_x = -7;
 	pixel_y = 3
 	},
-/obj/item/storage/firstaid/fire,
-/obj/item/storage/firstaid/regular{
+/obj/item/storage/firstaid/toxin{
 	pixel_x = -3;
+	pixel_y = 1
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = 1;
+	pixel_y = -1
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = 5;
 	pixel_y = -3
 	},
 /obj/machinery/door/window/northleft{
@@ -299,30 +329,10 @@
 	red_alert_access = 1;
 	req_access_txt = "5"
 	},
-/obj/structure/window/reinforced,
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/blue,
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plasteel/dark,
 /area/medical/storage)
 "ei" = (
 /obj/structure/table/glass,
-/obj/item/storage/firstaid/o2{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/firstaid/o2,
-/obj/item/storage/firstaid/regular{
-	pixel_x = -3;
-	pixel_y = -3
-	},
 /obj/machinery/door/window/northleft{
 	dir = 8;
 	icon_state = "right";
@@ -330,17 +340,33 @@
 	red_alert_access = 1;
 	req_access_txt = "5"
 	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
+/obj/item/storage/firstaid/brute{
+	pixel_x = 7;
+	pixel_y = 3
 	},
+/obj/item/storage/firstaid/brute{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/item/storage/firstaid/brute{
+	pixel_x = -1;
+	pixel_y = -1
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = -5;
+	pixel_y = -3
+	},
+/obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/blue,
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plasteel/dark,
 /area/medical/storage)
 "en" = (
 /obj/structure/table/reinforced,
@@ -816,6 +842,13 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/button/door{
+	id = "durka_windows";
+	name = "Бронеставни";
+	pixel_x = 6;
+	pixel_y = 24;
+	req_one_access_txt = "5"
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "kd" = (
@@ -1139,13 +1172,13 @@
 /obj/structure/table/reinforced,
 /obj/machinery/button/door{
 	id = "durka_gate_outer";
-	name = "Outer Gates";
+	name = "Внешний шлюз";
 	pixel_x = 8;
 	pixel_y = 8
 	},
 /obj/machinery/button/door{
 	id = "durka_gate_inner";
-	name = "Inner Gates";
+	name = "Внутренний шлюз";
 	pixel_x = 8;
 	pixel_y = -3
 	},
@@ -1153,6 +1186,12 @@
 	dir = 5
 	},
 /obj/structure/cable,
+/obj/machinery/button/door{
+	id = "durka_hub";
+	name = "Внутренние бронеставни";
+	pixel_x = -3;
+	pixel_y = -3
+	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "nZ" = (
@@ -1182,6 +1221,13 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/virology)
+"oc" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
+	},
+/obj/structure/closet/l3closet,
+/turf/open/floor/plasteel/dark,
+/area/medical/medbay/lobby)
 "od" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1313,6 +1359,10 @@
 "pI" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
+/obj/machinery/door/poddoor/preopen{
+	id = "cmoprivacy";
+	name = "CMO Office"
+	},
 /turf/open/floor/plating/airless,
 /area/command/heads_quarters/cmo)
 "qt" = (
@@ -1666,7 +1716,7 @@
 /obj/effect/landmark/start/chief_medical_officer,
 /obj/machinery/button/door{
 	id = "cmoprivacy";
-	name = "CMO Shutter Control";
+	name = "Приватность";
 	pixel_x = 25;
 	pixel_y = 22;
 	req_access_txt = "40"
@@ -1712,6 +1762,10 @@
 "xq" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
+/obj/machinery/door/poddoor/preopen{
+	id = "durka_hub";
+	name = "Panic Bunker"
+	},
 /turf/open/floor/plating/airless,
 /area/medical/medbay/lobby)
 "xt" = (
@@ -1767,15 +1821,15 @@
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/cmo)
 "xO" = (
-/obj/machinery/door/poddoor/multi_tile/three_tile_hor{
-	id = "durka_gate_outer"
-	},
 /obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
 /obj/structure/railing/corner{
 	dir = 1
+	},
+/obj/machinery/door/poddoor/multi_tile/three_tile_hor/preopen{
+	id = "durka_gate_outer"
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/lobby)
@@ -2396,6 +2450,15 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
+"FZ" = (
+/obj/machinery/button/door{
+	id = "durka_quarantine";
+	name = "Карантин";
+	pixel_x = 6;
+	pixel_y = 32
+	},
+/turf/closed/wall/r_wall,
+/area/medical/storage)
 "Gh" = (
 /obj/machinery/holopad,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -2533,15 +2596,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/obj/machinery/door/airlock/virology{
-	frequency = null;
-	id_tag = null;
-	name = "Virology";
-	req_access_txt = "39"
-	},
 /obj/machinery/door/firedoor/border_only,
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
+	},
+/obj/machinery/door/airlock/virology/glass{
+	name = "Virology";
+	req_access_txt = "39"
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/virology)
@@ -2570,8 +2631,8 @@
 	id = "durka_outer";
 	name = "Gate Shutters"
 	},
-/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating/airless,
 /area/medical/medbay/lobby)
 "Jk" = (
@@ -2665,13 +2726,13 @@
 "KC" = (
 /obj/machinery/button/door{
 	id = "durka_outer";
-	name = "Gate Shutters";
+	name = "Внешний обзор";
 	pixel_x = -6;
 	pixel_y = 32
 	},
 /obj/machinery/button/door{
 	id = "durka_quarantine";
-	name = "Quarantine";
+	name = "Карантин";
 	pixel_x = 6;
 	pixel_y = 32
 	},
@@ -2810,10 +2871,10 @@
 /turf/open/floor/engine,
 /area/medical/medbay/lobby)
 "Mm" = (
-/obj/machinery/door/poddoor/multi_tile/three_tile_hor{
+/obj/structure/fans/tiny,
+/obj/machinery/door/poddoor/multi_tile/three_tile_hor/preopen{
 	id = "durka_gate_inner"
 	},
-/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/lobby)
 "Mn" = (
@@ -2982,21 +3043,29 @@
 /area/medical/sleeper)
 "OO" = (
 /obj/structure/table/glass,
-/obj/item/storage/firstaid/brute{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/firstaid/brute,
-/obj/item/storage/firstaid/regular{
-	pixel_x = -3;
-	pixel_y = -3
-	},
 /obj/machinery/door/window/northleft{
 	dir = 4;
 	name = "First-Aid Supplies";
 	red_alert_access = 1;
 	req_access_txt = "5"
 	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = -3;
+	pixel_y = 1
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = 1;
+	pixel_y = -1
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = 5;
+	pixel_y = -3
+	},
+/obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
@@ -3006,8 +3075,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/blue,
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plasteel/dark,
 /area/medical/storage)
 "OP" = (
 /obj/structure/disposalpipe/segment{
@@ -3186,12 +3254,11 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/central)
 "RJ" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/preopen{
-	id = "pharmacy_shutters";
-	name = "Pharmacy Shutter"
+	id = "durka_windows"
 	},
 /obj/structure/cable,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating/airless,
 /area/medical/medbay/central)
 "RN" = (
@@ -3663,6 +3730,10 @@
 /obj/structure/barricade/security{
 	max_integrity = 520
 	},
+/obj/machinery/door/poddoor/preopen{
+	id = "durka_hub";
+	name = "Panic Bunker"
+	},
 /turf/open/floor/plating/airless,
 /area/medical/medbay/lobby)
 "XN" = (
@@ -4032,7 +4103,7 @@ IS
 sa
 VC
 Kr
-AS
+oc
 SC
 Cr
 fd
@@ -4877,7 +4948,7 @@ GC
 jL
 QF
 kd
-GF
+FZ
 UU
 uX
 kP

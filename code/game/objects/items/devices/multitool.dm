@@ -161,7 +161,7 @@
 	return TRUE
 
 /obj/item/multitool/abductor
-	name = "чужеродный мультитул"
+	name = "инопланетный мультитул"
 	desc = "Омни-технологический интерфейс."
 	icon = 'icons/obj/abductor.dmi'
 	icon_state = "multitool"

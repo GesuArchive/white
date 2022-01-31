@@ -522,3 +522,7 @@
 	attack_verb_simple = list("pumps", "siphons")
 	tool_behaviour = TOOL_BLOODFILTER
 	toolspeed = 1
+
+/obj/item/blood_filter/augment
+	toolspeed = 0.5
+

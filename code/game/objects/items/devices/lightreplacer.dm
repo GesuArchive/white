@@ -40,8 +40,8 @@
 
 /obj/item/lightreplacer
 
-	name = "light replacer"
-	desc = "A device to automatically replace lights. Refill with broken or working light bulbs, or sheets of glass."
+	name = "Лампозаменитель"
+	desc = "Устройство для автоматической замены ламп. Заправляется целыми или разбитыми лампочками, а так же листами стекла."
 
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "lightreplacer0"

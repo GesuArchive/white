@@ -73,8 +73,8 @@
 				. = TRUE
 
 /obj/item/mecha_parts/mecha_tracking
-	name = "exosuit tracking beacon"
-	desc = "Device used to transmit exosuit data."
+	name = "сигнальный маяк экзокостюма"
+	desc = "Устройство, используемое для передачи данных о состоянии экзокостюма и удаленного отключения."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "motion2"
 	w_class = WEIGHT_CLASS_SMALL
@@ -143,8 +143,8 @@
 	recharging = FALSE
 
 /obj/item/mecha_parts/mecha_tracking/ai_control
-	name = "exosuit AI control beacon"
-	desc = "A device used to transmit exosuit data. Also allows active AI units to take control of said exosuit."
+	name = "маяк удаленного доступа к экзокостюму для ИИ"
+	desc = "Устройство, используемое для передачи данных экзокостюма. Позволяет ИИ взять экзокостюм под прямой контроль."
 	ai_beacon = TRUE
 
 /obj/item/storage/box/mechabeacons

@@ -5,7 +5,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	materials = list (/datum/material/iron = 2500, /datum/material/glass = 1500, /datum/material/silver = 1500, /datum/material/plasma = 500, /datum/material/titanium = 1500)
 	construction_time = 200
-	build_path = /obj/item/organ/cyberimp/arm/surgery/alien
+	build_path = /obj/item/organ/cyberimp/arm/alien
 	category = list("Импланты", "Медицинские разработки")
 	sub_category = list("Кибер Импланты")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL

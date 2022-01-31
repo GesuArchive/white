@@ -1,6 +1,6 @@
 /obj/vehicle/sealed/mecha/working/ripley
-	desc = "Autonomous Power Loader Unit MK-I. Designed primarily around heavy lifting, the Ripley can be outfitted with utility equipment to fill a number of roles."
-	name = "\improper APLU MK-I \"Ripley\""
+	desc = "Автономный силовой погрузчик МК-1. Разработанный в основном для подъема тяжелых грузов, Рипли может быть оснащен вспомогательным оборудованием для выполнения других функций."
+	name = "АПЛУ \"Рипли\""
 	icon_state = "ripley"
 	silicon_icon_state = "ripley-empty"
 	movedelay = 1.5 //Move speed, lower is faster.

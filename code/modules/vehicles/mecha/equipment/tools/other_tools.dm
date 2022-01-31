@@ -5,8 +5,8 @@
 ////////////////////////////////////////////// TELEPORTER ///////////////////////////////////////////////
 
 /obj/item/mecha_parts/mecha_equipment/teleporter
-	name = "mounted teleporter"
-	desc = "An exosuit module that allows exosuits to teleport to any position in view."
+	name = "телепортер экзокостюма"
+	desc = "Модуль экзокостюма, который позволяет им телепортироваться в любое место в поле зрения."
 	icon_state = "mecha_teleport"
 	equip_cooldown = 150
 	energy_drain = 1000
@@ -27,8 +27,8 @@
 ////////////////////////////////////////////// WORMHOLE GENERATOR //////////////////////////////////////////
 
 /obj/item/mecha_parts/mecha_equipment/wormhole_generator
-	name = "mounted wormhole generator"
-	desc = "An exosuit module that allows generating of small quasi-stable wormholes, allowing for long-range inneacurate teleportation."
+	name = "генератор червоточин экзокостюма"
+	desc = "Модуль экзокостюма, который позволяет создавать небольшие квазистабильные червоточины, позволяющие осуществлять неточную телепортацию на большие расстояния."
 	icon_state = "mecha_wholegen"
 	equip_cooldown = 50
 	energy_drain = 300
@@ -69,8 +69,8 @@
 #define GRAVPUSH_MODE 2
 
 /obj/item/mecha_parts/mecha_equipment/gravcatapult
-	name = "mounted gravitational catapult"
-	desc = "An exosuit mounted Gravitational Catapult."
+	name = "гравитационная катапульта экзокостюма"
+	desc = "Гравитационная катапульта, установленная в экзокостюме."
 	icon_state = "mecha_teleport"
 	equip_cooldown = 10
 	energy_drain = 100
@@ -88,15 +88,15 @@
 		if(GRAVSLING_MODE)
 			if(!movable_target)
 				if(!istype(target) || target.anchored || target.move_resist >= MOVE_FORCE_EXTREMELY_STRONG)
-					to_chat(source, "[icon2html(src, source)]<span class='warning'>Unable to lock on [target]!</span>")
+					to_chat(source, "[icon2html(src, source)]<span class='warning'>Невозможно зафиксировать [target]!</span>")
 					return
 				if(ismob(target))
 					var/mob/M = target
 					if(M.mob_negates_gravity())
-						to_chat(source, "[icon2html(src, source)]<span class='warning'>[target] immune to gravitational impulses, unable to lock!</span>")
+						to_chat(source, "[icon2html(src, source)]<span class='warning'>[target] невосприимчивый к гравитационным импульсам, захват невозможен!</span>")
 						return
 				movable_target = target
-				to_chat(source, "[icon2html(src, source)]<span class='notice'>locked on [target].</span>")
+				to_chat(source, "[icon2html(src, source)]<span class='notice'>захват зафиксирован на [target].</span>")
 				send_byjax(source,"exosuit.browser","[REF(src)]", get_equip_info())
 			else if(target!=movable_target)
 				if(movable_target in view(chassis))
@@ -108,7 +108,7 @@
 					log_game("[key_name(source)] used a Gravitational Catapult to throw [movable_target] (From [AREACOORD(orig)]) at [target] ([AREACOORD(targ)]).")
 					return ..()
 				movable_target = null
-				to_chat(source, "[icon2html(src, source)]<span class='notice'>Lock on [movable_target] disengaged.</span>")
+				to_chat(source, "[icon2html(src, source)]<span class='notice'>захват на [movable_target] отключен.</span>")
 				send_byjax(source,"exosuit.browser","[REF(src)]", get_equip_info())
 
 		if(GRAVPUSH_MODE)
@@ -152,8 +152,8 @@
 
 
 /obj/item/mecha_parts/mecha_equipment/anticcw_armor_booster //what is that noise? A BAWWW from TK mutants.
-	name = "armor booster module (Close Combat Weaponry)"
-	desc = "Boosts exosuit armor against armed melee attacks. Requires energy to operate."
+	name = "демпферная броня (ближний бой)"
+	desc = "Усиливает броню экзокостюма против атак ближнего боя. Потребляет энергию для работы."
 	icon_state = "mecha_abooster_ccw"
 	equip_cooldown = 10
 	energy_drain = 50
@@ -171,8 +171,8 @@
 
 
 /obj/item/mecha_parts/mecha_equipment/antiproj_armor_booster
-	name = "armor booster module (Ranged Weaponry)"
-	desc = "Boosts exosuit armor against ranged attacks. Completely blocks taser shots. Requires energy to operate."
+	name = "композитная броня (дальний бой)"
+	desc = "Усиливает броню экзокостюма против дальних атак. Полностью блокирует выстрелы из электрошокера. Потребляет энергию для работы."
 	icon_state = "mecha_abooster_proj"
 	equip_cooldown = 10
 	energy_drain = 50
@@ -192,8 +192,8 @@
 
 
 /obj/item/mecha_parts/mecha_equipment/repair_droid
-	name = "exosuit repair droid"
-	desc = "An automated repair droid for exosuits. Scans for damage and repairs it. Can fix almost all types of external or internal damage."
+	name = "ремонтный дрон экзокостюма"
+	desc = "Автоматический ремонтный дроид для экзокостюмов. Сканирует на наличие повреждений и восстанавливает их. Может устранить практически все виды внешних или внутренних повреждений."
 	icon_state = "repair_droid"
 	energy_drain = 50
 	range = 0
@@ -230,11 +230,11 @@
 		if(equip_ready)
 			START_PROCESSING(SSobj, src)
 			droid_overlay = new(src.icon, icon_state = "repair_droid_a")
-			log_message("Activated.", LOG_MECHA)
+			log_message("Активирован.", LOG_MECHA)
 		else
 			STOP_PROCESSING(SSobj, src)
 			droid_overlay = new(src.icon, icon_state = "repair_droid")
-			log_message("Deactivated.", LOG_MECHA)
+			log_message("Деактивирован.", LOG_MECHA)
 		chassis.add_overlay(droid_overlay)
 		send_byjax(chassis.occupants,"exosuit.browser", "[REF(src)]", get_equip_info())
 
@@ -271,8 +271,8 @@
 /////////////////////////////////// TESLA ENERGY RELAY ////////////////////////////////////////////////
 
 /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay
-	name = "exosuit energy relay"
-	desc = "An exosuit module that wirelessly drains energy from any available power channel in area. The performance index is quite low."
+	name = "энергетическое реле экзокостюма"
+	desc = "Модуль экзокостюма, который по беспроводной сети потребляет энергию из любого доступного канала питания в этом районе. Индекс производительности довольно низкий."
 	icon_state = "tesla"
 	energy_drain = 0
 	range = 0
@@ -346,8 +346,8 @@
 
 
 /obj/item/mecha_parts/mecha_equipment/generator
-	name = "exosuit plasma converter"
-	desc = "An exosuit module that generates power using solid plasma as fuel. Pollutes the environment."
+	name = "плазменный реактор экзокостюма"
+	desc = "Модуль экзокостюма, который вырабатывает энергию, используя твердую плазму в качестве топлива. Загрязняет окружающую среду."
 	icon_state = "tesla"
 	range = MECHA_MELEE
 	var/coeff = 100
@@ -437,8 +437,8 @@
 
 
 /obj/item/mecha_parts/mecha_equipment/generator/nuclear
-	name = "exonuclear reactor"
-	desc = "An exosuit module that generates power using uranium as fuel. Pollutes the environment."
+	name = "Ядерный реактор экзокостюма"
+	desc = "Модуль экзокостюма, который вырабатывает энергию, используя уран в качестве топлива. Загрязняет окружающую среду."
 	icon_state = "tesla"
 	max_fuel = 50000
 	fuelrate_idle = 5
@@ -526,14 +526,14 @@
 
 
 /obj/item/mecha_parts/mecha_equipment/thrusters/gas
-	name = "RCS thruster package"
-	desc = "A set of thrusters that allow for exosuit movement in zero-gravity environments, by expelling gas from the internal life support tank."
+	name = "реактивные двигатели экзокостюма"
+	desc = "Набор двигателей, которые позволяют передвигаться в экзокостюме в условиях невесомости, потребляя газ из внутреннего бака жизнеобеспечения."
 	effect_type = /obj/effect/particle_effect/smoke
 	var/move_cost = 20 //moles per step
 
 /obj/item/mecha_parts/mecha_equipment/thrusters/gas/try_attach_part(mob/user, obj/vehicle/sealed/mecha/M)
 	if(!M.internal_tank)
-		to_chat(user, span_warning("[M] does not have an internal tank and cannot support this upgrade!"))
+		to_chat(user, span_warning("[M] не имеет внутреннего бака и не может поддерживать это устройство!"))
 		return FALSE
 	return ..()
 
@@ -551,7 +551,7 @@
 
 
 /obj/item/mecha_parts/mecha_equipment/thrusters/ion //for mechs with built-in thrusters, should never really exist un-attached to a mech
-	name = "Ion thruster package"
+	name = "ионные двигатели экзокостюма"
 	desc = "A set of thrusters that allow for exosuit movement in zero-gravity environments."
 	detachable = FALSE
 	salvageable = FALSE

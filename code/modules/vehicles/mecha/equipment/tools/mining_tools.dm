@@ -6,8 +6,8 @@
 
 
 /obj/item/mecha_parts/mecha_equipment/drill
-	name = "exosuit drill"
-	desc = "Equipment for engineering and combat exosuits. This is the drill that'll pierce the heavens!"
+	name = "бур экзокостюма"
+	desc = "Оборудование для инженерных и боевых экзокостюмов. Для бурения породы и прочего."
 	icon_state = "mecha_drill"
 	equip_cooldown = 15
 	energy_drain = 10
@@ -150,8 +150,8 @@
 			target_part.dismember(BRUTE)
 
 /obj/item/mecha_parts/mecha_equipment/drill/diamonddrill
-	name = "diamond-tipped exosuit drill"
-	desc = "Equipment for engineering and combat exosuits. This is an upgraded version of the drill that'll pierce the heavens!"
+	name = "алмазный бур экзокостюма"
+	desc = "Оборудование для инженерных и боевых экзоскелетов. Это усовершенствованная версия!"
 	icon_state = "mecha_diamond_drill"
 	equip_cooldown = 10
 	drill_delay = 4
@@ -161,8 +161,8 @@
 
 
 /obj/item/mecha_parts/mecha_equipment/mining_scanner
-	name = "exosuit mining scanner"
-	desc = "Equipment for working exosuits. It will automatically check surrounding rock for useful minerals."
+	name = "рудный сканер для экзокостюма"
+	desc = "Оборудование для рабочих экзокостюмов. Он автоматически проверит окружающую породу на наличие полезных ископаемых."
 	icon_state = "mecha_analyzer"
 	selectable = 0
 	equip_cooldown = 15

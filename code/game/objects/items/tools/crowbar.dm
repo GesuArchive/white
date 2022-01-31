@@ -1,5 +1,5 @@
 /obj/item/crowbar
-	name = "карманный ломик"
+	name = "карманный лом"
 	desc = "Маленький ломик. Этот удобный инструмент полезен для многих вещей, например, для снятия напольной плитки или открывания дверей без электропитания."
 	icon = 'white/valtos/icons/items.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
@@ -32,7 +32,7 @@
 	force = 8
 
 /obj/item/crowbar/abductor
-	name = "чужеродный ломик"
+	name = "инопланетный лом"
 	desc = "Жесткий лёгкий ломик. Похоже, он работает сам по себе, даже не нужно прилагать никаких усилий."
 	icon = 'icons/obj/abductor.dmi'
 	usesound = 'sound/weapons/sonic_jackhammer.ogg'
@@ -41,7 +41,7 @@
 
 
 /obj/item/crowbar/large
-	name = "ломик"
+	name = "лом"
 	desc = "Это большой ломик. Он не помещается в карманы, потому что он большой."
 	force = 12
 	w_class = WEIGHT_CLASS_NORMAL
@@ -54,8 +54,8 @@
 	toolspeed = 0.7
 
 /obj/item/crowbar/power
-	name = "челюсти жизни"
-	desc = "Набор челюстей жизни, сжатых через магию науки."
+	name = "гидравлические ножницы"
+	desc = "Спасательный инструмент для выламывания и перекусывания конструкций, форсированного открытия шлюзов и демонтажа оборудования."
 	icon_state = "jaws"
 	inhand_icon_state = "jawsoflife"
 	worn_icon_state = "jawsoflife"
@@ -96,8 +96,8 @@
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/crowbar/power/syndicate
-	name = "Syndicate jaws of life"
-	desc = "A re-engineered copy of Nanotrasen's standard jaws of life. Can be used to force open airlocks in its crowbar configuration."
+	name = "гидравлические ножницы Синдиката"
+	desc = "Переработанная версия гидравлических ножниц Нанотрейзен. Как и оригинал может использоваться для форсированного открытия воздушных шлюзов."
 	icon_state = "jaws_syndie"
 	toolspeed = 0.5
 	force_opens = TRUE
@@ -130,7 +130,7 @@
 		..()
 
 /obj/item/crowbar/cyborg
-	name = "гидравлический ломик"
+	name = "гидравлический лом"
 	desc = "Гидравлический инструмент, простой, но мощный."
 	icon = 'white/Feline/icons/cyber_arm_tools.dmi'
 	icon_state = "crowbar_cyborg"

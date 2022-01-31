@@ -353,7 +353,7 @@
 	return
 
 /obj/item/weldingtool/abductor
-	name = "чужеродная сварка"
+	name = "инопланетная сварка"
 	desc = "Инопланетный сварочный инструмент. Какое бы топливо он ни использовал, оно у него никогда не заканчивается."
 	icon = 'icons/obj/abductor.dmi'
 	icon_state = "welder"
@@ -376,8 +376,8 @@
 	custom_materials = list(/datum/material/iron=70, /datum/material/glass=120)
 
 /obj/item/weldingtool/experimental
-	name = "экспериментальный сварочный инструмент"
-	desc = "Экспериментальный сварочный аппарат, способный генерировать топливо и менее вредный для глаз."
+	name = "экспериментальный сварочный аппарат"
+	desc = "Экспериментальный сварочный аппарат, способный самостоятельно генерировать топливо и менее вредный для глаз."
 	icon_state = "exwelder"
 	inhand_icon_state = "exwelder"
 	max_fuel = 40

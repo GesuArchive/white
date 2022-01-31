@@ -7,9 +7,9 @@
 */
 
 /obj/machinery/telecomms/processor
-	name = "processor unit"
+	name = "Процессорный блок"
 	icon_state = "processor"
-	desc = "This machine is used to process large quantities of information."
+	desc = "Эта машина используется для обработки больших объемов информации."
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 30

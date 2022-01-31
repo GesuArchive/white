@@ -28,8 +28,8 @@
 	return (BRUTELOSS)
 
 /obj/item/wrench/abductor
-	name = "чужеродный гаечный ключ"
-	desc = "Поляризованный ключ. Это приводит к тому, что все, что находится между челюстями, поворачивается."
+	name = "инопланетный гаечный ключ"
+	desc = "Поляризованный ключ. Это приводит к тому, что все, что находится между полюсами, поворачивается."
 	icon = 'icons/obj/abductor.dmi'
 	icon_state = "wrench"
 	usesound = 'sound/effects/empulse.ogg'
