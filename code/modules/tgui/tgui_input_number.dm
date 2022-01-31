@@ -14,7 +14,7 @@
  * * min_value - Specifies a minimum value. Often 0.
  * * timeout - The timeout of the numbox, after which the modal will close and qdel itself. Set to zero for no timeout.
  */
-/proc/tgui_input_number(mob/user, message = null, title = "Number Input", default = null, max_value = null, min_value = 0, timeout = 0)
+/proc/tgui_input_number(mob/user, message, title = "Введите число", default, max_value, min_value, timeout = 0)
 	if (!user)
 		user = usr
 	if (!istype(user))
@@ -45,7 +45,7 @@
  * * callback - The callback to be invoked when a choice is made.
  * * timeout - The timeout of the numbox, after which the modal will close and qdel itself. Disabled by default, can be set to seconds otherwise.
  */
-/proc/tgui_input_number_async(mob/user, message = null, title = "Number Input", default = null, max_value = null, min_value = 0, datum/callback/callback, timeout = 0)
+/proc/tgui_input_number_async(mob/user, message, title = "Введите число", default, max_value, min_value, datum/callback/callback, timeout = 60 SECONDS)
 	if (!user)
 		user = usr
 	if (!istype(user))
@@ -120,14 +120,19 @@
 /datum/tgui_input_number/ui_state(mob/user)
 	return GLOB.always_state
 
-/datum/tgui_input_number/ui_data(mob/user)
+/datum/tgui_input_number/ui_static_data(mob/user)
 	. = list(
+		"init_value" = default || 0, // Default is a reserved keyword
 		"max_value" = max_value,
 		"message" = message,
 		"min_value"	= min_value,
 		"placeholder" = default, /// You cannot use default as a const
-		"title" = title,
+		"min_value" = min_value || 0,
+		"title" = title
 	)
+
+/datum/tgui_input_number/ui_data(mob/user)
+	. = list()
 	if(timeout)
 		.["timeout"] = CLAMP01((timeout - (world.time - start_time) - 1 SECONDS) / (timeout - 1 SECONDS))
 

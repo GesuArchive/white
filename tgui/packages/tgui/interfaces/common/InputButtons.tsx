@@ -3,7 +3,7 @@ import { Box, Button, Stack } from '../../components';
 
 type InputButtonsProps = {
   input: string | number | null;
-  inputIsValid: Validator;
+  inputIsValid?: Validator;
 };
 
 export type Validator = {
@@ -14,17 +14,16 @@ export type Validator = {
 export const InputButtons = (props: InputButtonsProps, context) => {
   const { act } = useBackend(context);
   const { input, inputIsValid } = props;
-  const { isValid, error } = inputIsValid;
   const submitButton = (
     <Button
       color="good"
       fluid={1}
       height={2}
-      disabled={!isValid}
+      disabled={inputIsValid && !inputIsValid.isValid}
       onClick={() => act('choose', { choice: input })}
       pt={0.33}
       textAlign="center"
-      tooltip={error}>
+      tooltip={inputIsValid?.error}>
       ОТПРАВИТЬ
     </Button>
   );
@@ -45,13 +44,6 @@ export const InputButtons = (props: InputButtonsProps, context) => {
   return (
     <Stack>
       <Stack.Item grow>{leftButton}</Stack.Item>
-      <Stack.Item grow>
-        {!isValid && (
-          <Box color="average" nowrap textAlign="center">
-            {error}
-          </Box>
-        )}
-      </Stack.Item>
       <Stack.Item grow>{rightButton}</Stack.Item>
     </Stack>
   );

@@ -7,9 +7,10 @@
  * * message - The content of the input box, shown in the body of the TGUI window.
  * * title - The title of the input box, shown on the top of the TGUI window.
  * * items - The options that can be chosen by the user, each string is assigned a button on the UI.
+ * * default - If an option is already preselected on the UI. Current values, etc.
  * * timeout - The timeout of the input box, after which the menu will close and qdel itself. Set to zero for no timeout.
  */
-/proc/tgui_input_list(mob/user, message, title, list/items, timeout = 0)
+/proc/tgui_input_list(mob/user, message, title, list/items, default, timeout = 0)
 	if (!user)
 		user = usr
 	if(!length(items))
@@ -20,7 +21,7 @@
 			user = client.mob
 		else
 			return
-	var/datum/tgui_list_input/input = new(user, message, title, items, timeout)
+	var/datum/tgui_list_input/input = new(user, message, title, items, default, timeout)
 	input.ui_interact(user)
 	input.wait()
 	if (input)
@@ -36,10 +37,11 @@
  * * message - The content of the input box, shown in the body of the TGUI window.
  * * title - The title of the input box, shown on the top of the TGUI window.
  * * items - The options that can be chosen by the user, each string is assigned a button on the UI.
+ * * default - If an option is already preselected on the UI. Current values, etc.
  * * callback - The callback to be invoked when a choice is made.
  * * timeout - The timeout of the input box, after which the menu will close and qdel itself. Set to zero for no timeout.
  */
-/proc/tgui_input_list_async(mob/user, message, title, list/items, datum/callback/callback, timeout = 60 SECONDS)
+/proc/tgui_input_list_async(mob/user, message, title = "Выбрать", list/items, default, datum/callback/callback, timeout = 60 SECONDS)
 	if (!user)
 		user = usr
 	if(!length(items))
@@ -50,7 +52,7 @@
 			user = client.mob
 		else
 			return
-	var/datum/tgui_list_input/async/input = new(user, message, title, items, callback, timeout)
+	var/datum/tgui_list_input/async/input = new(user, message, title, items, default, callback, timeout)
 	input.ui_interact(user)
 
 /**
@@ -70,6 +72,8 @@
 	var/list/items_map
 	/// The button that the user has pressed, null if no selection has been made
 	var/choice
+	/// The default button to be selected
+	var/default
 	/// The time at which the tgui_list_input was created, for displaying timeout progress.
 	var/start_time
 	/// The lifespan of the tgui_list_input, after which the window will close and delete itself.
@@ -77,22 +81,24 @@
 	/// Boolean field describing if the tgui_list_input was closed by the user.
 	var/closed
 
-/datum/tgui_list_input/New(mob/user, message, title, list/items, timeout)
+/datum/tgui_list_input/New(mob/user, message, title, list/items, default, timeout)
 	src.title = title
 	src.message = message
 	src.items = list()
 	src.items_map = list()
+	src.default = default
+	var/list/repeat_items = list()
 
 	// Gets rid of illegal characters
 	var/static/regex/whitelistedWords = regex(@{"([^\u0020-\u8000]+)"})
-
 	for(var/i in items)
+		if(!i)
+			continue
 		var/string_key = whitelistedWords.Replace("[i]", "")
-
+		//avoids duplicated keys E.g: when areas have the same name
+		string_key = avoid_assoc_duplicate_keys(string_key, repeat_items)
 		src.items += string_key
 		src.items_map[string_key] = i
-
-
 	if (timeout)
 		src.timeout = timeout
 		start_time = world.time
@@ -127,6 +133,7 @@
 
 /datum/tgui_list_input/ui_static_data(mob/user)
 	. = list(
+		"init_value" = default || items[1],
 		"title" = title,
 		"message" = message,
 		"items" = items
@@ -162,8 +169,8 @@
 	/// The callback to be invoked by the tgui_list_input upon having a choice made.
 	var/datum/callback/callback
 
-/datum/tgui_list_input/async/New(mob/user, message, title, list/items, callback, timeout)
-	..(user, title, message, items, timeout)
+/datum/tgui_list_input/async/New(mob/user, message, title, list/items, default, callback, timeout)
+	..(user, title, message, items, default, timeout)
 	src.callback = callback
 
 /datum/tgui_list_input/async/Destroy(force, ...)

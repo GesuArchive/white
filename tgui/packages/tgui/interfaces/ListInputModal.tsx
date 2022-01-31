@@ -1,24 +1,25 @@
 import { Loader } from './common/Loader';
-import { InputButtons, Validator } from './common/InputButtons';
+import { InputButtons } from './common/InputButtons';
 import { Button, Input, Section, Stack } from '../components';
-import { KEY_ENTER, KEY_DOWN, KEY_UP, KEY_ESCAPE } from '../../common/keycodes';
+import { KEY_A, KEY_DOWN, KEY_ESCAPE, KEY_ENTER, KEY_UP, KEY_Z } from '../../common/keycodes';
 import { Window } from '../layouts';
 import { useBackend, useLocalState } from '../backend';
 
 type ListInputData = {
   items: string[];
   message: string;
+  init_value: string;
   timeout: number;
   title: string;
 };
 
 export const ListInputModal = (_, context) => {
   const { act, data } = useBackend<ListInputData>(context);
-  const { items = [], message, timeout, title } = data;
-  const [selected, setSelected] = useLocalState<number | null>(
+  const { items = [], message, init_value, timeout, title } = data;
+  const [selected, setSelected] = useLocalState<number>(
     context,
     'selected',
-    0
+    items.indexOf(init_value)
   );
   const [searchBarVisible, setSearchBarVisible] = useLocalState<boolean>(
     context,
@@ -30,56 +31,60 @@ export const ListInputModal = (_, context) => {
     'searchQuery',
     ''
   );
-  const [inputIsValid, setInputIsValid] = useLocalState<Validator>(
-    context,
-    'inputIsValid',
-    { isValid: true, error: null }
-  );
   // User presses up or down on keyboard
   // Simulates clicking an item
   const onArrowKey = (key: number) => {
     const len = filteredItems.length - 1;
     if (key === KEY_DOWN) {
       if (selected === null || selected === len) {
-        onClick(0);
+        setSelected(0);
+        document!.getElementById('0')?.scrollIntoView();
       } else {
-        onClick(selected + 1);
+        setSelected(selected + 1);
+        document!.getElementById((selected + 1).toString())?.scrollIntoView();
       }
     } else if (key === KEY_UP) {
       if (selected === null || selected === 0) {
-        onClick(len);
+        setSelected(len);
+        document!.getElementById(len.toString())?.scrollIntoView();
       } else {
-        onClick(selected - 1);
+        setSelected(selected - 1);
+        document!.getElementById((selected - 1).toString())?.scrollIntoView();
       }
     }
   };
   // User selects an item with mouse
   const onClick = (index: number) => {
-    if (isNaN(index) || index === selected) {
-      setInputIsValid({ isValid: false, error: 'Не выбрано' });
-      setSelected(null);
-    } else {
-      setInputIsValid({ isValid: true, error: null });
-      setSelected(index);
-      document!.getElementById(index.toString())?.focus();
+    if (index === selected) {
+      return;
     }
+    setSelected(index);
   };
-  // User doesn't have search bar visible & presses a key
-  const onLetterKey = (key: number) => {
+  // User presses a letter key and searchbar is visible
+  const onFocusSearch = () => {
+    setSearchBarVisible(false);
+    setSearchBarVisible(true);
+  };
+  // User presses a letter key with no searchbar visible
+  const onLetterSearch = (key: number) => {
     const keyChar = String.fromCharCode(key);
     const foundItem = items.find((item) => {
       return item?.toLowerCase().startsWith(keyChar?.toLowerCase());
     });
     if (foundItem) {
-      setSelected(filteredItems.indexOf(foundItem));
-      document!.getElementById(filteredItems
-        .indexOf(foundItem)
-        .toString())?.focus();
+      const foundIndex = items.indexOf(foundItem);
+      setSelected(foundIndex);
+      document!.getElementById(foundIndex.toString())?.scrollIntoView();
     }
   };
   // User types into search bar
   const onSearch = (query: string) => {
+    if (query === searchQuery) {
+      return;
+    }
     setSearchQuery(query);
+    setSelected(0);
+    document!.getElementById('0')?.scrollIntoView();
   };
   // User presses the search button
   const onSearchBarToggle = () => {
@@ -92,6 +97,10 @@ export const ListInputModal = (_, context) => {
   // Dynamically changes the window height based on the message.
   const windowHeight
     = 525 + Math.ceil(message?.length / 3);
+  // Grabs the cursor when no search bar is visible.
+  if (!searchBarVisible) {
+    setTimeout(() => document!.getElementById(selected.toString())?.focus(), 1);
+  }
 
   return (
     <Window title={title} width={325} height={windowHeight}>
@@ -103,9 +112,13 @@ export const ListInputModal = (_, context) => {
             event.preventDefault();
             onArrowKey(keyCode);
           }
-          if (!searchBarVisible && keyCode >= 65 && keyCode <= 90) {
+          if (keyCode === KEY_ENTER) {
             event.preventDefault();
-            onLetterKey(keyCode);
+            act('choose', { choice: filteredItems[selected] });
+          }
+          if (!searchBarVisible && keyCode >= KEY_A && keyCode <= KEY_Z) {
+            event.preventDefault();
+            onLetterSearch(keyCode);
           }
           if (keyCode === KEY_ESCAPE) {
             event.preventDefault();
@@ -116,13 +129,15 @@ export const ListInputModal = (_, context) => {
           buttons={
             <Button
               compact
-              icon="search"
-              color="transparent"
-              selected={searchBarVisible}
-              tooltip="Поиск"
+              icon={searchBarVisible ? "search" : "font"}
+              selected
+              tooltip={searchBarVisible
+                ? "Режима поиска. Пиши и управляй стрелками для выбора."
+                : "Режим хоткеев. Пиши букву и прыгай к нужному. Enter для выбора."}
               tooltipPosition="left"
               onClick={() => onSearchBarToggle()}
             />
+
           }
           className="ListInput__Section"
           fill
@@ -132,13 +147,21 @@ export const ListInputModal = (_, context) => {
               <ListDisplay
                 filteredItems={filteredItems}
                 onClick={onClick}
-                isValid={inputIsValid.isValid}
+                onFocusSearch={onFocusSearch}
+                searchBarVisible={searchBarVisible}
                 selected={selected}
               />
             </Stack.Item>
-            {searchBarVisible && <SearchBar onSearch={onSearch} />}
+            {searchBarVisible && (
+              <SearchBar
+                filteredItems={filteredItems}
+                onSearch={onSearch}
+                searchQuery={searchQuery}
+                selected={selected}
+              />
+            )}
             <Stack.Item>
-              <InputButtons input={selected} inputIsValid={inputIsValid} />
+              <InputButtons input={filteredItems[selected]} />
             </Stack.Item>
           </Stack>
         </Section>
@@ -153,7 +176,8 @@ export const ListInputModal = (_, context) => {
  */
 const ListDisplay = (props, context) => {
   const { act } = useBackend<ListInputData>(context);
-  const { filteredItems, isValid, onClick, selected } = props;
+  const { filteredItems, onClick, onFocusSearch, searchBarVisible, selected }
+    = props;
 
   return (
     <Section fill scrollable tabIndex={0}>
@@ -165,11 +189,15 @@ const ListDisplay = (props, context) => {
             id={index}
             key={index}
             onClick={() => onClick(index)}
+            onDblClick={(event) => {
+              event.preventDefault();
+              act('choose', { choice: filteredItems[selected] });
+            }}
             onKeyDown={(event) => {
               const keyCode = window.event ? event.which : event.keyCode;
-              if (keyCode === KEY_ENTER && isValid) {
+              if (searchBarVisible && keyCode >= KEY_A && keyCode <= KEY_Z) {
                 event.preventDefault();
-                act('choose', { choice: filteredItems[selected] });
+                onFocusSearch();
               }
             }}
             selected={index === selected}
@@ -189,16 +217,20 @@ const ListDisplay = (props, context) => {
  * Renders a search bar input.
  * Closing the bar defaults input to an empty string.
  */
-const SearchBar = (props) => {
-  const { onSearch, searchQuery } = props;
+const SearchBar = (props, context) => {
+  const { act } = useBackend<ListInputData>(context);
+  const { filteredItems, onSearch, searchQuery, selected } = props;
 
   return (
     <Input
       autoFocus
+      autoSelect
       fluid
-      onInput={(_, value) => {
-        onSearch(value);
+      onEnter={(event) => {
+        event.preventDefault();
+        act('choose', { entry: filteredItems[selected] });
       }}
+      onInput={(_, value) => onSearch(value)}
       placeholder="Поиск..."
       value={searchQuery}
     />
