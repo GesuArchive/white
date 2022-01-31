@@ -89,10 +89,12 @@ Nothing else in the console has ID requirements.
 
 /obj/machinery/computer/rdconsole/proc/research_node(id, mob/user)
 	if(!stored_research.available_nodes[id] || stored_research.researched_nodes[id])
+		playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 		say("Не удалось разблокировать узел: Либо уже исследовано, либо недоступно!")
 		return FALSE
 	var/datum/techweb_node/TN = SSresearch.techweb_node_by_id(id)
 	if(!istype(TN))
+		playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 		say("Не удалось разблокировать узел: Неизвестная ошибка.")
 		return FALSE
 	var/list/price = TN.get_price(stored_research)
@@ -101,6 +103,7 @@ Nothing else in the console has ID requirements.
 		if(stored_research == SSresearch.science_tech)
 			SSblackbox.record_feedback("associative", "science_techweb_unlock", 1, list("id" = "[id]", "name" = TN.display_name, "price" = "[json_encode(price)]", "time" = SQLtime()))
 		if(stored_research.research_node_id(id))
+			playsound(src, 'white/valtos/sounds/click2.ogg', 20, TRUE)
 			say("Успешно исследовали [TN.display_name].")
 			var/logname = "Unknown"
 			if(isAI(user))
@@ -121,8 +124,10 @@ Nothing else in the console has ID requirements.
 			stored_research.research_logs[++i] = list(TN.display_name, price["Основные Исследования"], logname, "[get_area(src)] ([src.x],[src.y],[src.z])")
 			return TRUE
 		else
+			playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 			say("Не удалось разблокировать узел: Внутренняя ошибка базы данных!")
 			return FALSE
+	playsound(src, 'white/valtos/sounds/click3.ogg', 20, TRUE)
 	say("Недостаточно очков исследований...")
 	return FALSE
 
@@ -290,6 +295,7 @@ Nothing else in the console has ID requirements.
 
 	// Check if the console is locked to block any actions occuring
 	if (locked && action != "toggleLock")
+		playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 		say("Консоль заблокирована, взаимодействие недоступно.")
 		return TRUE
 
@@ -313,6 +319,7 @@ Nothing else in the console has ID requirements.
 			return TRUE
 		if ("writeDesign")
 			if(QDELETED(d_disk))
+				playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 				say("Не вижу диска с дизайнами!")
 				return TRUE
 			var/slot = text2num(params["slot"])
@@ -335,6 +342,7 @@ Nothing else in the console has ID requirements.
 			return TRUE
 		if ("uploadDesignSlot")
 			if(QDELETED(d_disk))
+				playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 				say("Не вижу диска с дизайнами.")
 				return TRUE
 			var/n = text2num(params["slot"])
@@ -342,32 +350,39 @@ Nothing else in the console has ID requirements.
 			return TRUE
 		if ("clearDesignSlot")
 			if(QDELETED(d_disk))
+				playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 				say("Не вижу диска с дизайнами!")
 				return TRUE
 			var/n = text2num(params["slot"])
 			var/datum/design/D = d_disk.blueprints[n]
+			playsound(src, 'white/valtos/sounds/click2.ogg', 20, TRUE)
 			say("Стираю дизайн [D.name] с диска.")
 			d_disk.blueprints[n] = null
 			return TRUE
 		if ("eraseDisk")
 			if (params["type"] == RND_DESIGN_DISK)
 				if(QDELETED(d_disk))
+					playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 					say("Не вижу диска с дизайнами!")
 					return TRUE
+				playsound(src, 'white/valtos/sounds/click2.ogg', 20, TRUE)
 				say("Стираю диск с дизайнами.")
 				for(var/i in 1 to d_disk.max_blueprints)
 					d_disk.blueprints[i] = null
 			if (params["type"] == RND_TECH_DISK)
 				if(QDELETED(t_disk))
+					playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 					say("Не вижу диска с технологиями!")
 					return TRUE
 				qdel(t_disk.stored_research)
 				t_disk.stored_research = new
+				playsound(src, 'white/valtos/sounds/click2.ogg', 20, TRUE)
 				say("Стираю диск с технологиями.")
 			return TRUE
 		if ("uploadDisk")
 			if (params["type"] == RND_DESIGN_DISK)
 				if(QDELETED(d_disk))
+					playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 					say("Не вижу диска с дизайнами!")
 					return TRUE
 				for(var/D in d_disk.blueprints)
@@ -375,16 +390,20 @@ Nothing else in the console has ID requirements.
 						stored_research.add_design(D, TRUE)
 			if (params["type"] == RND_TECH_DISK)
 				if (QDELETED(t_disk))
+					playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 					say("Не вижу диска с технологиями!")
 					return TRUE
+				playsound(src, 'white/valtos/sounds/click1.ogg', 20, TRUE)
 				say("Считываю диск с технологиями.")
 				t_disk.stored_research.copy_research_to(stored_research)
 			return TRUE
 		if ("loadTech")
 			if(QDELETED(t_disk))
+				playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 				say("Не вижу диска с технологиями!")
 				return
 			stored_research.copy_research_to(t_disk.stored_research)
+			playsound(src, 'white/valtos/sounds/click1.ogg', 20, TRUE)
 			say("Записываю технологии на диск.")
 			return TRUE
 

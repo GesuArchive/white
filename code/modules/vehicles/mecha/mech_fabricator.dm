@@ -218,14 +218,17 @@
 	var/datum/component/material_container/materials = rmat.mat_container
 	if (!materials)
 		if(verbose)
+			playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 			say("Нет доступа к хранилищу материалов, свяжитесь с завхозом.")
 		return FALSE
 	if (rmat.on_hold())
 		if(verbose)
+			playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 			say("Запрещено использование материалов из хранилища, свяжитесь с завхозом.")
 		return FALSE
 	if(!check_resources(D))
 		if(verbose)
+			playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 			say("Недостаточно ресурсов. Остановка.")
 		return FALSE
 
@@ -248,6 +251,7 @@
 		if(exit.density)
 			return TRUE
 
+		playsound(src, 'white/valtos/sounds/click2.ogg', 20, TRUE)
 		say("Препятствие убрано. Деталь [stored_part] готова.")
 		stored_part.forceMove(exit)
 		stored_part = null
@@ -286,15 +290,18 @@
 	var/turf/exit = get_step(src,(dir))
 	if(drop_zone)
 		if(exit.density)
+			playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 			say("Ошибка! Выход заблокирован.")
 			desc = "Пытается выдавить [D.name], но выход заблокирован."
 			stored_part = I
 			return FALSE
 
+		playsound(src, 'white/valtos/sounds/click2.ogg', 20, TRUE)
 		say("[capitalize(I.name)] готова.")
 		I.forceMove(exit)
 		return TRUE
 	else
+		playsound(src, 'white/valtos/sounds/click2.ogg', 20, TRUE)
 		say("[capitalize(I.name)] готова.")
 		I.forceMove(drop_location)
 		return TRUE
@@ -459,6 +466,7 @@
 		if("sync_rnd")
 			// Syncronises designs on interface with R&D techweb.
 			update_static_data(usr)
+			playsound(src, 'white/valtos/sounds/click2.ogg', 20, TRUE)
 			say("Successfully synchronized with R&D server.")
 			return
 		if("add_queue_set")
@@ -544,9 +552,11 @@
 /obj/machinery/mecha_part_fabricator/proc/eject_sheets(eject_sheet, eject_amt)
 	var/datum/component/material_container/mat_container = rmat.mat_container
 	if (!mat_container)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 		say("Нет доступа к хранилищу материалов, свяжитесь с завхозом.")
 		return 0
 	if (rmat.on_hold())
+		playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 		say("Запрещено использование материалов из хранилища, свяжитесь с завхозом.")
 		return 0
 	var/count = mat_container.retrieve_sheets(text2num(eject_amt), eject_sheet, drop_location())
