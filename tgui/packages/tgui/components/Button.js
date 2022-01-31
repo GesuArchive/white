@@ -87,7 +87,6 @@ export const Button = props => {
         // Refocus layout on pressing escape.
         if (keyCode === KEY_ESCAPE) {
           e.preventDefault();
-          return;
         }
       }}
       {...computeBoxProps(rest)}>
