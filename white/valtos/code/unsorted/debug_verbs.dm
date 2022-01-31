@@ -160,10 +160,12 @@
 		return
 
 	var/msg = input(src, null, "Enter ze paff") as sound|null
-	if(msg)
-		SSticker.login_music = sound(msg)
+	if(!msg)
+		return
 
-	message_admins(span_danger("Меняет лобби-трек на: [msg]"))
+	SSticker.login_music = sound(msg)
+
+	message_admins(span_danger("[ADMIN_LOOKUPFLW(usr)] меняет лобби-трек на: [msg]"))
 
 	for(var/client/C in GLOB.clients)
 		if(isnewplayer(C.mob))
