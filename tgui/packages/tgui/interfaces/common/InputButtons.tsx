@@ -1,10 +1,6 @@
 import { useBackend } from '../../backend';
 import { Box, Button, Stack } from '../../components';
 
-type InputButtonsData = {
-  preferences: Preferences;
-};
-
 type InputButtonsProps = {
   input: string | number | null;
   inputIsValid: Validator;
@@ -15,66 +11,43 @@ export type Validator = {
   error: string | null;
 };
 
-export type Preferences = {
-  large_buttons: boolean;
-  swapped_buttons: boolean;
-};
-
 export const InputButtons = (props: InputButtonsProps, context) => {
-  const { act, data } = useBackend<InputButtonsData>(context);
-  const { large_buttons = false, swapped_buttons = true } = data.preferences;
+  const { act } = useBackend(context);
   const { input, inputIsValid } = props;
   const { isValid, error } = inputIsValid;
   const submitButton = (
     <Button
       color="good"
       disabled={!isValid}
-      fluid={!!large_buttons}
-      height={!!large_buttons && 2}
       onClick={() => act('submit', { entry: input })}
-      pt={large_buttons ? 0.33 : 0}
       textAlign="center"
-      tooltip={!!large_buttons && error}
-      width={!large_buttons && 6}>
-      {large_buttons ? 'SUBMIT' : 'Submit'}
+      width={6}>
+      Отправить
     </Button>
   );
   const cancelButton = (
     <Button
       color="bad"
-      fluid={!!large_buttons}
-      height={!!large_buttons && 2}
       onClick={() => act('cancel')}
-      pt={large_buttons ? 0.33 : 0}
       textAlign="center"
-      width={!large_buttons && 6}>
-      {large_buttons ? 'CANCEL' : 'Cancel'}
+      width={6}>
+      Отмена
     </Button>
   );
-  const leftButton = !swapped_buttons ? cancelButton : submitButton;
-  const rightButton = !swapped_buttons ? submitButton : cancelButton;
+  const leftButton = cancelButton;
+  const rightButton = submitButton;
 
   return (
     <Stack>
-      {large_buttons ? (
-        <Stack.Item grow>{leftButton}</Stack.Item>
-      ) : (
-        <Stack.Item>{leftButton}</Stack.Item>
-      )}
-      {!large_buttons && (
-        <Stack.Item grow>
-          {!isValid && (
-            <Box color="average" nowrap textAlign="center">
-              {error}
-            </Box>
-          )}
-        </Stack.Item>
-      )}
-      {large_buttons ? (
-        <Stack.Item grow>{rightButton}</Stack.Item>
-      ) : (
-        <Stack.Item>{rightButton}</Stack.Item>
-      )}
+      <Stack.Item>{leftButton}</Stack.Item>
+      <Stack.Item grow>
+        {!isValid && (
+          <Box color="average" nowrap textAlign="center">
+            {error}
+          </Box>
+        )}
+      </Stack.Item>
+      <Stack.Item>{rightButton}</Stack.Item>
     </Stack>
   );
 };

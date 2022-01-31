@@ -1,5 +1,5 @@
 import { Loader } from './common/Loader';
-import { InputButtons, Preferences, Validator } from './common/InputButtons';
+import { InputButtons, Validator } from './common/InputButtons';
 import { useBackend, useSharedState } from '../backend';
 import { KEY_ENTER } from 'common/keycodes';
 import { Box, Input, Section, Stack, TextArea } from '../components';
@@ -10,7 +10,6 @@ type TextInputData = {
   message: string;
   multiline: boolean;
   placeholder: string;
-  preferences: Preferences;
   timeout: number;
   title: string;
 };
@@ -22,11 +21,9 @@ export const TextInputModal = (_, context) => {
     message,
     multiline,
     placeholder,
-    preferences,
     timeout,
     title,
   } = data;
-  const { large_buttons } = preferences;
   const [input, setInput] = useSharedState(context, 'input', placeholder);
   const [inputIsValid, setInputIsValid] = useSharedState<Validator>(
     context,
@@ -57,7 +54,7 @@ export const TextInputModal = (_, context) => {
               inputIsValid={inputIsValid}
               onType={onType}
             />
-            <Stack.Item pl={!large_buttons && 5} pr={!large_buttons && 5}>
+            <Stack.Item pl={5} pr={5}>
               <InputButtons input={input} inputIsValid={inputIsValid} />
             </Stack.Item>
           </Stack>

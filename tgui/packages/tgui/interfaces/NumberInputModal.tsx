@@ -1,5 +1,5 @@
 import { Loader } from './common/Loader';
-import { InputButtons, Preferences } from './common/InputButtons';
+import { InputButtons } from './common/InputButtons';
 import { KEY_ENTER } from 'common/keycodes';
 import { useBackend, useSharedState } from '../backend';
 import { Box, Button, NumberInput, Section, Stack } from '../components';
@@ -10,15 +10,13 @@ type NumberInputData = {
   message: string;
   min_value: number | null;
   placeholder: number;
-  preferences: Preferences;
   timeout: number;
   title: string;
 };
 
 export const NumberInputModal = (_, context) => {
   const { data } = useBackend<NumberInputData>(context);
-  const { message, placeholder, preferences, timeout, title } = data;
-  const { large_buttons } = preferences;
+  const { message, placeholder, timeout, title } = data;
   const [input, setInput] = useSharedState(context, 'input', placeholder);
   const onChange = (value: number) => {
     setInput(value);
@@ -30,7 +28,7 @@ export const NumberInputModal = (_, context) => {
   const defaultValidState = { isValid: true, error: null };
   // Dynamically changes the window height based on the message.
   const windowHeight
-    = 130 + Math.ceil(message.length / 5) + (large_buttons ? 5 : 0);
+    = 130 + Math.ceil(message.length / 5);
 
   return (
     <Window title={title} width={270} height={windowHeight}>
@@ -44,7 +42,7 @@ export const NumberInputModal = (_, context) => {
             <Stack.Item>
               <InputArea input={input} onClick={onClick} onChange={onChange} />
             </Stack.Item>
-            <Stack.Item pl={!large_buttons && 4} pr={!large_buttons && 4}>
+            <Stack.Item pl={4} pr={4}>
               <InputButtons input={input} inputIsValid={defaultValidState} />
             </Stack.Item>
           </Stack>
