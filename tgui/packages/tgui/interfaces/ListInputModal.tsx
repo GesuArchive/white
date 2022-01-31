@@ -228,7 +228,7 @@ const SearchBar = (props, context) => {
       fluid
       onEnter={(event) => {
         event.preventDefault();
-        act('choose', { entry: filteredItems[selected] });
+        act('choose', { choice: filteredItems[selected] });
       }}
       onInput={(_, value) => onSearch(value)}
       placeholder="Поиск..."
