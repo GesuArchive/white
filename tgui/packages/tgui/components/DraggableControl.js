@@ -285,7 +285,6 @@ export class DraggableControl extends Component {
             this.setState({
               editing: false,
             });
-            return;
           }
         }} />
     );

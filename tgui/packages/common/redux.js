@@ -7,8 +7,8 @@
 import { compose } from './fp';
 
 /**
- * Creates a Redux store.
- */
+  * Creates a Redux store.
+  */
 export const createStore = (reducer, enhancer) => {
   // Apply a store enhancer (applyMiddleware is one of them).
   if (enhancer) {
@@ -45,9 +45,9 @@ export const createStore = (reducer, enhancer) => {
 };
 
 /**
- * Creates a store enhancer which applies middleware to all dispatched
- * actions.
- */
+  * Creates a store enhancer which applies middleware to all dispatched
+  * actions.
+  */
 export const applyMiddleware = (...middlewares) => {
   return createStore => (reducer, ...args) => {
     const store = createStore(reducer, ...args);
@@ -73,13 +73,13 @@ export const applyMiddleware = (...middlewares) => {
 };
 
 /**
- * Combines reducers by running them in their own object namespaces as
- * defined in reducersObj paramter.
- *
- * Main difference from redux/combineReducers is that it preserves keys
- * in the state that are not present in the reducers object. This function
- * is also more flexible than the redux counterpart.
- */
+  * Combines reducers by running them in their own object namespaces as
+  * defined in reducersObj paramter.
+  *
+  * Main difference from redux/combineReducers is that it preserves keys
+  * in the state that are not present in the reducers object. This function
+  * is also more flexible than the redux counterpart.
+  */
 export const combineReducers = reducersObj => {
   const keys = Object.keys(reducersObj);
   let hasChanged = false;
@@ -101,21 +101,21 @@ export const combineReducers = reducersObj => {
 };
 
 /**
- * A utility function to create an action creator for the given action
- * type string. The action creator accepts a single argument, which will
- * be included in the action object as a field called payload. The action
- * creator function will also have its toString() overriden so that it
- * returns the action type, allowing it to be used in reducer logic that
- * is looking for that action type.
- *
- * @param {string} type The action type to use for created actions.
- * @param {any} prepare (optional) a method that takes any number of arguments
- * and returns { payload } or { payload, meta }. If this is given, the
- * resulting action creator will pass it's arguments to this method to
- * calculate payload & meta.
- *
- * @public
- */
+  * A utility function to create an action creator for the given action
+  * type string. The action creator accepts a single argument, which will
+  * be included in the action object as a field called payload. The action
+  * creator function will also have its toString() overriden so that it
+  * returns the action type, allowing it to be used in reducer logic that
+  * is looking for that action type.
+  *
+  * @param {string} type The action type to use for created actions.
+  * @param {any} prepare (optional) a method that takes any number of arguments
+  * and returns { payload } or { payload, meta }. If this is given, the
+  * resulting action creator will pass it's arguments to this method to
+  * calculate payload & meta.
+  *
+  * @public
+  */
 export const createAction = (type, prepare = null) => {
   const actionCreator = (...args) => {
     if (!prepare) {
