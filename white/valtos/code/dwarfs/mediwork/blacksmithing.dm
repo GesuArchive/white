@@ -28,7 +28,7 @@
 /obj/forge
 	name = "кузница"
 	desc = "Нагревает различные штуки, но реже всего слитки."
-	icon = 'white/valtos/icons/dwarfs/forge.dmi'
+	icon = 'white/kacherkin/icons/dwarfs/obj/forge.dmi'
 	icon_state = "forge_on"
 	light_range = 9
 	light_color = "#BB661E"
