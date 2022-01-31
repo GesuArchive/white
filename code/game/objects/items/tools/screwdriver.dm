@@ -79,7 +79,7 @@
 		return mutable_appearance('white/valtos/icons/belt_overlays.dmi', icon_state)
 
 /obj/item/screwdriver/abductor
-	name = "чужеродная отвёртка"
+	name = "инопланетная отвёртка"
 	desc = "Похожа на экспериментальную сверхзвуковую отвертку."
 	icon = 'icons/obj/abductor.dmi'
 	icon_state = "screwdriver_a"
@@ -92,8 +92,8 @@
 	return mutable_appearance('white/valtos/icons/belt_overlays.dmi', "screwdriver_nuke")
 
 /obj/item/screwdriver/power
-	name = "дрель"
-	desc = "Простая на вид, но довольно функциональная."
+	name = "шуруповерт"
+	desc = "Удобный и компактный инструмент со сменными насадками."
 	icon_state = "drill"
 	belt_icon_state = null
 	inhand_icon_state = "drill"
@@ -136,13 +136,13 @@
 	SIGNAL_HANDLER
 
 	tool_behaviour = (active ? TOOL_WRENCH : TOOL_SCREWDRIVER)
-	balloon_alert(user, "ставлю [active ? "большого" : "маленького"] крутяку")
+	balloon_alert(user, "ставлю [active ? "большую" : "маленькую"] крутяку")
 	playsound(user ? user : src, 'sound/items/change_drill.ogg', 50, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/screwdriver/power/examine()
 	. = ..()
-	. += "<hr>На конце установлен [tool_behaviour == TOOL_SCREWDRIVER ? "маленький" : "большой"] крутяка."
+	. += "<hr>На конце установлен [tool_behaviour == TOOL_SCREWDRIVER ? "маленькая" : "большая"] крутяка."
 
 /obj/item/screwdriver/power/suicide_act(mob/user)
 	if(tool_behaviour == TOOL_SCREWDRIVER)

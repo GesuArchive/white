@@ -9,9 +9,9 @@
 */
 
 /obj/machinery/telecomms/hub
-	name = "telecommunication hub"
+	name = "Телекоммуникационный узел"
 	icon_state = "hub"
-	desc = "A mighty piece of hardware used to send/receive massive amounts of data."
+	desc = "Мощное аппаратное обеспечение, используемое для отправки / приема огромных объемов данных."
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 80

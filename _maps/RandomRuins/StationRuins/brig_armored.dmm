@@ -311,6 +311,7 @@
 	name = "Armory Rack";
 	req_access_txt = "3"
 	},
+/obj/item/storage/toolbox/ammo/wt550,
 /obj/item/gun/ballistic/automatic/M41A,
 /obj/effect/turf_decal/tile/hex/neutral,
 /obj/effect/turf_decal/tile/hex/neutral{
@@ -1255,7 +1256,8 @@
 "eY" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Equipment Room";
-	req_access_txt = "1"
+	req_access_txt = "1";
+	security_level = 6
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1840,7 +1842,8 @@
 "gw" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Brig Control";
-	req_access_txt = "3"
+	req_access_txt = "3";
+	security_level = 6
 	},
 /obj/structure/cable,
 /obj/machinery/door/firedoor/border_only{
@@ -2318,7 +2321,8 @@
 "hq" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Brig Control";
-	req_access_txt = "3"
+	req_access_txt = "3";
+	security_level = 6
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2333,7 +2337,8 @@
 /obj/machinery/door/airlock/security{
 	name = "Security Office";
 	req_access_txt = null;
-	req_one_access_txt = "1;4"
+	req_one_access_txt = "1;4";
+	security_level = 6
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2709,7 +2714,8 @@
 "ig" = (
 /obj/machinery/door/airlock/command/glass{
 	name = "Head of Security";
-	req_access_txt = "58"
+	req_access_txt = "58";
+	security_level = 6
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2872,11 +2878,6 @@
 /area/security/brig)
 "iy" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/machinery/door/airlock/security/glass{
-	id_tag = "innerbrig";
-	name = "Brig";
-	req_access_txt = "63"
-	},
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 1
 	},
@@ -2891,6 +2892,12 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/airlock/security/glass{
+	id_tag = "innerbrig";
+	name = "Brig";
+	req_access_txt = "63";
+	security_level = 6
+	},
 /turf/open/floor/engine,
 /area/security/brig)
 "iz" = (
@@ -2898,11 +2905,6 @@
 /area/security/brig)
 "iA" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/machinery/door/airlock/security/glass{
-	id_tag = "innerbrig";
-	name = "Brig";
-	req_access_txt = "63"
-	},
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 4
 	},
@@ -2915,6 +2917,12 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/airlock/security/glass{
+	id_tag = "innerbrig";
+	name = "Brig";
+	req_access_txt = "63";
+	security_level = 6
+	},
 /turf/open/floor/engine,
 /area/security/brig)
 "iB" = (
@@ -3353,7 +3361,8 @@
 /obj/machinery/door/airlock/security/glass{
 	id_tag = "outerbrig";
 	name = "Brig";
-	req_access_txt = "63"
+	req_access_txt = "63";
+	security_level = 6
 	},
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
@@ -3389,11 +3398,6 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
-/obj/machinery/door/airlock/security/glass{
-	id_tag = "outerbrig";
-	name = "Brig";
-	req_access_txt = "63"
-	},
 /obj/machinery/door/poddoor/preopen{
 	id = "briggate";
 	name = "security blast door"
@@ -3409,6 +3413,12 @@
 /obj/machinery/door/firedoor/border_only,
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
+	},
+/obj/machinery/door/airlock/security/glass{
+	id_tag = "outerbrig";
+	name = "Brig";
+	req_access_txt = "63";
+	security_level = 6
 	},
 /turf/open/floor/engine,
 /area/security/brig)

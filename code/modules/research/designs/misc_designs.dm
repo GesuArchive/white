@@ -372,13 +372,14 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/light_replacer
-	name = "Light Replacer"
-	desc = "A device to automatically replace lights. Refill with working light bulbs."
+	name = "Лампозаменитель"
+	desc = "Устройство для автоматической замены ламп. Заправляется целыми или разбитыми лампочками, а так же листами стекла."
 	id = "light_replacer"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 1500, /datum/material/silver = 150, /datum/material/glass = 3000)
 	build_path = /obj/item/lightreplacer
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Рабочие инструменты ")
+	sub_category = list("Монтажные комплексы")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/buffer

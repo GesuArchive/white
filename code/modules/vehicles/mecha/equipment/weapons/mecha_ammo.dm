@@ -14,18 +14,18 @@
 
 /obj/item/mecha_ammo/update_name()
 	if(!rounds)
-		name = "empty ammo box"
-		desc = "An exosuit ammuniton box that has since been emptied. Please recycle."
+		name = "Пустой цинк из-под боеприпасов"
+		desc = "Коробка с боеприпасами для экзокостюма, которая была опустошена. Пожалуйста, отправьте на переработку."
 		icon_state = "empty"
 	return ..()
 
 /obj/item/mecha_ammo/attack_self(mob/user)
 	..()
 	if(rounds)
-		to_chat(user, span_warning("You cannot flatten the ammo box until it's empty!"))
+		to_chat(user, span_warning("Вы не можете расплющить коробку с боеприпасами, пока она не опустеет!"))
 		return
 
-	to_chat(user, span_notice("You fold [src] flat."))
+	to_chat(user, span_notice("Вы расплющиваете [src]."))
 	var/trash = new /obj/item/stack/sheet/iron(user.loc)
 	qdel(src)
 	user.put_in_hands(trash)
@@ -36,29 +36,29 @@
 		. += "<hr>Внутри [rounds] [round_term][rounds > 1?"":"а"]."
 
 /obj/item/mecha_ammo/incendiary
-	name = "incendiary ammo"
-	desc = "A box of incendiary ammunition for use with exosuit weapons."
+	name = "Зажигательные боеприпасы к БК-БЗ \"Аид\""
+	desc = "Коробка зажигательных боеприпасов для использования в карабинах для экзокостюмов."
 	icon_state = "incendiary"
 	rounds = 24
 	ammo_type = "incendiary"
 
 /obj/item/mecha_ammo/scattershot
-	name = "scattershot ammo"
-	desc = "A box of scaled-up buckshot, for use in exosuit shotguns."
+	name = "Картечные боеприпасы к \"Дуплету\""
+	desc = "Коробка крупной картечи для использования в дробовиках для экзокостюмов."
 	icon_state = "scattershot"
 	rounds = 40
 	ammo_type = "scattershot"
 
 /obj/item/mecha_ammo/lmg
-	name = "machine gun ammo"
-	desc = "A box of linked ammunition, designed for the Ultra AC 2 exosuit weapon."
+	name = "Пулеметные боеприпасы к Ультра АК-2"
+	desc = "Коробка ленточных боеприпасов, предназначенная для пулемета в экзокостюмах."
 	icon_state = "lmg"
 	rounds = 300
 	ammo_type = "lmg"
 
 /obj/item/mecha_ammo/missiles_br
-	name = "breaching missiles"
-	desc = "A box of large missiles, ready for loading into a BRM-6 exosuit missile rack."
+	name = "Ракеты РСЗО \"Пробой-6\""
+	desc = "Коробка с ракетами, готовая к загрузке в ракетную систему экзокостюма."
 	icon_state = "missile_br"
 	rounds = 6
 	round_term = "ракет"
@@ -67,8 +67,8 @@
 	ammo_type = "missiles_br"
 
 /obj/item/mecha_ammo/missiles_he
-	name = "anti-armor missiles"
-	desc = "A box of large missiles, ready for loading into an SRM-8 exosuit missile rack."
+	name = "Ракеты РСЗО \"Шторм-8\""
+	desc = "Коробка с ракетами, готовая к загрузке в ракетную систему экзокостюма."
 	icon_state = "missile_he"
 	rounds = 8
 	round_term = "ракет"
@@ -78,16 +78,16 @@
 
 
 /obj/item/mecha_ammo/flashbang
-	name = "launchable flashbangs"
-	desc = "A box of smooth flashbangs, for use with a large exosuit launcher. Cannot be primed by hand."
+	name = "Светошумовые граната к АГС \"Заря\""
+	desc = "Коробка гранат для использования в АГС экзокостюма. Оснащены электрическим детонатором и немогут быть использованы вне АГЦ."
 	icon_state = "flashbang"
 	rounds = 6
 	round_term = "гранат"
 	ammo_type = "flashbang"
 
 /obj/item/mecha_ammo/clusterbang
-	name = "launchable flashbang clusters"
-	desc = "A box of clustered flashbangs, for use with a specialized exosuit cluster launcher. Cannot be primed by hand."
+	name = "Светошумовые граната к АГС \"Матрёшка\""
+	desc = "Коробка кластерных гранат для использования в АГС экзокостюма. Оснащены электрическим детонатором и немогут быть использованы вне АГЦ."
 	icon_state = "clusterbang"
 	rounds = 3
 	round_term = "кластер"

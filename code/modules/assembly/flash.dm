@@ -8,8 +8,8 @@
 #define DEVIATION_FULL 2
 
 /obj/item/assembly/flash
-	name = "flash"
-	desc = "A powerful and versatile flashbulb device, with applications ranging from disorienting attackers to acting as visual receptors in robot production."
+	name = "вспышка"
+	desc = "Мощное и универсальное устройство со вспышкой, предназначенное для различных применений - от дезориентации злоумышленников до использования их в качестве сенсорных рецепторов при производстве роботов."
 	icon_state = "flash"
 	inhand_icon_state = "flashtool"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'

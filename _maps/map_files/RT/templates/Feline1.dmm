@@ -537,12 +537,6 @@
 /obj/item/food/grown/banana,
 /turf/open/indestructible/hoteltile,
 /area/ctf)
-"nr" = (
-/obj/structure/clownweeds,
-/mob/living/simple_animal/hostile/clown/infestor,
-/obj/item/bikehorn,
-/turf/open/indestructible/hoteltile,
-/area/ctf)
 "nt" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/engine,
@@ -660,7 +654,8 @@
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "oZ" = (
-/obj/structure/clownweeds,
+/obj/structure/alien/weeds/node,
+/mob/living/simple_animal/hostile/alien/queen,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
@@ -1769,11 +1764,12 @@
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "Ru" = (
+/obj/structure/alien/weeds,
+/obj/structure/bed/nest,
+/mob/living/simple_animal/hostile/alien/sentinel,
 /obj/structure/disposalpipe/segment{
 	invisibility = 100
 	},
-/mob/living/simple_animal/hostile/clown/worm,
-/obj/structure/clownweeds,
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "RG" = (
@@ -2090,12 +2086,12 @@
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "ZQ" = (
+/obj/structure/alien/weeds,
+/obj/structure/alien/egg/burst,
+/obj/effect/decal/cleanable/insectguts,
 /obj/structure/disposalpipe/segment{
 	invisibility = 100
 	},
-/mob/living/simple_animal/hostile/clown/mutant,
-/obj/structure/clownweeds,
-/obj/item/bikehorn,
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "ZZ" = (
@@ -2237,7 +2233,7 @@ nS
 xz
 ud
 oZ
-nr
+wr
 Nv
 kT
 nt

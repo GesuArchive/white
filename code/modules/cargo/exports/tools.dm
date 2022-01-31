@@ -98,17 +98,17 @@
 //Advanced/Power Tools.
 /datum/export/weldingtool/experimental
 	cost = CARGO_CRATE_VALUE * 0.45
-	unit_name = "экспериментальный сварочный инструмент"
+	unit_name = "экспериментальный сварочный аппарат"
 	export_types = list(/obj/item/weldingtool/experimental)
 
 /datum/export/jawsoflife
 	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "челюсти жизни"
+	unit_name = "гидравлические ножницы"
 	export_types = list(/obj/item/crowbar/power)
 
 /datum/export/handdrill
 	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "ручная дрель"
+	unit_name = "шуруповерт"
 	export_types = list(/obj/item/screwdriver/power)
 
 /datum/export/rld_mini

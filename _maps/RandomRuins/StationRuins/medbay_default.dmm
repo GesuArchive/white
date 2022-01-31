@@ -594,13 +594,16 @@
 /obj/structure/table/glass,
 /obj/structure/window/reinforced,
 /obj/item/storage/firstaid/toxin{
-	pixel_x = 3;
+	pixel_x = -7;
 	pixel_y = 3
 	},
-/obj/item/storage/firstaid/toxin,
-/obj/item/storage/firstaid/regular{
+/obj/item/storage/firstaid/toxin{
 	pixel_x = -3;
-	pixel_y = -3
+	pixel_y = 1
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = 1;
+	pixel_y = -1
 	},
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -614,6 +617,10 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 4
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = 5;
+	pixel_y = -3
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/storage)
@@ -1354,7 +1361,6 @@
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
 "it" = (
-/obj/machinery/vending/wardrobe/medi_wardrobe,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -1371,6 +1377,7 @@
 	network = list("ss13","medbay")
 	},
 /obj/machinery/light_switch/directional/south,
+/obj/machinery/vending/drugs,
 /turf/open/floor/plasteel/dark,
 /area/medical/storage)
 "iw" = (
@@ -2067,7 +2074,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/machinery/vending/drugs,
+/obj/machinery/vending/wardrobe/medi_wardrobe,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "oN" = (
@@ -3790,20 +3797,27 @@
 	req_access_txt = "5"
 	},
 /obj/item/storage/firstaid/o2{
-	pixel_x = 3;
+	pixel_x = -7;
 	pixel_y = 3
 	},
-/obj/item/storage/firstaid/o2,
-/obj/item/storage/firstaid/regular{
+/obj/item/storage/firstaid/o2{
 	pixel_x = -3;
+	pixel_y = 1
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = 1;
+	pixel_y = -1
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = 5;
 	pixel_y = -3
 	},
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
-	dir = 8
+	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue{
-	dir = 4
+	dir = 8
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -5134,12 +5148,19 @@
 /obj/structure/table/glass,
 /obj/structure/window/reinforced,
 /obj/item/storage/firstaid/fire{
-	pixel_x = 3;
+	pixel_x = 7;
 	pixel_y = 3
 	},
-/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/fire{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = -1;
+	pixel_y = -1
+	},
 /obj/item/storage/firstaid/regular{
-	pixel_x = -3;
+	pixel_x = -5;
 	pixel_y = -3
 	},
 /obj/effect/turf_decal/tile/blue,
@@ -7068,12 +7089,19 @@
 	req_access_txt = "5"
 	},
 /obj/item/storage/firstaid/brute{
-	pixel_x = 3;
+	pixel_x = 7;
 	pixel_y = 3
 	},
-/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/brute{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/item/storage/firstaid/brute{
+	pixel_x = -1;
+	pixel_y = -1
+	},
 /obj/item/storage/firstaid/regular{
-	pixel_x = -3;
+	pixel_x = -5;
 	pixel_y = -3
 	},
 /obj/effect/turf_decal/tile/blue,

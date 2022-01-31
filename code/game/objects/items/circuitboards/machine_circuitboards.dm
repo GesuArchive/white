@@ -61,7 +61,8 @@
 
 
 /obj/item/circuitboard/machine/telecomms/broadcaster
-	name = "Subspace Broadcaster (Оборудование)"
+	name = "Подпространственный вещатель"
+	desc = "Машина в форме тарелки, используемая для передачи обработанных подпространственных сигналов."
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/broadcaster
 	req_components = list(
@@ -72,7 +73,8 @@
 		/obj/item/stock_parts/micro_laser = 2)
 
 /obj/item/circuitboard/machine/telecomms/bus
-	name = "Bus Mainframe (Оборудование)"
+	name = "Мэйнфрейм шины"
+	desc = "Мощное аппаратное обеспечение, используемое для быстрой передачи огромных объемов данных и связывание машин в общую сеть."
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/bus
 	req_components = list(
@@ -81,7 +83,8 @@
 		/obj/item/stock_parts/subspace/filter = 1)
 
 /obj/item/circuitboard/machine/telecomms/hub
-	name = "Hub Mainframe (Оборудование)"
+	name = "Телекоммуникационный узел"
+	desc = "Мощное аппаратное обеспечение, используемое для отправки / приема огромных объемов данных."
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/hub
 	req_components = list(
@@ -90,7 +93,8 @@
 		/obj/item/stock_parts/subspace/filter = 2)
 
 /obj/item/circuitboard/machine/telecomms/message_server
-	name = "Messaging Server (Оборудование)"
+	name = "Сервер месенджера"
+	desc = "Машина, которая обрабатывает и маршрутизирует сообщения КПК и запрашивает консольные сообщения."
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/message_server
 	req_components = list(
@@ -99,7 +103,8 @@
 		/obj/item/stock_parts/subspace/filter = 3)
 
 /obj/item/circuitboard/machine/telecomms/processor
-	name = "Processor Unit (Оборудование)"
+	name = "Процессорный блок"
+	desc = "Эта машина используется для обработки больших объемов информации."
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/processor
 	req_components = list(
@@ -111,7 +116,8 @@
 		/obj/item/stock_parts/subspace/amplifier = 1)
 
 /obj/item/circuitboard/machine/telecomms/receiver
-	name = "Subspace Receiver (Оборудование)"
+	name = "Подпространственный приемник"
+	desc = "Эта машина имеет форму тарелкообразной приемной антенны и зеленые огоньки. Предназначена для приема и обработки подпространственной радиосигнала."
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/receiver
 	req_components = list(
@@ -121,7 +127,8 @@
 		/obj/item/stock_parts/micro_laser = 1)
 
 /obj/item/circuitboard/machine/telecomms/relay
-	name = "Relay Mainframe (Оборудование)"
+	name = "Телекоммуникационный ретранслятор"
+	desc = "Мощное аппаратное обеспечение, используемое для передачи огромных объемов данных на огромное расстояние."
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/relay
 	req_components = list(
@@ -130,7 +137,8 @@
 		/obj/item/stock_parts/subspace/filter = 2)
 
 /obj/item/circuitboard/machine/telecomms/server
-	name = "Telecommunication Server (Оборудование)"
+	name = "Телекоммуникационный сервер"
+	desc = "Машина, используемая для хранения данных и сетевой статистики."
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/server
 	req_components = list(
@@ -183,7 +191,8 @@
 		/obj/item/stock_parts/subspace/filter = 1)
 
 /obj/item/circuitboard/machine/pacman
-	name = "PACMAN-type Generator (Оборудование)"
+	name = "П.А.К.М.А.Н. - портативный генератор"
+	desc = "Портативный генератор для аварийного резервного питания. Работает на плазме."
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/port_gen/pacman
 	req_components = list(
@@ -194,12 +203,14 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/pacman/super
-	name = "SUPERPACMAN-type Generator (Оборудование)"
+	name = "С.У.П.Е.Р.П.А.К.М.А.Н. - портативный генератор"
+	desc = "Портативный генератор для аварийного резервного питания. Работает на уране."
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/port_gen/pacman/super
 
 /obj/item/circuitboard/machine/pacman/mrs
-	name = "MRSPACMAN-type Generator (Оборудование)"
+	name = "М.И.С.И.С.П.А.К.М.А.Н. - портативный генератор"
+	desc = "Портативный генератор для аварийного резервного питания. Работает на алмазах."
 	build_path = /obj/machinery/power/port_gen/pacman/mrs
 
 /obj/item/circuitboard/machine/power_compressor

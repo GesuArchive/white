@@ -86,7 +86,7 @@
 	name = "Мешок для трупов"
 	desc = "Полиэтиленовый пакет, предназначенный для хранения и транспортировки трупов."
 	id = "body_bag"
-	build_path = /obj/structure/closet/body_bag
+	build_path = /obj/item/bodybag
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/plastic = 2000)

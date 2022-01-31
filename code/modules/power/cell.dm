@@ -3,8 +3,8 @@
 #define CELL_POWER_DRAIN 750
 
 /obj/item/stock_parts/cell
-	name = "power cell"
-	desc = "A rechargeable electrochemical power cell."
+	name = "базовая батарея"
+	desc = "Перезаряжаемый электрохимический элемент питания, вмещающий 1 МДж энергии."
 	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "cell"
 	inhand_icon_state = "cell"
@@ -269,15 +269,16 @@
 	maxcharge = 2000
 
 /obj/item/stock_parts/cell/high
-	name = "high-capacity power cell"
+	name = "батарея увеличенной емкости"
+	desc = "Перезаряжаемый электрохимический элемент питания, вмещающий 10 МДж энергии."
 	icon_state = "hcell"
 	maxcharge = 10000
 	custom_materials = list(/datum/material/glass=60)
 	chargerate = 1500
 
 /obj/item/stock_parts/cell/high/plus
-	name = "high-capacity power cell+"
-	desc = "Where did these come from?"
+	name = "батарея увеличенной емкости+"
+	desc = "Усовершенстованный перезаряжаемый электрохимический элемент питания, вмещающий 15 МДж энергии."
 	icon_state = "h+cell"
 	maxcharge = 15000
 	chargerate = 2250
@@ -289,7 +290,8 @@
 	update_icon()
 
 /obj/item/stock_parts/cell/super
-	name = "super-capacity power cell"
+	name = "батарея сверхувеличенной емкости"
+	desc = "Усовершенстованный перезаряжаемый электрохимический элемент питания, вмещающий 20 МДж энергии."
 	icon_state = "scell"
 	maxcharge = 20000
 	custom_materials = list(/datum/material/glass=300)
@@ -302,7 +304,8 @@
 	update_icon()
 
 /obj/item/stock_parts/cell/hyper
-	name = "hyper-capacity power cell"
+	name = "батарея гиперувеличенной емкости"
+	desc = "Усовершенстованный перезаряжаемый электрохимический элемент питания, вмещающий 30 МДж энергии."
 	icon_state = "hpcell"
 	maxcharge = 30000
 	custom_materials = list(/datum/material/glass=400)
@@ -315,8 +318,8 @@
 	update_icon()
 
 /obj/item/stock_parts/cell/bluespace
-	name = "bluespace power cell"
-	desc = "A rechargeable transdimensional power cell."
+	name = "блюспейс батарея"
+	desc = "Экспериментальный перезаряжаемый межпространственный элемент питания, вмещающий 40 МДж энергии."
 	icon_state = "bscell"
 	maxcharge = 40000
 	custom_materials = list(/datum/material/glass=600)

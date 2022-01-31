@@ -1,6 +1,6 @@
 /obj/vehicle/sealed/mecha/combat/marauder
-	desc = "Heavy-duty, combat exosuit, developed after the Durand model. Rarely found among civilian populations."
-	name = "\improper Marauder"
+	desc = "Сверхпрочный боевой экзоскелет, разработанный по модели Дюранда. Иногда встречается среди частных армий."
+	name = "Марадер"
 	icon_state = "marauder"
 	movedelay = 5
 	max_integrity = 500

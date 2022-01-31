@@ -25620,7 +25620,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/maintenance/port/aft)
+/area/engineering/main)
 "cfF" = (
 /obj/machinery/suit_storage_unit/ce,
 /obj/effect/turf_decal/stripes/line{
@@ -29178,7 +29178,8 @@
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
 	name = "Security Maintenance";
-	req_access_txt = "1"
+	req_access_txt = "1";
+	security_level = 6
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -38113,11 +38114,17 @@
 "lxd" = (
 /obj/structure/table,
 /obj/item/discovery_scanner{
-	pixel_y = 11
+	pixel_x = -7;
+	pixel_y = 7
 	},
-/obj/item/research_disk_pinpointer,
 /obj/structure/railing,
 /obj/machinery/door/firedoor/border_only,
+/obj/item/experi_scanner{
+	pixel_x = 7
+	},
+/obj/item/research_disk_pinpointer{
+	pixel_x = -7
+	},
 /turf/open/floor/plasteel,
 /area/science/research)
 "lxk" = (

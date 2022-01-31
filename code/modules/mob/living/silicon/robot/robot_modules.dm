@@ -259,6 +259,7 @@
 		/obj/item/scalpel/augment,
 		/obj/item/circular_saw/augment,
 		/obj/item/bonesetter/augment,
+		/obj/item/blood_filter/augment,
 		/obj/item/healthanalyzer,
 		/obj/item/reagent_containers/borghypo,
 		/obj/item/stack/medical/gauze,

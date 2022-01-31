@@ -442,7 +442,7 @@ This section is for the crystal stabilizer item and the crystal from the closed 
 */
 /obj/item/crystal_stabilizer
 	name = "Стабилизатор Суперматерии"
-	desc = "Used when the Supermatter Matrix is starting to reach the destruction point."
+	desc = "Используется, когда Матрица Сверхматерии начинает достигать точки разрушения."
 	icon = 'icons/obj/supermatter.dmi'
 	icon_state = "stabilizer"
 	slot_flags = ITEM_SLOT_BACK

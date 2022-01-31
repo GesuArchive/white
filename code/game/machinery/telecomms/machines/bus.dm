@@ -9,9 +9,9 @@
 */
 
 /obj/machinery/telecomms/bus
-	name = "bus mainframe"
+	name = "мэйнфрейм шины"
 	icon_state = "bus"
-	desc = "A mighty piece of hardware used to send massive amounts of data quickly."
+	desc = "Мощное аппаратное обеспечение, используемое для быстрой передачи огромных объемов данных и связывание машин в общую сеть."
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 50

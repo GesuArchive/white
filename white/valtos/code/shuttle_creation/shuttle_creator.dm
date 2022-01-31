@@ -2,12 +2,12 @@
 #define CARDINAL_DIRECTIONS_Y list(0, 1, 0, -1)
 //============ Shuttle Creator Object ============
 /obj/item/shuttle_creator
-	name = "Rapid Shuttle Designator"
+	name = "Набор сделай сам - \"Шатлостроение\""
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rsd"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
-	desc = "A device used to define the area required for custom ships. Uses bluespace crystals to create bluespace-capable ships."
+	desc = "Устройство, используемое для определения области, необходимой для нестандартных судов. Использует блюспейс кристаллы для создания космических кораблей."
 	density = FALSE
 	anchored = FALSE
 	flags_1 = CONDUCT_1

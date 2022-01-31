@@ -84,6 +84,7 @@
 		/obj/item/retractor = 1,
 		/obj/item/circular_saw = 1,
 		/obj/item/bonesetter = 1,
+		/obj/item/blood_filter = 1,
 		/obj/item/cautery = 1)
 	generate_items_inside(items_inside,src)
 

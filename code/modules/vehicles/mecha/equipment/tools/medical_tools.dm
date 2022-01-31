@@ -30,8 +30,8 @@
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/medical/sleeper
-	name = "mounted sleeper"
-	desc = "Equipment for medical exosuits. A mounted sleeper that stabilizes patients and can inject reagents in the exosuit's reserves."
+	name = "криокапсула экзокостюма"
+	desc = "Оборудование для медицинских экзокостюмов. Подвесная криокапсула, которое стабилизирует пациентов и может вводить реагенты из синтезатора экзокостюма."
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	energy_drain = 20
@@ -57,8 +57,8 @@
 	var/mob/living/carbon/target = atomtarget
 	if(!patient_insertion_check(target))
 		return
-	to_chat(source, "[icon2html(src, source)]<span class='notice'>You start putting [target] into [src]...</span>")
-	chassis.visible_message(span_warning("[chassis] starts putting [target] into <b>[src.name]</b>."))
+	to_chat(source, "[icon2html(src, source)]<span class='notice'>Вы начинаете помещать [target] в [src]...</span>")
+	chassis.visible_message(span_warning("[chassis] начинает помещать [target] в <b>[src.name]</b>."))
 	if(!do_after(source, equip_cooldown, target=target))
 		return
 	if(!chassis || src != chassis.selected || !(get_dir(chassis, target)&chassis.dir))
@@ -69,20 +69,20 @@
 	patient = target
 	START_PROCESSING(SSobj, src)
 	update_equip_info()
-	to_chat(source, "[icon2html(src, source)]<span class='notice'>[target] successfully loaded into [src]. Life support functions engaged.</span>")
-	chassis.visible_message(span_warning("[chassis] loads [target] into [src]."))
-	log_message("[target] loaded. Life support functions engaged.", LOG_MECHA)
+	to_chat(source, "[icon2html(src, source)]<span class='notice'>[target] успешно помещен в [src]. Активированы протоколы поддержания жизненных систем.</span>")
+	chassis.visible_message(span_warning("[chassis] помещает [target] в [src]."))
+	log_message("[target] загружен в криокапсулу. Активированы протоколы поддержания жизненных систем.", LOG_MECHA)
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/medical/sleeper/proc/patient_insertion_check(mob/living/carbon/target, mob/user)
 	if(target.buckled)
-		to_chat(user, "[icon2html(src, user)]<span class='warning'>[target] will not fit into the sleeper because [target.p_theyre()] buckled to [target.buckled]!</span>")
+		to_chat(user, "[icon2html(src, user)]<span class='warning'>[target] не может быть помещен в криокапсулу, потому что [target.p_theyre()] пристегнут к [target.buckled]!</span>")
 		return FALSE
 	if(target.has_buckled_mobs())
-		to_chat(user, "[icon2html(src, user)]<span class='warning'>[target] will not fit into the sleeper because of the creatures attached to it!</span>")
+		to_chat(user, "[icon2html(src, user)]<span class='warning'>[target] не поместится в криокапсулу из-за прикрепленных к нему существ!</span>")
 		return FALSE
 	if(patient)
-		to_chat(user, "[icon2html(src, user)]<span class='warning'>The sleeper is already occupied!</span>")
+		to_chat(user, "[icon2html(src, user)]<span class='warning'>Криокапсула занята!</span>")
 		return FALSE
 	return TRUE
 
@@ -90,15 +90,15 @@
 	if(!patient)
 		return
 	patient.forceMove(get_turf(src))
-	to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]<span class='notice'>[patient] ejected. Life support functions disabled.</span>")
-	log_message("[patient] ejected. Life support functions disabled.", LOG_MECHA)
+	to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]<span class='notice'>[patient] высажен. Протоколы поддержания жизненных систем отключены.</span>")
+	log_message("[patient] высажен. Протоколы поддержания жизненных систем отключены.", LOG_MECHA)
 	STOP_PROCESSING(SSobj, src)
 	patient = null
 	update_equip_info()
 
 /obj/item/mecha_parts/mecha_equipment/medical/sleeper/detach()
 	if(patient)
-		to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]<span class='warning'>Unable to detach [src] - equipment occupied!</span>")
+		to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]<span class='warning'>Невозможно отсоединить [src] - внутри пациент!</span>")
 		return
 	STOP_PROCESSING(SSobj, src)
 	return ..()
@@ -257,8 +257,8 @@
 #define ANALYZE_SYRINGE_MODE	1
 
 /obj/item/mecha_parts/mecha_equipment/medical/syringe_gun
-	name = "exosuit syringe gun"
-	desc = "Equipment for medical exosuits. A chem synthesizer with syringe gun. Reagents inside are held in stasis, so no reactions will occur."
+	name = "шприцемет экзокостюма"
+	desc = "Оборудование для медицинских экзокостюмов. Химический синтезатор со шприц-пистолетом. Реагенты внутри находятся в состоянии стазиса, поэтому никаких реакций не произойдет."
 	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "syringegun"
 	range = MECHA_MELEE|MECHA_RANGED
@@ -326,13 +326,13 @@
 		return analyze_reagents(target, source)
 	//we're in syringe mode so lets do syringe stuff
 	if(!LAZYLEN(syringes))
-		to_chat(source, "[icon2html(src, source)]<span class=\"alert\">No syringes loaded.</span>")
+		to_chat(source, "[icon2html(src, source)]<span class=\"alert\">Магазин пуст, загрузите шприцы.</span>")
 		return
 	if(reagents.total_volume<=0)
-		to_chat(source, "[icon2html(src, source)]<span class=\"alert\">No available reagents to load syringe with.</span>")
+		to_chat(source, "[icon2html(src, source)]<span class=\"alert\">Реагентов в шприце не обнаружено.</span>")
 		return
 	if(HAS_TRAIT(source, TRAIT_PACIFISM))
-		to_chat(source, "<span class=\"alert\">The [src] might be lethally chambered! You don't want to risk harming anyone...</span>")
+		to_chat(source, "<span class=\"alert\">[src] может быть заряжен чем-то опасным! Я не хочу навредить кому-нибудь этой штукой...</span>")
 		return
 	var/obj/item/ammo_casing/syringegun/chambered = new /obj/item/ammo_casing/syringegun(src)
 	log_message("Fired [chambered] from [src] by [source], targeting [target].", LOG_MECHA)
@@ -361,8 +361,8 @@
 			message += " added to production"
 			START_PROCESSING(SSobj, src)
 			to_chat(usr, message)
-			to_chat(usr, "[icon2html(src, usr)]<span class='notice'>Reagent processing started.</span>")
-			log_message("Reagent processing started.", LOG_MECHA)
+			to_chat(usr, "[icon2html(src, usr)]<span class='notice'>Началась обработка реагентов.</span>")
+			log_message("Началась обработка реагентов.", LOG_MECHA)
 		return
 	if (href_list["show_reagents"])
 		if(!(usr in chassis.occupants))
@@ -440,31 +440,31 @@
 
 /obj/item/mecha_parts/mecha_equipment/medical/syringe_gun/proc/load_syringe(obj/item/reagent_containers/syringe/S, mob/user)
 	if(LAZYLEN(syringes) >= max_syringes)
-		to_chat(user, "[icon2html(src, user)]<span class='warning'>[capitalize(src.name)] syringe chamber is full!</span>")
+		to_chat(user, "[icon2html(src, user)]<span class='warning'>[capitalize(src.name)] магазин полон!</span>")
 		return FALSE
 	if(!chassis.Adjacent(S))
-		to_chat(user, "[icon2html(src, user)][span_warning("Unable to load syringe!")]")
+		to_chat(user, "[icon2html(src, user)][span_warning("Не удалось загрузить шприц!")]")
 		return FALSE
 	S.reagents.trans_to(src, S.reagents.total_volume, transfered_by = user)
 	S.forceMove(src)
 	LAZYADD(syringes,S)
-	to_chat(user, "[icon2html(src, user)]<span class='notice'>Syringe loaded.</span>")
+	to_chat(user, "[icon2html(src, user)]<span class='notice'>Шприц заряжен.</span>")
 	update_equip_info()
 	return TRUE
 
 /obj/item/mecha_parts/mecha_equipment/medical/syringe_gun/proc/analyze_reagents(atom/A, mob/user)
 	if(get_dist(src,A) >= 4)
-		to_chat(user, "[icon2html(src, user)]<span class='notice'>The object is too far away!</span>")
+		to_chat(user, "[icon2html(src, user)]<span class='notice'>Объект слишком далеко!</span>")
 		return FALSE
 	if(!A.reagents || ismob(A))
-		to_chat(user, "[icon2html(src, user)]<span class='warning'>No reagent info gained from [A].</span>")
+		to_chat(user, "[icon2html(src, user)]<span class='warning'>Не удалось получить корректные данные из [A].</span>")
 		return FALSE
-	to_chat(user, "[icon2html(src, user)]<span class='notice'>Analyzing reagents...</span>")
+	to_chat(user, "[icon2html(src, user)]<span class='notice'>Производится анализ...</span>")
 	for(var/datum/reagent/R in A.reagents.reagent_list)
 		if((R.chemical_flags & REAGENT_CAN_BE_SYNTHESIZED) && add_known_reagent(R.type,R.name))
-			to_chat(user, "[icon2html(src, user)]<span class='notice'>Reagent analyzed, identified as [R.name] and added to database.</span>")
+			to_chat(user, "[icon2html(src, user)]<span class='notice'>Реагент проанализирован и идентифицирован как [R.name], производится запись в базу данных.</span>")
 			send_byjax(chassis.occupants,"msyringegun.browser","reagents_form",get_reagents_form())
-	to_chat(user, "[icon2html(src, user)]<span class='notice'>Analysis complete.</span>")
+	to_chat(user, "[icon2html(src, user)]<span class='notice'>Анализ завершен.</span>")
 	return TRUE
 
 /obj/item/mecha_parts/mecha_equipment/medical/syringe_gun/proc/add_known_reagent(r_id,r_name)
@@ -492,8 +492,8 @@
 	if(.)
 		return
 	if(!LAZYLEN(processed_reagents) || reagents.total_volume >= reagents.maximum_volume || !chassis.has_charge(energy_drain))
-		to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]<span class='alert'>Reagent processing stopped.</span>")
-		log_message("Reagent processing stopped.", LOG_MECHA)
+		to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]<span class='alert'>Обработка реагентов остановлена.</span>")
+		log_message("Обработка реагентов остановлена.", LOG_MECHA)
 		return PROCESS_KILL
 	var/amount = delta_time * synth_speed / LAZYLEN(processed_reagents)
 	for(var/reagent in processed_reagents)
@@ -506,8 +506,8 @@
 ///////////////////////////////// Medical Beam ///////////////////////////////////////////////////////////////
 
 /obj/item/mecha_parts/mecha_equipment/medical/mechmedbeam
-	name = "exosuit medical beamgun"
-	desc = "Equipment for medical exosuits. Generates a focused beam of medical nanites."
+	name = "медлуч экзокостюма"
+	desc = "Оборудование для медицинских экзокостюмов. Генерирует сфокусированный луч медицинских нанитов."
 	icon_state = "mecha_medigun"
 	energy_drain = 10
 	range = MECHA_MELEE|MECHA_RANGED

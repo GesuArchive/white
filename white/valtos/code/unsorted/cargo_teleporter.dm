@@ -74,7 +74,7 @@
 	build_type = PROTOLATHE | AWAY_LATHE
 	build_path = /obj/item/cargo_teleporter
 	materials = list(/datum/material/iron = 500, /datum/material/plastic = 500, /datum/material/uranium = 500)
-	category = list("Оборудование")
+	category = list("Телепортация")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/techweb_node/cargo_teleporter

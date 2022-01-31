@@ -68,8 +68,7 @@
 					"beaker", "large_beaker", "xlarge_beaker", "syringe", "health_sensor", "portable_chem_mixer", "stethoscope", "surgical_drapes", "plumbing_rcd",
 					"dropper", "defibmountdefault", "surgical_tape", "glasses_prescription",
 					"robot_low_arm_left", "robot_low_arm_right", "robot_low_leg_left", "robot_low_leg_right", "teeth_box_32",
-					"body_bag", "fluid_ducts", "optable_folding", "pillbottle", "pill_bottle_big", "rollerbed",
-					"prox_sensor")
+					"body_bag", "fluid_ducts", "optable_folding", "pillbottle", "pill_bottle_big", "rollerbed")
 
 /datum/techweb_node/mmi
 	id = "mmi"
@@ -107,7 +106,9 @@
 	display_name = "Basic Tools"
 	description = "Basic mechanical, electronic, surgical and botanical tools."
 	design_ids = list("screwdriver", "wrench", "wirecutters", "crowbar", "multitool", "welding_tool", "tscanner", "analyzer", "cable_coil", "pipe_painter", "airlock_painter", "decal_painter",
-					"cultivator", "plant_analyzer", "shovel", "spade", "floor_painter", "hatchet", "secateurs", "mop", "pushbroom", "plunger", "spraycan", "swab", "petri_dish", "normtrash", "handlabel", "paystand")
+					"cultivator", "plant_analyzer", "shovel", "spade", "floor_painter", "hatchet", "secateurs", "mop", "pushbroom", "plunger", "spraycan", "swab", "petri_dish", "normtrash", "handlabel", "paystand",
+					"cable_coil_box", "rcd_ammo", "rcd_ammo_large",	"welding_helmet",	"prox_sensor", "igniter", "condenser", "signaler", "radio_headset", "bounced_radio", "intercom_frame", "infrared_emitter",
+					"timer", "voice_analyser", "light_tube", "light_bulb", "camera_assembly", "newscaster_frame", "bountyboard_frame", "large_welding_tool", "geigercounter", "turret_control","blast")
 
 /datum/techweb_node/basic_circuitry
 	id = "basic_circuitry"
@@ -195,8 +196,8 @@
 
 /datum/techweb_node/bio_process
 	id = "bio_process"
-	display_name = "Biological Processing"
-	description = "From slimes to kitchens."
+	display_name = "Биологическая обработка"
+	description = "От слимов до кухни."
 	prereq_ids = list("biotech")
 	design_ids = list("smartfridge", "gibber", "deepfryer", "monkey_recycler", "processor", "gibber", "microwave", "reagentgrinder", "dish_drive", "fat_sucker", "griddle")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 4000)
@@ -292,8 +293,8 @@
 
 /datum/techweb_node/adv_power
 	id = "adv_power"
-	display_name = "Advanced Power Manipulation"
-	description = "How to get more zap."
+	display_name = "Продвинутые силовые технологии"
+	description = "Как можно получить больше искр?"
 	prereq_ids = list("engineering")
 	design_ids = list("smes", "super_cell", "hyper_cell", "super_capacitor", "superpacman", "mrspacman", "power_turbine", "power_turbine_console", "power_compressor", "circulator", "teg")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 3500)
@@ -435,16 +436,16 @@
 /////////////////////////robotics tech/////////////////////////
 /datum/techweb_node/robotics
 	id = "robotics"
-	display_name = "Basic Robotics Research"
-	description = "Programmable machines that make our lives lazier."
+	display_name = "Базовое исследование робототехники"
+	description = "Программируемые машины, что делают нашу жизнь проще."
 	prereq_ids = list("base")
 	design_ids = list("paicard")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/adv_robotics
 	id = "adv_robotics"
-	display_name = "Advanced Robotics Research"
-	description = "Machines using actual neural networks to simulate human lives."
+	display_name = "Продвинутое исследование робототехники"
+	description = "Машины, использующие нейронные сети для имитации человеческого поведения."
 	prereq_ids = list("neural_programming", "robotics")
 	design_ids = list("mmi_posi")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
@@ -459,15 +460,15 @@
 
 /datum/techweb_node/neural_programming
 	id = "neural_programming"
-	display_name = "Neural Programming"
-	description = "Study into networks of processing units that mimic our brains."
+	display_name = "Нейронное программирование"
+	description = "Изучение объединенной сети процессоров, которые имитируют наш мозг."
 	prereq_ids = list("biotech", "datatheory")
 	design_ids = list("skill_station")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/cyborg_upg_util
 	id = "cyborg_upg_util"
-	display_name = "Cyborg Upgrades: Utility"
+	display_name = "Модернизация киборгов: Утилитарные"
 	description = "Utility upgrades for cyborgs."
 	prereq_ids = list("adv_robotics")
 	design_ids = list("borg_upgrade_thrusters", "borg_upgrade_selfrepair", "borg_upgrade_expand", "borg_upgrade_disablercooler", "borg_upgrade_trashofholding", "borg_upgrade_advancedmop", "borg_upgrade_broomer", "borg_upgrade_prt")
@@ -475,16 +476,16 @@
 
 /datum/techweb_node/cyborg_upg_engiminer
 	id = "cyborg_upg_engiminer"
-	display_name = "Cyborg Upgrades: Engineering & Mining"
-	description = "Engineering and Mining upgrades for cyborgs."
+	display_name = "Модернизация киборгов: Шахтер и Инженер"
+	description = "Модернизации для строительства и добычи ресурсов."
 	prereq_ids = list("adv_engi", "basic_mining")
 	design_ids = list("borg_upgrade_rped", "borg_upgrade_circuitapp", "borg_upgrade_diamonddrill", "borg_upgrade_lavaproof", "borg_upgrade_holding")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2000)
 
 /datum/techweb_node/cyborg_upg_med
 	id = "cyborg_upg_med"
-	display_name = "Cyborg Upgrades: Medical"
-	description = "Medical upgrades for cyborgs."
+	display_name = "Модернизация киборгов: Медик"
+	description = "Модернизации для оказания медицинской помощи в более эффективном диапазоне."
 	prereq_ids = list("adv_biotech")
 	design_ids = list("borg_upgrade_defibrillator", "borg_upgrade_piercinghypospray", "borg_upgrade_expandedsynthesiser", "borg_upgrade_pinpointer", "borg_upgrade_surgicalprocessor", "borg_upgrade_beakerapp")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2000)
@@ -828,8 +829,8 @@
 ////////////////////////mech technology////////////////////////
 /datum/techweb_node/adv_mecha
 	id = "adv_mecha"
-	display_name = "Advanced Exosuits"
-	description = "For when you just aren't Gundam enough."
+	display_name = "Продвинутые Экзокостюмы"
+	description = "Боевые модели и улучшенные модули"
 	prereq_ids = list("adv_robotics")
 	design_ids = list("mech_repair_droid")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 7500)
@@ -837,8 +838,8 @@
 
 /datum/techweb_node/odysseus
 	id = "mecha_odysseus"
-	display_name = "EXOSUIT: Odysseus"
-	description = "Odysseus exosuit designs"
+	display_name = "ЭКЗОКОСТЮМ: Одиссей"
+	description = "Медициский экзокостюм разработанный компанией Нано-Мед для помощи раненым и их быстрой транспортировки в мед-блок"
 	prereq_ids = list("base")
 	design_ids = list("odysseus_chassis", "odysseus_torso", "odysseus_head", "odysseus_left_arm", "odysseus_right_arm" ,"odysseus_left_leg", "odysseus_right_leg",
 	"odysseus_main", "odysseus_peri")
@@ -846,16 +847,16 @@
 
 /datum/techweb_node/clarke
 	id = "mecha_clarke"
-	display_name = "EXOSUIT: Clarke"
-	description = "Clarke exosuit designs"
+	display_name = "ЭКЗОКОСТЮМ: Кларк"
+	description = "Экзокостюм разработанный в равной степени для горнодобывающей и инженерной отрасли. Имеет 7 универсальных слотов для крепежа инженерного оборудования, оснащен интегрированным танком для руды и лавастойкими траками."
 	prereq_ids = list("engineering")
 	design_ids = list("clarke_chassis", "clarke_torso", "clarke_head", "clarke_left_arm", "clarke_right_arm", "clarke_main", "clarke_peri")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/gygax
 	id = "mech_gygax"
-	display_name = "EXOSUIT: Gygax"
-	description = "Gygax exosuit designs"
+	display_name = "ЭКЗОКОСТЮМ: Гигакс"
+	description = "Легкий боевой экзокостюм. Популярен среди наемников и корпоративных армий"
 	prereq_ids = list("adv_mecha", "weaponry")
 	design_ids = list("gygax_chassis", "gygax_torso", "gygax_head", "gygax_left_arm", "gygax_right_arm", "gygax_left_leg", "gygax_right_leg", "gygax_main",
 	"gygax_peri", "gygax_targ", "gygax_armor")
@@ -864,8 +865,8 @@
 
 /datum/techweb_node/durand
 	id = "mech_durand"
-	display_name = "EXOSUIT: Durand"
-	description = "Durand exosuit designs"
+	display_name = "ЭКЗОКОСТЮМ: Дюранд"
+	description = "Устаревший боевой экзоскелет, используемый корпорацией Нанотрасен. Сверхтяжелый и медленный, но очень прочен. Первоначально разработанный для борьбы с враждебными инопланетными формами жизни."
 	prereq_ids = list("adv_mecha", "adv_weaponry")
 	design_ids = list("durand_chassis", "durand_torso", "durand_head", "durand_left_arm", "durand_right_arm", "durand_left_leg", "durand_right_leg", "durand_main",
 	"durand_peri", "durand_targ", "durand_armor")
@@ -874,8 +875,8 @@
 
 /datum/techweb_node/phazon
 	id = "mecha_phazon"
-	display_name = "EXOSUIT: Phazon"
-	description = "Phazon exosuit designs"
+	display_name = "ЭКЗОКОСТЮМ: Фазон"
+	description = "Вершина научных исследований и гордость Нанотрейзен, он использует передовые технологии блюспейс и дорогие материалы."
 	prereq_ids = list("adv_mecha", "weaponry" , "micro_bluespace")
 	design_ids = list("phazon_chassis", "phazon_torso", "phazon_head", "phazon_left_arm", "phazon_right_arm", "phazon_left_leg", "phazon_right_leg", "phazon_main",
 	"phazon_peri", "phazon_targ", "phazon_armor")
@@ -884,8 +885,8 @@
 
 /datum/techweb_node/savannah_ivanov
 	id = "mecha_savannah_ivanov"
-	display_name = "EXOSUIT: Savannah-Ivanov"
-	description = "Savannah-Ivanov exosuit designs"
+	display_name = "ЭКЗОКОСТЮМ: Саванна-Иванов"
+	description = "Безумно громоздкий мех, который ловко унижает операторов с одним пилотом. Цена в том, что вам нужно два пилота, чтобы использовать его."
 	prereq_ids = list("adv_mecha", "weaponry", "exp_tools")
 	design_ids = list(
 		"savannah_ivanov_armor",
@@ -905,136 +906,136 @@
 
 /datum/techweb_node/adv_mecha_tools
 	id = "adv_mecha_tools"
-	display_name = "Advanced Exosuit Equipment"
-	description = "Tools for high level mech suits"
+	display_name = "Продвинутая экипировка Экзокостюмов"
+	description = "Промышленный РЦД и маневровые двигатели"
 	prereq_ids = list("adv_mecha")
 	design_ids = list("mech_rcd", "mech_thrusters")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/med_mech_tools
 	id = "med_mech_tools"
-	display_name = "Medical Exosuit Equipment"
-	description = "Tools for high level mech suits"
-	prereq_ids = list("adv_biotech")
+	display_name = "Экипировка для медицинских экзокостюмов"
+	description = "Медлуч, синтезатор медикаментов с интегрированным шприцеметом и криокапсула - стандартный набор разработанный компанией Нано-Мед для экзокостюма Одиссей"
+	prereq_ids = list("biotech", "mecha_odysseus")
 	design_ids = list("mech_sleeper", "mech_syringe_gun", "mech_medi_beam")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/mech_modules
 	id = "adv_mecha_modules"
-	display_name = "Simple Exosuit Modules"
-	description = "An advanced piece of mech weaponry"
+	display_name = "Простые модули экзокостюмов"
+	description = "Системы дополнительного бронирования и вспомогательные энергосистемы."
 	prereq_ids = list("adv_mecha", "bluespace_power")
 	design_ids = list("mech_energy_relay", "mech_ccw_armor", "mech_proj_armor", "mech_generator_nuclear")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/mech_scattershot
 	id = "mecha_tools"
-	display_name = "Exosuit Weapon (LBX AC 10 \"Scattershot\")"
-	description = "An advanced piece of mech weaponry"
+	display_name = "Тяжелая картечница \"Дуплет\""
+	description = "Оружие для боевых экзокостюмов. Стреляет шквалом крупной картечи."
 	prereq_ids = list("ballistic_weapons")
 	design_ids = list("mech_scattershot", "mech_scattershot_ammo")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/mech_carbine
 	id = "mech_carbine"
-	display_name = "Exosuit Weapon (FNX-99 \"Hades\" Carbine)"
-	description = "An advanced piece of mech weaponry"
+	display_name = "Легкий зажигательный карабин БК-БЗ \"Аид\""
+	description = "Оружие для боевых экзокостюмов. Стреляет зажигательными пулями."
 	prereq_ids = list("ballistic_weapons")
 	design_ids = list("mech_carbine", "mech_carbine_ammo")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/mech_ion
 	id = "mmech_ion"
-	display_name = "Exosuit Weapon (MKIV Ion Heavy Cannon)"
-	description = "An advanced piece of mech weaponry"
+	display_name = "Тяжелое ионное орудие МК-4"
+	description = "Оружие для боевых экзокостюмов. Стреляет эми импульсами повреждающими технику. Не попадите под собственный выстрел!"
 	prereq_ids = list("electronic_weapons", "emp_adv")
 	design_ids = list("mech_ion")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/mech_tesla
 	id = "mech_tesla"
-	display_name = "Exosuit Weapon (MKI Tesla Cannon)"
-	description = "An advanced piece of mech weaponry"
+	display_name = "Орудие Теслы МК-1"
+	description = "Оружие для боевых экзокостюмов. Стреляет разветвленными разрядами электричества, прицельный огонь невозможен."
 	prereq_ids = list("electronic_weapons", "adv_power")
 	design_ids = list("mech_tesla")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/mech_laser
 	id = "mech_laser"
-	display_name = "Exosuit Weapon (CH-PS \"Immolator\" Laser)"
-	description = "A basic piece of mech weaponry"
+	display_name = "Легкий лазер ЭВ-ЛЛ \"Выжигатель\""
+	description = "Оружие для боевых экзокостюмов. Стреляет слабыми лазерами."
 	prereq_ids = list("beam_weapons")
 	design_ids = list("mech_laser")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/mech_laser_heavy
 	id = "mech_laser_heavy"
-	display_name = "Exosuit Weapon (CH-LC \"Solaris\" Laser Cannon)"
-	description = "An advanced piece of mech weaponry"
+	display_name = "Тяжелый лазер ЭВ-ТЛ \"Солярис\""
+	description = "Оружие для боевых экзокостюмов. Стреляет мощными лазерами."
 	prereq_ids = list("adv_beam_weapons")
 	design_ids = list("mech_laser_heavy")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/mech_disabler
 	id = "mech_disabler"
-	display_name =  "Exosuit Weapon (CH-DS \"Peacemaker\" Mounted Disabler)"
-	description = "A basic piece of mech weaponry"
+	display_name =  "Усмиритель ЭВ-УЛ \"Миротворец\""
+	description = "Оружие для боевых экзокостюмов. Стреляет слабыми парализующими лучами."
 	prereq_ids = list("beam_weapons")
 	design_ids = list("mech_disabler")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/mech_grenade_launcher
 	id = "mech_grenade_launcher"
-	display_name = "Exosuit Weapon (SGL-6 Grenade Launcher)"
-	description = "An advanced piece of mech weaponry"
+	display_name = "Автоматический гранатомет АГС \"Заря\""
+	description = "Оружие для боевых экзокостюмов. Автоматическая гранатометная система запускающая светошумовые гранаты."
 	prereq_ids = list("explosive_weapons")
 	design_ids = list("mech_grenade_launcher", "mech_grenade_launcher_ammo")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/mech_missile_rack
 	id = "mech_missile_rack"
-	display_name = "Exosuit Weapon (BRM-6 Missile Rack)"
-	description = "An advanced piece of mech weaponry"
+	display_name = "Легкая ракетная установка РСЗО \"Пробой-6\""
+	description = "Оружие для боевых экзокостюмов. Запускает маловзрывоопасные разрывные ракеты, предназначенные для взрыва только при попадании в прочную цель."
 	prereq_ids = list("explosive_weapons")
 	design_ids = list("mech_missile_rack", "mech_missile_rack_ammo")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/clusterbang_launcher
 	id = "clusterbang_launcher"
-	display_name = "Exosuit Module (SOB-3 Clusterbang Launcher)"
-	description = "An advanced piece of mech weaponry"
+	display_name = "Касетный гранатомет АГС \"Матрёшка\""
+	description = "Оружие для боевых экзокостюмов. Запускает кластерные светошумовые гранаты. Ты чудовище."
 	prereq_ids = list("explosive_weapons")
 	design_ids = list("clusterbang_launcher", "clusterbang_launcher_ammo")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/mech_teleporter
 	id = "mech_teleporter"
-	display_name = "Exosuit Module (Teleporter Module)"
-	description = "An advanced piece of mech Equipment"
+	display_name = "Телепортер экзокостюма"
+	description = "Модуль экзокостюма, который позволяет им телепортироваться в любое место в поле зрения."
 	prereq_ids = list("micro_bluespace")
 	design_ids = list("mech_teleporter")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/mech_wormhole_gen
 	id = "mech_wormhole_gen"
-	display_name = "Exosuit Module (Localized Wormhole Generator)"
-	description = "An advanced piece of mech weaponry"
+	display_name = "Генератор червоточин экзокостюма"
+	description = "Модуль экзокостюма, который позволяет создавать небольшие квазистабильные червоточины, позволяющие осуществлять неточную телепортацию на большие расстояния."
 	prereq_ids = list("bluespace_travel")
 	design_ids = list("mech_wormhole_gen")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/mech_lmg
 	id = "mech_lmg"
-	display_name = "Exosuit Weapon (\"Ultra AC 2\" LMG)"
-	description = "An advanced piece of mech weaponry"
+	display_name = "Легкий пулемет Ультра АК-2"
+	description = "Оружие для боевых экзокостюмов. Стреляет короткой очередью из трех выстрелов."
 	prereq_ids = list("ballistic_weapons")
 	design_ids = list("mech_lmg", "mech_lmg_ammo")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/mech_diamond_drill
 	id = "mech_diamond_drill"
-	display_name =  "Exosuit Diamond Drill"
-	description = "A diamond drill fit for a large exosuit"
+	display_name =  "Алмазный бур экзокостюма"
+	description = "Оборудование для инженерных и боевых экзоскелетов. Усовершенствованная версия."
 	prereq_ids = list("adv_mining")
 	design_ids = list("mech_diamond_drill")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
@@ -1198,13 +1199,12 @@
 ////////////////////////B.E.P.I.S. Locked Techs////////////////////////
 /datum/techweb_node/light_apps
 	id = "light_apps"
-	display_name = "Illumination Applications"
-	description = "Applications of lighting and vision technology not originally thought to be commercially viable."
-	prereq_ids = list("base")
-	design_ids = list("rld_mini")
+	display_name = "Альтернативное освещение"
+	description = "Применение технологий освещения, которые изначально не считались коммерчески жизнеспособными."
+	prereq_ids = list("janitor")
+	design_ids = list("rld")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
-	hidden = TRUE
-	experimental = TRUE
+	required_experiments = list(/datum/experiment/scanning/points/ne_bepis/light)	// Больше не бепис
 
 /datum/techweb_node/extreme_office
 	id = "extreme_office"
