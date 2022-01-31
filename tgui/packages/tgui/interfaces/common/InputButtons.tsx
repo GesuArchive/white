@@ -18,20 +18,25 @@ export const InputButtons = (props: InputButtonsProps, context) => {
   const submitButton = (
     <Button
       color="good"
+      fluid={1}
+      height={2}
       disabled={!isValid}
-      onClick={() => act('submit', { entry: input })}
+      onClick={() => act('choose', { choice: input })}
+      pt={0.33}
       textAlign="center"
-      width={6}>
-      Отправить
+      tooltip={error}>
+      ОТПРАВИТЬ
     </Button>
   );
   const cancelButton = (
     <Button
       color="bad"
+      fluid={1}
+      height={2}
       onClick={() => act('cancel')}
-      textAlign="center"
-      width={6}>
-      Отмена
+      pt={0.33}
+      textAlign="center">
+      ОТМЕНА
     </Button>
   );
   const leftButton = cancelButton;
@@ -39,7 +44,7 @@ export const InputButtons = (props: InputButtonsProps, context) => {
 
   return (
     <Stack>
-      <Stack.Item>{leftButton}</Stack.Item>
+      <Stack.Item grow>{leftButton}</Stack.Item>
       <Stack.Item grow>
         {!isValid && (
           <Box color="average" nowrap textAlign="center">
@@ -47,7 +52,7 @@ export const InputButtons = (props: InputButtonsProps, context) => {
           </Box>
         )}
       </Stack.Item>
-      <Stack.Item>{rightButton}</Stack.Item>
+      <Stack.Item grow>{rightButton}</Stack.Item>
     </Stack>
   );
 };

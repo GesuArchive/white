@@ -91,7 +91,7 @@ export const ListInputModal = (_, context) => {
   );
   // Dynamically changes the window height based on the message.
   const windowHeight
-    = 325 + Math.ceil(message?.length / 3);
+    = 525 + Math.ceil(message?.length / 3);
 
   return (
     <Window title={title} width={325} height={windowHeight}>
@@ -137,7 +137,7 @@ export const ListInputModal = (_, context) => {
               />
             </Stack.Item>
             {searchBarVisible && <SearchBar onSearch={onSearch} />}
-            <Stack.Item pl={4} pr={4}>
+            <Stack.Item>
               <InputButtons input={selected} inputIsValid={inputIsValid} />
             </Stack.Item>
           </Stack>
@@ -169,7 +169,7 @@ const ListDisplay = (props, context) => {
               const keyCode = window.event ? event.which : event.keyCode;
               if (keyCode === KEY_ENTER && isValid) {
                 event.preventDefault();
-                act('submit', { entry: filteredItems[selected] });
+                act('choose', { choice: filteredItems[selected] });
               }
             }}
             selected={index === selected}

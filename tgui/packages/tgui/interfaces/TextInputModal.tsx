@@ -54,7 +54,7 @@ export const TextInputModal = (_, context) => {
               inputIsValid={inputIsValid}
               onType={onType}
             />
-            <Stack.Item pl={5} pr={5}>
+            <Stack.Item>
               <InputButtons input={input} inputIsValid={inputIsValid} />
             </Stack.Item>
           </Stack>
@@ -80,10 +80,10 @@ const InputArea = (props, context) => {
           onKeyDown={(event) => {
             const keyCode = window.event ? event.which : event.keyCode;
             if (keyCode === KEY_ENTER && inputIsValid) {
-              act('submit', { entry: input });
+              act('choose', { choice: input });
             }
           }}
-          placeholder="Type something..."
+          placeholder="Напиши что-нибудь..."
           value={input}
         />
       </Stack.Item>
@@ -99,10 +99,10 @@ const InputArea = (props, context) => {
             const keyCode = window.event ? event.which : event.keyCode;
             if (keyCode === KEY_ENTER && inputIsValid) {
 
-              act('submit', { entry: input });
+              act('choose', { choice: input });
             }
           }}
-          placeholder="Type something..."
+          placeholder="Напиши что-нибудь..."
           value={input}
         />
       </Stack.Item>

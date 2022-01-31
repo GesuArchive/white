@@ -136,12 +136,12 @@
 	if (.)
 		return
 	switch(action)
-		if("submit")
-			if(max_value && (length(params["entry"]) > max_value))
+		if("choose")
+			if(max_value && (length(params["choice"]) > max_value))
 				return FALSE
-			if(min_value && (length(params["entry"]) < min_value))
+			if(min_value && (length(params["choice"]) < min_value))
 				return FALSE
-			set_entry(params["entry"])
+			set_entry(params["choice"])
 			SStgui.close_uis(src)
 			return TRUE
 		if("cancel")

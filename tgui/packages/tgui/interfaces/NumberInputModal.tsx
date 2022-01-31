@@ -42,7 +42,7 @@ export const NumberInputModal = (_, context) => {
             <Stack.Item>
               <InputArea input={input} onClick={onClick} onChange={onChange} />
             </Stack.Item>
-            <Stack.Item pl={4} pr={4}>
+            <Stack.Item>
               <InputButtons input={input} inputIsValid={defaultValidState} />
             </Stack.Item>
           </Stack>
@@ -64,7 +64,7 @@ const InputArea = (props, context) => {
         <Button
           icon="angle-double-left"
           onClick={() => onClick(min_value || 0)}
-          tooltip="Minimum"
+          tooltip="Минимум"
         />
       </Stack.Item>
       <Stack.Item grow>
@@ -78,7 +78,7 @@ const InputArea = (props, context) => {
           onKeyDown={(event) => {
             const keyCode = window.event ? event.which : event.keyCode;
             if (keyCode === KEY_ENTER && input) {
-              act('submit', { entry: input });
+              act('choose', { choice: input });
             }
           }}
           value={input || placeholder || 0}
@@ -88,14 +88,14 @@ const InputArea = (props, context) => {
         <Button
           icon="angle-double-right"
           onClick={() => onClick(max_value || 10000)}
-          tooltip="Max"
+          tooltip="Макс"
         />
       </Stack.Item>
       <Stack.Item>
         <Button
           icon="redo"
           onClick={() => onClick(placeholder || 0)}
-          tooltip="Reset"
+          tooltip="Сброс"
         />
       </Stack.Item>
     </Stack>
