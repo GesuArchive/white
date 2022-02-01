@@ -142,7 +142,9 @@ export const ChemDispenser = (props, context) => {
                 icon="tint"
                 width="129.5px"
                 lineHeight={1.75}
-                content={chemical.title}
+                content={chemical.title.length > 15
+                  ? chemical.title.substring(0, 12)
+                  + "..." : chemical.title}
                 tooltip={"pH: " + chemical.pH}
                 color={recipeReagents.includes(chemical.id)
                   ? hasCol ? "black" : "green"
