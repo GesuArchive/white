@@ -55,6 +55,7 @@
  */
 /obj/machinery/research/explosive_compressor/proc/say_requirements(obj/item/raw_anomaly_core/C)
 	var/required = get_required_radius(C.anomaly_type)
+	playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 	if(isnull(required))
 		say("Unfortunately, due to diminishing supplies of condensed anomalous matter, [C] and any cores of its type are no longer of a sufficient quality level to be compressed into a working core.")
 	else
@@ -127,6 +128,7 @@
 		inserted_bomb = null
 		inserted_core.forceMove(drop_location())
 		inserted_core = null
+		playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 		say("Transfer valve resulted in negligible explosive power. Items ejected.")
 		return
 	mix.react()		// build more pressure
@@ -134,11 +136,13 @@
 	var/range = (pressure - TANK_FRAGMENT_PRESSURE) / TANK_FRAGMENT_SCALE
 	if(range < required_radius)
 		inserted_bomb.forceMove(src)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 		say("Resultant detonation failed to produce enough implosive power to compress [inserted_core]. Core ejected.")
 		return
 	QDEL_NULL(inserted_bomb)	// bomb goes poof
 	inserted_core.create_core(drop_location(), TRUE, TRUE)
 	inserted_core = null
+	playsound(src, 'white/valtos/sounds/click2.ogg', 20, TRUE)
 	say("Success. Resultant detonation has theoretical range of [range]. Required radius was [required_radius]. Core production complete.")
 
 #undef MAX_RADIUS_REQUIRED

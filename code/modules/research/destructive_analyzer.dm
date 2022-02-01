@@ -216,6 +216,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 			unload_item()
 	if(ls["deconstruct"])
 		if(!user_try_decon_id(ls["deconstruct"], usr))
+			playsound(src, 'white/valtos/sounds/click3.ogg', 20, TRUE)
 			say("Destructive analysis failed!")
 
 	updateUsrDialog()

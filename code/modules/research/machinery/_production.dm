@@ -152,12 +152,14 @@
 		return
 	if(action == "build")
 		if(busy)
+			playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 			say("Внимание: Фабрикатор занят!")
 		else
 			user_try_print_id(params["design_id"], params["amount"])
 			. = TRUE
 	if(action == "sync_research")
 		update_designs()
+		playsound(src, 'white/valtos/sounds/click2.ogg', 20, TRUE)
 		say("Синхронизация исследований с базой данных хост-технологий.")
 		. = TRUE
 	if(action == "dispose")
@@ -284,15 +286,19 @@
 	if(!istype(D))
 		return FALSE
 	if(!(isnull(allowed_department_flags) || (D.departmental_flags & allowed_department_flags)))
+		playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 		say("Внимание: Ошибка печати: У этого производителя нет необходимых ключей для расшифровки проектных схем. Обновите данные исследования с помощью экранной кнопки и обратитесь в службу поддержки NanoTrasen!")
 		return FALSE
 	if(D.build_type && !(D.build_type & allowed_buildtypes))
+		playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 		say("Эта машина не имеет необходимых систем манипулирования для этой конструкции. Обратитесь в службу поддержки NanoTrasen!")
 		return FALSE
 	if(!materials.mat_container)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 		say("Нет связи со складом материалов, обратитесь к завхозу.")
 		return FALSE
 	if(materials.on_hold())
+		playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 		say("Доступ к минералам приостановлен, обратитесь к завхозу.")
 		return FALSE
 	var/power = 1000
@@ -306,10 +312,12 @@
 	for(var/MAT in D.materials)
 		efficient_mats[MAT] = D.materials[MAT]/coeff
 	if(!materials.mat_container.has_materials(efficient_mats, amount))
+		playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 		say("Недостаточно материалов для завершения прототип[amount > 1? "ов" : "а"].")
 		return FALSE
 	for(var/R in D.reagents_list)
 		if(!reagents.has_reagent(R, D.reagents_list[R]*amount/coeff))
+			playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 			say("Недостаточно химикатов для завершения прототипа[amount > 1? "ов" : "а"].")
 			return FALSE
 	materials.mat_container.use_materials(efficient_mats, amount)
@@ -327,9 +335,11 @@
 /obj/machinery/rnd/production/proc/eject_sheets(eject_sheet, eject_amt)
 	var/datum/component/material_container/mat_container = materials.mat_container
 	if (!mat_container)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 		say("Нет доступа к складу материалов, обратитесь к завхозу.")
 		return 0
 	if (materials.on_hold())
+		playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 		say("Доступ к минералам приостановлен, обратитесь к завхозу.")
 		return 0
 	var/count = mat_container.retrieve_sheets(text2num(eject_amt), eject_sheet, drop_location())
