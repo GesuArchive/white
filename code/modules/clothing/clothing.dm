@@ -290,14 +290,13 @@
 
 	for(var/zone in damage_by_parts)
 		var/pct_damage_part = damage_by_parts[zone] / limb_integrity * 100
-		var/zone_name = parse_zone(zone)
 		switch(pct_damage_part)
 			if(100 to INFINITY)
-				. += span_smalldanger(span_warning("<b>[capitalize(zone_name)] бесполезна и требует починки!</b>"))
+				. += span_smalldanger(span_warning("<b>[capitalize(src.name)] бесполезна и требует починки!</b>"))
 			if(60 to 99)
-				. += span_notice(span_warning("[capitalize(zone_name)] достаточно разорвана!"))
+				. += span_notice(span_warning("[capitalize(src.name)] достаточно разорвана!"))
 			if(30 to 59)
-				. += span_smallnotice(span_danger("[capitalize(zone_name)] немного порвана."))
+				. += span_smallnotice(span_danger("[capitalize(src.name)] немного порвана."))
 
 	var/datum/component/storage/pockets = GetComponent(/datum/component/storage)
 	if(pockets)
