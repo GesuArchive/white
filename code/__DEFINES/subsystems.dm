@@ -158,7 +158,7 @@
 #define INIT_ORDER_DISCORD			-60
 #define INIT_ORDER_EXPLOSIONS		-69
 #define INIT_ORDER_STATPANELS		-98
-#define INIT_ORDER_DEMO				-99  // o avoid a bunch of changes related to initialization being written, do this last
+#define INIT_ORDER_INIT_PROFILER 	-99 //Near the end, logs the costs of initialize
 #define INIT_ORDER_CHAT				-100 //Should be last to ensure chat remains smooth during init.
 
 // Subsystem fire priority, from lowest to highest priority
@@ -170,6 +170,7 @@
 #define FIRE_PRIORITY_VIS			10
 #define FIRE_PRIORITY_AMBIENCE 		10
 #define FIRE_PRIORITY_GARBAGE		15
+#define FIRE_PRIORITY_DATABASE 		16
 #define FIRE_PRIORITY_WET_FLOORS	20
 #define FIRE_PRIORITY_AIR			20
 #define FIRE_PRIORITY_NPC 			20

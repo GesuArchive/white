@@ -754,6 +754,9 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	names += "---- Dynamic Ruins ----"
 	for(var/name in SSmapping.space_ruins_templates)
 		names[name] = list(SSmapping.space_ruins_templates[name], ZTRAIT_DYNAMIC_LEVEL, list(/area/space))
+	names += "---- Near Ruins ----"
+	for(var/name in SSmapping.space_ruins_templates)
+		names[name] = list(SSmapping.space_ruins_templates[name], ZTRAIT_NEAR_SPACE_LEVEL, list(/area/space))
 	names += "---- Lava Ruins ----"
 	for(var/name in SSmapping.lava_ruins_templates)
 		names[name] = list(SSmapping.lava_ruins_templates[name], ZTRAIT_LAVA_RUINS, list(/area/lavaland/surface/outdoors/unexplored))
@@ -787,6 +790,24 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		to_chat(src, span_italics("[template.description]") , confidential = TRUE)
 	else
 		to_chat(src, span_warning("Failed to place [template.name].") , confidential = TRUE)
+
+/client/proc/run_empty_query(val as num)
+	set category = "Дбг"
+	set name = "Run empty query"
+	set desc = "Amount of queries to run"
+
+	var/list/queries = list()
+	for(var/i in 1 to val)
+		var/datum/db_query/query = SSdbcore.NewQuery("NULL")
+		INVOKE_ASYNC(query, /datum/db_query.proc/Execute)
+		queries += query
+
+	for(var/datum/db_query/query as anything in queries)
+		query.sync()
+		qdel(query)
+	queries.Cut()
+
+	message_admins("[key_name_admin(src)] ran [val] empty queries.")
 
 /client/proc/generate_ruin()
 	set category = "Дбг"
@@ -969,7 +990,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 #ifdef TESTING
 /client/proc/check_missing_sprites()
-	set category = "Debug"
+	set category = "Дбг"
 	set name = "Debug Worn Item Sprites"
 	set desc = "We're cancelling the Spritemageddon. (This will create a LOT of runtimes! Don't use on a live server!)"
 	var/actual_file_name

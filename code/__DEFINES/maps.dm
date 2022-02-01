@@ -35,6 +35,7 @@ require only minor tweaks.
 #define ZTRAIT_RESERVED "Transit/Reserved"
 #define ZTRAIT_AWAY "Away Mission"
 #define ZTRAIT_DYNAMIC_LEVEL "Space Ruins"
+#define ZTRAIT_NEAR_SPACE_LEVEL "Near Space Ruins"
 #define ZTRAIT_LAVA_RUINS "Lava Ruins"
 #define ZTRAIT_GENSOKYO_RUINS "Gensokyo Ruins"
 #define ZTRAIT_ICE_RUINS "Ice Ruins"
@@ -71,8 +72,9 @@ require only minor tweaks.
 
 // default trait definitions, used by SSmapping
 #define ZTRAITS_CENTCOM list(ZTRAIT_CENTCOM = TRUE)
-#define ZTRAITS_STATION list(ZTRAIT_LINKAGE = SELFLOOPING, ZTRAIT_STATION = TRUE)
-#define ZTRAITS_SPACE list(ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_DYNAMIC_LEVEL = TRUE)
+#define ZTRAITS_STATION list(ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_STATION = TRUE)
+#define ZTRAITS_SPACE list(ZTRAIT_LINKAGE = SELFLOOPING, ZTRAIT_DYNAMIC_LEVEL = TRUE)
+#define ZTRAITS_NEAR_SPACE list(ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_NEAR_SPACE_LEVEL = TRUE)
 #define ZTRAITS_LAVALAND list(\
 	ZTRAIT_MINING = TRUE, \
 	ZTRAIT_ASHSTORM = TRUE, \

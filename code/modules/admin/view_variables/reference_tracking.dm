@@ -1,7 +1,7 @@
 #ifdef REFERENCE_TRACKING
 
 /datum/verb/find_refs()
-	set category = "Debug"
+	set category = "Дбг"
 	set name = "Find References"
 	set src in world
 
@@ -54,7 +54,7 @@
 
 
 /datum/verb/qdel_then_find_references()
-	set category = "Debug"
+	set category = "Дбг"
 	set name = "qdel() then Find References"
 	set src in world
 
@@ -64,7 +64,7 @@
 
 
 /datum/verb/qdel_then_if_fail_find_references()
-	set category = "Debug"
+	set category = "Дбг"
 	set name = "qdel() then Find References if GC failure"
 	set src in world
 
