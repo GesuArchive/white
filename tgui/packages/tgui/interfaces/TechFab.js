@@ -97,7 +97,7 @@ const Material = (props, context) => {
         <Flex.Item width="100%">
           {capitalize(material.name)}
         </Flex.Item>
-        <Flex.Item grow>
+        <Flex.Item grow basis="content">
           <Flex align="baseline">
             <Flex.Item shrink px={1}>
               {formatBigNumber(material.amount, 4)}
@@ -137,14 +137,14 @@ const Reagent = (props, context) => {
   return (
     <Flex.Item width="50%" className="TechFab__Reagent">
       <Flex justify="space-between" align="baseline">
-        <Flex.Item grow px={1}>
+        <Flex.Item grow basis="content">
           {reagent.name}
         </Flex.Item>
         <Flex.Item shrink px={1}>
           {formatBigNumber(reagent.volume, 4)}
         </Flex.Item>
         <Flex.Item>
-          <Button content="Purge" onClick={() => act("dispose", {
+          <Button content="Очистить" onClick={() => act("dispose", {
             reagent_id: reagent.id,
           })} />
         </Flex.Item>
@@ -305,7 +305,7 @@ const Recipe = (props, context) => {
             </Box>
           </Flex.Item>
         </ConditionalTooltip>
-        <Flex.Item grow>
+        <Flex.Item grow basis="content">
           <Flex className="TechFab__ButtonsContainer">
             {
               craft_amounts.map(amount => {
@@ -352,7 +352,7 @@ const TechFabContent = (props, context) => {
   if (recipesDisplayed)
   {
     return (
-      <Stack.Item grow>
+      <Stack.Item grow basis="content">
         <Section grow fill scrollable
           title={search !== null ? "Поиск" : category}
           buttons={(
@@ -375,7 +375,7 @@ const TechFabContent = (props, context) => {
   else
   {
     return (
-      <Stack.Item grow>
+      <Stack.Item grow basis="content">
         <Section title="Категории" grow fill scrollable>
           <Flex wrap="wrap" justify="space-between" align="center">
             {
