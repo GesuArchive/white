@@ -181,29 +181,27 @@
 
 /obj/item/clothing/under/examine(mob/user)
 	. = ..()
-	. += "<hr>"
 	if(freshly_laundered)
-		. += "Выглядит свежим и чистым."
+		. += "<hr>Выглядит свежим и чистым."
 	if(can_adjust)
 		if(adjusted == ALT_STYLE)
 			. += "<hr>ПКМ на [src.name] чтобы носить нормально."
 		else
 			. += "<hr>ПКМ on [src.name] чтобы носить по другому."
-	. += "<hr>"
 	if (has_sensor == BROKEN_SENSORS)
-		. += "Похоже, сенсоры на этой штуке повреждены."
+		. += "<hr>Похоже, сенсоры на этой штуке повреждены."
 	else if(has_sensor > NO_SENSORS)
 		switch(sensor_mode)
 			if(SENSOR_OFF)
-				. += "Сенсоры отключены."
+				. += "<hr>Сенсоры отключены."
 			if(SENSOR_LIVING)
-				. += "Сенсоры состояния ЖИВ/МЁРТВ работают."
+				. += "<hr>Сенсоры состояния ЖИВ/МЁРТВ работают."
 			if(SENSOR_VITALS)
-				. += "Сенсоры жизненных показателей работают."
+				. += "<hr>Сенсоры жизненных показателей работают."
 			if(SENSOR_COORDS)
-				. += "Сенсоры жизненных показателей и местоположения работают."
+				. += "<hr>Сенсоры жизненных показателей и местоположения работают."
 	if(attached_accessory)
-		. += "</br>Вау! На этой штуке есть [attached_accessory]."
+		. += "<hr>Вау! На этой штуке есть [attached_accessory]."
 
 /obj/item/clothing/under/verb/toggle()
 	set name = "Переключить сенсоры костюма"

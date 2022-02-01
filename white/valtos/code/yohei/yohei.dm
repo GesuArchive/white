@@ -117,7 +117,7 @@
 			charge = max(0, charge - 25 * delta_time)//Quick decrease in light
 		else
 			charge = min(max_charge, charge + 30 * delta_time) //Charge in the dark
-		plane = GRAVITY_PULSE_PLANE
+		user.plane = GRAVITY_PULSE_PLANE
 
 /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
 	name = "пистолет Тиберия"

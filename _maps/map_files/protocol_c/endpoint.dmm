@@ -5179,8 +5179,7 @@
 "sW" = (
 /obj/lab_monitor/yohei{
 	anchored = 1;
-	pixel_y = 32;
-	plane = -1
+	pixel_y = 32
 	},
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 9

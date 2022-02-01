@@ -290,25 +290,26 @@
 
 	for(var/zone in damage_by_parts)
 		var/pct_damage_part = damage_by_parts[zone] / limb_integrity * 100
+		var/zone_name = parse_zone(zone)
 		switch(pct_damage_part)
 			if(100 to INFINITY)
-				. += span_smalldanger(span_warning("<b>[capitalize(src.name)] бесполезна и требует починки!</b>"))
+				. += span_smalldanger(span_warning("<b>[capitalize(zone_name)] [src.name] разорвана в клочья!</b>"))
 			if(60 to 99)
-				. += span_notice(span_warning("[capitalize(src.name)] достаточно разорвана!"))
+				. += span_notice(span_warning("[capitalize(zone_name)] [src.name] сильно потрёпана!"))
 			if(30 to 59)
-				. += span_smallnotice(span_danger("[capitalize(src.name)] немного порвана."))
+				. += span_smallnotice(span_danger("[capitalize(zone_name)] [src.name] немного порвана."))
 
 	var/datum/component/storage/pockets = GetComponent(/datum/component/storage)
 	if(pockets)
 		var/list/how_cool_are_your_threads = list("<hr><span class='notice'>")
 		if(pockets.attack_hand_interact)
-			how_cool_are_your_threads += "[src] показывает хранилище при клике.\n"
+			how_cool_are_your_threads += "[capitalize(src.name)] показывает хранилище при клике.\n"
 		else
-			how_cool_are_your_threads += "[src] показывает хранилище при перетягивании на себя.\n"
+			how_cool_are_your_threads += "[capitalize(src.name)] показывает хранилище при перетягивании на себя.\n"
 		if (pockets.can_hold?.len) // If pocket type can hold anything, vs only specific items
-			how_cool_are_your_threads += "[src] может хранить [pockets.max_items] <a href='?src=[REF(src)];show_valid_pocket_items=1'>предметов</a>.\n"
+			how_cool_are_your_threads += "[capitalize(src.name)] может хранить [pockets.max_items] <a href='?src=[REF(src)];show_valid_pocket_items=1'>предметов</a>.\n"
 		else
-			how_cool_are_your_threads += "[src] может хранить [pockets.max_items] [weightclass2text(pockets.max_w_class)] размера или меньше.\n"
+			how_cool_are_your_threads += "[capitalize(src.name)] может хранить [pockets.max_items] [weightclass2text(pockets.max_w_class)] размера или меньше.\n"
 		if(pockets.quickdraw)
 			how_cool_are_your_threads += "Могу быстро вытащить предмет из [src] используя ПКМ.\n"
 		if(pockets.silent)

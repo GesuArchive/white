@@ -249,7 +249,7 @@ effective or pretty fucking useless.
 			charge = max(0, charge - 12.5 * delta_time)//Quick decrease in light
 		else
 			charge = min(max_charge, charge + 25 * delta_time) //Charge in the dark
-		plane = GRAVITY_PULSE_PLANE
+		user.plane = GRAVITY_PULSE_PLANE
 
 
 /obj/item/jammer
