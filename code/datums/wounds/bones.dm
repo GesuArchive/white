@@ -149,7 +149,7 @@
 	if(!limb.current_gauze)
 		msg += "[victim.ru_ego(TRUE)] [limb.name] [examine_desc]"
 	else
-		var/sling_condition = ""
+		var/sling_condition = "отлично"
 		// how much life we have left in these bandages
 		switch(limb.current_gauze.absorption_capacity)
 			if(0 to 25)
@@ -161,7 +161,7 @@
 			if(75 to INFINITY)
 				sling_condition = "плотно"
 
-		msg += "[victim.p_their(TRUE)] [limb.name] is [sling_condition] fastened in a sling of [limb.current_gauze.name]"
+		msg += "[capitalize(limb.current_gauze.name)] на [victim.ru_na()] [sling_condition] держится"
 
 	if(taped)
 		msg += ", и, кажется, реформируется под хирургической лентой!"
