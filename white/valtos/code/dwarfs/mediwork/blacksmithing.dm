@@ -75,7 +75,7 @@
 				to_chat(user, span_notice("Нет топлива."))
 				return
 			if(istype(I.contents[I.contents.len], /obj/item/blacksmith/ingot))
-				if(busy_heating)
+				if(!busy_heating)
 					busy_heating = TRUE
 					if(do_after(user, 10, src))
 						var/obj/item/blacksmith/ingot/N = I.contents[I.contents.len]
