@@ -3925,7 +3925,6 @@
 #include "white\baldenysh\govnokod\DCS\elements\impaling.dm"
 #include "white\baldenysh\govnokod\DCS\elements\jamming.dm"
 #include "white\baldenysh\govnokod\DCS\subsystems\killcounter.dm"
-#include "white\baldenysh\govnokod\DCS\subsystems\metainv.dm"
 #include "white\baldenysh\govnokod\items\boombox.dm"
 #include "white\baldenysh\govnokod\items\bundles.dm"
 #include "white\baldenysh\govnokod\items\coomcam.dm"

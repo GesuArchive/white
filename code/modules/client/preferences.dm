@@ -2056,9 +2056,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					user.client.view_size.setZoomMode()
 
 				if("save")
-					if(SSmetainv)
-						SSmetainv.save_inv(user.client.ckey)
-
 					save_preferences()
 					save_character()
 
