@@ -34,7 +34,7 @@
 	light_color = "#BB661E"
 	density = TRUE
 	anchored = TRUE
-	var/fuel = 500
+	var/fuel = 60
 	var/fuel_consumption = 1
 	var/list/fuel_values = list(/obj/item/stack/sheet/mineral/coal = 10, /obj/item/stack/sheet/mineral/wood = 5)
 	var/busy_heating = FALSE
