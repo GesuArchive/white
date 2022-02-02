@@ -33,6 +33,8 @@
 	var/status = UI_INTERACTIVE
 	/// Topic state used to determine status/interactability.
 	var/datum/ui_state/state = null
+	/// Rate limit client refreshes to prevent DoS.
+	COOLDOWN_DECLARE(refresh_cooldown)
 
 /**
  * public
@@ -130,7 +132,7 @@
 		// the error message properly.
 		window.release_lock()
 		window.close(can_be_suspended)
-		src_object.ui_close(user, src)
+		src_object.ui_close(user)
 		SStgui.on_close(src)
 	state = null
 	qdel(src)
@@ -168,6 +170,23 @@
 	if(!window)
 		CRASH("send_asset() was called either without calling open() first or when open() did not return TRUE.")
 	return window.send_asset(asset)
+
+/**
+ * public
+ *
+ * Send a full update to the client (includes static data).
+ *
+ * optional custom_data list Custom data to send instead of ui_data.
+ * optional force bool Send an update even if UI is not interactive.
+ */
+/datum/tgui/proc/send_full_update(custom_data, force)
+	if(!user.client || !initialized || closing)
+		return
+	var/should_update_data = force || status >= UI_UPDATE
+	window.send_message("update", get_payload(
+		custom_data,
+		with_data = should_update_data,
+		with_static_data = TRUE))
 
 /**
  * public
@@ -252,7 +271,7 @@
 		return
 	var/datum/host = src_object.ui_host(user)
 	// If the object or user died (or something else), abort.
-	if(!src_object || !host || !user || !window)
+	if(QDELETED(src_object) || QDELETED(host) || QDELETED(user) || QDELETED(window))
 		close(can_be_suspended = FALSE)
 		return
 	// Validate ping
@@ -302,6 +321,10 @@
 		return FALSE
 	switch(type)
 		if("ready")
+			// Send a full update when the user manually refreshes the UI
+			if (initialized && COOLDOWN_FINISHED(src, refresh_cooldown))
+				send_full_update()
+				COOLDOWN_START(src, refresh_cooldown, TGUI_REFRESH_FULL_UPDATE_COOLDOWN)
 			initialized = TRUE
 		if("pingReply")
 			initialized = TRUE
