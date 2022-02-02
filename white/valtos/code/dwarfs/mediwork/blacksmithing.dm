@@ -161,8 +161,8 @@
 /obj/anvil/fullsteel
 	name = "тяжёлая наковальня"
 	desc = "Не сдвинуть. Совсем."
-	icon = 'white/valtos/icons/objects.dmi'
-	icon_state = "anvil_full"
+	icon = 'white/kacherkin/icons/dwarfs/obj/objects.dmi'
+	icon_state = "old_anvil_full"
 
 /obj/anvil/Initialize()
 	. = ..()
