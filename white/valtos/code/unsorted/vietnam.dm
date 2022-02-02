@@ -363,7 +363,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 	turf_type = /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone/raw
-	mineralSpawnChanceList = list(/obj/item/stack/ore/gold = 5, /obj/item/stack/ore/iron = 40, /obj/item/gem/diamond=1,/obj/item/gem/ruby=1,/obj/item/gem/saphire=1)
+	mineralSpawnChanceList = list(/obj/item/stack/ore/gold = 5, /obj/item/stack/ore/iron = 40, /obj/item/gem/diamond=1,/obj/item/gem/ruby=1,/obj/item/gem/saphire=1,/obj/item/stack/ore/coal=20)
 
 /turf/closed/mineral/random/dwarf_lustress/Initialize()
 	. = ..()

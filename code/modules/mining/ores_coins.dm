@@ -93,6 +93,25 @@
 	spreadChance = 20
 	merge_type = /obj/item/stack/ore/iron
 
+/obj/item/stack/ore/coal
+	name = "coal ore"
+	icon = 'white/valtos/icons/prison/prison.dmi'
+	icon_state = "coal"
+	inhand_icon_state = "Iron ore"
+	singular_name = "coal ore chunk"
+	points = 1
+	refined_type = /obj/item/stack/sheet/mineral/coal
+	mine_experience = 1
+	scan_state = "rock_Coal"
+	spreadChance = 20
+	merge_type = /obj/item/stack/ore/coal
+
+/obj/item/stack/ore/coal/Initialize(mapload, new_amount, merge, list/mat_override, mat_amt)
+	. = ..()
+	var/obj/item/stack/S = new refined_type (get_turf(src))
+	S.amount = new_amount
+	qdel(src)
+
 /obj/item/stack/ore/glass
 	name = "sand pile"
 	icon_state = "Glass ore"
