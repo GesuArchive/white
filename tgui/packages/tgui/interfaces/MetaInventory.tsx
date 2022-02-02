@@ -115,7 +115,7 @@ const MetaInvLoadout=(
 
               const item_id = loadout[keyAtSpot];
               const item:MetaInvObj
-                = (item_id && item_id != null)
+                = (item_id && item_id !== null)
                   ? ID2ObjAssoc.get(item_id)!
                   : null;
               const slot = SLOTS[keyAtSpot];
