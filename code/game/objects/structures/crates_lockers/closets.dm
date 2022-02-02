@@ -450,6 +450,33 @@
 				playsound(src, 'white/maxsc/sound/numpad-button.ogg', 20, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 			to_chat(user, span_notice("Заканчиваю взлом [src]."))
 			busy_hacked = FALSE
+	else if(istype(W, /obj/item/electronics/airlock) && !secure && !opened)
+		var/obj/item/electronics/airlock/A = W
+		var/input = tgui_input_text(user, "Введите пароль для шкафа", "Пароль", default="000", max_length=3)
+		var/valid = TRUE
+		var/obj/structure/closet/secure_closet/S = new(get_turf(src))
+		S.req_access = A.accesses
+		S.create_password()
+		if(input)
+			if(length(input) != 3)
+				valid = FALSE
+			for(var/i in splittext(input, ""))
+				if(!(i in list("0","1","2","3","4","5","6","7","8","9")))
+					valid = FALSE
+			if(valid)
+				S.password = input
+			else
+				to_chat(user, span_notice("Не удалось назначить указанный пароль, используется стандартный."))
+		user.visible_message(span_notice("[user] прикручивает [A] к [src]."),
+		span_notice("Прикручиваю [A] к [src]"))
+		playsound(S, 'sound/items/screwdriver.ogg', 20, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
+		S.locked = FALSE
+		S.update_icon()
+		for(var/atom/movable/AM in src)
+			AM.forceMove(S)
+		qdel(A)
+		qdel(src)
+		return
 	else if(user.a_intent != INTENT_HARM)
 		var/item_is_id = W.GetID()
 		if(!item_is_id)
