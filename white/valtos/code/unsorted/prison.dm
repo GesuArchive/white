@@ -367,13 +367,13 @@
 	assemblytype = /obj/structure/door_assembly/door_assembly_wood
 
 /obj/machinery/power/port_gen/pacman/coal
-	name = "\improper HellMachine"
+	name = "HellMachine"
 	desc = "Эта штука заставляет лампочки полыхать адским пламенем за счет сжигания угля. Сатанинская машина."
 	icon = 'white/valtos/icons/prison/prisond.dmi'
 	icon_state = "portgen0_0"
 	base_icon = "portgen0"
 	sheet_path = /obj/item/stack/sheet/mineral/coal
-	power_gen = 15000
+	power_gen = 25000
 	time_per_sheet = 85
 	density = TRUE
 	anchored = TRUE

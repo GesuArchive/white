@@ -14,7 +14,7 @@
 	var/friction = 0.15		// lose this much speed every ptick
 	var/inertia = 1			// multiplier to mob speed, when increasing treadmill speed
 	var/throw_dist = 2		// distance to throw the person, worst case
-	var/power_gen = 40000	// amount of power output at max speed
+	var/power_gen = 80000	// amount of power output at max speed
 	var/list/mobs_running[0]
 	var/id = null			// for linking to monitor
 

@@ -15,7 +15,6 @@
 		icon_state = "ghost"
 		name = "Слизнекот"
 		deadchat_name = "Слизнекот"
-		visibility = 1
 		desc = "Кота слизь. Ты думал что-то здесь будет?"
 		return TRUE
 

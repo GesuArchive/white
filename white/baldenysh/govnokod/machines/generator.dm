@@ -4,7 +4,7 @@
 	base_icon = "portgen1"
 	circuit = /obj/item/circuitboard/machine/pacman/ecrys
 	sheet_path = /obj/item/stack/solid_electricity
-	power_gen = 20000
+	power_gen = 40000
 	time_per_sheet = 120
 
 /obj/item/circuitboard/machine/pacman/ecrys
@@ -20,7 +20,7 @@
 	base_icon = "pod"
 	circuit = /obj/item/circuitboard/machine/pacman/biogen
 	sheet_path = /obj/item/stack/ammonia_crystals
-	power_gen = 40000
+	power_gen = 80000
 	time_per_sheet = 60
 
 /obj/machinery/power/port_gen/pacman/biogen/update_icon_state()

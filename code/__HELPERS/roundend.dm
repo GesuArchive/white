@@ -481,8 +481,6 @@
 /datum/controller/subsystem/ticker/proc/personal_report(client/C, popcount)
 	var/list/parts = list()
 	var/mob/M = C.mob
-	//parts += "<span class='header'>Конец раунда</span><br>"
-	//parts += "Подсчитываем выживших…"
 	parts += "<br><center><span class='big bold'>Конец раунда</span></center>"
 	parts += "<center>Подсчитываем выживших…</center><br>"
 	if(M.mind && !isnewplayer(M))

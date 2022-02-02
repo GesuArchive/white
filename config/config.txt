@@ -268,7 +268,7 @@ GITHUBURL https://github.com/daxsc/YTgstation/
 ## from https://github.com/rg3/youtube-dl/releases
 ## or your package manager
 ## The default value assumes youtube-dl is in your system PATH
-# INVOKE_YOUTUBEDL youtube-dl 
+# INVOKE_YOUTUBEDL youtube-dl
 
 ## In-game features
 ##Toggle for having jobs load up from the .txt
@@ -531,3 +531,22 @@ HARD_DELETES_OVERRUN_THRESHOLD 2
 
 ## Once a typepath causes overrun from hard deletes this many times, stop hard deleting it on garbage collection failures. (set to 0 to disable)
 HARD_DELETES_OVERRUN_LIMIT 5
+
+## The URL to the webhook for adminhelps to relay the urgent ahelp message to
+## If not set, will disable urgent ahelps.
+#ADMINHELP_WEBHOOK_URL
+
+## The urgent ahelp cooldown for a given player if they're alone on a server and need to send an urgent ahelp.
+URGENT_AHELP_COOLDOWN 300
+
+## The message that is sent to the discord if an urgent ahelp is sent. Useful for sending a role ping.
+#URGENT_AHELP_MESSAGE Ban ban ban ban
+
+## The message that the player receives whenever prompted whether they want to send an urgent ahelp or not.
+#URGENT_AHELP_USER_PROMPT This'll ping the admins!
+
+## The URL for the pfp of the webhook
+#ADMINHELP_WEBHOOK_PFP
+
+## The name of the webhook
+#ADMINHELP_WEBHOOK_NAME
