@@ -191,23 +191,6 @@
 /**
  * public
  *
- * Send a full update to the client (includes static data).
- *
- * optional custom_data list Custom data to send instead of ui_data.
- * optional force bool Send an update even if UI is not interactive.
- */
-/datum/tgui/proc/send_full_update(custom_data, force)
-	if(!user.client || !initialized || closing)
-		return
-	var/should_update_data = force || status >= UI_UPDATE
-	window.send_message("update", get_payload(
-		custom_data,
-		with_data = should_update_data,
-		with_static_data = TRUE))
-
-/**
- * public
- *
  * Send a partial update to the client (excludes static data).
  *
  * optional custom_data list Custom data to send instead of ui_data.
