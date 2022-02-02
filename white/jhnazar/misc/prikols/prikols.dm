@@ -10,6 +10,14 @@
 		desc = "Самая лучшая пчола на диком Вайте"
 		return TRUE
 
+	if(ckey == "kachyuorkin")
+		icon = 'white/kacherkin/icons/gooost.dmi'
+		icon_state = "ghost"
+		name = "Слизнекот"
+		deadchat_name = "Слизнекот"
+		desc = "Кота слизь"
+		return TRUE
+
 	if(ckey == "biomechanicmann")
 		icon = 'white/jhnazar/misc/prikols/bee.dmi'
 		icon_state = "syndiebee_wings"
