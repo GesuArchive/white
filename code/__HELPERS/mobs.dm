@@ -106,9 +106,9 @@
 	for(var/i in 1 to attempts_to_find_unique_name)
 		if(gender==FEMALE)
 			if (en_lang)
-				. = capitalize(pick(GLOB.first_names_male_en)) + " " + capitalize(pick(GLOB.last_names_en))
+				. = capitalize(pick(GLOB.first_names_female_en)) + " " + capitalize(pick(GLOB.last_names_en))
 			else
-				. = capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names)) + "а"
+				. = capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 		else
 			if (en_lang)
 				. = capitalize(pick(GLOB.first_names_male_en)) + " " + capitalize(pick(GLOB.last_names_en))

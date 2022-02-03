@@ -264,10 +264,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if (en_lang)
 			randname += " [pick(GLOB.last_names_en)]"
 		else
-			if(gender == MALE)
-				randname += " [pick(GLOB.last_names)]"
-			else
-				randname += " [pick(GLOB.last_names)]а"
+			randname += " [pick(GLOB.last_names)]"
 
 	return randname
 
