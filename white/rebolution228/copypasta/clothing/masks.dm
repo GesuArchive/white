@@ -8,13 +8,6 @@
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT|HIDEEARS
 
-/obj/item/clothing/mask/balaclava/swat/alt
-	icon_state = "swatclava2"
-	inhand_icon_state = "swatclava"
-	desc = "Легко скроет ваше красивое личико."
-	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
-	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT|HIDEEARS
-
 /obj/item/clothing/mask/rag
 	name = "тряпка"
 	desc = "Не так гарантирует вашу анонимность, но выглядит стильно, да и волосам удобно."

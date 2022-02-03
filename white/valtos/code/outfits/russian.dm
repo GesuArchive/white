@@ -29,6 +29,9 @@
 							/obj/item/clothing/glasses/hud/security/sunglasses, \
 							/obj/item/clothing/head/helmet)
 
+/datum/outfit/job/security/omon/pre_equip()
+	return
+
 /datum/outfit/job/security/veteran
 	name = "Veteran"
 	jobtype = /datum/job/security_officer/veteran
@@ -61,3 +64,6 @@
 	chameleon_extras = list(/obj/item/gun/ballistic/automatic/pistol/tanner,\
 							/obj/item/clothing/glasses/hud/security/sunglasses,\
 							/obj/item/clothing/head/helmet)
+
+/datum/outfit/job/security/veteran/pre_equip()
+	return

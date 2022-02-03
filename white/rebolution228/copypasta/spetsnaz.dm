@@ -82,9 +82,9 @@
 	mask = null
 	back = /obj/item/storage/backpack/security
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
-		/obj/item/storage/box/handcuffs=1,\
-		/obj/item/melee/classic_baton/german=1,\
-		/obj/item/crowbar/red=1)
+							/obj/item/storage/box/handcuffs=1,\
+							/obj/item/melee/classic_baton/german=1,\
+							/obj/item/crowbar/red=1)
 
 /datum/outfit/sobr/pre_equip(mob/living/carbon/human/H)
 	suit_store = /obj/item/gun/ballistic/automatic/ak74m
@@ -93,7 +93,7 @@
 						/obj/item/clothing/head/helmet/maska/altyn, \
 						/obj/item/clothing/head/helmet/maska/altyn/black)
 	if(prob(40))
-		mask = /obj/item/clothing/mask/balaclava/swat/alt
+		mask = /obj/item/clothing/mask/gas/heavy/m40
 	else if(prob(30))
 		mask = /obj/item/clothing/mask/rag
 	else
@@ -132,7 +132,7 @@
 						/obj/item/clothing/head/helmet/maska/altyn, \
 						/obj/item/clothing/head/helmet/maska/altyn/black)
 	if(prob(33))
-		mask = /obj/item/clothing/mask/balaclava/swat/alt
+		mask = /obj/item/clothing/mask/gas/heavy/m40
 	if(prob(10))
 		mask = /obj/item/clothing/mask/rag
 	else
