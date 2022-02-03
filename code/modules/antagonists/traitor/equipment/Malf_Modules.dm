@@ -674,7 +674,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	cost = 25
 	power_type = /datum/action/innate/ai/break_fire_alarms
 	unlock_text = span_notice("Вы изменили тепловую чувствительность на всех пожарных извещателях, что позволяет вам включать и выключать их по своему желанию. ")
-	unlock_sound = 'sound/machines/FireAlarm.ogg'
+	unlock_sound = 'sound/machines/FireAlarm1.ogg'
 
 /datum/action/innate/ai/break_fire_alarms
 	name = "Переписать протоколы Тепловых Датчиков"
