@@ -680,10 +680,10 @@
 					return
 				qdel(query_message_read)
 			if("note")
-				output += "<font color='red' size='3'><b>Note left by [span_prefix("[admin_key]")] on [timestamp]</b></font>"
-				output += "<br><font color='red'>[text]</font><br>"
+				output += "<font color='rose' size='3'><b>Note left by [span_prefix("[admin_key]")] on [timestamp]</b></font>"
+				output += "<br><font color='rose'>[text]</font><br>"
 			if("watchlist entry")
-				message_admins(span_red("<B>Notice: </B></font><font color='blue'>[key_name_admin(target_ckey)] has been on the watchlist since [timestamp] and has just connected - Reason: [text]"))
+				message_admins(span_red("<B>Notice: </B>[key_name_admin(target_ckey)] has been on the watchlist since [timestamp] and has just connected - Reason: [text]"))
 				send2tgs_adminless_only("Watchlist", "[key_name(target_ckey)] is on the watchlist and has just connected - Reason: [text]")
 			if("memo")
 				output += "[span_memo("Memo by <span class='prefix'>[admin_key]")] on [timestamp]"
