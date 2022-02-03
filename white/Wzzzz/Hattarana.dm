@@ -4634,22 +4634,17 @@
 	cost = 150
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/traumatic,
 					/obj/item/gun/ballistic/automatic/pistol/traumatic)
-
-/datum/supply_pack/security/trau_a_s
-	name = "Traumatic Pistol Ammo Single-Pack"
-	desc = "Contains a 8-round magazine for traumatic pistol. Each magazine is designed to facilitate rapid tactical reloads. Requires Armory access to open."
-	cost = 25
-	contains = list(/obj/item/ammo_box/magazine/traumatic)
+*/
 
 /datum/supply_pack/security/trau_a
 	name = "Traumatic Pistol Ammo Crate"
-	desc = "Contains a 8-round magazine for traumatic pistol. Each magazine is designed to facilitate rapid tactical reloads. Requires Armory access to open."
-	cost = 60
+	desc = "Contains a four 8-round magazines for \"Enforcer\" traumatic pistol. Each magazine is designed to facilitate rapid tactical reloads. Requires Armory access to open."
+	cost = CARGO_CRATE_VALUE * 6
 	contains = list(/obj/item/ammo_box/magazine/traumatic,
 					/obj/item/ammo_box/magazine/traumatic,
 					/obj/item/ammo_box/magazine/traumatic,
 					/obj/item/ammo_box/magazine/traumatic)
-
+/*
 /datum/supply_pack/security/armory/mak_s
 	name = "Makarov Pistol Single-Pack"
 	desc = "Contains a single makarov pistol. Requires Armory access to open."
