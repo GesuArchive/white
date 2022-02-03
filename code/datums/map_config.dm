@@ -19,7 +19,7 @@
 	var/map_file = "ConstructionStation.dmm"
 
 	var/traits = null
-	var/space_ruin_levels = 4
+	var/space_ruin_levels = 2
 	var/space_empty_levels = 1
 
 	var/minetype = "lavaland"

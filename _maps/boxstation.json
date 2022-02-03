@@ -2,7 +2,7 @@
 	"version": 1,
 	"map_name": "Box Station",
 	"map_path": "map_files/BoxStation",
-	"space_ruin_levels": 3,
+	"space_ruin_levels": 2,
 	"map_file": [
 		"BoxStationWhite_under.dmm",
 		"BoxStationWhite.dmm"
