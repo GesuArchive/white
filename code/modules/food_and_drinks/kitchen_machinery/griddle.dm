@@ -1,6 +1,6 @@
 /obj/machinery/griddle
 	name = "гридль"
-	desc = "Потому что кастрюли предназначены для анютиных глазок."
+	desc = "Потому что сковородки для жалких лузеров."
 	icon = 'icons/obj/machines/kitchenmachines.dmi'
 	icon_state = "griddle1_off"
 	density = TRUE
