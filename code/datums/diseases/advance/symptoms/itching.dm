@@ -51,6 +51,6 @@ BONUS
 	var/obj/item/bodypart/bodypart = M.get_bodypart(picked_bodypart)
 	if(bodypart && bodypart.status == BODYPART_ORGANIC && !bodypart.is_pseudopart)	 //robotic limbs will mean less scratching overall (why are golems able to damage themselves with self-scratching, but not androids? the world may never know)
 		var/can_scratch = scratch && !M.incapacitated()
-		M.visible_message("[can_scratch ? span_warning("[M] чешет [M.ru_ego()] [ru_parse_zone(bodypart.name)].")  : ""]", span_warning("[capitalize(bodypart.name)] чешется. [can_scratch ? " Чешу её." : ""]"))
+		M.visible_message("[can_scratch ? span_warning("[M] чешет свою [ru_parse_zone(bodypart.name)].")  : ""]", span_warning("[capitalize(bodypart.name)] чешется. [can_scratch ? " Чешу её." : ""]"))
 		if(can_scratch)
 			bodypart.receive_damage(0.5)
