@@ -202,6 +202,9 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/item/storage/toolbox/ammo/wt550{
+	pixel_y = 11
+	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "bW" = (
@@ -209,9 +212,6 @@
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
-/obj/item/storage/toolbox/ammo/wt550,
-/obj/item/gun/energy/e_gun/dragnet,
-/obj/item/gun/energy/e_gun/dragnet,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -222,6 +222,16 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/item/shield/riot/military{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/obj/item/shield/riot/military,
+/obj/item/gun/energy/e_gun/dragnet{
+	pixel_x = -3;
+	pixel_y = -2
+	},
+/obj/item/gun/energy/e_gun/dragnet,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "bX" = (
@@ -327,9 +337,12 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "ca" = (
-/obj/item/shield/riot/military,
-/obj/item/shield/riot/military,
-/obj/structure/closet/ammunitionlocker,
+/obj/structure/closet/secure_closet/contraband/armory{
+	name = "шкаф с картечью"
+	},
+/obj/item/storage/box/lethalshot,
+/obj/item/storage/box/lethalshot,
+/obj/item/storage/box/lethalshot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/security/armory)
 "cb" = (
