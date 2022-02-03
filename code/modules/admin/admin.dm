@@ -284,7 +284,7 @@
 					if(CHANNEL.is_admin_channel)
 						dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen'><A href='?src=[REF(src)];ac_show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A></FONT></B><BR>"
 					else
-						dat+="<B><A href='?src=[REF(src)];[HrefToken()];ac_show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ""]<BR></B>"
+						dat+="<B><A href='?src=[REF(src)];[HrefToken()];ac_show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? (span_red("***")) : ""]<BR></B>"
 			dat+="<BR><HR><A href='?src=[REF(src)];[HrefToken()];ac_refresh=1'>Refresh</A>"
 			dat+="<BR><A href='?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Back</A>"
 		if(2)
@@ -356,7 +356,7 @@
 				dat+="<I>No feed channels found active...</I><BR>"
 			else
 				for(var/datum/newscaster/feed_channel/CHANNEL in GLOB.news_network.network_channels)
-					dat+="<A href='?src=[REF(src)];[HrefToken()];ac_pick_censor_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ""]<BR>"
+					dat+="<A href='?src=[REF(src)];[HrefToken()];ac_pick_censor_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? (span_red("***")) : ""]<BR>"
 			dat+="<BR><A href='?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Cancel</A>"
 		if(11)
 			dat+="<B>Nanotrasen D-Notice Handler</B><HR>"
@@ -367,7 +367,7 @@
 				dat+="<I>No feed channels found active...</I><BR>"
 			else
 				for(var/datum/newscaster/feed_channel/CHANNEL in GLOB.news_network.network_channels)
-					dat+="<A href='?src=[REF(src)];[HrefToken()];ac_pick_d_notice=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ""]<BR>"
+					dat+="<A href='?src=[REF(src)];[HrefToken()];ac_pick_d_notice=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? (span_red("***")) : ""]<BR>"
 
 			dat+="<BR><A href='?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Back</A>"
 		if(12)
@@ -622,17 +622,17 @@
 			if(SSticker.current_state == GAME_STATE_STARTUP)
 				msg = " (The server is still setting up, but the round will be \
 					started as soon as possible.)"
-			message_admins("<font color='blue'>[usr.key] has started the game.[msg]</font>")
+			message_admins(span_blue("[usr.key] has started the game.[msg]"))
 			SSblackbox.record_feedback("tally", "admin_verb", 1, "Start Now") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 			return TRUE
 		SSticker.start_immediately = FALSE
 		SSticker.SetTimeLeft(1800)
 		to_chat(world, "<b>The game will start in 180 seconds.</b>")
 		SEND_SOUND(world, sound(SSstation.announcer.get_rand_alert_sound()))
-		message_admins("<font color='blue'>[usr.key] has cancelled immediate game start. Game will start in 180 seconds.</font>")
+		message_admins(span_blue("[usr.key] has cancelled immediate game start. Game will start in 180 seconds."))
 		log_admin("[usr.key] has cancelled immediate game start.")
 	else
-		to_chat(usr, "<font color='red'>Error: Start Now: Game has already started.</font>", confidential = TRUE)
+		to_chat(usr, span_red("Error: Start Now: Game has already started."), confidential = TRUE)
 	return FALSE
 
 /datum/admins/proc/toggleenter()

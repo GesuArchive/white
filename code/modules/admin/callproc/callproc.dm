@@ -54,7 +54,7 @@
 
 	if(targetselected)
 		if(!target)
-			to_chat(usr, "<font color='red'>Error: callproc(): owner of proc no longer exists.</font>", confidential = TRUE)
+			to_chat(usr, span_red("Error: callproc(): owner of proc no longer exists."), confidential = TRUE)
 			return
 		var/msg = "[key_name(src)] called [target]'s [procname]() with [lst.len ? "the arguments [list2params(lst)]":"no arguments"]."
 		log_admin(msg)
@@ -141,7 +141,7 @@ GLOBAL_PROTECT(LastAdminCalledProc)
 	if(!procname)
 		return
 	if(!hascall(A,procname))
-		to_chat(usr, "<font color='red'>Error: callproc_datum(): type [A.type] has no proc named [procname].</font>", confidential = TRUE)
+		to_chat(usr, span_red("Error: callproc_datum(): type [A.type] has no proc named [procname]."), confidential = TRUE)
 		return
 	var/list/lst = get_callproc_args()
 	if(!lst)
@@ -201,4 +201,4 @@ GLOBAL_PROTECT(LastAdminCalledProc)
 		. += "</font>"
 
 	else
-		. = "<font color='blue'>[procname] returned: [!isnull(returnval) ? html_encode(returnval) : "null"]</font>"
+		. = span_blue("[procname] returned: [!isnull(returnval) ? html_encode(returnval) : "null"]")

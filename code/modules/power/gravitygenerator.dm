@@ -262,7 +262,7 @@ GLOBAL_LIST_EMPTY(gravity_generators) // We will keep track of this by adding ne
 	switch(action)
 		if("gentoggle")
 			breaker = !breaker
-			investigate_log("was toggled [breaker ? "<font color='green'>ON</font>" : "<font color='red'>OFF</font>"] by [key_name(usr)].", INVESTIGATE_GRAVITY)
+			investigate_log("was toggled [breaker ? "<font color='green'>ON</font>" : span_red("OFF")] by [key_name(usr)].", INVESTIGATE_GRAVITY)
 			set_power()
 			. = TRUE
 

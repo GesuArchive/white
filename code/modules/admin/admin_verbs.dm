@@ -401,7 +401,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		ghost.reenter_corpse()
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Admin Reenter") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	else if(isnewplayer(mob))
-		to_chat(src, "<font color='red'>Error: Aghost: Can't admin-ghost whilst in the lobby. Join or Observe first.</font>", confidential = TRUE)
+		to_chat(src, span_red("Error: Aghost: Can't admin-ghost whilst in the lobby. Join or Observe first."), confidential = TRUE)
 		return FALSE
 	else
 		//ghostize

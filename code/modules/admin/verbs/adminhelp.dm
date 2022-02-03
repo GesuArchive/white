@@ -206,8 +206,8 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	_interactions = list()
 
 	if(is_bwoink)
-		AddInteraction("<font color='blue'>[key_name_admin(usr)] PM'd [LinkedReplyName()]</font>")
-		message_admins("<font color='blue'>Ticket [TicketHref("#[id]")] created</font>")
+		AddInteraction(span_blue("[key_name_admin(usr)] PM'd [LinkedReplyName()]"))
+		message_admins(span_blue("Ticket [TicketHref("#[id]")] created"))
 	else
 		MessageNoRecipient(msg, urgent)
 		send_message_to_tgs(msg, urgent)
@@ -319,7 +319,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	//Message to be sent to all admins
 	var/admin_msg = span_adminnotice(span_adminhelp("Тикет [TicketHref("#[id]", ref_src)]</span><b>: [LinkedReplyName(ref_src)] [FullMonty(ref_src)]:</b> <span class='linkify'>[keywords_lookup(msg)]"))
 
-	AddInteraction("<font color='red'>[LinkedReplyName(ref_src)]: [msg]</font>")
+	AddInteraction(span_red("[LinkedReplyName(ref_src)]: [msg]"))
 	log_admin_private("Ticket #[id]: [key_name(initiator)]: [msg]")
 
 	//send this msg to all admins
@@ -388,7 +388,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	RemoveActive()
 	state = AHELP_CLOSED
 	GLOB.ahelp_tickets.ListInsert(src)
-	AddInteraction("<font color='red'>Closed by [key_name].</font>")
+	AddInteraction(span_red("Closed by [key_name]."))
 	if(!silent)
 		SSblackbox.record_feedback("tally", "ahelp_stats", 1, "closed")
 		var/msg = "Ticket [TicketHref("#[id]")] closed by [key_name]."
@@ -426,7 +426,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		SEND_SOUND(initiator, sound('sound/effects/rejt.ogg'))
 
 		to_chat(initiator, "<font color='red' size='4'><b>- Запрос отклонён! -</b></font>", confidential = TRUE)
-		to_chat(initiator, "<font color='red'><b>Запрос отклонён.</b> Попробуй ещё раз.</font>", confidential = TRUE)
+		to_chat(initiator, span_red("<b>Запрос отклонён.</b> Попробуй ещё раз."), confidential = TRUE)
 		to_chat(initiator, "Пожалуйста, успокойтесь. Администратор возможно не видел какие-либо события связанные с раундом, поэтому распишите проблему более подробно и также четко указывайте имена тех, о ком вы сообщаете.", confidential = TRUE)
 
 	SSblackbox.record_feedback("tally", "ahelp_stats", 1, "rejected")
@@ -443,7 +443,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		return
 
 	var/msg = "<font color='red' size='4'><b>- Отмечено как внутриигровая ситуация! -</b></font><br>"
-	msg += "<font color='red'>Ваша проблема была определена администратором как внутриигровая ситуация и в настоящее время НЕ требует вмешательства администратора. Для дальнейшего решения вам следует использовать варианты, которые соответствуют ситуации в игре.</font>"
+	msg += span_red("Ваша проблема была определена администратором как внутриигровая ситуация и в настоящее время НЕ требует вмешательства администратора. Для дальнейшего решения вам следует использовать варианты, которые соответствуют ситуации в игре.")
 
 	if(initiator)
 		SEND_SOUND(initiator, sound('sound/effects/rejt.ogg'))
@@ -464,7 +464,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	dat += "<b>Состояние: "
 	switch(state)
 		if(AHELP_ACTIVE)
-			dat += "<font color='red'>ОТКРЫТ</font>"
+			dat += span_red("ОТКРЫТ")
 		if(AHELP_RESOLVED)
 			dat += "<font color='green'>РАЗРЕШЁН</font>"
 		if(AHELP_CLOSED)
