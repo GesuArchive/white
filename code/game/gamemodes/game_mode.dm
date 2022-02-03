@@ -56,8 +56,8 @@
 
 
 /datum/game_mode/proc/announce() //Shows the gamemode's name and a fast description.
-	message_admins("<b>The gamemode is: <span class='[announce_span]'>[name]</span>!</b>")
-	message_admins("<b>[announce_text]</b>")
+	to_chat(world, "<b>Режим: <span class='[announce_span]'>[name]</span>!</b>")
+	to_chat(world, "<b>[announce_text]</b>")
 
 
 ///Checks to see if the game can be setup and ran with the current number of players or whatnot.
