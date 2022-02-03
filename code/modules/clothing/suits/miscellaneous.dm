@@ -708,6 +708,7 @@
 	icon_state = "coatcargo"
 	inhand_icon_state = "coatcargo"
 	hoodtype = /obj/item/clothing/head/hooded/winterhood/cargo
+	allowed = list(/obj/item/storage/bag/mail)
 
 /obj/item/clothing/head/hooded/winterhood/cargo
 	icon_state = "winterhood_cargo"

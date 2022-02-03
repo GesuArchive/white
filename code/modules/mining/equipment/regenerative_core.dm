@@ -120,12 +120,12 @@
 	update_icon()
 
 /obj/item/organ/regenerative_core/update_icon_state()
-	icon_state = inert ? "legion_soul_inert" : "legion_soul"
-
-/obj/item/organ/regenerative_core/update_overlays()
-	. = ..()
-	if(!inert && !preserved)
-		. += "legion_soul_crackle"
+	if (inert)
+		icon_state = "legion_soul_inert"
+	if (preserved)
+		icon_state = "legion_soul"
+	if (!inert && !preserved)
+		icon_state = "legion_soul_unstable"
 
 /obj/item/organ/regenerative_core/legion/go_inert()
 	..()
