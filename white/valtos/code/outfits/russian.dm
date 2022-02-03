@@ -26,15 +26,6 @@
 
 	chameleon_extras = list(/obj/item/gun/ballistic/automatic/pistol/traumatic, /obj/item/clothing/glasses/hud/security/sunglasses, /obj/item/clothing/head/helmet)
 
-/datum/outfit/job/hos
-	implants = list(/obj/item/implant/mindshield/, /obj/item/implant/krav_maga)
-
-/datum/outfit/job/warden
-	implants = list(/obj/item/implant/mindshield/)
-
-/datum/outfit/job/security
-	implants = list(/obj/item/implant/mindshield/)
-
 /datum/outfit/job/security/veteran
 	name = "Veteran"
 	jobtype = /datum/job/security_officer/veteran
