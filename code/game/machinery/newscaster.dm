@@ -331,7 +331,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 						if(CHANNEL.is_admin_channel)
 							dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen '><A href='?src=[REF(src)];show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A></FONT></B><BR>"
 						else
-							dat+="<B><A href='?src=[REF(src)];show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ""]<BR></B>"
+							dat+="<B><A href='?src=[REF(src)];show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? (span_red("***")) : ""]<BR></B>"
 				dat+="<BR><HR><A href='?src=[REF(src)];refresh=1'>Обновить</A>"
 				dat+="<BR><A href='?src=[REF(src)];setScreen=[0]'>Назад</A>"
 			if(2)
@@ -436,7 +436,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 					dat+="<I>Не обнаружено активных каналов...</I><BR>"
 				else
 					for(var/datum/newscaster/feed_channel/CHANNEL in GLOB.news_network.network_channels)
-						dat+="<A href='?src=[REF(src)];pick_censor_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ""]<BR>"
+						dat+="<A href='?src=[REF(src)];pick_censor_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? (span_red("***")) : ""]<BR>"
 				dat+="<BR><A href='?src=[REF(src)];setScreen=[0]'>Отмена</A>"
 			if(11)
 				dat+="<B>D-метка NanoTrasen</B><HR>"
@@ -447,7 +447,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 					dat+="<I>Нет активных каналов...</I><BR>"
 				else
 					for(var/datum/newscaster/feed_channel/CHANNEL in GLOB.news_network.network_channels)
-						dat+="<A href='?src=[REF(src)];pick_d_notice=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ""]<BR>"
+						dat+="<A href='?src=[REF(src)];pick_d_notice=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? (span_red("***")) : ""]<BR>"
 				dat+="<BR><A href='?src=[REF(src)];setScreen=[0]'>Назад</A>"
 			if(12)
 				dat+="<B>[viewing_channel.channel_name]: </B><FONT SIZE=1>\[ автор: <FONT COLOR='maroon'>[viewing_channel.returnAuthor(-1)]</FONT> \]</FONT><BR>"

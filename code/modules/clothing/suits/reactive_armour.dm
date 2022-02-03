@@ -208,7 +208,7 @@
 			owner.visible_message(span_danger("Реактивная броня на перезарядке!"))
 			return
 		owner.visible_message(span_danger("Реактивная система телепортации сбрасывает [H] от [attack_text] и бросает [H.ru_na()] на созданный стол!"))
-		owner.visible_message("<font color='red' size='3'>[H] ОТПРАВЛЯЕТСЯ НА СТОЛ!!!</font>")
+		owner.visible_message(span_boldwarning("[H] ОТПРАВЛЯЕТСЯ НА СТОЛ!!!"))
 		owner.Paralyze(40)
 		do_teleport(owner, get_turf(owner), tele_range, no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)
 		new /obj/structure/table(get_turf(owner))

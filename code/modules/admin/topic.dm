@@ -1158,7 +1158,7 @@
 				if(HARD_CRIT)
 					status = "<font color='orange'><b>Unconscious and Dying</b></font>"
 				if(DEAD)
-					status = "<font color='red'><b>Dead</b></font>"
+					status = span_red("<b>Dead</b>")
 			health_description = "Status = [status]"
 			health_description += "<BR>Oxy: [L.getOxyLoss()] - Tox: [L.getToxLoss()] - Fire: [L.getFireLoss()] - Brute: [L.getBruteLoss()] - Clone: [L.getCloneLoss()] - Brain: [L.getOrganLoss(ORGAN_SLOT_BRAIN)] - Stamina: [L.getStaminaLoss()]"
 		else
@@ -1169,7 +1169,7 @@
 			if(MALE,FEMALE,PLURAL)
 				gender_description = "[M.gender]"
 			else
-				gender_description = "<font color='red'><b>[M.gender]</b></font>"
+				gender_description = span_red("<b>[M.gender]</b>")
 
 		to_chat(src.owner, "<b>Info about [M.name]:</b> ", confidential = TRUE)
 		to_chat(src.owner, "Mob type = [M.type]; Gender = [gender_description] Damage = [health_description]", confidential = TRUE)

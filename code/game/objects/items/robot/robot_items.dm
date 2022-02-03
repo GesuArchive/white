@@ -280,14 +280,14 @@
 /obj/item/harmalarm/emag_act(mob/user)
 	obj_flags ^= EMAGGED
 	if(obj_flags & EMAGGED)
-		to_chat(user, "<font color='red'>You short out the safeties on [src]!</font>")
+		to_chat(user, span_red("You short out the safeties on [src]!"))
 	else
-		to_chat(user, "<font color='red'>You reset the safeties on [src]!</font>")
+		to_chat(user, span_red("You reset the safeties on [src]!"))
 
 /obj/item/harmalarm/attack_self(mob/user)
 	var/safety = !(obj_flags & EMAGGED)
 	if(cooldown > world.time)
-		to_chat(user, "<font color='red'>The device is still recharging!</font>")
+		to_chat(user, span_red("The device is still recharging!"))
 		return
 
 	if(iscyborg(user))
@@ -300,13 +300,13 @@
 			safety = FALSE
 
 	if(safety == TRUE)
-		user.visible_message("<font color='red' size='2'>[user] blares out a near-deafening siren from its speakers!</font>", \
+		user.visible_message(span_boldwarning("[user] blares out a near-deafening siren from its speakers!"), \
 			span_userdanger("The siren pierces your hearing and confuses you!") , \
 			span_danger("The siren pierces your hearing!"))
 		for(var/mob/living/carbon/M in get_hearers_in_view(9, user))
 			if(M.get_ear_protection() == FALSE)
 				M.add_confusion(6)
-		audible_message("<font color='red' size='7'>HUMAN HARM</font>")
+		audible_message(span_boldwarning("HUMAN HARM"))
 		playsound(get_turf(src), 'sound/ai/harmalarm.ogg', 70, 3)
 		cooldown = world.time + 200
 		user.log_message("used a Cyborg Harm Alarm in [AREACOORD(user)]", LOG_ATTACK)
@@ -317,7 +317,7 @@
 		return
 
 	if(safety == FALSE)
-		user.audible_message("<font color='red' size='7'>BZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZT</font>")
+		user.audible_message(span_boldwarning("BZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZT"))
 		for(var/mob/living/carbon/C in get_hearers_in_view(9, user))
 			var/bang_effect = C.soundbang_act(2, 0, 0, 5)
 			switch(bang_effect)

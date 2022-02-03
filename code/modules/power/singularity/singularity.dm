@@ -274,7 +274,7 @@
 		resolved_singularity.singularity_size = current_size
 
 	if(current_size == allowed_size)
-		investigate_log("<font color='red'>grew to size [current_size]</font>", INVESTIGATE_SINGULO)
+		investigate_log(span_red("grew to size [current_size]"), INVESTIGATE_SINGULO)
 		update_icon(temp_allowed_size)
 		return TRUE
 	else if(current_size < (--temp_allowed_size))

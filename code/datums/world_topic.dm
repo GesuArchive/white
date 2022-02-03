@@ -274,19 +274,19 @@
 	if(!recipient.current_ticket)
 		new /datum/admin_help(msg, recipient, TRUE)
 	to_chat(recipient, "<font color='red' size='4'><b>-- Discord administrator private message --</b></font>")
-	to_chat(recipient, "<font color='red'>Admin PM from-<b>[s_admin]</b>: [msg]</font>")
-	to_chat(recipient, "<font color='red'><i>Write to ahelp to reply.</i></font>")
-	to_chat(src, "<font color='blue'>Admin PM to-<b>[key_name(recipient, 1, 1)]</b>: [msg]</font>")
+	to_chat(recipient, span_red("Admin PM from-<b>[s_admin]</b>: [msg]"))
+	to_chat(recipient, span_red("<i>Write to ahelp to reply.</i>"))
+	to_chat(src, span_blue("Admin PM to-<b>[key_name(recipient, 1, 1)]</b>: [msg]"))
 
 	recipient.giveadminhelpverb() //reset ahelp CD to allow fast reply
 
-	admin_ticket_log(recipient, "<font color='blue'>PM From [s_admin]: [keywordparsedmsg]</font>")
+	admin_ticket_log(recipient, span_blue("PM From [s_admin]: [keywordparsedmsg]"))
 	//Im fucking cumming
 	//SEND_SOUND(recipient, sound(pick('white/fogmann/APM/APM1.ogg', 'white/fogmann/APM/APM2.ogg', 'white/fogmann/APM/APM3.ogg', 'white/fogmann/APM/APM4.ogg', 'white/fogmann/APM/APM5.ogg', 'white/fogmann/APM/APM6.ogg')))
 	SEND_SOUND(recipient, sound('sound/effects/adminhelp.ogg'))
 	log_admin_private("PM: IRC -> [r_ckey]: [sanitize(msg)]")
 	for(var/client/X in GLOB.admins)
-		to_chat(X, "<font color='blue'><B>PM: DISCORD([s_admin]) -&gt; [key_name(recipient, X, 0)]</B> [keywordparsedmsg]</font>")
+		to_chat(X, span_blue("<B>PM: DISCORD([s_admin]) -&gt; [key_name(recipient, X, 0)]</B> [keywordparsedmsg]"))
 	webhook_send_ahelp("[input["admin"]] -> [ckey(input["ckey"])]", input["response"])
 
 /datum/world_topic/special_cmd

@@ -157,7 +157,7 @@
 
 			message_admins("Emitter turned [active ? "ON" : "OFF"] by [ADMIN_LOOKUPFLW(user)] in [ADMIN_VERBOSEJMP(src)]")
 			log_game("Emitter turned [active ? "ON" : "OFF"] by [key_name(user)] in [AREACOORD(src)]")
-			investigate_log("turned [active ? "<font color='green'>ON</font>" : "<font color='red'>OFF</font>"] by [key_name(user)] at [AREACOORD(src)]", INVESTIGATE_SINGULO)
+			investigate_log("turned [active ? "<font color='green'>ON</font>" : span_red("OFF")] by [key_name(user)] at [AREACOORD(src)]", INVESTIGATE_SINGULO)
 
 			update_icon()
 
