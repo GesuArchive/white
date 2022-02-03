@@ -103,8 +103,8 @@
 	icon = 'white/valtos/icons/clothing/belts.dmi'
 	inhand_icon_state = "assaultbelt"
 	worn_icon_state = "cloak"
-	charge = 3500
-	max_charge = 3500
+	charge = 35
+	max_charge = 35
 
 /obj/item/shadowcloak/yohei/process(delta_time)
 	if(user.get_item_by_slot(ITEM_SLOT_BELT) != src || user.pooed)	
@@ -117,7 +117,6 @@
 			charge = max(0, charge - 25 * delta_time)//Quick decrease in light
 		else
 			charge = min(max_charge, charge + 30 * delta_time) //Charge in the dark
-	user.plane = GRAVITY_PULSE_PLANE
 
 /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
 	name = "пистолет Тиберия"
