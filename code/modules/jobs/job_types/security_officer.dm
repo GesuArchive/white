@@ -1,6 +1,6 @@
 /datum/job/security_officer
 	title = "Security Officer"
-	ru_title = "Офицер"
+	ru_title = "Офицер Безопасности"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	department_head = list("Head of Security")
 	faction = "Station"
@@ -135,7 +135,6 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld
-	suit_store = /obj/item/gun/energy/disabler
 	backpack_contents = list(/obj/item/modular_computer/tablet/preset/cheap=1)
 
 	backpack = /obj/item/storage/backpack/security
@@ -149,6 +148,12 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	//The helmet is necessary because /obj/item/clothing/head/helmet/sec is overwritten in the chameleon list by the standard helmet, which has the same name and icon state
 
 	id_trim = /datum/id_trim/job/security_officer
+
+/datum/outfit/job/security/pre_equip()
+	if(prob(10))
+		suit_store = /obj/item/gun/energy/e_gun/advtaser
+	else
+		suit_store = /obj/item/gun/energy/disabler
 
 /obj/item/radio/headset/headset_sec/alt/department/Initialize()
 	. = ..()
