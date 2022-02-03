@@ -5,7 +5,7 @@
 
 /datum/export/weapon/baton
 	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "стан батон"
+	unit_name = "электрошоковая дубинка"
 	export_types = list(/obj/item/melee/baton)
 	exclude_types = list(/obj/item/melee/baton/cattleprod)
 	include_subtypes = TRUE
@@ -18,7 +18,7 @@
 
 /datum/export/weapon/taser
 	cost = CARGO_CRATE_VALUE
-	unit_name = "продвинутый электрошокер"
+	unit_name = "гибридный тазер"
 	export_types = list(/obj/item/gun/energy/e_gun/advtaser)
 
 /datum/export/weapon/laser
@@ -49,7 +49,7 @@
 
 /datum/export/weapon/flashbang
 	cost = CARGO_CRATE_VALUE * 0.025
-	unit_name = "флешка"
+	unit_name = "светошумовая граната"
 	export_types = list(/obj/item/grenade/flashbang)
 
 /datum/export/weapon/teargas
@@ -60,7 +60,7 @@
 
 /datum/export/weapon/flash
 	cost = CARGO_CRATE_VALUE * 0.025
-	unit_name = "ручной флэш"
+	unit_name = "флэш"
 	export_types = list(/obj/item/assembly/flash)
 	include_subtypes = TRUE
 
