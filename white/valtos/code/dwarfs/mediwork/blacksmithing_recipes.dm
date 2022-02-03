@@ -151,3 +151,9 @@
 	result = /obj/item/blacksmith/scepter
 	reqs = list(/obj/item/gem/cut/ruby = 1, /obj/item/blacksmith/partial/scepter_part = 1, /obj/item/scepter_shaft = 1)
 	primary = /obj/item/blacksmith/partial/scepter_part
+
+/datum/workbench_recipe/dagger_sneath
+	name = "Ножны кинжала"
+	result = /obj/item/storage/belt/dagger_sneath
+	reqs = list(/obj/item/stack/sheet/leather = 3)
+	primary = null

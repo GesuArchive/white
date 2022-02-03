@@ -328,6 +328,37 @@
 		return
 	user.changeNext_move(CLICK_CD_RAPID)
 
+/obj/item/storage/belt/dagger_sneath
+	name = "ножны кинжала"
+	desc = "Идеальный дом для вашего маленького друга."
+
+	icon = 'white/valtos/icons/clothing/belts.dmi'
+	worn_icon = 'white/valtos/icons/clothing/mob/belt.dmi'
+
+	icon_state = "dagger_sneath"
+	inhand_icon_state = "dagger_sneath"
+	worn_icon_state = "dagger_sneath"
+	w_class = WEIGHT_CLASS_BULKY
+
+/obj/item/storage/belt/dagger_sneath/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_items = 1
+	STR.rustle_sound = FALSE
+	STR.quickdraw = TRUE
+	STR.max_w_class = WEIGHT_CLASS_BULKY
+	STR.set_holdable(list(
+		/obj/item/blacksmith/dagger
+		))
+
+/obj/item/storage/belt/dagger_sneath/update_icon_state()
+	icon_state = "dagger_sneath"
+	worn_icon_state = "dagger_sneath"
+	if(contents.len)
+		icon_state += "-sword"
+		worn_icon_state += "-sword"
+
 /obj/item/clothing/suit/armor/light_plate
 	name = "нагрудная пластина"
 	desc = "Защищает только грудь, плохо останавливает пули."
