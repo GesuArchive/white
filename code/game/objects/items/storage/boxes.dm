@@ -846,8 +846,8 @@
 		new /obj/item/tank/internals/plasmaman/belt(src)
 
 /obj/item/storage/box/rubbershot
-	name = "коробка резиновых дробей"
-	desc = "Коробка с резиновыми дробями, предназначенная для дробовиков."
+	name = "коробка с резиновой дробью"
+	desc = "Коробка с резиновой дробью 12 калибра, предназначенная для дробовиков."
 	icon_state = "rubbershot_box"
 	illustration = null
 
@@ -856,8 +856,8 @@
 		new /obj/item/ammo_casing/shotgun/rubbershot(src)
 
 /obj/item/storage/box/lethalshot
-	name = "коробка смертельных дробей из дробовика"
-	desc = "Коробка со смертоносными дробями, предназначенная для дробовиков."
+	name = "коробка с дробью"
+	desc = "Коробка с патронами 12 калибра с дробью."
 	icon_state = "lethalshot_box"
 	illustration = null
 
@@ -866,8 +866,8 @@
 		new /obj/item/ammo_casing/shotgun/buckshot(src)
 
 /obj/item/storage/box/beanbag
-	name = "коробка резиновых дробей"
-	desc = "Коробка с резиновыми дробями."
+	name = "коробка с резиновыми пулями"
+	desc = "Коробка с травматическими пулями 12 калибра, предназначенная для дробовиков."
 	icon_state = "rubbershot_box"
 	illustration = null
 
