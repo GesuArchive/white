@@ -1,3 +1,4 @@
+/*
 /obj/item/clothing/under/m35jacket
 	desc = "Uniform of the German Imperial Army. Life for the Kaiser!"
 	name = "m35 uniform"
@@ -38,7 +39,7 @@
 	icon_state = "magistrate"
 	inhand_icon_state = "magistrate"
 	can_adjust = FALSE
-	armor = list("melee" = 10, "bullet" = 10, "laser" = 20,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 00, "acid" = 10)
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/under/arbiter
 	name = "arbiter uniform"
@@ -48,8 +49,8 @@
 	icon_state = "arbiter"
 	inhand_icon_state = "arbiter"
 	can_adjust = FALSE
-	armor = list("melee" = 15, "bullet" = 15, "laser" = 15,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 10)
-
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+*/
 /obj/item/clothing/suit/armor/opvest
 	name = "armored vest"
 	desc = "It provides some armor and some storage. Not really the best at either though."
@@ -101,7 +102,7 @@
 	icon_state = "undertaker"
 
 //hats
-
+/*
 /obj/item/clothing/head/helmet/arbiter
 	name = "arbiter helmet"
 	desc = "Somebody saw description?"
@@ -123,7 +124,7 @@
 	worn_icon = 'white/Wzzzz/Valya/clothing/mob/hat.dmi'
 	icon = 'white/Wzzzz/Valya/clothing/hats.dmi'
 	desc = "Officer's cap. It is obviously used by the officers of the Kaiser Army."
-
+*/
 /obj/item/clothing/head/cap/elite
 	name = "чёрный officer hat"
 	desc = "Officer's cap is of dark color. In addition, the cockade depicts a symbol of the secret police."
