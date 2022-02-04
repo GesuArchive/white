@@ -78,7 +78,8 @@ GLOBAL_VAR_INIT(disposals_are_hungry, FALSE)
 	//this will get a copy of the air turf and take a SEND PRESSURE amount of air from it
 	var/atom/L = loc
 	var/datum/gas_mixture/env = new
-	env.copy_from(L.return_air())
+	if(env)
+		env.copy_from(L.return_air())
 	var/datum/gas_mixture/removed = env.remove(SEND_PRESSURE + 1)
 	air_contents.merge(removed)
 	trunk_check()
