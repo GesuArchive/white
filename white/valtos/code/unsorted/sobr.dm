@@ -13,7 +13,6 @@
 	random_names = TRUE
 	role = "Отряд ОМОН"
 	greentext_reward = 15
-	var/list/name_source_ru
 
 /datum/antagonist/ert/omon/leader
 	name = "Лидер ОМОН"
@@ -24,19 +23,19 @@
 
 /datum/antagonist/ert/omon/New()
 	. = ..()
-	name_source_ru = GLOB.last_names_slavic
+	name_source = GLOB.last_names_slavic
 
 /datum/antagonist/ert/omon/update_name()
 	if(owner.current.gender == FEMALE)
-		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source_ru)]а")
+		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source)]а")
 	else
-		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source_ru)]")
+		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source)]")
 
 /datum/antagonist/ert/omon/leader/update_name()
 	if(owner.current.gender == FEMALE)
-		owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source_ru)]а")
+		owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source)]а")
 	else
-		owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source_ru)]")
+		owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source)]")
 
 /datum/outfit/omon
 	name = "ОМОН"
