@@ -54,9 +54,11 @@ body {
 }
 
 .banned {
-    background-color:#ff5555;
+	color: #f44;
+    background-color:#220000;
 }
 
 .unbanned {
-    background-color:#00b75c;
+	color: #000;
+    background-color:#00aa33;
 }
