@@ -153,6 +153,16 @@
 	explosion(get_turf(src), 1, 2, 7, flame_range = 12)
 	qdel(src)
 
+/obj/structure/reagent_dispensers/fueltank/limitka
+	name = "фуелтанк-лимитка"
+	desc = "<font size=+2><b>Пиздец блядь нахуй!</b></font>"
+	icon_state = "fuel_pizdec"
+	tank_volume = 100000
+
+/obj/structure/reagent_dispensers/fueltank/limitka/boom()
+	explosion(get_turf(src), 7, 14, 21, flame_range = 34)
+	qdel(src)
+
 /obj/structure/reagent_dispensers/peppertank
 	name = "бак с капсаицином"
 	desc = "Содержит конденсированный капсаицин для \"правосудия.\""
