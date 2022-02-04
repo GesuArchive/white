@@ -24,7 +24,7 @@
 /datum/species/dwarf
 	name = "Dwarf"
 	id = "dwarf"
-	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, NO_UNDERWEAR)
+	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, NO_UNDERWEAR, TRAIT_ALCOHOL_TOLERANCE)
 	mutant_bodyparts = list("mcolor" = "FFF", "wings" = "None")
 	use_skintones = 1
 	disliked_food = GROSS | RAW
@@ -33,8 +33,7 @@
 	offset_features = list(OFFSET_UNIFORM = list(0,0), OFFSET_ID = list(0,-3), OFFSET_GLOVES = list(0,-3), OFFSET_GLASSES = list(0,-3), OFFSET_EARS = list(0,-3), OFFSET_SHOES = list(0,0), OFFSET_S_STORE = list(0,-3), OFFSET_FACEMASK = list(0,-3), OFFSET_HEAD = list(0,-4), OFFSET_HAIR = list(0,-3), OFFSET_FACE = list(0,-3), OFFSET_BELT = list(0,-3), OFFSET_BACK = list(0,-4), OFFSET_SUIT = list(0,-3), OFFSET_NECK = list(0,-3))
 	mutantlungs = /obj/item/organ/lungs/dwarven
 	mutanttongue = /obj/item/organ/tongue/dwarven
-	var/dwarfDrunkness = 100 // A value between 0 and 100.
-	var/notDrunkEnoughTime = 0 // World time offset
+	mutantliver = /obj/item/organ/liver/dwarven
 	species_language_holder = /datum/language_holder/dwarf
 
 /datum/species/dwarf/check_roundstart_eligible()
@@ -72,34 +71,8 @@
 /datum/species/dwarf/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
 	if(!..())
 		if(istype(chem, /datum/reagent/consumable/ethanol))
-			var/datum/reagent/consumable/ethanol/theGoodStuff = chem
-			var/boozePower = sqrt(theGoodStuff.volume) * theGoodStuff.boozepwr * DWARF_ALCOHOL_RATE
-			dwarfDrunkness = clamp(dwarfDrunkness + boozePower, 0, 100)
-			return TRUE // Don't metabolize alcohol like normal humans do.
-
-/datum/species/dwarf/spec_life(mob/living/carbon/human/H)
-	..()
-	if(notDrunkEnoughTime < world.time)
-		dwarfDrunkness--
-		notDrunkEnoughTime = world.time + DRUNK_ALERT_TIME_OFFSET + rand(0, DRUNK_ALERT_TIME_OFFSET/2) // between 10 and 15 seconds
-		switch(dwarfDrunkness)
-			if(0 to 30) // too low, harmful
-				H.adjustBruteLoss(10)
-				H.adjustStaminaLoss(80)
-				to_chat(H, span_userdanger("Недостаток алкоголя делает мне больно!")) // I'm not good with fluff messages, todo: improve
-			if(30 to 45)
-				to_chat(H, span_danger("НАДО СРОЧНО ВЫПИТЬ!"))
-				if(prob(5))
-					H.gain_trauma_type(BRAIN_TRAUMA_MILD)
-				H.adjustStaminaLoss(60)
-			if(45 to 60)
-				H.adjustStaminaLoss(40)
-				if(prob(30))
-					to_chat(H, span_danger("Хотелось бы выпить немного спирта."))
-			if(60 to 75)
-				if(prob(30))
-					to_chat(H, span_danger("Чёртова жажда начинает накрывать меня."))
-			// Else nothing happens
+			H.heal_bodypart_damage(0.5,0.5,0.5)
+			return FALSE
 
 /datum/species/dwarf/random_name(gender,unique,lastname, en_lang = FALSE)
 	return dwarf_name()
@@ -118,6 +91,11 @@
 /obj/item/organ/lungs/dwarven
 	name = "dwarven lungs"
 	desc = "A pair of quite small lungs. They look different than normal human's ones."
+
+/obj/item/organ/liver/dwarven
+	name = "dwarven liver"
+	desc = "It looks different than normal human's ones."
+	alcohol_tolerance = 0
 
 /datum/language/dwarven
 	name = "Дварфийский"

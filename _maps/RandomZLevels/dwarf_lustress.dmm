@@ -50,14 +50,6 @@
 /obj/structure/fermenting_barrel,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
-"fS" = (
-/obj/machinery/torch_fixture{
-	dir = 2;
-	on = 1;
-	pixel_y = 0
-	},
-/turf/closed/mineral/random/dwarf_lustress,
-/area/awaymission/vietnam/dwarfgen)
 "gc" = (
 /obj/structure/bonfire/prelit,
 /turf/open/floor/grass/gensgrass/dirty/stone,
@@ -147,6 +139,8 @@
 /obj/item/seeds/wheat,
 /obj/item/seeds/wheat,
 /obj/item/seeds/ambrosia/gaia,
+/obj/item/seeds/grape,
+/obj/item/seeds/grape,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dwarf)
 "lZ" = (
@@ -11928,7 +11922,7 @@ oD
 oD
 oD
 oD
-fS
+oD
 oD
 oD
 oD
