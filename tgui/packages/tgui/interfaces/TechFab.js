@@ -361,7 +361,7 @@ const TechFabContent = (props, context) => {
           )}>
           <Flex direction="column">
             {
-              recipesDisplayed.slice(0, 30).map(recipe => {
+              recipesDisplayed.map(recipe => {
                 return (
                   <Recipe key={recipe.id} recipe={recipe} />
                 );
