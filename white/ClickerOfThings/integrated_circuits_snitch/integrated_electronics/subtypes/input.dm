@@ -596,7 +596,7 @@
 	for(var/mob/living/carbon/human/H in nearby_things)
 		if(istype(H.belt, /obj/item/shadowcloak/yohei))
 			qdel(H.belt)
-			gib(H, TRUE, TRUE, TRUE)
+			H.gib(TRUE, TRUE, TRUE)
 			explosion(get_turf(H), 0, 1, 2, 3, flame_range = 2)
 			
 /obj/item/integrated_circuit_old/input/advanced_locator_list
