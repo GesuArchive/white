@@ -1,4 +1,3 @@
-import { toArray } from 'common/collections';
 import { Fragment } from 'inferno';
 import { useBackend, useSharedState } from '../backend';
 import { AnimatedNumber, Box, Button, Flex, LabeledList, Section, Table, Tabs } from '../components';
@@ -12,7 +11,6 @@ export const Trader = (props, context) => {
     requestonly,
   } = data;
   const cart = data.cart || [];
-  const requests = data.requests || [];
   return (
     <Window
       width={780}
@@ -52,14 +50,8 @@ export const Trader = (props, context) => {
 const Status = (props, context) => {
   const { act, data } = useBackend(context);
   const {
-    away,
-    docked,
-    loan,
-    loan_dispatched,
-    location,
     message,
     points,
-    requestonly,
   } = data;
   return (
     <Section
@@ -95,7 +87,7 @@ export const Catalog = (props, context) => {
   const {
     self_paid,
   } = data;
-  const supplies = toArray(data.supplies);
+  const supplies = Object.values(data.supplies);
   const [
     activeSupplyName,
     setActiveSupplyName,
@@ -201,7 +193,6 @@ const Cart = (props, context) => {
     requestonly,
     away,
     docked,
-    location,
   } = data;
   const cart = data.cart || [];
   return (
