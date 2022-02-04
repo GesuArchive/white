@@ -13,6 +13,7 @@
 	random_names = TRUE
 	role = "Отряд ОМОН"
 	greentext_reward = 15
+	var/list/name_source_ru
 
 /datum/antagonist/ert/omon/leader
 	name = "Лидер ОМОН"
@@ -20,6 +21,10 @@
 	role = "Лидер отряда ОМОН"
 	leader = TRUE
 	greentext_reward = 20
+
+/datum/antagonist/ert/omon/New()
+	. = ..()
+	name_source_ru = GLOB.last_names_slavic
 
 /datum/antagonist/ert/omon/update_name()
 	if(owner.current.gender == FEMALE)

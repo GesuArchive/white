@@ -11,7 +11,6 @@
 	var/datum/outfit/plasmaman_outfit = /datum/outfit/plasmaman/centcom_official
 	var/role = "Офицер"
 	var/list/name_source
-	var/list/name_source_ru
 	var/random_names = TRUE
 	var/rip_and_tear = FALSE
 	var/equip_ert = TRUE
@@ -37,7 +36,6 @@
 /datum/antagonist/ert/New()
 	. = ..()
 	name_source = GLOB.last_names
-	name_source_ru = GLOB.last_names_slavic
 
 /datum/antagonist/ert/proc/update_name()
 	owner.current.fully_replace_character_name(owner.current.real_name,"[role] [pick(name_source)]")

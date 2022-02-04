@@ -7,6 +7,10 @@
 	mission = "Уничтожить особо опасных террористов на станции."
 	polldesc = "группе специального назначения"
 
+/datum/antagonist/ert/sobr/New()
+	. = ..()
+	name_source_ru = GLOB.last_names_slavic
+
 /datum/antagonist/ert/sobr/greet()
 	if(!ert_team)
 		return
@@ -39,6 +43,7 @@
 	random_names = TRUE
 	role = "СОБР"
 	greentext_reward = 15
+	var/list/name_source_ru
 
 /datum/antagonist/ert/sobr/grenadier
 	outfit = /datum/outfit/sobr/grenadier
