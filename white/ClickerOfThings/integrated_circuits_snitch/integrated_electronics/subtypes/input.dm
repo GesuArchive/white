@@ -583,22 +583,22 @@
 	O.push_data()
 
 /obj/item/integrated_circuit_old/input/yoheidetector
-	complexity = 1
+	complexity = 18
 	name = "Yohei Finder"
 	desc = "Так уж получилось, что технология маскировки попала в общество. Теперь любой может дистанционно взорвать батарейку генератора маскировки."
 	extended_desc = "Подрывает невидимых пидоров. Что ещё надо для жизни?"
-	activators = list("locate" = IC_PINTYPE_PULSE_IN)
-	power_draw_per_use = 1
-	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	activators = list("remove kebab" = IC_PINTYPE_PULSE_IN)
+	power_draw_per_use = 120
+	spawn_flags = IC_SPAWN_DEFAULT | IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit_old/input/yoheidetector/do_work()
 	var/list/nearby_things = range(8, get_turf(src))
-	for(var/mob/living/carbon/human/C in nearby_things)
-		if((istype(C.belt, /obj/item/shadowcloak/yohei)))
-			explosion(get_turf(C), 1, 1, 1, 1, TRUE, TRUE)
-		else
-			continue
-
+	for(var/mob/living/carbon/human/H in nearby_things)
+		if(istype(H.belt, /obj/item/shadowcloak/yohei))
+			qdel(H.belt)
+			gib(H, TRUE, TRUE, TRUE)
+			explosion(get_turf(H), 0, 1, 2, 3, flame_range = 2)
+			
 /obj/item/integrated_circuit_old/input/advanced_locator_list
 	complexity = 6
 	name = "list advanced locator"
