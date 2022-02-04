@@ -32,10 +32,10 @@
 	givespaceproof()
 
 /datum/antagonist/ert/sobr/proc/givespaceproof()
-	var/mob/living/carbon/C = owner.current
-	if(!istype(C))
+	var/mob/living/carbon/human/H = owner.current
+	if(!istype(H))
 		return
-	C.dna.add_mutation(/datum/mutation/human/spaceproof)
+	H.dna.add_mutation(/datum/mutation/human/spaceproof)
 
 /datum/antagonist/ert/sobr
 	name = "СОБР"
