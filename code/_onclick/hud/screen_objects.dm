@@ -773,3 +773,8 @@
 	else
 		cooldown.start_cooldown(time, FALSE)
 	return cooldown
+
+/atom/movable/screen/stamina
+	name = "Выносливость"
+	icon_state = "stamina0"
+	screen_loc = ui_stamina
