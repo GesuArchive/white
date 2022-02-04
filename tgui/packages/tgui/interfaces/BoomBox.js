@@ -1,14 +1,11 @@
 import { Fragment } from 'inferno';
-import { sortBy } from 'common/collections';
-import { toArray } from 'common/collections';
-import { flow } from 'common/fp';
 import { useBackend, useLocalState } from '../backend';
-import { Button, LabeledList, Dropdown, LabeledControls, Box, Knob, Section, Tabs, Flex, Table } from '../components';
+import { Button, Knob, Section, Tabs, Flex, Table } from '../components';
 import { Window } from '../layouts';
 
 export const BoomBox = (props, context) => {
   const { act, data } = useBackend(context);
-  const songs = toArray(data.songs);
+  const songs = Object.values(data.songs);
   const [
     selectedCategory,
     setSelectedCategory,
