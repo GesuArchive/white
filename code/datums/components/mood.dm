@@ -288,6 +288,8 @@
 			return //Don't have to update the event.
 	var/list/params = args.Copy(4)
 	params.Insert(1, parent)
+	if(!type)
+		stack_trace("Mood event trying to create null type.")
 	the_event = new type(arglist(params))
 
 	mood_events[category] = the_event

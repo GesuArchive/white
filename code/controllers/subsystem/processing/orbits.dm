@@ -88,7 +88,7 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 			return
 		//Update UIs
 		for(var/datum/tgui/tgui as() in open_orbital_maps)
-			tgui.send_update()
+			tgui?.send_update()
 	//Check creating objectives / missions.
 	if(next_objective_time < world.time && length(possible_objectives) < 6)
 		create_objective()
@@ -111,7 +111,7 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 			return
 		//Update UIs
 		for(var/datum/tgui/tgui as() in open_orbital_maps)
-			tgui.send_update()
+			tgui?.send_update()
 
 /mob/dead/observer/verb/open_orbit_ui()
 	set name = "Показать орбиты"

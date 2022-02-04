@@ -100,7 +100,7 @@
 	if(!alert)
 		return
 	var/area/alarmed = get_area(src)
-	alarmed.burglaralert(src)
+	alarmed?.burglaralert(src)
 
 	alarm_manager.send_alarm(ALARM_BURGLAR)
 	addtimer(CALLBACK(alarm_manager, /datum/alarm_handler/proc/clear_alarm, ALARM_BURGLAR), 1 MINUTES)
