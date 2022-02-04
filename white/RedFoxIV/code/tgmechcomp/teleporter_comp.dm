@@ -41,7 +41,7 @@
 		return
 
 	var/obj/item/mechcomp/teleport/tele = teles?["[target_id]"]
-	if(isnull(tele))
+	if(isnull(tele) || !tele.anchored)
 		say("Invalid target!")
 		playsound(src, 'white/RedFoxIV/sounds/mechcomp/generic_energy_dryfire.ogg', 75, FALSE)
 		activate_for(1 SECONDS, FALSE)
@@ -95,14 +95,14 @@
 
 /obj/item/mechcomp/teleport/proc/set_target_id(datum/mechcompMessage/msg)
 	var/id = hex2num(msg.signal)
-	if(!isnull(id) && id >=0 && id<=65535) //from 0 to FFFF
+	if(!isnull(id) && id >=0 && id<=65535) //from 0000 to FFFF
 		target_id = id
 
 /obj/item/mechcomp/teleport/proc/set_target_id_manually(obj/item/I, mob/user)
 	var/input = hex2num(input("Enter new target teleID.", "Teleporter goin' up!", num2hex(target_id, 4)) as text|null)
 	if(!in_range(src, user) || user.stat || isnull(input))
 		return FALSE
-	target_id = clamp(input, 0, 65535) //from 0 to FFFF
+	target_id = clamp(input, 0, 65535) //from 0000 to FFFF
 	to_chat(user, span_notice("You change the target ID on [src.name] to [num2hex(target_id, 4)]."))
 	return TRUE
 
@@ -114,9 +114,10 @@
 	if(teles["[input]"])
 		to_chat(user, "The [src.name] refuses the teleID! It seems there is already an another teleporter with the same teleID.")
 		return FALSE
-	teles.Remove("[tele_id]")
-	tele_id = clamp(input, 0, 65535) //from 0 to FFFF
-	teles += list("[tele_id]" = src)
+	if(!isnull(teles["[tele_id]"])) //if this teleport already has an ID in the global tele list
+		teles.Remove("[tele_id]")	//replace that ID with a new one
+		tele_id = clamp(input, 0, 65535) //from 0000 to FFFF
+		teles += list("[tele_id]" = src)
 	to_chat(user, span_notice("You change the tele ID on [src.name] to [num2hex(tele_id, 4)]."))
 	return TRUE
 
@@ -145,6 +146,7 @@
 	. = ..()
 	if(active)
 		to_chat(user,span_alert("The [src.name] is still recharging and is locked in place!"))
+		return FALSE
 
 /obj/item/mechcomp/teleport/anchor(mob/user)
 	. = ..()

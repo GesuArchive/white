@@ -38,8 +38,8 @@
 	var/deactivatecb = CALLBACK()
 
 	/**
-	 * If only a single instance of a component is allowed to be anchored onto a tile.part_icon_state =
-	 * Also resets it's own pixel_x and pixel_y vars when anchored so that it stays centered.part_icon_state =
+	 * If only a single instance of a component is allowed to be anchored onto a tile.
+	 * Also resets it's own pixel_x and pixel_y vars when anchored so that it stays centered.
 	 **/
 	var/only_one_per_tile = FALSE
 
@@ -138,8 +138,6 @@
 	if (length(compdatum.connected_incoming) || length(compdatum.connected_outgoing))
 		to_chat(user, span_alert("The locking bolts of [src.name] are locked in and do not budge! Disconnect all first!"))
 		return FALSE
-	//just in case we /somehow/ fucked up with the check
-	SEND_SIGNAL(src, COMSIG_MECHCOMP_RM_ALL_CONNECTIONS)
 	return TRUE
 
 ///handles the anchoring of component.
@@ -148,15 +146,16 @@
 	last_anchored_by = user
 	playsound(src, 'sound/items/ratchet.ogg', 100, TRUE)
 	user.visible_message(span_notice("[user] прикручивает [src.name].") , \
-		span_notice("Прикручиваю [src.name] к полу."))
+						span_notice("Прикручиваю [src.name] к полу."))
 	update_icon_state(part_icon_state)
 
 ///handles the unanchoring of component.
 /obj/item/mechcomp/proc/unanchor(mob/living/user)
 	anchored = FALSE
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_RM_ALL_CONNECTIONS)
 	playsound(src, 'sound/items/ratchet.ogg', 100, TRUE)
 	user.visible_message(span_notice("[user] откручивает [src.name].") , \
-		span_notice("Откручиваю [src.name] от пола."))
+						span_notice("Откручиваю [src.name] от пола."))
 	update_icon_state(part_icon_state)
 
 
