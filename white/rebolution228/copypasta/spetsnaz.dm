@@ -52,15 +52,15 @@
 
 /datum/antagonist/ert/sobr/update_name()
 	if(owner.current.gender == FEMALE)
-		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Капитан", "Майор", "Подполковник")] [pick(name_source)]а")
+		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Капитан", "Майор", "Подполковник")] [pick(name_source_ru)]а")
 	else
-		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Капитан", "Майор", "Подполковник")] [pick(name_source)]")
+		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Капитан", "Майор", "Подполковник")] [pick(name_source_ru)]")
 
 /datum/antagonist/ert/sobr/leader/update_name()
 	if(owner.current.gender == FEMALE)
-		owner.current.fully_replace_character_name(owner.current.real_name,"Полковник [pick(name_source)]а")
+		owner.current.fully_replace_character_name(owner.current.real_name,"Полковник [pick(name_source_ru)]а")
 	else
-		owner.current.fully_replace_character_name(owner.current.real_name,"Полковник [pick(name_source)]")
+		owner.current.fully_replace_character_name(owner.current.real_name,"Полковник [pick(name_source_ru)]")
 
 
 ////////////////OUTFITS//////////////////////

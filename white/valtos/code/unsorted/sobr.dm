@@ -23,15 +23,15 @@
 
 /datum/antagonist/ert/omon/update_name()
 	if(owner.current.gender == FEMALE)
-		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source)]а")
+		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source_ru)]а")
 	else
-		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source)]")
+		owner.current.fully_replace_character_name(owner.current.real_name,"[pick("Рядовой", "Ефрейтор", "Сержант")] [pick(name_source_ru)]")
 
 /datum/antagonist/ert/omon/leader/update_name()
 	if(owner.current.gender == FEMALE)
-		owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source)]а")
+		owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source_ru)]а")
 	else
-		owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source)]")
+		owner.current.fully_replace_character_name(owner.current.real_name,"Лейтенант [pick(name_source_ru)]")
 
 /datum/outfit/omon
 	name = "ОМОН"
