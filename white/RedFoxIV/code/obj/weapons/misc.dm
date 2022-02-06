@@ -935,7 +935,8 @@
 			attack_ghost(ghost)
 
 /obj/effect/duel_controller/proc/spawn_user(mob/user)
-	var/mob/living/carbon/human/H = new(get_turf(src))
+	user.forceMove(get_turf(src))
+	var/mob/living/carbon/human/H = user.change_mob_type(/mob/living/carbon/human, delete_old_mob = TRUE)
 	H.equipOutfit(duel_outfit)
 	H.ckey = user.ckey
 	if(isnull(fighter1))
