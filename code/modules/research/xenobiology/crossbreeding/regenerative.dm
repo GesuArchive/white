@@ -22,6 +22,8 @@ Regenerative extracts:
 	if(H.stat == DEAD)
 		to_chat(user, span_warning("[capitalize(src.name)] will not work on the dead!"))
 		return
+	if(!do_after(user, 50, target=target) && !istype(loc, /obj/item/slimecross/stabilized/rainbow))
+		return
 	if(H != user)
 		user.visible_message(span_notice("[user] crushes [src] over [H], the milky goo quickly regenerating all of [H.ru_ego()] injuries!") ,
 			span_notice("You squeeze [src], and it bursts over [H], the milky goo regenerating [H.ru_ego()] injuries."))

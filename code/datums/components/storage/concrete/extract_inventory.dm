@@ -29,9 +29,7 @@
 		createExtracts(parentSlimeExtract,user)
 
 /datum/component/storage/concrete/extract_inventory/proc/createExtracts(obj/item/slimecross/reproductive/parentSlimeExtract, mob/user)
-	var/cores = rand(1,4)
 	playsound(parentSlimeExtract, 'sound/effects/splat.ogg', 40, TRUE)
 	parentSlimeExtract.last_produce = world.time
-	to_chat(user, span_notice("[parentSlimeExtract] briefly swells to a massive size, and expels [cores] extract[cores > 1 ? "s":""]!"))
-	for(var/i in 1 to cores)
-		new parentSlimeExtract.extract_type(parentSlimeExtract.drop_location())
+	to_chat(user, "<span class='notice'>[parentSlimeExtract] briefly swells to a massive size, and expels a baby slime!</span>")
+	new /mob/living/simple_animal/slime(parentSlimeExtract.drop_location(), parentSlimeExtract.colour)
