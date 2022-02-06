@@ -58,7 +58,7 @@
 
 	distribute_tc()
 
-	GLOB.shuttle_docking_jammed = TRUE
+//	GLOB.shuttle_docking_jammed = TRUE
 
 	CONFIG_SET(number/shuttle_refuel_delay, max(CONFIG_GET(number/shuttle_refuel_delay), CHALLENGE_SHUTTLE_DELAY))
 	SSblackbox.record_feedback("amount", "nuclear_challenge_mode", 1)
@@ -91,7 +91,7 @@
 
 	distribute_tc()
 
-	GLOB.shuttle_docking_jammed = TRUE
+//	GLOB.shuttle_docking_jammed = TRUE
 
 	CONFIG_SET(number/shuttle_refuel_delay, max(CONFIG_GET(number/shuttle_refuel_delay), CHALLENGE_SHUTTLE_DELAY))
 
