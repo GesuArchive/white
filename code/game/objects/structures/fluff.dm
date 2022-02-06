@@ -174,6 +174,7 @@
 	icon = 'icons/effects/32x96.dmi'
 	icon_state = "chain"
 	layer = ABOVE_OBJ_LAYER
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 	anchored = TRUE
 	density = TRUE
 	deconstructible = FALSE
