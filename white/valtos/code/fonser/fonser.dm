@@ -21,10 +21,12 @@
 	layer = LYING_MOB_LAYER
 	var/cover_iconstate = "cover_black"
 
-	bound_width = 64
-	bound_height = 64
+	bound_width = 32
+	bound_height = 32
 	base_pixel_x = -16
 	base_pixel_y = -16
+
+	movement_type = FLYING
 
 	max_integrity = 330
 
@@ -51,16 +53,16 @@
 	. += span_notice("<b>Скорость:</b> [thru]\n")
 	. += span_notice("<b>Манёвренность:</b> [mane]")
 
-/obj/vehicle/sealed/fonser/Move(newloc,move_dir)
-	if(has_buckled_mobs())
+/obj/vehicle/sealed/fonser/Move(newloc, move_dir)
+	if(occupants.len)
 		new /obj/effect/temp_visual/dir_setting/speedbike_trail(loc,move_dir)
 	return ..()
 
 /obj/vehicle/sealed/fonser/ComponentInitialize()
 	movement = AddComponent(/datum/component/funny_movement)
-	movement.icon_dir_num = 4
-	movement.maxthrust_forward = thru
-	movement.maxthrust_backward = thru - 1
+	movement.icon_dir_num = 1
+	movement.maxthrust_forward = -thru
+	movement.maxthrust_backward = -thru + 1
 	RegisterSignal(movement, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH, .proc/funny_movement_moved)
 
 /obj/vehicle/sealed/fonser/proc/funny_movement_moved()
