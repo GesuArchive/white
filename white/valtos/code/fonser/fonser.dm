@@ -80,8 +80,8 @@
 /obj/vehicle/sealed/fonser/uragan
 	name = "Ураган"
 	desc = "Самый быстрый фонсер, с прекрасной маневренностью. Защитное поле минимальное"
-	icon_state = "speedbike_blue"
-	cover_iconstate = "cover_blue"
+	icon_state = "speedbike_red"
+	cover_iconstate = "cover_red"
 
 	max_integrity = 330
 
@@ -102,8 +102,8 @@
 /obj/vehicle/sealed/fonser/vihr
 	name = "Вихрь"
 	desc = "Самый защищенный фонсер, но скорость и маневренность оставляют желать лучшего."
-	icon_state = "speedbike_blue"
-	cover_iconstate = "cover_blue"
+	icon_state = "speedbike_yellow"
+	cover_iconstate = "cover_yellow"
 
 	max_integrity = 450
 
@@ -113,8 +113,8 @@
 /obj/vehicle/sealed/fonser/breeze
 	name = "Бриз"
 	desc = "Самая распространенная модель фонсера. Все показатели на среднем уровне."
-	icon_state = "speedbike_blue"
-	cover_iconstate = "cover_blue"
+	icon_state = "speedbike_black"
+	cover_iconstate = "cover_black"
 
 	max_integrity = 530
 
