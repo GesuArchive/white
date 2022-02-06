@@ -897,7 +897,7 @@
 				return
 			//inc_metabalance(user, -bet, TRUE, "Оплатил входной билет.")
 			to_chat(user, span_clown("Потеряно [bet] дублей. Оплатил входной билет."))
-			spawn_user()
+			spawn_user(user)
 		return
 
 	var/ghost_role = tgui_alert(usr, "Точно хочешь начать дуэль? (Ты не сможешь вернуться в своё прошлое тело, так что выбирай с умом!)",,list("Да","Нет"))
@@ -1391,3 +1391,12 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 	desc = "\"I ain't much for drugs... but hell, when fortune is knockin', ya gotta greet that door with a smile and a nod. Salud!\""
 	list_reagents = list(/datum/reagent/drug/soldier = 15)
 	amount_per_transfer_from_this = 15
+
+
+/mob/living/simple_animal/hostile/pig
+	name = "Свинья"
+	real_name = "Свинья"
+	desc = "Хрюкает."
+	icon = 'white/valtos/icons/animal.dmi'
+	rapid_melee = 10
+	obj_damage = 0
