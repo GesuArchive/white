@@ -1398,5 +1398,8 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 	real_name = "Свинья"
 	desc = "Хрюкает."
 	icon = 'white/valtos/icons/animal.dmi'
+	icon_state = "pig"
 	rapid_melee = 10
-	obj_damage = 0
+	obj_damage = 40
+	melee_damage_lower = 1
+	melee_damage_upper = 2
