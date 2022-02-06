@@ -13,7 +13,7 @@
 // "Бриз" 	 - самая распространенная модель фонсера. Все показатели на среднем уровне.
 // 97/530/97
 
-/obj/vehicle/ridden/fonser
+/obj/vehicle/sealed/fonser
 	name = "Фонсер"
 
 	icon = 'icons/obj/bike.dmi'
@@ -40,34 +40,34 @@
 	var/thru = 5
 	var/mane = 10
 
-/obj/vehicle/ridden/fonser/Initialize()
+/obj/vehicle/sealed/fonser/Initialize()
 	. = ..()
 	add_overlay(image(icon, cover_iconstate, ABOVE_MOB_LAYER))
 
-/obj/vehicle/ridden/fonser/examine(mob/user)
+/obj/vehicle/sealed/fonser/examine(mob/user)
 	. = ..()
 	. += "<hr>"
 	. += span_notice("<b>Броня:</b> [max_integrity]\n")
 	. += span_notice("<b>Скорость:</b> [thru]\n")
 	. += span_notice("<b>Манёвренность:</b> [mane]")
 
-/obj/vehicle/ridden/fonser/Move(newloc,move_dir)
+/obj/vehicle/sealed/fonser/Move(newloc,move_dir)
 	if(has_buckled_mobs())
 		new /obj/effect/temp_visual/dir_setting/speedbike_trail(loc,move_dir)
 	return ..()
 
-/obj/vehicle/ridden/fonser/ComponentInitialize()
+/obj/vehicle/sealed/fonser/ComponentInitialize()
 	movement = AddComponent(/datum/component/funny_movement)
 	movement.icon_dir_num = 4
 	movement.maxthrust_forward = thru
 	movement.maxthrust_backward = thru - 1
 	RegisterSignal(movement, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH, .proc/funny_movement_moved)
 
-/obj/vehicle/ridden/fonser/proc/funny_movement_moved()
+/obj/vehicle/sealed/fonser/proc/funny_movement_moved()
 	SIGNAL_HANDLER
 	movement.desired_thrust_dir = 0
 
-/obj/vehicle/ridden/fonser/vehicle_move(direction)
+/obj/vehicle/sealed/fonser/vehicle_move(direction)
 	if(direction & NORTH)
 		movement.desired_thrust_dir |= NORTH
 	if(direction & SOUTH)
@@ -77,7 +77,7 @@
 	if(direction & EAST)
 		movement.desired_angle = movement.angle + mane
 
-/obj/vehicle/ridden/fonser/uragan
+/obj/vehicle/sealed/fonser/uragan
 	name = "Ураган"
 	desc = "Самый быстрый фонсер, с прекрасной маневренностью. Защитное поле минимальное"
 	icon_state = "speedbike_blue"
@@ -88,7 +88,7 @@
 	thru = 8
 	mane = 20
 
-/obj/vehicle/ridden/fonser/tornado
+/obj/vehicle/sealed/fonser/tornado
 	name = "Торнадо"
 	desc = "Самый маневренный фонсер, обладающий замечательными скоростными качествами. Защита минимальна."
 	icon_state = "speedbike_blue"
@@ -99,7 +99,7 @@
 	thru = 7
 	mane = 30
 
-/obj/vehicle/ridden/fonser/vihr
+/obj/vehicle/sealed/fonser/vihr
 	name = "Вихрь"
 	desc = "Самый защищенный фонсер, но скорость и маневренность оставляют желать лучшего."
 	icon_state = "speedbike_blue"
@@ -110,7 +110,7 @@
 	thru = 6
 	mane = 15
 
-/obj/vehicle/ridden/fonser/breeze
+/obj/vehicle/sealed/fonser/breeze
 	name = "Бриз"
 	desc = "Самая распространенная модель фонсера. Все показатели на среднем уровне."
 	icon_state = "speedbike_blue"
