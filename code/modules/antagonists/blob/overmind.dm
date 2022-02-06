@@ -97,7 +97,16 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 				to_chat(src, "<b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> [blobstrain.effectdesc]")
 
 /mob/camera/blob/can_z_move(direction, turf/start, turf/destination, z_move_flags = NONE, mob/living/rider)
-	return FALSE
+	if(placed) // The blob can't expand vertically (yet)
+		return FALSE
+	. = ..()
+	if(!.)
+		return
+	var/turf/target_turf = .
+	if(!is_valid_turf(target_turf)) // Allows unplaced blobs to travel through station z-levels
+		if(z_move_flags & ZMOVE_FEEDBACK)
+			to_chat(src, "Нельзя выбрать данную позицию. Переместитесь в другое место и попробуйте снова.")
+		return null
 
 /mob/camera/blob/proc/is_valid_turf(turf/T)
 	var/area/A = get_area(T)
