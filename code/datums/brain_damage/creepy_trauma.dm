@@ -77,9 +77,13 @@
 	if(mood && mood.sanity >= SANITY_GREAT && social_interaction())
 		speech_args[SPEECH_MESSAGE] = ""
 
-/datum/brain_trauma/special/obsessed/proc/on_hug(mob/living/hugger, mob/living/hugged)
-	if(hugged == obsession)
-		obsession_hug_count++
+/datum/brain_trauma/special/obsessed/proc/on_hug(datum/source, mob/living/hugger, mob/living/hugged)
+	SIGNAL_HANDLER
+
+	if(hugged != obsession)
+		return
+
+	obsession_hug_count++
 
 /datum/brain_trauma/special/obsessed/proc/social_interaction()
 	var/fail = FALSE //whether you can finish a sentence while doing it

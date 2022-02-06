@@ -361,6 +361,7 @@
 	QDEL_NULL(pizza)
 	if(ishuman(user))
 		attune_pizza(user)
+		to_chat(user, span_notice("Еще одна пицца внезапно появляется в коробке. Какого хрена?"))
 	. = ..()
 
 /obj/item/pizzabox/infinite/proc/attune_pizza(mob/living/carbon/human/noms) //tonight on "proc names I never thought I'd type"
