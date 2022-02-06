@@ -194,6 +194,18 @@
 	force = 15
 	ammo_type = list(/obj/item/ammo_casing/energy/plasma/adv)
 
+/obj/item/gun/energy/plasmacutter/emp_act(severity)
+	if(!cell.charge)
+		return
+	cell.use(cell.charge/3)
+	if(isliving(loc))
+		var/mob/living/user = loc
+		user.visible_message("<span class='danger'>Концетрированная плазма разряжается из [src] в [user], поджигая [user.ru_ego()]!</span>")
+		to_chat(user, "<span class='userdanger'>[src] дает сбой, извергая на меня горящую, концетрированную плазму!</span>")
+		user.adjust_fire_stacks(4)
+		user.IgniteMob()
+		user.emote("agony")
+
 /obj/item/gun/energy/wormhole_projector
 	name = "блюспейс проектор червоточин"
 	desc = "Проектор, который излучает квантовые лучи высокой плотности с синей связью. Требуется ядро блюспейс аномалии для функционирования."
