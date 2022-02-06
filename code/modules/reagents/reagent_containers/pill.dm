@@ -181,7 +181,7 @@
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/psicodine
-	name = "Таблетка Псикодина"
+	name = "таблетка псикодина"
 	desc = "Восстанавливает ясность сознания, подавляет фобии и панические атаки."
 	list_reagents = list(/datum/reagent/medicine/psicodine = 10)
 	icon_state = "pill22"

@@ -39,7 +39,7 @@
 
 /obj/item/clothing/glasses/meson/engine/proc/toggle_mode(mob/user, voluntary)
 	mode = modes[mode]
-	to_chat(user, "<span class='[voluntary ? "notice":"warning"]'>[voluntary ? "Я переключаю очки":"Очки переключаются"] [mode ? "в режим [mode]":"в режим ВЫКЛ."][voluntary ? ".":"!"]</span>")
+	to_chat(user, "<span class='[voluntary ? "notice":"warning"]'>[voluntary ? "Переключаю очки":"Очки переключаются"] [mode ? "в режим [mode]":"в режим ВЫКЛ."][voluntary ? ".":"!"]</span>")
 	if(connection_images.len)
 		connection_images.Cut()
 	switch(mode)

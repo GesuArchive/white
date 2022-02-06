@@ -42,9 +42,10 @@
 /datum/reagent/medicine/adminordrazine //An OP chemical for admins
 	name = "Админордразин"
 	enname = "Adminordrazine"
-	description = "It's magic. We don't have to explain it."
+	description = "Это магия. Не будем объяснять, как."
 	color = "#E0BB00" //golden for the gods
-	taste_description = "badmins"
+	taste_description = "щитспавн"
+	chemical_flags = REAGENT_DEAD_PROCESS
 
 // The best stuff there is. For testing/debugging.
 /datum/reagent/medicine/adminordrazine/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
@@ -814,6 +815,7 @@
 	name = "Маннитол"
 	enname = "Mannitol"
 	description = "Efficiently restores brain damage."
+	taste_description = "приятная сладость"
 	color = "#A0A0A0" //mannitol is light grey, neurine is lighter grey
 	ph = 10.4
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
