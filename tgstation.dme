@@ -4310,6 +4310,7 @@
 #include "white\valtos\code\fallout_guns\weapons\revolver.dm"
 #include "white\valtos\code\fallout_guns\weapons\rifle.dm"
 #include "white\valtos\code\fallout_guns\weapons\shotgun.dm"
+#include "white\valtos\code\fonser\fonser.dm"
 #include "white\valtos\code\ftu\items.dm"
 #include "white\valtos\code\ftu\projectiles.dm"
 #include "white\valtos\code\gamemode\bombass.dm"
