@@ -3,7 +3,7 @@
 	open_turf_types = list(/turf/open/floor/grass/gensgrass/dirty/stone/raw=1)
 	closed_turf_types = list(/turf/closed/mineral/random/dwarf_lustress=1)
 
-	feature_spawn_list = list()
+	feature_spawn_list = null
 
 	mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient=15, /mob/living/simple_animal/hostile/shrooman=20,
