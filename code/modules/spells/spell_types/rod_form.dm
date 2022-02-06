@@ -36,11 +36,14 @@
 	var/turf/start_turf
 	notify = FALSE
 	dnd_style_level_up = FALSE
+	/// The wizard who's piloting our rod.
+	var/datum/weakref/our_wizard
 
-/obj/effect/immovablerod/wizard/Move()
+/obj/effect/immovablerod/wizard/Moved()
 	if(get_dist(start_turf, get_turf(src)) >= max_distance)
-		qdel(src)
-	..()
+		stop_travel()
+		return
+	return ..()
 
 /obj/effect/immovablerod/wizard/Destroy()
 	if(wizard)
@@ -56,3 +59,37 @@
 		return
 	L.visible_message(span_danger("[L] is penetrated by an immovable rod!")  , span_userdanger("The rod penetrates you!")  , span_danger("You hear a CLANG!"))
 	L.adjustBruteLoss(70 + damage_bonus)
+
+/**
+ * Called when the wizard rod reaches it's maximum distance
+ * or is otherwise stopped by something.
+ * Dumps out the wizard, and deletes.
+ */
+/obj/effect/immovablerod/wizard/proc/stop_travel()
+	eject_wizard()
+	qdel(src)
+
+/**
+ * Eject our current wizard, removing them from the rod
+ * and fixing all of the variables we changed.
+ */
+/obj/effect/immovablerod/wizard/proc/eject_wizard()
+	var/mob/living/wizard = our_wizard?.resolve()
+	if(QDELETED(wizard))
+		return
+
+	wizard.status_flags &= ~GODMODE
+	wizard.notransform = FALSE
+	wizard.forceMove(get_turf(src))
+	our_wizard = null
+
+/**
+ * Set wizard as our_wizard, placing them in the rod
+ * and preparing them for travel.
+ */
+/obj/effect/immovablerod/wizard/proc/set_wizard(mob/living/wizard)
+	our_wizard = WEAKREF(wizard)
+
+	wizard.forceMove(src)
+	wizard.notransform = TRUE
+	wizard.status_flags |= GODMODE
