@@ -191,7 +191,7 @@
 	else
 		new_player.make_me_an_observer(TRUE)
 
-/atom/movable/screen/lobby/button/join/proc/show_join_button())
+/atom/movable/screen/lobby/button/join/proc/show_join_button()
 	SIGNAL_HANDLER
 	set_button_status(TRUE)
 	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP)
