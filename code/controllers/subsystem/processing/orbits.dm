@@ -10,7 +10,6 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 
 	var/datum/orbital_map_tgui/orbital_map_tgui = new()
 
-	var/initial_space_ruins = 2
 	var/initial_objective_beacons = 3
 	var/initial_asteroids = 6
 
@@ -71,8 +70,6 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 		orbital_map.post_setup()
 	orbits_setup = TRUE
 	//Create initial ruins
-	for(var/i in 1 to initial_space_ruins)
-		new /datum/orbital_object/z_linked/beacon/ruin/spaceruin()
 	for(var/i in 1 to initial_objective_beacons)
 		new /datum/orbital_object/z_linked/beacon/ruin()
 	//Create asteroid belt
@@ -93,9 +90,6 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 	if(next_objective_time < world.time && length(possible_objectives) < 6)
 		create_objective()
 		next_objective_time = world.time + rand(30 SECONDS, 5 MINUTES)
-	//Check space ruin count
-	if(ruin_levels < 2 && prob(5))
-		new /datum/orbital_object/z_linked/beacon/ruin/spaceruin()
 	//Check objective
 	if(current_objective)
 		if(current_objective.check_failed())

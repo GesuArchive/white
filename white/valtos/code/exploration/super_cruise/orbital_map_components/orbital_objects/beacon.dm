@@ -51,32 +51,6 @@
 	set_orbitting_around_body(linked_map.center, 800 + 20 * rand(-19, 19))
 
 //====================
-// Regular Ruin Z-levels
-//====================
-
-/datum/orbital_object/z_linked/beacon/ruin/spaceruin
-	name = "Неизвестный Сигнал"
-
-/datum/orbital_object/z_linked/beacon/ruin/spaceruin/New()
-	. = ..()
-	SSorbits.ruin_levels++
-
-/datum/orbital_object/z_linked/beacon/ruin/spaceruin/Destroy(force, ...)
-	. = ..()
-	SSorbits.ruin_levels--
-
-/datum/orbital_object/z_linked/beacon/ruin/spaceruin/assign_z_level()
-	var/datum/space_level/assigned_space_level = SSzclear.get_free_z_level()
-	linked_z_level = list(assigned_space_level)
-	assigned_space_level.orbital_body = src
-	seedRuins(list(assigned_space_level.z_value), CONFIG_GET(number/space_budget), /area/space, SSmapping.space_ruins_templates)
-
-/datum/orbital_object/z_linked/beacon/ruin/spaceruin/post_map_setup()
-	//Orbit around the systems sun
-	var/datum/orbital_map/linked_map = SSorbits.orbital_maps[orbital_map_index]
-	set_orbitting_around_body(linked_map.center, 2000 + 25 * rand(40, 20))
-
-//====================
 // Random-Ruin z-levels
 //====================
 /datum/orbital_object/z_linked/beacon/ruin
