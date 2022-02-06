@@ -205,6 +205,7 @@ SUBSYSTEM_DEF(ticker)
 				start_at = world.time + (60 SECONDS)
 				timeLeft = null
 				Master.SetRunLevel(RUNLEVEL_LOBBY)
+				SEND_SIGNAL(src, COMSIG_TICKER_ERROR_SETTING_UP)
 			else
 				webhook_send_roundstatus("ingame")
 

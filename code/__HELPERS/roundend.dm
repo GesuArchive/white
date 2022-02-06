@@ -265,7 +265,8 @@
 			C.RollCredits()
 		C.playtitlemusic(5)
 
-		C.process_endround_metacoin()
+		spawn(-1) // do it async
+			C.process_endround_metacoin()
 
 		if(speed_round)
 			C.give_award(/datum/award/achievement/misc/speed_round, C.mob)

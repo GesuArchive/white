@@ -15,7 +15,8 @@ SUBSYSTEM_DEF(dbcore)
 
 	var/last_error
 
-	var/max_concurrent_queries = 25
+	/// limited anus is bad
+	var/max_concurrent_queries = 250
 
 	/// Number of all queries, reset to 0 when logged in SStime_track. Used by SStime_track
 	var/all_queries_num = 0

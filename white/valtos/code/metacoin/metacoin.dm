@@ -1,5 +1,6 @@
 /client/proc/process_endround_metacoin()
-	if(!mob)	return
+	if(!mob)
+		return
 	var/mob/M = mob
 	if(M.mind && !isnewplayer(M))
 		if(M.stat != DEAD && !isbrain(M))
