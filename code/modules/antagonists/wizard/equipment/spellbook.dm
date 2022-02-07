@@ -241,7 +241,7 @@
 	spell_type = /obj/effect/proc_holder/spell/targeted/summonitem
 	category = "Assistance"
 	cost = 1
-
+/*
 /datum/spellbook_entry/lichdom
 	name = "Bind Soul"
 	desc = "A dark necromantic pact that can forever bind your soul to an \
@@ -252,7 +252,7 @@
 	becoming a lich destroys all internal organs except the brain."
 	spell_type = /obj/effect/proc_holder/spell/targeted/lichdom
 	category = "Defensive"
-
+*/
 /datum/spellbook_entry/teslablast
 	name = "Tesla Blast"
 	desc = "Charge up a tesla arc and release it at a random nearby target! You can move freely while it charges. The arc jumps between targets and can knock them down."

@@ -57,8 +57,9 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	flags_1 = PREVENT_CONTENTS_EXPLOSION_1
 	movement_type = PHASING | FLYING
 	var/mob/living/wizard
-	var/z_original = 0
-	var/destination
+	/// The turf we're looking to coast to.
+	var/turf/destination_turf
+	/// Whether we notify ghosts.
 	var/notify = TRUE
 	///We can designate a specific target to aim for, in which case we'll try to snipe them rather than just flying in a random direction
 	var/atom/special_target
@@ -72,28 +73,27 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	var/dnd_style_level_up = TRUE
 	/// Whether the rod can loop across other z-levels. The rod will still loop when the z-level is self-looping even if this is FALSE.
 	var/loopy_rod = FALSE
+	var/destination
+	var/destinations
 
-/obj/effect/immovablerod/New(atom/start, atom/end, aimed_at, force_looping)
+/obj/effect/immovablerod/Initialize(mapload, atom/target_atom, atom/specific_target, force_looping = FALSE)
 	. = ..()
 	SSaugury.register_doom(src, 2000)
 
-	destination = end
-	special_target = aimed_at
+	var/turf/real_destination = get_turf(target_atom)
+	destination_turf = real_destination
+	special_target = specific_target
 	loopy_rod = force_looping
 
 	SSpoints_of_interest.make_point_of_interest(src)
 
 	RegisterSignal(src, COMSIG_ATOM_ENTERING, .proc/on_entering_atom)
 
-	if(special_target)
-		walk_towards(src, special_target, 1)
-	else
-		walk_towards(src, destination, 1)
-
 /obj/effect/immovablerod/Destroy(force)
 	UnregisterSignal(src, COMSIG_ATOM_ENTERING)
 	SSaugury.unregister_doom(src)
-
+	destination_turf = null
+	special_target = null
 	return ..()
 
 /obj/effect/immovablerod/examine(mob/user)
@@ -161,15 +161,14 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 		return ..()
 
 	// If we have a destination turf, let's make sure it's also still valid.
-	if(destination)
-		var/turf/target_turf = get_turf(destination)
+	if(destination_turf)
 
 		// If the rod is a loopy_rod, run complete_trajectory() to get a new edge turf to fly to.
 		// Otherwise, qdel the rod.
-		if(target_turf.z != z)
+		if(destination_turf.z != z)
 			if(loopy_rod)
 				complete_trajectory()
-				return
+				return ..()
 
 			qdel(src)
 			return
@@ -177,7 +176,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 		// Did we reach our destination? We're probably on Icebox. Let's get rid of ourselves.
 		// Ordinarily this won't happen as the average destination is the edge of the map and
 		// the rod will auto transition to a new z-level.
-		if(loc == get_turf(destination))
+		if(loc == destination_turf)
 			qdel(src)
 			return
 
@@ -193,6 +192,9 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 
 /obj/effect/immovablerod/singularity_pull()
 	return
+
+/obj/effect/immovablerod/Process_Spacemove()
+	return TRUE
 
 /obj/effect/immovablerod/Bump(atom/clong)
 	if(prob(10))
@@ -268,24 +270,28 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 		return
 
 	playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
-	for(var/mob/M in urange(8, src))
-		if(M.stat != CONSCIOUS)
+	for(var/mob/living/nearby_mob in urange(8, src))
+		if(nearby_mob.stat != CONSCIOUS)
 			continue
-		shake_camera(M, 2, 3)
+		shake_camera(nearby_mob, 2, 3)
 
-	if(wizard)
-		user.visible_message(span_boldwarning("[src] transforms into [wizard] as [user] suplexes them!"), span_warning("As you grab [src], it suddenly turns into [wizard] as you suplex them!"))
-		to_chat(wizard, span_boldwarning("You're suddenly jolted out of rod-form as [user] somehow manages to grab you, slamming you into the ground!"))
-		wizard.Stun(60)
-		wizard.apply_damage(25, BRUTE)
-		qdel(src)
-	else
-		user.client.give_award(/datum/award/achievement/misc/feat_of_strength, user) //rod-form wizards would probably make this a lot easier to get so keep it to regular rods only
-		user.visible_message(span_boldwarning("[user] suplexes [src] into the ground!"), span_warning("You suplex [src] into the ground!"))
-		new /obj/structure/festivus/anchored(drop_location())
-		new /obj/effect/anomaly/flux(drop_location())
-		qdel(src)
+	return suplex_rod(user)
 
+/**
+ * Called when someone manages to suplex the rod.
+ *
+ * Arguments
+ * * strongman - the suplexer of the rod.
+ */
+/obj/effect/immovablerod/proc/suplex_rod(mob/living/strongman)
+	strongman.client?.give_award(/datum/award/achievement/misc/feat_of_strength, strongman)
+	strongman.visible_message(
+		span_boldwarning("[strongman] suplexes [src] into the ground!"),
+		span_warning("You suplex [src] into the ground!")
+		)
+	new /obj/structure/festivus/anchored(drop_location())
+	new /obj/effect/anomaly/flux(drop_location())
+	qdel(src)
 	return TRUE
 
 /* Below are a couple of admin helper procs when dealing with immovable rod memes. */
@@ -298,7 +304,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 /**
  * Allows your rod to release restraint level zero and go for a walk.
  *
- * If walkies_location is set, rod will walk_towards the location, chasing it across z-levels if necessary.
+ * If walkies_location is set, rod will move towards the location, chasing it across z-levels if necessary.
  * If walkies_location is not set, rod will call complete_trajectory() and follow the logic from that proc.
  *
  * Arguments:
