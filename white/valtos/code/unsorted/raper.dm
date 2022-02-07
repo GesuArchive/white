@@ -283,11 +283,17 @@
 	controller.blackboard[BB_RAPER_FUCKING] = TRUE
 
 	if(target && ishuman(target))
-		target.dropItemToGround(target.wear_suit)
-		target.dropItemToGround(target.w_uniform)
-		target.drop_all_held_items()
-		living_pawn.do_dance(target, pick("do_dancor"))
-	finish_action(controller, TRUE)
+		if(target.gender == FEMALE)
+			target.dropItemToGround(target.wear_suit)
+			target.dropItemToGround(target.w_uniform)
+			target.drop_all_held_items()
+			living_pawn.do_dance(target, pick("do_dance"))
+		else
+			target.dropItemToGround(target.wear_suit)
+			target.dropItemToGround(target.w_uniform)
+			target.drop_all_held_items()
+			living_pawn.do_dance(target, pick("do_dancor"))
+		finish_action(controller, TRUE)
 
 /mob/living/carbon/human/raper
 	ai_controller = /datum/ai_controller/raper
