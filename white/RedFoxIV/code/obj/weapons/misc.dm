@@ -938,7 +938,6 @@
 	user.forceMove(get_turf(src))
 	var/mob/living/carbon/human/H = user.change_mob_type(/mob/living/carbon/human, delete_old_mob = TRUE)
 	H.equipOutfit(duel_outfit)
-	H.ckey = user.ckey
 	if(isnull(fighter1))
 		fighter1 = H
 	else
