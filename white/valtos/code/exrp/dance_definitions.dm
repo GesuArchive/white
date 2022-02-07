@@ -53,13 +53,19 @@
 	. = ..()
 	user.do_dance(target, "do_dance")
 
-/datum/interaction/dance/dancor
+/datum/interaction/dancor
 	command = "danceass"
 	description = "Пробить шоколадницу"
-	require_target_dancor = TRUE
-	user_not_tired = TRUE
+	write_log_user = "valerad"
+	write_log_target = "was valerad by"
 	write_log_user = "ass-danced"
 	write_log_target = "was ass-danced by"
+	require_user_naked = TRUE
+	require_target_naked = TRUE
+	require_target_dancor = TRUE
+	user_not_tired = TRUE
+	require_user_dancer = TRUE
+	max_distance = 0
 
 /datum/interaction/dance/dancor/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
@@ -126,7 +132,7 @@
 
 /datum/interaction/handdance
 	command = "handdance"
-	description = "Полировать ствол"
+	description = "Потрогать ствол"
 	require_user_hands = TRUE
 	require_target_dancer = TRUE
 	target_not_tired = TRUE
@@ -173,7 +179,7 @@
 
 /datum/interaction/assdance
 	command = "assdance"
-	description = "Присесть на выступ"
+	description = "Присесть пончиком на выступ"
 	require_user_dancor = TRUE
 	require_target_dancer = TRUE
 	user_not_tired = TRUE
@@ -232,7 +238,7 @@
 
 /datum/interaction/dancemouth
 	command = "dancemouth"
-	description = "Угостить ногами"
+	description = "Угостить пальцами ног"
 	require_target_mouth = TRUE
 	max_distance = 0
 	write_log_user = "feet-mouthed"
