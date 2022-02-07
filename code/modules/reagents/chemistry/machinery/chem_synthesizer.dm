@@ -56,6 +56,11 @@
 				purity = input
 	update_icon()
 
+/obj/machinery/chem_dispenser/chem_synthesizer/Destroy()
+	if(beaker)
+		QDEL_NULL(beaker)
+	return ..()
+
 /obj/machinery/chem_dispenser/chem_synthesizer/ui_data(mob/user)
 	. = ..()
 	.["purity"] = purity

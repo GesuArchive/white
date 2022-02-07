@@ -89,6 +89,9 @@
 		to_chat(src, span_notice("Не могу напрямую влиять на мир вокруг меня, но можно видеть, чего [owner] не может."))
 
 /mob/camera/imaginary_friend/Initialize(mapload, _trauma)
+	if(!_trauma)
+		stack_trace("Imaginary friend created without trauma, wtf")
+		return INITIALIZE_HINT_QDEL
 	. = ..()
 
 	trauma = _trauma
@@ -131,7 +134,7 @@
 	client.images |= current_image
 
 /mob/camera/imaginary_friend/Destroy()
-	if(owner.client)
+	if(owner?.client)
 		owner.client.images.Remove(human_image)
 	if(client)
 		client.images.Remove(human_image)

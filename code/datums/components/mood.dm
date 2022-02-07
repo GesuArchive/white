@@ -37,6 +37,7 @@
 /datum/component/mood/Destroy()
 	STOP_PROCESSING(SSmood, src)
 	REMOVE_TRAIT(parent, TRAIT_AREA_SENSITIVE, MOOD_COMPONENT_TRAIT)
+	QDEL_LIST_ASSOC_VAL(mood_events)
 	unmodify_hud()
 	return ..()
 
@@ -284,7 +285,7 @@
 			clear_event(null, category)
 		else
 			if(the_event.timeout)
-				addtimer(CALLBACK(src, .proc/clear_event, null, category), the_event.timeout, TIMER_UNIQUE|TIMER_OVERRIDE)
+				the_event.timer = addtimer(CALLBACK(src, .proc/clear_event, null, category), the_event.timeout, TIMER_STOPPABLE|TIMER_UNIQUE|TIMER_OVERRIDE)
 			return //Don't have to update the event.
 	var/list/params = args.Copy(4)
 	params.Insert(1, parent)

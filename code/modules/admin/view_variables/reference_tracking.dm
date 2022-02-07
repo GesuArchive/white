@@ -72,6 +72,11 @@
 
 
 /datum/proc/DoSearchVar(potential_container, container_name, recursive_limit = 64)
+	#ifdef REFERENCE_TRACKING_DEBUG
+	if(!found_refs && SSgarbage.should_save_refs)
+		found_refs = list()
+	#endif
+
 	if(usr?.client && !usr.client.running_find_references)
 		return
 
@@ -92,6 +97,10 @@
 			var/variable = vars_list[varname]
 
 			if(variable == src)
+				#ifdef REFERENCE_TRACKING_DEBUG
+				if(SSgarbage.should_save_refs)
+					found_refs[varname] = TRUE
+				#endif
 				testing("Found [type] \ref[src] in [datum_container.type]'s [varname] var. [container_name]")
 
 			else if(islist(variable))
@@ -101,9 +110,17 @@
 		var/normal = IS_NORMAL_LIST(potential_container)
 		for(var/element_in_list in potential_container)
 			if(element_in_list == src)
+				#ifdef REFERENCE_TRACKING_DEBUG
+				if(SSgarbage.should_save_refs)
+					found_refs[potential_cache] = TRUE
+				#endif
 				testing("Found [type] \ref[src] in list [container_name].")
 
 			else if(element_in_list && !isnum(element_in_list) && normal && potential_container[element_in_list] == src)
+				#ifdef REFERENCE_TRACKING_DEBUG
+				if(SSgarbage.should_save_refs)
+					found_refs[potential_cache] = TRUE
+				#endif
 				testing("Found [type] \ref[src] in list [container_name]\[[element_in_list]\]")
 
 			else if(islist(element_in_list))
