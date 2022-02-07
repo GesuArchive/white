@@ -1,30 +1,35 @@
 //Speech verbs.
 
-///Say verb
+///what clients use to speak. when you type a message into the chat bar in say mode, this is the first thing that goes off serverside.
 /mob/verb/say_verb(message as text)
 	set name = "Сказать"
 	set category = "IC"
+	set instant = TRUE
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, span_danger("Не могу говорить."))
 		return
 
+	//queue this message because verbs are scheduled to process after SendMaps in the tick and speech is pretty expensive when it happens.
+	//by queuing this for next tick the mc can compensate for its cost instead of having speech delay the start of the next tick
 	if(message && proverka_na_detey(message, src))
-		say(message)
+		SSspeech_controller.queue_say_for_mob(src, message, SPEECH_CONTROLLER_QUEUE_SAY_VERB)
 
 ///Whisper verb
 /mob/verb/whisper_verb(message as text)
 	set name = "Шептать"
 	set category = "IC"
+	set instant = TRUE
+
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, span_danger("Не могу шептать."))
 		return
-	if(proverka_na_detey(message, src))
-		whisper(message)
+	if(message && proverka_na_detey(message, src))
+		SSspeech_controller.queue_say_for_mob(src, message, SPEECH_CONTROLLER_QUEUE_WHISPER_VERB)
 
 ///whisper a message
 /mob/proc/whisper(message, datum/language/language=null)
-	say(message, language) //only living mobs actually whisper, everything else just talks
+	say(message, language = language)
 
 ///The me emote verb
 /mob/verb/me_verb(message as text)
@@ -40,7 +45,7 @@
 	webhook_send_me(ckeyname, message)
 
 	if(proverka_na_detey(message, src))
-		usr.emote("me",1,message,TRUE)
+		SSspeech_controller.queue_say_for_mob(src, message, SPEECH_CONTROLLER_QUEUE_EMOTE_VERB)
 
 ///Speak as a dead person (ghost etc)
 /mob/proc/say_dead(message)
