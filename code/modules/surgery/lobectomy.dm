@@ -24,7 +24,9 @@
 /datum/surgery_step/lobectomy/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Вы начинаете делать надрез в легких [skloname(target.name, RODITELNI, target.gender)]...") ,
 		span_notice("[user] начинает делать надрез в легких [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начинает делать надрез в легких [skloname(target.name, RODITELNI, target.gender)]."))
+		span_notice("[user] начинает делать надрез в легких [skloname(target.name, RODITELNI, target.gender)].") ,
+		playsound(get_turf(target), 'sound/surgery/scalpel1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
+	display_pain(target, "You feel a stabbing pain in your chest!")
 
 /datum/surgery_step/lobectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
@@ -34,7 +36,9 @@
 		H.setOrganLoss(ORGAN_SLOT_LUNGS, 60)
 		display_results(user, target, span_notice("Вы успешно удалили наиболее поврежденный сегмент легких [H].") ,
 			span_notice("Поврежденный сегмент легких [H] был успешно удален.") ,
+			playsound(get_turf(target), 'sound/surgery/organ1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1),
 			"")
+		display_pain(target, "Your chest hurts like hell, but breathng becomes slightly easier.")
 	return ..()
 
 /datum/surgery_step/lobectomy/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
@@ -42,7 +46,9 @@
 		var/mob/living/carbon/human/H = target
 		display_results(user, target, span_warning("Вы ошиблись и повредили здоровую часть легкого [H]!") ,
 			span_warning("[user] ошибся!") ,
-			span_warning("[user] ошибся!"))
+			span_warning("[user] ошибся!") ,
+			playsound(get_turf(target), 'sound/surgery/organ1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
+		display_pain(target, "You feel a sharp stab in your chest; the wind is knocked out of you and it hurts to catch your breath!")
 		H.losebreath += 4
 		H.adjustOrganLoss(ORGAN_SLOT_LUNGS, 10)
 	return FALSE

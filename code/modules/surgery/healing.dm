@@ -52,7 +52,9 @@
 		if(!the_surgery.antispam)
 			display_results(user, target, span_notice("Пытаюсь залатать [woundtype] [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] пытается залатать [woundtype] [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] пытается залатать [woundtype] [skloname(target.name, RODITELNI, target.gender)]."))
+		span_notice("[user] пытается залатать [woundtype] [skloname(target.name, RODITELNI, target.gender)].") ,
+		playsound(get_turf(target), 'sound/surgery/retractor2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
+		display_pain(target, "Your [woundtype] sting like hell!")
 
 /datum/surgery_step/heal/initiate(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, try_to_fail = FALSE)
 	if(!..())
@@ -81,7 +83,8 @@
 	target.heal_bodypart_damage(urhealedamt_brute,urhealedamt_burn)
 	display_results(user, target, span_notice("[umsg].") ,
 		span_notice("[tmsg]."),
-		span_notice("[tmsg]."))
+		span_notice("[tmsg]."),
+		playsound(get_turf(target), 'sound/surgery/retractor2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	if(istype(surgery, /datum/surgery/healing))
 		var/datum/surgery/healing/the_surgery = surgery
 		the_surgery.antispam = TRUE
@@ -90,7 +93,8 @@
 /datum/surgery_step/heal/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался!") ,
 		span_warning("[user] облажался!") ,
-		span_notice("[user] ошибся.") , TRUE)
+		span_notice("[user] залатывает некоторые раны [skloname(target.name, RODITELNI, target.gender)].") , TRUE,
+		playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1),)
 	var/urdamageamt_burn = brutehealing * 0.8
 	var/urdamageamt_brute = burnhealing * 0.8
 	if(missinghpbonus)

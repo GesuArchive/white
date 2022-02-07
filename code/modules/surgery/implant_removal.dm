@@ -20,6 +20,7 @@
 		display_results(user, target, span_notice("Вы начинаете извлекать [I] из [target_zone] [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает извлекать [I] из [target_zone] [skloname(target.name, RODITELNI, target.gender)].") ,
 			span_notice("[user] начинает извлекать что-то из [target_zone] [skloname(target.name, RODITELNI, target.gender)]."))
+		display_pain(target, "You feel a serious pain in your [target_zone]!")
 	else
 		display_results(user, target, span_notice("Вы начинаете искать микроимпланты в [target_zone] [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает искать микроимпланты в [target_zone] [skloname(target.name, RODITELNI, target.gender)].") ,
@@ -29,7 +30,9 @@
 	if(I)
 		display_results(user, target, span_notice("Вы успешно извлекли [I] из [target_zone] [skloname(target.name, RODITELNI, target.gender)].") ,
 			span_notice("[user] успешно извлек [I] из [target_zone] [skloname(target.name, RODITELNI, target.gender)]!") ,
-			span_notice("[user] успешно извлек что-то из [target_zone] [skloname(target.name, RODITELNI, target.gender)]!"))
+			span_notice("[user] успешно извлек что-то из [target_zone] [skloname(target.name, RODITELNI, target.gender)]!") ,
+			playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
+		display_pain(target, "You can feel your [I] pulled out of you!")
 		I.removed(target)
 
 		var/obj/item/implantcase/case

@@ -28,11 +28,13 @@
 	display_results(user, target, span_notice("Начинаю исправлять мозг [skloname(target.name, RODITELNI, target.gender)]...") ,
 		span_notice("[user] начинает исправлять мозг [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] начинает операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
+	display_pain(target, "Your head pounds with unimaginable pain!")
 
 /datum/surgery_step/fix_brain/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(user, target, span_notice("Успешно исправил мозг [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] успешно исправил мозг [skloname(target.name, RODITELNI, target.gender)]!") ,
 		span_notice("[user] завершил операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
+	display_pain(target, "The pain in your head receeds, thinking becomes a bit easier!")
 	if(target.mind?.has_antag_datum(/datum/antagonist/brainwashed))
 		target.mind.remove_antag_datum(/datum/antagonist/brainwashed)
 	target.setOrganLoss(ORGAN_SLOT_BRAIN, target.getOrganLoss(ORGAN_SLOT_BRAIN) - 50)	//we set damage in this case in order to clear the "failing" flag
@@ -46,6 +48,7 @@
 		display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, нанеся еще больший ущерб!") ,
 			span_warning("[user] облажался, нанеся урон мозгу!") ,
 			span_notice("[user] завершил операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
+		display_pain(target, "Your head throbs with horrible pain; thinking hurts!")
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60)
 		target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)
 	else

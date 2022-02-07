@@ -37,7 +37,9 @@
 			return
 		display_results(user, target, span_notice("Начинаю удалять инфицированную плоть с [ru_otkuda_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)] ...") ,
 			span_notice("[user] начинает удалять инфицированную плоть с [ru_otkuda_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
-			span_notice("[user] начинает удалять инфицированную плоть с [ru_otkuda_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]."))
+			span_notice("[user] начинает удалять инфицированную плоть с [ru_otkuda_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)].") ,
+			playsound(get_turf(target), 'sound/surgery/scalpel1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
+		display_pain(target, "The infection in your [parse_zone(user.zone_selected)] stings like hell! It feels like you're being stabbed!")
 	else
 		user.visible_message(span_notice("[user] ищет [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)].") , span_notice("Ищу [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]..."))
 
@@ -46,7 +48,8 @@
 	if(burn_wound)
 		display_results(user, target, span_notice("Успешно удалил некоторую инфицированную плоть с [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)] .") ,
 			span_notice("[user] успешно удалил некоторую инфицированную плоть с [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]!") ,
-			span_notice("[user] успешно удалил некоторую инфицированную плоть с [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!"))
+			span_notice("[user] успешно удалил некоторую инфицированную плоть с [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
+			playsound(get_turf(target), 'sound/surgery/retractor2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 		log_combat(user, target, "excised infected flesh in", addition="INTENT: [uppertext(user.a_intent)]")
 		surgery.operated_bodypart.receive_damage(brute=3, wound_bonus=CANT_WOUND)
 		burn_wound.infestation -= 0.5
@@ -61,7 +64,8 @@
 	..()
 	display_results(user, target, span_notice("Отрезал немного здоровой плоти с [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] отрезал немного здоровой плоти с [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]!") ,
-		span_notice("[user] отрезал немного здоровой плоти с [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!"))
+		span_notice("[user] отрезал немного здоровой плоти с [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
+		playsound(get_turf(target), 'sound/surgery/organ1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	surgery.operated_bodypart.receive_damage(brute=rand(4,8), sharpness=TRUE)
 
 /datum/surgery_step/debride/initiate(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, try_to_fail = FALSE)
@@ -84,6 +88,7 @@
 		display_results(user, target, span_notice("Начинаю перевязку ожогов на [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает перевязку ожогов на [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
 			span_notice("[user] начинает перевязку ожогов на [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]."))
+		display_pain(target, "The burns on your [parse_zone(user.zone_selected)] sting like hell!")
 	else
 		user.visible_message(span_notice("[user] ищет [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)].") , span_notice("Ищу [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]..."))
 

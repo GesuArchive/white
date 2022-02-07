@@ -32,6 +32,7 @@
 	display_results(user, target, span_notice("Вы начинаете надавливать на живот [skloname(target.name, RODITELNI, target.gender)]...") ,
 		span_notice("[user] начинает надавливать на живот [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] начинает надавливать на живот [skloname(target.name, RODITELNI, target.gender)]."))
+	display_pain(target, "You feel a horrible sloshing feeling in your gut! You're going to be sick!")
 
 /datum/surgery_step/stomach_pump/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))

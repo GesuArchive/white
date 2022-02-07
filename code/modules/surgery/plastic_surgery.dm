@@ -14,6 +14,7 @@
 	display_results(user, target, span_notice("Начинаю менять внешность [skloname(target.name, RODITELNI, target.gender)]...") ,
 		span_notice("[user] начинает менять внешность [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] делает надрез на лице [skloname(target.name, RODITELNI, target.gender)]."))
+	display_pain(target, "You feel slicing pain across your face!")
 
 /datum/surgery_step/reshape_face/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(HAS_TRAIT_FROM(target, TRAIT_DISFIGURED, TRAIT_GENERIC))
@@ -21,6 +22,7 @@
 		display_results(user, target, span_notice("Успешно изменил внешность [skloname(target.name, RODITELNI, target.gender)].") ,
 			span_notice("[user] успешно изменил внешность [skloname(target.name, RODITELNI, target.gender)]!") ,
 			span_notice("[user] завершил операцию на лице [skloname(target.name, RODITELNI, target.gender)]."))
+		display_pain(target, "The pain fades, your face feels normal again!")
 	else
 		var/list/names = list()
 		if(!isabductor(user))
@@ -39,6 +41,7 @@
 		display_results(user, target, span_notice("You alter [oldname] appearance completely, [target.ru_who()] is now [newname].") ,
 			span_notice("[user] alters [oldname] appearance completely, [target.ru_who()] is now [newname]!") ,
 			span_notice("[user] finishes the operation on [skloname(target.name, RODITELNI, target.gender)] face."))
+		display_pain(target, "The pain fades, your face feels new and unfamiliar!")
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		H.sec_hud_set_ID()
@@ -48,5 +51,6 @@
 	display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, изуродовав внешность [skloname(target.name, RODITELNI, target.gender)]!") ,
 		span_notice("[user] облажался, изуродовав внешность [skloname(target.name, RODITELNI, target.gender)]!") ,
 		span_notice("[user] заверщил операцию на лице [skloname(target.name, RODITELNI, target.gender)]."))
+	display_pain(target, "Your face feels horribly scarred and deformed!")
 	ADD_TRAIT(target, TRAIT_DISFIGURED, TRAIT_GENERIC)
 	return FALSE

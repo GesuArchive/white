@@ -82,6 +82,7 @@
 		display_results(user, target, span_notice("Вы успешно заменили [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] на [tool].") ,
 			span_notice("[user] успешно заменил [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] на [tool]!") ,
 			span_notice("[user] успешно заменил [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!"))
+		display_pain(target, "You feel synthetic sensation wash from your [parse_zone(target_zone)], which you can feel again!", TRUE)
 		return
 	else
 		var/obj/item/bodypart/L = target.newBodyPart(target_zone, FALSE, FALSE)
@@ -96,6 +97,7 @@
 		display_results(user, target, span_notice("Вы присоединили [tool].") ,
 			span_notice("[user] успешно присоединяет [tool]!") ,
 			span_notice("[user] успешно присоединяет [tool]!"))
+		display_pain(target, "You feel a strange sensation from your new [parse_zone(target_zone)].", TRUE)
 		qdel(tool)
 		if(istype(tool, /obj/item/chainsaw))
 			var/obj/item/mounted_chainsaw/new_arm = new(target)

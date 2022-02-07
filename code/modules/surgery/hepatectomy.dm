@@ -35,7 +35,9 @@
 /datum/surgery_step/hepatectomy/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Вы начинаете удалять поврежденную долю печени [skloname(target.name, RODITELNI, target.gender)]...") ,
 		span_notice("[user] начинает удалять поврежденную долю печени [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начинает удалять поврежденную долю печени [skloname(target.name, RODITELNI, target.gender)]."))
+		span_notice("[user] начинает удалять поврежденную долю печени [skloname(target.name, RODITELNI, target.gender)].") ,
+		playsound(get_turf(target), 'sound/surgery/scalpel1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
+	display_pain(target, "Your abdomen burns in horrific stabbing pain!")
 
 /datum/surgery_step/hepatectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/mob/living/carbon/human/H = target
@@ -44,7 +46,9 @@
 	H.setOrganLoss(ORGAN_SLOT_LIVER, 60) //not bad, not great
 	display_results(user, target, span_notice("Вы успешно удалили поврежденную долю печени [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] успешно удалил поврежденную долю печени [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] успешно удалил поврежденную долю печени [skloname(target.name, RODITELNI, target.gender)]."))
+		span_notice("[user] успешно удалил поврежденную долю печени [skloname(target.name, RODITELNI, target.gender)].") ,
+		playsound(get_turf(target), 'sound/surgery/organ1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
+	display_pain(target, "The pain receeds slightly.")
 	return ..()
 
 /datum/surgery_step/hepatectomy/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery)
@@ -52,4 +56,6 @@
 	H.adjustOrganLoss(ORGAN_SLOT_LIVER, 15)
 	display_results(user, target, span_warning("Вы случайно удалили здоровую часть печени [skloname(target.name, RODITELNI, target.gender)]!") ,
 		span_warning("[user] случайно удалил здоровую часть печени [skloname(target.name, RODITELNI, target.gender)]!") ,
-		span_warning("[user] случайно удалил здоровую часть печени [skloname(target.name, RODITELNI, target.gender)]!"))
+		span_warning("[user] случайно удалил здоровую часть печени [skloname(target.name, RODITELNI, target.gender)]!") ,
+		playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
+	display_pain(target, "You feel a sharp stab inside your abdomen!")

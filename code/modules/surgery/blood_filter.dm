@@ -26,6 +26,7 @@
 	display_results(user, target, span_notice("Начинаю фильтрацию крови [skloname(target.name, RODITELNI, target.gender)]...") ,
 		span_notice("[user] использует [tool] для фильтрации моей крови.") ,
 		span_notice("[user] использует [tool] на груди [skloname(target.name, RODITELNI, target.gender)]."))
+	display_pain(target, "You feel a throbbing pain in your chest!")
 
 /datum/surgery_step/filter_blood/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(target.reagents?.total_volume)
@@ -34,7 +35,8 @@
 			target.reagents.remove_reagent(chem.type, min(chem.volume * 0.22 + 2, 10))
 	display_results(user, target, span_notice("Закончив фильтрацию крови [skloname(target.name, RODITELNI, target.gender)] [tool] издает короткий звон.") ,
 		span_notice("Закончив качать мою кровь [tool] издает короткий звон.") ,
-		"Закончив качать [tool] издает короткий звон.")
+		span_notice("Закончив качать [tool] издает короткий звон.") ,
+		playsound(get_turf(target), 'sound/machines/ping.ogg', 25, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	return ..()
 
 /datum/surgery_step/filter_blood/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
