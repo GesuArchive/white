@@ -44,7 +44,7 @@
 
 	var/obj/item/bodypart/bleeding_chest = C.get_bodypart(BODY_ZONE_CHEST)
 	if(bleeding_chest)
-		bleeding_chest.force_wound_upwards(/datum/wound/slash/severe)
+		bleeding_chest.force_wound_upwards(/datum/wound/slash/critical)
 
 	if(!detach_limb)
 		new /obj/effect/decal/cleanable/blood/gibs(location, C.get_static_viruses())
