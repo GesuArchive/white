@@ -45,10 +45,6 @@
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/open/floor/plasteel/freezer,
 /area/ruin/space/djstation)
-"r" = (
-/obj/structure/disposalpipe/segment,
-/turf/closed/wall,
-/area/ruin/space/djstation)
 "z" = (
 /obj/machinery/oven,
 /turf/open/floor/plasteel/white,
@@ -64,15 +60,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/ruin/space/djstation)
-"I" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/structure/disposaloutlet{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/ruin/space/djstation)
 "J" = (
 /obj/machinery/griddle,
 /turf/open/floor/plasteel/white,
@@ -81,8 +68,7 @@
 /turf/closed/wall,
 /area/ruin/space/djstation)
 "M" = (
-/obj/machinery/disposal/bin,
-/obj/structure/disposalpipe/trunk,
+/obj/structure/closet/crate/bin,
 /turf/open/floor/plasteel/white,
 /area/ruin/space/djstation)
 "N" = (
@@ -190,8 +176,8 @@ W
 Y
 W
 M
-r
-I
+L
+b
 "}
 (5,1,1) = {"
 b

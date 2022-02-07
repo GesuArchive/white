@@ -3,28 +3,11 @@
 /turf/template_noop,
 /area/template_noop)
 "l" = (
-/obj/machinery/disposal/bin,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
+/obj/structure/closet/crate/bin,
 /turf/open/floor/plastic,
 /area/ruin/space/djstation)
 "o" = (
 /turf/template_noop,
-/area/ruin/space/djstation)
-"t" = (
-/obj/structure/disposalpipe/trunk,
-/obj/structure/disposaloutlet{
-	dir = 1
-	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
-/area/ruin/space/djstation)
-"F" = (
-/obj/structure/disposalpipe/segment,
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
 /area/ruin/space/djstation)
 "J" = (
 /obj/machinery/door/airlock/public/glass{
@@ -42,10 +25,6 @@
 /obj/modular_map_connector,
 /turf/template_noop,
 /area/ruin/space/djstation)
-"O" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space/nearstation)
 "P" = (
 /obj/structure/rack,
 /obj/machinery/light/small/directional/west,
@@ -76,7 +55,7 @@ V
 V
 V
 V
-O
+V
 V
 V
 a
@@ -107,8 +86,8 @@ a
 "}
 (4,1,1) = {"
 a
-t
-F
+V
+Y
 l
 P
 S

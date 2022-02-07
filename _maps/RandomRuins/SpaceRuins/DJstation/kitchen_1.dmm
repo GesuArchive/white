@@ -38,28 +38,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/bar,
-/obj/structure/disposalpipe/trunk,
-/obj/machinery/disposal/bin,
+/obj/structure/closet/crate/bin,
 /turf/open/floor/plasteel,
 /area/ruin/space/djstation)
-"x" = (
-/obj/structure/disposaloutlet{
-	dir = 8
-	},
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
-/area/ruin/space/djstation)
-"D" = (
-/obj/structure/disposalpipe/segment{
-	dir = 9
-	},
-/obj/structure/lattice,
-/turf/template_noop,
-/area/space/nearstation)
 "J" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Kitchen"
@@ -86,10 +67,6 @@
 	},
 /obj/effect/turf_decal/tile/bar,
 /turf/open/floor/plasteel,
-/area/ruin/space/djstation)
-"S" = (
-/obj/structure/disposalpipe/segment,
-/turf/closed/wall,
 /area/ruin/space/djstation)
 "V" = (
 /obj/structure/lattice,
@@ -139,7 +116,7 @@ N
 N
 N
 L
-x
+V
 V
 a
 "}
@@ -150,8 +127,8 @@ L
 l
 P
 u
-S
-D
+L
+V
 V
 a
 "}
