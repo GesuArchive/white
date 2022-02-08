@@ -93,7 +93,7 @@
 	general_ert_request(input, "бригада уборщиков", "бригаду уборщиков", new /datum/antagonist/ert/janitor/heavy, new /datum/antagonist/ert/janitor, usr)
 
 /proc/omon_ert_request(input, usr)
-	general_ert_request(input, "СОБР", "СОБР", new /datum/antagonist/ert/omon/leader, new /datum/antagonist/ert/omon, usr)
+	general_ert_request(input, "ОМОН", "ОМОН", new /datum/antagonist/ert/omon/leader, new /datum/antagonist/ert/omon, usr)
 
 /proc/engineer_ert_request(input, usr)
 	general_ert_request(input, "Ремонтная бригада", "ремонтную бригаду", new /datum/antagonist/ert/engineer/red, new /datum/antagonist/ert/engineer, usr)
