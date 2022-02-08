@@ -293,7 +293,7 @@
 			target.dropItemToGround(target.w_uniform)
 			target.drop_all_held_items()
 			living_pawn.do_dance(target, pick("do_dancor"))
-		finish_action(controller, TRUE)
+	finish_action(controller, TRUE)
 
 /mob/living/carbon/human/raper
 	ai_controller = /datum/ai_controller/raper
