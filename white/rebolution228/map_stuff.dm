@@ -226,6 +226,11 @@
 
 /turf/open/floor/engine/hull/shipceiling
 	name = "обшивка шаттла"
+	var/old_turf_type
+
+/turf/open/floor/engine/hull/shipceiling/AfterChange(flags, oldType)
+	. = ..()
+	old_turf_type = oldType
 
 /turf/open/floor/plating/ice/smooth/oxy
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
