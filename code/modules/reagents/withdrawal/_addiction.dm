@@ -37,7 +37,6 @@
 	SEND_SIGNAL(victim_mind.current, COMSIG_CARBON_GAIN_ADDICTION, victim_mind)
 	log_game("[key_name(victim_mind.current)] has become addicted to [name].")
 
-
 ///Called when you lose addiction poitns somehow. Takes a mind as argument and sees if you lost the addiction
 /datum/addiction/proc/on_lose_addiction_points(datum/mind/victim_mind)
 	var/current_addiction_point_amount = victim_mind.addiction_points[type]
@@ -51,7 +50,7 @@
 /datum/addiction/proc/lose_addiction(datum/mind/victim_mind)
 	SEND_SIGNAL(victim_mind.current, COMSIG_CLEAR_MOOD_EVENT, "[type]_addiction")
 	SEND_SIGNAL(victim_mind.current, COMSIG_CARBON_LOSE_ADDICTION, victim_mind)
-	to_chat(victim_mind.current, span_notice("Надо вмазаться..."))
+	to_chat(victim_mind.current, span_notice("Больше не нужно вмазываться..."))
 	end_withdrawal(victim_mind.current)
 	LAZYREMOVE(victim_mind.active_addictions, type)
 
@@ -129,7 +128,6 @@
 /datum/addiction/proc/withdrawal_stage_2_process(mob/living/carbon/affected_carbon, delta_time)
 	if(DT_PROB(10, delta_time) )
 		to_chat(affected_carbon, span_danger("[withdrawal_stage_messages[2]]"))
-
 
 /// Called when addiction is in stage 3 every process
 /datum/addiction/proc/withdrawal_stage_3_process(mob/living/carbon/affected_carbon, delta_time)

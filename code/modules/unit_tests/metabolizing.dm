@@ -87,6 +87,7 @@
 	TEST_ASSERT(pill_user.mind.addiction_points[addiction_type_to_check], "User did not gain addiction points after metabolizing meth")
 
 	// Then injected metabolism
+	syringe.mode = SYRINGE_INJECT
 	syringe.volume = 5
 	syringe.amount_per_transfer_from_this = 5
 	syringe.reagents.add_reagent(meth.type, 5)
@@ -97,6 +98,7 @@
 	TEST_ASSERT(syringe_user.mind.addiction_points[addiction_type_to_check], "User did not gain addiction points after metabolizing meth")
 
 	// One half syringe
+	syringe.mode = SYRINGE_INJECT
 	syringe.reagents.remove_all()
 	syringe.volume = 5
 	syringe.amount_per_transfer_from_this = 5

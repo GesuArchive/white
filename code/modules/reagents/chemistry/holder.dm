@@ -180,7 +180,7 @@
 	if(!ignore_splitting && (flags & REAGENT_HOLDER_ALIVE)) //Stomachs are a pain - they will constantly call on_mob_add unless we split on addition to stomachs, but we also want to make sure we don't double split
 		var/adjusted_vol = process_mob_reagent_purity(glob_reagent, amount, added_purity)
 		if(!adjusted_vol) //If we're inverse or FALSE cancel addition
-			return FALSE
+			return TRUE
 		amount = adjusted_vol
 		has_split = TRUE
 
