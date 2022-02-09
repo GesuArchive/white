@@ -292,12 +292,14 @@
 	move_prob += pressure_resistance_prob_delta
 	if (move_prob > PROBABILITY_OFFSET && prob(move_prob) && (move_resist != INFINITY) && (!anchored && (max_force >= (move_resist * MOVE_FORCE_PUSH_RATIO))) || (anchored && (max_force >= (move_resist * MOVE_FORCE_FORCEPUSH_RATIO))))
 		var/move_force = max_force * clamp(move_prob, 0, 100) / 100
-		if(move_force > 8000)
+		if(move_force > 4000)
 			// WALLSLAM HELL TIME OH BOY
 			var/turf/throw_turf = get_ranged_target_turf(get_turf(src), direction, round(move_force / 2000))
 			if(throw_target && (get_dir(src, throw_target) & direction))
 				throw_turf = get_turf(throw_target)
 			var/throw_speed = clamp(round(move_force / 2000), 1, 10)
+			if(iscarbon(src))
+				throw_speed = min(throw_speed, 4)
 			throw_at(throw_turf, move_force / 2000, throw_speed)
 		else
 			step(src, direction)
