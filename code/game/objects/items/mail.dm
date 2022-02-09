@@ -285,6 +285,30 @@
 	name = "важный документ"
 	icon_state = "paper_words"
 
-/obj/item/paper/fluff/junkmail_generic/Initialize()
+/obj/item/paper/fluff/junkmail_generic/examine(mob/user)
 	. = ..()
-	info = pick(GLOB.junkmail_messages)
+	if(!info)
+		var/cit = get_random_bashorg_citate()
+		info = cit ? cit : pick(GLOB.junkmail_messages)
+		update_icon_state()
+
+/obj/item/paper/fluff/junkmail_generic/attackby(obj/item/P, mob/living/user, params)
+	. = ..()
+	if(!info)
+		var/cit = get_random_bashorg_citate()
+		info = cit ? cit : pick(GLOB.junkmail_messages)
+		update_icon_state()
+
+/proc/get_random_bashorg_citate()
+	var/datum/http_request/request = new()
+	request.prepare(RUSTG_HTTP_METHOD_GET, "https://station13.ru/bashorg", "", "", null)
+	request.begin_async()
+	UNTIL(request.is_complete())
+	var/datum/http_response/response = request.into_response()
+
+	if(response.errored || response.status_code != 200)
+		return FALSE
+
+	if (response.body)
+		return response.body
+	return FALSE
