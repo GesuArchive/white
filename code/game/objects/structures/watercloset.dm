@@ -262,6 +262,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	food_reagents = list(/datum/reagent/chlorine = 3, /datum/reagent/ammonia = 1)
 	foodtypes = TOXIC | GROSS
+	preserved_food = TRUE
 
 /obj/item/food/urinalcake/attack_self(mob/living/user)
 	user.visible_message(span_notice("[user] squishes [src]!") , span_notice("You squish [src].") , "<i>You hear a squish.</i>")
