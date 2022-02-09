@@ -130,6 +130,7 @@ GLOBAL_VAR(test_log)
 	fdel(file_name)
 	file(file_name) << json_encode(test_results)
 
+	SSticker.ready_for_reboot = TRUE
 	SSticker.force_ending = TRUE
 	//We have to call this manually because del_text can preceed us, and SSticker doesn't fire in the post game
 	SSticker.standard_reboot()
