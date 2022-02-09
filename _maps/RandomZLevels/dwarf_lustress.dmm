@@ -332,7 +332,7 @@
 "JF" = (
 /obj/structure/table/stone,
 /obj/item/cultivator/rake,
-/obj/item/shovel/spade/wzzz,
+/obj/item/shovel/spade/german,
 /turf/open/floor/grass/gensgrass/dirty/stone/raw,
 /area/awaymission/vietnam/dwarf)
 "LG" = (

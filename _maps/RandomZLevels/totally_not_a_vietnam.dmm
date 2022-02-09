@@ -417,7 +417,7 @@
 /turf/open/floor/plating/dirt/jungle/dark,
 /area/awaymission/vietnam)
 "lX" = (
-/obj/item/shovel/spade/wzzz,
+/obj/item/shovel/spade/german,
 /obj/item/secateurs,
 /turf/open/floor/plating/dirt/jungle/dark,
 /area/awaymission/vietnam)
@@ -566,7 +566,7 @@
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
 "st" = (
-/obj/item/shovel/spade/wzzz,
+/obj/item/shovel/spade/german,
 /turf/open/floor/plating/dirt/jungle/dark,
 /area/awaymission/vietnam)
 "sv" = (
@@ -605,7 +605,7 @@
 /area/awaymission/vietnam/dark)
 "tF" = (
 /obj/machinery/hydroponics/soil,
-/obj/item/shovel/spade/wzzz,
+/obj/item/shovel/spade/german,
 /turf/open/floor/plating/dirt/jungle/dark,
 /area/awaymission/vietnam)
 "tH" = (
@@ -649,11 +649,11 @@
 /area/awaymission/vietnam/dark)
 "vz" = (
 /obj/structure/table/wood,
-/obj/item/shovel/spade/wzzz,
-/obj/item/shovel/spade/wzzz,
-/obj/item/shovel/spade/wzzz,
-/obj/item/shovel/spade/wzzz,
-/obj/item/shovel/spade/wzzz,
+/obj/item/shovel/spade/german,
+/obj/item/shovel/spade/german,
+/obj/item/shovel/spade/german,
+/obj/item/shovel/spade/german,
+/obj/item/shovel/spade/german,
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "vD" = (

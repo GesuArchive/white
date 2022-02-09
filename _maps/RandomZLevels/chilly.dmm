@@ -9208,7 +9208,7 @@
 /obj/item/storage/backpack/satchel,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/dust,
-/obj/item/shovel/spade/wzzz,
+/obj/item/shovel/spade/german,
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},

@@ -196,6 +196,15 @@
 	armour_penetration = 0
 	sharpness = 5
 
+/obj/item/shovel/spade/german
+	icon = 'white/Wzzzz/icons/Weea.dmi'
+	icon_state = "german_shovel2"
+	inhand_icon_state = "german_shovel2"
+	righthand_file = 'white/Wzzzz/icons/Weear.dmi'
+	lefthand_file = 'white/Wzzzz/icons/Weeal.dmi'
+	throwforce = 11
+	force = 12
+
 /obj/item/pickaxe/silver
 	name = "костяная кирка"
 	desc = "Импровизируйте свою жизнь с помощью костей и дерева."
