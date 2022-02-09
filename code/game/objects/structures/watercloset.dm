@@ -671,22 +671,20 @@
 
 /obj/structure/curtain/proc/toggle()
 	open = !open
-	update_icon()
-
-/obj/structure/curtain/update_icon()
-	if(!open)
+	if(open)
+		icon_state = "[icon_type]-open"
+		layer = SIGN_LAYER
+		plane = GAME_PLANE
+		set_density(FALSE)
+		set_opacity(FALSE)
+	else
 		icon_state = "[icon_type]-closed"
 		layer = WALL_OBJ_LAYER
+		plane = GAME_PLANE_UPPER
 		set_density(TRUE)
 		open = FALSE
 		if(opaque_closed)
 			set_opacity(TRUE)
-	else
-		icon_state = "[icon_type]-open"
-		layer = SIGN_LAYER
-		density = FALSE
-		open = TRUE
-		set_opacity(FALSE)
 
 /obj/structure/curtain/attackby(obj/item/W, mob/user)
 	if (istype(W, /obj/item/toy/crayon))
@@ -774,6 +772,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical/proc/open()
 	icon_state = "[icon_type]-open"
 	layer = SIGN_LAYER
+	plane = GAME_PLANE
 	set_density(FALSE)
 	open = TRUE
 	playsound(loc, 'sound/effects/curtain.ogg', 50, TRUE)
@@ -782,6 +781,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical/proc/close()
 	icon_state = "[icon_type]-closed"
 	layer = WALL_OBJ_LAYER
+	plane = GAME_PLANE_UPPER
 	set_density(TRUE)
 	open = FALSE
 	playsound(loc, 'sound/effects/curtain.ogg', 50, TRUE)

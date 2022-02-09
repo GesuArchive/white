@@ -4,6 +4,9 @@
 	desc = "Летающий робот-уборщик, преследующий людей, которые не умеют принимать душ."
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "hygienebot"
+	base_icon_state = "hygienebot"
+	pass_flags = PASSMOB | PASSFLAPS | PASSTABLE
+	layer = MOB_UPPER_LAYER
 	density = FALSE
 	anchored = FALSE
 	health = 100

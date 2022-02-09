@@ -4,6 +4,7 @@
 	icon_state = "grinder_chemical"
 	layer = ABOVE_ALL_MOB_LAYER
 	active_power_usage = 8000
+	plane = ABOVE_GAME_PLANE
 
 	reagent_flags = TRANSPARENT | DRAINABLE
 	buffer = 400

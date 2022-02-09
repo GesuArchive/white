@@ -426,6 +426,7 @@
 /obj/effect/temp_visual/lava_warning
 	icon_state = "lavastaff_warn"
 	layer = BELOW_MOB_LAYER
+	plane = GAME_PLANE
 	light_range = 2
 	duration = 13
 
@@ -530,6 +531,7 @@
 	name = "огненный шар"
 	desc = "Ты ебанутый?"
 	layer = FLY_LAYER
+	plane = ABOVE_GAME_PLANE
 	randomdir = FALSE
 	duration = 9
 	pixel_z = 270
@@ -542,6 +544,7 @@
 	icon = 'icons/mob/actions/actions_items.dmi'
 	icon_state = "sniper_zoom"
 	layer = BELOW_MOB_LAYER
+	plane = GAME_PLANE
 	light_range = 2
 	duration = 9
 

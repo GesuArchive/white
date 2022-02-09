@@ -16,6 +16,7 @@
 	icon = 'icons/effects/spacevines.dmi'
 	icon_state = "bud0"
 	layer = SPACEVINE_MOB_LAYER
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	opacity = FALSE
 	canSmoothWith = null
 	smoothing_flags = NONE
@@ -100,6 +101,7 @@
 	icon_state = "venus_human_trap"
 	health_doll_icon = "venus_human_trap"
 	layer = SPACEVINE_MOB_LAYER
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	health = 50
 	maxHealth = 50
 	ranged = TRUE

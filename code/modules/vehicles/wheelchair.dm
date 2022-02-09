@@ -18,6 +18,7 @@
 /obj/vehicle/ridden/wheelchair/Initialize()
 	. = ..()
 	make_ridable()
+	wheels_overlay = image(icon, overlay_icon, ABOVE_MOB_LAYER)
 	ADD_TRAIT(src, TRAIT_NO_IMMOBILIZE, INNATE_TRAIT)
 	wheels_overlay = image(icon, overlay_icon, FLY_LAYER)
 

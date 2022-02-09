@@ -65,8 +65,11 @@
 	density = TRUE
 	deconstructible = FALSE
 	layer = EDGED_TURF_LAYER
-
-/obj/structure/fluff/drake_statue/falling //A variety of statue in disrepair; parts are broken off and a gemstone is missing
+	plane = GAME_PLANE_UPPER
+/**
+ * A variety of statue in disrepair; parts are broken off and a gemstone is missing
+ */
+/obj/structure/fluff/drake_statue/falling
 	desc = "Возвышающаяся базальтовая скульптура дракона. На поверхности трещины, а некоторые куски отвалились."
 	icon_state = "drake_statue_falling"
 
@@ -88,6 +91,7 @@
 	icon_state = "frontwalltop"
 	density = FALSE
 	layer = ABOVE_ALL_MOB_LAYER //except for the stairs tile, which should be set to OBJ_LAYER aka 3.
+	plane = ABOVE_GAME_PLANE
 
 
 /obj/structure/fluff/bus/passable/seat
@@ -96,6 +100,7 @@
 	icon_state = "backseat"
 	pixel_y = 17
 	layer = OBJ_LAYER
+	plane = GAME_PLANE
 
 
 /obj/structure/fluff/bus/passable/seat/driver

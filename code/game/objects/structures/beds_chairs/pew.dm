@@ -28,7 +28,7 @@
 /obj/structure/chair/pew/left/Initialize()
 	leftpewarmrest = GetLeftPewArmrest()
 	leftpewarmrest.layer = ABOVE_MOB_LAYER
-	leftpewarmrest.plane = ABOVE_GAME_PLANE
+	leftpewarmrest.plane = GAME_PLANE_UPPER
 	return ..()
 
 /obj/structure/chair/pew/left/proc/GetLeftPewArmrest()
@@ -60,7 +60,7 @@
 /obj/structure/chair/pew/right/Initialize()
 	rightpewarmrest = GetRightPewArmrest()
 	rightpewarmrest.layer = ABOVE_MOB_LAYER
-	rightpewarmrest.plane = ABOVE_GAME_PLANE
+	rightpewarmrest.plane = GAME_PLANE_UPPER
 	return ..()
 
 /obj/structure/chair/pew/right/proc/GetRightPewArmrest()

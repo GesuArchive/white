@@ -572,3 +572,47 @@ Difficulty: Hard
 
 /mob/living/simple_animal/hostile/megafauna/bubblegum/hallucination/try_bloodattack()
 	return
+
+/obj/effect/decal/cleanable/blood/bubblegum
+	bloodiness = 0
+
+/obj/effect/decal/cleanable/blood/bubblegum/can_bloodcrawl_in()
+	return TRUE
+
+/obj/effect/decal/cleanable/blood/gibs/bubblegum
+	name = "thick blood"
+	desc = "Thick, splattered blood."
+	random_icon_states = list("gib3", "gib5", "gib6")
+	bloodiness = 20
+
+/obj/effect/decal/cleanable/blood/gibs/bubblegum/can_bloodcrawl_in()
+	return TRUE
+
+/obj/effect/temp_visual/dragon_swoop/bubblegum
+	duration = 10
+
+/obj/effect/temp_visual/bubblegum_hands
+	icon = 'icons/effects/bubblegum.dmi'
+	duration = 9
+
+/obj/effect/temp_visual/bubblegum_hands/rightthumb
+	icon_state = "rightthumbgrab"
+
+/obj/effect/temp_visual/bubblegum_hands/leftthumb
+	icon_state = "leftthumbgrab"
+
+/obj/effect/temp_visual/bubblegum_hands/rightpaw
+	icon_state = "rightpawgrab"
+	layer = BELOW_MOB_LAYER
+	plane = GAME_PLANE
+
+/obj/effect/temp_visual/bubblegum_hands/leftpaw
+	icon_state = "leftpawgrab"
+	layer = BELOW_MOB_LAYER
+	plane = GAME_PLANE
+
+/obj/effect/temp_visual/bubblegum_hands/rightsmack
+	icon_state = "rightsmack"
+
+/obj/effect/temp_visual/bubblegum_hands/leftsmack
+	icon_state = "leftsmack"
