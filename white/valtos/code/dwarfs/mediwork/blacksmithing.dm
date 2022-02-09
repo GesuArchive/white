@@ -1,30 +1,3 @@
-/atom/proc/calculate_smithing_stats(multiplier)
-	return
-
-/obj/item/calculate_smithing_stats(multiplier)
-	.=..()
-	force = round(force*multiplier)
-
-/obj/item/pickaxe/calculate_smithing_stats(multiplier)
-	. = ..()
-	force = round(force/2)
-	toolspeed = round(toolspeed/multiplier)
-
-/obj/item/clothing/calculate_smithing_stats(multiplier)
-	. = ..()
-	armor.melee = round(armor.melee*multiplier)
-	armor.bullet = round(armor.bullet*multiplier)
-	armor.laser = round(armor.laser*multiplier)
-	armor.energy = round(armor.energy*multiplier)
-	armor.bomb = round(armor.bomb*multiplier)
-	armor.bio = round(armor.bio*multiplier)
-	armor.rad = round(armor.rad*multiplier)
-	armor.fire = round(armor.fire*multiplier)
-	armor.acid = round(armor.acid*multiplier)
-	armor.magic = round(armor.magic*multiplier)
-	armor.wound = round(armor.wound*multiplier)
-
-
 /obj/forge
 	name = "кузница"
 	desc = "Нагревает различные штуки, но реже всего слитки."

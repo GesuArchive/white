@@ -80,7 +80,7 @@
 		if(istype(get_primary(), /obj/item/blacksmith/partial))
 			var/obj/item/blacksmith/partial/P = get_primary()
 			O.name = "[P.grade][O.name][P.grade]"
-			O.calculate_smithing_stats(1+P.level/10)
+			O.calculate_smithing_stats(P.level)
 		to_chat(user, span_notice("Собираю [O]."))
 		qdel(recipe)
 		inventory.Cut()
@@ -347,12 +347,13 @@
 							if(1)
 								grd = "*"
 						var/obj/item/O = new N.recipe.result(drop_location())
+						O.name = "[grd][O.name][grd]"
 						if(istype(O, /obj/item/blacksmith))
 							var/obj/item/blacksmith/B = O
 							B.level = N.mod_grade
 							B.grade = grd
-						O.calculate_smithing_stats(1+N.mod_grade/10)
-						O.name = "[grd][O.name][grd]"
+						else
+							O.calculate_smithing_stats(N.mod_grade)
 					qdel(N)
 					LAZYCLEARLIST(contents)
 					playsound(src, 'white/valtos/sounds/vaper.ogg', 100)

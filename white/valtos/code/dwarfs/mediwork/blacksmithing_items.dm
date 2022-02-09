@@ -234,8 +234,8 @@
 	worn_icon = 'white/valtos/icons/weapons/mob/back.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BACK
-	force = 16
-	throwforce = 10
+	force = 25
+	throwforce = 15
 	w_class = WEIGHT_CLASS_HUGE
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
@@ -256,12 +256,12 @@
 	righthand_file = 'white/valtos/icons/96x96_righthand.dmi'
 	inhand_x_dimension = -32
 	flags_1 = CONDUCT_1
-	force = 40
+	force = 30
 	throwforce = 15
 	w_class = WEIGHT_CLASS_HUGE
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
-	block_chance = 20
+	block_chance = 5
 	sharpness = SHARP_EDGED
 	max_integrity = 150
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
@@ -287,11 +287,11 @@
 	worn_icon_state = "cep"
 	flags_1 = CONDUCT_1
 	force = 20
-	throwforce = 15
+	throwforce = 25
 	w_class = WEIGHT_CLASS_HUGE
 	//hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb_simple = list("ударяет")
-	block_chance = 10
+	block_chance = 0
 	max_integrity = 50
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
 	resistance_flags = FIRE_PROOF
@@ -310,12 +310,12 @@
 	inhand_icon_state = "dagger"
 	worn_icon_state = "dagger"
 	flags_1 = CONDUCT_1
-	force = 6
-	throwforce = 10
+	force = 8
+	throwforce = 5
 	w_class = WEIGHT_CLASS_NORMAL
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
-	block_chance = 15
+	block_chance = 0
 	sharpness = SHARP_EDGED
 	max_integrity = 20
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
@@ -367,7 +367,7 @@
 	inhand_icon_state = "light_plate"
 	worn_icon = 'white/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'white/valtos/icons/clothing/suits.dmi'
-	armor = list("melee" = 20, "bullet" = 15, "laser" = 15, "energy" = 0, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10, "wound" = 35)
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 25, "energy" = 0, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10, "wound" = 35)
 	custom_materials = list(/datum/material/iron = 10000)
 
 /obj/item/clothing/suit/armor/heavy_plate
@@ -1131,12 +1131,12 @@
 	worn_icon = 'white/valtos/icons/weapons/mob/back.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
-	force = 18
-	throwforce = 10
+	force = 30
+	throwforce = 20
 	w_class = WEIGHT_CLASS_BULKY
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет", "колбасит")
-	block_chance = 30
+	block_chance = 15
 	sharpness = SHARP_EDGED
 	max_integrity = 50
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
