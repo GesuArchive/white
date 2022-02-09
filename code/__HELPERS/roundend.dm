@@ -121,12 +121,18 @@
 
 	var/list/greentexters = list()
 	var/list/antag_coins = list()
+	var/list/client_antags = list() //amount of antags a client had
+	var/max_antags = 5 //if a client has more than this it will not reward him with metacoins
 
 	for(var/datum/antagonist/A in GLOB.antagonists)
 		if(!A.owner)
 			continue
 		var/ckey = ckey(A.owner?.key)
 		var/client/C = GLOB.directory[ckey]
+		if(!(C in client_antags))
+			client_antags[C] = 1
+		else
+			client_antags[C]++
 		if(!(C in antag_coins))
 			antag_coins[C] = list("reward"=5, "completed"=0)
 
@@ -152,16 +158,15 @@
 				var/result = O.check_completion() ? "SUCCESS" : "FAIL"
 				if (result == "FAIL")
 					greentexted = FALSE
-				else
+				else if(client_antags[C] <= max_antags)
 					antag_coins[C]["reward"]+=O.reward
 					antag_coins[C]["completed"]++
 				antag_info["objectives"] += list(list("objective_type"=O.type,"text"=O.explanation_text,"result"=result))
 		SSblackbox.record_feedback("associative", "antagonists", 1, antag_info)
 
 		if (greentexted)
-			if(!(C in greentexters))
+			if(client_antags[C] <= max_antags)
 				antag_coins[C]["reward"]+=A.greentext_reward
-				antag_coins[C]["completed"]++
 			if (A.owner && A.owner.key)
 				if (A.type != /datum/antagonist/custom)
 					if (C)
