@@ -202,7 +202,7 @@
 			M.Feedstop()
 		return // can't attack while eating!
 
-	if(HAS_TRAIT(src, TRAIT_PACIFISM))
+	if(HAS_TRAIT(M, TRAIT_PACIFISM))
 		to_chat(M, span_warning("Не хочу вредить!"))
 		return FALSE
 
