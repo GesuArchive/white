@@ -26,13 +26,13 @@
 	var/require_user_naked = FALSE
 	var/require_target_naked = FALSE
 
-	var/require_user_dancer = FALSE
-	var/require_user_dancor = FALSE
-	var/require_user_danceress = FALSE
+	var/require_user_dancer = FALSE // is user has pingas?
+	var/require_user_dancor = FALSE // is user has jopa?
+	var/require_user_danceress = FALSE // is user has pezda?
 
-	var/require_target_dancer = FALSE
-	var/require_target_dancor = FALSE
-	var/require_target_danceress = FALSE
+	var/require_target_dancer = FALSE // is target need to have pingas?
+	var/require_target_dancor = FALSE // is target need to have jopa?
+	var/require_target_danceress = FALSE // is target need to have pezda?
 
 	var/user_dancing_cost = 1
 	var/target_dancing_cost = 1
