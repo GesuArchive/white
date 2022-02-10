@@ -158,6 +158,19 @@
 	.["revision"] = GLOB.revdata.commit
 	.["revision_date"] = GLOB.revdata.date
 	.["hub"] = GLOB.hub_visibility
+	var/game_status
+	switch(SSticker.current_state)
+		if(GAME_STATE_PREGAME, GAME_STATE_STARTUP)
+			game_status = "lobby"
+		if(COMSIG_TICKER_ERROR_SETTING_UP)
+			game_status = "starting"
+		if(GAME_STATE_PLAYING)
+			game_status = "playing"
+		if(GAME_STATE_FINISHED)
+			game_status = "finished"
+		else
+			game_status = "unknown"
+	.["game_status"] = game_status
 
 
 	var/list/adm = get_admin_counts()
