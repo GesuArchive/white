@@ -110,6 +110,9 @@
 		. = timer_set
 
 /obj/machinery/syndicatebomb/attackby(obj/item/I, mob/user, params)
+	if(HAS_TRAIT(user, TRAIT_PACIFISM))
+		to_chat(user, span_warning("Не могу как-то взаимодействовать с бомбой!"))
+		return FALSE
 	if(I.tool_behaviour == TOOL_WRENCH && can_unanchor)
 		if(!anchored)
 			if(!isturf(loc) || isspaceturf(loc))
@@ -192,6 +195,10 @@
 	notify_ghosts("<b>[src.name]</b> has been activated at [get_area(src)]!", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Bomb Planted")
 
 /obj/machinery/syndicatebomb/proc/settings(mob/user)
+	if(HAS_TRAIT(user, TRAIT_PACIFISM))
+		to_chat(user, span_warning("Не могу заставить себя поставить бомбу! Это ведь навредит кому-то!"))
+		return FALSE
+
 	var/new_timer = input(user, "Please set the timer.", "Timer", "[timer_set]") as num|null
 
 	if (isnull(new_timer))
