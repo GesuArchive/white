@@ -1,23 +1,3 @@
-/obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/toggle_hardsuit_mode(mob/user) //Helmet Toggles Suit Mode
-	if(linkedsuit)
-		if(on)
-			linkedsuit.name = initial(linkedsuit.name)
-			linkedsuit.desc = initial(linkedsuit.desc)
-			linkedsuit.slowdown = 1
-			linkedsuit.clothing_flags |= STOPSPRESSUREDAMAGE
-			linkedsuit.cold_protection |= CHEST | GROIN | LEGS | FEET | ARMS | HANDS
-		else
-			linkedsuit.name += " (боевой)"
-			linkedsuit.desc = linkedsuit.alt_desc
-			linkedsuit.slowdown = 0
-			linkedsuit.clothing_flags &= ~STOPSPRESSUREDAMAGE
-			linkedsuit.cold_protection &= ~(CHEST | GROIN | LEGS | FEET | ARMS | HANDS)
-
-		linkedsuit.update_icon()
-		user.update_inv_wear_suit()
-		user.update_inv_w_uniform()
-		user.update_equipment_speed_mods()
-
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/asset_protection
 	name = "asset protection hardsuit helmet"
 	desc = "Helmet for special asset-protection hardsuit."
@@ -1147,12 +1127,6 @@
 	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 45, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 85)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/rig_secb
-
-/obj/item/reagent_containers/food/drinks/bottle/molotov
-	reagents = list(/datum/reagent/napalm = 100)
-
-/obj/item/spear/explosive
-	explosive = /obj/item/grenade/frag
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/null
 	name = "hardsuit helmet"
