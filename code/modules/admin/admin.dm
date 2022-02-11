@@ -226,7 +226,7 @@
 
 	if (M.client)
 		body += "<br><b>Другое:</b> "
-		body += "<A href='?_src_=holder;[HrefToken()];forcespeech=[REF(M)]'>Форс-сей</A>"
+		//body += "<A href='?_src_=holder;[HrefToken()];forcespeech=[REF(M)]'>Форс-сей</A>"
 		//body += "<A href='?_src_=holder;[HrefToken()];tdome1=[REF(M)]'>Thunderdome 1</A>"
 		//body += "<A href='?_src_=holder;[HrefToken()];tdome2=[REF(M)]'>Thunderdome 2</A>"
 		//body += "<A href='?_src_=holder;[HrefToken()];tdomeadmin=[REF(M)]'>Thunderdome Admin</A>"

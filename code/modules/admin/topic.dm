@@ -801,12 +801,6 @@
 		H.corgize()
 
 
-	else if(href_list["forcespeech"])
-		if(!check_rights(R_FUN))
-			return
-		force_say(M)
-
-
 	else if(href_list["sendtoprison"])
 		if(!check_rights(R_ADMIN))
 			return
