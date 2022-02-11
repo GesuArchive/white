@@ -43,6 +43,7 @@
 	light_system = MOVABLE_LIGHT //Used as a flash here.
 	light_range = FLASH_LIGHT_RANGE
 	light_on = FALSE
+	layer = ABOVE_OBJ_LAYER // no hiding it under a pile of laundry
 
 /obj/machinery/flasher/Initialize(mapload, ndir = 0, built = 0)
 	. = ..() // ..() is EXTREMELY IMPORTANT, never forget to add it
