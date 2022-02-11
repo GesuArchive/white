@@ -804,18 +804,8 @@
 	else if(href_list["forcespeech"])
 		if(!check_rights(R_FUN))
 			return
+		force_say(M)
 
-		var/mob/M = locate(href_list["forcespeech"])
-		if(!ismob(M))
-			to_chat(usr, "this can only be used on instances of type /mob.", confidential = TRUE)
-
-		var/speech = input("What will [key_name(M)] say?", "Force speech", "")// Don't need to sanitize, since it does that in say(), we also trust our admins.
-		if(!speech)
-			return
-		M.say(speech, forced = "admin speech")
-		speech = sanitize(speech) // Nah, we don't trust them
-		log_admin("[key_name(usr)] forced [key_name(M)] to say: [speech]")
-		message_admins(span_adminnotice("[key_name_admin(usr)] forced [key_name_admin(M)] to say: [speech]"))
 
 	else if(href_list["sendtoprison"])
 		if(!check_rights(R_ADMIN))

@@ -125,6 +125,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/load_circuit,
 	/client/proc/change_lobby_music,
 	/client/proc/cmd_admin_toggle_fov,
+	/client/proc/force_say
 	))
 GLOBAL_PROTECT(admin_verbs_fun)
 GLOBAL_LIST_INIT(admin_verbs_spawn, list(/datum/admins/proc/spawn_atom, /datum/admins/proc/podspawn_atom,
@@ -762,6 +763,21 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	log_admin("[key_name(usr)] made [O] at [AREACOORD(O)] say \"[message]\"")
 	message_admins(span_adminnotice("[key_name_admin(usr)] made [O] at [AREACOORD(O)]. say \"[message]\""))
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Object Say") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/force_say(mob/M in world)
+	set category = "Адм.Веселье"
+	set name = "Force say"
+	set desc = "Makes a mob say something. Bypasses sanitization, be careful with that."
+	var/speech = input("What will [key_name(M)] say?", "Force speech (WARNING, UNSANITIZED)", "")// Don't need to sanitize, since it does that in say(), we also trust our admins.
+	if(!speech)
+		return
+	M.say(speech, forced = "admin speech", sanitize = FALSE)
+	speech = sanitize(speech)
+	log_admin("[key_name(usr)] forced [key_name(M)] to say: [speech]")
+	message_admins(span_adminnotice("[key_name_admin(usr)] forced [key_name_admin(M)] to say: [speech]"))
+
+
+
 /client/proc/togglebuildmodeself()
 	set name = "Toggle Build Mode Self"
 	set category = "Адм.События"
