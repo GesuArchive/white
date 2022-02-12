@@ -352,8 +352,7 @@
 							var/obj/item/blacksmith/B = O
 							B.level = N.mod_grade
 							B.grade = grd
-						else
-							O.calculate_smithing_stats(N.mod_grade)
+						O.calculate_smithing_stats(N.mod_grade)
 					qdel(N)
 					LAZYCLEARLIST(contents)
 					playsound(src, 'white/valtos/sounds/vaper.ogg', 100)
