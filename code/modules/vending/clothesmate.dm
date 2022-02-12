@@ -76,6 +76,8 @@
 					/obj/item/clothing/suit/jacket/puffer = 2,
 					/obj/item/clothing/suit/jacket/letterman = 2,
 					/obj/item/clothing/suit/jacket/letterman_red = 2,
+					/obj/item/clothing/suit/jacket/hoodie = 2,
+					/obj/item/clothing/suit/jacket/hoodie/grey = 2,
 					/obj/item/clothing/glasses/regular = 2,
 					/obj/item/clothing/glasses/regular/jamjar = 1,
 					/obj/item/clothing/glasses/orange = 1,
