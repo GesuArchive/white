@@ -9,6 +9,7 @@
 	icon_dead = "base_dead"
 	icon_gib = "carp_gib"
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
+	movement_type = FLOATING
 	speak_chance = 0
 	turns_per_move = 5
 	butcher_results = list(/obj/item/food/fishmeat/carp = 2)
@@ -76,6 +77,8 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
 	add_cell_sample()
+	var/datum/action/small_sprite/action = new
+	action.Grant(src)
 
 /mob/living/simple_animal/hostile/carp/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_CARP, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)

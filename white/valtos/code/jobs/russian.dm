@@ -1,3 +1,4 @@
+/*
 /datum/job/security_officer/omon
 	title = "Russian Officer"
 	ru_title = "Русский Офицер"
@@ -27,6 +28,7 @@
 	skills = list(/datum/skill/ranged = SKILL_EXP_MASTER)
 	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_EXPERT)
 
+*/
 /datum/id_trim/job/omon
 	assignment = "Russian Officer"
 	trim_state = "trim_russianofficer"

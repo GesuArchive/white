@@ -1,3 +1,4 @@
+/*
 /datum/outfit/job/security/omon
 	name = "Russian Officer"
 	jobtype = /datum/job/security_officer/omon
@@ -67,3 +68,5 @@
 
 /datum/outfit/job/security/veteran/pre_equip()
 	return
+
+*/
