@@ -83,6 +83,7 @@
 
 	uniform = /obj/item/clothing/under/rank/omon/telnajka
 	suit = /obj/item/clothing/suit/armor/bulletproof/omon
+	suit_store = /obj/item/melee/classic_baton/german
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/fingerless
 	ears = /obj/item/radio/headset/headset_cent/alt
@@ -196,8 +197,8 @@
 
 /obj/item/implant/sound_implant/get_data()
 	var/dat = {"<b>Имплант:</b><BR>
-				<b>Название:</b> Пиздец?<BR>
-				<b>Триггер:</b> Сдохнуть.<BR>
+				<b>Название:</b> Звук смерти.<BR>
+				<b>Триггер:</b> Умереть.<BR>
 				"}
 	return dat
 

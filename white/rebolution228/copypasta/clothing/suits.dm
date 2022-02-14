@@ -118,6 +118,8 @@
 	inhand_icon_state = "swat_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|FEET|HANDS // на спрайте сзади торчит жопа, а у нас в коде нет такого, поэтому похуй
 	clothing_flags = BLOCKS_SHOVE_KNOCKDOWN
+	heat_protection = CHEST|GROIN|LEGS|ARMS
+	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	strip_delay = 90
 	equip_delay_other = 60
 	armor = list(MELEE = 90, BULLET = 80, LASER = 50, ENERGY = 40, BOMB = 50, BIO = 20, RAD = 20, FIRE = 80, ACID = 80, WOUND = 20)

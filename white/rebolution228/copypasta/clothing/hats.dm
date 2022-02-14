@@ -20,6 +20,8 @@
 	visor_flags_inv = HIDESNOUT
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
+	heat_protection = HEAD
+	max_heat_protection_temperature = FIRE_HELM_MAX_TEMP_PROTECT
 	dog_fashion = null
 	toggle_cooldown = 0.5
 	flash_protect = FLASH_PROTECTION_FLASH
