@@ -12,6 +12,8 @@
 
 	//queue this message because verbs are scheduled to process after SendMaps in the tick and speech is pretty expensive when it happens.
 	//by queuing this for next tick the mc can compensate for its cost instead of having speech delay the start of the next tick
+	message = "*[fix_brainrot(message)]"
+
 	if(message && proverka_na_detey(message, src))
 		SSspeech_controller.queue_say_for_mob(src, message, SPEECH_CONTROLLER_QUEUE_SAY_VERB)
 
@@ -24,6 +26,8 @@
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, span_danger("Не могу шептать."))
 		return
+	
+	message = "*[fix_brainrot(message)]"
 	if(message && proverka_na_detey(message, src))
 		SSspeech_controller.queue_say_for_mob(src, message, SPEECH_CONTROLLER_QUEUE_WHISPER_VERB)
 
@@ -44,6 +48,7 @@
 	var/ckeyname = "[usr.ckey]/[usr.name]"
 	webhook_send_me(ckeyname, message)
 
+	message = fix_brainrot(message)
 	if(proverka_na_detey(message, src))
 		SSspeech_controller.queue_say_for_mob(src, message, SPEECH_CONTROLLER_QUEUE_EMOTE_VERB)
 
