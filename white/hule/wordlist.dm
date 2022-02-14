@@ -38,7 +38,7 @@ GLOBAL_LIST_INIT(exc_full, world.file2list("cfg/autoeban/exc_full.fackuobema"))
 	var/bad_word_counter = 0
 
 
-/proc/fix_brainrot(var/word)
+/proc/fix_brainrot(var/word, make_into_emote = FALSE)
 	var/static/list/simple = list(	")" = "smile", "(" = "frown", \
 									"))" = "laugh", "((" = "cry", \
 									"лол" = "laugh", "lol" = "laugh", \
@@ -49,4 +49,4 @@ GLOBAL_LIST_INIT(exc_full, world.file2list("cfg/autoeban/exc_full.fackuobema"))
 	
 	. = word
 	if(simple[word])
-		return simple[word]
+		return "[make_into_emote ? "*" : ""][simple[word]]"
