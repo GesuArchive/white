@@ -1,6 +1,6 @@
 /obj/item/clothing/under/rank/sobr
 	name = "униформа спецназа"
-	desc = "Униформа, носимая специальными подразделениями Новой России. Имеет нашивку в виде красной звезды на черном фоне и кулака, держащего автомат Калашникова."
+	desc = "Униформа, носимая специальными подразделениями Новой России. На груди красуется яркий значок."
 	worn_icon = 'white/rebolution228/icons/clothing/mob/uniforms_mob.dmi'
 	icon = 'white/rebolution228/icons/clothing/uniforms.dmi'
 	icon_state = "specops"

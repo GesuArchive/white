@@ -171,7 +171,8 @@
 	r_pocket = /obj/item/pda/heads
 	l_hand = /obj/item/clipboard
 	id = /obj/item/card/id/advanced/centcom
-	backpack_contents = list(/obj/item/stamp/centcom=1)
+	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
+							/obj/item/stamp/centcom=1)
 	id_trim = /datum/id_trim/centcom/official
 
 /datum/outfit/centcom/centcom_official/pre_equip(mob/living/carbon/human/H)

@@ -4125,6 +4125,7 @@
 #include "white\rebolution228\copypasta\mutations.dm"
 #include "white\rebolution228\copypasta\newyear_stuff.dm"
 #include "white\rebolution228\copypasta\spetsnaz.dm"
+#include "white\rebolution228\copypasta\clothing\gloves.dm"
 #include "white\rebolution228\copypasta\clothing\hats.dm"
 #include "white\rebolution228\copypasta\clothing\masks.dm"
 #include "white\rebolution228\copypasta\clothing\suits.dm"

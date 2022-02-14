@@ -4,7 +4,7 @@
 	name = "Franchi SPAS-12"
 	desc = "Древний, но эффективный дробовик, разработанный в Италии. Предназначался для использования силовыми структурами."
 	icon_state = "spas12"
-	icon = 'white/rebolution228/icons/weapons/spas12.dmi'
+	icon = 'white/rebolution228/icons/weapons/rguns.dmi'
 	lefthand_file = 'white/rebolution228/icons/weapons/guns_inhand_left.dmi'
 	righthand_file = 'white/rebolution228/icons/weapons/guns_inhand_right.dmi'
 	inhand_icon_state = "spess12"
@@ -16,6 +16,8 @@
 	w_class = WEIGHT_CLASS_BULKY
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/lethal/eight
 	weapon_weight = WEAPON_HEAVY
+	flags_1 = CONDUCT_1
+	can_suppress = FALSE
 	pb_knockback = 1
 	fire_delay = 5
 	inhand_x_dimension = 32
@@ -37,7 +39,7 @@
 
 /obj/item/gun/ballistic/automatic/m41a2
 	var/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel
-	name = "Импульсная Винтовка M41A"
+	name = "M41A2 Pulse Rifle"
 	desc = "Основное оружие колониальных морпехов, оснащенная подствольным 40мм гранатомётом. Использует безгильзовые 10х24мм патроны. Неплохо работает против ксеноморфов."
 	icon = 'white/rebolution228/icons/weapons/rguns.dmi'
 	icon_state = "m41a2"
@@ -57,6 +59,7 @@
 	spread = 5
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	flags_1 = CONDUCT_1
 	fire_sound = 'white/rebolution228/sounds/weapons/fire_m41a1.ogg'
 	var/list/fucking = list('white/rebolution228/sounds/weapons/fire_m41a1.ogg',
 						'white/rebolution228/sounds/weapons/fire_m41a2.ogg',
@@ -194,6 +197,7 @@
 	mag_display = TRUE
 	spread = 3
 	weapon_weight = WEAPON_HEAVY
+	flags_1 = CONDUCT_1
 	fire_sound = 'white/rebolution228/sounds/weapons/fire_asval.ogg'
 	rack_sound = 'white/rebolution228/sounds/weapons/asval_zatvor.ogg'
 	eject_sound = 'white/rebolution228/sounds/weapons/asval_magout.ogg'
@@ -252,6 +256,7 @@
 	pin = /obj/item/firing_pin
 	fire_delay = 2
 	slot_flags = ITEM_SLOT_BACK
+	flags_1 = CONDUCT_1
 	burst_size = 3
 	empty_indicator = TRUE
 	empty_alarm = TRUE
@@ -414,6 +419,7 @@
 	spread = 10
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_LIGHT
+	flags_1 = CONDUCT_1
 
 	fire_sound = 'white/baldenysh/sounds/eyedc/HS_STEREO_FIRE_SOSANIE.ogg'
 	fire_sound_volume = 25
@@ -522,7 +528,7 @@
 
 
 /obj/item/gun/ballistic/automatic/aksu74
-	name = "AKС-74У"
+	name = "АКС-74У"
 	desc = "Укороченный вариант АКС-74, разработанный примерно 500 лет назад для вооружения десантников и экипажа боевой техники. Использует 5,45мм патроны."
 	icon = 'white/rebolution228/icons/weapons/rguns.dmi'
 	icon_state = "aksu74"
@@ -571,3 +577,83 @@
 
 /obj/item/gun/ballistic/automatic/aksu74/update_icon_state()
 	inhand_icon_state = "[initial(icon_state)][magazine ? "":"_nmag"]"
+
+// SAIGA
+
+/obj/item/gun/ballistic/shotgun/saiga
+	name = "Saiga-SRbM3"
+	desc = "Автоматический модифицированный карабин, используемый различными полицейскими подразделениями и военными структурами российского отдела NanoTrasen."
+
+	icon = 'white/rebolution228/icons/weapons/rguns.dmi'
+	icon_state = "saiga"
+	lefthand_file = 'white/rebolution228/icons/weapons/guns_inhand_left.dmi'
+	righthand_file = 'white/rebolution228/icons/weapons/guns_inhand_right.dmi'
+	inhand_icon_state = "saiga"
+	worn_icon = 'white/rebolution228/icons/weapons/guns_back.dmi'
+	worn_icon_state = "saiga_back"
+
+	fire_sound = 'white/rebolution228/sounds/weapons/saiga_shoot1.ogg'
+	rack_sound = 'white/rebolution228/sounds/weapons/saiga_pump.ogg'
+	eject_sound = 'white/rebolution228/sounds/weapons/saiga_magout.ogg'
+	eject_empty_sound = 'white/rebolution228/sounds/weapons/saiga_magout.ogg'
+	load_sound = 'white/rebolution228/sounds/weapons/saiga_magout.ogg'
+	load_empty_sound = 'white/rebolution228/sounds/weapons/saiga_magin.ogg'
+
+	burst_size = 1
+	fire_delay = 0
+	pb_knockback = 2
+	fire_delay = 5
+	inhand_x_dimension = 32
+	inhand_y_dimension = 32
+
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
+	can_suppress = FALSE
+	actions_types = list()
+	mag_type = /obj/item/ammo_box/magazine/saiga
+	mag_display = TRUE
+	empty_indicator = TRUE
+	empty_alarm = TRUE
+	semi_auto = TRUE
+	internal_magazine = FALSE
+	tac_reloads = FALSE
+	can_suppress = FALSE
+
+	var/list/saigashoot = list('white/rebolution228/sounds/weapons/saiga_shoot1.ogg',
+							'white/rebolution228/sounds/weapons/saiga_shoot2.ogg',
+							'white/rebolution228/sounds/weapons/saiga_shoot3.ogg')
+
+/obj/item/gun/ballistic/shotgun/saiga/process_chamber()
+	. = ..()
+	fire_sound = pick(saigashoot)
+
+// обновляем спрайт на челике если нет магазина
+/obj/item/gun/ballistic/shotgun/saiga/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
+
+/obj/item/gun/ballistic/shotgun/saiga/update_icon_state()
+	inhand_icon_state = "[initial(icon_state)][magazine ? "":"_nmag"]"
+
+//обновляем спрайт если нет патронов или патрон не в патроннике
+/obj/item/gun/ballistic/shotgun/saiga/update_overlays()
+	. = ..()
+	if(!chambered && empty_indicator)
+		. += "[icon_state]_empty"
+
+//магазины
+/obj/item/ammo_box/magazine/saiga
+	name = "Saiga Magazine (12 gauge)"
+	desc = "Обыкновенный магазин для Сайги вместимостью в 10 патронов."
+	icon = 'white/rebolution228/icons/weapons/rammo.dmi'
+	icon_state = "saigamag"
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
+	caliber = "shotgun"
+	max_ammo = 10
+
+/obj/item/ammo_box/magazine/saiga/update_icon()
+	..()
+	if(ammo_count() <= 0)
+		icon_state = "saigamag_e"
+	else
+		icon_state = "saigamag"

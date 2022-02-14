@@ -1,5 +1,5 @@
 /datum/ert/sobr
-	roles = list(/datum/antagonist/ert/sobr, /datum/antagonist/ert/sobr/grenadier)
+	roles = list(/datum/antagonist/ert/sobr, /datum/antagonist/ert/sobr/grenadier, /datum/antagonist/ert/sobr/specialist)
 	leader_role = /datum/antagonist/ert/sobr/leader
 	teamsize = 5
 	opendoors = FALSE
@@ -47,6 +47,9 @@
 /datum/antagonist/ert/sobr/grenadier
 	outfit = /datum/outfit/sobr/grenadier
 
+/datum/antagonist/ert/sobr/specialist
+	outfit = /datum/outfit/sobr/cqc
+
 /datum/antagonist/ert/sobr/leader
 	name = "Лидер СОБР"
 	outfit = /datum/outfit/sobr/leader
@@ -75,7 +78,7 @@
 	uniform = /obj/item/clothing/under/rank/sobr
 	suit = /obj/item/clothing/suit/armor/opvest/sobr
 	shoes = /obj/item/clothing/shoes/combat
-	gloves = /obj/item/clothing/gloves/combat
+	gloves = /obj/item/clothing/gloves/combat/sobr
 	ears = /obj/item/radio/headset/headset_cent/alt
 	belt = /obj/item/storage/belt/military/sobr
 	id = /obj/item/card/id/advanced/centcom/spetsnaz
@@ -88,7 +91,8 @@
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
 							/obj/item/storage/box/handcuffs=1,\
 							/obj/item/melee/classic_baton/german=1,\
-							/obj/item/crowbar/red=1)
+							/obj/item/crowbar/red=1,\
+							/obj/item/storage/firstaid/regular=1)
 
 /datum/outfit/sobr/pre_equip(mob/living/carbon/human/H)
 	suit_store = /obj/item/gun/ballistic/automatic/ak74m
@@ -164,13 +168,56 @@
 	L.implant(H, null, 1)
 
 
+/datum/outfit/sobr/cqc
+	name = "СОБР-специалист"
+
+	suit = /obj/item/clothing/suit/armor/heavysobr
+	belt = /obj/item/storage/belt/military/sobr/specialist
+	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
+							/obj/item/storage/box/handcuffs=1,\
+							/obj/item/melee/classic_baton/german=1,\
+							/obj/item/crowbar/power=1,\
+							/obj/item/storage/firstaid/regular=1,)
+
+/datum/outfit/sobr/cqc/pre_equip(mob/living/carbon/human/H)
+	suit_store = /obj/item/gun/ballistic/shotgun/saiga
+	var/randomhelmet_black = pick(/obj/item/clothing/head/helmet/maska/black, \
+								/obj/item/clothing/head/helmet/maska/altyn/black)
+
+	if(prob(44))
+		mask = /obj/item/clothing/mask/gas/heavy/m40
+	else
+		mask = /obj/item/clothing/mask/balaclava/swat
+	
+	if(prob(1))
+		head = /obj/item/clothing/head/helmet/maska/adidas
+	else
+		head = randomhelmet_black
+
+/datum/outfit/sobr/cqc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(visualsOnly)
+		return
+
+	var/obj/item/radio/R = H.ears
+	R.keyslot = new /obj/item/encryptionkey/headset_sec
+	R.recalculateChannels()
+
+	var/obj/item/card/id/W = H.wear_id
+	W.assignment = "Специалист СОБР"
+	W.registered_name = H.real_name
+	W.update_label()
+
+	var/obj/item/implant/mindshield/L = new/obj/item/implant/mindshield(H)
+	L.implant(H, null, 1)
+
+
 /datum/outfit/sobr/leader
 	name = "СОБР-лидер☆"
 
 	uniform = /obj/item/clothing/under/rank/sobr
 	suit = /obj/item/clothing/suit/armor/opvest/sobr
 	shoes = /obj/item/clothing/shoes/combat
-	gloves = /obj/item/clothing/gloves/combat
+	gloves = /obj/item/clothing/gloves/combat/sobr
 	ears = /obj/item/radio/headset/headset_cent/alt
 	head = /obj/item/clothing/head/hos/beret/sobr
 	mask = null
@@ -182,9 +229,10 @@
 	l_pocket = /obj/item/flashlight/seclite
 	back = /obj/item/storage/backpack/satchel/sec
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
-		/obj/item/storage/box/handcuffs=1,\
-		/obj/item/melee/classic_baton/german=1,\
-		/obj/item/crowbar/red=1)
+							/obj/item/storage/box/handcuffs=1,\
+							/obj/item/melee/classic_baton/german=1,\
+							/obj/item/crowbar/red=1,\
+							/obj/item/storage/firstaid/regular=1)
 
 /datum/outfit/sobr/leader/pre_equip(mob/living/carbon/human/H)
 	suit_store = /obj/item/gun/ballistic/automatic/asval
@@ -212,7 +260,6 @@
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/ammo_box/magazine/ak74m(src)
-		new /obj/item/reagent_containers/hypospray/medipen/stimpack/traitor(src)
 		new /obj/item/grenade/stingbang(src)
 
 /obj/item/storage/belt/military/sobr/grenadier
@@ -223,8 +270,18 @@
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/ammo_casing/a40mm/vog25(src)
-		new /obj/item/reagent_containers/hypospray/medipen/stimpack/traitor(src)
 		new /obj/item/grenade/stingbang(src)
+
+/obj/item/storage/belt/military/sobr/specialist
+
+/obj/item/storage/belt/military/sobr/specialist/PopulateContents()
+		new /obj/item/ammo_box/magazine/saiga(src)
+		new /obj/item/ammo_box/magazine/saiga(src)
+		new /obj/item/ammo_box/magazine/saiga(src)
+		new /obj/item/ammo_box/magazine/saiga(src)
+		new /obj/item/ammo_box/magazine/saiga(src)
+		new /obj/item/grenade/c4(src)
+		new /obj/item/grenade/c4(src)
 
 /obj/item/storage/belt/military/sobr/leader
 
@@ -233,13 +290,5 @@
 		new /obj/item/ammo_box/magazine/asval(src)
 		new /obj/item/ammo_box/magazine/asval(src)
 		new /obj/item/ammo_box/magazine/asval(src)
-		new /obj/item/reagent_containers/hypospray/medipen/stimpack/traitor(src)
-		new /obj/item/reagent_containers/hypospray/medipen/stimpack/traitor(src)
-
-/obj/item/clothing/suit/armor/opvest/sobr
-	armor = list(MELEE = 70, BULLET = 70, LASER = 40, ENERGY = 40, BOMB = 50, BIO = 20, RAD = 20, WOUND = 10)
-	strip_delay = 100
-
-/obj/item/clothing/head/hos/beret/sobr // ДАААААА БЛЯДЬ МЫ СОЗДАЕМ 99993393 ТИПОВ ОБЪЕКТОВ С РАЗНИЦЕЙ ЛИШЬ В ОПИСАНИИ ДААА БЛЯЯДЬ ДАА!!!!11
-	name = "берет спецназа"
-	desc = "Прочный черный берет, показывающий его обладателя как самого настоящего профессионала в своем деле. В каком - пока что неизвестно."
+		new /obj/item/grenade/stingbang(src)
+		new /obj/item/grenade/frag(src)

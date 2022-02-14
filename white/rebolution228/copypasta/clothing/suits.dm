@@ -106,3 +106,30 @@
 	worn_icon = 'white/rebolution228/icons/clothing/mob/suits_mob.dmi'
 	icon_state = "poncho"
 	inhand_icon_state = "clownpriest"
+
+// sobr specialist suit
+
+/obj/item/clothing/suit/armor/heavysobr
+	name = "тяжелая броня СОБР"
+	desc = "Броневой костюм темного цвета, оснащенный бронепластинами из сплава пластали и титана. Хорошо защищает конечности пользователя, однако замедляет скорость его передвижения. Предназачен для специальных единиц отрядов СОБРа."
+	icon = 'white/rebolution228/icons/clothing/suits.dmi'
+	worn_icon = 'white/rebolution228/icons/clothing/mob/suits_mob.dmi'
+	icon_state = "heavy_sobr"
+	inhand_icon_state = "swat_suit"
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS|FEET|HANDS // на спрайте сзади торчит жопа, а у нас в коде нет такого, поэтому похуй
+	clothing_flags = BLOCKS_SHOVE_KNOCKDOWN
+	strip_delay = 90
+	equip_delay_other = 60
+	armor = list(MELEE = 90, BULLET = 80, LASER = 50, ENERGY = 40, BOMB = 50, BIO = 20, RAD = 20, FIRE = 80, ACID = 80, WOUND = 20)
+	slowdown = 0.8
+
+//some sobr stuff
+/obj/item/clothing/suit/armor/opvest/sobr
+	name = "пуленепробиваемый бронежилет"
+	desc = "Средство индивидуальной защиты, предназначенное для защиты пользователя от пулевых ранений и оружия ближнего боя. Несмотря на высокий класс защиты от огнестрельного оружия, данный тип бронежилета довольно плохо защищает от лазеров."
+	armor = list(MELEE = 60, BULLET = 60, LASER = 35, ENERGY = 40, BOMB = 50, BIO = 20, RAD = 20, WOUND = 10)
+	strip_delay = 80
+
+/obj/item/clothing/head/hos/beret/sobr
+	name = "берет спецназа"
+	desc = "Прочный черный берет, показывающий его обладателя как самого настоящего профессионала в своем деле. В каком - пока что неизвестно."
