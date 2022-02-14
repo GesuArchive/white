@@ -54,17 +54,12 @@
 		return
 	if(isliving(user))
 		var/mob/living/flippy_mcgee = user
-		if(prob(90) && !(HAS_TRAIT(user, TRAIT_FREERUNNING)))
+		if(prob(75) && !(HAS_TRAIT(user, TRAIT_FREERUNNING)))
 			flippy_mcgee.Knockdown(5 SECONDS)
-			flippy_mcgee.visible_message(
-				span_notice("[flippy_mcgee] пытается сделать кувырок и падает на голову, во чудила!") ,
-				span_notice("Пытаюсь сделать изящный кувырок, но спотыкаюсь и падаю!")
-			)
-			if(prob(75))
-				flippy_mcgee.adjustBruteLoss(5)
-				if(prob(50))
-					var/obj/item/bodypart/neckflip = flippy_mcgee.get_bodypart(BODY_ZONE_HEAD)
-					neckflip.force_wound_upwards(/datum/wound/blunt/critical)
+			flippy_mcgee.visible_message(	span_notice("[flippy_mcgee] пытается сделать кувырок и падает на голову, во чудила!") ,
+											span_notice("Пытаюсь сделать изящный кувырок, но спотыкаюсь и падаю!") )
+			flippy_mcgee.adjustBruteLoss(rand(5,10))
+				
 		else
 			flippy_mcgee.visible_message(
 				span_notice("[flippy_mcgee] пытается удержать баланс после прыжка.") ,

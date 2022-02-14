@@ -577,8 +577,3 @@
 	for(var/i in implants)
 		group.register(i)
 	desc += " The implants are registered to the \"[group.name]\" group."
-
-/obj/item/storage/box/syndie_kit/cumvirus/PopulateContents()
-	new /obj/item/reagent_containers/glass/bottle/cumvirus(src)
-	new /obj/item/reagent_containers/syringe(src)
-	new /obj/item/reagent_containers/dropper(src)

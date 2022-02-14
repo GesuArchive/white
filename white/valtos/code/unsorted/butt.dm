@@ -124,40 +124,40 @@
 			X.Insert(src)
 
 /mob/living/carbon/human/proc/checkbuttinspect(mob/living/carbon/user)
-	if(user.zone_selected == "groin")
-		var/obj/item/organ/butt/B = getorgan(/obj/item/organ/butt)
-		if(!B)
-			to_chat(user, span_warning("А задница-то отсутствует!"))
-			return
-		if(!w_uniform)
-			var/datum/component/storage/STR = B.storage_handler.GetComponent(B.pocket_storage_component_path)
-			if(B && STR)
-				user.visible_message(span_warning("[user] начинает инспектировать [user == src ? "свою задницу" : "задницу [src]"]!") , span_warning("Начинаю инспектировать [user == src ? "свою задницу" : "задницу [src]"]!"))
-				if(do_mob(user, src, 40))
-					user.visible_message(span_warning("[user] инспектирует [user == src ? "свою задницу" : "задницу [src]"]!") , span_warning("Инспектирую [user == src ? "свою задницу" : "задницу [src]"]!"))
-					if (user.active_storage)
-						user.active_storage.close(user)
-					STR.orient2hud(user)
-					STR.show_to(user)
-					return TRUE
-				else
-					user.visible_message(span_warning("[user] проваливает попытку инспекции [user == src ? "своей задницы" : "задницы [src]"]!") , span_warning("Не вышло проинспектировать [user == src ? "свою задницу" : "задницу [src]"]!"))
-					return TRUE
+	var/obj/item/organ/butt/B = getorgan(/obj/item/organ/butt)
+	if(!B)
+		to_chat(user, span_warning("А задница-то отсутствует!"))
+		return
+	if(!w_uniform)
+		var/datum/component/storage/STR = B.storage_handler.GetComponent(B.pocket_storage_component_path)
+		if(B && STR)
+			user.visible_message(span_warning("[user] начинает инспектировать [user == src ? "свою задницу" : "задницу [src]"]!") , span_warning("Начинаю инспектировать [user == src ? "свою задницу" : "задницу [src]"]!"))
+			if(do_mob(user, src, 40))
+				user.visible_message(span_warning("[user] инспектирует [user == src ? "свою задницу" : "задницу [src]"]!") , span_warning("Инспектирую [user == src ? "свою задницу" : "задницу [src]"]!"))
+				if (user.active_storage)
+					user.active_storage.close(user)
+				STR.orient2hud(user)
+				STR.show_to(user)
+				return TRUE
 			else
-				to_chat(user, span_warning("Задницы нет!"))
+				user.visible_message(span_warning("[user] проваливает попытку инспекции [user == src ? "своей задницы" : "задницы [src]"]!") , span_warning("Не вышло проинспектировать [user == src ? "свою задницу" : "задницу [src]"]!"))
 				return TRUE
 		else
-			if(user == src)
-				user.visible_message(span_warning("[user] хватает себя за зад!") , span_warning("Хватаю себя за зад!"))
-				to_chat(user,  span_warning("Надо бы снять одежду сперва!"))
-			else
-				user.visible_message(span_warning("[user] хватает [src] за задницу!") , span_warning("Хватаю задницу [src]!"))
-				to_chat(user, span_warning("Надо бы снять с [src] одежду!"))
-				to_chat(src, span_userdanger("Мой зад кто-то схватил!"))
+			to_chat(user, span_warning("Задницы нет!"))
 			return TRUE
+	else
+		if(user == src)
+			user.visible_message(span_warning("[user] хватает себя за зад!") , span_warning("Хватаю себя за зад!"))
+			to_chat(user,  span_warning("Надо бы снять одежду сперва!"))
+		else
+			user.visible_message(span_warning("[user] хватает [src] за задницу!") , span_warning("Хватаю задницу [src]!"))
+			to_chat(user, span_warning("Надо бы снять с [src] одежду!"))
+			to_chat(src, span_userdanger("Мой зад кто-то схватил!"))
+		return TRUE
 
 /mob/living/carbon/human/grabbedby(mob/living/user, supress_message = FALSE)
-	if (checkbuttinspect(user))
+
+	if (checkbuttinspect(user) && user.zone_selected == BODY_ZONE_PRECISE_GROIN)
 		return FALSE
 	return ..()
 

@@ -257,6 +257,7 @@
 			"You hear a slap.")
 			target.dna?.species?.stop_wagging_tail(target)
 			return
+
 	do_attack_animation(target, ATTACK_EFFECT_DISARM)
 	playsound(target, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 	if (ishuman(target))

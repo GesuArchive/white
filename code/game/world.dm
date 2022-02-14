@@ -64,8 +64,6 @@ GLOBAL_VAR(restart_counter)
 
 	load_whitelist()
 
-	load_whitelist_exrp()
-
 	GLOB.timezoneOffset = text2num(time2text(0,"hh")) * 36000
 
 	if(fexists(RESTART_COUNTER_PATH))
