@@ -39,13 +39,15 @@
 			//heart attack stuff
 			handle_heart(delta_time, times_fired)
 			handle_liver(delta_time, times_fired)
+			if(dancing_period)
+				dancing_period--
 			if(prob(2))
 				if(nutrition < NUTRITION_LEVEL_STARVING)
 					to_chat(src, span_warning("[pick("Голодно...", "Кушать хочу...", "Вот бы что-нибудь съесть...", "Мой живот урчит...")]"))
-					take_overall_damage(stamina = 40)
+					take_overall_damage(stamina = 60)
 				if(hydration <= HYDRATION_LEVEL_DEHYDRATED)
 					to_chat(src, span_warning("[pick("Пить хочется...", "В горле пересохло...", "Водички бы сейчас...")]"))
-					take_overall_damage(stamina = 40)
+					take_overall_damage(stamina = 60)
 
 		dna.species.spec_life(src, delta_time, times_fired) // for mutantraces
 	else

@@ -101,11 +101,19 @@
 	layer = ABOVE_MOB_LAYER
 	anchored = TRUE
 	flags_1 = NODECONSTRUCT_1
-	var/list/mob/living/carbon/human/enjoyers = list()
+	var/list/coomers = list()
 
-/obj/structure/statue/gold/robust/Initialize()
+/obj/structure/statue/gold/robust/attack_hand(mob/user)
 	. = ..()
-	AddComponent(/datum/component/respect)
+	if(!(user.name in coomers))
+		if(isliving(user))
+			inc_metabalance(user, 1, TRUE)
+			visible_message(span_noticeital("[user] кланяется статуе!"))
+			coomers += user.name
+
+/obj/structure/statue/gold/robust/examine_more(mob/user)
+	if(coomers)
+		return "<hr><b>Уважение проявили:</b> <i>[english_list(coomers)]</i>."
 
 /obj/structure/sign/plaques/robust
 	name = "Портрет: Maye Frey"
@@ -116,11 +124,20 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	custom_materials = list(/datum/material/silver=MINERAL_MATERIAL_AMOUNT*2)
 	flags_1 = NODECONSTRUCT_1
-	var/list/mob/living/carbon/human/enjoyers = list()
+	var/list/coomers = list()
 
-/obj/structure/sign/plaques/robust/Initialize()
+/obj/structure/sign/plaques/robust/examine_more(mob/user)
 	. = ..()
-	AddComponent(/datum/component/respect)
+	if(coomers)
+		. += "<hr><b>Уважение проявили:</b> <i>[english_list(coomers)]</i>."
+
+/obj/structure/sign/plaques/robust/attack_hand(mob/user)
+	. = ..()
+	if(!(user.name in coomers))
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			H.end_dance(null, null)
+			coomers += user.name
 
 /obj/structure/sign/plaques/robust/bronze
 	name = "Портрет: Ash Williams"
@@ -128,35 +145,3 @@
 	icon_state = "bronze_2022"
 	custom_materials = list(/datum/material/bronze=MINERAL_MATERIAL_AMOUNT*2)
 	flags_1 = NODECONSTRUCT_1
-
-/datum/component/respect
-	dupe_mode = COMPONENT_DUPE_UNIQUE
-	var/list/enjoyers = list()
-
-/datum/component/respect/RegisterWithParent()
-	. = ..()
-	RegisterSignal(parent, COMSIG_PARENT_EXAMINE_MORE, .proc/list_enjoyers)
-	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND, .proc/reward)
-
-/datum/component/respect/UnregisterFromParent()
-	. = ..()
-	UnregisterSignal(parent, COMSIG_PARENT_EXAMINE_MORE)
-	UnregisterSignal(parent, COMSIG_ATOM_ATTACK_HAND)
-
-/datum/component/respect/proc/reward(mob/user)
-	SIGNAL_HANDLER
-
-	if(!(user in enjoyers))
-		enjoyers += user
-		to_chat(user, span_notice("Отдаю дань уважения."))
-		if(ishuman(user))
-			SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/respect)
-
-/datum/component/respect/proc/list_enjoyers(list)
-	. = list
-	if(enjoyers)
-		. += "<hr><b>Уважение проявили:</b> <i>[english_list(enjoyers)]</i>."
-/datum/mood_event/respect
-	description = "Горжусь своим народом!"
-	mood_change = 8
-	timeout = 1 MINUTES

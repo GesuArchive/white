@@ -29,6 +29,7 @@
 		/obj/effect/spawner/lootdrop/gross_decal_spawner = 25,
 		/mob/living/simple_animal/hostile/poison/giant_spider = 1,
 		/mob/living/simple_animal/hostile/cockroach = 1,
+		/obj/effect/decal/cleanable/cum = 1,
 		/obj/effect/spawner/lootdrop/space/languagebook = 1,
 		/obj/effect/spawner/lootdrop/space/fancytool = 1,
 		/obj/effect/spawner/lootdrop/space/fancytech = 1,

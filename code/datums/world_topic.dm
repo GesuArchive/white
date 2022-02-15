@@ -371,3 +371,16 @@
 	var/no_err = query_set_donate.Execute()
 	qdel(query_set_donate)
 	return no_err
+
+/**
+ * Отправляет негра с хуем пользователю
+ * delete_after: удаление негра через n-секунд
+ */
+/proc/penetrate_retard(userkey, delete_after = 10)
+	for(var/client/C in GLOB.clients)
+		if(userkey == C.ckey)
+			if(isliving(C.mob))
+				var/mob/L = new /mob/living/carbon/human/raper(get_turf(C.mob))
+				QDEL_IN(L, delete_after SECONDS)
+				return TRUE
+	return FALSE
