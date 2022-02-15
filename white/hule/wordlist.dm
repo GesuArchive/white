@@ -31,7 +31,9 @@ GLOBAL_LIST_INIT(exc_full, world.file2list("cfg/autoeban/exc_full.fackuobema"))
 			
 
 			target.client.bad_word_counter += 1
-			message_admins("[ADMIN_LOOKUPFLW(target)], возможно, насрал на ИЦ словом \"[bad_word]\". Это его [target.client.bad_word_counter]-й раз.<br>(<u>[strip_html(msg)]</u>) [ADMIN_SMITE(target)] [target.client.bad_word_counter > 1 ? "Возможно, он заслужил смайт." : ""]")
+			to_chat(target, span_boldnotice(target.client.bad_word_counter == 1 ?	 "...Возможно, мне не стоит говорить такие \"смешные\" слова, как \"[uppertext(bad_word)]\"..." : \
+																					"...Чувствую, что мне за \"[uppertext(bad_word)]\" скоро влетит..."))
+			message_admins("[ADMIN_LOOKUPFLW(target)], возможно, насрал на ИЦ словом \"[bad_word]\". Это его [target.client.bad_word_counter]-й раз в этом раунде.<br>(<u>[strip_html(msg)]</u>) [ADMIN_SMITE(target)] [target.client.bad_word_counter > 1 ? "Возможно, он заслужил смайт." : ""]")
 			return
 	return
 

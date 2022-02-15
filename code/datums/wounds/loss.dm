@@ -51,5 +51,5 @@
 	log_wound(victim, src)
 	if(wounding_type != WOUND_BURN && victim.blood_volume)
 		victim.spray_blood(attack_direction, severity)
-	dismembered_part.dismember(wounding_type == WOUND_BURN ? BURN : BRUTE, TRUE, wounding_type == WOUND_BLUNT ? FALSE : TRUE)
+	dismembered_part.dismember(wounding_type == WOUND_BURN ? BURN : BRUTE, TRUE, (wounding_type != WOUND_BLUNT) )
 	qdel(src)
