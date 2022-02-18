@@ -19,6 +19,7 @@
 	slowdown = 4
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/hecate
 	extra_damage = 45 //удалить при имбовости
+	extra_penetration = 100 //огромное ПТР не может пробить больше одной стенки????????
 	inhand_x_dimension = 1
 	inhand_y_dimension = 1
 
@@ -26,5 +27,21 @@
 	max_ammo = 1
 	ammo_type = /obj/item/ammo_casing/p50
 	caliber = ".50"
+
+/obj/item/gun/ballistic/rifle/boltaction/hecate/afterattack(atom/target, mob/user, flag) //suggestion done
+	. = ..()
+	if(user.gender == "male")
+		return
+	else
+		var/G = get_dir(src, get_step_away(target, src))
+		var/atom/A = get_edge_target_turf(target, REVERSE_DIR(G))
+		var/funnirecoil = 100
+		to_chat(user, span_warning("ВЫ НЕ МОЖЕТЕ СПРАВИТЬСЯ С ОТДАЧЕЙ И УЛЕТАЕТЕ ОТ НЕЁ!"))
+		user.throw_at(A, 256, funnirecoil, user, gentle = FALSE, callback = CALLBACK(user, /mob/living/carbon/human.proc/adjustBruteLoss, 500))
+		return
+
+
+
+
 
 

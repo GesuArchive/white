@@ -31,7 +31,7 @@
 	new /obj/item/ammo_box/magazine/m50(src)
 	new /obj/item/ammo_box/magazine/m50(src)
 
-/obj/item/storage/box/syndicate/scammer/PopulateContents()
+/obj/item/storage/box/syndicate/scammer/PopulateContents() //это не говно теперь, но хуй знает догадаются ли..................
 	new /obj/item/clothing/mask/chameleon(src)
 	new /obj/item/gun/ballistic/automatic/wt550(src)
 	new /obj/item/clothing/under/chameleon(src)
@@ -40,6 +40,8 @@
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
 	new /obj/item/storage/secure/briefcase/syndie(src)
 	new /obj/item/storage/secure/briefcase/syndie(src)
+	new /obj/item/card/emag(src)
+	new /obj/item/circuitboard/machine/ltsrbt(src)
 
 /obj/item/storage/box/syndicate/shootershotty/PopulateContents()
 	new /obj/item/gun/ballistic/shotgun/fallout/huntingshot/columbine(src)
@@ -62,16 +64,19 @@
 	new /obj/item/clothing/shoes/combat(src)
 	new /obj/item/switchblade(src)
 	new /obj/item/clothing/head/soft/black/columbine(src)
+	new /obj/effect/spawner/newbomb/timer/syndicate(src)
 
 /obj/item/storage/box/syndicate/shooteruzis/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/columbine(src)
-	new /obj/item/ammo_box/magazine/m9mm_aps(src)
+	new /obj/item/gun/ballistic/automatic/mini_uzi(src)
+	new /obj/item/gun/ballistic/automatic/mini_uzi(src)
+	new /obj/item/ammo_box/magazine/uzim9mm(src)
+	new /obj/item/ammo_box/magazine/uzim9mm(src)
+	new /obj/item/ammo_box/magazine/uzim9mm(src)
+	new /obj/item/ammo_box/magazine/uzim9mm(src)
 	new /obj/item/storage/box/survival(src)
 	new /obj/item/grenade/iedcasing(src)
 	new /obj/item/grenade/iedcasing(src)
 	new /obj/item/grenade/iedcasing(src)
-	new /obj/item/ammo_box/c9mm(src)
-	new /obj/item/ammo_box/magazine/m9mm_aps(src)
 	new /obj/item/grenade/c4(src)
 	new /obj/item/grenade/c4(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
@@ -81,3 +86,4 @@
 	new /obj/item/clothing/shoes/combat(src)
 	new /obj/item/switchblade(src)
 	new /obj/item/clothing/head/soft/black/columbine(src)
+	new /obj/effect/spawner/newbomb/timer/syndicate(src) //ой бляяяяяя думаю зря но похуй посмотрим по фидбеку

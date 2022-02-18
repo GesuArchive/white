@@ -2093,3 +2093,11 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	desc = "Набор, предназначенный для двух агентов синдиката"
 	item = /obj/item/storage/box/syndicate_team
 	cost = 40
+
+/datum/uplink_item/dangerous/hockey
+	name = "Набор канадского хоккеиста"
+	desc = "Ходят слухи, что канадские хоккеисты - сильнейшие существа в мире."
+	item = /obj/item/storage/box/syndie_kit/hockey
+	cost = 30
+	surplus = 0
+	cant_discount = FALSE
