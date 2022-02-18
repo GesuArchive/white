@@ -57,12 +57,6 @@
 
 /obj/item/book/ruchinese/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] бьет себя словарем по голове, кажется он чувствует себя хуево!"))
-	var/delay_offset = 0
-	for(var/mob/M in viewers(src, 7))
-		var/mob/living/carbon/human/C = M
-		if (ishuman(M))
-			addtimer(CALLBACK(C, /mob/.proc/emote, "blyadiada"), delay_offset * 0.3)
-			delay_offset++
 	return (BRUTELOSS)
 
 /datum/uplink_item/role_restricted/ruchinese
@@ -71,21 +65,6 @@
 	item = /obj/item/book/ruchinese
 	cost = 18
 	restricted_roles = list("Chaplain", "Curator", "Assistant")
-
-/datum/emote/living/carbon/blyad
-	key = "blyadiada"
-	ru_name = "блядиада"
-	key_third_person = "blyads"
-	message = "blyads."
-	muzzle_ignore = FALSE
-	hands_use_check = FALSE
-	emote_type = EMOTE_AUDIBLE
-
-/datum/emote/living/carbon/blyad/get_sound(mob/living/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(!H.mind || !H.mind.miming)
-			return 'white/fogmann/blyead.ogg'
 
 /area/commons/fitness/kachalka
 	name = "Техтоннели: Качалка"

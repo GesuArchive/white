@@ -177,7 +177,6 @@
 			qdel(src)
 			return
 		L.visible_message(span_danger("Голова [L] распидорашивается кирпичом нахуй!") , span_userdanger("Кирпич уничтожает мою голову!"))
-		L.emote("blyadiada")
 		new /obj/effect/gibspawner/generic(get_turf(L), L)
 		head.dismember(BRUTE)
 		head.drop_organs()
