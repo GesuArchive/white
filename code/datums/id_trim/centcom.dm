@@ -174,7 +174,7 @@
 // WHITE DREAM: Trim for Spetsnaz/OMON Soldier. General Centcom access, maint access. 
 
 /datum/id_trim/centcom/spetsnaz
-	assignment = "СОБР"
+	assignment = "SOBR"
 	trim_icon = 'white/rebolution228/icons/card.dmi'
 	trim_state = "trim_spetsnaz"
 
@@ -195,7 +195,7 @@
 // Trim for Spetsnaz Leader. Full access.
 
 /datum/id_trim/centcom/spetsnaz/leader
-	assignment = "Лидер СОБР"
+	assignment = "SOBR Leader"
 	trim_icon = 'white/rebolution228/icons/card.dmi'
 	trim_state = "trim_spetsnazleader"
 
