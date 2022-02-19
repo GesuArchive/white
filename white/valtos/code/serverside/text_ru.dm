@@ -106,7 +106,7 @@
 	message = replacetextEx(message, "р", "л")
 	message = replacetextEx(message, "Р", "Л")
 	return message
-
+/*
 /proc/difilexish(message)
 	if(prob(25))
 		message = "Таки... [message]"
@@ -139,7 +139,7 @@
 	message = replacetextEx(message, "И", "I")
 	message = replacetextEx(message, "Ы", "И")
 	return message
-
+*/
 /proc/asiatish(message)
 	message = replacetext_char(message, "ра", "ля")
 	message = replacetext_char(message, "ла", "ля")
