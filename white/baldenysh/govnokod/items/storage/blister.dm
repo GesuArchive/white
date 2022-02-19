@@ -87,11 +87,3 @@
 /obj/item/storage/blister/fivecir
 	populate_pill_types = list(/obj/item/reagent_containers/pill/haloperidol = 5)
 	pill_positions = list(list(x = -4, y = -7), list(x = -5, y = 1), list(x = 3, y = 0), list(x = 2, y = 8), list(x = 10, y = 7))
-
-/obj/item/storage/blister/threecap
-	populate_pill_types = list(/obj/item/reagent_containers/pill/hohlomicin = 3)
-	pill_positions = list(list(x = -5, y = -5), list(x = 0, y = 1), list(x = 5, y = 7))
-
-/obj/item/storage/blister/twocap
-	populate_pill_types = list(/obj/item/reagent_containers/pill/hohlomicin = 2)
-	pill_positions = list(list(x = -5, y = -5), list(x = 5, y = 7))

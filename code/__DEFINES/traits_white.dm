@@ -1,6 +1,4 @@
 #define TRAIT_KARTAVII "kartavii"
-#define TRAIT_JEWISH "jewish"
-#define TRAIT_UKRAINISH "ukrainish"
 #define TRAIT_ASIAT	"asiatish"
 #define TRAIT_HACKER "hackereye"
 #define TRAIT_YOHEI	"yohei"

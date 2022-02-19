@@ -164,6 +164,15 @@
 	message = replacetextEx(message, "Ы", "И")
 	return message
 
+/datum/quirk/asiat
+	name = "Азиат"
+	desc = "Долгое время работы в рисовых полях и жара палящего сверху солнца даровала вам этот прекрасный акцент."
+	value = 0
+	mob_trait = TRAIT_ASIAT
+	gain_text = span_notice("Чиньг-чоньг!.")
+	lose_text = span_danger("Аниме говно.")
+	medical_record_text = "Пациент - азиат."
+
 /datum/quirk/kartavii
 	name = "Картавый"
 	desc = "Вы не знаете, как проговаривать букву \"Р\"."
@@ -173,42 +182,6 @@
 	lose_text = span_danger("Вспоминаю как проговаривать букву \"Р\".")
 	medical_record_text = "Пациент не может проговаривать букву \"Р\"."
 
-/datum/quirk/jewish
-	name = "Еврей"
-	desc = "Я таки умею считать деньги."
-	value = 4 // гоев проще наёбывать
-	mob_trait = TRAIT_JEWISH
-	gain_text = span_notice("Теперь я знаю цену вещам.")
-	lose_text = span_danger("Забываю цену вещам.")
-	medical_record_text = "Пациент имеет удивительные навыки в оценке стоимости вещей."
-
-/datum/quirk/ukrainish
-	name = "Украинец"
-	desc = "Бахнуть бы сала..."
-	value = 0
-	mob_trait = TRAIT_UKRAINISH
-	gain_text = span_notice("Дайте мне, будь ласка, сала.")
-	lose_text = span_danger("Забываю запах сала.")
-	medical_record_text = "Пациент имеет страсть к салу."
-
-/datum/quirk/ukrainish/add()
-	var/mob/living/carbon/human/H = quirk_holder
-	if(ishumanbasic(H))
-		H.grant_language(/datum/language/xoxol)
-
-/datum/quirk/ukrainish/remove()
-	var/mob/living/carbon/human/H = quirk_holder
-	if(ishumanbasic(H))
-		H.remove_language(/datum/language/xoxol)
-
-/datum/quirk/asiat
-	name = "Азиат"
-	desc = "Долгое время работы в рисовых полях и жара палящего сверху солнца даровала вам этот прекрасный акцент."
-	value = 0
-	mob_trait = TRAIT_ASIAT
-	gain_text = span_notice("Чиньг-чоньг!.")
-	lose_text = span_danger("Аниме говно.")
-	medical_record_text = "Пациент - азиат."
 
 /mob/living/carbon/human/proc/get_race_text()
 	switch(skin_tone)

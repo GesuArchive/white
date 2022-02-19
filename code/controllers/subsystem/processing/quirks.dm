@@ -28,7 +28,7 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 							list("Ананасофил","Ананасофоб"), \
 							list("Толерантность к Алкоголю","Алкоголик"), \
 							list("Clown Fan","Mime Fan"), \
-							list("Картавый","Еврей","Украинец"), \
+							list("Картавый"), \
 							list("Bad Touch", "Friendly"))
 	return ..()
 

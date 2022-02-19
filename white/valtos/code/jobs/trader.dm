@@ -12,4 +12,3 @@
 	outfit = /datum/outfit/job/trader
 	display_order = JOB_DISPLAY_ORDER_SPECIAL
 
-	mind_traits = list(TRAIT_JEWISH)
