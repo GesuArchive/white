@@ -4,7 +4,8 @@
 	icon = 'white/valtos/icons/barricade.dmi'
 	anchored = TRUE
 	density = TRUE
-	layer = BELOW_OBJ_LAYER
+	layer = ABOVE_MOB_LAYER
+	plane = GAME_PLANE_UPPER
 	flags_1 = ON_BORDER_1
 	max_integrity = 100
 	///The type of stack the barricade dropped when disassembled if any.
