@@ -607,6 +607,9 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	inhand_icon_state = "hoverboard_nt"
 	board_item_type = /obj/vehicle/ridden/scooter/skateboard/hoverboard/admin
 
+#define DRILLED_BAT 1
+#define CHARGED_BAT 2
+
 /obj/item/melee/baseball_bat
 	name = "бейсбольная бита"
 	desc = "There ain't a skull in the league that can withstand a swatter."
@@ -625,6 +628,49 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	w_class = WEIGHT_CLASS_HUGE
 	var/homerun_ready = 0
 	var/homerun_able = 0
+	var/explosive = FALSE
+
+/obj/item/melee/baseball_bat/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item.tool_behaviour == TOOL_DRILL)
+		if(explosive == CHARGED_BAT)
+			to_chat(user, span_userdanger("Совершаю глупость!"))
+			do_boom(user, user)
+			return
+		if(explosive == FALSE && do_after(user, (5 SECONDS * attacking_item.toolspeed), src))
+			to_chat(user, span_info("Делаю идеальное отверстие в бите."))
+			visible_message(span_info("<b>[user]</b> сверлит биту."))
+			explosive = DRILLED_BAT
+			return
+	else if (istype(attacking_item, /obj/item/ammo_casing) && explosive == DRILLED_BAT)
+		var/obj/item/ammo_casing/AC = attacking_item
+		if(AC.loaded_projectile)
+			AC.forceMove(src)
+			to_chat(user, span_info("Вставляю патрон в биту. Гениально."))
+			explosive = CHARGED_BAT
+			return
+	else
+		return ..()
+
+/obj/item/melee/baseball_bat/proc/do_boom(mob/user, mob/target)
+	if(explosive == CHARGED_BAT)
+		var/obj/item/ammo_casing/AC = locate(/obj/item/ammo_casing) in src
+		if(AC)
+			AC.fire_casing(target, user, fired_from = src)
+			explosive = FALSE
+			qdel(AC)
+			return TRUE
+	return FALSE
+
+/obj/item/melee/baseball_bat/attack(mob/living/target, mob/living/user)
+	. = ..()
+	if(do_boom(user, target))
+		playsound(get_turf(src), 'sound/weapons/gun/pistol/shot.ogg', 100)
+		visible_message(span_danger("Бита лопается в руках <b>[user]</b> при ударе!"))
+		explosion(get_turf(src), -1, -1, 1, 3)
+		qdel(src)
+
+#undef DRILLED_BAT
+#undef CHARGED_BAT
 
 /obj/item/melee/baseball_bat/Initialize()
 	. = ..()
