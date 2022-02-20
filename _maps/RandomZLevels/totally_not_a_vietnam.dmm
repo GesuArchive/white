@@ -557,12 +557,10 @@
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "sn" = (
-/obj/structure/table/stone,
-/obj/item/blacksmith/chisel,
+/obj/structure/table,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
 "ss" = (
-/obj/anvil,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
 "st" = (
@@ -598,9 +596,7 @@
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "tf" = (
-/obj/item/blacksmith/tongs,
-/obj/item/blacksmith/smithing_hammer,
-/obj/structure/table/stone,
+/obj/structure/table,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
 "tF" = (
@@ -747,7 +743,7 @@
 /turf/open/floor/grass/gensgrass/dirty,
 /area/awaymission/vietnam)
 "yQ" = (
-/obj/structure/table/stone,
+/obj/structure/table,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
 "zj" = (
@@ -841,15 +837,7 @@
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dark)
 "AM" = (
-/obj/structure/table/stone,
-/obj/item/blacksmith/ingot{
-	pixel_x = 2;
-	pixel_y = 1
-	},
-/obj/item/blacksmith/ingot{
-	pixel_x = -12;
-	pixel_y = -4
-	},
+/obj/structure/table,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
 "AQ" = (
@@ -920,11 +908,6 @@
 /turf/open/floor/plating/grass/jungle,
 /area/awaymission/vietnam)
 "Cw" = (
-/obj/machinery/torch_fixture{
-	dir = 4;
-	on = 1;
-	pixel_x = 32
-	},
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
 "CX" = (
@@ -945,15 +928,7 @@
 /turf/open/floor/grass/gensgrass/dirty,
 /area/awaymission/vietnam)
 "Do" = (
-/obj/structure/table/stone,
-/obj/item/blacksmith/ingot{
-	pixel_x = -10;
-	pixel_y = 1
-	},
-/obj/item/blacksmith/ingot{
-	pixel_x = 4;
-	pixel_y = -4
-	},
+/obj/structure/table,
 /turf/open/floor/grass/gensgrass/dirty/stone,
 /area/awaymission/vietnam/dark)
 "Dp" = (
