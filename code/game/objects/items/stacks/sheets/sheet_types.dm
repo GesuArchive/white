@@ -215,7 +215,6 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 	new/datum/stack_recipe("деревянный стул", /obj/structure/chair/wood/, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("крылатый стул", /obj/structure/chair/wood/wings, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("деревянная застава", /obj/structure/barricade/wooden, 5, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("кузнеческое полено", /obj/item/blacksmith/srub, 10, time = 10), \
 	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/wooden, 2, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("деревянная дверь", /obj/structure/mineral_door/wood, 10, time = 20, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("гроб", /obj/structure/closet/crate/coffin, 5, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
@@ -240,7 +239,6 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 	new/datum/stack_recipe("ступка", /obj/item/reagent_containers/glass/mortar, 3), \
 	new/datum/stack_recipe("головешка", /obj/item/match/firebrand, 2, time = 100), \
 	new/datum/stack_recipe("зубок", /obj/item/stack/teeth/human/wood, 1, time = 5),\
-	new/datum/stack_recipe("рукоять скипетра", /obj/item/scepter_shaft, 3, time=5),\
 	null, \
 	new/datum/stack_recipe_list("церковные скамьи", list(
 		new /datum/stack_recipe("скамья (центральная)", /obj/structure/chair/pew, 3, one_per_turf = TRUE, on_floor = TRUE),

@@ -99,11 +99,6 @@
 	slowdown = 0
 	var/busy = FALSE
 
-/turf/open/floor/grass/gensgrass/dirty/stone/crowbar_act(mob/living/user, obj/item/I)
-	if(pry_tile(I, user))
-		new /obj/item/stack/sheet/stone(get_turf(src))
-		return TRUE
-
 /turf/open/floor/grass/gensgrass/dirty/stone/attackby(obj/item/I, mob/user, params)
 	if((I.tool_behaviour == TOOL_SHOVEL) && params)
 		user.visible_message(span_warning("[user] грустно долбит лопатой по [src].") , span_warning("Как я лопатой буду копать [src]?!"))
@@ -133,25 +128,11 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 	canSmoothWith = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
-	sheet_type = /obj/item/stack/sheet/stone
+	sheet_type = /obj/item/stack/sheet/iron
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone
 	sheet_amount = 4
 	girder_type = null
 	var/busy = FALSE
-
-/turf/closed/wall/stonewall/attackby(obj/item/W, mob/user, params)
-	. = ..()
-	if(istype(W, /obj/item/blacksmith/chisel))
-		if(busy)
-			to_chat(user, span_warning("Сейчас занято."))
-			return
-		busy = TRUE
-		if(!do_after(user, 10 SECONDS, target = src))
-			busy = FALSE
-			return
-		busy = FALSE
-		to_chat(user, span_warning("Обрабатываю [src]."))
-		ChangeTurf(/turf/closed/wall/stonewall_fancy)
 
 /turf/closed/wall/stonewall_fancy
 	name = "красивая каменная стена"
@@ -162,7 +143,7 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 	canSmoothWith = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
-	sheet_type = /obj/item/stack/sheet/stone
+	sheet_type = /obj/item/stack/sheet/iron
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone
 	sheet_amount = 4
 	girder_type = null
@@ -180,38 +161,6 @@
 	floor_tile = /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	slowdown = 0
 
-/turf/open/floor/grass/gensgrass/dirty/stone/attackby(obj/item/W, mob/user, params)
-	. = ..()
-	if(istype(W, /obj/item/blacksmith/chisel)&&isstrictlytype(src, /turf/open/floor/grass/gensgrass/dirty/stone))
-		if(busy)
-			to_chat(user, span_warning("Сейчас занято."))
-			return
-		busy = TRUE
-		if(!do_after(user, 10 SECONDS, target = src))
-			busy = FALSE
-			return
-		busy = FALSE
-		to_chat(user, span_warning("Обрабатываю [src]."))
-		ChangeTurf(/turf/open/floor/grass/gensgrass/dirty/stone/fancy, flags=CHANGETURF_INHERIT_AIR)
-
-/turf/open/floor/grass/gensgrass/dirty/stone/raw/attackby(obj/item/I, mob/user, params)
-	. = ..()
-	if(istype(I, /obj/item/pickaxe))
-		if(!digged_up)
-			playsound(src, pick(I.usesound), 100, TRUE)
-			if(do_after(user, 5 SECONDS, target = src))
-				if(digged_up)
-					return
-				for(var/i in 1 to rand(3, 6))
-					var/obj/item/S = new /obj/item/stack/ore/stone(src)
-					S.pixel_x = rand(-8, 8)
-					S.pixel_y = rand(-8, 8)
-				digged_up = TRUE
-				user.visible_message(span_notice("<b>[user]</b> выкапывает немного камней.") , \
-									span_notice("Выкапываю немного камней."))
-		else
-			to_chat(user, span_warning("Здесь уже всё раскопано!"))
-
 /turf/closed/mineral/random/vietnam
 	icon = 'white/valtos/icons/rocks.dmi'
 	icon_state = "rock"
@@ -227,157 +176,6 @@
 	. = ..()
 	transform = null // backdoor
 
-/datum/outfit/huev_latnik_one
-	name = "Лёгкий лабеб"
-	uniform = /obj/item/clothing/under/chainmail
-	gloves = /obj/item/clothing/gloves/plate_gloves
-	head = /obj/item/clothing/head/helmet/plate_helmet
-	suit = /obj/item/clothing/suit/armor/light_plate
-	shoes = /obj/item/clothing/shoes/jackboots/plate_boots
-	back = /obj/item/blacksmith/katanus
-
-/datum/outfit/huev_latnik_two
-	name = "Тяжёлый лабеб"
-	uniform = /obj/item/clothing/under/chainmail
-	gloves = /obj/item/clothing/gloves/plate_gloves
-	head = /obj/item/clothing/head/helmet/plate_helmet
-	suit = /obj/item/clothing/suit/armor/heavy_plate
-	shoes = /obj/item/clothing/shoes/jackboots/plate_boots
-	r_hand = /obj/item/blacksmith/zwei
-
-/datum/crafting_recipe/smithman/anvil
-	name = "Наковальня"
-	result = /obj/item/blacksmith/anvil_free
-	tool_paths = list(/obj/item/blacksmith/smithing_hammer)
-	reqs = list(/obj/item/blacksmith/ingot = 3,
-				/obj/item/stack/sheet/stone = 5)
-	time = 350
-	category = CAT_STRUCTURE
-	always_available = TRUE
-
-/datum/crafting_recipe/smithman/workplace
-	name = "Наковальня на полене"
-	result = /obj/anvil
-	tool_paths = list(/obj/item/blacksmith/smithing_hammer)
-	reqs = list(/obj/item/blacksmith/srub = 1,
-				/obj/item/blacksmith/anvil_free = 1)
-	time = 350
-	category = CAT_STRUCTURE
-	always_available = TRUE
-
-/datum/crafting_recipe/smithman/srub
-	name = "Полено"
-	result = /obj/item/blacksmith/srub
-	reqs = list(/obj/item/stack/sheet/mineral/wood = 10)
-	time = 100
-	category = CAT_STRUCTURE
-	always_available = TRUE
-
-/datum/crafting_recipe/smithman/furnace
-	name = "Плавильня"
-	result = /obj/furnace
-	reqs = list(/obj/item/stack/sheet/stone = 10, /obj/item/stack/sheet/mineral/wood = 10)
-	time = 300
-	category = CAT_STRUCTURE
-	always_available = TRUE
-
-/datum/crafting_recipe/smithman/furnace_cook
-	name = "Печь для готовки"
-	result = /obj/machinery/microwave/furnace
-	reqs = list(/obj/item/stack/sheet/stone = 8, /obj/item/stack/sheet/mineral/wood = 6)
-	time = 200
-	category = CAT_STRUCTURE
-	always_available = TRUE
-
-/datum/crafting_recipe/smithman/forge
-	name = "Кузница"
-	result = /obj/forge
-	reqs = list(/obj/item/stack/sheet/stone = 20, /obj/item/stack/sheet/mineral/wood = 20)
-	time = 300
-	category = CAT_STRUCTURE
-	always_available = TRUE
-
-/datum/crafting_recipe/smithman/stonedoor
-	name = "Каменная дверь"
-	result = /obj/structure/mineral_door/heavystone
-	reqs = list(/obj/item/stack/sheet/stone = 5, /obj/item/stack/sheet/mineral/wood = 1, /obj/item/blacksmith/ingot = 1)
-	time = 300
-	category = CAT_STRUCTURE
-	always_available = TRUE
-
-/datum/crafting_recipe/smithman/stonechair
-	name = "Каменный стул"
-	result = /obj/structure/chair/comfy/stone
-	reqs = list(/obj/item/stack/sheet/stone = 1)
-	time = 100
-	category = CAT_STRUCTURE
-	always_available = TRUE
-
-/datum/crafting_recipe/smithman/stonetable
-	name = "Каменный стол"
-	result = /obj/structure/table/stone
-	reqs = list(/obj/item/stack/sheet/stone = 2)
-	time = 100
-	category = CAT_STRUCTURE
-	always_available = TRUE
-
-/datum/crafting_recipe/smithman/sarcophage
-	name = "Саркофаг"
-	result = /obj/structure/closet/crate/sarcophage
-	reqs = list(/obj/item/stack/sheet/stone = 10)
-	time = 250
-	category = CAT_STRUCTURE
-	always_available = TRUE
-
 /obj/effect/baseturf_helper/beach/raw_stone
 	name = "raw stone baseturf editor"
 	baseturf = /turf/open/floor/grass/gensgrass/dirty/stone/raw
-
-/obj/effect/mob_spawn/human/dwarf
-	name = "мягкая шконка"
-	desc = "Тут кто-то под шконкой, кирку мне в зад..."
-	icon = 'white/valtos/icons/prison/prison.dmi'
-	icon_state = "spwn"
-	roundstart = FALSE
-	death = FALSE
-	short_desc = "Я Дварф в невероятно диких условиях."
-	flavour_text = "Выжить."
-	mob_species = /datum/species/dwarf
-	outfit = /datum/outfit/dwarf
-	assignedrole = "Dwarf"
-
-/turf/closed/mineral/random/dwarf_lustress
-	icon = 'white/valtos/icons/rockwall.dmi'
-	smooth_icon = 'white/valtos/icons/rockwall.dmi'
-	icon_state = "rockwall-0"
-	base_icon_state = "rockwall"
-	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	environment_type = "stone_raw"
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
-	canSmoothWith = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
-	turf_type = /turf/open/floor/grass/gensgrass/dirty/stone/raw
-	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone/raw
-	mineralSpawnChanceList = list(/obj/item/stack/ore/gold = 5, /obj/item/stack/ore/iron = 40, /obj/item/gem/diamond=1,/obj/item/gem/ruby=1,/obj/item/gem/saphire=1,/obj/item/stack/ore/coal=20)
-
-/turf/closed/mineral/random/dwarf_lustress/Initialize()
-	. = ..()
-	transform = null
-
-/turf/closed/mineral/random/dwarf_lustress/gets_drilled(user, give_exp = FALSE)
-	. = ..()
-
-	if(prob(0.8))
-		to_chat(user, span_userdanger("КАМЕНЬ ОКАЗАЛСЯ УДИВИТЕЛЬНО МЯГКИМ!"))
-		new /mob/living/simple_animal/hostile/troll(src)
-
-/area/awaymission/vietnam/dwarf
-	name = "Тёмное подземелье"
-	icon_state = "unexplored"
-	outdoors = TRUE
-	static_lighting = TRUE
-	base_lighting_alpha = 0
-	ambientsounds = AWAY_MISSION
-	requires_power = FALSE
-	sound_environment = SOUND_ENVIRONMENT_CAVE
-	ambientsounds = list('white/valtos/sounds/lifeweb/caves8.ogg', 'white/valtos/sounds/lifeweb/caves_old.ogg')

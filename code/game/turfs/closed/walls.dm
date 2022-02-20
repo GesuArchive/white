@@ -242,12 +242,6 @@
 	else if(istype(W, /obj/item/poster))
 		place_poster(W,user)
 		return TRUE
-	else if(istype(W, /obj/item/blacksmith/torch_handle))
-		var/obj/item/blacksmith/torch_handle/F = W
-		if(F.try_build(src, user))
-			F.attach(src, user)
-		return TRUE
-
 	return FALSE
 
 /turf/closed/wall/proc/try_decon(obj/item/I, mob/user, turf/T)

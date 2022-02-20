@@ -11747,10 +11747,6 @@
 /area/tdome/tdomeobserve)
 "Ps" = (
 /obj/structure/table/abductor,
-/obj/item/blacksmith/tongs{
-	pixel_x = -5;
-	pixel_y = 5
-	},
 /obj/item/assembly/signaler{
 	pixel_x = 7
 	},

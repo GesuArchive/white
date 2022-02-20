@@ -12,10 +12,7 @@
         "request": "launch",
         "name": "Launch DreamSeeker",
         "preLaunchTask": "Build All",
-        "dmb": "${workspaceFolder}/${command:CurrentDMB}",
-        "env": {
-            "AUXTOOLS_DEBUG_DLL": "./debug_server.dll"
-        }
+        "dmb": "${workspaceFolder}/${command:CurrentDMB}"
     }
     ]
 }
