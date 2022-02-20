@@ -18,7 +18,8 @@
 
 	add_client_colour(/datum/client_colour/correction)
 
-	AddComponent(/datum/component/battletension)
+	if(client?.prefs?.btprefsnew)
+		AddComponent(/datum/component/battletension)
 
 /mob/living/ComponentInitialize()
 	. = ..()

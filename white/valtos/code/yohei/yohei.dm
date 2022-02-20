@@ -320,9 +320,10 @@
 
 	spawn(5 SECONDS)
 		var/datum/component/battletension/BT = H.GetComponent(/datum/component/battletension)
-		if(BT)
-			BT.pick_sound('white/valtos/sounds/snidleyWhiplash.ogg')
-			BT.tension = 80
+		if(!BT)
+			AddComponent(/datum/component/battletension)
+		BT.pick_sound('white/valtos/sounds/snidleyWhiplash.ogg')
+		BT.tension = 80
 		to_chat(H, span_revenbignotice("Давно не виделись, а?"))
 		if(H?.hud_used)
 			H.hud_used.update_parallax_pref(H, 1)

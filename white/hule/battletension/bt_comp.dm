@@ -22,6 +22,8 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 /datum/component/battletension/Initialize()
 	if(ismob(parent))
 		START_PROCESSING(SSbtension, src)
+	else
+		return COMPONENT_INCOMPATIBLE
 
 /datum/component/battletension/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ATOM_BULLET_ACT, .proc/bulletact_react)
@@ -128,6 +130,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 /datum/component/battletension/proc/is_enabled()
 	var/mob/owner = parent
 	if((!owner || !owner.client || !owner.client.prefs.btprefsnew) && !SSbtension.forced_tension)
+		qdel(src)
 		return FALSE
 	return TRUE
 
@@ -298,5 +301,6 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	if(mob)
 		var/datum/component/battletension/BT = mob.GetComponent(/datum/component/battletension)
-		if(BT)
-			BT.pick_sound()
+		if(!BT)
+			AddComponent(/datum/component/battletension)
+		BT.pick_sound()
