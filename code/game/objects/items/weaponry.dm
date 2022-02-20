@@ -633,10 +633,12 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 /obj/item/melee/baseball_bat/attackby(obj/item/attacking_item, mob/user, params)
 	if(attacking_item.tool_behaviour == TOOL_DRILL)
 		if(explosive == CHARGED_BAT)
+			attacking_item.play_tool_sound(get_turf(src), 100)
 			to_chat(user, span_userdanger("Совершаю глупость!"))
 			do_boom(user, user)
 			return
 		if(explosive == FALSE && do_after(user, (5 SECONDS * attacking_item.toolspeed), src))
+			attacking_item.play_tool_sound(get_turf(src), 100)
 			to_chat(user, span_info("Делаю идеальное отверстие в бите."))
 			visible_message(span_info("<b>[user]</b> сверлит биту."))
 			explosive = DRILLED_BAT
@@ -644,6 +646,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	else if (istype(attacking_item, /obj/item/ammo_casing) && explosive == DRILLED_BAT)
 		var/obj/item/ammo_casing/AC = attacking_item
 		if(AC.loaded_projectile)
+			playsound(get_turf(src), 'sound/weapons/gun/general/mag_bullet_insert.ogg', 100)
 			AC.forceMove(src)
 			to_chat(user, span_info("Вставляю патрон в биту. Гениально."))
 			explosive = CHARGED_BAT
@@ -665,9 +668,11 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	. = ..()
 	if(do_boom(user, target))
 		playsound(get_turf(src), 'sound/weapons/gun/pistol/shot.ogg', 100)
-		visible_message(span_danger("Бита лопается в руках <b>[user]</b> при ударе!"))
-		explosion(get_turf(src), -1, -1, 1, 3)
-		qdel(src)
+		user.dropItemToGround(src)
+		throw_at(get_edge_target_turf(target, REVERSE_DIR(user.dir)), rand(8,10), 14, user)
+		if(prob(25))
+			var/obj/item/bodypart/cute = user.get_active_hand()
+			cute.dismember(BRUTE, FALSE, TRUE)
 
 #undef DRILLED_BAT
 #undef CHARGED_BAT
