@@ -15120,7 +15120,6 @@
 /area/commons/dorms/five)
 "HM" = (
 /obj/structure/rack,
-/obj/item/disk/design_disk/adv/kar98k_ammo,
 /turf/open/floor/plasteel/monofloor,
 /area/maintenance/bottom_station_maints/north)
 "HN" = (
@@ -22716,7 +22715,6 @@
 /area/service/bar)
 "YR" = (
 /obj/structure/table,
-/obj/item/blacksmith/gun_parts/kar98k,
 /obj/machinery/light/small{
 	dir = 1;
 	pixel_y = 0
