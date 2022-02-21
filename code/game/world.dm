@@ -361,7 +361,7 @@ GLOBAL_VAR_INIT(hub_mimic_desc, "GO! GO! GO!")
 	var/s = ""
 
 	if(!GLOB.hub_mimic)
-		s += "<big><b>White Dream: RU</b> 18+</big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n\n"
+		s += "<big><b>/tg/station White Dream: RU</b> 18+</big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n\n"
 		switch(rand(1, 6))
 			if(1)
 				s += "<img src='https://assets.station13.ru/l/w7.png'>\n\n"
