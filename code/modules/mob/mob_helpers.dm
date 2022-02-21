@@ -92,9 +92,9 @@
 			if(lowertext(letter)=="г")	letter="х"
 			if(lowertext(letter)=="д")	letter="т"
 
-		switch(rand(1,15))
+		switch(rand(1,14))
 			if(1,3,5,8)		letter = "[lowertext(letter)]"
-			if(2,4,6,15)	letter = "[uppertext(letter)]"
+			if(2,4,6,14)	letter = "[uppertext(letter)]"
 			if(7)			letter += "'"
 			if(9,10)		letter = "<b>[letter]</b>"
 			if(11,12)		letter = "<big>[letter]</big>"
@@ -122,9 +122,9 @@
 			if(lowertext(letter)=="д")	letter="т"
 			if(lowertext(letter)=="н")	letter="НЕТ"
 
-		switch(rand(1,15))
+		switch(rand(1,14))
 			if(1,3,5,8)		letter = "[lowertext(letter)]"
-			if(2,4,6,15)	letter = "[uppertext(letter)]"
+			if(2,4,6,14)	letter = "[uppertext(letter)]"
 			if(7)			letter += "'"
 			if(9,10)		letter = "<b>[letter]</b>"
 			if(11,12)		letter = "<big>[letter]</big>"

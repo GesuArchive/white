@@ -747,7 +747,7 @@
 					partmsg += "\[<span class='danger'>[uppertext(W.name)]</span>\] "
 				if(WOUND_SEVERITY_MODERATE)
 					partmsg += "\[<span class='red'>[uppertext(W.name)]</span>\] "
-				if(WOUND_SEVERITY_SEVERE || WOUND_SEVERITY_CRITICAL)
+				if(WOUND_SEVERITY_SEVERE, WOUND_SEVERITY_CRITICAL)
 					partmsg += "\[<span class='red'><b>[uppertext(W.name)]</b></span>\] "
 
 		if(body_part.get_bleed_rate())

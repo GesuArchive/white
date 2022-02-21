@@ -9,7 +9,7 @@
 	var/obj/item/pool/helditem = L.get_active_held_item()
 	if(istype(helditem))
 		return
-	switch(rand(1, 100))
+	switch(rand(1, 17))
 		if(1 to 4)
 			to_chat(parent, span_userdanger("You can't touch the bottom!"))
 			L.emote("agony")

@@ -194,7 +194,7 @@ SUBSYSTEM_DEF(shuttle)
 
 /// Check if we can call the evac shuttle.
 /// Returns TRUE if we can. Otherwise, returns a string detailing the problem.
-/datum/controller/subsystem/shuttle/proc/canEvac(mob/user, check_integrity = TRUE)
+/datum/controller/subsystem/shuttle/proc/canEvac(mob/user)
 	var/srd = CONFIG_GET(number/shuttle_refuel_delay)
 	if(world.time - SSticker.round_start_time < srd)
 		return "Эвакуационный шаттл всё ещё готовится. Подождите [DisplayTimeText(srd - (world.time - SSticker.round_start_time))] перед очередной попыткой."
@@ -215,7 +215,7 @@ SUBSYSTEM_DEF(shuttle)
 
 	if(world.time - SSticker.round_start_time > 1 HOURS)
 		return TRUE
-
+/*
 	if(check_integrity)
 		var/station_integrity = 100
 		if(last_integrity_check > world.time - 1 MINUTES)
@@ -228,7 +228,7 @@ SUBSYSTEM_DEF(shuttle)
 			cached_station_integrity = station_integrity
 		if(station_integrity > 98)
 			return "Состояние станции удовлетворительное. Улетать пока нет смысла."
-
+*/
 	return TRUE
 
 /datum/controller/subsystem/shuttle/proc/requestEvac(mob/user, call_reason)
@@ -257,7 +257,7 @@ SUBSYSTEM_DEF(shuttle)
 		return
 
 	var/area/signal_origin = get_area(user)
-	var/emergency_reason = "\nПричиныч:\n\n[call_reason]"
+	var/emergency_reason = "\nПричина:\n\n[call_reason]"
 	var/security_num = seclevel2num(get_security_level())
 	switch(security_num)
 		if(SEC_LEVEL_RED,SEC_LEVEL_DELTA)

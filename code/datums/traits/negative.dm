@@ -194,7 +194,7 @@
 				heirloom_type = /obj/item/storage/firstaid/ancient/heirloom
 			if("Medical Doctor")
 				heirloom_type = /obj/item/storage/firstaid/ancient/heirloom
-			if("Paramedic" || "Field Medic")
+			if("Paramedic", "Field Medic")
 				heirloom_type = /obj/item/storage/firstaid/ancient/heirloom
 			if("Psychologist")
 				heirloom_type = /obj/item/storage/pill_bottle
@@ -205,7 +205,7 @@
 			//Engineering
 			if("Chief Engineer")
 				heirloom_type = pick(/obj/item/clothing/head/hardhat/white, /obj/item/screwdriver, /obj/item/wrench, /obj/item/weldingtool, /obj/item/crowbar, /obj/item/wirecutters)
-			if("Station Engineer" || "Mechanic")
+			if("Station Engineer", "Mechanic")
 				heirloom_type = pick(/obj/item/clothing/head/hardhat, /obj/item/screwdriver, /obj/item/wrench, /obj/item/weldingtool, /obj/item/crowbar, /obj/item/wirecutters)
 			if("Atmospheric Technician")
 				heirloom_type = pick(/obj/item/lighter, /obj/item/lighter/greyscale, /obj/item/storage/box/matches)
@@ -214,7 +214,7 @@
 				heirloom_type = pick(/obj/item/stamp, /obj/item/stamp/denied)
 			if("Cargo Technician")
 				heirloom_type = /obj/item/clipboard
-			if("Shaft Miner" || "Hunter")
+			if("Shaft Miner", "Hunter")
 				heirloom_type = pick(/obj/item/pickaxe/mini, /obj/item/shovel)
 
 	if(!heirloom_type)
