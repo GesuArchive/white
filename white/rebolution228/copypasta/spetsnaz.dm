@@ -80,7 +80,7 @@
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat/sobr
 	ears = /obj/item/radio/headset/headset_cent/alt
-	belt = /obj/item/storage/belt/military/sobr
+	belt = /obj/item/storage/belt/military/assault/sobr
 	id = /obj/item/card/id/advanced/centcom/spetsnaz
 	id_trim = /datum/id_trim/centcom/spetsnaz
 	r_pocket = /obj/item/kitchen/knife/combat
@@ -131,7 +131,7 @@
 /datum/outfit/sobr/grenadier
 	name = "СОБР-гранатометчик"
 
-	belt = /obj/item/storage/belt/military/sobr/grenadier
+	belt = /obj/item/storage/belt/military/assault/sobr/grenadier
 
 /datum/outfit/sobr/grenadier/pre_equip(mob/living/carbon/human/H)
 	suit_store = /obj/item/gun/ballistic/automatic/ak74m/gp25
@@ -172,7 +172,7 @@
 	name = "СОБР-специалист"
 
 	suit = /obj/item/clothing/suit/armor/heavysobr
-	belt = /obj/item/storage/belt/military/sobr/specialist
+	belt = /obj/item/storage/belt/military/assault/sobr/specialist
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
 							/obj/item/storage/box/handcuffs=1,\
 							/obj/item/melee/classic_baton/german=1,\
@@ -222,7 +222,7 @@
 	head = /obj/item/clothing/head/hos/beret/sobr
 	mask = null
 	glasses = /obj/item/clothing/glasses/sunglasses
-	belt = /obj/item/storage/belt/military/sobr/leader
+	belt =/obj/item/storage/belt/military/assault/sobr/leader
 	id = /obj/item/card/id/advanced/centcom/spetsnaz/leader
 	id_trim = /datum/id_trim/centcom/spetsnaz/leader
 	r_pocket = /obj/item/kitchen/knife/combat
@@ -252,19 +252,25 @@
 
 ////////////////////ITEMS//////////////////////
 
-/obj/item/storage/belt/military/sobr
-	desc = "Набор тактических ремней, которые носят некоторые вооруженные отряды."
+/obj/item/storage/belt/military/assault/sobr
+	name = "штурмовой пояс"
+	desc = "Тактический штурмовой пояс, которые носят некоторые вооруженные отряды."
 
-/obj/item/storage/belt/military/sobr/PopulateContents()
+/obj/item/storage/belt/military/assault/sobr/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_items = 7
+
+/obj/item/storage/belt/military/assault/sobr/PopulateContents()
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/grenade/stingbang(src)
 
-/obj/item/storage/belt/military/sobr/grenadier
+/obj/item/storage/belt/military/assault/sobr/grenadier
 
-/obj/item/storage/belt/military/sobr/grenadier/PopulateContents()
+/obj/item/storage/belt/military/assault/sobr/grenadier/PopulateContents()
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/ammo_box/magazine/ak74m(src)
 		new /obj/item/ammo_box/magazine/ak74m(src)
@@ -272,9 +278,9 @@
 		new /obj/item/ammo_casing/a40mm/vog25(src)
 		new /obj/item/grenade/stingbang(src)
 
-/obj/item/storage/belt/military/sobr/specialist
+/obj/item/storage/belt/military/assault/sobr/specialist
 
-/obj/item/storage/belt/military/sobr/specialist/PopulateContents()
+/obj/item/storage/belt/military/assault/sobr/specialist/PopulateContents()
 		new /obj/item/ammo_box/magazine/saiga(src)
 		new /obj/item/ammo_box/magazine/saiga(src)
 		new /obj/item/ammo_box/magazine/saiga(src)
@@ -283,9 +289,9 @@
 		new /obj/item/grenade/c4(src)
 		new /obj/item/grenade/c4(src)
 
-/obj/item/storage/belt/military/sobr/leader
+/obj/item/storage/belt/military/assault/sobr/leader
 
-/obj/item/storage/belt/military/sobr/leader/PopulateContents()
+/obj/item/storage/belt/military/assault/sobr/leader/PopulateContents()
 		new /obj/item/ammo_box/magazine/asval(src)
 		new /obj/item/ammo_box/magazine/asval(src)
 		new /obj/item/ammo_box/magazine/asval(src)
