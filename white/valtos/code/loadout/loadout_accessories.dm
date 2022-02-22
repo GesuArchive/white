@@ -91,6 +91,12 @@
 	path = /obj/item/clothing/glasses/monocle
 	cost = 100
 
+/datum/gear/accessory/cyborgglasses
+	display_name = "Очки киборга"
+	slot = ITEM_SLOT_EYES
+	path = /obj/item/clothing/glasses/cyborg
+	cost = 500
+
 /datum/gear/accessory/sunglasses
 	display_name = "Солнцезащитные очки"
 	slot = ITEM_SLOT_EYES
