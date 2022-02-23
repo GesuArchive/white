@@ -257,7 +257,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<div class='csetup_main'>"
 			if(is_banned_from(user.ckey, "Appearance"))
 				dat += "<div class='csetup_banned'>Тебе нельзя. Ты всё ещё можешь настраивать персонажей, но в любом случае получишь случайную внешность и имя.</div>"
-			dat += "<div class='csetup_content'><div class='csetup_header'>Персонаж</div>"
+			dat += "<div class='csetup_content'><div class='csetup_header'>Имя</div>"
 			dat += SETUP_START_NODE("Имя")
 			dat += SETUP_GET_LINK("name", "input", "task", real_name)
 			dat += SETUP_GET_LINK("name", "random", "task", "Случайное")
@@ -276,6 +276,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_NODE_RANDOM("Всегда случайное имя", RANDOM_NAME)
 			dat += SETUP_NODE_SWITCH("Язык генератора имени", "name_lang", en_names ? "EN" : "RU")
 			dat += SETUP_NODE_RANDOM("Случайное имя, если антагонист", RANDOM_NAME_ANTAG)
+
+			dat += "<div class='csetup_header'>Тело</div>"
 
 			if(!(AGENDER in pref_species.species_traits))
 				var/dispGender
@@ -305,12 +307,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(user.client.get_exp_living(TRUE) >= PLAYTIME_HARDCORE_RANDOM)
 				dat += SETUP_NODE_RANDOM("Режим хардкора", RANDOM_HARDCORE)
 
-			dat += "</div><div class='csetup_content'><div class='csetup_header'>Должностное</div>"
+			dat += "<div class='csetup_header'>Должностное</div>"
 
 			dat += SETUP_NODE_INPUT("Дисплей ИИ", "ai_core_icon", preferred_ai_core_display)
 			dat += SETUP_NODE_INPUT("Отдел офицера", "sec_dept", prefered_security_department)
 
-			dat += "</div><div class='csetup_content'><div class='csetup_header'>Подробности</div>"
+			dat += "</div><div class='csetup_content'><div class='csetup_header'>Основное</div>"
 
 			dat += SETUP_START_NODE("Тело")
 			dat += SETUP_GET_LINK("species", "input", "task", pref_species.name)
@@ -318,7 +320,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_GET_LINK("toggle_random", RANDOM_BODY, "random_type", randomise[RANDOM_BODY] ? "Да" : "Нет")
 			dat += SETUP_CLOSE_NODE
 
-			dat += SETUP_NODE_RANDOM("Когда Антаг", RANDOM_BODY_ANTAG)
+			dat += SETUP_NODE_RANDOM("Случайное тело когда антаг", RANDOM_BODY_ANTAG)
 
 			dat += SETUP_START_NODE("Вид")
 			dat += SETUP_GET_LINK("species", "input", "task", pref_species.name)
@@ -333,6 +335,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_NODE_INPUT_RANDOM("Рюкзак", "bag", backpack_to_ru_conversion(backpack), RANDOM_BACKPACK)
 			dat += SETUP_NODE_INPUT_RANDOM("Комбез", "suit", jumpsuit_to_ru_conversion(jumpsuit_style), RANDOM_JUMPSUIT_STYLE)
 			dat += SETUP_NODE_INPUT("Аплинк", "uplink_loc", uplink_to_ru_conversion(uplink_spawn_loc))
+
+			dat += "<div class='csetup_header'>Подробное</div>"
 
 			//Adds a thing to select which phobia because I can't be assed to put that in the quirks window
 			if("Phobia" in all_quirks)
