@@ -575,7 +575,7 @@
 	id = "pod_lavaland3";
 	name = "lavaland"
 	},
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "acG" = (
 /obj/structure/cable,
@@ -6360,20 +6360,20 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "aDZ" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
 	},
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "aEa" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
 	},
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "aEc" = (
 /obj/effect/turf_decal/stripes/line{
@@ -6389,19 +6389,19 @@
 	dir = 4
 	},
 /obj/structure/lattice,
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "aEe" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 10
 	},
 /obj/structure/lattice,
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "aEf" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /obj/structure/lattice,
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "aEg" = (
 /obj/structure/girder,
@@ -6412,18 +6412,18 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "aEj" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "aEk" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "aEl" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
@@ -6439,14 +6439,14 @@
 	dir = 5
 	},
 /obj/structure/lattice,
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "aEn" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 9
 	},
 /obj/structure/lattice,
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "aEo" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
@@ -6459,18 +6459,18 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 10
 	},
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "aEq" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 6
 	},
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "aEr" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /obj/structure/lattice/catwalk,
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "aEs" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
@@ -11226,7 +11226,6 @@
 /turf/open/floor/plasteel/dark,
 /area/science/robotics/mechbay)
 "baX" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/atmos/toxins_mixing_input,
 /turf/open/floor/engine/vacuum,
 /area/science/mixing/chamber)
 "baY" = (
@@ -11389,9 +11388,7 @@
 /area/science/mixing/chamber)
 "bbD" = (
 /obj/effect/landmark/blobstart,
-/obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/incinerator_toxmix{
-	dir = 4
-	},
+/obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/incinerator_toxmix,
 /turf/open/floor/engine,
 /area/science/mixing/chamber)
 "bbE" = (
@@ -18323,7 +18320,7 @@
 	roundstart_template = /datum/map_template/shuttle/labour/kilo;
 	width = 9
 	},
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space)
 "bVb" = (
 /turf/open/floor/plasteel,
@@ -20172,7 +20169,7 @@
 	id = "pod_lavaland2";
 	name = "lavaland"
 	},
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "cci" = (
 /obj/structure/sign/warning/explosives,
@@ -21860,8 +21857,16 @@
 /turf/open/floor/plating,
 /area/hallway/primary/aft)
 "ckk" = (
-/obj/structure/lattice,
-/turf/open/space,
+/obj/docking_port/stationary{
+	dir = 4;
+	dwidth = 3;
+	height = 10;
+	id = "mining_home";
+	name = "mining shuttle bay";
+	roundstart_template = /datum/map_template/shuttle/mining/kilo;
+	width = 7
+	},
+/turf/open/floor/engine/hull,
 /area/space/nearstation)
 "ckm" = (
 /obj/structure/grille/broken,
@@ -24368,7 +24373,7 @@
 	c_tag = "Armoury External"
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "cxG" = (
 /obj/structure/table/wood,
@@ -26113,7 +26118,7 @@
 	id = "pod_lavaland1";
 	name = "lavaland"
 	},
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "cGC" = (
 /obj/effect/decal/cleanable/dirt,
@@ -27084,7 +27089,7 @@
 	id = "pod_lavaland4";
 	name = "lavaland"
 	},
-/turf/open/space,
+/turf/open/openspace/airless,
 /area/space/nearstation)
 "cOg" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -43575,18 +43580,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/cargo/storage)
-"iXe" = (
-/obj/docking_port/stationary{
-	dir = 4;
-	dwidth = 3;
-	height = 10;
-	id = "mining_home";
-	name = "mining shuttle bay";
-	roundstart_template = /datum/map_template/shuttle/mining/kilo;
-	width = 7
-	},
-/turf/open/floor/engine/hull,
-/area/space/nearstation)
 "iXv" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/neutral{
@@ -45055,9 +45048,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/engineering/atmos)
-"jAp" = (
-/turf/open/space,
-/area/space)
 "jAE" = (
 /obj/structure/sign/warning/nosmoking{
 	pixel_x = -30
@@ -96879,15 +96869,15 @@ acm
 acm
 aaa
 nBm
-ckk
+acm
 aaa
 aaa
-ckk
+acm
 nBm
-ckk
+acm
 aaa
 aaa
-ckk
+acm
 nBm
 cmU
 cmU
@@ -97907,15 +97897,15 @@ aeU
 cmU
 cmU
 nBm
-ckk
+acm
 aaa
 aaa
-ckk
+acm
 nBm
-ckk
+acm
 aaa
 aaa
-ckk
+acm
 nBm
 cmU
 cmU
@@ -110055,17 +110045,17 @@ cnV
 bIj
 sEM
 qTq
-bFa
-bFa
-bET
-bET
-bFa
-bFa
-akK
-bwu
-akK
-bwu
-akK
+bFs
+bFs
+bFz
+bFz
+bFs
+bFs
+amO
+amy
+amO
+amy
+amO
 acm
 qJs
 aaa
@@ -110312,7 +110302,7 @@ cpW
 bFa
 bFa
 bET
-bFa
+bFs
 idD
 idD
 idD
@@ -110569,7 +110559,7 @@ ngz
 bFa
 bGf
 bRT
-bET
+bFz
 idD
 jnU
 nVD
@@ -110583,7 +110573,7 @@ mrF
 xcO
 xcO
 idD
-jAp
+aaa
 aaa
 aaa
 aaa
@@ -110826,7 +110816,7 @@ cFC
 bFa
 bFa
 bFS
-bFa
+bFs
 rko
 nVD
 mMV
@@ -111083,7 +111073,7 @@ csp
 bFa
 qsx
 bGG
-bET
+bFz
 idD
 lHG
 sko
@@ -111340,7 +111330,7 @@ rQn
 dKp
 kjI
 bej
-bFa
+bFs
 rko
 xHX
 kPg
@@ -111597,7 +111587,7 @@ cya
 bFa
 vEA
 bGU
-bET
+bFz
 iVw
 cVb
 vdS
@@ -122412,7 +122402,7 @@ efC
 efC
 gzJ
 sUB
-ckk
+acm
 aEg
 cnd
 cnu
@@ -127548,15 +127538,15 @@ aeU
 cmU
 cmU
 kuv
-ckk
+acm
 aaa
 aaa
-ckk
+acm
 kuv
-ckk
+acm
 aaa
 aaa
-ckk
+acm
 kuv
 aaa
 aaa
@@ -127752,7 +127742,7 @@ bkd
 bnb
 bnb
 bnb
-iXe
+ckk
 bnb
 bnb
 bnb
@@ -128576,15 +128566,15 @@ aaa
 acm
 aaa
 kuv
-ckk
+acm
 aaa
 aaa
-ckk
+acm
 kuv
-ckk
+acm
 aaa
 aaa
-ckk
+acm
 kuv
 aaa
 aaa
@@ -130805,15 +130795,15 @@ aeo
 aaa
 aaa
 oaA
-ckk
+acm
 aaa
 aaa
-ckk
+acm
 oaA
-ckk
+acm
 aaa
 aaa
-ckk
+acm
 oaA
 cmU
 cmU
@@ -131833,15 +131823,15 @@ aaQ
 aaa
 aaa
 oaA
-ckk
+acm
 aaa
 aaa
-ckk
+acm
 oaA
-ckk
+acm
 aaa
 aaa
-ckk
+acm
 oaA
 cmU
 cmU
