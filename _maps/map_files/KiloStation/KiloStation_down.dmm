@@ -37,6 +37,15 @@
 "aeU" = (
 /turf/open/floor/plating/asteroid/airless,
 /area/space/nearstation)
+"afH" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/warning/vacuum/external{
+	pixel_x = 32
+	},
+/turf/open/floor/plating{
+	icon_state = "platingdmg2"
+	},
+/area/maintenance/bottom_station_maints/east)
 "agF" = (
 /obj/effect/spawner/lootdrop/cigbutt,
 /obj/effect/decal/cleanable/dirt,
@@ -262,10 +271,8 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
-	icon_state = "damaged4";
-	initial_gas_mix = "o2=22;n2=82;TEMP=293.15";
-	temperature = 293.15
+	heat_capacity = 10000;
+	icon_state = "damaged4"
 	},
 /area/maintenance/bottom_station_maints)
 "bdG" = (
@@ -280,7 +287,7 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged1"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -317,7 +324,7 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged1"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -436,7 +443,7 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "floorscorched1"
 	},
 /area/maintenance/bottom_station_maints)
@@ -466,10 +473,6 @@
 	icon_state = "platingdmg1"
 	},
 /area/maintenance/bottom_station_maints/south)
-"bLs" = (
-/obj/effect/loot_site_spawner,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/east)
 "bOU" = (
 /turf/open/floor/plating{
 	icon_state = "platingdmg3"
@@ -496,7 +499,7 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/structure/cable,
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -559,7 +562,7 @@
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged4"
 	},
 /area/maintenance/bottom_station_maints/south)
@@ -603,14 +606,13 @@
 "cmd" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel{
-	dir = 8;
-	heat_capacity = 1e+006;
 	icon_state = "damaged2"
 	},
 /area/maintenance/bottom_station_maints)
 "coy" = (
 /obj/item/stack/rods,
 /turf/open/floor/plating{
+	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -783,7 +785,7 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged4"
 	},
 /area/maintenance/bottom_station_maints/south)
@@ -905,7 +907,7 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged1"
 	},
 /area/maintenance/bottom_station_maints/east)
@@ -943,7 +945,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged4"
 	},
 /area/maintenance/bottom_station_maints/south)
@@ -1010,10 +1012,8 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
-	icon_state = "damaged5";
-	initial_gas_mix = "o2=22;n2=82;TEMP=293.15";
-	temperature = 293.15
+	heat_capacity = 10000;
+	icon_state = "damaged5"
 	},
 /area/maintenance/bottom_station_maints)
 "dDW" = (
@@ -1106,7 +1106,6 @@
 "dYA" = (
 /obj/item/stack/rods,
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -1281,7 +1280,7 @@
 /obj/effect/spawner/lootdrop/food_packaging,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged1"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -1387,6 +1386,13 @@
 	icon_state = "platingdmg2"
 	},
 /area/maintenance/bottom_station_maints)
+"fyQ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/spawner/lootdrop/food_packaging,
+/turf/open/floor/plasteel{
+	icon_state = "damaged2"
+	},
+/area/maintenance/bottom_station_maints/east)
 "fAf" = (
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/blood/old,
@@ -1398,7 +1404,7 @@
 "fAH" = (
 /obj/effect/spawner/lootdrop/food_packaging,
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -1608,7 +1614,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/small,
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -2097,7 +2103,7 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "floorscorched1"
 	},
 /area/maintenance/bottom_station_maints/east)
@@ -2158,7 +2164,7 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged4"
 	},
 /area/maintenance/bottom_station_maints)
@@ -2265,6 +2271,10 @@
 	icon_state = "platingdmg1"
 	},
 /area/maintenance/bottom_station_maints/south)
+"iZo" = (
+/obj/effect/loot_site_spawner,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/east)
 "jan" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/spawner/lootdrop/food_packaging,
@@ -2300,15 +2310,6 @@
 	icon_state = "platingdmg2"
 	},
 /area/maintenance/bottom_station_maints/east)
-"jcx" = (
-/turf/open/floor/plasteel{
-	dir = 8;
-	heat_capacity = 1e+006;
-	icon_state = "damaged4";
-	initial_gas_mix = "o2=22;n2=82;TEMP=293.15";
-	temperature = 293.15
-	},
-/area/maintenance/bottom_station_maints/west)
 "jcI" = (
 /obj/machinery/door/firedoor,
 /turf/open/genturf,
@@ -2328,7 +2329,7 @@
 /obj/item/stack/rods,
 /obj/machinery/light/small,
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -2410,6 +2411,13 @@
 	icon_state = "platingdmg1"
 	},
 /area/maintenance/bottom_station_maints)
+"jyy" = (
+/obj/structure/girder,
+/obj/structure/grille/broken,
+/turf/open/floor/plating{
+	icon_state = "panelscorched"
+	},
+/area/maintenance/bottom_station_maints/east)
 "jyB" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
@@ -2472,7 +2480,7 @@
 	},
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged4"
 	},
 /area/maintenance/bottom_station_maints/south)
@@ -2585,10 +2593,8 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
-	icon_state = "damaged5";
-	initial_gas_mix = "o2=22;n2=82;TEMP=293.15";
-	temperature = 293.15
+	heat_capacity = 10000;
+	icon_state = "damaged5"
 	},
 /area/maintenance/bottom_station_maints/west)
 "kgt" = (
@@ -2619,7 +2625,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged4"
 	},
 /area/maintenance/bottom_station_maints)
@@ -2683,15 +2689,6 @@
 /obj/machinery/light/small,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
-	},
-/area/maintenance/bottom_station_maints/east)
-"kwz" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/spawner/lootdrop/food_packaging,
-/turf/open/floor/plasteel{
-	dir = 8;
-	heat_capacity = 1e+006;
-	icon_state = "damaged2"
 	},
 /area/maintenance/bottom_station_maints/east)
 "kyC" = (
@@ -2769,6 +2766,12 @@
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints)
+"kOi" = (
+/obj/effect/loot_site_spawner,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/maintenance/bottom_station_maints/west)
 "kPg" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/grille/broken,
@@ -2783,15 +2786,6 @@
 	icon_state = "platingdmg1"
 	},
 /area/maintenance/bottom_station_maints)
-"kQv" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/sign/warning/vacuum/external{
-	pixel_x = 32
-	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
-/area/maintenance/bottom_station_maints/east)
 "kSg" = (
 /obj/machinery/door/airlock/external,
 /obj/structure/cable,
@@ -3044,7 +3038,7 @@
 	},
 /obj/item/stack/rods,
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -3157,13 +3151,6 @@
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/south)
-"lWr" = (
-/obj/structure/girder,
-/obj/structure/grille/broken,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
-/area/maintenance/bottom_station_maints/east)
 "lXj" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/glass,
@@ -3414,7 +3401,7 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "floorscorched1"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -3481,7 +3468,7 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "floorscorched1"
 	},
 /area/maintenance/bottom_station_maints)
@@ -3595,8 +3582,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel{
-	dir = 8;
-	heat_capacity = 1e+006;
 	icon_state = "damaged2"
 	},
 /area/maintenance/bottom_station_maints/east)
@@ -3737,7 +3722,7 @@
 "nXL" = (
 /obj/structure/grille/broken,
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -4025,8 +4010,6 @@
 	icon_state = "pile"
 	},
 /turf/open/floor/plasteel{
-	dir = 8;
-	heat_capacity = 1e+006;
 	icon_state = "damaged2"
 	},
 /area/maintenance/bottom_station_maints)
@@ -4050,7 +4033,7 @@
 /area/maintenance/bottom_station_maints/south)
 "pgO" = (
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -4063,7 +4046,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged4"
 	},
 /area/maintenance/bottom_station_maints/south)
@@ -4077,7 +4060,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -4162,7 +4145,7 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged1"
 	},
 /area/maintenance/bottom_station_maints/east)
@@ -4209,8 +4192,6 @@
 /obj/item/stack/rods,
 /obj/structure/cable,
 /turf/open/floor/plasteel{
-	dir = 8;
-	heat_capacity = 1e+006;
 	icon_state = "damaged2"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -4243,7 +4224,7 @@
 	},
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged4"
 	},
 /area/maintenance/bottom_station_maints/east)
@@ -4367,12 +4348,6 @@
 	icon_state = "platingdmg1"
 	},
 /area/maintenance/bottom_station_maints)
-"qEU" = (
-/obj/effect/loot_site_spawner,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
-/area/maintenance/bottom_station_maints/west)
 "qGg" = (
 /obj/structure/cable,
 /turf/open/floor/plating{
@@ -4390,10 +4365,8 @@
 /obj/effect/spawner/lootdrop/food_packaging,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
-	icon_state = "damaged5";
-	initial_gas_mix = "o2=22;n2=82;TEMP=293.15";
-	temperature = 293.15
+	heat_capacity = 10000;
+	icon_state = "damaged5"
 	},
 /area/maintenance/bottom_station_maints)
 "qMF" = (
@@ -4772,12 +4745,6 @@
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/east)
-"spj" = (
-/obj/effect/loot_site_spawner,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
-/area/maintenance/bottom_station_maints/east)
 "spy" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/small{
@@ -4827,7 +4794,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged1"
 	},
 /area/maintenance/bottom_station_maints/east)
@@ -4859,10 +4826,8 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
-	icon_state = "damaged4";
-	initial_gas_mix = "o2=22;n2=82;TEMP=293.15";
-	temperature = 293.15
+	heat_capacity = 10000;
+	icon_state = "damaged4"
 	},
 /area/maintenance/bottom_station_maints)
 "sIb" = (
@@ -5100,7 +5065,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged4"
 	},
 /area/maintenance/bottom_station_maints/east)
@@ -5123,7 +5088,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -5283,7 +5248,7 @@
 /obj/effect/spawner/lootdrop/cigbutt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints)
@@ -5434,7 +5399,7 @@
 /obj/item/stack/sheet/iron,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged4"
 	},
 /area/maintenance/bottom_station_maints/south)
@@ -5607,10 +5572,8 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
-	icon_state = "damaged4";
-	initial_gas_mix = "o2=22;n2=82;TEMP=293.15";
-	temperature = 293.15
+	heat_capacity = 10000;
+	icon_state = "damaged4"
 	},
 /area/maintenance/bottom_station_maints/west)
 "vwm" = (
@@ -5719,7 +5682,7 @@
 "vQU" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -5874,7 +5837,7 @@
 /obj/effect/spawner/lootdrop/food_packaging,
 /obj/structure/grille/broken,
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -5898,7 +5861,7 @@
 "wyi" = (
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged4"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -5964,14 +5927,14 @@
 "wKi" = (
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged1"
 	},
 /area/maintenance/bottom_station_maints/east)
 "wLV" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -6078,8 +6041,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/cable,
 /turf/open/floor/plasteel{
-	dir = 8;
-	heat_capacity = 1e+006;
 	icon_state = "damaged2"
 	},
 /area/maintenance/bottom_station_maints/east)
@@ -6158,7 +6119,7 @@
 	},
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged1"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -6301,6 +6262,12 @@
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints)
+"xYK" = (
+/obj/effect/loot_site_spawner,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/maintenance/bottom_station_maints/east)
 "xZp" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
@@ -19145,8 +19112,8 @@ eUR
 wWg
 akt
 xnb
-qEU
-qEU
+kOi
+kOi
 fpx
 cOC
 fpx
@@ -22726,7 +22693,7 @@ fZq
 hpW
 mms
 jOK
-coy
+dYA
 bBp
 hyA
 kgs
@@ -24278,7 +24245,7 @@ xqA
 lrq
 xqA
 pYg
-dYA
+coy
 oHh
 roC
 aaa
@@ -25300,7 +25267,7 @@ xqA
 xqA
 eUR
 mnQ
-jcx
+wyi
 eUR
 xqA
 lrq
@@ -25556,7 +25523,7 @@ lrq
 xqA
 xqA
 pYg
-jcx
+wyi
 hEq
 eUR
 xqA
@@ -49469,12 +49436,12 @@ dKZ
 xNH
 izy
 mpf
-lWr
+jyy
 wSt
 hTA
 nCV
-bLs
-spj
+iZo
+xYK
 hQh
 nlh
 gfw
@@ -49728,10 +49695,10 @@ fOx
 tyd
 oif
 sNf
-kwz
+fyQ
 sZY
 hRM
-kQv
+afH
 jsw
 sNf
 hNl
