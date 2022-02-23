@@ -190,8 +190,24 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	menuoptions = list()
 	return
 
-#define APPEARANCE_CATEGORY_COLUMN "<td valign='top' width='14%'>"
-#define MAX_MUTANT_ROWS 4
+/**
+ * Fucking magic
+ */
+
+#define SETUP_START_NODE(L)  		  	 		 	 		"<div class='csetup_character_node'><div class='csetup_character_label'>[L]</div><div class='csetup_character_input'>"
+
+#define SETUP_GET_LINK(pref, task, task_type, value) 		"<a href='?_src_=prefs;preference=[pref][task ? ";[task_type]=[task]" : ""]'>[value]</a>"
+#define SETUP_GET_LINK_RANDOM(random_type) 		  	 		"<a href='?_src_=prefs;preference=toggle_random;random_type=[random_type]'>[randomise[random_type] ? "Yes" : "No"]</a>"
+#define SETUP_COLOR_BOX(color) 				  	 	 		"<span style='border: 1px solid #161616; background-color: #[color];'>&nbsp;&nbsp;&nbsp;</span>"
+
+#define SETUP_NODE_SWITCH(label, pref, value)		  		"[SETUP_START_NODE(label)][SETUP_GET_LINK(pref, null, null, value)][SETUP_CLOSE_NODE]"
+#define SETUP_NODE_INPUT(label, pref, value)		  		"[SETUP_START_NODE(label)][SETUP_GET_LINK(pref, "input", "task", value)][SETUP_CLOSE_NODE]"
+#define SETUP_NODE_COLOR(label, pref, color, random)  		"[SETUP_START_NODE(label)][SETUP_COLOR_BOX(color)][SETUP_GET_LINK(pref, "input", "task", "Change")][random ? "[SETUP_GET_LINK_RANDOM(random)]" : ""][SETUP_CLOSE_NODE]"
+#define SETUP_NODE_RANDOM(label, random)		  	  		"[SETUP_START_NODE(label)][SETUP_GET_LINK_RANDOM(random)][SETUP_CLOSE_NODE]"
+#define SETUP_NODE_INPUT_RANDOM(label, pref, value, random) "[SETUP_START_NODE(label)][SETUP_GET_LINK(pref, "input", "task", value)][SETUP_GET_LINK_RANDOM(random)][SETUP_CLOSE_NODE]"
+#define SETUP_NODE_COLOR_RANDOM(label, pref, color, random) "[SETUP_START_NODE(label)][SETUP_COLOR_BOX(color)][SETUP_GET_LINK(pref, "input", "task", "Change")][SETUP_GET_LINK_RANDOM(random)][SETUP_CLOSE_NODE]"
+
+#define SETUP_CLOSE_NODE 	  			  			  		"</div></div>"
 
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user || !user.client)
@@ -220,33 +236,33 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(path)
 				var/savefile/S = new /savefile(path)
 				if(S)
-					dat += "<center>"
+					dat += "<div class='csetup_characters'>"
 					var/name
 					for(var/i=1, i<=max_slots, i++)
 						S.cd = "/character[i]"
 						S["real_name"] >> name
 						if(!name)
 							name = "Персонаж [i]"
-						dat += "<a style='white-space:nowrap;' href='?_src_=prefs;preference=changeslot;num=[i];' [i == default_slot ? "class='linkOn'" : ""]>[name]</a> "
-					dat += "</center>"
-			dat += "<table width='100%'><tr>"
-			dat += "<td><center><h2>Предпочтительные должности</h2>"
-			dat += "<a href='?_src_=prefs;preference=job;task=menu'>Выбрать</a><br></center></td>"
+						dat += "<a class='csetup_characters_character' href='?_src_=prefs;preference=changeslot;num=[i];' [i == default_slot ? "class='linkOn'" : ""]>[name]</a> "
+					dat += "</div>"
+			dat += "<div class='csetup_occupations'>"
+			dat += "<h2>Предпочтительные должности</h2>"
+			dat += "<a class='csetup_occupations_choose' href='?_src_=prefs;preference=job;task=menu'>Выбрать</a>"
 			if(CONFIG_GET(flag/roundstart_traits))
-				dat += "<td><center><h2>Особенности</h2>"
-				dat += "<a href='?_src_=prefs;preference=trait;task=menu'>Настроить особенности</a><br></center></td>"
-				dat += "</tr></table>"
-				dat += "<center><b>Текущие особенности:</b> [all_quirks.len ? all_quirks.Join(", ") : "Нет"]</center>"
+				dat += "<h2>Особенности</h2>"
+				dat += "<a class='csetup_occupations_choose' href='?_src_=prefs;preference=trait;task=menu'>Настроить особенности</a></center>"
+				dat += "<center><b>Текущие особенности:</b> [all_quirks.len ? all_quirks.Join(", ") : "Нет"]</center></div>"
 			else
-				dat += "</table>"
-			dat += "<table width='100%'>"
+				dat += "</div>"
+			dat += "<div class='csetup_main'>"
 			if(is_banned_from(user.ckey, "Appearance"))
-				dat += "<b>Тебе нельзя. Ты всё ещё можешь настраивать персонажей, но в любом случае получишь случайную внешность и имя.</b><br>"
-			dat += "<td align='right' width='360px' valign='top'>"
-			dat += "<h3 class='statusDisplay'>Имя</h3>"
-			dat += "<table width='360px' class='block'>"
-			dat += "<tr><td><b>Основное имя персонажа:</b></td><td align='right'><a href='?_src_=prefs;preference=name;task=input'>[real_name]</a> <a href='?_src_=prefs;preference=name;task=random'>Сгенерировать случайное</a></td></tr>"
-
+				dat += "<div class='csetup_banned'>Тебе нельзя. Ты всё ещё можешь настраивать персонажей, но в любом случае получишь случайную внешность и имя.</div>"
+			dat += "<div class='csetup_header'>Персонаж</div>"
+			dat += "<div class='csetup_content'>"
+			dat += SETUP_START_NODE("Имя")
+			dat += SETUP_GET_LINK("name", "input", "task", real_name)
+			dat += SETUP_GET_LINK("name", "random", "task", "Случайное")
+			dat += SETUP_CLOSE_NODE
 			var/old_group
 			for(var/custom_name_id in GLOB.preferences_custom_names)
 				var/namedata = GLOB.preferences_custom_names[custom_name_id]
@@ -254,15 +270,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					old_group = namedata["group"]
 				else if(old_group != namedata["group"])
 					old_group = namedata["group"]
-				dat += "<tr><td><b>[namedata["pref_name"]]:</b></td><td align='right'><a href ='?_src_=prefs;preference=[custom_name_id];task=input'>[custom_names[custom_name_id]]</a></td></tr>"
+				dat += SETUP_START_NODE(namedata["pref_name"])
+				dat += SETUP_GET_LINK(custom_name_id, "input", "task", custom_names[custom_name_id])
+				dat += SETUP_CLOSE_NODE
 
-			dat += "<tr><td><b>Всегда случайное имя:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_NAME]'>[(randomise[RANDOM_NAME]) ? "Да" : "Нет"]</a></td></tr>"
-			dat += "<tr><td><b>Язык генератора имени:</b></td><td align='right'><a href='?_src_=prefs;preference=name_lang'>[(en_names) ? "EN" : "RU"]</a></td></tr>"
-			dat += "<tr><td><b>Случайное имя, если антагонист:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_NAME_ANTAG]'>[(randomise[RANDOM_NAME_ANTAG]) ? "Да" : "Нет"]</a></td></tr>"
-
-			dat += "</table></td><td width='360px' valign='top'>"
-			dat += "<h3 class='statusDisplay'>Персонаж</h3>"
-			dat += "<table width='360px' class='block'>"
+			dat += SETUP_NODE_RANDOM("Всегда случайное имя", RANDOM_NAME)
+			dat += SETUP_NODE_SWITCH("Язык генератора имени", "name_lang", en_names ? "EN" : "RU")
+			dat += SETUP_NODE_RANDOM("Случайное имя, если антагонист", RANDOM_NAME_ANTAG)
 
 			if(!(AGENDER in pref_species.species_traits))
 				var/dispGender
@@ -272,225 +286,130 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dispGender = "Женский"
 				else
 					dispGender = "УДАРНЫЙ ВЕРТОЛЁТ"
-				dat += "<tr><td><b>Пол:</b></td><td align='right'><a href='?_src_=prefs;preference=gender'>[dispGender]</a></td></tr>"
+				dat += SETUP_START_NODE("Пол")
+				dat += SETUP_GET_LINK("gender", null, null, dispGender)
+				dat += SETUP_CLOSE_NODE
 				if(gender == PLURAL || gender == NEUTER)
-					dat += "<tr><td><b>Тип тела:</b></td><td align='right'><a href='?_src_=prefs;preference=body_type'>[body_type == MALE ? "Male" : "Female"]</a></td></tr>"
+					dat += SETUP_START_NODE("Тип тела")
+					dat += SETUP_GET_LINK("body_type", null, null, body_type == MALE ? "Мужской" : "Женский")
+					dat += SETUP_CLOSE_NODE
 				if(randomise[RANDOM_BODY] || randomise[RANDOM_BODY_ANTAG]) //doesn't work unless random body
-					dat += "<tr><td><b>Всегда случайный пол:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_GENDER]'>[(randomise[RANDOM_GENDER]) ? "Да" : "Нет"]</A></td></tr>"
-					dat += "<tr><td><b>Когда антагонист:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_GENDER_ANTAG]'>[(randomise[RANDOM_GENDER_ANTAG]) ? "Да" : "Нет"]</A></td></tr>"
+					dat += SETUP_NODE_RANDOM("Всегда случайный пол", RANDOM_GENDER)
+					dat += SETUP_NODE_RANDOM("Когда антагонист", RANDOM_GENDER_ANTAG)
 
-			dat += "<tr><td><b>Возраст:</b></td><td align='right'><a href='?_src_=prefs;preference=age;task=input'>[age]</a></td></tr>"
+			dat += SETUP_NODE_INPUT("Возраст", "age", age)
+
 			if(randomise[RANDOM_BODY] || randomise[RANDOM_BODY_ANTAG]) //doesn't work unless random body
-				dat += "<tr><td><b>Всегда случайный возраст:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_AGE]'>[(randomise[RANDOM_AGE]) ? "Да" : "Нет"]</A></td></tr>"
-				dat += "<tr><td><b>Когда антагонист:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_AGE_ANTAG]'>[(randomise[RANDOM_AGE_ANTAG]) ? "Да" : "Нет"]</A></td></tr>"
+				dat += SETUP_NODE_RANDOM("Всегда случайный возраст", RANDOM_AGE)
+				dat += SETUP_NODE_RANDOM("Когда антагонист", RANDOM_AGE_ANTAG)
 
 			if(user.client.get_exp_living(TRUE) >= PLAYTIME_HARDCORE_RANDOM)
-				dat += "<tr><td><b>Режим хардкора:</b></td><td align='right'><a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_HARDCORE]'>[(randomise[RANDOM_HARDCORE]) ? "Yes" : "No"]</a></td></tr>"
+				dat += SETUP_NODE_RANDOM("Режим хардкора", RANDOM_HARDCORE)
 
-			dat += "</table>"
-			dat += "<h3 class='statusDisplay'>Особенности должности</h3>"
-			dat += "<table width='360px' class='block'>"
+			dat += "</div><div class='csetup_header'>Должностное</div><div class='csetup_content'>"
 
-			dat += "<tr><td><b>Дисплей ИИ:</b></td><td align='right'><a href='?_src_=prefs;preference=ai_core_icon;task=input'>[preferred_ai_core_display]</a></td></tr>"
-			dat += "<tr><td><b>Отдел офицера:</b></td><td align='right'><a href='?_src_=prefs;preference=sec_dept;task=input'>[prefered_security_department]</a></td></tr>"
+			dat += SETUP_NODE_INPUT("Дисплей ИИ", "ai_core_icon", preferred_ai_core_display)
+			dat += SETUP_NODE_INPUT("Отдел офицера", "sec_dept", prefered_security_department)
 
-			dat += "</table></td></table>"
+			dat += "</div><div class='csetup_header'>Подробности</div><div class='csetup_content'>"
 
-			dat += "<table width='100%'><td width='400px' align='right' valign='top'><h3 class='statusDisplay'>Тело</h3>"
-			dat += "<a href='?_src_=prefs;preference=all;task=random'>Случайное</A>"
-			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_BODY]'>Случайное всегда: [(randomise[RANDOM_BODY]) ? "Да" : "Нет"]</A>"
-			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_BODY_ANTAG]'>Когда антагонист: [(randomise[RANDOM_BODY_ANTAG]) ? "Да" : "Нет"]</A>"
+			dat += SETUP_START_NODE("Тело")
+			dat += SETUP_GET_LINK("species", "input", "task", pref_species.name)
+			dat += SETUP_GET_LINK("all", "random", "task", "Случайное")
+			dat += SETUP_GET_LINK("toggle_random", RANDOM_BODY, "random_type", randomise[RANDOM_BODY] ? "Да" : "Нет")
+			dat += SETUP_CLOSE_NODE
 
-			dat += "<table width='400px' class='block'>"
+			dat += SETUP_NODE_RANDOM("Когда Антаг", RANDOM_BODY_ANTAG)
 
-			dat += "<tr><td><b>Вид:</b></td><td align='right'><a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a>"
-			dat += "<a href='?_src_=prefs;preference=species;task=random'>Случайно</A>"
-			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SPECIES]'>[(randomise[RANDOM_SPECIES]) ? "Да" : "Нет"]</A></td></tr>"
+			dat += SETUP_START_NODE("Вид")
+			dat += SETUP_GET_LINK("species", "input", "task", pref_species.name)
+			dat += SETUP_GET_LINK("species", "random", "task", "Случайно")
+			dat += SETUP_GET_LINK("toggle_random", RANDOM_SPECIES, "random_type", randomise[RANDOM_SPECIES] ? "Да" : "Нет")
+			dat += SETUP_CLOSE_NODE
 
-			dat += "<tr><td><b>Бельё:</b></td><td align='right'><a href='?_src_=prefs;preference=underwear;task=input'>[underwear]</a>"
-			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERWEAR]'>[(randomise[RANDOM_UNDERWEAR]) ? "🔓" : "🔒"]</A></td></tr>"
-
-			dat += "<tr><td><b>Цвет белья:</b></td><td align='right'><span style='border: 1px solid #161616; background-color: #[underwear_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=underwear_color;task=input'>Изменить</a>"
-			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERWEAR_COLOR]'>[(randomise[RANDOM_UNDERWEAR_COLOR]) ? "🔓" : "🔒"]</A></td></tr>"
-
-			dat += "<tr><td><b>Рубаха:</b></td><td align='right'><a href='?_src_=prefs;preference=undershirt;task=input'>[undershirt]</a>"
-			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERSHIRT]'>[(randomise[RANDOM_UNDERSHIRT]) ? "🔓" : "🔒"]</A></td></tr>"
-
-			dat += "<tr><td><b>Носки:</b></td><td align='right'><a href='?_src_=prefs;preference=socks;task=input'>[socks]</a></td>"
-			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SOCKS]'>[(randomise[RANDOM_SOCKS]) ? "🔓" : "🔒"]</A></td></tr>"
-
-			dat += "<tr><td><b>Рюкзак:</b></td><td align='right'><a href='?_src_=prefs;preference=bag;task=input'>[backpack_to_ru_conversion(backpack)]</a>"
-			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_BACKPACK]'>[(randomise[RANDOM_BACKPACK]) ? "🔓" : "🔒"]</A></td></tr>"
-
-			dat += "<tr><td><b>Комбез:</b></td><td align='right'><a href='?_src_=prefs;preference=suit;task=input'>[jumpsuit_to_ru_conversion(jumpsuit_style)]</a>"
-			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_JUMPSUIT_STYLE]'>[(randomise[RANDOM_JUMPSUIT_STYLE]) ? "🔓" : "🔒"]</A></td></tr>"
-
-			dat += "<tr><td><b>Аплинк:</b></td><td align='right'><a href='?_src_=prefs;preference=uplink_loc;task=input'>[uplink_to_ru_conversion(uplink_spawn_loc)]</a></td></tr>"
+			dat += SETUP_NODE_INPUT_RANDOM("Бельё", "underwear", underwear, RANDOM_UNDERWEAR)
+			dat += SETUP_NODE_COLOR_RANDOM("Цвет белья", "underwear", underwear_color, RANDOM_UNDERWEAR_COLOR)
+			dat += SETUP_NODE_INPUT_RANDOM("Рубаха", "undershirt", undershirt, RANDOM_UNDERSHIRT)
+			dat += SETUP_NODE_INPUT_RANDOM("Носки", "socks", socks, RANDOM_SOCKS)
+			dat += SETUP_NODE_INPUT_RANDOM("Рюкзак", "bag", backpack_to_ru_conversion(backpack), RANDOM_BACKPACK)
+			dat += SETUP_NODE_INPUT_RANDOM("Комбез", "suit", jumpsuit_to_ru_conversion(jumpsuit_style), RANDOM_JUMPSUIT_STYLE)
+			dat += SETUP_NODE_INPUT("Аплинк", "uplink_loc", uplink_to_ru_conversion(uplink_spawn_loc))
 
 			//Adds a thing to select which phobia because I can't be assed to put that in the quirks window
 			if("Phobia" in all_quirks)
-				dat += "<tr><td><b>Фобия:</b></td><td align='right'>"
-				dat += "<a href='?_src_=prefs;preference=phobia;task=input'>[phobia]</a></td></tr>"
-
-			dat += "</table></td><td width='400px' valign='top'><h3 class='statusDisplay'>Подробности</h3><table width='400px' class='block'>"
+				dat += SETUP_NODE_INPUT("Фобия", "phobia", phobia)
 
 			if((HAS_FLESH in pref_species.species_traits) || (HAS_BONE in pref_species.species_traits))
-				dat += "<tr><td><b>Получение шрамов:</b></td><td align='right'><a href='?_src_=prefs;preference=persistent_scars'>[(persistent_scars) ? "Включено" : "Отключено"]</A>"
-				dat += "<a href='?_src_=prefs;preference=clear_scars'>Очистить шрамы</A></td></tr>"
+				dat += SETUP_START_NODE("Получение шрамов")
+				dat += SETUP_GET_LINK("persistent_scars", null, null, persistent_scars ? "Включено" : "Отключено")
+				dat += SETUP_GET_LINK("clear_scars", null, null, "Очистить")
+				dat += SETUP_CLOSE_NODE
 
 			var/use_skintones = pref_species.use_skintones
 			if(use_skintones)
-
-				dat += "<tr><td><b>Цвет кожи:</b></td><td align='right'><a href='?_src_=prefs;preference=s_tone;task=input'>[skin_tone]</a>"
-				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SKIN_TONE]'>[(randomise[RANDOM_SKIN_TONE]) ? "🔓" : "🔒"]</A></td></tr>"
+				dat += SETUP_NODE_INPUT_RANDOM("Цвет кожи", "s_tone", skin_tone, RANDOM_SKIN_TONE)
 
 			if((MUTCOLORS in pref_species.species_traits) || (MUTCOLORS_PARTSONLY in pref_species.species_traits))
-
-				dat += "<tr><td><b>Мутацвет:</b></td><td align='right'>"
-
-				dat += "<span style='border: 1px solid #161616; background-color: #[features["mcolor"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=mutant_color;task=input'>Изменить</a></td></tr>"
+				dat += SETUP_NODE_COLOR("Мутацвет", "mutant_color", features["mcolor"], null)
 
 			if(istype(pref_species, /datum/species/ethereal)) //not the best thing to do tbf but I dont know whats better.
-
-				dat += "<tr><td><b>Цвет эфира:</b></td><td align='right'>"
-
-				dat += "<span style='border: 1px solid #161616; background-color: #[features["ethcolor"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=color_ethereal;task=input'>Изменить</a></td></tr>"
-
+				dat += SETUP_NODE_COLOR("Цвет эфира", "color_ethereal", features["ethcolor"], null)
 
 			if((EYECOLOR in pref_species.species_traits) && !(NOEYESPRITES in pref_species.species_traits))
-
-				dat += "<tr><td><b>Цвет глаз:</b></td><td align='right'>"
-				dat += "<span style='border: 1px solid #161616; background-color: #[eye_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=eyes;task=input'>Изменить</a>"
-				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_EYE_COLOR]'>[(randomise[RANDOM_EYE_COLOR]) ? "🔓" : "🔒"]</A></td></tr>"
+				dat += SETUP_NODE_COLOR("Цвет глаз", "eyes", eye_color, RANDOM_EYE_COLOR)
 
 			if(HAIR in pref_species.species_traits)
+				dat += SETUP_NODE_INPUT_RANDOM("Причёска", "hairstyle", hairstyle, RANDOM_HAIRSTYLE)
+				dat += SETUP_NODE_COLOR("Цвет причёски", "hair", hair_color, RANDOM_HAIR_COLOR)
+				dat += SETUP_NODE_COLOR("Цвет градиента", "hair_grad_color", hair_grad_color, null)
+				dat += SETUP_NODE_INPUT("Стиль градиента", "hair_grad_style", hair_grad_style)
 
-				dat += "<tr><td><b>Причёска:</b></td><td align='right'>"
-
-				dat += "<a href='?_src_=prefs;preference=hairstyle;task=input'>[hairstyle]</a>"
-				dat += "<a href='?_src_=prefs;preference=previous_hairstyle;task=input'>&lt;</a><a href='?_src_=prefs;preference=next_hairstyle;task=input'>&gt;</a>"
-				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_HAIRSTYLE]'>[(randomise[RANDOM_HAIRSTYLE]) ? "🔓" : "🔒"]</A></td></tr>"
-
-				dat += "<tr><td><b>Цвет причёски:</b></td><td align='right'>"
-
-				dat += "<span style='border:1px solid #161616; background-color: #[hair_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=hair;task=input'>Изменить</a>"
-				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_HAIR_COLOR]'>[(randomise[RANDOM_HAIR_COLOR]) ? "🔓" : "🔒"]</A></td></tr>"
-
-				dat += "<tr><td><b>Градиент волос:</b></td><td align='right'>"
-				dat += "<span style='border:1px solid #161616; background-color: #[hair_grad_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=hair_grad_color;task=input'>Изменить</a><a href='?_src_=prefs;preference=hair_grad_style;task=input'>[hair_grad_style]</a></td></tr>"
-
-				dat += "<tr><td><b>Градиент бороды:</b></td><td align='right'>"
-				dat += "<span style='border:1px solid #161616; background-color: #[facial_grad_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=facial_grad_color;task=input'>Изменить</a><a href='?_src_=prefs;preference=facial_grad_style;task=input'>[facial_grad_style]</a></td></tr>"
-
-				dat += "<tr><td><b>Борода:</b></td><td align='right'>"
-
-				dat += "<a href='?_src_=prefs;preference=facial_hairstyle;task=input'>[facial_hairstyle]</a>"
-				dat += "<a href='?_src_=prefs;preference=previous_facehairstyle;task=input'>&lt;</a><a href='?_src_=prefs;preference=next_facehairstyle;task=input'>&gt;</a>"
-				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_FACIAL_HAIRSTYLE]'>[(randomise[RANDOM_FACIAL_HAIRSTYLE]) ? "🔓" : "🔒"]</A></td></tr>"
-
-				dat += "<tr><td><b>Цвет бороды:</b></td><td align='right'>"
-
-				dat += "<span style='border: 1px solid #161616; background-color: #[facial_hair_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=facial;task=input'>Изменить</a>"
-				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_FACIAL_HAIR_COLOR]'>[(randomise[RANDOM_FACIAL_HAIR_COLOR]) ? "🔓" : "🔒"]</A></td></tr>"
+				dat += SETUP_NODE_INPUT_RANDOM("Борода", "facial_hairstyle", facial_hairstyle, RANDOM_FACIAL_HAIRSTYLE)
+				dat += SETUP_NODE_COLOR("Цвет бороды", "facial", facial_hair_color, RANDOM_FACIAL_HAIR_COLOR)
+				dat += SETUP_NODE_COLOR("Цвет градиента", "facial_grad_color", facial_grad_color, null)
+				dat += SETUP_NODE_INPUT("Градиент бороды", "facial_grad_style", facial_grad_style)
 
 			//Mutant stuff
 
 			if(pref_species.mutant_bodyparts["ipc_screen"])
-
-				dat += "<tr><td><b>Экран:</b></td><td align='right'>"
-
-				dat += "<a href='?_src_=prefs;preference=ipc_screen;task=input'>[features["ipc_screen"]]</a></td></tr>"
+				dat += SETUP_NODE_INPUT("Экран", "ipc_screen", features["ipc_screen"])
 
 			if(pref_species.mutant_bodyparts["ipc_antenna"])
-
-				dat += "<tr><td><b>Антенна:</b></td><td align='right'>"
-
-				dat += "<a href='?_src_=prefs;preference=ipc_antenna;task=input'>[features["ipc_antenna"]]</a></td></tr>"
+				dat += SETUP_NODE_INPUT("Антенна", "ipc_antenna", features["ipc_antenna"])
 
 			if(pref_species.mutant_bodyparts["tail_lizard"])
-
-				dat += "<tr><td><b>Хвост:</b></td><td align='right'>"
-
-				dat += "<a href='?_src_=prefs;preference=tail_lizard;task=input'>[features["tail_lizard"]]</a></td></tr>"
-
-			if(pref_species.mutant_bodyparts["snout"])
-
-				dat += "<tr><td><b>Нос:</b></td><td align='right'>"
-
+				dat += SETUP_NODE_INPUT("Хвост", "tail_lizard", features["tail_lizard"])
 
 			if(pref_species.mutant_bodyparts["horns"])
-
-				dat += "<tr><td><b>Рожки:</b></td><td align='right'>"
-
-				dat += "<a href='?_src_=prefs;preference=horns;task=input'>[features["horns"]]</a></td></tr>"
+				dat += SETUP_NODE_INPUT("Рожки", "horns", features["horns"])
 
 			if(pref_species.mutant_bodyparts["frills"])
-
-				dat += "<tr><td><b>Украшения:</b></td><td align='right'>"
-
-				dat += "<a href='?_src_=prefs;preference=frills;task=input'>[features["frills"]]</a></td></tr>"
-
-			if(pref_species.mutant_bodyparts["spines"])
-
-				dat += "<tr><td><b>Шипы:</b></td><td align='right'>"
-
+				dat += SETUP_NODE_INPUT("Украшения", "frills", features["frills"])
 
 			if(pref_species.mutant_bodyparts["body_markings"])
-
-				dat += "<tr><td><b>Маркировки:</b></td><td align='right'>"
-
-				dat += "<a href='?_src_=prefs;preference=body_markings;task=input'>[features["body_markings"]]</a></td></tr>"
+				dat += SETUP_NODE_INPUT("Маркировки", "body_markings", features["body_markings"])
 
 			if(pref_species.mutant_bodyparts["legs"])
-
-				dat += "<tr><td><b>Ноги:</b></td><td align='right'>"
-
-				dat += "<a href='?_src_=prefs;preference=legs;task=input'>[features["legs"]]</a></td></tr>"
+				dat += SETUP_NODE_INPUT("Ноги", "legs", features["legs"])
 
 			if(pref_species.mutant_bodyparts["moth_wings"])
-
-				dat += "<tr><td><b>Крылья:</b></td><td align='right'>"
-
-				dat += "<a href='?_src_=prefs;preference=moth_wings;task=input'>[features["moth_wings"]]</a></td></tr>"
+				dat += SETUP_NODE_INPUT("Крылья", "moth_wings", features["moth_wings"])
 
 			if(pref_species.mutant_bodyparts["moth_antennae"])
-
-				dat += "<a href='?_src_=prefs;preference=moth_antennae;task=input'>[features["moth_antennae"]]</a><BR>"
+				dat += SETUP_NODE_INPUT("Антенна", "moth_antennae", features["moth_antennae"])
 
 			if(pref_species.mutant_bodyparts["moth_markings"])
-
-				dat += "<tr><td><b>Маркировки:</b></td><td align='right'>"
-
-				dat += "<a href='?_src_=prefs;preference=moth_markings;task=input'>[features["moth_markings"]]</a></td></tr>"
+				dat += SETUP_NODE_INPUT("Маркировки", "moth_markings", features["moth_markings"])
 
 			if(pref_species.mutant_bodyparts["tail_human"])
-
-				dat += "<tr><td><b>Хвост:</b></td><td align='right'>"
-
-				dat += "<a href='?_src_=prefs;preference=tail_human;task=input'>[features["tail_human"]]</a></td></tr>"
+				dat += SETUP_NODE_INPUT("Хвост", "tail_human", features["tail_human"])
 
 			if(pref_species.mutant_bodyparts["ears"])
+				dat += SETUP_NODE_INPUT("Уши", "ears", features["ears"])
 
-				dat += "<tr><td><b>Уши:</b></td><td align='right'>"
+			dat += "</div></div>"
 
-				dat += "<a href='?_src_=prefs;preference=ears;task=input'>[features["ears"]]</a></td></tr>"
-
-			if(CONFIG_GET(flag/join_with_mutant_humans))
-
-				if(pref_species.mutant_bodyparts["wings"] && GLOB.r_wings_list.len >1)
-
-					dat += "<tr><td><b>Крылья:</b></td><td align='right'>"
-
-
-			dat += "</table></td></table>"
-
-		if(1) //Loadout
-			//if(!length(equipped_gear))
-			//	if(SSmetainv)
-			//		SSmetainv.open_inventory(user.client)
-			//	else
-			//		to_chat(user, span_warning("Инвентарь еще не загружен, попробуйте позже!"))
-
+		if(1)
 			var/list/type_blacklist = list()
 			if(equipped_gear && equipped_gear.len)
 				for(var/i = 1, i <= equipped_gear.len, i++)
@@ -575,36 +494,33 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "</table>"
 
 		if (2) // Game Preferences
-			dat += "<table><tr><td width='340px' height='300px' valign='top'>"
-			dat += "<h2>Основные настройки</h2>"
-			dat += "<table>"
-			dat += "<tr><td><h3>Интерфейс</h3></td></tr>"
-			dat += "<tr><td><b>Стиль:</b></td><td align='right'><a href='?_src_=prefs;task=input;preference=ui'>[UI_style]</a></td></tr>"
-			dat += "<tr><td><b>Окна в TGUI:</b></td><td align='right'><a href='?_src_=prefs;preference=tgui_lock'>[(tgui_lock) ? "Основные" : "Все"]</a></td></tr>"
-			dat += "<tr><td><b>Стиль TGUI:</b></td><td align='right'><a href='?_src_=prefs;preference=tgui_fancy'>[(tgui_fancy) ? "Красивый" : "Строгие рамки"]</a></td></tr>"
-			dat += "<tr><td><h3>Runechat</h3></td></tr>"
-			dat += "<tr><td><b>Текст над головой:</b></td><td align='right'><a href='?_src_=prefs;preference=chat_on_map'>[(chat_on_map) ? "Вкл" : "Выкл"]</a></td></tr>"
-			dat += "<tr><td><b>Максимальная длина:</b></td><td align='right'><a href='?_src_=prefs;preference=max_chat_length;task=input'>[max_chat_length]</a></td></tr>"
-			dat += "<tr><td><b>Текст не только у мобов:</b></td><td align='right'><a href='?_src_=prefs;preference=see_chat_non_mob'>[(see_chat_non_mob) ? "Вкл" : "Выкл"]</a></td></tr>"
-			dat += "<tr><td><b>Эмоции над головой:</b></td><td align='right'><a href='?_src_=prefs;preference=see_rc_emotes'>[(see_rc_emotes) ? "Вкл" : "Выкл"]</a></td></tr>"
-			dat += "<tr><td><h3>Управление</h3></td></tr>"
-			dat += "<tr><td><b>Кнопки действий:</b></td><td align='right'><a href='?_src_=prefs;preference=action_buttons'>[(buttons_locked) ? "Не двигаются" : "Свободные"]</a></td></tr>"
-			dat += "<tr><td><b>Режим хоткеев:</b></td><td align='right'><a href='?_src_=prefs;preference=hotkeys'>[(hotkeys) ? "Хоткеи" : "Ретро"]</a></td></tr>"
-			dat += "<tr><td><h3>ПДА:</h3></td></tr>"
-			dat += "<tr><td><b>Цвет меню:</b></td><td align='right'><span style='border:1px solid #161616; background-color: [pda_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=pda_color;task=input'>Сменить</a></td></tr>"
-			dat += "<tr><td><b>Стиль:</b></td><td align='right'><a href='?_src_=prefs;task=input;preference=pda_style'>[pda_style]</a></td></tr>"
-			dat += "<tr><td><h3>Призрак:</h3></td></tr>"
-			dat += "<tr><td><b>Разговоры:</b></td><td align='right'><a href='?_src_=prefs;preference=ghost_ears'>[(chat_toggles & CHAT_GHOSTEARS) ? "Все" : "Ближайшие"]</a></td></tr>"
-			dat += "<tr><td><b>Радиопереговоры:</b></td><td align='right'><a href='?_src_=prefs;preference=ghost_radio'>[(chat_toggles & CHAT_GHOSTRADIO) ? "Все":"Не слушать"]</a></td></tr>"
-			dat += "<tr><td><b>Эмоуты:</b></td><td align='right'><a href='?_src_=prefs;preference=ghost_sight'>[(chat_toggles & CHAT_GHOSTSIGHT) ? "Все" : "Ближайшие"]</a></td></tr>"
-			dat += "<tr><td><b>Шёпот:</b></td><td align='right'><a href='?_src_=prefs;preference=ghost_whispers'>[(chat_toggles & CHAT_GHOSTWHISPER) ? "Все" : "Ближайшие"]</a></td></tr>"
-			dat += "<tr><td><b>ПДА:</b></td><td align='right'><a href='?_src_=prefs;preference=ghost_pda'>[(chat_toggles & CHAT_GHOSTPDA) ? "Все" : "Ближайшие"]</a></td></tr>"
-			dat += "<tr><td><b>Законы ИИ:</b></td><td align='right'><a href='?_src_=prefs;preference=ghost_laws'>[(chat_toggles & CHAT_GHOSTLAWS) ? "Все изменения" : "Не слушать"]</a></td></tr>"
-			dat += "<tr><td><b>Форма:</b></td><td align='right'><a href='?_src_=prefs;task=input;preference=ghostform'>[ghost_form]</a></td></tr>"
-			dat += "<tr><td><B>Орбита:</B></td><td align='right'><a href='?_src_=prefs;task=input;preference=ghostorbit'>[ghost_orbit]</a></td></tr>"
-			dat += "<tr><td><b>Передача тела:</b></td><td align='right'><a href='?_src_=prefs;preference=ice_cream'>[(ice_cream) ? "Вкл" : "Выкл"]</a></td></tr>"
+			dat += "<div class='csetup_main'>"
+			dat += "<div class='csetup_header'>Интерфейс</div><div class='csetup_content'>"
+			dat += SETUP_NODE_INPUT("Стиль", "ui", UI_style)
+			dat += SETUP_NODE_SWITCH("Окна в TGUI", "tgui_lock", tgui_lock ? "Основные" : "Все")
+			dat += SETUP_NODE_SWITCH("Стиль TGUI", "tgui_fancy", tgui_fancy ? "Красивый" : "Строгие рамки")
+			dat += "</div><div class='csetup_header'>Runechat</div><div class='csetup_content'>"
+			dat += SETUP_NODE_SWITCH("Текст над головой", "chat_on_map", chat_on_map ? "Вкл" : "Выкл")
+			dat += SETUP_NODE_INPUT("Максимальная длина", "max_chat_length", max_chat_length)
+			dat += SETUP_NODE_SWITCH("Текст не только у мобов", "see_chat_non_mob", see_chat_non_mob ? "Вкл" : "Выкл")
+			dat += SETUP_NODE_SWITCH("Эмоции над головой", "see_rc_emotes", see_rc_emotes ? "Вкл" : "Выкл")
+			dat += "</div><div class='csetup_header'>Управление</div><div class='csetup_content'>"
+			dat += SETUP_NODE_SWITCH("Кнопки действий", "action_buttons", buttons_locked ? "Не двигаются" : "Свободные")
+			dat += SETUP_NODE_SWITCH("Режим хоткеев", "hotkeys", hotkeys ? "Хоткеи" : "Ретро")
+			dat += "</div><div class='csetup_header'>ПДА</div><div class='csetup_content'>"
+			dat += SETUP_NODE_COLOR("Цвет меню", "pda_color", pda_color, null)
+			dat += SETUP_NODE_INPUT("Стиль", "pda_style", pda_style)
+			dat += "</div><div class='csetup_header'>Призрак</div><div class='csetup_content'>"
+			dat += SETUP_NODE_SWITCH("Разговоры", "ghost_ears", (chat_toggles & CHAT_GHOSTEARS) ? "Все" : "Рядом")
+			dat += SETUP_NODE_SWITCH("Радиопереговоры", "ghost_radio", (chat_toggles & CHAT_GHOSTRADIO) ? "Все" : "Рядом")
+			dat += SETUP_NODE_SWITCH("Эмоуты", "ghost_sight", (chat_toggles & CHAT_GHOSTSIGHT) ? "Все" : "Рядом")
+			dat += SETUP_NODE_SWITCH("Шёпот", "ghost_whispers", (chat_toggles & CHAT_GHOSTWHISPER) ? "Все" : "Рядом")
+			dat += SETUP_NODE_SWITCH("ПДА", "ghost_pda", (chat_toggles & CHAT_GHOSTPDA) ? "Все" : "Рядом")
+			dat += SETUP_NODE_INPUT("Форма", "ghostform", ghost_form)
+			dat += SETUP_NODE_INPUT("Орбита", "ghostorbit", ghost_orbit)
+			dat += SETUP_NODE_SWITCH("Передача тела", "ice_cream", ice_cream ? "Вкл" : "Выкл")
 			if(ice_cream)
-				dat += "<tr><td><b>Таймер до передачи:</b></td><td align='right'><a href='?_src_=prefs;preference=ice_cream_time;task=input'>[ice_cream_time/600] минут</a></td></tr>"
+				dat += SETUP_NODE_INPUT("Таймер до передачи", "ice_cream_time", "[ice_cream_time/600] минут")
 
 			var/button_name = "If you see this something went wrong."
 			switch(ghost_accs)
@@ -615,7 +531,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if(GHOST_ACCS_NONE)
 					button_name = GHOST_ACCS_NONE_NAME
 
-			dat += "<tr><td><b>Вид призраков:</b></td><td align='right'><a href='?_src_=prefs;task=input;preference=ghostaccs'>[button_name]</a></td></tr>"
+			dat += SETUP_NODE_INPUT("Вид призрако", "ghostaccs", button_name)
 
 			switch(ghost_others)
 				if(GHOST_OTHERS_THEIR_SETTING)
@@ -625,41 +541,43 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if(GHOST_OTHERS_SIMPLE)
 					button_name = GHOST_OTHERS_SIMPLE_NAME
 
-			dat += "<tr><td><b>Призраки других:</b></td><td align='right'><a href='?_src_=prefs;task=input;preference=ghostothers'>[button_name]</a></td></tr>"
-			dat += "<tr><td><h3>Внутриигровое:</h3></td></tr>"
-			dat += "<tr><td><b>Автокоррекция текста:</b></td><td align='right'><a href='?_src_=prefs;preference=disabled_autocap'>[disabled_autocap ? "Выкл" : "Вкл"]</a></td></tr>"
-			dat += "<tr><td><b>Сообщения ID-карты:</b></td><td align='right'><a href='?_src_=prefs;preference=income_pings'>[(chat_toggles & CHAT_BANKCARD) ? "Вкл" : "Выкл"]</a></td></tr>"
-			dat += "<tr><td><b>FPS:</b></td><td align='right'><a href='?_src_=prefs;preference=clientfps;task=input'>[clientfps]</a></td></tr>"
-			dat += "<tr><td><b>Параллакс:</b></td><td align='right'><a href='?_src_=prefs;preference=parallaxdown' oncontextmenu='window.location.href=\"?_src_=prefs;preference=parallaxup\";return false;'>"
+			dat += SETUP_NODE_INPUT("Призраки других", "ghostothers", button_name)
+			dat += "</div><div class='csetup_header'>Графика</div><div class='csetup_content'>"
+			dat += SETUP_NODE_SWITCH("Автокоррекция текста", "disabled_autocap", disabled_autocap ? "Выкл" : "Вкл")
+			dat += SETUP_NODE_SWITCH("Сообщения ID-карты", "income_pings", (chat_toggles & CHAT_BANKCARD) ? "Вкл" : "Выкл")
+			dat += SETUP_NODE_INPUT("FPS", "clientfps", clientfps)
+
 			switch (parallax)
 				if (PARALLAX_LOW)
-					dat += "Low"
+					button_name = "Low"
 				if (PARALLAX_MED)
-					dat += "Medium"
+					button_name = "Medium"
 				if (PARALLAX_INSANE)
-					dat += "Insane"
+					button_name = "Insane"
 				if (PARALLAX_DISABLE)
-					dat += "Disabled"
+					button_name = "Disabled"
 				else
-					dat += "High"
-			dat += "</a></td></tr>"
+					button_name = "High"
 
-			dat += "<tr><td><b>Тени:</b></td><td align='right'><a href='?_src_=prefs;preference=ambientocclusion'>[ambientocclusion ? "Вкл" : "Выкл"]</a></td></tr>"
-			dat += "<tr><td><b>Подстройка экрана:</b></td><td align='right'><a href='?_src_=prefs;preference=auto_fit_viewport'>[auto_fit_viewport ? "Авто" : "Вручную"]</a></td></tr>"
-			dat += "<tr><td><b>Полный экран:</b></td><td align='right'><a href='?_src_=prefs;preference=fullscreen'>[fullscreen ? "Вкл" : "Выкл"]</a></td></tr>"
+			dat += SETUP_NODE_SWITCH("Параллакс", "parallaxdown", button_name)
+			dat += SETUP_NODE_SWITCH("Тени", "ambientocclusion", ambientocclusion ? "Вкл" : "Выкл")
+			dat += SETUP_NODE_SWITCH("Подстройка экрана", "auto_fit_viewport", auto_fit_viewport ? "Авто" : "Вручную")
+			dat += SETUP_NODE_SWITCH("Полный экран", "fullscreen", fullscreen ? "Вкл" : "Выкл")
+
 			if (CONFIG_GET(string/default_view) != CONFIG_GET(string/default_view_square))
-				dat += "<tr><td><b>Широкий экран:</b></td><td align='right'><a href='?_src_=prefs;preference=widescreenpref'>[widescreenpref ? "Вкл ([CONFIG_GET(string/default_view)])" : "Выкл ([CONFIG_GET(string/default_view_square)])"]</a></td></tr>"
+				dat += SETUP_NODE_SWITCH("Широкий экран", "widescreenpref", widescreenpref ? "Вкл ([CONFIG_GET(string/default_view)])" : "Выкл ([CONFIG_GET(string/default_view_square)])")
 				if(widescreenpref)
-					dat += "<tr><td><b>Своя ширина экрана:</b></td><td align='right'><a href='?_src_=prefs;preference=widescreenwidth;task=input'>[widescreenwidth]</a></td></tr>"
+					dat += SETUP_NODE_INPUT("Своя ширина экрана", "widescreenwidth", widescreenwidth)
 
-			dat += "<tr><td><b>Названия предметов:</b></td><td align='right'><a href='?_src_=prefs;preference=tooltip_user'>[(w_toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл"]</a></td></tr>"
-			dat += "<tr><td><b>Позиция на экране:</b></td><td align='right'><a href='?_src_=prefs;preference=tooltip_pos'>[(w_toggles & TOOLTIP_USER_POS) ? "Низ" : "Верх"]</a></td></tr>"
-			dat += "<tr><td><b>Ретро-статусбар:</b></td><td align='right'><a href='?_src_=prefs;preference=tooltip_retro'>[(w_toggles & TOOLTIP_USER_RETRO) ? "Вкл" : "Выкл"]</a></td></tr>"
-			dat += "<tr><td><b>Горизонтальная инверсия:</b></td><td align='right'><a href='?_src_=prefs;preference=horiz_inv'>[(w_toggles & SCREEN_HORIZ_INV) ? "Вкл" : "Выкл"]</a></td></tr>"
-			dat += "<tr><td><b>Вертикальная инверсия:</b></td><td align='right'><a href='?_src_=prefs;preference=verti_inv'>[(w_toggles & SCREEN_VERTI_INV) ? "Вкл" : "Выкл"]</a></td></tr>"
-			dat += "<tr><td><b>Невидимые разделители:</b></td><td align='right'><a href='?_src_=prefs;preference=hide_split'>[(w_toggles & SCREEN_HIDE_SPLIT) ? "Вкл" : "Выкл"]</a></td></tr>"
+			dat += SETUP_NODE_SWITCH("Названия предметов", "tooltip_user", (w_toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл")
+			dat += SETUP_NODE_SWITCH("Позиция на экране", "tooltip_pos", (w_toggles & TOOLTIP_USER_POS) ? "Внизу" : "Вверху")
+			dat += SETUP_NODE_SWITCH("Ретро-статусбар", "tooltip_retro", (w_toggles & TOOLTIP_USER_RETRO) ? "Вкл" : "Выкл")
+			dat += SETUP_NODE_SWITCH("Горизонтальная инверсия", "horiz_inv", (w_toggles & SCREEN_HORIZ_INV) ? "Вкл" : "Выкл")
+			dat += SETUP_NODE_SWITCH("Вертикальная инверсия", "verti_inv", (w_toggles & SCREEN_VERTI_INV) ? "Вкл" : "Выкл")
+			dat += SETUP_NODE_SWITCH("Невидимые разделители", "hide_split", (w_toggles & SCREEN_HIDE_SPLIT) ? "Вкл" : "Выкл")
+
 			button_name = pixel_size
-			dat += "<tr><td><b>Pixel Scaling:</b></td><td align='right'><a href='?_src_=prefs;preference=pixel_size'>[(button_name) ? "Pixel Perfect [button_name]x" : "Stretch to fit"]</a></td></tr>"
+			dat += SETUP_NODE_SWITCH("Пиксельное скалирование", "pixel_size", button_name ? "Pixel Perfect [button_name]x" : "Stretch to fit")
 
 			switch(scaling_method)
 				if(SCALING_METHOD_DISTORT)
@@ -668,7 +586,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					button_name = "Point Sampling"
 				if(SCALING_METHOD_BLUR)
 					button_name = "Bilinear"
-			dat += "<tr><td><b>Scaling Method:</b></td><td align='right'><a href='?_src_=prefs;preference=scaling_method'>[button_name]</a></td></tr>"
+
+			dat += SETUP_NODE_SWITCH("Метод скалирования", "scaling_method", button_name)
 
 			if (CONFIG_GET(flag/maprotation))
 				var/p_map = preferred_map
@@ -686,22 +605,17 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					else
 						p_map += " (No longer exists)"
 				if(CONFIG_GET(flag/preference_map_voting))
-					dat += "<tr><td><b>Любимая карта:</b></td><td align='right'><a href='?_src_=prefs;preference=preferred_map;task=input'>[p_map]</a></td></tr>"
+					dat += SETUP_NODE_INPUT("Любимая карта", "preferred_map", p_map)
 
-			dat += "</table></td><td width='300px' height='300px' valign='top'>"
-
-			dat += "<h2>Спецроли</h2>"
-
-			dat += "<table>"
+			dat += "</div><div class='csetup_header'>Спецроли</div><div class='csetup_content'>"
 
 			if(is_banned_from(user.ckey, ROLE_SYNDICATE))
-				dat += "<font color='#ff7777'><b>Тебе нельзя быть антагами.</b></font><br>"
+				dat += "<font color='#ff7777'><b>Тебе нельзя быть антагами.</b></font>"
 				src.be_special = list()
-
 
 			for (var/i in GLOB.special_roles)
 				if(is_banned_from(user.ckey, i))
-					dat += "<tr><td><b>[capitalize(i)]:</b></td><td><a href='?_src_=prefs;bancheck=[i]'>БАНЕЦ</a></td></tr>"
+					dat += SETUP_NODE_SWITCH(capitalize(i), "suck", "БАНЕЦ")
 				else
 					var/days_remaining = null
 					if(ispath(GLOB.special_roles[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
@@ -710,82 +624,71 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						days_remaining = temp_mode.get_remaining_days(user.client)
 
 					if(days_remaining)
-						dat += "<tr><td><b>[capitalize(i)]:</b></td><td><font color='#ff7777'> \[Через [days_remaining] дней]</font></td></tr>"
+						dat += SETUP_NODE_SWITCH(capitalize(i), "suck", "Через [days_remaining] дней")
 					else
-						dat += "<tr><td><b>[capitalize(i)]:</b></td><td><a href='?_src_=prefs;preference=be_special;be_special_type=[i]'>[(i in be_special) ? "Да" : "Нет"]</a></td></tr>"
-			dat += "<tr><td><b>Посреди раунда:</b></td><td><a href='?_src_=prefs;preference=allow_midround_antag'>[(toggles & MIDROUND_ANTAG) ? "Да" : "Нет"]</a></td></tr>"
-			dat += "</table></td></tr></table>"
+						dat += SETUP_START_NODE(capitalize(i))
+						dat += SETUP_GET_LINK("be_special", i, "be_special_type", (i in be_special) ? "Да" : "Нет")
+						dat += SETUP_CLOSE_NODE
+			SETUP_NODE_SWITCH("Посреди раунда", "allow_midround_antag", (toggles & MIDROUND_ANTAG) ? "Да" : "Нет")
+			dat += "</div></div>"
 		if(3) //OOC Preferences
-			dat += "<table><tr><td width='340px' height='300px' valign='top'><table>"
-			dat += "<tr><td><h2>Настройки OOC</h2></td></tr>"
-			dat += "<tr><td><b>Мигание окна:</b></td><td><a href='?_src_=prefs;preference=winflash'>[(windowflashing) ? "Вкл":"Выкл"]</a></td></tr>"
-			dat += "<tr><td><b>Слышать Admin MIDIs:</b></td><td><a href='?_src_=prefs;preference=hear_midis'>[(toggles & SOUND_MIDI) ? "Вкл":"Выкл"]</a></td></tr>"
-			dat += "<tr><td><b>Слышать Lobby Music:</b></td><td><a href='?_src_=prefs;preference=lobby_music'>[(toggles & SOUND_LOBBY) ? "Вкл":"Выкл"]</a></td></tr>"
-			dat += "<tr><td><b>Проигрывать звук окончания раунда:</b></td><td><a href='?_src_=prefs;preference=endofround_sounds'>[(toggles & SOUND_ENDOFROUND) ? "Вкл":"Выкл"]</a></td></tr>"
-			dat += "<tr><td><b>Видеть PR:</b></td><td><a href='?_src_=prefs;preference=pull_requests'>[(chat_toggles & CHAT_PULLR) ? "Вкл":"Выкл"]</a></td></tr>"
-
+			dat += "<div class='csetup_main'>"
+			dat += "<div class='csetup_header'>Настройки OOC</div><div class='csetup_content'>"
+			dat += SETUP_NODE_SWITCH("Мигание окна", "winflash", windowflashing ? "Вкл" : "Выкл")
+			dat += SETUP_NODE_SWITCH("Слышать Admin MIDIs", "hear_midis", (toggles & SOUND_MIDI) ? "Вкл" : "Выкл")
+			dat += SETUP_NODE_SWITCH("Слышать Lobby Music", "lobby_music", (toggles & SOUND_LOBBY) ? "Вкл" : "Выкл")
+			dat += SETUP_NODE_SWITCH("Проигрывать звук окончания раунда", "endofround_sounds", (toggles & SOUND_ENDOFROUND) ? "Вкл" : "Выкл")
 			if(user.client)
 				if(unlock_content)
-					dat += "<tr><td><b>BYOND Membership Publicity:</b></td><td><a href='?_src_=prefs;preference=publicity'>[(toggles & MEMBER_PUBLIC) ? "Public" : "Hidden"]</a></td></tr>"
+					dat += SETUP_NODE_SWITCH("BYOND Membership Publicity", "publicity", (toggles & MEMBER_PUBLIC) ? "Public" : "Hidden")
 
 				if(unlock_content || check_rights_for(user.client, R_ADMIN) || check_donations(user.client.ckey) >= 100)
-					dat += "<tr><td><b>Цвет OOC:</b></td><td><span style='border: 1px solid #161616; background-color: [ooccolor ? ooccolor : GLOB.normal_ooc_colour];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=ooccolor;task=input'>Change</a></td></tr>"
+					dat += SETUP_NODE_COLOR("Цвет OOC", "ooccolor", ooccolor ? ooccolor : GLOB.normal_ooc_colour, null)
 
-			dat += "</table></td>"
+			dat += "</div>"
 
 			if(user.client.holder)
-				dat +="<td width='300px' height='300px' valign='top'>"
-
-				dat += "<h2>Admin Settings</h2>"
-
-				dat += "<b>Adminhelp Sounds:</b> <a href='?_src_=prefs;preference=hear_adminhelps'>[(toggles & SOUND_ADMINHELP)?"Вкл":"Выкл"]</a><br>"
-				dat += "<b>Prayer Sounds:</b> <a href = '?_src_=prefs;preference=hear_prayers'>[(toggles & SOUND_PRAYERS)?"Вкл":"Выкл"]</a><br>"
-				dat += "<b>Announce Login:</b> <a href='?_src_=prefs;preference=announce_login'>[(toggles & ANNOUNCE_LOGIN)?"Вкл":"Выкл"]</a><br>"
-				dat += "<br>"
-				dat += "<b>Combo HUD Lighting:</b> <a href = '?_src_=prefs;preference=combohud_lighting'>[(toggles & COMBOHUD_LIGHTING)?"Full-bright":"No Change"]</a><br>"
-				dat += "<br>"
-				dat += "<b>Hide Dead Chat:</b> <a href = '?_src_=prefs;preference=toggle_dead_chat'>[(chat_toggles & CHAT_DEAD)?"Shown":"Hidden"]</a><br>"
-				dat += "<b>Hide Radio Messages:</b> <a href = '?_src_=prefs;preference=toggle_radio_chatter'>[(chat_toggles & CHAT_RADIO)?"Shown":"Hidden"]</a><br>"
-				dat += "<b>Hide Prayers:</b> <a href = '?_src_=prefs;preference=toggle_prayers'>[(chat_toggles & CHAT_PRAYER)?"Shown":"Hidden"]</a><br>"
-				dat += "<b>Ignore Being Summoned as Cult Ghost:</b> <a href = '?_src_=prefs;preference=toggle_ignore_cult_ghost'>[(toggles & ADMIN_IGNORE_CULT_GHOST)?"Don't Allow Being Summoned":"Allow Being Summoned"]</a><br>"
+				dat += "<div class='csetup_header'>Admin Settings</div><div class='csetup_content'>"
+				dat += SETUP_NODE_SWITCH("Adminhelp Sounds", "hear_adminhelps", (toggles & SOUND_ADMINHELP) ? "On" : "Off")
+				dat += SETUP_NODE_SWITCH("Prayer Sounds", "hear_prayers", (toggles & SOUND_PRAYERS) ? "On" : "Off")
+				dat += SETUP_NODE_SWITCH("Announce Sounds", "announce_login", (toggles & ANNOUNCE_LOGIN) ? "On" : "Off")
+				dat += SETUP_NODE_SWITCH("Combo HUD Lighting", "combohud_lighting", (toggles & COMBOHUD_LIGHTING) ? "Full-bright" : "No Change")
+				dat += SETUP_NODE_SWITCH("Hide Dead Chat", "toggle_dead_chat", (toggles & CHAT_DEAD) ? "Shown" : "Hidden")
+				dat += SETUP_NODE_SWITCH("Hide Radio Messages", "toggle_radio_chatter", (toggles & CHAT_RADIO) ? "Shown" : "Hidden")
+				dat += SETUP_NODE_SWITCH("Hide Prayers", "toggle_prayers", (toggles & CHAT_PRAYER) ? "Shown" : "Hidden")
+				dat += SETUP_NODE_SWITCH("Ignore Cult Ghost", "toggle_ignore_cult_ghost", (toggles & ADMIN_IGNORE_CULT_GHOST) ? "Don't Allow" : "Allow")
 				if(CONFIG_GET(flag/allow_admin_asaycolor))
-					dat += "<br>"
-					dat += "<b>ASAY Color:</b> <span style='border: 1px solid #161616; background-color: [asaycolor ? asaycolor : "#FF4500"];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=asaycolor;task=input'>Change</a><br>"
+					dat += SETUP_NODE_COLOR("ASAY Color", "asaycolor", asaycolor ? asaycolor : "#FF4500", null)
 
-				//deadmin
-				dat += "<h2>Deadmin While Playing</h2>"
-				var/timegate = CONFIG_GET(number/auto_deadmin_timegate)
-				if(timegate)
-					dat += "<b>Noted roles will automatically deadmin during the first [FLOOR(timegate / 600, 1)] minutes of the round, and will defer to individual preferences after.</b><br>"
+				dat += "</div><div class='csetup_header'>Deadmin</div><div class='csetup_content'>"
 
-				if(CONFIG_GET(flag/auto_deadmin_players) && !timegate)
-					dat += "<b>Always Deadmin:</b> FORCED</a><br>"
+				if(CONFIG_GET(flag/auto_deadmin_players))
+					dat += SETUP_NODE_SWITCH("Always Deadmin", "suck", "FORCED")
 				else
-					dat += "<b>Always Deadmin:</b> [timegate ? "(Time Locked) " : ""]<a href = '?_src_=prefs;preference=toggle_deadmin_always'>[(toggles & DEADMIN_ALWAYS)?"Вкл":"Выкл"]</a><br>"
+					dat += SETUP_NODE_SWITCH("Always Deadmin", "toggle_deadmin_always", (toggles & DEADMIN_ALWAYS) ? "On" : "Off")
 					if(!(toggles & DEADMIN_ALWAYS))
-						dat += "<br>"
-						if(!CONFIG_GET(flag/auto_deadmin_antagonists) || (CONFIG_GET(flag/auto_deadmin_antagonists) && !timegate))
-							dat += "<b>As Antag:</b> [timegate ? "(Time Locked) " : ""]<a href = '?_src_=prefs;preference=toggle_deadmin_antag'>[(toggles & DEADMIN_ANTAGONIST)?"Deadmin":"Keep Admin"]</a><br>"
+						if(!CONFIG_GET(flag/auto_deadmin_antagonists) || (CONFIG_GET(flag/auto_deadmin_antagonists)))
+							dat += SETUP_NODE_SWITCH("As Antag", "toggle_deadmin_always", (toggles & DEADMIN_ANTAGONIST) ? "Deadmin" : "Keep Admin")
 						else
-							dat += "<b>As Antag:</b> FORCED<br>"
+							dat += SETUP_NODE_SWITCH("As Antag", "suck", "FORCED")
 
-						if(!CONFIG_GET(flag/auto_deadmin_heads) || (CONFIG_GET(flag/auto_deadmin_heads) && !timegate))
-							dat += "<b>As Command:</b> [timegate ? "(Time Locked) " : ""]<a href = '?_src_=prefs;preference=toggle_deadmin_head'>[(toggles & DEADMIN_POSITION_HEAD)?"Deadmin":"Keep Admin"]</a><br>"
+						if(!CONFIG_GET(flag/auto_deadmin_heads) || (CONFIG_GET(flag/auto_deadmin_heads)))
+							dat += SETUP_NODE_SWITCH("As Command", "toggle_deadmin_head", (toggles & DEADMIN_POSITION_HEAD) ? "Deadmin" : "Keep Admin")
 						else
-							dat += "<b>As Command:</b> FORCED<br>"
+							dat += SETUP_NODE_SWITCH("As Command", "suck", "FORCED")
 
-						if(!CONFIG_GET(flag/auto_deadmin_security) || (CONFIG_GET(flag/auto_deadmin_security) && !timegate))
-							dat += "<b>As Security:</b> [timegate ? "(Time Locked) " : ""]<a href = '?_src_=prefs;preference=toggle_deadmin_security'>[(toggles & DEADMIN_POSITION_SECURITY)?"Deadmin":"Keep Admin"]</a><br>"
+						if(!CONFIG_GET(flag/auto_deadmin_security) || (CONFIG_GET(flag/auto_deadmin_security)))
+							dat += SETUP_NODE_SWITCH("As Security", "toggle_deadmin_security", (toggles & DEADMIN_POSITION_SECURITY) ? "Deadmin" : "Keep Admin")
 						else
-							dat += "<b>As Security:</b> FORCED<br>"
+							dat += SETUP_NODE_SWITCH("As Security", "suck", "FORCED")
 
-						if(!CONFIG_GET(flag/auto_deadmin_silicons) || (CONFIG_GET(flag/auto_deadmin_silicons) && !timegate))
-							dat += "<b>As Silicon:</b> [timegate ? "(Time Locked) " : ""]<a href = '?_src_=prefs;preference=toggle_deadmin_silicon'>[(toggles & DEADMIN_POSITION_SILICON)?"Deadmin":"Keep Admin"]</a><br>"
+						if(!CONFIG_GET(flag/auto_deadmin_silicons) || (CONFIG_GET(flag/auto_deadmin_silicons)))
+							dat += SETUP_NODE_SWITCH("As Silicon", "toggle_deadmin_silicon", (toggles & DEADMIN_POSITION_SILICON) ? "Deadmin" : "Keep Admin")
 						else
-							dat += "<b>As Silicon:</b> FORCED<br>"
+							dat += SETUP_NODE_SWITCH("As Silicon", "suck", "FORCED")
 
-				dat += "</td>"
-			dat += "</tr></table>"
+				dat += "</div>"
+			dat += "</div>"
 		if(4) // Custom keybindings
 			// Create an inverted list of keybindings -> key
 			var/list/user_binds = list()
@@ -799,33 +702,29 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				var/datum/keybinding/kb = GLOB.keybindings_by_name[name]
 				kb_categories[kb.category] += list(kb)
 
-			dat += "<body><table>"
+			dat += "<div class='csetup_main'>"
 
 			for (var/category in kb_categories)
-				dat += "<tr><td><h3>[category]</h3></td></tr>"
+				dat += "<div class='csetup_header'>[category]</div><div class='csetup_content'>"
 				for (var/i in kb_categories[category])
 					var/datum/keybinding/kb = i
 					if(!length(user_binds[kb.name]) || user_binds[kb.name][1] == "Unbound")
-						dat += "<tr><td>[kb.full_name]</td><td><a href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name];old_key=["Unbound"]'>НЕТ</a></td>"
-						var/list/default_keys = hotkeys ? kb.hotkey_keys : kb.classic_keys
-						if(LAZYLEN(default_keys))
-							dat += "<td>Стандартно: [default_keys.Join(", ")]</td>"
-						dat += "</tr>"
+						dat += SETUP_START_NODE(kb.full_name)
+						dat += SETUP_GET_LINK("keybindings_capture", "[kb.name];old_key=["Unbound"]", "keybinding", "NO KEY")
+						dat += SETUP_CLOSE_NODE
 					else
 						var/bound_key = user_binds[kb.name][1]
-						dat += "<tr><td>[kb.full_name]</td><td><a href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name];old_key=[bound_key]'>[bound_key]</a></td>"
+						dat += SETUP_START_NODE(kb.full_name)
+						dat += SETUP_GET_LINK("keybindings_capture", "[kb.name];old_key=[bound_key]", "keybinding", bound_key)
 						for(var/bound_key_index in 2 to length(user_binds[kb.name]))
 							bound_key = user_binds[kb.name][bound_key_index]
-							dat += "<td><a href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name];old_key=[bound_key]'>[bound_key]</a></td>"
+							dat += SETUP_GET_LINK("keybindings_capture", "[kb.name];old_key=[bound_key]", "keybinding", bound_key)
 						if(length(user_binds[kb.name]) < MAX_KEYS_PER_KEYBIND)
-							dat += "<td><a href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name]'>Альт</a></td>"
-						var/list/default_keys = hotkeys ? kb.classic_keys : kb.hotkey_keys
-						if(LAZYLEN(default_keys))
-							dat += "<td>Стандартно: [default_keys.Join(", ")]</td>"
-						dat += "</tr>"
-
-			dat += "<tr><td><a href ='?_src_=prefs;preference=keybindings_reset'>\[Сбросить до стандартных\]</a></td></tr>"
-			dat += "</table></body>"
+							dat += SETUP_GET_LINK("keybindings_capture", "[kb.name]", "keybinding", "Alt")
+						dat += SETUP_CLOSE_NODE
+				dat += "</div>"
+			dat += "<center><a href ='?_src_=prefs;preference=keybindings_reset'>Сбросить хоткеи</a></center>"
+			dat += "</div>"
 	dat += "<hr><center>"
 
 	if(!IsGuestKey(user.key))

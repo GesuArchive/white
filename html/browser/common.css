@@ -529,3 +529,42 @@ a.rs_butt:hover
 	left: 50%;
 	margin-left: -60px;
 }
+
+.csetup_characters {background: #000;padding-bottom: 16px;padding-top: 16px;width: 100%;text-align: center;margin: auto;margin-bottom: 8px;}
+
+.csetup_characters_character {
+
+}
+
+.csetup_occupations {background: #000;width: 100%;text-align: center;margin: auto;margin-bottom: 8px;padding-bottom: 10px;}
+
+.csetup_occupations h2 {
+}
+
+.csetup_occupations_choose {
+}
+
+.csetup_main {background: #050505;width: 100%;margin: auto;}
+
+.csetup_banned {
+
+}
+
+.csetup_header {font-size: 24px;text-align: center;font-weight: bold;padding: 16px;background: #000;}
+
+.csetup_content {padding: 16px;}
+
+.csetup_character_node {padding-bottom: 6px;padding-top: 4px;border-bottom: 1px solid #222;border-top: 1px solid #111;}
+
+.csetup_character_label {display: inline-block;font-weight: bold;}
+
+.csetup_character_label::after {content: ":";}
+
+.csetup_character_input {
+	display: inline-block;
+	float: right;
+}
+
+.csetup_character_input span {
+	margin-right: 4px;
+}
