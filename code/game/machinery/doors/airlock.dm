@@ -1428,11 +1428,7 @@
 	if(!note)
 		return
 	else if(istype(note, /obj/item/paper))
-		var/obj/item/paper/pinned_paper = note
-		if(pinned_paper.info && pinned_paper.show_written_words)
-			return "note_words"
-		else
-			return "note"
+		return "note"
 	else if(istype(note, /obj/item/photo))
 		return "photo"
 
