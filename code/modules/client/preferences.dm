@@ -629,7 +629,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						dat += SETUP_START_NODE(capitalize(i))
 						dat += SETUP_GET_LINK("be_special", i, "be_special_type", (i in be_special) ? "Да" : "Нет")
 						dat += SETUP_CLOSE_NODE
-			SETUP_NODE_SWITCH("Посреди раунда", "allow_midround_antag", (toggles & MIDROUND_ANTAG) ? "Да" : "Нет")
+			dat += SETUP_NODE_SWITCH("Посреди раунда", "allow_midround_antag", (toggles & MIDROUND_ANTAG) ? "Да" : "Нет")
 			dat += "</div></div>"
 		if(3) //OOC Preferences
 			dat += "<div class='csetup_main'>"
