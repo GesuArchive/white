@@ -138,6 +138,12 @@
 	icon_state = "platingdmg1"
 	},
 /area/maintenance/bottom_station_maints/east)
+"avp" = (
+/obj/effect/loot_site_spawner,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/maintenance/bottom_station_maints/east)
 "awT" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/machinery/light/small{
@@ -1717,6 +1723,15 @@
 /obj/structure/grille,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
+/area/maintenance/bottom_station_maints/east)
+"gYl" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/warning/vacuum/external{
+	pixel_x = 32
+	},
+/turf/open/floor/plating{
+	icon_state = "platingdmg2"
+	},
 /area/maintenance/bottom_station_maints/east)
 "haJ" = (
 /obj/effect/spawner/lootdrop/food_packaging,
@@ -4252,12 +4267,6 @@
 /obj/structure/grille/broken,
 /turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/west)
-"qxP" = (
-/obj/effect/loot_site_spawner,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
-/area/maintenance/bottom_station_maints/east)
 "qyX" = (
 /obj/effect/landmark/stationroom/maintenance/rdm3x3,
 /turf/open/floor/plating,
@@ -4559,15 +4568,6 @@
 /obj/effect/spawner/lootdrop/maintenance/six,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
-"rNi" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/sign/warning/vacuum/external{
-	pixel_x = 32
-	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
-/area/maintenance/bottom_station_maints/east)
 "rOA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/rods,
@@ -49361,7 +49361,7 @@ wSt
 coy
 nCV
 wLV
-qxP
+avp
 hQh
 nlh
 gfw
@@ -49618,7 +49618,7 @@ sNf
 tyd
 sZY
 hRM
-rNi
+gYl
 jsw
 sNf
 hNl
