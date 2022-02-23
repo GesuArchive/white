@@ -11226,6 +11226,7 @@
 /turf/open/floor/plasteel/dark,
 /area/science/robotics/mechbay)
 "baX" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/atmos/toxins_mixing_input,
 /turf/open/floor/engine/vacuum,
 /area/science/mixing/chamber)
 "baY" = (
@@ -11388,7 +11389,9 @@
 /area/science/mixing/chamber)
 "bbD" = (
 /obj/effect/landmark/blobstart,
-/obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/incinerator_toxmix,
+/obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/incinerator_toxmix{
+	dir = 4
+	},
 /turf/open/floor/engine,
 /area/science/mixing/chamber)
 "bbE" = (
