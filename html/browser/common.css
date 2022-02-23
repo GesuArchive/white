@@ -544,7 +544,7 @@ a.rs_butt:hover
 .csetup_occupations_choose {
 }
 
-.csetup_main {width: 100%;margin: auto;display: flex;flex-direction: row;justify-content: space-evenly;}
+.csetup_main {margin: auto;display: flex;flex-wrap: wrap;flex-direction: row;justify-content: space-evenly;}
 
 .csetup_banned {
 
@@ -552,7 +552,7 @@ a.rs_butt:hover
 
 .csetup_header {font-size: 24px;text-align: center;font-weight: bold;padding: 16px;background: #000;height: 24px;}
 
-.csetup_content {padding: 4px;margin: 8px;width: 100%;background: #050505;}
+.csetup_content {flex: 30%;max-width: 100%;padding: 4px;margin: 8px;background: #050505;}
 
 .csetup_character_node {padding-bottom: 6px;padding-top: 4px;padding-left: 4px;padding-right: 4px;border-bottom: 1px solid #222;border-top: 1px solid #111;}
 
@@ -567,4 +567,23 @@ a.rs_butt:hover
 
 .csetup_character_input span {
 	margin-right: 4px;
+}
+
+
+@media (max-width: 1200px) {
+	.csetup_content {
+		flex: 25%;
+	}
+}
+
+@media (max-width: 900px) {
+	.csetup_content {
+		flex: 33%;
+	}
+}
+
+@media (max-width: 600px) {
+	.csetup_content {
+		flex: 50%;
+	}
 }
