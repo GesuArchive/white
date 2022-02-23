@@ -78,10 +78,13 @@ GLOBAL_VAR_INIT(disposals_are_hungry, FALSE)
 	//this will get a copy of the air turf and take a SEND PRESSURE amount of air from it
 	var/atom/L = loc
 	var/datum/gas_mixture/env = new
-	if(env)
-		env.copy_from(L.return_air())
-	var/datum/gas_mixture/removed = env.remove(SEND_PRESSURE + 1)
-	air_contents.merge(removed)
+	if(env && air_contents)
+		var/datum/gas_mixture/copied = L?.return_air()
+		if(copied)
+			env.copy_from(copied)
+		var/datum/gas_mixture/removed = env.remove(SEND_PRESSURE + 1)
+		if(removed)
+			air_contents.merge(removed)
 	trunk_check()
 
 /obj/machinery/disposal/attackby(obj/item/I, mob/user, params)
@@ -433,12 +436,13 @@ GLOBAL_LIST_EMPTY(disposal_bins)
 	var/datum/gas_mixture/env = L.return_air()
 	var/pressure_delta = (SEND_PRESSURE*1.01) - air_contents.return_pressure()
 
-	if(env.return_temperature() > 0)
+	if(env && air_contents && env.return_temperature() > 0)
 		var/transfer_moles = 0.1 * pressure_delta*air_contents.return_volume()/(env.return_temperature() * R_IDEAL_GAS_EQUATION)
 
 		//Actually transfer the gas
 		var/datum/gas_mixture/removed = env.remove(transfer_moles)
-		air_contents.merge(removed)
+		if(removed)
+			air_contents.merge(removed)
 		air_update_turf()
 
 
