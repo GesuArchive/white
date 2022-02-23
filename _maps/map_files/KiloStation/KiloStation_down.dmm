@@ -485,7 +485,6 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/structure/cable,
 /turf/open/floor/plating{
-	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -594,12 +593,11 @@
 	},
 /area/maintenance/bottom_station_maints)
 "coy" = (
-/obj/item/stack/rods,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating{
-	heat_capacity = 10000;
-	icon_state = "panelscorched"
+	icon_state = "platingdmg3"
 	},
-/area/maintenance/bottom_station_maints/west)
+/area/maintenance/bottom_station_maints/east)
 "cqb" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/stack/rods,
@@ -1374,7 +1372,6 @@
 "fAH" = (
 /obj/effect/spawner/lootdrop/food_packaging,
 /turf/open/floor/plating{
-	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -1524,12 +1521,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
-"gla" = (
-/obj/effect/loot_site_spawner,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
-/area/maintenance/bottom_station_maints/east)
 "glH" = (
 /obj/effect/loot_site_spawner,
 /turf/open/floor/plating{
@@ -1553,12 +1544,6 @@
 	icon_state = "platingdmg2"
 	},
 /area/maintenance/bottom_station_maints)
-"gnX" = (
-/obj/effect/loot_site_spawner,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
-/area/maintenance/bottom_station_maints/west)
 "gol" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1596,7 +1581,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/small,
 /turf/open/floor/plating{
-	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -1966,9 +1950,8 @@
 /area/maintenance/bottom_station_maints/east)
 "hTA" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/obj/effect/loot_site_spawner,
+/turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "hVI" = (
 /obj/structure/cable,
@@ -2112,8 +2095,9 @@
 /area/maintenance/bottom_station_maints)
 "izy" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/loot_site_spawner,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel{
+	icon_state = "damaged4"
+	},
 /area/maintenance/bottom_station_maints/east)
 "iAp" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2217,10 +2201,6 @@
 	icon_state = "platingdmg2"
 	},
 /area/maintenance/bottom_station_maints/west)
-"iUL" = (
-/obj/effect/loot_site_spawner,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/east)
 "iUN" = (
 /obj/structure/grille,
 /turf/open/floor/plating{
@@ -2308,7 +2288,6 @@
 /obj/item/stack/rods,
 /obj/machinery/light/small,
 /turf/open/floor/plating{
-	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -2999,7 +2978,6 @@
 	},
 /obj/item/stack/rods,
 /turf/open/floor/plating{
-	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -3366,9 +3344,10 @@
 	},
 /area/maintenance/bottom_station_maints/west)
 "mMx" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plasteel{
-	icon_state = "damaged4"
+/obj/structure/girder,
+/obj/structure/grille/broken,
+/turf/open/floor/plating{
+	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/east)
 "mMG" = (
@@ -3544,13 +3523,6 @@
 	icon_state = "damaged2"
 	},
 /area/maintenance/bottom_station_maints/east)
-"npL" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/spawner/lootdrop/food_packaging,
-/turf/open/floor/plasteel{
-	icon_state = "damaged2"
-	},
-/area/maintenance/bottom_station_maints/east)
 "nqM" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/spawner/lootdrop/food_packaging,
@@ -3688,7 +3660,6 @@
 "nXL" = (
 /obj/structure/grille/broken,
 /turf/open/floor/plating{
-	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -3998,9 +3969,9 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "pgO" = (
+/obj/effect/loot_site_spawner,
 /turf/open/floor/plating{
-	heat_capacity = 10000;
-	icon_state = "panelscorched"
+	icon_state = "platingdmg1"
 	},
 /area/maintenance/bottom_station_maints/west)
 "pjK" = (
@@ -4024,7 +3995,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating{
-	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -4282,6 +4252,12 @@
 /obj/structure/grille/broken,
 /turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/west)
+"qxP" = (
+/obj/effect/loot_site_spawner,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/maintenance/bottom_station_maints/east)
 "qyX" = (
 /obj/effect/landmark/stationroom/maintenance/rdm3x3,
 /turf/open/floor/plating,
@@ -4583,6 +4559,15 @@
 /obj/effect/spawner/lootdrop/maintenance/six,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
+"rNi" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/warning/vacuum/external{
+	pixel_x = 32
+	},
+/turf/open/floor/plating{
+	icon_state = "platingdmg2"
+	},
+/area/maintenance/bottom_station_maints/east)
 "rOA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/rods,
@@ -5019,10 +5004,10 @@
 /turf/open/floor/plasteel,
 /area/maintenance/bottom_station_maints/east)
 "tyd" = (
-/obj/structure/girder,
-/obj/structure/grille/broken,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/spawner/lootdrop/food_packaging,
+/turf/open/floor/plasteel{
+	icon_state = "damaged2"
 	},
 /area/maintenance/bottom_station_maints/east)
 "tyv" = (
@@ -5044,7 +5029,6 @@
 	dir = 8
 	},
 /turf/open/floor/plating{
-	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -5204,7 +5188,6 @@
 /obj/effect/spawner/lootdrop/cigbutt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating{
-	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints)
@@ -5244,15 +5227,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/maintenance/bottom_station_maints/east)
-"uqB" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/sign/warning/vacuum/external{
-	pixel_x = 32
-	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
 /area/maintenance/bottom_station_maints/east)
 "usf" = (
 /obj/machinery/door/firedoor,
@@ -5643,7 +5617,6 @@
 "vQU" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating{
-	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -5798,7 +5771,6 @@
 /obj/effect/spawner/lootdrop/food_packaging,
 /obj/structure/grille/broken,
 /turf/open/floor/plating{
-	heat_capacity = 10000;
 	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
@@ -5890,12 +5862,9 @@
 	},
 /area/maintenance/bottom_station_maints/east)
 "wLV" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating{
-	heat_capacity = 10000;
-	icon_state = "panelscorched"
-	},
-/area/maintenance/bottom_station_maints/west)
+/obj/effect/loot_site_spawner,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/east)
 "wNz" = (
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -6286,7 +6255,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/stack/rods,
 /turf/open/floor/plating{
-	icon_state = "platingdmg1"
+	icon_state = "panelscorched"
 	},
 /area/maintenance/bottom_station_maints/west)
 "yir" = (
@@ -19063,8 +19032,8 @@ eUR
 wWg
 akt
 xnb
-gnX
-gnX
+pgO
+pgO
 fpx
 cOC
 fpx
@@ -24196,7 +24165,7 @@ xqA
 lrq
 xqA
 pYg
-coy
+dYA
 oHh
 roC
 aaa
@@ -24453,7 +24422,7 @@ eUR
 lEz
 eUR
 eUR
-pgO
+lhF
 mnQ
 roC
 aaa
@@ -24704,13 +24673,13 @@ xqA
 xqA
 eUR
 pmc
-wLV
+nuJ
 shT
 wxc
 yhz
 tzk
 ijo
-wLV
+nuJ
 mnQ
 cOC
 aaa
@@ -26502,8 +26471,8 @@ xqA
 xqA
 xqA
 lEz
-wLV
-wLV
+nuJ
+nuJ
 lEz
 xqA
 lrq
@@ -49385,14 +49354,14 @@ cLo
 nCV
 dKZ
 xNH
-izy
-mpf
-tyd
-wSt
 hTA
+mpf
+mMx
+wSt
+coy
 nCV
-iUL
-gla
+wLV
+qxP
 hQh
 nlh
 gfw
@@ -49641,15 +49610,15 @@ whp
 iRb
 whp
 uoe
-hTA
+coy
 fOx
-mMx
+izy
 oif
 sNf
-npL
+tyd
 sZY
 hRM
-uqB
+rNi
 jsw
 sNf
 hNl
