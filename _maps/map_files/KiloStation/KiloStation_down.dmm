@@ -264,8 +264,8 @@
 	dir = 8;
 	heat_capacity = 1e+006;
 	icon_state = "damaged4";
-	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	temperature = 251
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15";
+	temperature = 293.15
 	},
 /area/maintenance/bottom_station_maints)
 "bdG" = (
@@ -280,10 +280,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged1";
-	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	temperature = 251
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15";
+	temperature = 293.15
 	},
 /area/maintenance/bottom_station_maints/west)
 "bha" = (
@@ -2117,10 +2117,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
-"izy" = (
-/obj/machinery/power/apc/auto_name/north,
-/turf/open/space/basic,
-/area/space)
 "iAp" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/vomit/old,
@@ -2298,8 +2294,8 @@
 	dir = 8;
 	heat_capacity = 1e+006;
 	icon_state = "damaged4";
-	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	temperature = 251
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15";
+	temperature = 293.15
 	},
 /area/maintenance/bottom_station_maints/west)
 "jcI" = (
@@ -2376,6 +2372,7 @@
 	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "jts" = (
@@ -4814,8 +4811,8 @@
 	dir = 8;
 	heat_capacity = 1e+006;
 	icon_state = "damaged4";
-	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	temperature = 251
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15";
+	temperature = 293.15
 	},
 /area/maintenance/bottom_station_maints)
 "sIb" = (
@@ -5357,6 +5354,7 @@
 	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/west)
 "uMc" = (
@@ -5559,8 +5557,8 @@
 	dir = 8;
 	heat_capacity = 1e+006;
 	icon_state = "damaged4";
-	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	temperature = 251
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15";
+	temperature = 293.15
 	},
 /area/maintenance/bottom_station_maints/west)
 "vwm" = (
@@ -6108,10 +6106,10 @@
 	},
 /turf/open/floor/plasteel{
 	dir = 8;
-	heat_capacity = 1e+006;
+	heat_capacity = 10000;
 	icon_state = "damaged1";
-	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	temperature = 251
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15";
+	temperature = 293.15
 	},
 /area/maintenance/bottom_station_maints/west)
 "xtK" = (
@@ -23411,7 +23409,7 @@ aaa
 aaa
 aaa
 aaa
-izy
+aaa
 aaa
 aaa
 aaa
@@ -48143,7 +48141,7 @@ tvA
 tvA
 tvA
 tvA
-dKZ
+elx
 aaa
 aeo
 aaa

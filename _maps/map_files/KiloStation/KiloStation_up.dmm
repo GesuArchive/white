@@ -11226,6 +11226,7 @@
 /turf/open/floor/plasteel/dark,
 /area/science/robotics/mechbay)
 "baX" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/atmos/toxins_mixing_input,
 /turf/open/floor/engine/vacuum,
 /area/science/mixing/chamber)
 "baY" = (
@@ -11388,6 +11389,9 @@
 /area/science/mixing/chamber)
 "bbD" = (
 /obj/effect/landmark/blobstart,
+/obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/incinerator_toxmix{
+	dir = 4
+	},
 /turf/open/floor/engine,
 /area/science/mixing/chamber)
 "bbE" = (
@@ -43571,6 +43575,18 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/cargo/storage)
+"iXe" = (
+/obj/docking_port/stationary{
+	dir = 4;
+	dwidth = 3;
+	height = 10;
+	id = "mining_home";
+	name = "mining shuttle bay";
+	roundstart_template = /datum/map_template/shuttle/mining/kilo;
+	width = 7
+	},
+/turf/open/floor/engine/hull,
+/area/space/nearstation)
 "iXv" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/neutral{
@@ -127736,7 +127752,7 @@ bkd
 bnb
 bnb
 bnb
-bnb
+iXe
 bnb
 bnb
 bnb
