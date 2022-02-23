@@ -743,8 +743,17 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	popup.open(FALSE)
 	onclose(user, "preferences_window", src)
 
-#undef APPEARANCE_CATEGORY_COLUMN
-#undef MAX_MUTANT_ROWS
+#undef SETUP_START_NODE
+#undef SETUP_GET_LINK
+#undef SETUP_GET_LINK_RANDOM
+#undef SETUP_COLOR_BOX
+#undef SETUP_NODE_SWITCH
+#undef SETUP_NODE_INPUT
+#undef SETUP_NODE_COLOR
+#undef SETUP_NODE_RANDOM
+#undef SETUP_NODE_INPUT_RANDOM
+#undef SETUP_NODE_COLOR_RANDOM
+#undef SETUP_CLOSE_NODE
 
 /datum/preferences/proc/CaptureKeybinding(mob/user, datum/keybinding/kb, old_key)
 	var/HTML = {"
