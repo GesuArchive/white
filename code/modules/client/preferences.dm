@@ -197,15 +197,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 #define SETUP_START_NODE(L)  		  	 		 	 		"<div class='csetup_character_node'><div class='csetup_character_label'>[L]</div><div class='csetup_character_input'>"
 
 #define SETUP_GET_LINK(pref, task, task_type, value) 		"<a href='?_src_=prefs;preference=[pref][task ? ";[task_type]=[task]" : ""]'>[value]</a>"
-#define SETUP_GET_LINK_RANDOM(random_type) 		  	 		"<a href='?_src_=prefs;preference=toggle_random;random_type=[random_type]'>[randomise[random_type] ? "Yes" : "No"]</a>"
+#define SETUP_GET_LINK_RANDOM(random_type) 		  	 		"<a href='?_src_=prefs;preference=toggle_random;random_type=[random_type]'>[randomise[random_type] ? "Случайно" : "Фиксированно"]</a>"
 #define SETUP_COLOR_BOX(color) 				  	 	 		"<span style='border: 1px solid #161616; background-color: #[color];'>&nbsp;&nbsp;&nbsp;</span>"
 
 #define SETUP_NODE_SWITCH(label, pref, value)		  		"[SETUP_START_NODE(label)][SETUP_GET_LINK(pref, null, null, value)][SETUP_CLOSE_NODE]"
 #define SETUP_NODE_INPUT(label, pref, value)		  		"[SETUP_START_NODE(label)][SETUP_GET_LINK(pref, "input", "task", value)][SETUP_CLOSE_NODE]"
-#define SETUP_NODE_COLOR(label, pref, color, random)  		"[SETUP_START_NODE(label)][SETUP_COLOR_BOX(color)][SETUP_GET_LINK(pref, "input", "task", "Change")][random ? "[SETUP_GET_LINK_RANDOM(random)]" : ""][SETUP_CLOSE_NODE]"
+#define SETUP_NODE_COLOR(label, pref, color, random)  		"[SETUP_START_NODE(label)][SETUP_COLOR_BOX(color)][SETUP_GET_LINK(pref, "input", "task", "Изменить")][random ? "[SETUP_GET_LINK_RANDOM(random)]" : ""][SETUP_CLOSE_NODE]"
 #define SETUP_NODE_RANDOM(label, random)		  	  		"[SETUP_START_NODE(label)][SETUP_GET_LINK_RANDOM(random)][SETUP_CLOSE_NODE]"
 #define SETUP_NODE_INPUT_RANDOM(label, pref, value, random) "[SETUP_START_NODE(label)][SETUP_GET_LINK(pref, "input", "task", value)][SETUP_GET_LINK_RANDOM(random)][SETUP_CLOSE_NODE]"
-#define SETUP_NODE_COLOR_RANDOM(label, pref, color, random) "[SETUP_START_NODE(label)][SETUP_COLOR_BOX(color)][SETUP_GET_LINK(pref, "input", "task", "Change")][SETUP_GET_LINK_RANDOM(random)][SETUP_CLOSE_NODE]"
+#define SETUP_NODE_COLOR_RANDOM(label, pref, color, random) "[SETUP_START_NODE(label)][SETUP_COLOR_BOX(color)][SETUP_GET_LINK(pref, "input", "task", "Изменить")][SETUP_GET_LINK_RANDOM(random)][SETUP_CLOSE_NODE]"
 
 #define SETUP_CLOSE_NODE 	  			  			  		"</div></div>"
 
@@ -257,8 +257,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<div class='csetup_main'>"
 			if(is_banned_from(user.ckey, "Appearance"))
 				dat += "<div class='csetup_banned'>Тебе нельзя. Ты всё ещё можешь настраивать персонажей, но в любом случае получишь случайную внешность и имя.</div>"
-			dat += "<div class='csetup_header'>Персонаж</div>"
-			dat += "<div class='csetup_content'>"
+			dat += "<div class='csetup_content'><div class='csetup_header'>Персонаж</div>"
 			dat += SETUP_START_NODE("Имя")
 			dat += SETUP_GET_LINK("name", "input", "task", real_name)
 			dat += SETUP_GET_LINK("name", "random", "task", "Случайное")
@@ -306,12 +305,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(user.client.get_exp_living(TRUE) >= PLAYTIME_HARDCORE_RANDOM)
 				dat += SETUP_NODE_RANDOM("Режим хардкора", RANDOM_HARDCORE)
 
-			dat += "</div><div class='csetup_header'>Должностное</div><div class='csetup_content'>"
+			dat += "</div><div class='csetup_content'><div class='csetup_header'>Должностное</div>"
 
 			dat += SETUP_NODE_INPUT("Дисплей ИИ", "ai_core_icon", preferred_ai_core_display)
 			dat += SETUP_NODE_INPUT("Отдел офицера", "sec_dept", prefered_security_department)
 
-			dat += "</div><div class='csetup_header'>Подробности</div><div class='csetup_content'>"
+			dat += "</div><div class='csetup_content'><div class='csetup_header'>Подробности</div>"
 
 			dat += SETUP_START_NODE("Тело")
 			dat += SETUP_GET_LINK("species", "input", "task", pref_species.name)
@@ -495,22 +494,22 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 		if (2) // Game Preferences
 			dat += "<div class='csetup_main'>"
-			dat += "<div class='csetup_header'>Интерфейс</div><div class='csetup_content'>"
+			dat += "<div class='csetup_content'><div class='csetup_header'>Интерфейс</div>"
 			dat += SETUP_NODE_INPUT("Стиль", "ui", UI_style)
 			dat += SETUP_NODE_SWITCH("Окна в TGUI", "tgui_lock", tgui_lock ? "Основные" : "Все")
 			dat += SETUP_NODE_SWITCH("Стиль TGUI", "tgui_fancy", tgui_fancy ? "Красивый" : "Строгие рамки")
-			dat += "</div><div class='csetup_header'>Runechat</div><div class='csetup_content'>"
+			dat += "</div><div class='csetup_content'><div class='csetup_header'>Runechat</div>"
 			dat += SETUP_NODE_SWITCH("Текст над головой", "chat_on_map", chat_on_map ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_INPUT("Максимальная длина", "max_chat_length", max_chat_length)
 			dat += SETUP_NODE_SWITCH("Текст не только у мобов", "see_chat_non_mob", see_chat_non_mob ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Эмоции над головой", "see_rc_emotes", see_rc_emotes ? "Вкл" : "Выкл")
-			dat += "</div><div class='csetup_header'>Управление</div><div class='csetup_content'>"
+			dat += "</div><div class='csetup_content'><div class='csetup_header'>Управление</div>"
 			dat += SETUP_NODE_SWITCH("Кнопки действий", "action_buttons", buttons_locked ? "Не двигаются" : "Свободные")
 			dat += SETUP_NODE_SWITCH("Режим хоткеев", "hotkeys", hotkeys ? "Хоткеи" : "Ретро")
-			dat += "</div><div class='csetup_header'>ПДА</div><div class='csetup_content'>"
+			dat += "</div><div class='csetup_content'><div class='csetup_header'>ПДА</div>"
 			dat += SETUP_NODE_COLOR("Цвет меню", "pda_color", pda_color, null)
 			dat += SETUP_NODE_INPUT("Стиль", "pda_style", pda_style)
-			dat += "</div><div class='csetup_header'>Призрак</div><div class='csetup_content'>"
+			dat += "</div><div class='csetup_content'><div class='csetup_header'>Призрак</div>"
 			dat += SETUP_NODE_SWITCH("Разговоры", "ghost_ears", (chat_toggles & CHAT_GHOSTEARS) ? "Все" : "Рядом")
 			dat += SETUP_NODE_SWITCH("Радиопереговоры", "ghost_radio", (chat_toggles & CHAT_GHOSTRADIO) ? "Все" : "Рядом")
 			dat += SETUP_NODE_SWITCH("Эмоуты", "ghost_sight", (chat_toggles & CHAT_GHOSTSIGHT) ? "Все" : "Рядом")
@@ -542,7 +541,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					button_name = GHOST_OTHERS_SIMPLE_NAME
 
 			dat += SETUP_NODE_INPUT("Призраки других", "ghostothers", button_name)
-			dat += "</div><div class='csetup_header'>Графика</div><div class='csetup_content'>"
+			dat += "</div><div class='csetup_content'><div class='csetup_header'>Графика</div>"
 			dat += SETUP_NODE_SWITCH("Автокоррекция текста", "disabled_autocap", disabled_autocap ? "Выкл" : "Вкл")
 			dat += SETUP_NODE_SWITCH("Сообщения ID-карты", "income_pings", (chat_toggles & CHAT_BANKCARD) ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_INPUT("FPS", "clientfps", clientfps)
@@ -607,7 +606,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if(CONFIG_GET(flag/preference_map_voting))
 					dat += SETUP_NODE_INPUT("Любимая карта", "preferred_map", p_map)
 
-			dat += "</div><div class='csetup_header'>Спецроли</div><div class='csetup_content'>"
+			dat += "</div><div class='csetup_content'><div class='csetup_header'>Спецроли</div>"
 
 			if(is_banned_from(user.ckey, ROLE_SYNDICATE))
 				dat += "<font color='#ff7777'><b>Тебе нельзя быть антагами.</b></font>"
@@ -633,7 +632,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "</div></div>"
 		if(3) //OOC Preferences
 			dat += "<div class='csetup_main'>"
-			dat += "<div class='csetup_header'>Настройки OOC</div><div class='csetup_content'>"
+			dat += "<div class='csetup_content'><div class='csetup_header'>Настройки OOC</div>"
 			dat += SETUP_NODE_SWITCH("Мигание окна", "winflash", windowflashing ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Слышать Admin MIDIs", "hear_midis", (toggles & SOUND_MIDI) ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Слышать Lobby Music", "lobby_music", (toggles & SOUND_LOBBY) ? "Вкл" : "Выкл")
@@ -648,7 +647,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "</div>"
 
 			if(user.client.holder)
-				dat += "<div class='csetup_header'>Admin Settings</div><div class='csetup_content'>"
+				dat += "<div class='csetup_content'><div class='csetup_header'>Admin Settings</div>"
 				dat += SETUP_NODE_SWITCH("Adminhelp Sounds", "hear_adminhelps", (toggles & SOUND_ADMINHELP) ? "On" : "Off")
 				dat += SETUP_NODE_SWITCH("Prayer Sounds", "hear_prayers", (toggles & SOUND_PRAYERS) ? "On" : "Off")
 				dat += SETUP_NODE_SWITCH("Announce Sounds", "announce_login", (toggles & ANNOUNCE_LOGIN) ? "On" : "Off")
@@ -660,7 +659,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if(CONFIG_GET(flag/allow_admin_asaycolor))
 					dat += SETUP_NODE_COLOR("ASAY Color", "asaycolor", asaycolor ? asaycolor : "#FF4500", null)
 
-				dat += "</div><div class='csetup_header'>Deadmin</div><div class='csetup_content'>"
+				dat += "</div><div class='csetup_content'><div class='csetup_header'>Deadmin</div>"
 
 				if(CONFIG_GET(flag/auto_deadmin_players))
 					dat += SETUP_NODE_SWITCH("Always Deadmin", "suck", "FORCED")
@@ -705,7 +704,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<div class='csetup_main'>"
 
 			for (var/category in kb_categories)
-				dat += "<div class='csetup_header'>[category]</div><div class='csetup_content'>"
+				dat += "<div class='csetup_content'><div class='csetup_header'>[category]</div>"
 				for (var/i in kb_categories[category])
 					var/datum/keybinding/kb = i
 					if(!length(user_binds[kb.name]) || user_binds[kb.name][1] == "Unbound")
