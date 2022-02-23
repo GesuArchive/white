@@ -35353,6 +35353,7 @@
 "fSa" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/ladder,
 /turf/open/floor/plating,
 /area/maintenance/starboard)
 "fSk" = (
