@@ -39,6 +39,8 @@
 	var/area/myarea = null
 	//Has this firealarm been triggered by its enviroment?
 	var/triggered = FALSE
+	///looping sound datum for our fire alarm siren.
+	var/datum/looping_sound/firealarm/soundloop
 
 /obj/machinery/firealarm/Initialize(mapload, dir, building)
 	. = ..()
@@ -52,6 +54,7 @@
 	update_icon()
 	myarea = get_area(src)
 	LAZYADD(myarea.firealarms, src)
+	soundloop = new(src, FALSE)
 
 /obj/machinery/firealarm/ComponentInitialize()
 	. = ..()
@@ -61,7 +64,25 @@
 	if(myarea)
 		myarea.firereset(src)
 		LAZYREMOVE(myarea.firealarms, src)
+	QDEL_NULL(soundloop)
 	return ..()
+
+/**
+ * Sets the sound state, and then calls update_icon()
+ *
+ * This proc exists to be called by areas and firelocks
+ * so that it may update its icon and start or stop playing
+ * the alarm sound based on the state of an area variable.
+ */
+/obj/machinery/firealarm/proc/set_status()
+	if(triggered == !!light_power) // bool
+		return  // do nothing if we're already active
+	if(triggered)
+		set_light(l_power = 0.8)
+	else
+		soundloop.stop()
+		set_light(l_power = 0)
+	update_icon()
 
 /obj/machinery/firealarm/update_icon_state()
 	if(panel_open)
@@ -129,6 +150,7 @@
 		user.visible_message(span_warning("Искры вылетают из [src]!") ,
 							span_notice("Взламываю [src], отключая её термальные сенсоры."))
 	playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	set_status()
 
 /obj/machinery/firealarm/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
 	return (exposed_temperature > T0C + 200 || exposed_temperature < BODYTEMP_COLD_DAMAGE_LIMIT) && !(obj_flags & EMAGGED) && !machine_stat
@@ -159,6 +181,7 @@
 	playsound(loc, 'sound/machines/FireAlarm.ogg', 96)
 	if(user)
 		log_game("[user] triggered a fire alarm at [COORD(src)]")
+	soundloop.start()
 
 /obj/machinery/firealarm/proc/reset(mob/user)
 	if(!is_operational)
@@ -167,6 +190,7 @@
 	A.firereset()
 	if(user)
 		log_game("[user] reset a fire alarm at [COORD(src)]")
+	soundloop.stop()
 
 /obj/machinery/firealarm/attack_hand(mob/user)
 	if(buildstage != 2)
@@ -332,14 +356,6 @@
 				I.obj_integrity = I.max_integrity * 0.5
 		new /obj/item/stack/cable_coil(loc, 3)
 	qdel(src)
-
-/obj/machinery/firealarm/proc/update_fire_light(fire)
-	if(fire == !!light_power)
-		return  // do nothing if we're already active
-	if(fire)
-		set_light(l_power = 0.8)
-	else
-		set_light(l_power = 0)
 
 /obj/machinery/firealarm/directional/north
 	pixel_y = 26

@@ -358,9 +358,8 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!triggered_firealarms) //If there aren't any fires/breaches
 		triggered_firealarms = INFINITY //You're not allowed to naturally die
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	for(var/alarm in firealarms)
-		var/obj/machinery/firealarm/F = alarm
-		F.update_fire_light(fire)
+	for(var/obj/machinery/firealarm/firepanel in firealarms)
+		firepanel.set_status()
 	for(var/obj/machinery/light/L in src)
 		L.update()
 
@@ -375,8 +374,8 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	for(var/alarm in firealarms)
 		var/obj/machinery/firealarm/F = alarm
-		F.update_fire_light(fire)
 		F.triggered = FALSE
+		F.set_status()
 	for(var/obj/machinery/light/L in src)
 		L.update()
 
