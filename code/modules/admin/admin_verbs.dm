@@ -98,6 +98,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/cmd_select_equipment,
 	/client/proc/cmd_admin_gib_self,
 	/client/proc/drop_bomb,
+	/client/proc/drop_bomb_at,
 	/client/proc/set_dynex_scale,
 	/client/proc/drop_dynex_bomb,
 	/client/proc/cinematic,
@@ -258,6 +259,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_select_equipment,
 	/client/proc/cmd_admin_gib_self,
 	/client/proc/drop_bomb,
+	/client/proc/drop_bomb_at,
 	/client/proc/drop_dynex_bomb,
 	/client/proc/get_dynex_range,
 	/client/proc/get_dynex_power,
@@ -520,13 +522,21 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		message_admins("[key_name_admin(usr)] has turned stealth mode [holder.fakekey ? "ON" : "OFF"]")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Stealth Mode") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/drop_bomb(turf/epicenter = null in world)
+/client/proc/drop_bomb_verb(turf/epicenter = null in world)
+	set category = "Адм.Веселье"
+	set name = "Here Drop Bomb"
+	set desc = "Cause an explosion of varying strength at pointed location."
+
+	if(epicenter)
+		drop_bomb(epicenter)
+
+/client/proc/drop_bomb(epicenter = null)
 	set category = "Адм.Веселье"
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
 
 	var/list/choices = list("Small Bomb (1, 2, 3, 3)", "Medium Bomb (2, 3, 4, 4)", "Big Bomb (3, 5, 7, 5)", "Maxcap", "Custom Bomb")
-	var/choice = tgui_input_list(usr, "What size explosion would you like to produce? NOTE: You can do all this rapidly and in an IC manner (using cruise missiles!) with the Config/Launch Supplypod verb. WARNING: These ignore the maxcap", "Drop Bomb", list("NULL" = null) + choices)
+	var/choice = tgui_input_list(usr, "What size explosion would you like to produce? NOTE: You can do all this rapidly and in an IC manner (using cruise missiles!) with the Config/Launch Supplypod verb. WARNING: These ignore the maxcap", "Drop Bomb", choices)
 	if(isnull(epicenter))
 		epicenter = mob.loc
 
