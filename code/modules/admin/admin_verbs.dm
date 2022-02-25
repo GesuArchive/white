@@ -98,7 +98,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/cmd_select_equipment,
 	/client/proc/cmd_admin_gib_self,
 	/client/proc/drop_bomb,
-	/client/proc/drop_bomb_at,
+	/client/proc/drop_bomb_verb,
 	/client/proc/set_dynex_scale,
 	/client/proc/drop_dynex_bomb,
 	/client/proc/cinematic,
@@ -259,7 +259,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_select_equipment,
 	/client/proc/cmd_admin_gib_self,
 	/client/proc/drop_bomb,
-	/client/proc/drop_bomb_at,
+	/client/proc/drop_bomb_verb,
 	/client/proc/drop_dynex_bomb,
 	/client/proc/get_dynex_range,
 	/client/proc/get_dynex_power,
@@ -530,7 +530,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	if(epicenter)
 		drop_bomb(epicenter)
 
-/client/proc/drop_bomb(epicenter = null)
+/client/proc/drop_bomb(turf/epicenter = null)
 	set category = "Адм.Веселье"
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
