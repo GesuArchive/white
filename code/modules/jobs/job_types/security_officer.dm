@@ -150,6 +150,7 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	id_trim = /datum/id_trim/job/security_officer
 
 /datum/outfit/job/security/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
 	if(prob(10))
 		suit_store = /obj/item/gun/energy/e_gun/advtaser
 	else
