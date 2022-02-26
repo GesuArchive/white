@@ -3419,7 +3419,10 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
-/obj/machinery/atmospherics/components/unary/tank,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer2{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/tier_2,
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "FC" = (
@@ -4836,6 +4839,11 @@
 /obj/machinery/defibrillator_mount{
 	pixel_y = -28
 	},
+/obj/machinery/camera{
+	c_tag = "Medbay Treatment Center";
+	dir = 10;
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/plasteel,
 /area/medical/medbay)
 "SL" = (
@@ -5084,15 +5092,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/lobby)
-"Va" = (
-/obj/machinery/camera{
-	c_tag = "Medbay Treatment Center";
-	dir = 8;
-	network = list("ss13","medbay")
-	},
-/obj/machinery/stasis,
-/turf/open/floor/plasteel,
-/area/medical/medbay)
 "Vd" = (
 /obj/machinery/airalarm{
 	dir = 8;
@@ -6111,7 +6110,7 @@ Ps
 yg
 wn
 jK
-Va
+yg
 UB
 Ax
 TH

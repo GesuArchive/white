@@ -50,6 +50,7 @@
 	id_trim = /datum/id_trim/job/field_medic
 
 /datum/outfit/job/field_medic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
 	if(visualsOnly)
 		return
 	var/datum/atom_hud/hud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]

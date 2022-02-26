@@ -163,7 +163,23 @@
 				flick_overlay(connection_images[smart][dir2text(direction)], list(user.client), 1.5 SECONDS)
 
 /obj/item/clothing/glasses/meson/engine/update_icon_state()
-	icon_state = inhand_icon_state = "trayson-[mode]"
+	switch(mode)
+		if(MODE_TRAY)
+			icon_state = "trayson-t-ray"
+			inhand_icon_state = "trayson-t-ray"
+			worn_icon_state = "trayson-t-ray"
+		if(MODE_RAD)
+			icon_state = "trayson-radiation"
+			inhand_icon_state = "trayson-radiation"
+			worn_icon_state = "trayson-radiation"
+		if(MODE_MESON)
+			icon_state = "trayson-meson"
+			inhand_icon_state = "trayson-meson"
+			worn_icon_state = "trayson-meson"
+		if(MODE_NONE)
+			icon_state = "trayson-"
+			inhand_icon_state = "trayson-"
+			worn_icon_state = "trayson-"
 
 /obj/item/clothing/glasses/meson/engine/tray //atmos techs have lived far too long without tray goggles while those damned engineers get their dual-purpose gogles all to themselves
 	name = "Терагерцовые очки"

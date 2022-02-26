@@ -43,6 +43,8 @@
 							span_notice("У меня получилось освободиться!"))
 
 			unbuckle_mob(M)
+			if(handbeltsmod_active)
+				playsound(src.loc, 'sound/weapons/saberoff.ogg', 50, TRUE)
 			handbeltsmod_active = FALSE
 			M.layer = initial(M.layer)	//	Возвращение отображения космонавтика к изначальным параметрам
 			M.plane = initial(M.plane)
@@ -71,10 +73,13 @@
 					add_overlay(handbeltsmod_active_overlay)
 					handbeltsmod_active = TRUE
 				else
-					to_chat(user, span_noticeital("Энергетические ремни рассеиваются, позволяя [skloname(victim.name, DATELNI, victim.gender)] встать."))
+					to_chat(user, span_noticeital("Энергетические ремни рассеиваются, и более не удерживают [skloname(victim.name, VINITELNI, victim.gender)]."))
 					log_combat(src, victim, "handcuffed", src.name)
 					playsound(src.loc, 'sound/weapons/saberoff.ogg', 50, TRUE)
 					handbeltsmod_active = FALSE
+					victim.layer = initial(victim.layer)	//	Возвращение отображения космонавтика к изначальным параметрам
+					victim.plane = initial(victim.plane)
+					cut_overlay(handbeltsmod_active_overlay)
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 		else
 			to_chat(user, span_notice("Некого фиксировать! Уложите пациента на стазис-кровать и потом включайте ремни."))
