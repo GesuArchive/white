@@ -44,14 +44,14 @@
 			playsound(loc, 'sound/weapons/egloves.ogg', 80, TRUE)
 
 /obj/structure/holosign/wetsign
-	name = "wet floor sign"
-	desc = "The words flicker as if they mean nothing."
+	name = "знак мокрого пола"
+	desc = "Слова мелькают, как будто они ничего не значат."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "holosign"
 
 /obj/structure/holosign/barrier
-	name = "holobarrier"
-	desc = "A short holographic barrier which can only be passed by walking."
+	name = "голографический барьер"
+	desc = "Небольшой голографический барьер, который можно преодолеть только замедлившись до шага."
 	icon_state = "holosign_sec"
 	pass_flags_self = PASSTABLE | PASSGRILLE | PASSGLASS | LETPASSTHROW
 	density = TRUE
@@ -70,8 +70,8 @@
 			return TRUE
 
 /obj/structure/holosign/barrier/wetsign
-	name = "wet floor holobarrier"
-	desc = "When it says walk it means walk."
+	name = "голографический барьер мокрого пола"
+	desc = "Когда он говорит \"шагом\", это означает \"шагом\"."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "holosign"
 
@@ -90,8 +90,8 @@
 	rad_insulation = RAD_LIGHT_INSULATION
 
 /obj/structure/holosign/barrier/atmos
-	name = "holofirelock"
-	desc = "A holographic barrier resembling a firelock. Though it does not prevent solid objects from passing through, gas is kept out."
+	name = "голографический барьер АТМОСа"
+	desc = "Барьер, препятствующие прохождению газов, но не людей."
 	icon_state = "holo_firelock"
 	density = FALSE
 	anchored = TRUE
@@ -131,8 +131,8 @@
 	return BULLET_ACT_HIT
 
 /obj/structure/holosign/barrier/medical
-	name = "\improper PENLITE holobarrier"
-	desc = "A holobarrier that uses biometrics to detect human viruses. Denies passing to personnel with easily-detected, malicious viruses. Good for quarantines."
+	name = "голографический барьер PENLITE"
+	desc = "Барьер который блокирует проход пациентам с опасными заболеваниями. Используется для контроля эпидемий."
 	icon_state = "holo_medical"
 	alpha = 125 //lazy :)
 	var/force_allaccess = FALSE

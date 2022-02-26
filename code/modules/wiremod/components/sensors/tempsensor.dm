@@ -4,8 +4,8 @@
  * Returns the temperature of the tile
  */
 /obj/item/circuit_component/tempsensor
-	display_name = "Temperature Sensor"
-	desc = "Outputs the current temperature of the tile"
+	display_name = "Датчик Температуры"
+	desc = "Возвращает текущую температуру окружающей среды"
 
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 

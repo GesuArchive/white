@@ -1,6 +1,6 @@
 /obj/item/holosign_creator
-	name = "holographic sign projector"
-	desc = "A handy-dandy holographic projector that displays a janitorial sign."
+	name = "голопроектор уборщика"
+	desc = "Удобный голографический проектор, который отображает предупреждение о скользком поле."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "signmaker"
 	inhand_icon_state = "electronic"
@@ -75,31 +75,31 @@
 
 
 /obj/item/holosign_creator/janibarrier
-	name = "custodial holobarrier projector"
-	desc = "A holographic projector that creates hard light wet floor barriers."
+	name = "модернизированный голопроектор уборщика"
+	desc = "Удобный голографический проектор, который отображает предупреждение о скользком поле. Так же блокирует передвижение невнимательных прохожих."
 	holosign_type = /obj/structure/holosign/barrier/wetsign
 	creation_time = 20
 	max_signs = 12
 
 /obj/item/holosign_creator/security
-	name = "security holobarrier projector"
-	desc = "A holographic projector that creates holographic security barriers."
+	name = "голопроектор СБ"
+	desc = "Голографический проектор, создающий голографические защитные барьеры."
 	icon_state = "signmaker_sec"
 	holosign_type = /obj/structure/holosign/barrier
 	creation_time = 30
 	max_signs = 6
 
 /obj/item/holosign_creator/engineering
-	name = "engineering holobarrier projector"
-	desc = "A holographic projector that creates holographic engineering barriers."
+	name = "инженерный голопроектор"
+	desc = "Голографический проектор, который создает голографические инженерные барьеры. Зачастую устанавливаются перед зонами техногенной опасности. Препятствуют распространению радиации."
 	icon_state = "signmaker_engi"
 	holosign_type = /obj/structure/holosign/barrier/engineering
 	creation_time = 30
 	max_signs = 6
 
 /obj/item/holosign_creator/atmos
-	name = "ATMOS holofan projector"
-	desc = "A holographic projector that creates holographic barriers that prevent changes in atmosphere conditions."
+	name = "голопроектор АТМОСа"
+	desc = "Голографический проектор, создающий барьеры, препятствующие прохождению газов, но не людей."
 	icon_state = "signmaker_atmos"
 	holosign_type = /obj/structure/holosign/barrier/atmos
 	creation_time = 0

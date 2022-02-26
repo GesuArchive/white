@@ -73,8 +73,8 @@
 	slot = SPACEPOD_SLOT_CARGO
 
 /obj/item/spacepod_equipment/cargo/large
-	name = "spacepod crate storage system"
-	desc = "A heavy duty storage system for spacepods. Holds one crate."
+	name = "Трюм спейспода"
+	desc = "Небольшой отсек вмещающий один стандартный грузовой ящик. Ящик в комплект не входит."
 	icon_state = "cargo_crate"
 	var/obj/storage = null
 	var/storage_type = /obj/structure/closet/crate
@@ -144,8 +144,8 @@
 	return FALSE
 
 /obj/item/spacepod_equipment/cargo/large/ore
-	name = "spacepod ore storage system"
-	desc = "An ore storage system for spacepods. Scoops up any ore you drive over. Needs to be loaded with an ore box to work"
+	name = "Рудный танк спейспода"
+	desc = "Система хранения руды для спейсподов. Автоматически собирает ближайшую руду, рядом с кораблем. Для работы необходимо загрузить ящик для руды."
 	icon_state = "cargo_ore"
 	storage_type = /obj/structure/ore_box
 
@@ -165,8 +165,8 @@
 				ore.forceMove(storage)
 
 /obj/item/spacepod_equipment/cargo/chair
-	name = "passenger seat"
-	desc = "A passenger seat for a spacepod."
+	name = "Пассажирское кресло спейспода"
+	desc = "Второе посадочное место для перевозки пасажиров."
 	icon_state = "sec_cargo_chair"
 	var/occupant_mod = 1
 
@@ -191,8 +191,8 @@
 */
 
 /obj/item/spacepod_equipment/weaponry/disabler
-	name = "disabler system"
-	desc = "A weak disabler system for space pods, fires disabler beams."
+	name = "Усмиритель спейспода"
+	desc = "Ведет огонь маломощными лазерами которые изматывают цель, не нанося ей вреда."
 	icon_state = "weapon_taser"
 	projectile_type = /obj/projectile/beam/disabler
 	shot_cost = 400
@@ -201,8 +201,8 @@
 	overlay_icon_state = "pod_weapon_disabler"
 
 /obj/item/spacepod_equipment/weaponry/burst_disabler
-	name = "burst disabler system"
-	desc = "A weak disabler system for space pods, this one fires 3 at a time."
+	name = "Продвинутый усмиритель спейспода"
+	desc = "Ведет огонь очередью маломощных лазеров которые изматывают цель, не нанося ей вреда."
 	icon_state = "weapon_burst_taser"
 	projectile_type = /obj/projectile/beam/disabler
 	shot_cost = 1200
@@ -213,8 +213,8 @@
 	overlay_icon_state = "pod_weapon_disabler"
 
 /obj/item/spacepod_equipment/weaponry/laser
-	name = "laser system"
-	desc = "A weak laser system for space pods, fires concentrated bursts of energy."
+	name = "Лазер спейспода"
+	desc = "Ведет огонь лазером средней мощности."
 	icon_state = "weapon_laser"
 	projectile_type = /obj/projectile/beam/laser
 	shot_cost = 600
@@ -222,10 +222,20 @@
 	overlay_icon = 'white/valtos/icons/spacepods/2x2.dmi'
 	overlay_icon_state = "pod_weapon_laser"
 
+/obj/item/spacepod_equipment/weaponry/laser_heavylaser
+	name = "Продвинутый лазер спейспода"
+	desc = "Ведет огонь лазером высокой мощности."
+	icon_state = "weapon_laser"
+	projectile_type = /obj/projectile/beam/laser/heavylaser
+	shot_cost = 1200
+	fire_sound = 'sound/weapons/lasercannonfire.ogg'
+	overlay_icon = 'white/valtos/icons/spacepods/2x2.dmi'
+	overlay_icon_state = "pod_weapon_laser"
+
 // MINING LASERS
 /obj/item/spacepod_equipment/weaponry/basic_pod_ka
-	name = "weak kinetic accelerator"
-	desc = "A weak kinetic accelerator for space pods, fires bursts of energy that cut through rock."
+	name = "Кинетический акселератор спейспода"
+	desc = "Ведет огонь слабыми импульсами кинетической энергии."
 	icon = 'white/valtos/icons/spacepods/goon/parts.dmi'
 	icon_state = "pod_taser"
 	projectile_type = /obj/projectile/kinetic/pod
@@ -234,8 +244,8 @@
 	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
 
 /obj/item/spacepod_equipment/weaponry/pod_ka
-	name = "kinetic accelerator system"
-	desc = "A kinetic accelerator system for space pods, fires bursts of energy that cut through rock."
+	name = "Продвинутый кинетический акселератор спейспода"
+	desc = "Ведет огонь мощными импульсами кинетической энергии. Продвинутая версия обладает повышенной скорострельностью и более экономичным энергопотреблением."
 	icon = 'white/valtos/icons/spacepods/goon/parts.dmi'
 	icon_state = "pod_m_laser"
 	projectile_type = /obj/projectile/kinetic/pod/regular
@@ -251,8 +261,8 @@
 	pressure_decrease = 0.5
 
 /obj/item/spacepod_equipment/weaponry/plasma_cutter
-	name = "plasma cutter system"
-	desc = "A plasma cutter system for space pods. It is capable of expelling concentrated plasma bursts to mine or cut off xeno limbs!"
+	name = "Плазменный резак спейспода"
+	desc = "Ведет огонь концентрированными сгустками плазмы, используется при добыче полезных ископаемых на астероидах."
 	icon = 'white/valtos/icons/spacepods/goon/parts.dmi'
 	icon_state = "pod_p_cutter"
 	projectile_type = /obj/projectile/plasma
@@ -263,8 +273,8 @@
 	overlay_icon_state = "pod_weapon_plasma"
 
 /obj/item/spacepod_equipment/weaponry/plasma_cutter/adv
-	name = "enhanced plasma cutter system"
-	desc = "An enhanced plasma cutter system for space pods. It is capable of expelling concentrated plasma bursts to mine or cut off xeno faces!"
+	name = "Продвинутый плазменный резак спейспода"
+	desc = "Ведет огонь концентрированными сгустками плазмы, используется при добыче полезных ископаемых на астероидах. Продвинутая версия обладает повышенной скорострельностью и более экономичным энергопотреблением."
 	icon_state = "pod_ap_cutter"
 	projectile_type = /obj/projectile/plasma/adv
 	shot_cost = 200
@@ -277,8 +287,8 @@
 */
 
 /obj/item/spacepod_equipment/tracker
-	name = "spacepod tracking system"
-	desc = "A tracking device for spacepods."
+	name = "Маяк спейспода"
+	desc = "Следящее устройство для поиска корабля в бескрайнем космосе."
 	icon = 'white/valtos/icons/spacepods/goon/parts.dmi'
 	icon_state = "pod_locator"
 
@@ -312,8 +322,8 @@
 
 // Key and Tumbler System
 /obj/item/spacepod_equipment/lock/keyed
-	name = "spacepod tumbler lock"
-	desc = "A locking system to stop podjacking. This version uses a standalone key."
+	name = "Центральный замок спейспода"
+	desc = "Блокирует двери, полезно для защиты вашего имущества. После изготовления необходимо синхронизировать с ключом."
 	icon_state = "lock_tumbler"
 	var/static/id_source = 0
 	var/id = null
@@ -354,26 +364,26 @@
 
 // The key
 /obj/item/spacepod_key
-	name = "spacepod key"
-	desc = "A key for a spacepod lock."
+	name = "Ключ от спейспода"
+	desc = "Ключ от центрального замка спейспода. После изготовления необходимо синхронизировать с замком."
 	icon = 'white/valtos/icons/spacepods/parts.dmi'
 	icon_state = "podkey"
 	w_class = WEIGHT_CLASS_TINY
 	var/id = null
 
 /obj/item/spacepod_key/sec
-	name = "security spacepod key"
-	desc = "Unlocks the security spacepod. Probably best kept out of assistant hands."
+	name = "Ключ от спейспода СБ"
+	desc = "Ключ от центрального замка спейспода."
 	id = "security spacepod"
 
 /obj/item/spacepod_key/yohei
-	name = "yohei spacepod key"
-	desc = "Unlocks the yohei spacepod."
+	name = "Ключ от спейспода Йохеев"
+	desc = "Ключ от центрального замка спейспода."
 	id = "yohei spacepod"
 
 /obj/item/device/lock_buster
-	name = "pod lock buster"
-	desc = "Destroys a podlock in mere seconds once applied. Waranty void if used."
+	name = "Взломщик центрального замка спейспода"
+	desc = "Уничтожает замок и разблокирует спейспод. Внимание: после использования гарантия обнуляется."
 	icon = 'white/valtos/icons/spacepods/parts.dmi'
 	icon_state = "lock_buster_off"
 	var/on = FALSE

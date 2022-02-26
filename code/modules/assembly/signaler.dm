@@ -1,6 +1,6 @@
 /obj/item/assembly/signaler
 	name = "сигналер"
-	desc = "Used to remotely activate devices. Allows for syncing when using a secure signaler on another."
+	desc = "Используется для отправки определенного сигнала заданной частоты и активации сигналеров с аналогичными параметрами. Можно синхронизировать параметры двух сигналеров приложив один к другому."
 	icon_state = "signaller"
 	inhand_icon_state = "signaler"
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'

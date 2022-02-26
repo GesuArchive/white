@@ -10710,9 +10710,9 @@
 /turf/open/floor/plasteel/dark,
 /area/tcommsat/computer)
 "dJA" = (
-/obj/machinery/rnd/production/protolathe/department/engineering,
 /obj/effect/turf_decal/bot,
 /obj/machinery/light/directional/north,
+/obj/machinery/mecha_part_fabricator/engi,
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage_shared)
 "dJB" = (

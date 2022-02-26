@@ -1,6 +1,6 @@
 /obj/item/door_seal
-	name = "pneumatic seal"
-	desc = "A brace used to seal and reinforce an airlock. Useful for making areas inaccessible to those without opposable thumbs."
+	name = "пневматический замок"
+	desc = "Скоба, используемая для герметизации и укрепления воздушного шлюза. Полезно для того, чтобы сделать области недоступными для не гуманоидов или тех, у кого нет противопоставленных больших пальцев."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "pneumatic_seal"
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'

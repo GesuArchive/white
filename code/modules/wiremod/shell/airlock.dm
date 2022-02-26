@@ -9,7 +9,8 @@
 	return ..()
 
 /obj/machinery/door/airlock/shell
-	name = "circuit airlock"
+	name = "Шлюз"
+	desc = "Оболочка шлюза с схемотехническим интерфейсом, которую нельзя перемещать в собранном виде."
 	autoclose = FALSE
 
 /obj/machinery/door/airlock/shell/Initialize()
@@ -34,8 +35,8 @@
 	return new /datum/wires/airlock/shell(src)
 
 /obj/item/circuit_component/airlock
-	display_name = "Airlock"
-	desc = "The general interface with an airlock. Includes general statuses of the airlock"
+	display_name = "Шлюз"
+	desc = "Интерфейс шлюза. Обладает стандартными параметрами шлюза."
 
 	/// Called when attack_hand is called on the shell.
 	var/obj/machinery/door/airlock/attached_airlock

@@ -1,6 +1,6 @@
 /obj/machinery/computer/robotics
-	name = "robotics control console"
-	desc = "Used to remotely lockdown or detonate linked Cyborgs and Drones."
+	name = "Консоль контроля киборгов"
+	desc = "Используется для дистанционного блокирования или подрыва киборгов и ботов."
 	icon_screen = "robot"
 	icon_keyboard = "rd_key"
 	req_access = list(ACCESS_ROBOTICS)

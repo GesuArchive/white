@@ -12278,7 +12278,7 @@
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay)
 "Sq" = (
-/obj/machinery/rnd/production/protolathe/department/engineering,
+/obj/machinery/mecha_part_fabricator/engi,
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "Sr" = (
@@ -12495,21 +12495,20 @@
 /turf/open/floor/plating/snowed/oxy,
 /area/tcommsat/server)
 "Th" = (
+/obj/item/circuitboard/machine/techfab/department/service,
+/obj/item/circuitboard/machine/techfab/department/security,
+/obj/item/circuitboard/machine/techfab/department/science,
+/obj/item/circuitboard/machine/techfab/department/medical,
+/obj/item/circuitboard/machine/techfab/department/engineering,
+/obj/item/circuitboard/machine/techfab/department/cargo,
 /obj/structure/closet/crate/science,
 /obj/item/circuitboard/machine/circuit_imprinter,
 /obj/item/circuitboard/machine/circuit_imprinter,
-/obj/item/circuitboard/machine/circuit_imprinter,
-/obj/item/circuitboard/machine/circuit_imprinter,
-/obj/item/circuitboard/machine/protolathe,
-/obj/item/circuitboard/machine/protolathe,
-/obj/item/circuitboard/machine/protolathe,
-/obj/item/circuitboard/machine/protolathe,
-/obj/item/circuitboard/machine/protolathe/department/cargo,
-/obj/item/circuitboard/machine/protolathe/department/engineering,
-/obj/item/circuitboard/machine/protolathe/department/medical,
-/obj/item/circuitboard/machine/protolathe/department/science,
-/obj/item/circuitboard/machine/protolathe/department/security,
-/obj/item/circuitboard/machine/protolathe/department/service,
+/obj/item/circuitboard/machine/mechfab,
+/obj/item/circuitboard/machine/mechfab/med,
+/obj/item/circuitboard/machine/mechfab/engi,
+/obj/item/circuitboard/machine/techfab,
+/obj/item/circuitboard/machine/techfab,
 /obj/structure/closet/supplypod,
 /turf/open/floor/grass/snow/safe/oxy,
 /area/partyhard/surface)

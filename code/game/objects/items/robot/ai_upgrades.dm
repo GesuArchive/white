@@ -3,8 +3,8 @@
 
 //Malf Picker
 /obj/item/malf_upgrade
-	name = "combat software upgrade"
-	desc = "A highly illegal, highly dangerous upgrade for artificial intelligence units, granting them a variety of powers as well as the ability to hack APCs.<br>This upgrade does not override any active laws, and must be applied directly to an active AI core."
+	name = "модернизация боевого ПО для ИИ"
+	desc = "Крайне незаконное, крайне опасное обновление для ИИ, значительно расширяющее их функционал, а также добавляет возможность взламывать АПЦ.<br> Это обновление не перезаписывает никаких действующих законов и должно быть загружено непосредственно в активное ядро ИИ."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "datadisk3"
 
@@ -32,8 +32,8 @@
 
 //Lipreading
 /obj/item/surveillance_upgrade
-	name = "surveillance software upgrade"
-	desc = "An illegal software package that will allow an artificial intelligence to 'hear' from its cameras via lip reading and hidden microphones."
+	name = "модернизация ПО камер для ИИ"
+	desc = "Нелегальный программный пакет, который позволит ИИ \"слышать\" со своих камер с помощью чтения по губам и скрытым микрофонам."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "datadisk3"
 

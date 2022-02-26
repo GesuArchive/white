@@ -1,6 +1,6 @@
 /obj/machinery/computer/apc_control
-	name = "power flow control console"
-	desc = "Used to remotely control the flow of power to different parts of the station."
+	name = "консоль управления энергопотреблением"
+	desc = "Используется для дистанционного управления подачи электроэнергии в различные части станции."
 	icon_screen = "solar"
 	icon_keyboard = "power_key"
 	req_access = list(ACCESS_CE)

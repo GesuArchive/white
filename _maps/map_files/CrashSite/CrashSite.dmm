@@ -442,11 +442,12 @@
 /obj/item/rcd_ammo/large,
 /obj/item/rcd_ammo/large,
 /obj/item/rcd_ammo/large,
-/obj/item/multitool,
-/obj/item/multitool,
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
+/obj/item/construction/rcd/arcd,
+/obj/item/multitool/tricorder,
+/obj/item/multitool/tricorder,
 /turf/open/floor/plating,
 /area/construction/storage_wing)
 "gV" = (
@@ -463,13 +464,14 @@
 /obj/item/rcd_ammo/large,
 /obj/item/rcd_ammo/large,
 /obj/item/rcd_ammo/large,
-/obj/item/multitool,
-/obj/item/multitool,
 /obj/machinery/power/apc/auto_name/north,
 /obj/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/item/construction/rcd/arcd,
+/obj/item/multitool/tricorder,
+/obj/item/multitool/tricorder,
 /turf/open/floor/plating,
 /area/construction/storage_wing)
 "ha" = (
@@ -508,6 +510,8 @@
 /area/engineering/storage_shared)
 "hH" = (
 /obj/structure/closet/crate/medical,
+/obj/item/storage/bag/chemistry,
+/obj/item/storage/bag/bio,
 /obj/item/storage/backpack/duffelbag/med/surgery,
 /obj/item/storage/backpack/duffelbag/med/surgery,
 /obj/item/storage/backpack/duffelbag/med/surgery,
@@ -521,6 +525,16 @@
 /obj/item/circuitboard/machine/chem_dispenser,
 /obj/item/circuitboard/machine/chem_dispenser,
 /obj/item/circuitboard/machine/chem_dispenser,
+/obj/item/circuitboard/machine/chem_master,
+/obj/item/circuitboard/machine/chem_master,
+/obj/item/circuitboard/machine/chem_master,
+/obj/item/circuitboard/machine/chem_heater,
+/obj/item/circuitboard/machine/chem_heater,
+/obj/item/circuitboard/machine/chem_heater,
+/obj/item/circuitboard/machine/stasis,
+/obj/item/circuitboard/machine/stasis,
+/obj/item/circuitboard/computer/operating,
+/obj/item/circuitboard/computer/operating,
 /turf/open/floor/plating,
 /area/construction/storage_wing)
 "hL" = (
@@ -846,22 +860,21 @@
 /turf/open/floor/plasteel,
 /area/cargo/storage)
 "lS" = (
+/obj/item/circuitboard/machine/techfab/department/service,
+/obj/item/circuitboard/machine/techfab/department/security,
+/obj/item/circuitboard/machine/techfab/department/science,
+/obj/item/circuitboard/machine/techfab/department/medical,
+/obj/item/circuitboard/machine/techfab/department/engineering,
+/obj/item/circuitboard/machine/techfab/department/cargo,
 /obj/structure/closet/crate/science,
+/obj/item/circuitboard/machine/circuit_imprinter,
+/obj/item/circuitboard/machine/circuit_imprinter,
+/obj/item/circuitboard/machine/mechfab,
+/obj/item/circuitboard/machine/mechfab/med,
+/obj/item/circuitboard/machine/mechfab/engi,
+/obj/item/circuitboard/machine/techfab,
+/obj/item/circuitboard/machine/techfab,
 /obj/machinery/light/small,
-/obj/item/circuitboard/machine/circuit_imprinter,
-/obj/item/circuitboard/machine/circuit_imprinter,
-/obj/item/circuitboard/machine/circuit_imprinter,
-/obj/item/circuitboard/machine/circuit_imprinter,
-/obj/item/circuitboard/machine/protolathe,
-/obj/item/circuitboard/machine/protolathe,
-/obj/item/circuitboard/machine/protolathe,
-/obj/item/circuitboard/machine/protolathe,
-/obj/item/circuitboard/machine/protolathe/department/cargo,
-/obj/item/circuitboard/machine/protolathe/department/engineering,
-/obj/item/circuitboard/machine/protolathe/department/medical,
-/obj/item/circuitboard/machine/protolathe/department/science,
-/obj/item/circuitboard/machine/protolathe/department/security,
-/obj/item/circuitboard/machine/protolathe/department/service,
 /turf/open/floor/plating,
 /area/construction/storage_wing)
 "lV" = (

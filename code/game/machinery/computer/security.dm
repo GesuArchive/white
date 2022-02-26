@@ -1,6 +1,6 @@
 /obj/machinery/computer/secure_data//TODO:SANITY
-	name = "security records console"
-	desc = "Used to view and edit personnel's security records."
+	name = "консоль записей СБ"
+	desc = "Используется для просмотра и редактирования записей о правонарушениях и личных дел персонала."
 	icon_screen = "security"
 	icon_keyboard = "security_key"
 	req_one_access = list(ACCESS_SECURITY, ACCESS_FORENSICS_LOCKERS)

@@ -12,7 +12,7 @@
 	. = ..()
 	if(!I.get_part_rating())
 		if (!stop_messages)
-			to_chat(M, span_warning("[parent] only accepts machine parts!"))
+			to_chat(M, span_warning("В [parent] можно поместить только детали!"))
 		return FALSE
 
 /datum/component/storage/concrete/bluespace/rped
@@ -29,5 +29,5 @@
 	. = ..()
 	if(!I.get_part_rating())
 		if (!stop_messages)
-			to_chat(M, span_warning("[parent] only accepts machine parts!"))
+			to_chat(M, span_warning("В [parent] можно поместить только детали!"))
 		return FALSE

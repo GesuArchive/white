@@ -101,7 +101,7 @@
 
 /obj/item/clothing/mask/gas/welding
 	name = "сварочная маска"
-	desc = "Противогаз со встроенными сварочными очками и защитной маской. Выглядит как череп разработанный кретином."
+	desc = "Противогаз со встроенными сварочными очками и защитной маской. Выглядит как череп разработанный задротом."
 	icon_state = "weldingmask"
 	inhand_icon_state = "weldingmask"
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'

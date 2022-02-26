@@ -1,6 +1,6 @@
 /obj/machinery/computer/teleporter
-	name = "teleporter control console"
-	desc = "Used to control a linked teleportation Hub and Station."
+	name = "Консоль управления телепортом"
+	desc = "Используется для управления связанными телепортационной аркой и станцией."
 	icon_screen = "teleport"
 	icon_keyboard = "teleport_key"
 	light_color = LIGHT_COLOR_BLUE

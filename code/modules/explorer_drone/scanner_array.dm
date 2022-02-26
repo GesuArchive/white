@@ -76,7 +76,8 @@ GLOBAL_LIST_INIT(scan_conditions,init_scan_conditions())
 	deltimer(scan_timer)
 
 /obj/machinery/computer/exoscanner_control
-	name = "Scanner Array Control Console"
+	name = "Консоль управления массивом сканеров"
+	desc = "Используется для сканирования и отправки разведывательных дронов."
 	/// If scan was interrupted show a popup until dismissed.
 	var/failed_popup = FALSE
 	/// Site we're configuring targeted scans for.
@@ -191,10 +192,10 @@ GLOBAL_LIST_INIT(scan_conditions,init_scan_conditions())
 		config_flags = EXPERIMENT_CONFIG_ALWAYS_ACTIVE)
 
 /obj/machinery/exoscanner
-	name = "Scanner array"
+	name = "Массив сканеров"
+	desc = "Сложная сканирующая матрица. Уязвима к воздействию окружающей среды."
 	icon = 'icons/obj/exploration.dmi'
 	icon_state = "scanner_off"
-	desc = "Sophisticated scanning array. Easily influenced by enviroment."
 	idle_power_usage = 0
 	active_power_usage = 5000
 

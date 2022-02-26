@@ -137,8 +137,8 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 
 // ** BATTLE ** //
 /obj/machinery/computer/arcade/battle
-	name = "arcade machine"
-	desc = "Does not support Pinball."
+	name = "аркадный автомат"
+	desc = "Не поддерживает Пинбол."
 	icon_state = "arcade"
 	circuit = /obj/item/circuitboard/computer/arcade/battle
 

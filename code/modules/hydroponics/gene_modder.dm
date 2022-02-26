@@ -433,8 +433,8 @@
  */
 
 /obj/item/disk/plantgene
-	name = "plant data disk"
-	desc = "A disk for storing plant genetic data."
+	name = "диск с ботаническими данными"
+	desc = "Диск для записи генетических данных растений."
 	icon_state = "datadisk_hydro"
 	custom_materials = list(/datum/material/iron=30, /datum/material/glass=10)
 	var/datum/plant_gene/gene

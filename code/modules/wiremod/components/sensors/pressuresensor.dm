@@ -4,8 +4,8 @@
  * Returns the pressure of the tile
  */
 /obj/item/circuit_component/pressuresensor
-	display_name = "Pressure Sensor"
-	desc = "Outputs the current pressure of the tile"
+	display_name = "Датчик Давления"
+	desc = "Возвращает текущее давление окружающей среды."
 
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 

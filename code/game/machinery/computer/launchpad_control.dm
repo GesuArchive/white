@@ -1,6 +1,6 @@
 /obj/machinery/computer/launchpad
-	name = "launchpad control console"
-	desc = "Used to teleport objects to and from a launchpad."
+	name = "Консоль управления локального телепада"
+	desc = "Используется для калибровки и управления блюспейс телепадом. Не требует фактических координат, работает на смещении координат относительно консоли. Дальность работы зависит от деталей."
 	icon_screen = "teleport"
 	icon_keyboard = "teleport_key"
 	circuit = /obj/item/circuitboard/computer/launchpad_console

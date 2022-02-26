@@ -178,8 +178,8 @@
  */
 
 /obj/item/bikehorn
-	name = "bike horn"
-	desc = "A horn off of a bicycle. Rumour has it that they're made from recycled clowns."
+	name = "велосипедный гудок"
+	desc = "Клаксон от велосипеда. Ходят слухи, что они сделаны из переработанных клоунов."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "bike_horn"
 	inhand_icon_state = "bike_horn"
@@ -217,16 +217,16 @@
 
 //air horn
 /obj/item/bikehorn/airhorn
-	name = "air horn"
-	desc = "Damn son, where'd you find this?"
+	name = "корабельный гудок"
+	desc = "Дьявол тебя побери, сынок, где ты это достал?"
 	icon_state = "air_horn"
 	worn_icon_state = "horn_air"
 	soundfile = 'sound/items/airhorn2.ogg'
 
 //golden bikehorn
 /obj/item/bikehorn/golden
-	name = "golden bike horn"
-	desc = "Golden? Clearly, it's made with bananium! Honk!"
+	name = "золотой велосипедный гудок"
+	desc = "Золотой? Вообще то он сделан из бананиума. Хонк!"
 	icon_state = "gold_horn"
 	inhand_icon_state = "gold_horn"
 	worn_icon_state = "horn_gold"

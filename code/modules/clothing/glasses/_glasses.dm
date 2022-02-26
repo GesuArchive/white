@@ -89,7 +89,7 @@
 
 
 /obj/item/clothing/glasses/meson
-	name = "оптический мезонный сканер"
+	name = "мезонные очки"
 	desc = "Используется инженерным и горнодобывающим персоналом для просмотра основных структурных и рельефных планировок сквозь стены независимо от условий освещения."
 	icon_state = "meson"
 	inhand_icon_state = "meson"
@@ -157,7 +157,7 @@
 	vision_correction = 1
 
 /obj/item/clothing/glasses/night
-	name = "очки ночного видения"
+	name = "очки с ПНВ"
 	desc = "Вы можете полностью видеть в темноте сейчас!"
 	icon_state = "night"
 	inhand_icon_state = "glasses"

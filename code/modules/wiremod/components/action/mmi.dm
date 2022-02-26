@@ -4,8 +4,8 @@
  * Allows an MMI to be inserted into a shell, allowing it to be linked up. Requires a shell.
  */
 /obj/item/circuit_component/mmi
-	display_name = "Man-Machine Interface"
-	desc = "A component that allows MMI to enter shells to send output signals."
+	display_name = "MMI"
+	desc = "Компонент, который позволяет поместить MMI внутрь оболочки для отправки исходящих сигналов."
 
 	/// The message to send to the MMI in the shell.
 	var/datum/port/input/message

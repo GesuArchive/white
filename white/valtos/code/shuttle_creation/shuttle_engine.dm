@@ -3,8 +3,8 @@
 //-----------------------------------------------
 
 /obj/machinery/shuttle/engine
-	name = "shuttle thruster"
-	desc = "A thruster for shuttles."
+	name = "двигатель шаттла"
+	desc = "Двигатель для шаттлов."
 	density = TRUE
 	obj_integrity = 250
 	max_integrity = 250
@@ -21,8 +21,8 @@
 	var/datum/weakref/attached_heater
 
 /obj/machinery/shuttle/engine/plasma
-	name = "plasma thruster"
-	desc = "A thruster that burns plasma stored in an adjacent plasma thruster heater."
+	name = "плазменный двигатель"
+	desc = "Двигатель, который сжигает плазму, хранящуюся в располагающемся рядом предзажигателе плазменного двигателя."
 	icon_state = "burst_plasma"
 	icon_state_off = "burst_plasma_off"
 
@@ -34,8 +34,8 @@
 	cooldown = 45
 
 /obj/machinery/shuttle/engine/void
-	name = "void thruster"
-	desc = "A thruster using technology to breach voidspace for propulsion."
+	name = "пустотный двигатель"
+	desc = "Двигатель, использующий технологию для пространственного прорыва для движения."
 	icon_state = "burst_void"
 	icon_state_off = "burst_void"
 	icon_state_closed = "burst_void"

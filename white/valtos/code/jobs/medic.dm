@@ -31,7 +31,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/armor/vest/fieldmedic
 	l_hand = /obj/item/storage/backpack/duffelbag/med/surgery
-	backpack_contents = list(/obj/item/storage/box/trackimp = 1, /obj/item/storage/firstaid/medical = 1, /obj/item/optable = 1, /obj/item/modular_computer/tablet/preset/cheap = 1, /obj/item/flashlight = 1)
+	backpack_contents = list(/obj/item/storage/box/trackimp = 1, /obj/item/storage/firstaid/medical = 1, /obj/item/optable = 1, /obj/item/modular_computer/laptop/preset/medical = 1, /obj/item/flashlight = 1)
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
@@ -48,3 +48,10 @@
 	chameleon_extras = /obj/item/gun/syringe
 
 	id_trim = /datum/id_trim/job/field_medic
+
+/datum/outfit/job/field_medic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(visualsOnly)
+		return
+	var/datum/atom_hud/hud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
+	hud.add_hud_to(H)
+	ADD_TRAIT(H, TRAIT_MEDICAL_HUD, ORGAN_TRAIT)

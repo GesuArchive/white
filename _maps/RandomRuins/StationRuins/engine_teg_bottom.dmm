@@ -517,6 +517,11 @@
 /obj/machinery/atmospherics/pipe/layer_manifold/general/visible,
 /turf/template_noop,
 /area/space/nearstation)
+"jV" = (
+/obj/structure/lattice,
+/obj/machinery/camera/autoname,
+/turf/template_noop,
+/area/space/nearstation)
 "lW" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 10
@@ -698,6 +703,16 @@
 /obj/machinery/atmospherics/components/binary/pump,
 /turf/closed/wall/r_wall,
 /area/engineering/main)
+"Ej" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 10
+	},
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "Ep" = (
 /obj/effect/turf_decal/tile/yellow,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
@@ -1232,7 +1247,7 @@ ab
 LF
 LD
 bt
-LD
+Ej
 bt
 LD
 bt
@@ -1270,7 +1285,7 @@ ad
 ad
 ad
 ad
-bb
+jV
 LD
 GN
 GN
@@ -1718,7 +1733,7 @@ cY
 bN
 Uv
 ad
-bb
+jV
 LF
 zJ
 zJ

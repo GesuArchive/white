@@ -75,6 +75,7 @@
 	id = "pacman"
 	build_path = /obj/item/circuitboard/machine/pacman
 	category = list("Инженерное оборудование")
+	sub_category = list("Портативные генераторы")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/board/pacman/super

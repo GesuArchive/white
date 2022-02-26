@@ -331,10 +331,11 @@ GLOBAL_LIST_INIT(titanium_recipes, list ( \
  * Plastitanium
  */
 /obj/item/stack/sheet/mineral/plastitanium
-	name = "пластитаний"
+	name = "пластитаниум"
+	desc = "Пластитаниум является сплавом титана и плазмы. Довольно крепкий, однако из за новизны ученые еще не спроектировали основные производственные чертежи."
 	icon_state = "sheet-plastitanium"
 	inhand_icon_state = "sheet-plastitanium"
-	singular_name = "лист пластитания"
+	singular_name = "лист пластитаниума"
 	force = 5
 	throwforce = 5
 	w_class = WEIGHT_CLASS_NORMAL
@@ -349,7 +350,7 @@ GLOBAL_LIST_INIT(titanium_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/plastitanium
 
 GLOBAL_LIST_INIT(plastitanium_recipes, list ( \
-	new/datum/stack_recipe("Пластитановая плитка", /obj/item/stack/tile/mineral/plastitanium, 1, 4, 20), \
+	new/datum/stack_recipe("Пластитаниумная плитка", /obj/item/stack/tile/mineral/plastitanium, 1, 4, 20), \
 	))
 
 /obj/item/stack/sheet/mineral/plastitanium/get_main_recipes()
@@ -441,6 +442,7 @@ GLOBAL_LIST_INIT(adamantine_recipes, list(
  */
 /obj/item/stack/sheet/mineral/abductor
 	name = "инопланетный сплав"
+	desc = "Загадочный материал с неизведанными свойствами."
 	icon = 'icons/obj/abductor.dmi'
 	icon_state = "sheet-abductor"
 	inhand_icon_state = "sheet-abductor"

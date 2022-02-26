@@ -52036,7 +52036,7 @@
 /turf/open/floor/engine,
 /area/engineering/main)
 "cXA" = (
-/obj/machinery/rnd/production/protolathe/department/engineering,
+/obj/machinery/mecha_part_fabricator/engi,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4

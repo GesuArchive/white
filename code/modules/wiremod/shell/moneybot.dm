@@ -4,7 +4,8 @@
  * Immobile (but not dense) shell that can receive and dispense money.
  */
 /obj/structure/money_bot
-	name = "money bot"
+	name = "денежный бот"
+	desc = "Неподвижная оболочка, похожая на обычную оболочку бота, но принимающая денежные вводы и также способная выдавать деньги. Деньги берутся из внутреннего хранилища денег."
 	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_large"
 
@@ -37,8 +38,8 @@
 
 
 /obj/item/circuit_component/money_dispenser
-	display_name = "Money Dispenser"
-	desc = "Used to dispense money from the money bot. Money is taken from the internal storage of money."
+	display_name = "Раздатчик денег"
+	desc = "Используется для выдачи денег с помощью денежного бота. Деньги берутся из внутреннего хранилища денег."
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 	/// The amount of money to dispense

@@ -425,6 +425,13 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central)
+"gF" = (
+/obj/machinery/camera/motion{
+	c_tag = null;
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/command/heads_quarters/captain)
 "gG" = (
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -545,6 +552,9 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
+	},
+/obj/machinery/camera/autoname{
+	dir = 5
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/meeting_room/council)
@@ -3446,7 +3456,7 @@ Vv
 UD
 Wd
 uD
-iD
+gF
 XG
 vq
 bu

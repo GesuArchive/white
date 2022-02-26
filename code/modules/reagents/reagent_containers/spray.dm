@@ -147,15 +147,15 @@
 	return ..()
 
 /obj/item/reagent_containers/spray/verb/empty()
-	set name = "пустой спрей"
+	set name = "Опустошить спрей"
 	set category = "Объект"
 	set src in usr
 	if(usr.incapacitated())
 		return
-	if (tgui_alert(usr, "Are you sure you want to empty that?", "Empty Bottle:", list("Yes", "No")) != "Yes")
+	if (tgui_alert(usr, "Вы уверены что хотите опустошить спрей?", "Опустошить спрей:", list("Да", "Нет")) != "Да")
 		return
 	if(isturf(usr.loc) && src.loc == usr)
-		to_chat(usr, span_notice("You empty <b>[src.name]</b> onto the floor."))
+		to_chat(usr, span_notice("Выливаю содержимое <b>[src.name]</b> на пол."))
 		reagents.expose(usr.loc)
 		src.reagents.clear_reagents()
 
@@ -181,8 +181,8 @@
 
 //space cleaner
 /obj/item/reagent_containers/spray/cleaner
-	name = "space cleaner"
-	desc = "BLAM!-brand non-foaming space cleaner!"
+	name = "космочист"
+	desc = "БАМ!-фирменный непенящийся космочист!"
 	icon_state = "cleaner"
 	volume = 100
 	list_reagents = list(/datum/reagent/space_cleaner = 100)
@@ -214,7 +214,7 @@
 //pepperspray
 /obj/item/reagent_containers/spray/pepper
 	name = "перцовка"
-	desc = "Manufactured by UhangInc, used to blind and down an opponent quickly."
+	desc = "Изготовлено компанией UhangInc, используется для быстрого ослепления и унижения противника."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "pepperspray"
 	inhand_icon_state = "pepperspray"

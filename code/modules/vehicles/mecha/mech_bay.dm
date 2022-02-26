@@ -81,7 +81,7 @@
 	return ..()
 
 /obj/machinery/computer/mech_bay_power_console
-	name = "консоль для управления питанием мехдока"
+	name = "консоль зарядки мехдока"
 	desc = "Отображает состояние мехов, подключенных к зарядной станции."
 	icon_screen = "recharge_comp"
 	icon_keyboard = "rd_key"

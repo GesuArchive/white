@@ -130,7 +130,7 @@
 	if(isXRay(TRUE)) //don't reveal it's upgraded if was done via MALF AI Upgrade Camera Network ability
 		. += "<hr>Похоже тут установлен X-ray фотодиод."
 	else
-		. += "<hr><span class='info'>Она может быть улучшена X-ray фотодиодом при помощи <b>анализатора</b>.</span>"
+		. += "<hr><span class='info'>Она может быть улучшена рентгеновским фотодиодом при помощи <b>газоанализатора</b>.</span>"
 	if(isMotion())
 		. += "<hr>Здесь установлен датчик движения."
 	else

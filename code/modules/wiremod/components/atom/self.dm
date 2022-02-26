@@ -4,8 +4,8 @@
  * Return the current shell.
  */
 /obj/item/circuit_component/self
-	display_name = "Оболочка"
-	desc = "A component that returns the current shell."
+	display_name = "Оболочка (возврат)"
+	desc = "Компонент, который возвращает значение текущей оболочки."
 
 	/// The shell this component is attached to.
 	var/datum/port/output/output

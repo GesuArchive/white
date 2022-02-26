@@ -112,8 +112,8 @@
 	return I.mining_points
 
 /obj/machinery/vendor/mining
-	name = "mining equipment vendor"
-	desc = "An equipment vendor for miners, points collected at an ore redemption machine can be spent here."
+	name = "Торговый автомат шахтеров"
+	desc = "Различное оборудование для бригады шахтеров. Очки добываются за сдачу руды в шахтерскую печь и начисляются на персональный счет шахтера."
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "mining"
 	density = TRUE

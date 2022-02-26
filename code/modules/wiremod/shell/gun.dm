@@ -4,7 +4,7 @@
  * A gun that lets you fire projectiles to enact circuitry.
  */
 /obj/item/gun/energy/wiremod_gun
-	name = "circuit gun"
+	name = "Оружие"
 	desc = "A gun that fires projectiles able to control circuitry. It can recharge using power from an attached circuit."
 	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_gun"
@@ -22,7 +22,8 @@
 	fire_sound = 'sound/weapons/blaster.ogg'
 
 /obj/projectile/energy/wiremod_gun
-	name = "scanning beam"
+	name = "Оружие"
+	desc = "Оболочка в виде пистолета способного вести огонь сканирующими лучами. Используется для приема входных данных, от объектов пораженных \"выстрелами\" из оружия. Работает на паразитном питании от подключенной цепи."
 	icon_state = "energy"
 	nodamage = TRUE
 	damage = 0
@@ -38,8 +39,8 @@
 	), SHELL_CAPACITY_MEDIUM)
 
 /obj/item/circuit_component/wiremod_gun
-	display_name = "Gun"
-	desc = "Used to receive entities hit by projectiles from a gun."
+	display_name = "Оружие"
+	desc = "Оболочка в виде пистолета способного вести огонь сканирующими лучами. Используется для приема входных данных, от объектов пораженных \"выстрелами\" из оружия. Работает на паразитном питании от подключенной цепи."
 	/// Called when a projectile hits
 	var/datum/port/output/signal
 	/// The shooter

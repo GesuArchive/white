@@ -835,7 +835,7 @@
 									B.forceMove(src)
 							SEND_SIGNAL(W, COMSIG_TRY_STORAGE_INSERT, A, null, null, TRUE)
 							component_parts -= A
-							to_chat(user, span_notice("[capitalize(A.name)] replaced with [B.name]."))
+							to_chat(user, span_notice("[capitalize(A.name)] заменен на [B.name]."))
 							shouldplaysound = 1 //Only play the sound when parts are actually replaced!
 							break
 			RefreshParts()

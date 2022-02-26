@@ -4,8 +4,8 @@
  * Return the direction of a mob relative to the component
  */
 /obj/item/circuit_component/direction
-	display_name = "Get Direction"
-	desc = "A component that returns the direction of itself and an entity."
+	display_name = "Получить направление"
+	desc = "Компонент, который возвращает направление самого себя и объекта."
 
 	/// The input port
 	var/datum/port/input/input_port

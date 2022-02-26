@@ -5,6 +5,7 @@
  */
 /obj/structure/bot
 	name = "бот"
+	desc = "Неподвижная оболочка, которая хранит другие компоненты. Имеет USB-порт для подключения к компьютерам и машинам. Срабатывает, когда кто-то взаимодействует с ботом."
 	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_medium_box"
 
@@ -22,8 +23,8 @@
 	)
 
 /obj/item/circuit_component/bot
-	display_name = "Bot"
-	desc = "Triggers when someone interacts with the bot."
+	display_name = "бот"
+	desc = "Неподвижная оболочка, которая хранит другие компоненты. Имеет USB-порт для подключения к компьютерам и машинам. Срабатывает, когда кто-то взаимодействует с ботом."
 
 	/// Called when attack_hand is called on the shell.
 	var/datum/port/output/signal

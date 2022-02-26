@@ -4,6 +4,9 @@
 /area/template_noop)
 "ac" = (
 /obj/structure/cable,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/maintenance/aft/upper)
 "ad" = (
@@ -452,6 +455,9 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/engineering/main)
 "cE" = (
@@ -611,6 +617,9 @@
 /area/engineering/main)
 "dX" = (
 /obj/machinery/light,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/engineering/main)
 "eb" = (
@@ -688,6 +697,7 @@
 /obj/structure/chair/plastic{
 	dir = 8
 	},
+/obj/machinery/camera/autoname,
 /turf/open/floor/engine/airless,
 /area/space/nearstation)
 "eA" = (
@@ -765,8 +775,18 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
+"eJ" = (
+/obj/structure/lattice,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "eO" = (
 /obj/structure/railing{
 	dir = 1
@@ -856,6 +876,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/machinery/camera/autoname,
 /turf/open/floor/engine/airless,
 /area/space/nearstation)
 "fn" = (
@@ -872,6 +893,13 @@
 /obj/structure/lattice,
 /turf/open/openspace,
 /area/engineering/main)
+"fX" = (
+/obj/structure/lattice,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "gj" = (
 /obj/structure/railing{
 	dir = 10
@@ -920,6 +948,23 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/aft/upper)
+"jd" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/camera/autoname{
+	dir = 8;
+	start_active = 1
+	},
+/turf/open/floor/plasteel,
+/area/engineering/main)
 "jZ" = (
 /obj/item/rollingpaper,
 /obj/effect/turf_decal/box,
@@ -949,6 +994,7 @@
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
+/obj/machinery/camera/autoname,
 /turf/open/floor/engine,
 /area/engineering/main)
 "nU" = (
@@ -985,6 +1031,14 @@
 "pS" = (
 /turf/closed/wall/r_wall,
 /area/space/nearstation)
+"qE" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/camera/autoname{
+	dir = 5;
+	start_active = 1
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "qP" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Engineering Maintenance";
@@ -1011,6 +1065,11 @@
 	icon_state = "markerburgundy-on"
 	},
 /turf/open/floor/engine/airless,
+/area/space/nearstation)
+"tf" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/camera/autoname,
+/turf/template_noop,
 /area/space/nearstation)
 "tk" = (
 /obj/structure/lattice,
@@ -1131,10 +1190,22 @@
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "Cn" = (
-/obj/machinery/camera/autoname{
-	dir = 1
+/obj/structure/railing{
+	dir = 4
 	},
-/turf/open/floor/plating,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
+/turf/open/floor/plasteel,
 /area/engineering/main)
 "CL" = (
 /obj/effect/turf_decal/stripes/line{
@@ -1500,7 +1571,7 @@ ab
 ab
 ab
 ab
-LF
+qE
 ab
 ab
 ab
@@ -1668,7 +1739,7 @@ ab
 bb
 bb
 ad
-LF
+tf
 ab
 ab
 ab
@@ -1676,7 +1747,7 @@ ab
 wC
 ab
 ab
-wC
+eJ
 ab
 ab
 ab
@@ -1777,7 +1848,7 @@ tB
 tB
 bA
 OF
-OF
+Cn
 ed
 OF
 OF
@@ -1928,7 +1999,7 @@ Am
 if
 vb
 Jt
-Cn
+vb
 ad
 hu
 zX
@@ -2176,7 +2247,7 @@ Ik
 Ik
 Ik
 Ik
-Ik
+jd
 eP
 ad
 ad
@@ -2236,7 +2307,7 @@ au
 dA
 tB
 wC
-wC
+fX
 zX
 zX
 zX

@@ -423,6 +423,9 @@
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "br" = (
@@ -453,13 +456,9 @@
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "bv" = (
-/obj/machinery/camera/emp_proof{
-	c_tag = "Engineering Singularity Southwest";
-	dir = 1;
-	network = list("ss13","engine")
-	},
 /obj/structure/cable,
-/turf/open/floor/engine,
+/obj/machinery/camera/autoname,
+/turf/open/floor/plating,
 /area/engineering/main)
 "bw" = (
 /obj/machinery/light{
@@ -473,14 +472,12 @@
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "by" = (
-/obj/machinery/camera/emp_proof{
-	c_tag = "Engineering Singularity Southeast";
-	dir = 1;
-	network = list("ss13","engine")
+/obj/structure/lattice,
+/obj/machinery/camera/autoname{
+	dir = 8
 	},
-/obj/structure/cable,
-/turf/open/floor/engine,
-/area/engineering/main)
+/turf/template_noop,
+/area/space/nearstation)
 "bz" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /obj/structure/cable,
@@ -579,6 +576,9 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/light{
 	pixel_y = 0
+	},
+/obj/machinery/camera/autoname{
+	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
@@ -707,6 +707,10 @@
 /obj/effect/turf_decal/stripes/box,
 /turf/open/floor/plasteel,
 /area/engineering/main)
+"dh" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/template_noop)
 "du" = (
 /obj/structure/sign/warning/radiation/rad_area,
 /turf/closed/wall/r_wall,
@@ -854,6 +858,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/open/floor/engine,
 /area/engineering/main)
 "wA" = (
@@ -863,6 +870,13 @@
 	},
 /turf/open/floor/engine,
 /area/engineering/main)
+"xg" = (
+/obj/structure/lattice,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
 "xC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -906,6 +920,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 9
+	},
+/obj/machinery/camera/autoname{
+	dir = 1
 	},
 /turf/open/floor/engine,
 /area/engineering/main)
@@ -1228,7 +1245,7 @@ ab
 fe
 ab
 ab
-ab
+dh
 ab
 ab
 IS
@@ -1256,7 +1273,7 @@ ab
 fe
 ab
 ab
-ab
+dh
 ab
 ab
 IS
@@ -1283,9 +1300,9 @@ ab
 ab
 fe
 ab
-ab
-ab
-ab
+dh
+dh
+xg
 ab
 IS
 mO
@@ -1304,7 +1321,7 @@ fe
 ab
 fe
 ab
-fe
+by
 ab
 fe
 ab
@@ -1400,7 +1417,7 @@ BT
 Dp
 YT
 xH
-fe
+by
 fe
 ab
 "}
@@ -1453,7 +1470,7 @@ aG
 aG
 aG
 bj
-bv
+bZ
 ad
 bu
 IS
@@ -1553,7 +1570,7 @@ ad
 WL
 WL
 OM
-bE
+bv
 dz
 YT
 YT
@@ -1845,7 +1862,7 @@ bd
 bd
 bd
 rI
-by
+bZ
 ad
 bu
 mO
@@ -1904,7 +1921,7 @@ bZ
 Bp
 yi
 hm
-fe
+by
 fe
 ab
 "}

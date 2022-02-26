@@ -4,7 +4,8 @@
 	flags_1 = CONDUCT_1
 
 /obj/item/pod_parts/core
-	name = "space pod core"
+	name = "Ядро спейспода"
+	desc = "Содержит ионный двигатель и системы поддержания жизнедеятельности."
 	icon_state = "core"
 
 /obj/item/pod_parts/pod_frame
@@ -116,9 +117,9 @@
 	link_angle = 270
 
 /obj/item/pod_parts/armor
-	name = "civilian pod armor"
+	name = "Броня спейспода - Гражданская"
+	desc = "Внешняя герметичная, защитная обшивка. Гражданский образец."
 	icon_state = "pod_armor_civ"
-	desc = "Spacepod armor. This is the civilian version. It looks rather flimsy."
 	var/pod_icon = 'white/valtos/icons/spacepods/goon/2x2.dmi'
 	var/pod_icon_state = "pod_civ"
 	var/pod_desc = "A sleek civilian space pod."
@@ -133,32 +134,32 @@
 	pod_integrity = 400
 
 /obj/item/pod_parts/armor/black
-	name = "black pod armor"
+	name = "Броня спейспода - Темная"
+	desc = "Внешняя герметичная, защитная обшивка. Гражданский образец."
 	icon_state = "pod_armor_black"
-	desc = "Plain black spacepod armor, with no logos or insignias anywhere on it."
 	pod_icon_state = "pod_black"
 	pod_desc = "An all black space pod with no insignias."
 
 /obj/item/pod_parts/armor/gold
-	name = "golden pod armor"
+	name = "Броня спейспода - Золото"
+	desc = "Внешняя герметичная, защитная обшивка. Престижный образец."
 	icon_state = "pod_armor_gold"
-	desc = "Golden spacepod armor. Looks like what a rich spessmen put on their spacepod."
 	pod_icon_state = "pod_gold"
 	pod_desc = "A civilian space pod with a gold body, must have cost somebody a pretty penny"
 	pod_integrity = 220
 
 /obj/item/pod_parts/armor/industrial
-	name = "industrial pod armor"
+	name = "Броня спейспода - Промышленная"
+	desc = "Внешняя герметичная, защитная обшивка. Промышленный образец."
 	icon_state = "pod_armor_industrial"
-	desc = "Tough industrial-grade spacepod armor. While meant for construction work, it is commonly used in spacepod battles, too."
 	pod_icon_state = "pod_industrial"
 	pod_desc = "A rough looking space pod meant for industrial work"
 	pod_integrity = 330
 
 /obj/item/pod_parts/armor/security
-	name = "security pod armor"
+	name = "Броня спейспода - СБ"
+	desc = "Внешняя герметичная, защитная обшивка. Служебный образец."
 	icon_state = "pod_armor_mil"
-	desc = "Tough military-grade pod armor, meant for use by the NanoTrasen military and it's sub-divisons for space combat."
 	pod_icon_state = "pod_mil"
 	pod_desc = "An armed security spacepod with reinforced armor plating brandishing the Nanotrasen Military insignia"
 	pod_integrity = 350
@@ -181,5 +182,6 @@
 	pod_integrity = 650
 
 /obj/item/circuitboard/mecha/pod
-	name = "Circuit board (Space Pod Mainboard)"
+	name = "Спейспод - Основной контролер"
+	desc = "Содержит основные компоненты управления спейсподом."
 	icon_state = "mainboard"

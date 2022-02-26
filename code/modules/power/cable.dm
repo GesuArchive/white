@@ -394,7 +394,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	custom_price = PAYCHECK_PRISONER * 0.8
 	gender = NEUTER //That's a cable coil sounds better than that's some cable coils
 	icon = 'icons/obj/power.dmi'
-	icon_state = "coil"
+	icon_state = "coil25"
 	inhand_icon_state = "coil"
 	novariants = FALSE
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
@@ -413,7 +413,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	slot_flags = ITEM_SLOT_BELT
 	attack_verb_continuous = list("шлёпает", "хлыстает", "учит", "принуждает")
 	attack_verb_simple = list("шлёпает", "хлыстает", "учит", "принуждает")
-	singular_name = "cable piece"
+	singular_name = "метров кабеля"
 	full_w_class = WEIGHT_CLASS_SMALL
 	grind_results = list(/datum/reagent/copper = 2) //2 copper per cable in the coil
 	usesound = 'sound/items/deconstruct.ogg'
@@ -436,10 +436,22 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 /obj/item/stack/cable_coil/update_icon_state()
 	if(novariants)
 		return
-	icon_state = "[initial(icon_state)][amount < 3 ? amount : ""]"
-	var/how_many_things = amount < 3 ? "piece" : "coil"
-	name = "cable [how_many_things]"
-	desc = "A [how_many_things] of insulated power cable."
+
+	if(amount <= 30)
+		icon_state = "coil25"
+	if(amount <= 20)
+		icon_state = "coil20"
+	if(amount <= 15)
+		icon_state = "coil"
+	if(amount <= 5)
+		icon_state = "coil2"
+	if(amount <= 1)
+		icon_state = "coil1"
+
+	//icon_state = "[initial(icon_state)][amount < 3 ? amount : ""]"
+	var/how_many_things = amount < 3 ? "Пара метров" : "Моток"
+	name = "[how_many_things] кабеля"
+	desc = "[how_many_things] изолированного силового кабеля."
 
 /obj/item/stack/cable_coil/suicide_act(mob/user)
 	if(locate(/obj/structure/chair/stool) in get_turf(user))

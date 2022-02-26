@@ -1,6 +1,6 @@
 /obj/machinery/rnd/server
-	name = "\improper R&D Server"
-	desc = "A computer system running a deep neural network that processes arbitrary information to produce data useable in the development of new technologies. In layman's terms, it makes research points."
+	name = "Сервер РнД"
+	desc = "Компьютерная система, работающая на развитой нейронной сети, которая обрабатывает произвольную информацию для получения данных, пригодных для разработки новых технологий. С точки компьютерного ботана, оно производит очки исследований."
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "RD-server-on"
 	var/heat_health = 100
@@ -120,8 +120,8 @@
 
 
 /obj/machinery/computer/rdservercontrol
-	name = "R&D Server Controller"
-	desc = "Used to manage access to research and manufacturing databases."
+	name = "Серверный контроллер РнД"
+	desc = "Используется для доступа к серверам производственно-исследовательских баз данных."
 	icon_screen = "rdcomp"
 	icon_keyboard = "rd_key"
 	var/screen = 0

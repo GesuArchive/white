@@ -1,9 +1,9 @@
 /obj/machinery/recharger
-	name = "зарядник"
+	name = "оружейный зарядник"
+	desc = "Заряжает энергетическое оружие и энергозависимую экипировку."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "recharger"
 	base_icon_state = "recharger"
-	desc = "Заряжает штуки. В частности оружие."
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 400
 	active_power_usage = 25000

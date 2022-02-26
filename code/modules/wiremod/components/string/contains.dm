@@ -5,7 +5,7 @@
  */
 /obj/item/circuit_component/compare/contains
 	display_name = "Поиск слова"
-	desc = "Checks if a string contains a word/letter"
+	desc = "Проверяет, содержит ли строка слово/букву"
 
 	input_port_amount = 0
 

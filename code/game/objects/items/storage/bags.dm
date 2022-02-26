@@ -87,7 +87,7 @@
 	update_icon_state()
 
 /obj/item/storage/bag/trash/bluespace
-	name = "блюспейс мешок для мусора"
+	name = "бездонный мешок для мусора"
 	desc = "Новейший и самый удобный при хранении мешок для мусора, способный вместить огромное количество мусора."
 	icon_state = "bluetrashbag"
 	inhand_icon_state = "bluetrashbag"

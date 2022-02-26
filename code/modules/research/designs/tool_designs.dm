@@ -8,7 +8,7 @@
 	desc = "Удобный и компактный инструмент со сменными насадками."
 	id = "handdrill"
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 3500, /datum/material/silver = 1500, /datum/material/titanium = 2500)
 	build_path = /obj/item/screwdriver/power
 	category = list("Рабочие инструменты", "Рабочие инструменты ")
@@ -21,7 +21,7 @@
 	id = "jawsoflife" // added one more requirment since the Jaws of Life are a bit OP
 	build_path = /obj/item/crowbar/power
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 4500, /datum/material/silver = 2500, /datum/material/titanium = 3500)
 	category = list("Рабочие инструменты", "Рабочие инструменты ")
 	sub_category = list("Продвинутые инструменты")
@@ -32,7 +32,7 @@
 	desc = "Экспериментальный сварочный аппарат, способный самостоятельно генерировать топливо и менее вредный для глаз."
 	id = "exwelder"
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500, /datum/material/plasma = 1500, /datum/material/uranium = 200)
 	build_path = /obj/item/weldingtool/experimental
 	category = list("Рабочие инструменты", "Рабочие инструменты ")
@@ -44,7 +44,7 @@
 	desc = "Многофункциональное устройство, которое может выполнять огромный спектр задач."
 	id = "tricorder"
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/silver = 300, /datum/material/gold = 300)
 	build_path = /obj/item/multitool/tricorder
 	category = list("Рабочие инструменты", "Рабочие инструменты ")
@@ -56,7 +56,7 @@
 	desc = "Компактный и удобный инструмент для прокладки любых коммуникаций."
 	id = "rpd_loaded"
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 75000, /datum/material/glass = 37500)
 	build_path = /obj/item/pipe_dispenser
 	category = list("Рабочие инструменты", "Рабочие инструменты ")
@@ -68,7 +68,7 @@
 	desc = "Многофункциональный инструмент для быстрого строительства и разбора базовых конструкций, можно загрузить дополнительные чертежи."
 	id = "rcd_loaded"
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 60000, /datum/material/glass = 5000)  // costs more than what it did in the autolathe, this one comes loaded.
 	build_path = /obj/item/construction/rcd/loaded
 	category = list("Рабочие инструменты", "Рабочие инструменты ")
@@ -141,12 +141,12 @@
 	desc = "Устройство для быстрого монтажа импровизированного освещения. Чертежи выкуплены у компании Б.Е.П.И.С."
 	id = "rld"
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 20000, /datum/material/glass = 10000, /datum/material/plastic = 8000, /datum/material/gold = 2000)
 	build_path = /obj/item/construction/rld
 	category = list("Рабочие инструменты", "Рабочие инструменты ")
 	sub_category = list("Монтажные комплексы")
-	departmental_flags =  DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
+	departmental_flags =  DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/geneshears
 	name = "Ботаногенетические ножницы"
@@ -154,7 +154,7 @@
 	id = "gene_shears"
 	build_path = /obj/item/geneshears
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron=4000, /datum/material/uranium=1500, /datum/material/silver=500)
 	category = list("Рабочие инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
@@ -175,7 +175,7 @@
 	desc = "Тип Хим-фаб конструктора, предназначенный для быстрого развертывания машин, необходимых для проведения цитологических исследований."
 	id = "plumbing_rcd_sci"
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 75000, /datum/material/glass = 37500, /datum/material/plastic = 1000)
 	build_path = /obj/item/construction/plumbing/research
 	category = list("Рабочие инструменты")
@@ -186,7 +186,7 @@
 	desc = "Не волнуйся, это не будет больно."
 	id = "biopsy_tool"
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 4000, /datum/material/glass = 3000)
 	build_path = /obj/item/biopsy_tool
 	category = list("Рабочие инструменты")
@@ -202,7 +202,7 @@
 	id = "alien_wrench"
 	build_path = /obj/item/wrench/abductor
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
 	category = list("Рабочие инструменты", "Рабочие инструменты ")
 	sub_category = list("Инопланетные инструменты")
@@ -214,7 +214,7 @@
 	id = "alien_wirecutters"
 	build_path = /obj/item/wirecutters/abductor
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
 	category = list("Рабочие инструменты", "Рабочие инструменты ")
 	sub_category = list("Инопланетные инструменты")
@@ -226,7 +226,7 @@
 	id = "alien_screwdriver"
 	build_path = /obj/item/screwdriver/abductor
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
 	category = list("Рабочие инструменты", "Рабочие инструменты ")
 	sub_category = list("Инопланетные инструменты")
@@ -238,7 +238,7 @@
 	id = "alien_crowbar"
 	build_path = /obj/item/crowbar/abductor
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
 	category = list("Рабочие инструменты", "Рабочие инструменты ")
 	sub_category = list("Инопланетные инструменты")
@@ -250,7 +250,7 @@
 	id = "alien_welder"
 	build_path = /obj/item/weldingtool/abductor
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 5000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
 	category = list("Рабочие инструменты", "Рабочие инструменты ")
 	sub_category = list("Инопланетные инструменты")
@@ -262,7 +262,7 @@
 	id = "alien_multitool"
 	build_path = /obj/item/multitool/abductor
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 5000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
 	category = list("Рабочие инструменты", "Рабочие инструменты ")
 	sub_category = list("Инопланетные инструменты")
@@ -278,7 +278,7 @@
 	id = "alien_scalpel"
 	build_path = /obj/item/scalpel/alien
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/silver = 1500, /datum/material/plasma = 500, /datum/material/titanium = 1500)
 	category = list("Рабочие инструменты", "Хирургические инструменты")
 	sub_category = list("Инопланетные инструменты")
@@ -290,7 +290,7 @@
 	id = "alien_hemostat"
 	build_path = /obj/item/hemostat/alien
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/silver = 1500, /datum/material/plasma = 500, /datum/material/titanium = 1500)
 	category = list("Рабочие инструменты", "Хирургические инструменты")
 	sub_category = list("Инопланетные инструменты")
@@ -302,7 +302,7 @@
 	id = "alien_retractor"
 	build_path = /obj/item/retractor/alien
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/silver = 1500, /datum/material/plasma = 500, /datum/material/titanium = 1500)
 	category = list("Рабочие инструменты", "Хирургические инструменты")
 	sub_category = list("Инопланетные инструменты")
@@ -314,7 +314,7 @@
 	id = "alien_saw"
 	build_path = /obj/item/circular_saw/alien
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 10000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 1500)
 	category = list("Рабочие инструменты", "Хирургические инструменты")
 	sub_category = list("Инопланетные инструменты")
@@ -326,7 +326,7 @@
 	id = "alien_drill"
 	build_path = /obj/item/surgicaldrill/alien
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 10000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 1500)
 	category = list("Рабочие инструменты", "Хирургические инструменты")
 	sub_category = list("Инопланетные инструменты")
@@ -338,7 +338,7 @@
 	id = "alien_cautery"
 	build_path = /obj/item/cautery/alien
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/silver = 1500, /datum/material/plasma = 500, /datum/material/titanium = 1500)
 	category = list("Рабочие инструменты", "Хирургические инструменты")
 	sub_category = list("Инопланетные инструменты")
@@ -349,7 +349,7 @@
 	desc = "Используется учёными для сканирования различных артефактов и неизвестных форм жизни."
 	id = "discovery_scanner"
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 80
+	construction_time = 40
 	materials = list(/datum/material/iron = 200, /datum/material/glass = 50)
 	build_path = /obj/item/discovery_scanner
 	category = list("Рабочие инструменты")
@@ -361,6 +361,8 @@
 	id = "shuttle_creator"
 	build_path = /obj/item/shuttle_creator
 	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 8000, /datum/material/titanium = 5000, /datum/material/bluespace = 5000)
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Шатлостроение")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING

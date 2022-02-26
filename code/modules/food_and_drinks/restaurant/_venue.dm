@@ -198,7 +198,7 @@
 	icon_state = "signmaker_service"
 	creation_time = 1 SECONDS
 	holosign_type = /obj/structure/holosign/robot_seat
-	desc = "Use this to place seats for your restaurant guests!"
+	desc = "Используйте это, чтобы пометить места для гостей вашего ресторана!"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 /obj/item/holosign_creator/robot_seat/attack_self(mob/user)

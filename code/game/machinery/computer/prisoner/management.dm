@@ -1,6 +1,6 @@
 /obj/machinery/computer/prisoner/management
-	name = "prisoner management console"
-	desc = "Used to manage tracking implants placed inside criminals."
+	name = "консоль мониторинга заключенных"
+	desc = "Используется для управления отслеживающими имплантатами, имплантированным преступникам."
 	icon_screen = "explosive"
 	icon_keyboard = "security_key"
 	req_access = list(ACCESS_BRIG)

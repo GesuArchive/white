@@ -270,13 +270,13 @@
 	addtimer(VARSET_CALLBACK(src, icon_state, "urinalcake"), 8)
 
 /obj/item/bikehorn/rubberducky/plasticducky
-	name = "plastic ducky"
-	desc = "It's a cheap plastic knockoff of a loveable bathtime toy."
+	name = "пластиковая уточка"
+	desc = "Это дешевая пластиковая подделка вашей любимой игрушки для ванны."
 	custom_materials = list(/datum/material/plastic = 1000)
 
 /obj/item/bikehorn/rubberducky
-	name = "rubber ducky"
-	desc = "Rubber ducky you're so fine, you make bathtime lots of fuuun. Rubber ducky I'm awfully fooooond of yooooouuuu~"	//thanks doohl
+	name = "резиновая уточка"
+	desc = "Резиновая уточка, такая милая! С ней так весело купаааааться. Я всегда тебя найдууу!!!"	//thanks doohl
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "rubberducky"
 	inhand_icon_state = "rubberducky"

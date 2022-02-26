@@ -10,10 +10,30 @@
 	// Default research tech, prevents bricking
 	design_ids = list(
 		"basic_capacitor",
-		"basic_cell",
-		"basic_matter_bin",
-		"basic_micro_laser",
 		"basic_scanning",
+		"micro_mani",
+		"basic_micro_laser",
+		"basic_matter_bin",
+		"basic_cell",
+		"basic_capacitor_x10",
+		"basic_scanning_x10",
+		"micro_mani_x10",
+		"basic_micro_laser_x10",
+		"basic_matter_bin_x10",
+		"plasteel",
+		"plastitanium",
+		"rglass",
+		"plasmaglass",
+		"plasmareinforcedglass",
+		"titaniumglass",
+		"plastitaniumglass",
+		"plasteel_x10",
+		"plastitanium_x10",
+		"rglass_x10",
+		"plasmaglass_x10",
+		"plasmareinforcedglass_x10",
+		"titaniumglass_x10",
+		"plastitaniumglass_x10",
 		"bepis",
 		"bucket",
 		"c-reader",
@@ -29,21 +49,14 @@
 		"experi_scanner",
 		"experimentor",
 		"mechfab",
-		"micro_mani",
 		"packagewrap",
-		"plasmaglass",
-		"plasmareinforcedglass",
-		"plasteel",
 		"plastic_fork",
 		"plastic_knife",
 		"plastic_spoon",
-		"plastitanium",
-		"plastitaniumglass",
 		"rdconsole",
 		"rdserver",
 		"rdservercontrol",
 		"restaurant_portal",
-		"rglass",
 		"salestagger",
 		"sec_38",
 		"sec_Islug",
@@ -52,7 +65,6 @@
 		"sec_rshot",
 		"space_heater",
 		"tech_disk",
-		"titaniumglass",
 		"gas_filter",
 		"plasmaman_gas_filter",
 		"oven_tray"
@@ -171,7 +183,7 @@
 	display_name = "Биотехнологии"
 	description = "То, что заставляет сердце биться."	//the MC, silly!
 	prereq_ids = list("base")
-	design_ids = list("chem_heater", "chem_master", "chem_dispenser", "pandemic", "defibrillator", "defibmount", "operating", "soda_dispenser", "beer_dispenser", "healthanalyzer", "medigel","genescanner", "med_spray_bottle", "chem_pack", "blood_pack", "medical_kiosk", "crewpinpointerprox", "medipen_refiller", "biopsy_tool", "plumbing_rcd_sci", "medbot_carrier")
+	design_ids = list("chem_heater", "chem_master", "chem_dispenser", "pandemic", "defibrillator", "defibmount", "operating", "soda_dispenser", "beer_dispenser", "healthanalyzer", "medigel","genescanner", "med_spray_bottle", "meta_beaker", "chem_pack", "blood_pack", "medical_kiosk", "crewpinpointerprox", "medipen_refiller", "biopsy_tool", "plumbing_rcd_sci", "medbot_carrier")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 	required_experiments = list(/datum/experiment/scanning/points/slime/calibration)
 
@@ -180,7 +192,7 @@
 	display_name = "Продвинутые Биотехнологии"
 	description = "Расширят границы познания."
 	prereq_ids = list("biotech")
-	design_ids = list("piercesyringe", "crewpinpointer", "smoke_machine", "plasmarefiller", "limbgrower", "meta_beaker", "healthanalyzer_advanced", "harvester", "holobarrier_med", "detective_scanner", "defibrillator_compact", "ph_meter")
+	design_ids = list("piercesyringe", "crewpinpointer", "smoke_machine", "plasmarefiller", "limbgrower", "healthanalyzer_advanced", "harvester", "holobarrier_med", "detective_scanner", "defibrillator_compact", "ph_meter")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 	required_experiments = list(/datum/experiment/scanning/points/slime/easy)
 	discount_experiments = list(/datum/experiment/scanning/random/material/meat = 4000) //Big discount to reinforce doing it.
@@ -197,7 +209,7 @@
 /datum/techweb_node/bio_process
 	id = "bio_process"
 	display_name = "Биологическая обработка"
-	description = "От слимов до кухни."
+	description = "От слаймов до кухни."
 	prereq_ids = list("biotech")
 	design_ids = list("smartfridge", "gibber", "deepfryer", "monkey_recycler", "processor", "gibber", "microwave", "reagentgrinder", "dish_drive", "fat_sucker", "griddle")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 4000)
@@ -257,8 +269,8 @@
 	display_name = "Industrial Engineering"
 	description = "A refresher course on modern engineering technology."
 	prereq_ids = list("base")
-	design_ids = list("solarcontrol", "recharger", "powermonitor", "rped", "pacman", "adv_capacitor", "adv_scanning", "w-recycler" , "emitter", "high_cell", "adv_matter_bin", "scanner_gate",
-	"atmosalerts", "atmos_control", "recycler", "autolathe", "high_micro_laser", "nano_mani", "mesons", "welding_goggles", "thermomachine", "rad_collector", "tesla_coil", "grounding_rod",
+	design_ids = list("solarcontrol", "recharger", "powermonitor", "rped", "pacman", "adv_capacitor", "adv_scanning", "nano_mani", "high_micro_laser", "adv_matter_bin", "adv_capacitor_x10", "adv_scanning_x10", "nano_mani_x10", "high_micro_laser_x10", "adv_matter_bin_x10", "w-recycler" , "emitter", "high_cell", "scanner_gate",
+	"atmosalerts", "atmos_control", "recycler", "autolathe", "mesons", "welding_goggles", "thermomachine", "rad_collector", "tesla_coil", "grounding_rod",
 	"apc_control", "cell_charger", "power control", "airlock_board", "firelock_board", "airalarm_electronics", "firealarm_electronics", "cell_charger", "stack_console", "stack_machine",
 	"oxygen_tank", "plasma_tank", "emergency_oxygen", "emergency_oxygen_engi", "plasmaman_tank_belt", "electrolyzer", "pneumatic_seal", "crystallizer")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 12500)
@@ -287,7 +299,7 @@
 	display_name = "High Efficiency Parts"
 	description = "Finely-tooled manufacturing techniques allowing for picometer-perfect precision levels."
 	prereq_ids = list("engineering", "datatheory")
-	design_ids = list("pico_mani", "super_matter_bin")
+	design_ids = list("pico_mani", "super_matter_bin", "pico_mani_x10", "super_matter_bin_x10")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 7500)
 	discount_experiments = list(/datum/experiment/scanning/points/machinery_tiered_scan/tier2_lathes = 5000)
 
@@ -296,7 +308,7 @@
 	display_name = "Продвинутые силовые технологии"
 	description = "Как можно получить больше искр?"
 	prereq_ids = list("engineering")
-	design_ids = list("smes", "super_cell", "hyper_cell", "super_capacitor", "superpacman", "mrspacman", "power_turbine", "power_turbine_console", "power_compressor", "circulator", "teg")
+	design_ids = list("smes", "super_cell", "hyper_cell", "super_capacitor", "super_capacitor_x10", "superpacman", "mrspacman", "power_turbine", "power_turbine_console", "power_compressor", "circulator", "teg")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 3500)
 	discount_experiments = list(/datum/experiment/scanning/points/machinery_pinpoint_scan/tier2_capacitors = 2500)
 
@@ -323,7 +335,7 @@
 	display_name = "Miniaturized Bluespace Research"
 	description = "Extreme reduction in space required for bluespace engines, leading to portable bluespace technology."
 	prereq_ids = list("bluespace_travel", "practical_bluespace", "high_efficiency")
-	design_ids = list("bluespace_matter_bin", "femto_mani", "bluespacebodybag", "triphasic_scanning", "quantum_keycard", "wormholeprojector", "swapper")
+	design_ids = list("triphasic_scanning", "femto_mani", "bluespace_matter_bin", "triphasic_scanning_x10", "femto_mani_x10", "bluespace_matter_bin_x10", "bluespacebodybag", "quantum_keycard", "wormholeprojector", "swapper")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 10000)
 	discount_experiments = list(/datum/experiment/scanning/points/machinery_tiered_scan/tier3_variety = 5000)
 		/* /datum/experiment/exploration_scan/random/condition) this should have a point cost but im not even sure the experiment works properly lmao*/
@@ -341,7 +353,7 @@
 	display_name = "Applied Bluespace Research"
 	description = "Using bluespace to make things faster and better."
 	prereq_ids = list("bluespace_basic", "engineering")
-	design_ids = list("bs_rped","minerbag_holding", "bluespacebeaker", "bluespacesyringe", "phasic_scanning", "roastingstick", "ore_silo", "plumbing_receiver")
+	design_ids = list("bs_rped","minerbag_holding", "bluespacebeaker", "bluespacesyringe", "phasic_scanning", "phasic_scanning_x10", "roastingstick", "ore_silo", "plumbing_receiver")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 	discount_experiments = list(/datum/experiment/scanning/points/machinery_pinpoint_scan/tier2_scanmodules = 3500)
 
@@ -350,7 +362,7 @@
 	display_name = "Bluespace Power Technology"
 	description = "Even more powerful.. power!"
 	prereq_ids = list("adv_power", "practical_bluespace")
-	design_ids = list("bluespace_cell", "quadratic_capacitor")
+	design_ids = list("bluespace_cell", "quadratic_capacitor", "quadratic_capacitor_x10")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 	discount_experiments = list(/datum/experiment/scanning/points/machinery_pinpoint_scan/tier3_cells = 3000)
 
@@ -362,6 +374,16 @@
 	design_ids = list("desynchronizer")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
+///////////////////////// Неевклидовые детали /////////////////////////
+/datum/techweb_node/noneuclidic
+	id = "noneuclidic"
+	display_name = "Неевклидовые исследования"
+	description = "Эксперименты в области технологий блюспейса привели к открытию неевклидовых законов физики."
+	prereq_ids = list("bluespace_travel", "practical_bluespace", "bluespace_storage")
+	design_ids = list("noneuclid_capacitor", "noneuclid_scanning", "noneuclid_mani", "noneuclid_micro_laser", "noneuclid_matter_bin", "noneuclid_capacitor_x10", "noneuclid_scanning_x10", "noneuclid_mani_x10", "noneuclid_micro_laser_x10", "noneuclid_matter_bin_x10")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 250000)
+	required_experiments = list(/datum/experiment/explosion/maxcap)
+	discount_experiments = list(/datum/experiment/explosion/medium = 500000)
 
 /////////////////////////plasma tech/////////////////////////
 /datum/techweb_node/basic_plasma
@@ -514,7 +536,7 @@
 	display_name = "Advanced Electromagnetic Theory"
 	description = "Determining whether reversing the polarity will actually help in a given situation."
 	prereq_ids = list("emp_basic")
-	design_ids = list("ultra_micro_laser")
+	design_ids = list("ultra_micro_laser", "ultra_micro_laser_x10")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 3000)
 	discount_experiments = list(/datum/experiment/scanning/points/machinery_pinpoint_scan/tier2_microlaser = 1500)
 
@@ -523,7 +545,7 @@
 	display_name = "Quantum Electromagnetic Technology"	//bs
 	description = "Even better electromagnetic technology."
 	prereq_ids = list("emp_adv")
-	design_ids = list("quadultra_micro_laser")
+	design_ids = list("quadultra_micro_laser", "quadultra_micro_laser_x10")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 	discount_experiments = list(/datum/experiment/scanning/points/machinery_pinpoint_scan/tier3_microlaser = 4000)
 
@@ -553,7 +575,7 @@
 	prereq_ids = list("comptech")
 	design_ids = list("hdd_basic", "hdd_advanced", "hdd_super", "hdd_cluster", "ssd_small", "ssd_micro", "netcard_basic", "netcard_advanced", "netcard_wired",
 	"portadrive_basic", "portadrive_advanced", "portadrive_super", "cardslot", "aislot", "miniprinter", "APClink", "bat_control", "bat_normal", "bat_advanced",
-	"bat_super", "bat_micro", "bat_nano", "cpu_normal", "pcpu_normal", "cpu_small", "pcpu_small", "sensorpackage")
+	"bat_super", "bat_micro", "bat_nano", "cpu_normal", "pcpu_normal", "cpu_small", "pcpu_small", "sensorpackage", "signalpackage")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000)  //they are really shitty
 
 /datum/techweb_node/computer_board_gaming
@@ -670,7 +692,7 @@
 	display_name = "Mining Technology"
 	description = "Better than Efficiency V."
 	prereq_ids = list("engineering", "basic_plasma")
-	design_ids = list("drill", "superresonator", "triggermod", "damagemod", "cooldownmod", "rangemod", "ore_redemption", "mining_equipment_vendor", "cargoexpress", "plasmacutter")//e a r l y    g a  m e)
+	design_ids = list("drill", "superresonator", "triggermod", "damagemod", "cooldownmod", "rangemod", "ore_redemption", "mining_equipment_vendor", "exploration_equipment_vendor", "cargoexpress", "plasmacutter")//e a r l y    g a  m e)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/adv_mining
@@ -1145,7 +1167,7 @@
 	boost_item_paths = list(/obj/item/gun/energy/alien, /obj/item/scalpel/alien, /obj/item/hemostat/alien, /obj/item/retractor/alien, /obj/item/circular_saw/alien,
 	/obj/item/cautery/alien, /obj/item/surgicaldrill/alien, /obj/item/screwdriver/abductor, /obj/item/wrench/abductor, /obj/item/crowbar/abductor, /obj/item/multitool/abductor,
 	/obj/item/weldingtool/abductor, /obj/item/wirecutters/abductor, /obj/item/circuitboard/machine/abductor, /obj/item/melee/baton/abductor, /obj/item/abductor, /obj/item/gun/energy/shrink_ray)
-	design_ids = list("alienalloy")
+	design_ids = list("alienalloy", "alienalloy_x10")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 	hidden = TRUE
 

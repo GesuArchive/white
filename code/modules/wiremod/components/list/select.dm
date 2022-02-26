@@ -4,8 +4,8 @@
  * Selects a list from a list of lists by a specific column. Used only by USBs for communications to and from computers with lists of varying sizes.
  */
 /obj/item/circuit_component/select
-	display_name = "Select Query"
-	desc = "A component used with USB cables that can perform select queries on a list based on the column name selected. The values are then compared with the comparison input."
+	display_name = "Селектор"
+	desc = "Компонент, используемый с USB-кабелями, который может выполнять запросы выбора в списке на основе выбранного имени столбца. Затем значения сравниваются с входными данными сравнения."
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 	var/datum/port/input/option/comparison_options

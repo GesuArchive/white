@@ -9,8 +9,8 @@ GLOBAL_LIST_EMPTY_TYPED(integrated_circuits, /obj/item/integrated_circuit)
  * Has a limited amount of power.
  */
 /obj/item/integrated_circuit
-	name = "integrated circuit"
-	desc = "By inserting components and a cell into this, wiring them up, and putting them into a shell, anyone can pretend to be a programmer."
+	name = "интегральная схема"
+	desc = "Поместив внутрь батарею, пару компонентов, настроив их и запихнувших все это оболочку, любой может претендовать на звание программиста."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "integrated_circuit"
 	inhand_icon_state = "electronic"

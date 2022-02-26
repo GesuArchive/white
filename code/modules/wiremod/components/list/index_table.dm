@@ -4,8 +4,8 @@
  * Gets the row of a table using the index inputted. Will return no value if the index is invalid or a proper table is not returned.
  */
 /obj/item/circuit_component/index_table
-	display_name = "Index Table"
-	desc = "Gets the row of a table using the index inputted. Will return no value if the index is invalid or a proper table is not returned."
+	display_name = "Индексный поиск"
+	desc = "Возвращает строку таблицы, используя введенный индекс. Не вернет никакого значения, если индекс недействителен или правильная таблица не возвращена."
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 	/// The list to perform the filter on

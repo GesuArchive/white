@@ -1,8 +1,8 @@
 #define DEFAULT_MAP_SIZE 15
 
 /obj/machinery/computer/security
-	name = "security camera console"
-	desc = "Used to access the various cameras on the station."
+	name = "консоль камер видеонаблюдения"
+	desc = "Используется для доступа к различным камерам на станции."
 	icon_screen = "cameras"
 	icon_keyboard = "security_key"
 	circuit = /obj/item/circuitboard/computer/security
@@ -223,16 +223,16 @@
 	pass_flags = PASSTABLE
 
 /obj/machinery/computer/security/mining
-	name = "outpost camera console"
-	desc = "Used to access the various cameras on the outpost."
+	name = "консоль камер шахты"
+	desc = "Используется для доступа к различным камерам на шахтерском аванпосте."
 	icon_screen = "mining"
 	icon_keyboard = "mining_key"
 	network = list("mine", "auxbase")
 	circuit = /obj/item/circuitboard/computer/mining
 
 /obj/machinery/computer/security/research
-	name = "research camera console"
-	desc = "Used to access the various cameras in science."
+	name = "Консоль исследовательской камеры"
+	desc = "Используется для доступа к различным камерам в РнД."
 	network = list("rd")
 	circuit = /obj/item/circuitboard/computer/research
 

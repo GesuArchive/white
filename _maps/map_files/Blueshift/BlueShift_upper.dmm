@@ -31715,7 +31715,7 @@
 	pixel_x = -20;
 	pixel_y = 9
 	},
-/obj/machinery/rnd/production/techfab/department/medical,
+/obj/machinery/mecha_part_fabricator/med,
 /turf/open/floor/plasteel,
 /area/medical/storage)
 "loH" = (

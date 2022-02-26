@@ -2,8 +2,8 @@ GLOBAL_DATUM(ore_silo_default, /obj/machinery/ore_silo)
 GLOBAL_LIST_EMPTY(silo_access_logs)
 
 /obj/machinery/ore_silo
-	name = "ore silo"
-	desc = "An all-in-one bluespace storage and transmission system for the station's mineral distribution needs."
+	name = "ресурсный бункер"
+	desc = "Универсальная блюспейс система хранения и передачи ресурсов на нужды станции."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "silo"
 	density = TRUE

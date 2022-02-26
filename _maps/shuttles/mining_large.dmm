@@ -190,6 +190,10 @@
 	},
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/autoname{
+	dir = 1;
+	start_active = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/shuttle/mining/large)
 "p" = (
@@ -337,6 +341,9 @@
 "v" = (
 /obj/effect/turf_decal/box/white/corners{
 	dir = 1
+	},
+/obj/machinery/camera/autoname{
+	start_active = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/shuttle/mining/large)

@@ -20659,7 +20659,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "qzt" = (
-/obj/machinery/rnd/production/protolathe/department/engineering,
+/obj/machinery/mecha_part_fabricator/engi,
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "qzy" = (

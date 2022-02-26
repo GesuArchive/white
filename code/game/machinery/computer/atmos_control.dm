@@ -134,8 +134,8 @@
 GLOBAL_LIST_EMPTY(atmos_air_controllers)
 
 /obj/machinery/computer/atmos_control
-	name = "atmospherics monitoring"
-	desc = "Used to monitor the station's atmospherics sensors."
+	name = "консоль мониторинга АТМОСа"
+	desc = "Используется для мониторинга атмосферных датчиков станции."
 	icon_screen = "tank"
 	icon_keyboard = "atmos_key"
 	circuit = /obj/item/circuitboard/computer/atmos_control

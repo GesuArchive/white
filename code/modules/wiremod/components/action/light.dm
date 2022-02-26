@@ -4,8 +4,8 @@
  * Emits a light of a specific brightness and colour. Requires a shell.
  */
 /obj/item/circuit_component/light
-	display_name = "Диод"
-	desc = "A component that emits a light of a specific brightness and colour. Requires a shell."
+	display_name = "Светодиод"
+	desc = "Компонент, который излучает свет определенной яркости и цвета. Для использования требуется оболочка."
 
 	/// The colours of the light
 	var/datum/port/input/red

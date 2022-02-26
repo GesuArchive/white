@@ -12,8 +12,8 @@
 #define FILTERS_CONSTANT_WEAR 0.05
 
 /obj/item/gas_filter
-	name = "atmospheric gas filter"
-	desc = "A piece of filtering cloth to be used with atmospheric gas masks and emergency gas masks."
+	name = "фильтр противогаза"
+	desc = "Кусок многослойной фильтрационной ткани для использования в противогазах."
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "gas_atmos_filter"
 	///Amount of filtering points available
@@ -96,8 +96,8 @@
 	return breath
 
 /obj/item/gas_filter/damaged
-	name = "damaged gas filter"
-	desc = "A piece of filtering cloth to be used with atmospheric gas masks and emergency gas masks, it seems damaged."
+	name = "поврежденный фильтр противогаза"
+	desc = "Кусок многослойной фильтрационной ткани для использования в противогазах. Кажется он поврежден."
 	filter_status = 50 //override on initialize
 
 /obj/item/gas_filter/damaged/Initialize()
@@ -105,7 +105,8 @@
 	filter_status = rand(35, 65)
 
 /obj/item/gas_filter/plasmaman
-	name = "plasmaman atmospheric gas filter"
+	name = "фильтр противогаза плазмена"
+	desc = "Кусок многослойной фильтрационной ткани для использования в противогазах."
 	high_filtering_gases = list(
 		/datum/gas/oxygen,
 		/datum/gas/carbon_dioxide,

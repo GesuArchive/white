@@ -278,7 +278,7 @@
 
 /obj/item/storage/belt/mining
 	name = "разгрузка исследователя"
-	desc = "Универсальная разгрузка, которую ценят как шахтеры, так и охотники."
+	desc = "Универсальная вместительная разгрузка, которую ценят как шахтеры, так и охотники."
 	icon_state = "explorer1"
 	inhand_icon_state = "explorer1"
 	worn_icon_state = "explorer1"
@@ -287,9 +287,9 @@
 /obj/item/storage/belt/mining/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 6
+	STR.max_items = 14
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_combined_w_class = 20
+	STR.max_combined_w_class = 28
 	STR.set_holdable(list(
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
@@ -301,6 +301,7 @@
 		/obj/item/stack/cable_coil,
 		/obj/item/analyzer,
 		/obj/item/extinguisher/mini,
+		/obj/item/forcefield_projector,
 		/obj/item/radio,
 		/obj/item/clothing/gloves,
 		/obj/item/resonator,
@@ -313,7 +314,18 @@
 		/obj/item/lighter,
 		/obj/item/storage/fancy/cigarettes,
 		/obj/item/reagent_containers/food/drinks/bottle,
+		/obj/item/ammo_box,
+		/obj/item/healthanalyzer,
 		/obj/item/stack/medical,
+		/obj/item/surgical_drapes,
+		/obj/item/scalpel,
+		/obj/item/circular_saw,
+		/obj/item/bonesetter,
+		/obj/item/surgicaldrill,
+		/obj/item/retractor,
+		/obj/item/cautery,
+		/obj/item/hemostat,
+		/obj/item/blood_filter,
 		/obj/item/kitchen/knife,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/gps,

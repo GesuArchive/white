@@ -1,5 +1,5 @@
 /obj/item/restraints
-	breakoutchance = 100 
+	breakoutchance = 100
 	breakouttime = 60 SECONDS
 	dye_color = DYE_PRISONER
 
@@ -238,10 +238,10 @@
 
 /obj/item/restraints/legcuffs/beartrap
 	name = "медвежий капкан"
+	desc = "Ловушка, используемая для ловли медведей и прочих парнокопытных ассистентов."
 	throw_speed = 1
 	throw_range = 1
 	icon_state = "beartrap"
-	desc = "Ловушка, используемая для ловли медведей и других существ с длинными ногами.."
 	breakouttime = 10 SECONDS
 	breakoutchance = 100
 	var/armed = 0
@@ -389,7 +389,7 @@
 
 /obj/item/restraints/legcuffs/bola/energy //For Security
 	name = "энергобола"
-	desc = "Специализированная hardlight-бола, предназначенная для ловли убегающих преступников и помощи в арестах."
+	desc = "Специализированная бола сплетенная из волокон жесткого света, предназначенная для ловли убегающих преступников и помощи в арестах."
 	icon_state = "ebola"
 	inhand_icon_state = "ebola"
 	hitsound = 'sound/weapons/taserhit.ogg'

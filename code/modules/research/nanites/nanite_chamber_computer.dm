@@ -1,6 +1,6 @@
 /obj/machinery/computer/nanite_chamber_control
-	name = "консоль управления камерой нанитов"
-	desc = "Управляет нанитовой камерой. Может вводить наниты, загружать программы и анализировать существующие наниты."
+	name = "консоль управления нанитной камерой"
+	desc = "Управляет нанитной камерой. Может имплантировать наниты, задавать текущее программное облако и анализировать существующие нанитные программы."
 	var/obj/machinery/nanite_chamber/chamber
 	icon_screen = "nanite_chamber_control"
 	circuit = /obj/item/circuitboard/computer/nanite_chamber_control

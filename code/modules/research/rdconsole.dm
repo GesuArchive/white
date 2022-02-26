@@ -17,8 +17,8 @@ Nothing else in the console has ID requirements.
 
 */
 /obj/machinery/computer/rdconsole
-	name = "консоль R&D"
-	desc = "Консоль, используемая для взаимодействия с инструментами R&D."
+	name = "консоль РнД"
+	desc = "Консоль, используемая для взаимодействия с инструментами РнД."
 	icon_screen = "rdcomp"
 	icon_keyboard = "rd_key"
 	circuit = /obj/item/circuitboard/computer/rdconsole

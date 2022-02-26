@@ -9,8 +9,8 @@
  */
 
 /obj/item/circuit_component/object_overlay/bar
-	display_name = "Bar Overlay"
-	desc = "Requires a BCI shell. A component that shows a bar overlay ontop of an object from a range of 0 to 100."
+	display_name = "Оверлей полосы состояния"
+	desc = "Для работы требуется оболочка ИЧМ. Компонент, накладывающий оверлей полосы состояния поверх объекта в диапазоне от 0 до 100."
 
 	var/datum/port/input/option/bar_overlay_options
 	var/datum/port/input/bar_number

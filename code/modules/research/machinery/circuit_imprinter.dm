@@ -16,7 +16,7 @@
 								"Различное оборудование",
 								"Компьютерные запчасти",
 								"Схемотехника",
-								"Шаттлостроение"
+								"Спейсподы и шатлостроение"
 								)
 	production_animation = "circuit_imprinter_ani"
 	allowed_buildtypes = IMPRINTER

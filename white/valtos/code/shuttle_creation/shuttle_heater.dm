@@ -11,8 +11,8 @@
 	icon = 'icons/turf/shuttle.dmi'
 
 /obj/machinery/atmospherics/components/unary/shuttle/heater
-	name = "engine heater"
-	desc = "Directs energy into compressed particles in order to power an attached thruster."
+	name = "предзажигатель двигателя"
+	desc = "Направляет энергию в сжатые частицы для приведения в действие присоединенного двигателя."
 	icon_state = "heater_pipe"
 	var/icon_state_closed = "heater_pipe"
 	var/icon_state_open = "heater_pipe_open"

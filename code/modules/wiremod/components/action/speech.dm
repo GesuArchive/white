@@ -4,8 +4,8 @@
  * Sends a message. Requires a shell.
  */
 /obj/item/circuit_component/speech
-	display_name = "Говорилка"
-	desc = "A component that sends a message. Requires a shell."
+	display_name = "Динамик"
+	desc = "Компонент, отправляющий голосовое сообщение. Для использования требуется оболочка."
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 	/// The message to send

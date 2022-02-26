@@ -123,8 +123,8 @@
 
 /obj/item/paint/paint_remover
 	gender =  PLURAL
-	name = "paint remover"
-	desc = "Used to remove color from anything."
+	name = "растворитель"
+	desc = "Используется для удаления краски с чего-угодно."
 	icon_state = "paint_neutral"
 
 /obj/item/paint/paint_remover/afterattack(atom/target, mob/user, proximity)

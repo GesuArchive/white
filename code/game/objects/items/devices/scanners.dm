@@ -180,21 +180,21 @@ GENE SCANNER
 
 	// Husk detection
 	if(advanced && HAS_TRAIT_FROM(M, TRAIT_HUSK, BURN))
-		render_list += "<span class='alert ml-1'>Subject has been husked by severe burns.</span>\n"
+		render_list += "<span class='alert ml-1'>Жертва была хаскирована из ожогов высшей степени тяжести.</span>\n"
 	else if (advanced && HAS_TRAIT_FROM(M, TRAIT_HUSK, CHANGELING_DRAIN))
-		render_list += "<span class='alert ml-1'>Subject has been husked by dessication.</span>\n"
+		render_list += "<span class='alert ml-1'>Жертва была хаскирована из за иссушения кровеносной и лимфатической системы.</span>\n"
 	else if(HAS_TRAIT(M, TRAIT_HUSK))
-		render_list += "<span class='alert ml-1'>Subject has been husked.</span>\n"
+		render_list += "<span class='alert ml-1'>Жертва была хаскирована.</span>\n"
 
 	// Damage descriptions
 	if(brute_loss > 10)
-		render_list += "<span class='alert ml-1'>[brute_loss > 50 ? "Серьёзные" : "Небольшие"] повреждения тканей.</span>\n"
+		render_list += "<span class='alert ml-1'>Обнаружены [brute_loss > 50 ? "Серьёзные" : "Небольшие"] физические раны.</span>\n"
 	if(fire_loss > 10)
-		render_list += "<span class='alert ml-1'>[fire_loss > 50 ? "Серьёзные" : "Небольшие"] ожоги обнаружены.</span>\n"
+		render_list += "<span class='alert ml-1'>Обнаружены [fire_loss > 50 ? "Серьёзные" : "Небольшие"] ожоги.</span>\n"
 	if(oxy_loss > 10)
-		render_list += "<span class='info ml-1'><span class='alert'>[oxy_loss > 50 ? "Серьёзное" : "Небольшое"] удушье обнаружено.</span>\n"
+		render_list += "<span class='info ml-1'><span class='alert'>Обнаружено [oxy_loss > 50 ? "Серьёзное" : "Небольшое"] удушье.</span>\n"
 	if(tox_loss > 10)
-		render_list += "<span class='alert ml-1'>[tox_loss > 50 ? "Серьёзный" : "Небольшой"] объём токсинов обнаружен.</span>\n"
+		render_list += "<span class='alert ml-1'>Обнаружен [tox_loss > 50 ? "Серьёзный" : "Небольшой"] объём токсинов.</span>\n"
 	if(M.getStaminaLoss())
 		render_list += "<span class='alert ml-1'>Пациент страдает от переутомления.</span>\n"
 		if(advanced)
@@ -248,7 +248,7 @@ GENE SCANNER
 			render_list += "<span class='info ml-1'>Уровень облучения: [M.radiation]%.</span>\n"
 
 	if(advanced && M.hallucinating())
-		render_list += "<span class='info ml-1'>Пациент под трипом.</span>\n"
+		render_list += "<span class='info ml-1'>Пациент под воздействием галлюциногенов.</span>\n"
 
 	// Body part damage report
 	if(iscarbon(M) && mode == SCANNER_VERBOSE)
@@ -389,12 +389,40 @@ GENE SCANNER
 				render_list += "<div class='ml-2'>Тип: [W.name]\nТяжесть: [W.severity_text()]</div>\n" // \nRecommended Treatment: [W.treat_text] выкинул рекомендованное лечение - слишком громоздко,less lines than in woundscan() so we don't overload people trying to get basic med info
 			render_list += "</span>"
 
+
+// Застрявшие предметы, паралич и потерянные конечности
+	if(iscarbon(M))
+		var/mob/living/carbon/C = M
+		var/list/missing = list(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_R_LEG, BODY_ZONE_L_LEG)
+		var/list/disabled = list()
+		for(var/X in C.bodyparts)
+			var/obj/item/bodypart/BP = X
+			if(BP.bodypart_disabled)
+				disabled += BP
+			missing -= BP.body_zone
+			for(var/obj/item/I in BP.embedded_objects)
+				if(I.isEmbedHarmless())
+					render_list += "<span class='alert ml-1'><b>Внимание: В [BP.name] пациента торчит [I].</b></span>\n"
+				else
+					render_list += "<span class='alert ml-1'><b>Внимание: В [BP.name] пациента застрял [I].</b></span>\n"
+		for(var/X in disabled)
+			var/obj/item/bodypart/BP = X
+			if(!(BP.get_damage(include_stamina = FALSE) >= BP.max_damage)) //Stamina is disabling the limb
+				render_list += "<span class='alert ml-1'><b>Внимание: [BP.name] парализована.</b></span>\n"
+
+		for(var/t in missing)
+			render_list += "<span class='alert ml-1'><b>Внимание: [parse_zone(t)] пациента отсутствует.</b></span>\n"
+		render_list += "\n"
+
+
+	// Болезни
 	for(var/thing in M.diseases)
 		var/datum/disease/D = thing
 		if(!(D.visibility_flags & HIDDEN_SCANNER))
 			render_list += "<span class='alert ml-1'><b>Внимание: [D.form] обнаружена</b>\n\
 			<div class='ml-2'>Название: [D.name].\nТип: [D.spread_text].\nСтадия: [D.stage]/[D.max_stages].\nВозможное лекарство: [D.cure_text]</div>\
 			</span>" // divs do not need extra linebreak
+
 
 	// Blood Level
 	if(M.has_dna())
@@ -433,7 +461,7 @@ GENE SCANNER
 		return
 
 	if(user.is_blind())
-		to_chat(user, span_warning("You realize that your scanner has no accessibility support for the blind!"))
+		to_chat(user, span_warning("Я полностью слеп и не вижу показателей анализатора!"))
 		return
 
 	if(istype(M) && M.reagents)

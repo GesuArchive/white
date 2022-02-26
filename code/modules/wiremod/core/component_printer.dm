@@ -1,6 +1,6 @@
 /// Component printer, creates components for integrated circuits.
 /obj/machinery/component_printer
-	name = "схемопринтер"
+	name = "схемопринтер интегральных схем"
 	desc = "Печатает различные штуки для нового типа DIY-электроники."
 	icon = 'icons/obj/wiremod_fab.dmi'
 	icon_state = "fab-idle"
@@ -124,7 +124,8 @@
 	return data
 
 /obj/item/circuitboard/machine/component_printer
-	name = "\improper Component Printer (Machine Board)"
+	name = "схемопринтер интегральных схем"
+	desc = "Печатает различные штуки для нового типа DIY-электроники."
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/component_printer
 	req_components = list(
@@ -213,8 +214,8 @@
 
 /// Module duplicator, allows you to save and recreate module components.
 /obj/machinery/module_duplicator
-	name = "module duplicator"
-	desc = "Allows you to duplicate module components so that you don't have to recreate them. Scan a module component over this machine to add it as an entry."
+	name = "дубликатор модулей"
+	desc = "Позволяет дублировать модули, чтобы вам не приходилось создавать их  заново. Отсканируйте модуль на этой машине, чтобы добавить его к печати."
 	icon = 'icons/obj/wiremod_fab.dmi'
 	icon_state = "module-fab-idle"
 	circuit = /obj/item/circuitboard/machine/module_duplicator
@@ -384,7 +385,8 @@
 	return data
 
 /obj/item/circuitboard/machine/module_duplicator
-	name = "\improper Module Duplicator (Machine Board)"
+	name = "дубликатор модулей"
+	desc = "Позволяет дублировать модули, чтобы вам не приходилось создавать их  заново. Отсканируйте модуль на этой машине, чтобы добавить его к печати."
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/module_duplicator
 	req_components = list(

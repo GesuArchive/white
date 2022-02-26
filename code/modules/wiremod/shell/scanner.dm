@@ -4,7 +4,8 @@
  * A handheld device that lets you flash it over people.
  */
 /obj/item/wiremod_scanner
-	name = "scanner"
+	name = "Сканер"
+	desc = "Оболочка портативного сканера, который может сканировать объекты для получения входных данных."
 	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_small"
 	inhand_icon_state = "electronic"
@@ -21,8 +22,8 @@
 	), SHELL_CAPACITY_SMALL)
 
 /obj/item/circuit_component/wiremod_scanner
-	display_name = "Scanner"
-	desc = "Used to receive scanned entities from the scanner."
+	display_name = "Сканер"
+	desc = "Оболочка портативного сканера, который может сканировать объекты для получения входных данных."
 
 	/// Called when afterattack is called on the shell.
 	var/datum/port/output/signal

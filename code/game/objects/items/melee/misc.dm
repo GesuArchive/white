@@ -559,8 +559,8 @@
 		H.visible_message(span_danger("[user] disarms [H]!"), span_userdanger("[user] disarmed you!"))
 
 /obj/item/melee/roastingstick
-	name = "advanced roasting stick"
-	desc = "A telescopic roasting stick with a miniature shield generator designed to ensure entry into various high-tech shielded cooking ovens and firepits."
+	name = "телескопический вилка"
+	desc = "Телескопическая мангальная вилка с миниатюрным генератором защитного поля, предназначенная для обеспечения доступа в различные высокотехнологичные экранированные кухонные печи и камины."
 	icon_state = "roastingstick"
 	inhand_icon_state = null
 	worn_icon_state = "tele_baton"

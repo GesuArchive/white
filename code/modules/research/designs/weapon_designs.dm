@@ -298,8 +298,8 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/techshell
-	name = "Unloaded Technological Shotshell"
-	desc = "A high-tech shotgun shell which can be loaded with materials to produce unique effects."
+	name = "12 Калибр: Пустой высокотехнологичный патрон"
+	desc = "Высокотехнологичная пуля, в которую можно загружать материалы для создания уникальных эффектов."
 	id = "techshotshell"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 200)

@@ -1,5 +1,5 @@
 /obj/item/computer_hardware/card_slot
-	name = "Основной модуль RFID-карты"	// \improper breaks the find_hardware_by_name proc
+	name = "Слот ID-карты"	// \improper breaks the find_hardware_by_name proc
 	desc = "Модуль, позволяющий этому компьютеру считывать или записывать данные на идентификационные карты. Необходимо для правильной работы некоторых программ."
 	power_usage = 10 //W
 	icon_state = "card_mini"

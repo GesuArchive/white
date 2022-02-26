@@ -318,7 +318,7 @@
 
 /obj/machinery/power/solar_control
 	name = "Консоль управления солнечными панелями"
-	desc = "Консоль управления солнечными панелями."
+	desc = "Управления азимутом поворота в автоматическом режиме."
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "computer"
 	density = TRUE

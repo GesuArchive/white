@@ -717,6 +717,9 @@
 	},
 /obj/item/shield/riot/military,
 /obj/item/shield/riot/military,
+/obj/item/stack/sheet/plasteel_armor_plate{
+	amount = 6
+	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "de" = (
@@ -1485,6 +1488,9 @@
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 4
 	},
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
 /turf/open/floor/engine,
 /area/security/main)
 "fE" = (
@@ -1622,8 +1628,10 @@
 /turf/open/floor/engine,
 /area/security/warden)
 "fW" = (
+/obj/item/clothing/suit/straight_jacket,
 /obj/item/clothing/gloves/color/latex,
 /obj/item/clothing/mask/surgical,
+/obj/item/clothing/suit/straight_jacket,
 /obj/item/reagent_containers/spray/cleaner,
 /obj/structure/table/glass,
 /obj/effect/turf_decal/tile/hex/red{
@@ -1635,6 +1643,7 @@
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 8
 	},
+/obj/item/storage/backpack/duffelbag/med/surgery,
 /turf/open/floor/engine,
 /area/security/brig)
 "fX" = (
@@ -1671,7 +1680,6 @@
 	dir = 4
 	},
 /obj/machinery/iv_drip,
-/obj/item/reagent_containers/blood,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 1
 	},
@@ -1682,6 +1690,8 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
+/obj/item/reagent_containers/blood/o_minus,
+/obj/item/reagent_containers/blood/o_minus,
 /turf/open/floor/engine,
 /area/security/brig)
 "ga" = (
@@ -1785,7 +1795,7 @@
 	},
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/poddoor/preopen{
-	id = "briggate";
+	id = "briggateteh";
 	name = "security blast door"
 	},
 /obj/machinery/door/firedoor/border_only{
@@ -2011,6 +2021,12 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/button/door{
+	id = "briggateteh";
+	name = "Бронешторы";
+	pixel_x = 39;
+	pixel_y = 6
+	},
 /turf/open/floor/engine,
 /area/security/main)
 "gK" = (
@@ -2406,20 +2422,22 @@
 /turf/open/floor/engine,
 /area/security/brig)
 "hy" = (
-/obj/structure/bed,
-/obj/item/clothing/suit/straight_jacket,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/hex/red,
+/obj/machinery/stasis{
+	handbeltsmod = 1
+	},
+/obj/machinery/defibrillator_mount{
+	pixel_y = -28
+	},
 /turf/open/floor/engine,
 /area/security/brig)
 "hz" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/bed,
-/obj/item/clothing/suit/straight_jacket,
 /obj/effect/turf_decal/tile/hex/red,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 4
@@ -2429,6 +2447,9 @@
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
+	},
+/obj/machinery/computer/operating{
+	dir = 1
 	},
 /turf/open/floor/engine,
 /area/security/brig)
@@ -3443,10 +3464,21 @@
 	},
 /turf/open/floor/engine,
 /area/security/brig)
+"ol" = (
+/obj/machinery/holopad,
+/turf/open/floor/engine,
+/area/security/brig)
 "tR" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/security/main)
+"uK" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/holopad,
+/turf/open/floor/engine,
+/area/security/brig)
 "EV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -3460,6 +3492,17 @@
 	},
 /turf/open/floor/engine,
 /area/security/brig)
+"Hm" = (
+/obj/effect/landmark/start/security_officer,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/machinery/camera/autoname,
+/turf/open/floor/engine,
+/area/security/main)
 "If" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -3482,6 +3525,13 @@
 /obj/machinery/light,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
+"TD" = (
+/obj/structure/lattice,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space/nearstation)
 
 (1,1,1) = {"
 ab
@@ -4397,7 +4447,7 @@ iz
 fO
 gp
 gK
-dv
+uK
 iz
 hJ
 hY
@@ -4659,7 +4709,7 @@ ab
 ab
 iz
 fY
-iS
+ol
 fo
 hy
 iz
@@ -5747,7 +5797,7 @@ ab
 ab
 kL
 ag
-ag
+TD
 aW
 aW
 aW
@@ -5755,7 +5805,7 @@ aW
 aW
 aW
 aW
-ex
+Hm
 fk
 fk
 gk
@@ -6148,7 +6198,7 @@ ab
 ab
 ab
 ab
-ab
+ag
 be
 aa
 aa
@@ -6192,7 +6242,7 @@ ab
 ab
 ab
 ab
-ab
+TD
 be
 tR
 eI

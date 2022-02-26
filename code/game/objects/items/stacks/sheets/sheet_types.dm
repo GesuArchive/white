@@ -176,7 +176,7 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 /obj/item/stack/sheet/plasteel
 	name = "пласталь"
 	singular_name = "лист пластали"
-	desc = "Это лист из сплава железа и плазмы"
+	desc = "Пласталь является сплавом железа и плазмы. Благодаря отличной прочности и недороговизне этот новомодный сплав завоевал сердца многих инженеров."
 	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-plasteel"
 	inhand_icon_state = "sheet-plasteel"

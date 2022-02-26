@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/glass/maunamug
-	name = "mauna mug"
-	desc = "A drink served in a classy mug. Now with built-in heating!"
+	name = "кружка с подогревом"
+	desc = "Напиток становится намного вкуснее когда подается в стильной кружке. А эта еще и с подогревом!"
 	icon = 'icons/obj/mauna_mug.dmi'
 	icon_state = "maunamug"
 	spillable = TRUE

@@ -227,6 +227,9 @@
 	pixel_y = 3
 	},
 /obj/item/shield/riot/military,
+/obj/item/stack/sheet/plasteel_armor_plate{
+	amount = 6
+	},
 /obj/item/gun/energy/e_gun/dragnet{
 	pixel_x = -3;
 	pixel_y = -2
@@ -938,6 +941,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
+/obj/machinery/camera/autoname,
 /turf/open/floor/plasteel,
 /area/security/main)
 "dU" = (
@@ -1202,6 +1206,9 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "eM" = (
@@ -1317,7 +1324,9 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/security/brig)
 "eZ" = (
+/obj/item/clothing/suit/straight_jacket,
 /obj/item/clothing/gloves/color/latex,
+/obj/item/clothing/suit/straight_jacket,
 /obj/item/clothing/mask/surgical,
 /obj/item/reagent_containers/spray/cleaner,
 /obj/structure/table/glass,
@@ -1330,6 +1339,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
+/obj/item/storage/backpack/duffelbag/med/surgery,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "fa" = (
@@ -1366,7 +1376,6 @@
 	dir = 4
 	},
 /obj/machinery/iv_drip,
-/obj/item/reagent_containers/blood,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -1377,6 +1386,8 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
+/obj/item/reagent_containers/blood/o_minus,
+/obj/item/reagent_containers/blood/o_minus,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "fd" = (
@@ -1532,6 +1543,10 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
+/obj/machinery/door/poddoor/preopen{
+	id = "briggateteh";
+	name = "security blast door"
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "fy" = (
@@ -1595,6 +1610,7 @@
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "fE" = (
+/obj/machinery/holopad,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "fF" = (
@@ -1773,6 +1789,12 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/button/door{
+	id = "briggateteh";
+	name = "Бронешторы";
+	pixel_x = 39;
+	pixel_y = 6
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "fW" = (
@@ -2086,11 +2108,15 @@
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "gF" = (
-/obj/structure/bed,
-/obj/item/clothing/suit/straight_jacket,
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
+	},
+/obj/machinery/stasis{
+	handbeltsmod = 1
+	},
+/obj/machinery/defibrillator_mount{
+	pixel_y = -28
 	},
 /turf/open/floor/plasteel/white,
 /area/security/brig)
@@ -2098,8 +2124,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/bed,
-/obj/item/clothing/suit/straight_jacket,
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -2109,6 +2133,9 @@
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
+	},
+/obj/machinery/computer/operating{
+	dir = 1
 	},
 /turf/open/floor/plasteel/white,
 /area/security/brig)
@@ -3346,6 +3373,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/hos)
+"sT" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/holopad,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/security/brig)
 "tt" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -3480,6 +3514,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/main)
+"UX" = (
+/obj/structure/lattice,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "Vh" = (
 /obj/machinery/photocopier,
 /obj/machinery/power/apc{
@@ -4448,7 +4489,7 @@ ij
 eW
 fA
 fW
-gB
+sT
 ez
 hm
 hL
@@ -5753,7 +5794,7 @@ aS
 aS
 aS
 aS
-aS
+ag
 fn
 RG
 bw
@@ -5797,7 +5838,7 @@ aS
 aS
 aS
 aS
-aS
+ag
 dv
 qL
 Fi
@@ -5841,7 +5882,7 @@ aS
 aS
 aS
 aS
-aS
+UX
 dv
 dv
 uS
@@ -5896,9 +5937,9 @@ dv
 dw
 dU
 ex
-bb
+ba
 fx
-bb
+ba
 eg
 bb
 aS
@@ -5937,9 +5978,9 @@ bK
 bb
 bb
 ba
-bb
+ba
 dV
-bb
+ba
 ba
 fy
 aS
@@ -6199,7 +6240,7 @@ aS
 aS
 aS
 aS
-aS
+ag
 ba
 iV
 iV
@@ -6243,7 +6284,7 @@ aS
 aS
 aS
 aS
-aS
+UX
 ba
 bc
 jo

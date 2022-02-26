@@ -4,8 +4,8 @@
  * Gets the column of a table and returns it as a regular list.
  */
 /obj/item/circuit_component/get_column
-	display_name = "Get Column"
-	desc = "Gets the column of a table and returns it as a regular list."
+	display_name = "Получить столбец"
+	desc = "Получает столбец таблицы и возвращает его в виде обычного списка."
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 	/// The list to perform the filter on

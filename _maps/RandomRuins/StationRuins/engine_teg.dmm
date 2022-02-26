@@ -194,6 +194,9 @@
 	},
 /obj/machinery/portable_atmospherics/canister/toxins,
 /obj/effect/turf_decal/box,
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "et" = (
@@ -1317,6 +1320,11 @@
 	},
 /turf/open/floor/engine/airless,
 /area/engineering/supermatter)
+"MX" = (
+/obj/structure/lattice,
+/obj/machinery/camera/autoname,
+/turf/template_noop,
+/area/space/nearstation)
 "Ns" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
@@ -1376,6 +1384,12 @@
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/space/nearstation)
+"Ot" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/obj/machinery/camera/autoname,
+/turf/template_noop,
+/area/space/nearstation)
 "ON" = (
 /obj/structure/table,
 /obj/item/stack/sheet/iron/fifty{
@@ -1397,6 +1411,9 @@
 	},
 /obj/machinery/light{
 	pixel_y = 0
+	},
+/obj/machinery/camera/autoname{
+	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
@@ -1766,6 +1783,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "YU" = (
@@ -1792,6 +1812,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
+/obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "Zl" = (
@@ -2013,7 +2034,7 @@ Kr
 SY
 Hb
 OY
-Ns
+Ot
 NI
 ny
 ny
@@ -2601,7 +2622,7 @@ gi
 Jg
 kY
 lS
-nR
+MX
 Ix
 Lc
 Lc

@@ -1,6 +1,6 @@
 /obj/machinery/computer/shuttle_flight/custom_shuttle
-	name = "nanotrasen shuttle flight controller"
-	desc = "A terminal used to fly shuttles defined by the Shuttle Zoning Designator"
+	name = "консоль управления шатлом"
+	desc = "Терминал управления шатлом из комплекта Сделай сам - шатлостроение."
 	circuit = /obj/item/circuitboard/computer/shuttle/flight_control
 	icon_screen = "shuttle"
 	icon_keyboard = "tech_key"

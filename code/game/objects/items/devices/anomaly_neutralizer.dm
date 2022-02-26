@@ -1,6 +1,6 @@
 /obj/item/anomaly_neutralizer
-	name = "anomaly neutralizer"
-	desc = "A one-use device capable of instantly neutralizing anomalies."
+	name = "нейтрализатор аномалий"
+	desc = "Одноразовое устройство, способное мгновенно нейтрализовать аномалии."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "memorizer2"
 	inhand_icon_state = "electronic"

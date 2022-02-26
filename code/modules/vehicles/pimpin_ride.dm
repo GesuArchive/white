@@ -21,8 +21,8 @@
 	return ..()
 
 /obj/item/janiupgrade
-	name = "floor buffer upgrade"
-	desc = "An upgrade for mobile janicarts."
+	name = "модернизация полоукладчика"
+	desc = "Модернизация для ремонта пола на ДжениКаре."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "upgrade"
 

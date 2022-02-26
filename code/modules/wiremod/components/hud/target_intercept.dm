@@ -6,8 +6,8 @@
  */
 
 /obj/item/circuit_component/target_intercept
-	display_name = "Target Intercept"
-	desc = "Requires a BCI shell. When activated, this component will allow user to target an object using their brain and will output the reference to said object."
+	display_name = "ИЧМ целеуказатель"
+	desc = "Для работы требуется оболочка ИЧМ. При активации этот компонент позволит пользователю настроить целеуказание на объект с помощью своего мозга и выдаст ссылку на указанный объект."
 
 	required_shells = list(/obj/item/organ/cyberimp/bci)
 

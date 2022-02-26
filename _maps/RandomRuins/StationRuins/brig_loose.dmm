@@ -901,6 +901,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/shield/riot/military,
 /obj/item/shield/riot/military,
+/obj/item/stack/sheet/plasteel_armor_plate{
+	amount = 6
+	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "co" = (
@@ -1844,6 +1847,9 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "ez" = (
@@ -2387,6 +2393,12 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/button/door{
+	id = "briggateteh";
+	name = "Бронешторы";
+	pixel_x = 39;
+	pixel_y = 6
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "fK" = (
@@ -2817,6 +2829,10 @@
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
+	},
+/obj/machinery/door/poddoor/preopen{
+	id = "briggateteh";
+	name = "security blast door"
 	},
 /turf/open/floor/plasteel,
 /area/security/main)
@@ -3270,6 +3286,20 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/security/brig)
+"jX" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/security/brig)
 "la" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -3282,6 +3312,13 @@
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel,
+/area/security/brig)
+"lY" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/holopad,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/security/brig)
 "mK" = (
 /obj/machinery/door/airlock/security{
@@ -3308,8 +3345,21 @@
 "BQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/start/field_medic,
+/obj/machinery/holopad,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
+"IV" = (
+/obj/effect/landmark/start/security_officer,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/autoname,
+/turf/open/floor/plasteel,
+/area/security/main)
 "TR" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -3325,6 +3375,13 @@
 /obj/effect/turf_decal/stripes/box,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
+"VP" = (
+/obj/structure/lattice,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "Xp" = (
 /turf/open/floor/plasteel{
 	icon_state = "damaged4"
@@ -4253,7 +4310,7 @@ fw
 fT
 gx
 gS
-hv
+lY
 fw
 bn
 bM
@@ -4647,7 +4704,7 @@ ab
 ab
 aQ
 aU
-aU
+jX
 aU
 aU
 aW
@@ -5603,7 +5660,7 @@ ab
 ab
 ab
 ab
-ab
+VP
 bh
 bh
 bh
@@ -5611,7 +5668,7 @@ bh
 bh
 bh
 bh
-dP
+IV
 ei
 ei
 fs
@@ -5701,9 +5758,9 @@ bg
 dE
 eb
 ek
-bf
+be
 gu
-bf
+be
 fl
 bf
 ab
@@ -5742,9 +5799,9 @@ bV
 bf
 bf
 be
-bf
+be
 eE
-bf
+be
 be
 gv
 ab
@@ -6004,7 +6061,7 @@ ab
 ab
 ab
 ab
-ab
+ad
 be
 eF
 eF
@@ -6048,7 +6105,7 @@ ab
 ab
 ab
 ab
-ab
+VP
 be
 bg
 eI

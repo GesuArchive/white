@@ -1,68 +1,83 @@
 /datum/design/board/spacepod_main
-	name = "Circuit Design (Space Pod Mainboard)"
-	desc = "Allows for the construction of a Space Pod mainboard."
+	name = "Спейспод - Основной контролер"
+	desc = "Содержит основные компоненты управления спейсподом."
 	id = "spacepod_main"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/mecha/pod
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Производство")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/pod_core
-	name = "Spacepod Core"
-	desc = "Allows for the construction of a spacepod core system, made up of the engine and life support systems."
+	name = "Ядро спейспода"
+	desc = "Содержит ионный двигатель и системы поддержания жизнедеятельности."
 	id = "podcore"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron=5000, /datum/material/uranium=1000, /datum/material/plasma=5000)
 	build_path = /obj/item/pod_parts/core
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Производство")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/pod_armor_civ
-	name = "Spacepod Armor (civilian)"
-	desc = "Allows for the construction of spcaepod armor. This is the civilian version."
+	name = "Броня спейспода - Гражданская"
+	desc = "Внешняя герметичная, защитная обшивка. Гражданский образец."
 	id = "podarmor_civ"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron=15000,/datum/material/glass=5000,/datum/material/plasma=10000)
 	build_path = /obj/item/pod_parts/armor
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Броня")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/pod_armor_black
-	name = "Spacepod Armor (dark)"
-	desc = "Allows for the construction of spacepod armor. This is the dark civillian version."
+	name = "Броня спейспода - Темная"
+	desc = "Внешняя герметичная, защитная обшивка. Гражданский образец."
 	id = "podarmor_dark"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/pod_parts/armor/black
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Броня")
 	materials = list(/datum/material/iron=15000,/datum/material/glass=5000,/datum/material/plasma=10000)
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/pod_armor_industrial
-	name = "Spacepod Armor (industrial)"
-	desc = "Allows for the construction of spacepod armor. This is the industrial grade version."
+	name = "Броня спейспода - Промышленная"
+	desc = "Внешняя герметичная, защитная обшивка. Промышленный образец."
 	id = "podarmor_industiral"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/pod_parts/armor/industrial
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Броня")
 	materials = list(/datum/material/iron=15000,/datum/material/glass=5000,/datum/material/plasma=10000,/datum/material/diamond=5000,/datum/material/silver=7500)
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/pod_armor_sec
-	name = "Spacepod Armor (security)"
-	desc = "Allows for the construction of spacepod armor. This is the security version."
+	name = "Броня спейспода - СБ"
+	desc = "Внешняя герметичная, защитная обшивка. Служебный образец."
 	id = "podarmor_sec"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/pod_parts/armor/security
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Броня")
 	materials = list(/datum/material/iron=15000,/datum/material/glass=5000,/datum/material/plasma=10000,/datum/material/diamond=5000,/datum/material/silver=7500)
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/pod_armor_gold
-	name = "Spacepod Armor (golden)"
-	desc = "Allows for the construction of spacepod armor. This is the golden version."
+	name = "Броня спейспода - Золото"
+	desc = "Внешняя герметичная, защитная обшивка. Престижный образец."
 	id = "podarmor_gold"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/pod_parts/armor/gold
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Броня")
 	materials = list(/datum/material/iron=5000,/datum/material/glass=2500,/datum/material/plasma=7500,/datum/material/gold=10000)
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -71,74 +86,99 @@
 //////////////////////////////////////////
 
 /datum/design/pod_gun_disabler
-	name = "Spacepod Equipment (Disabler)"
-	desc = "Allows for the construction of a spacepod mounted disabler."
+	name = "Усмиритель спейспода"
+	desc = "Стреляет маломощными лазерами которые изматывают цель, не нанося ей вреда."
 	id = "podgun_disabler"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/spacepod_equipment/weaponry/disabler
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Системы вооружения")
 	materials = list(/datum/material/iron = 15000)
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/pod_gun_bdisabler
-	name = "Spacepod Equipment (Burst Disabler)"
-	desc = "Allows for the construction of a spacepod mounted disabler. This is the burst-fire model."
+	name = "Модернезированный усмиритель спейспода"
+	desc = "Стреляет очередью маломощных лазеров которые изматывают цель, не нанося ей вреда."
 	id = "podgun_bdisabler"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/spacepod_equipment/weaponry/burst_disabler
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Системы вооружения")
 	materials = list(/datum/material/iron = 15000,/datum/material/plasma=2000)
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/pod_gun_laser
-	name = "Spacepod Equipment (Laser)"
-	desc = "Allows for the construction of a spacepod mounted laser."
+	name = "Лазер спейспода"
+	desc = "Ведет огонь лазером средней мощности."
 	id = "podgun_laser"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/spacepod_equipment/weaponry/laser
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Системы вооружения")
 	materials = list(/datum/material/iron=10000,/datum/material/glass=5000,/datum/material/gold=1000,/datum/material/silver=2000)
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
+/datum/design/pod_gun_laser_heavylaser
+	name = "Модернезированный лазер спейспода"
+	desc = "Ведет огонь лазером высокой мощности."
+	id = "podgun_laser_heavylaser"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
+	build_path = /obj/item/spacepod_equipment/weaponry/laser_heavylaser
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Системы вооружения")
+	materials = list(/datum/material/iron=10000,/datum/material/glass=5000,/datum/material/gold=4000,/datum/material/silver=4000, /datum/material/diamond = 4000)
+	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 /datum/design/pod_ka_basic
-	name = "Spacepod Equipment (Basic Kinetic Accelerator)"
-	desc = "Allows for the construction of a weak spacepod Kinetic Accelerator"
+	name = "Кинетический акселератор спейспода"
+	desc = "Ведет огонь слабыми импульсами кинетической энергии."
 	id = "pod_ka_basic"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000, /datum/material/silver = 2000, /datum/material/uranium = 2000)
 	build_path = /obj/item/spacepod_equipment/weaponry/basic_pod_ka
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Добыча полезных ископаемых")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/pod_ka
-	name = "Spacepod Equipment (Kinetic Accelerator)"
-	desc = "Allows for the construction of a spacepod Kinetic Accelerator."
+	name = "Модернезированный кинетический акселератор спейспода"
+	desc = "Ведет огонь мощными импульсами кинетической энергии. Продвинутая версия обладает повышенной скорострельностью и более экономичным энергопотреблением."
 	id = "pod_ka"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000, /datum/material/silver = 2000, /datum/material/gold = 2000, /datum/material/diamond = 2000)
 	build_path = /obj/item/spacepod_equipment/weaponry/pod_ka
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Добыча полезных ископаемых")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 
 /datum/design/pod_plasma_cutter
-	name = "Spacepod Equipment (Plasma Cutter)"
-	desc = "Allows for the construction of a plasma cutter."
+	name = "Плазменный резак спейспода"
+	desc = "Ведет огонь концентрированными сгустками плазмы, используется при добыче полезных ископаемых на астероидах."
 	id = "pod_plasma_cutter"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000, /datum/material/silver = 2000, /datum/material/gold = 2000, /datum/material/diamond = 2000)
 	build_path = /obj/item/spacepod_equipment/weaponry/plasma_cutter
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Добыча полезных ископаемых")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/pod_adv_plasma_cutter
-	name = "Spacepod Equipment (Advanced Plasma cutter)"
-	desc = "Allows for the construction of an advanced plasma cutter."
+	name = "Продвинутый плазменный резак спейспода"
+	desc = "Ведет огонь концентрированными сгустками плазмы, используется при добыче полезных ископаемых на астероидах. Продвинутая версия обладает повышенной скорострельностью и более экономичным энергопотреблением."
 	id = "pod_adv_plasma_cutter"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000, /datum/material/silver = 4000, /datum/material/gold = 4000, /datum/material/diamond = 4000)
 	build_path = /obj/item/spacepod_equipment/weaponry/plasma_cutter/adv
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Добыча полезных ископаемых")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 //////////////////////////////////////////
@@ -146,13 +186,15 @@
 //////////////////////////////////////////
 
 /datum/design/pod_misc_tracker
-	name = "Spacepod Tracking Module"
-	desc = "Allows for the construction of a Space Pod Tracking Module."
+	name = "Маяк спейспода"
+	desc = "Следящее устройство для поиска корабля в бескрайнем космосе."
 	id = "podmisc_tracker"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron=5000)
 	build_path = /obj/item/spacepod_equipment/tracker
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Вспомогательные системы")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 //////////////////////////////////////////
@@ -160,23 +202,27 @@
 //////////////////////////////////////////
 
 /datum/design/pod_cargo_ore
-	name = "Spacepod Ore Storage Module"
-	desc = "Allows for the construction of a Space Pod Ore Storage Module."
+	name = "Рудный танк спейспода"
+	desc = "Система хранения руды для спейсподов. Автоматически собирает ближайшую руду, рядом с кораблем. Для работы необходимо загрузить ящик для руды."
 	id = "podcargo_ore"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron=20000, /datum/material/glass=2000)
 	build_path = /obj/item/spacepod_equipment/cargo/large/ore
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Добыча полезных ископаемых")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/pod_cargo_crate
-	name = "Spacepod Crate Storage Module"
-	desc = "Allows the construction of a Space Pod Crate Storage Module."
+	name = "Трюм спейспода"
+	desc = "Небольшой отсек вмещающий один стандартный грузовой ящик. Ящик в комплект не входит."
 	id = "podcargo_crate"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron=25000)
 	build_path = /obj/item/spacepod_equipment/cargo/large
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Вспомогательные системы")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 //////////////////////////////////////////
@@ -184,44 +230,52 @@
 //////////////////////////////////////////
 
 /datum/design/passenger_seat
-	name = "Spacepod Passenger Seat"
-	desc = "Allows the construction of a Space Pod Passenger Seat Module."
+	name = "Пассажирское кресло спейспода"
+	desc = "Второе посадочное место для перевозки пасажиров."
 	id = "podcargo_seat"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron=7500, /datum/material/glass=2500)
 	build_path = /obj/item/spacepod_equipment/cargo/chair
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Вспомогательные системы")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 //////////////////////////////////////////
 //////SPACEPOD LOCK ITEMS////////////////
 //////////////////////////////////////////
 /datum/design/pod_lock_keyed
-	name = "Spacepod Tumbler Lock"
-	desc = "Allows for the construction of a tumbler style podlock."
+	name = "Центральный замок спейспода"
+	desc = "Блокирует двери, полезно для защиты вашего имущества. После изготовления необходимо синхронизировать с ключом."
 	id = "podlock_keyed"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron=4500)
 	build_path = /obj/item/spacepod_equipment/lock/keyed
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Вспомогательные системы")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/pod_key
-	name = "Spacepod Tumbler Lock Key"
-	desc = "Allows for the construction of a blank key for a podlock."
+	name = "Ключ от спейспода"
+	desc = "Ключ от центрального замка спейспода. После изготовления необходимо синхронизировать с замком."
 	id = "podkey"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron=500)
 	build_path = /obj/item/spacepod_key
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Вспомогательные системы")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/lockbuster
-	name = "Spacepod Lock Buster"
-	desc = "Allows for the construction of a spacepod lockbuster."
+	name = "Взломщик центрального замка спейспода"
+	desc = "Уничтожает замок и разблокирует спейспод. Внимание: после использования гарантия обнуляется."
 	id = "pod_lockbuster"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/device/lock_buster
-	category = list("Спейсподы")
+	category = list("Спейсподы и шатлостроение")
+	sub_category = list("Вспомогательные системы")
 	materials = list(/datum/material/iron = 15000, /datum/material/diamond=2500) //it IS a drill!
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY

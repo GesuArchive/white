@@ -15,12 +15,12 @@
  * Library Public Computer
  */
 /obj/machinery/computer/libraryconsole
-	name = "library visitor console"
+	name = "консоль для посетителей библиотеки"
+	desc = "Выписанные книги ДОЛЖНЫ быть возвращены вовремя."
 	icon_state = "oldcomp"
 	icon_screen = "library"
 	icon_keyboard = "no_keyboard"
 	circuit = /obj/item/circuitboard/computer/libraryconsole
-	desc = "Checked out books MUST be returned on time."
 	var/screenstate = 0
 	var/title
 	var/category = "Any"

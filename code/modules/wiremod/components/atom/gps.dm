@@ -4,8 +4,8 @@
  * Return the location of this
  */
 /obj/item/circuit_component/gps
-	display_name = "Internal GPS"
-	desc = "A component that returns the xyz co-ordinates of itself."
+	display_name = "GPS маячок"
+	desc = "Компонент, который возвращает свои текущие координаты со значениями \"X, Y, Z\"."
 
 	/// The result from the output
 	var/datum/port/output/x_pos

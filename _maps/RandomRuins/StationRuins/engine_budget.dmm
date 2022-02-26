@@ -1,4 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ac" = (
+/obj/machinery/light,
+/obj/effect/turf_decal/tile/yellow,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/engineering/main)
 "as" = (
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Supermatter Engine Room";
@@ -95,6 +103,17 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engineering/main)
+"gP" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/machinery/camera/autoname,
+/turf/open/floor/plasteel,
+/area/engineering/main)
 "hq" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -152,6 +171,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
+"oz" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "pN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -307,6 +333,19 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engineering/main)
+"Fo" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
+/turf/open/floor/plasteel,
+/area/engineering/main)
 "FQ" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -396,6 +435,21 @@
 	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
+"MD" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/machinery/camera/autoname{
+	dir = 8;
+	network = list("durka_domofon","ss13")
+	},
+/turf/open/floor/plasteel,
+/area/engineering/main)
+"Na" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/camera/autoname,
+/turf/template_noop,
+/area/space/nearstation)
 "Qi" = (
 /obj/machinery/light,
 /obj/effect/turf_decal/tile/yellow,
@@ -849,7 +903,7 @@ Qr
 Rr
 Le
 Le
-Le
+oz
 Le
 Le
 Le
@@ -928,7 +982,7 @@ at
 Ka
 Ka
 Ka
-Ka
+Fo
 RY
 RY
 RY
@@ -1048,7 +1102,7 @@ Vf
 Bw
 Vf
 rA
-Qi
+ac
 to
 Le
 Rh
@@ -1149,7 +1203,7 @@ ZT
 "}
 (23,1,1) = {"
 to
-Ka
+gP
 Vf
 Bw
 Vf
@@ -1272,7 +1326,7 @@ RY
 RY
 RY
 RY
-Qi
+ac
 to
 Le
 ZT
@@ -1293,7 +1347,7 @@ Sn
 tg
 sn
 Jz
-sn
+MD
 sA
 ZF
 em
@@ -1386,7 +1440,7 @@ dX
 dX
 dX
 to
-Le
+Na
 Rh
 Rh
 Rh

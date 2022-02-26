@@ -4,8 +4,8 @@
  * Return the index of a list
  */
 /obj/item/circuit_component/index
-	display_name = "Список указателей"
-	desc = "A component that returns the value of a list at a given index."
+	display_name = "Индексатор"
+	desc = "Компонент, который возвращает значение списка с заданным индексом."
 
 	/// The input port
 	var/datum/port/input/list_port

@@ -49546,7 +49546,7 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/execution/education)
 "lfM" = (
-/obj/machinery/rnd/production/protolathe/department/engineering,
+/obj/machinery/mecha_part_fabricator/engi,
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/stripes/box,
 /turf/open/floor/plasteel,

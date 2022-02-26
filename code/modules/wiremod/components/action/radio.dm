@@ -8,7 +8,7 @@
  */
 /obj/item/circuit_component/radio
 	display_name = "Радио"
-	desc = "A component that can listen and send frequencies. If set to private, the component will only receive signals from other components attached to circuitboards with the same owner id."
+	desc = "Компонент, который может прослушивать и передавать радиочастоты. Если установлено значение \"приватность\", компонент будет получать сигналы только от других компонентов, подключенных к интегральным платам с тем же идентификатором."
 
 	/// The publicity options. Controls whether it's public or private.
 	var/datum/port/input/option/public_options

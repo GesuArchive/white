@@ -455,6 +455,13 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain)
+"ga" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "gc" = (
 /obj/structure/table,
 /obj/item/ai_module/supplied/freeform,
@@ -1458,6 +1465,9 @@
 /obj/machinery/light,
 /obj/machinery/firealarm/directional/south,
 /obj/effect/turf_decal/tile/blue,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "tP" = (
@@ -2316,6 +2326,12 @@
 "Ft" = (
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
+"Fy" = (
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central)
 "FK" = (
 /obj/machinery/computer/shuttle_flight/mining{
 	dir = 4
@@ -2410,9 +2426,6 @@
 	pixel_y = -23
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/machinery/camera/autoname{
-	dir = 1
-	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "Gr" = (
@@ -2686,6 +2699,9 @@
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
+	},
+/obj/machinery/camera/autoname{
+	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
@@ -3694,7 +3710,7 @@ sV
 sV
 tc
 LQ
-MO
+ga
 Oc
 Oc
 Oc
@@ -4185,7 +4201,7 @@ bW
 (16,1,1) = {"
 sV
 KU
-No
+Fy
 EX
 DN
 MO

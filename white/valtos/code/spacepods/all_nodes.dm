@@ -20,7 +20,7 @@
 	description = "For a bit of pew pew space battles"
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 3500)
 	prereq_ids = list("spacepod_basic", "weaponry")
-	design_ids = list("podgun_disabler")
+	design_ids = list("podgun_disabler", "podgun_laser")
 
 /datum/techweb_node/spacepod_lasers
 	id = "spacepod_lasers"
@@ -28,7 +28,7 @@
 	description = "For a lot of pew pew space battles. PEW PEW PEW!! Shit, I missed. I need better aim. Whatever."
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5250)
 	prereq_ids = list("spacepod_disabler", "electronic_weapons")
-	design_ids = list("podgun_laser", "podgun_bdisabler")
+	design_ids = list("podgun_bdisabler", "podgun_laser_heavylaser")
 
 /datum/techweb_node/spacepod_ka
 	id = "spacepod_ka"

@@ -20,11 +20,12 @@
 	return INITIALIZE_HINT_NORMAL // ???
 
 /obj/spacepod/prebuilt/sec
-	name = "security space pod"
+	name = "спейспод СБ"
 	icon_state = "pod_mil"
 	locked = TRUE
 	armor_type = /obj/item/pod_parts/armor/security
-	equipment_types = list(/obj/item/spacepod_equipment/weaponry/disabler,
+	cell_type = /obj/item/stock_parts/cell/hyper
+	equipment_types = list(/obj/item/spacepod_equipment/weaponry/laser,
 		/obj/item/spacepod_equipment/lock/keyed/sec,
 		/obj/item/spacepod_equipment/tracker,
 		/obj/item/spacepod_equipment/cargo/chair)

@@ -4,8 +4,8 @@
  * Calcualtes a path, returns a list of entities. Each entity is the next step in the path. Can be used with the direction component to move.
  */
 /obj/item/circuit_component/pathfind
-	display_name = "Pathfinder"
-	desc = "When triggered, the next step to the target's location as an entity. This can be used with the direction component and the drone shell to make it move on its own. The Id Card input port is for considering ID access when pathing, it does not give the shell actual access."
+	display_name = "Навигатор"
+	desc = "При срабатывании следующий шаг к местоположению цели как объекта. Это можно использовать с компонентом направления и оболочкой дрона, чтобы заставить его двигаться самостоятельно. Входной порт ID-карты предназначен для учета доступа к идентификатору при прокладке маршрута, он не предоставляет оболочке фактического доступа."
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 	var/datum/port/input/input_X

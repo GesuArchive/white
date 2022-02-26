@@ -28,7 +28,7 @@ Possible to do for anyone motivated enough:
 #define HOLOGRAM_POWER_USAGE 2
 
 /obj/machinery/holopad
-	name = "голопад"
+	name = "голопад ИИ"
 	desc = "Это напольное устройство для проецирования голографических изображений."
 	icon_state = "holopad0"
 	layer = LOW_OBJ_LAYER

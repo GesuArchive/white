@@ -27,6 +27,10 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/camera/autoname{
+	dir = 5;
+	start_active = 1
+	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/mining)
 "h" = (

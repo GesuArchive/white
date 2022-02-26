@@ -1,6 +1,6 @@
 /obj/machinery/power/generator
-	name = "термоэлектрический генератор"
-	desc = "Высокоэффективный термоэлектрический генератор."
+	name = "термоэлектрический генератор (ТЭГ)"
+	desc = "Высокоэффективный газовый термоэлектрический генератор."
 	icon = 'white/valtos/icons/teg.dmi'
 	icon_state = "teg-unassembled"
 	density = TRUE

@@ -1460,7 +1460,7 @@
 	desc = "Need to rebuild the ORM but science got annihialted after a bomb test? Buy this for the most advanced parts NT can give you."
 	cost = CARGO_CRATE_VALUE * 3
 	access_view = FALSE
-	contains = list(/obj/item/storage/part_replacer/cargo)
+	contains = list(/obj/item/storage/part_replacer/tier2)
 	crate_name = "\improper RPED crate"
 
 /datum/supply_pack/science/shieldwalls

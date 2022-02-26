@@ -4,7 +4,8 @@
  * A handheld device with one big button.
  */
 /obj/item/compact_remote
-	name = "compact remote"
+	name = "Пульт"
+	desc = "Портативная оболочка с одной большой кнопкой. Используется для приема по удаленной связи входных данных от оболочки. <b>Используйте оболочку в руке</b>, чтобы запустить выходной сигнал."
 	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_small_simple"
 	inhand_icon_state = "electronic"
@@ -22,7 +23,7 @@
 
 /obj/item/circuit_component/compact_remote
 	display_name = "Пульт"
-	desc = "Used to receive inputs from the compact remote shell. Use the shell in hand to trigger the output signal."
+	desc = "Портативная оболочка с одной большой кнопкой. Используется для приема по удаленной связи входных данных от оболочки. <b>Используйте оболочку в руке</b>, чтобы запустить выходной сигнал."
 
 	/// Called when attack_self is called on the shell.
 	var/datum/port/output/signal

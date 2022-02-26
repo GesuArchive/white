@@ -67,6 +67,8 @@
 			if (temp < 25)
 				msg += "[t_on] имеет незначительные ушибы.\n"
 			else if (temp < 50)
+				msg += "[t_on] <b>весьма серьезно</b> ранен[t_a]!\n"
+			else if (temp < 75)
 				msg += "[t_on] <b>тяжело</b> ранен[t_a]!\n"
 			else
 				msg += "<B>[t_on] смертельно ранен[t_a]!</B>\n"
@@ -77,6 +79,8 @@
 				msg += "[t_on] немного подгорел[t_a].\n"
 			else if (temp < 50)
 				msg += "[t_on] имеет <b>серьёзные</b> ожоги!\n"
+			else if (temp < 75)
+				msg += "[t_on] имеет <b>тяжелые</b> ожоги!\n"
 			else
 				msg += "<B>[t_on] имеет смертельные ожоги!</B>\n"
 
@@ -123,9 +127,9 @@
 	if(!appears_dead)
 		switch(stat)
 			if(SOFT_CRIT)
-				. += "[t_on] не реагирует на происходящее вокруг.\n"
+				. += "[t_on] вот-вот потеряет сознание.\n"
 			if(UNCONSCIOUS, HARD_CRIT)
-				. += "[t_on] едва в сознании.\n"
+				. += "[t_on] без сознания.\n"
 
 	var/trait_exam = common_trait_examine()
 	if (!isnull(trait_exam))

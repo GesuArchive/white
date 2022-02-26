@@ -103941,7 +103941,7 @@
 /turf/open/floor/plasteel,
 /area/cargo/miningoffice)
 "vZt" = (
-/obj/machinery/rnd/production/protolathe/department/engineering,
+/obj/machinery/mecha_part_fabricator/engi,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{

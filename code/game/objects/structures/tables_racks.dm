@@ -284,8 +284,8 @@
 
 ///Table on wheels
 /obj/structure/table/rolling
-	name = "Rolling table"
-	desc = "An NT brand \"Rolly poly\" rolling table. It can and will move."
+	name = "стол на колесиках"
+	desc = "Стол на колесиках  марки NT - \"Ванька-встанька\". Это довольно удобно."
 	anchored = FALSE
 	smoothing_flags = NONE
 	smoothing_groups = null

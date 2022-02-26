@@ -1,6 +1,6 @@
 /obj/item/organ/cyberimp/bci
-	name = "brain-computer interface"
-	desc = "An implant that can be placed in a user's head to control circuits using their brain."
+	name = "Интерфейс человек-компьютер (ИЧМ)"
+	desc = "Имплантат, который может быть помещен в голову пользователя для отправки управляющих сигналов."
 	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "bci"
 	zone = BODY_ZONE_HEAD
@@ -34,8 +34,8 @@
 		return ..()
 
 /obj/item/circuit_component/bci_action
-	display_name = "BCI Action"
-	desc = "Represents an action the user can take when implanted with the brain-computer interface."
+	display_name = "ИЧМ активация"
+	desc = "Представляет собой действие, которое пользователь может предпринять при активации импланта интерфейса человек-компьютер."
 	required_shells = list(/obj/item/organ/cyberimp/bci)
 
 	/// The icon of the button
@@ -313,8 +313,8 @@
 	button.maptext = cell ? MAPTEXT("[cell.percent()]%") : ""
 
 /obj/machinery/bci_implanter
-	name = "brain-computer interface manipulation chamber"
-	desc = "A machine that, when given a brain-computer interface, will implant it into an occupant. Otherwise, will remove any brain-computer interfaces they already have."
+	name = "камера имплантации ИЧМ"
+	desc = "Машина, которая после помещения внутрь интерфейса человек-компьютер (ИЧМ) имплантирует его в голову пользователя. В случае если в машину на момент операции не будет помещен ИЧМ для имплантации, то все интерфейсы человек-компьютер, которые у них установлены в данный момент будут удалены."
 	circuit = /obj/item/circuitboard/machine/bci_implanter
 	icon = 'icons/obj/machines/bci_implanter.dmi'
 	icon_state = "bci_implanter"
@@ -538,7 +538,8 @@
 	open_machine()
 
 /obj/item/circuitboard/machine/bci_implanter
-	name = "Brain-Computer Interface Manipulation Chamber (Machine Board)"
+	name = "Камера имплантации ИЧМ"
+	desc = "Машина, которая после помещения внутрь интерфейса человек-компьютер (ИЧМ) имплантирует его в голову пользователя. В случае если в машину на момент операции не будет помещен ИЧМ для имплантации, то все интерфейсы человек-компьютер, которые у них установлены в данный момент будут удалены."
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/bci_implanter
 	req_components = list(

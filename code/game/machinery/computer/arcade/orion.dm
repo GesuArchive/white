@@ -14,8 +14,8 @@ GLOBAL_LIST_INIT(orion_events, generate_orion_events())
 		.[new_event] = new_event.weight
 
 /obj/machinery/computer/arcade/orion_trail
-	name = "The Orion Trail"
-	desc = "Learn how our ancestors got to Orion, and have fun in the process!"
+	name = "Пояс Ориона"
+	desc = "Узнайте, как наши предки попали на Орион, и получайте удовольствие в процессе!"
 	icon_state = "arcade"
 	circuit = /obj/item/circuitboard/computer/arcade/orion_trail
 	var/busy = FALSE //prevent clickspam that allowed people to ~speedrun~ the game.

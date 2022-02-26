@@ -541,6 +541,8 @@
 		var/obj/machinery/camera/cam = cameras[1]
 		if (cam.can_use())
 			queueAlarm("--- [alarm_type] alarm detected in [home_name]! (<A HREF=?src=[REF(src)];switchcamera=[REF(cam)]>[cam.c_tag]</A>)", alarm_type)
+			if(alarm_type == ALARM_MOTION)
+				playsound(get_turf(src), 'sound/machines/twobeep.ogg', 40, TRUE)
 		else
 			var/first_run = FALSE
 			var/dat2 = ""
@@ -548,8 +550,12 @@
 				dat2 += "[(!first_run) ? "" : " | "]<A HREF=?src=[REF(src)];switchcamera=[REF(camera)]>[camera.c_tag]</A>"
 				first_run = TRUE
 			queueAlarm("--- [alarm_type] alarm detected in [home_name]! ([dat2])", alarm_type)
+			if(alarm_type == ALARM_MOTION)
+				playsound(get_turf(src), 'sound/machines/twobeep.ogg', 40, TRUE)
 	else
 		queueAlarm("--- [alarm_type] alarm detected in [home_name]! (No Camera)", alarm_type)
+		if(alarm_type == ALARM_MOTION)
+			playsound(get_turf(src), 'sound/machines/twobeep.ogg', 40, TRUE)
 	if (viewalerts)
 		ai_alerts()
 	return 1

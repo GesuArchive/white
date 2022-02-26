@@ -89,7 +89,7 @@
 	materials = list(/datum/material/iron = 30, /datum/material/glass = 20)
 	build_path = /obj/item/analyzer
 	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты ")
-	sub_category = list("Базовые инструменты")
+	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/tscanner
@@ -130,6 +130,7 @@
 	materials = list(/datum/material/iron = 75)
 	build_path = /obj/item/screwdriver
 	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты ")
+	sub_category = list("Базовые инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/wirecutters
@@ -162,7 +163,7 @@
 	materials = list(/datum/material/iron = 150)
 	build_path = /obj/item/plunger
 	construction_time = 40
-	category = list("initial","Инструменты","Рабочие инструменты", "Фармацевтика","Производство")
+	category = list("initial","Инструменты","Рабочие инструменты", "Фармацевтика", "Инженерное оборудование")
 	sub_category = list("Хим-фабрика")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -195,7 +196,7 @@
 	category = list("initial","Инструменты")
 
 /datum/design/apc_board
-	name = "Контролер энергощитка"
+	name = "Контролер энергощитка АПЦ"
 	id = "power control"
 	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
 	construction_time = 20
@@ -789,7 +790,7 @@
 	materials = list(/datum/material/iron = 75)
 	build_path = /obj/item/radio/headset
 	category = list("initial", "Телекомы", "Инженерное снаряжение")
-	sub_category = list("Телекоммуникации")
+	sub_category = list("Связь и навигация")
 
 /datum/design/bounced_radio
 	name = "Рация"
@@ -799,7 +800,7 @@
 	materials = list(/datum/material/iron = 75, /datum/material/glass = 25)
 	build_path = /obj/item/radio/off
 	category = list("initial", "Телекомы", "Инженерное снаряжение")
-	sub_category = list("Телекоммуникации")
+	sub_category = list("Связь и навигация")
 
 /datum/design/intercom_frame
 	name = "Каркас интеркома"
@@ -808,8 +809,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 75, /datum/material/glass = 25)
 	build_path = /obj/item/wallframe/intercom
-	category = list("initial", "Телекомы", "Инженерное снаряжение")
-	sub_category = list("Телекоммуникации")
+	category = list("initial", "Телекомы", "Строительство")
+	sub_category = list("Настенные конструкции")
 
 /datum/design/infrared_emitter
 	name = "Инфракрасный излучатель"
@@ -873,7 +874,7 @@
 	sub_category = list("Освещение и наблюдение")
 
 /datum/design/camera_assembly
-	name = "Сборка камеры"
+	name = "Каркас камеры"
 	id = "camera_assembly"
 	build_type = AUTOLATHE | MECHFAB
 	construction_time = 40
@@ -1088,18 +1089,22 @@
 /datum/design/desttagger
 	name = "Этикеровщик назначения"
 	id = "desttagger"
-	build_type = AUTOLATHE | PROTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 250, /datum/material/glass = 125)
 	build_path = /obj/item/dest_tagger
-	category = list("initial", "Электроника")
+	category = list("initial", "Электроника", "Инженерное снаряжение")
+	sub_category = list("Маркировщики")
 
 /datum/design/salestagger
 	name = "Этикеровщик скидок"
 	id = "salestagger"
-	build_type = AUTOLATHE | PROTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 700, /datum/material/glass = 200)
 	build_path = /obj/item/sales_tagger
-	category = list("initial", "Электроника")
+	category = list("initial", "Электроника", "Инженерное снаряжение")
+	sub_category = list("Маркировщики")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/handlabeler
@@ -1141,7 +1146,8 @@
 	construction_time = 20
 	materials = list(/datum/material/iron = 3000)
 	build_path = /obj/item/stack/conveyor
-	category = list("initial", "Конструкции", "Электроника", "Кларк", "Производство")
+	category = list("initial", "Конструкции", "Электроника", "Кларк", "Инженерное оборудование")
+	sub_category = list("Гусеничные конструкции")
 	maxstack = 30
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -1152,7 +1158,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 450, /datum/material/glass = 190)
 	build_path = /obj/item/conveyor_switch_construct
-	category = list("initial", "Конструкции", "Электроника", "Производство")
+	category = list("initial", "Конструкции", "Электроника", "Инженерное оборудование")
+	sub_category = list("Гусеничные конструкции")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/laptop
@@ -1266,7 +1273,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500)
 	build_path = /obj/item/stack/ducts
-	category = list("initial", "Конструкции", "Фармацевтика","Производство")
+	category = list("initial", "Конструкции", "Фармацевтика", "Инженерное оборудование")
 	sub_category = list("Хим-фабрика")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 	maxstack = 50
@@ -1413,7 +1420,8 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/floor_painter
-	name = "полокрас"
+	name = "Маркировщик пола"
+	desc = "Используется для покраски полов. Круто?"
 	id = "floor_painter"
 	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
 	construction_time = 40

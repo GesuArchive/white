@@ -5,8 +5,8 @@
 #define REMOTE_MODE_RELAY "Реле"
 
 /obj/item/nanite_remote
-	name = "nanite remote control"
-	desc = "A device that can remotely control active nanites through wireless signals."
+	name = "пульт дистанционного управления нанитами"
+	desc = "Устройство, которое может дистанционно управлять активными нанитами с помощью беспроводных сигналов."
 	w_class = WEIGHT_CLASS_SMALL
 	req_access = list(ACCESS_ROBOTICS)
 	icon = 'icons/obj/device.dmi'
@@ -170,8 +170,8 @@
 
 
 /obj/item/nanite_remote/comm
-	name = "nanite communication remote"
-	desc = "A device that can send text messages to specific programs."
+	name = "консольный пульт управления нанитами"
+	desc = "Устройство, которое может отправлять текстовые сообщения определенным программам."
 	icon_state = "nanite_comm_remote"
 	var/comm_message = ""
 

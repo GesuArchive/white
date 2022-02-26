@@ -4,8 +4,8 @@
 #define CIRCULATOR_COLD 1
 
 /obj/machinery/atmospherics/components/binary/circulator
-	name = "циркулятор"
-	desc = "Газовая турбина с теплообменником."
+	name = "турбина ТЭГа"
+	desc = "Газовый циркулятор с теплообменником."
 	icon = 'white/valtos/icons/teg.dmi'
 	icon_state = "circ-unassembled-0"
 	density = TRUE

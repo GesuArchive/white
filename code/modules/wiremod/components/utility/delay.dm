@@ -8,7 +8,7 @@
  */
 /obj/item/circuit_component/delay
 	display_name = "Задержка"
-	desc = "A component that delays a signal by a specified duration."
+	desc = "Компонент, который задерживает сигнал на заданную продолжительность."
 
 	/// Amount to delay by
 	var/datum/port/input/delay_amount

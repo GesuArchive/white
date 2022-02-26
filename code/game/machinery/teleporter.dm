@@ -4,8 +4,8 @@
 	density = TRUE
 
 /obj/machinery/teleport/hub
-	name = "teleporter hub"
-	desc = "It's the hub of a teleporting machine."
+	name = "телепортационная арка"
+	desc = "Открывает проход сквозь блюспейс пространство."
 	icon_state = "tele0"
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 1000
@@ -109,8 +109,8 @@
 	RefreshParts()
 
 /obj/machinery/teleport/station
-	name = "teleporter station"
-	desc = "The power control station for a bluespace teleporter. Used for toggling power, and can activate a test-fire to prevent malfunctions."
+	name = "телепортационная станция"
+	desc = "Станция управления питанием блюспейс телепорта. Распределяет силовые нагрузки и калибрует пространственный прокол для предотвращения искажений."
 	icon_state = "controller"
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 100

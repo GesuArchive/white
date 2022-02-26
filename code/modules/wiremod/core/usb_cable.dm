@@ -1,7 +1,7 @@
 /// A cable that can connect integrated circuits to anything with a USB port, such as computers and machines.
 /obj/item/usb_cable
-	name = "usb cable"
-	desc = "A cable that can connect integrated circuits to anything with a USB port, such as computers and machines."
+	name = "USB кабель"
+	desc = "Кабель, который может подключать интегральные схемы к чему-либо с USB-портом, например к компьютерам и машинам."
 	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "usb_cable"
 	inhand_icon_state = "coil"

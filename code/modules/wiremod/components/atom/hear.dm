@@ -5,7 +5,7 @@
  */
 /obj/item/circuit_component/hear
 	display_name = "Микрофон"
-	desc = "A component that listens for messages. Requires a shell."
+	desc = "Компонент, который прослушивает голосовые сообщения. Для работы требуется оболочка."
 
 	/// The message heard
 	var/datum/port/output/message_port

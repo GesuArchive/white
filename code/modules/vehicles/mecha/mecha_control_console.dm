@@ -1,6 +1,6 @@
 /obj/machinery/computer/mecha
-	name = "exosuit control console"
-	desc = "Used to remotely locate or lockdown exosuits."
+	name = "Консоль управления экзоскостюмами"
+	desc = "Используется для удаленного отслеживания местоположения или блокировки экзокостюмов с подключенными маячками слежения."
 	icon_screen = "mecha"
 	icon_keyboard = "tech_key"
 	req_access = list(ACCESS_ROBOTICS)

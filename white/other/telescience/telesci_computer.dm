@@ -1,6 +1,6 @@
 /obj/machinery/computer/telescience
-	name = "консоль управления телепадом"
-	desc = "Используется для телепортации объектов при помощи телепада."
+	name = "Консоль телепада"
+	desc = "Для работы необходимо связать с телепадом и поместить в консоль блюспейс кристаллы. Нуждается в калибровке."
 	icon_screen = "teleport"
 	icon_keyboard = "teleport_key"
 	circuit = /obj/item/circuitboard/computer/telesci_console

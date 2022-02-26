@@ -2,9 +2,8 @@
 
 /obj/machinery/computer/telecomms/server
 	name = "консоль контроля телекоммуникационных серверов"
-	icon_screen = "comm_logs"
 	desc = "Содержит полный доступ ко всем данным и записям телекоммуникационной сети, которую контролирует эта консоль."
-
+	icon_screen = "comm_logs"
 	var/screen = 0				// the screen number:
 	var/list/servers = list()	// the servers located by the computer
 	var/obj/machinery/telecomms/server/SelectedServer

@@ -2,7 +2,7 @@
 
 ///Pad for the Civilian Bounty Control.
 /obj/machinery/piratepad/civilian
-	name = "платформа отправки"
+	name = "гражданская платформа отправки"
 	desc = "Используется для отправки груза на ЦК."
 	layer = TABLE_LAYER
 	resistance_flags = FIRE_PROOF

@@ -229,10 +229,10 @@
 /turf/open/floor/engine,
 /area/engineering/main)
 "nf" = (
-/obj/machinery/camera/emp_proof{
-	c_tag = "Engineering Singularity Northwest";
-	network = list("ss13","engine")
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
 	},
+/obj/machinery/camera/autoname,
 /turf/open/floor/engine,
 /area/engineering/main)
 "nQ" = (
@@ -266,11 +266,8 @@
 /turf/closed/wall/r_wall,
 /area/space/nearstation)
 "qO" = (
-/obj/machinery/camera/emp_proof{
-	c_tag = "Engineering Singularity Northeast";
-	network = list("ss13","engine")
-	},
-/turf/open/floor/engine,
+/obj/machinery/camera/autoname,
+/turf/open/floor/plating,
 /area/engineering/main)
 "qP" = (
 /obj/machinery/door/firedoor,
@@ -345,6 +342,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
+	},
+/obj/machinery/camera/autoname{
+	dir = 1
 	},
 /turf/open/floor/engine,
 /area/engineering/main)
@@ -479,12 +479,10 @@
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "GQ" = (
-/obj/machinery/camera/emp_proof{
-	c_tag = "Engineering Singularity Southwest";
-	dir = 1;
-	network = list("ss13","engine")
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
 	},
-/obj/structure/cable,
+/obj/machinery/camera/autoname,
 /turf/open/floor/engine,
 /area/engineering/main)
 "Hi" = (
@@ -558,6 +556,13 @@
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/engineering/main)
+"KC" = (
+/obj/structure/lattice,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "KZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -606,15 +611,19 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 9
 	},
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/open/floor/engine,
 /area/engineering/main)
 "Mu" = (
-/obj/machinery/camera/emp_proof{
-	c_tag = "Engineering Singularity Southeast";
-	dir = 1;
-	network = list("ss13","engine")
+/obj/machinery/light{
+	pixel_y = 0
 	},
 /obj/structure/cable,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/open/floor/engine,
 /area/engineering/main)
 "MD" = (
@@ -1193,7 +1202,7 @@ ZY
 ZY
 kK
 ZF
-nf
+HQ
 HQ
 HQ
 HQ
@@ -1221,7 +1230,7 @@ ZY
 ZY
 sQ
 ZF
-nQ
+nf
 nQ
 nQ
 nQ
@@ -1234,7 +1243,7 @@ gp
 gp
 gp
 lC
-GQ
+No
 ZF
 gF
 fB
@@ -1430,7 +1439,7 @@ Qk
 Qk
 Qk
 Em
-Xa
+Mu
 ZF
 fB
 oR
@@ -1445,7 +1454,7 @@ HQ
 bo
 YM
 ZF
-Qk
+qO
 Qk
 Qk
 cT
@@ -1613,7 +1622,7 @@ ZY
 ZY
 BG
 ZF
-vy
+GQ
 vy
 vy
 vy
@@ -1626,7 +1635,7 @@ AF
 AF
 AF
 Bl
-Mu
+No
 ZF
 fB
 oR
@@ -1641,7 +1650,7 @@ Si
 zu
 kK
 ZF
-qO
+HQ
 HQ
 HQ
 HQ
@@ -1685,7 +1694,7 @@ HQ
 lA
 ZT
 DM
-gF
+KC
 gF
 Um
 "}

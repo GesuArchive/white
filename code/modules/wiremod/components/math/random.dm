@@ -4,8 +4,8 @@
  * Generates a random number between specific values
  */
 /obj/item/circuit_component/random
-	display_name = "Случайность"
-	desc = "A component that returns random values."
+	display_name = "Генератор случайных чисел"
+	desc = "Компонент, возвращающий случайно сгенерированные значения."
 
 	/// The minimum value that the random number can be
 	var/datum/port/input/minimum

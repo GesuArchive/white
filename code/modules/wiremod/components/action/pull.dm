@@ -4,8 +4,8 @@
  * Tells the shell to start pulling on a designated atom. Only works on movable shells.
  */
 /obj/item/circuit_component/pull
-	display_name = "Start Pulling"
-	desc = "A component that can force the shell to pull entities. Only works for drone shells."
+	display_name = "Захват"
+	desc = "Компонент, добавляющий оболочке модуль захвата с возможностью транспортировки. Работает исключительно в оболочках дронов."
 
 	/// Frequency input
 	var/datum/port/input/target

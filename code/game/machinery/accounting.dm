@@ -1,6 +1,6 @@
 /obj/machinery/accounting
-	name = "account registration device"
-	desc = "A machine that allows heads of staff to create a new bank account after inserting an ID."
+	name = "Регистратор учетных записей"
+	desc = "Машина, которая позволяет ХоПу подключать банковский счет к новым ID-картам."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "recharger"
 	circuit = /obj/item/circuitboard/machine/accounting

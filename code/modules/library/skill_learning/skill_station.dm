@@ -2,8 +2,8 @@
 #define SKILLCHIP_REMOVAL_TIME 30 SECONDS
 
 /obj/machinery/skill_station
-	name = "\improper Skillsoft station"
-	desc = "Learn skills with only minimal chance for brain damage."
+	name = "Камера имплантации чипов навыков"
+	desc = "Осваивайте навыки с всего лишь мизерными шансами на повреждение головного мозга!"
 
 	icon = 'icons/obj/machines/implantchair.dmi'
 	icon_state = "implantchair"

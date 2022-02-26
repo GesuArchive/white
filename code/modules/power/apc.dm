@@ -110,7 +110,7 @@
 // three different channels (lighting/equipment/environ) - may each be set to on, off, or auto
 
 /obj/machinery/power/apc
-	name = "энергощиток"
+	name = "энергощиток АПЦ"
 	desc = "Терминал управления для электрических систем отсека."
 
 	icon_state = "apc0"
@@ -256,7 +256,7 @@
 		area = get_area(src)
 		opened = APC_COVER_OPENED
 		operating = FALSE
-		name = "энергощиток"
+		name = "энергощиток АПЦ"
 		set_machine_stat(machine_stat | MAINT)
 		update_appearance()
 		addtimer(CALLBACK(src, .proc/update), 5)
@@ -319,7 +319,7 @@
 		area = A
 
 	if(auto_name)
-		name = "\improper [get_area_name(area, TRUE)] APC"
+		name = "Энергощиток АПЦ - зона: [get_area_name(area, TRUE)]"
 
 	update_appearance()
 
@@ -1590,6 +1590,6 @@
 
 /*Power module, used for APC construction*/
 /obj/item/electronics/apc
-	name = "контролер энергощитка"
+	name = "контролер энергощитка АПЦ"
 	icon_state = "power_mod"
 	desc = "Heavy-duty switching circuits for power control."

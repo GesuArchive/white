@@ -1,6 +1,6 @@
 /obj/machinery/cell_charger
-	name = "зарядник батареек"
-	desc = "Заряжает, ага?"
+	name = "зарядник батарей"
+	desc = "Заряжает аккумуляторные батареи, не подходит для вооружения."
 	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "ccharger"
 	use_power = IDLE_POWER_USE

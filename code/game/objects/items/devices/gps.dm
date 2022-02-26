@@ -1,7 +1,7 @@
 
 /obj/item/gps
-	name = "global positioning system"
-	desc = "Helping lost spacemen find their way through the planets since 2016."
+	name = "GPS - глобальная система позиционирования"
+	desc = "Помогает потерянным космонавтам найти дорогу домой с 2016 года."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "gps-c"
 	inhand_icon_state = "electronic"

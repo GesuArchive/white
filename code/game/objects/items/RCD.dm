@@ -817,6 +817,7 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 	desc = "Если прошлый казался вам неестественно тяжелым, то этот в 4 раза тяжелее обычного!"
 	custom_materials = list(/datum/material/iron=48000, /datum/material/glass=32000)
 	ammoamt = 160
+	color = "#cc99ff"
 
 
 /obj/item/construction/rcd/combat/admin

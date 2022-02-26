@@ -42,6 +42,9 @@
 	desc = "Объемная сумка для рейнджеров."
 	icon = 'white/Feline/icons/voucher_duffelbag.dmi'
 	icon_state = "leader"
+	inhand_icon_state = "duffel-captain"
+	worn_icon = 'icons/mob/clothing/back.dmi'
+	worn_icon_state = "duffel-captain"
 
 //Медицинский Набор
 
@@ -49,6 +52,9 @@
 	name = "Набор экипировки рейнджера-медика"
 	desc = "Огромная сумка с медицинскими инструментами для полевой хирургии, медикаментами экстренной помощи и оборудованием для поиска и мониторинга здоровья экипажа. Позволяет спасать жизни, даже находясь в десятках тысяч километров от цивилизации."
 	icon_state = "med"
+	inhand_icon_state = "duffel-med"
+	worn_icon = 'icons/mob/clothing/back.dmi'
+	worn_icon_state = "duffel-med"
 
 /obj/item/storage/backpack/duffelbag/rangers/med/PopulateContents()
 	new /obj/item/defibrillator/loaded(src)
@@ -94,6 +100,9 @@
 	name = "Набор экипировки рейнджера-инженера"
 	desc = "Сумка инженера-бортмеханика, содержит инструменты для залатывания своего корпуса и создания дыр в чужом."
 	icon_state = "engi"
+	inhand_icon_state = "duffel-eng"
+	worn_icon = 'icons/mob/clothing/back.dmi'
+	worn_icon_state = "duffel-eng"
 
 /obj/item/storage/backpack/duffelbag/rangers/engi/PopulateContents()
 	new /obj/item/storage/box/demolition(src)
@@ -127,6 +136,9 @@
 	name = "Набор экипировки рейнджера-боевика"
 	desc = "Продвинутое снаряжение для зачистки реликтов в глубоком космосе, поможет сохранить социальную дистанцию и ясность сознания."
 	icon_state = "gunner"
+	inhand_icon_state = "duffel-sec"
+	worn_icon = 'icons/mob/clothing/back.dmi'
+	worn_icon_state = "duffel-sec"
 
 /obj/item/storage/backpack/duffelbag/rangers/gunner/PopulateContents()
 	new /obj/item/gun/energy/laser/rangers(src)

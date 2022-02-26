@@ -1,5 +1,6 @@
 /obj/item/paicard
-	name = "personal AI device"
+	name = "персональный ИИ"
+	desc = "Небольшой планшет с программой имитации искусственного разума. Зачастую используется как личный ассистент."
 	icon = 'icons/obj/aicards.dmi'
 	icon_state = "pai"
 	inhand_icon_state = "electronic"

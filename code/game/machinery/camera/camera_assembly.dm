@@ -4,16 +4,16 @@
 #define STATE_FINISHED 4
 
 /obj/item/wallframe/camera
-	name = "сборка камеры"
-	desc = "The basic construction for Nanotrasen-Always-Watching-You cameras."
+	name = "закрепленный каркас камеры"
+	desc = "Базовая конструкция для камер Нанотрейзен. Мы всегда присмотрим за вами."
 	icon = 'icons/obj/machines/camera.dmi'
 	icon_state = "cameracase"
 	custom_materials = list(/datum/material/iron=400, /datum/material/glass=250)
 	result_path = /obj/structure/camera_assembly
 
 /obj/structure/camera_assembly
-	name = "camera assembly"
-	desc = "The basic construction for Nanotrasen-Always-Watching-You cameras."
+	name = "каркас камеры"
+	desc = "Базовая конструкция для камер Нанотрейзен. Мы всегда присмотрим за вами."
 	icon = 'icons/obj/machines/camera.dmi'
 	icon_state = "camera_assembly"
 	max_integrity = 150
@@ -34,20 +34,20 @@
 	//upgrade messages
 	var/has_upgrades
 	if(emp_module)
-		. += "<hr>It has electromagnetic interference shielding installed."
+		. += "<hr>В ней установлена защита от электромагнитных помех."
 		has_upgrades = TRUE
 	else if(state == STATE_WIRED)
-		. += "<hr><span class='info'>It can be shielded against electromagnetic interference with some <b>plasma</b>.</span>"
+		. += "<hr><span class='info'>Она может быть защищена от электромагнитных помех при помощи <b>плазмы</b>.</span>"
 	if(xray_module)
-		. += "<hr>It has an X-ray photodiode installed."
+		. += "<hr>В ней установлен рентгеновский фотодиод."
 		has_upgrades = TRUE
 	else if(state == STATE_WIRED)
-		. += "<hr><span class='info'>It can be upgraded with an X-ray photodiode with an <b>analyzer</b>.</span>"
+		. += "<hr><span class='info'>Она может быть модернизирована рентгеновским фотодиодом с <b>газоанализатора</b>.</span>"
 	if(proxy_module)
-		. += "<hr>It has a proximity sensor installed."
+		. += "<hr>В ней установлен датчик движения."
 		has_upgrades = TRUE
 	else if(state == STATE_WIRED)
-		. += "<hr><span class='info'>It can be upgraded with a <b>proximity sensor</b>.</span>"
+		. += "<hr><span class='info'>Она может быть модернизирована <b>датчиком движения</b>.</span>"
 
 	//construction states
 	switch(state)
@@ -152,7 +152,7 @@
 		if(STATE_WIRED)	// Upgrades!
 			if(istype(W, /obj/item/stack/sheet/mineral/plasma)) //emp upgrade
 				if(emp_module)
-					to_chat(user, span_warning("[capitalize(src.name)] already contains a [emp_module]!"))
+					to_chat(user, span_warning("[capitalize(src.name)] уже содержит [emp_module]!"))
 					return
 				if(!W.use_tool(src, user, 0, amount=1)) //only use one sheet, otherwise the whole stack will be consumed.
 					return
@@ -160,16 +160,16 @@
 				if(malf_xray_firmware_active)
 					malf_xray_firmware_active = FALSE //flavor reason: MALF AI Upgrade Camera Network ability's firmware is incompatible with the new part
 														//real reason: make it a normal upgrade so the finished camera's icons and examine texts are restored.
-				to_chat(user, span_notice("You attach [W] into [src] inner circuits."))
+				to_chat(user, span_notice("Присоединяю [W] к микросхеме [src]."))
 				return
 
 			else if(istype(W, /obj/item/analyzer)) //xray upgrade
 				if(xray_module)
-					to_chat(user, span_warning("[capitalize(src.name)] already contains a [xray_module]!"))
+					to_chat(user, span_warning("[capitalize(src.name)] уже содержит [xray_module]!"))
 					return
 				if(!user.transferItemToLoc(W, src))
 					return
-				to_chat(user, span_notice("You attach [W] into [src] inner circuits."))
+				to_chat(user, span_notice("Присоединяю [W] к микросхеме [src]."))
 				xray_module = W
 				if(malf_xray_firmware_active)
 					malf_xray_firmware_active = FALSE //flavor reason: MALF AI Upgrade Camera Network ability's firmware is incompatible with the new part
@@ -179,11 +179,11 @@
 
 			else if(istype(W, /obj/item/assembly/prox_sensor)) //motion sensing upgrade
 				if(proxy_module)
-					to_chat(user, span_warning("[capitalize(src.name)] already contains a [proxy_module]!"))
+					to_chat(user, span_warning("[capitalize(src.name)] уже содержит [proxy_module]!"))
 					return
 				if(!user.transferItemToLoc(W, src))
 					return
-				to_chat(user, span_notice("You attach [W] into [src] inner circuits."))
+				to_chat(user, span_notice("Присоединяю [W] к микросхеме [src]."))
 				proxy_module = W
 				return
 
@@ -201,10 +201,10 @@
 		droppable_parts += proxy_module
 	if(!droppable_parts.len)
 		return
-	var/obj/item/choice = input(user, "Select a part to remove:", src) as null|obj in sortNames(droppable_parts)
+	var/obj/item/choice = input(user, "Выберите деталь для демонтажа:", src) as null|obj in sortNames(droppable_parts)
 	if(!choice || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
-	to_chat(user, span_notice("You remove [choice] from [src]."))
+	to_chat(user, span_notice("Отключаю [choice] от [src]."))
 	drop_upgrade(choice)
 	tool.play_tool_sound(src)
 	return TRUE

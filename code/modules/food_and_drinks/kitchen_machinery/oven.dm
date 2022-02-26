@@ -177,7 +177,7 @@
 
 
 /obj/item/plate/oven_tray
-	name = "поднос духовки"
+	name = "противень для духовки"
 	desc = "Время испечь печенье!"
 	icon_state = "oven_tray"
 	max_items = 6

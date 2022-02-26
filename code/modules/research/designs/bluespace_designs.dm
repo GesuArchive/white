@@ -4,20 +4,23 @@
 /////////////////////////////////////////
 
 /datum/design/beacon
-	name = "Tracking Beacon"
-	desc = "A bluespace tracking beacon."
+	name = "Телепортационный маяк"
+	desc = "Миниатюрное устройство служащее фокусирующим маяком для ручных и стационарных телепортов."
 	id = "beacon"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 150, /datum/material/glass = 100)
 	build_path = /obj/item/beacon
-	category = list("Блюспейс разработки")
+	category = list("Блюспейс разработки", "Инженерное снаряжение")
+	sub_category = list("Связь и навигация")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/bag_holding
 	name = "Inert Bag of Holding"
 	desc = "A block of metal ready to be transformed into a bag of holding with a bluespace anomaly core."
 	id = "bag_holding"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/gold = 3000, /datum/material/diamond = 1500, /datum/material/uranium = 250, /datum/material/bluespace = 2000)
 	build_path = /obj/item/bag_of_holding_inert
 	category = list("Блюспейс разработки")
@@ -25,23 +28,27 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/bluespace_crystal
-	name = "Artificial Bluespace Crystal"
-	desc = "A small blue crystal with mystical properties."
+	name = "Синтетический блюспейс кристалл"
+	desc = "Искусственно сделанный блюспейс кристалл, выглядит изысканно."
 	id = "bluespace_crystal"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/diamond = 1500, /datum/material/plasma = 1500)
 	build_path = /obj/item/stack/ore/bluespace_crystal/artificial
-	category = list("Блюспейс разработки")
+	category = list("Блюспейс разработки", "Сплавы и синтез")
+	sub_category = list("Синтез")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/telesci_gps
-	name = "GPS Device"
-	desc = "Little thingie that can track its position at all times."
+	name = "GPS - глобальная система позиционирования"
+	desc = "Помогает потерянным космонавтам найти дорогу домой с 2016 года."
 	id = "telesci_gps"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 1000)
 	build_path = /obj/item/gps
-	category = list("Блюспейс разработки")
+	category = list("Блюспейс разработки", "Инженерное снаряжение")
+	sub_category = list("Связь и навигация")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/desynchronizer

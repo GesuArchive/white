@@ -754,6 +754,12 @@
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/pharmacy)
+"jj" = (
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
+/turf/open/openspace,
+/area/medical/medbay/central)
 "jm" = (
 /obj/machinery/airalarm{
 	pixel_y = 23
@@ -956,6 +962,10 @@
 /obj/structure/bed,
 /obj/item/bedsheet/blue,
 /obj/machinery/iv_drip,
+/obj/machinery/camera/autoname{
+	dir = 1;
+	start_active = 1
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "kR" = (
@@ -1047,6 +1057,7 @@
 	dir = 1;
 	pixel_y = 0
 	},
+/obj/structure/closet/l3closet,
 /turf/open/floor/plasteel/dark,
 /area/medical/virology)
 "mA" = (
@@ -1314,6 +1325,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/virology)
+"pr" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/openspace,
+/area/medical/medbay/central)
 "ps" = (
 /obj/structure/closet/crate/freezer/blood,
 /obj/effect/turf_decal/stripes/line{
@@ -1335,7 +1353,7 @@
 /obj/structure/table/glass,
 /obj/machinery/reagentgrinder{
 	pixel_x = -7;
-	pixel_y = 9
+	pixel_y = 12
 	},
 /obj/item/clothing/glasses/science{
 	pixel_x = 10;
@@ -1343,16 +1361,18 @@
 	},
 /obj/item/clothing/glasses/science{
 	pixel_x = 10;
-	pixel_y = 3
+	pixel_y = 5
 	},
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 10
 	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 4
+/obj/item/storage/box/large_beakers{
+	pixel_x = 8;
+	pixel_y = -6
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/item/storage/box/beakers{
+	pixel_x = -8;
+	pixel_y = -6
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
@@ -1388,6 +1408,13 @@
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/aft)
+"rl" = (
+/obj/structure/lattice,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/open/openspace,
+/area/medical/medbay/central)
 "ry" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -1646,6 +1673,13 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/heads_quarters/cmo)
+"wt" = (
+/obj/structure/lattice,
+/obj/machinery/camera/autoname{
+	dir = 5
+	},
+/turf/open/openspace,
+/area/medical/medbay/central)
 "wy" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/corner{
@@ -2592,6 +2626,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/virology)
+"HQ" = (
+/obj/machinery/camera/autoname{
+	dir = 8;
+	network = list("durka_domofon","ss13")
+	},
+/turf/open/openspace,
+/area/medical/medbay/central)
 "Ip" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2868,6 +2909,9 @@
 	dir = 8;
 	pixel_x = 24
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/floor/engine,
 /area/medical/medbay/lobby)
 "Mm" = (
@@ -3037,7 +3081,6 @@
 /area/medical/surgery)
 "OL" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/chem_seller,
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/plasteel/white,
 /area/medical/sleeper)
@@ -3495,6 +3538,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/central)
+"Vh" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating/airless,
+/area/medical/medbay/central)
 "Vy" = (
 /obj/structure/table/glass,
 /obj/item/reagent_containers/glass/bottle/epinephrine{
@@ -3604,6 +3651,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plasteel/white,
 /area/medical/sleeper)
 "VX" = (
@@ -3887,7 +3935,7 @@ ba
 GH
 di
 di
-di
+Jk
 di
 di
 di
@@ -3929,10 +3977,10 @@ ba
 GH
 di
 di
+Jk
 di
 di
-di
-di
+HQ
 eH
 Jk
 di
@@ -4010,7 +4058,7 @@ ba
 ba
 "}
 (5,1,1) = {"
-GH
+Vh
 di
 di
 Kr
@@ -4052,7 +4100,7 @@ ba
 ba
 "}
 (6,1,1) = {"
-GH
+Vh
 di
 bs
 Kr
@@ -4094,7 +4142,7 @@ ba
 ba
 "}
 (7,1,1) = {"
-GH
+Vh
 di
 di
 Jb
@@ -4136,7 +4184,7 @@ ba
 ba
 "}
 (8,1,1) = {"
-GH
+Vh
 di
 di
 Jb
@@ -4178,7 +4226,7 @@ ba
 ba
 "}
 (9,1,1) = {"
-GH
+Vh
 di
 di
 Jb
@@ -4409,7 +4457,7 @@ Qe
 xE
 oa
 Jk
-Jk
+rl
 GH
 ba
 ba
@@ -4625,7 +4673,7 @@ Sw
 di
 di
 di
-Jk
+wt
 di
 di
 di
@@ -4759,7 +4807,7 @@ di
 Sw
 di
 di
-di
+jj
 GH
 GH
 ba
@@ -4926,7 +4974,7 @@ sJ
 JO
 tW
 So
-qt
+di
 di
 di
 Jk
@@ -4978,7 +5026,7 @@ GH
 (28,1,1) = {"
 ba
 GH
-di
+qt
 di
 GF
 GF
@@ -5053,7 +5101,7 @@ So
 So
 So
 Jk
-Jk
+rl
 GH
 GH
 GH
@@ -5079,7 +5127,7 @@ di
 di
 Sw
 di
-Sw
+pr
 di
 di
 di

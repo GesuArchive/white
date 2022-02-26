@@ -7,8 +7,8 @@
  * Either makes the text upper case or lower case.
  */
 /obj/item/circuit_component/textcase
-	display_name = "Text Case"
-	desc = "A component that makes its input uppercase or lowercase."
+	display_name = "Текстовый регистр"
+	desc = "Компонент, который преобразует регистр входных данных в прописные или строчные буквы."
 
 	var/datum/port/input/option/textcase_options
 

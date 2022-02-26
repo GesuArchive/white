@@ -1,6 +1,6 @@
 /obj/item/aicard
-	name = "intelliCard"
-	desc = "A storage device for AIs. Patent pending."
+	name = "Интелкарта"
+	desc = "Очень объемное запоминающее устройство специализированное на временом хранении и транспортировке ИИ. Будучи помещенным внутрь ИИ теряет функции удаленного управления, однако остается способен видеть окружающее, говорить, вести радиопереговоры. На экране так же отображаются все текущие законы ИИ."
 	icon = 'icons/obj/aicards.dmi'
 	icon_state = "aicard" // aicard-full
 	inhand_icon_state = "electronic"

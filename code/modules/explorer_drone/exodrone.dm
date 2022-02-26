@@ -20,8 +20,8 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 
 /// Exploration drone
 /obj/item/exodrone
-	name = "exploration drone"
-	desc = "long range semi-autonomous exploration drone"
+	name = "исследовательский дрон"
+	desc = "Полуавтономный разведочный дрон большой дальности действия."
 	icon = 'icons/obj/exploration.dmi'
 	icon_state = "drone"
 	w_class = WEIGHT_CLASS_BULKY
@@ -340,7 +340,8 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 
 /// Exploration drone launcher
 /obj/machinery/exodrone_launcher
-	name = "exploration drone launcher"
+	name = "пусковая установка дрона"
+	desc = "Запускает дрона на исследовательскую миссию."
 	icon = 'icons/obj/exploration.dmi'
 	icon_state = "launcher"
 	/// Loaded fuel pellet.

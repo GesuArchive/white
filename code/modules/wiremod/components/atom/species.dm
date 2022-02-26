@@ -4,8 +4,8 @@
  * Return the species of a mob
  */
 /obj/item/circuit_component/species
-	display_name = "Получить вид"
-	desc = "A component that returns the species of its input."
+	display_name = "Генетический сканер"
+	desc = "Компонент, который возвращает генетический вид входных данных."
 
 	/// The input port
 	var/datum/port/input/input_port

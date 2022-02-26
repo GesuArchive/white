@@ -20,3 +20,10 @@
 	. = ..()
 	. += "<hr>Устройство готово к [tool_behaviour == TOOL_BLOODFILTER ? "фильтрации крови" : "манипуляции с костями"]."
 
+/obj/item/storage/box/large_beakers
+	name = "коробка больших химических стаканов"
+	illustration = "large_beaker"
+
+/obj/item/storage/box/large_beakers/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/reagent_containers/glass/beaker/large( src )

@@ -4,8 +4,8 @@
  * Fires every tick of the circuit timer SS
  */
 /obj/item/circuit_component/clock
-	display_name = "Тикер"
-	desc = "A component that repeatedly fires."
+	display_name = "Тактовый генератор"
+	desc = "Компонент, который периодически срабатывает."
 
 	/// Whether the clock is on or not
 	var/datum/port/input/on

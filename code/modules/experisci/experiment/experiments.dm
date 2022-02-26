@@ -1,15 +1,15 @@
 /datum/experiment/scanning/points/slime
-	name = "Base Slime Experiment"
+	name = "Базовая слаймология"
 	required_points = 1
 
 /datum/experiment/scanning/points/slime/calibration
-	name = "Slime Sample Test"
-	description = "Let's see if our scanners can pick up the genetic data from a simple slime extract."
+	name = "Слаймологическое тестирование"
+	description = "Давайте посмотрим, смогут ли наши сканеры получить генетические данные из простого экстракта слайма."
 	required_atoms = list(/obj/item/slime_extract/grey = 1)
 
 /datum/experiment/scanning/points/slime/easy
-	name = "Easy Slime Survey"
-	description = "A wealthy client has requested that we provide samples of data from several basic slime cores."
+	name = "Элементарное слаймологическое исследование"
+	description = "Богатый клиент попросил нас предоставить образцы данных из нескольких наиболее доступных экстрактов слаймов."
 	required_points = 3
 	required_atoms =  list(/obj/item/slime_extract/orange = 1,
 		/obj/item/slime_extract/purple = 1,
@@ -17,8 +17,8 @@
 		/obj/item/slime_extract/metal = 1)
 
 /datum/experiment/scanning/points/slime/moderate
-	name = "Moderate Slime Survey"
-	description = "Central Command has asked that you collect data from several common slime cores."
+	name = "Продвинутое слаймологическое исследование"
+	description = "Центральное командование попросило вас собрать данные из нескольких распространенных экстрактов слаймов."
 	required_points = 5
 	required_atoms = list(/obj/item/slime_extract/yellow = 1,
 		/obj/item/slime_extract/darkpurple = 1,
@@ -26,9 +26,9 @@
 		/obj/item/slime_extract/silver = 1)
 
 /datum/experiment/scanning/points/slime/hard
-	name = "Challenging Slime Survey"
-	description = "Another station has challenged your research team to collect several challenging slime cores, \
-		are you up to the task?"
+	name = "Сложное слаймологическое исследование"
+	description = "Другая станция бросила вызов вашей исследовательской группе, чтобы собрать несколько сложных экстрактов слаймов, \
+		справитесь ли вы с этой задачей?"
 	required_points = 10
 	required_atoms = list(/obj/item/slime_extract/bluespace = 1,
 		/obj/item/slime_extract/sepia = 1,
@@ -40,9 +40,8 @@
 		/obj/item/slime_extract/gold = 2)
 
 /datum/experiment/scanning/points/slime/expert
-	name = "Expert Slime Survey"
-	description = "The intergalactic society of xenobiologists are currently looking for samples of the most complex \
-		slime cores, we are tasking your station with providing them with everything they need."
+	name = "Экспертное слаймологическое исследование"
+	description = "Межгалактическое общество ксенобиологов в настоящее время ищет образцы самых сложных экстрактов слаймов, мы просим вашу станцию предоставить им все необходимое."
 	required_points = 10
 	required_atoms = list(/obj/item/slime_extract/adamantine = 1,
 		/obj/item/slime_extract/oil = 1,
@@ -51,46 +50,46 @@
 		/obj/item/slime_extract/rainbow = 10)
 
 /datum/experiment/scanning/random/cytology/easy
-	name = "Basic Cytology Scanning Experiment"
-	description = "A scientist needs vermin to test on, use the cytology equipment to grow some of these simple critters!"
+	name = "Базовый цитологический эксперимент"
+	description = "Ученым нужны подопытные крысы для тестирования, используйте цитологическое оборудование, чтобы вырастить парочку из этих тварей!"
 	total_requirement = 3
 	max_requirement_per_type = 2
 	possible_types = list(/mob/living/simple_animal/hostile/cockroach, /datum/micro_organism/cell_line/mouse)
 
 /datum/experiment/scanning/random/cytology/medium
-	name = "Advanced Cytology Scanning Experiment"
-	description = "We need to see how the body functions from the earliest moments. Some cytology experiments will help us gain this understanding."
+	name = "Продвинутый цитологический эксперимент"
+	description = "Нам нужно понимать, как функционирует организмы некоторых животных с самых ранних моментов. Некоторые цитологические эксперименты помогут нам получить это понимание."
 	total_requirement = 3
 	max_requirement_per_type = 2
 	possible_types = list(/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/retaliate/poison/snake, /mob/living/simple_animal/pet/cat, /mob/living/simple_animal/pet/dog/corgi, /mob/living/simple_animal/cow, /mob/living/simple_animal/chicken)
 
 /datum/experiment/scanning/random/cytology/medium/one
-	name = "Advanced Cytology Scanning Experiment One"
+	name = "Продвинутый цитологический эксперимент - 1"
 
 /datum/experiment/scanning/random/cytology/medium/two
-	name = "Advanced Cytology Scanning Experiment Two"
+	name = "Продвинутый цитологический эксперимент - 2"
 
 /datum/experiment/scanning/random/janitor_trash
-	name = "Station Hygiene Inspection"
-	description = "To learn how to clean, we must first learn what it is to have filth. We need you to scan some filth around the station."
+	name = "Санэпидем надзор"
+	description = "Необходимо идентифицировать наиболее заразные точки станции. Проверьте коридоры и технические помещения сканером на предмет заражения."
 	possible_types = list(/obj/effect/decal/cleanable/vomit,
 	/obj/effect/decal/cleanable/blood)
 	total_requirement = 3
 
 /datum/experiment/explosion/calibration
-	name = "Is This Thing On?"
-	description = "The engineers from last shift left a notice for us that the doppler array seemed to be malfunctioning. \
-		Could you check that it is still working? Any explosion will do!"
+	name = "Эта штука работает?"
+	description = "Инженеры из прошлой смены оставили нам уведомление о том, что доплеровская матрица, похоже, работает со сбоями. \
+		Не могли бы вы проверить, что он все еще работает? Подойдет абсолютно любой взрыв!"
 	required_light = 1
 
 /datum/experiment/explosion/maxcap
-	name = "Mother of God"
-	description = "A recent outbreak of a blood-cult in a nearby sector necessitates the development of a large explosive. \
-		Create a large enough explosion to prove your bomb, we'll be watching."
+	name = "Я стал смертью, разрушителем миров"
+	description = "Недавняя вспышка кровавого культа в соседнем секторе требует разработки мощного взрывчатого вещества. \
+		Создайте достаточно мощный взрыв, мы будем наблюдать с безопасного расстояния."
 
 /datum/experiment/explosion/medium
-	name = "Explosive Ordinance Experiment"
-	description = "Alright, can we really call ourselves professionals if we can't make shit blow up?"
+	name = "Эксперимент со взрывчатым веществом"
+	description = "Ладно, имеем ли мы право действительно называть себя профессионалами, если не можем заставить дерьмо взорваться?"
 	required_heavy = 2
 	required_light = 6
 
@@ -100,61 +99,61 @@
 	required_light = GLOB.MAX_EX_LIGHT_RANGE
 
 /datum/experiment/scanning/random/material/meat
-	name = "Biological Material Scanning Experiment"
-	description = "They told us we couldn't make chairs out of every material in the world. You're here to prove those nay-sayers wrong."
+	name = "Эксперимент по сканированию биологического материала"
+	description = "Они говорят нам, что мы не можем делать стулья из всех материалов в мире. Вы здесь для того, чтобы доказать, что те, кто говорит \"нет\", неправы."
 	possible_material_types = list(/datum/material/meat)
 
 /datum/experiment/scanning/random/material/easy
-	name = "Low Grade Material Scanning Experiment"
-	description = "Material science is all about a basic understanding of the universe, and how it's built. To explain this, build something basic and we'll show you how to break it."
+	name = "Эксперимент по сканированию базовых материалов"
+	description = "Сопромат - это основа всего, что касается базового понимания Вселенной и того, как она устроена. Чтобы понять как сделать что-то достаточно качественное, для начала надо понять как это сломать."
 	total_requirement = 6
 	possible_types = list(/obj/structure/chair, /obj/structure/toilet, /obj/structure/table)
 	possible_material_types = list(/datum/material/iron, /datum/material/glass)
 
 /datum/experiment/scanning/random/material/medium
-	name = "Medium Grade Material Scanning Experiment"
-	description = "Not all materials are strong enough to hold together a space station. Look at these materials for example, and see what makes them useful for our electronics and equipment."
+	name = "Эксперимент по сканированию материалов среднего качества"
+	description = "Иногда помимо прочности от материалов требуются и другие физические свойства. Изучите данные материалы и посмотрите, что делает их полезными для нашей электроники и оборудования."
 	possible_material_types = list(/datum/material/silver, /datum/material/gold, /datum/material/plastic, /datum/material/titanium)
 
 /datum/experiment/scanning/random/material/medium/one
-	name = "Medium Grade Material Scanning Experiment One"
+	name = "Эксперимент по сканированию материалов среднего качества - 1"
 
 /datum/experiment/scanning/random/material/medium/two
-	name = "Medium Grade Material Scanning Experiment Two"
+	name = "Эксперимент по сканированию материалов среднего качества - 2"
 
 /datum/experiment/scanning/random/material/medium/three
-	name = "Medium Grade Material Scanning Experiment Three"
+	name = "Эксперимент по сканированию материалов среднего качества - 3"
 
 /datum/experiment/scanning/random/material/hard
-	name = "High Grade Material Scanning Experiment"
-	description = "NT spares no expense to test even the most valuable of materials for their qualities as construction materials. Go build us some of these exotic creations and collect the data."
+	name = "Эксперимент по сканированию высококачественных материалов"
+	description = "Нанотрейзен никогда не жалеет средств на науку, и всегда готово оценить характеристики даже самых редких ресурсов в качестве строительных материалов первой бытовой необходимости."
 	possible_material_types = list(/datum/material/diamond, /datum/material/plasma, /datum/material/uranium)
 
 /datum/experiment/scanning/random/material/hard/one
-	name = "High Grade Material Scanning Experiment One"
+	name = "Эксперимент по сканированию высококачественных материалов - 1"
 
 /datum/experiment/scanning/random/material/hard/two
-	name = "High Grade Material Scanning Experiment Two"
+	name = "Эксперимент по сканированию высококачественных материалов - 2"
 
 /datum/experiment/scanning/random/material/hard/three
-	name = "High Grade Material Scanning Experiment Three"
+	name = "Эксперимент по сканированию высококачественных материалов - 3"
 
 /datum/experiment/scanning/random/plants/wild
-	name = "Wild Biomatter Mutation Sample"
-	description = "Due to a number of reasons, (Solar Rays, a diet consisting only of unstable mutagen, entropy) plants with lower levels of instability may occasionally mutate with little reason. Scan one of these samples for us."
-	performance_hint = "\"Wild\" mutations have been recorded to occur above 30 points of instability, while species mutations occur above 60 points of instability."
+	name = "Образец Мутации Дикой Биоматерии"
+	description = "По ряду причин (солнечные лучи, диета, состоящая только из нестабильного мутагена, энтропия) растения с более низким уровнем нестабильности могут иногда мутировать без особых причин. Отсканируйте для нас один из этих образцов."
+	performance_hint = "было зарегистрировано, что \"Дикие\" мутации происходят если растения набирают более чем 30 единиц нестабильности, в то время как видовые мутации происходят при достижении более чем 60 единиц нестабильности."
 	total_requirement = 1
 
 /datum/experiment/scanning/random/plants/traits
-	name = "Unique Biomatter Mutation Sample"
-	description = "We here at centcom are on the look out for rare and exotic plants with unique properties to brag about to our shareholders. We're looking for a sample with a very specific genes currently."
-	performance_hint = "The wide varities of plants on station each carry various traits, some unique to them. Look for plants that may mutate into what we're looking for."
+	name = "Уникальный Образец Мутации Биоматерии"
+	description = "Центральное командование, ищет редкие и экзотические растения с уникальными свойствами, которыми можно похвастаться перед нашими акционерами. В настоящее время мы ищем образец с очень специфическими генами."
+	performance_hint = "Большинство растений на станции после прохождения мутаций несет в себе различные черты, некоторые из которых уникальны для них. Найдите растения, которые могут мутировать во что-то интересное."
 	total_requirement = 3
 	possible_plant_genes = list(/datum/plant_gene/trait/squash, /datum/plant_gene/trait/cell_charge, /datum/plant_gene/trait/glow/shadow, /datum/plant_gene/trait/teleport, /datum/plant_gene/trait/brewing, /datum/plant_gene/trait/juicing, /datum/plant_gene/trait/eyes, /datum/plant_gene/trait/sticky)
 
 /datum/experiment/scanning/points/machinery_tiered_scan/tier2_lathes
-	name = "Advanced Stock Parts Benchmark"
-	description = "Our newly-designed advanced machinery components require practical application tests for hints at possible further advancements, as well as a general confirmation that we didn't actually design worse parts somehow."
+	name = "Расширенный эталонный тест машинных деталей"
+	description = "Наши недавно разработанные усовершенствованные компоненты оборудования требуют практических испытаний для получения намеков на возможные дальнейшие усовершенствования, а также общего подтверждения правильного направления исследования."
 	required_points = 6
 	required_atoms = list(
 		/obj/machinery/rnd/production/protolathe/department/science = 1,
@@ -162,13 +161,14 @@
 		/obj/machinery/rnd/production/techfab/department/cargo = 1,
 		/obj/machinery/rnd/production/techfab/department/medical = 1,
 		/obj/machinery/rnd/production/techfab/department/security = 1,
-		/obj/machinery/rnd/production/techfab/department/service = 1
+		/obj/machinery/rnd/production/techfab/department/service = 1,
+		/obj/machinery/mecha_part_fabricator/med = 2
 	)
 	required_tier = 2
 
 /datum/experiment/scanning/points/machinery_tiered_scan/tier3_bluespacemachines
-	name = "Bluespace Machinery Attunement"
-	description = "Teleportation technology using bluespace capabilities is a high selling point for our company, but the threat of a critical malfunction in calibration procedures wasn't something we predicted to emerge. Since our RnD department has started a flyperson race riot, maybe your advancements in stock parts could help mitigate the buzzing problem."
+	name = "Настройка оборудования блюспейс"
+	description = "Технология телепортации с использованием возможностей блюспейс является важным преимуществом для нашей компании, но угроза критического сбоя в процедурах калибровки была весьма неприятным сюрпризом. Поскольку наш отдел РнД уже частично обратился в людей-мух, то возможно, ваши сотрудники будут более успешны и аккуратны в исследованиях телепортации."
 	required_points = 4
 	required_atoms = list(
 		/obj/machinery/teleport/hub = 1,
@@ -177,8 +177,8 @@
 	required_tier = 3
 
 /datum/experiment/scanning/points/machinery_tiered_scan/tier3_variety
-	name = "High Efficiency Parts Applications Test"
-	description = "We require further testing of the stock part designs to push their efficiency and market price even further."
+	name = "Испытание высокоэффективных деталей на практике"
+	description = "Мы требуем дальнейшего тестирования продвинутых деталей, чтобы еще больше повысить их эффективность и рыночную цену."
 	required_points = 15
 	required_atoms = list(
 		/obj/machinery/autolathe = 1,
@@ -198,8 +198,8 @@
 	required_tier = 3
 
 /datum/experiment/scanning/points/machinery_tiered_scan/tier3_mechbay
-	name = "Military-grade Mech Bay Setup"
-	description = "Constructing combat-oriented exosuits is a pricy endeavour. Make sure you have an efficient setup for production, and we'll send over some of our design documents."
+	name = "Мех-док военного класса"
+	description = "Создание боевых экзоскелетов - дорогостоящее занятие. Убедитесь, что у вас есть эффективная производственная установка, и мы вышлем вам некоторые из наших проектных документов."
 	required_points = 6
 	required_atoms = list(
 		/obj/machinery/mecha_part_fabricator = 1,
@@ -209,8 +209,8 @@
 	required_tier = 3
 
 /datum/experiment/scanning/points/machinery_pinpoint_scan/tier2_microlaser
-	name = "High-power Micro-lasers Calibration"
-	description = "Our Nanotrasen High-Power Office-Ready Laser Pointer ™ isn't powerful enough to strike airborne Syndidrones out of the sky yet. Find us some diode applications for hints on how to improve them!"
+	name = "Калибровка мощных микролазеров"
+	description = "Наша ультра-мощная офисная лазерная указка Нанотрейзен™ еще недостаточно мощна, чтобы поражать воздушные Синдидроны в небе. Найдите нам несколько модификаций для диодов, чтобы получить советы о том, как их улучшить!"
 	required_points = 10
 	required_atoms = list(
 		/obj/machinery/mecha_part_fabricator = 1,
@@ -224,8 +224,8 @@
 	required_stock_part = /obj/item/stock_parts/micro_laser/high
 
 /datum/experiment/scanning/points/machinery_pinpoint_scan/tier2_capacitors
-	name = "Advanced Capacitors Benchmark"
-	description = "Further improving the power capacity of devices station-wide is the next step towards the important project marked as CRITICAL: motorised wheelchairs that run on bluespace-contained nuclear power."
+	name = "Усовершенствованный эталон конденсаторов"
+	description = "Дальнейшее повышение мощности устройств по всей станции является следующим шагом на пути к важному проекту, отмеченному как КРИТИЧЕСКИ-ВАЖНЫЙ: моторизованные инвалидные коляски, работающие на блюспейс-ядерной энергии."
 	required_points = 12
 	required_atoms = list(
 		/obj/machinery/recharge_station = 1,
@@ -240,8 +240,8 @@
 	required_stock_part = /obj/item/stock_parts/capacitor/adv
 
 /datum/experiment/scanning/points/machinery_pinpoint_scan/tier2_scanmodules
-	name = "Advanced Scanning Modules Calibration"
-	description = "Despite the apparent lack of use of the scanning modules on our stations, we still expect you to run performance tests on them, just in case we come up with a ground-breaking way to fit 6 scanning modules in an exosuit."
+	name = "Расширенная калибровка сканирующих модулей"
+	description = "Несмотря на очевидное отсутствие использования сканирующих модулей на наших станциях, мы по-прежнему ожидаем, что вы проведете тесты производительности на них, на всякий случай, если мы придумаем новаторский способ установки 6 сканирующих модулей в экзокостюм."
 	required_points = 6
 	required_atoms = list(
 		/obj/machinery/dna_scannernew = 1,
@@ -253,8 +253,8 @@
 	required_stock_part = /obj/item/stock_parts/scanning_module/adv
 
 /datum/experiment/scanning/points/machinery_pinpoint_scan/tier3_cells
-	name = "Power Cells Capacity Test"
-	description = "Nanotrasen has two major problems with their new Hamster-powered Generator Array: excess of power produced and violent protests of Animal Rights Consortium activists over genetically modifying hamsters with the Hulk gene. We place dibs on dealing with the latter!"
+	name = "Проверка емкости аккумуляторных батарей"
+	description = "У Нанотрейзен есть две основные проблемы с их новой силовой установкой, работающей на хомяках: избыток производимой мощности и яростные протесты активистов Консорциума по защите прав животных по поводу генетической модификации хомяков геном Халка. Мы возлагаем большие надежды на то, чтобы разобраться с последним!"
 	required_points = 8
 	required_atoms = list(
 		/obj/machinery/recharge_station = 1,
@@ -266,8 +266,8 @@
 	required_stock_part = /obj/item/stock_parts/cell/hyper
 
 /datum/experiment/scanning/points/machinery_pinpoint_scan/tier3_microlaser
-	name = "Ultra-high-power Micro-lasers Calibration"
-	description = "We're very close to outperforming the surgeons of the past by inventing laser tools precise enough to perform surgeries on grapes. Help us fine-tune the diodes to perfection!"
+	name = "Калибровка микролазеров сверхвысокой мощности"
+	description = "Мы очень близки к тому, чтобы превзойти хирургов прошлого, изобретя лазерные инструменты, достаточно точные для проведения операций на винограде. Помогите нам довести диоды до совершенства!"
 	required_points = 10
 	required_atoms = list(
 		/obj/machinery/mecha_part_fabricator = 1,

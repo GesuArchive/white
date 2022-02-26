@@ -1,6 +1,6 @@
 /obj/machinery/computer/nanite_cloud_controller
-	name = "nanite cloud controller"
-	desc = "Stores and controls nanite cloud backups."
+	name = "облачный контролер нанитов"
+	desc = "Хранит в себе резервные копии облаков нанитных программ. Уничтожение может вызвать массовый отказ нанитов у активных пользователей."
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "nanite_cloud_controller"
 	circuit = /obj/item/circuitboard/computer/nanite_cloud_controller

@@ -155,8 +155,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 4000, /datum/material/plasma = 1000)
 	build_path = /obj/item/extinguisher_refill
-	category = list("Медицинские разработки", "Медицинское снаряжение")
-	sub_category = list("Прочее")
+	category = list("Медицинские разработки", "Прочее")
 
 
 /datum/design/crewpinpointer

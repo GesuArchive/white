@@ -5,7 +5,8 @@
  * world.
  */
 /obj/structure/server
-	name = "сервер"
+	name = "Сервер"
+	desc = "Очень большая оболочка, которую можно перемещать только после откручивания от пола. Совместима сбольшинством компонентов."
 	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_stationary"
 

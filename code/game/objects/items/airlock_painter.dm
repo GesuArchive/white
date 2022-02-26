@@ -250,10 +250,10 @@
 
 // Floor painter
 /obj/item/floor_painter
-	name = "полокрас"
+	name = "Маркировщик пола"
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "floor_sprayer"
-	desc = "Используется для покраски полов. Круто?."
+	desc = "Используется для покраски полов. Круто?"
 
 	var/floor_icon
 	var/floor_state = "floor"

@@ -11,8 +11,8 @@
  * Locator
  */
 /obj/item/locator
-	name = "bluespace locator"
-	desc = "Used to track portable teleportation beacons and targets with embedded tracking implants."
+	name = "блюспейс локатор"
+	desc = "Используется для отслеживания портативных телепортационных маяков и людей с имплантированными отслеживающими маячками."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "locator"
 	var/temp = null

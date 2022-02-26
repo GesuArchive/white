@@ -33,8 +33,8 @@
 		return
 
 /obj/machinery/computer/camera_advanced/xenobio
-	name = "Slime management console"
-	desc = "A computer used for remotely handling slimes."
+	name = "Консоль манипуляции слаймов"
+	desc = "Компьютер, используемый для наблюдения и перемещения слаймов."
 	networks = list("ss13")
 	circuit = /obj/item/circuitboard/computer/xenobiology
 	var/datum/action/innate/slime_place/slime_place_action

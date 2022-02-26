@@ -2,8 +2,8 @@
 
 If you create T5+ please take a pass at mech_fabricator.dm. The parts being good enough allows it to go into minus values and create materials out of thin air when printing stuff.*/
 /obj/item/storage/part_replacer
-	name = "rapid part exchange device"
-	desc = "Special mechanical module made to store, sort, and apply standard machine parts."
+	name = "автоматическое монтажное устройство (РПЕД)"
+	desc = "Специальный механический модуль, предназначенный для хранения, сортировки и монтажа стандартных деталей машин. Вмещает 50 деталей."
 	icon_state = "RPED"
 	inhand_icon_state = "RPED"
 	worn_icon_state = "RPED"
@@ -42,8 +42,8 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 		playsound(src, pshoom_or_beepboopblorpzingshadashwoosh, 40, TRUE)
 
 /obj/item/storage/part_replacer/bluespace
-	name = "bluespace rapid part exchange device"
-	desc = "A version of the RPED that allows for replacement of parts and scanning from a distance, along with higher capacity for parts."
+	name = "Блюспейс монтажное устройство (РПЕД)"
+	desc = "Продвинутая модель, основанная на технологии блюспейса, за счет фазового сдвига позволяет модернизировать машины на расстоянии, без необходимости снятия передней панели. Вмещает 400 деталей."
 	icon_state = "BS_RPED"
 	w_class = WEIGHT_CLASS_NORMAL
 	works_from_distance = TRUE
@@ -111,6 +111,19 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 		new /obj/item/stock_parts/matter_bin/bluespace(src)
 		new /obj/item/stock_parts/cell/bluespace(src)
 
+/obj/item/storage/part_replacer/bluespace/tier5
+	color = "#ff3333"
+	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/storage/part_replacer/bluespace/tier5/PopulateContents()
+	for(var/i in 1 to 50)
+		new /obj/item/stock_parts/capacitor/noneuclid(src)
+		new /obj/item/stock_parts/scanning_module/noneuclid(src)
+		new /obj/item/stock_parts/manipulator/noneuclid(src)
+		new /obj/item/stock_parts/micro_laser/noneuclid(src)
+		new /obj/item/stock_parts/matter_bin/noneuclid(src)
+		new /obj/item/stock_parts/cell/bluespace(src)
+
 /obj/item/storage/part_replacer/cargo //used in a cargo crate
 
 /obj/item/storage/part_replacer/cargo/PopulateContents()
@@ -133,12 +146,16 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 
 
 /obj/item/storage/part_replacer/cyborg
-	name = "rapid part exchange device"
-	desc = "Special mechanical module made to store, sort, and apply standard machine parts."
+	name = "автоматическое монтажное устройство (РПЕД)"
+	desc = "Специальный механический модуль, предназначенный для хранения, сортировки и монтажа стандартных деталей машин. Вмещает 100 деталей."
 	icon_state = "borgrped"
 	inhand_icon_state = "RPED"
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
+	component_type = /datum/component/storage/concrete/rped/cyborg
+
+/datum/component/storage/concrete/rped/cyborg
+	max_items = 100
 
 /proc/cmp_rped_sort(obj/item/A, obj/item/B)
 	return B.get_part_rating() - A.get_part_rating()
@@ -158,205 +175,227 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 /obj/item/stock_parts/get_part_rating()
 	return rating
 
-//Rating 1
+//	1 ранг
 
 /obj/item/stock_parts/capacitor
-	name = "capacitor"
-	desc = "A basic capacitor used in the construction of a variety of devices."
+	name = "базовый конденсатор"
+	desc = "Конденсатор, используемый при конструировании различных устройств."
 	icon_state = "capacitor"
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=50)
 
 /obj/item/stock_parts/scanning_module
-	name = "scanning module"
-	desc = "A compact, high resolution scanning module used in the construction of certain devices."
+	name = "базовый модуль сканирования"
+	desc = "Компактный сканирующий модуль с высоким разрешением, используемый при конструировании различных устройств."
 	icon_state = "scan_module"
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=20)
 
 /obj/item/stock_parts/manipulator
-	name = "micro-manipulator"
-	desc = "A tiny little manipulator used in the construction of certain devices."
+	name = "базовый микроманипулятор"
+	desc = "Крошечный манипулятор, используемый при конструировании различных устройств."
 	icon_state = "micro_mani"
 	custom_materials = list(/datum/material/iron=30)
 
 /obj/item/stock_parts/micro_laser
-	name = "micro-laser"
-	desc = "A tiny laser used in certain devices."
+	name = "базовый микролазер"
+	desc = "Крошечный лазер, используемый при конструировании различных устройств."
 	icon_state = "micro_laser"
 	custom_materials = list(/datum/material/iron=10, /datum/material/glass=20)
 
 /obj/item/stock_parts/matter_bin
-	name = "matter bin"
-	desc = "A container designed to hold compressed matter awaiting reconstruction."
+	name = "базовый резервуар материи"
+	desc = "Контейнер, предназначенный для хранения сжатой материи, используемый при конструировании различных устройств."
 	icon_state = "matter_bin"
 	custom_materials = list(/datum/material/iron=80)
 
-//Rating 2
+//	2 ранг
 
 /obj/item/stock_parts/capacitor/adv
-	name = "advanced capacitor"
-	desc = "An advanced capacitor used in the construction of a variety of devices."
+	name = "продвинутый конденсатор"
 	icon_state = "adv_capacitor"
 	rating = 2
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=50)
 
 /obj/item/stock_parts/scanning_module/adv
-	name = "advanced scanning module"
-	desc = "A compact, high resolution scanning module used in the construction of certain devices."
+	name = "продвинутый модуль сканирования"
 	icon_state = "adv_scan_module"
 	rating = 2
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=20)
 
 /obj/item/stock_parts/manipulator/nano
-	name = "nano-manipulator"
-	desc = "A tiny little manipulator used in the construction of certain devices."
+	name = "продвинутый наноманипулятор"
 	icon_state = "nano_mani"
 	rating = 2
 	custom_materials = list(/datum/material/iron=30)
 
 /obj/item/stock_parts/micro_laser/high
-	name = "high-power micro-laser"
-	desc = "A tiny laser used in certain devices."
+	name = "продвинутый мощный микролазер"
 	icon_state = "high_micro_laser"
 	rating = 2
 	custom_materials = list(/datum/material/iron=10, /datum/material/glass=20)
 
 /obj/item/stock_parts/matter_bin/adv
-	name = "advanced matter bin"
-	desc = "A container designed to hold compressed matter awaiting reconstruction."
+	name = "продвинутый резервуар материи"
 	icon_state = "advanced_matter_bin"
 	rating = 2
 	custom_materials = list(/datum/material/iron=80)
 
-//Rating 3
+//	3 ранг
 
 /obj/item/stock_parts/capacitor/super
-	name = "super capacitor"
-	desc = "A super-high capacity capacitor used in the construction of a variety of devices."
+	name = "супер конденсатор"
 	icon_state = "super_capacitor"
 	rating = 3
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=50)
 
 /obj/item/stock_parts/scanning_module/phasic
-	name = "phasic scanning module"
-	desc = "A compact, high resolution phasic scanning module used in the construction of certain devices."
+	name = "супер фазированный модуль сканирования"
 	icon_state = "super_scan_module"
 	rating = 3
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=20)
 
 /obj/item/stock_parts/manipulator/pico
-	name = "pico-manipulator"
-	desc = "A tiny little manipulator used in the construction of certain devices."
+	name = "супер пикоманипулятор"
 	icon_state = "pico_mani"
 	rating = 3
 	custom_materials = list(/datum/material/iron=30)
 
 /obj/item/stock_parts/micro_laser/ultra
-	name = "ultra-high-power micro-laser"
+	name = "супер высокомощный микролазер"
 	icon_state = "ultra_high_micro_laser"
-	desc = "A tiny laser used in certain devices."
 	rating = 3
 	custom_materials = list(/datum/material/iron=10, /datum/material/glass=20)
 
 /obj/item/stock_parts/matter_bin/super
-	name = "super matter bin"
-	desc = "A container designed to hold compressed matter awaiting reconstruction."
+	name = "супер резервуар материи"
 	icon_state = "super_matter_bin"
 	rating = 3
 	custom_materials = list(/datum/material/iron=80)
 
-//Rating 4
+//	4 ранг
 
 /obj/item/stock_parts/capacitor/quadratic
-	name = "quadratic capacitor"
-	desc = "A capacity capacitor used in the construction of a variety of devices."
+	name = "ультра конденсатор"
 	icon_state = "quadratic_capacitor"
 	rating = 4
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=50)
 
 /obj/item/stock_parts/scanning_module/triphasic
-	name = "triphasic scanning module"
-	desc = "A compact, ultra resolution triphasic scanning module used in the construction of certain devices."
+	name = "ультра трифазированный модуль сканирования"
 	icon_state = "triphasic_scan_module"
 	rating = 4
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=20)
 
 /obj/item/stock_parts/manipulator/femto
-	name = "femto-manipulator"
-	desc = "A tiny little manipulator used in the construction of certain devices."
+	name = "ультра фемтоманипулятор"
 	icon_state = "femto_mani"
 	rating = 4
 	custom_materials = list(/datum/material/iron=30)
 
 /obj/item/stock_parts/micro_laser/quadultra
-	name = "quad-ultra micro-laser"
+	name = "ультра квадромощный микролазер"
 	icon_state = "quadultra_micro_laser"
-	desc = "A tiny laser used in certain devices."
 	rating = 4
 	custom_materials = list(/datum/material/iron=10, /datum/material/glass=20)
 
 /obj/item/stock_parts/matter_bin/bluespace
-	name = "bluespace matter bin"
-	desc = "A container designed to hold compressed matter awaiting reconstruction."
+	name = "ультра блюспейс резервуар материи"
 	icon_state = "bluespace_matter_bin"
 	rating = 4
 	custom_materials = list(/datum/material/iron=80)
 
+//	5 ранг
+
+/obj/item/stock_parts/capacitor/noneuclid
+	name = "неевклидовый конденсатор"
+	icon_state = "quadratic_capacitor"
+	rating = 5
+	custom_materials = list(/datum/material/iron=1, /datum/material/glass=1)
+	color = "#ff3333"
+
+/obj/item/stock_parts/scanning_module/noneuclid
+	name = "неевклидовый модуль сканирования"
+	icon_state = "triphasic_scan_module"
+	rating = 5
+	custom_materials = list(/datum/material/iron=1, /datum/material/glass=1)
+	color = "#ff3333"
+
+/obj/item/stock_parts/manipulator/noneuclid
+	name = "неевклидовый манипулятор"
+	icon_state = "femto_mani"
+	rating = 5
+	custom_materials = list(/datum/material/iron=1)
+	color = "#ff3333"
+
+/obj/item/stock_parts/micro_laser/noneuclid
+	name = "неевклидовый микролазер"
+	icon_state = "quadultra_micro_laser"
+	rating = 5
+	custom_materials = list(/datum/material/iron=1, /datum/material/glass=1)
+	color = "#ff3333"
+
+/obj/item/stock_parts/matter_bin/noneuclid
+	name = "неевклидовый резервуар материи"
+	icon_state = "bluespace_matter_bin"
+	rating = 5
+	custom_materials = list(/datum/material/iron=1)
+	color = "#ff3333"
+
 // Subspace stock parts
 
 /obj/item/stock_parts/subspace/ansible
-	name = "subspace ansible"
+	name = "подпространственный ансибль"
+	desc = "Компактный модуль, способный воспринимать межпространственное излучение."
 	icon_state = "subspace_ansible"
-	desc = "A compact module capable of sensing extradimensional activity."
 	custom_materials = list(/datum/material/iron=30, /datum/material/glass=10)
 
 /obj/item/stock_parts/subspace/filter
-	name = "hyperwave filter"
+	name = "гиперволновой фильтр"
+	desc = "Крошечное устройство, способное фильтровать и преобразовывать сверхинтенсивные радиоволны."
 	icon_state = "hyperwave_filter"
-	desc = "A tiny device capable of filtering and converting super-intense radiowaves."
 	custom_materials = list(/datum/material/iron=30, /datum/material/glass=10)
 
 /obj/item/stock_parts/subspace/amplifier
-	name = "subspace amplifier"
+	name = "подпространственный усилитель"
+	desc = "Компактное устройство, способное усиливать слабые межпространственные передачи."
 	icon_state = "subspace_amplifier"
-	desc = "A compact micro-machine capable of amplifying weak subspace transmissions."
 	custom_materials = list(/datum/material/iron=30, /datum/material/glass=10)
 
 /obj/item/stock_parts/subspace/treatment
-	name = "subspace treatment disk"
+	name = "подпространственная стабилизирующая тарелка"
+	desc = "Компактное устройство, способное растягивать сверхсжатые радиоволны."
 	icon_state = "treatment_disk"
-	desc = "A compact micro-machine capable of stretching out hyper-compressed radio waves."
 	custom_materials = list(/datum/material/iron=30, /datum/material/glass=10)
 
 /obj/item/stock_parts/subspace/analyzer
-	name = "subspace wavelength analyzer"
+	name = "анализатор длины подпространственных волн"
+	desc = "Сложный анализатор, способный анализировать зашифрованные передачи подпространственных волн."
 	icon_state = "wavelength_analyzer"
-	desc = "A sophisticated analyzer capable of analyzing cryptic subspace wavelengths."
 	custom_materials = list(/datum/material/iron=30, /datum/material/glass=10)
 
 /obj/item/stock_parts/subspace/crystal
-	name = "ansible crystal"
+	name = "анзибль-кристалл"
+	desc = "Кристалл из сверхчистого стекла, используемый для передачи в подпространство импульсов данных при помощи лазера."
 	icon_state = "ansible_crystal"
-	desc = "A crystal made from pure glass used to transmit laser databursts to subspace."
 	custom_materials = list(/datum/material/glass=50)
 
 /obj/item/stock_parts/subspace/transmitter
-	name = "subspace transmitter"
+	name = "подпространственный передатчик"
+	desc = "Большое оборудование, используемое для открытия окна в подпространственное измерение."
 	icon_state = "subspace_transmitter"
-	desc = "A large piece of equipment used to open a window into the subspace dimension."
 	custom_materials = list(/datum/material/iron=50)
 
 // Misc. Parts
 
 /obj/item/stock_parts/card_reader
-	name = "card reader"
+	name = "кардридер"
+	desc = "Небольшой считыватель магнитных карт, используемый для устройств, которые принимают и передают голографические кредиты."
 	icon_state = "card_reader"
-	desc = "A small magnetic card reader, used for devices that take and transmit holocredits."
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=10)
 
 /obj/item/stock_parts/water_recycler
-	name = "water recycler"
+	name = "рециркулятор воды"
+	desc = "Компонент химической рекультивации, который служит для повторного накопления и фильтрации воды с течением времени."
 	icon_state = "water_recycler"
-	desc = "A chemical reclaimation component, which serves to re-accumulate and filter water over time."
 	custom_materials = list(/datum/material/plastic=200, /datum/material/iron=50)
 
 /obj/item/research//Makes testing much less of a pain -Sieve
