@@ -61,5 +61,5 @@
 	client.proverka_na_pindosov()
 
 	// this is for laggy users
-	spawn(5 SECONDS)
+	spawn(10 SECONDS) // maybe
 		client?.show_lobby()
