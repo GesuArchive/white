@@ -349,6 +349,8 @@ SUBSYSTEM_DEF(ticker)
 		maj_mode = new mm()
 		message_admins("<b>Основной режим определён как [maj_mode.name].</b>")
 
+	SStitle.update_lobby()
+
 	return TRUE
 
 /datum/controller/subsystem/ticker/proc/PostSetup()

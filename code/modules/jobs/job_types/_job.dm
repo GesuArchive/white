@@ -218,7 +218,7 @@
 				continue
 
 			if(H.equip_to_appropriate_slot(item))
-				to_chat(our_client, span_notice("[capitalize(G.display_name)] находится где-то на мне!"))
+				to_chat(our_client, span_notice("[capitalize(G.display_name)] удалось успешно пронести!"))
 				continue
 			if(H.put_in_hands(item))
 				to_chat(our_client, span_notice("[capitalize(G.display_name)] у меня в руках!"))

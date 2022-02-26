@@ -97,5 +97,6 @@
 
 /obj/machinery/computer/bank_machine/proc/end_syphon()
 	siphoning = FALSE
-	new /obj/item/holochip(drop_location(), syphoning_credits) //get the loot
+	if(syphoning_credits)
+		new /obj/item/holochip(drop_location(), syphoning_credits) //get the loot
 	syphoning_credits = 0

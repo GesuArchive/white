@@ -530,7 +530,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	if(epicenter)
 		drop_bomb(epicenter)
 
-/client/proc/drop_bomb(turf/epicenter = null)
+/client/proc/drop_bomb(epicenter) // ???
 	set category = "Адм.Веселье"
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."

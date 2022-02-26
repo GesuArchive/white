@@ -60,4 +60,6 @@
 	client.update_metabalance_cache()
 	client.proverka_na_pindosov()
 
-	client.show_lobby()
+	// this is for laggy users
+	spawn(5 SECONDS)
+		client?.show_lobby()
