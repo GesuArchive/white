@@ -221,8 +221,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			if(prob(25))
 				SEND_SOUND(our_dreamer, sound(pick('white/valtos/sounds/lifeweb/hall_appear1.ogg',\
 											'white/valtos/sounds/lifeweb/hall_appear2.ogg',\
-											'white/valtos/sounds/lifeweb/hall_appear3.ogg',\
-											'white/valtos/sounds/lifeweb/hall_appear4.ogg')))
+											'white/valtos/sounds/lifeweb/hall_appear3.ogg')))
 
 /datum/component/dreamer/proc/attack_us_with_hallucination()
 
