@@ -374,6 +374,7 @@
 	var/obj/item/organ/heart/heart = H.getorganslot(ORGAN_SLOT_HEART)
 	if(!heart)
 		return
+	H.emote("agony")
 	heart.key_for_dreamer = dreamer_key
 	SEND_SOUND(H, pick(RANDOM_DREAMER_SOUNDS))
 	if(prob(0.001))

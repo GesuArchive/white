@@ -363,7 +363,9 @@
 										req_num += GLOB.dreamer_clues[i]
 									if(numeric_input == req_num)
 										playsound(src, 'sound/machines/nuke/confirm_beep.ogg', 50, FALSE)
-										// here will be some logic
+										// temp logic
+										safety = FALSE
+										set_active()
 									else
 										playsound(src, 'sound/machines/nuke/angry_beep.ogg', 50, FALSE)
 								else

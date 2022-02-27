@@ -57,7 +57,7 @@
 		to_chat(user, span_notice("Чиню развёртку монитора..."))
 		clued = FALSE
 		icon_screen = initial(icon_screen)
-		update_overlays()
+		update_icon()
 		tgui_id = initial(tgui_id)
 		return TRUE
 	if(circuit && !(flags_1&NODECONSTRUCT_1))
@@ -143,7 +143,7 @@
 		clued = pick(GLOB.dreamer_clues)
 		to_chat(user, span_revenbignotice("[clued]... ЭТОТ ШЕДЕВР ДОЛЖНЫ УЗРЕТЬ!"))
 		icon_screen = "clued"
-		update_overlays()
+		update_icon()
 		tgui_id = "DreamerCorruption"
 		return
 	if(!user.canUseTopic(src, !issilicon(user)) || !is_operational)
