@@ -181,11 +181,36 @@
 						'white/valtos/sounds/lifeweb/deeph5.ogg',\
 						'white/valtos/sounds/lifeweb/deeph6.ogg')
 
-#define RANDOM_DREAMER_SOUNDS list('white/valtos/sounds/lifeweb/dream1.ogg',\
+#define RANDOM_DREAM_SOUNDS list('white/valtos/sounds/lifeweb/dream1.ogg',\
 						'white/valtos/sounds/lifeweb/dream2.ogg',\
 						'white/valtos/sounds/lifeweb/dream3.ogg',\
 						'white/valtos/sounds/lifeweb/dream4.ogg',\
 						'white/valtos/sounds/lifeweb/dream5.ogg')
+
+// how dumb i am
+#define RANDOM_DREAMER_SOUNDS list('white/valtos/sounds/lifeweb/hall1.ogg',\
+						'white/valtos/sounds/lifeweb/hall2.ogg',\
+						'white/valtos/sounds/lifeweb/hall3.ogg',\
+						'white/valtos/sounds/lifeweb/hall4.ogg',\
+						'white/valtos/sounds/lifeweb/hall5.ogg',\
+						'white/valtos/sounds/lifeweb/hall6.ogg',\
+						'white/valtos/sounds/lifeweb/hall7.ogg',\
+						'white/valtos/sounds/lifeweb/hall8.ogg',\
+						'white/valtos/sounds/lifeweb/hall9.ogg',\
+						'white/valtos/sounds/lifeweb/hall10.ogg',\
+						'white/valtos/sounds/lifeweb/hall11.ogg',\
+						'white/valtos/sounds/lifeweb/hall12.ogg',\
+						'white/valtos/sounds/lifeweb/hall13.ogg',\
+						'white/valtos/sounds/lifeweb/hall14.ogg',\
+						'white/valtos/sounds/lifeweb/hall15.ogg',\
+						'white/valtos/sounds/lifeweb/hall16.ogg',\
+						'white/valtos/sounds/lifeweb/hall17.ogg',\
+						'white/valtos/sounds/lifeweb/hall18.ogg',\
+						'white/valtos/sounds/lifeweb/hall19.ogg',\
+						'white/valtos/sounds/lifeweb/hall20.ogg',\
+						'white/valtos/sounds/lifeweb/hall21.ogg',\
+						'white/valtos/sounds/lifeweb/hall22.ogg')
+
 
 #define INTERACTION_SOUND_RANGE_MODIFIER -3
 #define EQUIP_SOUND_VOLUME 30

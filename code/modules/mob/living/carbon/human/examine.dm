@@ -12,52 +12,14 @@
 		var/mob/living/L = user
 		if(HAS_TRAIT(L, TRAIT_PROSOPAGNOSIA) || HAS_TRAIT(L, TRAIT_INVISIBLE_MAN))
 			obscure_name = TRUE
-		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
-			if(H.glasses && H.glasses.type == /obj/item/clothing/glasses/hud/hacker_rig)
-				true_info = TRUE
+
+	if(IS_DREAMER(user))
+		true_info = TRUE
 
 	. = list("")
 
 	if(true_info)
-		if(!client?.holder)
-			. += "<span class='info'>ОБЪЕКТ: <EM>[name]</EM>.<hr>"
-			SEND_SOUND(user, sound('sound/ai/hacker/scanned.ogg'))
-			var/is_weapon = FALSE
-			for(var/I in get_contents())
-				if(istype(I, /obj/item/gun) || istype(I, /obj/item/melee))
-					hud_list[HACKER_HUD].add_overlay("node_weapon")
-					is_weapon = TRUE
-					break
-			if(is_weapon)
-				spawn(15)
-					SEND_SOUND(user, sound('sound/ai/hacker/weapon.ogg'))
-				. += span_warning("<big>Обнаружено оружие.</big>")
-			else
-				hud_list[HACKER_HUD].cut_overlay("node_weapon")
-
-			if(!mind?.antag_datums)
-				spawn(30)
-					SEND_SOUND(user, sound('sound/ai/hacker/neutral.ogg'))
-				hud_list[HACKER_HUD].cut_overlay("node_enemy")
-				hud_list[HACKER_HUD].add_overlay("node_neutral")
-			else
-				spawn(30)
-					SEND_SOUND(user, sound('sound/ai/hacker/enemy.ogg'))
-				hud_list[HACKER_HUD].cut_overlay("node_neutral")
-				hud_list[HACKER_HUD].add_overlay("node_enemy")
-
-			if(stat == DEAD)
-				spawn(45)
-					SEND_SOUND(user, sound('sound/ai/hacker/dead.ogg'))
-				hud_list[HACKER_HUD].add_overlay("node_dead")
-			else
-				hud_list[HACKER_HUD].cut_overlay("node_dead")
-		else
-			. += "<span class='info'>ОБЪЕКТ: <EM>[name]</EM>.<hr>"
-			SEND_SOUND(user, sound('sound/ai/hacker/na.ogg'))
-			hud_list[HACKER_HUD].cut_overlay("node_na")
-			hud_list[HACKER_HUD].add_overlay("node_na")
+		. += "<span class='info'>Это же <EM>отвратительная свинья</EM>.<hr>"
 	else
 		var/racetext = get_race_text()
 		. += "<span class='info'>Это же <EM>[!obscure_name ? name : "Неизвестный"]</EM>, [racetext ? "<big class='interface'>[racetext]</big>" : "[get_age_text()]"]!<hr>"
@@ -483,6 +445,11 @@
 		. += "<hr><span class='info'><b>Черты:</b> [get_quirk_string()]</span>"
 		if(HAS_TRAIT(src, TRAIT_CLIENT_LEAVED))
 			. += "<hr><span class='boldnotice'>Это тело можно занять!</span>"
+
+	if(true_info)
+		var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
+		if(heart?.key_for_dreamer)
+			. += span_holoparasite("Оно ЗНАЕТ ключ [heart.key_for_dreamer]!")
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 

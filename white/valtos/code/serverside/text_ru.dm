@@ -106,40 +106,7 @@
 	message = replacetextEx(message, "р", "л")
 	message = replacetextEx(message, "Р", "Л")
 	return message
-/*
-/proc/difilexish(message)
-	if(prob(25))
-		message = "Таки... [message]"
-	message = replacetextEx(message, "р", "г'")
-	message = replacetextEx(message, "Р", "Г'")
-	return message
 
-/proc/ukrainish(message)
-	message = replacetext_char(message, "здравствуйте", "здрастуйтэ")
-	message = replacetext_char(message, "привет", "прывит")
-	message = replacetext_char(message, "утро", "ранку")
-	message = replacetext_char(message, "как", "як")
-	message = replacetext_char(message, "извините", "я выбачаюсь")
-	message = replacetext_char(message, "свидания", "побачэння")
-	message = replacetext_char(message, "понимаю", "розумию")
-	message = replacetext_char(message, "спасибо", "дякую")
-	message = replacetext_char(message, "пожалуйста", "будь-ласка")
-	message = replacetext_char(message, "зовут", "зваты")
-	message = replacetext_char(message, "меня", "мэнэ")
-	message = replacetext_char(message, "кто", "хто")
-	message = replacetext_char(message, "нибудь", "нэбудь")
-	message = replacetext_char(message, "говорит", "розмовляйе")
-	message = replacetext_char(message, "заблудился", "заблукав")
-	message = replacetext_char(message, "понял", "зрозумил")
-	message = replacetext_char(message, "не", "нэ")
-	message = replacetext_char(message, "тебя", "тэбе")
-	message = replacetext_char(message, "люблю", "кохаю")
-	message = replacetextEx(message, "и", "i")
-	message = replacetextEx(message, "ы", "и")
-	message = replacetextEx(message, "И", "I")
-	message = replacetextEx(message, "Ы", "И")
-	return message
-*/
 /proc/asiatish(message)
 	message = replacetext_char(message, "ра", "ля")
 	message = replacetext_char(message, "ла", "ля")

@@ -121,8 +121,7 @@ GLOBAL_LIST_INIT(clockwork_portals, list())
 
 /obj/structure/destructible/clockwork/massive/celestial_gateway/proc/announce_gateway()
 	activated = TRUE
-	for(var/datum/mind/M in GLOB.player_list)
-		var/mob/living/motherlov = M?.current
+	for(var/mob/living/motherlov in GLOB.player_list)
 		if(!motherlov)
 			continue
 		if(!is_servant_of_ratvar(motherlov))

@@ -22,6 +22,25 @@
 	var/failed = FALSE		//to prevent constantly running failing code
 	var/operated = FALSE	//whether the heart's been operated on to fix some of its damages
 
+	var/key_for_dreamer = null
+
+/obj/item/organ/heart/examine(mob/user)
+	. = ..()
+	if((IS_DREAMER(user) && key_for_dreamer))
+		SEND_SOUND(user, pick(RANDOM_DREAMER_SOUNDS))
+		to_chat(user, span_holoparasite("... [GLOB.dreamer_clues[key_for_dreamer]] ..."))
+		var/datum/component/dreamer/DRE = user.GetComponent(/datum/component/dreamer)
+		if(!DRE)
+			stack_trace("DREAMER EXAMINED HEART WITHOUT DREAMER COMPONENT!")
+		if(key_for_dreamer in DRE.known_clues)
+			key_for_dreamer = null
+			return
+		DRE.known_clues += key_for_dreamer
+		DRE.grip--
+		DRE.update_grip()
+		user.mind.store_memory("ЧУДО [key_for_dreamer] - [GLOB.dreamer_clues[key_for_dreamer]]")
+		key_for_dreamer = null
+
 /obj/item/organ/heart/update_icon_state()
 	if(beating)
 		icon_state = "[icon_base]-on"

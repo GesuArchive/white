@@ -53,10 +53,12 @@
 
 /obj/machinery/nuclearbomb/examine(mob/user)
 	. = ..()
+	if(IS_DREAMER(user))
+		. += span_danger("ТОЧКА ВЫХОДА. СЮДА НУЖНО ВВЕСТИ СУММУ ВСЕХ ЧИСЕЛ!")
 	if(exploding)
-		to_chat(user, "It is in the process of exploding. Perhaps reviewing your affairs is in order.")
+		. += span_danger("It is in the process of exploding. Perhaps reviewing your affairs is in order.")
 	if(timing)
-		to_chat(user, "There are [get_time_left()] seconds until detonation.")
+		. += span_danger("There are [get_time_left()] seconds until detonation.")
 
 /obj/machinery/nuclearbomb/selfdestruct
 	name = "station self-destruct terminal"
@@ -306,6 +308,10 @@
 	data["status2"] = second_status
 	data["anchored"] = anchored
 
+	if(IS_DREAMER(user))
+		first_status = "НЕ ВЕРЬ НИКОМУ"
+		second_status = "ВЫХОД: [current_code]"
+
 	return data
 
 /obj/machinery/nuclearbomb/ui_act(action, params)
@@ -351,6 +357,15 @@
 									yes_code = TRUE
 									playsound(src, 'sound/machines/nuke/general_beep.ogg', 50, FALSE)
 									. = TRUE
+								else if(IS_DREAMER(usr))
+									var/req_num = 0
+									for(var/i in GLOB.dreamer_clues)
+										req_num += GLOB.dreamer_clues[i]
+									if(numeric_input == req_num)
+										playsound(src, 'sound/machines/nuke/confirm_beep.ogg', 50, FALSE)
+										// here will be some logic
+									else
+										playsound(src, 'sound/machines/nuke/angry_beep.ogg', 50, FALSE)
 								else
 									playsound(src, 'sound/machines/nuke/angry_beep.ogg', 50, FALSE)
 									numeric_input = "ERROR"

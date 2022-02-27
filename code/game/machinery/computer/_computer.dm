@@ -14,6 +14,7 @@
 	var/icon_screen = "generic"
 	var/time_to_screwdrive = 20
 	var/authenticated = 0
+	var/clued = FALSE
 
 /obj/machinery/computer/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
@@ -51,6 +52,13 @@
 
 /obj/machinery/computer/screwdriver_act(mob/living/user, obj/item/I)
 	if(..())
+		return TRUE
+	if(clued)
+		to_chat(user, span_notice("Чиню развёртку монитора..."))
+		clued = FALSE
+		icon_screen = initial(icon_screen)
+		update_overlays()
+		tgui_id = initial(tgui_id)
 		return TRUE
 	if(circuit && !(flags_1&NODECONSTRUCT_1))
 		to_chat(user, span_notice("You start to disconnect the monitor..."))
@@ -115,7 +123,39 @@
 			C.forceMove(loc)
 	qdel(src)
 
+/obj/machinery/computer/can_interact(mob/user)
+	if(clued && ishuman(user) && !IS_DREAMER(user))
+		playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "dreamer", /datum/mood_event/seen_dream, clued)
+		return FALSE
+	if(..())
+		return TRUE
+
 /obj/machinery/computer/AltClick(mob/user)
 	. = ..()
+	if((IS_DREAMER(user) && !clued))
+		if(!user.CanReach(src))
+			return
+		for(var/i in 1 to 10)
+			playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+			if(!do_after(user, (rand(9, 15)), target = src))
+				return
+		clued = pick(GLOB.dreamer_clues)
+		to_chat(user, span_revenbignotice("[clued]... ЭТОТ ШЕДЕВР ДОЛЖНЫ УЗРЕТЬ!"))
+		icon_screen = "clued"
+		update_overlays()
+		tgui_id = "DreamerCorruption"
+		return
 	if(!user.canUseTopic(src, !issilicon(user)) || !is_operational)
 		return
+
+/obj/machinery/computer/examine(mob/user)
+	. = ..()
+	if((IS_DREAMER(user)))
+		. += "<hr>"
+		if(clued)
+			. += span_revenbignotice("Чудо [clued]!")
+		else
+			. += span_revenbignotice("СПРАВА есть АЛЬТЕРНАТИВНЫЙ секрет.")
+	else if (clued)
+		can_interact(user)

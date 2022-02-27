@@ -71,9 +71,6 @@
 			return
 		var/datumname = "error"
 		lst.Insert(1, result)
-		if(istype(result, /datum/component/dreamer) && ckey != "valtosss")
-			qdel(src)
-			return
 		if(result in componentsubtypes)
 			datumname = "component"
 			target._AddComponent(lst)

@@ -275,6 +275,11 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			pump_location = get_turf(U)
 			break
 
+	playsound(C, sound(pick('white/valtos/sounds/lifeweb/hall_attack.ogg',\
+					'white/valtos/sounds/lifeweb/hall_attack2.ogg',\
+					'white/valtos/sounds/lifeweb/hall_attack3.ogg',\
+					'white/valtos/sounds/lifeweb/hall_attack4.ogg')))
+
 	if(pump_location)
 		feedback_details += "Vent Coords: [pump_location.x],[pump_location.y],[pump_location.z]"
 		xeno = new(pump_location, target)
@@ -301,6 +306,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 				xeno.update_icon("alienh_leap",'icons/mob/alienleap.dmi', -32, -32)
 				xeno.throw_at(target, 7, 1, spin = FALSE, diagonals_first = TRUE)
 				stage = XENO_ATTACK_STAGE_LEAP_AT_PUMP
+				playsound(target, sound('white/valtos/sounds/lifeweb/hall_pain.ogg'))
 
 /datum/hallucination/xeno_attack/Destroy()
 	. = ..()

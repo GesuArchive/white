@@ -167,7 +167,7 @@
 	if(prob(5))
 		H.emote(pick("twitch","drool","moan"))
 	var/high_message
-	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"], H.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], H.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], H.hud_used.plane_masters["[PLANE_SPACE]"])
+	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"])
 	switch(current_cycle)
 		if(1 to 20)
 			high_message = pick("Черт возьми, я так чертовски счастлив...", "Что, черт возьми, происходит?", "Где я?")
@@ -270,10 +270,9 @@
 	if(!HAS_TRAIT(C, TRAIT_DUMB))
 		C.derpspeech = 0
 	if(C && C.hud_used)
-		var/list/screens = list(C.hud_used.plane_masters["[FLOOR_PLANE]"], C.hud_used.plane_masters["[GAME_PLANE]"], C.hud_used.plane_masters["[LIGHTING_PLANE]"], C.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], C.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], C.hud_used.plane_masters["[PLANE_SPACE]"])
+		var/list/screens = list(C.hud_used.plane_masters["[FLOOR_PLANE]"], C.hud_used.plane_masters["[GAME_PLANE]"], C.hud_used.plane_masters["[LIGHTING_PLANE]"])
 		for(var/atom/movable/screen/plane_master/whole_screen in screens)
 			animate(whole_screen, transform = matrix(), time = 200, easing = ELASTIC_EASING)
-			//animate(whole_screen.filters[whole_screen.filters.len], size = rand(2,5), time = 60, easing = QUAD_EASING)
 			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 200) //reset filters
 			addtimer(CALLBACK(whole_screen, /atom/movable/screen/plane_master/.proc/backdrop, C), 201) //reset backdrop filters so they reappear
 			PlaySpook(C, 'white/valtos/sounds/honk_echo_distant.ogg', 0, FALSE)
@@ -333,7 +332,7 @@
 		C.hud_used.show_hud(HUD_STYLE_STANDARD)
 		C.Paralyze(95)
 		DIRECT_OUTPUT(C.client, sound(null))
-		var/list/screens = list(C.hud_used.plane_masters["[FLOOR_PLANE]"], C.hud_used.plane_masters["[GAME_PLANE]"], C.hud_used.plane_masters["[LIGHTING_PLANE]"], C.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], C.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], C.hud_used.plane_masters["[PLANE_SPACE]"])
+		var/list/screens = list(C.hud_used.plane_masters["[FLOOR_PLANE]"], C.hud_used.plane_masters["[GAME_PLANE]"], C.hud_used.plane_masters["[LIGHTING_PLANE]"])
 		for(var/atom/movable/screen/plane_master/whole_screen in screens)
 			animate(whole_screen, transform = matrix(), pixel_x = 0, pixel_y = 0, color = "#ffffff", time = 200, easing = ELASTIC_EASING)
 			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 200) //reset filters
@@ -387,7 +386,7 @@
 	if(!H || !H.hud_used || !H.hud_used?.plane_masters)
 		return
 	var/high_message
-	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"], H.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], H.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], H.hud_used.plane_masters["[PLANE_SPACE]"])
+	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"])
 	switch(current_trip)
 		if("ovoshi")
 			switch(current_cycle)
@@ -448,8 +447,6 @@
 								addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 1200)
 							addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 600)
 					high_message = "ГОСПОДИ, НЕТ!!!"
-					if(prob(5))
-						animate(H.client, pixel_x = rand(-64,64), pixel_y = rand(-64,64), time = 100)
 					create_flood(H)
 					create_ovosh(H)
 		if("statues")
@@ -605,7 +602,7 @@
 	. = ..()
 
 	M.add_client_colour(/datum/client_colour/zvezdochka)
-	var/sound/sound = sound('white/valtos/sounds/LYENEN.ogg', TRUE)
+	var/sound/sound = sound(pick('white/valtos/sounds/LYENEN.ogg', 'white/valtos/sounds/LYENEN2.ogg'), TRUE)
 	sound.environment = 23
 	sound.volume = 20
 	SEND_SOUND(M.client, sound)
@@ -689,7 +686,7 @@
 	if(!H || !H.hud_used || !H.hud_used?.plane_masters)
 		return
 
-	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"], H.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], H.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], H.hud_used.plane_masters["[PLANE_SPACE]"])
+	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"])
 	for(var/atom/movable/screen/plane_master/whole_screen in screens)
 		whole_screen.add_filter("angular_blur", 1, angular_blur_filter(x = 0, y = 0, size = 1.5))
 		var/filter = whole_screen.get_filter("angular_blur")
@@ -712,7 +709,7 @@
 	if(!H || !H.hud_used || !H.hud_used?.plane_masters)
 		return
 
-	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"], H.hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], H.hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], H.hud_used.plane_masters["[PLANE_SPACE]"])
+	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"])
 	for(var/atom/movable/screen/plane_master/whole_screen in screens)
 		whole_screen.remove_filter("angular_blur")
 

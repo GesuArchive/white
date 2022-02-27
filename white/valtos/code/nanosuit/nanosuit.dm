@@ -682,8 +682,8 @@
 	if(ishuman(user))
 		Wearer = user
 	if(slot == ITEM_SLOT_OCLOTHING)
-		var/turf/T = get_turf(src)
-		var/area/A = get_area(src)
+		var/turf/T = get_turf(user)
+		var/area/A = get_area(user)
 		ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 		Wearer.unequip_everything()
 		Wearer.equipOutfit(outfit)
@@ -691,7 +691,7 @@
 		ADD_TRAIT(Wearer, TRAIT_NEVER_WOUNDED, "Nanosuit")
 		RegisterSignal(Wearer, list(COMSIG_MOB_ITEM_ATTACK,COMSIG_MOB_ITEM_AFTERATTACK,COMSIG_MOB_THROW,COMSIG_MOB_ATTACK_HAND), .proc/kill_cloak,TRUE)
 		if(is_station_level(T.z))
-			priority_announce("[user] использовал[user.ru_a()] запрещённый нанокостюм в [A.name]!","Экстренное сообщение!", sound = 'white/valtos/sounds/nanosuitengage.ogg')
+			priority_announce("[user] использовал[user.ru_a()] запрещённый нанокостюм в [A.name]!", "Экстренное сообщение!", sound('white/valtos/sounds/nanosuitengage.ogg'))
 		log_game("[user] has engaged [src]")
 		if(help_verb)
 			Wearer.verbs += help_verb
