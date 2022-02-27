@@ -13,7 +13,7 @@
 		if(HAS_TRAIT(L, TRAIT_PROSOPAGNOSIA) || HAS_TRAIT(L, TRAIT_INVISIBLE_MAN))
 			obscure_name = TRUE
 
-	if(IS_DREAMER(user))
+	if(IS_DREAMER(user) && user != src)
 		true_info = TRUE
 
 	. = list("")
