@@ -332,7 +332,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 /datum/antagonist/dreamer/on_gain()
 	forge_objectives()
 	owner.special_role = "Dreamer"
-	owner.AddComponent(/datum/component/dreamer)
+	owner.current.AddComponent(/datum/component/dreamer)
 	. = ..()
 
 /datum/antagonist/dreamer/greet()
