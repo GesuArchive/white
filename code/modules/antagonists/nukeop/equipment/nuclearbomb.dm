@@ -311,6 +311,8 @@
 	if(IS_DREAMER(user))
 		first_status = "НЕ ВЕРЬ НИКОМУ"
 		second_status = "ВЫХОД: [current_code]"
+		auth = TRUE
+		ui_mode = NUKEUI_AWAIT_CODE
 
 	return data
 
@@ -361,7 +363,7 @@
 									var/req_num = 0
 									for(var/i in GLOB.dreamer_clues)
 										req_num += GLOB.dreamer_clues[i]
-									if(numeric_input == req_num)
+									if(numeric_input == num2text(req_num))
 										playsound(src, 'sound/machines/nuke/confirm_beep.ogg', 50, FALSE)
 										// temp logic
 										safety = FALSE
