@@ -538,7 +538,7 @@
 
 	possessed = TRUE
 
-	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Хочешь быть духом меча [user.real_name]?", ROLE_PAI, null, FALSE, 100, POLL_IGNORE_POSSESSED_BLADE)
+	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Хочешь быть духом меча [user.real_name]?", ROLE_PAI, FALSE, 100, POLL_IGNORE_POSSESSED_BLADE)
 
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
