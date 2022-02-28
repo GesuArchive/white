@@ -540,10 +540,11 @@
 				count_ai++
 				parts += "▶ \[[count_ai]/[total_ai]\] <b><font color=\"#60b6ff\">[aiPlayer.name]</font></b> (игрок: <b>[aiPlayer.mind.key]</b>)"
 				parts += "[FOURSPACES]├ Статус: [aiPlayer.stat != DEAD ? "<b>активен</b>" : span_redtext("деактивирован") ]"
-				parts += "[FOURSPACES]├ Суммарное кол-во сменов набора законов: <b>[aiPlayer.law_change_counter == 0 ? span_greentext("изменения отсутствуют")  : span_redtext("aiPlayer.law_change_counter") ]</b>"
+				parts += "[FOURSPACES]├ Суммарное кол-во сменов набора законов: <b>[aiPlayer.law_change_counter == 0 ? span_greentext("изменения отсутствуют")  : span_redtext("[aiPlayer.law_change_counter]") ]</b>"
 				parts += "[FOURSPACES]└ <font color=\"#60b6ff\">ЗАКОНЫ ИИ //</font>"
 				var/list/temp_law_list = aiPlayer.laws.get_law_list(include_zeroth = TRUE)
-				parts += "[FOURSPACES][FOURSPACES] " + temp_law_list.Join("\n")
+				for(var/law in temp_law_list)
+					parts += "[FOURSPACES][FOURSPACES] [law]")
 
 			var/count_minion = 0
 			var/total_ai_minion = aiPlayer.connected_robots.len
@@ -577,7 +578,8 @@
 
 				if(standalone_silicon) //How the hell do we lose standalone_silicon between here and the world messages directly above this?
 					var/list/temp_law_list = standalone_silicon.laws.get_law_list(include_zeroth = TRUE)
-					parts += "[FOURSPACES][FOURSPACES] " + temp_law_list.Join("\n")
+					for(var/law in temp_law_list)
+						parts += "[FOURSPACES][FOURSPACES] [law]")
 
 				if(!minion_spacer)
 					minion_spacer = TRUE
