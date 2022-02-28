@@ -395,23 +395,16 @@
 /obj/effect/proc_holder/wrap
 	name = "Wrap"
 	panel = "Spider"
-	active = FALSE
-	action = null
 	desc = "Wrap something or someone in a cocoon. If it's a human or similar species, you'll also consume them, allowing you to lay enriched eggs."
 	ranged_mousepointer = 'icons/effects/mouse_pointers/wrap_target.dmi'
 	action_icon = 'icons/mob/actions/actions_animal.dmi'
 	action_icon_state = "wrap_0"
 	action_background_icon_state = "bg_alien"
-	//Set this to false since we're our own action, for some reason
-	has_action = FALSE
-
-/obj/effect/proc_holder/wrap/Initialize()
-	. = ..()
-	action = new(src)
 
 /obj/effect/proc_holder/wrap/update_icon()
 	action.button_icon_state = "wrap_[active]"
 	action.UpdateButtonIcon()
+	return ..()
 
 /obj/effect/proc_holder/wrap/Click()
 	if(!istype(usr, /mob/living/simple_animal/hostile/poison/giant_spider/midwife))
