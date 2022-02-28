@@ -544,7 +544,7 @@
 				parts += "[FOURSPACES]└ <font color=\"#60b6ff\">ЗАКОНЫ ИИ //</font>"
 				var/list/temp_law_list = aiPlayer.laws.get_law_list(include_zeroth = TRUE)
 				for(var/law in temp_law_list)
-					parts += "[FOURSPACES][FOURSPACES] [law]")
+					parts += "[FOURSPACES][FOURSPACES] [law]"
 
 			var/count_minion = 0
 			var/total_ai_minion = aiPlayer.connected_robots.len
@@ -579,7 +579,7 @@
 				if(standalone_silicon) //How the hell do we lose standalone_silicon between here and the world messages directly above this?
 					var/list/temp_law_list = standalone_silicon.laws.get_law_list(include_zeroth = TRUE)
 					for(var/law in temp_law_list)
-						parts += "[FOURSPACES][FOURSPACES] [law]")
+						parts += "[FOURSPACES][FOURSPACES] [law]"
 
 				if(!minion_spacer)
 					minion_spacer = TRUE

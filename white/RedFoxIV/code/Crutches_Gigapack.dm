@@ -24,7 +24,7 @@
 * antag_datum_leader - инстанс датума антага для лидера (а-ля new /datum/antagonist/ert/janitor/heavy)
 * antag_datum - инстанс датума антага для остальных членов команды.
 */
-/proc/general_ert_request(mission, team_name, team_name_genitive_case, antag_datum_leader, antag_datum_member, mob/Sender)
+/proc/general_ert_request(mission, team_name, team_name_genitive_case, antag_datum_leader, antag_datum_member, mob/Sender, cost = 0)
 	var/msg = copytext_char(sanitize(mission), 1, MAX_MESSAGE_LEN)
 	var/teamname_gc = copytext_char(sanitize(team_name_genitive_case), 1, MAX_MESSAGE_LEN)
 	var/teamname = copytext_char(sanitize(team_name), 1, MAX_MESSAGE_LEN)
@@ -82,21 +82,26 @@
 			numagents--
 			teamSpawned++
 
-		if (teamSpawned && Sender)
-			message_admins("[Sender] вызывает [teamname] с миссией: [msg]")
-
+		if(Sender)
+			if (teamSpawned)
+				message_admins("[Sender] вызывает [teamname] с миссией: [msg]")
+				var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_STA)
+				bank_account.adjust_money(-cost)
+			else
+				message_admins("[Sender] не смог вызвать [teamname] с миссией: [msg]")
+				to_chat(Sender, span_alert("Не удалось найти свободные позиции для вашего запроса. Средства не были потрачены."))
 		return TRUE
 	else
 		return FALSE
 
-/proc/janitor_ert_request(input, usr)
-	general_ert_request(input, "бригада уборщиков", "бригаду уборщиков", new /datum/antagonist/ert/janitor/heavy, new /datum/antagonist/ert/janitor, usr)
+/proc/janitor_ert_request(input, usr, cost)
+	general_ert_request(input, "бригада уборщиков", "бригаду уборщиков", new /datum/antagonist/ert/janitor/heavy, new /datum/antagonist/ert/janitor, usr, cost)
 
-/proc/omon_ert_request(input, usr)
-	general_ert_request(input, "ОМОН", "ОМОН", new /datum/antagonist/ert/omon/leader, new /datum/antagonist/ert/omon, usr)
+/proc/omon_ert_request(input, usr, cost)
+	general_ert_request(input, "ОМОН", "ОМОН", new /datum/antagonist/ert/omon/leader, new /datum/antagonist/ert/omon, usr, cost)
 
-/proc/engineer_ert_request(input, usr)
-	general_ert_request(input, "Ремонтная бригада", "ремонтную бригаду", new /datum/antagonist/ert/engineer/red, new /datum/antagonist/ert/engineer, usr)
+/proc/engineer_ert_request(input, usr, cost)
+	general_ert_request(input, "Ремонтная бригада", "ремонтную бригаду", new /datum/antagonist/ert/engineer/red, new /datum/antagonist/ert/engineer, usr, cost)
 
 /proc/deathsquad_request(input, cumshit)
 	general_ert_request(input, "Отряд смерти", "отряд смерти", new /datum/antagonist/ert/deathsquad/leader, new /datum/antagonist/ert/deathsquad, cumshit)
