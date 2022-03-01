@@ -139,7 +139,7 @@ IF YOU MODIFY THE PRODUCTS LIST OF A MACHINE, MAKE SURE TO UPDATE ITS RESUPPLY C
 	///Default price of items if not overridden
 	var/default_price = CARGO_CRATE_VALUE * 5
 	///Default price of premium items if not overridden
-	var/extra_price = CARGO_CRATE_VALUE * 15
+	var/extra_price = CARGO_CRATE_VALUE * 7
 	///Whether our age check is currently functional
 	var/age_restrictions = TRUE
 	/**

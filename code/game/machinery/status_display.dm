@@ -218,8 +218,7 @@ GLOBAL_VAR_INIT(display_font_color, pick("#09f", "#f90", "#5f5", "#fff", "#f55",
 			return display_shuttle_status(SSshuttle.emergency)
 
 		if(SD_TIME)
-			update_display("ВРЕМЯ", station_time_timestamp("hh:mm"))
-			return ..()
+			return update_display("ВРЕМЯ", station_time_timestamp("hh:mm"))
 
 		if(SD_MESSAGE)
 			return PROCESS_KILL
