@@ -8,8 +8,8 @@
 			with suppressors."
 	item = /obj/item/gun/ballistic/automatic/pistol
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -19,8 +19,8 @@
 			with suppressors. The gun fires in three round bursts."
 	item = /obj/item/gun/ballistic/automatic/pistol/aps
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -29,8 +29,8 @@
 	desc = "A brutally simple Syndicate revolver that fires .357 Magnum rounds and has 7 chambers."
 	item = /obj/item/gun/ballistic/revolver
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -39,8 +39,8 @@
 	desc = "A special pie cannon for a special clown, this gadget can hold up to 20 pies and automatically fabricates one every two seconds!"
 	item = /obj/item/pneumatic_cannon/pie/selfcharge
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -52,8 +52,8 @@
 			disallows explosive ranges above a certain distance, allowing for the device to use the theoretical yield of a transfer valve bomb, instead of the factual yield."
 	item = /obj/item/gun/blastcannon
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 /datum/blackmarket_item/sweapon/shotgun
@@ -62,8 +62,8 @@
 			quarter anti-personnel engagements."
 	item = /obj/item/gun/ballistic/shotgun/bulldog
 
-	price_min = 3000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 3000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -73,8 +73,8 @@
 			24-round magazine and is compatible with suppressors."
 	item = /obj/item/gun/ballistic/automatic/c20r
 
-	price_min = 3000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 3000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -84,8 +84,8 @@
 			This deadly weapon has a massive 50-round magazine of devastating 7.12x82mm ammunition."
 	item = /obj/item/gun/ballistic/automatic/l6_saw
 
-	price_min = 3000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 3000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -95,8 +95,8 @@
 			with a toggleable 40mm underbarrel grenade launcher."
 	item = /obj/item/gun/ballistic/automatic/m90
 
-	price_min = 3000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 3000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -105,8 +105,8 @@
 	desc = "Ranged fury, Syndicate style. Guaranteed to cause shock and awe or your TC back!"
 	item = /obj/item/gun/ballistic/automatic/sniper_rifle/syndicate
 
-	price_min = 8000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 8000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 5
 
@@ -120,8 +120,8 @@
 	of bolts, but takes time to automatically recharge after each shot."
 	item = /obj/item/gun/energy/kinetic_accelerator/crossbow
 
-	price_min = 3000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 3000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -131,8 +131,8 @@
 			riot grade darts, that can briefly incapacitate someone in just one volley."
 	item = /obj/item/gun/ballistic/automatic/l6_saw/toy
 
-	price_min = 500
-	price_max = 1000
+	price_min = CARGO_CRATE_VALUE * 500
+	price_max = CARGO_CRATE_VALUE * 1000
 	stock_max = 1
 	availability_prob = 25
 
@@ -142,8 +142,8 @@
 			darts effective at incapacitating a target."
 	item = /obj/item/gun/ballistic/automatic/pistol/toy/riot
 
-	price_min = 500
-	price_max = 1000
+	price_min = CARGO_CRATE_VALUE * 500
+	price_max = CARGO_CRATE_VALUE * 1000
 	stock_max = 1
 	availability_prob = 25
 
@@ -153,8 +153,8 @@
 			space a small item can."
 	item = /obj/item/gun/syringe/syndicate
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -163,8 +163,8 @@
 	desc = "Like the ultra hilarious firing pin, except the gun you insert this pin into explodes when someone who isn't clumsy or a clown tries to fire it."
 	item = /obj/item/firing_pin/clown/ultra/selfdestruct
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -173,7 +173,7 @@
 	desc = "A firing pin that, when inserted into a gun, makes that gun only usable by clowns and clumsy people and makes that gun honk whenever anyone tries to fire it."
 	item = /obj/item/firing_pin/clown/ultra
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25

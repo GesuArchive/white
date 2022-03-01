@@ -8,8 +8,8 @@
 			in electronic devices, subverts intended functions, and easily breaks security mechanisms. Cannot be used to open airlocks."
 	item = /obj/item/card/emag
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -19,8 +19,8 @@
 			After hacking a certain number of airlocks, the device will require some time to recharge."
 	item = /obj/item/card/emag/doorjack
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -32,8 +32,8 @@
 			falls asleep, they will be able to move and act."
 	item = /obj/item/pen/sleepy
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -42,8 +42,8 @@
 	desc = "A dagger made of energy that looks and functions as a pen when off."
 	item = /obj/item/pen/edagger
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -52,8 +52,8 @@
 	desc = "This suppressor will silence the shots of the weapon it is attached to for increased stealth and superior ambushing capability. It is compatible with many small ballistic guns including the Makarov, Stechkin APS and C-20r, but not revolvers or energy guns."
 	item = /obj/item/suppressor
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -65,8 +65,8 @@
 			the blast radius before using the detonator."
 	item = /obj/item/syndicatedetonator
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 100
 
@@ -79,8 +79,8 @@
 			with these cards."
 	item = /obj/item/card/id/advanced/chameleon
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 100
 
@@ -90,8 +90,8 @@
 			move the projector from their hand. Disguised users move slowly, and projectiles pass over them."
 	item = /obj/item/chameleon
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -102,8 +102,8 @@
 			Attacking a target with this flashlight will direct an EM pulse at it and consumes a charge."
 	item = /obj/item/flashlight/emp
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -113,8 +113,8 @@
 			and appearance."
 	item = /obj/item/reagent_containers/syringe/mulligan
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -123,8 +123,8 @@
 	desc = "This device will disrupt any nearby outgoing radio communication when activated. Does not affect binary chat."
 	item = /obj/item/jammer
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -135,8 +135,8 @@
 			be taken while doing this, as unless they are allied with you, they are programmed to report such intrusions."
 	item = /obj/item/encryptionkey/binary
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -146,8 +146,8 @@
 			Bugging cameras allows you to disable them remotely."
 	item = /obj/item/camera_bug
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -157,8 +157,8 @@
 			multitool and combat gloves that are resistant to shocks and heat."
 	item = /obj/item/storage/toolbox/syndicate
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -168,8 +168,8 @@
 			as well as talk on an encrypted Syndicate channel with other agents that have the same key."
 	item = /obj/item/encryptionkey/syndicate
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -181,8 +181,8 @@
 			both weal and woe on the battlefield, even if they do occasionally bite off a finger."
 	item = /obj/item/storage/book/bible/syndicate
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -192,8 +192,8 @@
 			Using it will make any animal sentient, and bound to serve you, as well as implanting an internal radio for communication and an internal ID card for opening doors."
 	item = /obj/item/slimepotion/slime/sentience/nuclear
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -203,8 +203,8 @@
 			Caution: Product may rehydrate when exposed to water."
 	item = /obj/item/storage/box/gorillacubes
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -214,8 +214,8 @@
 	Insert into an Operating Console to enable the procedure."
 	item = /obj/item/disk/surgery/brainwashing
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -227,8 +227,8 @@
 	To activate His Grace, simply unlatch Him."
 	item = /obj/item/his_grace
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -238,8 +238,8 @@
 			The only way to get rid of it if you are holding it is to attack someone else with it, causing it to latch to that person instead."
 	item = /obj/item/hot_potato/syndicate
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -249,8 +249,8 @@
 			The acid only affects carbon-based creatures."
 	item = /obj/item/storage/box/syndie_kit/ez_clean
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -260,8 +260,8 @@
 			Occupies 35% mod capacity."
 	item = /obj/item/borg/upgrade/modkit/indoors
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -271,7 +271,7 @@
 	In it's crowbar configuration, it can be used to force open airlocks. Very useful for entering the station or it's departments."
 	item = /obj/item/crowbar/power/syndicate
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25

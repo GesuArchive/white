@@ -8,8 +8,8 @@
 	item = /obj/item/wrench/caravan
 	stock = 1
 
-	price_min = 400
-	price_max = 800
+	price_min = CARGO_CRATE_VALUE * 400
+	price_max = CARGO_CRATE_VALUE * 800
 	availability_prob = 100
 
 /datum/blackmarket_item/tool/caravan_wirecutters
@@ -18,8 +18,8 @@
 	item = /obj/item/wirecutters/caravan
 	stock = 1
 
-	price_min = 400
-	price_max = 800
+	price_min = CARGO_CRATE_VALUE * 400
+	price_max = CARGO_CRATE_VALUE * 800
 	availability_prob = 100
 
 /datum/blackmarket_item/tool/caravan_screwdriver
@@ -28,8 +28,8 @@
 	item = /obj/item/screwdriver/caravan
 	stock = 1
 
-	price_min = 400
-	price_max = 800
+	price_min = CARGO_CRATE_VALUE * 400
+	price_max = CARGO_CRATE_VALUE * 800
 	availability_prob = 100
 
 /datum/blackmarket_item/tool/caravan_crowbar
@@ -38,8 +38,8 @@
 	item = /obj/item/crowbar/red/caravan
 	stock = 1
 
-	price_min = 400
-	price_max = 800
+	price_min = CARGO_CRATE_VALUE * 400
+	price_max = CARGO_CRATE_VALUE * 800
 	availability_prob = 100
 
 /datum/blackmarket_item/tool/brped
@@ -47,8 +47,8 @@
 	desc = "РПЕД содержащий передовые запчасти для машин"
 	item = /obj/item/storage/part_replacer/bluespace/tier3
 
-	price_min = 5000
-	price_max = 15000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 15000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -63,8 +63,8 @@
 	desc = "Может содержать синдикатовский тулбокс"
 	item = /obj/item/storage/toolbox
 
-	price_min = 100
-	price_max = 1000
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 1000
 	stock_min = 1
 	stock_max = 25
 	availability_prob = 100
@@ -85,7 +85,7 @@
 	desc = null
 	item = /obj/item/reagent_containers/glass/bottle/thermite
 
-	price_min = 500
-	price_max = 1500
+	price_min = CARGO_CRATE_VALUE * 500
+	price_max = CARGO_CRATE_VALUE * 1500
 	stock_max = 3
 	availability_prob = 30

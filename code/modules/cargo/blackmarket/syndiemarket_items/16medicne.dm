@@ -7,8 +7,8 @@
 	desc = "An assortment of deadly chemicals packed into a compact box. Comes with a syringe for more precise application."
 	item = /obj/item/storage/box/syndie_kit/chemical
 
-	price_min = 500
-	price_max = 5000
+	price_min = CARGO_CRATE_VALUE * 500
+	price_max = CARGO_CRATE_VALUE * 5000
 	stock_max = 1
 	availability_prob = 25
 
@@ -19,8 +19,8 @@
 			along with slurred speech, aggression, and the ability to infect others with this agent."
 	item = /obj/item/storage/box/syndie_kit/romerol
 
-	price_min = 5000
-	price_max = 50000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 50000
 	stock_max = 1
 	availability_prob = 25
 
@@ -30,8 +30,8 @@
 			Side-affects may include hypertrichosis, violent outbursts, and an unending affinity for bananas."
 	item = /obj/item/reagent_containers/hypospray/medipen/magillitis
 
-	price_min = 5000
-	price_max = 50000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 50000
 	stock_max = 1
 	availability_prob = 25
 
@@ -40,8 +40,8 @@
 	desc = "A syringe gun that fires DNA injectors instead of normal syringes."
 	item = /obj/item/gun/syringe/dna
 
-	price_min = 5000
-	price_max = 50000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 50000
 	stock_max = 1
 	availability_prob = 25
 
@@ -50,8 +50,8 @@
 	desc = "A heavily modified syringe gun which is capable of synthesizing its own chemical darts using input reagents. Can hold 100u of reagents."
 	item = /obj/item/gun/chem
 
-	price_min = 5000
-	price_max = 50000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 50000
 	stock_max = 1
 	availability_prob = 25
 
@@ -61,8 +61,8 @@
 			operatives in the fight, even while under fire. Don't cross the streams!"
 	item = /obj/item/gun/medbeam
 
-	price_min = 5000
-	price_max = 50000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 50000
 	stock_max = 1
 	availability_prob = 25
 
@@ -74,8 +74,8 @@
 			and wavelength, which controls the delay before the effect kicks in."
 	item = /obj/item/healthanalyzer/rad_laser
 
-	price_min = 5000
-	price_max = 10000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -86,8 +86,8 @@
 			and other supplies helpful for a field medic."
 	item = /obj/item/storage/firstaid/tactical
 
-	price_min = 1000
-	price_max = 5000
+	price_min = CARGO_CRATE_VALUE * 1000
+	price_max = CARGO_CRATE_VALUE * 5000
 	stock_max = 1
 	availability_prob = 25
 
@@ -97,8 +97,8 @@
 			5 minutes after injection."
 	item = /obj/item/reagent_containers/hypospray/medipen/stimulants
 
-	price_min = 500
-	price_max = 5000
+	price_min = CARGO_CRATE_VALUE * 500
+	price_max = CARGO_CRATE_VALUE * 5000
 	stock_max = 1
 	availability_prob = 25
 
@@ -108,7 +108,7 @@
 			a Syndicate brand MMI, a straitjacket, and a muzzle."
 	item = /obj/item/storage/backpack/duffelbag/syndie/surgery
 
-	price_min = 1000
-	price_max = 5000
+	price_min = CARGO_CRATE_VALUE * 1000
+	price_max = CARGO_CRATE_VALUE * 5000
 	stock_max = 1
 	availability_prob = 25

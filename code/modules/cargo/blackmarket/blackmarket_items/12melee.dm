@@ -8,8 +8,8 @@
 	desc = "При заказе вам будет выдано случайное энергетическое оружие ближнего боя"
 	item = /obj/item/melee/energy/sword
 
-	price_min = 5000
-	price_max = 20000
+	price_min = CARGO_CRATE_VALUE * 5000
+	price_max = CARGO_CRATE_VALUE * 20000
 	stock_min = 1
 	stock_max = 5
 	availability_prob = 100
@@ -33,8 +33,8 @@
 	desc = "При заказе вам будет выдано случайное физичекое оружие ближнего боя. Внимание! Оружие в данном товаре может не оправдать ваши желания"
 	item = /obj/item/melee/classic_baton/dildon
 
-	price_min = 1000
-	price_max = 1500
+	price_min = CARGO_CRATE_VALUE * 1000
+	price_max = CARGO_CRATE_VALUE * 1500
 	stock_min = 1
 	stock_max = 5
 	availability_prob = 100
@@ -72,8 +72,8 @@
 	desc = "При заказе вам будет выдано случайное священное оружие ближнего боя. Да прибудет с вами бог!"
 	item = /obj/item/nullrod
 
-	price_min = 500
-	price_max = 1000
+	price_min = CARGO_CRATE_VALUE * 500
+	price_max = CARGO_CRATE_VALUE * 1000
 	stock_min = 1
 	stock_max = 5
 	availability_prob = 100
@@ -118,8 +118,8 @@
 	desc = "Набор священного воина"
 	item = /obj/item/storage/box
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 3
 	availability_prob = 70
 

@@ -9,8 +9,8 @@
 
 	stock_min = 1
 	stock_max = 10
-	price_min = 10
-	price_max = 50
+	price_min = CARGO_CRATE_VALUE * 10
+	price_max = CARGO_CRATE_VALUE * 50
 	availability_prob = 100
 
 /datum/blackmarket_item/food/donk_pocket_box/spawn_item(loc)
@@ -30,8 +30,8 @@
 
 	stock_min = 1
 	stock_max = 10
-	price_min = 10
-	price_max = 50
+	price_min = CARGO_CRATE_VALUE * 10
+	price_max = CARGO_CRATE_VALUE * 50
 	availability_prob = 100
 
 /datum/blackmarket_item/food/pizza
@@ -41,8 +41,8 @@
 
 	stock_min = 1
 	stock_max = 20
-	price_min = 50
-	price_max = 300
+	price_min = CARGO_CRATE_VALUE * 50
+	price_max = CARGO_CRATE_VALUE * 300
 	availability_prob = 100
 
 /datum/blackmarket_item/food/pizza/spawn_item(loc)
@@ -64,8 +64,8 @@
 
 	stock_min = 10
 	stock_max = 50
-	price_min = 10
-	price_max = 50
+	price_min = CARGO_CRATE_VALUE * 10
+	price_max = CARGO_CRATE_VALUE * 50
 	availability_prob = 100
 
 /datum/blackmarket_item/food/snack/spawn_item(loc)

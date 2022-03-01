@@ -7,8 +7,8 @@
 	desc = "Маска сделанная со стилем"
 	item = /obj/item/clothing/mask/gas/space_ninja
 
-	price_min = 200
-	price_max = 5000
+	price_min = CARGO_CRATE_VALUE * 200
+	price_max = CARGO_CRATE_VALUE * 5000
 	stock_max = 1
 	availability_prob = 40
 
@@ -17,8 +17,8 @@
 	desc = "Don't let them tell you this stuff is \"Like asbestos\" or \"Pulled from the market for safety concerns\". It could be the difference between a robusting and a retaliation."
 	item = /obj/item/clothing/suit/armor/vest/durathread
 
-	price_min = 200
-	price_max = 400
+	price_min = CARGO_CRATE_VALUE * 200
+	price_max = CARGO_CRATE_VALUE * 400
 	stock_max = 4
 	availability_prob = 50
 
@@ -27,8 +27,8 @@
 	desc = "Customers ask why it's called a helmet when it's just made from armoured fabric and I always say the same thing: No refunds."
 	item = /obj/item/clothing/head/helmet/durathread
 
-	price_min = 100
-	price_max = 200
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 200
 	stock_max = 4
 	availability_prob = 50
 
@@ -37,8 +37,8 @@
 	desc = "Космический костюм NT устаревшего вида"
 	item = /obj/item/storage/box
 
-	price_min = 100
-	price_max = 250
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 250
 	stock_max = 1
 	availability_prob = 100
 
@@ -55,8 +55,8 @@
 	desc = "Улучшенная версия обычного скафандра"
 	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/null
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 5
 	availability_prob = 100
@@ -66,8 +66,8 @@
 	desc = "Улучшенная версия обычного скафандра"
 	item = /obj/item/clothing/suit/space/hardsuit/void_explorer
 
-	price_min = 150
-	price_max = 600
+	price_min = CARGO_CRATE_VALUE * 150
+	price_max = CARGO_CRATE_VALUE * 600
 	stock_max = 2
 	availability_prob = 100
 
@@ -76,8 +76,8 @@
 	desc = "Этот скафандр был найден в уничтоженном гнезде ксеноморфов. Судьба носителя неизвестна, но этот скафандр до сих пор соответсвует стандартам боевых скафандров"
 	item = /obj/item/clothing/suit/space/hardsuit/combatmedic
 
-	price_min = 550
-	price_max = 700
+	price_min = CARGO_CRATE_VALUE * 550
+	price_max = CARGO_CRATE_VALUE * 700
 	stock_max = 1
 	availability_prob = 70
 
@@ -86,8 +86,8 @@
 	desc = "Обновлённая модель скафандра СБ"
 	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/security_rig
 
-	price_min = 1000
-	price_max = 5000
+	price_min = CARGO_CRATE_VALUE * 1000
+	price_max = CARGO_CRATE_VALUE * 5000
 	stock_max = 1
 	availability_prob = 100
 
@@ -96,8 +96,8 @@
 	desc = "Очень модная шляпа"
 	item = /obj/item/clothing/head/chameleon/broken
 
-	price_min = 100
-	price_max = 2000
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 2000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 70
@@ -108,8 +108,8 @@
 	desc = "Пахнет плазмой!"
 	item = /obj/item/clothing/head/collectable/petehat
 
-	price_min = 10000
-	price_max = 50000
+	price_min = CARGO_CRATE_VALUE * 10000
+	price_max = CARGO_CRATE_VALUE * 50000
 	stock_max = 5
 	availability_prob = 30
 
@@ -118,8 +118,8 @@
 	desc = "Hiss hiss hiss!"
 	item = /obj/item/clothing/head/collectable/xenom
 
-	price_min = 10000
-	price_max = 50000
+	price_min = CARGO_CRATE_VALUE * 10000
+	price_max = CARGO_CRATE_VALUE * 50000
 	stock_max = 5
 	availability_prob = 30
 
@@ -128,8 +128,8 @@
 	desc = "A"
 	item = /obj/item/clothing/head/collectable/tophat
 
-	price_min = 10000
-	price_max = 50000
+	price_min = CARGO_CRATE_VALUE * 10000
+	price_max = CARGO_CRATE_VALUE * 50000
 	stock_max = 5
 	availability_prob = 30
 
@@ -138,8 +138,8 @@
 	desc = "ERP shit"
 	item = /obj/item/clothing/head/kitty
 
-	price_min = 10000
-	price_max = 100000
+	price_min = CARGO_CRATE_VALUE * 10000
+	price_max = CARGO_CRATE_VALUE * 100000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 30
@@ -149,8 +149,8 @@
 	desc = "Идеально подходит для зимы в Сибири, да?"
 	item = /obj/item/clothing/head/ushanka
 
-	price_min = 10
-	price_max = 50
+	price_min = CARGO_CRATE_VALUE * 10
+	price_max = CARGO_CRATE_VALUE * 50
 	stock_max = 5
 	availability_prob = 30
 
@@ -159,8 +159,8 @@
 	desc = "Маска мима"
 	item = /obj/item/clothing/head/beret
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 5
 	availability_prob = 30
 
@@ -169,8 +169,8 @@
 	desc = "Eeeee~heheheheheheh!"
 	item = /obj/item/clothing/head/witchwig
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max =  5
 	availability_prob = 30
 
@@ -179,8 +179,8 @@
 	desc = "Make a cake!"
 	item = /obj/item/clothing/head/hardhat/cakehat
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 5
 	availability_prob = 30
 
@@ -189,8 +189,8 @@
 	desc = "Wizard! Call the shuttle!"
 	item = /obj/item/clothing/head/wizard/fake
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 5
 	availability_prob = 30
 
@@ -199,8 +199,8 @@
 	desc = "Обычная кепка"
 	item = /obj/item/clothing/head/flatcap
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 5
 	availability_prob = 30
 
@@ -209,8 +209,8 @@
 	desc = "Бесполезный кролик"
 	item = /obj/item/clothing/head/collectable/rabbitears
 
-	price_min = 1000
-	price_max = 5000
+	price_min = CARGO_CRATE_VALUE * 1000
+	price_max = CARGO_CRATE_VALUE * 5000
 	stock_max = 1
 	availability_prob = 30
 
@@ -219,8 +219,8 @@
 	desc = "Шляпа сделанная из картона"
 	item = /obj/item/clothing/head/cardborg
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 5
 	availability_prob = 30
 
@@ -229,8 +229,8 @@
 	desc = "Не спрашивайте где мы её получили"
 	item = /obj/item/clothing/head/bearpelt
 
-	price_min = 1000
-	price_max = 5000
+	price_min = CARGO_CRATE_VALUE * 1000
+	price_max = CARGO_CRATE_VALUE * 5000
 	stock_max = 1
 	availability_prob = 30
 
@@ -239,8 +239,8 @@
 	desc = "Простая соломенная шляпа"
 	item = /obj/item/clothing/head/scarecrow_hat
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 5
 	availability_prob = 30
 
@@ -249,8 +249,8 @@
 	desc = "Самые лучшие усы в космосе!"
 	item = /obj/item/clothing/mask/fakemoustache
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 5
 	availability_prob = 30
 
@@ -259,8 +259,8 @@
 	desc = "REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"
 	item = /obj/item/clothing/mask/animal/pig
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 5
 	availability_prob = 30
 
@@ -269,8 +269,8 @@
 	desc = "Moo"
 	item = /obj/item/clothing/mask/animal/cowmask
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 5
 	availability_prob = 30
 
@@ -279,8 +279,8 @@
 	desc = "Neith"
 	item = /obj/item/clothing/mask/animal/horsehead
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 5
 	availability_prob = 30
 
@@ -289,8 +289,8 @@
 	desc = "Стань злейшим врагом для станции!"
 	item = /obj/item/clothing/mask/gas/carp
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 5
 	availability_prob = 30
 
@@ -299,8 +299,8 @@
 	desc = "Coronavirus speedrun ANY%"
 	item = /obj/item/clothing/mask/gas/plaguedoctor
 
-	price_min = 1000
-	price_max = 5000
+	price_min = CARGO_CRATE_VALUE * 1000
+	price_max = CARGO_CRATE_VALUE * 5000
 	stock_max = 5
 	availability_prob = 20
 
@@ -309,8 +309,8 @@
 	desc = "Become a bartenderвЂ™s hand-made monkey or the goal of experiments of doctors and scientists "
 	item = /obj/item/clothing/mask/gas/monkeymask
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 5
 	availability_prob = 50
 
@@ -319,8 +319,8 @@
 	desc = "Мы не знаем как написать звуки которые издаёт сова поэтому воспроизводите сами"
 	item = /obj/item/clothing/mask/gas/owl_mask
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 5
 	availability_prob = 50
 
@@ -329,8 +329,8 @@
 	desc = "Очень похожа на накидку КМа"
 	item = /obj/item/clothing/neck/cloak
 
-	price_min = 100
-	price_max = 1000
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 1000
 	stock_max = 5
 	availability_prob = 50
 
@@ -339,8 +339,8 @@
 	desc = "jackass"
 	item = /obj/item/clothing/shoes/jackboots
 
-	price_min = 100
-	price_max = 1000
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 1000
 	stock_max = 5
 	availability_prob = 50
 
@@ -349,8 +349,8 @@
 	desc = "YARR!"
 	item = /obj/item/clothing/suit/pirate
 
-	price_min = 100
-	price_max = 1000
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 1000
 	stock_max = 5
 	availability_prob = 30
 
@@ -359,8 +359,8 @@
 	desc = "Это костюм старшего офицера станции Вхите Дрим"
 	item = /obj/item/clothing/under/misc/vice_officer
 
-	price_min = 500
-	price_max = 1500
+	price_min = CARGO_CRATE_VALUE * 500
+	price_max = CARGO_CRATE_VALUE * 1500
 	stock_max = 1
 	availability_prob = 30
 
@@ -369,8 +369,8 @@
 	desc = "Для фейковых инспекций"
 	item = /obj/item/clothing/under/rank/centcom/officer
 
-	price_min = 1000
-	price_max = 5000
+	price_min = CARGO_CRATE_VALUE * 1000
+	price_max = CARGO_CRATE_VALUE * 5000
 	stock_max = 1
 	availability_prob = 20
 
@@ -379,8 +379,8 @@
 	desc = "Описание отсутсвует"
 	item = /obj/item/clothing/under/color/rainbow
 
-	price_min = 100
-	price_max = 1000
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 1000
 	stock_max = 5
 	availability_prob = 30
 
@@ -389,8 +389,8 @@
 	desc = "Просто взглянув на это, хочется купить SKS, пойти в лес и -оперативничать-"
 	item = /obj/item/clothing/under/syndicate/tacticool
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 5
 	availability_prob = 30
 
@@ -399,8 +399,8 @@
 	desc = "Просто взглянув на это, хочется купить SKS, пойти в лес и -оперативничать-"
 	item = /obj/item/clothing/under/syndicate/tacticool/skirt
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 5
 	availability_prob = 30
 
@@ -409,8 +409,8 @@
 	desc = "Описание отсутствует"
 	item = /obj/item/clothing/under/misc/psyche
 
-	price_min = 1000
-	price_max = 5000
+	price_min = CARGO_CRATE_VALUE * 1000
+	price_max = CARGO_CRATE_VALUE * 5000
 	stock_max = 1
 	availability_prob = 10
 
@@ -419,8 +419,8 @@
 	desc = "Накидка сделанная под тематику радуги"
 	item = /obj/item/bedsheet/rainbow
 
-	price_min = 1000
-	price_max = 5000
+	price_min = CARGO_CRATE_VALUE * 1000
+	price_max = CARGO_CRATE_VALUE * 5000
 	stock_max = 1
 	availability_prob = 30
 
@@ -429,8 +429,8 @@
 	desc = "На этом плаще есть бирка на которой написано SPACEWATER"
 	item = /obj/item/bedsheet/captain
 
-	price_min = 1000
-	price_max = 5000
+	price_min = CARGO_CRATE_VALUE * 1000
+	price_max = CARGO_CRATE_VALUE * 5000
 	stock_max = 1
 	availability_prob = 20
 
@@ -439,8 +439,8 @@
 	desc = "накидка сделанная под тематику космоса. Анимировано"
 	item = /obj/item/bedsheet/cosmos
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_max = 1
 	availability_prob = 20
 
@@ -449,7 +449,7 @@
 	desc = "We found a pair of jump boots and overclocked the hell out of them. No liability for grevious harm to or with a body."
 	item = /obj/item/clothing/shoes/bhop/rocket
 
-	price_min = 1000
-	price_max = 3000
+	price_min = CARGO_CRATE_VALUE * 1000
+	price_max = CARGO_CRATE_VALUE * 3000
 	stock_max = 1
 	availability_prob = 40

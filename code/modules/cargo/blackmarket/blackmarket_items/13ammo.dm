@@ -7,8 +7,8 @@
 	desc = "Не путайте с магазином для СМГ."
 	item = /obj/item/ammo_box/magazine/fallout/m12mm
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -18,8 +18,8 @@
 	desc = "БЛЯТЬ!"
 	item = /obj/item/ammo_box/magazine/internal/cpistol
 
-	price_min = 10
-	price_max = 50
+	price_min = CARGO_CRATE_VALUE * 10
+	price_max = CARGO_CRATE_VALUE * 50
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -29,8 +29,8 @@
 	desc = "Не путайте с другими видами пистолетов. Не используется в макарове и стечкине. При покупке могут появится магазины различного типа. Внимание! Не путать с винтовочным магазином!"
 	item = /obj/item/ammo_box/magazine/m10mm
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -47,8 +47,8 @@
 	desc = "Не путайте с другими видами пистолетов."
 	item = /obj/item/ammo_box/magazine/fallout/m10mm
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -58,8 +58,8 @@
 	desc = "Магазин для Маузера"
 	item = /obj/item/ammo_box/magazine/mauser
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -70,8 +70,8 @@
 	desc = "ВНИМАНИЕ! Этот магазин может не походить к некоторым видам пистолетов. Будьте внимательны. Подходит для Стечкина и Макарова"
 	item = /obj/item/ammo_box/magazine/m9mm
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -81,8 +81,8 @@
 	desc = "ВНИМАНИЕ! Этот магазин может не походить к некоторым видам пистолетов. Будьте внимательны. Подходит для 9mm pistol, handmade pistol и Maria"
 	item = /obj/item/ammo_box/magazine/fallout/m9mm
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -92,8 +92,8 @@
 	desc = "не ебу как перевести поэтому вот вам так. Сами поймёте. далеко не дети..."
 	item = /obj/item/ammo_box/magazine/wt550m9/mc9mmt
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -103,8 +103,8 @@
 	desc = "Магазин для Люгера"
 	item = /obj/item/ammo_box/magazine/luger
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -114,8 +114,8 @@
 	desc = "Магазин калибра .44"
 	item = /obj/item/ammo_box/magazine/fallout/deagle
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -125,8 +125,8 @@
 	desc = "Магазин калибра .50"
 	item = /obj/item/ammo_box/magazine/m50
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -136,8 +136,8 @@
 	desc = "При покупке могут появится магазины различного типа"
 	item = /obj/item/ammo_box/a357
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -152,8 +152,8 @@
 	desc = "При покупке могут появится магазины различного типа"
 	item = /obj/item/ammo_box/c38
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -173,8 +173,8 @@
 	desc = "При покупке могут появится магазины различного типа"
 	item = /obj/item/ammo_box/magazine/wt550m9
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -190,8 +190,8 @@
 	desc = "При покупке могут появится магазины различного типа"
 	item = /obj/item/ammo_box/magazine/smgm9mm
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -207,8 +207,8 @@
 	desc = "Магазин для 9mm submachine gun и handmade submachine gun"
 	item = /obj/item/ammo_box/magazine/fallout/smgm9mm
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -218,8 +218,8 @@
 	desc = "Подходит для .22 submachine gun"
 	item = /obj/item/ammo_box/magazine/tommygunm45
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -229,8 +229,8 @@
 	desc = "Подходит для пистолет-пулемёт Томпсона"
 	item = /obj/item/ammo_box/magazine/tommygunm45
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -240,8 +240,8 @@
 	desc = "Магазин для СМГ калибра .45"
 	item = /obj/item/ammo_box/magazine/fallout/smgm45
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -251,8 +251,8 @@
 	desc = "Магазин для C-20r калибра .45"
 	item = /obj/item/ammo_box/magazine/smgm45
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -262,8 +262,8 @@
 	desc = "Магазин ТОЛЬКО для Томмигана калибра .45"
 	item = /obj/item/ammo_box/magazine/tommygunm45
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -273,8 +273,8 @@
 	desc = "Магазин для УЗИ калибра 9мм"
 	item = /obj/item/ammo_box/magazine/uzim9mm
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -284,8 +284,8 @@
 	desc = "Магазин для МП-40 калибра 9мм"
 	item = /obj/item/ammo_box/magazine/mp40
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -295,8 +295,8 @@
 	desc = "Магазин для СМГ калибра 10мм"
 	item = /obj/item/ammo_box/magazine/fallout/smgm10mm
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -306,8 +306,8 @@
 	desc = "Магазин для СМГ калибра 12.7мм"
 	item = /obj/item/ammo_box/magazine/fallout/smg12mm
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -317,8 +317,8 @@
 	desc = "Магазин для СТГ"
 	item = /obj/item/ammo_box/magazine/stg
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -328,8 +328,8 @@
 	desc = "Магазин для винтовок калибра 10мм. Внимание! Не путать с пистолетным магазином!"
 	item = /obj/item/ammo_box/magazine/m10mm/rifle
 
-	price_min = 200
-	price_max = 600
+	price_min = CARGO_CRATE_VALUE * 200
+	price_max = CARGO_CRATE_VALUE * 600
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -339,8 +339,8 @@
 	desc = "Магазин для штурмовой винтовки калибра asr"
 	item = /obj/item/ammo_box/magazine/assault_rifle
 
-	price_min = 200
-	price_max = 600
+	price_min = CARGO_CRATE_VALUE * 200
+	price_max = CARGO_CRATE_VALUE * 600
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -350,8 +350,8 @@
 	desc = "Магазин для g43"
 	item = /obj/item/ammo_box/magazine/g43
 
-	price_min = 200
-	price_max = 600
+	price_min = CARGO_CRATE_VALUE * 200
+	price_max = CARGO_CRATE_VALUE * 600
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -361,8 +361,8 @@
 	desc = "Магазин для fg42"
 	item = /obj/item/ammo_box/magazine/fg42
 
-	price_min = 200
-	price_max = 600
+	price_min = CARGO_CRATE_VALUE * 200
+	price_max = CARGO_CRATE_VALUE * 600
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -372,8 +372,8 @@
 	desc = "Магазин для боевого карабина"
 	item = /obj/item/ammo_box/magazine/carbine
 
-	price_min = 200
-	price_max = 600
+	price_min = CARGO_CRATE_VALUE * 200
+	price_max = CARGO_CRATE_VALUE * 600
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -383,8 +383,8 @@
 	desc = "Магазин для Assault rifle, marksman carbine, All-American, service rifle, Survivalist rifle и Infiltrator"
 	item = /obj/item/ammo_box/magazine/fallout/r20
 
-	price_min = 200
-	price_max = 600
+	price_min = CARGO_CRATE_VALUE * 200
+	price_max = CARGO_CRATE_VALUE * 600
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -394,8 +394,8 @@
 	desc = "Магазин для Z8 Bulldog"
 	item = /obj/item/ammo_box/magazine/a556carbine
 
-	price_min = 200
-	price_max = 600
+	price_min = CARGO_CRATE_VALUE * 200
+	price_max = CARGO_CRATE_VALUE * 600
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -405,8 +405,8 @@
 	desc = "Магазин для винтовок калибром 5.56мм"
 	item = /obj/item/ammo_box/magazine/m556
 
-	price_min = 200
-	price_max = 600
+	price_min = CARGO_CRATE_VALUE * 200
+	price_max = CARGO_CRATE_VALUE * 600
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -416,8 +416,8 @@
 	desc = "Магазин для винтовок калибром 5.56мм"
 	item = /obj/item/ammo_box/magazine/m556/arg
 
-	price_min = 200
-	price_max = 600
+	price_min = CARGO_CRATE_VALUE * 200
+	price_max = CARGO_CRATE_VALUE * 600
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -427,8 +427,8 @@
 	desc = "Подходит для chinese assault rifle и handmade assault rifle"
 	item = /obj/item/ammo_box/magazine/fallout/ar762
 
-	price_min = 200
-	price_max = 600
+	price_min = CARGO_CRATE_VALUE * 200
+	price_max = CARGO_CRATE_VALUE * 600
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -438,8 +438,8 @@
 	desc = "При покупке могут появится магазины различного типа. Внимание! Этот магазин для дробовика Bulldog!"
 	item = /obj/item/ammo_box/magazine/m12g
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 50
 	availability_prob = 100
@@ -459,8 +459,8 @@
 	desc = "При покупке могут появится магазины различного типа"
 	item = /obj/item/ammo_box/magazine/mm712x82
 
-	price_min = 100
-	price_max = 500
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 500
 	stock_min = 1
 	stock_max = 20
 	availability_prob = 100
@@ -478,8 +478,8 @@
 	desc = "Магазин с самозарядкой для специальных энергетических винтовок"
 	item = /obj/item/ammo_box/magazine/recharge
 
-	price_min = 100
-	price_max = 1000
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 1000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -489,8 +489,8 @@
 	desc = "Магазин для kar98k"
 	item = /obj/item/ammo_box/magazine/a792x57
 
-	price_min = 100
-	price_max = 1000
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 1000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -500,8 +500,8 @@
 	desc = "При покупке могут появится магазины различного типа"
 	item = /obj/item/ammo_box/magazine/sniper_rounds
 
-	price_min = 100
-	price_max = 1000
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 1000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -517,8 +517,8 @@
 	desc = "Подходит снайперских винтовок калибра .308"
 	item = /obj/item/ammo_box/magazine/fallout/r308
 
-	price_min = 100
-	price_max = 1000
+	price_min = CARGO_CRATE_VALUE * 100
+	price_max = CARGO_CRATE_VALUE * 1000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
