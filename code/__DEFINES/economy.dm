@@ -7,13 +7,13 @@
 
 //Experimental change: These are subject to tweaking based on the /tg/ economy overhaul.
 //Current design direction: Higher paying jobs are vastly outnumbered by lower paying jobs, so anything above medium hurts inflation, common jobs help inflation
-#define PAYCHECK_PRISONER 5
-#define PAYCHECK_ASSISTANT 10
-#define PAYCHECK_MINIMAL 15
-#define PAYCHECK_EASY 20
-#define PAYCHECK_MEDIUM 30
-#define PAYCHECK_HARD 50
-#define PAYCHECK_COMMAND 70
+#define PAYCHECK_PRISONER 500
+#define PAYCHECK_ASSISTANT 100
+#define PAYCHECK_MINIMAL 1500
+#define PAYCHECK_EASY 2000
+#define PAYCHECK_MEDIUM 3000
+#define PAYCHECK_HARD 5000
+#define PAYCHECK_COMMAND 7000
 
 #define STATION_TARGET_BUFFER 40
 

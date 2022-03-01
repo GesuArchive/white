@@ -47,17 +47,17 @@
 /datum/bounty/item/engineering/gas/zauker_tank
 	name = "Полная канистра Циклон Б"
 	description = "Главная планета \[REDACTED] была выбрана в качестве полигона для испытания нового оружия, в котором используется газ Циклон Б. Отправьте нам полный бак. (20 моль)"
-	reward = CARGO_CRATE_VALUE * 20
+	reward = CARGO_CRATE_VALUE * 2000
 	gas_type = /datum/gas/zauker
 
 /datum/bounty/item/engineering/emitter
 	name = "Эмиттер"
 	description = "Мы думаем, что в конструкции эмиттера вашей станции может быть дефект, основанный на огромном количестве отслоений, которые, похоже, видит ваш сектор. Отправьте нам один из ваших."
-	reward = 100
+	reward = CARGO_CRATE_VALUE * 100
 	wanted_types = list(/obj/machinery/power/emitter)
 
 /datum/bounty/item/engineering/hydro_tray
 	name = "Гидропонические лотки"
 	description = "Лаборанты пытаются выяснить, как снизить потребление энергии лотками для гидропоники, но мы поджарили последний. Сделаете один для нас?"
-	reward = 70
+	reward = CARGO_CRATE_VALUE * 70
 	wanted_types = list(/obj/machinery/hydroponics/constructable)

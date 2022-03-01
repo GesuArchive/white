@@ -137,7 +137,7 @@
 	export_types = list(/obj/item/pipe_dispenser)
 
 /datum/export/singulo //failsafe in case someone decides to ship a live singularity to CentCom without the corresponding bounty
-	cost = 1
+	cost = CARGO_CRATE_VALUE * 5
 	unit_name = "сингулярность"
 	export_types = list(/obj/singularity)
 	include_subtypes = FALSE

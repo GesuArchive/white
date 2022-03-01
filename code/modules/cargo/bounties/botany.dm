@@ -1,5 +1,5 @@
 /datum/bounty/item/botany
-	reward = CARGO_CRATE_VALUE
+	reward = CARGO_CRATE_VALUE * 50
 	var/datum/bounty/item/botany/multiplier = 0 //adds bonus reward money; increased for higher tier or rare mutations
 	var/datum/bounty/item/botany/bonus_desc //for adding extra flavor text to bounty descriptions
 	var/datum/bounty/item/botany/foodtype = "еду" //same here
@@ -215,23 +215,10 @@
 	foodtype = "партия овса"
 	bonus_desc = "Squats and oats. We're all out of oats."
 
-/*
-/datum/bounty/item/botany/bonfire
-	name = "зажженный костер"
-	description = "Обогреватели помещений неисправны, и экипаж Центрального Командования начинает мерзнуть. Вырастите дерево и сделайте зажженный костер, чтобы согреть их."
-	wanted_types = list(/obj/structure/bonfire)
-
-/datum/bounty/item/botany/bonfire/applies_to(obj/O)
-	if(!..())
-		return FALSE
-	var/obj/structure/bonfire/B = O
-	return !!B.burning
-*/
-
 /datum/bounty/item/botany/forgetmenot
 	name = "Forget-Me-Nots"
 	description = "Commander Zot has his eyes on Quartermaster Maya. Send a shipment of forget-me-nots - her favorite flower - and he'll happily reward you."
-	reward = 100
+	reward = CARGO_CRATE_VALUE * 100
 	required_count = 3
 	wanted_types = list(/obj/item/food/grown/poppy/geranium/forgetmenot)
 	format_exception = TRUE
@@ -239,7 +226,7 @@
 /datum/bounty/item/botany/geranium
 	name = "Geraniums"
 	description = "Commander Zot has the hots for Commander Zena. Send a shipment of geraniums - her favorite flower - and he'll happily reward you."
-	reward = 60
+	reward = CARGO_CRATE_VALUE * 60
 	required_count = 3
 	wanted_types = list(/obj/item/food/grown/poppy/geranium)
 	format_exception = TRUE
@@ -247,7 +234,7 @@
 /datum/bounty/item/botany/rainbowflowercrown
 	name = "Rainbow Flower Crowns"
 	description = "Central Command is concerned about their intern suicide rate. A shipment of rainbow flower crowns should do nicely to improve morale."
-	reward = 100
+	reward = CARGO_CRATE_VALUE * 100
 	required_count = 3
 	wanted_types = list(/obj/item/clothing/head/rainbowbunchcrown)
 	format_exception = TRUE

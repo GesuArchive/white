@@ -8,7 +8,7 @@
 	contraband = list(/obj/item/reagent_containers/food/drinks/drinkingglass/filled/cola = 20)
 	resistance_flags = FIRE_PROOF
 	refill_canister = /obj/item/vending_refill/sovietsoda
-	default_price = 1
+	default_price = CARGO_CRATE_VALUE * 1
 	extra_price = PAYCHECK_ASSISTANT //One credit for every state of FREEDOM
 	payment_department = NO_FREEBIES
 	light_color = COLOR_PALE_ORANGE

@@ -22,7 +22,7 @@
 
 
 /datum/export/seed/potency
-	cost = CARGO_CRATE_VALUE * 0.0125 // Gets multiplied by potency and rarity.
+	cost = CARGO_CRATE_VALUE * 0.125 // Gets multiplied by potency and rarity.
 	unit_name = "улучшенный образец растения"
 	export_types = list(/obj/item/seeds)
 	needs_discovery = TRUE // Only for already discovered species

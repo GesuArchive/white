@@ -13,8 +13,8 @@
 	circuit = /obj/item/circuitboard/machine/medical_kiosk
 	payment_department = ACCOUNT_MED
 	var/obj/item/scanner_wand
-	var/default_price = 2          //I'm defaulting to a low price on this, but in the future I wouldn't have an issue making it more or less expensive.
-	var/active_price = 3           //Change by using a multitool on the board.
+	var/default_price = CARGO_CRATE_VALUE * 2          //I'm defaulting to a low price on this, but in the future I wouldn't have an issue making it more or less expensive.
+	var/active_price = CARGO_CRATE_VALUE * 3           //Change by using a multitool on the board.
 	var/pandemonium = FALSE			//AKA: Emag mode.
 
 	var/scan_active_1 = FALSE       //Shows if the machine is being used for a general scan.

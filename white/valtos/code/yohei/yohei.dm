@@ -810,7 +810,7 @@
 				   /obj/item/storage/firstaid/tactical = 3)
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 50)
 	resistance_flags = INDESTRUCTIBLE
-	default_price = CARGO_CRATE_VALUE * 2.5
-	extra_price = CARGO_CRATE_VALUE * 5
+	default_price = CARGO_CRATE_VALUE * 20.5
+	extra_price = CARGO_CRATE_VALUE * 50
 	payment_department = ACCOUNT_TRA
 	light_mask = "yohei-light-mask"

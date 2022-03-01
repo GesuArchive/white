@@ -4,8 +4,8 @@
 	icon = 'white/valtos/icons/vending.dmi'
 	icon_state = "trading"
 	product_ads = "Лучшее только у нас!;Купи-купи-купи!"
-	default_price = 500
-	extra_price = 5000
+	default_price = CARGO_CRATE_VALUE * 500
+	extra_price = CARGO_CRATE_VALUE * 5000
 	max_integrity = 300000
 	var/last_rebuild = 0
 	payment_department = NO_FREEBIES

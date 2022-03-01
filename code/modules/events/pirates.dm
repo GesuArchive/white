@@ -416,7 +416,7 @@
 	return
 
 /datum/export/pirate/ransom
-	cost = 300
+	cost = CARGO_CRATE_VALUE * 300
 	unit_name = "hostage"
 	export_types = list(/mob/living/carbon/human)
 
@@ -441,7 +441,7 @@
 			return 1000
 
 /datum/export/pirate/parrot
-	cost = 200
+	cost = CARGO_CRATE_VALUE * 200
 	unit_name = "alive parrot"
 	export_types = list(/mob/living/simple_animal/parrot)
 

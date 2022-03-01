@@ -1,80 +1,80 @@
 /datum/bounty/item/science/boh
 	name = "Блюспейс сумка"
 	description = "НТ пригодились бы рюкзаки большой вместимости. Если у вас есть, пожалуйста, отправьте их."
-	reward = 1000
+	reward = CARGO_CRATE_VALUE * 100
 	wanted_types = list(/obj/item/storage/backpack/holding)
 
 /datum/bounty/item/science/tboh
 	name = "Блюспейс мешок для мусора"
 	description = "НТ хотели бы использовать мешки для мусора большой емкости. Если у вас есть, пожалуйста, отправьте их."
-	reward = 1000
+	reward = CARGO_CRATE_VALUE * 100
 	wanted_types = list(/obj/item/storage/bag/trash/bluespace)
 
 /datum/bounty/item/science/bluespace_syringe
 	name = "Блюспейс шприц"
 	description = "НТ хочет использовать шприцы большой емкости. Если у вас есть, пожалуйста, отправьте их."
-	reward = 1000
+	reward = CARGO_CRATE_VALUE * 100
 	wanted_types = list(/obj/item/reagent_containers/syringe/bluespace)
 
 /datum/bounty/item/science/bluespace_body_bag
 	name = "Блюспейс мешок для трупов"
 	description = "НТ хочет использовать сумки для тела большой емкости. Если у вас есть, пожалуйста, отправьте их."
-	reward = 1000
+	reward = CARGO_CRATE_VALUE * 100
 	wanted_types = list(/obj/item/bodybag/bluespace)
 
 /datum/bounty/item/science/nightvision_goggles
 	name = "Очки ночного видения"
 	description = "Электромагнитный шторм сломал все лампы на ЦК. Пока руководство ожидает замены, можете отправить несколько очков ночного видения?"
-	reward = 1000
+	reward = CARGO_CRATE_VALUE * 100
 	wanted_types = list(/obj/item/clothing/glasses/night, /obj/item/clothing/glasses/meson/night, /obj/item/clothing/glasses/hud/health/night, /obj/item/clothing/glasses/hud/security/night, /obj/item/clothing/glasses/hud/diagnostic/night)
 
 /datum/bounty/item/science/experimental_welding_tool
 	name = "Экспериментальный сварочный инструмент"
 	description = "Недавняя авария привела к взрыву большинства сварочных инструментов ЦК. Отправители будут вознаграждены."
-	reward = 1000
+	reward = CARGO_CRATE_VALUE * 100
 	required_count = 3
 	wanted_types = list(/obj/item/weldingtool/experimental)
 
 /datum/bounty/item/science/cryostasis_beaker
 	name = "Крио-стакан"
 	description = "Химики ЦК обнаружили новый химикат, который можно хранить только в стаканах с криостазом. Единственная проблема в том, что у них их нет! Исправьте это, чтобы получить оплату."
-	reward = 1000
+	reward = CARGO_CRATE_VALUE * 100
 	wanted_types = list(/obj/item/reagent_containers/glass/beaker/noreact)
 
 /datum/bounty/item/science/diamond_drill
 	name = "Алмазный шахтёрский бур."
 	description = "Центральное командование готово выплатить трехмесячную зарплату в обмен на один алмазный бур."
-	reward = 1500
+	reward = CARGO_CRATE_VALUE * 150
 	wanted_types = list(/obj/item/pickaxe/drill/diamonddrill, /obj/item/mecha_parts/mecha_equipment/drill/diamonddrill)
 
 /datum/bounty/item/science/floor_buffer
 	name = "Улучшение напольного буфера"
 	description = "Один из уборщиков ЦК сделал небольшое состояние, делая ставки на скачках карпа. Теперь они хотели бы заказать улучшение напольного буфера."
-	reward = 1000
+	reward = CARGO_CRATE_VALUE * 100
 	wanted_types = list(/obj/item/janiupgrade)
 
 /datum/bounty/item/science/advanced_mop
 	name = "Продвинутая Швабра"
 	description = "Прошу прощения. Я хотел бы попросить 17 кр за переделку метлой. Или это, или продвинутая швабра."
-	reward = 1000
+	reward = CARGO_CRATE_VALUE * 100
 	wanted_types = list(/obj/item/mop/advanced)
 
 /datum/bounty/item/science/advanced_egun
 	name = "Продвинутый е-ган"
 	description = "С ростом цен на зарядные устройства, высшее руководство заинтересовано в покупке оружия с автоматическим питанием. Если вы отправите один, они заплатят."
-	reward = 1000
+	reward = CARGO_CRATE_VALUE * 100
 	wanted_types = list(/obj/item/gun/energy/e_gun/nuclear)
 
 /datum/bounty/item/science/bepis_disc
 	name = "Переформатированный технический диск"
 	description = "Оказывается, дискеты, на которых BEPIS печатает экспериментальные узлы, чрезвычайно экономят пространство. Когда закончите, пришлите нам один из дисков."
-	reward = 400
+	reward = CARGO_CRATE_VALUE * 40
 	wanted_types = list(/obj/item/disk/tech_disk/major)
 
 /datum/bounty/item/science/relic
 	name = "E.X.P.E.R.I-MENTORially Discovered Devices"
 	description = "Psst, hey. Don't tell the assistants, but we're undercutting them on the value of those 'strange objects' they've been finding. Fish one up and send us a discovered one by using the E.X.P.E.R.I-MENTOR."
-	reward = CARGO_CRATE_VALUE * 8
+	reward = CARGO_CRATE_VALUE * 800
 	wanted_types = list(/obj/item/relic)
 
 /datum/bounty/item/science/relic/applies_to(obj/O)
@@ -88,13 +88,13 @@
 /datum/bounty/item/science/bepis_disc
 	name = "Reformatted Tech Disk"
 	description = "It turns out the diskettes the BEPIS prints experimental nodes on are extremely space-efficient. Send us one of your spares when you're done with it."
-	reward = CARGO_CRATE_VALUE * 8
+	reward = CARGO_CRATE_VALUE * 800
 	wanted_types = list(/obj/item/disk/tech_disk/major, /obj/item/disk/tech_disk/spaceloot)
 
 /datum/bounty/item/science/genetics
 	name = "Genetics Disability Mutator"
 	description = "Understanding the humanoid genome is the first step to curing many spaceborn genetic defects, and exceeding our basest limits."
-	reward = CARGO_CRATE_VALUE * 2
+	reward = CARGO_CRATE_VALUE * 200
 	wanted_types = list(/obj/item/dnainjector)
 	///What's the instability
 	var/desired_instability = 0
@@ -125,21 +125,21 @@
 /datum/bounty/item/science/NTNet
 	name = "Modular Tablets"
 	description = "Turns out that NTNet wasn't actually a fad afterall, who knew. Ship us some fully constructed tablets and send it turned on."
-	reward = CARGO_CRATE_VALUE * 6
+	reward = CARGO_CRATE_VALUE * 600
 	required_count = 4
 	wanted_types = list(/obj/item/modular_computer/tablet)
 
 /datum/bounty/item/science/NTNet/laptops
 	name = "Modular Laptops"
 	description = "Central command brass need something more powerful than a tablet, but more portable than a console. Help these old fogeys out by shipping us some working laptops. Send it turned on."
-	reward = CARGO_CRATE_VALUE * 3
+	reward = CARGO_CRATE_VALUE * 300
 	required_count = 2
 	wanted_types = list(/obj/item/modular_computer/laptop)
 
 /datum/bounty/item/science/NTNet/console
 	name = "Modular Computer Console"
 	description = "Our big data devision needs more powerful hardware to play 'Outbomb Cuban Pe-', err, to closely monitor threats in your sector. Send us a working modular computer console."
-	reward = CARGO_CRATE_VALUE * 6
+	reward = CARGO_CRATE_VALUE * 600
 	required_count = 1
 	wanted_types = list(/obj/machinery/modular_computer/console)
 
