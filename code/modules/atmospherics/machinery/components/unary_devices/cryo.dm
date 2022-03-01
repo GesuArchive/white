@@ -229,6 +229,9 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 /obj/machinery/atmospherics/components/unary/cryo_cell/process(delta_time)
 	..()
 
+	if(state_open)
+		reagent_transfer = 0
+		return
 	if(!on)
 		return
 	if(!occupant)

@@ -44,13 +44,6 @@
 		air = new
 		air.copy_from_turf(src)
 		update_air_ref()
-		/*
-		if(planetary_atmos)
-			if(!SSair.planetary[initial_gas_mix])
-				var/datum/gas_mixture/immutable/planetary/mix = new
-				mix.parse_string_immutable(initial_gas_mix)
-				SSair.planetary[initial_gas_mix] = mix
-		*/
 	. = ..()
 
 /turf/open/Destroy()
@@ -164,23 +157,7 @@
 				vis_contents -= overlay
 			src.atmos_overlay_types = null
 		return
-/*
-	if(air.return_temperature() > 500)
-		cut_overlay(heat_overlay)
-		switch(air.return_temperature())
-			if(500 to 800)
-				heat_overlay = icon('white/valtos/icons/hotlay.dmi', "hot1")
-			if(801 to 1200)
-				heat_overlay = icon('white/valtos/icons/hotlay.dmi', "hot2")
-			if(1201 to 1600)
-				heat_overlay = icon('white/valtos/icons/hotlay.dmi', "hot3")
-			if(1601 to INFINITY)
-				heat_overlay = icon('white/valtos/icons/hotlay.dmi', "hot4")
-		add_overlay(heat_overlay)
-	else if (heat_overlay)
-		cut_overlay(heat_overlay)
-		heat_overlay = null
-*/
+
 	for(var/id in air.get_gases())
 		if (nonoverlaying_gases[id])
 			continue
