@@ -514,7 +514,6 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 		if(length(fucktorio?[1]) && length(fucktorio?[2]))
 			LAZYADDASSOCLIST(lte_nuclear_war, ckey(fucktorio[1]), fucktorio[2])
 			message_admins("[key_name_admin(src)] открывает [fucktorio[1]] доступ к [fucktorio[2]].")
-		return
 	else
 		var/list/temp_list = list()
 		for(var/fucker in lte_nuclear_war)
