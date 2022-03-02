@@ -4,9 +4,8 @@ import { Window } from '../layouts';
 export const DreamerCorruption = (props, context) => {
   const generate10String = length => {
     let outString = "";
-    const factor = (overload / capacity);
     while (outString.length < length) {
-      if (Math.random() > factor) {
+      if (Math.random() > 0.5) {
         outString += "0";
       } else {
         outString += "1";
