@@ -124,10 +124,10 @@
 
 	var/temperature_delta = abs(old_temperature - air_contents.return_temperature())
 	if(temperature_delta > 1)
+		active_power_usage = (heat_capacity * temperature_delta) ** 1.05 / 5 + idle_power_usage
 		update_parents()
-		use_power((heat_capacity * temperature_delta) ** 1.05 / 5 + idle_power_usage)
 	else
-		use_power(idle_power_usage)
+		active_power_usage = idle_power_usage
 	return 1
 
 /obj/machinery/atmospherics/components/unary/thermomachine/attackby(obj/item/I, mob/user, params)
