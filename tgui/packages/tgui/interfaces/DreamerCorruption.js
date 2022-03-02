@@ -14,6 +14,9 @@ export const DreamerCorruption = (props, context) => {
     }
     return outString;
   };
+
+  const lineLength = 45;
+
   return (
     <Window
       width={400}
