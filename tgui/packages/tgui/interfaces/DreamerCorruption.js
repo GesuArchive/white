@@ -14,14 +14,17 @@ export const DreamerCorruption = (props, context) => {
     return outString;
   };
 
-  const lineLength = 45;
+  const lineLength = 55;
 
   return (
     <Window
       width={400}
       height={250}
-      theme="syndicate">
+      theme="scarlet">
       <Section fontFamily="monospace" textAlign="center">
+        <Box>
+          {generate10String(lineLength)}
+        </Box>
         <Box>
           {generate10String(lineLength)}
         </Box>
