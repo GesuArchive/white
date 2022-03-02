@@ -40,6 +40,30 @@ export const DreamerCorruption = (props, context) => {
         <Box>
           {generate10String(lineLength)}
         </Box>
+        <Box>
+          {generate10String(lineLength)}
+        </Box>
+        <Box>
+          {generate10String(lineLength)}
+        </Box>
+        <Box>
+          {generate10String(lineLength)}
+        </Box>
+        <Box>
+          {generate10String(lineLength)}
+        </Box>
+        <Box>
+          {generate10String(lineLength)}
+        </Box>
+        <Box>
+          {generate10String(lineLength)}
+        </Box>
+        <Box>
+          {generate10String(lineLength)}
+        </Box>
+        <Box>
+          {generate10String(lineLength)}
+        </Box>
       </Section>
     </Window>
   );
