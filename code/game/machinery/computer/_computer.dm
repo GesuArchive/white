@@ -53,12 +53,12 @@
 /obj/machinery/computer/screwdriver_act(mob/living/user, obj/item/I)
 	if(..())
 		return TRUE
-	if(clued)
-		to_chat(user, span_notice("Чиню развёртку монитора..."))
+	if(IS_DREAMER(user) && clued)
+		to_chat(user, span_notice("Убираю ШЕДЕВР..."))
 		clued = FALSE
 		icon_screen = initial(icon_screen)
 		update_icon()
-		tgui_id = initial(tgui_id)
+		interaction_flags_atom |= INTERACT_ATOM_UI_INTERACT
 		return TRUE
 	if(circuit && !(flags_1&NODECONSTRUCT_1))
 		to_chat(user, span_notice("You start to disconnect the monitor..."))
@@ -145,17 +145,24 @@
 		icon_screen = "clued"
 		update_icon()
 		tgui_id = "DreamerCorruption"
+		interaction_flags_atom &= ~INTERACT_ATOM_UI_INTERACT
 		return
 	if(!user.canUseTopic(src, !issilicon(user)) || !is_operational)
 		return
 
 /obj/machinery/computer/examine(mob/user)
 	. = ..()
-	if((IS_DREAMER(user)))
+	if(IS_DREAMER(user))
 		. += "<hr>"
 		if(clued)
 			. += span_revenbignotice("Чудо [clued]!")
 		else
 			. += span_revenbignotice("СПРАВА есть АЛЬТЕРНАТИВНЫЙ секрет.")
 	else if (clued)
-		can_interact(user)
+		interact(user)
+
+/obj/machinery/computer/interact(mob/user, special_state)
+	. = ..()
+	if(clued)
+		var/datum/tgui/ui = new(user, src, "DreamerCorruption", IS_DREAMER(user) ? "ШЕДЕВР" :"УЖАС! УЖАС! УЖАС!")
+		ui.open()

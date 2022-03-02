@@ -11,6 +11,8 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 	var/hall_attack_probability = 1
 	var/turf_loop_duration = 3
 
+	var/bg_sound = 'white/valtos/sounds/lifeweb/dreamer_is_still_asleep.ogg'
+
 	var/grip = 4
 
 	var/known_clues = list()
@@ -33,6 +35,8 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 
 	make_weirds()
 
+	update_grip()
+
 	dream_mart = new(null)
 	dream_mart.teach(our_dreamer)
 
@@ -50,13 +54,19 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 	if(our_dreamer?.client?.prefs.toggles & SOUND_AMBIENCE)
 		C.prefs.toggles ^= SOUND_AMBIENCE
 
-	DIRECT_OUTPUT(our_dreamer, sound(null))
-	C?.tgui_panel?.stop_music()
-
-	SEND_SOUND(our_dreamer, sound('white/valtos/sounds/lifeweb/dreamer_is_still_asleep.ogg', repeat = TRUE, wait = 0, volume = 75, channel = CHANNEL_BUZZ))
+	update_grip()
 
 	if(our_dreamer?.hud_used)
 		our_dreamer.hud_used.update_parallax_pref(our_dreamer, 1)
+
+/datum/component/dreamer/proc/update_bg_sound()
+
+	var/client/C = our_dreamer.client
+
+	DIRECT_OUTPUT(our_dreamer, sound(null))
+	C?.tgui_panel?.stop_music()
+
+	SEND_SOUND(our_dreamer, sound(bg_sound, repeat = TRUE, wait = 0, volume = 75, channel = CHANNEL_BUZZ))
 
 /datum/component/dreamer/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOB_SAY, .proc/handle_speech)
@@ -103,8 +113,6 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 
 		QDEL_IN(I, ttd)
 
-	update_grip()
-
 	our_dreamer.heal_overall_damage(5, 5, 5)
 	our_dreamer.setOxyLoss(0)
 	our_dreamer.setToxLoss(0)
@@ -128,6 +136,8 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 /datum/component/dreamer/proc/update_grip()
 	switch(grip)
 		if(4)
+			bg_sound = 'white/valtos/sounds/lifeweb/dreamer_is_still_asleep.ogg'
+			update_bg_sound()
 			dream_mart.block_chance = 0
 			if(our_dreamer?.dna?.species)
 				our_dreamer.dna.species.armor = 5
@@ -140,6 +150,8 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 				our_dreamer.dna.species.punchdamagelow = 10
 				our_dreamer.dna.species.punchdamagehigh = 15
 		if(3)
+			bg_sound = 'white/valtos/sounds/rp3.ogg'
+			update_bg_sound()
 			prob_variability = 7
 			animation_intensity = 10
 			speak_probability = 10
@@ -157,6 +169,8 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 				our_dreamer.dna.species.punchdamagelow = 25
 				our_dreamer.dna.species.punchdamagehigh = 35
 		if(2)
+			bg_sound = 'white/valtos/sounds/rp7.ogg'
+			update_bg_sound()
 			prob_variability = 10
 			animation_intensity = 15
 			speak_probability = 15
@@ -174,6 +188,8 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 				our_dreamer.dna.species.punchdamagelow = 50
 				our_dreamer.dna.species.punchdamagehigh = 75
 		if(1)
+			bg_sound = 'white/valtos/sounds/rp8.ogg'
+			update_bg_sound()
 			prob_variability = 15
 			animation_intensity = 20
 			speak_probability = 20
@@ -192,6 +208,8 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 				our_dreamer.dna.species.punchdamagelow = 100
 				our_dreamer.dna.species.punchdamagehigh = 200
 		if(0 to -INFINITY)
+			bg_sound = 'white/valtos/sounds/burgerking.ogg'
+			update_bg_sound()
 			prob_variability = 20
 			animation_intensity = 25
 			speak_probability = 25
@@ -280,14 +298,61 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 	smashes_tables = TRUE
 	block_chance = 0
 
+
+/datum/martial_art/dreamer/harm_act(mob/living/A, mob/living/D)
+	if(block_chance < 75)
+		return FALSE
+	A.do_attack_animation(D, ATTACK_EFFECT_SMASH)
+	var/atk_verb = pick("УНИЧТОЖАЕТ", "РАЗРЫВАЕТ", "ЛОПАЕТ")
+	D.visible_message(span_danger("<b>[A]</b> [atk_verb] <b>[D]</b>!"), \
+					span_userdanger("<b>[A]</b> [atk_verb] меня!"), \
+					span_hear("Слышу звук разрывающейся плоти!") , null, A)
+	to_chat(A, span_danger("Уничтожаю свинью <b>[D]</b>!"))
+	if(ishuman(D))
+		var/mob/living/carbon/human/victim = D
+		var/obj/item/bodypart/BP = victim.get_bodypart(A.zone_selected)
+		BP.force_wound_upwards(/datum/wound/blunt/critical)
+		victim.apply_damage(200, def_zone = A.zone_selected)
+	else
+		D.gib()
+	if(atk_verb)
+		log_combat(A, D, "[atk_verb] (Dreamer Willpower)")
+	return TRUE
+
+/datum/martial_art/dreamer/grab_act(mob/living/A, mob/living/D)
+	if(A.a_intent == INTENT_GRAB && A != D)
+		if(block_chance < 75)
+			return FALSE
+		A.do_attack_animation(D, ATTACK_EFFECT_SLASH)
+		var/atk_verb = pick("НЕИСТОВО ХВАТАЕТ", "ЯРОСТНО ХВАТАЕТ", "НЕНАВИСТНО ХВАТАЕТ")
+		D.visible_message(span_danger("<b>[A]</b> [atk_verb] <b>[D]</b>!"), \
+						span_userdanger("<b>[A]</b> [atk_verb] меня!"), \
+						span_hear("Слышу звук разрывающейся плоти!") , null, A)
+		to_chat(A, span_danger("Хватаю свинью <b>[D]</b>!"))
+		D.grabbedby(A, TRUE)
+		D.drop_all_held_items()
+		A.setGrabState(GRAB_KILL)
+		if(ishuman(D))
+			var/mob/living/carbon/human/victim = D
+			var/obj/item/bodypart/BP = victim.get_bodypart(A.zone_selected)
+			BP.force_wound_upwards(/datum/wound/blunt/critical)
+		if(atk_verb)
+			log_combat(A, D, "[atk_verb] (Dreamer Willpower)")
+		return TRUE
+	else
+		return FALSE
+
+
 /datum/martial_art/dreamer/disarm_act(mob/living/A, mob/living/D)
+	if(!block_chance)
+		return FALSE
 	A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 	var/atk_verb = pick("лупит", "пинает", "вмазывает")
 	D.visible_message(span_danger("<b>[A]</b> [atk_verb] <b>[D]</b> с НЕВЕРОЯТНОЙ СИЛОЙ!"), \
 					span_userdanger("<b>[A]</b> [atk_verb] меня с НЕВЕРОЯТНОЙ СИЛОЙ!"), \
 					span_hear("Слышу звук разрывающейся плоти!") , null, A)
 	to_chat(A, span_danger("Пинаю свинью <b>[D]</b>!"))
-	if(block_chance >= 25)
+	if(block_chance >= 50)
 		D.apply_damage(rand(5, 10), A.get_attack_type())
 	var/throwtarget = get_edge_target_turf(A, get_dir(A, get_step_away(D, A)))
 	playsound(get_turf(D), 'sound/effects/tableheadsmash.ogg', 50, TRUE, -1)
@@ -303,7 +368,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 	if(!isturf(A.loc) || !prob(block_chance))
 		return BULLET_ACT_HIT
 	else
-		A.visible_message(span_danger("<b>[A]</b> игнорирует попадание [P.name]!"), span_userdanger("Отвергаю существование [P.name]!"))
+		A.visible_message(span_danger("<b>[A]</b> поглощает [P.name]!"), span_userdanger("Отвергаю существование [P.name]!"))
 		qdel(P)
 		return BULLET_ACT_BLOCK
 
