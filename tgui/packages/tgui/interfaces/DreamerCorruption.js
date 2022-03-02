@@ -14,7 +14,7 @@ export const DreamerCorruption = (props, context) => {
     return outString;
   };
 
-  const lineLength = 55;
+  const lineLength = 54;
 
   return (
     <Window
