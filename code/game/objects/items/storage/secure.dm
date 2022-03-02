@@ -152,7 +152,6 @@
 
 /obj/item/storage/secure/briefcase/syndie/PopulateContents()
 	..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	var/obj/item/stack/C = new /obj/item/stack/spacecash/c10000(src)
 	C.amount = 50
 
