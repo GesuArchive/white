@@ -1,13 +1,3 @@
-/obj/item/storage/box/pillpack/hohlomicin
-	name = "Хохломицин"
-	desc = "Таблетки содержат правий сиктор."
-	illustration = "hohlomicin"
-	custom_price = 66
-	blister_list = list(
-						/obj/item/storage/blister/threecap/hohlomicin,
-						/obj/item/storage/blister/threecap/hohlomicin
-						)
-
 /obj/item/storage/box/pillpack/haloperidol
 	name = "Галоперидол"
 	desc = "Шутки кончились."

@@ -2,9 +2,6 @@
 	name = "блистерная упаковка (Стимулянты)"
 	populate_pill_types = list(/obj/item/reagent_containers/pill/stimulant = 2)
 
-/obj/item/storage/blister/threecap/hohlomicin
-	name = "блистерная упаковка (Хохломицин)"
-
 /obj/item/storage/blister/fivecir/haloperidol
 	name = "блистерная упаковка (Галоперидол)"
 
