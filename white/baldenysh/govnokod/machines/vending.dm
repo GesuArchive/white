@@ -35,10 +35,6 @@
 					/obj/item/storage/box/pillpack/psicodine = 2,
 					/obj/item/storage/box/pillpack/aspirin = 3
 					)
-	contraband = list(
-						/obj/item/storage/box/pillpack/hohlomicin = 1
-
-					)
 	premium = list(
 					/obj/item/storage/box/pillpack/stimulant = 1,
 					/obj/item/stack/medical/aloe = 5,
