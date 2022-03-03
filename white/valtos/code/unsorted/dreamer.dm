@@ -12,6 +12,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 	var/speak_probability = 7
 	var/hall_attack_probability = 1
 	var/turf_loop_duration = 3
+	var/weird_sound_prob = 1
 
 	var/bg_sound = 'white/valtos/sounds/lifeweb/dreamer_is_still_asleep.ogg'
 
@@ -35,12 +36,10 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 
 	our_dreamer.sound_environment_override = SOUND_ENVIRONMENT_PSYCHOTIC
 
-	make_weirds()
-
 	dream_mart = new(null)
 	dream_mart.teach(our_dreamer)
 
-	update_grip()
+	make_weirds()
 
 /datum/component/dreamer/proc/make_weirds()
 	SIGNAL_HANDLER
@@ -65,9 +64,9 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 	if(our_dreamer.hud_used)
 		var/atom/movable/plane_master_controller/pm_controller = our_dreamer.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 
-		var/rotation = rand(10, 30)
+		var/rotation = rand(1, 2)
 		for(var/key in pm_controller.controlled_planes)
-			animate(pm_controller.controlled_planes[key], transform = matrix(rotation, MATRIX_ROTATE), time = 5, easing = QUAD_EASING, loop = -1)
+			animate(pm_controller.controlled_planes[key], transform = matrix(rotation, MATRIX_ROTATE), time = 5, easing = QUAD_EASING)
 			animate(transform = matrix(-rotation, MATRIX_ROTATE), time = 5, easing = QUAD_EASING)
 
 /datum/component/dreamer/proc/update_bg_sound()
@@ -101,11 +100,12 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 	if(!our_dreamer?.client)
 		return
 
-	var/list/sounds = our_dreamer.client.SoundQuery()
-	for(var/sound/S in sounds)
-		if(S.len <= 3)
-			make_sound_weird(S.file)
-			sounds = list()
+	if(prob(weird_sound_prob))
+		var/list/sounds = our_dreamer.client.SoundQuery()
+		for(var/sound/S in sounds)
+			if(S.len <= 3)
+				make_sound_weird(S.file)
+				sounds = list()
 
 	var/list/fuckfloorlist = list()
 
@@ -190,6 +190,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			turf_loop_duration = 4
 			fuckscreen_probability = 1
 			dream_mart.block_chance = 25
+			weird_sound_prob = 2
 			if(our_dreamer?.dna?.species)
 				our_dreamer.dna.species.armor = 25
 				our_dreamer.dna.species.brutemod = 0.5
@@ -211,6 +212,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			turf_loop_duration = 5
 			fuckscreen_probability = 5
 			dream_mart.block_chance = 50
+			weird_sound_prob = 3
 			if(our_dreamer?.dna?.species)
 				our_dreamer.dna.species.armor = 50
 				our_dreamer.dna.species.brutemod = 0.3
@@ -233,6 +235,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			fuckscreen_probability = 10
 			dream_mart.block_chance = 75
 			our_dreamer.next_move_modifier = 0.5
+			weird_sound_prob = 4
 			if(our_dreamer?.dna?.species)
 				our_dreamer.dna.species.armor = 75
 				our_dreamer.dna.species.brutemod = 0.1
@@ -255,6 +258,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			dream_mart.block_chance = 100
 			fuckscreen_probability = 30
 			our_dreamer.next_move_modifier = 0
+			weird_sound_prob = 5
 			if(our_dreamer?.dna?.species)
 				our_dreamer.dna.species.armor = 999
 				our_dreamer.dna.species.brutemod = 0.1

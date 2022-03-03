@@ -528,16 +528,16 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	set desc = "Cause an explosion of varying strength at pointed location."
 
 	if(epicenter)
-		drop_bomb(epicenter, src)
+		drop_bomb_proc(epicenter, src)
 
 /client/proc/drop_bomb()
 	set category = "Адм.Веселье"
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
 
-	drop_bomb(null, src)
+	drop_bomb_proc(null, src)
 
-/proc/drop_bomb(twar, client/user)
+/proc/drop_bomb_proc(twar, client/user)
 
 	var/list/choices = list("Small Bomb (1, 2, 3, 3)", "Medium Bomb (2, 3, 4, 4)", "Big Bomb (3, 5, 7, 5)", "Maxcap", "Custom Bomb")
 	var/choice = tgui_input_list(user, "What size explosion would you like to produce? NOTE: You can do all this rapidly and in an IC manner (using cruise missiles!) with the Config/Launch Supplypod verb. WARNING: These ignore the maxcap", "Drop Bomb", choices)
