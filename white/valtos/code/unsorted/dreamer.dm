@@ -250,8 +250,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 
 	to_chat(our_dreamer, span_holoparasite(pick("ДАВАЙ ПОТАНЦУЕМ?!", "НЕ МЕШАЙ!", "ТЫ НЕ НУЖЕН!", "УХОДИ!", "У ТЕБЯ НЕТ ВРЕМЕНИ!", "СДАЙСЯ!", "ТЫ ЭТОГО НЕ ЗАСЛУЖИВАЕШЬ!")))
 
-	var/turf/hall_source = locate(our_dreamer.x + pick(-5, 5), our_dreamer.y + pick(-5, 5), our_dreamer.z)
-	new /datum/hallucination/xeno_attack(hall_source, our_dreamer)
+	new /datum/hallucination/xeno_attack(our_dreamer)
 
 /datum/component/dreamer/proc/speak_from_above(what_we_should_say)
 
