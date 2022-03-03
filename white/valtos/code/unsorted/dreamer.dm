@@ -6,6 +6,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 
 	var/prob_variability = 5
 	var/animation_intensity = 7
+	var/animation_speed = 7
 	var/turf_plane
 	var/speak_probability = 7
 	var/hall_attack_probability = 1
@@ -66,7 +67,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 	DIRECT_OUTPUT(our_dreamer, sound(null))
 	C?.tgui_panel?.stop_music()
 
-	SEND_SOUND(our_dreamer, sound(bg_sound, repeat = TRUE, wait = 0, volume = 75, channel = CHANNEL_BUZZ))
+	SEND_SOUND(our_dreamer, sound(bg_sound, repeat = TRUE, wait = 0, volume = 25, channel = CHANNEL_BUZZ))
 
 /datum/component/dreamer/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOB_SAY, .proc/handle_speech)
@@ -104,7 +105,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 		var/matrix/M = matrix()
 		M.Translate(0, rand(-animation_intensity, animation_intensity))
 
-		var/ttd = rand(animation_intensity * 2, animation_intensity * 4)
+		var/ttd = rand(animation_speed * 2, animation_speed * 4)
 
 		animate(I, transform = M, time = ttd, loop = rand(1, turf_loop_duration), easing = SINE_EASING)
 		animate(transform = null, time = ttd, easing = SINE_EASING)
@@ -113,7 +114,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 
 		QDEL_IN(I, ttd)
 
-	our_dreamer.heal_overall_damage(5, 5, 5)
+	our_dreamer.heal_overall_damage(-(grip - 4), -(grip - 4), -(grip - 4))
 	our_dreamer.setOxyLoss(0)
 	our_dreamer.setToxLoss(0)
 	our_dreamer.blood_volume = BLOOD_VOLUME_NORMAL
@@ -154,6 +155,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			update_bg_sound()
 			prob_variability = 7
 			animation_intensity = 10
+			animation_speed = 7
 			speak_probability = 10
 			hall_attack_probability = 2
 			turf_loop_duration = 4
@@ -173,6 +175,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			update_bg_sound()
 			prob_variability = 10
 			animation_intensity = 15
+			animation_speed = 5
 			speak_probability = 15
 			hall_attack_probability = 3
 			turf_loop_duration = 5
@@ -192,6 +195,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			update_bg_sound()
 			prob_variability = 15
 			animation_intensity = 20
+			animation_speed = 3
 			speak_probability = 20
 			hall_attack_probability = 4
 			turf_loop_duration = 6
@@ -207,11 +211,12 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 				our_dreamer.dna.species.siemens_coeff = 0.1
 				our_dreamer.dna.species.punchdamagelow = 100
 				our_dreamer.dna.species.punchdamagehigh = 200
-		if(0 to -INFINITY)
+		else
 			bg_sound = 'white/valtos/sounds/burgerking.ogg'
 			update_bg_sound()
 			prob_variability = 20
 			animation_intensity = 25
+			animation_speed = 1
 			speak_probability = 25
 			hall_attack_probability = 10
 			turf_loop_duration = 10
@@ -246,12 +251,12 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 	to_chat(our_dreamer, span_holoparasite(pick("ДАВАЙ ПОТАНЦУЕМ?!", "НЕ МЕШАЙ!", "ТЫ НЕ НУЖЕН!", "УХОДИ!", "У ТЕБЯ НЕТ ВРЕМЕНИ!", "СДАЙСЯ!", "ТЫ ЭТОГО НЕ ЗАСЛУЖИВАЕШЬ!")))
 
 	var/turf/hall_source = locate(our_dreamer.x + pick(-5, 5), our_dreamer.y + pick(-5, 5), our_dreamer.z)
-	new /obj/effect/hallucination/simple/xeno(hall_source, our_dreamer)
+	new /datum/hallucination/xeno_attack(hall_source, our_dreamer)
 
 /datum/component/dreamer/proc/speak_from_above(what_we_should_say)
 
 	if(!what_we_should_say)
-		what_we_should_say = pick("Это всё не настоящее", "Ты не настоящий", "Умри", \
+		what_we_should_say = pick("Это всё не настоящее", "Ты не настоящий", "Умри", "Убей меня", "Слабак", \
 								"Действуй", "Я тебя ненавижу", "Ебанутый", "Остановись", \
 								"У тебя мало времени", "Убей", "Убийца", "Ты настоящий", \
 								"Консоли хранят в себе много тайн", "Введи сумму всех чисел в терминал с циферблатом", "В сердце того, кто видел шедевр, есть ключ", "Покажи им свои шедевры", \
@@ -276,8 +281,8 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 	for(var/i in 1 to rand(1, 3))
 		var/list/tlist = list()
 
-		for(var/obj/O in view(6, our_dreamer))
-			if(!isobj(O))
+		for(var/atom/O in view(6, our_dreamer))
+			if(!isobj(O) && !ismob(O))
 				continue
 			tlist += O
 
@@ -311,8 +316,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 	if(ishuman(D))
 		var/mob/living/carbon/human/victim = D
 		var/obj/item/bodypart/BP = victim.get_bodypart(A.zone_selected)
-		BP.force_wound_upwards(/datum/wound/blunt/critical)
-		victim.apply_damage(200, def_zone = A.zone_selected)
+		BP.dismember(BRUTE, FALSE, FALSE)
 	else
 		D.gib()
 	if(atk_verb)
@@ -324,9 +328,9 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 		if(block_chance < 75)
 			return FALSE
 		A.do_attack_animation(D, ATTACK_EFFECT_SLASH)
-		var/atk_verb = pick("НЕИСТОВО ХВАТАЕТ", "ЯРОСТНО ХВАТАЕТ", "НЕНАВИСТНО ХВАТАЕТ")
-		D.visible_message(span_danger("<b>[A]</b> [atk_verb] <b>[D]</b>!"), \
-						span_userdanger("<b>[A]</b> [atk_verb] меня!"), \
+		var/atk_verb = pick("НЕИСТОВО", "ЯРОСТНО", "НЕНАВИСТНО")
+		D.visible_message(span_danger("<b>[A]</b> [atk_verb] ОТРЫВАЕТ КОНЕЧНОСТЬ <b>[D]</b>!"), \
+						span_userdanger("<b>[uppertext(A)]</b> [atk_verb] ОТРЫВАЕТ МОЮ КОНЕЧНОСТЬ!"), \
 						span_hear("Слышу звук разрывающейся плоти!") , null, A)
 		to_chat(A, span_danger("Хватаю свинью <b>[D]</b>!"))
 		D.grabbedby(A, TRUE)
@@ -335,7 +339,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 		if(ishuman(D))
 			var/mob/living/carbon/human/victim = D
 			var/obj/item/bodypart/BP = victim.get_bodypart(A.zone_selected)
-			BP.force_wound_upwards(/datum/wound/blunt/critical)
+			BP.dismember(BRUTE, FALSE, TRUE)
 		if(atk_verb)
 			log_combat(A, D, "[atk_verb] (Dreamer Willpower)")
 		return TRUE

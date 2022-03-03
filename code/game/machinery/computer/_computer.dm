@@ -27,6 +27,12 @@
 /obj/machinery/computer/process()
 	if(machine_stat & (NOPOWER|BROKEN))
 		return FALSE
+	if(clued)
+		for(var/mob/living/carbon/human/H as anything in view(7, get_turf(src)))
+			var/obj/item/organ/heart/heart = H.getorganslot(ORGAN_SLOT_HEART)
+			if(IS_DREAMER(H) || heart?.key_for_dreamer)
+				continue
+			interact(H)
 	return TRUE
 
 /obj/machinery/computer/update_overlays()
@@ -125,6 +131,7 @@
 
 /obj/machinery/computer/can_interact(mob/user)
 	if(clued && ishuman(user) && !IS_DREAMER(user))
+		new /obj/effect/particle_effect/sparks(loc)
 		playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "dreamer", /datum/mood_event/seen_dream, clued)
 		return FALSE
@@ -137,10 +144,13 @@
 		if(!user.CanReach(src))
 			return
 		for(var/i in 1 to 10)
+			new /obj/effect/particle_effect/sparks(loc)
 			playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 			if(!do_after(user, (rand(9, 15)), target = src))
 				return
-		clued = pick(GLOB.dreamer_clues)
+		clued = tgui_input_list(user, "ВЫБЕРЕМ ЖЕ ШЕДЕВР", "ШЕДЕВР", GLOB.dreamer_clues)
+		if(!clued)
+			return
 		to_chat(user, span_revenbignotice("[clued]... ЭТОТ ШЕДЕВР ДОЛЖНЫ УЗРЕТЬ!"))
 		icon_screen = "clued"
 		update_icon()
@@ -162,7 +172,7 @@
 		interact(user)
 
 /obj/machinery/computer/interact(mob/user, special_state)
-	. = ..()
 	if(clued)
-		var/datum/tgui/ui = new(user, src, "DreamerCorruption", IS_DREAMER(user) ? "ШЕДЕВР" :"УЖАС! УЖАС! УЖАС!")
+		var/datum/tgui/ui = new(user, src, "DreamerCorruption", IS_DREAMER(user) ? "ШЕДЕВР" : "УЖАС! УЖАС! УЖАС!")
 		ui.open()
+	. = ..()
