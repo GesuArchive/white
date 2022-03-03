@@ -10,10 +10,12 @@
 		return
 
 	if (user.layer != ABOVE_NORMAL_TURF_LAYER)
+		user.plane = GAME_PLANE
 		user.layer = ABOVE_NORMAL_TURF_LAYER
 		user.visible_message(span_name("[user] scurries to the ground!") , \
 						span_noticealien("You are now hiding."))
 	else
+		user.plane = GAME_PLANE_FOV_HIDDEN
 		user.layer = MOB_LAYER
 		user.visible_message(span_notice("[user] slowly peeks up from the ground...") , \
 					span_noticealien("You stop hiding."))
