@@ -51,7 +51,7 @@
 			span_notice("[user] успешно удалил некоторую инфицированную плоть с [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
 			playsound(get_turf(target), 'sound/surgery/retractor2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 		log_combat(user, target, "excised infected flesh in", addition="INTENT: [uppertext(user.a_intent)]")
-		surgery.operated_bodypart.receive_damage(brute=3, wound_bonus=CANT_WOUND)
+		surgery.operated_bodypart?.receive_damage(brute=3, wound_bonus=CANT_WOUND)
 		burn_wound.infestation -= 0.5
 		burn_wound.sanitization += 0.5
 		if(burn_wound.infestation <= 0)
