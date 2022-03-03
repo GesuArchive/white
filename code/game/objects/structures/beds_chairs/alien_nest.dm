@@ -67,12 +67,14 @@
 /obj/structure/bed/nest/post_buckle_mob(mob/living/M)
 	M.pixel_y = M.base_pixel_y
 	M.pixel_x = M.base_pixel_x + 2
+	M.plane = GAME_PLANE
 	M.layer = BELOW_MOB_LAYER
 	add_overlay(nest_overlay)
 
 /obj/structure/bed/nest/post_unbuckle_mob(mob/living/M)
 	M.pixel_x = M.base_pixel_x + M.body_position_pixel_x_offset
 	M.pixel_y = M.base_pixel_y + M.body_position_pixel_y_offset
+	M.plane = initial(M.plane)
 	M.layer = initial(M.layer)
 	cut_overlay(nest_overlay)
 
