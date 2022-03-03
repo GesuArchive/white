@@ -19,6 +19,7 @@
 /obj/machinery/computer/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
 
+	AddElement(/datum/element/climbable)
 	power_change()
 
 /obj/machinery/computer/Destroy()
