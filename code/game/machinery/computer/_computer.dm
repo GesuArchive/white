@@ -29,6 +29,8 @@
 		return FALSE
 	if(clued)
 		for(var/mob/living/carbon/human/H as anything in view(7, get_turf(src)))
+			if(!ishuman(H))
+				continue
 			var/obj/item/organ/heart/heart = H.getorganslot(ORGAN_SLOT_HEART)
 			if(IS_DREAMER(H) || heart?.key_for_dreamer)
 				continue
