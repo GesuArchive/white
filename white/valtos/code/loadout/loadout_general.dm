@@ -102,14 +102,14 @@
 	allowed_roles = list("Field Medic", "Paramedic", "Medical Doctor", "Chief Medical Officer")
 	cost = 100
 
-/datum/gear/cash500
-	display_name = "500 кредитов"
+/datum/gear/cash1000
+	display_name = "1000 кредитов"
 	description = "Бюджет на все первостепенные нужды."
-	path = /obj/item/stack/spacecash/c500
-	cost = 25
+	path = /obj/item/stack/spacecash/c1000
+	cost = 250
 
-/datum/gear/cash500 // just because
+/datum/gear/cash10000 // just because
 	display_name = "10000 кредитов"
 	description = "Объёмный вклад своих органов в будущее станции."
 	path = /obj/item/stack/spacecash/c10000
-	cost = 3200
+	cost = 850
