@@ -7,7 +7,8 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 	var/prob_variability = 5
 	var/animation_intensity = 7
 	var/animation_speed = 7
-	var/turf_plane
+	var/turf_plane = FLOOR_PLANE
+	var/fuckscreen_probability = 1
 	var/speak_probability = 7
 	var/hall_attack_probability = 1
 	var/turf_loop_duration = 3
@@ -36,10 +37,10 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 
 	make_weirds()
 
-	update_grip()
-
 	dream_mart = new(null)
 	dream_mart.teach(our_dreamer)
+
+	update_grip()
 
 /datum/component/dreamer/proc/make_weirds()
 	SIGNAL_HANDLER
@@ -59,6 +60,15 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 
 	if(our_dreamer?.hud_used)
 		our_dreamer.hud_used.update_parallax_pref(our_dreamer, 1)
+
+/datum/component/dreamer/proc/fuck_screen()
+	if(our_dreamer.hud_used)
+		var/atom/movable/plane_master_controller/pm_controller = our_dreamer.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+
+		var/rotation = rand(10, 30)
+		for(var/key in pm_controller.controlled_planes)
+			animate(pm_controller.controlled_planes[key], transform = matrix(rotation, MATRIX_ROTATE), time = 5, easing = QUAD_EASING, loop = -1)
+			animate(transform = matrix(-rotation, MATRIX_ROTATE), time = 5, easing = QUAD_EASING)
 
 /datum/component/dreamer/proc/update_bg_sound()
 
@@ -88,6 +98,14 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 	return ..()
 
 /datum/component/dreamer/process(delta_time)
+	if(!our_dreamer?.client)
+		return
+
+	var/list/sounds = our_dreamer.client.SoundQuery()
+	for(var/sound/S in sounds)
+		if(S.len <= 3)
+			make_sound_weird(S.file)
+			sounds = list()
 
 	var/list/fuckfloorlist = list()
 
@@ -96,23 +114,24 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			continue
 		if(isgroundlessturf(T))
 			continue
-		var/image/I = image(icon = T.icon, icon_state = T.icon_state, loc = T)
+		var/image/turf_img = image(icon = T.icon, icon_state = T.icon_state, loc = T)
 
-		I.alpha = rand(200, 255)
-		I.copy_overlays(T)
-		I.plane = turf_plane ? turf_plane : T.plane
+		turf_img.alpha = rand(200, 255)
+		turf_img.copy_overlays(T)
+		turf_img.plane = turf_plane ? turf_plane : T.plane
 
 		var/matrix/M = matrix()
 		M.Translate(0, rand(-animation_intensity, animation_intensity))
 
 		var/ttd = rand(animation_speed * 2, animation_speed * 4)
 
-		animate(I, transform = M, time = ttd, loop = rand(1, turf_loop_duration), easing = SINE_EASING)
+		animate(turf_img, transform = M, time = ttd, loop = rand(1, turf_loop_duration), easing = SINE_EASING)
 		animate(transform = null, time = ttd, easing = SINE_EASING)
 
-		fuckfloorlist += I
+		fuckfloorlist += turf_img
 
-		QDEL_IN(I, ttd)
+		if(our_dreamer?.client)
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_image_from_client, turf_img, our_dreamer.client), ttd)
 
 	our_dreamer.heal_overall_damage(-(grip - 4), -(grip - 4), -(grip - 4))
 	our_dreamer.setOxyLoss(0)
@@ -125,6 +144,9 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			our_dreamer.clear_cuffs(O, TRUE)
 			playsound(get_turf(our_dreamer), 'sound/effects/grillehit.ogg', 80, 1, -1)
 
+	if(prob(fuckscreen_probability))
+		fuck_screen()
+
 	if(prob(speak_probability))
 		speak_from_above()
 
@@ -133,6 +155,13 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 
 	if(our_dreamer?.client)
 		our_dreamer.client.images |= fuckfloorlist
+
+/datum/component/dreamer/proc/make_sound_weird(soundfile)
+	var/sound/sound = sound(soundfile)
+	sound.environment = 23
+	sound.volume = rand(25,100)
+	sound.frequency = rand(10000,70000)
+	SEND_SOUND(our_dreamer.client, sound)
 
 /datum/component/dreamer/proc/update_grip()
 	switch(grip)
@@ -159,6 +188,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			speak_probability = 10
 			hall_attack_probability = 2
 			turf_loop_duration = 4
+			fuckscreen_probability = 1
 			dream_mart.block_chance = 25
 			if(our_dreamer?.dna?.species)
 				our_dreamer.dna.species.armor = 25
@@ -179,6 +209,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			speak_probability = 15
 			hall_attack_probability = 3
 			turf_loop_duration = 5
+			fuckscreen_probability = 5
 			dream_mart.block_chance = 50
 			if(our_dreamer?.dna?.species)
 				our_dreamer.dna.species.armor = 50
@@ -199,6 +230,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			speak_probability = 20
 			hall_attack_probability = 4
 			turf_loop_duration = 6
+			fuckscreen_probability = 10
 			dream_mart.block_chance = 75
 			our_dreamer.next_move_modifier = 0.5
 			if(our_dreamer?.dna?.species)
@@ -221,6 +253,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			hall_attack_probability = 10
 			turf_loop_duration = 10
 			dream_mart.block_chance = 100
+			fuckscreen_probability = 30
 			our_dreamer.next_move_modifier = 0
 			if(our_dreamer?.dna?.species)
 				our_dreamer.dna.species.armor = 999
@@ -306,6 +339,8 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 /datum/martial_art/dreamer/harm_act(mob/living/A, mob/living/D)
 	if(block_chance < 75)
 		return FALSE
+	if(A.a_intent != INTENT_HARM || A == D)
+		return FALSE
 	A.do_attack_animation(D, ATTACK_EFFECT_SMASH)
 	var/atk_verb = pick("УНИЧТОЖАЕТ", "РАЗРЫВАЕТ", "ЛОПАЕТ")
 	D.visible_message(span_danger("<b>[A]</b> [atk_verb] <b>[D]</b>!"), \
@@ -347,6 +382,8 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 
 
 /datum/martial_art/dreamer/disarm_act(mob/living/A, mob/living/D)
+	if(A.a_intent != INTENT_DISARM || A == D)
+		return FALSE
 	if(!block_chance)
 		return FALSE
 	A.do_attack_animation(D, ATTACK_EFFECT_KICK)
