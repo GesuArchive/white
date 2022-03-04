@@ -133,7 +133,6 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 		if(our_dreamer?.client)
 			addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_image_from_client, turf_img, our_dreamer.client), ttd)
 
-	our_dreamer.heal_overall_damage(-(grip - 4), -(grip - 4), -(grip - 4))
 	our_dreamer.setOxyLoss(0)
 	our_dreamer.setToxLoss(0)
 	our_dreamer.blood_volume = BLOOD_VOLUME_NORMAL
@@ -192,15 +191,15 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			dream_mart.block_chance = 25
 			weird_sound_prob = 2
 			if(our_dreamer?.dna?.species)
-				our_dreamer.dna.species.armor = 25
-				our_dreamer.dna.species.brutemod = 0.5
-				our_dreamer.dna.species.burnmod = 0.5
-				our_dreamer.dna.species.heatmod = 0.5
-				our_dreamer.dna.species.coldmod = 0.5
-				our_dreamer.dna.species.stunmod = 0.5
-				our_dreamer.dna.species.siemens_coeff = 0.5
-				our_dreamer.dna.species.punchdamagelow = 25
-				our_dreamer.dna.species.punchdamagehigh = 35
+				our_dreamer.dna.species.armor = 15
+				our_dreamer.dna.species.brutemod = 0.7
+				our_dreamer.dna.species.burnmod = 0.7
+				our_dreamer.dna.species.heatmod = 0.7
+				our_dreamer.dna.species.coldmod = 0.7
+				our_dreamer.dna.species.stunmod = 0.7
+				our_dreamer.dna.species.siemens_coeff = 0.7
+				our_dreamer.dna.species.punchdamagelow = 15
+				our_dreamer.dna.species.punchdamagehigh = 20
 		if(2)
 			bg_sound = 'white/valtos/sounds/rp7.ogg'
 			update_bg_sound()
@@ -214,15 +213,15 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			dream_mart.block_chance = 50
 			weird_sound_prob = 3
 			if(our_dreamer?.dna?.species)
-				our_dreamer.dna.species.armor = 50
-				our_dreamer.dna.species.brutemod = 0.3
-				our_dreamer.dna.species.burnmod = 0.3
-				our_dreamer.dna.species.heatmod = 0.3
-				our_dreamer.dna.species.coldmod = 0.3
-				our_dreamer.dna.species.stunmod = 0.3
-				our_dreamer.dna.species.siemens_coeff = 0.3
-				our_dreamer.dna.species.punchdamagelow = 50
-				our_dreamer.dna.species.punchdamagehigh = 75
+				our_dreamer.dna.species.armor = 20
+				our_dreamer.dna.species.brutemod = 0.5
+				our_dreamer.dna.species.burnmod = 0.5
+				our_dreamer.dna.species.heatmod = 0.5
+				our_dreamer.dna.species.coldmod = 0.5
+				our_dreamer.dna.species.stunmod = 0.5
+				our_dreamer.dna.species.siemens_coeff = 0.5
+				our_dreamer.dna.species.punchdamagelow = 15
+				our_dreamer.dna.species.punchdamagehigh = 20
 		if(1)
 			bg_sound = 'white/valtos/sounds/rp8.ogg'
 			update_bg_sound()
@@ -237,15 +236,15 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			our_dreamer.next_move_modifier = 0.5
 			weird_sound_prob = 4
 			if(our_dreamer?.dna?.species)
-				our_dreamer.dna.species.armor = 75
-				our_dreamer.dna.species.brutemod = 0.1
-				our_dreamer.dna.species.burnmod = 0.1
-				our_dreamer.dna.species.heatmod = 0.1
-				our_dreamer.dna.species.coldmod = 0.1
-				our_dreamer.dna.species.stunmod = 0.1
-				our_dreamer.dna.species.siemens_coeff = 0.1
-				our_dreamer.dna.species.punchdamagelow = 100
-				our_dreamer.dna.species.punchdamagehigh = 200
+				our_dreamer.dna.species.armor = 40
+				our_dreamer.dna.species.brutemod = 0.3
+				our_dreamer.dna.species.burnmod = 0.3
+				our_dreamer.dna.species.heatmod = 0.3
+				our_dreamer.dna.species.coldmod = 0.3
+				our_dreamer.dna.species.stunmod = 0.3
+				our_dreamer.dna.species.siemens_coeff = 0.3
+				our_dreamer.dna.species.punchdamagelow = 20
+				our_dreamer.dna.species.punchdamagehigh = 40
 		else
 			bg_sound = 'white/valtos/sounds/burgerking.ogg'
 			update_bg_sound()
