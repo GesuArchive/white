@@ -21,7 +21,7 @@
 			ban["ckey"] = ckey
 
 			if (get_stickyban_from_ckey(ckey))
-				to_chat(usr, span_adminnotice("Error: Can not add a stickyban: User already has a current sticky ban") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: Can not add a stickyban: User already has a current sticky ban"))
 				return
 
 			if (data["reason"])
@@ -59,12 +59,12 @@
 
 			var/ban = get_stickyban_from_ckey(ckey)
 			if (!ban)
-				to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!"))
 				return
 			if (tgui_alert(usr,"Are you sure you want to remove the sticky ban on [ckey]?","Are you sure",list("Yes","No")) == "No")
 				return
 			if (!get_stickyban_from_ckey(ckey))
-				to_chat(usr, span_adminnotice("Error: The ban disappeared.") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: The ban disappeared."))
 				return
 			world.SetConfig("ban",ckey, null)
 			SSstickyban.cache -= ckey
@@ -90,12 +90,12 @@
 			var/alt = ckey(data["alt"])
 			var/ban = get_stickyban_from_ckey(ckey)
 			if (!ban)
-				to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!"))
 				return
 
 			var/key = LAZYACCESS(ban["keys"], alt)
 			if (!key)
-				to_chat(usr, span_adminnotice("Error: [alt] is not linked to [ckey] sticky ban!") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: [alt] is not linked to [ckey] sticky ban!"))
 				return
 
 			if (tgui_alert(usr,"Are you sure you want to disassociate [alt] from [ckey]'s sticky ban? \nNote: Nothing stops byond from re-linking them, Use \[E] to exempt them","Are you sure",list("Yes","No")) == "No")
@@ -104,13 +104,13 @@
 			//we have to do this again incase something changes
 			ban = get_stickyban_from_ckey(ckey)
 			if (!ban)
-				to_chat(usr, span_adminnotice("Error: The ban disappeared.") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: The ban disappeared."))
 				return
 
 			key = LAZYACCESS(ban["keys"], alt)
 
 			if (!key)
-				to_chat(usr, span_adminnotice("Error: [alt] link to [ckey] sticky ban disappeared.") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: [alt] link to [ckey] sticky ban disappeared."))
 				return
 
 			LAZYREMOVE(ban["keys"], alt)
@@ -135,7 +135,7 @@
 			var/ckey = data["ckey"]
 			var/ban = get_stickyban_from_ckey(ckey)
 			if (!ban)
-				to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!"))
 				return
 			var/oldreason = ban["message"]
 			var/reason = input(usr,"Reason","Reason","[ban["message"]]") as text|null
@@ -144,7 +144,7 @@
 			//we have to do this again incase something changed while we waited for input
 			ban = get_stickyban_from_ckey(ckey)
 			if (!ban)
-				to_chat(usr, span_adminnotice("Error: The ban disappeared.") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: The ban disappeared."))
 				return
 			ban["message"] = "[reason]"
 
@@ -172,12 +172,12 @@
 			var/alt = ckey(data["alt"])
 			var/ban = get_stickyban_from_ckey(ckey)
 			if (!ban)
-				to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!"))
 				return
 
 			var/key = LAZYACCESS(ban["keys"], alt)
 			if (!key)
-				to_chat(usr, span_adminnotice("Error: [alt] is not linked to [ckey] sticky ban!") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: [alt] is not linked to [ckey] sticky ban!"))
 				return
 
 			if (tgui_alert(usr,"Are you sure you want to exempt [alt] from [ckey]'s sticky ban?","Are you sure",list("Yes","No")) == "No")
@@ -186,13 +186,13 @@
 			//we have to do this again incase something changes
 			ban = get_stickyban_from_ckey(ckey)
 			if (!ban)
-				to_chat(usr, span_adminnotice("Error: The ban disappeared.") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: The ban disappeared."))
 				return
 
 			key = LAZYACCESS(ban["keys"], alt)
 
 			if (!key)
-				to_chat(usr, span_adminnotice("Error: [alt] link to [ckey] sticky ban disappeared.") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: [alt] link to [ckey] sticky ban disappeared."))
 				return
 			LAZYREMOVE(ban["keys"], alt)
 			key["exempt"] = TRUE
@@ -222,12 +222,12 @@
 			var/alt = ckey(data["alt"])
 			var/ban = get_stickyban_from_ckey(ckey)
 			if (!ban)
-				to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!"))
 				return
 
 			var/key = LAZYACCESS(ban["whitelist"], alt)
 			if (!key)
-				to_chat(usr, span_adminnotice("Error: [alt] is not exempt from [ckey] sticky ban!") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: [alt] is not exempt from [ckey] sticky ban!"))
 				return
 
 			if (tgui_alert(usr,"Are you sure you want to unexempt [alt] from [ckey]'s sticky ban?","Are you sure",list("Yes","No")) == "No")
@@ -236,12 +236,12 @@
 			//we have to do this again incase something changes
 			ban = get_stickyban_from_ckey(ckey)
 			if (!ban)
-				to_chat(usr, span_adminnotice("Error: The ban disappeared.") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: The ban disappeared."))
 				return
 
 			key = LAZYACCESS(ban["whitelist"], alt)
 			if (!key)
-				to_chat(usr, span_adminnotice("Error: [alt] exemption from [ckey] sticky ban disappeared.") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: [alt] exemption from [ckey] sticky ban disappeared."))
 				return
 
 			LAZYREMOVE(ban["whitelist"], alt)
@@ -267,7 +267,7 @@
 			if (!data["ckey"])
 				return
 			if (!SSdbcore.Connect())
-				to_chat(usr, span_adminnotice("No database connection!") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("No database connection!"))
 				return
 
 			var/ckey = data["ckey"]
@@ -276,7 +276,7 @@
 				return
 			var/ban = get_stickyban_from_ckey(ckey)
 			if (!ban)
-				to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!"))
 				return
 
 			ban["timeout"] = TRUE
@@ -294,7 +294,7 @@
 			if (!data["ckey"])
 				return
 			if (!SSdbcore.Connect())
-				to_chat(usr, span_adminnotice("No database connection!") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("No database connection!"))
 				return
 			var/ckey = data["ckey"]
 
@@ -307,7 +307,7 @@
 				cachedban["timeout"] = FALSE
 			if (!ban)
 				if (!cachedban)
-					to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!") , confidential = TRUE)
+					to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!"))
 					return
 				ban = cachedban
 
@@ -327,11 +327,11 @@
 				return
 			var/ban = get_stickyban_from_ckey(ckey)
 			if (!ban)
-				to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: No sticky ban for [ckey] found!"))
 				return
 			var/cached_ban = SSstickyban.cache[ckey]
 			if (!cached_ban)
-				to_chat(usr, span_adminnotice("Error: No cached sticky ban for [ckey] found!") , confidential = TRUE)
+				to_chat(usr, span_adminnotice("Error: No cached sticky ban for [ckey] found!"))
 			world.SetConfig("ban",ckey,null)
 
 			log_admin_private("[key_name(usr)] has reverted [ckey] sticky ban to its state at round start.")

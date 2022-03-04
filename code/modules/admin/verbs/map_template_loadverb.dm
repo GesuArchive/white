@@ -45,7 +45,7 @@
 
 			message_admins(span_adminnotice("[key_name_admin(src)] has placed a map template ([template.name]) at [ADMIN_COORDJMP(T)]"))
 		else
-			to_chat(src, "Failed to place map", confidential = TRUE)
+			to_chat(src, "Failed to place map")
 	images -= preview
 
 /client/proc/map_template_upload()
@@ -56,7 +56,7 @@
 	if(!map)
 		return
 	if(copytext("[map]", -4) != ".dmm")//4 == length(".dmm")
-		to_chat(src, span_warning("Filename must end in '.dmm': [map]") , confidential = TRUE)
+		to_chat(src, span_warning("Filename must end in '.dmm': [map]"))
 		return
 	var/datum/map_template/M
 	switch(tgui_alert(usr, "What kind of map is this?", "Map type", list("Normal", "Shuttle", "Cancel")))
@@ -67,7 +67,7 @@
 		else
 			return
 	if(!M.cached_map)
-		to_chat(src, span_warning("Map template '[map]' failed to parse properly.") , confidential = TRUE)
+		to_chat(src, span_warning("Map template '[map]' failed to parse properly."))
 		return
 
 	var/datum/map_report/report = M.cached_map.check_for_errors()
@@ -75,7 +75,7 @@
 	if(report)
 		report.show_to(src)
 		report_link = " - <a href='?src=[REF(report)];[HrefToken(TRUE)];show=1'>validation report</a>"
-		to_chat(src, span_warning("Map template '[map]' <a href='?src=[REF(report)];[HrefToken()];show=1'>failed validation</a>.") , confidential = TRUE)
+		to_chat(src, span_warning("Map template '[map]' <a href='?src=[REF(report)];[HrefToken()];show=1'>failed validation</a>."))
 		if(report.loadable)
 			var/response = tgui_alert(usr, "The map failed validation, would you like to load it anyways?", "Map Errors", list("Cancel", "Upload Anyways"))
 			if(response != "Upload Anyways")
@@ -86,4 +86,4 @@
 
 	SSmapping.map_templates[M.name] = M
 	message_admins(span_adminnotice("[key_name_admin(src)] has uploaded a map template '[map]' ([M.width]x[M.height])[report_link]."))
-	to_chat(src, span_notice("Map template '[map]' ready to place ([M.width]x[M.height])") , confidential = TRUE)
+	to_chat(src, span_notice("Map template '[map]' ready to place ([M.width]x[M.height])"))

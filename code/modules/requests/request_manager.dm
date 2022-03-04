@@ -117,13 +117,13 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 
 	// Only admins should be sending actions
 	if (!check_rights(R_ADMIN))
-		to_chat(usr, "You do not have permission to do this, you require +ADMIN", confidential = TRUE)
+		to_chat(usr, "You do not have permission to do this, you require +ADMIN")
 		return
 
 	// Get the request this relates to
 	var/id = params["id"] != null ? text2num(params["id"]) : null
 	if (!id)
-		to_chat(usr, "Failed to find a request ID in your action, please report this", confidential = TRUE)
+		to_chat(usr, "Failed to find a request ID in your action, please report this")
 		CRASH("Received an action without a request ID, this shouldn't happen!")
 	var/datum/request/request = !id ? null : requests_by_id[id]
 
@@ -152,7 +152,7 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 			if(!ismob(M))
 				var/datum/mind/D = M
 				if(!istype(D))
-					to_chat(usr, "This can only be used on instances of type /mob and /mind", confidential = TRUE)
+					to_chat(usr, "This can only be used on instances of type /mob and /mind")
 					return TRUE
 				else
 					D.traitor_panel()
@@ -163,30 +163,30 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 		if ("logs")
 			var/mob/M = request.owner?.mob
 			if(!ismob(M))
-				to_chat(usr, "This can only be used on instances of type /mob.", confidential = TRUE)
+				to_chat(usr, "This can only be used on instances of type /mob.")
 				return TRUE
 			show_individual_logging_panel(M, null, null)
 			return TRUE
 		if ("smite")
 			if(!check_rights(R_FUN))
-				to_chat(usr, "Insufficient permissions to smite, you require +FUN", confidential = TRUE)
+				to_chat(usr, "Insufficient permissions to smite, you require +FUN")
 				return TRUE
 			var/mob/living/carbon/human/H = request.owner?.mob
 			if (!H || !istype(H))
-				to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human", confidential = TRUE)
+				to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
 				return TRUE
 			usr.client.smite(H)
 			return TRUE
 		if ("rply")
 			if (request.req_type == REQUEST_PRAYER)
-				to_chat(usr, "Cannot reply to a prayer", confidential = TRUE)
+				to_chat(usr, "Cannot reply to a prayer")
 				return TRUE
 			var/mob/M = request.owner?.mob
 			usr.client.admin_headset_message(M, request.req_type == REQUEST_SYNDICATE ? RADIO_CHANNEL_SYNDICATE : RADIO_CHANNEL_CENTCOM)
 			return TRUE
 		if ("setcode")
 			if (request.req_type != REQUEST_NUKE)
-				to_chat(usr, "You cannot set the nuke code for a non-nuke-code-request request!", confidential = TRUE)
+				to_chat(usr, "You cannot set the nuke code for a non-nuke-code-request request!")
 				return TRUE
 			var/code = random_nukecode()
 			for(var/obj/machinery/nuclearbomb/selfdestruct/SD in GLOB.nuke_list)

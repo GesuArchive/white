@@ -41,7 +41,7 @@
 	var/var_value = O.vars[variable]
 
 	if(variable in GLOB.VVckey_edit)
-		to_chat(src, "It's forbidden to mass-modify ckeys. It'll crash everyone's client you dummy.", confidential = TRUE)
+		to_chat(src, "It's forbidden to mass-modify ckeys. It'll crash everyone's client you dummy.")
 		return
 	if(variable in GLOB.VVlocked)
 		if(!check_rights(R_DEBUG))
@@ -59,11 +59,11 @@
 	default = vv_get_class(variable, var_value)
 
 	if(isnull(default))
-		to_chat(src, "Unable to determine variable type.", confidential = TRUE)
+		to_chat(src, "Unable to determine variable type.")
 	else
-		to_chat(src, "Variable appears to be <b>[uppertext(default)]</b>.", confidential = TRUE)
+		to_chat(src, "Variable appears to be <b>[uppertext(default)]</b>.")
 
-	to_chat(src, "Variable contains: [var_value]", confidential = TRUE)
+	to_chat(src, "Variable contains: [var_value]")
 
 	if(default == VV_NUM)
 		var/dir_text = ""
@@ -78,7 +78,7 @@
 				dir_text += "WEST"
 
 		if(dir_text)
-			to_chat(src, "If a direction, direction is: [dir_text]", confidential = TRUE)
+			to_chat(src, "If a direction, direction is: [dir_text]")
 
 	var/value = vv_get_value(default_class = default)
 	var/new_value = value["value"]
@@ -100,9 +100,9 @@
 
 	switch(class)
 		if(VV_RESTORE_DEFAULT)
-			to_chat(src, "Finding items...", confidential = TRUE)
+			to_chat(src, "Finding items...")
 			var/list/items = get_all_of_type(O.type, method)
-			to_chat(src, "Changing [items.len] items...", confidential = TRUE)
+			to_chat(src, "Changing [items.len] items...")
 			for(var/thing in items)
 				if (!thing)
 					continue
@@ -126,9 +126,9 @@
 					for(var/V in varsvars)
 						new_value = replacetext(new_value,"\[[V]]","[O.vars[V]]")
 
-			to_chat(src, "Finding items...", confidential = TRUE)
+			to_chat(src, "Finding items...")
 			var/list/items = get_all_of_type(O.type, method)
-			to_chat(src, "Changing [items.len] items...", confidential = TRUE)
+			to_chat(src, "Changing [items.len] items...")
 			for(var/thing in items)
 				if (!thing)
 					continue
@@ -154,9 +154,9 @@
 				many = FALSE
 
 			var/type = value["type"]
-			to_chat(src, "Finding items...", confidential = TRUE)
+			to_chat(src, "Finding items...")
 			var/list/items = get_all_of_type(O.type, method)
-			to_chat(src, "Changing [items.len] items...", confidential = TRUE)
+			to_chat(src, "Changing [items.len] items...")
 			for(var/thing in items)
 				if (!thing)
 					continue
@@ -172,9 +172,9 @@
 				CHECK_TICK
 
 		else
-			to_chat(src, "Finding items...", confidential = TRUE)
+			to_chat(src, "Finding items...")
 			var/list/items = get_all_of_type(O.type, method)
-			to_chat(src, "Changing [items.len] items...", confidential = TRUE)
+			to_chat(src, "Changing [items.len] items...")
 			for(var/thing in items)
 				if (!thing)
 					continue
@@ -188,13 +188,13 @@
 
 	var/count = rejected+accepted
 	if (!count)
-		to_chat(src, "No objects found", confidential = TRUE)
+		to_chat(src, "No objects found")
 		return
 	if (!accepted)
-		to_chat(src, "Every object rejected your edit", confidential = TRUE)
+		to_chat(src, "Every object rejected your edit")
 		return
 	if (rejected)
-		to_chat(src, "[rejected] out of [count] objects rejected your edit", confidential = TRUE)
+		to_chat(src, "[rejected] out of [count] objects rejected your edit")
 
 	log_world("### MassVarEdit by [src]: [O.type] (A/R [accepted]/[rejected]) [variable]=[html_encode("[O.vars[variable]]")]([list2params(value)])")
 	log_admin("[key_name(src)] mass modified [original_name] [variable] to [O.vars[variable]] ([accepted] objects modified)")

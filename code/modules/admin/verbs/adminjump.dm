@@ -3,7 +3,7 @@
 	set desc = "Area to jump to"
 	set category = "Адм.Игра"
 	if(!src.holder)
-		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
+		to_chat(src, "Only administrators may use this command.")
 		return
 
 	var/area/A = tgui_input_list(usr, "Area to jump to", "Jump to Area", GLOB.sortedAreas)
@@ -24,7 +24,7 @@
 		message_admins("[key_name_admin(usr)] jumped to [AREACOORD(T)]")
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Jump To Area") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	else
-		to_chat(src, "Nowhere to jump to!", confidential = TRUE)
+		to_chat(src, "Nowhere to jump to!")
 		return
 
 
@@ -32,7 +32,7 @@
 	set name = "Jump to Turf"
 	set category = "Адм.Игра"
 	if(!src.holder)
-		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
+		to_chat(src, "Only administrators may use this command.")
 		return
 
 	log_admin("[key_name(usr)] jumped to [AREACOORD(T)]")
@@ -46,7 +46,7 @@
 	set name = "Jump to Mob"
 
 	if(!src.holder)
-		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
+		to_chat(src, "Only administrators may use this command.")
 		return
 
 	var/mob/M = tgui_input_list(usr, "Mob to jump to", "Jump to mob", GLOB.mob_list)
@@ -60,14 +60,14 @@
 			SSblackbox.record_feedback("tally", "admin_verb", 1, "Jump To Mob") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 			A.forceMove(M.loc)
 		else
-			to_chat(A, "This mob is not located in the game world.", confidential = TRUE)
+			to_chat(A, "This mob is not located in the game world.")
 
 /client/proc/jumptocoord(tx as num, ty as num, tz as num)
 	set category = "Адм.Игра"
 	set name = "Jump to Coordinate"
 
 	if (!holder)
-		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
+		to_chat(src, "Only administrators may use this command.")
 		return
 
 	if(src.mob)
@@ -82,7 +82,7 @@
 	set name = "Jump to Key"
 
 	if(!src.holder)
-		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
+		to_chat(src, "Only administrators may use this command.")
 		return
 
 	var/list/keys = list()
@@ -90,7 +90,7 @@
 		keys += M.client
 	var/client/selection = tgui_input_list(usr, "Please, select a player!", "Admin Jumping", sortKey(keys))
 	if(!selection)
-		to_chat(src, "No keys found.", confidential = TRUE)
+		to_chat(src, "No keys found.")
 		return
 	var/mob/M = selection.mob
 	log_admin("[key_name(usr)] jumped to [key_name(M)]")
@@ -105,7 +105,7 @@
 	set name = "Get Mob"
 	set desc = "Mob to teleport"
 	if(!src.holder)
-		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
+		to_chat(src, "Only administrators may use this command.")
 		return
 
 	// var/mob/M = tgui_input_list(usr, "Mob to teleport", "Get Mob", GLOB.mob_list - GLOB.dummy_mob_list)
@@ -136,7 +136,7 @@
 	set desc = "Key to teleport"
 
 	if(!src.holder)
-		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
+		to_chat(src, "Only administrators may use this command.")
 		return
 
 	var/list/keys = list()
@@ -162,7 +162,7 @@
 	set category = "Адм.Игра"
 	set name = "Send Mob"
 	if(!src.holder)
-		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
+		to_chat(src, "Only administrators may use this command.")
 		return
 	var/area/A = input(usr, "Pick an area.", "Pick an area") in GLOB.sortedAreas|null
 	if(A && istype(A))
@@ -174,5 +174,5 @@
 			message_admins(msg)
 			admin_ticket_log(M, msg)
 		else
-			to_chat(src, "Failed to move mob to a valid location.", confidential = TRUE)
+			to_chat(src, "Failed to move mob to a valid location.")
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Send Mob") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

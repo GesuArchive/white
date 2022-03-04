@@ -11,7 +11,7 @@
 	set hidden = 1
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, span_danger("Не могу молиться.") , confidential = TRUE)
+		to_chat(usr, span_danger("Не могу молиться."))
 		return
 
 	msg = copytext_char(sanitize(msg), 1, MAX_MESSAGE_LEN)
@@ -20,7 +20,7 @@
 	log_prayer("[src.key]/([src.name]): [msg]")
 	if(usr.client)
 		if(usr.client.prefs.muted & MUTE_PRAY)
-			to_chat(usr, span_danger("Не хочу молиться.") , confidential = TRUE)
+			to_chat(usr, span_danger("Не хочу молиться."))
 			return
 		if(src.client.handle_spam_prevention(msg,MUTE_PRAY))
 			return
@@ -53,11 +53,11 @@
 
 	for(var/client/C in GLOB.admins)
 		if(C.prefs.chat_toggles & CHAT_PRAYER)
-			to_chat(C, msg, confidential = TRUE)
+			to_chat(C, msg)
 			if(C.prefs.toggles & SOUND_PRAYERS)
 				if(usr.job == "Chaplain")
 					SEND_SOUND(C, sound('sound/effects/pray.ogg'))
-	to_chat(usr, span_info("Молитва: \"[msg_tmp]\"") , confidential = TRUE)
+	to_chat(usr, span_info("Молитва: \"[msg_tmp]\""))
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Prayer") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -67,7 +67,7 @@
 	var/msg = copytext_char(sanitize(text), 1, MAX_MESSAGE_LEN)
 	GLOB.requests.message_centcom(sender.client, msg)
 	msg = span_adminnotice("<b><font color=orange>CENTCOM:</font>[ADMIN_FULLMONTY(sender)] [ADMIN_CENTCOM_REPLY(sender)]:</b> [msg]")
-	to_chat(GLOB.admins, msg, confidential = TRUE)
+	to_chat(GLOB.admins, msg)
 	for(var/obj/machinery/computer/communications/console in GLOB.machines)
 		console.override_cooldown()
 
@@ -76,7 +76,7 @@
 	var/msg = copytext_char(sanitize(text), 1, MAX_MESSAGE_LEN)
 	GLOB.requests.message_syndicate(sender.client, msg)
 	msg = span_adminnotice("<b><font color=crimson>SYNDICATE:</font>[ADMIN_FULLMONTY(sender)] [ADMIN_SYNDICATE_REPLY(sender)]:</b> [msg]")
-	to_chat(GLOB.admins, msg, confidential = TRUE)
+	to_chat(GLOB.admins, msg)
 	for(var/obj/machinery/computer/communications/console in GLOB.machines)
 		console.override_cooldown()
 
@@ -85,6 +85,6 @@
 	var/msg = copytext_char(sanitize(text), 1, MAX_MESSAGE_LEN)
 	GLOB.requests.nuke_request(sender.client, msg)
 	msg = span_adminnotice("<b><font color=orange>NUKE CODE REQUEST:</font>[ADMIN_FULLMONTY(sender)] [ADMIN_CENTCOM_REPLY(sender)] [ADMIN_SET_SD_CODE]:</b> [msg]")
-	to_chat(GLOB.admins, msg, confidential = TRUE)
+	to_chat(GLOB.admins, msg)
 	for(var/obj/machinery/computer/communications/console in GLOB.machines)
 		console.override_cooldown()

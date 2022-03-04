@@ -221,7 +221,7 @@
 				message_admins("[key_name_admin(holder)] [new_perma ? "stopped" : "started"] the arrivals shuttle")
 				log_admin("[key_name(holder)] [new_perma ? "stopped" : "started"] the arrivals shuttle")
 			else
-				to_chat(holder, span_admin("There is no arrivals shuttle.") , confidential = TRUE)
+				to_chat(holder, span_admin("There is no arrivals shuttle."))
 		if("movelaborshuttle")
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Send Labor Shuttle"))
 			if(!SSshuttle.toggleShuttle("laborcamp","laborcamp_home","laborcamp_away"))
@@ -399,7 +399,7 @@
 				var/list/prefs = settings["mainsettings"]
 
 				if (prefs["amount"]["value"] < 1 || prefs["portalnum"]["value"] < 1)
-					to_chat(holder, span_warning("Number of portals and mobs to spawn must be at least 1.") , confidential = TRUE)
+					to_chat(holder, span_warning("Number of portals and mobs to spawn must be at least 1."))
 					return
 
 				var/mob/pathToSpawn = prefs["typepath"]["value"]
@@ -407,7 +407,7 @@
 					pathToSpawn = text2path(pathToSpawn)
 
 				if (!ispath(pathToSpawn))
-					to_chat(holder, span_notice("Invalid path [pathToSpawn].") , confidential = TRUE)
+					to_chat(holder, span_notice("Invalid path [pathToSpawn]."))
 					return
 
 				var/list/candidates = list()
@@ -492,7 +492,7 @@
 				return
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Mass Braindamage"))
 			for(var/mob/living/carbon/human/H in GLOB.player_list)
-				to_chat(H, span_boldannounce("You suddenly feel stupid.") , confidential = TRUE)
+				to_chat(H, span_boldannounce("You suddenly feel stupid."))
 				H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60, 80)
 			message_admins("[key_name_admin(holder)] made everybody brain damaged")
 		if("floorlava")
@@ -536,7 +536,7 @@
 						if(droptype == "Yes")
 							ADD_TRAIT(I, TRAIT_NODROP, ADMIN_TRAIT)
 				else
-					to_chat(H, span_warning("You're not kawaii enough for this!") , confidential = TRUE)
+					to_chat(H, span_warning("You're not kawaii enough for this!"))
 		if("masspurrbation")
 			if(!is_funmin)
 				return
@@ -580,7 +580,7 @@
 	if(holder)
 		log_admin("[key_name(holder)] used secret [action]")
 		if(ok)
-			to_chat(world, text("<B>A secret has been activated by []!</B>", holder.key), confidential = TRUE)
+			to_chat(world, text("<B>A secret has been activated by []!</B>", holder.key))
 
 /proc/portalAnnounce(announcement, playlightning)
 	set waitfor = FALSE

@@ -3,12 +3,12 @@
 	set name = "Dsay"
 	set hidden = TRUE
 	if(!holder)
-		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
+		to_chat(src, "Only administrators may use this command.")
 		return
 	if(!mob)
 		return
 	if(prefs.muted & MUTE_DEADCHAT)
-		to_chat(src, span_danger("You cannot send DSAY messages (muted).") , confidential = TRUE)
+		to_chat(src, span_danger("You cannot send DSAY messages (muted)."))
 		return
 
 	if (handle_spam_prevention(msg,MUTE_DEADCHAT))
@@ -31,7 +31,7 @@
 		if(isnewplayer(M) && !admin_holder) // We want to make sure admins can see this when in the lobby too!
 			continue
 		if (M.stat == DEAD || (admin_holder && (M.client?.prefs.chat_toggles & CHAT_DEAD))) //admins can toggle deadchat on and off. This is a proc in admin.dm and is only given to Administrators and above
-			to_chat(M, rendered, confidential = TRUE)
+			to_chat(M, rendered)
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Dsay") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 

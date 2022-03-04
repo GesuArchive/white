@@ -160,7 +160,7 @@ generally it would be used like so:
 /proc/admin_proc()
 	if(!check_rights(R_ADMIN))
 		return
-	to_chat(world, "you have enough rights!", confidential = TRUE)
+	to_chat(world, "you have enough rights!")
 
 NOTE: it checks usr! not src! So if you're checking somebody's rank in a proc which they did not call
 you will have to do something like if(client.rights & R_ADMIN) yourself.
@@ -171,7 +171,7 @@ you will have to do something like if(client.rights & R_ADMIN) yourself.
 			return TRUE
 		else
 			if(show_msg)
-				to_chat(usr, span_red("Error: You do not have sufficient rights to do that. You require one of the following flags:[rights2text(rights_required," ")]."), confidential = TRUE)
+				to_chat(usr, span_red("Error: You do not have sufficient rights to do that. You require one of the following flags:[rights2text(rights_required," ")]."))
 	return FALSE
 
 //probably a bit iffy - will hopefully figure out a better solution

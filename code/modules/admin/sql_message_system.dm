@@ -1,6 +1,6 @@
 /proc/create_message(type, target_key, admin_ckey, text, timestamp, server, secret, logged = 1, browse, expiry, note_severity)
 	if(!SSdbcore.Connect())
-		to_chat(usr, span_danger("Failed to establish database connection."), confidential = TRUE)
+		to_chat(usr, span_danger("Failed to establish database connection."))
 		return
 	if(!type)
 		return
@@ -65,7 +65,7 @@
 			if(query_validate_expire_time.NextRow())
 				var/checktime = text2num(query_validate_expire_time.item[1])
 				if(!checktime)
-					to_chat(usr, "Datetime entered is improperly formatted or not later than current server time.", confidential = TRUE)
+					to_chat(usr, "Datetime entered is improperly formatted or not later than current server time.")
 					qdel(query_validate_expire_time)
 					return
 				expiry = query_validate_expire_time.item[1]
@@ -110,7 +110,7 @@
 
 /proc/delete_message(message_id, logged = 1, browse)
 	if(!SSdbcore.Connect())
-		to_chat(usr, span_danger("Failed to establish database connection."), confidential = TRUE)
+		to_chat(usr, span_danger("Failed to establish database connection."))
 		return
 	message_id = text2num(message_id)
 	if(!message_id)
@@ -153,7 +153,7 @@
 
 /proc/edit_message(message_id, browse)
 	if(!SSdbcore.Connect())
-		to_chat(usr, span_danger("Failed to establish database connection."), confidential = TRUE)
+		to_chat(usr, span_danger("Failed to establish database connection."))
 		return
 	message_id = text2num(message_id)
 	if(!message_id)
@@ -203,7 +203,7 @@
 
 /proc/edit_message_expiry(message_id, browse)
 	if(!SSdbcore.Connect())
-		to_chat(usr, span_danger("Failed to establish database connection."), confidential = TRUE)
+		to_chat(usr, span_danger("Failed to establish database connection."))
 		return
 	message_id = text2num(message_id)
 	if(!message_id)
@@ -247,7 +247,7 @@
 			if(query_validate_expire_time_edit.NextRow())
 				var/checktime = text2num(query_validate_expire_time_edit.item[1])
 				if(!checktime)
-					to_chat(usr, "Datetime entered is improperly formatted or not later than current server time.", confidential = TRUE)
+					to_chat(usr, "Datetime entered is improperly formatted or not later than current server time.")
 					qdel(query_validate_expire_time_edit)
 					qdel(query_find_edit_expiry_message)
 					return
@@ -274,7 +274,7 @@
 
 /proc/edit_message_severity(message_id)
 	if(!SSdbcore.Connect())
-		to_chat(usr, span_danger("Failed to establish database connection."), confidential = TRUE)
+		to_chat(usr, span_danger("Failed to establish database connection."))
 		return
 	message_id = text2num(message_id)
 	if(!message_id)
@@ -325,7 +325,7 @@
 
 /proc/toggle_message_secrecy(message_id)
 	if(!SSdbcore.Connect())
-		to_chat(usr, span_danger("Failed to establish database connection."), confidential = TRUE)
+		to_chat(usr, span_danger("Failed to establish database connection."))
 		return
 	message_id = text2num(message_id)
 	if(!message_id)
@@ -369,7 +369,7 @@
 
 /proc/browse_messages(type, target_ckey, index, linkless = FALSE, filter, agegate = FALSE)
 	if(!SSdbcore.Connect())
-		to_chat(usr, span_danger("Failed to establish database connection."), confidential = TRUE)
+		to_chat(usr, span_danger("Failed to establish database connection."))
 		return
 
 	//Needs to be requested before url retrieval since you can view your notes before SSassets finishes initialization
@@ -631,7 +631,7 @@
 
 /proc/get_message_output(type, target_ckey, show_secret = TRUE, after_timestamp)
 	if(!SSdbcore.Connect())
-		to_chat(usr, span_danger("Failed to establish database connection."), confidential = TRUE)
+		to_chat(usr, span_danger("Failed to establish database connection."))
 		return
 	if(!type)
 		return
@@ -731,7 +731,7 @@
 /*alternatively this proc can be run once to pass through every note and attempt to convert it before deleting the file, if done then AUTOCONVERT_NOTES should be turned off
 this proc can take several minutes to execute fully if converting and cause DD to hang if converting a lot of notes; it's not advised to do so while a server is live
 /proc/mass_convert_notes()
-	to_chat(world, "Beginning mass note conversion", confidential = TRUE)
+	to_chat(world, "Beginning mass note conversion")
 	var/savefile/notesfile = new(NOTESFILE)
 	if(!notesfile)
 		log_game("Error: Cannot access [NOTESFILE]")
@@ -739,7 +739,7 @@ this proc can take several minutes to execute fully if converting and cause DD t
 	notesfile.cd = "/"
 	for(var/ckey in notesfile.dir)
 		convert_notes_sql(ckey)
-	to_chat(world, "Deleting NOTESFILE", confidential = TRUE)
+	to_chat(world, "Deleting NOTESFILE")
 	fdel(NOTESFILE)
-	to_chat(world, "Finished mass note conversion, remember to turn off AUTOCONVERT_NOTES", confidential = TRUE)*/
+	to_chat(world, "Finished mass note conversion, remember to turn off AUTOCONVERT_NOTES")*/
 #undef NOTESFILE
