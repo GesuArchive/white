@@ -449,9 +449,7 @@
 			/obj/item/ammo_box/magazine/m12g/stun,
 			/obj/item/ammo_box/magazine/m12g/slug,
 			/obj/item/ammo_box/magazine/m12g/dragon,
-			/obj/item/ammo_box/magazine/m12g/bioterror,
-			/obj/item/ammo_box/magazine/m12g/meteor,
-			/obj/item/ammo_box/magazine/m12g/limitka))
+			/obj/item/ammo_box/magazine/m12g/bioterror))
 	return new bulldogammo(loc)
 
 /datum/blackmarket_item/ammo/mm712x82
