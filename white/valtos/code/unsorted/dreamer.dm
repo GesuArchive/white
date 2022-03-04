@@ -133,6 +133,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 		if(our_dreamer?.client)
 			addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_image_from_client, turf_img, our_dreamer.client), ttd)
 
+	our_dreamer.setStaminaLoss(0)
 	our_dreamer.setOxyLoss(0)
 	our_dreamer.setToxLoss(0)
 	our_dreamer.blood_volume = BLOOD_VOLUME_NORMAL

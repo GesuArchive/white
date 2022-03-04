@@ -60,14 +60,16 @@
 		set_light(brightness_on)
 
 /obj/machinery/computer/screwdriver_act(mob/living/user, obj/item/I)
-	if(..())
-		return TRUE
-	if(IS_DREAMER(user) && clued)
+	if(clued)
+		if(!IS_DREAMER(user))
+			return FALSE
 		to_chat(user, span_notice("Убираю ШЕДЕВР..."))
 		clued = FALSE
 		icon_screen = initial(icon_screen)
 		update_icon()
 		interaction_flags_atom |= INTERACT_ATOM_UI_INTERACT
+		return TRUE
+	if(..())
 		return TRUE
 	if(circuit && !(flags_1&NODECONSTRUCT_1))
 		to_chat(user, span_notice("You start to disconnect the monitor..."))
@@ -134,6 +136,12 @@
 
 /obj/machinery/computer/can_interact(mob/user)
 	if(clued && ishuman(user) && !IS_DREAMER(user))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/heart/heart = H.getorganslot(ORGAN_SLOT_HEART)
+		if(IS_DREAMER(H) || heart?.key_for_dreamer)
+			return FALSE
+		H.visible_message(span_danger("[H] пялится в экран [src.name] с отвращением!"), span_danger("ЧТО ЭТО ТАКОЕ?!"))
+		H.pointed(src)
 		new /obj/effect/particle_effect/sparks(loc)
 		playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "dreamer", /datum/mood_event/seen_dream, clued)
