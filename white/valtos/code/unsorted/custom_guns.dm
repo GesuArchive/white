@@ -16,18 +16,15 @@
 
 		var/icon/temp_left = icon(lefthand_file, icon_state, , 1)
 		temp_left = temp_left.Blend(icon('white/valtos/icons/custom_guns.dmi', custom_skin_name), ICON_ADD)
-		temp_left = fcopy_rsc(temp_left)
-		lefthand_file = temp_left
+		lefthand_file = icon(temp_left)
 
 		var/icon/temp_right = icon(righthand_file, icon_state, , 1)
 		temp_right = temp_right.Blend(icon('white/valtos/icons/custom_guns.dmi', custom_skin_name), ICON_ADD)
-		temp_right = fcopy_rsc(temp_right)
-		righthand_file = temp_right
+		righthand_file = icon(temp_right)
 
 		var/icon/temp_worn = icon(worn_icon, icon_state, , 1)
 		temp_worn = temp_worn.Blend(icon('white/valtos/icons/custom_guns.dmi', custom_skin_name), ICON_ADD)
-		temp_worn = fcopy_rsc(temp_worn)
-		worn_icon = temp_worn
+		worn_icon = icon(temp_worn)
 
 		name = "[name] \"[uppertext(custom_skin_name)]\""
 
