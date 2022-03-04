@@ -6,6 +6,7 @@
 	inhand_icon_state = "hecate"
 	lefthand_file = 'white/deda565/hecateleftw.dmi'
 	righthand_file = 'white/deda565/hecaterightw.dmi'
+	drag_slowdown = 100
 	recoil = 16
 	slot_flags = ITEM_SLOT_BACK
 	zoomable = TRUE
@@ -28,17 +29,20 @@
 	ammo_type = /obj/item/ammo_casing/p50
 	caliber = ".50"
 
-/obj/item/gun/ballistic/rifle/boltaction/hecate/afterattack(atom/target, mob/user, flag) //suggestion done
+/obj/item/gun/ballistic/rifle/boltaction/hecate/afterattack(atom/target, mob/living/user, flag, params) //suggestion done
 	. = ..()
 	if(user.gender == "male")
 		return
 	else
-		var/G = get_dir(src, get_step_away(target, src))
-		var/atom/A = get_edge_target_turf(target, REVERSE_DIR(G))
-		var/funnirecoil = 100
-		to_chat(user, span_warning("ВЫ НЕ МОЖЕТЕ СПРАВИТЬСЯ С ОТДАЧЕЙ И УЛЕТАЕТЕ ОТ НЕЁ!"))
-		user.throw_at(A, 256, funnirecoil, user, gentle = FALSE, callback = CALLBACK(user, /mob/living/carbon/human.proc/adjustBruteLoss, 500))
-		return
+		if(can_shoot())
+			var/G = get_dir(src, get_step_away(target, src))
+			var/atom/A = get_edge_target_turf(target, REVERSE_DIR(G))
+			var/funnirecoil = 100
+			to_chat(user, span_warning("ВЫ НЕ МОЖЕТЕ СПРАВИТЬСЯ С ОТДАЧЕЙ И УЛЕТАЕТЕ ОТ НЕЁ!"))
+			user.throw_at(A, 256, funnirecoil, user, gentle = FALSE, callback = CALLBACK(user, /mob/living/carbon/human.proc/adjustBruteLoss, 500))
+			return
+		else
+			return
 
 
 
