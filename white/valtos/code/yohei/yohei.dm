@@ -106,9 +106,6 @@
 	max_charge = 35
 
 /obj/item/shadowcloak/yohei/process(delta_time)
-	if(user.get_item_by_slot(ITEM_SLOT_BELT) != src || user.pooed)
-		Deactivate()
-		return
 	var/turf/T = get_turf(src)
 	if(on)
 		var/lumcount = T.get_lumcount()

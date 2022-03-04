@@ -36,9 +36,6 @@
 			if(O.get_teeth() < O.max_teeth)
 				. += "<span class='warning'>Не хватает [O.max_teeth - O.get_teeth()] зубов!</span>\n"
 
-	if(pooed)
-		. += "<big><b>Невероятно, но [t_ego] одежда <font color='pink'>ВСЯ В ГОВНЕ</font>.</b></big>\n"
-
 	if(headstamp && !(obscured & ITEM_SLOT_HEAD))
 		. += "У н[t_ego] на лбу написано <b>[headstamp]</b>. Круто.\n"
 
