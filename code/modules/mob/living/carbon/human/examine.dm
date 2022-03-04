@@ -446,7 +446,7 @@
 	if(true_info)
 		var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
 		if(heart?.key_for_dreamer)
-			. += span_holoparasite("<hr>Оно ЗНАЕТ ключ [heart.key_for_dreamer]!")
+			. += span_revenbignotice("<hr>Оно ЗНАЕТ ключ [heart.key_for_dreamer]!")
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 

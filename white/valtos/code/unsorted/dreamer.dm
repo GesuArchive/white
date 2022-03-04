@@ -367,10 +367,10 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 			return FALSE
 		A.do_attack_animation(D, ATTACK_EFFECT_SLASH)
 		var/atk_verb = pick("НЕИСТОВО", "ЯРОСТНО", "НЕНАВИСТНО")
-		D.visible_message(span_danger("<b>[A]</b> [atk_verb] ОТРЫВАЕТ КОНЕЧНОСТЬ <b>[D]</b>!"), \
-						span_userdanger("<b>[uppertext(A)]</b> [atk_verb] ОТРЫВАЕТ МОЮ КОНЕЧНОСТЬ!"), \
+		D.visible_message(span_danger("<b>[A]</b> [atk_verb] РВЁТ <b>[D]</b>!"), \
+						span_userdanger("<b>[uppertext(A)]</b> [atk_verb] РВЁТ МЕНЯ!"), \
 						span_hear("Слышу звук разрывающейся плоти!") , null, A)
-		to_chat(A, span_danger("Хватаю свинью <b>[D]</b>!"))
+		to_chat(A, span_danger("Рву свинью <b>[D]</b>!"))
 		D.grabbedby(A, TRUE)
 		D.drop_all_held_items()
 		A.setGrabState(GRAB_KILL)
