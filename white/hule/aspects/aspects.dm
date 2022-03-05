@@ -587,3 +587,16 @@
 				our_pussies += "[A.name] - [A.owner.name] под видом [A.owner.assigned_role].[prob(1) ? " УБЕЙТЕ ЕГО НАХУЙ!" : ""]"
 		priority_announce("Прива, я тут немного собрал для вас имён интересных, надеюсь, они вам понадобятся! Список психов: [english_list(our_pussies)]", sender_override = "Апегио Крысус")
 	..()
+
+
+/datum/round_aspect/borderlands
+	name = "Borderlands"
+	desc = "Рабочий, помни! Крики «помогите, у меня внутреннее кровотечение, вызовите врача» мешают твоим товарищам работать."
+	weight = 25
+
+/datum/round_aspect/borderlands/run_aspect()
+	GLOB.borderlands_outline_mode = TRUE
+	for(var/mob/living/carbon/human/H in GLOB.mob_list)
+		if(H.hud_used)
+			H.hud_used.plane_masters_update()
+	..()

@@ -64,10 +64,25 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 	if(our_dreamer.hud_used)
 		var/atom/movable/plane_master_controller/pm_controller = our_dreamer.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 
-		var/rotation = rand(-10, 10)
-		for(var/key in pm_controller.controlled_planes)
-			animate(pm_controller.controlled_planes[key], transform = matrix(rotation, MATRIX_ROTATE), time = 5, easing = QUAD_EASING)
-			animate(transform = matrix(-rotation, MATRIX_ROTATE), time = 5, easing = QUAD_EASING)
+		switch(rand(1, 3))
+			if(1)
+				var/rotation = rand(-30, 30)
+				for(var/key in pm_controller.controlled_planes)
+					animate(pm_controller.controlled_planes[key], transform = matrix(rotation, MATRIX_ROTATE), time = 5, easing = QUAD_EASING)
+					animate(transform = matrix(), time = 5, easing = QUAD_EASING)
+			if(2)
+				pm_controller.add_filter("dreamer_blur", 1, list("type" = "radial_blur", "size" = 0))
+
+				for(var/filter in pm_controller.get_filters("dreamer_blur"))
+					animate(filter, size = -0.1, time = 3 SECONDS, easing = ELASTIC_EASING|EASE_OUT)
+					animate(size = 0.1, time = 3 SECONDS, easing = ELASTIC_EASING|EASE_OUT)
+					animate(size = 0, time = 3 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
+			if(3)
+				pm_controller.add_filter("dreamer_inline", 5, outline_filter(size=0.5, color="#f00"))
+				pm_controller.add_filter("dreamer_outline", 4, outline_filter(size=0.5, color="#0ff"))
+				spawn(5 SECONDS)
+					pm_controller.remove_filter("dreamer_inline")
+					pm_controller.remove_filter("dreamer_outline")
 
 /datum/component/dreamer/proc/update_bg_sound()
 
@@ -76,7 +91,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 	DIRECT_OUTPUT(our_dreamer, sound(null))
 	C?.tgui_panel?.stop_music()
 
-	SEND_SOUND(our_dreamer, sound(bg_sound, repeat = TRUE, wait = 0, volume = 25, channel = CHANNEL_BUZZ))
+	SEND_SOUND(our_dreamer, sound(bg_sound, repeat = TRUE, wait = 0, volume = 5, channel = CHANNEL_BUZZ))
 
 /datum/component/dreamer/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOB_SAY, .proc/handle_speech)
@@ -131,7 +146,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 		fuckfloorlist += turf_img
 
 		if(our_dreamer?.client)
-			addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_image_from_client, turf_img, our_dreamer.client), ttd)
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_image_from_client, turf_img, our_dreamer.client), ttd * 2)
 
 	our_dreamer.setStaminaLoss(0)
 	our_dreamer.setOxyLoss(0)
