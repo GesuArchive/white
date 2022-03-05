@@ -7,9 +7,11 @@
 
 	C.parallax_layers_cached = list()
 
-	if(forced_parallax)
+	if(forced_parallax == 1)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/cyberspess(null, C.view)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/mazespace(null, C.view)
+	else if(forced_parallax == 2)
+		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/shizospace(null, C.view)
 	else if(GLOB.station_orbit_parallax_type == 3)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/ice_surface(null, C.view)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/clouds(null, C.view)
@@ -391,6 +393,11 @@
 	icon_state = "cyberspess"
 	color = "#ff3333"
 	speed = 4
+	layer = 1
+
+/atom/movable/screen/parallax_layer/shizospace
+	icon_state = "shizospace"
+	speed = 0
 	layer = 1
 
 /atom/movable/screen/parallax_layer/mazespace
