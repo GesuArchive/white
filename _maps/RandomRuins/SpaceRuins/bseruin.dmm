@@ -2,6 +2,7 @@
 "ad" = (
 /obj/machinery/door/airlock/shuttle/glass,
 /obj/effect/mapping_helpers/airlock/locked,
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle)
 "aG" = (
@@ -267,7 +268,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/bseruin/shop)
 "sC" = (
-/obj/effect/mob_spawn/human/smuggler,
+/obj/machinery/stasis/survival_pod,
 /turf/open/floor/pod,
 /area/survivalpod)
 "sN" = (
@@ -369,6 +370,12 @@
 "Cn" = (
 /turf/closed/mineral/random/low_chance,
 /area/ruin/space/has_grav/bseruin/asteroid)
+"Cw" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/shuttle/glass,
+/obj/structure/fans/tiny,
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle)
 "CJ" = (
 /obj/structure/foamedmetal/iron,
 /turf/open/floor/plating/foam,
@@ -1786,7 +1793,7 @@ lB
 Qu
 Qu
 ad
-uk
+Cw
 Qu
 Qu
 Qu

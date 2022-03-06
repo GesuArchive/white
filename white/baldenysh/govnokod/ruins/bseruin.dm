@@ -64,33 +64,6 @@
 	qdel(src)
 
 
-/obj/effect/mob_spawn/human/smuggler
-	name = "stasis unit"
-	desc = "A humming sleeper with a silhouetted occupant inside."
-	mob_name = "контрабандист"
-	icon = 'icons/obj/lavaland/spawners.dmi'
-	icon_state = "cryostasis_sleeper"
-	outfit = /datum/outfit/smuggler
-	roundstart = FALSE
-	death = FALSE
-	random = TRUE
-	mob_species = /datum/species/human
-	short_desc = "Прив вы контрабандист. Че как делать думай сам."
-	assignedrole = "Контрабандист"
-
-/obj/effect/mob_spawn/human/smuggler/Destroy()
-	new /obj/machinery/stasis/survival_pod(get_turf(src))
-	return ..()
-
-/datum/outfit/smuggler
-	name = "Smuggler"
-	uniform = /obj/item/clothing/under/suit/charcoal
-	shoes = /obj/item/clothing/shoes/laceup
-	r_hand = /obj/item/storage/secure/briefcase/smuggler
-
-/obj/item/storage/secure/briefcase/smuggler/PopulateContents()
-	new /obj/item/modular_computer/laptop/preset/civilian
-
 /obj/item/modular_computer/laptop/preset/bse
 	desc = "Старый ноутбук. Возможно в нём что-то осталось полезное."
 
