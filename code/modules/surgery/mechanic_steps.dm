@@ -21,7 +21,7 @@
 		span_notice("[user] unscrews the shell of [target]'s [parse_zone(target_zone)]."),
 		playsound(get_turf(target), 'sound/items/screwdriver2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 
-/datum/surgery_step/mechanic_incise/tool_check(mob/user, obj/item/tool)
+/datum/surgery_step/mechanic_open/tool_check(mob/user, obj/item/tool)
 	if(implement_type == /obj/item && !tool.get_sharpness())
 		return FALSE
 
