@@ -20,6 +20,7 @@
 		span_notice("[user] unscrews the shell of [target]'s [parse_zone(target_zone)]."),
 		span_notice("[user] unscrews the shell of [target]'s [parse_zone(target_zone)]."),
 		playsound(get_turf(target), 'sound/items/screwdriver2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
+	return TRUE
 
 /datum/surgery_step/mechanic_open/tool_check(mob/user, obj/item/tool)
 	if(implement_type == /obj/item && !tool.get_sharpness())
@@ -50,6 +51,7 @@
 		span_notice("[user] snaps the shell of [target]'s [parse_zone(target_zone)] shut."),
 		playsound(get_turf(target), 'sound/items/screwdriver2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	display_pain(target, "You can feel the shell on your [parse_zone(target_zone)] snap shut.", TRUE)
+	return TRUE
 
 /datum/surgery_step/mechanic_close/tool_check(mob/user, obj/item/tool)
 	if(implement_type == /obj/item && !tool.get_sharpness())
@@ -78,6 +80,7 @@
 		span_notice("[user] slots the electronics into [target]'s [parse_zone(target_zone)]."),
 		playsound(get_turf(target), 'sound/items/taperecorder/taperecorder_close.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	display_pain(target, "You can feel the electronics in your [parse_zone(target_zone)] boot up as they slot into place.", TRUE)
+	return TRUE
 
 //unwrench
 /datum/surgery_step/mechanic_unwrench
