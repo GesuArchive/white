@@ -2,6 +2,7 @@
 #define EVENT_TYPE_OPENWORLD 1
 #define EVENT_TYPE_SPAWN_EVERYONE 2
 #define EVENT_READJUST_TO_WARFARE 3
+#define EVENT_TYPE_NATIONS 4
 
 GLOBAL_VAR_INIT(disable_fucking_station_shit_please, FALSE)
 
@@ -79,6 +80,14 @@ SUBSYSTEM_DEF(eventmaster)
 			adjust_areas_light()
 			to_chat(world, span_heavy_brass("Готово!"))
 			target_event = EVENT_TYPE_OPENWORLD
+			return TRUE
+		if(EVENT_TYPE_NATIONS)
+			to_chat(world, span_heavy_brass("Активация режима Nations v9.851..."))
+			for(var/i in GLOB.start_landmarks_list)
+				var/obj/effect/landmark/start/S = i
+				if(istype(S))
+					S.delete_after_roundstart = FALSE
+			to_chat(world, span_heavy_brass("Готово!"))
 			return TRUE
 		else
 			return FALSE
@@ -196,3 +205,4 @@ SUBSYSTEM_DEF(eventmaster)
 #undef EVENT_TYPE_OPENWORLD
 #undef EVENT_TYPE_SPAWN_EVERYONE
 #undef EVENT_READJUST_TO_WARFARE
+#undef EVENT_TYPE_NATIONS
