@@ -708,10 +708,18 @@ SUBSYSTEM_DEF(job)
 		destination = arrivals_turfs[1]
 		destination.JoinPlayerHere(M, FALSE)
 		return TRUE
-	else
-		var/msg = "Unable to send mob [M] to late join!"
-		message_admins(msg)
-		CRASH(msg)
+
+	for(var/_sloc in GLOB.start_landmarks_list)
+		var/obj/effect/landmark/start/sloc = _sloc
+		if(sloc.name != M.job)
+			continue
+		sloc.JoinPlayerHere(M, FALSE)
+		message_admins("!! [M] входит в игру в зоне [get_area(M)].")
+		return TRUE
+
+	var/msg = "Unable to send mob [M] to late join!"
+	message_admins(msg)
+	CRASH(msg)
 
 
 ///////////////////////////////////
