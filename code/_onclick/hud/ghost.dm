@@ -39,7 +39,6 @@
 /atom/movable/screen/ghost/spawners
 	name = "Меню перерождений"
 	icon_state = "spawners"
-	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
 
 /atom/movable/screen/ghost/spawners/Initialize(mapload)
 	. = ..()
@@ -59,7 +58,6 @@
 /atom/movable/screen/ghost/pai
 	name = "Кандидат в пИИ"
 	icon_state = "pai"
-	icon = 'white/baldenysh/icons/ui/midnight_extended.dmi'
 
 /atom/movable/screen/ghost/pai/Click()
 	var/mob/dead/observer/G = usr
