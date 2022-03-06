@@ -356,6 +356,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		GLOB.admin_verbs_spawn,
 		/*Debug verbs added by "show debug verbs"*/
 		GLOB.admin_verbs_debug_mapping,
+		GLOB.admin_verbs_sdql,
 		/client/proc/disable_debug_verbs,
 		/client/proc/readmin
 		))
