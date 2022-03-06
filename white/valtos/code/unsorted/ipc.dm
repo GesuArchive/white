@@ -3,8 +3,8 @@
 	id = "ipc"
 	say_mod = "бип-бупает" //inherited from a user's real species
 	sexes = 0
-	species_traits = list(NOTRANSSTING, NOBLOOD, TRAIT_EASYDISMEMBER, TRAIT_NOFLASH, NOEYESPRITES) //all of these + whatever we inherit from the real species
-	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_VIRUSIMMUNE,TRAIT_NOLIMBDISABLE,TRAIT_NOHUNGER,TRAIT_NOBREATH,TRAIT_RADIMMUNE,TRAIT_LIMBATTACHMENT, TRAIT_CAN_STRIP, TRAIT_NOHUNGER)
+	species_traits = list(NOTRANSSTING, NOBLOOD, TRAIT_EASYDISMEMBER, NOEYESPRITES) //all of these + whatever we inherit from the real species
+	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER, TRAIT_VIRUSIMMUNE, TRAIT_NOLIMBDISABLE, TRAIT_NOHUNGER, TRAIT_NOBREATH, TRAIT_RADIMMUNE, TRAIT_LIMBATTACHMENT, TRAIT_CAN_STRIP)
 	inherent_biotypes = list(MOB_ROBOTIC, MOB_HUMANOID)
 	meat = null
 	exotic_blood = /datum/reagent/fuel/oil
@@ -13,10 +13,10 @@
 	mutant_bodyparts = list("ipc_screen" = "BSOD", "ipc_antenna" = "None")
 	burnmod = 1.75
 	heatmod = 1.6
-	brutemod = 1.2
+	brutemod = 1.3
 	var/list/initial_species_traits //for getting these values back for assume_disguise()
 	var/list/initial_inherent_traits
-	mutantbrain = /obj/item/organ/brain/xyz
+	mutantbrain = /obj/item/organ/brain // should be normal human brain
 	mutanttongue = /obj/item/organ/tongue/robot
 	mutanteyes = /obj/item/organ/eyes/robotic
 	mutantears = /obj/item/organ/ears/cybernetic

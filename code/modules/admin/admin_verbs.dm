@@ -10,23 +10,17 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game. +VAREDIT needed to modify*/
 	/client/proc/dsay,					/*talk in deadchat using our ckey/fakekey*/
 	/client/proc/investigate_show,		/*various admintools for investigation. Such as a singulo grief-log*/
-	/client/proc/secrets,
 	/client/proc/toggle_hear_radio,		/*allows admins to hide all radio output*/
 	/client/proc/reload_admins,
-	/client/proc/reestablish_db_connection, /*reattempt a connection to the database*/
 	/client/proc/cmd_admin_pm_context,	/*right-click adminPM interface*/
 	/client/proc/cmd_admin_pm_panel,		/*admin-pm list*/
 	/client/proc/stop_sounds,
-	/client/proc/mark_datum_mapview,
-	/client/proc/debugstatpanel,
-	/client/proc/fix_air, /*resets air in designated radius to its default atmos composition*/
 	/client/proc/requests
 	)
 GLOBAL_LIST_INIT(admin_verbs_admin, world.AVerbsAdmin())
 GLOBAL_PROTECT(admin_verbs_admin)
 /world/proc/AVerbsAdmin()
 	return list(
-//	/datum/admins/proc/show_traitor_panel,	/*interface which shows a mob's mind*/ -Removed due to rare practical use. Moved to debug verbs ~Errorage
 	/datum/admins/proc/show_player_panel,	/*shows an interface for individual players, with various links (links require additional flags*/
 	/datum/verbs/Admin/verb/playerpanel,
 	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
@@ -48,7 +42,6 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/check_antagonists,		/*shows all antags*/
 	/datum/admins/proc/access_news_network,	/*allows access of newscasters*/
 	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
-//	/client/proc/sendmob,				/*sends a mob somewhere*/ -Removed due to it needing two sorting procs to work, which were executed every time an admin right-clicked. ~Errorage
 	/client/proc/jumptoarea,
 	/client/proc/jumptokey,				/*allows us to jump to the location of a mob with a certain ckey*/
 	/client/proc/jumptomob,				/*allows us to jump to a specific mob*/
@@ -68,13 +61,13 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/resetasaycolor,
 	/client/proc/toggleadminhelpsound,
 	/client/proc/respawn_character,
-	/client/proc/fuck_pie,
 	/client/proc/open_killcounter_counts,
+	/client/proc/secrets,
 	/datum/admins/proc/open_borgopanel,
 	/datum/admins/proc/view_all_circuits,
-	/datum/admins/proc/view_all_sdql_spells,
 	/datum/admins/proc/paintings_manager,
 	/datum/admins/proc/known_alts_panel,
+	/client/proc/clicker_panel,
 	)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel, /client/proc/assblast_panel, /client/proc/show_assblasts))
 GLOBAL_PROTECT(admin_verbs_ban)
@@ -170,17 +163,10 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/enable_debug_verbs,
 	/client/proc/callproc,
 	/client/proc/callproc_datum,
-	/client/proc/SDQL2_query_wrapper,
 	/client/proc/test_movable_UI,
 	/client/proc/test_snap_UI,
 	/client/proc/debugNatureMapGenerator,
 	/client/proc/check_bomb_impacts,
-	/client/proc/raspidoars,
-	/client/proc/commit_warcrime,
-	/client/proc/uncommit_warcrime,
-	/client/proc/kaboom,
-	/client/proc/smooth_fucking_z_level,
-	/client/proc/get_tacmap_for_test,
 	/proc/machine_upgrade,
 	/client/proc/populate_world,
 	/client/proc/get_dynex_power,		//*debug verbs for dynex explosions.
@@ -207,6 +193,8 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/print_cards,
 	/client/proc/generate_ruin,
 	/client/proc/create_orbital_objective,
+	/client/proc/mark_datum_mapview,
+	/client/proc/debugstatpanel,
 	#ifdef TESTING
 	/client/proc/check_missing_sprites,
 	/client/proc/export_dynamic_json,
@@ -214,29 +202,41 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	#endif
 	/client/proc/display_sendmaps,
 	/datum/admins/proc/create_or_modify_area,
-	/client/proc/clicker_panel,
 	/client/proc/check_timer_sources,
 	/client/proc/toggle_cdn,
-	/client/proc/force_evenmaster_rules,
-	/client/proc/cmd_sdql_spell_menu,
-//	/client/proc/adventure_manager,
 	/client/proc/load_circuit,
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, /proc/possess, /proc/release))
 GLOBAL_PROTECT(admin_verbs_possess)
 GLOBAL_LIST_INIT(admin_verbs_permissions, list(/client/proc/edit_admin_permissions, /client/proc/manage_lists, /client/proc/add_bug_down))
 GLOBAL_PROTECT(admin_verbs_permissions)
-GLOBAL_LIST_INIT(admin_verbs_secured, list(/client/proc/de_admin, /client/proc/manage_some_donations, /client/proc/manage_player_ranks))
+GLOBAL_LIST_INIT(admin_verbs_secured, list(
+	/client/proc/de_admin,
+	/client/proc/manage_some_donations,
+	/client/proc/manage_player_ranks,
+	/client/proc/raspidoars,
+	/client/proc/commit_warcrime,
+	/client/proc/uncommit_warcrime,
+	/client/proc/kaboom,
+	/client/proc/smooth_fucking_z_level,
+	/client/proc/get_tacmap_for_test,
+	/client/proc/fuck_pie,
+	/client/proc/fix_air, /*resets air in designated radius to its default atmos composition*/
+	/client/proc/force_evenmaster_rules,
+	/client/proc/reestablish_db_connection, /*reattempt a connection to the database*/
+	))
 GLOBAL_PROTECT(admin_verbs_secured)
 GLOBAL_LIST_INIT(admin_verbs_poll, list(/client/proc/poll_panel))
 GLOBAL_PROTECT(admin_verbs_poll)
+
+GLOBAL_LIST_INIT(admin_verbs_sdql, list(/client/proc/cmd_sdql_spell_menu, /client/proc/SDQL2_query_wrapper, /datum/admins/proc/view_all_sdql_spells))
+GLOBAL_PROTECT(admin_verbs_sdql)
 
 //verbs which can be hidden - needs work
 GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/set_ooc,
 	/client/proc/reset_ooc,
 	/client/proc/deadmin,
-	/datum/admins/proc/show_traitor_panel,
 	/datum/admins/proc/show_skill_panel,
 	/datum/admins/proc/toggleenter,
 	/datum/admins/proc/toggleguests,
@@ -329,7 +329,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		if(rights & R_ADMIN)
 			add_verb(src, GLOB.admin_verbs_poll)
 		if(rights & R_SDQL)
-			add_verb(src, GLOB.admin_verbs_poll)
+			add_verb(src, GLOB.admin_verbs_sdql)
 		if(rights & R_SOUND)
 			add_verb(src, GLOB.admin_verbs_sounds)
 			if(CONFIG_GET(string/invoke_youtubedl))

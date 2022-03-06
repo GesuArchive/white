@@ -66,7 +66,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 
 		switch(rand(1, 3))
 			if(1)
-				var/rotation = rand(-30, 30)
+				var/rotation = rand(-5, 5)
 				for(var/key in pm_controller.controlled_planes)
 					animate(pm_controller.controlled_planes[key], transform = matrix(rotation, MATRIX_ROTATE), time = 5, easing = QUAD_EASING)
 					animate(transform = matrix(), time = 5, easing = QUAD_EASING)

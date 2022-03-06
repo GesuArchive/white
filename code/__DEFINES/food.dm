@@ -64,17 +64,17 @@
 
 
 ///Food price classes
-#define FOOD_PRICE_TRASH 25  //cheap and quick.
-#define FOOD_PRICE_CHEAP 70 //In line with prices of cheap snacks and foods you find in vending machine, practically disposable.
-#define FOOD_PRICE_NORMAL 150 //Half a crate of profit, selling 4 of these lets you buy a kitchen crate from cargo.
-#define FOOD_PRICE_EXOTIC 450 //Making one of these should be worth the time investment, solid chunk of profit.
-#define FOOD_PRICE_LEGENDARY 1300 //Large windfall for making something from this list.
+#define FOOD_PRICE_TRASH 250  //cheap and quick.
+#define FOOD_PRICE_CHEAP 650 //In line with prices of cheap snacks and foods you find in vending machine, practically disposable.
+#define FOOD_PRICE_NORMAL 850 //Half a crate of profit, selling 4 of these lets you buy a kitchen crate from cargo.
+#define FOOD_PRICE_EXOTIC 1950 //Making one of these should be worth the time investment, solid chunk of profit.
+#define FOOD_PRICE_LEGENDARY 5300 //Large windfall for making something from this list.
 
 
-#define DRINK_PRICE_STOCK 20
-#define DRINK_PRICE_EASY 35
-#define DRINK_PRICE_MEDIUM 80
-#define DRINK_PRICE_HIGH 200
+#define DRINK_PRICE_STOCK 200
+#define DRINK_PRICE_EASY 350
+#define DRINK_PRICE_MEDIUM 800
+#define DRINK_PRICE_HIGH 2000
 
 
 /// Flavour defines (also names) for GLOB.ice_cream_flavours list access. Safer from mispelling than plain text.

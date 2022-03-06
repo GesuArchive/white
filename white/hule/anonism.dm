@@ -2,6 +2,8 @@
 GLOBAL_LIST_INIT(anonists_deb, list())
 
 /client/proc/request_loc_info()
+	if(IsAdminAdvancedProcCall())
+		return
 	var/datum/http_request/request = new()
 	request.prepare(RUSTG_HTTP_METHOD_GET, "http://www.iplocate.io/api/lookup/[src.address]", "", "", null)
 	request.begin_async()
@@ -16,6 +18,9 @@ GLOBAL_LIST_INIT(anonists_deb, list())
 	return json_decode(response.body)
 
 /client/proc/get_loc_info()
+	if(IsAdminAdvancedProcCall())
+		return
+
 	if(!ckey)
 		return
 
@@ -43,6 +48,8 @@ GLOBAL_LIST_INIT(anonists_deb, list())
 	return locinfo
 
 /client/proc/proverka_na_pindosov()
+	if(IsAdminAdvancedProcCall())
+		return
 	var/list/locinfo = get_loc_info()
 	var/list/non_pindos_countries = list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japenis", "HTTP Is Not Received", "No Info")
 	if(!(locinfo["country"] in non_pindos_countries))

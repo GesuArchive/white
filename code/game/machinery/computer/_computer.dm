@@ -138,7 +138,7 @@
 	if(clued && ishuman(user) && !IS_DREAMER(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/heart/heart = H.getorganslot(ORGAN_SLOT_HEART)
-		if(IS_DREAMER(H) || heart?.key_for_dreamer)
+		if(heart?.key_for_dreamer)
 			return FALSE
 		H.visible_message(span_danger("[H] пялится в экран [src.name] с отвращением!"), span_danger("ЧТО ЭТО ТАКОЕ?!"))
 		H.pointed(src)

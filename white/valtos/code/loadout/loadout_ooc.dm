@@ -7,7 +7,7 @@
 	description = "Дополнительный слот. Что тут ещё сказать, а? Максимум 20 слотов."
 	cost = 500
 
-/datum/gear/ooc/char_slot/purchase(var/client/C)
+/datum/gear/ooc/char_slot/purchase(client/C)
 	C?.prefs?.max_slots += 1
 	C?.prefs?.save_preferences()
 	return TRUE
@@ -15,19 +15,21 @@
 /datum/gear/ooc/force_aspect
 	display_name = "Выбрать аспект"
 	sort_category = "OOC"
-	description = "Форсит любой аспект на ваш выбор. Доступно только перед началом раунда (когда игра прогрузилась, но ещё в лобби)."
+	description = "Заставляет запуститься любой аспект на ваш выбор. Доступно только перед началом раунда, когда сервер прогрузился, но ещё в лобби."
 	cost = 500
 
-/datum/gear/ooc/force_aspect/purchase(var/client/C)
+/datum/gear/ooc/force_aspect/purchase(client/C)
+	if(IsAdminAdvancedProcCall())
+		return FALSE
 	if (SSticker.current_state == GAME_STATE_SETTING_UP || SSticker.current_state == GAME_STATE_PLAYING || SSticker.current_state == GAME_STATE_FINISHED)
-		to_chat(C, "<span class='rose bold'>Невозможно! Доступно только перед началом раунда (когда игра прогрузилась, но ещё в лобби).</span>")
+		to_chat(C, "<span class='rose bold'>Невозможно! Доступно только перед началом раунда, когда сервер прогрузился, но ещё в лобби.</span>")
 		return FALSE
 	var/datum/round_aspect/sel_aspect = input("Аспекты:", "Выбирайте!", null, null) as null|anything in SSaspects.aspects
 	if(!sel_aspect)
 		to_chat(C, span_notice("Не выбран аспект."))
 		return FALSE
 	else
-		if(sel_aspect.forbidden && !C.holder)
+		if(sel_aspect.forbidden && !check_rights_for(C, R_SECURED))
 			to_chat(C, span_notice("Этот аспект запрещён."))
 			return FALSE
 		message_admins("[key_name(C)] покупает аспект [sel_aspect].")
@@ -41,9 +43,11 @@
 	description = "Сбрасывает метакэш до нуля. Всем."
 	cost = 100500
 
-/datum/gear/ooc/purge_this_shit/purchase(var/client/C)
+/datum/gear/ooc/purge_this_shit/purchase(client/C)
+	if(IsAdminAdvancedProcCall())
+		return FALSE
 	var/fuck_everyone = tgui_alert(usr,"Это действие приведёт обнулению ВСЕГО метакэша. Ты уверен?","Очищение",list("Да","Нет"))
-	if (fuck_everyone == "Да")
+	if (fuck_everyone == "Да" && !C.holder)
 		var/datum/db_query/purge_shit = SSdbcore.NewQuery("UPDATE [format_table_name("player")] SET metacoins = '0'")
 		purge_shit.warn_execute()
 		for(var/client/AAA in GLOB.clients)

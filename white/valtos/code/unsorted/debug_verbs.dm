@@ -2,7 +2,7 @@
 	set name = " ? Commit Warcrime"
 	set category = "Дбг"
 
-	if(!check_rights(R_DEBUG))
+	if(!check_rights(R_SECURED))
 		return
 
 	for(var/client/C in GLOB.clients)
@@ -16,7 +16,7 @@
 	set name = " ? UnCommit Warcrime"
 	set category = "Дбг"
 
-	if(!check_rights(R_DEBUG))
+	if(!check_rights(R_SECURED))
 		return
 
 	for(var/client/C in GLOB.clients)
@@ -30,7 +30,7 @@
 	set name = " ? Raspidoars"
 	set category = "Дбг"
 
-	if(!check_rights(R_DEBUG))
+	if(!check_rights(R_SECURED))
 		return
 
 	var/turf/where = get_turf(mob)
@@ -56,7 +56,7 @@
 	set name = " ? Ka-Boom"
 	set category = "Дбг"
 
-	if(!check_rights(R_DEBUG))
+	if(!check_rights(R_SECURED))
 		return
 
 	var/turf/where = get_turf(mob)
@@ -84,7 +84,7 @@
 	set name = " ? Smooth Z-Level"
 	set category = "Дбг"
 
-	if(!check_rights(R_DEBUG))
+	if(!check_rights(R_SECURED))
 		return
 
 	var/zlevel = input("Z-Level? Пиши 0, если не понимаешь че нажал:") as num
@@ -98,7 +98,7 @@
 	set name = " ? Generate TacMap"
 	set category = "Дбг"
 
-	if(!check_rights(R_DEBUG))
+	if(!check_rights(R_SECURED))
 		return
 
 	var/fuckz = input("З-уровень") as num
@@ -120,7 +120,7 @@
 	set name = " ? Переключить ММ (тест)"
 	set category = "Дбг"
 
-	if(!check_rights(R_DEBUG))
+	if(!check_rights(R_SECURED))
 		return
 
 	GLOB.major_mode_active = !GLOB.major_mode_active

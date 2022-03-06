@@ -34,7 +34,7 @@
 	var/body = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>Панель [M.key]</title></head>"
 	body += "<body><b>[M]</b>"
 	if(M.client)
-		body += " с сикеем <b>[M.client]</b> "
+		body += " с кеем <b>[M.client]</b> "
 		body += "<A href='?_src_=holder;[HrefToken()];editrights=[(GLOB.admin_datums[M.client.ckey] || GLOB.deadmins[M.client.ckey]) ? "rank" : "add"];key=[M.key]'>[M.client.holder ? M.client.holder.rank : "Игрок"]</A>"
 		if(CONFIG_GET(flag/use_exp_tracking))
 			body += "<A href='?_src_=holder;[HrefToken()];getplaytimewindow=[REF(M)]'>" + M.client.get_exp_living(FALSE) + "</a>"
@@ -71,7 +71,7 @@
 		if(check_donations(M.client.ckey))
 			body += "<br><b>Донатер:</b> [check_donations(M.client.ckey)] р."
 		body += "<br><b>Метакэш</b>: [metabalance]"
-		if(check_rights(R_PERMISSIONS, show_msg = FALSE))
+		if(check_rights(R_SECURED, show_msg = FALSE))
 			body += " <a href='?_src_=holder;[HrefToken()];changemetacash=[REF(M)]'>\[???\]</a>"
 		var/full_version = "Unknown"
 		if(M.client.byond_version)
@@ -197,10 +197,10 @@
 	if (M.client)
 		body += "<br><b>Другое:</b> "
 		//body += "<A href='?_src_=holder;[HrefToken()];forcespeech=[REF(M)]'>Форс-сей</A>"
-		//body += "<A href='?_src_=holder;[HrefToken()];tdome1=[REF(M)]'>Thunderdome 1</A>"
-		//body += "<A href='?_src_=holder;[HrefToken()];tdome2=[REF(M)]'>Thunderdome 2</A>"
-		//body += "<A href='?_src_=holder;[HrefToken()];tdomeadmin=[REF(M)]'>Thunderdome Admin</A>"
-		//body += "<A href='?_src_=holder;[HrefToken()];tdomeobserve=[REF(M)]'>Thunderdome Observer</A>"
+		body += "<A href='?_src_=holder;[HrefToken()];tdome1=[REF(M)]'>Thunderdome 1</A>"
+		body += "<A href='?_src_=holder;[HrefToken()];tdome2=[REF(M)]'>Thunderdome 2</A>"
+		body += "<A href='?_src_=holder;[HrefToken()];tdomeadmin=[REF(M)]'>Thunderdome Admin</A>"
+		body += "<A href='?_src_=holder;[HrefToken()];tdomeobserve=[REF(M)]'>Thunderdome Observer</A>"
 		body += "<A href='?_src_=holder;[HrefToken()];admincommend=[REF(M)]'>Зарекомендовать</A>"
 
 	body += "<br><br><br>"

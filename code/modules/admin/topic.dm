@@ -2061,7 +2061,7 @@
 		usr << link("https://crawler.station13.ru/?ckey=[C.ckey]")
 
 	else if(href_list["changemetacash"])
-		if(!check_rights(R_PERMISSIONS))
+		if(!check_rights(R_SECURED))
 			return
 
 		var/amount = input(usr, "Че ставим?") as null|num
