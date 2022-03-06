@@ -4,9 +4,9 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 /datum/component/dreamer
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 
-	var/prob_variability = 5
+	var/prob_variability = 15
 	var/animation_intensity = 7
-	var/animation_speed = 7
+	var/animation_speed = 20
 	var/turf_plane = FLOOR_PLANE
 	var/fuckscreen_probability = 1
 	var/speak_probability = 7
@@ -140,7 +140,7 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 		var/matrix/M = matrix()
 		M.Translate(0, rand(-animation_intensity, animation_intensity))
 
-		var/ttd = rand(animation_speed * 2, animation_speed * 4)
+		var/ttd = rand(animation_speed * 4, animation_speed * 8)
 
 		animate(turf_img, transform = M, time = ttd, loop = rand(1, turf_loop_duration), easing = SINE_EASING)
 		animate(transform = null, time = ttd, easing = SINE_EASING)
@@ -199,9 +199,9 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 		if(3)
 			bg_sound = 'white/valtos/sounds/rp3.ogg'
 			update_bg_sound()
-			prob_variability = 7
+			prob_variability = 25
 			animation_intensity = 10
-			animation_speed = 7
+			animation_speed = 15
 			speak_probability = 10
 			hall_attack_probability = 2
 			turf_loop_duration = 4
@@ -221,9 +221,9 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 		if(2)
 			bg_sound = 'white/valtos/sounds/rp7.ogg'
 			update_bg_sound()
-			prob_variability = 10
+			prob_variability = 50
 			animation_intensity = 15
-			animation_speed = 5
+			animation_speed = 10
 			speak_probability = 15
 			hall_attack_probability = 3
 			turf_loop_duration = 5
@@ -243,9 +243,9 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 		if(1)
 			bg_sound = 'white/valtos/sounds/rp8.ogg'
 			update_bg_sound()
-			prob_variability = 15
+			prob_variability = 75
 			animation_intensity = 20
-			animation_speed = 3
+			animation_speed = 3.75
 			speak_probability = 20
 			hall_attack_probability = 4
 			turf_loop_duration = 6
@@ -266,9 +266,9 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 		else
 			bg_sound = 'white/valtos/sounds/burgerking.ogg'
 			update_bg_sound()
-			prob_variability = 20
+			prob_variability = 100
 			animation_intensity = 25
-			animation_speed = 1
+			animation_speed = 3.75
 			speak_probability = 25
 			hall_attack_probability = 10
 			turf_loop_duration = 10
