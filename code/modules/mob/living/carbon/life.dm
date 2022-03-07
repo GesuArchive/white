@@ -348,7 +348,7 @@
 
 /mob/living/carbon/human/handle_hydration(delta_time, times_fired)
 
-	if((NOBLOOD in dna.species.species_traits) || HAS_TRAIT(src, TRAIT_NOBLEED) || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
+	if(HAS_TRAIT(src, TRAIT_NOHYDRATION))
 		hydration = HYDRATION_LEVEL_START_MIN
 		return
 	if(hydration < HYDRATION_LEVEL_MIN_CAP)
