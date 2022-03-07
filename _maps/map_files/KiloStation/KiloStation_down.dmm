@@ -212,6 +212,11 @@
 	icon_state = "platingdmg1"
 	},
 /area/maintenance/bottom_station_maints/east)
+"aKA" = (
+/obj/structure/chair/stool/bar,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/west)
 "aKR" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
@@ -4583,6 +4588,12 @@
 	icon_state = "platingdmg3"
 	},
 /area/maintenance/bottom_station_maints)
+"rSK" = (
+/obj/effect/spawner/randomarcade{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/west)
 "rTf" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/stack/rods,
@@ -27499,7 +27510,7 @@ xqA
 xqA
 xqA
 lEz
-xqA
+lrq
 jAy
 lEz
 xqA
@@ -27756,7 +27767,7 @@ xqA
 xqA
 xqA
 eUR
-oHh
+aKA
 oHh
 eUR
 xqA
@@ -28013,7 +28024,7 @@ roC
 roC
 roC
 roC
-oHh
+rSK
 oHh
 roC
 roC
