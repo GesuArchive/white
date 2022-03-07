@@ -39,7 +39,7 @@ Arrow&bow
 	force = 10
 
 /obj/item/gun/syringe/bow/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "Can hold [max_syringes] arrow\s. Has [syringes.len] arrow\s remaining.")
 
 /obj/item/gun/syringe/bow/Initialize()
