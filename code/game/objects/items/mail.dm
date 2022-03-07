@@ -290,9 +290,11 @@
 
 /obj/item/paper/fluff/junkmail_generic/proc/generate_info()
 	if(!info)
-		var/cit = get_random_bashorg_citate()
-		info = cit ? cit : pick(GLOB.junkmail_messages)
+		//var/cit = get_random_bashorg_citate()
+		//info = cit ? cit : pick(GLOB.junkmail_messages)
+		info = pick(GLOB.junkmail_messages)
 
+// bash.im is dead at this moment
 /proc/get_random_bashorg_citate()
 	var/datum/http_request/request = new()
 	request.prepare(RUSTG_HTTP_METHOD_GET, "https://station13.ru/bashorg", "", "", null)
