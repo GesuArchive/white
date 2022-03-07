@@ -365,7 +365,7 @@ GLOBAL_VAR_INIT(hub_mimic_desc, "GO! GO! GO!")
 
 	if(!GLOB.hub_mimic)
 		s += "<big><b>FDev: White Dream: RU</b> 18+</big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n\n"
-		switch(rand(1, 6))
+		switch(rand(1, 7))
 			if(1)
 				s += "<img src='https://assets.station13.ru/l/w7.png'>\n\n"
 				s += "\[<big>CLASSIC STATION</big>"
@@ -384,6 +384,9 @@ GLOBAL_VAR_INIT(hub_mimic_desc, "GO! GO! GO!")
 			if(6)
 				s += "<img src='https://assets.station13.ru/l/w9.png'>\n\n"
 				s += "\[<big>PROBABLY NOT HARAM</big>"
+			if(7)
+				s += "<img src='https://assets.station13.ru/l/wz.png'>\n\n"
+				s += "\[<big>ZA POBEDU!</big>"
 	else
 		s += "<big><b>[GLOB.hub_mimic]: RU</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n\n"
 		s += "<img src='https://assets.station13.ru/l/w[rand(4, 8)].gif'>\n\n"
