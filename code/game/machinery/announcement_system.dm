@@ -91,7 +91,8 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 
 	if(world.time - SSticker.round_start_time > 10)
 		for(var/mob/M in GLOB.player_list)
-			if(!isnewplayer(M) && M.can_hear() && (is_station_level(M.z) || is_mining_level(M.z) || is_centcom_level(M.z)))
+			var/turf/T = get_turf(M)
+			if(!isnewplayer(M) && M.can_hear() && (is_station_level(T.z) || is_mining_level(T.z) || is_centcom_level(T.z)))
 				SEND_SOUND(M, 'white/valtos/sounds/newmate.ogg')
 
 	if(channels.len == 0)

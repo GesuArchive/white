@@ -39,7 +39,8 @@
 
 	var/s = sound(sound)
 	for(var/mob/M in GLOB.player_list)
-		if(!isnewplayer(M) && M.can_hear() && (is_station_level(M.z) || is_mining_level(M.z) || is_centcom_level(M.z)))
+		var/turf/T = get_turf(M)
+		if(!isnewplayer(M) && M.can_hear() && (is_station_level(T.z) || is_mining_level(T.z) || is_centcom_level(T.z)))
 			to_chat(M, announcement)
 			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 				SEND_SOUND(M, s)
@@ -99,7 +100,8 @@
 		message = html_encode(message)
 
 	for(var/mob/M in GLOB.player_list)
-		if(!isnewplayer(M) && M.can_hear() && (is_station_level(M.z) || is_mining_level(M.z) || is_centcom_level(M.z)))
+		var/turf/T = get_turf(M)
+		if(!isnewplayer(M) && M.can_hear() && (is_station_level(T.z) || is_mining_level(T.z) || is_centcom_level(T.z)))
 			to_chat(M, "<h1 class='alert'>[title]</h1><span class='alert'><big>[message]</big></span>\n\n")
 			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 				if(alert)
