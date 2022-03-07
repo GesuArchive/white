@@ -1489,10 +1489,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
-"fQZ" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/space/nearstation)
 "fRd" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/small{
@@ -28282,7 +28278,7 @@ aaa
 aaa
 roC
 cOC
-fQZ
+cOC
 roC
 aaa
 aaa

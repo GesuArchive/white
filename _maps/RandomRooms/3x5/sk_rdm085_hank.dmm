@@ -33,9 +33,6 @@
 "i" = (
 /obj/structure/bed,
 /obj/item/bedsheet/clown,
-/obj/machinery/light_switch{
-	pixel_x = 20
-	},
 /turf/open/floor/carpet/orange,
 /area/template_noop)
 "j" = (
