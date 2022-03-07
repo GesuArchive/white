@@ -158,7 +158,7 @@
 
 /obj/item/clothing/glasses/night
 	name = "очки с ПНВ"
-	desc = "Вы можете полностью видеть в темноте сейчас!"
+	desc = "Можно полностью видеть в темноте сейчас!"
 	icon_state = "night"
 	inhand_icon_state = "glasses"
 	darkness_view = 8

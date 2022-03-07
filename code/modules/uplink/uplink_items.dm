@@ -330,7 +330,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 /datum/uplink_item/dangerous/rawketlawnchair
 	name = "84-мм реактивный гранатомёт"
 	desc = "Многоразовый реактивный гранатомет с заряженным 84-мм осколочно-фугасным снарядом. \
-			Гарантированно отправит вашу цель к небесам, или мы вернем ваши деньги!"
+			Гарантированно отправит вашу цель к небесам, или мы вернем деньги!"
 	item = /obj/item/gun/ballistic/rocketlauncher
 	cost = 8
 	surplus = 30

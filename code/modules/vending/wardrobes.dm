@@ -79,7 +79,7 @@
 	name = "EngiDrobe"
 	desc = "Торговый автомат, известный торговлей одеждой промышленного класса."
 	icon_state = "engidrobe"
-	product_ads = "Гарантированно защитит ваши ноги от несчастных случаев на производстве!;Боитесь радиации? Тогда наденьте желтое!"
+	product_ads = "Гарантированно защитит ноги от несчастных случаев на производстве!;Боитесь радиации? Тогда наденьте желтое!"
 	vend_reply = "Спасибо за использование EngiDrobe!"
 	products = list(/obj/item/clothing/accessory/pocketprotector = 3,
 					/obj/item/storage/backpack/duffelbag/engineering = 3,

@@ -2,7 +2,7 @@
 
 /obj/item/wallframe/picture
 	name = "рамка картины"
-	desc = "Лучший способ показать всем ваши лучшие смертельные ловушки."
+	desc = "Лучший способ показать всем лучшие смертельные ловушки."
 	icon = 'icons/obj/decals.dmi'
 	custom_materials = list(/datum/material/wood = 2000)
 	flags_1 = 0

@@ -368,7 +368,7 @@
 
 /datum/round_aspect/tts
 	name = "TTS"
-	desc = "В эту смену я не только вижу ваши голоса. Я их слышу."
+	desc = "В эту смену я не только вижу голоса. Я их слышу."
 	weight = 16
 
 /datum/round_aspect/tts/run_aspect()

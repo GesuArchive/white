@@ -139,7 +139,7 @@
 		var/atom/movable/content = am
 		content.forceMove(B)
 		if(isliving(content))
-			to_chat(content, span_userdanger("Вы внезапно оказались в крошечном, сжатом пространстве!"))
+			to_chat(content, span_userdanger("Внезапно оказались в крошечном, сжатом пространстве!"))
 		if(!isitem(content))
 			max_weight_of_contents = max(WEIGHT_CLASS_BULKY, max_weight_of_contents)
 			continue

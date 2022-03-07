@@ -8,7 +8,7 @@
 	viable_mobtypes = list(/mob/living/carbon/human)
 	disease_flags = CAN_CARRY|CAN_RESIST|CURABLE
 	permeability_mod = 0.75
-	desc = "Эта болезнь нарушает магнитное поле вашего тела, заставляя его действовать как мощный магнит. Инъекции железа помогают стабилизировать поле зрения."
+	desc = "Эта болезнь нарушает магнитное поле тела, заставляя его действовать как мощный магнит. Инъекции железа помогают стабилизировать поле зрения."
 	severity = DISEASE_SEVERITY_MEDIUM
 	infectable_biotypes = MOB_ORGANIC|MOB_ROBOTIC
 	process_dead = TRUE

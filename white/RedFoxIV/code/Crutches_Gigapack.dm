@@ -89,7 +89,7 @@
 				bank_account.adjust_money(-cost)
 			else
 				message_admins("[Sender] не смог вызвать [teamname] с миссией: [msg]")
-				to_chat(Sender, span_alert("Не удалось найти свободные позиции для вашего запроса. Средства не были потрачены."))
+				to_chat(Sender, span_alert("Не удалось найти свободные позиции для запроса. Средства не были потрачены."))
 		return TRUE
 	else
 		return FALSE

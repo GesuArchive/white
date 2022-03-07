@@ -74,7 +74,7 @@
 		if(prob(5))
 			M.visible_message(span_warning("[M] [pick("корчится в рвотном позыве!","кашляет!","хрипит!")]"))
 		if(prob(7))
-			var/sick_message = pick("Вы чувствуете тошноту.", "Вы чувствуете себя не очень хорошо.","Вы чувствуете, как ваши внутренности тают.","Вам ОЧЕНЬ плохо.")
+			var/sick_message = pick("Чувствую тошноту.", "Чувствую себя не очень хорошо.","Чувствую, как внутренности тают.","Вам ОЧЕНЬ плохо.")
 			to_chat(M, span_notice("[sick_message]"))
 		if(prob(10))
 			var/obj/item/organ/guts = pick(M.internal_organs)

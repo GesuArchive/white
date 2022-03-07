@@ -226,7 +226,7 @@
 /obj/item/storage/bag/plants/portaseeder/verb/dissolve_contents()
 	set name = "Активировать экстракцию семян"
 	set category = "Объект"
-	set desc = "Активируйте, чтобы превратить ваши растения в семена для посадки."
+	set desc = "Активируйте, чтобы превратить растения в семена для посадки."
 	if(usr.incapacitated())
 		return
 	for(var/obj/item/O in contents)

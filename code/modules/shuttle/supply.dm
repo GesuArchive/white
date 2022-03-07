@@ -149,7 +149,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		if(SO.paying_account)
 			if(SO.pack.goody)
 				LAZYADD(goodies_by_buyer[SO.paying_account], SO)
-			D.bank_card_talk("Заказ на груз №[SO.id] отправлен. [price] кредит[get_num_string(price)] были списаны с вашего банковского счета.")
+			D.bank_card_talk("Заказ на груз №[SO.id] отправлен. [price] кредит[get_num_string(price)] были списаны с банковского счета.")
 			var/datum/bank_account/department/cargo = SSeconomy.get_dep_account(ACCOUNT_CAR)
 			cargo.adjust_money(price - SO.pack.get_cost()) //Cargo gets the handling fee
 		value += SO.pack.get_cost()

@@ -525,7 +525,7 @@
 
 /datum/design/cyberimp_nutriment_plus
 	name = "Имплант питательный насос ПЛЮС"
-	desc = "Этот имплант полностью перекрывает все ваши потребности в пище и жидкости."
+	desc = "Этот имплант полностью перекрывает все потребности в пище и жидкости."
 	id = "ci-nutrimentplus"
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 50

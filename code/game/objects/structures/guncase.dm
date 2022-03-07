@@ -1,7 +1,7 @@
 //GUNCASES//
 /obj/structure/guncase
 	name = "шкаф с оружием"
-	desc = "Хранит ваши стволы в безопасности."
+	desc = "Хранит стволы в безопасности."
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "shotguncase"
 	anchored = FALSE

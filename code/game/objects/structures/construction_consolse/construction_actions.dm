@@ -32,7 +32,7 @@
 	if (!area_constraint)
 		return TRUE
 	if(!istype(build_area, area_constraint))
-		to_chat(owner, span_warning("Вы можете строить только внутри [area_constraint]!"))
+		to_chat(owner, span_warning("Можно строить только внутри [area_constraint]!"))
 		return FALSE
 	if(only_station_z && !is_station_level(build_target.z))
 		to_chat(owner, span_warning("[area_constraint] запущен и больше не может быть изменен."))

@@ -58,7 +58,7 @@
 /obj/item/organ/cyberimp/arm/examine(mob/user)
 	. = ..()
 	if(status == ORGAN_ROBOTIC)
-		. += span_info("[capitalize(src.name)] собран в [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] зоне рук. Вы можете использовать отвертку для его пересборки.")
+		. += span_info("[capitalize(src.name)] собран в [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] зоне рук. Можно использовать отвертку для его пересборки.")
 
 /obj/item/organ/cyberimp/arm/screwdriver_act(mob/living/user, obj/item/screwtool)
 	. = ..()

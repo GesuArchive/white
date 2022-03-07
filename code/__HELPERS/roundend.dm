@@ -629,7 +629,7 @@
 		if(0)
 			parts += "<span class='redtext'>Обслуга была абсолютно бесполезна для экономики...</span><br>"
 		if(1 to 2000)
-			parts += "<span class='redtext'>Центральное командование не радо. Вы можете и лучше!</span><br>"
+			parts += "<span class='redtext'>Центральное командование не радо. Можно и лучше!</span><br>"
 			award_service(/datum/award/achievement/jobs/service_bad)
 		if(2001 to 4999)
 			parts += "<span class='greentext'>Центральное командование удовлетворено.</span><br>"

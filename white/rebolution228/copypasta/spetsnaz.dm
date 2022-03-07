@@ -20,9 +20,9 @@
 	to_chat(owner, "Вы входите в состав спецподразделения <B>'Оборотень'</B>, отправленный на станцию <B>'[station_name()]'</B> с заданием от <B>Российского Отдела Службы Безопасности NanoTrasen.</B>")
 	to_chat(owner, "ПОМНИТЕ! Ваше тело имеет <B>иммунитет к вакууму и не требует кислорода.</B>")
 	if(leader)
-		to_chat(owner, "Являясь главой отряда, вы должны руководить своим составом, чтобы обеспечить выполнение миссии. Отправьтесь на станцию при помощи шаттла, когда вы будете готовы.")
+		to_chat(owner, "Являясь главой отряда, требуется руководить своим составом, чтобы обеспечить выполнение миссии. Отправьтесь на станцию при помощи шаттла, когда вы будете готовы.")
 	else
-		to_chat(owner, "Следуйте приказам вашего командира отряда.")
+		to_chat(owner, "Следуйте приказам командира отряда.")
 	if(!rip_and_tear)
 		to_chat(owner, "По возможности <B>избегайте</B> жертв среди гражданского населения.")
 	to_chat(owner, "<BR><B>МИССИЯ:</B> [ert_team.mission.explanation_text]")
@@ -145,7 +145,7 @@
 		mask = /obj/item/clothing/mask/rag
 	else
 		mask = /obj/item/clothing/mask/balaclava/swat
-	
+
 	if(prob(3))
 		head = /obj/item/clothing/head/helmet/maska/adidas
 	else
@@ -188,7 +188,7 @@
 		mask = /obj/item/clothing/mask/gas/heavy/m40
 	else
 		mask = /obj/item/clothing/mask/balaclava/swat
-	
+
 	if(prob(1))
 		head = /obj/item/clothing/head/helmet/maska/adidas
 	else

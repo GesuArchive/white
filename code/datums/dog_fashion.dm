@@ -151,11 +151,11 @@
 
 /datum/dog_fashion/head/sombrero
 	name = "Старейшина REAL_NAME"
-	desc = "Вы должны уважать его."
+	desc = "Нужно уважать его."
 
 /datum/dog_fashion/head/sombrero/New(mob/M)
 	..()
-	desc = "Вы должны уважать Старейшину [M.real_name]."
+	desc = "Требуется уважать Старейшину [M.real_name]."
 
 /datum/dog_fashion/head/hop
 	name = "Лейтенант REAL_NAME"

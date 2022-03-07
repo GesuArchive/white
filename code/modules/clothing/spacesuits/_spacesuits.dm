@@ -5,7 +5,7 @@
 /obj/item/clothing/head/helmet/space
 	name = "шлем скафандра"
 	icon_state = "spaceold"
-	desc = "Специальный шлем защищающий ваши глаза от солнечного ультрафиолета."
+	desc = "Специальный шлем защищающий глаза от солнечного ультрафиолета."
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT
 	inhand_icon_state = "spaceold"
 	permeability_coefficient = 0.01

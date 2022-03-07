@@ -436,6 +436,6 @@
 		return //Piggyback user.
 	user.unbuckle_mob(rider)
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_notice("Вы осторожно слезаете с [rider]."))
+		to_chat(user, span_notice("Осторожно слезаю с [rider]."))
 		return
 	return rider

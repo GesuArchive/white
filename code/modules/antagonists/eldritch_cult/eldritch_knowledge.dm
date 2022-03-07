@@ -243,7 +243,7 @@
 /datum/eldritch_knowledge/spell/basic
 	name = "Рассвет Оккультизма"
 	desc = "Начните свое путешествие в мир Древних и Забытых. Позволяет выбрать цель, используя живое сердце на руне трансмутации."
-	gain_text = "Еще один день на бессмысленной работе. Вы чувствуете мерцание вокруг себя, когда осознаете, что в вашем рюкзаке происходит что-то странное. Вы смотрите на это, неосознанно открывая новую главу в своей жизни."
+	gain_text = "Еще один день на бессмысленной работе. Чувствую мерцание вокруг себя, когда осознаете, что в вашем рюкзаке происходит что-то странное. Вы смотрите на это, неосознанно открывая новую главу в своей жизни."
 	next_knowledge = list(/datum/eldritch_knowledge/base_rust,/datum/eldritch_knowledge/base_ash,/datum/eldritch_knowledge/base_flesh,/datum/eldritch_knowledge/base_void)
 	cost = 0
 	spell_to_add = /obj/effect/proc_holder/spell/targeted/touch/mansus_grasp

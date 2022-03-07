@@ -198,7 +198,7 @@
 
 /datum/design/night_vision_goggles
 	name = "Очки с ПНВ"
-	desc = "Вы можете полностью видеть в темноте сейчас!"
+	desc = "Можно полностью видеть в темноте сейчас!"
 	id = "night_visision_goggles"
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
@@ -774,7 +774,7 @@
 
 /datum/design/holosign/restaurant
 	name = "Голопроектор свободного места ресторана"
-	desc = "Используйте это, чтобы пометить места для гостей вашего ресторана!"
+	desc = "Используйте это, чтобы пометить места для гостей ресторана!"
 	id = "holosignrestaurant"
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40

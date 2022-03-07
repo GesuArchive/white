@@ -63,7 +63,7 @@
 
 /obj/item/melee/sickly_blade
 	name = "\improper Болезненный Клинок"
-	desc = "Болезненно-зеленое лезвие в виде полумесяца, украшенное декоративным глазом. Вы чувствуете, что за вами наблюдают..."
+	desc = "Болезненно-зеленое лезвие в виде полумесяца, украшенное декоративным глазом. Чувствую, что за вами наблюдают..."
 	icon = 'icons/obj/eldritch.dmi'
 	icon_state = "eldritch_blade"
 	inhand_icon_state = "eldritch_blade"
@@ -87,7 +87,7 @@
 
 /obj/item/melee/sickly_blade/attack(mob/living/M, mob/living/user)
 	if(!(IS_HERETIC(user) || IS_HERETIC_MONSTER(user)))
-		to_chat(user,span_danger("Вы чувствуете, как импульс инопланетного интеллекта обрушивается на ваш разум!"))
+		to_chat(user,span_danger("Чувствую, как импульс инопланетного интеллекта обрушивается на ваш разум!"))
 		var/mob/living/carbon/human/human_user = user
 		human_user.AdjustParalyzed(5 SECONDS)
 		return FALSE

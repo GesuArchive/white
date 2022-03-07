@@ -145,7 +145,7 @@ Slimecrossing Items
 //Ice stasis block - Chilling Dark Blue
 /obj/structure/ice_stasis
 	name = "глыба льда"
-	desc = "Массивная глыба льда. Вы можете увидеть что-то похожее на человека внутри."
+	desc = "Массивная глыба льда. Можно увидеть что-то похожее на человека внутри."
 	icon = 'icons/obj/slimecrossing.dmi'
 	icon_state = "frozen"
 	density = TRUE

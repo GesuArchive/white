@@ -24,7 +24,7 @@
 
 /obj/machinery/computer/shuttle_flight/syndicate/recall
 	name = "консоль призыва шаттла синдиката"
-	desc = "Используйте это, если ваши товарищи по команде оставили вас на базе."
+	desc = "Используйте это, если товарищи по команде оставили вас на базе."
 	request_shuttle_message = "Вызвать обратно"
 	recall_docking_port_id = "syndicate_away"
 

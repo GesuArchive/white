@@ -12,7 +12,7 @@
 /obj/item/stack/tile/mineral/uranium
 	name = "урановая плитка"
 	singular_name = "урановая напольная плитка"
-	desc = "Плитка сделанная из урана. Вы чувствуете небольшое головокружение."
+	desc = "Плитка сделанная из урана. Чувствую небольшое головокружение."
 	icon_state = "tile_uranium"
 	inhand_icon_state = "tile-uranium"
 	turf_type = /turf/open/floor/mineral/uranium

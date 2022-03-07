@@ -1,6 +1,6 @@
 /obj/item/organ/cyberimp/chest
 	name = "кибернетический имплант туловища"
-	desc = "Импланты для органов вашего туловища."
+	desc = "Импланты для органов туловища."
 	icon_state = "chest_implant"
 	implant_overlay = "chest_implant_overlay"
 	zone = BODY_ZONE_CHEST
@@ -45,7 +45,7 @@
 
 /obj/item/organ/cyberimp/chest/nutriment/plus
 	name = "имплант \"питательный насос ПЛЮС\""
-	desc = "Этот имплант полностью перекрывает все ваши потребности в пище и жидкости."
+	desc = "Этот имплант полностью перекрывает все потребности в пище и жидкости."
 	icon_state = "chest_implant"
 	implant_color = "#006607"
 	hunger_threshold = NUTRITION_LEVEL_HUNGRY

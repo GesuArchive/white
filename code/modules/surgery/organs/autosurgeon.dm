@@ -45,7 +45,7 @@
 		to_chat(user, span_alert("[capitalize(src.name)] внутри нет имплантов."))
 		return
 	storedorgan.Insert(user)//insert stored organ into the user
-	user.visible_message(span_notice("[user] нажимает кнопку [src], слышен короткий механический писк.") , span_notice("Ты чувствуешь резкий укол когда [src] втыкается в твое тело."))
+	user.visible_message(span_notice("[user] нажимает кнопку [src], слышен короткий механический писк.") , span_notice("Чувствую резкий укол когда [src] втыкается в твое тело."))
 	playsound(get_turf(user), 'sound/weapons/circsawhit.ogg', 50, TRUE)
 	storedorgan = null
 	name = initial(name)
@@ -161,7 +161,7 @@
 	var/obj/item/skillchip/implanted_chip = stored_skillchip
 	stored_skillchip = null
 
-	user.visible_message(span_notice("[user] нажимает кнопку на [src], и слышится короткий механический звук.") , span_notice("Ты чувствуешь резкий укол, когда [src] втыкается в твой мозг."))
+	user.visible_message(span_notice("[user] нажимает кнопку на [src], и слышится короткий механический звук.") , span_notice("Чувствую резкий укол, когда [src] втыкается в твой мозг."))
 	playsound(get_turf(user), 'sound/weapons/circsawhit.ogg', 50, TRUE)
 
 	to_chat(user,"<span class='notice'Операция завершена! [implanted_chip] успешно вживлен! Попытка автоматической активации...</span>")

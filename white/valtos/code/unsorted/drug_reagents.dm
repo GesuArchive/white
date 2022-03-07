@@ -148,7 +148,7 @@
 
 /datum/reagent/drug/grape_blast
 	name = "Grape Blast"
-	description = "Сок очень особенных фруктов, концентрированный и продаваемый у вашего местного продавца А1."
+	description = "Сок очень особенных фруктов, концентрированный и продаваемый у местного продавца А1."
 	color = "#ffffe6"
 	reagent_state = LIQUID
 	taste_description = "искусственный виноград"

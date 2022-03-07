@@ -64,7 +64,7 @@
 		playsound(src, 'sound/machines/click.ogg', 60, TRUE)
 		user.visible_message(span_notice("<b>[src.name]</b> [stasis_enabled ? "включается" : "выключается"].") , \
 					span_notice("[stasis_enabled ? "Включаю" : "Выключаю"] <b>[src.name]</b>.") , \
-					span_hear("Вы слышите звук [stasis_enabled ? "включения" : "выключения"] машины."))
+					span_hear("Слышу звук [stasis_enabled ? "включения" : "выключения"] машины."))
 		play_power_sound()
 		update_icon()
 

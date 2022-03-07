@@ -203,7 +203,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 			if(REQ_SCREEN_AUTHENTICATE)
 				dat += "<B>Авторизация сообщения</B><BR><BR>"
 				dat += "<b>Сообщение для [to_department]: </b>[message]<BR><BR>"
-				dat += "<div class='notice'>Вы можете аутентифицировать свое сообщение сейчас, отсканировав свою ID-карту или свою печать</div><BR>"
+				dat += "<div class='notice'>Можно аутентифицировать свое сообщение сейчас, отсканировав свою ID-карту или свою печать</div><BR>"
 				dat += "<b>Утверждено:</b> [msgVerified ? msgVerified : "<i>Не подтверждено</i>"]<br>"
 				dat += "<b>Отмечено:</b> [msgStamped ? msgStamped : "<i>Нет штампа</i>"]<br><br>"
 				dat += "<A href='?src=[REF(src)];send=[TRUE]'>Отправить сообщение</A><BR>"

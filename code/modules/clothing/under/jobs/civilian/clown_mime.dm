@@ -85,7 +85,7 @@
 
 /obj/item/clothing/under/rank/civilian/clown/jester
 	name = "костюм шута"
-	desc = "Веселое одеяние, отлично подойдет для развлечения вашего хозяина."
+	desc = "Веселое одеяние, отлично подойдет для развлечения хозяина."
 	icon_state = "jester"
 	can_adjust = FALSE
 

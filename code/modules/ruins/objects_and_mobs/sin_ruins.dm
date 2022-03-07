@@ -20,7 +20,7 @@
 		to_chat(user, span_userdanger("Нет... еще один разок..."))
 		user.gib()
 	else
-		user.visible_message(span_warning("[user] дергает [src] рычаг с блеском в [user.ru_ego()] глахах!") , "<span class='warning'>Вы чувствуете истощение и слабость во всем теле как только дергаете рычаг, но вы \
+		user.visible_message(span_warning("[user] дергает [src] рычаг с блеском в [user.ru_ego()] глахах!") , "<span class='warning'>Чувствую истощение и слабость во всем теле как только дергаете рычаг, но вы \
 		знаете, что оно того стоит.</span>")
 	icon_state = "slots2"
 	playsound(src, 'sound/lavaland/cursed_slot_machine.ogg', 50, FALSE)

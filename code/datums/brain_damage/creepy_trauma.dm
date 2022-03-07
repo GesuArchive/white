@@ -25,7 +25,7 @@
 			lose_text = ""
 			qdel(src)
 			return
-	gain_text = span_warning("Вы слышите тошнотворный, скрипучий голос в своей голове. Ему нужно от вас одно маленькое задание...")
+	gain_text = span_warning("Слышу тошнотворный, скрипучий голос в голове. Ему нужно от меня одно маленькое задание...")
 	owner.mind.add_antag_datum(/datum/antagonist/obsessed)
 	antagonist = owner.mind.has_antag_datum(/datum/antagonist/obsessed)
 	antagonist.trauma = src
@@ -115,7 +115,7 @@
 	if(examining_mob != owner || !triggering_examiner || prob(50))
 		return
 
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, obsession, span_warning("Вы замечаете, что [examining_mob] пялится на тебя...") , 3))
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, obsession, span_warning("Замечаю, что [examining_mob] пялится на меня...") , 3))
 	return COMSIG_BLOCK_EYECONTACT
 
 /datum/brain_trauma/special/obsessed/proc/find_obsession()

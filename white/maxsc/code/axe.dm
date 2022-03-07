@@ -87,7 +87,7 @@
 /obj/item/paxee/examine(mob/living/user)
 	..()
 	if (charged)
-		to_chat(user, "Вы чувствуете невероятную силу, исходящую из этого.")
+		to_chat(user, "Чувствую невероятную силу, исходящую из этого.")
 	else
 		to_chat(user, "Выглядит нормально.")
 

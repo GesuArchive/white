@@ -34,7 +34,7 @@
 
 /datum/antagonist/survivalist/magic/greet()
 	..()
-	to_chat(owner, span_notice("Будучи волшебником, вы должны помнить о том, что книги заклинаний ничего не стоят, если они были использованы.."))
+	to_chat(owner, span_notice("Будучи волшебником, требуется помнить о том, что книги заклинаний ничего не стоят, если они были использованы.."))
 
 /datum/antagonist/survivalist/magic/forge_objectives()
 	var/datum/objective/steal_five_of_type/summon_magic/magic = new

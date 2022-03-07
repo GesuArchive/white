@@ -8,7 +8,7 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY
 
-	now_failing = span_warning("Взрывная боль заполнила правый нижний угол вашего живота!")
+	now_failing = span_warning("Взрывная боль заполнила правый нижний угол живота!")
 	now_fixed = span_info("Боль в животе утихла.")
 
 	var/inflamed

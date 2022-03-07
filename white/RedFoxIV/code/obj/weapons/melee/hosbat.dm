@@ -99,7 +99,7 @@
 //FISH KILL!!
 /obj/item/melee/baseball_bat/hos/holymackerel
 	name = "\"Поддай леща\""
-	desc = "Убийство рыбой - самое унизительное наказание для вашего врага."
+	desc = "Убийство рыбой - самое унизительное наказание для врага."
 	icon_state = "holymackerel"
 	hitsound = 'white/RedFoxIV/sounds/weapons/holy_mackerel.ogg'
 	force = 7

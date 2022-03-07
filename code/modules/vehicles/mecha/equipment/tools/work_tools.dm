@@ -116,7 +116,7 @@
 				affected.dismember(damtype)
 				torn_off = TRUE
 			if(!torn_off)
-				to_chat(source, span_notice("Руки [M] уже оторваны, вы должны найти нового претендента, достойного убийства!"))
+				to_chat(source, span_notice("Руки [M] уже оторваны, требуется найти нового претендента, достойного убийства!"))
 				return
 			playsound(src, get_dismember_sound(), 80, TRUE)
 			target.visible_message(span_danger("[chassis] отрывает руки [target]!") , \
@@ -131,7 +131,7 @@
 		M.updatehealth()
 		target.visible_message(span_danger("[chassis] сжимает [target]!") , \
 							span_userdanger("[chassis] сжимает тебя!") ,\
-							span_hear("Вы слышите хруст."))
+							span_hear("Слышу хруст."))
 		log_combat(source, M, "attacked", "[name]", "(INTENT: [uppertext(source.a_intent)]) (DAMTYPE: [uppertext(damtype)])")
 	return ..()
 

@@ -5,7 +5,7 @@
 	name = "Раздвоение личности"
 	desc = "Сознание пациента раскололось на две личности, каждая из которых, в процессе борьбы, переодически перехватывает управление телом."
 	scan_desc = "<b>диссоциативного расстройства идентичности</b>"
-	gain_text = span_warning("Ты чувствуешь себя так, словно твой разум разделился надвое.")
+	gain_text = span_warning("Чувствую себя так, словно твой разум разделился надвое.")
 	lose_text = span_notice("Ты ощущаешь себя единовластным хозяином своего тела.")
 	var/current_controller = OWNER
 	var/initialized = FALSE //to prevent personalities deleting themselves while we wait for ghosts
@@ -82,8 +82,8 @@
 		return
 
 	log_game("[key_name(current_backseat)] перехватил контроль над [key_name(owner)] при [src]. (Первоначальный владелец: [current_controller == OWNER ? owner.key : current_backseat.key])")
-	to_chat(owner, span_userdanger("Вы чувствуете как ваш контроль над телом угасает... ваша альтернативная личность взяла верх!"))
-	to_chat(current_backseat, span_userdanger("Вы смогли вернуть себе контроль над своим телом!"))
+	to_chat(owner, span_userdanger("Контроль над телом угасает... альтернативная личность взяла верх!"))
+	to_chat(current_backseat, span_userdanger("Удалось вернуть контроль над телом!"))
 
 	//Body to backseat
 
@@ -161,10 +161,10 @@
 	if(!. || !client)
 		return FALSE
 	to_chat(src, span_notice("Будучи альтернативной личностью, вы не можете ничего делать, кроме как наблюдать. Однако в конечном итоге вы обретете контроль над своим телом, поменявшись местами с нынешней личностью."))
-	to_chat(src, span_warning("<b>Не совершайте самоубийства и не ставьте тело в смертельно опасное положение. Это и ваше тело тоже, поэтому вы должны заботиться об этом теле так же сильно, как и владелец.</b>"))
+	to_chat(src, span_warning("<b>Не совершайте самоубийства и не ставьте тело в смертельно опасное положение. Это и ваше тело тоже, поэтому требуется заботиться об этом теле так же сильно, как и владелец.</b>"))
 
 /mob/living/split_personality/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
-	to_chat(src, span_warning("Вы не можете говорить, ваше второе 'я' контролирует ваше тело!"))
+	to_chat(src, span_warning("Не могу говорить, второе 'я' контролирует тело!"))
 	return FALSE
 
 /mob/living/split_personality/emote(act, m_type = null, message = null, intentional = FALSE, force_silence = FALSE)
@@ -177,7 +177,7 @@
 	desc = "Сознание пациента раскололось на две личности, каждая из которых, в процессе борьбы, переодически перехватывает управление телом."
 	scan_desc = "<b>диссоциативного расстройства идентичности</b>"
 	gain_text = ""
-	lose_text = span_notice("Вы освободились от внедренных паттернов.")
+	lose_text = span_notice("Освобождаюсь от внедренных паттернов.")
 	can_gain = FALSE
 	var/codeword
 	var/objective
@@ -238,10 +238,10 @@
 	. = ..()
 	if(!. || !client)
 		return FALSE
-	to_chat(src, span_notice("Как личность с промытыми мозгами, вы пока ничего не можете сделать, кроме как наблюдать. Однако вы можете получить контроль над своим телом, если услышите специальное кодовое слово, поменявшись местами с текущей личностью."))
-	to_chat(src, span_notice("Ваше кодовое слово для активации: <b>[codeword]</b>"))
+	to_chat(src, span_notice("Как личность с промытыми мозгами, мне ничего не остаётся, кроме как наблюдать. Однако можно получить контроль над телом, если специальное кодовое слово будет произнесено."))
+	to_chat(src, span_notice("Кодовое слово для активации: <b>[codeword]</b>"))
 	if(objective)
-		to_chat(src, span_notice("Ваш хозяин оставил тебе цель: <b>[objective]</b>. Вы обязаны следовать ему любой ценой, когда контролируете тело."))
+		to_chat(src, span_notice("Хозяин оставил цель: <b>[objective]</b>. Мне необходимо следовать этой цели любой ценой, когда я в теле."))
 
 #undef OWNER
 #undef STRANGER

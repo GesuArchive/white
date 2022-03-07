@@ -219,7 +219,7 @@ SUBSYSTEM_DEF(zclear)
 						nullspaced_mob_names += " - [M.name]\n"
 						valid = TRUE
 				if(valid)
-					priority_announce("Сенсоры сообщают о том, что несколько членов вашего экипажа пропало. Скорее всего их раскидало по космосу, их всё ещё можно попробовать найти.\n[nullspaced_mob_names]")
+					priority_announce("Сенсоры сообщают о том, что несколько членов экипажа пропало. Скорее всего их раскидало по космосу, их всё ещё можно попробовать найти.\n[nullspaced_mob_names]")
 	cleardata.process_num ++
 
 /*

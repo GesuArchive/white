@@ -464,7 +464,7 @@
 		playsound(src, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 		return
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_STATION_SENTIENCE))
-		say("ERROR: Центральное командование временно запретило использование шлемов по увеличению обезьянего интеллекта в этом секторе. БЛИЖАЙШИЙ ЗАКОННЫЙ СЕКТОР: в 2,537 миллионов световых лет от вас.")
+		say("ERROR: Центральное командование временно запретило использование шлемов по увеличению обезьянего интеллекта в этом секторе. БЛИЖАЙШИЙ ЗАКОННЫЙ СЕКТОР: в 2,537 миллионов световых лет от меня.")
 	magnification = user //this polls ghosts
 	visible_message(span_warning("[capitalize(src.name)] включается!"))
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)

@@ -134,10 +134,10 @@
 	if(owner.drowsyness)
 		sleep_chance += 3
 	if(DT_PROB(0.5 * sleep_chance, delta_time))
-		to_chat(owner, span_warning("Вы засыпаете..."))
+		to_chat(owner, span_warning("Засыпаю..."))
 		owner.Sleeping(60)
 	else if(!owner.drowsyness && DT_PROB(sleep_chance, delta_time))
-		to_chat(owner, span_warning("Вы очень устали..."))
+		to_chat(owner, span_warning("Хочется спать..."))
 		owner.drowsyness += 10
 
 /datum/brain_trauma/severe/monophobia

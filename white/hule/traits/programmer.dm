@@ -9,7 +9,7 @@
 	value = 1
 	mob_trait = "programmer"
 	gain_text = span_notice("Вы знаете всё о программировании и кроссдресинге.")
-	lose_text = span_danger("Вы чувствуете себя нормальным.")
+	lose_text = span_danger("Чувствую себя нормальным.")
 	medical_record_text = "Пациент утверждает, что если одеваться, как японская школьница, то его навыки программирования улучшатся."
 
 /datum/quirk/programmer/on_spawn()

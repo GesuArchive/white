@@ -119,7 +119,7 @@
 	trait_type = STATION_TRAIT_POSITIVE
 	weight = 5
 	show_in_report = TRUE
-	report_message = "Благодаря близости к нашей станции снабжения грузовой шаттл будет быстрее добираться до вашего грузового отдела."
+	report_message = "Благодаря близости к нашей станции снабжения грузовой шаттл будет быстрее добираться до грузового отдела."
 	blacklist = list(/datum/station_trait/slow_shuttle)
 
 /datum/station_trait/quick_shuttle/on_round_start()

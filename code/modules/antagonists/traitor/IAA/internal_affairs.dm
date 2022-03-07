@@ -210,7 +210,7 @@
 						if(syndicate)
 							fail_msg += span_userdanger(" У вас больше нет права на смерть. ")
 						else
-							fail_msg += span_userdanger(" Остались свидетели!</font><B><font size=5 color=red> Немедленно прекратите любые террористические действия, вредящие имуществу NanoTrasen или приводящие к гибели сотрудников! В противном случае это приведёт к расторжению вашего контракта.")
+							fail_msg += span_userdanger(" Остались свидетели!</font><B><font size=5 color=red> Немедленно прекратите любые террористические действия, вредящие имуществу NanoTrasen или приводящие к гибели сотрудников! В противном случае это приведёт к расторжению контракта.")
 						reinstate_escape_objective(owner)
 						last_man_standing = FALSE
 					to_chat(owner.current, fail_msg)

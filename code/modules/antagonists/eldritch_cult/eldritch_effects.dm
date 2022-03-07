@@ -178,7 +178,7 @@
 		return ..()
 	var/mob/living/carbon/human/human_user = user
 	if(IS_HERETIC(human_user))
-		to_chat(human_user,span_boldwarning("Я знаю, что лучше не искушать силы, вышедшие из-под вашего контроля!"))
+		to_chat(human_user,span_boldwarning("Я знаю, что лучше не искушать силы, вышедшие из-под контроля!"))
 	else
 		var/obj/item/bodypart/arm = human_user.get_active_hand()
 		if(prob(25))
@@ -195,7 +195,7 @@
 	. = COMPONENT_CANCEL_ATTACK_CHAIN
 	var/mob/living/carbon/human/human_user = user
 	if(IS_HERETIC(human_user))
-		to_chat(human_user,span_boldwarning("Я знаею, что лучше не искушать силы, вышедшие из-под вашего контроля!"))
+		to_chat(human_user,span_boldwarning("Я знаею, что лучше не искушать силы, вышедшие из-под контроля!"))
 		return
 	//a very elaborate way to suicide
 	to_chat(human_user,span_userdanger("Сверхъестественная энергия вырывается наружу, пронзая мой хрупкий разум, разрывая его на куски!"))

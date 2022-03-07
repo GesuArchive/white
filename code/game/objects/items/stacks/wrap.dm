@@ -33,7 +33,7 @@
 /obj/item/stack/package_wrap
 	name = "упаковщик"
 	singular_name = "упаковочный лист"
-	desc = "Вы можете использовать это, чтобы обернуть что-то в неё."
+	desc = "Можно использовать это, чтобы обернуть что-то в неё."
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "deliveryPaper"
 	item_flags = NOBLUDGEON
@@ -128,7 +128,7 @@
 		new /obj/item/c_tube(T)
 
 /obj/item/stack/package_wrap/small
-	desc = "Вы можете использовать это, чтобы обернуть предметы. Этот рулон выглядит немного скудно."
+	desc = "Можно использовать это, чтобы обернуть предметы. Этот рулон выглядит немного скудно."
 	w_class = WEIGHT_CLASS_SMALL
 	amount = 5
 	merge_type = /obj/item/stack/package_wrap/small

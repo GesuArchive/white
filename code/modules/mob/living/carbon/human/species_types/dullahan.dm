@@ -96,7 +96,7 @@
 
 /datum/action/item_action/organ_action/dullahan
 	name = "Переключить перспективу"
-	desc = "Переключиться между зрением головы, или слепым вашего тела."
+	desc = "Переключиться между зрением головы, или слепым тела."
 
 /datum/action/item_action/organ_action/dullahan/Trigger()
 	. = ..()
