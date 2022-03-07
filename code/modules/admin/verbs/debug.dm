@@ -504,14 +504,13 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 /client/proc/robust_dress_shop()
 
-	var/list/baseoutfits = list("Naked","Custom","As Job...", "As Plasmaman...", "Для Турниров...")
+	var/list/baseoutfits = list("Naked", "Custom", "As Job...", "As Plasmaman...", "Для Турниров...")
 	var/list/outfits = list()
 	var/list/paths = subtypesof(/datum/outfit) - typesof(/datum/outfit/job) - typesof(/datum/outfit/plasmaman) - typesof(/datum/outfit) - typesof(/datum/outfit/whiterobust)
 
 	for(var/path in paths)
 		var/datum/outfit/O = path //not much to initalize here but whatever
-		if(initial(O.can_be_admin_equipped))
-			outfits[initial(O.name)] = path
+		outfits[initial(O.name)] = path
 
 	var/dresscode = input("Select outfit", "Robust quick dress shop") as null|anything in baseoutfits + sort_list(outfits)
 	if (isnull(dresscode))
@@ -525,8 +524,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		var/list/job_outfits = list()
 		for(var/path in job_paths)
 			var/datum/outfit/O = path
-			if(initial(O.can_be_admin_equipped))
-				job_outfits[initial(O.name)] = path
+			job_outfits[initial(O.name)] = path
 
 		dresscode = input("Select job equipment", "Robust quick dress shop") as null|anything in sort_list(job_outfits)
 		dresscode = job_outfits[dresscode]
@@ -538,8 +536,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		var/list/plasmaman_outfits = list()
 		for(var/path in plasmaman_paths)
 			var/datum/outfit/O = path
-			if(initial(O.can_be_admin_equipped))
-				plasmaman_outfits[initial(O.name)] = path
+			plasmaman_outfits[initial(O.name)] = path
 
 		dresscode = input("Select plasmeme equipment", "Robust quick dress shop") as null|anything in sort_list(plasmaman_outfits)
 		dresscode = plasmaman_outfits[dresscode]
@@ -551,8 +548,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		var/list/white_outfits = list()
 		for(var/path in white_paths)
 			var/datum/outfit/O = path
-			if(initial(O.can_be_admin_equipped))
-				white_outfits[initial(O.name)] = path
+			white_outfits[initial(O.name)] = path
 
 		dresscode = input("ДАВАЙ УРААА ДАВАЙ ДАВАЙ ДАВААААЙ", "ВЫБИРАЕЕЕМ") as null|anything in sort_list(white_outfits)
 		dresscode = white_outfits[dresscode]

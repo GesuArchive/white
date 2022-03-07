@@ -3,6 +3,7 @@
 #define EVENT_TYPE_SPAWN_EVERYONE 2
 #define EVENT_READJUST_TO_WARFARE 3
 #define EVENT_TYPE_NATIONS 4
+#define EVENT_SPAWN_EVERYONE 5
 
 GLOBAL_VAR_INIT(disable_fucking_station_shit_please, FALSE)
 
@@ -87,6 +88,23 @@ SUBSYSTEM_DEF(eventmaster)
 				var/obj/effect/landmark/start/S = i
 				if(istype(S))
 					S.delete_after_roundstart = FALSE
+			to_chat(world, span_heavy_brass("Готово!"))
+			return TRUE
+		if(EVENT_SPAWN_EVERYONE)
+			var/name_of_pitlord = input(usr, "Имя", "КАК")
+			var/posttransformoutfit = usr.client.robust_dress_shop()
+			if(!name_of_pitlord)
+				name_of_pitlord = "Боец"
+			if(!posttransformoutfit)
+				return FALSE
+			to_chat(world, span_heavy_brass("Перемещение всех призраков в одну точку..."))
+			var/num_spawned = 0
+			for(var/mob/dead/observer/O in GLOB.player_list)
+				num_spawned++
+				var/mob/living/carbon/human/newmob = O.change_mob_type(/mob/living/carbon/human, get_turf(usr), "[name_of_pitlord] #[num_spawned]", TRUE)
+				if(posttransformoutfit && istype(newmob))
+					newmob.equipOutfit(posttransformoutfit)
+			to_chat(world, span_heavy_brass("Создано [num_spawned] тел..."))
 			to_chat(world, span_heavy_brass("Готово!"))
 			return TRUE
 		else
@@ -189,6 +207,10 @@ SUBSYSTEM_DEF(eventmaster)
 			SSeventmaster.target_event = EVENT_TYPE_SPAWN_EVERYONE
 		if("SET WARFARE")
 			SSeventmaster.target_event = EVENT_READJUST_TO_WARFARE
+		if("NATIONS EVENT")
+			SSeventmaster.target_event = EVENT_TYPE_NATIONS
+		if("SPAWN EVERYONE HERE")
+			SSeventmaster.target_event = EVENT_SPAWN_EVERYONE
 		else
 			SSeventmaster.target_event = EVENT_TYPE_NONE
 
@@ -206,3 +228,4 @@ SUBSYSTEM_DEF(eventmaster)
 #undef EVENT_TYPE_SPAWN_EVERYONE
 #undef EVENT_READJUST_TO_WARFARE
 #undef EVENT_TYPE_NATIONS
+#undef EVENT_SPAWN_EVERYONE

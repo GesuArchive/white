@@ -119,6 +119,9 @@
 		return
 	user.temporarilyRemoveItemFromInventory(src, TRUE)
 	if(contents.len)
+		var/obj/item/paper/fluff/junkmail_generic/J = locate(/obj/item/paper/fluff/junkmail_generic) in src
+		if(J)
+			J.generate_info()
 		user.put_in_hands(contents[1])
 	playsound(loc, 'sound/items/poster_ripped.ogg', 50, TRUE)
 	qdel(src)
@@ -184,7 +187,7 @@
 	)
 
 	color = pick(department_colors) //eh, who gives a shit.
-	name = special_name ? junk_names[junk] : "ВАЖНАЯ [initial(name)]"
+	name = special_name ? junk_names[junk] : "ВАЖНО! [capitalize(initial(name))]"
 
 	junk = new junk(src)
 	return TRUE
@@ -285,19 +288,10 @@
 	name = "важный документ"
 	icon_state = "paper_words"
 
-/obj/item/paper/fluff/junkmail_generic/examine(mob/user)
-	. = ..()
+/obj/item/paper/fluff/junkmail_generic/proc/generate_info()
 	if(!info)
 		var/cit = get_random_bashorg_citate()
 		info = cit ? cit : pick(GLOB.junkmail_messages)
-		update_icon_state()
-
-/obj/item/paper/fluff/junkmail_generic/attackby(obj/item/P, mob/living/user, params)
-	. = ..()
-	if(!info)
-		var/cit = get_random_bashorg_citate()
-		info = cit ? cit : pick(GLOB.junkmail_messages)
-		update_icon_state()
 
 /proc/get_random_bashorg_citate()
 	var/datum/http_request/request = new()
