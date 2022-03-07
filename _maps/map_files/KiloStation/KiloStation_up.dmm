@@ -64320,6 +64320,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/border_only,
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/captain)
 "qAu" = (
