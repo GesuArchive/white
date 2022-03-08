@@ -598,7 +598,7 @@
 	var/req_sum = 500
 
 /obj/effect/mob_spawn/human/donate/attack_ghost(mob/user)
-	if(check_donations(user?.ckey) >= req_sum)
+	if(check_donations_avail(user?.ckey) >= req_sum)
 		. = ..()
 	else
 		to_chat(user, span_warning("Эта роль требует <b>[req_sum]</b> донат-поинтов для доступа."))

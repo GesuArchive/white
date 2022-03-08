@@ -473,6 +473,14 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 		return D.maxmoney
 	return FALSE
 
+/proc/check_donations_avail(ckey)
+	if (!GLOB.donators[ckey])
+		return FALSE
+	var/datum/donator/D = GLOB.donators[ckey]
+	if(D)
+		return D.money
+	return FALSE
+
 /proc/get_donator(ckey)
 	if (!GLOB.donators[ckey])
 		return FALSE
