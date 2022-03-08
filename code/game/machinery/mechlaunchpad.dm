@@ -1,6 +1,6 @@
 /obj/machinery/mechpad
-	name = "orbital mech pad"
-	desc = "A slab of heavy plating designed to withstand orbital-drop impacts. Through some sort of advanced bluespace tech, this one seems able to send and receive Mechs. Requires linking to a console to function."
+	name = "орбитальная механическая площадка"
+	desc = "Плита из тяжелой обшивки, предназначенная для того, чтобы выдерживать удары при падении с орбиты. Благодаря какой-то продвинутой технологии блюспейс платформа, похоже, способна отправлять и получать мехов. Для работы требуется подключение к консоли."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "mechpad"
 	circuit = /obj/item/circuitboard/machine/mechpad
@@ -15,7 +15,7 @@
 
 /obj/machinery/mechpad/Initialize()
 	. = ..()
-	display_name = "Orbital Pad - [get_area_name(src)]"
+	display_name = "Орбитальная Площадка - [get_area_name(src)]"
 	GLOB.mechpad_list += src
 
 /obj/machinery/mechpad/Destroy()
@@ -44,7 +44,7 @@
 		return
 	var/obj/item/multitool/multitool = tool
 	multitool.buffer = src
-	to_chat(user, span_notice("You save the data in the [multitool.name] buffer."))
+	to_chat(user, span_notice("Сохраняю данные в буфер [multitool.name]."))
 	return TRUE
 
 /**

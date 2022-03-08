@@ -5,8 +5,8 @@
 
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "navbeacon0-f"
-	name = "navigation beacon"
-	desc = "A radio beacon used for bot navigation and crew wayfinding."
+	name = "навигатор"
+	desc = "Радиомаяк, используемый как для навигации, так и для определения маршрута."
 	layer = LOW_OBJ_LAYER
 	max_integrity = 500
 	armor = list(MELEE = 70, BULLET = 70, LASER = 70, ENERGY = 70, BOMB = 0, BIO = 0, RAD = 0, FIRE = 80, ACID = 80)
@@ -100,7 +100,7 @@
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		open = !open
 
-		user.visible_message(span_notice("[user] [open ? "opens" : "closes"] the beacon's cover.") , span_notice("You [open ? "open" : "close"] the beacon's cover."))
+		user.visible_message(span_notice("[user] [open ? "открывает" : "закрывает"] крышку навигатора.") , span_notice("[open ? "Открываю" : "Закрываю"] крышку навигатора."))
 
 		update_icon()
 
@@ -108,12 +108,12 @@
 		if(open)
 			if (src.allowed(user))
 				src.locked = !src.locked
-				to_chat(user, span_notice("Controls are now [src.locked ? "locked" : "unlocked"]."))
+				to_chat(user, span_notice("Доступ [src.locked ? "заблокирован" : "разблокирован"]."))
 			else
 				to_chat(user, span_danger("Доступ запрещён."))
 			updateDialog()
 		else
-			to_chat(user, span_warning("You must open the cover first!"))
+			to_chat(user, span_warning("Крышка закрыта!"))
 	else
 		return ..()
 
@@ -131,17 +131,17 @@
 		return		// prevent intraction when T-scanner revealed
 
 	if(!open && !ai)	// can't alter controls if not open, unless you're an AI
-		to_chat(user, span_warning("The beacon's control cover is closed!"))
+		to_chat(user, span_warning("Крышка закрыта!"))
 		return
 
 
 	var/t
 
 	if(locked && !ai)
-		t = {"<TT><B>Navigation Beacon</B><HR><BR>
-<i>(swipe card to unlock controls)</i><BR>
-Location: [location ? location : "(none)"]</A><BR>
-Transponder Codes:<UL>"}
+		t = {"<meta charset='utf-8'><TT><B>Навигатор</B><HR><BR>
+<i>(проведите картой для разблокировки)</i><BR>
+Место: [location ? location : "(Нету)"]</A><BR>
+Коды транспондера:<UL>"}
 
 		for(var/key in codes)
 			t += "<LI>[key] ... [codes[key]]"
@@ -149,21 +149,21 @@ Transponder Codes:<UL>"}
 
 	else
 
-		t = {"<TT><B>Navigation Beacon</B><HR><BR>
-<i>(swipe card to lock controls)</i><BR>
+		t = {"<meta charset='utf-8'><TT><B>Навигатор</B><HR><BR>
+<i>(проведите картой для блокировки)</i><BR>
 
 <HR>
-Location: <A href='byond://?src=[REF(src)];locedit=1'>[location ? location : "None"]</A><BR>
-Transponder Codes:<UL>"}
+Место: <A href='byond://?src=[REF(src)];locedit=1'>[location ? location : "Нету"]</A><BR>
+Коды транспондера:<UL>"}
 
 		for(var/key in codes)
 			t += "<LI>[key] ... [codes[key]]"
-			t += "	<A href='byond://?src=[REF(src)];edit=1;code=[key]'>Edit</A>"
-			t += "	<A href='byond://?src=[REF(src)];delete=1;code=[key]'>Delete</A><BR>"
-		t += "	<A href='byond://?src=[REF(src)];add=1;'>Add New</A><BR>"
+			t += "	<A href='byond://?src=[REF(src)];edit=1;code=[key]'>Редактировать</A>"
+			t += "	<A href='byond://?src=[REF(src)];delete=1;code=[key]'>Удалить</A><BR>"
+		t += "	<A href='byond://?src=[REF(src)];add=1;'>Добавить</A><BR>"
 		t+= "<UL></TT>"
 
-	var/datum/browser/popup = new(user, "navbeacon", "Navigation Beacon", 300, 400)
+	var/datum/browser/popup = new(user, "navbeacon", "Навигатор", 300, 400)
 	popup.set_content(t)
 	popup.open()
 	return
@@ -175,7 +175,7 @@ Transponder Codes:<UL>"}
 		usr.set_machine(src)
 
 		if(href_list["locedit"])
-			var/newloc = stripped_input(usr, "Enter New Location", "Navigation Beacon", location, MAX_MESSAGE_LEN)
+			var/newloc = stripped_input(usr, "Введите Новое Место", "Навигатор", location, MAX_MESSAGE_LEN)
 			if(newloc)
 				location = newloc
 				glob_lists_register()
@@ -184,12 +184,12 @@ Transponder Codes:<UL>"}
 		else if(href_list["edit"])
 			var/codekey = href_list["code"]
 
-			var/newkey = stripped_input(usr, "Enter Transponder Code Key", "Navigation Beacon", codekey)
+			var/newkey = stripped_input(usr, "Введите Коды Транспондера", "Навигатор", codekey)
 			if(!newkey)
 				return
 
 			var/codeval = codes[codekey]
-			var/newval = stripped_input(usr, "Enter Transponder Code Value", "Navigation Beacon", codeval)
+			var/newval = stripped_input(usr, "Введите Значение Кода Транспондера", "Навигатор", codeval)
 			if(!newval)
 				newval = codekey
 				return
@@ -208,11 +208,11 @@ Transponder Codes:<UL>"}
 
 		else if(href_list["add"])
 
-			var/newkey = stripped_input(usr, "Enter New Transponder Code Key", "Navigation Beacon")
+			var/newkey = stripped_input(usr, "Введите Новый Код Транспондера", "Навигатор")
 			if(!newkey)
 				return
 
-			var/newval = stripped_input(usr, "Enter New Transponder Code Value", "Navigation Beacon")
+			var/newval = stripped_input(usr, "Введите Новое Значение Кода Транспондера", "Навигатор")
 			if(!newval)
 				newval = "1"
 				return
