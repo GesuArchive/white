@@ -38,7 +38,7 @@
 		COMSIG_ATOM_EXIT = .proc/on_exit,
 	)
 
-	AddElement(/datum/element/connect_loc_behalf, src, loc_connections)
+	AddElement(/datum/component/connect_loc_behalf, src, loc_connections)
 
 	return ..()
 
