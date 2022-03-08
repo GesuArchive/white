@@ -301,6 +301,7 @@
 			cyborg_base_icon = "qualified_doctor"
 		if("Zoomba")
 			cyborg_base_icon = "zoomba_med"
+			robot.setMaxHealth(25)
 		if("Gibbs")
 			cyborg_base_icon = "gibbs"
 		else
@@ -372,6 +373,7 @@
 			cyborg_base_icon = "heavyeng"
 		if("Zoomba")
 			cyborg_base_icon = "zoomba_engi"
+			robot.setMaxHealth(25)
 		if("Conagher")
 			cyborg_base_icon = "conagher"
 		else
@@ -424,6 +426,7 @@
 			cyborg_base_icon = "sleeksec"
 		if("Zoomba")
 			cyborg_base_icon = "zoomba_sec"
+			robot.setMaxHealth(25)
 		if("Woody")
 			cyborg_base_icon = "woody"
 		else
@@ -518,6 +521,7 @@
 			cyborg_base_icon = "janitor"
 		if("Zoomba")
 			cyborg_base_icon = "zoomba_jani"
+			robot.setMaxHealth(25)
 		if("Flynn")
 			cyborg_base_icon = "flynn"
 		if("Heavy")
@@ -657,6 +661,7 @@
 			cyborg_base_icon = "heavyserv"
 		if("Zoomba")
 			cyborg_base_icon = "zoomba_green"
+			robot.setMaxHealth(25)
 		if("Lloyd")
 			cyborg_base_icon = "lloyd"
 		if("Handy")
@@ -716,6 +721,7 @@
 			cyborg_base_icon = "heavymin"
 		if("Zoomba")
 			cyborg_base_icon = "zoomba_miner"
+			robot.setMaxHealth(25)
 		if("Ishimura")
 			cyborg_base_icon = "ishimura"
 		if("Drone")
