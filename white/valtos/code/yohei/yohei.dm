@@ -102,8 +102,8 @@
 	icon_state = "cloak"
 	inhand_icon_state = "assaultbelt"
 	worn_icon_state = "cloak"
-	charge = 35
-	max_charge = 35
+	charge = 200
+	max_charge = 200
 
 /obj/item/shadowcloak/yohei/process(delta_time)
 	var/turf/T = get_turf(src)
@@ -113,6 +113,7 @@
 			charge = max(0, charge - 25 * delta_time)//Quick decrease in light
 		else
 			charge = min(max_charge, charge + 30 * delta_time) //Charge in the dark
+		animate(user, alpha = clamp(255 - charge, 0, 255), time = 10)
 
 /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
 	name = "пистолет Тиберия"
@@ -656,6 +657,9 @@
 	. = ..()
 
 /obj/effect/mob_spawn/human/donate/yohei/special(mob/living/carbon/human/H)
+	if(SSticker.mode.config_tag == "extended" || SSticker.mode.config_tag == "teaparty")
+		to_chat(user, span_userdanger("Так как в этом мире насилия не существует, кодекс запрещает мне проявлять враждебность ко всем живым существам."))
+		ADD_TRAIT(H, TRAIT_PACIFISM, "yohei")
 	var/newname = sanitize_name(reject_bad_text(stripped_input(H, "Меня когда-то звали [H.name]. Пришло время снова сменить прозвище?", "Прозвище", H.name, MAX_NAME_LEN)))
 	if (!newname)
 		return

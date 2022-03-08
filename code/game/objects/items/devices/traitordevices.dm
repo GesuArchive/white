@@ -196,7 +196,7 @@ effective or pretty fucking useless.
 	var/charge = 300
 	var/max_charge = 300
 	var/on = FALSE
-	var/old_plane = 0
+	var/old_alpha = 0
 	actions_types = list(/datum/action/item_action/toggle)
 
 
@@ -222,14 +222,14 @@ effective or pretty fucking useless.
 	to_chat(user, span_notice("Активирую [src.name]."))
 	src.user = user
 	START_PROCESSING(SSobj, src)
-	old_plane = user.plane
+	old_alpha = user.alpha
 	on = TRUE
 
 /obj/item/shadowcloak/proc/Deactivate()
 	to_chat(user, span_notice("Деактивирую [src.name]."))
 	STOP_PROCESSING(SSobj, src)
 	if(user)
-		user.plane = old_plane
+		user.alpha = old_alpha
 	on = FALSE
 	user = null
 
@@ -249,7 +249,7 @@ effective or pretty fucking useless.
 			charge = max(0, charge - 12.5 * delta_time)//Quick decrease in light
 		else
 			charge = min(max_charge, charge + 25 * delta_time) //Charge in the dark
-		user.plane = GRAVITY_PULSE_PLANE
+		animate(user, alpha = clamp(255 - charge, 0, 255), time = 10)
 
 
 /obj/item/jammer
