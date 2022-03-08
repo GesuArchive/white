@@ -654,6 +654,9 @@
 				skin_tone = C.prefs.skin_tone
 		else
 			to_chat(user, span_userdanger("Сработала защита от детей. Этот раунд последний."))
+			return
+	else
+		return
 	. = ..()
 
 /obj/effect/mob_spawn/human/donate/yohei/special(mob/living/carbon/human/H)
