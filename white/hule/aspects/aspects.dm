@@ -159,15 +159,15 @@
 
 /datum/round_aspect/rich
 	name = "Rich"
-	desc = "Экипаж работал усердно в прошлую смену, за что и был награждён премиями в размере 10000 кредитов каждому."
+	desc = "Экипаж работал усердно в прошлую смену, за что и был награждён премиями в размере 100000 кредитов каждому."
 	weight = 24
 
 /datum/round_aspect/rich/run_aspect()
-	SSeconomy.bonus_money = 10000
+	SSeconomy.bonus_money = 100000
 	..()
 	for(var/B in SSeconomy.bank_accounts_by_id)
 		var/datum/bank_account/A = SSeconomy.bank_accounts_by_id[B]
-		A.adjust_money(10000)
+		A.adjust_money(100000)
 
 /datum/round_aspect/drunk
 	name = "Drunk"

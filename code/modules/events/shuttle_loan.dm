@@ -19,7 +19,7 @@
 	endWhen = 500
 	var/dispatched = FALSE
 	var/dispatch_type = 0
-	var/bonus_points = 10000
+	var/bonus_points = 100000
 	var/thanks_msg = "Грузовой шаттл должен вернуться через пять минут. Мы начислили вам немного очков за беспокойство."
 	var/loan_type //for logging
 
@@ -47,11 +47,11 @@
 			bonus_points = 0
 		if(ITS_HIP_TO)
 			priority_announce("Снабжение: Один из наших грузовиков с пчелами подвергся нападению со стороны эко-террористов. Можно убрать там всё за нас?", "Подразделение Уборщиков Центрального Командования")
-			bonus_points = 20000 //Toxin bees can be unbeelievably lethal
+			bonus_points = 200000 //Toxin bees can be unbeelievably lethal
 		if(MY_GOD_JC)
 			priority_announce("Снабжение: Мы обнаружили действующую синди-бомбу рядом с топливными линиями нашего VIP шаттла. Если вы чувствуете, что справитесь с этой задачей, мы заплатим вам за ее разрядку.", "ФСБ Центрального Командования")
 			thanks_msg = "Боевые заряды взрывчатки направлены к вам на шаттле. Рекомендуется эвакуация из грузового отсека."
-			bonus_points = 45000 //If you mess up, people die and the shuttle gets turned into swiss cheese
+			bonus_points = 450000 //If you mess up, people die and the shuttle gets turned into swiss cheese
 
 /datum/round_event/shuttle_loan/proc/loan_shuttle()
 	priority_announce(thanks_msg, "Грузовой Шаттл Центрального Командования", 'sound/ai/announcer/shuttle.ogg')

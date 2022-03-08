@@ -37,7 +37,7 @@
 	contract.payout = rand(0, 2)
 	contract.generate_dropoff()
 
-	ransom = 100 * rand(18, 45)
+	ransom = 1000 * rand(18, 45)
 
 	var/base = pick_list(WANTED_FILE, "basemessage")
 	var/verb_string = pick_list(WANTED_FILE, "verb")

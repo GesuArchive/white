@@ -37,8 +37,8 @@
 	var/arrest_type = FALSE //If true, don't handcuff
 	var/ranged = FALSE //used for EDs
 
-	var/fair_market_price_arrest = 25 // On arrest, charges the violator this much. If they don't have that much in their account, the securitron will beat them instead
-	var/fair_market_price_detain = 5 // Charged each time the violator is stunned on detain
+	var/fair_market_price_arrest = 250 // On arrest, charges the violator this much. If they don't have that much in their account, the securitron will beat them instead
+	var/fair_market_price_detain = 50 // Charged each time the violator is stunned on detain
 	var/weapon_force = 20 // Only used for NAP violation beatdowns on non-grievous securitrons
 	var/market_verb = "Подозреваемый"
 	var/payment_department = ACCOUNT_SEC

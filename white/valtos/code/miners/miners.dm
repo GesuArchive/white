@@ -207,7 +207,7 @@ SUBSYSTEM_DEF(spm)
 				return
 
 		if(linked_account)
-			linked_account.adjust_money(max((hashrate_total/SSspm.diff)/1000, 1))
+			linked_account.adjust_money(max((hashrate_total/SSspm.diff)/100, 1))
 
 		if(istype(linked_techweb))
 			linked_techweb.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = max(hashrate_total/SSspm.diff, 1)))

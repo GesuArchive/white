@@ -10,7 +10,7 @@
 	var/desc
 	var/category_index = CATEGORY_FRUITS_VEGGIES
 	var/obj/item/item_instance
-	var/cost_per_order = 1
+	var/cost_per_order = 50
 
 /datum/orderable_item/New()
 	. = ..()
@@ -103,7 +103,7 @@
 	name = "Bundle of Herbs"
 	category_index = CATEGORY_FRUITS_VEGGIES
 	item_instance = /obj/item/food/grown/herbs
-	cost_per_order = 5
+	cost_per_order = 250
 
 /datum/orderable_item/bell_pepper
 	name = "Bell Pepper"
@@ -116,25 +116,25 @@
 	name = "Milk"
 	category_index = CATEGORY_MILK_EGGS
 	item_instance = /obj/item/reagent_containers/food/condiment/milk
-	cost_per_order = 30
+	cost_per_order = 300
 
 /datum/orderable_item/soymilk
 	name = "Soy Milk"
 	category_index = CATEGORY_MILK_EGGS
 	item_instance = /obj/item/reagent_containers/food/condiment/soymilk
-	cost_per_order = 30
+	cost_per_order = 300
 
 /datum/orderable_item/eggs
 	name = "Egg Carton"
 	category_index = CATEGORY_MILK_EGGS
 	item_instance = /obj/item/storage/fancy/egg_box
-	cost_per_order = 40
+	cost_per_order = 400
 
 /datum/orderable_item/fillet
 	name = "Fish Fillet"
 	category_index = CATEGORY_MILK_EGGS
 	item_instance = /obj/item/food/fishmeat
-	cost_per_order = 12
+	cost_per_order = 120
 
 /datum/orderable_item/spider_eggs
 	name = "Spider Eggs"
@@ -145,37 +145,37 @@
 	name = "Yoghurt"
 	category_index = CATEGORY_MILK_EGGS
 	item_instance = /obj/item/reagent_containers/food/condiment/yoghurt
-	cost_per_order = 40
+	cost_per_order = 400
 
 /datum/orderable_item/canned_tomatoes
 	name = "Canned San Marzano Tomatoes"
 	category_index = CATEGORY_MILK_EGGS
 	item_instance = /obj/item/food/canned/tomatoes
-	cost_per_order = 30
+	cost_per_order = 300
 
 /datum/orderable_item/canned_pine_nuts
 	name = "Canned Pine Nuts"
 	category_index = CATEGORY_MILK_EGGS
 	item_instance = /obj/item/food/canned/pine_nuts
-	cost_per_order = 20
+	cost_per_order = 200
 
 /datum/orderable_item/ready_donk
 	name = "Ready-Donk Meal: Bachelor Chow"
 	category_index = CATEGORY_MILK_EGGS
 	item_instance = /obj/item/food/ready_donk
-	cost_per_order = 40
+	cost_per_order = 400
 
 /datum/orderable_item/ready_donk_mac
 	name = "Ready-Donk Meal: Donk-a-Roni"
 	category_index = CATEGORY_MILK_EGGS
 	item_instance = /obj/item/food/ready_donk/mac_n_cheese
-	cost_per_order = 40
+	cost_per_order = 400
 
 /datum/orderable_item/ready_donk_mex
 	name = "Ready-Donk Meal: Donkhiladas"
 	category_index = CATEGORY_MILK_EGGS
 	item_instance = /obj/item/food/ready_donk/donkhiladas
-	cost_per_order = 40
+	cost_per_order = 400
 
 //Reagents
 
@@ -183,40 +183,40 @@
 	name = "Flour Sack"
 	category_index = CATEGORY_SAUCES_REAGENTS
 	item_instance = /obj/item/reagent_containers/food/condiment/flour
-	cost_per_order = 30
+	cost_per_order = 300
 
 /datum/orderable_item/sugar
 	name = "Sugar Sack"
 	category_index = CATEGORY_SAUCES_REAGENTS
 	item_instance = /obj/item/reagent_containers/food/condiment/sugar
-	cost_per_order = 30
+	cost_per_order = 300
 
 /datum/orderable_item/enzyme
 	name = "Universal Enzyme"
 	category_index = CATEGORY_SAUCES_REAGENTS
 	item_instance = /obj/item/reagent_containers/food/condiment/enzyme
-	cost_per_order = 40
+	cost_per_order = 400
 
 /datum/orderable_item/salt
 	name = "Salt Shaker"
 	category_index = CATEGORY_SAUCES_REAGENTS
 	item_instance = /obj/item/reagent_containers/food/condiment/saltshaker
-	cost_per_order = 15
+	cost_per_order = 150
 
 /datum/orderable_item/pepper
 	name = "Pepper Mill"
 	category_index = CATEGORY_SAUCES_REAGENTS
 	item_instance = /obj/item/reagent_containers/food/condiment/peppermill
-	cost_per_order = 15
+	cost_per_order = 150
 
 /datum/orderable_item/soysauce
 	name = "Soy Sauce"
 	category_index = CATEGORY_SAUCES_REAGENTS
 	item_instance = /obj/item/reagent_containers/food/condiment/soysauce
-	cost_per_order = 15
+	cost_per_order = 150
 
 /datum/orderable_item/cornmeal
 	name = "Cornmeal Box"
 	category_index = CATEGORY_SAUCES_REAGENTS
 	item_instance = /obj/item/reagent_containers/food/condiment/cornmeal
-	cost_per_order = 30
+	cost_per_order = 300

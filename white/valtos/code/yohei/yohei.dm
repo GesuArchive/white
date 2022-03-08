@@ -435,7 +435,7 @@
 		for(var/mob/living/carbon/human/H in action_guys)
 			inc_metabalance(H, current_task.prize, reason = "Задание выполнено.")
 			var/obj/item/card/id/cardid = H.get_idcard(FALSE)
-			cardid?.registered_account?.adjust_money(rand(500, 1000))
+			cardid?.registered_account?.adjust_money(rand(5000, 10000))
 		qdel(current_task)
 
 		var/datum/yohei_task/new_task = pick(possible_tasks)
@@ -556,7 +556,7 @@
 	. = ..()
 	var/datum/bank_account/bank_account = new /datum/bank_account(name)
 	registered_account = bank_account
-	registered_account.adjust_money(1200)
+	registered_account.adjust_money(12000)
 
 /obj/item/card/id/yohei/update_label()
 	if(assigned_by)
@@ -811,7 +811,7 @@
 				   /obj/item/storage/firstaid/tactical = 3)
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 50)
 	resistance_flags = INDESTRUCTIBLE
-	default_price = CARGO_CRATE_VALUE * 3.5
-	extra_price = CARGO_CRATE_VALUE * 10
+	default_price = CARGO_CRATE_VALUE * 9.5
+	extra_price = CARGO_CRATE_VALUE * 40
 	payment_department = ACCOUNT_TRA
 	light_mask = "yohei-light-mask"

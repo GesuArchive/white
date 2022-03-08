@@ -126,7 +126,7 @@
 	density = TRUE
 	var/active = FALSE
 	var/credits_stored = 0
-	var/siphon_per_tick = 5
+	var/siphon_per_tick = 50
 
 /obj/machinery/shuttle_scrambler/Initialize(mapload)
 	. = ..()

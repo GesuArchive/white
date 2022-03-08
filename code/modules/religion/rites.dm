@@ -258,7 +258,7 @@
 	name = "Purchase Vend-a-tray"
 	desc = "Summons a Vend-a-tray. You can use it to sell items!"
 	invoke_msg = "I need a vend-a-tray to make some more money!"
-	money_cost = 300
+	money_cost = 1300
 
 /datum/religion_rites/greed/vendatray/invoke_effect(mob/living/user, atom/movable/religious_tool)
 	..()
@@ -271,7 +271,7 @@
 	name = "Purchase Personal Vending Machine"
 	desc = "Summons a custom vending machine. You can use it to sell MANY items!"
 	invoke_msg = "If I get a custom vending machine for my products, I can be RICH!"
-	money_cost = 1000 //quite a step up from vendatray
+	money_cost = 3000 //quite a step up from vendatray
 
 /datum/religion_rites/greed/custom_vending/invoke_effect(mob/living/user, atom/movable/religious_tool)
 	..()
