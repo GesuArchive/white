@@ -31,7 +31,7 @@
 		var/static/list/loc_connections = list(
 			COMSIG_ATOM_EXIT = .proc/on_exit,
 		)
-		AddElement(/datum/element/connect_loc, loc_connections)
+		AddElement(/datum/element/connect_loc_behalf, src, loc_connections)
 
 	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE | ROTATION_COUNTERCLOCKWISE | ROTATION_VERBS ,null,CALLBACK(src, .proc/can_be_rotated),CALLBACK(src,.proc/after_rotation))
 
