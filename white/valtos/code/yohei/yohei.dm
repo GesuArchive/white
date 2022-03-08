@@ -658,7 +658,7 @@
 
 /obj/effect/mob_spawn/human/donate/yohei/special(mob/living/carbon/human/H)
 	if(SSticker.mode.config_tag == "extended" || SSticker.mode.config_tag == "teaparty")
-		to_chat(user, span_userdanger("Так как в этом мире насилия не существует, кодекс запрещает мне проявлять враждебность ко всем живым существам."))
+		to_chat(H, span_userdanger("Так как в этом мире насилия не существует, кодекс запрещает мне проявлять враждебность ко всем живым существам."))
 		ADD_TRAIT(H, TRAIT_PACIFISM, "yohei")
 	var/newname = sanitize_name(reject_bad_text(stripped_input(H, "Меня когда-то звали [H.name]. Пришло время снова сменить прозвище?", "Прозвище", H.name, MAX_NAME_LEN)))
 	if (!newname)
