@@ -91,8 +91,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	SEND_SIGNAL(src, COMSIG_TURF_CHANGE, path, new_baseturfs, flags, post_change_callbacks)
 
 	changing_turf = TRUE
-	qdel(src)	//Just get the side effects and call Destroy
-
+	qdel(src) //Just get the side effects and call Destroy
 	//We do this here so anything that doesn't want to persist can clear itself
 	var/list/old_comp_lookup = comp_lookup?.Copy()
 	var/list/old_signal_procs = signal_procs?.Copy()
