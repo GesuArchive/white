@@ -599,6 +599,13 @@
 
 /obj/effect/mob_spawn/human/donate/attack_ghost(mob/user)
 	if(check_donations_avail(user?.ckey) >= req_sum)
+		var/datum/donator/D = get_donator(user.ckey)
+		D.money -= 1250
+		var/client/C = user.client
+		if(C?.prefs)
+			hairstyle =  C.prefs.hairstyle
+			facial_hairstyle = C.prefs.facial_hairstyle
+			skin_tone = C.prefs.skin_tone
 		. = ..()
 	else
 		to_chat(user, span_warning("Эта роль требует <b>[req_sum]</b> донат-поинтов для доступа."))
@@ -643,20 +650,6 @@
 		if("Разведчик")
 			outfit = /datum/outfit/yohei/prospector
 			assignedrole = "Yohei: Prospector"
-	if(user.ckey)
-		var/datum/donator/D = get_donator(user.ckey)
-		if(D && D.money >= 1250)
-			D.money -= 1250
-			var/client/C = GLOB.directory[user.ckey]
-			if(C?.prefs)
-				hairstyle =  C.prefs.hairstyle
-				facial_hairstyle = C.prefs.facial_hairstyle
-				skin_tone = C.prefs.skin_tone
-		else
-			to_chat(user, span_userdanger("Сработала защита от детей. Этот раунд последний."))
-			return
-	else
-		return
 	. = ..()
 
 /obj/effect/mob_spawn/human/donate/yohei/special(mob/living/carbon/human/H)
