@@ -324,6 +324,11 @@
 
 	AddComponent(/datum/component/connect_loc_behalf, src, loc_connections)
 
+/obj/machinery/door/firedoor/border_only/Destroy()
+	var/turf/floor = get_turf(src)
+	floor.air_update_turf(TRUE, FALSE)
+	return ..()
+
 /obj/machinery/door/firedoor/border_only/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
 	if(!(border_dir == dir)) //Make sure looking at appropriate border
