@@ -26,13 +26,88 @@
 			L.IgniteMob()
 			L.emote("agony")
 
-	for(var/turf/closed/wall/W in world)
-		if(is_station_level(W.z))
-			W.ChangeTurf(/turf/closed/wall/clockwork, flags = CHANGETURF_DEFER_CHANGE)
-
-	for(var/turf/open/floor/O in world)
-		if(is_station_level(O.z))
-			O.ChangeTurf(/turf/open/floor/clockwork, flags = CHANGETURF_DEFER_CHANGE)
-
 /proc/clockcult_gg()
 	SSticker.force_ending = TRUE
+
+
+/obj/structure/lattice/catwalk/ratvar_act()
+	new /obj/structure/lattice/catwalk/clockwork(loc)
+
+/obj/structure/lattice/ratvar_act()
+	new /obj/structure/lattice/clockwork(loc)
+
+/obj/machinery/computer/ratvar_act()
+	icon_screen = "ratvar1"
+	icon_keyboard = "ratvar_key1"
+	icon_state = "ratvarcomputer1"
+
+/obj/structure/chair/ratvar_act()
+	var/obj/structure/chair/bronze/B = new(get_turf(src))
+	return FALSE
+
+/obj/machinery/door/window/ratvar_act()
+	var/obj/machinery/door/window/clockwork/C = new(loc, dir)
+	C.name = name
+	qdel(src)
+
+/obj/machinery/door/window/clockwork/ratvar_act()
+	return FALSE
+
+/turf/closed/wall/ratvar_act(force, ignore_mobs)
+	. = ..()
+	if(.)
+		ChangeTurf(/turf/closed/wall/clockwork)
+
+/turf/open/floor/ratvar_act(force, ignore_mobs)
+	. = ..()
+	if(.)
+		ChangeTurf(/turf/open/floor/clockwork, flags = CHANGETURF_INHERIT_AIR)
+
+/obj/structure/table/ratvar_act()
+	var/atom/A = loc
+	qdel(src)
+	new /obj/structure/table/bronze(A)
+	canSmoothWith = list(/obj/structure/table/bronze)
+
+/obj/structure/table/bronze/ratvar_act()
+	return
+
+/turf/ratvar_act(force, ignore_mobs, probability = 40)
+	. = (prob(probability) || force)
+	for(var/I in src)
+		var/atom/A = I
+		if(ignore_mobs && ismob(A))
+			continue
+		if(ismob(A) || .)
+			A.ratvar_act()
+
+/obj/structure/grille/ratvar_act()
+	if(broken)
+		new /obj/structure/grille/ratvar/broken(src.loc)
+	else
+		new /obj/structure/grille/ratvar(src.loc)
+	qdel(src)
+
+/obj/structure/falsewall/ratvar_act()
+	new /obj/structure/falsewall/bronze(loc)
+	qdel(src)
+
+/obj/item/stack/sheet/iron/ratvar_act()
+	new /obj/item/stack/tile/bronze(loc, amount)
+	qdel(src)
+
+/obj/structure/window/ratvar_act()
+	if(!fulltile)
+		new/obj/structure/window/reinforced/clockwork(get_turf(src), dir)
+	else
+		new/obj/structure/window/reinforced/clockwork/fulltile(get_turf(src))
+	qdel(src)
+
+/obj/machinery/door/airlock/ratvar_act() //Airlocks become pinion airlocks that only allow servants
+	var/obj/machinery/door/airlock/clockwork/A
+	if(glass)
+		A = new/obj/machinery/door/airlock/clockwork/glass(get_turf(src))
+	else
+		A = new/obj/machinery/door/airlock/clockwork(get_turf(src))
+	A.name = name
+	qdel(src)

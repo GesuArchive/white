@@ -223,7 +223,7 @@ GLOBAL_LIST_INIT(clockwork_portals, list())
 GLOBAL_VAR(cult_ratvar)
 
 /obj/ratvar
-	name = "ратвар, Механический Юстициар"
+	name = "Ратвар, Механический Юстициар"
 	desc = "Ну да, это точно Ратвар!!!"
 	icon = 'icons/effects/512x512.dmi'
 	icon_state = "ratvar"
