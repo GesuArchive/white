@@ -42,8 +42,9 @@
 	icon_state = "ratvarcomputer1"
 
 /obj/structure/chair/ratvar_act()
-	var/obj/structure/chair/bronze/B = new(get_turf(src))
-	return FALSE
+	var/obj/structure/chair/brass/B = new(get_turf(src))
+	B.setDir(dir)
+	qdel(src)
 
 /obj/machinery/door/window/ratvar_act()
 	var/obj/machinery/door/window/clockwork/C = new(loc, dir)
