@@ -290,14 +290,13 @@
 
 /obj/item/paper/fluff/junkmail_generic/proc/generate_info()
 	if(!info)
-		//var/cit = get_random_bashorg_citate()
-		//info = cit ? cit : pick(GLOB.junkmail_messages)
-		info = pick(GLOB.junkmail_messages)
+		var/anek = get_random_anek()
+		info = anek?["content"] ? anek?["content"] : pick(GLOB.junkmail_messages)
 
 // bash.im is dead at this moment
-/proc/get_random_bashorg_citate()
+/proc/get_random_anek()
 	var/datum/http_request/request = new()
-	request.prepare(RUSTG_HTTP_METHOD_GET, "https://station13.ru/bashorg", "", "", null)
+	request.prepare(RUSTG_HTTP_METHOD_GET, "http://rzhunemogu.ru/RandJSON.aspx?CType=1", "", "", null)
 	request.begin_async()
 	UNTIL(request.is_complete())
 	var/datum/http_response/response = request.into_response()
@@ -306,5 +305,5 @@
 		return FALSE
 
 	if (response.body)
-		return response.body
+		return json_decode(response.body)
 	return FALSE
