@@ -291,7 +291,7 @@
 /obj/item/paper/fluff/junkmail_generic/proc/generate_info()
 	if(!info)
 		var/anek = get_random_anek()
-		info = anek?["content"] ? anek?["content"] : pick(GLOB.junkmail_messages)
+		info = anek?["content"] ? parsemarkdown(anek["content"]) : pick(GLOB.junkmail_messages)
 
 // bash.im is dead at this moment
 /proc/get_random_anek()
