@@ -67,6 +67,7 @@
 #include "metabolizing.dm"
 #include "ntnetwork_tests.dm"
 #include "outfit_sanity.dm"
+#include "paintings.dm"
 #include "pills.dm"
 #include "plantgrowth_tests.dm"
 #include "projectiles.dm"

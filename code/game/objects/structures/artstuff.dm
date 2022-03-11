@@ -55,6 +55,9 @@
 	///boolean that blocks persistence from saving it. enabled from printing copies, because we do not want to save copies.
 	var/no_save = FALSE
 
+	///reference to the last patron's mind datum, used to allow them (and no others) to change the frame before the round ends.
+	var/datum/weakref/last_patron
+
 	var/datum/painting/painting_metadata
 
 	// Painting overlay offset when framed
@@ -165,8 +168,11 @@
 	try_rename(user)
 
 /obj/item/canvas/proc/patron(mob/user)
-	if(!finalized || !painting_metadata.loaded_from_json || !isliving(user))
+	if(!finalized || !isliving(user))
 		return
+	if(!painting_metadata.loaded_from_json)
+		if(tgui_alert(user, "The painting hasn't been archived yet and will be lost at the end of the shift if not placed in an elegible frame. Continue?","Unarchived Painting",list("Yes","No")) != "Yes")
+			return
 	var/mob/living/living_user = user
 	var/obj/item/card/id/id_card = living_user.get_idcard(TRUE)
 	if(!id_card)
@@ -192,7 +198,39 @@
 	painting_metadata.patron_ckey = user.ckey
 	painting_metadata.patron_name = user.real_name
 	painting_metadata.credit_value = offer_amount
-	to_chat(user,span_notice("NanoTrasen благодарит вас за пожертвование. Теперь вы официальный спонсор данной картины."))
+	last_patron = WEAKREF(user.mind)
+	to_chat(user, span_notice("Nanotrasen Trust Foundation thanks you for your contribution. You're now offical patron of this painting."))
+	var/list/possible_frames = SSpersistent_paintings.get_available_frames(offer_amount)
+	if(possible_frames.len <= 1) // Not much room for choices here.
+		return
+	if(tgui_alert(user, "Do you want to change the frame appearance now? You can do so later this shift with Alt-Click as long as you're a patron.","Patronage Frame",list("Yes","No")) != "Yes")
+		return
+	if(!can_select_frame(user))
+		return
+	SStgui.close_uis(src) // Close the examine ui so that the radial menu doesn't end up covered by it and people don't get confused.
+	select_new_frame(user, possible_frames)
+
+/obj/item/canvas/proc/select_new_frame(mob/user, list/candidates)
+	var/possible_frames = candidates || SSpersistent_paintings.get_available_frames(painting_metadata.credit_value)
+	var/list/radial_options = list()
+	for(var/frame_name in possible_frames)
+		radial_options[frame_name] = image(icon, "[icon_state]frame_[frame_name]")
+	var/result = show_radial_menu(user, loc, radial_options, radius = 60, custom_check = CALLBACK(src, .proc/can_select_frame, user), tooltips = TRUE)
+	if(!result)
+		return
+	painting_metadata.frame_type = result
+	var/obj/structure/sign/painting/our_frame = loc
+	our_frame.balloon_alert(user, "frame set to [result]")
+	our_frame.update_appearance()
+
+/obj/item/canvas/proc/can_select_frame(mob/user)
+	if(!istype(loc, /obj/structure/sign/painting))
+		return FALSE
+	if(!user?.CanReach(loc) || IS_DEAD_OR_INCAP(user))
+		return FALSE
+	if(!last_patron || !IS_WEAKREF_OF(user?.mind, last_patron))
+		return FALSE
+	return TRUE
 
 /obj/item/canvas/update_overlays()
 	. = ..()
