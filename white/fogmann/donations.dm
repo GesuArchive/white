@@ -285,6 +285,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("CoomCamera™",				/obj/item/camera/coom,							300)
 	)
 ))
+GLOBAL_PROTECT(donations_list)
 
 /datum/donate_info
 	var/name
@@ -323,6 +324,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 
 GLOBAL_LIST_EMPTY(donate_icon_cache)
 GLOBAL_LIST_EMPTY(donators)
+GLOBAL_PROTECT(donators)
 
 #define DONATIONS_SPAWN_WINDOW 6000
 
@@ -448,6 +450,7 @@ GLOBAL_LIST_EMPTY(donators)
 	return GLOB.donate_icon_cache[P.path_to]
 
 GLOBAL_VAR_INIT(ohshitfuck, FALSE)
+GLOBAL_PROTECT(ohshitfuck)
 
 /proc/load_donator(ckey)
 	if(!SSdbcore.IsConnected())
@@ -577,4 +580,6 @@ GLOBAL_VAR_INIT(ohshitfuck, FALSE)
 	WRITE_FILE(json_file, json_encode(GLOB.custom_tails_donations))
 
 GLOBAL_LIST_INIT(custom_race_donations,  load_race_donations())
+GLOBAL_PROTECT(custom_race_donations)
 GLOBAL_LIST_INIT(custom_tails_donations, load_tails_donations())
+GLOBAL_PROTECT(custom_tails_donations)
