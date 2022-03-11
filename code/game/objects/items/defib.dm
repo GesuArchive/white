@@ -485,6 +485,9 @@
 /obj/item/shockpaddles/proc/do_disarm(mob/living/M, mob/living/user)
 	if(req_defib && defib.safety)
 		return
+	if(HAS_TRAIT(user, TRAIT_PACIFISM))
+		to_chat(user, span_notice("Не могу."))
+		return
 	if(!req_defib && !combat)
 		return
 	busy = TRUE
@@ -510,6 +513,9 @@
 
 /obj/item/shockpaddles/proc/do_harm(mob/living/carbon/H, mob/living/user)
 	if(req_defib && defib.safety)
+		return
+	if(HAS_TRAIT(user, TRAIT_PACIFISM))
+		to_chat(user, span_notice("Не могу."))
 		return
 	if(!req_defib && !combat)
 		return

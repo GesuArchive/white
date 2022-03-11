@@ -12,6 +12,11 @@
 	color = pick(COLOR_YELLOW, COLOR_LIME, COLOR_RED, COLOR_BLUE_LIGHT, COLOR_CYAN, COLOR_MAGENTA)
 	AddComponent(/datum/component/two_handed, force_unwielded = 0, force_wielded = 24)
 
+/obj/item/pool/attack(mob/target, mob/living/carbon/human/user)
+	if(!target.GetComponent(/datum/component/swimming))
+		target = user
+	. = ..()
+
 /obj/item/pool/rubber_ring
 	name = "inflateable ring"
 	desc = "An inflateable ring used for keeping people afloat. Throw at drowning people to save them."

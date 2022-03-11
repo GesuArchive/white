@@ -600,7 +600,7 @@
 /obj/effect/mob_spawn/human/donate/attack_ghost(mob/user)
 	if(check_donations_avail(user?.ckey) >= req_sum)
 		var/datum/donator/D = get_donator(user.ckey)
-		D.money -= 1250
+		D.money -= req_sum
 		var/client/C = user.client
 		if(C?.prefs)
 			hairstyle =  C.prefs.hairstyle
