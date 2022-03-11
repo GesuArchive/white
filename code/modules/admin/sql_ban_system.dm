@@ -258,6 +258,7 @@
 							"Medical" = GLOB.medical_positions,
 							"Science" = GLOB.science_positions,
 							"Supply" = GLOB.supply_positions,
+							"Service" = GLOB.service_positions,
 							"Scum" = GLOB.scum_positions)
 		for(var/department in job_lists)
 			//the first element is the department head so they need the same javascript call as above
@@ -445,7 +446,7 @@
 			if("server")
 				roles_to_ban += "Server"
 			if("role")
-				href_list.Remove("Command", "Security", "Engineering", "Medical", "Science", "Supply", "Silicon", "Abstract", "Service", "Ghost and Other Roles", "Antagonist Positions") //remove the role banner hidden input values
+				href_list.Remove("Command", "Security", "Engineering", "Medical", "Science", "Supply", "Scum", "Silicon", "Abstract", "Service", "Ghost and Other Roles", "Antagonist Positions") //remove the role banner hidden input values
 				if(href_list[href_list.len] == "roleban_delimiter")
 					error_state += "Role ban was selected but no roles to ban were selected."
 				else
