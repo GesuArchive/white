@@ -597,6 +597,11 @@
 	death = FALSE
 	var/req_sum = 500
 
+/obj/effect/mob_spawn/human/donate/vv_edit_var(var_name, var_value)
+	if (var_name == NAMEOF(src, req_sum))
+		return FALSE
+	. = ..()
+
 /obj/effect/mob_spawn/human/donate/attack_ghost(mob/user)
 	if(check_donations_avail(user?.ckey) >= req_sum)
 		var/datum/donator/D = get_donator(user.ckey)
