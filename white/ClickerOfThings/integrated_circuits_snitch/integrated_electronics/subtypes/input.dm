@@ -595,10 +595,9 @@
 	var/list/nearby_things = range(8, get_turf(src))
 	for(var/mob/living/carbon/human/H in nearby_things)
 		if(istype(H.belt, /obj/item/shadowcloak/yohei))
-			qdel(H.belt)
-			H.gib(TRUE, TRUE, TRUE)
-			explosion(get_turf(H), 0, 1, 2, 3, flame_range = 2)
-			
+			explosion(get_turf(src), 0, 1, 2, 3, flame_range = 2)
+			qdel(src)
+
 /obj/item/integrated_circuit_old/input/advanced_locator_list
 	complexity = 6
 	name = "list advanced locator"
