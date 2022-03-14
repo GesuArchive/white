@@ -3,10 +3,9 @@
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	icon_state = "noise"
 	show_when_dead = TRUE
-	layer = 25
-	plane = 25
-	alpha = 87
-	blend_mode = 3
+	layer = LOBBY_BACKGROUND_LAYER
+	plane = SINGULARITY_PLANE
+	alpha = 255
 
 /mob/dead/new_player/Initialize()
 	. = ..()
