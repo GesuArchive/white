@@ -78,7 +78,7 @@
 
 ///Prefs menu
 /atom/movable/screen/lobby/button/character_setup
-	screen_loc = "WEST+9,SOUTH+1:2"
+	screen_loc = "WEST+9,SOUTH:26"
 	icon = 'icons/hud/lobbyv3/character_setup.dmi'
 	icon_state = "character_setup"
 	base_icon_state = "character_setup"
@@ -92,7 +92,7 @@
 
 ///Button that appears before the game has started
 /atom/movable/screen/lobby/button/ready
-	screen_loc = "WEST+2,SOUTH+1:2"
+	screen_loc = "WEST+2,SOUTH:26"
 	icon = 'icons/hud/lobbyv3/ready.dmi'
 	icon_state = "not_ready"
 	base_icon_state = "not_ready"
@@ -138,7 +138,7 @@
 
 ///Shown when the game has started
 /atom/movable/screen/lobby/button/join
-	screen_loc = "WEST+1,SOUTH+1"
+	screen_loc = "WEST+1,SOUTH:24"
 	icon = 'icons/hud/lobbyv3/join.dmi'
 	icon_state = "" //Default to not visible
 	base_icon_state = "join_game"
@@ -204,7 +204,7 @@
 	RegisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP, .proc/show_join_button)
 
 /atom/movable/screen/lobby/button/observe
-	screen_loc = "WEST+5:24,SOUTH+1"
+	screen_loc = "WEST+5:24,SOUTH:24"
 	icon = 'icons/hud/lobbyv3/observe.dmi'
 	icon_state = "observe_disabled"
 	base_icon_state = "observe"
@@ -251,14 +251,14 @@
 	icon = 'icons/hud/lobbyv3/bottom_buttons.dmi'
 	icon_state = "changelog"
 	base_icon_state = "changelog"
-	screen_loc = "WEST+11:8,SOUTH+1:2"
+	screen_loc = "WEST+11:8,SOUTH:26"
 
 
 /atom/movable/screen/lobby/button/crew_manifest
 	icon = 'icons/hud/lobbyv3/bottom_buttons.dmi'
 	icon_state = "crew_manifest"
 	base_icon_state = "crew_manifest"
-	screen_loc = "WEST+13:16,SOUTH+1:2"
+	screen_loc = "WEST+13:16,SOUTH:26"
 
 /atom/movable/screen/lobby/button/crew_manifest/Click(location, control, params)
 	. = ..()
@@ -277,7 +277,7 @@
 	icon = 'icons/hud/lobbyv3/bottom_buttons.dmi'
 	icon_state = "poll"
 	base_icon_state = "poll"
-	screen_loc = "WEST+16,SOUTH+1:2"
+	screen_loc = "WEST+16,SOUTH:26"
 
 	var/new_poll = FALSE
 
