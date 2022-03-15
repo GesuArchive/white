@@ -540,6 +540,7 @@
 	icon_state = "dk_yellow"
 	parallax_movedir = NORTH
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | BLOCK_SUICIDE | NOTELEPORT
+	ambientsounds = YOHEI
 
 /obj/item/card/id/yohei
 	name = "странная карточка"
