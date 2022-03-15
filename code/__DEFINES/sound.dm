@@ -59,7 +59,6 @@
 #define RUINS list('sound/ambience/white/ambidanger1.ogg',\
 				'sound/ambience/white/ambidanger2.ogg',\
 				'sound/ambience/white/ambi1.ogg',\
-				'sound/ambience/white/ambi11.ogg',\
 				'sound/ambience/white/ambi3.ogg')
 
 #define ENGINEERING list('sound/ambience/white/ambieng1.ogg',\
@@ -67,7 +66,6 @@
 
 #define MINING list('sound/ambience/white/ambidanger1.ogg',\
 					'sound/ambience/white/ambidanger2.ogg',\
-					'sound/ambience/white/ambi12.ogg',\
 					'white/valtos/sounds/prison/amb6.ogg')
 
 #define MEDICAL list('sound/ambience/white/ambimed1.ogg',\
@@ -85,8 +83,7 @@
 						'sound/ambience/white/ambimaint2.ogg')
 
 #define AWAY_MISSION list('sound/ambience/white/ambidanger2.ogg',\
-						'sound/ambience/white/ambidanger3.ogg',\
-						'sound/ambience/white/ambi12.ogg')
+						'sound/ambience/white/ambidanger3.ogg')
 
 #define YOHEI list('sound/ambience/white/ambiyohei.ogg')
 
