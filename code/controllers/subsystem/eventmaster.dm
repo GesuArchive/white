@@ -196,7 +196,7 @@ SUBSYSTEM_DEF(eventmaster)
 	if(!holder || !check_rights(R_DEBUG))
 		return
 
-	var/list/possible_options = list("OPENWORLD EVENT", "GHOSTIZE EVERYONE", "SET WARFARE", "NONE")
+	var/list/possible_options = list("OPENWORLD EVENT", "GHOSTIZE EVERYONE", "SET WARFARE", "NATIONS EVENT", "NONE")
 
 	var/what_the_fuck = input("SHIT YES?", "Cum") as null|anything in possible_options
 
