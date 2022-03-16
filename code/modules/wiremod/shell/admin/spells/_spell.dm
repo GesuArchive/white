@@ -59,7 +59,6 @@
 	display_name = "Circuit Spellbook"
 	desc = "Controls the variables of the spells given by the spellbook."
 	circuit_flags = CIRCUIT_FLAG_ADMIN | CIRCUIT_FLAG_INSTANT
-	category = "Admin"
 	var/obj/item/book/granter/spell/circuit/book
 	var/list/datum/weakref/spells
 
