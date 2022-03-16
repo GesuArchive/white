@@ -234,7 +234,7 @@
 	if(sunfrac <= 0)
 		return
 
-	var/sgen = SOLAR_GEN_RATE * sunfrac * power_multi
+	var/sgen = SOLAR_GEN_RATE * sunfrac
 	add_avail(sgen)
 	if(control)
 		control.gen += sgen
@@ -305,7 +305,7 @@
 		W.play_tool_sound(src, 75)
 		return TRUE
 
-	if(istype(W, /obj/item/stack/sheet/glass) || istype(W, /obj/item/stack/sheet/rglass) || istype(W, /obj/item/stack/sheet/plasmaglass) || istype(W, /obj/item/stack/sheet/plastitaniumglass))
+	if(istype(W, /obj/item/stack/sheet/glass) || istype(W, /obj/item/stack/sheet/rglass))
 		if(!anchored)
 			to_chat(user, span_warning("Мне нужно прикрутить основание прежде чем добавлять туда стекло."))
 			return
@@ -320,11 +320,6 @@
 			user.visible_message(span_notice("[user] вставляет стекло в основание солнечной панели.") , span_notice("Вставляю стекло в основание солнейчной панели."))
 			if(tracker)
 				new /obj/machinery/power/tracker(get_turf(src), src)
-				return TRUE
-			if (istype(W, /obj/item/stack/sheet/plasmaglass))
-				new /obj/machinery/power/solar/plasma(get_turf(src), src)
-			else if (istype(W, /obj/item/stack/sheet/plastitaniumglass))
-				new /obj/machinery/power/solar/plastitaniumglass(get_turf(src), src)
 			else
 				new /obj/machinery/power/solar(get_turf(src), src)
 		else
