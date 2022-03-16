@@ -491,7 +491,7 @@ BLIND     // can't see anything
 /obj/item/clothing/proc/_spawn_shreds()
 	new /obj/effect/decal/cleanable/shreds(get_turf(src), name)
 
-/obj/item/clothing/atom_destruction(damage_flag)
+/obj/item/clothing/obj_destruction(damage_flag)
 	if(damage_flag == BOMB)
 		//so the shred survives potential turf change from the explosion.
 		addtimer(CALLBACK(src, .proc/_spawn_shreds), 1)

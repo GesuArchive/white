@@ -62,7 +62,7 @@
 
 /obj/structure/dispenser_bot/attackby(obj/item/item, mob/living/user, params)
 	. = ..()
-	if(user.combat_mode || .)
+	if(user.a_intent == INTENT_HARM || .)
 		return
 
 	if(item.w_class > max_weight)
