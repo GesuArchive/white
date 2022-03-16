@@ -3107,6 +3107,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/chair/office/light{
+	dir = 1
+	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/aft)
 "Dm" = (
@@ -5474,14 +5477,13 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/surgery)
 "Yd" = (
-/obj/structure/table,
-/obj/item/pen,
 /obj/machinery/requests_console{
 	department = "Medbay";
 	departmentType = 1;
 	name = "Medbay RC";
 	pixel_y = 30
 	},
+/obj/machinery/modular_computer/console/preset/cargochat/medical,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/aft)
 "Yg" = (

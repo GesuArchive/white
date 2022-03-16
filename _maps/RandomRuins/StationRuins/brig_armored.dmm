@@ -2241,7 +2241,6 @@
 /turf/open/floor/engine,
 /area/security/main)
 "hh" = (
-/obj/structure/filingcabinet,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 5;
 	pixel_y = -32
@@ -2250,6 +2249,9 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/hex/red,
+/obj/machinery/modular_computer/console/preset/cargochat/security{
+	dir = 1
+	},
 /turf/open/floor/engine,
 /area/security/main)
 "hi" = (
@@ -2266,6 +2268,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 5
 	},
+/obj/structure/filingcabinet,
 /turf/open/floor/engine,
 /area/security/main)
 "hj" = (

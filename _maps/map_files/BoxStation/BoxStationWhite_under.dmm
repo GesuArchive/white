@@ -2582,6 +2582,12 @@
 	},
 /turf/open/floor/plating,
 /area/security/prison)
+"fZ" = (
+/obj/machinery/modular_computer/console/preset/cargochat/service{
+	dir = 4
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/hallway/secondary/service)
 "ga" = (
 /obj/effect/turf_decal/stripes/white/line,
 /turf/open/floor/plating,
@@ -9444,6 +9450,9 @@
 /area/maintenance/starboard/aft)
 "uO" = (
 /obj/structure/cable,
+/obj/structure/chair/office/light{
+	dir = 8
+	},
 /turf/open/floor/plasteel/showroomfloor,
 /area/hallway/secondary/service)
 "uP" = (
@@ -10451,10 +10460,10 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
 	},
-/obj/machinery/modular_computer/console/preset/civilian{
+/obj/machinery/light,
+/obj/machinery/modular_computer/console/preset/cargochat{
 	dir = 1
 	},
-/obj/machinery/light,
 /turf/open/floor/plasteel/dark,
 /area/cargo/meeting_room)
 "wX" = (
@@ -12733,7 +12742,7 @@
 /turf/open/floor/engine,
 /area/ai_monitored/command/nuke_storage)
 "BV" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/office/light,
 /turf/open/floor/carpet/purple,
 /area/science/breakroom)
 "BW" = (
@@ -14627,7 +14636,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry)
 "Gj" = (
-/obj/effect/spawner/randomarcade{
+/obj/machinery/modular_computer/console/preset/cargochat/science{
 	dir = 1
 	},
 /turf/open/floor/circuit/green,
@@ -18855,7 +18864,7 @@
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/directional/north,
-/obj/machinery/modular_computer/console/preset/civilian,
+/obj/machinery/modular_computer/console/preset/cargochat,
 /turf/open/floor/plasteel/dark,
 /area/cargo/meeting_room)
 "PA" = (
@@ -61115,7 +61124,7 @@ Wu
 MQ
 Sz
 UO
-hg
+fZ
 eS
 Vm
 tc

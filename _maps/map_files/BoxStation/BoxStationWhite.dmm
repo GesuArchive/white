@@ -9955,15 +9955,15 @@
 	pixel_y = 7
 	},
 /obj/item/pen/invisible,
+/obj/item/taperecorder,
+/obj/item/camera,
 /turf/open/floor/engine/cult,
 /area/service/library/upper)
 "aPi" = (
-/obj/structure/table/wood,
-/obj/item/taperecorder,
-/obj/item/camera,
 /obj/item/radio/intercom{
 	pixel_y = 25
 	},
+/obj/machinery/modular_computer/console/preset/curator,
 /turf/open/floor/engine/cult,
 /area/service/library/upper)
 "aPk" = (
@@ -14966,12 +14966,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
-/obj/structure/table,
-/obj/item/stamp/denied{
-	pixel_x = -4;
-	pixel_y = 10
-	},
-/obj/item/stamp,
 /turf/open/floor/plasteel/monofloor,
 /area/cargo/office)
 "bnE" = (
@@ -15920,11 +15914,10 @@
 /turf/open/floor/plating,
 /area/maintenance/port)
 "btt" = (
-/obj/structure/table,
-/obj/item/folder/yellow,
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 4
 	},
+/obj/machinery/photocopier,
 /turf/open/floor/plasteel/dark,
 /area/cargo/office)
 "btu" = (
@@ -16369,9 +16362,13 @@
 	pixel_x = -24
 	},
 /obj/structure/table,
-/obj/item/multitool,
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 4
+	},
+/obj/item/folder/yellow,
+/obj/item/multitool{
+	pixel_x = -5;
+	pixel_y = 9
 	},
 /turf/open/floor/plasteel/dark,
 /area/cargo/office)
@@ -18570,7 +18567,12 @@
 /area/science/test_area)
 "bGi" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/photocopier,
+/obj/structure/table,
+/obj/item/stamp,
+/obj/item/stamp/denied{
+	pixel_x = -4;
+	pixel_y = 10
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/cargo/office)
 "bGk" = (
@@ -27887,7 +27889,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/main)
 "cpX" = (
-/obj/machinery/computer/sat_control{
+/obj/machinery/modular_computer/console/preset/cargochat/engineering{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
@@ -42529,6 +42531,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/commons/spacepod_docks)
+"pSI" = (
+/obj/machinery/modular_computer/console/preset/cargochat/cargo{
+	dir = 1
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/cargo/office)
 "pSN" = (
 /obj/effect/turf_decal/tile/purple,
 /obj/effect/turf_decal/tile/purple{
@@ -45679,6 +45687,12 @@
 "tvC" = (
 /turf/closed/wall,
 /area/maintenance/department/medical/morgue)
+"tvV" = (
+/obj/structure/chair/office/light{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/engineering/main)
 "twv" = (
 /obj/structure/chair/comfy/black{
 	dir = 8
@@ -72599,7 +72613,7 @@ cNM
 aZK
 bnG
 bnz
-dbB
+pSI
 uFw
 dbB
 vVh
@@ -75474,7 +75488,7 @@ cjJ
 cnY
 rIY
 wuB
-wuB
+tvV
 cqx
 cqR
 crp
