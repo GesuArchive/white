@@ -193,12 +193,12 @@
 	var/list/manifest = get_manifest()
 	var/dat = {"
 	<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /><style>
-		body{background:#090909;color:#a2acb7;font-family:Tahoma}
-		.manifest {border-collapse:collapse;border-right:1px solid #666;font-size:14px;text-align:center}
-		.manifest td,th{border:1px solid #666;background-color:#050505;color:#aaa;padding:.25em}
-		.manifest th{height:1em;background-color:#090909;color:#fff}
-		.manifest tr.head th{background-color:#111}
-		.manifest tr.alt td{background-color:#090909}
+		body{background:#090309;color:#a25ca7;font-family:Tahoma}
+		.manifest {border-collapse:collapse;border-right:1px solid #646;font-size:14px;text-align:center}
+		.manifest td,th{border:1px solid #646;background-color:#050205;color:#a8a;padding:.25em}
+		.manifest th{height:1em;background-color:#090309;color:#faf}
+		.manifest tr.head th{background-color:#101}
+		.manifest tr.alt td{background-color:#090309}
 	</style></head>
 	<table class="manifest" width='350px'>
 	<tr class='head'><th>Имя</th><th>Должность</th></tr>
