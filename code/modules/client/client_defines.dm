@@ -220,3 +220,6 @@
 	var/played = FALSE
 
 	var/datum/mentors/mentor_datum
+
+	/// If this client has been fully initialized or not
+	var/fully_created = FALSE
