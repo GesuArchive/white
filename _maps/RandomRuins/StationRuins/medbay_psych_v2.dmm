@@ -256,8 +256,20 @@
 /area/medical/storage)
 "dI" = (
 /obj/structure/closet/crate/bin,
-/obj/effect/spawner/lootdrop/armory_contraband,
 /obj/item/reagent_containers/glass/bowl/mushroom_bowl,
+/obj/item/scalpel,
+/obj/effect/spawner/lootdrop/food_packaging{
+	pixel_x = 9
+	},
+/obj/effect/spawner/lootdrop/food_packaging{
+	pixel_y = 6
+	},
+/obj/effect/spawner/lootdrop/food_packaging{
+	pixel_x = -5
+	},
+/obj/effect/spawner/lootdrop/maintenance{
+	pixel_y = -8
+	},
 /turf/open/floor/mineral/titanium,
 /area/medical/medbay/aft)
 "dT" = (
