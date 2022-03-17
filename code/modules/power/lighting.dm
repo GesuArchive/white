@@ -226,7 +226,7 @@
 	var/on = FALSE					// 1 if on, 0 if off
 	var/on_gs = FALSE
 	var/static_power_used = 0
-	var/brightness = 8			// luminosity when on, also used in power calculation
+	var/brightness = 6			// luminosity when on, also used in power calculation
 	var/bulb_power = 1			// basically the alpha of the emitted light source
 	var/bulb_colour = "#f3fffa"	// befault colour of the light.
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
@@ -243,7 +243,7 @@
 
 	var/nightshift_enabled = FALSE	//Currently in night shift mode?
 	var/nightshift_allowed = TRUE	//Set to FALSE to never let this light get switched to night mode.
-	var/nightshift_brightness = 8
+	var/nightshift_brightness = 6
 	var/nightshift_light_power = 0.45
 	var/nightshift_light_color = "#FFDDCC"
 
@@ -308,8 +308,8 @@
 	icon_state = "bulb"
 	base_state = "bulb"
 	fitting = "bulb"
-	brightness = 4
-	nightshift_brightness = 4
+	brightness = 3
+	nightshift_brightness = 3
 	bulb_colour = "#FFD6AA"
 	desc = "Тускло светится. Ах."
 	light_type = /obj/item/light/bulb
@@ -364,11 +364,11 @@
 	. = ..()
 	switch(fitting)
 		if("tube")
-			brightness = 8
+			brightness = 6
 			if(prob(2))
 				break_light_tube(1)
 		if("bulb")
-			brightness = 4
+			brightness = 3
 			if(prob(5))
 				break_light_tube(1)
 	addtimer(CALLBACK(src, .proc/update, 0), 1)
@@ -890,7 +890,7 @@
 	icon_state = "ltube"
 	base_state = "ltube"
 	inhand_icon_state = "c_tube"
-	brightness = 8
+	brightness = 6
 	custom_price = PAYCHECK_EASY * 0.5
 
 /obj/item/light/tube/broken
@@ -904,7 +904,7 @@
 	inhand_icon_state = "contvapour"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
-	brightness = 4
+	brightness = 3
 	custom_price = PAYCHECK_EASY * 0.4
 
 /obj/item/light/bulb/broken
