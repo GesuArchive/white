@@ -20343,6 +20343,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/machinery/camera/preset/toxins{
+	dir = 8
+	},
 /turf/open/floor/engine/vacuum,
 /area/science/test_area)
 "ccH" = (
