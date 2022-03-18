@@ -154,6 +154,19 @@
 	if((IS_DREAMER(user) && !clued))
 		if(!user.CanReach(src))
 			return
+		var/list/temp_list = GLOB.dreamer_current_recipe
+		var/list/get_list = list()
+		for(var/atom/movable/AM in range(1, src))
+			if(AM.type in temp_list)
+				temp_list -= AM.type
+				get_list += AM
+		if(temp_list.len)
+			var/list/req_list = list()
+			for(var/itype in temp_list)
+				var/obj/item/req = new itype
+				req_list += req.name
+			to_chat(user, span_revenbignotice("Для этого шедевра требуется: [english_list(req_list)]. Пока есть только: [english_list(get_list)]"))
+			return
 		for(var/i in 1 to 10)
 			new /obj/effect/particle_effect/sparks(loc)
 			playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
@@ -162,6 +175,12 @@
 		clued = tgui_input_list(user, "ВЫБЕРЕМ ЖЕ ШЕДЕВР", "ШЕДЕВР", GLOB.dreamer_clues)
 		if(!clued)
 			return
+		for(var/obj/item/I in get_list)
+			I.forceMove(src)
+			var/mutable_appearance/wish = mutable_appearance(I.icon, I.icon_state, layer + 0.01)
+			wish.pixel_x = rand(-16, 16)
+			wish.pixel_y = rand(-16, 16)
+			add_overlay(wish)
 		to_chat(user, span_revenbignotice("[clued]... ЭТОТ ШЕДЕВР ДОЛЖНЫ УЗРЕТЬ!"))
 		icon_screen = "clued"
 		update_icon()

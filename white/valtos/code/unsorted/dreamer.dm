@@ -1,5 +1,6 @@
 // max value for nuke terminal is 99999, here some crutch applied
-GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet))]" = rand(1, 24995), "[uppertext(random_string(4, GLOB.alphabet))]" = rand(1, 25000), "[uppertext(random_string(4, GLOB.alphabet))]" = rand(1, 25000), "[uppertext(random_string(4, GLOB.alphabet))]" = rand(1, 25000)))
+GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet))]" = rand(3334, 24995), "[uppertext(random_string(4, GLOB.alphabet))]" = rand(3334, 25000), "[uppertext(random_string(4, GLOB.alphabet))]" = rand(3334, 25000), "[uppertext(random_string(4, GLOB.alphabet))]" = rand(3334, 25000)))
+GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 
 /datum/component/dreamer
 	dupe_mode = COMPONENT_DUPE_UNIQUE
@@ -432,6 +433,29 @@ GLOBAL_LIST_INIT(dreamer_clues, list("[uppertext(random_string(4, GLOB.alphabet)
 		A.visible_message(span_danger("<b>[A]</b> поглощает [P.name]!"), span_userdanger("Отвергаю существование [P.name]!"))
 		qdel(P)
 		return BULLET_ACT_BLOCK
+
+/proc/get_random_organ_list(amt = 3)
+	var/list/organ_list = list()
+	for(var/i in 1 to amt)
+		organ_list += pick(list(
+			/obj/item/organ/brain,
+			/obj/item/organ/appendix,
+			/obj/item/organ/butt,
+			/obj/item/organ/eyes,
+			/obj/item/organ/heart,
+			/obj/item/organ/liver,
+			/obj/item/organ/lungs,
+			/obj/item/organ/tongue,
+			/obj/item/organ/ears,
+			/obj/item/organ/stomach,
+			/obj/item/bodypart/chest,
+			/obj/item/bodypart/head,
+			/obj/item/bodypart/l_arm,
+			/obj/item/bodypart/r_arm,
+			/obj/item/bodypart/l_leg,
+			/obj/item/bodypart/r_leg
+		))
+	return organ_list
 
 /datum/antagonist/dreamer
 	name = "Dreamer"
