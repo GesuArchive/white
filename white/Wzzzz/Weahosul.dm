@@ -159,10 +159,10 @@
 
 /obj/item/ammo_box/magazine/wt550m9/mc9mmt
 	name = "top mounted magazine (9mm)"
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/c9mmt
 	caliber = "9mm"
 
-/obj/item/ammo_casing/c9mm
+/obj/item/ammo_casing/c9mmt
 	desc = "A 9mm bullet casing."
 	caliber = "9mm"
 	projectile_type = /obj/projectile/bullet/c9mmt
