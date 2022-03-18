@@ -368,7 +368,6 @@
 
 	if(owner)
 		add_emote_panel(owner)
-		add_multiz_buttons(owner)
 
 	update_locked_slots()
 

@@ -104,6 +104,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		tooltip?.screen_loc = "SOUTH+1,CENTER-4:16"
 	infodisplay += tooltip
 
+	add_multiz_buttons(owner)
+
 	for(var/mytype in subtypesof(/atom/movable/plane_master_controller))
 		var/atom/movable/plane_master_controller/controller_instance = new mytype(null, src)
 		plane_master_controllers[controller_instance.name] = controller_instance

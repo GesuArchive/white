@@ -15,5 +15,3 @@
 	healths.hud = src
 	infodisplay += healths
 
-	if(owner)
-		add_multiz_buttons(owner)

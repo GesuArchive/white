@@ -74,9 +74,6 @@
 /datum/hud/ghost/New(mob/owner)
 	..()
 
-	if(owner)
-		add_multiz_buttons(owner)
-
 	var/atom/movable/screen/using
 
 	using = new /atom/movable/screen/ghost/jumptomob()

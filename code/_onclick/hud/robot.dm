@@ -179,7 +179,6 @@
 
 	if(owner)
 		add_emote_panel(owner)
-		add_multiz_buttons(owner)
 
 /datum/hud/proc/toggle_show_robot_modules()
 	if(!iscyborg(mymob))

@@ -57,9 +57,6 @@
 
 	mymob.client.screen = list()
 
-	if(owner)
-		add_multiz_buttons(owner)
-
 	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory))
 		if(inv.slot_id)
 			inv.hud = src
