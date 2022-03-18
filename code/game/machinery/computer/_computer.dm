@@ -64,6 +64,8 @@
 		if(!IS_DREAMER(user))
 			return FALSE
 		to_chat(user, span_notice("Убираю ШЕДЕВР..."))
+		for(var/obj/item/I in src)
+			I.forceMove(get_turf(src))
 		clued = FALSE
 		icon_screen = initial(icon_screen)
 		update_icon()
