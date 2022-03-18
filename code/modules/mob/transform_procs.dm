@@ -26,6 +26,9 @@
 	invisibility = 0
 	set_species(/datum/species/monkey)
 	uncuff()
+
+	Paralyze(5 SECONDS)
+
 	return src
 
 //////////////////////////           Humanize               //////////////////////////////
