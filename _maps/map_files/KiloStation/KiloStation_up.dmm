@@ -27497,7 +27497,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible{
 	dir = 4
 	},
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/reinforced,
 /area/engineering/atmos)
 "cVj" = (
 /obj/effect/turf_decal/bot,
@@ -49288,7 +49288,7 @@
 /area/engineering/main)
 "kVN" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/reinforced,
 /area/engineering/atmos)
 "kVS" = (
 /obj/effect/turf_decal/caution/stand_clear,
@@ -57450,7 +57450,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible,
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/reinforced,
 /area/engineering/atmos)
 "oaT" = (
 /obj/structure/cable,
@@ -58965,7 +58965,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible,
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/reinforced,
 /area/engineering/atmos)
 "oDC" = (
 /obj/effect/turf_decal/tile/neutral,
@@ -66922,7 +66922,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible,
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/reinforced,
 /area/engineering/atmos)
 "rrU" = (
 /obj/effect/turf_decal/stripes/line{
@@ -67148,6 +67148,10 @@
 /obj/effect/spawner/randomsnackvend,
 /turf/open/floor/plasteel/dark,
 /area/science/research)
+"ryb" = (
+/obj/structure/grille,
+/turf/open/floor/engine/hull/reinforced,
+/area/engineering/atmos)
 "ryM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -70859,7 +70863,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible,
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/reinforced,
 /area/engineering/atmos)
 "sRj" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4,
@@ -72346,7 +72350,7 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/atmos_waste{
 	dir = 1
 	},
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/reinforced,
 /area/engineering/atmos)
 "tvJ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -76643,7 +76647,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
 	dir = 6
 	},
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/reinforced,
 /area/engineering/atmos)
 "vea" = (
 /obj/effect/turf_decal/loading_area{
@@ -82194,10 +82198,6 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/engineering/atmos)
-"xiz" = (
-/obj/structure/grille,
-/turf/open/floor/engine/hull,
 /area/engineering/atmos)
 "xiK" = (
 /obj/effect/turf_decal/tile/blue,
@@ -111725,7 +111725,7 @@ nvo
 kPg
 bvF
 idD
-xiz
+ryb
 rJU
 enJ
 aFI
