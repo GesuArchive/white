@@ -1165,18 +1165,24 @@
 /datum/design/laptop
 	name = "Ноутбук (пустой)"
 	id = "laptop"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 50
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 1000)
 	build_path = /obj/item/modular_computer/laptop/buildable
-	category = list("initial","Разное")
+	category = list("initial", "Разное", "Компьютерные запчасти", "Персональные компьютеры")
+	sub_category = list("Основа")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/tablet
 	name = "Планшет (пустой)"
 	id = "tablet"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 50
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
 	build_path = /obj/item/modular_computer/tablet
-	category = list("initial","Разное")
+	category = list("initial", "Разное", "Компьютерные запчасти", "Персональные компьютеры")
+	sub_category = list("Основа")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/slime_scanner
 	name = "Анализатор слаймов"

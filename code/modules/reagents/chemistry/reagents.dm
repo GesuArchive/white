@@ -28,7 +28,7 @@ GLOBAL_LIST_INIT(enname2reagent, build_enname2reagent())
 /// A single reagent
 /datum/reagent
 	/// datums don't have names by default
-	var/name = "Reagent"
+	var/name = ""
 	///для возможности поиска реагентов по их оригинальному, ПИНДОССКОМУ названию. Не трогать своими грязным гуглотранслейтом, блять. Только для поиска реагентов, не для показа игрокам, иначе они испугаются непонятных буковок и умрут.
 	var/enname = ""
 	/// nor do they have descriptions

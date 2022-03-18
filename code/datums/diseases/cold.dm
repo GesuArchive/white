@@ -1,5 +1,5 @@
 /datum/disease/cold
-	name = "Холод"
+	name = "Простуда"
 	max_stages = 3
 	cure_text = "Отдых и космоцилин"
 	cures = list(/datum/reagent/medicine/spaceacillin)

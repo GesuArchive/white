@@ -4010,6 +4010,10 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
+"kM" = (
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/cargo/exploration_mission)
 "kN" = (
 /obj/machinery/conveyor{
 	dir = 6;
@@ -10421,6 +10425,9 @@
 /obj/structure/chair/sofa/corp/right{
 	dir = 8
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/cargo/exploration_dock)
 "EA" = (
@@ -10462,6 +10469,9 @@
 "EU" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/cargo/exploration_dock)
 "EZ" = (
@@ -11385,6 +11395,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/command)
+"LV" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/cargo/exploration_dock)
 "LW" = (
 /obj/machinery/computer/operating{
 	dir = 1
@@ -11519,6 +11534,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
+"Nc" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/cargo/exploration_dock)
 "Nd" = (
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -13286,6 +13305,17 @@
 /obj/effect/turf_decal/tile/green,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
+"YW" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 8
+	},
+/obj/effect/landmark/start/exploration,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/cargo/exploration_dock)
 "YZ" = (
 /obj/machinery/light,
 /obj/machinery/power/apc{
@@ -52279,9 +52309,9 @@ aa
 aa
 wL
 GN
-NP
+LV
 EU
-RY
+YW
 RY
 dv
 To
@@ -52536,8 +52566,8 @@ aa
 aa
 aa
 xu
-Qf
-Qf
+Nc
+kM
 Ew
 OX
 GA

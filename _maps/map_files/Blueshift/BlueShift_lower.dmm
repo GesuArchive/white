@@ -263,8 +263,9 @@
 /area/space/nearstation)
 "agM" = (
 /obj/machinery/light/directional/west,
+/obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/cargo/storage)
+/area/cargo/exploration_mission)
 "agQ" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
@@ -5138,6 +5139,9 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 9
 	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/cargo/storage)
 "cAm" = (
@@ -6117,6 +6121,13 @@
 "doK" = (
 /turf/open/floor/engine/n2,
 /area/engineering/atmos)
+"dpt" = (
+/obj/effect/landmark/start/exploration,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/cargo/storage)
 "dpC" = (
 /obj/machinery/atmospherics/pipe/smart/simple/pink/visible/layer2,
 /obj/machinery/atmospherics/pipe/smart/simple/pink/visible/layer4,
@@ -9262,6 +9273,9 @@
 	name = "cargo camera"
 	},
 /obj/machinery/vendor/exploration,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/cargo/storage)
 "fRc" = (
@@ -13229,6 +13243,16 @@
 /obj/machinery/air_sensor/atmos/carbon_tank,
 /turf/open/floor/engine/co2,
 /area/engineering/atmos)
+"jeB" = (
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/plasteel,
+/area/cargo/storage)
 "jff" = (
 /obj/machinery/hydroponics/constructable,
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -20518,6 +20542,9 @@
 /area/cargo/storage)
 "oNc" = (
 /obj/effect/landmark/start/exploration,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/cargo/storage)
 "oNm" = (
@@ -22470,6 +22497,12 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/engine/vacuum,
 /area/engineering/atmos)
+"qmw" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/cargo/storage)
 "qmM" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 8
@@ -28955,6 +28988,16 @@
 /obj/structure/curtain/cloth,
 /turf/open/floor/plasteel/freezer,
 /area/security/prison/shower)
+"vNT" = (
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel,
+/area/cargo/storage)
 "vNY" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -74013,7 +74056,7 @@ xZF
 yjJ
 yjJ
 xZF
-vHs
+jeB
 tlm
 fQC
 xPI
@@ -74270,9 +74313,9 @@ yjJ
 mlz
 xPI
 eAr
-vHs
+vNT
 agM
-xPI
+qmw
 biE
 slG
 uTG
@@ -74529,7 +74572,7 @@ jXL
 orR
 czo
 oNc
-oNc
+dpt
 oqc
 gLO
 gLO

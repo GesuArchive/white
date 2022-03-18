@@ -127,8 +127,9 @@
 	weight = 4
 
 /datum/map_template/ruin_part/shuttledock
-	file_name = "13x17_shuttledock"
+	file_name = "13x18_shuttledock"
 	weight = 2
+	max_occurances = 1
 
 /datum/map_template/ruin_part/kitchen
 	file_name = "9x13_kitchen"
@@ -396,6 +397,11 @@
 
 /datum/map_template/ruin_part/chemlab
 	file_name = "9x9_chemlab"
+	weight = 3
+	max_occurances = 2
+
+/datum/map_template/ruin_part/miner
+	file_name = "9x9_minerroom"
 	weight = 3
 	max_occurances = 2
 

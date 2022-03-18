@@ -7,7 +7,7 @@
 // where all the reagents related to medicine go.
 
 /datum/reagent/medicine
-	name = "медикамент"
+
 	enname = "Medicine"
 	taste_description = "горечь"
 
@@ -714,7 +714,7 @@
 	..()
 
 /datum/reagent/medicine/epinephrine
-	name = "Эпинефрин"
+	name = "Адреналин"
 	enname = "Epinephrine"
 	description = "Very minor boost to stun resistance. Slowly heals damage if a patient is in critical condition, as well as regulating oxygen loss. Overdose causes weakness and toxin damage."
 	reagent_state = LIQUID

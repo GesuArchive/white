@@ -290,7 +290,7 @@ Borg Shaker
 	accepts_reagent_upgrades = FALSE
 
 /obj/item/reagent_containers/borghypo/epi
-	name = "инжектор эпинефрина"
+	name = "инжектор адреналина"
 	desc = "Продвинутый химический синтезатор с системой введения, разработанный для стабилизации пациентов."
 	reagent_ids = list(/datum/reagent/medicine/epinephrine)
 	accepts_reagent_upgrades = FALSE

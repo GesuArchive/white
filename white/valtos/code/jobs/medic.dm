@@ -31,14 +31,14 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/armor/vest/fieldmedic
 	l_hand = /obj/item/storage/backpack/duffelbag/med/surgery
-	backpack_contents = list(/obj/item/storage/box/trackimp = 1, /obj/item/storage/firstaid/medical = 1, /obj/item/optable = 1, /obj/item/modular_computer/laptop/preset/medical = 1, /obj/item/flashlight = 1)
+	backpack_contents = list(/obj/item/storage/box/trackimp = 1, /obj/item/storage/firstaid/medical = 1, /obj/item/optable = 1, /obj/item/modular_computer/laptop/preset/medical = 1, /obj/item/storage/pill_bottle/soldier = 1, /obj/item/flashlight = 1)
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 	box = /obj/item/storage/box/survival/medical
 
-	r_pocket = /obj/item/storage/pill_bottle/soldier
+	r_pocket = /obj/item/storage/belt/medipenal/field_med
 	l_pocket = /obj/item/pda/medical
 
 	implants = list(/obj/item/implant/mindshield)

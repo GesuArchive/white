@@ -92,11 +92,11 @@
 	name = "Heretic (Orbital)"
 	uniform = /obj/item/clothing/under/color/grey
 	suit = /obj/item/clothing/suit/hooded/cultrobes/eldritch
-	mask = /obj/item/clothing/mask/void_mask
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/color/brown
 	back = /obj/item/storage/backpack
-	r_pocket = /obj/item/crowbar/abductor
+	r_pocket = /obj/item/crowbar
+	l_pocket = /obj/item/reagent_containers/glass/beaker/eldritch
 	r_hand = /obj/item/kitchen/knife
 	l_hand = /obj/item/flashlight/flare/torch
 

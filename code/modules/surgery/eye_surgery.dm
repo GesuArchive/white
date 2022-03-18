@@ -20,17 +20,17 @@
 
 /datum/surgery_step/fix_eyes/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("Начинаю исправлять глаза [skloname(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает исправлять [target.ru_who()] глаза.") ,
-		span_notice("[user] начинает операцию на [target.ru_who()] глазах."))
-	display_pain(target, "You feel a stabbing pain in your eyes!")
+		span_notice("[user] начинает исправлять глаза [target.ru_who()].") ,
+		span_notice("[user] начинает операцию на глазах [target.ru_who()]."))
+	display_pain(target, "Чувствую резкую боль в глазах!")
 
 /datum/surgery_step/fix_eyes/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/obj/item/organ/eyes/E = target.getorganslot(ORGAN_SLOT_EYES)
-	user.visible_message(span_notice("[user] успешно исправил [target.ru_who()] глаза!") , span_notice("Успешно исправил глаз [skloname(target.name, RODITELNI, target.gender)]."))
+	user.visible_message(span_notice("[user] успешно исправил [target.ru_who()] глаза!") , span_notice("Успешно исправил глаза [skloname(target.name, RODITELNI, target.gender)]."))
 	display_results(user, target, span_notice("Успешно исправил глаза [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] успешно исправил [target.ru_who()] глаза!") ,
-		span_notice("[user] завершил операцию на [target.ru_who()] глазах."))
-	display_pain(target, "Your vision blurs, but it seems like you can see a little better now!")
+		span_notice("[user] успешно исправил глаза [target.ru_who()]!") ,
+		span_notice("[user] завершил операцию на глазах [target.ru_who()]."))
+	display_pain(target, "Зрение размывается, но с каждой секундой я вижу окружающее все четче!")
 	target.cure_blind(list(EYE_DAMAGE))
 	target.set_blindness(0)
 	target.cure_nearsighted(list(EYE_DAMAGE))
@@ -43,11 +43,11 @@
 		display_results(user, target, span_warning("Случайно уколол [skloname(target.name, RODITELNI, target.gender)] прямо в мозг!") ,
 			span_warning("[user] случайно уколол [target.ru_who()] прямо в мозг!") ,
 			span_warning("[user] случайно уколол [target.ru_who()] прямо в мозг!"))
-		display_pain(target, "You feel a visceral stabbing pain right through your head, into your brain!")
+		display_pain(target, "Чувствую чудовищную боль прямо у себя в мозге!")
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 70)
 	else
 		display_results(user, target, span_warning("Случайно уколол [skloname(target.name, RODITELNI, target.gender)] прямо в мозг! Ну, точнее уколол бы, если бы у [target.ru_who()] был мозг.") ,
 			span_warning("[user] случайно уколол [target.ru_who()] прямо в мозг! Ну, точнее уколол бы, если бы у [target.ru_who()] был мозг.") ,
 			span_warning("[user] случайно уколол [target.ru_who()] прямо в мозг!"))
-		display_pain(target, "You feel a visceral stabbing pain right through your head!") // dunno who can feel pain w/o a brain but may as well be consistent
+		display_pain(target, "Чувствую чудовищную боль прямо у себя в голове!") // dunno who can feel pain w/o a brain but may as well be consistent
 	return FALSE

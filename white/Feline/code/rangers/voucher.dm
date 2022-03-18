@@ -66,8 +66,7 @@
 	new /obj/item/clothing/glasses/hud/health(src)
 	new /obj/item/healthanalyzer(src)
 	new /obj/item/reagent_containers/medigel/libital(src)
-	new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
-	new /obj/item/reagent_containers/hypospray/medipen/penacid(src)
+	new /obj/item/storage/belt/medipenal/rangers(src)
 
 
 
@@ -150,7 +149,7 @@
 
 /obj/item/gun/energy/laser/rangers
 	name = "Экспериментальная лазерная пушка"
-	desc = "Неожиданный результат экспериментов NT в области увеличения энергоячеек. Боезапас винтовки был удвоен, но из за особенностей энергораспределения поражающая мощность понизилась. Однако был обнаружен полезный побочный эффект: нестабильное излучение оказывает чрезвычайно разрушительный эффект на нервную систему примитивных форм жизни. Предоставлена корпусу рейнджеров на полевые испытания."
+	desc = "Неожиданный результат экспериментов Нанотрейзен в области увеличения энергоячеек. Боезапас винтовки был удвоен, но из за особенностей энергораспределения поражающая мощность понизилась. Однако был обнаружен полезный побочный эффект: нестабильное излучение оказывает чрезвычайно разрушительный эффект на нервную систему примитивных форм жизни. Предоставлена корпусу рейнджеров на полевые испытания."
 	icon = 'white/Feline/icons/weapon_rangers.dmi'
 	icon_state = "rangerlaser"
 	charge_sections = 8

@@ -2,11 +2,19 @@
 "a" = (
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
+"f" = (
+/obj/structure/closet/toolcloset,
+/turf/open/floor/plating,
+/area/ruin/unpowered)
 "w" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "y" = (
+/turf/open/floor/plating,
+/area/ruin/unpowered)
+"E" = (
+/obj/effect/loot_site_spawner,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "Q" = (
@@ -20,6 +28,10 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"W" = (
+/obj/effect/turf_decal/dust,
+/turf/open/floor/plating,
 /area/ruin/unpowered)
 "Z" = (
 /turf/closed/wall,
@@ -41,8 +53,8 @@ Z
 "}
 (3,1,1) = {"
 Z
-y
-y
+f
+W
 y
 Z
 "}
@@ -50,28 +62,28 @@ Z
 Z
 y
 y
-y
+W
 Z
 "}
 (5,1,1) = {"
 Z
+W
 y
-y
-y
+W
 Z
 "}
 (6,1,1) = {"
 Z
 y
-y
-y
+W
+W
 Z
 "}
 (7,1,1) = {"
 Z
-y
-y
-y
+W
+W
+E
 Z
 "}
 (8,1,1) = {"

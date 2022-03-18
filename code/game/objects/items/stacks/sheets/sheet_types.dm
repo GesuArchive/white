@@ -333,6 +333,7 @@ GLOBAL_LIST_INIT(cloth_recipes, list ( \
 	new/datum/stack_recipe("сумка для химикатов", /obj/item/storage/bag/chemistry, 4), \
 	new/datum/stack_recipe("сумка для биологических образцов", /obj/item/storage/bag/bio, 4), \
 	new/datum/stack_recipe("строительная сумка", /obj/item/storage/bag/construction, 4), \
+	new/datum/stack_recipe("сумка для материалов", /obj/item/storage/bag/sheetsnatcher, 4), \
 	null, \
 	new/datum/stack_recipe("импровизированная марля", /obj/item/stack/medical/gauze/improvised, 1, 2, 6), \
 	new/datum/stack_recipe("тряпка", /obj/item/reagent_containers/glass/rag, 1), \

@@ -74,6 +74,7 @@
 	new /obj/item/clothing/glasses/meson/engine(src)
 	new /obj/item/storage/box/emptysandbags(src)
 	new /obj/item/storage/bag/construction(src)
+	new /obj/item/storage/bag/sheetsnatcher(src)
 
 
 /obj/structure/closet/secure_closet/atmospherics

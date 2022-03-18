@@ -107,7 +107,7 @@
 // -----------------------------
 
 /obj/item/storage/bag/ore
-	name = "шахтёрская сумка"
+	name = "сумка для руды"
 	desc = "Эту сумку можно использовать для хранения и транспортировки руды."
 	gender = FEMALE
 	icon = 'icons/obj/mining.dmi'
@@ -177,10 +177,10 @@
 	spam_protection = FALSE
 
 /obj/item/storage/bag/ore/cyborg
-	name = "ранец для добычи руды киборга"
+	name = "сумка для руды киборга"
 
 /obj/item/storage/bag/ore/holding //miners, your messiah has arrived
-	name = "блюспейс сумка для добычи руды"
+	name = "бездонная сумка для руды"
 	desc = "Революция в удобстве: этот рюкзак позволяет хранить огромное количество руды. Он оборудован мерами безопасности от сбоев."
 	icon_state = "satchel_bspace"
 
@@ -239,13 +239,13 @@
 // However, making it a storage/bag allows us to reuse existing code in some places. -Sayu
 
 /obj/item/storage/bag/sheetsnatcher
-	name = "sheet snatcher"
-	desc = "A patented Nanotrasen storage system designed for any kind of mineral sheet."
+	name = "сумка для материалов"
+	desc = "Сумка разработанная для шахтеров и строителей, способная хранить до 500 листов различных материалов."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "sheetsnatcher"
 	worn_icon_state = "satchel"
 
-	var/capacity = 300; //the number of sheets it can carry.
+	var/capacity = 500; //the number of sheets it can carry.
 	component_type = /datum/component/storage/concrete/stack
 
 /obj/item/storage/bag/sheetsnatcher/ComponentInitialize()
@@ -267,9 +267,9 @@
 // -----------------------------
 
 /obj/item/storage/bag/sheetsnatcher/borg
-	name = "sheet snatcher 9000"
-	desc = ""
-	capacity = 500//Borgs get more because >specialization
+	name = "сумка для материалов киборга"
+	desc = "Сумка разработанная для шахтеров и строителей, способная хранить до 1000 листов различных материалов."
+	capacity = 1000//Borgs get more because >specialization
 
 /obj/item/storage/bag/sheetsnatcher/borg/ComponentInitialize()
 	. = ..()

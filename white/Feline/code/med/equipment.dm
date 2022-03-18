@@ -94,3 +94,50 @@
 	STR.max_items = 20
 	STR.max_combined_w_class = 40
 	STR.set_holdable(list(/obj/item/reagent_containers/pill, /obj/item/dice))
+
+
+// Пенал для медипенов
+
+/obj/item/storage/belt/medipenal
+	name = "пенал для медипенов"
+	desc = "Компактный и очень удобный пенал вмещающий до 5 медипенов, специальная клипса позволяет закрепить его на карманах или поясе, а с его маленькими габаритами он поместится в коробке или аптечке."
+	icon = 'white/Feline/icons/medipenal.dmi'
+	icon_state = "penal"
+	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_POCKETS
+	w_class = WEIGHT_CLASS_SMALL
+	max_integrity = 300
+	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
+
+/obj/item/storage/belt/medipenal/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_items = 5
+	STR.max_w_class = WEIGHT_CLASS_NORMAL
+	STR.pocket_belt = TRUE
+	STR.max_combined_w_class = 10
+	STR.set_holdable(list(
+		/obj/item/reagent_containers/hypospray/medipen,
+		/obj/item/reagent_containers/syringe
+		))
+
+/obj/item/storage/belt/medipenal/update_icon_state()
+	icon_state = initial(icon_state)
+	worn_icon_state = initial(worn_icon_state)
+	if(length(contents))
+		icon_state = "penal[length(contents)]"
+
+/obj/item/storage/belt/medipenal/rangers	//	Рейнджер медик
+
+/obj/item/storage/belt/medipenal/rangers/PopulateContents()
+	new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
+	new /obj/item/reagent_containers/hypospray/medipen/penacid(src)
+	new /obj/item/reagent_containers/hypospray/medipen/sputnik_lite(src)
+	new /obj/item/reagent_containers/hypospray/medipen/sputnik_lite(src)
+
+/obj/item/storage/belt/medipenal/field_med	//	Полевой медик
+
+/obj/item/storage/belt/medipenal/field_med/PopulateContents()
+	new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
+	new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
+	new /obj/item/reagent_containers/hypospray/medipen/oxandrolone(src)
+	new /obj/item/reagent_containers/hypospray/medipen/penacid(src)

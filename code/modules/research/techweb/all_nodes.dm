@@ -120,7 +120,8 @@
 	design_ids = list("screwdriver", "wrench", "wirecutters", "crowbar", "multitool", "welding_tool", "tscanner", "analyzer", "cable_coil", "pipe_painter", "airlock_painter", "decal_painter",
 					"cultivator", "plant_analyzer", "shovel", "spade", "floor_painter", "hatchet", "secateurs", "mop", "pushbroom", "plunger", "spraycan", "swab", "petri_dish", "normtrash", "handlabel", "paystand",
 					"cable_coil_box", "rcd_ammo", "rcd_ammo_large",	"welding_helmet",	"prox_sensor", "igniter", "condenser", "signaler", "radio_headset", "bounced_radio", "intercom_frame", "infrared_emitter",
-					"timer", "voice_analyser", "light_tube", "light_bulb", "camera_assembly", "newscaster_frame", "bountyboard_frame", "large_welding_tool", "geigercounter", "turret_control","blast")
+					"timer", "voice_analyser", "light_tube", "light_bulb", "camera_assembly", "newscaster_frame", "bountyboard_frame", "large_welding_tool", "geigercounter", "turret_control","blast",
+					"laptop", "tablet")
 
 /datum/techweb_node/basic_circuitry
 	id = "basic_circuitry"
@@ -188,7 +189,7 @@
 	display_name = "Биотехнологии"
 	description = "То, что заставляет сердце биться."	//the MC, silly!
 	prereq_ids = list("base")
-	design_ids = list("chem_heater", "chem_master", "chem_dispenser", "pandemic", "defibrillator", "defibmount", "operating", "soda_dispenser", "beer_dispenser", "healthanalyzer", "medigel","genescanner", "med_spray_bottle", "meta_beaker", "chem_pack", "blood_pack", "medical_kiosk", "crewpinpointerprox", "medipen_refiller", "biopsy_tool", "plumbing_rcd_sci", "medbot_carrier")
+	design_ids = list("chem_heater", "chem_master", "chem_dispenser", "pandemic", "defibrillator", "defibmount", "operating", "soda_dispenser", "beer_dispenser", "healthanalyzer", "medigel","genescanner", "med_spray_bottle", "meta_beaker", "chem_pack", "blood_pack", "medical_kiosk", "crewpinpointerprox", "medipen_refiller", "biopsy_tool", "plumbing_rcd_sci", "medbot_carrier", "medipenal")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 	required_experiments = list(/datum/experiment/scanning/points/slime/calibration)
 

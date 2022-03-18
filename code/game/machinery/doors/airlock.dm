@@ -49,9 +49,10 @@
 #define AIRLOCK_INTEGRITY_N			 300 // Normal airlock integrity
 #define AIRLOCK_INTEGRITY_MULTIPLIER 1.5 // How much reinforced doors health increases
 /// How much extra health airlocks get when braced with a seal
-#define AIRLOCK_SEAL_MULTIPLIER		 2
+#define AIRLOCK_SEAL_MULTIPLIER		 3
+#define AIRLOCK_SEAL_ARMOR_MULT		 2
 #define AIRLOCK_DAMAGE_DEFLECTION_N  21  // Normal airlock damage deflection
-#define AIRLOCK_DAMAGE_DEFLECTION_R  30  // Reinforced airlock damage deflection
+#define AIRLOCK_DAMAGE_DEFLECTION_R  42  // Reinforced airlock damage deflection
 
 #define AIRLOCK_DENY_ANIMATION_TIME (0.6 SECONDS) /// The amount of time for the airlock deny animation to show
 
@@ -974,12 +975,12 @@
 	else if(istype(C, /obj/item/door_seal)) //adding the seal
 		var/obj/item/door_seal/airlockseal = C
 		if(!density)
-			to_chat(user, span_warning("[capitalize(src.name)] должен быть закрыт, прежде чем запечатывать его!"))
+			to_chat(user, span_warning("[capitalize(src.name)] должен быть закрыт, прежде чем блокировать его!"))
 			return
 		if(seal)
-			to_chat(user, span_warning("[capitalize(src.name)] уже запечатан!"))
+			to_chat(user, span_warning("[capitalize(src.name)] уже заблокирован!"))
 			return
-		user.visible_message(span_notice("[user] начинает запечатывать [src].") , span_notice("Начинаю запечатывать [src]."))
+		user.visible_message(span_notice("[user] начинает блокировать [src].") , span_notice("Начинаю блокировать [src]..."))
 		playsound(src, 'sound/items/jaws_pry.ogg', 30, TRUE)
 		if(!do_after(user, airlockseal.seal_time, target = src))
 			return
@@ -987,15 +988,16 @@
 			to_chat(user, span_warning("[capitalize(src.name)] должен быть закрыт, прежде чем запечатывать его!"))
 			return
 		if(seal)
-			to_chat(user, span_warning("[capitalize(src.name)] уже запечатан!"))
+			to_chat(user, span_warning("[capitalize(src.name)] уже заблокирован!"))
 			return
 		if(!user.transferItemToLoc(airlockseal, src))
 			to_chat(user, span_warning("Не могу запечатать [airlockseal]!"))
 			return
 		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
-		user.visible_message(span_notice("[user] запечатывает [src].") , span_notice("Запечатываю [src]."))
+		user.visible_message(span_notice("[user] блокирует [src].") , span_notice("Блокирую [src]."))
 		seal = airlockseal
 		modify_max_integrity(max_integrity * AIRLOCK_SEAL_MULTIPLIER)
+		damage_deflection = (damage_deflection * AIRLOCK_SEAL_ARMOR_MULT)
 		update_icon()
 
 	else if(istype(C, /obj/item/paper) || istype(C, /obj/item/photo))
@@ -1061,9 +1063,9 @@
 		return FALSE
 	var/obj/item/door_seal/airlockseal = seal
 	if(!ishuman(user))
-		to_chat(user, span_warning("У меня не хватает ловкости для снятия печати!"))
+		to_chat(user, span_warning("Я не понимаю как это работает!"))
 		return TRUE
-	user.visible_message(span_notice("[user] начинает распечатывать [src].") , span_notice("Начинаю снимать пневматическую заглушку [src]."))
+	user.visible_message(span_notice("[user] начинает разблокировать [src].") , span_notice("Начинаю снимать пневматический замок с [src]..."))
 	playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
 	if(!do_after(user, airlockseal.unseal_time, target = src))
 		return TRUE
@@ -1071,9 +1073,10 @@
 		return TRUE
 	playsound(src, 'sound/items/jaws_pry.ogg', 30, TRUE)
 	airlockseal.forceMove(get_turf(user))
-	user.visible_message(span_notice("[user] распечатывает [src].") , span_notice("Успешно снимаю пневматическую заглушку [src]."))
+	user.visible_message(span_notice("[user] разблокировывает [src].") , span_notice("Снимаю пневматический замок с [src]."))
 	seal = null
 	modify_max_integrity(max_integrity / AIRLOCK_SEAL_MULTIPLIER)
+	damage_deflection = (damage_deflection / AIRLOCK_SEAL_ARMOR_MULT)
 	update_icon()
 	return TRUE
 
@@ -1408,7 +1411,7 @@
 	switch(the_rcd.mode)
 		if(RCD_DECONSTRUCT)
 			if(seal)
-				to_chat(user, span_notice("Печать [src] должна быть снята."))
+				to_chat(user, span_notice("Пневматический замок [src] должн быть снят."))
 				return FALSE
 			if(security_level != AIRLOCK_SECURITY_NONE)
 				to_chat(user, span_notice("Укрепления [src] должны быть удалены для продолжения."))
@@ -1618,6 +1621,7 @@
 #undef AIRLOCK_INTEGRITY_N
 #undef AIRLOCK_INTEGRITY_MULTIPLIER
 #undef AIRLOCK_SEAL_MULTIPLIER
+#undef AIRLOCK_SEAL_ARMOR_MULT
 #undef AIRLOCK_DAMAGE_DEFLECTION_N
 #undef AIRLOCK_DAMAGE_DEFLECTION_R
 

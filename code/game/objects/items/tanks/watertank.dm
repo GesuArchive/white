@@ -5,10 +5,11 @@
 	icon = 'icons/obj/hydroponics/equipment.dmi'
 	icon_state = "waterbackpack"
 	inhand_icon_state = "waterbackpack"
+	worn_icon = 'icons/mob/clothing/back.dmi'
 	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
-	slot_flags = ITEM_SLOT_BACK
+	slot_flags = ITEM_SLOT_SUITSTORE | ITEM_SLOT_BACK
 	slowdown = 1
 	actions_types = list(/datum/action/item_action/toggle_mister)
 	max_integrity = 200
@@ -33,14 +34,14 @@
 	toggle_mister(user)
 
 /obj/item/watertank/item_action_slot_check(slot, mob/user)
-	if(slot == user.getBackSlot())
+	if(slot == user.getBackSlot() || slot == user.getSuitSlot())
 		return 1
 
 /obj/item/watertank/proc/toggle_mister(mob/living/user)
 	if(!istype(user))
 		return
-	if(user.get_item_by_slot(user.getBackSlot()) != src)
-		to_chat(user, span_warning("The watertank must be worn properly to use!"))
+	if(user.get_item_by_slot(user.getBackSlot()) != src && user.get_item_by_slot(user.getSuitSlot()) != src)
+		to_chat(user, span_warning("Для использования сначало необходимо экипировать [src]!"))
 		return
 	if(user.incapacitated())
 		return
@@ -50,7 +51,7 @@
 	if(noz in src)
 		//Detach the nozzle into the user's hands
 		if(!user.put_in_hands(noz))
-			to_chat(user, span_warning("You need a free hand to hold the mister!"))
+			to_chat(user, span_warning("У меня заняты руки!"))
 			return
 	else
 		//Remove from their hands and put back "into" the tank
@@ -77,7 +78,7 @@
 		noz.forceMove(src)
 
 /obj/item/watertank/attack_hand(mob/user)
-	if (user.get_item_by_slot(user.getBackSlot()) == src)
+	if (user.get_item_by_slot(ITEM_SLOT_SUITSTORE) == src || user.get_item_by_slot(user.getBackSlot()) == src)
 		toggle_mister(user)
 	else
 		return ..()
@@ -145,19 +146,20 @@
 
 //Janitor tank
 /obj/item/watertank/janitor
-	name = "backpack cleaner tank"
-	desc = "A janitorial cleaner backpack with nozzle to clean blood and graffiti."
+	name = "Заспинный моющий распылитель"
+	desc = "Огромный танк с моющим средством, раствора хватит на очистку помещения даже после трехчасовой рабочей смены."
 	icon_state = "waterbackpackjani"
 	inhand_icon_state = "waterbackpackjani"
 	custom_price = PAYCHECK_EASY * 5
+	worn_icon_state = "waterbackpackjani"
 
 /obj/item/watertank/janitor/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/space_cleaner, 500)
 
 /obj/item/reagent_containers/spray/mister/janitor
-	name = "janitor spray nozzle"
-	desc = "A janitorial spray nozzle attached to a watertank, designed to clean up large messes."
+	name = "распылитель"
+	desc = "Напрямую подключен к заспинному танку и имеет несколько режимов работы."
 	icon = 'icons/obj/hydroponics/equipment.dmi'
 	icon_state = "misterjani"
 	inhand_icon_state = "misterjani"
@@ -182,17 +184,17 @@
 #define RESIN_FOAM 2
 
 /obj/item/watertank/atmos
-	name = "backpack firefighter tank"
-	desc = "A refrigerated and pressurized backpack tank with extinguisher nozzle, intended to fight fires. Swaps between extinguisher, resin launcher and a smaller scale resin foamer."
+	name = "рюкзак огнеборца"
+	desc = "Заспинный резервуар с водой используемый для тушения крупнейших пожаров. В комплекте с ним идет пожарный ствол, обладающий 3 режимами работы: Тяжелый огнетушитель, Пенообразователь, Пенная граната."
 	inhand_icon_state = "waterbackpackatmos"
 	icon_state = "waterbackpackatmos"
 	worn_icon_state = "waterbackpackatmos"
-	volume = 200
+	volume = 500
 	slowdown = 0
 
 /obj/item/watertank/atmos/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/water, 200)
+	reagents.add_reagent(/datum/reagent/water, 500)
 
 /obj/item/watertank/atmos/make_noz()
 	return new /obj/item/extinguisher/mini/nozzle(src)
@@ -205,15 +207,15 @@
 		N.nozzle_mode = 0
 
 /obj/item/extinguisher/mini/nozzle
-	name = "extinguisher nozzle"
-	desc = "A heavy duty nozzle attached to a firefighter's backpack tank."
+	name = "пожарный ствол"
+	desc = "Распылитель с широким раструбом направляющим потоки воды и пены."
 	icon = 'icons/obj/hydroponics/equipment.dmi'
 	icon_state = "atmos_nozzle"
 	inhand_icon_state = "nozzleatmos"
 	lefthand_file = 'icons/mob/inhands/equipment/mister_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/mister_righthand.dmi'
 	safety = 0
-	max_water = 200
+	max_water = 500
 	power = 8
 	force = 10
 	precision = 1
@@ -245,7 +247,7 @@
 /obj/item/extinguisher/mini/nozzle/doMove(atom/destination)
 	if(destination && (destination != tank.loc || !ismob(destination)))
 		if(loc != tank)
-			to_chat(tank.loc, span_notice("The nozzle snaps back onto the tank."))
+			to_chat(tank.loc, span_notice("Отпускаю пожарный рукав и его затягивает обратно в рюкзак."))
 		destination = tank
 	..()
 
@@ -254,17 +256,17 @@
 		if(EXTINGUISHER)
 			nozzle_mode = RESIN_LAUNCHER
 			tank.icon_state = "waterbackpackatmos_1"
-			to_chat(user, span_notice("Swapped to resin launcher."))
+			to_chat(user, span_notice("Переключаюсь на <b>Пенные гранаты<b>."))
 			return
 		if(RESIN_LAUNCHER)
 			nozzle_mode = RESIN_FOAM
 			tank.icon_state = "waterbackpackatmos_2"
-			to_chat(user, span_notice("Swapped to resin foamer."))
+			to_chat(user, span_notice("Переключаюсь на <b>Пенобразователь<b>."))
 			return
 		if(RESIN_FOAM)
 			nozzle_mode = EXTINGUISHER
 			tank.icon_state = "waterbackpackatmos_0"
-			to_chat(user, span_notice("Swapped to water extinguisher."))
+			to_chat(user, span_notice("Переключаюсь на <b>Тяжелый огнетушитель<b>."))
 			return
 	return
 
@@ -280,15 +282,15 @@
 			return //Safety check so you don't blast yourself trying to refill your tank
 		var/datum/reagents/R = reagents
 		if(R.total_volume < 100)
-			to_chat(user, span_warning("You need at least 100 units of water to use the resin launcher!"))
+			to_chat(user, span_warning("Недостаточно воды, необходимо хотябы 100 единиц! В данный момент в баллоне [R.total_volume] единиц."))
 			return
 		if(resin_cooldown)
-			to_chat(user, span_warning("Resin launcher is still recharging..."))
+			to_chat(user, span_warning("Синтез новой пенной гранаты все еще в процессе..."))
 			return
 		resin_cooldown = TRUE
 		R.remove_any(100)
 		var/obj/effect/resin_container/A = new (get_turf(src))
-		log_game("[key_name(user)] used Resin Launcher at [AREACOORD(user)].")
+		log_game("[key_name(user)] запустил пенную гранату [AREACOORD(user)].")
 		playsound(src,'sound/items/syringeproj.ogg',40,TRUE)
 		for(var/a=0, a<5, a++)
 			step_towards(A, target)
@@ -301,7 +303,7 @@
 			return
 		for(var/S in target)
 			if(istype(S, /obj/effect/particle_effect/foam/metal/resin) || istype(S, /obj/structure/foamedmetal/resin))
-				to_chat(user, span_warning("There's already resin here!"))
+				to_chat(user, span_warning("Тут уже есть пена!"))
 				return
 		if(metal_synthesis_cooldown < 5)
 			var/obj/effect/particle_effect/foam/metal/resin/F = new (get_turf(target))
@@ -309,15 +311,15 @@
 			metal_synthesis_cooldown++
 			addtimer(CALLBACK(src, .proc/reduce_metal_synth_cooldown), 10 SECONDS)
 		else
-			to_chat(user, span_warning("Resin foam mix is still being synthesized..."))
+			to_chat(user, span_warning("Синтез новой пены все еще в процессе..."))
 			return
 
 /obj/item/extinguisher/mini/nozzle/proc/reduce_metal_synth_cooldown()
 	metal_synthesis_cooldown--
 
 /obj/effect/resin_container
-	name = "resin container"
-	desc = "A compacted ball of expansive resin, used to repair the atmosphere in a room, or seal off breaches."
+	name = "пенная граната"
+	desc = "Спресованная пена с химическими добавками, нейтрализующая пламя, понижающая температуру, и препятствующая прохождению газов."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "frozen_smoke_capsule"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT

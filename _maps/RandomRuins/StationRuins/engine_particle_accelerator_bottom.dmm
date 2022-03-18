@@ -9,11 +9,14 @@
 "aq" = (
 /obj/machinery/door/firedoor,
 /obj/structure/fans/tiny,
-/obj/machinery/door/airlock/engineering{
-	name = "Engine Room";
-	req_access_txt = "10"
-	},
 /obj/structure/cable,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "engi_reactor_shutters"
+	},
+/obj/machinery/door/airlock/highsecurity{
+	req_access = "10";
+	security_level = 6
+	},
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "bd" = (
@@ -287,6 +290,16 @@
 "Lc" = (
 /obj/structure/particle_accelerator/power_box,
 /turf/open/floor/plasteel/dark,
+/area/engineering/main)
+"Mc" = (
+/obj/structure/cable,
+/obj/machinery/button/door{
+	id = "engi_reactor_shutters";
+	name = "бронеставни выхода в теха";
+	pixel_y = 32;
+	req_one_access_txt = "5"
+	},
+/turf/open/floor/plasteel,
 /area/engineering/main)
 "Ne" = (
 /obj/machinery/power/rad_collector/anchored,
@@ -926,7 +939,7 @@ ab
 "}
 (21,1,1) = {"
 cA
-TP
+Mc
 oq
 mb
 wn

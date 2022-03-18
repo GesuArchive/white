@@ -43,6 +43,7 @@
 
 	var/attack_hand_interact = TRUE //interact on attack hand.
 	var/quickdraw = FALSE //altclick interact
+	var/pocket_belt = FALSE	//Разрешает открывать емкость в кармане
 
 	var/datum/action/item_action/storage_gather_mode/modeswitch_action
 
@@ -797,17 +798,18 @@
 		playsound(A, "rustle", 50, TRUE, -5)
 
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.l_store == A && !H.get_active_held_item()) //Prevents opening if it's in a pocket.
-			. = COMPONENT_CANCEL_ATTACK_CHAIN
-			INVOKE_ASYNC(H, /mob.proc/put_in_hands, A)
-			H.l_store = null
-			return
-		if(H.r_store == A && !H.get_active_held_item())
-			. = COMPONENT_CANCEL_ATTACK_CHAIN
-			INVOKE_ASYNC(H, /mob.proc/put_in_hands, A)
-			H.r_store = null
-			return
+		if(!pocket_belt)	//	Разрешение на открытие в кармане
+			var/mob/living/carbon/human/H = user
+			if(H.l_store == A && !H.get_active_held_item()) //Prevents opening if it's in a pocket.
+				. = COMPONENT_CANCEL_ATTACK_CHAIN
+				INVOKE_ASYNC(H, /mob.proc/put_in_hands, A)
+				H.l_store = null
+				return
+			if(H.r_store == A && !H.get_active_held_item())
+				. = COMPONENT_CANCEL_ATTACK_CHAIN
+				INVOKE_ASYNC(H, /mob.proc/put_in_hands, A)
+				H.r_store = null
+				return
 
 	if(A.loc == user)
 		. = COMPONENT_CANCEL_ATTACK_CHAIN

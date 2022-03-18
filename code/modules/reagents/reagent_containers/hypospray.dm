@@ -36,11 +36,11 @@
 	for(var/datum/reagent/R in reagents.reagent_list)
 		injected += R.name
 	var/contained = english_list(injected)
-	log_combat(user, M, "attempted to inject", src, "([contained])")
+	log_combat(user, M, "пытается вколоть", src, "([contained])")
 
 	if(reagents.total_volume && (ignore_flags || M.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))) // Ignore flag should be checked first or there will be an error message.
 		to_chat(M, span_warning("Что-то укололо меня!"))
-		to_chat(user, span_notice("You inject [M] with [src]."))
+		to_chat(user, span_notice("Вкалываю [src] [skloname(M.name, DATELNI, M.gender)]."))
 		var/fraction = min(amount_per_transfer_from_this/reagents.total_volume, 1)
 
 
@@ -51,8 +51,8 @@
 			else
 				reagents.expose(M, INJECT, fraction)
 				trans = reagents.copy_to(M, amount_per_transfer_from_this)
-			to_chat(user, span_notice("[trans] unit\s injected. [reagents.total_volume] unit\s remaining in [src]."))
-			log_combat(user, M, "injected", src, "([contained])")
+			to_chat(user, span_notice("Введено [trans] единиц химикатов. В [src] осталось [reagents.total_volume] единиц химикатов."))
+			log_combat(user, M, "вкалывает", src, "([contained])")
 		return TRUE
 	return FALSE
 
@@ -99,8 +99,8 @@
 //MediPens
 
 /obj/item/reagent_containers/hypospray/medipen
-	name = "epinephrine medipen"
-	desc = "A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge. Contains a powerful preservative that can delay decomposition when applied to a dead body."
+	name = "медипен с адреналином"
+	desc = "Быстро и эффективно стабилизирует пациента находящегося в критическом состоянии. Спроектирован специально для персонала не обладающего медицинскими навыками, ввод осуществляется непосредственно в мягкие ткани. Содержит мощный бальзамический коагулянт, останавливающий кровотечения и останавливающий разложение у мертвых тел."
 	icon_state = "medipen"
 	inhand_icon_state = "medipen"
 	worn_icon_state = "medipen"
@@ -114,6 +114,7 @@
 	list_reagents = list(/datum/reagent/medicine/epinephrine = 10, /datum/reagent/toxin/formaldehyde = 3, /datum/reagent/medicine/coagulant = 2)
 	custom_price = PAYCHECK_MEDIUM
 	custom_premium_price = PAYCHECK_HARD
+	var/empty_start = FALSE
 
 /obj/item/reagent_containers/hypospray/medipen/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins to choke on <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -139,9 +140,9 @@
 /obj/item/reagent_containers/hypospray/medipen/examine()
 	. = ..()
 	if(reagents?.reagent_list.len)
-		. += "<hr><span class='notice'>It is currently loaded.</span>"
+		. += "<hr><span class='notice'>Медипен заряжен.</span>"
 	else
-		. += "<hr><span class='notice'>It is spent.</span>"
+		. += "<hr><span class='notice'>Медипен уже использован.</span>"
 
 /obj/item/reagent_containers/hypospray/medipen/stimpack //goliath kiting
 	name = "stimpack medipen"
@@ -166,36 +167,36 @@
 	list_reagents = list(/datum/reagent/medicine/stimulants = 50)
 
 /obj/item/reagent_containers/hypospray/medipen/morphine
-	name = "morphine medipen"
-	desc = "A rapid way to get you out of a tight situation and fast! You'll feel rather drowsy, though."
+	name = "медипен с морфием"
+	desc = "Поможет быстро успокоить буйного пациента."
 	icon_state = "morphen"
 	inhand_icon_state = "morphen"
 	list_reagents = list(/datum/reagent/medicine/morphine = 10)
 
 /obj/item/reagent_containers/hypospray/medipen/oxandrolone
-	name = "oxandrolone medipen"
-	desc = "An autoinjector containing oxandrolone, used to treat severe burns."
+	name = "медипен с оксандролоном"
+	desc = "Содержит лекарство, помогающее при тяжелых ожогах, однако менее эффективно при слабых поражениях тканей."
 	icon_state = "oxapen"
 	inhand_icon_state = "oxapen"
 	list_reagents = list(/datum/reagent/medicine/oxandrolone = 10)
 
 /obj/item/reagent_containers/hypospray/medipen/penacid
-	name = "pentetic acid medipen"
-	desc = "An autoinjector containing pentetic acid, used to reduce high levels of radiations and moderate toxins."
+	name = "медипен с пентетовой кислотой"
+	desc = "ДТПА, она же диэтилентриаминпентауксусная кислота. Вещество выводящее из тела токсины, радиацию и химикаты."
 	icon_state = "penacid"
 	inhand_icon_state = "penacid"
 	list_reagents = list(/datum/reagent/medicine/pen_acid = 10)
 
 /obj/item/reagent_containers/hypospray/medipen/salacid
-	name = "salicylic acid medipen"
-	desc = "An autoinjector containing salicylic acid, used to treat severe brute damage."
+	name = "медипен с салициловой кислотой"
+	desc = "Содержит лекарство, помогающее при тяжелых физических ранах, однако менее эффективно при слабых поражениях тканей."
 	icon_state = "salacid"
 	inhand_icon_state = "salacid"
 	list_reagents = list(/datum/reagent/medicine/sal_acid = 10)
 
 /obj/item/reagent_containers/hypospray/medipen/salbutamol
-	name = "salbutamol medipen"
-	desc = "An autoinjector containing salbutamol, used to heal oxygen damage quickly."
+	name = "медипен с сальбутомолом"
+	desc = "Содержит лекарство, что быстро нивелирует удушье у пациента."
 	icon_state = "salpen"
 	inhand_icon_state = "salpen"
 	list_reagents = list(/datum/reagent/medicine/salbutamol = 10)
@@ -218,8 +219,8 @@
 		icon_state = "[initial(icon_state)]0"
 
 /obj/item/reagent_containers/hypospray/medipen/survival
-	name = "survival emergency medipen"
-	desc = "A medipen for surviving in the harsh environments, heals most common damage sources. WARNING: May cause organ damage."
+	name = "Чрезвычайный медипен"
+	desc = "Содержит обширный комплекс лекарственных веществ для быстрого восстановления на поле боя. Изначально разрабатывался для военно-космических сил и в связи с технологическими особенностями быстрый ввод препаратов возможен только при пониженом давлении. В противном случае будет введена только половинная доза."
 	icon_state = "stimpen"
 	inhand_icon_state = "stimpen"
 	volume = 30
@@ -232,10 +233,10 @@
 		return ..()
 
 	if(DOING_INTERACTION(user, DOAFTER_SOURCE_SURVIVALPEN))
-		to_chat(user,span_notice("You are too busy to use <b>[src.name]</b>!"))
+		to_chat(user,span_notice("Я слишком занят для того чтобы использовать <b>[src.name]</b>!"))
 		return
 
-	to_chat(user,span_notice("You start manually releasing the low-pressure gauge..."))
+	to_chat(user,span_notice("Начинаю с силой продавливать поршень клапана, но он сопротивляется при таком высоком давлении... нужно... давить... сильнее..."))
 	if(!do_mob(user, M, 10 SECONDS, interaction_key = DOAFTER_SOURCE_SURVIVALPEN))
 		return
 
@@ -244,8 +245,8 @@
 
 
 /obj/item/reagent_containers/hypospray/medipen/survival/luxury
-	name = "luxury medipen"
-	desc = "Cutting edge bluespace technology allowed Nanotrasen to compact 60u of volume into a single medipen. Contains rare and powerful chemicals used to aid in exploration of very hard enviroments. WARNING: DO NOT MIX WITH EPINEPHRINE OR ATROPINE."
+	name = "элитный медипен"
+	desc = "Благодаря технологии блюспейса вмещает до 60 единиц лекарственных веществ. ВНИМАНИЕ! Не применять одновременно с атропином или адреналином!"
 	icon_state = "luxpen"
 	inhand_icon_state = "atropen"
 	volume = 60
@@ -253,8 +254,8 @@
 	list_reagents = list(/datum/reagent/medicine/salbutamol = 10, /datum/reagent/medicine/c2/penthrite = 10, /datum/reagent/medicine/oxandrolone = 10, /datum/reagent/medicine/sal_acid = 10 ,/datum/reagent/medicine/omnizine = 10 ,/datum/reagent/medicine/leporazine = 10)
 
 /obj/item/reagent_containers/hypospray/medipen/atropine
-	name = "atropine autoinjector"
-	desc = "A rapid way to save a person from a critical injury state!"
+	name = "медипен с атропином"
+	desc = "Быстро стабилизирует пациента, находящегося в критическом состоянии!"
 	icon_state = "atropen"
 	inhand_icon_state = "atropen"
 	list_reagents = list(/datum/reagent/medicine/atropine = 10)
@@ -285,16 +286,16 @@
 	icon_state = "maintenance"
 
 /obj/item/reagent_containers/hypospray/medipen/ekit
-	name = "emergency first-aid autoinjector"
-	desc = "An epinephrine medipen with extra coagulant and antibiotics to help stabilize bad cuts and burns."
+	name = "аварийный медипен"
+	desc = "По составу схож с классическим адреналиновым медипеном, однако содержит больше останавливающего кровь коагулянта и антибиотиков, но не содержит консервант препятствующий разложению."
 	icon_state = "firstaid"
 	volume = 15
 	amount_per_transfer_from_this = 15
 	list_reagents = list(/datum/reagent/medicine/epinephrine = 12, /datum/reagent/medicine/coagulant = 2.5, /datum/reagent/medicine/spaceacillin = 0.5)
 
 /obj/item/reagent_containers/hypospray/medipen/blood_loss
-	name = "hypovolemic-response autoinjector"
-	desc = "A medipen designed to stabilize and rapidly reverse severe bloodloss."
+	name = "крововосстанавливающий медипен"
+	desc = "По составу схож с классическим адреналиновым медипеном, однако часть адреналина заменена на большее количество останавливающего кровь коагулянта и веществ стимулярующих выработку крови, но не содержит консервант препятствующий разложению."
 	icon_state = "hypovolemic"
 	volume = 15
 	amount_per_transfer_from_this = 15

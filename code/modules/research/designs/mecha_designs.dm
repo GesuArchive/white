@@ -154,7 +154,7 @@
 	desc = "Необходима для строительства экзокостюма \"Саванна-Иванов\" - Основной контролер."
 	id = "savannah_ivanov_main"
 	build_path = /obj/item/circuitboard/mecha/savannah_ivanov/main
-	category = list("Модули экзоскелетов")
+	category = list("Модули экзокостюмов")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/savannah_ivanov_peri
@@ -162,7 +162,7 @@
 	desc = "Необходима для строительства экзокостюма \"Саванна-Иванов\" - Вспомогательный контролер."
 	id = "savannah_ivanov_peri"
 	build_path = /obj/item/circuitboard/mecha/savannah_ivanov/peripherals
-	category = list("Модули экзоскелетов")
+	category = list("Модули экзокостюмов")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/savannah_ivanov_targ
@@ -170,7 +170,7 @@
 	desc = "Необходима для строительства экзокостюма \"Саванна-Иванов\" - Орудийный контролер."
 	id = "savannah_ivanov_targ"
 	build_path = /obj/item/circuitboard/mecha/savannah_ivanov/targeting
-	category = list("Модули экзоскелетов")
+	category = list("Модули экзокостюмов")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 ////////////////////////////////////////
@@ -443,7 +443,7 @@
 
 /datum/design/mech_diamond_drill
 	name = "Алмазный бур экзокостюма"
-	desc = "Оборудование для инженерных и боевых экзоскелетов. Это усовершенствованная версия!"
+	desc = "Оборудование для инженерных и боевых экзокостюмов. Это усовершенствованная версия!"
 	id = "mech_diamond_drill"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/drill/diamonddrill

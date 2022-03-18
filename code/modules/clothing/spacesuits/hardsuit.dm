@@ -105,13 +105,13 @@
 
 
 /obj/item/clothing/suit/space/hardsuit
-	name = "герметичный шлем"
+	name = "герметичный скафандр"
 	desc = "Специальный костюм позволит работать в опасных условиях космоса."
 	icon_state = "hardsuit-engineering"
 	inhand_icon_state = "eng_hardsuit"
 	max_integrity = 300
 	armor = list(MELEE = 10, BULLET = 5, LASER = 10, ENERGY = 20, BOMB = 10, BIO = 100, RAD = 75, FIRE = 50, ACID = 75, WOUND = 10)
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/t_scanner, /obj/item/construction/rcd, /obj/item/pipe_dispenser)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/t_scanner, /obj/item/construction/rcd, /obj/item/pipe_dispenser, /obj/item/watertank)
 	siemens_coefficient = 0
 	var/obj/item/clothing/head/helmet/space/hardsuit/helmet
 	actions_types = list(/datum/action/item_action/toggle_spacesuit, /datum/action/item_action/toggle_helmet)
@@ -239,7 +239,7 @@
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 
 /obj/item/clothing/suit/space/hardsuit/engine/atmos
-	name = "скафандр атмостеха"
+	name = "скафандр атмотеха"
 	desc = "Разработан для работы в условиях космоса. Имеет защиту от температурных воздействий."
 	icon_state = "hardsuit-atmospherics"
 	inhand_icon_state = "atmo_hardsuit"
@@ -570,7 +570,7 @@
 	desc = "Сделан для работы в условиях низкого давления из светоотражающих материалов"
 	icon_state = "hardsuit-medical"
 	inhand_icon_state = "medical_hardsuit"
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/storage/firstaid, /obj/item/healthanalyzer, /obj/item/stack/medical)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/storage/firstaid, /obj/item/healthanalyzer, /obj/item/stack/medical, /obj/item/medbot_carrier)
 	armor = list(MELEE = 30, BULLET = 5, LASER = 10, ENERGY = 20, BOMB = 10, BIO = 100, RAD = 60, FIRE = 60, ACID = 75, WOUND = 10)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/medical
 	slowdown = 0.5

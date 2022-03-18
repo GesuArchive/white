@@ -75,11 +75,11 @@
 	var/obj/machinery/door/airlock/A = holder
 	var/list/status = list()
 	status += "Дверные болты [A.locked ? "упали!" : "подняты."]"
-	status += "Индикатор тестирования [A.hasPower() ? "горит" : "не горит"]."
+	status += "Индикатор питания [A.hasPower() ? "горит" : "не горит"]."
 	status += "Индикатор соединения с ИИ [A.aiControlDisabled || (A.obj_flags & EMAGGED) ? "не горит" : "горит"]."
-	status += "Индикатор безопасности [A.safe ? "не горит" : "горит"]."
-	status += "Индикатор таймера [A.autoclose ? "горит" : "не горит"]."
-	status += "Индикатор ускорения [A.normalspeed ? "горит" : "не горит"]."
+	status += "Индикатор безопасности [A.safe ? "горит" : "не горит"]."
+	status += "Индикатор автозакрытия [A.autoclose ? "горит" : "не горит"]."
+	status += "Индикатор задержки автозакрытия [A.normalspeed ? "горит" : "не горит"]."
 	status += "Индикатор аварийного доступа [A.emergency ? "горит" : "не горит"]."
 	return status
 

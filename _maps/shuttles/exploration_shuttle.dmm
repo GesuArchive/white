@@ -80,6 +80,13 @@
 	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
+"i" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/airalarm{
+	pixel_y = 23
+	},
+/turf/open/floor/plating,
+/area/shuttle/exploration)
 "j" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -228,7 +235,8 @@
 /obj/structure/window/reinforced,
 /obj/structure/table,
 /obj/machinery/cell_charger{
-	pixel_y = 5
+	pixel_x = 2;
+	pixel_y = -3
 	},
 /turf/open/floor/mineral/titanium/purple,
 /area/shuttle/exploration)
@@ -325,7 +333,15 @@
 "D" = (
 /obj/structure/table,
 /obj/machinery/recharger{
+	pixel_x = -7;
 	pixel_y = 5
+	},
+/obj/machinery/button/door{
+	id = "ex_cargo3";
+	name = "Фронтовые бронежалюзи";
+	pixel_x = 5;
+	pixel_y = 6;
+	req_access_txt = "49"
 	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
@@ -351,6 +367,10 @@
 "H" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 8
+	},
+/obj/item/storage/secure/safe/rangers{
+	pixel_x = 5;
+	pixel_y = -25
 	},
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/exploration)
@@ -396,14 +416,6 @@
 /area/shuttle/exploration)
 "M" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/button/door{
-	id = "ex_cab";
-	name = "Cabin Bolt Control";
-	normaldoorcontrol = 1;
-	pixel_y = 32;
-	req_access_txt = "49";
-	specialfunctions = 4
-	},
 /obj/machinery/camera/autoname,
 /turf/open/floor/plating,
 /area/shuttle/exploration)
@@ -441,6 +453,9 @@
 /area/shuttle/exploration)
 "R" = (
 /obj/effect/spawner/structure/window/shuttle,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "ex_cargo3"
+	},
 /turf/open/floor/plating,
 /area/shuttle/exploration)
 "S" = (
@@ -479,10 +494,15 @@
 /area/shuttle/exploration)
 "Z" = (
 /obj/machinery/light/directional/north,
-/obj/machinery/airalarm{
-	pixel_y = 23
-	},
 /obj/effect/turf_decal/bot,
+/obj/machinery/button/door{
+	id = "ex_cab";
+	name = "Cabin Bolt Control";
+	normaldoorcontrol = 1;
+	pixel_y = 24;
+	req_access_txt = "49";
+	specialfunctions = 4
+	},
 /turf/open/floor/plating,
 /area/shuttle/exploration)
 
@@ -509,7 +529,7 @@ a
 z
 y
 z
-Q
+i
 V
 U
 w

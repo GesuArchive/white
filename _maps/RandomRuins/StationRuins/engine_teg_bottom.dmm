@@ -10,15 +10,18 @@
 /turf/closed/wall/r_wall,
 /area/engineering/main)
 "ao" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Engineering Maintenance";
-	req_access_txt = "10"
-	},
 /obj/machinery/door/firedoor/border_only,
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/door/airlock/highsecurity{
+	req_access = "10";
+	security_level = 6
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "engi_reactor_shutters"
+	},
 /turf/open/floor/plating,
 /area/engineering/main)
 "ar" = (
@@ -107,6 +110,12 @@
 	},
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
+	},
+/obj/machinery/button/door{
+	id = "engi_reactor_shutters";
+	name = "бронеставни выхода в теха";
+	pixel_y = 32;
+	req_one_access_txt = "5"
 	},
 /turf/open/floor/plating,
 /area/engineering/main)
@@ -1411,7 +1420,7 @@ ab
 ab
 "}
 (18,1,1) = {"
-ad
+ar
 aK
 bN
 cY
@@ -1495,7 +1504,7 @@ ab
 ab
 "}
 (21,1,1) = {"
-ar
+ad
 aO
 Ap
 do

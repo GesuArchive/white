@@ -167,7 +167,8 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 3000, /datum/material/glass = 4500, /datum/material/silver = 2500)
-	category = list("Рабочие инструменты")
+	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/plumbing_rcd_sci

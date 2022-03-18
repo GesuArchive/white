@@ -1,5 +1,5 @@
 /obj/item/ammo_box/a357
-	name = "скоростной зарядник (.357)"
+	name = "скорозарядник (.357)"
 	desc = "Предназначен для быстрой перезарядки револьверов."
 	icon_state = "357"
 	ammo_type = /obj/item/ammo_casing/a357
@@ -8,12 +8,12 @@
 	item_flags = NO_MAT_REDEMPTION
 
 /obj/item/ammo_box/a357/match
-	name = "скоростной зарядник (.357 Самонаводящиеся)"
+	name = "скорозарядник (.357 Самонаводящиеся)"
 	desc = "Предназначен для быстрой перезарядки револьверов. Эти патроны изготавливаются с очень жесткими конвенциями, что позволяет легко их демонстрировать."
 	ammo_type = /obj/item/ammo_casing/a357/match
 
 /obj/item/ammo_box/c38
-	name = "скоростной зарядник (.38)"
+	name = "скорозарядник (.38)"
 	desc = "Предназначен для быстрой перезарядки револьверов."
 	icon_state = "38"
 	ammo_type = /obj/item/ammo_casing/c38
@@ -22,32 +22,32 @@
 	custom_materials = list(/datum/material/iron = 20000)
 
 /obj/item/ammo_box/c38/trac
-	name = "скоростной зарядник (.38 TRAC)"
+	name = "скорозарядник (.38 TRAC)"
 	desc = "Предназначен для быстрой перезарядки револьверов. Пули TRAC внедряют следящий имплант в тело цели."
 	ammo_type = /obj/item/ammo_casing/c38/trac
 
 /obj/item/ammo_box/c38/match
-	name = "скоростной зарядник (.38 Самонаводящиеся)"
+	name = "скорозарядник (.38 Самонаводящиеся)"
 	desc = "Предназначен для быстрой перезарядки револьверов. Эти патроны изготавливаются с очень жесткими конвенциями, что позволяет легко их демонстрировать."
 	ammo_type = /obj/item/ammo_casing/c38/match
 
 /obj/item/ammo_box/c38/match/bouncy
-	name = "скоростной зарядник (.38 Резиновые)"
+	name = "скорозарядник (.38 Резиновые)"
 	desc = "Предназначен для быстрой перезарядки револьверов. Эти патроны являются невероятно бодрящими и не летальными, что делает их отличными для демонстрации трикшотов."
 	ammo_type = /obj/item/ammo_casing/c38/match/bouncy
 
 /obj/item/ammo_box/c38/dumdum
-	name = "скоростной зарядник (.38 DumDum)"
+	name = "скорозарядник (.38 DumDum)"
 	desc = "Предназначен для быстрой перезарядки револьверов. DumDum пули разбиваются при ударе и измельчают внутренности цели, вероятно попав внутрь."
 	ammo_type = /obj/item/ammo_casing/c38/dumdum
 
 /obj/item/ammo_box/c38/hotshot
-	name = "скоростной зарядник (.38 Hot Shot)"
+	name = "скорозарядник (.38 Hot Shot)"
 	desc = "Предназначен для быстрой перезарядки револьверов. Hot Shot пули содержат зажигательную смесь."
 	ammo_type = /obj/item/ammo_casing/c38/hotshot
 
 /obj/item/ammo_box/c38/iceblox
-	name = "скоростной зарядник (.38 Iceblox)"
+	name = "скорозарядник (.38 Iceblox)"
 	desc = "Предназначен для быстрой перезарядки револьверов. Iceblox пули содержат замораживающую смесь."
 	ammo_type = /obj/item/ammo_casing/c38/iceblox
 

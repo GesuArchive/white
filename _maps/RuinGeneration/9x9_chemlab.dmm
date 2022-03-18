@@ -5,15 +5,15 @@
 	},
 /obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "b" = (
 /turf/open/floor/plasteel,
-/area/ruin)
+/area/ruin/unpowered)
 "c" = (
 /obj/structure/table/glass,
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "d" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -24,7 +24,7 @@
 /obj/effect/turf_decal/tile/yellow,
 /obj/machinery/chem_heater,
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "e" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -36,7 +36,7 @@
 /obj/structure/rack,
 /obj/item/storage/box/beakers,
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "f" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -45,7 +45,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "g" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -54,7 +54,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "i" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -64,7 +64,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "j" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -78,21 +78,21 @@
 	pixel_y = 7
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "k" = (
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "m" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "n" = (
 /obj/effect/abstract/open_area_marker,
 /turf/open/floor/plasteel,
-/area/ruin)
+/area/ruin/unpowered)
 "p" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -103,7 +103,7 @@
 	pixel_y = -25
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "q" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -115,11 +115,11 @@
 	layer = 2.7
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "s" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/ruin)
+/area/ruin/unpowered)
 "t" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -142,7 +142,7 @@
 	pixel_y = 4
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "u" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -154,13 +154,13 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "v" = (
 /obj/effect/abstract/open_area_marker{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/ruin)
+/area/ruin/unpowered)
 "w" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -171,7 +171,7 @@
 	},
 /obj/structure/closet/secure_closet/chemical,
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "x" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -189,7 +189,7 @@
 /obj/item/storage/pill_bottle,
 /obj/item/reagent_containers/syringe,
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "y" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -201,7 +201,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "z" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor/border_only{
@@ -216,7 +216,7 @@
 	req_access_txt = "5; 33"
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "A" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -226,7 +226,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "C" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -236,7 +236,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "D" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -244,7 +244,7 @@
 /obj/effect/turf_decal/tile/yellow,
 /obj/machinery/chem_master,
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "E" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -254,20 +254,20 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "F" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "G" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "I" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -277,7 +277,7 @@
 	pixel_y = -30
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "J" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -291,12 +291,8 @@
 /obj/item/reagent_containers/syringe,
 /obj/item/reagent_containers/syringe,
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "K" = (
-/obj/machinery/door/airlock/medical/glass{
-	name = "Chemistry Lab";
-	req_access_txt = "5; 33"
-	},
 /obj/machinery/door/firedoor/border_only,
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
@@ -305,15 +301,16 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/machinery/door/airlock/medical/glass,
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "L" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "M" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -323,18 +320,18 @@
 	},
 /obj/machinery/vending/wardrobe/chem_wardrobe,
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "N" = (
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "O" = (
 /turf/closed/wall,
-/area/ruin)
+/area/ruin/unpowered)
 "T" = (
 /obj/machinery/smartfridge/chemistry/preloaded,
 /turf/closed/wall,
-/area/ruin)
+/area/ruin/unpowered)
 "U" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -343,13 +340,13 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "V" = (
 /obj/effect/abstract/doorway_marker{
 	dir = 4
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "X" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -358,7 +355,7 @@
 /obj/structure/rack,
 /obj/item/construction/plumbing,
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "Y" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -374,7 +371,7 @@
 	pixel_y = 3
 	},
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 "Z" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -383,7 +380,7 @@
 /obj/structure/table/glass,
 /obj/effect/spawner/lootdrop/snowdin/dungeonlite,
 /turf/open/floor/plasteel/white,
-/area/ruin)
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 O

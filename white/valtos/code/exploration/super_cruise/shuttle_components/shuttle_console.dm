@@ -401,22 +401,22 @@
 			SSzclear.temp_keep_z(target_port.z)
 			switch(SSshuttle.moveShuttle(shuttleId, target_port.id, 1))
 				if(0)
-					say("Инициируем замедление скорости, готовимся к сближению.")
+					say("Инициация замедления скорости, готовимся к сближению.")
 					if(current_user)
 						remove_eye_control(current_user)
 					QDEL_NULL(shuttleObject)
 					//Hold the shuttle in the docking position until ready.
 					mobile_port.setTimer(INFINITY)
-					say("Ожидаем очищение гиперпространственных пробок...")
+					say("Активирован протокол стыковки, ожидайте...")
 					INVOKE_ASYNC(src, .proc/unfreeze_shuttle, mobile_port, SSmapping.get_level(target_port.z))
 				if(1)
 					to_chat(usr, span_warning("Неправильный шаттл запрошен."))
 				else
-					to_chat(usr, span_notice("Не понимаю. Иди на хуй."))
+					to_chat(usr, span_notice("Ошибка! Данные повреждены."))
 
 /obj/machinery/computer/shuttle_flight/proc/launch_shuttle()
 	if(check_banned_contents())
-		say("Пидарас, ты ксенохуйню с шаттла выкинь, тогда побазарим.")
+		say("ВНИМАНИЕ! На борту обнаружен ксенопаразит! Активирован протокол сдерживания! В случае заражения экипажа вколите пострадавшему антипаразитный препарат из чрезвычайного хранилища!")
 		return
 	if(SSorbits.interdicted_shuttles.Find(shuttleId))
 		if(world.time < SSorbits.interdicted_shuttles[shuttleId])

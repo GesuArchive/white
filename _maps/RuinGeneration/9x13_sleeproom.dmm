@@ -16,6 +16,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/carpet/orange,
 /area/ruin/unpowered)
 "h" = (
@@ -41,6 +42,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/carpet/purple,
 /area/ruin/unpowered)
 "p" = (
@@ -48,6 +50,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/effect/spawner/lootdrop/ruinloot/medical,
 /turf/open/floor/carpet/blue,
 /area/ruin/unpowered)
 "s" = (
@@ -73,6 +76,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
+"y" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
 "z" = (
 /obj/machinery/door/airlock{
 	id_tag = "Dorm3";
@@ -85,6 +92,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/carpet/cyan,
 /area/ruin/unpowered)
 "B" = (
@@ -102,11 +110,21 @@
 	},
 /turf/open/floor/carpet/purple,
 /area/ruin/unpowered)
+"H" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
 "I" = (
 /turf/open/floor/carpet/blue,
 /area/ruin/unpowered)
 "L" = (
 /turf/open/floor/carpet/cyan,
+/area/ruin/unpowered)
+"M" = (
+/obj/structure/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "O" = (
 /obj/structure/chair/stool{
@@ -136,6 +154,14 @@
 	pixel_y = 8
 	},
 /turf/open/floor/carpet/cyan,
+/area/ruin/unpowered)
+"W" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "Y" = (
 /obj/effect/abstract/open_area_marker{
@@ -253,13 +279,13 @@ e
 s
 s
 s
+y
 s
+H
+M
+W
 s
-s
-s
-s
-s
-s
+y
 s
 s
 s

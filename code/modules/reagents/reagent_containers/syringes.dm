@@ -199,8 +199,8 @@
 		return 0
 
 /obj/item/reagent_containers/syringe/epinephrine
-	name = "шприц (эпинефрин)"
-	desc = "Cодержит <b>эпинефрин</b> - используется для стабилизации пациентов."
+	name = "шприц (адреналин)"
+	desc = "Cодержит <b>Адреналин</b> - используется для стабилизации пациентов."
 	list_reagents = list(/datum/reagent/medicine/epinephrine = 15)
 
 /obj/item/reagent_containers/syringe/multiver

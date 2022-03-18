@@ -18,6 +18,6 @@
 	STR.click_gather = TRUE
 	STR.display_numerical_stacking = TRUE
 	STR.max_items = 3
-	STR.max_combined_w_class = 3
+	STR.max_combined_w_class = 100
 	STR.max_w_class = WEIGHT_CLASS_HUGE
 	STR.set_holdable(list(/obj/item/stack/teeth))

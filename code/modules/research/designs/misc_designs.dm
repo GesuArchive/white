@@ -386,7 +386,7 @@
 	id = "pneumatic_seal"
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
-	materials = list(/datum/material/iron = 20000, /datum/material/plasma = 10000)
+	materials = list(/datum/material/iron = 10000, /datum/material/glass = 2000)
 	build_path = /obj/item/door_seal
 	category = list("Снаряжение", "Инженерное снаряжение")
 	sub_category = list("Экипировка")

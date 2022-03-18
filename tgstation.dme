@@ -4060,6 +4060,7 @@
 #include "white\Feline\code\general\designes.dm"
 #include "white\Feline\code\general\equipment_all.dm"
 #include "white\Feline\code\general\techfab.dm"
+#include "white\Feline\code\med\chemistry.dm"
 #include "white\Feline\code\med\designes.dm"
 #include "white\Feline\code\med\equipment.dm"
 #include "white\Feline\code\med\machinery.dm"

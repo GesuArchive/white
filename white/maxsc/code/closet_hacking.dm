@@ -6,6 +6,7 @@
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "multitool_yellow"
 	inhand_icon_state = "multitool"
+	w_class = WEIGHT_CLASS_SMALL
 	var/hack_time = 1 MINUTES //how long it takes to crack one digit
 
 /datum/crafting_recipe/closet_hacker

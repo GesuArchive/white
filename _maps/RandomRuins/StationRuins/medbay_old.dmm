@@ -2344,10 +2344,6 @@
 /turf/open/floor/plating,
 /area/medical/pharmacy)
 "xu" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4;
-	req_access_txt = "12"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 9
@@ -2360,6 +2356,11 @@
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
+	},
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	name = "Medbay Maintenance";
+	req_access_txt = "5"
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/break_room)
@@ -2611,11 +2612,6 @@
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/lobby)
 "zw" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4;
-	name = "Medbay Maintenance";
-	req_access_txt = "5"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 9
@@ -2628,6 +2624,10 @@
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
+	},
+/obj/machinery/door/airlock/medical{
+	name = "Break Room";
+	req_access_txt = "5"
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/break_room)

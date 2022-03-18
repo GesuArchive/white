@@ -117,7 +117,8 @@
 		/obj/item/pinpointer/crew,
 		/obj/item/holosign_creator/medical,
 		/obj/item/stack/sticky_tape, //surgical tape
-		/obj/item/pamk //Для йохеев медиков, они спавнятся с такой аптечкой а убрать туда 4 своих ПАМКа не могут
+		/obj/item/pamk, //	Для йохеев медиков, они спавнятся с такой аптечкой а убрать туда 4 своих ПАМКа не могут
+		/obj/item/storage/belt/medipenal	//	Медипенал
 		))
 
 /obj/item/storage/firstaid/medical/PopulateContents()

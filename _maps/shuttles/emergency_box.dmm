@@ -123,6 +123,10 @@
 	name = "Emergency Shuttle Cockpit";
 	req_access_txt = "19"
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "az" = (
@@ -185,6 +189,12 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Emergency Shuttle Brig";
 	req_access_txt = "2"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
 	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape/brig)
@@ -271,12 +281,20 @@
 /obj/machinery/door/airlock/titanium{
 	name = "Emergency Shuttle Cargo"
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "aZ" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Emergency Shuttle Infirmary"
 	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/escape)
 "bb" = (
@@ -329,6 +347,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "bn" = (
@@ -367,6 +386,31 @@
 /area/shuttle/escape)
 "ga" = (
 /turf/open/floor/mineral/titanium/white,
+/area/shuttle/escape)
+"iu" = (
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/escape)
+"nQ" = (
+/obj/structure/table,
+/obj/machinery/door/firedoor/border_only,
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle/escape)
+"PV" = (
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/escape)
+"Sj" = (
+/obj/machinery/door/firedoor/border_only,
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle/escape)
+"Vr" = (
+/obj/machinery/door/firedoor/border_only,
+/turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "XC" = (
 /obj/structure/closet/emcloset,
@@ -479,13 +523,13 @@ ac
 aH
 ac
 bj
-aC
+PV
 aT
 aT
 aT
 aT
 aT
-aC
+PV
 ad
 bc
 br
@@ -526,14 +570,14 @@ ay
 aC
 aC
 ao
-aM
-aC
+nQ
+iu
 aS
 aS
 aS
 aS
 aS
-aC
+iu
 ac
 XC
 bs
@@ -550,7 +594,7 @@ az
 an
 aC
 aM
-aM
+nQ
 aC
 aT
 aT
@@ -574,7 +618,7 @@ ad
 aD
 aC
 aC
-aC
+Vr
 aC
 aC
 aC
@@ -598,7 +642,7 @@ ad
 aE
 bl
 an
-an
+Sj
 aR
 am
 am

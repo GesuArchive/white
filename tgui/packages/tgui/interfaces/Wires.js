@@ -9,7 +9,7 @@ export const Wires = (props, context) => {
   const statuses = data.status || [];
   return (
     <Window
-      width={450}
+      width={500}
       height={150
         + (wires.length * 30)
         + (!!proper_name && 30)}>

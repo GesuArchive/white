@@ -64,6 +64,12 @@
 /obj/machinery/vending/dinnerware,
 /turf/open/floor/plasteel/cafeteria,
 /area/ruin/unpowered)
+"t" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
 "z" = (
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
@@ -154,7 +160,7 @@ L
 s
 O
 O
-O
+t
 O
 O
 L

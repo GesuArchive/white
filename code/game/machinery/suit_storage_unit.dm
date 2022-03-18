@@ -6,7 +6,7 @@
 	icon_state = "classic"
 	base_icon_state = "classic"
 	use_power = ACTIVE_POWER_USE
-	active_power_usage = 6000
+	active_power_usage = 600
 	power_channel = AREA_USAGE_EQUIP
 	density = TRUE
 	max_integrity = 250

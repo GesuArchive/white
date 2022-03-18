@@ -142,6 +142,7 @@
 		src.data |= data.Copy()
 
 /datum/reagent/vaccine/fungal_tb
+	name = "Вакцина от грибкового туберкулеза"
 
 /datum/reagent/vaccine/fungal_tb/New(data)
 	. = ..()

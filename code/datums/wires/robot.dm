@@ -24,7 +24,8 @@
 	status += "Индикатор соединения с ИИ показывает [R.connected_ai ? R.connected_ai.name : "NULL"]."
 	status += "Индикатор питания камеры [!isnull(R.builtInCamera) && R.builtInCamera.status ? "горит" : "не горит"]."
 	status += "Индикатор блокировки [R.lockcharge ? "горит" : "не горит"]."
-	status += "Здесь есть символ звёздочки под проводом цвета [get_wire_name(WIRE_RESET_MODULE)]."
+//	status += "Здесь есть символ звёздочки под проводом цвета [get_wire_name(WIRE_RESET_MODULE)]."	// не работает
+	status += "На одном из проводов висит бирка \"Сброс модуля\"."
 	return status
 
 /datum/wires/robot/on_pulse(wire, user)

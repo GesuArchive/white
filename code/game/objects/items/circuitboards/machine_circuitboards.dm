@@ -836,10 +836,12 @@
 
 /obj/item/circuitboard/machine/medipen_refiller
 	name = "Плата Наполнителя медипенов"
-	desc = "Машина перезаряжающая медипены химикатами."
+	desc = "Машина, производящая пустые медипены, а так же перезаряжающая их химикатами. Внимание! Перезарядка осуществляется только для медипенов одобренных медицинской ассоциацией Нанотрейзен. Химический состав наполнителя должен строго соответствовать маркировке, в противном случае операция будет прервана."
 	icon_state = "medical"
 	build_path = /obj/machinery/medipen_refiller
 	req_components = list(
+		/obj/item/stock_parts/micro_laser = 1,
+		/obj/item/stock_parts/manipulator = 1,
 		/obj/item/stock_parts/matter_bin = 1)
 
 /obj/item/circuitboard/machine/techfab/department/medical

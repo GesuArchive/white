@@ -20,7 +20,7 @@
 		. += " Станция находится в локации [linked_beacon.name]. Успехов."
 
 /datum/orbital_objective/nuclear_bomb/on_assign(obj/machinery/computer/objective/objective_computer)
-	var/area/A = GLOB.areas_by_type[/area/command]
+	var/area/A = GLOB.areas_by_type[/area/cargo/exploration_mission]
 	var/turf/open/T = pick(A.get_unobstructed_turfs())
 	if(!T)
 		T = locate() in shuffle(A.contents)
@@ -37,7 +37,7 @@
 
 /obj/item/disk/nuclear/decommission
 	name = "устаревший диск ядерной аутентификации"
-	desc = "Старый, изношенный диск, используемый в устаревшей ядерной боеголовке X-7. NanoTrasen больше не использует эту модель аутентификации из-за ее плохой безопасности."
+	desc = "Старый, изношенный диск, используемый в устаревшей термоядерной боеголовке X-7. NanoTrasen больше не использует эту модель аутентификации из-за ее плохой безопасности."
 	fake = TRUE
 
 /obj/item/disk/nuclear/decommission/ComponentInitialize()
@@ -48,10 +48,17 @@
 //==============
 
 /obj/machinery/nuclearbomb/decomission
-	desc = "Ядерная бомба для уничтожения станций. Использует старую версию дисков ядерной аутентификации."
+	desc = "Термоядерная бомба для уничтожения станций. Использует старую версию дисков ядерной аутентификации."
 	proper_bomb = FALSE
 	var/datum/orbital_objective/nuclear_bomb/linked_objective
 	var/target_z
+
+	var/obj/item/radio/radio	//	Говорящая бомба!
+	var/radio_key = /obj/item/encryptionkey/headset_exp
+	var/radio_channel = RADIO_CHANNEL_EXPLORATION
+	var/radio_talk = TRUE
+	var/timer_radio = 10
+	var/timer_speed = 1
 
 /obj/machinery/nuclearbomb/decomission/ComponentInitialize()
 	. = ..()
@@ -59,6 +66,12 @@
 
 /obj/machinery/nuclearbomb/decomission/Initialize()
 	. = ..()
+	radio = new(src)
+	radio.keyslot = new radio_key
+	radio.subspace_transmission = TRUE
+	radio.canhear_range = 3
+	radio.recalculateChannels()
+
 	GLOB.decomission_bombs += src
 	r_code = "[rand(10000, 99999)]"
 	print_command_report("Код взрыва ядерной бомбы: [r_code]")
@@ -71,6 +84,7 @@
 /obj/machinery/nuclearbomb/decomission/Destroy()
 	. = ..()
 	GLOB.decomission_bombs -= src
+	QDEL_NULL(radio)
 
 /obj/machinery/nuclearbomb/decomission/process()
 	if(z != target_z)
@@ -80,6 +94,20 @@
 		update_icon()
 		return
 	. = ..()
+
+
+/obj/machinery/nuclearbomb/decomission/process(delta_time)
+	var/msg = "Код активации ядерной бомбы: [r_code]."
+
+	if(radio_talk)
+		timer_radio = timer_radio - delta_time * timer_speed
+
+		if(timer_radio < 0)
+			radio.talk_into(src, msg, radio_channel)
+			timer_radio = 10
+			radio_talk = FALSE
+	. = ..()
+
 
 /obj/machinery/nuclearbomb/decomission/disk_check(obj/item/disk/nuclear/D)
 	if(istype(D, /obj/item/disk/nuclear/decommission))
@@ -103,6 +131,8 @@
 		detonation_timer = world.time + (timer_set * 10)
 		countdown.start()
 		priority_announce("Ядерная бомба была запущена в отдалённом секторе, будьте осторожны.",null, 'sound/misc/notice1.ogg', "Priority")
+		var/msg = "Инициирован финальный отсчет, до взрыва: [get_time_left()] секунд."
+		radio.talk_into(src, msg, radio_channel)
 	else
 		detonation_timer = null
 		countdown.stop()

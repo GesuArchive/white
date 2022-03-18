@@ -323,6 +323,8 @@
 
 /obj/item/circuitboard/machine/autodoc
 	name = "Плата Авто-Дока МК IX"
+	desc = "Автоматический хирургически комплекс специализированный на восстановительных и модернизирующих операциях."
+	icon_state = "medical"
 	build_path = /obj/machinery/autodoc
 	req_components = list(
 							/obj/item/stock_parts/capacitor = 5,

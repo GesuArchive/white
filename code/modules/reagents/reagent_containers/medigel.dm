@@ -83,11 +83,11 @@
 	list_reagents = list(/datum/reagent/medicine/c2/libital = 24, /datum/reagent/medicine/granibitaluri = 36)
 
 /obj/item/reagent_containers/medigel/aiuri
-	name = "Медицинский аэрозоль (Аурин)"
-	desc = "Аппликатор спроектированный для быстрого и точечного нанесения лекарственного состава в виде аэрозоля. Содержит Аурин - вещество для лечения ожоговых повреждений. Наносит небольшой урон глазам. Разбавлен Гранибиталирином."
+	name = "Медицинский аэрозоль (Лентури)"
+	desc = "Аппликатор спроектированный для быстрого и точечного нанесения лекарственного состава в виде аэрозоля. Содержит Лентури - вещество для лечения ожоговых повреждений. Наносит небольшой урон желудку. Разбавлен Гранибиталирином."
 	icon_state = "burngel"
 	current_skin = "burngel"
-	list_reagents = list(/datum/reagent/medicine/c2/aiuri = 24, /datum/reagent/medicine/granibitaluri = 36)
+	list_reagents = list(/datum/reagent/medicine/c2/lenturi = 24, /datum/reagent/medicine/granibitaluri = 36)
 
 /obj/item/reagent_containers/medigel/synthflesh
 	name = "Медицинский аэрозоль (Синтеплоть)"

@@ -439,6 +439,8 @@
 /mob/proc/getBeltSlot()
 	return ITEM_SLOT_BELT
 
+/mob/proc/getSuitSlot()
+	return ITEM_SLOT_SUITSTORE
 
 
 //Inventory.dm is -kind of- an ok place for this I guess

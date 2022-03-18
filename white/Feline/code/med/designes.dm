@@ -130,6 +130,21 @@
 	sub_category = list("Реанимация и хирургия")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
+/datum/design/medipenal
+	name = "Пенал для медипенов"
+	desc = "Компактный и очень удобный пенал вмещающий до 5 медипенов, специальная клипса позволяет закрепить его на карманах или поясе, а с его маленькими габаритами он поместится в коробке или аптечке."
+	id = "medipenal"
+	build_path = /obj/item/storage/belt/medipenal
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 1000, /datum/material/glass = 1000, /datum/material/plastic = 2000)
+	category = list("Медицинское снаряжение")
+	sub_category = list("Экиперовка")
+	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
+
+
+// Операции
+
 /*
 /datum/design/surgery/toxin_healing //PLEASE ACCOUNT FOR UNIQUE HEALING BRANCHES IN THE hptech HREF (currently 2 for Brute/Burn; Combo is bonus)
 	name = "Фильтрация лимфы (токсины)"
