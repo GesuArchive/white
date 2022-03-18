@@ -317,7 +317,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_START_NODE("Тело")
 			dat += SETUP_GET_LINK("species", "input", "task", pref_species.name)
 			dat += SETUP_GET_LINK("all", "random", "task", "Случайное")
-			dat += SETUP_GET_LINK("toggle_random", RANDOM_BODY, "random_type", randomise[RANDOM_BODY] ? "Да" : "Нет")
+			dat += SETUP_GET_LINK("toggle_random", RANDOM_BODY, "random_type", randomise[RANDOM_BODY] ? "Всегда" : "Нет")
 			dat += SETUP_CLOSE_NODE
 
 			dat += SETUP_NODE_RANDOM("Случайное тело когда антаг", RANDOM_BODY_ANTAG)
@@ -325,11 +325,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_START_NODE("Вид")
 			dat += SETUP_GET_LINK("species", "input", "task", pref_species.name)
 			dat += SETUP_GET_LINK("species", "random", "task", "Случайно")
-			dat += SETUP_GET_LINK("toggle_random", RANDOM_SPECIES, "random_type", randomise[RANDOM_SPECIES] ? "Да" : "Нет")
+			dat += SETUP_GET_LINK("toggle_random", RANDOM_SPECIES, "random_type", randomise[RANDOM_SPECIES] ? "Всегда" : "Нет")
 			dat += SETUP_CLOSE_NODE
 
 			dat += SETUP_NODE_INPUT_RANDOM("Бельё", "underwear", underwear, RANDOM_UNDERWEAR)
-			dat += SETUP_NODE_COLOR_RANDOM("Цвет белья", "underwear", underwear_color, RANDOM_UNDERWEAR_COLOR)
+			dat += SETUP_NODE_COLOR_RANDOM("Цвет белья", "underwear_color", underwear_color, RANDOM_UNDERWEAR_COLOR)
 			dat += SETUP_NODE_INPUT_RANDOM("Рубаха", "undershirt", undershirt, RANDOM_UNDERSHIRT)
 			dat += SETUP_NODE_INPUT_RANDOM("Носки", "socks", socks, RANDOM_SOCKS)
 			dat += SETUP_NODE_INPUT_RANDOM("Рюкзак", "bag", backpack_to_ru_conversion(backpack), RANDOM_BACKPACK)
