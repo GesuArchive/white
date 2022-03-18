@@ -4,7 +4,6 @@
 
 // Dont place this in the very corner of a map. It relies on adjacent turfs, and at the very edges you dont have turfs on all sides
 /datum/map_generator/labyrinth
-	buildmode_name = "Pattern: Labygen"
 	/// List of turfs to iterate in total
 	var/list/turf_list = list()
 	/// "Stack" structure to be used while iterating
@@ -22,7 +21,7 @@
 
 /datum/map_generator/labyrinth/generate_terrain(list/turfs)
 	// Generate a turf stack
-	for(var/target in 0 to turfs.len) // -1 so it spawns on the right tile
+	for(var/target in turfs)
 		var/turf/T = target
 		// Mark as unsearched
 		T.color = MAZEGEN_TURF_UNSEARCHED
