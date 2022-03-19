@@ -28665,11 +28665,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/showroomfloor,
 /area/service/bar/atrium)
-"dqm" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/landmark/start/field_medic,
-/turf/open/floor/plasteel/showroomfloor,
-/area/security/warden)
 "dqz" = (
 /obj/structure/closet{
 	name = "beekeeping wardrobe"
@@ -43110,14 +43105,6 @@
 /obj/structure/chair{
 	dir = 4
 	},
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching the test chamber.";
-	dir = 8;
-	layer = 4;
-	name = "Test Chamber Telescreen";
-	network = list("ordnance");
-	pixel_x = 30
-	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
@@ -43125,6 +43112,10 @@
 	dir = 1
 	},
 /obj/machinery/light/small/directional/south,
+/obj/machinery/computer/security/telescreen/toxins{
+	dir = 8;
+	pixel_x = 30
+	},
 /turf/open/floor/plasteel/dark,
 /area/science/misc_lab)
 "iNS" = (
@@ -58216,6 +58207,11 @@
 	icon_state = "platingdmg1"
 	},
 /area/maintenance/fore)
+"oox" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/start/field_medic,
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/warden)
 "ooA" = (
 /obj/structure/rack,
 /obj/effect/turf_decal/bot,
@@ -67346,12 +67342,8 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching the test chamber.";
+/obj/machinery/computer/security/telescreen/toxins{
 	dir = 8;
-	layer = 4;
-	name = "Test Chamber Telescreen";
-	network = list("ordnance");
 	pixel_x = 30
 	},
 /turf/open/floor/plasteel/dark,
@@ -104554,7 +104546,7 @@ oBI
 aCv
 edr
 cnB
-dqm
+oox
 crz
 ghl
 mIs
