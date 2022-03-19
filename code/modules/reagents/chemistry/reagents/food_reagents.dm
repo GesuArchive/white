@@ -452,7 +452,7 @@
 	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/coco/on_mob_add(mob/living/carbon/M)
-	.=..()
+	. = ..()
 	if(isfelinid(M))
 		to_chat(M, span_warning("Ваши внутренности переворачиваются от шоколада!"))
 		M.vomit(20)

@@ -1931,7 +1931,7 @@
 		T = get_turf(src)
 
 	if(!T)
-		return 0
+		return FALSE
 
 	var/list/forced_gravity = list()
 	SEND_SIGNAL(src, COMSIG_ATOM_HAS_GRAVITY, T, forced_gravity)
@@ -1944,10 +1944,12 @@
 		return max_grav
 
 	if(isspaceturf(T)) // Turf never has gravity
-		return 0
+		return FALSE
 	if(istype(T, /turf/open/openspace)) //openspace in a space area doesn't get gravity
 		if(istype(get_area(T), /area/space))
-			return 0
+			return FALSE
+		else if (istype(SSmapping.get_turf_below(T), /turf/open/space))
+			return FALSE
 
 	var/area/A = get_area(T)
 	if(A.has_gravity) // Areas which always has gravity

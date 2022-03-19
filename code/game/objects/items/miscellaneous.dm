@@ -224,7 +224,7 @@
 	desc = "This box should not exist, contact the proper authorities."
 
 /obj/item/storage/box/ingredients/random/Initialize()
-	.=..()
+	. = ..()
 	var/chosen_box = pick(subtypesof(/obj/item/storage/box/ingredients) - /obj/item/storage/box/ingredients/random)
 	new chosen_box(loc)
 	return INITIALIZE_HINT_QDEL

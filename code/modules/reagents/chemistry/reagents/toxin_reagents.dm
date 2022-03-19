@@ -899,7 +899,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/toxin/spewium/on_mob_life(mob/living/carbon/C, delta_time, times_fired)
-	.=..()
+	. = ..()
 	if(current_cycle >= 11 && DT_PROB(min(30, current_cycle), delta_time))
 		C.vomit(10, prob(10), prob(50), rand(0,4), TRUE)
 		for(var/datum/reagent/toxin/R in C.reagents.reagent_list)

@@ -110,18 +110,18 @@
 		set_light(0)
 
 /obj/item/organ/heart/light/Insert()
-	.=..()
+	. = ..()
 	inside = 1
 	if(!src.loc)
 		src.loc = owner
 
 /obj/item/organ/heart/light/Remove(mob/living/carbon/M, special = FALSE)
-	.=..()
+	. = ..()
 	inside = 0
 	src.loc = null
 
 /obj/item/organ/heart/light/attack_self(mob/user)
-	.=..()
+	. = ..()
 	if(inside)
 		on = !on
 		update_brightness(user)

@@ -29,7 +29,7 @@
 		)
 
 /obj/item/integrated_electronics/detailer/Initialize()
-	.=..()
+	. = ..()
 	update_icon()
 
 /obj/item/integrated_electronics/detailer/update_icon()

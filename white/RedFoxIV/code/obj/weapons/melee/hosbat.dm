@@ -272,7 +272,7 @@
 	allowed_ckey = "sranklin"
 
 /obj/item/melee/baseball_bat/hos/hrukni/attack(mob/living/target, mob/living/user)
-	.=..()
+	. = ..()
 	target.emote("poo")
 	if(prob(30))
 		to_chat(target, "<span notice='userdanger'>[pick("Врата прорвало!", "Не могу перестать СРАТЬ!")]</span>")

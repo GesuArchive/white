@@ -620,7 +620,7 @@
 	var/datum/component/material_container/materials = AddComponent(/datum/component/material_container)
 	materials.max_amount = 100000
 	materials.precise_insertion = TRUE
-	.=..()
+	. = ..()
 
 /obj/item/integrated_circuit_old/manipulation/matman/proc/AfterMaterialInsert(type_inserted, id_inserted, amount_inserted)
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
@@ -681,7 +681,7 @@
 /obj/item/integrated_circuit_old/manipulation/matman/Destroy()
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 	materials.retrieve_all()
-	.=..()
+	. = ..()
 
 
 

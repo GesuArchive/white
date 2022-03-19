@@ -500,7 +500,7 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 	to_chat(owner.current, GLOB.lawlorify[LAW][obligation])
 	to_chat(owner.current, GLOB.lawlorify[LAW][banish])
 	to_chat(owner.current, "<span class='warning'>Remember, the crew can research your weaknesses if they find out your devil name.</span><br>")
-	.=..()
+	. = ..()
 
 /datum/antagonist/devil/on_gain()
 	truename = randomDevilName()
@@ -516,11 +516,11 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 		var/laws = list("You may not use violence to coerce someone into selling their soul.", "You may not directly and knowingly physically harm a devil, other than yourself.", GLOB.lawlorify[LAW][ban], GLOB.lawlorify[LAW][obligation], "Accomplish your objectives at all costs.")
 		robot_devil.set_law_sixsixsix(laws)
 	sleep(10)
-	.=..()
+	. = ..()
 
 /datum/antagonist/devil/on_removal()
 	to_chat(owner.current, span_userdanger("Your infernal link has been severed! You are no longer a devil!"))
-	.=..()
+	. = ..()
 
 /datum/antagonist/devil/apply_innate_effects(mob/living/mob_override)
 	give_appropriate_spells()
@@ -529,7 +529,7 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 	handle_clown_mutation(M, mob_override ? null : "Your infernal nature has allowed you to overcome your clownishness.")
 	owner.current.grant_all_languages(TRUE, TRUE, TRUE, LANGUAGE_DEVIL)
 	update_hud()
-	.=..()
+	. = ..()
 
 /datum/antagonist/devil/remove_innate_effects(mob/living/mob_override)
 	for(var/X in owner.spell_list)
@@ -540,7 +540,7 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 	remove_antag_hud(antag_hud_type, M)
 	handle_clown_mutation(M, removing = FALSE)
 	owner.current.remove_all_languages(LANGUAGE_DEVIL)
-	.=..()
+	. = ..()
 
 /datum/antagonist/devil/proc/printdevilinfo()
 	var/list/parts = list()

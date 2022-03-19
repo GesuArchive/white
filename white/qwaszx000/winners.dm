@@ -27,7 +27,7 @@
 	var/winner_key = null
 
 /obj/structure/displaycase/winner/Initialize()
-	.=..()
+	. = ..()
 	if(start_showpieces.len > 0)
 		if("trophy_message" in start_showpieces)
 			trophy_message = start_showpieces["trophy_message"]
@@ -41,7 +41,7 @@
 			update_icon()
 
 /obj/structure/displaycase/winner/obj_break(damage_flag)
-	.=..()
+	. = ..()
 	if(broken && !(flags_1 & NODECONSTRUCT_1))
 		src.Destroy()
 		QDEL_NULL(src)

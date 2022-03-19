@@ -166,7 +166,7 @@
 	has_fov = FALSE
 
 /obj/item/clothing/mask/gas/clown_hat/Initialize(mapload)
-	.=..()
+	. = ..()
 	clownmask_designs = list(
 		"True Form" = image(icon = src.icon, icon_state = "clown"),
 		"The Feminist" = image(icon = src.icon, icon_state = "sexyclown"),
@@ -226,7 +226,7 @@
 	has_fov = FALSE
 
 /obj/item/clothing/mask/gas/mime/Initialize(mapload)
-	.=..()
+	. = ..()
 	mimemask_designs = list(
 		"Blanc" = image(icon = src.icon, icon_state = "mime"),
 		"Excité" = image(icon = src.icon, icon_state = "sexymime"),
@@ -318,7 +318,7 @@
 	var/list/tikimask_designs = list()
 
 /obj/item/clothing/mask/gas/tiki_mask/Initialize(mapload)
-	.=..()
+	. = ..()
 	tikimask_designs = list(
 		"Original Tiki" = image(icon = src.icon, icon_state = "tiki_eyebrow"),
 		"Happy Tiki" = image(icon = src.icon, icon_state = "tiki_happy"),

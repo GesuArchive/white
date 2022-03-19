@@ -585,7 +585,7 @@
 	var/random_sprite = TRUE
 
 /obj/item/reagent_containers/food/drinks/colocup/Initialize()
-	.=..()
+	. = ..()
 	pixel_x = rand(-4,4)
 	pixel_y = rand(-4,4)
 	if (random_sprite)

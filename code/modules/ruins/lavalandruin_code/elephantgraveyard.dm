@@ -45,7 +45,7 @@
 	return list("wasteland")
 
 /turf/open/floor/plating/asteroid/basalt/wasteland/Initialize()
-	.=..()
+	. = ..()
 	if(prob(floor_variance))
 		icon_state = "[base_icon_state][rand(0,6)]"
 
@@ -76,7 +76,7 @@
 	dispensedreagent = /datum/reagent/fuel/oil
 
 /obj/structure/sink/oil_well/Initialize()
-	.=..()
+	. = ..()
 	create_reagents(20)
 	reagents.add_reagent(dispensedreagent, 20)
 

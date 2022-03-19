@@ -67,7 +67,7 @@
 	return ..()
 
 /datum/species/human/felinid/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/M)
-	.=..()
+	. = ..()
 	if(chem.type == /datum/reagent/consumable/coco)
 		if(prob(35))
 			M.adjust_disgust(10)

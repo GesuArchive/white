@@ -68,7 +68,7 @@ Slimecrossing Items
 
 		used = TRUE
 		target.AddComponent(/datum/component/dejavu, 2)
-	.=..()
+	. = ..()
 
 
 

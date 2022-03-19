@@ -124,7 +124,7 @@
 	return COMPONENT_BLOCK_LIGHT_EATER
 
 /datum/species/ethereal/spec_life(mob/living/carbon/human/H, delta_time, times_fired)
-	.=..()
+	. = ..()
 	handle_charge(H, delta_time, times_fired)
 
 

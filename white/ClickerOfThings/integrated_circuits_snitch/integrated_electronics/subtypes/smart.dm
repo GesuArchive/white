@@ -87,7 +87,7 @@
 	var/obj/item/card/id/idc
 
 /obj/item/integrated_circuit_old/smart/advanced_pathfinder/Initialize()
-	.=..()
+	. = ..()
 	idc = new(src)
 
 /obj/item/integrated_circuit_old/smart/advanced_pathfinder/do_work()

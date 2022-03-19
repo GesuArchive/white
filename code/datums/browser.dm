@@ -212,7 +212,7 @@
 
 
 /datum/browser/modal/close()
-	.=..()
+	. = ..()
 	opentime = 0
 
 /datum/browser/modal/open(use_onclose)

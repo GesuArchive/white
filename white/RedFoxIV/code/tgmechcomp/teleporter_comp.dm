@@ -137,7 +137,7 @@
 */
 
 /obj/item/mechcomp/teleport/can_anchor(mob/user)
-	.=..()
+	. = ..()
 	if(teles["[tele_id]"])
 		to_chat(user, "The [src.name] refuses to be anchored! It seems there is already another teleporter with the same teleID.")
 		return FALSE

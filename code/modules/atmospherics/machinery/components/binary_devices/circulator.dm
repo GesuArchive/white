@@ -34,7 +34,7 @@
 	icon_state = "circ-unassembled-1"
 
 /obj/machinery/atmospherics/components/binary/circulator/Initialize(mapload)
-	.=..()
+	. = ..()
 	component_parts = list(new /obj/item/circuitboard/machine/circulator)
 	update_icon()
 

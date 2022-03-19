@@ -5,7 +5,7 @@
 	icon_state = "ethdisco"
 
 /obj/item/etherealballdeployer/attack_self(mob/living/carbon/user)
-	.=..()
+	. = ..()
 	to_chat(user, span_notice("You deploy the Ethereal Disco Ball."))
 	new /obj/structure/etherealball(user.loc)
 	qdel(src)

@@ -154,7 +154,7 @@
 	faction = list("nether")
 
 /obj/structure/spawner/nether/Initialize()
-	.=..()
+	. = ..()
 	START_PROCESSING(SSprocessing, src)
 
 /obj/structure/spawner/nether/examine(mob/user)

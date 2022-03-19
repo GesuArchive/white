@@ -495,7 +495,7 @@
 		power_draw_idle = 0
 
 /obj/item/integrated_circuit_old/reagent/storage/heater/Initialize()
-	.=..()
+	. = ..()
 	START_PROCESSING(SScircuit, src)
 
 /obj/item/integrated_circuit_old/reagent/storage/heater/Destroy()
@@ -597,7 +597,7 @@
 	var/busy = FALSE
 
 /obj/item/integrated_circuit_old/reagent/extinguisher/Initialize()
-	.=..()
+	. = ..()
 	set_pin_data(IC_OUTPUT,2, src)
 
 /obj/item/integrated_circuit_old/reagent/extinguisher/do_work()
@@ -696,7 +696,7 @@
 
 
 /obj/item/integrated_circuit_old/reagent/drain/Initialize()
-	.=..()
+	. = ..()
 	set_pin_data(IC_OUTPUT,2, src)
 
 

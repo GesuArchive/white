@@ -20,7 +20,7 @@
 	var/datum/linked_objective
 
 /obj/structure/lavaland/ash_walker/Initialize()
-	.=..()
+	. = ..()
 	ashies = new /datum/team/ashwalkers()
 	var/datum/objective/protect_object/objective = new
 	objective.set_target(src)

@@ -57,7 +57,7 @@
 	var/charges_remaining = 10
 
 /obj/item/clothing/gloves/color/yellow/sprayon/Initialize()
-	.=..()
+	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, INNATE_TRAIT)
 
 /obj/item/clothing/gloves/color/yellow/sprayon/equipped(mob/user, slot)

@@ -38,7 +38,7 @@
 	var/detail_color = COLOR_ASSEMBLY_ORANGE
 
 /obj/item/card/data/Initialize()
-	.=..()
+	. = ..()
 	update_icon()
 
 /obj/item/card/data/update_overlays()

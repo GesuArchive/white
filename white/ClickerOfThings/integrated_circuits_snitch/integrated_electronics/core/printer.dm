@@ -217,16 +217,14 @@
 			return TRUE
 
 		var/cost = 400
-		/*
 		if(ispath(build_type, /obj/item/electronic_assembly))
 			var/obj/item/electronic_assembly/E = SScircuit.cached_assemblies[build_type]
-			cost = E.materials[/datum/material/iron]
+			cost = E.get_custom_material_amount()
 		else if(ispath(build_type, /obj/item/integrated_circuit_old))
 			var/obj/item/integrated_circuit_old/IC = SScircuit.cached_components[build_type]
-			cost = IC.materials[/datum/material/iron]
+			cost = IC.get_custom_material_amount()
 		else if(!(build_type in SScircuit.circuit_fabricator_recipe_list["Инструменты"]))
 			return
-		*/
 
 		var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 

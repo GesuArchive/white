@@ -224,7 +224,8 @@
 					else
 						T.ChangeTurf(/turf/open/openspace/airless, /turf/open/openspace/airless)
 					for(var/atom/A in T)
-						qdel(A)
+						if(isobj(A))
+							qdel(A)
 				asteroid_catched = FALSE
 				asteroid_catch_time = 600 SECONDS
 				asteroid_catching = FALSE
