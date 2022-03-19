@@ -12,11 +12,12 @@
 /turf/closed/indestructible/riveted,
 /area/ai_multicam_room)
 "af" = (
-/obj/item/gun/energy/ionrifle,
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/item/modular_computer/tablet/nukeops,
+/obj/item/gun/energy/ionrifle,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/syndicate_mothership/control)
 "ah" = (
