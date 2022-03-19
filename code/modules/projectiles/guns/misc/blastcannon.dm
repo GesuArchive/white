@@ -4,7 +4,7 @@
  * It's basically an immovable rod launcher.
  */
 /obj/item/gun/blastcannon
-	name = "трубопистолет"
+	name = "бомбастер"
 	desc = "Труба приваренная к прикладу пистолета с механическим курком. Сверху на трубе есть отверстие и если в него заглянуть, то можно увидеть подпружиненное колесо. Довольно небольшой, можно таскать в сумке."
 	icon = 'icons/obj/guns/wide_guns.dmi'
 	icon_state = "blastcannon_empty"

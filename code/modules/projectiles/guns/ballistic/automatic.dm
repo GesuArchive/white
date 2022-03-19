@@ -133,7 +133,7 @@
 
 /obj/item/gun/ballistic/automatic/mini_uzi
 	name = "\improper Type U3 Uzi"
-	desc = "Стреляет длинными очередями. Использует 9mm патроны."
+	desc = "Оружие для тех, кому действительно хочется видеть своего недруга мертвым. Использует 9мм калибр."
 	icon_state = "miniuzi"
 	mag_type = /obj/item/ammo_box/magazine/uzim9mm
 	burst_size = 2
@@ -144,7 +144,7 @@
 
 /obj/item/gun/ballistic/automatic/m90
 	name = "\improper карабин M-90gl"
-	desc = "Три патрона за выстрел 5.56 карабин, назначеный как 'M-90gl'. Имеет встроенный гранатомёт."
+	desc = "Автоматический карабин 5.56 калибра, известный как 'M-90gl'. Возможен режим стрельбы по три пули. Имеет встроенный гранатомёт."
 	icon_state = "m90"
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "m90"

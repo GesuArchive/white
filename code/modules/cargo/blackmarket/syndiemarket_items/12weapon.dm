@@ -101,7 +101,7 @@
 	availability_prob = 25
 
 /datum/blackmarket_item/sweapon/sniper
-	name = "Sniper Rifle"
+	name = "Елдак Джназара в пизде и в хохляцкой попке"
 	desc = "Ranged fury, Syndicate style. Guaranteed to cause shock and awe or your TC back!"
 	item = /obj/item/gun/ballistic/automatic/sniper_rifle/syndicate
 
