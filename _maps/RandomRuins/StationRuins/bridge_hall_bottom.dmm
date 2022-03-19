@@ -145,7 +145,7 @@
 	},
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plating,
-/area/command/meeting_room/council)
+/area/command/heads_quarters/hop)
 "cB" = (
 /obj/machinery/light{
 	dir = 4
@@ -285,7 +285,7 @@
 /obj/structure/closet/emcloset,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/command/meeting_room/council)
+/area/command/heads_quarters/hop)
 "ex" = (
 /obj/machinery/light_switch/directional/west,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -660,6 +660,17 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/teleporter)
+"kw" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/landmark/event_spawn,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/command/heads_quarters/hop)
 "kz" = (
 /obj/structure/chair/sofa/corp{
 	dir = 1
@@ -727,7 +738,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/command/meeting_room/council)
+/area/command/heads_quarters/hop)
 "md" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -995,7 +1006,7 @@
 	pixel_y = 16
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/command/meeting_room/council)
+/area/command/heads_quarters/hop)
 "rc" = (
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -1214,7 +1225,7 @@
 /obj/item/radio/intercom/directional/north,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/command/meeting_room/council)
+/area/command/heads_quarters/hop)
 "tX" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
@@ -1622,6 +1633,26 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/centralL2)
+"Ao" = (
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge";
+	req_access_txt = "19"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/command/heads_quarters/hop)
 "Ar" = (
 /obj/machinery/power/shieldwallgen,
 /obj/effect/turf_decal/bot,
@@ -1862,6 +1893,12 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/command/heads_quarters/hop)
+"Ft" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/heads_quarters/hop)
 "Fv" = (
@@ -2302,6 +2339,9 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/meeting_room/council)
+"Ny" = (
+/turf/open/floor/plasteel/monofloor/dark,
+/area/command/heads_quarters/hop)
 "Nz" = (
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge";
@@ -2436,7 +2476,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/command/meeting_room/council)
+/area/command/heads_quarters/hop)
 "Pq" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -2567,7 +2607,7 @@
 /obj/machinery/firealarm/directional/south,
 /obj/machinery/holopad,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/command/meeting_room/council)
+/area/command/heads_quarters/hop)
 "Rk" = (
 /obj/machinery/camera/autoname{
 	dir = 8
@@ -3137,7 +3177,7 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/command/meeting_room/council)
+/area/command/heads_quarters/hop)
 "Za" = (
 /obj/item/radio/intercom/directional/west,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -4040,10 +4080,10 @@ VY
 VY
 VY
 VY
-Ck
-Ck
-Pu
-Ck
+Jb
+Jb
+Ao
+Jb
 FG
 RR
 QP
@@ -4078,10 +4118,10 @@ VY
 VY
 VY
 VY
-Ck
+Jb
 tV
-qj
-MN
+Kq
+Ny
 UL
 gv
 gv
@@ -4117,9 +4157,9 @@ VY
 VY
 VY
 cz
-MN
-qj
-eD
+Ny
+Kq
+Ft
 UL
 XW
 gv
@@ -4154,9 +4194,9 @@ VY
 VY
 VY
 VY
-Ck
+Jb
 qU
-md
+kw
 Ri
 UL
 IX
@@ -4192,9 +4232,9 @@ VY
 VY
 VY
 VY
-Ck
+Jb
 YV
-qj
+Kq
 Ph
 UL
 IX
@@ -4230,10 +4270,10 @@ VY
 VY
 VY
 VY
-Ck
+Jb
 ma
-qj
-MN
+Kq
+Ny
 UL
 IX
 IX
@@ -4268,10 +4308,10 @@ VY
 VY
 VY
 VY
-Ck
+Jb
 eu
-qj
-MN
+Kq
+Ny
 UL
 MK
 IX

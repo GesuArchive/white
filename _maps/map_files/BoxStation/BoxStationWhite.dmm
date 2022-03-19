@@ -17224,6 +17224,7 @@
 /obj/machinery/light_switch{
 	pixel_y = 28
 	},
+/obj/effect/landmark/start/hunter,
 /turf/open/floor/plasteel/dark,
 /area/cargo/miningdock)
 "bAd" = (

@@ -1315,13 +1315,6 @@
 /area/medical/medbay/lobby)
 "nd" = (
 /obj/item/kirbyplants/random,
-/obj/effect/turf_decal/tile/brown,
-/obj/effect/turf_decal/tile/brown{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 8
-	},
 /turf/open/floor/carpet/purple,
 /area/medical/break_room)
 "nn" = (
@@ -1695,7 +1688,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/turf/open/floor/plasteel/monofloor/white,
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood,
 /area/medical/break_room)
 "rb" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
@@ -1914,15 +1908,10 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/storage)
 "tn" = (
-/obj/effect/turf_decal/tile/brown{
-	dir = 4
-	},
-/obj/structure/table/glass,
 /obj/effect/spawner/lootdrop/donkpockets,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/donkpockets,
-/obj/effect/turf_decal/tile/brown,
-/turf/open/floor/plasteel/white,
+/obj/structure/table,
+/turf/open/floor/carpet/purple,
 /area/medical/break_room)
 "tp" = (
 /obj/machinery/computer/crew,
@@ -2362,7 +2351,10 @@
 	name = "Medbay Maintenance";
 	req_access_txt = "5"
 	},
-/turf/open/floor/plasteel/monofloor/white,
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/turf/open/floor/wood,
 /area/medical/break_room)
 "xx" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
@@ -2629,6 +2621,9 @@
 	name = "Break Room";
 	req_access_txt = "5"
 	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/break_room)
 "zy" = (
@@ -2684,12 +2679,6 @@
 /area/medical/storage)
 "zN" = (
 /obj/machinery/vending/coffee,
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 8
-	},
 /turf/open/floor/carpet/purple,
 /area/medical/break_room)
 "zO" = (
@@ -2786,9 +2775,6 @@
 	},
 /obj/machinery/light,
 /obj/effect/turf_decal/tile/brown,
-/obj/effect/turf_decal/tile/brown{
-	dir = 8
-	},
 /turf/open/floor/carpet/purple,
 /area/medical/break_room)
 "Ao" = (
@@ -3056,7 +3042,8 @@
 	pixel_x = -4;
 	pixel_y = 24
 	},
-/turf/open/floor/plasteel/monofloor/white,
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood,
 /area/medical/break_room)
 "CY" = (
 /obj/structure/cable,
@@ -3219,7 +3206,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/open/floor/plasteel/monofloor/white,
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood,
 /area/medical/break_room)
 "Ec" = (
 /obj/machinery/door/airlock/medical/glass{
@@ -3674,7 +3662,6 @@
 /obj/structure/chair/sofa/corp/left{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
@@ -3822,12 +3809,8 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/command/heads_quarters/cmo)
 "Jl" = (
-/obj/effect/turf_decal/tile/brown,
-/obj/effect/turf_decal/tile/brown{
-	dir = 4
-	},
-/obj/structure/table/glass,
 /obj/machinery/microwave,
+/obj/structure/table,
 /turf/open/floor/carpet/purple,
 /area/medical/break_room)
 "Js" = (
@@ -3987,7 +3970,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/turf/open/floor/plasteel/monofloor/white,
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood,
 /area/medical/break_room)
 "KZ" = (
 /obj/effect/landmark/start/chemist,
@@ -4780,13 +4764,6 @@
 /area/medical/medbay)
 "So" = (
 /obj/effect/spawner/randomsnackvend,
-/obj/effect/turf_decal/tile/brown,
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 8
-	},
 /turf/open/floor/carpet/purple,
 /area/medical/break_room)
 "Sr" = (
@@ -5120,12 +5097,6 @@
 /area/medical/virology)
 "Vf" = (
 /obj/structure/reagent_dispensers/water_cooler,
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 8
-	},
 /turf/open/floor/carpet/purple,
 /area/medical/break_room)
 "Vg" = (
