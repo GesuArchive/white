@@ -30,16 +30,21 @@
 
 /datum/component/soundplayer/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/update_sounds)
+	RegisterSignal(parent, COMSIG_RIDDEN_DRIVER_MOVE, .proc/update_sounds)
 
 /datum/component/soundplayer/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(parent, COMSIG_RIDDEN_DRIVER_MOVE)
 
 /datum/component/soundplayer/proc/override_sound_source(atom/movable/A)
 	if(sound_source_override)
 		UnregisterSignal(sound_source_override, COMSIG_MOVABLE_MOVED)
+		UnregisterSignal(sound_source_override, COMSIG_RIDDEN_DRIVER_MOVE)
 	else
 		UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
+		UnregisterSignal(parent, COMSIG_RIDDEN_DRIVER_MOVE)
 	RegisterSignal(A, COMSIG_MOVABLE_MOVED, .proc/update_sounds)
+	RegisterSignal(A, COMSIG_RIDDEN_DRIVER_MOVE, .proc/update_sounds)
 
 /datum/component/soundplayer/process()
 	if(!active || !cursound)
@@ -107,10 +112,12 @@
 
 /datum/component/soundplayer_listener/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/do_update_sound)
+	RegisterSignal(parent, COMSIG_RIDDEN_DRIVER_MOVE, .proc/do_update_sound)
 	RegisterSignal(parent, COMSIG_MOB_LOGOUT, .proc/qdel_check)
 
 /datum/component/soundplayer_listener/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(parent, COMSIG_RIDDEN_DRIVER_MOVE)
 	UnregisterSignal(parent, COMSIG_MOB_LOGOUT)
 
 /datum/component/soundplayer_listener/proc/stop_sound()
