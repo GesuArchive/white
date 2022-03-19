@@ -1361,6 +1361,7 @@
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "vK" = (
+/obj/effect/landmark/start/head_of_personnel,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/heads_quarters/hop)
 "vS" = (

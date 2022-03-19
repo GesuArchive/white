@@ -116,15 +116,8 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "Exploration Crew"
 
 /obj/effect/landmark/start/security_officer
-	name = "Russian Officer"
-	icon_state = "Russian Officer"
-
-/obj/effect/landmark/start/security_officer/New()
-	if (prob(50)) //lazy bitch
-		name = "Security Officer"
-		if (prob(75))
-			name = "Veteran"
-	..()
+	name = "Security Officer"
+	icon_state = "Security Officer"
 
 /obj/effect/landmark/start/botanist
 	name = "Botanist"

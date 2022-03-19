@@ -6786,7 +6786,7 @@
 "vLB" = (
 /obj/structure/cable/multilayer/multiz,
 /obj/effect/turf_decal/stripes/box,
-/turf/open/floor/plasteel/monofloor/dark,
+/turf/open/floor/plating,
 /area/tcommsat/server/upper)
 "vLV" = (
 /obj/machinery/light/small,
