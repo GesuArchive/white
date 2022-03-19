@@ -158,8 +158,7 @@
 	if((IS_DREAMER(user) && !clued))
 		if(!user.CanReach(src))
 			return
-		var/list/temp_list = list()
-		temp_list.Copy(GLOB.dreamer_current_recipe)
+		var/list/temp_list = LAZYCOPY(GLOB.dreamer_current_recipe)
 		var/list/get_list = list()
 		for(var/atom/movable/AM in range(1, src))
 			for(var/t_type in temp_list)
