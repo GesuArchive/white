@@ -365,10 +365,12 @@
 										req_num += GLOB.dreamer_clues[i]
 									if(numeric_input == num2text(req_num))
 										playsound(src, 'sound/machines/nuke/confirm_beep.ogg', 50, FALSE)
-										var/mob/dreamer = usr
+										var/mob/living/carbon/dreamer = usr
+										dreamer.Sleeping(70 SECONDS)
 										var/datum/antagonist/dreamer/D = dreamer?.mind?.has_antag_datum(/datum/antagonist/dreamer)
 										inc_metabalance(usr, 500, reason = "Успех!")
-										D?.awake()
+										spawn(5 SECONDS)
+											D?.awake()
 										safety = FALSE
 										set_active()
 									else
