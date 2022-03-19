@@ -357,7 +357,6 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 	smashes_tables = TRUE
 	block_chance = 0
 
-
 /datum/martial_art/dreamer/harm_act(mob/living/A, mob/living/D)
 	if(block_chance < 75)
 		return FALSE
@@ -462,6 +461,7 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 	show_name_in_check_antagonists = TRUE
 	show_to_ghosts = FALSE
 	show_in_antagpanel = TRUE
+	show_in_roundend = FALSE
 	roundend_category = "Dreamer"
 	antagpanel_category = "Dreamer"
 	greentext_reward = 100
@@ -489,3 +489,97 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 	to_chat(owner.current, objective_text)
 	antag_memory += objective_text
 	. = ..()
+
+/datum/antagonist/dreamer/proc/awake()
+	var/turf/safeturf = safepick(get_area_turfs(/area/centcom/circus))
+	var/mob/living/carbon/human/S = new(safeturf)
+	var/mob/living/carbon/human/old_mob = owner.current
+	S.equipOutfit(/datum/outfit/dreamer_awakened)
+	var/obj/structure/bed = new(safeturf)
+	bed.buckle_mob(S, TRUE)
+	owner.transfer_to(S, TRUE)
+	REMOVE_TRAIT(S, TRAIT_STUNRESISTANCE, "dreamer")
+	REMOVE_TRAIT(S, TRAIT_SLEEPIMMUNE,    "dreamer")
+	S.Sleeping(55 SECONDS)
+	spawn(5 SECONDS)
+		to_chat(S, span_notice("<i>... а помнишь как мы ...</i>"))
+	spawn(10 SECONDS)
+		to_chat(S, span_notice("<i>... надеюсь ты меня всё ещё слышишь ...</i>"))
+	spawn(15 SECONDS)
+		to_chat(S, span_notice("<i>... вы правда так думаете ...</i>"))
+	spawn(20 SECONDS)
+		to_chat(S, span_notice("<i>... будет лучше для него ...</i>"))
+	spawn(25 SECONDS)
+		to_chat(S, span_notice("<i>... подпишите здесь и здесь ...</i>"))
+	spawn(30 SECONDS)
+		to_chat(S, span_notice("<i>... у вас есть время попрощаться ...</i>"))
+	spawn(35 SECONDS)
+		to_chat(S, span_notice("<i>... мне жаль, но ...</i>"))
+	spawn(40 SECONDS)
+		to_chat(S, span_notice("<i>... можем приступать ...</i>"))
+	spawn(45 SECONDS)
+		to_chat(S, span_notice("<i>... он просыпается ...</i>"))
+	spawn(50 SECONDS)
+		to_chat(S, span_notice("<i>... тебе показалось ...</i>"))
+		S.reagents.add_reagent(/datum/reagent/toxin/lexorin, 50)
+		var/turf/T1 = get_step(safeturf, WEST)
+		var/turf/T2 = get_step(safeturf, EAST)
+		var/mob/living/carbon/human/D1 = new (T1)
+		var/mob/living/carbon/human/D2 = new (T2)
+		D1.dir = EAST
+		D2.dir = WEST
+		D1.equipOutfit(/datum/outfit/job/doctor)
+		D2.equipOutfit(/datum/outfit/job/doctor)
+		var/obj/item/I
+		spawn(6 SECONDS)
+			D1.say("ОН ЧЕ, ПРОСНУЛСЯ?!")
+			spawn(0.5 SECONDS)
+				D1.emote("scream")
+			spawn(1 SECONDS)
+				D2.say("ДИАЛИЗ, БЛЯТЬ!")
+			spawn(1.5 SECONDS)
+				D2.emote("scream")
+			spawn(2 SECONDS)
+				D1.say("ХУЯЛИЗ, ПИЗДА ЕМУ!")
+			spawn(3 SECONDS)
+				D2.say("СУКА!")
+			spawn(4 SECONDS)
+				D1.say("ВЫРУБАЙ ЕГО НАХУЙ!")
+			spawn(5 SECONDS)
+				I = new /obj/item/storage/toolbox(get_turf(D2))
+				D2.put_in_active_hand(I, TRUE)
+				D2.say("ААА!!!")
+				D2.emote("scream")
+				S.attackby(I, D2)
+			spawn(6 SECONDS)
+				D1.say("ЛУПИ!")
+				S.attackby(I, D2)
+			spawn(6.5 SECONDS)
+				S.attackby(I, D2)
+			spawn(7 SECONDS)
+				S.attackby(I, D2)
+				D2.say("БЛЯ-Я-Я!!!")
+				D2.emote("scream")
+			spawn(7.5 SECONDS)
+				S.attackby(I, D2)
+				S.playsound_local(get_turf(S), 'sound/weapons/flashbang.ogg', 100, TRUE, 8)
+				S.Sleeping(120 SECONDS)
+	spawn(64 SECONDS)
+		to_chat(S, span_boldnotice("<i>... АААААААААААААААААА ...</i>"))
+	spawn(65 SECONDS)
+		if(old_mob)
+			old_mob.ckey = S.ckey
+			ADD_TRAIT(old_mob, TRAIT_STUNRESISTANCE, "dreamer")
+			ADD_TRAIT(old_mob, TRAIT_SLEEPIMMUNE,    "dreamer")
+			qdel(S)
+		else
+			qdel(S.client)
+
+/datum/outfit/dreamer_awakened
+	name = "Спящий пробудился"
+	uniform = /obj/item/clothing/under/color/white
+	shoes = /obj/item/clothing/shoes/sneakers/white
+	suit = /obj/item/clothing/suit/straight_jacket
+	mask = /obj/item/clothing/mask/muzzle
+	glasses = /obj/item/clothing/glasses/blindfold
+	back = null

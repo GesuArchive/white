@@ -65,9 +65,8 @@
 			return FALSE
 		to_chat(user, span_notice("Убираю ШЕДЕВР..."))
 		for(var/obj/item/fuck in src)
-			fuck.forceMove(get_turf(src))
+			fuck.forceMove(drop_location())
 		cut_overlays()
-		update_overlays()
 		clued = FALSE
 		icon_screen = initial(icon_screen)
 		update_icon()
@@ -189,6 +188,10 @@
 			wish.pixel_x = rand(-16, 16)
 			wish.pixel_y = rand(-16, 16)
 			add_overlay(wish)
+		var/icon/blood_splatter_icon = icon(icon, icon_state, dir, 1)
+		blood_splatter_icon.Blend("#fff", ICON_ADD)
+		blood_splatter_icon.Blend(icon('icons/effects/blood.dmi', "itemblood"), ICON_MULTIPLY)
+		add_overlay(blood_splatter_icon)
 		to_chat(user, span_revenbignotice("[clued]... ЭТОТ ШЕДЕВР ДОЛЖНЫ УЗРЕТЬ!"))
 		icon_screen = "clued"
 		update_icon()
