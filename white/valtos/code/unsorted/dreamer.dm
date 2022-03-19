@@ -73,6 +73,8 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 					animate(filter, size = -16, time = 1 SECONDS, easing = ELASTIC_EASING|EASE_OUT)
 					animate(size = 16, time = 1 SECONDS, easing = ELASTIC_EASING|EASE_OUT)
 					animate(size = 0, time = 1 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
+				spawn(3 SECONDS)
+					pm_controller.remove_filter("dreamer_displace")
 			if(2)
 				pm_controller.add_filter("dreamer_blur", 2, list("type" = "radial_blur", "size" = 0))
 
@@ -80,6 +82,8 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 					animate(filter, size = -0.1, time = 3 SECONDS, easing = ELASTIC_EASING|EASE_OUT)
 					animate(size = 0.1, time = 3 SECONDS, easing = ELASTIC_EASING|EASE_OUT)
 					animate(size = 0, time = 3 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
+				spawn(3 SECONDS)
+					pm_controller.remove_filter("dreamer_blur")
 			if(3)
 				pm_controller.add_filter("dreamer_inline", 5, outline_filter(size=0.5, color="#f00"))
 				pm_controller.add_filter("dreamer_outline", 4, outline_filter(size=0.5, color="#0ff"))
@@ -447,7 +451,6 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 			/obj/item/organ/tongue,
 			/obj/item/organ/ears,
 			/obj/item/organ/stomach,
-			/obj/item/bodypart/chest,
 			/obj/item/bodypart/head,
 			/obj/item/bodypart/l_arm,
 			/obj/item/bodypart/r_arm,
@@ -495,32 +498,45 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 	var/mob/living/carbon/human/S = new(safeturf)
 	var/mob/living/carbon/human/old_mob = owner.current
 	S.equipOutfit(/datum/outfit/dreamer_awakened)
-	var/obj/structure/bed = new(safeturf)
+	var/client/C = old_mob.client
+	DIRECT_OUTPUT(old_mob, sound(null))
+	C?.tgui_panel?.stop_music()
+	var/obj/structure/bed/bed = new(safeturf)
 	bed.buckle_mob(S, TRUE)
-	owner.transfer_to(S, TRUE)
+	S.ckey = old_mob.ckey
 	REMOVE_TRAIT(S, TRAIT_STUNRESISTANCE, "dreamer")
 	REMOVE_TRAIT(S, TRAIT_SLEEPIMMUNE,    "dreamer")
 	S.Sleeping(55 SECONDS)
 	spawn(5 SECONDS)
 		to_chat(S, span_notice("<i>... а помнишь как мы ...</i>"))
+
 	spawn(10 SECONDS)
 		to_chat(S, span_notice("<i>... надеюсь ты меня всё ещё слышишь ...</i>"))
+
 	spawn(15 SECONDS)
 		to_chat(S, span_notice("<i>... вы правда так думаете ...</i>"))
+
 	spawn(20 SECONDS)
 		to_chat(S, span_notice("<i>... будет лучше для него ...</i>"))
+
 	spawn(25 SECONDS)
 		to_chat(S, span_notice("<i>... подпишите здесь и здесь ...</i>"))
+
 	spawn(30 SECONDS)
 		to_chat(S, span_notice("<i>... у вас есть время попрощаться ...</i>"))
+
 	spawn(35 SECONDS)
 		to_chat(S, span_notice("<i>... мне жаль, но ...</i>"))
+
 	spawn(40 SECONDS)
 		to_chat(S, span_notice("<i>... можем приступать ...</i>"))
+
 	spawn(45 SECONDS)
 		to_chat(S, span_notice("<i>... он просыпается ...</i>"))
+
 	spawn(50 SECONDS)
 		to_chat(S, span_notice("<i>... тебе показалось ...</i>"))
+
 		S.reagents.add_reagent(/datum/reagent/toxin/lexorin, 50)
 		var/turf/T1 = get_step(safeturf, WEST)
 		var/turf/T2 = get_step(safeturf, EAST)
