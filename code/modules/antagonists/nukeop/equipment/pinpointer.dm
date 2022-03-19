@@ -5,20 +5,20 @@
 /obj/item/pinpointer/nuke/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	var/msg = "Its tracking indicator reads "
+	var/msg = "Его индикатор пишет: "
 	switch(mode)
 		if(TRACK_NUKE_DISK)
-			msg += "\"nuclear_disk\"."
+			msg += "\"ядерный_диск\"."
 		if(TRACK_MALF_AI)
 			msg += "\"01000001 01001001\"."
 		if(TRACK_INFILTRATOR)
 			msg += "\"vasvygengbefuvc\"."
 		else
-			msg = "Its tracking indicator is blank."
+			msg = "Его индикатор пустой."
 	. += msg
 	for(var/obj/machinery/nuclearbomb/bomb in GLOB.machines)
 		if(bomb.timing)
-			. += "\nExtreme danger. Arming signal detected. Time remaining: [bomb.get_time_left()]."
+			. += "\nЭкстремальная опасность. Обнаружен сигнал взведенной ядерной бомбы. Оставшееся время: [bomb.get_time_left()]."
 
 /obj/item/pinpointer/nuke/process()
 	..()
@@ -30,7 +30,7 @@
 					playsound(src, 'sound/items/nuke_toy_lowpower.ogg', 50, FALSE)
 					if(isliving(loc))
 						var/mob/living/L = loc
-						to_chat(L, span_userdanger("Your [name] vibrates and lets out a tinny alarm. Uh oh."))
+						to_chat(L, span_userdanger("Мой [name] вибрирует и издает звонкий сигнал тревоги. Ой-ой."))
 
 /obj/item/pinpointer/nuke/scan_for_target()
 	target = null
