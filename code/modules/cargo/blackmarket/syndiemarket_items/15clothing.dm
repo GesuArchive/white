@@ -7,8 +7,8 @@
 	desc = "Ужасно оборванный и потрепанный серый комбинезон. Похоже, его не стирали уже больше десяти лет."
 	item = /obj/item/clothing/under/color/grey/ancient
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 100
 /*
@@ -17,8 +17,8 @@
 	desc = "Very heavy, but nice protection"
 	item = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/merc_rig_heavy
 
-	price_min = CARGO_CRATE_VALUE * 30000
-	price_max = CARGO_CRATE_VALUE * 100000
+	price_min = BLACKMARKET_CRATE_VALUE * 30000
+	price_max = BLACKMARKET_CRATE_VALUE * 100000
 	stock_max = 1
 	availability_prob = 50
 
@@ -27,8 +27,8 @@
 	desc = "Very heavy, but nice protection"
 	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite/hazard_rig
 
-	price_min = CARGO_CRATE_VALUE * 10000
-	price_max = CARGO_CRATE_VALUE * 65000
+	price_min = BLACKMARKET_CRATE_VALUE * 10000
+	price_max = BLACKMARKET_CRATE_VALUE * 65000
 	stock_max = 1
 	availability_prob = 100
 */
@@ -41,8 +41,8 @@
 			Nanotrasen crew who spot these suits are known to panic."
 	item = /obj/item/clothing/suit/space/hardsuit/syndi
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 50
 
@@ -52,8 +52,8 @@
 			provides the user with superior armor and mobility compared to the standard Syndicate hardsuit."
 	item = /obj/item/clothing/suit/space/hardsuit/syndi/elite
 
-	price_min = CARGO_CRATE_VALUE * 25000
-	price_max = CARGO_CRATE_VALUE * 50000
+	price_min = BLACKMARKET_CRATE_VALUE * 25000
+	price_max = BLACKMARKET_CRATE_VALUE * 50000
 	stock_max = 1
 	availability_prob = 50
 
@@ -65,8 +65,8 @@
 			and artificial intelligence cores emit more of this light than cooler objects like walls and airlocks."
 	item = /obj/item/clothing/glasses/thermal/syndi
 
-	price_min = CARGO_CRATE_VALUE * 1000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 1000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 50
 
@@ -75,8 +75,8 @@
 	desc = "A pair of highly robust combat gripper gloves that excels at performing takedowns at close range, with an added lining of insulation. Careful not to hit a wall!"
 	item = /obj/item/clothing/gloves/tackler/combat/insulated
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 50
 
@@ -86,8 +86,8 @@
 			to teach the martial art of krav maga to the wearer."
 	item = /obj/item/clothing/gloves/krav_maga/combatglovesplus
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 50
 
@@ -97,8 +97,8 @@
 			The shields can handle up to three impacts within a short duration and will rapidly recharge while not under fire."
 	item = /obj/item/clothing/suit/space/hardsuit/shielded/syndi
 
-	price_min = CARGO_CRATE_VALUE * 50000
-	price_max = CARGO_CRATE_VALUE * 100000
+	price_min = BLACKMARKET_CRATE_VALUE * 50000
+	price_max = BLACKMARKET_CRATE_VALUE * 100000
 	stock_max = 1
 	availability_prob = 50
 
@@ -109,8 +109,8 @@
 		squeak significantly louder."
 	item = /obj/item/clothing/shoes/clown_shoes/banana_shoes/combat
 
-	price_min = CARGO_CRATE_VALUE * 500
-	price_max = CARGO_CRATE_VALUE * 1000
+	price_min = BLACKMARKET_CRATE_VALUE * 500
+	price_max = BLACKMARKET_CRATE_VALUE * 1000
 	stock_max = 1
 	availability_prob = 50
 
@@ -120,8 +120,8 @@
 			They do not work on heavily lubricated surfaces."
 	item = /obj/item/clothing/shoes/chameleon/noslip
 
-	price_min = CARGO_CRATE_VALUE * 500
-	price_max = CARGO_CRATE_VALUE * 1000
+	price_min = BLACKMARKET_CRATE_VALUE * 500
+	price_max = BLACKMARKET_CRATE_VALUE * 1000
 	stock_max = 1
 	availability_prob = 50
 
@@ -132,7 +132,7 @@
 			'Advanced Magboots' slow you down in simulated-gravity environments much like the standard issue variety."
 	item = /obj/item/clothing/shoes/magboots/syndie
 
-	price_min = CARGO_CRATE_VALUE * 500
-	price_max = CARGO_CRATE_VALUE * 1000
+	price_min = BLACKMARKET_CRATE_VALUE * 500
+	price_max = BLACKMARKET_CRATE_VALUE * 1000
 	stock_max = 1
 	availability_prob = 50

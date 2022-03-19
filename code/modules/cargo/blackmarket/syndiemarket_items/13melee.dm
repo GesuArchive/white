@@ -7,8 +7,8 @@
 	desc = "A manual that teaches a single user tactical Close-Quarters Combat before self-destructing."
 	item = /obj/item/book/granter/martial/cqc
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 10
 /datum/blackmarket_item/smelee/martialarts
@@ -17,8 +17,8 @@
 			and gain the ability to swat bullets from the air, but you will also refuse to use dishonorable ranged weaponry."
 	item = /obj/item/book/granter/martial/carp
 
-	price_min = CARGO_CRATE_VALUE * 15000
-	price_max = CARGO_CRATE_VALUE * 50000
+	price_min = BLACKMARKET_CRATE_VALUE * 15000
+	price_max = BLACKMARKET_CRATE_VALUE * 50000
 	stock_max = 1
 	availability_prob = 10
 
@@ -30,8 +30,8 @@
 			deal extra damage and hit targets further. Use a screwdriver to take out any attached tanks."
 	item = /obj/item/melee/powerfist
 
-	price_min = CARGO_CRATE_VALUE * 1000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 1000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -40,8 +40,8 @@
 	desc = "These gloves let the user punch people very fast. Does not improve weapon attack speed or the meaty fists of a hulk."
 	item = /obj/item/clothing/gloves/rapid
 
-	price_min = CARGO_CRATE_VALUE * 1000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 1000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -51,8 +51,8 @@
 			pocketed when inactive. Activating it produces a loud, distinctive noise."
 	item = /obj/item/melee/energy/sword/saber
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -62,8 +62,8 @@
 			all energy projectiles, but requires two hands to wield."
 	item = /obj/item/dualsaber
 
-	price_min = CARGO_CRATE_VALUE * 50000
-	price_max = CARGO_CRATE_VALUE * 100000
+	price_min = BLACKMARKET_CRATE_VALUE * 50000
+	price_max = BLACKMARKET_CRATE_VALUE * 100000
 	stock_max = 1
 	availability_prob = 25
 
@@ -73,8 +73,8 @@
 	impact, or just stepping on it. Beware friendly fire, as even anti-slip shoes will not protect against it."
 	item = /obj/item/melee/energy/sword/bananium
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -85,8 +85,8 @@
 		and returning to you even if you miss. WARNING: DO NOT ATTEMPT TO STAND ON SHIELD WHILE DEPLOYED, EVEN IF WEARING ANTI-SLIP SHOES."
 	item = /obj/item/shield/energy/bananium
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -96,7 +96,7 @@
 			against other attacks. Pair with an Energy Sword for a killer combination."
 	item = /obj/item/shield/energy
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25

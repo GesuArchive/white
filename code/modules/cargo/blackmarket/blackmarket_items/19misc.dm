@@ -7,8 +7,8 @@
 	desc = "Все возможные ресурсы только для вас!"
 	item = /obj/structure/closet/syndicate/resources/everything
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 20000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 20000
 	stock_min = 3
 	stock_max = 1
 	availability_prob = 100
@@ -18,8 +18,8 @@
 	desc = "Собственная марка отца Лотия."
 	item = /obj/item/reagent_containers/food/drinks/bottle/holywater
 
-	price_min = CARGO_CRATE_VALUE * 40
-	price_max = CARGO_CRATE_VALUE * 60
+	price_min = BLACKMARKET_CRATE_VALUE * 40
+	price_max = BLACKMARKET_CRATE_VALUE * 60
 	stock_max = 3
 	availability_prob = 40
 
@@ -33,8 +33,8 @@
 	desc = "An Exotic Variety of seed that can contain anything from glow to acid."
 	item = /obj/item/seeds/random
 
-	price_min = CARGO_CRATE_VALUE * 10
-	price_max = CARGO_CRATE_VALUE * 1000
+	price_min = BLACKMARKET_CRATE_VALUE * 10
+	price_max = BLACKMARKET_CRATE_VALUE * 1000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 70
@@ -44,8 +44,8 @@
 	desc = "Легко спрятать"
 	item = /obj/item/storage/backpack/satchel/flat/empty
 
-	price_min = CARGO_CRATE_VALUE * 75
-	price_max = CARGO_CRATE_VALUE * 100
+	price_min = BLACKMARKET_CRATE_VALUE * 75
+	price_max = BLACKMARKET_CRATE_VALUE * 100
 	stock_max = 2
 	availability_prob = 30
 
@@ -54,8 +54,8 @@
 	desc = "Случайная видеокарта со склада NTS."
 	item = /obj/item/mining_thing/amd
 
-	price_min = CARGO_CRATE_VALUE * 200
-	price_max = CARGO_CRATE_VALUE * 300
+	price_min = BLACKMARKET_CRATE_VALUE * 200
+	price_max = BLACKMARKET_CRATE_VALUE * 300
 	stock_max = 5
 	availability_prob = 25
 

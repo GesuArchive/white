@@ -9,8 +9,8 @@
 	stock_min = 1
 	stock_max = 5
 
-	price_min = CARGO_CRATE_VALUE * 1000
-	price_max = CARGO_CRATE_VALUE * 5000
+	price_min = BLACKMARKET_CRATE_VALUE * 1000
+	price_max = BLACKMARKET_CRATE_VALUE * 5000
 	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/xray_eyes
@@ -20,8 +20,8 @@
 	stock_min = 1
 	stock_max = 5
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/anti_stun
@@ -31,8 +31,8 @@
 	stock_min = 1
 	stock_max = 5
 
-	price_min = CARGO_CRATE_VALUE * 500
-	price_max = CARGO_CRATE_VALUE * 1500
+	price_min = BLACKMARKET_CRATE_VALUE * 500
+	price_max = BLACKMARKET_CRATE_VALUE * 1500
 	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/reviver
@@ -42,8 +42,8 @@
 	stock_min = 1
 	stock_max = 5
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/breathing_tube
@@ -53,8 +53,8 @@
 	stock_min = 1
 	stock_max = 5
 
-	price_min = CARGO_CRATE_VALUE * 1000
-	price_max = CARGO_CRATE_VALUE * 5000
+	price_min = BLACKMARKET_CRATE_VALUE * 1000
+	price_max = BLACKMARKET_CRATE_VALUE * 5000
 	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/hud/medical
@@ -64,8 +64,8 @@
 	stock_min = 1
 	stock_max = 5
 
-	price_min = CARGO_CRATE_VALUE * 500
-	price_max = CARGO_CRATE_VALUE * 1000
+	price_min = BLACKMARKET_CRATE_VALUE * 500
+	price_max = BLACKMARKET_CRATE_VALUE * 1000
 	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/hud/security
@@ -75,8 +75,8 @@
 	stock_min = 1
 	stock_max = 5
 
-	price_min = CARGO_CRATE_VALUE * 500
-	price_max = CARGO_CRATE_VALUE * 1000
+	price_min = BLACKMARKET_CRATE_VALUE * 500
+	price_max = BLACKMARKET_CRATE_VALUE * 1000
 	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/hud/diagnostic
@@ -86,8 +86,8 @@
 	stock_min = 1
 	stock_max = 5
 
-	price_min = CARGO_CRATE_VALUE * 500
-	price_max = CARGO_CRATE_VALUE * 1000
+	price_min = BLACKMARKET_CRATE_VALUE * 500
+	price_max = BLACKMARKET_CRATE_VALUE * 1000
 	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/nutriment
@@ -97,8 +97,8 @@
 	stock_min = 1
 	stock_max = 5
 
-	price_min = CARGO_CRATE_VALUE * 1000
-	price_max = CARGO_CRATE_VALUE * 5000
+	price_min = BLACKMARKET_CRATE_VALUE * 1000
+	price_max = BLACKMARKET_CRATE_VALUE * 5000
 	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/nutriment/plus
@@ -108,8 +108,8 @@
 	stock_min = 1
 	stock_max = 5
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/thrusters
@@ -119,8 +119,8 @@
 	stock_min = 1
 	stock_max = 5
 
-	price_min = CARGO_CRATE_VALUE * 1000
-	price_max = CARGO_CRATE_VALUE * 5000
+	price_min = BLACKMARKET_CRATE_VALUE * 1000
+	price_max = BLACKMARKET_CRATE_VALUE * 5000
 	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/toolset
@@ -130,8 +130,8 @@
 	stock_min = 1
 	stock_max = 5
 
-	price_min = CARGO_CRATE_VALUE * 100
-	price_max = CARGO_CRATE_VALUE * 500
+	price_min = BLACKMARKET_CRATE_VALUE * 100
+	price_max = BLACKMARKET_CRATE_VALUE * 500
 	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/medibeam
@@ -141,8 +141,8 @@
 	stock_min = 1
 	stock_max = 5
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	availability_prob = 50
 
 /datum/blackmarket_item/implants/autosurgeon/surgery
@@ -152,8 +152,8 @@
 	stock_min = 1
 	stock_max = 5
 
-	price_min = CARGO_CRATE_VALUE * 100
-	price_max = CARGO_CRATE_VALUE * 5000
+	price_min = BLACKMARKET_CRATE_VALUE * 100
+	price_max = BLACKMARKET_CRATE_VALUE * 5000
 	availability_prob = 50
 
 

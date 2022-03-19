@@ -50,12 +50,12 @@
 
 /datum/blackmarket_market/blackmarket
 	name = "Чёрный Рынок"
-	shipping = list(SHIPPING_METHOD_LTSRBT	=50,
-					SHIPPING_METHOD_LAUNCH	=10,
-					SHIPPING_METHOD_TELEPORT=75)
+	shipping = list(SHIPPING_METHOD_LTSRBT	=100,
+					SHIPPING_METHOD_LAUNCH	=50,
+					SHIPPING_METHOD_TELEPORT=175)
 
 /datum/blackmarket_market/syndiemarket
 	name = "Синди Маркет"
-	shipping = list(SHIPPING_METHOD_LTSRBT	=50,
-				SHIPPING_METHOD_LAUNCH	=10,
-				SHIPPING_METHOD_TELEPORT=75)
+	shipping = list(SHIPPING_METHOD_LTSRBT	=100,
+				SHIPPING_METHOD_LAUNCH	=50,
+				SHIPPING_METHOD_TELEPORT=175)

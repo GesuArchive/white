@@ -7,8 +7,8 @@
 	desc = "Пукает хорошо а стоимость ещё дороже"
 	item = /obj/item/gun/ballistic/
 
-	price_min = CARGO_CRATE_VALUE * 1250
-	price_max = CARGO_CRATE_VALUE * 5000
+	price_min = BLACKMARKET_CRATE_VALUE * 1250
+	price_max = BLACKMARKET_CRATE_VALUE * 5000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -69,8 +69,8 @@
 	desc = "Пукает хорошо а стоимость ещё дороже"
 	item = /obj/item/gun/energy/
 
-	price_min = CARGO_CRATE_VALUE * 1000
-	price_max = CARGO_CRATE_VALUE * 4000
+	price_min = BLACKMARKET_CRATE_VALUE * 1000
+	price_max = BLACKMARKET_CRATE_VALUE * 4000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -97,8 +97,8 @@
 	desc = "Тазер или Дизаблер? Сложный выбор..."
 	item = /obj/item/gun/energy/taser
 
-	price_min = CARGO_CRATE_VALUE * 1000
-	price_max = CARGO_CRATE_VALUE * 3000
+	price_min = BLACKMARKET_CRATE_VALUE * 1000
+	price_max = BLACKMARKET_CRATE_VALUE * 3000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -114,8 +114,8 @@
 	desc = "Для истинных долбаёбов"
 	item = /obj/item/gun/ballistic/automatic/fallout/marksman
 
-	price_min = CARGO_CRATE_VALUE * 4000
-	price_max = CARGO_CRATE_VALUE * 8000
+	price_min = BLACKMARKET_CRATE_VALUE * 4000
+	price_max = BLACKMARKET_CRATE_VALUE * 8000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100

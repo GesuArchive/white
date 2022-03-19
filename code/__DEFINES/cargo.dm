@@ -39,6 +39,7 @@
 
 /// The baseline unit for cargo crates. Adjusting this will change the cost of all in-game shuttles, crate export values, bounty rewards, and all supply pack import values, as they use this as their unit of measurement.
 #define CARGO_CRATE_VALUE 200
+#define BLACKMARKET_CRATE_VALUE 50
 
 GLOBAL_LIST_EMPTY(supplypod_loading_bays)
 

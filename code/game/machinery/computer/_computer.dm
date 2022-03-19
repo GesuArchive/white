@@ -186,7 +186,7 @@
 			I.forceMove(src)
 			var/mutable_appearance/wish = mutable_appearance(I.icon, I.icon_state, layer + 0.01)
 			wish.pixel_x = rand(-16, 16)
-			wish.pixel_y = rand(-16, 16)
+			wish.pixel_y = pick(-16, 16)
 			add_overlay(wish)
 		var/icon/blood_splatter_icon = icon(icon, icon_state, dir, 1)
 		blood_splatter_icon.Blend("#fff", ICON_ADD)

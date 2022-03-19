@@ -8,8 +8,8 @@
 			cocktail which lets you push yourself harder to get out of sticky situations. Avoid large doses if possible."
 	item = /obj/item/storage/box/syndie_kit/imp_adrenal
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -18,8 +18,8 @@
 	desc = "This implant will help you get back up on your feet faster after being stunned. Comes with an autosurgeon."
 	item = /obj/item/autosurgeon/organ/syndicate/anti_stun
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -29,8 +29,8 @@
 			user from common restraints such as handcuffs."
 	item = /obj/item/storage/box/syndie_kit/imp_freedom
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -41,8 +41,8 @@
 			This will permanently destroy your body, however."
 	item = /obj/item/storage/box/syndie_kit/imp_microbomb
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -52,8 +52,8 @@
 			Upon death, releases a massive explosion that will wipe out everything nearby."
 	item = /obj/item/storage/box/syndie_kit/imp_macrobomb
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -63,8 +63,8 @@
 			Used just like a regular headset, but can be disabled to use external headsets normally and to avoid detection."
 	item = /obj/item/storage/box/syndie_kit/imp_radio
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -73,8 +73,8 @@
 	desc = "This implant will attempt to revive and heal you if you lose consciousness. Comes with an autosurgeon."
 	item = /obj/item/autosurgeon/organ/syndicate/reviver
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -84,8 +84,8 @@
 			On activation, it will conceal you inside a chameleon cardboard box that is only revealed once someone bumps into it."
 	item = /obj/item/storage/box/syndie_kit/imp_stealth
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -95,8 +95,8 @@
 			pocket capable of storing two regular-sized items."
 	item = /obj/item/storage/box/syndie_kit/imp_storage
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -105,8 +105,8 @@
 	desc = "These cybernetic eyes will give you thermal vision. Comes with a free autosurgeon."
 	item = /obj/item/autosurgeon/organ/syndicate/thermal_eyes
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -116,8 +116,8 @@
 			Undetectable (except via surgery), and excellent for escaping confinement."
 	item = /obj/item/storage/box/syndie_kit/imp_uplink
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25
 
@@ -126,7 +126,7 @@
 	desc = "These cybernetic eyes will give you X-ray vision. Comes with an autosurgeon."
 	item = /obj/item/autosurgeon/organ/syndicate/xray_eyes
 
-	price_min = CARGO_CRATE_VALUE * 5000
-	price_max = CARGO_CRATE_VALUE * 10000
+	price_min = BLACKMARKET_CRATE_VALUE * 5000
+	price_max = BLACKMARKET_CRATE_VALUE * 10000
 	stock_max = 1
 	availability_prob = 25

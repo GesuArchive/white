@@ -9,8 +9,8 @@
 
 	stock_min = 1
 	stock_max = 10
-	price_min = CARGO_CRATE_VALUE * 100
-	price_max = CARGO_CRATE_VALUE * 1000
+	price_min = BLACKMARKET_CRATE_VALUE * 100
+	price_max = BLACKMARKET_CRATE_VALUE * 1000
 	availability_prob = 100
 
 /datum/blackmarket_item/medicine/firstaid/spawn_item(loc)
@@ -25,8 +25,8 @@
 
 	stock_min = 1
 	stock_max = 10
-	price_min = CARGO_CRATE_VALUE * 100
-	price_max = CARGO_CRATE_VALUE * 1000
+	price_min = BLACKMARKET_CRATE_VALUE * 100
+	price_max = BLACKMARKET_CRATE_VALUE * 1000
 	availability_prob = 100
 
 /datum/blackmarket_item/medicine/fire
@@ -35,8 +35,8 @@
 	item = /obj/item/storage/firstaid/fire
 	stock_min = 1
 	stock_max = 10
-	price_min = CARGO_CRATE_VALUE * 100
-	price_max = CARGO_CRATE_VALUE * 1000
+	price_min = BLACKMARKET_CRATE_VALUE * 100
+	price_max = BLACKMARKET_CRATE_VALUE * 1000
 	availability_prob = 100
 
 /datum/blackmarket_item/medicine/toxin
@@ -46,8 +46,8 @@
 
 	stock_min = 1
 	stock_max = 10
-	price_min = CARGO_CRATE_VALUE * 100
-	price_max = CARGO_CRATE_VALUE * 1000
+	price_min = BLACKMARKET_CRATE_VALUE * 100
+	price_max = BLACKMARKET_CRATE_VALUE * 1000
 	availability_prob = 100
 
 /datum/blackmarket_item/medicine/o2
@@ -57,8 +57,8 @@
 
 	stock_min = 1
 	stock_max = 10
-	price_min = CARGO_CRATE_VALUE * 100
-	price_max = CARGO_CRATE_VALUE * 1000
+	price_min = BLACKMARKET_CRATE_VALUE * 100
+	price_max = BLACKMARKET_CRATE_VALUE * 1000
 	availability_prob = 100
 
 /datum/blackmarket_item/medicine/adv
@@ -68,8 +68,8 @@
 
 	stock_min = 1
 	stock_max = 5
-	price_min = CARGO_CRATE_VALUE * 500
-	price_max = CARGO_CRATE_VALUE * 1500
+	price_min = BLACKMARKET_CRATE_VALUE * 500
+	price_max = BLACKMARKET_CRATE_VALUE * 1500
 	availability_prob = 100
 
 /datum/blackmarket_item/medicine/adv/spawn_item(loc)
@@ -84,8 +84,8 @@
 
 	stock_min = 1
 	stock_max = 3
-	price_min = CARGO_CRATE_VALUE * 500
-	price_max = CARGO_CRATE_VALUE * 2000
+	price_min = BLACKMARKET_CRATE_VALUE * 500
+	price_max = BLACKMARKET_CRATE_VALUE * 2000
 	availability_prob = 100
 
 /datum/blackmarket_item/medicine/suspicious_pills
@@ -95,8 +95,8 @@
 
 	stock_min = 1
 	stock_max = 20
-	price_min = CARGO_CRATE_VALUE * 400
-	price_max = CARGO_CRATE_VALUE * 700
+	price_min = BLACKMARKET_CRATE_VALUE * 400
+	price_max = BLACKMARKET_CRATE_VALUE * 700
 	availability_prob = 100
 
 /datum/blackmarket_item/medicine/suspicious_pills/spawn_item(loc)
@@ -124,8 +124,8 @@
 
 	stock_min = 1
 	stock_max = 100
-	price_min = CARGO_CRATE_VALUE * 10
-	price_max = CARGO_CRATE_VALUE * 60
+	price_min = BLACKMARKET_CRATE_VALUE * 10
+	price_max = BLACKMARKET_CRATE_VALUE * 60
 	availability_prob = 100
 
 /datum/blackmarket_item/medicine/pumpup
@@ -135,8 +135,8 @@
 
 	stock_min = 1
 	stock_max = 10
-	price_min = CARGO_CRATE_VALUE * 100
-	price_max = CARGO_CRATE_VALUE * 500
+	price_min = BLACKMARKET_CRATE_VALUE * 100
+	price_max = BLACKMARKET_CRATE_VALUE * 500
 	availability_prob = 100
 
 /datum/blackmarket_item/medicine/labebium
@@ -146,8 +146,8 @@
 
 	stock_min = 1
 	stock_max = 5
-	price_min = CARGO_CRATE_VALUE * 250
-	price_max = CARGO_CRATE_VALUE * 550
+	price_min = BLACKMARKET_CRATE_VALUE * 250
+	price_max = BLACKMARKET_CRATE_VALUE * 550
 	availability_prob = 30
 
 /datum/blackmarket_item/medicine/sleeperboard
@@ -157,8 +157,8 @@
 
 	stock_min = 1
 	stock_max = 3
-	price_min = CARGO_CRATE_VALUE * 250
-	price_max = CARGO_CRATE_VALUE * 1000
+	price_min = BLACKMARKET_CRATE_VALUE * 250
+	price_max = BLACKMARKET_CRATE_VALUE * 1000
 	availability_prob = 70
 
 /datum/blackmarket_item/medicine/zvezdochka
@@ -168,8 +168,8 @@
 
 	stock_min = 1
 	stock_max = 5
-	price_min = CARGO_CRATE_VALUE * 150
-	price_max = CARGO_CRATE_VALUE * 350
+	price_min = BLACKMARKET_CRATE_VALUE * 150
+	price_max = BLACKMARKET_CRATE_VALUE * 350
 	availability_prob = 60
 
 /datum/blackmarket_item/medicine/speedrun
@@ -179,6 +179,6 @@
 
 	stock_min = 1
 	stock_max = 5
-	price_min = CARGO_CRATE_VALUE * 350
-	price_max = CARGO_CRATE_VALUE * 650
+	price_min = BLACKMARKET_CRATE_VALUE * 350
+	price_max = BLACKMARKET_CRATE_VALUE * 650
 	availability_prob = 70

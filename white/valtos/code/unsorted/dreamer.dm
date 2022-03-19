@@ -507,35 +507,22 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 	REMOVE_TRAIT(S, TRAIT_STUNRESISTANCE, "dreamer")
 	REMOVE_TRAIT(S, TRAIT_SLEEPIMMUNE,    "dreamer")
 	S.Sleeping(55 SECONDS)
-	spawn(5 SECONDS)
-		to_chat(S, span_notice("<i>... а помнишь как мы ...</i>"))
-
-	spawn(10 SECONDS)
-		to_chat(S, span_notice("<i>... надеюсь ты меня всё ещё слышишь ...</i>"))
-
-	spawn(15 SECONDS)
-		to_chat(S, span_notice("<i>... вы правда так думаете ...</i>"))
-
-	spawn(20 SECONDS)
-		to_chat(S, span_notice("<i>... будет лучше для него ...</i>"))
-
-	spawn(25 SECONDS)
-		to_chat(S, span_notice("<i>... подпишите здесь и здесь ...</i>"))
-
-	spawn(30 SECONDS)
-		to_chat(S, span_notice("<i>... у вас есть время попрощаться ...</i>"))
-
-	spawn(35 SECONDS)
-		to_chat(S, span_notice("<i>... мне жаль, но ...</i>"))
-
-	spawn(40 SECONDS)
-		to_chat(S, span_notice("<i>... можем приступать ...</i>"))
-
-	spawn(45 SECONDS)
-		to_chat(S, span_notice("<i>... он просыпается ...</i>"))
-
-	spawn(50 SECONDS)
-		to_chat(S, span_notice("<i>... тебе показалось ...</i>"))
+	var/list/dreamlist = list(
+		"а помнишь как мы",
+		"надеюсь ты меня всё ещё слышишь",
+		"вы правда так думаете",
+		"будет лучше для него",
+		"подпишите здесь и здесь",
+		"у вас есть время попрощаться",
+		"мне жаль, но",
+		"можем приступать",
+		"он просыпается",
+		"тебе показалось"
+	)
+	spawn(-1)
+		for(var/str in dreamlist)
+			to_chat(S, span_notice("<i>... [str] ...</i>"))
+			sleep(5 SECONDS)
 
 		S.reagents.add_reagent(/datum/reagent/toxin/lexorin, 50)
 		var/turf/T1 = get_step(safeturf, WEST)

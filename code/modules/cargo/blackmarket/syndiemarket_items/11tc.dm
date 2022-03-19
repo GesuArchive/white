@@ -7,8 +7,8 @@
 	desc = "Информация Удалена"
 	item = /obj/item/stack/telecrystal
 
-	price_min = CARGO_CRATE_VALUE * 25000
-	price_max = CARGO_CRATE_VALUE * 50000
+	price_min = BLACKMARKET_CRATE_VALUE * 25000
+	price_max = BLACKMARKET_CRATE_VALUE * 50000
 	stock_min = 1
 	stock_max = 10
 	availability_prob = 100
@@ -18,8 +18,8 @@
 	desc = "Информация Удалена"
 	item = /obj/item/stack/telecrystal/five
 
-	price_min = CARGO_CRATE_VALUE * 125000
-	price_max = CARGO_CRATE_VALUE * 250000
+	price_min = BLACKMARKET_CRATE_VALUE * 125000
+	price_max = BLACKMARKET_CRATE_VALUE * 250000
 	stock_min = 1
 	stock_max = 4
 	availability_prob = 100
@@ -29,8 +29,8 @@
 	desc = "Информация Удалена"
 	item = /obj/item/stack/telecrystal/twenty
 
-	price_min = CARGO_CRATE_VALUE * 500000
-	price_max = CARGO_CRATE_VALUE * 1000000
+	price_min = BLACKMARKET_CRATE_VALUE * 500000
+	price_max = BLACKMARKET_CRATE_VALUE * 1000000
 	stock_min = 1
 	stock_max = 2
 	availability_prob = 100
