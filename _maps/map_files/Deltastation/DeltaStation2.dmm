@@ -8427,12 +8427,12 @@
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "bmf" = (
-/obj/structure/bed/roller,
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
 /obj/item/radio/intercom/directional/south,
+/obj/structure/table/optable,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "bmg" = (
@@ -103874,6 +103874,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/effect/landmark/start/hunter,
 /turf/open/floor/plasteel,
 /area/cargo/miningoffice)
 "vYt" = (
@@ -106398,6 +106399,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 5
 	},
+/obj/effect/landmark/start/field_medic,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "wJk" = (

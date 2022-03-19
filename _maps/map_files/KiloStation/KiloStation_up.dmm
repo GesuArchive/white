@@ -1393,12 +1393,11 @@
 	},
 /area/maintenance/starboard)
 "agd" = (
-/obj/structure/bodycontainer/morgue,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/effect/turf_decal/delivery,
+/obj/structure/table/optable,
 /turf/open/floor/plasteel/dark,
 /area/security/warden)
 "age" = (
@@ -28666,6 +28665,11 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/showroomfloor,
 /area/service/bar/atrium)
+"dqm" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/start/field_medic,
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/warden)
 "dqz" = (
 /obj/structure/closet{
 	name = "beekeeping wardrobe"
@@ -68566,6 +68570,7 @@
 "rYu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/effect/landmark/start/hunter,
 /turf/open/floor/plasteel,
 /area/cargo/miningoffice)
 "rYN" = (
@@ -104549,7 +104554,7 @@ oBI
 aCv
 edr
 cnB
-cnB
+dqm
 crz
 ghl
 mIs
