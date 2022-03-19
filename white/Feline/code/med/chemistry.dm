@@ -87,6 +87,7 @@
 	icon = 'white/Feline/icons/syringe_zed.dmi'
 	icon_state = "raccoon"
 	inhand_icon_state = "tbpen"
+	reagent_flags = null
 	list_reagents = list(/datum/reagent/medicine/raccoon = 4, /datum/reagent/toxin/zed = 4)
 
 /obj/item/reagent_containers/hypospray/medipen/raccoon/inject(mob/living/M, mob/user)
@@ -126,6 +127,7 @@
 	icon = 'white/Feline/icons/syringe_zed.dmi'
 	icon_state = "Nostromo"
 	inhand_icon_state = "tbpen"
+	reagent_flags = null
 	list_reagents = list(/datum/reagent/medicine/nostromo = 4, /datum/reagent/toxin/zed = 4)
 
 /obj/item/reagent_containers/hypospray/medipen/nostromo/inject(mob/living/M, mob/user)
@@ -144,6 +146,7 @@
 	icon = 'white/Feline/icons/syringe_zed.dmi'
 	icon_state = "sputnik_lite"
 	inhand_icon_state = "tbpen"
+	reagent_flags = null
 	list_reagents = list(/datum/reagent/medicine/nostromo = 4, /datum/reagent/medicine/raccoon = 4, /datum/reagent/toxin/zed = 2)
 
 /obj/item/reagent_containers/hypospray/medipen/sputnik_lite/inject(mob/living/M, mob/user)

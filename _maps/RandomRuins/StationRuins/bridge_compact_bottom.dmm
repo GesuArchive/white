@@ -525,8 +525,8 @@
 	id = "bridge blast";
 	name = "bridge blast door"
 	},
-/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
 /area/command)
 "kZ" = (

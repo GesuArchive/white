@@ -369,8 +369,7 @@
 	dir = 8
 	},
 /obj/item/storage/secure/safe/rangers{
-	pixel_x = 5;
-	pixel_y = -25
+	pixel_y = -29
 	},
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/exploration)

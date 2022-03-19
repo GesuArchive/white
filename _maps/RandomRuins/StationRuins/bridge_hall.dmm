@@ -656,7 +656,6 @@
 /turf/closed/wall/r_wall,
 /area/hallway/primary/central3)
 "im" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
@@ -974,7 +973,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central2)
 "mw" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
@@ -1190,7 +1188,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central1)
 "pn" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
@@ -1664,7 +1661,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central3)
 "uM" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
@@ -3691,7 +3687,6 @@
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
 "WH" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";

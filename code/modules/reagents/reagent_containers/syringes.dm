@@ -104,7 +104,7 @@
 
 				var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transfered_by = user) // transfer from, transfer to - who cares?
 
-				to_chat(user, span_notice("Наполняю <b>[src]</b> используя [trans] единиц раствора. Теперь он содержит [reagents.total_volume] единиц."))
+				to_chat(user, span_notice("Наполняю <b>[src]</b> [trans] единицами раствора. Теперь он содержит [reagents.total_volume] единиц."))
 			if (reagents.total_volume >= reagents.maximum_volume)
 				mode=!mode
 				update_icon()
@@ -253,7 +253,7 @@
 	list_reagents = list(/datum/reagent/mulligan = 1)
 
 /obj/item/reagent_containers/syringe/gluttony
-	name = "Gluttony's Blessing"
+	name = "благословение обжорства"
 	desc = "Шприц из довольно ужасного места. Лучше не вкалывать себе это."
 	amount_per_transfer_from_this = 1
 	volume = 1

@@ -729,7 +729,6 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
 "bE" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -2959,7 +2958,6 @@
 /turf/open/floor/plating,
 /area/command/teleporter)
 "ny" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
@@ -3955,7 +3953,6 @@
 /turf/open/floor/plasteel/dark,
 /area/command)
 "pK" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
@@ -5670,7 +5667,7 @@ rb
 eP
 os
 pP
-eP
+em
 rb
 VG
 VG
@@ -6354,7 +6351,7 @@ jI
 eP
 qq
 qr
-eP
+em
 gG
 bg
 bg

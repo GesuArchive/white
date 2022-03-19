@@ -570,18 +570,7 @@
 "bS" = (
 /turf/closed/wall/r_wall,
 /area/command)
-"bT" = (
-/obj/machinery/door/poddoor/preopen{
-	id = "bridge blast";
-	name = "bridge blast door"
-	},
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
-/turf/open/floor/plating,
-/area/command)
 "bU" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -592,7 +581,6 @@
 /area/command)
 "bV" = (
 /obj/machinery/status_display/evac,
-/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -1429,11 +1417,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central2)
-"dI" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/command)
 "dJ" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -1593,7 +1576,7 @@
 /area/command)
 "ea" = (
 /obj/structure/cable,
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
 /area/command)
 "ec" = (
@@ -5532,9 +5515,9 @@ aD
 ab
 ab
 bS
-dI
+ea
 hq
-dI
+ea
 ec
 ep
 eO
@@ -5832,7 +5815,7 @@ Oe
 aH
 XI
 eC
-bT
+bU
 bX
 cj
 cy
