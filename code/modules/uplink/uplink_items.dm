@@ -1734,7 +1734,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 // Role-specific items
 /datum/uplink_item/role_restricted
-	category = "Специальные-профессиональные"
+	category = "Спец.-проф."
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 	surplus = 0
 
@@ -2014,7 +2014,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 // Pointless
 /datum/uplink_item/badass
-	category = "(Бессмысленное) Крутое"
+	category = "(Бесполезное) Крутое"
 	surplus = 0
 
 /datum/uplink_item/badass/costumes/obvious_chameleon
