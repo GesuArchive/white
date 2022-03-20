@@ -2665,7 +2665,7 @@
 	name = "Gate Shutters"
 	},
 /obj/structure/cable,
-/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating/airless,
 /area/medical/medbay/lobby)
 "Jk" = (
@@ -3295,7 +3295,7 @@
 	id = "durka_windows"
 	},
 /obj/structure/cable,
-/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating/airless,
 /area/medical/medbay/central)
 "RN" = (
