@@ -155,6 +155,7 @@
 	icon = 'white/valtos/icons/rospilovo/ausflora.dmi'
 	icon_state = "firstbush_1"
 	alpha = 225
+	max_integrity = 5
 
 /obj/structure/flora/ausbushes/rospilovo/Initialize()
 	if(icon_state == "firstbush_1")

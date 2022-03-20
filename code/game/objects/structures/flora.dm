@@ -3,6 +3,16 @@
 	max_integrity = 150
 	anchored = TRUE
 
+/obj/structure/flora/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
+	switch(damage_type)
+		if(BRUTE)
+			if(damage_amount)
+				playsound(src.loc, 'sound/weapons/slash.ogg', 80, TRUE)
+			else
+				playsound(loc, 'sound/weapons/tap.ogg', 50, TRUE)
+		if(BURN)
+			playsound(loc, 'sound/items/welder.ogg', 80, TRUE)
+
 //trees
 /obj/structure/flora/tree
 	name = "дерево"
@@ -145,7 +155,7 @@
 /obj/structure/flora/grass
 	name = "трава"
 	desc = "Кусочек заросшей травы."
-	icon = 'icons/obj/flora/snowflora.dmi'
+	max_integrity = 5
 	gender = PLURAL	//"this is grass" not "this is a grass"
 
 /obj/structure/flora/grass/brown
