@@ -68,10 +68,20 @@
 	return ..()
 
 /mob/living/proc/ZImpactDamage(turf/T, levels)
-	visible_message(span_danger("<b>[capitalize(src.name)]</b> влетает в <b>[T]</b> с хрустящим звуком!") , \
-					span_userdanger("Влетаю в [T] с хрустящим звуком!"))
-	adjustBruteLoss((levels * 5) ** 1.5)
+	var/total_damage = (levels * 5) ** 1.5
+	for(var/mob/living/L in T)
+		if(L == src)
+			continue
+		L.adjustBruteLoss(total_damage/2)
+		L.Knockdown(levels * 25)
+		visible_message(span_danger("<b>[capitalize(src.name)]</b> падает на <b>[L]</b>!") , \
+						span_userdanger("Падаю на [L]!"))
+		adjustBruteLoss(total_damage/2)
+		Knockdown(levels * 25)
+		return FALSE
+	adjustBruteLoss(total_damage)
 	Knockdown(levels * 50)
+	return TRUE
 
 //Generic Bump(). Override MobBump() and ObjBump() instead of this.
 /mob/living/Bump(atom/A)

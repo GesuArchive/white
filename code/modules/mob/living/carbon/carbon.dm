@@ -1344,3 +1344,13 @@
 	our_splatter.blood_dna_info = get_blood_dna_list()
 	var/turf/targ = get_ranged_target_turf(src, splatter_direction, splatter_strength)
 	INVOKE_ASYNC(our_splatter, /obj/effect/decal/cleanable/blood/hitsplatter/.proc/fly_towards, targ, splatter_strength)
+
+/mob/living/carbon/ZImpactDamage(turf/T, levels)
+	if(!..())
+		return
+	for(var/i in 1 to levels)
+		if(prob(75))
+			continue
+		var/obj/item/bodypart/BP = pick(bodyparts)
+		var/type_wound = pick(list(/datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/moderate))
+		BP.force_wound_upwards(type_wound)
