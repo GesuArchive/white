@@ -3280,6 +3280,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/command)
 "oC" = (
@@ -4770,6 +4771,7 @@
 	name = "bridge blast door"
 	},
 /obj/structure/cable,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/command)
 "VY" = (
