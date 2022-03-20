@@ -734,7 +734,6 @@
 	name = "bridge blast door"
 	},
 /obj/structure/cable,
-/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
 /area/command)
 "bF" = (
@@ -1166,11 +1165,6 @@
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain)
 "cC" = (
-/obj/machinery/door/airlock/command{
-	name = "Captain's Office";
-	req_access_txt = "20";
-	security_level = 6
-	},
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor/border_only,
@@ -1181,6 +1175,10 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/command{
+	name = "Captain's Office";
+	req_access_txt = "20"
+	},
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "cD" = (
@@ -2964,7 +2962,6 @@
 	name = "bridge blast door"
 	},
 /obj/machinery/door/firedoor/window,
-/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
 /area/command)
 "nz" = (
@@ -3960,7 +3957,6 @@
 	},
 /obj/machinery/status_display/evac,
 /obj/machinery/door/firedoor/window,
-/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
 /area/command)
 "pL" = (

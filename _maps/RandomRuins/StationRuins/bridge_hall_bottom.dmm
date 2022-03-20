@@ -1073,11 +1073,6 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/centralL2)
 "sj" = (
-/obj/machinery/door/airlock/command/glass{
-	name = "Bridge";
-	req_access_txt = "19";
-	security_level = 6
-	},
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -1085,6 +1080,10 @@
 /obj/machinery/door/firedoor/border_only,
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
+	},
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge";
+	req_access_txt = "19"
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
@@ -1331,18 +1330,16 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
 "vk" = (
-/obj/machinery/door/airlock/command{
-	name = "Captain's Office";
-	req_access_txt = "20";
-	security_level = 6
-	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/machinery/door/airlock/command{
+	name = "Captain's Office";
+	req_access_txt = "20"
+	},
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "vl" = (
@@ -1850,11 +1847,6 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/centralL2)
 "Eg" = (
-/obj/machinery/door/airlock/command{
-	name = "Captain's Office";
-	req_access_txt = "20";
-	security_level = 6
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -1867,6 +1859,10 @@
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
+	},
+/obj/machinery/door/airlock/command{
+	name = "Captain's Office";
+	req_access_txt = "20"
 	},
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
@@ -2343,11 +2339,6 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/heads_quarters/hop)
 "Nz" = (
-/obj/machinery/door/airlock/command/glass{
-	name = "Bridge";
-	req_access_txt = "19";
-	security_level = 6
-	},
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -2357,6 +2348,10 @@
 	dir = 1
 	},
 /obj/machinery/navbeacon/wayfinding,
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge";
+	req_access_txt = "19"
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
 "ND" = (

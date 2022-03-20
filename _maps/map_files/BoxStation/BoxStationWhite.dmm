@@ -15272,12 +15272,6 @@
 /area/science/lab)
 "bpq" = (
 /obj/structure/cable,
-/obj/machinery/button/door{
-	id = "Cargo_sci_shutter";
-	name = "бронеставни доставки РнД";
-	pixel_x = 32;
-	req_access_txt = "47"
-	},
 /turf/open/floor/plasteel/white/side,
 /area/science/lab)
 "bpB" = (
@@ -18331,8 +18325,7 @@
 "bFe" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Tech Storage";
-	req_access_txt = "23";
-	security_level = 1
+	req_access_txt = "23"
 	},
 /obj/structure/cable,
 /obj/machinery/navbeacon/wayfinding,
@@ -25792,10 +25785,6 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "Engineering";
-	name = "Бронежалюзи инженерного блока"
-	},
 /turf/open/floor/plating,
 /area/engineering/main)
 "cfF" = (
@@ -26276,12 +26265,6 @@
 /obj/machinery/light/small{
 	dir = 1;
 	pixel_y = 0
-	},
-/obj/machinery/button/door{
-	id = "Cargo_engi_shutter";
-	name = "Бронеставни доставки инженерного отдела";
-	pixel_y = 26;
-	req_access_txt = "10"
 	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
@@ -27709,9 +27692,6 @@
 	req_access_txt = "10"
 	},
 /obj/effect/turf_decal/delivery,
-/obj/machinery/door/poddoor/preopen{
-	id = "Cargo_engi_shutter"
-	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "cnt" = (
@@ -29384,7 +29364,7 @@
 	dir = 4;
 	name = "Security Maintenance";
 	req_access_txt = "1";
-	security_level = 6
+	security_level = 0
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -44647,10 +44627,6 @@
 	},
 /obj/machinery/door/poddoor/preopen{
 	id = "Cargo_sci_shutter"
-	},
-/obj/machinery/door/poddoor/preopen{
-	id = "Biohazard";
-	name = "biohazard containment door"
 	},
 /turf/open/floor/plasteel,
 /area/science/lab)
