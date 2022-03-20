@@ -1452,10 +1452,6 @@
 	},
 /obj/structure/plasticflaps/opaque,
 /obj/effect/turf_decal/bot,
-/obj/machinery/door/poddoor/preopen{
-	id = "chemistry_shutters2";
-	name = "Chemistry Shutter"
-	},
 /turf/open/floor/plasteel,
 /area/medical/medbay)
 "oD" = (
@@ -3231,13 +3227,6 @@
 	name = "Medbay RC";
 	pixel_x = -30;
 	pixel_y = 3
-	},
-/obj/machinery/button/door{
-	id = "chemistry_shutters2";
-	name = "Chemistry Shutter Control";
-	pixel_x = -24;
-	pixel_y = -9;
-	req_one_access_txt = "69"
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay)
@@ -5565,15 +5554,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/medical/cryo)
-"YY" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/poddoor/preopen{
-	id = "chemistry_shutters2";
-	name = "Chemistry Shutter"
-	},
-/turf/open/floor/plating,
-/area/medical/medbay)
 "Zb" = (
 /obj/machinery/airalarm{
 	pixel_y = 23
@@ -5657,8 +5637,8 @@ Zz
 Zz
 Zz
 Zz
-YY
-YY
+Ps
+Ps
 CB
 oy
 jf
