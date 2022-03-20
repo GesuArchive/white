@@ -751,7 +751,7 @@
 	foodtypes = VEGETABLES | SUGAR | DAIRY
 
 //misc food
-/obj/item/food/bubblegum/wake_up
+/obj/item/food/chewable/bubblegum/wake_up
 	name = "wake-up gum"
 	desc = "A rubbery strip of gum. It's stamped with the emblem of the Mothic Nomad Fleet."
 	food_reagents = list(/datum/reagent/consumable/sugar = 13, /datum/reagent/drug/methamphetamine = 2)
@@ -778,7 +778,7 @@
 
 /obj/item/storage/box/gum/wake_up/PopulateContents()
 	for(var/i in 1 to 4)
-		new/obj/item/food/bubblegum/wake_up(src)
+		new /obj/item/food/chewable/bubblegum/wake_up(src)
 
 /obj/item/food/spacers_sidekick
 	name = "\improper Spacer's Sidekick mints"
