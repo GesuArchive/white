@@ -821,3 +821,25 @@ SUBSYSTEM_DEF(job)
 			id_card.add_wildcards(list(ACCESS_CAPTAIN), mode=FORCE_ADD_ALL)
 
 	assigned_captain = TRUE
+
+/datum/controller/subsystem/job/proc/SetJobPositions(job_path, total, spawn_pos, wipe_current = FALSE)
+	for(var/I in occupations)
+		var/datum/job/J = I
+		if(istype(J, job_path))
+			J.total_positions = total
+			J.spawn_positions = spawn_pos
+			if(wipe_current)
+				J.current_positions = 0
+
+/datum/controller/subsystem/job/proc/AddJobPositions(job_path, total, spawn_pos)
+	for(var/I in occupations)
+		var/datum/job/J = I
+		if(istype(J, job_path))
+			J.total_positions = total
+			J.spawn_positions = spawn_pos
+
+/datum/controller/subsystem/job/proc/GetJobPositions(job_path)
+	for(var/I in occupations)
+		var/datum/job/J = I
+		if(istype(J, job_path))
+			return J.spawn_positions

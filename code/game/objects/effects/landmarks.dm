@@ -58,6 +58,20 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Assistant"
 	icon_state = "Assistant" //icon_state is case sensitive. why are all of these capitalized? because fuck you that's why
 
+/obj/effect/landmark/start/combatant
+	name = "Combantant"
+	icon_state = "Assistant"
+	jobspawn_override = TRUE
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/combatant/red
+	name = "Combantant: Red"
+	color = "#ff0000"
+
+/obj/effect/landmark/start/combatant/blue
+	name = "Combantant: Blue"
+	color = "#0000ff"
+
 /obj/effect/landmark/start/assistant/override
 	jobspawn_override = TRUE
 	delete_after_roundstart = FALSE

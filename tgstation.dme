@@ -4335,6 +4335,7 @@
 #include "white\valtos\code\gamemode\custom.dm"
 #include "white\valtos\code\gamemode\gen.dm"
 #include "white\valtos\code\gamemode\rospilovo.dm"
+#include "white\valtos\code\gamemode\violence.dm"
 #include "white\valtos\code\gamemode\shadowling\antag_shadowling.dm"
 #include "white\valtos\code\gamemode\shadowling\antag_thrall.dm"
 #include "white\valtos\code\gamemode\shadowling\ascendant_shadowling.dm"
