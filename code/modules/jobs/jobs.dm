@@ -71,8 +71,12 @@ GLOBAL_LIST_INIT(security_positions, list(
 
 GLOBAL_LIST_INIT(scum_positions, list(
 	"Bomj",
-	"Prisoner",
-	"Combantant: Red",
+	"Prisoner"))
+
+GLOBAL_LIST_INIT(combatant_red_positions, list(
+	"Combantant: Red"))
+
+GLOBAL_LIST_INIT(combatant_blue_positions, list(
 	"Combantant: Blue"))
 
 GLOBAL_LIST_INIT(nonhuman_positions, list(

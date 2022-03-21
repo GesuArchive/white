@@ -184,9 +184,11 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/game_mode/violence/check_finished()
 	if(GLOB.violence_current_round == 6)
-		GLOB.master_mode = "secret"
-		SSticker.save_mode(GLOB.master_mode)
-		SSmapping.changemap(config.maplist["Box Station"])
+		if(!GLOB.admins.len && !GLOB.deadmins.len)
+			GLOB.master_mode = "secret"
+			SSticker.save_mode(GLOB.master_mode)
+			SSmapping.changemap(config.maplist["Box Station"])
+		world.Reboot("КОНЕЦ!", "proper completion", 3 SECONDS)
 		return TRUE
 	else
 		return ..()

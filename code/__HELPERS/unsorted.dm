@@ -759,6 +759,10 @@ Turf and target are separate in case you want to teleport some distance from a t
 		return "Заключённый"
 	else if (job == "Bomj")
 		return "Бомж"
+	else if (job == "Combantant: Red")
+		return "комбатанта красных"
+	else if (job == "Combantant: Blue")
+		return "комбатанта синих"
 	else
 		return job
 

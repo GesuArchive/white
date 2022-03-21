@@ -162,6 +162,15 @@
 		"Синтетики" = GLOB.nonhuman_positions,
 		"Гости" = GLOB.scum_positions
 	)
+	if(GLOB.violence_mode_activated)
+		manifest_out = list(
+			"Красные",
+			"Синие"
+		)
+		departments = list(
+			"Красные" = GLOB.combatant_red_positions,
+			"Синие" = GLOB.combatant_blue_positions
+		)
 	for(var/datum/data/record/t in GLOB.data_core.general)
 		var/name = t.fields["name"]
 		var/rank = t.fields["rank"]
