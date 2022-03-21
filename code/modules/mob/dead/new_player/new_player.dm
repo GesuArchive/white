@@ -222,7 +222,7 @@
 
 	if(job && !job.override_latejoin_spawn(character))
 		SSjob.SendToLateJoin(character)
-		if(!arrivals_docked)
+		if(!arrivals_docked && !GLOB.violence_mode_activated)
 			var/atom/movable/screen/splash/Spl = new(character.client, TRUE)
 			Spl.Fade(TRUE)
 			character.playsound_local(get_turf(character), 'sound/ai/announcer/hello_crew.ogg', 25)
