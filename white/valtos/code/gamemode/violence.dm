@@ -218,7 +218,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/job/combantant/red
 	title = "Combantant: Red"
 	ru_title = "Комбатант: Красные"
-	faction = "Red"
+	faction = "Station"
 	supervisors = "красным"
 	selection_color = "#dd0000"
 	outfit = /datum/outfit/job/combantant/red
@@ -231,7 +231,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/job/combantant/blue
 	title = "Combantant: Blue"
 	ru_title = "Комбатант: Синие"
-	faction = "Blue"
+	faction = "Station"
 	supervisors = "синим"
 	selection_color = "#0000dd"
 	outfit = /datum/outfit/job/combantant/blue
