@@ -42,6 +42,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/game_mode/violence/post_setup()
 	..()
+	SSjob.SetupOccupations(faction = "Violence")
 	SSjob.DisableAllJobs()
 	CONFIG_SET(flag/allow_random_events, FALSE)
 	spawn(3 SECONDS)
@@ -55,9 +56,9 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/game_mode/violence/process()
 	if(round_active)
-		if(GLOB.violence_red_team.len == SSjob.GetJobPositions(/datum/job/combantant/red))
+		if(GLOB.violence_red_team.len < GLOB.violence_blue_team.len)
 			SSjob.AddJobPositions(/datum/job/combantant/red)
-		if(GLOB.violence_blue_team.len == SSjob.GetJobPositions(/datum/job/combantant/blue))
+		if(GLOB.violence_blue_team.len < GLOB.violence_red_team.len)
 			SSjob.AddJobPositions(/datum/job/combantant/blue)
 		if(shutters_closed && round_started_at + 30 SECONDS < world.time)
 			shutters_closed = FALSE
@@ -75,6 +76,8 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		for(var/mob/living/L in main_area)
 			if(L.stat == DEAD)
 				L?.mind?.remove_all_antag_datums()
+		for(var/mob/dead/D in GLOB.player_list))
+			D?.mind?.remove_all_antag_datums()
 
 /datum/game_mode/violence/proc/end_round(winner = "ХУЙ ЕГО ЗНАЕТ КОГО")
 	round_active = FALSE
@@ -118,11 +121,15 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		qdel(O)
 	for(var/obj/item/ammo_casing/O in main_area)
 		qdel(O)
+	for(var/obj/effect/hotspot/O in main_area)
+		qdel(O)
 	for(var/obj/machinery/door/poddoor/D in main_area)
 		INVOKE_ASYNC(D, /obj/machinery/door/poddoor.proc/close)
 
 /datum/game_mode/violence/proc/new_round()
 	GLOB.violence_current_round++
+	GLOB.violence_red_team = list()
+	GLOB.violence_blue_team = list()
 	for(var/mob/M in GLOB.joined_player_list)
 		M?.mind?.remove_all_antag_datums()
 		SEND_SOUND(M, sound(null, channel = CHANNEL_VIOLENCE_MODE))
@@ -172,7 +179,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/antagonist/combatant/red/on_removal()
 	. = ..()
-	GLOB.violence_red_team |= owner
+	GLOB.violence_red_team -= owner
 
 /datum/antagonist/combatant/red/create_team()
 	for(var/datum/antagonist/combatant/red/H in GLOB.antagonists)
@@ -194,7 +201,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/antagonist/combatant/blue/on_removal()
 	. = ..()
-	GLOB.violence_blue_team |= owner
+	GLOB.violence_blue_team -= owner
 
 /datum/antagonist/combatant/blue/create_team()
 	for(var/datum/antagonist/combatant/blue/H in GLOB.antagonists)
@@ -219,7 +226,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/job/combantant/red
 	title = "Combantant: Red"
 	ru_title = "Комбатант: Красные"
-	faction = "Station"
+	faction = "Violence"
 	supervisors = "красным"
 	selection_color = "#dd0000"
 	outfit = /datum/outfit/job/combantant/red
@@ -232,7 +239,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/job/combantant/blue
 	title = "Combantant: Blue"
 	ru_title = "Комбатант: Синие"
-	faction = "Station"
+	faction = "Violence"
 	supervisors = "синим"
 	selection_color = "#0000dd"
 	outfit = /datum/outfit/job/combantant/blue
