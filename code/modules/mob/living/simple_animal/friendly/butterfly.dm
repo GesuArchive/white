@@ -23,10 +23,10 @@
 	mob_size = MOB_SIZE_TINY
 	mob_biotypes = MOB_ORGANIC|MOB_BUG
 	gold_core_spawnable = FRIENDLY_SPAWN
-	verb_say = "трепетает"
-	verb_ask = "трепетает вопросительно"
-	verb_exclaim = "трепетает интенсивно"
-	verb_yell = "трепетает интенсивно"
+	verb_say = "трепещет"
+	verb_ask = "трепещет вопросительно"
+	verb_exclaim = "трепещет интенсивно"
+	verb_yell = "трепещет интенсивно"
 
 /mob/living/simple_animal/butterfly/Initialize()
 	. = ..()

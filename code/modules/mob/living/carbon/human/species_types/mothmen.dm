@@ -1,7 +1,7 @@
 /datum/species/moth
 	name = "Mothman"
 	id = "moth"
-	say_mod = "трепетает"
+	say_mod = "трепещет"
 	default_color = "00FF00"
 	species_traits = list(LIPS, NOEYESPRITES, HAS_FLESH, HAS_BONE, HAS_MARKINGS)
 	inherent_traits = list(

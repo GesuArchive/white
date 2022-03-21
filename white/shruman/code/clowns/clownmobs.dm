@@ -392,8 +392,8 @@
 	icon_living = "clown_spider"
 	icon_dead = "clown_spider_dead"
 	mob_biotypes = MOB_ORGANIC|MOB_BUG
-	speak_emote = list("трепетает")
-	emote_hear = list("трепетает")
+	speak_emote = list("трепещет")
+	emote_hear = list("трепещет")
 	speak_chance = 5
 	speed = 0
 	turns_per_move = 5

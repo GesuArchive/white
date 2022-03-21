@@ -13,7 +13,7 @@
 	mouse_opacity = MOUSE_OPACITY_ICON
 	friendly_verb_continuous = "chitters at"
 	friendly_verb_simple = "chits at"
-	speak_emote = list("трепетает")
+	speak_emote = list("трепещет")
 	speed = 3
 	move_to_delay = 20
 	maxHealth = 150
