@@ -73,17 +73,17 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	if(round_active)
 		for(var/datum/mind/R in GLOB.violence_red_team)
 			if(!R?.current)
-				play_sound_to_everyone(pick(list('white/valtos/sounds/applause1.ogg', 'white/valtos/sounds/applause2.ogg')))
+				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')))
 				GLOB.violence_red_team -= R
 			else if(R?.current?.stat == DEAD)
-				play_sound_to_everyone(pick(list('white/valtos/sounds/applause1.ogg', 'white/valtos/sounds/applause2.ogg')))
+				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')))
 				GLOB.violence_red_team -= R
 		for(var/datum/mind/B in GLOB.violence_blue_team)
 			if(!B?.current)
-				play_sound_to_everyone(pick(list('white/valtos/sounds/applause1.ogg', 'white/valtos/sounds/applause2.ogg')))
+				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')))
 				GLOB.violence_blue_team -= B
 			else if(B?.current?.stat == DEAD)
-				play_sound_to_everyone(pick(list('white/valtos/sounds/applause1.ogg', 'white/valtos/sounds/applause2.ogg')))
+				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')))
 				GLOB.violence_blue_team -= B
 		if(GLOB.violence_red_team.len == max_reds)
 			max_reds++
