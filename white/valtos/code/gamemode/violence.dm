@@ -37,7 +37,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	for(var/i in GLOB.new_player_list)
 		var/mob/dead/new_player/player = i
 		if(player.ready == PLAYER_READY_TO_PLAY)
-			player = PLAYER_NOT_READY
+			player.ready = PLAYER_NOT_READY
 	return TRUE
 
 /datum/game_mode/violence/post_setup()
@@ -123,7 +123,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/game_mode/violence/proc/new_round()
 	GLOB.violence_current_round++
-	for(var/mob/M in main_area)
+	for(var/mob/M in GLOB.joined_player_list)
 		M?.mind?.remove_all_antag_datums()
 		SEND_SOUND(M, sound(null, channel = CHANNEL_VIOLENCE_MODE))
 		var/mob/dead/new_player/NP = new()
