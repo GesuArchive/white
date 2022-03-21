@@ -1171,7 +1171,7 @@
 //Nanosuit uplink item, available in all traitor rounds
 /datum/uplink_item/dangerous/nanosuit
 	name = "Нанокостюм CryNet"
-	desc = "Станьте постчеловеческим воином. Нанокостюм нельзя снять, а также он предупреждают экипаж о вашем местоположении, если вы его надели."
+	desc = "Станьте постчеловеческим воином с этим тяжелобронированным и мощным костюмом. Нанокостюм нельзя снять, а также он предупреждают экипаж о вашем местоположении, если вы его надели."
 	item = /obj/item/storage/box/syndie_kit/nanosuit
 	cost = 30
 	surplus = 20
