@@ -1091,7 +1091,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	purchasable_from = ~UPLINK_CLOWN_OPS
 
 /datum/uplink_item/explosives/tearstache
-	name = "Учительский гранат"
+	name = "Усная граната"
 	desc = "Граната со слезоточивым газом, которая запускает липкие усы в лицо всем, кто не носит маску клоуна или мима. Усы \
 			остаются прикрепленными к лицу всех целей в течение одной минуты, препятствуя использованию дыхательных масок и других подобных устройств."
 	item = /obj/item/grenade/chem_grenade/teargas/moustache
@@ -1115,7 +1115,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	purchasable_from = UPLINK_NUKE_OPS
 
 /datum/uplink_item/support/clown_reinforcement
-	name = "Подкрепление клоунов"
+	name = "Подкрепление-клоун"
 	desc = "Вызывает дополнительного клоуна вам в команду, чтобы он разделил с вами веселье, оснащенного полным стартовым снаряжением, но без телекристаллов."
 	item = /obj/item/antag_spawner/nuke_ops/clown
 	cost = 20
