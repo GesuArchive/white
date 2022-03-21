@@ -147,6 +147,8 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		qdel(M)
 	clean_arena()
 	spawn(10 SECONDS)
+		max_reds = 2
+		max_blues = 2
 		round_active = TRUE
 		round_started_at = world.time
 		to_chat(world, span_reallybig("РАУНД [GLOB.violence_current_round] НАЧАЛСЯ!"))
