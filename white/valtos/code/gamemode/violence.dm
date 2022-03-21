@@ -38,6 +38,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		var/mob/dead/new_player/player = i
 		if(player.ready == PLAYER_READY_TO_PLAY)
 			player = PLAYER_NOT_READY
+	return TRUE
 
 /datum/game_mode/violence/post_setup()
 	..()
