@@ -18,9 +18,6 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	announce_text = "Резня!"
 
 /datum/game_mode/violence/pre_setup()
-	if(!GLOB.areas_by_type[/area/violence])
-		message_admins("КАРТА НЕ ПОДХОДИТ ДЛЯ ЭТОГО РЕЖИМА!")
-		return FALSE
 	GLOB.disable_fucking_station_shit_please = TRUE
 	GLOB.violence_mode_activated = TRUE
 	main_area = GLOB.areas_by_type[/area/violence]
@@ -32,6 +29,15 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	SSeconomy.flags |= SS_NO_FIRE
 	SSjob.DisableAllJobs()
 	return TRUE
+
+/datum/game_mode/violence/can_start()
+	if(!GLOB.areas_by_type[/area/violence])
+		message_admins("КАРТА НЕ ПОДХОДИТ ДЛЯ ЭТОГО РЕЖИМА!")
+		return FALSE
+	for(var/i in GLOB.new_player_list)
+		var/mob/dead/new_player/player = i
+		if(player.ready == PLAYER_READY_TO_PLAY)
+			player = PLAYER_NOT_READY
 
 /datum/game_mode/violence/post_setup()
 	..()
@@ -53,6 +59,8 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 			SSjob.AddJobPositions(/datum/job/combantant/blue)
 		if(shutters_closed && round_started_at + 30 SECONDS < world.time)
 			shutters_closed = FALSE
+			for(var/mob/M in GLOB.player_list)
+				SEND_SOUND(M, 'white/valtos/sounds/gong.ogg')
 			for(var/obj/machinery/door/poddoor/D in main_area)
 				INVOKE_ASYNC(D, /obj/machinery/door/poddoor.proc/open)
 		if(round_started_at + 120 SECONDS < world.time)
@@ -115,6 +123,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	GLOB.violence_current_round++
 	for(var/mob/M in main_area)
 		M?.mind?.remove_all_antag_datums()
+		SEND_SOUND(M, sound(null, channel = CHANNEL_VIOLENCE_MODE))
 		var/mob/dead/new_player/NP = new()
 		NP.ckey = M.ckey
 		qdel(M)
