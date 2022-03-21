@@ -24,6 +24,11 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	announce_text = "Резня!"
 
 /datum/game_mode/violence/pre_setup()
+	SSticker.login_music = sound('white/valtos/sounds/quiet_theme.ogg')
+	for(var/client/C in GLOB.clients)
+		if(isnewplayer(C.mob))
+			C.mob.stop_sound_channel(CHANNEL_LOBBYMUSIC)
+			C.playtitlemusic()
 	var/obj/effect/landmark/violence/V = GLOB.violence_landmark
 	V.load_map()
 	GLOB.disable_fucking_station_shit_please = TRUE
@@ -60,17 +65,25 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/game_mode/violence/send_intercept(report = 0)
 	return
 
+/datum/game_mode/violence/proc/play_sound_to_everyone(snd)
+	for(var/mob/M in GLOB.player_list)
+		SEND_SOUND(M, snd)
+
 /datum/game_mode/violence/process()
 	if(round_active)
 		for(var/datum/mind/R in GLOB.violence_red_team)
 			if(!R?.current)
+				play_sound_to_everyone(pick(list('white/valtos/sounds/applause1.ogg', 'white/valtos/sounds/applause2.ogg')))
 				GLOB.violence_red_team -= R
 			else if(R?.current?.stat == DEAD)
+				play_sound_to_everyone(pick(list('white/valtos/sounds/applause1.ogg', 'white/valtos/sounds/applause2.ogg')))
 				GLOB.violence_red_team -= R
 		for(var/datum/mind/B in GLOB.violence_blue_team)
 			if(!B?.current)
+				play_sound_to_everyone(pick(list('white/valtos/sounds/applause1.ogg', 'white/valtos/sounds/applause2.ogg')))
 				GLOB.violence_blue_team -= B
 			else if(B?.current?.stat == DEAD)
+				play_sound_to_everyone(pick(list('white/valtos/sounds/applause1.ogg', 'white/valtos/sounds/applause2.ogg')))
 				GLOB.violence_blue_team -= B
 		if(GLOB.violence_red_team.len == max_reds)
 			max_reds++
@@ -81,8 +94,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		if(shutters_closed && round_started_at + 30 SECONDS < world.time)
 			shutters_closed = FALSE
 			to_chat(world, leader_brass("В БОЙ!"))
-			for(var/mob/M in GLOB.player_list)
-				SEND_SOUND(M, 'white/valtos/sounds/gong.ogg')
+			play_sound_to_everyone('white/valtos/sounds/gong.ogg')
 			for(var/obj/machinery/door/poddoor/D in main_area)
 				INVOKE_ASYNC(D, /obj/machinery/door/poddoor.proc/open)
 		if(round_started_at + 30 SECONDS < world.time)
@@ -98,12 +110,10 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	SSjob.SetJobPositions(/datum/job/combantant/red, 0, 0, TRUE)
 	SSjob.SetJobPositions(/datum/job/combantant/blue, 0, 0, TRUE)
 	spawn(3 SECONDS)
+		play_sound_to_everyone('white/valtos/sounds/gong.ogg')
 		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round] ЗАВЕРШЁН!"))
 		to_chat(world, leader_brass("ПОБЕДА [winner]!"))
-	for(var/mob/M in GLOB.player_list)
-		SEND_SOUND(M, 'white/valtos/sounds/crowd_win.ogg')
-		spawn(3 SECONDS)
-			SEND_SOUND(M, 'white/valtos/sounds/gong.ogg')
+	play_sound_to_everyone('white/valtos/sounds/crowd_win.ogg')
 	spawn(10 SECONDS)
 		new_round()
 
@@ -170,8 +180,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		SSjob.ResetOccupations("Violence")
 		SSjob.SetJobPositions(/datum/job/combantant/red, 200, 200, TRUE)
 		SSjob.SetJobPositions(/datum/job/combantant/blue, 200, 200, TRUE)
-		for(var/mob/M in GLOB.player_list)
-			SEND_SOUND(M, 'white/valtos/sounds/horn.ogg')
+		play_sound_to_everyone('white/valtos/sounds/horn.ogg')
 
 /datum/game_mode/violence/check_finished()
 	if(GLOB.violence_current_round == 6)
