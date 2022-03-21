@@ -3,7 +3,7 @@
 
 	var/sound/cursound
 	var/active = FALSE
-	var/playing_range = 32
+	var/playing_range = 24
 	var/list/listener_comps = list()
 
 	var/environmental = TRUE
