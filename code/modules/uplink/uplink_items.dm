@@ -2031,7 +2031,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 /datum/uplink_item/badass/costumes/centcom_official
 	name = "Костюм представителя ЦК"
-	desc = "Попросите команду \"осмотреть\" их ядерный диск и систему вооружения, \
+	desc = "Попросите команду \"осмотреть\" их ядерный диск и арсенал, \
 			а когда они откажутся, достаньте автоматическую винтовку и расстреляйте капитана. Радиогарнитура не включает ключ шифрования. Оружие в комплект не входит."
 	item = /obj/item/storage/box/syndie_kit/centcom_costume
 
@@ -2042,7 +2042,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 /datum/uplink_item/badass/costumes/tactical_naptime
 	name = "Пижамный комплект"
-	desc = "Даже солдатам нужно хорошо выспаться. В комплект входит кроваво-красная пижама, одеяло, кружка горячего какао и пушистый друг."
+	desc = "Даже солдатам нужно хорошо выспаться. В комплект входит кроваво-красная пижама, одеяло, кружка горячего какао и пушистый товарищ."
 	item = /obj/item/storage/box/syndie_kit/sleepytime
 	cost = 4
 	limited_stock = 1
@@ -2078,7 +2078,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 /datum/uplink_item/badass/syndiecigs
 	name = "Сигареты Синдиката"
-	desc = "Сильный аромат, плотный дым, пропитанный омнизином."
+	desc = "Сигареты с сильным ароматом и плотным дымом, пропитанные омнизином."
 	item = /obj/item/storage/fancy/cigarettes/cigpack_syndicate
 	cost = 2
 	illegal_tech = FALSE
@@ -2096,7 +2096,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 /datum/uplink_item/badass/executionersword
 	name = "Меч палача"
-	desc = "Отрубай головы во славу своих фракций"
+	desc = "Отрубай головы во славу своих фракций."
 	item = /obj/item/melee/execution_sword
 	cost = 1
 
