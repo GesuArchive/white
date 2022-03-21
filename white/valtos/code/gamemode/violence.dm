@@ -14,6 +14,9 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	var/shutters_closed = TRUE
 	var/area/main_area
 
+	var/max_reds = 2
+	var/max_blues = 2
+
 	announce_span = "danger"
 	announce_text = "Резня!"
 
@@ -42,7 +45,6 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/game_mode/violence/post_setup()
 	..()
-	SSjob.SetupOccupations(faction = "Violence")
 	SSjob.DisableAllJobs()
 	CONFIG_SET(flag/allow_random_events, FALSE)
 	spawn(3 SECONDS)
@@ -56,28 +58,31 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/game_mode/violence/process()
 	if(round_active)
-		if(GLOB.violence_red_team.len < GLOB.violence_blue_team.len)
-			SSjob.AddJobPositions(/datum/job/combantant/red)
-		if(GLOB.violence_blue_team.len < GLOB.violence_red_team.len)
-			SSjob.AddJobPositions(/datum/job/combantant/blue)
+		for(var/datum/mind/R in GLOB.violence_red_team)
+			if(R?.current?.stat == DEAD)
+				GLOB.violence_red_team -= R
+		for(var/datum/mind/B in GLOB.violence_blue_team)
+			if(B?.current?.stat == DEAD)
+				GLOB.violence_blue_team -= B
+		if(GLOB.violence_red_team.len == max_reds)
+			max_reds++
+			SSjob.AddJobPositions(/datum/job/combantant/red, max_reds, max_reds)
+		if(GLOB.violence_blue_team.len == max_blues)
+			max_blues++
+			SSjob.AddJobPositions(/datum/job/combantant/blue, max_blues, max_blues)
 		if(shutters_closed && round_started_at + 30 SECONDS < world.time)
 			shutters_closed = FALSE
 			for(var/mob/M in GLOB.player_list)
 				SEND_SOUND(M, 'white/valtos/sounds/gong.ogg')
 			for(var/obj/machinery/door/poddoor/D in main_area)
 				INVOKE_ASYNC(D, /obj/machinery/door/poddoor.proc/open)
-		if(round_started_at + 120 SECONDS < world.time)
+		if(round_started_at + 30 SECONDS < world.time)
 			if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len)
 				end_round("СИНИХ")
 			if(GLOB.violence_blue_team.len == 0 && GLOB.violence_red_team.len)
 				end_round("КРАСНЫХ")
 			if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len == 0)
 				end_round()
-		for(var/mob/living/L in main_area)
-			if(L.stat == DEAD)
-				L?.mind?.remove_all_antag_datums()
-		for(var/mob/dead/D in GLOB.player_list)
-			D?.mind?.remove_all_antag_datums()
 
 /datum/game_mode/violence/proc/end_round(winner = "ХУЙ ЕГО ЗНАЕТ КОГО")
 	round_active = FALSE
@@ -130,6 +135,8 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/game_mode/violence/proc/new_round()
 	GLOB.violence_current_round++
+	if(GLOB.violence_current_round == 6)
+		return
 	GLOB.violence_red_team = list()
 	GLOB.violence_blue_team = list()
 	for(var/mob/M in GLOB.player_list)
@@ -143,8 +150,9 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		round_active = TRUE
 		round_started_at = world.time
 		to_chat(world, span_reallybig("РАУНД [GLOB.violence_current_round] НАЧАЛСЯ!"))
-		SSjob.SetJobPositions(/datum/job/combantant/red, 2, 2, TRUE)
-		SSjob.SetJobPositions(/datum/job/combantant/blue, 2, 2, TRUE)
+		SSjob.ResetOccupations("Violence")
+		SSjob.SetJobPositions(/datum/job/combantant/red, 200, 200, TRUE)
+		SSjob.SetJobPositions(/datum/job/combantant/blue, 200, 200, TRUE)
 		for(var/mob/M in GLOB.player_list)
 			SEND_SOUND(M, 'white/valtos/sounds/horn.ogg')
 
@@ -179,10 +187,6 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	. = ..()
 	GLOB.violence_red_team |= owner
 
-/datum/antagonist/combatant/red/on_removal()
-	. = ..()
-	GLOB.violence_red_team -= owner
-
 /datum/antagonist/combatant/red/create_team()
 	for(var/datum/antagonist/combatant/red/H in GLOB.antagonists)
 		if(!H.owner)
@@ -201,10 +205,6 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	. = ..()
 	GLOB.violence_blue_team |= owner
 
-/datum/antagonist/combatant/blue/on_removal()
-	. = ..()
-	GLOB.violence_blue_team -= owner
-
 /datum/antagonist/combatant/blue/create_team()
 	for(var/datum/antagonist/combatant/blue/H in GLOB.antagonists)
 		if(!H.owner)
@@ -217,7 +217,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/job/combantant
 	title = "Combantant"
 	ru_title = "Комбатант"
-	faction = "Station"
+	faction = "Violence"
 	total_positions = 0
 	spawn_positions = 0
 	supervisors = "практически всем"

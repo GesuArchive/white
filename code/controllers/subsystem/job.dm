@@ -210,7 +210,7 @@ SUBSYSTEM_DEF(job)
 			if(AssignRole(player, job.title))
 				return TRUE
 
-/datum/controller/subsystem/job/proc/ResetOccupations()
+/datum/controller/subsystem/job/proc/ResetOccupations(faction = "Station")
 	JobDebug("Occupations reset.")
 	for(var/i in GLOB.new_player_list)
 		var/mob/dead/new_player/player = i
@@ -218,7 +218,7 @@ SUBSYSTEM_DEF(job)
 			player.mind.assigned_role = null
 			player.mind.special_role = null
 			SSpersistence.antag_rep_change[player.ckey] = 0
-	SetupOccupations()
+	SetupOccupations(faction)
 	unassigned = list()
 	return
 

@@ -399,11 +399,13 @@
 	for(var/I in occupations)
 		var/datum/job/J = I
 		J.total_positions = 750
+		J.spawn_positions = 750
 
 /datum/controller/subsystem/job/proc/DisableAllJobs()
 	for(var/I in occupations)
 		var/datum/job/J = I
 		J.total_positions = 0
+		J.spawn_positions = 0
 
 /datum/round_aspect/emergency_meeting
 	name = "Emergency Meeting"

@@ -163,6 +163,8 @@
 	//// новый год 2022
 
 /datum/job/proc/equip_gear(mob/living/H, client/our_client, only_view = TRUE)
+	if(GLOB.violence_mode_activated)
+		return
 	var/mob/living/carbon/human/human = H
 	var/list/gear_leftovers = list()
 	if(our_client && LAZYLEN(our_client.prefs.equipped_gear))
