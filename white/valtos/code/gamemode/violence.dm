@@ -51,7 +51,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	..()
 	SSjob.DisableAllJobs()
 	CONFIG_SET(flag/allow_random_events, FALSE)
-	spawn(3 SECONDS)
+	spawn(1 SECONDS)
 		new_round()
 
 /datum/game_mode/violence/generate_report()
@@ -141,6 +141,8 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		qdel(O)
 	for(var/obj/item/organ/O in main_area)
 		qdel(O)
+	for(var/obj/effect/decal/cleanable/O in main_area)
+		qdel(O)
 	for(var/mob/M in main_area)
 		qdel(M)
 	for(var/obj/machinery/door/poddoor/D in main_area)
@@ -190,6 +192,17 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/team/violence/blue
 	name = "Боевики: Синие"
 	member_name = "Боевик синих"
+
+/datum/antagonist/combatant
+	name = "Боевик белых"
+
+/datum/antagonist/combatant/apply_innate_effects(mob/living/mob_override)
+	var/mob/living/M = mob_override || owner.current
+	add_antag_hud(antag_hud_type, antag_hud_name, M)
+
+/datum/antagonist/combatant/remove_innate_effects(mob/living/mob_override)
+	var/mob/living/M = mob_override || owner.current
+	remove_antag_hud(antag_hud_type, M)
 
 /datum/antagonist/combatant/red
 	name = "Боевик красных"
@@ -324,7 +337,6 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 				back = /obj/item/shield/riot/military
 			else
 				l_hand = /obj/item/gun/ballistic/automatic/hs010
-				r_hand = /obj/item/gun/ballistic/automatic/hs010
 
 /area/violence
 	name = "Насилие"
