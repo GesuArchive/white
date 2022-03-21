@@ -87,6 +87,8 @@
 #define EXP_TYPE_SCUM			"Scum"
 #define EXP_TYPE_GHOST			"Ghost"
 #define EXP_TYPE_ADMIN			"Admin"
+#define EXP_TYPE_COMBATANT_RED	"Combatant"
+#define EXP_TYPE_COMBATANT_BLUE	"Combatant"
 
 //Flags in the players table in the db
 #define DB_FLAG_EXEMPT 1
