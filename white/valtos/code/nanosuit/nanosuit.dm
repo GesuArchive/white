@@ -1168,10 +1168,10 @@
 			toggle_mode(NANO_STRENGTH)
 			return
 
-//Nanosuit uplink item, available in all traitor rounds and nuke.
+//Nanosuit uplink item, available in all traitor rounds
 /datum/uplink_item/dangerous/nanosuit
-	name = "CryNet Nanosuit"
-	desc = "Become a posthuman warrior. The items cannot be taken off once you wear them and alerts the crew of your position if equipped on station."
+	name = "Нанокостюм CryNet"
+	desc = "Станьте постчеловеческим воином. Нанокостюм нельзя снять, а также он предупреждают экипаж о вашем местоположении, если вы его надели."
 	item = /obj/item/storage/box/syndie_kit/nanosuit
 	cost = 30
 	surplus = 20
