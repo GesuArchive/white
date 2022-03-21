@@ -531,7 +531,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 /datum/uplink_item/dangerous/revolver
 	name = "Револьвер Синдиката"
-	desc = "Жестокий и простой синдикатовский револьвер, стреляющий патронами калибра .357 Магнум на 7 патронов."
+	desc = "Примитивный, но мощный синдикатовский револьвер, стреляющий патронами калибра .357 Магнум. Вмещает 7 патронов."
 	item = /obj/item/gun/ballistic/revolver
 	cost = 13
 	surplus = 50
@@ -672,7 +672,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 /datum/uplink_item/stealthy_weapons/holster
 	name = "Синдикатская кобура"
-	desc = "Полезный маленький девайс, позволяющее незаметно носить оружие с помощью технологии хамелеона. Оно также позволяет круто вращать оружием."
+	desc = "Полезная кобура, позволяющая незаметно носить оружие, оснащенная технологией хамелеона. Она также позволяет круто вращать оружием."
 	item = /obj/item/storage/belt/holster/chameleon
 	cost = 1
 
@@ -682,23 +682,23 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	surplus = 40
 
 /datum/uplink_item/ammo/pistol
-	name = "Магазин 9мм"
-	desc = "магазин на 8 патронов калибра 9мм, совместимый с пистолетом Макарова."
+	name = "Магазин 9 мм"
+	desc = "Магазин на 8 патронов калибра 9 мм, совместимый с пистолетом Макарова."
 	item = /obj/item/ammo_box/magazine/m9mm
 	cost = 1
 	purchasable_from = ~UPLINK_CLOWN_OPS
 	illegal_tech = FALSE
 
 /datum/uplink_item/ammo/pistolap
-	name = "Магазин 9мм БП"
-	desc = "Дополнительный магазин на 8 патронов калибра 9мм, совместимый с пистолетом Макарова. \
+	name = "Магазин 9 мм БП"
+	desc = "Дополнительный магазин на 8 патронов калибра 9 мм, совместимый с пистолетом Макарова. \
 			Эти патроны менее эффективны при ранении цели, но пробивают броню."
 	item = /obj/item/ammo_box/magazine/m9mm/ap
 	cost = 2
 	purchasable_from = ~UPLINK_CLOWN_OPS
 
 /datum/uplink_item/ammo/pistolhp
-	name = "Магазин 9мм HP"
+	name = "Магазин 9 мм HP"
 	desc = "Дополнительный магазин на 8 патронов калибра 9 мм, совместимый с пистолетом Макарова. \
 			Эти патроны наносят больший урон, но неэффективны против брони."
 	item = /obj/item/ammo_box/magazine/m9mm/hp
@@ -706,7 +706,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	purchasable_from = ~UPLINK_CLOWN_OPS
 
 /datum/uplink_item/ammo/pistolfire
-	name = "Магазин 9мм Т"
+	name = "Магазин 9 мм Т"
 	desc = "Дополнительный магазин на 8 патронов калибра 9 мм, совместимый с пистолетом Макарова. \
 			Заряжен зажигательными патронами, которые наносят небольшой урон, но поджигают цель."
 	item = /obj/item/ammo_box/magazine/m9mm/fire
@@ -714,7 +714,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	purchasable_from = ~UPLINK_CLOWN_OPS
 
 /datum/uplink_item/ammo/pistolaps
-	name = "Магазин 9мм АПС"
+	name = "Магазин 9 мм АПС"
 	desc = "Дополнительный магазин на 15 патронов калибра 9мм, совместимый с автоматическим пистолетом Стечкина."
 	item = /obj/item/ammo_box/magazine/m9mm_aps
 	cost = 2
@@ -764,16 +764,16 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 /datum/uplink_item/ammo/revolver
 	name = "Скорозарядник .357"
-	desc = "Скорозарядник, содержащий патроны калибра .357 Magnum; используемый в револьверах. \
-			Для тех случаев, когда вам действительно нужно, чтобы многие вещи были мертвы."
+	desc = "Скорозарядник, содержащий патроны калибра .357 Магнум, используемый в револьверах. \
+			Для тех случаев, когда вам действительно нужно, чтобы многие вещи были мертвыми."
 	item = /obj/item/ammo_box/a357
 	cost = 4
 	purchasable_from = ~UPLINK_CLOWN_OPS
 	illegal_tech = FALSE
 
 /datum/uplink_item/ammo/a40mm
-	name = "Коробка с 40мм гранатами"
-	desc = "Ящик 40-мм гранат HE для использования с подствольным гранатометом M-90gl. \
+	name = "Коробка с 40 мм гранатами"
+	desc = "Ящик 40мм гранат для использования с подствольным гранатометом M-90gl. \
 			Ваши товарищи по команде попросят вас не стрелять в них в маленьких корридорах."
 	item = /obj/item/ammo_box/a40mm
 	cost = 6
@@ -781,7 +781,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 /datum/uplink_item/ammo/smg/bag
 	name = "Сумка с магазинами .45 калибра"
-	desc = "Вещевой мешок, наполненный магазинами 45-го калибра, которых хватит на всю команду, по сниженной цене."
+	desc = "Вещевой мешок, наполненный магазинами 45-го калибра, которых хватит на всю команду, всего по сниженной цене."
 	item = /obj/item/storage/backpack/duffelbag/syndie/ammo/smg
 	cost = 20 //instead of 27 TC
 	purchasable_from = UPLINK_NUKE_OPS
@@ -879,9 +879,9 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	item = /obj/item/ammo_box/magazine/mm712x82/incen
 
 /datum/uplink_item/ammo/machinegun/match
-	name = "Патронная коробка 7.12x82 калибра Рикошетные"
-	desc = "Магазин на 50 патронов калибра 7.12x82 мм для использования в L6 SAW; вы не знали, что существует спрос на матчевые патроны \
-			но эти патроны тонко настроены и идеально подходят для рикошета от стен."
+	name = "Патронная коробка 7.12x82 калибра М"
+	desc = "Магазин на 50 патронов калибра 7.12x82 мм для использования в L6 SAW; вы не знали, что существует спрос на матчевые патроны, \
+			но эти патроны тонко изготовлены и идеально подходят для рикошета от стен."
 	item = /obj/item/ammo_box/magazine/mm712x82/match
 	cost = 10
 
@@ -902,8 +902,8 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	cost = 6
 
 /datum/uplink_item/ammo/toydarts
-	name = "Коробка с жесткими пенными дротиками"
-	desc = "Коробка с 40 жесткими пенными дротиками, для перезарядки любого игрушечного магазина. Не забудьте поделиться!"
+	name = "Коробка с жёсткими пенными дротиками"
+	desc = "Коробка с 40 жёсткими пенными дротиками, для перезарядки любого игрушечного магазина. Не забудьте поделиться!"
 	item = /obj/item/ammo_box/foambox/riot
 	cost = 2
 	surplus = 0
@@ -1563,8 +1563,8 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	cost = 5
 
 /datum/uplink_item/device_tools/thermal
-	name = "Хамелеонные Тепловизионные очки"
-	desc = "Очки с технологией хамелеон, позволяющая изменять их вид. \
+	name = "Хамелеонные термальные очки"
+	desc = "Тепловизиооные очки с технологией хамелеона, позволяющая изменять их вид. \
 			Они позволяют видеть организмы сквозь стены, улавливая верхнюю часть инфракрасного спектра света, \
 			излучаемого объектами в виде тепла и света. Более горячие объекты, такие как теплые тела, кибернетические организмы и ядра \
 			искусственного интеллекта, излучают больше света, чем более холодные объекты, такие как стены и шлюзы."
@@ -1682,8 +1682,8 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 /datum/uplink_item/implants/uplink
 	name = "Имплант аплинка"
-	desc = "Имплант, вводимый в тело и активируемый по желанию пользователя. Не имеет телекристаллов и должен быть заряжен с помощью физических телекристаллов. \
-			Не обнаруживается медицинскими интерфейсами (кроме хирургического вмешательства) и отлично подходит для побега из заточения"
+	desc = "Имплант, вводимый в тело и активируемый по желанию пользователя. Изначально не имеет ТК и должен быть заряжен их физической формой. \
+			Не обнаруживается медицинскими интерфейсами (кроме хирургического вмешательства) и отлично подходит для побега из заточения."
 	item = /obj/item/storage/box/syndie_kit // the actual uplink implant is generated later on in spawn_item
 	cost = UPLINK_IMPLANT_TELECRYSTAL_COST
 	// An empty uplink is kinda useless.
@@ -1720,7 +1720,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 //Race-specific items
 /datum/uplink_item/race_restricted
-	category = "Специальные-расовые"
+	category = "Расовые"
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 	surplus = 0
 
