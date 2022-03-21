@@ -42,6 +42,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/game_mode/violence/post_setup()
 	..()
+	SSjob.DisableAllJobs()
 	CONFIG_SET(flag/allow_random_events, FALSE)
 	spawn(3 SECONDS)
 		new_round()
