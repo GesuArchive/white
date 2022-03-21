@@ -39,6 +39,11 @@
 /datum/element/eyestab/proc/perform_eyestab(obj/item/item, mob/living/target, mob/living/user)
 	var/obj/item/bodypart/target_limb = target.get_bodypart(BODY_ZONE_HEAD)
 
+
+	if (HAS_TRAIT(user, TRAIT_PACIFISM))
+		to_chat(user, span_warning("Не могу позволить себе проткнуть глаз человеку! Это навредит ему!"))
+		return
+
 	if (ishuman(target) && isnull(target_limb))
 		return
 
@@ -62,13 +67,13 @@
 
 	if (target == user)
 		user.visible_message(
-			span_danger("[user] stabs [user.p_them()]self in the eyes with [item]!"),
-			span_userdanger("You stab yourself in the eyes with [item]!"),
+			span_danger("[user] протыкает свой глаз с помощью [item]!"),
+			span_userdanger("Протыкаю себе глаз с помощью [item]!"),
 		)
 	else
 		target.visible_message(
-			span_danger("[user] stabs [target] in the eye with [item]!"),
-			span_userdanger("[user] stabs you in the eye with [item]!"),
+			span_danger("[user] протыкает глаз [target] с помощью [item]!"),
+			span_userdanger("[user] протыкает ваш глаз с помощью [item]!"),
 		)
 
 	if (target_limb)
@@ -78,7 +83,7 @@
 
 	SEND_SIGNAL(target, COMSIG_ADD_MOOD_EVENT, "eye_stab", /datum/mood_event/eye_stab)
 
-	//log_combat(user, target, "attacked", "[item.name]", "(Combat mode: [user.combat_mode ? "On" : "Off"])")
+	log_combat(user, target, "attacked (eyestabbed)", "[item.name]")
 
 	var/obj/item/organ/eyes/eyes = target.getorganslot(ORGAN_SLOT_EYES)
 	if (!eyes)
@@ -92,23 +97,23 @@
 
 	target.adjust_blurriness(15)
 	if (target.stat != DEAD)
-		to_chat(target, span_danger("Your eyes start to bleed profusely!"))
+		to_chat(target, span_danger("Мои глаза начинают обильно кровоточить!"))
 
 	if (!target.is_blind() && !HAS_TRAIT(target, TRAIT_NEARSIGHT))
-		to_chat(target, span_danger("You become nearsighted!"))
+		to_chat(target, span_danger("Мое зрение ухудшилось!"))
 
 	target.become_nearsighted(EYE_DAMAGE)
 
 	if (prob(50))
 		if (target.stat != DEAD && target.drop_all_held_items())
-			to_chat(target, span_danger("You drop what you're holding and clutch at your eyes!"))
+			to_chat(target, span_danger("Роняю то, что держу в руках, и хватаюсь за глаза!"))
 		target.adjust_blurriness(10)
 		target.Unconscious(20)
 		target.Paralyze(40)
 
 	if (prob(eyes.damage - EYESTAB_BLEEDING_THRESHOLD + 1))
 		target.become_blind(EYE_DAMAGE)
-		to_chat(target, span_danger("You go blind!"))
+		to_chat(target, span_danger("Я ОСЛЕП!"))
 
 #undef CLUMSY_ATTACK_SELF_CHANCE
 #undef EYESTAB_BLEEDING_THRESHOLD

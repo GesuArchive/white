@@ -114,8 +114,8 @@
 
 /// Energy axe - extremely strong.
 /obj/item/melee/energy/axe
-	name = "energy axe"
-	desc = "An energized battle axe."
+	name = "энергетический топор"
+	desc = "Энергетический боевой топор."
 	icon_state = "axe"
 	lefthand_file = 'icons/mob/inhands/weapons/axes_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/axes_righthand.dmi'
@@ -151,8 +151,8 @@
 
 /// Energy swords.
 /obj/item/melee/energy/sword
-	name = "energy sword"
-	desc = "May the force be within you."
+	name = "энергетический меч"
+	desc = "Да прибудет с тобой сила."
 	icon_state = "e_sword"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
