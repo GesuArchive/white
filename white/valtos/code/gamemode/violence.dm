@@ -1,5 +1,7 @@
 GLOBAL_VAR_INIT(violence_mode_activated, FALSE)
 GLOBAL_VAR_INIT(violence_current_round, 0)
+GLOBAL_VAR(violence_red_datum)
+GLOBAL_VAR(violence_blue_datum)
 GLOBAL_LIST_EMPTY(violence_red_team)
 GLOBAL_LIST_EMPTY(violence_blue_team)
 
@@ -31,6 +33,8 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	SSweather.flags |= SS_NO_FIRE
 	SSeconomy.flags |= SS_NO_FIRE
 	SSjob.DisableAllJobs()
+	GLOB.violence_red_datum = new /datum/team/violence/red
+	GLOB.violence_blue_datum = new /datum/team/violence/blue
 	return TRUE
 
 /datum/game_mode/violence/can_start()
@@ -59,10 +63,14 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/game_mode/violence/process()
 	if(round_active)
 		for(var/datum/mind/R in GLOB.violence_red_team)
-			if(R?.current?.stat == DEAD)
+			if(!R?.current)
+				GLOB.violence_red_team -= R
+			else if(R?.current?.stat == DEAD)
 				GLOB.violence_red_team -= R
 		for(var/datum/mind/B in GLOB.violence_blue_team)
-			if(B?.current?.stat == DEAD)
+			if(!B?.current)
+				GLOB.violence_blue_team -= B
+			else if(B?.current?.stat == DEAD)
 				GLOB.violence_blue_team -= B
 		if(GLOB.violence_red_team.len == max_reds)
 			max_reds++
@@ -128,6 +136,10 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		qdel(O)
 	for(var/obj/effect/hotspot/O in main_area)
 		qdel(O)
+	for(var/obj/item/bodypart/O in main_area)
+		qdel(O)
+	for(var/obj/item/organ/O in main_area)
+		qdel(O)
 	for(var/mob/M in main_area)
 		qdel(M)
 	for(var/obj/machinery/door/poddoor/D in main_area)
@@ -169,52 +181,41 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/team/violence/red
 	name = "Боевики: Красные"
+	member_name = "Боевик красных"
 
 /datum/team/violence/blue
 	name = "Боевики: Синие"
-
-/datum/antagonist/combatant
-	var/datum/team/violence/team
-
-/datum/antagonist/combatant/on_gain()
-	. = ..()
-	create_team()
+	member_name = "Боевик синих"
 
 /datum/antagonist/combatant/red
 	name = "Боевик красных"
 	antag_hud_type = ANTAG_HUD_CULT
 	antag_hud_name = "hog-red-2"
 
+/datum/antagonist/combatant/red/get_team()
+	return GLOB.violence_red_datum
+
 /datum/antagonist/combatant/red/on_gain()
 	. = ..()
 	GLOB.violence_red_team |= owner
-
-/datum/antagonist/combatant/red/create_team()
-	for(var/datum/antagonist/combatant/red/H in GLOB.antagonists)
-		if(!H.owner)
-			continue
-		if(H.team)
-			team = H.team
-			return
-	team = new /datum/team/violence/red
+	var/datum/team/T = GLOB.violence_red_datum
+	if(T)
+		T.add_member(owner)
 
 /datum/antagonist/combatant/blue
 	name = "Боевик синих"
 	antag_hud_type = ANTAG_HUD_CLOCKWORK
 	antag_hud_name = "hog-blue-2"
 
+/datum/antagonist/combatant/blue/get_team()
+	return GLOB.violence_blue_datum
+
 /datum/antagonist/combatant/blue/on_gain()
 	. = ..()
 	GLOB.violence_blue_team |= owner
-
-/datum/antagonist/combatant/blue/create_team()
-	for(var/datum/antagonist/combatant/blue/H in GLOB.antagonists)
-		if(!H.owner)
-			continue
-		if(H.team)
-			team = H.team
-			return
-	team = new /datum/team/violence/blue
+	var/datum/team/T = GLOB.violence_blue_datum
+	if(T)
+		T.add_member(owner)
 
 /datum/job/combantant
 	title = "Combantant"

@@ -51,7 +51,7 @@
 	if(href_list[VV_HK_MARK])
 		usr.client.mark_datum(target)
 	if(href_list[VV_HK_ADDCOMPONENT])
-		if(!check_rights(NONE))
+		if(!check_rights(R_DEBUG))
 			return
 		var/list/names = list()
 		var/list/componentsubtypes = sort_list(subtypesof(/datum/component), /proc/cmp_typepaths_asc)
