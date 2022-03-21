@@ -270,12 +270,13 @@
 
 	suit = /obj/item/clothing/suit/toggle/armor/vest/centcom_formal
 	shoes = /obj/item/clothing/shoes/combat/swat
-	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
+	gloves = /obj/item/clothing/gloves/color/captain/centcom
 	ears = /obj/item/radio/headset/headset_cent/commander
 	glasses = /obj/item/clothing/glasses/sunglasses
 	mask = /obj/item/clothing/mask/cigarette/cigar/cohiba
 	head = /obj/item/clothing/head/centom_cap
 	belt = /obj/item/gun/ballistic/automatic/pistol/deagle
+	neck = /obj/item/clothing/neck/cloak/cape/grand
 	r_pocket = /obj/item/lighter
 	l_pocket = /obj/item/ammo_box/magazine/m50
 	back = /obj/item/storage/backpack/satchel/leather
@@ -295,6 +296,37 @@
 		uniform = /obj/item/clothing/under/rank/centcom/centcom_skirt
 
 /datum/outfit/centcom/commander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(visualsOnly)
+		return
+
+	var/obj/item/card/id/W = H.wear_id
+	W.registered_name = H.real_name
+	W.update_label()
+	W.update_icon()
+	..()
+
+
+/datum/outfit/centcom/grand_admiral
+	name = "Гранд-адмирал ЦК"
+
+	uniform = /obj/item/clothing/under/rank/centcom/commander/grand
+	suit = null
+	shoes = /obj/item/clothing/shoes/combat/swat
+	gloves = /obj/item/clothing/gloves/color/captain/centcom/admiral
+	ears = /obj/item/radio/headset/headset_cent/commander
+	glasses = /obj/item/clothing/glasses/sunglasses
+	mask = /obj/item/clothing/mask/cigarette/cigar/havana
+	head = /obj/item/clothing/head/centhat/admiral/grand
+	neck = /obj/item/clothing/neck/cloak/cape/grand
+	belt = /obj/item/gun/energy/pulse/pistol
+	r_pocket = /obj/item/lighter
+	l_pocket = /obj/item/melee/energy/sword/saber/green
+	back = /obj/item/storage/backpack/satchel/leather
+	id = /obj/item/card/id/advanced/centcom
+	id_trim = /datum/id_trim/centcom/commander
+	backpack_contents = list(/obj/item/restraints/handcuffs/cable/zipties=1)
+
+/datum/outfit/centcom/grand_admiral/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
 		return
 

@@ -49,6 +49,29 @@
 	desc = "Носится начальником отдела кадров. Слабо пахнет бюрократией."
 	icon_state = "hopcloak"
 
+/obj/item/clothing/neck/cloak/hop
+	name = "плащ главы персонала"
+	desc = "Носится начальником отдела кадров. Слабо пахнет бюрократией."
+	icon_state = "hopcloak"
+
+/obj/item/clothing/neck/cloak/hop
+	name = "плащ главы персонала"
+	desc = "Носится начальником отдела кадров. Слабо пахнет бюрократией."
+	icon_state = "hopcloak"
+
+/obj/item/clothing/neck/cloak/cape
+	name = "admiral's cape"
+	desc = "A sizable green cape with gold connects."
+	icon_state = "admiralcape"
+	w_class = WEIGHT_CLASS_SMALL
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+	flags_inv = HIDESUITSTORAGE
+
+/obj/item/clothing/neck/cloak/cape/grand
+	name = "grand admiral's cape"
+	desc = "A sizable white cape with gold connects."
+	icon_state = "grand_admiral"
+
 /obj/item/clothing/suit/hooded/cloak/goliath
 	name = "плащ голиафа"
 	icon_state = "goliath_cloak"

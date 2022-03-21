@@ -8,6 +8,27 @@
 	icon_state = "centcom"
 	inhand_icon_state = "dg_suit"
 
+/obj/item/clothing/under/rank/centcom/commander/grand
+	desc = "Это комбинезон с золотыми знаками, который носит самый высокопоставленный офицер ЦК."
+	name = "комбинезон гранд-адмирала ЦК"
+	icon_state = "grand_admiral"
+	can_adjust = FALSE
+
+/obj/item/clothing/gloves/color/captain/centcom
+	desc = "Царственные зеленые перчатки с красивой золотой отделкой, алмазным противоударным покрытием и встроенным тепловым барьером. Шикарно."
+	name = "перчатки ЦентКома"
+	icon_state = "centcom"
+
+/obj/item/clothing/head/centhat/admiral/grand
+	name = "фуражка гранд-адмирала"
+	icon_state = "grand_admiral"
+	desc = "It's good to be a Q."
+
+/obj/item/clothing/gloves/color/captain/centcom/admiral
+	desc = "Царственные черные перчатки с красивой золотой отделкой, алмазным противоударным покрытием и встроенным тепловым барьером. Шикарно."
+	name = "перчатки гранд-адмирала ЦК"
+	icon_state = "grand_admiral"
+
 /obj/item/clothing/under/rank/centcom/intern
 	name = "костюм интерна ЦентКома"
 	desc = "Рубашечка для прощей идентификации. Сразу видно, новичок."
