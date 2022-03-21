@@ -80,6 +80,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 			SSjob.AddJobPositions(/datum/job/combantant/blue, max_blues, max_blues)
 		if(shutters_closed && round_started_at + 30 SECONDS < world.time)
 			shutters_closed = FALSE
+			to_chat(world, leader_brass("В БОЙ!"))
 			for(var/mob/M in GLOB.player_list)
 				SEND_SOUND(M, 'white/valtos/sounds/gong.ogg')
 			for(var/obj/machinery/door/poddoor/D in main_area)
@@ -97,8 +98,8 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	SSjob.SetJobPositions(/datum/job/combantant/red, 0, 0, TRUE)
 	SSjob.SetJobPositions(/datum/job/combantant/blue, 0, 0, TRUE)
 	spawn(3 SECONDS)
-		to_chat(world, span_reallybig("РАУНД [GLOB.violence_current_round] ЗАВЕРШЁН!"))
-		to_chat(world, span_reallybig("ПОБЕДА [winner]!"))
+		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round] ЗАВЕРШЁН!"))
+		to_chat(world, leader_brass("ПОБЕДА [winner]!"))
 	for(var/mob/M in GLOB.player_list)
 		SEND_SOUND(M, 'white/valtos/sounds/crowd_win.ogg')
 		spawn(3 SECONDS)
@@ -163,7 +164,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		max_blues = 2
 		round_active = TRUE
 		round_started_at = world.time
-		to_chat(world, span_reallybig("РАУНД [GLOB.violence_current_round] НАЧАЛСЯ!"))
+		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round] НАЧАЛСЯ!"))
 		SSjob.ResetOccupations("Violence")
 		SSjob.SetJobPositions(/datum/job/combantant/red, 200, 200, TRUE)
 		SSjob.SetJobPositions(/datum/job/combantant/blue, 200, 200, TRUE)
@@ -172,6 +173,9 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/game_mode/violence/check_finished()
 	if(GLOB.violence_current_round == 6)
+		GLOB.master_mode = "secret"
+		SSticker.save_mode(GLOB.master_mode)
+		SSmapping.changemap(config.maplist["Box Station"])
 		return TRUE
 	else
 		return ..()
@@ -284,21 +288,21 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		if(2)
 			suit = /obj/item/clothing/suit/armor/vest/durathread
 			head = /obj/item/clothing/head/beret/durathread
-			r_hand = pick(list(/obj/item/kitchen/knife/combat, /obj/item/melee/sabre/officer, /obj/item/melee/baseball_bat, /obj/item/melee/energy/sword))
+			r_hand = pick(list(/obj/item/kitchen/knife/combat, /obj/item/melee/sabre/officer, /obj/item/melee/baseball_bat, /obj/item/melee/energy/sword/saber))
 			l_hand = pick(list(/obj/item/shield/riot/buckler, /obj/item/restraints/legcuffs/bola))
 		if(3)
-			suit = /obj/item/clothing/suit/armor/vest
-			head = /obj/item/clothing/head/helmet/sec
-			r_hand = pick(list(/obj/item/gun/ballistic/shotgun/automatic/combat, /obj/item/gun/ballistic/automatic/mini_uzi, /obj/item/gun/ballistic/automatic/pistol/m1911, /obj/item/gun/energy/laser/retro))
+			suit = /obj/item/clothing/suit/armor/bulletproof
+			head = /obj/item/clothing/head/helmet/alt
+			r_hand = pick(list(/obj/item/gun/ballistic/shotgun/automatic/combat, /obj/item/gun/ballistic/automatic/mini_uzi, /obj/item/gun/ballistic/automatic/pistol/m1911, /obj/item/gun/ballistic/automatic/pistol/makarov, /obj/item/gun/ballistic/automatic/pistol/luger, /obj/item/gun/ballistic/automatic/pistol/aps))
 			l_pocket = pick(list(/obj/item/reagent_containers/hypospray/medipen/salacid, /obj/item/grenade/frag))
 		if(4)
 			gloves = /obj/item/clothing/gloves/combat/sobr
 			suit = /obj/item/clothing/suit/armor/opvest/sobr
 			belt = /obj/item/storage/belt/military/assault/sobr
-			suit_store = /obj/item/gun/ballistic/automatic/ak74m
+			back = /obj/item/gun/ballistic/automatic/ak74m
 			switch(rand(1, 2))
 				if(1)
-					suit_store = /obj/item/gun/ballistic/shotgun/saiga
+					back = /obj/item/gun/ballistic/shotgun/saiga
 					suit = /obj/item/clothing/suit/armor/heavysobr
 					belt = /obj/item/storage/belt/military/assault/sobr/specialist
 					mask = /obj/item/clothing/mask/gas/heavy/m40
@@ -316,9 +320,11 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 			l_pocket = /obj/item/melee/energy/sword/saber
 			r_pocket = /obj/item/shield/energy
 			if(prob(50))
-				l_hand = /obj/item/gun/energy/pulse
+				r_hand = /obj/item/gun/energy/pulse
+				back = /obj/item/shield/riot/military
 			else
-				back = /obj/item/minigunpack
+				l_hand = /obj/item/gun/ballistic/automatic/hs010
+				r_hand = /obj/item/gun/ballistic/automatic/hs010
 
 /area/violence
 	name = "Насилие"
