@@ -14079,6 +14079,10 @@
 	name = "Centcom Bridge"
 	},
 /area/centcom/control)
+"Xd" = (
+/obj/effect/landmark/violence,
+/turf/open/space/basic,
+/area/space)
 "Xg" = (
 /obj/effect/spawner/randomcolavend,
 /obj/effect/turf_decal/bot,
@@ -43935,7 +43939,7 @@ Co
 Co
 Co
 Co
-Co
+Xd
 Co
 Co
 Co
