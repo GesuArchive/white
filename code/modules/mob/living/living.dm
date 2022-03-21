@@ -79,6 +79,8 @@
 		adjustBruteLoss(total_damage/2)
 		Knockdown(levels * 25)
 		return FALSE
+	visible_message(span_danger("<b>[capitalize(src.name)]</b> падает на <b>[T]</b>!") , \
+					span_userdanger("Падаю на [T]!"))
 	adjustBruteLoss(total_damage)
 	Knockdown(levels * 50)
 	return TRUE
