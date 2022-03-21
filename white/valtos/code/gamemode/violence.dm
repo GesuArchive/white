@@ -1,5 +1,6 @@
 GLOBAL_VAR_INIT(violence_mode_activated, FALSE)
 GLOBAL_VAR_INIT(violence_current_round, 0)
+GLOBAL_VAR(violence_landmark)
 GLOBAL_VAR(violence_red_datum)
 GLOBAL_VAR(violence_blue_datum)
 GLOBAL_LIST_EMPTY(violence_red_team)
@@ -23,6 +24,8 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	announce_text = "Резня!"
 
 /datum/game_mode/violence/pre_setup()
+	var/obj/effect/landmark/violence/V = GLOB.violence_landmark
+	V.load_map()
 	GLOB.disable_fucking_station_shit_please = TRUE
 	GLOB.violence_mode_activated = TRUE
 	main_area = GLOB.areas_by_type[/area/violence]
@@ -38,9 +41,6 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	return TRUE
 
 /datum/game_mode/violence/can_start()
-	if(!GLOB.areas_by_type[/area/violence])
-		message_admins("КАРТА НЕ ПОДХОДИТ ДЛЯ ЭТОГО РЕЖИМА!")
-		return FALSE
 	for(var/i in GLOB.new_player_list)
 		var/mob/dead/new_player/player = i
 		if(player.ready == PLAYER_READY_TO_PLAY)
@@ -301,6 +301,10 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		if(2)
 			suit = /obj/item/clothing/suit/armor/vest/durathread
 			head = /obj/item/clothing/head/beret/durathread
+			if(prob(50))
+				head = /obj/item/clothing/head/turban
+				suit = /obj/item/clothing/suit/chaplainsuit/studentuni
+				l_pocket = /obj/item/grenade/frag
 			r_hand = pick(list(/obj/item/kitchen/knife/combat, /obj/item/melee/sabre/officer, /obj/item/melee/baseball_bat, /obj/item/melee/energy/sword/saber))
 			l_hand = pick(list(/obj/item/shield/riot/buckler, /obj/item/restraints/legcuffs/bola))
 		if(3)
@@ -377,3 +381,40 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 	if(S)
 		SEND_SOUND(L, sound(S, repeat = 1, wait = 0, volume = 25, channel = CHANNEL_VIOLENCE_MODE))
+
+/obj/effect/landmark/violence
+	name = "Violence Map Spawner"
+
+/obj/effect/landmark/violence/Initialize(mapload)
+	. = ..()
+	GLOB.violence_landmark = src
+
+/obj/effect/landmark/violence/proc/load_map()
+
+	var/turf/spawn_area = get_turf(src)
+	var/datum/map_template/violence/current_map
+	var/list/maplist = list()
+
+	for(var/item in subtypesof(/datum/map_template/violence))
+		var/datum/map_template/violence/C = new item()
+		maplist[C] = C.weight
+
+	current_map = pickweight(maplist)
+
+	if(!spawn_area)
+		CRASH("No spawn area detected for Violence!")
+	else if(!current_map)
+		CRASH("No map prepared")
+	var/list/bounds = current_map.load(spawn_area, TRUE)
+	if(!bounds)
+		CRASH("Loading Violence map failed!")
+
+/datum/map_template/violence
+	var/description = ""
+	var/weight = 0
+
+/datum/map_template/violence/default
+	name = "Default"
+	description = "The original Violence map."
+	mappath = "_maps/map_files/Warfare/violence1.dmm"
+	weight = 3
