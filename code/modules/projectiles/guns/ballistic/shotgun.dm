@@ -156,7 +156,7 @@
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/dual
-	sawn_desc = "Приход Омара!"
+	sawn_desc = "Омар идёт!"
 	obj_flags = UNIQUE_RENAME
 	rack_sound_volume = 0
 	unique_reskin = list("Default" = "dshotgun",

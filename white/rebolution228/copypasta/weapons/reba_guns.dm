@@ -677,7 +677,7 @@
 
 	w_class = WEIGHT_CLASS_BULKY
 	mag_type = /obj/item/ammo_box/magazine/recharge/sar62l
-	mag_display_ammo = TRUE
+	mag_display_ammo = FALSE
 	fire_delay = 1.8
 	can_suppress = FALSE
 	burst_size = 3
