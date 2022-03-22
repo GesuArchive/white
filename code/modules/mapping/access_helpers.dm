@@ -146,11 +146,11 @@
 
 /obj/effect/mapping_helpers/airlock/access/any/science/ordnance/Initialize()
 	. = ..()
-	access_list += ACCESS_ORDNANCE
+	access_list += ACCESS_TOXINS
 
 /obj/effect/mapping_helpers/airlock/access/any/science/ordnance_storage/Initialize()
 	. = ..()
-	access_list += ACCESS_ORDNANCE_STORAGE
+	access_list += ACCESS_TOXINS_STORAGE
 
 /obj/effect/mapping_helpers/airlock/access/any/science/genetics/Initialize()
 	. = ..()
@@ -206,7 +206,7 @@
 
 /obj/effect/mapping_helpers/airlock/access/any/service/general/Initialize()
 	. = ..()
-	access_list += ACCESS_SERVICE
+	access_list += REGION_ACCESS_GENERAL
 
 /obj/effect/mapping_helpers/airlock/access/any/service/kitchen/Initialize()
 	. = ..()
@@ -403,11 +403,11 @@
 
 /obj/effect/mapping_helpers/airlock/access/all/science/ordnance/Initialize()
 	. = ..()
-	access_list += ACCESS_ORDNANCE
+	access_list += ACCESS_TOXINS
 
 /obj/effect/mapping_helpers/airlock/access/all/science/ordnance_storage/Initialize()
 	. = ..()
-	access_list += ACCESS_ORDNANCE_STORAGE
+	access_list += ACCESS_TOXINS_STORAGE
 
 /obj/effect/mapping_helpers/airlock/access/all/science/genetics/Initialize()
 	. = ..()
@@ -463,7 +463,7 @@
 
 /obj/effect/mapping_helpers/airlock/access/all/service/general/Initialize()
 	. = ..()
-	access_list += ACCESS_SERVICE
+	access_list += REGION_ACCESS_GENERAL
 
 /obj/effect/mapping_helpers/airlock/access/all/service/kitchen/Initialize()
 	. = ..()
