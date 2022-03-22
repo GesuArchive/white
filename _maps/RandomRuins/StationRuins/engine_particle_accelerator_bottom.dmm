@@ -14,7 +14,8 @@
 	id = "engi_reactor_shutters"
 	},
 /obj/machinery/door/airlock/highsecurity{
-	req_access = "10";
+	req_access = null;
+	req_access_txt = "10";
 	security_level = 6
 	},
 /turf/open/floor/plasteel/dark,
@@ -297,7 +298,7 @@
 	id = "engi_reactor_shutters";
 	name = "бронеставни выхода в теха";
 	pixel_y = 32;
-	req_one_access_txt = "5"
+	req_access_txt = "10"
 	},
 /turf/open/floor/plasteel,
 /area/engineering/main)

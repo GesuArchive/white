@@ -139,7 +139,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 1000, /datum/material/plastic = 2000)
 	category = list("Медицинское снаряжение")
-	sub_category = list("Экиперовка")
+	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
 

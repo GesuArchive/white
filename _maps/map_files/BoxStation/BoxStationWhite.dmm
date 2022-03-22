@@ -25785,6 +25785,10 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "Engineering";
+	name = "Бронежалюзи инженерного блока"
+	},
 /turf/open/floor/plating,
 /area/engineering/main)
 "cfF" = (
@@ -27692,6 +27696,10 @@
 	req_access_txt = "10"
 	},
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/poddoor/preopen{
+	id = "Engineering";
+	name = "engineering security door"
+	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "cnt" = (
@@ -34174,9 +34182,9 @@
 	},
 /obj/machinery/button/door{
 	id = "rnd3";
-	name = "Бронешторы лаборатории нанитов";
+	name = "бронешторы лаборатории нанитов";
 	pixel_y = 35;
-	req_access_txt = "10"
+	req_access_txt = "47"
 	},
 /turf/open/floor/plasteel,
 /area/science/nanite)
@@ -38208,7 +38216,7 @@
 	id = "rnd4";
 	name = "бронешторы лаборатории генетики";
 	pixel_x = -32;
-	req_access_txt = "10"
+	req_access_txt = "9"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -44626,7 +44634,8 @@
 	dir = 4
 	},
 /obj/machinery/door/poddoor/preopen{
-	id = "Cargo_sci_shutter"
+	id = "Biohazard";
+	name = "biohazard containment door"
 	},
 /turf/open/floor/plasteel,
 /area/science/lab)
@@ -46722,14 +46731,14 @@
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry/south)
 "ugb" = (
-/obj/machinery/door/poddoor{
-	id = "Secure Storage";
-	name = "secure storage"
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/engineering{
+	name = "Spacepod Room";
+	req_access_txt = "10"
+	},
 /turf/open/floor/plating,
 /area/engineering/storage)
 "ugl" = (
