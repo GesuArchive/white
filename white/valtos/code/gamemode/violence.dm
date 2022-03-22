@@ -1,5 +1,6 @@
 GLOBAL_VAR_INIT(violence_mode_activated, FALSE)
 GLOBAL_VAR_INIT(violence_current_round, 0)
+GLOBAL_VAR_INIT(violence_random_theme, 1)
 GLOBAL_VAR(violence_landmark)
 GLOBAL_VAR(violence_red_datum)
 GLOBAL_VAR(violence_blue_datum)
@@ -170,6 +171,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/game_mode/violence/proc/new_round()
 	GLOB.violence_current_round++
+	GLOB.violence_random_theme = rand(1, 2)
 	if(GLOB.violence_current_round == 6)
 		return
 	GLOB.violence_red_team = list()
@@ -319,17 +321,20 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		if(1)
 			r_hand = pick(list(null, /obj/item/weldingtool, /obj/item/grenade/iedcasing/spawned, /obj/item/wrench, /obj/item/extinguisher))
 		if(2)
-			suit = /obj/item/clothing/suit/armor/vest/durathread
-			head = /obj/item/clothing/head/beret/durathread
-			if(prob(50))
+			if(GLOB.violence_random_theme == 1)
+				suit = /obj/item/clothing/suit/armor/vest/durathread
+				head = /obj/item/clothing/head/beret/durathread
+				r_hand = pick(list(/obj/item/kitchen/knife/combat, /obj/item/melee/sabre/officer, /obj/item/melee/baseball_bat, /obj/item/melee/energy/sword/saber))
+				l_hand = pick(list(/obj/item/shield/riot/buckler, /obj/item/restraints/legcuffs/bola))
+			else
 				head = /obj/item/clothing/head/turban
 				suit = /obj/item/clothing/suit/chaplainsuit/studentuni
 				shoes = /obj/item/clothing/shoes/sandal
 				l_pocket = /obj/item/grenade/frag
-			r_hand = pick(list(/obj/item/kitchen/knife/combat, /obj/item/melee/sabre/officer, /obj/item/melee/baseball_bat, /obj/item/melee/energy/sword/saber))
-			l_hand = pick(list(/obj/item/shield/riot/buckler, /obj/item/restraints/legcuffs/bola))
+				r_hand = pick(list(/obj/item/kitchen/knife/combat, /obj/item/melee/sabre/officer, /obj/item/melee/energy/sword/saber))
+				l_hand = pick(list(/obj/item/kitchen/knife/combat, /obj/item/melee/sabre/officer, /obj/item/melee/energy/sword/saber))
 		if(3)
-			if(prob(75))
+			if(GLOB.violence_random_theme == 1)
 				suit = /obj/item/clothing/suit/armor/bulletproof
 				head = /obj/item/clothing/head/helmet/alt
 				r_hand = pick(list(/obj/item/gun/ballistic/shotgun/automatic/combat, /obj/item/gun/ballistic/automatic/mini_uzi, /obj/item/gun/ballistic/automatic/pistol/m1911, /obj/item/gun/ballistic/automatic/pistol/makarov, /obj/item/gun/ballistic/automatic/pistol/luger, /obj/item/gun/ballistic/automatic/pistol/aps))
@@ -343,20 +348,35 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 				shoes = /obj/item/clothing/shoes/sandal
 				belt = /obj/item/katana
 		if(4)
-			gloves = /obj/item/clothing/gloves/combat/sobr
-			suit = /obj/item/clothing/suit/armor/opvest/sobr
-			belt = /obj/item/storage/belt/military/assault/sobr
-			back = /obj/item/gun/ballistic/automatic/ak74m
-			switch(rand(1, 2))
-				if(1)
-					back = /obj/item/gun/ballistic/shotgun/saiga
-					suit = /obj/item/clothing/suit/armor/heavysobr
-					belt = /obj/item/storage/belt/military/assault/sobr/specialist
-					mask = /obj/item/clothing/mask/gas/heavy/m40
-					head = /obj/item/clothing/head/helmet/maska/altyn/black
-				if(2)
-					mask = /obj/item/clothing/mask/gas/heavy/gp7vm
-					head = /obj/item/clothing/head/helmet/maska/altyn
+			if(GLOB.violence_random_theme == 1)
+				gloves = /obj/item/clothing/gloves/combat/sobr
+				suit = /obj/item/clothing/suit/armor/opvest/sobr
+				belt = /obj/item/storage/belt/military/assault/sobr
+				back = /obj/item/gun/ballistic/automatic/ak74m
+				switch(rand(1, 2))
+					if(1)
+						back = /obj/item/gun/ballistic/shotgun/saiga
+						suit = /obj/item/clothing/suit/armor/heavysobr
+						belt = /obj/item/storage/belt/military/assault/sobr/specialist
+						mask = /obj/item/clothing/mask/gas/heavy/m40
+						head = /obj/item/clothing/head/helmet/maska/altyn/black
+					if(2)
+						mask = /obj/item/clothing/mask/gas/heavy/gp7vm
+						head = /obj/item/clothing/head/helmet/maska/altyn
+			else
+				gloves = /obj/item/clothing/gloves/combat
+				head = /obj/item/clothing/head/helmet/elite
+				suit = /obj/item/clothing/suit/armor/vest/m35/black
+				switch(rand(1, 2))
+					if(1)
+						mask = /obj/item/clothing/mask/gas/germanfull
+						r_hand = /obj/item/gun/ballistic/automatic/mp40
+						r_pocket = /obj/item/ammo_box/magazine/mp40
+					if(2)
+						mask = /obj/item/clothing/mask/gas/german
+						r_hand = /obj/item/gun/ballistic/automatic/pistol/mauser
+						r_pocket = /obj/item/ammo_box/magazine/mauser/battle
+						belt = /obj/item/melee/sabre/marineofficer
 		if(5)
 			suit = /obj/item/clothing/suit/space/hardsuit/deathsquad
 			belt = /obj/item/gun/ballistic/revolver/mateba
@@ -438,7 +458,8 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	else if(!current_map)
 		CRASH("No map prepared")
 	var/list/bounds = current_map.load(spawn_area, TRUE)
-	to_chat(world, leader_brass("[current_map.name]! [current_map.description]"))
+	spawn(3 SECONDS)
+		to_chat(world, leader_brass("[current_map.name]! [current_map.description]"))
 	if(!bounds)
 		CRASH("Loading Violence map failed!")
 

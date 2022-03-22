@@ -166,7 +166,7 @@
 
 /obj/item/clothing/mask/gas/germanfull
 	name = "old style gas mask"
-	desc = "С›РјРј. вЂ™Р°Р№Р»СЊ В¬Р°Р№С‚."
+	desc = "Пиздец."
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEEYES
 	visor_flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE|HIDEFACIALHAIR|HIDEEYES
 	dynamic_hair_suffix = ""
