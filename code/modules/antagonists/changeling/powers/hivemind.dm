@@ -1,39 +1,3 @@
-//HIVEMIND COMMUNICATION (:g)
-/datum/action/changeling/hivemind_comms
-	name = "Общение с ульем"
-	desc = "Мы настраиваемся на принятие и отправку данных с другими генокрадами."
-	helptext = "Мы сможем общаться с другими генокрадами, используя :g."
-	needs_button = FALSE
-	dna_cost = 0
-	chemical_cost = -1
-
-/datum/action/changeling/hivemind_comms/on_purchase(mob/user, is_respec)
-	..()
-	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
-	changeling.changeling_speak = 1
-	to_chat(user, "<i><font color=#800080>Используй \"[MODE_TOKEN_CHANGELING] сообщение\" чтобы общаться с другими генокрадами.</font></i>")
-	var/datum/action/changeling/hivemind_upload/S1 = new
-	if(!changeling.has_sting(S1))
-		S1.Grant(user)
-		changeling.purchasedpowers+=S1
-	var/datum/action/changeling/hivemind_download/S2 = new
-	if(!changeling.has_sting(S2))
-		S2.Grant(user)
-		changeling.purchasedpowers+=S2
-
-/datum/action/changeling/hivemind_comms/Remove(mob/user)
-	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
-	if(changeling.changeling_speak)
-		changeling.changeling_speak = FALSE
-	for(var/p in changeling.purchasedpowers)
-		var/datum/action/changeling/otherpower = p
-		if(istype(otherpower, /datum/action/changeling/hivemind_upload) || istype(otherpower, /datum/action/changeling/hivemind_download))
-			changeling.purchasedpowers -= otherpower
-			otherpower.Remove(changeling.owner.current)
-	..()
-
-
-
 // HIVE MIND UPLOAD/DOWNLOAD DNA
 GLOBAL_LIST_EMPTY(hivemind_bank)
 
