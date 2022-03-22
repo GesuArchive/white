@@ -1818,6 +1818,7 @@
 #include "code\modules\antagonists\changeling\powers\fleshmend.dm"
 #include "code\modules\antagonists\changeling\powers\headcrab.dm"
 #include "code\modules\antagonists\changeling\powers\hivemind.dm"
+#include "code\modules\antagonists\changeling\powers\linglink.dm"
 #include "code\modules\antagonists\changeling\powers\humanform.dm"
 #include "code\modules\antagonists\changeling\powers\lesserform.dm"
 #include "code\modules\antagonists\changeling\powers\mimic_voice.dm"

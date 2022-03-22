@@ -30,7 +30,7 @@
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, span_danger("Не могу шептать."))
 		return
-	
+
 	//if(GLOB.ic_autocorrect[message])  // Не работает >> шепчет, "*laugh"
 	//	message = "*[GLOB.ic_autocorrect[message]]"
 	if(message)
@@ -121,6 +121,10 @@
 ///Check if the mob has a hivemind channel
 /mob/proc/hivecheck()
 	return FALSE
+
+/mob/proc/lingcheck()
+	return LINGHIVE_NONE
+
 
 ///The amount of items we are looking for in the message
 #define MESSAGE_MODS_LENGTH 6
