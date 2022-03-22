@@ -720,7 +720,6 @@
 	inhand_icon_state = "[initial(icon_state)][magazine ? "[magazine.ammo_count() == 0 ? "_empty" : ""]" : "_nmag"]"
 
 /obj/item/gun/ballistic/automatic/laser/sar62l/burst_select()
-	. = ..()
 	var/mob/living/carbon/human/user = usr
 	select = !select
 	if(!select)
