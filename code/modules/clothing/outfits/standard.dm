@@ -276,7 +276,7 @@
 	mask = /obj/item/clothing/mask/cigarette/cigar/cohiba
 	head = /obj/item/clothing/head/centom_cap
 	belt = /obj/item/gun/ballistic/automatic/pistol/deagle
-	neck = /obj/item/clothing/neck/cloak/cape/grand
+	neck = /obj/item/clothing/neck/cloak/cape
 	r_pocket = /obj/item/lighter
 	l_pocket = /obj/item/ammo_box/magazine/m50
 	back = /obj/item/storage/backpack/satchel/leather
