@@ -33,6 +33,8 @@
 		for(var/i in C.all_wounds)
 			var/datum/wound/iter_wound = i
 			iter_wound.remove_wound()
+		var/obj/item/organ/brain/B = user.getorganslot(ORGAN_SLOT_BRAIN)
+		B.decoy_override = TRUE
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.restore_blood()
