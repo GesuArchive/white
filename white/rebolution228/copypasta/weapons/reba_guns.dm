@@ -618,6 +618,8 @@
 	internal_magazine = FALSE
 	tac_reloads = FALSE
 	can_suppress = FALSE
+	flags_1 = CONDUCT_1
+	slot_flags = ITEM_SLOT_BACK
 
 	var/list/saigashoot = list('white/rebolution228/sounds/weapons/saiga_shoot1.ogg',
 							'white/rebolution228/sounds/weapons/saiga_shoot2.ogg',
@@ -657,3 +659,237 @@
 		icon_state = "saigamag_e"
 	else
 		icon_state = "saigamag"
+
+//SAR-62L
+/obj/item/gun/ballistic/automatic/laser/sar62l
+	name = "NT SAR-62L"
+	desc = "Тяжеломодифицированный и новейший образец лазерной штурмовой винтовки, созданный на базе её огнестрельного аналога. \
+			Предназначен для ведения боев в городских условиях. \
+			Использует специальные магазинные энергоячейки для питания."
+
+	icon = 'white/rebolution228/icons/weapons/rguns.dmi'
+	icon_state = "sar62l"
+	lefthand_file = 'white/rebolution228/icons/weapons/guns_inhand_left.dmi'
+	righthand_file = 'white/rebolution228/icons/weapons/guns_inhand_right.dmi'
+	inhand_icon_state = "sar62l"
+	worn_icon = 'white/rebolution228/icons/weapons/guns_back.dmi'
+	worn_icon_state = "sar62l_back"
+
+	w_class = WEIGHT_CLASS_BULKY
+	mag_type = /obj/item/ammo_box/magazine/recharge/sar62l
+	mag_display_ammo = TRUE
+	fire_delay = 1.8
+	can_suppress = FALSE
+	burst_size = 3
+	casing_ejector = FALSE
+	selector_switch_icon = TRUE
+	mag_display = TRUE
+	actions_types = list(/datum/action/item_action/toggle_firemode)
+	slot_flags = ITEM_SLOT_BACK
+
+	fire_sound = 'white/rebolution228/sounds/weapons/F_LASER1.ogg'
+	rack_sound = 'white/rebolution228/sounds/weapons/laser_rack.ogg'
+	eject_sound = 'white/rebolution228/sounds/weapons/laser_magout.ogg'
+	eject_empty_sound = 'white/rebolution228/sounds/weapons/laser_magout.ogg'
+	load_sound = 'white/rebolution228/sounds/weapons/laser_magout.ogg'
+	load_empty_sound = 'white/rebolution228/sounds/weapons/laser_magin.ogg'
+
+	var/list/lasershoot = list('white/rebolution228/sounds/weapons/F_LASER1.ogg',
+							'white/rebolution228/sounds/weapons/F_LASER2.ogg',
+							'white/rebolution228/sounds/weapons/F_LASER3.ogg',
+							'white/rebolution228/sounds/weapons/F_LASER4.ogg')
+
+
+/obj/item/gun/ballistic/automatic/laser/sar62l/process_chamber()
+	. = ..()
+	fire_sound = pick(lasershoot)
+
+/obj/item/gun/ballistic/automatic/laser/sar62l/update_overlays()
+	. = ..()
+	if (magazine)
+		. += "[icon_state]_mag"
+		if (magazine.ammo_count() <= 0)
+			. += "[icon_state]_mag_empty"
+			. -= "[icon_state]_mag"
+
+/obj/item/gun/ballistic/automatic/laser/sar62l/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
+
+/obj/item/gun/ballistic/automatic/laser/sar62l/update_icon_state()
+	inhand_icon_state = "[initial(icon_state)][magazine ? "[magazine.ammo_count() <= 0 ? "_empty" : ""]" : "_nmag"]"
+
+/obj/item/ammo_box/magazine/recharge/sar62l
+	name = "энергоячейка (SAR-62L)"
+	desc = "Энергоячейка для лазерного автомата SAR-62L. Вмещает максимум 21 заряд."
+	icon = 'white/rebolution228/icons/weapons/rammo.dmi'
+	icon_state = "energycell"
+	ammo_type = /obj/item/ammo_casing/caseless/laser/sar62l
+	caliber = "laser"
+	max_ammo = 21
+
+
+/obj/item/ammo_box/magazine/recharge/sar62l/update_icon()
+	desc = "[initial(desc)] В нём осталось [stored_ammo.len] заряд!"
+	..()
+	if(ammo_count() <= 0)
+		icon_state = "energycell_e"
+	else
+		icon_state = "energycell"
+
+/obj/item/ammo_box/magazine/recharge/sar62l/attack_self()
+	return
+
+/obj/item/ammo_casing/caseless/laser/sar62l
+	name = "гильза лазера"
+	desc = "Такого быть не должно."
+	caliber = "laser"
+	icon_state = null
+	slot_flags = null
+	projectile_type = /obj/projectile/beam/sar62l
+	fire_sound = 'sound/weapons/laser.ogg'
+	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/energy
+
+/obj/item/ammo_casing/caseless/laser/sar62l/dropped() // yeah.....
+	. = ..()
+	addtimer(CALLBACK(src, .proc/floor_vanish), 1)
+
+/obj/item/ammo_casing/caseless/laser/sar62l/proc/floor_vanish()
+	if(isturf(loc))
+		qdel(src)
+
+/obj/projectile/beam/sar62l
+	name = "лазерный луч"
+	icon = 'white/rebolution228/icons/weapons/projectile.dmi'
+	icon_state = "sar62_laser"
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	damage = 20
+	damage_type = BURN
+	hitsound = 'white/rebolution228/sounds/weapons/effects/laser_hit1.ogg'
+	hitsound_wall = 'white/rebolution228/sounds/weapons/effects/laser_hit_wall.ogg'
+	flag = LASER
+	eyeblur = 2
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/green_laser
+	light_system = MOVABLE_LIGHT
+	light_range = 2
+	light_power = 1
+	light_color = "#2DE02D"
+	ricochets_max = 50
+	ricochet_chance = 80
+	reflectable = REFLECT_NORMAL
+	wound_bonus = -10
+	armour_penetration = 15
+	bare_wound_bonus = 10
+
+/obj/projectile/beam/sar62l/on_hit()
+	. = ..()
+	var/sound/hitsound = list('white/rebolution228/sounds/weapons/effects/laser_hit1.ogg',
+							'white/rebolution228/sounds/weapons/effects/laser_hit2.ogg',
+							'white/rebolution228/sounds/weapons/effects/laser_hit3.ogg')
+	playsound(loc, pick(hitsound), 50)
+
+
+/obj/item/ammo_casing/a40mm/vg240
+	name = "ВПГ-240"
+	desc = "Гранатометный противопехотный выстрел 40мм калибра. Применяется против тяжелобронированных противников."
+	caliber = "40mmvog"
+	icon = 'white/rebolution228/icons/weapons/rammo.dmi'
+	icon_state = "vg-240"
+	projectile_type = /obj/projectile/bullet/vg240
+
+/obj/projectile/bullet/vg240
+	name = "снаряд ВПГ-240"
+	icon = 'white/rebolution228/icons/weapons/projectile.dmi'
+	icon_state = "vg240"
+	damage = 165
+
+/obj/projectile/bullet/vg240/on_hit(atom/target, blocked = FALSE)
+	..()
+	explosion(target, 0, 2, 3, 4, flame_range = 6)
+	return BULLET_ACT_HIT
+
+
+// SAR-62L ГП
+
+/obj/item/gun/ballistic/automatic/laser/sar62l/gp
+	name = "NT SAR-62LGP"
+	desc = "Тяжеломодифицированный и новейший образец лазерной штурмовой винтовки, созданный на базе её огнестрельного аналога. \
+			Предназначен для ведения боев в городских условиях. \
+			Использует специальные магазинные энергоячейки для питания. \
+			Этот оснащён подствольным гранатомётом."
+
+	icon_state = "sar62lgp"
+	inhand_icon_state = "sar62lgp"
+	worn_icon_state = "sar62lgp_back"
+	var/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel
+
+/obj/item/gun/ballistic/automatic/laser/sar62l/gp/Initialize()
+	. = ..()
+	underbarrel = new /obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted/sar62l
+	update_icon()
+
+/obj/item/gun/ballistic/automatic/laser/sar62l/gp/afterattack(atom/target, mob/living/user, flag, params)
+	if(select == 2)
+		underbarrel.afterattack(target, user, flag, params)
+	else
+		return ..()
+
+/obj/item/gun/ballistic/automatic/laser/sar62l/gp/attackby(obj/item/A, mob/user, params)
+	if(istype(A, /obj/item/ammo_casing))
+		if(istype(A, underbarrel.magazine.ammo_type))
+			underbarrel.attack_self(user)
+			underbarrel.attackby(A, user, params)
+	else
+		..()
+
+/obj/item/gun/ballistic/automatic/laser/sar62l/gp/update_overlays()
+	. = ..()
+	if (magazine)
+		. += "[icon_state]_mag"
+		if (magazine.ammo_count() <= 0)
+			. += "[icon_state]_mag_empty"
+			. -= "[icon_state]_mag"
+
+/obj/item/gun/ballistic/automatic/laser/sar62l/gp/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
+
+/obj/item/gun/ballistic/automatic/laser/sar62l/gp/update_icon_state()
+	inhand_icon_state = "[initial(icon_state)][magazine ? "[magazine.ammo_count() <= 0 ? "_empty" : ""]" : "_nmag"]"
+
+/obj/item/gun/ballistic/automatic/laser/sar62l/gp/burst_select()
+	var/mob/living/carbon/human/user = usr
+	switch(select)
+		if(0)
+			select = 1
+			burst_size = initial(burst_size)
+			fire_delay = initial(fire_delay)
+			to_chat(user, span_notice("Выбран: ОЧЕРЕДЬ."))
+		if(1)
+			select = 2
+			to_chat(user, span_notice("Выбран: ПОДСТВОЛЬНЫЙ ГРАНАТОМЕТ."))
+		if(2)
+			select = 0
+			burst_size = 1
+			fire_delay = 0
+			to_chat(user, span_notice("Выбран: ПОЛУАВТОМАТ."))
+	playsound(user, 'white/rebolution228/sounds/weapons/firemode_laser.ogg', 100, TRUE)
+	update_icon()
+	return
+
+//
+/obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted/sar62l
+	fire_sound = 'white/rebolution228/sounds/weapons/fire_m41agrenadelauncher.ogg'
+	mag_type = /obj/item/ammo_box/magazine/internal/grenadelauncher/vg240
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted/sar62l/afterattack()
+	. = ..()
+	magazine.get_round(FALSE)
+
+/obj/item/ammo_box/magazine/internal/grenadelauncher/vg240
+	name = "внутренний магазин подствольного гранатомёта"
+	ammo_type = /obj/item/ammo_casing/a40mm/vg240
+	caliber = "40mmvg"
+	max_ammo = 1
+
+//
