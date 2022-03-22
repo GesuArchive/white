@@ -322,14 +322,24 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 			if(prob(50))
 				head = /obj/item/clothing/head/turban
 				suit = /obj/item/clothing/suit/chaplainsuit/studentuni
+				shoes = /obj/item/clothing/shoes/sandal
 				l_pocket = /obj/item/grenade/frag
 			r_hand = pick(list(/obj/item/kitchen/knife/combat, /obj/item/melee/sabre/officer, /obj/item/melee/baseball_bat, /obj/item/melee/energy/sword/saber))
 			l_hand = pick(list(/obj/item/shield/riot/buckler, /obj/item/restraints/legcuffs/bola))
 		if(3)
-			suit = /obj/item/clothing/suit/armor/bulletproof
-			head = /obj/item/clothing/head/helmet/alt
-			r_hand = pick(list(/obj/item/gun/ballistic/shotgun/automatic/combat, /obj/item/gun/ballistic/automatic/mini_uzi, /obj/item/gun/ballistic/automatic/pistol/m1911, /obj/item/gun/ballistic/automatic/pistol/makarov, /obj/item/gun/ballistic/automatic/pistol/luger, /obj/item/gun/ballistic/automatic/pistol/aps))
-			l_pocket = pick(list(/obj/item/reagent_containers/hypospray/medipen/salacid, /obj/item/grenade/frag))
+			if(prob(75))
+				suit = /obj/item/clothing/suit/armor/bulletproof
+				head = /obj/item/clothing/head/helmet/alt
+				r_hand = pick(list(/obj/item/gun/ballistic/shotgun/automatic/combat, /obj/item/gun/ballistic/automatic/mini_uzi, /obj/item/gun/ballistic/automatic/pistol/m1911, /obj/item/gun/ballistic/automatic/pistol/makarov, /obj/item/gun/ballistic/automatic/pistol/luger, /obj/item/gun/ballistic/automatic/pistol/aps))
+				l_pocket = pick(list(/obj/item/reagent_containers/hypospray/medipen/salacid, /obj/item/grenade/frag))
+			else
+				uniform = pick(list(/obj/item/clothing/under/costume/kamishimo, /obj/item/clothing/under/costume/kimono/dark, /obj/item/clothing/under/costume/kimono/sakura, /obj/item/clothing/under/costume/kimono/fancy, /obj/item/clothing/under/costume/kamishimo, /obj/item/clothing/under/costume/bathrobe))
+				head = /obj/item/clothing/head/rice_hat
+				if(prob(50))
+					suit = /obj/item/clothing/suit/costume/samurai
+					head = /obj/item/clothing/head/costume/kabuto
+				shoes = /obj/item/clothing/shoes/sandal
+				belt = /obj/item/katana
 		if(4)
 			gloves = /obj/item/clothing/gloves/combat/sobr
 			suit = /obj/item/clothing/suit/armor/opvest/sobr
