@@ -94,9 +94,7 @@ GLOBAL_LIST_INIT(position_categories, list(
 	EXP_TYPE_MEDICAL = list("jobs" = medical_positions, "color" = "#ff44a0", "runame" = "Медицинский"),
 	EXP_TYPE_SCIENCE = list("jobs" = science_positions, "color" = "#ff44ff", "runame" = "Научный"),
 	EXP_TYPE_SECURITY = list("jobs" = security_positions, "color" = "#ff4444", "runame" = "Охрана"),
-	EXP_TYPE_SCUM = list("jobs" = scum_positions, "color" = "#3af779", "runame" = "Гости"),
-	EXP_TYPE_COMBATANT_RED = list("jobs" = combatant_red_positions, "color" = "#ff0000", "runame" = "Красные"),
-	EXP_TYPE_COMBATANT_BLUE = list("jobs" = combatant_blue_positions, "color" = "#0000ff", "runame" = "Синие")
+	EXP_TYPE_SCUM = list("jobs" = scum_positions, "color" = "#3af779", "runame" = "Гости")
 ))
 
 GLOBAL_LIST_INIT(exp_jobsmap, list(
@@ -109,9 +107,7 @@ GLOBAL_LIST_INIT(exp_jobsmap, list(
 	EXP_TYPE_SECURITY = list("titles" = security_positions),
 	EXP_TYPE_SILICON = list("titles" = list("AI","Cyborg")),
 	EXP_TYPE_SERVICE = list("titles" = service_positions),
-	EXP_TYPE_SCUM = list("titles" = scum_positions),
-	EXP_TYPE_COMBATANT_RED = list("titles" = combatant_red_positions),
-	EXP_TYPE_COMBATANT_BLUE = list("titles" = combatant_blue_positions)
+	EXP_TYPE_SCUM = list("titles" = scum_positions)
 ))
 
 GLOBAL_LIST_INIT(exp_specialmap, list(

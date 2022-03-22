@@ -43,6 +43,14 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	SSjob.DisableAllJobs()
 	GLOB.violence_red_datum = new /datum/team/violence/red
 	GLOB.violence_blue_datum = new /datum/team/violence/blue
+	GLOB.position_categories = list(
+		EXP_TYPE_COMBATANT_RED = list("jobs" = combatant_red_positions, "color" = "#ff0000", "runame" = "Красные"),
+		EXP_TYPE_COMBATANT_BLUE = list("jobs" = combatant_blue_positions, "color" = "#0000ff", "runame" = "Синие")
+	)
+	GLOB.exp_jobsmap = list(
+		EXP_TYPE_COMBATANT_RED = list("titles" = combatant_red_positions),
+		EXP_TYPE_COMBATANT_BLUE = list("titles" = combatant_blue_positions)
+	)
 	return TRUE
 
 /datum/game_mode/violence/can_start()
