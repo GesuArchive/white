@@ -196,7 +196,6 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 			GLOB.master_mode = "secret"
 			SSticker.save_mode(GLOB.master_mode)
 			SSmapping.changemap(config.maplist["Box Station"])
-		SSticker.Reboot("КОНЕЦ!", "proper completion", 3 SECONDS)
 		return TRUE
 	else
 		return ..()
