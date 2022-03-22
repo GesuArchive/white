@@ -858,21 +858,6 @@
 	else
 		..()
 
-/obj/item/gun/ballistic/automatic/laser/sar62l/gp/update_overlays()
-	. = ..()
-	if (magazine)
-		. += "[icon_state]_mag"
-		if (magazine.ammo_count() <= 0)
-			. += "[icon_state]_mag_empty"
-			. -= "[icon_state]_mag"
-
-/obj/item/gun/ballistic/automatic/laser/sar62l/gp/ComponentInitialize()
-	. = ..()
-	AddElement(/datum/element/update_icon_updates_onmob)
-
-/obj/item/gun/ballistic/automatic/laser/sar62l/gp/update_icon_state()
-	inhand_icon_state = "[initial(icon_state)][magazine ? "[magazine.ammo_count() <= 0 ? "_empty" : ""]" : "_nmag"]"
-
 /obj/item/gun/ballistic/automatic/laser/sar62l/gp/burst_select()
 	var/mob/living/carbon/human/user = usr
 	switch(select)
