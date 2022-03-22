@@ -706,11 +706,11 @@
 
 /obj/item/gun/ballistic/automatic/laser/sar62l/update_overlays()
 	. = ..()
-	if (magazine)
-		. += "[icon_state]_mag"
-		if (magazine.ammo_count() <= 0)
+	if(magazine)
+		if(magazine.ammo_count() == 0)
 			. += "[icon_state]_mag_empty"
-			. -= "[icon_state]_mag"
+		else
+			. += "[icon_state]_mag"
 
 /obj/item/gun/ballistic/automatic/laser/sar62l/ComponentInitialize()
 	. = ..()
