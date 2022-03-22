@@ -125,7 +125,7 @@
 	..()
 	if(magazine)
 		icon_state = "m41a2"
-		if(magazine.ammo_count() <= 0)
+		if(magazine.ammo_count() == 0)
 			icon_state = "m41a2_nm"
 	else
 		icon_state = "m41a2_e"
@@ -142,7 +142,7 @@
 // обновляем иконку при отсутствии патрон
 /obj/item/ammo_box/magazine/m41a/caseless/update_icon()
 	..()
-	if(ammo_count() <= 0)
+	if(ammo_count() == 0)
 		icon_state = "m41a2_e"
 	else
 		icon_state = "m41a2"
@@ -223,7 +223,7 @@
 // обновляем иконку у магазина
 /obj/item/ammo_box/magazine/asval/update_icon()
 	..()
-	if(ammo_count() <= 0)
+	if(ammo_count() == 0)
 		icon_state = "asval_e"
 	else
 		icon_state = "asval"
@@ -301,7 +301,7 @@
 // обновление спрайта магазина при отсутствии патрон в нем
 /obj/item/ammo_box/magazine/ak74m/update_icon()
 	..()
-	if(ammo_count() <= 0)
+	if(ammo_count() == 0)
 		icon_state = "ak74m_e"
 	else
 		icon_state = "ak74m"
@@ -471,7 +471,7 @@
 
 /obj/item/ammo_box/magazine/hs010/update_icon()
 	..()
-	if(ammo_count() <= 0)
+	if(ammo_count() == 0)
 		icon_state = "hs010ammo_e"
 	else
 		icon_state = "hs010ammo"
@@ -566,7 +566,7 @@
 
 /obj/item/ammo_box/magazine/ak74m/orange/update_icon()
 	..()
-	if(ammo_count() <= 0)
+	if(ammo_count() == 0)
 		icon_state = "ak74_e"
 	else
 		icon_state = "ak74"
@@ -655,7 +655,7 @@
 
 /obj/item/ammo_box/magazine/saiga/update_icon()
 	..()
-	if(ammo_count() <= 0)
+	if(ammo_count() == 0)
 		icon_state = "saigamag_e"
 	else
 		icon_state = "saigamag"
@@ -717,7 +717,7 @@
 	AddElement(/datum/element/update_icon_updates_onmob)
 
 /obj/item/gun/ballistic/automatic/laser/sar62l/update_icon_state()
-	inhand_icon_state = "[initial(icon_state)][magazine ? "[magazine.ammo_count() <= 0 ? "_empty" : ""]" : "_nmag"]"
+	inhand_icon_state = "[initial(icon_state)][magazine ? "[magazine.ammo_count() == 0 ? "_empty" : ""]" : "_nmag"]"
 
 /obj/item/gun/ballistic/automatic/laser/sar62l/burst_select()
 	. = ..()
@@ -748,7 +748,7 @@
 /obj/item/ammo_box/magazine/recharge/sar62l/update_icon()
 	desc = "[initial(desc)] В нём осталось [stored_ammo.len] заряд!"
 	..()
-	if(ammo_count() <= 0)
+	if(ammo_count() == 0)
 		icon_state = "energycell_e"
 	else
 		icon_state = "energycell"
