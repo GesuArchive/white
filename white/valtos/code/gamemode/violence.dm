@@ -358,24 +358,26 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		if(5)
 			suit = /obj/item/clothing/suit/space/hardsuit/deathsquad
 			belt = /obj/item/gun/ballistic/revolver/mateba
+			r_hand = /obj/item/gun/energy/pulse
+			r_pocket = /obj/item/shield/energy
+			if(prob(50))
+				suit = /obj/item/clothing/suit/space/officer
+				head = /obj/item/clothing/head/helmet/space/beret
+				r_hand = /obj/item/gun/ballistic/automatic/hs010
+				r_pocket = /obj/item/ammo_box/magazine/hs010
 			glasses = /obj/item/clothing/glasses/hud/toggle/thermal
 			gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 			mask = /obj/item/clothing/mask/gas/sechailer/swat
 			shoes = /obj/item/clothing/shoes/combat/swat
 			l_pocket = /obj/item/melee/energy/sword/saber
-			r_pocket = /obj/item/shield/energy
-			if(prob(50))
-				r_hand = /obj/item/gun/energy/pulse
-				back = /obj/item/shield/riot/military
-			else
-				l_hand = /obj/item/gun/ballistic/automatic/hs010
+			l_hand = /obj/item/shield/riot/military
 
 /area/violence
 	name = "Насилие"
 	icon_state = "yellow"
 	requires_power = FALSE
 	static_lighting = FALSE
-	base_lighting_color = COLOR_WHITE
+	base_lighting_color = COLOR_LIGHT_GRAYISH_RED
 	base_lighting_alpha = 255
 	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
