@@ -719,13 +719,6 @@
 /obj/item/gun/ballistic/automatic/laser/sar62l/update_icon_state()
 	inhand_icon_state = "[initial(icon_state)][magazine ? "[magazine.ammo_count() == 0 ? "_empty" : ""]" : "_nmag"]"
 
-/obj/item/gun/ballistic/automatic/laser/sar62l/rack(mob/user = null)
-	if (user)
-		to_chat(user, span_notice("Передёргиваю [bolt_wording] <b>[src.name]</b>."))
-		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
-	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
-	update_icon()
-
 /obj/item/gun/ballistic/automatic/laser/sar62l/burst_select()
 	var/mob/living/carbon/human/user = usr
 	select = !select
@@ -737,9 +730,13 @@
 		burst_size = initial(burst_size)
 		fire_delay = initial(fire_delay)
 		to_chat(user, span_notice("Выбран: ОЧЕРЕДЬ."))
-	playsound(user, 'white/rebolution228/sounds/weapons/firemode_laser.ogg', 100, TRUE)
+
+	playsound(user, 'white/rebolution228/sounds/weapons/firemode_laser.ogg', 100, FALSE)
 	update_icon()
-	return
+	for(var/X in actions)
+		var/datum/action/A = X
+		A.UpdateButtonIcon()
+
 
 /obj/item/ammo_box/magazine/recharge/sar62l
 	name = "энергоячейка (SAR-62L)"
@@ -880,7 +877,7 @@
 			burst_size = 1
 			fire_delay = 0
 			to_chat(user, span_notice("Выбран: ПОЛУАВТОМАТ."))
-	playsound(user, 'white/rebolution228/sounds/weapons/firemode_laser.ogg', 100, TRUE)
+	playsound(user, 'white/rebolution228/sounds/weapons/firemode_laser.ogg', 100, FALSE)
 	update_icon()
 	return
 
