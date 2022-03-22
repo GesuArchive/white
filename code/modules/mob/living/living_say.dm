@@ -139,11 +139,12 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	switch(stat)
 		if(SOFT_CRIT)
-			message_mods[WHISPER_MODE] = MODE_WHISPER
+			if(message_mods[MODE_CHANGELING])
+				message_mods[WHISPER_MODE] = MODE_WHISPER
 		if(UNCONSCIOUS)
 			return
 		if(HARD_CRIT)
-			if(!message_mods[WHISPER_MODE])
+			if(!message_mods[WHISPER_MODE] || message_mods[MODE_CHANGELING])
 				return
 		if(DEAD)
 			say_dead(original_message)

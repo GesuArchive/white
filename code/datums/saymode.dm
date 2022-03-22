@@ -10,6 +10,59 @@
 /datum/saymode/proc/handle_message(mob/living/user, message, datum/language/language)
 	return TRUE
 
+/datum/saymode/changeling
+	key = MODE_KEY_CHANGELING
+	ru_key = "г"
+	mode = MODE_CHANGELING
+
+
+/datum/saymode/changeling/handle_message(mob/living/user, message, datum/language/language)
+	switch(user.lingcheck())
+		if(LINGHIVE_LINK)
+			var/msg = "<span class='changeling'><b>[user.mind]:</b> [message]</span>"
+			for(var/_M in GLOB.player_list)
+				var/mob/M = _M
+				if(M in GLOB.dead_mob_list)
+					var/link = FOLLOW_LINK(M, user)
+					to_chat(M, "[link] [msg]")
+				else
+					switch(M.lingcheck())
+						if (LINGHIVE_LING)
+							var/mob/living/L = M
+							if (!HAS_TRAIT(L, CHANGELING_HIVEMIND_MUTE))
+								to_chat(M, msg)
+						if(LINGHIVE_LINK)
+							to_chat(M, msg)
+						if(LINGHIVE_OUTSIDER)
+							if(prob(40))
+								to_chat(M, "<span class='changeling'>Чувствуем, как кто-то чужой проник в нашу связь улья...</span>")
+		if(LINGHIVE_LING)
+			if (HAS_TRAIT(user, CHANGELING_HIVEMIND_MUTE))
+				to_chat(user, "<span class='warning'>Яд в воздухе не дает мне контактировать с ульем.</span>")
+				return FALSE
+			var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
+			var/msg = "<span class='changeling'><b>[changeling.changelingID]:</b> [message]</span>"
+			user.log_talk(message, LOG_SAY, tag="changeling [changeling.changelingID]")
+			for(var/_M in GLOB.player_list)
+				var/mob/M = _M
+				if(M in GLOB.dead_mob_list)
+					var/link = FOLLOW_LINK(M, user)
+					to_chat(M, "[link] [msg]")
+				else
+					switch(M.lingcheck())
+						if(LINGHIVE_LINK)
+							to_chat(M, msg)
+						if(LINGHIVE_LING)
+							var/mob/living/L = M
+							if (!HAS_TRAIT(L, CHANGELING_HIVEMIND_MUTE))
+								to_chat(M, msg)
+						if(LINGHIVE_OUTSIDER)
+							if(prob(40))
+								to_chat(M, "<span class='changeling'>Чувствую, как наш собрат присоединился к связи...</span>")
+		if(LINGHIVE_OUTSIDER)
+			to_chat(user, "<span class='changeling'>Мы еще недостаточно развиты чтобы так общаться...</span>")
+	return FALSE
+
 /datum/saymode/xeno
 	key = "a"
 	ru_key = "ф"

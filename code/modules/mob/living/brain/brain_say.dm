@@ -19,6 +19,10 @@
 	else
 		return ..()
 
+/mob/living/brain/lingcheck()
+	return LINGHIVE_NONE
+
+
 /mob/living/brain/treat_message(message)
 	if(client?.prefs?.disabled_autocap)
 		message = message
