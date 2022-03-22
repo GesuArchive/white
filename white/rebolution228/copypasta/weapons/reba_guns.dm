@@ -719,6 +719,22 @@
 /obj/item/gun/ballistic/automatic/laser/sar62l/update_icon_state()
 	inhand_icon_state = "[initial(icon_state)][magazine ? "[magazine.ammo_count() <= 0 ? "_empty" : ""]" : "_nmag"]"
 
+/obj/item/gun/ballistic/automatic/laser/sar62l/burst_select()
+	. = ..()
+	var/mob/living/carbon/human/user = usr
+	select = !select
+	if(!select)
+		burst_size = 1
+		fire_delay = 0
+		to_chat(user, span_notice("Выбран: ПОЛУАВТОМАТ."))
+	else
+		burst_size = initial(burst_size)
+		fire_delay = initial(fire_delay)
+		to_chat(user, span_notice("Выбран: ОЧЕРЕДЬ."))
+	playsound(user, 'white/rebolution228/sounds/weapons/firemode_laser.ogg', 100, TRUE)
+	update_icon()
+	return
+
 /obj/item/ammo_box/magazine/recharge/sar62l
 	name = "энергоячейка (SAR-62L)"
 	desc = "Энергоячейка для лазерного автомата SAR-62L. Вмещает максимум 21 заряд."
