@@ -424,6 +424,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	else if(!current_map)
 		CRASH("No map prepared")
 	var/list/bounds = current_map.load(spawn_area, TRUE)
+	to_chat(world, leader_brass("[current_map.name]! [current_map.description]"))
 	if(!bounds)
 		CRASH("Loading Violence map failed!")
 
@@ -432,7 +433,13 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	var/weight = 0
 
 /datum/map_template/violence/default
-	name = "Default"
-	description = "The original Violence map."
+	name = "Карак"
+	description = "Бойня в пустынном бункере."
 	mappath = "_maps/map_files/Warfare/violence1.dmm"
+	weight = 3
+
+/datum/map_template/violence/chinatown
+	name = "Чайнатаун"
+	description = "Деликатное отсечение голов в восточном стиле."
+	mappath = "_maps/map_files/Warfare/violence2.dmm"
 	weight = 3
