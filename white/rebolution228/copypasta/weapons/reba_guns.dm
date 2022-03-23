@@ -183,7 +183,7 @@
 	icon = 'white/rebolution228/icons/weapons/rguns.dmi'
 	icon_state = "asval"
 	inhand_icon_state = "asval"
-	selector_switch_icon = TRUE
+	selector_switch_icon = FALSE
 	lefthand_file = 'white/rebolution228/icons/weapons/guns_inhand_left.dmi'
 	righthand_file = 'white/rebolution228/icons/weapons/guns_inhand_right.dmi'
 	worn_icon = 'white/rebolution228/icons/weapons/guns_back.dmi'
@@ -247,7 +247,7 @@
 	icon = 'white/rebolution228/icons/weapons/rguns.dmi'
 	icon_state = "ak74m"
 	inhand_icon_state = "ak74m"
-	selector_switch_icon = TRUE
+	selector_switch_icon = FALSE
 	lefthand_file = 'white/rebolution228/icons/weapons/guns_inhand_left.dmi'
 	righthand_file = 'white/rebolution228/icons/weapons/guns_inhand_right.dmi'
 	worn_icon = 'white/rebolution228/icons/weapons/guns_back.dmi'
@@ -533,7 +533,7 @@
 	icon = 'white/rebolution228/icons/weapons/rguns.dmi'
 	icon_state = "aksu74"
 	inhand_icon_state = "aksu74"
-	selector_switch_icon = TRUE
+	selector_switch_icon = FALSE
 	lefthand_file = 'white/rebolution228/icons/weapons/guns_inhand_left.dmi'
 	righthand_file = 'white/rebolution228/icons/weapons/guns_inhand_right.dmi'
 	worn_icon = 'white/rebolution228/icons/weapons/guns_back.dmi'
@@ -678,14 +678,15 @@
 	w_class = WEIGHT_CLASS_BULKY
 	mag_type = /obj/item/ammo_box/magazine/recharge/sar62l
 	mag_display_ammo = FALSE
-	fire_delay = 1.8
 	can_suppress = FALSE
-	burst_size = 3
 	casing_ejector = FALSE
-	selector_switch_icon = TRUE
+	selector_switch_icon = FALSE
 	mag_display = TRUE
 	actions_types = list(/datum/action/item_action/toggle_firemode)
 	slot_flags = ITEM_SLOT_BACK
+	recoil = 0.4
+	burst_size = 3
+	fire_delay = 1.6
 
 	fire_sound = 'white/rebolution228/sounds/weapons/F_LASER1.ogg'
 	rack_sound = 'white/rebolution228/sounds/weapons/laser_rack.ogg'
@@ -721,22 +722,23 @@
 
 /obj/item/gun/ballistic/automatic/laser/sar62l/burst_select()
 	var/mob/living/carbon/human/user = usr
-	select = !select
-	if(!select)
-		burst_size = 1
-		fire_delay = 0
-		to_chat(user, span_notice("Выбран: ПОЛУАВТОМАТ."))
-	else
-		burst_size = initial(burst_size)
-		fire_delay = initial(fire_delay)
-		to_chat(user, span_notice("Выбран: ОЧЕРЕДЬ."))
+	switch(select)
+		if(0)
+			select = 1
+			burst_size = initial(burst_size)
+			fire_delay = initial(fire_delay)
+			to_chat(user, span_notice("Выбран: ОЧЕРЕДЬ."))
+		if(1)
+			select = 0
+			burst_size = 1
+			fire_delay = 0
+			to_chat(user, span_notice("Выбран: ПОЛУАВТОМАТ."))
 
 	playsound(user, 'white/rebolution228/sounds/weapons/firemode_laser.ogg', 100, FALSE)
 	update_icon()
 	for(var/X in actions)
 		var/datum/action/A = X
 		A.UpdateButtonIcon()
-
 
 /obj/item/ammo_box/magazine/recharge/sar62l
 	name = "энергоячейка (SAR-62L)"
@@ -749,8 +751,6 @@
 
 
 /obj/item/ammo_box/magazine/recharge/sar62l/update_icon()
-	desc = "[initial(desc)] В нём осталось [stored_ammo.len] заряд!"
-	..()
 	if(ammo_count() == 0)
 		icon_state = "energycell_e"
 	else
