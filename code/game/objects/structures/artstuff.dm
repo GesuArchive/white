@@ -347,8 +347,8 @@
 	height = 19
 	pixel_x = 6
 	pixel_y = 9
-	framed_offset_x = 8
-	framed_offset_y = 9
+	framed_offset_x = 7
+	framed_offset_y = 7
 
 /obj/item/canvas/twentythree_nineteen
 	name = "холст (23x19)"
@@ -357,8 +357,8 @@
 	height = 19
 	pixel_x = 4
 	pixel_y = 10
-	framed_offset_x = 6
-	framed_offset_y = 8
+	framed_offset_x = 5
+	framed_offset_y = 7
 
 /obj/item/canvas/twentythree_twentythree
 	name = "холст (23x23)"
@@ -368,7 +368,7 @@
 	pixel_x = 5
 	pixel_y = 9
 	framed_offset_x = 5
-	framed_offset_y = 6
+	framed_offset_y = 5
 
 /obj/item/canvas/twentyfour_twentyfour
 	name = "универсальный стандартный холст ИИ"
@@ -378,8 +378,8 @@
 	height = 24
 	pixel_x = 2
 	pixel_y = 1
-	framed_offset_x = 4
-	framed_offset_y = 5
+	framed_offset_x = 2
+	framed_offset_y = 2
 
 /obj/item/wallframe/painting
 	name = "рамка картины"
