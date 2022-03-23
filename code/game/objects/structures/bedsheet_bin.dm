@@ -13,7 +13,7 @@ LINEN BINS
 	icon_state = "sheetwhite"
 	inhand_icon_state = "sheetwhite"
 	slot_flags = ITEM_SLOT_NECK
-	layer = 4
+	layer = BELOW_MOB_LAYER
 	throwforce = 0
 	throw_speed = 1
 	throw_range = 2
