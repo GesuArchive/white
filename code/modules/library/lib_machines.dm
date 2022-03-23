@@ -163,8 +163,8 @@
 // It is August 22nd, 2012... This TODO has already been here for months.. I wonder how long it'll last before someone does something about it.
 // It's December 25th, 2014, and this is STILL here, and it's STILL relevant. Kill me
 /obj/machinery/computer/bookmanagement
-	name = "book inventory management console"
-	desc = "Librarian's command station."
+	name = "консоль управления библиотекой"
+	desc = "Командная консоль библиотекаря."
 	verb_say = "бипает"
 	verb_ask = "бипает"
 	verb_exclaim = "бипает"
@@ -192,7 +192,7 @@
 /obj/machinery/computer/bookmanagement/Initialize()
 	. = ..()
 	if(circuit)
-		circuit.name = "Book Inventory Management Console (Оборудование)"
+		circuit.name = "Консоль управления библиотекой (Оборудование)"
 		circuit.build_path = /obj/machinery/computer/bookmanagement
 
 /obj/machinery/computer/bookmanagement/ui_interact(mob/user)
@@ -201,27 +201,27 @@
 	switch(screenstate)
 		if(0)
 			// Main Menu
-			dat += "<A href='?src=[REF(src)];switchscreen=1'>1. View General Inventory</A><BR>"
-			dat += "<A href='?src=[REF(src)];switchscreen=2'>2. View Checked Out Inventory</A><BR>"
-			dat += "<A href='?src=[REF(src)];switchscreen=3'>3. Check out a Book</A><BR>"
-			dat += "<A href='?src=[REF(src)];switchscreen=4'>4. Connect to External Archive</A><BR>"
-			dat += "<A href='?src=[REF(src)];switchscreen=5'>5. Upload New Title to Archive</A><BR>"
-			dat += "<A href='?src=[REF(src)];switchscreen=6'>6. Upload Scanned Title to Newscaster</A><BR>"
-			dat += "<A href='?src=[REF(src)];switchscreen=7'>7. Print Corporate Materials</A><BR>"
+			dat += "<A href='?src=[REF(src)];switchscreen=1'>1. Просмотреть общий инвентарь</A><BR>"
+			dat += "<A href='?src=[REF(src)];switchscreen=2'>2. Просмотреть проверенного инвентаря</A><BR>"
+			dat += "<A href='?src=[REF(src)];switchscreen=3'>3. Проверить книгу</A><BR>"
+			dat += "<A href='?src=[REF(src)];switchscreen=4'>4. Подключиться к внешнему архиву</A><BR>"
+			dat += "<A href='?src=[REF(src)];switchscreen=5'>5. Загрузить новую работу в архив</A><BR>"
+			dat += "<A href='?src=[REF(src)];switchscreen=6'>6. Загрузить отсканированный заголовок в новостник</A><BR>"
+			dat += "<A href='?src=[REF(src)];switchscreen=7'>7. Напечатать корпоративные материалы</A><BR>"
 			if(obj_flags & EMAGGED)
-				dat += "<A href='?src=[REF(src)];switchscreen=8'>8. Access the Forbidden Lore Vault</A><BR>"
+				dat += "<A href='?src=[REF(src)];switchscreen=8'>8. Получить доступ к хранилищу Запретных знаний</A><BR>"
 			if(src.arcanecheckout)
 				print_forbidden_lore(user)
 				src.arcanecheckout = 0
 		if(1)
 			// Inventory
-			dat += "<H3>Inventory</H3><BR>"
+			dat += "<H3>Инвентарь</H3><BR>"
 			for(var/obj/item/book/b in inventory)
-				dat += "[b.name] <A href='?src=[REF(src)];delbook=[REF(b)]'>(Delete)</A><BR>"
-			dat += "<A href='?src=[REF(src)];switchscreen=0'>(Return to main menu)</A><BR>"
+				dat += "[b.name] <A href='?src=[REF(src)];delbook=[REF(b)]'>(Удалить)</A><BR>"
+			dat += "<A href='?src=[REF(src)];switchscreen=0'>(Вернуться в главное меню)</A><BR>"
 		if(2)
 			// Checked Out
-			dat += "<h3>Checked Out Books</h3><BR>"
+			dat += "<h3>Проверенные книги</h3><BR>"
 			for(var/datum/borrowbook/b in checkouts)
 				var/timetaken = world.time - b.getdate
 				timetaken /= 600
@@ -229,28 +229,28 @@
 				var/timedue = b.duedate - world.time
 				timedue /= 600
 				if(timedue <= 0)
-					timedue = "<font color=red><b>(OVERDUE)</b> [timedue]</font>"
+					timedue = "<font color=red><b>(ПРОСРОЧЕНО)</b> [timedue]</font>"
 				else
 					timedue = round(timedue)
-				dat += "\"[b.bookname]\", Checked out to: [b.mobname]<BR>--- Taken: [timetaken] minutes ago, Due: in [timedue] minutes<BR>"
-				dat += "<A href='?src=[REF(src)];checkin=[REF(b)]'>(Check In)</A><BR><BR>"
-			dat += "<A href='?src=[REF(src)];switchscreen=0'>(Return to main menu)</A><BR>"
+				dat += "\"[b.bookname]\", Проверено на: [b.mobname]<BR>--- Взято: [timetaken] минут назад, Просрочка: через [timedue] минут<BR>"
+				dat += "<A href='?src=[REF(src)];checkin=[REF(b)]'>(Регистрация)</A><BR><BR>"
+			dat += "<A href='?src=[REF(src)];switchscreen=0'>(Вернуться в главное меню)</A><BR>"
 		if(3)
 			// Check Out a Book
-			dat += "<h3>Check Out a Book</h3><BR>"
-			dat += "Book: [src.buffer_book] "
+			dat += "<h3>Проверить книгу</h3><BR>"
+			dat += "Книга: [src.buffer_book] "
 			dat += "<A href='?src=[REF(src)];editbook=1'>\[Edit\]</A><BR>"
-			dat += "Recipient: [src.buffer_mob] "
+			dat += "Писатель: [src.buffer_mob] "
 			dat += "<A href='?src=[REF(src)];editmob=1'>\[Edit\]</A><BR>"
-			dat += "Checkout Date : [world.time/600]<BR>"
-			dat += "Due Date: [(world.time + checkoutperiod)/600]<BR>"
+			dat += "Дата выписки : [world.time/600]<BR>"
+			dat += "Срок просрочки: [(world.time + checkoutperiod)/600]<BR>"
 			dat += "(Checkout Period: [checkoutperiod] minutes) (<A href='?src=[REF(src)];increasetime=1'>+</A>/<A href='?src=[REF(src)];decreasetime=1'>-</A>)"
-			dat += "<A href='?src=[REF(src)];checkout=1'>(Commit Entry)</A><BR>"
-			dat += "<A href='?src=[REF(src)];switchscreen=0'>(Return to main menu)</A><BR>"
+			dat += "<A href='?src=[REF(src)];checkout=1'>(Подтвердить)</A><BR>"
+			dat += "<A href='?src=[REF(src)];switchscreen=0'>(Вернуться в главное меню)</A><BR>"
 		if(4)
 			dat += "<h3>External Archive</h3>"
 			if(!SSdbcore.Connect())
-				dat += "<font color=red><b>ERROR</b>: Unable to contact External Archive. Please contact your system administrator for assistance.</font>"
+				dat += "<font color=red><b>ОШИБКА</b>: Невозможно связаться с внешним архивом. Обратитесь за помощью к своему системному администратору.</font>"
 			else
 				var/booksperpage = 50
 				var/pagecount
@@ -275,52 +275,52 @@
 					booklist += "<tr><td>[query_library_get_books.item[2]]</td><td>[query_library_get_books.item[3]]</td><td>[query_library_get_books.item[4]]</td><td><A href='?src=[REF(src)];targetid=[query_library_get_books.item[1]]'>\[Order\]</A></td></tr>\n"
 				dat += "<A href='?src=[REF(src)];orderbyid=1'>(Order book by SS<sup>13</sup>BN)</A><BR><BR>"
 				dat += "<table>"
-				dat += "<tr><td>AUTHOR</td><td>TITLE</td><td>CATEGORY</td><td></td></tr>"
+				dat += "<tr><td>АВТОР</td><td>ЗАГОЛОВОК</td><td>КАТЕГОРИЯ</td><td></td></tr>"
 				dat += jointext(booklist, "")
 				dat += "<tr><td><A href='?src=[REF(src)];page=[max(1,page-1)]'>&lt;&lt;&lt;&lt;</A></td> <td></td> <td></td> <td><span style='text-align:right'><A href='?src=[REF(src)];page=[min(pagecount,page+1)]'>&gt;&gt;&gt;&gt;</A></span></td></tr>"
 				dat += "</table>"
 				qdel(query_library_get_books)
-			dat += "<BR><A href='?src=[REF(src)];switchscreen=0'>(Return to main menu)</A><BR>"
+			dat += "<BR><A href='?src=[REF(src)];switchscreen=0'>(Вернуться в главное меню)</A><BR>"
 		if(5)
-			dat += "<H3>Upload a New Title</H3>"
+			dat += "<H3>Загрузить новую работу</H3>"
 			if(!scanner)
 				scanner = findscanner(9)
 			if(!scanner)
-				dat += "<FONT color=red>No scanner found within wireless network range.</FONT><BR>"
+				dat += "<FONT color=red>Сканер не обнаружен в радиусе действия беспроводной сети.</FONT><BR>"
 			else if(!scanner.cache)
-				dat += "<FONT color=red>No data found in scanner memory.</FONT><BR>"
+				dat += "<FONT color=red>Данные в памяти сканера не найдены.</FONT><BR>"
 			else
-				dat += "<TT>Data marked for upload...</TT><BR>"
-				dat += "<TT>Title: </TT>[scanner.cache.name]<BR>"
+				dat += "<TT>Данные помечены для загрузки...</TT><BR>"
+				dat += "<TT>Заголовок: </TT>[scanner.cache.name]<BR>"
 				if(!scanner.cache.author)
-					scanner.cache.author = "Anonymous"
-				dat += "<TT>Author: </TT><A href='?src=[REF(src)];setauthor=1'>[scanner.cache.author]</A><BR>"
-				dat += "<TT>Category: </TT><A href='?src=[REF(src)];setcategory=1'>[upload_category]</A><BR>"
+					scanner.cache.author = "Аноним"
+				dat += "<TT>Автор: </TT><A href='?src=[REF(src)];setauthor=1'>[scanner.cache.author]</A><BR>"
+				dat += "<TT>Категория: </TT><A href='?src=[REF(src)];setcategory=1'>[upload_category]</A><BR>"
 				dat += "<A href='?src=[REF(src)];upload=1'>\[Upload\]</A><BR>"
-			dat += "<A href='?src=[REF(src)];switchscreen=0'>(Return to main menu)</A><BR>"
+			dat += "<A href='?src=[REF(src)];switchscreen=0'>(Вернуться в главное меню)</A><BR>"
 		if(6)
-			dat += "<h3>Post Title to Newscaster</h3>"
+			dat += "<h3>Загрузить работу в новостник</h3>"
 			if(!scanner)
 				scanner = findscanner(9)
 			if(!scanner)
-				dat += "<FONT color=red>No scanner found within wireless network range.</FONT><BR>"
+				dat += "<FONT color=red>Сканер не обнаружен в радиусе действия беспроводной сети.</FONT><BR>"
 			else if(!scanner.cache)
-				dat += "<FONT color=red>No data found in scanner memory.</FONT><BR>"
+				dat += "<FONT color=red>Данные в памяти сканера не найдены.</FONT><BR>"
 			else
-				dat += "<TT>Post [scanner.cache.name] to station newscasters?</TT>"
+				dat += "<TT>Загрузить [scanner.cache.name] в новостники станции?</TT>"
 				dat += "<A href='?src=[REF(src)];newspost=1'>\[Post\]</A><BR>"
-			dat += "<A href='?src=[REF(src)];switchscreen=0'>(Return to main menu)</A><BR>"
+			dat += "<A href='?src=[REF(src)];switchscreen=0'>(Вернуться в главное меню)</A><BR>"
 		if(7)
-			dat += "<h3>NTGanda(tm) Universal Printing Module</h3>"
-			dat += "What would you like to print?<BR>"
+			dat += "<h3>NTGanda(tm) Универсальный модуль печати</h3>"
+			dat += "Что бы вы хотели напечатать?<BR>"
 			dat += "<A href='?src=[REF(src)];printbible=1'>\[Bible\]</A><BR>"
 			dat += "<A href='?src=[REF(src)];printposter=1'>\[Poster\]</A><BR>"
-			dat += "<A href='?src=[REF(src)];switchscreen=0'>(Return to main menu)</A><BR>"
+			dat += "<A href='?src=[REF(src)];switchscreen=0'>(Вернуться в главное меню)</A><BR>"
 		if(8)
-			dat += "<h3>Accessing Forbidden Lore Vault v 1.3</h3>"
-			dat += "Are you absolutely sure you want to proceed? EldritchRelics Inc. takes no responsibilities for loss of sanity resulting from this action.<p>"
-			dat += "<A href='?src=[REF(src)];arccheckout=1'>Yes.</A><BR>"
-			dat += "<A href='?src=[REF(src)];switchscreen=0'>No.</A><BR>"
+			dat += "<h3>Доступ к хранилищу запретных знаний v 1.3</h3>"
+			dat += "Вы абсолютно уверены, что хотите продолжить? EldritchRelics Inc. не несет никакой ответственности за потерю рассудка в результате этого действия.<p>"
+			dat += "<A href='?src=[REF(src)];arccheckout=1'>Да.</A><BR>"
+			dat += "<A href='?src=[REF(src)];switchscreen=0'>Нет.</A><BR>"
 
 	var/datum/browser/popup = new(user, "library", name, 600, 400)
 	popup.set_content(dat)
@@ -333,15 +333,15 @@
 
 /obj/machinery/computer/bookmanagement/proc/print_forbidden_lore(mob/user)
 	new /obj/item/melee/cultblade/dagger(get_turf(src))
-	to_chat(user, span_warning("Your sanity barely endures the seconds spent in the vault's browsing window. The only thing to remind you of this when you stop browsing is a sinister dagger sitting on the desk. You don't even remember where it came from..."))
-	user.visible_message(span_warning("[user] stares at the blank screen for a few moments, [user.ru_ego()] expression frozen in fear. When [user.ru_who()] finally awaken[user.p_s()] from it, [user.ru_who()] look[user.p_s()] a lot older.") , 2)
+	to_chat(user, span_warning("Ваш рассудок едва выдерживает секунды, проведенные в окне просмотра хранилища. Единственное, что напоминает вам об этом, когда вы прекращаете просмотр, - это зловещий кинжал, лежащий на столе. Вы даже не помните, откуда он взялся..."))
+	user.visible_message(span_warning("[user] на несколько мгновений смотрит на пустой экран, [user.ru_ego()] выражение лица застыло от страха.") , 2)
 
 /obj/machinery/computer/bookmanagement/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/barcodescanner))
 		var/obj/item/barcodescanner/scanner = W
 		scanner.computer = src
-		to_chat(user, span_notice("[scanner] associated machine has been set to [src]."))
-		audible_message(span_hear("[capitalize(src.name)] lets out a low, short blip."))
+		to_chat(user, span_notice("[scanner] связанная машина была установлена на [src]."))
+		audible_message(span_hear("[capitalize(src.name)] издает низкий, короткий сигнал."))
 	else
 		return ..()
 
@@ -390,9 +390,9 @@
 		if(checkoutperiod < 1)
 			checkoutperiod = 1
 	if(href_list["editbook"])
-		buffer_book = stripped_input(usr, "Enter the book's title:", max_length = 45)
+		buffer_book = stripped_input(usr, "Введите название книги:", max_length = 45)
 	if(href_list["editmob"])
-		buffer_mob = stripped_input(usr, "Enter the recipient's name:", max_length = MAX_NAME_LEN)
+		buffer_mob = stripped_input(usr, "Введите имя получателя:", max_length = MAX_NAME_LEN)
 	if(href_list["checkout"])
 		var/datum/borrowbook/b = new /datum/borrowbook
 		b.bookname = sanitize(buffer_book)
@@ -409,20 +409,20 @@
 		if(b && istype(b))
 			inventory.Remove(b)
 	if(href_list["setauthor"])
-		var/newauthor = stripped_input(usr, "Enter the author's name: ", max_length = 45)
+		var/newauthor = stripped_input(usr, "Введите имя автора: ", max_length = 45)
 		if(newauthor)
 			scanner.cache.author = newauthor
 	if(href_list["setcategory"])
-		var/newcategory = tgui_input_list(usr, "Choose a category: ",, list("Fiction", "Non-Fiction", "Adult", "Reference", "Religion","Technical"))
+		var/newcategory = tgui_input_list(usr, "Выберите категорию: ",, list("Fiction", "Non-Fiction", "Adult", "Reference", "Religion","Technical"))
 		if(newcategory)
 			upload_category = newcategory
 	if(href_list["upload"])
 		if(scanner)
 			if(scanner.cache)
-				var/choice = tgui_alert(usr, "Are you certain you wish to upload this title to the Archive?",, list("Confirm", "Abort"))
+				var/choice = tgui_alert(usr, "Вы уверены, что хотите загрузить эту работу в архив?",, list("Confirm", "Abort"))
 				if(choice == "Confirm")
 					if (!SSdbcore.Connect())
-						tgui_alert(usr,"Connection to Archive has been severed. Aborting.")
+						tgui_alert(usr,"ОШИБКА: Соединение с архивом разорвано.")
 					else
 						var/msg = "[key_name(usr)] has uploaded the book titled [scanner.cache.name], [length(scanner.cache.dat)] signs"
 						var/datum/db_query/query_library_upload = SSdbcore.NewQuery({"
@@ -431,15 +431,15 @@
 						"}, list("title" = scanner.cache.name, "author" = scanner.cache.author, "content" = scanner.cache.dat, "category" = upload_category, "ckey" = usr.ckey, "round_id" = GLOB.round_id))
 						if(!query_library_upload.Execute())
 							qdel(query_library_upload)
-							tgui_alert(usr,"Database error encountered uploading to Archive")
+							tgui_alert(usr,"Возникла ошибка базы данных при загрузке в архив.")
 							return
 						else
 							log_game(msg)
 							qdel(query_library_upload)
-							tgui_alert(usr,"Upload Complete. Uploaded title will be unavailable for printing for a short period")
+							tgui_alert(usr,"Загрузка завершена. Загруженная работа будет недоступно для печати в течение короткого периода времени.")
 	if(href_list["newspost"])
 		if(!GLOB.news_network)
-			tgui_alert(usr,"No news network found on station. Aborting.")
+			tgui_alert(usr,"ОШИБКА: На станции не найдено ни одного новостника.")
 		var/channelexists = 0
 		for(var/datum/newscaster/feed_channel/FC in GLOB.news_network.network_channels)
 			if(FC.channel_name == "Nanotrasen Book Club")
@@ -448,10 +448,10 @@
 		if(!channelexists)
 			GLOB.news_network.CreateFeedChannel("Nanotrasen Book Club", "Library", null)
 		GLOB.news_network.SubmitArticle(scanner.cache.dat, "[scanner.cache.name]", "Nanotrasen Book Club", null)
-		tgui_alert(usr,"Upload complete. Your uploaded title is now available on station newscasters.")
+		tgui_alert(usr,"Загрузка завершена. Ваша работа теперь доступен для новостных лент станций.")
 	if(href_list["orderbyid"])
 		if(printer_cooldown > world.time)
-			say("Printer unavailable. Please allow a short time before attempting to print.")
+			say("Принтер недоступен. Пожалуйста, подождите некоторое время перед попыткой печати.")
 		else
 			var/orderid = input("Enter your order:") as num|null
 			if(orderid)
@@ -461,9 +461,9 @@
 	if(href_list["targetid"])
 		var/id = href_list["targetid"]
 		if (!SSdbcore.Connect())
-			tgui_alert(usr,"Connection to Archive has been severed. Aborting.")
+			tgui_alert(usr,"ОШИБКА: Соединение с архивом разорвано.")
 		if(printer_cooldown > world.time)
-			say("Printer unavailable. Please allow a short time before attempting to print.")
+			say("Принтер недоступен. Пожалуйста, подождите некоторое время перед попыткой печати.")
 		else
 			var/datum/db_query/query_library_print = SSdbcore.NewQuery(
 				"SELECT * FROM [format_table_name("library")] WHERE id=:id AND isnull(deleted)",
@@ -471,7 +471,7 @@
 			)
 			if(!query_library_print.Execute())
 				qdel(query_library_print)
-				say("PRINTER ERROR! Failed to print document (0x0000000F)")
+				say("ОШИБКА ПРИНТЕРА! Не удалось распечатать документ (0x0000000F)")
 				return
 			printer_cooldown = world.time + PRINTER_COOLDOWN
 			while(query_library_print.NextRow())
@@ -485,7 +485,7 @@
 					B.author = author
 					B.dat = content
 					B.icon_state = "book[rand(1,8)]"
-					visible_message(span_notice("[capitalize(src.name)] printer hums as it produces a completely bound book. How did it do that?"))
+					visible_message(span_notice("[capitalize(src.name)] принтер гудит, выпуская полностью переплетенную книгу. Как он это сделал?"))
 				break
 			qdel(query_library_print)
 	if(href_list["printbible"])
@@ -498,13 +498,13 @@
 				B.deity_name = GLOB.deity
 			printer_cooldown = world.time + PRINTER_COOLDOWN
 		else
-			say("Printer currently unavailable, please wait a moment.")
+			say("Принтер в настоящее время недоступен, пожалуйста, подождите немного.")
 	if(href_list["printposter"])
 		if(printer_cooldown < world.time)
 			new /obj/item/poster/random_official(src.loc)
 			printer_cooldown = world.time + PRINTER_COOLDOWN
 		else
-			say("Printer currently unavailable, please wait a moment.")
+			say("Принтер в настоящее время недоступен, пожалуйста, подождите немного.")
 	add_fingerprint(usr)
 	updateUsrDialog()
 
@@ -512,10 +512,10 @@
  * Library Scanner
  */
 /obj/machinery/libraryscanner
-	name = "scanner control interface"
+	name = "сканер управления интерфейсом"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "bigscanner"
-	desc = "It servers the purpose of scanning stuff."
+	desc = "Служит для сканирования вещей."
 	density = TRUE
 	var/obj/item/book/cache		// Last scanned book
 
@@ -533,9 +533,9 @@
 	usr.set_machine(src)
 	var/dat = "" // <META HTTP-EQUIV='Refresh' CONTENT='10'>
 	if(cache)
-		dat += "<FONT color=#005500>Data stored in memory.</FONT><BR>"
+		dat += "<FONT color=#005500>Данные сохранены в памяти.</FONT><BR>"
 	else
-		dat += "No data stored in memory.<BR>"
+		dat += "Нет данных, сохраненных в памяти.<BR>"
 	dat += "<A href='?src=[REF(src)];scan=1'>\[Scan\]</A>"
 	if(cache)
 		dat += "       <A href='?src=[REF(src)];clear=1'>\[Clear Memory\]</A><BR><BR><A href='?src=[REF(src)];eject=1'>\[Remove Book\]</A>"
@@ -569,10 +569,10 @@
  * Book binder
  */
 /obj/machinery/bookbinder
-	name = "book binder"
+	name = "книжный переплётчик"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "binder"
-	desc = "Only intended for binding paper products."
+	desc = "Предназначен только для скрепления бумажных изделий."
 	density = TRUE
 	var/busy = FALSE
 
@@ -588,21 +588,21 @@
 	if(machine_stat)
 		return
 	if(busy)
-		to_chat(user, span_warning("The book binder is busy. Please wait for completion of previous operation."))
+		to_chat(user, span_warning("Переплетчик занят. Пожалуйста, подождите завершения предыдущей операции."))
 		return
 	if(!user.transferItemToLoc(P, src))
 		return
-	user.visible_message(span_notice("[user] loads some paper into [src].") , span_notice("You load some paper into [src]."))
-	audible_message(span_hear("[capitalize(src.name)] begins to hum as it warms up its printing drums."))
+	user.visible_message(span_notice("[user] загружает немного бумаги в [src].") , span_notice("Загружаю немного бумаги в [src]."))
+	audible_message(span_hear("[capitalize(src.name)] начинает шуметь, разогревая свои печатные барабаны."))
 	busy = TRUE
 	sleep(rand(200,400))
 	busy = FALSE
 	if(P)
 		if(!machine_stat)
-			visible_message(span_notice("[capitalize(src.name)] whirs as it prints and binds a new book."))
+			visible_message(span_notice("[capitalize(src.name)] жужжит, печатая и создавая новую книгу."))
 			var/obj/item/book/B = new(src.loc)
 			B.dat = P.info
-			B.name = "Print Job #" + "[rand(100, 999)]"
+			B.name = "Работа #" + "[rand(100, 999)]"
 			B.icon_state = "book[rand(1,7)]"
 			qdel(P)
 		else
