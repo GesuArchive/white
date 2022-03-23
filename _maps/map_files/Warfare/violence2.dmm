@@ -56,6 +56,10 @@
 /obj/structure/mineral_door/paperframe,
 /turf/open/floor/bamboo,
 /area/violence)
+"M" = (
+/obj/effect/landmark/start/combatant/blue,
+/turf/open/floor/bamboo,
+/area/violence)
 "N" = (
 /turf/closed/indestructible/black,
 /area/violence)
@@ -63,8 +67,16 @@
 /obj/structure/window/paperframe,
 /turf/open/floor/bamboo,
 /area/violence)
+"S" = (
+/obj/effect/landmark/start/combatant/red,
+/turf/open/floor/bamboo,
+/area/violence)
 "U" = (
 /turf/open/floor/carpet/red,
+/area/violence)
+"V" = (
+/obj/effect/baseturf_helper/asteroid,
+/turf/closed/indestructible/black,
 /area/violence)
 "X" = (
 /obj/effect/landmark/observer_start,
@@ -93,7 +105,7 @@ N
 N
 N
 N
-N
+V
 E
 E
 E
@@ -160,11 +172,11 @@ E
 N
 A
 n
-a
-a
-a
-a
-a
+S
+S
+S
+S
+S
 n
 A
 N
@@ -210,11 +222,11 @@ E
 N
 A
 a
-a
-a
-a
-a
-a
+S
+S
+S
+S
+S
 a
 A
 N
@@ -1135,11 +1147,11 @@ E
 N
 A
 a
-a
-a
-a
-a
-a
+M
+M
+M
+M
+M
 a
 A
 N
@@ -1185,11 +1197,11 @@ E
 N
 A
 n
-a
-a
-a
-a
-a
+M
+M
+M
+M
+M
 n
 A
 N

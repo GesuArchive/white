@@ -1,0 +1,2648 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ac" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/plating,
+/area/violence)
+"bc" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/plating,
+/area/violence)
+"bF" = (
+/obj/structure/bed/maint,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"bR" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/obj/machinery/deployable_turret/hmg,
+/turf/open/floor/plasteel/monofloor/white,
+/area/violence)
+"bT" = (
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/stripes/full,
+/obj/machinery/door/poddoor/multi_tile/two_tile_hor{
+	resistance_flags = 115
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"bX" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating,
+/area/violence)
+"cw" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/bed/maint,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"dl" = (
+/obj/effect/landmark/start/combatant/blue,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"dZ" = (
+/obj/machinery/door/poddoor/multi_tile/three_tile_hor{
+	resistance_flags = 115
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"eX" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"gw" = (
+/obj/structure/deployable_barricade/metal,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"gD" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/violence)
+"iz" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"jM" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/violence)
+"jO" = (
+/obj/structure/rack,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"ld" = (
+/turf/closed/indestructible/fakeglass,
+/area/violence)
+"lp" = (
+/turf/closed/indestructible/riveted,
+/area/violence)
+"lU" = (
+/obj/effect/turf_decal/arrows{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/violence)
+"mB" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"mZ" = (
+/obj/structure/lattice,
+/turf/open/space,
+/area/violence)
+"nc" = (
+/obj/effect/turf_decal/arrows{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/violence)
+"nm" = (
+/obj/structure/bed/maint,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"oP" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/violence)
+"oZ" = (
+/obj/effect/turf_decal/arrows{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"pb" = (
+/turf/open/space,
+/area/violence)
+"qo" = (
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"qM" = (
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"qT" = (
+/obj/effect/baseturf_helper/asteroid,
+/turf/closed/indestructible/riveted,
+/area/violence)
+"rY" = (
+/obj/effect/turf_decal/is12,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"sk" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/violence)
+"sl" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"sK" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/violence)
+"uP" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/violence)
+"vd" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"vH" = (
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"wc" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/violence)
+"wn" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/violence)
+"xi" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/violence)
+"Ad" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"Bh" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/violence)
+"Bp" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/plating,
+/area/violence)
+"Cz" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"CF" = (
+/obj/effect/landmark/observer_start,
+/turf/open/space,
+/area/violence)
+"CQ" = (
+/obj/structure/bed/maint,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"DB" = (
+/turf/open/floor/light{
+	currentcolor = "#3333ff"
+	},
+/area/violence)
+"Em" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"Eo" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"EG" = (
+/obj/machinery/door/airlock/grunge,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"Fx" = (
+/obj/effect/turf_decal/arrows{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"FK" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/obj/machinery/deployable_turret/hmg,
+/turf/open/floor/plasteel/monofloor/white,
+/area/violence)
+"Gc" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"GL" = (
+/obj/effect/landmark/start/combatant/blue,
+/turf/open/floor/light{
+	currentcolor = "#3333ff"
+	},
+/area/violence)
+"Hf" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/bed/maint,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"Hl" = (
+/obj/effect/landmark/start/combatant/red,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"Ko" = (
+/obj/effect/turf_decal/arrows{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"Ld" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"Ly" = (
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/stripes/full,
+/obj/machinery/door/poddoor/multi_tile/four_tile_ver{
+	resistance_flags = 115
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"Ng" = (
+/obj/machinery/door/poddoor/multi_tile/four_tile_ver{
+	resistance_flags = 115
+	},
+/obj/effect/turf_decal/arrows{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"Oz" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"Pj" = (
+/obj/effect/landmark/start/combatant/red,
+/turf/open/floor/light{
+	currentcolor = "#ff3333"
+	},
+/area/violence)
+"QC" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"QO" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"QR" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"Rd" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/violence)
+"RA" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"Sv" = (
+/turf/open/floor/plasteel/monofloor/white,
+/area/violence)
+"Te" = (
+/turf/closed/wall,
+/area/violence)
+"Th" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"TZ" = (
+/turf/open/floor/light{
+	currentcolor = "#ff3333"
+	},
+/area/violence)
+"Vq" = (
+/obj/machinery/door/poddoor/multi_tile/four_tile_ver{
+	resistance_flags = 115
+	},
+/obj/effect/turf_decal/arrows{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"VE" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"VH" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"Xp" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/violence)
+"XS" = (
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"YP" = (
+/obj/machinery/door/poddoor/multi_tile/two_tile_ver{
+	resistance_flags = 115
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"ZQ" = (
+/obj/effect/turf_decal/arrows{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"ZR" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/violence)
+
+(1,1,1) = {"
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+qT
+"}
+(2,1,1) = {"
+lp
+Hf
+CQ
+CQ
+CQ
+CQ
+CQ
+nm
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+bF
+CQ
+CQ
+CQ
+CQ
+CQ
+cw
+lp
+"}
+(3,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+dZ
+Em
+Pj
+Pj
+Hl
+Pj
+Pj
+Hl
+Hl
+Pj
+Pj
+Hl
+Pj
+Pj
+Ad
+dZ
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+"}
+(4,1,1) = {"
+lp
+Em
+XS
+Fx
+XS
+XS
+XS
+Ad
+qo
+Em
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Ad
+qo
+Em
+XS
+XS
+XS
+Fx
+XS
+Ad
+lp
+"}
+(5,1,1) = {"
+lp
+Em
+TZ
+TZ
+TZ
+TZ
+TZ
+Ad
+qo
+Em
+Pj
+Pj
+Pj
+Pj
+Pj
+Pj
+Pj
+Pj
+Pj
+Pj
+Pj
+Pj
+Ad
+qo
+Em
+TZ
+TZ
+TZ
+TZ
+TZ
+Ad
+lp
+"}
+(6,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Em
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Ad
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+"}
+(7,1,1) = {"
+lp
+lp
+lp
+EG
+lp
+lp
+lp
+lp
+lp
+Em
+Pj
+Pj
+Hl
+Pj
+Pj
+Hl
+Hl
+Pj
+Pj
+Hl
+Pj
+Pj
+Ad
+lp
+lp
+lp
+lp
+lp
+EG
+lp
+lp
+lp
+"}
+(8,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+"}
+(9,1,1) = {"
+lp
+Em
+TZ
+TZ
+TZ
+TZ
+TZ
+Ad
+lp
+lp
+qo
+YP
+lp
+lp
+ZQ
+ZQ
+ZQ
+Ng
+lp
+lp
+qo
+YP
+lp
+lp
+Em
+TZ
+TZ
+TZ
+TZ
+TZ
+Ad
+lp
+"}
+(10,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Sv
+Sv
+Sv
+Sv
+lp
+lU
+lU
+lU
+lU
+lp
+Sv
+Sv
+Sv
+Sv
+lp
+Em
+XS
+rY
+XS
+XS
+XS
+Ad
+lp
+"}
+(11,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Sv
+TZ
+TZ
+Sv
+lp
+lU
+lU
+lU
+lU
+lp
+Sv
+TZ
+TZ
+Sv
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+"}
+(12,1,1) = {"
+lp
+Em
+jO
+jO
+jO
+XS
+XS
+Ad
+lp
+Sv
+TZ
+TZ
+Sv
+lp
+lU
+lU
+lU
+lU
+lp
+Sv
+TZ
+TZ
+Sv
+lp
+Em
+XS
+XS
+jO
+jO
+jO
+Ad
+lp
+"}
+(13,1,1) = {"
+lp
+lp
+ld
+ld
+ld
+lp
+qo
+YP
+lp
+sk
+sk
+bR
+sk
+lp
+ZQ
+ZQ
+ZQ
+Ng
+lp
+sk
+sk
+bR
+sk
+lp
+qo
+YP
+lp
+ld
+ld
+ld
+lp
+lp
+"}
+(14,1,1) = {"
+lp
+RA
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+vd
+lp
+"}
+(15,1,1) = {"
+lp
+Ld
+XS
+XS
+rY
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Gc
+TZ
+rY
+XS
+TZ
+gw
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Cz
+lp
+"}
+(16,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Gc
+TZ
+XS
+XS
+TZ
+gw
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Cz
+lp
+"}
+(17,1,1) = {"
+lp
+Ld
+XS
+XS
+vH
+vH
+vH
+vH
+vH
+vH
+vH
+XS
+XS
+Gc
+TZ
+XS
+XS
+TZ
+gw
+XS
+XS
+vH
+vH
+vH
+vH
+vH
+vH
+vH
+XS
+XS
+Cz
+lp
+"}
+(18,1,1) = {"
+lp
+Ld
+eX
+eX
+QO
+Te
+xi
+xi
+xi
+Te
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+Te
+xi
+xi
+xi
+Te
+QO
+eX
+eX
+Cz
+lp
+"}
+(19,1,1) = {"
+lp
+Ld
+XS
+XS
+vH
+xi
+pb
+pb
+pb
+Te
+xi
+xi
+xi
+Te
+qM
+qM
+qM
+Ly
+Te
+xi
+xi
+xi
+Te
+pb
+pb
+pb
+xi
+vH
+XS
+XS
+Cz
+lp
+"}
+(20,1,1) = {"
+lp
+Ld
+TZ
+TZ
+vH
+xi
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+xi
+vH
+TZ
+TZ
+Cz
+lp
+"}
+(21,1,1) = {"
+lp
+Ld
+TZ
+TZ
+vH
+xi
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+xi
+vH
+TZ
+TZ
+Cz
+lp
+"}
+(22,1,1) = {"
+lp
+VE
+eX
+eX
+vH
+Te
+Te
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+Te
+Te
+vH
+eX
+eX
+QC
+lp
+"}
+(23,1,1) = {"
+lp
+Ld
+XS
+XS
+vH
+Cz
+Te
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+Te
+Ld
+vH
+XS
+XS
+Cz
+lp
+"}
+(24,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+sK
+wn
+wn
+Bh
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(25,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+wc
+TZ
+TZ
+bX
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(26,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+ac
+jM
+jM
+bc
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(27,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+Te
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+Te
+Ld
+XS
+rY
+XS
+Cz
+lp
+"}
+(28,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(29,1,1) = {"
+lp
+Ld
+rY
+XS
+XS
+Cz
+xi
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(30,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(31,1,1) = {"
+lp
+Ld
+TZ
+TZ
+gw
+Cz
+Te
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+Te
+Ld
+Gc
+TZ
+TZ
+Cz
+lp
+"}
+(32,1,1) = {"
+lp
+Ld
+TZ
+TZ
+gw
+Cz
+bT
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+CF
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+bT
+Ld
+Gc
+TZ
+TZ
+Cz
+lp
+"}
+(33,1,1) = {"
+lp
+Ld
+DB
+DB
+gw
+Cz
+qM
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+qM
+Ld
+Gc
+DB
+DB
+Cz
+lp
+"}
+(34,1,1) = {"
+lp
+Ld
+DB
+DB
+gw
+Cz
+Te
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+Te
+Ld
+Gc
+DB
+DB
+Cz
+lp
+"}
+(35,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(36,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(37,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(38,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+Te
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+Te
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(39,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+Bp
+uP
+uP
+gD
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(40,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+wc
+DB
+DB
+bX
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(41,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+Rd
+ZR
+ZR
+oP
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(42,1,1) = {"
+lp
+Ld
+XS
+XS
+vH
+Cz
+Te
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+mZ
+Te
+Ld
+vH
+XS
+XS
+Cz
+lp
+"}
+(43,1,1) = {"
+lp
+mB
+sl
+sl
+vH
+Te
+Te
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+Te
+Te
+vH
+sl
+sl
+Eo
+lp
+"}
+(44,1,1) = {"
+lp
+Ld
+DB
+DB
+vH
+xi
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+xi
+vH
+DB
+DB
+Cz
+lp
+"}
+(45,1,1) = {"
+lp
+Ld
+DB
+DB
+vH
+xi
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+mZ
+pb
+pb
+pb
+xi
+vH
+DB
+DB
+Cz
+lp
+"}
+(46,1,1) = {"
+lp
+Ld
+XS
+XS
+vH
+xi
+pb
+pb
+pb
+Te
+xi
+xi
+xi
+Te
+qM
+qM
+qM
+Ly
+Te
+xi
+xi
+xi
+Te
+pb
+pb
+pb
+xi
+vH
+XS
+XS
+Cz
+lp
+"}
+(47,1,1) = {"
+lp
+Ld
+sl
+sl
+VH
+Te
+xi
+xi
+xi
+Te
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+Te
+xi
+xi
+xi
+Te
+VH
+sl
+sl
+Cz
+lp
+"}
+(48,1,1) = {"
+lp
+Ld
+XS
+XS
+vH
+vH
+vH
+vH
+vH
+vH
+vH
+XS
+XS
+Gc
+DB
+XS
+XS
+DB
+gw
+XS
+XS
+vH
+vH
+vH
+vH
+vH
+vH
+vH
+XS
+XS
+Cz
+lp
+"}
+(49,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Gc
+DB
+XS
+XS
+DB
+gw
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Cz
+lp
+"}
+(50,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+rY
+XS
+XS
+XS
+Gc
+DB
+XS
+XS
+DB
+gw
+XS
+XS
+XS
+XS
+XS
+XS
+rY
+XS
+XS
+XS
+XS
+Cz
+lp
+"}
+(51,1,1) = {"
+lp
+Th
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+Oz
+lp
+"}
+(52,1,1) = {"
+lp
+lp
+ld
+ld
+ld
+lp
+qo
+YP
+lp
+Xp
+FK
+Xp
+Xp
+lp
+Ko
+Ko
+Ko
+Vq
+lp
+Xp
+Xp
+FK
+Xp
+lp
+qo
+YP
+lp
+ld
+ld
+ld
+lp
+lp
+"}
+(53,1,1) = {"
+lp
+Em
+jO
+jO
+jO
+XS
+XS
+Ad
+lp
+Sv
+DB
+DB
+Sv
+lp
+nc
+nc
+nc
+nc
+lp
+Sv
+DB
+DB
+Sv
+lp
+Em
+XS
+XS
+jO
+jO
+jO
+Ad
+lp
+"}
+(54,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Sv
+DB
+DB
+Sv
+lp
+nc
+nc
+nc
+nc
+lp
+Sv
+DB
+DB
+Sv
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+"}
+(55,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Sv
+Sv
+Sv
+Sv
+lp
+nc
+nc
+nc
+nc
+lp
+Sv
+Sv
+Sv
+Sv
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+"}
+(56,1,1) = {"
+lp
+Em
+DB
+DB
+DB
+DB
+DB
+Ad
+lp
+lp
+qo
+YP
+lp
+lp
+Ko
+Ko
+Ko
+Vq
+lp
+lp
+qo
+YP
+lp
+lp
+Em
+DB
+DB
+DB
+DB
+DB
+Ad
+lp
+"}
+(57,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+"}
+(58,1,1) = {"
+lp
+lp
+lp
+EG
+lp
+lp
+lp
+lp
+lp
+Em
+GL
+GL
+dl
+GL
+GL
+dl
+dl
+GL
+GL
+dl
+GL
+GL
+Ad
+lp
+lp
+lp
+lp
+lp
+EG
+lp
+lp
+lp
+"}
+(59,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Em
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+Ad
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+"}
+(60,1,1) = {"
+lp
+Em
+DB
+DB
+DB
+DB
+DB
+Ad
+dZ
+Em
+GL
+GL
+GL
+GL
+GL
+GL
+GL
+GL
+GL
+GL
+GL
+GL
+Ad
+dZ
+Em
+DB
+DB
+DB
+DB
+DB
+Ad
+lp
+"}
+(61,1,1) = {"
+lp
+Em
+XS
+oZ
+rY
+XS
+XS
+Ad
+qo
+Em
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+Ad
+qo
+Em
+XS
+XS
+XS
+oZ
+XS
+Ad
+lp
+"}
+(62,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+qo
+Em
+GL
+GL
+dl
+GL
+GL
+dl
+dl
+GL
+GL
+dl
+GL
+GL
+Ad
+qo
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+"}
+(63,1,1) = {"
+lp
+Hf
+CQ
+CQ
+CQ
+CQ
+CQ
+nm
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+bF
+CQ
+CQ
+CQ
+CQ
+CQ
+cw
+lp
+"}
+(64,1,1) = {"
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+"}
