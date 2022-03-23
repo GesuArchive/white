@@ -466,14 +466,12 @@
 	if(!current_canvas?.generated_icon)
 		return
 
-	var/mutable_appearance/MA = mutable_appearance(current_canvas.generated_icon)
-	MA.pixel_x = current_canvas.framed_offset_x
-	MA.pixel_y = current_canvas.framed_offset_y
-	. += MA
-	var/mutable_appearance/frame = mutable_appearance(current_canvas.icon,"[current_canvas.icon_state]frame")
-	frame.pixel_x = current_canvas.framed_offset_x - 1
-	frame.pixel_y = current_canvas.framed_offset_y - 1
-	. += frame
+	var/mutable_appearance/painting = mutable_appearance(current_canvas.generated_icon)
+	painting.pixel_x = current_canvas.framed_offset_x
+	painting.pixel_y = current_canvas.framed_offset_y
+	. += painting
+	var/frame_type = current_canvas.painting_metadata.frame_type
+	. += mutable_appearance(current_canvas.icon,"[current_canvas.icon_state]frame_[frame_type]") //add the frame
 
 /**
  * Loads a painting from SSpersistence. Called globally by said subsystem when it inits
