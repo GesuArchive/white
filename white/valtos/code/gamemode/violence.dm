@@ -399,7 +399,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	if(!visualsOnly)
 		spawn(3 SECONDS) // because shit spawned after
 			if(GLOB.violence_current_round == 6)
-				var/vehicle/V
+				var/obj/vehicle/V
 				if(GLOB.violence_random_theme == 1)
 					V = new /obj/vehicle/sealed/mecha/combat/marauder/loaded(get_turf(H))
 				else
