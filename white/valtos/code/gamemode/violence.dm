@@ -144,7 +144,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/game_mode/violence/proc/new_round()
 	GLOB.violence_current_round++
 	GLOB.violence_random_theme = rand(1, 2)
-	if(GLOB.violence_current_round == 8)
+	if(GLOB.violence_current_round == 7)
 		return
 	GLOB.violence_red_team = list()
 	GLOB.violence_blue_team = list()
@@ -181,13 +181,11 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 			return "ТЯЖЁЛАЯ АРТИЛЛЕРИЯ"
 		if(6)
 			return "МЕХАНИЧЕСКОЕ ПРЕВОСХОДСТВО"
-		if(7)
-			return "ПРОБЛЕМА БЕЗУПРЕЧНОСТИ"
 		else
 			return "Хуйня какая-то"
 
 /datum/game_mode/violence/check_finished()
-	if(GLOB.violence_current_round == 8)
+	if(GLOB.violence_current_round == 7)
 		if(!GLOB.admins.len && !GLOB.deadmins.len)
 			GLOB.master_mode = "secret"
 			SSticker.save_mode(GLOB.master_mode)
@@ -390,6 +388,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 				if(prob(50))
 					suit = /obj/item/clothing/suit/space/officer
 					head = /obj/item/clothing/head/helmet/space/beret
+					mask = null
 					r_hand = /obj/item/gun/ballistic/automatic/hs010
 					r_pocket = /obj/item/ammo_box/magazine/hs010
 			else
@@ -405,19 +404,6 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		if(6)
 			head = /obj/item/clothing/head/welding/open
 			belt = /obj/item/storage/belt/military/abductor/full
-		if(7)
-			r_hand = /obj/item/shears
-			l_hand = /obj/item/melee/baton/boomerang/loaded
-			uniform = /obj/item/clothing/under/misc/adminsuit/x031
-			suit = /obj/item/clothing/suit/space/x031
-			head = /obj/item/clothing/head/x031
-			glasses = /obj/item/clothing/glasses/debug/x031
-			ears = /obj/item/radio/headset/headset_cent/commander/x031
-			mask = /obj/item/clothing/mask/gas/syndicate/x031
-			gloves = /obj/item/clothing/gloves/combat/x031
-			id = /obj/item/card/id/advanced/centcom/ert/deathsquad/x031
-			suit_store = /obj/item/tank/internals/emergency_oxygen/recharge/x031
-			internals_slot = ITEM_SLOT_SUITSTORE
 
 /datum/outfit/job/combantant/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/card/id/W = H.wear_id
@@ -426,11 +412,22 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	if(!visualsOnly)
 		spawn(3 SECONDS) // because shit spawned after
 			if(GLOB.violence_current_round == 6)
-				var/obj/vehicle/V
-				if(GLOB.violence_random_theme == 1)
-					V = new /obj/vehicle/sealed/mecha/combat/marauder/loaded(get_turf(H))
+				var/obj/vehicle/sealed/mecha/combat/V
+				if(prob(75))
+					V = new /obj/vehicle/sealed/mecha/combat/gygax(get_turf(H))
+					var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/thrusters/ion(V)
+					ME.attach(V)
+					ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg(V)
+					ME.attach(V)
+					ME = new /obj/item/mecha_parts/mecha_equipment/anticcw_armor_booster(V)
+					ME.attach(V)
+					ME = new /obj/item/mecha_parts/mecha_equipment/antiproj_armor_booster(V)
+					ME.attach(V)
+					ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/breaching(V)
+					ME.attach(V)
+					V.max_ammo()
 				else
-					V = new /obj/vehicle/sealed/mecha/combat/marauder/seraph(get_turf(H))
+					V = new /obj/vehicle/sealed/mecha/combat/marauder(get_turf(H))
 				V.color = special_color
 
 /area/violence
