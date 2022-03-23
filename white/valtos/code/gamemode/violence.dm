@@ -292,6 +292,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	id = null
 	belt = null
 	ears = null
+	box = null
 
 /datum/outfit/job/combantant/red
 	name = "Combantant: Red"
