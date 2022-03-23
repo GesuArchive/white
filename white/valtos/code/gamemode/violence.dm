@@ -393,11 +393,12 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	W.registered_name = H.real_name
 	W.update_label()
 	if(!visualsOnly)
-		if(GLOB.violence_current_round == 6)
-			if(GLOB.violence_random_theme == 1)
-				new /obj/vehicle/sealed/mecha/combat/marauder/loaded(get_turf(H))
-			else
-				new /obj/vehicle/sealed/mecha/combat/marauder/seraph(get_turf(H))
+		spawn(3 SECONDS) // because shit spawned after
+			if(GLOB.violence_current_round == 6)
+				if(GLOB.violence_random_theme == 1)
+					new /obj/vehicle/sealed/mecha/combat/marauder/loaded(get_turf(H))
+				else
+					new /obj/vehicle/sealed/mecha/combat/marauder/seraph(get_turf(H))
 
 /area/violence
 	name = "Насилие"
