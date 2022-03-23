@@ -53,7 +53,7 @@
 	name = "Запоздавший предатель"
 	antag_datum = /datum/antagonist/traitor
 	antag_flag = ROLE_TRAITOR
-	protected_roles = list("Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Head of Personnel", "Detective", "Head of Security", "Captain", "Field Medic")
+	protected_roles = list("Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Head of Personnel", "Detective", "Head of Security", "Captain", "Field Medic", "Exploration Crew")
 	restricted_roles = list("AI","Cyborg")
 	required_candidates = 1
 	weight = 7
@@ -148,7 +148,7 @@
 	name = "Heretic Smuggler"
 	antag_datum = /datum/antagonist/heretic
 	antag_flag = ROLE_HERETIC
-	protected_roles = list("Security Officer", "Russian Officer", "Veteran", "Warden", "Head of Personnel", "Detective", "Head of Security", "Captain","Prisoner", "Field Medic")
+	protected_roles = list("Security Officer", "Russian Officer", "Veteran", "Warden", "Head of Personnel", "Detective", "Head of Security", "Captain","Prisoner", "Field Medic", "Exploration Crew")
 	restricted_roles = list("AI","Cyborg")
 	required_candidates = 1
 	weight = 4

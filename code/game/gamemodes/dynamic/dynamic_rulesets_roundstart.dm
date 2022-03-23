@@ -11,7 +11,7 @@
 	antag_flag = ROLE_TRAITOR
 	antag_datum = /datum/antagonist/traitor
 	minimum_required_age = 0
-	protected_roles = list("Prisoner", "Russian Officer", "Trader", "Hacker", "Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Field Medic")
+	protected_roles = list("Prisoner", "Russian Officer", "Trader", "Hacker", "Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Field Medic", "Exploration Crew")
 	restricted_roles = list("Cyborg")
 	required_candidates = 1
 	weight = 5
@@ -100,7 +100,7 @@
 	name = "Changelings"
 	antag_flag = ROLE_CHANGELING
 	antag_datum = /datum/antagonist/changeling
-	protected_roles = list("Prisoner", "Russian Officer", "Trader", "Hacker", "Veteran", "Security Officer","Warden", "Detective", "Head of Security", "Captain", "Field Medic")
+	protected_roles = list("Prisoner", "Russian Officer", "Trader", "Hacker", "Veteran", "Security Officer","Warden", "Detective", "Head of Security", "Captain", "Field Medic", "Exploration Crew")
 	restricted_roles = list("AI", "Cyborg")
 	required_candidates = 1
 	weight = 3
@@ -137,7 +137,7 @@
 	name = "Heretics"
 	antag_flag = ROLE_HERETIC
 	antag_datum = /datum/antagonist/heretic
-	protected_roles = list("Prisoner","Security Officer", "Russian Officer", "Veteran", "Warden", "Detective", "Head of Security", "Captain", "Field Medic")
+	protected_roles = list("Prisoner","Security Officer", "Russian Officer", "Veteran", "Warden", "Detective", "Head of Security", "Captain", "Field Medic", "Exploration Crew")
 	restricted_roles = list("AI", "Cyborg")
 	required_candidates = 1
 	weight = 3
@@ -452,7 +452,7 @@
 	persistent = TRUE
 	antag_flag = ROLE_FAMILIES
 	protected_roles = list("Prisoner", "Head of Personnel")
-	restricted_roles = list("Cyborg", "AI", "Security Officer", "Russian Officer", "Veteran", "Warden", "Detective", "Head of Security", "Captain", "Research Director", "Field Medic")
+	restricted_roles = list("Cyborg", "AI", "Security Officer", "Russian Officer", "Veteran", "Warden", "Detective", "Head of Security", "Captain", "Research Director", "Field Medic", "Exploration Crew")
 	required_candidates = 9
 	weight = 1
 	cost = 19
@@ -643,7 +643,7 @@
 	name = "Shadowlings"
 	antag_flag = ROLE_SHADOWLING
 	antag_datum = /datum/antagonist/shadowling
-	protected_roles = list("Prisoner","Security Officer", "Russian Officer", "Veteran", "Warden", "Detective", "Head of Security", "Captain", "Field Medic")
+	protected_roles = list("Prisoner","Security Officer", "Russian Officer", "Veteran", "Warden", "Detective", "Head of Security", "Captain", "Field Medic", "Exploration Crew")
 	restricted_roles = list("AI", "Cyborg")
 	required_candidates = 1
 	weight = 3

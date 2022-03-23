@@ -21,7 +21,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 	enemy_minimum_age = 0
 
 	restricted_jobs = list("Cyborg", "AI")
-	protected_jobs = list("Prisoner", "Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Field Medic")
+	protected_jobs = list("Prisoner", "Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Field Medic", "Exploration Crew")
 
 	announce_span = "danger"
 	announce_text = "Кто-то решил уронить станцию прямиком на ПЛАНЕТУ!"
