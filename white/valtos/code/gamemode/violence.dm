@@ -12,6 +12,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	config_tag = "violence"
 	report_type = "violence"
 	enemy_minimum_age = 0
+	maximum_players = 64
 
 	var/round_active = FALSE
 	var/round_started_at = 0
@@ -143,7 +144,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/game_mode/violence/proc/new_round()
 	GLOB.violence_current_round++
 	GLOB.violence_random_theme = rand(1, 2)
-	if(GLOB.violence_current_round == 6)
+	if(GLOB.violence_current_round == 7)
 		return
 	GLOB.violence_red_team = list()
 	GLOB.violence_blue_team = list()
@@ -159,14 +160,31 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		max_blues = 2
 		round_active = TRUE
 		round_started_at = world.time
-		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round] НАЧАЛСЯ!"))
+		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round]! [get_round_desc()]!"))
 		SSjob.ResetOccupations("Violence")
 		SSjob.SetJobPositions(/datum/job/combantant/red, 200, 200, TRUE)
 		SSjob.SetJobPositions(/datum/job/combantant/blue, 200, 200, TRUE)
 		play_sound_to_everyone('white/valtos/sounds/horn.ogg')
 
+/datum/game_mode/violence/proc/get_round_desc()
+	switch(GLOB.violence_current_round)
+		if(1)
+			return "РАЗМИНКА"
+		if(2)
+			return "КЛАССИЧЕСКАЯ РЕЗНЯ"
+		if(3)
+			return "ГРАЖДАНСКИЙ МАСТЕРКРАФТ"
+		if(4)
+			return "ТАКТИЧЕСКОЕ РУБИЛОВО"
+		if(5)
+			return "ТЯЖЁЛАЯ АРТИЛЛЕРИЯ"
+		if(6)
+			return "МЕХАНИЧЕСКОЕ ПРЕВОСХОДСТВО"
+		else
+			return "Хуйня какая-то"
+
 /datum/game_mode/violence/check_finished()
-	if(GLOB.violence_current_round == 6)
+	if(GLOB.violence_current_round == 7)
 		if(!GLOB.admins.len && !GLOB.deadmins.len)
 			GLOB.master_mode = "secret"
 			SSticker.save_mode(GLOB.master_mode)
@@ -288,6 +306,8 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/outfit/job/combantant/pre_equip(mob/living/carbon/human/H)
 	..()
 	back = null
+	backpack_contents = null
+	id = /obj/item/card/id/advanced/centcom/ert/deathsquad
 	switch(GLOB.violence_current_round)
 		if(1)
 			r_hand = pick(list(null, /obj/item/weldingtool, /obj/item/grenade/iedcasing/spawned, /obj/item/wrench, /obj/item/extinguisher))
@@ -364,6 +384,20 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 			shoes = /obj/item/clothing/shoes/combat/swat
 			l_pocket = /obj/item/melee/energy/sword/saber
 			l_hand = /obj/item/shield/riot/military
+		if(6)
+			head = /obj/item/clothing/head/welding/open
+			belt = /obj/item/storage/belt/military/abductor/full
+
+/datum/outfit/job/combantant/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	var/obj/item/card/id/W = H.wear_id
+	W.registered_name = H.real_name
+	W.update_label()
+	if(!visualsOnly)
+		if(GLOB.violence_current_round == 6)
+			if(GLOB.violence_random_theme == 1)
+				new /obj/vehicle/sealed/mecha/combat/marauder/loaded(get_turf(H))
+			else
+				new /obj/vehicle/sealed/mecha/combat/marauder/seraph(get_turf(H))
 
 /area/violence
 	name = "Насилие"
@@ -397,9 +431,9 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 			S = 'white/valtos/sounds/battle_small.ogg'
 		if(3)
 			S = 'white/valtos/sounds/battle_mid.ogg'
-		if(4)
+		if(4 to 5)
 			S = 'white/valtos/sounds/battle_hi.ogg'
-		if(5)
+		if(6)
 			S = 'white/valtos/sounds/battle_fuck.ogg'
 
 	if(S)
@@ -420,6 +454,10 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 	for(var/item in subtypesof(/datum/map_template/violence))
 		var/datum/map_template/violence/C = new item()
+		if(C.max_players > GLOB.player_list.len)
+			message_admins("[C.name]: максимум [C.max_players] игроков, пропускаем...")
+			qdel(C)
+			continue
 		maplist[C] = C.weight
 
 	current_map = pickweight(maplist)
@@ -437,15 +475,18 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/map_template/violence
 	var/description = ""
 	var/weight = 0
+	var/max_players = 64
 
 /datum/map_template/violence/default
 	name = "Карак"
 	description = "Бойня в пустынном бункере."
 	mappath = "_maps/map_files/Warfare/violence1.dmm"
 	weight = 3
+	max_players = 16
 
 /datum/map_template/violence/chinatown
 	name = "Чайнатаун"
 	description = "Деликатное отсечение голов в восточном стиле."
 	mappath = "_maps/map_files/Warfare/violence2.dmm"
 	weight = 3
+	max_players = 8
