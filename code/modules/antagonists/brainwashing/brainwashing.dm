@@ -23,7 +23,7 @@
 	var/rendered = begin_message + obj_message + end_message
 	deadchat_broadcast(rendered, "<b>[L]</b>", follow_target = L, turf_target = get_turf(L), message_type=DEADCHAT_ANNOUNCEMENT)
 	if(prob(1) || SSevents.holidays && SSevents.holidays[APRIL_FOOLS])
-		L.say("You son of a bitch! I'm in.", forced = "That son of a bitch! They're in.")
+		L.say("Ах ты сукин сын, я в деле!", forced = "Ах он сукин сын, он в деле!")
 
 /datum/antagonist/brainwashed
 	name = "Brainwashed Victim"
@@ -35,8 +35,8 @@
 	greentext_reward = 5
 
 /datum/antagonist/brainwashed/greet()
-	to_chat(owner, span_warning("Your mind reels as it begins focusing on a single purpose..."))
-	to_chat(owner, "<big><span class='warning'><b>Follow the Directives, at any cost!</b></span></big>")
+	to_chat(owner, span_warning("Ваш разум начинает фокусироваться на одной цели..."))
+	to_chat(owner, "<big><span class='warning'><b>Выполняйте директивы любой ценой!</b></span></big>")
 	var/i = 1
 	for(var/X in objectives)
 		var/datum/objective/O = X
@@ -44,8 +44,8 @@
 		i++
 
 /datum/antagonist/brainwashed/farewell()
-	to_chat(owner, span_warning("Your mind suddenly clears..."))
-	to_chat(owner, "<big><span class='warning'><b>You feel the weight of the Directives disappear! You no longer have to obey them.</b></span></big>")
+	to_chat(owner, span_warning("Ваш разум внезапно проясняется..."))
+	to_chat(owner, "<big><span class='warning'><b>Вы чувствуете, как тяжесть Директив исчезает! Вы больше не обязаны им подчиняться.</b></span></big>")
 	owner.announce_objectives()
 
 /datum/antagonist/brainwashed/admin_add(datum/mind/new_owner,mob/admin)
@@ -54,12 +54,12 @@
 		return
 	var/list/objectives = list()
 	do
-		var/objective = stripped_input(admin, "Add an objective, or leave empty to finish.", "Brainwashing", null, MAX_MESSAGE_LEN)
+		var/objective = stripped_input(admin, "Добавьте цель или оставьте пустой для завершения.", "Промывка мозгов", null, MAX_MESSAGE_LEN)
 		if(objective)
 			objectives += objective
-	while(tgui_alert(admin,"Add another objective?","More Brainwashing",list("Yes","No")) == "Yes")
+	while(tgui_alert(admin,"Ещё одно задание?","Больше промывки мозгов",list("Да","Нет")) == "Да")
 
-	if(tgui_alert(admin,"Confirm Brainwashing?","Are you sure?",list("Yes","No")) == "No")
+	if(tgui_alert(admin,"Действительно ли вы хотите промыть мозги?","Вы уверены?",list("Да","Нет")) == "Нет")
 		return
 
 	if(!LAZYLEN(objectives))
