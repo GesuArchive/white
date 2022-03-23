@@ -293,16 +293,19 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	belt = null
 	ears = null
 	box = null
+	var/special_color = "#ffffff"
 
 /datum/outfit/job/combantant/red
 	name = "Combantant: Red"
 	jobtype = /datum/job/combantant/red
 	uniform = /obj/item/clothing/under/color/red
+	special_color = "#ff8888"
 
 /datum/outfit/job/combantant/blue
 	name = "Combantant: Blue"
 	jobtype = /datum/job/combantant/blue
 	uniform = /obj/item/clothing/under/color/blue
+	special_color = "#8888ff"
 
 /datum/outfit/job/combantant/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -396,10 +399,12 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	if(!visualsOnly)
 		spawn(3 SECONDS) // because shit spawned after
 			if(GLOB.violence_current_round == 6)
+				var/vehicle/V
 				if(GLOB.violence_random_theme == 1)
-					new /obj/vehicle/sealed/mecha/combat/marauder/loaded(get_turf(H))
+					V = new /obj/vehicle/sealed/mecha/combat/marauder/loaded(get_turf(H))
 				else
-					new /obj/vehicle/sealed/mecha/combat/marauder/seraph(get_turf(H))
+					V = new /obj/vehicle/sealed/mecha/combat/marauder/seraph(get_turf(H))
+				V.color = special_color
 
 /area/violence
 	name = "Насилие"
