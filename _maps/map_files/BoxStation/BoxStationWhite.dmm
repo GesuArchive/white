@@ -3629,6 +3629,9 @@
 "asP" = (
 /obj/structure/chair/stool,
 /obj/effect/spawner/lootdrop/maintenance,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/maintenance/fore)
 "asQ" = (
@@ -31232,10 +31235,11 @@
 /area/maintenance/starboard/fore)
 "dda" = (
 /obj/machinery/camera/autoname{
+	dir = 8;
 	start_active = 1
 	},
-/turf/open/openspace,
-/area/hallway/secondary/exit/departure_lounge)
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "dde" = (
 /obj/structure/closet/wardrobe/white,
 /obj/item/clothing/shoes/jackboots,
@@ -31579,6 +31583,12 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
+"dvW" = (
+/obj/machinery/camera/autoname{
+	start_active = 1
+	},
+/turf/open/openspace,
+/area/hallway/secondary/exit/departure_lounge)
 "dwb" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -34646,6 +34656,13 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry4)
+"gKi" = (
+/obj/machinery/camera/autoname{
+	dir = 8;
+	start_active = 1
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard/aft)
 "gKn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
@@ -39616,6 +39633,14 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/department/medical/morgue)
+"mkX" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/camera/autoname{
+	dir = 5;
+	start_active = 1
+	},
+/turf/open/openspace/airless,
+/area/space/nearstation)
 "mlp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -63478,7 +63503,7 @@ aaa
 aaa
 aaa
 aaa
-nXv
+vVy
 alU
 alU
 alU
@@ -88923,7 +88948,7 @@ aaa
 aaa
 aaa
 aaa
-gXs
+mIr
 ahn
 ahn
 ahn
@@ -89789,7 +89814,7 @@ xKL
 kgG
 sUt
 bzs
-gXs
+bHx
 gXs
 gXs
 gXs
@@ -90729,7 +90754,7 @@ alP
 alP
 alP
 aqy
-anf
+dda
 anf
 awI
 awF
@@ -93312,7 +93337,7 @@ alP
 alP
 hRM
 alP
-dda
+dvW
 dTQ
 dTQ
 dTQ
@@ -101852,7 +101877,7 @@ cae
 cOe
 jgu
 cOe
-cOe
+gKi
 ceT
 cNW
 cOe
@@ -102882,7 +102907,7 @@ aaa
 gXs
 nXv
 nXv
-nXv
+mkX
 gXs
 aaa
 aaa
