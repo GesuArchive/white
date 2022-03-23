@@ -454,7 +454,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 	for(var/item in subtypesof(/datum/map_template/violence))
 		var/datum/map_template/violence/C = new item()
-		if(C.max_players > GLOB.player_list.len)
+		if(C.max_players < GLOB.player_list.len)
 			message_admins("[C.name]: максимум [C.max_players] игроков, пропускаем...")
 			qdel(C)
 			continue
@@ -475,7 +475,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/map_template/violence
 	var/description = ""
 	var/weight = 0
-	var/max_players = 64
+	var/max_players = 0
 
 /datum/map_template/violence/default
 	name = "Карак"
