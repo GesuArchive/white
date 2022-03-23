@@ -76,30 +76,31 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/game_mode/violence/send_intercept(report = 0)
 	return
 
-/datum/game_mode/violence/proc/play_sound_to_everyone(snd)
+/datum/game_mode/violence/proc/play_sound_to_everyone(snd, volume = 100)
 	for(var/mob/M in GLOB.player_list)
-		SEND_SOUND(M, snd)
+		var/sound/S = sound(snd, volume = volume)
+		SEND_SOUND(M, S)
 
 /datum/game_mode/violence/process()
 	if(round_active)
 		for(var/datum/mind/R in GLOB.violence_red_team)
 			if(!R?.current)
-				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')))
+				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')), rand(25, 50))
 				GLOB.violence_red_team -= R
 			else if(R?.current?.stat == DEAD)
-				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')))
+				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')), rand(25, 50))
 				GLOB.violence_red_team -= R
 		for(var/datum/mind/B in GLOB.violence_blue_team)
 			if(!B?.current)
-				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')))
+				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')), rand(25, 50))
 				GLOB.violence_blue_team -= B
 			else if(B?.current?.stat == DEAD)
-				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')))
+				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')), rand(25, 50))
 				GLOB.violence_blue_team -= B
-		if(GLOB.violence_red_team.len == max_reds)
+		if(GLOB.violence_red_team.len == max_reds && max_reds <= max_blues)
 			max_reds++
 			SSjob.AddJobPositions(/datum/job/combantant/red, max_reds, max_reds)
-		if(GLOB.violence_blue_team.len == max_blues)
+		if(GLOB.violence_blue_team.len == max_blues && max_blues <= max_reds)
 			max_blues++
 			SSjob.AddJobPositions(/datum/job/combantant/blue, max_blues, max_blues)
 		if(shutters_closed && round_started_at + 30 SECONDS < world.time)
