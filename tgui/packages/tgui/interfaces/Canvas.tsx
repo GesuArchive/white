@@ -131,8 +131,7 @@ class PaintCanvas extends Component<PaintCanvasProps> {
     this.modifiedElements.push(p);
     const canvas = this.canvasRef.current!;
     const ctx = canvas.getContext("2d")!;
-    ctx.fillStyle = color;
-    ctx.globalAlpha = alpha / 255;
+    ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
     ctx.fillRect(x, y, 1, 1);
     ctx.globalAlpha = 1.0;
   }

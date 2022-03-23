@@ -6,7 +6,7 @@ export const Crayon = (props, context) => {
   const { act, data } = useBackend(context);
   const capOrChanges = data.has_cap || data.can_change_colour;
   const drawables = data.drawables || [];
-  const last_colors = data.last_colors || [];
+  const last_colours = data.last_colours || [];
   return (
     <Window
       width={600}
@@ -33,13 +33,13 @@ export const Crayon = (props, context) => {
               step={1}
               unit={"a"}
               stepPixelSize={4}
-              onDrag={(e, value) => act('select_alpha', {
+              onDrag={(e, value) => act('new_alpha', {
                 target: value,
               })} />
-            {last_colors.map(col => {
+            {last_colours.map(col, i => {
               return (
                 <Button
-                  key={col}
+                  key={i}
                   content={col}
                   color={col}
                   onClick={() => act('select_last_colour', {
