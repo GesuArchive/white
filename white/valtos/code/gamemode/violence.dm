@@ -490,3 +490,10 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	mappath = "_maps/map_files/Warfare/violence2.dmm"
 	weight = 3
 	max_players = 8
+
+/datum/map_template/violence/centralpolygon
+	name = "Тренировочный Центр"
+	description = "Здесь проходят обучение все офицеры Нанотрейзен."
+	mappath = "_maps/map_files/Warfare/violence3.dmm"
+	weight = 1
+	max_players = 64
