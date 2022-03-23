@@ -117,6 +117,7 @@
 	.["editable"] = !finalized //Ideally you should be able to draw moustaches on existing paintings in the gallery but that's not implemented yet
 	.["show_plaque"] = istype(loc,/obj/structure/sign/painting)
 	.["paint_tool_color"] = get_paint_tool_color(user.get_active_held_item())
+	.["paint_tool_alpha"] = get_paint_tool_alpha(user.get_active_held_item())
 
 /obj/item/canvas/examine(mob/user)
 	. = ..()
@@ -290,6 +291,18 @@
 		return P.colour
 	else if(istype(painting_implement, /obj/item/soap) || istype(painting_implement, /obj/item/reagent_containers/glass/rag))
 		return canvas_color
+
+/obj/item/canvas/proc/get_paint_tool_alpha(obj/item/painting_implement)
+	if(!painting_implement)
+		return
+	if(istype(painting_implement, /obj/item/paint_palette))
+		var/obj/item/paint_palette/palette = painting_implement
+		return palette.current_alpha
+	if(istype(painting_implement, /obj/item/toy/crayon))
+		var/obj/item/toy/crayon/crayon = painting_implement
+		return crayon.paint_alpha
+	else
+		return 255
 
 /// Generates medium description
 /obj/item/canvas/proc/get_paint_tool_medium(obj/item/painting_implement)
@@ -558,6 +571,18 @@
 	w_class = WEIGHT_CLASS_TINY
 	///Chosen paint color
 	var/current_color
+	var/current_alpha = 255
+
+/obj/item/paint_palette/examine(mob/user)
+	. = ..()
+	. += "<hr>"
+	. += span_info("ПКМ, чтобы выбрать непрозрачность. Текущая: [current_alpha].")
+
+/obj/item/paint_palette/attack_self_secondary(mob/user, modifiers)
+	. = ..()
+	var/chosen_alpha = input(user, "Выбери прозрачность (0 - 255).", "Палитра") as num|null
+	if(chosen_alpha && ISINRANGE(chosen_alpha, 0, 255))
+		current_alpha = chosen_alpha
 
 /obj/item/paint_palette/attack_self(mob/user, modifiers)
 	. = ..()

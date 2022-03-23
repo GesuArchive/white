@@ -34,6 +34,9 @@
 	attack_verb_simple = list("бьёт", "мажет")
 	grind_results = list()
 	var/paint_color = "#FF0000" //RGB
+	var/paint_alpha = 255 //A
+
+	var/list/last_colors = list()
 
 	var/drawtype
 	var/text_buffer = ""
@@ -223,6 +226,8 @@
 	.["is_capped"] = is_capped
 	.["can_change_colour"] = can_change_colour
 	.["current_colour"] = paint_color
+	.["current_alpha"] = paint_alpha
+	.["last_colours"] = last_colors
 
 /obj/item/toy/crayon/ui_act(action, list/params)
 	. = ..()
@@ -247,6 +252,12 @@
 				paint_mode = PAINT_NORMAL
 		if("select_colour")
 			. = can_change_colour && select_colour(usr)
+		if("select_last_colour")
+			paint_color = params["col"]
+			. = TRUE
+		if("select_alpha")
+			paint_alpha = params["new_alpha"]
+			. = TRUE
 		if("enter_text")
 			var/txt = stripped_input(usr,"Что же мы напишем?",
 				"Писюльки",default = text_buffer)
@@ -259,6 +270,9 @@
 /obj/item/toy/crayon/proc/select_colour(mob/user)
 	var/chosen_colour = input(user, "", "Выберем цвет", paint_color) as color|null
 	if (!isnull(chosen_colour) && user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
+		if(LAZYLEN(last_colors) > 25)
+			popleft(last_colors)
+		LAZYOR(last_colors, paint_color)
 		paint_color = chosen_colour
 		return TRUE
 	return FALSE
