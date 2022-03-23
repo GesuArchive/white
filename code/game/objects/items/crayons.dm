@@ -255,7 +255,7 @@
 		if("select_last_colour")
 			paint_color = params["col"]
 			. = TRUE
-		if("select_alpha")
+		if("new_alpha")
 			paint_alpha = text2num(params["new_alpha"])
 			. = TRUE
 		if("enter_text")
