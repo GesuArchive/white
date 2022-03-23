@@ -99,10 +99,10 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')), rand(25, 50))
 				GLOB.violence_blue_team -= B
 		if(GLOB.violence_red_team.len == max_reds && max_reds <= max_blues)
-			max_reds++
+			max_reds = max_blues + 1
 			SSjob.AddJobPositions(/datum/job/combantant/red, max_reds, max_reds)
 		if(GLOB.violence_blue_team.len == max_blues && max_blues <= max_reds)
-			max_blues++
+			max_blues = max_reds + 1
 			SSjob.AddJobPositions(/datum/job/combantant/blue, max_blues, max_blues)
 		if(shutters_closed && round_started_at + 30 SECONDS < world.time)
 			shutters_closed = FALSE
