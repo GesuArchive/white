@@ -144,9 +144,10 @@
 			for(var/point in data)
 				var/x = text2num(point["x"])
 				var/y = text2num(point["y"])
-				var/list/c1 = rgb2num(grid[x][y], COLORSPACE_HSV)
-				var/list/c2 = rgb2num(tool_color, COLORSPACE_HSV)
-				grid[x][y] = BlendHSV("#[c1[1]][c1[2]][c1[3]]", "#[c2[1]][c2[2]][c2[3]]", round(tool_alpha / 255, 0.1))
+				var/list/c1 = rgb2num(grid[x][y], COLORSPACE_RGB)
+				var/list/c2 = rgb2num(tool_color, COLORSPACE_RGB)
+
+				grid[x][y] = BlendRGB("#[c1[1]][c1[2]][c1[3]]", "#[c2[1]][c2[2]][c2[3]]", round(tool_alpha / 255, 0.1))
 			var/medium = get_paint_tool_medium(I)
 			if(medium && painting_metadata.medium && painting_metadata.medium != medium)
 				painting_metadata.medium = "Микс медиум"
