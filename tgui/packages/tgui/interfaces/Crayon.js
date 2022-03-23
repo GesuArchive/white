@@ -22,31 +22,38 @@ export const Crayon = (props, context) => {
                   selected={data.is_capped}
                   onClick={() => act('toggle_cap')} />
               </LabeledList.Item>
-            </LabeledList>
-            <Button
-              content="Выбрать новый цвет"
-              onClick={() => act('select_colour')} />
-            <Slider
-              value={data.current_alpha}
-              minValue={0}
-              maxValue={255}
-              step={1}
-              unit={"a"}
-              stepPixelSize={4}
-              onDrag={(e, value) => act('new_alpha', {
-                target: value,
-              })} />
-            {last_colours.map(col, i => {
-              return (
+              <LabeledList.Item label="Цвет">
                 <Button
-                  key={i}
-                  content={col}
-                  color={col}
-                  onClick={() => act('select_last_colour', {
-                    col: col,
+                  content="Изменить"
+                  iconColor={data.current_colour}
+                  icon="stop"
+                  onClick={() => act('select_colour')} />
+              </LabeledList.Item>
+              <LabeledList.Item label="Последние цвета">
+                {last_colours.map(col => {
+                  return (
+                    <Button
+                      key={col}
+                      iconColor={col}
+                      icon="stop"
+                      onClick={() => act('select_last_colour', {
+                        col: col,
+                      })} />
+                  );
+                })}
+              </LabeledList.Item>
+              <LabeledList.Item label="Непрозрачность">
+                <Slider
+                  value={data.current_alpha}
+                  minValue={0}
+                  maxValue={255}
+                  step={1}
+                  stepPixelSize={4}
+                  onDrag={(e, value) => act('new_alpha', {
+                    target: value,
                   })} />
-              );
-            })}
+              </LabeledList.Item>
+            </LabeledList>
           </Section>
         )}
         <Collapsible

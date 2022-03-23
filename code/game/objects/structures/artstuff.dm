@@ -134,14 +134,17 @@
 				return TRUE
 			var/obj/item/I = user.get_active_held_item()
 			var/tool_color = get_paint_tool_color(I)
+			var/tool_alpha = get_paint_tool_alpha(I)
 			if(!tool_color)
+				return FALSE
+			if(!tool_alpha)
 				return FALSE
 			var/list/data = params["data"]
 			//could maybe validate continuity but eh
 			for(var/point in data)
 				var/x = text2num(point["x"])
 				var/y = text2num(point["y"])
-				grid[x][y] = tool_color
+				grid[x][y] = BlendHSV(RGBtoHSV(hex2rgb(grid[x][y])), RGBtoHSV(hex2rgb(tool_color)), tool_alpha / 255)
 			var/medium = get_paint_tool_medium(I)
 			if(medium && painting_metadata.medium && painting_metadata.medium != medium)
 				painting_metadata.medium = "Микс медиум"

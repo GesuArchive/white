@@ -256,7 +256,7 @@
 			paint_color = params["col"]
 			. = TRUE
 		if("select_alpha")
-			paint_alpha = params["new_alpha"]
+			paint_alpha = text2num(params["new_alpha"])
 			. = TRUE
 		if("enter_text")
 			var/txt = stripped_input(usr,"Что же мы напишем?",
