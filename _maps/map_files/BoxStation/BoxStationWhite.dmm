@@ -25612,9 +25612,6 @@
 /obj/machinery/light/small{
 	pixel_y = 0
 	},
-/obj/machinery/camera/autoname{
-	dir = 1
-	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "ceU" = (
@@ -31235,10 +31232,10 @@
 /area/maintenance/starboard/fore)
 "dda" = (
 /obj/machinery/camera/autoname{
-	dir = 8
+	start_active = 1
 	},
-/turf/open/floor/plating,
-/area/maintenance/fore)
+/turf/open/openspace,
+/area/hallway/secondary/exit/departure_lounge)
 "dde" = (
 /obj/structure/closet/wardrobe/white,
 /obj/item/clothing/shoes/jackboots,
@@ -31582,13 +31579,6 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
-"dvW" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/camera/autoname{
-	dir = 5
-	},
-/turf/open/openspace/airless,
-/area/space/nearstation)
 "dwb" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -33775,11 +33765,6 @@
 /turf/open/openspace/airless,
 /area/maintenance/starboard/fore)
 "fTR" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Engineering Backup Storage";
-	req_access_txt = "10";
-	security_level = 6
-	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
@@ -33795,6 +33780,11 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering Backup Storage";
+	req_access_txt = "10";
+	security_level = 2
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/engineering/storage/tech)
 "fUr" = (
@@ -34656,10 +34646,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry4)
-"gKi" = (
-/obj/machinery/camera/autoname,
-/turf/open/floor/plating,
-/area/maintenance/starboard/fore)
 "gKn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
@@ -37453,9 +37439,6 @@
 "jKg" = (
 /obj/structure/railing,
 /obj/machinery/door/firedoor/border_only,
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "jKx" = (
@@ -39633,13 +39616,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/department/medical/morgue)
-"mkX" = (
-/obj/structure/cable,
-/obj/machinery/camera/autoname{
-	dir = 5
-	},
-/turf/open/floor/plating,
-/area/maintenance/starboard/fore)
 "mlp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -41489,13 +41465,6 @@
 	},
 /turf/open/floor/plating,
 /area/engineering/manufactory)
-"opD" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/maintenance/fore/secondary)
 "opF" = (
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
@@ -43500,9 +43469,6 @@
 "qor" = (
 /obj/machinery/light/small,
 /obj/structure/railing/corner,
-/obj/machinery/camera/autoname{
-	dir = 1
-	},
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
 	},
@@ -43790,10 +43756,6 @@
 /obj/effect/turf_decal/siding/thinplating/corner,
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/xenobiology)
-"qKJ" = (
-/obj/machinery/camera/autoname,
-/turf/open/floor/engine/hull,
-/area/space/nearstation)
 "qLv" = (
 /obj/machinery/modular_computer/console/preset/civilian{
 	dir = 8
@@ -43822,7 +43784,7 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Backup Storage";
 	req_access_txt = "10";
-	security_level = 6
+	security_level = 2
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
@@ -44369,13 +44331,6 @@
 /obj/effect/spawner/lootdrop/maintenance/three,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
-"rzn" = (
-/obj/structure/cable,
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/maintenance/starboard/fore)
 "rzp" = (
 /obj/structure/table,
 /obj/item/stack/sheet/iron/fifty,
@@ -48470,16 +48425,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port)
-"wgb" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/maintenance/port)
 "wgh" = (
 /obj/machinery/light{
 	dir = 8
@@ -50534,13 +50479,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard3)
-"yjd" = (
-/obj/structure/lattice,
-/obj/machinery/camera/autoname{
-	start_active = 1
-	},
-/turf/open/openspace/airless,
-/area/space/nearstation)
 "yji" = (
 /obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2{
 	color = "#ff0000";
@@ -57384,7 +57322,7 @@ aaw
 aaa
 gXs
 aaa
-mIr
+gXs
 arB
 awW
 hFg
@@ -64054,7 +63992,7 @@ aaa
 aaa
 aaa
 aaa
-vVy
+nXv
 alU
 aoX
 alU
@@ -65897,7 +65835,7 @@ bjk
 vKS
 bhN
 dVy
-wgb
+vKS
 vKS
 kKA
 kbm
@@ -70317,7 +70255,7 @@ cAK
 bCq
 bCq
 bCq
-bHx
+gXs
 aaa
 aaa
 aaa
@@ -73832,7 +73770,7 @@ aaa
 arP
 asP
 aqR
-dda
+aqR
 hdr
 kIh
 ayG
@@ -85121,7 +85059,7 @@ aaa
 aaa
 aaa
 ahk
-opD
+aoJ
 aib
 aif
 aif
@@ -86689,7 +86627,7 @@ azp
 azp
 aBD
 aCu
-gKi
+anf
 anf
 bze
 dyD
@@ -87790,7 +87728,7 @@ cDY
 alZ
 vwG
 bOh
-mIr
+gXs
 bzs
 haX
 oPk
@@ -88052,7 +87990,7 @@ bzs
 csl
 aEY
 bzs
-yjd
+gXs
 aaa
 aaa
 aaa
@@ -88985,7 +88923,7 @@ aaa
 aaa
 aaa
 aaa
-mIr
+gXs
 ahn
 ahn
 ahn
@@ -89519,7 +89457,7 @@ vGf
 avI
 anf
 aAc
-rzn
+arr
 arr
 arr
 ipQ
@@ -90534,7 +90472,7 @@ aak
 anf
 aaB
 arr
-mkX
+arr
 arr
 tAl
 pOY
@@ -91391,7 +91329,7 @@ bAw
 cdH
 ceF
 bzs
-bHx
+gXs
 aaa
 aaa
 aaa
@@ -93374,7 +93312,7 @@ alP
 alP
 hRM
 alP
-dTQ
+dda
 dTQ
 dTQ
 dTQ
@@ -94647,7 +94585,7 @@ alP
 alP
 alP
 alP
-awG
+iYK
 alP
 alP
 auD
@@ -97046,7 +96984,7 @@ cNW
 cNW
 cNW
 cNW
-qKJ
+wIB
 wIB
 wIB
 wIB
@@ -100565,7 +100503,7 @@ atS
 aaa
 aaa
 aaa
-qmg
+gXs
 eRz
 aaa
 gXs
@@ -101875,7 +101813,7 @@ aaa
 aaa
 gXs
 gXs
-qmg
+gXs
 gXs
 gXs
 gXs
@@ -102653,7 +102591,7 @@ aaa
 aaa
 aaa
 eRz
-mIr
+gXs
 bky
 bky
 bky
@@ -102942,7 +102880,7 @@ aaa
 aaa
 aaa
 gXs
-dvW
+nXv
 nXv
 nXv
 gXs
