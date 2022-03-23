@@ -50,7 +50,7 @@ export const Crayon = (props, context) => {
                   step={1}
                   stepPixelSize={4}
                   onDrag={(e, value) => act('new_alpha', {
-                    new_alpha: value,
+                    alp: value,
                   })} />
               </LabeledList.Item>
             </LabeledList>
