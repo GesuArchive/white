@@ -148,12 +148,13 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		return
 	GLOB.violence_red_team = list()
 	GLOB.violence_blue_team = list()
-	for(var/mob/M in GLOB.player_list)
-		M?.mind?.remove_all_antag_datums()
-		SEND_SOUND(M, sound(null, channel = CHANNEL_VIOLENCE_MODE))
-		var/mob/dead/new_player/NP = new()
-		NP.ckey = M.ckey
-		qdel(M)
+	if(GLOB.violence_current_round != 1)
+		for(var/mob/M in GLOB.player_list)
+			M?.mind?.remove_all_antag_datums()
+			SEND_SOUND(M, sound(null, channel = CHANNEL_VIOLENCE_MODE))
+			var/mob/dead/new_player/NP = new()
+			NP.ckey = M.ckey
+			qdel(M)
 	clean_arena()
 	spawn(10 SECONDS)
 		max_reds = 2
