@@ -22,15 +22,6 @@
 	},
 /turf/open/floor/plating/is12/rock,
 /area/violence)
-"bv" = (
-/obj/effect/turf_decal/is12{
-	icon_state = "dirtcornerleft"
-	},
-/obj/effect/turf_decal/is12{
-	icon_state = "wwi"
-	},
-/turf/open/floor/plating/is12/rock,
-/area/violence)
 "bC" = (
 /turf/closed/indestructible/riveted/boss,
 /area/violence)
@@ -49,15 +40,6 @@
 	dir = 1
 	},
 /turf/open/floor/plating/is12/wood,
-/area/violence)
-"fi" = (
-/obj/effect/turf_decal/is12{
-	icon_state = "dirtcornercenter"
-	},
-/obj/effect/turf_decal/is12{
-	icon_state = "wwi"
-	},
-/turf/open/floor/plating/is12/rock,
 /area/violence)
 "ft" = (
 /obj/effect/turf_decal/stripes/line{
@@ -86,7 +68,17 @@
 /obj/effect/turf_decal/is12{
 	icon_state = "wwi"
 	},
+/obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/plating/is12/rock,
+/area/violence)
+"ic" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/flippedtable{
+	dir = 1
+	},
+/turf/open/floor/plating/is12/surface,
 /area/violence)
 "iB" = (
 /obj/effect/turf_decal/stripes/line{
@@ -97,6 +89,15 @@
 	},
 /turf/open/floor/plating/is12/rock,
 /area/violence)
+"jO" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plating/is12/rock,
+/area/violence)
 "kq" = (
 /obj/structure/table,
 /obj/effect/turf_decal/stripes/line{
@@ -104,18 +105,34 @@
 	},
 /turf/open/floor/plating/is12/wood,
 /area/violence)
+"nh" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/is12/rock,
+/area/violence)
 "oj" = (
 /obj/structure/bed/maint,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating/is12/wood,
 /area/violence)
-"pJ" = (
-/obj/effect/turf_decal/is12{
-	icon_state = "dirtcornerright"
-	},
+"oF" = (
 /obj/effect/turf_decal/is12{
 	icon_state = "wwi"
 	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/is12/rock,
+/area/violence)
+"pJ" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating/is12/rock,
 /area/violence)
 "qa" = (
@@ -124,6 +141,28 @@
 	resistance_flags = 115
 	},
 /turf/open/floor/plating/is12/rock,
+/area/violence)
+"qH" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/obj/structure/flippedtable{
+	dir = 1
+	},
+/turf/open/floor/plating/is12/rock,
+/area/violence)
+"qX" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/obj/effect/turf_decal/stripes/full,
+/obj/machinery/door/poddoor/multi_tile/two_tile_ver{
+	resistance_flags = 115
+	},
+/turf/open/floor/plating/is12/trenchcenter,
 /area/violence)
 "rk" = (
 /obj/effect/landmark/start/combatant/blue,
@@ -181,6 +220,13 @@
 	},
 /turf/open/floor/plating/is12/wood,
 /area/violence)
+"yi" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/obj/machinery/door/airlock/grunge,
+/turf/open/floor/plating/is12/trenchcenter,
+/area/violence)
 "zg" = (
 /obj/effect/turf_decal/stripes/full,
 /obj/machinery/door/poddoor/multi_tile/two_tile_ver{
@@ -204,6 +250,13 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating/is12/wood,
 /area/violence)
+"CM" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plating/is12/trenchcenter,
+/area/violence)
 "Fq" = (
 /obj/effect/turf_decal/stripes/full,
 /turf/open/floor/plating/is12/rock,
@@ -214,12 +267,30 @@
 	},
 /turf/open/floor/plating/is12/surface,
 /area/violence)
+"Gp" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating/is12/trenchcenter,
+/area/violence)
 "HM" = (
 /obj/structure/table,
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
 /turf/open/floor/plating/is12/wood,
+/area/violence)
+"HN" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/is12/rock,
 /area/violence)
 "Iu" = (
 /obj/effect/turf_decal/is12{
@@ -237,10 +308,6 @@
 /turf/open/floor/plating/is12/surface,
 /area/violence)
 "JX" = (
-/obj/structure/closet{
-	anchored = 1
-	},
-/obj/effect/turf_decal/box,
 /obj/effect/turf_decal/is12{
 	icon_state = "wwi"
 	},
@@ -267,11 +334,40 @@
 /obj/effect/turf_decal/is12{
 	icon_state = "wwi"
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
 /turf/open/floor/plating/is12/rock,
+/area/violence)
+"MC" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/flippedtable,
+/turf/open/floor/plating/is12/surface,
 /area/violence)
 "MO" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
+	},
+/turf/open/floor/plating/is12/surface,
+/area/violence)
+"Ns" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/obj/structure/flippedtable{
+	dir = 1
+	},
+/turf/open/floor/plating/is12/rock,
+/area/violence)
+"NQ" = (
+/obj/effect/turf_decal/stripes/full,
+/obj/machinery/door/poddoor/multi_tile/two_tile_ver{
+	resistance_flags = 115
 	},
 /turf/open/floor/plating/is12/surface,
 /area/violence)
@@ -280,6 +376,15 @@
 	icon_state = "m2"
 	},
 /turf/open/floor/plating/is12/surface,
+/area/violence)
+"NZ" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating/is12/rock,
 /area/violence)
 "OU" = (
 /obj/effect/turf_decal/stripes/line{
@@ -291,7 +396,14 @@
 /turf/open/floor/plating/is12/surface,
 /area/violence)
 "QE" = (
-/obj/structure/table,
+/obj/structure/flippedtable,
+/turf/open/floor/plating/is12/surface,
+/area/violence)
+"QN" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/flippedtable,
 /turf/open/floor/plating/is12/surface,
 /area/violence)
 "QR" = (
@@ -313,6 +425,16 @@
 	icon_state = "wwi"
 	},
 /turf/closed/indestructible/riveted/dirtystone,
+/area/violence)
+"RI" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/obj/structure/flippedtable,
+/turf/open/floor/plating/is12/rock,
 /area/violence)
 "Sa" = (
 /turf/template_noop,
@@ -358,6 +480,25 @@
 /obj/effect/turf_decal/stripes/full,
 /turf/open/indestructible/boss/air,
 /area/violence)
+"Vt" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/obj/structure/flippedtable,
+/turf/open/floor/plating/is12/rock,
+/area/violence)
+"VR" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/flippedtable{
+	dir = 1
+	},
+/turf/open/floor/plating/is12/surface,
+/area/violence)
 "VV" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -368,10 +509,34 @@
 /obj/effect/landmark/start/combatant/red,
 /turf/open/floor/plating/is12/wood,
 /area/violence)
+"Wz" = (
+/obj/structure/flippedtable{
+	dir = 1
+	},
+/turf/open/floor/plating/is12/surface,
+/area/violence)
+"WG" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plating/is12/rock,
+/area/violence)
 "Xm" = (
 /obj/structure/table,
 /obj/effect/turf_decal/is12{
 	icon_state = "wwi"
+	},
+/turf/open/floor/plating/is12/trenchcenter,
+/area/violence)
+"XO" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
 	},
 /turf/open/floor/plating/is12/trenchcenter,
 /area/violence)
@@ -586,6 +751,7 @@ tw
 vy
 KS
 tw
+QN
 tw
 tw
 tw
@@ -596,8 +762,7 @@ tw
 tw
 tw
 tw
-tw
-tw
+VR
 tw
 tw
 tw
@@ -622,29 +787,29 @@ Qg
 Qg
 Qg
 Qg
+QE
 Fs
-Qg
 Qg
 NV
 Iu
 Qg
 QE
-QE
-QE
-QE
-QE
-QE
+Qg
+Qg
+Qg
+Qg
+Wz
 Qg
 Qg
 Qg
 Qg
 Qg
-Qg
+Wz
 Fs
 Qg
 Qg
 Qg
-QE
+Wz
 Qg
 Qg
 fM
@@ -659,6 +824,12 @@ ZD
 OU
 vR
 vR
+MC
+vR
+vR
+vR
+vR
+MC
 vR
 vR
 vR
@@ -669,6 +840,7 @@ vR
 vR
 vR
 vR
+ic
 vR
 vR
 vR
@@ -679,14 +851,7 @@ vR
 vR
 vR
 vR
-vR
-vR
-vR
-vR
-vR
-vR
-vR
-vR
+ic
 vR
 vR
 sN
@@ -700,7 +865,7 @@ Sa
 ZD
 ZD
 YX
-YX
+NQ
 ZD
 ZD
 ZD
@@ -715,7 +880,7 @@ ZD
 ZD
 ZD
 YX
-YX
+NQ
 ZD
 ZD
 ZD
@@ -730,7 +895,7 @@ ZD
 ZD
 ZD
 YX
-YX
+NQ
 ZD
 ZD
 Sa
@@ -789,6 +954,7 @@ xw
 bC
 sl
 Tc
+RI
 Tc
 Tc
 Tc
@@ -807,8 +973,7 @@ Tc
 Tc
 Tc
 Tc
-Tc
-Tc
+Ns
 Tc
 iB
 bC
@@ -831,27 +996,27 @@ Bd
 bC
 Zg
 fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
+WG
+WG
+WG
+WG
+WG
+WG
+WG
+WG
+WG
+WG
+WG
+WG
+WG
+WG
+WG
+WG
+WG
+WG
 LW
-fV
-fV
+WG
+nh
 Rh
 bC
 AK
@@ -872,7 +1037,7 @@ Rm
 Bd
 bC
 Zg
-bv
+pJ
 Rw
 Rw
 Rw
@@ -882,8 +1047,8 @@ Rw
 Rw
 Rw
 Rw
-Xm
-Xm
+CM
+qX
 Rw
 Rw
 Rw
@@ -893,7 +1058,7 @@ Rw
 Rw
 Rw
 Rw
-fV
+jO
 Rh
 bC
 AK
@@ -914,28 +1079,28 @@ Rm
 Bd
 bC
 Zg
-fi
+pJ
 Rw
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
 Rw
-fV
+Gp
+Gp
+Rw
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+Rw
+jO
 Rh
 bC
 AK
@@ -956,28 +1121,28 @@ Wa
 Bd
 bC
 Zg
-fi
-Xm
+pJ
+yi
 AT
 Xm
 Xm
 tu
-tu
-tu
-tu
-tu
-tu
-tu
-tu
-tu
-tu
-tu
+AT
+AT
+AT
+yi
+AT
+AT
+yi
+AT
+AT
+AT
 tu
 Xm
 Xm
 AT
-Xm
-fV
+yi
+jO
 Rh
 bC
 AK
@@ -998,7 +1163,7 @@ Rm
 Bd
 qa
 Zg
-fi
+pJ
 Rw
 AT
 Xm
@@ -1007,10 +1172,10 @@ AT
 AT
 AT
 AT
+Rw
 AT
 AT
-AT
-AT
+Rw
 AT
 AT
 AT
@@ -1019,7 +1184,7 @@ AT
 Xm
 AT
 Rw
-fV
+jO
 Rh
 qa
 AK
@@ -1040,28 +1205,28 @@ Rm
 Bd
 Fq
 Zg
-fi
+pJ
 Rw
 AT
 tu
 AT
 tu
-tu
-tu
-tu
-tu
+AT
+AT
+AT
+Rw
 JX
-tu
-tu
-tu
-tu
-tu
+AT
+Rw
+AT
+AT
+AT
 tu
 AT
 tu
 AT
 Rw
-fV
+jO
 Rh
 Fq
 AK
@@ -1082,7 +1247,7 @@ Rm
 Bd
 Fq
 Zg
-fi
+pJ
 Rw
 AT
 Xm
@@ -1091,10 +1256,10 @@ AT
 AT
 AT
 AT
+Rw
 AT
 AT
-AT
-AT
+Rw
 AT
 AT
 AT
@@ -1103,7 +1268,7 @@ AT
 Xm
 AT
 Rw
-fV
+jO
 Rh
 Fq
 AK
@@ -1124,28 +1289,28 @@ Wa
 Bd
 bC
 Zg
-fi
-Xm
+pJ
+yi
 AT
 Xm
 Xm
 tu
-tu
-tu
-tu
-tu
-tu
-tu
-tu
-tu
-tu
-tu
+AT
+AT
+AT
+yi
+AT
+AT
+yi
+AT
+AT
+AT
 tu
 Xm
 Xm
 AT
-Xm
-fV
+yi
+jO
 Rh
 bC
 AK
@@ -1166,28 +1331,28 @@ Rm
 Bd
 bC
 Zg
-fi
+pJ
 Rw
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
-AT
+XO
+XO
+XO
+XO
+XO
+XO
+XO
 Rw
-fV
+XO
+XO
+Rw
+XO
+XO
+XO
+XO
+XO
+XO
+XO
+Rw
+jO
 Rh
 bC
 AK
@@ -1218,8 +1383,8 @@ Rw
 Rw
 Rw
 Rw
-Xm
-Xm
+CM
+qX
 Rw
 Rw
 Rw
@@ -1229,7 +1394,7 @@ Rw
 Rw
 Rw
 Rw
-fV
+jO
 Rh
 bC
 AK
@@ -1250,28 +1415,28 @@ Wa
 Bd
 bC
 Zg
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
-fV
+HN
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+oF
 Rh
 bC
 AK
@@ -1293,6 +1458,7 @@ fQ
 bC
 aZ
 bP
+Vt
 bP
 bP
 bP
@@ -1311,8 +1477,7 @@ bP
 bP
 bP
 bP
-bP
-bP
+qH
 bP
 Ue
 bC
@@ -1372,7 +1537,7 @@ Sa
 ZD
 ZD
 YX
-YX
+NQ
 ZD
 ZD
 ZD
@@ -1387,7 +1552,7 @@ ZD
 ZD
 ZD
 YX
-YX
+NQ
 ZD
 ZD
 ZD
@@ -1402,7 +1567,7 @@ ZD
 ZD
 ZD
 YX
-YX
+NQ
 ZD
 ZD
 Sa
@@ -1415,6 +1580,12 @@ ZD
 Jz
 tw
 tw
+QN
+tw
+tw
+tw
+tw
+QN
 tw
 tw
 tw
@@ -1425,13 +1596,7 @@ tw
 tw
 tw
 tw
-tw
-tw
-tw
-tw
-tw
-tw
-tw
+VR
 tw
 tw
 tw
@@ -1442,7 +1607,7 @@ tw
 vy
 KS
 tw
-tw
+VR
 tw
 tw
 LJ
@@ -1462,29 +1627,29 @@ Qg
 Qg
 Qg
 Qg
-Qg
+QE
 Fs
 Qg
 Qg
 Qg
 Qg
+QE
 Qg
 Qg
 Qg
 Qg
-Qg
-Qg
+Wz
 Qg
 Fs
 Qg
 Qg
 Qg
-Qg
+Wz
 Qg
 NV
 Iu
 Qg
-QE
+Wz
 Qg
 Qg
 fM
@@ -1510,6 +1675,7 @@ vR
 vR
 vR
 vR
+MC
 vR
 vR
 vR
@@ -1520,8 +1686,7 @@ vR
 vR
 vR
 vR
-vR
-vR
+ic
 vR
 vR
 vR
