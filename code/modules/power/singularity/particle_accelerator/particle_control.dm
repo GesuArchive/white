@@ -1,6 +1,6 @@
 /obj/machinery/particle_accelerator/control_box
 	name = "консоль управления ускорителем частиц"
-	desc = "Это контролирует плотность частиц."
+	desc = "Контролирует плотность частиц."
 	icon = 'icons/obj/machines/particle_accelerator.dmi'
 	icon_state = "control_box"
 	anchored = FALSE

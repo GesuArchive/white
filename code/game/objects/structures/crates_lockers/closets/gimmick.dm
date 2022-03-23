@@ -11,18 +11,18 @@
 
 /obj/structure/closet/acloset
 	name = "странный шкаф"
-	desc = "Это выглядит чуждым!"
+	desc = "Выглядит чуждым!"
 	icon_state = "alien"
 
 
 /obj/structure/closet/gimmick
 	name = "кладовка администраторов"
-	desc = "Это хранилище для запрещенных вещей."
+	desc = "Хранилище для запрещенных вещей."
 	icon_state = "syndicate"
 
 /obj/structure/closet/gimmick/russian
-	name = "\improper Российский шкаф с припасами"
-	desc = "Это хранилище для стандартных Русских припасов."
+	name = "Русский шкаф с припасами"
+	desc = "Хранилище для стандартных Русских припасов."
 
 /obj/structure/closet/gimmick/russian/PopulateContents()
 	..()
@@ -33,7 +33,7 @@
 
 /obj/structure/closet/gimmick/tacticool
 	name = "шкаф для тактического снаряжения"
-	desc = "Это хранилище тактического снаряжения."
+	desc = "Хранилище тактического снаряжения."
 
 /obj/structure/closet/gimmick/tacticool/PopulateContents()
 	..()
@@ -54,12 +54,12 @@
 
 
 /obj/structure/closet/thunderdome
-	name = "\improper шкаф Купола грома"
+	name = "\improper шкаф Тандердома"
 	desc = "Все, что тебе нужно!"
 	anchored = TRUE
 
 /obj/structure/closet/thunderdome/tdred
-	name = "шкаф красной команды Купола грома"
+	name = "шкаф красной команды Тандердома"
 	icon_door = "red"
 
 /obj/structure/closet/thunderdome/tdred/PopulateContents()
@@ -78,7 +78,7 @@
 		new /obj/item/clothing/head/helmet/thunderdome(src)
 
 /obj/structure/closet/thunderdome/tdgreen
-	name = "шкаф зеленой команды Купола грома"
+	name = "шкаф зеленой команды Тандердома"
 	icon_door = "green"
 
 /obj/structure/closet/thunderdome/tdgreen/PopulateContents()
@@ -97,7 +97,7 @@
 		new /obj/item/clothing/head/helmet/thunderdome(src)
 
 /obj/structure/closet/malf/suits
-	desc = "Это хранилище для оперативного оборудования."
+	desc = "Хранилище для оперативного оборудования."
 	icon_state = "syndicate"
 
 /obj/structure/closet/malf/suits/PopulateContents()
@@ -112,7 +112,7 @@
 
 /obj/structure/closet/mini_fridge
 	name = "грязный минихолодильник"
-	desc = "Небольшое приспособление, предназначенное для охлаждения напитков. Однако сейчас используется только как домик для тараканов"
+	desc = "Небольшое приспособление, предназначенное для охлаждения напитков. Однако сейчас используется только как домик для тараканов."
 	icon_state = "mini_fridge"
 	icon_reinforced = null
 	icon_welded = "welded_small"

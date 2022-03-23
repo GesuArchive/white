@@ -263,7 +263,7 @@
 
 /obj/item/reagent_containers/glass/bucket
 	name = "ведро"
-	desc = "Это ведро."
+	desc = "Просто ведро."
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "bucket"
 	inhand_icon_state = "bucket"

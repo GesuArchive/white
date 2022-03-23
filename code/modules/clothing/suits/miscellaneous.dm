@@ -83,7 +83,7 @@
 
 /obj/item/clothing/suit/justice
 	name = "костюм справедливости"
-	desc = "это выглядит довольно смешно" //Needs no fixing
+	desc = "выглядит довольно смешно" //Needs no fixing
 	icon_state = "justice"
 	inhand_icon_state = "justice"
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
@@ -92,7 +92,7 @@
 
 /obj/item/clothing/suit/judgerobe
 	name = "одежда судьи"
-	desc = "Этот халат командует властью."
+	desc = "Халат, командующий властью."
 	icon_state = "judge"
 	inhand_icon_state = "judge"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -256,7 +256,7 @@
 
 /obj/item/clothing/suit/hooded/carp_costume
 	name = "костюм карпа"
-	desc = "Это костюм из «синтетических» карповых чешуек, он пахнет."
+	desc = "Костюм из «синтетических» карповых чешуек. Он пахнет."
 	icon_state = "carp_casual"
 	inhand_icon_state = "labcoat"
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -267,7 +267,7 @@
 
 /obj/item/clothing/head/hooded/carp_hood
 	name = "карповый капюшон"
-	desc = "Капюшон прикреплен к карповому костюму."
+	desc = "Капюшон, прикрепленный к карповому костюму."
 	icon_state = "carp_casual"
 	body_parts_covered = HEAD
 	cold_protection = HEAD
@@ -453,7 +453,7 @@
 
 /obj/item/clothing/suit/jacket/leather/overcoat
 	name = "кожаное пальто"
-	desc = "Это чертовски тонкая шерсть."
+	desc = "Чертовски тонкая шерсть."
 	icon_state = "leathercoat"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	cold_protection = CHEST|GROIN|ARMS|LEGS
@@ -798,7 +798,7 @@
 
 /obj/item/clothing/suit/ghost_sheet/spooky
 	name = "жуткое приведение"
-	desc = "Это, очевидно, просто простыня, но может примерить?"
+	desc = "Очевидно, просто простыня, но может примерить?"
 	user_vars_to_edit = list("name" = "Жуткий Призрак", "real_name" = "Жуткий Призрак" , "incorporeal_move" = INCORPOREAL_MOVE_BASIC, "appearance_flags" = KEEP_TOGETHER|TILE_BOUND, "alpha" = 150)
 	alternate_worn_layer = ABOVE_BODY_FRONT_LAYER //so the bedsheet goes over everything but fire
 

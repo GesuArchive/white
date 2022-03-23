@@ -3,8 +3,8 @@
 #define FIRING_PIN_REMOVAL_DELAY 50
 
 /obj/item/gun
-	name = "gun"
-	desc = "It's a gun. It's pretty terrible, though."
+	name = "оружие"
+	desc = "Пистолет. Хотя, довольно ужасный."
 	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "detective"
 	inhand_icon_state = "gun"

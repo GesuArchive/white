@@ -9,7 +9,7 @@
  */
 /obj/structure/energy_net
 	name = "Энергетическая сеть"
-	desc = "Это сеть из зеленой энергии."
+	desc = "Сеть из зеленой энергии."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "energynet"
 

@@ -2,7 +2,7 @@
 
 /obj/item/clothing/neck/cloak
 	name = "коричневый плащ"
-	desc = "Это плащ, который можно носить на шее."
+	desc = "Плащ, который можно носить на шее."
 	icon = 'icons/obj/clothing/cloaks.dmi'
 	icon_state = "qmcloak"
 	inhand_icon_state = "qmcloak"

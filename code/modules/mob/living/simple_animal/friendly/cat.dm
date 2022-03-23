@@ -77,7 +77,7 @@
 
 /mob/living/simple_animal/pet/cat/space
 	name = "Космокот"
-	desc = "Это кот... в космосе!"
+	desc = "Кот... в космосе!"
 	icon_state = "spacecat"
 	icon_living = "spacecat"
 	icon_dead = "spacecat_dead"
@@ -88,7 +88,7 @@
 
 /mob/living/simple_animal/pet/cat/breadcat
 	name = "Хлеб"
-	desc = "Это кот... не хлеб!"
+	desc = "Кот... не хлеб!"
 	icon_state = "breadcat"
 	icon_living = "breadcat"
 	icon_dead = "breadcat_dead"
@@ -309,7 +309,7 @@
 
 /mob/living/simple_animal/pet/cat/cak //I told you I'd do it, Remie
 	name = "Keeki"
-	desc = "Это кот, который торт."
+	desc = "Кот, который торт."
 	icon_state = "cak"
 	icon_living = "cak"
 	icon_dead = "cak_dead"

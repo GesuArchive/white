@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/automatic/pistol
 	name = "пистолет Макарова"
-	desc = "9mm пистолет. Есть возможность установки глушителя."
+	desc = "Небольшой, легко скрываемый 9-мм пистолет. Имеет вырезной ствол для установки глушителя."
 	icon_state = "pistol"
 	w_class = WEIGHT_CLASS_SMALL
 	mag_type = /obj/item/ammo_box/magazine/m9mm
@@ -33,8 +33,8 @@
 	install_suppressor(S)
 
 /obj/item/gun/ballistic/automatic/pistol/m1911
-	name = "\improper M1911"
-	desc = "Классический .45 пистолет малым объемом магазина."
+	name = "M1911"
+	desc = "Классический пистолет 45-го калибра с небольшой емкостью магазина."
 	icon_state = "m1911"
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/m45
@@ -48,7 +48,7 @@
 	spawnwithmagazine = FALSE
 
 /obj/item/gun/ballistic/automatic/pistol/deagle
-	name = "\improper Desert Eagle"
+	name = "Desert Eagle"
 	desc = "Мощный пистолет .50 АЕ калибра."
 	icon_state = "deagle"
 	force = 14
@@ -61,7 +61,7 @@
 	bolt_drop_sound = 'sound/weapons/gun/pistol/slide_drop.ogg'
 
 /obj/item/gun/ballistic/automatic/pistol/deagle/gold
-	desc = "A gold plated Desert Eagle folded over a million times by superior martian gunsmiths. Uses .50 AE ammo."
+	desc = "Позолоченный Desert Eagle, сложенный миллион раз лучшими марсианскими оружейниками. Использует патроны .50 AE."
 	icon_state = "deagleg"
 	inhand_icon_state = "deagleg"
 
@@ -72,7 +72,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/aps
 	name = "автоматический пистолет Стечкина"
-	desc = "Оригинальная версия русского пистолета. Использует 9mm патроны."
+	desc = "Старый советский автоматический пистолет. Стреляет быстро, но бьет как мул. Использует патроны калибра 9-мм. Имеет специальный ствол для установки глушителя."
 	icon_state = "aps"
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/m9mm_aps
@@ -85,7 +85,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/stickman
 	name = "плоский пистолет"
-	desc = "Имеет два измерения.. что за хня??"
+	desc = "Двухпространственный пистолет... что?"
 	icon_state = "flatgun"
 
 /obj/item/gun/ballistic/automatic/pistol/stickman/pickup(mob/living/user)

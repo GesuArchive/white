@@ -5,7 +5,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 
 /mob/dead/observer
 	name = "ghost"
-	desc = "Это призрак. Бу!" //jinkies!
+	desc = "Призрак. Бу!" //jinkies!
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost"
 	stat = DEAD

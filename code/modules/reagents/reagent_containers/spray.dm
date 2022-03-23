@@ -255,7 +255,7 @@
 ///Subtype used for the lavaland clown ruin.
 /obj/item/reagent_containers/spray/waterflower/superlube
 	name = "скользскопол"
-	desc = "Это точно порождение Хонкоматери, ноги разъезжаются просто при взгляде на него."
+	desc = "Точно порождение Хонкоматери, ноги разъезжаются просто при взгляде на него."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "clownflower"
 	volume = 30

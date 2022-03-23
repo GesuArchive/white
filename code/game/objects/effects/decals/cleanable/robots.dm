@@ -2,7 +2,7 @@
 
 /obj/effect/decal/cleanable/robot_debris
 	name = "куски робота"
-	desc = "Это бесполезная куча мусора... <i>или нет?</i>"
+	desc = "Бесполезная куча мусора... <i>или нет?</i>"
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "gib1"
 	layer = LOW_OBJ_LAYER

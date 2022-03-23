@@ -3,7 +3,7 @@
 	worn_icon = 'icons/mob/clothing/under/medical.dmi'
 
 /obj/item/clothing/under/rank/medical/chief_medical_officer
-	desc = "Это комбинезон, который носят те, у кого есть опыт, чтобы быть \"Главным Врачём\". Он обеспечивает незначительную биологическую защиту."
+	desc = "Комбинезон, который носят те, у кого есть опыт, чтобы быть \"Главным Врачом\". Он обеспечивает незначительную биологическую защиту."
 	name = "комбинезон главного врача"
 	icon_state = "cmo"
 	inhand_icon_state = "w_suit"
@@ -12,7 +12,7 @@
 
 /obj/item/clothing/under/rank/medical/chief_medical_officer/skirt
 	name = "юбкомбез главного врача"
-	desc = "Это юбкомбез, который носят те, у кого есть опыт, чтобы быть \"Главным Врачём\". Он обеспечивает незначительную биологическую защиту."
+	desc = "Юбкомбез, который носят те, у кого есть опыт, чтобы быть \"Главным Врачом\". Он обеспечивает незначительную биологическую защиту."
 	icon_state = "cmo_skirt"
 	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -21,7 +21,7 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/medical/geneticist
-	desc = "Он изготовлен из специального волокна, которое обеспечивает особую защиту от биологических опасностей. На нем есть полоска генетического ранга."
+	desc = "Изготовлен из специального волокна, которое обеспечивает особую защиту от биологических опасностей. На нем есть полоска генетического ранга."
 	name = "комбинезон генетика"
 	icon_state = "genetics"
 	inhand_icon_state = "w_suit"
@@ -56,7 +56,7 @@
 	fitted = NO_FEMALE_UNIFORM
 
 /obj/item/clothing/under/rank/medical/doctor/nurse
-	desc = "Это комбинезон, который обычно носят медсестры в медицинском отделении."
+	desc = "Комбинезон, который обычно носят медсестры в медицинском отделении."
 	name = "костюм медсестры"
 	icon_state = "nursesuit"
 	inhand_icon_state = "w_suit"

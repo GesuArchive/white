@@ -48,7 +48,7 @@
 /obj/item/food/grown/icepepper
 	seed = /obj/item/seeds/chili/ice
 	name = "перец чили"
-	desc = "Это мутировавший сорт чили."
+	desc = "Мутировавший сорт чили."
 	icon_state = "icepepper"
 	bite_consumption_mod = 2
 	foodtypes = FRUIT

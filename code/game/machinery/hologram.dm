@@ -29,7 +29,7 @@ Possible to do for anyone motivated enough:
 
 /obj/machinery/holopad
 	name = "голопад ИИ"
-	desc = "Это напольное устройство для проецирования голографических изображений."
+	desc = "Напольное устройство для проецирования голографических изображений."
 	icon_state = "holopad0"
 	layer = LOW_OBJ_LAYER
 	plane = FLOOR_PLANE
@@ -84,7 +84,7 @@ Possible to do for anyone motivated enough:
 
 /obj/machinery/holopad/secure
 	name = "голопад безопасного соединения"
-	desc = "Это напольное устройство для проецирования голографических изображений. Этот откажется автоматически принимать входящие звонки."
+	desc = "Напольное устройство для проецирования голографических изображений. Этот откажется автоматически принимать входящие звонки."
 	secure = TRUE
 
 /obj/machinery/holopad/secure/Initialize()

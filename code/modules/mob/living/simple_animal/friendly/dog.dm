@@ -38,7 +38,7 @@
 /mob/living/simple_animal/pet/dog/corgi
 	name = "Корги"
 	real_name = "Корги"
-	desc = "Это же корги."
+	desc = "Да это же корги."
 	icon_state = "corgi"
 	icon_living = "corgi"
 	icon_dead = "corgi_dead"
@@ -410,7 +410,7 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 	name = "Ян"
 	real_name = "Ян"	//Intended to hold the name without altering it.
 	gender = MALE
-	desc = "Это любимый корги главы персонала."
+	desc = "Любимый корги главы персонала."
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
 	response_disarm_continuous = "толкает"
@@ -436,7 +436,7 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 			P.name = "Ян"
 			P.real_name = "Ян"
 			P.gender = MALE
-			P.desc = "Это любимый щенок корги главы персонала."
+			P.desc = "Любимый щенок корги главы персонала."
 			Write_Memory(FALSE)
 			return INITIALIZE_HINT_QDEL
 	else if(age == record_age)

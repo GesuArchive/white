@@ -216,7 +216,7 @@
 // *************************************
 
 /obj/item/reagent_containers/spray/weedspray // -- Skie
-	desc = "Это ядовитая смесь, в виде аэрозоля, для уничтожения мелких сорняков."
+	desc = "Ядовитая смесь, в виде аэрозоля, для уничтожения мелких сорняков."
 	icon = 'icons/obj/hydroponics/equipment.dmi'
 	name = "Спрей от сорняков"
 	icon_state = "weedspray"

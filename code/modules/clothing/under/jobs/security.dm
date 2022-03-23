@@ -212,7 +212,7 @@
 
 /obj/item/clothing/under/rank/prisoner
 	name = "тюремный комбинезон"
-	desc = "Это унифицированная тюремная одежда NanoTrasen. Его датчики костюма застряли в положении \"Полностью Вкл\"."
+	desc = "Унифицированная тюремная одежда NanoTrasen. Его датчики костюма застряли в положении \"Полностью ВКЛ\"."
 	icon_state = "jumpsuit"
 	greyscale_colors = "#ff8300"
 	greyscale_config = /datum/greyscale_config/jumpsuit_prison
@@ -225,7 +225,7 @@
 
 /obj/item/clothing/under/rank/prisoner/skirt
 	name = "тюремный юбкомбез"
-	desc = "Это унифицированная тюремная одежда NanoTrasen. Его датчики костюма застряли в положении \"Полностью Вкл\"."
+	desc = "Унифицированная тюремная одежда NanoTrasen. Его датчики костюма застряли в положении \"Полностью ВКЛ\"."
 	icon_state = "jumpskirt"
 	greyscale_colors = "#ff8300"
 	greyscale_config = /datum/greyscale_config/jumpsuit_prison

@@ -180,23 +180,23 @@
 	anchored = TRUE
 
 /obj/structure/bed/dogbed/cayenne
-	desc = "Кажется, немного... подозрительной."
+	desc = "Выглядит как-то... рыбно."
 	name = "кровать Кайенны"
 	anchored = TRUE
 
 /obj/structure/bed/dogbed/lia
-	desc = "Seems kind of... fishy."
-	name = "Lia's bed"
+	desc = "Выглядит как-то... рыбно."
+	name = "кровать Лии"
 	anchored = TRUE
 
 /obj/structure/bed/dogbed/renault
-	desc = "Выглядит удобно, Лисий человек нуждается в лисичке."
+	desc = "Выглядит удобно. Лисий человек нуждается в лисичке."
 	name = "кровать Рено"
 	anchored = TRUE
 
 /obj/structure/bed/dogbed/mcgriff
-	desc = "McGriff's bed, because even crimefighters sometimes need a nap."
-	name = "McGriff's bed"
+	desc = "Кровать МакГрифа, потому что даже борцам с преступностью иногда нужно вздремнуть."
+	name = "кровать МакГрифа"
 
 /obj/structure/bed/dogbed/runtime
 	desc = "Удобная кошачья кровать. Можно даже пристегнуть своего питомца на случай, если гравитация отключится."
@@ -218,13 +218,13 @@
 
 /obj/structure/bed/alien
 	name = "отдыхалка"
-	desc = "Это похоже на штуки с Земли. Могут ли инопланетяне красть наши технологии?"
+	desc = "Похоже на штуки с Земли. Могут ли инопланетяне красть наши технологии?"
 	icon_state = "abed"
 
 
 /obj/structure/bed/maint
-	name = "dirty mattress"
-	desc = "An old grubby mattress. You try to not think about what could be the cause of those stains."
+	name = "грязный матрас"
+	desc = "Старый потертый матрас. Вы стараетесь не думать о том, что может быть причиной этих пятен."
 	icon_state = "dirty_mattress"
 
 /obj/structure/bed/maint/Initialize()

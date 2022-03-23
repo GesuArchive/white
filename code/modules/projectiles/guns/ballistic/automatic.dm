@@ -67,8 +67,8 @@
 	pin = /obj/item/firing_pin
 
 /obj/item/gun/ballistic/automatic/c20r
-	name = "\improper C-20r SMG"
-	desc = "Стреляет двумя пулями за выстрел, используя калибр .45 SMG, разработаный 'C-20r'."
+	name = "C-20r SMG"
+	desc = "Булл-пап пистолет-пулемет .45 калибра, известный как \"C-20r\". На прикладе имеется надпись 'Scarborough Arms - Per falcis, per pravitas'."
 	icon_state = "c20r"
 	inhand_icon_state = "c20r"
 	selector_switch_icon = TRUE
@@ -97,7 +97,7 @@
 
 /obj/item/gun/ballistic/automatic/wt550
 	name = "автоматическая винтовка службы безопасности"
-	desc = "Устаревшее оружие, именуемое как \"WT-550 Automatic Rifle\". Использует патроны 4.6x30mm калибра."
+	desc = "Устаревшее оружие личной обороны., именуемое как \"WT-550 Automatic Rifle\". Использует патроны 4.6x30mm калибра."
 	icon_state = "wt550"
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "arg"
@@ -119,7 +119,7 @@
 
 /obj/item/gun/ballistic/automatic/plastikov
 	name = "\improper PP-95 SMG"
-	desc = "Древняя автоматическая винтовка калибра 9x19mm обновлена и сделана максимально дешёвой. <b>Слишком</b> дешёвой."
+	desc = "Древняя модель 9-мм пистолета-пулемета, обновленная и сделанная максимально дешёвой. <b>Слишком</b> дешёвой."
 	icon_state = "plastikov"
 	inhand_icon_state = "plastikov"
 	mag_type = /obj/item/ammo_box/magazine/plastikov9mm
@@ -133,7 +133,7 @@
 
 /obj/item/gun/ballistic/automatic/mini_uzi
 	name = "\improper Type U3 Uzi"
-	desc = "Оружие для тех, кому действительно хочется видеть своего недруга мертвым. Использует 9мм калибр."
+	desc = "Легкий пистолет-пулемёт, обладающий режимом стрельбы очередями, когда вы действительно хотите кого-то убить. Использует патроны калибра 9мм."
 	icon_state = "miniuzi"
 	mag_type = /obj/item/ammo_box/magazine/uzim9mm
 	burst_size = 2
@@ -143,7 +143,7 @@
 	rack_sound = 'sound/weapons/gun/pistol/slide_lock.ogg'
 
 /obj/item/gun/ballistic/automatic/m90
-	name = "\improper карабин M-90gl"
+	name = "карабин M-90gl"
 	desc = "Автоматический карабин 5.56 калибра, известный как 'M-90gl'. Возможен режим стрельбы по три пули. Имеет встроенный гранатомёт."
 	icon_state = "m90"
 	w_class = WEIGHT_CLASS_BULKY
@@ -219,7 +219,7 @@
 
 /obj/item/gun/ballistic/automatic/tommygun
 	name = "\improper пистолет-пулемёт Томпсона"
-	desc = "Сделано для классических Техасских разборок."
+	desc = "На основе классической \"Чикагской пишущей машинки\"."
 	icon_state = "tommygun"
 	inhand_icon_state = "shotgun"
 	selector_switch_icon = TRUE
@@ -239,8 +239,8 @@
 	AddComponent(/datum/component/automatic_fire, 0.1 SECONDS)
 
 /obj/item/gun/ballistic/automatic/ar
-	name = "\improper NT-ARG 'Boarder'"
-	desc = "Крутая штурмовая винтовка, используемая вооруженными силами НТ."
+	name = "NT-ARG 'Boarder'"
+	desc = "Робастная штурмовая винтовка, используемая боевыми силами НТ."
 	icon_state = "arg"
 	inhand_icon_state = "arg"
 	slot_flags = 0
@@ -253,7 +253,7 @@
 // L6 SAW //
 
 /obj/item/gun/ballistic/automatic/l6_saw
-	name = "\improper L6 SAW"
+	name = "L6 SAW"
 	desc = "Сильно модифицированный ручной пулемет, так же известен как \"L6 SAW\". На ресивере можно увидеть надпись \"Aussec Armoury - 2531\". Использует патроны 7.12x82мм калибра."
 	icon_state = "l6"
 	inhand_icon_state = "l6"
@@ -337,7 +337,7 @@
 
 /obj/item/gun/ballistic/automatic/sniper_rifle
 	name = "снайперская винтовка"
-	desc = "Дальнобойное оружие, которое делает сильные повреждения. Нет, быстро стрелять вы не сможете."
+	desc = "Дальнобойное оружие, наносящее значительный урон. Нет, вы не можете делать квикскоп."
 	icon_state = "sniper"
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "sniper"
@@ -374,7 +374,7 @@
 
 /obj/item/gun/ballistic/automatic/surplus
 	name = "винтовка"
-	desc = "Одна из бесчисленных устаревших баллистических винтовок, которые по-прежнему считают дешевым средством сдерживания. Использует патроны 10mm и громадная рама не позволит стрелять ей из одной руки."
+	desc = "Одна из бесчисленных устаревших винтовок, которая до сих пор используется в качестве дешевого средства устрашения. Использует патроны калибра 10мм, а её громоздкая рама не позволяет стрелять лишь одной рукой."
 	icon_state = "surplus"
 	inhand_icon_state = "moistnugget"
 	worn_icon_state = null
@@ -393,7 +393,7 @@
 
 /obj/item/gun/ballistic/automatic/laser
 	name = "лазерная винтовка"
-	desc = "Несмотря на ее слабость в огне, её достоинство - самоперезаряжающийся магазин. Это оружие сделало немало побед НТ"
+	desc = "Несмотря на ее слабость в огне, её достоинство - самоперезаряжающийся магазин. Это оружие сделало немало побед НТ."
 	icon_state = "oldrifle"
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "arg"

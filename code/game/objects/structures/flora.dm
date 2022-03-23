@@ -137,7 +137,7 @@
 /obj/structure/flora/tree/jungle
 	name = "дерево"
 	icon_state = "tree"
-	desc = "Это серьезно мешает обзору джунглей."
+	desc = "Серьезно мешает обзору джунглей."
 	icon = 'icons/obj/flora/jungletrees.dmi'
 	pixel_x = -48
 	pixel_y = -20

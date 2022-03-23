@@ -1,5 +1,5 @@
 /obj/item/clothing/under/rank/captain
-	desc = "Это синий комбинезон с золотыми знаками, обозначающими звание \"Капитан\"."
+	desc = "Синий комбинезон с золотыми знаками, обозначающими звание \"Капитан\"."
 	name = "комбинезон капитана"
 	icon_state = "captain"
 	inhand_icon_state = "b_suit"
@@ -11,7 +11,7 @@
 
 /obj/item/clothing/under/rank/captain/skirt
 	name = "юбкомбез капитана"
-	desc = "Это синий юбкомбез с золотыми знаками, обозначающими звание \"Капитан\"."
+	desc = "Синий юбкомбез с золотыми знаками, обозначающими звание \"Капитан\"."
 	icon_state = "captain_skirt"
 	inhand_icon_state = "b_suit"
 	body_parts_covered = CHEST|GROIN|ARMS

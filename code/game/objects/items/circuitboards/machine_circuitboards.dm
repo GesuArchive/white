@@ -347,7 +347,7 @@
 
 /obj/item/circuitboard/machine/HFR_core
 	name = "Термоядерный реактор - Ядро"
-	desc = "Это ядро термоядерного реактора, передовая технология для точной настройки протекания реакции внутри машины. Он имеет ввод-вывод для охлаждения газов."
+	desc = "Ядро термоядерного реактора, передовая технология для точной настройки протекания реакции внутри машины. Он имеет ввод-вывод для охлаждения газов."
 	icon_state = "engineering"
 	build_path = /obj/machinery/atmospherics/components/unary/hypertorus/core
 	req_components = list(
@@ -403,7 +403,7 @@
 
 /obj/item/circuitboard/machine/holopad
 	name = "голопад ИИ"
-	desc = "Это напольное устройство для проецирования голографических изображений."
+	desc = "Напольное устройство для проецирования голографических изображений."
 	icon_state = "generic"
 	build_path = /obj/machinery/holopad
 	req_components = list(/obj/item/stock_parts/capacitor = 1)
@@ -508,7 +508,7 @@
 
 /obj/item/circuitboard/machine/space_heater
 	name = "обогреватель"
-	desc = "Этот обогреватель/охладитель, сделанный космическими амишами с использованием традиционных космических технологий, гарантированно не подожжет станцию. Гарантия аннулируется при использовании в двигателях."
+	desc = "Обогреватель/охладитель, сделанный космическими амишами с использованием традиционных космических технологий, гарантированно не подожжет станцию. Гарантия аннулируется при использовании в двигателях."
 	icon_state = "generic"
 	build_path = /obj/machinery/space_heater
 	req_components = list(
@@ -859,7 +859,7 @@
 
 /obj/item/circuitboard/machine/cyborgrecharger
 	name = "Станция зарядки киборгов"
-	desc = "Это устройство заряжает киборгов и переснаряжает их материалами."
+	desc = "Устройство, заряжающее киборгов и переснаряжающая их материалами."
 	icon_state = "science"
 	build_path = /obj/machinery/recharge_station
 	req_components = list(

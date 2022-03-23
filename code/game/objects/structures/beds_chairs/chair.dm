@@ -171,7 +171,7 @@
 
 /obj/structure/chair/comfy
 	name = "удобный стул"
-	desc = "Это выглядит удобно."
+	desc = "Выглядит удобно."
 	icon = 'icons/obj/chairs.dmi'
 	icon_state = "comfychair"
 	color = rgb(255,255,255)

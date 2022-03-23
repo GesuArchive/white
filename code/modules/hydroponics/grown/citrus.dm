@@ -11,7 +11,7 @@
 // Lime
 /obj/item/seeds/lime
 	name = "Пачка семян лайма"
-	desc = "Это очень кислые семена."
+	desc = "Очень кислые семена."
 	icon_state = "seed-lime"
 	species = "lime"
 	plantname = "Lime Tree"
@@ -54,7 +54,7 @@
 /obj/item/food/grown/citrus/orange
 	seed = /obj/item/seeds/orange
 	name = "апельсин"
-	desc = "Это острый фрукт."
+	desc = "Пикантный фрукт."
 	icon_state = "orange"
 	juice_results = list(/datum/reagent/consumable/orangejuice = 0)
 	distill_reagent = /datum/reagent/consumable/ethanol/triple_sec

@@ -372,7 +372,7 @@
 
 /datum/design/plasticducky
 	name = "Резиновая уточка"
-	desc = "Это дешевая пластиковая подделка вашей любимой игрушки для ванны."
+	desc = "Дешевая пластиковая подделка вашей любимой игрушки для ванны."
 	id = "plasticducky"
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
@@ -409,7 +409,7 @@
 
 /datum/design/normtrash
 	name = "Мешок для мусора"
-	desc = "Это сверхпрочный черный полимерный материал. Пора выносить мусор!"
+	desc = "Сверхпрочный черный полимерный материал. Пора выносить мусор!"
 	id = "normtrash"
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40

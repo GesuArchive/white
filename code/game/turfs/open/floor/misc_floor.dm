@@ -187,7 +187,7 @@
 
 /turf/open/floor/eighties
 	name = "ретро-пол"
-	desc = "Этот вернёт тебя назад."
+	desc = "Пол, который вернёт тебя назад в прошлое."
 	icon_state = "eighties"
 	floor_tile = /obj/item/stack/tile/eighties
 
@@ -196,7 +196,7 @@
 
 /turf/open/floor/eighties/red
 	name = "красный ретро-пол"
-	desc = "Totally RED-ICAL!"
+	desc = "Совершенно РЕД-икальный!"
 	icon_state = "eightiesred"
 	floor_tile = /obj/item/stack/tile/eighties/red
 

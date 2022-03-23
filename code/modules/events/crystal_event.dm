@@ -504,7 +504,7 @@ This section is for the crystal portals variations
 */
 /obj/structure/crystal_portal
 	name = "crystal portal"
-	desc = "Этого тут не должно быть."
+	desc = "<font size=+4>Если вы видите это, то немедленно пишите анпедал на пидораса, что вызвал эту хуйню.</font>"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "anom"
 	color = COLOR_SILVER

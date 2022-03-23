@@ -4,7 +4,7 @@
 //==========Sigil Base=========
 /obj/structure/destructible/clockwork/sigil
 	name = "сигил"
-	desc = "Это сигил, который что-то делает."
+	desc = "Сигил, который что-то делает."
 	max_integrity = 10
 	icon = 'icons/effects/clockwork_effects.dmi'
 	icon_state = "sigilvitality"

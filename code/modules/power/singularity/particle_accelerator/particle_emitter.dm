@@ -1,6 +1,6 @@
 /obj/structure/particle_accelerator/particle_emitter
 	name = "ЭМ сетка сдерживания"
-	desc = "Это запускает альфа-частицы. Лучше не стоять рядом с этим."
+	desc = "Запускает альфа-частицы. Лучше не стоять рядом с этим."
 	icon = 'icons/obj/machines/particle_accelerator.dmi'
 	icon_state = "none"
 	var/fire_delay = 50

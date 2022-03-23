@@ -25,7 +25,7 @@
 
 /obj/item/clothing/under/suit/waiter
 	name = "юниформа официанта"
-	desc = "Это продуманая форма с маленьким кармашком внутри."
+	desc = "Продуманая форма с маленьким кармашком внутри."
 	icon_state = "waiter"
 	inhand_icon_state = "waiter"
 
@@ -70,7 +70,7 @@
 
 /obj/item/clothing/under/suit/black/female
 	name = "деловой костюм"
-	desc = "Этот костюм для женщин, предпочитающих брюки."
+	desc = "Костюм для женщин, предпочитающих брюки."
 	icon_state = "black_suit_fem"
 	inhand_icon_state = "black_suit_fem"
 
@@ -108,7 +108,7 @@
 
 /obj/item/clothing/under/suit/checkered
 	name = "клетчатый костюм"
-	desc = "Это крутой костюм. Что может с ним случиться?"
+	desc = "Крутой костюм. Что может с ним случиться?"
 	icon_state = "checkered_suit"
 	inhand_icon_state = "checkered_suit"
 

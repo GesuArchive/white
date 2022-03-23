@@ -153,7 +153,7 @@
 
 /obj/item/clothing/head/helmet/riot
 	name = "анти-мятежный шлем"
-	desc = "Это шлем, специально разработанный для защиты от атак с близкого расстояния."
+	desc = "Шлем, специально разработанный для защиты от оружия ближнего боя."
 	icon_state = "riot"
 	inhand_icon_state = "helmet"
 	toggle_message = "Опускаю козырёк вниз"
@@ -243,7 +243,7 @@
 
 /obj/item/clothing/head/helmet/constable
 	name = "шлем констебля"
-	desc = "Этот шлем такой британский."
+	desc = "Такой британский."
 	worn_icon = 'icons/mob/large-worn-icons/64x64/head.dmi'
 	icon_state = "constable"
 	inhand_icon_state = "constable"

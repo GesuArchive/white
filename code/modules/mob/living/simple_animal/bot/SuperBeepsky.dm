@@ -1,6 +1,6 @@
 /mob/living/simple_animal/bot/secbot/grievous //This bot is powerful. If you managed to get 4 eswords somehow, you deserve this horror. Emag him for best results.
-	name = "Генерал Бипскай"
-	desc = "Это секбот с четырьмя мечами в руках...?"
+	name = "Генерал Бипски"
+	desc = "Секбот с четырьмя мечами в руках...?"
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "grievous"
 	health = 150
@@ -12,7 +12,7 @@
 
 
 /mob/living/simple_animal/bot/secbot/grievous/toy //A toy version of general beepsky!
-	name = "Геневав Бвипскай"
+	name = "Геневав Бвипски"
 	desc = "Очаровательно выглядящий секбот с четырьмя игрушечными мечами, привязанными к его рукам."
 	health = 50
 	maxHealth = 50

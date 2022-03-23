@@ -94,7 +94,7 @@
 
 /obj/structure/closet/secure_closet/freezer/money
 	name = "морозильная камера"
-	desc = "Это холодная наличность."
+	desc = "Холодная наличность."
 	req_access = list(ACCESS_VAULT)
 
 /obj/structure/closet/secure_closet/freezer/money/PopulateContents()

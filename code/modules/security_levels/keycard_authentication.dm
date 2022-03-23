@@ -6,8 +6,8 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 #define KEYCARD_BSA_UNLOCK "Bluespace Artillery Unlock"
 
 /obj/machinery/keycard_auth
-	name = "устройство активации функций"
-	desc = "Это устройство используется для запуска функций станции, для аутентификации которых требуется более одной идентификационной карты."
+	name = "Устройство аутентификации"
+	desc = "Используется для запуска функций станции, для аутентификации которых требуется более одной идентификационной карты."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "auth_off"
 	use_power = IDLE_POWER_USE

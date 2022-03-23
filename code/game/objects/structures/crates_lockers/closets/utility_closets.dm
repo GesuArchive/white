@@ -14,7 +14,7 @@
  */
 /obj/structure/closet/emcloset
 	name = "аварийный шкаф"
-	desc = "Это место для хранения масок для дыхания и баллонов с кислородом."
+	desc = "Место для хранения масок для дыхания и баллонов с кислородом."
 	icon_state = "emergency"
 
 /obj/structure/closet/emcloset/anchored
@@ -58,7 +58,7 @@
  */
 /obj/structure/closet/firecloset
 	name = "пожарные инструменты"
-	desc = "Это место для хранения средств пожаротушения."
+	desc = "Место для хранения средств пожаротушения."
 	icon_state = "fire"
 
 /obj/structure/closet/firecloset/PopulateContents()
@@ -84,7 +84,7 @@
  */
 /obj/structure/closet/toolcloset
 	name = "инструменты"
-	desc = "Это место для хранения инструментов."
+	desc = "Место для хранения инструментов."
 	icon_state = "eng"
 	icon_door = "eng_tool"
 
@@ -127,7 +127,7 @@
  */
 /obj/structure/closet/radiation
 	name = "анти-радиационная защита"
-	desc = "Это место для хранения костюмов радиозащиты."
+	desc = "Место для хранения костюмов радиозащиты."
 	icon_state = "eng"
 	icon_door = "eng_rad"
 
@@ -142,7 +142,7 @@
  */
 /obj/structure/closet/bombcloset
 	name = "защита от взрывов"
-	desc = "Это место для хранения костюмов взрывозащиты."
+	desc = "Место для хранения костюмов взрывозащиты."
 	icon_state = "bomb"
 
 /obj/structure/closet/bombcloset/PopulateContents()

@@ -28,7 +28,7 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/civilian/chaplain
-	desc = "Это черный комбинезон, который часто носят религиозные люди."
+	desc = "Черный комбинезон, который часто носят религиозные люди."
 	name = "комбинезон священника"
 	icon_state = "chaplain"
 	inhand_icon_state = "bl_suit"
@@ -36,7 +36,7 @@
 
 /obj/item/clothing/under/rank/civilian/chaplain/skirt
 	name = "юбкомбез священника"
-	desc = "Это черная прыжковая рубашка. Если вы носите это, вероятно, вам нужна религиозная помощь больше, чем вы будете ее предоставлять."
+	desc = "Черная прыжковая рубашка. Если вы носите это, вероятно, вам нужна религиозная помощь больше, чем вы будете ее предоставлять."
 	icon_state = "chapblack_skirt"
 	inhand_icon_state = "bl_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -59,14 +59,14 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/civilian/head_of_personnel
-	desc = "Это комбинезон, который носит тот, кто работает в должности \"Главы Персонала\"."
+	desc = "Комбинезон, который носит тот, кто работает в должности \"Главы Персонала\"."
 	name = "комбинезон главы персонала"
 	icon_state = "hop"
 	inhand_icon_state = "b_suit"
 
 /obj/item/clothing/under/rank/civilian/head_of_personnel/skirt
 	name = "юбка главы персонала"
-	desc = "Это юбкомбез, который носит тот, кто работает в должности \"Главы Персонала\"."
+	desc = "Юбкомбез, который носит тот, кто работает в должности \"Главы Персонала\"."
 	icon_state = "hop_skirt"
 	inhand_icon_state = "b_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -90,7 +90,7 @@
 	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/civilian/hydroponics
-	desc = "Это комбинезон, разработанный для защиты от незначительных рисков, связанных с растениями."
+	desc = "Комбинезон, разработанный для защиты от незначительных рисков, связанных с растениями."
 	name = "комбинезон ботаника"
 	icon_state = "hydroponics"
 	inhand_icon_state = "g_suit"
@@ -98,7 +98,7 @@
 
 /obj/item/clothing/under/rank/civilian/hydroponics/skirt
 	name = "юбкомбез ботаника"
-	desc = "Это юбкомбез, разработанный для защиты от мелких травм, связанных с растениями."
+	desc = "Юбкомбез, разработанный для защиты от мелких травм, связанных с растениями."
 	icon_state = "hydroponics_skirt"
 	inhand_icon_state = "g_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -106,21 +106,21 @@
 	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/civilian/janitor
-	desc = "Это официальная униформа уборщика станции. Он имеет незначительную защиту от биологических опасностей."
+	desc = "Официальная униформа уборщика станции. Он имеет незначительную защиту от биологических опасностей."
 	name = "комбинезон уборщика"
 	icon_state = "janitor"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 10, RAD = 0, FIRE = 0, ACID = 0)
 
 /obj/item/clothing/under/rank/civilian/janitor/skirt
 	name = "юбкомбез уборщика"
-	desc = "Это официальная униформа уборщика станции. Он имеет незначительную защиту от биологических опасностей."
+	desc = "Официальная униформа уборщика станции. Он имеет незначительную защиту от биологических опасностей."
 	icon_state = "janitor_skirt"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/civilian/janitor/maid
-	name = "униформа служанки"
+	name = "форма служанки"
 	desc = "Простая униформа служанки для домашнего хозяйства."
 	icon_state = "janimaid"
 	inhand_icon_state = "janimaid"
@@ -129,7 +129,7 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/civilian/lawyer
-	desc = "Прямолинейно."
+	desc = "Прямолинейный."
 	name = "костюм адвоката"
 	can_adjust = FALSE
 

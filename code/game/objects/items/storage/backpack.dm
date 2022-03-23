@@ -119,7 +119,7 @@
 
 /obj/item/storage/backpack/clown
 	name = "Giggles von Honkerton"
-	desc = "Это рюкзак, сделанный Хонком!."
+	desc = "Рюкзак, сделанный Хонком!"
 	icon_state = "clownpack"
 	inhand_icon_state = "clownpack"
 
@@ -137,32 +137,32 @@
 
 /obj/item/storage/backpack/medic
 	name = "медицинский рюкзак"
-	desc = "Это рюкзак, специально разработанный для использования в стерильных условиях."
+	desc = "Рюкзак, специально разработанный для использования в стерильных условиях."
 	icon_state = "medicalpack"
 	inhand_icon_state = "medicalpack"
 
 /obj/item/storage/backpack/security
 	name = "рюкзак офицера"
-	desc = "Это очень прочный рюкзак."
+	desc = "Очень прочный рюкзак."
 	icon_state = "securitypack"
 	inhand_icon_state = "securitypack"
 
 /obj/item/storage/backpack/captain
 	name = "капитанский рюкзак"
-	desc = "Это специальный рюкзак, сделанный исключительно для офицеров NanoTrasen."
+	desc = "Специальный рюкзак, сделанный исключительно для офицеров NanoTrasen."
 	icon_state = "captainpack"
 	inhand_icon_state = "captainpack"
 
 /obj/item/storage/backpack/industrial
 	name = "промышленный рюкзак"
-	desc = "Это жесткий рюкзак для повседневной работы на станции."
+	desc = "Жесткий рюкзак для повседневной работы на станции."
 	icon_state = "engiepack"
 	inhand_icon_state = "engiepack"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/storage/backpack/botany
 	name = "ботанический рюкзак"
-	desc = "Это рюкзак из натуральных волокон."
+	desc = "Рюкзак из натуральных волокон."
 	icon_state = "botpack"
 	inhand_icon_state = "botpack"
 
@@ -234,7 +234,7 @@
 
 /obj/item/storage/backpack/satchel/leather
 	name = "кожаная сумка"
-	desc = "Это очень модная сумка из тонкой кожи."
+	desc = "Очень модная сумка из тонкой кожи."
 	icon_state = "satchel"
 	inhand_icon_state = "satchel"
 

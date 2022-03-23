@@ -42,7 +42,7 @@
 
 /obj/item/crowbar/large
 	name = "лом"
-	desc = "Это большой ломик. Он не помещается в карманы, потому что он большой."
+	desc = "Большой ломик. Он не помещается в карманы, потому что он большой."
 	force = 12
 	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 3

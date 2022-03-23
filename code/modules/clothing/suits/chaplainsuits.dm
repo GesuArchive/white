@@ -9,7 +9,7 @@
 //Suits
 /obj/item/clothing/suit/chaplainsuit/holidaypriest
 	name = "парадная роба священника"
-	desc = "Это праздник, мой сын."
+	desc = "Это хороший праздник, сын мой."
 	icon_state = "holidaypriest"
 	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -25,7 +25,7 @@
 
 /obj/item/clothing/suit/chaplainsuit/bishoprobe
 	name = "одежда епископа"
-	desc = "Рад видеть десятины, которые вы собрали, были потрачены не зря."
+	desc = "Рад видеть, что собранная вами десятина была потрачена с пользой.."
 	icon_state = "bishoprobe"
 	inhand_icon_state = "bishoprobe"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS

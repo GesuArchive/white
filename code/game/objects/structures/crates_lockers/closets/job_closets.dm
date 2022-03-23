@@ -2,7 +2,7 @@
 
 /obj/structure/closet/gmcloset
 	name = "шкаф с формальной одеждой"
-	desc = "Это хранилище для формальной одежды."
+	desc = "Хранилище для формальной одежды."
 	icon_door = "black"
 
 /obj/structure/closet/gmcloset/PopulateContents()
@@ -26,7 +26,7 @@
 
 /obj/structure/closet/chefcloset
 	name = "\proper шкаф шеф-повара"
-	desc = "Это хранилище для продуктов питания и мышеловок."
+	desc = "Хранилище для продуктов питания и мышеловок."
 	icon_door = "black"
 
 /obj/structure/closet/chefcloset/PopulateContents()
@@ -47,7 +47,7 @@
 
 /obj/structure/closet/jcloset
 	name = "кладовка"
-	desc = "Это хранилище для одежды и инструментов уборщиков."
+	desc = "Хранилище для одежды и инструментов уборщиков."
 	icon_door = "mixed"
 
 /obj/structure/closet/jcloset/PopulateContents()
@@ -72,7 +72,7 @@
 
 /obj/structure/closet/lawcloset
 	name = "шкаф законника"
-	desc = "Это хранилище для одежды и предметов для зала суда."
+	desc = "Хранилище для одежды и предметов для зала суда."
 	icon_door = "blue"
 
 /obj/structure/closet/lawcloset/PopulateContents()
@@ -94,7 +94,7 @@
 
 /obj/structure/closet/wardrobe/chaplain_black
 	name = "гардероб часовни"
-	desc = "Это хранилище, для одобренной NanoTrasen религиозной одежды."
+	desc = "Хранилище, для одобренной NanoTrasen религиозной одежды."
 	icon_door = "black"
 
 /obj/structure/closet/wardrobe/chaplain_black/PopulateContents()

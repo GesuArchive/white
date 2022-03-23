@@ -4,7 +4,7 @@
 	icon_state = "syndicate"
 
 /obj/structure/closet/syndicate/personal
-	desc = "Это личное хранилище для оперативного оборудования."
+	desc = "Личное хранилище для оперативного оборудования."
 
 /obj/structure/closet/syndicate/personal/PopulateContents()
 	..()
@@ -20,7 +20,7 @@
 	new /obj/item/pickaxe/drill/diamonddrill(src)
 
 /obj/structure/closet/syndicate/nuclear
-	desc = "Это хранилище для абордажной группы Синдиката."
+	desc = "Хранилище для абордажной группы Синдиката."
 
 /obj/structure/closet/syndicate/nuclear/PopulateContents()
 	for(var/i in 1 to 5)
@@ -94,7 +94,7 @@
 		new /obj/item/tank/jetpack/carbondioxide(src)
 
 /obj/structure/closet/syndicate/resources/everything
-	desc = "Это аварийное хранилище для ремонта."
+	desc = "Аварийное хранилище для ремонта."
 
 /obj/structure/closet/syndicate/resources/everything/PopulateContents()
 	var/list/resources = list(

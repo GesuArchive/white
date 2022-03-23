@@ -110,14 +110,14 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/headset_sec
 	name = "гарнитура офицера"
-	desc = "Это используется вашими элитными силами безопасности."
+	desc = "Используется вашими элитными силами безопасности."
 	icon_state = "sec_headset"
 	keyslot = new /obj/item/encryptionkey/headset_sec
 	radiosound = 'white/valtos/sounds/radio/security.ogg'
 
 /obj/item/radio/headset/headset_sec/alt
 	name = "гарнитура-бабочка офицера"
-	desc = "Это используется вашими элитными силами безопасности. Защищает уши от светошумовых гранат."
+	desc = "Используется вашими элитными силами безопасности. Защищает уши от светошумовых гранат."
 	icon_state = "sec_headset_alt"
 	inhand_icon_state = "sec_headset_alt"
 

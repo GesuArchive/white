@@ -2,7 +2,7 @@
 	icon_state = "passive_vent_map-3"
 
 	name = "пассивная вентиляция"
-	desc = "Это вентиляция без помпы."
+	desc = "Вентиляция без помпы."
 
 	can_unwrench = TRUE
 	hide = TRUE

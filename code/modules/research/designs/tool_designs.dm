@@ -275,7 +275,7 @@
 
 /datum/design/alienscalpel
 	name = "Инопланетный скальпель"
-	desc = "Это сверкающий острый нож, сделанный из серебристо-зеленого металла."
+	desc = "Сверкающий острый нож, сделанный из серебристо-зеленого металла."
 	id = "alien_scalpel"
 	build_path = /obj/item/scalpel/alien
 	build_type = PROTOLATHE | MECHFAB

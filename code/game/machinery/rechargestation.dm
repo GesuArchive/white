@@ -1,6 +1,6 @@
 /obj/machinery/recharge_station
 	name = "Станция зарядки киборгов"
-	desc = "Это устройство заряжает киборгов и переснаряжает их материалами."
+	desc = "Устройство, заряжающее киборгов и переснаряжающая их материалами."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "borgcharger0"
 	density = FALSE

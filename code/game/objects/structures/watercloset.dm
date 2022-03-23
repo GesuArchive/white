@@ -271,7 +271,7 @@
 
 /obj/item/bikehorn/rubberducky/plasticducky
 	name = "пластиковая уточка"
-	desc = "Это дешевая пластиковая подделка вашей любимой игрушки для ванны."
+	desc = "Дешевая пластиковая подделка вашей любимой игрушки для ванны."
 	custom_materials = list(/datum/material/plastic = 1000)
 
 /obj/item/bikehorn/rubberducky

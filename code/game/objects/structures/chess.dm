@@ -4,7 +4,7 @@
 	icon = 'icons/obj/chess.dmi'
 	icon_state = "white_pawn"
 	name = "\improper Вероятно, Белая Пешка"
-	desc = "Это странно. Пожалуйста, сообщите администрации, как вам удалось получить родительскую шахматную фигуру. Спасибо!"
+	desc = "Странно. Пожалуйста, сообщите кодерам, как вам удалось получить родительскую шахматную фигуру. Спасибо!"
 	max_integrity = 100
 
 /obj/structure/chess/wrench_act(mob/user, obj/item/tool)

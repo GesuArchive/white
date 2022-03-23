@@ -112,7 +112,7 @@
 
 /obj/item/melee/touch_attack/fleshtostone/midas
 	name = "рука мидаса"
-	desc = "Это то, что превратит существо в золото!"
+	desc = "То, что превратит существо в золото!"
 	catchphrase = "PO F'ARM'U CH'EMP'ION!!"
 	on_use_sound = 'white/valtos/sounds/midas.ogg'
 	icon_state = "fleshtostone"

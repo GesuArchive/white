@@ -85,7 +85,7 @@
 
 /obj/structure/closet/crate/coffin
 	name = "гроб"
-	desc = "Это погребальный сосуд для тел тех, кто сейчас в лучшем мире."
+	desc = "Погребальный сосуд для тел тех, кто сейчас в лучшем мире."
 	icon_state = "coffin"
 	resistance_flags = FLAMMABLE
 	max_integrity = 70

@@ -53,14 +53,14 @@
 
 /obj/item/clothing/head/hasturhood
 	name = "капюшон Хастура"
-	desc = "Это <I>невероятно</I> стильно."
+	desc = "<I>Невероятно</I> стильный."
 	icon_state = "hasturhood"
 	flags_inv = HIDEHAIR
 	flags_cover = HEADCOVERSEYES
 
 /obj/item/clothing/head/nursehat
 	name = "шляпа медсестры"
-	desc = "Это позволяет быстро идентифицировать обученный медицинский персонал."
+	desc = "Позволяет быстро идентифицировать обученный медицинский персонал. Ну или проституток.	"
 	icon_state = "nursehat"
 	dynamic_hair_suffix = ""
 
@@ -293,7 +293,7 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/head/cone
-	desc = "Этот конус пытается предупредить вас о чем-то!"
+	desc = "Этот конус пытается вас о чем-то предупредить!"
 	name = "предупреждающий конус"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "cone"

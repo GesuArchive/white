@@ -94,7 +94,7 @@
 /obj/item/food/grown/galaxythistle
 	seed = /obj/item/seeds/galaxythistle
 	name = "Головка космополоха"
-	desc = "Это колючая гроздь цветов напоминает о высоких горах."
+	desc = "Колючая гроздь цветов, напоминающая о высоких горах."
 	icon_state = "galaxythistle"
 	bite_consumption_mod = 3
 	foodtypes = VEGETABLES

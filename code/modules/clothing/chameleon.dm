@@ -375,7 +375,7 @@
 	greyscale_config_inhand_left = /datum/greyscale_config/jumpsuit_inhand_left
 	greyscale_config_inhand_right = /datum/greyscale_config/jumpsuit_inhand_right
 	greyscale_config_worn = /datum/greyscale_config/jumpsuit_worn
-	desc = "Это простой комбинезон. На запястье у него есть небольшой циферблат."
+	desc = "Простой комбинезон. На запястье у него есть небольшой циферблат."
 	sensor_mode = SENSOR_OFF //Hey who's this guy on the Syndicate Shuttle??
 	random_sensor = FALSE
 	resistance_flags = NONE
@@ -497,7 +497,7 @@
 
 /obj/item/clothing/head/chameleon
 	name = "серая кепка"
-	desc = "Это бейсболка приятного серого цвета."
+	desc = "Бейсболка приятного серого цвета."
 	icon_state = "greysoft"
 
 	resistance_flags = NONE

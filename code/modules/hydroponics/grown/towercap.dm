@@ -37,7 +37,7 @@
 /obj/item/grown/log
 	seed = /obj/item/seeds/tower
 	name = "Бревно древошляпника"
-	desc = "Это лучше, чем плохо, это хорошо!"
+	desc = "Лучше, чем плохо, это хорошо!"
 	icon_state = "logs"
 	force = 5
 	throwforce = 5
@@ -89,13 +89,13 @@
 
 /obj/item/grown/log/tree
 	seed = null
-	name = "Деревянное бревно"
+	name = "деревянное бревно"
 	desc = "ДЕ-РЕ-ВО!"
 
 /obj/item/grown/log/steel
 	seed = /obj/item/seeds/tower/steel
-	name = "Металлическое бревно"
-	desc = "Это сделано из металла."
+	name = "металлическое бревно"
+	desc = "Сделано из металла."
 	icon_state = "steellogs"
 	plank_type = /obj/item/stack/rods
 	plank_name = "rods"

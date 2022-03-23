@@ -33,7 +33,7 @@
 // -----------------------------
 /obj/item/storage/bag/trash
 	name = "мешок для мусора"
-	desc = "Это сверхпрочный черный полимерный материал. Пора выносить мусор!"
+	desc = "Сверхпрочный черный полимерный материал. Пора выносить мусор!"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "trashbag"
 	inhand_icon_state = "trashbag"

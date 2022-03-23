@@ -768,8 +768,8 @@ new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperfra
 	amount = 5
 
 /obj/item/stack/sheet/pizza
-	name = "ломтики пепперони "
-	desc = "Это вкусные ломтики пепперони!"
+	name = "ломтики пепперони"
+	desc = "Вкусные ломтики пепперони!"
 	singular_name = "ломтик пепперони"
 	icon_state = "sheet-pizza"
 	mats_per_unit = list(/datum/material/pizza = MINERAL_MATERIAL_AMOUNT)

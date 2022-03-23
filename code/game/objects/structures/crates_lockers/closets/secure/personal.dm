@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet/personal
-	desc = "Это сейф для персонала. Привязывает карту при первом свайпе."
+	desc = "Сейф для персонала. Привязывает карту при первом свайпе."
 	name = "шкаф персонала"
 	req_access = list(ACCESS_ALL_PERSONAL_LOCKERS)
 	var/registered_name = null

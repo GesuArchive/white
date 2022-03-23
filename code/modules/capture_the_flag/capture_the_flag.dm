@@ -916,7 +916,7 @@
 
 /obj/machinery/control_point
 	name = "Точка контроля"
-	desc = "Это надо захватить."
+	desc = "Вот это надо захватить."
 	icon = 'icons/obj/machines/dominator.dmi'
 	icon_state = "dominator"
 	resistance_flags = INDESTRUCTIBLE

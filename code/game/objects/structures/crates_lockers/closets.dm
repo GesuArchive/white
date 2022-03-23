@@ -7,7 +7,7 @@
 
 /obj/structure/closet
 	name = "шкаф"
-	desc = "Это наиболее распространенный вид хранилища."
+	desc = "Наиболее распространенный вид хранилища."
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "generic"
 	density = TRUE

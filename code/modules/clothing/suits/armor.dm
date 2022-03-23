@@ -226,7 +226,7 @@
 
 /obj/item/clothing/suit/armor/vest/infiltrator
 	name = "жилет лазутчика"
-	desc = "Этот жилет изготовлен из крайне гибких материалов, которые легко поглощают удары."
+	desc = "Жилет, изготовленный из крайне гибких материалов, которые легко поглощают удары."
 	icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
 	armor = list(MELEE = 40, BULLET = 40, LASER = 30, ENERGY = 40, BOMB = 70, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)

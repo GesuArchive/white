@@ -9,7 +9,7 @@
 	inhand_icon_state = "dg_suit"
 
 /obj/item/clothing/under/rank/centcom/commander/grand
-	desc = "Это комбинезон с золотыми знаками, который носит самый высокопоставленный офицер ЦК."
+	desc = "Комбинезон с золотыми знаками, который носит самый высокопоставленный офицер ЦК."
 	name = "комбинезон гранд-адмирала ЦК"
 	icon_state = "grand_admiral"
 	can_adjust = FALSE
