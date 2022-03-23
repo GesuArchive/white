@@ -486,7 +486,7 @@
 // пуля
 /obj/projectile/bullet/c25mm
 	name = "2,5мм пуля"
-	damage = 7
+	damage = 14
 	armour_penetration = 0
 	wound_bonus = 2
 // коробка с патронами

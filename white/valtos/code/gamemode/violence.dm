@@ -144,7 +144,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/game_mode/violence/proc/new_round()
 	GLOB.violence_current_round++
 	GLOB.violence_random_theme = rand(1, 2)
-	if(GLOB.violence_current_round == 7)
+	if(GLOB.violence_current_round == 8)
 		return
 	GLOB.violence_red_team = list()
 	GLOB.violence_blue_team = list()
@@ -181,11 +181,13 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 			return "ТЯЖЁЛАЯ АРТИЛЛЕРИЯ"
 		if(6)
 			return "МЕХАНИЧЕСКОЕ ПРЕВОСХОДСТВО"
+		if(7)
+			return "ПРОБЛЕМА БЕЗУПРЕЧНОСТИ"
 		else
 			return "Хуйня какая-то"
 
 /datum/game_mode/violence/check_finished()
-	if(GLOB.violence_current_round == 7)
+	if(GLOB.violence_current_round == 8)
 		if(!GLOB.admins.len && !GLOB.deadmins.len)
 			GLOB.master_mode = "secret"
 			SSticker.save_mode(GLOB.master_mode)
@@ -374,24 +376,48 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 						r_pocket = /obj/item/ammo_box/magazine/mauser/battle
 						belt = /obj/item/melee/sabre/marineofficer
 		if(5)
-			suit = /obj/item/clothing/suit/space/hardsuit/deathsquad
-			belt = /obj/item/gun/ballistic/revolver/mateba
-			r_hand = /obj/item/gun/energy/pulse
-			r_pocket = /obj/item/shield/energy
-			if(prob(50))
-				suit = /obj/item/clothing/suit/space/officer
-				head = /obj/item/clothing/head/helmet/space/beret
-				r_hand = /obj/item/gun/ballistic/automatic/hs010
-				r_pocket = /obj/item/ammo_box/magazine/hs010
-			glasses = /obj/item/clothing/glasses/hud/toggle/thermal
-			gloves = /obj/item/clothing/gloves/tackler/combat/insulated
-			mask = /obj/item/clothing/mask/gas/sechailer/swat
-			shoes = /obj/item/clothing/shoes/combat/swat
-			l_pocket = /obj/item/melee/energy/sword/saber
-			l_hand = /obj/item/shield/riot/military
+			if(GLOB.violence_random_theme == 1)
+				glasses = /obj/item/clothing/glasses/hud/toggle/thermal
+				gloves = /obj/item/clothing/gloves/tackler/combat/insulated
+				mask = /obj/item/clothing/mask/gas/sechailer/swat
+				shoes = /obj/item/clothing/shoes/combat/swat
+				suit = /obj/item/clothing/suit/space/hardsuit/deathsquad
+				belt = /obj/item/gun/ballistic/revolver/mateba
+				r_hand = /obj/item/gun/energy/pulse
+				l_hand = /obj/item/shield/riot/military
+				r_pocket = /obj/item/shield/energy
+				l_pocket = /obj/item/melee/energy/sword/saber
+				if(prob(50))
+					suit = /obj/item/clothing/suit/space/officer
+					head = /obj/item/clothing/head/helmet/space/beret
+					r_hand = /obj/item/gun/ballistic/automatic/hs010
+					r_pocket = /obj/item/ammo_box/magazine/hs010
+			else
+				glasses = /obj/item/clothing/glasses/thermal
+				mask = /obj/item/clothing/mask/gas/syndicate
+				shoes = /obj/item/clothing/shoes/combat
+				gloves =  /obj/item/clothing/gloves/combat
+				belt = /obj/item/storage/belt/military/assault/c20r4
+				r_pocket = /obj/item/gun/ballistic/automatic/pistol
+				l_pocket = /obj/item/melee/energy/sword/saber
+				suit_store = /obj/item/gun/ballistic/automatic/c20r/unrestricted
+				suit = /obj/item/clothing/suit/space/hardsuit/shielded/syndi
 		if(6)
 			head = /obj/item/clothing/head/welding/open
 			belt = /obj/item/storage/belt/military/abductor/full
+		if(7)
+			r_hand = /obj/item/shears
+			l_hand = /obj/item/melee/baton/boomerang/loaded
+			uniform = /obj/item/clothing/under/misc/adminsuit/x031
+			suit = /obj/item/clothing/suit/space/x031
+			head = /obj/item/clothing/head/x031
+			glasses = /obj/item/clothing/glasses/debug/x031
+			ears = /obj/item/radio/headset/headset_cent/commander/x031
+			mask = /obj/item/clothing/mask/gas/syndicate/x031
+			gloves = /obj/item/clothing/gloves/combat/x031
+			id = /obj/item/card/id/advanced/centcom/ert/deathsquad/x031
+			suit_store = /obj/item/tank/internals/emergency_oxygen/recharge/x031
+			internals_slot = ITEM_SLOT_SUITSTORE
 
 /datum/outfit/job/combantant/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/card/id/W = H.wear_id
