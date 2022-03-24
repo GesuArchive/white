@@ -278,8 +278,8 @@
 	list_reagents = list(/datum/reagent/magillitis = 5)
 
 /obj/item/reagent_containers/hypospray/medipen/pumpup
-	name = "maintenance pump-up"
-	desc = "A ghetto looking autoinjector filled with a cheap adrenaline shot... Great for shrugging off the effects of stunbatons."
+	name = "самопальный адреналин"
+	desc = "Кустарный автоинъектор, наполненный дешевым адреналином... Отлично подходит для снятия последствий от удара электрошоковой дубинкой."
 	volume = 15
 	amount_per_transfer_from_this = 15
 	list_reagents = list(/datum/reagent/drug/pumpup = 15)
