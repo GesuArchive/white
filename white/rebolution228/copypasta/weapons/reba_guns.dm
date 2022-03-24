@@ -326,11 +326,6 @@
 	icon_state = "ak74mgl"
 	inhand_icon_state = "ak74mgl"
 	worn_icon_state = "ak74mgl_back"
-// создаем гранатомет гп25
-/obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted/gp25
-	fire_sound = 'white/rebolution228/sounds/weapons/fire_m41agrenadelauncher.ogg'
-	mag_type = /obj/item/ammo_box/magazine/internal/grenadelauncher/gp25
-
 //  добавляем гранатомет к оружию
 /obj/item/gun/ballistic/automatic/ak74m/gp25/Initialize()
 	. = ..()
@@ -343,13 +338,7 @@
 	else
 		return ..()
 
-// создаем магазин для гранатомета 2
-/obj/item/ammo_box/magazine/internal/grenadelauncher/gp25
-	name = "ebalo"
-	ammo_type = /obj/item/ammo_casing/a40mm/vog25
-	caliber = "40mmvog"
-	max_ammo = 1
-//  гильзу посылаем нахуй
+//  гильзу посылаем 
 /obj/item/gun/ballistic/automatic/ak74m/gp25/attackby(obj/item/A, mob/user, params)
 	if(istype(A, /obj/item/ammo_casing))
 		if(istype(A, underbarrel.magazine.ammo_type))
@@ -357,29 +346,7 @@
 			underbarrel.attackby(A, user, params)
 	else
 		..()
-// выстрел вог25
-/obj/item/ammo_casing/a40mm/vog25
-	name = "Выстрел ВОГ-25"
-	desc = "Бум."
-	caliber = "40mmvog"
-	icon = 'white/rebolution228/icons/weapons/rammo.dmi'
-	icon_state = "vog25"
-	projectile_type = /obj/projectile/bullet/vog25
-// проджектайл гп25
-/obj/projectile/bullet/vog25
-	name = "40mm round VOG"
-	icon = 'white/rebolution228/icons/weapons/projectile.dmi'
-	icon_state = "vog25"
-	damage = 150
-// настройки взрыва
-/obj/projectile/bullet/vog25/on_hit(atom/target, blocked = FALSE)
-	..()
-	explosion(target, 0, 2, 3, 4, flame_range = 4)
-	return BULLET_ACT_HIT
-// гильзу опять нахуй посылаем
-/obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted/gp25/afterattack()
-	. = ..()
-	magazine.get_round(FALSE)
+
 // даем возможность менять режимы стрельбы
 /obj/item/gun/ballistic/automatic/ak74m/gp25/burst_select()
 	var/mob/living/carbon/human/user = usr
@@ -400,6 +367,42 @@
 	playsound(user, 'white/rebolution228/sounds/weapons/dryfire1.ogg', 100, TRUE)
 	update_icon()
 	return
+
+// создаем гранатомет гп25
+/obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted/gp25
+	fire_sound = 'white/rebolution228/sounds/weapons/fire_m41agrenadelauncher.ogg'
+	mag_type = /obj/item/ammo_box/magazine/internal/grenadelauncher/gp25
+
+// гильзу опять нахуй посылаем
+/obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted/gp25/afterattack()
+	. = ..()
+	magazine.get_round(FALSE)
+
+// создаем магазин для гранатомета 2
+/obj/item/ammo_box/magazine/internal/grenadelauncher/gp25
+	name = "ebalo"
+	ammo_type = /obj/item/ammo_casing/a40mm/vog25
+	caliber = "40mmvog"
+	max_ammo = 1
+// выстрел вог25
+/obj/item/ammo_casing/a40mm/vog25
+	name = "Выстрел ВОГ-25"
+	desc = "Бум."
+	caliber = "40mmvog"
+	icon = 'white/rebolution228/icons/weapons/rammo.dmi'
+	icon_state = "vog25"
+	projectile_type = /obj/projectile/bullet/vog25
+// проджектайл гп25
+/obj/projectile/bullet/vog25
+	name = "40mm round VOG"
+	icon = 'white/rebolution228/icons/weapons/projectile.dmi'
+	icon_state = "vog25"
+	damage = 150
+// настройки взрыва
+/obj/projectile/bullet/vog25/on_hit(atom/target, blocked = FALSE)
+	..()
+	explosion(target, 0, 2, 3, 4, flame_range = 4)
+	return BULLET_ACT_HIT
 
 
 ///////////////////////////////////////////  HS 010 SMG
@@ -808,25 +811,6 @@
 	playsound(loc, pick(hitsound), 50)
 
 
-/obj/item/ammo_casing/a40mm/vg240
-	name = "ВПГ-240"
-	desc = "Гранатометный противопехотный выстрел 40мм калибра. Применяется против тяжелобронированных противников."
-	caliber = "40mmvog"
-	icon = 'white/rebolution228/icons/weapons/rammo.dmi'
-	icon_state = "vg-240"
-	projectile_type = /obj/projectile/bullet/vg240
-
-/obj/projectile/bullet/vg240
-	name = "снаряд ВПГ-240"
-	icon = 'white/rebolution228/icons/weapons/projectile.dmi'
-	icon_state = "vg240"
-	damage = 165
-
-/obj/projectile/bullet/vg240/on_hit(atom/target, blocked = FALSE)
-	..()
-	explosion(target, 0, 2, 3, 4, flame_range = 6)
-	return BULLET_ACT_HIT
-
 
 // SAR-62L ГП
 
@@ -883,6 +867,7 @@
 
 //
 /obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted/sar62l
+	name = "ГП-693М2"
 	fire_sound = 'white/rebolution228/sounds/weapons/fire_m41agrenadelauncher.ogg'
 	mag_type = /obj/item/ammo_box/magazine/internal/grenadelauncher/vg240
 
@@ -895,5 +880,24 @@
 	ammo_type = /obj/item/ammo_casing/a40mm/vg240
 	caliber = "40mmvg"
 	max_ammo = 1
+
+/obj/item/ammo_casing/a40mm/vg240
+	name = "ВПГ-240"
+	desc = "Гранатометный противопехотный выстрел 40мм калибра. Применяется против тяжелобронированных противников."
+	caliber = "40mmvg"
+	icon = 'white/rebolution228/icons/weapons/rammo.dmi'
+	icon_state = "vg-240"
+	projectile_type = /obj/projectile/bullet/vg240
+
+/obj/projectile/bullet/vg240
+	name = "снаряд ВПГ-240"
+	icon = 'white/rebolution228/icons/weapons/projectile.dmi'
+	icon_state = "vg240"
+	damage = 165
+
+/obj/projectile/bullet/vg240/on_hit(atom/target, blocked = FALSE)
+	..()
+	explosion(target, 0, 2, 3, 4, flame_range = 6)
+	return BULLET_ACT_HIT
 
 //
