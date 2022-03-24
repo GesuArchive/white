@@ -7,6 +7,8 @@ GLOBAL_VAR(violence_blue_datum)
 GLOBAL_LIST_EMPTY(violence_red_team)
 GLOBAL_LIST_EMPTY(violence_blue_team)
 
+#define VIOLENCE_FINAL_ROUND 7
+
 /datum/game_mode/violence
 	name = "violence"
 	config_tag = "violence"
@@ -14,11 +16,14 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	enemy_minimum_age = 0
 	maximum_players = 64
 
+	// активен ли раунд
 	var/round_active = FALSE
+	// когда был начат раунд
 	var/round_started_at = 0
-	var/shutters_closed = TRUE
+	// основная зона, которая отслеживается
 	var/area/main_area
 
+	// балансировочные якори команд
 	var/max_reds = 2
 	var/max_blues = 2
 
@@ -26,25 +31,32 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	announce_text = "Резня!"
 
 /datum/game_mode/violence/pre_setup()
+	// меняем тему в лобби на задорную
 	SSticker.login_music = sound('white/valtos/sounds/quiet_theme.ogg')
 	for(var/client/C in GLOB.clients)
 		if(isnewplayer(C.mob))
 			C.mob.stop_sound_channel(CHANNEL_LOBBYMUSIC)
 			C.playtitlemusic()
+	// пикаем арену
 	var/obj/effect/landmark/violence/V = GLOB.violence_landmark
 	V.load_map()
+	// отключаем ивенты станции
 	GLOB.disable_fucking_station_shit_please = TRUE
+	// включаем режим насилия, который немного изменяет правила игры
 	GLOB.violence_mode_activated = TRUE
+	// выбираем зону (если её нет, то высрет рантайм)
 	main_area = GLOB.areas_by_type[/area/violence]
+	// отключаем лишние подсистемы
 	SSair.flags |= SS_NO_FIRE
 	SSevents.flags |= SS_NO_FIRE
 	SSnightshift.flags |= SS_NO_FIRE
 	SSorbits.flags |= SS_NO_FIRE
 	SSweather.flags |= SS_NO_FIRE
 	SSeconomy.flags |= SS_NO_FIRE
-	SSjob.DisableAllJobs()
+	// назначаем глобальные команды для худов
 	GLOB.violence_red_datum = new /datum/team/violence/red
 	GLOB.violence_blue_datum = new /datum/team/violence/blue
+	// отключаем все станционные джобки и создаём специальные
 	GLOB.position_categories = list(
 		EXP_TYPE_COMBATANT_RED = list("jobs" = GLOB.combatant_red_positions, "color" = "#ff0000", "runame" = "Красные"),
 		EXP_TYPE_COMBATANT_BLUE = list("jobs" = GLOB.combatant_blue_positions, "color" = "#0000ff", "runame" = "Синие")
@@ -53,11 +65,13 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		EXP_TYPE_COMBATANT_RED = list("titles" = GLOB.combatant_red_positions),
 		EXP_TYPE_COMBATANT_BLUE = list("titles" = GLOB.combatant_blue_positions)
 	)
+	// маркируем все текущие атомы, чтобы чистильщик их не удалил
 	for(var/atom/A in main_area)
 		A.flags_1 |= KEEP_ON_ARENA_1
 	return TRUE
 
 /datum/game_mode/violence/can_start()
+	// отменяем готовность у всех игроков, чтобы их случайно не закинуло в нуллспейс
 	for(var/i in GLOB.new_player_list)
 		var/mob/dead/new_player/player = i
 		if(player.ready == PLAYER_READY_TO_PLAY)
@@ -66,8 +80,9 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/game_mode/violence/post_setup()
 	..()
-	SSjob.DisableAllJobs()
+	// выключаем рандомные ивенты наверняка
 	CONFIG_SET(flag/allow_random_events, FALSE)
+	// готовим новый раунд
 	spawn(1 SECONDS)
 		new_round()
 
@@ -84,6 +99,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/game_mode/violence/process()
 	if(round_active)
+		// проверяем наличие моба и его состояние
 		for(var/datum/mind/R in GLOB.violence_red_team)
 			if(!R?.current)
 				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')), rand(25, 50))
@@ -98,18 +114,20 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 			else if(B?.current?.stat == DEAD)
 				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')), rand(25, 50))
 				GLOB.violence_blue_team -= B
+		// добейте выживших
+		for(var/mob/living/carbon/human/H in main_area)
+			if(H.stat != DEAD && H.health <= 0)
+				var/datum/disease/D = new /datum/disease/heart_failure()
+				D.stage = 5
+				H.ForceContractDisease(D, FALSE, TRUE)
+		// балансируем команды
 		if(GLOB.violence_red_team.len == max_reds && max_reds <= max_blues)
 			max_reds = max_blues + 1
 			SSjob.AddJobPositions(/datum/job/combantant/red, max_reds, max_reds)
 		if(GLOB.violence_blue_team.len == max_blues && max_blues <= max_reds)
 			max_blues = max_reds + 1
 			SSjob.AddJobPositions(/datum/job/combantant/blue, max_blues, max_blues)
-		if(shutters_closed && round_started_at + 30 SECONDS < world.time)
-			shutters_closed = FALSE
-			to_chat(world, leader_brass("В БОЙ!"))
-			play_sound_to_everyone('white/valtos/sounds/gong.ogg')
-			for(var/obj/machinery/door/poddoor/D in main_area)
-				INVOKE_ASYNC(D, /obj/machinery/door/poddoor.proc/open)
+		// проверяем, умерли ли все после открытия ворот
 		if(round_started_at + 30 SECONDS < world.time)
 			if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len)
 				end_round("СИНИХ")
@@ -118,6 +136,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 			if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len == 0)
 				end_round()
 
+// конец раунда и запуск начала нового раунда
 /datum/game_mode/violence/proc/end_round(winner = "ХУЙ ЕГО ЗНАЕТ КОГО")
 	round_active = FALSE
 	SSjob.SetJobPositions(/datum/job/combantant/red, 0, 0, TRUE)
@@ -130,8 +149,8 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	spawn(10 SECONDS)
 		new_round()
 
+// удаляет все атомы без флага KEEP_ON_ARENA_1 в основной зоне, также закрывает шаттерсы
 /datum/game_mode/violence/proc/clean_arena()
-	shutters_closed = TRUE
 	var/count_deleted = 0
 	for(var/atom/A in main_area)
 		if(!(A.flags_1 & KEEP_ON_ARENA_1))
@@ -141,13 +160,18 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	for(var/obj/machinery/door/poddoor/D in main_area)
 		INVOKE_ASYNC(D, /obj/machinery/door/poddoor.proc/close)
 
+// новый раунд, отправляет всех в лобби и очищает арену
 /datum/game_mode/violence/proc/new_round()
 	GLOB.violence_current_round++
+	// генерируем случайную тему для экипировки
 	GLOB.violence_random_theme = rand(1, 2)
-	if(GLOB.violence_current_round == 7)
+	// проверяем, был ли предыдущий раунд финальным
+	if(GLOB.violence_current_round == VIOLENCE_FINAL_ROUND)
 		return
+	// очищаем команды
 	GLOB.violence_red_team = list()
 	GLOB.violence_blue_team = list()
+	// необходимо кинуть всех в лобби, чтобы была возможность вступить в бой
 	if(GLOB.violence_current_round != 1)
 		for(var/mob/M in GLOB.player_list)
 			M?.mind?.remove_all_antag_datums()
@@ -155,18 +179,30 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 			var/mob/dead/new_player/NP = new()
 			NP.ckey = M.ckey
 			qdel(M)
+	// вызов очистки
 	clean_arena()
 	spawn(10 SECONDS)
+		// сбрасываем балансировку
 		max_reds = 2
 		max_blues = 2
-		round_active = TRUE
-		round_started_at = world.time
-		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round]! [get_round_desc()]!"))
 		SSjob.ResetOccupations("Violence")
-		SSjob.SetJobPositions(/datum/job/combantant/red, 200, 200, TRUE)
-		SSjob.SetJobPositions(/datum/job/combantant/blue, 200, 200, TRUE)
+		SSjob.SetJobPositions(/datum/job/combantant/red, 2, 2, TRUE)
+		SSjob.SetJobPositions(/datum/job/combantant/blue, 2, 2, TRUE)
+		// активируем раунд
+		round_active = TRUE
+		// метим время начала
+		round_started_at = world.time
+		// оповещаем игроков
+		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round]! [get_round_desc()]!"))
 		play_sound_to_everyone('white/valtos/sounds/horn.ogg')
+		// открываем шаттерсы через время
+		spawn(30 SECONDS)
+			to_chat(world, leader_brass("В БОЙ!"))
+			play_sound_to_everyone('white/valtos/sounds/gong.ogg')
+			for(var/obj/machinery/door/poddoor/D in main_area)
+				INVOKE_ASYNC(D, /obj/machinery/door/poddoor.proc/open)
 
+// получаем описание текущего раунда
 /datum/game_mode/violence/proc/get_round_desc()
 	switch(GLOB.violence_current_round)
 		if(1)
@@ -184,8 +220,9 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		else
 			return "Хуйня какая-то"
 
+// проверка на финальный раунд
 /datum/game_mode/violence/check_finished()
-	if(GLOB.violence_current_round == 7)
+	if(GLOB.violence_current_round == VIOLENCE_FINAL_ROUND)
 		if(!GLOB.admins.len && !GLOB.deadmins.len)
 			GLOB.master_mode = "secret"
 			SSticker.save_mode(GLOB.master_mode)
@@ -208,6 +245,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 /datum/antagonist/combatant
 	name = "Боевик белых"
 
+// добавляем худ в зависимости от команды
 /datum/antagonist/combatant/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
 	add_antag_hud(antag_hud_type, antag_hud_name, M)
@@ -313,9 +351,11 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	back = null
 	backpack_contents = null
 	id = /obj/item/card/id/advanced/centcom/ert/deathsquad
+	// пиздец
 	switch(GLOB.violence_current_round)
 		if(1)
-			r_hand = pick(list(null, /obj/item/weldingtool, /obj/item/grenade/iedcasing/spawned, /obj/item/wrench, /obj/item/extinguisher))
+			if(prob(25))
+				r_hand = pick(list(/obj/item/weldingtool, /obj/item/grenade/iedcasing/spawned, /obj/item/wrench, /obj/item/extinguisher))
 		if(2)
 			if(GLOB.violence_random_theme == 1)
 				suit = /obj/item/clothing/suit/armor/vest/durathread
@@ -440,6 +480,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 
+// оверрайт прока для правильного вывода темы
 /area/violence/Entered(atom/movable/arrived, area/old_area)
 	set waitfor = FALSE
 	SEND_SIGNAL(src, COMSIG_AREA_ENTERED, arrived, old_area)
@@ -528,3 +569,5 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	mappath = "_maps/map_files/Warfare/violence3.dmm"
 	weight = 1
 	max_players = 64
+
+#undef VIOLENCE_FINAL_ROUND
