@@ -17,4 +17,5 @@
 						ANNOUNCER_SHUTTLEDOCK = 'sound/ai/announcer/alert.ogg',
 						ANNOUNCER_SHUTTLERECALLED = 'sound/ai/announcer/alert.ogg',
 						ANNOUNCER_SPANOMALIES = 'sound/ai/announcer/alert.ogg',
-						ANNOUNCER_WAR = 'sound/machines/alarm.ogg',)
+						ANNOUNCER_WAR = 'sound/machines/alarm.ogg',
+						ANNOUNCER_COMMANDREPORT = 'sound/ai/default/commandreport.ogg')

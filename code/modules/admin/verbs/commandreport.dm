@@ -47,7 +47,7 @@
 	/// Whether the report's contents are announced.
 	var/announce_contents = TRUE
 	/// The sound that's going to accompany our message.
-	var/played_sound = DEFAULT_ANNOUNCEMENT_SOUND
+	var/played_sound = ANNOUNCER_COMMANDREPORT
 	/// A static list of preset names that can be chosen.
 	var/static/list/preset_names = list(CENTCOM_PRESET, SYNDICATE_PRESET, WIZARD_PRESET, CUSTOM_PRESET)
 

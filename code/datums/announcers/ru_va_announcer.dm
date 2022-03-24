@@ -25,4 +25,5 @@
 						ANNOUNCER_SHUTTLERECALLED = 'sound/ai/va/shuttlerecalled.ogg',
 						ANNOUNCER_SPANOMALIES = 'sound/ai/va/anomaly.ogg',
 						ANNOUNCER_WAR = 'sound/ai/va/war.ogg',
-						ANNOUNCER_METEORS = 'sound/ai/va/meteors.ogg')
+						ANNOUNCER_METEORS = 'sound/ai/va/meteors.ogg',
+						ANNOUNCER_COMMANDREPORT = 'sound/ai/default/commandreport.ogg')

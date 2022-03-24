@@ -358,7 +358,7 @@
 	wanted_types = list(/obj/machinery/space_heater)
 
 /datum/bounty/item/assistant/pumpup
-	name = "Шприц с адреналином из технических тоннелей"
+	name = "Самопальный адреналин"
 	description = "ДАННЫЕ УДАЛЕНЫ"
 	reward = CARGO_CRATE_VALUE * 15
 	required_count = 5

@@ -278,6 +278,7 @@
 
 
 ///Announcer audio keys
+#define ANNOUNCER_COMMANDREPORT "announcer_commandreport"
 #define ANNOUNCER_AIMALF "announcer_aimalf"
 #define ANNOUNCER_ALIENS "announcer_aliens"
 #define ANNOUNCER_ANIMES "announcer_animes"
@@ -298,6 +299,7 @@
 
 /// Global list of all of our announcer keys.
 GLOBAL_LIST_INIT(announcer_keys, list(
+	ANNOUNCER_COMMANDREPORT,
 	ANNOUNCER_AIMALF,
 	ANNOUNCER_ALIENS,
 	ANNOUNCER_ANIMES,

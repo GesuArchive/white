@@ -30,4 +30,5 @@
 						ANNOUNCER_SHUTTLERECALLED = 'sound/ai/xrenoid/shuttlerecalled.wav',
 						ANNOUNCER_SPANOMALIES = 'sound/ai/xrenoid/anomaly.wav',
 						ANNOUNCER_WAR = 'sound/ai/xrenoid/war.wav',
-						ANNOUNCER_METEORS = 'sound/ai/xrenoid/meteors.wav')
+						ANNOUNCER_METEORS = 'sound/ai/xrenoid/meteors.wav',
+						ANNOUNCER_COMMANDREPORT = 'sound/ai/default/commandreport.ogg')
