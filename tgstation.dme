@@ -4478,6 +4478,7 @@
 #include "white\valtos\code\unsorted\fireworkgun.dm"
 #include "white\valtos\code\unsorted\flipped_table.dm"
 #include "white\valtos\code\unsorted\glitch.dm"
+#include "white\valtos\code\unsorted\glutton.dm"
 #include "white\valtos\code\unsorted\great_stuff.dm"
 #include "white\valtos\code\unsorted\gun_hud.dm"
 #include "white\valtos\code\unsorted\ipc.dm"

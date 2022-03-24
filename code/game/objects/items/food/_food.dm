@@ -1,3 +1,6 @@
+
+GLOBAL_LIST_INIT(all_food, list())
+
 ///Abstract class to allow us to easily create all the generic "normal" food without too much copy pasta of adding more components
 /obj/item/food
 	name = "food"
@@ -58,6 +61,11 @@
 	MakeGrillable()
 	MakeDecompose(mapload)
 	MakeBakeable()
+	GLOB.all_food += src
+
+/obj/item/food/Destroy()
+	GLOB.all_food -= src
+	. = ..()
 
 ///This proc adds the edible component, overwrite this if you for some reason want to change some specific args like callbacks.
 /obj/item/food/proc/MakeEdible()
