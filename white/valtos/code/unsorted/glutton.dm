@@ -1,6 +1,6 @@
 /datum/component/glutton
 	// счётчик пожраного
-	var/food_eaten = 0
+	var/bites_taken = 0
 	var/mob/living/carbon/human/our_eater
 
 /datum/component/glutton/Initialize()
@@ -22,4 +22,5 @@
 		if(E)
 			our_eater.visible_message(span_notice("[our_eater] кушает [tasty_thing]."), span_notice("Кушаю [tasty_thing]."))
 			E.TakeBite(our_eater, our_eater)
+			bites_taken++
 
