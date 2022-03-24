@@ -338,13 +338,13 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	name = "Combantant: Red"
 	jobtype = /datum/job/combantant/red
 	uniform = /obj/item/clothing/under/color/red
-	special_color = "#ff8888"
+	special_color = "#ff4444"
 
 /datum/outfit/job/combantant/blue
 	name = "Combantant: Blue"
 	jobtype = /datum/job/combantant/blue
 	uniform = /obj/item/clothing/under/color/blue
-	special_color = "#8888ff"
+	special_color = "#4444ff"
 
 /datum/outfit/job/combantant/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -354,21 +354,25 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	// пиздец
 	switch(GLOB.violence_current_round)
 		if(1)
-			if(prob(25))
-				r_hand = pick(list(/obj/item/weldingtool, /obj/item/grenade/iedcasing/spawned, /obj/item/wrench, /obj/item/extinguisher))
+			if(prob(35))
+				r_hand = pick(list(/obj/item/melee/brick, /obj/item/tank/internals/oxygen, /obj/item/extinguisher))
 		if(2)
 			if(GLOB.violence_random_theme == 1)
 				suit = /obj/item/clothing/suit/armor/vest/durathread
 				head = /obj/item/clothing/head/beret/durathread
-				r_hand = pick(list(/obj/item/kitchen/knife/combat, /obj/item/melee/sabre/officer, /obj/item/melee/baseball_bat, /obj/item/melee/energy/sword/saber))
-				l_hand = pick(list(/obj/item/shield/riot/buckler, /obj/item/restraints/legcuffs/bola))
+				if(prob(50))
+					r_hand = pick(list(/obj/item/kitchen/knife/combat, /obj/item/melee/sabre/officer, /obj/item/melee/baseball_bat, /obj/item/melee/energy/sword/saber))
+					l_hand = pick(list(/obj/item/shield/riot/buckler, /obj/item/restraints/legcuffs/bola))
+				else
+					r_hand = pick(list(/obj/item/melee/baton/loaded, /obj/item/assembly/flash))
+					if(prob(25))
+						glasses = /obj/item/clothing/glasses/sunglasses
 			else
 				head = /obj/item/clothing/head/turban
 				suit = /obj/item/clothing/suit/chaplainsuit/studentuni
 				shoes = /obj/item/clothing/shoes/sandal
 				l_pocket = /obj/item/grenade/frag
 				r_hand = pick(list(/obj/item/kitchen/knife/combat, /obj/item/melee/sabre/officer, /obj/item/melee/energy/sword/saber))
-				l_hand = pick(list(/obj/item/kitchen/knife/combat, /obj/item/melee/sabre/officer, /obj/item/melee/energy/sword/saber))
 		if(3)
 			if(GLOB.violence_random_theme == 1)
 				suit = /obj/item/clothing/suit/armor/bulletproof
@@ -378,7 +382,8 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 			else
 				uniform = pick(list(/obj/item/clothing/under/costume/kamishimo, /obj/item/clothing/under/costume/kimono/dark, /obj/item/clothing/under/costume/kimono/sakura, /obj/item/clothing/under/costume/kimono/fancy, /obj/item/clothing/under/costume/kamishimo, /obj/item/clothing/under/costume/bathrobe))
 				head = /obj/item/clothing/head/rice_hat
-				if(prob(50))
+				if(prob(25))
+					uniform = /obj/item/clothing/under/costume/kimono
 					suit = /obj/item/clothing/suit/costume/samurai
 					head = /obj/item/clothing/head/costume/kabuto
 				shoes = /obj/item/clothing/shoes/sandal
