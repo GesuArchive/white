@@ -69,7 +69,3 @@
 		target.reagents.add_reagent(/datum/reagent/medicine/salbutamol, 0.5) // So they don't choke to death while you interrogate them
 		do_mob(user, target, 10 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM))
 
-	changeling.islinking = 0
-	target.mind.linglink = 0
-	to_chat(user, span_notice("Мы не можем больше поддерживать связь, наша жертва исчезает из роя!"))
-	to_chat(target, span_userdanger("Связь больше не поддерживается, моё соединение с роем разорвано!"))
