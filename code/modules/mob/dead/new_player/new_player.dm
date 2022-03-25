@@ -152,6 +152,8 @@
 			return "Твой аккаунт слишком молодой для [jobtitle]."
 		if(JOB_UNAVAILABLE_SLOTFULL)
 			return "[jobtitle] уже достаточно на станции."
+		if(JOB_UNAVAILABLE_LOCKED)
+			return "Нельзя менять команду."
 	return "Error: Unknown job availability."
 
 /mob/dead/new_player/proc/IsJobUnavailable(rank, latejoin = FALSE)
@@ -179,6 +181,9 @@
 		return JOB_UNAVAILABLE_GENERIC
 	if(job.metalocked && !(job.type in client.prefs.jobs_buyed))
 		return JOB_UNAVAILABLE_UNBUYED
+	if(GLOB.violence_mode_activated)
+		if((ckey in GLOB.violence_teamlock) && GLOB.violence_teamlock[ckey] != rank)
+			return JOB_UNAVAILABLE_LOCKED
 	return JOB_AVAILABLE
 
 /mob/dead/new_player/proc/AttemptLateSpawn(rank)

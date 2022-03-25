@@ -6,6 +6,7 @@ GLOBAL_VAR(violence_red_datum)
 GLOBAL_VAR(violence_blue_datum)
 GLOBAL_LIST_EMPTY(violence_red_team)
 GLOBAL_LIST_EMPTY(violence_blue_team)
+GLOBAL_LIST_EMPTY(violence_teamlock)
 
 #define VIOLENCE_FINAL_ROUND 7
 
@@ -126,10 +127,10 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 				H.ForceContractDisease(D, FALSE, TRUE)
 		// балансируем команды
 		if(GLOB.violence_red_team.len == max_reds && max_reds <= max_blues)
-			max_reds = max_blues + 1
+			max_reds = max_blues + 2
 			SSjob.AddJobPositions(/datum/job/combantant/red, max_reds, max_reds)
 		if(GLOB.violence_blue_team.len == max_blues && max_blues <= max_reds)
-			max_blues = max_reds + 1
+			max_blues = max_reds + 2
 			SSjob.AddJobPositions(/datum/job/combantant/blue, max_blues, max_blues)
 		// проверяем, умерли ли все после открытия ворот
 		if(round_started_at + 30 SECONDS < world.time)
@@ -298,6 +299,12 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	selection_color = "#dddddd"
 	outfit = /datum/outfit/job/combantant
 	antag_rep = 0
+
+/datum/job/combantant/after_spawn(mob/living/H, mob/M, latejoin)
+	. = ..()
+	var/client/C = H.client ? H.client : M.client
+	if(!(C?.ckey in GLOB.violence_teamlock))
+		GLOB.violence_teamlock[C.ckey] == title
 
 /datum/job/combantant/red
 	title = "Combantant: Red"
