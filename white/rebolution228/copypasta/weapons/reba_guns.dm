@@ -752,8 +752,12 @@
 	caliber = "laser"
 	max_ammo = 21
 
+/obj/item/ammo_box/magazine/recharge/sar62l/update_desc()
+	. = ..()
+	desc = "[initial(desc)] <span class='notice'>Осталось ещё [stored_ammo.len] зарядов.</span>"
 
 /obj/item/ammo_box/magazine/recharge/sar62l/update_icon()
+	. = .. ()
 	if(ammo_count() == 0)
 		icon_state = "energycell_e"
 	else
