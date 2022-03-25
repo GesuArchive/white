@@ -332,19 +332,19 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 	belt = null
 	ears = null
 	box = null
-	var/special_color = "#ffffff"
+	var/team = "white"
 
 /datum/outfit/job/combantant/red
 	name = "Combantant: Red"
 	jobtype = /datum/job/combantant/red
 	uniform = /obj/item/clothing/under/color/red
-	special_color = "#ff4444"
+	team = "red"
 
 /datum/outfit/job/combantant/blue
 	name = "Combantant: Blue"
 	jobtype = /datum/job/combantant/blue
 	uniform = /obj/item/clothing/under/color/blue
-	special_color = "#4444ff"
+	team = "blue"
 
 /datum/outfit/job/combantant/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -391,19 +391,19 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 		if(4)
 			if(GLOB.violence_random_theme == 1)
 				gloves = /obj/item/clothing/gloves/combat/sobr
-				suit = /obj/item/clothing/suit/armor/opvest/sobr
-				belt = /obj/item/storage/belt/military/assault/sobr
-				back = /obj/item/gun/ballistic/automatic/ak74m
 				switch(rand(1, 2))
 					if(1)
-						back = /obj/item/gun/ballistic/shotgun/saiga
-						suit = /obj/item/clothing/suit/armor/heavysobr
-						belt = /obj/item/storage/belt/military/assault/sobr/specialist
 						mask = /obj/item/clothing/mask/gas/heavy/m40
 						head = /obj/item/clothing/head/helmet/maska/altyn/black
+						suit = /obj/item/clothing/suit/armor/heavysobr
+						belt = /obj/item/storage/belt/military/assault/sobr/specialist
+						back = /obj/item/gun/ballistic/shotgun/saiga
 					if(2)
 						mask = /obj/item/clothing/mask/gas/heavy/gp7vm
 						head = /obj/item/clothing/head/helmet/maska/altyn
+						suit = /obj/item/clothing/suit/armor/opvest/sobr
+						belt = /obj/item/storage/belt/military/assault/sobr
+						back = /obj/item/gun/ballistic/automatic/ak74m
 			else
 				gloves = /obj/item/clothing/gloves/combat
 				head = /obj/item/clothing/head/helmet/elite
@@ -442,38 +442,45 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 				shoes = /obj/item/clothing/shoes/combat
 				gloves =  /obj/item/clothing/gloves/combat
 				belt = /obj/item/storage/belt/military/assault/c20r4
-				r_pocket = /obj/item/gun/ballistic/automatic/pistol
+				r_pocket = /obj/item/gun/ballistic/automatic/pistol/tanner
 				l_pocket = /obj/item/melee/energy/sword/saber
 				suit_store = /obj/item/gun/ballistic/automatic/c20r/unrestricted
 				suit = /obj/item/clothing/suit/space/hardsuit/shielded/syndi
 		if(6)
-			head = /obj/item/clothing/head/welding/open
-			belt = /obj/item/storage/belt/military/abductor/full
+			if(prob(50))
+				head = /obj/item/clothing/head/welding/open
+				belt = /obj/item/storage/belt/military/abductor/full
+				spawn(3 SECONDS) // because shit spawned after
+					if(GLOB.violence_current_round == 6)
+						var/obj/vehicle/sealed/mecha/combat/V
+						if(prob(75))
+							V = new /obj/vehicle/sealed/mecha/combat/gygax(get_turf(H))
+							var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/thrusters/ion(V)
+							ME.attach(V)
+							ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg(V)
+							ME.attach(V)
+							ME = new /obj/item/mecha_parts/mecha_equipment/anticcw_armor_booster(V)
+							ME.attach(V)
+							ME = new /obj/item/mecha_parts/mecha_equipment/antiproj_armor_booster(V)
+							ME.attach(V)
+							ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/breaching(V)
+							ME.attach(V)
+							V.max_ammo()
+						else
+							V = new /obj/vehicle/sealed/mecha/combat/marauder/loaded(get_turf(H))
+						V.color = team == "red" ? "#ff2222" : "#2222ff"
+			else
+				head = /obj/item/clothing/head/helmet/alt
+				suit = /obj/item/clothing/suit/armor/bulletproof
+				suit_store = /obj/item/gun/ballistic/automatic/pistol/golden_eagle
+				belt = /obj/item/storage/belt/military/assault/rockets
+				l_hand = /obj/item/gun/ballistic/rocketlauncher/unrestricted
+				l_pocket = /obj/item/pamk
 
 /datum/outfit/job/combantant/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/card/id/W = H.wear_id
 	W.registered_name = H.real_name
 	W.update_label()
-	if(!visualsOnly)
-		spawn(3 SECONDS) // because shit spawned after
-			if(GLOB.violence_current_round == 6)
-				var/obj/vehicle/sealed/mecha/combat/V
-				if(prob(75))
-					V = new /obj/vehicle/sealed/mecha/combat/gygax(get_turf(H))
-					var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/thrusters/ion(V)
-					ME.attach(V)
-					ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg(V)
-					ME.attach(V)
-					ME = new /obj/item/mecha_parts/mecha_equipment/anticcw_armor_booster(V)
-					ME.attach(V)
-					ME = new /obj/item/mecha_parts/mecha_equipment/antiproj_armor_booster(V)
-					ME.attach(V)
-					ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/breaching(V)
-					ME.attach(V)
-					V.max_ammo()
-				else
-					V = new /obj/vehicle/sealed/mecha/combat/marauder(get_turf(H))
-				V.color = special_color
 
 /area/violence
 	name = "Насилие"

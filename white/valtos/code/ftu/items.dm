@@ -41,7 +41,7 @@
 	//to_chat(user, span_notice("[src] [blade_active ? "теперь активен":"может быть убран"]."))
 
 ///////40x32 R37 PULSE RIFLE
-/obj/item/gun/ballistic/automatic/pitbull/pulse/r37
+/obj/item/gun/ballistic/automatic/pitbull/r37
 	name = "Xan-Jing R37 'Шершень-убийца'"
 	desc = "Импульсная винтовка Xan-Jing Armories, прозванная наемниками и экспедиторами FTU «Шершнем-убийцей». У этого есть встроенный компьютер, который отображает объективный компас, счетчик боеприпасов и поставляется со ссылкой на HUD для легкого прицеливания."
 	icon = 'white/valtos/icons/serviceguns.dmi'
@@ -53,7 +53,7 @@
 	worn_icon_state = "killerhornet_worn"
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_OCLOTHING
-	mag_type = /obj/item/ammo_box/magazine/pulse/r37
+	mag_type = /obj/item/ammo_box/magazine/r37
 	fire_delay = 4
 	can_suppress = FALSE
 	burst_size = 5
@@ -63,19 +63,19 @@
 	fire_sound = 'white/valtos/sounds/r37.ogg'
 	can_bayonet = FALSE
 	can_flashlight = TRUE
-	mag_type = /obj/item/ammo_box/magazine/pulse/r37
+	mag_type = /obj/item/ammo_box/magazine/r37
 
-/obj/item/ammo_box/magazine/pulse/r37
+/obj/item/ammo_box/magazine/r37
 	name = "коробчатый магазин 6.5mm XJP"
 	icon = 'white/valtos/icons/mags.dmi'
 	icon_state = "hornet"
-	ammo_type = /obj/item/ammo_casing/pulse/mm65
+	ammo_type = /obj/item/ammo_casing/mm65
 	caliber = "6.5mm"
 	max_ammo = 36
 
 
 ///////40x32 R40 MACHINE GUN
-/obj/item/gun/ballistic/automatic/pitbull/pulse/r40
+/obj/item/gun/ballistic/automatic/pitbull/r40
 	name = "Xan-Jing R40 'Enforcer'"
 	desc = "Средний пулемет Xan-Jing Armouries, прозванный наемниками FTU и частными военными \"Enforcer\". У этого есть сделанная на заказ деревянная мебель, а его батареи питают прицел."
 	icon = 'white/valtos/icons/serviceguns.dmi'
@@ -87,7 +87,7 @@
 	worn_icon_state = "killerhornet_worn"
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
-	mag_type = /obj/item/ammo_box/magazine/pulse/r40
+	mag_type = /obj/item/ammo_box/magazine/r40
 	fire_delay = 1
 	can_suppress = FALSE
 	burst_size = 8
@@ -97,18 +97,18 @@
 	fire_sound = 'white/valtos/sounds/r40.ogg'
 	can_bayonet = FALSE
 	can_flashlight = TRUE
-	mag_type = /obj/item/ammo_box/magazine/pulse/r40
+	mag_type = /obj/item/ammo_box/magazine/r40
 
-/obj/item/ammo_box/magazine/pulse/r40
+/obj/item/ammo_box/magazine/r40
 	name = "ленточный магазин 7.2mm XJP"
 	icon = 'white/valtos/icons/mags.dmi'
 	icon_state = "enforcer"
-	ammo_type = /obj/item/ammo_casing/pulse/mm72
+	ammo_type = /obj/item/ammo_casing/mm72
 	caliber = "7.2mm"
 	max_ammo = 140
 
 //////////12.7 SAPHE GOLDEN EAGLE
-/obj/item/gun/ballistic/automatic/pistol/pdh/pulse/golden_eagle
+/obj/item/gun/ballistic/automatic/pistol/golden_eagle
 	name = "FTU PDH-6G 'Морская змея'"
 	desc = "Изготовленный по индивидуальному заказу мощный боевой пистолет, который можно увидеть в руках высокопоставленных наемников FTU и важных руководителей, с отделкой из 24-каратного золота и зеленым лазерным прицелом. На его слайде выгравирован китайский дракон."
 	icon = 'white/valtos/icons/serviceguns.dmi'
@@ -121,7 +121,7 @@
 	lock_back_sound = 'sound/weapons/gun/pistol/slide_lock.ogg'
 	bolt_drop_sound = 'sound/weapons/gun/pistol/slide_drop.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	mag_type = /obj/item/ammo_box/magazine/pulse/mm12/saphe
+	mag_type = /obj/item/ammo_box/magazine/mm12/saphe
 	can_suppress = FALSE
 	fire_delay = 25 //Mind your wrists.
 	fire_sound_volume = 110
@@ -129,9 +129,9 @@
 	spread = 1
 	can_flashlight = FALSE
 
-/obj/item/ammo_box/magazine/pulse/mm12/saphe
+/obj/item/ammo_box/magazine/mm12/saphe
 	name = "магазин магнума 12.7x35mm SAP-HE"
 	icon_state = "50ae"
-	ammo_type = /obj/item/ammo_casing/pulse/mm12
+	ammo_type = /obj/item/ammo_casing/mm12
 	caliber = "12mm SAP-HE"
 	max_ammo = 12

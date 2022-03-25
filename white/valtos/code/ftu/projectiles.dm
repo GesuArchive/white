@@ -1,4 +1,4 @@
-/obj/projectile/bullet/pulse/mm65
+/obj/projectile/bullet/mm65
 	name = "6.5mm XJ импульсная флешетта"
 	icon = 'white/valtos/icons/projectiles.dmi'
 	icon_state = "pulsebullet"
@@ -9,7 +9,7 @@
 	armour_penetration = 40
 	damage_type = BRUTE //Additionally Deals BURN in on_hit
 
-/obj/projectile/bullet/pulse/mm65/on_hit(atom/target, blocked = FALSE, pierce_hit)
+/obj/projectile/bullet/mm65/on_hit(atom/target, blocked = FALSE, pierce_hit)
 	. = ..()
 	//We don't want the burn damage to go through if the bullet itself is stopped
 	if (blocked == 100)
@@ -22,16 +22,16 @@
 		victim.apply_damage(damage, STAMINA, def_zone, blocked)
 
 
-/obj/item/ammo_casing/pulse/mm65
+/obj/item/ammo_casing/mm65
 	name = "6.5mm биоразлагающаяся флешетта"
 	desc = "Биоразлагаемый 6,5-миллиметровый импульсный флешет, кажется, заключен в какую-то инертную батарею."
 	icon = 'white/valtos/icons/ammo.dmi'
 	icon_state = "si-casing"
 	caliber = "6.5mm"
-	projectile_type = /obj/projectile/bullet/pulse/mm65
+	projectile_type = /obj/projectile/bullet/mm65
 
 
-/obj/projectile/bullet/pulse/mm72
+/obj/projectile/bullet/mm72
 	name = "7.2mm XJ сверхзвуковая импульсная флешетта"
 	icon = 'white/valtos/icons/projectiles.dmi'
 	icon_state = "pulsebullet_mg"
@@ -42,7 +42,7 @@
 	armour_penetration = 60
 	damage_type = BRUTE //Additionally Deals BURN in on_hit
 
-/obj/projectile/bullet/pulse/mm72/on_hit(atom/target, blocked = FALSE, pierce_hit)
+/obj/projectile/bullet/mm72/on_hit(atom/target, blocked = FALSE, pierce_hit)
 	. = ..()
 	//We don't want the burn damage to go through if the bullet itself is stopped
 	if (blocked == 100)
@@ -55,16 +55,16 @@
 		victim.apply_damage(damage, STAMINA, def_zone, blocked)
 
 
-/obj/item/ammo_casing/pulse/mm72
+/obj/item/ammo_casing/mm72
 	name = "7.2mm биоразлагающаяся флешетта"
 	desc = "Биоразлагаемый 7,2-миллиметровый импульсный флешет, кажется, заключен в какую-то инертную батарею с тяжелым основанием."
 	icon = 'white/valtos/icons/ammo.dmi'
 	icon_state = "si-casing"
 	caliber = "7.2mm"
-	projectile_type = /obj/projectile/bullet/pulse/mm72
+	projectile_type = /obj/projectile/bullet/mm72
 
 
-/obj/projectile/bullet/pulse/mm12/saphe
+/obj/projectile/bullet/mm12/saphe
 	name = "12.7x35mm сабо пуля AP-HE"
 	icon = 'white/valtos/icons/projectiles.dmi'
 	icon_state = "pulsebullet"
@@ -75,10 +75,10 @@
 	armour_penetration = 40
 	damage_type = BRUTE
 
-/obj/item/ammo_casing/pulse/mm12
+/obj/item/ammo_casing/mm12
 	name = "12.7x35mm биоразлагаемый сабо"
 	desc = "Биоразлагаемая импульсная пуля .50, кажется, заключена в какую-то инертную батарею."
 	icon = 'white/valtos/icons/ammo.dmi'
 	icon_state = "si-casing"
 	caliber = "12mm SAP-HE"
-	projectile_type = /obj/projectile/bullet/pulse/mm12/saphe
+	projectile_type = /obj/projectile/bullet/mm12/saphe

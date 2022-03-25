@@ -515,6 +515,17 @@
 		/obj/item/ammo_box/magazine/wt550m9 = 4,
 	), src)
 
+/obj/item/storage/belt/military/assault/rockets
+	name = "ракетопояс"
+
+/obj/item/storage/belt/military/assault/rockets/PopulateContents()
+	new /obj/item/ammo_casing/caseless/rocket/hedp(src)
+	new /obj/item/ammo_casing/caseless/rocket/hedp(src)
+	new /obj/item/ammo_casing/caseless/rocket(src)
+	new /obj/item/ammo_casing/caseless/rocket(src)
+	new /obj/item/ammo_casing/caseless/rocket(src)
+	new /obj/item/ammo_casing/caseless/rocket(src)
+
 /obj/item/storage/belt/grenade
 	name = "пояс гренадёра"
 	desc = "Пояс хранящий гранаты. Бабах."
