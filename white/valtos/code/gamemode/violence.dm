@@ -304,7 +304,7 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 	. = ..()
 	var/client/C = H.client ? H.client : M.client
 	if(!(C?.ckey in GLOB.violence_teamlock))
-		GLOB.violence_teamlock[C.ckey] == title
+		GLOB.violence_teamlock[C.ckey] = title
 
 /datum/job/combantant/red
 	title = "Combantant: Red"
