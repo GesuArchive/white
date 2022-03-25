@@ -1,22 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"ac" = (
-/obj/structure/deployable_barricade/metal{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 5
-	},
-/turf/open/floor/plating,
-/area/violence)
-"bc" = (
-/obj/structure/deployable_barricade/metal{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
-	},
-/turf/open/floor/plating,
-/area/violence)
 "bF" = (
 /obj/structure/bed/maint,
 /obj/effect/turf_decal/stripes/line{
@@ -69,29 +51,11 @@
 /obj/structure/deployable_barricade/metal,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/violence)
-"gD" = (
-/obj/structure/deployable_barricade/metal{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 10
-	},
-/turf/open/floor/plating,
-/area/violence)
 "iz" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/violence)
-"jM" = (
-/obj/structure/deployable_barricade/metal{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/turf/open/floor/plating,
 /area/violence)
 "jO" = (
 /obj/structure/rack,
@@ -190,12 +154,6 @@
 /turf/open/floor/plating,
 /area/violence)
 "uP" = (
-/obj/structure/deployable_barricade/metal{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
 /turf/open/floor/plating,
 /area/violence)
 "vd" = (
@@ -239,22 +197,13 @@
 	},
 /turf/open/floor/plating,
 /area/violence)
-"Bp" = (
-/obj/structure/deployable_barricade/metal{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 9
-	},
-/turf/open/floor/plating,
-/area/violence)
 "Cz" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel/dark,
 /area/violence)
 "CF" = (
 /obj/effect/landmark/observer_start,
-/turf/open/space,
+/turf/open/floor/plating,
 /area/violence)
 "CQ" = (
 /obj/structure/bed/maint,
@@ -262,7 +211,7 @@
 /area/violence)
 "DB" = (
 /turf/open/floor/light{
-	currentcolor = "#3333ff"
+	currentcolor = "#3375F8"
 	},
 /area/violence)
 "Em" = (
@@ -304,7 +253,7 @@
 "GL" = (
 /obj/effect/landmark/start/combatant/blue,
 /turf/open/floor/light{
-	currentcolor = "#3333ff"
+	currentcolor = "#3375F8"
 	},
 /area/violence)
 "Hf" = (
@@ -358,7 +307,7 @@
 "Pj" = (
 /obj/effect/landmark/start/combatant/red,
 /turf/open/floor/light{
-	currentcolor = "#ff3333"
+	currentcolor = "#FA8282"
 	},
 /area/violence)
 "QC" = (
@@ -409,7 +358,7 @@
 /area/violence)
 "TZ" = (
 /turf/open/floor/light{
-	currentcolor = "#ff3333"
+	currentcolor = "#FA8282"
 	},
 /area/violence)
 "Vq" = (
@@ -1335,10 +1284,10 @@ pb
 pb
 pb
 mZ
-ac
-jM
-jM
-bc
+wc
+uP
+uP
+bX
 mZ
 pb
 pb
@@ -1369,10 +1318,10 @@ mZ
 mZ
 mZ
 mZ
-mZ
-mZ
-mZ
-mZ
+wc
+TZ
+TZ
+bX
 mZ
 mZ
 mZ
@@ -1403,10 +1352,10 @@ pb
 pb
 pb
 mZ
-pb
-pb
-pb
-pb
+wc
+uP
+uP
+bX
 mZ
 pb
 pb
@@ -1437,10 +1386,10 @@ pb
 pb
 pb
 mZ
-pb
-pb
-pb
-pb
+wc
+TZ
+TZ
+bX
 mZ
 pb
 pb
@@ -1471,10 +1420,10 @@ pb
 pb
 pb
 mZ
-pb
-pb
-pb
-pb
+wc
+uP
+uP
+bX
 mZ
 pb
 pb
@@ -1505,10 +1454,10 @@ mZ
 mZ
 mZ
 mZ
-mZ
-mZ
-mZ
-mZ
+wc
+TZ
+TZ
+bX
 mZ
 mZ
 mZ
@@ -1539,10 +1488,10 @@ pb
 pb
 pb
 mZ
-pb
+wc
 CF
-pb
-pb
+uP
+bX
 mZ
 pb
 pb
@@ -1573,10 +1522,10 @@ pb
 pb
 pb
 mZ
-pb
-pb
-pb
-pb
+wc
+uP
+uP
+bX
 mZ
 pb
 pb
@@ -1607,10 +1556,10 @@ mZ
 mZ
 mZ
 mZ
-mZ
-mZ
-mZ
-mZ
+wc
+DB
+DB
+bX
 mZ
 mZ
 mZ
@@ -1641,10 +1590,10 @@ pb
 pb
 pb
 mZ
-pb
-pb
-pb
-pb
+wc
+uP
+uP
+bX
 mZ
 pb
 pb
@@ -1675,10 +1624,10 @@ pb
 pb
 pb
 mZ
-pb
-pb
-pb
-pb
+wc
+DB
+DB
+bX
 mZ
 pb
 pb
@@ -1709,10 +1658,10 @@ pb
 pb
 pb
 mZ
-pb
-pb
-pb
-pb
+wc
+uP
+uP
+bX
 mZ
 pb
 pb
@@ -1743,10 +1692,10 @@ mZ
 mZ
 mZ
 mZ
-mZ
-mZ
-mZ
-mZ
+wc
+DB
+DB
+bX
 mZ
 mZ
 mZ
@@ -1777,10 +1726,10 @@ pb
 pb
 pb
 mZ
-Bp
+wc
 uP
 uP
-gD
+bX
 mZ
 pb
 pb
