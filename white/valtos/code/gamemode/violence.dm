@@ -510,6 +510,8 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 	var/S
 
+	L?.hud_used?.update_parallax_pref(L, 1)
+
 	switch(GLOB.violence_current_round)
 		if(1 to 2)
 			S = 'white/valtos/sounds/battle_small.ogg'
