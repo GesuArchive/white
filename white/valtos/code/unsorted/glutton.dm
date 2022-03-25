@@ -24,7 +24,7 @@
 		our_eater.gib()
 
 /datum/component/glutton/proc/eat()
-	var/obj/item/food/tasty_thing = pick(GLOB.all_food)
+	var/obj/item/food/tasty_thing = safepick(GLOB.all_food)
 	if(tasty_thing)
 		var/datum/component/edible/E = tasty_thing.GetComponent(/datum/component/edible)
 		if(E)
