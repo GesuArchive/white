@@ -3436,12 +3436,12 @@
 /obj/machinery/door/window/brigdoor{
 	req_access_txt = "101"
 	},
-/obj/item/gun/energy/taser/carbine{
-	pixel_y = 3
-	},
-/obj/item/gun/energy/taser/carbine,
-/obj/item/gun/energy/taser/carbine{
+/obj/item/gun/ballistic/automatic/laser/sar62l{
 	pixel_y = -3
+	},
+/obj/item/gun/ballistic/automatic/laser/sar62l,
+/obj/item/gun/ballistic/automatic/laser/sar62l{
+	pixel_y = 3
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
@@ -10237,9 +10237,18 @@
 	dir = 1;
 	req_access_txt = "101"
 	},
-/obj/item/rcd_ammo/large,
-/obj/item/rcd_ammo/large,
-/obj/item/rcd_ammo/large,
+/obj/item/rcd_ammo/large{
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/obj/item/rcd_ammo/large{
+	pixel_x = -4;
+	pixel_y = -4
+	},
+/obj/item/rcd_ammo/large{
+	pixel_x = 4;
+	pixel_y = 4
+	},
 /obj/item/rcd_ammo/large,
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
@@ -11354,16 +11363,15 @@
 /obj/machinery/door/window/brigdoor/southright{
 	req_access_txt = "101"
 	},
-/obj/item/restraints/legcuffs/bola/energy,
-/obj/item/restraints/legcuffs/bola/energy,
-/obj/item/restraints/legcuffs/bola/energy,
-/obj/item/restraints/legcuffs/bola/energy,
-/obj/item/restraints/legcuffs/bola/energy,
-/obj/item/restraints/legcuffs/bola/energy,
-/obj/item/restraints/legcuffs/bola/energy,
-/obj/item/restraints/legcuffs/bola/energy,
-/obj/item/restraints/legcuffs/bola/energy,
-/obj/item/restraints/legcuffs/bola/energy,
+/obj/item/ammo_box/magazine/recharge/sar62l{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/item/ammo_box/magazine/recharge/sar62l,
+/obj/item/ammo_box/magazine/recharge/sar62l{
+	pixel_x = 3;
+	pixel_y = 3
+	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
 "Oq" = (
