@@ -59,10 +59,7 @@
 				to_chat(target, "<span class='changeling bold'>Теперь ты можешь общаться с генокрадами, используй \"[MODE_TOKEN_CHANGELING] сообщение\" для связи!</span>")
 		SSblackbox.record_feedback("nested tally", "changeling_powers", 1, list("[name]", "[i]"))
 
-	to_chat(user, span_notice("Мы должны удерживать <b>[target]</b> для поддержания связи. "))
-	while(user.pulling && user.grab_state >= GRAB_NECK)
-		target.reagents.add_reagent(/datum/reagent/medicine/salbutamol, 0.5) // So they don't choke to death while you interrogate them
-		do_mob(user, target, 10 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM))
+
 
 	changeling.islinking = 0
 	to_chat(user, span_notice("Мы не можем больше поддерживать связь, наша жертва исчезает из роя!"))
