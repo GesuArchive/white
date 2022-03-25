@@ -2,8 +2,8 @@
 ////////////////////////////////////////////EGGS////////////////////////////////////////////
 
 /obj/item/food/chocolateegg
-	name = "chocolate egg"
-	desc = "Such, sweet, fattening food."
+	name = "шоколадное яйцо"
+	desc = "Такая сладкая, жирная еда."
 	icon_state = "chocolateegg"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/sugar = 2, /datum/reagent/consumable/coco = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("шоколад" = 4, "сладость" = 1)
@@ -12,8 +12,8 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/egg
-	name = "egg"
-	desc = "An egg!"
+	name = "яйцо"
+	desc = "ЯЙЦО!"
 	icon_state = "egg"
 	food_reagents = list(/datum/reagent/consumable/eggyolk = 4)
 	microwaved_type = /obj/item/food/boiledegg
@@ -22,7 +22,7 @@
 	var/static/chick_count = 0 //I copied this from the chicken_count (note the "en" in there) variable from chicken code.
 
 /obj/item/food/egg/gland
-	desc = "An egg! It looks weird..."
+	desc = "ЯЙЦО! Яйцо?"
 
 /obj/item/food/egg/gland/Initialize()
 	. = ..()
@@ -48,16 +48,16 @@
 		var/clr = C.crayon_color
 
 		if(!(clr in list("blue", "green", "mime", "orange", "purple", "rainbow", "red", "yellow")))
-			to_chat(usr, span_notice("[capitalize(src.name)] refuses to take on this colour!"))
+			to_chat(usr, span_notice("[capitalize(src.name)] не хочет принимать новый цвет!"))
 			return
 
-		to_chat(usr, span_notice("You colour [src] with [W]."))
+		to_chat(usr, span_notice("Крашу [src] используя [W]."))
 		icon_state = "egg-[clr]"
 	else if(istype(W, /obj/item/stamp/clown))
 		var/clowntype = pick("grock", "grimaldi", "rainbow", "chaos", "joker", "sexy", "standard", "bobble", "krusty", "bozo", "pennywise", "ronald", "jacobs", "kelly", "popov", "cluwne")
 		icon_state = "egg-clown-[clowntype]"
-		desc = "An egg that has been decorated with the grotesque, robustable likeness of a clown's face. "
-		to_chat(usr, span_notice("You stamp [src] with [W], creating an artistic and not remotely horrifying likeness of clown makeup."))
+		desc = "Яйцо, украшенное гротескным подобием лица клоуна. "
+		to_chat(usr, span_notice("Штампую [src] используя [W], создавая художественное и ничуть не ужасающее подобие клоунского грима."))
 	else
 		..()
 
@@ -86,8 +86,8 @@
 	icon_state = "egg-yellow"
 
 /obj/item/food/friedegg
-	name = "fried egg"
-	desc = "A fried egg, with a touch of salt and pepper."
+	name = "яичница"
+	desc = "Жареное яйцо с оттенком соли и перца."
 	icon_state = "friedegg"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 1)
 	bite_consumption = 1
@@ -96,8 +96,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/boiledegg
-	name = "boiled egg"
-	desc = "A hard boiled egg."
+	name = "вареное яйцо"
+	desc = "Сварено вкрутую."
 	icon_state = "egg"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("яйцо" = 1)
@@ -106,8 +106,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/omelette	//FUCK THIS
-	name = "omelette du fromage"
-	desc = "That's all you can say!"
+	name = "омлет дю фромаж"
+	desc = "Это все, что ты можешь сказать!"
 	icon_state = "omelette"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 10, /datum/reagent/consumable/nutriment/vitamin = 3)
@@ -121,11 +121,11 @@
 	if(istype(W, /obj/item/kitchen/fork))
 		var/obj/item/kitchen/fork/F = W
 		if(F.forkload)
-			to_chat(user, span_warning("You already have omelette on your fork!"))
+			to_chat(user, span_warning("У меня уже есть омлет на вилке!"))
 		else
 			F.icon_state = "forkloaded"
-			user.visible_message(span_notice("[user] takes a piece of omelette with [user.ru_ego()] fork!") , \
-				span_notice("You take a piece of omelette with your fork."))
+			user.visible_message(span_notice("[user] отрывает кусочек омлета [user.ru_ego()] вилкой!") , \
+				span_notice("Беру кусочек омлета вилкой."))
 
 			var/datum/reagent/R = pick(reagents.reagent_list)
 			reagents.remove_reagent(R.type, 1)
@@ -136,8 +136,8 @@
 	..()
 
 /obj/item/food/benedict
-	name = "eggs benedict"
-	desc = "There is only one egg on this, how rude."
+	name = "яйцо Бенедикта"
+	desc = "Здесь всего одно яйцо, как грубо."
 	icon_state = "benedict"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment = 3)
 	trash_type = /obj/item/trash/plate
