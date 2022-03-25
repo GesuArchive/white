@@ -49,8 +49,8 @@
 	butcher_results = list(/obj/item/food/meat/slab/spider = 2, /obj/item/food/spiderleg = 8)
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
+	response_disarm_continuous = "аккуратно отталкивает"
+	response_disarm_simple = "аккуратно отталкивает"
 	initial_language_holder = /datum/language_holder/spider
 	maxHealth = 80
 	health = 80

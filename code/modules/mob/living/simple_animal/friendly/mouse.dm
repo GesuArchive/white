@@ -17,8 +17,8 @@
 	butcher_results = list(/obj/item/food/meat/slab/mouse = 1)
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
+	response_disarm_continuous = "аккуратно отталкивает"
+	response_disarm_simple = "аккуратно отталкивает"
 	response_harm_continuous = "splats"
 	response_harm_simple = "splat"
 	density = FALSE
@@ -183,8 +183,8 @@
 	desc = "Jerry the cat is not amused."
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
+	response_disarm_continuous = "аккуратно отталкивает"
+	response_disarm_simple = "аккуратно отталкивает"
 	response_harm_continuous = "splats"
 	response_harm_simple = "splat"
 	gold_core_spawnable = NO_SPAWN

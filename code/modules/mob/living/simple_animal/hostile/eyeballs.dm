@@ -16,8 +16,8 @@
 	mob_biotypes = MOB_ORGANIC
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
+	response_disarm_continuous = "аккуратно отталкивает"
+	response_disarm_simple = "аккуратно отталкивает"
 	emote_taunt = list("glares")
 	taunt_chance = 25
 	speak_emote = list("телепатически плачет")

@@ -18,8 +18,8 @@
 	butcher_results = list(/obj/item/food/meat/slab/bear = 5, /obj/item/clothing/head/bearpelt = 1)
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
+	response_disarm_continuous = "аккуратно отталкивает"
+	response_disarm_simple = "аккуратно отталкивает"
 	maxHealth = 60
 	health = 60
 	speed = 0

@@ -11,10 +11,10 @@
 	butcher_results = list(/obj/item/food/meat/slab = 2)
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
-	response_harm_continuous = "kicks"
-	response_harm_simple = "kick"
+	response_disarm_continuous = "аккуратно отталкивает"
+	response_disarm_simple = "аккуратно отталкивает"
+	response_harm_continuous = "пинает"
+	response_harm_simple = "пинает"
 	emote_taunt = list("hisses")
 	taunt_chance = 30
 	speed = 0
@@ -80,10 +80,10 @@
 	gender = MALE
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
-	response_harm_continuous = "kicks"
-	response_harm_simple = "kick"
+	response_disarm_continuous = "аккуратно отталкивает"
+	response_disarm_simple = "аккуратно отталкивает"
+	response_harm_continuous = "пинает"
+	response_harm_simple = "пинает"
 	gold_core_spawnable = NO_SPAWN
 	random_retaliate = FALSE
 	var/vomiting = FALSE

@@ -21,10 +21,10 @@
 	butcher_results = list(/obj/item/food/meat/slab = 2, /obj/effect/decal/cleanable/ants = 1) //It's just a bunch of ants glued together into a larger ant
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
-	response_harm_continuous = "kicks"
-	response_harm_simple = "kick"
+	response_disarm_continuous = "аккуратно отталкивает"
+	response_disarm_simple = "аккуратно отталкивает"
+	response_harm_continuous = "пинает"
+	response_harm_simple = "пинает"
 	gold_core_spawnable = FRIENDLY_SPAWN
 	can_be_held = FALSE
 	footstep_type = FOOTSTEP_MOB_CLAW

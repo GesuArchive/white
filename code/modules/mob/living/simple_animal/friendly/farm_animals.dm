@@ -1,11 +1,11 @@
 //goat
 /mob/living/simple_animal/hostile/retaliate/goat
-	name = "goat"
-	desc = "Not known for their pleasant disposition."
+	name = "козёл"
+	desc = "Не славится своим приятным характером."
 	icon_state = "goat"
 	icon_living = "goat"
 	icon_dead = "goat_dead"
-	speak = list("EHEHEHEHEH","eh?")
+	speak = list("Беее!","Ме?")
 	speak_emote = list("ревет")
 	emote_hear = list("ревет.")
 	emote_see = list("качает головой.", "топает копытом.", "смотрит.")
@@ -15,15 +15,15 @@
 	butcher_results = list(/obj/item/food/meat/slab = 4)
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
-	response_harm_continuous = "kicks"
-	response_harm_simple = "kick"
+	response_disarm_continuous = "аккуратно отталкивает"
+	response_disarm_simple = "аккуратно отталкивает"
+	response_harm_continuous = "пинает"
+	response_harm_simple = "пинает"
 	faction = list("neutral")
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	attack_same = 1
-	attack_verb_continuous = "kicks"
-	attack_verb_simple = "kick"
+	attack_verb_continuous = "пинает"
+	attack_verb_simple = "пинает"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	attack_vis_effect = ATTACK_EFFECT_KICK
 	health = 40
@@ -51,7 +51,7 @@
 		if(enemies.len && DT_PROB(5, delta_time))
 			enemies.Cut()
 			LoseTarget()
-			src.visible_message(span_notice("[src] calms down."))
+			src.visible_message(span_notice("[capitalize(src.name)] успокаивается."))
 	if(stat != CONSCIOUS)
 		return
 
@@ -66,7 +66,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/goat/Retaliate()
 	..()
-	src.visible_message(span_danger("[src] gets an evil-looking gleam in [p_their()] eye."))
+	src.visible_message(span_danger("[capitalize(src.name)] возбужается."))
 
 /mob/living/simple_animal/hostile/retaliate/goat/Move()
 	. = ..()
@@ -94,13 +94,24 @@
 		var/mob/living/carbon/human/H = target
 		if(istype(H.dna.species, /datum/species/pod))
 			var/obj/item/bodypart/NB = pick(H.bodyparts)
-			H.visible_message(span_warning("[src] takes a big chomp out of [H]!"), \
-								  span_userdanger("[src] takes a big chomp out of your [NB]!"))
+			H.visible_message(span_warning("[capitalize(src.name)] откусывает кусочек от [H]!"), \
+								  span_userdanger("[capitalize(src.name)] откусывает [NB]!"))
 			NB.dismember()
+
+/mob/living/simple_animal/hostile/retaliate/goat/wycc
+	name = "Максим Козлов"
+	desc = "Жрал."
+
+/mob/living/simple_animal/hostile/retaliate/goat/wycc/Initialize()
+	. = ..()
+	maxHealth = (100 - LAZYLEN(GLOB.clients))
+	health = maxHealth
+	desc = "Ест детей. [LAZYLEN(GLOB.clients)] из 100 успели спрятаться от него."
+
 //cow
 /mob/living/simple_animal/cow
-	name = "cow"
-	desc = "Known for their milk, just don't tip them over."
+	name = "коровка"
+	desc = "Славится своим молоком, только не толкай её."
 	icon_state = "cow"
 	icon_living = "cow"
 	icon_dead = "cow_dead"
@@ -117,12 +128,12 @@
 	butcher_results = list(/obj/item/food/meat/slab = 6)
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
-	response_harm_continuous = "kicks"
-	response_harm_simple = "kick"
-	attack_verb_continuous = "kicks"
-	attack_verb_simple = "kick"
+	response_disarm_continuous = "аккуратно отталкивает"
+	response_disarm_simple = "аккуратно отталкивает"
+	response_harm_continuous = "пинает"
+	response_harm_simple = "пинает"
+	attack_verb_continuous = "пинает"
+	attack_verb_simple = "пинает"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	attack_vis_effect = ATTACK_EFFECT_KICK
 	health = 50
@@ -138,7 +149,7 @@
 		untip_time = 0.5 SECONDS, \
 		self_right_time = rand(25 SECONDS, 50 SECONDS), \
 		post_tipped_callback = CALLBACK(src, .proc/after_cow_tipped))
-	AddElement(/datum/element/pet_bonus, "moos happily!")
+	AddElement(/datum/element/pet_bonus, "мычит радостно!")
 	add_cell_sample()
 	make_tameable()
 	. = ..()
@@ -185,18 +196,18 @@
 		savior = potential_aid
 
 	if(prob(75) && savior)
-		var/text = pick("imploringly", "pleadingly", "with a resigned expression")
-		seen_message = "[src] looks at [savior] [text]."
-		self_message = "You look at [savior] [text]."
+		var/text = pick("умоляюще", "просительно", "с покорным выражением лица")
+		seen_message = "[src] смотрит на [savior] [text]."
+		self_message = "Смотрю на [savior] [text]."
 	else
-		seen_message = "[src] seems resigned to its fate."
-		self_message = "You resign yourself to your fate."
+		seen_message = "[src] принимает свою судьбу."
+		self_message = "Принимаю свою судьбу."
 	visible_message(span_notice("[seen_message]"), span_notice("[self_message]"))
 
 ///Wisdom cow, gives XP to a random skill and speaks wisdoms
 /mob/living/simple_animal/cow/wisdom
-	name = "wisdom cow"
-	desc = "Known for its wisdom, shares it with all"
+	name = "корова мудрости"
+	desc = "Известна своей мудростью и делится ею со всеми"
 	gold_core_spawnable = FALSE
 	speak_chance = 15
 
@@ -210,7 +221,7 @@
 ///Give intense wisdom to the attacker if they're being friendly about it
 /mob/living/simple_animal/cow/wisdom/attack_hand(mob/living/carbon/user, list/modifiers)
 	if(!stat && !user.a_intent == INTENT_HARM)
-		to_chat(user, span_nicegreen("[src] whispers you some intense wisdoms and then disappears!"))
+		to_chat(user, span_nicegreen("[capitalize(src.name)] шепчет некоторые сильные мудрости, а затем исчезает!"))
 		user.mind?.adjust_experience(pick(GLOB.skill_types), 500)
 		do_smoke(1, get_turf(src))
 		qdel(src)
@@ -219,8 +230,8 @@
 
 
 /mob/living/simple_animal/chick
-	name = "\improper chick"
-	desc = "Adorable! They make such a racket though."
+	name = "цыплёнок"
+	desc = "Восхитительный! Хоть и до ужаса шумный."
 	icon_state = "chick"
 	icon_living = "chick"
 	icon_dead = "chick_dead"
@@ -237,12 +248,12 @@
 	butcher_results = list(/obj/item/food/meat/slab/chicken = 1)
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
-	response_harm_continuous = "kicks"
-	response_harm_simple = "kick"
-	attack_verb_continuous = "kicks"
-	attack_verb_simple = "kick"
+	response_disarm_continuous = "аккуратно отталкивает"
+	response_disarm_simple = "аккуратно отталкивает"
+	response_harm_continuous = "пинает"
+	response_harm_simple = "пинает"
+	attack_verb_continuous = "пинает"
+	attack_verb_simple = "пинает"
 	health = 3
 	maxHealth = 3
 	var/amount_grown = 0
@@ -254,7 +265,7 @@
 
 /mob/living/simple_animal/chick/Initialize()
 	. = ..()
-	AddElement(/datum/element/pet_bonus, "chirps!")
+	AddElement(/datum/element/pet_bonus, "пищит!")
 	pixel_x = base_pixel_x + rand(-6, 6)
 	pixel_y = base_pixel_y + rand(0, 10)
 	add_cell_sample()
@@ -279,8 +290,8 @@
 
 
 /mob/living/simple_animal/chicken
-	name = "\improper chicken"
-	desc = "Hopefully the eggs are good this season."
+	name = "курица"
+	desc = "Что появилось первее?"
 	gender = FEMALE
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	icon_state = "chicken_brown"
@@ -296,12 +307,12 @@
 	butcher_results = list(/obj/item/food/meat/slab/chicken = 2)
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
-	response_harm_continuous = "kicks"
-	response_harm_simple = "kick"
-	attack_verb_continuous = "kicks"
-	attack_verb_simple = "kick"
+	response_disarm_continuous = "аккуратно отталкивает"
+	response_disarm_simple = "аккуратно отталкивает"
+	response_harm_continuous = "пинает"
+	response_harm_simple = "пинает"
+	attack_verb_continuous = "пинает"
+	attack_verb_simple = "пинает"
 	health = 15
 	maxHealth = 15
 	pass_flags = PASSTABLE | PASSMOB
@@ -321,7 +332,7 @@
 	AddComponent(/datum/component/egg_layer,\
 		/obj/item/food/egg,\
 		list(/obj/item/food/grown/wheat),\
-		feed_messages = list("She clucks happily."),\
+		feed_messages = list("Она радостно кудахчет."),\
 		lay_messages = EGG_LAYING_MESSAGES,\
 		eggs_left = 0,\
 		eggs_added_from_eating = rand(1, 4),\
@@ -347,7 +358,7 @@
 	if(isturf(loc))
 		amount_grown += rand(1,2) * delta_time
 		if(amount_grown >= 200)
-			visible_message(span_notice("[src] hatches with a quiet cracking sound."))
+			visible_message(span_notice("[capitalize(src.name)] вылупляется с тихим треском."))
 			new /mob/living/simple_animal/chick(get_turf(src))
 			STOP_PROCESSING(SSobj, src)
 			qdel(src)
@@ -355,8 +366,8 @@
 		STOP_PROCESSING(SSobj, src)
 
 /mob/living/simple_animal/deer
-	name = "doe"
-	desc = "A gentle, peaceful forest animal. How did this get into space?"
+	name = "олень"
+	desc = "Нежное, миролюбивое лесное животное. Как оно попало в космос?"
 	icon_state = "deer-doe"
 	icon_living = "deer-doe"
 	icon_dead = "deer-doe-dead"
@@ -372,12 +383,12 @@
 	butcher_results = list(/obj/item/food/meat/slab = 3)
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
-	response_disarm_continuous = "gently nudges"
-	response_disarm_simple = "gently nudges aside"
-	response_harm_continuous = "kicks"
-	response_harm_simple = "kick"
-	attack_verb_continuous = "bucks"
-	attack_verb_simple = "buck"
+	response_disarm_continuous = "отталкивает"
+	response_disarm_simple = "отталкивает"
+	response_harm_continuous = "пинает"
+	response_harm_simple = "пинает"
+	attack_verb_continuous = "пихает"
+	attack_verb_simple = "пихает"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	health = 75
 	maxHealth = 75

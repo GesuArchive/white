@@ -5,8 +5,8 @@
 	response_help_simple = "гладит"
 	response_disarm_continuous = "bops"
 	response_disarm_simple = "bop"
-	response_harm_continuous = "kicks"
-	response_harm_simple = "kick"
+	response_harm_continuous = "пинает"
+	response_harm_simple = "пинает"
 	speak = list("Га Га!", "НУТ НУТ!", "НУТ!", "Нут", "нут", "Пра!", "Гра!")
 	speak_emote = list("кричит", "гогочет")
 	emote_hear = list("каааакает!", "гаааакает!", "ерундит.","ЕРУНДИТ!")

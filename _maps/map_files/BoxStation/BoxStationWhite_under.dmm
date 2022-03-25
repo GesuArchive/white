@@ -23510,9 +23510,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboardL1)
 "ZB" = (
-/mob/living/simple_animal/hostile/retaliate/goat{
-	name = "Pete"
-	},
+/mob/living/simple_animal/hostile/retaliate/goat/wycc,
 /turf/open/floor/plasteel/showroomfloor,
 /area/service/kitchen/coldroom)
 "ZC" = (

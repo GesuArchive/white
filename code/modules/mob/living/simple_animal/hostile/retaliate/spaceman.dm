@@ -8,8 +8,8 @@
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	gender = MALE
 	turns_per_move = 5
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
+	response_disarm_continuous = "аккуратно отталкивает"
+	response_disarm_simple = "аккуратно отталкивает"
 	response_harm_continuous = "бьёт"
 	response_harm_simple = "бьёт"
 	a_intent = INTENT_HARM

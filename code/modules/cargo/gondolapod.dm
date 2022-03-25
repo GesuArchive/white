@@ -6,8 +6,8 @@
 	response_help_simple = "гладит"
 	response_disarm_continuous = "bops"
 	response_disarm_simple = "bop"
-	response_harm_continuous = "kicks"
-	response_harm_simple = "kick"
+	response_harm_continuous = "пинает"
+	response_harm_simple = "пинает"
 	faction = list("gondola")
 	turns_per_move = 10
 	icon = 'icons/obj/supplypods.dmi'
