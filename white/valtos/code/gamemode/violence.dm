@@ -99,6 +99,10 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 
 /datum/game_mode/violence/process()
 	if(round_active)
+		// удаляем хотспоты если повезёт
+		for(var/obj/effect/hotspot/H in main_area)
+			if(prob(50))
+				qdel(H)
 		// проверяем наличие моба и его состояние
 		for(var/datum/mind/R in GLOB.violence_red_team)
 			if(!R?.current)

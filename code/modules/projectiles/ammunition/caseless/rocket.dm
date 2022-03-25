@@ -5,6 +5,10 @@
 	icon_state = "srm-8"
 	projectile_type = /obj/projectile/bullet/a84mm_he
 
+/obj/item/ammo_casing/caseless/rocket/update_icon()
+	. = ..()
+	icon_state = "[initial(icon_state)]"
+
 /obj/item/ammo_casing/caseless/rocket/hedp
 	name = "ВВ-9РДН"
 	desc = "Высоко Взрывоопасная 84-миллиметровая Ракета Двойного Назначения. Заостренный конец к мехам."
