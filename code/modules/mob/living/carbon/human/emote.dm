@@ -14,7 +14,7 @@
 	var/mob/living/carbon/human/H = user
 	if(H.mind?.miming)
 		return
-	if(ishumanbasic(H) || isfelinid(H))
+	if(ishumanbasic(H) || isfelinid(H) || ismoth(H) || islizard(H))
 		if(user.gender == FEMALE)
 			return pick('white/rebolution228/sounds/emotes/female_crying01.ogg',\
 						'white/rebolution228/sounds/emotes/female_crying02.ogg',\
