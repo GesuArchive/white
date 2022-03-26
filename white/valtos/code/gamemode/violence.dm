@@ -602,4 +602,11 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 	weight = 1
 	max_players = 64
 
+/datum/map_template/violence/de_dust2
+	name = "de_dust2"
+	description = "Здесь происходит что-то странное на польском языке."
+	mappath = "_maps/map_files/Warfare/violence4.dmm"
+	weight = 6
+	max_players = 64
+
 #undef VIOLENCE_FINAL_ROUND
