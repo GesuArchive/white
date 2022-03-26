@@ -492,6 +492,9 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 	var/obj/item/card/id/W = H.wear_id
 	W.registered_name = H.real_name
 	W.update_label()
+	// запрет на снятие ID и униформы
+	ADD_TRAIT(W, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
+	ADD_TRAIT(H.w_uniform, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
 
 /area/violence
 	name = "Насилие"
