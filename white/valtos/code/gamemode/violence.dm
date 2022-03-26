@@ -33,7 +33,7 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 
 /datum/game_mode/violence/pre_setup()
 	// меняем тему в лобби на задорную
-	SSticker.login_music = sound('white/valtos/sounds/quiet_theme.ogg')
+	SSticker.login_music = sound('white/valtos/sounds/menue.ogg')
 	for(var/client/C in GLOB.clients)
 		if(isnewplayer(C.mob))
 			C.mob.stop_sound_channel(CHANNEL_LOBBYMUSIC)
@@ -107,18 +107,22 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 		// проверяем наличие моба и его состояние
 		for(var/datum/mind/R in GLOB.violence_red_team)
 			if(!R?.current)
-				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')), rand(25, 50))
+				play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
 				GLOB.violence_red_team -= R
+				to_chat(world, span_red("[LAZYLEN(GLOB.violence_red_team)]/[max_reds]"))
 			else if(R?.current?.stat == DEAD)
-				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')), rand(25, 50))
+				play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
 				GLOB.violence_red_team -= R
+				to_chat(world, span_red("[LAZYLEN(GLOB.violence_red_team)]/[max_reds]"))
 		for(var/datum/mind/B in GLOB.violence_blue_team)
 			if(!B?.current)
-				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')), rand(25, 50))
+				play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
 				GLOB.violence_blue_team -= B
+				to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[max_blues]"))
 			else if(B?.current?.stat == DEAD)
-				play_sound_to_everyone(pick(list('white/valtos/sounds/aplause1.ogg', 'white/valtos/sounds/aplause2.ogg')), rand(25, 50))
+				play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
 				GLOB.violence_blue_team -= B
+				to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[max_blues]"))
 		// добейте выживших
 		for(var/mob/living/carbon/human/H in main_area)
 			if(H.stat != DEAD && H.health <= 0)
