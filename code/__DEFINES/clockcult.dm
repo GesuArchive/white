@@ -15,7 +15,7 @@
 #define DEFAULT_CLOCKSCRIPTS "6:-29,4:-2"
 
 //scripture types
-#define SPELLTYPE_ABSTRACT "Abstract"
+#define SPELLTYPE_ABSTRACT "Абстрактное"
 #define SPELLTYPE_SERVITUDE "Порабощение"
 #define SPELLTYPE_PRESERVATION "Сохранение"
 #define SPELLTYPE_STRUCTURES "Структуры"
