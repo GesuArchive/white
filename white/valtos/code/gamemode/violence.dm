@@ -496,11 +496,10 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 							V = new /obj/vehicle/sealed/mecha/combat/marauder/loaded(get_turf(H))
 						V.color = team == "red" ? "#ff2222" : "#2222ff"
 			else
-				head = /obj/item/clothing/head/helmet/alt
-				suit = /obj/item/clothing/suit/armor/bulletproof
-				suit_store = /obj/item/gun/ballistic/automatic/pistol/golden_eagle
+				suit = /obj/item/clothing/suit/space/hardsuit/ancient
+				suit_store = /obj/item/gun/ballistic/automatic/gyropistol
 				belt = /obj/item/storage/belt/military/assault/rockets
-				l_hand = /obj/item/gun/ballistic/rocketlauncher/unrestricted
+				r_hand = /obj/item/gun/ballistic/rocketlauncher/unrestricted
 				l_pocket = /obj/item/pamk
 
 /datum/outfit/job/combantant/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -509,9 +508,10 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 	W.update_label()
 	switch(team)
 		if("red")
-			W.trim = /datum/id_trim/combatant/red
+			SSid_access.apply_trim_to_card(W, /datum/id_trim/combatant/red)
 		if("blue")
-			W.trim = /datum/id_trim/combatant/blue
+			SSid_access.apply_trim_to_card(W, /datum/id_trim/combatant/blue)
+	H.sec_hud_set_ID()
 	// запрет на снятие ID и униформы
 	ADD_TRAIT(W, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
 	ADD_TRAIT(H.w_uniform, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)

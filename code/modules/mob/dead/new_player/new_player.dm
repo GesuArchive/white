@@ -333,7 +333,12 @@
 			dat += "</td><td valign='top'>"
 	dat += "</td></tr></table></center>"
 	dat += "</div></div>"
-	var/datum/browser/popup = new(src, "latechoices", "Выбери профессию", 750, 750)
+	var/ww = 750
+	var/hh = 750
+	if(GLOB.violence_mode_activated)
+		ww = 265
+		hh = 300
+	var/datum/browser/popup = new(src, "latechoices", "Выбери профессию", ww, hh)
 	popup.add_stylesheet("playeroptions", 'html/browser/playeroptions.css')
 	popup.set_content(jointext(dat, ""))
 	popup.open(FALSE) // 0 is passed to open so that it doesn't use the onclose() proc
