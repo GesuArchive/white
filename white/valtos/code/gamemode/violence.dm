@@ -507,7 +507,7 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 	var/obj/item/card/id/W = H.wear_id
 	W.registered_name = H.real_name
 	W.update_label()
-	switch(V.color)
+	switch(team)
 		if("red")
 			W.trim = /datum/id_trim/combatant/red
 		if("blue")
