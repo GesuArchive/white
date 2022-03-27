@@ -25,8 +25,8 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 	var/area/main_area
 
 	// балансировочные якори команд
-	var/max_reds = 2
-	var/max_blues = 2
+	var/max_reds = 4
+	var/max_blues = 4
 
 	announce_span = "danger"
 	announce_text = "Резня!"
@@ -131,10 +131,10 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 				H.ForceContractDisease(D, FALSE, TRUE)
 		// балансируем команды
 		if(GLOB.violence_red_team.len == max_reds && max_reds <= max_blues)
-			max_reds = max_blues + 2
+			max_reds = max_blues + 4
 			SSjob.AddJobPositions(/datum/job/combantant/red, max_reds, max_reds)
 		if(GLOB.violence_blue_team.len == max_blues && max_blues <= max_reds)
-			max_blues = max_reds + 2
+			max_blues = max_reds + 4
 			SSjob.AddJobPositions(/datum/job/combantant/blue, max_blues, max_blues)
 		// проверяем, умерли ли все после открытия ворот
 		if(round_started_at + 30 SECONDS < world.time)
@@ -192,11 +192,11 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 	clean_arena()
 	spawn(10 SECONDS)
 		// сбрасываем балансировку
-		max_reds = 2
-		max_blues = 2
+		max_reds = 4
+		max_blues = 4
 		SSjob.ResetOccupations("Violence")
-		SSjob.SetJobPositions(/datum/job/combantant/red, 2, 2, TRUE)
-		SSjob.SetJobPositions(/datum/job/combantant/blue, 2, 2, TRUE)
+		SSjob.SetJobPositions(/datum/job/combantant/red, 4, 4, TRUE)
+		SSjob.SetJobPositions(/datum/job/combantant/blue, 4, 4, TRUE)
 		// активируем раунд
 		round_active = TRUE
 		// метим время начала
@@ -336,6 +336,16 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 	var/datum/antagonist/combatant/blue/comb = new
 	H.mind.add_antag_datum(comb)
 
+/datum/id_trim/combatant
+	assignment = "white"
+	access = list(ACCESS_CENT_SPECOPS)
+
+/datum/id_trim/combatant/red
+	assignment = "red"
+
+/datum/id_trim/combatant/blue
+	assignment = "blue"
+
 /datum/outfit/job/combantant
 	name = "Combantant"
 	jobtype = /datum/job/combantant
@@ -353,19 +363,20 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 	name = "Combantant: Red"
 	jobtype = /datum/job/combantant/red
 	uniform = /obj/item/clothing/under/color/red
+	id = /obj/item/card/id/red
 	team = "red"
 
 /datum/outfit/job/combantant/blue
 	name = "Combantant: Blue"
 	jobtype = /datum/job/combantant/blue
 	uniform = /obj/item/clothing/under/color/blue
+	id = /obj/item/card/id/blue
 	team = "blue"
 
 /datum/outfit/job/combantant/pre_equip(mob/living/carbon/human/H)
 	..()
 	back = null
 	backpack_contents = null
-	id = /obj/item/card/id/advanced/centcom/ert/deathsquad
 	// пиздец
 	switch(GLOB.violence_current_round)
 		if(1)
@@ -496,6 +507,11 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 	var/obj/item/card/id/W = H.wear_id
 	W.registered_name = H.real_name
 	W.update_label()
+	switch(V.color)
+		if("red")
+			W.trim = /datum/id_trim/combatant/red
+		if("blue")
+			W.trim = /datum/id_trim/combatant/blue
 	// запрет на снятие ID и униформы
 	ADD_TRAIT(W, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
 	ADD_TRAIT(H.w_uniform, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
