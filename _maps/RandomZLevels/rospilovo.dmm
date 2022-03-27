@@ -1475,12 +1475,12 @@
 /turf/open/floor/dz/exit,
 /area/awaymission/rospilovo)
 "Dj" = (
-/obj/item/ammo_box/magazine/pulse/r40,
-/obj/item/ammo_box/magazine/pulse/r40,
-/obj/item/ammo_box/magazine/pulse/r40,
-/obj/item/ammo_box/magazine/pulse/r40,
-/obj/item/ammo_box/magazine/pulse/r40,
-/obj/item/gun/ballistic/automatic/pitbull/pulse/r40,
+/obj/item/ammo_box/magazine/r40,
+/obj/item/ammo_box/magazine/r40,
+/obj/item/ammo_box/magazine/r40,
+/obj/item/ammo_box/magazine/r40,
+/obj/item/ammo_box/magazine/r40,
+/obj/item/gun/ballistic/automatic/pitbull/r40,
 /obj/structure/safe/floor,
 /obj/effect/turf_decal/dz031/grid_full,
 /obj/effect/turf_decal/delivery,

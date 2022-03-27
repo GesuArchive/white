@@ -29,10 +29,10 @@
 
 /mob/living/carbon/alien/humanoid/royal/queen/tamed/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE)
 	if(incapacitated() || !(mobility_flags & MOBILITY_STAND) )
-		to_chat(src, span_warning("You can't do that right now!"))
+		to_chat(src, span_warning("Не могу сделать это сейчас!"))
 		return FALSE
 	if(!Adjacent(M) && (M.loc != src))
-		to_chat(src, span_warning("You are too far away!"))
+		to_chat(src, span_warning("Слишком далеко!"))
 		return FALSE
 	return TRUE
 

@@ -24,21 +24,21 @@
 
 		if("unlock")
 			locked = FALSE
-			update_appearance()
+			update_icon()
 
 		if("lock")
 			locked = TRUE
-			update_appearance()
+			update_icon()
 
 		if("secure_open")
 			locked = FALSE
-			update_appearance()
+			update_icon()
 
 			sleep(2)
 			open(1)
 
 			locked = TRUE
-			update_appearance()
+			update_icon()
 
 		if("secure_close")
 			locked = FALSE
@@ -46,7 +46,7 @@
 
 			locked = TRUE
 			sleep(2)
-			update_appearance()
+			update_icon()
 
 	send_status()
 
@@ -150,7 +150,7 @@
 
 		radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, filter = RADIO_AIRLOCK)
 
-	update_appearance()
+	update_icon()
 
 /obj/machinery/airlock_sensor/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
