@@ -71,9 +71,6 @@ SUBSYSTEM_DEF(shuttle)
 
 	var/shuttle_loading
 
-	var/last_integrity_check = 0
-	var/cached_station_integrity = 100
-
 /datum/controller/subsystem/shuttle/Initialize(timeofday)
 	ordernum = rand(1, 9000)
 
@@ -212,23 +209,6 @@ SUBSYSTEM_DEF(shuttle)
 			return "Эвакуационный шаттл уже отлетел от станции на безопасное расстояние."
 		if(SHUTTLE_STRANDED)
 			return "Эвакуационный шаттл заблокирован Центральным Командованием."
-
-	if(world.time - SSticker.round_start_time > 1 HOURS)
-		return TRUE
-/*
-	if(check_integrity)
-		var/station_integrity = 100
-		if(last_integrity_check > world.time - 1 MINUTES)
-			station_integrity = cached_station_integrity
-		else
-			var/datum/station_state/end_state = new /datum/station_state()
-			end_state.count()
-			station_integrity = min(PERCENT(GLOB.start_state.score(end_state)), 100)
-			last_integrity_check = world.time
-			cached_station_integrity = station_integrity
-		if(station_integrity > 98)
-			return "Состояние станции удовлетворительное. Улетать пока нет смысла."
-*/
 	return TRUE
 
 /datum/controller/subsystem/shuttle/proc/requestEvac(mob/user, call_reason)

@@ -400,17 +400,17 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 	if (!pickedmap)
 		return
 	var/datum/map_config/VM = global.config.maplist[pickedmap]
-	message_admins("Randomly rotating map to [VM.map_name]")
+	message_admins("Случайно выбираем [VM.map_name]")
 	. = changemap(VM)
 	if (. && VM.map_name != config.map_name)
-		to_chat(world, span_boldannounce("Map rotation has chosen [VM.map_name] for next round!"))
+		to_chat(world, span_boldannounce("Выбрана карта [VM.map_name] для следующего раунда!"))
 
 /datum/controller/subsystem/mapping/proc/mapvote()
 	if(map_voted || SSmapping.next_map_config) //If voted or set by other means.
 		return
 	if(SSvote.mode) //Theres already a vote running, default to rotation.
 		maprotate()
-	SSvote.initiate_vote("map", "automatic map rotation")
+	SSvote.initiate_vote("карту", "автоматическая ротация карт")
 
 /datum/controller/subsystem/mapping/proc/changemap(datum/map_config/VM)
 	if(!VM.MakeNextMap())
