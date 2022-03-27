@@ -125,6 +125,10 @@
 			animate(src, pixel_x = 3, time = 45, easing = ELASTIC_EASING)
 			animate(m, pixel_x = 3, time = 45, easing = ELASTIC_EASING)
 		if(buckled_mob.mob_has_gravity())
+			if(buckled_mob.get_bodypart(BODY_ZONE_HEAD) || world.time - SSticker.round_start_time < 10 MINUTES)
+				unbuckle_all_mobs(TRUE)
+				STOP_PROCESSING(SSobj, src)
+				return
 			buckled_mob.adjustOxyLoss(5)
 			if(prob(40))
 				buckled_mob.emote("gasp")
