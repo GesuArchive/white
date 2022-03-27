@@ -254,7 +254,7 @@
 			M.experience_pressure_difference(pressure_difference * multiplier, pressure_direction, 0, pressure_specific_target)
 	if(pressure_difference > 100)
 		new /obj/effect/temp_visual/dir_setting/space_wind(src, pressure_direction, clamp(round(sqrt(pressure_difference) * 2), 10, 255))
-		if(pressure_difference > 200)
+		if(pressure_difference > 400)
 			playsound(src, 'white/valtos/sounds/depressurize.ogg', 50)
 
 /atom/movable/var/pressure_resistance = 10
