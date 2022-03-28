@@ -751,13 +751,13 @@
 
 // Returns true if power was successfully drawn.
 /obj/item/electronic_assembly/proc/draw_power(amount)
-	if(battery && battery.use(amount))
+	if(battery && battery.use(amount * GLOB.CELLRATE))
 		return TRUE
 	return FALSE
 
 // Ditto for giving.
 /obj/item/electronic_assembly/proc/give_power(amount)
-	if(battery && battery.give(amount))
+	if(battery && battery.give(amount * GLOB.CELLRATE))
 		return TRUE
 	return FALSE
 
