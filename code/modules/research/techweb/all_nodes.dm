@@ -954,7 +954,10 @@
 	display_name = "Простые модули экзокостюмов"
 	description = "Системы дополнительного бронирования и вспомогательные энергосистемы."
 	prereq_ids = list("adv_mecha", "bluespace_power")
-	design_ids = list("mech_energy_relay", "mech_ccw_armor", "mech_proj_armor", "mech_generator_nuclear")
+	design_ids = list(
+		"mech_ccw_armor",
+		"mech_proj_armor",
+	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/mech_scattershot

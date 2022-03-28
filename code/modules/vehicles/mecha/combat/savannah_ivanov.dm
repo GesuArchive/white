@@ -27,13 +27,16 @@
 	movedelay = 3
 	dir_in = 2 //Facing South.
 	max_integrity = 450 //really tanky, like damn
-	deflect_chance = 25
-	armor = list(MELEE = 45, BULLET = 40, LASER = 30, ENERGY = 30, BOMB = 40, BIO = 0, RAD = 80, FIRE = 100, ACID = 100)
+	armor = list(MELEE = 45, BULLET = 40, LASER = 30, ENERGY = 30, BOMB = 40, BIO = 0, FIRE = 100, ACID = 100)
 	max_temperature = 30000
 	infra_luminosity = 3
 	wreckage = /obj/structure/mecha_wreckage/savannah_ivanov
-	internal_damage_threshold = 25
 	max_occupants = 2
+	max_equip_by_category = list(
+		MECHA_UTILITY = 1,
+		MECHA_POWER = 1,
+		MECHA_ARMOR = 3,
+	)
 	//no tax on flying, since the power cost is in the leap itself.
 	phasing_energy_drain = 0
 	///skyfall ability cooldown

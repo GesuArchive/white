@@ -39,48 +39,6 @@
 	chassis.log_message("Now taking air from [chassis.use_internal_tank?"internal airtank":"environment"].", LOG_MECHA)
 	UpdateButtonIcon()
 
-/datum/action/vehicle/sealed/mecha/mech_cycle_equip
-	name = "Сменить оборудование"
-	button_icon_state = "mech_cycle_equip_off"
-
-/datum/action/vehicle/sealed/mecha/mech_cycle_equip/Trigger()
-	if(!owner || !chassis || !(owner in chassis.occupants))
-		return
-
-	var/list/available_equipment = list()
-	for(var/e in chassis.equipment)
-		var/obj/item/mecha_parts/mecha_equipment/equipment = e
-		if(equipment.selectable)
-			available_equipment += equipment
-
-	if(available_equipment.len == 0)
-		to_chat(owner, "[icon2html(chassis, owner)]<span class='warning'>Нет оборудования!</span>")
-		return
-	if(!chassis.selected)
-		chassis.selected = available_equipment[1]
-		to_chat(owner, "[icon2html(chassis, owner)]<span class='notice'>Выбрано: [chassis.selected].</span>")
-		send_byjax(chassis.occupants,"exosuit.browser","eq_list",chassis.get_equipment_list())
-		button_icon_state = "mech_cycle_equip_on"
-		UpdateButtonIcon()
-		return
-	var/number = 0
-	for(var/equipment in available_equipment)
-		number++
-		if(equipment != chassis.selected)
-			continue
-		if(available_equipment.len == number)
-			chassis.selected = null
-			to_chat(owner, "[icon2html(chassis, owner)]<span class='notice'>Выбрано: ничего.</span>")
-			button_icon_state = "mech_cycle_equip_off"
-		else
-			chassis.selected = available_equipment[number+1]
-			to_chat(owner, "[icon2html(chassis, owner)]<span class='notice'>Переключаюсь на [chassis.selected].</span>")
-			button_icon_state = "mech_cycle_equip_on"
-		send_byjax(chassis.occupants,"exosuit.browser","eq_list",chassis.get_equipment_list())
-		UpdateButtonIcon()
-		return
-
-
 /datum/action/vehicle/sealed/mecha/mech_toggle_lights
 	name = "Переключить свет"
 	button_icon_state = "mech_lights_off"
@@ -108,9 +66,8 @@
 /datum/action/vehicle/sealed/mecha/mech_view_stats/Trigger()
 	if(!owner || !chassis || !(owner in chassis.occupants))
 		return
-	var/datum/browser/popup = new(owner , "exosuit")
-	popup.set_content(chassis.get_stats_html(owner))
-	popup.open()
+
+	chassis.ui_interact(owner)
 
 
 /datum/action/vehicle/sealed/mecha/strafe
