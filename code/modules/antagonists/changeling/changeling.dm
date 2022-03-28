@@ -269,10 +269,6 @@
 		if(verbose)
 			to_chat(user, span_warning("Мы не получим никакой пользы от поглощения данного существа."))
 		return
-	if(has_dna(target.dna))
-		if(verbose)
-			to_chat(user, span_warning("Мы уже имеем данный ДНК в нашем хранилище!"))
-		return
 	if(!target.has_dna())
 		if(verbose)
 			to_chat(user, span_warning("<b>[target]</b> не подходит нашему биологическому типу."))
