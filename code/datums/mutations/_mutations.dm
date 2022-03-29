@@ -186,13 +186,13 @@
 		valid_chrom_list += "none"
 		return
 
-	valid_chrom_list += "Reinforcement"
+	valid_chrom_list += "Укрепление"
 
 	if(stabilizer_coeff != -1)
-		valid_chrom_list += "Stabilizer"
+		valid_chrom_list += "Стабилизация"
 	if(synchronizer_coeff != -1)
-		valid_chrom_list += "Synchronizer"
+		valid_chrom_list += "Синхронизация"
 	if(power_coeff != -1)
-		valid_chrom_list += "Power"
+		valid_chrom_list += "Усиление"
 	if(energy_coeff != -1)
-		valid_chrom_list += "Energetic"
+		valid_chrom_list += "Экономичность"

@@ -100,7 +100,7 @@
 		speech_args[SPEECH_MESSAGE] = trim(message)
 
 /datum/mutation/human/chav
-	name = "Вор в законе"
+	name = "Феня"
 	desc = "Ген случайным образом вырабатывающийся у ассистентов"
 	quality = MINOR_NEGATIVE
 	text_gain_indication = span_notice("Ощущаю себя дебилом с окраины?")

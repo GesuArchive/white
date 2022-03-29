@@ -812,7 +812,7 @@ const DnaConsoleSequencer = (props, context) => {
         <Section color="bad">
           Генетическая последовательность повреждена. Пациент МЁРТВ.
         </Section>
-      ) || (isMonkey && mutation?.Name !== 'Monkified') && (
+      ) || (isMonkey && mutation?.Name !== 'Манкификация') && (
         <Section color="bad">
           Генетическая последовательность повреждена. Пациент МАРТЫШКА.
         </Section>
