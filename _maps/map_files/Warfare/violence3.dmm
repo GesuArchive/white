@@ -1,4 +1,18 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aJ" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/violence)
 "bF" = (
 /obj/structure/bed/maint,
 /obj/effect/turf_decal/stripes/line{
@@ -7,14 +21,11 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/violence)
 "bR" = (
-/obj/structure/deployable_barricade/metal{
-	dir = 4
-	},
-/obj/machinery/deployable_turret/hmg,
-/turf/open/floor/plasteel/monofloor/white,
+/obj/effect/turf_decal/stripes/full,
+/obj/structure/grille,
+/turf/open/floor/plasteel/monofloor,
 /area/violence)
 "bT" = (
-/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/full,
 /obj/machinery/door/poddoor/multi_tile/two_tile_hor{
 	resistance_flags = 115
@@ -30,6 +41,13 @@
 /obj/structure/bed/maint,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/violence)
+"dj" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/violence)
 "dl" = (
 /obj/effect/landmark/start/combatant/blue,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -40,6 +58,12 @@
 	},
 /obj/effect/turf_decal/stripes/full,
 /turf/open/floor/plasteel/monofloor,
+/area/violence)
+"eb" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
+	},
+/turf/open/floor/plating,
 /area/violence)
 "eX" = (
 /obj/structure/deployable_barricade/metal{
@@ -57,12 +81,70 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/violence)
+"iB" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/violence)
+"jj" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/violence)
+"jl" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
+	},
+/turf/open/floor/engine,
+/area/violence)
+"ju" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/violence)
+"jB" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/violence)
 "jO" = (
-/obj/structure/rack,
-/turf/open/floor/plasteel/monofloor/dark,
+/obj/machinery/door/poddoor/multi_tile/two_tile_ver{
+	resistance_flags = 115
+	},
+/obj/effect/turf_decal/stripes/full,
+/obj/structure/grille,
+/turf/open/floor/plasteel/monofloor,
 /area/violence)
 "ld" = (
-/turf/closed/indestructible/fakeglass,
+/turf/open/space/basic,
 /area/violence)
 "lp" = (
 /turf/closed/indestructible/riveted,
@@ -83,8 +165,20 @@
 /turf/open/floor/plasteel/dark,
 /area/violence)
 "mZ" = (
-/obj/structure/lattice,
-/turf/open/space,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/turf/open/floor/engine,
 /area/violence)
 "nc" = (
 /obj/effect/turf_decal/arrows{
@@ -97,12 +191,27 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/violence)
+"oz" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
+	},
+/turf/open/floor/engine,
+/area/violence)
 "oP" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
-	},
-/obj/structure/deployable_barricade/metal{
-	dir = 4
 	},
 /turf/open/floor/plating,
 /area/violence)
@@ -119,10 +228,34 @@
 /obj/effect/turf_decal/stripes/full,
 /turf/open/floor/plasteel/monofloor,
 /area/violence)
+"qF" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/violence)
 "qM" = (
-/obj/structure/fans/tiny,
-/obj/effect/turf_decal/stripes/full,
-/turf/open/floor/plasteel/monofloor,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/turf/open/floor/engine,
 /area/violence)
 "qT" = (
 /obj/effect/baseturf_helper/asteroid,
@@ -148,9 +281,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/structure/deployable_barricade/metal{
-	dir = 8
-	},
 /turf/open/floor/plating,
 /area/violence)
 "uP" = (
@@ -161,6 +291,22 @@
 	dir = 10
 	},
 /turf/open/floor/plasteel/dark,
+/area/violence)
+"vr" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/turf/open/floor/engine,
 /area/violence)
 "vH" = (
 /turf/open/floor/plasteel/dark,
@@ -175,14 +321,27 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/structure/deployable_barricade/metal{
-	dir = 8
-	},
 /turf/open/floor/plating,
 /area/violence)
 "xi" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
+/area/violence)
+"zQ" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
+	},
+/turf/open/floor/engine,
 /area/violence)
 "Ad" = (
 /obj/effect/turf_decal/stripes/line,
@@ -191,9 +350,6 @@
 "Bh" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
-	},
-/obj/structure/deployable_barricade/metal{
-	dir = 8
 	},
 /turf/open/floor/plating,
 /area/violence)
@@ -238,17 +394,39 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/violence)
 "FK" = (
-/obj/structure/deployable_barricade/metal{
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
 	dir = 8
 	},
-/obj/machinery/deployable_turret/hmg,
-/turf/open/floor/plasteel/monofloor/white,
+/turf/open/floor/engine,
 /area/violence)
 "Gc" = (
 /obj/structure/deployable_barricade/metal{
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"Gf" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/turf/open/floor/engine,
 /area/violence)
 "GL" = (
 /obj/effect/landmark/start/combatant/blue,
@@ -281,7 +459,6 @@
 /turf/open/floor/plasteel/dark,
 /area/violence)
 "Ly" = (
-/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/full,
 /obj/machinery/door/poddoor/multi_tile/four_tile_ver{
 	resistance_flags = 115
@@ -303,6 +480,15 @@
 	dir = 6
 	},
 /turf/open/floor/plasteel/dark,
+/area/violence)
+"OO" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
+	},
+/turf/open/floor/plating,
 /area/violence)
 "Pj" = (
 /obj/effect/landmark/start/combatant/red,
@@ -333,9 +519,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/obj/structure/deployable_barricade/metal{
-	dir = 4
-	},
 /turf/open/floor/plating,
 /area/violence)
 "RA" = (
@@ -343,6 +526,22 @@
 	dir = 9
 	},
 /turf/open/floor/plasteel/dark,
+/area/violence)
+"RJ" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/turf/open/floor/engine,
 /area/violence)
 "Sv" = (
 /turf/open/floor/plasteel/monofloor/white,
@@ -411,9 +610,6 @@
 /area/violence)
 "ZR" = (
 /obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/structure/deployable_barricade/metal{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -730,7 +926,7 @@ lp
 Em
 XS
 XS
-XS
+gw
 XS
 XS
 Ad
@@ -753,7 +949,7 @@ lp
 Em
 XS
 rY
-XS
+Gc
 XS
 XS
 Ad
@@ -764,7 +960,7 @@ lp
 Em
 XS
 XS
-XS
+gw
 XS
 XS
 Ad
@@ -787,7 +983,7 @@ lp
 Em
 XS
 XS
-XS
+Gc
 XS
 XS
 Ad
@@ -796,9 +992,9 @@ lp
 (12,1,1) = {"
 lp
 Em
-jO
-jO
-jO
+XS
+XS
+gw
 XS
 XS
 Ad
@@ -821,25 +1017,25 @@ lp
 Em
 XS
 XS
-jO
-jO
-jO
+Gc
+XS
+XS
 Ad
 lp
 "}
 (13,1,1) = {"
 lp
 lp
-ld
-ld
-ld
+xi
+xi
+xi
 lp
-qo
-YP
-lp
-sk
-sk
 bR
+jO
+lp
+sk
+sk
+sk
 sk
 lp
 ZQ
@@ -849,15 +1045,15 @@ Ng
 lp
 sk
 sk
-bR
+sk
 sk
 lp
-qo
-YP
+bR
+jO
 lp
-ld
-ld
-ld
+xi
+xi
+xi
 lp
 lp
 "}
@@ -1046,15 +1242,15 @@ xi
 xi
 xi
 Te
-qM
-qM
-qM
+qo
+qo
+qo
 Ly
 Te
 xi
 xi
 xi
-Te
+xi
 pb
 pb
 pb
@@ -1073,24 +1269,24 @@ TZ
 vH
 xi
 pb
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+ld
+ld
+xi
+vr
+vr
+vr
+vr
+vr
+vr
+vr
+vr
+vr
+vr
+vr
+vr
+xi
+ld
+ld
 pb
 xi
 vH
@@ -1107,24 +1303,24 @@ TZ
 vH
 xi
 pb
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+ld
+ld
+xi
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+Te
+ld
+ld
 pb
 xi
 vH
@@ -1141,24 +1337,24 @@ eX
 vH
 Te
 Te
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+xi
+xi
+Te
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+Te
+xi
+xi
 Te
 Te
 vH
@@ -1176,23 +1372,23 @@ vH
 Cz
 Te
 mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
+FK
+FK
+FK
+FK
+FK
+FK
+zQ
+zQ
+zQ
+zQ
+FK
+FK
+FK
+FK
+FK
+FK
+iB
 Te
 Ld
 vH
@@ -1209,24 +1405,24 @@ XS
 XS
 Cz
 xi
-pb
-pb
 mZ
-pb
-pb
-pb
-mZ
+FK
+FK
+FK
+FK
+FK
+FK
 sK
 wn
 wn
 Bh
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+FK
+FK
+FK
+FK
+FK
+FK
+iB
 xi
 Ld
 XS
@@ -1243,24 +1439,24 @@ XS
 XS
 Cz
 xi
-pb
-pb
 mZ
-pb
-pb
-pb
-mZ
+FK
+FK
+FK
+FK
+FK
+FK
 wc
 TZ
 TZ
 bX
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+FK
+FK
+FK
+FK
+FK
+FK
+iB
 xi
 Ld
 XS
@@ -1277,24 +1473,24 @@ XS
 XS
 Cz
 xi
-pb
-pb
 mZ
-pb
-pb
-pb
-mZ
+zQ
+zQ
+zQ
+zQ
+zQ
+FK
 wc
 uP
 uP
 bX
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+FK
+zQ
+zQ
+zQ
+zQ
+zQ
+iB
 xi
 Ld
 XS
@@ -1312,23 +1508,23 @@ XS
 Cz
 Te
 mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
+FK
+FK
+oz
+FK
+FK
+FK
 wc
 TZ
 TZ
 bX
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
+FK
+FK
+FK
+oz
+FK
+FK
+iB
 Te
 Ld
 XS
@@ -1345,24 +1541,24 @@ XS
 XS
 Cz
 xi
-pb
-pb
 mZ
-pb
-pb
-pb
-mZ
+FK
+FK
+FK
+FK
+FK
+FK
 wc
 uP
 uP
 bX
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+FK
+FK
+FK
+FK
+FK
+FK
+iB
 xi
 Ld
 XS
@@ -1379,24 +1575,24 @@ XS
 XS
 Cz
 xi
-pb
-pb
 mZ
-pb
-pb
-pb
-mZ
+FK
+FK
+FK
+FK
+FK
+FK
 wc
 TZ
 TZ
 bX
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+FK
+FK
+FK
+FK
+FK
+FK
+iB
 xi
 Ld
 XS
@@ -1413,24 +1609,24 @@ XS
 XS
 Cz
 xi
-pb
-pb
 mZ
-pb
-pb
-pb
-mZ
-wc
-uP
-uP
-bX
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+FK
+FK
+FK
+FK
+FK
+zQ
+OO
+eb
+eb
+dj
+zQ
+FK
+FK
+FK
+FK
+FK
+iB
 xi
 Ld
 XS
@@ -1444,30 +1640,30 @@ lp
 Ld
 TZ
 TZ
-gw
+XS
 Cz
 Te
 mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
+FK
+FK
+FK
+FK
+FK
+FK
 wc
 TZ
 TZ
 bX
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
+FK
+FK
+FK
+FK
+FK
+FK
+iB
 Te
 Ld
-Gc
+XS
 TZ
 TZ
 Cz
@@ -1478,30 +1674,30 @@ lp
 Ld
 TZ
 TZ
-gw
+XS
 Cz
 bT
-pb
-pb
 mZ
-pb
-pb
-pb
-mZ
+FK
+FK
+FK
+FK
+FK
+FK
 wc
 CF
 uP
 bX
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+FK
+FK
+FK
+FK
+FK
+FK
+iB
 bT
 Ld
-Gc
+XS
 TZ
 TZ
 Cz
@@ -1512,30 +1708,30 @@ lp
 Ld
 DB
 DB
-gw
+XS
 Cz
+qo
 qM
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
+qF
+qF
+qF
+qF
+qF
+qF
 wc
 uP
 uP
 bX
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
-qM
+qF
+qF
+qF
+qF
+qF
+qF
+aJ
+qo
 Ld
-Gc
+XS
 DB
 DB
 Cz
@@ -1546,30 +1742,30 @@ lp
 Ld
 DB
 DB
-gw
+XS
 Cz
 Te
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
+qM
+qF
+qF
+qF
+qF
+qF
+qF
 wc
 DB
 DB
 bX
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
+qF
+qF
+qF
+qF
+qF
+qF
+aJ
 Te
 Ld
-Gc
+XS
 DB
 DB
 Cz
@@ -1583,24 +1779,24 @@ XS
 XS
 Cz
 xi
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
-wc
-uP
-uP
-bX
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+qM
+qF
+qF
+qF
+qF
+qF
+RJ
+jj
+ju
+ju
+jB
+RJ
+qF
+qF
+qF
+qF
+qF
+aJ
 xi
 Ld
 XS
@@ -1617,24 +1813,24 @@ XS
 XS
 Cz
 xi
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
+qM
+qF
+qF
+qF
+qF
+qF
+qF
 wc
 DB
 DB
 bX
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+qF
+qF
+qF
+qF
+qF
+qF
+aJ
 xi
 Ld
 XS
@@ -1651,24 +1847,24 @@ XS
 XS
 Cz
 xi
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
+qM
+qF
+qF
+qF
+qF
+qF
+qF
 wc
 uP
 uP
 bX
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+qF
+qF
+qF
+qF
+qF
+qF
+aJ
 xi
 Ld
 XS
@@ -1685,24 +1881,24 @@ XS
 XS
 Cz
 Te
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
+qM
+qF
+qF
+jl
+qF
+qF
+qF
 wc
 DB
 DB
 bX
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
+qF
+qF
+qF
+jl
+qF
+qF
+aJ
 Te
 Ld
 XS
@@ -1719,24 +1915,24 @@ XS
 XS
 Cz
 xi
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
+qM
+RJ
+RJ
+RJ
+RJ
+RJ
+qF
 wc
 uP
 uP
 bX
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+qF
+RJ
+RJ
+RJ
+RJ
+RJ
+aJ
 xi
 Ld
 XS
@@ -1753,24 +1949,24 @@ XS
 XS
 Cz
 xi
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
+qM
+qF
+qF
+qF
+qF
+qF
+qF
 wc
 DB
 DB
 bX
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+qF
+qF
+qF
+qF
+qF
+qF
+aJ
 xi
 Ld
 XS
@@ -1787,24 +1983,24 @@ XS
 XS
 Cz
 xi
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
+qM
+qF
+qF
+qF
+qF
+qF
+qF
 Rd
 ZR
 ZR
 oP
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+qF
+qF
+qF
+qF
+qF
+qF
+aJ
 xi
 Ld
 XS
@@ -1821,24 +2017,24 @@ XS
 vH
 Cz
 Te
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
-mZ
+qM
+qF
+qF
+qF
+qF
+qF
+qF
+RJ
+RJ
+RJ
+RJ
+qF
+qF
+qF
+qF
+qF
+qF
+aJ
 Te
 Ld
 vH
@@ -1855,24 +2051,24 @@ sl
 vH
 Te
 Te
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+xi
+xi
+Te
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+Te
+xi
+xi
 Te
 Te
 vH
@@ -1889,24 +2085,24 @@ DB
 vH
 xi
 pb
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+ld
+ld
+xi
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+xi
+ld
+ld
 pb
 xi
 vH
@@ -1923,24 +2119,24 @@ DB
 vH
 xi
 pb
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
-pb
-pb
-mZ
-pb
-pb
-pb
-mZ
-pb
-pb
+ld
+ld
+xi
+Gf
+Gf
+Gf
+Gf
+Gf
+Gf
+Gf
+Gf
+Gf
+Gf
+Gf
+Gf
+xi
+ld
+ld
 pb
 xi
 vH
@@ -1964,9 +2160,9 @@ xi
 xi
 xi
 Te
-qM
-qM
-qM
+qo
+qo
+qo
 Ly
 Te
 xi
@@ -2156,15 +2352,15 @@ lp
 (52,1,1) = {"
 lp
 lp
-ld
-ld
-ld
+xi
+xi
+xi
 lp
-qo
-YP
+bR
+jO
 lp
 Xp
-FK
+Xp
 Xp
 Xp
 lp
@@ -2175,24 +2371,24 @@ Vq
 lp
 Xp
 Xp
-FK
+Xp
 Xp
 lp
-qo
-YP
+bR
+jO
 lp
-ld
-ld
-ld
+xi
+xi
+xi
 lp
 lp
 "}
 (53,1,1) = {"
 lp
 Em
-jO
-jO
-jO
+XS
+XS
+gw
 XS
 XS
 Ad
@@ -2215,9 +2411,9 @@ lp
 Em
 XS
 XS
-jO
-jO
-jO
+Gc
+XS
+XS
 Ad
 lp
 "}
@@ -2226,7 +2422,7 @@ lp
 Em
 XS
 XS
-XS
+gw
 XS
 XS
 Ad
@@ -2249,7 +2445,7 @@ lp
 Em
 XS
 XS
-XS
+Gc
 XS
 XS
 Ad
@@ -2260,7 +2456,7 @@ lp
 Em
 XS
 XS
-XS
+gw
 XS
 XS
 Ad
@@ -2283,7 +2479,7 @@ lp
 Em
 XS
 XS
-XS
+Gc
 XS
 XS
 Ad
