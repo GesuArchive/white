@@ -108,7 +108,7 @@
 				/obj/item/storage/pill_bottle/lsd,
 				/obj/item/storage/pill_bottle/aranesp,
 				/obj/item/storage/pill_bottle/krokodil,
-				/obj/item/storage/pill_bottle/happiness,
+				/obj/item/storage/pill_bottle/happinesspsych,
 				/obj/item/storage/pill_bottle/modafinil,
 				/obj/item/storage/pill_bottle/methamphetamine,
 				/obj/item/storage/pill_bottle/maintenance_pill/full,

@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /obj/structure/table/wood,
-/obj/item/storage/pill_bottle/happiness{
+/obj/item/storage/pill_bottle/happinesspsych{
 	pixel_x = 8;
 	pixel_y = 3
 	},
@@ -73,10 +73,10 @@
 /obj/item/tape/random,
 /obj/item/camera,
 /obj/item/camera_film,
-/obj/item/storage/pill_bottle/happiness{
+/obj/item/storage/pill_bottle/happinesspsych{
 	pixel_x = -7
 	},
-/obj/item/storage/pill_bottle/happiness{
+/obj/item/storage/pill_bottle/happinesspsych{
 	pixel_x = -7
 	},
 /obj/item/storage/pill_bottle/mannitol,

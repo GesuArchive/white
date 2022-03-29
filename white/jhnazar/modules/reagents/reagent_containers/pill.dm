@@ -22,12 +22,6 @@
 	icon_state = "pill1"
 	list_reagents = list(/datum/reagent/drug/bath_salts = 5)
 
-/obj/item/reagent_containers/pill/happiness
-	name = "Happiness pill"
-	desc = "Happiness pill"
-	icon_state = "pill10"
-	list_reagents = list(/datum/reagent/drug/happiness = 5)
-
 /obj/item/reagent_containers/pill/modafinil
 	name = "Modafinil pill"
 	desc = "Modafinil pill"

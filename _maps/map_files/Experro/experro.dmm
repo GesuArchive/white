@@ -9528,7 +9528,7 @@
 /area/partyhard/indoors)
 "Qo" = (
 /obj/structure/table/wood/cataclysmdda/sci,
-/obj/item/storage/pill_bottle/happiness,
+/obj/item/storage/pill_bottle/happinesspsych,
 /obj/machinery/light/small{
 	base_pixel_y = 0;
 	dir = 1;

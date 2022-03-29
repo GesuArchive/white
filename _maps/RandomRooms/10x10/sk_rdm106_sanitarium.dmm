@@ -118,7 +118,7 @@
 /area/template_noop)
 "ml" = (
 /obj/structure/table/wood,
-/obj/item/storage/pill_bottle/happiness{
+/obj/item/storage/pill_bottle/happinesspsych{
 	pixel_x = 8;
 	pixel_y = 3
 	},
@@ -294,7 +294,7 @@
 /area/template_noop)
 "Kr" = (
 /obj/structure/table/wood,
-/obj/item/storage/pill_bottle/happiness{
+/obj/item/storage/pill_bottle/happinesspsych{
 	pixel_x = -7
 	},
 /obj/item/toy/crayon/black,

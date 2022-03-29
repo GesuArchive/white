@@ -48,16 +48,6 @@
 
 ////////////////////////////////////////////////////////////
 
-/obj/item/storage/pill_bottle/happiness
-	name = "bottle of happiness pills"
-	desc = "Contains happiness pills."
-
-/obj/item/storage/pill_bottle/happiness/PopulateContents()
-	for(var/i in 1 to 7)
-		new /obj/item/reagent_containers/pill/happiness(src)
-
-////////////////////////////////////////////////////////////
-
 /obj/item/storage/pill_bottle/modafinil
 	name = "bottle of modafinil pills"
 	desc = "Contains modafinil pills."
