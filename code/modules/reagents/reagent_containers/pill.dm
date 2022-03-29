@@ -96,7 +96,7 @@
 
 /obj/item/reagent_containers/pill/cyanide
 	name = "таблетка цианида"
-	desc = "Не глотайте это."
+	desc = "Не глотайте её."
 	icon_state = "pill5"
 	list_reagents = list(/datum/reagent/toxin/cyanide = 50)
 
