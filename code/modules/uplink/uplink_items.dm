@@ -2105,6 +2105,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	desc = "Набор, предназначенный для двух агентов синдиката"
 	item = /obj/item/storage/box/syndicate_team
 	cost = 40
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/dangerous/hockey
 	name = "Набор канадского хоккеиста"
@@ -2113,3 +2114,4 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	cost = 30
 	surplus = 0
 	cant_discount = FALSE
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
