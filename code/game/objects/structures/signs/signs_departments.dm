@@ -4,76 +4,70 @@
 ///////MEDBAY
 
 /obj/structure/sign/departments/medbay
-	name = "\improper Medbay sign"
-	sign_change_name = "Department - Medbay"
-	desc = "The Intergalactic symbol of Medical institutions. You'll probably get help here."
+	name = "Знак Медицинского отдела"
+	sign_change_name = "Отдел - Медбей"
+	desc = "Межгалактический символ медицинских учреждений. Возможно, вам помогут здесь."
 	icon_state = "bluecross"
 	is_editable = TRUE
 
 /obj/structure/sign/departments/medbay/alt
-	name = "\improper Medbay sign"
-	sign_change_name = "Department - Medbay Alt"
-	desc = "The Intergalactic symbol of Medical institutions. You'll probably get help here."
 	icon_state = "bluecross2"
 	is_editable = TRUE
 
 /obj/structure/sign/departments/examroom
-	name = "\improper Exam Room sign"
-	sign_change_name = "Department - Medbay: Exam Room"
-	desc = "A guidance sign which reads 'Exam Room'."
+	name = "Табличка смотровой комнаты"
+	sign_change_name = "Отдел - Медбей: Осмотр"
+	desc = "Указатель с надписью \"Смотровая комната\"."
 	icon_state = "examroom"
 	is_editable = TRUE
 
 /obj/structure/sign/departments/chemistry
-	name = "\improper Chemistry sign"
-	sign_change_name = "Department - Medbay: Chemistry"
-	desc = "A sign labelling an area containing chemical equipment."
+	name = "Знак Химического отдела"
+	sign_change_name = "Отдел - Медбей: Химия"
+	desc = "Знак, обозначающий зону, в которой находится химическое оборудование."
 	icon_state = "chemistry1"
 	is_editable = TRUE
 
 /obj/structure/sign/departments/chemistry/pharmacy
-	name = "\improper Pharmacy sign"
-	sign_change_name = "Department - Medbay: Pharmacy"
-	desc = "A sign labelling an area containing pharmacy equipment."
+	name = "Знак аптеки"
+	sign_change_name = "Отдел - Медбей: Аптека"
+	desc = "Знак, обозначающий зону, в которой находится аптечное оборудование."
 	icon_state = "pharmacy"
 	is_editable = TRUE
 
 /obj/structure/sign/departments/psychology
-	name = "\improper Psychology sign"
-	sign_change_name = "Department - Medbay: Psychology"
-	desc = "A sign labelling where the Psychologist works, they can probably help you get your head straight."
+	name = "Психология"
+	sign_change_name = "Отдел - Медбей: Психология"
+	desc = "Табличка с указанием места работы психолога, который, возможно, поможет вам разобраться в себе."
 	icon_state = "psychology"
 	is_editable = TRUE
 
 ///////ENGINEERING
 
 /obj/structure/sign/departments/engineering
-	name = "\improper Engineering sign"
-	sign_change_name = "Department - Engineering"
-	desc = "A sign labelling an area where engineers work."
+	name = "Знак Инженерного отдела"
+	sign_change_name = "Отдел - Инженерный"
+	desc = "Знак, обозначающий зону, где работают инженеры."
 	icon_state = "engine"
 	is_editable = TRUE
 
 ///////SCIENCE
 
 /obj/structure/sign/departments/science
-	name = "\improper Science sign"
-	sign_change_name = "Department - Science"
-	desc = "A sign labelling an area where research and science is performed."
+	name = "Знак Научного отдела"
+	sign_change_name = "Отдел - Наука"
+	desc = "Знак, обозначающий зону, где проводятся исследования и научные работы."
 	icon_state = "science1"
 	is_editable = TRUE
 
 /obj/structure/sign/departments/science/alt
-	name = "\improper Science sign"
-	sign_change_name = "Department - Science Alt"
-	desc = "A sign labelling an area where research and science is performed."
 	icon_state = "science2"
 	is_editable = TRUE
 
 /obj/structure/sign/departments/xenobio
-	name = "\improper Xenobiology sign"
-	sign_change_name = "Department - Science: Xenobiology"
-	desc = "A sign labelling an area as a place where xenobiological entities are researched."
+	name = "Знак Ксенобиологии"
+	sign_change_name = "Отдел - Наука: Ксенобиология"
+	desc = "Знак, обозначающий зону, где проводятся исследования ксенобиологических сущностей."
 	icon_state = "xenobio"
 	is_editable = TRUE
 
