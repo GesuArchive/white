@@ -409,7 +409,8 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 				uniform = pick(list(/obj/item/clothing/under/costume/kamishimo, /obj/item/clothing/under/costume/kimono/dark, /obj/item/clothing/under/costume/kimono/sakura, /obj/item/clothing/under/costume/kimono/fancy, /obj/item/clothing/under/costume/kamishimo, /obj/item/clothing/under/costume/bathrobe))
 				head = /obj/item/clothing/head/rice_hat
 				if(prob(25))
-					uniform = /obj/item/clothing/under/costume/kimono
+					r_hand = /obj/item/storage/box/syndie_kit/throwing_weapons
+					uniform = /obj/item/clothing/under/costume/kamishimo
 					suit = /obj/item/clothing/suit/costume/samurai
 					head = /obj/item/clothing/head/costume/kabuto
 				shoes = /obj/item/clothing/shoes/sandal
@@ -438,10 +439,12 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 					if(1)
 						mask = /obj/item/clothing/mask/gas/germanfull
 						r_hand = /obj/item/gun/ballistic/automatic/mp40
+						l_pocket = /obj/item/ammo_box/magazine/mp40
 						r_pocket = /obj/item/ammo_box/magazine/mp40
 					if(2)
 						mask = /obj/item/clothing/mask/gas/german
 						r_hand = /obj/item/gun/ballistic/automatic/pistol/mauser
+						l_pocket = /obj/item/ammo_box/magazine/mauser/battle
 						r_pocket = /obj/item/ammo_box/magazine/mauser/battle
 						belt = /obj/item/melee/sabre/marineofficer
 		if(5)
@@ -467,10 +470,15 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 				mask = /obj/item/clothing/mask/gas/syndicate
 				shoes = /obj/item/clothing/shoes/combat
 				gloves =  /obj/item/clothing/gloves/combat
-				belt = /obj/item/storage/belt/military/assault/c20r4
-				r_pocket = /obj/item/gun/ballistic/automatic/pistol/tanner
+				if(prob(50))
+					suit_store = /obj/item/gun/ballistic/automatic/c20r/unrestricted
+					belt = /obj/item/storage/belt/military/assault/c20r4
+					r_hand = /obj/item/gun/ballistic/automatic/pistol/tanner
+				else
+					r_hand = /obj/item/gun/ballistic/automatic/l6_saw/unrestricted
+					belt = /obj/item/gun/ballistic/automatic/pistol/tanner
+					r_pocket = pick(list(/obj/item/ammo_box/magazine/mm712x82, /obj/item/ammo_box/magazine/mm712x82/hollow, /obj/item/ammo_box/magazine/mm712x82/ap, /obj/item/ammo_box/magazine/mm712x82/incen, /obj/item/ammo_box/magazine/mm712x82/match))
 				l_pocket = /obj/item/melee/energy/sword/saber
-				suit_store = /obj/item/gun/ballistic/automatic/c20r/unrestricted
 				suit = /obj/item/clothing/suit/space/hardsuit/shielded/syndi
 		if(6)
 			if(prob(50))
