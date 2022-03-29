@@ -38,9 +38,10 @@
 	add_mob_blood(C)
 	C.bleed(rand(20, 40))
 
-	var/obj/item/bodypart/bleeding_chest = C.get_bodypart(BODY_ZONE_CHEST)
-	if(bleeding_chest)
-		bleeding_chest.force_wound_upwards(/datum/wound/slash/critical)
+	if(!C.dismember_bleed_block)	//	Блок от мутации
+		var/obj/item/bodypart/bleeding_chest = C.get_bodypart(BODY_ZONE_CHEST)
+		if(bleeding_chest)
+			bleeding_chest.force_wound_upwards(/datum/wound/slash/critical)
 
 	if(!detach_limb)
 		playsound(get_turf(C), 'white/valtos/sounds/gibpart.ogg', 80, TRUE)

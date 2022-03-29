@@ -72,6 +72,9 @@
 		/obj/item/bodypart/l_leg,
 		)
 
+	//	Блокирование открытия кровотечения при потере конечности
+	var/dismember_bleed_block = FALSE
+
 	/// A collection of arms (or actually whatever the fug /bodyparts you monsters use to wreck my systems)
 	var/list/hand_bodyparts = list()
 

@@ -1,10 +1,10 @@
 //Cold Resistance gives your entire body an orange halo, and makes you immune to the effects of vacuum and cold.
 /datum/mutation/human/space_adaptation
-	name = "Space Adaptation"
-	desc = "A strange mutation that renders the host immune to the vacuum of space. Will still need an oxygen supply."
+	name = "Космическая адаптация"
+	desc = "Мутация сформировавшаяся у экипажей разведывательных межсистемных первопроходцев, странным образом ограждает носителя от холода и космического вакуума. К сожалению мы все еще нуждаемся в кислороде."
 	quality = POSITIVE
 	difficulty = 16
-	text_gain_indication = span_notice("Your body feels warm!")
+	text_gain_indication = span_notice("Ощущаю некое родство с окружающей нас пустотой космоса! Так и хочется выйти из шлюза, протянуть к нему руку, снять шлем и ...")
 	time_coeff = 5
 	instability = 30
 

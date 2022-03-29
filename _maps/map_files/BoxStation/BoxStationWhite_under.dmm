@@ -265,6 +265,7 @@
 "aF" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/security/prison)
 "aG" = (
@@ -1008,6 +1009,7 @@
 	id = "xenobiomain";
 	name = "containment blast door"
 	},
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/science/xenobiology)
 "cq" = (
@@ -1739,8 +1741,10 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/auto_name/west,
-/obj/structure/cable,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
 "eg" = (
@@ -3472,7 +3476,10 @@
 /area/engineering/atmospherics_engine)
 "hX" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
 "hY" = (
@@ -8129,13 +8136,10 @@
 /turf/open/floor/plasteel/monofloor,
 /area/science/xenobiology)
 "rT" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
-/area/hallway/secondary/exit/departure_lounge2)
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/turf/open/floor/plating,
+/area/security/prison)
 "rU" = (
 /obj/machinery/atmospherics/components/unary/tank/air,
 /obj/effect/decal/cleanable/dirt,
@@ -9833,7 +9837,7 @@
 /obj/structure/cable,
 /obj/item/radio/intercom/directional/east,
 /turf/open/floor/plasteel,
-/area/hallway/secondary/exit/departure_lounge)
+/area/hallway/secondary/exit/departure_lounge2)
 "vA" = (
 /obj/machinery/firealarm/directional/south,
 /obj/machinery/computer/chef_order{
@@ -9928,9 +9932,8 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/security/prison)
 "vJ" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/hallway/primary/centralL1)
+/turf/closed/wall,
+/area/hallway/secondary/exit/departure_lounge2)
 "vK" = (
 /obj/machinery/light,
 /obj/structure/rack,
@@ -13834,6 +13837,7 @@
 	id = "xenobio6";
 	name = "Xenobio Pen 6 Blast Door"
 	},
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/science/xenobiology)
 "Eg" = (
@@ -15570,7 +15574,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/hallway/secondary/exit/departure_lounge)
+/area/hallway/secondary/exit/departure_lounge2)
 "Ic" = (
 /obj/machinery/light/small{
 	pixel_y = 0
@@ -15719,11 +15723,6 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/floor/directional/west,
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge2)
 "Iu" = (
@@ -16250,6 +16249,7 @@
 /area/science/xenobiology)
 "Jx" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/commons/cryopods)
 "Jy" = (
@@ -17271,7 +17271,7 @@
 	},
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/plating,
-/area/hallway/secondary/exit/departure_lounge)
+/area/hallway/secondary/exit/departure_lounge2)
 "LF" = (
 /obj/effect/turf_decal/arrows/white{
 	dir = 1
@@ -17738,7 +17738,7 @@
 	},
 /obj/structure/closet/firecloset,
 /turf/open/floor/plating,
-/area/hallway/secondary/exit/departure_lounge)
+/area/hallway/secondary/exit/departure_lounge2)
 "MG" = (
 /obj/effect/loot_site_spawner,
 /turf/open/floor/plating,
@@ -18292,6 +18292,7 @@
 /area/hallway/secondary/exit/departure_lounge)
 "NT" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/security/execution/transfer)
 "NU" = (
@@ -18529,6 +18530,16 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/security/prison)
+"Ou" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/poddoor/preopen{
+	id = "xenobio1";
+	name = "Xenobio Pen 1 Blast Door"
+	},
+/obj/machinery/door/firedoor/window,
+/turf/open/floor/plating,
+/area/science/xenobiology)
 "Ov" = (
 /turf/open/floor/plasteel,
 /area/maintenance/space_hut)
@@ -20699,6 +20710,10 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
 "Tt" = (
@@ -22018,23 +22033,14 @@
 /turf/open/floor/plasteel,
 /area/commons/vacant_room/commissary/second)
 "Wo" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/machinery/light/floor/directional/east,
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc/auto_name/west,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/hallway/secondary/exit/departure_lounge2)
+/area/hallway/secondary/exit/departure_lounge)
 "Wp" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -23429,6 +23435,7 @@
 	id = "barmanprivate";
 	name = "barman privacy shutters"
 	},
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/service/bar)
 "Zu" = (
@@ -49731,13 +49738,13 @@ sM
 Uu
 Uu
 Uu
-yj
-yj
-yj
+rT
+rT
+rT
 II
-yj
-yj
-yj
+rT
+rT
+rT
 II
 Zm
 Zm
@@ -50253,7 +50260,7 @@ qb
 qb
 PW
 lE
-yj
+rT
 Zm
 bw
 bw
@@ -50510,7 +50517,7 @@ qR
 qb
 qb
 wX
-yj
+rT
 PG
 bw
 bw
@@ -50767,7 +50774,7 @@ LH
 kW
 XJ
 Pk
-yj
+rT
 Zm
 Zm
 bw
@@ -53615,8 +53622,8 @@ Ct
 pb
 Ya
 DE
-vJ
-vJ
+vM
+vM
 Xc
 fF
 fF
@@ -53872,7 +53879,7 @@ pb
 pb
 aQ
 Ei
-vJ
+vM
 Zm
 Xc
 fF
@@ -54129,7 +54136,7 @@ PM
 qJ
 aQ
 Ei
-vJ
+vM
 Zm
 Xc
 fF
@@ -54386,8 +54393,8 @@ ey
 qJ
 aQ
 Ei
-vJ
-vJ
+vM
+vM
 SY
 Xc
 nm
@@ -65953,12 +65960,12 @@ An
 yc
 qe
 It
-zf
-zf
+It
+It
 ef
 tN
 cg
-zf
+Wo
 zf
 NS
 zH
@@ -66209,8 +66216,8 @@ NV
 Nt
 Jl
 kR
-rT
-Ws
+kR
+kR
 Ib
 hX
 Ws
@@ -66273,7 +66280,7 @@ Wb
 JH
 Pi
 Wb
-xj
+Ou
 dL
 Qz
 PG
@@ -66466,8 +66473,8 @@ Uz
 pA
 UD
 yt
-Wo
-Ts
+yt
+yt
 vz
 Ts
 fM
@@ -66530,7 +66537,7 @@ Wb
 JH
 Wb
 Wb
-xj
+Ou
 dL
 Qz
 PG
@@ -66724,8 +66731,8 @@ Gc
 zZ
 Gc
 zZ
-lL
-lL
+vJ
+vJ
 lL
 lL
 lL
@@ -66787,7 +66794,7 @@ Wb
 sF
 Wb
 jJ
-xj
+Ou
 cO
 Qz
 PG

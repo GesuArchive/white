@@ -1,22 +1,22 @@
 /datum/mutation/human/antenna
-	name = "Antenna"
-	desc = "The affected person sprouts an antenna. This is known to allow them to access common radio channels passively."
+	name = "Антенна"
+	desc = "Из головы носителя вырастает радиоантенна. Это позволяет ему общаться на базовых радиочастотах даже без внешней гарнитуры."
 	quality = POSITIVE
-	text_gain_indication = span_notice("You feel an antenna sprout from your forehead.")
-	text_lose_indication = span_notice("Your antenna shrinks back down.")
+	text_gain_indication = span_notice("Чувствую как из мое головы вырастает антенна.")
+	text_lose_indication = span_notice("Антенна вновь скрывается в голове.")
 	instability = 5
 	difficulty = 8
 	var/datum/weakref/radio_weakref
 
 /obj/item/implant/radio/antenna
-	name = "internal antenna organ"
-	desc = "The internal organ part of the antenna. Science has not yet given it a good name."
+	name = "радиочувствительный орган"
+	desc = "Орган который позволяет носителю общаться на базовых радиочастотах даже без внешней гарнитуры."
 	icon = 'icons/obj/radio.dmi'//maybe make a unique sprite later. not important
 	icon_state = "walkietalkie"
 
 /obj/item/implant/radio/antenna/Initialize(mapload)
 	. = ..()
-	radio.name = "internal antenna"
+	radio.name = "органическая антенна"
 
 /datum/mutation/human/antenna/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -41,19 +41,19 @@
 	return visual_indicators[type][1]
 
 /datum/mutation/human/mindreader
-	name = "Mind Reader"
-	desc = "The affected person can look into the recent memories of others."
+	name = "Чтение мыслей"
+	desc = "Носитель получает способность читать последние мысли цели, а так же определять его истинную суть."
 	quality = POSITIVE
-	text_gain_indication = span_notice("You hear distant voices at the corners of your mind.")
-	text_lose_indication = span_notice("The distant voices fade.")
+	text_gain_indication = span_notice("Я слышу отзвуки чужих мыслей...")
+	text_lose_indication = span_notice("Эхо чужих мыслей ушло...")
 	power = /obj/effect/proc_holder/spell/targeted/mindread
 	instability = 40
 	difficulty = 8
 	locked = TRUE
 
 /obj/effect/proc_holder/spell/targeted/mindread
-	name = "Mindread"
-	desc = "Read the target's mind."
+	name = "Чтение мыслей"
+	desc = "Прочитать последние мысли цели."
 	charge_max = 50
 	range = 7
 	clothes_req = FALSE
@@ -62,15 +62,16 @@
 /obj/effect/proc_holder/spell/targeted/mindread/cast(list/targets, mob/living/carbon/human/user = usr)
 	for(var/mob/living/M in targets)
 		if(usr.anti_magic_check(FALSE, FALSE, TRUE, 0) || M.anti_magic_check(FALSE, FALSE, TRUE, 0))
-			to_chat(usr, span_warning("As you reach out with your mind, you're suddenly stopped by a vision of a massive tinfoil wall that streches beyond visible range. It seems you've been foiled."))
+			to_chat(usr, span_warning("Пытаюсь настроиться на волну чужих мыслей, однако передо моим ментальным взором встает непреодолимая стена из фольги. Я не смогу ее преодолеть..."))
 			return
 		if(M.stat == DEAD)
-			to_chat(user, span_boldnotice("[M] is dead!"))
+			to_chat(user, span_boldnotice("[M] мертв! Это довольно неприятно ковыряться в голове покойника..."))
 			return
 		if(M.mind)
-			to_chat(user, span_boldnotice("You plunge into [M] mind..."))
+			to_chat(user, span_boldnotice("Вторгаюсь в разум [M]..."))
 			if(prob(20))
-				to_chat(M, span_danger("You feel something foreign enter your mind."))//chance to alert the read-ee
+				to_chat(M, span_danger("Чувствую кого то постороннего в своей голове."))//chance to alert the read-ee
+				to_chat(user, span_danger("Меня обнаружили!"))
 			var/list/recent_speech = list()
 			var/list/say_log = list()
 			var/log_source = M.logging
@@ -88,16 +89,16 @@
 					if(prob(50))
 						recent_speech[spoken_memory] = say_log[spoken_memory]
 			if(recent_speech.len)
-				to_chat(user, span_boldnotice("You catch some drifting memories of their past conversations..."))
+				to_chat(user, span_boldnotice("Мне удалось уловить несколько последних мыслей..."))
 				for(var/spoken_memory in recent_speech)
 					to_chat(user, span_notice("[recent_speech[spoken_memory]]"))
 			if(iscarbon(M))
 				var/mob/living/carbon/human/H = M
-				to_chat(user, span_boldnotice("You find that their intent is to [H.a_intent]..."))
+				to_chat(user, span_boldnotice("Его намерения [H.a_intent]..."))
 				if(H.mind)
-					to_chat(user, span_boldnotice("You uncover that [H.ru_ego()] true identity is [H.mind.name]."))
+					to_chat(user, span_boldnotice("Под личностью [H.ru_ego()] скрывается разум [H.mind.name]."))
 		else
-			to_chat(user, span_warning("You can't find a mind to read inside of [M]!"))
+			to_chat(user, span_warning("Я не чувствую искры сознания в разуме [M]!"))
 
 /datum/mutation/human/mindreader/New(class_ = MUT_OTHER, timer, datum/mutation/human/copymut)
 	..()

@@ -1,27 +1,27 @@
 /datum/mutation/human/shock
-	name = "Электро-толерантность"
-	desc = "The affected can channel excess electricity through their hands without shocking themselves, allowing them to shock others."
+	name = "Электрошок"
+	desc = "Позволяет накапливать крайне высокий заряд статического электричества ми при желании разряжаться на выбраную цель при косании."
 	quality = POSITIVE
 	locked = TRUE
 	difficulty = 16
-	text_gain_indication = span_notice("You feel power flow through your hands.")
-	text_lose_indication = span_notice("The energy in your hands subsides.")
+	text_gain_indication = span_notice("Между моими пальцами пробегают разряды молний.")
+	text_lose_indication = span_notice("Энергия утекает.")
 	power = /obj/effect/proc_holder/spell/targeted/touch/shock
 	instability = 30
 
 /obj/effect/proc_holder/spell/targeted/touch/shock
-	name = "Электро-толерантность"
-	desc = "Channel electricity to your hand to shock people with."
-	drawmessage = "You channel electricity into your hand."
-	dropmessage = "You let the electricity from your hand dissipate."
+	name = "Электрошок"
+	desc = "Позволяет накапливать крайне высокий заряд статического электричества ми при желании разряжаться на выбраную цель при косании."
+	drawmessage = "Руку трясет от переполнявшего ее напряжения."
+	dropmessage = "Сбрасываю заряд."
 	hand_path = /obj/item/melee/touch_attack/shock
 	charge_max = 100
 	clothes_req = FALSE
 	action_icon_state = "zap"
 
 /obj/item/melee/touch_attack/shock
-	name = "\improper shock touch"
-	desc = "This is kind of like when you rub your feet on a shag rug so you can zap your friends, only a lot less safe."
+	name = "Электрошок"
+	desc = "Карманная молния"
 	catchphrase = null
 	on_use_sound = 'sound/weapons/zapbang.ogg'
 	icon_state = "zapper"

@@ -1,9 +1,9 @@
 /datum/mutation/human/telepathy
-	name = "Telepathy"
-	desc = "A rare mutation that allows the user to telepathically communicate to others."
+	name = "Телепатия"
+	desc = "Редкая мутация, которая позволяет пользователю телепатически общаться с другими."
 	quality = POSITIVE
-	text_gain_indication = span_notice("You can hear your own voice echoing in your mind!")
-	text_lose_indication = span_notice("You don't hear your mind echo anymore.")
+	text_gain_indication = span_notice("Я слышу свой голос, эхом отдающийся в моей собственный голове!")
+	text_lose_indication = span_notice("Эхо моего голоса исчезло...")
 	difficulty = 12
 	power = /obj/effect/proc_holder/spell/targeted/telepathy
 	instability = 10
@@ -11,14 +11,14 @@
 
 
 /datum/mutation/human/olfaction
-	name = "Transcendent Olfaction"
-	desc = "Your sense of smell is comparable to that of a canine."
+	name = "Сверхчувствительное обоняние"
+	desc = "Изменяет обонятельные рецепторы подопытного, усиливая их чувствительность до уровня сравнимого с охотничьими гончими."
 	quality = POSITIVE
 	difficulty = 12
-	text_gain_indication = span_notice("Smells begin to make more sense...")
-	text_lose_indication = span_notice("Your sense of smell goes back to normal.")
+	text_gain_indication = span_notice("Запахи стали определяться намного четче...")
+	text_lose_indication = span_notice("Я больше не чувствую всей палитры запахов.")
 	power = /obj/effect/proc_holder/spell/targeted/olfaction
-	instability = 30
+	instability = 15
 	synchronizer_coeff = 1
 	var/reek = 200
 
@@ -28,8 +28,8 @@
 		S.sensitivity = GET_MUTATION_SYNCHRONIZER(src)
 
 /obj/effect/proc_holder/spell/targeted/olfaction
-	name = "Remember the Scent"
-	desc = "Get a scent off of the item you're currently holding to track it. With an empty hand, you'll track the scent you've remembered."
+	name = "Запомнить запах"
+	desc = "Вы запоминаете запах предмета, который вы держите в руках, чтобы отследить его владельца. Если ваши руки пусты, то вы встанете на след запаха, который запомнили."
 	charge_max = 100
 	clothes_req = FALSE
 	range = -1
@@ -43,9 +43,9 @@
 	//can we sniff? is there miasma in the air?
 	var/datum/gas_mixture/air = user.loc.return_air()
 
-	if(air.get_moles(/datum/gas/miasma))
+	if(air.get_moles(/datum/gas/miasma) > 2)
 		user.adjust_disgust(sensitivity * 45)
-		to_chat(user, span_warning("With your overly sensitive nose, you get a whiff of stench and feel sick! Try moving to a cleaner area!"))
+		to_chat(user, span_warning("УЖАСТНАЯ ВОНЬ! Слишком отвратительный запах для моего чувствительного носа! Надо убраться отсюда подальше!"))
 		return
 
 	var/atom/sniffed = user.get_active_held_item()
@@ -58,51 +58,51 @@
 				if(prints[md5(C.dna.uni_identity)])
 					possible |= C
 		if(!length(possible))
-			to_chat(user,span_warning("Despite your best efforts, there are no scents to be found on [sniffed]..."))
+			to_chat(user,span_warning("Стараюсь учуять хоть что-то, но не могу уловить никаких запахов на [sniffed]..."))
 			return
-		tracking_target = input(user, "Choose a scent to remember.", "Scent Tracking") as null|anything in sortNames(possible)
+		tracking_target = input(user, "Выберите запах для отслеживания.", "Scent Tracking") as null|anything in sortNames(possible)
 		if(!tracking_target)
 			if(!old_target)
-				to_chat(user,span_warning("You decide against remembering any scents. Instead, you notice your own nose in your peripheral vision. This goes on to remind you of that one time you started breathing manually and couldn't stop. What an awful day that was."))
+				to_chat(user,span_warning("Решаю не запоминать никаких запахов. Вместо этого замечаю свой собственный нос боковым зрением. Это напоминает мне день, когда я сконцентрировался на контроле своего дыхания и не мог остановиться потому что боялся задохнуться. Это был ужасный день."))
 				return
 			tracking_target = old_target
 			on_the_trail(user)
 			return
-		to_chat(user,span_notice("You pick up the scent of [tracking_target]. The hunt begins."))
+		to_chat(user,span_notice("Улавливаю запах [tracking_target]. Охота началась!"))
 		on_the_trail(user)
 		return
 
 	if(!tracking_target)
-		to_chat(user,span_warning("You're not holding anything to smell, and you haven't smelled anything you can track. You smell your skin instead; it's kinda salty."))
+		to_chat(user,span_warning("У меня нет ничего, что можно было бы понюхать, и я не чую ничего, что можно было бы отследить. Вместо этого нюхаю кожу на своей руке, она немного соленая."))
 		return
 
 	on_the_trail(user)
 
 /obj/effect/proc_holder/spell/targeted/olfaction/proc/on_the_trail(mob/living/user)
 	if(!tracking_target)
-		to_chat(user,span_warning("You're not tracking a scent, but the game thought you were. Something's gone wrong! Report this as a bug."))
+		to_chat(user,span_warning("ТЕХНИЧЕСКАЯ ОШИБКА, сообщите в кодербас. Носитель не идет по следу, но зафиксирован как идущий по следу."))
 		return
 	if(tracking_target == user)
-		to_chat(user,span_warning("You smell out the trail to yourself. Yep, it's you."))
+		to_chat(user,span_warning("Чую след ведущий прямо к... ну да прямо ко мне..."))
 		return
 	if(usr.z < tracking_target.z)
-		to_chat(user,span_warning("The trail leads... way up above you? Huh. They must be really, really far away."))
+		to_chat(user,span_warning("След тянется куда-то далеко-далеко в необозримые дали, вы не чувствуете присутствия вашей цели на обозримом горизонте."))
 		return
 	else if(usr.z > tracking_target.z)
-		to_chat(user,span_warning("The trail leads... way down below you? Huh. They must be really, really far away."))
+		to_chat(user,span_warning("След тянется куда-то далеко-далеко в необозримые дали, вы не чувствуете присутствия вашей цели на обозримом горизонте."))
 		return
 	var/direction_text = "[dir2ru_text(get_dir(usr, tracking_target))]"
 	if(direction_text)
-		to_chat(user,span_notice("You consider [tracking_target] scent. The trail leads <b>[direction_text].</b>"))
+		to_chat(user,span_notice("Улавливаю запах [tracking_target]. След ведет на <b>[direction_text].</b>"))
 
 /datum/mutation/human/firebreath
 	name = "Огненное Дыхание"
-	desc = "An ancient mutation that gives lizards breath of fire."
+	desc = "Древняя мутация которая позволяет ящерам выдыхать струю пламени."
 	quality = POSITIVE
 	difficulty = 12
 	locked = TRUE
-	text_gain_indication = span_notice("Your throat is burning!")
-	text_lose_indication = span_notice("Your throat is cooling down.")
+	text_gain_indication = span_notice("Моя глотка горит адским пламенем!")
+	text_lose_indication = span_notice("Пожар в горле потух.")
 	power = /obj/effect/proc_holder/spell/aimed/firebreath
 	instability = 30
 	energy_coeff = 1
@@ -114,8 +114,8 @@
 		S.strength = GET_MUTATION_POWER(src)
 
 /obj/effect/proc_holder/spell/aimed/firebreath
-	name = "Огненное Дыхание"
-	desc = "You can breathe fire at a target."
+	name = "Огненное дыхание"
+	desc = "Сила дарованная Великим Ящером!"
 	school = SCHOOL_EVOCATION
 	charge_max = 600
 	clothes_req = FALSE
@@ -124,8 +124,8 @@
 	base_icon_state = "fireball"
 	action_icon_state = "fireball0"
 	sound = 'sound/magic/demon_dies.ogg' //horrifying lizard noises
-	active_msg = "You built up heat in your mouth."
-	deactive_msg = "You swallow the flame."
+	active_msg = "Концентрирую пламя на кончике языка."
+	deactive_msg = "Приглушаю пламя."
 	var/strength = 1
 
 /obj/effect/proc_holder/spell/aimed/firebreath/before_cast(list/targets)
@@ -135,7 +135,7 @@
 		if(C.is_mouth_covered())
 			C.adjust_fire_stacks(2)
 			C.IgniteMob()
-			to_chat(C,span_warning("Something in front of your mouth caught fire!"))
+			to_chat(C,span_warning("Гори!"))
 			return FALSE
 
 /obj/effect/proc_holder/spell/aimed/firebreath/ready_projectile(obj/projectile/P, atom/target, mob/user, iteration)
@@ -150,17 +150,17 @@
 	F.exp_fire += strength
 
 /obj/projectile/magic/aoe/fireball/firebreath
-	name = "fire breath"
+	name = "огненное дыхание"
 	exp_heavy = 0
 	exp_light = 0
 	exp_flash = 0
 	exp_fire= 4
 
 /datum/mutation/human/void
-	name = "Void Magnet"
-	desc = "A rare genome that attracts odd forces not usually observed."
+	name = "Слияние с пустотой"
+	desc = "Редкий геном, способный преодолеть законы эвклидового пространства и укрыть носителя за завесой мрачной и холодной пустоты мертвого космоса."
 	quality = MINOR_NEGATIVE //upsides and downsides
-	text_gain_indication = span_notice("You feel a heavy, dull force just beyond the walls watching you.")
+	text_gain_indication = span_notice("Я ощущаю невероятную взгляд чего-то древнего и бесконечно огромного.")
 	instability = 30
 	power = /obj/effect/proc_holder/spell/self/void
 	energy_coeff = 1
@@ -173,12 +173,12 @@
 		new /obj/effect/immortality_talisman/void(get_turf(owner), owner)
 
 /obj/effect/proc_holder/spell/self/void
-	name = "Convoke Void" //magic the gathering joke here
-	desc = "A rare genome that attracts odd forces not usually observed. May sometimes pull you in randomly."
+	name = "Зов пустоты" //magic the gathering joke here
+	desc = "Редкий геном, способный преодолеть законы эвклидового пространства и укрыть носителя за завесой мрачной и холодной пустоты мертвого космоса. Пустота непредсказуема и иногда сама может посетить вас..."
 	school = SCHOOL_EVOCATION
 	clothes_req = FALSE
 	charge_max = 600
-	invocation = "DOOOOOOOOOOOOOOOOOOOOM!!!"
+	invocation = "Есть только пустота..."
 	invocation_type = INVOCATION_SHOUT
 	action_icon_state = "void_magnet"
 
@@ -191,51 +191,12 @@
 	. = ..()
 	new /obj/effect/immortality_talisman/void(get_turf(user), user)
 
-/datum/mutation/human/self_amputation
-	name = "Autotomy"
-	desc = "Allows a creature to voluntary discard a random appendage."
-	quality = POSITIVE
-	text_gain_indication = span_notice("Your joints feel loose.")
-	instability = 30
-	power = /obj/effect/proc_holder/spell/self/self_amputation
-
-	energy_coeff = 1
-	synchronizer_coeff = 1
-
-/obj/effect/proc_holder/spell/self/self_amputation
-	name = "Drop a limb"
-	desc = "Concentrate to make a random limb pop right off your body."
-	clothes_req = FALSE
-	human_req = FALSE
-	charge_max = 100
-	action_icon_state = "autotomy"
-
-/obj/effect/proc_holder/spell/self/self_amputation/cast(list/targets, mob/user = usr)
-	if(!iscarbon(user))
-		return
-
-	var/mob/living/carbon/C = user
-	if(HAS_TRAIT(C, TRAIT_NODISMEMBER))
-		return
-
-	var/list/parts = list()
-	for(var/X in C.bodyparts)
-		var/obj/item/bodypart/BP = X
-		if(BP.body_part != HEAD && BP.body_part != CHEST)
-			if(BP.dismemberable)
-				parts += BP
-	if(!parts.len)
-		to_chat(usr, span_notice("You can't shed any more limbs!"))
-		return
-
-	var/obj/item/bodypart/BP = pick(parts)
-	BP.dismember()
 
 /datum/mutation/human/tongue_spike
-	name = "Tongue Spike"
-	desc = "Allows a creature to voluntary shoot their tongue out as a deadly weapon."
+	name = "Языковой шип"
+	desc = "Позволяет произвести мгновенную коварную атаку, выстрелив в оппонента собственным языком."
 	quality = POSITIVE
-	text_gain_indication = span_notice("Your feel like you can throw your voice.")
+	text_gain_indication = span_notice("Чувствую себя весьма острым на язык.")
 	instability = 15
 	power = /obj/effect/proc_holder/spell/self/tongue_spike
 
@@ -243,8 +204,8 @@
 	synchronizer_coeff = 1
 
 /obj/effect/proc_holder/spell/self/tongue_spike
-	name = "Launch spike"
-	desc = "Shoot your tongue out in the direction you're facing, embedding it and dealing damage until they remove it."
+	name = "Выстрел шипом"
+	desc = "Выстреливает языковым шипом в направлении вашего взгляда."
 	clothes_req = FALSE
 	human_req = TRUE
 	charge_max = 100
@@ -266,7 +227,7 @@
 			break
 
 	if(!tongue)
-		to_chat(C, span_notice("You don't have a tongue to shoot!"))
+		to_chat(C, span_notice("У меня нет языка!"))
 		return
 
 	tongue.Remove(C, special = TRUE)
@@ -275,8 +236,8 @@
 	spike.throw_at(get_edge_target_turf(C,C.dir), 14, 4, C)
 
 /obj/item/hardened_spike
-	name = "biomass spike"
-	desc = "Hardened biomass, shaped into a spike. Very pointy!"
+	name = "языковой шип"
+	desc = "Твердая биомасса в форме шипа. Очень острая!"
 	icon_state = "tonguespike"
 	force = 2
 	throwforce = 15 //15 + 2 (WEIGHT_CLASS_SMALL) * 4 (EMBEDDED_IMPACT_PAIN_MULTIPLIER) = i didnt do the math
@@ -304,17 +265,17 @@
 
 /obj/item/hardened_spike/unembedded()
 	var/turf/T = get_turf(src)
-	visible_message(span_warning("[capitalize(src.name)] cracks and twists, changing shape!"))
+	visible_message(span_warning("[capitalize(src.name)] трескается и ломается, превращаясь в обычный кусок плоти!"))
 	for(var/i in contents)
 		var/obj/o = i
 		o.forceMove(T)
 	qdel(src)
 
 /datum/mutation/human/tongue_spike/chem
-	name = "Chem Spike"
-	desc = "Allows a creature to voluntary shoot their tongue out as biomass, allowing a long range transfer of chemicals."
+	name = "Химический шип"
+	desc = "Позволяет выстрелить в оппонента собственным языком, после чего перенести все химические препараты из вашей крови в цель."
 	quality = POSITIVE
-	text_gain_indication = span_notice("Your feel like you can really connect with people by throwing your voice.")
+	text_gain_indication = span_notice("Чувствую себя очень токсичным на язык.")
 	instability = 15
 	locked = TRUE
 	power = /obj/effect/proc_holder/spell/self/tongue_spike/chem
@@ -322,14 +283,14 @@
 	synchronizer_coeff = 1
 
 /obj/effect/proc_holder/spell/self/tongue_spike/chem
-	name = "Launch chem spike"
-	desc = "Shoot your tongue out in the direction you're facing, embedding it for a very small amount of damage. While the other person has the spike embedded, you can transfer your chemicals to them."
+	name = "Выстрел хим-шипом"
+	desc = "Выстреливает шип в направлении вашего взгляда, нанося очень слабый урон. Пока шип в теле жертвы вы можете передать ей все химикаты находящиеся в вашей крови."
 	action_icon_state = "spikechem"
 	spike_path = /obj/item/hardened_spike/chem
 
 /obj/item/hardened_spike/chem
-	name = "chem spike"
-	desc = "Hardened biomass, shaped into... something."
+	name = "химический шип"
+	desc = "Твердая биомасса в форме шипа. Кажется она полая внутри."
 	icon_state = "tonguespikechem"
 	throwforce = 2 //2 + 2 (WEIGHT_CLASS_SMALL) * 0 (EMBEDDED_IMPACT_PAIN_MULTIPLIER) = i didnt do the math again but very low or smthin
 	embedding = list("embedded_pain_multiplier" = 0, "embed_chance" = 100, "embedded_fall_chance" = 0, "embedded_pain_chance" = 0, "embedded_ignore_throwspeed_threshold" = TRUE) //never hurts once it's in you
@@ -343,11 +304,11 @@
 	chems = new
 	chems.transfered = embedded_mob
 	chems.spikey = src
-	to_chat(fired_by, span_notice("Link established! Use the \"Transfer Chemicals\" ability to send your chemicals to the linked target!"))
+	to_chat(fired_by, span_notice("Связь установлена! Используйте \"Передачу химикатов\" для перемещения их из вашей крови в тело жертвы!"))
 	chems.Grant(fired_by)
 
 /obj/item/hardened_spike/chem/unembedded()
-	to_chat(fired_by, span_warning("Link lost!"))
+	to_chat(fired_by, span_warning("Связь потеряна!"))
 	QDEL_NULL(chems)
 	..()
 
@@ -356,8 +317,8 @@
 	background_icon_state = "bg_spell"
 	check_flags = AB_CHECK_CONSCIOUS
 	button_icon_state = "spikechemswap"
-	name = "Transfer Chemicals"
-	desc = "Send all of your reagents into whomever the chem spike is embedded in. One use."
+	name = "Передача химикатов"
+	desc = "Перемещает все реагенты из вашей крови в тело жертвы."
 	var/obj/item/hardened_spike/chem/spikey
 	var/mob/living/carbon/human/transfered
 
@@ -373,20 +334,20 @@
 
 	//this is where it would deal damage, if it transfers chems it removes itself so no damage
 	spikey.forceMove(get_turf(L))
-	transfered.visible_message(span_notice("[spikey] falls out of [transfered]!"))
+	transfered.visible_message(span_notice("[spikey] выпал из [transfered]!"))
 
 //spider webs
 /datum/mutation/human/webbing
-	name = "Webbing Production"
-	desc = "Allows the user to lay webbing, and travel through it."
+	name = "Паутиновые железы"
+	desc = "Позволяет носителю создавать паутину и беспрепятственно двигаться через нее."
 	quality = POSITIVE
-	text_gain_indication = span_notice("Your skin feels webby.")
+	text_gain_indication = span_notice("На запястьях появились странные железы, и из них тянется тонкая белесая нить.")
 	instability = 15
 	power = /obj/effect/proc_holder/spell/self/lay_genetic_web
 
 /obj/effect/proc_holder/spell/self/lay_genetic_web
-	name = "Lay Web"
-	desc = "Drops a web. Only you will be able to traverse your web easily, making it pretty good for keeping you safe."
+	name = "Создание паутины"
+	desc = "Хорошее средство для самозащиты, замедляет потенциальных недоброжелателей, но не препятствует вашему движению."
 	clothes_req = FALSE
 	human_req = FALSE
 	charge_max = 4 SECONDS //the same time to lay a web
@@ -396,20 +357,20 @@
 /obj/effect/proc_holder/spell/self/lay_genetic_web/cast(list/targets, mob/user = usr)
 	var/failed = FALSE
 	if(!isturf(user.loc))
-		to_chat(user, span_warning("You can't lay webs here!"))
+		to_chat(user, span_warning("Здесь сплести паутину не выйдет!"))
 		failed = TRUE
 	var/turf/T = get_turf(user)
 	var/obj/structure/spider/stickyweb/genetic/W = locate() in T
 	if(W)
-		to_chat(user, span_warning("There's already a web here!"))
+		to_chat(user, span_warning("Тут уже есть паутина!"))
 		failed = TRUE
 	if(failed)
 		revert_cast(user)
 		return FALSE
 
-	user.visible_message(span_notice("[user] begins to secrete a sticky substance.") ,span_notice("You begin to lay a web."))
+	user.visible_message(span_notice("[user] начинает выделять липкую субстанцию из своих запястий.") ,span_notice("Начинаю плетение паутины..."))
 	if(!do_after(user, 4 SECONDS, target = T))
-		to_chat(user, span_warning("Your web spinning was interrupted!"))
+		to_chat(user, span_warning("Мне помешали!"))
 		return
 	else
 		new /obj/structure/spider/stickyweb/genetic(T, user)

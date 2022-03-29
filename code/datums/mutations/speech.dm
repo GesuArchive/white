@@ -2,10 +2,10 @@
 //Individual ones aren't commented since their functions should be evident at a glance
 
 /datum/mutation/human/nervousness
-	name = "Nervousness"
-	desc = "Causes the holder to stutter."
+	name = "Нервозность"
+	desc = "Вызывает заикание."
 	quality = MINOR_NEGATIVE
-	text_gain_indication = span_danger("You feel nervous.")
+	text_gain_indication = span_danger("Я в-в-в п-п-по-рядке!")
 
 /datum/mutation/human/nervousness/on_life(delta_time, times_fired)
 	if(DT_PROB(5, delta_time))
@@ -13,11 +13,11 @@
 
 
 /datum/mutation/human/wacky
-	name = "Wacky"
-	desc = "You are not a clown. You are the entire circus."
+	name = "Чокнутый"
+	desc = "Нет... Ты не клоун... Ты весь цирк в одном лице..."
 	quality = MINOR_NEGATIVE
-	text_gain_indication = span_sans("You feel an off sensation in your voicebox.")
-	text_lose_indication = span_notice("The off sensation passes.")
+	text_gain_indication = span_sans("Вы чувствуете прикольное ощущение в своем голосовом аппарате.")
+	text_lose_indication = span_notice("Речь приходит в норму.")
 
 /datum/mutation/human/wacky/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -35,11 +35,11 @@
 	speech_args[SPEECH_SPANS] |= SPAN_SANS
 
 /datum/mutation/human/mute
-	name = "Mute"
-	desc = "Completely inhibits the vocal section of the brain."
+	name = "Немота"
+	desc = "Полностью подавляет речевой отдел мозга."
 	quality = NEGATIVE
-	text_gain_indication = span_danger("You feel unable to express yourself at all.")
-	text_lose_indication = span_danger("You feel able to speak freely again.")
+	text_gain_indication = span_danger("А как говорить?")
+	text_lose_indication = span_danger("Могу свободно выражать свои мысли вслух.")
 
 /datum/mutation/human/mute/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -52,11 +52,11 @@
 	REMOVE_TRAIT(owner, TRAIT_MUTE, GENETIC_MUTATION)
 
 /datum/mutation/human/unintelligible
-	name = "Unintelligible"
-	desc = "Partially inhibits the vocal center of the brain, severely distorting speech."
+	name = "Невнятность"
+	desc = "Частично подавляет речевой отдел мозга, сильно искажая речь."
 	quality = NEGATIVE
-	text_gain_indication = span_danger("You can't seem to form any coherent thoughts!")
-	text_lose_indication = span_danger("Your mind feels more clear.")
+	text_gain_indication = span_danger("Я внезапно потерял осознание того, как из звуков составлять слова!")
+	text_lose_indication = span_danger("Выражать свои мысли стало намного прощще.")
 
 /datum/mutation/human/unintelligible/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -69,11 +69,11 @@
 	REMOVE_TRAIT(owner, TRAIT_UNINTELLIGIBLE_SPEECH, GENETIC_MUTATION)
 
 /datum/mutation/human/swedish
-	name = "Swedish"
-	desc = "A horrible mutation originating from the distant past. Thought to be eradicated after the incident in 2037."
+	name = "Швед"
+	desc = "Чудовищная мутация из далекого прошлого. Берет свои корни из инцидента в 2037 году."
 	quality = MINOR_NEGATIVE
-	text_gain_indication = span_notice("You feel Swedish, however that works.")
-	text_lose_indication = span_notice("The feeling of Swedishness passes.")
+	text_gain_indication = span_notice("Внезапно осознаю, что я коренной Швед.")
+	text_lose_indication = span_notice("Мои Шведские корни ушли в небытие.")
 
 /datum/mutation/human/swedish/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -90,21 +90,21 @@
 
 	var/message = speech_args[SPEECH_MESSAGE]
 	if(message)
-		message = replacetext(message,"w","v")
-		message = replacetext(message,"j","y")
-		message = replacetext(message,"a",pick("å","ä","æ","a"))
-		message = replacetext(message,"bo","bjo")
-		message = replacetext(message,"o",pick("ö","ø","o"))
+		message = replacetext(message,"в","у")
+		message = replacetext(message,"ж","ю")
+		message = replacetext(message,"а",pick("å","ä","æ","a"))
+		message = replacetext(message,"бо","бжо")
+		message = replacetext(message,"о",pick("ö","ø","o"))
 		if(prob(30))
-			message += " Bork[pick("",", bork",", bork, bork")]!"
+			message += " Борк[pick("",", борк",", борк, борк")]!"
 		speech_args[SPEECH_MESSAGE] = trim(message)
 
 /datum/mutation/human/chav
-	name = "Chav"
-	desc = "Unknown"
+	name = "Вор в законе"
+	desc = "Ген случайным образом вырабатывающийся у ассистентов"
 	quality = MINOR_NEGATIVE
-	text_gain_indication = span_notice("Ye feel like a reet prat like, innit?")
-	text_lose_indication = span_notice("You no longer feel like being rude and sassy.")
+	text_gain_indication = span_notice("Ощущаю себя дебилом с окраины?")
+	text_lose_indication = span_notice("Что то больше не хочется быть быдлом.")
 
 /datum/mutation/human/chav/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -120,37 +120,67 @@
 	var/message = speech_args[SPEECH_MESSAGE]
 	if(message)
 		message = " [message] "
-		message = replacetext(message," looking at  ","  gawpin' at ")
-		message = replacetext(message," great "," bangin' ")
-		message = replacetext(message," man "," mate ")
-		message = replacetext(message," friend ",pick(" mate "," bruv "," bledrin "))
-		message = replacetext(message," what "," wot ")
-		message = replacetext(message," drink "," wet ")
-		message = replacetext(message," get "," giz ")
-		message = replacetext(message," what "," wot ")
-		message = replacetext(message," no thanks "," wuddent fukken do one ")
-		message = replacetext(message," i don't know "," wot mate ")
-		message = replacetext(message," no "," naw ")
-		message = replacetext(message," robust "," chin ")
-		message = replacetext(message,"  hi  "," how what how ")
-		message = replacetext(message," hello "," sup bruv ")
-		message = replacetext(message," kill "," bang ")
-		message = replacetext(message," murder "," bang ")
-		message = replacetext(message," windows "," windies ")
-		message = replacetext(message," window "," windy ")
-		message = replacetext(message," break "," do ")
-		message = replacetext(message," your "," yer ")
-		message = replacetext(message," security "," coppers ")
+		message = replacetext(message," суперматерия "," монолит ")
+		message = replacetext(message," тэг "," баня ")
+		message = replacetext(message," теха "," темная улица ")
+		message = replacetext(message," генетик "," контролер ")
+		message = replacetext(message," синдикат "," пиндосы ")
+		message = replacetext(message," психолог "," мозгокрут ")
+		message = replacetext(message," шиз "," стукнутый ")
+		message = replacetext(message," ИИ "," Большой Брат ")
+		message = replacetext(message," борг "," пылесос ")
+		message = replacetext(message," детектив "," пес ")
+		message = replacetext(message," адвокат "," стукач ")
+		message = replacetext(message," огнетушитель "," петушитель ")
+		message = replacetext(message," священник "," патлатый ")
+		message = replacetext(message," библиотекарь "," буквоед ")
+		message = replacetext(message," морг "," холодная ")
+		message = replacetext(message," предатель "," вор в законе ")
+		message = replacetext(message," мутант "," кровосос ")
+		message = replacetext(message," станция "," хата ")
+		message = replacetext(message," смена "," отсидка ")
+		message = replacetext(message," поговорим "," побазарим ")
+		message = replacetext(message," шаттл "," дизель ")
+		message = replacetext(message," уходим "," тикаем ")
+		message = replacetext(message," пошли "," мансуем ")
+		message = replacetext(message," ты ",pick(" брат "," братан "," братуха "))
+		message = replacetext(message," се "," прапор стройбата ")
+		message = replacetext(message," убил "," замочил ")
+		message = replacetext(message," убийство "," мокруха ")
+		message = replacetext(message," ассистент "," босяк ")
+		message = replacetext(message," труп "," жмур ")
+		message = replacetext(message," бля "," мляяяя ")
+		message = replacetext(message," бриг "," зона ")
+		message = replacetext(message," рд "," чумак ")
+		message = replacetext(message," ученый "," яйцеголовый ")
+		message = replacetext(message," рнд "," припять ")
+		message = replacetext(message," привет "," вечер в хату ")
+		message = replacetext(message," мед "," больничка ")
+		message = replacetext(message," инженер "," стройбат ")
+		message = replacetext(message," врач "," мурка ")
+		message = replacetext(message," варден "," вертухай ")
+		message = replacetext(message," смо "," лепила ")
+		message = replacetext(message," хоп "," лялька ")
+		message = replacetext(message," хос "," начальник ")
+		message = replacetext(message," капитан "," хер с горы ")
+		message = replacetext(message," сб "," мусора ")
+		message = replacetext(message," глава "," бугор ")
+		message = replacetext(message," завхоз "," жид ")
+		message = replacetext(message," шахтер "," мужик ")
+		message = replacetext(message," грузчик "," батрак ")
+		message = replacetext(message," оружие "," валына ")
+		message = replacetext(message," лазер "," весло ")
+		message = replacetext(message," бармен "," бражник ")
 		speech_args[SPEECH_MESSAGE] = trim(message)
 
 
 /datum/mutation/human/elvis
-	name = "Elvis"
-	desc = "A terrifying mutation named after its 'patient-zero'."
+	name = "Элвис"
+	desc = "Чудовищная мутация названная в честь нулевого пациента."
 	quality = MINOR_NEGATIVE
 	locked = TRUE
-	text_gain_indication = span_notice("You feel pretty good, honeydoll.")
-	text_lose_indication = span_notice("You feel a little less conversation would be great.")
+	text_gain_indication = span_notice("Чувствую себя четко.")
+	text_lose_indication = span_notice("А... И так сойдет.")
 
 /datum/mutation/human/elvis/on_life(delta_time, times_fired)
 	switch(pick(1,2))
@@ -192,12 +222,12 @@
 
 
 /datum/mutation/human/stoner
-	name = "Stoner"
-	desc = "A common mutation that severely decreases intelligence."
+	name = "Торчок"
+	desc = "Распространенная мутация, которая сильно снижает интеллект."
 	quality = NEGATIVE
 	locked = TRUE
-	text_gain_indication = span_notice("You feel...totally chill, man!")
-	text_lose_indication = span_notice("You feel like you have a better sense of time.")
+	text_gain_indication = span_notice("Чувствую себя... да зашибись себя чувствую, чел!")
+	text_lose_indication = span_notice("Отпустило.")
 
 /datum/mutation/human/stoner/on_acquiring(mob/living/carbon/human/owner)
 	..()
@@ -210,11 +240,11 @@
 	owner.remove_blocked_language(subtypesof(/datum/language) - /datum/language/beachbum, LANGUAGE_STONER)
 
 /datum/mutation/human/medieval
-	name = "Medieval"
-	desc = "A horrible mutation originating from the distant past, thought to have once been a common gene in all of old world Europe."
+	name = "Средневековый"
+	desc = "Ужасная мутация, происходящая из далекого прошлого, которая, как считается, когда-то была общим геном во всей Европе старого света."
 	quality = MINOR_NEGATIVE
-	text_gain_indication = span_notice("You feel like seeking the holy grail!")
-	text_lose_indication = span_notice("You no longer feel like seeking anything.")
+	text_gain_indication = span_notice("Настало время приступить к поискам святого грааля!")
+	text_lose_indication = span_notice("А что я вообще искал?")
 
 /datum/mutation/human/medieval/on_acquiring(mob/living/carbon/human/owner)
 	if(..())

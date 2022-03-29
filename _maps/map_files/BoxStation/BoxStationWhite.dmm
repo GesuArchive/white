@@ -21590,6 +21590,7 @@
 "bQy" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/engineering/atmos/upper)
 "bQA" = (
@@ -26508,11 +26509,13 @@
 "ciu" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/engineering/atmos/upper)
 "civ" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/engineering/atmos/upper)
 "ciz" = (
@@ -26739,6 +26742,7 @@
 "cjr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/engineering/atmos/upper)
 "cju" = (
@@ -32146,6 +32150,9 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/cargo/office)
+"eeE" = (
+/turf/open/openspace,
+/area/hallway/secondary/exit/departure_lounge2)
 "eeV" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -32577,6 +32584,7 @@
 	id = "pod_4_lavaland";
 	name = "lavaland"
 	},
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/engineering/manufactory)
 "ewO" = (
@@ -33257,6 +33265,12 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
+"foK" = (
+/obj/structure/sign/warning/docking,
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/turf/open/floor/plating,
+/area/hallway/secondary/exit)
 "fpE" = (
 /obj/structure/cable/multilayer/multiz,
 /obj/effect/turf_decal/stripes/box,
@@ -33910,9 +33924,11 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/entry)
 "fZW" = (
+/obj/structure/cable,
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
-/area/hallway/secondary/entry/south)
+/area/security/brig/upper)
 "gby" = (
 /obj/machinery/light{
 	dir = 1;
@@ -37077,6 +37093,7 @@
 "jnu" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/layer_manifold/orange/visible,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/engineering/atmos/upper)
 "jnE" = (
@@ -37382,6 +37399,7 @@
 "jFE" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/engineering/atmos/upper)
 "jHt" = (
@@ -37626,6 +37644,11 @@
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/wood,
 /area/service/library/upper)
+"jVV" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice,
+/turf/open/openspace,
+/area/hallway/secondary/exit/departure_lounge2)
 "jXm" = (
 /obj/structure/sign/painting/library,
 /turf/closed/wall/r_wall,
@@ -40165,6 +40188,14 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/service/hydroponics/garden)
+"mVL" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/openspace,
+/area/hallway/secondary/exit/departure_lounge2)
 "mWg" = (
 /obj/machinery/light{
 	dir = 4
@@ -42072,6 +42103,11 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/openspace,
 /area/science/xenobiology)
+"oVW" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/turf/open/floor/plating,
+/area/engineering/manufactory)
 "oWq" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters{
@@ -42816,9 +42852,11 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air,
 /obj/effect/turf_decal/bot,
 /obj/structure/cable,
+/mob/living/simple_animal/bot/atmosbot{
+	auto_patrol = 0
+	},
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "pIc" = (
@@ -43155,6 +43193,7 @@
 "pZL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/engineering/atmos/upper)
 "qaq" = (
@@ -48874,6 +48913,11 @@
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"wzu" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
+/turf/open/floor/plating,
+/area/engineering/atmos/upper)
 "wzP" = (
 /obj/machinery/camera/autoname{
 	dir = 5;
@@ -60964,7 +61008,7 @@ aOe
 rXH
 rXH
 rXH
-fZW
+gAk
 aaa
 aaa
 aaa
@@ -74542,9 +74586,9 @@ fdN
 fdN
 fdN
 fdN
-xtF
-xtF
-xtF
+fZW
+fZW
+fZW
 ctv
 eRz
 aaa
@@ -83635,7 +83679,7 @@ ccA
 uyj
 ygI
 cgX
-giL
+wzu
 yhR
 bOh
 bOh
@@ -84406,7 +84450,7 @@ hhN
 eHb
 ygI
 chb
-giL
+wzu
 yhR
 bOh
 bOh
@@ -85177,7 +85221,7 @@ rVk
 uyj
 mNE
 std
-giL
+wzu
 yhR
 bOh
 bOh
@@ -85711,7 +85755,7 @@ tJL
 tJL
 tJL
 tJL
-ifX
+oVW
 cuh
 aaa
 gXs
@@ -85948,7 +85992,7 @@ rVk
 uyj
 ygI
 nfm
-giL
+wzu
 pLB
 bOh
 bOh
@@ -86225,7 +86269,7 @@ tJL
 tJL
 tJL
 tJL
-ifX
+oVW
 cuh
 aaa
 gXs
@@ -86719,7 +86763,7 @@ rVk
 uyj
 ygI
 hun
-giL
+wzu
 yhR
 bOh
 bOh
@@ -87490,7 +87534,7 @@ rVk
 uyj
 ygI
 gJi
-giL
+wzu
 yhR
 bOh
 bOh
@@ -92823,10 +92867,10 @@ alP
 anf
 jSz
 aGE
-uOI
-uOI
-aVL
-uOI
+jVV
+jVV
+mVL
+jVV
 fbj
 uOI
 uOI
@@ -93080,10 +93124,10 @@ alP
 anf
 jSz
 jKg
-dTQ
-dTQ
-dTQ
-dTQ
+eeE
+eeE
+eeE
+eeE
 ous
 dTQ
 dTQ
@@ -99240,7 +99284,7 @@ gXs
 aaa
 aaa
 atS
-gXs
+bHx
 gXs
 gXs
 atS
@@ -100538,7 +100582,7 @@ aaS
 gXs
 gXs
 gXs
-aNa
+cbJ
 aQE
 aNa
 aQE
@@ -100550,7 +100594,7 @@ cbJ
 aQE
 aNa
 aQE
-aNa
+cbJ
 aaa
 gXs
 eRz
@@ -100795,7 +100839,7 @@ aaS
 gXs
 gXs
 aaa
-aNa
+cbJ
 aQE
 aNa
 aQE
@@ -100807,7 +100851,7 @@ cbJ
 aQE
 aNa
 aQE
-aNa
+cbJ
 gXs
 gXs
 bky
@@ -101052,7 +101096,7 @@ aaS
 aaS
 aaS
 aaa
-aNa
+cbJ
 aeR
 aNa
 aQE
@@ -101064,7 +101108,7 @@ cbJ
 aQE
 aNa
 afE
-aNa
+cbJ
 gXs
 aaa
 bky
@@ -101309,19 +101353,19 @@ aaa
 aaa
 aaa
 aaa
-aNa
-aQE
-aNa
-aQE
-cbJ
-cbJ
-cbJ
-cbJ
 cbJ
 aQE
 aNa
 aQE
+cbJ
+cbJ
+cbJ
+cbJ
+cbJ
+aQE
 aNa
+aQE
+cbJ
 gXs
 aaa
 bky
@@ -101566,19 +101610,19 @@ gXs
 gXs
 gXs
 gXs
-aNa
+cbJ
 cyh
 aRW
 aTo
-aNa
+cbJ
 aaa
 gXs
 aaa
-aNa
+cbJ
 aTo
-aRW
+foK
 cyr
-aNa
+cbJ
 eRz
 eRz
 bky

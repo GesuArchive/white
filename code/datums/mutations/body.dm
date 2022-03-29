@@ -2,16 +2,16 @@
 
 //Epilepsy gives a very small chance to have a seizure every life tick, knocking you unconscious.
 /datum/mutation/human/epilepsy
-	name = "Epilepsy"
-	desc = "A genetic defect that sporadically causes seizures."
+	name = "Эпилепсия"
+	desc = "Генетический дефект, который время от времени вызывает судороги."
 	quality = NEGATIVE
-	text_gain_indication = span_danger("You get a headache.")
+	text_gain_indication = span_danger("У меня болит голова и трясутся руки.")
 	synchronizer_coeff = 1
 	power_coeff = 1
 
 /datum/mutation/human/epilepsy/on_life(delta_time, times_fired)
 	if(DT_PROB(0.5 * GET_MUTATION_SYNCHRONIZER(src), delta_time) && owner.stat == CONSCIOUS)
-		owner.visible_message(span_danger("[owner] starts having a seizure!") , span_userdanger("You have a seizure!"))
+		owner.visible_message(span_danger("[owner] содрогается в припадке!") , span_userdanger("У меня приступ!"))
 		owner.Unconscious(200 * GET_MUTATION_POWER(src))
 		owner.Jitter(1000 * GET_MUTATION_POWER(src))
 		SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "epilepsy", /datum/mood_event/epilepsy)
@@ -24,10 +24,10 @@
 
 //Unstable DNA induces random mutations!
 /datum/mutation/human/bad_dna
-	name = "Unstable DNA"
-	desc = "Strange mutation that causes the holder to randomly mutate."
+	name = "Нестабильная ДНК"
+	desc = "Серьезное генетическое отклонение, которое нарушает генетическую стабильность, тем самым вызывая произвольные мутации."
 	quality = NEGATIVE
-	text_gain_indication = span_danger("You feel strange.")
+	text_gain_indication = span_danger("Я чувству себя не таким как вчера...")
 	locked = TRUE
 
 /datum/mutation/human/bad_dna/on_acquiring(mob/living/carbon/human/owner)
@@ -51,9 +51,9 @@
 //Cough gives you a chronic cough that causes you to drop items.
 /datum/mutation/human/cough
 	name = "Кашель"
-	desc = "A chronic cough."
+	desc = "Хронический кашель."
 	quality = MINOR_NEGATIVE
-	text_gain_indication = span_danger("You start coughing.")
+	text_gain_indication = span_danger("Кха... Я не могу, кха... перестать кашлять, кха...")
 	synchronizer_coeff = 1
 	power_coeff = 1
 
@@ -67,11 +67,11 @@
 			owner.throw_at(target, cough_range, GET_MUTATION_POWER(src))
 
 /datum/mutation/human/paranoia
-	name = "Paranoia"
-	desc = "Subject is easily terrified, and may suffer from hallucinations."
+	name = "Паранойя"
+	desc = "Субъект легко поддается панике и может страдать от галлюцинаций."
 	quality = NEGATIVE
-	text_gain_indication = span_danger("You feel screams echo through your mind...")
-	text_lose_indication = span_notice("The screaming in your mind fades.")
+	text_gain_indication = span_danger("Я слышу крики и плач тысяч голосов в своей голове...")
+	text_lose_indication = span_notice("Голоса в голове замолкли.")
 
 /datum/mutation/human/paranoia/on_life(delta_time, times_fired)
 	if(DT_PROB(2.5, delta_time) && owner.stat == CONSCIOUS)
@@ -81,8 +81,8 @@
 
 //Dwarfism shrinks your body and lets you pass tables.
 /datum/mutation/human/dwarfism
-	name = "Dwarfism"
-	desc = "A mutation believed to be the cause of dwarfism."
+	name = "Дворфизм"
+	desc = "Мутация которая увеличивает мир вокруг носителя."
 	quality = POSITIVE
 	difficulty = 16
 	instability = 5
@@ -111,10 +111,10 @@
 
 //Clumsiness has a very large amount of small drawbacks depending on item.
 /datum/mutation/human/clumsy
-	name = "Clumsiness"
-	desc = "A genome that inhibits certain brain functions, causing the holder to appear clumsy. Honk!"
+	name = "Неуклюжесть"
+	desc = "Ген нарушающий тонкую моторику и блокирующий некоторые связи в мозге носителя. Хонк!"
 	quality = MINOR_NEGATIVE
-	text_gain_indication = span_danger("Ощущаю лёгкое головокружение.")
+	text_gain_indication = span_danger("Хееей! Все стало таким прикольным! Хонк!")
 
 /datum/mutation/human/clumsy/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -129,8 +129,8 @@
 
 //Tourettes causes you to randomly stand in place and shout.
 /datum/mutation/human/tourettes
-	name = "Tourette's Syndrome"
-	desc = "A chronic twitch that forces the user to scream bad words." //definitely needs rewriting
+	name = "Синдром Туретта"
+	desc = "Хроническое генетическое отклонение, вынуждающее носителя непроизвольно выкрикивать слова." //definitely needs rewriting
 	quality = NEGATIVE
 	text_gain_indication = span_danger("Меня ДЁРГАЕТ.")
 	synchronizer_coeff = 1
@@ -142,7 +142,7 @@
 			if(1)
 				owner.emote("twitch")
 			if(2 to 3)
-				owner.say("[prob(50) ? ";" : ""][pick("ГОВНО", "МОЧА", "БЛЯТЬ", "ПИЗДА", "ХУЕСОС", "МАМУ ЕБАЛ", "СИСЬКИ")]!", forced=name)
+				owner.say("[prob(50) ? ";" : ""][pick("ГОВНО", "ЖОПА", "МОЧА", "БЛЯТЬ", "ПИЗДА", "ХУЕСОС", "МАМУ ЕБАЛ", "СИСЬКИ")]!", forced=name)
 		var/x_offset_old = owner.pixel_x
 		var/y_offset_old = owner.pixel_y
 		var/x_offset = owner.pixel_x + rand(-2,2)
@@ -154,9 +154,9 @@
 //Deafness makes you deaf.
 /datum/mutation/human/deaf
 	name = "Глухота"
-	desc = "The holder of this genome is completely deaf."
+	desc = "Носитель полностью генетически глух."
 	quality = NEGATIVE
-	text_gain_indication = span_danger("You can't seem to hear anything.")
+	text_gain_indication = span_danger("Я ничего не слышу...")
 
 /datum/mutation/human/deaf/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -171,10 +171,10 @@
 
 //Monified turns you into a monkey.
 /datum/mutation/human/race
-	name = "Monkified"
-	desc = "A strange genome, believing to be what differentiates monkeys from humans."
-	text_gain_indication = "You feel unusually monkey-like."
-	text_lose_indication = "You feel like your old self."
+	name = "Манкификация"
+	desc = "Странный геном, который показывает, что мы не так уж и далеко ушли от обезьян."
+	text_gain_indication = "Я чувствую себя более примитивным."
+	text_lose_indication = "Я чувствую себя преждним."
 	quality = NEGATIVE
 	time_coeff = 2
 	locked = TRUE //Species specific, keep out of actual gene pool
@@ -192,10 +192,10 @@
 		. = owner.humanize(original_species)
 
 /datum/mutation/human/glow
-	name = "Glowy"
-	desc = "You permanently emit a light with a random color and intensity."
+	name = "Свечение"
+	desc = "Трансмутирует кожный покров носителя, тем самым вынуждая его постоянно излучать свет случайного цвета и интенсивностью."
 	quality = POSITIVE
-	text_gain_indication = span_notice("Your skin begins to glow softly.")
+	text_gain_indication = span_notice("Моя кожа светится...")
 	instability = 5
 	var/obj/effect/dummy/luminescent_glow/glowth //shamelessly copied from luminescents
 	var/glow = 2.5
@@ -231,9 +231,9 @@
 	QDEL_NULL(glowth)
 
 /datum/mutation/human/glow/anti
-	name = "Anti-Glow"
-	desc = "Your skin seems to attract and absorb nearby light creating 'darkness' around you."
-	text_gain_indication = span_notice("Your light around you seems to disappear.")
+	name = "Светопоглощение"
+	desc = "Кожа носителя поглощает частицы света и препятствует его отражению, образно говоря создавая вокруг носителя тьму."
+	text_gain_indication = span_notice("Свет вокруг меня становится тусклее...")
 	glow = -1.5
 	conflicts = list(/datum/mutation/human/glow)
 	locked = TRUE
@@ -242,25 +242,25 @@
 	return COLOR_VERY_LIGHT_GRAY
 
 /datum/mutation/human/strong
-	name = "Strength"
-	desc = "The user's muscles slightly expand."
+	name = "Сила"
+	desc = "Приводит мышцы носителя в тонус."
 	quality = POSITIVE
-	text_gain_indication = span_notice("You feel strong.")
+	text_gain_indication = span_notice("Чувствую себя сильнее...")
 	difficulty = 16
 
 /datum/mutation/human/stimmed
-	name = "Stimmed"
-	desc = "The user's chemical balance is more robust."
+	name = "Биохимический баланс"
+	desc = "Приводит в порядок внутреннюю биофлору носителя."
 	quality = POSITIVE
-	text_gain_indication = span_notice("You feel stimmed.")
+	text_gain_indication = span_notice("Чувствую себя здоровее...")
 	difficulty = 16
 
 /datum/mutation/human/insulated
-	name = "Insulated"
-	desc = "The affected person does not conduct electricity."
+	name = "Электроизоляция"
+	desc = "Делает организм носителя невосприимчивым к ударам электрическим током."
 	quality = POSITIVE
-	text_gain_indication = span_notice("Your fingertips go numb.")
-	text_lose_indication = span_notice("Your fingertips regain feeling.")
+	text_gain_indication = span_notice("Кончики пальцев немеют...")
+	text_lose_indication = span_notice("Чувствительность пальцев восстанавливается.")
 	difficulty = 16
 	instability = 25
 
@@ -275,11 +275,11 @@
 	REMOVE_TRAIT(owner, TRAIT_SHOCKIMMUNE, "genetics")
 
 /datum/mutation/human/fire
-	name = "Fiery Sweat"
-	desc = "The user's skin will randomly combust, but is generally a lot more resilient to burning."
+	name = "Огненный пот"
+	desc = "Изменяет потовые железы носителя, провоцируя их выделять самовоспламеняющийся пот. Однако это также делает носителя более устойчивым к воздействию пламени."
 	quality = NEGATIVE
-	text_gain_indication = span_warning("You feel hot.")
-	text_lose_indication = span_notice("You feel a lot cooler.")
+	text_gain_indication = span_warning("Моя кожа горит!")
+	text_lose_indication = span_notice("Прохлада вернулась...")
 	difficulty = 14
 	synchronizer_coeff = 1
 	power_coeff = 1
@@ -300,11 +300,11 @@
 	owner.physiology.burn_mod *= 2
 
 /datum/mutation/human/badblink
-	name = "Spatial Instability"
-	desc = "The victim of the mutation has a very weak link to spatial reality, and may be displaced. Often causes extreme nausea."
+	name = "Пространственная нестабильность"
+	desc = "Жертва теряет связь с пространственно-временным континуумом и совершает неконтролируемые прыжки. Также вызывает сильную тошноту."
 	quality = NEGATIVE
-	text_gain_indication = span_warning("The space around you twists sickeningly.")
-	text_lose_indication = span_notice("The space around you settles back to normal.")
+	text_gain_indication = span_warning("Пространство вокруг меня тошнотворно искривляется.")
+	text_lose_indication = span_notice("Пространство вокруг меня приходит в норму.")
 	difficulty = 18//high so it's hard to unlock and abuse
 	instability = 10
 	synchronizer_coeff = 1
@@ -315,26 +315,26 @@
 /datum/mutation/human/badblink/on_life(delta_time, times_fired)
 	if(DT_PROB(warpchance, delta_time))
 		var/warpmessage = pick(
-		span_warning("With a sickening 720-degree twist of [owner.ru_ego()] back, [owner] vanishes into thin air.") ,
-		span_warning("[owner] does some sort of strange backflip into another dimension. It looks pretty painful.") ,
-		span_warning("[owner] does a jump to the left, a step to the right, and warps out of reality.") ,
-		span_warning("[owner] torso starts folding inside out until it vanishes from reality, taking [owner] with it.") ,
-		span_warning("One moment, you see [owner]. The next, [owner] is gone."))
-		owner.visible_message(warpmessage, span_userdanger("You feel a wave of nausea as you fall through reality!"))
+		span_warning("С отвратительным поворотом на 720 градусов, [owner] растворяется в воздухе.") ,
+		span_warning("[owner] складывается несколько раз пополам в неестественных позах пока не уменьшается до размера пылинки. Это выглядело довольно болезненным...") ,
+		span_warning("[owner] внезапно сдвигается чуть правее, через мгновение он оказывается левее, а затем бесследно исчезает.") ,
+		span_warning("[owner] засасывает внутрь самого себя и он испаряется.") ,
+		span_warning("Только что [owner] находился прямо перед вами, но стоило вам моргнуть как его уже нет."))
+		owner.visible_message(warpmessage, span_userdanger("Пространство вокруг меня тошнотворно искривляется!"))
 		var/warpdistance = rand(10, 15) * GET_MUTATION_POWER(src)
 		do_teleport(owner, get_turf(owner), warpdistance, channel = TELEPORT_CHANNEL_FREE)
 		owner.adjust_disgust(GET_MUTATION_SYNCHRONIZER(src) * (warpchance * warpdistance))
 		warpchance = 0
-		owner.visible_message(span_danger("[owner] appears out of nowhere!"))
+		owner.visible_message(span_danger("[owner] появляется из ниоткуда!"))
 	else
 		warpchance += 0.0625 * GET_MUTATION_ENERGY(src) * delta_time
 
 /datum/mutation/human/acidflesh
-	name = "Acidic Flesh"
-	desc = "Subject has acidic chemicals building up underneath the skin. This is often lethal."
+	name = "Кислотная плоть"
+	desc = "Под кожей жертвы образуются нарывы с едкой кислотой. Летально!"
 	quality = NEGATIVE
-	text_gain_indication = span_userdanger("A horrible burning sensation envelops you as your flesh turns to acid!")
-	text_lose_indication = span_notice("A feeling of relief fills you as your flesh goes back to normal.")
+	text_gain_indication = span_userdanger("Мне очень больно! Такое ощущение что в моих венах серная кислота!")
+	text_lose_indication = span_notice("Моя кожа перестала отслаиваться отвратительными едкими пластами...")
 	difficulty = 18//high so it's hard to unlock and use on others
 	/// The cooldown for the warning message
 	COOLDOWN_DECLARE(msgcooldown)
@@ -342,16 +342,16 @@
 /datum/mutation/human/acidflesh/on_life(delta_time, times_fired)
 	if(DT_PROB(13, delta_time))
 		if(COOLDOWN_FINISHED(src, msgcooldown))
-			to_chat(owner, span_danger("Your acid flesh bubbles..."))
+			to_chat(owner, span_danger("Кожа на моей руке пузырится..."))
 			COOLDOWN_START(src, msgcooldown, 20 SECONDS)
 		if(prob(15))
 			owner.acid_act(rand(30, 50), 10)
-			owner.visible_message(span_warning("[owner]'s skin bubbles and pops.") , span_userdanger("Your bubbling flesh pops! It burns!"))
+			owner.visible_message(span_warning("Кожа на теле [owner] пузырится и лопается в кислотных брызгах.") , span_userdanger("Кислотный нарыв лопнул! Жгется!"))
 			playsound(owner,'sound/weapons/sear.ogg', 50, TRUE)
 
 /datum/mutation/human/gigantism
-	name = "Gigantism"//negative version of dwarfism
-	desc = "The cells within the subject spread out to cover more area, making the subject appear larger."
+	name = "Гигантизм"//negative version of dwarfism
+	desc = "Увеличивает межклеточное пространство в организме носителя, тем самым увеличивая его физический размер."
 	quality = MINOR_NEGATIVE
 	difficulty = 12
 	conflicts = list(DWARFISM)
@@ -373,11 +373,11 @@
 	owner.visible_message(span_danger("[owner] резко уменьшился!") , span_notice("Кажется, что всё такое большое.."))
 
 /datum/mutation/human/spastic
-	name = "Spastic"
-	desc = "Subject suffers from muscle spasms."
+	name = "Мышечные спазмы"
+	desc = "Субъект страдает от мышечных спазмов."
 	quality = NEGATIVE
-	text_gain_indication = span_warning("Дёргаюсь.")
-	text_lose_indication = span_notice("Прекращаю дёргаться.")
+	text_gain_indication = span_warning("Мои конечности самопроизвольно сокращаются!")
+	text_lose_indication = span_notice("Вновь контролирую свое тело...")
 	difficulty = 16
 
 /datum/mutation/human/spastic/on_acquiring()
@@ -391,11 +391,11 @@
 	owner.remove_status_effect(STATUS_EFFECT_SPASMS)
 
 /datum/mutation/human/extrastun
-	name = "Two Left Feet"
-	desc = "A mutation that replaces the right foot with another left foot. Symptoms include kissing the floor when taking a step."
+	name = "Две левых ноги"
+	desc = "Мутация, которая заменяет вашу правую ногу еще одной левой ногой. Будьте готовы к постоянным встречам вашего лица с полом."
 	quality = NEGATIVE
-	text_gain_indication = span_warning("Your right foot feels... left.")
-	text_lose_indication = span_notice("Your right foot feels alright.")
+	text_gain_indication = span_warning("Левой, Правой! Левой, левой, левой? левой?! Ай!")
+	text_lose_indication = span_notice("Левой, Правой! Левой, Правой!")
 	difficulty = 16
 
 /datum/mutation/human/extrastun/on_acquiring()
@@ -418,16 +418,16 @@
 		return
 	if(owner.buckled || owner.body_position == LYING_DOWN || HAS_TRAIT(owner, TRAIT_IMMOBILIZED) || owner.throwing || owner.movement_type & (VENTCRAWLING | FLYING | FLOATING))
 		return //remove the 'edge' cases
-	to_chat(owner, span_danger("You trip over your own feet."))
+	to_chat(owner, span_danger("Спотыкаюсь, запутавшись в своих же ногах."))
 	owner.Knockdown(30)
 
 /datum/mutation/human/martyrdom
-	name = "Internal Martyrdom"
-	desc = "A mutation that makes the body destruct when near death. Not damaging, but very, VERY disorienting."
+	name = "Кровавый мученик"
+	desc = "Мутация которая вызывает коллапсирующую клеточную дестабилизацию если организм носителя близок к смерти. Это не наносит урона, но очень, ОЧЕНЬ сильно дезориентирует!"
 	locked = TRUE
 	quality = POSITIVE //not that cloning will be an option a lot but generally lets keep this around i guess?
-	text_gain_indication = span_warning("You get an intense feeling of heartburn.")
-	text_lose_indication = span_notice("Your internal organs feel at ease.")
+	text_gain_indication = span_warning("Я чувствую внутри себя странную вибрацию.")
+	text_lose_indication = span_notice("Вибрация успокоилась.")
 
 /datum/mutation/human/martyrdom/on_acquiring()
 	. = ..()
@@ -455,24 +455,24 @@
 	for(var/mob/living/carbon/human/H in view(2,owner))
 		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
 		if(eyes)
-			to_chat(H, span_userdanger("You are blinded by a shower of blood!"))
+			to_chat(H, span_userdanger("Я был ослеплен и дезориентирован чудовищным кровавым взрывом! Это было ужасно!"))
 		else
-			to_chat(H, span_userdanger("You are knocked down by a wave of... blood?!"))
+			to_chat(H, span_userdanger("Я был сбит с ног волной чего-то жидкого, теплого и отдающего железом... погодите... это что? КРОВЬ?!"))
 		H.Stun(20)
 		H.blur_eyes(20)
 		eyes?.applyOrganDamage(5)
 		H.add_confusion(3)
 	for(var/mob/living/silicon/S in view(2,owner))
-		to_chat(S, span_userdanger("Your sensors are disabled by a shower of blood!"))
+		to_chat(S, span_userdanger("Сенсоры были замкнуты волной крови! Критическая ошибка! Перезагрузка..."))
 		S.Paralyze(60)
 	owner.gib()
 
 /datum/mutation/human/headless
-	name = "H.A.R.S."
-	desc = "A mutation that makes the body reject the head, the brain receding into the chest. Stands for Head Allergic Rejection Syndrome. Warning: Removing this mutation is very dangerous, though it will regenerate non-vital head organs."
+	name = "Х.А.Р.С."
+	desc = "Мутация вызывающее аутоиммунное отторжение головы. Мозг при этом переносится в тело. Название состоит из первых букв фамилий ученых-первооткрывателей, они же первые жертвы... "
 	difficulty = 12 //pretty good for traitors
 	quality = NEGATIVE //holy shit no eyes or tongue or ears
-	text_gain_indication = span_warning("Something feels off.")
+	text_gain_indication = span_warning("Кажется я что-то потерял, только не могу понять что...")
 
 /datum/mutation/human/headless/on_acquiring()
 	. = ..()
@@ -484,7 +484,7 @@
 
 	var/obj/item/bodypart/head/head = owner.get_bodypart(BODY_ZONE_HEAD)
 	if(head)
-		owner.visible_message(span_warning("[owner] head splatters with a sickening crunch!") , ignored_mobs = list(owner))
+		owner.visible_message(span_warning("Голова [owner] взрывается в брызгах костей и крови!") , ignored_mobs = list(owner))
 		new /obj/effect/gibspawner/generic(get_turf(owner), owner)
 		head.dismember(BRUTE)
 		head.drop_organs()
@@ -502,11 +502,11 @@
 	UnregisterSignal(owner, COMSIG_CARBON_ATTACH_LIMB)
 	var/successful = owner.regenerate_limb(BODY_ZONE_HEAD, noheal = TRUE) //noheal needs to be TRUE to prevent weird adding and removing mutation healing
 	if(!successful)
-		stack_trace("HARS mutation head regeneration failed! (usually caused by headless syndrome having a head)")
+		stack_trace("ТЕХНИЧЕСКАЯ ОШИБКА, сообщите вкодербас! Голова не может быть восстановлена так как она уже на своем месте.")
 		return TRUE
 	owner.dna.species.regenerate_organs(owner, replace_current = FALSE, excluded_zones = list(BODY_ZONE_CHEST)) //replace_current needs to be FALSE to prevent weird adding and removing mutation healing
 	owner.apply_damage(damage = 50, damagetype = BRUTE, def_zone = BODY_ZONE_HEAD) //and this to DISCOURAGE organ farming, or at least not make it free.
-	owner.visible_message(span_warning("[owner] head returns with a sickening crunch!") , span_warning("Your head regrows with a sickening crack! Ouch."))
+	owner.visible_message(span_warning("Голова [owner] с отвратительным хрустом вырывается прямо из тела! Это выглядело ужасно!") , span_warning("Моя голова как будто выныривает прямо из моего туловища. Это было бы очень странно, если бы не было так больно..."))
 	new /obj/effect/gibspawner/generic(get_turf(owner), owner)
 
 

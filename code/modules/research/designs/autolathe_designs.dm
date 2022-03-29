@@ -936,6 +936,14 @@
 	category = list("initial", "Разное", "Медицинское снаряжение", "Инженерное снаряжение")
 	sub_category = list("Датчики и Сигнальные устройства")
 
+/datum/design/prox_sensor2	//	Дубль для мехфаба без подкласса
+	name = "Датчик движения"
+	id = "prox_sensor2"
+	build_type = MECHFAB
+	construction_time = 20
+	materials = list(/datum/material/iron = 800, /datum/material/glass = 200)
+	build_path = /obj/item/assembly/prox_sensor
+	category = list("Батареи и прочее")
 /datum/design/foam_dart
 	name = "Коробка с пенными дротиками"
 	id = "foam_dart"

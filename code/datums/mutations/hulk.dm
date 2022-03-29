@@ -1,11 +1,11 @@
 //Hulk turns your skin green, makes you strong, and allows you to shrug off stun effect.
 /datum/mutation/human/hulk
-	name = "Hulk"
-	desc = "A poorly understood genome that causes the holder's muscles to expand, inhibit speech and gives the person a bad skin condition."
+	name = "Халк"
+	desc = "Плохо изученный геном, который неестественно увеличивает мышцы, угнетает речевой аппарат и окрашивает кожу в странный зеленый цвет."
 	quality = POSITIVE
 	locked = TRUE
 	difficulty = 16
-	text_gain_indication = span_notice("Your muscles hurt!")
+	text_gain_indication = span_notice("Мускулы ломит от переполняющей силы!")
 	species_allowed = list("human") //no skeleton/lizard hulk
 	health_req = 25
 	instability = 40
@@ -45,7 +45,7 @@
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/mutation/human/hulk/proc/scream_attack(mob/living/carbon/human/source)
-	source.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ), forced="hulk")
+	source.say(pick(";РААААААААААРГХ!", ";НГХАААААРРРГГГХХХ!;", ";ГРААААААААРГГГХХХ!", ";ХХАААААРРРРГГГХХ!", ";АААААААААРРРГХ!" ), forced="hulk")
 
 /**
  *Checks damage of a hulk's arm and applies bone wounds as necessary.
@@ -68,7 +68,7 @@
 /datum/mutation/human/hulk/on_life(delta_time, times_fired)
 	if(owner.health < 0)
 		on_losing(owner)
-		to_chat(owner, span_danger("You suddenly feel very weak."))
+		to_chat(owner, span_danger("Я чувствую себя таким слабым..."))
 
 /datum/mutation/human/hulk/on_losing(mob/living/carbon/human/owner)
 	if(..())
