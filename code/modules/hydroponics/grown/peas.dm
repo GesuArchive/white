@@ -63,7 +63,7 @@
 
 // World Peas - Peace at last, peace at last...
 /obj/item/seeds/peas/laugh/peace
-	name = "Пачка семян мирового гороха"
+	name = "Пачка семян мирного гороха"
 	desc = "Эти крупные семена испускают успокаивающее голубое свечение..."
 	icon_state = "seed-worldpeas"
 	species = "worldpeas"
@@ -84,7 +84,7 @@
 
 /obj/item/food/grown/peace
 	seed = /obj/item/seeds/peas/laugh/peace
-	name = "Гроздь мировых горошин"
+	name = "Гроздь мирных горошин"
 	desc = "Растение, выведенное благодаря продвинутой генной инженерии. Поговаривают, что он приносит мир любому, кто его употребляет. Учёные называют его 'Мир Во Всем Мире'." //напоследок... мировой горох.
 	icon_state = "worldpeas"
 	bite_consumption_mod = 4
