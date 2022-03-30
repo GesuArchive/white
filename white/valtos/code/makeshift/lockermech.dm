@@ -8,7 +8,6 @@
 	movedelay = 4 //Same speed as a ripley, for now.
 	armor = list(melee = 20, bullet = 10, laser = 10, energy = 0, bomb = 10, bio = 0, rad = 0, fire = 70, acid = 60) //Same armour as a locker
 	internal_damage_threshold = 30 //Its got shitty durability
-	max_equip = 2 //You only have two arms and the control system is shitty
 	wreckage = null
 	var/list/cargo = list()
 	var/cargo_capacity = 5 // you can fit a few things in this locker but not much.
@@ -36,17 +35,6 @@
 			cargo -= O
 			O.forceMove(loc)
 	. = ..()
-
-/obj/vehicle/sealed/mecha/makeshift/get_stats_part()
-	var/output = ..()
-	output += "<b>Cargo Compartment Contents:</b><div style=\"margin-left: 15px;\">"
-	if(cargo.len)
-		for(var/obj/O in cargo)
-			output += "<a href='?src=\ref[src];drop_from_cargo=\ref[O]'>Unload</a> : [O]<br>"
-	else
-		output += "Nothing"
-	output += "</div>"
-	return output
 
 /obj/vehicle/sealed/mecha/makeshift/relay_container_resist_act(mob/living/user, obj/O)
 	to_chat(user, span_notice("You lean on the back of [O] and start pushing so it falls out of [src]."))

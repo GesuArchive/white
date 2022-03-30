@@ -110,14 +110,14 @@
 	ui_view.appearance = appearance
 	var/datum/gas_mixture/int_tank_air= internal_tank?.return_air()
 	data["name"] = name
-	data["integrity"] = atom_integrity/max_integrity
+	data["integrity"] = obj_integrity/max_integrity
 	data["power_level"] = cell?.charge
 	data["power_max"] = cell?.maxcharge
 	data["mecha_flags"] = mecha_flags
 	data["internal_damage"] = internal_damage
 	data["air_source"] = use_internal_tank ? "Internal Airtank" : "Environment"
 	data["airtank_pressure"] = int_tank_air ? round(int_tank_air.return_pressure(), 0.01) : null
-	data["airtank_temp"] = int_tank_air?.temperature
+	data["airtank_temp"] = int_tank_air?.return_temperature()
 	data["port_connected"] = internal_tank?.connected_port ? TRUE : FALSE
 	data["cabin_pressure"] = round(return_pressure(), 0.01)
 	data["cabin_temp"] = return_temperature()
@@ -125,9 +125,9 @@
 	data["mech_view"] = ui_view.assigned_map
 	if(radio)
 		data["mech_electronics"] = list(
-			"microphone" = radio.get_broadcasting(),
-			"speaker" = radio.get_listening(),
-			"frequency" = radio.get_frequency(),
+			"microphone" = radio.broadcasting,
+			"speaker" = radio.listening,
+			"frequency" = radio.frequency,
 		)
 	if(equip_by_category[MECHA_L_ARM])
 		var/obj/item/mecha_parts/mecha_equipment/l_gun = equip_by_category[MECHA_L_ARM]
@@ -177,14 +177,14 @@
 	for(var/obj/item/mecha_parts/mecha_equipment/utility as anything in equip_by_category[MECHA_UTILITY])
 		data["mech_equipment"]["utility"] += list(list(
 			"name" = utility.name,
-			"activated" = utility.activated,
+			"activated" = utility.equip_ready,
 			"snowflake" = utility.get_snowflake_data(),
 			"ref" = REF(utility),
 		))
 	for(var/obj/item/mecha_parts/mecha_equipment/power as anything in equip_by_category[MECHA_POWER])
 		data["mech_equipment"]["power"] += list(list(
 			"name" = power.name,
-			"activated" = power.activated,
+			"activated" = power.equip_ready,
 			"snowflake" = power.get_snowflake_data(),
 			"ref" = REF(power),
 		))
@@ -262,9 +262,6 @@
 			var/userinput = tgui_input_text(usr, "Choose a new exosuit name", "Rename exosuit", max_length = MAX_NAME_LEN)
 			if(!userinput)
 				return
-			if(is_ic_filtered(userinput) || is_soft_ic_filtered(userinput))
-				tgui_alert(usr, "You cannot set a name that contains a word prohibited in IC chat!")
-				return
 			name = userinput
 		if("dna_lock")
 			var/mob/living/carbon/user = usr
@@ -304,9 +301,9 @@
 		if("toggle_id_panel")
 			mecha_flags ^= ADDING_ACCESS_POSSIBLE
 		if("toggle_microphone")
-			radio.set_broadcasting(!radio.get_broadcasting())
+			radio.broadcasting = !radio.broadcasting
 		if("toggle_speaker")
-			radio.set_listening(!radio.get_listening())
+			radio.listening = !radio.listening
 		if("set_frequency")
 			radio.set_frequency(sanitize_frequency(params["new_frequency"], radio.freerange))
 		if("repair_int_damage")

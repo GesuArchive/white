@@ -640,3 +640,10 @@
 			blended_color = "#2eeb9a"
 	pre_asset.Blend(blended_color, ICON_MULTIPLY)
 	return pre_asset
+
+/datum/asset/spritesheet/mechaarmor
+	name = "mechaarmor"
+
+/datum/asset/spritesheet/mechaarmor/register()
+	InsertAll("", 'icons/ui_icons/mecha/armor.dmi')
+	..()

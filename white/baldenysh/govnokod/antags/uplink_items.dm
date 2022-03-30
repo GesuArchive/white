@@ -13,9 +13,11 @@
 	cost = 5
 	surplus = 20
 
+/*
 /datum/uplink_item/device_tools/mechlink_gloves
 	name = "Мех-линк перчатки"
 	desc = "Позволяют отрывать пушки от мехов и турелей. Также позволяют стрелять из пушек для мехов, если источник энергии имеется в другой руке."
 	item = /obj/item/clothing/gloves/combat/mechlink
 	cost = 7
 	surplus = 5
+*/

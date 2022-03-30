@@ -10,12 +10,11 @@
 	pixel_x = -32
 	pixel_y = -32
 
-/obj/vehicle/sealed/mecha/combat/five_stars/loaded/Initialize()
-	. = ..()
-	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack(src)
-	ME.attach(src)
-	ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg(src)
-	ME.attach(src)
-	ME = new /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay(src)
-	ME.attach(src)
-	max_ammo()
+/obj/vehicle/sealed/mecha/combat/five_stars/loaded
+	equip_by_category = list(
+		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack,
+		MECHA_R_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg,
+		MECHA_UTILITY = list(),
+		MECHA_POWER = list(),
+		MECHA_ARMOR = list(),
+	)
