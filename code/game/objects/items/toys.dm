@@ -1026,9 +1026,7 @@
 
 /obj/item/toy/nuke
 	name = "игрушечная ядерная бомба"
-	desc = "Пластиковая модель ядерной бомбы._AddElement(list/arguments)
-		. = ..()
-		"
+	desc = "Пластиковая модель ядерной бомбы."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "nuketoyidle"
 	w_class = WEIGHT_CLASS_SMALL
