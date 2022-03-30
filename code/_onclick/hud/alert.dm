@@ -634,30 +634,33 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 /atom/movable/screen/alert/nocell
 	name = "Missing Power Cell"
 	desc = "Unit has no power cell. No modules available until a power cell is reinstalled. Robotics may provide assistance."
-	icon_state = "nocell"
+	icon_state = "no_cell"
 
 /atom/movable/screen/alert/emptycell
 	name = "Out of Power"
 	desc = "Unit's power cell has no charge remaining. No modules available until power cell is recharged. \
 Recharging stations are available in robotics, the dormitory bathrooms, and the AI satellite."
-	icon_state = "emptycell"
+	icon_state = "empty_cell"
 
 /atom/movable/screen/alert/lowcell
 	name = "Low Charge"
 	desc = "Unit's power cell is running low. Recharging stations are available in robotics, the dormitory bathrooms, and the AI satellite."
-	icon_state = "lowcell"
+	icon_state = "low_cell"
 
 //Ethereal
 
-/atom/movable/screen/alert/etherealcharge
+/atom/movable/screen/alert/lowcell/ethereal
 	name = "Low Blood Charge"
 	desc = "Your blood's electric charge is running low, find a source of charge for your blood. Use a recharging station found in robotics or the dormitory bathrooms, or eat some Ethereal-friendly food."
-	icon_state = "etherealcharge"
+
+/atom/movable/screen/alert/emptycell/ethereal
+	name = "No Blood Charge"
+	desc = "You are out of juice, find a source of energy! Use a recharging station, eat some Ethereal-friendly food, or syphon some power from lights, a power cell, or an APC."
 
 /atom/movable/screen/alert/ethereal_overcharge
 	name = "Blood Overcharge"
 	desc = "Your blood's electric charge is becoming dangerously high, find an outlet for your energy. Use Grab Intent on an APC to channel your energy into it."
-	icon_state = "ethereal_overcharge"
+	icon_state = "cell_overcharge"
 
 //Need to cover all use cases - emag, illegal upgrade module, malf AI hack, traitor cyborg
 /atom/movable/screen/alert/hacked

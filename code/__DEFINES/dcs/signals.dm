@@ -1500,3 +1500,12 @@
 #define COMSIG_ADDED_POINT_OF_INTEREST "added_point_of_interest"
 /// Sent from base of /datum/controller/subsystem/points_of_interest/proc/on_poi_element_removed : (atom/old_poi)
 #define COMSIG_REMOVED_POINT_OF_INTEREST "removed_point_of_interest"
+
+/// Called on a mob attempting to use a ladder to go in either direction.  (entrance_ladder, exit_ladder, going_up)
+#define COMSIG_LADDER_TRAVEL "ladder-travel"
+	#define LADDER_TRAVEL_BLOCK (1<<0)
+
+/// Called on a mob when they start riding a vehicle (obj/vehicle)
+#define COMSIG_VEHICLE_RIDDEN "vehicle-ridden"
+	/// Return this to signal that the mob should be removed from the vehicle
+	#define EJECT_FROM_VEHICLE (1<<0)

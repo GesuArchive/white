@@ -207,6 +207,10 @@
 	to_chat(new_spawn, "[initial(X.info_text)]")
 	if(!owner)
 		to_chat(new_spawn, "Создавайте оболочки големов в автолате и подавайте в оболочки очищенные минеральные листы, чтобы оживить их! Обычно вы мирная группа, если вас не провоцируют.")
+		var/static/list/allowed_areas
+		if(!allowed_areas)
+			allowed_areas = typecacheof(list(/area/icemoon, /area/lavaland, /area/ruin))
+		new_spawn.AddComponent(/datum/component/hazard_area, area_whitelist = allowed_areas)
 	else
 		new_spawn.mind.store_memory("<b>Служить [owner.real_name], моему создателю.</b>")
 		new_spawn.mind.enslave_mind_to_creator(owner)
