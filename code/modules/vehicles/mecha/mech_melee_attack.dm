@@ -9,7 +9,7 @@
  */
 /atom/proc/mech_melee_attack(obj/vehicle/sealed/mecha/mecha_attacker, mob/living/user)
 	SHOULD_CALL_PARENT(TRUE)
-	log_combat(user, src, "attacked", mecha_attacker, "(COMBAT MODE: [uppertext(user.a_intent == INTENT_HARM)] (DAMTYPE: [uppertext(mecha_attacker.damtype)])")
+	log_combat(user, src, "attacked", mecha_attacker, "(COMBAT MODE: [uppertext(user?.a_intent == INTENT_HARM)] (DAMTYPE: [uppertext(mecha_attacker.damtype)])")
 	return 0
 
 /turf/closed/wall/mech_melee_attack(obj/vehicle/sealed/mecha/mecha_attacker, mob/living/user)

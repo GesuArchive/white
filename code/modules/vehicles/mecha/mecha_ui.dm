@@ -115,7 +115,7 @@
 	data["power_max"] = cell?.maxcharge
 	data["mecha_flags"] = mecha_flags
 	data["internal_damage"] = internal_damage
-	data["air_source"] = use_internal_tank ? "Internal Airtank" : "Environment"
+	data["air_source"] = use_internal_tank ? "Внутренник бак" : "Окружение"
 	data["airtank_pressure"] = int_tank_air ? round(int_tank_air.return_pressure(), 0.01) : null
 	data["airtank_temp"] = int_tank_air?.return_temperature()
 	data["port_connected"] = internal_tank?.connected_port ? TRUE : FALSE
@@ -211,10 +211,10 @@
 					return FALSE
 				if(construction_state == MECHA_LOCKED)
 					construction_state = MECHA_SECURE_BOLTS
-					to_chat(usr, span_notice("The securing bolts are now exposed."))
+					to_chat(usr, span_notice("Рамочные винты выдвигаются."))
 				else if(construction_state == MECHA_SECURE_BOLTS)
 					construction_state = MECHA_LOCKED
-					to_chat(usr, span_notice("The securing bolts are now hidden."))
+					to_chat(usr, span_notice("Рамочные винты скрыты."))
 			if("drop_cell")
 				if(construction_state != MECHA_OPEN_HATCH)
 					return
@@ -231,11 +231,11 @@
 				capacitor.forceMove(get_turf(src))
 				capacitor = null
 			if("set_pressure")
-				var/new_pressure = tgui_input_number(usr, "Enter new pressure", "Cabin pressure change", internal_tank_valve)
+				var/new_pressure = tgui_input_number(usr, "Введём же давление", "Давление в кабине", internal_tank_valve)
 				if(isnull(new_pressure) || !construction_state)
 					return
 				internal_tank_valve = new_pressure
-				to_chat(usr, span_notice("The internal pressure valve has been set to [internal_tank_valve]kPa."))
+				to_chat(usr, span_notice("Внутреннее давление теперь [internal_tank_valve]кПа."))
 			if("add_req_access")
 				if(!(mecha_flags & ADDING_ACCESS_POSSIBLE))
 					return
@@ -259,43 +259,43 @@
 		return
 	switch(action)
 		if("changename")
-			var/userinput = tgui_input_text(usr, "Choose a new exosuit name", "Rename exosuit", max_length = MAX_NAME_LEN)
+			var/userinput = tgui_input_text(usr, "Выберем же имя", "Переименование экзоскелета", max_length = MAX_NAME_LEN)
 			if(!userinput)
 				return
 			name = userinput
 		if("dna_lock")
 			var/mob/living/carbon/user = usr
 			if(!istype(user) || !user.dna)
-				to_chat(user, "[icon2html(src, occupants)][span_notice("You can't create a DNA lock with no DNA!.")]")
+				to_chat(user, "[icon2html(src, occupants)][span_notice("Не обнаружено ДНК!")]")
 				return
 			dna_lock = user.dna.unique_enzymes
-			to_chat(user, "[icon2html(src, occupants)][span_notice("You feel a prick as the needle takes your DNA sample.")]")
+			to_chat(user, "[icon2html(src, occupants)][span_notice("Ощущаю небольшое покалывание.")]")
 		if("reset_dna")
 			dna_lock = null
 		if("view_dna")
-			tgui_alert(usr, "Enzymes detected: " + dna_lock)
+			tgui_alert(usr, "Энзимы обнаружены: " + dna_lock)
 			return FALSE
 		if("toggle_airsource")
 			use_internal_tank = !use_internal_tank
-			balloon_alert(usr, "taking air from [use_internal_tank ? "internal airtank" : "environment"]")
+			balloon_alert(usr, "берём воздух из [use_internal_tank ? "внутреннего бака" : "окружения"]")
 			log_message("Now taking air from [use_internal_tank?"internal airtank":"environment"].", LOG_MECHA)
 		if("toggle_port")
 			if(internal_tank.connected_port)
 				if(internal_tank.disconnect())
-					to_chat(occupants, "[icon2html(src, occupants)][span_notice("Disconnected from the air system port.")]")
+					to_chat(occupants, "[icon2html(src, occupants)][span_notice("Отключились от воздушного порта.")]")
 					log_message("Disconnected from gas port.", LOG_MECHA)
 					return TRUE
-				to_chat(occupants, "[icon2html(src, occupants)][span_warning("Unable to disconnect from the air system port!")]")
+				to_chat(occupants, "[icon2html(src, occupants)][span_warning("Невозможно отключиться от воздушного порта!")]")
 				return
 			var/obj/machinery/atmospherics/components/unary/portables_connector/possible_port = locate() in loc
 			if(internal_tank.connect(possible_port))
-				to_chat(occupants, "[icon2html(src, occupants)][span_notice("Connected to the air system port.")]")
+				to_chat(occupants, "[icon2html(src, occupants)][span_notice("Подключились к воздушному порту.")]")
 				log_message("Connected to gas port.", LOG_MECHA)
 				return TRUE
-			to_chat(occupants, "[icon2html(src, occupants)][span_warning("Unable to connect with air system port!")]")
+			to_chat(occupants, "[icon2html(src, occupants)][span_warning("Не обнаружен воздушный порт!")]")
 		if("toggle_maintenance")
 			if(construction_state)
-				to_chat(occupants, "[icon2html(src, occupants)][span_danger("Maintenance protocols in effect")]")
+				to_chat(occupants, "[icon2html(src, occupants)][span_danger("Технические протоколы активны.")]")
 				return
 			mecha_flags ^= ADDING_MAINT_ACCESS_POSSIBLE
 		if("toggle_id_panel")
