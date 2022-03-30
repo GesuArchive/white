@@ -16,6 +16,29 @@
 	max_equip = 3
 	step_energy_drain = 3
 
+/datum/action/vehicle/sealed/mecha/mech_overload_mode
+	name = "Переключить перегрузку ног"
+	button_icon_state = "mech_overload_off"
+
+/datum/action/vehicle/sealed/mecha/mech_overload_mode/Trigger(forced_state = null)
+	if(!owner || !chassis || !(owner in chassis.occupants))
+		return
+	if(!isnull(forced_state))
+		chassis.leg_overload_mode = forced_state
+	else
+		chassis.leg_overload_mode = !chassis.leg_overload_mode
+	button_icon_state = "mech_overload_[chassis.leg_overload_mode ? "on" : "off"]"
+	chassis.log_message("Toggled leg actuators overload.", LOG_MECHA)
+	if(chassis.leg_overload_mode)
+		chassis.movedelay = min(1, round(chassis.movedelay * 0.5))
+		chassis.step_energy_drain = max(chassis.overload_step_energy_drain_min,chassis.step_energy_drain*chassis.leg_overload_coeff)
+		to_chat(owner, "[icon2html(chassis, owner)]<span class='danger'>Включаю перегрузку ног.</span>")
+	else
+		chassis.movedelay = initial(chassis.movedelay)
+		chassis.step_energy_drain = chassis.normal_step_energy_drain
+		to_chat(owner, "[icon2html(chassis, owner)]<span class='notice'>Выключаю перегрузку ног.</span>")
+	UpdateButtonIcon()
+
 /obj/vehicle/sealed/mecha/combat/gygax/dark
 	desc = "A lightweight exosuit, painted in a dark scheme. This model appears to have some modifications."
 	name = "\improper Dark Gygax"
@@ -52,8 +75,3 @@
 		cell = C
 		return
 	cell = new /obj/item/stock_parts/cell/bluespace(src)
-
-
-/obj/vehicle/sealed/mecha/combat/gygax/generate_actions()
-	. = ..()
-	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/mech_overload_mode)

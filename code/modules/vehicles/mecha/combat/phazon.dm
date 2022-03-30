@@ -19,3 +19,38 @@
 	. = ..()
 	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/mech_toggle_phasing)
 	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/mech_switch_damtype)
+
+/datum/action/vehicle/sealed/mecha/mech_switch_damtype
+	name = "Перенастроить массив микроинструмента руки"
+	button_icon_state = "mech_damtype_brute"
+
+/datum/action/vehicle/sealed/mecha/mech_switch_damtype/Trigger()
+	if(!owner || !chassis || !(owner in chassis.occupants))
+		return
+	var/new_damtype
+	switch(chassis.damtype)
+		if(TOX)
+			new_damtype = BRUTE
+			to_chat(owner, "[icon2html(chassis, owner)]<span class='notice'>Теперь рука будет бить.</span>")
+		if(BRUTE)
+			new_damtype = FIRE
+			to_chat(owner, "[icon2html(chassis, owner)]<span class='notice'>Теперь рука будет жарить.</span>")
+		if(FIRE)
+			new_damtype = TOX
+			to_chat(owner, "[icon2html(chassis, owner)]<span class='notice'>Теперь рука будет вводить токсины.</span>")
+	chassis.damtype = new_damtype
+	button_icon_state = "mech_damtype_[new_damtype]"
+	playsound(chassis, 'sound/mecha/mechmove01.ogg', 50, TRUE)
+	UpdateButtonIcon()
+
+/datum/action/vehicle/sealed/mecha/mech_toggle_phasing
+	name = "Переключить фазирование"
+	button_icon_state = "mech_phasing_off"
+
+/datum/action/vehicle/sealed/mecha/mech_toggle_phasing/Trigger()
+	if(!owner || !chassis || !(owner in chassis.occupants))
+		return
+	chassis.phasing = chassis.phasing ? "" : "фазирование"
+	button_icon_state = "mech_phasing_[chassis.phasing ? "on" : "off"]"
+	to_chat(owner, "[icon2html(chassis, owner)]<font color=\"[chassis.phasing?"#00f\">Включаем":"#f00\">Выключаем"] фазирование.</font>")
+	UpdateButtonIcon()
