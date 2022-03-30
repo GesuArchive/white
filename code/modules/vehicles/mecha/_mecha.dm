@@ -553,12 +553,16 @@
 ///Called when a driver clicks somewhere. Handles everything like equipment, punches, etc.
 /obj/vehicle/sealed/mecha/proc/on_mouseclick(mob/user, atom/target, params)
 	SIGNAL_HANDLER
+
+	var/list/modifiers = params2list(params)
+
+	if(modifiers[SHIFT_CLICK]) //Allows things to be examined.
+		return
 	if(!isturf(target) && !isturf(target.loc)) // Prevents inventory from being drilled
 		return
 	if(completely_disabled || is_currently_ejecting || (mecha_flags & CANNOT_INTERACT))
 		return
-	var/list/mouse_control = params2list(params)
-	if(isAI(user) == !mouse_control["middle"])//BASICALLY if a human uses MMB, or an AI doesn't, then do nothing.
+	if(isAI(user) == !LAZYACCESS(modifiers, MIDDLE_CLICK))//BASICALLY if a human uses MMB, or an AI doesn't, then do nothing.
 		return
 	if(phasing)
 		to_chat(occupants, "[icon2html(src, occupants)]<span class='warning'>Невозможно взаимодействие с чем-то в режиме фазирования.</span>")
@@ -582,7 +586,7 @@
 		to_chat(livinguser, span_warning("Неправильное место для взаимодействия с оборудованием!"))
 		return
 	var/obj/item/mecha_parts/mecha_equipment/selected
-	if(LAZYACCESS(params, RIGHT_CLICK))
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		selected = equip_by_category[MECHA_R_ARM]
 	else
 		selected = equip_by_category[MECHA_L_ARM]
@@ -594,7 +598,7 @@
 			return
 		if(SEND_SIGNAL(src, COMSIG_MECHA_EQUIPMENT_CLICK, livinguser, target) & COMPONENT_CANCEL_EQUIPMENT_CLICK)
 			return
-		INVOKE_ASYNC(selected, /obj/item/mecha_parts/mecha_equipment.proc/action, user, target, params)
+		INVOKE_ASYNC(selected, /obj/item/mecha_parts/mecha_equipment.proc/action, user, target, modifiers)
 		return
 	if((selected.range & MECHA_MELEE) && Adjacent(target))
 		if(isliving(target) && selected.harmful && HAS_TRAIT(livinguser, TRAIT_PACIFISM))
@@ -602,7 +606,7 @@
 			return
 		if(SEND_SIGNAL(src, COMSIG_MECHA_EQUIPMENT_CLICK, livinguser, target) & COMPONENT_CANCEL_EQUIPMENT_CLICK)
 			return
-		INVOKE_ASYNC(selected, /obj/item/mecha_parts/mecha_equipment.proc/action, user, target, params)
+		INVOKE_ASYNC(selected, /obj/item/mecha_parts/mecha_equipment.proc/action, user, target, modifiers)
 		return
 	if(!(livinguser in return_controllers_with_flag(VEHICLE_CONTROL_MELEE)))
 		to_chat(livinguser, span_warning("Неправильное место для взаимодействия с оборудованием!"))
@@ -615,8 +619,14 @@
 		return
 	if(internal_damage & MECHA_INT_CONTROL_LOST)
 		target = pick(oview(1,src))
-	target.mech_melee_attack(src, user)
-	TIMER_COOLDOWN_START(src, COOLDOWN_MECHA_MELEE_ATTACK, melee_cooldown)
+
+	if(!has_charge(melee_energy_drain))
+		return
+	use_power(melee_energy_drain)
+
+	if(force)
+		target.mech_melee_attack(src, user)
+		TIMER_COOLDOWN_START(src, COOLDOWN_MECHA_MELEE_ATTACK, melee_cooldown)
 
 /obj/vehicle/sealed/mecha/proc/on_middlemouseclick(mob/user, atom/target, params)
 	SIGNAL_HANDLER
