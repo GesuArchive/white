@@ -1026,7 +1026,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	name = "Граната грибкового туберкулеза"
 	desc = "Заправленная био-граната, упакованная в компактную коробку. Поставляется с пятью био-вирусными антидотами (BVAK) и \
 			автоинъекторами для быстрого применения на двух целях, шприцом и бутылкой с \
-			раствором BVAK." 
+			раствором BVAK."
 	item = /obj/item/storage/box/syndie_kit/tuberculosisgrenade
 	cost = 12
 	surplus = 35
@@ -1844,15 +1844,6 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	item = /obj/vehicle/sealed/car/clowncar
 	cost = 20
 	restricted_roles = list("Clown")
-
-/datum/uplink_item/role_restricted/concealed_weapon_bay
-	name = "Кейс для скрытого ношения оружия"
-	desc = "Модификация для небоевых мехов, позволяющая им оснащаться одной частью оборудования, \
-			предназначенного для боевых мехов. Она также скрывает экипированное оружие от посторонних глаз. \
-			Только один может быть установлен на мехи."
-	item = /obj/item/mecha_parts/concealed_weapon_bay
-	cost = 3
-	restricted_roles = list("Roboticist", "Research Director")
 
 /datum/uplink_item/role_restricted/haunted_magic_eightball
 	name = "Призрачный магический шар"

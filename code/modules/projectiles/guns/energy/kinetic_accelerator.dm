@@ -235,6 +235,9 @@
 
 	K.color = color
 
+//mecha_kineticgun version of the projectile
+/obj/projectile/kinetic/mech
+	range = 5
 
 //Modkits
 /obj/item/borg/upgrade/modkit
