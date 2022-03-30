@@ -83,19 +83,23 @@
 	return ..()
 
 /obj/item/shield/riot/military
-	name = "пластмассовый щит блядь ебать))"
-	desc = "крайне хуевый щит. Используется для самых отсосных операций."
+	name = "титановый щит"
+	desc = "Очень крепкий и очень тяжёлый. Используется для самых тактичных тактических операций."
 	slot_flags = NONE
 	force = 15
-	block_chance = 1
+	block_chance = 90
 	transparent = FALSE
-	max_integrity = 1
+	max_integrity = 400
 	custom_materials = list(/datum/material/titanium = 10000)
 	icon_state = "ops_shield"
 	inhand_icon_state = "ops_shield"
 	icon = 'white/valtos/icons/objects.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
+
+/obj/item/shield/riot/military/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/two_handed, require_twohands=TRUE)
 
 /obj/item/shield/riot/military/pickup(mob/user)
 	. = ..()
