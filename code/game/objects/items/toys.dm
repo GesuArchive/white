@@ -36,8 +36,8 @@
  * Balloons
  */
 /obj/item/toy/waterballoon
-	name = "water balloon"
-	desc = "A translucent balloon. There's nothing in it."
+	name = "водяной шар"
+	desc = "Полупрозрачный воздушный шар. В нем ничего нет."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "waterballoon-e"
 	inhand_icon_state = "balloon-empty"
@@ -61,25 +61,25 @@
 	if (istype(A, /obj/structure/reagent_dispensers))
 		var/obj/structure/reagent_dispensers/RD = A
 		if(RD.reagents.total_volume <= 0)
-			to_chat(user, span_warning("[RD] is empty."))
+			to_chat(user, span_warning("[RD] пуст."))
 		else if(reagents.total_volume >= 10)
-			to_chat(user, span_warning("[capitalize(src.name)] is full."))
+			to_chat(user, span_warning("[capitalize(src.name)] полон."))
 		else
 			A.reagents.trans_to(src, 10, transfered_by = user)
-			to_chat(user, span_notice("You fill the balloon with the contents of [A]."))
-			desc = "A translucent balloon with some form of liquid sloshing around in it."
+			to_chat(user, span_notice("Наполняю шарик [A]."))
+			desc = "Полупрозрачный воздушный шар с какой-то жидкостью, плещущейся в нем."
 			update_icon()
 
 /obj/item/toy/waterballoon/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/reagent_containers/glass))
 		if(I.reagents)
 			if(I.reagents.total_volume <= 0)
-				to_chat(user, span_warning("[I] is empty."))
+				to_chat(user, span_warning("[I] пуст."))
 			else if(reagents.total_volume >= 10)
-				to_chat(user, span_warning("[capitalize(src.name)] is full."))
+				to_chat(user, span_warning("[capitalize(src.name)] полон."))
 			else
-				desc = "A translucent balloon with some form of liquid sloshing around in it."
-				to_chat(user, span_notice("You fill the balloon with the contents of [I]."))
+				desc = "Полупрозрачный воздушный шар с какой-то жидкостью, плещущейся в нем."
+				to_chat(user, span_notice("Наполняю шарик [I]."))
 				I.reagents.trans_to(src, 10, transfered_by = user)
 				update_icon()
 	else if(I.get_sharpness())
@@ -98,7 +98,7 @@
 			T = get_turf(AT)
 		else
 			T = get_turf(src)
-		T.visible_message(span_danger("[capitalize(src.name)] bursts!") ,span_hear("You hear a pop and a splash."))
+		T.visible_message(span_danger("[capitalize(src.name)] взрывается!") ,span_hear("Вы слышите хлопок и всплеск."))
 		reagents.expose(T)
 		for(var/atom/A in T)
 			reagents.expose(A)
@@ -117,7 +117,7 @@
 
 /obj/item/toy/balloon
 	name = "воздушный шарик"
-	desc = "No birthday is complete without it."
+	desc = "Ни один день рождения не обходится без этого."
 	icon = 'icons/obj/balloons.dmi'
 	icon_state = "balloon"
 	inhand_icon_state = "balloon"
@@ -139,15 +139,15 @@
 		inhand_icon_state = icon_state
 
 /obj/item/toy/balloon/corgi
-	name = "corgi balloon"
-	desc = "A balloon with a corgi face on it. For the all year good boys."
+	name = "шарик-корги"
+	desc = "Воздушный шар с мордочкой корги на нем. Для хороших мальчиков."
 	icon_state = "corgi"
 	inhand_icon_state = "corgi"
 	random_color = FALSE
 
 /obj/item/toy/balloon/syndicate
-	name = "syndicate balloon"
-	desc = "There is a tag on the back that reads \"FUK NT!11!\"."
+	name = "синдикатский шарик"
+	desc = "На задней стороне есть бирка с надписью \"НАХ НТ!11!\"."
 	icon_state = "syndballoon"
 	inhand_icon_state = "syndballoon"
 	random_color = FALSE
@@ -171,8 +171,8 @@
 
 
 /obj/item/toy/balloon/arrest
-	name = "arreyst balloon"
-	desc = "A half inflated balloon about a boyband named Arreyst that was popular about ten years ago, famous for making fun of red jumpsuits as unfashionable."
+	name = "арестский шар"
+	desc = "Наполовину надутый шар о бойзбенде под названием Арест, который был популярен лет десять назад и прославился тем, что высмеивал красные комбинезоны как немодные."
 	icon_state = "arrestballoon"
 	inhand_icon_state = "arrestballoon"
 	random_color = FALSE
@@ -181,8 +181,8 @@
  * Fake singularity
  */
 /obj/item/toy/spinningtoy
-	name = "gravitational singularity"
-	desc = "\"Singulo\" brand spinning toy."
+	name = "гравитационная сингулярность"
+	desc = "Вращающаяся игрушка бренда \"Сингуло\"."
 	icon = 'icons/obj/singularity.dmi'
 	icon_state = "singularity_s1"
 
@@ -316,8 +316,8 @@
  * Toy swords
  */
 /obj/item/toy/sword
-	name = "toy sword"
-	desc = "A cheap, plastic replica of an energy sword. Realistic sounds! Ages 8 and up."
+	name = "игрушечный меч"
+	desc = "Дешевая, пластиковая копия энергетического меча. Реалистичные звуки! Для детей от 8 лет и старше."
 	icon_state = "e_sword"
 	icon = 'icons/obj/transforming_energy.dmi'
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
@@ -349,7 +349,7 @@
 	if(active)
 		icon_state = "[icon_state]_[saber_color]"
 
-	balloon_alert(user, "[active ? "flicked out":"pushed in"] [src]")
+	balloon_alert(user, "[active ? "выскакивает":"задвигает"] [src]")
 	playsound(user ? user : src, active ? 'sound/weapons/saberon.ogg' : 'sound/weapons/saberoff.ogg', 20, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
@@ -358,13 +358,13 @@
 	if(istype(weapon, /obj/item/toy/sword))
 		var/obj/item/toy/sword/attatched_sword = weapon
 		if(HAS_TRAIT(weapon, TRAIT_NODROP))
-			to_chat(user, span_warning("[weapon] is stuck to your hand, you can't attach it to [src]!"))
+			to_chat(user, span_warning("[weapon] прилип к руке, вы не можете прикрепить его к [src]!"))
 			return
 		else if(HAS_TRAIT(src, TRAIT_NODROP))
-			to_chat(user, span_warning("[src] is stuck to your hand, you can't attach it to [weapon]!"))
+			to_chat(user, span_warning("[src] прилип к руке, вы не можете прикрепить его к [weapon]!"))
 			return
 		else
-			to_chat(user, span_notice("You attach the ends of the two plastic swords, making a single double-bladed toy! You're fake-cool."))
+			to_chat(user, span_notice("Прикрепляю два пластиковых меча, чтобы получилась двойной игрушечный меч! Я фальшиво крут!"))
 			var/obj/item/dualsaber/toy/new_saber = new /obj/item/dualsaber/toy(user.loc)
 			if(attatched_sword.hacked || hacked)
 				new_saber.hacked = TRUE
@@ -374,7 +374,7 @@
 			user.put_in_hands(new_saber)
 	else if(weapon.tool_behaviour == TOOL_MULTITOOL)
 		if(hacked)
-			to_chat(user, span_warning("It's already fabulous!"))
+			to_chat(user, span_warning("Это и так прекрасно!"))
 		else
 			hacked = TRUE
 			saber_color = "rainbow"
@@ -387,7 +387,7 @@
  */
 /obj/item/toy/foamblade
 	name = "пенопластовая рука-лезвие"
-	desc = "It says \"Sternside Changs #1 fan\" on it."
+	desc = "На ней написано \"Sternside Changs #1 fan\"."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "foamblade"
 	inhand_icon_state = "arm_blade"
@@ -400,8 +400,8 @@
 
 
 /obj/item/toy/windup_toolbox
-	name = "windup toolbox"
-	desc = "A replica toolbox that rumbles when you turn the key."
+	name = "заводной ящик с инструментами"
+	desc = "Игрушечный ящик для инструментов, который издает звук при повороте ключа."
 	icon_state = "his_grace"
 	inhand_icon_state = "artistic_toolbox"
 	lefthand_file = 'icons/mob/inhands/equipment/toolbox_lefthand.dmi'
@@ -415,13 +415,13 @@
 /obj/item/toy/windup_toolbox/attack_self(mob/user)
 	if(!active)
 		icon_state = "his_grace_awakened"
-		to_chat(user, span_notice("You wind up [src], it begins to rumble."))
+		to_chat(user, span_notice("Поворачиваю ключ у [src], он начинает грохотать."))
 		active = TRUE
 		playsound(src, 'sound/effects/pope_entry.ogg', 100)
 		Rumble()
 		addtimer(CALLBACK(src, .proc/stopRumble), 600)
 	else
-		to_chat(user, span_warning("[capitalize(src.name)] is already active!"))
+		to_chat(user, span_warning("[capitalize(src.name)] уже активен!"))
 
 /obj/item/toy/windup_toolbox/proc/Rumble()
 	var/static/list/transforms
@@ -449,8 +449,8 @@
  * Subtype of Double-Bladed Energy Swords
  */
 /obj/item/dualsaber/toy
-	name = "double-bladed toy sword"
-	desc = "A cheap, plastic replica of TWO energy swords. Double the fun!"
+	name = "двойной игрушечный меч"
+	desc = "Дешевая пластиковая копия ДВУХ энергетических мечей. Двойное удовольствие!"
 	force = 0
 	throwforce = 0
 	throw_speed = 3
@@ -470,8 +470,8 @@
 	user.adjustStaminaLoss(25)
 
 /obj/item/toy/katana
-	name = "replica katana"
-	desc = "Woefully underpowered in D20."
+	name = "игрушечная катана"
+	desc = "Удручающе маломощный в D20."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "katana"
 	inhand_icon_state = "katana"
@@ -492,8 +492,8 @@
  */
 
 /obj/item/toy/snappop
-	name = "snap pop"
-	desc = "Wow!"
+	name = "хлопочек"
+	desc = "Вау!"
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "snappop"
 	w_class = WEIGHT_CLASS_TINY
@@ -504,8 +504,8 @@
 	s.set_up(n, c, src)
 	s.start()
 	new ash_type(loc)
-	visible_message(span_warning("[capitalize(src.name)] explodes!") ,
-		span_hear("You hear a snap!"))
+	visible_message(span_warning("[capitalize(src.name)] хлопает!") ,
+		span_hear("Слышу хлопок!"))
 	playsound(src, 'sound/effects/snap.ogg', 50, TRUE)
 	qdel(src)
 
@@ -532,8 +532,8 @@
 			pop_burst(2, 0)
 
 /obj/item/toy/snappop/phoenix
-	name = "phoenix snap pop"
-	desc = "Wow! And wow! And wow!"
+	name = "фениксовый хлопочек"
+	desc = "Вау! И вау! И вау! И вау!"
 	ash_type = /obj/effect/decal/cleanable/ash/snappop_phoenix
 
 /obj/effect/decal/cleanable/ash/snappop_phoenix
@@ -548,8 +548,8 @@
 	qdel(src)
 
 /obj/item/toy/talking
-	name = "talking action figure"
-	desc = "A generic action figure modeled after nothing in particular."
+	name = "говорящая фигурка"
+	desc = "Обычная фигурка, созданная по образцу ничего конкретного."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "owlprize"
 	w_class = WEIGHT_CLASS_SMALL
@@ -600,8 +600,8 @@
  * AI core prizes
  */
 /obj/item/toy/talking/ai
-	name = "toy AI"
-	desc = "A little toy model AI core with real law announcing action!"
+	name = "игрушечный ИИ"
+	desc = "Маленькая игрушечная модель ядра ИИ с законами!"
 	icon_state = "AI"
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -609,8 +609,8 @@
 	return list(generate_ion_law())
 
 /obj/item/toy/talking/codex_gigas
-	name = "Toy Codex Gigas"
-	desc = "A tool to help you write fictional devils!"
+	name = "Игрушечный Кодекс Гигаса"
+	desc = "Инструмент, который поможет вам выявить вымышленных дьяволов!"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "demonomicon"
 	lefthand_file = 'icons/mob/inhands/misc/books_lefthand.dmi'
@@ -621,14 +621,14 @@
 
 /obj/item/toy/talking/codex_gigas/activation_message(mob/user)
 	user.visible_message(
-		span_notice("[user] presses the button on <b>[src.name]</b>.") ,
-		span_notice("You press the button on <b>[src.name]</b>.") ,
-		span_notice("You hear a soft click."))
+		span_notice("[user] нажимает кнопку на <b>[src.name]</b>.") ,
+		span_notice("Нажимаю кнопочку на <b>[src.name]</b>.") ,
+		span_notice("Слышу мягкий щелчок."))
 
 /obj/item/toy/talking/codex_gigas/generate_messages()
 	var/datum/fake_devil/devil = new
 	var/list/messages = list()
-	messages += "Some fun facts about: [devil.truename]"
+	messages += "Забавные факты о: [devil.truename]"
 	messages += "[GLOB.lawlorify[LORE][devil.bane]]"
 	messages += "[GLOB.lawlorify[LORE][devil.obligation]]"
 	messages += "[GLOB.lawlorify[LORE][devil.ban]]"
@@ -636,19 +636,19 @@
 	return messages
 
 /obj/item/toy/talking/owl
-	name = "owl action figure"
-	desc = "An action figure modeled after 'The Owl', defender of justice."
+	name = "фигурка совы"
+	desc = "Фигурка в виде совы, защитницы правосудия."
 	icon_state = "owlprize"
-	messages = list("You won't get away this time, Griffin!", "Stop right there, criminal!", "Hoot! Hoot!", "I am the night!")
+	messages = list("На этот раз тебе не удастся уйти, Гриффин!", "Стоять на месте, преступник!", "У-у! У-у!", "Я сама ночь!")
 	chattering = TRUE
 	phomeme = "owl"
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/toy/talking/griffin
-	name = "griffin action figure"
-	desc = "An action figure modeled after 'The Griffin', criminal mastermind."
+	name = "фигурка грифона"
+	desc = "Фигурка, созданная по образу и подобию 'Грифона', криминального авторитета."
 	icon_state = "griffinprize"
-	messages = list("You can't stop me, Owl!", "My plan is flawless! The vault is mine!", "Caaaawwww!", "You will never catch me!")
+	messages = list("Ты не сможешь остановить меня, Сова!", "Мой план безупречен! Хранилище - мое!", "Ка-а-а-ау-у-у-у-у!", "Ты никогда не поймаешь меня!")
 	chattering = TRUE
 	phomeme = "griffin"
 	w_class = WEIGHT_CLASS_SMALL
@@ -691,8 +691,8 @@
 		return
 
 /obj/item/toy/cards/deck
-	name = "deck of cards"
-	desc = "A deck of space-grade playing cards."
+	name = "колода карт"
+	desc = "Колода игральных карт космического класса."
 	icon = 'icons/obj/toy.dmi'
 	deckstyle = "nanotrasen"
 	icon_state = "deck_nanotrasen_full"
@@ -727,7 +727,7 @@
 			return
 	var/choice = null
 	if(cards.len == 0)
-		to_chat(user, span_warning("There are no more cards to draw!"))
+		to_chat(user, span_warning("Больше нет карт!"))
 		return
 	var/obj/item/toy/cards/singlecard/H = new/obj/item/toy/cards/singlecard(user.loc)
 	if(holo)
@@ -740,7 +740,7 @@
 	popleft(cards)
 	H.pickup(user)
 	user.put_in_hands(H)
-	user.visible_message(span_notice("[user] draws a card from the deck.") , span_notice("You draw a card from the deck."))
+	user.visible_message(span_notice("[user] берет карту из колоды.") , span_notice("Беру карту из колоды."))
 	update_icon()
 	return H
 
@@ -759,7 +759,7 @@
 	if(cooldown < world.time - 50)
 		cards = shuffle(cards)
 		playsound(src, 'sound/items/cardshuffle.ogg', 50, TRUE)
-		user.visible_message(span_notice("[user] shuffles the deck.") , span_notice("You shuffle the deck."))
+		user.visible_message(span_notice("[user] перетасовывает колоду.") , span_notice("Перетасовываю колоду."))
 		cooldown = world.time
 
 /obj/item/toy/cards/deck/attackby(obj/item/I, mob/living/user, params)
@@ -767,25 +767,25 @@
 		var/obj/item/toy/cards/singlecard/SC = I
 		if(SC.parentdeck == src)
 			if(!user.temporarilyRemoveItemFromInventory(SC))
-				to_chat(user, span_warning("The card is stuck to your hand, you can't add it to the deck!"))
+				to_chat(user, span_warning("Карта застряла в руке, вы не можете добавить ее в колоду!"))
 				return
 			cards += SC.cardname
-			user.visible_message(span_notice("[user] adds a card to the bottom of the deck.") ,span_notice("You add the card to the bottom of the deck."))
+			user.visible_message(span_notice("[user] добавляет карту в нижнюю часть колоды.") ,span_notice("Вы добавляете карту в нижнюю часть колоды."))
 			qdel(SC)
 		else
-			to_chat(user, span_warning("You can't mix cards from other decks!"))
+			to_chat(user, span_warning("Вы не можете смешивать карты из других колод!"))
 		update_icon()
 	else if(istype(I, /obj/item/toy/cards/cardhand))
 		var/obj/item/toy/cards/cardhand/CH = I
 		if(CH.parentdeck == src)
 			if(!user.temporarilyRemoveItemFromInventory(CH))
-				to_chat(user, span_warning("The hand of cards is stuck to your hand, you can't add it to the deck!"))
+				to_chat(user, span_warning("Рука с картами прилипла к вашей руке, вы не можете добавить ее в колоду!"))
 				return
 			cards += CH.currenthand
-			user.visible_message(span_notice("[user] puts [user.ru_ego()] hand of cards in the deck.") , span_notice("You put the hand of cards in the deck."))
+			user.visible_message(span_notice("[user] кладет [user.ru_ego()] руку в колоду") , span_notice("кладу руку в колоду."))
 			qdel(CH)
 		else
-			to_chat(user, span_warning("You can't mix cards from other decks!"))
+			to_chat(user, span_warning("Вы не можете смешивать карты из других колод!"))
 		update_icon()
 	else
 		return ..()
@@ -798,21 +798,21 @@
 	if(Adjacent(usr))
 		if(over_object == M && loc != M)
 			M.put_in_hands(src)
-			to_chat(usr, span_notice("You pick up the deck."))
+			to_chat(usr, span_notice("Поднимаю колоду."))
 
 		else if(istype(over_object, /atom/movable/screen/inventory/hand))
 			var/atom/movable/screen/inventory/hand/H = over_object
 			if(M.putItemFromInventoryInHandIfPossible(src, H.held_index))
-				to_chat(usr, span_notice("You pick up the deck."))
+				to_chat(usr, span_notice("Поднимаю колоду."))
 
 	else
-		to_chat(usr, span_warning("You can't reach it from here!"))
+		to_chat(usr, span_warning("Вы не можете добраться до колоды отсюда!"))
 
 
 
 /obj/item/toy/cards/cardhand
-	name = "hand of cards"
-	desc = "A number of cards not in a deck, customarily held in ones hand."
+	name = "рука с картами"
+	desc = "Количество карт, не входящих в колоду, которые обычно держат в руке."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "none"
 	w_class = WEIGHT_CLASS_TINY
@@ -843,7 +843,7 @@
 	C.apply_card_vars(C,O)
 	C.pickup(cardUser)
 	cardUser.put_in_hands(C)
-	cardUser.visible_message(span_notice("[cardUser] draws a card from [cardUser.ru_ego()] hand.") , span_notice("You take the [C.cardname] from your hand."))
+	cardUser.visible_message(span_notice("[cardUser] вытаскивает карту из [cardUser.ru_ego()] руки.") , span_notice("Вытаскиваю карту [C.cardname] из своей руки."))
 
 	interact(cardUser)
 	update_sprite()
@@ -855,18 +855,18 @@
 		qdel(src)
 		N.pickup(cardUser)
 		cardUser.put_in_hands(N)
-		to_chat(cardUser, span_notice("You also take [currenthand[1]] and hold it."))
+		to_chat(cardUser, span_notice("Также беру карту [currenthand[1]] и держу её."))
 
 /obj/item/toy/cards/cardhand/attackby(obj/item/toy/cards/singlecard/C, mob/living/user, params)
 	if(istype(C))
 		if(C.parentdeck == src.parentdeck)
 			src.currenthand += C.cardname
-			user.visible_message(span_notice("[user] adds a card to [user.ru_ego()] hand.") , span_notice("You add the [C.cardname] to your hand."))
+			user.visible_message(span_notice("[user] добавляет карту в [user.ru_ego()] руку.") , span_notice("Добавляю карту [C.cardname] в свою руку."))
 			qdel(C)
 			interact(user)
 			update_sprite(src)
 		else
-			to_chat(user, span_warning("You can't mix cards from other decks!"))
+			to_chat(user, span_warning("Вы не можете смешивать карты из других колод!"))
 	else
 		return ..()
 
@@ -909,8 +909,8 @@
 		add_overlay(card_overlay)
 
 /obj/item/toy/cards/singlecard
-	name = "card"
-	desc = "A playing card used to play card games like poker."
+	name = "карта"
+	desc = "Игральная карта, используемая для игры в карточные игры, такие как покер."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "singlecard_down_nanotrasen"
 	w_class = WEIGHT_CLASS_TINY
@@ -926,11 +926,11 @@
 		if(cardUser.is_holding(src))
 			cardUser.visible_message(span_notice("[cardUser] checks [cardUser.ru_ego()] card.") , span_notice("The card reads: [cardname]."))
 		else
-			. += "<hr><span class='warning'>You need to have the card in your hand to check it!</span>"
+			. += "<hr><span class='warning'>Чтобы проверить карту, ее нужно держать в руке!</span>"
 
 
 /obj/item/toy/cards/singlecard/verb/Flip()
-	set name = "Flip Card"
+	set name = "Перевернуть карту"
 	set category = "Объект"
 	set src in range(1)
 	if(!ishuman(usr) || !usr.canUseTopic(src, BE_CLOSE))
@@ -959,24 +959,24 @@
 			H.currenthand += src.cardname
 			H.parentdeck = C.parentdeck
 			H.apply_card_vars(H,C)
-			to_chat(user, span_notice("You combine the [C.cardname] and the [src.cardname] into a hand."))
+			to_chat(user, span_notice("Вы сочетаете [C.cardname] и [src.cardname] в руке."))
 			qdel(C)
 			qdel(src)
 			H.pickup(user)
 			user.put_in_active_hand(H)
 		else
-			to_chat(user, span_warning("You can't mix cards from other decks!"))
+			to_chat(user, span_warning("Вы не можете смешивать карты из других колод!"))
 
 	if(istype(I, /obj/item/toy/cards/cardhand/))
 		var/obj/item/toy/cards/cardhand/H = I
 		if(H.parentdeck == parentdeck)
 			H.currenthand += cardname
-			user.visible_message(span_notice("[user] adds a card to [user.ru_ego()] hand.") , span_notice("You add the [cardname] to your hand."))
+			user.visible_message(span_notice("[user] добавляет карту в [user.ru_ego()] руку.") , span_notice("Добавляю карту [cardname] в свою руку."))
 			qdel(src)
 			H.interact(user)
 			H.update_sprite()
 		else
-			to_chat(user, span_warning("You can't mix cards from other decks!"))
+			to_chat(user, span_warning("Вы не можете смешивать карты из других колод!"))
 	else
 		return ..()
 
@@ -1007,8 +1007,8 @@
 */
 
 /obj/item/toy/cards/deck/syndicate
-	name = "suspicious looking deck of cards"
-	desc = "A deck of space-grade playing cards. They seem unusually rigid."
+	name = "подозрительно выглядящая колода карт"
+	desc = "Колода игральных карт космического класса. Они кажутся необычайно острыми."
 	icon_state = "deck_syndicate_full"
 	deckstyle = "syndicate"
 	card_hitsound = 'sound/weapons/bladeslice.ogg'
@@ -1025,8 +1025,10 @@
  */
 
 /obj/item/toy/nuke
-	name = "\improper Nuclear Fission Explosive toy"
-	desc = "A plastic model of a Nuclear Fission Explosive."
+	name = "игрушечная ядерная бомба"
+	desc = "Пластиковая модель ядерной бомбы._AddElement(list/arguments)
+		. = ..()
+		"
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "nuketoyidle"
 	w_class = WEIGHT_CLASS_SMALL
@@ -1035,16 +1037,16 @@
 /obj/item/toy/nuke/attack_self(mob/user)
 	if (obj_flags & EMAGGED && cooldown < world.time)
 		cooldown = world.time + 600
-		user.visible_message(span_hear("You hear the click of a button.") , span_notice("You activate [src], it plays a loud noise!"))
+		user.visible_message(span_hear("Слышу щелчок кнопки.") , span_notice("Активирую [src], и оно воспроизводит громкий звук!"))
 		sleep(5)
 		playsound(src, 'sound/machines/alarm.ogg', 20, FALSE)
 		sleep(140)
-		user.visible_message(span_alert("[capitalize(src.name)] violently explodes!"))
+		user.visible_message(span_alert("[capitalize(src.name)] мощно взрывается!"))
 		explosion(src, 0, 0, 1, 0)
 		qdel(src)
 	else if (cooldown < world.time)
 		cooldown = world.time + 600 //1 minute
-		user.visible_message(span_warning("[user] presses a button on [src].") , span_notice("You activate [src], it plays a loud noise!") , span_hear("You hear the click of a button."))
+		user.visible_message(span_warning("[user] нажимает кнопку на [src].") , span_notice("Активирую [src], и оно воспроизводит громкий звук!") , span_hear("Вы слышите щелчок кнопки."))
 		sleep(5)
 		icon_state = "nuketoy"
 		playsound(src, 'sound/machines/alarm.ogg', 20, FALSE)
@@ -1054,22 +1056,22 @@
 		icon_state = "nuketoyidle"
 	else
 		var/timeleft = (cooldown - world.time)
-		to_chat(user, span_alert("Nothing happens, and '</span>[round(timeleft/10)]<span class='alert'>' appears on the small display."))
+		to_chat(user, span_alert("Ничего не происходит, и появляется таймер '</span>[round(timeleft/10)]<span class='alert'>' на маленьком дисплее."))
 		sleep(5)
 
 
 /obj/item/toy/nuke/emag_act(mob/user)
 	if (obj_flags & EMAGGED)
 		return
-	to_chat(user, "<span class = 'notice'> You short-circuit <b>[src.name]</b>.</span>")
+	to_chat(user, "<span class = 'notice'> Замыкаю <b>[src.name]</b>.</span>")
 	obj_flags |= EMAGGED
 /*
  * Fake meteor
  */
 
 /obj/item/toy/minimeteor
-	name = "\improper Mini-Meteor"
-	desc = "Relive the excitement of a meteor shower! SweetMeat-eor Co. is not responsible for any injuries, headaches or hearing loss caused by Mini-Meteor."
+	name = "Мини-метеор"
+	desc = "Переживите метеоритный дождь! Корпорация SweetMeat-eor не несет ответственности за любые травмы, головные боли или потерю слуха, вызванные Мини-Метеором."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "minimeteor"
 	w_class = WEIGHT_CLASS_SMALL
@@ -1077,7 +1079,7 @@
 /obj/item/toy/minimeteor/emag_act(mob/user)
 	if (obj_flags & EMAGGED)
 		return
-	to_chat(user, "<span class = 'notice'> You short-circuit whatever electronics exist inside <b>[src.name]</b>, if there even are any.</span>")
+	to_chat(user, "<span class = 'notice'> Вы замыкаете всю электронику внутри <b>[src.name]</b>, если они там вообще были.</span>")
 	obj_flags |= EMAGGED
 
 /obj/item/toy/minimeteor/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
@@ -1097,8 +1099,8 @@
  * Toy big red button
  */
 /obj/item/toy/redbutton
-	name = "big red button"
-	desc = "A big, plastic red button. Reads 'From HonkCo Pranks!' on the back."
+	name = "большая красная кнопка"
+	desc = "Большая пластиковая красная кнопка. На обратной стороне написано 'От HonkCo Pranks!'."
 	icon = 'icons/obj/assemblies.dmi'
 	icon_state = "bigred"
 	w_class = WEIGHT_CLASS_SMALL
@@ -1107,7 +1109,7 @@
 /obj/item/toy/redbutton/attack_self(mob/user)
 	if (cooldown < world.time)
 		cooldown = (world.time + 300) // Sets cooldown at 30 seconds
-		user.visible_message(span_warning("[user] presses the big red button.") , span_notice("You press the button, it plays a loud noise!") , span_hear("The button clicks loudly."))
+		user.visible_message(span_warning("[user] нажимает на большую красную кнопку.") , span_notice("Вы нажимаете на кнопку, и она воспроизводит громкий звук!") , span_hear("Кнопка громко щелкает."))
 		playsound(src, pick(FAR_EXPLOSION_SOUNDS), 50, FALSE)
 		for(var/mob/M in urange(10, src)) // Checks range
 			if(!M.stat && !isAI(M)) // Checks to make sure whoever's getting shaken is alive/not the AI
@@ -1116,15 +1118,15 @@
 				addtimer(CALLBACK(GLOBAL_PROC, .proc/shake_camera, M, 2, 1), 0.8 SECONDS)
 
 	else
-		to_chat(user, span_alert("Nothing happens."))
+		to_chat(user, span_alert("Ничего не происходит."))
 
 /*
  * Snowballs
  */
 
 /obj/item/toy/snowball
-	name = "snowball"
-	desc = "A compact ball of snow. Good for throwing at people."
+	name = "снежный шар"
+	desc = "Шар из снега. Хорошо подходит для бросания в людей."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "snowball"
 	throwforce = 20 //the same damage as a disabler shot
@@ -1146,7 +1148,7 @@
 /obj/item/toy/beach_ball
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "ball"
-	name = "beach ball"
+	name = "пляжный шар"
 	inhand_icon_state = "beachball"
 	w_class = WEIGHT_CLASS_BULKY //Stops people from hiding it in their bags/pockets
 
@@ -1155,8 +1157,8 @@
  */
 
 /obj/item/toy/clockwork_watch
-	name = "steampunk watch"
-	desc = "A stylish steampunk watch made out of thousands of tiny cogwheels."
+	name = "стимпанковые часы"
+	desc = "Стильные часы в стиле стимпанк, сделанные из тысяч крошечных зубчатых колес."
 	icon = 'icons/obj/clockwork_objects.dmi'
 	icon_state = "dread_ipad"
 	worn_icon_state = "dread_ipad"
@@ -1167,22 +1169,22 @@
 /obj/item/toy/clockwork_watch/attack_self(mob/user)
 	if (cooldown < world.time)
 		cooldown = world.time + 1800 //3 minutes
-		user.visible_message(span_warning("[user] rotates a cogwheel on [src].") , span_notice("You rotate a cogwheel on [src], it plays a loud noise!") , span_hear("You hear cogwheels turning."))
+		user.visible_message(span_warning("[user] вращает зубчатое колесо на [src].") , span_notice("Вращаю зубчатое колесо в [src], и оно издает громкий звук!") , span_hear("Слышу, как вращаются зубчатые колеса."))
 		playsound(src, 'sound/magic/clockwork/ark_activation.ogg', 50, FALSE)
 	else
-		to_chat(user, span_alert("The cogwheels are already turning!"))
+		to_chat(user, span_alert("Шестеренки уже вращаются!"))
 
 /obj/item/toy/clockwork_watch/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='info'>Station Time: [station_time_timestamp()]</span>"
+	. += "<hr><span class='info'>Станционное время: [station_time_timestamp()]</span>"
 
 /*
  * Toy Dagger
  */
 
 /obj/item/toy/toy_dagger
-	name = "toy dagger"
-	desc = "A cheap plastic replica of a dagger. Produced by THE ARM Toys, Inc."
+	name = "игрушечный кинжал"
+	desc = "Дешевая пластиковая копия кинжала. Произведено компанией THE ARM Toys, Inc."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "render"
 	inhand_icon_state = "cultdagger"
@@ -1197,31 +1199,31 @@
 /obj/item/toy/toy_xeno
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "toy_xeno"
-	name = "xenomorph action figure"
-	desc = "MEGA presents the new Xenos Isolated action figure! Comes complete with realistic sounds! Pull back string to use."
+	name = "игрушечная фигурка ксеноморфа"
+	desc = "MEGA представляет новую фигурку Xenos Isolated! Поставляется в комплекте с реалистичными звуками! Оттяните шнурок, чтобы использовать."
 	w_class = WEIGHT_CLASS_SMALL
 	var/cooldown = 0
 
 /obj/item/toy/toy_xeno/attack_self(mob/user)
 	if(cooldown <= world.time)
 		cooldown = (world.time + 50) //5 second cooldown
-		user.visible_message(span_notice("[user] pulls back the string on [src]."))
+		user.visible_message(span_notice("[user] оттягивает шнурок на  [src]."))
 		icon_state = "[initial(icon_state)]_used"
 		sleep(5)
-		audible_message(span_danger("[icon2html(src, viewers(src))] Hiss!"))
+		audible_message(span_danger("[icon2html(src, viewers(src))] Ш-ш-ш!"))
 		var/list/possible_sounds = list('sound/voice/hiss1.ogg', 'sound/voice/hiss2.ogg', 'sound/voice/hiss3.ogg', 'sound/voice/hiss4.ogg')
 		var/chosen_sound = pick(possible_sounds)
 		playsound(get_turf(src), chosen_sound, 50, TRUE)
 		addtimer(VARSET_CALLBACK(src, icon_state, "[initial(icon_state)]"), 4.5 SECONDS)
 	else
-		to_chat(user, span_warning("The string on [src] hasn't rewound all the way!"))
+		to_chat(user, span_warning("Шнурок на  [src] ещё не перемотался до конца!"))
 		return
 
 // TOY MOUSEYS :3 :3 :3
 
 /obj/item/toy/cattoy
-	name = "toy mouse"
-	desc = "A colorful toy mouse!"
+	name = "игрушечная мышь"
+	desc = "Яркая игрушечная мышка!"
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "toy_mouse"
 	w_class = WEIGHT_CLASS_SMALL
@@ -1234,7 +1236,7 @@
  */
 
 /obj/item/toy/figure
-	name = "Non-Specific Action Figure action figure"
+	name = "Какая-то хуйня. Сообщите кодерам."
 	desc = null
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "nuketoy"
@@ -1245,7 +1247,7 @@
 
 /obj/item/toy/figure/Initialize()
 	. = ..()
-	desc = "A \"Space Life\" brand [src]."
+	desc = "Бренд \"Космическая Жизнь\" [src]."
 
 /obj/item/toy/figure/attack_self(mob/user as mob)
 	if(cooldown <= world.time)
@@ -1254,201 +1256,201 @@
 		playsound(user, toysound, 20, TRUE)
 
 /obj/item/toy/figure/cmo
-	name = "Chief Medical Officer action figure"
+	name = "фигурка СМО"
 	icon_state = "cmo"
-	toysay = "Suit sensors!"
+	toysay = "Сенсоры в третий режим!"
 
 /obj/item/toy/figure/assistant
-	name = "Assistant action figure"
+	name = "фигурка ассистента"
 	icon_state = "assistant"
 	inhand_icon_state = "assistant"
-	toysay = "Grey tide world wide!"
+	toysay = "Вперёд на бриг!"
 
 /obj/item/toy/figure/atmos
-	name = "Atmospheric Technician action figure"
+	name = "фигурка атмостеха"
 	icon_state = "atmos"
-	toysay = "Glory to Atmosia!"
+	toysay = "За Атмосию!"
 
 /obj/item/toy/figure/bartender
-	name = "Bartender action figure"
+	name = "фигурка бармена"
 	icon_state = "bartender"
-	toysay = "Where is Pun Pun?"
+	toysay = "Где Пун-Пун?"
 
 /obj/item/toy/figure/borg
-	name = "Cyborg action figure"
+	name = "фигурка киборга"
 	icon_state = "borg"
 	toysay = "I. LIVE. AGAIN."
 	toysound = 'sound/voice/liveagain.ogg'
 
 /obj/item/toy/figure/botanist
-	name = "Botanist action figure"
+	name = "фигурка ботаниста"
 	icon_state = "botanist"
-	toysay = "Blaze it!"
+	toysay = "Сжечь его!"
 
 /obj/item/toy/figure/captain
-	name = "Captain action figure"
+	name = "фигурка капитана"
 	icon_state = "captain"
-	toysay = "Any heads of staff?"
+	toysay = "Есть главы?"
 
 /obj/item/toy/figure/cargotech
-	name = "Cargo Technician action figure"
+	name = "фигурка карготехника"
 	icon_state = "cargotech"
-	toysay = "For Cargonia!"
+	toysay = "За Каргонию!"
 
 /obj/item/toy/figure/ce
-	name = "Chief Engineer action figure"
+	name = "фигурка СЕ"
 	icon_state = "ce"
-	toysay = "Wire the solars!"
+	toysay = "Настройте соляры!"
 
 /obj/item/toy/figure/chaplain
-	name = "Chaplain action figure"
+	name = "фигурка священника"
 	icon_state = "chaplain"
-	toysay = "Praise Space Jesus!"
+	toysay = "Слава Космическому Иисусу!"
 
 /obj/item/toy/figure/chef
-	name = "Chef action figure"
+	name = "фигурка повара"
 	icon_state = "chef"
-	toysay = " I'll make you into a burger!"
+	toysay = "Я сделаю из тебя бургер!"
 
 /obj/item/toy/figure/chemist
-	name = "Chemist action figure"
+	name = "фигурка химика"
 	icon_state = "chemist"
-	toysay = "Get your pills!"
+	toysay = "Прими таблетки!"
 
 /obj/item/toy/figure/clown
-	name = "Clown action figure"
+	name = "фигурка клоуна"
 	icon_state = "clown"
-	toysay = "Honk!"
+	toysay = "Хонк!"
 	toysound = 'sound/items/bikehorn.ogg'
 
 /obj/item/toy/figure/ian
-	name = "Ian action figure"
+	name = "фигурка Иана"
 	icon_state = "ian"
-	toysay = "Arf!"
+	toysay = "Гав!"
 
 /obj/item/toy/figure/detective
-	name = "Detective action figure"
+	name = "фигурка детектива"
 	icon_state = "detective"
-	toysay = "This airlock has grey jumpsuit and insulated glove fibers on it."
+	toysay = "На этом шлюзе серый комбинезон и волокна  изоляционных перчаток."
 
 /obj/item/toy/figure/dsquad
-	name = "Death Squad Officer action figure"
+	name = "фигурка члена отряда смерти"
 	icon_state = "dsquad"
-	toysay = "Kill em all!"
+	toysay = "Не оставляйте свидетелей!"
 
 /obj/item/toy/figure/engineer
-	name = "Engineer action figure"
+	name = "фигурка инженера"
 	icon_state = "engineer"
-	toysay = "Oh god, the singularity is loose!"
+	toysay = "Сингулярность сбежала!"
 
 /obj/item/toy/figure/geneticist
-	name = "Geneticist action figure"
+	name = "фигурка генетика"
 	icon_state = "geneticist"
-	toysay = "Smash!"
+	toysay = "Халк крушить!"
 
 /obj/item/toy/figure/hop
-	name = "Head of Personnel action figure"
+	name = "фигурка главы персонала"
 	icon_state = "hop"
-	toysay = "Giving out all access!"
+	toysay = "Раздача доступа!"
 
 /obj/item/toy/figure/hos
-	name = "Head of Security action figure"
+	name = "фигурка главы охраны"
 	icon_state = "hos"
-	toysay = "Go ahead, make my day."
+	toysay = "Давай, сделай мне приятно."
 
 /obj/item/toy/figure/qm
-	name = "Quartermaster action figure"
+	name = "фигурка квартирмейстера"
 	icon_state = "qm"
-	toysay = "Please sign this form in triplicate and we will see about geting you a welding mask within 3 business days."
+	toysay = "Пожалуйста, подпишите эту форму в трех экземплярах, и мы позаботимся о предоставлении вам сварочной маски в течение 3 рабочих дней."
 
 /obj/item/toy/figure/janitor
-	name = "Janitor action figure"
+	name = "фигурка уборщика"
 	icon_state = "janitor"
-	toysay = "Look at the signs, you idiot."
+	toysay = "Смотри на знаки, идиот."
 
 /obj/item/toy/figure/lawyer
-	name = "Lawyer action figure"
+	name = "фигурка адвоката"
 	icon_state = "lawyer"
-	toysay = "My client is a dirty traitor!"
+	toysay = "Мой клиент - грязный агент!"
 
 /obj/item/toy/figure/curator
-	name = "Curator action figure"
+	name = "фигурка куратора"
 	icon_state = "curator"
-	toysay = "One day while..."
+	toysay = "Однажды, когда..."
 
 /obj/item/toy/figure/md
-	name = "Medical Doctor action figure"
+	name = "фигурка медицинского доктора"
 	icon_state = "md"
-	toysay = "The patient is already dead!"
+	toysay = "Пациент уже мертв!"
 
 /obj/item/toy/figure/paramedic
-	name = "Paramedic action figure"
+	name = "фигурка парамедика"
 	icon_state = "paramedic"
-	toysay = "And the best part? I'm not even a real doctor!"
+	toysay = "И что самое интересное? Я даже не настоящий врач!"
 
 /obj/item/toy/figure/mime
-	name = "Mime action figure"
+	name = "фигурка мима"
 	icon_state = "mime"
 	toysay = "..."
 	toysound = null
 
 /obj/item/toy/figure/miner
-	name = "Shaft Miner action figure"
+	name = "фигурка шахтёра"
 	icon_state = "miner"
-	toysay = "COLOSSUS RIGHT OUTSIDE THE BASE!"
+	toysay = "КОЛОСС ПРЯМО СПРАВА ОТ БАЗЫ!"
 
 /obj/item/toy/figure/ninja
-	name = "Ninja action figure"
+	name = "фигурка ниндзи"
 	icon_state = "ninja"
-	toysay = "Oh god! Stop shooting, I'm friendly!"
+	toysay = "О боже! Прекратите стрелять, я мирный!"
 
 /obj/item/toy/figure/wizard
-	name = "Wizard action figure"
+	name = "фигурка волшебника"
 	icon_state = "wizard"
 	toysay = "Ei Nath!"
 	toysound = 'sound/magic/disintegrate.ogg'
 
 /obj/item/toy/figure/rd
-	name = "Research Director action figure"
+	name = "фигурка руководителя исследований"
 	icon_state = "rd"
-	toysay = "Blowing all of the borgs!"
+	toysay = "Взрываю всех боргов!"
 
 /obj/item/toy/figure/roboticist
-	name = "Roboticist action figure"
+	name = "фигурка робототехника"
 	icon_state = "roboticist"
-	toysay = "Big stompy mechs!"
+	toysay = "Большие топчущие мехи!"
 	toysound = 'sound/mecha/mechstep.ogg'
 
 /obj/item/toy/figure/scientist
-	name = "Scientist action figure"
+	name = "фигурка ученого"
 	icon_state = "scientist"
-	toysay = "I call toxins."
+	toysay = "БУМ."
 	toysound = 'sound/effects/explosionfar.ogg'
 
 /obj/item/toy/figure/syndie
-	name = "Nuclear Operative action figure"
+	name = "фигурка оперативника синдиката"
 	icon_state = "syndie"
-	toysay = "Get that fucking disk!"
+	toysay = "Достаньте этот ёбаный диск!"
 
 /obj/item/toy/figure/secofficer
-	name = "Security Officer action figure"
+	name = "фигурка офицера СБ"
 	icon_state = "secofficer"
-	toysay = "I am the law!"
+	toysay = "Я закон!"
 	toysound = 'sound/runtime/complionator/dredd.ogg'
 
 /obj/item/toy/figure/virologist
-	name = "Virologist action figure"
+	name = "фигурка вирусолога"
 	icon_state = "virologist"
-	toysay = "The cure is potassium!"
+	toysay = "Лекарство - калий!"
 
 /obj/item/toy/figure/warden
-	name = "Warden action figure"
+	name = "фигурка надзирателя"
 	icon_state = "warden"
-	toysay = "Seventeen minutes for coughing at an officer!"
+	toysay = "Семнадцать минут за кашель на офицера!"
 
 
 /obj/item/toy/dummy
-	name = "ventriloquist dummy"
+	name = "кукла чревовещателя"
 	desc = "It's a dummy, dummy."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "puppet"
@@ -1457,17 +1459,17 @@
 
 //Add changing looks when i feel suicidal about making 20 inhands for these.
 /obj/item/toy/dummy/attack_self(mob/user)
-	var/new_name = stripped_input(usr,"What would you like to name the dummy?","Input a name",doll_name,MAX_NAME_LEN)
+	var/new_name = stripped_input(usr,"Как назовем куклу?","Введите имя",doll_name,MAX_NAME_LEN)
 	if(!new_name)
 		return
 	doll_name = new_name
-	to_chat(user, span_notice("You name the dummy as \"[doll_name]\"."))
+	to_chat(user, span_notice("Называю куклу \"[doll_name]\"."))
 	name = "[initial(name)] - [doll_name]"
 
 /obj/item/toy/dummy/talk_into(atom/movable/A, message, channel, list/spans, datum/language/language, list/message_mods)
 	var/mob/M = A
 	if (istype(M))
-		M.log_talk(message, LOG_SAY, tag="dummy toy")
+		M.log_talk(message, LOG_SAY, tag="кукла")
 
 	say(message, language)
 	return NOPASS
@@ -1476,8 +1478,8 @@
 	return doll_name
 
 /obj/item/toy/seashell
-	name = "seashell"
-	desc = "May you always have a shell in your pocket and sand in your shoes. Whatever that's supposed to mean."
+	name = "ракушка"
+	desc = "Пусть у вас всегда будет ракушка в кармане и песок в ботинках. Что бы это ни означало."
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "shell1"
 	var/static/list/possible_colors = list("" =  2, COLOR_PURPLE_GRAY = 1, COLOR_OLIVE = 1, COLOR_PALE_BLUE_GRAY = 1, COLOR_RED_GRAY = 1)
@@ -1491,8 +1493,8 @@
 	setDir(pick(GLOB.cardinals))
 
 /obj/item/toy/brokenradio
-	name = "broken radio"
-	desc = "An old radio that produces nothing but static when turned on."
+	name = "сломанное радио"
+	desc = "Старый радиоприемник, который при включении не производит ничего, кроме помех."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "broken_radio"
 	w_class = WEIGHT_CLASS_SMALL
@@ -1501,15 +1503,15 @@
 /obj/item/toy/brokenradio/attack_self(mob/user)
 	if(cooldown <= world.time)
 		cooldown = (world.time + 300)
-		user.visible_message(span_notice("[user] adjusts the dial on [src]."))
+		user.visible_message(span_notice("[user] настраивает циферблат на [src]."))
 		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, 'sound/items/radiostatic.ogg', 50, FALSE), 0.5 SECONDS)
 	else
-		to_chat(user, span_warning("The dial on [src] jams up"))
+		to_chat(user, span_warning("Циферблат на [src] застревает."))
 		return
 
 /obj/item/toy/braintoy
-	name = "squeaky brain"
-	desc = "A Mr. Monstrous brand toy made to imitate a human brain in smell and texture."
+	name = "игрушечный мозг"
+	desc = "Игрушка марки Mr. Monstrous, сделанная для имитации человеческого мозга по запаху и текстуре."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "brain-old"
 	var/cooldown = 0

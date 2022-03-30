@@ -6,8 +6,8 @@
 	icon_state = "dualsaber0"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	name = "double-bladed energy sword"
-	desc = "Handle with care."
+	name = "двойной энергетический меч"
+	desc = "Держите аккуратно."
 	force = 3
 	throwforce = 5
 	throw_speed = 3
