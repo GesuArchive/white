@@ -7,6 +7,7 @@ GLOBAL_VAR(violence_blue_datum)
 GLOBAL_LIST_EMPTY(violence_red_team)
 GLOBAL_LIST_EMPTY(violence_blue_team)
 GLOBAL_LIST_EMPTY(violence_teamlock)
+GLOBAL_LIST_EMPTY(violence_players)
 
 #define VIOLENCE_FINAL_ROUND 7
 
@@ -27,6 +28,10 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 	// балансировочные якори команд
 	var/max_reds = 4
 	var/max_blues = 4
+
+	// последнее количество игроков после начала раунда
+	var/last_reds = 0
+	var/last_blues = 0
 
 	announce_span = "danger"
 	announce_text = "Резня!"
@@ -109,20 +114,20 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 			if(!R?.current)
 				play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
 				GLOB.violence_red_team -= R
-				to_chat(world, span_red("[LAZYLEN(GLOB.violence_red_team)]/[max_reds]"))
+				to_chat(world, span_red("[LAZYLEN(GLOB.violence_red_team)]/[last_reds]"))
 			else if(R?.current?.stat == DEAD)
 				play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
 				GLOB.violence_red_team -= R
-				to_chat(world, span_red("[LAZYLEN(GLOB.violence_red_team)]/[max_reds]"))
+				to_chat(world, span_red("[LAZYLEN(GLOB.violence_red_team)]/[last_reds]"))
 		for(var/datum/mind/B in GLOB.violence_blue_team)
 			if(!B?.current)
 				play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
 				GLOB.violence_blue_team -= B
-				to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[max_blues]"))
+				to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[last_blues]"))
 			else if(B?.current?.stat == DEAD)
 				play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
 				GLOB.violence_blue_team -= B
-				to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[max_blues]"))
+				to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[last_blues]"))
 		// добейте выживших
 		for(var/mob/living/carbon/human/H in main_area)
 			if(H.stat != DEAD && H.health <= 0)
@@ -207,6 +212,8 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 		// открываем шаттерсы через время
 		spawn(30 SECONDS)
 			to_chat(world, leader_brass("В БОЙ!"))
+			last_reds = LAZYLEN(GLOB.violence_red_team)
+			last_blues = LAZYLEN(GLOB.violence_blue_team)
 			play_sound_to_everyone('white/valtos/sounds/gong.ogg')
 			for(var/obj/machinery/door/poddoor/D in main_area)
 				INVOKE_ASYNC(D, /obj/machinery/door/poddoor.proc/open)
@@ -611,14 +618,20 @@ GLOBAL_LIST_EMPTY(violence_teamlock)
 	name = "Тренировочный Центр"
 	description = "Здесь проходят обучение все офицеры Нанотрейзен."
 	mappath = "_maps/map_files/Warfare/violence3.dmm"
-	weight = 1
+	weight = 3
 	max_players = 64
 
 /datum/map_template/violence/de_dust2
 	name = "de_dust2"
 	description = "Здесь происходит что-то странное на польском языке."
 	mappath = "_maps/map_files/Warfare/violence4.dmm"
-	weight = 6
+	weight = 3
 	max_players = 64
+
+/datum/component/violence_player
+	var/money = 0
+	var/team = "white"
+	var/kills = 0
+	var/deaths = 0
 
 #undef VIOLENCE_FINAL_ROUND
