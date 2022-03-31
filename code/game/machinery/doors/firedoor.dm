@@ -451,6 +451,7 @@
 /obj/machinery/door/firedoor/open()
 	if(welded)
 		return
+	playsound(src, 'white/valtos/sounds/firelock.ogg', 25)
 	var/alarm = alarm_type
 	. = ..()
 	if(alarm != alarm_type) //Something changed while we were sleeping
@@ -459,10 +460,17 @@
 /obj/machinery/door/firedoor/close()
 	if(HAS_TRAIT(loc, TRAIT_FIREDOOR_STOP))
 		return
+	playsound(src, 'white/valtos/sounds/firelock.ogg', 25)
 	var/alarm = alarm_type
 	. = ..()
 	if(alarm != alarm_type) //Something changed while we were sleeping
 		correct_state() //So we should re-evaluate our state
+
+/obj/machinery/door/firedoor/proc/emergency_pressure_stop(consider_timer = TRUE)
+	set waitfor = 0
+	if(density || operating || welded)
+		return
+	close()
 
 /obj/machinery/door/firedoor/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -540,10 +548,9 @@
 		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/machinery/door/firedoor/border_only/CanAtmosPass(turf/T)
-	if(get_dir(loc, T) == dir)
+	if(get_dir(get_turf(src), T) == dir)
 		return !density
-	else
-		return TRUE
+	return TRUE
 
 /obj/machinery/door/firedoor/heavy
 	name = "тяжёлый пожарный шлюз"
