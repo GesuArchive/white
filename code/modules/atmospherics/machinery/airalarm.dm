@@ -199,7 +199,7 @@
 	data["environment_data"] += list(list(
 							"name" = "Давление",
 							"value" = pressure,
-							"unit" = "kPa",
+							"unit" = "кПа",
 							"danger_level" = cur_tlv.get_danger_level(pressure)
 	))
 	var/temperature = environment.return_temperature()
@@ -953,10 +953,8 @@
 		var/datum/gas_mixture/environment = alarm_turf.return_air()
 		pressure.set_output(round(environment.return_pressure()))
 		temperature.set_output(round(environment.return_temperature()))
-		/* похуй чисто паебать потом пофиксит ктонить кому нада
 		if(ispath(options_map[current_option]))
-			gas_amount.set_output(round(environment.gases[options_map[current_option]][MOLES]))
-		*/
+			gas_amount.set_output(round(environment.get_moles(options_map[current_option])))
 		return
 
 	var/datum/tlv/settings = connected_alarm.TLV[options_map[current_option]]
