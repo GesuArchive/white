@@ -3,6 +3,7 @@
 	name = "дверь"
 	desc = "Открывается и закрывается. Удивительно."
 	icon = 'icons/obj/doors/Doorint.dmi'
+	base_icon_state = "door"
 	icon_state = "door1"
 	opacity = TRUE
 	density = TRUE
