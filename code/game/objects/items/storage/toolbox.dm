@@ -83,6 +83,9 @@
 	new /obj/item/analyzer(src)
 	new /obj/item/wirecutters(src)
 
+/obj/item/storage/toolbox/mechanical/empty/PopulateContents()
+	return
+
 /obj/item/storage/toolbox/mechanical/old
 	name = "ржавый синий ящик"
 	icon_state = "toolbox_blue_old"

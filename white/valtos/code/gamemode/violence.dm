@@ -476,7 +476,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 				glasses = /obj/item/clothing/glasses/thermal
 				mask = /obj/item/clothing/mask/gas/syndicate
 				shoes = /obj/item/clothing/shoes/combat
-				gloves =  /obj/item/clothing/gloves/combat
+				gloves = /obj/item/clothing/gloves/combat
 				if(prob(50))
 					suit_store = /obj/item/gun/ballistic/automatic/c20r/unrestricted
 					belt = /obj/item/storage/belt/military/assault/c20r4
@@ -629,10 +629,277 @@ GLOBAL_LIST_EMPTY(violence_players)
 	weight = 2
 	max_players = 64
 
-/datum/component/violence_player
+/datum/violence_player
 	var/money = 0
 	var/team = "white"
 	var/kills = 0
 	var/deaths = 0
+
+/mob/dead/new_player/proc/violence_choices()
+	var/list/dat = list()
+	//dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'>хуй</a>"
+
+/proc/generate_violence_gear()
+	var/list/sorted_gear = list()
+	for(var/datum/violence_gear/VG as anything in subtypesof(/datum/violence_gear))
+		if(VG.cost)
+			sorted_gear[VG.cat] += VG
+
+/datum/violence_gear
+	var/name = "???"
+	var/cat = "ХУЙ"
+	var/cost = 0
+	var/items = list()
+
+/datum/violence_gear/melee
+	cat = "Ближний бой"
+
+/datum/violence_gear/melee/extinguisher
+	name = "Огнетушитель"
+	cost = 100
+	items = list(/obj/item/extinguisher)
+
+/datum/violence_gear/melee/toolbox
+	name = "Ящик с инструментами"
+	cost = 200
+	items = list(/obj/item/storage/toolbox/mechanical/empty)
+
+/datum/violence_gear/melee/kitchen
+	name = "Кухонный нож"
+	cost = 300
+	items = list(/obj/item/kitchen/knife)
+
+/datum/violence_gear/melee/combat
+	name = "Боевой нож"
+	cost = 900
+	items = list(/obj/item/kitchen/knife/combat)
+
+/datum/violence_gear/melee/sabre
+	name = "Сабля"
+	cost = 1200
+	items = list(/obj/item/melee/sabre/german)
+
+/datum/violence_gear/melee/energy_sabre
+	name = "Энергомеч"
+	cost = 2500
+	items = list(/obj/item/melee/energy/sword/saber)
+
+/datum/violence_gear/melee/katana
+	name = "Катана"
+	cost = 4000
+	items = list(/obj/item/katana)
+
+/datum/violence_gear/pistol
+	cat = "Пистолеты"
+
+/datum/violence_gear/pistol/handmade
+	name = "Самодельный"
+	cost = 600
+	items = list(/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/handmade)
+
+/datum/violence_gear/pistol/mauser
+	name = "Маузер"
+	cost = 1000
+	items = list(/obj/item/gun/ballistic/automatic/pistol/mauser)
+
+/datum/violence_gear/pistol/m1911
+	name = "M1911"
+	cost = 1250
+	items = list(/obj/item/gun/ballistic/automatic/pistol/m1911)
+
+/datum/violence_gear/pistol/makarov
+	name = "Макаров"
+	cost = 1500
+	items = list(/obj/item/gun/ballistic/automatic/pistol/makarov)
+
+/datum/violence_gear/pistol/aps
+	name = "АПС"
+	cost = 2000
+	items = list(/obj/item/gun/ballistic/automatic/pistol/aps)
+
+/datum/violence_gear/pistol/mateba
+	name = "Матеба"
+	cost = 3250
+	items = list(/obj/item/gun/ballistic/revolver/mateba)
+
+/datum/violence_gear/pistol/deagle
+	name = "Пустынный орёл"
+	cost = 3500
+	items = list(/obj/item/gun/ballistic/automatic/pistol/deagle)
+
+/datum/violence_gear/rifle
+	cat = "Винтовки"
+
+/datum/violence_gear/rifle/kar98k
+	name = "Болтовка"
+	cost = 900
+	items = list(/obj/item/gun/ballistic/rifle/boltaction/kar98k)
+
+/datum/violence_gear/rifle/scope
+	name = "Болтовка с оптикой"
+	cost = 1200
+	items = list(/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope)
+
+/datum/violence_gear/rifle/mini_uzi
+	name = "U3 Uzi"
+	cost = 2000
+	items = list(/obj/item/gun/ballistic/automatic/mini_uzi)
+
+/datum/violence_gear/rifle/c20r
+	name = "C-20r SMG"
+	cost = 2500
+	items = list(/obj/item/gun/ballistic/automatic/c20r/unrestricted)
+
+/datum/violence_gear/rifle/ak74m
+	name = "АК-74m"
+	cost = 3000
+	items = list(/obj/item/gun/ballistic/automatic/ak74m)
+
+/datum/violence_gear/rifle/asval
+	name = "Вал"
+	cost = 4000
+	items = list(/obj/item/gun/ballistic/automatic/asval)
+
+/datum/violence_gear/shotgun
+	cat = "Дробовики"
+
+/datum/violence_gear/shotgun/doublebarrel
+	name = "Двухстволка"
+	cost = 1000
+	items = list(/obj/item/gun/breakopen/doublebarrel)
+
+/datum/violence_gear/shotgun/combat
+	name = "Боевой дробовик"
+	cost = 2000
+	items = list(/obj/item/gun/ballistic/shotgun/automatic/combat)
+
+/datum/violence_gear/shotgun/saiga
+	name = "Сайга"
+	cost = 2500
+	items = list(/obj/item/gun/ballistic/shotgun/saiga)
+
+/datum/violence_gear/heavygun
+	cat = "Тяжёлое оружие"
+
+/datum/violence_gear/heavygun/rocketlauncher
+	name = "PML-9"
+	cost = 3000
+	items = list(/obj/item/gun/ballistic/rocketlauncher/unrestricted)
+
+/datum/violence_gear/heavygun/l6_saw
+	name = "L6 SAW"
+	cost = 4000
+	items = list(/obj/item/gun/ballistic/automatic/l6_saw/unrestricted)
+
+/datum/violence_gear/heavygun/gyropistol
+	name = "Гироджет"
+	cost = 5000
+	items = list(/obj/item/gun/ballistic/automatic/gyropistol)
+
+/datum/violence_gear/heavygun/pulse
+	name = "Пульсач"
+	cost = 7500
+	items = list(/obj/item/gun/energy/pulse)
+
+/datum/violence_gear/armor
+	cat = "Броня"
+
+/datum/violence_gear/armor/durathread
+	name = "Бомжпакет"
+	cost = 500
+	items = list(
+		/obj/item/clothing/suit/armor/vest/durathread,
+		/obj/item/clothing/head/beret/durathread
+	)
+
+/datum/violence_gear/armor/basic
+	name = "Бронежилет"
+	cost = 1000
+	items = list(
+		/obj/item/clothing/suit/armor/vest,
+		/obj/item/clothing/head/helmet,
+		/obj/item/clothing/gloves/fingerless
+	)
+
+/datum/violence_gear/armor/bulletproof
+	name = "Пуленепробиваемый"
+	cost = 2000
+	items = list(
+		/obj/item/clothing/suit/armor/bulletproof,
+		/obj/item/clothing/head/helmet/alt,
+		/obj/item/clothing/gloves/combat
+	)
+
+/datum/violence_gear/armor/specops
+	name = "Спецназ"
+	cost = 3000
+	items = list(
+		/obj/item/clothing/head/helmet/maska/altyn,
+		/obj/item/clothing/suit/armor/opvest/sobr,
+		/obj/item/clothing/gloves/combat/sobr,
+		/obj/item/clothing/shoes/combat
+	)
+
+/datum/violence_gear/armor/deathsquad
+	name = "Тяжёлая"
+	cost = 4000
+	items = list(
+		/obj/item/clothing/suit/space/hardsuit/deathsquad,
+		/obj/item/clothing/gloves/tackler/combat/insulated,
+		/obj/item/clothing/glasses/hud/toggle/thermal,
+		/obj/item/clothing/mask/gas/sechailer/swat,
+		/obj/item/clothing/shoes/combat/swat
+	)
+
+/datum/violence_gear/shield
+	cat = "Щиты"
+
+/datum/violence_gear/shield/buckler
+	name = "Деревянный щит"
+	cost = 250
+	items = list(/obj/item/shield/riot/buckler)
+
+/datum/violence_gear/shield/riot
+	name = "Крепкий щит"
+	cost = 500
+	items = list(/obj/item/shield/riot)
+
+/datum/violence_gear/shield/kevlar
+	name = "Кевларовый щит"
+	cost = 1000
+	items = list(/obj/item/shield/riot/kevlar)
+
+/datum/violence_gear/shield/energy
+	name = "Энергощит"
+	cost = 2000
+	items = list(/obj/item/shield/energy)
+
+/datum/violence_gear/grenade
+	cat = "Гранаты"
+
+/datum/violence_gear/grenade/flashbang
+	name = "Светошумовая"
+	cost = 250
+	items = list(/obj/item/grenade/flashbang)
+
+/datum/violence_gear/grenade/teargas
+	name = "Перцовый газ"
+	cost = 500
+	items = list(/obj/item/grenade/chem_grenade/teargas)
+
+/datum/violence_gear/grenade/frag
+	name = "Осколочная"
+	cost = 750
+	items = list(/obj/item/grenade/frag)
+
+/datum/violence_gear/grenade/syndieminibomb
+	name = "Взрывчатая"
+	cost = 1250
+	items = list(/obj/item/grenade/syndieminibomb)
+
+/datum/violence_gear/grenade/flashbang
+	name = "Гранатомёт"
+	cost = 2000
+	items = list(/obj/item/gun/grenadelauncher)
 
 #undef VIOLENCE_FINAL_ROUND
