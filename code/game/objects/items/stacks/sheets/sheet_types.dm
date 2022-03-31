@@ -18,6 +18,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	new/datum/stack_recipe("Табурет", /obj/structure/chair/stool, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("барный стул", /obj/structure/chair/stool/bar, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("кровать", /obj/structure/bed, 2, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("двойная кровать", /obj/structure/bed/double, 2, one_per_turf = TRUE, on_floor = TRUE), \
 	null, \
 	new/datum/stack_recipe_list("офисные кресла", list( \
 		new/datum/stack_recipe("темное офисное кресло", /obj/structure/chair/office, 5, one_per_turf = TRUE, on_floor = TRUE), \
@@ -41,6 +42,12 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 		new /datum/stack_recipe("диван (левый)", /obj/structure/chair/sofa/corp/left, one_per_turf = TRUE, on_floor = TRUE), \
 		new /datum/stack_recipe("диван (правый)", /obj/structure/chair/sofa/corp/right, one_per_turf = TRUE, on_floor = TRUE), \
 		new /datum/stack_recipe("диван (угловой)", /obj/structure/chair/sofa/corp/corner, one_per_turf = TRUE, on_floor = TRUE), \
+		)), \
+	new /datum/stack_recipe_list("скамейки", list( \
+		new /datum/stack_recipe("скамейка (центр)", /obj/structure/chair/sofa/bench, one_per_turf = TRUE, on_floor = TRUE), \
+		new /datum/stack_recipe("скамейка (левая)", /obj/structure/chair/sofa/bench/left, one_per_turf = TRUE, on_floor = TRUE), \
+		new /datum/stack_recipe("скамейка (правая)", /obj/structure/chair/sofa/bench/right, one_per_turf = TRUE, on_floor = TRUE), \
+		new /datum/stack_recipe("скамейка (угол)", /obj/structure/chair/sofa/bench/corner, one_per_turf = TRUE, on_floor = TRUE), \
 		)), \
 	new /datum/stack_recipe_list("шахматные фигуры", list( \
 		new /datum/stack_recipe("Белый Pawn", /obj/structure/chess/whitepawn, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
@@ -337,6 +344,7 @@ GLOBAL_LIST_INIT(cloth_recipes, list ( \
 	null, \
 	new/datum/stack_recipe("импровизированная марля", /obj/item/stack/medical/gauze/improvised, 1, 2, 6), \
 	new/datum/stack_recipe("тряпка", /obj/item/reagent_containers/glass/rag, 1), \
+	new/datum/stack_recipe("двойная простыня", /obj/item/bedsheet/double, 3), \
 	new/datum/stack_recipe("простыня", /obj/item/bedsheet, 3), \
 	new/datum/stack_recipe("пустой мешок для песка", /obj/item/emptysandbag, 4), \
 	null, \
