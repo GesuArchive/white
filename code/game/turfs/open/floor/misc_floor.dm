@@ -246,26 +246,3 @@
 		out of. It only makes sense in the context of space because you're trying to keep a freezing vacuum out. Is anyone following me on this? \
 		The idea of a \"rudimentary\" iron wall makes no sense at all! Is anything i'm even saying here true? Someone's gotta fact check this!"
 	icon_state = "stone_floor"
-
-/obj/item/stack/tile/plasteel/pool
-	name = "pool floor tile"
-	singular_name = "pool floor tile"
-	turf_type = /turf/open/floor/iron/pool
-
-/turf/open/floor/plasteel/pool
-	name = "pool floor"
-	floor_tile = /obj/item/stack/tile/plasteel/pool
-	icon = 'white/rebolution228/icons/unsorted/pool_tile.dmi'
-	base_icon_state = "pool_tile"
-	icon_state = "pool_tile"
-	liquid_height = -30
-	turf_height = -30
-
-/turf/open/floor/iron/pool/setup_broken_states()
-	return list("pool_tile")
-
-/turf/open/floor/iron/pool/setup_burnt_states()
-	return list("pool_tile")
-
-/turf/open/floor/iron/pool/rust_heretic_act()
-	return
