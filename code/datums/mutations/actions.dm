@@ -45,7 +45,7 @@
 
 	if(air.get_moles(/datum/gas/miasma) > 2)
 		user.adjust_disgust(sensitivity * 45)
-		to_chat(user, span_warning("УЖАСТНАЯ ВОНЬ! Слишком отвратительный запах для моего чувствительного носа! Надо убраться отсюда подальше!"))
+		to_chat(user, span_warning("УЖАСНАЯ ВОНЬ! Слишком отвратительный запах для моего чувствительного носа! Надо убраться отсюда подальше!"))
 		return
 
 	var/atom/sniffed = user.get_active_held_item()

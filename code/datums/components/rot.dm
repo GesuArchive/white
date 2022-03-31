@@ -21,8 +21,6 @@
 		COMSIG_ATOM_ENTERED = .proc/on_entered,
 	)
 
-
-
 /datum/component/rot/Initialize(delay, scaling, severity)
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -71,6 +69,13 @@
 		return
 	start_time = world.time
 	active = TRUE
+
+	var/datum/gas_mixture/stank = new
+	stank.adjust_moles(/datum/gas/miasma, strength)
+	stank.set_temperature(BODYTEMP_NORMAL) // otherwise we have gas below 2.7K which will break our lag generator
+	var/turf/open/T = get_turf(parent)
+	T.assume_air(stank)
+	T.air_update_turf(FALSE, FALSE)
 
 ///One of two procs that modifies blockers, this one handles adding a blocker and potentially ending the rot
 /datum/component/rot/proc/rest(blocker_type)
@@ -147,7 +152,7 @@
 
 	//We're running just under the "worst disease", since we don't want these to be too strong
 	var/datum/disease/advance/random/rand_disease = new(rand(4 * strength * time_scaling), rand(strength * 5 * time_scaling))
-	rand_disease.name = "Unknown"
+	rand_disease.name = "Неизвестно"
 	react_to.ContactContractDisease(rand_disease, target_zone)
 
 #undef REAGENT_BLOCKER
