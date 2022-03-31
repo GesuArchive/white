@@ -210,6 +210,14 @@
 /datum/mood_event/sad_empath/add_effects(mob/sadtarget)
 	description = "<span class='warning'>[sadtarget.name] кажется грустит...</span>\n"
 
+/datum/mood_event/not_sad_empath
+	description = "<span class='warning'>Кто-то радуется своей жизни!</span>\n"
+	mood_change = 10
+	timeout = 1 MINUTES
+
+/datum/mood_event/not_sad_empath/add_effects(mob/sadtarget)
+	description = "<span class='warning'>[sadtarget.name] отлично себя чувствует!</span>\n"
+
 /datum/mood_event/sacrifice_bad
 	description ="<span class='warning'>Эти чёртовы дикари!</span>\n"
 	mood_change = -10

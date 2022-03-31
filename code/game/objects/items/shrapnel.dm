@@ -67,8 +67,6 @@
 /obj/projectile/bullet/pellet/stingball/on_ricochet(atom/A)
 	hit_prone_targets = TRUE // ducking will save you from the first wave, but not the rebounds
 
-
-
 /obj/projectile/bullet/pellet/capmine
 	name = "бронебойный осколок шрапнели"
 	range = 7

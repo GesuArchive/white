@@ -337,26 +337,28 @@
 			return
 
 		if(src != user)
+			if (a_intent != INTENT_HELP)
+				msg += "[t_on] выглядит на готове.\n"
+			if (getOxyLoss() >= 10)
+				msg += "[t_on] выглядит измотанно.\n"
+			if (getToxLoss() >= 10)
+				msg += "[t_on] выглядит болезненно.\n"
+			var/datum/component/mood/mood = src.GetComponent(/datum/component/mood)
+			if(mood.sanity <= SANITY_DISTURBED)
+				msg += "[t_on] выглядит расстроено.\n"
+			if (bodytemperature > dna.species.bodytemp_heat_damage_limit)
+				msg += "[t_on] краснеет и хрипит.\n"
+			if (bodytemperature < dna.species.bodytemp_cold_damage_limit)
+				msg += "[t_on] дрожит.\n"
+			if (HAS_TRAIT(src, TRAIT_BLIND))
+				msg += "[t_on] смотрит в пустоту.\n"
+			if (HAS_TRAIT(src, TRAIT_DEAF))
+				msg += "[t_on] не реагирует на шум.\n"
 			if(HAS_TRAIT(user, TRAIT_EMPATH))
-				if (a_intent != INTENT_HELP)
-					msg += "[t_on] выглядит на готове.\n"
-				if (getOxyLoss() >= 10)
-					msg += "[t_on] выглядит измотанно.\n"
-				if (getToxLoss() >= 10)
-					msg += "[t_on] выглядит болезненно.\n"
-				var/datum/component/mood/mood = src.GetComponent(/datum/component/mood)
 				if(mood.sanity <= SANITY_DISTURBED)
-					msg += "[t_on] выглядит расстроено.\n"
 					SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "empath", /datum/mood_event/sad_empath, src)
-				if (HAS_TRAIT(src, TRAIT_BLIND))
-					msg += "[t_on] смотрит в пустоту.\n"
-				if (HAS_TRAIT(src, TRAIT_DEAF))
-					msg += "[t_on] не реагирует на шум.\n"
-				if (bodytemperature > dna.species.bodytemp_heat_damage_limit)
-					msg += "[t_on] краснеет и хрипит.\n"
-				if (bodytemperature < dna.species.bodytemp_cold_damage_limit)
-					msg += "[t_on] дрожит.\n"
-
+				if(mood.sanity >= SANITY_GREAT)
+					SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "empath", /datum/mood_event/not_sad_empath, src)
 			if(HAS_TRAIT(user, TRAIT_SPIRITUAL) && mind?.holy_role)
 				msg += "От н[t_ego] веет святым духом.\n"
 				SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "religious_comfort", /datum/mood_event/religiously_comforted)

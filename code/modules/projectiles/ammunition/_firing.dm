@@ -31,6 +31,7 @@
 	loaded_projectile.original = target
 	loaded_projectile.firer = user
 	loaded_projectile.fired_from = fired_from
+	loaded_projectile.hit_prone_targets = user.a_intent != INTENT_HELP
 
 	loaded_projectile.damage = initial(loaded_projectile.damage) + extra_damage
 	if(isnum(extra_penetration))
