@@ -49,6 +49,8 @@
 	if(reagent_id)
 		reagents.add_reagent(reagent_id, tank_volume)
 	. = ..()
+	if(icon_state == "water" && SSevents.holidays?[APRIL_FOOLS])
+		icon_state = "water_fools"
 
 /obj/structure/reagent_dispensers/proc/boom()
 	visible_message(span_danger("<b>[src.name]</b> разрывается!"))
@@ -85,6 +87,11 @@
 	desc = "Заполнен сварочным топливом. Не пить."
 	icon_state = "fuel"
 	reagent_id = /datum/reagent/fuel
+
+/obj/structure/reagent_dispensers/fueltank/Initialize(mapload)
+	. = ..()
+	if(SSevents.holidays?[APRIL_FOOLS])
+		icon_state = "fuel_fools"
 
 /obj/structure/reagent_dispensers/fueltank/boom()
 	explosion(get_turf(src), 0, 1, 5, flame_range = 5)
