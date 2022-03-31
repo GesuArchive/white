@@ -42,9 +42,6 @@
 
 	///Type of alarm when active. See code/defines/firealarm.dm for the list. This var being null means there is no alarm.
 	var/alarm_type = null
-	///The merger_id and merger_typecache variables are used to make rows of firelocks activate at the same time.
-	var/merger_id = "firelocks"
-	var/static/list/merger_typecache
 	///Overlay object for the warning lights. This and some plane settings allows the lights to glow in the dark.
 	var/mutable_appearance/warn_lights
 
@@ -69,8 +66,6 @@
 	)
 
 	AddElement(/datum/element/connect_loc, loc_connections)
-	if(!merger_typecache)
-		merger_typecache = typecacheof(/obj/machinery/door/firedoor)
 
 	check_atmos()
 
@@ -79,10 +74,6 @@
 		desc += " Выглядит немного подозрительно..."
 
 	return INITIALIZE_HINT_LATELOAD
-
-/obj/machinery/door/firedoor/LateInitialize()
-	. = ..()
-	GetMergeGroup(merger_id, allowed_types = merger_typecache)
 
 /**
  * Sets the offset for the warning lights.
@@ -187,8 +178,7 @@
 		return //We're already active
 	soundloop.start()
 	is_playing_alarm = TRUE
-	var/datum/merger/merge_group = GetMergeGroup(merger_id, merger_typecache)
-	for(var/obj/machinery/door/firedoor/buddylock as anything in merge_group.members)
+	for(var/obj/machinery/door/firedoor/buddylock as anything in range(1, src))
 		buddylock.activate(code)
 
 

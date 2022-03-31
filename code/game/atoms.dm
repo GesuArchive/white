@@ -124,9 +124,6 @@
 	///A string of hex format colors to be used by greyscale sprites, ex: "#0054aa#badcff"
 	var/greyscale_colors
 
-	///Holds merger groups currently active on the atom. Do not access directly, use GetMergeGroup() instead.
-	var/list/datum/merger/mergers
-
 	///Icon-smoothing behavior.
 	var/smoothing_flags = NONE
 	///What directions this is currently smoothing with. IMPORTANT: This uses the smoothing direction flags as defined in icon_smoothing.dm, instead of the BYOND flags.
@@ -2086,27 +2083,3 @@
 	animate(visual, pixel_x = (tile.x - our_tile.x) * world.icon_size + A.pixel_x, pixel_y = (tile.y - our_tile.y) * world.icon_size + A.pixel_y, time = 1.7, easing = EASE_OUT)
 
 	return TRUE
-
-/*
-//Update the screentip to reflect what we're hoverin over
-/atom/MouseEntered(location, control, params)
-	. = ..()
-	// Statusbar
-	status_bar_set_text(usr, name)
-	// Screentips
-	if(usr?.hud_used)
-		if(!usr.client?.prefs.screentip_pref || (flags_1 & NO_SCREENTIPS_1))
-			usr.hud_used.screentip_text.maptext = ""
-		else
-			usr.hud_used.screentip_text.maptext = MAPTEXT("<span style='text-align: center'><span style='font-size: 32px'><span style='color:[usr.client.prefs.screentip_color]: 32px'>[name]</span>")
-*/
-/// Gets a merger datum representing the connected blob of objects in the allowed_types argument
-/atom/proc/GetMergeGroup(id, list/allowed_types)
-	RETURN_TYPE(/datum/merger)
-	var/datum/merger/candidate
-	if(mergers)
-		candidate = mergers[id]
-	if(!candidate)
-		new /datum/merger(id, allowed_types, src)
-		candidate = mergers[id]
-	return candidate
