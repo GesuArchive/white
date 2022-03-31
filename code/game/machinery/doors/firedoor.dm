@@ -25,6 +25,8 @@
 
 	COOLDOWN_DECLARE(detect_cooldown)
 
+	air_tight = TRUE
+
 	///Trick to get the glowing overlay visible from a distance
 	luminosity = 1
 	///X offset for the overlay lights, so that they line up with the thin border firelocks
