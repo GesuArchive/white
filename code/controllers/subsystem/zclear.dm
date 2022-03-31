@@ -292,7 +292,9 @@ SUBSYSTEM_DEF(zclear)
 	for(var/datum/space_level/D as() in SSmapping.z_list)
 		if (D.linkage == CROSSLINKED)
 			possible_transtitons += D.z_value
-	var/_z = pick(possible_transtitons)
+	var/_z = safepick(possible_transtitons)
+	if(!_z)
+		_z = 2
 
 	//now select coordinates for a border turf
 	var/_x = rand(min,max)
