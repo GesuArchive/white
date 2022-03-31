@@ -14,3 +14,30 @@
 	icon = 'white/rebolution228/icons/unsorted/effects.dmi'
 	icon_state = "forcefield"
 
+/obj/effect/turf_decal/tile/neutral/opposingcorners
+	icon_state = "tile_opposing_corners"
+	name = "opposing neutral corners"
+
+/obj/effect/turf_decal/tile/neutral/half
+	icon_state = "tile_half"
+	name = "neutral half"
+
+/obj/effect/turf_decal/tile/neutral/half/contrasted
+	icon_state = "tile_half_contrasted"
+	name = "contrasted neutral half"
+
+/obj/effect/turf_decal/tile/neutral/anticorner
+	icon_state = "tile_anticorner"
+	name = "neutral anticorner"
+
+/obj/effect/turf_decal/tile/neutral/anticorner/contrasted
+	icon_state = "tile_anticorner_contrasted"
+	name = "contrasted neutral anticorner"
+
+/obj/effect/turf_decal/tile/neutral/fourcorners
+	icon_state = "tile_fourcorners"
+	name = "neutral fourcorners"
+
+/obj/effect/turf_decal/tile/neutral/full
+	icon_state = "tile_full"
+	name = "neutral full"

@@ -565,3 +565,60 @@
 
 /obj/machinery/door/airlock/glass_large/narsie_act()
 	return
+
+
+/obj/structure/door_assembly/multi_tile
+	dir = EAST
+	var/width = 1
+
+/obj/machinery/door/airlock/multi_tile/narsie_act()
+	return
+
+
+/obj/structure/door_assembly/multi_tile/Initialize()
+	. = ..()
+	update_dir()
+
+/obj/structure/door_assembly/multi_tile/Move()
+	. = ..()
+	update_dir()
+
+/obj/structure/door_assembly/multi_tile/proc/update_dir()
+	if(dir in list(NORTH, SOUTH))
+		bound_width = width * world.icon_size
+		bound_height = world.icon_size
+	else
+		bound_width = world.icon_size
+		bound_height = width * world.icon_size
+
+/obj/structure/door_assembly/multi_tile/metal
+	name = "Large Airlock Assembly"
+	icon = 'white/rebolution228/icons/unsorted/metal/multi_tile.dmi'
+	base_name = "Large Airlock"
+	overlays_file = 'white/rebolution228/icons/unsorted/metal/overlays.dmi'
+	airlock_type = /obj/machinery/door/airlock/multi_tile/metal
+	glass_type = /obj/machinery/door/airlock/multi_tile/glass
+
+/obj/structure/door_assembly/multi_tile/glass
+	name = "Large Glass Airlock Assembly"
+	icon = 'white/rebolution228/icons/unsorted/glass/multi_tile.dmi'
+	base_name = "Large Glass Airlock"
+	overlays_file = 'white/rebolution228/icons/unsorted/glass/overlays.dmi'
+	airlock_type = /obj/machinery/door/airlock/multi_tile/glass
+
+
+/obj/machinery/door/airlock/multi_tile/glass
+	name = "Large Glass Airlock"
+	icon = 'white/rebolution228/icons/unsorted/glass/multi_tile.dmi'
+	overlays_file = 'white/rebolution228/icons/unsorted/glass/overlays.dmi'
+	opacity = FALSE
+	airlock_material = "glass"
+	glass = TRUE
+	assemblytype = /obj/structure/door_assembly/multi_tile/glass
+
+/obj/machinery/door/airlock/multi_tile/metal
+	name = "Large Airlock"
+	icon = 'white/rebolution228/icons/unsorted/metal/multi_tile.dmi'
+	overlays_file = 'white/rebolution228/icons/unsorted/metal/overlays.dmi'
+	assemblytype = /obj/structure/door_assembly/multi_tile/metal
+
