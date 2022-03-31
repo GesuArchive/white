@@ -170,6 +170,17 @@
 	end_day = 5
 	begin_month = APRIL
 
+	var/static/list/russia_colors = list(
+		COLOR_RUSSIA_1,
+		COLOR_RUSSIA_2,
+		COLOR_RUSSIA_3,
+	)
+
+/// Given an atom, will return what color it should be to match the russia flag.
+/datum/holiday/april_fools/proc/get_floor_tile_color(atom/atom)
+	var/turf/turf = get_turf(atom)
+	return russia_colors[(turf.y % russia_colors.len) + 1]
+
 /datum/holiday/april_fools/celebrate()
 	SSjob.set_overflow_role("Clown")
 	SSticker.login_music = 'sound/ambience/clown.ogg'

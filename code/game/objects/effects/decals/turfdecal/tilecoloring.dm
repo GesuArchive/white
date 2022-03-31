@@ -5,9 +5,11 @@
 	alpha = 110
 
 /obj/effect/turf_decal/tile/Initialize()
-	if(SSevents.holidays && SSevents.holidays[APRIL_FOOLS])
-		color = "#[random_short_color()]"
-	. = ..()
+	if(SSevents.holidays)
+		if (SSevents.holidays[APRIL_FOOLS])
+			var/datum/holiday/april_fools/april_fools = SSevents.holidays[APRIL_FOOLS]
+			color = april_fools.get_floor_tile_color(src)
+	return ..()
 
 /obj/effect/turf_decal/tile/blue
 	name = "синий corner"
