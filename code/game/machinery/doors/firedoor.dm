@@ -464,10 +464,11 @@
 	if(alarm != alarm_type) //Something changed while we were sleeping
 		correct_state() //So we should re-evaluate our state
 
-/obj/machinery/door/firedoor/proc/emergency_pressure_stop(consider_timer = TRUE)
+/obj/machinery/door/firedoor/proc/emergency_pressure_stop()
 	set waitfor = 0
 	if(density || operating || welded)
 		return
+	alarm_type = FIRELOCK_ALARM_TYPE_GENERIC
 	close()
 
 /obj/machinery/door/firedoor/deconstruct(disassembled = TRUE)
