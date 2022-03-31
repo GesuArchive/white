@@ -324,12 +324,7 @@
 	var/datum/brain_trauma/mild/phobia/conspiracies/paranoia
 	var/warped = FALSE
 
-/obj/item/clothing/head/foilhat/Initialize(mapload)
-	. = ..()
-	if(!warped)
-		AddComponent(/datum/component/anti_magic, TRUE, FALSE, TRUE, ITEM_SLOT_HEAD,  6, TRUE, null, CALLBACK(src, .proc/warp_up))
-	else
-		warp_up()
+
 
 /obj/item/clothing/head/foilhat/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
