@@ -7,3 +7,10 @@
 	density = TRUE
 	opacity = FALSE
 	invisibility = 101
+
+/obj/structure/fans/tiny/forcefield
+	name = "forcefield"
+	desc = "A fluctuating forcefield for ships to cross."
+	icon = 'white/rebolution228/icons/unsorted/effects.dmi'
+	icon_state = "forcefield"
+

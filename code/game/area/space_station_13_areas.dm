@@ -818,6 +818,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "atmos1"
 	area_flags = CULT_PERMITTED
 
+/area/engineering/atmos/project
+	name = "Инженерный: Атмос: Проект"
+	icon_state = "atmos1"
+
 /area/engineering/atmos/upper
 	name = "Инженерный: АТМОС залл"
 	icon_state = "atmos2"
