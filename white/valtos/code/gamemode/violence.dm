@@ -618,14 +618,14 @@ GLOBAL_LIST_EMPTY(violence_players)
 	name = "Тренировочный Центр"
 	description = "Здесь проходят обучение все офицеры Нанотрейзен."
 	mappath = "_maps/map_files/Warfare/violence3.dmm"
-	weight = 3
+	weight = 2
 	max_players = 64
 
 /datum/map_template/violence/de_dust2
 	name = "de_dust2"
 	description = "Здесь происходит что-то странное на польском языке."
 	mappath = "_maps/map_files/Warfare/violence4.dmm"
-	weight = 3
+	weight = 2
 	max_players = 64
 
 /datum/component/violence_player
