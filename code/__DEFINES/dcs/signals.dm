@@ -799,6 +799,10 @@
 /// from /obj/machinery/atmospherics/components/unary/cryo_cell/set_on(bool): (on)
 #define COMSIG_CRYO_SET_ON "cryo_set_on"
 
+/// from /obj/machinery/fire_alarm/reset(), /obj/machinery/fire_alarm/alarm(): (status)
+#define COMSIG_FIREALARM_ON_TRIGGER "firealarm_trigger"
+#define COMSIG_FIREALARM_ON_RESET "firealarm_reset"
+
 // /obj/machinery/atmospherics/components/binary/valve signals
 
 /// from /obj/machinery/atmospherics/components/binary/valve/toggle(): (on)

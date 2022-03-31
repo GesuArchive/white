@@ -576,7 +576,7 @@
 	var/obj/machinery/computer/shuttle_flight/C = getControlConsole()
 	if(!istype(C, /obj/machinery/computer/shuttle_flight/pod))
 		return ..()
-	if(GLOB.security_level >= SEC_LEVEL_RED || (C && (C.obj_flags & EMAGGED)))
+	if(SSsecurity_level.current_level >= SEC_LEVEL_RED || (C && (C.obj_flags & EMAGGED)))
 		if(launch_status == UNLAUNCHED)
 			launch_status = EARLY_LAUNCHED
 			return ..()
@@ -589,8 +589,6 @@
 
 /obj/machinery/computer/shuttle_flight/pod
 	name = "консоль управления подом"
-	//recall_docking_port_id = "null"
-	//request_shuttle_message = "Форсировать отлёт"
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "dorm_available"
 	light_color = LIGHT_COLOR_BLUE
@@ -601,7 +599,7 @@
 	AddElement(/datum/element/update_icon_blocker)
 
 /obj/machinery/computer/shuttle_flight/pod/ui_interact(mob/user, datum/tgui/ui)
-	if(isliving(user) && GLOB.security_level < SEC_LEVEL_RED && !(obj_flags & EMAGGED))
+	if(isliving(user) && SSsecurity_level.current_level < SEC_LEVEL_RED && !(obj_flags & EMAGGED))
 		say("Красный код не красный.")
 		return
 	. = ..()
@@ -616,11 +614,7 @@
 	if(port)
 		shuttleId = port.id
 		shuttlePortId = "[shuttleId]_custom"
-/*
-/obj/machinery/computer/shuttle_flight/pod/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
-	. = ..()
-	recall_docking_port_id = ";[port.id]_lavaland"
-*/
+
 /obj/docking_port/stationary/random
 	name = "эвакуационный под"
 	id = "pod"
@@ -732,7 +726,7 @@ GLOBAL_LIST_EMPTY(emergency_storages)
 /obj/item/storage/pod/can_interact(mob/user)
 	if(!..())
 		return FALSE
-	if(GLOB.security_level >= SEC_LEVEL_RED || unlocked)
+	if(SSsecurity_level.current_level >= SEC_LEVEL_RED || unlocked)
 		return TRUE
 	to_chat(user, "Блок хранения разблокируется только во время предупреждения системы безопасности Красного или Дельта кода.")
 
