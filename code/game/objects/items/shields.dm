@@ -1,12 +1,14 @@
 /obj/item/shield
 	name = "щит"
 	icon = 'icons/obj/shields.dmi'
-	block_chance = 50
+	block_chance = 75
 	armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 0, BOMB = 30, BIO = 0, RAD = 0, FIRE = 80, ACID = 70)
 	var/transparent = FALSE	// makes beam projectiles pass through the shield
 	block_sounds = list('white/valtos/sounds/shieldhit1.wav', 'white/valtos/sounds/shieldhit2.wav')
 
 /obj/item/shield/proc/on_shield_block(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", damage = 0, attack_type = MELEE_ATTACK)
+	if(damage)
+		owner.adjustStaminaLoss(damage/3)
 	return TRUE
 
 /obj/item/shield/riot
@@ -123,7 +125,7 @@
 	name = "кевларовый щит"
 	desc = "Крепкий и достаточно лёгкий."
 	force = 8
-	block_chance = 70
+	block_chance = 80
 	transparent = FALSE
 	max_integrity = 250
 	icon_state = "kevlarshield"
@@ -165,7 +167,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/shields_righthand.dmi'
 	custom_materials = list(/datum/material/wood = MINERAL_MATERIAL_AMOUNT * 10)
 	resistance_flags = FLAMMABLE
-	block_chance = 30
+	block_chance = 60
 	transparent = FALSE
 	max_integrity = 55
 	w_class = WEIGHT_CLASS_NORMAL

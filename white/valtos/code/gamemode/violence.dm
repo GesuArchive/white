@@ -463,6 +463,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 				suit = /obj/item/clothing/suit/space/hardsuit/deathsquad
 				belt = /obj/item/gun/ballistic/revolver/mateba
 				r_hand = /obj/item/gun/energy/pulse
+				l_hand = /obj/item/shield/riot/kevlar
 				r_pocket = /obj/item/shield/energy
 				l_pocket = /obj/item/melee/energy/sword/saber
 				if(prob(50))

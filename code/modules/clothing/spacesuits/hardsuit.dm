@@ -747,6 +747,8 @@
 	armor = list(MELEE = 30, BULLET = 5, LASER = 5, ENERGY = 15, BOMB = 50, BIO = 100, RAD = 100, FIRE = 100, ACID = 75)
 	hardsuit_type = "ancient"
 	resistance_flags = FIRE_PROOF
+	heat_protection = HEAD
+	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 
 /obj/item/clothing/suit/space/hardsuit/ancient
 	name = "прототип RIG скафандра"
@@ -757,6 +759,8 @@
 	slowdown = 3
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/ancient
 	resistance_flags = FIRE_PROOF
+	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	var/footstep = 1
 	var/mob/listeningTo
 
