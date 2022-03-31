@@ -1,18 +1,18 @@
 /obj/item/electronics/firealarm
-	name = "fire alarm electronics"
-	desc = "A fire alarm circuit. Can handle heat levels up to 40 degrees celsius."
+	name = "электроника пожарной сигнализации"
+	desc = "Схема пожарной сигнализации. Может выдерживать температуру до 40 градусов по Цельсию."
 
 /obj/item/wallframe/firealarm
-	name = "fire alarm frame"
-	desc = "Used for building fire alarms."
+	name = "рамка пожарной сигнализации"
+	desc = "Используется для создания пожарной сигнализации."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire_bitem"
 	result_path = /obj/machinery/firealarm
 	pixel_shift = 26
 
 /obj/machinery/firealarm
-	name = "fire alarm"
-	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
+	name = "пожарная тревога"
+	desc = "<i>\"Потяните в случае чрезвычайной ситуации\"</i>. То есть тяните его постоянно."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire0"
 	max_integrity = 250
@@ -137,8 +137,8 @@
 	obj_flags |= EMAGGED
 	update_appearance()
 	if(user)
-		user.visible_message(span_warning("Sparks fly out of [src]!"),
-							span_notice("You override [src], disabling the speaker."))
+		user.visible_message(span_warning("Искры вылетают из [src]!"),
+							span_notice("Ломаю [src], отключая динамик."))
 	playsound(src, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	set_status()
 
@@ -220,7 +220,7 @@
 	if(tool.tool_behaviour == TOOL_SCREWDRIVER && buildstage == 2)
 		tool.play_tool_sound(src)
 		panel_open = !panel_open
-		to_chat(user, span_notice("The wires have been [panel_open ? "exposed" : "unexposed"]."))
+		to_chat(user, span_notice("Провода теперь [panel_open ? "видно" : "скрыты"]."))
 		update_appearance()
 		return
 
@@ -231,12 +231,12 @@
 				if(!tool.tool_start_check(user, amount=0))
 					return
 
-				to_chat(user, span_notice("You begin repairing [src]..."))
+				to_chat(user, span_notice("Начинаю чинить [src]..."))
 				if(tool.use_tool(src, user, 40, volume=50))
 					obj_integrity = max_integrity
-					to_chat(user, span_notice("You repair [src]."))
+					to_chat(user, span_notice("Чиню [src]."))
 			else
-				to_chat(user, span_warning("[src] is already in good condition!"))
+				to_chat(user, span_warning("[src] уже целая!"))
 			return
 
 		switch(buildstage)
@@ -245,7 +245,7 @@
 					buildstage = 1
 					tool.play_tool_sound(src)
 					new /obj/item/stack/cable_coil(user.loc, 5)
-					to_chat(user, span_notice("You cut the wires from \the [src]."))
+					to_chat(user, span_notice("Снимаю проводку [src]."))
 					update_appearance()
 					return
 
@@ -260,31 +260,31 @@
 				if(istype(tool, /obj/item/stack/cable_coil))
 					var/obj/item/stack/cable_coil/coil = tool
 					if(coil.get_amount() < 5)
-						to_chat(user, span_warning("You need more cable for this!"))
+						to_chat(user, span_warning("Мне потребуется больше проводов!"))
 					else
 						coil.use(5)
 						buildstage = 2
-						to_chat(user, span_notice("You wire \the [src]."))
+						to_chat(user, span_notice("Делаю проводку [src]."))
 						update_appearance()
 					return
 
 				else if(tool.tool_behaviour == TOOL_CROWBAR)
-					user.visible_message(span_notice("[user.name] removes the electronics from [src.name]."), \
-										span_notice("You start prying out the circuit..."))
+					user.visible_message(span_notice("[user.name] удаляет электронику из [src.name]."), \
+										span_notice("Начинаю вытаскивать плату..."))
 					if(tool.use_tool(src, user, 20, volume=50))
 						if(buildstage == 1)
 							if(machine_stat & BROKEN)
-								to_chat(user, span_notice("You remove the destroyed circuit."))
+								to_chat(user, span_notice("Удаляю разрушенную плату."))
 								set_machine_stat(machine_stat & ~BROKEN)
 							else
-								to_chat(user, span_notice("You pry out the circuit."))
+								to_chat(user, span_notice("Вытаскиваю плату."))
 								new /obj/item/electronics/firealarm(user.loc)
 							buildstage = 0
 							update_appearance()
 					return
 			if(0)
 				if(istype(tool, /obj/item/electronics/firealarm))
-					to_chat(user, span_notice("You insert the circuit."))
+					to_chat(user, span_notice("Вставляю плату."))
 					qdel(tool)
 					buildstage = 1
 					update_appearance()
@@ -294,15 +294,15 @@
 					var/obj/item/electroadaptive_pseudocircuit/pseudoc = tool
 					if(!pseudoc.adapt_circuit(user, 15))
 						return
-					user.visible_message(span_notice("[user] fabricates a circuit and places it into [src]."), \
-					span_notice("You adapt a fire alarm circuit and slot it into the assembly."))
+					user.visible_message(span_notice("[user] создаёт специальную плату и вставляет в [src]."), \
+					span_notice("Создаю специальную плату и вставляю."))
 					buildstage = 1
 					update_appearance()
 					return
 
 				else if(tool.tool_behaviour == TOOL_WRENCH)
-					user.visible_message(span_notice("[user] removes the fire alarm assembly from the wall."), \
-						span_notice("You remove the fire alarm assembly from the wall."))
+					user.visible_message(span_notice("[user] снимает пожарную тревогу со стены."), \
+						span_notice("Снимаю пожарную тревогу со стены."))
 					var/obj/item/wallframe/firealarm/frame = new /obj/item/wallframe/firealarm()
 					frame.forceMove(user.drop_location())
 					tool.play_tool_sound(src)
@@ -318,8 +318,8 @@
 /obj/machinery/firealarm/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_UPGRADE_SIMPLE_CIRCUITS)
-			user.visible_message(span_notice("[user] fabricates a circuit and places it into [src]."), \
-			span_notice("You adapt a fire alarm circuit and slot it into the assembly."))
+			user.visible_message(span_notice("[user] создаёт специальную плату и вставляет в [src]."), \
+			span_notice("Создаю специальную плату и вставляю."))
 			buildstage = 1
 			update_appearance()
 			return TRUE
@@ -356,12 +356,12 @@
 /obj/machinery/firealarm/examine(mob/user)
 	. = ..()
 	if((my_area?.fire || LAZYLEN(my_area?.active_firelocks)))
-		. += "The local area hazard light is flashing."
-		. += "<b>Left-Click</b> to activate all firelocks in this area."
-		. += "<b>Right-Click</b> to reset firelocks in this area."
+		. += "<hr>Лампочка горит."
+		. += "\n<b>ЛКМ</b> для активации всех пожарных шлюзов."
+		. += "\n<b>ПКМ</b> для деактивации всех пожарных шлюзов."
 	else
-		. += "The local area thermal detection light is [my_area.fire_detect ? "lit" : "unlit"]."
-		. += "<b>Left-Click</b> to activate all firelocks in this area."
+		. += "<hr>Температурный датчик [my_area.fire_detect ? "горит" : "не горит"]."
+		. += "\n<b>ЛКМ</b> для активации всех пожарных шлюзов."
 
 // Allows Silicons to disable thermal sensor
 /obj/machinery/firealarm/BorgCtrlClick(mob/living/silicon/robot/user)
@@ -372,12 +372,12 @@
 
 /obj/machinery/firealarm/AICtrlClick(mob/living/silicon/robot/user)
 	if(obj_flags & EMAGGED)
-		to_chat(user, span_warning("The control circuitry of [src] appears to be malfunctioning."))
+		to_chat(user, span_warning("Плата внутри [src] не отвечает."))
 		return
 	my_area.fire_detect = !my_area.fire_detect
 	for(var/obj/machinery/firealarm/fire_panel in my_area.firealarms)
 		fire_panel.update_icon()
-	to_chat(user, span_notice("You [ my_area.fire_detect ? "enable" : "disable" ] the local firelock thermal sensors!"))
+	to_chat(user, span_notice("[ my_area.fire_detect ? "Включаю" : "Выключаю" ] термальные датчики!"))
 	log_game("[user] has [ my_area.fire_detect ? "enabled" : "disabled" ] firelock sensors using [src] at [COORD(src)]")
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/firealarm, 26)
@@ -415,8 +415,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/firealarm, 26)
 	area.add_overlay(party_overlay)
 
 /obj/item/circuit_component/firealarm
-	display_name = "Fire Alarm"
-	desc = "Allows you to interface with the Fire Alarm."
+	display_name = "Пожарная тревога"
+	desc = "Позволяет работать с пожарной тревогой."
 
 	var/datum/port/input/alarm_trigger
 	var/datum/port/input/reset_trigger
@@ -431,12 +431,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/firealarm, 26)
 	var/obj/machinery/firealarm/attached_alarm
 
 /obj/item/circuit_component/firealarm/populate_ports()
-	alarm_trigger = add_input_port("Set", PORT_TYPE_SIGNAL)
-	reset_trigger = add_input_port("Reset", PORT_TYPE_SIGNAL)
+	alarm_trigger = add_input_port("Установить", PORT_TYPE_SIGNAL)
+	reset_trigger = add_input_port("Сбросить", PORT_TYPE_SIGNAL)
 
-	is_on = add_output_port("Is On", PORT_TYPE_NUMBER)
-	triggered = add_output_port("Triggered", PORT_TYPE_SIGNAL)
-	reset = add_output_port("Reset", PORT_TYPE_SIGNAL)
+	is_on = add_output_port("Включена", PORT_TYPE_NUMBER)
+	triggered = add_output_port("Триггер", PORT_TYPE_SIGNAL)
+	reset = add_output_port("Сброс", PORT_TYPE_SIGNAL)
 
 /obj/item/circuit_component/firealarm/register_usb_parent(atom/movable/parent)
 	. = ..()
