@@ -132,7 +132,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 				to_chat(world, span_red("[LAZYLEN(GLOB.violence_red_team)]/[last_reds]"))
 				if(GLOB.violence_players[R?.current?.lastattackermob?.ckey])
 					var/datum/violence_player/VP = GLOB.violence_players[R.current.lastattackermob.ckey]
-					VP.money += 300
+					VP.money += VP.team == "blue" ? 300 : -300
 					to_chat(R.current.lastattackermob, span_boldnotice("+300₽"))
 		for(var/datum/mind/B in GLOB.violence_blue_team)
 			if(!B?.current)
@@ -145,7 +145,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 				to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[last_blues]"))
 				if(GLOB.violence_players[B?.current?.lastattackermob?.ckey])
 					var/datum/violence_player/VP = GLOB.violence_players[B.current.lastattackermob.ckey]
-					VP.money += 300
+					VP.money += VP.team == "red" ? 300 : -300
 					to_chat(B.current.lastattackermob, span_boldnotice("+300₽"))
 		// добейте выживших
 		for(var/mob/living/carbon/human/H in main_area)
