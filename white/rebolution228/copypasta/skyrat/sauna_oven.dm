@@ -68,7 +68,7 @@
 			в [src]."))
 			water_amount += 5 * SAUNA_WATER_PER_WATER_UNIT
 		else
-			to_chat(user, span_warning("Воды нет в  [reagent_container]"))
+			to_chat(user, span_warning("Воды нет в [reagent_container]"))
 
 	else if(istype(used_item, /obj/item/stack/sheet/mineral/wood))
 		var/obj/item/stack/sheet/mineral/wood/wood = used_item
