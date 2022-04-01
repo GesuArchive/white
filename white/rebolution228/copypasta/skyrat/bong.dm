@@ -172,7 +172,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/lungbuster
-	name = "The Lungbuster"
+	name = "Лангбастер"
 	result = /obj/item/bong/lungbuster
 	reqs = list(/obj/item/stack/sheet/iron = 10,
 				/obj/item/stack/sheet/glass = 20)
