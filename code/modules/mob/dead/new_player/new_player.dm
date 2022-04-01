@@ -61,7 +61,7 @@
 		if(GLOB.violence_gear_datums[href_list["violence"]])
 			var/datum/violence_gear/VG = GLOB.violence_gear_datums[href_list["violence"]]
 			var/datum/violence_player/VP = GLOB.violence_players[ckey]
-			if(VP.money > VG.cost)
+			if(VP.money >= VG.cost)
 				VP.money -= VG.cost
 				VP.loadout_items += VG
 				SEND_SOUND(usr, pick(list('white/valtos/sounds/coin1.ogg', 'white/valtos/sounds/coin2.ogg', 'white/valtos/sounds/coin3.ogg')))
