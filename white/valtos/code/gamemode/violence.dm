@@ -567,7 +567,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 			if(VG.cost > VP.money)
 				dat += "<div id=zakup-item-disabled><div id=zakup-price>[VG.cost]₽</div><div id=zakup-name>[VG.name]</div></div>"
 			else
-				dat += "<a href='href='byond://?src=[REF(src)];violence=[VG.name]' id=zakup-item><div id=zakup-price>[VG.cost]₽</div><div id=zakup-name>[VG.name]</div></a>"
+				dat += "<a href='byond://?src=[REF(src)];violence=[VG.name]' id=zakup-item><div id=zakup-price>[VG.cost]₽</div><div id=zakup-name>[VG.name]</div></a>"
 		dat += "</div></div>"
 	dat += "<div id=zakup><div id=zakup-cat-name>Разгрузка</div><div id=zakup-cat>"
 	for(var/datum/violence_gear/VG in VP.loadout_items)
