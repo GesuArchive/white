@@ -5,8 +5,8 @@
 #define SAUNA_WATER_PER_WATER_UNIT 5
 
 /obj/structure/sauna_oven
-	name = "sauna oven"
-	desc = "A modest sauna oven with rocks. Add some fuel, pour some water and enjoy the moment."
+	name = "банная печь"
+	desc = "Скромная банная печь с камнями. Добавьте немного топлива, налейте воды и наслаждайтесь моментом."
 	icon = 'white/rebolution228/icons/unsorted/sauna_oven.dmi'
 	icon_state = "sauna_oven"
 	density = TRUE
@@ -18,8 +18,8 @@
 
 /obj/structure/sauna_oven/examine(mob/user)
 	. = ..()
-	. += span_notice("The rocks are [water_amount ? "moist" : "dry"].")
-	. += span_notice("There's [fuel_amount ? "some fuel" : "no fuel"] in the oven.")
+	. += span_notice("Камни [water_amount ? "влажные" : "сухие"].")
+	. += span_notice("В печке [fuel_amount ? "есть немного топлива" : "нет топлива"].")
 
 /obj/structure/sauna_oven/Destroy()
 	if(lit)
@@ -33,7 +33,7 @@
 	if(lit)
 		lit = FALSE
 		STOP_PROCESSING(SSobj, src)
-		user.visible_message(span_notice("[user] turns off [src]."), span_notice("You turn off [src]."))
+		user.visible_message(span_notice("[user] выключает [src]."), span_notice("Выключаю [src]."))
 	else if (fuel_amount)
 		lit = TRUE
 		START_PROCESSING(SSobj, src)
@@ -51,9 +51,9 @@
 
 /obj/structure/sauna_oven/attackby(obj/item/used_item, mob/user)
 	if(used_item.tool_behaviour == TOOL_WRENCH)
-		to_chat(user, span_notice("You begin to deconstruct [src]."))
+		to_chat(user, span_notice("Разбираю [src]."))
 		if(used_item.use_tool(src, user, 60, volume = 50))
-			to_chat(user, span_notice("You successfully deconstructed [src]."))
+			to_chat(user, span_notice("Успешно разобрал [src]."))
 			new /obj/item/stack/sheet/mineral/wood(get_turf(src), 30)
 			qdel(src)
 
@@ -63,33 +63,33 @@
 			return ..()
 		if(reagent_container.reagents.has_reagent(/datum/reagent/water))
 			reagent_container.reagents.remove_reagent(/datum/reagent/water, 5)
-			user.visible_message(span_notice("[user] pours some \
-			water into [src]."), span_notice("You pour \
-			some water to [src]."))
+			user.visible_message(span_notice("[user] наливает немного \
+			воды в [src]."), span_notice("Наливаю воды \
+			в [src]."))
 			water_amount += 5 * SAUNA_WATER_PER_WATER_UNIT
 		else
-			to_chat(user, span_warning("There's no water in [reagent_container]"))
+			to_chat(user, span_warning("Воды нет в  [reagent_container]"))
 
 	else if(istype(used_item, /obj/item/stack/sheet/mineral/wood))
 		var/obj/item/stack/sheet/mineral/wood/wood = used_item
 		if(fuel_amount > SAUNA_MAXIMUM_FUEL)
-			to_chat(user, span_warning("You can't fit any more of [used_item] in [src]!"))
+			to_chat(user, span_warning("Больше не могу вместить [used_item] в [src]!"))
 			return
 		fuel_amount += SAUNA_LOG_FUEL * wood.amount
 		wood.use(wood.amount)
-		user.visible_message(span_notice("[user] tosses some \
-			wood into [src]."), span_notice("You add \
-			some fuel to [src]."))
+		user.visible_message(span_notice("[user] подкидывает дерево \
+			в [src]."), span_notice("Подкидываю дерево \
+			в [src]."))
 	else if(istype(used_item, /obj/item/paper_bin))
 		var/obj/item/paper_bin/paper_bin = used_item
-		user.visible_message(span_notice("[user] throws [used_item] into \
-			[src]."), span_notice("You add [used_item] to [src].\
+		user.visible_message(span_notice("[user] кидает [used_item] в \
+			[src]."), span_notice("Кидаю [used_item] в [src].\
 			"))
 		fuel_amount += SAUNA_PAPER_FUEL * paper_bin.total_paper
 		qdel(paper_bin)
 	else if(istype(used_item, /obj/item/paper))
-		user.visible_message(span_notice("[user] throws [used_item] into \
-			[src]."), span_notice("You throw [used_item] into [src].\
+		user.visible_message(span_notice("[user] Кидаю [used_item] в \
+			[src]."), span_notice("Кидаю [used_item] в [src].\
 			"))
 		fuel_amount += SAUNA_PAPER_FUEL
 		qdel(used_item)
