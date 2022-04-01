@@ -239,15 +239,16 @@ GLOBAL_LIST_EMPTY(violence_players)
 			NP.ckey = M.ckey
 			qdel(M)
 	// раздаём деньги бомжам и выводим статистику КД
-	to_chat(world, leader_brass("-----------------------<table>"))
-	to_chat(world, leader_brass("<tr><td>Игрок</td><td>Убийств</td><td>Смертей</td></tr>"))
+	to_chat(world, leader_brass("-----------------------"))
 	var/list/stats = list()
+	stats += "<table><tr><td>Игрок</td><td>Убийств</td><td>Смертей</td></tr>"
 	for(var/key in GLOB.violence_players)
 		var/datum/violence_player/VP = GLOB.violence_players[key]
 		VP.money += payout * GLOB.violence_current_round
 		stats += "<tr><td>[key]</td><td>[VP.kills]</td><td>[VP.deaths]</td></tr>"
+	stats += "</table>"
 	to_chat(world, leader_brass(stats.Join()))
-	to_chat(world, leader_brass("</table>-----------------------"))
+	to_chat(world, leader_brass("-----------------------"))
 	to_chat(world, leader_brass("Выдано [payout * GLOB.violence_current_round]₽ каждому за раунд!"))
 	// вызов очистки
 	clean_arena()
