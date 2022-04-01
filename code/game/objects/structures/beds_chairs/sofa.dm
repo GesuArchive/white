@@ -60,8 +60,8 @@
 
 // Benches
 /obj/structure/chair/sofa/bench
-	name = "bench"
-	desc = "Perfectly designed to be comfortable to sit on, and hellish to sleep on."
+	name = "скамейка"
+	desc = "Идеальная конструкция, на которой удобно сидеть и чертовски неудобно спать."
 	icon_state = "bench_middle"
 	greyscale_config = /datum/greyscale_config/bench_middle
 	greyscale_colors = "#e3ab4b"

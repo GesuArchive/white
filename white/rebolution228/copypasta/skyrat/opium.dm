@@ -23,8 +23,8 @@
 		new /obj/item/reagent_containers/heroin(location)
 
 /obj/item/reagent_containers/heroin
-	name = "heroin"
-	desc = "Take a line and take some time of man."
+	name = "героин"
+	desc = "Займите очередь и уделите немного времени человеку."
 	icon = 'white/rebolution228/icons/unsorted/crack.dmi'
 	icon_state = "heroin"
 	volume = 4
@@ -40,11 +40,11 @@
 	else if(user.is_mouth_covered(mask_only = 1))
 		covered = "mask"
 	if(covered)
-		to_chat(user, span_warning("You have to remove your [covered] first!"))
+		to_chat(user, span_warning("Сначала надо снять [covered]!"))
 		return
-	user.visible_message(span_notice("'[user] starts snorting the [src]."))
+	user.visible_message(span_notice("'[user] начинает занюхивать [src]."))
 	if(do_after(user, 30))
-		to_chat(user, span_notice("You finish snorting the [src]."))
+		to_chat(user, span_notice("Заканчиваю занюхивать [src]."))
 		if(reagents.total_volume)
 			reagents.trans_to(user, reagents.total_volume, transfered_by = user, methods = INGEST)
 		qdel(src)
@@ -68,8 +68,8 @@
 	return
 
 /obj/item/reagent_containers/heroinbrick
-	name = "heroin brick"
-	desc = "A brick of heroin. Good for transport!"
+	name = "пачка героина"
+	desc = "Кирпич героина. Хорошо подходит для транспортировки!"
 	icon = 'white/rebolution228/icons/unsorted/crack.dmi'
 	icon_state = "heroinbrick"
 	volume = 20
@@ -78,15 +78,15 @@
 
 
 /obj/item/reagent_containers/heroinbrick/attack_self(mob/user)
-	user.visible_message(span_notice("[user] starts breaking up the [src]."))
+	user.visible_message(span_notice("[user] начинает разламывать [src]."))
 	if(do_after(user,10))
-		to_chat(user, span_notice("You finish breaking up the [src]."))
+		to_chat(user, span_notice("Заканчиваю разламывать [src]."))
 		for(var/i = 1 to 5)
 			new /obj/item/reagent_containers/heroin(user.loc)
 		qdel(src)
 
 /datum/crafting_recipe/heroinbrick
-	name = "heroin brick"
+	name = "пачка героина"
 	result = /obj/item/reagent_containers/heroinbrick
 	reqs = list(/obj/item/reagent_containers/heroin = 5)
 	parts = list(/obj/item/reagent_containers/heroin = 5)
@@ -108,8 +108,8 @@
 	color = "#444444"
 
 /datum/reagent/drug/opium
-	name = "Opium"
-	description = "A extract from opium poppies. Puts the user in a slightly euphoric state."
+	name = "Опиум"
+	description = "Экстракт опийного мака. Приводит пользователя в слегка эйфорическое состояние."
 	reagent_state = LIQUID
 	color = "#ffe669"
 	overdose_threshold = 30
@@ -118,7 +118,7 @@
 	addiction_types = list(/datum/addiction/opiods = 18)
 
 /datum/reagent/drug/opium/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	var/high_message = pick("You feel euphoric.", "You feel on top of the world.")
+	var/high_message = pick("Чувствую эйфорию.", "Чувствую, как я нахожусь на вершине мира.")
 	if(DT_PROB(2.5, delta_time))
 		to_chat(M, span_notice("[high_message]"))
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "smacked out", /datum/mood_event/narcotic_heavy, name)
@@ -143,8 +143,8 @@
 	..()
 
 /datum/reagent/drug/opium/heroin
-	name = "Heroin"
-	description = "She's like heroin to me, she's like heroin to me! She cannot... miss a vein!"
+	name = "Героин"
+	description = "Она для меня как героин, она для меня как героин! Она не может... пропустить вену!"
 	reagent_state = LIQUID
 	color = "#ffe669"
 	overdose_threshold = 20
@@ -154,7 +154,7 @@
 	failed_chem = /datum/reagent/drug/opium/blacktar
 
 /datum/reagent/drug/opium/heroin/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	var/high_message = pick("You feel like nothing can stop you.", "You feel like God.")
+	var/high_message = pick("Чуствую, что ничто не сможет меня остановить.", "Чувствую себя Богом.")
 	if(DT_PROB(2.5, delta_time))
 		to_chat(M, span_notice("[high_message]"))
 	M.adjustBruteLoss(-0.4 * REM * delta_time, 0) //more powerful as a painkiller, possibly actually useful to medical now
@@ -162,8 +162,8 @@
 	..()
 
 /datum/reagent/drug/opium/blacktar
-	name = "Black Tar Heroin"
-	description = "An impure, freebase form of heroin. Probably not a good idea to take this..."
+	name = "черный деготь героина"
+	description = "Нечистая, свободная форма героина. Вероятно, не стоит принимать это...."
 	reagent_state = LIQUID
 	color = "#242423"
 	overdose_threshold = 10 //more easy to overdose on
@@ -173,7 +173,7 @@
 	failed_chem = null
 
 /datum/reagent/drug/opium/blacktar/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	var/high_message = pick("You feel like tar.", "The blood in your veins feel like syrup.")
+	var/high_message = pick("Чувствую деготь.", "Кровь в моих венах похожа на сироп.")
 	if(DT_PROB(2.5, delta_time))
 		to_chat(M, span_notice("[high_message]"))
 	M.set_drugginess(15 * REM * delta_time)
@@ -183,18 +183,18 @@
 //Exports
 /datum/export/heroin
 	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "heroin"
+	unit_name = "героин"
 	export_types = list(/obj/item/reagent_containers/heroin)
 	include_subtypes = FALSE
 
 /datum/export/heroinbrick
 	cost = CARGO_CRATE_VALUE * 2.5
-	unit_name = "heroin brick"
+	unit_name = "пачка героина"
 	export_types = list(/obj/item/reagent_containers/heroinbrick)
 	include_subtypes = FALSE
 
 /datum/export/blacktar
 	cost = CARGO_CRATE_VALUE * 0.4
-	unit_name = "black tar heroin"
+	unit_name = "черный деготь героина"
 	export_types = list(/obj/item/reagent_containers/blacktar)
 	include_subtypes = FALSE

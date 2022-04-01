@@ -1,6 +1,6 @@
 /obj/item/bong
-	name = "bong"
-	desc = "Technically known as a water pipe."
+	name = "бонг"
+	desc = "Технически известен как водопроводная труба, ну или просто бульбулятор."
 	icon = 'white/rebolution228/icons/obj/bong.dmi'
 	lefthand_file = 'white/rebolution228/icons/obj/mob/lefthand.dmi'
 	righthand_file = 'white/rebolution228/icons/obj/mob/righthand.dmi'
@@ -25,7 +25,7 @@
 		var/obj/item/food/grown/grown_item = used_item
 		if(!packeditem)
 			if(HAS_TRAIT(grown_item, TRAIT_DRIED))
-				to_chat(user, span_notice("You stuff [grown_item] into [src]."))
+				to_chat(user, span_notice("Засовываю [grown_item] в [src]."))
 				bonghits = useable_bonghits
 				packeditem = TRUE
 				if(grown_item.reagents)
@@ -33,12 +33,12 @@
 					quarter_volume = reagents.total_volume/useable_bonghits
 				qdel(grown_item)
 			else
-				to_chat(user, span_warning("It has to be dried first!"))
+				to_chat(user, span_warning("Сначала его нужно высушить!"))
 		else
-			to_chat(user, span_warning("It is already packed!"))
+			to_chat(user, span_warning("Уже собран!"))
 	else if(istype(used_item, /obj/item/reagent_containers/hash)) //for hash/dabs
 		if(!packeditem)
-			to_chat(user, span_notice("You stuff [used_item] into [src]."))
+			to_chat(user, span_notice("Засовываю [used_item] в [src]."))
 			bonghits = useable_bonghits
 			packeditem = TRUE
 			if(used_item.reagents)
@@ -52,20 +52,20 @@
 				light(lighting_text)
 				name = "lit [initial(name)]"
 			else
-				to_chat(user, span_warning("There is nothing to smoke!"))
+				to_chat(user, span_warning("Нечего курить!"))
 		else
 			return ..()
 
 /obj/item/bong/attack_self(mob/user)
 	var/turf/location = get_turf(user)
 	if(lit)
-		user.visible_message(span_notice("[user] puts out [src]."), span_notice("You put out [src]."))
+		user.visible_message(span_notice("[user] высовывает [src]."), span_notice("Высовываю [src]."))
 		lit = FALSE
 		icon_state = icon_off
 		inhand_icon_state = icon_off
 		return
 	if(!lit && bonghits > 0)
-		to_chat(user, span_notice("You empty [src] onto [location]."))
+		to_chat(user, span_notice("Опустошаю [src] в [location]."))
 		new /obj/effect/decal/cleanable/ash(location)
 		packeditem = FALSE
 		bonghits = 0
@@ -75,10 +75,10 @@
 /obj/item/bong/attack(mob/hit_mob, mob/user, def_zone)
 	if(packeditem && lit)
 		if(hit_mob == user)
-			hit_mob.visible_message(span_notice("[user] starts taking a hit from the [src]."))
+			hit_mob.visible_message(span_notice("[user] начинает закуривать [src]."))
 			playsound(src, 'sound/chemistry/heatdam.ogg', 50, TRUE)
 			if(do_after(user,40))
-				to_chat(hit_mob, span_notice("You finish taking a hit from the [src]."))
+				to_chat(hit_mob, span_notice("Заканчиваю закуривать [src]."))
 				if(reagents.total_volume)
 					reagents.trans_to(hit_mob, quarter_volume, transfered_by = user, methods = VAPOR)
 					bonghits--
@@ -86,7 +86,7 @@
 				if(istype(pos) && pos.air.return_pressure() < 2*ONE_ATMOSPHERE)
 					pos.atmos_spawn_air("water_vapor=10;TEMP=T20C + 20")
 				if(bonghits <= 0)
-					to_chat(hit_mob, span_notice("Your [name] goes out."))
+					to_chat(hit_mob, span_notice("Моя [name] кончается."))
 					lit = FALSE
 					packeditem = FALSE
 					icon_state = icon_off
@@ -126,8 +126,8 @@
 		bong_turf.visible_message(flavor_text)
 
 /obj/item/bong/lungbuster
-	name = "the lungbuster"
-	desc = "30 inches of doom."
+	name = "lungbuster"
+	desc = "30 дюймов обреченности."
 	icon_state = "lungbusteroff"
 	inhand_icon_state = "lungbusteroff"
 	icon_on = "lungbusteron"
@@ -138,10 +138,10 @@
 /obj/item/bong/lungbuster/attack(mob/hit_mob, mob/user, def_zone)
 	if(packeditem && lit)
 		if(hit_mob == user)
-			hit_mob.visible_message(span_notice("[user] starts taking a hit from the [src]."))
+			hit_mob.visible_message(span_notice("[user] начинает закуривать [src]."))
 			playsound(src, 'sound/chemistry/heatdam.ogg', 50, TRUE)
 			if(do_after(user,40))
-				to_chat(hit_mob, span_notice("You finish taking a hit from the [src]."))
+				to_chat(hit_mob, span_notice("Заканчиваю закуривать [src]."))
 				if(reagents.total_volume)
 					reagents.trans_to(hit_mob, quarter_volume, transfered_by = user, methods = VAPOR)
 					bonghits--
@@ -155,7 +155,7 @@
 					playsound(hit_mob, pick('white/rebolution228/sounds/misc/lungbust_cough1.ogg','white/rebolution228/sounds/misc/lungbust_cough2.ogg'), 50, TRUE)
 					hit_mob.emote("cough")
 				if(bonghits <= 0)
-					to_chat(hit_mob, span_notice("Your [name] goes out."))
+					to_chat(hit_mob, span_notice("Моя [name] кончилась."))
 					lit = FALSE
 					packeditem = FALSE
 					icon_state = icon_off
@@ -164,7 +164,7 @@
 					reagents.clear_reagents() //just to make sure
 
 /datum/crafting_recipe/bong
-	name = "Bong"
+	name = "Бонг"
 	result = /obj/item/bong
 	reqs = list(/obj/item/stack/sheet/iron = 5,
 				/obj/item/stack/sheet/glass = 10)
@@ -180,8 +180,8 @@
 	category = CAT_CHEMISTRY
 
 /obj/item/clothing/mask/cigarette/pipe/crackpipe
-	name = "crack pipe"
-	desc = "A slick glass pipe made for smoking one thing: crack."
+	name = "трубка для наркотиков"
+	desc = "Трубка из тонкого стекла, предназначенная для курения одной вещи: крэка."
 	icon = 'white/rebolution228/icons/unsorted/crack.dmi'
 	worn_icon = 'white/rebolution228/icons/unsorted/mask.dmi'
 	icon_state = "glass_pipeoff" //it seems like theres some unused crack pipe sprite in masks.dmi, sweet!
@@ -195,13 +195,13 @@
 	if(smoketime <= 0)
 		if(ismob(loc))
 			var/mob/living/smoking_mob = loc
-			to_chat(smoking_mob, span_notice("Your [name] goes out."))
+			to_chat(smoking_mob, span_notice("Моя [name] кончается."))
 			lit = FALSE
 			icon_state = icon_off
 			inhand_icon_state = icon_off
 			smoking_mob.update_inv_wear_mask()
 			packeditem = FALSE
-			name = "empty [initial(name)]"
+			name = "пустая [initial(name)]"
 		STOP_PROCESSING(SSobj, src)
 		return
 	open_flame()
@@ -211,9 +211,9 @@
 
 /obj/item/clothing/mask/cigarette/pipe/crackpipe/attackby(obj/item/used_item, mob/user, params)
 	if(is_type_in_list(used_item, list(/obj/item/reagent_containers/crack,/obj/item/reagent_containers/blacktar)))
-		to_chat(user, span_notice("You stuff [used_item] into [src]."))
+		to_chat(user, span_notice("Засовываю [used_item] в [src]."))
 		smoketime = 2 * 60
-		name = "[used_item.name]-packed [initial(name)]"
+		name = "заполненная [used_item.name] [initial(name)]"
 		if(used_item.reagents)
 			used_item.reagents.trans_to(src, used_item.reagents.total_volume, transfered_by = user)
 		qdel(used_item)
@@ -223,12 +223,12 @@
 			if(smoketime > 0)
 				light(lighting_text)
 			else
-				to_chat(user, span_warning("There is nothing to smoke!"))
+				to_chat(user, span_warning("Нечего курить!"))
 		else
 			return ..()
 
 /datum/crafting_recipe/crackpipe
-	name = "Crack pipe"
+	name = "трубка для наркотиков"
 	result = /obj/item/clothing/mask/cigarette/pipe/crackpipe
 	reqs = list(/obj/item/stack/cable_coil = 5,
 				/obj/item/shard = 1,
@@ -238,8 +238,8 @@
 	category = CAT_CHEMISTRY
 
 /obj/item/reagent_containers/blacktar
-	name = "black tar heroin"
-	desc = "A rock of black tar heroin, an impure freebase form of heroin."
+	name = "черный деготь героина"
+	desc = "Камень из черной смолы героина, нечистой свободной формы героина."
 	icon = 'white/rebolution228/icons/unsorted/crack.dmi'
 	icon_state = "blacktar"
 	volume = 5
