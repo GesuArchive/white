@@ -239,13 +239,15 @@ GLOBAL_LIST_EMPTY(violence_players)
 			NP.ckey = M.ckey
 			qdel(M)
 	// раздаём деньги бомжам и выводим статистику КД
-	to_chat(world, leader_brass("-----------------------"))
-	to_chat(world, leader_brass("\tИгрок/Убийств/Смертей"))
+	to_chat(world, leader_brass("-----------------------<table>"))
+	to_chat(world, leader_brass("<tr><td>Игрок</td><td>Убийств</td><td>Смертей</td></tr>"))
+	var/list/stats = list()
 	for(var/key in GLOB.violence_players)
 		var/datum/violence_player/VP = GLOB.violence_players[key]
 		VP.money += payout * GLOB.violence_current_round
-		to_chat(world, leader_brass("\t[key]/[VP.kills]/[VP.deaths]"))
-	to_chat(world, leader_brass("-----------------------"))
+		stats += "<tr><td>[key]</td><td>[VP.kills]</td><td>[VP.deaths]</td></tr>"
+	to_chat(world, leader_brass(stats.Join()))
+	to_chat(world, leader_brass("</table>-----------------------"))
 	to_chat(world, leader_brass("Выдано [payout * GLOB.violence_current_round]₽ каждому за раунд!"))
 	// вызов очистки
 	clean_arena()
@@ -769,11 +771,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 2500
 	items = list(/obj/item/gun/ballistic/shotgun/saiga, /obj/item/ammo_box/magazine/saiga)
 
-/datum/violence_gear/shotgun/brush
-	name = "Дезинтегратор"
-	cost = 3000
-	items = list(/obj/item/gun/ballistic/shotgun/fallout/brush, /obj/item/storage/box/lethalshot)
-
 /datum/violence_gear/heavygun
 	cat = "Тяжёлое оружие"
 
@@ -903,7 +900,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 1250
 	items = list(/obj/item/grenade/syndieminibomb)
 
-/datum/violence_gear/grenade/flashbang
+/datum/violence_gear/grenade/grenadelauncher
 	name = "Гранатомёт"
 	cost = 2000
 	items = list(/obj/item/gun/grenadelauncher)
