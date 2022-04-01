@@ -452,6 +452,16 @@
 	category = list("Модули экзокостюмов")
 	sub_category = list("Инженерные системы")
 
+/datum/design/mecha_kineticgun
+	name = "Шахтерский экзокостюм (Прото-кинетический Аксселератор)"
+	desc = "Установленный на экзокостюме аксселератор, наносящий повышенный урон при низком давлении. Питание от бортового источника позволяет ему проецироваться дальше, чем ручная версия."
+	id = "mecha_kineticgun"
+	build_type = MECHFAB
+	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/mecha_kineticgun
+	materials = list(/datum/material/iron = 8000, /datum/material/glass = 1000)
+	construction_time = 100
+	category = list("Модули экзокостюмов")
+
 /datum/design/mech_lmg
 	name = "Легкий пулемет Ультра АК-2"
 	desc = "Оружие для боевых экзокостюмов. Стреляет короткой очередью из трех выстрелов."
