@@ -13015,7 +13015,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red,
-/obj/structure/chair{
+/obj/structure/chair/sofa/bench/left{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
@@ -17417,6 +17417,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/maintenance/port)
+"bQp" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/structure/chair/sofa/bench/right{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/hallway/secondary/exit/departure_lounge)
 "bQq" = (
 /obj/machinery/chem_dispenser,
 /obj/effect/turf_decal/tile/neutral,
@@ -18555,11 +18565,11 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red,
-/obj/structure/chair{
-	dir = 8
-	},
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
+	},
+/obj/structure/chair/sofa/bench/right{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
@@ -19053,11 +19063,11 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red,
-/obj/structure/chair{
-	dir = 8
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/corner,
+/obj/structure/chair/sofa/bench/left{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
 "bXJ" = (
@@ -22308,7 +22318,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/structure/chair{
+/obj/structure/chair/sofa/bench/left{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
@@ -23247,7 +23257,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
-/obj/structure/chair,
+/obj/structure/chair/sofa/bench/right,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
 "cro" = (
@@ -23257,8 +23267,8 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
-/obj/structure/chair,
 /obj/effect/landmark/start/assistant,
+/obj/structure/chair/sofa/bench/left,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
 "crp" = (
@@ -31245,8 +31255,8 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
-/obj/structure/chair,
 /obj/machinery/status_display/evac/directional/north,
+/obj/structure/chair/sofa/bench,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
 "epi" = (
@@ -35594,10 +35604,10 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/structure/chair{
+/obj/machinery/status_display/evac/directional/south,
+/obj/structure/chair/sofa/bench{
 	dir = 1
 	},
-/obj/machinery/status_display/evac/directional/south,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge)
 "fVr" = (
@@ -58604,6 +58614,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/showroomfloor,
 /area/medical/chemistry)
+"oxq" = (
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/structure/chair/sofa/bench{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/hallway/secondary/exit/departure_lounge)
 "oxL" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -63031,6 +63051,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/hallway/primary/aft)
+"pZV" = (
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/structure/chair/sofa/bench/right{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/hallway/secondary/exit/departure_lounge)
 "qab" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/machinery/newscaster/security_unit/directional/east,
@@ -76442,6 +76472,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
 /area/tcommsat/computer)
+"uZB" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/structure/chair/sofa/bench,
+/turf/open/floor/plasteel,
+/area/hallway/secondary/exit/departure_lounge)
 "uZY" = (
 /obj/machinery/light/small/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -126903,9 +126943,9 @@ bvo
 bPe
 bVp
 cmD
-cmr
+oxq
 bSn
-crl
+uZB
 bRt
 kje
 bWM
@@ -127417,7 +127457,7 @@ bRs
 bPe
 bVp
 jEr
-cmr
+pZV
 cGz
 cro
 bRt
@@ -127933,7 +127973,7 @@ mSI
 bWn
 bjT
 bRs
-bjT
+bQp
 bXG
 diR
 bPe
