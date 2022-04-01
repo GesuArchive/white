@@ -567,13 +567,13 @@ GLOBAL_LIST_EMPTY(violence_players)
 			if(VG.cost > VP.money)
 				dat += "<div id=zakup-item-disabled><div id=zakup-price>[VG.cost]₽</div><div id=zakup-name>[VG.name]</div></div>"
 			else
-				dat += "<a href='href='?src=[REF(src)];violence=[VG.name]' id=zakup-item><div id=zakup-price>[VG.cost]₽</div><div id=zakup-name>[VG.name]</div></a>"
+				dat += "<a href='href='byond://?src=[REF(src)];violence=[VG.name]' id=zakup-item><div id=zakup-price>[VG.cost]₽</div><div id=zakup-name>[VG.name]</div></a>"
 		dat += "</div></div>"
 	dat += "<div id=zakup><div id=zakup-cat-name>Разгрузка</div><div id=zakup-cat>"
 	for(var/datum/violence_gear/VG in VP.loadout_items)
 		dat += "<div id=zakup-item-disabled><div id=zakup-price>[VG.cost]₽</div><div id=zakup-name>[VG.name]</div></div>"
 	dat += "</div></div>"
-	dat += "</div><a id=footer href='?src=[REF(src)];violence=joinmefucker'>ПОГНАЛИ!</a></body></html>"
+	dat += "</div><a id=footer href='byond://?src=[REF(src)];violence=joinmefucker'>ПОГНАЛИ!</a></body></html>"
 	usr << browse(dat, "window=violence;size=750x650")
 
 GLOBAL_LIST_EMPTY(violence_gear_categories)
