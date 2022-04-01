@@ -579,12 +579,12 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /proc/generate_violence_gear()
 	for(var/geartype in subtypesof(/datum/violence_gear))
-		GLOB.violence_gear_datums[VG.name] = new geartype
-		var/datum/violence_gear/VG = GLOB.violence_gear_datums[VG.name]
-		if(!GLOB.violence_gear_categories[VG.cat])
-			GLOB.violence_gear_categories[VG.cat] = new /datum/violence_gear_category(VG.cat)
-		var/datum/violence_gear_category/VC = GLOB.violence_gear_categories[VG.cat]
-		VC.gear[VG.name] = GLOB.violence_gear_datums[VG.name]
+		var/datum/violence_gear/VG = geartype
+		if(!GLOB.violence_gear_categories[initial(VG.cat)])
+			GLOB.violence_gear_categories[initial(VG.cat)] = new /datum/violence_gear_category(initial(VG.cat))
+		GLOB.violence_gear_datums[initial(VG.name)] = new geartype
+		var/datum/violence_gear_category/VC = GLOB.violence_gear_categories[initial(VG.cat)]
+		VC.gear[initial(VG.name)] = GLOB.violence_gear_datums[initial(VG.name)]
 	GLOB.violence_gear_categories = sortAssoc(GLOB.violence_gear_categories)
 	for(var/violence_gear_category in GLOB.violence_gear_categories)
 		var/datum/violence_gear_category/VC = GLOB.violence_gear_categories[violence_gear_category]
