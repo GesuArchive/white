@@ -180,7 +180,7 @@
 	category = CAT_CHEMISTRY
 
 /obj/item/clothing/mask/cigarette/pipe/crackpipe
-	name = "трубка для наркотиков"
+	name = "крэк-труба"
 	desc = "Трубка из тонкого стекла, предназначенная для курения одной вещи: крэка."
 	icon = 'white/rebolution228/icons/unsorted/crack.dmi'
 	worn_icon = 'white/rebolution228/icons/unsorted/mask.dmi'
@@ -228,7 +228,7 @@
 			return ..()
 
 /datum/crafting_recipe/crackpipe
-	name = "трубка для наркотиков"
+	name = "крэк-труба"
 	result = /obj/item/clothing/mask/cigarette/pipe/crackpipe
 	reqs = list(/obj/item/stack/cable_coil = 5,
 				/obj/item/shard = 1,
