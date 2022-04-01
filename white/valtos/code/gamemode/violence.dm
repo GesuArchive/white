@@ -216,6 +216,8 @@ GLOBAL_LIST_EMPTY(violence_players)
 			count_deleted++
 			qdel(A)
 	message_admins("УДАЛЕНО [count_deleted] РАЗЛИЧНЫХ ШТУК.")
+	// исправляем свет
+	main_area.update_base_lighting()
 	for(var/obj/machinery/door/poddoor/D in main_area)
 		INVOKE_ASYNC(D, /obj/machinery/door/poddoor.proc/close)
 
