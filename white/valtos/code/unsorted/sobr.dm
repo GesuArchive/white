@@ -51,6 +51,8 @@
 	belt = /obj/item/storage/belt/security/omon
 	id = /obj/item/card/id/advanced/centcom
 
+	r_hand = /obj/item/gun/energy/e_gun/mini
+
 	id_trim = /datum/id_trim/centcom/omon
 
 	implants = list(/obj/item/implant/sound_implant, /obj/item/implant/mindshield)
@@ -62,8 +64,7 @@
 		back = /obj/item/storage/backpack
 		backpack_contents = list(/obj/item/storage/box/survival/engineer=1)
 	if (prob(1))
-		r_hand = /obj/item/gun/ballistic/rocketlauncher/unrestricted //I'm just a OMON with a rocket launcher
-		l_hand = /obj/item/ammo_casing/caseless/rocket/weak
+		l_hand = /obj/item/gun/ballistic/rocketlauncher/unrestricted  //I'm just a OMON with a rocket launcher
 
 /datum/outfit/omon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)

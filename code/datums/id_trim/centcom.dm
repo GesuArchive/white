@@ -173,6 +173,15 @@
 ////////////////////////
 // WHITE DREAM: Trim for Spetsnaz/OMON Soldier. General Centcom access, maint access. 
 
+//
+/datum/id_trim/centcom/omon
+	assignment = "ОМОН"
+
+/datum/id_trim/centcom/omon/New()
+	. = ..()
+
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_MAINT_TUNNELS, ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_WEAPONS)
+
 /datum/id_trim/centcom/spetsnaz
 	assignment = "SOBR"
 	trim_icon = 'white/rebolution228/icons/card.dmi'
@@ -181,16 +190,17 @@
 /datum/id_trim/centcom/spetsnaz/New()
 	. = ..()
 
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_WEAPONS, ACCESS_MAINT_TUNNELS)
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_MAINT_TUNNELS, ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_WEAPONS)
 
-//
-/datum/id_trim/centcom/omon
-	assignment = "ОМОН"
+// Trim for omono Leaderio suckkio peniso. Centcom access, only maint access.
 
-/datum/id_trim/centcom/omon/New()
+/datum/id_trim/centcom/omon/leader
+	assignment = "Лидер ОМОН"
+
+/datum/id_trim/centcom/omon/leader/New()
 	. = ..()
 
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_WEAPONS, ACCESS_MAINT_TUNNELS)
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_MAINT_TUNNELS, ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_WEAPONS)
 
 // Trim for Spetsnaz Leader. Full access.
 
@@ -204,13 +214,4 @@
 
 	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
 
-// Trim for omono Leaderio suckkio peniso. Centcom access, only maint access.
-
-/datum/id_trim/centcom/omon/leader
-	assignment = "Лидер ОМОН"
-
-/datum/id_trim/centcom/omon/leader/New()
-	. = ..()
-
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_WEAPONS, ACCESS_MAINT_TUNNELS)
 
