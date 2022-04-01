@@ -548,7 +548,13 @@ GLOBAL_LIST_EMPTY(violence_players)
 	for(var/datum/violence_gear/VG as anything in loadout_items)
 		for(var/item in VG.items)
 			var/obj/item/O = new item(get_turf(H))
-			H.equip_to_appropriate_slot(O, FALSE)
+			if(H.equip_to_appropriate_slot(O, FALSE))
+				continue
+			if(H.put_in_hands(item))
+				continue
+			var/obj/item/storage/B = (locate() in H)
+			if(B && O)
+				O.forceMove(B)
 	loadout_items = list()
 
 /mob/dead/new_player/proc/violence_choices()
