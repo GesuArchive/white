@@ -1,3 +1,5 @@
+// дохуя пиздатый код ниже, не завидую тому, кто попытается спиздить его
+
 GLOBAL_VAR_INIT(violence_mode_activated, FALSE)
 GLOBAL_VAR_INIT(violence_current_round, 0)
 GLOBAL_VAR_INIT(violence_random_theme, 1)
@@ -33,6 +35,9 @@ GLOBAL_LIST_EMPTY(violence_players)
 	var/last_reds = 0
 	var/last_blues = 0
 
+	// выплата в каждом раунде
+	var/payout = 600
+
 	announce_span = "danger"
 	announce_text = "Резня!"
 
@@ -43,6 +48,12 @@ GLOBAL_LIST_EMPTY(violence_players)
 		if(isnewplayer(C.mob))
 			C.mob.stop_sound_channel(CHANNEL_LOBBYMUSIC)
 			C.playtitlemusic()
+	// генерируем штуки для закупа
+	generate_violence_gear()
+	// делаем датумы игроков на всякий случай
+	for(var/client/C in GLOB.clients)
+		if(!GLOB.violence_players[C.ckey])
+			GLOB.violence_players[C.ckey] = new /datum/violence_player
 	// пикаем арену
 	var/obj/effect/landmark/violence/V = GLOB.violence_landmark
 	V.load_map()
@@ -119,6 +130,10 @@ GLOBAL_LIST_EMPTY(violence_players)
 				play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
 				GLOB.violence_red_team -= R
 				to_chat(world, span_red("[LAZYLEN(GLOB.violence_red_team)]/[last_reds]"))
+				if(GLOB.violence_players[R?.current?.lastattackermob?.ckey])
+					var/datum/violence_player/VP = GLOB.violence_players[R.current.lastattackermob.ckey]
+					VP.money += 300
+					to_chat(R.current.lastattackermob, span_boldnotice("+300₽"))
 		for(var/datum/mind/B in GLOB.violence_blue_team)
 			if(!B?.current)
 				play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
@@ -128,6 +143,10 @@ GLOBAL_LIST_EMPTY(violence_players)
 				play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
 				GLOB.violence_blue_team -= B
 				to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[last_blues]"))
+				if(GLOB.violence_players[B?.current?.lastattackermob?.ckey])
+					var/datum/violence_player/VP = GLOB.violence_players[B.current.lastattackermob.ckey]
+					VP.money += 300
+					to_chat(B.current.lastattackermob, span_boldnotice("+300₽"))
 		// добейте выживших
 		for(var/mob/living/carbon/human/H in main_area)
 			if(H.stat != DEAD && H.health <= 0)
@@ -193,6 +212,10 @@ GLOBAL_LIST_EMPTY(violence_players)
 			var/mob/dead/new_player/NP = new()
 			NP.ckey = M.ckey
 			qdel(M)
+	// раздаём деньги бомжам
+	for(var/datum/violence_player/VP as anything in GLOB.violence_players)
+		VP.money += payout * GLOB.violence_current_round
+	to_chat(world, leader_brass("Выдано [payout * GLOB.violence_current_round]₽ каждому!"))
 	// вызов очистки
 	clean_arena()
 	spawn(10 SECONDS)
@@ -207,7 +230,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 		// метим время начала
 		round_started_at = world.time
 		// оповещаем игроков
-		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round]! [get_round_desc()]!"))
+		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round]!"))
 		play_sound_to_everyone('white/valtos/sounds/horn.ogg')
 		// открываем шаттерсы через время
 		spawn(30 SECONDS)
@@ -357,7 +380,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 	name = "Combantant"
 	jobtype = /datum/job/combantant
 	uniform = /obj/item/clothing/under/syndicate/camo
-	shoes = /obj/item/clothing/shoes/combat
+	shoes = /obj/item/clothing/shoes/jackboots
 	l_pocket = null
 	r_pocket = null
 	id = null
@@ -382,129 +405,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 
 /datum/outfit/job/combantant/pre_equip(mob/living/carbon/human/H)
 	..()
-	back = null
-	backpack_contents = null
-	// пиздец
-	switch(GLOB.violence_current_round)
-		if(1)
-			if(prob(35))
-				r_hand = pick(list(/obj/item/melee/brick, /obj/item/tank/internals/oxygen, /obj/item/extinguisher))
-		if(2)
-			if(GLOB.violence_random_theme == 1)
-				suit = /obj/item/clothing/suit/armor/vest/durathread
-				head = /obj/item/clothing/head/beret/durathread
-				if(prob(50))
-					r_hand = pick(list(/obj/item/kitchen/knife/combat, /obj/item/melee/sabre/officer, /obj/item/melee/baseball_bat, /obj/item/melee/energy/sword/saber))
-					l_hand = pick(list(/obj/item/shield/riot/buckler, /obj/item/restraints/legcuffs/bola))
-				else
-					r_hand = pick(list(/obj/item/melee/baton/loaded, /obj/item/assembly/flash))
-					if(prob(25))
-						glasses = /obj/item/clothing/glasses/sunglasses
-			else
-				head = /obj/item/clothing/head/turban
-				suit = /obj/item/clothing/suit/chaplainsuit/studentuni
-				shoes = /obj/item/clothing/shoes/sandal
-				l_pocket = /obj/item/grenade/frag
-				r_hand = pick(list(/obj/item/kitchen/knife/combat, /obj/item/melee/sabre/officer, /obj/item/melee/energy/sword/saber))
-		if(3)
-			if(GLOB.violence_random_theme == 1)
-				suit = /obj/item/clothing/suit/armor/bulletproof
-				head = /obj/item/clothing/head/helmet/alt
-				r_hand = pick(list(/obj/item/gun/ballistic/shotgun/automatic/combat, /obj/item/gun/ballistic/automatic/mini_uzi, /obj/item/gun/ballistic/automatic/pistol/m1911, /obj/item/gun/ballistic/automatic/pistol/makarov, /obj/item/gun/ballistic/automatic/pistol/luger, /obj/item/gun/ballistic/automatic/pistol/aps))
-				l_pocket = pick(list(/obj/item/reagent_containers/hypospray/medipen/salacid, /obj/item/grenade/frag))
-			else
-				uniform = pick(list(/obj/item/clothing/under/costume/kamishimo, /obj/item/clothing/under/costume/kimono/dark, /obj/item/clothing/under/costume/kimono/sakura, /obj/item/clothing/under/costume/kimono/fancy, /obj/item/clothing/under/costume/kamishimo, /obj/item/clothing/under/costume/bathrobe))
-				head = /obj/item/clothing/head/rice_hat
-				if(prob(25))
-					r_hand = /obj/item/storage/box/syndie_kit/throwing_weapons
-					uniform = /obj/item/clothing/under/costume/kamishimo
-					suit = /obj/item/clothing/suit/costume/samurai
-					head = /obj/item/clothing/head/costume/kabuto
-				shoes = /obj/item/clothing/shoes/sandal
-				belt = /obj/item/katana
-		if(4)
-			if(GLOB.violence_random_theme == 1)
-				gloves = /obj/item/clothing/gloves/combat/sobr
-				switch(rand(1, 2))
-					if(1)
-						mask = /obj/item/clothing/mask/gas/heavy/m40
-						head = /obj/item/clothing/head/helmet/maska/altyn/black
-						suit = /obj/item/clothing/suit/armor/heavysobr
-						belt = /obj/item/storage/belt/military/assault/sobr/specialist
-						back = /obj/item/gun/ballistic/shotgun/saiga
-					if(2)
-						mask = /obj/item/clothing/mask/gas/heavy/gp7vm
-						head = /obj/item/clothing/head/helmet/maska/altyn
-						suit = /obj/item/clothing/suit/armor/opvest/sobr
-						belt = /obj/item/storage/belt/military/assault/sobr
-						back = /obj/item/gun/ballistic/automatic/ak74m
-			else
-				gloves = /obj/item/clothing/gloves/combat
-				head = /obj/item/clothing/head/helmet/elite
-				suit = /obj/item/clothing/suit/armor/vest/m35/black
-				switch(rand(1, 2))
-					if(1)
-						mask = /obj/item/clothing/mask/gas/germanfull
-						r_hand = /obj/item/gun/ballistic/automatic/mp40
-						l_pocket = /obj/item/ammo_box/magazine/mp40
-						r_pocket = /obj/item/ammo_box/magazine/mp40
-					if(2)
-						mask = /obj/item/clothing/mask/gas/german
-						r_hand = /obj/item/gun/ballistic/automatic/pistol/mauser
-						l_pocket = /obj/item/ammo_box/magazine/mauser/battle
-						r_pocket = /obj/item/ammo_box/magazine/mauser/battle
-						belt = /obj/item/melee/sabre/marineofficer
-		if(5)
-			if(GLOB.violence_random_theme == 1)
-				glasses = /obj/item/clothing/glasses/hud/toggle/thermal
-				gloves = /obj/item/clothing/gloves/tackler/combat/insulated
-				mask = /obj/item/clothing/mask/gas/sechailer/swat
-				shoes = /obj/item/clothing/shoes/combat/swat
-				suit = /obj/item/clothing/suit/space/hardsuit/deathsquad
-				belt = /obj/item/gun/ballistic/revolver/mateba
-				r_hand = /obj/item/gun/energy/pulse
-				l_hand = /obj/item/shield/riot/kevlar
-				r_pocket = /obj/item/shield/energy
-				l_pocket = /obj/item/melee/energy/sword/saber
-				if(prob(50))
-					suit = /obj/item/clothing/suit/space/officer
-					head = /obj/item/clothing/head/helmet/space/beret
-					mask = null
-					r_hand = /obj/item/gun/ballistic/automatic/hs010
-					r_pocket = /obj/item/ammo_box/magazine/hs010
-			else
-				glasses = /obj/item/clothing/glasses/thermal
-				mask = /obj/item/clothing/mask/gas/syndicate
-				shoes = /obj/item/clothing/shoes/combat
-				gloves = /obj/item/clothing/gloves/combat
-				if(prob(50))
-					suit_store = /obj/item/gun/ballistic/automatic/c20r/unrestricted
-					belt = /obj/item/storage/belt/military/assault/c20r4
-					r_hand = /obj/item/gun/ballistic/automatic/pistol/tanner
-				else
-					r_hand = /obj/item/gun/ballistic/automatic/l6_saw/unrestricted
-					belt = /obj/item/gun/ballistic/automatic/pistol/tanner
-					r_pocket = pick(list(/obj/item/ammo_box/magazine/mm712x82, /obj/item/ammo_box/magazine/mm712x82/hollow, /obj/item/ammo_box/magazine/mm712x82/ap, /obj/item/ammo_box/magazine/mm712x82/incen, /obj/item/ammo_box/magazine/mm712x82/match))
-				l_pocket = /obj/item/melee/energy/sword/saber
-				suit = /obj/item/clothing/suit/space/hardsuit/shielded/syndi
-		if(6)
-			if(prob(50))
-				head = /obj/item/clothing/head/welding/open
-				belt = /obj/item/storage/belt/military/abductor/full
-				spawn(3 SECONDS) // because shit spawned after
-					if(GLOB.violence_current_round == 6)
-						var/obj/vehicle/sealed/mecha/combat/V
-						if(prob(75))
-							V = new /obj/vehicle/sealed/mecha/combat/gygax/loaded(get_turf(H))
-						else
-							V = new /obj/vehicle/sealed/mecha/combat/marauder/loaded(get_turf(H))
-						V.color = team == "red" ? "#ff2222" : "#2222ff"
-			else
-				suit = /obj/item/clothing/suit/space/hardsuit/ancient
-				suit_store = /obj/item/gun/ballistic/automatic/gyropistol
-				belt = /obj/item/storage/belt/military/assault/rockets
-				r_hand = /obj/item/gun/ballistic/rocketlauncher/unrestricted
-				l_pocket = /obj/item/pamk
+	// something
 
 /datum/outfit/job/combantant/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/card/id/W = H.wear_id
@@ -516,6 +417,12 @@ GLOBAL_LIST_EMPTY(violence_players)
 		if("blue")
 			SSid_access.apply_trim_to_card(W, /datum/id_trim/combatant/blue)
 	H.sec_hud_set_ID()
+	// экипируем штуки спустя секунду, чтобы некоторый стаф не падал в нуллспейс случайно
+	spawn(1 SECONDS)
+		if(GLOB.violence_players[H?.ckey])
+			var/datum/violence_player/VP = GLOB.violence_players[H.ckey]
+			VP.equip_everything(H)
+			VP.team = team
 	// запрет на снятие ID и униформы
 	ADD_TRAIT(W, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
 	ADD_TRAIT(H.w_uniform, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
@@ -605,21 +512,21 @@ GLOBAL_LIST_EMPTY(violence_players)
 	name = "Карак"
 	description = "Бойня в пустынном бункере."
 	mappath = "_maps/map_files/Warfare/violence1.dmm"
-	weight = 3
+	weight = 5
 	max_players = 16
 
 /datum/map_template/violence/chinatown
 	name = "Чайнатаун"
 	description = "Деликатное отсечение голов в восточном стиле."
 	mappath = "_maps/map_files/Warfare/violence2.dmm"
-	weight = 3
+	weight = 6
 	max_players = 8
 
 /datum/map_template/violence/centralpolygon
 	name = "Тренировочный Центр"
 	description = "Здесь проходят обучение все офицеры Нанотрейзен."
 	mappath = "_maps/map_files/Warfare/violence3.dmm"
-	weight = 2
+	weight = 4
 	max_players = 64
 
 /datum/map_template/violence/de_dust2
@@ -634,16 +541,61 @@ GLOBAL_LIST_EMPTY(violence_players)
 	var/team = "white"
 	var/kills = 0
 	var/deaths = 0
+	var/list/loadout_items = list()
+
+/datum/violence_player/equip_everything(mob/living/carbon/human/H)
+	for(var/datum/violence_gear/VG as anything in loadout_items)
+		for(var/item in VG.items)
+			var/obj/item/O = new item(get_turf(H))
+			H.equip_to_appropriate_slot(O, FALSE)
+	loadout_items = list()
 
 /mob/dead/new_player/proc/violence_choices()
 	var/list/dat = list()
-	//dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'>хуй</a>"
+	if(!GLOB.violence_players[ckey])
+		GLOB.violence_players[ckey] = new /datum/violence_player
+	var/datum/violence_player/VP = GLOB.violence_players[ckey]
+	// да я пидорас и ебусь в очко с неграми неплохо как ты узнал???
+	dat += "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><meta http-equiv='X-UA-Compatible' content='IE=edge'><style>*{transition:.1s}body{background:#010901;color:#4a4;font-family:Tahoma;font-size:12px;margin:0;padding:0}#zakup{background:#050905;border:1px solid #141;width:240px;vertical-align:top;margin-top:4px;display:inline-block}#zakup-cat,#zakup-cat-name{display:inline-block}#zakup-cat-name{height:100%;width:100%;font-size:18px;background:#121;padding-bottom:4px;border-bottom:1px solid #141;color:#ada;text-align:center}#zakup-item{display:block;background:#051105;margin:4px;margin-bottom:2px;margin-top:2px;padding:4px;border:1px solid #141;width:222px;cursor:pointer;color:#9f9}#zakup-item:hover{background:#9f9;color:#000}#zakup-price{display:inline-block;font-weight:700;width:64px}#zakup-name{display:inline-block;text-transform:uppercase}a{color:#9f9}#footer{display:block;position:fixed;bottom:0;width:100%;height:48px;background:#121;color:#fff;text-decoration:none;font-size:38px;text-align:center;border-top:1px solid #141}#header{display:block;width:100%;height:28px;background:#121;color:#fff;text-decoration:none;font-size:24px;text-align:center;border-bottom:1px solid #141}#footer:hover{background:#9f9;color:#000}#zakup-item-disabled{display:inline-block;background:#020502;margin:4px;margin-bottom:2px;margin-top:2px;padding:4px;border:1px solid #141;width:222px;cursor:pointer;color:#292}</style>"
+	dat += "</head><body scroll=auto><div id=header>[VP.money]₽</div><div id=zakup-main>"
+	for(var/datum/violence_gear_category/VC as anything in GLOB.violence_gear_categories)
+		dat += "<div id=zakup><div id=zakup-cat-name>[VC.cat]</div><div id=zakup-cat>"
+		for(var/datum/violence_gear/VG as anything in VC.gear)
+			if(VG.cost > VP.money)
+				dat += "<div id=zakup-item-disabled><div id=zakup-price>[VG.cost]₽</div><div id=zakup-name>[VG.name]</div></div>"
+			else
+				dat += "<a href='href='?src=[REF(src)];violence=[VG.name]' id=zakup-item><div id=zakup-price>[VG.cost]₽</div><div id=zakup-name>[VG.name]</div></a>"
+		dat += "</div></div>"
+	dat += "<div id=zakup><div id=zakup-cat-name>Разгрузка</div><div id=zakup-cat>"
+	for(var/datum/violence_gear/VG as anything in VP.loadout_items)
+		dat += "<div id=zakup-item-disabled><div id=zakup-price>[VG.cost]₽</div><div id=zakup-name>[VG.name]</div></div>"
+	dat += "</div></div>"
+	dat += "</div><a id=footer href='?src=[REF(src)];violence=joinmefucker'>ПОГНАЛИ!</a></body></html>"
+	usr << browse(dat, "window=violence;size=750x650")
+
+GLOBAL_LIST_EMPTY(violence_gear_categories)
+GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /proc/generate_violence_gear()
-	var/list/sorted_gear = list()
 	for(var/datum/violence_gear/VG as anything in subtypesof(/datum/violence_gear))
-		if(VG.cost)
-			sorted_gear[VG.cat] += VG
+		if(!GLOB.violence_gear_categories[VG.cat])
+			GLOB.violence_gear_categories[VG.cat] = new /datum/violence_gear_category(VG.cat)
+		var/datum/violence_gear_category/VC = GLOB.violence_gear_categories[VG.cat]
+		GLOB.violence_gear_datums[VG.name] = new VG
+		VC.gear[VG.name] = GLOB.violence_gear_datums[VG.name]
+	GLOB.violence_gear_categories = sortAssoc(GLOB.violence_gear_categories)
+	for(var/violence_gear_category in GLOB.violence_gear_categories)
+		var/datum/violence_gear_category/VC = GLOB.violence_gear_categories[violence_gear_category]
+		VC.gear = sortAssoc(VC.gear)
+	return TRUE
+
+/datum/violence_gear_category
+	var/cat = ""
+	var/list/gear = list()
+
+/datum/violence_gear_category/New(new_cat)
+	cat = new_cat
+	..()
 
 /datum/violence_gear
 	var/name = "???"
@@ -695,37 +647,37 @@ GLOBAL_LIST_EMPTY(violence_players)
 /datum/violence_gear/pistol/handmade
 	name = "Самодельный"
 	cost = 600
-	items = list(/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/handmade)
+	items = list(/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/handmade, /obj/item/ammo_box/magazine/fallout/m9mm)
 
 /datum/violence_gear/pistol/mauser
 	name = "Маузер"
 	cost = 1000
-	items = list(/obj/item/gun/ballistic/automatic/pistol/mauser)
+	items = list(/obj/item/gun/ballistic/automatic/pistol/mauser, /obj/item/ammo_box/magazine/mauser/battle)
 
 /datum/violence_gear/pistol/m1911
 	name = "M1911"
 	cost = 1250
-	items = list(/obj/item/gun/ballistic/automatic/pistol/m1911)
+	items = list(/obj/item/gun/ballistic/automatic/pistol/m1911, /obj/item/ammo_box/magazine/m45)
 
 /datum/violence_gear/pistol/makarov
 	name = "Макаров"
 	cost = 1500
-	items = list(/obj/item/gun/ballistic/automatic/pistol/makarov)
+	items = list(/obj/item/gun/ballistic/automatic/pistol/makarov, /obj/item/ammo_box/magazine/m9mm)
 
 /datum/violence_gear/pistol/aps
 	name = "АПС"
 	cost = 2000
-	items = list(/obj/item/gun/ballistic/automatic/pistol/aps)
+	items = list(/obj/item/gun/ballistic/automatic/pistol/aps, /obj/item/ammo_box/magazine/m9mm_aps)
 
 /datum/violence_gear/pistol/mateba
 	name = "Матеба"
 	cost = 3250
-	items = list(/obj/item/gun/ballistic/revolver/mateba)
+	items = list(/obj/item/gun/ballistic/revolver/mateba, /obj/item/ammo_box/a357)
 
 /datum/violence_gear/pistol/deagle
 	name = "Пустынный орёл"
 	cost = 3500
-	items = list(/obj/item/gun/ballistic/automatic/pistol/deagle)
+	items = list(/obj/item/gun/ballistic/automatic/pistol/deagle, /obj/item/ammo_box/magazine/m50)
 
 /datum/violence_gear/rifle
 	cat = "Винтовки"
@@ -733,32 +685,32 @@ GLOBAL_LIST_EMPTY(violence_players)
 /datum/violence_gear/rifle/kar98k
 	name = "Болтовка"
 	cost = 900
-	items = list(/obj/item/gun/ballistic/rifle/boltaction/kar98k)
+	items = list(/obj/item/gun/ballistic/rifle/boltaction/kar98k, /obj/item/ammo_box/n792x57)
 
 /datum/violence_gear/rifle/scope
 	name = "Болтовка с оптикой"
 	cost = 1200
-	items = list(/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope)
+	items = list(/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope, /obj/item/ammo_box/n792x57)
 
 /datum/violence_gear/rifle/mini_uzi
 	name = "U3 Uzi"
 	cost = 2000
-	items = list(/obj/item/gun/ballistic/automatic/mini_uzi)
+	items = list(/obj/item/gun/ballistic/automatic/mini_uzi, /obj/item/ammo_box/magazine/uzim9mm)
 
 /datum/violence_gear/rifle/c20r
 	name = "C-20r SMG"
 	cost = 2500
-	items = list(/obj/item/gun/ballistic/automatic/c20r/unrestricted)
+	items = list(/obj/item/gun/ballistic/automatic/c20r/unrestricted, /obj/item/ammo_box/magazine/smgm45)
 
 /datum/violence_gear/rifle/ak74m
 	name = "АК-74m"
 	cost = 3000
-	items = list(/obj/item/gun/ballistic/automatic/ak74m)
+	items = list(/obj/item/gun/ballistic/automatic/ak74m, /obj/item/ammo_box/magazine/ak74m)
 
 /datum/violence_gear/rifle/asval
 	name = "Вал"
 	cost = 4000
-	items = list(/obj/item/gun/ballistic/automatic/asval)
+	items = list(/obj/item/gun/ballistic/automatic/asval, /obj/item/ammo_box/magazine/asval)
 
 /datum/violence_gear/shotgun
 	cat = "Дробовики"
@@ -766,17 +718,17 @@ GLOBAL_LIST_EMPTY(violence_players)
 /datum/violence_gear/shotgun/doublebarrel
 	name = "Двухстволка"
 	cost = 1000
-	items = list(/obj/item/gun/breakopen/doublebarrel)
+	items = list(/obj/item/gun/breakopen/doublebarrel, /obj/item/storage/box/lethalshot)
 
 /datum/violence_gear/shotgun/combat
 	name = "Боевой дробовик"
 	cost = 2000
-	items = list(/obj/item/gun/ballistic/shotgun/automatic/combat)
+	items = list(/obj/item/gun/ballistic/shotgun/automatic/combat, /obj/item/storage/box/lethalshot)
 
 /datum/violence_gear/shotgun/saiga
 	name = "Сайга"
 	cost = 2500
-	items = list(/obj/item/gun/ballistic/shotgun/saiga)
+	items = list(/obj/item/gun/ballistic/shotgun/saiga, /obj/item/ammo_box/magazine/saiga)
 
 /datum/violence_gear/heavygun
 	cat = "Тяжёлое оружие"
@@ -784,17 +736,17 @@ GLOBAL_LIST_EMPTY(violence_players)
 /datum/violence_gear/heavygun/rocketlauncher
 	name = "PML-9"
 	cost = 3000
-	items = list(/obj/item/gun/ballistic/rocketlauncher/unrestricted)
+	items = list(/obj/item/gun/ballistic/rocketlauncher/unrestricted, /obj/item/ammo_casing/caseless/rocket)
 
 /datum/violence_gear/heavygun/l6_saw
 	name = "L6 SAW"
 	cost = 4000
-	items = list(/obj/item/gun/ballistic/automatic/l6_saw/unrestricted)
+	items = list(/obj/item/gun/ballistic/automatic/l6_saw/unrestricted, /obj/item/ammo_box/magazine/mm712x82)
 
 /datum/violence_gear/heavygun/gyropistol
 	name = "Гироджет"
 	cost = 5000
-	items = list(/obj/item/gun/ballistic/automatic/gyropistol)
+	items = list(/obj/item/gun/ballistic/automatic/gyropistol, /obj/item/ammo_box/magazine/m75)
 
 /datum/violence_gear/heavygun/pulse
 	name = "Пульсач"

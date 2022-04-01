@@ -49,6 +49,27 @@
 	if(client.interviewee)
 		return FALSE
 
+	if(href_list["violence"] && GLOB.violence_mode_activated)
+		if(href_list["violence"] == "joinmefucker")
+			if(GLOB.violence_teamlock[ckey])
+				AttemptLateSpawn(GLOB.violence_teamlock[ckey])
+			else
+				LateChoices()
+			usr << browse(null, "window=violence")
+			return
+		if(GLOB.violence_gear_datums[href_list["violence"]])
+			var/datum/violence_gear/VG = GLOB.violence_gear_datums[href_list["violence"]]
+			var/datum/violence_player/VP = GLOB.violence_players[ckey]
+			if(VP.money > VG.cost)
+				VP.money -= VG.cost
+				VP.loadout_items += VG
+				SEND_SOUND(usr, pick(list('white/valtos/sounds/coin1.ogg', 'white/valtos/sounds/coin2.ogg', 'white/valtos/sounds/coin3.ogg')))
+				to_chat(usr, span_notice("Куплено <b>[VG.name]</b> за [VG.cost]₽!"))
+			else
+				to_chat(usr, span_boldwarning("Недостаточно средств."))
+			violence_choices()
+		return
+
 	if(href_list["late_join"]) //This still exists for queue messages in chat
 		if(!SSticker?.IsRoundInProgress())
 			to_chat(usr, span_boldwarning("Раунд ещё не начался или уже завершился..."))

@@ -186,8 +186,8 @@
 			SSticker.queued_players += new_player
 			to_chat(new_player, span_notice("Тебя добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len]."))
 		return
-	if(GLOB.violence_mode_activated && (new_player?.ckey in GLOB.violence_teamlock))
-		new_player.AttemptLateSpawn(GLOB.violence_teamlock[new_player.ckey])
+	if(GLOB.violence_mode_activated)
+		new_player.violence_choices()
 		return
 	else if(!GLOB.is_tournament_rules)
 		new_player.LateChoices()
