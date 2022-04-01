@@ -126,6 +126,11 @@ GLOBAL_LIST_EMPTY(violence_players)
 				play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
 				GLOB.violence_red_team -= R
 				to_chat(world, span_red("[LAZYLEN(GLOB.violence_red_team)]/[last_reds]"))
+				var/mob/living/carbon/human/H = R.original_character.resolve()
+				if(GLOB.violence_players[H?.lastattackermob?.ckey])
+					var/datum/violence_player/VP = GLOB.violence_players[H.lastattackermob.ckey]
+					VP.money += VP.team == "blue" ? 300 : -300
+					to_chat(H.lastattackermob.ckey, span_boldnotice("+300₽"))
 			else if(R?.current?.stat == DEAD)
 				play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
 				GLOB.violence_red_team -= R
@@ -139,6 +144,11 @@ GLOBAL_LIST_EMPTY(violence_players)
 				play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
 				GLOB.violence_blue_team -= B
 				to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[last_blues]"))
+				var/mob/living/carbon/human/H = B.original_character.resolve()
+				if(GLOB.violence_players[H?.lastattackermob?.ckey])
+					var/datum/violence_player/VP = GLOB.violence_players[H.lastattackermob.ckey]
+					VP.money += VP.team == "blue" ? 300 : -300
+					to_chat(H.lastattackermob.ckey, span_boldnotice("+300₽"))
 			else if(B?.current?.stat == DEAD)
 				play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
 				GLOB.violence_blue_team -= B
