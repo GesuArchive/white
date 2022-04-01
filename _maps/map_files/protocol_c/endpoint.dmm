@@ -433,6 +433,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/freezer,
 /area/syndicate_mothership/control)
+"bV" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/green{
+	dir = 4
+	},
+/obj/structure/chair/sofa/bench/left{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/centcom/control)
 "bX" = (
 /obj/machinery/computer/shuttle_flight,
 /turf/open/floor/engine/cult,
@@ -4056,6 +4068,18 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
+"oR" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/green{
+	dir = 8
+	},
+/obj/structure/chair/sofa/bench{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/centcom/control)
 "oS" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/plasteel/dark,
@@ -4066,6 +4090,18 @@
 	},
 /obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/plasteel/dark,
+/area/centcom/control)
+"oW" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/green{
+	dir = 1
+	},
+/obj/structure/chair/sofa/bench/right{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
 /area/centcom/control)
 "oZ" = (
 /obj/effect/turf_decal/stripes/line{
@@ -5475,6 +5511,16 @@
 /obj/structure/flora/ausbushes/genericbush,
 /obj/structure/flora/ausbushes/pointybush,
 /turf/open/floor/grass,
+/area/centcom/control)
+"tJ" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/green,
+/obj/structure/chair/sofa/bench{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
 /area/centcom/control)
 "tM" = (
 /obj/machinery/door/airlock/centcom{
@@ -7125,7 +7171,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
-/obj/structure/chair{
+/obj/structure/chair/sofa/bench/left{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -7176,11 +7222,11 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
-/obj/structure/chair{
-	dir = 8
-	},
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
+	},
+/obj/structure/chair/sofa/bench/right{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
@@ -7206,7 +7252,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 1
 	},
-/obj/structure/chair{
+/obj/structure/chair/sofa/bench{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -7230,7 +7276,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
-/obj/structure/chair{
+/obj/structure/chair/sofa/bench{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
@@ -7981,12 +8027,12 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/neutral/line,
-/obj/structure/chair,
+/obj/structure/chair/sofa/bench/right,
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "CA" = (
 /obj/effect/turf_decal/trimline/neutral/line,
-/obj/structure/chair,
+/obj/structure/chair/sofa/bench,
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "CD" = (
@@ -8007,7 +8053,7 @@
 	},
 /obj/effect/turf_decal/trimline/neutral/line,
 /obj/machinery/newscaster/security_unit/directional/north,
-/obj/structure/chair,
+/obj/structure/chair/sofa/bench/left,
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "CF" = (
@@ -8742,7 +8788,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/green,
-/obj/structure/chair{
+/obj/structure/chair/sofa/bench/left{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
@@ -8847,7 +8893,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
-/obj/structure/chair{
+/obj/structure/chair/sofa/bench/left{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
@@ -8859,11 +8905,11 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
-/obj/structure/chair{
-	dir = 1
-	},
 /obj/structure/sign/departments/medbay/alt{
 	pixel_y = -32
+	},
+/obj/structure/chair/sofa/bench/right{
+	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
@@ -10647,6 +10693,16 @@
 /obj/machinery/autolathe/hacked,
 /turf/open/floor/wood/cataclysmdda/parquet,
 /area/ruin/powered/yohei_base)
+"LV" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/green,
+/obj/structure/chair/sofa/bench/right{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/centcom/control)
 "LX" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -14004,7 +14060,7 @@
 /area/centcom/control)
 "Xc" = (
 /turf/closed/indestructible/fakedoor{
-	desc = "?????, ??????? ?????? ? ?????? ???????.";
+	desc = "���������� ������� ��� ������� ���� ���-�� ���������� �.";
 	name = "Centcom Bridge"
 	},
 /area/centcom/control)
@@ -24390,7 +24446,7 @@ xl
 zz
 zN
 zN
-zN
+oW
 Cb
 zV
 zV
@@ -25164,7 +25220,7 @@ zV
 zV
 zV
 zV
-Fu
+tJ
 Yj
 Ii
 Ii
@@ -25421,7 +25477,7 @@ xB
 xn
 Cd
 zV
-Fu
+LV
 Yj
 Ii
 Hn
@@ -27220,7 +27276,7 @@ zV
 zV
 zV
 zV
-FO
+oR
 Yj
 Hn
 Ii
@@ -27988,7 +28044,7 @@ xt
 zJ
 zP
 zP
-zP
+bV
 CQ
 zV
 FU
