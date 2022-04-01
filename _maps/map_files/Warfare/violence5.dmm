@@ -1,0 +1,840 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/indestructible/sandstone,
+/area/violence)
+"c" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 1
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"d" = (
+/obj/structure/deployable_barricade/sandbags,
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"e" = (
+/turf/open/floor/plating/is12/trenchcenter,
+/area/violence)
+"h" = (
+/obj/effect/turf_decal/is12,
+/turf/open/floor/plating/is12/surface,
+/area/violence)
+"i" = (
+/obj/structure/deployable_barricade/sandbags,
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"j" = (
+/obj/structure/deployable_barricade/sandbags,
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"k" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 6
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"l" = (
+/obj/effect/landmark/start/combatant/blue,
+/turf/open/floor/plating/is12/trenchcenter,
+/area/violence)
+"n" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 10
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"o" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/turf/open/floor/plating/is12/surface,
+/area/violence)
+"p" = (
+/turf/closed/indestructible/riveted/dirtystone,
+/area/violence)
+"q" = (
+/obj/effect/turf_decal/weather/side,
+/turf/open/floor/plating/is12/surface,
+/area/violence)
+"r" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"t" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "grass"
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"w" = (
+/obj/effect/turf_decal/weather/side/corner,
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"x" = (
+/turf/open/floor/plating/is12/surface,
+/area/violence)
+"y" = (
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"A" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 5
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"B" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 9
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"D" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "m2"
+	},
+/turf/open/floor/plating/is12/surface,
+/area/violence)
+"E" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"G" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "m3"
+	},
+/turf/open/floor/plating/is12/surface,
+/area/violence)
+"I" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"K" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "m4"
+	},
+/turf/open/floor/plating/is12/surface,
+/area/violence)
+"L" = (
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"O" = (
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"P" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"Q" = (
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"R" = (
+/obj/effect/landmark/start/combatant/red,
+/turf/open/floor/plating/is12/trenchcenter,
+/area/violence)
+"S" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"T" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "m1"
+	},
+/turf/open/floor/plating/is12/surface,
+/area/violence)
+"U" = (
+/obj/effect/turf_decal/weather/side,
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"X" = (
+/obj/machinery/door/poddoor/multi_tile/four_tile_hor{
+	resistance_flags = 115
+	},
+/turf/open/floor/plating/is12/trenchcenter,
+/area/violence)
+"Y" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "grass"
+	},
+/obj/structure/deployable_barricade/sandbags{
+	dir = 1
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"Z" = (
+/obj/machinery/door/poddoor/multi_tile/four_tile_ver{
+	resistance_flags = 115
+	},
+/turf/open/floor/plating/is12/trenchcenter,
+/area/violence)
+
+(1,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(2,1,1) = {"
+p
+k
+I
+I
+I
+I
+I
+I
+I
+I
+j
+q
+x
+x
+x
+x
+x
+x
+o
+P
+I
+I
+I
+I
+I
+I
+I
+I
+A
+p
+"}
+(3,1,1) = {"
+p
+U
+L
+L
+L
+L
+L
+L
+d
+L
+d
+q
+x
+x
+x
+x
+x
+x
+o
+c
+L
+c
+L
+L
+t
+L
+L
+L
+E
+p
+"}
+(4,1,1) = {"
+p
+U
+L
+L
+L
+L
+L
+L
+d
+L
+d
+q
+x
+x
+x
+x
+x
+h
+o
+c
+L
+c
+L
+L
+L
+L
+L
+L
+E
+p
+"}
+(5,1,1) = {"
+p
+U
+t
+L
+L
+L
+L
+L
+d
+L
+d
+q
+x
+x
+x
+x
+x
+x
+o
+c
+L
+c
+L
+L
+L
+L
+L
+L
+E
+p
+"}
+(6,1,1) = {"
+p
+U
+L
+L
+L
+L
+L
+L
+d
+L
+d
+q
+x
+x
+x
+x
+x
+x
+o
+c
+L
+c
+L
+L
+L
+L
+L
+L
+E
+p
+"}
+(7,1,1) = {"
+p
+U
+Q
+r
+r
+r
+r
+r
+r
+O
+d
+q
+x
+x
+x
+x
+x
+x
+o
+c
+Q
+r
+r
+r
+r
+r
+r
+O
+E
+p
+"}
+(8,1,1) = {"
+p
+U
+E
+a
+e
+e
+e
+Z
+a
+U
+d
+q
+x
+x
+x
+x
+x
+x
+o
+c
+E
+a
+e
+e
+e
+Z
+a
+U
+E
+p
+"}
+(9,1,1) = {"
+p
+U
+E
+X
+R
+R
+R
+R
+a
+U
+d
+q
+x
+x
+x
+x
+x
+x
+o
+c
+E
+a
+l
+l
+l
+l
+X
+U
+E
+p
+"}
+(10,1,1) = {"
+p
+U
+E
+e
+R
+R
+R
+R
+a
+U
+d
+q
+h
+x
+x
+x
+x
+x
+o
+c
+E
+a
+l
+l
+l
+l
+e
+U
+E
+p
+"}
+(11,1,1) = {"
+p
+U
+E
+e
+R
+R
+R
+R
+a
+U
+d
+q
+x
+x
+x
+x
+x
+x
+o
+c
+E
+a
+l
+l
+l
+l
+e
+U
+E
+p
+"}
+(12,1,1) = {"
+p
+U
+E
+e
+R
+R
+R
+R
+a
+U
+d
+q
+x
+x
+x
+x
+x
+x
+o
+c
+E
+a
+l
+l
+l
+l
+e
+U
+E
+p
+"}
+(13,1,1) = {"
+p
+U
+E
+a
+e
+e
+e
+Z
+a
+U
+d
+q
+x
+x
+K
+G
+x
+x
+o
+c
+E
+a
+e
+e
+e
+Z
+a
+U
+E
+p
+"}
+(14,1,1) = {"
+p
+U
+y
+I
+I
+I
+I
+I
+I
+w
+d
+q
+x
+x
+D
+T
+x
+x
+o
+c
+y
+I
+I
+I
+I
+I
+I
+w
+E
+p
+"}
+(15,1,1) = {"
+p
+U
+L
+L
+L
+L
+L
+L
+d
+L
+d
+q
+x
+x
+x
+x
+x
+x
+o
+c
+L
+c
+L
+L
+L
+L
+L
+L
+E
+p
+"}
+(16,1,1) = {"
+p
+U
+L
+L
+L
+L
+L
+L
+d
+L
+d
+q
+x
+x
+x
+x
+x
+x
+o
+c
+L
+c
+L
+L
+L
+L
+L
+L
+E
+p
+"}
+(17,1,1) = {"
+p
+U
+L
+L
+L
+L
+L
+L
+d
+L
+d
+q
+x
+x
+x
+x
+x
+x
+o
+c
+L
+Y
+L
+L
+L
+L
+L
+L
+E
+p
+"}
+(18,1,1) = {"
+p
+U
+L
+t
+L
+L
+L
+L
+d
+L
+d
+q
+x
+x
+x
+x
+x
+x
+o
+c
+L
+c
+L
+L
+L
+L
+L
+L
+E
+p
+"}
+(19,1,1) = {"
+p
+n
+r
+r
+r
+r
+r
+r
+r
+r
+i
+q
+x
+x
+x
+x
+x
+x
+o
+S
+r
+r
+r
+r
+r
+r
+r
+r
+B
+p
+"}
+(20,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}

@@ -42,11 +42,13 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/violence)
 "dj" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/structure/deployable_barricade/sandbags{
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/deployable_barricade/metal{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/dark,
 /area/violence)
 "dl" = (
 /obj/effect/landmark/start/combatant/blue,
@@ -60,10 +62,13 @@
 /turf/open/floor/plasteel/monofloor,
 /area/violence)
 "eb" = (
-/obj/structure/deployable_barricade/sandbags{
-	dir = 4
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
 	},
-/turf/open/floor/plating,
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
 /area/violence)
 "eX" = (
 /obj/structure/deployable_barricade/metal{
@@ -96,13 +101,12 @@
 /turf/open/floor/engine,
 /area/violence)
 "jj" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
+/obj/structure/deployable_barricade/metal{
+	dir = 4
 	},
-/obj/structure/deployable_barricade/sandbags{
-	dir = 8
+/turf/open/floor/light{
+	currentcolor = "#FA8282"
 	},
-/turf/open/floor/plating,
 /area/violence)
 "jl" = (
 /obj/effect/turf_decal/tile/hex/blue,
@@ -123,17 +127,19 @@
 /turf/open/floor/engine,
 /area/violence)
 "ju" = (
-/obj/structure/deployable_barricade/sandbags{
+/obj/structure/deployable_barricade/metal{
 	dir = 8
 	},
-/turf/open/floor/plating,
+/turf/open/floor/light{
+	currentcolor = "#3375F8"
+	},
 /area/violence)
 "jB" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/structure/deployable_barricade/sandbags{
-	dir = 8
+/obj/structure/deployable_barricade/metal{
+	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/dark,
 /area/violence)
 "jO" = (
 /obj/machinery/door/poddoor/multi_tile/two_tile_ver{
@@ -156,11 +162,9 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/violence)
 "mB" = (
+/obj/effect/turf_decal/stripes/line,
 /obj/structure/deployable_barricade/metal{
 	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/violence)
@@ -376,13 +380,6 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/violence)
-"Eo" = (
-/obj/structure/deployable_barricade/metal{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plasteel/dark,
-/area/violence)
 "EG" = (
 /obj/machinery/door/airlock/grunge,
 /turf/open/floor/plasteel/monofloor,
@@ -481,27 +478,11 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/violence)
-"OO" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/structure/deployable_barricade/sandbags{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/violence)
 "Pj" = (
 /obj/effect/landmark/start/combatant/red,
 /turf/open/floor/light{
 	currentcolor = "#FA8282"
 	},
-/area/violence)
-"QC" = (
-/obj/structure/deployable_barricade/metal{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plasteel/dark,
 /area/violence)
 "QO" = (
 /obj/structure/deployable_barricade/metal{
@@ -569,15 +550,6 @@
 	},
 /obj/effect/turf_decal/stripes/full,
 /turf/open/floor/plasteel/monofloor,
-/area/violence)
-"VE" = (
-/obj/structure/deployable_barricade/metal{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/floor/plasteel/dark,
 /area/violence)
 "VH" = (
 /obj/structure/deployable_barricade/metal{
@@ -1105,12 +1077,12 @@ XS
 XS
 XS
 XS
-Gc
+XS
 TZ
 rY
 XS
 TZ
-gw
+XS
 XS
 XS
 XS
@@ -1139,12 +1111,12 @@ XS
 XS
 XS
 XS
-Gc
+XS
 TZ
 XS
 XS
 TZ
-gw
+XS
 XS
 XS
 XS
@@ -1173,12 +1145,12 @@ vH
 vH
 XS
 XS
-Gc
-TZ
 XS
+jj
+eX
+eX
+jj
 XS
-TZ
-gw
 XS
 XS
 vH
@@ -1195,7 +1167,7 @@ lp
 "}
 (18,1,1) = {"
 lp
-Ld
+dj
 eX
 eX
 QO
@@ -1224,7 +1196,7 @@ Te
 QO
 eX
 eX
-Cz
+jB
 lp
 "}
 (19,1,1) = {"
@@ -1331,9 +1303,9 @@ lp
 "}
 (22,1,1) = {"
 lp
-VE
-eX
-eX
+Ld
+XS
+XS
 vH
 Te
 Te
@@ -1358,9 +1330,9 @@ xi
 Te
 Te
 vH
-eX
-eX
-QC
+XS
+XS
+Cz
 lp
 "}
 (23,1,1) = {"
@@ -1377,12 +1349,12 @@ FK
 FK
 FK
 FK
-FK
 zQ
 zQ
 zQ
 zQ
-FK
+zQ
+zQ
 FK
 FK
 FK
@@ -1615,12 +1587,12 @@ FK
 FK
 FK
 FK
-zQ
-OO
-eb
-eb
-dj
-zQ
+FK
+wc
+uP
+uP
+bX
+FK
 FK
 FK
 FK
@@ -1785,12 +1757,12 @@ qF
 qF
 qF
 qF
-RJ
-jj
-ju
-ju
-jB
-RJ
+qF
+wc
+uP
+uP
+bX
+qF
 qF
 qF
 qF
@@ -2023,12 +1995,12 @@ qF
 qF
 qF
 qF
-qF
 RJ
 RJ
 RJ
 RJ
-qF
+RJ
+RJ
 qF
 qF
 qF
@@ -2045,9 +2017,9 @@ lp
 "}
 (43,1,1) = {"
 lp
-mB
-sl
-sl
+Ld
+XS
+XS
 vH
 Te
 Te
@@ -2072,9 +2044,9 @@ xi
 Te
 Te
 vH
-sl
-sl
-Eo
+XS
+XS
+Cz
 lp
 "}
 (44,1,1) = {"
@@ -2181,7 +2153,7 @@ lp
 "}
 (47,1,1) = {"
 lp
-Ld
+eb
 sl
 sl
 VH
@@ -2210,7 +2182,7 @@ Te
 VH
 sl
 sl
-Cz
+mB
 lp
 "}
 (48,1,1) = {"
@@ -2227,12 +2199,12 @@ vH
 vH
 XS
 XS
-Gc
-DB
 XS
+ju
+sl
+sl
+ju
 XS
-DB
-gw
 XS
 XS
 vH
@@ -2261,12 +2233,12 @@ XS
 XS
 XS
 XS
-Gc
+XS
 DB
 XS
 XS
 DB
-gw
+XS
 XS
 XS
 XS
@@ -2295,12 +2267,12 @@ rY
 XS
 XS
 XS
-Gc
+XS
 DB
 XS
 XS
 DB
-gw
+XS
 XS
 XS
 XS
