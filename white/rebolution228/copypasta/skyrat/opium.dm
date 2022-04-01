@@ -149,7 +149,7 @@
 	color = "#ffe669"
 	overdose_threshold = 20
 	ph = 6
-	taste_description = "flowers"
+	taste_description = "цветы"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	failed_chem = /datum/reagent/drug/opium/blacktar
 
