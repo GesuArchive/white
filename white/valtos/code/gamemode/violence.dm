@@ -247,9 +247,9 @@ GLOBAL_LIST_EMPTY(violence_players)
 	for(var/key in GLOB.violence_players)
 		var/datum/violence_player/VP = GLOB.violence_players[key]
 		VP.money += payout * GLOB.violence_current_round
-		stats += "<tr><td>[key]</td><td>[VP.kills]</td><td>[VP.deaths]</td></tr>"
+		stats += "<tr><td><b class='[VP.team]'>[key]</b></td><td>[VP.kills]</td><td>[VP.deaths]</td></tr>"
 	stats += "</table>"
-	to_chat(world, leader_brass(stats.Join()))
+	to_chat(world, span_info(stats.Join()))
 	to_chat(world, leader_brass("-----------------------"))
 	to_chat(world, leader_brass("Выдано [payout * GLOB.violence_current_round]₽ каждому за раунд!"))
 	// вызов очистки
@@ -455,6 +455,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 		if("blue")
 			R.set_frequency(FREQ_CTF_BLUE)
 			SSid_access.apply_trim_to_card(W, /datum/id_trim/combatant/blue)
+	R.AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
 	R.freqlock = TRUE
 	R.independent = TRUE
 	H.sec_hud_set_ID()
@@ -554,14 +555,14 @@ GLOBAL_LIST_EMPTY(violence_players)
 	description = "Бойня в пустынном бункере."
 	mappath = "_maps/map_files/Warfare/violence1.dmm"
 	weight = 5
-	max_players = 16
+	max_players = 24
 
 /datum/map_template/violence/chinatown
 	name = "Чайнатаун"
 	description = "Деликатное отсечение голов в восточном стиле."
 	mappath = "_maps/map_files/Warfare/violence2.dmm"
 	weight = 6
-	max_players = 8
+	max_players = 16
 
 /datum/map_template/violence/centralpolygon
 	name = "Тренировочный Центр"
@@ -610,7 +611,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 		GLOB.violence_players[ckey] = new /datum/violence_player
 	var/datum/violence_player/VP = GLOB.violence_players[ckey]
 	// да я пидорас и ебусь в очко с неграми неплохо как ты узнал???
-	dat += "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><meta http-equiv='X-UA-Compatible' content='IE=edge'><style>*{transition:.1s}body{background:#010901;color:#4a4;font-family:Tahoma;font-size:12px;margin:0;padding:0}#zakup{background:#050905;border:1px solid #141;width:240px;vertical-align:top;margin-top:4px;display:inline-block}#zakup-cat,#zakup-cat-name{display:inline-block}#zakup-cat-name{height:100%;width:100%;font-size:18px;background:#121;padding-bottom:4px;border-bottom:1px solid #141;color:#ada;text-align:center}#zakup-item{display:block;background:#051105;margin:4px;margin-bottom:2px;margin-top:2px;padding:4px;border:1px solid #141;width:222px;cursor:pointer;color:#9f9}#zakup-item:hover{background:#9f9;color:#000}#zakup-price{display:inline-block;font-weight:700;width:64px}#zakup-name{display:inline-block;text-transform:uppercase}a{color:#9f9}#footer{display:block;position:fixed;bottom:0;width:100%;height:48px;background:#121;color:#fff;text-decoration:none;font-size:38px;text-align:center;border-top:1px solid #141}#header{display:block;width:100%;height:28px;background:#121;color:#fff;text-decoration:none;font-size:24px;text-align:center;border-bottom:1px solid #141}#footer:hover{background:#9f9;color:#000}#zakup-item-disabled{display:inline-block;background:#020502;margin:4px;margin-bottom:2px;margin-top:2px;padding:4px;border:1px solid #141;width:222px;cursor:pointer;color:#292}</style>"
+	dat += "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><meta http-equiv='X-UA-Compatible' content='IE=edge'><style>*{transition:.1s}body{background:#010901;color:#4a4;font-family:Tahoma;font-size:12px;margin:0;padding:0}#zakup{background:#050905;border:1px solid #141;width:240px;vertical-align:top;margin-left:2px;margin-top:4px;display:inline-block}#zakup-cat,#zakup-cat-name{display:inline-block}#zakup-cat-name{height:100%;width:100%;font-size:18px;background:#121;padding-bottom:4px;border-bottom:1px solid #141;color:#ada;text-align:center}#zakup-item{display:block;background:#051105;margin:4px;margin-bottom:2px;margin-top:2px;padding:4px;border:1px solid #141;width:222px;cursor:pointer;color:#9f9}#zakup-item:hover{background:#9f9;color:#000}#zakup-price{display:inline-block;font-weight:700;width:64px}#zakup-name{display:inline-block;text-transform:uppercase}a{color:#9f9}#footer{display:block;position:fixed;bottom:0;width:100%;height:48px;background:#121;color:#fff;text-decoration:none;font-size:38px;text-align:center;border-top:1px solid #141}#header{display:block;width:100%;height:28px;background:#121;color:#fff;text-decoration:none;font-size:24px;text-align:center;border-bottom:1px solid #141}#footer:hover{background:#9f9;color:#000}#zakup-item-disabled{display:inline-block;background:#020502;margin:4px;margin-bottom:2px;margin-top:2px;padding:4px;border:1px solid #141;width:222px;cursor:pointer;color:#292}</style>"
 	dat += "</head><body scroll=auto><div id=header>[VP.money]₽</div><div id=zakup-main>"
 	for(var/thing_cat in GLOB.violence_gear_categories)
 		var/datum/violence_gear_category/VC = GLOB.violence_gear_categories[thing_cat]
@@ -618,7 +619,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 		for(var/thing_gear in VC.gear)
 			var/datum/violence_gear/VG = VC.gear[thing_gear]
 			if(VG.cost > VP.money)
-				dat += "<div id=zakup-item-disabled><div id=zakup-price>[VG.cost]₽</div><div id=zakup-name>[VG.name]</div></div>"
+				dat += "<div id=zakup-item-disabled><div id=zakup-price><strike>[VG.cost]₽</strike></div><div id=zakup-name><strike>[VG.name]</strike></div></div>"
 			else
 				dat += "<a href='byond://?src=[REF(src)];violence=[VG.name]' id=zakup-item><div id=zakup-price>[VG.cost]₽</div><div id=zakup-name>[VG.name]</div></a>"
 		dat += "</div></div>"
@@ -702,7 +703,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/pistol/handmade
 	name = "Самодельный"
-	cost = 600
+	cost = 800
 	items = list(/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/handmade, /obj/item/ammo_box/magazine/fallout/m9mm)
 
 /datum/violence_gear/pistol/mauser
@@ -745,7 +746,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/scope
 	name = "Болтовка с оптикой"
-	cost = 1200
+	cost = 1500
 	items = list(/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope, /obj/item/ammo_box/n792x57)
 
 /datum/violence_gear/rifle/mini_uzi
@@ -765,8 +766,13 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/asval
 	name = "Вал"
-	cost = 4000
+	cost = 3500
 	items = list(/obj/item/gun/ballistic/automatic/asval, /obj/item/ammo_box/magazine/asval)
+
+/datum/violence_gear/rifle/sar62l
+	name = "NT SAR-62L"
+	cost = 5500
+	items = list(/obj/item/gun/ballistic/automatic/laser/sar62l, /obj/item/ammo_box/magazine/recharge/sar62l)
 
 /datum/violence_gear/shotgun
 	cat = "Дробовики"
@@ -784,7 +790,12 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 /datum/violence_gear/shotgun/saiga
 	name = "Сайга"
 	cost = 2500
-	items = list(/obj/item/gun/ballistic/shotgun/saiga, /obj/item/ammo_box/magazine/saiga)
+	items = list(/obj/item/gun/ballistic/shotgun/saiga, /obj/item/ammo_box/magazine/saiga, /obj/item/storage/box/lethalshot)
+
+/datum/violence_gear/shotgun/bulldog
+	name = "Bulldog"
+	cost = 3000
+	items = list(/obj/item/gun/ballistic/shotgun/bulldog, /obj/item/ammo_box/magazine/m12g, /obj/item/storage/box/lethalshot)
 
 /datum/violence_gear/heavygun
 	cat = "Тяжёлое оружие"
@@ -801,7 +812,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/heavygun/pulse
 	name = "Пульсач"
-	cost = 7500
+	cost = 6500
 	items = list(/obj/item/gun/energy/pulse)
 
 /datum/violence_gear/heavygun/gyropistol
@@ -825,6 +836,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 1000
 	items = list(
 		/obj/item/clothing/suit/armor/vest,
+		/obj/item/clothing/mask/gas,
 		/obj/item/clothing/head/helmet,
 		/obj/item/clothing/gloves/fingerless
 	)
@@ -834,6 +846,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 2000
 	items = list(
 		/obj/item/clothing/suit/armor/bulletproof,
+		/obj/item/clothing/mask/gas/sechailer,
 		/obj/item/clothing/head/helmet/alt,
 		/obj/item/clothing/gloves/combat
 	)
@@ -843,6 +856,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 3000
 	items = list(
 		/obj/item/clothing/head/helmet/maska/altyn,
+		/obj/item/clothing/mask/gas/sechailer/swat,
 		/obj/item/clothing/suit/armor/opvest/sobr,
 		/obj/item/clothing/gloves/combat/sobr,
 		/obj/item/clothing/shoes/combat
@@ -853,8 +867,19 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 4000
 	items = list(
 		/obj/item/clothing/head/helmet/maska/altyn/black,
+		/obj/item/clothing/mask/gas/sechailer/swat,
 		/obj/item/clothing/suit/armor/heavysobr,
 		/obj/item/clothing/gloves/combat/sobr,
+		/obj/item/clothing/shoes/combat/swat
+	)
+
+/datum/violence_gear/armor/shielded
+	name = "Силовой"
+	cost = 4500
+	items = list(
+		/obj/item/clothing/suit/space/hardsuit/shielded/syndi,
+		/obj/item/clothing/mask/gas/sechailer/swat,
+		/obj/item/clothing/gloves/tackler/combat/insulated,
 		/obj/item/clothing/shoes/combat/swat
 	)
 
@@ -889,7 +914,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/shield/energy
 	name = "Энергощит"
-	cost = 2000
+	cost = 1500
 	items = list(/obj/item/shield/energy)
 
 /datum/violence_gear/grenade
@@ -900,19 +925,24 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 250
 	items = list(/obj/item/grenade/flashbang)
 
+/datum/violence_gear/grenade/gluon
+	name = "Глюонная"
+	cost = 500
+	items = list(/obj/item/grenade/gluon)
+
 /datum/violence_gear/grenade/teargas
 	name = "Перцовый газ"
-	cost = 500
+	cost = 800
 	items = list(/obj/item/grenade/chem_grenade/teargas)
 
 /datum/violence_gear/grenade/frag
 	name = "Осколочная"
-	cost = 750
+	cost = 900
 	items = list(/obj/item/grenade/frag)
 
 /datum/violence_gear/grenade/syndieminibomb
 	name = "Взрывчатая"
-	cost = 1250
+	cost = 1500
 	items = list(/obj/item/grenade/syndieminibomb)
 
 /datum/violence_gear/grenade/grenadelauncher
