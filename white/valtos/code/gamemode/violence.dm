@@ -590,9 +590,9 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		var/datum/violence_gear_category/VC = GLOB.violence_gear_categories[initial(VG.cat)]
 		VC.gear[initial(VG.name)] = GLOB.violence_gear_datums[initial(VG.name)]
 	GLOB.violence_gear_categories = sortAssoc(GLOB.violence_gear_categories)
-	for(var/violence_gear_category in GLOB.violence_gear_categories)
-		var/datum/violence_gear_category/VC = GLOB.violence_gear_categories[violence_gear_category]
-		VC.gear = sortAssoc(VC.gear)
+	//for(var/violence_gear_category in GLOB.violence_gear_categories)
+	//	var/datum/violence_gear_category/VC = GLOB.violence_gear_categories[violence_gear_category]
+	//	VC.gear = sortAssoc(VC.gear)
 	return TRUE
 
 /datum/violence_gear_category
