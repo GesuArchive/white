@@ -143,7 +143,7 @@
 	. = TRUE
 
 /datum/reagent/drug/thc/hash //only exists to generate hash object
-	name = "гашиш"
+	name = "ТГК, производящее гашиш"
 	description = "Концентрированный экстракт каннабиса. Обеспечивает гораздо лучший кайф при использовании в кальяне."
 	color = "#cfa40c"
 
