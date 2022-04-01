@@ -15,7 +15,7 @@
 	required_temp = 250 //freeze it
 	reaction_flags = REACTION_INSTANT
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_CHEMICAL
-	mix_message = "The solution freezes into a powder!"
+	mix_message = "Раствор застывает в порошок!"
 
 /datum/chemical_reaction/powder_heroin/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/location = get_turf(holder.my_atom)
