@@ -52,10 +52,11 @@
 	if(href_list["violence"] && GLOB.violence_mode_activated)
 		if(href_list["violence"] == "joinmefucker")
 			if(GLOB.violence_teamlock[ckey])
+				usr << browse(null, "window=violence")
 				AttemptLateSpawn(GLOB.violence_teamlock[ckey])
 			else
+				usr << browse(null, "window=violence")
 				LateChoices()
-			usr << browse(null, "window=violence")
 			return
 		if(GLOB.violence_gear_datums[href_list["violence"]])
 			var/datum/violence_gear/VG = GLOB.violence_gear_datums[href_list["violence"]]
