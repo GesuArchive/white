@@ -343,7 +343,7 @@
 /turf/closed/wall,
 /area/medical/cryo)
 "cm" = (
-/obj/structure/chair,
+/obj/structure/chair/sofa/bench/right,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/lobby)
 "cz" = (
@@ -1091,6 +1091,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/aft)
+"kl" = (
+/obj/structure/chair/sofa/bench/left,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/medbay/lobby)
 "kn" = (
 /obj/structure/bed/roller,
 /obj/effect/turf_decal/tile/blue,
@@ -2520,6 +2524,10 @@
 /obj/machinery/mecha_part_fabricator/med,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/storage)
+"yN" = (
+/obj/structure/chair/sofa/bench,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/medbay/lobby)
 "yR" = (
 /obj/structure/table,
 /obj/item/scalpel{
@@ -6007,7 +6015,7 @@ gt
 "}
 (10,1,1) = {"
 VE
-cm
+yN
 ZZ
 DD
 AR
@@ -6049,7 +6057,7 @@ gt
 "}
 (11,1,1) = {"
 VE
-cm
+kl
 ZZ
 UI
 zk

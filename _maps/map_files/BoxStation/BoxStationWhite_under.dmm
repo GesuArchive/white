@@ -4790,7 +4790,6 @@
 /obj/effect/turf_decal/siding/blue{
 	dir = 10
 	},
-/obj/machinery/sexmachine,
 /turf/open/floor/plasteel/freezer,
 /area/commons/locker)
 "kK" = (
@@ -5342,13 +5341,6 @@
 	},
 /turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/service/bar)
-"lS" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/machinery/sexmachine,
-/turf/open/floor/plasteel,
-/area/hallway/secondary/exit/departure_lounge2)
 "lT" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -56459,7 +56451,7 @@ JJ
 dj
 tn
 Ks
-fF
+Ri
 Xc
 Ia
 DE
@@ -66476,7 +66468,7 @@ bw
 PG
 zZ
 zZ
-lS
+lT
 lT
 Bp
 Pb
