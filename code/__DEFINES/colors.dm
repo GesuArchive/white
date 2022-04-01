@@ -189,6 +189,6 @@
 #define CIRCUIT_COLOR_SUPPLY "#C47749"
 
 /// Colors for russia
-#define COLOR_RUSSIA_1 "#FFFFFF"
+#define COLOR_RUSSIA_1 "#9A151E"
 #define COLOR_RUSSIA_2 "#1B4594"
-#define COLOR_RUSSIA_3 "#9A151E"
+#define COLOR_RUSSIA_3 "#FFFFFF"
