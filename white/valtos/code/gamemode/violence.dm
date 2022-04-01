@@ -213,7 +213,8 @@ GLOBAL_LIST_EMPTY(violence_players)
 			NP.ckey = M.ckey
 			qdel(M)
 	// раздаём деньги бомжам
-	for(var/datum/violence_player/VP as anything in GLOB.violence_players)
+	for(var/key in GLOB.violence_players)
+		var/datum/violence_player/VP = GLOB.violence_players[key]
 		VP.money += payout * GLOB.violence_current_round
 	to_chat(world, leader_brass("Выдано [payout * GLOB.violence_current_round]₽ каждому!"))
 	// вызов очистки
@@ -551,7 +552,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 	loadout_items = list()
 
 /mob/dead/new_player/proc/violence_choices()
-	var/list/dat = list()
+	var/dat = ""
 	if(!GLOB.violence_players[ckey])
 		GLOB.violence_players[ckey] = new /datum/violence_player
 	var/datum/violence_player/VP = GLOB.violence_players[ckey]
