@@ -225,7 +225,7 @@
 	. = TRUE
 
 /datum/reagent/drug/cocaine/freebase_cocaine
-	name = "чистый кокаин"
+	name = "очищенный кокаин"
 	description = "Чистая форма кокаина. Нужен для крэка."
 	color = "#f0e6bb"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
