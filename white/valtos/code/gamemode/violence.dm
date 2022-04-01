@@ -129,9 +129,9 @@ GLOBAL_LIST_EMPTY(violence_players)
 				var/mob/living/carbon/human/H = R?.original_character?.resolve()
 				if(GLOB.violence_players[H?.lastattackermob?.ckey])
 					var/datum/violence_player/VP = GLOB.violence_players[H.lastattackermob.ckey]
-					VP.money += VP.team == "blue" ? 300 : -300
+					VP.money += VP.team == "blue" ? 500 : -500
 					VP.kills++
-					to_chat(H.lastattackermob.ckey, span_boldnotice("+300₽"))
+					to_chat(H.lastattackermob.ckey, span_boldnotice("[VP.team == "blue" ? "+500" : "-500"]₽"))
 					var/datum/violence_player/VP2 = GLOB.violence_players[H.ckey]
 					if(VP2)
 						VP2.deaths++
@@ -141,9 +141,9 @@ GLOBAL_LIST_EMPTY(violence_players)
 				to_chat(world, span_red("[LAZYLEN(GLOB.violence_red_team)]/[last_reds]"))
 				if(GLOB.violence_players[R?.current?.lastattackermob?.ckey])
 					var/datum/violence_player/VP = GLOB.violence_players[R.current.lastattackermob.ckey]
-					VP.money += VP.team == "blue" ? 300 : -300
+					VP.money += VP.team == "blue" ? 500 : -500
 					VP.kills++
-					to_chat(R.current.lastattackermob, span_boldnotice("+300₽"))
+					to_chat(R.current.lastattackermob, span_boldnotice("[VP.team == "blue" ? "+500" : "-500"]₽"))
 					var/datum/violence_player/VP2 = GLOB.violence_players[R.current.ckey]
 					if(VP2)
 						VP2.deaths++
@@ -155,9 +155,9 @@ GLOBAL_LIST_EMPTY(violence_players)
 				var/mob/living/carbon/human/H = B?.original_character?.resolve()
 				if(GLOB.violence_players[H?.lastattackermob?.ckey])
 					var/datum/violence_player/VP = GLOB.violence_players[H.lastattackermob.ckey]
-					VP.money += VP.team == "blue" ? 300 : -300
+					VP.money += VP.team == "blue" ? 500 : -500
 					VP.kills++
-					to_chat(H.lastattackermob.ckey, span_boldnotice("+300₽"))
+					to_chat(H.lastattackermob.ckey, span_boldnotice("[VP.team == "blue" ? "+500" : "-500"]₽"))
 					var/datum/violence_player/VP2 = GLOB.violence_players[H.ckey]
 					if(VP2)
 						VP2.deaths++
@@ -167,9 +167,9 @@ GLOBAL_LIST_EMPTY(violence_players)
 				to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[last_blues]"))
 				if(GLOB.violence_players[B?.current?.lastattackermob?.ckey])
 					var/datum/violence_player/VP = GLOB.violence_players[B.current.lastattackermob.ckey]
-					VP.money += VP.team == "red" ? 300 : -300
+					VP.money += VP.team == "red" ? 500 : -500
 					VP.kills++
-					to_chat(B.current.lastattackermob, span_boldnotice("+300₽"))
+					to_chat(B.current.lastattackermob, span_boldnotice("[VP.team == "blue" ? "+500" : "-500"]₽"))
 					var/datum/violence_player/VP2 = GLOB.violence_players[B.current.ckey]
 					if(VP2)
 						VP2.deaths++
@@ -418,7 +418,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 	r_pocket = null
 	id = null
 	belt = null
-	ears = null
+	ears = /obj/item/radio/headset
 	box = null
 	var/team = "white"
 
@@ -444,11 +444,16 @@ GLOBAL_LIST_EMPTY(violence_players)
 	var/obj/item/card/id/W = H.wear_id
 	W.registered_name = H.real_name
 	W.update_label()
+	var/obj/item/radio/R = H.ears
 	switch(team)
 		if("red")
+			R.set_frequency(FREQ_CTF_RED)
 			SSid_access.apply_trim_to_card(W, /datum/id_trim/combatant/red)
 		if("blue")
+			R.set_frequency(FREQ_CTF_BLUE)
 			SSid_access.apply_trim_to_card(W, /datum/id_trim/combatant/blue)
+	R.freqlock = TRUE
+	R.independent = TRUE
 	H.sec_hud_set_ID()
 	// экипируем штуки спустя секунду, чтобы некоторый стаф не падал в нуллспейс случайно
 	spawn(1 SECONDS)
@@ -784,15 +789,15 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 4000
 	items = list(/obj/item/gun/ballistic/automatic/l6_saw/unrestricted, /obj/item/ammo_box/magazine/mm712x82)
 
-/datum/violence_gear/heavygun/gyropistol
-	name = "Гироджет"
-	cost = 5000
-	items = list(/obj/item/gun/ballistic/automatic/gyropistol, /obj/item/ammo_box/magazine/m75)
-
 /datum/violence_gear/heavygun/pulse
 	name = "Пульсач"
 	cost = 7500
 	items = list(/obj/item/gun/energy/pulse)
+
+/datum/violence_gear/heavygun/gyropistol
+	name = "Гироджет"
+	cost = 9500
+	items = list(/obj/item/gun/ballistic/automatic/gyropistol, /obj/item/ammo_box/magazine/m75)
 
 /datum/violence_gear/armor
 	cat = "Броня"
@@ -837,7 +842,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "Тяжёлый спецназ"
 	cost = 4000
 	items = list(
-		/obj/item/clothing/head/helmet/maska/adidas,
+		/obj/item/clothing/head/helmet/maska/altyn/black,
 		/obj/item/clothing/suit/armor/heavysobr,
 		/obj/item/clothing/gloves/combat/sobr,
 		/obj/item/clothing/shoes/combat/swat
