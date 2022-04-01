@@ -543,7 +543,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 	var/deaths = 0
 	var/list/loadout_items = list()
 
-/datum/violence_player/equip_everything(mob/living/carbon/human/H)
+/datum/violence_player/proc/equip_everything(mob/living/carbon/human/H)
 	for(var/datum/violence_gear/VG as anything in loadout_items)
 		for(var/item in VG.items)
 			var/obj/item/O = new item(get_turf(H))
