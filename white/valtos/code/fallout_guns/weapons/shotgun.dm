@@ -50,7 +50,7 @@
 	extra_penetration = 10
 
 /obj/item/gun/ballistic/shotgun/fallout/brush
-	name = "brush gun"
+	name = "дезинтегратор"
 	desc = "A lever action repeater chambered for the deadly .45-70 cartridge. Can't carry a lot of rounds and doesn't fire very fast, but with so much damage does that really matter?"
 	icon_state = "brush"
 	inhand_icon_state = "brush"

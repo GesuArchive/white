@@ -11,7 +11,7 @@ GLOBAL_LIST_EMPTY(violence_blue_team)
 GLOBAL_LIST_EMPTY(violence_teamlock)
 GLOBAL_LIST_EMPTY(violence_players)
 
-#define VIOLENCE_FINAL_ROUND 7
+#define VIOLENCE_FINAL_ROUND 11
 
 /datum/game_mode/violence
 	name = "violence"
@@ -471,11 +471,11 @@ GLOBAL_LIST_EMPTY(violence_players)
 	switch(GLOB.violence_current_round)
 		if(1 to 2)
 			S = 'white/valtos/sounds/battle_small.ogg'
-		if(3)
+		if(3 to 5)
 			S = 'white/valtos/sounds/battle_mid.ogg'
-		if(4 to 5)
+		if(6 to 8)
 			S = 'white/valtos/sounds/battle_hi.ogg'
-		if(6)
+		if(9 to 10)
 			S = 'white/valtos/sounds/battle_fuck.ogg'
 
 	if(S)
@@ -590,7 +590,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 		dat += "<div id=zakup-item-disabled><div id=zakup-price>[VG.cost]₽</div><div id=zakup-name>[VG.name]</div></div>"
 	dat += "</div></div>"
 	dat += "</div><a id=footer href='byond://?src=[REF(src)];violence=joinmefucker'>ПОГНАЛИ!</a></body></html>"
-	usr << browse(dat, "window=violence;size=750x650")
+	usr << browse(dat, "window=violence;size=750x690")
 
 GLOBAL_LIST_EMPTY(violence_gear_categories)
 GLOBAL_LIST_EMPTY(violence_gear_datums)
@@ -606,9 +606,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		var/datum/violence_gear_category/VC = GLOB.violence_gear_categories[initial(VG.cat)]
 		VC.gear[initial(VG.name)] = GLOB.violence_gear_datums[initial(VG.name)]
 	GLOB.violence_gear_categories = sortAssoc(GLOB.violence_gear_categories)
-	//for(var/violence_gear_category in GLOB.violence_gear_categories)
-	//	var/datum/violence_gear_category/VC = GLOB.violence_gear_categories[violence_gear_category]
-	//	VC.gear = sortAssoc(VC.gear)
 	return TRUE
 
 /datum/violence_gear_category
@@ -752,6 +749,11 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 2500
 	items = list(/obj/item/gun/ballistic/shotgun/saiga, /obj/item/ammo_box/magazine/saiga)
 
+/datum/violence_gear/shotgun/brush
+	name = "Дезинтегратор"
+	cost = 3000
+	items = list(/obj/item/gun/ballistic/shotgun/fallout/brush, /obj/item/storage/box/lethalshot)
+
 /datum/violence_gear/heavygun
 	cat = "Тяжёлое оружие"
 
@@ -814,9 +816,19 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		/obj/item/clothing/shoes/combat
 	)
 
-/datum/violence_gear/armor/deathsquad
-	name = "Тяжёлая"
+/datum/violence_gear/armor/heavy
+	name = "Тяжёлый спецназ"
 	cost = 4000
+	items = list(
+		/obj/item/clothing/head/helmet/maska/adidas,
+		/obj/item/clothing/suit/armor/heavysobr,
+		/obj/item/clothing/gloves/combat/sobr,
+		/obj/item/clothing/shoes/combat/swat
+	)
+
+/datum/violence_gear/armor/deathsquad
+	name = "Дедушка"
+	cost = 5000
 	items = list(
 		/obj/item/clothing/suit/space/hardsuit/deathsquad,
 		/obj/item/clothing/gloves/tackler/combat/insulated,
