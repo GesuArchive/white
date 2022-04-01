@@ -4790,6 +4790,7 @@
 /obj/effect/turf_decal/siding/blue{
 	dir = 10
 	},
+/obj/machinery/sexmachine,
 /turf/open/floor/plasteel/freezer,
 /area/commons/locker)
 "kK" = (
@@ -5341,6 +5342,13 @@
 	},
 /turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/service/bar)
+"lS" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/sexmachine,
+/turf/open/floor/plasteel,
+/area/hallway/secondary/exit/departure_lounge2)
 "lT" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -19707,6 +19715,10 @@
 /obj/item/pen,
 /turf/open/floor/carpet/red,
 /area/commons/dorms/seven)
+"Re" = (
+/obj/machinery/sexmachine,
+/turf/open/floor/plasteel/monofloor,
+/area/commons/dorms)
 "Rf" = (
 /obj/structure/table,
 /obj/structure/bedsheetbin,
@@ -55671,7 +55683,7 @@ Sa
 IR
 vg
 TA
-TA
+Re
 FB
 dj
 uF
@@ -66464,7 +66476,7 @@ bw
 PG
 zZ
 zZ
-lT
+lS
 lT
 Bp
 Pb
