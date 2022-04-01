@@ -37,7 +37,7 @@
 	else if (fuel_amount)
 		lit = TRUE
 		START_PROCESSING(SSobj, src)
-		user.visible_message(span_notice("[user] turns on [src]."), span_notice("You turn on [src]."))
+		user.visible_message(span_notice("[user] включает [src]."), span_notice("Включаю [src]."))
 	update_icon()
 
 /obj/structure/sauna_oven/update_overlays()
