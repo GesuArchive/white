@@ -890,8 +890,6 @@
 	anchored = 1;
 	can_be_unanchored = 1
 	},
-/obj/item/gun/energy/e_gun/mini,
-/obj/item/gun/energy/e_gun/mini,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "cn" = (
