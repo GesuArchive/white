@@ -2547,6 +2547,17 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_MEDIUM
 
+/datum/reagent/consumable/ethanol/sins_delight
+	name = "Греховное наслаждение"
+	description = "Напиток пахнет семью грехами."
+	color = "#330000"
+	boozepwr = 66
+	quality = DRINK_FANTASTIC
+	taste_description = "непреодолимая сладость с оттенком кислинки, за которой следует железо и ощущение теплого летнего бриза"
+	glass_icon_state = "sins_delight"
+	glass_name = "бокал греховного наслаждения"
+	glass_desc = "Вы чувствуете запах семи грехов, скатывающийся с верха бокала."
+
 /datum/reagent/consumable/ethanol/godmother
 	name = "Крестная Мать"
 	description = "A twist on a classic, liked more by mature women."

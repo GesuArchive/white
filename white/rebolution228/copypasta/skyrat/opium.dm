@@ -198,3 +198,54 @@
 	unit_name = "черный деготь героина"
 	export_types = list(/obj/item/reagent_containers/blacktar)
 	include_subtypes = FALSE
+
+
+/obj/item/seeds/poppy/opiumpoppy
+	name = "пакет семян опийного мака"
+	desc = "Из этих семян вырастают настоящие опийные маки."
+	icon = 'white/rebolution228/icons/unsorted/hydroponics/seeds.dmi'
+	growing_icon = 'white/rebolution228/icons/unsorted/hydroponics/growing.dmi'
+	icon_state = "seed-opiumpoppy"
+	species = "opiumpoppy"
+	icon_grow = "opiumpoppy-grow"
+	icon_dead = "opiumpoppy-dead"
+	plantname = "Листья Опийного Мака"
+	product = /obj/item/food/grown/poppy/opiumpoppy
+	reagents_add = list(/datum/reagent/drug/opium = 0.3, /datum/reagent/toxin/fentanyl = 0.075, /datum/reagent/consumable/nutriment = 0.05)
+	slot_flags = null
+
+/obj/item/food/grown/poppy/opiumpoppy
+	seed = /obj/item/seeds/poppy/opiumpoppy
+	name = "семенная кожура опийного мака"
+	desc = "Семенной комок растения опийного мака, содержащий опийный латекс."
+	icon = 'white/rebolution228/icons/unsorted/hydroponics/harvest.dmi'
+	icon_state = "opiumpoppy"
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
+	distill_reagent = /datum/reagent/consumable/ethanol/turbo //How can a slow drug make fast drink? Don't question it.
+
+/obj/item/seeds/cocaleaf
+	name = "пакет семян листьев коки"
+	desc = "Из этих семян вырастают кусты коки. При одном взгляде на них вы чувствуете прилив сил.."
+	icon = 'white/rebolution228/icons/unsorted/hydroponics/seeds.dmi'
+	growing_icon = 'white/rebolution228/icons/unsorted/hydroponics/growing.dmi'
+	icon_state = "seed-cocoleaf"
+	species = "cocoleaf"
+	plantname = "Листья Коки"
+	maturation = 8
+	potency = 20
+	growthstages = 1
+	product = /obj/item/food/grown/cocaleaf
+	mutatelist = list()
+	reagents_add = list(/datum/reagent/drug/cocaine = 0.3, /datum/reagent/consumable/nutriment = 0.15)
+
+/obj/item/food/grown/cocaleaf
+	seed = /obj/item/seeds/cocaleaf
+	name = "лист коки"
+	desc = "Лист кустарника коки, который содержит мощный психоактивный алкалоид, известный как 'кокаин'."
+	icon = 'white/rebolution228/icons/unsorted/hydroponics/harvest.dmi'
+	icon_state = "cocoleaf"
+	foodtypes = FRUIT //i guess? i mean it grows on trees...
+	tastes = list("листья" = 1)
+	distill_reagent = /datum/reagent/consumable/ethanol/sins_delight //Cocaine is one hell of a sin.
