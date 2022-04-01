@@ -577,6 +577,13 @@ GLOBAL_LIST_EMPTY(violence_players)
 	weight = 2
 	max_players = 64
 
+/datum/map_template/violence/dunes
+	name = "Дюны"
+	description = "Не кормите червей!"
+	mappath = "_maps/map_files/Warfare/violence5.dmm"
+	weight = 6
+	max_players = 16
+
 /datum/violence_player
 	var/money = 0
 	var/team = "white"
