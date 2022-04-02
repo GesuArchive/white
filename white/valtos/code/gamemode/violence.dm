@@ -32,7 +32,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 	var/last_blues = 0
 
 	// выплата в каждом раунде
-	var/payout = 600
+	var/payout = 300
 
 	announce_span = "danger"
 	announce_text = "Резня!"
@@ -172,6 +172,9 @@ GLOBAL_LIST_EMPTY(violence_players)
 		// добейте выживших
 		for(var/mob/living/carbon/human/H in main_area)
 			if(H.stat != DEAD && H.health <= 0)
+				if(isandroid(H) || isIPC(H))
+					H.death()
+					continue
 				var/datum/disease/D = new /datum/disease/heart_failure()
 				D.stage = 5
 				H.ForceContractDisease(D, FALSE, TRUE)
@@ -831,7 +834,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/sar62l
 	name = "NT SAR-62L"
-	cost = 9500
+	cost = 99999
 	items = list(
 		/obj/item/gun/ballistic/automatic/laser/sar62l,
 		/obj/item/ammo_box/magazine/recharge/sar62l
@@ -895,12 +898,12 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/heavygun/pulse
 	name = "Пульсач"
-	cost = 18500
+	cost = 99999
 	items = list(/obj/item/gun/energy/pulse)
 
 /datum/violence_gear/heavygun/gyropistol
 	name = "Гироджет"
-	cost = 19500
+	cost = 99999
 	items = list(
 		/obj/item/gun/ballistic/automatic/gyropistol,
 		/obj/item/ammo_box/magazine/m75
@@ -959,16 +962,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		/obj/item/clothing/shoes/combat/swat
 	)
 
-/datum/violence_gear/armor/shielded
-	name = "Силовой"
-	cost = 2000
-	items = list(
-		/obj/item/clothing/suit/space/hardsuit/shielded/syndi,
-		/obj/item/clothing/mask/gas/sechailer/swat,
-		/obj/item/clothing/gloves/tackler/combat/insulated,
-		/obj/item/clothing/shoes/combat/swat
-	)
-
 /datum/violence_gear/armor/deathsquad
 	name = "Дедушка"
 	cost = 2500
@@ -977,6 +970,16 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		/obj/item/clothing/gloves/tackler/combat/insulated,
 		/obj/item/clothing/glasses/hud/toggle/thermal,
 		/obj/item/clothing/mask/gas/sechailer/swat,
+		/obj/item/clothing/shoes/combat/swat
+	)
+
+/datum/violence_gear/armor/shielded
+	name = "Силовой"
+	cost = 5000
+	items = list(
+		/obj/item/clothing/suit/space/hardsuit/shielded/syndi,
+		/obj/item/clothing/mask/gas/sechailer/swat,
+		/obj/item/clothing/gloves/tackler/combat/insulated,
 		/obj/item/clothing/shoes/combat/swat
 	)
 

@@ -34,7 +34,7 @@
 /obj/item/shield/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(transparent && (hitby.pass_flags & PASSGLASS))
 		return FALSE
-	if(!defense_check(get_turf(owner), get_turf(hitby), owner?.dir)
+	if(!defense_check(get_turf(owner), get_turf(hitby), owner?.dir))
 		return FALSE
 	if(attack_type == THROWN_PROJECTILE_ATTACK)
 		final_block_chance += 30

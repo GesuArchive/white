@@ -226,6 +226,9 @@
 
 /datum/reagent/water/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
+	if(DT_PROB(13, delta_time) && (isandroid(M) || isIPC(M)))
+		M.electrocute_act(rand(10, 15), "Воды на микросхемах", 1, SHOCK_NOGLOVES)
+		playsound(M, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	if(M.blood_volume)
 		M.blood_volume += 0.1 * REM * delta_time // water is good for you!
 
