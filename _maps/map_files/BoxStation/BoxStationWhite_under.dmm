@@ -19707,10 +19707,6 @@
 /obj/item/pen,
 /turf/open/floor/carpet/red,
 /area/commons/dorms/seven)
-"Re" = (
-/obj/machinery/sexmachine,
-/turf/open/floor/plasteel/monofloor,
-/area/commons/dorms)
 "Rf" = (
 /obj/structure/table,
 /obj/structure/bedsheetbin,
@@ -55675,7 +55671,7 @@ Sa
 IR
 vg
 TA
-Re
+TA
 FB
 dj
 uF
