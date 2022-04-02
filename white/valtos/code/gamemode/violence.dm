@@ -31,6 +31,10 @@ GLOBAL_LIST_EMPTY(violence_players)
 	var/last_reds = 0
 	var/last_blues = 0
 
+	// счётчик побед
+	var/wins_reds = 0
+	var/wins_blues = 0
+
 	// выплата в каждом раунде
 	var/payout = 300
 
@@ -182,8 +186,10 @@ GLOBAL_LIST_EMPTY(violence_players)
 		if(round_started_at + 30 SECONDS < world.time)
 			if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len)
 				end_round("СИНИХ")
+				wins_blues++
 			if(GLOB.violence_blue_team.len == 0 && GLOB.violence_red_team.len)
 				end_round("КРАСНЫХ")
+				wins_reds++
 			if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len == 0)
 				end_round()
 
@@ -195,7 +201,22 @@ GLOBAL_LIST_EMPTY(violence_players)
 	spawn(3 SECONDS)
 		play_sound_to_everyone('white/valtos/sounds/gong.ogg')
 		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round] ЗАВЕРШЁН!"))
-		to_chat(world, leader_brass("ПОБЕДА [winner]!"))
+		to_chat(world, leader_brass("ПОБЕДА [winner]! <b class='red'>[wins_reds]</b>/<b class='blue'>[wins_blues]</b>"))
+		var/list/stats_reds = list()
+		var/list/stats_blues = list()
+		var/list/stats = list()
+		stats += "<table><tr><td>Игрок</td><td>Убийств</td><td>Смертей</td></tr>"
+		for(var/key in GLOB.violence_players)
+			var/datum/violence_player/VP = GLOB.violence_players[key]
+			VP.money += payout * GLOB.violence_current_round
+			if(VP.team == "red")
+				stats_reds += "<tr><td><b class='red'>[key]</b></td><td>[VP.kills]</td><td>[VP.deaths]</td></tr>"
+			else if (VP.team == "blue")
+				stats_blues += "<tr><td><b class='blue'>[key]</b></td><td>[VP.kills]</td><td>[VP.deaths]</td></tr>"
+		LAZYADD(stats, stats_reds)
+		LAZYADD(stats, stats_blues)
+		stats += "</table>"
+		to_chat(world, span_info(stats.Join()))
 	play_sound_to_everyone('white/valtos/sounds/crowd_win.ogg')
 	spawn(10 SECONDS)
 		new_round()
@@ -253,24 +274,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 			var/mob/dead/new_player/NP = new()
 			NP.ckey = M.ckey
 			qdel(M)
-	// раздаём деньги бомжам и выводим статистику КД
-	to_chat(world, leader_brass("vvvvvvvvvvvvvvvvvvvvvvv"))
-	var/list/stats_reds = list()
-	var/list/stats_blues = list()
-	var/list/stats = list()
-	stats += "<table><tr><td>Игрок</td><td>Убийств</td><td>Смертей</td></tr>"
-	for(var/key in GLOB.violence_players)
-		var/datum/violence_player/VP = GLOB.violence_players[key]
-		VP.money += payout * GLOB.violence_current_round
-		if(VP.team == "red")
-			stats_reds += "<tr><td><b class='red'>[key]</b></td><td>[VP.kills]</td><td>[VP.deaths]</td></tr>"
-		else if (VP.team == "blue")
-			stats_blues += "<tr><td><b class='blue'>[key]</b></td><td>[VP.kills]</td><td>[VP.deaths]</td></tr>"
-	LAZYADD(stats, stats_reds)
-	LAZYADD(stats, stats_blues)
-	stats += "</table>"
-	to_chat(world, span_info(stats.Join()))
-	to_chat(world, leader_brass("^^^^^^^^^^^^^^^^^^^^^^^"))
+	// раздаём деньги бомжам
 	to_chat(world, leader_brass("Выдано [payout * GLOB.violence_current_round]₽ каждому за раунд!"))
 	// вызов очистки
 	clean_arena()
@@ -733,14 +737,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		/obj/item/ammo_box/magazine/fallout/m9mm
 	)
 
-/datum/violence_gear/pistol/mauser
-	name = "Маузер"
-	cost = 1000
-	items = list(
-		/obj/item/gun/ballistic/automatic/pistol/mauser,
-		/obj/item/ammo_box/magazine/mauser/battle
-	)
-
 /datum/violence_gear/pistol/m1911
 	name = "M1911"
 	cost = 1250
@@ -755,14 +751,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	items = list(
 		/obj/item/gun/ballistic/automatic/pistol/makarov,
 		/obj/item/ammo_box/magazine/m9mm
-	)
-
-/datum/violence_gear/pistol/aps
-	name = "АПС"
-	cost = 1750
-	items = list(
-		/obj/item/gun/ballistic/automatic/pistol/aps,
-		/obj/item/ammo_box/magazine/m9mm_aps
 	)
 
 /datum/violence_gear/pistol/mateba
@@ -832,14 +820,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		/obj/item/ammo_box/magazine/asval
 	)
 
-/datum/violence_gear/rifle/sar62l
-	name = "NT SAR-62L"
-	cost = 99999
-	items = list(
-		/obj/item/gun/ballistic/automatic/laser/sar62l,
-		/obj/item/ammo_box/magazine/recharge/sar62l
-	)
-
 /datum/violence_gear/shotgun
 	cat = "Дробовики"
 
@@ -894,19 +874,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	items = list(
 		/obj/item/gun/ballistic/automatic/l6_saw/unrestricted,
 		/obj/item/ammo_box/magazine/mm712x82
-	)
-
-/datum/violence_gear/heavygun/pulse
-	name = "Пульсач"
-	cost = 99999
-	items = list(/obj/item/gun/energy/pulse)
-
-/datum/violence_gear/heavygun/gyropistol
-	name = "Гироджет"
-	cost = 99999
-	items = list(
-		/obj/item/gun/ballistic/automatic/gyropistol,
-		/obj/item/ammo_box/magazine/m75
 	)
 
 /datum/violence_gear/armor
