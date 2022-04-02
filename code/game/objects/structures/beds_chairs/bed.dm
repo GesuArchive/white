@@ -233,7 +233,7 @@
 
 //Double Beds, for luxurious sleeping, i.e. the captain and maybe heads- if people use this for ERP, send them to skyrat
 /obj/structure/bed/double
-	name = "двухспальная кроватьd"
+	name = "двухспальная кровать"
 	desc = "Роскошная двуспальная кровать для тех, кто слишком важен для маленьких снов."
 	icon_state = "bed_double"
 	buildstackamount = 4

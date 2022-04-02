@@ -113,6 +113,7 @@
 	if(DT_PROB(2.5, delta_time))
 		to_chat(M, span_notice("[high_message]"))
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "stoned", /datum/mood_event/stoned, name)
+	M.set_drugginess(15 * REM * delta_time)
 	M.throw_alert("stoned", /atom/movable/screen/alert/stoned)
 	M.sound_environment_override = SOUND_ENVIRONMENT_DRUGGED
 	M.Dizzy(5 * REM * delta_time)
@@ -202,6 +203,7 @@
 	M.AdjustImmobilized(-15 * REM * delta_time)
 	M.AdjustParalyzed(-15 * REM * delta_time)
 	M.adjustStaminaLoss(-2 * REM * delta_time, 0)
+	M.set_drugginess(20 * REM * delta_time)
 	if(DT_PROB(2.5, delta_time))
 		M.emote("shiver")
 	..()
@@ -211,8 +213,8 @@
 	to_chat(M, span_userdanger("Мое сердце бьётся так сильно, что это причиняет мне боль!"))
 
 /datum/reagent/drug/cocaine/overdose_process(mob/living/M, delta_time, times_fired)
-	M.adjustToxLoss(1 * REM * delta_time, 0)
-	M.adjustOrganLoss(ORGAN_SLOT_HEART, (rand(10, 20) / 10) * REM * delta_time)
+	M.adjustToxLoss(5 * REM * delta_time, 0)
+	M.adjustOrganLoss(ORGAN_SLOT_HEART, (rand(30, 60) / 10) * REM * delta_time)
 	M.Jitter(2 * REM * delta_time)
 	if(DT_PROB(2.5, delta_time))
 		M.emote(pick("twitch","drool"))
@@ -256,7 +258,7 @@
 
 /obj/item/reagent_containers/crackbrick/attackby(obj/item/W, mob/user, params)
 	if(W.get_sharpness())
-		user.show_message(span_notice("You cut \the [src] into some rocks."), MSG_VISUAL)
+		user.show_message(span_notice("Нарезаю [src] на куски."), MSG_VISUAL)
 		for(var/i = 1 to 4)
 			new /obj/item/reagent_containers/crack(user.loc)
 		qdel(src)

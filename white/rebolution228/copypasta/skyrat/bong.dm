@@ -50,7 +50,7 @@
 		if(lighting_text)
 			if(bonghits > 0)
 				light(lighting_text)
-				name = "lit [initial(name)]"
+				name = "зажённый [initial(name)]"
 			else
 				to_chat(user, span_warning("Нечего курить!"))
 		else
