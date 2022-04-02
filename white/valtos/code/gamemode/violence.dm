@@ -153,7 +153,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 					var/datum/violence_player/VP = GLOB.violence_players[H.lastattackermob.ckey]
 					VP.money += VP.team == "red" ? 300 : -300
 					VP.kills += VP.team == "red" ? 1 : -1
-					to_chat(H.lastattackermob.ckey, span_boldnotice("[VP.team == "blue" ? "+300" : "-300"]₽"))
+					to_chat(H.lastattackermob.ckey, span_boldnotice("[VP.team == "red" ? "+300" : "-300"]₽"))
 					var/datum/violence_player/VP2 = GLOB.violence_players[H.ckey]
 					if(VP2)
 						VP2.deaths++
@@ -165,7 +165,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 					var/datum/violence_player/VP = GLOB.violence_players[B.current.lastattackermob.ckey]
 					VP.money += VP.team == "red" ? 300 : -300
 					VP.kills += VP.team == "red" ? 1 : -1
-					to_chat(B.current.lastattackermob, span_boldnotice("[VP.team == "blue" ? "+300" : "-300"]₽"))
+					to_chat(B.current.lastattackermob, span_boldnotice("[VP.team == "red" ? "+300" : "-300"]₽"))
 					var/datum/violence_player/VP2 = GLOB.violence_players[B.current.ckey]
 					if(VP2)
 						VP2.deaths++
