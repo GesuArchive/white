@@ -200,8 +200,6 @@ GLOBAL_LIST_EMPTY(violence_players)
 	SSjob.SetJobPositions(/datum/job/combantant/blue, 0, 0, TRUE)
 	spawn(3 SECONDS)
 		play_sound_to_everyone('white/valtos/sounds/gong.ogg')
-		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round] ЗАВЕРШЁН!"))
-		to_chat(world, leader_brass("ПОБЕДА [winner]! <b class='red'>[wins_reds]</b>/<b class='blue'>[wins_blues]</b>"))
 		var/list/stats_reds = list()
 		var/list/stats_blues = list()
 		var/list/stats = list()
@@ -217,6 +215,8 @@ GLOBAL_LIST_EMPTY(violence_players)
 		LAZYADD(stats, stats_blues)
 		stats += "</table>"
 		to_chat(world, span_info(stats.Join()))
+		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round] ЗАВЕРШЁН!"))
+		to_chat(world, leader_brass("ПОБЕДА [winner]! <b class='red'>[wins_reds]</b>/<b class='blue'>[wins_blues]</b>"))
 	play_sound_to_everyone('white/valtos/sounds/crowd_win.ogg')
 	spawn(10 SECONDS)
 		new_round()
@@ -701,14 +701,9 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 200
 	items = list(/obj/item/storage/toolbox/mechanical/empty)
 
-/datum/violence_gear/melee/kitchen
-	name = "Кухонный нож"
-	cost = 600
-	items = list(/obj/item/kitchen/knife)
-
 /datum/violence_gear/melee/combat
 	name = "Боевой нож"
-	cost = 900
+	cost = 700
 	items = list(/obj/item/kitchen/knife/combat)
 
 /datum/violence_gear/melee/sabre
@@ -720,11 +715,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "Энергомеч"
 	cost = 3500
 	items = list(/obj/item/melee/energy/sword/saber)
-
-/datum/violence_gear/melee/katana
-	name = "Катана"
-	cost = 4000
-	items = list(/obj/item/katana)
 
 /datum/violence_gear/pistol
 	cat = "Пистолеты"
@@ -862,7 +852,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/heavygun/rocketlauncher
 	name = "PML-9"
-	cost = 8500
+	cost = 4500
 	items = list(
 		/obj/item/gun/ballistic/rocketlauncher/unrestricted,
 		/obj/item/ammo_casing/caseless/rocket
@@ -870,7 +860,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/heavygun/l6_saw
 	name = "L6 SAW"
-	cost = 9250
+	cost = 6250
 	items = list(
 		/obj/item/gun/ballistic/automatic/l6_saw/unrestricted,
 		/obj/item/ammo_box/magazine/mm712x82
@@ -968,16 +958,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 1000
 	items = list(/obj/item/shield/riot/kevlar)
 
-/datum/violence_gear/shield/energy
-	name = "Энергощит"
-	cost = 1250
-	items = list(/obj/item/shield/energy)
-
-/datum/violence_gear/shield/military
-	name = "Титановый щит"
-	cost = 1500
-	items = list(/obj/item/shield/riot/military)
-
 /datum/violence_gear/misc
 	cat = "Различное"
 
@@ -1005,10 +985,5 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "Осколочная"
 	cost = 900
 	items = list(/obj/item/grenade/frag)
-
-/datum/violence_gear/misc/pamk
-	name = "ПАМК"
-	cost = 1250
-	items = list(/obj/item/pamk)
 
 #undef VIOLENCE_FINAL_ROUND
