@@ -27,10 +27,6 @@ GLOBAL_LIST_EMPTY(violence_players)
 	// основная зона, которая отслеживается
 	var/area/main_area
 
-	// балансировочные якори команд
-	var/max_reds = 4
-	var/max_blues = 4
-
 	// последнее количество игроков после начала раунда
 	var/last_reds = 0
 	var/last_blues = 0
@@ -179,13 +175,6 @@ GLOBAL_LIST_EMPTY(violence_players)
 				var/datum/disease/D = new /datum/disease/heart_failure()
 				D.stage = 5
 				H.ForceContractDisease(D, FALSE, TRUE)
-		// балансируем команды
-		if(GLOB.violence_red_team.len == max_reds && max_reds <= max_blues)
-			max_reds = max_blues + 4
-			SSjob.AddJobPositions(/datum/job/combantant/red, max_reds, max_reds)
-		if(GLOB.violence_blue_team.len == max_blues && max_blues <= max_reds)
-			max_blues = max_reds + 4
-			SSjob.AddJobPositions(/datum/job/combantant/blue, max_blues, max_blues)
 		// проверяем, умерли ли все после открытия ворот
 		if(round_started_at + 30 SECONDS < world.time)
 			if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len)
@@ -282,12 +271,10 @@ GLOBAL_LIST_EMPTY(violence_players)
 	// вызов очистки
 	clean_arena()
 	spawn(10 SECONDS)
-		// сбрасываем балансировку
-		max_reds = 4
-		max_blues = 4
+		// сбрасываем статистику
 		SSjob.ResetOccupations("Violence")
-		SSjob.SetJobPositions(/datum/job/combantant/red, 4, 4, TRUE)
-		SSjob.SetJobPositions(/datum/job/combantant/blue, 4, 4, TRUE)
+		SSjob.SetJobPositions(/datum/job/combantant/red, 999, 999, TRUE)
+		SSjob.SetJobPositions(/datum/job/combantant/blue, 999, 999, TRUE)
 		// активируем раунд
 		round_active = TRUE
 		// метим время начала

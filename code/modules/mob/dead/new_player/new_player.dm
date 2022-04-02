@@ -56,7 +56,12 @@
 				AttemptLateSpawn(GLOB.violence_teamlock[ckey])
 			else
 				usr << browse(null, "window=violence")
-				LateChoices()
+				var/suggested_team = pick(list("Combantant: Red", "Combantant: Blue"))
+				if(LAZYLEN(GLOB.violence_blue_team) > LAZYLEN(GLOB.violence_red_team))
+					suggested_team = "Combantant: Red"
+				if(LAZYLEN(GLOB.violence_red_team) > LAZYLEN(GLOB.violence_blue_team))
+					suggested_team = "Combantant: Blue"
+				AttemptLateSpawn(suggested_team)
 			return
 		if(GLOB.violence_gear_datums[href_list["violence"]])
 			var/datum/violence_gear/VG = GLOB.violence_gear_datums[href_list["violence"]]
