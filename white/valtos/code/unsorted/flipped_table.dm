@@ -85,10 +85,10 @@
 			playsound(src, 'sound/items/trayhit2.ogg', 100)
 			var/turf/TT = get_turf(src)
 			for(var/item in TT)
-				if(!isitem(item))
+				if(!isitem(item) && !ismob(item))
 					continue
-				var/obj/item/I = item
-				I.throw_at(get_distant_turf(TT, new_dir, 7), I.throw_range, I.throw_speed)
+				var/atom/movable/A = item
+				A.throw_at(get_distant_turf(TT, new_dir, 7), A.throw_range, A.throw_speed)
 			qdel(src)
 
 /obj/structure/table
