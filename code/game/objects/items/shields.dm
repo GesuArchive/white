@@ -8,7 +8,7 @@
 
 /obj/item/shield/proc/on_shield_block(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", damage = 0, attack_type = MELEE_ATTACK)
 	if(damage)
-		owner.adjustStaminaLoss(damage/3)
+		owner.adjustStaminaLoss(damage/2)
 	return TRUE
 
 /obj/item/shield/riot
@@ -33,6 +33,8 @@
 
 /obj/item/shield/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(transparent && (hitby.pass_flags & PASSGLASS))
+		return FALSE
+	if(get_dir(get_turf(owner), get_turf(hitby)) != REVERSE_DIR(owner?.dir))
 		return FALSE
 	if(attack_type == THROWN_PROJECTILE_ATTACK)
 		final_block_chance += 30

@@ -831,7 +831,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/sar62l
 	name = "NT SAR-62L"
-	cost = 5500
+	cost = 9500
 	items = list(
 		/obj/item/gun/ballistic/automatic/laser/sar62l,
 		/obj/item/ammo_box/magazine/recharge/sar62l
@@ -869,7 +869,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "Bulldog"
 	cost = 2500
 	items = list(
-		/obj/item/gun/ballistic/shotgun/bulldog,
+		/obj/item/gun/ballistic/shotgun/bulldog/unrestricted,
 		/obj/item/ammo_box/magazine/m12g,
 		/obj/item/storage/box/lethalshot
 	)
@@ -879,7 +879,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/heavygun/rocketlauncher
 	name = "PML-9"
-	cost = 3500
+	cost = 8500
 	items = list(
 		/obj/item/gun/ballistic/rocketlauncher/unrestricted,
 		/obj/item/ammo_casing/caseless/rocket
@@ -887,7 +887,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/heavygun/l6_saw
 	name = "L6 SAW"
-	cost = 4250
+	cost = 9250
 	items = list(
 		/obj/item/gun/ballistic/automatic/l6_saw/unrestricted,
 		/obj/item/ammo_box/magazine/mm712x82
@@ -895,12 +895,12 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/heavygun/pulse
 	name = "Пульсач"
-	cost = 8500
+	cost = 18500
 	items = list(/obj/item/gun/energy/pulse)
 
 /datum/violence_gear/heavygun/gyropistol
 	name = "Гироджет"
-	cost = 9500
+	cost = 19500
 	items = list(
 		/obj/item/gun/ballistic/automatic/gyropistol,
 		/obj/item/ammo_box/magazine/m75
