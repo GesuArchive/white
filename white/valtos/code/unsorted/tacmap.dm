@@ -63,8 +63,47 @@
 				continue
 	return tacmap_icon
 
+GLOBAL_LIST(generated_tacmaps)
+
 /proc/gen_tacmap_full(map_z = 2)
+	if(GLOB.generated_tacmaps[map_z])
+		return GLOB.generated_tacmaps[map_z]
 	var/icon/mapofthemap   = gen_tacmap(map_z)
 	var/icon/areasofthemap = gen_tacmap_areas(map_z)
 	mapofthemap.Blend(areasofthemap, ICON_MULTIPLY)
+	GLOB.generated_tacmaps[map_z] = mapofthemap
 	return mapofthemap
+
+/obj/tacmap
+	name = "голокарта"
+	desc = "Позволяет понять где ТЫ сейчас находишься."
+	var/list/viewers = list()
+
+/obj/tacmap/Initialize()
+	. = ..()
+	gen_tacmap_full(z)
+
+/obj/tacmap/interact(mob/user, special_state)
+	. = ..()
+	if(user in viewers)
+		user.clear_fullscreen("tacmap")
+		return
+	viewers |= user
+	user.overlay_fullscreen("tacmap", /atom/movable/screen/fullscreen/tacmap)
+	START_PROCESSING(SSobj, src)
+
+/obj/tacmap/process(delta_time)
+	if(!LAZYLEN(viewers))
+		return PROCESS_KILL
+	for(var/mob/user in viewers)
+		if(get_dist(src, user) > 2)
+			user.clear_fullscreen("tacmap")
+
+/atom/movable/screen/fullscreen/tacmap
+	icon = 'white/valtos/icons/tacmap.dmi'
+	icon_state = "tacmap_base"
+	alpha = 200
+
+/atom/movable/screen/fullscreen/tacmap/New(loc, ...)
+	icon = gen_tacmap_full(hud?.mymob?.z)
+	. = ..()
