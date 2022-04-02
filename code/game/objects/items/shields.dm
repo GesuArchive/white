@@ -34,7 +34,7 @@
 /obj/item/shield/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(transparent && (hitby.pass_flags & PASSGLASS))
 		return FALSE
-	if(get_dir(get_turf(owner), get_turf(hitby)) != REVERSE_DIR(owner?.dir))
+	if(!defense_check(get_turf(owner), get_turf(hitby), owner?.dir)
 		return FALSE
 	if(attack_type == THROWN_PROJECTILE_ATTACK)
 		final_block_chance += 30
@@ -43,6 +43,23 @@
 	. = ..()
 	if(.)
 		on_shield_block(owner, hitby, attack_text, damage, attack_type)
+
+/obj/item/shield/proc/defense_check(turf/aloc, turf/bloc, mobdir)
+	. = FALSE
+	switch(mobdir)
+		if (1)
+			if(abs(aloc.x - bloc.x) <= (aloc.y - bloc.y) * -2)
+				. = TRUE
+		if (2)
+			if(abs(aloc.x - bloc.x) <= (aloc.y - bloc.y) * 2)
+				. = TRUE
+		if (4)
+			if(abs(aloc.y - bloc.y) <= (aloc.x - bloc.x) * -2)
+				. = TRUE
+		if (8)
+			if(abs(aloc.y - bloc.y) <= (aloc.x - bloc.x) * 2)
+				. = TRUE
+	return
 
 /obj/item/shield/riot/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/melee/baton))
