@@ -4072,7 +4072,6 @@
 #include "white\Feline\code\rangers\designes.dm"
 #include "white\Feline\code\rangers\equipment.dm"
 #include "white\Feline\code\rangers\voucher.dm"
-#include "white\fogmann\bigiron.dm"
 #include "white\fogmann\donations.dm"
 #include "white\fogmann\fogmann.dm"
 #include "white\fogmann\fogmann2.dm"
