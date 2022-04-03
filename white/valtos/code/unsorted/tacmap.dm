@@ -127,7 +127,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/tacmap, 32)
 	alpha = 225
 
 /atom/movable/screen/fullscreen/tacmap/proc/draw_map(xx, yy, zz)
-	var/mutable_appearance/tacmap =
 	underlays += mutable_appearance('white/valtos/icons/tacmap.dmi', "tacmap_underlay")
 	var/mutable_appearance/imgloc = mutable_appearance('white/valtos/icons/effects.dmi', "location")
 	imgloc.pixel_x = xx
