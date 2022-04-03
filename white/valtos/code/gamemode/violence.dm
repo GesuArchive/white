@@ -6,6 +6,7 @@ GLOBAL_VAR_INIT(violence_random_theme, 1)
 GLOBAL_VAR(violence_landmark)
 GLOBAL_VAR(violence_red_datum)
 GLOBAL_VAR(violence_blue_datum)
+GLOBAL_VAR(violence_music_theme)
 GLOBAL_LIST_EMPTY(violence_red_team)
 GLOBAL_LIST_EMPTY(violence_blue_team)
 GLOBAL_LIST_EMPTY(violence_teamlock)
@@ -530,15 +531,19 @@ GLOBAL_LIST_EMPTY(violence_players)
 
 	L?.hud_used?.update_parallax_pref(L, 1)
 
-	switch(GLOB.violence_current_round)
-		if(1 to 2)
-			S = 'white/valtos/sounds/battle_small.ogg'
-		if(3 to 5)
-			S = 'white/valtos/sounds/battle_mid.ogg'
-		if(6 to 8)
-			S = 'white/valtos/sounds/battle_hi.ogg'
-		if(9 to 10)
-			S = 'white/valtos/sounds/battle_fuck.ogg'
+	switch(GLOB.violence_music_theme)
+		if("std")
+			switch(GLOB.violence_current_round)
+				if(1 to 2)
+					S = 'white/valtos/sounds/battle_small.ogg'
+				if(3 to 5)
+					S = 'white/valtos/sounds/battle_mid.ogg'
+				if(6 to 8)
+					S = 'white/valtos/sounds/battle_hi.ogg'
+				if(9 to 10)
+					S = 'white/valtos/sounds/battle_fuck.ogg'
+		if("cyber")
+			S = 'white/valtos/sounds/cyberjockey.ogg'
 
 	if(S)
 		SEND_SOUND(L, sound(S, repeat = 1, wait = 0, volume = 25, channel = CHANNEL_VIOLENCE_MODE))
@@ -566,6 +571,8 @@ GLOBAL_LIST_EMPTY(violence_players)
 
 	current_map = pickweight(maplist)
 
+	GLOB.violence_music_theme = current_map.theme
+
 	if(!spawn_area)
 		CRASH("No spawn area detected for Violence!")
 	else if(!current_map)
@@ -580,6 +587,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 	var/description = ""
 	var/weight = 0
 	var/max_players = 0
+	var/theme = "std"
 
 /datum/map_template/violence/default
 	name = "Карак"
@@ -615,6 +623,14 @@ GLOBAL_LIST_EMPTY(violence_players)
 	mappath = "_maps/map_files/Warfare/violence5.dmm"
 	weight = 6
 	max_players = 16
+
+/datum/map_template/violence/cyberspess
+	name = "Киберпространство"
+	description = "Поиграем? Наши киберкотлеты готовы к бою!"
+	mappath = "_maps/map_files/Warfare/violence6.dmm"
+	weight = 6
+	max_players = 32
+	theme = "cyber"
 
 /datum/violence_player
 	var/money = 0
