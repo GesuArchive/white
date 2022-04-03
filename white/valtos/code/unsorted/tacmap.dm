@@ -75,14 +75,19 @@ GLOBAL_LIST_INIT(generated_tacmaps, list())
 /obj/tacmap
 	name = "голокарта"
 	desc = "Позволяет понять где ТЫ сейчас находишься."
-	icon = 'icons/obj/vending.dmi' // temp
-	icon_state = "modularpc"
+	icon = 'white/valtos/icons/tacmap_display.dmi'
+	icon_state = "off"
 	interaction_flags_atom = INTERACT_ATOM_ATTACK_HAND
 	var/list/viewers = list()
 
 /obj/tacmap/Initialize()
 	. = ..()
 	gen_tacmap_full(z)
+	update_overlays()
+
+/obj/tacmap/update_overlays()
+	. = ..()
+	. += mutable_appearance(icon, "emissive", 0, EMISSIVE_PLANE)
 
 /obj/tacmap/interact(mob/user, special_state)
 	. = ..()
@@ -94,9 +99,11 @@ GLOBAL_LIST_INIT(generated_tacmaps, list())
 	var/atom/movable/screen/fullscreen/tacmap/S = user.overlay_fullscreen("tacmap", /atom/movable/screen/fullscreen/tacmap)
 	S.draw_map(user.x, user.y, user.z)
 	START_PROCESSING(SSobj, src)
+	icon_state = "active"
 
 /obj/tacmap/process(delta_time)
 	if(!LAZYLEN(viewers))
+		icon_state = "off"
 		return PROCESS_KILL
 	for(var/mob/user in viewers)
 		if(get_dist(src, user) > 1)
