@@ -211,8 +211,14 @@
 /obj/machinery/firealarm/attack_ai(mob/user)
 	return attack_hand(user)
 
+/obj/machinery/firealarm/attack_ai_secondary(mob/user)
+	return attack_hand_secondary(user)
+
 /obj/machinery/firealarm/attack_robot(mob/user)
 	return attack_hand(user)
+
+/obj/machinery/firealarm/attack_robot_secondary(mob/user)
+	return attack_hand_secondary(user)
 
 /obj/machinery/firealarm/attackby(obj/item/tool, mob/living/user, params)
 	add_fingerprint(user)

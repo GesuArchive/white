@@ -175,7 +175,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	if(!busy)
 		. += "<hr><span class='notice'><b>ПКМ</b> it to start a wash cycle.</span>"
 
-/obj/machinery/washing_machine/AltClick(mob/user)
+/obj/machinery/washing_machine/attack_hand_secondary(mob/user, modifiers)
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return
 	if(busy)
@@ -189,10 +189,12 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	busy = TRUE
 	update_icon()
 	addtimer(CALLBACK(src, .proc/wash_cycle), 60)
-
 	playsound(get_turf(src), 'white/valtos/sounds/wm.ogg', 80, TRUE)
-
 	START_PROCESSING(SSfastprocess, src)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/machinery/washing_machine/attack_ai_secondary(mob/user, modifiers)
+	return attack_hand_secondary(user, modifiers)
 
 /obj/machinery/washing_machine/process(delta_time)
 	if(!busy)

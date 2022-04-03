@@ -98,6 +98,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/tacmap, 32)
 	. = ..()
 	. += mutable_appearance(icon, "emissive", 0, EMISSIVE_PLANE)
 
+/obj/tacmap/attack_ai(mob/user)
+	interact(user)
+
+/obj/tacmap/attack_robot(mob/user)
+	interact(user)
+
+/obj/tacmap/attack_ghost(mob/user)
+	interact(user)
+
 /obj/tacmap/interact(mob/user, special_state)
 	. = ..()
 	if(user in viewers)
