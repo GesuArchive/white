@@ -6,7 +6,7 @@
 			var/turf/T = locate(xx, yy, map_z)
 			if(isspaceturf(T) || isopenspace(T))
 				if(locate(/obj/structure/lattice) in T)
-					tacmap_icon.DrawBox(rgb(143, 103, 175), xx, yy, xx, yy)
+					tacmap_icon.DrawBox(rgb(175, 175, 175), xx, yy, xx, yy)
 				continue
 			if(isopenturf(T))
 				if(isplatingturf(T))
@@ -15,12 +15,12 @@
 					else if(locate(/obj/machinery/door) in T)
 						tacmap_icon.DrawBox(rgb(255, 0, 0), xx, yy, xx, yy)
 					else
-						tacmap_icon.DrawBox(rgb(109, 42, 128), xx, yy, xx, yy)
+						tacmap_icon.DrawBox(rgb(200, 255, 200), xx, yy, xx, yy)
 					continue
-				tacmap_icon.DrawBox(rgb(220, 44, 255), xx, yy, xx, yy)
+				tacmap_icon.DrawBox(rgb(150, 150, 150), xx, yy, xx, yy)
 				continue
 			if(isclosedturf(T))
-				tacmap_icon.DrawBox(rgb(0, 195, 255), xx, yy, xx, yy)
+				tacmap_icon.DrawBox(rgb(255, 255, 255), xx, yy, xx, yy)
 	return tacmap_icon
 
 /proc/gen_tacmap_areas(map_z = 2)
@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(generated_tacmaps, list())
 	icon = 'white/valtos/icons/tacmap.dmi'
 	icon_state = "tacmap_base"
 	screen_loc = "CENTER-4:16,CENTER-3"
-	alpha = 200
+	alpha = 225
 	var/mob/our_mob
 
 /atom/movable/screen/fullscreen/tacmap/New(loc, ...)
@@ -118,6 +118,6 @@ GLOBAL_LIST_INIT(generated_tacmaps, list())
 	imgloc.pixel_y = our_mob?.y
 	add_overlay(imgloc)
 	icon = gen_tacmap_full(our_mob?.z)
-	var/matrix/M = matrix()
-	M.Scale(1.5, 1.5)
-	transform = M
+	//var/matrix/M = matrix()
+	//M.Scale(1.5, 1.5)
+	//transform = M
