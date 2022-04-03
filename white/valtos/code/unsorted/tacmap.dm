@@ -98,7 +98,7 @@ GLOBAL_LIST_INIT(generated_tacmaps, list())
 	if(!LAZYLEN(viewers))
 		return PROCESS_KILL
 	for(var/mob/user in viewers)
-		if(get_dist(src, user) > 2)
+		if(get_dist(src, user) > 1)
 			user.clear_fullscreen("tacmap")
 			if(user in viewers)
 				viewers -= user
@@ -106,10 +106,13 @@ GLOBAL_LIST_INIT(generated_tacmaps, list())
 /atom/movable/screen/fullscreen/tacmap
 	icon = 'white/valtos/icons/tacmap.dmi'
 	icon_state = "tacmap_base"
-	screen_loc = "CENTER-3,CENTER"
+	screen_loc = "CENTER-4:16,CENTER-3"
 	alpha = 200
 
 /atom/movable/screen/fullscreen/tacmap/New(loc, ...)
 	. = ..()
 	icon = gen_tacmap_full(hud?.mymob?.z)
-	add_filter("outline", 1, outline_filter(size=1, color="#660033"))
+	add_filter("dropshadowfiftercum", 1, drop_shadow_filter(x=1, y=-1, size=1, offset=0, color="#1a000d"))
+	var/matrix/M = matrix()
+	M.Scale(1.5, 1.5)
+	transform = M
