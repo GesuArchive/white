@@ -34,7 +34,7 @@
 /area/commons/fitness/recreation)
 "aaS" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/openspace,
 /area/maintenance/port/fore)
 "aaZ" = (
 /turf/open/floor/plasteel/dark,
@@ -192,6 +192,8 @@
 /obj/item/clothing/under/rank/medical/doctor/blue,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/item/clothing/suit/armor/vest/fieldmedic,
+/obj/item/clothing/under/rank/medical/brigphys,
+/obj/item/clothing/under/rank/medical/brigphys/skirt,
 /obj/item/clothing/head/soft/sec/fieldmedic,
 /turf/open/floor/carpet/red,
 /area/security)
@@ -4906,17 +4908,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/plasteel,
 /area/service/janitor)
-"bpz" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating,
-/area/maintenance/department/engine)
 "bpJ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing,
@@ -7960,6 +7951,7 @@
 	name = "Thruster Engine Room";
 	req_access_txt = "12"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/department/engine)
 "cvn" = (
@@ -8977,7 +8969,7 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/service/bar/atrium)
 "cMG" = (
-/turf/closed/wall/stonewall,
+/turf/closed/wall/rospilovo/bricks,
 /area/maintenance/starboard/fore)
 "cMJ" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
@@ -22406,6 +22398,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/department/engine)
 "its" = (
@@ -23224,6 +23217,11 @@
 /obj/item/storage/box/prisoner,
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
+"iJw" = (
+/obj/structure/trash_pile,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/maintenance/department/engine)
 "iJE" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
@@ -25967,6 +25965,17 @@
 /obj/structure/falsewall/wood,
 /turf/open/floor/wood/parquet,
 /area/maintenance/starboard/fore)
+"jMf" = (
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/maintenance/department/engine)
 "jMk" = (
 /obj/structure/table,
 /obj/item/paper_bin{
@@ -33530,17 +33539,6 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/plasteel,
 /area/maintenance/starboard/fore)
-"mWO" = (
-/obj/machinery/door/airlock/external{
-	name = "Engineering External Access";
-	req_one_access_txt = "10;24"
-	},
-/obj/structure/fans/tiny,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/engineering/supermatter)
 "mWP" = (
 /mob/living/simple_animal/hostile/lizard/wags_his_tail,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
@@ -40057,11 +40055,6 @@
 	},
 /turf/open/floor/plasteel/dark/side,
 /area/security/execution/education)
-"pCS" = (
-/obj/structure/trash_pile,
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating,
-/area/maintenance/department/engine)
 "pCT" = (
 /obj/structure/chair/sofa/bench{
 	dir = 4;
@@ -44165,15 +44158,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
-"rpv" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Engineering Maintenance";
-	req_access_txt = "10"
-	},
-/obj/structure/cable,
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating,
-/area/maintenance/department/engine)
 "rpz" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -47201,14 +47185,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/maintenance/port/aft)
-"sBl" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Thruster Engine Room";
-	req_access_txt = "12"
-	},
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating,
-/area/maintenance/department/engine)
 "sCb" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -50571,10 +50547,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/hos)
-"tUY" = (
-/obj/effect/spawner/lootdrop/grille_or_trash,
-/turf/open/floor/plating,
-/area/maintenance/department/engine)
 "tVa" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -51289,6 +51261,17 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/engineering/main)
+"uik" = (
+/obj/machinery/door/airlock/external{
+	name = "Engineering External Access";
+	req_one_access_txt = "10;24"
+	},
+/obj/structure/fans/tiny,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/engineering/supermatter)
 "uiE" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
@@ -51833,6 +51816,10 @@
 "utT" = (
 /turf/closed/wall,
 /area/cargo/sorting)
+"uub" = (
+/obj/effect/spawner/lootdrop/grille_or_trash,
+/turf/open/floor/plating,
+/area/maintenance/department/engine)
 "uuh" = (
 /obj/item/cultivator/rake,
 /turf/open/floor/plating,
@@ -55377,6 +55364,7 @@
 /area/commons/fitness/recreation)
 "vNs" = (
 /obj/machinery/door/airlock/freezer,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/freezer,
 /area/maintenance/starboard/fore)
 "vNw" = (
@@ -62224,12 +62212,10 @@
 /area/engineering/lobby)
 "ylQ" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	name = "Maintenance Hatch";
-	req_access_txt = "12"
+	name = "Engineering Maintenance";
+	req_access_txt = "10"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/department/engine)
@@ -92275,7 +92261,7 @@ vQR
 tic
 eoL
 krP
-mWO
+uik
 krP
 krP
 xDg
@@ -96886,7 +96872,7 @@ qxJ
 qxJ
 qxJ
 aJi
-rpv
+ylQ
 klk
 ghD
 kGU
@@ -97403,7 +97389,7 @@ avM
 krP
 wXo
 cuL
-bpz
+jMf
 oJd
 cuL
 cuL
@@ -97411,7 +97397,7 @@ oJd
 cuL
 oJd
 wdi
-sBl
+cuO
 xeq
 cvP
 xeq
@@ -98436,7 +98422,7 @@ oJd
 cuL
 cuL
 hVN
-sBl
+cuO
 xeq
 qTB
 xeq
@@ -98676,7 +98662,7 @@ csO
 csO
 csO
 csO
-ylQ
+isK
 xEd
 waA
 mFO
@@ -98689,8 +98675,8 @@ uoQ
 csO
 csO
 mDM
-pCS
-tUY
+iJw
+uub
 xeq
 cJC
 oJd
