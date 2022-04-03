@@ -87,6 +87,8 @@ GLOBAL_LIST_EMPTY(violence_players)
 		EXP_TYPE_COMBATANT_RED = list("titles" = GLOB.combatant_red_positions),
 		EXP_TYPE_COMBATANT_BLUE = list("titles" = GLOB.combatant_blue_positions)
 	)
+	// удаляем все спаунеры из мира
+	QDEL_LIST(GLOB.mob_spawners)
 	// маркируем все текущие атомы, чтобы чистильщик их не удалил
 	for(var/atom/A in main_area)
 		A.flags_1 |= KEEP_ON_ARENA_1
@@ -628,8 +630,8 @@ GLOBAL_LIST_EMPTY(violence_players)
 	name = "Киберпространство"
 	description = "Поиграем? Наши киберкотлеты готовы к бою!"
 	mappath = "_maps/map_files/Warfare/violence6.dmm"
-	weight = 6
-	max_players = 32
+	weight = 2
+	max_players = 64
 	theme = "cyber"
 
 /datum/violence_player
