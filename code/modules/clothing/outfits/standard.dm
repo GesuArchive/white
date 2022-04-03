@@ -274,7 +274,7 @@
 	ears = /obj/item/radio/headset/headset_cent/commander
 	glasses = /obj/item/clothing/glasses/sunglasses
 	mask = /obj/item/clothing/mask/cigarette/cigar/cohiba
-	head = /obj/item/clothing/head/centom_cap
+	head = /obj/item/clothing/head/centcom_cap
 	belt = /obj/item/gun/ballistic/automatic/pistol/deagle
 	neck = /obj/item/clothing/neck/cloak/cape
 	r_pocket = /obj/item/lighter

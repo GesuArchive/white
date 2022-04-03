@@ -500,7 +500,7 @@
 	icon_state = "weddingveil"
 	inhand_icon_state = "weddingveil"
 
-/obj/item/clothing/head/centom_cap
+/obj/item/clothing/head/centcom_cap
 	name = "шляпа офицера ЦентКома"
 	icon_state = "centcom_cap"
 	desc = "На шляпе есть какие-то мутные инициалы, которые уже невозможно прочитать."
