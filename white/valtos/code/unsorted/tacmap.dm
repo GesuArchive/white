@@ -80,7 +80,7 @@ GLOBAL_LIST_INIT(generated_tacmaps, list())
 	interaction_flags_atom = INTERACT_ATOM_ATTACK_HAND
 	var/list/viewers = list()
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/tacmap, 24)
+MAPPING_DIRECTIONAL_HELPERS(/obj/tacmap, 30)
 
 /obj/tacmap/Initialize()
 	. = ..()
