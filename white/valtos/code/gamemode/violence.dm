@@ -35,6 +35,10 @@ GLOBAL_LIST_EMPTY(violence_players)
 	var/wins_reds = 0
 	var/wins_blues = 0
 
+	// стрик поражений
+	var/losestreak_reds = 0
+	var/losestreak_blues = 0
+
 	// выплата в каждом раунде
 	var/payout = 300
 
@@ -187,9 +191,13 @@ GLOBAL_LIST_EMPTY(violence_players)
 			if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len)
 				end_round("СИНИХ")
 				wins_blues++
+				losestreak_blues = 0
+				losestreak_reds++
 			if(GLOB.violence_blue_team.len == 0 && GLOB.violence_red_team.len)
 				end_round("КРАСНЫХ")
 				wins_reds++
+				losestreak_reds = 0
+				losestreak_blues++
 			if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len == 0)
 				end_round()
 
@@ -207,6 +215,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 		for(var/key in GLOB.violence_players)
 			var/datum/violence_player/VP = GLOB.violence_players[key]
 			VP.money += payout * GLOB.violence_current_round
+			VP.money += VP.team == "red" ? losestreak_reds * payout : losestreak_blues * payout
 			if(VP.team == "red")
 				stats_reds += "<tr><td><b class='red'>[key]</b></td><td>[VP.kills]</td><td>[VP.deaths]</td></tr>"
 			else if (VP.team == "blue")
