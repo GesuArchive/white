@@ -4169,6 +4169,7 @@
 #include "white\rebolution228\copypasta\objects\miscellaneous.dm"
 #include "white\rebolution228\copypasta\objects\toys.dm"
 #include "white\rebolution228\copypasta\skyrat\bong.dm"
+#include "white\rebolution228\copypasta\skyrat\clothing.dm"
 #include "white\rebolution228\copypasta\skyrat\floors.dm"
 #include "white\rebolution228\copypasta\skyrat\fluff.dm"
 #include "white\rebolution228\copypasta\skyrat\milkshake.dm"
