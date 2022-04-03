@@ -122,6 +122,24 @@ export const GenericUplink = (props, context) => {
                   <LabeledList.Item label="HUB">
                     Кнопочка <b>Пополнить счёт</b>
                   </LabeledList.Item>
+                  <LabeledList.Item label="BTC">
+                    3MYLd3PEuou6coQ3AYCNtNKTBh9y9o7GbJ
+                  </LabeledList.Item>
+                  <LabeledList.Item label="ETH">
+                    0x74E77B4559f8F0200435281CffE963af54412C81
+                  </LabeledList.Item>
+                  <LabeledList.Item label="LTC">
+                    MTQyQVu9Dw8ucP46ydBteYSgxFNUpDKW5D
+                  </LabeledList.Item>
+                  <LabeledList.Item label="DASH">
+                    Xn5t2U7NdyLp72efhdEjijMuBa5VCsiJRd
+                  </LabeledList.Item>
+                  <LabeledList.Item label="DOGE">
+                    DRiBpqRp7EdE1PfGzgSY1ov6Q2GNwJgrV1
+                  </LabeledList.Item>
+                  <LabeledList.Item label="TRX">
+                    TCbyTr3fx4dvicJrtNN2SaZBsj6xyaB3km
+                  </LabeledList.Item>
                   <LabeledList.Item label="ЮMoney">
                     410011561142450
                   </LabeledList.Item>
@@ -156,7 +174,7 @@ export const GenericUplink = (props, context) => {
                   желанию в первые 10 минут в любом месте на карте, после
                   начала игры, после чего далее только на территории бара.
                   <b>
-                    Баланс каждый новый раунд сбрасывается к изначальной сумме, 
+                    Баланс каждый новый раунд сбрасывается к изначальной сумме,
                   </b>
                   поэтому не стесняйтесь экспериментировать.
                 </big>
