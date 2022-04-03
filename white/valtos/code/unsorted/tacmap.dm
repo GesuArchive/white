@@ -111,6 +111,10 @@ GLOBAL_LIST_INIT(generated_tacmaps, list())
 
 /atom/movable/screen/fullscreen/tacmap/New(loc, ...)
 	. = ..()
+	var/mutable_appearance/imgloc = mutable_appearance('white/valtos/icons/effects.dmi', "location")
+	imgloc.pixel_x = hud?.mymob?.x
+	imgloc.pixel_y = hud?.mymob?.y
+	add_overlay(imgloc)
 	icon = gen_tacmap_full(hud?.mymob?.z)
 	var/matrix/M = matrix()
 	M.Scale(1.5, 1.5)
