@@ -112,7 +112,6 @@ GLOBAL_LIST_INIT(generated_tacmaps, list())
 /atom/movable/screen/fullscreen/tacmap/New(loc, ...)
 	. = ..()
 	icon = gen_tacmap_full(hud?.mymob?.z)
-	add_filter("dropshadowfiftercum", 1, drop_shadow_filter(x=1, y=-1, size=1, offset=0, color="#1a000d"))
 	var/matrix/M = matrix()
 	M.Scale(1.5, 1.5)
 	transform = M
