@@ -78,6 +78,8 @@ GLOBAL_LIST_INIT(generated_tacmaps, list())
 	icon = 'white/valtos/icons/tacmap_display.dmi'
 	icon_state = "off"
 	interaction_flags_atom = INTERACT_ATOM_ATTACK_HAND
+	anchored = TRUE
+	can_be_unanchored = FALSE
 	var/list/viewers = list()
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/tacmap, 30)
@@ -85,7 +87,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/tacmap, 30)
 /obj/tacmap/Initialize()
 	. = ..()
 	gen_tacmap_full(z)
-	update_overlays()
+	update_icon()
+
+/obj/tacmap/Destroy(force)
+	. = ..()
+	for(var/mob/user in viewers)
+		user.clear_fullscreen("tacmap")
+	QDEL_NULL(viewers)
 
 /obj/tacmap/update_overlays()
 	. = ..()
