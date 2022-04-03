@@ -333,7 +333,7 @@ LINEN BINS
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/orange/double
-	icon_state = "double_sheetorange"
+	icon_state = "doublesheet_orange"
 	worn_icon_state = "sheetorange"
 	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
