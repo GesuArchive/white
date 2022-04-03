@@ -82,11 +82,10 @@ GLOBAL_LIST_INIT(generated_tacmaps, list())
 	can_be_unanchored = FALSE
 	var/list/viewers = list()
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/tacmap, 30)
+MAPPING_DIRECTIONAL_HELPERS(/obj/tacmap, 32)
 
 /obj/tacmap/Initialize()
 	. = ..()
-	gen_tacmap_full(z)
 	update_icon()
 
 /obj/tacmap/Destroy(force)
@@ -128,6 +127,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/tacmap, 30)
 	alpha = 225
 
 /atom/movable/screen/fullscreen/tacmap/proc/draw_map(xx, yy, zz)
+	var/mutable_appearance/tacmap =
+	underlays += mutable_appearance('white/valtos/icons/tacmap.dmi', "tacmap_underlay")
 	var/mutable_appearance/imgloc = mutable_appearance('white/valtos/icons/effects.dmi', "location")
 	imgloc.pixel_x = xx
 	imgloc.pixel_y = yy
