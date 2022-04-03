@@ -92,7 +92,7 @@ GLOBAL_LIST_INIT(generated_tacmaps, list())
 		return
 	viewers |= user
 	var/atom/movable/screen/fullscreen/tacmap/S = user.overlay_fullscreen("tacmap", /atom/movable/screen/fullscreen/tacmap)
-	S.our_mob = user
+	S.draw_map(user.x, user.y, user.z)
 	START_PROCESSING(SSobj, src)
 
 /obj/tacmap/process(delta_time)
@@ -109,15 +109,10 @@ GLOBAL_LIST_INIT(generated_tacmaps, list())
 	icon_state = "tacmap_base"
 	screen_loc = "CENTER-4:16,CENTER-3"
 	alpha = 225
-	var/mob/our_mob
 
-/atom/movable/screen/fullscreen/tacmap/New(loc, ...)
-	. = ..()
+/atom/movable/screen/fullscreen/tacmap/proc/draw_map(xx, yy, zz)
 	var/mutable_appearance/imgloc = mutable_appearance('white/valtos/icons/effects.dmi', "location")
-	imgloc.pixel_x = our_mob?.x
-	imgloc.pixel_y = our_mob?.y
+	imgloc.pixel_x = xx
+	imgloc.pixel_y = yy
 	add_overlay(imgloc)
-	icon = gen_tacmap_full(our_mob?.z)
-	//var/matrix/M = matrix()
-	//M.Scale(1.5, 1.5)
-	//transform = M
+	icon = gen_tacmap_full(zz)
