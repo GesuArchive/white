@@ -40,9 +40,6 @@
 			if(istype(A, /area/cargo))
 				tacmap_icon.DrawBox(rgb(209, 101, 43), xx, yy, xx, yy)
 				continue
-			if(istype(A, /area/cargo))
-				tacmap_icon.DrawBox(rgb(209, 101, 43), xx, yy, xx, yy)
-				continue
 			if(istype(A, /area/service/hydroponics) || istype(A, /area/service/chapel) || istype(A, /area/service/library) || istype(A, /area/commons))
 				tacmap_icon.DrawBox(rgb(62, 209, 43), xx, yy, xx, yy)
 				continue
