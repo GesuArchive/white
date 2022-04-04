@@ -217,11 +217,12 @@
 	var/base_state = "tube"		// base description and icon_state
 	icon_state = "tube"
 	desc = "Светится. Ммм."
-	layer = BELOW_MOB_LAYER
+	layer = WALL_OBJ_LAYER
+	plane = GAME_PLANE_UPPER
 	max_integrity = 100
 	use_power = ACTIVE_POWER_USE
-	idle_power_usage = 20
-	active_power_usage = 200
+	idle_power_usage = 2
+	active_power_usage = 20
 	power_channel = AREA_USAGE_LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	var/on = FALSE					// 1 if on, 0 if off
 	var/on_gs = FALSE
@@ -453,7 +454,7 @@
 		set_light(0)
 	update_icon()
 
-	active_power_usage = (brightness * 25)
+	active_power_usage = (brightness * 10)
 	if(on != on_gs)
 		on_gs = on
 		if(on)
