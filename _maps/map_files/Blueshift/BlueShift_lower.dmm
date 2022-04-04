@@ -7327,6 +7327,7 @@
 	id = "publicElevator";
 	pixel_y = -25
 	},
+/obj/machinery/camera/directional/east,
 /turf/open/floor/plasteel,
 /area/maintenance/port)
 "egk" = (
