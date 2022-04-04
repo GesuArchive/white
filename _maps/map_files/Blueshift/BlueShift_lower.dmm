@@ -14728,13 +14728,12 @@
 /area/maintenance/aft)
 "kgC" = (
 /obj/docking_port/stationary{
-	dheight = 3;
 	dir = 2;
-	dwidth = 8;
-	height = 11;
+	dwidth = 2;
+	height = 13;
 	id = "ferry_home";
-	name = "Port Bay 2";
-	width = 20
+	name = "NT SS13: Port bay";
+	width = 5
 	},
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
