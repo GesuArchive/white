@@ -3714,6 +3714,21 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
+"bME" = (
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/obj/docking_port/stationary{
+	dir = 8;
+	dwidth = 3;
+	height = 15;
+	id = "arrivals_stationary";
+	name = "NT SS13: Arrivals dock";
+	roundstart_template = /datum/map_template/shuttle/arrival/box;
+	width = 7
+	},
+/turf/open/floor/plating,
+/area/hallway/secondary/entry)
 "bMF" = (
 /obj/effect/turf_decal/stripes{
 	dir = 1
@@ -10818,6 +10833,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/cargo/storage)
+"gYJ" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/light/floor{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/hallway/secondary/entry)
 "gYK" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel,
@@ -13128,13 +13150,6 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel,
 /area/science/research/abandoned)
-"iUp" = (
-/obj/effect/turf_decal/bot,
-/obj/machinery/light/floor{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/hallway/secondary/entry)
 "iUE" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
@@ -22526,13 +22541,6 @@
 	dir = 1
 	},
 /area/security/prison/work)
-"qkR" = (
-/obj/machinery/light/floor{
-	dir = 8
-	},
-/obj/effect/turf_decal/bot,
-/turf/open/floor/plating,
-/area/hallway/secondary/entry)
 "qkS" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -24311,7 +24319,7 @@
 	height = 5;
 	id = "mining_home";
 	name = "mining shuttle bay";
-	roundstart_template = /datum/map_template/shuttle/mining/skyrat;
+	roundstart_template = /datum/map_template/shuttle/mining/box;
 	width = 7
 	},
 /turf/open/floor/plating,
@@ -28597,21 +28605,6 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel,
 /area/service/abandoned_gambling_den)
-"vvT" = (
-/obj/effect/turf_decal/stripes{
-	dir = 4
-	},
-/obj/docking_port/stationary{
-	dir = 8;
-	dwidth = 3;
-	height = 15;
-	id = "arrivals_stationary";
-	name = "NT SS13: Arrivals dock";
-	roundstart_template = /datum/map_template/shuttle/arrival/box;
-	width = 7
-	},
-/turf/open/floor/plating,
-/area/hallway/secondary/entry)
 "vwh" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 5
@@ -30147,6 +30140,13 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/carpet,
 /area/service/abandoned_gambling_den)
+"wyr" = (
+/obj/machinery/light/floor{
+	dir = 8
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plating,
+/area/hallway/secondary/entry)
 "wys" = (
 /obj/structure/table,
 /obj/item/clothing/glasses/blindfold,
@@ -73822,7 +73822,7 @@ chd
 kIs
 kIs
 kIs
-qkR
+wyr
 kIs
 wZm
 wRn
@@ -77930,11 +77930,11 @@ xGt
 wjI
 iIQ
 cZR
-iUp
+gYJ
 cZR
-vvT
+bME
 cZR
-iUp
+gYJ
 cZR
 prp
 uOW
