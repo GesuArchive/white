@@ -666,6 +666,14 @@ GLOBAL_LIST_EMPTY(violence_players)
 	max_players = 16
 	theme = "cyber"
 
+/datum/map_template/violence/trahov
+	name = "Краков"
+	description = "Нанотрейзен и Синдикат не поделили последний мешок сахара. Поможете им разобраться с этим недоразумением?"
+	mappath = "_maps/map_files/Warfare/violence7.dmm"
+	weight = 6
+	max_players = 32
+	theme = "warfare"
+
 /datum/violence_player
 	var/money = 0
 	var/team = "white"
