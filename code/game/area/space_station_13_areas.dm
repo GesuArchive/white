@@ -416,23 +416,18 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/maintenance/port/central/north
 	name = "Техтоннели: Центральные-северные"
-	icon_state = "maintcentral"
 
 /area/maintenance/port/northwest
 	name = "Техтоннели: Северо-западные"
-	icon_state = "maintcentral"
 
 /area/maintenance/port/southwest
 	name = "Техтоннели: Юго-западные"
-	icon_state = "maintcentral"
 
 /area/maintenance/port/north
 	name = "Техтоннели: Северные"
-	icon_state = "maintcentral"
 
 /area/maintenance/starboard/engineering
 	name = "Техтоннели: Двигатель"
-	icon_state = "maintcentral"
 //
 /area/hallway/primary/tram
 	name = "Коридоры: Метро"
