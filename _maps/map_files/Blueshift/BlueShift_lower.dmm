@@ -518,11 +518,6 @@
 /obj/machinery/firealarm/directional/east,
 /turf/open/floor/plasteel/dark/side,
 /area/security/checkpoint)
-"ajN" = (
-/obj/machinery/door/airlock/external,
-/obj/structure/fans/tiny,
-/turf/open/floor/pod/dark,
-/area/space)
 "ajW" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel,
@@ -4436,10 +4431,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/prison)
-"ccT" = (
-/obj/structure/sign/warning/securearea/ntsign,
-/turf/closed/wall/mineral/titanium,
-/area/space)
 "ccX" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -7727,11 +7718,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engineering/atmos/upper)
-"eyN" = (
-/obj/machinery/door/airlock/external,
-/obj/structure/fans/tiny,
-/turf/open/floor/pod/light,
-/area/space)
 "ezo" = (
 /obj/structure/closet/crate/freezer,
 /obj/effect/turf_decal/bot,
@@ -10440,19 +10426,6 @@
 	},
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
-"gFi" = (
-/obj/effect/turf_decal/stripes/corner,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/corner{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/corner{
-	dir = 4
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "gFq" = (
 /obj/structure/table,
 /obj/item/stack/sheet/iron/fifty,
@@ -11529,20 +11502,6 @@
 /obj/structure/trash_pile,
 /turf/open/floor/plasteel/dark,
 /area/cargo/storage)
-"hBm" = (
-/obj/machinery/door/airlock/titanium,
-/obj/docking_port/mobile{
-	dir = 8;
-	dwidth = 2;
-	height = 13;
-	id = "ferry";
-	name = "ferry shuttle";
-	preferred_direction = 4;
-	width = 5
-	},
-/obj/structure/fans/tiny,
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "hBx" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -11786,10 +11745,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel,
 /area/cargo/storage)
-"hPG" = (
-/obj/effect/spawner/structure/window/shuttle,
-/turf/open/floor/plating,
-/area/space)
 "hQd" = (
 /obj/structure/grille,
 /obj/structure/window{
@@ -13740,9 +13695,6 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel,
 /area/maintenance/port)
-"jpF" = (
-/turf/closed/wall/mineral/titanium,
-/area/space)
 "jqa" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -14073,13 +14025,6 @@
 	dir = 8
 	},
 /area/hallway/secondary/entry)
-"jHn" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/open/floor/plating/airless,
-/area/space)
 "jHs" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
@@ -15847,15 +15792,6 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/department/engine/atmos)
-"kWR" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/plating/airless,
-/area/space)
 "kWZ" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
@@ -19774,12 +19710,6 @@
 	dir = 4
 	},
 /area/hallway/secondary/entry)
-"nWo" = (
-/obj/structure/shuttle/engine/propulsion/left{
-	dir = 8
-	},
-/turf/open/floor/plating/airless,
-/area/space)
 "nWv" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Prison Gym"
@@ -20203,16 +20133,6 @@
 	},
 /turf/open/floor/plasteel/dark/corner,
 /area/engineering/atmos)
-"ons" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	pixel_y = 1
-	},
-/turf/open/floor/plating/airless,
-/area/space)
 "ood" = (
 /obj/structure/railing/corner{
 	dir = 4
@@ -25553,9 +25473,6 @@
 /obj/structure/window,
 /turf/open/floor/plating,
 /area/maintenance/fore)
-"sJK" = (
-/turf/template_noop,
-/area/space)
 "sKh" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
@@ -82379,11 +82296,11 @@ ylQ
 ylQ
 ylQ
 ylQ
-sJK
-sJK
-nWo
-sJK
-sJK
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -82636,11 +82553,11 @@ ylQ
 ylQ
 ylQ
 ylQ
-sJK
-nWo
-kWR
-nWo
-sJK
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -82893,11 +82810,11 @@ ylQ
 ylQ
 ylQ
 ylQ
-sJK
-jHn
-gFi
-ons
-sJK
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -83150,11 +83067,11 @@ ylQ
 ylQ
 ylQ
 ylQ
-sJK
-jpF
-gFi
-jpF
-sJK
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -83407,11 +83324,11 @@ ylQ
 ylQ
 ylQ
 ylQ
-jpF
-jpF
-gFi
-jpF
-jpF
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -83664,11 +83581,11 @@ ylQ
 ylQ
 ylQ
 ylQ
-jpF
-gFi
-gFi
-gFi
-jpF
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -83921,11 +83838,11 @@ ylQ
 ylQ
 ylQ
 ylQ
-hPG
-gFi
-gFi
-gFi
-hPG
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -84178,11 +84095,11 @@ ylQ
 ylQ
 ylQ
 ylQ
-ccT
-gFi
-gFi
-gFi
-ccT
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -84435,11 +84352,11 @@ ylQ
 ylQ
 ylQ
 ylQ
-ajN
-gFi
-gFi
-gFi
-eyN
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -84692,11 +84609,11 @@ ylQ
 ylQ
 ylQ
 ylQ
-ccT
-gFi
-gFi
-gFi
-ccT
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -84949,11 +84866,11 @@ ylQ
 ylQ
 ylQ
 ylQ
-jpF
-gFi
-gFi
-gFi
-jpF
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -86229,14 +86146,14 @@ ylQ
 ylQ
 ylQ
 ylQ
-jpF
-hPG
-ccT
-ajN
-ccT
-hPG
-jpF
-jpF
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -86486,17 +86403,17 @@ ylQ
 ylQ
 ylQ
 ylQ
-hPG
-gFi
-gFi
-gFi
-gFi
-gFi
-gFi
-jpF
-jpF
-jHn
-nWo
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -86743,18 +86660,18 @@ ylQ
 ylQ
 ylQ
 ylQ
-hBm
-gFi
-gFi
-gFi
-gFi
-gFi
-gFi
 ylQ
 ylQ
 ylQ
 ylQ
-nWo
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -87000,17 +86917,17 @@ ylQ
 ylQ
 ylQ
 ylQ
-hPG
-gFi
-gFi
-gFi
-gFi
-gFi
-gFi
-jpF
-jpF
-nWo
-nWo
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -87257,14 +87174,14 @@ ylQ
 ylQ
 ylQ
 ylQ
-jpF
-hPG
-ccT
-ajN
-ccT
-hPG
-jpF
-jpF
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
+ylQ
 ylQ
 ylQ
 ylQ
@@ -87521,7 +87438,7 @@ ylQ
 ylQ
 ylQ
 ylQ
-jpF
+ylQ
 ylQ
 ylQ
 ylQ
