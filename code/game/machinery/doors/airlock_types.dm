@@ -569,6 +569,7 @@
 
 /obj/structure/door_assembly/multi_tile
 	dir = EAST
+	bound_width = 64 // 2x1
 	var/width = 1
 
 /obj/machinery/door/airlock/multi_tile/narsie_act()
