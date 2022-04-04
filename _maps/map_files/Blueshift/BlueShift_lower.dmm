@@ -4618,14 +4618,9 @@
 /turf/open/floor/carpet/green,
 /area/service/abandoned_gambling_den)
 "chd" = (
-/obj/docking_port/stationary{
-	dir = 8;
-	dwidth = 1;
-	height = 13;
-	id = "arrivals_stationary";
-	name = "arrivals";
-	roundstart_template = null;
-	width = 5
+/obj/effect/turf_decal/bot,
+/obj/machinery/light/floor{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
@@ -13133,6 +13128,13 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel,
 /area/science/research/abandoned)
+"iUp" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/light/floor{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/hallway/secondary/entry)
 "iUE" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
@@ -22524,6 +22526,13 @@
 	dir = 1
 	},
 /area/security/prison/work)
+"qkR" = (
+/obj/machinery/light/floor{
+	dir = 8
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plating,
+/area/hallway/secondary/entry)
 "qkS" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -28588,6 +28597,21 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel,
 /area/service/abandoned_gambling_den)
+"vvT" = (
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/obj/docking_port/stationary{
+	dir = 8;
+	dwidth = 3;
+	height = 15;
+	id = "arrivals_stationary";
+	name = "NT SS13: Arrivals dock";
+	roundstart_template = /datum/map_template/shuttle/arrival/box;
+	width = 7
+	},
+/turf/open/floor/plating,
+/area/hallway/secondary/entry)
 "vwh" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 5
@@ -73794,11 +73818,11 @@ wjI
 wjI
 yhK
 kIs
-yck
+chd
 kIs
 kIs
 kIs
-yck
+qkR
 kIs
 wZm
 wRn
@@ -77397,7 +77421,7 @@ ykU
 ykU
 ykU
 ykU
-chd
+ykU
 ykU
 aIe
 xGt
@@ -77906,11 +77930,11 @@ xGt
 wjI
 iIQ
 cZR
-yck
+iUp
 cZR
+vvT
 cZR
-cZR
-yck
+iUp
 cZR
 prp
 uOW
