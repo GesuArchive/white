@@ -6327,9 +6327,10 @@
 /turf/open/floor/wood,
 /area/command/heads_quarters/rd)
 "bBK" = (
-/obj/machinery/light/directional/south,
-/turf/open/floor/plating,
-/area/commons/dorms/nine)
+/obj/machinery/pool_filter,
+/obj/effect/turf_decal/weather/side,
+/turf/open/indestructible/pool/end,
+/area/commons/dorms)
 "bBT" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
@@ -12013,11 +12014,11 @@
 /area/commons/toilet/restrooms)
 "dAT" = (
 /obj/structure/cable,
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Maintenance Hatch";
-	req_access_txt = "12;73"
+	req_access_txt = "12"
 	},
-/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/department/crew_quarters/dorms)
 "dBa" = (
@@ -16554,10 +16555,6 @@
 	},
 /turf/open/floor/grass,
 /area/science/research)
-"fom" = (
-/obj/machinery/light/directional/east,
-/turf/open/indestructible/pool,
-/area/commons/dorms)
 "foo" = (
 /obj/structure/table/glass,
 /obj/item/book/manual/wiki/chemistry,
@@ -21493,18 +21490,6 @@
 /obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/circuit/telecomms,
 /area/science/server)
-"his" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/effect/turf_decal/pool{
-	dir = 8
-	},
-/turf/open/floor/wood,
-/area/commons/dorms)
 "hiu" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -34088,6 +34073,10 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
+"lUp" = (
+/obj/machinery/light/directional/east,
+/turf/open/indestructible/pool,
+/area/commons/dorms)
 "lUq" = (
 /obj/item/reagent_containers/food/drinks/bottle/whiskey{
 	pixel_x = -5;
@@ -37534,7 +37523,6 @@
 /turf/open/floor/plasteel,
 /area/commons/dorms)
 "nkZ" = (
-/obj/machinery/light/directional/north,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/spawner/lootdrop/gross_decal_spawner,
 /turf/open/floor/plating,
@@ -40784,6 +40772,14 @@
 /obj/structure/railing,
 /turf/open/openspace,
 /area/maintenance/aft/upper)
+"oDE" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Maintenance Hatch";
+	req_access_txt = "12"
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/crew_quarters/dorms)
 "oEq" = (
 /obj/structure/rack,
 /obj/effect/turf_decal/bot,
@@ -41329,6 +41325,11 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/plating,
 /area/maintenance/department/medical)
+"oOv" = (
+/obj/structure/pool_ladder,
+/obj/effect/turf_decal/weather/side,
+/turf/open/indestructible/pool/end,
+/area/commons/dorms)
 "oOD" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer4{
@@ -51687,6 +51688,18 @@
 	},
 /turf/open/floor/plating,
 /area/science/research)
+"sHJ" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/effect/turf_decal/pool{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/commons/dorms)
 "sHS" = (
 /obj/structure/chair,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -53180,7 +53193,6 @@
 	},
 /area/maintenance/department/medical/central)
 "tjr" = (
-/obj/machinery/pool_filter,
 /obj/effect/turf_decal/weather/side,
 /turf/open/indestructible/pool/end,
 /area/commons/dorms)
@@ -54520,11 +54532,11 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Maintenance Hatch";
-	req_access_txt = "12;73"
+	req_access_txt = "12"
 	},
-/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/department/crew_quarters/dorms)
 "tKT" = (
@@ -55809,6 +55821,12 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/commons/dorms/two)
+"umk" = (
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/turf/open/openspace,
+/area/hallway/primary/upper)
 "umE" = (
 /obj/structure/shuttle/engine/router,
 /turf/open/floor/plating,
@@ -59334,10 +59352,6 @@
 /obj/machinery/holopad,
 /turf/open/floor/plasteel/white,
 /area/science/genetics)
-"vDG" = (
-/obj/effect/turf_decal/weather/side,
-/turf/open/indestructible/pool/end,
-/area/commons/dorms)
 "vDK" = (
 /obj/effect/turf_decal/stripes/white/line{
 	color = "#52B4E9";
@@ -59630,12 +59644,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
-"vJA" = (
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/turf/open/openspace,
-/area/hallway/primary/upper)
 "vJD" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning,
 /obj/structure/cable,
@@ -66495,11 +66503,6 @@
 /obj/effect/mapping_helpers/airlock/abandoned,
 /turf/open/floor/plating,
 /area/maintenance/fore/upper)
-"ydj" = (
-/obj/structure/pool_ladder,
-/obj/effect/turf_decal/weather/side,
-/turf/open/indestructible/pool/end,
-/area/commons/dorms)
 "ydn" = (
 /obj/structure/grille,
 /obj/structure/window,
@@ -84779,7 +84782,7 @@ ylQ
 ylQ
 rmn
 upt
-tjr
+bBK
 gvQ
 xMm
 xMm
@@ -85036,7 +85039,7 @@ tIB
 tIB
 wFg
 upt
-vDG
+tjr
 xMm
 xMm
 xMm
@@ -85293,13 +85296,13 @@ vDD
 vDD
 uFa
 upt
-ydj
+oOv
 xMm
 xMm
 xMm
 xMm
 xMm
-fom
+lUp
 uFa
 xbC
 pCT
@@ -85550,7 +85553,7 @@ hTM
 hTM
 hTM
 upt
-vDG
+tjr
 xMm
 xMm
 xMm
@@ -85807,7 +85810,7 @@ mBO
 mBO
 hTM
 upt
-vDG
+tjr
 xMm
 xMm
 xMm
@@ -86064,8 +86067,8 @@ glg
 lAV
 nrE
 oPk
-his
-his
+sHJ
+sHJ
 dVD
 sIg
 bza
@@ -86351,7 +86354,7 @@ vYu
 nzs
 wUB
 qJJ
-dAT
+oDE
 skv
 bzi
 xQR
@@ -88655,7 +88658,7 @@ xsz
 wYO
 eGN
 een
-bBK
+mmo
 mLe
 iJn
 xgb
@@ -98402,7 +98405,7 @@ uMt
 xWL
 xWL
 xWL
-vJA
+umk
 xWL
 xWL
 xWL
@@ -98659,7 +98662,7 @@ xWL
 xWL
 xWL
 xWL
-vJA
+umk
 xWL
 xWL
 xWL
@@ -98916,7 +98919,7 @@ xWL
 xWL
 xWL
 xWL
-vJA
+umk
 xWL
 xWL
 xWL
@@ -99173,7 +99176,7 @@ xWL
 xWL
 xWL
 xWL
-vJA
+umk
 xWL
 xWL
 xWL
@@ -99430,7 +99433,7 @@ hzp
 xWL
 xWL
 xWL
-vJA
+umk
 xWL
 xWL
 xWL
