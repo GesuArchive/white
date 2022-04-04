@@ -383,7 +383,7 @@ GLOBAL_LIST_INIT(power_logger_list, list())
 	var/dat = "<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"></head>"
 
 	for(var/poweruser in GLOB.power_logger_list)
-		dat += "[GLOB.power_logger_list[poweruser]] - [poweruser]W"
+		dat += "[GLOB.power_logger_list[poweruser]]W - [poweruser]"
 		dat += "<br>"
 
 	usr << browse(dat, "window=power_users")
