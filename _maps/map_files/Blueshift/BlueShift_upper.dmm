@@ -1300,7 +1300,9 @@
 /turf/open/floor/plating,
 /area/maintenance/department/eva)
 "alz" = (
-/obj/structure/transit_tube/crossing/horizontal,
+/obj/structure/transit_tube/curved{
+	dir = 8
+	},
 /turf/open/floor/plasteel/elevatorshaft{
 	initial_gas_mix = "TEMP=2.7";
 	turf_height = 0
@@ -2996,11 +2998,11 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/aisat/hallway)
 "aCG" = (
-/obj/structure/transit_tube/curved/flipped{
-	dir = 8
-	},
-/turf/open/floor/engine/hull,
-/area/space/nearstation)
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/abandoned,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/maintenance/fore/upper)
 "aCV" = (
 /obj/effect/spawner/lootdrop/maintenance,
 /obj/effect/decal/cleanable/dirt,
@@ -17710,16 +17712,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/command)
-"fKo" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/open/floor/plasteel/dark,
-/area/ai_monitored/turret_protected)
 "fKz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -24510,11 +24502,14 @@
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "itm" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/abandoned,
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating,
-/area/maintenance/fore/upper)
+/obj/structure/transit_tube/diagonal{
+	dir = 4
+	},
+/turf/open/floor/plasteel/elevatorshaft{
+	initial_gas_mix = "TEMP=2.7";
+	turf_height = 0
+	},
+/area/space/nearstation)
 "itq" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -27586,16 +27581,6 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/plating,
 /area/maintenance/department/medical)
-"jzS" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/open/floor/plasteel/dark,
-/area/ai_monitored/turret_protected)
 "jAb" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -34750,7 +34735,6 @@
 /turf/closed/wall/mineral/wood,
 /area/commons/dorms)
 "miB" = (
-/obj/structure/window/reinforced,
 /obj/structure/transit_tube/curved{
 	dir = 4
 	},
@@ -38133,7 +38117,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/transit_tube/station/dispenser/flipped{
+/obj/structure/transit_tube/station/reverse{
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
@@ -43098,10 +43082,10 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 1
 	},
+/obj/structure/transit_tube/station/reverse/flipped,
 /obj/structure/transit_tube_pod{
 	dir = 8
 	},
-/obj/structure/transit_tube/station/dispenser/reverse/flipped,
 /turf/open/floor/plating,
 /area/engineering/transit_tube)
 "pus" = (
@@ -43736,14 +43720,15 @@
 	},
 /area/command/gateway)
 "pGq" = (
-/obj/structure/transit_tube/curved{
+/obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/open/floor/plasteel/elevatorshaft{
-	initial_gas_mix = "TEMP=2.7";
-	turf_height = 0
+/obj/structure/window/reinforced{
+	dir = 4
 	},
-/area/space/nearstation)
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected)
 "pGw" = (
 /obj/structure/bed,
 /obj/machinery/iv_drip,
@@ -47922,9 +47907,6 @@
 "rne" = (
 /obj/structure/window/reinforced{
 	dir = 4
-	},
-/obj/structure/transit_tube/curved/flipped{
-	dir = 1
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
@@ -53467,11 +53449,15 @@
 /turf/open/floor/plasteel/white,
 /area/medical/surgery/room_c)
 "tpq" = (
-/obj/structure/transit_tube/junction{
+/obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/open/floor/engine/hull,
-/area/space/nearstation)
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected)
 "tpD" = (
 /obj/machinery/space_heater,
 /obj/effect/turf_decal/delivery,
@@ -59721,12 +59707,6 @@
 /obj/structure/noticeboard/directional/south,
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
-"vKE" = (
-/obj/structure/transit_tube/diagonal{
-	dir = 4
-	},
-/turf/open/floor/engine/hull,
-/area/space/nearstation)
 "vKW" = (
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
@@ -60320,11 +60300,6 @@
 /obj/item/storage/backpack/duffelbag/med/surgery,
 /turf/open/floor/plasteel,
 /area/medical/surgery/room_c)
-"vTe" = (
-/obj/structure/transit_tube/diagonal,
-/obj/structure/cable,
-/turf/open/floor/engine/hull,
-/area/space/nearstation)
 "vTr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -94527,7 +94502,7 @@ vDD
 tXL
 xto
 tXL
-itm
+aCG
 tXL
 xto
 tXL
@@ -97017,7 +96992,7 @@ lKS
 lKS
 lKS
 vzB
-fKo
+pGq
 lKS
 lKS
 lKS
@@ -97265,7 +97240,7 @@ ibj
 sZP
 ufl
 gOR
-fKo
+pGq
 lKS
 lKS
 xDh
@@ -97286,7 +97261,7 @@ lKS
 vzB
 lKS
 lKS
-fKo
+pGq
 jOh
 aSr
 sqr
@@ -100860,10 +100835,10 @@ oXZ
 vOj
 vOj
 wdB
-miB
+wOv
 ajG
 ude
-jzS
+tpq
 lOJ
 lOJ
 tPX
@@ -100884,7 +100859,7 @@ lOJ
 kJG
 lOJ
 lOJ
-jzS
+tpq
 bMI
 kje
 vhr
@@ -101117,7 +101092,7 @@ alz
 sTI
 cAm
 ifB
-sAo
+xNt
 vOj
 vOj
 vOj
@@ -101129,7 +101104,7 @@ lOJ
 lOJ
 lOJ
 kJG
-jzS
+tpq
 lOJ
 lOJ
 lOJ
@@ -101370,11 +101345,11 @@ sTI
 sTI
 sTI
 sTI
-pGq
 sTI
+itm
 xNt
 ifB
-aCG
+xNt
 xNt
 xNt
 xNt
@@ -101628,9 +101603,9 @@ sTI
 sTI
 sTI
 xNt
-vKE
 xNt
-vTe
+miB
+ifB
 xNt
 xNt
 xNt
@@ -101886,7 +101861,7 @@ sTI
 sTI
 sTI
 xNt
-tpq
+lFS
 ifB
 xNt
 xNt
