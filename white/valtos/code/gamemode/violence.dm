@@ -47,12 +47,6 @@ GLOBAL_LIST_EMPTY(violence_players)
 	announce_text = "Резня!"
 
 /datum/game_mode/violence/pre_setup()
-	// меняем тему в лобби на задорную
-	SSticker.login_music = sound('white/valtos/sounds/menue.ogg')
-	for(var/client/C in GLOB.clients)
-		if(isnewplayer(C.mob))
-			C.mob.stop_sound_channel(CHANNEL_LOBBYMUSIC)
-			C.playtitlemusic()
 	// генерируем штуки для закупа
 	generate_violence_gear()
 	// делаем датумы игроков на всякий случай
@@ -545,7 +539,29 @@ GLOBAL_LIST_EMPTY(violence_players)
 				if(9 to 10)
 					S = 'white/valtos/sounds/battle_fuck.ogg'
 		if("cyber")
-			S = 'white/valtos/sounds/cyberjockey.ogg'
+			switch(GLOB.violence_current_round)
+				if(1 to 2)
+					S = 'white/valtos/sounds/cyberjockey.ogg'
+				if(3 to 4)
+					S = 'white/valtos/sounds/hex2.ogg'
+				if(5 to 6)
+					S = 'white/valtos/sounds/hex3.ogg'
+				if(7 to 8)
+					S = 'white/valtos/sounds/hex4.ogg'
+				if(9 to 10)
+					S = 'white/valtos/sounds/hex5.ogg'
+		if("warfare")
+			switch(GLOB.violence_current_round)
+				if(1 to 2)
+					S = 'white/valtos/sounds/tar1.ogg'
+				if(3 to 4)
+					S = 'white/valtos/sounds/tar2.ogg'
+				if(5 to 6)
+					S = 'white/valtos/sounds/tar3ogg'
+				if(7 to 8)
+					S = 'white/valtos/sounds/tar4.ogg'
+				if(9 to 10)
+					S = 'white/valtos/sounds/tar5.ogg'
 
 	if(S)
 		SEND_SOUND(L, sound(S, repeat = 1, wait = 0, volume = 25, channel = CHANNEL_VIOLENCE_MODE))
@@ -574,6 +590,20 @@ GLOBAL_LIST_EMPTY(violence_players)
 	current_map = pickweight(maplist)
 
 	GLOB.violence_music_theme = current_map.theme
+
+	// меняем тему в лобби на задорную
+	switch(GLOB.violence_music_theme)
+		if("std")
+			SSticker.login_music = sound('white/valtos/sounds/menue.ogg')
+		if("warfare")
+			SSticker.login_music = sound('white/valtos/sounds/cd.ogg')
+		if("cyber")
+			SSticker.login_music = sound('white/valtos/sounds/hexgrips.ogg')
+
+	for(var/client/C in GLOB.clients)
+		if(isnewplayer(C.mob))
+			C.mob.stop_sound_channel(CHANNEL_LOBBYMUSIC)
+			C.playtitlemusic()
 
 	if(!spawn_area)
 		CRASH("No spawn area detected for Violence!")
@@ -611,6 +641,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 	mappath = "_maps/map_files/Warfare/violence3.dmm"
 	weight = 4
 	max_players = 64
+	theme = "warfare"
 
 /datum/map_template/violence/de_dust2
 	name = "de_dust2"
@@ -618,6 +649,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 	mappath = "_maps/map_files/Warfare/violence4.dmm"
 	weight = 2
 	max_players = 64
+	theme = "warfare"
 
 /datum/map_template/violence/dunes
 	name = "Дюны"
@@ -630,8 +662,8 @@ GLOBAL_LIST_EMPTY(violence_players)
 	name = "Киберпространство"
 	description = "Поиграем? Наши киберкотлеты готовы к бою!"
 	mappath = "_maps/map_files/Warfare/violence6.dmm"
-	weight = 2
-	max_players = 64
+	weight = 6
+	max_players = 16
 	theme = "cyber"
 
 /datum/violence_player
@@ -738,21 +770,8 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 1200
 	items = list(/obj/item/melee/sabre/german)
 
-/datum/violence_gear/melee/energy_sabre
-	name = "Энергомеч"
-	cost = 3500
-	items = list(/obj/item/melee/energy/sword/saber)
-
 /datum/violence_gear/pistol
 	cat = "Пистолеты"
-
-/datum/violence_gear/pistol/handmade
-	name = "Самодельный"
-	cost = 800
-	items = list(
-		/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/handmade,
-		/obj/item/ammo_box/magazine/fallout/m9mm
-	)
 
 /datum/violence_gear/pistol/m1911
 	name = "M1911"
@@ -788,22 +807,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle
 	cat = "Винтовки"
-
-/datum/violence_gear/rifle/kar98k
-	name = "Болтовка"
-	cost = 1500
-	items = list(
-		/obj/item/gun/ballistic/rifle/boltaction/kar98k,
-		/obj/item/ammo_box/n792x57
-	)
-
-/datum/violence_gear/rifle/mini_uzi
-	name = "U3 Uzi"
-	cost = 1750
-	items = list(
-		/obj/item/gun/ballistic/automatic/mini_uzi,
-		/obj/item/ammo_box/magazine/uzim9mm
-	)
 
 /datum/violence_gear/rifle/scope
 	name = "Болтовка с оптикой"
@@ -896,14 +899,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 /datum/violence_gear/armor
 	cat = "Броня"
 
-/datum/violence_gear/armor/durathread
-	name = "Бомжпакет"
-	cost = 250
-	items = list(
-		/obj/item/clothing/suit/armor/vest/durathread,
-		/obj/item/clothing/head/beret/durathread
-	)
-
 /datum/violence_gear/armor/basic
 	name = "Бронежилет"
 	cost = 650
@@ -935,17 +930,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		/obj/item/clothing/shoes/combat
 	)
 
-/datum/violence_gear/armor/heavy
-	name = "Тяжёлый спецназ"
-	cost = 1450
-	items = list(
-		/obj/item/clothing/head/helmet/maska/altyn/black,
-		/obj/item/clothing/mask/gas/sechailer/swat,
-		/obj/item/clothing/suit/armor/heavysobr,
-		/obj/item/clothing/gloves/combat/sobr,
-		/obj/item/clothing/shoes/combat/swat
-	)
-
 /datum/violence_gear/armor/deathsquad
 	name = "Дедушка"
 	cost = 2500
@@ -954,16 +938,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		/obj/item/clothing/gloves/tackler/combat/insulated,
 		/obj/item/clothing/glasses/hud/toggle/thermal,
 		/obj/item/clothing/mask/gas/sechailer/swat,
-		/obj/item/clothing/shoes/combat/swat
-	)
-
-/datum/violence_gear/armor/shielded
-	name = "Силовой"
-	cost = 5000
-	items = list(
-		/obj/item/clothing/suit/space/hardsuit/shielded/syndi,
-		/obj/item/clothing/mask/gas/sechailer/swat,
-		/obj/item/clothing/gloves/tackler/combat/insulated,
 		/obj/item/clothing/shoes/combat/swat
 	)
 
@@ -997,11 +971,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "Солнцезащитные"
 	cost = 350
 	items = list(/obj/item/clothing/glasses/sunglasses)
-
-/datum/violence_gear/misc/flashbang
-	name = "Светошумовая"
-	cost = 450
-	items = list(/obj/item/grenade/flashbang)
 
 /datum/violence_gear/misc/teargas
 	name = "Перцовый газ"
