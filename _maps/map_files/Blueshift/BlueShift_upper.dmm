@@ -14017,7 +14017,7 @@
 "enA" = (
 /obj/machinery/camera{
 	c_tag = "Command Hallway - Central Port";
-	dir = 9
+	dir = 4
 	},
 /turf/open/floor/plasteel/stairs/left,
 /area/hallway/secondary/command)

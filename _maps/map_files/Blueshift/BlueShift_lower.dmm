@@ -21732,7 +21732,7 @@
 	name = "Lockdown"
 	},
 /obj/machinery/button/door{
-	id = "prisonlockdown1";
+	id = "prisonlockdown2";
 	name = "Lockdown";
 	pixel_x = -24;
 	req_access_txt = "63"
