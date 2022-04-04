@@ -25597,8 +25597,8 @@
 	dwidth = 3;
 	height = 5;
 	id = "commonmining_home";
-	name = "SS13: Common Mining Dock";
-	roundstart_template = /datum/map_template/shuttle/mining_common/skyrat;
+	name = "NT SS13: Public Mining Dock";
+	roundstart_template = /datum/map_template/shuttle/mining_common/meta;
 	width = 7
 	},
 /turf/open/space/basic,
