@@ -9,6 +9,8 @@
 	new /obj/item/storage/lockbox/medal/cargo(src)
 	new /obj/item/clothing/under/rank/cargo/qm(src)
 	new /obj/item/clothing/under/rank/cargo/qm/skirt(src)
+	new /obj/item/clothing/under/utility/cargo/gorka/head(src)
+	new /obj/item/clothing/under/utility/cargo/turtleneck/head(src)
 	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/radio/headset/headset_cargo(src)
 	new /obj/item/clothing/suit/fire/firefighter(src)

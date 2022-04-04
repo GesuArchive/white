@@ -137,13 +137,16 @@
 	products = list(/obj/item/storage/bag/mail = 3,
 					/obj/item/clothing/suit/hooded/wintercoat/cargo = 3,
 					/obj/item/clothing/under/rank/cargo/tech = 3,
+					/obj/item/clothing/under/misc/cargo_long = 3,
 					/obj/item/clothing/under/utility/cargo/gorka = 3,
+					/obj/item/clothing/suit/gorka/supply = 3,
 					/obj/item/clothing/under/utility/cargo/turtleneck = 3,
 					/obj/item/clothing/under/rank/cargo/tech/skirt = 3,
 					/obj/item/clothing/shoes/sneakers/black = 3,
 					/obj/item/clothing/gloves/fingerless = 3,
 					/obj/item/clothing/head/beret/cargo = 3,
 					/obj/item/clothing/head/soft = 3,
+					/obj/item/clothing/under/utility/cargo = 3,
 					/obj/item/radio/headset/headset_cargo = 3)
 	premium = list(
 					/obj/item/clothing/under/rank/cargo/miner = 3,
