@@ -8720,6 +8720,7 @@
 	name = "MiniSat Turret Chamber";
 	req_one_access_txt = "65"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai)
 "cpe" = (
@@ -12293,6 +12294,7 @@
 	req_one_access_txt = "65"
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai)
 "dHh" = (
@@ -17708,6 +17710,16 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/command)
+"fKo" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected)
 "fKz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -23564,6 +23576,7 @@
 	req_one_access_txt = "32;19"
 	},
 /obj/structure/cable,
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected)
 "ibl" = (
@@ -24496,6 +24509,12 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
+"itm" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/abandoned,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/maintenance/fore/upper)
 "itq" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -24617,6 +24636,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/engine,
 /area/ai_monitored/turret_protected/ai)
 "iwq" = (
@@ -27566,6 +27586,16 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/plating,
 /area/maintenance/department/medical)
+"jzS" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected)
 "jAb" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -27951,6 +27981,7 @@
 	name = "MiniSat Space Access Airlock";
 	req_one_access_txt = "32;19"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected)
 "jIP" = (
@@ -35199,6 +35230,7 @@
 "mrP" = (
 /obj/structure/chair/sofa/left,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/light_switch/directional/east,
 /turf/open/floor/wood,
 /area/commons/dorms/two)
 "msd" = (
@@ -36653,6 +36685,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/aisat_interior)
 "mUh" = (
@@ -45980,6 +46013,7 @@
 	pixel_x = -1;
 	pixel_y = 5
 	},
+/obj/machinery/light_switch/directional/west,
 /turf/open/floor/wood,
 /area/commons/dorms/one)
 "qCx" = (
@@ -50502,6 +50536,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/engine,
 /area/ai_monitored/turret_protected/aisat_interior)
 "smy" = (
@@ -53634,6 +53669,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/aisat_interior)
 "ttg" = (
@@ -57779,6 +57815,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/aisat_interior)
 "uWC" = (
@@ -65894,6 +65931,7 @@
 	req_one_access_txt = "32;19"
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/aisat_interior)
 "xRN" = (
@@ -94489,7 +94527,7 @@ vDD
 tXL
 xto
 tXL
-ydi
+itm
 tXL
 xto
 tXL
@@ -96979,7 +97017,7 @@ lKS
 lKS
 lKS
 vzB
-lKS
+fKo
 lKS
 lKS
 lKS
@@ -97227,7 +97265,7 @@ ibj
 sZP
 ufl
 gOR
-lKS
+fKo
 lKS
 lKS
 xDh
@@ -97248,7 +97286,7 @@ lKS
 vzB
 lKS
 lKS
-lKS
+fKo
 jOh
 aSr
 sqr
@@ -100825,7 +100863,7 @@ wdB
 miB
 ajG
 ude
-lOJ
+jzS
 lOJ
 lOJ
 tPX
@@ -100846,7 +100884,7 @@ lOJ
 kJG
 lOJ
 lOJ
-lOJ
+jzS
 bMI
 kje
 vhr
@@ -101091,7 +101129,7 @@ lOJ
 lOJ
 lOJ
 kJG
-lOJ
+jzS
 lOJ
 lOJ
 lOJ
