@@ -396,7 +396,44 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/hallway/primary/upper
 	name = "Коридоры: Верхние центральные"
 	icon_state = "hallC"
+// this one used at blueshift
+/area/hallway/primary/blueshift/plasmaman
+	name = "Коридоры: Магазин плазмаменов"
+	icon_state = "hallC" // mnee
 
+/area/commons/dorms/sauna
+	name = "Зона отдыха: Сауна" // pohui
+
+/area/maintenance/department/electrical/two
+	name = "Техтоннели: Второе обслуживание"
+
+/area/security/prison/sauna
+	name = "Тюрьма: Сауна"
+
+/area/maintenance/port/central/west
+	name = "Техтоннели: Центральные-западные"
+	icon_state = "maintcentral"
+
+/area/maintenance/port/central/north
+	name = "Техтоннели: Центральные-северные"
+	icon_state = "maintcentral"
+
+/area/maintenance/port/northwest
+	name = "Техтоннели: Северо-западные"
+	icon_state = "maintcentral"
+
+/area/maintenance/port/southwest
+	name = "Техтоннели: Юго-западные"
+	icon_state = "maintcentral"
+
+/area/maintenance/port/north
+	name = "Техтоннели: Северные"
+	icon_state = "maintcentral"
+
+/area/maintenance/starboard/engineering
+	name = "Техтоннели: Двигатель"
+	icon_state = "maintcentral"
+//
 /area/hallway/primary/tram
 	name = "Коридоры: Метро"
 
