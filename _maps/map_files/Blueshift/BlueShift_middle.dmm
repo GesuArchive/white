@@ -7949,8 +7949,8 @@
 "cuc" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/mob/living/simple_animal/pet/dog,
 /obj/machinery/holopad,
+/mob/living/simple_animal/pet/dog/corgi/pig,
 /turf/open/floor/plasteel,
 /area/cargo/office)
 "cuh" = (
