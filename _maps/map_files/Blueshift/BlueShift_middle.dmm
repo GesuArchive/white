@@ -32255,9 +32255,6 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
-"mtb" = (
-/turf/open/openspace/airless,
-/area/maintenance/starboard/central)
 "mth" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -104211,7 +104208,7 @@ yjA
 ijj
 wNW
 yjA
-mtb
+yjA
 osD
 nEs
 nEs

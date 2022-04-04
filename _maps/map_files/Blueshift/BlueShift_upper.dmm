@@ -7110,7 +7110,7 @@
 /obj/effect/turf_decal/stripes{
 	dir = 9
 	},
-/turf/open/floor/engine/hull/oxy,
+/turf/open/floor/plating,
 /area/maintenance/department/science)
 "bOn" = (
 /obj/structure/filingcabinet/medical,
@@ -24496,9 +24496,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
-"itm" = (
-/turf/open/floor/engine/hull/oxy,
-/area/maintenance/department/science)
 "itq" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -36765,7 +36762,7 @@
 /obj/effect/turf_decal/stripes{
 	dir = 5
 	},
-/turf/open/floor/engine/hull/oxy,
+/turf/open/floor/plating,
 /area/maintenance/department/science)
 "mXo" = (
 /obj/effect/turf_decal/siding/wood{
@@ -46861,7 +46858,7 @@
 /obj/effect/turf_decal/stripes{
 	dir = 10
 	},
-/turf/open/floor/engine/hull/oxy,
+/turf/open/floor/plating,
 /area/maintenance/department/science)
 "qTw" = (
 /obj/effect/decal/cleanable/dirt,
@@ -54953,7 +54950,7 @@
 /obj/effect/turf_decal/stripes{
 	dir = 6
 	},
-/turf/open/floor/engine/hull/oxy,
+/turf/open/floor/plating,
 /area/maintenance/department/science)
 "tVX" = (
 /obj/machinery/door/airlock/medical/glass{
@@ -107969,7 +107966,7 @@ yeK
 yeK
 yeK
 yeK
-itm
+yeK
 yck
 yck
 yck
