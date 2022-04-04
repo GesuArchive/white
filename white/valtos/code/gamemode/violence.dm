@@ -557,7 +557,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 				if(3 to 4)
 					S = 'white/valtos/sounds/tar2.ogg'
 				if(5 to 6)
-					S = 'white/valtos/sounds/tar3ogg'
+					S = 'white/valtos/sounds/tar3.ogg'
 				if(7 to 8)
 					S = 'white/valtos/sounds/tar4.ogg'
 				if(9 to 10)
