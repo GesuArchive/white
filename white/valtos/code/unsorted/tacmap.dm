@@ -6,7 +6,7 @@
 			var/turf/T = locate(xx, yy, map_z)
 			if(isspaceturf(T) || isopenspace(T))
 				if(locate(/obj/structure/lattice) in T)
-					tacmap_icon.DrawBox(rgb(225, 225, 225), xx, yy, xx, yy)
+					tacmap_icon.DrawBox(rgb(99, 150, 99), xx, yy, xx, yy)
 				continue
 			if(isopenturf(T))
 				if(isplatingturf(T))
@@ -15,12 +15,12 @@
 					else if(locate(/obj/machinery/door) in T)
 						tacmap_icon.DrawBox(rgb(255, 0, 0), xx, yy, xx, yy)
 					else
-						tacmap_icon.DrawBox(rgb(200, 200, 200), xx, yy, xx, yy)
+						tacmap_icon.DrawBox(rgb(99, 150, 99), xx, yy, xx, yy)
 					continue
-				tacmap_icon.DrawBox(rgb(225, 225, 225), xx, yy, xx, yy)
+				tacmap_icon.DrawBox(rgb(99, 175, 99), xx, yy, xx, yy)
 				continue
 			if(isclosedturf(T))
-				tacmap_icon.DrawBox(rgb(255, 255, 255), xx, yy, xx, yy)
+				tacmap_icon.DrawBox(rgb(99, 255, 99), xx, yy, xx, yy)
 	return tacmap_icon
 
 /proc/gen_tacmap_areas(map_z = 2)
