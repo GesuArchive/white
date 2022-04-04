@@ -95,6 +95,11 @@
 /obj/machinery/proc/use_power(amount, chan = power_channel)
 	var/area/A = get_area(src) // make sure it's in an area
 	A?.use_power(amount, chan)
+	if(GLOB.power_logger_active)
+		if(GLOB.power_logger_list[src.name])
+			GLOB.power_logger_list[src.name] += amount
+		else
+			GLOB.power_logger_list[src.name] = amount
 
 /**
  * An alternative to 'use_power', this proc directly costs the APC in direct charge, as opposed to being calculated periodically.

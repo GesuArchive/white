@@ -43,6 +43,8 @@ GLOBAL_LIST_INIT(admin_verbs_debug_mapping, list(
 	/datum/admins/proc/show_traitor_panel,
 	/client/proc/disable_communication,
 	/client/proc/cmd_show_at_list,
+	/client/proc/cmd_switch_power_logging,
+	/client/proc/cmd_show_power_logging,
 	/client/proc/cmd_show_at_markers,
 	/client/proc/manipulate_organs,
 	/client/proc/start_line_profiling,
@@ -153,7 +155,7 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 	set name = "Show roundstart AT list"
 	set desc = "Displays a list of active turfs coordinates at roundstart"
 
-	var/dat = {"<b>Coordinate list of Active Turfs at Roundstart</b>
+	var/dat = {"<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"></head><b>Coordinate list of Active Turfs at Roundstart</b>
 		<br>Real-time Active Turfs list you can see in Air Subsystem at active_turfs var<br>"}
 
 	for(var/t in GLOB.active_turfs_startlist)
@@ -360,3 +362,30 @@ GLOBAL_VAR_INIT(say_disabled, FALSE)
 	messages += "</table>"
 
 	to_chat(src, messages.Join(""))
+
+GLOBAL_VAR_INIT(power_logger_active, FALSE)
+GLOBAL_LIST_INIT(power_logger_list, list())
+
+/client/proc/cmd_switch_power_logging()
+	set category = "Маппинг"
+	set name = "Switch Power Logging"
+	set desc = "fucker"
+
+	GLOB.power_logger_active = !GLOB.power_logger_active
+
+	message_admins("[key] [GLOB.power_logger_active ? "включает" : "отключает"] логгирование энергопотребителей.")
+
+/client/proc/cmd_show_power_logging()
+	set category = "Маппинг"
+	set name = "Show Power Logging"
+	set desc = "cocker"
+
+	var/dat = "<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"></head>"
+
+	for(var/poweruser in GLOB.power_logger_list)
+		dat += "[GLOB.power_logger_list[poweruser]] - [poweruser]W"
+		dat += "<br>"
+
+	usr << browse(dat, "window=power_users")
+
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Power Logging") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
