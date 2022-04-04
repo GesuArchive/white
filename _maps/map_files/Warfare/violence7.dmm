@@ -1,7 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ax" = (
-/obj/structure/rospilovo/vanna,
-/turf/open/floor/grass/rospilovo,
+/turf/open/floor/rospilovo/plitka/old,
 /area/violence)
 "aP" = (
 /obj/effect/turf_decal/siding/white{
@@ -12,6 +11,20 @@
 	},
 /turf/open/floor/rospilovo,
 /area/violence)
+"bq" = (
+/obj/structure/rospilovo/battery{
+	dir = 8;
+	icon_state = "gazovaya_truba"
+	},
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"bs" = (
+/obj/structure/mineral_door/wood{
+	color = "#aaaaaa";
+	name = "деревянная дверь"
+	},
+/turf/open/floor/rospilovo/wood,
+/area/violence)
 "cc" = (
 /obj/effect/landmark/start/combatant/blue,
 /obj/effect/turf_decal/siding/white{
@@ -19,23 +32,23 @@
 	},
 /turf/open/floor/rospilovo,
 /area/violence)
+"cC" = (
+/obj/structure/rospilovo/yashik,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"cT" = (
+/obj/structure/rospilovo/doski/doski4,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
 "dg" = (
 /obj/structure/rospilovo/tree{
 	icon_state = "derevo5"
 	},
 /turf/open/floor/grass/rospilovo,
 /area/violence)
-"dw" = (
-/obj/structure/deployable_barricade/metal{
-	dir = 1
-	},
-/turf/open/floor/grass/rospilovo,
-/area/violence)
-"dC" = (
-/obj/structure/rospilovo/bar_plitka{
-	icon_state = "bar_plate3"
-	},
-/turf/open/floor/grass/rospilovo,
+"dA" = (
+/obj/structure/rospilovo/tree,
+/turf/open/floor/grass/gensgrass/dirty,
 /area/violence)
 "dU" = (
 /obj/structure/deployable_barricade/sandbags{
@@ -48,9 +61,25 @@
 	icon_state = "plita4"
 	},
 /area/violence)
-"ex" = (
+"ed" = (
 /obj/structure/rospilovo/doski/doski4,
+/obj/structure/rospilovo/doski,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"ex" = (
+/turf/template_noop,
+/area/template_noop)
+"eA" = (
+/obj/structure/rospilovo/vanna,
+/turf/open/floor/rospilovo/plitka/old,
+/area/violence)
+"eB" = (
+/obj/structure/rospilovo/musor_yashik/red,
 /turf/open/floor/grass/rospilovo,
+/area/violence)
+"eO" = (
+/obj/structure/rospilovo/doski/doski2,
+/turf/open/floor/rospilovo/wood,
 /area/violence)
 "eV" = (
 /obj/machinery/door/poddoor/multi_tile/two_tile_hor{
@@ -62,18 +91,28 @@
 /turf/open/floor/rospilovo,
 /area/violence)
 "fw" = (
-/obj/effect/turf_decal/siding/white{
-	dir = 8
+/obj/effect/landmark/start/combatant/red,
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
 	},
-/obj/structure/rospilovo/doski,
-/obj/structure/deployable_barricade/sandbags,
-/turf/open/floor/rospilovo,
 /area/violence)
 "fI" = (
 /obj/structure/rospilovo/musor_yashik/green,
 /turf/open/floor/rospilovo/plitka{
 	icon_state = "plita4"
 	},
+/area/violence)
+"fP" = (
+/obj/structure/rospilovo/leest,
+/turf/open/floor/grass/rospilovo,
+/area/violence)
+"fS" = (
+/obj/structure/rospilovo/doski/doski3,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"gc" = (
+/obj/structure/rospilovo/yashik/yaskik_a/big,
+/turf/open/floor/rospilovo/plitka/old,
 /area/violence)
 "gh" = (
 /obj/effect/turf_decal/trimline/white/line{
@@ -89,8 +128,54 @@
 	},
 /turf/open/floor/rospilovo,
 /area/violence)
+"gB" = (
+/obj/structure/deployable_barricade/metal,
+/turf/open/floor/grass/gensgrass/dirty,
+/area/violence)
+"hc" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/obj/structure/rospilovo/doski/doski2,
+/turf/open/floor/rospilovo,
+/area/violence)
+"hf" = (
+/obj/structure/rospilovo/vanna,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"hn" = (
+/obj/structure/rospilovo/televizor/broken,
+/turf/open/floor/grass/gensgrass/dirty,
+/area/violence)
+"hu" = (
+/obj/structure/rospilovo/doski,
+/obj/structure/rospilovo/polka{
+	dir = 4;
+	icon_state = "polka"
+	},
+/turf/open/floor/rospilovo/wood,
+/area/violence)
 "hI" = (
 /turf/closed/indestructible/black,
+/area/violence)
+"if" = (
+/obj/item/chair/wood,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"iW" = (
+/obj/structure/rospilovo/bochka,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"jd" = (
+/obj/structure/rospilovo/battery{
+	dir = 4;
+	icon_state = "gazovaya_truba"
+	},
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"jO" = (
+/obj/structure/rospilovo/polka,
+/turf/open/floor/rospilovo/wood,
 /area/violence)
 "ka" = (
 /obj/structure/rospilovo/tree{
@@ -98,23 +183,49 @@
 	},
 /turf/open/floor/grass/rospilovo,
 /area/violence)
-"kV" = (
-/obj/structure/rospilovo/leest,
-/turf/open/floor/grass/rospilovo,
+"kf" = (
+/obj/structure/rospilovo/painting/lenin,
+/turf/closed/wall/rospilovo/bricks,
+/area/violence)
+"lT" = (
+/obj/structure/table/rospilovo,
+/obj/structure/rospilovo/televizor,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"ma" = (
+/obj/structure/rospilovo/bochka/red,
+/turf/open/floor/rospilovo/wood,
 /area/violence)
 "mk" = (
+/obj/effect/landmark/start/combatant/red,
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/turf/open/floor/rospilovo,
+/area/violence)
+"mn" = (
+/obj/effect/landmark/start/combatant/red,
+/turf/open/floor/rospilovo,
+/area/violence)
+"nc" = (
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 4;
+	icon_state = "trimline"
+	},
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 8;
+	icon_state = "trimline"
+	},
+/obj/effect/landmark/start/combatant/red,
+/turf/open/floor/rospilovo,
+/area/violence)
+"ny" = (
 /obj/structure/rospilovo/doski/doski3,
 /turf/open/floor/grass/rospilovo,
 /area/violence)
-"mn" = (
-/obj/structure/rospilovo/water/bochka/kap,
-/turf/open/floor/grass/rospilovo,
-/area/violence)
-"nc" = (
-/obj/structure/rospilovo/stolb,
-/turf/open/floor/rospilovo/plitka{
-	icon_state = "plita4"
-	},
+"nM" = (
+/obj/structure/rospilovo/yashik/yaskik_a,
+/turf/open/floor/rospilovo/plitka/old,
 /area/violence)
 "ob" = (
 /obj/effect/landmark/start/combatant/blue,
@@ -123,9 +234,9 @@
 	},
 /turf/open/floor/rospilovo,
 /area/violence)
-"ov" = (
-/obj/structure/deployable_barricade/metal,
-/turf/open/floor/grass/rospilovo,
+"oB" = (
+/obj/structure/rospilovo/switcher,
+/turf/closed/wall/rospilovo/bricks,
 /area/violence)
 "oI" = (
 /obj/structure/deployable_barricade/sandbags{
@@ -133,14 +244,16 @@
 	},
 /turf/open/floor/rospilovo,
 /area/violence)
+"oL" = (
+/obj/structure/fluff/rospilovo,
+/turf/open/floor/grass/rospilovo,
+/area/violence)
 "oR" = (
-/obj/structure/deployable_barricade/sandbags,
-/obj/structure/deployable_barricade/sandbags{
+/obj/effect/landmark/start/combatant/red,
+/obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
-/turf/open/floor/rospilovo/plitka{
-	icon_state = "plita4"
-	},
+/turf/open/floor/rospilovo,
 /area/violence)
 "pc" = (
 /turf/open/floor/grass/rospilovo,
@@ -154,6 +267,12 @@
 	icon_state = "plita4"
 	},
 /area/violence)
+"pR" = (
+/obj/structure/rospilovo/yashik,
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/violence)
 "qk" = (
 /obj/effect/turf_decal/trimline/white/line{
 	dir = 4;
@@ -163,8 +282,7 @@
 	dir = 8;
 	icon_state = "trimline"
 	},
-/obj/structure/deployable_barricade/sandbags,
-/turf/open/floor/rospilovo,
+/turf/closed/indestructible/black,
 /area/violence)
 "qn" = (
 /obj/structure/deployable_barricade/sandbags{
@@ -177,9 +295,26 @@
 	icon_state = "plita4"
 	},
 /area/violence)
+"qw" = (
+/obj/structure/deployable_barricade/metal,
+/turf/open/floor/rospilovo/plitka/full,
+/area/violence)
 "qx" = (
-/obj/structure/rospilovo/shina3,
+/obj/structure/rospilovo/bar_plitka{
+	icon_state = "bar_plate3"
+	},
 /turf/open/floor/grass/rospilovo,
+/area/violence)
+"sn" = (
+/obj/structure/rospilovo/televizor/broken,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"sw" = (
+/obj/structure/rospilovo/polka{
+	dir = 4;
+	icon_state = "polka"
+	},
+/turf/open/floor/rospilovo/wood,
 /area/violence)
 "sO" = (
 /obj/effect/landmark/start/combatant/blue,
@@ -193,9 +328,26 @@
 	},
 /turf/open/floor/grass/rospilovo,
 /area/violence)
+"ts" = (
+/obj/structure/rospilovo/water/bochka/kap,
+/turf/open/floor/rospilovo/plitka/old,
+/area/violence)
+"tu" = (
+/obj/structure/rospilovo/porog{
+	dir = 1;
+	icon_state = "porog1"
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/violence)
 "uk" = (
-/obj/structure/rospilovo/musor_yashik/red,
-/turf/open/floor/grass/rospilovo,
+/obj/structure/rospilovo/tree{
+	icon_state = "derevo5"
+	},
+/turf/open/floor/grass/gensgrass/dirty,
+/area/violence)
+"uW" = (
+/obj/structure/rospilovo/yashik,
+/turf/open/floor/rospilovo/plitka/old,
 /area/violence)
 "vk" = (
 /obj/structure/rospilovo/tree{
@@ -204,11 +356,36 @@
 /obj/structure/rospilovo/shina2,
 /turf/open/floor/grass/rospilovo,
 /area/violence)
-"xn" = (
-/obj/effect/landmark/start/combatant/red,
+"vz" = (
+/obj/structure/sink{
+	pixel_y = 32
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/violence)
+"xe" = (
+/obj/structure/rospilovo/stolb,
 /turf/open/floor/rospilovo/plitka{
 	icon_state = "plita4"
 	},
+/area/violence)
+"xn" = (
+/obj/structure/rospilovo/luk,
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/violence)
+"xx" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/grass/gensgrass/dirty,
+/area/violence)
+"xW" = (
+/obj/structure/rospilovo/komod,
+/obj/structure/rospilovo/cover{
+	pixel_y = 32
+	},
+/turf/open/floor/rospilovo/wood,
 /area/violence)
 "yC" = (
 /turf/open/floor/rospilovo,
@@ -219,9 +396,18 @@
 	},
 /turf/open/floor/rospilovo,
 /area/violence)
+"zx" = (
+/obj/structure/rospilovo/tree{
+	icon_state = "derevo3"
+	},
+/turf/open/floor/grass/gensgrass/dirty,
+/area/violence)
 "zJ" = (
-/obj/structure/rospilovo/doski/doski2,
-/turf/open/floor/grass/rospilovo,
+/turf/closed/wall/rospilovo/bricks,
+/area/violence)
+"zR" = (
+/obj/structure/rospilovo/yashik/yaskik_a/big,
+/turf/open/floor/rospilovo/wood,
 /area/violence)
 "Aw" = (
 /obj/machinery/door/poddoor/multi_tile/three_tile_hor{
@@ -235,6 +421,11 @@
 	},
 /turf/open/floor/grass/rospilovo,
 /area/violence)
+"BA" = (
+/obj/structure/bed,
+/obj/item/bedsheet/brown,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
 "Cn" = (
 /obj/structure/rospilovo/yashik,
 /turf/open/floor/grass/rospilovo,
@@ -244,29 +435,30 @@
 /turf/open/floor/grass/rospilovo,
 /area/violence)
 "Dh" = (
-/obj/effect/turf_decal/trimline/white/line{
-	dir = 4;
-	icon_state = "trimline"
-	},
-/obj/effect/turf_decal/trimline/white/line{
-	dir = 8;
-	icon_state = "trimline"
-	},
-/turf/closed/indestructible/black,
+/turf/open/floor/rospilovo/plitka/full,
 /area/violence)
 "Eg" = (
-/obj/structure/rospilovo/yashik,
-/turf/open/floor/rospilovo/plitka{
-	icon_state = "plita4"
-	},
+/obj/structure/rospilovo/shina3,
+/turf/open/floor/grass/rospilovo,
+/area/violence)
+"Fj" = (
+/obj/structure/table/rospilovo,
+/turf/open/floor/rospilovo/wood,
 /area/violence)
 "Fk" = (
-/obj/structure/rospilovo/water/luzha,
-/turf/open/floor/grass/rospilovo,
+/obj/structure/rospilovo/plita,
+/turf/open/floor/rospilovo/wood,
 /area/violence)
-"Fn" = (
-/obj/structure/rospilovo/shina,
-/turf/open/floor/grass/rospilovo,
+"FT" = (
+/obj/structure/chair/wood,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"Go" = (
+/obj/structure/rospilovo/polka{
+	dir = 8;
+	icon_state = "polka"
+	},
+/turf/open/floor/rospilovo/wood,
 /area/violence)
 "Gu" = (
 /obj/structure/rospilovo/yashik/yaskik_a/big,
@@ -286,19 +478,18 @@
 /turf/closed/wall/rospilovo/bricks_white,
 /area/violence)
 "Ha" = (
-/obj/effect/turf_decal/siding/white{
-	dir = 4
-	},
-/obj/structure/rospilovo/doski/doski2,
-/turf/open/floor/rospilovo,
+/obj/structure/rospilovo/vanna,
+/turf/open/floor/grass/rospilovo,
 /area/violence)
 "Hp" = (
-/obj/structure/deployable_barricade/sandbags,
-/turf/open/floor/rospilovo,
+/obj/structure/rospilovo/tree{
+	icon_state = "derevo4"
+	},
+/obj/structure/rospilovo/yashik,
+/turf/open/floor/grass/rospilovo,
 /area/violence)
 "HE" = (
-/obj/structure/fluff/rospilovo,
-/turf/open/floor/grass/rospilovo,
+/turf/open/floor/rospilovo/wood,
 /area/violence)
 "HI" = (
 /obj/machinery/door/poddoor/multi_tile/two_tile_hor{
@@ -308,17 +499,18 @@
 	icon_state = "plita4"
 	},
 /area/violence)
+"HW" = (
+/obj/structure/rospilovo/shkaf64,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
 "Ia" = (
-/obj/effect/turf_decal/trimline/white/line{
-	dir = 4;
-	icon_state = "trimline"
+/obj/structure/deployable_barricade/sandbags,
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
 	},
-/obj/effect/turf_decal/trimline/white/line{
-	dir = 8;
-	icon_state = "trimline"
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
 	},
-/obj/effect/landmark/start/combatant/red,
-/turf/open/floor/rospilovo,
 /area/violence)
 "Ib" = (
 /obj/structure/rospilovo/stolb,
@@ -335,11 +527,29 @@
 	},
 /turf/open/floor/rospilovo,
 /area/violence)
+"Ix" = (
+/obj/machinery/shower{
+	dir = 1;
+	icon_state = "shower"
+	},
+/obj/structure/curtain,
+/turf/open/floor/rospilovo/plitka/old,
+/area/violence)
+"IH" = (
+/obj/structure/rospilovo/tree{
+	icon_state = "derevo4"
+	},
+/turf/open/floor/grass/gensgrass/dirty,
+/area/violence)
 "IT" = (
 /obj/structure/rospilovo/tree{
 	icon_state = "derevo2"
 	},
 /turf/open/floor/grass/rospilovo,
+/area/violence)
+"IY" = (
+/obj/structure/rospilovo/truba,
+/turf/open/floor/rospilovo/wood,
 /area/violence)
 "Jh" = (
 /obj/structure/rospilovo/tree{
@@ -356,17 +566,30 @@
 	},
 /turf/open/floor/rospilovo,
 /area/violence)
+"JN" = (
+/obj/structure/rospilovo/broke_table/right,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"JU" = (
+/obj/structure/rospilovo/doski/doski4,
+/turf/open/floor/grass/rospilovo,
+/area/violence)
+"JY" = (
+/obj/structure/rospilovo/doski,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
 "KO" = (
-/obj/effect/landmark/start/combatant/red,
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/obj/structure/rospilovo/doski,
+/obj/structure/deployable_barricade/sandbags,
 /turf/open/floor/rospilovo,
 /area/violence)
 "KZ" = (
 /turf/closed/wall/rospilovo/bricks_white,
 /area/violence)
 "LC" = (
-/obj/effect/turf_decal/siding/white{
-	dir = 4
-	},
 /obj/structure/deployable_barricade/sandbags,
 /turf/open/floor/rospilovo,
 /area/violence)
@@ -375,54 +598,147 @@
 /turf/open/floor/grass/rospilovo,
 /area/violence)
 "LX" = (
-/obj/structure/rospilovo/luk,
-/turf/open/floor/rospilovo/plitka{
-	icon_state = "plita4"
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 4;
+	icon_state = "trimline"
 	},
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 8;
+	icon_state = "trimline"
+	},
+/obj/structure/deployable_barricade/sandbags,
+/turf/open/floor/rospilovo,
 /area/violence)
 "No" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
 /obj/structure/deployable_barricade/sandbags,
-/obj/structure/deployable_barricade/sandbags{
-	dir = 8
+/turf/open/floor/rospilovo,
+/area/violence)
+"Nv" = (
+/obj/structure/rospilovo/broke_table,
+/obj/structure/rospilovo/painting/gorbachev{
+	pixel_y = 32
 	},
-/turf/open/floor/rospilovo/plitka{
-	icon_state = "plita4"
-	},
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"NG" = (
+/obj/structure/rospilovo/shina,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"NN" = (
+/obj/structure/rospilovo/water/luzha,
+/turf/open/floor/grass/rospilovo,
 /area/violence)
 "NS" = (
 /obj/effect/landmark/start/combatant/blue,
 /turf/open/floor/rospilovo,
 /area/violence)
+"Pf" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/rospilovo/plitka/full,
+/area/violence)
 "PS" = (
 /obj/structure/rospilovo/tree,
 /turf/open/floor/grass/rospilovo,
 /area/violence)
-"QJ" = (
-/turf/open/space/basic,
-/area/space)
+"Qw" = (
+/obj/structure/rospilovo/komod,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"Qx" = (
+/obj/structure/rospilovo/trubas{
+	dir = 5
+	},
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"QG" = (
+/obj/structure/mineral_door/wood{
+	color = "#aaaaaa";
+	name = "деревянная дверь"
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/violence)
 "Rw" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
 /turf/open/floor/rospilovo,
 /area/violence)
+"RL" = (
+/obj/structure/rospilovo/porog{
+	dir = 4
+	},
+/turf/open/floor/grass/rospilovo,
+/area/violence)
 "RN" = (
 /obj/structure/rospilovo/doski/doski3,
 /turf/open/floor/rospilovo,
 /area/violence)
 "Sl" = (
-/obj/effect/landmark/start/combatant/red,
-/obj/effect/turf_decal/siding/white{
+/obj/structure/deployable_barricade/sandbags,
+/obj/structure/deployable_barricade/sandbags{
 	dir = 4
 	},
-/turf/open/floor/rospilovo,
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/violence)
+"Ub" = (
+/obj/structure/table/rospilovo,
+/obj/structure/rospilovo/radio{
+	pixel_y = 11
+	},
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"Uu" = (
+/obj/structure/rospilovo/shina,
+/turf/open/floor/grass/rospilovo,
 /area/violence)
 "Va" = (
-/obj/effect/landmark/start/combatant/red,
-/obj/effect/turf_decal/siding/white{
-	dir = 8
+/obj/structure/rospilovo/water/bochka/kap,
+/turf/open/floor/grass/rospilovo,
+/area/violence)
+"Vo" = (
+/obj/structure/chair/wood{
+	dir = 1;
+	icon_state = "wooden_chair"
 	},
-/turf/open/floor/rospilovo,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"VH" = (
+/obj/structure/deployable_barricade/metal,
+/turf/open/floor/grass/rospilovo,
+/area/violence)
+"Wm" = (
+/obj/structure/rospilovo/rozetka,
+/turf/closed/wall/rospilovo/bricks,
+/area/violence)
+"Ws" = (
+/obj/structure/chair/wood{
+	dir = 4;
+	icon_state = "wooden_chair"
+	},
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"WE" = (
+/obj/structure/rospilovo/pech,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"XC" = (
+/obj/structure/rospilovo/trubas,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"Ye" = (
+/obj/structure/rospilovo/yashik/yaskik_a,
+/turf/open/floor/rospilovo/wood,
+/area/violence)
+"Yo" = (
+/obj/structure/toilet/greyscale,
+/turf/open/floor/rospilovo/plitka/old,
 /area/violence)
 "Yv" = (
 /obj/structure/rospilovo/bar_plitka{
@@ -431,11 +747,7 @@
 /turf/open/floor/grass/rospilovo,
 /area/violence)
 "YW" = (
-/obj/structure/rospilovo/tree{
-	icon_state = "derevo5"
-	},
-/obj/structure/rospilovo/doski/doski4,
-/turf/open/floor/grass/rospilovo,
+/turf/open/floor/grass/gensgrass/dirty,
 /area/violence)
 "ZO" = (
 /obj/effect/turf_decal/trimline/white/line{
@@ -451,11 +763,11 @@
 /area/violence)
 
 (1,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 hI
 hI
@@ -496,18 +808,38 @@ hI
 hI
 hI
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+ex
+ex
+ex
+ex
+ex
 "}
 (2,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 Yv
@@ -531,6 +863,26 @@ GV
 KZ
 KZ
 KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
 GV
 KZ
 KZ
@@ -548,18 +900,18 @@ pc
 Yv
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (3,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 Yv
@@ -580,6 +932,26 @@ pc
 PS
 pc
 ka
+pc
+pc
+pc
+dg
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+ka
+pc
+pc
+pc
+pc
+pc
+Jh
+pc
 pc
 pc
 pc
@@ -600,18 +972,18 @@ pc
 Yv
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (4,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 LH
@@ -629,6 +1001,26 @@ pc
 dg
 pc
 pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+Jh
+pc
+ka
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+PS
 pc
 pc
 pc
@@ -652,18 +1044,18 @@ pc
 LH
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (5,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 LH
@@ -676,12 +1068,32 @@ pc
 pc
 ka
 pc
-ov
+VH
 pc
 pc
 pc
 pc
 ka
+pc
+pc
+pc
+pc
+ka
+pc
+pc
+dg
+pc
+pc
+pc
+pc
+Jh
+pc
+pc
+PS
+pc
+dg
+pc
+pc
 pc
 pc
 pc
@@ -704,18 +1116,18 @@ pc
 LH
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (6,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 GV
 LH
@@ -726,13 +1138,33 @@ pc
 Jh
 pc
 dg
-mk
+ny
 pc
 pc
 pc
 Jh
 pc
 dg
+pc
+pc
+Jh
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+dg
+pc
+pc
+pc
+pc
+pc
+pc
 pc
 pc
 pc
@@ -756,18 +1188,18 @@ pc
 LH
 GV
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (7,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 LH
@@ -777,6 +1209,11 @@ pc
 PS
 pc
 pc
+NN
+pc
+PS
+pc
+pc
 pc
 pc
 pc
@@ -786,8 +1223,23 @@ pc
 pc
 pc
 pc
-pc
 dg
+pc
+pc
+PS
+pc
+pc
+pc
+pc
+pc
+pc
+ka
+pc
+pc
+pc
+pc
+PS
+pc
 pc
 pc
 PS
@@ -808,18 +1260,18 @@ pc
 LH
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (8,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 Yv
@@ -828,26 +1280,46 @@ pc
 pc
 pc
 pc
+dg
 pc
 pc
 pc
 PS
 pc
+YW
+dg
+pc
+pc
+pc
+Uu
+pc
+pc
+pc
+pc
+RL
+RL
 pc
 pc
 pc
 pc
 pc
-PS
 pc
 pc
 pc
 pc
 pc
+pc
+pc
+pc
+pc
+pc
+pc
+YW
+YW
 Cn
 pc
 pc
-PS
+pc
 pc
 pc
 pc
@@ -860,18 +1332,18 @@ pc
 Yv
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (9,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 Yv
@@ -879,32 +1351,52 @@ pc
 pc
 pc
 Jh
-pc
-dg
-pc
-pc
-PS
-pc
-pc
-pc
-dg
-pc
-pc
-pc
-pc
-pc
-pc
-pc
-PS
-Jh
-IT
-pc
-pc
-pc
-pc
-pc
-ka
-pc
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+YW
+YW
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+QG
+QG
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+YW
+YW
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
 pc
 IT
 pc
@@ -912,51 +1404,71 @@ pc
 Yv
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (10,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 GV
 Yv
 Jh
 pc
-dg
+uk
 pc
-pc
-pc
-pc
-pc
-pc
+zJ
+sw
+sw
+sw
+XC
+cC
+zJ
+hn
+YW
+jd
+HE
+zJ
 Fk
-pc
-pc
-pc
-pc
-pc
-ka
-Fn
-pc
-IT
-pc
-pc
-pc
-pc
-pc
-ka
-Jh
-pc
-dg
-pc
-pc
+HE
+Ws
+HE
+zJ
+ax
+ax
+zJ
+jO
+HE
+jd
+HE
+zJ
+Fk
+HE
+Ws
+HE
+zJ
+HE
+cT
+HE
+HE
+zJ
+iW
+YW
+sw
+hu
+zJ
+XC
+HE
+HE
+HE
+HE
+zJ
 pc
 pc
 pc
@@ -964,51 +1476,71 @@ pc
 Yv
 GV
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (11,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 LH
 pc
 pc
-pc
-pc
-Cn
-pc
-pc
-pc
-pc
-PS
-pc
-pc
-Jh
-pc
-dg
-pc
-pc
-pc
-pc
-pc
-ka
-pc
-pc
-Ib
-pc
-PS
-pc
-pc
-pc
-pc
+YW
+YW
+YW
+YW
+HE
+HE
+XC
+HE
+zJ
+Nv
+YW
+YW
+HE
+Wm
+Fj
+HE
+Fj
+Vo
+zJ
+ax
+ax
+zJ
+Fj
+HE
+HE
+HE
+Wm
+lT
+HE
+Fj
+if
+zJ
+FT
+Fj
+Fj
+HE
+zJ
+sn
+ed
+HE
+ma
+zJ
+XC
+HE
+HE
+HE
+HE
+YW
 PS
 pc
 pc
@@ -1016,51 +1548,71 @@ pc
 LH
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (12,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 Bl
 pc
 IT
 pc
-pc
-pc
-IT
-pc
-IT
-pc
-pc
-pc
-PS
-pc
-pc
-pc
-pc
-pc
-Jh
-pc
-dg
-pc
-pc
-pc
-IT
-pc
-pc
-pc
-pc
-IT
-pc
+YW
+YW
+YW
+HE
+HE
+XC
+HE
+zJ
+JN
+if
+cT
+HE
+bs
+HE
+HE
+Ub
+HE
+zJ
+ax
+ax
+zJ
+Fj
+Vo
+cT
+HE
+bs
+HE
+HE
+Fj
+Vo
+zJ
+HE
+Fj
+Fj
+HE
+bs
+HE
+HE
+HE
+HE
+zJ
+XC
+HE
+HE
+HE
+YW
+YW
 pc
 pc
 pc
@@ -1068,51 +1620,71 @@ pc
 LH
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (13,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 Yv
 pc
 pc
 pc
-pc
-pc
-pc
-pc
-pc
-pc
-ka
-pc
-pc
-pc
-pc
-pc
-Cn
-pc
-pc
-pc
-pc
-pc
-pc
-pc
-pc
-pc
-ka
-pc
-pc
-pc
-pc
+YW
+YW
+YW
+YW
+HE
+XC
+HE
+zJ
+xW
+HE
+HE
+HE
+oB
+HE
+HE
+fS
+HE
+zJ
+ax
+ax
+zJ
+Qw
+HE
+HE
+HE
+zJ
+HE
+HE
+fS
+HE
+YW
+fS
+HE
+HE
+HE
+zJ
+HE
+eO
+HE
+iW
+zJ
+XC
+HE
+HE
+YW
+YW
+YW
 ka
 pc
 PS
@@ -1120,18 +1692,18 @@ pc
 Yv
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (14,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 GV
 LH
@@ -1139,31 +1711,51 @@ pc
 pc
 pc
 PS
-Jh
-pc
-dg
-pc
-pc
-pc
-PS
-pc
-PS
-pc
-pc
-pc
-pc
+YW
+YW
+YW
 HE
-pc
-PS
-pc
-pc
-pc
-pc
-pc
-pc
-PS
-Jh
-pc
+XC
+HE
+zJ
+BA
+HE
+HE
+Go
+Wm
+IY
+HE
+HE
+HE
+zJ
+ax
+ax
+zJ
+BA
+HE
+HE
+Go
+zJ
+IY
+HE
+HE
+HE
+YW
+YW
+hf
+HE
+HE
+zJ
+iW
+Qw
+ma
+Qw
+zJ
+XC
+HE
+HE
+YW
+YW
 YW
 pc
 pc
@@ -1172,18 +1764,18 @@ pc
 LH
 GV
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (15,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 LH
@@ -1191,32 +1783,52 @@ pc
 pc
 IT
 pc
-pc
-pc
-pc
-pc
-IT
-pc
-pc
-pc
-pc
-pc
-pc
-IT
-pc
-IT
-pc
-pc
-pc
-kV
-pc
-pc
-IT
-pc
-pc
-pc
-pc
-pc
+zJ
+YW
+YW
+YW
+XC
+HE
+zJ
+zJ
+zJ
+zJ
+zJ
+kf
+HE
+HE
+HE
+HE
+zJ
+ax
+ax
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+HW
+HE
+HE
+YW
+YW
+HE
+eO
+HE
+HE
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+XC
+HE
+HE
+YW
+YW
+YW
 pc
 pc
 ka
@@ -1224,18 +1836,18 @@ pc
 LH
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (16,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 Yv
@@ -1243,32 +1855,52 @@ pc
 pc
 pc
 ka
-pc
-pc
-Jh
-pc
-pc
-pc
-ka
-pc
-ka
-pc
-pc
-pc
-pc
-pc
-pc
-ka
-pc
-pc
-pc
-pc
-pc
-pc
-ka
-pc
-pc
-Jh
+zJ
+YW
+YW
+YW
+XC
+HE
+zJ
+Yo
+ax
+ax
+QG
+HE
+HE
+JY
+HE
+HE
+bs
+tu
+YW
+zJ
+Yo
+ax
+ax
+QG
+HE
+HE
+JY
+HE
+HE
+zJ
+HE
+fS
+eO
+HE
+HE
+QG
+ax
+ax
+uW
+zJ
+XC
+HE
+YW
+YW
+YW
+YW
 pc
 dg
 pc
@@ -1276,51 +1908,71 @@ pc
 Yv
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (17,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 LH
 pc
 Jh
 pc
-dg
 pc
-pc
-PS
-pc
-pc
-pc
-pc
-pc
-pc
-PS
-Jh
-pc
-dg
-Ib
-pc
-pc
-PS
-Jh
-pc
-Jh
-pc
-dg
-pc
-pc
-PS
-pc
+zJ
+YW
+YW
+HE
+XC
+HE
+zJ
+vz
+eA
+Ix
+zJ
+WE
+HE
+bq
+HE
+HE
+zJ
+YW
+YW
+zJ
+vz
+ax
+Ix
+zJ
+WE
+HE
+bq
+HE
+HE
+zJ
+NG
+HE
+HE
+HE
+WE
+zJ
+nM
+gc
+ts
+zJ
+Qx
+HE
+YW
+YW
+YW
+YW
 pc
 pc
 pc
@@ -1328,18 +1980,18 @@ pc
 LH
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (18,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 GV
 LH
@@ -1347,188 +1999,268 @@ pc
 pc
 pc
 pc
+zJ
+HE
+HE
+HE
+XC
+HE
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+YW
+ax
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+bs
+zJ
+zJ
+zJ
+bs
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+HE
+YW
+YW
+YW
+YW
+YW
 pc
 pc
 pc
 pc
+LH
+GV
+hI
+ex
+ex
+ex
+ex
+ex
+"}
+(19,1,1) = {"
+ex
+ex
+ex
+ex
+ex
+hI
+KZ
+Yv
 pc
 pc
+pc
+Ha
+zJ
+HE
+HE
+HE
+XC
+HE
+zJ
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+YW
+ax
+ax
+ax
+ax
+YW
+YW
+YW
+YW
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+YW
+ax
+ax
+ax
+ax
+zJ
+HE
+YW
+YW
+YW
+YW
+zJ
+PS
+pc
+pc
+pc
+Yv
+KZ
+hI
+ex
+ex
+ex
+ex
+ex
+"}
+(20,1,1) = {"
+ex
+ex
+ex
+ex
+ex
+qk
+KZ
+LH
 pc
 IT
 pc
 pc
-pc
-pc
-pc
-pc
-IT
-pc
-pc
-pc
+zJ
+Ye
+HE
+HE
+XC
+HE
+zJ
+ax
+qw
+Dh
+Dh
+YW
+Dh
+Dh
+Dh
+YW
+YW
+YW
+YW
+Dh
+Dh
+Dh
+Dh
+YW
+YW
+YW
+YW
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Pf
+Dh
+ax
+zJ
+HE
+HE
+YW
+YW
+HE
 zJ
 pc
 pc
 pc
 pc
-dw
-pc
-pc
-pc
-pc
-pc
-pc
-LH
-GV
-hI
-QJ
-QJ
-QJ
-QJ
-QJ
-"}
-(19,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
-hI
-KZ
-Yv
-pc
-pc
-pc
-PS
-ax
-pc
-pc
-pc
-PS
-pc
-pc
-PS
-pc
-pc
-pc
-pc
-pc
-pc
-PS
-pc
-pc
-pc
-pc
-pc
-pc
-PS
-pc
-pc
-pc
-pc
-PS
-pc
-pc
-pc
-Yv
-KZ
-hI
-QJ
-QJ
-QJ
-QJ
-QJ
-"}
-(20,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
-Dh
-KZ
-LH
-pc
-IT
-pc
-pc
-pc
-pc
-IT
-pc
-pc
-IT
-pc
-pc
-ov
-pc
-IT
-pc
-IT
-pc
-pc
-pc
-pc
-IT
-pc
-IT
-pc
-pc
-pc
-pc
-IT
-pc
-pc
-pc
-pc
-pc
 LH
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (21,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 Yv
 pc
 pc
 pc
-ka
-pc
-pc
-pc
-pc
-ka
-pc
-pc
-ka
-pc
-pc
-pc
-pc
-pc
-pc
-ka
-pc
-pc
-pc
-pc
-pc
-pc
-ka
-pc
-pc
-pc
-pc
+Hp
+zJ
+zR
+HE
+HE
+XC
+HE
+bs
+ax
+qw
+Dh
+YW
+YW
+Dh
+Dh
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+Dh
+Dh
+Dh
+YW
+YW
+YW
+YW
+Dh
+Dh
+Pf
+Dh
+ax
+bs
+HE
+HE
+HE
+HE
+HE
+zJ
 ka
 pc
 PS
@@ -1536,51 +2268,71 @@ pc
 Yv
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (22,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 GV
 Yv
 pc
+ka
 pc
 pc
-pc
-PS
-Jh
-pc
-dg
-pc
-pc
-Ib
-pc
-PS
-Jh
-pc
-dg
-pc
-pc
-pc
-PS
-Jh
-pc
-dg
-Fk
-pc
-pc
-PS
-Jh
-pc
-dg
+zJ
+Ye
+HE
+HE
+XC
+HE
+zJ
+ax
+qw
+YW
+YW
+YW
+YW
+YW
+YW
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+YW
+YW
+YW
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+YW
+YW
+YW
+YW
+YW
+Pf
+Dh
+ax
+zJ
+jO
+HE
+HE
+HE
+HE
+zJ
 pc
 pc
 pc
@@ -1588,18 +2340,18 @@ pc
 Yv
 GV
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (23,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 Yv
@@ -1607,32 +2359,52 @@ pc
 pc
 IT
 pc
-pc
-pc
-pc
-pc
-pc
-pc
-IT
-pc
-pc
-pc
-pc
-pc
-pc
-IT
-pc
-pc
-pc
-pc
-pc
-pc
-IT
-pc
-pc
-pc
-pc
-pc
+zJ
+Ye
+HE
+HE
+XC
+HE
+zJ
+ax
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+ax
+ax
+ax
+ax
+ax
+ax
+YW
+YW
+YW
+YW
+ax
+ax
+ax
+ax
+ax
+ax
+YW
+YW
+YW
+YW
+YW
+ax
+ax
+ax
+zJ
+jO
+HE
+HE
+HE
+HE
+zJ
 pc
 pc
 ka
@@ -1640,51 +2412,71 @@ pc
 Yv
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (24,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
-dC
+qx
 pc
 pc
 pc
 pc
-ka
-pc
-Cn
-Jh
-pc
-pc
-pc
-pc
-ka
-pc
-pc
-Jh
-pc
-pc
-pc
-ka
-pc
-pc
-Jh
-pc
-pc
-pc
-ka
-pc
-pc
-Jh
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+YW
+YW
+YW
+YW
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+YW
+YW
+YW
+YW
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
 pc
 dg
 pc
@@ -1692,18 +2484,18 @@ pc
 Yv
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (25,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 Yv
@@ -1719,16 +2511,36 @@ pc
 Jh
 pc
 dg
+YW
+YW
+dA
+YW
+zx
 pc
 pc
-PS
 pc
+pc
+pc
+pc
+pc
+pc
+pc
+YW
+YW
 Jh
 pc
-dg
+pc
+pc
 pc
 pc
 PS
+pc
+pc
+pc
+uk
+YW
+YW
+dA
 pc
 Jh
 pc
@@ -1744,18 +2556,18 @@ pc
 Yv
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (26,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 GV
 Yv
@@ -1770,6 +2582,27 @@ pc
 pc
 pc
 pc
+YW
+YW
+YW
+YW
+YW
+pc
+pc
+pc
+Jh
+pc
+pc
+dg
+pc
+pc
+PS
+pc
+pc
+pc
+pc
+pc
+Jh
 pc
 pc
 pc
@@ -1778,9 +2611,8 @@ pc
 pc
 pc
 pc
-pc
-pc
-pc
+YW
+YW
 pc
 pc
 pc
@@ -1796,11 +2628,11 @@ pc
 Yv
 GV
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (27,1,1) = {"
 hI
@@ -1818,23 +2650,43 @@ pc
 pc
 Ib
 ka
-ex
+JU
+pc
+pc
+pc
+YW
+gB
+YW
+IH
+pc
+pc
+pc
+pc
+pc
+PS
+pc
+fP
+pc
+pc
+pc
+pc
+dg
 pc
 pc
 pc
 pc
 pc
 pc
-ka
 pc
+oL
 pc
 pc
 pc
 sS
 pc
-ka
-pc
-pc
+IH
+xx
+YW
 pc
 pc
 pc
@@ -1873,6 +2725,10 @@ pc
 pc
 pc
 pc
+YW
+YW
+YW
+YW
 pc
 pc
 pc
@@ -1887,6 +2743,22 @@ pc
 pc
 pc
 pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+YW
+YW
+YW
 pc
 pc
 pc
@@ -1908,29 +2780,49 @@ hI
 "}
 (29,1,1) = {"
 hI
-xn
-xn
-xn
-xn
-xn
+fw
+fw
+fw
+fw
+fw
 HI
 pF
 pF
 pF
 pF
-No
+Ia
 pF
 pF
 pF
 pF
 pF
-Eg
+pR
 pF
 pF
 pF
 pF
 pF
-LX
+xn
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
 pF
 pF
 pF
@@ -1960,17 +2852,37 @@ hI
 "}
 (30,1,1) = {"
 hI
-Va
-Va
-Va
-Va
-Va
+mk
+mk
+mk
+mk
+mk
 Rw
 Rw
 Rw
 Rw
 Rw
-fw
+KO
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
 Rw
 Rw
 Rw
@@ -2012,17 +2924,37 @@ hI
 "}
 (31,1,1) = {"
 hI
-KO
-KO
-KO
-KO
-KO
+mn
+mn
+mn
+mn
+mn
 Aw
 yC
 yC
 yC
 yC
-Hp
+LC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
 yC
 yC
 yC
@@ -2064,17 +2996,37 @@ hI
 "}
 (32,1,1) = {"
 hI
-Ia
-Ia
-Ia
-Ia
-Ia
+nc
+nc
+nc
+nc
+nc
 Id
 Id
 Id
 Id
 Id
-qk
+LX
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
 Id
 Id
 Id
@@ -2116,17 +3068,37 @@ hI
 "}
 (33,1,1) = {"
 hI
-KO
-KO
-KO
-KO
-KO
+mn
+mn
+mn
+mn
+mn
 yC
 yC
 yC
 yC
 yC
-Hp
+LC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
 yC
 yC
 yC
@@ -2168,23 +3140,43 @@ hI
 "}
 (34,1,1) = {"
 hI
-Sl
-Sl
-Sl
-Sl
-Sl
+oR
+oR
+oR
+oR
+oR
 eV
 yX
 yX
 yX
 yX
-LC
+No
 yX
 yX
 yX
 yX
 yX
-Ha
+hc
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
 yX
 yX
 yX
@@ -2220,19 +3212,39 @@ hI
 "}
 (35,1,1) = {"
 hI
-xn
-xn
-xn
-xn
-xn
+fw
+fw
+fw
+fw
+fw
 pF
 pF
 pF
 pF
 pF
-oR
+Sl
 pF
-nc
+xe
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
+pF
 pF
 pF
 pF
@@ -2281,7 +3293,7 @@ KZ
 Bl
 Da
 pc
-qx
+Eg
 pc
 pc
 pc
@@ -2290,7 +3302,27 @@ pc
 pc
 pc
 pc
-uk
+eB
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+ka
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
 pc
 pc
 pc
@@ -2349,6 +3381,26 @@ ka
 pc
 pc
 pc
+Jh
+pc
+pc
+pc
+dg
+pc
+pc
+pc
+ka
+pc
+pc
+pc
+Jh
+pc
+pc
+ka
+pc
+dg
+pc
+pc
 ka
 pc
 pc
@@ -2375,11 +3427,11 @@ hI
 hI
 "}
 (38,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 Bl
@@ -2389,7 +3441,27 @@ pc
 pc
 Cn
 pc
-uk
+eB
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+pc
 pc
 pc
 pc
@@ -2420,25 +3492,25 @@ pc
 Bl
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (39,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 KZ
 Bl
 Ib
 ka
 pc
-mn
+Va
 KZ
 GV
 KZ
@@ -2452,6 +3524,26 @@ GV
 KZ
 KZ
 GV
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
+KZ
 KZ
 KZ
 KZ
@@ -2472,18 +3564,18 @@ pc
 LH
 KZ
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 "}
 (40,1,1) = {"
-QJ
-QJ
-QJ
-QJ
-QJ
+ex
+ex
+ex
+ex
+ex
 hI
 hI
 hI
@@ -2524,9 +3616,29 @@ hI
 hI
 hI
 hI
-QJ
-QJ
-QJ
-QJ
-QJ
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+hI
+ex
+ex
+ex
+ex
+ex
 "}
