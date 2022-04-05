@@ -50,6 +50,15 @@ RUN apt-get install -y --no-install-recommends \
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal \
     && ~/.cargo/bin/rustup target add i686-unknown-linux-gnu
 
+# Build auxmos
+FROM rust-build as auxmos
+RUN git init \
+    && git remote add origin https://github.com/Putnam3145/auxmos \
+    && /bin/bash -c "source dependencies.sh \
+    && git fetch --depth 1 origin \$AUXMOS_VERSION" \
+    && git checkout FETCH_HEAD \
+    && cargo rustc --target=i686-unknown-linux-gnu --release --features=trit_fire_hook,plasma_fire_hook,generic_fire_hook
+
 # rust_g = base + rust_g compiled to /rust_g
 FROM rust AS rust_g
 WORKDIR /rust_g
@@ -68,6 +77,9 @@ RUN . ./dependencies.sh \
     && git fetch --depth 1 origin "${RUST_G_VERSION}" \
     && git checkout FETCH_HEAD \
     && env PKG_CONFIG_ALLOW_CROSS=1 ~/.cargo/bin/cargo build --release --target i686-unknown-linux-gnu
+
+# Required to satisfy our compile_options
+COPY --from=auxmos /build/target/i686-unknown-linux-gnu/release/libauxmos.so /dm-build/auxtools/libauxmos.so
 
 # final = byond + runtime deps + rust_g + build
 FROM byond
