@@ -2,6 +2,25 @@
 	Station Airlocks Regular
 */
 
+/obj/machinery/door/airlock
+	var/multi_tile = FALSE
+	var/width = 1
+
+/obj/machinery/door/airlock/Move()
+	if(multi_tile)
+		SetBounds()
+	return ..()
+
+/obj/machinery/door/airlock/proc/SetBounds()
+	if(!multi_tile)
+		return
+	if(dir in list(NORTH, SOUTH))
+		bound_width = width * world.icon_size
+		bound_height = world.icon_size
+	else
+		bound_width = world.icon_size
+		bound_height = width * world.icon_size
+
 /obj/machinery/door/airlock/command
 	icon = 'icons/obj/doors/airlocks/station/command.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_com
@@ -563,10 +582,29 @@
 /obj/machinery/door/airlock/glass_large/narsie_act()
 	return
 
-
 /obj/structure/door_assembly/multi_tile
 	dir = EAST
-	bound_width = 64
+	var/width = 1
+
+/obj/structure/door_assembly/multi_tile/Initialize()
+	. = ..()
+	update_dir()
+
+/obj/structure/door_assembly/multi_tile/Move()
+	. = ..()
+	update_dir()
+
+/obj/structure/door_assembly/multi_tile/proc/update_dir()
+	if(dir in list(NORTH, SOUTH))
+		bound_width = width * world.icon_size
+		bound_height = world.icon_size
+	else
+		bound_width = world.icon_size
+		bound_height = width * world.icon_size
+
+/obj/machinery/door/airlock/multi_tile
+	multi_tile = TRUE
+	width = 2
 
 /obj/structure/door_assembly/multi_tile/metal
 	name = "Large Airlock Assembly"
@@ -582,7 +620,7 @@
 	base_name = "Large Glass Airlock"
 	overlays_file = 'white/rebolution228/icons/unsorted/glass/overlays.dmi'
 	airlock_type = /obj/machinery/door/airlock/multi_tile/glass
-
+	
 
 /obj/machinery/door/airlock/multi_tile/glass
 	name = "Large Glass Airlock"
@@ -592,12 +630,9 @@
 	airlock_material = "glass"
 	glass = TRUE
 	assemblytype = /obj/structure/door_assembly/multi_tile/glass
-	bound_width = 64
 
 /obj/machinery/door/airlock/multi_tile/metal
 	name = "Large Airlock"
 	icon = 'white/rebolution228/icons/unsorted/metal/multi_tile.dmi'
 	overlays_file = 'white/rebolution228/icons/unsorted/metal/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/multi_tile/metal
-	bound_width = 64
-
