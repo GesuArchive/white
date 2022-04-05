@@ -72,7 +72,7 @@
 /obj/machinery/rnd/server/proc/get_env_temp()
 	var/turf/open/L = loc
 	if(isturf(L))
-		return L.temperature
+		return L.initial_temperature
 	return 0 //what
 
 /obj/machinery/rnd/server/proc/produce_heat(heat_amt)

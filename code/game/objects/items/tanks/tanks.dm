@@ -205,6 +205,9 @@
 /obj/item/tank/remove_air(amount)
 	return air_contents.remove(amount)
 
+/obj/item/tank/remove_air_ratio(ratio)
+	return air_contents.remove_ratio(ratio)
+
 /obj/item/tank/return_air()
 	return air_contents
 
@@ -217,21 +220,33 @@
 	check_status()
 	return 1
 
+/obj/item/tank/assume_air_moles(datum/gas_mixture/giver, moles)
+	giver.transfer_to(air_contents, moles)
+
+	check_status()
+	return 1
+
+/obj/item/tank/assume_air_ratio(datum/gas_mixture/giver, ratio)
+	giver.transfer_ratio_to(air_contents, ratio)
+
+	check_status()
+	return 1
+
 /obj/item/tank/proc/remove_air_volume(volume_to_return)
 	if(!air_contents)
 		return null
 
 	var/tank_pressure = air_contents.return_pressure()
-	var/actual_distribute_pressure = clamp(tank_pressure, 0, distribute_pressure)
+	if(tank_pressure < distribute_pressure)
+		distribute_pressure = tank_pressure
 
-	var/moles_needed = actual_distribute_pressure*volume_to_return/(R_IDEAL_GAS_EQUATION*air_contents.return_temperature())
+	var/moles_needed = distribute_pressure*volume_to_return/(R_IDEAL_GAS_EQUATION*air_contents.return_temperature())
 
 	return remove_air(moles_needed)
 
 /obj/item/tank/process()
 	//Allow for reactions
-	if(air_contents)
-		air_contents.react()
+	air_contents.react(src)
 	check_status()
 
 /obj/item/tank/proc/check_status()

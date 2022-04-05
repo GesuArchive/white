@@ -242,7 +242,7 @@ we use a hook instead
 	return copy
 
 /datum/gas_mixture/copy_from_turf(turf/model)
-	set_temperature(initial(model.temperature))
+	set_temperature(initial(model.initial_temperature))
 	parse_gas_string(model.initial_gas_mix)
 	return 1
 

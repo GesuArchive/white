@@ -8,14 +8,9 @@
 	pass_flags_self = PASSCLOSEDTURF
 	gender = FEMALE
 
-/turf/closed/Initialize()
-	. = ..()
-	update_air_ref()
-
 /turf/closed/AfterChange()
 	. = ..()
 	SSair.high_pressure_delta -= src
-	update_air_ref()
 
 /turf/closed/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	return FALSE

@@ -14,7 +14,7 @@
 	layer = EDGED_TURF_LAYER
 	plane = GAME_PLANE_UPPER
 	base_icon_state = "smoothrocks"
-	temperature = TCMB
+	initial_temperature = TCMB
 	var/smooth_icon = 'icons/turf/smoothrocks.dmi'
 	var/environment_type = "asteroid"
 	var/turf/open/floor/plating/turf_type = /turf/open/floor/plating/asteroid/airless

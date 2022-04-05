@@ -217,12 +217,12 @@
 	planetary_atmos = FALSE
 
 /turf/open/floor/plating/snowed/smoothed/temperatre
-	temperature = 255.37
+	initial_temperature = 255.37
 	planetary_atmos = FALSE
 
 /turf/open/floor/engine/hull/oxy
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	temperature = 255.37
+	initial_temperature = 255.37
 
 /turf/open/floor/engine/hull/shipceiling
 	name = "обшивка шаттла"
@@ -235,7 +235,7 @@
 /turf/open/floor/plating/ice/smooth/oxy
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = FALSE
-	temperature = 250
+	initial_temperature = 250
 	baseturfs = /turf/open/floor/grass/snow/safe/oxy
 
 /turf/closed/mineral/snowmountain/cavern/oxy

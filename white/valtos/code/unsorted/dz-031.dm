@@ -37,7 +37,7 @@
 	if(!blocks_air)
 		air = new
 		air.copy_from_turf(src)
-		update_air_ref()
+		update_air_ref(0)
 
 	SSvis_overlays.add_vis_overlay(src, icon, "fucked", plane = PLANE_SPACE)
 

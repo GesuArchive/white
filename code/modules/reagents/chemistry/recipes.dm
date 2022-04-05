@@ -451,7 +451,7 @@
 			continue
 		var/turf/open/open_turf = any_turf
 		open_turf.MakeSlippery(TURF_WET_PERMAFROST, freeze_duration, freeze_duration, freeze_duration)
-		open_turf.temperature = temp
+		open_turf.initial_temperature = temp
 		if(prob(snowball_chance))
 			new /obj/item/toy/snowball(open_turf)
 

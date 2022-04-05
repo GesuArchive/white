@@ -128,38 +128,22 @@
 			scrub(tile, delta_time)
 	return TRUE
 
-/obj/machinery/atmospherics/components/unary/vent_scrubber/scrub(turf/tile, delta_time = 0.5)
+/obj/machinery/atmospherics/components/unary/vent_scrubber/scrub(var/turf/open/tile)
 	if(!istype(tile))
 		return FALSE
 	var/datum/gas_mixture/environment = tile.return_air()
 	var/datum/gas_mixture/air_contents = airs[1]
 
-	if(air_contents?.return_pressure() >= 50 * ONE_ATMOSPHERE)
+	if(air_contents.return_pressure() >= 50 * ONE_ATMOSPHERE || !islist(filter_types))
 		return FALSE
 
 	if(scrubbing & SCRUBBING)
-		var/transfer_moles = min(1, volume_rate/environment.return_volume())*environment.total_moles()
-		//Take a gas sample
-		var/datum/gas_mixture/removed = tile.remove_air(transfer_moles)
-		//Nothing left to remove from the tile
-		if(isnull(removed))
-			return FALSE
-
-		removed.scrub_into(air_contents, filter_types)
-
-		//Remix the resulting gases
-		tile.assume_air(removed)
+		environment.scrub_into(air_contents, volume_rate/environment.return_volume(), filter_types)
 		tile.air_update_turf()
 
 	else //Just siphoning all air
-
-		var/transfer_moles = environment.total_moles()*(volume_rate/environment.return_volume())
-
-		var/datum/gas_mixture/removed = tile.remove_air(transfer_moles)
-		if(!air_contents)
-			stack_trace("Блядь! Скраббер пытается сифонить несуществующий воздух. Скраббер: [src], тайл: [tile], координаты: [COORD(src)].")
-		air_contents.merge(removed)
-		tile.air_update_turf(FALSE, FALSE)
+		environment.transfer_ratio_to(air_contents, volume_rate/environment.return_volume())
+		tile.air_update_turf()
 
 	update_parents()
 

@@ -35,7 +35,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 
 /turf/open/openspace/airless
 	initial_gas_mix = AIRLESS_ATMOS
-	temperature = TCMB
+	initial_temperature = TCMB
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 700000
 
@@ -55,7 +55,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/fastload/Initialize()
 	air = new
 	air.copy_from_turf(src)
-	update_air_ref()
+	update_air_ref(0)
 	var/turf/T = locate(x, y, z - 1)
 	if(T)
 		vis_contents += T
