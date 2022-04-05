@@ -569,28 +569,7 @@
 
 /obj/structure/door_assembly/multi_tile
 	dir = EAST
-	bound_width = 64 // 2x1
-	var/width = 1
-
-/obj/machinery/door/airlock/multi_tile/narsie_act()
-	return
-
-
-/obj/structure/door_assembly/multi_tile/Initialize()
-	. = ..()
-	update_dir()
-
-/obj/structure/door_assembly/multi_tile/Move()
-	. = ..()
-	update_dir()
-
-/obj/structure/door_assembly/multi_tile/proc/update_dir()
-	if(dir in list(NORTH, SOUTH))
-		bound_width = width * world.icon_size
-		bound_height = world.icon_size
-	else
-		bound_width = world.icon_size
-		bound_height = width * world.icon_size
+	bound_width = 64
 
 /obj/structure/door_assembly/multi_tile/metal
 	name = "Large Airlock Assembly"
@@ -616,10 +595,12 @@
 	airlock_material = "glass"
 	glass = TRUE
 	assemblytype = /obj/structure/door_assembly/multi_tile/glass
+	bound_width = 64
 
 /obj/machinery/door/airlock/multi_tile/metal
 	name = "Large Airlock"
 	icon = 'white/rebolution228/icons/unsorted/metal/multi_tile.dmi'
 	overlays_file = 'white/rebolution228/icons/unsorted/metal/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/multi_tile/metal
+	bound_width = 64
 
