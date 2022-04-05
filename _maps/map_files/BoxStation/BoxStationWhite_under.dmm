@@ -500,6 +500,7 @@
 /area/ai_monitored/turret_protected/aisat/service)
 "bj" = (
 /obj/structure/bed/maint,
+/obj/tacmap/directional/north,
 /turf/open/floor/wood{
 	icon_state = "wood-broken"
 	},
@@ -3377,6 +3378,14 @@
 	},
 /turf/open/floor/plating,
 /area/hallway/secondary/exit/departure_lounge2)
+"hP" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/holopad,
+/obj/tacmap/directional/north,
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/secondary/entry)
 "hQ" = (
 /obj/structure/table,
 /obj/item/electropack{
@@ -5341,6 +5350,21 @@
 	},
 /turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/service/bar)
+"lS" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/tacmap/directional/north,
+/turf/open/floor/plasteel,
+/area/security/prison)
 "lT" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -5793,6 +5817,13 @@
 /obj/effect/landmark/stationroom/maintenance/rdm5x3,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
+"mT" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/tacmap/directional/south,
+/turf/open/floor/plasteel,
+/area/hallway/primary/centralL1)
 "mU" = (
 /obj/machinery/space_heater/improvised_chem_heater,
 /turf/open/floor/plating,
@@ -6454,6 +6485,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"oq" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/tacmap/directional/south,
+/turf/open/floor/plasteel/dark,
+/area/engineering/atmospherics_engine)
 "or" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -8029,6 +8067,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/tacmap/directional/east,
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/research/abandoned)
 "rI" = (
@@ -8809,6 +8848,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/tacmap/directional/south,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry)
 "tl" = (
@@ -9563,6 +9603,10 @@
 "uV" = (
 /turf/closed/wall/r_wall,
 /area/tcommsat/server/upper)
+"uW" = (
+/obj/tacmap/directional/north,
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
 "uX" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -9863,6 +9907,7 @@
 	dir = 1;
 	pixel_y = 0
 	},
+/obj/tacmap/directional/south,
 /turf/open/floor/plating,
 /area/maintenance/disposal)
 "vD" = (
@@ -11290,6 +11335,7 @@
 /obj/machinery/camera/autoname{
 	dir = 5
 	},
+/obj/tacmap/directional/west,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "yB" = (
@@ -13391,6 +13437,7 @@
 /area/hallway/secondary/service)
 "Dn" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/tacmap/directional/north,
 /turf/open/floor/plasteel/monofloor,
 /area/security/prison)
 "Do" = (
@@ -13877,6 +13924,13 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/science/xenobiology)
+"Ek" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/tacmap/directional/north,
+/turf/open/floor/plasteel,
+/area/hallway/secondary/exit/departure_lounge2)
 "El" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -14034,6 +14088,7 @@
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
+/obj/tacmap/directional/south,
 /turf/open/floor/plasteel/freezer,
 /area/commons/locker)
 "EE" = (
@@ -14721,6 +14776,14 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
+/area/hallway/secondary/exit/departure_lounge2)
+"Gd" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/tacmap/directional/west,
+/turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge2)
 "Gf" = (
 /obj/effect/turf_decal/tile/red,
@@ -16362,6 +16425,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/tacmap/directional/south,
 /turf/open/floor/plasteel,
 /area/commons/dorms)
 "JK" = (
@@ -19134,6 +19198,7 @@
 	dir = 8
 	},
 /obj/structure/reagent_dispensers/water_cooler,
+/obj/tacmap/directional/east,
 /turf/open/floor/plasteel/dark,
 /area/cargo/exploration_prep)
 "PL" = (
@@ -21576,6 +21641,7 @@
 /obj/effect/turf_decal/trimline/brown/filled/corner{
 	dir = 8
 	},
+/obj/tacmap/directional/west,
 /turf/open/floor/wood,
 /area/hallway/secondary/service)
 "Vn" = (
@@ -22740,6 +22806,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/tacmap/directional/east,
 /turf/open/floor/bamboo,
 /area/commons/vacant_room/commissary/third)
 "XQ" = (
@@ -34597,7 +34664,7 @@ Zm
 bw
 EH
 Vv
-co
+hP
 Kz
 rA
 Vv
@@ -51054,7 +51121,7 @@ yL
 Bt
 SY
 dO
-Ei
+mT
 ap
 Lv
 Mh
@@ -54881,7 +54948,7 @@ BJ
 bz
 IA
 BJ
-HX
+lS
 LI
 BJ
 IA
@@ -59842,7 +59909,7 @@ FN
 jN
 Md
 ss
-OB
+oq
 EB
 ei
 rm
@@ -61939,7 +62006,7 @@ Zm
 bw
 xJ
 xJ
-Uj
+uW
 cG
 rK
 RD
@@ -64921,7 +64988,7 @@ Zm
 bw
 Zm
 zZ
-lT
+Ek
 Cf
 El
 DD
@@ -65960,7 +66027,7 @@ mp
 An
 yc
 qe
-It
+Gd
 It
 It
 ef

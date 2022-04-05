@@ -2075,6 +2075,10 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/turret_protected/ai_upload)
+"hq" = (
+/obj/tacmap/directional/north,
+/turf/open/floor/circuit,
+/area/ai_monitored/turret_protected/ai_upload)
 "ht" = (
 /obj/structure/chair/comfy/brown{
 	dir = 4
@@ -3127,6 +3131,7 @@
 "nT" = (
 /obj/structure/cable,
 /obj/machinery/light,
+/obj/tacmap/directional/south,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central1)
 "nU" = (
@@ -4128,6 +4133,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/tacmap/directional/south,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central4)
 "qk" = (
@@ -4953,6 +4959,10 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central1)
+"LG" = (
+/obj/tacmap/directional/north,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central3)
 "Mt" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/window,
@@ -5203,6 +5213,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central3)
+"TK" = (
+/obj/machinery/light,
+/obj/effect/turf_decal/tile/blue,
+/obj/tacmap/directional/south,
+/turf/open/floor/plasteel,
+/area/command)
 "Uw" = (
 /obj/machinery/newscaster{
 	pixel_y = 32
@@ -5794,7 +5810,7 @@ ei
 DE
 qF
 ip
-gD
+hq
 gF
 dF
 ax
@@ -6083,7 +6099,7 @@ df
 gy
 on
 pl
-qY
+TK
 em
 cz
 nH
@@ -6174,7 +6190,7 @@ kh
 cv
 kB
 gG
-NG
+LG
 ei
 ga
 ab

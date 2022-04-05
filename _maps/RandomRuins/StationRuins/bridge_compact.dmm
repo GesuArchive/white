@@ -3726,6 +3726,7 @@
 /obj/structure/rack,
 /obj/item/tank/internals/oxygen,
 /obj/item/clothing/mask/gas,
+/obj/tacmap/directional/south,
 /turf/open/floor/plasteel/monofloor,
 /area/command/teleporter)
 "yl" = (
@@ -4375,6 +4376,11 @@
 /obj/effect/spawner/lootdrop/space/cashmoney,
 /turf/open/floor/plasteel,
 /area/command/meeting_room)
+"Nf" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/tacmap/directional/south,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central1)
 "No" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -5415,7 +5421,7 @@ ab
 ab
 mJ
 Hq
-kS
+gV
 aK
 WO
 Fv
@@ -5491,7 +5497,7 @@ Pc
 nd
 mJ
 Hq
-kS
+Nf
 Rn
 sd
 Xe

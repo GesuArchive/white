@@ -1160,6 +1160,7 @@
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
+/obj/tacmap/directional/west,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/teleporter)
 "oX" = (
@@ -3336,6 +3337,7 @@
 	dir = 4
 	},
 /obj/machinery/disposal/bin,
+/obj/tacmap/directional/west,
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "QD" = (
@@ -3565,6 +3567,7 @@
 "SZ" = (
 /obj/effect/spawner/randomcolavend,
 /obj/effect/turf_decal/bot,
+/obj/tacmap/directional/west,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central1)
 "Tc" = (

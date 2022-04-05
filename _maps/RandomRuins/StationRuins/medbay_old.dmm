@@ -3631,6 +3631,11 @@
 /obj/effect/mapping_helpers/dead_body_placer,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/morgue)
+"If" = (
+/obj/machinery/stasis,
+/obj/tacmap/directional/south,
+/turf/open/floor/plasteel,
+/area/medical/medbay)
 "Ig" = (
 /obj/effect/turf_decal/trimline/green/filled/corner{
 	dir = 4
@@ -5004,6 +5009,7 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 9
 	},
+/obj/tacmap/directional/west,
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
 "Ub" = (
@@ -6071,7 +6077,7 @@ Ps
 yg
 wn
 jK
-yg
+If
 UB
 Ax
 TH

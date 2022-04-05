@@ -942,6 +942,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/autoname,
+/obj/tacmap/directional/north,
 /turf/open/floor/plasteel,
 /area/security/main)
 "dU" = (
@@ -1964,6 +1965,9 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
+/obj/structure/sign/picture_frame/showroom/four{
+	pixel_y = -32
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "gq" = (
@@ -2274,6 +2278,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
+/obj/tacmap/directional/north,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "hl" = (

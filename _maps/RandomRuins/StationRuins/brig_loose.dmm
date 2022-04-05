@@ -334,6 +334,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/tacmap/directional/north,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "bm" = (
@@ -2570,6 +2571,9 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/picture_frame/showroom/four{
+	pixel_y = -32
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "gf" = (
@@ -3339,6 +3343,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/autoname,
+/obj/tacmap/directional/north,
 /turf/open/floor/plasteel,
 /area/security/main)
 "TR" = (

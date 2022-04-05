@@ -149,6 +149,7 @@
 /area/hallway/primary/central1)
 "aM" = (
 /obj/effect/spawner/randomcolavend,
+/obj/tacmap/directional/west,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central1)
 "aN" = (
@@ -905,6 +906,7 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
+/obj/tacmap/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/command)
 "cJ" = (
@@ -4189,6 +4191,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/tacmap/directional/north,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central3)
 "kE" = (

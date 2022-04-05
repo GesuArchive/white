@@ -1613,6 +1613,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
+/obj/tacmap/directional/south,
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "HB" = (
@@ -2220,6 +2221,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/tacmap/directional/west,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/centralL2)
 "Tf" = (
@@ -2288,6 +2290,7 @@
 /area/hallway/primary/centralL2)
 "Wm" = (
 /obj/machinery/vending/coffee,
+/obj/tacmap/directional/south,
 /turf/open/floor/wood,
 /area/command/meeting_room)
 "Ws" = (

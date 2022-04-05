@@ -2711,6 +2711,9 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
+/obj/structure/sign/picture_frame/showroom/four{
+	pixel_y = -32
+	},
 /turf/open/floor/plasteel/dark,
 /area/security/main)
 "hg" = (
@@ -4006,6 +4009,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
+/obj/tacmap/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/security/main)
 "If" = (
@@ -4082,6 +4086,7 @@
 /area/security/main)
 "SE" = (
 /obj/effect/turf_decal/tile/neutral,
+/obj/tacmap/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "Te" = (
