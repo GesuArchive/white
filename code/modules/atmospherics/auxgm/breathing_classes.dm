@@ -5,6 +5,9 @@
 // to simulate asphyxiants, e.g. if I add krypton it could go into the oxygen
 // breathing class at -7, simulating krypton narcosis.
 
+#define BREATH_OXY		/datum/breathing_class/oxygen
+#define BREATH_PLASMA	/datum/breathing_class/plasma
+
 /datum/breathing_class
 	var/list/gases = null
 	var/list/products = null

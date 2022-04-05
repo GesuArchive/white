@@ -73,7 +73,7 @@
 			location_as_object.handle_internal_lifeform(src,0)
 
 //Second link in a breath chain, calls check_breath()
-/mob/living/carbon/proc/breathe(delta_time, times_fired)
+/mob/living/carbon/proc/breathe()
 	var/obj/item/organ/lungs = getorganslot(ORGAN_SLOT_LUNGS)
 	if(reagents.has_reagent(/datum/reagent/toxin/lexorin, needs_metabolizing = TRUE))
 		return
@@ -87,7 +87,7 @@
 	var/datum/gas_mixture/breath
 
 	if(!getorganslot(ORGAN_SLOT_BREATHING_TUBE))
-		if(health <= HEALTH_THRESHOLD_FULLCRIT || (pulledby && pulledby.grab_state >= GRAB_KILL) || HAS_TRAIT(src, TRAIT_MAGIC_CHOKE) || (lungs && lungs.organ_flags & ORGAN_FAILING))
+		if(health <= HEALTH_THRESHOLD_FULLCRIT || (pulledby && pulledby.grab_state >= GRAB_KILL) || HAS_TRAIT(src, TRAIT_MAGIC_CHOKE) || !lungs || lungs.organ_flags & ORGAN_FAILING)
 			losebreath++  //You can't breath at all when in critical or when being choked, so you're going to miss a breath
 
 		else if(health <= crit_threshold)
@@ -112,21 +112,23 @@
 				breath = loc_as_obj.handle_internal_lifeform(src, BREATH_VOLUME)
 
 			else if(isturf(loc)) //Breathe from loc as turf
-				var/breath_moles = 0
+				var/breath_ratio = 0
 				if(environment)
-					breath_moles = environment.total_moles()*BREATH_PERCENTAGE
+					breath_ratio = BREATH_VOLUME/environment.return_volume()
 
-				breath = loc.remove_air(breath_moles)
+				breath = loc.remove_air_ratio(breath_ratio)
 		else //Breathe from loc as obj again
 			if(istype(loc, /obj/))
 				var/obj/loc_as_obj = loc
 				loc_as_obj.handle_internal_lifeform(src,0)
 
+	if(breath)
+		breath.set_volume(BREATH_VOLUME)
 	check_breath(breath)
 
 	if(breath)
 		loc.assume_air(breath)
-		air_update_turf(FALSE, FALSE)
+		air_update_turf()
 
 /mob/living/carbon/proc/has_smoke_protection()
 	if(HAS_TRAIT(src, TRAIT_NOBREATH))
@@ -137,11 +139,9 @@
 //Third link in a breath chain, calls handle_breath_temperature()
 /mob/living/carbon/proc/check_breath(datum/gas_mixture/breath)
 	if(status_flags & GODMODE)
-		failed_last_breath = FALSE
-		clear_alert("not_enough_oxy")
-		return FALSE
+		return
 	if(HAS_TRAIT(src, TRAIT_NOBREATH))
-		return FALSE
+		return
 
 	var/obj/item/organ/lungs = getorganslot(ORGAN_SLOT_LUNGS)
 	if(!lungs)
@@ -150,12 +150,12 @@
 	//CRIT
 	if(!breath || (breath.total_moles() == 0) || !lungs)
 		if(reagents.has_reagent(/datum/reagent/medicine/epinephrine, needs_metabolizing = TRUE) && lungs)
-			return FALSE
+			return
 		adjustOxyLoss(1)
 
-		failed_last_breath = TRUE
+		failed_last_breath = 1
 		throw_alert("not_enough_oxy", /atom/movable/screen/alert/not_enough_oxy)
-		return FALSE
+		return 0
 
 	var/safe_oxy_min = 16
 	var/safe_co2_max = 10
@@ -163,28 +163,29 @@
 	var/SA_para_min = 1
 	var/SA_sleep_min = 5
 	var/oxygen_used = 0
-	var/breath_pressure = (breath.total_moles()*R_IDEAL_GAS_EQUATION*breath.return_temperature())/BREATH_VOLUME
+	var/moles = breath.total_moles()
+	var/breath_pressure = (moles*R_IDEAL_GAS_EQUATION*breath.return_temperature())/BREATH_VOLUME
+	var/O2_partialpressure = ((breath.get_moles(GAS_O2)/moles)*breath_pressure) + (((breath.get_moles(GAS_PLUOXIUM)*8)/moles)*breath_pressure)
+	var/Toxins_partialpressure = (breath.get_moles(GAS_PLASMA)/moles)*breath_pressure
+	var/CO2_partialpressure = (breath.get_moles(GAS_CO2)/moles)*breath_pressure
 
-	var/O2_partialpressure = (breath.get_moles(GAS_O2)/breath.total_moles())*breath_pressure
-	var/Toxins_partialpressure = (breath.get_moles(GAS_PLASMA)/breath.total_moles())*breath_pressure
-	var/CO2_partialpressure = (breath.get_moles(GAS_CO2)/breath.total_moles())*breath_pressure
 
 	//OXYGEN
 	if(O2_partialpressure < safe_oxy_min) //Not enough oxygen
 		if(prob(20))
-			INVOKE_ASYNC(src, .proc/emote, "gasp")
+			emote("gasp")
 		if(O2_partialpressure > 0)
 			var/ratio = 1 - O2_partialpressure/safe_oxy_min
 			adjustOxyLoss(min(5*ratio, 3))
-			failed_last_breath = TRUE
+			failed_last_breath = 1
 			oxygen_used = breath.get_moles(GAS_O2)*ratio
 		else
 			adjustOxyLoss(3)
-			failed_last_breath = TRUE
+			failed_last_breath = 1
 		throw_alert("not_enough_oxy", /atom/movable/screen/alert/not_enough_oxy)
 
 	else //Enough oxygen
-		failed_last_breath = FALSE
+		failed_last_breath = 0
 		if(health >= crit_threshold)
 			adjustOxyLoss(-5)
 		oxygen_used = breath.get_moles(GAS_O2)
@@ -227,37 +228,16 @@
 			if(prob(20))
 				emote(pick("giggle","laugh"))
 			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "chemical_euphoria", /datum/mood_event/chemical_euphoria)
-		if(SA_partialpressure > safe_tox_max*3)
-			var/ratio = (breath.get_moles(GAS_NITROUS)/safe_tox_max)
-			adjustToxLoss(clamp(ratio, MIN_TOXIC_GAS_DAMAGE, MAX_TOXIC_GAS_DAMAGE))
-			throw_alert("too_much_tox", /atom/movable/screen/alert/too_much_tox)
-		else
-			clear_alert("too_much_tox")
 	else
 		SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "chemical_euphoria")
 
-	#define NITROGEN_NARCOSIS_PRESSURE_LOW 160 // Low-level Nitrogen Narcosis, laughter and tunnel vision
-	#define NITROGEN_NARCOSIS_PRESSURE_HIGH 480 // High-level nitrogen narcosis, with hallucinations
-
-	if(breath.get_moles(GAS_N2))
-		var/SA_partialpressure = (breath.get_moles(GAS_N2)/breath.total_moles())*breath_pressure
-		if(SA_partialpressure > NITROGEN_NARCOSIS_PRESSURE_LOW) // Giggles
-			if(prob(20))
-				emote(pick("giggle","laugh"))
-			if(SA_partialpressure > NITROGEN_NARCOSIS_PRESSURE_HIGH) // Hallucinations
-				if(prob(15))
-					to_chat(src, span_userdanger("СЛОЖН... ДУМОТЬ!!!"))
-					set_confusion(min(SA_partialpressure/10, get_confusion() + 12))
-				hallucination += 5
-
-/// The maximum amount of hallucination stacks that BZ can give to a mob per life tick.
-#define BZ_MAX_HALLUCINATION 20
-/// Affects how quickly BZ reaches its maximum
-#define BZ_LAMBDA 0.0364
-
+	//BZ (Facepunch port of their Agent B)
 	if(breath.get_moles(GAS_BZ))
 		var/bz_partialpressure = (breath.get_moles(GAS_BZ)/breath.total_moles())*breath_pressure
-		hallucination += round(BZ_MAX_HALLUCINATION * (1 - NUM_E ** (-BZ_LAMBDA * bz_partialpressure))) // Yogs -- Better BZ hallucination values. Keep in mind that hallucination has to be an integer value, due to how it's handled in handle_hallucination()
+		if(bz_partialpressure > 1)
+			hallucination += 10
+		else if(bz_partialpressure > 0.01)
+			hallucination += 5
 
 	//TRITIUM
 	if(breath.get_moles(GAS_TRITIUM))
@@ -314,7 +294,7 @@
 	//BREATH TEMPERATURE
 	handle_breath_temperature(breath)
 
-	return TRUE
+	return 1
 
 //Fourth and final link in a breath chain
 /mob/living/carbon/proc/handle_breath_temperature(datum/gas_mixture/breath)
