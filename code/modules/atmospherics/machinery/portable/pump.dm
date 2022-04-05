@@ -24,7 +24,7 @@
 /obj/machinery/portable_atmospherics/pump/Destroy()
 	var/turf/T = get_turf(src)
 	T.assume_air(air_contents)
-	air_update_turf(FALSE, FALSE)
+	air_update_turf(FALSE)
 	return ..()
 
 /obj/machinery/portable_atmospherics/pump/update_icon_state()
@@ -62,7 +62,7 @@
 
 
 	if(sending.transfer_to(receiving, target_pressure) && !holding)
-		air_update_turf(FALSE, FALSE) // Update the environment if needed.
+		air_update_turf(FALSE) // Update the environment if needed.
 
 /obj/machinery/portable_atmospherics/pump/emp_act(severity)
 	. = ..()

@@ -75,8 +75,8 @@ All ShuttleMove procs go here
 	else
 		update_air_ref(-1)
 
-	newT.air_update_turf(TRUE, FALSE)
-	air_update_turf(TRUE, TRUE)
+	newT.air_update_turf(TRUE)
+	air_update_turf(TRUE)
 	SEND_SIGNAL(src, COMSIG_TURF_ON_SHUTTLE_MOVE, newT)
 
 	return TRUE
@@ -98,9 +98,9 @@ All ShuttleMove procs go here
 
 /turf/proc/lateShuttleMove(turf/oldT)
 	blocks_air = initial(blocks_air)
-	air_update_turf(TRUE, blocks_air)
+	air_update_turf(blocks_air)
 	oldT.blocks_air = initial(oldT.blocks_air)
-	oldT.air_update_turf(TRUE, oldT.blocks_air)
+	oldT.air_update_turf(oldT.blocks_air)
 
 
 /////////////////////////////////////////////////////////////////////////////////////

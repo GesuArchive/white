@@ -34,7 +34,7 @@
 	if(set_dir)
 		setDir(set_dir)
 	ini_dir = dir
-	air_update_turf(TRUE, TRUE)
+	air_update_turf(TRUE)
 
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_EXIT = .proc/on_exit,
@@ -44,7 +44,7 @@
 
 /obj/structure/windoor_assembly/Destroy()
 	set_density(FALSE)
-	air_update_turf(TRUE, FALSE)
+	air_update_turf(TRUE)
 	return ..()
 
 /obj/structure/windoor_assembly/Move()

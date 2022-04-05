@@ -44,7 +44,7 @@
 	if(air_temporary)
 		var/turf/T = loc
 		T.assume_air(air_temporary)
-		air_update_turf(FALSE, FALSE)
+		air_update_turf(FALSE)
 
 /obj/machinery/atmospherics/pipe/return_air()
 	return parent.air

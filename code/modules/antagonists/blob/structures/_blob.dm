@@ -49,7 +49,7 @@ GLOBAL_VAR_INIT(blob_current_icon, pick('icons/mob/blob_64.dmi', 'icons/mob/blob
 	setDir(pick(GLOB.cardinals))
 	update_icon()
 	if(atmosblock)
-		air_update_turf(TRUE, TRUE)
+		air_update_turf(TRUE)
 	ConsumeTile()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_BLOB, CELL_VIRUS_TABLE_GENERIC, 2, 2)
 
@@ -66,7 +66,7 @@ GLOBAL_VAR_INIT(blob_current_icon, pick('icons/mob/blob_64.dmi', 'icons/mob/blob
 /obj/structure/blob/Destroy()
 	if(atmosblock)
 		atmosblock = FALSE
-		air_update_turf(TRUE, FALSE)
+		air_update_turf(TRUE)
 	if(overmind)
 		overmind.all_blobs -= src
 		overmind.blobs_legit -= src  //if it was in the legit blobs list, it isn't now

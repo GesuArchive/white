@@ -28,11 +28,11 @@
 
 /obj/structure/mineral_door/Initialize()
 	. = ..()
-	air_update_turf(TRUE, TRUE)
+	air_update_turf(TRUE)
 
 /obj/structure/mineral_door/Destroy()
 	if(!door_opened)
-		air_update_turf(TRUE, FALSE)
+		air_update_turf(TRUE)
 	. = ..()
 
 /obj/structure/mineral_door/Move()
@@ -97,7 +97,7 @@
 	set_density(FALSE)
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
-	air_update_turf(TRUE, FALSE)
+	air_update_turf(TRUE)
 	update_icon()
 	isSwitchingStates = FALSE
 
@@ -118,7 +118,7 @@
 	set_opacity(TRUE)
 	door_opened = FALSE
 	layer = initial(layer)
-	air_update_turf(TRUE, TRUE)
+	air_update_turf(TRUE)
 	update_icon()
 	isSwitchingStates = FALSE
 
@@ -136,7 +136,7 @@
 /obj/structure/mineral_door/set_anchored(anchorvalue) //called in default_unfasten_wrench() chain
 	. = ..()
 	set_opacity(anchored ? !door_opened : FALSE)
-	air_update_turf(TRUE, anchorvalue)
+	air_update_turf(anchorvalue)
 
 /obj/structure/mineral_door/wrench_act(mob/living/user, obj/item/I)
 	..()

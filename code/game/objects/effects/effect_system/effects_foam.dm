@@ -56,7 +56,7 @@
 			absorbed_plasma += plas_amt
 		if(G.return_temperature() > T20C)
 			G.set_temperature(max(G.return_temperature()/2,T20C))
-		T.air_update_turf(FALSE, FALSE)
+		T.air_update_turf(FALSE)
 
 /obj/effect/particle_effect/foam/firefighting/kill_foam()
 	STOP_PROCESSING(SSfastprocess, src)
@@ -303,7 +303,7 @@
 
 /obj/structure/foamedmetal/Initialize()
 	. = ..()
-	air_update_turf(TRUE, TRUE)
+	air_update_turf(TRUE)
 	if(smoothing_flags & SMOOTH_BITMASK)
 		var/matrix/M = new
 		M.Translate(-7, -7)
@@ -312,7 +312,7 @@
 		icon_state = "[base_icon_state]-[smoothing_junction]"
 
 /obj/structure/foamedmetal/Destroy()
-	air_update_turf(TRUE, FALSE)
+	air_update_turf(TRUE)
 	. = ..()
 
 /obj/structure/foamedmetal/Move()

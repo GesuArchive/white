@@ -27,7 +27,7 @@
 /obj/machinery/portable_atmospherics/scrubber/Destroy()
 	var/turf/T = get_turf(src)
 	T.assume_air(air_contents)
-	air_update_turf(FALSE, FALSE)
+	air_update_turf(FALSE)
 	return ..()
 
 /obj/machinery/portable_atmospherics/scrubber/update_icon_state()
@@ -75,7 +75,7 @@
 
 	mixture.merge(filtering) // Returned the cleaned gas.
 	if(!holding)
-		air_update_turf(FALSE, FALSE)
+		air_update_turf(FALSE)
 
 /obj/machinery/portable_atmospherics/scrubber/emp_act(severity)
 	. = ..()

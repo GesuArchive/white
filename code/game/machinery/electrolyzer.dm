@@ -101,7 +101,7 @@
 	removed.adjust_moles(GAS_O2, proportion * workingPower)
 	removed.adjust_moles(/datum/gas/plasma, proportion * 2 * workingPower)
 	env.merge(removed) //put back the new gases in the turf
-	air_update_turf(FALSE, FALSE)
+	air_update_turf(FALSE)
 	cell.use((5 * proportion * workingPower) / (efficiency + workingPower))
 
 /obj/machinery/electrolyzer/RefreshParts()

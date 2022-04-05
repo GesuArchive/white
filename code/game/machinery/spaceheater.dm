@@ -113,7 +113,7 @@
 			deltaTemperature *= -1
 		if(deltaTemperature)
 			env.set_temperature(env.return_temperature() + deltaTemperature)
-			air_update_turf(FALSE, FALSE)
+			air_update_turf(FALSE)
 		cell.use(requiredEnergy / efficiency)
 	else
 		on = FALSE

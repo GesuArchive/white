@@ -135,7 +135,7 @@
 	merger.set_moles(spawn_id, spawn_mol)
 	merger.set_temperature(spawn_temp)
 	O.assume_air(merger)
-	O.air_update_turf(FALSE, FALSE)
+	O.air_update_turf(FALSE)
 
 /obj/machinery/atmospherics/miner/attack_ai(mob/living/silicon/user)
 	if(broken)

@@ -154,7 +154,7 @@
 				var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
 
 				loc.assume_air(removed)
-				air_update_turf(FALSE, FALSE)
+				air_update_turf(FALSE)
 
 	else // external -> internal
 		last_moles_added = 0
