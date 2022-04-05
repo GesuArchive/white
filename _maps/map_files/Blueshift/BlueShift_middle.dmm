@@ -8319,6 +8319,15 @@
 	dir = 4
 	},
 /area/hallway/primary/central)
+"cAZ" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/bar{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/obj/tacmap/directional/east,
+/turf/open/floor/plasteel,
+/area/hallway/primary/aft)
 "cBn" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/wood,
@@ -17265,6 +17274,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
+/obj/tacmap/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "gkc" = (
@@ -21777,6 +21787,13 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/engineering/gravity_generator)
+"ifX" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/tacmap/directional/west,
+/turf/open/floor/plasteel,
+/area/hallway/primary/starboard)
 "ige" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -22826,6 +22843,7 @@
 /obj/machinery/camera/autoname/directional/east,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /obj/machinery/cell_charger,
+/obj/tacmap/directional/west,
 /turf/open/floor/plasteel/dark,
 /area/commons/storage/primary)
 "iyH" = (
@@ -25852,6 +25870,16 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/grass,
 /area/service/hydroponics)
+"jHz" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/tacmap/directional/south,
+/turf/open/floor/plasteel,
+/area/hallway/primary/port)
 "jHQ" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Maintenance Hatch";
@@ -44536,6 +44564,11 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood,
 /area/lawoffice)
+"ruT" = (
+/obj/effect/turf_decal/tile/red,
+/obj/tacmap/directional/east,
+/turf/open/floor/plasteel,
+/area/hallway/primary/fore)
 "rvz" = (
 /obj/structure/table{
 	name = "Blacksmith"
@@ -56690,6 +56723,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/tacmap/directional/north,
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
 "wlj" = (
@@ -58009,6 +58043,16 @@
 	dir = 4
 	},
 /turf/open/floor/wood,
+/area/hallway/primary/port)
+"wKG" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/tacmap/directional/north,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
 /area/hallway/primary/port)
 "wKM" = (
 /turf/open/floor/plasteel/dark,
@@ -60459,6 +60503,18 @@
 "xDl" = (
 /turf/closed/wall/r_wall,
 /area/engineering/lobby)
+"xDs" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/tacmap/directional/east,
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
+/area/hallway/primary/port)
 "xDv" = (
 /obj/machinery/modular_computer/console/preset/civilian{
 	dir = 4
@@ -83628,7 +83684,7 @@ wVm
 wVm
 wVm
 xOd
-xMp
+wKG
 waw
 waw
 sIo
@@ -85692,7 +85748,7 @@ wxV
 wxV
 ubT
 lCO
-wxV
+xDs
 nyi
 rLc
 jwg
@@ -86727,7 +86783,7 @@ ygw
 ygw
 ukf
 nwI
-tHi
+jHz
 yfB
 tyx
 ykh
@@ -95709,7 +95765,7 @@ beq
 bJR
 mkh
 mkh
-mkh
+cAZ
 mkh
 mkh
 mkh
@@ -95916,7 +95972,7 @@ jrY
 und
 jrY
 eoe
-jrY
+ruT
 jrY
 lit
 aiY
@@ -98820,7 +98876,7 @@ dQd
 uxp
 rGf
 eBn
-bSf
+ifX
 bSf
 aBS
 jFY

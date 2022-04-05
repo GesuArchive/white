@@ -5349,12 +5349,14 @@
 /turf/open/floor/carpet/green,
 /area/command/heads_quarters/captain/private)
 "boj" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Medbay Maintenance";
-	req_access_txt = "5"
+/obj/effect/turf_decal/stripes,
+/obj/structure/table/reinforced,
+/obj/machinery/recharger{
+	pixel_y = 3
 	},
-/turf/open/floor/plating,
-/area/maintenance/department/science)
+/obj/tacmap/directional/north,
+/turf/open/floor/engine,
+/area/maintenance/radshelter)
 "bom" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2{
@@ -13406,6 +13408,13 @@
 "dZG" = (
 /turf/open/openspace/airless,
 /area/space/nearstation)
+"dZJ" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/tacmap/directional/north,
+/turf/open/floor/plasteel,
+/area/commons/dorms)
 "dZQ" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/carpet/red,
@@ -14568,6 +14577,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 6
 	},
+/obj/tacmap/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/command)
 "ezH" = (
@@ -14958,6 +14968,11 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/maintenance/fore/upper)
+"eIr" = (
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/maintenance/department/science)
 "eIs" = (
 /obj/structure/rack,
 /obj/effect/spawner/lootdrop/maintenance,
@@ -20554,6 +20569,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+/obj/tacmap/directional/north,
 /turf/open/floor/plasteel/white,
 /area/medical/exam_room)
 "gOZ" = (
@@ -22900,6 +22916,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/commons/dorms)
+"hOP" = (
+/obj/tacmap/directional/north,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/hallway/secondary/command)
 "hOU" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -25307,6 +25329,13 @@
 	},
 /turf/open/floor/grass,
 /area/medical/psychology)
+"iIi" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/tacmap/directional/east,
+/turf/open/floor/plasteel,
+/area/hallway/primary/upper)
 "iIl" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -28079,9 +28108,11 @@
 /area/science/cytology)
 "jJX" = (
 /obj/machinery/chem_master,
-/turf/open/floor/plasteel/white{
-	dir = 8
+/obj/effect/turf_decal/tile/purple,
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
 	},
+/turf/open/floor/plasteel/white,
 /area/science/explab)
 "jKc" = (
 /obj/structure/railing{
@@ -30605,9 +30636,11 @@
 /area/ai_monitored/command/storage/eva/upper)
 "kHP" = (
 /obj/machinery/chem_heater,
-/turf/open/floor/plasteel/white{
-	dir = 1
+/obj/effect/turf_decal/tile/purple,
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
 	},
+/turf/open/floor/plasteel/white,
 /area/science/explab)
 "kIg" = (
 /obj/structure/cable,
@@ -31891,9 +31924,13 @@
 /obj/structure/table,
 /obj/item/ph_booklet,
 /obj/item/ph_meter,
-/turf/open/floor/plasteel/white{
-	dir = 4
+/obj/effect/turf_decal/tile/purple{
+	dir = 8
 	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/turf/open/floor/plasteel/white,
 /area/science/explab)
 "lfs" = (
 /obj/structure/table/reinforced,
@@ -34562,9 +34599,11 @@
 "mel" = (
 /obj/machinery/chem_dispenser,
 /obj/structure/extinguisher_cabinet/directional/north,
-/turf/open/floor/plasteel/white{
-	dir = 8
+/obj/effect/turf_decal/tile/purple,
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
 	},
+/turf/open/floor/plasteel/white,
 /area/science/explab)
 "meq" = (
 /obj/machinery/computer/security/telescreen/entertainment/directional/south,
@@ -35451,6 +35490,14 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel/stairs/right,
 /area/maintenance/fore/upper)
+"mwr" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/tacmap/directional/east,
+/turf/open/floor/plasteel,
+/area/commons/dorms)
 "mwH" = (
 /obj/machinery/mechpad,
 /turf/open/floor/mineral/plastitanium,
@@ -38548,6 +38595,13 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/security/checkpoint/medical)
+"nGm" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/tacmap/directional/east,
+/turf/open/floor/plasteel,
+/area/commons/dorms)
 "nGu" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green{
@@ -39958,6 +40012,10 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
+"okM" = (
+/obj/tacmap/directional/north,
+/turf/open/floor/plasteel,
+/area/commons/dorms)
 "okN" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -58181,9 +58239,13 @@
 /obj/item/reagent_containers/dropper{
 	pixel_y = -4
 	},
-/turf/open/floor/plasteel/white{
+/obj/effect/turf_decal/tile/purple{
 	dir = 8
 	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/turf/open/floor/plasteel/white,
 /area/science/explab)
 "veA" = (
 /obj/structure/sign/poster/contraband/random,
@@ -61592,6 +61654,7 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
 	},
+/obj/tacmap/directional/east,
 /turf/open/floor/plasteel/white/side{
 	dir = 8
 	},
@@ -62756,6 +62819,7 @@
 	name = "Medbay Maintenance";
 	req_access_txt = "5"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/medical/surgery/room_c)
 "wOc" = (
@@ -63206,6 +63270,12 @@
 	},
 /obj/machinery/reagentgrinder,
 /obj/machinery/newscaster/directional/north,
+/obj/effect/turf_decal/tile/purple{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
 /turf/open/floor/plasteel/white,
 /area/science/explab)
 "wXu" = (
@@ -87879,7 +87949,7 @@ huv
 kLm
 xOZ
 hTM
-fIP
+okM
 sjf
 fIP
 bXf
@@ -90690,7 +90760,7 @@ uoM
 uoM
 akG
 cxJ
-cxJ
+mwr
 amK
 mUz
 cxP
@@ -92503,7 +92573,7 @@ hTM
 khH
 eYn
 bRi
-txw
+nGm
 oSV
 jOa
 oLv
@@ -95045,7 +95115,7 @@ xNt
 xNt
 xNt
 uZP
-qTA
+hOP
 sIr
 pAU
 qNh
@@ -96107,7 +96177,7 @@ vZM
 vZM
 thn
 hTM
-txw
+dZJ
 vCj
 aJt
 ygn
@@ -100749,7 +100819,7 @@ xiu
 rqw
 trO
 xSX
-orn
+iIi
 jtG
 hXh
 orn
@@ -103584,7 +103654,7 @@ lyb
 xYp
 pbQ
 yiT
-xYp
+bGI
 xYp
 xYp
 xta
@@ -104090,7 +104160,7 @@ vJD
 oBx
 dta
 xSX
-boj
+kgn
 xSX
 xSX
 xSX
@@ -104348,7 +104418,7 @@ bov
 dta
 bcq
 xYp
-yiT
+eIr
 yiT
 qMH
 xYp
@@ -108136,7 +108206,7 @@ coL
 otL
 bek
 cGr
-ull
+boj
 fEt
 mCS
 pAb

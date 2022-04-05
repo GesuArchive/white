@@ -18188,18 +18188,9 @@
 /turf/open/floor/plasteel/cult,
 /area/maintenance/port)
 "mQf" = (
-/obj/structure/fans/tiny/forcefield{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes{
-	dir = 8
-	},
-/obj/machinery/light/floor,
-/turf/open/floor/plating,
-/area/hallway/secondary/entry)
+/obj/tacmap/directional/east,
+/turf/open/floor/plasteel,
+/area/hallway/secondary/exit)
 "mRo" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
@@ -26065,6 +26056,7 @@
 "tnr" = (
 /obj/structure/chair/sofa/bench/left,
 /obj/machinery/newscaster/directional/east,
+/obj/tacmap/directional/north,
 /turf/open/floor/plasteel/dark/side{
 	dir = 1
 	},
@@ -27753,6 +27745,7 @@
 	req_access_txt = "24"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/starboard)
 "uMt" = (
@@ -27959,6 +27952,7 @@
 	name = "Atmospherics Maintenance";
 	req_access_txt = "24"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/starboard)
 "uVO" = (
@@ -56607,7 +56601,7 @@ eAM
 eAM
 eAM
 vol
-eAM
+mQf
 gIs
 pEV
 vov
@@ -78967,11 +78961,11 @@ xGt
 xGt
 xuf
 xuf
-mQf
+dJw
 xuf
 xuf
 xuf
-mQf
+dJw
 xuf
 xuf
 xGt
