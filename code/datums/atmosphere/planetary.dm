@@ -3,19 +3,19 @@
 	id = LAVALAND_DEFAULT_ATMOS
 
 	base_gases = list(
-		/datum/gas/oxygen=5,
-		/datum/gas/nitrogen=10,
+		GAS_O2=5,
+		GAS_N2=10,
 	)
 	normal_gases = list(
-		/datum/gas/oxygen=10,
-		/datum/gas/nitrogen=10,
-		/datum/gas/carbon_dioxide=10,
+		GAS_O2=10,
+		GAS_N2=10,
+		GAS_CO2=10,
 	)
 	restricted_gases = list(
-		/datum/gas/plasma=0.1,
-		/datum/gas/bz=1.2,
-		/datum/gas/miasma=1.2,
-		/datum/gas/water_vapor=0.1,
+		GAS_PLASMA=0.1,
+		GAS_BZ=1.2,
+		GAS_MIASMA=1.2,
+		GAS_H2O=0.1,
 	)
 	restricted_chance = 50
 
@@ -29,18 +29,18 @@
 	id = ICEMOON_DEFAULT_ATMOS
 
 	base_gases = list(
-		/datum/gas/oxygen=5,
-		/datum/gas/nitrogen=10,
+		GAS_O2=5,
+		GAS_N2=10,
 	)
 	normal_gases = list(
-		/datum/gas/oxygen=10,
-		/datum/gas/nitrogen=10,
-		/datum/gas/carbon_dioxide=10,
+		GAS_O2=10,
+		GAS_N2=10,
+		GAS_CO2=10,
 	)
 	restricted_gases = list(
-		/datum/gas/plasma=0.1,
-		/datum/gas/water_vapor=0.1,
-		/datum/gas/miasma=1.2,
+		GAS_PLASMA=0.1,
+		GAS_H2O=0.1,
+		GAS_MIASMA=1.2,
 	)
 	restricted_chance = 50
 

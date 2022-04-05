@@ -43,7 +43,7 @@
 	//can we sniff? is there miasma in the air?
 	var/datum/gas_mixture/air = user.loc.return_air()
 
-	if(air.get_moles(/datum/gas/miasma) > 2)
+	if(air.get_moles(GAS_MIASMA) > 2)
 		user.adjust_disgust(sensitivity * 45)
 		to_chat(user, span_warning("УЖАСНАЯ ВОНЬ! Слишком отвратительный запах для моего чувствительного носа! Надо убраться отсюда подальше!"))
 		return

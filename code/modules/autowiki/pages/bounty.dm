@@ -41,7 +41,7 @@
 			"wanted_types" = format_item_list(gas_item.wanted_types),
 			"exclude_types" = format_item_list(gas_item.exclude_types),
 			"special_include_types" = format_item_list(gas_item.special_include_types),
-			"gas_type" = escape_value(GLOB.meta_gas_info[gas_item.gas_type][META_GAS_NAME]),
+			"gas_type" = escape_value(GLOB.gas_data.names[gas_item.gas_type]),
 		))
 
 	else if(istype(bounty, /datum/bounty/item))

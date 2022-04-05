@@ -3,7 +3,7 @@
 	name = "Фелинид"
 	reaction_type = EXOTHERMIC_REACTION
 	energy_release = 950000
-	requirements = list(/datum/gas/miasma = 10, /datum/gas/bz = 100, /datum/gas/carbon_dioxide = 1000)
+	requirements = list(GAS_MIASMA = 10, GAS_BZ = 100, GAS_CO2 = 1000)
 	products = list(/mob/living/carbon/human/species/felinid/atmos = 1)
 
 /mob/living/carbon/human/species/felinid/atmos/Initialize()

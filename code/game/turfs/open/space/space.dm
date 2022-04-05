@@ -62,9 +62,6 @@
 	if(our_area.static_lighting && always_lit) //Only provide your own lighting if the area doesn't for you
 		add_overlay(GLOB.fullbright_overlay)
 
-	if(requires_activation)
-		SSair.add_to_active(src, TRUE)
-
 	if (light_system == STATIC_LIGHT && light_power && light_range)
 		update_light()
 

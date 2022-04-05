@@ -71,7 +71,7 @@
 	active = TRUE
 
 	var/datum/gas_mixture/stank = new
-	stank.adjust_moles(/datum/gas/miasma, strength)
+	stank.adjust_moles(GAS_MIASMA, strength)
 	stank.set_temperature(BODYTEMP_NORMAL) // otherwise we have gas below 2.7K which will break our lag generator
 	var/turf/open/T = get_turf(parent)
 	T.assume_air(stank)

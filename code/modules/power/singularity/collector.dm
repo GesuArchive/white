@@ -43,27 +43,27 @@
 	if(!loaded_tank)
 		return
 	if(!bitcoinmining)
-		if(loaded_tank.air_contents.get_moles(/datum/gas/plasma) < 0.0001)
+		if(loaded_tank.air_contents.get_moles(GAS_PLASMA) < 0.0001)
 			investigate_log("<font color='red'>out of fuel</font>.", INVESTIGATE_SINGULO)
 			playsound(src, 'sound/machines/ding.ogg', 50, TRUE)
 			eject()
 		else
-			var/gasdrained = min(powerproduction_drain*drainratio,loaded_tank.air_contents.get_moles(/datum/gas/plasma))
-			loaded_tank.air_contents.adjust_moles(/datum/gas/plasma, -gasdrained)
-			loaded_tank.air_contents.adjust_moles(/datum/gas/tritium, gasdrained)
+			var/gasdrained = min(powerproduction_drain*drainratio,loaded_tank.air_contents.get_moles(GAS_PLASMA))
+			loaded_tank.air_contents.adjust_moles(GAS_PLASMA, -gasdrained)
+			loaded_tank.air_contents.adjust_moles(GAS_TRITIUM, gasdrained)
 
 			var/power_produced = RAD_COLLECTOR_OUTPUT
 			add_avail(power_produced)
 			stored_energy-=power_produced
 	else if(is_station_level(z) && SSresearch.science_tech)
-		if(!loaded_tank.air_contents.get_moles(/datum/gas/tritium) || !loaded_tank.air_contents.get_moles(/datum/gas/oxygen))
+		if(!loaded_tank.air_contents.get_moles(GAS_TRITIUM) || !loaded_tank.air_contents.get_moles(GAS_O2))
 			playsound(src, 'sound/machines/ding.ogg', 50, TRUE)
 			eject()
 		else
 			var/gasdrained = bitcoinproduction_drain*drainratio
-			loaded_tank.air_contents.adjust_moles(/datum/gas/tritium, -gasdrained)
-			loaded_tank.air_contents.adjust_moles(/datum/gas/oxygen, -gasdrained)
-			loaded_tank.air_contents.adjust_moles(/datum/gas/carbon_dioxide, gasdrained*2)
+			loaded_tank.air_contents.adjust_moles(GAS_TRITIUM, -gasdrained)
+			loaded_tank.air_contents.adjust_moles(GAS_O2, -gasdrained)
+			loaded_tank.air_contents.adjust_moles(GAS_CO2, gasdrained*2)
 			var/bitcoins_mined = RAD_COLLECTOR_OUTPUT
 			var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_ENG)
 			if(D)
@@ -84,7 +84,7 @@
 	var/datum/gas_mixture/tank_mix = loaded_tank?.return_air()
 	var/fuel
 	if(loaded_tank)
-		fuel = tank_mix.get_moles(/datum/gas/plasma)
+		fuel = tank_mix.get_moles(GAS_PLASMA)
 	//fuel = fuel ? fuel[MOLES] : 0
 	investigate_log("turned [active?"<font color='green'>on</font>":"<font color='red'>off</font>"] by [key_name(user)]. [loaded_tank?"Fuel: [round(fuel/0.29)]%":"<font color='red'>It is empty</font>"].", INVESTIGATE_SINGULO)
 

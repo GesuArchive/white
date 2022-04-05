@@ -147,10 +147,6 @@
 	var/data_to_send = jointext(data_list, "\n")
 	to_chat(src, span_notice("\n[data_to_send]\n"))
 
-/proc/maptick_initialize()
-	var/result = call(EXTOOLS, "maptick_initialize")()
-	message_admins(span_danger("ENABLING EXPERIMENTAL MAPTICK BOOST WITH RESULT OF: [result]"))
-
 /client/proc/change_lobby_music()
 	set category = "Особенное"
 	set name = "Change TM"

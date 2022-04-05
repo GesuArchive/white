@@ -1,6 +1,6 @@
-GLOBAL_LIST_INIT(hardcoded_gases, list(/datum/gas/oxygen, /datum/gas/nitrogen, /datum/gas/carbon_dioxide, /datum/gas/plasma)) //the main four gases, which were at one time hardcoded
+GLOBAL_LIST_INIT(hardcoded_gases, list(GAS_O2, GAS_N2, GAS_CO2, GAS_PLASMA)) //the main four gases, which were at one time hardcoded
 //Now this is what I call history
-GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/gas/nitrogen, /datum/gas/carbon_dioxide, /datum/gas/pluoxium, /datum/gas/stimulum, /datum/gas/nitryl))) //unable to react amongst themselves
+GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(GAS_O2, GAS_N2, GAS_CO2, GAS_PLUOXIUM, GAS_STIMULUM, GAS_NITRYL))) //unable to react amongst themselves
 
 /proc/meta_gas_list()
 	. = subtypesof(/datum/gas)
@@ -52,25 +52,25 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 
 // If you add or remove gases, update TOTAL_NUM_GASES in the extools code to match! Extools currently expects 21 gas types to exist.
 
-/datum/gas/oxygen
+GAS_O2
 	id = "o2"
 	specific_heat = 20
 	name = "Кислород"
 	rarity = 900
 
-/datum/gas/nitrogen
+GAS_N2
 	id = "n2"
 	specific_heat = 20
 	name = "Азот"
 	rarity = 1000
 
-/datum/gas/carbon_dioxide //what the fuck is this?
+GAS_CO2 //what the fuck is this?
 	id = "co2"
 	specific_heat = 30
 	name = "Углекислый газ"
 	rarity = 700
 
-/datum/gas/plasma
+GAS_PLASMA
 	id = "plasma"
 	specific_heat = 200
 	name = "Плазма"
@@ -79,7 +79,7 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 	dangerous = TRUE
 	rarity = 800
 
-/datum/gas/water_vapor
+GAS_H2O
 	id = "water_vapor"
 	specific_heat = 40
 	name = "Пар"
@@ -88,7 +88,7 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 	fusion_power = 8
 	rarity = 500
 
-/datum/gas/hypernoblium
+GAS_HYPERNOB
 	id = "nob"
 	specific_heat = 2000
 	name = "Гипер-ноблий"
@@ -98,7 +98,7 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 	fusion_power = 10
 	rarity = 50
 
-/datum/gas/nitrous_oxide
+GAS_NITROUS
 	id = "n2o"
 	specific_heat = 40
 	name = "Закись азота"
@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 	dangerous = TRUE
 	rarity = 600
 
-/datum/gas/nitryl
+GAS_NITRYL
 	id = "no2"
 	specific_heat = 20
 	name = "Нитрил"
@@ -117,7 +117,7 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 	dangerous = TRUE
 	rarity = 100
 
-/datum/gas/tritium
+GAS_TRITIUM
 	id = "tritium"
 	specific_heat = 10
 	name = "Тритий"
@@ -127,7 +127,7 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 	fusion_power = 5
 	rarity = 300
 
-/datum/gas/bz
+GAS_BZ
 	id = "bz"
 	specific_heat = 20
 	name = "БЗ"
@@ -135,21 +135,21 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 	fusion_power = 8
 	rarity = 400
 
-/datum/gas/stimulum
+GAS_STIMULUM
 	id = "stim"
 	specific_heat = 5
 	name = "Стимулум"
 	fusion_power = 7
 	rarity = 1
 
-/datum/gas/pluoxium
+GAS_PLUOXIUM
 	id = "pluox"
 	specific_heat = 80
 	name = "Плюоксиум"
 	fusion_power = -10
 	rarity = 200
 
-/datum/gas/miasma
+GAS_MIASMA
 	id = "miasma"
 	specific_heat = 20
 	name = "Миазма"

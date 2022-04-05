@@ -29,25 +29,20 @@
 
 	///List of gases with high filter priority
 	var/list/high_filtering_gases = list(
-		/datum/gas/plasma,
-		/datum/gas/carbon_dioxide,
-		/datum/gas/nitrous_oxide
+		GAS_PLASMA,
+		GAS_CO2,
+		GAS_NITROUS
 		)
 	///List of gases with medium filter priority
 	var/list/mid_filtering_gases = list(
-		/datum/gas/nitryl,
-		/datum/gas/stimulum,
-		/datum/gas/freon,
-		/datum/gas/hypernoblium,
-		/datum/gas/bz
+		GAS_NITRYL,
+		GAS_STIMULUM,
+		GAS_HYPERNOB,
+		GAS_BZ
 		)
 	///List of gases with low filter priority
 	var/list/low_filtering_gases = list(
-		/datum/gas/healium,
-		/datum/gas/proto_nitrate,
-		/datum/gas/halon,
-		/datum/gas/tritium,
-		/datum/gas/zauker
+		GAS_TRITIUM,
 		)
 
 /obj/item/gas_filter/examine(mob/user)
@@ -108,7 +103,7 @@
 	name = "фильтр противогаза плазмена"
 	desc = "Кусок многослойной фильтрационной ткани для использования в противогазах."
 	high_filtering_gases = list(
-		/datum/gas/oxygen,
-		/datum/gas/carbon_dioxide,
-		/datum/gas/nitrous_oxide
+		GAS_O2,
+		GAS_CO2,
+		GAS_NITROUS
 		)

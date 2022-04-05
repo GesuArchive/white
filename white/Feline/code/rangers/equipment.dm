@@ -19,7 +19,7 @@
 
 //Наполнение баллона воздухом (стандарт)
 /obj/item/tank/internals/tactical/populate_gas()
-	air_contents.set_moles(/datum/gas/oxygen, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+	air_contents.set_moles(GAS_O2, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 
 //Параметры кармана

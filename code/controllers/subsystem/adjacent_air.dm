@@ -7,13 +7,12 @@ SUBSYSTEM_DEF(adjacent_air)
 	var/list/queue = list()
 	var/list/disable_queue = list()
 
-/datum/controller/subsystem/adjacent_air/stat_entry(msg)
+/datum/controller/subsystem/adjacent_air/stat_entry()
 #ifdef TESTING
-	msg = "P:[length(queue)], S:[GLOB.atmos_adjacent_savings[1]], T:[GLOB.atmos_adjacent_savings[2]]"
+	. = ..("P:[length(queue)], S:[GLOB.atmos_adjacent_savings[1]], T:[GLOB.atmos_adjacent_savings[2]]")
 #else
-	msg = "P:[length(queue)]"
+	. = ..("P:[length(queue)]")
 #endif
-	return ..()
 
 /datum/controller/subsystem/adjacent_air/Initialize()
 	while(length(queue))
@@ -21,6 +20,9 @@ SUBSYSTEM_DEF(adjacent_air)
 	return ..()
 
 /datum/controller/subsystem/adjacent_air/fire(resumed = FALSE, mc_check = TRUE)
+	if(SSair.thread_running())
+		pause()
+		return
 
 	var/list/disable_queue = src.disable_queue
 
@@ -41,14 +43,9 @@ SUBSYSTEM_DEF(adjacent_air)
 
 	while (length(queue))
 		var/turf/currT = queue[1]
-		var/goal = queue[currT]
 		queue.Cut(1,2)
 
 		currT.ImmediateCalculateAdjacentTurfs()
-		if(goal == MAKE_ACTIVE)
-			SSair.add_to_active(currT)
-		else if(goal == KILL_EXCITED)
-			SSair.add_to_active(currT, TRUE)
 
 		if(mc_check)
 			if(MC_TICK_CHECK)

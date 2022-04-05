@@ -22,7 +22,7 @@
 	air_contents.set_temperature(T20C)
 	if(gas_type)
 		air_contents.set_moles(AIR_CONTENTS)
-		name = "[name] ([GLOB.meta_gas_info[gas_type][META_GAS_NAME]])"
+		name = "[name] ([GLOB.gas_data.names[gas_type]])"
 	setPipingLayer(piping_layer)
 
 
@@ -33,81 +33,52 @@
 /obj/machinery/atmospherics/components/unary/tank/air/New()
 	..()
 	var/datum/gas_mixture/air_contents = airs[1]
-	air_contents.set_moles(/datum/gas/oxygen, AIR_CONTENTS * 0.2)
-	air_contents.set_moles(/datum/gas/nitrogen, AIR_CONTENTS * 0.8)
+	air_contents.set_moles(GAS_O2, AIR_CONTENTS * 0.2)
+	air_contents.set_moles(GAS_N2, AIR_CONTENTS * 0.8)
 
 /obj/machinery/atmospherics/components/unary/tank/carbon_dioxide
-	gas_type = /datum/gas/carbon_dioxide
+	gas_type = GAS_CO2
 
 /obj/machinery/atmospherics/components/unary/tank/toxins
 	icon_state = "orange"
-	gas_type = /datum/gas/plasma
+	gas_type = GAS_PLASMA
 
 /obj/machinery/atmospherics/components/unary/tank/nitrogen
 	icon_state = "red"
-	gas_type = /datum/gas/nitrogen
+	gas_type = GAS_N2
 
 /obj/machinery/atmospherics/components/unary/tank/oxygen
 	icon_state = "blue"
-	gas_type = /datum/gas/oxygen
+	gas_type = GAS_O2
 
 /obj/machinery/atmospherics/components/unary/tank/nitrous
 	icon_state = "red_white"
-	gas_type = /datum/gas/nitrous_oxide
+	gas_type = GAS_NITROUS
 
 /obj/machinery/atmospherics/components/unary/tank/bz
-	gas_type = /datum/gas/bz
-
-/obj/machinery/atmospherics/components/unary/tank/freon
-	icon_state = "blue"
-	gas_type = /datum/gas/freon
-
-/obj/machinery/atmospherics/components/unary/tank/halon
-	icon_state = "blue"
-	gas_type = /datum/gas/halon
-
-/obj/machinery/atmospherics/components/unary/tank/healium
-	icon_state = "red"
-	gas_type = /datum/gas/healium
-
-/obj/machinery/atmospherics/components/unary/tank/hydrogen
-	icon_state = "grey"
-	gas_type = /datum/gas/hydrogen
+	gas_type = GAS_BZ
 
 /obj/machinery/atmospherics/components/unary/tank/hypernoblium
 	icon_state = "blue"
-	gas_type = /datum/gas/hypernoblium
+	gas_type = GAS_HYPERNOB
 
 /obj/machinery/atmospherics/components/unary/tank/miasma
-	gas_type = /datum/gas/miasma
+	gas_type = GAS_MIASMA
 
 /obj/machinery/atmospherics/components/unary/tank/nitryl
-	gas_type = /datum/gas/nitryl
+	gas_type = GAS_NITRYL
 
 /obj/machinery/atmospherics/components/unary/tank/pluoxium
 	icon_state = "blue"
-	gas_type = /datum/gas/pluoxium
-
-/obj/machinery/atmospherics/components/unary/tank/proto_nitrate
-	icon_state = "red"
-	gas_type = /datum/gas/proto_nitrate
+	gas_type = GAS_PLUOXIUM
 
 /obj/machinery/atmospherics/components/unary/tank/stimulum
 	icon_state = "red"
-	gas_type = /datum/gas/stimulum
+	gas_type = GAS_STIMULUM
 
 /obj/machinery/atmospherics/components/unary/tank/tritium
-	gas_type = /datum/gas/tritium
+	gas_type = GAS_TRITIUM
 
 /obj/machinery/atmospherics/components/unary/tank/water_vapor
 	icon_state = "grey"
-	gas_type = /datum/gas/water_vapor
-
-/obj/machinery/atmospherics/components/unary/tank/zauker
-	gas_type = /datum/gas/zauker
-
-/obj/machinery/atmospherics/components/unary/tank/helium
-	gas_type = /datum/gas/helium
-
-/obj/machinery/atmospherics/components/unary/tank/antinoblium
-	gas_type = /datum/gas/antinoblium
+	gas_type = GAS_H2O

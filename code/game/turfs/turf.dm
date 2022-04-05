@@ -118,7 +118,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 		add_overlay(GLOB.fullbright_overlay)
 
 	if(requires_activation)
-		CALCULATE_ADJACENT_TURFS(src, KILL_EXCITED)
+		CALCULATE_ADJACENT_TURFS(src)
 
 	if (light_power && light_range)
 		update_light()
@@ -138,11 +138,23 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	set_custom_materials(custom_materials)
 
 	ComponentInitialize()
+	if(isopenturf(src))
+		var/turf/open/O = src
+		__auxtools_update_turf_temp_info(isspaceturf(get_z_base_turf()) && !O.planetary_atmos)
+	else
+		update_air_ref(-1)
+		__auxtools_update_turf_temp_info(isspaceturf(get_z_base_turf()))
 
 	return INITIALIZE_HINT_NORMAL
 
+/turf/proc/__auxtools_update_turf_temp_info()
+
+/turf/return_temperature()
+
+/turf/proc/set_temperature()
+
 /turf/proc/Initalize_Atmos(times_fired)
-	CALCULATE_ADJACENT_TURFS(src, NORMAL_TURF)
+	CALCULATE_ADJACENT_TURFS(src)
 
 /turf/Destroy(force)
 	. = QDEL_HINT_IWILLGC
@@ -161,8 +173,9 @@ GLOBAL_LIST_EMPTY(station_turfs)
 		var/turf/B = new world.turf(src)
 		for(var/A in B.contents)
 			qdel(A)
+		for(var/I in B.vars)
+			B.vars[I] = null
 		return
-	SSair.remove_from_active(src)
 	visibilityChanged()
 	QDEL_LIST(blueprint_data)
 	flags_1 &= ~INITIALIZED_1

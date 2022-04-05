@@ -289,14 +289,9 @@
 
 /obj/item/tank/rad_act(strength)
 	. = ..()
-	if (air_contents.get_moles(/datum/gas/carbon_dioxide) && air_contents.get_moles(/datum/gas/oxygen))
-		strength = min(strength,air_contents.get_moles(/datum/gas/carbon_dioxide)*1000,air_contents.get_moles(/datum/gas/oxygen)*2000) //Ensures matter is conserved properly
-		air_contents.set_moles(/datum/gas/carbon_dioxide, max(air_contents.get_moles(/datum/gas/carbon_dioxide)-(strength * 0.001),0))
-		air_contents.set_moles(/datum/gas/oxygen, max(air_contents.get_moles(/datum/gas/oxygen)-(strength * 0.0005),0))
-		air_contents.adjust_moles(/datum/gas/pluoxium, strength * 0.004)
-		air_update_turf()
-	if (air_contents.get_moles(/datum/gas/hydrogen))
-		strength = min(strength, air_contents.get_moles(/datum/gas/hydrogen) * 1000)
-		air_contents.set_moles(/datum/gas/hydrogen, max(air_contents.get_moles(/datum/gas/hydrogen) - (strength * 0.001), 0))
-		air_contents.adjust_moles(/datum/gas/tritium, (strength * 0.001))
+	if (air_contents.get_moles(GAS_CO2) && air_contents.get_moles(GAS_O2))
+		strength = min(strength,air_contents.get_moles(GAS_CO2)*1000,air_contents.get_moles(GAS_O2)*2000) //Ensures matter is conserved properly
+		air_contents.set_moles(GAS_CO2, max(air_contents.get_moles(GAS_CO2)-(strength * 0.001),0))
+		air_contents.set_moles(GAS_O2, max(air_contents.get_moles(GAS_O2)-(strength * 0.0005),0))
+		air_contents.adjust_moles(GAS_PLUOXIUM, strength * 0.004)
 		air_update_turf()

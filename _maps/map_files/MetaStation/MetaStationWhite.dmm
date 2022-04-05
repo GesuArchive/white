@@ -57783,10 +57783,6 @@
 /area/maintenance/port/aft)
 "eTm" = (
 /obj/structure/table,
-/obj/item/circuitboard/machine/HFR_corner,
-/obj/item/circuitboard/machine/HFR_corner,
-/obj/item/circuitboard/machine/HFR_corner,
-/obj/item/circuitboard/machine/HFR_corner,
 /obj/item/stack/cable_coil{
 	pixel_x = 3;
 	pixel_y = -7
@@ -63520,11 +63516,6 @@
 /area/commons/storage/primary)
 "jql" = (
 /obj/structure/table,
-/obj/item/circuitboard/machine/HFR_core,
-/obj/item/circuitboard/machine/HFR_fuel_input,
-/obj/item/circuitboard/machine/HFR_interface,
-/obj/item/circuitboard/machine/HFR_moderator_input,
-/obj/item/circuitboard/machine/HFR_waste_output,
 /obj/item/stack/cable_coil{
 	pixel_x = -3;
 	pixel_y = 3

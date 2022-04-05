@@ -649,10 +649,10 @@
 /datum/plant_gene/trait/oxygenerator/on_grow(obj/machinery/hydroponics/our_tray)
 	var/turf/open/T = get_turf(our_tray)
 	if(T.air)
-		var/co2 = T.air.get_moles(/datum/gas/carbon_dioxide)
+		var/co2 = T.air.get_moles(GAS_CO2)
 		var/amt = max(co2, 9)
-		T.air.adjust_moles(/datum/gas/carbon_dioxide, -amt)
-		T.air.adjust_moles(/datum/gas/oxygen, amt * 2)
+		T.air.adjust_moles(GAS_CO2, -amt)
+		T.air.adjust_moles(GAS_O2, amt * 2)
 
 /datum/plant_gene/trait/cogenerator
 	name = "Генерация углекислого газа"
@@ -660,7 +660,7 @@
 /datum/plant_gene/trait/cogenerator/on_grow(obj/machinery/hydroponics/our_tray)
 	var/turf/open/T = get_turf(our_tray)
 	if(T.air)
-		var/oxy = T.air.get_moles(/datum/gas/oxygen)
+		var/oxy = T.air.get_moles(GAS_O2)
 		var/amt = max(oxy, 9)
-		T.air.adjust_moles(/datum/gas/carbon_dioxide, amt * 2)
-		T.air.adjust_moles(/datum/gas/oxygen, -amt)
+		T.air.adjust_moles(GAS_CO2, amt * 2)
+		T.air.adjust_moles(GAS_O2, -amt)

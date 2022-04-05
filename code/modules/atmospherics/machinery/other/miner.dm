@@ -145,109 +145,69 @@
 /obj/machinery/atmospherics/miner/n2o
 	name = "газодобытчик N2O"
 	overlay_color = "#FFCCCC"
-	spawn_id = /datum/gas/nitrous_oxide
+	spawn_id = GAS_NITROUS
 
 /obj/machinery/atmospherics/miner/n2o/clown
 	name = "газодобытчик N2O"
 	overlay_color = "#FFCCCC"
-	spawn_id = /datum/gas/nitrous_oxide
+	spawn_id = GAS_NITROUS
 
 /obj/machinery/atmospherics/miner/nitrogen
 	name = "газодобытчик N2"
 	overlay_color = "#CCFFCC"
-	spawn_id = /datum/gas/nitrogen
+	spawn_id = GAS_N2
 
 /obj/machinery/atmospherics/miner/oxygen
 	name = "газодобытчик O2"
 	overlay_color = "#007FFF"
-	spawn_id = /datum/gas/oxygen
+	spawn_id = GAS_O2
 
 /obj/machinery/atmospherics/miner/toxins
 	name = "газодобытчик Плазмы"
 	overlay_color = "#FF0000"
-	spawn_id = /datum/gas/plasma
+	spawn_id = GAS_PLASMA
 
 /obj/machinery/atmospherics/miner/carbon_dioxide
 	name = "газодобытчик CO2"
 	overlay_color = "#CDCDCD"
-	spawn_id = /datum/gas/carbon_dioxide
+	spawn_id = GAS_CO2
 
 /obj/machinery/atmospherics/miner/bz
 	name = "газодобытчик БЗ"
 	overlay_color = "#FAFF00"
-	spawn_id = /datum/gas/bz
+	spawn_id = GAS_BZ
 
 /obj/machinery/atmospherics/miner/water_vapor
 	name = "газодобытчик Пара"
 	overlay_color = "#99928E"
-	spawn_id = /datum/gas/water_vapor
-
-/obj/machinery/atmospherics/miner/freon
-	name = "газодобытчик Фреона"
-	overlay_color = "#61edff"
-	spawn_id = /datum/gas/freon
-
-/obj/machinery/atmospherics/miner/halon
-	name = "газодобытчик Галона"
-	overlay_color = "#5f0085"
-	spawn_id = /datum/gas/halon
-
-/obj/machinery/atmospherics/miner/healium
-	name = "газодобытчик Хилиума"
-	overlay_color = "#da4646"
-	spawn_id = /datum/gas/healium
-
-/obj/machinery/atmospherics/miner/hydrogen
-	name = "газодобытчик Водорода"
-	overlay_color = "#ffffff"
-	spawn_id = /datum/gas/hydrogen
+	spawn_id = GAS_H2O
 
 /obj/machinery/atmospherics/miner/hypernoblium
 	name = "газодобытчик Гипер-ноблия"
 	overlay_color = "#00f7ff"
-	spawn_id = /datum/gas/hypernoblium
+	spawn_id = GAS_HYPERNOB
 
 /obj/machinery/atmospherics/miner/miasma
 	name = "газодобытчик Миазмы"
 	overlay_color = "#395806"
-	spawn_id = /datum/gas/miasma
+	spawn_id = GAS_MIASMA
 
 /obj/machinery/atmospherics/miner/nitryl
 	name = "газодобытчик Нитрила"
 	overlay_color = "#752b00"
-	spawn_id = /datum/gas/nitryl
+	spawn_id = GAS_NITRYL
 
 /obj/machinery/atmospherics/miner/pluoxium
 	name = "газодобытчик Плюоксия"
 	overlay_color = "#4b54a3"
-	spawn_id = /datum/gas/pluoxium
-
-/obj/machinery/atmospherics/miner/proto_nitrate
-	name = "газодобытчик Протонитрата"
-	overlay_color = "#00571d"
-	spawn_id = /datum/gas/proto_nitrate
+	spawn_id = GAS_PLUOXIUM
 
 /obj/machinery/atmospherics/miner/stimulum
 	name = "газодобытчик Стимулума"
 	overlay_color = "#d577dd"
-	spawn_id = /datum/gas/stimulum
+	spawn_id = GAS_STIMULUM
 
 /obj/machinery/atmospherics/miner/tritium
 	name = "газодобытчик Трития"
 	overlay_color = "#15ff00"
-	spawn_id = /datum/gas/tritium
-
-/obj/machinery/atmospherics/miner/zauker
-	name = "газодобытчик Циклона Б"
-	overlay_color = "#022e00"
-	spawn_id = /datum/gas/zauker
-
-/obj/machinery/atmospherics/miner/helium
-	name = "газодобытчик Гелия"
-	overlay_color = "#022e00"
-	spawn_id = /datum/gas/helium
-
-/obj/machinery/atmospherics/miner/antinoblium
-	name = "газодобытчик Антиноблия"
-	overlay_color = "#022e00"
-	spawn_id = /datum/gas/antinoblium
+	spawn_id = GAS_TRITIUM

@@ -91,14 +91,14 @@
 	max_integrity = 1
 
 /obj/machinery/portable_atmospherics/canister/tier_3/felinid_fusion/create_gas()
-	air_contents.set_moles(/datum/gas/miasma, 500)
-	air_contents.set_moles(/datum/gas/bz, 5000)
-	air_contents.set_moles(/datum/gas/carbon_dioxide, 50000)
+	air_contents.set_moles(GAS_MIASMA, 500)
+	air_contents.set_moles(GAS_BZ, 5000)
+	air_contents.set_moles(GAS_CO2, 50000)
 
 /obj/machinery/portable_atmospherics/canister/tier_1/pellet_test
 	name = "abobus"
 	max_integrity = 1
 
 /obj/machinery/portable_atmospherics/canister/tier_1/pellet_test/create_gas()
-	air_contents.set_moles(/datum/gas/plasma, 1000)
-	air_contents.set_moles(/datum/gas/oxygen, 1000)
+	air_contents.set_moles(GAS_PLASMA, 1000)
+	air_contents.set_moles(GAS_O2, 1000)

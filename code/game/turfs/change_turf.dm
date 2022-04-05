@@ -15,8 +15,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 	if(turf_type)
 		var/turf/newT = ChangeTurf(turf_type, baseturf_type, flags)
-		SSair.remove_from_active(newT)
-		CALCULATE_ADJACENT_TURFS(newT, KILL_EXCITED)
+		CALCULATE_ADJACENT_TURFS(newT)
 
 /turf/proc/copyTurf(turf/T)
 	if(T.type != type)
@@ -46,6 +45,14 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 //wrapper for ChangeTurf()s that you want to prevent/affect without overriding ChangeTurf() itself
 /turf/proc/TerraformTurf(path, new_baseturf, flags)
 	return ChangeTurf(path, new_baseturf, flags)
+
+/turf/proc/get_z_base_turf()
+	. = SSmapping.level_trait(z, ZTRAIT_BASETURF) || /turf/open/space
+	if (!ispath(.))
+		. = text2path(.)
+		if (!ispath(.))
+			warning("Z-level [z] has invalid baseturf '[SSmapping.level_trait(z, ZTRAIT_BASETURF)]'")
+			. = /turf/open/space
 
 // Creates a new turf
 // new_baseturfs can be either a single type or list of types, formated the same as baseturfs. see turf.dm
@@ -158,26 +165,32 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 	return W
 
-/turf/open/ChangeTurf(path, list/new_baseturfs, flags) //Resist the temptation to make this default to keeping air.
+/turf/open/ChangeTurf(path, list/new_baseturfs, flags)
 	if ((flags & CHANGETURF_INHERIT_AIR) && ispath(path, /turf/open))
 		var/datum/gas_mixture/stashed_air = new()
-		if(stashed_air && air)
-			stashed_air.copy_from(air)
-		. = ..() //If path == type this will return us, don't bank on making a new type
+		stashed_air.copy_from(air)
+		. = ..()
 		if (!.) // changeturf failed or didn't do anything
 			QDEL_NULL(stashed_air)
 			return
 		var/turf/open/newTurf = .
-		if (!istype(newTurf.air, /datum/gas_mixture/immutable/space))
-			QDEL_NULL(newTurf.air)
-			newTurf.air = stashed_air
-			update_air_ref()
-		SSair.add_to_active(newTurf)
+		newTurf.air.copy_from(stashed_air)
+		update_air_ref(planetary_atmos ? 1 : 2)
+		QDEL_NULL(stashed_air)
 	else
-		SSair.remove_from_active(src) //Clean up wall excitement, and refresh excited groups
 		if(ispath(path,/turf/closed))
 			flags |= CHANGETURF_RECALC_ADJACENT
-		return ..()
+			update_air_ref(-1)
+			. = ..()
+		else
+			. = ..()
+			if(!istype(air,/datum/gas_mixture))
+				Initalize_Atmos(0)
+
+/turf/closed/ChangeTurf(path, list/new_baseturfs, flags)
+	if(ispath(path,/turf/open))
+		flags |= CHANGETURF_RECALC_ADJACENT
+	return ..()
 
 /// Take off the top layer turf and replace it with the next baseturf down
 /turf/proc/ScrapeAway(amount=1, flags)
@@ -297,14 +310,13 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 
 //If you modify this function, ensure it works correctly with lateloaded map templates.
-/turf/proc/AfterChange(flags, oldType) //called after a turf has been replaced in ChangeTurf()
+/turf/proc/AfterChange(flags) //called after a turf has been replaced in ChangeTurf()
 	levelupdate()
 	if(flags & CHANGETURF_RECALC_ADJACENT)
 		ImmediateCalculateAdjacentTurfs()
-		if(ispath(oldType, /turf/closed) && istype(src, /turf/open))
-			SSair.add_to_active(src)
-	else //In effect, I want closed turfs to make their tile active when sheered, but we need to queue it since they have no adjacent turfs
-		CALCULATE_ADJACENT_TURFS(src, (!(ispath(oldType, /turf/closed) && istype(src, /turf/open)) ? NORMAL_TURF : MAKE_ACTIVE))
+	else
+		CALCULATE_ADJACENT_TURFS(src)
+
 	//update firedoor adjacency
 	var/list/turfs_to_check = get_adjacent_open_turfs(src) | src
 	for(var/I in turfs_to_check)
@@ -314,7 +326,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 	HandleTurfChange(src)
 
-/turf/open/AfterChange(flags, oldType)
+/turf/open/AfterChange(flags)
 	..()
 	RemoveLattice()
 	if(!(flags & (CHANGETURF_IGNORE_AIR | CHANGETURF_INHERIT_AIR)))
@@ -335,7 +347,6 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		total.merge(S.air)
 
 	air.copy_from(total.remove_ratio(1/turf_count))
-	SSair.add_to_active(src)
 
 /turf/proc/ReplaceWithLattice()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)

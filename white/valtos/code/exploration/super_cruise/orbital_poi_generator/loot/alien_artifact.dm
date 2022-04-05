@@ -355,19 +355,19 @@
 /datum/artifact_effect/gas_remove
 	requires_processing = TRUE
 	var/static/list/valid_inputs = list(
-		/datum/gas/oxygen = 6,
-		/datum/gas/nitrogen = 3,
-		/datum/gas/plasma = 1,
-		/datum/gas/carbon_dioxide = 1,
-		/datum/gas/water_vapor = 3
+		GAS_O2 = 6,
+		GAS_N2 = 3,
+		GAS_PLASMA = 1,
+		GAS_CO2 = 1,
+		GAS_H2O = 3
 	)
 	var/static/list/valid_outputs = list(
-		/datum/gas/bz = 3,
-		/datum/gas/hypernoblium = 1,
-		/datum/gas/miasma = 3,
-		/datum/gas/plasma = 3,
-		/datum/gas/tritium = 2,
-		/datum/gas/nitryl = 1
+		GAS_BZ = 3,
+		GAS_HYPERNOB = 1,
+		GAS_MIASMA = 3,
+		GAS_PLASMA = 3,
+		GAS_TRITIUM = 2,
+		GAS_NITRYL = 1
 	)
 	var/datum/gas/input
 	var/datum/gas/output

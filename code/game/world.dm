@@ -29,6 +29,8 @@ GLOBAL_VAR(restart_counter)
  *			All atoms in both compiled and uncompiled maps are initialized()
  */
 /world/New()
+	//Keep the auxtools stuff at the top
+	AUXTOOLS_CHECK(AUXMOS)
 
 	if(cs_setup_threads())
 		log_world("CS active!")
@@ -283,18 +285,18 @@ GLOBAL_VAR(restart_counter)
 
 	TgsReboot()
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
+	AUXTOOLS_SHUTDOWN(AUXMOS)
 	if(CONFIG_GET(flag/this_shit_is_stable))
 		shelleo("curl -X POST http://localhost:3636/hard-reboot-white")
 		shelleo("python3 /home/ubuntu/tenebrae/prod/server_white/data/parser.py [GLOB.round_id]")
 	..()
 
 /world/Del()
-	// memory leaks bad
-	var/num_deleted = 0
-	for(var/datum/gas_mixture/GM)
-		GM.__gasmixture_unregister()
-		num_deleted++
-	log_world("Deallocated [num_deleted] gas mixtures")
+	shutdown_logging() // makes sure the thread is closed before end, else we terminate
+	AUXTOOLS_SHUTDOWN(AUXMOS)
+	var/debug_server = world.GetConfig("env", "AUXTOOLS_DEBUG_DLL")
+	if (debug_server)
+		call(debug_server, "auxtools_shutdown")()
 	..()
 
 /*

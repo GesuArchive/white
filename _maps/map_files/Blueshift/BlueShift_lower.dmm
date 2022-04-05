@@ -4234,10 +4234,6 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/item/stack/sheet/plasteel/fifty,
-/obj/item/hfr_box/body/fuel_input,
-/obj/item/hfr_box/body/interface,
-/obj/item/hfr_box/body/moderator_input,
-/obj/item/hfr_box/body/waste_output,
 /turf/open/floor/plasteel,
 /area/engineering/atmospherics_engine)
 "bZr" = (
@@ -7756,11 +7752,6 @@
 	pixel_y = 3
 	},
 /obj/effect/turf_decal/bot,
-/obj/item/hfr_box/core,
-/obj/item/hfr_box/corner,
-/obj/item/hfr_box/corner,
-/obj/item/hfr_box/corner,
-/obj/item/hfr_box/corner,
 /turf/open/floor/plasteel,
 /area/engineering/atmospherics_engine)
 "eCe" = (

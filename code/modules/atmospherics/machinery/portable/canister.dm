@@ -68,14 +68,6 @@
 		"pluoxium" = /obj/machinery/portable_atmospherics/canister/pluoxium,
 		"caution" = /obj/machinery/portable_atmospherics/canister,
 		"miasma" = /obj/machinery/portable_atmospherics/canister/miasma,
-		"freon" = /obj/machinery/portable_atmospherics/canister/freon,
-		"hydrogen" = /obj/machinery/portable_atmospherics/canister/hydrogen,
-		"healium" = /obj/machinery/portable_atmospherics/canister/healium,
-		"proto_nitrate" = /obj/machinery/portable_atmospherics/canister/proto_nitrate,
-		"zauker" = /obj/machinery/portable_atmospherics/canister/zauker,
-		"helium" = /obj/machinery/portable_atmospherics/canister/helium,
-		"antinoblium" = /obj/machinery/portable_atmospherics/canister/antinoblium,
-		"halon" = /obj/machinery/portable_atmospherics/canister/halon
 	)
 
 /obj/machinery/portable_atmospherics/canister/ComponentInitialize()
@@ -103,72 +95,24 @@
 	greyscale_config = /datum/greyscale_config/canister
 	greyscale_colors = "#c6c0b5"
 
-/obj/machinery/portable_atmospherics/canister/antinoblium
-	name = "канистра с антиноблием"
-	desc = "Антиноблий, мы до сих пор не знаем, что он делает, но он очень дорого продается"
-	gas_type = /datum/gas/antinoblium
-	filled = 1
-	greyscale_config = /datum/greyscale_config/canister/double_stripe
-	greyscale_colors = "#9b5d7f#368bff"
-
 /obj/machinery/portable_atmospherics/canister/bz
 	name = "канистра с БЗ"
 	desc = "БЗ, сильнодействующее галлюциногенное нервно-паралитическое средство."
-	gas_type = /datum/gas/bz
+	gas_type = GAS_BZ
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#9b5d7f#d0d2a0"
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide
 	name = "канистра с угарным газом"
 	desc = "Углекислый газ. Что за хрень этот углекислый газ?"
-	gas_type = /datum/gas/carbon_dioxide
+	gas_type = GAS_CO2
 	greyscale_config = /datum/greyscale_config/canister
 	greyscale_colors = "#4e4c48"
-
-/obj/machinery/portable_atmospherics/canister/freon
-	name = "канистра с фреоном"
-	desc = "Фреон. Может поглощать тепло."
-	gas_type = /datum/gas/freon
-	filled = 1
-	greyscale_config = /datum/greyscale_config/canister/double_stripe
-	greyscale_colors = "#6696ee#fefb30"
-
-/obj/machinery/portable_atmospherics/canister/halon
-	name = "канистра с галоном"
-	desc = "Галон, удаляет кислород из высокотемпературных пожаров и охлаждает помещение."
-	gas_type = /datum/gas/halon
-	filled = 1
-	greyscale_config = /datum/greyscale_config/canister/double_stripe
-	greyscale_colors = "#9b5d7f#368bff"
-
-/obj/machinery/portable_atmospherics/canister/healium
-	name = "канистра с хилиумом"
-	desc = "Хилиум, вызывает глубокий сон. Не путать с гелием."
-	gas_type = /datum/gas/healium
-	filled = 1
-	greyscale_config = /datum/greyscale_config/canister/double_stripe
-	greyscale_colors = "#009823#ff0e00"
-
-/obj/machinery/portable_atmospherics/canister/helium
-	name = "канистра с гелием"
-	desc = "Гелий, инертный газ."
-	gas_type = /datum/gas/helium
-	filled = 1
-	greyscale_config = /datum/greyscale_config/canister/double_stripe
-	greyscale_colors = "#9b5d7f#368bff"
-
-/obj/machinery/portable_atmospherics/canister/hydrogen
-	name = "канистра с водородом"
-	desc = "Водород, легковоспламеняющийся."
-	gas_type = /datum/gas/hydrogen
-	filled = 1
-	greyscale_config = /datum/greyscale_config/canister/stripe
-	greyscale_colors = "#bdc2c0#ffffff"
 
 /obj/machinery/portable_atmospherics/canister/miasma
 	name = "канистра с миазмой"
 	desc = "Миазма. Вызывает желание отрезать нос."
-	gas_type = /datum/gas/miasma
+	gas_type = GAS_MIASMA
 	filled = 1
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#009823#f7d5d3"
@@ -176,89 +120,73 @@
 /obj/machinery/portable_atmospherics/canister/nitrogen
 	name = "канистра с азотом"
 	desc = "Газообразный азот. Якобы полезно для чего-то."
-	gas_type = /datum/gas/nitrogen
+	gas_type = GAS_N2
 	greyscale_config = /datum/greyscale_config/canister
 	greyscale_colors = "#d41010"
 
 /obj/machinery/portable_atmospherics/canister/nitrous_oxide
 	name = "канистра с закисью азота"
 	desc = "Закись азота. Вызывает сонливость."
-	gas_type = /datum/gas/nitrous_oxide
+	gas_type = GAS_NITROUS
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#c63e3b#f7d5d3"
 
 /obj/machinery/portable_atmospherics/canister/nitryl
 	name = "канистра с нитрилом"
 	desc = "Нитрил-газ. Чувствуй себя прекрасно, пока кислота не съест твои легкие."
-	gas_type = /datum/gas/nitryl
+	gas_type = GAS_NITRYL
 	greyscale_config = /datum/greyscale_config/canister
 	greyscale_colors = "#7b4732"
 
 /obj/machinery/portable_atmospherics/canister/nob
 	name = "канистра с гипер-ноблием"
 	desc = "Гипер-Ноблий. Благороднее всех остальных газов."
-	gas_type = /datum/gas/hypernoblium
+	gas_type = GAS_HYPERNOB
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#6399fc#b2b2b2"
 
 /obj/machinery/portable_atmospherics/canister/oxygen
 	name = "канистра с кислородом"
 	desc = "Кислород. Необходим для жизни человека."
-	gas_type = /datum/gas/oxygen
+	gas_type = GAS_O2
 	greyscale_config = /datum/greyscale_config/canister/stripe
 	greyscale_colors = "#2786e5#e8fefe"
 
 /obj/machinery/portable_atmospherics/canister/pluoxium
 	name = "канистра с плюоксием"
 	desc = "Плюоксий. Как кислород, но с большей отдачей."
-	gas_type = /datum/gas/pluoxium
+	gas_type = GAS_PLUOXIUM
 	greyscale_config = /datum/greyscale_config/canister
 	greyscale_colors = "#2786e5"
-
-/obj/machinery/portable_atmospherics/canister/proto_nitrate
-	name = "канистра с протонитратом"
-	desc = "Протонитрат, по-разному реагирует с различными газами."
-	gas_type = /datum/gas/proto_nitrate
-	filled = 1
-	greyscale_config = /datum/greyscale_config/canister/double_stripe
-	greyscale_colors = "#008200#33cc33"
 
 /obj/machinery/portable_atmospherics/canister/stimulum
 	name = "канистра со стимулумом"
 	desc = "Стимул. Газ высокой энергии, люди высокой энергии."
-	gas_type = /datum/gas/stimulum
+	gas_type = GAS_STIMULUM
 	greyscale_config = /datum/greyscale_config/canister
 	greyscale_colors = "#9b5d7f"
 
 /obj/machinery/portable_atmospherics/canister/toxins
 	name = "канистра с плазмой"
 	desc = "Плазменный газ. Причина, по которой ТЫ здесь. Сильно токсичен."
-	gas_type = /datum/gas/plasma
+	gas_type = GAS_PLASMA
 	greyscale_config = /datum/greyscale_config/canister/hazard
 	greyscale_colors = "#f62800#000000"
 
 /obj/machinery/portable_atmospherics/canister/tritium
 	name = "канистра с тритием"
 	desc = "Тритий. Вдыхание может вызвать облучение."
-	gas_type = /datum/gas/tritium
+	gas_type = GAS_TRITIUM
 	greyscale_config = /datum/greyscale_config/canister/hazard
 	greyscale_colors = "#3fcd40#000000"
 
 /obj/machinery/portable_atmospherics/canister/water_vapor
 	name = "канистра с паром"
 	desc = "Водяной пар. Мы поняли, ты вейпер."
-	gas_type = /datum/gas/water_vapor
+	gas_type = GAS_H2O
 	filled = 1
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#4c4e4d#f7d5d3"
-
-/obj/machinery/portable_atmospherics/canister/zauker
-	name = "канистра с циклоном Б"
-	desc = "Невероятно токсичный газ, лучше не вдыхать."
-	gas_type = /datum/gas/zauker
-	filled = 1
-	greyscale_config = /datum/greyscale_config/canister/double_stripe
-	greyscale_colors = "#009a00#006600"
 
 // Special canisters below here
 
@@ -270,8 +198,8 @@
 	mode = CANISTER_TIER_3
 
 /obj/machinery/portable_atmospherics/canister/fusion_test/create_gas()
-	air_contents.set_moles(/datum/gas/hydrogen, 300)
-	air_contents.set_moles(/datum/gas/tritium, 300)
+	air_contents.set_moles(GAS_PLASMA, 300)
+	air_contents.set_moles(GAS_TRITIUM, 300)
 	air_contents.set_temperature(10000)
 
 /obj/machinery/portable_atmospherics/canister/proc/get_time_left()
@@ -307,7 +235,7 @@
 /obj/machinery/portable_atmospherics/canister/proto/default/oxygen
 	name = "прототип канистры"
 	desc = "Канистра любителя изобретать велосипеды, что может пойти не так?"
-	gas_type = /datum/gas/oxygen
+	gas_type = GAS_O2
 	filled = 1
 	release_pressure = ONE_ATMOSPHERE*2
 
@@ -352,8 +280,8 @@
 /obj/machinery/portable_atmospherics/canister/air/create_gas()
 	if(starter_temp)
 		air_contents.set_temperature(starter_temp)
-	air_contents.set_moles(/datum/gas/oxygen, (O2STANDARD * maximum_pressure * filled) * air_contents.return_volume() / (R_IDEAL_GAS_EQUATION * air_contents.return_temperature()))
-	air_contents.set_moles(/datum/gas/nitrogen, (N2STANDARD * maximum_pressure * filled) * air_contents.return_volume() / (R_IDEAL_GAS_EQUATION * air_contents.return_temperature()))
+	air_contents.set_moles(GAS_O2, (O2STANDARD * maximum_pressure * filled) * air_contents.return_volume() / (R_IDEAL_GAS_EQUATION * air_contents.return_temperature()))
+	air_contents.set_moles(GAS_N2, (N2STANDARD * maximum_pressure * filled) * air_contents.return_volume() / (R_IDEAL_GAS_EQUATION * air_contents.return_temperature()))
 
 /obj/machinery/portable_atmospherics/canister/update_icon_state()
 	if(machine_stat & BROKEN)
@@ -588,10 +516,10 @@
 				if(!holding)
 					var/list/danger = list()
 					for(var/id in air_contents.get_gases())
-						if(!GLOB.meta_gas_info[id][META_GAS_DANGER])
+						if(!(GLOB.gas_data.flags[id] & GAS_FLAG_DANGEROUS))
 							continue
-						if(air_contents.get_moles(id) > (GLOB.meta_gas_info[id][META_GAS_MOLES_VISIBLE] || MOLES_GAS_VISIBLE)) //if moles_visible is undefined, default to default visibility
-							danger[GLOB.meta_gas_info[id][META_GAS_NAME]] = air_contents.get_moles(id) //ex. "plasma" = 20
+						if(air_contents.get_moles(id) > (GLOB.gas_data.visibility[id] || MOLES_GAS_VISIBLE)) //if moles_visible is undefined, default to default visibility
+							danger[GLOB.gas_data.names[id]] = air_contents.get_moles(id) //ex. "plasma" = 20
 
 					if(danger.len)
 						message_admins("[ADMIN_LOOKUPFLW(usr)] opened a canister that contains the following at [ADMIN_VERBOSEJMP(src)]:")

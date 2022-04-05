@@ -365,7 +365,7 @@
 
 	for(var/filtered_gas in removed.get_gases())
 		//Get the name of the gas and see if it is in the list
-		if(GLOB.meta_gas_info[filtered_gas][META_GAS_NAME] in wanted)
+		if(GLOB.gas_data.names[filtered_gas] in wanted)
 			//The gas that is put in all the filtered out gases
 			filtered_out.set_temperature(removed.return_temperature())
 			filtered_out.set_moles(filtered_gas, removed.get_moles(filtered_gas))

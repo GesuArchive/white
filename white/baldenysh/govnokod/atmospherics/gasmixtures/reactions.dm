@@ -7,7 +7,7 @@
 /datum/gas_reaction/metalhydrogen/init_reqs()
 	min_requirements = list(
 		/datum/gas/hydrogen = 100,
-		/datum/gas/bz = 5,
+		GAS_BZ = 5,
 		"TEMP" = METAL_HYDROGEN_MINIMUM_HEAT
 		)
 
@@ -26,7 +26,7 @@
 	var/energy_used = heat_efficency * METAL_HYDROGEN_FORMATION_ENERGY
 
 	if(pressure >= METAL_HYDROGEN_MINIMUM_PRESSURE && temperature >= METAL_HYDROGEN_MINIMUM_HEAT)
-		cached_gases[/datum/gas/bz][MOLES] -= heat_efficency * 0.01
+		cached_gases[GAS_BZ][MOLES] -= heat_efficency * 0.01
 		if (prob(20 * increase_factor))
 			cached_gases[/datum/gas/hydrogen][MOLES] -= heat_efficency * 3.5
 			if (prob(100 / increase_factor))

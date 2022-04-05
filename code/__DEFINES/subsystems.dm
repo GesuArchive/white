@@ -251,16 +251,21 @@
 */
 #define addtimer(args...) _addtimer(args, file = __FILE__, line = __LINE__)
 
-// Air subsystem subtasks
+// SSair run section
 #define SSAIR_PIPENETS 1
 #define SSAIR_ATMOSMACHINERY 2
-#define SSAIR_EQUALIZE 3
-#define SSAIR_ACTIVETURFS 4
-#define SSAIR_EXCITEDGROUPS 5
-#define SSAIR_HIGHPRESSURE 6
-#define SSAIR_HOTSPOTS 7
-#define SSAIR_SUPERCONDUCTIVITY 8
-#define SSAIR_PROCESS_ATOMS 9
+#define SSAIR_EXCITEDGROUPS 3
+#define SSAIR_HIGHPRESSURE 4
+#define SSAIR_HOTSPOTS 5
+#define SSAIR_TURF_CONDUCTION 6
+#define SSAIR_REBUILD_PIPENETS 7
+#define SSAIR_EQUALIZE 8
+#define SSAIR_ACTIVETURFS 9
+#define SSAIR_TURF_POST_PROCESS 10
+#define SSAIR_FINALIZE_TURFS 11
+#define SSAIR_ATMOSMACHINERY_AIR 12
+#define SSAIR_DEFERRED_AIRS 13
+#define SSAIR_PROCESS_ATOMS 14
 
 // Explosion Subsystem subtasks
 #define SSEXPLOSIONS_MOVABLES 1

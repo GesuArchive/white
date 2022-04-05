@@ -20,21 +20,9 @@
 /datum/gas_mixture/immutable/space/populate()
 	set_min_heat_capacity(HEAT_CAPACITY_VACUUM)
 
-/*
-//planet side stuff
-/datum/gas_mixture/immutable/planetary
+//used by cloners
+/datum/gas_mixture/immutable/cloner
+	initial_temperature = T20C
 
-/datum/gas_mixture/immutable/planetary/proc/parse_string_immutable(gas_string) //I know I know, I need this tho
-	gas_string = SSair.preprocess_gas_string(gas_string)
-
-	var/list/gas = params2list(gas_string)
-	if(gas["TEMP"])
-		initial_temperature = text2num(gas["TEMP"])
-		set_temperature(initial_temperature)
-		gas -= "TEMP"
-	for(var/id in gas)
-		var/path = id
-		if(!ispath(path))
-			path = gas_id2path(path) //a lot of these strings can't have embedded expressions (especially for mappers), so support for IDs needs to stick around
-		set_moles(path, gas[path][MOLES])
-*/
+/datum/gas_mixture/immutable/cloner/populate()
+	set_moles(GAS_N2, MOLES_O2STANDARD + MOLES_N2STANDARD)

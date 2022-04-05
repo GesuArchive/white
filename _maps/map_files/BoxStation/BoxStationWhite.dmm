@@ -23716,7 +23716,6 @@
 /area/maintenance/disposal/incinerator)
 "bXT" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/atmospherics/components/binary/crystallizer,
 /turf/open/floor/plasteel,
 /area/engineering/atmos)
 "bXW" = (
@@ -42591,41 +42590,6 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/hfr_box/corner{
-	pixel_x = -7;
-	pixel_y = 14
-	},
-/obj/item/hfr_box/body/fuel_input{
-	pixel_x = 9;
-	pixel_y = 14
-	},
-/obj/item/hfr_box/body/moderator_input{
-	pixel_x = 8;
-	pixel_y = 5
-	},
-/obj/item/hfr_box/body/waste_output{
-	pixel_x = -8;
-	pixel_y = 5
-	},
-/obj/item/hfr_box/core{
-	pixel_x = 11;
-	pixel_y = -4
-	},
-/obj/item/hfr_box/body/interface{
-	pixel_x = -5;
-	pixel_y = -4
-	},
-/obj/item/hfr_box/corner{
-	pixel_y = 21
-	},
-/obj/item/hfr_box/corner{
-	pixel_x = 1;
-	pixel_y = 11
-	},
-/obj/item/hfr_box/corner{
-	pixel_x = 1;
-	pixel_y = 24
-	},
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/storage_shared)
 "pqP" = (

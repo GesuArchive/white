@@ -15,7 +15,7 @@
 
 	var/synth_type = /obj/item/stack/sheet/cotton
 	var/list/gas_moles_per_synth = list(
-										/datum/gas/oxygen = 0.1
+										GAS_O2 = 0.1
 										)
 	var/moles_removed = 5
 
@@ -109,9 +109,9 @@
 	desc = "Собирает уголь, во хохма-то."
 	synth_type = /obj/item/stack/sheet/mineral/coal
 	gas_moles_per_synth = list(
-								/datum/gas/carbon_dioxide = 0.05,
+								GAS_CO2 = 0.05,
 								/datum/gas/hydrogen = 0.2,
-								/datum/gas/miasma = 0.1
+								GAS_MIASMA = 0.1
 								)
 
 

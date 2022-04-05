@@ -8,34 +8,24 @@
 /turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	return
 
-
 /turf/open/hotspot_expose(exposed_temperature, exposed_volume, soh)
-	//If the air doesn't exist we just return false
 	if(!air)
 		return
 
-	var/oxy = air.get_moles(/datum/gas/oxygen)
-	if (oxy < 0.5)
+	if (air.get_oxidation_power(exposed_temperature) < 0.5)
 		return
-	var/tox = air.get_moles(/datum/gas/plasma)
-	var/trit = air.get_moles(/datum/gas/tritium)
-	var/h2 = air.get_moles(/datum/gas/hydrogen)
+	var/has_fuel = air.get_moles(GAS_PLASMA) > 0.5 || air.get_moles(GAS_TRITIUM) > 0.5 || air.get_fuel_amount(exposed_temperature) > 0.5
 	if(active_hotspot)
 		if(soh)
-			if(tox > 0.5 || trit > 0.5 || h2 > 0.5)
+			if(has_fuel)
 				if(active_hotspot.temperature < exposed_temperature)
 					active_hotspot.temperature = exposed_temperature
 				if(active_hotspot.volume < exposed_volume)
 					active_hotspot.volume = exposed_volume
 		return
 
-	if((exposed_temperature > PLASMA_MINIMUM_BURN_TEMPERATURE) && (tox > 0.5 || trit > 0.5 || h2 > 0.5))
-
+	if((exposed_temperature > PLASMA_MINIMUM_BURN_TEMPERATURE) && has_fuel)
 		active_hotspot = new /obj/effect/hotspot(src, exposed_volume*25, exposed_temperature)
-
-		active_hotspot.just_spawned = (current_cycle < SSair.times_fired)
-			//remove just_spawned protection if no longer processing this cell
-		SSair.add_to_active(src)
 
 //This is the icon for fire on turfs, also helps for nurturing small fires until they are full tile
 /obj/effect/hotspot
@@ -44,7 +34,6 @@
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "1"
 	layer = GASFIRE_LAYER
-	plane = ABOVE_GAME_PLANE
 	blend_mode = BLEND_ADD
 	light_system = MOVABLE_LIGHT
 	light_range = LIGHT_RANGE_FIRE
@@ -53,9 +42,9 @@
 
 	var/volume = 125
 	var/temperature = FIRE_MINIMUM_TEMPERATURE_TO_EXIST
-	var/just_spawned = TRUE
 	var/bypassing = FALSE
 	var/visual_update_tick = 0
+	var/first_cycle = TRUE
 
 
 /obj/effect/hotspot/Initialize(mapload, starting_volume, starting_temperature)
@@ -67,7 +56,7 @@
 		temperature = starting_temperature
 	perform_exposure()
 	setDir(pick(GLOB.cardinals))
-	air_update_turf(FALSE, FALSE)
+	air_update_turf()
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/on_entered,
 	)
@@ -80,7 +69,9 @@
 
 	location.active_hotspot = src
 
-	bypassing = !just_spawned && (volume > CELL_VOLUME*0.95)
+	bypassing = !first_cycle && volume > CELL_VOLUME*0.95 || location.air.return_temperature() > FUSION_TEMPERATURE_THRESHOLD
+	if(first_cycle)
+		first_cycle = FALSE
 
 	if(bypassing)
 		volume = location.air.reaction_results["fire"]*FIRE_GROWTH_RATE
@@ -96,7 +87,7 @@
 
 	for(var/A in location)
 		var/atom/AT = A
-		if(!QDELETED(AT) && AT != src)
+		if(!QDELETED(AT) && AT != src) // It's possible that the item is deleted in temperature_expose
 			AT.fire_act(temperature, volume)
 	return
 
@@ -160,10 +151,6 @@
 
 #define INSUFFICIENT(path) (location.air.get_moles(path) < 0.5)
 /obj/effect/hotspot/process()
-	if(just_spawned)
-		just_spawned = FALSE
-		return
-
 	var/turf/open/location = loc
 	if(!istype(location))
 		qdel(src)
@@ -174,9 +161,7 @@
 	if((temperature < FIRE_MINIMUM_TEMPERATURE_TO_EXIST) || (volume <= 1))
 		qdel(src)
 		return
-
-	//Not enough / nothing to burn
-	if(!location.air || (INSUFFICIENT(/datum/gas/plasma) && INSUFFICIENT(/datum/gas/tritium) && INSUFFICIENT(/datum/gas/hydrogen)) || INSUFFICIENT(/datum/gas/oxygen))
+	if(!location.air || location.air.get_oxidation_power() < 0.5 || (INSUFFICIENT(GAS_PLASMA) && INSUFFICIENT(GAS_TRITIUM) && location.air.get_fuel_amount() < 0.5))
 		qdel(src)
 		return
 
@@ -203,6 +188,11 @@
 	if((visual_update_tick++ % 7) == 0)
 		update_color()
 
+	if(temperature > location.max_fire_temperature_sustained)
+		location.max_fire_temperature_sustained = temperature
+
+	if(location.heat_capacity && temperature > location.heat_capacity)
+		location.to_be_destroyed = TRUE
 	return TRUE
 
 /obj/effect/hotspot/Destroy()
@@ -210,13 +200,30 @@
 	var/turf/open/T = loc
 	if(istype(T) && T.active_hotspot == src)
 		T.active_hotspot = null
+	DestroyTurf()
 	return ..()
 
-/obj/effect/hotspot/proc/on_entered(datum/source, atom/movable/AM, oldLoc)
+/obj/effect/hotspot/proc/DestroyTurf()
+	if(isturf(loc))
+		var/turf/T = loc
+		if(T.to_be_destroyed && !T.changing_turf)
+			var/chance_of_deletion
+			if (T.heat_capacity) //beware of division by zero
+				chance_of_deletion = T.max_fire_temperature_sustained / T.heat_capacity * 8 //there is no problem with prob(23456), min() was redundant --rastaf0
+			else
+				chance_of_deletion = 100
+			if(prob(chance_of_deletion))
+				T.Melt()
+			else
+				T.to_be_destroyed = FALSE
+				T.max_fire_temperature_sustained = 0
+
+/obj/effect/hotspot/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
-	if(isliving(AM))
-		var/mob/living/L = AM
-		L.fire_act(temperature, volume)
+
+	if(isliving(arrived))
+		var/mob/living/immolated = arrived
+		immolated.fire_act(temperature, volume)
 
 /obj/effect/hotspot/singularity_pull()
 	return

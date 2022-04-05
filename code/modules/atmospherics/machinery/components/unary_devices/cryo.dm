@@ -291,7 +291,7 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 
 	var/datum/gas_mixture/air1 = airs[1]
 
-	if(!nodes[1] || !airs[1] || air1.get_moles(/datum/gas/oxygen) < CRYO_MIN_GAS_MOLES) // Turn off if the machine won't work.
+	if(!nodes[1] || !airs[1] || air1.get_moles(GAS_O2) < CRYO_MIN_GAS_MOLES) // Turn off if the machine won't work.
 		var/msg = "Недостаточно криогенного газа, остановка."
 		radio.talk_into(src, msg, radio_channel)
 		set_on(FALSE)
@@ -320,10 +320,10 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 				humi.adjust_coretemperature(humi.bodytemperature - humi.coretemperature)
 
 		if(consume_gas) // Transferring reagent costs us extra gas
-			air1.adjust_moles(/datum/gas/oxygen, -max(0, delta_time / efficiency + 1 / efficiency))
+			air1.adjust_moles(GAS_O2, -max(0, delta_time / efficiency + 1 / efficiency))
 			consume_gas = FALSE
 		if(!consume_gas)
-			air1.adjust_moles(/datum/gas/oxygen, -max(0, delta_time / efficiency))
+			air1.adjust_moles(GAS_O2, -max(0, delta_time / efficiency))
 
 		if(air1.return_temperature() > 2000)
 			take_damage(clamp((air1.return_temperature())/200, 10, 20), BURN)

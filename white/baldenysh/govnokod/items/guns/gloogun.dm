@@ -26,21 +26,21 @@
 	if(chambered && !chambered.loaded_projectile && bolon)
 		var/datum/gas_mixture/removed = bolon.air_contents.remove(moles_drawn)
 
-		var/co_amount = removed.get_moles(/datum/gas/carbon_dioxide)
-		var/o_amount = removed.get_moles(/datum/gas/oxygen)
-		var/n_amount = removed.get_moles(/datum/gas/nitrogen)
+		var/co_amount = removed.get_moles(GAS_CO2)
+		var/o_amount = removed.get_moles(GAS_O2)
+		var/n_amount = removed.get_moles(GAS_N2)
 
 		var/amount_mul = 0
 
 		if(debug)
 			amount_mul = round(min(n_amount/2, o_amount))
-			removed.adjust_moles(/datum/gas/nitrogen, -amount_mul*2)
-			removed.adjust_moles(/datum/gas/oxygen, -amount_mul)
+			removed.adjust_moles(GAS_N2, -amount_mul*2)
+			removed.adjust_moles(GAS_O2, -amount_mul)
 		else
 			amount_mul = round(min(n_amount, o_amount, co_amount/3))
-			removed.adjust_moles(/datum/gas/nitrogen, -amount_mul)
-			removed.adjust_moles(/datum/gas/oxygen, -amount_mul)
-			removed.adjust_moles(/datum/gas/carbon_dioxide, -amount_mul*3)
+			removed.adjust_moles(GAS_N2, -amount_mul)
+			removed.adjust_moles(GAS_O2, -amount_mul)
+			removed.adjust_moles(GAS_CO2, -amount_mul*3)
 
 		bolon.air_contents.merge(removed)
 

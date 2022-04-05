@@ -321,6 +321,8 @@
 	. = ..()
 	. += "<hr><span class='notice'>It is set to layer [pipe_layer].</span>"
 
+//HFRT
+/*
 /obj/item/circuitboard/machine/HFR_fuel_input
 	name = "Термоядерный реактор - Топливный порт"
 	desc = "Входной порт термоядерного реактора, принимает исключительно водород и тритий в газообразной форме."
@@ -382,7 +384,7 @@
 		/obj/item/stack/cable_coil = 10,
 		/obj/item/stack/sheet/glass = 10,
 		/obj/item/stack/sheet/plasteel = 5)
-
+*/
 //Generic
 
 /obj/item/circuitboard/machine/circuit_imprinter
