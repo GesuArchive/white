@@ -70,9 +70,9 @@
 	start_time = world.time
 	active = TRUE
 
-	var/turf/T = get_turf(parent)
-	if(T)
-		T.adjust_moles(GAS_MIASMA, strength)
+	var/turf/open/T = get_turf(parent)
+	if(T?.air)
+		T.air.adjust_moles(GAS_MIASMA, strength)
 		T.air_update_turf(FALSE)
 
 ///One of two procs that modifies blockers, this one handles adding a blocker and potentially ending the rot
