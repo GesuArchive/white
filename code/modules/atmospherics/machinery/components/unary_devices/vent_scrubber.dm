@@ -128,7 +128,7 @@
 			scrub(tile, delta_time)
 	return TRUE
 
-/obj/machinery/atmospherics/components/unary/vent_scrubber/scrub(var/turf/open/tile)
+/obj/machinery/atmospherics/components/unary/vent_scrubber/scrub(turf/open/tile)
 	if(!istype(tile))
 		return FALSE
 	var/datum/gas_mixture/environment = tile.return_air()

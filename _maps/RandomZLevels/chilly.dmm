@@ -1142,7 +1142,7 @@
 	heat_capacity = 1e+006;
 	icon_state = "floorscorched1";
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	temperature = 251
+	initial_temperature = 251
 	},
 /area/awaymission/chilly/facility)
 "dq" = (
@@ -1216,7 +1216,7 @@
 	heat_capacity = 1e+006;
 	icon_state = "damaged5";
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	temperature = 251
+	initial_temperature = 251
 	},
 /area/awaymission/chilly/facility)
 "dA" = (
@@ -1287,7 +1287,7 @@
 	heat_capacity = 1e+006;
 	icon_state = "damaged5";
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	temperature = 251
+	initial_temperature = 251
 	},
 /area/awaymission/chilly/facility)
 "dG" = (
@@ -3341,7 +3341,7 @@
 	heat_capacity = 1e+006;
 	icon_state = "damaged4";
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	temperature = 251
+	initial_temperature = 251
 	},
 /area/awaymission/chilly/facility)
 "jt" = (
@@ -8349,7 +8349,7 @@
 	heat_capacity = 1e+006;
 	icon_state = "damaged1";
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	temperature = 251
+	initial_temperature = 251
 	},
 /area/awaymission/chilly/facility)
 "xF" = (
@@ -10741,7 +10741,7 @@
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	temperature = 251
+	initial_temperature = 251
 	},
 /area/awaymission/chilly/facility)
 "Eo" = (
@@ -18008,7 +18008,7 @@
 	heat_capacity = 1e+006;
 	icon_state = "damaged4";
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	temperature = 251
+	initial_temperature = 251
 	},
 /area/awaymission/chilly/facility)
 "YI" = (
@@ -18108,7 +18108,7 @@
 	heat_capacity = 1e+006;
 	icon_state = "damaged4";
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	temperature = 251
+	initial_temperature = 251
 	},
 /area/awaymission/chilly/facility)
 "YW" = (
