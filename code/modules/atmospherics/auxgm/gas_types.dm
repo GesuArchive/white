@@ -1,7 +1,7 @@
 /datum/gas/oxygen
 	id = GAS_O2
 	specific_heat = 20
-	name = "Oxygen"
+	name = "Кислород"
 	oxidation_temperature = T0C - 100 // it checks max of this and fire temperature, so rarely will things spontaneously combust
 
 /datum/gas/nitrogen
@@ -17,12 +17,12 @@
 			alert_type = /atom/movable/screen/alert/too_much_nitro
 		)
 	)
-	name = "Nitrogen"
+	name = "Азот"
 
 /datum/gas/carbon_dioxide //what the fuck is this?
 	id = GAS_CO2
 	specific_heat = 30
-	name = "Carbon Dioxide"
+	name = "Углекислый газ"
 	breath_results = GAS_O2
 	breath_alert_info = list(
 		not_enough_alert = list(
@@ -39,7 +39,7 @@
 /datum/gas/plasma
 	id = GAS_PLASMA
 	specific_heat = 200
-	name = "Plasma"
+	name = "Плазма"
 	gas_overlay = "plasma"
 	moles_visible = MOLES_GAS_VISIBLE
 	flags = GAS_FLAG_DANGEROUS
@@ -48,7 +48,7 @@
 /datum/gas/water_vapor
 	id = GAS_H2O
 	specific_heat = 40
-	name = "Water Vapor"
+	name = "Пар"
 	gas_overlay = "water_vapor"
 	moles_visible = MOLES_GAS_VISIBLE
 	fusion_power = 8
@@ -57,14 +57,14 @@
 /datum/gas/hypernoblium
 	id = GAS_HYPERNOB
 	specific_heat = 2000
-	name = "Hyper-noblium"
+	name = "Гипер-нобилий"
 	gas_overlay = "freon"
 	moles_visible = MOLES_GAS_VISIBLE
 
 /datum/gas/nitrous_oxide
 	id = GAS_NITROUS
 	specific_heat = 40
-	name = "Nitrous Oxide"
+	name = "Закись азота"
 	gas_overlay = "nitrous_oxide"
 	moles_visible = MOLES_GAS_VISIBLE * 2
 	flags = GAS_FLAG_DANGEROUS
@@ -75,7 +75,7 @@
 /datum/gas/nitryl
 	id = GAS_NITRYL
 	specific_heat = 20
-	name = "Nitryl"
+	name = "Нитрил"
 	gas_overlay = "nitryl"
 	moles_visible = MOLES_GAS_VISIBLE
 	flags = GAS_FLAG_DANGEROUS
@@ -86,7 +86,7 @@
 /datum/gas/tritium
 	id = GAS_TRITIUM
 	specific_heat = 10
-	name = "Tritium"
+	name = "Тритий"
 	gas_overlay = "tritium"
 	moles_visible = MOLES_GAS_VISIBLE
 	flags = GAS_FLAG_DANGEROUS
@@ -102,20 +102,20 @@
 /datum/gas/bz
 	id = GAS_BZ
 	specific_heat = 20
-	name = "BZ"
+	name = "БЗ"
 	flags = GAS_FLAG_DANGEROUS
 	fusion_power = 8
 
 /datum/gas/stimulum
 	id = GAS_STIMULUM
 	specific_heat = 5
-	name = "Stimulum"
+	name = "Стимулум"
 	fusion_power = 7
 
 /datum/gas/pluoxium
 	id = GAS_PLUOXIUM
 	specific_heat = 80
-	name = "Pluoxium"
+	name = "Плюоксий"
 	fusion_power = 10
 	oxidation_temperature = FIRE_MINIMUM_TEMPERATURE_TO_EXIST * 1000 // it is VERY stable
 	oxidation_rate = 8
@@ -124,6 +124,6 @@
 	id = GAS_MIASMA
 	specific_heat = 20
 	fusion_power = 50
-	name = "Miasma"
+	name = "Миазма"
 	gas_overlay = "miasma"
 	moles_visible = MOLES_GAS_VISIBLE * 60

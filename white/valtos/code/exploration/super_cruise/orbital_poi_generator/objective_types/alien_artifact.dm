@@ -33,7 +33,7 @@
 /datum/orbital_objective/artifact/check_failed()
 	if(!generated)
 		return FALSE
-	if(is_station_level(linked_artifact.z))
+	if(is_station_level(linked_artifact?.z))
 		complete_objective()
 		return FALSE
 	if(!QDELETED(linked_artifact))

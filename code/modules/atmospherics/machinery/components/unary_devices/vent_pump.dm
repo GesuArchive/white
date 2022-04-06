@@ -101,63 +101,37 @@
 
 /obj/machinery/atmospherics/components/unary/vent_pump/process_atmos()
 	..()
-	if(!is_operational)
-		last_moles_added = 0
+	if(!is_operational || !isopenturf(loc))
 		return
-	if(space_shutoff_ticks > 0)
-		space_shutoff_ticks--
-		if(space_shutoff_ticks <= 1 && !on)
-			on = TRUE
-			update_icon()
 	if(!nodes[1])
 		on = FALSE
 	if(!on || welded)
-		last_moles_added = 0
 		return
-	var/turf/open/us = loc
-	if(!istype(us))
-		return
+
 	var/datum/gas_mixture/air_contents = airs[1]
-	var/datum/gas_mixture/environment = us.return_air()
-	var/environment_pressure = environment.return_pressure()
-	var/environment_moles = environment.total_moles()
-	var/last_moles_real_added = environment_moles - last_moles
-	if(last_moles_added > 0 && environment_moles == 0 && space_detection)
-		// looks like we have a S P A C E problem.
-		last_moles_added = 0
-		on = FALSE
-		space_shutoff_ticks = 20 // shut off for about 20 seconds before trying again.
-		update_icon()
+	var/datum/gas_mixture/environment = loc.return_air()
+
+	if(environment == null)
 		return
+
+	var/environment_pressure = environment.return_pressure()
 
 	if(pump_direction & RELEASING) // internal -> external
 		var/pressure_delta = 10000
 
 		if(pressure_checks&EXT_BOUND)
-			var/multiplier = 1 // fast_fill multiplier
-			if(fast_fill)
-				if(last_moles_added > 0 && last_moles_real_added > 0)
-					multiplier = clamp(last_moles_added / last_moles_real_added * 0.25, 1, 100)
-				else if(last_moles_added > 0 && last_moles_real_added < 0 && environment_moles != 0)
-					multiplier = 10 // pressure is going down, but let's fight it anyways
-			pressure_delta = min(pressure_delta, (external_pressure_bound - environment_pressure) * multiplier)
+			pressure_delta = min(pressure_delta, (external_pressure_bound - environment_pressure))
 		if(pressure_checks&INT_BOUND)
 			pressure_delta = min(pressure_delta, (air_contents.return_pressure() - internal_pressure_bound))
-		if(space_shutoff_ticks > 0) // if we just came off a space-shutoff, only transfer a little bit.
-			pressure_delta = min(pressure_delta, 10)
 
 		if(pressure_delta > 0)
 			if(air_contents.return_temperature() > 0)
 				var/transfer_moles = pressure_delta*environment.return_volume()/(air_contents.return_temperature() * R_IDEAL_GAS_EQUATION)
-				last_moles_added = transfer_moles
 
-				var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
-
-				loc.assume_air(removed)
-				air_update_turf(FALSE)
+				loc.assume_air_moles(air_contents, transfer_moles)
+				air_update_turf()
 
 	else // external -> internal
-		last_moles_added = 0
 		if(environment.return_pressure() > 0)
 			var/our_multiplier = air_contents.return_volume() / (environment.return_temperature() * R_IDEAL_GAS_EQUATION)
 			var/moles_delta = 10000 * our_multiplier
@@ -167,13 +141,8 @@
 				moles_delta = min(moles_delta, (internal_pressure_bound - air_contents.return_pressure()) * our_multiplier)
 
 			if(moles_delta > 0)
-				var/datum/gas_mixture/removed = loc.remove_air(moles_delta)
-				if (isnull(removed)) // in space
-					return
-
-				air_contents.merge(removed)
+				loc.transfer_air(air_contents, moles_delta)
 				air_update_turf()
-	last_moles = environment_moles
 	update_parents()
 
 //Radio remote control
