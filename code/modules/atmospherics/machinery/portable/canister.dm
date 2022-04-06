@@ -68,6 +68,14 @@
 		"pluoxium" = /obj/machinery/portable_atmospherics/canister/pluoxium,
 		"caution" = /obj/machinery/portable_atmospherics/canister,
 		"miasma" = /obj/machinery/portable_atmospherics/canister/miasma,
+		"freon" = /obj/machinery/portable_atmospherics/canister/freon,
+		"hydrogen" = /obj/machinery/portable_atmospherics/canister/hydrogen,
+		"healium" = /obj/machinery/portable_atmospherics/canister/healium,
+		"proto_nitrate" = /obj/machinery/portable_atmospherics/canister/proto_nitrate,
+		"zauker" = /obj/machinery/portable_atmospherics/canister/zauker,
+		"helium" = /obj/machinery/portable_atmospherics/canister/helium,
+		"antinoblium" = /obj/machinery/portable_atmospherics/canister/antinoblium,
+		"halon" = /obj/machinery/portable_atmospherics/canister/halon
 	)
 
 /obj/machinery/portable_atmospherics/canister/ComponentInitialize()
@@ -95,6 +103,14 @@
 	greyscale_config = /datum/greyscale_config/canister
 	greyscale_colors = "#c6c0b5"
 
+/obj/machinery/portable_atmospherics/canister/antinoblium
+	name = "канистра с антиноблием"
+	desc = "Антиноблий, мы до сих пор не знаем, что он делает, но он очень дорого продается"
+	gas_type = GAS_ANTINOBLIUM
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#9b5d7f#368bff"
+
 /obj/machinery/portable_atmospherics/canister/bz
 	name = "канистра с БЗ"
 	desc = "БЗ, сильнодействующее галлюциногенное нервно-паралитическое средство."
@@ -108,6 +124,46 @@
 	gas_type = GAS_CO2
 	greyscale_config = /datum/greyscale_config/canister
 	greyscale_colors = "#4e4c48"
+
+/obj/machinery/portable_atmospherics/canister/freon
+	name = "канистра с фреоном"
+	desc = "Фреон. Может поглощать тепло."
+	gas_type = GAS_FREON
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#6696ee#fefb30"
+
+/obj/machinery/portable_atmospherics/canister/halon
+	name = "канистра с галоном"
+	desc = "Галон, удаляет кислород из высокотемпературных пожаров и охлаждает помещение."
+	gas_type = GAS_HALON
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#9b5d7f#368bff"
+
+/obj/machinery/portable_atmospherics/canister/healium
+	name = "канистра с хилиумом"
+	desc = "Хилиум, вызывает глубокий сон. Не путать с гелием."
+	gas_type = GAS_HEALIUM
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#009823#ff0e00"
+
+/obj/machinery/portable_atmospherics/canister/helium
+	name = "канистра с гелием"
+	desc = "Гелий, инертный газ."
+	gas_type = GAS_HELIUM
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#9b5d7f#368bff"
+
+/obj/machinery/portable_atmospherics/canister/hydrogen
+	name = "канистра с водородом"
+	desc = "Водород, легковоспламеняющийся."
+	gas_type = GAS_HYDROGEN
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/stripe
+	greyscale_colors = "#bdc2c0#ffffff"
 
 /obj/machinery/portable_atmospherics/canister/miasma
 	name = "канистра с миазмой"
@@ -159,6 +215,14 @@
 	greyscale_config = /datum/greyscale_config/canister
 	greyscale_colors = "#2786e5"
 
+/obj/machinery/portable_atmospherics/canister/proto_nitrate
+	name = "канистра с протонитратом"
+	desc = "Протонитрат, по-разному реагирует с различными газами."
+	gas_type = GAS_PROTO_NITRATE
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#008200#33cc33"
+
 /obj/machinery/portable_atmospherics/canister/stimulum
 	name = "канистра со стимулумом"
 	desc = "Стимул. Газ высокой энергии, люди высокой энергии."
@@ -188,6 +252,14 @@
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#4c4e4d#f7d5d3"
 
+/obj/machinery/portable_atmospherics/canister/zauker
+	name = "канистра с циклоном Б"
+	desc = "Невероятно токсичный газ, лучше не вдыхать."
+	gas_type = GAS_ZAUKER
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#009a00#006600"
+
 // Special canisters below here
 
 /obj/machinery/portable_atmospherics/canister/fusion_test
@@ -198,9 +270,10 @@
 	mode = CANISTER_TIER_3
 
 /obj/machinery/portable_atmospherics/canister/fusion_test/create_gas()
-	air_contents.set_moles(GAS_PLASMA, 300)
-	air_contents.set_moles(GAS_TRITIUM, 300)
-	air_contents.set_temperature(10000)
+	air_contents.set_moles(GAS_PLASMA, 3000)
+	air_contents.set_moles(GAS_TRITIUM, 3000)
+	air_contents.set_moles(GAS_CO2, 3000)
+	air_contents.set_temperature(500000)
 
 /obj/machinery/portable_atmospherics/canister/proc/get_time_left()
 	if(timing)

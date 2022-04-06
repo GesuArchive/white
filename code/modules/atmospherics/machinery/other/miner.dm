@@ -182,6 +182,26 @@
 	overlay_color = "#99928E"
 	spawn_id = GAS_H2O
 
+/obj/machinery/atmospherics/miner/freon
+	name = "газодобытчик Фреона"
+	overlay_color = "#61edff"
+	spawn_id = GAS_FREON
+
+/obj/machinery/atmospherics/miner/halon
+	name = "газодобытчик Галона"
+	overlay_color = "#5f0085"
+	spawn_id = GAS_HALON
+
+/obj/machinery/atmospherics/miner/healium
+	name = "газодобытчик Хилиума"
+	overlay_color = "#da4646"
+	spawn_id = GAS_HEALIUM
+
+/obj/machinery/atmospherics/miner/hydrogen
+	name = "газодобытчик Водорода"
+	overlay_color = "#ffffff"
+	spawn_id = GAS_HYDROGEN
+
 /obj/machinery/atmospherics/miner/hypernoblium
 	name = "газодобытчик Гипер-ноблия"
 	overlay_color = "#00f7ff"
@@ -202,6 +222,11 @@
 	overlay_color = "#4b54a3"
 	spawn_id = GAS_PLUOXIUM
 
+/obj/machinery/atmospherics/miner/proto_nitrate
+	name = "газодобытчик Протонитрата"
+	overlay_color = "#00571d"
+	spawn_id = GAS_PROTO_NITRATE
+
 /obj/machinery/atmospherics/miner/stimulum
 	name = "газодобытчик Стимулума"
 	overlay_color = "#d577dd"
@@ -211,3 +236,18 @@
 	name = "газодобытчик Трития"
 	overlay_color = "#15ff00"
 	spawn_id = GAS_TRITIUM
+
+/obj/machinery/atmospherics/miner/zauker
+	name = "газодобытчик Циклона Б"
+	overlay_color = "#022e00"
+	spawn_id = GAS_ZAUKER
+
+/obj/machinery/atmospherics/miner/helium
+	name = "газодобытчик Гелия"
+	overlay_color = "#022e00"
+	spawn_id = GAS_HELIUM
+
+/obj/machinery/atmospherics/miner/antinoblium
+	name = "газодобытчик Антиноблия"
+	overlay_color = "#022e00"
+	spawn_id = GAS_ANTINOBLIUM
