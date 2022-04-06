@@ -529,7 +529,7 @@ GLOBAL_PROTECT(ohshitfuck)
 				if(lte_nuclear_war[ckey(fucktorio[1])])
 					lte_nuclear_war[ckey(fucktorio[1])] = fucktorio[2]
 				else
-					LAZYADDASSOC(lte_nuclear_war, ckey(fucktorio[1]), fucktorio[2])
+					LAZYADDASSOC(lte_nuclear_war, ckey(fucktorio[1]), text2num(fucktorio[2]))
 				message_admins("[key_name_admin(src)] устанавливает [fucktorio[1]] количество перерождений на [fucktorio[2]].")
 			else
 				LAZYADDASSOCLIST(lte_nuclear_war, ckey(fucktorio[1]), fucktorio[2])
