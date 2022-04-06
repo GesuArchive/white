@@ -861,8 +861,6 @@
 	category = list ("Различное оборудование")
 
 //Hypertorus fusion reactor designs
-//HFRT
-/*
 /datum/design/board/HFR_core
 	name = "Термоядерный реактор - Ядро"
 	desc = "Ядро термоядерного реактора, передовая технология для точной настройки протекания реакции внутри машины. Он имеет ввод-вывод для охлаждения газов."
@@ -939,7 +937,7 @@
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
-*/
+
 /datum/design/board/exoscanner
 	name = "Массив сканеров"
 	desc = "Сложная сканирующая матрица. Уязвима к воздействию окружающей среды."

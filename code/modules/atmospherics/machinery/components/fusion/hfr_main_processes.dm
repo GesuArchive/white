@@ -122,34 +122,34 @@
 	var/energy_modifiers = scaled_moderator_list[GAS_N2] * 0.35 + \
 								scaled_moderator_list[GAS_CO2] * 0.55 + \
 								scaled_moderator_list[GAS_NITROUS] * 0.95 + \
-								scaled_moderator_list[/datum/gas/zauker] * 1.55 + \
-								scaled_moderator_list[/datum/gas/antinoblium] * 20
+								scaled_moderator_list[GAS_ZAUKER] * 1.55 + \
+								scaled_moderator_list[GAS_ANTINOBLIUM] * 20
 	// Gases that decrease the amount of energy
 	energy_modifiers -= scaled_moderator_list[GAS_HYPERNOB] * 10 + \
 								scaled_moderator_list[GAS_H2O] * 0.75 + \
 								scaled_moderator_list[GAS_NITRYL] * 0.15 + \
-								scaled_moderator_list[/datum/gas/healium] * 0.45 + \
-								scaled_moderator_list[/datum/gas/freon] * 1.15
+								scaled_moderator_list[GAS_HEALIUM] * 0.45 + \
+								scaled_moderator_list[GAS_FREON] * 1.15
 	///Between 0.25 and 100, this value is used to modify the behaviour of the internal energy and the core temperature based on the gases present in the mix
 	var/power_modifier = scaled_moderator_list[GAS_O2] * 0.55 + \
 								scaled_moderator_list[GAS_CO2] * 0.95 + \
 								scaled_moderator_list[GAS_NITRYL] * 1.45 + \
-								scaled_moderator_list[/datum/gas/zauker] * 5.55 + \
+								scaled_moderator_list[GAS_ZAUKER] * 5.55 + \
 								scaled_moderator_list[GAS_PLASMA] * 0.05 - \
 								scaled_moderator_list[GAS_NITROUS] * 0.05 - \
-								scaled_moderator_list[/datum/gas/freon] * 0.75
+								scaled_moderator_list[GAS_FREON] * 0.75
 	///Minimum 0.25, this value is used to modify the behaviour of the energy emission based on the gases present in the mix
 	var/heat_modifier = scaled_moderator_list[GAS_PLASMA] * 1.25 - \
 								scaled_moderator_list[GAS_N2] * 0.75 - \
 								scaled_moderator_list[GAS_NITROUS] * 1.45 - \
-								scaled_moderator_list[/datum/gas/freon] * 0.95
+								scaled_moderator_list[GAS_FREON] * 0.95
 	///Between 0.005 and 1000, this value modify the radiation emission of the reaction, higher values increase the emission
-	var/radiation_modifier = scaled_moderator_list[/datum/gas/freon] * 1.15 - \
+	var/radiation_modifier = scaled_moderator_list[GAS_FREON] * 1.15 - \
 									scaled_moderator_list[GAS_N2] * 0.45 - \
 									scaled_moderator_list[GAS_PLASMA] * 0.95 + \
 									scaled_moderator_list[GAS_BZ] * 1.9 + \
-									scaled_moderator_list[/datum/gas/proto_nitrate] * 0.1 + \
-									scaled_moderator_list[/datum/gas/antinoblium] * 10
+									scaled_moderator_list[GAS_PROTO_NITRATE] * 0.1 + \
+									scaled_moderator_list[GAS_ANTINOBLIUM] * 10
 
 	if (selected_fuel)
 		// These should probably be static coefficients read from a table rather than things that depend on the current recipe
@@ -288,76 +288,76 @@
 				moderator_internal.adjust_moles(GAS_NITROUS, scaled_production * 0.5)
 				moderator_internal.adjust_moles(GAS_PLASMA, -min(moderator_internal.get_moles(GAS_PLASMA), scaled_production * 0.85))
 			if(moderator_list[GAS_BZ] > 150)
-				internal_output.adjust_moles(/datum/gas/halon, scaled_production * 0.55)
+				internal_output.adjust_moles(GAS_HALON, scaled_production * 0.55)
 				moderator_internal.adjust_moles(GAS_BZ, -min(moderator_internal.get_moles(GAS_BZ), scaled_production * 0.95))
 		if(2)
 			if(moderator_list[GAS_PLASMA] > 50)
 				internal_output.adjust_moles(GAS_BZ, scaled_production * 1.8)
 				moderator_internal.adjust_moles(GAS_PLASMA, -min(moderator_internal.get_moles(GAS_PLASMA), scaled_production * 1.75))
-			if(moderator_list[/datum/gas/proto_nitrate] > 20)
+			if(moderator_list[GAS_PROTO_NITRATE] > 20)
 				radiation *= 1.55
 				heat_output *= 1.025
 				internal_output.adjust_moles(GAS_NITRYL, scaled_production * 1.05)
-				moderator_internal.adjust_moles(/datum/gas/proto_nitrate, -min(moderator_internal.get_moles(/datum/gas/proto_nitrate), scaled_production * 1.35))
+				moderator_internal.adjust_moles(GAS_PROTO_NITRATE, -min(moderator_internal.get_moles(GAS_PROTO_NITRATE), scaled_production * 1.35))
 		if(3, 4)
 			if(moderator_list[GAS_PLASMA] > 10)
-				internal_output.adjust_moles(/datum/gas/freon, scaled_production * 0.15)
+				internal_output.adjust_moles(GAS_FREON, scaled_production * 0.15)
 				internal_output.adjust_moles(GAS_NITRYL, scaled_production * 1.05)
 				moderator_internal.adjust_moles(GAS_PLASMA, -min(moderator_internal.get_moles(GAS_PLASMA), scaled_production * 0.45))
-			if(moderator_list[/datum/gas/freon] > 50)
+			if(moderator_list[GAS_FREON] > 50)
 				heat_output *= 0.9
 				radiation *= 0.8
-			if(moderator_list[/datum/gas/proto_nitrate]> 15)
+			if(moderator_list[GAS_PROTO_NITRATE]> 15)
 				internal_output.adjust_moles(GAS_NITRYL, scaled_production * 1.25)
-				internal_output.adjust_moles(/datum/gas/halon, scaled_production * 1.15)
-				moderator_internal.adjust_moles(/datum/gas/proto_nitrate, -min(moderator_internal.get_moles(/datum/gas/proto_nitrate), scaled_production * 1.55))
+				internal_output.adjust_moles(GAS_HALON, scaled_production * 1.15)
+				moderator_internal.adjust_moles(GAS_PROTO_NITRATE, -min(moderator_internal.get_moles(GAS_PROTO_NITRATE), scaled_production * 1.55))
 				radiation *= 1.95
 				heat_output *= 1.25
 			if(moderator_list[GAS_BZ] > 100)
-				internal_output.adjust_moles(/datum/gas/proto_nitrate, scaled_production * 1.5)
-				internal_output.adjust_moles(/datum/gas/healium, scaled_production * 1.5)
+				internal_output.adjust_moles(GAS_PROTO_NITRATE, scaled_production * 1.5)
+				internal_output.adjust_moles(GAS_HEALIUM, scaled_production * 1.5)
 				induce_hallucination(50 * power_level, delta_time)
 		if(5)
 			if(moderator_list[GAS_PLASMA] > 15)
-				internal_output.adjust_moles(/datum/gas/freon, scaled_production *0.25)
+				internal_output.adjust_moles(GAS_FREON, scaled_production *0.25)
 				moderator_internal.adjust_moles(GAS_PLASMA, -min(moderator_internal.get_moles(GAS_PLASMA), scaled_production * 1.45))
-			if(moderator_list[/datum/gas/freon] > 500)
+			if(moderator_list[GAS_FREON] > 500)
 				heat_output *= 0.5
 				radiation *= 0.2
-			if(moderator_list[/datum/gas/proto_nitrate] > 50)
+			if(moderator_list[GAS_PROTO_NITRATE] > 50)
 				internal_output.adjust_moles(GAS_NITRYL, scaled_production * 1.95)
 				internal_output.adjust_moles(GAS_PLUOXIUM, scaled_production)
-				moderator_internal.adjust_moles(/datum/gas/proto_nitrate, -min(moderator_internal.get_moles(/datum/gas/proto_nitrate), scaled_production * 1.35))
+				moderator_internal.adjust_moles(GAS_PROTO_NITRATE, -min(moderator_internal.get_moles(GAS_PROTO_NITRATE), scaled_production * 1.35))
 				radiation *= 1.95
 				heat_output *= 1.25
 			if(moderator_list[GAS_BZ] > 100)
-				internal_output.adjust_moles(/datum/gas/healium, scaled_production)
+				internal_output.adjust_moles(GAS_HEALIUM, scaled_production)
 				induce_hallucination(500, delta_time)
-				moderator_internal.adjust_moles(/datum/gas/freon, scaled_production * 1.15)
-			if(moderator_list[/datum/gas/healium] > 100)
+				moderator_internal.adjust_moles(GAS_FREON, scaled_production * 1.15)
+			if(moderator_list[GAS_HEALIUM] > 100)
 				if(critical_threshold_proximity > 400)
-					critical_threshold_proximity = max(critical_threshold_proximity - (moderator_list[/datum/gas/healium] / 100 * delta_time ), 0)
-					moderator_internal.adjust_moles(/datum/gas/healium, -min(moderator_internal.get_moles(/datum/gas/healium), scaled_production * 20))
+					critical_threshold_proximity = max(critical_threshold_proximity - (moderator_list[GAS_HEALIUM] / 100 * delta_time ), 0)
+					moderator_internal.adjust_moles(GAS_HEALIUM, -min(moderator_internal.get_moles(GAS_HEALIUM), scaled_production * 20))
 			if(moderator_internal.return_temperature() < 1e7 || (moderator_list[GAS_PLASMA] > 100 && moderator_list[GAS_BZ] > 50))
-				internal_output.adjust_moles(/datum/gas/antinoblium, dirty_production_rate * 0.9 / 0.065 * delta_time)
+				internal_output.adjust_moles(GAS_ANTINOBLIUM, dirty_production_rate * 0.9 / 0.065 * delta_time)
 		if(6)
 			if(moderator_list[GAS_PLASMA] > 30)
 				moderator_internal.adjust_moles(GAS_BZ, scaled_production * 1.15)
 				moderator_internal.adjust_moles(GAS_PLASMA, -min(moderator_internal.get_moles(GAS_PLASMA), scaled_production * 1.45))
-			if(moderator_list[/datum/gas/proto_nitrate])
-				internal_output.adjust_moles(/datum/gas/zauker, scaled_production * 5.35)
+			if(moderator_list[GAS_PROTO_NITRATE])
+				internal_output.adjust_moles(GAS_ZAUKER, scaled_production * 5.35)
 				internal_output.adjust_moles(GAS_NITRYL, scaled_production * 2.15)
-				moderator_internal.adjust_moles(/datum/gas/proto_nitrate, -min(moderator_internal.get_moles(/datum/gas/proto_nitrate), scaled_production * 3.35))
+				moderator_internal.adjust_moles(GAS_PROTO_NITRATE, -min(moderator_internal.get_moles(GAS_PROTO_NITRATE), scaled_production * 3.35))
 				radiation *= 2
 				heat_output *= 2.25
 			if(moderator_list[GAS_BZ])
 				induce_hallucination(900, delta_time, force=TRUE)
-				moderator_internal.adjust_moles(/datum/gas/antinoblium, clamp(dirty_production_rate / 0.045, 0, 10) * delta_time)
-			if(moderator_list[/datum/gas/healium] > 100)
+				moderator_internal.adjust_moles(GAS_ANTINOBLIUM, clamp(dirty_production_rate / 0.045, 0, 10) * delta_time)
+			if(moderator_list[GAS_HEALIUM] > 100)
 				if(critical_threshold_proximity > 400)
-					critical_threshold_proximity = max(critical_threshold_proximity - (moderator_list[/datum/gas/healium] / 100 * delta_time ), 0)
-					moderator_internal.adjust_moles(/datum/gas/healium, -min(moderator_internal.get_moles(/datum/gas/healium), scaled_production * 20))
-			internal_fusion.adjust_moles(/datum/gas/antinoblium, dirty_production_rate * 0.01 / 0.095 * delta_time)
+					critical_threshold_proximity = max(critical_threshold_proximity - (moderator_list[GAS_HEALIUM] / 100 * delta_time ), 0)
+					moderator_internal.adjust_moles(GAS_HEALIUM, -min(moderator_internal.get_moles(GAS_HEALIUM), scaled_production * 20))
+			internal_fusion.adjust_moles(GAS_ANTINOBLIUM, dirty_production_rate * 0.01 / 0.095 * delta_time)
 
 	//Modifies the internal_fusion temperature with the amount of heat output
 	var/temperature_modifier = selected_fuel.temperature_change_multiplier
@@ -448,7 +448,7 @@
 /obj/machinery/atmospherics/components/unary/hypertorus/core/proc/check_lightning_arcs(moderator_list)
 	if(power_level < 4)
 		return
-	if(moderator_list[/datum/gas/antinoblium] <= 50 && critical_threshold_proximity <= 500)
+	if(moderator_list[GAS_ANTINOBLIUM] <= 50 && critical_threshold_proximity <= 500)
 		return
 	var/zap_number = power_level - 2
 

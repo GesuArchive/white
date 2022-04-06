@@ -13,7 +13,7 @@
 ///Used to reduce the gas_power to a more useful amount
 //#define INSTABILITY_GAS_POWER_FACTOR 0.003
 ///Used to calculate the toroidal_size for the instability
-//#define TOROID_VOLUME_BREAKEVEN 1000
+#define TOROID_VOLUME_BREAKEVEN 1000
 ///Constant used when calculating the chance of emitting a radioactive particle
 //#define PARTICLE_CHANCE_CONSTANT (-20000000)
 ///Conduction of heat inside the fusion reactor

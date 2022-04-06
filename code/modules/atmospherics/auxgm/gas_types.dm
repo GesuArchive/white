@@ -99,6 +99,13 @@
 	fire_temperature = FIRE_MINIMUM_TEMPERATURE_TO_EXIST - 50
 	*/
 
+/datum/gas/hydrogen
+	id = GAS_HYDROGEN
+	specific_heat = 15
+	name = "Водород"
+	flags = GAS_FLAG_DANGEROUS
+	fusion_power = 2
+
 /datum/gas/bz
 	id = GAS_BZ
 	specific_heat = 20
@@ -127,3 +134,59 @@
 	name = "Миазма"
 	gas_overlay = "miasma"
 	moles_visible = MOLES_GAS_VISIBLE * 60
+
+/datum/gas/freon
+	id = GAS_FREON
+	specific_heat = 600
+	name = "Фреон"
+	gas_overlay = "freon"
+	moles_visible = MOLES_GAS_VISIBLE *30
+	fusion_power = -5
+
+/datum/gas/healium
+	id = GAS_HEALIUM
+	specific_heat = 10
+	fusion_power = 20
+	name = "Хилиум"
+	flags = GAS_FLAG_DANGEROUS
+	gas_overlay = "healium"
+	moles_visible = MOLES_GAS_VISIBLE
+
+/datum/gas/proto_nitrate
+	id = GAS_PROTO_NITRATE
+	specific_heat = 30
+	name = "Протонитрат"
+	flags = GAS_FLAG_DANGEROUS
+	gas_overlay = "proto_nitrate"
+	moles_visible = MOLES_GAS_VISIBLE
+
+/datum/gas/zauker
+	id = GAS_ZAUKER
+	specific_heat = 350
+	name = "Заукер"
+	flags = GAS_FLAG_DANGEROUS
+	gas_overlay = "zauker"
+	moles_visible = MOLES_GAS_VISIBLE
+
+/datum/gas/halon
+	id = GAS_HALON
+	specific_heat = 175
+	name = "Галон"
+	flags = GAS_FLAG_DANGEROUS
+	gas_overlay = "halon"
+	moles_visible = MOLES_GAS_VISIBLE
+
+/datum/gas/helium
+	id = GAS_HELIUM
+	specific_heat = 15
+	name = "Гелий"
+	fusion_power = 7
+
+/datum/gas/antinoblium
+	id = GAS_ANTINOBLIUM
+	specific_heat = 1
+	name = "Антиноблий"
+	flags = GAS_FLAG_DANGEROUS
+	gas_overlay = "antinoblium"
+	moles_visible = MOLES_GAS_VISIBLE
+	fusion_power = 20

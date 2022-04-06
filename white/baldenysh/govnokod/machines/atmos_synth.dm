@@ -110,7 +110,7 @@
 	synth_type = /obj/item/stack/sheet/mineral/coal
 	gas_moles_per_synth = list(
 								GAS_CO2 = 0.05,
-								/datum/gas/hydrogen = 0.2,
+								GAS_HYDROGEN = 0.2,
 								GAS_MIASMA = 0.1
 								)
 

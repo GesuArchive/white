@@ -109,6 +109,14 @@
 		GAS_STIMULUM = new/datum/tlv/dangerous,
 		GAS_NITRYL = new/datum/tlv/dangerous,
 		GAS_PLUOXIUM = new/datum/tlv(-1, -1, 1000, 1000), // Unlike oxygen, pluoxium does not fuel plasma/tritium fires
+		GAS_FREON = new/datum/tlv/dangerous,
+		GAS_HYDROGEN = new/datum/tlv/dangerous,
+		GAS_HEALIUM = new/datum/tlv/dangerous,
+		GAS_PROTO_NITRATE = new/datum/tlv/dangerous,
+		GAS_ZAUKER = new/datum/tlv/dangerous,
+		GAS_HELIUM = new/datum/tlv/dangerous,
+		GAS_ANTINOBLIUM = new/datum/tlv/dangerous,
+		GAS_HALON = new/datum/tlv/dangerous
 	)
 
 /obj/machinery/airalarm/New(loc, ndir, nbuild)
@@ -455,7 +463,15 @@
 						GAS_TRITIUM,
 						GAS_BZ,
 						GAS_STIMULUM,
-						GAS_PLUOXIUM
+						GAS_PLUOXIUM,
+						GAS_FREON,
+						GAS_HYDROGEN,
+						GAS_HEALIUM,
+						GAS_PROTO_NITRATE,
+						GAS_ZAUKER,
+						GAS_HELIUM,
+						GAS_ANTINOBLIUM,
+						GAS_HALON
 					),
 					"scrubbing" = 1,
 					"widenet" = 1
@@ -790,6 +806,14 @@
 		GAS_STIMULUM = new/datum/tlv/no_checks,
 		GAS_NITRYL = new/datum/tlv/no_checks,
 		GAS_PLUOXIUM = new/datum/tlv/no_checks,
+		GAS_FREON = new/datum/tlv/no_checks,
+		GAS_HYDROGEN = new/datum/tlv/no_checks,
+		GAS_HEALIUM = new/datum/tlv/dangerous,
+		GAS_PROTO_NITRATE = new/datum/tlv/dangerous,
+		GAS_ZAUKER = new/datum/tlv/dangerous,
+		GAS_HELIUM = new/datum/tlv/dangerous,
+		GAS_ANTINOBLIUM = new/datum/tlv/dangerous,
+		GAS_HALON = new/datum/tlv/dangerous
 	)
 
 /obj/machinery/airalarm/kitchen_cold_room // Kitchen cold rooms start off at -14°C or 259.15K.
@@ -809,6 +833,14 @@
 		GAS_STIMULUM = new/datum/tlv/dangerous,
 		GAS_NITRYL = new/datum/tlv/dangerous,
 		GAS_PLUOXIUM = new/datum/tlv(-1, -1, 1000, 1000), // Unlike oxygen, pluoxium does not fuel plasma/tritium fires
+		GAS_FREON = new/datum/tlv/dangerous,
+		GAS_HYDROGEN = new/datum/tlv/dangerous,
+		GAS_HEALIUM = new/datum/tlv/dangerous,
+		GAS_PROTO_NITRATE = new/datum/tlv/dangerous,
+		GAS_ZAUKER = new/datum/tlv/dangerous,
+		GAS_HELIUM = new/datum/tlv/dangerous,
+		GAS_ANTINOBLIUM = new/datum/tlv/dangerous,
+		GAS_HALON = new/datum/tlv/dangerous
 	)
 
 /obj/machinery/airalarm/unlocked

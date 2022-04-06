@@ -55,7 +55,7 @@ GLOBAL_LIST_INIT(gas_recipe_meta, gas_recipes_list())
 	max_temp = 400
 	reaction_type = ENDOTHERMIC_REACTION
 	energy_release = 2000000
-	requirements = list(/datum/gas/healium = 100, /datum/gas/freon = 120, GAS_PLASMA = 50)
+	requirements = list(GAS_HEALIUM = 100, GAS_FREON = 120, GAS_PLASMA = 50)
 	products = list(/obj/item/grenade/gas_crystal/healium_crystal = 1)
 
 /datum/gas_recipe/crystallizer/proto_nitrate_grenade
@@ -65,7 +65,7 @@ GLOBAL_LIST_INIT(gas_recipe_meta, gas_recipes_list())
 	max_temp = 400
 	reaction_type = EXOTHERMIC_REACTION
 	energy_release = 1500000
-	requirements = list(/datum/gas/proto_nitrate = 100, GAS_N2 = 80, GAS_O2 = 80)
+	requirements = list(GAS_PROTO_NITRATE = 100, GAS_N2 = 80, GAS_O2 = 80)
 	products = list(/obj/item/grenade/gas_crystal/proto_nitrate_crystal = 1)
 
 /datum/gas_recipe/crystallizer/hot_ice
@@ -75,7 +75,7 @@ GLOBAL_LIST_INIT(gas_recipe_meta, gas_recipes_list())
 	max_temp = 35
 	reaction_type = ENDOTHERMIC_REACTION
 	energy_release = 3000000
-	requirements = list(/datum/gas/freon = 60, GAS_PLASMA = 160, GAS_O2 = 80)
+	requirements = list(GAS_FREON = 60, GAS_PLASMA = 160, GAS_O2 = 80)
 	products = list(/obj/item/stack/sheet/hot_ice = 1)
 
 /datum/gas_recipe/crystallizer/ammonia_crystal
@@ -96,7 +96,7 @@ GLOBAL_LIST_INIT(gas_recipe_meta, gas_recipes_list())
 	reaction_type = EXOTHERMIC_REACTION
 	energy_release = 150000000
 	dangerous = TRUE
-	requirements = list(GAS_HYPERNOB = 250, /datum/gas/antinoblium = 250, GAS_BZ = 200, GAS_PLASMA = 5000, GAS_O2 = 4500)
+	requirements = list(GAS_HYPERNOB = 250, GAS_ANTINOBLIUM = 250, GAS_BZ = 200, GAS_PLASMA = 5000, GAS_O2 = 4500)
 	products = list(/obj/machinery/power/supermatter_crystal/shard = 1)
 
 /datum/gas_recipe/crystallizer/n2o_crystal
@@ -136,7 +136,7 @@ GLOBAL_LIST_INIT(gas_recipe_meta, gas_recipes_list())
 	max_temp = 90
 	reaction_type = ENDOTHERMIC_REACTION
 	energy_release = 800000
-	requirements = list(GAS_PLASMA = 800, /datum/gas/helium = 100, GAS_BZ = 50)
+	requirements = list(GAS_PLASMA = 800, GAS_HELIUM = 100, GAS_BZ = 50)
 	products = list(/obj/item/stock_parts/cell/crystal_cell = 1)
 
 /datum/gas_recipe/crystallizer/zaukerite
@@ -146,7 +146,7 @@ GLOBAL_LIST_INIT(gas_recipe_meta, gas_recipes_list())
 	max_temp = 20
 	reaction_type = EXOTHERMIC_REACTION
 	energy_release = 2900000
-	requirements = list(/datum/gas/antinoblium = 5, /datum/gas/zauker = 20, GAS_BZ = 7.5)
+	requirements = list(GAS_ANTINOBLIUM = 5, GAS_ZAUKER = 20, GAS_BZ = 7.5)
 	products = list(/obj/item/stack/sheet/mineral/zaukerite = 2)
 
 /datum/gas_recipe/crystallizer/fuel_pellet
@@ -181,5 +181,5 @@ GLOBAL_LIST_INIT(gas_recipe_meta, gas_recipes_list())
 	reaction_type = ENDOTHERMIC_REACTION
 	energy_release = 350000
 	dangerous = TRUE
-	requirements = list(GAS_STIMULUM = 500, /datum/gas/freon = 500, GAS_NITRYL = 800)
+	requirements = list(GAS_STIMULUM = 500, GAS_FREON = 500, GAS_NITRYL = 800)
 	products = list(/obj/machinery/the_singularitygen/tesla = 1)

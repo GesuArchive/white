@@ -303,3 +303,14 @@ get_true_breath_pressure(pp) --> gas_pp = pp/breath_pp*total_moles()
 
 /datum/gas_mixture/proc/get_breath_partial_pressure(gas_pressure)
 	return (gas_pressure * R_IDEAL_GAS_EQUATION * return_temperature()) / BREATH_VOLUME
+
+/datum/gas_mixture/proc/remove_specific(gas_id, amount)
+	amount = min(amount, get_moles(gas_id))
+	if(amount <= 0)
+		return null
+	var/datum/gas_mixture/removed = new type
+	removed.set_temperature(return_temperature())
+	removed.set_moles(gas_id, amount)
+	adjust_moles(gas_id, -amount)
+
+	return removed

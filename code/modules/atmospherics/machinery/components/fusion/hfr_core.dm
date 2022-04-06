@@ -49,7 +49,7 @@
 	var/datum/gas_mixture/moderator_internal
 	///Set the filtering list of the waste remove
 	var/list/moderator_scrubbing = list(
-		/datum/gas/helium,
+		GAS_HELIUM,
 		)
 	///Set the amount of moles per tick should be removed from the moderator by filtering
 	var/moderator_filtering_rate = 100

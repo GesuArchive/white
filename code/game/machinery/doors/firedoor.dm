@@ -156,9 +156,9 @@
 	var/datum/gas_mixture/environment = my_turf.return_air()
 	var/result
 
-	if(environment?.return_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST || environment?.return_pressure() >= 350)
+	if(environment?.return_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		result = FIRELOCK_ALARM_TYPE_HOT
-	if(environment?.return_temperature() <= BODYTEMP_COLD_DAMAGE_LIMIT || environment?.return_pressure() <= 20)
+	if(environment?.return_temperature() <= BODYTEMP_COLD_DAMAGE_LIMIT)
 		result = FIRELOCK_ALARM_TYPE_COLD
 	if(!result)
 		return
