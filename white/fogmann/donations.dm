@@ -525,19 +525,30 @@ GLOBAL_PROTECT(ohshitfuck)
 		var/list/fucktorio = splittext_char(motherlover, "-")
 
 		if(length(fucktorio?[1]) && length(fucktorio?[2]))
-			LAZYADDASSOCLIST(lte_nuclear_war, ckey(fucktorio[1]), fucktorio[2])
-			message_admins("[key_name_admin(src)] открывает [fucktorio[1]] доступ к [fucktorio[2]].")
+			if(which_one == "phoenix")
+				if(lte_nuclear_war[ckey(fucktorio[1])])
+					lte_nuclear_war[ckey(fucktorio[1])] = fucktorio[2]
+				else
+					LAZYADDASSOC(lte_nuclear_war, ckey(fucktorio[1]), fucktorio[2])
+				message_admins("[key_name_admin(src)] устанавливает [fucktorio[1]] количество перерождений на [fucktorio[2]].")
+			else
+				LAZYADDASSOCLIST(lte_nuclear_war, ckey(fucktorio[1]), fucktorio[2])
+				message_admins("[key_name_admin(src)] открывает [fucktorio[1]] доступ к [fucktorio[2]].")
 	else
-		var/list/temp_list = list()
-		for(var/fucker in lte_nuclear_war)
-			if(fucker != fuckoboingo)
-				continue
-			temp_list += lte_nuclear_war[fucker]
-		var/fuckate = tgui_input_list(src, "AHH", "DIGGER", sort_list(temp_list))
-		if(!fuckate)
-			return
-		LAZYREMOVEASSOC(lte_nuclear_war, fuckoboingo, fuckate)
-		message_admins("[key_name_admin(src)] удаляет у [fuckoboingo] доступ к [fuckate].")
+		if(which_one == "phoenix")
+			var/list/temp_list = list()
+			for(var/fucker in lte_nuclear_war)
+				if(fucker != fuckoboingo)
+					continue
+				temp_list += lte_nuclear_war[fucker]
+			var/fuckate = tgui_input_list(src, "AHH", "DIGGER", sort_list(temp_list))
+			if(!fuckate)
+				return
+			LAZYREMOVEASSOC(lte_nuclear_war, fuckoboingo, fuckate)
+			message_admins("[key_name_admin(src)] удаляет у [fuckoboingo] доступ к [fuckate].")
+		else
+			LAZYREMOVE(lte_nuclear_war, fuckoboingo)
+			message_admins("[key_name_admin(src)] удаляет у [fuckoboingo] доступ к фениксу.")
 
 	if(which_one == "furfag")
 		GLOB.custom_race_donations = lte_nuclear_war
