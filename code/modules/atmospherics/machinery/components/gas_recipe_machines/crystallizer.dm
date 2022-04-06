@@ -114,7 +114,7 @@
 /obj/machinery/atmospherics/components/binary/crystallizer/proc/inject_gases()
 	var/datum/gas_mixture/contents = airs[2]
 	for(var/gas_id in selected_recipe.requirements)
-		if(contents.get_moles(gas_type))
+		if(contents.get_moles(gas_id))
 			var/datum/gas_mixture/filtered = new
 			filtered.set_temperature(contents.return_temperature())
 			var/filtered_amount = clamp(contents.get_moles(gas_id), gas_input, selected_recipe.requirements - internal.get_moles(gas_id))
