@@ -1038,6 +1038,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 /obj/item/terroristsc4
 	name = "БОМБА"
 	desc = "Модифицированный заряд C-4, который смешно пиликает."
+	icon = 'icons/obj/grenade.dmi'
 	icon_state = "plastic-explosive0"
 	inhand_icon_state = "plastic-explosive"
 	worn_icon_state = "c4"
