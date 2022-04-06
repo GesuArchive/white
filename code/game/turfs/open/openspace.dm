@@ -15,10 +15,14 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace
 	name = "открытое пространство"
 	desc = "Смотри под ноги!"
-	icon_state = "invisible"
+	icon = 'white/valtos/icons/openspace.dmi'
+	icon_state = "openspace-0"
+	base_icon_state = "openspace"
+	smoothing_flags = SMOOTH_BITMASK
+	canSmoothWith = list(SMOOTH_GROUP_OPENSPACE)
+	smoothing_groups = list(SMOOTH_GROUP_OPENSPACE)
 	baseturfs = /turf/open/openspace
 	CanAtmosPassVertical = ATMOS_PASS_YES
-	baseturfs = /turf/open/openspace
 	intact = FALSE //this means wires go on top
 	//mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/can_cover_up = TRUE
