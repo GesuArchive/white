@@ -60,9 +60,14 @@
 		sending = (holding ? air_contents : T.return_air())
 		receiving = (holding ? holding.air_contents : air_contents)
 
+	var/output_starting_pressure = receiving.return_pressure()
 
-	if(sending.transfer_to(receiving, target_pressure) && !holding)
-		air_update_turf(FALSE) // Update the environment if needed.
+	if((sending.total_moles() > 0) && (sending.return_temperature() > 0))
+		var/pressure_delta = target_pressure - output_starting_pressure
+		var/transfer_moles = pressure_delta * receiving.return_volume() / (sending.return_temperature() * R_IDEAL_GAS_EQUATION)
+
+		if(sending.transfer_to(receiving, transfer_moles) && !holding)
+			air_update_turf() // Update the environment if needed.
 
 /obj/machinery/portable_atmospherics/pump/emp_act(severity)
 	. = ..()
