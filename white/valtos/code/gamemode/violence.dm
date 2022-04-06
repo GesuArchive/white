@@ -3,6 +3,9 @@
 GLOBAL_VAR_INIT(violence_mode_activated, FALSE)
 GLOBAL_VAR_INIT(violence_current_round, 0)
 GLOBAL_VAR_INIT(violence_random_theme, 1)
+GLOBAL_VAR_INIT(violence_bomb_active, FALSE)
+GLOBAL_VAR_INIT(violence_bomb_planted, FALSE)
+GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 GLOBAL_VAR(violence_landmark)
 GLOBAL_VAR(violence_red_datum)
 GLOBAL_VAR(violence_blue_datum)
@@ -11,8 +14,11 @@ GLOBAL_LIST_EMPTY(violence_red_team)
 GLOBAL_LIST_EMPTY(violence_blue_team)
 GLOBAL_LIST_EMPTY(violence_teamlock)
 GLOBAL_LIST_EMPTY(violence_players)
+GLOBAL_LIST_EMPTY(violence_bomb_locations)
 
 #define VIOLENCE_FINAL_ROUND 11
+#define VIOLENCE_PLAYMODE_TEAMFIGHT "стенка на стенку"
+#define VIOLENCE_PLAYMODE_BOMBDEF   "контр-террористы"
 
 /datum/game_mode/violence
 	name = "violence"
@@ -27,6 +33,9 @@ GLOBAL_LIST_EMPTY(violence_players)
 	var/round_started_at = 0
 	// основная зона, которая отслеживается
 	var/area/main_area
+
+	// режим, который был выбран игроками
+	var/playmode = null
 
 	// последнее количество игроков после начала раунда
 	var/last_reds = 0
@@ -98,6 +107,10 @@ GLOBAL_LIST_EMPTY(violence_players)
 
 /datum/game_mode/violence/post_setup()
 	..()
+	// похуй пока рандом будет
+	if(!playmode)
+		playmode = pick(list(VIOLENCE_PLAYMODE_TEAMFIGHT, VIOLENCE_PLAYMODE_BOMBDEF))
+		to_chat(world, leader_brass("Именем случайности был выбран режим [playmode]!"))
 	// выключаем рандомные ивенты наверняка
 	CONFIG_SET(flag/allow_random_events, FALSE)
 	// готовим новый раунд
@@ -110,9 +123,11 @@ GLOBAL_LIST_EMPTY(violence_players)
 /datum/game_mode/violence/send_intercept(report = 0)
 	return
 
-/datum/game_mode/violence/proc/play_sound_to_everyone(snd, volume = 100)
+/proc/play_sound_to_everyone(snd, volume = 100, channel = null)
 	for(var/mob/M in GLOB.player_list)
 		var/sound/S = sound(snd, volume = volume)
+		if(channel)
+			S.channel = channel
 		SEND_SOUND(M, S)
 
 /datum/game_mode/violence/process()
@@ -185,6 +200,21 @@ GLOBAL_LIST_EMPTY(violence_players)
 				H.ForceContractDisease(D, FALSE, TRUE)
 		// проверяем, умерли ли все после открытия ворот
 		if(round_started_at + 30 SECONDS < world.time)
+			if(playmode == VIOLENCE_PLAYMODE_BOMBDEF)
+				if(GLOB.violence_bomb_detonated)
+					end_round("КРАСНЫХ")
+					wins_reds++
+					losestreak_reds = 0
+					losestreak_blues++
+					return
+				if(GLOB.violence_bomb_planted && !GLOB.violence_bomb_active)
+					end_round("СИНИХ")
+					wins_blues++
+					losestreak_blues = 0
+					losestreak_reds++
+					return
+				if(GLOB.violence_bomb_active)
+					return
 			if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len)
 				end_round("СИНИХ")
 				wins_blues++
@@ -201,6 +231,9 @@ GLOBAL_LIST_EMPTY(violence_players)
 // конец раунда и запуск начала нового раунда
 /datum/game_mode/violence/proc/end_round(winner = "ХУЙ ЕГО ЗНАЕТ КОГО")
 	round_active = FALSE
+	GLOB.violence_bomb_detonated = FALSE
+	GLOB.violence_bomb_active = FALSE
+	GLOB.violence_bomb_planted = FALSE
 	SSjob.SetJobPositions(/datum/job/combantant/red, 0, 0, TRUE)
 	SSjob.SetJobPositions(/datum/job/combantant/blue, 0, 0, TRUE)
 	spawn(3 SECONDS)
@@ -294,6 +327,13 @@ GLOBAL_LIST_EMPTY(violence_players)
 		play_sound_to_everyone('white/valtos/sounds/horn.ogg')
 		// открываем шаттерсы через время
 		spawn(30 SECONDS)
+			if(playmode == VIOLENCE_PLAYMODE_BOMBDEF)
+				var/datum/mind/terr_mind = pick(GLOB.violence_red_team)
+				var/mob/living/carbon/human/terrorist = terr_mind.current
+				var/obj/item/terroristsc4 = new(get_turf(terrorist))
+				terrorist.put_in_hands(terroristsc4)
+				terrorist.visible_message(span_info("[terrorist] получает бомбу! Помогите ему установить её."),
+					span_info("Мне досталась бомба. Необходимо установить её в заранее обозначенной точке."))
 			to_chat(world, leader_brass("В БОЙ!"))
 			last_reds = LAZYLEN(GLOB.violence_red_team)
 			last_blues = LAZYLEN(GLOB.violence_blue_team)
@@ -940,7 +980,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	items = list(
 		/obj/item/clothing/suit/space/hardsuit/deathsquad,
 		/obj/item/clothing/gloves/tackler/combat/insulated,
-		/obj/item/clothing/glasses/hud/toggle/thermal,
 		/obj/item/clothing/mask/gas/sechailer/swat,
 		/obj/item/clothing/shoes/combat/swat
 	)
@@ -976,6 +1015,11 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 350
 	items = list(/obj/item/clothing/glasses/sunglasses)
 
+/datum/violence_gear/misc/wirecutters
+	name = "Кусачки"
+	cost = 450
+	items = list(/obj/item/wirecutters)
+
 /datum/violence_gear/misc/teargas
 	name = "Перцовый газ"
 	cost = 600
@@ -986,4 +1030,111 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 900
 	items = list(/obj/item/grenade/frag)
 
+/datum/violence_gear/misc/thermal
+	name = "Термалы"
+	cost = 2500
+	items = list(/obj/item/clothing/glasses/hud/toggle/thermal)
+
+/obj/item/terroristsc4
+	name = "БОМБА"
+	desc = "Модифицированный заряд C-4, который смешно пиликает."
+	icon_state = "plastic-explosive0"
+	inhand_icon_state = "plastic-explosive"
+	worn_icon_state = "c4"
+	lefthand_file = 'icons/mob/inhands/weapons/bombs_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/bombs_righthand.dmi'
+	w_class = WEIGHT_CLASS_HUGE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	var/det_time = 30
+
+/obj/item/terroristsc4/afterattack(atom/movable/AM, mob/user, flag)
+	to_chat(user, span_notice("Нужно активировать бомбу в РУКЕ для установки."))
+	return
+
+/obj/item/terroristsc4/attack_self(mob/user)
+	var/datum/antagonist/combatant/comb = user.mind.has_antag_datum(/datum/antagonist/combatant/red)
+	if(!comb)
+		to_chat(user, span_notice("Это не входит в рамки специальной операции."))
+		return
+	for(var/atom/A in GLOB.violence_bomb_locations)
+		var/turf/T1 = get_turf(A)
+		var/turf/T2 = get_turf(user)
+		if(get_dist(T1, T2) >= 5)
+			break
+		else
+			to_chat(user, span_notice("Нужно ставить бомбу строго возле необходимой точки!"))
+			return
+
+	to_chat(user, span_notice("Начинаю устанавливать [src]. Таймер установлен на [det_time]..."))
+
+	playsound(get_turf(user), 'white/valtos/sounds/c4_click.ogg', 100)
+
+	if(do_after(user, 50, target = get_turf(user)))
+		if(!user.temporarilyRemoveItemFromInventory(src))
+			return
+
+		to_chat(world, leader_brass("Бомба установлена! Время до взрыва: [det_time] секунд."))
+
+		if(GLOB.violence_players[user?.ckey])
+			var/datum/violence_player/VP = GLOB.violence_players[user.ckey]
+			VP.money += 300
+			to_chat(user, span_boldnotice("+300₽ за установку бомбы!"))
+
+		forceMove(get_turf(user))
+
+		interaction_flags_item = NONE
+
+		anchored = TRUE
+
+		GLOB.violence_bomb_active = TRUE
+		GLOB.violence_bomb_planted = TRUE
+
+		spawn(5 SECONDS)
+			play_sound_to_everyone('white/valtos/sounds/bcountdown.ogg', 80, CHANNEL_NASHEED)
+
+		addtimer(CALLBACK(src, .proc/detonate), det_time SECONDS)
+
+/obj/item/terroristsc4/attack_hand(mob/user)
+	if(!GLOB.violence_bomb_planted)
+		return ..()
+	var/datum/antagonist/combatant/comb = user.mind.has_antag_datum(/datum/antagonist/combatant/blue)
+	if(!comb)
+		return
+	playsound(get_turf(user), 'white/valtos/sounds/c4_disarm.ogg', 100)
+	if(do_after(user, 10 SECONDS, target = src))
+		to_chat(world, leader_brass("Бомба обезврежена [user]!"))
+		GLOB.violence_bomb_active = FALSE
+		play_sound_to_everyone(null, 0, CHANNEL_NASHEED)
+		qdel(src)
+
+/obj/item/terroristsc4/attackby(obj/item/I, mob/user, params)
+	if(!GLOB.violence_bomb_planted)
+		return ..()
+	var/datum/antagonist/combatant/comb = user.mind.has_antag_datum(/datum/antagonist/combatant/blue)
+	if(!comb)
+		return
+	var/defuse_time = 10 SECONDS
+
+	if(I.tool_behaviour == TOOL_WIRECUTTER)
+		defuse_time = 5 SECONDS
+
+	playsound(get_turf(user), 'white/valtos/sounds/c4_disarm.ogg', 100)
+
+	if(do_after(user, defuse_time, target = src))
+		to_chat(world, leader_brass("Бомба обезврежена [user]!"))
+		GLOB.violence_bomb_active = FALSE
+		play_sound_to_everyone(null, 0, CHANNEL_NASHEED)
+		qdel(src)
+
+/obj/item/terroristsc4/proc/detonate()
+	for(var/mob/M in view(7, get_turf(src)))
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			H.gib()
+	GLOB.violence_bomb_detonated = TRUE
+	explosion(get_turf(src), 0, 0, 0, 0)
+	to_chat(world, leader_brass("Бомба взорвана!"))
+
 #undef VIOLENCE_FINAL_ROUND
+#undef VIOLENCE_PLAYMODE_TEAMFIGHT
+#undef VIOLENCE_PLAYMODE_BOMBDEF

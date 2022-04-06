@@ -499,3 +499,15 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 /obj/effect/landmark/yohei_beacon/Destroy()
 	GLOB.yohei_beacons -= src
 	return ..()
+
+/obj/effect/landmark/bomb_plant_location
+	name = "bomb plant marker"
+	icon_state = "x"
+
+/obj/effect/landmark/bomb_plant_location/New()
+	..()
+	GLOB.violence_bomb_locations += src
+
+/obj/effect/landmark/bomb_plant_location/Destroy()
+	GLOB.violence_bomb_locations -= src
+	return ..()
