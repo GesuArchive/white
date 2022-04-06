@@ -538,8 +538,8 @@
 		return
 
 	var/datum/gas_mixture/fuel_port = linked_input.airs[1]
-	for(var/gas_type in selected_fuel.requirements)
-		internal_fusion.merge(fuel_port.remove_specific(gas_type, fuel_injection_rate * delta_time / length(selected_fuel.requirements)))
+	for(var/gas_id in selected_fuel.requirements)
+		internal_fusion.merge(fuel_port.remove_specific(gas_id, fuel_injection_rate * delta_time / length(selected_fuel.requirements)))
 		linked_input.update_parents()
 
 /obj/machinery/atmospherics/components/unary/hypertorus/core/proc/check_deconstructable()

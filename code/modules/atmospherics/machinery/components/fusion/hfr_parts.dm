@@ -198,15 +198,6 @@
 	else
 		to_chat(user, span_notice("Activate the machine first by using a multitool on the interface."))
 
-/obj/machinery/hypertorus/interface/proc/gas_list_to_gasid_list(list/gas_list)
-	var/list/gasid_list = list()
-	for(var/gas_type in gas_list)
-		var/datum/gas/gas = gas_type
-		gasid_list += initial(gas.id)
-	return gasid_list
-
-
-
 /obj/machinery/hypertorus/interface/ui_static_data()
 	var/data = list()
 	data["base_max_temperature"] = FUSION_MAXIMUM_TEMPERATURE
@@ -217,9 +208,9 @@
 		data["selectable_fuel"] += list(list(
 			"name" = recipe.name,
 			"id" = recipe.id,
-			"requirements" = gas_list_to_gasid_list(recipe.requirements),
-			"fusion_byproducts" = gas_list_to_gasid_list(recipe.primary_products),
-			"product_gases" = gas_list_to_gasid_list(recipe.secondary_products),
+			"requirements" = recipe.requirements,
+			"fusion_byproducts" = recipe.primary_products,
+			"product_gases" = recipe.secondary_products,
 			"recipe_cooling_multiplier" = recipe.negative_temperature_multiplier,
 			"recipe_heating_multiplier" = recipe.positive_temperature_multiplier,
 			"energy_loss_multiplier" = recipe.energy_concentration_multiplier,
@@ -240,33 +231,29 @@
 	//Internal Fusion gases
 	var/list/fusion_gasdata = list()
 	if(connected_core.internal_fusion.total_moles())
-		for(var/gas_type in connected_core.internal_fusion.get_gases())
-			var/datum/gas/gas = gas_type
+		for(var/gas_id in connected_core.internal_fusion.get_gases())
 			fusion_gasdata.Add(list(list(
-			"id"= initial(gas.id),
-			"amount" = round(connected_core.internal_fusion.get_moles(gas), 0.01),
+			"id"= gas_id,
+			"amount" = round(connected_core.internal_fusion.get_moles(gas_id), 0.01),
 			)))
 	else
-		for(var/gas_type in connected_core.internal_fusion.get_gases())
-			var/datum/gas/gas = gas_type
+		for(var/gas_id in connected_core.internal_fusion.get_gases())
 			fusion_gasdata.Add(list(list(
-				"id"= initial(gas.id),
+				"id"= gas_id,
 				"amount" = 0,
 				)))
 	//Moderator gases
 	var/list/moderator_gasdata = list()
 	if(connected_core.moderator_internal.total_moles())
-		for(var/gas_type in connected_core.moderator_internal.get_gases())
-			var/datum/gas/gas = gas_type
+		for(var/gas_id in connected_core.moderator_internal.get_gases())
 			moderator_gasdata.Add(list(list(
-			"id"= initial(gas.id),
+			"id"= gas_id,
 			"amount" = round(connected_core.moderator_internal.get_moles(gas), 0.01),
 			)))
 	else
-		for(var/gas_type in connected_core.moderator_internal.get_gases())
-			var/datum/gas/gas = gas_type
+		for(var/gas_id in connected_core.moderator_internal.get_gases())
 			moderator_gasdata.Add(list(list(
-				"id"= initial(gas.id),
+				"id"= gas_id,
 				"amount" = 0,
 				)))
 
