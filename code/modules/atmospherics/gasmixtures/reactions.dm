@@ -655,7 +655,7 @@
 			freon_burn_rate = min(freon_burn_rate,air.get_moles(GAS_FREON),air.get_moles(GAS_O2) / oxygen_burn_rate) //Ensures matter is conserved properly
 			air.set_moles(GAS_FREON,  QUANTIZE(air.get_moles(GAS_FREON) - freon_burn_rate))
 			air.set_moles(GAS_O2, QUANTIZE(air.get_moles(GAS_O2) - (freon_burn_rate * oxygen_burn_rate)))
-			air.adjust_moles(/datum/gas/carbon_dioxide, freon_burn_rate)
+			air.adjust_moles(GAS_CO2, freon_burn_rate)
 
 			if(temperature < 160 && temperature > 120 && prob(2))
 				new /obj/item/stack/sheet/hot_ice(location)
@@ -698,7 +698,7 @@
 	if(burned_fuel)
 		energy_released += (FIRE_HYDROGEN_ENERGY_RELEASED * burned_fuel)
 
-		air.adjust_moles(/datum/gas/water_vapor, burned_fuel / HYDROGEN_BURN_OXY_FACTOR)
+		air.adjust_moles(GAS_H2O, burned_fuel / HYDROGEN_BURN_OXY_FACTOR)
 
 		cached_results["fire"] += burned_fuel
 
@@ -738,7 +738,7 @@
 		return NO_REACTION
 	air.adjust_moles(GAS_O2, -heat_efficency)
 	air.adjust_moles(GAS_N2, -heat_efficency * 2)
-	air.adjust_moles(/datum/gas/nitrous_oxide, heat_efficency)
+	air.adjust_moles(GAS_NITROUS, heat_efficency)
 
 	if(energy_used > 0)
 		var/new_heat_capacity = air.heat_capacity()
@@ -782,8 +782,8 @@
 
 /datum/gas_reaction/freonformation/init_reqs() //minimum requirements for freon formation
 	min_requirements = list(
-		/datum/gas/plasma = 40,
-		/datum/gas/carbon_dioxide = 20,
+		GAS_PLASMA = 40,
+		GAS_CO2 = 20,
 		GAS_BZ = 20,
 		"TEMP" = FIRE_MINIMUM_TEMPERATURE_TO_EXIST + 100
 		)
@@ -791,12 +791,12 @@
 /datum/gas_reaction/freonformation/react(datum/gas_mixture/air)
 	var/temperature = air.return_temperature()
 	var/old_heat_capacity = air.heat_capacity()
-	var/heat_efficency = min(temperature/(FIRE_MINIMUM_TEMPERATURE_TO_EXIST * 10), air.get_moles(/datum/gas/plasma), air.get_moles(/datum/gas/carbon_dioxide), air.get_moles(GAS_BZ))
+	var/heat_efficency = min(temperature/(FIRE_MINIMUM_TEMPERATURE_TO_EXIST * 10), air.get_moles(GAS_PLASMA), air.get_moles(GAS_CO2), air.get_moles(GAS_BZ))
 	var/energy_used = heat_efficency * 100
-	if ((air.get_moles(/datum/gas/plasma) - heat_efficency * 1.5 < 0) || (air.get_moles(/datum/gas/carbon_dioxide) - heat_efficency * 0.75 < 0) || (air.get_moles(GAS_BZ) - heat_efficency * 0.25 < 0)) //Shouldn't produce gas from nothing.
+	if ((air.get_moles(GAS_PLASMA) - heat_efficency * 1.5 < 0) || (air.get_moles(GAS_CO2) - heat_efficency * 0.75 < 0) || (air.get_moles(GAS_BZ) - heat_efficency * 0.25 < 0)) //Shouldn't produce gas from nothing.
 		return NO_REACTION
-	air.adjust_moles(/datum/gas/plasma, -heat_efficency * 1.5)
-	air.adjust_moles(/datum/gas/carbon_dioxide, -heat_efficency * 0.75)
+	air.adjust_moles(GAS_PLASMA, -heat_efficency * 1.5)
+	air.adjust_moles(GAS_CO2, -heat_efficency * 0.75)
 	air.adjust_moles(GAS_BZ, -heat_efficency * 0.25)
 	air.adjust_moles(GAS_FREON, heat_efficency * 2.5)
 
@@ -947,7 +947,7 @@
 		return NO_REACTION
 	air.adjust_moles(GAS_HALON, -heat_efficency)
 	air.adjust_moles(GAS_O2, -heat_efficency * 20)
-	air.adjust_moles(/datum/gas/carbon_dioxide, heat_efficency * 5)
+	air.adjust_moles(GAS_CO2, heat_efficency * 5)
 
 	if(energy_used)
 		var/new_heat_capacity = air.heat_capacity()
@@ -1095,7 +1095,7 @@
 
 /datum/gas_reaction/pluox_formation/init_reqs()
 	min_requirements = list(
-		/datum/gas/carbon_dioxide = MINIMUM_MOLE_COUNT,
+		GAS_CO2 = MINIMUM_MOLE_COUNT,
 		GAS_O2 = MINIMUM_MOLE_COUNT,
 		GAS_TRITIUM = MINIMUM_MOLE_COUNT,
 		"TEMP" = 50,
@@ -1106,10 +1106,10 @@
 	var/energy_released = 0
 	var/old_heat_capacity = air.heat_capacity()
 	var/temperature = air.return_temperature()
-	var produced_amount = min(5, air.get_moles(/datum/gas/carbon_dioxide), air.get_moles(GAS_O2))
-	if(air.get_moles(/datum/gas/carbon_dioxide) - produced_amount < 0 || air.get_moles(GAS_O2) - produced_amount * 0.5 < 0 || air.get_moles(GAS_TRITIUM) - produced_amount * 0.01 < 0)
+	var produced_amount = min(5, air.get_moles(GAS_CO2), air.get_moles(GAS_O2))
+	if(air.get_moles(GAS_CO2) - produced_amount < 0 || air.get_moles(GAS_O2) - produced_amount * 0.5 < 0 || air.get_moles(GAS_TRITIUM) - produced_amount * 0.01 < 0)
 		return NO_REACTION
-	air.adjust_moles(/datum/gas/carbon_dioxide, -produced_amount)
+	air.adjust_moles(GAS_CO2, -produced_amount)
 	air.adjust_moles(GAS_O2, -produced_amount * 0.5)
 	air.adjust_moles(GAS_TRITIUM, -produced_amount * 0.01)
 	air.adjust_moles(GAS_PLUOXIUM, produced_amount)

@@ -180,8 +180,9 @@
 		return //We're already active
 	soundloop.start()
 	is_playing_alarm = TRUE
-	for(var/obj/machinery/door/firedoor/buddylock as anything in range(1, src))
-		buddylock.activate(code)
+	for(var/obj/machinery/door/firedoor/buddylock in range(1, src))
+		if(buddylock && istype(buddylock, /obj/machinery/door/firedoor))
+			buddylock.activate(code)
 
 
 /**
