@@ -130,9 +130,9 @@ GLOBAL_LIST_EMPTY(violence_players)
 				var/mob/living/carbon/human/H = R?.original_character?.resolve()
 				if(GLOB.violence_players[H?.lastattackermob?.ckey])
 					var/datum/violence_player/VP = GLOB.violence_players[H.lastattackermob.ckey]
-					VP.money += VP.team == "blue" ? 300 : -300
+					VP.money += VP.team == "blue" ? payout : -payout
 					VP.kills += VP.team == "blue" ? 1 : -1
-					to_chat(H.lastattackermob.ckey, span_boldnotice("[VP.team == "blue" ? "+300" : "-300"]₽"))
+					to_chat(H.lastattackermob.ckey, span_boldnotice("[VP.team == "blue" ? "+[payout]" : "-[payout]"]₽"))
 					var/datum/violence_player/VP2 = GLOB.violence_players[H.ckey]
 					if(VP2)
 						VP2.deaths++
@@ -142,9 +142,9 @@ GLOBAL_LIST_EMPTY(violence_players)
 				to_chat(world, span_red("[LAZYLEN(GLOB.violence_red_team)]/[last_reds]"))
 				if(GLOB.violence_players[R?.current?.lastattackermob?.ckey])
 					var/datum/violence_player/VP = GLOB.violence_players[R.current.lastattackermob.ckey]
-					VP.money += VP.team == "blue" ? 300 : -300
+					VP.money += VP.team == "blue" ? payout : -payout
 					VP.kills += VP.team == "blue" ? 1 : -1
-					to_chat(R.current.lastattackermob, span_boldnotice("[VP.team == "blue" ? "+300" : "-300"]₽"))
+					to_chat(R.current.lastattackermob, span_boldnotice("[VP.team == "blue" ? "+[payout]" : "-[payout]"]₽"))
 					var/datum/violence_player/VP2 = GLOB.violence_players[R.current.ckey]
 					if(VP2)
 						VP2.deaths++
@@ -156,9 +156,9 @@ GLOBAL_LIST_EMPTY(violence_players)
 				var/mob/living/carbon/human/H = B?.original_character?.resolve()
 				if(GLOB.violence_players[H?.lastattackermob?.ckey])
 					var/datum/violence_player/VP = GLOB.violence_players[H.lastattackermob.ckey]
-					VP.money += VP.team == "red" ? 300 : -300
+					VP.money += VP.team == "red" ? payout : -payout
 					VP.kills += VP.team == "red" ? 1 : -1
-					to_chat(H.lastattackermob.ckey, span_boldnotice("[VP.team == "red" ? "+300" : "-300"]₽"))
+					to_chat(H.lastattackermob.ckey, span_boldnotice("[VP.team == "red" ? "+[payout]" : "-[payout]"]₽"))
 					var/datum/violence_player/VP2 = GLOB.violence_players[H.ckey]
 					if(VP2)
 						VP2.deaths++
@@ -168,9 +168,9 @@ GLOBAL_LIST_EMPTY(violence_players)
 				to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[last_blues]"))
 				if(GLOB.violence_players[B?.current?.lastattackermob?.ckey])
 					var/datum/violence_player/VP = GLOB.violence_players[B.current.lastattackermob.ckey]
-					VP.money += VP.team == "red" ? 300 : -300
+					VP.money += VP.team == "red" ? payout : -payout
 					VP.kills += VP.team == "red" ? 1 : -1
-					to_chat(B.current.lastattackermob, span_boldnotice("[VP.team == "red" ? "+300" : "-300"]₽"))
+					to_chat(B.current.lastattackermob, span_boldnotice("[VP.team == "red" ? "+[payout]" : "-[payout]"]₽"))
 					var/datum/violence_player/VP2 = GLOB.violence_players[B.current.ckey]
 					if(VP2)
 						VP2.deaths++
@@ -211,6 +211,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 		stats += "<table><tr><td>Игрок</td><td>Убийств</td><td>Смертей</td></tr>"
 		for(var/key in GLOB.violence_players)
 			var/datum/violence_player/VP = GLOB.violence_players[key]
+			// раздаём деньги бомжам
 			VP.money += payout * GLOB.violence_current_round
 			VP.money += VP.team == "red" ? losestreak_reds * payout : losestreak_blues * payout
 			if(VP.team == "red")
@@ -223,6 +224,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 		to_chat(world, span_info(stats.Join()))
 		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round] ЗАВЕРШЁН!"))
 		to_chat(world, leader_brass("ПОБЕДА [winner]! <b class='red'>[wins_reds]</b>/<b class='blue'>[wins_blues]</b>"))
+		to_chat(world, leader_brass("Выдано [payout * GLOB.violence_current_round]₽ всем!"))
 	play_sound_to_everyone('white/valtos/sounds/crowd_win.ogg')
 	spawn(10 SECONDS)
 		new_round()
@@ -259,16 +261,6 @@ GLOBAL_LIST_EMPTY(violence_players)
 				var/mob/living/carbon/human/H = M
 				var/list/saved_shit = list()
 				// ммм
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_HEAD))
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_OCLOTHING))
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_BELT))
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_SUITSTORE))
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_RPOCKET))
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_LPOCKET))
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_EYES))
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_FEET))
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_GLOVES))
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_MASK))
 				LAZYADD(saved_shit, H.get_active_held_item())
 				LAZYADD(saved_shit, H.get_inactive_held_item())
 				for(var/obj/item/I in saved_shit)
@@ -280,8 +272,6 @@ GLOBAL_LIST_EMPTY(violence_players)
 			var/mob/dead/new_player/NP = new()
 			NP.ckey = M.ckey
 			qdel(M)
-	// раздаём деньги бомжам
-	to_chat(world, leader_brass("Выдано [payout * GLOB.violence_current_round]₽ каждому за раунд!"))
 	// вызов очистки
 	clean_arena()
 	spawn(10 SECONDS)
@@ -818,7 +808,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/scope
 	name = "Болтовка с оптикой"
-	cost = 2250
+	cost = 2750
 	items = list(
 		/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope,
 		/obj/item/ammo_box/n792x57
@@ -826,7 +816,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/c20r
 	name = "C-20r SMG"
-	cost = 2500
+	cost = 3250
 	items = list(
 		/obj/item/gun/ballistic/automatic/c20r/unrestricted,
 		/obj/item/ammo_box/magazine/smgm45
@@ -834,7 +824,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/ak74m
 	name = "АК-74m"
-	cost = 2750
+	cost = 3750
 	items = list(
 		/obj/item/gun/ballistic/automatic/ak74m,
 		/obj/item/ammo_box/magazine/ak74m
@@ -842,7 +832,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/asval
 	name = "Вал"
-	cost = 3250
+	cost = 4250
 	items = list(
 		/obj/item/gun/ballistic/automatic/asval,
 		/obj/item/ammo_box/magazine/asval
