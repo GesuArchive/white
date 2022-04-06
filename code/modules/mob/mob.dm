@@ -718,7 +718,7 @@
 
 	var/pd = GLOB.phoenix_donations?[client?.ckey]
 
-	if(!text2num(pd) <= 0)
+	if(!isnull(pd) && text2num(pd) <= 0)
 		if(CONFIG_GET(flag/norespawn) && (!check_rights_for(usr.client, R_ADMIN) || tgui_alert(usr, "Respawn configs disabled. Do you want to use your permissions to circumvent it?", "Respawn", list("Yes", "No")) != "Yes"))
 			return
 
