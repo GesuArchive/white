@@ -70,7 +70,7 @@
 
 			update_parents()
 
-/obj/machinery/atmospherics/components/unary/outlet_injector/proc/inject()
+/obj/machinery/atmospherics/components/unary/outlet_injector/inject()
 
 	if(on || injecting || !is_operational)
 		return
