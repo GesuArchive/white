@@ -330,7 +330,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 			if(playmode == VIOLENCE_PLAYMODE_BOMBDEF)
 				var/datum/mind/terr_mind = pick(GLOB.violence_red_team)
 				var/mob/living/carbon/human/terrorist = terr_mind.current
-				var/obj/item/terroristsc4 = new(get_turf(terrorist))
+				var/obj/item/terroristsc4/terroristsc4 = new(get_turf(terrorist))
 				terrorist.put_in_hands(terroristsc4)
 				terrorist.visible_message(span_info("[terrorist] получает бомбу! Помогите ему установить её."),
 					span_info("Мне досталась бомба. Необходимо установить её в заранее обозначенной точке."))
