@@ -716,14 +716,17 @@
 	set name = "❗ Переродиться"
 	set category = "OOC"
 
-	if (CONFIG_GET(flag/norespawn) && (!check_rights_for(usr.client, R_ADMIN) || tgui_alert(usr, "Respawn configs disabled. Do you want to use your permissions to circumvent it?", "Respawn", list("Yes", "No")) != "Yes"))
-		return
+	if(!GLOB.phoenix_donations?[client?.ckey])
+		if (CONFIG_GET(flag/norespawn) && (!check_rights_for(usr.client, R_ADMIN) || tgui_alert(usr, "Respawn configs disabled. Do you want to use your permissions to circumvent it?", "Respawn", list("Yes", "No")) != "Yes"))
+			return
 
 	if ((stat != DEAD || !( SSticker )))
 		to_chat(usr, span_boldnotice("Живу!"))
 		return
 
-	client.is_respawned = TRUE
+	if(GLOB.phoenix_donations[client.ckey])
+		GLOB.phoenix_donations[client.ckey]--
+		to_chat(usr, span_boldnotice("Использован Феникс! Осталось [GLOB.phoenix_donations[client.ckey]] зарядов."))
 
 	log_game("[key_name(usr)] used abandon mob.")
 
