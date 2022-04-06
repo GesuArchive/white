@@ -99,8 +99,8 @@
 ///Checks if the gases in the input are the ones needed by the recipe
 /obj/machinery/atmospherics/components/binary/crystallizer/proc/check_gas_requirements()
 	var/datum/gas_mixture/contents = airs[2]
-	for(var/gas_type in selected_recipe.requirements)
-		if(!contents.get_moles(gas_type) && !internal.get_moles(gas_type))
+	for(var/gas_id in selected_recipe.requirements)
+		if(!contents.get_moles(gas_id) && !internal.get_moles(gas_id))
 			return FALSE
 	return TRUE
 
@@ -113,20 +113,20 @@
 ///Injects the gases from the input inside the internal gasmix, the amount is dependant on the gas_input var
 /obj/machinery/atmospherics/components/binary/crystallizer/proc/inject_gases()
 	var/datum/gas_mixture/contents = airs[2]
-	for(var/gas_type in selected_recipe.requirements)
+	for(var/gas_id in selected_recipe.requirements)
 		if(contents.get_moles(gas_type))
 			var/datum/gas_mixture/filtered = new
 			filtered.set_temperature(contents.return_temperature())
-			var/filtered_amount = clamp(contents.get_moles(gas_type), gas_input, selected_recipe.requirements - internal.get_moles(gas_type))
-			filtered.set_moles(gas_type, filtered_amount)
-			contents.adjust_moles(gas_type, -filtered_amount)
+			var/filtered_amount = clamp(contents.get_moles(gas_id), gas_input, selected_recipe.requirements - internal.get_moles(gas_id))
+			filtered.set_moles(gas_id, filtered_amount)
+			contents.adjust_moles(gas_id, -filtered_amount)
 			internal.merge(filtered)
 
 ///Checks if the gases required are all inside
 /obj/machinery/atmospherics/components/binary/crystallizer/proc/internal_check()
 	var/gas_check = 0
-	for(var/gas_type in selected_recipe.requirements)
-		if(internal.get_moles(gas_type) >= selected_recipe.requirements[gas_type])
+	for(var/gas_id in selected_recipe.requirements)
+		if(internal.get_moles(gas_id) >= selected_recipe.requirements[gas_id])
 			gas_check++
 	if(gas_check == selected_recipe.requirements.len)
 		return TRUE
@@ -175,8 +175,8 @@
 ///Calculate the total moles needed for the recipe
 /obj/machinery/atmospherics/components/binary/crystallizer/proc/moles_calculations()
 	var/amounts = 0
-	for(var/gas_type in selected_recipe.requirements)
-		amounts += selected_recipe.requirements[gas_type]
+	for(var/gas_id in selected_recipe.requirements)
+		amounts += selected_recipe.requirements[gas_id]
 	total_recipe_moles = amounts
 
 ///Removes the gases from the internal gasmix when the recipe is changed
@@ -210,11 +210,11 @@
 		return
 	progress_bar = 0
 
-	for(var/gas_type in selected_recipe.requirements)
-		var/amount_consumed = selected_recipe.requirements[gas_type] + quality_loss * 5
-		if(internal.get_moles(gas_type) < amount_consumed)
+	for(var/gas_id in selected_recipe.requirements)
+		var/amount_consumed = selected_recipe.requirements[gas_id] + quality_loss * 5
+		if(internal.get_moles(gas_id) < amount_consumed)
 			quality_loss = min(quality_loss + 10, 100)
-		internal.remove_specific(gas_type, amount_consumed)
+		internal.remove_specific(gas_id, amount_consumed)
 
 	var/total_quality = clamp(50 - quality_loss, 0, 100)
 	var/quality_control
@@ -298,10 +298,9 @@
 		requirements = list("Выбери рецепт для просмотра требований")
 	else
 		requirements = list("Чтобы создать [selected_recipe.name] потребуется")
-		for(var/gas_type in selected_recipe.requirements)
-			var/datum/gas/gas_required = gas_type
-			var/amount_consumed = selected_recipe.requirements[gas_type]
-			requirements += "-[amount_consumed] молей [initial(gas_required.name)]"
+		for(var/gas_id in selected_recipe.requirements)
+			var/amount_consumed = selected_recipe.requirements[gas_id]
+			requirements += "-[amount_consumed] молей [GLOB.gas_data.names[gas_id]]"
 		requirements += "В температурном диапазоне [selected_recipe.min_temp] K и [selected_recipe.max_temp] K"
 		requirements += "Реакция кристаллизации будет [selected_recipe.reaction_type]"
 	data["requirements"] = requirements.Join("\n")

@@ -45,7 +45,7 @@ GLOBAL_LIST_INIT(gas_recipe_meta, gas_recipes_list())
 	max_temp = 150000
 	reaction_type = ENDOTHERMIC_REACTION
 	energy_release = 2500000
-	requirements = list(/datum/gas/hydrogen = 300, GAS_BZ = 50)
+	requirements = list(GAS_HYDROGEN = 300, GAS_BZ = 50)
 	products = list(/obj/item/stack/sheet/mineral/metal_hydrogen = 1)
 
 /datum/gas_recipe/crystallizer/healium_grenade
@@ -85,7 +85,7 @@ GLOBAL_LIST_INIT(gas_recipe_meta, gas_recipes_list())
 	max_temp = 240
 	reaction_type = EXOTHERMIC_REACTION
 	energy_release = 950000
-	requirements = list(/datum/gas/hydrogen = 50, GAS_N2 = 40)
+	requirements = list(GAS_HYDROGEN = 50, GAS_N2 = 40)
 	products = list(/obj/item/stack/ammonia_crystals = 2)
 
 /datum/gas_recipe/crystallizer/shard
@@ -162,7 +162,7 @@ GLOBAL_LIST_INIT(gas_recipe_meta, gas_recipes_list())
 	name = "advanced fuel pellet"
 	reaction_type = EXOTHERMIC_REACTION
 	energy_release = 6000000
-	requirements = list(GAS_TRITIUM = 100, /datum/gas/hydrogen = 100)
+	requirements = list(GAS_TRITIUM = 100, GAS_HYDROGEN = 100)
 	products = list(/obj/item/fuel_pellet/advanced = 1)
 
 /datum/gas_recipe/crystallizer/fuel_pellet_exotic
