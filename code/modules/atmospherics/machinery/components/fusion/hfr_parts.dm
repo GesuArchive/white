@@ -248,7 +248,7 @@
 		for(var/gas_id in connected_core.moderator_internal.get_gases())
 			moderator_gasdata.Add(list(list(
 			"id"= gas_id,
-			"amount" = round(connected_core.moderator_internal.get_moles(gas), 0.01),
+			"amount" = round(connected_core.moderator_internal.get_moles(gas_id), 0.01),
 			)))
 	else
 		for(var/gas_id in connected_core.moderator_internal.get_gases())
