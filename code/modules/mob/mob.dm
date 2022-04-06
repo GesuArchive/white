@@ -726,7 +726,7 @@
 		to_chat(usr, span_boldnotice("Живу!"))
 		return
 
-	if(text2num(pd)
+	if(text2num(pd))
 		GLOB.phoenix_donations[client.ckey]--
 		to_chat(usr, span_boldnotice("Использован Феникс! Осталось [GLOB.phoenix_donations[client.ckey]] зарядов."))
 
