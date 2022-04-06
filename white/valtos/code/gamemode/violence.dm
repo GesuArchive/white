@@ -261,6 +261,12 @@ GLOBAL_LIST_EMPTY(violence_players)
 				var/mob/living/carbon/human/H = M
 				var/list/saved_shit = list()
 				// ммм
+				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_HEAD))
+				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_OCLOTHING))
+				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_EYES))
+				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_FEET))
+				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_GLOVES))
+				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_MASK))
 				LAZYADD(saved_shit, H.get_active_held_item())
 				LAZYADD(saved_shit, H.get_inactive_held_item())
 				for(var/obj/item/I in saved_shit)
