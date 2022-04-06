@@ -1,4 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
 "aJ" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/tile/hex/blue,
@@ -41,6 +48,11 @@
 /obj/structure/bed/maint,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/violence)
+"cT" = (
+/obj/effect/turf_decal/box/red,
+/obj/effect/landmark/bomb_plant_location,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
 "dj" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -74,6 +86,13 @@
 /obj/structure/deployable_barricade/metal{
 	dir = 4
 	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"fo" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/violence)
 "gw" = (
@@ -160,6 +179,13 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/white,
+/area/violence)
+"mu" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/red/corners,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/violence)
 "mB" = (
 /obj/effect/turf_decal/stripes/line,
@@ -265,6 +291,12 @@
 /obj/effect/baseturf_helper/asteroid,
 /turf/closed/indestructible/riveted,
 /area/violence)
+"rT" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
 "rY" = (
 /obj/effect/turf_decal/is12,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -349,6 +381,15 @@
 /area/violence)
 "Ad" = (
 /obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"AO" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/violence)
 "Bh" = (
@@ -478,11 +519,23 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/violence)
+"OG" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
 "Pj" = (
 /obj/effect/landmark/start/combatant/red,
 /turf/open/floor/light{
 	currentcolor = "#FA8282"
 	},
+/area/violence)
+"Qv" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 1
+	},
+/turf/open/floor/plasteel/monofloor/dark,
 /area/violence)
 "QO" = (
 /obj/structure/deployable_barricade/metal{
@@ -564,6 +617,10 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/violence)
 "XS" = (
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"XZ" = (
+/obj/effect/turf_decal/box/red/corners,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/violence)
 "YP" = (
@@ -2357,9 +2414,9 @@ lp
 "}
 (53,1,1) = {"
 lp
-Em
+mu
 XS
-XS
+rT
 gw
 XS
 XS
@@ -2384,15 +2441,15 @@ Em
 XS
 XS
 Gc
+XZ
 XS
-XS
-Ad
+fo
 lp
 "}
 (54,1,1) = {"
 lp
 Em
-XS
+cT
 XS
 gw
 XS
@@ -2419,15 +2476,15 @@ XS
 XS
 Gc
 XS
-XS
+cT
 Ad
 lp
 "}
 (55,1,1) = {"
 lp
-Em
+AO
 XS
-XS
+Qv
 gw
 XS
 XS
@@ -2452,9 +2509,9 @@ Em
 XS
 XS
 Gc
+OG
 XS
-XS
-Ad
+aa
 lp
 "}
 (56,1,1) = {"

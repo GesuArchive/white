@@ -1,4 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ar" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
 "bE" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 1
@@ -271,6 +277,10 @@
 "xj" = (
 /turf/closed/indestructible/sandstone,
 /area/violence)
+"xv" = (
+/obj/effect/turf_decal/box/red/corners,
+/turf/open/floor/plating/beach/sand,
+/area/violence)
 "xO" = (
 /obj/effect/bump_teleporter{
 	id = "dd5";
@@ -337,6 +347,17 @@
 /obj/effect/turf_decal/weather/side/corner,
 /turf/open/floor/plating/beach/sand,
 /area/violence)
+"Cp" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 4
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"Dg" = (
+/obj/effect/turf_decal/box/red,
+/obj/effect/landmark/bomb_plant_location,
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
 "Dr" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 1
@@ -380,6 +401,11 @@
 /turf/open/floor/plasteel/stairs{
 	dir = 1
 	},
+/area/violence)
+"FD" = (
+/obj/effect/turf_decal/box/red,
+/obj/effect/landmark/bomb_plant_location,
+/turf/open/floor/plating/beach/sand,
 /area/violence)
 "FF" = (
 /obj/effect/turf_decal/weather/side{
@@ -472,6 +498,12 @@
 	},
 /turf/open/floor/plating/beach/sand,
 /area/violence)
+"Lp" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 1
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
 "LW" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 10
@@ -510,6 +542,12 @@
 	dir = 8
 	},
 /area/violence)
+"Oe" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 4
+	},
+/turf/open/floor/plating/beach/sand,
+/area/violence)
 "Oy" = (
 /obj/effect/bump_teleporter{
 	id = "dd8";
@@ -536,6 +574,12 @@
 	dir = 4
 	},
 /turf/open/indestructible/cataclysmdda/sand,
+/area/violence)
+"Qg" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 1
+	},
+/turf/open/floor/plating/beach/sand,
 /area/violence)
 "Rh" = (
 /turf/template_noop,
@@ -602,6 +646,10 @@
 /obj/effect/turf_decal/weather/side,
 /turf/open/indestructible/cataclysmdda/sand,
 /area/violence)
+"UE" = (
+/obj/effect/turf_decal/box/red/corners,
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
 "Wb" = (
 /obj/structure/barricade/sandbags,
 /turf/open/indestructible/cataclysmdda/sand,
@@ -660,6 +708,12 @@
 	resistance_flags = 115
 	},
 /turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"ZO" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
+/turf/open/floor/plating/beach/sand,
 /area/violence)
 
 (1,1,1) = {"
@@ -1406,9 +1460,9 @@ Gs
 bE
 AN
 XY
+xv
 wT
-wT
-wT
+Oe
 wT
 wT
 wT
@@ -1480,7 +1534,7 @@ bE
 AN
 XY
 wT
-wT
+FD
 wT
 XY
 XY
@@ -1552,9 +1606,9 @@ Gs
 bE
 AN
 wT
+ZO
 wT
-wT
-wT
+Qg
 XY
 XY
 wT
@@ -1594,9 +1648,9 @@ WE
 WE
 Wb
 pK
+UE
 Gs
-Gs
-Gs
+Cp
 Gs
 bE
 AN
@@ -1668,7 +1722,7 @@ WE
 Wb
 pK
 Gs
-Gs
+Dg
 Gs
 IU
 bE
@@ -1740,9 +1794,9 @@ Pi
 Pi
 xj
 pK
+ar
 Gs
-Gs
-Gs
+Lp
 IU
 bE
 AN

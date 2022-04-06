@@ -132,6 +132,12 @@
 /obj/structure/deployable_barricade/metal,
 /turf/open/floor/grass/gensgrass/dirty,
 /area/violence)
+"gQ" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 1
+	},
+/turf/open/floor/rospilovo/wood,
+/area/violence)
 "hc" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 4
@@ -173,6 +179,13 @@
 	},
 /turf/open/floor/rospilovo/wood,
 /area/violence)
+"jN" = (
+/obj/structure/rospilovo/doski,
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
+/turf/open/floor/rospilovo/wood,
+/area/violence)
 "jO" = (
 /obj/structure/rospilovo/polka,
 /turf/open/floor/rospilovo/wood,
@@ -186,6 +199,10 @@
 "kf" = (
 /obj/structure/rospilovo/painting/lenin,
 /turf/closed/wall/rospilovo/bricks,
+/area/violence)
+"lR" = (
+/obj/effect/turf_decal/box/red/corners,
+/turf/open/floor/rospilovo/wood,
 /area/violence)
 "lT" = (
 /obj/structure/table/rospilovo,
@@ -304,6 +321,12 @@
 	icon_state = "bar_plate3"
 	},
 /turf/open/floor/grass/rospilovo,
+/area/violence)
+"qC" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 4
+	},
+/turf/open/floor/rospilovo/wood,
 /area/violence)
 "sn" = (
 /obj/structure/rospilovo/televizor/broken,
@@ -429,6 +452,11 @@
 "Cn" = (
 /obj/structure/rospilovo/yashik,
 /turf/open/floor/grass/rospilovo,
+/area/violence)
+"CS" = (
+/obj/effect/landmark/bomb_plant_location,
+/obj/effect/turf_decal/box/red,
+/turf/open/floor/rospilovo/wood,
 /area/violence)
 "Da" = (
 /obj/structure/rospilovo/radiation,
@@ -1737,9 +1765,9 @@ HE
 Go
 zJ
 IY
+lR
 HE
-HE
-HE
+qC
 YW
 YW
 hf
@@ -1810,7 +1838,7 @@ zJ
 zJ
 HW
 HE
-HE
+CS
 YW
 YW
 HE
@@ -1881,9 +1909,9 @@ ax
 QG
 HE
 HE
-JY
+jN
 HE
-HE
+gQ
 zJ
 HE
 fS

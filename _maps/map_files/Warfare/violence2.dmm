@@ -2,6 +2,12 @@
 "a" = (
 /turf/open/floor/bamboo,
 /area/violence)
+"c" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
+/turf/open/floor/carpet/green,
+/area/violence)
 "e" = (
 /obj/structure/chair/stool/bamboo,
 /obj/effect/landmark/start/combatant/blue,
@@ -14,6 +20,12 @@
 /turf/open/floor/carpet/blue,
 /area/violence)
 "j" = (
+/turf/open/floor/carpet/green,
+/area/violence)
+"l" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 4
+	},
 /turf/open/floor/carpet/green,
 /area/violence)
 "n" = (
@@ -41,6 +53,11 @@
 "A" = (
 /turf/closed/wall/mineral/bamboo,
 /area/violence)
+"B" = (
+/obj/effect/turf_decal/box/red,
+/obj/effect/landmark/bomb_plant_location,
+/turf/open/floor/carpet/green,
+/area/violence)
 "C" = (
 /obj/structure/chair/stool/bamboo,
 /obj/effect/landmark/start/combatant/red,
@@ -52,6 +69,16 @@
 "E" = (
 /turf/template_noop,
 /area/template_noop)
+"G" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 1
+	},
+/turf/open/floor/carpet/green,
+/area/violence)
+"H" = (
+/obj/effect/turf_decal/box/red/corners,
+/turf/open/floor/carpet/green,
+/area/violence)
 "I" = (
 /obj/structure/mineral_door/paperframe,
 /turf/open/floor/bamboo,
@@ -673,9 +700,9 @@ a
 a
 I
 a
-j
+H
 X
-j
+l
 a
 I
 a
@@ -699,7 +726,7 @@ a
 I
 a
 j
-j
+B
 j
 a
 I
@@ -723,9 +750,9 @@ a
 a
 A
 a
+c
 j
-j
-j
+G
 a
 A
 a

@@ -11,6 +11,12 @@
 	icon_state = "hot_plates1"
 	},
 /area/violence)
+"c" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 4
+	},
+/turf/open/floor/dz/cyber,
+/area/violence)
 "e" = (
 /turf/open/floor/rospilovo/cyber,
 /area/violence)
@@ -44,6 +50,11 @@
 /turf/open/floor/dz/cyber{
 	icon_state = "hot_plates2"
 	},
+/area/violence)
+"m" = (
+/obj/effect/landmark/bomb_plant_location,
+/obj/effect/turf_decal/box/red,
+/turf/open/floor/dz/cyber,
 /area/violence)
 "n" = (
 /turf/open/floor/dz/cyber{
@@ -97,6 +108,12 @@
 /obj/structure/sign/poster/random,
 /turf/closed/dz/normal/cyber,
 /area/violence)
+"z" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 1
+	},
+/turf/open/floor/dz/cyber,
+/area/violence)
 "A" = (
 /obj/structure/deployable_barricade/metal{
 	dir = 1
@@ -116,6 +133,16 @@
 /turf/open/floor/light{
 	currentcolor = "#FA8282"
 	},
+/area/violence)
+"E" = (
+/obj/effect/turf_decal/box/red/corners,
+/turf/open/floor/dz/cyber,
+/area/violence)
+"F" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
+/turf/open/floor/dz/cyber,
 /area/violence)
 "G" = (
 /obj/structure/mineral_door/wood{
@@ -582,9 +609,9 @@ k
 k
 o
 W
+E
 W
-W
-W
+c
 W
 u
 W
@@ -625,7 +652,7 @@ k
 o
 W
 W
-W
+m
 W
 W
 u
@@ -666,9 +693,9 @@ n
 w
 o
 W
+F
 W
-W
-W
+z
 W
 G
 W

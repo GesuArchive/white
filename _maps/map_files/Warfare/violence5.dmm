@@ -87,6 +87,12 @@
 	},
 /turf/open/floor/plating/sandy_dirt,
 /area/violence)
+"z" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 4
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
 "A" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 5
@@ -117,9 +123,19 @@
 	},
 /turf/open/floor/plating/is12/surface,
 /area/violence)
+"H" = (
+/obj/effect/turf_decal/box/red/corners,
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
 "I" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 4
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"J" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
 	},
 /turf/open/floor/plating/sandy_dirt,
 /area/violence)
@@ -130,6 +146,12 @@
 /turf/open/floor/plating/is12/surface,
 /area/violence)
 "L" = (
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"M" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 1
+	},
 /turf/open/floor/plating/sandy_dirt,
 /area/violence)
 "O" = (
@@ -174,6 +196,11 @@
 /area/violence)
 "U" = (
 /obj/effect/turf_decal/weather/side,
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"W" = (
+/obj/effect/turf_decal/box/red,
+/obj/effect/landmark/bomb_plant_location,
 /turf/open/floor/plating/sandy_dirt,
 /area/violence)
 "X" = (
@@ -702,9 +729,9 @@ c
 L
 c
 L
+H
 L
-L
-L
+z
 L
 L
 E
@@ -735,7 +762,7 @@ L
 Y
 L
 L
-L
+W
 L
 L
 L
@@ -766,9 +793,9 @@ c
 L
 c
 L
+J
 L
-L
-L
+M
 L
 L
 E

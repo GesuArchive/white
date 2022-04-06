@@ -71,6 +71,15 @@
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/plating/is12/rock,
 /area/violence)
+"gY" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 4
+	},
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/turf/open/floor/plating/is12/trenchcenter,
+/area/violence)
 "ic" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -227,12 +236,29 @@
 /obj/machinery/door/airlock/grunge,
 /turf/open/floor/plating/is12/trenchcenter,
 /area/violence)
+"ze" = (
+/obj/effect/landmark/bomb_plant_location,
+/obj/effect/turf_decal/box/red,
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/turf/open/floor/plating/is12/trenchcenter,
+/area/violence)
 "zg" = (
 /obj/effect/turf_decal/stripes/full,
 /obj/machinery/door/poddoor/multi_tile/two_tile_ver{
 	resistance_flags = 115
 	},
 /turf/open/indestructible/boss/air,
+/area/violence)
+"AJ" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 1
+	},
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/turf/open/floor/plating/is12/trenchcenter,
 /area/violence)
 "AK" = (
 /obj/effect/turf_decal/stripes/line{
@@ -249,6 +275,15 @@
 "Bd" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating/is12/wood,
+/area/violence)
+"BW" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/turf/open/floor/plating/is12/trenchcenter,
 /area/violence)
 "CM" = (
 /obj/effect/turf_decal/is12{
@@ -338,6 +373,13 @@
 	dir = 4
 	},
 /turf/open/floor/plating/is12/rock,
+/area/violence)
+"Ms" = (
+/obj/effect/turf_decal/box/red/corners,
+/obj/effect/turf_decal/is12{
+	icon_state = "wwi"
+	},
+/turf/open/floor/plating/is12/trenchcenter,
 /area/violence)
 "MC" = (
 /obj/effect/turf_decal/stripes/line{
@@ -1176,9 +1218,9 @@ Rw
 AT
 AT
 Rw
+Ms
 AT
-AT
-AT
+gY
 AT
 AT
 Xm
@@ -1219,7 +1261,7 @@ JX
 AT
 Rw
 AT
-AT
+ze
 AT
 tu
 AT
@@ -1260,9 +1302,9 @@ Rw
 AT
 AT
 Rw
+BW
 AT
-AT
-AT
+AJ
 AT
 AT
 Xm
