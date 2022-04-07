@@ -252,7 +252,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	if(calibrated)
 		to_chat(user, span_alert("Врата откалиброваны, больше ничего делать не нужно."))
 	else
-		to_chat(user, "<span class='boldnotice'>Успешная рекалибровка!</span>: \black Системы врат налажены. Теперь через них можно проходить.")
+		to_chat(user, "<span class='boldnotice'>Успешная рекалибровка!</span>: Системы врат налажены. Теперь через них можно проходить.")
 		calibrated = TRUE
 	return TRUE
 
