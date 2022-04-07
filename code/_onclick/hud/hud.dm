@@ -72,6 +72,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/atom/movable/screen/healthdoll
 	var/atom/movable/screen/internals
 	var/atom/movable/screen/tooltip
+	var/atom/movable/screen/timelimit/timelimit
 	var/atom/movable/screen/wanted/wanted_lvl
 	var/atom/movable/screen/spacesuit
 	var/atom/movable/screen/station_height/station_height
@@ -103,6 +104,11 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	if (owner?.client?.prefs?.w_toggles & TOOLTIP_USER_POS)
 		tooltip?.screen_loc = "SOUTH+1,CENTER-4:16"
 	infodisplay += tooltip
+
+	if(GLOB.violence_mode_activated)
+		timelimit = new /atom/movable/screen/timelimit()
+		timelimit?.hud = src
+		infodisplay += timelimit
 
 	add_multiz_buttons(owner)
 

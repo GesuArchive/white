@@ -6,6 +6,7 @@ GLOBAL_VAR_INIT(violence_random_theme, 1)
 GLOBAL_VAR_INIT(violence_bomb_active, FALSE)
 GLOBAL_VAR_INIT(violence_bomb_planted, FALSE)
 GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
+GLOBAL_VAR_INIT(violence_time_limit, 3 MINUTES)
 GLOBAL_VAR(violence_landmark)
 GLOBAL_VAR(violence_red_datum)
 GLOBAL_VAR(violence_blue_datum)
@@ -200,6 +201,26 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				H.ForceContractDisease(D, FALSE, TRUE)
 		// проверяем, умерли ли все после открытия ворот
 		if(round_started_at + 30 SECONDS < world.time)
+			update_timer()
+			if(GLOB.violence_time_limit <= 0)
+				if(playmode == VIOLENCE_PLAYMODE_BOMBDEF)
+					end_round("СИНИХ")
+					wins_blues++
+					losestreak_blues = 0
+					losestreak_reds++
+					return
+				if(GLOB.violence_red_team.len < GLOB.violence_blue_team.len)
+					end_round("СИНИХ")
+					wins_blues++
+					losestreak_blues = 0
+					losestreak_reds++
+					return
+				if(GLOB.violence_red_team.len > GLOB.violence_blue_team.len)
+					end_round("КРАСНЫХ")
+					wins_reds++
+					losestreak_reds = 0
+					losestreak_blues++
+					return
 			if(playmode == VIOLENCE_PLAYMODE_BOMBDEF)
 				if(GLOB.violence_bomb_detonated)
 					end_round("КРАСНЫХ")
@@ -228,12 +249,19 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 			if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len == 0)
 				end_round()
 
+/datum/game_mode/violence/proc/update_timer()
+	GLOB.violence_time_limit -= 2 SECONDS
+	var/formatted_time = time2text(GLOB.violence_time_limit, "mm:ss")
+	for(var/mob/M in GLOB.player_list)
+		M?.hud_used?.timelimit?.update_info(formatted_time)
+
 // конец раунда и запуск начала нового раунда
 /datum/game_mode/violence/proc/end_round(winner = "ХУЙ ЕГО ЗНАЕТ КОГО")
 	round_active = FALSE
 	GLOB.violence_bomb_detonated = FALSE
 	GLOB.violence_bomb_active = FALSE
 	GLOB.violence_bomb_planted = FALSE
+	GLOB.violence_time_limit = 3 MINUTES
 	SSjob.SetJobPositions(/datum/job/combantant/red, 0, 0, TRUE)
 	SSjob.SetJobPositions(/datum/job/combantant/blue, 0, 0, TRUE)
 	spawn(3 SECONDS)
@@ -1142,6 +1170,14 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	explosion(get_turf(src), 0, 0, 0, 0)
 	to_chat(world, leader_brass("Бомба взорвана!"))
 	qdel(src)
+
+/atom/movable/screen/timelimit
+	name = "ТАЙМЕР"
+	screen_loc = "EAST-1:16,NORTH"
+	maptext = "<span class='maptext' style='font-size:16px;font-family:\"Times New Roman\";color:#ff7777;'>3:00</span>"
+
+/atom/movable/screen/timelimit/proc/update_info(textto)
+	maptext = "<span class='maptext' style='font-size:16px;font-family:\"Times New Roman\";color:#ff7777;'>[textto]</span>"
 
 #undef VIOLENCE_FINAL_ROUND
 #undef VIOLENCE_PLAYMODE_TEAMFIGHT
