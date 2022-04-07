@@ -202,7 +202,11 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		// проверяем, умерли ли все после открытия ворот
 		if(round_started_at + 30 SECONDS < world.time)
 			update_timer()
+			spawn(1 SECONDS)
+				update_timer()
 			if(GLOB.violence_time_limit <= 0)
+				if(GLOB.violence_bomb_planted && GLOB.violence_blue_team.len)
+					return
 				if(playmode == VIOLENCE_PLAYMODE_BOMBDEF)
 					end_round("СИНИХ")
 					wins_blues++
@@ -250,7 +254,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				end_round()
 
 /datum/game_mode/violence/proc/update_timer()
-	GLOB.violence_time_limit -= 2 SECONDS
+	GLOB.violence_time_limit -= 1 SECONDS
 	var/formatted_time = time2text(GLOB.violence_time_limit, "mm:ss")
 	for(var/mob/M in GLOB.player_list)
 		M?.hud_used?.timelimit?.update_info(formatted_time)
@@ -1116,6 +1120,8 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		var/datum/violence_player/VP = GLOB.violence_players[user.ckey]
 		VP.money += 300
 		to_chat(user, span_boldnotice("+300₽ за установку бомбы!"))
+
+	GLOB.violence_time_limit = 30 SECONDS
 
 	forceMove(get_turf(user))
 
