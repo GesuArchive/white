@@ -62,13 +62,13 @@ GLOBAL_LIST_EMPTY(cached_cards)
 	if(flipped)
 		return ..()
 	var/datum/card/data_holder = extract_datum()
-
+	name_chaser += "<hr>"
 	name_chaser += "Faction: [data_holder.faction]"
-	name_chaser += "Cost: [data_holder.summoncost]"
-	name_chaser += "Type: [data_holder.cardtype] - [data_holder.cardsubtype]"
-	name_chaser += "Power/Resolve: [data_holder.power]/[data_holder.resolve]"
+	name_chaser += "\nCost: [data_holder.summoncost]"
+	name_chaser += "\nType: [data_holder.cardtype] - [data_holder.cardsubtype]"
+	name_chaser += "\nPower/Resolve: [data_holder.power]/[data_holder.resolve]"
 	if(data_holder.rules) //This can sometimes be empty
-		name_chaser += "Ruleset: [data_holder.rules]"
+		name_chaser += "\nRuleset: [data_holder.rules]"
 	return name_chaser
 
 GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
