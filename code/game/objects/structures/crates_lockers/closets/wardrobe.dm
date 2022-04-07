@@ -189,6 +189,8 @@
 	new /obj/item/clothing/under/color/jumpskirt/lightpurple(src)
 	new /obj/item/clothing/under/color/green(src)
 	new /obj/item/clothing/under/color/jumpskirt/green(src)
+	new /obj/item/clothing/under/color/brown(src)
+	new /obj/item/clothing/under/color/jumpskirt/brown(src)
 	new /obj/item/clothing/mask/bandana/red(src)
 	new /obj/item/clothing/mask/bandana/red(src)
 	new /obj/item/clothing/mask/bandana/blue(src)
