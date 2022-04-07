@@ -62,6 +62,7 @@
 					suggested_team = "Combantant: Red"
 				if(LAZYLEN(GLOB.violence_red_team) > LAZYLEN(GLOB.violence_blue_team))
 					suggested_team = "Combantant: Blue"
+				VP.role_name = suggested_team
 				AttemptLateSpawn(suggested_team)
 			return
 		if(GLOB.violence_gear_datums[href_list["violence"]])
