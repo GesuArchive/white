@@ -725,6 +725,8 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 			LAZYADD(full_of_items, item)
 	LAZYADD(full_of_items, saved_items)
 	for(var/item in full_of_items)
+		if(istype(item, /obj/item/terroristsc4))
+			continue
 		var/obj/item/O = new item(get_turf(H))
 		if(H.equip_to_appropriate_slot(O, FALSE))
 			continue
@@ -1060,7 +1062,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	for(var/atom/A in GLOB.violence_bomb_locations)
 		var/turf/T1 = get_turf(A)
 		var/turf/T2 = get_turf(user)
-		if(get_dist(T1, T2) >= 5)
+		if(get_dist(T1, T2) <= 5)
 			break
 		else
 			to_chat(user, span_notice("Нужно ставить бомбу строго возле необходимой точки!"))
@@ -1070,30 +1072,34 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 	playsound(get_turf(user), 'white/valtos/sounds/c4_click.ogg', 100)
 
-	if(do_after(user, 50, target = get_turf(user)))
-		if(!user.temporarilyRemoveItemFromInventory(src))
+	for(var/s in 1 to 6)
+		if(!do_after(user, rand(5, 8), target = get_turf(user)))
 			return
+		playsound(get_turf(user), 'white/valtos/sounds/c4_click.ogg', 100)
 
-		to_chat(world, leader_brass("Бомба установлена! Время до взрыва: [det_time] секунд."))
+	if(!user.temporarilyRemoveItemFromInventory(src))
+		return
 
-		if(GLOB.violence_players[user?.ckey])
-			var/datum/violence_player/VP = GLOB.violence_players[user.ckey]
-			VP.money += 300
-			to_chat(user, span_boldnotice("+300₽ за установку бомбы!"))
+	to_chat(world, leader_brass("Бомба установлена! Время до взрыва: [det_time] секунд."))
 
-		forceMove(get_turf(user))
+	if(GLOB.violence_players[user?.ckey])
+		var/datum/violence_player/VP = GLOB.violence_players[user.ckey]
+		VP.money += 300
+		to_chat(user, span_boldnotice("+300₽ за установку бомбы!"))
 
-		interaction_flags_item = NONE
+	forceMove(get_turf(user))
 
-		anchored = TRUE
+	interaction_flags_item = NONE
 
-		GLOB.violence_bomb_active = TRUE
-		GLOB.violence_bomb_planted = TRUE
+	anchored = TRUE
 
-		spawn(5 SECONDS)
-			play_sound_to_everyone('white/valtos/sounds/bcountdown.ogg', 80, CHANNEL_NASHEED)
+	GLOB.violence_bomb_active = TRUE
+	GLOB.violence_bomb_planted = TRUE
 
-		addtimer(CALLBACK(src, .proc/detonate), det_time SECONDS)
+	spawn(4 SECONDS)
+		play_sound_to_everyone('white/valtos/sounds/bcountdown.ogg', 100, CHANNEL_NASHEED)
+
+	addtimer(CALLBACK(src, .proc/detonate), det_time SECONDS)
 
 /obj/item/terroristsc4/attack_hand(mob/user)
 	if(!GLOB.violence_bomb_planted)
@@ -1135,6 +1141,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	GLOB.violence_bomb_detonated = TRUE
 	explosion(get_turf(src), 0, 0, 0, 0)
 	to_chat(world, leader_brass("Бомба взорвана!"))
+	qdel(src)
 
 #undef VIOLENCE_FINAL_ROUND
 #undef VIOLENCE_PLAYMODE_TEAMFIGHT
