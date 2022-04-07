@@ -51,9 +51,10 @@
 
 	if(href_list["violence"] && GLOB.violence_mode_activated)
 		if(href_list["violence"] == "joinmefucker")
-			if(GLOB.violence_teamlock[ckey])
+			var/datum/violence_player/VP = GLOB.violence_players?[ckey]
+			if(VP?.role_name)
 				usr << browse(null, "window=violence")
-				AttemptLateSpawn(GLOB.violence_teamlock[ckey])
+				AttemptLateSpawn(VP.role_name)
 			else
 				usr << browse(null, "window=violence")
 				var/suggested_team = pick(list("Combantant: Red", "Combantant: Blue"))
@@ -209,7 +210,8 @@
 	if(job.metalocked && !(job.type in client.prefs.jobs_buyed))
 		return JOB_UNAVAILABLE_UNBUYED
 	if(GLOB.violence_mode_activated)
-		if((ckey in GLOB.violence_teamlock) && GLOB.violence_teamlock[ckey] != rank)
+		var/datum/violence_player/VP = GLOB.violence_players?[ckey]
+		if(VP?.role_name != rank)
 			return JOB_UNAVAILABLE_LOCKED
 	return JOB_AVAILABLE
 
