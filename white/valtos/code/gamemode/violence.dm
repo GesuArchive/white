@@ -1087,14 +1087,16 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	if(!comb)
 		to_chat(user, span_notice("Это не входит в рамки специальной операции."))
 		return
+	var/found = FALSE
 	for(var/atom/A in GLOB.violence_bomb_locations)
 		var/turf/T1 = get_turf(A)
 		var/turf/T2 = get_turf(user)
 		if(get_dist(T1, T2) <= 5)
-			break
-		else
-			to_chat(user, span_notice("Нужно ставить бомбу строго возле необходимой точки!"))
-			return
+			found = TRUE
+
+	if(!found)
+		to_chat(user, span_notice("Нужно ставить бомбу строго возле необходимой точки!"))
+		return
 
 	to_chat(user, span_notice("Начинаю устанавливать [src]. Таймер установлен на [det_time]..."))
 
@@ -1140,6 +1142,10 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		to_chat(world, leader_brass("Бомба обезврежена [user]!"))
 		GLOB.violence_bomb_active = FALSE
 		play_sound_to_everyone(null, 0, CHANNEL_NASHEED)
+		if(GLOB.violence_players[user?.ckey])
+			var/datum/violence_player/VP = GLOB.violence_players[user.ckey]
+			VP.money += 300
+			to_chat(user, span_boldnotice("+300₽ за обезвреживание бомбы!"))
 		qdel(src)
 
 /obj/item/terroristsc4/attackby(obj/item/I, mob/user, params)
@@ -1159,6 +1165,10 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		to_chat(world, leader_brass("Бомба обезврежена [user]!"))
 		GLOB.violence_bomb_active = FALSE
 		play_sound_to_everyone(null, 0, CHANNEL_NASHEED)
+		if(GLOB.violence_players[user?.ckey])
+			var/datum/violence_player/VP = GLOB.violence_players[user.ckey]
+			VP.money += 300
+			to_chat(user, span_boldnotice("+300₽ за обезвреживание бомбы!"))
 		qdel(src)
 
 /obj/item/terroristsc4/proc/detonate()
