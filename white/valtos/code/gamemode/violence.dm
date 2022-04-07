@@ -332,8 +332,8 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				var/mob/living/carbon/human/terrorist = terr_mind.current
 				var/obj/item/terroristsc4/terroristsc4 = new(get_turf(terrorist))
 				terrorist.put_in_hands(terroristsc4)
-				terrorist.visible_message(span_info("[terrorist] получает бомбу! Помогите ему установить её."),
-					span_info("Мне досталась бомба. Необходимо установить её в заранее обозначенной точке."))
+				terrorist.visible_message(span_fuckingbig("<b>[terrorist]</b> получает бомбу! Помогите ему установить её."),
+					span_fuckingbig("Мне досталась бомба. Необходимо установить её в заранее обозначенной точке."))
 			to_chat(world, leader_brass("В БОЙ!"))
 			last_reds = LAZYLEN(GLOB.violence_red_team)
 			last_blues = LAZYLEN(GLOB.violence_blue_team)
