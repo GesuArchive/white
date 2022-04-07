@@ -865,6 +865,8 @@
 	area_flags = NOTELEPORT
 	has_gravity = TRUE
 	mood_bonus = -25
+	base_lighting_alpha = 255
+	base_lighting_color = COLOR_WHITE
 	mood_message = span_red("Тут не очень приятно!\n")
 
 /area/awaymission/rospilovo/deathtrap

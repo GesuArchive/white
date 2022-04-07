@@ -296,11 +296,6 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		CHECK_TICK
 	current_ticklimit = TICK_LIMIT_RUNNING
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
-
-	if(CONFIG_GET(flag/df_enabled))
-		message_admins(span_boldannounce("Подгружаем DF..."))
-		load_new_z_level("_maps/RandomZLevels/dwarf_lustress.dmm", "Dwarf Fortress")
-		message_admins(span_boldannounce("DF подгружен..."))
 	to_chat(world, span_green("-- $<b>Мир</b>:> <b>[time]с</b> --"))
 	to_chat(world, span_nzcrentr("-- #<b>Хэш энтропии</b>:> <b>[md5("[random_seed]")]</b> --"))
 	log_world("World init for [time] seconds!")
