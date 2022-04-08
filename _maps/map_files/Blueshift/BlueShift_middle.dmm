@@ -1820,6 +1820,12 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/cafeteria,
 /area/hallway/primary/port)
+"aqe" = (
+/obj/structure/particle_accelerator/power_box{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/engineering/lobby)
 "aqm" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -11993,6 +11999,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/starboard/fore)
+"edl" = (
+/obj/structure/cable,
+/turf/open/floor/engine,
+/area/space)
 "edt" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -12505,6 +12515,9 @@
 /obj/effect/turf_decal/stripes{
 	dir = 9
 	},
+/obj/structure/particle_accelerator/particle_emitter/right{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/engineering/lobby)
 "epb" = (
@@ -12542,6 +12555,7 @@
 /area/hallway/primary/fore)
 "epN" = (
 /obj/structure/cable,
+/obj/machinery/particle_accelerator/control_box,
 /turf/open/floor/plating,
 /area/engineering/lobby)
 "eqi" = (
@@ -17267,6 +17281,10 @@
 	},
 /turf/open/floor/wood,
 /area/service/library)
+"gjI" = (
+/obj/structure/particle_accelerator/particle_emitter/right,
+/turf/open/floor/engine,
+/area/space)
 "gjJ" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -17838,6 +17856,12 @@
 	},
 /turf/open/floor/carpet,
 /area/security/courtroom)
+"gvI" = (
+/obj/structure/particle_accelerator/particle_emitter/center{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/engineering/lobby)
 "gvL" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/photocopier,
@@ -21939,6 +21963,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/central)
+"ijo" = (
+/obj/structure/particle_accelerator/particle_emitter/center,
+/turf/open/floor/engine,
+/area/space)
 "ijN" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -26176,6 +26204,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/maintenance/port/central/west)
+"jOV" = (
+/obj/item/crowbar,
+/turf/open/floor/engine,
+/area/space)
 "jPi" = (
 /obj/structure/chair/stool/bar,
 /obj/effect/landmark/start/assistant,
@@ -30426,6 +30458,10 @@
 /obj/item/radio/intercom/directional/west,
 /turf/open/floor/plasteel,
 /area/commons/storage/art)
+"lGV" = (
+/obj/structure/particle_accelerator/particle_emitter/left,
+/turf/open/floor/engine,
+/area/space)
 "lHf" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/tile/yellow{
@@ -36751,6 +36787,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/service/hydroponics)
+"okV" = (
+/obj/item/screwdriver,
+/turf/open/floor/engine,
+/area/space)
 "oli" = (
 /obj/structure/cable,
 /obj/effect/landmark/start/station_engineer,
@@ -45744,6 +45784,11 @@
 	},
 /turf/open/floor/plating,
 /area/security/range)
+"rTc" = (
+/obj/structure/particle_accelerator/fuel_chamber,
+/obj/structure/cable,
+/turf/open/floor/engine,
+/area/space)
 "rTi" = (
 /obj/structure/cable,
 /obj/item/radio/intercom/directional/west,
@@ -50047,6 +50092,9 @@
 "tHN" = (
 /obj/effect/turf_decal/stripes{
 	dir = 5
+	},
+/obj/structure/particle_accelerator/particle_emitter/left{
+	dir = 1
 	},
 /turf/open/floor/plating,
 /area/engineering/lobby)
@@ -57647,6 +57695,12 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/cargo/qm)
+"wDv" = (
+/obj/structure/particle_accelerator/fuel_chamber{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/engineering/lobby)
 "wDJ" = (
 /obj/structure/window{
 	dir = 1
@@ -58307,6 +58361,11 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plating,
 /area/maintenance/port/north)
+"wPf" = (
+/obj/machinery/particle_accelerator/control_box,
+/obj/structure/cable,
+/turf/open/floor/engine,
+/area/space)
 "wPi" = (
 /obj/effect/turf_decal/stripes,
 /obj/machinery/atmospherics/components/binary/pump/on{
@@ -58539,6 +58598,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
+"wUf" = (
+/obj/structure/particle_accelerator/power_box,
+/turf/open/floor/engine,
+/area/space)
 "wUg" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/stripes/corner{
@@ -59392,6 +59455,7 @@
 /area/security/brig)
 "xjE" = (
 /obj/effect/turf_decal/bot,
+/obj/machinery/the_singularitygen/tesla,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "xkb" = (
@@ -61105,6 +61169,12 @@
 "xOd" = (
 /turf/closed/wall,
 /area/commons/fitness/recreation)
+"xOh" = (
+/obj/structure/particle_accelerator/end_cap{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/engineering/lobby)
 "xOl" = (
 /turf/closed/wall/r_wall,
 /area/security/warden)
@@ -94519,10 +94589,10 @@ uHm
 xXV
 ylI
 iWm
-yeC
-yeC
-yeC
-yeC
+gvI
+aqe
+wDv
+xOh
 cpq
 iZv
 kmH
@@ -103280,9 +103350,9 @@ dQE
 dQE
 dQE
 dQE
-dQE
-dQE
-dQE
+wPf
+jOV
+lGV
 dQE
 dQE
 dQE
@@ -103537,9 +103607,9 @@ xal
 dQE
 dQE
 dQE
-dQE
-dQE
-dQE
+rTc
+wUf
+ijo
 dQE
 dQE
 dQE
@@ -103794,9 +103864,9 @@ dQE
 dQE
 dQE
 dQE
-dQE
-dQE
-dQE
+edl
+okV
+gjI
 dQE
 dQE
 dQE
