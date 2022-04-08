@@ -161,7 +161,7 @@
 		///Take the air composition inside the cryotube
 		var/datum/gas_mixture/air1 = airs[1]
 		env.merge(air1)
-		T.air_update_turf(FALSE)
+		T.air_update_turf()
 
 	return ..()
 

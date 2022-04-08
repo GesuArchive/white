@@ -54,7 +54,6 @@
 	burst_size = 3
 	zoomable = TRUE
 	zoom_amt = 10
-	zoom_out_amt = 10
 	fire_delay = 1.75
 
 /obj/item/ammo_box/magazine/fg42

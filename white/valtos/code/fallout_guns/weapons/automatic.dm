@@ -113,7 +113,6 @@
 	extra_penetration = 0
 	zoomable = TRUE
 	zoom_amt = 10
-	zoom_out_amt = 13
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	spread = 6
 
@@ -149,7 +148,6 @@
 	extra_penetration = 10
 	zoomable = TRUE
 	zoom_amt = 10
-	zoom_out_amt = 13
 	weapon_weight = WEAPON_HEAVY
 
 /obj/item/gun/ballistic/automatic/fallout/marksman/american

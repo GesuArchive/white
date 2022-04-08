@@ -372,7 +372,7 @@ This section is for the destabilized SM
 	removed.adjust_moles(GAS_BZ, 15.5)
 	removed.adjust_moles(GAS_MIASMA, 5.5)
 	env.merge(removed)
-	air_update_turf(FALSE)
+	air_update_turf()
 
 /obj/machinery/destabilized_crystal/attackby(obj/item/W, mob/living/user, params)
 	if(!istype(user))

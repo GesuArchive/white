@@ -120,8 +120,7 @@
 	icon_state = "kar98k_scope"
 	inhand_icon_state = "kar98k_scope"
 	zoomable = TRUE
-	zoom_amt = 4
-	zoom_out_amt = 5
+	zoom_amt = 7
 	actions_types = list()
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/update_icon(var/add_scope = FALSE)

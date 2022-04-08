@@ -94,7 +94,7 @@
 					removed.set_temperature(min((removed.return_temperature()*heat_capacity + heating_power)/heat_capacity, 1000))
 
 				env.merge(removed)
-				air_update_turf(FALSE)
+				air_update_turf()
 
 /proc/fix_noid_research_servers()
 	var/list/no_id_servers = list()

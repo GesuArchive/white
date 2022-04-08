@@ -11,7 +11,6 @@
 	burst_size = 3
 	zoomable = TRUE
 	zoom_amt = 8
-	zoom_out_amt = 8
 	fire_delay = 2
 
 /obj/item/ammo_box/magazine/m556/arg

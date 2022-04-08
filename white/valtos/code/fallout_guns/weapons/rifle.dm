@@ -20,7 +20,6 @@
 	extra_penetration = 20
 	zoomable = TRUE
 	zoom_amt = 10
-	zoom_out_amt = 13
 
 /obj/item/gun/ballistic/rifle/fallout/varmint
 	name = "varmint rifle"
@@ -45,7 +44,6 @@
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	zoomable = TRUE
 	zoom_amt = 10
-	zoom_out_amt = 13
 	suppressed = TRUE
 	can_unsuppress = FALSE
 

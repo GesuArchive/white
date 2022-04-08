@@ -73,7 +73,7 @@
 	var/turf/open/T = get_turf(parent)
 	if(T?.air)
 		T.air.adjust_moles(GAS_MIASMA, strength)
-		T.air_update_turf(FALSE)
+		T.air_update_turf()
 
 ///One of two procs that modifies blockers, this one handles adding a blocker and potentially ending the rot
 /datum/component/rot/proc/rest(blocker_type)

@@ -98,7 +98,6 @@
 	extra_penetration = 15
 	zoomable = TRUE
 	zoom_amt = 10
-	zoom_out_amt = 13
 
 //Magazines
 /obj/item/ammo_box/magazine/internal/shot/tube4570

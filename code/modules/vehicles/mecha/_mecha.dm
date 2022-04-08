@@ -276,7 +276,7 @@
 
 /obj/vehicle/sealed/mecha/obj_destruction()
 	loc.assume_air(cabin_air)
-	air_update_turf(FALSE)
+	air_update_turf()
 	for(var/mob/living/occupant as anything in occupants)
 		if(isAI(occupant))
 			occupant.gib() //No wreck, no AI to recover
@@ -437,7 +437,7 @@
 				var/datum/gas_mixture/leaked_gas = int_tank_air.remove_ratio(DT_PROB_RATE(0.05, delta_time))
 				if(loc)
 					loc.assume_air(leaked_gas)
-					air_update_turf(FALSE)
+					air_update_turf()
 				else
 					qdel(leaked_gas)
 

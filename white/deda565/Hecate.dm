@@ -11,7 +11,6 @@
 	slot_flags = ITEM_SLOT_BACK
 	zoomable = TRUE
 	zoom_amt = 10
-	zoom_out_amt = 5
 	item_flags = SLOWS_WHILE_IN_HAND
 	fire_delay = 30
 	w_class = WEIGHT_CLASS_HUGE
