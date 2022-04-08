@@ -168,6 +168,10 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 
 /datum/game_mode/violence/proc/someone_has_died(datum/source, mob/living/dead, gibbed)
 	SIGNAL_HANDLER
+
+	if(!(dead in main_area))
+		return
+
 	play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
 
 	var/datum/violence_player/vp_dead = vp_get_player(dead?.ckey)
