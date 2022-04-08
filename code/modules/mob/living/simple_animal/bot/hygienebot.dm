@@ -54,7 +54,6 @@
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /mob/living/simple_animal/bot/hygienebot/explode()
-	walk_to(src,0)
 	visible_message(span_boldannounce("[capitalize(src.name)] взрывается и разбрызгивает вокруг пену!"))
 	do_sparks(3, TRUE, src)
 	on = FALSE
@@ -95,7 +94,7 @@
 	..()
 	target = null
 	oldtarget_name = null
-	walk_to(src,0)
+	SSmove_manager.stop_looping(src)
 	last_found = world.time
 
 /mob/living/simple_animal/bot/hygienebot/handle_automated_action()
@@ -112,7 +111,7 @@
 
 	switch(mode)
 		if(BOT_IDLE)		// idle
-			walk_to(src,0)
+			SSmove_manager.stop_looping(src)
 			look_for_lowhygiene()	// see if any disgusting fucks are in range
 			if(!mode && auto_patrol)	// still idle, and set to patrol
 				mode = BOT_START_PATROL	// switch to patrol mode
@@ -144,7 +143,7 @@
 					if(olddist > 20 || frustration > 100) // Focus on something else
 						back_to_idle()
 						return
-					walk_to(src, target,0, currentspeed)
+					SSmove_manager.move_to(src, target, 0, currentspeed)
 					if(mad && prob(min(frustration * 2, 60)))
 						playsound(loc, 'sound/effects/hygienebot_angry.ogg', 60, 1)
 						speak(pick("Вернись обратно, вонючий педик!", "ПРЕКРАТИ БЕЖАТЬ ИЛИ Я ВСКРОЮ ТЕБЕ БЕДРЕННУЮ АРТЕРИЮ!", "Дай же мне просто помыть тебя, ублюдок!", "ХВАТИТ. УБЕГАТЬ.", "Если ты сейчас же не перестанешь убегать от меня, то я выкину тебя в космос, блять.", "Я просто хочу помыть тебя, ебучий троглодит.", "Если ты сейчас же не подойдёшь ко мне, то я пущу в тебя зелёный дым."))
@@ -176,7 +175,7 @@
 
 /mob/living/simple_animal/bot/hygienebot/proc/back_to_idle()
 	mode = BOT_IDLE
-	walk_to(src,0)
+	SSmove_manager.stop_looping(src)
 	target = null
 	frustration = 0
 	last_found = world.time

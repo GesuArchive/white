@@ -270,7 +270,7 @@
 			break
 
 	if(target)
-		walk_away(living_pawn, target, 9, 7)
+		SSmove_manager.move_away(living_pawn, target, 9, 7)
 	else
 		finish_action(controller, TRUE)
 

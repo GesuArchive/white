@@ -110,7 +110,7 @@
 	// Incap?
 	if (must_be_capacitated)
 		var/mob/living/L = owner
-		if (L.incapacitated(ignore_restraints=TRUE,ignore_grab=TRUE) || !(L.mobility_flags & MOBILITY_STAND) && !can_be_immobilized)
+		if (L.incapacitated(IGNORE_RESTRAINTS|IGNORE_GRAB) || !(L.mobility_flags & MOBILITY_STAND) && !can_be_immobilized)
 			if (display_error)
 				to_chat(owner, span_warning("Not while you're incapacitated!"))
 			return FALSE

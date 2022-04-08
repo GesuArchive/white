@@ -2267,26 +2267,26 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	else
 		return TRUE
 
-/datum/species/proc/flyslip(mob/living/carbon/human/H)
+/datum/species/proc/flyslip(mob/living/carbon/human/human)
 	var/obj/buckled_obj
-	if(H.buckled)
-		buckled_obj = H.buckled
+	if(human.buckled)
+		buckled_obj = human.buckled
 
-	to_chat(H, span_notice("Мои крылья начинают спазмировать и я падаю!"))
+	to_chat(human, span_notice("Мои крылья начинают спазмировать и я падаю!"))
 
-	playsound(H.loc, 'sound/misc/slip.ogg', 50, TRUE, -3)
+	playsound(human.loc, 'sound/misc/slip.ogg', 50, TRUE, -3)
 
-	for(var/obj/item/I in H.held_items)
-		H.accident(I)
+	for(var/obj/item/I in human.held_items)
+		human.accident(I)
 
-	var/olddir = H.dir
+	var/olddir = human.dir
 
-	H.stop_pulling()
+	human.stop_pulling()
 	if(buckled_obj)
-		buckled_obj.unbuckle_mob(H)
+		buckled_obj.unbuckle_mob(human)
 		step(buckled_obj, olddir)
 	else
-		new /datum/forced_movement(H, get_ranged_target_turf(H, olddir, 4), 1, FALSE, CALLBACK(H, /mob/living/carbon/.proc/spin, 1, 1))
+		human.AddComponent(/datum/component/force_move, get_ranged_target_turf(human, olddir, 4), TRUE)
 	return TRUE
 
 //UNSAFE PROC, should only be called through the Activate or other sources that check for CanFly

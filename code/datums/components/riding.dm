@@ -117,9 +117,9 @@
 	var/atom/movable/AM = parent
 	var/mob/AMM = AM
 	var/kick_us_off
-	if((ride_check_rider_restrained && HAS_TRAIT(M, TRAIT_RESTRAINED)) || (ride_check_rider_incapacitated && M.incapacitated(TRUE, TRUE)))
+	if((ride_check_rider_restrained && HAS_TRAIT(M, TRAIT_RESTRAINED)) || (ride_check_rider_incapacitated && M.incapacitated(IGNORE_RESTRAINTS|IGNORE_GRAB)))
 		kick_us_off = TRUE
-	if(kick_us_off || (istype(AMM) && ((ride_check_ridden_restrained && HAS_TRAIT(AMM, TRAIT_RESTRAINED)) || (ride_check_ridden_incapacitated && AMM.incapacitated(TRUE, TRUE)))))
+	if(kick_us_off || (istype(AMM) && ((ride_check_ridden_restrained && HAS_TRAIT(AMM, TRAIT_RESTRAINED)) || (ride_check_ridden_incapacitated && AMM.incapacitated(IGNORE_RESTRAINTS|IGNORE_GRAB)))))
 		M.visible_message(span_warning("[M] falls off of [AM]!") , \
 						span_warning("You fall off of [AM]!"))
 		AM.unbuckle_mob(M)

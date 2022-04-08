@@ -656,7 +656,7 @@
 	if(.)
 		return
 
-	var/atom/movable/backup = get_spacemove_backup()
+	var/atom/movable/backup = get_spacemove_backup(movement_dir)
 	if(backup)
 		if(movement_dir && (!isturf(backup) && !backup.anchored))
 			if(backup.newtonian_move(turn(movement_dir, 180)))

@@ -9,6 +9,9 @@
 #define SHOULD_RESIST(source) (source.on_fire || source.buckled || HAS_TRAIT(source, TRAIT_RESTRAINED) || (source.pulledby && source.pulledby.grab_state > GRAB_PASSIVE))
 #define IS_DEAD_OR_INCAP(source) (source.incapacitated() || source.stat)
 
+//Generic BB keys
+#define BB_CURRENT_MIN_MOVE_DISTANCE "min_move_distance"
+
 ///For JPS pathing, the maximum length of a path we'll try to generate. Should be modularized depending on what we're doing later on
 #define AI_MAX_PATH_LENGTH 30 // 30 is possibly overkill since by default we lose interest after 14 tiles of distance, but this gives wiggle room for weaving around obstacles
 
@@ -23,6 +26,9 @@
 #define AI_BEHAVIOR_REQUIRE_MOVEMENT (1<<0)
 ///Does this task let you perform the action while you move closer? (Things like moving and shooting)
 #define AI_BEHAVIOR_MOVE_AND_PERFORM (1<<1)
+
+///AI flags
+#define STOP_MOVING_WHEN_PULLED (1<<0)
 
 ///Subtree defines
 

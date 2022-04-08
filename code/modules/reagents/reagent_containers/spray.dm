@@ -74,45 +74,14 @@
 	var/wait_step = max(round(2+3/range), 2)
 	do_spray(A, wait_step, D, range, puff_reagent_left, user)
 
-/obj/item/reagent_containers/spray/proc/do_spray(atom/A, wait_step, obj/effect/decal/chempuff/D, range, puff_reagent_left, mob/user)
-	set waitfor = FALSE
-	var/range_left = range
-	for(var/i=0, i<range, i++)
-		range_left--
-		step_towards(D,A)
-		sleep(wait_step)
-
-		for(var/atom/T in get_turf(D))
-			if(T == D || T.invisibility) //we ignore the puff itself and stuff below the floor
-				continue
-			if(puff_reagent_left <= 0)
-				break
-
-			if(stream_mode)
-				if(isliving(T))
-					var/mob/living/M = T
-					if(!M.can_inject())
-						continue
-					if((M.body_position == STANDING_UP) || !range_left)
-						D.reagents.expose(M, VAPOR)
-						puff_reagent_left -= 1
-						var/contained = D.reagents.log_list() // looks like more copypasta but now the reagents are in a different place fuck you old coder
-						log_combat(user, M,  "sprayed with", src, addition="which had [contained]")
-				else if(!range_left)
-					D.reagents.expose(T, VAPOR)
-			else
-				D.reagents.expose(T, VAPOR)
-				if(ismob(T))
-					puff_reagent_left -= 1
-
-		if(puff_reagent_left > 0 && (!stream_mode || !range_left))
-			D.reagents.expose(get_turf(D), VAPOR)
-			puff_reagent_left -= 1
-
-		if(puff_reagent_left <= 0) // we used all the puff so we delete it.
-			qdel(D)
-			return
-	qdel(D)
+/obj/item/reagent_containers/spray/proc/do_spray(atom/target, wait_step, obj/effect/decal/chempuff/reagent_puff, range, puff_reagent_left, mob/user)
+	var/datum/move_loop/our_loop = SSmove_manager.move_towards_legacy(reagent_puff, target, wait_step, timeout = range * wait_step, flags = MOVEMENT_LOOP_START_FAST, priority = MOVEMENT_ABOVE_SPACE_PRIORITY)
+	reagent_puff.user = user
+	reagent_puff.sprayer = src
+	reagent_puff.lifetime = puff_reagent_left
+	reagent_puff.stream = stream_mode
+	reagent_puff.RegisterSignal(our_loop, COMSIG_PARENT_QDELETING, /obj/effect/decal/chempuff/proc/loop_ended)
+	reagent_puff.RegisterSignal(our_loop, COMSIG_MOVELOOP_POSTPROCESS, /obj/effect/decal/chempuff/proc/check_move)
 
 /obj/item/reagent_containers/spray/attack_self(mob/user)
 	stream_mode = !stream_mode
@@ -194,7 +163,7 @@
 	if(do_mob(user,user,30))
 		if(reagents.total_volume >= amount_per_transfer_from_this)//if not empty
 			user.visible_message(span_suicide("[user] pulls the trigger!"))
-			src.spray(user)
+			spray(user)
 			return BRUTELOSS
 		else
 			user.visible_message(span_suicide("[user] pulls the trigger...but <b>[src.name]</b> is empty!"))

@@ -35,6 +35,8 @@
 	var/event_chance = 10 //Prob for event each tick
 	var/move_self = TRUE
 	var/consumed_supermatter = FALSE //If the singularity has eaten a supermatter shard and can go to stage six
+	/// How long it's been since the singulo last acted, in seconds
+	var/time_since_act = 0
 
 	flags_1 = SUPERMATTER_IGNORES_1
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
@@ -51,7 +53,7 @@
 
 	energy = starting_energy
 
-	START_PROCESSING(SSobj, src)
+	START_PROCESSING(SSsinguloprocess, src)
 	SSpoints_of_interest.make_point_of_interest(src)
 	GLOB.singularities |= src
 
@@ -107,7 +109,7 @@
 /obj/singularity/Destroy()
 	vis_contents -= singulo_effect
 	QDEL_NULL(singulo_effect)
-	STOP_PROCESSING(SSobj, src)
+	STOP_PROCESSING(SSsinguloprocess, src)
 	GLOB.singularities.Remove(src)
 	return ..()
 
@@ -180,6 +182,10 @@
 			energy -= round(((energy+1)/4),1)
 
 /obj/singularity/process(delta_time)
+	time_since_act += delta_time
+	if(time_since_act < 2)
+		return
+	time_since_act = 0
 	if(current_size >= STAGE_TWO)
 		var/datum/component/soundplayer/SP = GetComponent(/datum/component/soundplayer)
 		if(!SP)

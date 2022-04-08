@@ -75,7 +75,7 @@
 		if (owner && owner.incapacitated())
 			if (!(user.mobility_flags & MOBILITY_STAND))
 				var/send_dir = get_dir(owner, T)
-				new /datum/forced_movement(owner, get_ranged_target_turf(owner, send_dir, 1), 1, FALSE)
+				owner.AddComponent(/datum/component/force_move, get_ranged_target_turf(owner, send_dir, 1), FALSE)
 				owner.spin(10)
 			break
 
@@ -86,7 +86,7 @@
 		if (do_knockdown) // && level_current >= 1)
 			target.Paralyze(15 + 10 * level_current,1)
 		// Cancel Walk (we were close enough to contact them)
-		walk(owner,0)
+		SSmove_manager.stop_looping(src)
 		//target.Paralyze(10,1)
 		target.grabbedby(owner) 										// Taken from mutations.dm under changelings
 		target.grippedby(owner, instant = TRUE) //instant aggro grab
