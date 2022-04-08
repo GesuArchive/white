@@ -168,6 +168,11 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		GAS_PLUOXIUM,
 		GAS_TRITIUM,
 		GAS_BZ,
+		GAS_FREON,
+		GAS_HYDROGEN,
+		GAS_HEALIUM,
+		GAS_PROTO_NITRATE,
+		GAS_ZAUKER,
 	)
 	///The list of gases mapped against their current comp. We use this to calculate different values the supermatter uses, like power or heat resistance. It doesn't perfectly match the air around the sm, instead moving up at a rate determined by gas_change_rate per call. Ranges from 0 to 1
 	var/list/gas_comp = list(
@@ -180,6 +185,11 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		GAS_PLUOXIUM = 0,
 		GAS_TRITIUM = 0,
 		GAS_BZ = 0,
+		GAS_FREON = 0,
+		GAS_HYDROGEN = 0,
+		GAS_HEALIUM = 0,
+		GAS_PROTO_NITRATE = 0,
+		GAS_ZAUKER = 0,
 	)
 	///The list of gases mapped against their transmit values. We use it to determine the effect different gases have on radiation
 	var/list/gas_trans = list(
@@ -189,6 +199,10 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		GAS_PLUOXIUM = PLUOXIUM_TRANSMIT_MODIFIER,
 		GAS_TRITIUM = TRITIUM_TRANSMIT_MODIFIER,
 		GAS_BZ = BZ_TRANSMIT_MODIFIER,
+		GAS_HYDROGEN = HYDROGEN_TRANSMIT_MODIFIER,
+		GAS_HEALIUM = HEALIUM_TRANSMIT_MODIFIER,
+		GAS_PROTO_NITRATE = PROTO_NITRATE_TRANSMIT_MODIFIER,
+		GAS_ZAUKER = ZAUKER_TRANSMIT_MODIFIER,
 	)
 	///The list of gases mapped against their heat penaltys. We use it to determin molar and heat output
 	var/list/gas_heat = list(
@@ -200,10 +214,17 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		GAS_PLUOXIUM = PLUOXIUM_HEAT_PENALTY,
 		GAS_TRITIUM = TRITIUM_HEAT_PENALTY,
 		GAS_BZ = BZ_HEAT_PENALTY,
+		GAS_FREON = FREON_HEAT_PENALTY,
+		GAS_HYDROGEN = HYDROGEN_HEAT_PENALTY,
+		GAS_HEALIUM = HEALIUM_HEAT_PENALTY,
+		GAS_PROTO_NITRATE = PROTO_NITRATE_HEAT_PENALTY,
+		GAS_ZAUKER = ZAUKER_HEAT_PENALTY,
 	)
 	///The list of gases mapped against their heat resistance. We use it to moderate heat damage.
 	var/list/gas_resist = list(
 		GAS_NITROUS = N2O_HEAT_RESISTANCE,
+		GAS_HYDROGEN = HYDROGEN_HEAT_RESISTANCE,
+		GAS_PROTO_NITRATE = PROTO_NITRATE_HEAT_RESISTANCE,
 	)
 	///The list of gases mapped against their powermix ratio
 	var/list/gas_powermix = list(
@@ -215,6 +236,11 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		GAS_PLUOXIUM = -1,
 		GAS_TRITIUM = 1,
 		GAS_BZ = 1,
+		GAS_FREON = -1,
+		GAS_HYDROGEN = 1,
+		GAS_HEALIUM = 1,
+		GAS_PROTO_NITRATE = 1,
+		GAS_ZAUKER = 1,
 	)
 	///The last air sample's total molar count, will always be above or equal to 0
 	var/combined_gas = 0
