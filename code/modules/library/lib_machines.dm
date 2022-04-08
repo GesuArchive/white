@@ -202,7 +202,7 @@
 		if(0)
 			// Main Menu
 			dat += "<A href='?src=[REF(src)];switchscreen=1'>1. Просмотреть общий инвентарь</A><BR>"
-			dat += "<A href='?src=[REF(src)];switchscreen=2'>2. Просмотреть проверенного инвентаря</A><BR>"
+			dat += "<A href='?src=[REF(src)];switchscreen=2'>2. Просмотреть проверенный инвентарь</A><BR>"
 			dat += "<A href='?src=[REF(src)];switchscreen=3'>3. Проверить книгу</A><BR>"
 			dat += "<A href='?src=[REF(src)];switchscreen=4'>4. Подключиться к внешнему архиву</A><BR>"
 			dat += "<A href='?src=[REF(src)];switchscreen=5'>5. Загрузить новую работу в архив</A><BR>"
