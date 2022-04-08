@@ -136,8 +136,15 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		if(round_started_at + 30 SECONDS < world.time)
 			// обновляем таймер
 			update_timer()
-			spawn(1 SECONDS)
-				update_timer()
+			if(playmode == VIOLENCE_PLAYMODE_BOMBDEF)
+				if(GLOB.violence_bomb_detonated)
+					end_round("КРАСНЫХ")
+					return
+				if(GLOB.violence_bomb_planted && !GLOB.violence_bomb_active)
+					end_round("СИНИХ")
+					return
+				if(GLOB.violence_bomb_active)
+					return
 			if(GLOB.violence_time_limit <= 0)
 				if(GLOB.violence_bomb_planted && GLOB.violence_blue_team.len)
 					return
@@ -149,15 +156,6 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 					return
 				if(GLOB.violence_red_team.len > GLOB.violence_blue_team.len)
 					end_round("КРАСНЫХ")
-					return
-			if(playmode == VIOLENCE_PLAYMODE_BOMBDEF)
-				if(GLOB.violence_bomb_detonated)
-					end_round("КРАСНЫХ")
-					return
-				if(GLOB.violence_bomb_planted && !GLOB.violence_bomb_active)
-					end_round("СИНИХ")
-					return
-				if(GLOB.violence_bomb_active)
 					return
 			if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len)
 				end_round("СИНИХ")
@@ -203,7 +201,8 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 
 
 /datum/game_mode/violence/proc/update_timer()
-	GLOB.violence_time_limit -= 1 SECONDS
+	GLOB.violence_time_limit -= 2 SECONDS
+	GLOB.violence_time_limit = max(0, GLOB.violence_time_limit)
 	var/formatted_time = time2text(GLOB.violence_time_limit, "mm:ss")
 	for(var/mob/M in GLOB.player_list)
 		M?.hud_used?.timelimit?.update_info(formatted_time)
