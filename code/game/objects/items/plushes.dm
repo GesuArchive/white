@@ -109,7 +109,7 @@
 /obj/item/toy/plush/attack_self(mob/user)
 	. = ..()
 	if(stuffed || grenade)
-		to_chat(user, span_notice("Нежу [src]. ."))
+		to_chat(user, span_notice("Нежу [src]."))
 		if(grenade && !grenade.active)
 			log_game("[key_name(user)] активирует скрытую гранату в [src].")
 			grenade.arm_grenade(user, msg = FALSE, volume = 10)
