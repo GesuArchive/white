@@ -63,6 +63,11 @@
 		GAS_STIMULUM = 0,
 		GAS_TRITIUM = 1,
 		GAS_H2O = 0,
+		GAS_FREON = 1,
+		GAS_HYDROGEN = 1,
+		GAS_HEALIUM = 1,
+		GAS_PROTO_NITRATE = 1,
+		GAS_ZAUKER = 1,
 	)
 	//Tank type
 	var/tank_type = /obj/item/tank/internals/oxygen/empty
