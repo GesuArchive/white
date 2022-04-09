@@ -283,7 +283,7 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 
 	return 1
 
-/obj/machinery/atmospherics/components/unary/cryo_cell/process_atmos(delta_time)
+/obj/machinery/atmospherics/components/unary/cryo_cell/process_atmos()
 	..()
 
 	if(!on)
@@ -311,8 +311,8 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 
 			var/heat = ((1 - cold_protection) * 0.1 + conduction_coefficient) * temperature_delta * (air_heat_capacity * heat_capacity / (air_heat_capacity + heat_capacity))
 
-			air1.set_temperature(clamp(air1.return_temperature() - heat * delta_time / air_heat_capacity, TCMB, MAX_TEMPERATURE))
-			mob_occupant.adjust_bodytemperature(heat * delta_time / heat_capacity, TCMB)
+			air1.set_temperature(clamp(air1.return_temperature() - heat / air_heat_capacity, TCMB, MAX_TEMPERATURE))
+			mob_occupant.adjust_bodytemperature(heat / heat_capacity, TCMB)
 
 			//lets have the core temp match the body temp in humans
 			if(ishuman(mob_occupant))
@@ -320,13 +320,15 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 				humi.adjust_coretemperature(humi.bodytemperature - humi.coretemperature)
 
 		if(consume_gas) // Transferring reagent costs us extra gas
-			air1.adjust_moles(GAS_O2, -max(0, delta_time / efficiency + 1 / efficiency))
+			air1.adjust_moles(GAS_O2, -max(0, efficiency + 1 / efficiency))
 			consume_gas = FALSE
 		if(!consume_gas)
-			air1.adjust_moles(GAS_O2, -max(0, delta_time / efficiency))
+			air1.adjust_moles(GAS_O2, -max(0, efficiency))
 
 		if(air1.return_temperature() > 2000)
 			take_damage(clamp((air1.return_temperature())/200, 10, 20), BURN)
+
+	update_parents()
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/relaymove(mob/living/user, direction)
 	if(message_cooldown <= world.time)
@@ -556,7 +558,7 @@ GLOBAL_VAR_INIT(cryo_overlay_cover_off, mutable_appearance('icons/obj/cryogenics
 		if(node)
 			node.atmosinit()
 			node.addMember(src)
-		build_network()
+		SSair.add_to_rebuild_queue(src)
 
 #undef MAX_TEMPERATURE
 #undef CRYO_MULTIPLY_FACTOR
