@@ -250,7 +250,6 @@
 	set waitfor = FALSE
 
 	to_chat(world, "<br><br><br><center><span class='big bold'>Конец раунда.</span></center><br><br><br>")
-	play_sound_to_everyone('white/rebolution228/sounds/misc/roundend.ogg')
 
 	spawn(60)
 		to_chat(world, "<br><span class='notice'>Аспект раунда был таков: <b>[SSaspects.ca_name]</b> - <i>[SSaspects.ca_desc]</i></span><br>")
@@ -269,7 +268,7 @@
 	for(var/client/C in GLOB.clients)
 		if(!C.credits)
 			C.RollCredits()
-//		C.playtitlemusic(5)
+		C.playtitlemusic(5)
 
 		spawn(-1) // do it async
 			C.process_endround_metacoin()
