@@ -48,7 +48,10 @@
 	id = "nobstop"
 
 /datum/gas_reaction/nobliumsupression/init_reqs()
-	min_requirements = list(GAS_HYPERNOB = REACTION_OPPRESSION_THRESHOLD)
+	min_requirements = list(
+		GAS_HYPERNOB = REACTION_OPPRESSION_THRESHOLD,
+		"TEMP" = 20
+	)
 
 /datum/gas_reaction/nobliumsupression/react()
 	return STOP_REACTIONS
@@ -430,23 +433,25 @@
 
 /datum/gas_reaction/nitrylformation/init_reqs()
 	min_requirements = list(
-		GAS_O2 = 20,
-		GAS_N2 = 20,
-		GAS_PLUOXIUM = 5, //Gates Nitryl behind pluoxium to offset N2O burning up during formation
-		"TEMP" = FIRE_MINIMUM_TEMPERATURE_TO_EXIST*60
+		GAS_O2 = 10,
+		GAS_N2 = 10,
+		GAS_BZ = 5,
+		"TEMP" = 1500,
+		"MAX_TEMP" = 10000
 	)
 
 /datum/gas_reaction/nitrylformation/react(datum/gas_mixture/air)
 	var/temperature = air.return_temperature()
 
 	var/old_heat_capacity = air.heat_capacity()
-	var/heat_efficency = min(temperature/(FIRE_MINIMUM_TEMPERATURE_TO_EXIST*60),air.get_moles(GAS_O2),air.get_moles(GAS_N2))
-	var/energy_used = heat_efficency*NITRYL_FORMATION_ENERGY
-	if ((air.get_moles(GAS_O2) - heat_efficency < 0 )|| (air.get_moles(GAS_N2) - heat_efficency < 0)) //Shouldn't produce gas from nothing.
+	var/heat_efficency = min(temperature/(FIRE_MINIMUM_TEMPERATURE_TO_EXIST * 8),air.get_moles(GAS_O2),air.get_moles(GAS_N2))
+	var/energy_used = heat_efficency * NITRYL_FORMATION_ENERGY
+	if ((air.get_moles(GAS_O2) - heat_efficency < 0 ) || (air.get_moles(GAS_N2) - heat_efficency < 0) || (air.get_moles(GAS_BZ) - heat_efficency * 0.05 < 0)) //Shouldn't produce gas from nothing.
 		return NO_REACTION
 	air.adjust_moles(GAS_O2, -heat_efficency)
 	air.adjust_moles(GAS_N2, -heat_efficency)
-	air.adjust_moles(GAS_NITRYL, heat_efficency*2)
+	air.adjust_moles(GAS_BZ, -heat_efficency * 0.05) //bz gets consumed to balance the nitryl production and not make it too common and/or easy
+	air.adjust_moles(GAS_NITRYL, heat_efficency)
 
 	if(energy_used > 0)
 		var/new_heat_capacity = air.heat_capacity()
@@ -497,10 +502,9 @@
 /datum/gas_reaction/stimformation/init_reqs()
 	min_requirements = list(
 		GAS_TRITIUM = 30,
-		GAS_PLASMA = 10,
-		GAS_BZ = 20,
+		GAS_BZ = 30,
 		GAS_NITRYL = 30,
-		"TEMP" = STIMULUM_HEAT_SCALE/2)
+		"TEMP" = 1500)
 
 /datum/gas_reaction/stimformation/react(datum/gas_mixture/air)
 
@@ -508,12 +512,11 @@
 	var/heat_scale = min(air.return_temperature()/STIMULUM_HEAT_SCALE,air.get_moles(GAS_PLASMA),air.get_moles(GAS_NITRYL))
 	var/stim_energy_change = heat_scale + STIMULUM_FIRST_RISE*(heat_scale**2) - STIMULUM_FIRST_DROP*(heat_scale**3) + STIMULUM_SECOND_RISE*(heat_scale**4) - STIMULUM_ABSOLUTE_DROP*(heat_scale**5)
 
-	if ((air.get_moles(GAS_PLASMA) - heat_scale < 0) || (air.get_moles(GAS_NITRYL) - heat_scale < 0) || (air.get_moles(GAS_TRITIUM) - heat_scale < 0)) //Shouldn't produce gas from nothing.
+	if ((air.get_moles(GAS_PLASMA) - heat_scale < 0) || (air.get_moles(GAS_NITRYL) - heat_scale < 0)) //Shouldn't produce gas from nothing.
 		return NO_REACTION
-	air.adjust_moles(GAS_STIMULUM, heat_scale/10)
-	air.adjust_moles(GAS_PLASMA, -heat_scale)
-	air.adjust_moles(GAS_NITRYL, -heat_scale)
+	air.adjust_moles(GAS_STIMULUM, heat_scale * 0.75)
 	air.adjust_moles(GAS_TRITIUM, -heat_scale)
+	air.adjust_moles(GAS_NITRYL, -heat_scale)
 	SSresearch.science_tech.add_point_type(TECHWEB_POINT_TYPE_DEFAULT, STIMULUM_RESEARCH_AMOUNT*max(stim_energy_change,0))
 	if(stim_energy_change)
 		var/new_heat_capacity = air.heat_capacity()
@@ -530,16 +533,17 @@
 	min_requirements = list(
 		GAS_N2 = 10,
 		GAS_TRITIUM = 5,
-		"TEMP" = 5000000)
+		"TEMP" = TCMB,
+		"MAX_TEMP" = 15)
 
 /datum/gas_reaction/nobliumformation/react(datum/gas_mixture/air)
 	var/old_heat_capacity = air.heat_capacity()
-	var/nob_formed = min((air.get_moles(GAS_N2)+air.get_moles(GAS_TRITIUM))/100,air.get_moles(GAS_TRITIUM)/10,air.get_moles(GAS_N2)/20)
-	var/energy_taken = nob_formed*(NOBLIUM_FORMATION_ENERGY/(max(air.get_moles(GAS_BZ),1)))
-	if ((air.get_moles(GAS_TRITIUM) - 10*nob_formed < 0) || (air.get_moles(GAS_N2) - 20*nob_formed < 0))
+	var/nob_formed = min((air.get_moles(GAS_N2) + air.get_moles(GAS_TRITIUM)) * 0.01,air.get_moles(GAS_TRITIUM) * 0.1,air.get_moles(GAS_N2) * 0.2)
+	var/energy_produced = nob_formed * (NOBLIUM_FORMATION_ENERGY / (max(air.get_moles(GAS_BZ),1)))
+	if ((air.get_moles(GAS_TRITIUM) - 5 * nob_formed < 0) || (air.get_moles(GAS_N2) - 10 * nob_formed < 0))
 		return NO_REACTION
-	air.adjust_moles(GAS_TRITIUM, -10*nob_formed)
-	air.adjust_moles(GAS_N2, -20*nob_formed)
+	air.adjust_moles(GAS_TRITIUM, -nob_formed * 5)
+	air.adjust_moles(GAS_N2, -nob_formed * 10)
 	air.adjust_moles(GAS_HYPERNOB, nob_formed)
 	SSresearch.science_tech.add_point_type(TECHWEB_POINT_TYPE_DEFAULT, nob_formed*NOBLIUM_RESEARCH_AMOUNT)
 
