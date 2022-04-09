@@ -270,8 +270,8 @@
 			the_targets.Add(T3,T4)
 
 		var/list/water_particles = list()
-		for(var/a=0, a<5, a++)
-			var/obj/effect/particle_effect/water/extinguisher/water = new /obj/effect/particle_effect/water(get_turf(src))
+		for(var/a in 1 to 5)
+			var/obj/effect/particle_effect/water/extinguisher/water = new /obj/effect/particle_effect/water/extinguisher(get_turf(src))
 			var/my_target = pick(the_targets)
 			water_particles[water] = my_target
 			// If precise, remove turf from targets so it won't be picked more than once
@@ -290,8 +290,9 @@
 	var/delay = 2
 	// Second loop: Get all the water particles and make them move to their target
 	for(var/obj/effect/particle_effect/water/extinguisher/water as anything in particles)
-		SSmove_manager.move_towards_legacy(water, particles[water], delay, timeout = delay * power, flags = MOVEMENT_LOOP_START_FAST, priority = MOVEMENT_ABOVE_SPACE_PRIORITY)
+		water.move_at(particles[water], delay, power)
 
+//Chair movement loop
 /obj/item/extinguisher/proc/move_chair(obj/buckled_object, movementdirection)
 	var/datum/move_loop/loop = SSmove_manager.move(buckled_object, movementdirection, 1, timeout = 9, flags = MOVEMENT_LOOP_START_FAST, priority = MOVEMENT_ABOVE_SPACE_PRIORITY)
 	//This means the chair slowing down is dependant on the extinguisher existing, which is weird
