@@ -46,6 +46,10 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	announce_text = "Резня!"
 
 /datum/game_mode/violence/pre_setup()
+	// ставим тематическую заставку
+	var/icon/great_title_icon = icon('white/valtos/icons/violence.jpg')
+	SStitle.icon = great_title_icon
+	SStitle.splash_turf.icon = great_title_icon
 	// генерируем штуки для закупа
 	generate_violence_gear()
 	// делаем датумы игроков на всякий случай

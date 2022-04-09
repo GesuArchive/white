@@ -550,7 +550,7 @@
 	if (nob_formed)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature(max(((air.return_temperature()*old_heat_capacity - energy_taken)/new_heat_capacity),TCMB))
+			air.set_temperature(max(((air.return_temperature()*old_heat_capacity - energy_produced)/new_heat_capacity),TCMB))
 
 
 /datum/gas_reaction/miaster	//dry heat sterilization: clears out pathogens in the air
