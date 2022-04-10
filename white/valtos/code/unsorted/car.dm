@@ -3,8 +3,9 @@
 	icon = 'white/valtos/icons/vehicles.dmi'
 	icon_state = "car"
 	movedelay = 1
+	pixel_x = -17
 
-/obj/vehicle/sealed/car/driftcar/Initialize()
+/obj/vehicle/sealed/car/driftcar/ComponentInitialize()
 	. = ..()
 	AddElement(/datum/element/ridable, /datum/component/riding/vehicle/driftcar)
 
