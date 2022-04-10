@@ -283,18 +283,22 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				var/datum/violence_player/VP = vp_get_player(M.ckey)
 				var/mob/living/carbon/human/H = M
 				var/list/saved_shit = list()
-				// ммм
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_HEAD))
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_OCLOTHING))
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_EYES))
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_FEET))
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_GLOVES))
-				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_MASK))
-				LAZYADD(saved_shit, H.get_active_held_item())
-				LAZYADD(saved_shit, H.get_inactive_held_item())
-
-				// по идее должно исключить стакинг предметов
-				var/list/static/blacklisted_types = list(/obj/item/clothing/shoes/jackboots, /obj/item/terroristsc4)
+				// получаем список предметов на персонаже, включая рюкзак
+				LAZYADD(saved_shit, H.get_equipped_items(TRUE))
+				// по идее должно исключить стакинг бесполезных предметов
+				var/list/static/blacklisted_types = list(
+					/obj/item/clothing/shoes/jackboots,
+					/obj/item/terroristsc4,
+					/obj/item/clothing/under/color/red,
+					/obj/item/clothing/under/color/blue,
+					/obj/item/card/id/red,
+					/obj/item/card/id/blue,
+					/obj/item/radio/headset,
+					/obj/item/clothing/under/chronos,
+					/obj/item/clothing/neck/cape/chronos,
+					/obj/item/clothing/head/beret/chronos,
+					/obj/item/offhand // Это же The offhand!
+				)
 				for(var/obj/item/I in saved_shit)
 					if(!I || (I.type in blacklisted_types))
 						continue
