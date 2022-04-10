@@ -7,7 +7,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		var/datum/violence_gear/VG = geartype
 		if(!initial(VG.cost))
 			continue
-		if(LAZYLEN(VG.allowed_themes) && !(GLOB.violence_theme in VG.allowed_themes))
+		if(LAZYLEN(initial(VG.allowed_themes)) && !(GLOB.violence_theme in initial(VG.allowed_themes)))
 			continue
 		if(!GLOB.violence_gear_categories[initial(VG.cat)])
 			GLOB.violence_gear_categories[initial(VG.cat)] = new /datum/violence_gear_category(initial(VG.cat))
