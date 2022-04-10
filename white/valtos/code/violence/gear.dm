@@ -4,16 +4,17 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /proc/generate_violence_gear()
 	for(var/geartype in subtypesof(/datum/violence_gear))
-		var/datum/violence_gear/VG = geartype
+		var/datum/violence_gear/VG = new geartype
 		if(!initial(VG.cost))
 			continue
-		if(LAZYLEN(initial(VG.allowed_themes)) && !(GLOB.violence_theme in initial(VG.allowed_themes)))
+		if(LAZYLEN(VG.allowed_themes) && !(GLOB.violence_theme in VG.allowed_themes))
+			qdel(VG)
 			continue
-		if(!GLOB.violence_gear_categories[initial(VG.cat)])
-			GLOB.violence_gear_categories[initial(VG.cat)] = new /datum/violence_gear_category(initial(VG.cat))
-		GLOB.violence_gear_datums[initial(VG.name)] = new geartype
-		var/datum/violence_gear_category/VC = GLOB.violence_gear_categories[initial(VG.cat)]
-		VC.gear[initial(VG.name)] = GLOB.violence_gear_datums[initial(VG.name)]
+		if(!GLOB.violence_gear_categories[VG.cat])
+			GLOB.violence_gear_categories[VG.cat] = new /datum/violence_gear_category(VG.cat)
+		GLOB.violence_gear_datums[VG.name] = VG
+		var/datum/violence_gear_category/VC = GLOB.violence_gear_categories[VG.cat]
+		VC.gear[VG.name] = GLOB.violence_gear_datums[VG.name]
 	GLOB.violence_gear_categories = sortAssoc(GLOB.violence_gear_categories)
 	return TRUE
 
