@@ -39,7 +39,7 @@
 		span_notice("[user] делает надрез желудка [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] делает надрез желудка [skloname(target.name, RODITELNI, target.gender)].") ,
 		playsound(get_turf(target), 'sound/surgery/scalpel1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-	display_pain(target, "You feel a horrible stab in your gut!")
+	display_pain(target, "Чувствую ужасные надрезы в своей кишке!")
 
 /datum/surgery_step/gastrectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/mob/living/carbon/human/H = target
@@ -50,7 +50,7 @@
 		span_notice("[user] успешно извлек поврежденную часть желудка [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] успешно извлек поврежденную часть желудка [skloname(target.name, RODITELNI, target.gender)].") ,
 		playsound(get_turf(target), 'sound/surgery/organ1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-	display_pain(target, "The pain in your gut ebbs and fades somewhat.")
+	display_pain(target, "Боль в животе ослабевает и немного утихает.")
 	return ..()
 
 /datum/surgery_step/hepatectomy/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery)
@@ -60,4 +60,4 @@
 		span_warning("[user] вырезал неверную часть желудка [skloname(target.name, RODITELNI, target.gender)]!") ,
 		span_warning("[user] вырезал неверную часть желудка [skloname(target.name, RODITELNI, target.gender)]!") ,
 		playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-	display_pain(target, "You feel a horrible stab in your gut!")
+	display_pain(target, "Чувствую ужасные надрезы в своей кишке!")

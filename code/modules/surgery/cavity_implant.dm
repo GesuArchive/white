@@ -27,7 +27,7 @@
 			span_notice("[user] начинает помещать [tool] в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 			span_notice("[user] начинает помещать что-то в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 			playsound(get_turf(target), 'sound/surgery/organ1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-		display_pain(target, "You can feel something being inserted into your [target_zone], it hurts like hell!")
+		display_pain(target, "Чувствую, как что-то помещается в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, VINITELNI, target.gender)], это адски болит!")
 	else
 		display_results(user, target, span_notice("Вы начинаете искать инородные объекты в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает искать инородные объекты в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
@@ -53,7 +53,7 @@
 				span_notice("[user] извлек [IC] из [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
 				span_notice("[user] извлек что-то из [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 				playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-			display_pain(target, "Something is pulled out of your [target_zone]! It hurts like hell!")
+			display_pain(target, "Что-то вытаскивается из моей [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]! Это адски болит!")
 			user.put_in_hands(IC)
 			CH.cavity_item = null
 			return ..()

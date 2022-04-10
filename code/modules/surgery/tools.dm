@@ -1,5 +1,5 @@
 /obj/item/retractor
-	name = "расширитель"
+	name = "Расширитель"
 	desc = "Позволяет получить оперативный простор в зоне проведения операции."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "retractor"
@@ -14,7 +14,7 @@
 	toolspeed = 1
 
 /obj/item/retractor/augment
-	name = "кибернетический расширитель"
+	name = "Кибернетический расширитель"
 	icon = 'white/Feline/icons/cyber_arm_surgery.dmi'
 	icon_state = "retractor"
 	desc = "Позволяет получить оперативный простор в зоне проведения операции."
@@ -22,7 +22,7 @@
 
 
 /obj/item/hemostat
-	name = "зажим"
+	name = "Зажим"
 	desc = "Используется для манипуляций в рабочей области и остановки внутренних кровотечений."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "hemostat"
@@ -39,7 +39,7 @@
 	toolspeed = 1
 
 /obj/item/hemostat/augment
-	name = "кибернетический зажим"
+	name = "Кибернетический зажим"
 	icon = 'white/Feline/icons/cyber_arm_surgery.dmi'
 	icon_state = "hemostat"
 	desc = "Крошечные сервоприводы приводят пару зажимов в действие, чтобы остановить кровотечение."
@@ -47,7 +47,7 @@
 
 
 /obj/item/cautery
-	name = "прижигатель"
+	name = "Прижигатель"
 	desc = "Останавливает кровотечения и дезинфецирует рабочую зону после завершения операции."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "cautery"
@@ -67,14 +67,14 @@
 	. = span_notice("[user] притрагивается раскалённым концом [src.name] к [A.name].")
 
 /obj/item/cautery/augment
-	name = "кибернетический прижигатель"
+	name = "Кибернетический прижигатель"
 	icon = 'white/Feline/icons/cyber_arm_surgery.dmi'
 	icon_state = "cautery"
 	desc = "Нагревательный элемент, который прижигает раны."
 	toolspeed = 0.5
 
 /obj/item/cautery/advanced
-	name = "лазерный прижигатель"
+	name = "Лазерный прижигатель"
 	desc = "Устройство, используемое для дезинфекции и прижигания раны за счёт излучения низкочастотного лазерного луча. Так же можно сфокусирувать луч до мощности небольшого зубного сверла."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "e_cautery"
@@ -112,7 +112,7 @@
 	. += span_notice("Переключатель установлен на режиме [tool_behaviour == TOOL_CAUTERY ? "прижигателя" : "сверла"].")
 
 /obj/item/surgicaldrill
-	name = "хирургическая дрель"
+	name = "Хирургическая дрель"
 	desc = "Можно просверлить с помощью этого что-то. Или пробурить?"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "drill"
@@ -144,7 +144,7 @@
 	return (MANUAL_SUICIDE)
 
 /obj/item/surgicaldrill/augment
-	name = "кибернетическая дрель"
+	name = "Кибернетическая дрель"
 	icon = 'white/Feline/icons/cyber_arm_surgery.dmi'
 	icon_state = "surgicaldrill"
 	desc = "По сути, небольшая электрическая дрель, содержащаяся в руке, края притуплены, чтобы предотвратить повреждение тканей. Может или не может пронзить небеса."
@@ -154,7 +154,7 @@
 
 
 /obj/item/scalpel
-	name = "скальпель"
+	name = "Скальпель"
 	desc = "Очень острое лезвие с микронной заточкой."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "scalpel"
@@ -184,7 +184,7 @@
 	AddElement(/datum/element/eyestab)
 
 /obj/item/scalpel/augment
-	name = "кибернетический скальпель"
+	name = "Кибернетический скальпель"
 	icon = 'white/Feline/icons/cyber_arm_surgery.dmi'
 	icon_state = "scalpel"
 	desc = "Ультра-острое лезвие прикреплено непосредственно к кости для дополнительной точности."
@@ -196,7 +196,7 @@
 
 
 /obj/item/circular_saw
-	name = "циркулярная пила"
+	name = "Циркулярная пила"
 	desc = "Для работы с костью при полостных операциях."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "saw"
@@ -225,7 +225,7 @@
 	AddComponent(/datum/component/butchering, 40 * toolspeed, 100, 5, 'sound/weapons/circsawhit.ogg') //saws are very accurate and fast at butchering
 
 /obj/item/circular_saw/augment
-	name = "кибернетическая пила"
+	name = "Кибернетическая пила"
 	icon = 'white/Feline/icons/cyber_arm_surgery.dmi'
 	icon_state = "circular_saw"
 	desc = "Маленькая, но очень быстро вращающаяся пила."
@@ -233,7 +233,7 @@
 	toolspeed = 0.5
 
 /obj/item/surgical_drapes
-	name = "хирургическая простыня"
+	name = "Хирургическая простыня"
 	desc = "Хирургические простыни марки NanoTrasen обеспечивают оптимальную безопасность и защиту от инфекций."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "surgical_drapes"
@@ -250,7 +250,7 @@
 
 
 /obj/item/organ_storage //allows medical cyborgs to manipulate organs without hands
-	name = "сумка для хранения органов"
+	name = "Сумка для хранения органов"
 	desc = "Контейнер для хранения частей тела."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "evidenceobj"
@@ -322,7 +322,7 @@
 	return
 
 /obj/item/scalpel/advanced
-	name = "лазерный скальпель"
+	name = "Лазерный скальпель"
 	desc = "Усовершенствованный скальпель, который использует лазерную технологию для резки. Переключателем можно увеличить мощность излучателя для работы с костью."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "e_scalpel"
@@ -370,7 +370,7 @@
 	. += span_notice("Переключатель мощности установлен на режиме [tool_behaviour == TOOL_SCALPEL ? "скальпеля" : "пилы"].")
 
 /obj/item/retractor/advanced
-	name = "механический зажим"
+	name = "Механический зажим"
 	desc = "Сложный инструмент состоящий из шестеренок и манипуляторов."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "adv_retractor"
@@ -404,7 +404,7 @@
 	. += span_notice("Шестерни установлены в положении  [tool_behaviour == TOOL_RETRACTOR ? "расширителя" : "зажима"].")
 
 /obj/item/shears
-	name = "ножницы для ампутации"
+	name = "Ножницы для ампутации"
 	desc = "Тип тяжелых хирургических ножниц, используемых для достижения чистого разделения между конечностью и пациентом. Держать пациента по-прежнему необходимо, чтобы иметь возможность закрепить и выровнять ножницы."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "shears"
@@ -486,7 +486,7 @@
 	return BRUTELOSS
 
 /obj/item/bonesetter
-	name = "костоправ"
+	name = "Костоправ"
 	desc = "Для правильной ориентации костей при вывихах и переломах."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bone setter"
@@ -502,14 +502,14 @@
 	toolspeed = 1
 
 /obj/item/bonesetter/augment
-	name = "кибернетический костоправ"
+	name = "Кибернетический костоправ"
 	icon = 'white/Feline/icons/cyber_arm_surgery.dmi'
 	icon_state = "bone_setter"
 	desc = "Для правильной ориентации костей при вывихах и переломах."
 	toolspeed = 0.5
 
 /obj/item/blood_filter
-	name = "фильтр крови"
+	name = "Фильтр крови"
 	desc = "Для фильтрации крови и лимфы."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bloodfilter"

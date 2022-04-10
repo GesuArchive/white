@@ -17,7 +17,7 @@
 
 
 /datum/surgery_step/add_prosthetic
-	name = "добавить конечность"
+	name = "Добавить конечность"
 	implements = list(/obj/item/bodypart = 100, /obj/item/organ_storage = 100, /obj/item/chainsaw = 100, /obj/item/melee/synthetic_arm_blade = 100)
 	time = 32
 	var/organ_rejection_dam = 0
@@ -82,7 +82,7 @@
 		display_results(user, target, span_notice("Вы успешно заменили [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] на [tool].") ,
 			span_notice("[user] успешно заменил [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] на [tool]!") ,
 			span_notice("[user] успешно заменил [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!"))
-		display_pain(target, "You feel synthetic sensation wash from your [parse_zone(target_zone)], which you can feel again!", TRUE)
+		display_pain(target, "Снова чувствую свою [parse_zone(target_zone)][skloname(target.name, VINITELNI, target.gender)]!", TRUE)
 		return
 	else
 		var/obj/item/bodypart/L = target.newBodyPart(target_zone, FALSE, FALSE)
@@ -97,7 +97,7 @@
 		display_results(user, target, span_notice("Вы присоединили [tool].") ,
 			span_notice("[user] успешно присоединяет [tool]!") ,
 			span_notice("[user] успешно присоединяет [tool]!"))
-		display_pain(target, "You feel a strange sensation from your new [parse_zone(target_zone)].", TRUE)
+		display_pain(target, "Моя [parse_zone(target_zone)] странно ощущается.", TRUE)
 		qdel(tool)
 		if(istype(tool, /obj/item/chainsaw))
 			var/obj/item/mounted_chainsaw/new_arm = new(target)

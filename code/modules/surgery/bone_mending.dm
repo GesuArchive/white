@@ -47,7 +47,7 @@
 		display_results(user, target, span_notice("Вы начинаете восстанавливать костную структуру в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает восстанавливать костную структуру в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
 			span_notice("[user] начинает восстанавливать костную структуру в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]."))
-		display_pain(target, "Your [parse_zone(user.zone_selected)] aches with pain!")
+		display_pain(target, "Твоя [parse_zone(user.zone_selected)] болезненно ноет!")
 	else
 		user.visible_message(span_notice("[user] looks for [target] [parse_zone(user.zone_selected)].") , span_notice("You look for [target] [parse_zone(user.zone_selected)]..."))
 
@@ -84,7 +84,7 @@
 		display_results(user, target, span_notice("Вы начинаете вправлять кость в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает вправлять кость в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
 			span_notice("[user] начинает вправлять кость в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]."))
-		display_pain(target, "The aching pain in your [parse_zone(user.zone_selected)] is overwhelming!")
+		display_pain(target, "Ноющая боль в твоей [parse_zone(user.zone_selected)][skloname(target.name, DATELNI, target.gender)] невыносима!")
 	else
 		user.visible_message(span_notice("[user] пытается найти [parse_zone(user.zone_selected)] у [target].") , span_notice("Вы пытаетесь найти [parse_zone(user.zone_selected)] у [target]..."))
 
@@ -119,7 +119,7 @@
 		display_results(user, target, span_notice("Вы начинаете восстанавливать костную структуру в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает восстанавливать костную структуру в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
 			span_notice("[user] начинает восстанавливать костную структуру в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]."))
-		display_pain(target, "The aching pain in your [parse_zone(user.zone_selected)] is overwhelming!")
+		display_pain(target, "Ноющая боль в моей [parse_zone(user.zone_selected)][skloname(target.name, DATELNI, target.gender)] невыносима!!")
 	else
 		user.visible_message(span_notice("[user] пытается найти [parse_zone(user.zone_selected)] у [target].") , span_notice("Вы пытаетесь найти [parse_zone(user.zone_selected)] у [target]..."))
 

@@ -64,7 +64,7 @@
 /datum/reagent/medicine/raccoon
 	name = "Раккун-2"
 	enname = "Raccoon-2"
-	description = "Подавляет опухль Ромерола и излечивает от Зомби-вируса, однако оказывает тяжелейшее угнетающее воздействие на организм."
+	description = "Подавляет опухоль Ромерола и излечивает от Зомби-вируса, однако оказывает тяжелейшее угнетающее воздействие на организм."
 	reagent_state = LIQUID
 	color = "#046104"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
@@ -83,7 +83,7 @@
 //	Медипен Раккун
 /obj/item/reagent_containers/hypospray/medipen/raccoon
 	name = "Раккун-2"
-	desc = "Подавляет опухль Ромерола и излечивает от Зомби-вируса, однако оказывает тяжелейшее угнетающее воздействие на организм."
+	desc = "Подавляет опухоль Ромерола и излечивает от Зомби-вируса, однако оказывает тяжелейшее угнетающее воздействие на организм."
 	icon = 'white/Feline/icons/syringe_zed.dmi'
 	icon_state = "raccoon"
 	inhand_icon_state = "tbpen"

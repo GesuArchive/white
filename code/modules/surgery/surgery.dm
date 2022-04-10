@@ -136,12 +136,12 @@
 	qdel(src)
 
 /datum/surgery/advanced
-	name = "advanced surgery"
+	name = "Продвинутая хирургия"
 	requires_tech = TRUE
 
 /obj/item/disk/surgery
-	name = "Surgery Procedure Disk"
-	desc = "A disk that contains advanced surgery procedures, must be loaded into an Operating Console."
+	name = "Диск с хирургическими процедурами"
+	desc = "Диск, который содержит продвинутые хирургические процедуры, и должен быть загружен в операционный компьютер."
 	icon_state = "datadisk1"
 	custom_materials = list(/datum/material/iron=300, /datum/material/glass=100)
 	var/list/surgeries

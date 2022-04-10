@@ -52,13 +52,13 @@
 			return FALSE
 
 /datum/surgery_step/revive/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Вы готовитесь послать разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
+	display_results(user, target, span_notice("Готовлюсь послать разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
 		span_notice("[user] готовится послать разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
 		span_notice("[user] готовится послать разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]."))
-	target.notify_ghost_cloning("Someone пытается zap your brain.", source = target)
+	target.notify_ghost_cloning("Кто-то пытается послать разряд в мой мозг.", source = target)
 
 /datum/surgery_step/revive/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
-	display_results(user, target, span_notice("Вы успешно послали разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]...") ,
+	display_results(user, target, span_notice("Успешно послал разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]...") ,
 		span_notice("[user] успешно послал разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]...") ,
 		span_notice("[user] успешно послал разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]..."))
 	playsound(get_turf(target), 'sound/magic/lightningbolt.ogg', 50, TRUE)
@@ -77,7 +77,7 @@
 		return FALSE
 
 /datum/surgery_step/revive/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Вы послали разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool], но [target.ru_who()] не реагирует.") ,
+	display_results(user, target, span_notice("Послал разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool], но [target.ru_who()] не реагирует.") ,
 		span_notice("[user] послал разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool], но [target.ru_who()] не реагирует.") ,
 		span_notice("[user] послал разряд в мозг [skloname(target.name, RODITELNI, target.gender)] при помощи [tool], но [target.ru_who()] не реагирует."))
 	playsound(get_turf(target), 'sound/magic/lightningbolt.ogg', 50, TRUE)

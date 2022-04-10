@@ -5,7 +5,7 @@
 //SURGERY STEPS
 
 /datum/surgery_step/replace_limb
-	name = "замените часть тела"
+	name = "Замените часть тела"
 	implements = list(/obj/item/bodypart = 100, /obj/item/organ_storage = 100)
 	time = 32
 	var/obj/item/bodypart/L = null // L because "limb"
@@ -29,7 +29,7 @@
 		display_results(user, target, span_notice("Вы начинаете аугментировать [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает аугментировать [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)] при помощи [aug].") ,
 			span_notice("[user] начинает аугментировать [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]."))
-		display_pain(target, "You feel a horrible pain in your [parse_zone(user.zone_selected)]!")
+		display_pain(target, "Чувствую ужасную боль в [parse_zone(user.zone_selected)][skloname(target.name, DATELNI, target.gender)]!")
 	else
 		user.visible_message(span_notice("[user] пытается найти [parse_zone(user.zone_selected)] [target].") , span_notice("Вы пытаетесь найти [parse_zone(user.zone_selected)] [target]..."))
 
@@ -58,7 +58,7 @@
 			span_notice("[user] успешно аугментировал [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]!") ,
 			span_notice("[user] успешно аугментировал [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]!"))
 		log_combat(user, target, "аугментировал", addition="дав ему новую [parse_zone(target_zone)] INTENT: [uppertext(user.a_intent)]")
-		display_pain(target, "Your [parse_zone(target_zone)] comes awash with synthetic sensation!", mechanical_surgery = TRUE)
+		display_pain(target, "Моя [parse_zone(target_zone)] приходит в чувство с необычным ощущением!", mechanical_surgery = TRUE)
 	else
 		to_chat(user, span_warning("[target] не имеет органики на [parse_zone(target_zone)]!"))
 	return ..()

@@ -26,7 +26,7 @@
 	display_results(user, target, span_notice("Начинаю фильтрацию крови [skloname(target.name, RODITELNI, target.gender)]...") ,
 		span_notice("[user] использует [tool] для фильтрации моей крови.") ,
 		span_notice("[user] использует [tool] на груди [skloname(target.name, RODITELNI, target.gender)]."))
-	display_pain(target, "You feel a throbbing pain in your chest!")
+	display_pain(target, "Чувствую пульсирующую боль в груди!")
 
 /datum/surgery_step/filter_blood/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(target.reagents?.total_volume)

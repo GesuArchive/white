@@ -26,7 +26,7 @@
 		span_notice("[user] начинает делать надрез в легких [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] начинает делать надрез в легких [skloname(target.name, RODITELNI, target.gender)].") ,
 		playsound(get_turf(target), 'sound/surgery/scalpel1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-	display_pain(target, "You feel a stabbing pain in your chest!")
+	display_pain(target, "Чувствую колющую боль в груди!")
 
 /datum/surgery_step/lobectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
@@ -38,7 +38,7 @@
 			span_notice("Поврежденный сегмент легких [H] был успешно удален.") ,
 			playsound(get_turf(target), 'sound/surgery/organ1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1),
 			"")
-		display_pain(target, "Your chest hurts like hell, but breathng becomes slightly easier.")
+		display_pain(target, "Грудь адски болит, но дышать стало немного проще.")
 	return ..()
 
 /datum/surgery_step/lobectomy/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
@@ -48,7 +48,7 @@
 			span_warning("[user] ошибся!") ,
 			span_warning("[user] ошибся!") ,
 			playsound(get_turf(target), 'sound/surgery/organ1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-		display_pain(target, "You feel a sharp stab in your chest; the wind is knocked out of you and it hurts to catch your breath!")
+		display_pain(target, "Чувствую колющую боль в груди. У меня сбилось дыхание и теперь больно дышать!")
 		H.losebreath += 4
 		H.adjustOrganLoss(ORGAN_SLOT_LUNGS, 10)
 	return FALSE

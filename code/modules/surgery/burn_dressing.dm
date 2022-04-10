@@ -39,7 +39,6 @@
 			span_notice("[user] начинает удалять инфицированную плоть с [ru_otkuda_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
 			span_notice("[user] начинает удалять инфицированную плоть с [ru_otkuda_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)].") ,
 			playsound(get_turf(target), 'sound/surgery/scalpel1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-		display_pain(target, "The infection in your [parse_zone(user.zone_selected)] stings like hell! It feels like you're being stabbed!")
 	else
 		user.visible_message(span_notice("[user] ищет [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)].") , span_notice("Ищу [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]..."))
 
@@ -88,7 +87,7 @@
 		display_results(user, target, span_notice("Начинаю перевязку ожогов на [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает перевязку ожогов на [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
 			span_notice("[user] начинает перевязку ожогов на [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]."))
-		display_pain(target, "The burns on your [parse_zone(user.zone_selected)] sting like hell!")
+		display_pain(target, "Ожоги на моей [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, DATELNI, target.gender)] адски болят!")
 	else
 		user.visible_message(span_notice("[user] ищет [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)].") , span_notice("Ищу [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]..."))
 

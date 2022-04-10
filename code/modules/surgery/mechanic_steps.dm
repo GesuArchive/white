@@ -1,6 +1,6 @@
 //open shell
 /datum/surgery_step/mechanic_open
-	name = "открутить винты"
+	name = "Открутить винты"
 	implements = list(
 		TOOL_SCREWDRIVER		= 100,
 		TOOL_SCALPEL 			= 75, // med borgs could try to unskrew shell with scalpel
@@ -13,7 +13,7 @@
 			span_notice("[user] начинает откручивать винты на корпусе [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
 			span_notice("[user] начинает откручивать винты на корпусе [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
 			playsound(get_turf(target), 'sound/items/screwdriver.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-	display_pain(target, "You can feel your [parse_zone(target_zone)] grow numb as the sensory panel is unscrewed.", TRUE)
+	display_pain(target, "Чувствуешь, что моя [parse_zone(target_zone)] онемивает, как только я открутил панель.", TRUE)
 
 /datum/surgery_step/mechanic_open/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("You unscrew the shell of [target]'s [parse_zone(target_zone)]."),
@@ -61,7 +61,7 @@
 
 //prepare electronics
 /datum/surgery_step/prepare_electronics
-	name = "подготовьте электронику"
+	name = "Подготовьте электронику"
 	implements = list(
 		TOOL_MULTITOOL = 100,
 		TOOL_HEMOSTAT = 10) // try to reboot internal controllers via short circuit with some conductor
@@ -84,7 +84,7 @@
 
 //unwrench
 /datum/surgery_step/mechanic_unwrench
-	name = "отвинтите болты"
+	name = "Отвинтите болты"
 	implements = list(
 		TOOL_WRENCH = 100,
 		TOOL_RETRACTOR = 10)
@@ -99,7 +99,7 @@
 
 //wrench
 /datum/surgery_step/mechanic_wrench
-	name = "завинтите болты"
+	name = "Завинтите болты"
 	implements = list(
 		TOOL_WRENCH = 100,
 		TOOL_RETRACTOR = 10)
@@ -114,7 +114,7 @@
 
 //open hatch
 /datum/surgery_step/open_hatch
-	name = "откройте люк"
+	name = "Откройте люк"
 	accept_hand = 1
 	time = 10
 
