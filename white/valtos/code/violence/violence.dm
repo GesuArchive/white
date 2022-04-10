@@ -284,7 +284,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				var/mob/living/carbon/human/H = M
 				var/list/saved_shit = list()
 				// получаем список предметов на персонаже, включая рюкзак
-				LAZYADD(saved_shit, H.get_equipped_items(TRUE))
+				LAZYADD(saved_shit, H.get_all_gear())
 				// по идее должно исключить стакинг бесполезных предметов
 				var/list/static/blacklisted_types = list(
 					/obj/item/clothing/shoes/jackboots,
@@ -297,7 +297,11 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 					/obj/item/clothing/under/chronos,
 					/obj/item/clothing/neck/cape/chronos,
 					/obj/item/clothing/head/beret/chronos,
-					/obj/item/offhand // Это же The offhand!
+					/obj/item/offhand, // Это же The offhand!
+					/obj/item/storage/backpack,
+					/obj/item/storage/backpack/satchel,
+					/obj/item/storage/backpack/duffelbag,
+					/obj/item/storage/backpack/satchel/leather,
 				)
 				for(var/obj/item/I in saved_shit)
 					if(!I || (I.type in blacklisted_types))
