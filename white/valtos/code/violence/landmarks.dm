@@ -15,8 +15,8 @@ GLOBAL_VAR(violence_landmark)
 
 	for(var/item in subtypesof(/datum/map_template/violence))
 		var/datum/map_template/violence/C = new item()
-		if(C.max_players < GLOB.player_list.len)
-			message_admins("[C.name]: максимум [C.max_players] игроков, пропускаем...")
+		if(C.max_players < GLOB.player_list.len || C.min_players > GLOB.player_list.len)
+			message_admins("[C.name]: максимум [C.max_players] игроков, минимум [C.min_players] игроков, пропускаем...")
 			qdel(C)
 			continue
 		maplist[C] = C.weight
