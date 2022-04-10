@@ -337,3 +337,8 @@
 	path = /obj/item/clothing/under/utility/com
 	cost = 100
 	allowed_roles = list("Head of Personnel", "Captain", "Head of Security", "Research Director","Chief Engineer")
+
+/datum/gear/uniform/chronos
+	display_name = "Военный костюм Новой Мекки"
+	path = /obj/item/clothing/under/chronos
+	cost = 500

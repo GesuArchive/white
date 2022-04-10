@@ -128,6 +128,12 @@
 
 /datum/outfit/job/combantant/pre_equip(mob/living/carbon/human/H)
 	..()
+	switch(GLOB.violence_theme)
+		if("katana")
+			if(GLOB.violence_current_round >= 6) // no chronos before
+				uniform = /obj/item/clothing/under/chronos
+				neck = /obj/item/clothing/neck/cape/chronos
+				head = /obj/item/clothing/head/beret/chronos
 	// something
 
 /datum/outfit/job/combantant/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

@@ -5,7 +5,9 @@ GLOBAL_VAR_INIT(violence_current_round, 0)
 GLOBAL_VAR_INIT(violence_time_limit, 3 MINUTES)
 GLOBAL_DATUM_INIT(violence_red_datum, /datum/team/violence/red, new)
 GLOBAL_DATUM_INIT(violence_blue_datum, /datum/team/violence/blue, new)
-GLOBAL_VAR(violence_music_theme)
+GLOBAL_VAR(violence_theme)
+GLOBAL_VAR(violence_forced_map)
+GLOBAL_VAR(violence_playmode)
 GLOBAL_LIST_EMPTY(violence_red_team)
 GLOBAL_LIST_EMPTY(violence_blue_team)
 GLOBAL_LIST_EMPTY(violence_bomb_locations)
@@ -23,9 +25,6 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	var/round_started_at = 0
 	// основная зона, которая отслеживается
 	var/area/main_area
-
-	// режим, который был выбран игроками
-	var/playmode = null
 
 	// последнее количество игроков после начала раунда
 	var/last_reds = 0
@@ -50,8 +49,6 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	var/icon/great_title_icon = icon('white/valtos/icons/violence.jpg')
 	SStitle.icon = great_title_icon
 	SStitle.splash_turf.icon = great_title_icon
-	// генерируем штуки для закупа
-	generate_violence_gear()
 	// делаем датумы игроков на всякий случай
 	for(var/client/C in GLOB.clients)
 		if(!GLOB.violence_players[C.ckey])
@@ -59,6 +56,8 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	// пикаем арену
 	var/obj/effect/landmark/violence/V = GLOB.violence_landmark
 	V.load_map()
+	// генерируем штуки для закупа
+	generate_violence_gear()
 	// отключаем ивенты станции
 	GLOB.disable_fucking_station_shit_please = TRUE
 	// включаем режим насилия, который немного изменяет правила игры
@@ -98,10 +97,10 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 
 /datum/game_mode/violence/post_setup()
 	..()
-	// похуй пока рандом будет
-	if(!playmode)
-		playmode = pick(list(VIOLENCE_PLAYMODE_TEAMFIGHT, VIOLENCE_PLAYMODE_BOMBDEF))
-		to_chat(world, leader_brass("Именем случайности был выбран режим [playmode]!"))
+	// выбираем рандом, если не зафоршен режим
+	if(!GLOB.violence_playmode)
+		GLOB.violence_playmode = pick(list(VIOLENCE_PLAYMODE_TEAMFIGHT, VIOLENCE_PLAYMODE_BOMBDEF))
+	to_chat(world, leader_brass("Был выбран режим [GLOB.violence_playmode]!"))
 	// выключаем рандомные ивенты наверняка
 	CONFIG_SET(flag/allow_random_events, FALSE)
 	// готовим новый раунд
@@ -140,7 +139,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		if(round_started_at + 30 SECONDS < world.time)
 			// обновляем таймер
 			update_timer()
-			if(playmode == VIOLENCE_PLAYMODE_BOMBDEF)
+			if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_BOMBDEF)
 				if(GLOB.violence_bomb_detonated)
 					end_round("КРАСНЫХ")
 					return
@@ -152,7 +151,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 			if(GLOB.violence_time_limit <= 0)
 				if(GLOB.violence_bomb_planted && GLOB.violence_blue_team.len)
 					return
-				if(playmode == VIOLENCE_PLAYMODE_BOMBDEF)
+				if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_BOMBDEF)
 					end_round("СИНИХ")
 					return
 				if(GLOB.violence_red_team.len < GLOB.violence_blue_team.len)
@@ -318,7 +317,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		play_sound_to_everyone('white/valtos/sounds/horn.ogg')
 		// открываем шаттерсы через время
 		spawn(30 SECONDS)
-			if(playmode == VIOLENCE_PLAYMODE_BOMBDEF)
+			if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_BOMBDEF)
 				var/datum/mind/terr_mind = pick(GLOB.violence_red_team)
 				var/mob/living/carbon/human/terrorist = terr_mind.current
 				var/obj/item/terroristsc4/terroristsc4 = new(get_turf(terrorist))
@@ -383,3 +382,38 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	dat += "</div></div>"
 	dat += "</div><a id=footer href='byond://?src=[REF(src)];violence=joinmefucker'>ПОГНАЛИ!</a></body></html>"
 	usr << browse(dat, "window=violence;size=750x690")
+
+/client/proc/force_violence_map()
+	set category = "Дбг"
+	set name = "Violence Map"
+
+	var/list/maplist = list()
+
+	for(var/item in subtypesof(/datum/map_template/violence))
+		LAZYADD(maplist, item)
+
+	var/chosen_map = tgui_input_list(usr, "Maps?", "Gay Bitch Industries", maplist)
+
+	if(!chosen_map)
+		return
+
+	GLOB.violence_forced_map = chosen_map
+
+	log_admin("[key_name(src)] устанавливает карту [chosen_map] для насилия.")
+	message_admins("[key_name_admin(src)] устанавливает карту [chosen_map] для насилия.")
+
+/client/proc/force_violence_mode()
+	set category = "Дбг"
+	set name = "Violence Mode"
+
+	var/list/modelist = list(VIOLENCE_PLAYMODE_TEAMFIGHT, VIOLENCE_PLAYMODE_BOMBDEF)
+
+	var/chosen_mode = tgui_input_list(usr, "Modes?", "Cum Fuck Fuck Fuck Fuck", modelist)
+
+	if(!chosen_mode)
+		return
+
+	GLOB.violence_playmode = chosen_mode
+
+	log_admin("[key_name(src)] выбирает режим [chosen_mode] для насилия.")
+	message_admins("[key_name_admin(src)] выбирает режим [chosen_mode] для насилия.")

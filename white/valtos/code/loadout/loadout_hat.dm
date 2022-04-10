@@ -61,3 +61,8 @@
 /datum/gear/hat/widehat/red
 	display_name = "красная широкая шляпа"
 	path = /obj/item/clothing/head/costume/widehat/red
+
+/datum/gear/hat/chronos
+	display_name = "Военный берет Новой Мекки"
+	path = /obj/item/clothing/head/beret/chronos
+	cost = 500

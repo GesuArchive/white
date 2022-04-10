@@ -21,14 +21,21 @@ GLOBAL_VAR(violence_landmark)
 			continue
 		maplist[C] = C.weight
 
-	current_map = pickweight(maplist)
+	if(GLOB.violence_forced_map)
+		current_map = new GLOB.violence_forced_map
+	else
+		current_map = pickweight(maplist)
 
-	GLOB.violence_music_theme = current_map.theme
+	GLOB.violence_theme = current_map.theme
 
 	// меняем тему в лобби на задорную
-	switch(GLOB.violence_music_theme)
+	switch(GLOB.violence_theme)
 		if("std")
 			SSticker.login_music = sound('white/valtos/sounds/menue.ogg')
+		if("hotline")
+			SSticker.login_music = sound('white/valtos/sounds/hotlinemenu.ogg')
+		if("katana")
+			SSticker.login_music = sound('white/valtos/sounds/katmenu.ogg')
 		if("warfare")
 			SSticker.login_music = sound('white/valtos/sounds/cd.ogg')
 		if("cyber")

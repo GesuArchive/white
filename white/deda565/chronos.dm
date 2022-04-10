@@ -24,18 +24,3 @@
 	icon_state = "torch_cape"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEFACIALHAIR
 
-/datum/gear/uniform/chronos
-	display_name = "Военный костюм Новой Мекки"
-	path = /obj/item/clothing/under/chronos
-	cost = 500
-
-/datum/gear/accessory/cape/chronos
-	display_name = "Военный плащ Новой Мекки"
-	path = /obj/item/clothing/neck/cape/chronos
-	slot = ITEM_SLOT_NECK
-	cost = 500
-
-/datum/gear/hat/chronos
-	display_name = "Военный берет Новой Мекки"
-	path = /obj/item/clothing/head/beret/chronos
-	cost = 500

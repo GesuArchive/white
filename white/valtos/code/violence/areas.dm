@@ -29,7 +29,7 @@
 
 	L?.hud_used?.update_parallax_pref(L, 1)
 
-	switch(GLOB.violence_music_theme)
+	switch(GLOB.violence_theme)
 		if("std")
 			switch(GLOB.violence_current_round)
 				if(1 to 2)
@@ -40,6 +40,50 @@
 					S = 'white/valtos/sounds/battle_hi.ogg'
 				if(9 to 10)
 					S = 'white/valtos/sounds/battle_fuck.ogg'
+		if("hotline")
+			switch(GLOB.violence_current_round)
+				if(1)
+					S = 'white/valtos/sounds/hotline1.ogg'
+				if(2)
+					S = 'white/valtos/sounds/hotline2.ogg'
+				if(3)
+					S = 'white/valtos/sounds/hotline3.ogg'
+				if(4)
+					S = 'white/valtos/sounds/hotline4.ogg'
+				if(5)
+					S = 'white/valtos/sounds/hotline5.ogg'
+				if(6)
+					S = 'white/valtos/sounds/hotline6.ogg'
+				if(7)
+					S = 'white/valtos/sounds/hotline7.ogg'
+				if(8)
+					S = 'white/valtos/sounds/hotline8.ogg'
+				if(9)
+					S = 'white/valtos/sounds/hotline9.ogg'
+				if(10)
+					S = 'white/valtos/sounds/hotline10.ogg'
+		if("katana")
+			switch(GLOB.violence_current_round)
+				if(1)
+					S = 'white/valtos/sounds/kat1.ogg'
+				if(2)
+					S = 'white/valtos/sounds/kat2.ogg'
+				if(3)
+					S = 'white/valtos/sounds/kat3.ogg'
+				if(4)
+					S = 'white/valtos/sounds/kat4.ogg'
+				if(5)
+					S = 'white/valtos/sounds/kat5.ogg'
+				if(6)
+					S = 'white/valtos/sounds/kat6.ogg'
+				if(7)
+					S = 'white/valtos/sounds/kat7.ogg'
+				if(8)
+					S = 'white/valtos/sounds/kat8.ogg'
+				if(9)
+					S = 'white/valtos/sounds/kat9.ogg'
+				if(10)
+					S = 'white/valtos/sounds/kat10.ogg'
 		if("cyber")
 			switch(GLOB.violence_current_round)
 				if(1 to 2)
