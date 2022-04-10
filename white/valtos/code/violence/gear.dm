@@ -31,6 +31,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	var/cat = "ХУЙ"
 	var/cost = 0
 	var/items = list()
+	var/sub_items = list()
 	var/list/allowed_themes = list()
 
 /datum/violence_gear/melee
@@ -367,3 +368,66 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "Термалы"
 	cost = 2250
 	items = list(/obj/item/clothing/glasses/hud/toggle/thermal)
+
+/datum/violence_gear/ammo
+	cat = "Аммуниция"
+
+/datum/violence_gear/ammo/m45
+	name = "П. Обойма .45"
+	cost = 500
+	items = list(/obj/item/ammo_box/magazine/m45)
+	allowed_themes = list("std", "warfare", "hotline")
+
+/datum/violence_gear/ammo/m9mm
+	name = "П. Обойма 9mm"
+	cost = 600
+	items = list(/obj/item/ammo_box/magazine/m9mm)
+	allowed_themes = list("std", "warfare", "hotline")
+
+/datum/violence_gear/ammo/a357
+	name = "П. Зарядник .357"
+	cost = 800
+	items = list(/obj/item/ammo_box/a357)
+	allowed_themes = list("std", "warfare", "hotline")
+
+/datum/violence_gear/ammo/m50
+	name = "П. Обойма .50ae"
+	cost = 1000
+	items = list(/obj/item/ammo_box/magazine/m50)
+	allowed_themes = list("std", "warfare", "hotline")
+
+/datum/violence_gear/ammo/saphe
+	name = "П. Обойма 12.7x35mm"
+	cost = 1000
+	items = list(/obj/item/ammo_box/magazine/mm12/saphe)
+	allowed_themes = list("katana")
+
+/datum/violence_gear/ammo/smgm45
+	name = "А. Магазин .45"
+	cost = 1250
+	items = list(/obj/item/ammo_box/magazine/smgm45)
+	allowed_themes = list("std", "warfare", "hotline")
+
+/datum/violence_gear/ammo/ak74m
+	name = "А. Магазин 5.45"
+	cost = 1450
+	items = list(/obj/item/ammo_box/magazine/ak74m)
+	allowed_themes = list("std", "warfare", "hotline")
+
+/datum/violence_gear/ammo/asval
+	name = "А. Магазин 9х39"
+	cost = 2100
+	items = list(/obj/item/ammo_box/magazine/asval)
+	allowed_themes = list("std", "warfare", "hotline")
+
+/datum/violence_gear/ammo/r37
+	name = "А. Магазин 6.5mm"
+	cost = 2300
+	items = list(/obj/item/ammo_box/magazine/r37)
+	allowed_themes = list("katana")
+
+/datum/violence_gear/ammo/r40
+	name = "А. Магазин 7.2mm"
+	cost = 3000
+	items = list(/obj/item/ammo_box/magazine/r40)
+	allowed_themes = list("katana")

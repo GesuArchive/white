@@ -292,8 +292,11 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				LAZYADD(saved_shit, H.get_item_by_slot(ITEM_SLOT_MASK))
 				LAZYADD(saved_shit, H.get_active_held_item())
 				LAZYADD(saved_shit, H.get_inactive_held_item())
+
+				// по идее должно исключить стакинг предметов
+				var/list/static/blacklisted_types = list(/obj/item/clothing/shoes/jackboots, /obj/item/terroristsc4)
 				for(var/obj/item/I in saved_shit)
-					if(!I)
+					if(!I || (I.type in blacklisted_types))
 						continue
 					LAZYADD(VP.saved_items, I.type)
 			M?.mind?.remove_all_antag_datums()
