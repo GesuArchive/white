@@ -536,3 +536,9 @@
 /obj/projectile/beam/beam_rifle/hitscan/aiming_beam/on_hit()
 	qdel(src)
 	return BULLET_ACT_BLOCK
+
+/obj/item/gun/energy/beam_rifle/violence
+	projectile_damage = 100
+
+/obj/item/gun/energy/beam_rifle/violence/handle_zooming()
+	return

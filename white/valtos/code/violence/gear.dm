@@ -252,7 +252,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 /datum/violence_gear/heavygun/beam_rifle
 	name = "УЧВ"
 	cost = 5500
-	items = list(/obj/item/gun/energy/beam_rifle)
+	items = list(/obj/item/gun/energy/beam_rifle/violence)
 	allowed_themes = list("katana")
 
 /datum/violence_gear/heavygun/l6_saw

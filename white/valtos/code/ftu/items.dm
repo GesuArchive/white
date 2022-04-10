@@ -52,7 +52,7 @@
 	worn_icon = 'white/valtos/icons/serviceguns.dmi'
 	worn_icon_state = "killerhornet_worn"
 	w_class = WEIGHT_CLASS_BULKY
-	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_OCLOTHING
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 	mag_type = /obj/item/ammo_box/magazine/r37
 	fire_delay = 4
 	can_suppress = FALSE
