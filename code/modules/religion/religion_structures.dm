@@ -21,6 +21,13 @@
 	. = ..()
 	AddComponent(/datum/component/religious_tool, ALL, FALSE, CALLBACK(src, .proc/reflect_sect_in_icons))
 
+/obj/structure/altar_of_gods/update_overlays()
+	var/list/new_overlays = ..()
+	if(GLOB.religious_sect)
+		return new_overlays
+	new_overlays += "convertaltarcandle"
+	return new_overlays
+
 /obj/structure/altar_of_gods/attack_hand(mob/living/user, list/modifiers)
 	if(!Adjacent(user) || !user.pulling)
 		return ..()

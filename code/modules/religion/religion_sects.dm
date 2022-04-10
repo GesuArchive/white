@@ -40,6 +40,8 @@
 	var/altar_icon_state
 	/// Currently Active (non-deleted) rites
 	var/list/active_rites
+	/// Whether the structure has CANDLE OVERLAYS!
+	var/candle_overlay = TRUE
 
 /datum/religion_sect/New()
 	. = ..()
@@ -313,6 +315,7 @@
 	altar_icon_state = "convertaltar-burden"
 	alignment = ALIGNMENT_NEUT
 	invalidating_qualities = TRAIT_GENELESS
+	candle_overlay = FALSE
 
 /datum/religion_sect/burden/on_conversion(mob/living/carbon/human/new_convert)
 	..()
@@ -374,3 +377,51 @@
 	return TRUE
 
 #undef MINIMUM_YUCK_REQUIRED
+
+/datum/religion_sect/spar
+	name = "Sparring God"
+	quote = "Your next swing must be faster, neophyte. Steel your heart."
+	desc = "Spar other crewmembers to gain favor or other rewards. Exchange favor to steel yourself against real battles."
+	tgui_icon = "fist-raised"
+	altar_icon_state = "convertaltar-orange"
+	alignment = ALIGNMENT_NEUT
+	rites_list = list(
+		/datum/religion_rites/sparring_contract,
+		/datum/religion_rites/ceremonial_weapon,
+		/datum/religion_rites/declare_arena,
+		/datum/religion_rites/tenacious,
+		/datum/religion_rites/unbreakable,
+	)
+	///the one allowed contract. making a new contract dusts the old one
+	var/obj/item/sparring_contract/existing_contract
+	///places you can spar in. rites can be used to expand this list with new arenas!
+	var/list/arenas = list(
+		"Recreation Area" = /area/commons/fitness/recreation,
+		"Chapel" = /area/service/chapel
+	)
+	///how many matches you've lost with holy stakes. 3 = excommunication
+	var/matches_lost = 0
+	///past opponents who you've beaten in holy battles. You can't fight them again to prevent favor farming
+	var/list/past_opponents = list()
+
+/datum/religion_sect/spar/tool_examine(mob/living/holy_creature)
+	return "You have [round(favor)] sparring matches won in [GLOB.deity]'s name to redeem. You have lost [matches_lost] holy matches. You will be excommunicated after losing three matches."
+
+/datum/religion_sect/music
+	name = "Festival God"
+	quote = "Everything follows a rhythm- The heartbeat of the universe!"
+	desc = "Make wonderful music! Sooth or serrate your friends and foes with the beat."
+	tgui_icon = "music"
+	altar_icon_state = "convertaltar-festival"
+	alignment = ALIGNMENT_GOOD
+	candle_overlay = FALSE
+	rites_list = list(
+		/datum/religion_rites/song_tuner/evangelism,
+		/datum/religion_rites/song_tuner/nullwave,
+		/datum/religion_rites/song_tuner/pain,
+		/datum/religion_rites/song_tuner/lullaby,
+	)
+
+/datum/religion_sect/music/on_conversion(mob/living/chap)
+	. = ..()
+	new /obj/item/choice_beacon/music(get_turf(chap))
