@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	var/turf_flags = NONE
 	var/intact = 1
 
-	appearance_flags = TILE_BOUND | KEEP_TOGETHER
+	appearance_flags = TILE_BOUND
 
 	// baseturfs can be either a list or a single turf type.
 	// In class definition like here it should always be a single type.
