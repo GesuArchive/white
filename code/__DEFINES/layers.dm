@@ -126,9 +126,6 @@
 #define SINGULARITY_LAYER 1
 #define ABOVE_SINGULARITY_LAYER 2
 
-#define RECURSIVE_PLANE 15
-#define RECURSIVE_LAYER 6
-
 #define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
 
 #define AREA_PLANE 60
