@@ -31,7 +31,7 @@
 	weight = 4
 	min_players = 24
 	max_players = 64
-	theme = "hotline"
+	theme = "warfare"
 
 /datum/map_template/violence/de_dust2
 	name = "de_dust2"
@@ -64,7 +64,16 @@
 	name = "Краков"
 	description = "Нанотрейзен и Синдикат не поделили последний мешок сахара. Поможете им разобраться с этим недоразумением?"
 	mappath = "_maps/map_files/Warfare/violence7.dmm"
-	weight = 6
+	weight = 4
 	min_players = 16
 	max_players = 32
 	theme = "warfare"
+
+/datum/map_template/violence/koridorovo
+	name = "Коридорово"
+	description = "Город состоящий из коридоров. Кто это придумал?"
+	mappath = "_maps/map_files/Warfare/violence8.dmm"
+	weight = 8
+	min_players = 24
+	max_players = 64
+	theme = "hotline"
