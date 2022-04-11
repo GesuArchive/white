@@ -26,7 +26,7 @@ GLOBAL_LIST_EMPTY(recursive_projections)
 
 /atom/movable/recursive_projection/proc/link_projectors()
 	for(var/atom/movable/recursive_projection/RP in GLOB.recursive_projections)
-		if(RP.linkage_id == linkage_id)
+		if(RP != src && RP.linkage_id == linkage_id)
 			buddy_projector = RP
 			RP.buddy_projector = src
 			buddy_projector.activate_projections()
@@ -34,6 +34,9 @@ GLOBAL_LIST_EMPTY(recursive_projections)
 
 /atom/movable/recursive_projection/proc/activate_projections()
 	START_PROCESSING(SSfastprocess, src)
+
+/atom/movable/recursive_projection/proc/deactivate_projections()
+	STOP_PROCESSING(SSfastprocess, src)
 
 /atom/movable/recursive_projection/process(delta_time)
 	var/matrix/M = matrix()
