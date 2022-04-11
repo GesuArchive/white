@@ -332,8 +332,8 @@
 
 //fusion: a terrible idea that was fun but broken. Now reworked to be less broken and more interesting. Again (and again, and again). Again!
 //Fusion Rework Counter: Please increment this if you make a major overhaul to this system again.
-//6 reworks
-
+//6 reworks and 1 removal
+/*
 /datum/gas_reaction/fusion
 	exclude = FALSE
 	priority = 2
@@ -425,7 +425,7 @@
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
 			air.set_temperature(clamp(thermal_energy/new_heat_capacity, TCMB, INFINITY)) //THIS SHOULD STAY OR FUSION WILL EAT YOUR FACE
 		return REACTING
-
+*/
 /datum/gas_reaction/nitrylformation //The formation of nitryl. Endothermic. Requires N2O as a catalyst.
 	priority = 3
 	name = "Nitryl formation"
@@ -1040,8 +1040,8 @@
 	min_requirements = list(
 		GAS_PROTO_NITRATE = MINIMUM_MOLE_COUNT,
 		GAS_TRITIUM = MINIMUM_MOLE_COUNT,
-		"TEMP" = 150,
-		"MAX_TEMP" = 340
+		"TEMP" = 5000,
+		"MAX_TEMP" = 10000
 	)
 
 /datum/gas_reaction/proto_nitrate_tritium_response/react(datum/gas_mixture/air, datum/holder)
