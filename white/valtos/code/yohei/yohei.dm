@@ -124,8 +124,8 @@
 	fire_sound = 'white/valtos/sounds/fallout/gunsounds/9mm/9mm2.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 4
-	extra_damage = 30
-	extra_penetration = 25
+	extra_damage = 5
+
 
 #define MODE_PAINKILLER "болеутоляющее"
 #define MODE_OXYLOSS "кислородное голодание"
