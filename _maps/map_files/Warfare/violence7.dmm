@@ -403,6 +403,10 @@
 	},
 /turf/open/floor/grass/gensgrass/dirty,
 /area/violence)
+"xB" = (
+/obj/effect/baseturf_helper/asteroid,
+/turf/closed/indestructible/black,
+/area/violence)
 "xW" = (
 /obj/structure/rospilovo/komod,
 /obj/structure/rospilovo/cover{
@@ -679,6 +683,7 @@
 /area/violence)
 "Qx" = (
 /obj/structure/rospilovo/trubas{
+	density = 0;
 	dir = 5
 	},
 /turf/open/floor/rospilovo/wood,
@@ -757,7 +762,9 @@
 /turf/open/floor/rospilovo/wood,
 /area/violence)
 "XC" = (
-/obj/structure/rospilovo/trubas,
+/obj/structure/rospilovo/trubas{
+	density = 0
+	},
 /turf/open/floor/rospilovo/wood,
 /area/violence)
 "Ye" = (
@@ -855,7 +862,7 @@ hI
 hI
 hI
 hI
-hI
+xB
 ex
 ex
 ex

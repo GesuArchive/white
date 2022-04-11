@@ -74,6 +74,10 @@
 	},
 /turf/open/floor/plating/sandy_dirt,
 /area/violence)
+"u" = (
+/obj/effect/baseturf_helper/asteroid,
+/turf/closed/indestructible/riveted/dirtystone,
+/area/violence)
 "w" = (
 /obj/effect/turf_decal/weather/side/corner,
 /turf/open/floor/plating/sandy_dirt,
@@ -255,7 +259,7 @@ p
 p
 p
 p
-p
+u
 "}
 (2,1,1) = {"
 p
