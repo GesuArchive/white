@@ -987,7 +987,7 @@
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
 		return FALSE
 	if((NOBLOOD in dna.species.species_traits))
-		nutrition = NUTRITION_LEVEL_START_MAX
+		nutrition = NUTRITION_LEVEL_FED
 		return FALSE
 	return ..()
 
