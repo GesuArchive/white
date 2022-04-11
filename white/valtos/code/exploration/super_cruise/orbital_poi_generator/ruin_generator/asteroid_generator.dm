@@ -32,7 +32,7 @@
 			continue
 		//Change area
 		asteroid_area.contents += T
-		T.change_area(T.loc, asteroid_area)
+		T.transfer_area_lighting(T.loc, asteroid_area)
 		//Check if we are closed or not (Cave generation)
 		var/closed = text2num(generated_string[world.maxx * (T.y - 1) + T.x])
 		var/noise_at_coord = text2num(rustg_noise_get_at_coordinates("[seed]", "[T.x / perlin_noise_scale]", "[T.y / perlin_noise_scale]"))

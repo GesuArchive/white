@@ -257,7 +257,7 @@
 		var/turf/turf_holder = loggedTurfs[i]
 		var/area/old_area = turf_holder.loc
 		newS.contents += turf_holder
-		turf_holder.change_area(old_area, newS)
+		turf_holder.transfer_area_lighting(old_area, newS)
 
 	newS.reg_in_areas_in_z()
 

@@ -22,7 +22,7 @@
 	new_area.setup("Alien Planet")
 	for(var/turf/T as() in block(locate(1, 1, center_z), locate(world.maxx, world.maxy, center_z)))
 		if(istype(T.loc, /area/space) && new_area)
-			T.change_area(T.loc, new_area)
+			T.transfer_area_lighting(T.loc, new_area)
 			new_area.contents += T
 		if(isspaceturf(T))
 			var/area_height = text2num(rustg_noise_get_at_coordinates("[seed]", "[T.x / perlin_noise_scale]", "[T.y / perlin_noise_scale]"))

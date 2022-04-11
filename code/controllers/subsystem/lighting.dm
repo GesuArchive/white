@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(lighting)
-	name = "Lighting"
+	name = "Освещение"
 	wait = 2
 	init_order = INIT_ORDER_LIGHTING
 	flags = SS_TICKER

@@ -314,7 +314,7 @@ SUBSYSTEM_DEF(zclear)
 		if(!istype(newT.loc, /area/space))
 			var/area/newA = GLOB.areas_by_type[/area/space]
 			newA.contents += newT
-			newT.change_area(newT.loc, newA)
+			newT.transfer_area_lighting(newT.loc, newA)
 		newT.turf_flags &= ~NO_RUINS
 		new_turfs += newT
 	return new_turfs
