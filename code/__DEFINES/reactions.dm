@@ -21,12 +21,33 @@
 #define NITRYL_DECOMPOSITION_ENERGY			30000
 #define NITRYL_FORMATION_ENERGY				100000
 #define NITROUS_FORMATION_ENERGY			10000
-//tritium reaction
-#define TRITIUM_BURN_OXY_FACTOR				100
-#define TRITIUM_BURN_TRIT_FACTOR			10
-#define TRITIUM_BURN_RADIOACTIVITY_FACTOR	50000 	//The neutrons gotta go somewhere. Completely arbitrary number.
-#define TRITIUM_MINIMUM_RADIATION_ENERGY	0.1  	//minimum 0.01 moles trit or 10 moles oxygen to start producing rads
-#define MINIMUM_TRIT_OXYBURN_ENERGY 		2000000	//This is calculated to help prevent singlecap bombs(Overpowered tritium/oxygen single tank bombs)
+/// An exponent used to make large volume gas mixtures significantly less likely to release rads. Used to prevent tritfires in distro from irradiating literally the entire station with no warning.
+#define ATMOS_RADIATION_VOLUME_EXP 3
+// - Tritium:
+/// The minimum temperature tritium combusts at.
+#define TRITIUM_MINIMUM_BURN_TEMPERATURE FIRE_MINIMUM_TEMPERATURE_TO_EXIST
+/// The minimum thermal energy necessary for tritium fires to use the [TRITIUM_OXYBURN_MULTIPLIER]. Used to prevent overpowered tritium/oxygen singletank bombs to moderate success.
+#define MINIMUM_TRITIUM_OXYBURN_ENERGY 2e6
+/// A multiplier to all secondary tritium fire effects when in an oxygen-rich mix.
+#define TRITIUM_OXYBURN_MULTIPLIER 10
+/// What fraction of the oxygen content of the mix is used for the burn rate in an oxygen-poor mix.
+#define TRITIUM_BURN_OXY_FACTOR 100
+/// What fraction of the tritium content of the mix is used for the burn rate in an oxygen-rich mix.
+#define TRITIUM_BURN_TRIT_FACTOR 10
+/// The amount of energy released by burning one mole of tritium. (Before [TRITIUM_OXYBURN_MULTIPLIER] is applied if applicable.)
+#define FIRE_TRITIUM_ENERGY_RELEASED 2.8e5
+/// The minimum number of moles of trit that must be burnt for a tritium fire reaction to produce a radiation pulse. (0.01 moles trit or 10 moles oxygen to start producing rads.)
+#define TRITIUM_RADIATION_MINIMUM_MOLES 0.1
+/// The minimum released energy necessary for tritium to release radiation during combustion. (at a mix volume of [CELL_VOLUME]).
+#define TRITIUM_RADIATION_RELEASE_THRESHOLD (FIRE_TRITIUM_ENERGY_RELEASED * TRITIUM_OXYBURN_MULTIPLIER)
+/// A scaling factor for the range of radiation pulses produced by tritium fires.
+#define TRITIUM_RADIATION_RANGE_DIVISOR 4
+/// A scaling factor for the irradiation threshold of radiation pulses produced by tritium fires.
+#define TRITIUM_RADIATION_THRESHOLD_BASE 15
+/// A scaling factor for the irradiation chance from energy released. This is the energy release required for everything in range to have a 50% chance of getting irradiated.
+#define TRITIUM_RADIATION_CHANCE_ENERGY_THRESHOLD_BASE 1.68e9
+/// The minimum radiation pulse range from tritium fires.
+#define TRITIUM_MINIMUM_RADIATION_RANGE 6
 //hydrogen reaction
 #define HYDROGEN_BURN_OXY_FACTOR			100
 #define HYDROGEN_BURN_H2_FACTOR				10

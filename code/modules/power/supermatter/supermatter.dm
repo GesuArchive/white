@@ -173,6 +173,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		GAS_HEALIUM,
 		GAS_PROTO_NITRATE,
 		GAS_ZAUKER,
+		GAS_MIASMA
 	)
 	///The list of gases mapped against their current comp. We use this to calculate different values the supermatter uses, like power or heat resistance. It doesn't perfectly match the air around the sm, instead moving up at a rate determined by gas_change_rate per call. Ranges from 0 to 1
 	var/list/gas_comp = list(
@@ -241,6 +242,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		GAS_HEALIUM = 1,
 		GAS_PROTO_NITRATE = 1,
 		GAS_ZAUKER = 1,
+		GAS_MIASMA = 0.5
 	)
 	///The last air sample's total molar count, will always be above or equal to 0
 	var/combined_gas = 0
