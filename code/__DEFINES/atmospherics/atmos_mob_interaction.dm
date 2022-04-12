@@ -7,7 +7,7 @@
  * graph the functions that describe how it is used/how it interacts with breath code, and pick something on the upper half of the sawtooth
  *
 **/
-#define BREATH_VOLUME 2
+#define BREATH_VOLUME 0.5
 /// Amount of air to take a from a tile
 #define BREATH_PERCENTAGE (BREATH_VOLUME/CELL_VOLUME)
 
