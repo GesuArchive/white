@@ -86,7 +86,7 @@
 
 /datum/gas_reaction/nitrous_decomp/react(datum/gas_mixture/air, datum/holder)
 	var/energy_released = 0
-	var/old_heat_capacity = air.heat_capacity() //this speeds things up because accessing datum vars is slow
+	var/old_heat_capacity = air.heat_capacity()
 	var/temperature = air.return_temperature()
 	var/burned_fuel = 0
 
