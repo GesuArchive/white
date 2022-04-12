@@ -553,7 +553,7 @@
 
 		if(freon_burn_rate > MINIMUM_HEAT_CAPACITY)
 			freon_burn_rate = min(freon_burn_rate,air.get_moles(GAS_FREON),air.get_moles(GAS_O2) / oxygen_burn_rate) //Ensures matter is conserved properly
-			air.set_moles(GAS_FREON,  QUANTIZE(air.get_moles(GAS_FREON) - freon_burn_rate))
+			air.set_moles(GAS_FREON, QUANTIZE(air.get_moles(GAS_FREON) - freon_burn_rate))
 			air.set_moles(GAS_O2, QUANTIZE(air.get_moles(GAS_O2) - (freon_burn_rate * oxygen_burn_rate)))
 			air.adjust_moles(GAS_CO2, freon_burn_rate)
 
@@ -582,7 +582,6 @@
 /datum/gas_reaction/h2fire/react(datum/gas_mixture/air, datum/holder)
 	var/energy_released = 0
 	var/old_heat_capacity = air.heat_capacity()
- //this speeds things up because accessing datum vars is slow
 	var/temperature = air.return_temperature()
 	var/list/cached_results = air.reaction_results
 	cached_results["fire"] = 0
