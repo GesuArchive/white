@@ -211,7 +211,7 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/prisoner
-	name = "тюремный комбинезон"
+	name = "комбинезон заключенного"
 	desc = "Унифицированная тюремная одежда NanoTrasen. Его датчики костюма застряли в положении \"Полностью ВКЛ\"."
 	icon_state = "jumpsuit"
 	greyscale_colors = "#ff8300"
@@ -224,7 +224,7 @@
 	random_sensor = FALSE
 
 /obj/item/clothing/under/rank/prisoner/skirt
-	name = "тюремный юбкомбез"
+	name = "юбкомбез заключенной"
 	desc = "Унифицированная тюремная одежда NanoTrasen. Его датчики костюма застряли в положении \"Полностью ВКЛ\"."
 	icon_state = "jumpskirt"
 	greyscale_colors = "#ff8300"

@@ -221,3 +221,5 @@
 
 /turf/open/floor/plating/asteroid/snow/centcom/New()
 	return
+
+/turf/open/floor/plating/asteroid/no_generation	//	Турф без генерации

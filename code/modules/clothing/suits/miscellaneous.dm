@@ -784,8 +784,8 @@
 	armor = list(MELEE = 5, BULLET = 0, LASER = -5, ENERGY = -15, BOMB = 10, BIO = 0, RAD = 0, FIRE = 20, ACID = 20)
 
 /obj/item/clothing/suit/ghost_sheet
-	name = "призрачный лист"
-	desc = "Руки плавают сами по себе, поэтому они очень жуткие."
+	name = "саван неприкаянного"
+	desc = "Лучшее в мире привидение - дикое, но симпатичное."
 	icon_state = "ghost_sheet"
 	inhand_icon_state = "ghost_sheet"
 	throwforce = 0

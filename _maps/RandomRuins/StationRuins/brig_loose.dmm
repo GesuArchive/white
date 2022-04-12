@@ -270,6 +270,10 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
 /turf/open/floor/plasteel,
 /area/security/brig)
 "ba" = (
@@ -769,6 +773,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "ch" = (
@@ -901,6 +906,11 @@
 /obj/item/stack/sheet/plasteel_armor_plate{
 	amount = 6
 	},
+/obj/item/stack/sheet/plasteel_armor_plate{
+	amount = 6
+	},
+/obj/item/full_armor_upgrade,
+/obj/item/full_armor_upgrade,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "co" = (
@@ -1096,6 +1106,9 @@
 /obj/effect/spawner/lootdrop/maintenance/three,
 /obj/effect/spawner/lootdrop/armory_contraband/metastation,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "cT" = (
@@ -1884,6 +1897,10 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "eC" = (
@@ -2640,6 +2657,9 @@
 	dir = 5
 	},
 /obj/structure/filingcabinet,
+/obj/machinery/light{
+	pixel_y = 0
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "gk" = (

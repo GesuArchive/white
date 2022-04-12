@@ -132,7 +132,7 @@
 	icon = 'icons/obj/device.dmi'
 
 /obj/item/clothing/under/misc/durathread
-	name = "дюратканевый jumpsuit"
+	name = "дюратканевый комбинезон"
 	desc = "A jumpsuit made from durathread, its resilient fibres provide some protection to the wearer."
 	icon_state = "durathread"
 	inhand_icon_state = "durathread"

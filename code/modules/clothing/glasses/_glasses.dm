@@ -257,9 +257,9 @@
 	clothing_traits = list(TRAIT_BOOZE_SLIDER)
 
 /obj/item/clothing/glasses/sunglasses/chemical
-	name = "научные очки"
+	name = "Тактические научные очки"
+	desc = "Тактические очки с научным интерфейсом и встроенным светофильтром, защищающим глаза от ярких вспышек."
 	icon_state = "sunhudsci"
-	desc = "Пара липких фиолетовых солнцезащитных очков, которые позволяют носящему распознавать различные химические соединения с первого взгляда."
 	clothing_flags = SCAN_REAGENTS
 
 /obj/item/clothing/glasses/sunglasses/garb

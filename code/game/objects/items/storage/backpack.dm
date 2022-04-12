@@ -345,11 +345,42 @@
 	icon_state = "duffel"
 	inhand_icon_state = "duffel"
 	slowdown = 1
+	var/static/mutable_appearance/duffel_anti_slow_overlay = mutable_appearance('white/Feline/icons/duffel_anti_slow.dmi', "duffel_overlay", LYING_MOB_LAYER)
 
 /obj/item/storage/backpack/duffelbag/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_combined_w_class = 30
+
+////	Модернизация дюфелей	////
+
+/obj/item/storage/backpack/duffelbag/attackby(obj/item/W, mob/user, params)
+	if(istype(W, /obj/item/duffel_anti_slow) && slowdown > 0)
+		if(slowdown > 0)
+			slowdown = 0
+			playsound(user, 'sound/items/equip/toolbelt_equip.ogg', 100, TRUE)
+			to_chat(user, span_notice("Прикрепляю разгрузочно-подвесную систему к [src]."))
+			add_overlay(duffel_anti_slow_overlay)
+			qdel(W)
+		else
+			to_chat(user, span_warning("[src] уже достаточно удобно сидит на спине и не нуждается в модернизации."))
+	else
+		. = ..()
+/obj/item/duffel_anti_slow
+	name = "разгрузочная система для сумок"
+	desc = "Разгрузочно-подвесная система для больших вещмешков, равномерно распределяющая вес и тем самым снижая нагрузку на пользователя."
+	icon = 'white/Feline/icons/duffel_anti_slow.dmi'
+	icon_state = "duffel_upgrade"
+
+/datum/crafting_recipe/duffel_anti_slow
+	name = "Разгрузочная система для сумок"
+	result =  /obj/item/duffel_anti_slow
+	time = 80
+	reqs = list(/obj/item/stack/sheet/durathread = 2, /obj/item/stack/sheet/cloth = 4, /obj/item/stack/cable_coil = 10)
+	tool_behaviors = list(TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
+	category = CAT_CLOTHING
+
+////	////	////	////	////
 
 /obj/item/storage/backpack/duffelbag/cursed
 	name = "living duffel bag"

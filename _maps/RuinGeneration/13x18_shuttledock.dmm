@@ -33,8 +33,8 @@
 /area/ruin/unpowered)
 "l" = (
 /obj/structure/lattice,
-/turf/open/floor/plating/asteroid/airless,
-/area/template_noop)
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
 "o" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -141,8 +141,8 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "Z" = (
-/turf/open/floor/plating/asteroid/airless,
-/area/template_noop)
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 R

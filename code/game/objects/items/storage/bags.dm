@@ -250,8 +250,11 @@
 
 /obj/item/storage/bag/sheetsnatcher/ComponentInitialize()
 	. = ..()
+	AddElement(/datum/element/rad_insulation, 0.01)
 	var/datum/component/storage/concrete/stack/STR = GetComponent(/datum/component/storage/concrete/stack)
 	STR.allow_quick_empty = TRUE
+	STR.max_combined_w_class = 500
+	STR.max_items = 14
 	STR.set_holdable(list(
 			/obj/item/stack/sheet,
 			/obj/item/stack/tile/bronze
@@ -260,7 +263,7 @@
 			/obj/item/stack/sheet/mineral/sandstone,
 			/obj/item/stack/sheet/mineral/wood
 			))
-	STR.max_combined_stack_amount = 300
+	STR.max_combined_stack_amount = 500
 
 // -----------------------------
 //    Sheet Snatcher (Cyborg)
@@ -274,7 +277,7 @@
 /obj/item/storage/bag/sheetsnatcher/borg/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/concrete/stack/STR = GetComponent(/datum/component/storage/concrete/stack)
-	STR.max_combined_stack_amount = 500
+	STR.max_combined_stack_amount = 1000
 
 // -----------------------------
 //           Book bag
@@ -399,7 +402,7 @@
 	icon_state = "bag_chem"
 	worn_icon_state = "chembag"
 	desc = "Сумка для хранения таблеток, пластырей и бутылочек."
-	resistance_flags = FLAMMABLE
+	resistance_flags = FIRE_PROOF
 
 /obj/item/storage/bag/chemistry/ComponentInitialize()
 	. = ..()

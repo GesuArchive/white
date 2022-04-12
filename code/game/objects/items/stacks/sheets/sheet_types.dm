@@ -390,6 +390,7 @@ GLOBAL_LIST_INIT(durathread_recipes, list ( \
 	new/datum/stack_recipe("дюратканевый берет", /obj/item/clothing/head/beret/durathread, 2, time = 40), \
 	new/datum/stack_recipe("дюратканевая шапочка", /obj/item/clothing/head/beanie/durathread, 2, time = 40), \
 	new/datum/stack_recipe("дюратканевая бандана", /obj/item/clothing/mask/bandana/durathread, 1, time = 25), \
+	new/datum/stack_recipe("раскройка бронежилета", /obj/item/armor_preassembly, 10, time = 25), \
 	))
 
 /obj/item/stack/sheet/durathread
@@ -404,6 +405,12 @@ GLOBAL_LIST_INIT(durathread_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/durathread
 	drop_sound = 'sound/items/handling/cloth_drop.ogg'
 	pickup_sound =  'sound/items/handling/cloth_pickup.ogg'
+
+/obj/item/stack/sheet/durathread/ten
+	amount = 10
+
+/obj/item/stack/sheet/durathread/six
+	amount = 6
 
 /obj/item/stack/sheet/durathread/get_main_recipes()
 	. = ..()

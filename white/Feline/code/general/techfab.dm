@@ -174,7 +174,6 @@
 			add_overlay(part_overlay)
 			add_overlay("evidence")
 
-//obj/item/storage/part_replacer/stock_parts_box_x10/emptyStorage(mob/M)
 /obj/item/storage/part_replacer/stock_parts_box_x10/attack_self(mob/user)
 	. = ..()
 	to_chat(user, span_notice("Разрываю [src] на кусочки."))
@@ -182,21 +181,13 @@
 	playsound(src, ripsound, 40, TRUE)
 	qdel(src)
 
-
 /obj/item/storage/part_replacer/pre_attack(obj/item/storage/part_replacer/stock_parts_box_x10/T, mob/living/user, params)
 	if(istype(T))
 		T.emptyStorage()
 		to_chat(user, span_notice("Разрываю [T] на кусочки."))
 		playsound(get_turf(user), 'white/valtos/sounds/rip1.ogg', 40, TRUE)
-
 		qdel(T)
 	return ..()
-/*
-/obj/item/storage/part_replacer/afterattack(obj/item/storage/part_replacer/stock_parts_box_x10/T, mob/living/user, adjacent, params)
-	if(istype(T))
-		qdel(T)
-	return ..()
-*/
 
 //	Детали Т1 х10
 

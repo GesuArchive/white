@@ -1,6 +1,6 @@
 /obj/item/organ/zombie_infection
-	name = "festering ooze"
-	desc = "A black web of pus and viscera."
+	name = "некротическая опухоль"
+	desc = "Отвратительная даже на вид, черная как смола и медленно растекающаяся в бесформенную лужу. Прозванная в народе гнойная слизь или же черная смерть. Ксенопаразит, медленно убивающий своего носителя и трансформирующий его в безмозглую и опасную тварь, преследуемую чудовищной жаждой плоти, крови и желанием распространить заразу дальше. И погодите... кажется она шевелится?"
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_ZOMBIE
 	icon_state = "blacktumor"
@@ -37,9 +37,8 @@
 		deltimer(timer_id)
 
 /obj/item/organ/zombie_infection/on_find(mob/living/finder)
-	to_chat(finder, "<span class='warning'>Inside the head is a disgusting black \
-		web of pus and viscera, bound tightly around the brain like some \
-		biological harness.</span>")
+	to_chat(finder, "<span class='warning'>Внутри головы находится огромная, черная как смола опухоль, \
+		распустившая свои метастазы, и как паутина, оплела мозг жертвы. Это выглядит очень мерзко и страшно...</span>")
 
 /obj/item/organ/zombie_infection/process(delta_time)
 	if(!owner)
@@ -51,7 +50,7 @@
 	if (causes_damage && !iszombie(owner) && owner.stat != DEAD)
 		owner.adjustToxLoss(0.5 * delta_time)
 		if(DT_PROB(5, delta_time))
-			to_chat(owner, span_danger("Мне плохо..."))
+			to_chat(owner, span_danger("Мне очень плохо... У меня болит голова, а во рту вкус мяса..."))
 	if(timer_id)
 		return
 	if(owner.suiciding)
@@ -61,9 +60,9 @@
 	if(!owner.getorgan(/obj/item/organ/brain))
 		return
 	if(!iszombie(owner))
-		to_chat(owner, "<span class='cultlarge'>You can feel your heart stopping, but something isn't right... \
-		life has not abandoned your broken form. You can only feel a deep and immutable hunger that \
-		not even death can stop, you will rise again!</span>")
+		to_chat(owner, "<span class='cultlarge'>Я чувствую как мое сердце не бьется... но... что-то не так... \
+		я еще жив? Во рту вкус крови... Что значит жить? Хочу есть... Кто я? Так холодно... Я мертв? Нужно найти что то теплое... А что значит Я? Еда... \
+		Какая разница... я хочу есть... Я ХОЧУ ЖРАТЬ!</span>")
 	var/revive_time = rand(revive_time_min, revive_time_max)
 	var/flags = TIMER_STOPPABLE
 	timer_id = addtimer(CALLBACK(src, .proc/zombify), revive_time, flags)
@@ -78,7 +77,7 @@
 		old_species = owner.dna.species.type
 		owner.set_species(zombie_species)
 
-	var/stand_up = (owner.stat == DEAD) || (owner.stat == UNCONSCIOUS)
+//	var/stand_up = (owner.stat == DEAD) || (owner.stat == UNCONSCIOUS)
 
 	//Fully heal the zombie's damage the first time they rise
 	owner.setToxLoss(0, 0)
@@ -89,11 +88,11 @@
 		return
 
 	owner.grab_ghost()
-	owner.visible_message(span_danger("[owner] suddenly convulses, as [owner.ru_who()][stand_up ? " stagger to [owner.ru_ego()] feet and" : ""] gain a ravenous hunger in [owner.ru_ego()] eyes!") , span_alien("You HUNGER!"))
+	owner.visible_message(span_danger("[owner] внезапно дергается, открывает затянутые мутной пеленой глаза... В этом мертвом взгляде нет даже проблеска сознания, лишь только бесконечный голод...") , span_alien("Я-я-я хочу ЖРАААТЬ!"))
 	playsound(owner.loc, 'sound/hallucinations/far_noise.ogg', 50, TRUE)
 	owner.do_jitter_animation(living_transformation_time)
 	owner.Stun(living_transformation_time)
-	to_chat(owner, span_alertalien("You are now a zombie! Do not seek to be cured, do not help any non-zombies in any way, do not harm your zombie brethren and spread the disease by killing others. You are a creature of hunger and violence."))
+	to_chat(owner, span_alertalien("Ты мертв! Но твоя \"не жизнь\" только начинается! Ты не помнишь ничего о происходящем, все эти люди вокруг теперь всего лишь еда! Твои мертвые товарищи тебе абсолютно не интересны и у тебя нет никакого желания нападать на них! Ты гоним лишь жаждой плоти, и даже смерть не остановит тебя!"))
 
 /obj/item/organ/zombie_infection/nodamage
 	causes_damage = FALSE

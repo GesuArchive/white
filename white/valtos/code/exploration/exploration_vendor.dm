@@ -22,6 +22,7 @@
 		new /datum/data/vendor_equipment("Продвинутая аптечка",			/obj/item/storage/firstaid/advanced,								3000),
 		new /datum/data/vendor_equipment("Разгрузка исследователя",		/obj/item/storage/belt/mining,										2000),
 		new /datum/data/vendor_equipment("Бандольер",					/obj/item/storage/belt/bandolier,									2000),
+		new /datum/data/vendor_equipment("Улучшенные ремни сумок",		/obj/item/duffel_anti_slow,											2000),
 		new /datum/data/vendor_equipment("Пробивной заряд",				/obj/item/grenade/exploration,										1000),
 		new /datum/data/vendor_equipment("Радио-детонатор",				/obj/item/exploration_detonator,									5000),
 		new /datum/data/vendor_equipment("Блюспейс-маяк",				/obj/item/sbeacondrop/exploration,									3000),

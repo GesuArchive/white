@@ -235,6 +235,11 @@
 	pixel_y = -2
 	},
 /obj/item/gun/energy/e_gun/dragnet,
+/obj/item/stack/sheet/plasteel_armor_plate{
+	amount = 6
+	},
+/obj/item/full_armor_upgrade,
+/obj/item/full_armor_upgrade,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "bX" = (
@@ -509,6 +514,9 @@
 /obj/structure/closet/secure_closet/contraband/armory,
 /obj/effect/spawner/lootdrop/maintenance/three,
 /obj/effect/spawner/lootdrop/armory_contraband/metastation,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/security/armory)
 "cH" = (
@@ -1244,6 +1252,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "eP" = (
@@ -1543,6 +1555,10 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
+/obj/machinery/door/poddoor/preopen{
+	id = "briggateteh";
+	name = "security blast door"
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "fy" = (
@@ -1785,6 +1801,12 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/button/door{
+	id = "briggateteh";
+	name = "Бронешторы";
+	pixel_x = 39;
+	pixel_y = 6
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "fW" = (
@@ -2034,6 +2056,7 @@
 	dir = 5
 	},
 /obj/structure/filingcabinet,
+/obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/security/main)
 "gv" = (
@@ -2547,6 +2570,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
+/obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "hU" = (
@@ -3438,6 +3462,19 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/heads_quarters/hos)
+"GE" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
+/turf/open/floor/plasteel,
+/area/security/brig)
 "Hn" = (
 /obj/structure/table,
 /obj/item/stack/package_wrap,
@@ -4921,7 +4958,7 @@ ff
 eC
 ff
 eC
-gU
+GE
 hv
 hS
 ez
@@ -5317,7 +5354,7 @@ fl
 fL
 gj
 eC
-gU
+GE
 hv
 iL
 ir

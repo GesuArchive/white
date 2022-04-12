@@ -62,6 +62,6 @@
 		else
 			A.bank_card_talk("Было получено [goyam] кредитов за содействие выполнению поручений NanoTrasen.")
 			A.adjust_money(goyam)
-	GLOB.exploration_points += payout * 5
+	GLOB.exploration_points += payout / 2
 	//Delete
 	QDEL_NULL(SSorbits.current_objective)

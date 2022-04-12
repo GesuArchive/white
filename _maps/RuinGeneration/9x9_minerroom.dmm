@@ -248,12 +248,7 @@
 	output_dir = 4;
 	req_access = 0
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "U" = (
@@ -285,7 +280,6 @@
 	name = "Robotics Desk";
 	req_access_txt = "29"
 	},
-/obj/machinery/door/firedoor,
 /obj/item/stack/ore/bananium{
 	amount = 10;
 	pixel_x = 10;

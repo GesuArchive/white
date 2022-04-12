@@ -60,8 +60,8 @@
 	glass_colour_type = /datum/client_colour/glass_colour/green
 
 /obj/item/clothing/glasses/hud/health/sunglasses
-	name = "медицинские солнцезащитные очки с HUD"
-	desc = "Солнцезащитные очки с медицинским HUD."
+	name = "Тактические медицинские очки"
+	desc = "Тактические очки с медицинским интерфейсом и встроенным светофильтром, защищающим глаза от ярких вспышек."
 	icon_state = "sunhudmed"
 	darkness_view = 1
 	flash_protect = FLASH_PROTECTION_FLASH
@@ -87,8 +87,8 @@
 	glass_colour_type = /datum/client_colour/glass_colour/green
 
 /obj/item/clothing/glasses/hud/diagnostic/sunglasses
-	name = "диагностические солнцезащитные очки"
-	desc = "Солнцезащитные очки с диагностическим HUD."
+	name = "Тактические диагностические очки"
+	desc = "Тактические очки с диагностическим интерфейсом и встроенным светофильтром, защищающим глаза от ярких вспышек."
 	icon_state = "sunhuddiag"
 	inhand_icon_state = "glasses"
 	flash_protect = FLASH_PROTECTION_FLASH
@@ -132,8 +132,8 @@
 	icon_state = "hudpatch"
 
 /obj/item/clothing/glasses/hud/security/sunglasses
-	name = "солнцезащитный HUD офицера"
-	desc = "Солнцезащитные очки с защитой от вспышек и HUD."
+	name = "Тактические очки офицера"
+	desc = "Тактические очки с интерфейсом СБ и встроенным светофильтром, защищающим глаза от ярких вспышек."
 	icon_state = "sunhudsec"
 	darkness_view = 1
 	flash_protect = FLASH_PROTECTION_FLASH
@@ -150,7 +150,7 @@
 	glass_colour_type = /datum/client_colour/glass_colour/green
 
 /obj/item/clothing/glasses/hud/security/sunglasses/gars
-	name = "HUD GAR очки"
+	name = "тактические GAR очки"
 	desc = "GAR очки с HUD."
 	icon_state = "gars"
 	inhand_icon_state = "garb"

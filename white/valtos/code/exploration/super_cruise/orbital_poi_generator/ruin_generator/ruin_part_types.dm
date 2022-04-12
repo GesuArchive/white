@@ -400,11 +400,6 @@
 	weight = 3
 	max_occurances = 2
 
-/datum/map_template/ruin_part/miner
-	file_name = "9x9_minerroom"
-	weight = 3
-	max_occurances = 2
-
 /datum/map_template/ruin_part/lounge
 	file_name = "5x9_lounge"
 	weight = 4
@@ -491,6 +486,21 @@
 	file_name = "21x17_shuttledock"
 	weight = 4
 	max_occurances = 1
+
+//	Ресурсные комнаты
+
+/datum/map_template/ruin_part/miner		//	Есть все виды ресурсов, но в виде руды и в небольших количествах
+	file_name = "9x9_minerroom"
+	weight = 3
+	max_occurances = 2
+
+/datum/map_template/ruin_part/vault		//	Много Золота, Серебра и Алмазов
+	file_name = "11x11_vault"
+	weight = 3
+	max_occurances = 1
+
+
+// 	Обитаемые
 
 /datum/map_template/ruin_part/charliestation
 	file_name = "69x45_charliestation"

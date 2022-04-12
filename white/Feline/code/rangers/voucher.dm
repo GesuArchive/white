@@ -141,6 +141,7 @@
 
 /obj/item/storage/backpack/duffelbag/rangers/gunner/PopulateContents()
 	new /obj/item/gun/energy/laser/rangers(src)
+	new /obj/item/storage/belt/avangard_belt(src)
 	new /obj/item/forcefield_projector(src)
 	new /obj/item/clothing/glasses/night(src)
 	new /obj/item/storage/pill_bottle/psicodine(src)
@@ -157,4 +158,251 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/pve)
 	cell_type = /obj/item/stock_parts/cell/hos_gun
 
+////	Протонный резак		////
+
+/obj/item/melee/sabre/proton_cutter
+	name = "протонный резак"
+	desc = "Массивный абордажный палаш оснащенный генератором гамма излучения, которое негативно сказывается на нервной системе примитивных форм жизни. Так же можно дополнительно форсировать генератор для полной парализации. Эффект на разумные формы жизни значительно снижен."
+
+	force = 15
+	block_chance = 30
+	armour_penetration = 10
+	wound_bonus = 0
+	bare_wound_bonus = 5
+
+	icon = 'white/Feline/icons/proton_cutter.dmi'
+	icon_state = "proton"
+	lefthand_file = 'white/Feline/icons/proton_cutter_left.dmi'
+	righthand_file = 'white/Feline/icons/proton_cutter_right.dmi'
+	inhand_icon_state = "proton"
+	light_color = "#41f4e5"
+	light_power = 2
+	light_range = 3
+	light_on = FALSE
+	light_system = MOVABLE_LIGHT
+
+	var/amplification = FALSE
+	var/last_activation = 0
+	var/recharge = 10 SECONDS
+	var/static/mutable_appearance/stun_overlay = mutable_appearance('white/Feline/icons/proton_cutter_stun.dmi', "stun", LYING_MOB_LAYER)
+
+	var/datum/effect_system/spark_spread/sparks
+
+/obj/item/melee/sabre/proton_cutter/Initialize()	// 	Искры
+	. = ..()
+	sparks = new
+	sparks.set_up(5, 0, src)
+	sparks.attach(src)
+
+/obj/item/melee/sabre/proton_cutter/Destroy()
+	if(sparks)
+		qdel(sparks)
+	sparks = null
+	. = ..()
+
+/obj/item/melee/sabre/proton_cutter/on_exit_storage(datum/component/storage/concrete/S)		//	Выхватывание из ножен, звуки
+	var/obj/item/storage/belt/avangard_belt/B = S.real_location()
+	if(istype(B))
+		playsound(B, 'sound/items/unsheath.ogg', 25, TRUE)
+
+/obj/item/melee/sabre/proton_cutter/on_enter_storage(datum/component/storage/concrete/S)
+	var/obj/item/storage/belt/avangard_belt/B = S.real_location()
+	if(istype(B))
+		playsound(B, 'sound/items/sheath.ogg', 25, TRUE)
+		if(amplification)
+			proton_off()
+			playsound(B, 'white/Feline/sounds/proton_cutter_off.ogg', 100, TRUE)
+
+/datum/movespeed_modifier/proton_cutter		//	Контроль
+	multiplicative_slowdown = 0.5
+
+/datum/movespeed_modifier/proton_cutter_heavy
+	multiplicative_slowdown = 0.1
+
+/obj/item/melee/sabre/proton_cutter/attack_self(mob/user)	//	Зарядка
+	if(!amplification)
+		if(last_activation + recharge < world.time)
+			icon_state = "proton-on"
+			inhand_icon_state = "proton-on"
+			light_range = 3
+//			update_light()
+			playsound(user, 'white/Feline/sounds/proton_cutter.ogg', 100, TRUE)
+			user.visible_message(span_warning("Протонный резак в руках [user] выплескивает шквал искр!"), span_notice("Форсирую генератор гамма излучения. Протонный резак выплескивает шквал искр!"))
+			sparks.start()
+			amplification = TRUE
+			set_light_on(amplification)
+		else
+			to_chat(user, span_warning("Генератор перегружен! Необходимо охлаждение перед повторным применением."))
+	else
+		proton_off()
+		playsound(user, 'white/Feline/sounds/proton_cutter_off.ogg', 100, TRUE)
+		to_chat(user, span_notice("Приглушаю генератор гамма излучения!"))
+
+#define isstunmob(A) (istype(A, /mob/living/simple_animal/hostile/zombie) || istype(A, /mob/living/simple_animal/hostile/alien) || istype(A, /mob/living/simple_animal/hostile/poison/giant_spider))
+
+/mob/living/simple_animal/proc/re_ai()
+	AIStatus = AI_ON
+
+/obj/item/melee/sabre/proton_cutter/proc/proton_off()	//	Стандартное выключение
+	amplification = FALSE
+	set_light_on(amplification)
+	icon_state = "proton"
+	inhand_icon_state = "proton"
+	light_range = 0
+
+/obj/item/melee/sabre/proton_cutter/proc/proton_attack(mob/living/M, mob/living/user, var/T)	// 	+ После удара
+	M.add_overlay(stun_overlay)
+	addtimer(CALLBACK(M, /atom/proc/cut_overlay, stun_overlay), T SECONDS)
+	last_activation = world.time
+	if(prob(50))
+		playsound(user, 'white/Feline/sounds/proton_cutter_amp_hit_1.ogg', 100, TRUE)
+	else
+		playsound(user, 'white/Feline/sounds/proton_cutter_amp_hit_2.ogg', 100, TRUE)
+
+
+/obj/item/melee/sabre/proton_cutter/attack(mob/living/M, mob/living/user)	// 	Атака
+	// 	Мобы
+	if(!iscarbon(M) && !iscyborg(M))
+		if(amplification)
+
+			if(isstunmob(M))
+				var/mob/living/simple_animal/hostile/zombie/Z = M
+				Z.AIStatus = AI_OFF
+				addtimer(CALLBACK(Z, /mob/living/simple_animal/proc/re_ai), 5 SECONDS)
+
+			force = 60
+			M.Paralyze(5 SECONDS, ignore_canstun = TRUE)
+			M.Jitter(5 SECONDS)
+			proton_off()
+			proton_attack(M, user, 5)
+		else
+			force = 30
+		..()
+		return
+// 	Киборги
+	if(iscyborg(M))
+		if(amplification)
+			force = 30
+			M.Paralyze(5 SECONDS)
+			proton_off()
+			proton_attack(M, user, 5)
+		else
+			force = 15
+		..()
+		return
+// 	Космонавтики
+	if(iscarbon(M) && !isalien(M))
+		if(amplification)
+			force = 25
+			M.add_movespeed_modifier(/datum/movespeed_modifier/proton_cutter)
+			addtimer(CALLBACK(M, /mob/proc/remove_movespeed_modifier, /datum/movespeed_modifier/proton_cutter), 5 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+			proton_off()
+			proton_attack(M, user, 5)
+		else
+			force = 15
+		..()
+		return
+// 	Чужие
+	if(isalienadult(M))
+		if(amplification)
+			force = 60
+
+			if(isstunmob(M) && !isalienroyal(M))
+				var/mob/living/simple_animal/hostile/alien/Z = M
+				Z.AIStatus = AI_OFF
+				addtimer(CALLBACK(Z, /mob/living/simple_animal/proc/re_ai), 5 SECONDS)
+				addtimer(CALLBACK(M, /atom/proc/cut_overlay, stun_overlay), 5 SECONDS)
+/*			else
+				if(isstunmob(M))
+					var/mob/living/simple_animal/hostile/alien/Z = M
+					Z.AIStatus = AI_OFF
+					addtimer(CALLBACK(Z, /mob/living/simple_animal/proc/re_ai), 2 SECONDS)
+*/
+			if(!isalienroyal(M))
+				M.Paralyze(5 SECONDS, ignore_canstun = TRUE)
+			else
+				M.add_movespeed_modifier(/datum/movespeed_modifier/proton_cutter_heavy)
+				addtimer(CALLBACK(M, /mob/proc/remove_movespeed_modifier, /datum/movespeed_modifier/proton_cutter_heavy), 5 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+			proton_off()
+			proton_attack(M, user, 5)
+		else
+			force = 30
+		..()
+		return
+
+/obj/item/storage/belt/avangard_belt
+	name = "пояс авангарда рейнджеров"
+	desc = "Специальные тактические ножны для протонного резака оснащенные удобными карманами для снаряжения."
+	icon = 'white/Feline/icons/rangers_belt.dmi'
+	icon_state = "avangard"
+	inhand_icon_state = "security"
+	worn_icon = 'white/Feline/icons/rangers_belt_back.dmi'
+	worn_icon_state = "avangard"
+	content_overlays = FALSE
+	w_class = WEIGHT_CLASS_BULKY
+
+/obj/item/storage/belt/avangard_belt/update_icon_state()
+	if(locate(/obj/item/melee/sabre/proton_cutter) in contents)
+		icon_state = "avangard-on"
+		worn_icon_state = "avangard-on"
+	else
+		icon_state = "avangard"
+		worn_icon_state = "avangard"
+	return ..()
+
+/obj/item/storage/belt/avangard_belt/examine(mob/user)
+	. = ..()
+	. += "<hr>"
+	if(length(contents))
+		. += span_notice("ПКМ, чтобы мгновенно выхватить резак.")
+
+/obj/item/storage/belt/avangard_belt/attack_hand_secondary(mob/user, list/modifiers)
+
+	if(loc == user)
+		if(user.get_item_by_slot(ITEM_SLOT_BELT) == src)
+			if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
+				return
+			for(var/i in contents)
+				if(istype(i, /obj/item/melee/sabre/proton_cutter))
+					user.visible_message(span_notice("[user] достаёт из ножен [i]."), span_notice("Достаю [i] из ножен."))
+					user.put_in_hands(i)
+					update_appearance()
+					playsound(user, 'sound/items/unsheath.ogg', 40, TRUE)
+					return
+	else ..()
+	return
+
+/obj/item/storage/belt/avangard_belt/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_items = 5
+	STR.max_w_class = WEIGHT_CLASS_BULKY
+	STR.silent = TRUE
+	STR.set_holdable(list(
+		/obj/item/melee/sabre/proton_cutter,
+		/obj/item/melee/classic_baton,
+		/obj/item/gun/energy/e_gun/mini/exploration,
+		/obj/item/kitchen/knife,
+		/obj/item/ammo_box,
+		/obj/item/ammo_casing/shotgun,
+		/obj/item/grenade,
+		/obj/item/forcefield_projector,
+		/obj/item/shield/riot/tele,
+		/obj/item/clothing/glasses,
+		/obj/item/clothing/gloves,
+		/obj/item/gps,
+		/obj/item/healthanalyzer,
+		/obj/item/storage/pill_bottle,
+		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/reagent_containers/medigel,
+		/obj/item/stack/medical,
+		/obj/item/reagent_containers/food/drinks
+		))
+
+/obj/item/storage/belt/avangard_belt/PopulateContents()
+	new /obj/item/melee/sabre/proton_cutter(src)
+	update_appearance()
 

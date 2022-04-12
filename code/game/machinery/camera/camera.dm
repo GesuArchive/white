@@ -60,6 +60,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 	light_range = 10
 	start_active = TRUE
 
+/obj/machinery/camera/preset/toxins/num1
+	name = "полигонная камера №1"
+	c_tag = "Bomb Testing Site №1"
+
+/obj/machinery/camera/preset/toxins/num2
+	name = "полигонная камера №2"
+	c_tag = "Bomb Testing Site №2"
+
 /obj/machinery/camera/Initialize(mapload, obj/structure/camera_assembly/CA)
 	. = ..()
 	for(var/i in network)

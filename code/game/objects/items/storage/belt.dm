@@ -648,8 +648,8 @@
 		))
 
 /obj/item/storage/belt/fannypack
-	name = "поясная сумка"
-	desc = "Придурковатая поясная сумка для хранения мелких вещей."
+	name = "Барсетка"
+	desc = "Эй! Это не косметичка - это мужская сумка!."
 	icon_state = "fannypack_leather"
 	inhand_icon_state = "fannypack_leather"
 	worn_icon_state = "fannypack_leather"

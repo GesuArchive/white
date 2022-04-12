@@ -30,6 +30,7 @@
 	soundloop = new(src, FALSE, TRUE)
 	soundloop.volume = 5
 	START_PROCESSING(SSobj, src)
+	AddComponent(/datum/component/armor_plate/plasteel)
 
 /obj/item/clothing/head/helmet/space/hardsuit/Destroy()
 	. = ..()
@@ -122,6 +123,7 @@
 /obj/item/clothing/suit/space/hardsuit/Initialize()
 	if(jetpack && ispath(jetpack))
 		jetpack = new jetpack(src)
+	AddComponent(/datum/component/armor_plate/plasteel)
 	. = ..()
 
 /obj/item/clothing/suit/space/hardsuit/attack_self(mob/user)

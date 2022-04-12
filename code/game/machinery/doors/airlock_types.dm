@@ -477,6 +477,19 @@
 	security_level = 1
 	damage_deflection = 30
 
+
+/obj/machinery/door/airlock/highsecurity/gold
+	name = "Золотохранилище"
+	icon = 'icons/obj/doors/airlocks/highsec/highsec.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/highsec/overlays.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_highsecurity
+	explosion_block = 2
+	normal_integrity = 500
+	security_level = 1
+	damage_deflection = 30
+	color = "#d7e60e"
+
+
 //////////////////////////////////
 /*
 	Shuttle Airlocks

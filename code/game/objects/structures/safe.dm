@@ -164,10 +164,12 @@ FLOOR SAFES
 					current_tumbler_index = 1
 
 				if(!invalid_turn && dial == tumblers[current_tumbler_index])
-					notify_user(user, canhear, list("tink", "krink", "plink"), ticks, i)
+					notify_user(user, canhear, list("tink", "krink", "plink"), ticks, i)	//	Верно
+					playsound(user, 'white/Feline/sounds/safe_true.ogg', 50, TRUE)
 					current_tumbler_index++
 				else
-					notify_user(user, canhear, list("clack", "scrape", "clank"), ticks, i)
+					notify_user(user, canhear, list("clack", "scrape", "clank"), ticks, i)	//	Не верно
+					playsound(user, 'white/Feline/sounds/safe_wrong.ogg', 50, TRUE)
 			check_unlocked()
 			return TRUE
 		if("turnleft")
@@ -185,10 +187,12 @@ FLOOR SAFES
 					current_tumbler_index = 1
 
 				if(!invalid_turn && dial == tumblers[current_tumbler_index])
-					notify_user(user, canhear, list("tonk", "krunk", "plunk"), ticks, i)
+					notify_user(user, canhear, list("tonk", "krunk", "plunk"), ticks, i)	//	Верно
+					playsound(user, 'white/Feline/sounds/safe_true.ogg', 50, TRUE)
 					current_tumbler_index++
 				else
-					notify_user(user, canhear, list("click", "chink", "clink"), ticks, i)
+					notify_user(user, canhear, list("click", "chink", "clink"), ticks, i)	//	Не верно
+					playsound(user, 'white/Feline/sounds/safe_wrong.ogg', 50, TRUE)
 			check_unlocked()
 			return TRUE
 		if("retrieve")

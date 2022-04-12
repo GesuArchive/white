@@ -57,7 +57,7 @@
 	flags_1 = NONE
 
 /obj/item/clothing/shoes/sneakers/orange
-	name = "оранжевые ботинки"
+	name = "тюремные ботинки"
 	greyscale_colors = "#eb7016#ffffff"
 	greyscale_config = /datum/greyscale_config/sneakers_orange
 	greyscale_config_worn = /datum/greyscale_config/sneakers_orange_worn

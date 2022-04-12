@@ -1,6 +1,6 @@
 //telepadovo
 
-/area/ruin/space/has_grav/telepadovo
+/area/ruin/space/has_grav/powered/telepadovo
 	name = "Телепадово"
 
 /datum/map_template/ruin/space/telepadovo

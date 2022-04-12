@@ -4,6 +4,7 @@
 /area/ruin/unpowered)
 "d" = (
 /obj/structure/table/wood,
+/obj/item/storage/blister/twocap/stimulant,
 /turf/open/floor/wood,
 /area/ruin/unpowered)
 "e" = (
@@ -86,7 +87,7 @@
 /area/ruin/unpowered)
 "R" = (
 /obj/structure/table,
-/obj/item/storage/blister/twocap/stimulant,
+/obj/machinery/recharger,
 /turf/open/floor/wood,
 /area/ruin/unpowered)
 "S" = (

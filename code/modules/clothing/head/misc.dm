@@ -520,8 +520,8 @@
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT(type))
 
 /obj/item/clothing/head/rainbowbunchcrown
-	name = "rainbow flower crown"
-	desc = "A flower crown made out of the flowers of the rainbow bunch plant."
+	name = "Радужная цветочная корона"
+	desc = "Цветочная корона, сделанная из разноцветных цветов."
 	dynamic_hair_suffix = ""
 	attack_verb_continuous = list("коронует")
 	attack_verb_simple = list("коронует")
@@ -544,24 +544,24 @@
 			icon_state = "rainbow_bunch_crown_4"
 
 /obj/item/clothing/head/sunflowercrown
-	name = "sunflower crown"
-	desc = "A bright flower crown made out sunflowers that is sure to brighten up anyone's day!"
+	name = "Солнечная цветочная корона"
+	desc = "Яркая цветочная корона из подсолнухов, которая обязательно скрасит любой день!"
 	icon_state = "sunflower_crown"
 	dynamic_hair_suffix = ""
 	attack_verb_continuous = list("коронует")
 	attack_verb_simple = list("коронует")
 
 /obj/item/clothing/head/poppycrown
-	name = "poppy crown"
-	desc = "A flower crown made out of a string of bright red poppies."
+	name = "Алая цветочная корона"
+	desc = "Цветочная корона, сделанная из гирлянды ярко-красных маков."
 	icon_state = "poppy_crown"
 	dynamic_hair_suffix = ""
 	attack_verb_continuous = list("коронует")
 	attack_verb_simple = list("коронует")
 
 /obj/item/clothing/head/lilycrown
-	name = "lily crown"
-	desc = "A leafy flower crown with a cluster of large white lilies at at the front."
+	name = "Невинная цветочная корона"
+	desc = "Покрытая листьями цветочная корона украшенная большими белыми лилиями."
 	icon_state = "lily_crown"
 	dynamic_hair_suffix = ""
 	attack_verb_continuous = list("коронует")

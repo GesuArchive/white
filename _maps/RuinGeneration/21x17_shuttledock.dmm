@@ -89,8 +89,8 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "A" = (
-/turf/open/floor/plating/asteroid/airless,
-/area/template_noop)
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
 "B" = (
 /obj/effect/turf_decal/box,
 /obj/machinery/space_heater,

@@ -2,7 +2,7 @@
 "aH" = (
 /obj/structure/transit_tube/diagonal,
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/open/floor/plating/asteroid,
 /area/space)
 "bw" = (
 /obj/effect/turf_decal/stripes/line{
@@ -20,6 +20,15 @@
 	req_access_txt = "12"
 	},
 /obj/effect/mapping_helpers/airlock/abandoned,
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/ruin/unpowered)
+"cr" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/box,
+/obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "cP" = (
@@ -48,22 +57,15 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "ge" = (
-/obj/structure/sign/warning/vacuum{
-	pixel_y = 32
-	},
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating,
+/obj/structure/sign/warning/vacuum,
+/turf/closed/wall,
 /area/ruin/unpowered)
 "gp" = (
-/obj/machinery/power/smes{
-	charge = 5e+006
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/machinery/power/smes/engineering,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "he" = (
@@ -71,7 +73,7 @@
 	dir = 1
 	},
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/open/floor/plating/asteroid,
 /area/space)
 "hn" = (
 /obj/effect/turf_decal/stripes/line,
@@ -79,14 +81,21 @@
 /obj/structure/closet/emcloset,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
+"hK" = (
+/turf/open/floor/plating/asteroid,
+/area/space)
 "ie" = (
-/obj/machinery/power/terminal,
-/obj/structure/cable{
-	icon_state = "0-8"
+/obj/effect/turf_decal/delivery,
+/obj/machinery/button/door{
+	id = "exploration_ex_cargo1";
+	name = "Cargo Shutters Control";
+	pixel_x = 32;
+	req_access_txt = "49"
 	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 5
+/obj/machinery/door/poddoor/shutters{
+	id = "exploration_ex_cargo1"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "jk" = (
@@ -102,17 +111,22 @@
 "jZ" = (
 /turf/open/floor/plating/asteroid,
 /area/ruin/unpowered)
-"kN" = (
-/obj/machinery/door/airlock/external/glass{
-	name = "Escape Pod Charlie"
+"kI" = (
+/obj/structure/window/reinforced/spawner{
+	dir = 8
 	},
-/obj/effect/mapping_helpers/airlock/locked,
-/turf/open/floor/plating,
+/obj/structure/table,
+/obj/machinery/recharger{
+	pixel_y = 4
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"kN" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
 /area/ruin/unpowered)
 "kS" = (
-/obj/structure/window/reinforced/spawner{
-	dir = 1
-	},
+/obj/structure/window/reinforced/spawner,
 /turf/open/floor/plating/asteroid,
 /area/ruin/unpowered)
 "lc" = (
@@ -120,6 +134,10 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light/small,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "lO" = (
@@ -140,15 +158,34 @@
 	},
 /turf/open/floor/plating/asteroid,
 /area/ruin/unpowered)
+"mm" = (
+/obj/machinery/door/airlock/external{
+	name = "Escape Airlock"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/ruin/unpowered)
 "mE" = (
 /obj/structure/window/reinforced/spawner,
-/turf/open/space/basic,
+/turf/open/floor/plating/asteroid,
 /area/space)
 "nz" = (
 /obj/structure/closet/crate,
 /obj/effect/spawner/lootdrop/maintenance,
 /obj/effect/spawner/lootdrop/ruinloot/basic,
 /turf/open/floor/plating/asteroid,
+/area/ruin/unpowered)
+"ou" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Maintenance Hatch";
+	req_access_txt = "12"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
 /area/ruin/unpowered)
 "oT" = (
 /obj/structure/window/reinforced/spawner{
@@ -199,10 +236,21 @@
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plating/asteroid,
 /area/ruin/unpowered)
+"to" = (
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
 "tH" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
+/turf/open/floor/plating,
+/area/ruin/unpowered)
+"uc" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/door/poddoor/shutters{
+	id = "exploration_ex_cargo1"
+	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "uX" = (
@@ -217,7 +265,11 @@
 	},
 /obj/structure/transit_tube/curved,
 /obj/structure/lattice/catwalk,
-/turf/open/space/basic,
+/turf/open/floor/plating/asteroid,
+/area/space)
+"vj" = (
+/obj/structure/lattice,
+/turf/open/floor/plating/asteroid,
 /area/space)
 "vN" = (
 /obj/effect/turf_decal/stripes/line{
@@ -228,7 +280,12 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "vY" = (
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/ruinloot/medical,
+/obj/effect/spawner/lootdrop/ruinloot/medical,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "vZ" = (
@@ -267,7 +324,7 @@
 "xY" = (
 /obj/structure/window/reinforced/spawner,
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/open/floor/plating/asteroid,
 /area/space)
 "ym" = (
 /obj/effect/turf_decal/stripes/line{
@@ -302,7 +359,10 @@
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "AC" = (
-/turf/closed/wall/mineral/plastitanium,
+/obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/ruinloot/armoury,
+/obj/effect/spawner/lootdrop/ruinloot/armoury,
+/turf/open/floor/plating,
 /area/ruin/unpowered)
 "AQ" = (
 /obj/effect/turf_decal/stripes/line{
@@ -320,12 +380,17 @@
 /obj/effect/landmark/stationroom/maintenance/rdm3x5,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
+"Cl" = (
+/obj/effect/turf_decal/box,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/floor/plating,
+/area/ruin/unpowered)
 "Co" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/window/reinforced/spawner{
 	dir = 8
 	},
-/turf/open/space/basic,
+/turf/open/floor/plating/asteroid,
 /area/space)
 "Cr" = (
 /obj/effect/turf_decal/stripes/line,
@@ -352,18 +417,19 @@
 "Dx" = (
 /obj/structure/window/reinforced/spawner,
 /obj/structure/transit_tube/diagonal,
-/turf/open/space/basic,
+/turf/open/floor/plating/asteroid,
 /area/space)
 "EC" = (
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "EF" = (
 /obj/structure/transit_tube/diagonal/crossing,
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/open/floor/plating/asteroid,
 /area/space)
 "Fv" = (
 /obj/effect/turf_decal/stripes/line{
@@ -377,13 +443,19 @@
 "Fw" = (
 /turf/closed/wall,
 /area/ruin/unpowered)
+"FG" = (
+/obj/machinery/door/airlock/external/glass,
+/obj/structure/fans/tiny,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/unpowered)
 "FX" = (
 /obj/item/crowbar/red,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "FY" = (
 /obj/structure/transit_tube/diagonal,
-/turf/open/space/basic,
+/turf/open/floor/plating/asteroid,
 /area/space)
 "GM" = (
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -393,7 +465,7 @@
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "Hc" = (
-/obj/effect/turf_decal/delivery,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "Hf" = (
@@ -401,8 +473,19 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/space/basic,
+/turf/open/floor/plating/asteroid,
 /area/space)
+"Ht" = (
+/obj/machinery/modular_computer/console/preset/id,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"HS" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/unpowered)
 "If" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -455,12 +538,24 @@
 /obj/effect/landmark/stationroom/maintenance/rdm5x4,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
+"JU" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/box,
+/obj/structure/ore_box,
+/turf/open/floor/plating,
+/area/ruin/unpowered)
 "Ln" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/plating,
 /area/ruin/unpowered)
+"LG" = (
+/obj/structure/lattice,
+/turf/open/floor/plating/asteroid/no_generation,
+/area/space)
 "LM" = (
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plasteel,
@@ -470,14 +565,10 @@
 /turf/open/floor/plating/asteroid,
 /area/ruin/unpowered)
 "Ok" = (
-/obj/structure/cable{
-	icon_state = "2-4"
+/obj/structure/window/reinforced/spawner{
+	dir = 1
 	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 9
-	},
-/obj/effect/spawner/lootdrop/maintenance,
-/turf/open/floor/plating,
+/turf/open/floor/plating/asteroid,
 /area/ruin/unpowered)
 "Ov" = (
 /obj/effect/abstract/doorway_marker,
@@ -515,19 +606,8 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
-"QD" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/item/stack/sheet/mineral/plasma,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/ruin/unpowered)
 "QV" = (
-/obj/structure/window/reinforced/spawner,
-/turf/open/floor/plating/asteroid,
+/turf/open/space/basic,
 /area/ruin/unpowered)
 "Ri" = (
 /obj/structure/lattice/catwalk,
@@ -536,10 +616,14 @@
 "Rq" = (
 /turf/open/floor/plating,
 /area/ruin/unpowered)
+"Rv" = (
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating/asteroid,
+/area/space)
 "RG" = (
 /obj/structure/transit_tube/diagonal,
 /obj/structure/lattice/catwalk,
-/turf/open/space/basic,
+/turf/open/floor/plating/asteroid,
 /area/space)
 "RT" = (
 /obj/structure/window/reinforced/spawner{
@@ -553,6 +637,13 @@
 "SC" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
+/area/ruin/unpowered)
+"SY" = (
+/obj/machinery/door/airlock/external{
+	name = "Escape Airlock"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "Tt" = (
 /obj/effect/spawner/lootdrop/ruinloot/basic,
@@ -568,15 +659,6 @@
 /obj/effect/turf_decal/caution/stand_clear,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
-"Uo" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/ruin/unpowered)
 "UB" = (
 /obj/effect/turf_decal/caution/stand_clear{
 	dir = 4
@@ -586,7 +668,7 @@
 /area/ruin/unpowered)
 "Vd" = (
 /obj/structure/transit_tube,
-/turf/open/space/basic,
+/turf/open/floor/plating/asteroid,
 /area/space)
 "Vn" = (
 /obj/structure/window/reinforced/spawner{
@@ -614,10 +696,13 @@
 /obj/structure/closet/firecloset/full,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
+"VS" = (
+/turf/closed/mineral/random,
+/area/space)
 "Xy" = (
 /obj/structure/transit_tube,
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/open/floor/plating/asteroid,
 /area/space)
 "YT" = (
 /obj/structure/chair/stool,
@@ -747,7 +832,7 @@ vZ
 vZ
 Ri
 Pk
-Pk
+vj
 mE
 Vn
 If
@@ -790,7 +875,7 @@ vZ
 vZ
 vZ
 vZ
-Pk
+vj
 xY
 PY
 If
@@ -832,8 +917,8 @@ vZ
 vZ
 vZ
 vZ
-vZ
-Pk
+hK
+vj
 Dx
 Ue
 CX
@@ -856,9 +941,9 @@ vZ
 vZ
 vZ
 vZ
-vZ
-vZ
-vZ
+hK
+hK
+hK
 vZ
 vZ
 vZ
@@ -873,11 +958,11 @@ Pk
 Pk
 Pk
 Pk
-Pk
-Pk
-Pk
+vj
+vj
+vj
 aH
-Pk
+vj
 Co
 Fw
 Fw
@@ -901,8 +986,8 @@ SC
 Fw
 SC
 Fw
-vZ
-vZ
+hK
+hK
 vZ
 vZ
 vZ
@@ -916,14 +1001,14 @@ vZ
 Pk
 vZ
 vZ
-vZ
-vZ
+hK
+hK
 FY
-Pk
-vZ
-vZ
-vZ
-vZ
+vj
+hK
+hK
+hK
+hK
 "}
 (8,1,1) = {"
 vZ
@@ -943,10 +1028,10 @@ AQ
 IL
 rp
 Cr
-rp
-Ri
-vZ
-vZ
+SY
+Rv
+hK
+hK
 vZ
 vZ
 vZ
@@ -957,16 +1042,16 @@ vZ
 vZ
 vZ
 Pk
-vZ
-vZ
-vZ
+hK
+hK
+hK
 EF
-Pk
-Pk
-Pk
-Pk
-Pk
-vZ
+vj
+vj
+vj
+vj
+vj
+VS
 "}
 (9,1,1) = {"
 vZ
@@ -987,29 +1072,29 @@ Dq
 Fw
 wr
 SC
-Ri
-Ri
-Ri
-Ri
-Ri
-Ri
-Ri
-Ri
-Ri
-Ri
-Ri
-Ri
-Ri
-Ri
-Ri
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
 RG
-vZ
-vZ
-Pk
-vZ
-vZ
-vZ
-vZ
+hK
+hK
+vj
+hK
+hK
+VS
+VS
 "}
 (10,1,1) = {"
 vZ
@@ -1045,14 +1130,14 @@ Vd
 Xy
 Xy
 he
+Rv
+vj
+vj
+Pk
+Pk
 Ri
-Pk
-Pk
-Pk
-Pk
-Ri
-vZ
-vZ
+VS
+VS
 "}
 (11,1,1) = {"
 vZ
@@ -1073,7 +1158,7 @@ Rq
 Rq
 OX
 Fw
-qq
+kI
 cP
 oT
 fN
@@ -1084,18 +1169,18 @@ eq
 eq
 Fw
 Fw
-vZ
+hK
+vj
+hK
+hK
+Rv
+hK
+hK
 Pk
 vZ
 vZ
-Ri
 vZ
-vZ
-Pk
-vZ
-vZ
-vZ
-vZ
+VS
 "}
 (12,1,1) = {"
 vZ
@@ -1116,7 +1201,7 @@ Rq
 Rq
 Rq
 Fw
-po
+Ht
 UB
 po
 BA
@@ -1131,8 +1216,8 @@ Fw
 Fw
 SC
 Fw
-Ri
-Pk
+Rv
+vj
 vZ
 Ri
 vZ
@@ -1142,7 +1227,7 @@ vZ
 "}
 (13,1,1) = {"
 vZ
-vZ
+Ri
 vZ
 vZ
 vZ
@@ -1173,9 +1258,9 @@ Fw
 Rq
 wg
 Rq
-wg
-Ri
-vZ
+mm
+Rv
+hK
 vZ
 vZ
 vZ
@@ -1185,6 +1270,7 @@ vZ
 "}
 (14,1,1) = {"
 vZ
+Pk
 vZ
 vZ
 vZ
@@ -1192,8 +1278,7 @@ vZ
 vZ
 vZ
 vZ
-vZ
-zL
+QV
 zL
 Fw
 Rq
@@ -1217,8 +1302,8 @@ Rq
 Fw
 Fw
 Fw
-Ri
-Pk
+Rv
+vj
 vZ
 vZ
 vZ
@@ -1227,15 +1312,15 @@ vZ
 vZ
 "}
 (15,1,1) = {"
-vZ
-vZ
-vZ
-vZ
-vZ
-vZ
-vZ
-vZ
-zL
+Pk
+Pk
+Pk
+LG
+LG
+Pk
+Pk
+Pk
+kN
 zL
 zL
 Fw
@@ -1257,11 +1342,11 @@ Rq
 Rq
 Fw
 Rq
-eq
-vZ
-vZ
-Ri
-vZ
+SC
+hK
+hK
+Rv
+hK
 vZ
 vZ
 vZ
@@ -1271,14 +1356,14 @@ vZ
 "}
 (16,1,1) = {"
 vZ
-vZ
-vZ
-vZ
-vZ
-vZ
-vZ
-QV
+LG
+to
+to
+to
+to
 zL
+QV
+kS
 zL
 jZ
 Fw
@@ -1300,9 +1385,9 @@ Rq
 Rq
 Fw
 Rq
-eq
-Pk
-Ri
+SC
+vj
+Rv
 Ri
 Pk
 vZ
@@ -1313,16 +1398,16 @@ vZ
 vZ
 "}
 (17,1,1) = {"
-vZ
-vZ
-vZ
-vZ
-vZ
-vZ
-vZ
-QV
+zL
+zL
+to
+to
+to
+to
+zL
+zL
 kS
-jZ
+Ok
 jZ
 Fw
 Rq
@@ -1344,8 +1429,8 @@ Fw
 Fw
 Rq
 Fw
-vZ
-Ri
+hK
+Rv
 vZ
 vZ
 vZ
@@ -1356,16 +1441,16 @@ vZ
 vZ
 "}
 (18,1,1) = {"
-vZ
-vZ
-vZ
-vZ
-vZ
-vZ
+zL
+to
+to
+to
+to
+to
+to
 zL
 zL
-kS
-jZ
+Ok
 Tt
 Fw
 Rq
@@ -1386,9 +1471,9 @@ Rq
 PF
 Fw
 Rq
-eq
-vZ
-Ri
+SC
+hK
+Rv
 vZ
 vZ
 vZ
@@ -1399,15 +1484,15 @@ vZ
 vZ
 "}
 (19,1,1) = {"
-vZ
-vZ
-vZ
-vZ
-vZ
-vZ
+LG
+to
+to
+to
+to
+to
+to
 zL
 zL
-jZ
 jZ
 jZ
 Fw
@@ -1429,8 +1514,8 @@ Rq
 Rq
 Fw
 FX
-eq
-Ri
+SC
+Rv
 Ri
 Pk
 Pk
@@ -1442,17 +1527,17 @@ vZ
 vZ
 "}
 (20,1,1) = {"
-vZ
-vZ
-vZ
-vZ
-vZ
-vZ
+LG
+to
+to
+to
+to
+to
+to
 zL
 zL
 jZ
 jZ
-jZ
 Fw
 Rq
 Rq
@@ -1472,8 +1557,8 @@ Rq
 Rq
 Fw
 Rq
-eq
-vZ
+SC
+hK
 Ri
 vZ
 vZ
@@ -1485,16 +1570,16 @@ vZ
 vZ
 "}
 (21,1,1) = {"
-vZ
-Ri
 Pk
-Pk
-Pk
-Pk
-zL
+to
+to
+to
+to
+to
+to
+Fw
 vY
-jZ
-Ok
+bw
 qs
 Fw
 Fw
@@ -1516,7 +1601,7 @@ Rq
 Fw
 Rq
 Fw
-vZ
+hK
 Ri
 vZ
 vZ
@@ -1528,16 +1613,16 @@ vZ
 vZ
 "}
 (22,1,1) = {"
-vZ
-vZ
-vZ
 Pk
-vZ
-zL
+to
+to
+to
+to
+to
+to
 Fw
-ge
-jZ
-Uo
+AC
+Rq
 EC
 Fw
 Rq
@@ -1558,8 +1643,8 @@ Rq
 Rq
 Oz
 Rq
-eq
-vZ
+SC
+hK
 Ri
 vZ
 vZ
@@ -1571,16 +1656,16 @@ vZ
 vZ
 "}
 (23,1,1) = {"
-vZ
-AC
-Fw
-Fw
-Fw
-zL
-zL
-tH
-jZ
-QD
+Pk
+to
+to
+to
+to
+to
+to
+FG
+Hc
+Rq
 lc
 Fw
 Rq
@@ -1601,7 +1686,7 @@ Rq
 Rq
 Oz
 Rq
-eq
+SC
 Ri
 Ri
 Pk
@@ -1614,16 +1699,16 @@ vZ
 vZ
 "}
 (24,1,1) = {"
-vZ
-vZ
-vZ
-vZ
-vZ
-zL
-Hc
-jZ
-jZ
-ie
+Pk
+to
+to
+to
+to
+to
+to
+ge
+HS
+HS
 gp
 Fw
 Rq
@@ -1644,7 +1729,7 @@ Rq
 Rq
 Fw
 Rq
-eq
+SC
 vZ
 Ri
 vZ
@@ -1657,14 +1742,14 @@ vZ
 vZ
 "}
 (25,1,1) = {"
-vZ
-vZ
-vZ
-vZ
-vZ
-kN
-Hc
-jZ
+Pk
+to
+to
+to
+to
+to
+to
+Fw
 jZ
 jZ
 jZ
@@ -1700,18 +1785,18 @@ vZ
 vZ
 "}
 (26,1,1) = {"
-vZ
-vZ
-vZ
-vZ
-vZ
-zL
-Hc
-jZ
+Pk
+to
+to
+to
+to
+to
+to
+uc
 JL
 bw
 bw
-bw
+JU
 Fw
 Rq
 Rq
@@ -1730,7 +1815,7 @@ Rq
 Rq
 Fw
 Rq
-eq
+SC
 vZ
 vZ
 vZ
@@ -1743,18 +1828,18 @@ vZ
 vZ
 "}
 (27,1,1) = {"
-vZ
-AC
-Fw
-Fw
-Fw
-zL
-zL
-jZ
+Pk
+to
+to
+to
+to
+to
+to
+ie
 Ln
 Rq
 Rq
-Rq
+Cl
 SC
 Rq
 Rq
@@ -1773,7 +1858,7 @@ Rq
 Rq
 Fw
 zc
-eq
+SC
 vZ
 vZ
 vZ
@@ -1786,18 +1871,18 @@ vZ
 vZ
 "}
 (28,1,1) = {"
-vZ
-vZ
-vZ
-Pk
-vZ
-zL
-zL
-jZ
+LG
+to
+to
+to
+to
+to
+to
+Fw
 uX
 As
 As
-As
+cr
 Fw
 Rq
 Rq
@@ -1816,7 +1901,7 @@ Fw
 Fw
 Fw
 Rq
-eq
+SC
 vZ
 vZ
 vZ
@@ -1829,14 +1914,14 @@ vZ
 vZ
 "}
 (29,1,1) = {"
-vZ
-Ri
-Pk
-Pk
-Pk
-zL
-zL
-jZ
+LG
+to
+to
+to
+to
+to
+to
+Fw
 jZ
 jZ
 jZ
@@ -1857,7 +1942,7 @@ jZ
 Ln
 Rq
 Rq
-Oz
+ou
 Rq
 Fw
 vZ
@@ -1872,14 +1957,14 @@ vZ
 vZ
 "}
 (30,1,1) = {"
-vZ
-vZ
-vZ
-vZ
-vZ
-vZ
 zL
-jZ
+to
+to
+to
+to
+to
+to
+zL
 jZ
 jZ
 jZ
@@ -1915,15 +2000,15 @@ vZ
 vZ
 "}
 (31,1,1) = {"
-vZ
-vZ
-vZ
-vZ
-vZ
-vZ
 zL
 zL
-jZ
+to
+zL
+to
+to
+zL
+zL
+zL
 jZ
 jZ
 jZ
@@ -1959,14 +2044,14 @@ vZ
 "}
 (32,1,1) = {"
 vZ
-vZ
-vZ
-vZ
-vZ
-vZ
 zL
 zL
-jZ
+zL
+zL
+zL
+zL
+zL
+zL
 jZ
 jZ
 jZ
@@ -2005,8 +2090,8 @@ vZ
 vZ
 vZ
 vZ
-vZ
-vZ
+zL
+zL
 zL
 zL
 zL
@@ -2157,7 +2242,7 @@ jZ
 jZ
 jZ
 wl
-eq
+SC
 vZ
 vZ
 vZ
@@ -2200,7 +2285,7 @@ jZ
 jZ
 jZ
 Vo
-eq
+SC
 vZ
 vZ
 vZ
@@ -2243,7 +2328,7 @@ jZ
 jZ
 jZ
 mj
-eq
+SC
 vZ
 vZ
 vZ
@@ -2324,9 +2409,9 @@ zL
 zL
 zL
 zL
-eq
-eq
-eq
+SC
+SC
+SC
 zL
 zL
 vZ
