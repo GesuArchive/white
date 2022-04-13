@@ -716,17 +716,16 @@
 	set name = "❗ Переродиться"
 	set category = "OOC"
 
-	var/pd = GLOB.phoenix_donations?[client?.ckey]
+	var/pd = text2num(GLOB.phoenix_donations?[client?.ckey])
 
-	if(!isnull(pd) && text2num(pd) <= 0)
-		if(CONFIG_GET(flag/norespawn) && (!check_rights_for(usr.client, R_ADMIN) || tgui_alert(usr, "Respawn configs disabled. Do you want to use your permissions to circumvent it?", "Respawn", list("Yes", "No")) != "Yes"))
-			return
+	if(pd <= 0 && (CONFIG_GET(flag/norespawn) && (!check_rights_for(usr.client, R_ADMIN) || tgui_alert(usr, "Хуй сосал?", "Respawn", list("Да", "Нет")) != "Да")))
+		return
 
 	if((stat != DEAD || !( SSticker )))
 		to_chat(usr, span_boldnotice("Живу!"))
 		return
 
-	if(text2num(pd))
+	if(pd)
 		GLOB.phoenix_donations[client.ckey]--
 		to_chat(usr, span_boldnotice("Использован Феникс! Осталось [GLOB.phoenix_donations[client.ckey]] зарядов."))
 
