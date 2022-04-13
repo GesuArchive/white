@@ -17,6 +17,8 @@
 	var/list/icon/current = list() //the current hud icons
 	var/vision_correction = FALSE //does wearing these glasses correct some of our vision defects?
 	var/glass_colour_type //colors your vision when worn
+	/// Whether or not vision coloring is forcing
+	var/forced_glass_color = FALSE
 
 /obj/item/clothing/glasses/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] тычет <b>[src.name]</b> в [user.ru_ego()] глаза! Выглядит так, будто [user.p_theyre()] пытается покончить с собой!"))
@@ -25,7 +27,7 @@
 /obj/item/clothing/glasses/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	if(glass_colour_type && ishuman(user))
+	if(glass_colour_type && !forced_glass_color && ishuman(user))
 		. += span_notice("ПКМ, чтобы поменять их цвета.")
 
 /obj/item/clothing/glasses/visor_toggling()
@@ -56,7 +58,7 @@
 				eyes.applyOrganDamage(5)
 
 /obj/item/clothing/glasses/AltClick(mob/user)
-	if(glass_colour_type && ishuman(user))
+	if(glass_colour_type && !forced_glass_color && ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.client)
 			if(H.client.prefs)
@@ -82,7 +84,7 @@
 
 
 /mob/living/carbon/human/proc/update_glasses_color(obj/item/clothing/glasses/G, glasses_equipped)
-	if(client?.prefs.uses_glasses_colour && glasses_equipped)
+	if((client?.prefs.uses_glasses_colour || G.forced_glass_color) && glasses_equipped)
 		add_client_colour(G.glass_colour_type)
 	else
 		remove_client_colour(G.glass_colour_type)
@@ -536,3 +538,11 @@
 	desc = "Lookin' cool."
 	icon_state = "phantom_glasses"
 	inhand_icon_state = "phantom_glasses"
+
+/obj/item/clothing/glasses/nightmare_vision
+	name = "nightmare vision goggles"
+	desc = "They give off a putrid stench. Seemingly no effect on anything."
+	icon_state = "nightmare"
+	inhand_icon_state = "glasses"
+	glass_colour_type = /datum/client_colour/glass_colour/nightmare
+	forced_glass_color = TRUE
