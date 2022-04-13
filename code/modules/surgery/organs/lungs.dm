@@ -318,6 +318,62 @@
 		else
 			SEND_SIGNAL(owner, COMSIG_CLEAR_MOOD_EVENT, "smell")
 
+	// Freon
+		var/freon_pp = PP(breath, GAS_FREON)
+		if (prob(freon_pp))
+			to_chat(H, span_alert("Глотка горит!"))
+		if (freon_pp > 40)
+			H.emote("gasp")
+			H.adjustFireLoss(15)
+			if (prob(freon_pp / 2))
+				to_chat(H, span_alert("Сложно дышать!"))
+				H.silent = max(H.silent, 3)
+		else
+			H.adjustFireLoss(freon_pp / 4)
+		gas_breathed = breath.get_moles(GAS_FREON)
+		if (gas_breathed > gas_stimulation_min)
+			H.reagents.add_reagent(/datum/reagent/freon, 1)
+		breath.adjust_moles(GAS_FREON, -gas_breathed)
+
+	// Healium
+		var/healium_pp = PP(breath, GAS_HEALIUM)
+		if(healium_pp > gas_stimulation_min)
+			if(prob(15))
+				to_chat(H, span_alert("Голова кружится, лёгкие горят!"))
+				H.emote("gasp")
+
+		if(healium_pp > 3)
+			H.Unconscious(rand(30, 50))//not in seconds to have a much higher variation
+			if(healium_pp > 6)
+				var/existing = H.reagents.get_reagent_amount(/datum/reagent/healium)
+				H.reagents.add_reagent(/datum/reagent/healium, max(0, 1 - existing))
+		gas_breathed = breath.get_moles(GAS_HEALIUM)
+		breath.adjust_moles(GAS_HEALIUM, -gas_breathed)
+
+	// Zauker
+		var/zauker_pp = PP(breath, GAS_ZAUKER)
+		if(zauker_pp > gas_stimulation_min)
+			var/existing = H.reagents.get_reagent_amount(/datum/reagent/zauker)
+			H.reagents.add_reagent(/datum/reagent/zauker, max(0, 1 - existing))
+		gas_breathed = breath.get_moles(GAS_ZAUKER)
+		breath.adjust_moles(GAS_ZAUKER, -gas_breathed)
+
+	// Halon
+		var/halon_pp = PP(breath, GAS_HALON)
+		if(halon_pp > gas_stimulation_min)
+			H.adjustOxyLoss(5)
+			var/existing = H.reagents.get_reagent_amount(/datum/reagent/halon)
+			H.reagents.add_reagent(/datum/reagent/halon, max(0, 1 - existing))
+		gas_breathed = breath.get_moles(GAS_HALON)
+		breath.adjust_moles(GAS_HALON, -gas_breathed)
+
+	// Hyper-Nob
+		gas_breathed = breath.get_moles(GAS_HYPERNOB)
+		if (gas_breathed > gas_stimulation_min)
+			var/existing = H.reagents.get_reagent_amount(/datum/reagent/hypernoblium)
+			H.reagents.add_reagent(/datum/reagent/hypernoblium, max(0, 1 - existing))
+		breath.adjust_moles(GAS_HYPERNOB, -gas_breathed)
+
 		handle_breath_temperature(breath, H)
 	return TRUE
 
