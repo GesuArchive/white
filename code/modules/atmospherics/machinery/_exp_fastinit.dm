@@ -31,5 +31,5 @@
 /obj/machinery/atmospherics/proc/check_turfs()
 	return
 
-/obj/machinery/atmospherics/proc/scrub(turf/tile, delta_time = 0.5)
+/obj/machinery/atmospherics/proc/scrub(turf/tile)
 	return

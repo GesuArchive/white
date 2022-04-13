@@ -18,7 +18,7 @@
 	var/scrubbing = SCRUBBING //0 = siphoning, 1 = scrubbing
 
 	var/filter_types = list(GAS_CO2, GAS_BZ)
-	var/volume_rate = 200
+	var/volume_rate = 2000
 	var/widenet = FALSE //is this scrubber acting on the 3x3 area around it.
 	var/list/turf/adjacent_turfs = list()
 
@@ -122,10 +122,10 @@
 	if(!nodes[1] || !on)
 		on = FALSE
 		return FALSE
-	scrub(loc, delta_time)
+	scrub(loc)
 	if(widenet)
 		for(var/turf/tile in adjacent_turfs)
-			scrub(tile, delta_time)
+			scrub(tile)
 	return TRUE
 
 /obj/machinery/atmospherics/components/unary/vent_scrubber/scrub(turf/open/tile)
