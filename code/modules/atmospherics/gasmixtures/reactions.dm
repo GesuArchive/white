@@ -120,49 +120,50 @@
 	)
 
 /datum/gas_reaction/tritfire/react(datum/gas_mixture/air, datum/holder)
+	var/energy_released = 0
 	var/old_heat_capacity = air.heat_capacity()
 	var/temperature = air.return_temperature()
-
-	var/burned_fuel
-	var/effect_scale
-	if(air.get_moles(GAS_O2) < air.get_moles(GAS_TRITIUM) || MINIMUM_TRITIUM_OXYBURN_ENERGY > (temperature * old_heat_capacity))
-		burned_fuel = air.get_moles(GAS_O2) / TRITIUM_BURN_OXY_FACTOR // const must be at least one
-		effect_scale = 1
-
+	var/list/cached_results = air.reaction_results
+	cached_results["fire"] = 0
+	var/turf/open/location = isturf(holder) ? holder : null
+	var/burned_fuel = 0
+	var/initial_trit = air.get_moles(GAS_TRITIUM)// Yogs
+	if(air.get_moles(GAS_O2) < initial_trit || MINIMUM_TRIT_OXYBURN_ENERGY > (temperature * old_heat_capacity))// Yogs -- Maybe a tiny performance boost? I'unno
+		burned_fuel = air.get_moles(GAS_O2)/TRITIUM_BURN_OXY_FACTOR
+		if(burned_fuel > initial_trit) burned_fuel = initial_trit //Yogs -- prevents negative moles of Tritium
 		air.adjust_moles(GAS_TRITIUM, -burned_fuel)
-		air.adjust_moles(GAS_H2O, burned_fuel / TRITIUM_BURN_OXY_FACTOR)
 	else
-		burned_fuel = air.get_moles(GAS_TRITIUM)
-		effect_scale = TRITIUM_OXYBURN_MULTIPLIER
+		burned_fuel = initial_trit // Yogs -- Conservation of Mass fix
+		air.set_moles(GAS_TRITIUM, air.get_moles(GAS_TRITIUM) * (1 - 1/TRITIUM_BURN_TRIT_FACTOR)) // Yogs -- Maybe a tiny performance boost? I'unno
+		air.adjust_moles(GAS_O2, -air.get_moles(GAS_TRITIUM))
+		energy_released += (FIRE_HYDROGEN_ENERGY_RELEASED * burned_fuel * (TRITIUM_BURN_TRIT_FACTOR - 1)) // Yogs -- Fixes low-energy tritium fires
 
-		air.adjust_moles(GAS_TRITIUM, -(burned_fuel / TRITIUM_BURN_TRIT_FACTOR))
-		air.adjust_moles(GAS_O2, -burned_fuel)
-		air.adjust_moles(GAS_H2O, burned_fuel / TRITIUM_BURN_OXY_FACTOR)
+	if(burned_fuel)
+		energy_released += (FIRE_HYDROGEN_ENERGY_RELEASED * burned_fuel)
+		if(location && prob(10) && burned_fuel > TRITIUM_MINIMUM_RADIATION_ENERGY) //woah there let's not crash the server
+			radiation_pulse(location, energy_released/TRITIUM_BURN_RADIOACTIVITY_FACTOR)
 
-	var/turf/open/location
-	if(istype(holder, /datum/pipeline)) //Find the tile the reaction is occuring on, or a random part of the network if it's a pipenet.
-		var/datum/pipeline/pipenet = holder
-		location = pick(pipenet.members)
-	else if(isatom(holder))
-		location = holder
+		//oxygen+more-or-less hydrogen=H2O
+		air.adjust_moles(GAS_H2O, burned_fuel )// Yogs -- Conservation of Mass
 
-	var/energy_released = FIRE_TRITIUM_ENERGY_RELEASED * burned_fuel * effect_scale
-	if(location && burned_fuel > TRITIUM_RADIATION_MINIMUM_MOLES && energy_released > TRITIUM_RADIATION_RELEASE_THRESHOLD * (air.return_volume() / CELL_VOLUME) ** ATMOS_RADIATION_VOLUME_EXP && prob(10))
-		if(prob(100 * (1 - 0.5 ** (energy_released / TRITIUM_RADIATION_CHANCE_ENERGY_THRESHOLD_BASE))))
-			radiation_pulse(location, TRITIUM_RADIATION_THRESHOLD_BASE * INVERSE(TRITIUM_RADIATION_THRESHOLD_BASE + (burned_fuel * effect_scale / TRITIUM_OXYBURN_MULTIPLIER)), min(TRITIUM_MINIMUM_RADIATION_RANGE + sqrt(burned_fuel * effect_scale / TRITIUM_OXYBURN_MULTIPLIER) / TRITIUM_RADIATION_RANGE_DIVISOR, 20))
+		cached_results["fire"] += burned_fuel
 
 	if(energy_released > 0)
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-			air.set_temperature((temperature * old_heat_capacity + energy_released) / new_heat_capacity)
+			air.set_temperature((temperature*old_heat_capacity + energy_released)/new_heat_capacity)
 
 	//let the floor know a fire is happening
 	if(istype(location))
 		temperature = air.return_temperature()
 		if(temperature > FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 			location.hotspot_expose(temperature, CELL_VOLUME)
+			for(var/I in location)
+				var/atom/movable/item = I
+				item.temperature_expose(air, temperature, CELL_VOLUME)
+			location.temperature_expose(air, temperature, CELL_VOLUME)
 
-	return burned_fuel ? REACTING : NO_REACTION
+	return cached_results["fire"] ? REACTING : NO_REACTION
 
 //plasma combustion: combustion of oxygen and plasma (treated as hydrocarbons). creates hotspots. exothermic
 /datum/gas_reaction/plasmafire
@@ -178,54 +179,63 @@
 	)
 
 /datum/gas_reaction/plasmafire/react(datum/gas_mixture/air, datum/holder)
-	// This reaction should proceed faster at higher temperatures.
+	var/energy_released = 0
+	var/old_heat_capacity = air.heat_capacity()
 	var/temperature = air.return_temperature()
+	var/list/cached_results = air.reaction_results
+	cached_results["fire"] = 0
+	var/turf/open/location = isturf(holder) ? holder : null
+
+	//Handle plasma burning
+	var/plasma_burn_rate = 0
+	var/oxygen_burn_rate = 0
+	//more plasma released at higher temperatures
 	var/temperature_scale = 0
+	//to make tritium
+	var/super_saturation = FALSE
+
 	if(temperature > PLASMA_UPPER_TEMPERATURE)
 		temperature_scale = 1
 	else
-		temperature_scale = (temperature - PLASMA_MINIMUM_BURN_TEMPERATURE) / (PLASMA_UPPER_TEMPERATURE-PLASMA_MINIMUM_BURN_TEMPERATURE)
-		if(temperature_scale <= 0)
-			return NO_REACTION
-
-	var/oxygen_burn_ratio = OXYGEN_BURN_RATIO_BASE - temperature_scale
-	var/plasma_burn_rate = 0
-	var/super_saturation = FALSE // Whether we should make tritium.
-	switch(air.get_moles(GAS_O2) / air.get_moles(GAS_PLASMA))
-		if(SUPER_SATURATION_THRESHOLD to INFINITY)
-			plasma_burn_rate = (air.get_moles(GAS_PLASMA) / PLASMA_BURN_RATE_DELTA) * temperature_scale
-			super_saturation = TRUE // Begin to form tritium
-		if(PLASMA_OXYGEN_FULLBURN to SUPER_SATURATION_THRESHOLD)
-			plasma_burn_rate = (air.get_moles(GAS_PLASMA) / PLASMA_BURN_RATE_DELTA) * temperature_scale
+		temperature_scale = (temperature-PLASMA_MINIMUM_BURN_TEMPERATURE)/(PLASMA_UPPER_TEMPERATURE-PLASMA_MINIMUM_BURN_TEMPERATURE)
+	if(temperature_scale > 0)
+		oxygen_burn_rate = OXYGEN_BURN_RATIO_BASE - temperature_scale
+		if(air.get_moles(GAS_O2) / air.get_moles(GAS_PLASMA) > SUPER_SATURATION_THRESHOLD) //supersaturation. Form Tritium.
+			super_saturation = TRUE
+		if(air.get_moles(GAS_O2) > air.get_moles(GAS_PLASMA)*PLASMA_OXYGEN_FULLBURN)
+			plasma_burn_rate = (air.get_moles(GAS_PLASMA)*temperature_scale)/PLASMA_BURN_RATE_DELTA
 		else
-			plasma_burn_rate = ((air.get_moles(GAS_O2) / PLASMA_OXYGEN_FULLBURN) / PLASMA_BURN_RATE_DELTA) * temperature_scale
+			plasma_burn_rate = (temperature_scale*(air.get_moles(GAS_O2)/PLASMA_OXYGEN_FULLBURN))/PLASMA_BURN_RATE_DELTA
 
-	if(plasma_burn_rate < MINIMUM_HEAT_CAPACITY)
-		return NO_REACTION
+		if(plasma_burn_rate > MINIMUM_HEAT_CAPACITY)
+			plasma_burn_rate = min(plasma_burn_rate,air.get_moles(GAS_PLASMA),air.get_moles(GAS_O2)/oxygen_burn_rate) //Ensures matter is conserved properly
+			air.set_moles(GAS_PLASMA, QUANTIZE(air.get_moles(GAS_PLASMA) - plasma_burn_rate))
+			air.set_moles(GAS_O2, QUANTIZE(air.get_moles(GAS_O2) - (plasma_burn_rate * oxygen_burn_rate)))
+			if (super_saturation)
+				air.adjust_moles(GAS_TRITIUM, plasma_burn_rate)
+			else
+				air.adjust_moles(GAS_CO2, plasma_burn_rate)
 
-	var/old_heat_capacity = air.heat_capacity()
-	plasma_burn_rate = min(plasma_burn_rate, air.get_moles(GAS_PLASMA), air.get_moles(GAS_O2) *  INVERSE(oxygen_burn_ratio)) //Ensures matter is conserved properly
-	air.set_moles(GAS_PLASMA, QUANTIZE(air.get_moles(GAS_PLASMA) - plasma_burn_rate))
-	air.set_moles(GAS_O2, QUANTIZE(air.get_moles(GAS_PLASMA) - (plasma_burn_rate * oxygen_burn_ratio)))
-	if (super_saturation)
-		air.adjust_moles(GAS_TRITIUM, plasma_burn_rate)
-	else
-		air.adjust_moles(GAS_CO2, plasma_burn_rate * 0.75)
-		air.adjust_moles(GAS_H2O, plasma_burn_rate * 0.25)
+			energy_released += FIRE_PLASMA_ENERGY_RELEASED * (plasma_burn_rate)
 
-	var/energy_released = FIRE_PLASMA_ENERGY_RELEASED * plasma_burn_rate
-	var/new_heat_capacity = air.heat_capacity()
-	if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
-		air.set_temperature((temperature * old_heat_capacity + energy_released) / new_heat_capacity)
+			cached_results["fire"] += (plasma_burn_rate)*(1+oxygen_burn_rate)
 
-	// Let the floor know a fire is happening
-	var/turf/open/location = holder
+	if(energy_released > 0)
+		var/new_heat_capacity = air.heat_capacity()
+		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
+			air.set_temperature((temperature*old_heat_capacity + energy_released)/new_heat_capacity)
+
+	//let the floor know a fire is happening
 	if(istype(location))
 		temperature = air.return_temperature()
 		if(temperature > FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 			location.hotspot_expose(temperature, CELL_VOLUME)
+			for(var/I in location)
+				var/atom/movable/item = I
+				item.temperature_expose(air, temperature, CELL_VOLUME)
+			location.temperature_expose(air, temperature, CELL_VOLUME)
 
-	return REACTING
+	return cached_results["fire"] ? REACTING : NO_REACTION
 
 //fusion: a terrible idea that was fun but broken. Now reworked to be less broken and more interesting. Again (and again, and again). Again!
 //Fusion Rework Counter: Please increment this if you make a major overhaul to this system again.
