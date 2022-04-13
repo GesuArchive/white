@@ -37,7 +37,7 @@
 	return coverage.len
 
 /obj/machinery/computer/sat_control
-	name = "управление щитами"
+	name = "Управление щитами"
 	desc = "Используется для управления массивом защитных спутников."
 	circuit = /obj/item/circuitboard/computer/sat_control
 	var/notice
@@ -97,7 +97,7 @@
 
 
 /obj/machinery/satellite
-	name = "повреждённый спутник"
+	name = "Повреждённый спутник"
 	desc = ""
 	icon = 'icons/obj/machines/satellite.dmi'
 	icon_state = "sat_inactive"
@@ -148,7 +148,7 @@
 	return TRUE
 
 /obj/machinery/satellite/meteor_shield
-	name = "защитный спутник"
+	name = "Защитный спутник"
 	desc = "Противометеоритная защита для всей семьи."
 	mode = "M-SHIELD"
 	processing_flags = START_PROCESSING_MANUALLY

@@ -1,5 +1,5 @@
 /datum/eldritch_knowledge/base_void
-	name = "Glimmer of Winter"
+	name = "Мерцание зимы"
 	desc = "Opens up the path of void to you. Allows you to transmute a knife in a sub-zero temperature into a void blade."
 	gain_text = "I feel a shimmer in the air, atmosphere around me gets colder. I feel my body realizing the emptiness of existance. Something's watching me"
 	banned_knowledge = list(/datum/eldritch_knowledge/base_ash,/datum/eldritch_knowledge/base_flesh,/datum/eldritch_knowledge/final/ash_final,/datum/eldritch_knowledge/final/flesh_final,/datum/eldritch_knowledge/base_rust,/datum/eldritch_knowledge/final/rust_final)
@@ -16,9 +16,9 @@
 		return FALSE
 
 /datum/eldritch_knowledge/void_grasp
-	name = "Grasp of Void"
-	desc = "Temporarily mutes your victim, also lowers their body temperature."
-	gain_text = "I found the cold watcher who observes me. The resonance of cold grows within me. This isn't the end of the mystery."
+	name = "Хватка Пустоты"
+	desc = "Временно лишает жертву дара речи, а также снижает температуру ее тела."
+	gain_text = "Я нашел наблюдателя, который смотрит за мной. Холод растет во мне. Это не конец тайны."
 	cost = 1
 	route = PATH_VOID
 	next_knowledge = list(/datum/eldritch_knowledge/cold_snap)
@@ -46,9 +46,9 @@
 	H.silent += 3
 
 /datum/eldritch_knowledge/cold_snap
-	name = "Aristocrat's Way"
-	desc = "Makes you immune to cold temperatures, and you no longer need to breathe, you can still take damage from lack of pressure."
-	gain_text = "I found a thread of cold breath. It lead me to a strange shrine, all made of crystals. Translucent and white, a depiction of a nobleman stood before me."
+	name = "Путь Аристократа"
+	desc = "Делает вас невосприимчивым к низким температурам, и вам больше не нужно дышать, вы все еще можете получить урон от недостатка давления."
+	gain_text = "Я нашел нить ледяного дыхания. Она привела меня в странное святилище, сплошь состоящее из кристаллов. Полупрозрачное и белое, изображение благородного человека стояло передо мной."
 	cost = 1
 	route = PATH_VOID
 	next_knowledge = list(/datum/eldritch_knowledge/void_cloak,/datum/eldritch_knowledge/void_mark,/datum/eldritch_knowledge/armor)
@@ -64,18 +64,18 @@
 	REMOVE_TRAIT(user, TRAIT_NOBREATH, MAGIC_TRAIT)
 
 /datum/eldritch_knowledge/void_cloak
-	name = "Void Cloak"
-	desc = "A cloak that can become invisbile at will, hiding items you store in it. To create it transmute a glass shard, any item of clothing that you can fit over your uniform and any type of bedsheet."
-	gain_text = "Owl is the keeper of things that quite not are in practice, but in theory are."
+	name = "Плащ Пустоты"
+	desc = "Плащ, который может стать невидимым по желанию, скрывая предметы, которые вы в нем храните. Для создания преобразуйте осколок стекла, любой предмет одежды, который вы можете надеть на свою униформу, и любой тип простыни."
+	gain_text = "Сова - хранительница вещей, которые на практике таковыми не являются, но в теории являются." //Я в ахуе с ебаной тавтологии
 	cost = 1
 	next_knowledge = list(/datum/eldritch_knowledge/flesh_ghoul,/datum/eldritch_knowledge/cold_snap)
 	result_atoms = list(/obj/item/clothing/suit/hooded/cultrobes/void)
 	required_atoms = list(/obj/item/shard,/obj/item/clothing/suit,/obj/item/bedsheet)
 
 /datum/eldritch_knowledge/void_mark
-	name = "Mark of Void"
-	gain_text = "A gust of wind? Maybe a shimmer in the air. Presence is overwhelming, my senses betrayed me, my mind is my enemy."
-	desc = "Your mansus grasp now applies mark of void status effect. To proc the mark, use your sickly blade on the marked. Mark of void when procced lowers the victims body temperature significantly."
+	name = "Знак Пустоты"
+	gain_text = "Порыв ветра? Может быть, мерцание в воздухе. Присутствие подавляет, мои чувства предали меня, мой разум - мой враг.."
+	desc = "Ваша Хватка Мансуса теперь накладывает Метку Пустоты. Чтобы наложить этот эффект, используйте свой Клинок на жертву. Метка Пустоты при применении значительно понижает температуру тела жертвы."
 	cost = 2
 	next_knowledge = list(/datum/eldritch_knowledge/spell/void_phase)
 	banned_knowledge = list(/datum/eldritch_knowledge/rust_mark,/datum/eldritch_knowledge/ash_mark,/datum/eldritch_knowledge/flesh_mark)
@@ -90,36 +90,36 @@
 	living_target.apply_status_effect(/datum/status_effect/eldritch/void)
 
 /datum/eldritch_knowledge/spell/void_phase
-	name = "Void Phase"
-	gain_text = "Reality bends under the power of memory, for all is fleeting, and what else stays?"
-	desc = "You gain a long range pointed blink that allows you to instantly teleport to your location, it causes aoe damage around you and your chosen location."
+	name = "Фаза Пустоты"
+	gain_text = "Реальность прогибается под властью памяти, ибо все мимолетно, а что еще остается?"
+	desc = "Вы получаете дальнобойный рывок, которой позволяет вам мгновенно телепортироваться в нужное место, нанося урон вокруг вас и выбранного вами места."
 	cost = 1
 	spell_to_add = /obj/effect/proc_holder/spell/pointed/void_blink
 	next_knowledge = list(/datum/eldritch_knowledge/rune_carver,/datum/eldritch_knowledge/crucible,/datum/eldritch_knowledge/void_blade_upgrade)
 	route = PATH_VOID
 
 /datum/eldritch_knowledge/rune_carver
-	name = "Carving Knife"
-	gain_text = "Etched, carved... eternal. I can carve the monolith and evoke their powers!"
-	desc = "You can create a carving knife, which allows you to create up to 3 carvings on the floor that have various effects on nonbelievers who walk over them. They make quite a handy throwing weapon. To create the carving knife transmute a knife with a glass shard and a piece of paper."
+	name = "Нож для резьбы"
+	gain_text = "Высеченные, вырезанные... вечные. Я могу высечь монолит и вызвать их силу!"
+	desc = "Вы можете создать Нож для резьбы, который позволяет создать на полу до 3 рун, оказывающих различные эффекты на неверующих, которые проходят по ним. Из них получается довольно удобное метательное оружие. Чтобы создать Нож для резьбы трансмутируйте нож с осколком стекла и листом бумаги.."
 	cost = 1
 	next_knowledge = list(/datum/eldritch_knowledge/spell/void_phase,/datum/eldritch_knowledge/summon/raw_prophet)
 	required_atoms = list(/obj/item/kitchen/knife,/obj/item/shard,/obj/item/paper)
 	result_atoms = list(/obj/item/melee/rune_knife)
 
 /datum/eldritch_knowledge/crucible
-	name = "Mawed Crucible"
-	gain_text = "This is pure agony, i wasn't able to summon the dereliction of the emperor, but i stumbled upon a diffrent recipe..."
-	desc = "Allows you to create a mawed crucible, eldritch structure that allows you to create potions of various effects, to do so transmute a table with a watertank"
+	name = "Плавильный котёл"
+	gain_text = "Это чистая агония, я не смог вызвать отказ императора, но наткнулся на другой рецепт..."
+	desc = "Позволяет создать тигель, элдрическое сооружение, позволяющее создавать зелья с различными эффектами, для этого трансмутируйте стол с резервуаром для воды"
 	cost = 1
 	next_knowledge = list(/datum/eldritch_knowledge/spell/void_phase,/datum/eldritch_knowledge/spell/area_conversion)
 	required_atoms = list(/obj/structure/reagent_dispensers/watertank,/obj/structure/table)
 	result_atoms = list(/obj/structure/eldritch_crucible)
 
 /datum/eldritch_knowledge/void_blade_upgrade
-	name = "Seeking blade"
-	gain_text = "Fleeting memories, fleeting feet. I can mark my way with the frozen blood upon the snow. Covered and forgotten."
-	desc = "You can now use your blade on a distant marked target to move to them and attack them."
+	name = "Ищущий Клинок"
+	gain_text = "Мимолетные воспоминания. Я могу отметить свой путь застывшей кровью на снегу. Покрытый и забытый."
+	desc = "Теперь вы можете использовать свой клинок на удаленной отмеченной цели, чтобы переместиться к ней и атаковать."
 	cost = 2
 	next_knowledge = list(/datum/eldritch_knowledge/spell/voidpull)
 	banned_knowledge = list(/datum/eldritch_knowledge/ash_blade_upgrade,/datum/eldritch_knowledge/flesh_blade_upgrade,/datum/eldritch_knowledge/rust_blade_upgrade)
@@ -140,18 +140,18 @@
 	blade.melee_attack_chain(carbon_human,human_target)
 
 /datum/eldritch_knowledge/spell/voidpull
-	name = "Void Pull"
-	gain_text = "This entity calls itself the aristocrat, I'm close to ending what was started."
-	desc = "You gain an ability that let's you pull people around you closer to you."
+	name = "Притяжение пустоты"
+	gain_text = "Это существо называет себя аристократом, я близок к завершению начатого."
+	desc = "Вы получаете способность, которая позволяет вам притягивать к себе окружающих вас людей."
 	cost = 1
 	spell_to_add = /obj/effect/proc_holder/spell/targeted/void_pull
 	next_knowledge = list(/datum/eldritch_knowledge/final/void_final,/datum/eldritch_knowledge/spell/blood_siphon,/datum/eldritch_knowledge/summon/rusty)
 	route = PATH_VOID
 
 /datum/eldritch_knowledge/final/void_final
-	name = "Waltz at the End of Time"
-	desc = "Bring 3 corpses onto the transmutation rune. After you finish the ritual you will automatically silence people around you and will summon a snow storm around you."
-	gain_text = "The world falls into darkness. I stand in an empty plane, small flakes of ice fall from the sky. Aristocrat stand before me, he motions to me. We will play a waltz to the whispers of dying reality, as the world is destroyed before our eyes."
+	name = "Вальс Конца Света"
+	desc = "Принесите 3 трупа на руну трансмутации. После завершения ритуала вы автоматически заставите окружающих замолчать и вызовете вокруг себя снежную бурю."
+	gain_text = "Мир погружается во тьму. Я стою в пустом самолете, с неба падают мелкие хлопья льда. Передо мной стоит Аристократ, он машет мне рукой. Мы будем танцевать вальс под шепот умирающей реальности, пока мир разрушается на наших глазах."
 	cost = 3
 	required_atoms = list(/mob/living/carbon/human)
 	route = PATH_VOID
@@ -166,7 +166,7 @@
 	H.physiology.burn_mod *= 0.5
 	ADD_TRAIT(H, TRAIT_RESISTLOWPRESSURE, MAGIC_TRAIT)
 	H.client?.give_award(/datum/award/achievement/misc/void_ascension, H)
-	priority_announce("$^@&#*$^@(#&$(@&#^$&#^@# The nobleman of void [H.real_name] has arrived, step along the Waltz that ends worlds! $^@&#*$^@(#&$(@&#^$&#^@#","#$^@&#*$^@(#&$(@&#^$&#^@#", ANNOUNCER_SPANOMALIES)
+	priority_announce("$^@&#*$^@(#&$(@&#^$&#^@# Аристократ пустоты [H.real_name] прибыл, станцуйте же с ним в Вальсе, убивающий миры! $^@&#*$^@(#&$(@&#^$&#^@#","#$^@&#*$^@(#&$(@&#^$&#^@#", ANNOUNCER_SPANOMALIES)
 
 	sound_loop = new(user, TRUE, TRUE)
 	return ..()

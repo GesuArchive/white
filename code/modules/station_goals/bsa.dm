@@ -36,8 +36,8 @@
 	return TRUE
 
 /obj/machinery/bsa/back
-	name = "Bluespace Artillery Generator"
-	desc = "Generates cannon pulse. Needs to be linked with a fusor."
+	name = "Генератор орудия"
+	desc = "Генерирует пушечный импульс. Должен быть соединен с фузором."
 	icon_state = "power_box"
 
 /obj/machinery/bsa/back/multitool_act(mob/living/user, obj/item/I)
@@ -49,8 +49,8 @@
 	return TRUE
 
 /obj/machinery/bsa/front
-	name = "Bluespace Artillery Bore"
-	desc = "Do not stand in front of cannon during operation. Needs to be linked with a fusor."
+	name = "Ствол орудия"
+	desc = "Не стойте перед пушкой во время выстрела. Должен быть соединен с фузором."
 	icon_state = "emitter_center"
 
 /obj/machinery/bsa/front/multitool_act(mob/living/user, obj/item/I)
@@ -62,8 +62,8 @@
 	return TRUE
 
 /obj/machinery/bsa/middle
-	name = "Bluespace Artillery Fusor"
-	desc = "Contents classified by Nanotrasen Naval Command. Needs to be linked with the other BSA parts using multitool."
+	name = "Фузор орудия"
+	desc = "Содержание засекречено командованием Нанотрейзен. Должен быть соеденен с другим частями БСА с помощью мультитула."
 	icon_state = "fuel_chamber"
 	var/datum/weakref/back_ref
 	var/datum/weakref/front_ref
@@ -89,13 +89,13 @@
 	var/obj/machinery/bsa/front/front = front_ref?.resolve()
 	var/obj/machinery/bsa/back/back = back_ref?.resolve()
 	if(!front || !back)
-		return "No linked parts detected!"
+		return "Не обнаружено связанных частей!"
 	if(!front.anchored || !back.anchored || !anchored)
-		return "Linked parts unwrenched!"
+		return "Связанные части не прикручены!"
 	if(front.y != y || back.y != y || !(front.x > x && back.x < x || front.x < x && back.x > x) || front.z != z || back.z != z)
-		return "Parts misaligned!"
+		return "Неправильное расположение деталей!"
 	if(!has_space())
-		return "Not enough free space!"
+		return "Недостаточно места!"
 
 /obj/machinery/bsa/middle/proc/has_space()
 	var/cannon_dir = get_cannon_direction()
@@ -126,8 +126,8 @@
 
 
 /obj/machinery/bsa/full
-	name = "Bluespace Artillery"
-	desc = "Long range bluespace artillery."
+	name = "Блюспейс Артиллерия"
+	desc = "Артиллерия дальнего радиуса действия."
 	icon = 'icons/obj/lavaland/cannon.dmi'
 	icon_state = "orbital_cannon1"
 	var/static/mutable_appearance/top_layer
@@ -238,7 +238,7 @@
 	return
 
 /obj/machinery/computer/bsa_control
-	name = "bluespace artillery control"
+	name = "Компьютер блюспейс артиллерии"
 	use_power = NO_POWER_USE
 	circuit = /obj/item/circuitboard/computer/bsa_control
 	icon = 'icons/obj/machines/particle_accelerator.dmi'
@@ -318,10 +318,10 @@
 /obj/machinery/computer/bsa_control/proc/fire(mob/user)
 	var/obj/machinery/bsa/full/cannon = cannon_ref?.resolve()
 	if(!cannon)
-		notice = "No Cannon Exists!"
+		notice = "Не найдено пушки!"
 		return
 	if(cannon.machine_stat)
-		notice = "Cannon unpowered!"
+		notice = "Пушка не запитана!"
 		return
 	notice = null
 	cannon.fire(user, get_impact_turf())
@@ -333,7 +333,7 @@
 
 	var/obj/machinery/bsa/middle/centerpiece = locate() in range(7)
 	if(!centerpiece)
-		notice = "No BSA parts detected nearby."
+		notice = "Части БСА поблизости не обнаружены"
 		return null
 	notice = centerpiece.check_completion()
 	if(notice)

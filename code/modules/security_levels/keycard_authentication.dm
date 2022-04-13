@@ -1,9 +1,9 @@
 GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 
-#define KEYCARD_RED_ALERT "Red Alert"
-#define KEYCARD_EMERGENCY_MAINTENANCE_ACCESS "Emergency Maintenance Access"
+#define KEYCARD_RED_ALERT "Красный Код"
+#define KEYCARD_EMERGENCY_MAINTENANCE_ACCESS "Аварийный доступ к техтоннелям"
 #define KEYCARD_MIGGER_ALARM "Иммиграционная политика"
-#define KEYCARD_BSA_UNLOCK "Bluespace Artillery Unlock"
+#define KEYCARD_BSA_UNLOCK "Разблокировка Блюспейс Артиллерии"
 
 /obj/machinery/keycard_auth
 	name = "Устройство аутентификации"

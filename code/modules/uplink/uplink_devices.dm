@@ -4,12 +4,12 @@
 // used for nuke ops, for whom opening the radio GUI and the uplink GUI
 // simultaneously is an annoying distraction.
 /obj/item/uplink
-	name = "station bounced radio"
+	name = "старое радио"
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
 	inhand_icon_state = "walkietalkie"
 	worn_icon_state = "radio"
-	desc = "A basic handheld radio that communicates with local telecommunication networks."
+	desc = "Базовая портативное радио, обеспечивающее связь с местными телекоммуникационными сетями."
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	dog_fashion = /datum/dog_fashion/back
@@ -62,8 +62,8 @@
 	uplink_flag = UPLINK_CLOWN_OPS
 
 /obj/item/uplink/old
-	name = "dusty radio"
-	desc = "A dusty looking radio."
+	name = "пыльное радио"
+	desc = "Пыльный радиоприемник."
 
 /obj/item/uplink/old/Initialize(mapload, owner, tc_amount = 10)
 	. = ..()

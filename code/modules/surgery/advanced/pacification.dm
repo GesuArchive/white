@@ -33,7 +33,7 @@
 	display_results(user, target, span_notice("Мне удалось неврологически усмирить [skloname(target.name, VINITELNI, target.gender)].") ,
 		span_notice("[user] успешно исправил мозг [skloname(target.name, RODITELNI, target.gender)]!") ,
 		span_notice("[user] завершает операцию на могзе [skloname(target.name, RODITELNI, target.gender)]."))
-	display_pain(target, "Your head pounds... the concept of violence flashes in your head, and nearly makes you hurl!")
+	display_pain(target, "Голова раскалывается... Концепция насилия вспыхивает в голове и едва не заставляет меня броситься наутек!")
 	target.gain_trauma(/datum/brain_trauma/severe/pacifism, TRAUMA_RESILIENCE_LOBOTOMY)
 	return ..()
 

@@ -135,9 +135,9 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	if(ishuman(user) && istype(A, /obj/item))
 		var/mob/living/carbon/human/H = user
 		if(H.put_in_hands(A))
-			to_chat(H, span_boldnotice("[A] materializes into your hands!"))
+			to_chat(H, span_boldnotice("[A] материализуется в ваших руках!"))
 			return A
-	to_chat(user, span_boldnotice("[A] materializes onto the floor!"))
+	to_chat(user, span_boldnotice("[A] материализуется на полу!"))
 	return A
 
 //Discounts (dynamically filled above)

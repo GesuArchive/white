@@ -14,7 +14,7 @@
 /datum/surgery/eye_surgery/can_start(mob/user, mob/living/carbon/target)
 	var/obj/item/organ/eyes/E = target.getorganslot(ORGAN_SLOT_EYES)
 	if(!E)
-		to_chat(user, span_warning("Довольно сложно оперировать чьи-то глаза, если у н[target.ru_who()] их нет."))
+		to_chat(user, span_warning("Довольно сложно оперировать чьи-то глаза, если у [target.ru_who()] их нет."))
 		return FALSE
 	return TRUE
 
