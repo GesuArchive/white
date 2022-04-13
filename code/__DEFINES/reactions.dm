@@ -1,7 +1,7 @@
 //Defines used in atmos gas reactions. Used to be located in ..\modules\atmospherics\gasmixtures\reactions.dm, but were moved here because fusion added so fucking many.
 
 //Plasma fire properties
-#define OXYGEN_BURN_RATE_BASE				1.4
+#define OXYGEN_BURN_RATIO_BASE 1.4
 #define PLASMA_BURN_RATE_DELTA				9
 #define HYDROGEN_BURN_RATE_DELTA			8
 #define PLASMA_MINIMUM_OXYGEN_NEEDED		2
