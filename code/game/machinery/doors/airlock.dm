@@ -172,6 +172,8 @@
 				panel_open = TRUE
 	if(cutAiWire)
 		wires.cut(WIRE_AI)
+	if(name == initial(name))
+		name = get_area_name(src, TRUE)
 	update_icon()
 
 
