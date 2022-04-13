@@ -10189,7 +10189,7 @@
 /area/maintenance/starboard)
 "gvX" = (
 /obj/machinery/portable_atmospherics/canister/miasma{
-	gas_type = /datum/gas/oxygen
+	gas_type = "miasma"
 	},
 /turf/open/floor/engine/vacuum,
 /area/engineering/atmos)
