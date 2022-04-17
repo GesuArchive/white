@@ -201,7 +201,7 @@ SUBSYSTEM_DEF(spm)
 				add_overlay("onfire")
 				mining = FALSE
 				spawn(1 SECONDS)
-					explosion(1, 2, 3, 4, 5)
+					explosion(src, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 3, flame_range = 7)
 					if(src)
 						QDEL_IN(src, 1 SECONDS)
 				return

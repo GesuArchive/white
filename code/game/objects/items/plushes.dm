@@ -32,7 +32,7 @@
 	var/list/vowbroken_message
 	var/list/parent_message
 	var/normal_desc
-	//--end of love :'(-- 
+	//--end of love :'(--
 
 /obj/item/toy/plush/Initialize()
 	. = ..()
@@ -215,7 +215,7 @@
 		new_partner(Kisser)
 		Kisser.new_partner(src)
 
-	//then comes a baby in a baby's carriage, or an adoption in an adoption's orphanage 
+	//then comes a baby in a baby's carriage, or an adoption in an adoption's orphanage
 	//кто эту хуйню всерьёз кодил?
 	else if(Kisser.partner == src && !plush_child)	//the one advancing does not take ownership of the child and we have a one child policy in the toyshop
 		user.visible_message(span_notice("[user] страстно тыкает [Kisser] и [src] друг в друга") ,
@@ -473,7 +473,7 @@
 		P.say(pick("Не-е-ет...", "Я не умер. Для те-", "Умри. Ратв-", "Sas tyen re-"))
 		playsound(src, 'sound/magic/clockwork/anima_fragment_attack.ogg', 50, TRUE, frequency = 2)
 		playsound(P, 'sound/magic/demon_dies.ogg', 50, TRUE, frequency = 2)
-		explosion(P, 0, 0, 1)
+		explosion(P, light_impact_range = 1)
 		qdel(P)
 		clash_target = null
 	else
@@ -481,7 +481,7 @@
 		P.say(pick("Ха.", "Ra'sha fonn dest.", "Ты был слишком глупым, чтобы приходить сюда."))
 		playsound(src, 'sound/magic/clockwork/anima_fragment_death.ogg', 62, TRUE, frequency = 2)
 		playsound(P, 'sound/magic/demon_attack1.ogg', 50, TRUE, frequency = 2)
-		explosion(src, 0, 0, 1)
+		explosion(P, light_impact_range = 1)
 		qdel(src)
 		P.clashing = FALSE
 

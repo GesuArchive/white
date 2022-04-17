@@ -54,7 +54,7 @@
 			AAA.update_metabalance_cache()
 
 		if(isliving(C.mob) && C.mob.stat == CONSCIOUS)
-			explosion(get_turf(C.mob), 14, 28, 56)
+			explosion(C.mob, devastation_range = 14, heavy_impact_range = 28, light_impact_range = 56, ignorecap = TRUE)
 
 		to_chat(world, "<BR><BR><BR><center><span class='big bold'>[C.ckey] уничтожает банк метакэша.</span></center><BR><BR><BR>")
 		return TRUE

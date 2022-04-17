@@ -94,7 +94,7 @@
 		icon_state = "fuel_fools"
 
 /obj/structure/reagent_dispensers/fueltank/boom()
-	explosion(get_turf(src), 0, 1, 5, flame_range = 5)
+	explosion(src, heavy_impact_range = 1, light_impact_range = 5, flame_range = 5)
 	qdel(src)
 
 /obj/structure/reagent_dispensers/fueltank/blob_act(obj/structure/blob/B)
@@ -147,7 +147,7 @@
 			. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 			user.visible_message(span_danger("[user] начинает ТАКТИКУЛЬНО греть [src] с помощью [user.ru_ego()] [I.name]!"), span_userdanger("Прикол инбаунд."))
 			if(do_after(user, 10 SECONDS, src))
-				explosion(get_turf(src), 1, 3, 7, flame_range = 9)
+				explosion(src, devastation_range = 1, heavy_impact_range = 3, light_impact_range = 7, flame_range = 7)
 				qdel(src)
 
 /obj/structure/reagent_dispensers/fueltank/large
@@ -157,7 +157,7 @@
 	tank_volume = 5000
 
 /obj/structure/reagent_dispensers/fueltank/large/boom()
-	explosion(get_turf(src), 1, 2, 7, flame_range = 12)
+	explosion(src, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 7, flame_range = 12)
 	qdel(src)
 
 /obj/structure/reagent_dispensers/fueltank/limitka
@@ -167,7 +167,7 @@
 	tank_volume = 100000
 
 /obj/structure/reagent_dispensers/fueltank/limitka/boom()
-	explosion(get_turf(src), 7, 14, 21, flame_range = 34)
+	explosion(src, heavy_impact_range = 7, light_impact_range = 14, flame_range = 21, flash_range = 34)
 	qdel(src)
 
 /obj/structure/reagent_dispensers/peppertank
@@ -239,14 +239,14 @@
 
 /obj/structure/reagent_dispensers/beerkeg/attack_animal(mob/living/simple_animal/M)
 	if(isdog(M))
-		explosion(src.loc,0,3,5,7,10)
+		explosion(src, light_impact_range = 3, flame_range = 5, flash_range = 10)
 		if(!QDELETED(src))
 			qdel(src)
 		return TRUE
 	. = ..()
 
 /obj/structure/reagent_dispensers/beerkeg/blob_act(obj/structure/blob/B)
-	explosion(src.loc,0,3,5,7,10)
+	explosion(src, light_impact_range = 3, flame_range = 5, flash_range = 10)
 	if(!QDELETED(src))
 		qdel(src)
 

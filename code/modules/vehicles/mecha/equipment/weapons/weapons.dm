@@ -35,16 +35,16 @@
 			else
 				spread = round((i / projectiles_per_shot - 0.5) * variance)
 
-		var/obj/projectile/A = new projectile(get_turf(src))
+		var/obj/projectile/projectile_obj = new projectile(get_turf(src))
 		var/modifiers = params2list(params)
-		A.preparePixelProjectile(target, source, modifiers, spread)
+		projectile_obj.preparePixelProjectile(target, source, modifiers, spread)
 
 		if(source.client && isliving(source)) //dont want it to happen from syndie mecha npc mobs, they do direct fire anyways
 			var/mob/living/shooter = source
-			A.hit_prone_targets = shooter.a_intent != INTENT_HELP
+			projectile_obj.hit_prone_targets = shooter.a_intent != INTENT_HELP
 
-		A.fire()
-		if(!A.suppressed && firing_effect_type)
+		projectile_obj.fire()
+		if(!projectile_obj.suppressed && firing_effect_type)
 			new firing_effect_type(get_turf(src), chassis.dir)
 		playsound(chassis, fire_sound, 50, TRUE)
 

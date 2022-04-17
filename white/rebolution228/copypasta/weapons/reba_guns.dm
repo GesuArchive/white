@@ -338,7 +338,7 @@
 	else
 		return ..()
 
-//  гильзу посылаем 
+//  гильзу посылаем
 /obj/item/gun/ballistic/automatic/ak74m/gp25/attackby(obj/item/A, mob/user, params)
 	if(istype(A, /obj/item/ammo_casing))
 		if(istype(A, underbarrel.magazine.ammo_type))
@@ -401,7 +401,7 @@
 // настройки взрыва
 /obj/projectile/bullet/vog25/on_hit(atom/target, blocked = FALSE)
 	..()
-	explosion(target, 0, 2, 3, 4, flame_range = 4)
+	explosion(target, heavy_impact_range = 2, light_impact_range = 3, flame_range = 4)
 	return BULLET_ACT_HIT
 
 
@@ -901,7 +901,7 @@
 
 /obj/projectile/bullet/vg240/on_hit(atom/target, blocked = FALSE)
 	..()
-	explosion(target, 0, 2, 3, 4, flame_range = 6)
+	explosion(target, heavy_impact_range = 2, light_impact_range = 3, flame_range = 6)
 	return BULLET_ACT_HIT
 
 //

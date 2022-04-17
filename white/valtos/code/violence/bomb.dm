@@ -116,6 +116,7 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 			var/mob/living/carbon/human/H = M
 			H.gib()
 	GLOB.violence_bomb_detonated = TRUE
+	explosion(src, light_impact_range = 3, flame_range = 14, flash_range = 14)
 	explosion(get_turf(src), 0, 0, 0, 0)
 	to_chat(world, leader_brass("Бомба взорвана!"))
 	qdel(src)

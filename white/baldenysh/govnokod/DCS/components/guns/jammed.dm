@@ -66,7 +66,7 @@
 			playsound(get_turf(E), 'white/valtos/sounds/explo.ogg', 80) //лол валера че за звуки из аниме библиотек
 			spawn(1 SECONDS)
 				empulse(get_turf(E), rand(1, 4), rand(4, 8))
-				explosion(get_turf(E), -1, 0, 1, 2)
+				explosion(src, devastation_range = -1, light_impact_range = 1)
 				qdel(E)
 		else
 			electrocute_mob(user, E.cell, E) // а ето неработает

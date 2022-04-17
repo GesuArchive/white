@@ -13,5 +13,5 @@
 
 /obj/projectile/bullet/shotgun_bombslug/on_hit(atom/target, blocked = FALSE)
 	..()
-	explosion(target, 5, 10, 15)
+	explosion(target, devastation_range = 5, heavy_impact_range = 10, light_impact_range = 15)
 	return TRUE

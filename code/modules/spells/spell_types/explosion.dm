@@ -13,6 +13,6 @@
 	for(var/mob/living/target in targets)
 		if(target.anti_magic_check())
 			continue
-		explosion(target.loc,ex_severe,ex_heavy,ex_light,ex_flash)
+		explosion(target, devastation_range = ex_severe, heavy_impact_range = ex_heavy, light_impact_range = ex_light, flash_range = ex_flash, explosion_cause = src)
 
 	return

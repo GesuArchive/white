@@ -159,7 +159,7 @@
 	stop_dumping()
 	STOP_PROCESSING(SSfastprocess, src)
 	priority_announce("Кредитно-депозитный автомат в [get_area(src)] был разрушен. Средства станции перестали истощаться!", sender_override = "Протокол CRAB-17")
-	explosion(src, 0,0,1, flame_range = 2)
+	explosion(src, light_impact_range = 1, flame_range = 2)
 	SSeconomy.market_crashing = FALSE
 	return ..()
 

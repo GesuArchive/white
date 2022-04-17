@@ -59,12 +59,12 @@
 /obj/item/am_containment/ex_act(severity, target)
 	switch(severity)
 		if(1)
-			explosion(get_turf(src), 1, 2, 3, 5)//Should likely be larger but this works fine for now I guess
+			explosion(src, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 3, flame_range = 5)
 			if(src)
 				qdel(src)
 		if(2)
 			if(prob((fuel/10)-stability))
-				explosion(get_turf(src), 1, 2, 3, 5)
+				explosion(src, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 3, flame_range = 5)
 				if(src)
 					qdel(src)
 				return
@@ -130,7 +130,7 @@
 /obj/machinery/power/am_control_unit/process()
 	if(exploding)
 		GLOB.is_engine_sabotaged = TRUE
-		explosion(get_turf(src),8,12,18,12)
+		explosion(src, devastation_range = 8, heavy_impact_range = 12, light_impact_range = 18, flame_range = 12)
 		if(src)
 			qdel(src)
 

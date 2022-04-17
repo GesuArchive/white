@@ -369,11 +369,11 @@
 			sleep(1 SECONDS)
 			if(user)
 				to_chat(user, span_alert("Ну бл~"))
-				explosion(user, 0, 0, 1)
+				explosion(src, light_impact_range = 1)
 			if(isliving(user))
 				var/mob/living/L = user
 				L.gib()
-			explosion(src, 3, 7, 14)
+			explosion(src, devastation_range = 3, heavy_impact_range = 7, light_impact_range = 14)
 			return
 
 	say("Приступаю к процессу дезинтеграции объекта...")

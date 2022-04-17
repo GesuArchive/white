@@ -171,7 +171,7 @@
 		STOP_PROCESSING(SSmachines, src)
 
 /obj/machinery/power/port_gen/pacman/proc/overheat()
-	explosion(src.loc, 2, 5, 2, -1)
+	explosion(src, devastation_range = 2, heavy_impact_range = 5, light_impact_range = 2, flash_range = -1)
 
 /obj/machinery/power/port_gen/pacman/set_anchored(anchorvalue)
 	. = ..()
@@ -286,7 +286,7 @@
 	time_per_sheet = 85
 
 /obj/machinery/power/port_gen/pacman/super/overheat()
-	explosion(src.loc, 3, 3, 3, -1)
+	explosion(src, devastation_range = 3, heavy_impact_range = 3, light_impact_range = 3, flash_range = -1)
 
 /obj/machinery/power/port_gen/pacman/mrs
 	name = "М.И.С.И.С.П.А.К.М.А.Н. - портативный генератор"
@@ -299,4 +299,4 @@
 	time_per_sheet = 80
 
 /obj/machinery/power/port_gen/pacman/mrs/overheat()
-	explosion(src.loc, 4, 4, 4, -1)
+	explosion(src, devastation_range = 4, heavy_impact_range = 4, light_impact_range = 4, flash_range = -1)

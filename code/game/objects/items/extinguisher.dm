@@ -159,7 +159,7 @@
 	// в петушителях находятся шарики для тактического вспенивания содержимого внутри (а также для использования в качестве ручной гранаты при окопных войнах)
 	SEND_SIGNAL(src, COMSIG_EXTINGUISHER_BOOM)
 
-	explosion(bang_turf, 0, 0, 2, 0)
+	explosion(bang_turf, light_impact_range = 2, explosion_cause = src)
 
 	for(var/mob/living/M in get_hearers_in_view(5, bang_turf))
 		if(M.stat == DEAD)

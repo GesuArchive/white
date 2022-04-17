@@ -196,13 +196,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(reagents.get_reagent_amount(/datum/reagent/toxin/plasma)) // the plasma explodes when exposed to fire
 		var/datum/effect_system/reagents_explosion/e = new()
 		e.set_up(round(reagents.get_reagent_amount(/datum/reagent/toxin/plasma) / 2.5, 1), get_turf(src), 0, 0)
-		e.start()
+		e.start(src)
 		qdel(src)
 		return
 	if(reagents.get_reagent_amount(/datum/reagent/fuel)) // the fuel explodes, too, but much less violently
 		var/datum/effect_system/reagents_explosion/e = new()
 		e.set_up(round(reagents.get_reagent_amount(/datum/reagent/fuel) / 5, 1), get_turf(src), 0, 0)
-		e.start()
+		e.start(src)
 		qdel(src)
 		return
 	// allowing reagents to react after being lit
@@ -917,7 +917,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			add_overlay("vapeopen_high")
 			var/datum/effect_system/spark_spread/sp = new /datum/effect_system/spark_spread //for effect
 			sp.set_up(5, 1, src)
-			sp.start()
+			sp.start(src)
 		else
 			to_chat(user, span_warning("[capitalize(src.name)] уже взломан!"))
 	else
@@ -961,7 +961,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				if(reagents.get_reagent_amount(/datum/reagent/toxin/plasma)) // the plasma explodes when exposed to fire
 					var/datum/effect_system/reagents_explosion/e = new()
 					e.set_up(round(reagents.get_reagent_amount(/datum/reagent/toxin/plasma) / 2.5, 1), get_turf(src), 0, 0)
-					e.start()
+					e.start(src)
 					qdel(src)
 				return
 		reagents.remove_any(REAGENTS_METABOLISM)
@@ -985,13 +985,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(super && vapetime >= vapedelay)//Time to start puffing those fat vapes, yo.
 		var/datum/effect_system/smoke_spread/chem/smoke_machine/s = new
 		s.set_up(reagents, 1, 24, loc)
-		s.start()
+		s.start(src)
 		vapetime -= vapedelay
 
 	if((obj_flags & EMAGGED) && vapetime >= vapedelay)
 		var/datum/effect_system/smoke_spread/chem/smoke_machine/s = new
 		s.set_up(reagents, 4, 24, loc)
-		s.start()
+		s.start(src)
 		vapetime -= vapedelay
 		if(prob(5))//small chance for the vape to break and deal damage if it's emagged
 			playsound(get_turf(src), 'sound/effects/pop_expl.ogg', 50, FALSE)
@@ -999,7 +999,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			M.Paralyze(300)
 			var/datum/effect_system/spark_spread/sp = new /datum/effect_system/spark_spread
 			sp.set_up(5, 1, src)
-			sp.start()
+			sp.start(src)
 			to_chat(M, span_userdanger("[capitalize(src.name)] внезапно взрывается в моем рту!"))
 			qdel(src)
 			return

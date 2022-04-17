@@ -324,7 +324,7 @@
 		force_range = sum_volume/5
 	if(invert_reagents.reagent_list)
 		smoke.set_up(invert_reagents, force_range, holder.my_atom)
-		smoke.start()
+		smoke.start(holder.my_atom)
 	holder.my_atom.audible_message("The [holder.my_atom] suddenly explodes, launching the aerosolized reagents into the air!")
 	if(clear_reactants)
 		clear_reactants(holder)
@@ -343,7 +343,7 @@
 			holder.remove_reagent(reagent.type, reagent.volume)
 	if(reagents.reagent_list)
 		smoke.set_up(reagents, (sum_volume/5), holder.my_atom)
-		smoke.start()
+		smoke.start(holder.my_atom)
 	holder.my_atom.audible_message("The [holder.my_atom] suddenly explodes, launching the aerosolized reagents into the air!")
 	if(clear_reactants)
 		clear_reactants(holder)
@@ -383,7 +383,7 @@
 
 //Calls the default explosion subsystem handiler to explode with fire (random firespots and noise)
 /datum/chemical_reaction/proc/explode_fire(datum/reagents/holder, datum/equilibrium/equilibrium, range = 3)
-	explosion(holder.my_atom, 0, 0, 0, 0, flame_range = range)
+	explosion(holder.my_atom, flame_range = range, explosion_cause = src)
 	holder.my_atom.audible_message("The [holder.my_atom] suddenly errupts in flames!")
 
 //Creates a ring of fire in a set range around the beaker location

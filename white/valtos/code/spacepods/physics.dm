@@ -251,7 +251,7 @@
 		strength = strength * strength
 		strength = min(strength, 5) // don't want the explosions *too* big
 		// wew lad, might wanna slow down there
-		explosion(A, -1, round((strength - 1) / 2), round(strength))
+		explosion(A, devastation_range = -1, heavy_impact_range = round((strength - 1) / 2), light_impact_range = round(strength))
 		message_admins("[key_name_admin(pilot)] has impacted a spacepod into [A] with velocity [bump_velocity]")
 		take_damage(strength*10, BRUTE, "melee", TRUE)
 		log_game("[key_name(pilot)] has impacted a spacepod into [A] with velocity [bump_velocity]")
