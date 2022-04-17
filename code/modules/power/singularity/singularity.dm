@@ -171,7 +171,7 @@
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
 			if(current_size <= STAGE_TWO)
-				investigate_log("has been destroyed by a heavy explosion.", INVESTIGATE_ENGINE)
+				investigate_log("has been destroyed by a heavy explosion.", INVESTIGATE_SINGULO)
 				qdel(src)
 				return
 
