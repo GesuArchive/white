@@ -58,18 +58,18 @@
 
 /obj/item/am_containment/ex_act(severity, target)
 	switch(severity)
-		if(1)
+		if(EXPLODE_DEVASTATE)
 			explosion(src, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 3, flame_range = 5)
 			if(src)
 				qdel(src)
-		if(2)
+		if(EXPLODE_HEAVY)
 			if(prob((fuel/10)-stability))
 				explosion(src, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 3, flame_range = 5)
 				if(src)
 					qdel(src)
 				return
 			stability -= 40
-		if(3)
+		if(EXPLODE_LIGHT)
 			stability -= 20
 	//check_stability()
 	return

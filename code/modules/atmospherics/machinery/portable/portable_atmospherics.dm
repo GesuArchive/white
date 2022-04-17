@@ -29,7 +29,7 @@
 	return ..()
 
 /obj/machinery/portable_atmospherics/ex_act(severity, target)
-	if(severity == 1 || target == src)
+	if(severity >= EXPLODE_DEVASTATE || target == src)
 		if(resistance_flags & INDESTRUCTIBLE)
 			return //Indestructable cans shouldn't release air
 

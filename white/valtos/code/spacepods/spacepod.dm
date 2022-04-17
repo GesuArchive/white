@@ -343,13 +343,13 @@
 
 /obj/spacepod/ex_act(severity)
 	switch(severity)
-		if(1)
+		if(EXPLODE_DEVASTATE)
 			for(var/mob/living/M in contents)
 				M.ex_act(severity+1)
 			deconstruct()
-		if(2)
+		if(EXPLODE_HEAVY)
 			take_damage(100, BRUTE, "bomb", 0)
-		if(3)
+		if(EXPLODE_LIGHT)
 			if(prob(40))
 				take_damage(40, BRUTE, "bomb", 0)
 

@@ -218,11 +218,11 @@
 		return
 	else
 		switch(severity)
-			if(1)
+			if(EXPLODE_DEVASTATE)
 				brainmob.emp_damage = min(brainmob.emp_damage + rand(20,30), 30)
-			if(2)
+			if(EXPLODE_HEAVY)
 				brainmob.emp_damage = min(brainmob.emp_damage + rand(10,20), 30)
-			if(3)
+			if(EXPLODE_LIGHT)
 				brainmob.emp_damage = min(brainmob.emp_damage + rand(0,10), 30)
 		brainmob.emote("alarm")
 

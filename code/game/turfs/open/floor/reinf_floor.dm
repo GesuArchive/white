@@ -62,7 +62,7 @@
 		ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 		return
 	switch(severity)
-		if(1)
+		if(EXPLODE_DEVASTATE)
 			if(prob(80))
 				if(!length(baseturfs) || !ispath(baseturfs[baseturfs.len-1], /turf/open/floor))
 					ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
@@ -73,7 +73,7 @@
 				ScrapeAway(2, flags = CHANGETURF_INHERIT_AIR)
 			else
 				ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
-		if(2)
+		if(EXPLODE_HEAVY)
 			if(prob(50))
 				ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 

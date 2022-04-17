@@ -74,7 +74,7 @@
 		return
 	var/mob/living/carbon/human/user = src.loc
 	switch(severity)
-		if(1)
+		if(EXPLODE_DEVASTATE)
 			if(activated && user && ishuman(user) && (user.wear_suit == src))
 				to_chat(user, span_danger("E:FATAL:RAM_READ_FAIL\nE:FATAL:STACK_EMPTY\nE:FATAL:READ_NULL_POINT\nE:FATAL:PWR_BUS_OVERLOAD"))
 				to_chat(user, span_userdanger("An electromagnetic pulse disrupts your [name] and violently tears you out of time-bluespace!"))

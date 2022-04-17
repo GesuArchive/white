@@ -293,7 +293,7 @@
 
 /turf/open/floor/plating/asteroid/boxplanet/ex_act(severity, target)
 	..()
-	if(severity == 1)
+	if(severity >= EXPLODE_DEVASTATE)
 		var/turf/T = below()
 		T.ScrapeAway()
 	ScrapeAway()

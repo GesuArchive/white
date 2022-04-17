@@ -144,14 +144,14 @@
 /turf/closed/mineral/ex_act(severity, target)
 	..()
 	switch(severity)
-		if(3)
-			if (prob(75))
-				gets_drilled(null, FALSE)
-		if(2)
-			if (prob(90))
-				gets_drilled(null, FALSE)
-		if(1)
+		if(EXPLODE_DEVASTATE)
 			gets_drilled(null, FALSE)
+		if(EXPLODE_HEAVY)
+			if(prob(90))
+				gets_drilled(null, FALSE)
+		if(EXPLODE_LIGHT)
+			if(prob(75))
+				gets_drilled(null, FALSE)
 	return
 
 /turf/closed/mineral/random

@@ -282,10 +282,10 @@
 	if(gamer_skill_level >= SKILL_LEVEL_EXPERT)
 		maxSeverity = 2 //part of gitting gud is rng mitigation
 	var/severity = rand(1,maxSeverity) //pray to RNGesus. PRAY, PIGS
-	if(severity == 1)
+	if(severity >= EXPLODE_DEVASTATE)
 		to_chat(gamer, span_userdanger("You suddenly feel slightly nauseated.")  )
 		gamer.adjust_disgust(50)
-	if(severity == 2)
+	if(severity <= EXPLODE_HEAVY)
 		to_chat(usr, span_userdanger("You suddenly feel extremely nauseated and hunch over until it passes."))
 		gamer.adjust_disgust(110)
 		gamer.Stun(60)

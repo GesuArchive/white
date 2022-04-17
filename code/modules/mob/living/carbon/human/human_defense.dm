@@ -492,10 +492,10 @@
 				to_chat(src, span_userdanger("Ощущаю острую боль в области моей роботизированной конечности."))
 				informed = TRUE
 			switch(severity)
-				if(1)
+				if(EXPLODE_DEVASTATE)
 					L.receive_damage(0,10)
 					Paralyze(200)
-				if(2)
+				if(EXPLODE_HEAVY)
 					L.receive_damage(0,5)
 					Paralyze(100)
 
