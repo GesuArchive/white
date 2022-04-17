@@ -180,7 +180,7 @@
 		return //We're already active
 	soundloop.start()
 	is_playing_alarm = TRUE
-	for(var/obj/machinery/door/firedoor/buddylock in range(1, src))
+	for(var/obj/machinery/door/firedoor/buddylock in range(2, src))
 		if(buddylock && istype(buddylock, /obj/machinery/door/firedoor))
 			buddylock.activate(code)
 
@@ -470,6 +470,7 @@
 	if(density || operating || welded)
 		return
 	alarm_type = FIRELOCK_ALARM_TYPE_GENERIC
+	start_activation_process()
 	close()
 
 /obj/machinery/door/firedoor/deconstruct(disassembled = TRUE)
@@ -548,9 +549,10 @@
 		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/machinery/door/firedoor/border_only/CanAtmosPass(turf/T)
-	if(get_dir(get_turf(src), T) == dir)
+	if(get_dir(loc, T) == dir)
 		return !density
-	return TRUE
+	else
+		return TRUE
 
 /obj/machinery/door/firedoor/heavy
 	name = "тяжёлый пожарный шлюз"
