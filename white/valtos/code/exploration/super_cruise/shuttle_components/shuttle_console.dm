@@ -448,7 +448,7 @@
 /obj/machinery/computer/shuttle_flight/proc/check_banned_contents()
 	var/obj/docking_port/mobile/port = SSshuttle.getShuttle(shuttleId)
 	for(var/area/A in port.shuttle_areas)
-		for(var/atom/movable/AM in A.GetAllContents())
+		for(var/atom/movable/AM in A.get_all_contents())
 			for(var/type in banned_types)
 				if(istype(AM, type))
 					return TRUE

@@ -246,7 +246,7 @@
 /*
 /obj/spacepod/proc/InterceptClickOn(mob/user, params, atom/target)
 	var/list/params_list = params2list(params)
-	if(target == src || istype(target, /atom/movable/screen) || (target && (target in user.GetAllContents())) || user != pilot || params_list["shift"] || params_list["alt"])
+	if(target == src || istype(target, /atom/movable/screen) || (target && (target in user.get_all_contents())) || user != pilot || params_list["shift"] || params_list["alt"])
 		return FALSE
 	if(weapon && params_list["ctrl"])
 		weapon.fire_weapons(target)
@@ -270,7 +270,7 @@
 /obj/spacepod/proc/on_mouse_moved(mob/user, object, location, control, params)
 	SIGNAL_HANDLER
 	var/list/modifiers = params2list(params)
-	if(object == src || /*istype(object, /atom/movable/screen) ||*/ (object && (object in user.GetAllContents())) || user != pilot/* || modifiers["shift"] || modifiers["alt"]*/)
+	if(object == src || /*istype(object, /atom/movable/screen) ||*/ (object && (object in user.get_all_contents())) || user != pilot/* || modifiers["shift"] || modifiers["alt"]*/)
 		return
 	if(weapon && modifiers["ctrl"])
 		INVOKE_ASYNC(src, .proc/async_fire_weapons_at, object)

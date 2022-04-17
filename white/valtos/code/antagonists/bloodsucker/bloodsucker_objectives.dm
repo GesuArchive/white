@@ -260,7 +260,7 @@
 	if (!owner.current)
 		return FALSE
 	// Taken from /steal in objective.dm
-	var/list/all_items = owner.current.GetAllContents() // Includes items inside other items.
+	var/list/all_items = owner.current.get_all_contents() // Includes items inside other items.
 	var/itemcount = FALSE
 	for(var/obj/I in all_items) //Check for items
 		if(istype(I, /obj/item/organ/heart))

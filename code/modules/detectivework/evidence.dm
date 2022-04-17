@@ -36,7 +36,7 @@
 		to_chat(user, span_warning("Засовывать один пакетик для улик в другой довольно абсурдное занятие."))
 		return TRUE //now this is podracing
 
-	if(loc in I.GetAllContents()) // fixes tg #39452, evidence bags could store their own location, causing I to be stored in the bag while being present inworld still, and able to be teleported when removed.
+	if(loc in I.get_all_contents()) // fixes tg #39452, evidence bags could store their own location, causing I to be stored in the bag while being present inworld still, and able to be teleported when removed.
 		to_chat(user, span_warning("Нахожу засовывание [I] в [src] пока он всё еще внутри довольно сложным занятием!"))
 		return
 

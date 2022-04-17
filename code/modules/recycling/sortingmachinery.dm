@@ -113,7 +113,7 @@
 		sticker.payments_acc = tagger.payments_acc	//new tag gets the tagger's current account.
 		sticker.percent_cut = tagger.percent_cut	//same, but for the percentage taken.
 
-		var/list/wrap_contents = src.GetAllContents()
+		var/list/wrap_contents = src.get_all_contents()
 		for(var/obj/I in wrap_contents)
 			I.AddComponent(/datum/component/pricetag, sticker.payments_acc, tagger.percent_cut)
 		var/overlaystring = "[icon_state]_tag"
@@ -132,7 +132,7 @@
 			to_chat(user, span_warning("For some reason, you can't attach [W]!"))
 			return
 		sticker = stickerA
-		var/list/wrap_contents = src.GetAllContents()
+		var/list/wrap_contents = src.get_all_contents()
 		for(var/obj/I in wrap_contents)
 			I.AddComponent(/datum/component/pricetag, sticker.payments_acc, sticker.percent_cut)
 		var/overlaystring = "[icon_state]_tag"
@@ -166,7 +166,7 @@
 /obj/structure/big_delivery/proc/unwrap_contents()
 	if(!sticker)
 		return
-	for(var/obj/I in src.GetAllContents())
+	for(var/obj/I in src.get_all_contents())
 		SEND_SIGNAL(I, COMSIG_STRUCTURE_UNWRAPPED)
 
 /obj/structure/big_delivery/proc/disposal_handling(disposal_source, obj/structure/disposalholder/disposal_holder, obj/machinery/disposal/disposal_machine, hasmob)
@@ -305,7 +305,7 @@
 		sticker.payments_acc = tagger.payments_acc	//new tag gets the tagger's current account.
 		sticker.percent_cut = tagger.percent_cut	//as above, as before.
 
-		var/list/wrap_contents = src.GetAllContents()
+		var/list/wrap_contents = src.get_all_contents()
 		for(var/obj/I in wrap_contents)
 			I.AddComponent(/datum/component/pricetag, sticker.payments_acc, tagger.percent_cut)
 		var/overlaystring = "[icon_state]_tag"
@@ -325,7 +325,7 @@
 			to_chat(user, span_warning("For some reason, you can't attach [W]!"))
 			return
 		sticker = stickerA
-		var/list/wrap_contents = src.GetAllContents()
+		var/list/wrap_contents = src.get_all_contents()
 		for(var/obj/I in wrap_contents)
 			I.AddComponent(/datum/component/pricetag, sticker.payments_acc, sticker.percent_cut)
 		var/overlaystring = "[icon_state]_tag"
@@ -336,7 +336,7 @@
 /obj/item/small_delivery/proc/unwrap_contents()
 	if(!sticker)
 		return
-	for(var/obj/I in src.GetAllContents())
+	for(var/obj/I in src.get_all_contents())
 		SEND_SIGNAL(I, COMSIG_ITEM_UNWRAPPED)
 
 /obj/item/small_delivery/proc/disposal_handling(disposal_source, obj/structure/disposalholder/disposal_holder, obj/machinery/disposal/disposal_machine, hasmob)

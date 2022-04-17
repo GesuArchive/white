@@ -481,7 +481,7 @@
 
 	//Max explosion ranges: devastation = 12, heavy = 24, light = 42
 	explosion(
-		epicenter = src,
+		origin = src,
 		devastation_range = critical ? devastating_explosion * 2 : devastating_explosion,
 		heavy_impact_range = critical ?  heavy_impact_explosion * 2 : heavy_impact_explosion,
 		light_impact_range = light_impact_explosion,
@@ -581,7 +581,7 @@
 	if (moderator_internal.return_pressure() < HYPERTORUS_STRONG_SPILL_PRESSURE)
 		// Medium explosion on initial rupture
 		explosion(
-			epicenter = cracked_part,
+			origin = cracked_part,
 			devastation_range = 0,
 			heavy_impact_range = 0,
 			light_impact_range = 1,
@@ -592,7 +592,7 @@
 		return
 	// Enough pressure for a strong explosion. Oh dear, oh dear.
 	explosion(
-		epicenter = cracked_part,
+		origin = cracked_part,
 		devastation_range = 0,
 		heavy_impact_range = 1,
 		light_impact_range = 3,

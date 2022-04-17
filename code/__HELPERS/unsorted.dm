@@ -405,14 +405,16 @@ Turf and target are separate in case you want to teleport some distance from a t
 
 
 ///Returns the src and all recursive contents as a list.
-/atom/proc/GetAllContents()
+/atom/proc/get_all_contents(ignore_flag_1)
 	. = list(src)
 	var/i = 0
 	while(i < length(.))
-		var/atom/A = .[++i]
-		. += A.contents
+		var/atom/checked_atom = .[++i]
+		if(checked_atom.flags_1 & ignore_flag_1)
+			continue
+		. += checked_atom.contents
 
-///identical to getallcontents but returns a list of atoms of the type passed in the argument.
+///identical to get_all_contents but returns a list of atoms of the type passed in the argument.
 /atom/proc/get_all_contents_type(type)
 	var/list/processing_list = list(src)
 	. = list()
@@ -423,9 +425,9 @@ Turf and target are separate in case you want to teleport some distance from a t
 		if(istype(A, type))
 			. += A
 
-/atom/proc/GetAllContentsIgnoring(list/ignore_typecache)
+/atom/proc/get_all_contents_ignoring(list/ignore_typecache)
 	if(!length(ignore_typecache))
-		return GetAllContents()
+		return get_all_contents()
 	var/list/processing = list(src)
 	. = list()
 	var/i = 0

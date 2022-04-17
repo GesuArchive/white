@@ -314,7 +314,7 @@ GLOBAL_VAR_INIT(cryopods_enabled, FALSE)
 
 	visible_message(span_notice("[capitalize(src.name)] начинает дико шуметь, когда [mob_occupant.real_name] входит в хранилище."))
 
-	for(var/obj/item/item in mob_occupant.GetAllContents())
+	for(var/obj/item/item in mob_occupant.get_all_contents())
 		if(item.loc.loc && (item.loc.loc == loc || item.loc.loc == control_computer))
 			continue // means we already moved whatever this thing was in
 			// I'm a professional, okay
@@ -328,7 +328,7 @@ GLOBAL_VAR_INIT(cryopods_enabled, FALSE)
 		else
 			mob_occupant.transferItemToLoc(item, loc, TRUE)
 
-	var/list/contents = mob_occupant.GetAllContents()
+	var/list/contents = mob_occupant.get_all_contents()
 	QDEL_LIST(contents)
 
 	// Ghost and delete the mob.

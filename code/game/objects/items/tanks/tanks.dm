@@ -272,7 +272,7 @@
 			var/obj/item/transfer_valve/funni = src.loc
 			bombasta_masta = get_mob_by_key(funni.fingerprintslast)
 
-		explosion(epicenter, round(range*0.25), round(range*0.5), round(range), round(range*1.5), prikolist = bombasta_masta)
+		explosion(epicenter, round(range*0.25), round(range*0.5), round(range), round(range*1.5), explosion_cause = bombasta_masta)
 		if(istype(src.loc, /obj/item/transfer_valve))
 			qdel(src.loc)
 		else

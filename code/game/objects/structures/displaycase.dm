@@ -328,7 +328,7 @@
 		to_chat(user, span_warning("Витрина отвергает [W]!"))
 		return
 
-	for(var/a in W.GetAllContents())
+	for(var/a in W.get_all_contents())
 		if(is_type_in_typecache(a, GLOB.blacklisted_cargo_types))
 			to_chat(user, span_warning("Витрина отвергает [W]!"))
 			return

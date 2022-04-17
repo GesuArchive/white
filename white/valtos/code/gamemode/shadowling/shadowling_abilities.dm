@@ -119,10 +119,10 @@
 					borg.smash_headlamp()
 			else if(ishuman(AM))
 				var/mob/living/carbon/human/H = AM
-				for(var/obj/item/O in H.get_all_gear()) //less expensive than getallcontents
+				for(var/obj/item/O in H.get_all_gear()) //less expensive than get_all_contents
 					light_item_check(O, H)
 			else
-				for(var/obj/item/O in L.GetAllContents())
+				for(var/obj/item/O in L.get_all_contents())
 					light_item_check(O, L)
 			if(L.pulling)
 				light_item_check(L.pulling, L.pulling)

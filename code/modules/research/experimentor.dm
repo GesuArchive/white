@@ -359,7 +359,7 @@
 				FB.fire()
 		else if(prob(EFFECT_PROB_LOW-badThingCoeff))
 			visible_message(span_danger("[capitalize(src.name)] malfunctions, melting [exp_on] and releasing a burst of flame!"))
-			explosion(loc, -1, 0, 0, 0, 0, flame_range = 2)
+			explosion(src, -1, 0, 0, 0, 0, flame_range = 2)
 			investigate_log("Experimentor started a fire.", INVESTIGATE_EXPERIMENTOR)
 			ejectItem(TRUE)
 		else if(prob(EFFECT_PROB_MEDIUM-badThingCoeff))

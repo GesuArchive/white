@@ -379,15 +379,6 @@ GLOBAL_LIST_INIT(pda_styles, sort_list(list(MONO, VT, ORBITRON, SHARE)))
 #define FIELD_TURF 1
 #define FIELD_EDGE 2
 
-//gibtonite state defines
-#define GIBTONITE_UNSTRUCK 0
-#define GIBTONITE_ACTIVE 1
-#define GIBTONITE_STABLE 2
-#define GIBTONITE_DETONATE 3
-
-//for obj explosion block calculation
-#define EXPLOSION_BLOCK_PROC -1
-
 //for determining which type of heartbeat sound is playing
 #define BEAT_FAST 1
 #define BEAT_SLOW 2

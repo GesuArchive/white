@@ -503,7 +503,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 			R.hud_used.update_robot_modules_display()
 
 /obj/item/proc/GetDeconstructableContents()
-	return GetAllContents() - src
+	return get_all_contents() - src
 
 // afterattack() and attack() prototypes moved to _onclick/item_attack.dm for consistency
 

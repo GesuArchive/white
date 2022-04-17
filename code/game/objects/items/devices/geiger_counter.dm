@@ -131,7 +131,7 @@
 	if(user.a_intent == INTENT_HELP)
 		if(!(obj_flags & EMAGGED))
 			user.visible_message(span_notice("[user] сканирует [target] используя [src.name].") , span_notice("Сканирую [target] radiation levels with [src.name]..."))
-			addtimer(CALLBACK(src, .proc/scan, target, user), 20, TIMER_UNIQUE) // Let's not have spamming GetAllContents
+			addtimer(CALLBACK(src, .proc/scan, target, user), 20, TIMER_UNIQUE) // Let's not have spamming get_all_contents
 		else
 			user.visible_message(span_notice("[user] сканирует [target] используя [src.name].") , span_danger("Вкачиваю радиацию запасённую [src.name] в [target]!"))
 			target.rad_act(radiation_count)

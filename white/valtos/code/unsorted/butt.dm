@@ -191,7 +191,7 @@
 		if(STR)
 			STR.close_all()
 
-/atom/GetAllContents(var/T)
+/atom/get_all_contents(ignore_flag_1)
 	. = ..()
 	if (istype(src, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = src
