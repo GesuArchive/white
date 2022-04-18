@@ -10,6 +10,7 @@ import { NowPlayingWidget, useAudio } from './audio';
 import { ChatPanel, ChatTabs } from './chat';
 import { useGame } from './game';
 import { Notifications } from './Notifications';
+import { ReconnectButton } from './reconnect';
 import { SettingsPanel, useSettings } from './settings';
 
 export const Panel = (props, context) => {
@@ -82,13 +83,7 @@ export const Panel = (props, context) => {
             <Notifications>
               {game.connectionLostAt && (
                 <Notifications.Item
-                  rightSlot={(
-                    <Button
-                      color="white"
-                      onClick={() => Byond.command('.reconnect')}>
-                      Переподключиться
-                    </Button>
-                  )}>
+                  rightSlot={<ReconnectButton />}>
                   Сервер перезагружается. Если сообщение висит
                   более двух минут, то можете нажать на кнопку справа.
                 </Notifications.Item>
