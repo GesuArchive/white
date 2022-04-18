@@ -446,14 +446,12 @@
 	dir = 5
 	},
 /obj/structure/cable,
-/obj/machinery/bounty_board/directional/west,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/service)
 "abY" = (
-/obj/machinery/bounty_board/directional/north,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
@@ -519,7 +517,6 @@
 /turf/open/floor/plating,
 /area/maintenance/solars/starboard/fore)
 "acg" = (
-/obj/machinery/bounty_board/directional/west,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -6792,7 +6789,7 @@
 "aZn" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/red,
-/obj/machinery/newscaster/security_unit/directional/north,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "aZo" = (
@@ -9084,7 +9081,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/newscaster/security_unit/directional/north,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai)
 "brL" = (
@@ -9682,7 +9679,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
-/obj/machinery/newscaster/security_unit/directional/east,
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "bxv" = (
@@ -11423,7 +11420,7 @@
 "bJy" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/red,
-/obj/machinery/newscaster/security_unit/directional/east,
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "bJz" = (
@@ -11932,7 +11929,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/machinery/newscaster/security_unit/directional/west,
+/obj/machinery/newscaster/directional/west,
 /turf/open/floor/plasteel/dark,
 /area/security/detectives_office)
 "bMY" = (
@@ -13782,7 +13779,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/machinery/newscaster/security_unit/directional/west,
+/obj/machinery/newscaster/directional/west,
 /obj/machinery/light_switch/directional/west{
 	pixel_x = -42
 	},
@@ -16059,7 +16056,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/machinery/newscaster/security_unit/directional/east,
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "cfs" = (
@@ -16298,7 +16295,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/machinery/newscaster/security_unit/directional/west,
+/obj/machinery/newscaster/directional/west,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "cgR" = (
@@ -19508,7 +19505,7 @@
 /area/engineering/atmos)
 "cCv" = (
 /obj/structure/dresser,
-/obj/machinery/newscaster/security_unit/directional/north,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel/grimy,
 /area/command/heads_quarters/hos)
 "cCC" = (
@@ -26783,7 +26780,7 @@
 /obj/structure/extinguisher_cabinet/directional/south{
 	pixel_x = 26
 	},
-/obj/machinery/newscaster/security_unit/directional/east,
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/hos)
 "dmu" = (
@@ -54701,7 +54698,6 @@
 "jam" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
-/obj/machinery/bounty_board/directional/south,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -68016,7 +68012,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
-/obj/machinery/newscaster/security_unit/directional/north,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel,
 /area/security/main)
 "mFB" = (
@@ -73514,7 +73510,6 @@
 /turf/open/floor/plating,
 /area/cargo/warehouse)
 "oay" = (
-/obj/machinery/bounty_board/directional/north,
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
@@ -74191,7 +74186,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden{
 	dir = 5
 	},
-/obj/machinery/newscaster/security_unit/directional/south,
+/obj/machinery/newscaster/directional/south,
 /turf/open/floor/plasteel/dark,
 /area/security/execution/education)
 "oid" = (
@@ -85763,7 +85758,6 @@
 /turf/open/floor/plasteel,
 /area/engineering/atmos/upper)
 "rfF" = (
-/obj/machinery/bounty_board/directional/north,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -100343,7 +100337,6 @@
 	pixel_y = 3
 	},
 /obj/item/stamp,
-/obj/machinery/bounty_board/directional/east,
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
 	dir = 4

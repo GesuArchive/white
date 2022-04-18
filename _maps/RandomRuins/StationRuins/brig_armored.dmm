@@ -242,7 +242,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/security/main)
 "bQ" = (
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_x = -30
 	},
 /obj/machinery/camera{

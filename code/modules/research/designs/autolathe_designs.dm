@@ -893,15 +893,6 @@
 	category = list("initial", "Конструкции", "Строительство")
 	sub_category = list("Настенные конструкции")
 
-/datum/design/bounty_board_frame
-	name = "Рама доски вознаграждений"
-	id = "bountyboard_frame"
-	build_type = AUTOLATHE | MECHFAB
-	materials = list(/datum/material/iron = 14000, /datum/material/glass = 8000)
-	build_path = /obj/item/wallframe/bounty_board
-	category = list("initial", "Конструкции", "Строительство")
-	sub_category = list("Настенные конструкции")
-
 /datum/design/syringe
 	name = "Шприц"
 	desc = "Может содержать 15 единиц."

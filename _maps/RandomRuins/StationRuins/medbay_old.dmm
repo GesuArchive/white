@@ -292,10 +292,6 @@
 	pixel_x = 3;
 	pixel_y = -3
 	},
-/obj/machinery/bounty_board{
-	dir = 8;
-	pixel_x = -32
-	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/pharmacy)
 "bO" = (
@@ -516,9 +512,6 @@
 "dS" = (
 /obj/machinery/light{
 	dir = 1
-	},
-/obj/machinery/bounty_board{
-	pixel_y = 32
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay)
@@ -1931,10 +1924,6 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/command/heads_quarters/cmo)
 "tv" = (
-/obj/machinery/bounty_board{
-	dir = 1;
-	pixel_y = -32
-	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay)
 "tD" = (
@@ -2129,10 +2118,6 @@
 "vA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/bounty_board{
-	dir = 8;
-	pixel_x = -32
-	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/aft)
 "vB" = (
@@ -3376,10 +3361,6 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/yellow,
-/obj/machinery/bounty_board{
-	dir = 1;
-	pixel_y = -32
-	},
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "Fw" = (

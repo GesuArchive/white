@@ -526,7 +526,7 @@
 /turf/open/floor/carpet,
 /area/command/heads_quarters/hos)
 "bE" = (
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_x = -30
 	},
 /obj/machinery/camera{

@@ -5322,10 +5322,6 @@
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
 "lO" = (
-/obj/machinery/bounty_board{
-	dir = 4;
-	pixel_x = 32
-	},
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 1
 	},
@@ -5580,10 +5576,6 @@
 "mm" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
-	},
-/obj/machinery/bounty_board{
-	dir = 8;
-	pixel_x = -32
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard/low_level_service)
@@ -10692,9 +10684,6 @@
 "xm" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
-	},
-/obj/machinery/bounty_board{
-	pixel_y = 32
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -19438,9 +19427,6 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/machinery/bounty_board{
-	pixel_y = 32
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge/cryo)
@@ -19646,10 +19632,6 @@
 "QM" = (
 /obj/structure/chair/sofa/corp/corner{
 	dir = 1
-	},
-/obj/machinery/bounty_board{
-	dir = 8;
-	pixel_x = -32
 	},
 /turf/open/floor/carpet/purple,
 /area/science/breakroom)
@@ -21076,10 +21058,6 @@
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
-/obj/machinery/bounty_board{
-	dir = 1;
-	pixel_y = -32
-	},
 /turf/open/floor/plasteel,
 /area/commons/dorms)
 "Ub" = (
@@ -21296,10 +21274,6 @@
 	},
 /obj/machinery/camera/autoname{
 	dir = 8
-	},
-/obj/machinery/bounty_board{
-	dir = 4;
-	pixel_x = 32
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
@@ -21565,10 +21539,6 @@
 "Ve" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 8
-	},
-/obj/machinery/bounty_board{
-	dir = 4;
-	pixel_x = 32
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/cargo/warehouse)

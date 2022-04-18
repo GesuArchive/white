@@ -40,10 +40,6 @@
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "q" = (
-/obj/machinery/bounty_board{
-	dir = 4;
-	pixel_x = 32
-	},
 /obj/structure/chair/sofa/right{
 	dir = 8
 	},

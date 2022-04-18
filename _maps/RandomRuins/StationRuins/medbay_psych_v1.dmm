@@ -901,9 +901,6 @@
 /turf/open/floor/wood,
 /area/medical/medbay/aft)
 "fx" = (
-/obj/machinery/bounty_board{
-	pixel_y = 32
-	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
@@ -1239,9 +1236,6 @@
 	},
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
-	},
-/obj/machinery/bounty_board{
-	pixel_y = 32
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
@@ -3009,9 +3003,6 @@
 /obj/machinery/camera/autoname,
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/machinery/bounty_board{
-	pixel_y = 32
-	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
 "EO" = (
@@ -4051,10 +4042,6 @@
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
 "Oe" = (
-/obj/machinery/bounty_board{
-	dir = 8;
-	pixel_x = -32
-	},
 /obj/structure/table,
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/regular{

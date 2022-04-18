@@ -267,7 +267,6 @@
 	},
 /obj/machinery/telecomms/allinone/exploration,
 /obj/effect/turf_decal/delivery,
-/obj/machinery/bounty_board/directional/south,
 /turf/open/floor/plating,
 /area/shuttle/exploration)
 "x" = (

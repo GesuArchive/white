@@ -5461,7 +5461,7 @@
 /area/duel/one)
 "tB" = (
 /obj/effect/turf_decal/tile/neutral,
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_y = 32
 	},
 /turf/open/floor/plasteel/dark,
@@ -6772,7 +6772,7 @@
 /obj/structure/table/wood,
 /obj/item/folder/red,
 /obj/item/lighter,
-/obj/machinery/newscaster/security_unit/directional/south,
+/obj/machinery/newscaster/directional/south,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -8052,7 +8052,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/neutral/line,
-/obj/machinery/newscaster/security_unit/directional/north,
+/obj/machinery/newscaster/directional/north,
 /obj/structure/chair/sofa/bench/left,
 /turf/open/floor/plasteel,
 /area/centcom/control)
@@ -8088,7 +8088,7 @@
 /area/centcom/holding)
 "CO" = (
 /obj/structure/table/wood,
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_x = 32
 	},
 /obj/effect/turf_decal/tile/neutral{
@@ -8276,7 +8276,7 @@
 "Dn" = (
 /obj/structure/table/wood,
 /obj/structure/reagent_dispensers/beerkeg,
-/obj/machinery/newscaster/security_unit/directional/north,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/tdome/tdomeobserve)
 "Dq" = (
@@ -11928,7 +11928,7 @@
 /obj/effect/turf_decal/tile/neutral,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/dark,
@@ -13185,7 +13185,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_y = 32
 	},
 /obj/effect/turf_decal/trimline/neutral/line,
@@ -13386,7 +13386,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/centcom/control)
 "UJ" = (
-/obj/machinery/newscaster/security_unit,
+/obj/machinery/newscaster,
 /turf/closed/indestructible/syndicate,
 /area/centcom/office)
 "UK" = (
@@ -14448,7 +14448,7 @@
 "Yr" = (
 /obj/structure/table/wood,
 /obj/item/clipboard,
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_y = 32
 	},
 /obj/item/folder/white,

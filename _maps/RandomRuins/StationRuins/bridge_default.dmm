@@ -2746,7 +2746,7 @@
 /turf/open/floor/wood,
 /area/command/meeting_room)
 "hc" = (
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_x = -32
 	},
 /obj/machinery/keycard_auth{
@@ -3095,7 +3095,7 @@
 /turf/open/floor/plasteel,
 /area/command/heads_quarters/hop)
 "hP" = (
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_y = 32
 	},
 /obj/structure/filingcabinet/chestdrawer,

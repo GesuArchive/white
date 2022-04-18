@@ -4578,10 +4578,6 @@
 /turf/open/floor/plasteel/monofloor,
 /area/service/hydroponics/garden)
 "avL" = (
-/obj/machinery/bounty_board{
-	dir = 8;
-	pixel_x = -32
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/maintenance/department/electrical)
@@ -6844,10 +6840,6 @@
 /turf/open/floor/plasteel/monofloor,
 /area/service/hydroponics)
 "aDE" = (
-/obj/machinery/bounty_board{
-	dir = 8;
-	pixel_x = -32
-	},
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 4
@@ -12222,9 +12214,6 @@
 	},
 /obj/structure/bed,
 /obj/item/bedsheet/qm,
-/obj/machinery/bounty_board{
-	pixel_y = 32
-	},
 /turf/open/floor/plasteel,
 /area/cargo/qm)
 "baU" = (
@@ -14203,10 +14192,6 @@
 	dir = 10
 	},
 /obj/structure/cable,
-/obj/machinery/bounty_board{
-	dir = 8;
-	pixel_x = -32
-	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/cargo/office)
 "bjv" = (
@@ -29522,7 +29507,7 @@
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
 "cBc" = (
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_x = -28;
 	pixel_y = -28
 	},
@@ -33044,10 +33029,6 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
 	},
-/obj/machinery/bounty_board{
-	dir = 8;
-	pixel_x = -32
-	},
 /obj/structure/tank_holder/oxygen,
 /turf/open/floor/plasteel,
 /area/science/lab)
@@ -33554,7 +33535,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/fore/to_brig)
 "fBs" = (
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_x = -30
 	},
 /obj/machinery/computer/secure_data,
@@ -34575,10 +34556,6 @@
 	pixel_y = 8
 	},
 /obj/item/storage/toolbox/mechanical,
-/obj/machinery/bounty_board{
-	dir = 4;
-	pixel_x = 32
-	},
 /turf/open/floor/plasteel/dark,
 /area/commons/spacepod_docks)
 "gCA" = (
@@ -38594,9 +38571,6 @@
 "kSG" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
-	},
-/obj/machinery/bounty_board{
-	pixel_y = 32
 	},
 /turf/open/floor/plasteel/dark/corner{
 	dir = 1
@@ -46055,10 +46029,6 @@
 /obj/structure/chair/comfy/beige{
 	dir = 8
 	},
-/obj/machinery/bounty_board{
-	dir = 4;
-	pixel_x = 32
-	},
 /turf/open/floor/plasteel/grimy,
 /area/hallway/primary/port/to_arrival)
 "tdH" = (
@@ -47657,9 +47627,6 @@
 "uWf" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
-/obj/machinery/bounty_board{
-	pixel_y = 32
-	},
 /turf/open/floor/plating,
 /area/engineering/manufactory)
 "uWy" = (

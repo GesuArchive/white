@@ -79,7 +79,6 @@
 /area/ctf)
 "dD" = (
 /obj/effect/turf_decal/delivery,
-/obj/machinery/bounty_board/directional/south,
 /obj/structure/table/reinforced,
 /turf/open/floor/plating,
 /area/ctf)
@@ -202,7 +201,6 @@
 /area/ctf)
 "ld" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/bounty_board/directional/south,
 /obj/structure/table/reinforced,
 /turf/open/floor/plating,
 /area/ctf)

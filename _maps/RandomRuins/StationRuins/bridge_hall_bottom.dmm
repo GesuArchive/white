@@ -2169,7 +2169,7 @@
 /area/command/heads_quarters/hop)
 "JO" = (
 /obj/machinery/computer/communications,
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_y = 32
 	},
 /turf/open/floor/wood,

@@ -175,10 +175,6 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
 	},
-/obj/machinery/bounty_board{
-	dir = 4;
-	pixel_x = -32
-	},
 /turf/open/floor/plasteel,
 /area/security/brig)
 "aaE" = (
@@ -295,9 +291,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/bounty_board{
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 1
 	},
@@ -308,10 +301,6 @@
 /area/hallway/primary/port)
 "aaK" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/bounty_board{
-	dir = 8;
-	pixel_x = 32
-	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "aaL" = (
@@ -441,10 +430,6 @@
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
-	},
-/obj/machinery/bounty_board{
-	dir = 1;
-	pixel_y = -32
 	},
 /turf/open/floor/plasteel/dark,
 /area/command)
@@ -2420,7 +2405,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	dir = 4;
 	pixel_x = 26;
 	pixel_y = 12
@@ -6425,7 +6410,7 @@
 /turf/open/floor/plasteel/dark,
 /area/security/main)
 "ark" = (
-/obj/machinery/newscaster/security_unit,
+/obj/machinery/newscaster,
 /turf/closed/wall,
 /area/security/main)
 "arq" = (
@@ -21924,7 +21909,7 @@
 /area/security/checkpoint/customs)
 "bdb" = (
 /obj/machinery/computer/secure_data,
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_y = 30
 	},
 /obj/effect/turf_decal/tile/red{
@@ -22972,7 +22957,7 @@
 /area/command)
 "bfy" = (
 /obj/structure/table/wood,
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_x = -30;
 	pixel_y = 1
 	},
@@ -24162,9 +24147,6 @@
 	},
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
-	},
-/obj/machinery/bounty_board{
-	pixel_y = 32
 	},
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -26693,7 +26675,7 @@
 /turf/open/floor/wood,
 /area/command/heads_quarters/hop)
 "boo" = (
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_x = 32
 	},
 /obj/machinery/computer/security/mining{
@@ -29276,7 +29258,7 @@
 /obj/structure/chair{
 	dir = 4
 	},
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_y = -30
 	},
 /turf/open/floor/plasteel,
@@ -40200,7 +40182,7 @@
 	pixel_x = 3;
 	pixel_y = 4
 	},
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_y = 32
 	},
 /obj/item/screwdriver{
@@ -50221,7 +50203,7 @@
 /area/hallway/secondary/exit/departure_lounge)
 "cOz" = (
 /obj/structure/table,
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_x = 29;
 	pixel_y = 1
 	},
@@ -56367,10 +56349,6 @@
 /turf/open/floor/plating,
 /area/maintenance/port)
 "dLU" = (
-/obj/machinery/bounty_board{
-	dir = 8;
-	pixel_x = 32
-	},
 /turf/open/floor/plasteel,
 /area/cargo/sorting)
 "dMl" = (
@@ -58464,7 +58442,7 @@
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "fse" = (
-/obj/machinery/newscaster/security_unit,
+/obj/machinery/newscaster,
 /turf/closed/wall/r_wall,
 /area/security/main)
 "ftK" = (
@@ -66747,9 +66725,6 @@
 	},
 /obj/effect/turf_decal/siding/purple,
 /obj/structure/cable,
-/obj/machinery/bounty_board{
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
@@ -70219,10 +70194,6 @@
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
-	},
-/obj/machinery/bounty_board{
-	dir = 1;
-	pixel_y = -32
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/service)

@@ -1,6 +1,6 @@
 import { classes } from 'common/react';
 import { useBackend } from '../backend';
-import { Box, Button, Section, Table } from '../components';
+import { Box, Button, Section, Table, NoticeBox, Stack, Icon, LabeledList } from '../components';
 import { Window } from '../layouts';
 
 type VendingData = {
@@ -236,4 +236,34 @@ export const Vending = (props, context) => {
       </Window.Content>
     </Window>
   );
+};
+
+/** Displays user details if an ID is present and the user is on the station */
+export const UserDetails = (_, context) => {
+  const { data } = useBackend<VendingData>(context);
+  const { user } = data;
+
+  if (!user) {
+    return (
+      <NoticeBox>Нет ID-карты! Свяжитесь с местным отделом кадров!</NoticeBox>
+    );
+  } else {
+    return (
+      <Section>
+        <Stack>
+          <Stack.Item>
+            <Icon name="id-card" size={3} mr={1} />
+          </Stack.Item>
+          <Stack.Item>
+            <LabeledList>
+              <LabeledList.Item label="Пользователь">{user.name}</LabeledList.Item>
+              <LabeledList.Item label="Должность">
+                {user.job || 'Безработный'}
+              </LabeledList.Item>
+            </LabeledList>
+          </Stack.Item>
+        </Stack>
+      </Section>
+    );
+  }
 };
