@@ -203,6 +203,9 @@
 	if(usr.loc != src)
 		switch(action)
 			if("stopmaint")
+				if(construction_state > MECHA_LOCKED)
+					to_chat(usr, span_warning("Технические протоколы в действии!"))
+					return
 				mecha_flags &= ~ADDING_MAINT_ACCESS_POSSIBLE
 				ui.close()
 				return FALSE
