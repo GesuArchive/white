@@ -18096,7 +18096,7 @@
 /area/maintenance/port/fore)
 "No" = (
 /obj/structure/table/wood,
-/obj/item/newspaper/old,
+/obj/item/newspaper,
 /turf/open/floor/carpet/red,
 /area/commons/dorms/seven)
 "Np" = (

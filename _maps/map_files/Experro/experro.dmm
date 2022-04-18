@@ -3595,7 +3595,7 @@
 /turf/open/floor/plasteel/tile/white,
 /area/partyhard/indoors)
 "pT" = (
-/obj/item/newspaper/old,
+/obj/item/newspaper,
 /turf/open/floor/asphalt,
 /area/partyhard/outdoors)
 "pU" = (
@@ -4416,7 +4416,7 @@
 /area/partyhard/indoors)
 "tJ" = (
 /obj/effect/turf_decal/cataclysmdda/asphaltpaint,
-/obj/item/newspaper/old,
+/obj/item/newspaper,
 /turf/open/floor/asphalt,
 /area/partyhard/outdoors)
 "tK" = (
@@ -5404,7 +5404,7 @@
 /area/partyhard/indoors)
 "xH" = (
 /obj/structure/closet/crate/bin,
-/obj/item/newspaper/old,
+/obj/item/newspaper,
 /turf/open/floor/grass/cataclysmdda,
 /area/partyhard/outdoors)
 "xI" = (
@@ -11368,7 +11368,7 @@
 /turf/open/floor/plasteel/tile/monofloor,
 /area/partyhard/indoors)
 "YE" = (
-/obj/item/newspaper/old,
+/obj/item/newspaper,
 /turf/open/floor/grass/cataclysmdda,
 /area/partyhard/outdoors)
 "YG" = (
@@ -11581,7 +11581,7 @@
 /turf/open/floor/plating/baseturfsand,
 /area/partyhard/indoors)
 "ZU" = (
-/obj/item/newspaper/old,
+/obj/item/newspaper,
 /turf/open/floor/plasteel/tile/monofloor/cataclysmdda/alt2,
 /area/partyhard/outdoors)
 "ZZ" = (

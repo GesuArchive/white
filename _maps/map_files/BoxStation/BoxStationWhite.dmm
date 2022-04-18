@@ -47117,7 +47117,7 @@
 "uvs" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green,
-/obj/item/newspaper/old,
+/obj/item/newspaper,
 /obj/machinery/light_switch{
 	pixel_y = -24
 	},
