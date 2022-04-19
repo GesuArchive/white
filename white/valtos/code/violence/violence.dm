@@ -3,8 +3,8 @@
 GLOBAL_VAR_INIT(violence_mode_activated, FALSE)
 GLOBAL_VAR_INIT(violence_current_round, 0)
 GLOBAL_VAR_INIT(violence_time_limit, 3 MINUTES)
-GLOBAL_DATUM_INIT(violence_red_datum, /datum/team/violence/red, new)
-GLOBAL_DATUM_INIT(violence_blue_datum, /datum/team/violence/blue, new)
+GLOBAL_DATUM(violence_red_datum, /datum/team/violence/red)
+GLOBAL_DATUM(violence_blue_datum, /datum/team/violence/blue)
 GLOBAL_VAR(violence_theme)
 GLOBAL_VAR(violence_forced_map)
 GLOBAL_VAR(violence_playmode)
@@ -49,6 +49,9 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	var/icon/great_title_icon = icon('white/valtos/icons/violence.jpg')
 	SStitle.icon = great_title_icon
 	SStitle.splash_turf.icon = great_title_icon
+	// создаём команды
+	GLOB.violence_red_datum = new
+	GLOB.violence_blue_datum = new
 	// делаем датумы игроков на всякий случай
 	for(var/client/C in GLOB.clients)
 		if(!GLOB.violence_players[C.ckey])
