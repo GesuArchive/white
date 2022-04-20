@@ -12,7 +12,7 @@
 	display_results(user, target, span_notice("Начинаю вводить [tool] в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...") ,
 		span_notice("[user] начинет вводить [tool] в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] начинат вводить что-то в [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] ."))
-	display_pain(target, "Что-то помещается в мою [parse_zone(target_zone)] [skloname(target.name, VINITELNI, target.gender)]!")
+	display_pain(target, "Что-то помещается в мою [parse_zone(target_zone)]!")
 
 /datum/surgery_step/insert_pill/success(mob/user, mob/living/carbon/target, target_zone, obj/item/reagent_containers/pill/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(!istype(tool))

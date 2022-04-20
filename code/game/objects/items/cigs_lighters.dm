@@ -237,7 +237,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	lit = FALSE
 	if(ismob(loc))
 		var/mob/living/M = loc
-		to_chat(M, span_notice("Your [name] goes out."))
+		to_chat(M, span_notice("[capitalize(name)] гаснет."))
 		M.update_inv_wear_mask()
 		M.update_inv_hands()
 
@@ -273,7 +273,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(smoketime <= 0)
 		new type_butt(location)
 		if(ismob(loc))
-			to_chat(M, span_notice("Your [name] goes out."))
+			to_chat(M, span_notice("Твоя [name] гаснет."))
 		qdel(src)
 		return
 	open_flame()
@@ -315,25 +315,25 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 // Cigarette brands.
 
 /obj/item/clothing/mask/cigarette/space_cigarette
-	desc = "A Space Cigarette brand cigarette."
+	desc = "Сигарета марки 'Космические Сигареты'."
 
 /obj/item/clothing/mask/cigarette/dromedary
-	desc = "A DromedaryCo brand cigarette. Contrary to popular belief, does not contain Calomel, but is reported to have a watery taste."
+	desc = "Сигарета марки DromedaryCo. Вопреки распространенному мнению, не содержит Каломел, но, как сообщается, имеет водянистый вкус."
 	list_reagents = list(/datum/reagent/drug/nicotine = 13, /datum/reagent/water = 5) //camel has water
 
 /obj/item/clothing/mask/cigarette/uplift
-	desc = "An Uplift Smooth brand cigarette. Smells refreshing."
+	desc = "Сигарета марки Uplift Smooth. Запах освежающий."
 	list_reagents = list(/datum/reagent/drug/nicotine = 13, /datum/reagent/consumable/menthol = 5)
 
 /obj/item/clothing/mask/cigarette/robust
-	desc = "A Robust brand cigarette."
+	desc = "Сигарета марки Robust."
 
 /obj/item/clothing/mask/cigarette/robustgold
-	desc = "A Robust Gold brand cigarette."
+	desc = "Сигарета марки Robust Gold."
 	list_reagents = list(/datum/reagent/drug/nicotine = 15, /datum/reagent/gold = 3) // Just enough to taste a hint of expensive metal.
 
 /obj/item/clothing/mask/cigarette/carp
-	desc = "A Carp Classic brand cigarette. A small label on its side indicates that it does NOT contain carpotoxin."
+	desc = "Сигарета марки Carp Classic. Небольшая этикетка на боку указывает, что она НЕ содержит карпотоксина."
 
 /obj/item/clothing/mask/cigarette/carp/Initialize()
 	. = ..()
@@ -342,18 +342,18 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents?.add_reagent(/datum/reagent/toxin/carpotoxin , 3) // They lied
 
 /obj/item/clothing/mask/cigarette/syndicate
-	desc = "An unknown brand cigarette."
+	desc = "Сигарета неизвестной марки."
 	chem_volume = 60
 	smoketime = 2 * 60
 	smoke_all = TRUE
 	list_reagents = list(/datum/reagent/drug/nicotine = 10, /datum/reagent/medicine/omnizine = 15)
 
 /obj/item/clothing/mask/cigarette/shadyjims
-	desc = "A Shady Jim's Super Slims cigarette."
+	desc = "Сигарета марки Shady Jim's Super Slims."
 	list_reagents = list(/datum/reagent/drug/nicotine = 15, /datum/reagent/toxin/lipolicide = 4, /datum/reagent/ammonia = 2, /datum/reagent/toxin/plantbgone = 1, /datum/reagent/toxin = 1.5)
 
 /obj/item/clothing/mask/cigarette/xeno
-	desc = "A Xeno Filtered brand cigarette."
+	desc = "Сигарета марки Xeno Filtered."
 	list_reagents = list (/datum/reagent/drug/nicotine = 20, /datum/reagent/medicine/regen_jelly = 15, /datum/reagent/drug/krokodil = 4)
 
 // Rollies.

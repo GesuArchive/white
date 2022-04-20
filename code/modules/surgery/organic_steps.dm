@@ -36,7 +36,7 @@
 		span_notice("[user] начинает делать <i>аккуратный</i> надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] начинает делать <i>аккуратный</i> надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 		playsound(get_turf(target), 'sound/surgery/scalpel1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-	display_pain(target, "Чувствуешь <i>аккурантный</i> надрез в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, DATELNI, target.gender)].")
+	display_pain(target, "Чувствую <i>аккурантный</i> надрез в [ru_gde_zone(parse_zone(target_zone))].")
 
 //clamp bleeders
 /datum/surgery_step/clamp_bleeders
@@ -48,7 +48,7 @@
 	display_results(user, target, span_notice("Начинаю зажимать источник кровотечения на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
 		span_notice("[user] начинает зажимать источник кровотечения на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] начинает зажимать источник кровотечения на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."))
-	display_pain(target, "Чувствую, как источник кровотечения в моей [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, DATELNI, target.gender)] зажимается.")
+	display_pain(target, "Чувствую, как источник кровотечения в моей [ru_gde_zone(parse_zone(target_zone))] зажимается.")
 
 /datum/surgery_step/clamp_bleeders/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
 	display_results(user, target, span_notice("You clamp a blood vessel inside [target]'s [parse_zone(target_zone)]."),
@@ -75,7 +75,7 @@
 		span_notice("[user] начинает оттягивать кожу на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] начинает оттягивать кожу на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 		playsound(get_turf(target), 'sound/surgery/retractor1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-	display_pain(target, "Чувствую жгучую боль в [parse_zone(target_zone)] [skloname(target.name, DATELNI, target.gender)] оттого, что твоя кожа оттягивается!")
+	display_pain(target, "Чувствую жгучую боль в [parse_zone(target_zone)] оттого, что моя кожа оттягивается!")
 
 /datum/surgery_step/retract_skin/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
 	display_results(user, target, span_notice("You retract the skin from [target]'s [parse_zone(target_zone)]."),
@@ -129,7 +129,7 @@
 		span_notice("[user] начинает пилить кость на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] начинает пилить кость на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 		playsound(get_turf(target), 'sound/surgery/saw.ogg', 40, TRUE, falloff_exponent = 12, falloff_distance = 1))
-	display_pain(target, "Чувствую ужасную боль прошедшую через мою [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, VINITELNI, target.gender)]!")
+	display_pain(target, "Чувствую ужасную боль прошедшую через мою [ru_gde_zone(parse_zone(target_zone))]!")
 
 /datum/surgery_step/saw/tool_check(mob/user, obj/item/tool)
 	if(implement_type == /obj/item && !(tool.get_sharpness() && (tool.force >= 10)))
@@ -142,7 +142,7 @@
 		span_notice("[user] отпилил [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
 		span_notice("[user] отпилил [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
 		playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-	display_pain(target, "Кажется, будто что-то сломалось в моей [parse_zone(target_zone)] [skloname(target.name, DATELNI, target.gender)]!")
+	display_pain(target, "Кажется, будто что-то сломалось в моей [parse_zone(target_zone)]!")
 	return ..()
 
 //drill bone
@@ -155,7 +155,7 @@
 	display_results(user, target, span_notice("Начинаю сверление кости в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
 		span_notice("[user] начинает сверление кости в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] начинает сверление кости в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."))
-	display_pain(target, "Чувствую ужасную боль в своей [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, DATELNI, target.gender)]!")
+	display_pain(target, "Чувствую ужасную боль в своей [ru_gde_zone(parse_zone(target_zone))]!")
 
 /datum/surgery_step/drill/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(user, target, span_notice("Успешно просверлил кость в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,

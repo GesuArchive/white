@@ -123,8 +123,8 @@
 #undef STATION_RENAME_TIME_LIMIT
 
 /obj/item/station_charter/revolution
-	name = "revolutionary banner"
-	desc = "A banner symbolizing a bloody victory over treacherous tyrants."
+	name = "знамя революции"
+	desc = "Знамя, символизирующее кровавую победу над вероломными тиранами."
 	icon = 'icons/obj/banner.dmi'
 	icon_state = "banner_revolution"
 	inhand_icon_state = "banner-red"

@@ -20,7 +20,7 @@
 		display_results(user, target, span_notice("Вы начинаете извлекать [I] из [target_zone] [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает извлекать [I] из [target_zone] [skloname(target.name, RODITELNI, target.gender)].") ,
 			span_notice("[user] начинает извлекать что-то из [target_zone] [skloname(target.name, RODITELNI, target.gender)]."))
-		display_pain(target, "Чувствую сильную боль в [target_zone][skloname(target.name, RODITELNI, target.gender)]!")
+		display_pain(target, "Чувствую сильную боль в [target_zone]!")
 	else
 		display_results(user, target, span_notice("Вы начинаете искать микроимпланты в [target_zone] [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает искать микроимпланты в [target_zone] [skloname(target.name, RODITELNI, target.gender)].") ,

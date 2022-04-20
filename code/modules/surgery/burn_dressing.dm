@@ -87,7 +87,7 @@
 		display_results(user, target, span_notice("Начинаю перевязку ожогов на [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает перевязку ожогов на [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
 			span_notice("[user] начинает перевязку ожогов на [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]."))
-		display_pain(target, "Ожоги на моей [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, DATELNI, target.gender)] адски болят!")
+		display_pain(target, "Ожоги на моей [ru_gde_zone(parse_zone(user.zone_selected))] адски болят!")
 	else
 		user.visible_message(span_notice("[user] ищет [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)].") , span_notice("Ищу [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]..."))
 

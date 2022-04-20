@@ -87,14 +87,14 @@
 		return
 
 	if(!target.has_dna())
-		to_chat(usr, span_danger("The drip beeps: Warning, incompatible creature!"))
+		to_chat(usr, span_danger("Капельница пищит: Внимание, несовместимое существо!"))
 		return
 
 	if(Adjacent(target) && usr.Adjacent(target))
 		if(get_reagent_holder())
 			attach_iv(target, usr)
 		else
-			to_chat(usr, span_warning("There's nothing attached to the IV drip!"))
+			to_chat(usr, span_warning("К капельнице ничего не присоединено!"))
 
 
 /obj/machinery/iv_drip/attackby(obj/item/W, mob/user, params)
@@ -108,7 +108,7 @@
 		if(!user.transferItemToLoc(W, src))
 			return
 		reagent_container = W
-		to_chat(user, span_notice("You attach [W] to [src]."))
+		to_chat(user, span_notice("Присоединяю [W] к [src]."))
 		user.log_message("attached a [W] to [src] at [AREACOORD(src)] containing ([reagent_container.reagents.log_list()])", LOG_ATTACK)
 		add_fingerprint(user)
 		update_appearance()
@@ -126,7 +126,7 @@
 		return PROCESS_KILL
 
 	if(!(get_dist(src, attached) <= 1 && isturf(attached.loc)))
-		to_chat(attached, span_userdanger("The IV drip needle is ripped out of you!"))
+		to_chat(attached, span_userdanger("Из меня выпала игла для капельницы!"))
 		attached.apply_damage(3, BRUTE, pick(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM))
 		detach_iv()
 		return PROCESS_KILL
@@ -170,7 +170,7 @@
 	if(!ishuman(user))
 		return
 	if(attached)
-		visible_message(span_notice("[attached] is detached from [src]."))
+		visible_message(span_notice("[attached] отделяется от [src]."))
 		detach_iv()
 		return
 	else if(reagent_container)
@@ -185,17 +185,17 @@
 
 	if(dripfeed)
 		dripfeed = FALSE
-		to_chat(usr, span_notice("You loosen the valve to speed up the [src]."))
+		to_chat(usr, span_notice("Ослабляю клапан, чтобы ускорить [src]."))
 	else
 		dripfeed = TRUE
-		to_chat(usr, span_notice("You tighten the valve to slowly drip-feed the contents of [src]."))
+		to_chat(usr, span_notice("Затягиваю клапан, чтобы медленно, покапельно подавать содержимое [src]."))
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 ///called when an IV is attached
 /obj/machinery/iv_drip/proc/attach_iv(mob/living/target, mob/user)
-	usr.visible_message(span_warning("[usr] attaches [src] to [target]."), span_notice("You attach [src] to [target]."))
+	usr.visible_message(span_warning("[usr] присоединяет [src] к [target]."), span_notice("Присоединяю [src] к [target]."))
 	var/datum/reagents/container = get_reagent_holder()
-	log_combat(usr, target, "attached", src, "containing: ([container.log_list()])")
+	log_combat(usr, target, "присоединено", src, "содержит: ([container.log_list()])")
 	add_fingerprint(usr)
 	attached = target
 	START_PROCESSING(SSmachines, src)
@@ -219,7 +219,7 @@
 	set src in view(1)
 
 	if(!isliving(usr))
-		to_chat(usr, span_warning("You can't do that!"))
+		to_chat(usr, span_warning("Не могу это сделать!"))
 		return
 	if (!usr.canUseTopic())
 		return
@@ -236,14 +236,14 @@
 	set src in view(1)
 
 	if(!isliving(usr))
-		to_chat(usr, span_warning("You can't do that!"))
+		to_chat(usr, span_warning("Не могу это сделать!"))
 		return
 	if (!usr.canUseTopic())
 		return
 	if(usr.incapacitated())
 		return
 	mode = !mode
-	to_chat(usr, span_notice("The IV drip is now [mode ? "injecting" : "taking blood"]."))
+	to_chat(usr, span_notice("Капельница теперь [mode ? "вводит" : "берет кровь"]."))
 	update_appearance()
 
 /obj/machinery/iv_drip/examine(mob/user)
@@ -251,7 +251,7 @@
 	if(get_dist(user, src) > 2)
 		return
 
-	. += "<hr>[src] is [mode ? "injecting" : "taking blood"]."
+	. += "<hr>[src] [mode ? "вводит" : "берет кровь"]."
 
 	if(reagent_container)
 		if(reagent_container.reagents && reagent_container.reagents.reagent_list.len)
@@ -289,8 +289,8 @@
 
 ///modified IV that can be anchored and takes plumbing in- and output
 /obj/machinery/iv_drip/plumbing
-	name = "automated IV drip"
-	desc = "A modified IV drip with plumbing connects. Reagents received from the connect are injected directly into their bloodstream, blood that is drawn goes to the internal storage and then into the ducting."
+	name = "автоматическая капельница"
+	desc = "Модифицированная капельница с водопроводными соединениями. Реагенты, получаемые через штуцер, вводятся непосредственно в кровоток, а забираемая кровь поступает во внутреннее хранилище."
 	icon_state = "plumb"
 	base_icon_state = "plumb"
 

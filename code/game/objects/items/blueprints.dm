@@ -45,8 +45,8 @@
 
 //Station blueprints!!!
 /obj/item/areaeditor/blueprints
-	name = "station blueprints"
-	desc = "Blueprints of the station. There is a \"Classified\" stamp and several coffee stains on it."
+	name = "станционные чертежи"
+	desc = "Чертежи станции. На них также есть печать \"Засекречено\" и несколько пятен от кофе."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "blueprints"
 	fluffnotice = "Property of Nanotrasen. For heads of staff only. Store in high-secure storage."
@@ -66,14 +66,14 @@
 	if(!legend)
 		var/area/A = get_area(user)
 		if(get_area_type() == AREA_STATION)
-			. += "<p>According to <b>[src.name]</b>, you are now in <b>\"[html_encode(A.name)]\"</b>.</p>"
-			. += "<p><a href='?src=[REF(src)];edit_area=1'>Change area name</a></p>"
+			. += "<p>Судя по <b>[src.name]</b>, я сейчас в <b>\"[html_encode(A.name)]\"</b>.</p>"
+			. += "<p><a href='?src=[REF(src)];edit_area=1'>Изменить название области</a></p>"
 		. += "<p><a href='?src=[REF(src)];view_legend=1'>View wire colour legend</a></p>"
 		if(!viewing)
-			. += "<p><a href='?src=[REF(src)];view_blueprints=1'>View structural data</a></p>"
+			. += "<p><a href='?src=[REF(src)];view_blueprints=1'>Просмотр структурных данных</a></p>"
 		else
-			. += "<p><a href='?src=[REF(src)];refresh=1'>Refresh structural data</a></p>"
-			. += "<p><a href='?src=[REF(src)];hide_blueprints=1'>Hide structural data</a></p>"
+			. += "<p><a href='?src=[REF(src)];refresh=1'>Обновление структурных данных</a></p>"
+			. += "<p><a href='?src=[REF(src)];hide_blueprints=1'>Скрыть структурные данные</a></p>"
 	else
 		if(legend == TRUE)
 			. += "<a href='?src=[REF(src)];exit_legend=1'><< Back</a>"
@@ -194,13 +194,13 @@
 	if(!str || !length(str) || str==prevname) //cancel
 		return
 	if(length(str) > 50)
-		to_chat(usr, span_warning("The given name is too long. The area's name is unchanged."))
+		to_chat(usr, span_warning("Слишком длинное название. Имя зоны не изменено."))
 		return
 
 	rename_area(A, str)
 
-	to_chat(usr, span_notice("You rename the '[prevname]' to '[str]'."))
-	log_game("[key_name(usr)] has renamed [prevname] to [str]")
+	to_chat(usr, span_notice("Переименовую '[prevname]' в '[str]'."))
+	log_game("[key_name(usr)] переименовал [prevname] в [str]")
 	A.update_areasize()
 	interact()
 	return TRUE

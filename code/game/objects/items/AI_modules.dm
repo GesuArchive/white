@@ -60,10 +60,10 @@ AI MODULES
 
 	var/law2log = transmitInstructions(law_datum, user, overflow) //Freeforms return something extra we need to log
 	if(law_datum.owner)
-		to_chat(user, span_notice("Upload complete. [law_datum.owner] laws have been modified."))
+		to_chat(user, span_notice("Загрузка завершена. Законы <b>[law_datum.owner]</b> были модифицированы."))
 		law_datum.owner.law_change_counter++
 	else
-		to_chat(user, span_notice("Upload complete."))
+		to_chat(user, span_notice("Загрузка завершена."))
 
 	var/time = time2text(world.realtime,"hh:mm:ss")
 	var/ainame = law_datum.owner ? law_datum.owner.name : "empty AI core"
@@ -113,7 +113,7 @@ AI MODULES
 /obj/item/ai_module/zeroth/transmitInstructions(datum/ai_laws/law_datum, mob/sender, overflow)
 	if(law_datum.owner)
 		if(law_datum.owner.laws.zeroth)
-			to_chat(law_datum.owner, "[sender.real_name] attempted to modify your zeroth law.")
+			to_chat(law_datum.owner, "[sender.real_name] попытался изменить мой нулевой закон.")
 			to_chat(law_datum.owner, "It would be in your best interest to play along with [sender.real_name] that:")
 			for(var/failedlaw in laws)
 				to_chat(law_datum.owner, "[failedlaw]")

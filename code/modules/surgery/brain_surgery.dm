@@ -28,7 +28,7 @@
 	display_results(user, target, span_notice("Начинаю исправлять мозг [skloname(target.name, RODITELNI, target.gender)]...") ,
 		span_notice("[user] начинает исправлять мозг [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] начинает операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
-	display_pain(target, "Твоя голова отдает невообразимой болью!")
+	display_pain(target, "Моя голова отдает невообразимой болью!")
 
 /datum/surgery_step/fix_brain/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(user, target, span_notice("Успешно исправил мозг [skloname(target.name, RODITELNI, target.gender)].") ,

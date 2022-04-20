@@ -166,7 +166,7 @@
 	H.physiology.burn_mod *= 0.5
 	ADD_TRAIT(H, TRAIT_RESISTLOWPRESSURE, MAGIC_TRAIT)
 	H.client?.give_award(/datum/award/achievement/misc/void_ascension, H)
-	priority_announce("$^@&#*$^@(#&$(@&#^$&#^@# Аристократ пустоты [H.real_name] прибыл, станцуйте же с ним в Вальсе, убивающий миры! $^@&#*$^@(#&$(@&#^$&#^@#","#$^@&#*$^@(#&$(@&#^$&#^@#", ANNOUNCER_SPANOMALIES)
+	priority_announce("$^@&#*$^@(#&$(@&#^$&#^@# Аристократ пустоты [H.real_name] прибыл, станцуйте же с ним в Вальсе Конца Времён! $^@&#*$^@(#&$(@&#^$&#^@#","#$^@&#*$^@(#&$(@&#^$&#^@#", ANNOUNCER_SPANOMALIES)
 
 	sound_loop = new(user, TRUE, TRUE)
 	return ..()

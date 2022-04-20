@@ -29,7 +29,7 @@
 		display_results(user, target, span_notice("Вы начинаете аугментировать [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает аугментировать [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)] при помощи [aug].") ,
 			span_notice("[user] начинает аугментировать [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]."))
-		display_pain(target, "Чувствую ужасную боль в [parse_zone(user.zone_selected)][skloname(target.name, DATELNI, target.gender)]!")
+		display_pain(target, "Чувствую ужасную боль в [parse_zone(user.zone_selected)]!")
 	else
 		user.visible_message(span_notice("[user] пытается найти [parse_zone(user.zone_selected)] [target].") , span_notice("Вы пытаетесь найти [parse_zone(user.zone_selected)] [target]..."))
 

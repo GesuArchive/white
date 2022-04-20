@@ -13,7 +13,7 @@
 			span_notice("[user] начинает откручивать винты на корпусе [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
 			span_notice("[user] начинает откручивать винты на корпусе [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
 			playsound(get_turf(target), 'sound/items/screwdriver.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-	display_pain(target, "Чувствуешь, что моя [parse_zone(target_zone)] онемивает, как только я открутил панель.", TRUE)
+	display_pain(target, "Чувствую, что моя [parse_zone(target_zone)] онемивает, как только я открутил панель.", TRUE)
 
 /datum/surgery_step/mechanic_open/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, span_notice("You unscrew the shell of [target]'s [parse_zone(target_zone)]."),

@@ -8,8 +8,8 @@
  * EMAG AND SUBTYPES
  */
 /obj/item/card/emag
-	desc = "It's a card with a magnetic strip attached to some circuitry."
-	name = "cryptographic sequencer"
+	desc = "Это карта с магнитной полосой, прикрепленной к какой-то схеме."
+	name = "криптографический секвенсор"
 	icon_state = "emag"
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'

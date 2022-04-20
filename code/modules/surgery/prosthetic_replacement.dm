@@ -82,7 +82,7 @@
 		display_results(user, target, span_notice("Вы успешно заменили [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] на [tool].") ,
 			span_notice("[user] успешно заменил [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] на [tool]!") ,
 			span_notice("[user] успешно заменил [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!"))
-		display_pain(target, "Снова чувствую свою [parse_zone(target_zone)][skloname(target.name, VINITELNI, target.gender)]!", TRUE)
+		display_pain(target, "Снова чувствую свою [parse_zone(target_zone)]!", TRUE)
 		return
 	else
 		var/obj/item/bodypart/L = target.newBodyPart(target_zone, FALSE, FALSE)
