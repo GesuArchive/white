@@ -2102,7 +2102,8 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	name = "Набор канадского хоккеиста"
 	desc = "Ходят слухи, что канадские хоккеисты - сильнейшие существа в мире."
 	item = /obj/item/storage/box/syndie_kit/hockey
-	cost = 30
+	cost = 41
+	player_minimum = 20
 	surplus = 0
 	cant_discount = FALSE
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
