@@ -66,14 +66,23 @@
 	mappath = "_maps/map_files/Warfare/violence7.dmm"
 	weight = 4
 	min_players = 16
-	max_players = 32
+	max_players = 64
 	theme = "warfare"
 
 /datum/map_template/violence/koridorovo
 	name = "Коридорово"
 	description = "Город состоящий из коридоров. Кто это придумал?"
 	mappath = "_maps/map_files/Warfare/violence8.dmm"
-	weight = 8
+	weight = 5
 	min_players = 24
 	max_players = 64
 	theme = "hotline"
+
+/datum/map_template/violence/okinawa
+	name = "Окинава"
+	description = "Борьба за последний клочок земли происходит именно здесь."
+	mappath = "_maps/map_files/Warfare/violence9.dmm"
+	weight = 8
+	min_players = 12
+	max_players = 32
+	theme = "katana"
