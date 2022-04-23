@@ -1,5 +1,5 @@
 /datum/antagonist/disease
-	name = "Sentient Disease"
+	name = "Разумная Болезнь"
 	roundend_category = "diseases"
 	antagpanel_category = "Disease"
 	show_to_ghosts = TRUE
@@ -7,8 +7,8 @@
 	greentext_reward = 30
 
 /datum/antagonist/disease/on_gain()
-	owner.special_role = "Sentient Disease"
-	owner.assigned_role = "Sentient Disease"
+	owner.special_role = "Разумная Болезнь"
+	owner.assigned_role = "Разумная Болезнь"
 	var/datum/objective/O = new /datum/objective/disease_infect()
 	O.owner = owner
 	objectives += O
@@ -20,8 +20,8 @@
 	. = ..()
 
 /datum/antagonist/disease/greet()
-	to_chat(owner.current, span_notice("You are the [owner.special_role]!"))
-	to_chat(owner.current, span_notice("Infect members of the crew to gain adaptation points, and spread your infection further."))
+	to_chat(owner.current, span_notice("Вы [owner.special_role]!"))
+	to_chat(owner.current, span_notice("Заражайте членов экипажа, чтобы получить очки адаптации и распространите инфекцию по станции."))
 	owner.announce_objectives()
 
 /datum/antagonist/disease/apply_innate_effects(mob/living/mob_override)
@@ -76,7 +76,7 @@
 
 
 /datum/objective/disease_infect
-	explanation_text = "Survive and infect as many people as possible."
+	explanation_text = "Выжить и заразить как можно больше людей."
 
 /datum/objective/disease_infect/check_completion()
 	var/mob/camera/disease/D = owner.current
@@ -86,7 +86,7 @@
 
 
 /datum/objective/disease_infect_centcom
-	explanation_text = "Ensure that at least one infected host escapes on the shuttle or an escape pod."
+	explanation_text = "Хотя бы один зараженный член экипажа должен сбежать на шаттле или в спасательной капсуле."
 
 /datum/objective/disease_infect_centcom/check_completion()
 	var/mob/camera/disease/D = owner.current

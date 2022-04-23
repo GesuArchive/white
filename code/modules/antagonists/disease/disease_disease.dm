@@ -1,7 +1,7 @@
 /datum/disease/advance/sentient_disease
 	form = "Virus"
-	name = "Sentient Virus"
-	desc = "An apparently sentient virus, extremely adaptable and resistant to outside sources of mutation."
+	name = "Разумный Вирус"
+	desc = "Явно разумный вирус, чрезвычайно адаптивный и устойчивый к внешним мутациям."
 	viable_mobtypes = list(/mob/living/carbon/human)
 	mutable = FALSE
 	var/mob/camera/disease/overmind

@@ -8,8 +8,8 @@ the new instance inside the host to be updated to the template's stats.
 */
 
 /mob/camera/disease
-	name = "Sentient Disease"
-	real_name = "Sentient Disease"
+	name = "Разумная Болезнь"
+	real_name = "Разумная Болезнь"
 	desc = ""
 	icon = 'icons/mob/cameramob.dmi'
 	icon_state = "marker"
@@ -67,7 +67,7 @@ the new instance inside the host to be updated to the template's stats.
 	var/datum/atom_hud/my_hud = GLOB.huds[DATA_HUD_SENTIENT_DISEASE]
 	my_hud.add_hud_to(src)
 
-	browser = new /datum/browser(src, "disease_menu", "Adaptation Menu", 1000, 770, src)
+	browser = new /datum/browser(src, "disease_menu", "Меню Адаптации", 1000, 770, src)
 
 	freemove_end = world.time + FREEMOVE_TIME
 	freemove_end_timerid = addtimer(CALLBACK(src, .proc/infect_random_patient_zero), FREEMOVE_TIME, TIMER_STOPPABLE)
@@ -87,7 +87,7 @@ the new instance inside the host to be updated to the template's stats.
 	if(!. || !client)
 		return FALSE
 	if(freemove)
-		to_chat(src, span_warning("You have [DisplayTimeText(freemove_end - world.time)] to select your first host. Click on a human to select your host."))
+		to_chat(src, span_warning("У вас есть [DisplayTimeText(freemove_end - world.time)] для выбора нулевого пациента. Нажмите на человека, чтобы заразить его."))
 
 
 /mob/camera/disease/get_status_tab_items()
