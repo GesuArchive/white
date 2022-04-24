@@ -538,6 +538,10 @@
 	return BULLET_ACT_BLOCK
 
 /obj/item/gun/energy/beam_rifle/violence
+	delay = 75
+	cell_type = /obj/item/stock_parts/cell/infinite
+	aiming_time = 3
+	recoil = 8
 	projectile_damage = 100
 
 /obj/item/gun/energy/beam_rifle/violence/handle_zooming()

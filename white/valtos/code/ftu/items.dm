@@ -47,7 +47,7 @@
 	icon = 'white/valtos/icons/serviceguns.dmi'
 	righthand_file = 'white/valtos/icons/righthand_big.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand_big.dmi'
-	inhand_icon_state = "killerhornet_lefthand"
+	inhand_icon_state = "killerhornet"
 	icon_state = "killerhornet"
 	worn_icon = 'white/valtos/icons/serviceguns.dmi'
 	worn_icon_state = "killerhornet_worn"
@@ -79,9 +79,9 @@
 	name = "Xan-Jing R40 'Enforcer'"
 	desc = "Средний пулемет Xan-Jing Armouries, прозванный наемниками FTU и частными военными \"Enforcer\". У этого есть сделанная на заказ деревянная мебель, а его батареи питают прицел."
 	icon = 'white/valtos/icons/serviceguns.dmi'
-	righthand_file = 'white/valtos/icons/lefthand_big.dmi'
-	lefthand_file = 'white/valtos/icons/righthand_big.dmi'
-	inhand_icon_state = "enforcer_righthand"
+	righthand_file = 'white/valtos/icons/righthand_big.dmi'
+	lefthand_file = 'white/valtos/icons/lefthand_big.dmi'
+	inhand_icon_state = "enforcer"
 	icon_state = "enforcer"
 	worn_icon = 'white/valtos/icons/serviceguns.dmi'
 	worn_icon_state = "killerhornet_worn"

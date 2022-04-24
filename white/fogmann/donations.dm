@@ -396,6 +396,10 @@ GLOBAL_PROTECT(donators)
 				to_chat(user,span_warning("Нужно быть в баре."))
 				return FALSE
 
+			if(istype(get_area(user), /area/violence))
+				to_chat(user,span_warning("Поставки товаров СиндиЭкспресс в данную зону невозможны."))
+				return FALSE
+
 			if(prize.cost > money)
 				to_chat(user,span_warning("Недостаточно баланса."))
 				return FALSE

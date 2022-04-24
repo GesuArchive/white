@@ -39,7 +39,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	var/losestreak_blues = 0
 
 	// выплата в каждом раунде
-	var/payout = 400
+	var/payout = 40
 
 	announce_span = "danger"
 	announce_text = "Резня!"

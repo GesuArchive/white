@@ -125,6 +125,9 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/xray)
 	ammo_x_offset = 3
 
+/obj/item/gun/energy/xray/violence
+	extra_damage = 15
+
 ////////Laser Tag////////////////////
 
 /obj/item/gun/energy/laser/bluetag

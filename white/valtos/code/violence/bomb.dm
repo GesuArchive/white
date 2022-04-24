@@ -51,8 +51,8 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 
 	if(GLOB.violence_players[user?.ckey])
 		var/datum/violence_player/VP = GLOB.violence_players[user.ckey]
-		VP.money += 300
-		to_chat(user, span_boldnotice("+300₽ за установку бомбы!"))
+		VP.money += 30
+		to_chat(user, span_boldnotice("+30₽ за установку бомбы!"))
 
 	GLOB.violence_time_limit = 30 SECONDS
 
@@ -83,8 +83,8 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 		play_sound_to_everyone(null, 0, CHANNEL_NASHEED)
 		if(GLOB.violence_players[user?.ckey])
 			var/datum/violence_player/VP = GLOB.violence_players[user.ckey]
-			VP.money += 300
-			to_chat(user, span_boldnotice("+300₽ за обезвреживание бомбы!"))
+			VP.money += 30
+			to_chat(user, span_boldnotice("+30₽ за обезвреживание бомбы!"))
 		qdel(src)
 
 /obj/item/terroristsc4/attackby(obj/item/I, mob/user, params)
@@ -106,8 +106,8 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 		play_sound_to_everyone(null, 0, CHANNEL_NASHEED)
 		if(GLOB.violence_players[user?.ckey])
 			var/datum/violence_player/VP = GLOB.violence_players[user.ckey]
-			VP.money += 300
-			to_chat(user, span_boldnotice("+300₽ за обезвреживание бомбы!"))
+			VP.money += 30
+			to_chat(user, span_boldnotice("+30₽ за обезвреживание бомбы!"))
 		qdel(src)
 
 /obj/item/terroristsc4/proc/detonate()
