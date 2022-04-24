@@ -1,5 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aI" = (
+/obj/structure/punji_sticks,
 /turf/open/water,
 /area/violence)
 "be" = (
@@ -39,13 +40,20 @@
 /obj/structure/railing,
 /turf/open/floor/bamboo,
 /area/violence)
+"iS" = (
+/obj/structure/deployable_barricade/wooden,
+/turf/open/floor/bamboo,
+/area/violence)
 "jK" = (
 /obj/effect/turf_decal/box/red,
 /obj/effect/landmark/bomb_plant_location,
 /turf/open/floor/carpet/green,
 /area/violence)
 "jM" = (
-/obj/structure/flora/tree/jungle,
+/obj/structure/flora/tree/jungle{
+	alpha = 200;
+	mouse_opacity = 0
+	},
 /turf/open/floor/plating/grass/jungle,
 /area/violence)
 "ll" = (
@@ -179,8 +187,17 @@
 	},
 /turf/open/floor/bamboo,
 /area/violence)
+"CU" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 8
+	},
+/turf/open/floor/bamboo,
+/area/violence)
 "DG" = (
-/obj/structure/flora/tree/jungle/small,
+/obj/structure/flora/tree/jungle/small{
+	alpha = 200;
+	mouse_opacity = 0
+	},
 /turf/open/floor/plating/grass/jungle,
 /area/violence)
 "Er" = (
@@ -259,6 +276,12 @@
 	},
 /turf/open/floor/bamboo,
 /area/violence)
+"MJ" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 4
+	},
+/turf/open/floor/bamboo,
+/area/violence)
 "Nm" = (
 /obj/effect/turf_decal/box/red/corners,
 /turf/open/floor/carpet/green,
@@ -294,6 +317,12 @@
 "St" = (
 /obj/structure/mineral_door/paperframe,
 /obj/structure/railing/corner{
+	dir = 1
+	},
+/turf/open/floor/bamboo,
+/area/violence)
+"Ta" = (
+/obj/structure/deployable_barricade/wooden{
 	dir = 1
 	},
 /turf/open/floor/bamboo,
@@ -548,6 +577,7 @@ om
 JG
 JG
 JG
+iS
 JG
 JG
 JG
@@ -557,6 +587,7 @@ JG
 JG
 JG
 JG
+Ta
 JG
 JG
 JG
@@ -566,9 +597,7 @@ JG
 JG
 JG
 JG
-JG
-JG
-JG
+Ta
 JG
 JG
 OR
@@ -590,6 +619,7 @@ om
 JG
 JG
 JG
+iS
 JG
 JG
 JG
@@ -599,6 +629,7 @@ JG
 JG
 JG
 JG
+Ta
 JG
 JG
 JG
@@ -606,9 +637,7 @@ JG
 JG
 JG
 JG
-JG
-JG
-JG
+Ta
 JG
 JG
 JG
@@ -632,6 +661,7 @@ om
 JG
 JG
 JG
+iS
 JG
 JG
 JG
@@ -641,6 +671,7 @@ JG
 JG
 JG
 JG
+Ta
 JG
 JG
 JG
@@ -650,9 +681,7 @@ JG
 JG
 JG
 JG
-JG
-JG
-JG
+Ta
 JG
 yy
 OR
@@ -824,9 +853,9 @@ aI
 aI
 aI
 om
+MJ
 JG
-JG
-JG
+MJ
 gc
 aI
 aI
@@ -909,7 +938,7 @@ aI
 aI
 om
 JG
-JG
+MJ
 JG
 gc
 aI
@@ -1119,8 +1148,8 @@ aI
 aI
 cD
 JG
-JG
-JG
+MJ
+MJ
 cD
 aI
 aI
@@ -1217,8 +1246,8 @@ aI
 aI
 aI
 cD
-JG
-JG
+CU
+CU
 JG
 cD
 aI
@@ -1428,7 +1457,7 @@ aI
 aI
 om
 JG
-JG
+CU
 JG
 gc
 aI
@@ -1511,9 +1540,9 @@ aI
 aI
 aI
 om
+CU
 JG
-JG
-JG
+CU
 gc
 aI
 aI
@@ -1685,6 +1714,7 @@ vJ
 vJ
 JG
 JG
+iS
 JG
 JG
 JG
@@ -1694,6 +1724,7 @@ JG
 JG
 JG
 JG
+iS
 JG
 JG
 JG
@@ -1703,9 +1734,7 @@ JG
 JG
 JG
 JG
-JG
-JG
-JG
+Ta
 JG
 JG
 JG
@@ -1729,6 +1758,15 @@ rf
 JG
 JG
 JG
+iS
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+iS
 JG
 JG
 JG
@@ -1738,16 +1776,7 @@ JG
 JG
 JG
 JG
-JG
-JG
-JG
-JG
-JG
-JG
-JG
-JG
-JG
-JG
+Ta
 JG
 JG
 JG
@@ -1769,6 +1798,7 @@ vJ
 vJ
 yy
 JG
+iS
 JG
 JG
 JG
@@ -1778,6 +1808,7 @@ JG
 JG
 JG
 JG
+iS
 JG
 JG
 JG
@@ -1787,9 +1818,7 @@ JG
 JG
 JG
 JG
-JG
-JG
-JG
+Ta
 JG
 JG
 JG
