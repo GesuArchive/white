@@ -425,22 +425,34 @@
 			damage_clothes(max(50 - bomb_armor, 0), BRUTE, BOMB)
 			if (ears && !HAS_TRAIT_FROM(src, TRAIT_DEAF, CLOTHING_TRAIT))
 				ears.adjustEarDamage(15,60)
-			Knockdown(160 - (bomb_armor * 1.6))		//100 bomb armor will prevent knockdown altogether
+			Knockdown(160 - (bomb_armor * 1.6)) //100 bomb armor will prevent knockdown altogether
 
 	take_overall_damage(brute_loss,burn_loss)
 
-	//attempt to dismember bodyparts
-	if(severity <= 2 || !bomb_armor)
-		var/max_limb_loss = round(4/severity) //so you don't lose four limbs at severity 3.
+	if(severity >= EXPLODE_HEAVY || !bomb_armor)
+		var/max_limb_loss = 0
+		var/probability = 0
+		switch(severity)
+			if(EXPLODE_NONE)
+				max_limb_loss = 1
+				probability = 20
+			if(EXPLODE_LIGHT)
+				max_limb_loss = 2
+				probability = 30
+			if(EXPLODE_HEAVY)
+				max_limb_loss = 3
+				probability = 40
+			if(EXPLODE_DEVASTATE)
+				max_limb_loss = 4
+				probability = 50
 		for(var/X in bodyparts)
 			var/obj/item/bodypart/BP = X
-			if(prob(50/severity) && !prob(getarmor(BP, BOMB)) && BP.body_zone != BODY_ZONE_HEAD && BP.body_zone != BODY_ZONE_CHEST)
-				BP.brute_dam = BP.max_damage
-				BP.dismember(BRUTE, TRUE, FALSE)
+			if(prob(probability) && !prob(getarmor(BP, BOMB)) && BP.body_zone != BODY_ZONE_HEAD && BP.body_zone != BODY_ZONE_CHEST)
+				BP.receive_damage(INFINITY, wound_bonus = CANT_WOUND) //Capped by proc
+				BP.dismember()
 				max_limb_loss--
 				if(!max_limb_loss)
 					break
-
 
 /mob/living/carbon/human/blob_act(obj/structure/blob/B)
 	if(stat == DEAD)
