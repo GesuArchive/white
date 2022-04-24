@@ -156,13 +156,13 @@ new /datum/disease_ability/symptom/powerful/youth
 //active abilities and their associated actions
 
 /datum/disease_ability/action/cough
-	name = "Voluntary Coughing"
+	name = "Вынужденный кашель"
 	actions = list(/datum/action/cooldown/disease_cough)
 	cost = 0
 	required_total_points = 0
 	start_with = TRUE
-	short_desc = "Force the host you are following to cough, spreading your infection to those nearby."
-	long_desc = "Force the host you are following to cough with extra force, spreading your infection to those within two meters of your host even if your transmissibility is low.<br>Cooldown: 10 seconds"
+	short_desc = "Заставьте носителя, за которым вы следите, кашлять, распространяя вашу инфекцию на тех, кто находится поблизости."
+	long_desc = " Заставьте носителя, за которым вы следите, кашлять с особой силой, распространяя вашу инфекцию на тех, кто находится в радиусе двух метров от вашего зараженного, даже при низкой степени вирулентности.<br>Перезарядка: 10 секунд"
 
 
 /datum/action/cooldown/disease_cough

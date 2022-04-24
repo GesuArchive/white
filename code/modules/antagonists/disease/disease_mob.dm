@@ -159,16 +159,16 @@ the new instance inside the host to be updated to the template's stats.
 			taken_names[initial(D.name)] = TRUE
 	var/set_name
 	while(!set_name)
-		var/input = sanitize_name(stripped_input(src, "Select a name for your disease", "Select Name", "", MAX_NAME_LEN))
+		var/input = sanitize_name(stripped_input(src, "Выберите название вашего вируса", "Выберите имя", "", MAX_NAME_LEN))
 		if(!input)
-			set_name = "Sentient Virus"
+			set_name = "Разумный Вирус"
 			break
 		if(taken_names[input])
-			to_chat(src, span_warning("You cannot use the name of such a well-known disease!"))
+			to_chat(src, span_warning("Вы не можете использовать название такой известной болезни!"))
 		else
 			set_name = input
-	real_name = "[set_name] (Sentient Disease)"
-	name = "[set_name] (Sentient Disease)"
+	real_name = "[set_name] (Разумная Болезнь)"
+	name = "[set_name] (Разумная Болезнь)"
 	disease_template.AssignName(set_name)
 	var/datum/antagonist/disease/A = mind.has_antag_datum(/datum/antagonist/disease)
 	if(A)
@@ -199,7 +199,7 @@ the new instance inside the host to be updated to the template's stats.
 		possible_hosts.Cut(1, 2)
 
 	if(del_on_fail)
-		to_chat(src, "<span class=userdanger'>No hosts were available for your disease to infect.</span>")
+		to_chat(src, "<span class=userdanger'>Не могу найти подходящего носителя для распространения.</span>")
 		qdel(src)
 	return FALSE
 
@@ -242,7 +242,7 @@ the new instance inside the host to be updated to the template's stats.
 	var/datum/atom_hud/my_hud = GLOB.huds[DATA_HUD_SENTIENT_DISEASE]
 	my_hud.add_to_hud(V.affected_mob)
 
-	to_chat(src, span_notice("A new host, <b>[V.affected_mob.real_name]</b>, has been infected."))
+	to_chat(src, span_notice("Новый носитель, <b>[V.affected_mob.real_name]</b>, был заражён."))
 
 	if(!following_host)
 		set_following(V.affected_mob)
@@ -253,7 +253,7 @@ the new instance inside the host to be updated to the template's stats.
 		disease_instances -= V
 		hosts -= V.affected_mob
 	else
-		to_chat(src, span_notice("One of your hosts, <b>[V.affected_mob.real_name]</b>, has been purged of your infection."))
+		to_chat(src, span_notice("Один из моих носителей, <b>[V.affected_mob.real_name]</b>, больше не заражён."))
 
 		var/datum/atom_hud/my_hud = GLOB.huds[DATA_HUD_SENTIENT_DISEASE]
 		my_hud.remove_from_hud(V.affected_mob)
@@ -265,7 +265,7 @@ the new instance inside the host to be updated to the template's stats.
 		hosts -= V.affected_mob
 
 		if(!disease_instances.len)
-			to_chat(src, span_userdanger("The last of your infection has disappeared."))
+			to_chat(src, span_userdanger("Все мои носители исцелились от инфекции, это поражение."))
 			set_following(null)
 			qdel(src)
 		refresh_adaptation_menu()
@@ -302,22 +302,22 @@ the new instance inside the host to be updated to the template's stats.
 /mob/camera/disease/ClickOn(atom/A, params)
 	if(freemove && ishuman(A))
 		var/mob/living/carbon/human/H = A
-		if(tgui_alert(usr, "Select [H.name] as your initial host?", "Select Host", list("Yes", "No")) != "Yes")
+		if(tgui_alert(usr, "Выбрать [H.name] на роль нулевого пациента?", "Выбрать носителем", list("Да", "Нет")) != "Да")
 			return
 		if(!freemove)
 			return
 		if(QDELETED(H) || !force_infect(H))
-			to_chat(src, span_warning("[H ? H.name : "Host"] cannot be infected."))
+			to_chat(src, span_warning("[H ? H.name : "Host"] не может быть инфицирован."))
 	else
 		..()
 
 /mob/camera/disease/proc/adapt_cooldown()
-	to_chat(src, span_notice("You have altered your genetic structure. You will be unable to adapt again for [DisplayTimeText(adaptation_cooldown)]."))
+	to_chat(src, span_notice("Я недавно уже изменял свою генетическую структуру. Мне нужно время для адаптации [DisplayTimeText(adaptation_cooldown)]."))
 	next_adaptation_time = world.time + adaptation_cooldown
 	addtimer(CALLBACK(src, .proc/notify_adapt_ready), adaptation_cooldown)
 
 /mob/camera/disease/proc/notify_adapt_ready()
-	to_chat(src, span_notice("You are now ready to adapt again."))
+	to_chat(src, span_notice("Я готов к новой адаптации."))
 	refresh_adaptation_menu()
 
 /mob/camera/disease/proc/refresh_adaptation_menu()
@@ -410,7 +410,7 @@ the new instance inside the host to be updated to the template's stats.
 
 
 /datum/action/innate/disease_adapt
-	name = "Adaptation Menu"
+	name = "Меню Адаптации"
 	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "disease_menu"
 
