@@ -395,7 +395,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		dat += "<div id=zakup-item-disabled><div id=zakup-price>[VG.cost]₽</div><div id=zakup-name>[VG.name]</div></div>"
 	dat += "</div></div>"
 	dat += "</div><a id=footer href='byond://?src=[REF(src)];violence=joinmefucker'>ПОГНАЛИ!</a></body></html>"
-	usr << browse(dat, "window=violence;size=1000x690")
+	usr << browse(dat, "window=violence;size=1050x690")
 
 /client/proc/force_violence_map()
 	set category = "Дбг"
