@@ -117,39 +117,40 @@
  *access can contain a list of access numbers to check against. If access is not empty, it will be used istead of checking any inserted ID.
 */
 /datum/computer_file/program/proc/can_run(mob/user, loud = FALSE, access_to_check, transfer = FALSE, list/access)
-	// Defaults to required_access
-	if(!access_to_check)
-		if(transfer && transfer_access)
-			access_to_check = transfer_access
-		else
-			access_to_check = required_access
-	if(!access_to_check) // No required_access, allow it.
-		return TRUE
-
-	if(!transfer && computer && (computer.obj_flags & EMAGGED)) //emags can bypass the execution locks but not the download ones.
+	if(issilicon(user))
 		return TRUE
 
 	if(isAdminGhostAI(user))
 		return TRUE
 
-	if(issilicon(user))
+	if(!transfer && computer && (computer.obj_flags & EMAGGED)) //emags can bypass the execution locks but not the download ones.
+		return TRUE
+
+	// Defaults to required_access
+	if(!access_to_check)
+		if(transfer && length(transfer_access))
+			access_to_check = transfer_access
+		else
+			access_to_check = required_access
+	if(!length(access_to_check)) // No required_access, allow it.
 		return TRUE
 
 	if(!length(access))
-		var/obj/item/card/id/D
+		var/obj/item/card/id/accesscard
 		var/obj/item/computer_hardware/card_slot/card_slot
 		if(computer)
 			card_slot = computer.all_components[MC_CARD]
-			D = card_slot?.GetID()
+			accesscard = card_slot?.GetID()
 
-		if(!D)
+		if(!accesscard)
 			if(loud)
 				to_chat(user, span_danger("[computer]: \"Ошибка RFID- Невозможно просканировать ID-карту\"."))
 			return FALSE
-		access = D.GetAccess()
+		access = accesscard.GetAccess()
 
-	if(access_to_check in access)
-		return TRUE
+	for(var/singular_access in access_to_check)
+		if(singular_access in access) //For loop checks every individual access entry in the access list. If the user's ID has access to any entry, then we're good.
+			return TRUE
 	if(loud)
 		to_chat(user, span_danger("[computer]: \"В доступе отказано\"."))
 	return FALSE
