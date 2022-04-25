@@ -6611,18 +6611,18 @@
 /area/service/hydroponics)
 "tj" = (
 /obj/structure/table/reinforced,
-/obj/item/cartridge/engineering{
+/obj/item/computer_hardware/hard_drive/role/engineering{
 	pixel_x = 4;
 	pixel_y = 5
 	},
-/obj/item/cartridge/engineering{
+/obj/item/computer_hardware/hard_drive/role/engineering{
 	pixel_x = -3;
 	pixel_y = 2
 	},
-/obj/item/cartridge/engineering{
+/obj/item/computer_hardware/hard_drive/role/engineering{
 	pixel_x = 3
 	},
-/obj/item/cartridge/atmos,
+/obj/item/computer_hardware/hard_drive/role/atmos,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/ce)
 "tk" = (
@@ -7776,11 +7776,11 @@
 /obj/structure/table,
 /obj/structure/table/glass,
 /obj/machinery/recharger,
-/obj/item/cartridge/chemistry{
+/obj/item/computer_hardware/hard_drive/role/chemistry{
 	pixel_x = -6;
 	pixel_y = 8
 	},
-/obj/item/cartridge/medical{
+/obj/item/computer_hardware/hard_drive/role/medical{
 	pixel_x = 4
 	},
 /obj/item/clothing/neck/stethoscope{
@@ -11078,15 +11078,15 @@
 /area/science/server)
 "Nb" = (
 /obj/structure/table,
-/obj/item/cartridge/signal/toxins{
+/obj/item/computer_hardware/hard_drive/role/signal/toxins{
 	pixel_x = 4;
 	pixel_y = 6
 	},
-/obj/item/cartridge/signal/toxins{
+/obj/item/computer_hardware/hard_drive/role/signal/toxins{
 	pixel_x = -4;
 	pixel_y = 2
 	},
-/obj/item/cartridge/signal/toxins,
+/obj/item/computer_hardware/hard_drive/role/signal/toxins,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/rd)
 "Nc" = (

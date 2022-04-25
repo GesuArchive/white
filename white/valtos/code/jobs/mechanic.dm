@@ -30,7 +30,7 @@
 	jobtype = /datum/job/station_engineer/mechanic
 
 	belt = /obj/item/storage/belt/utility/full/mechanic
-	l_pocket = /obj/item/pda/engineering
+	l_pocket = /obj/item/modular_computer/tablet/pda/engineering
 	ears = /obj/item/radio/headset/headset_eng
 	uniform = /obj/item/clothing/under/rank/engineering/engineer
 	shoes = /obj/item/clothing/shoes/workboots

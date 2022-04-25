@@ -1550,7 +1550,7 @@
 /area/space)
 "UD" = (
 /obj/structure/closet/crate,
-/obj/item/pda/clear,
+/obj/item/modular_computer/tablet/pda/clear,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)

@@ -28,7 +28,7 @@
 	name = "Cargo Technician"
 	jobtype = /datum/job/cargo_technician
 
-	belt = /obj/item/pda/cargo
+	belt = /obj/item/modular_computer/tablet/pda/cargo
 	ears = /obj/item/radio/headset/headset_cargo
 	uniform = /obj/item/clothing/under/rank/cargo/tech
 	l_hand = /obj/item/export_scanner

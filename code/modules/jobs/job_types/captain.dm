@@ -41,7 +41,7 @@
 	jobtype = /datum/job/captain
 
 	id = /obj/item/card/id/advanced/gold
-	belt = /obj/item/pda/captain
+	belt = /obj/item/modular_computer/tablet/pda/captain
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/heads/captain/alt
 	gloves = /obj/item/clothing/gloves/color/captain

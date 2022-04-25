@@ -37,7 +37,7 @@
 	glasses = /obj/item/clothing/glasses/meson/night
 	suit_store = /obj/item/tank/internals/oxygen/yellow
 	l_pocket = /obj/item/reagent_containers/hypospray/medipen/survival/luxury
-	r_pocket = /obj/item/pda/hunter
+	r_pocket = /obj/item/modular_computer/tablet/pda/hunter
 	backpack_contents = list(
 		/obj/item/flashlight/seclite=1,\
 		/obj/item/mining_voucher=1,\

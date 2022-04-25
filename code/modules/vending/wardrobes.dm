@@ -317,7 +317,7 @@
 	product_ads = "Приходите и возьмите свою одежду для уборщиков, которую теперь одобряют уборщики-ящеры повсюду!"
 	vend_reply = "Спасибо за использование JaniDrobe!"
 	products = list(/obj/item/clothing/under/rank/civilian/janitor = 2,
-					/obj/item/cartridge/janitor = 2,
+					/obj/item/computer_hardware/hard_drive/role/janitor = 2,
 					/obj/item/clothing/under/rank/civilian/janitor/skirt = 2,
 					/obj/item/clothing/gloves/color/black = 2,
 					/obj/item/clothing/head/soft/purple = 2,

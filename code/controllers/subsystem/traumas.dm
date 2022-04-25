@@ -74,7 +74,7 @@ SUBSYSTEM_DEF(traumas)
 		"clowns"    = typecacheof(list(
 			/obj/item/clothing/under/rank/civilian/clown, /obj/item/clothing/shoes/clown_shoes,
 			/obj/item/clothing/mask/gas/clown_hat, /obj/item/instrument/bikehorn,
-			/obj/item/pda/clown, /obj/item/grown/bananapeel, /obj/item/food/cheesiehonkers,
+			/obj/item/modular_computer/tablet/pda/clown, /obj/item/grown/bananapeel, /obj/item/food/cheesiehonkers,
 			/obj/item/trash/cheesie,
 		)),
 

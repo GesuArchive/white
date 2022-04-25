@@ -48,7 +48,7 @@
 
 	id = /obj/item/card/id/advanced/silver
 	belt = /obj/item/storage/belt/medical/ems/cmo
-	r_pocket = /obj/item/pda/heads/cmo
+	r_pocket = /obj/item/modular_computer/tablet/pda/heads/cmo
 	l_pocket = /obj/item/pinpointer/crew
 	ears = /obj/item/radio/headset/heads/cmo
 	uniform = /obj/item/clothing/under/rank/medical/chief_medical_officer

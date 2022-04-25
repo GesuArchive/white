@@ -34,7 +34,7 @@
 	jobtype = /datum/job/chemist
 
 	glasses = /obj/item/clothing/glasses/science
-	belt = /obj/item/pda/chemist
+	belt = /obj/item/modular_computer/tablet/pda/chemist
 	l_pocket = /obj/item/reagent_containers/glass/bottle/random_buffer
 	r_pocket = /obj/item/reagent_containers/dropper
 	ears = /obj/item/radio/headset/headset_med

@@ -149,8 +149,8 @@
 			disintegrate(H.attached_light, A)
 
 /obj/effect/proc_holder/spell/proc/disintegrate(obj/item/O, atom/A)
-	if(istype(O, /obj/item/pda))
-		var/obj/item/pda/PDA = O
+	if(istype(O, /obj/item/modular_computer/tablet/pda))
+		var/obj/item/modular_computer/tablet/pda/PDA = O
 		PDA.set_light_on(FALSE)
 		PDA.set_light_range(0) //It won't be turning on again.
 		PDA.update_icon()

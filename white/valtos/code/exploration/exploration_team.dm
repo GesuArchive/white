@@ -23,7 +23,7 @@
 	name = "Exploration Crew"
 	jobtype = /datum/job/exploration
 
-	belt = /obj/item/pda/exploration
+	belt = /obj/item/modular_computer/tablet/pda/exploration
 	ears = /obj/item/radio/headset/headset_exploration
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/color/black

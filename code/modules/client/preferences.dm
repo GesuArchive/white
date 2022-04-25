@@ -60,8 +60,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/inquisitive_ghost = 1
 	var/allow_midround_antag = 1
 	var/preferred_map = null
-	var/pda_style = MONO
-	var/pda_color = "#808000"
 
 	var/uses_glasses_colour = TRUE
 
@@ -510,9 +508,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "</div><div class='csetup_content'><div class='csetup_header'>Управление</div>"
 			dat += SETUP_NODE_SWITCH("Кнопки действий", "action_buttons", buttons_locked ? "Не двигаются" : "Свободные")
 			dat += SETUP_NODE_SWITCH("Режим хоткеев", "hotkeys", hotkeys ? "Хоткеи" : "Ретро")
-			dat += "</div><div class='csetup_content'><div class='csetup_header'>ПДА</div>"
-			dat += SETUP_NODE_COLOR("Цвет меню", "pda_color", pda_color, null)
-			dat += SETUP_NODE_INPUT("Стиль", "pda_style", pda_style)
 			dat += "</div><div class='csetup_content'><div class='csetup_header'>Призрак</div>"
 			dat += SETUP_NODE_SWITCH("Разговоры", "ghost_ears", (chat_toggles & CHAT_GHOSTEARS) ? "Все" : "Рядом")
 			dat += SETUP_NODE_SWITCH("Радиопереговоры", "ghost_radio", (chat_toggles & CHAT_GHOSTRADIO) ? "Все" : "Рядом")
@@ -1641,14 +1636,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						UI_style = pickedui
 						if (parent && parent.mob && parent.mob.hud_used)
 							parent.mob.hud_used.update_ui_style(ui_style2icon(UI_style))
-				if("pda_style")
-					var/pickedPDAStyle = input(user, "Choose your PDA style.", "Character Preference", pda_style)  as null|anything in GLOB.pda_styles
-					if(pickedPDAStyle)
-						pda_style = pickedPDAStyle
-				if("pda_color")
-					var/pickedPDAColor = input(user, "Choose your PDA Interface color.", "Character Preference", pda_color) as color|null
-					if(pickedPDAColor)
-						pda_color = pickedPDAColor
 
 				if("phobia")
 					var/phobiaType = input(user, "What are you scared of?", "Character Preference", phobia) as null|anything in SStraumas.phobia_types

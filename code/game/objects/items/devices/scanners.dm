@@ -147,7 +147,7 @@ GENE SCANNER
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 // Used by the PDA medical scanner too
-/proc/healthscan(mob/user, mob/living/M, mode = SCANNER_VERBOSE, advanced = FALSE)
+/proc/healthscan(mob/user, mob/living/M, mode = SCANNER_VERBOSE, advanced = FALSE, tochat = TRUE)
 	if(user.incapacitated())
 		return
 
@@ -454,7 +454,10 @@ GENE SCANNER
 			render_list += "<span class='notice ml-2'>[cyberimp_detect]</span>\n"
 
 	SEND_SIGNAL(M, COMSIG_NANITE_SCAN, user, FALSE)
-	to_chat(user, jointext(render_list, "")) // we handled the last <br> so we don't need handholding
+	if(tochat)
+		to_chat(user, jointext(render_list, "")) // we handled the last <br> so we don't need handholding
+	else
+		return(jointext(render_list, ""))
 
 /proc/chemscan(mob/living/user, mob/living/M)
 	if(user.incapacitated())

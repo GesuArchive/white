@@ -16,6 +16,8 @@
 	var/mob/current_user
 	///Access granted by the used to summon robots.
 	var/list/current_access = list()
+	///Whether or not this is the cartridge program version.
+	var/cart_mode = FALSE
 
 /datum/computer_file/program/robocontrol/ui_data(mob/user)
 	var/list/data = get_header_data()
@@ -24,13 +26,14 @@
 	var/list/botlist = list()
 	var/list/mulelist = list()
 
+	var/obj/item/computer_hardware/hard_drive/role/job_disk = computer ? computer.all_components[MC_HDD_JOB] : null
 	var/obj/item/computer_hardware/card_slot/card_slot = computer ? computer.all_components[MC_CARD] : null
 	data["have_id_slot"] = !!card_slot
 	if(computer)
-		var/obj/item/card/id/id_card = card_slot ? card_slot.stored_card : null
-		data["has_id"] = !!id_card
-		data["id_owner"] = id_card ? id_card.registered_name : "No Card Inserted."
-		data["access_on_card"] = id_card ? id_card.access : null
+		var/obj/item/card/id/id_card = card_slot ? card_slot.stored_card : ""
+		data["id_owner"] = id_card
+	if(cart_mode && job_disk)
+		data["id_owner"] = "JOB DISK OVERRIDE"
 
 	botcount = 0
 	current_user = user

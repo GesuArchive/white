@@ -22,13 +22,6 @@ export const NtosRoboControl = (props, context) => {
           <LabeledList>
             <LabeledList.Item label="ID-карта">
               {id_owner}
-              {!!has_id && (
-                <Button
-                  ml={2}
-                  icon="eject"
-                  content="Изъять"
-                  onClick={() => act('ejectcard')} />
-              )}
             </LabeledList.Item>
             <LabeledList.Item label="Роботы в радиусе">
               {data.botcount}

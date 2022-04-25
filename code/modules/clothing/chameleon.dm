@@ -352,18 +352,17 @@
 	agent_card.update_label()
 	agent_card.update_icon()
 
-/datum/action/item_action/chameleon/change/pda/update_item(obj/item/picked_item)
+/datum/action/item_action/chameleon/change/tablet/update_item(obj/item/picked_item)
 	..()
-	var/obj/item/pda/agent_pda = target
+	var/obj/item/modular_computer/tablet/pda/agent_pda = target
 	if(istype(agent_pda))
-		agent_pda.update_label()
-		agent_pda.update_icon()
+		agent_pda.update_appearance()
 
-/datum/action/item_action/chameleon/change/pda/apply_job_data(datum/job/job_datum)
+/datum/action/item_action/chameleon/change/tablet/apply_job_data(datum/job/job_datum)
 	..()
-	var/obj/item/pda/agent_pda = target
+	var/obj/item/modular_computer/tablet/pda/agent_pda = target
 	if(istype(agent_pda) && istype(job_datum))
-		agent_pda.ownjob = job_datum.title
+		agent_pda.saved_job = job_datum.title
 
 
 /obj/item/clothing/under/chameleon
@@ -709,25 +708,25 @@
 	. = ..()
 	chameleon_action.emp_randomise(INFINITY)
 
-/obj/item/pda/chameleon
-	name = "ПДА"
-	var/datum/action/item_action/chameleon/change/pda/chameleon_action
+/obj/item/modular_computer/tablet/pda/chameleon
+	name = "tablet"
+	var/datum/action/item_action/chameleon/change/tablet/chameleon_action
 
-/obj/item/pda/chameleon/Initialize()
+/obj/item/modular_computer/tablet/pda/chameleon/Initialize()
 	. = ..()
 	chameleon_action = new(src)
-	chameleon_action.chameleon_type = /obj/item/pda
-	chameleon_action.chameleon_name = "PDA"
-	chameleon_action.chameleon_blacklist = typecacheof(list(/obj/item/pda/heads, /obj/item/pda/ai, /obj/item/pda/ai/pai), only_root_path = TRUE)
+	chameleon_action.chameleon_type = /obj/item/modular_computer/tablet/pda
+	chameleon_action.chameleon_name = "tablet"
+	chameleon_action.chameleon_blacklist = typecacheof(list(/obj/item/modular_computer/tablet/pda/heads), only_root_path = TRUE)
 	chameleon_action.initialize_disguises()
 
-/obj/item/pda/chameleon/emp_act(severity)
+/obj/item/modular_computer/tablet/pda/chameleon/emp_act(severity)
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
 		return
 	chameleon_action.emp_randomise()
 
-/obj/item/pda/chameleon/broken/Initialize()
+/obj/item/modular_computer/tablet/pda/chameleon/broken/Initialize()
 	. = ..()
 	chameleon_action.emp_randomise(INFINITY)
 

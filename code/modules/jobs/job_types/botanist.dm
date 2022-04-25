@@ -30,7 +30,7 @@
 	name = "Botanist"
 	jobtype = /datum/job/botanist
 
-	belt = /obj/item/pda/botanist
+	belt = /obj/item/modular_computer/tablet/pda/botanist
 	ears = /obj/item/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/rank/civilian/hydroponics
 	suit = /obj/item/clothing/suit/apron

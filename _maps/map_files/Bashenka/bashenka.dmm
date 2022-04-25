@@ -567,13 +567,13 @@
 /area/commons/dorms)
 "aon" = (
 /obj/structure/table/glass,
-/obj/item/cartridge/chemistry{
+/obj/item/computer_hardware/hard_drive/role/chemistry{
 	pixel_y = 6
 	},
-/obj/item/cartridge/medical{
+/obj/item/computer_hardware/hard_drive/role/medical{
 	pixel_x = 3
 	},
-/obj/item/cartridge/medical{
+/obj/item/computer_hardware/hard_drive/role/medical{
 	pixel_x = -3
 	},
 /obj/machinery/power/apc/auto_name/north,
@@ -6788,8 +6788,8 @@
 /obj/item/storage/secure/briefcase{
 	pixel_x = -2
 	},
-/obj/item/cartridge/detective,
-/obj/item/cartridge/detective,
+/obj/item/computer_hardware/hard_drive/role/detective,
+/obj/item/computer_hardware/hard_drive/role/detective,
 /obj/item/book/manual/wiki/security_space_law,
 /obj/machinery/light{
 	dir = 4
@@ -8672,13 +8672,13 @@
 /area/hallway/primary/aft)
 "gSK" = (
 /obj/structure/table/reinforced,
-/obj/item/cartridge/engineering{
+/obj/item/computer_hardware/hard_drive/role/engineering{
 	pixel_y = 6
 	},
-/obj/item/cartridge/engineering{
+/obj/item/computer_hardware/hard_drive/role/engineering{
 	pixel_x = 6
 	},
-/obj/item/cartridge/engineering{
+/obj/item/computer_hardware/hard_drive/role/engineering{
 	pixel_x = -6
 	},
 /obj/item/reagent_containers/pill/patch/aiuri,
@@ -9347,9 +9347,9 @@
 "hoc" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/yellow,
-/obj/item/cartridge/atmos,
-/obj/item/cartridge/atmos,
-/obj/item/cartridge/atmos,
+/obj/item/computer_hardware/hard_drive/role/atmos,
+/obj/item/computer_hardware/hard_drive/role/atmos,
+/obj/item/computer_hardware/hard_drive/role/atmos,
 /obj/item/stamp/ce,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/ce)
@@ -9986,13 +9986,13 @@
 "hNE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
-/obj/item/cartridge/quartermaster{
+/obj/item/computer_hardware/hard_drive/role/quartermaster{
 	pixel_y = 6
 	},
-/obj/item/cartridge/quartermaster{
+/obj/item/computer_hardware/hard_drive/role/quartermaster{
 	pixel_x = -6
 	},
-/obj/item/cartridge/quartermaster{
+/obj/item/computer_hardware/hard_drive/role/quartermaster{
 	pixel_x = 6
 	},
 /obj/item/gps/mining,
@@ -14785,7 +14785,7 @@
 	pixel_y = 7
 	},
 /obj/item/taperecorder,
-/obj/item/cartridge/lawyer,
+/obj/item/computer_hardware/hard_drive/role/lawyer,
 /obj/effect/turf_decal/delivery/red,
 /obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable,

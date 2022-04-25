@@ -541,6 +541,12 @@ Turf and target are separate in case you want to teleport some distance from a t
 /proc/anyprob(value)
 	return (rand(1,value)==value)
 
+///counts the number of bits in Byond's 16-bit width field, in constant time and memory!
+/proc/bit_count(bit_field)
+	var/temp = bit_field - ((bit_field >> 1) & 46811) - ((bit_field >> 2) & 37449) //0133333 and 0111111 respectively
+	temp = ((temp + (temp >> 3)) & 29127) % 63 //070707
+	return temp
+
 /proc/parse_zone(zone)	// Именительный
 	if(zone == BODY_ZONE_PRECISE_R_HAND)
 		return "правая кисть"

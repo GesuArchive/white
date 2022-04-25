@@ -15430,7 +15430,7 @@
 	},
 /obj/item/pen,
 /obj/item/taperecorder,
-/obj/item/cartridge/lawyer,
+/obj/item/computer_hardware/hard_drive/role/lawyer,
 /turf/open/floor/wood,
 /area/lawoffice)
 "aOo" = (
@@ -21181,19 +21181,19 @@
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/ce)
 "bbt" = (
-/obj/item/cartridge/engineering{
+/obj/item/computer_hardware/hard_drive/role/engineering{
 	pixel_x = 4;
 	pixel_y = 5
 	},
-/obj/item/cartridge/engineering{
+/obj/item/computer_hardware/hard_drive/role/engineering{
 	pixel_x = -3;
 	pixel_y = 2
 	},
-/obj/item/cartridge/engineering{
+/obj/item/computer_hardware/hard_drive/role/engineering{
 	pixel_x = 3
 	},
 /obj/structure/table/reinforced,
-/obj/item/cartridge/atmos,
+/obj/item/computer_hardware/hard_drive/role/atmos,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -23405,14 +23405,14 @@
 	pixel_x = -10;
 	pixel_y = 9
 	},
-/obj/item/cartridge/quartermaster{
+/obj/item/computer_hardware/hard_drive/role/quartermaster{
 	pixel_x = 9
 	},
-/obj/item/cartridge/quartermaster{
+/obj/item/computer_hardware/hard_drive/role/quartermaster{
 	pixel_x = 5;
 	pixel_y = 11
 	},
-/obj/item/cartridge/quartermaster{
+/obj/item/computer_hardware/hard_drive/role/quartermaster{
 	pixel_x = 8;
 	pixel_y = 4
 	},
@@ -44788,13 +44788,13 @@
 /area/medical/medbay/central)
 "cnC" = (
 /obj/structure/table/glass,
-/obj/item/cartridge/medical{
+/obj/item/computer_hardware/hard_drive/role/medical{
 	pixel_x = -3
 	},
-/obj/item/cartridge/medical{
+/obj/item/computer_hardware/hard_drive/role/medical{
 	pixel_x = 3
 	},
-/obj/item/cartridge/chemistry{
+/obj/item/computer_hardware/hard_drive/role/chemistry{
 	pixel_y = 6
 	},
 /obj/effect/turf_decal/tile/blue{
@@ -71261,7 +71261,7 @@
 "poP" = (
 /obj/machinery/power/apc/auto_name/east,
 /obj/structure/table/wood,
-/obj/item/cartridge/detective{
+/obj/item/computer_hardware/hard_drive/role/detective{
 	pixel_x = 7;
 	pixel_y = 8
 	},
@@ -71272,11 +71272,11 @@
 /obj/item/folder/red{
 	pixel_x = -7
 	},
-/obj/item/cartridge/detective{
+/obj/item/computer_hardware/hard_drive/role/detective{
 	pixel_x = 7;
 	pixel_y = 4
 	},
-/obj/item/cartridge/detective{
+/obj/item/computer_hardware/hard_drive/role/detective{
 	pixel_x = 7
 	},
 /obj/structure/cable,
@@ -73541,13 +73541,13 @@
 /obj/effect/turf_decal/siding{
 	dir = 4
 	},
-/obj/item/cartridge/signal/toxins{
+/obj/item/computer_hardware/hard_drive/role/signal/toxins{
 	pixel_x = 6
 	},
-/obj/item/cartridge/signal/toxins{
+/obj/item/computer_hardware/hard_drive/role/signal/toxins{
 	pixel_x = -6
 	},
-/obj/item/cartridge/signal/toxins{
+/obj/item/computer_hardware/hard_drive/role/signal/toxins{
 	pixel_y = 6
 	},
 /turf/open/floor/plasteel/dark,

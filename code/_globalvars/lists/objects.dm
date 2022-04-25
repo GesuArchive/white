@@ -36,6 +36,7 @@ GLOBAL_LIST_EMPTY(active_jammers)  // List of active radio jammers
 GLOBAL_LIST_EMPTY(ladders)
 GLOBAL_LIST_EMPTY(trophy_cases)
 GLOBAL_LIST_EMPTY(experiment_handlers)
+GLOBAL_LIST_EMPTY(janitor_devices)
 ///This is a global list of all signs you can change an existing sign or new sign backing to, when using a pen on them.
 GLOBAL_LIST_EMPTY(editable_sign_types)
 

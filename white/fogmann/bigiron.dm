@@ -19,7 +19,7 @@
 	gloves = /obj/item/clothing/gloves/ring/diamond
 	suit = /obj/item/clothing/suit/gothcoat
 
-	l_pocket = /obj/item/pda
+	l_pocket = /obj/item/modular_computer/tablet/pda
 
 	id_trim = /datum/id_trim/job/assistant/gypsy
 

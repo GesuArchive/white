@@ -325,7 +325,7 @@
 "bo" = (
 /obj/structure/table,
 /obj/item/suppressor,
-/obj/item/pda/syndicate,
+/obj/item/modular_computer/tablet/pda/syndicate,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "bp" = (
