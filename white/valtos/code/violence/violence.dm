@@ -138,6 +138,10 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				var/datum/disease/D = new /datum/disease/heart_failure()
 				D.stage = 5
 				H.ForceContractDisease(D, FALSE, TRUE)
+			else
+				// заставляем людей произносить рандомные реплики
+				if(prob(0.5))
+					random_speech(H)
 		// проверяем, умерли ли все после открытия ворот
 		if(round_started_at + 30 SECONDS < world.time)
 			// обновляем таймер
@@ -169,6 +173,32 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				end_round("КРАСНЫХ")
 			if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len == 0)
 				end_round()
+
+/datum/game_mode/violence/proc/random_speech(mob/living/carbon/human/H)
+	var/is_heavy = FALSE
+	if(H.wear_mask)
+		is_heavy = TRUE
+	var/sound/S
+	if(H?.mind?.has_antag_datum(/datum/antagonist/combatant/red))
+		if(is_heavy)
+			S = "white/valtos/sounds/ts/bear/h/[rand(1, 45)].ogg"
+		else
+			S = "white/valtos/sounds/ts/bear/[rand(1, 52)].ogg"
+	else if(H?.mind?.has_antag_datum(/datum/antagonist/combatant/blue))
+		if(is_heavy)
+			S = "white/valtos/sounds/ts/usec/h/[rand(1, 38)].ogg"
+		else
+			S = "white/valtos/sounds/ts/usec/[rand(1, 31)].ogg"
+	if(S)
+		playsound(get_turf(H), S, 100)
+		var/list/speech_bubble_recipients = list()
+		for(var/mob/M in view(7, get_turf(H)))
+			if(M.client)
+				speech_bubble_recipients.Add(M.client)
+		var/image/I = image('icons/mob/talk.dmi', src, "default2", FLY_LAYER)
+		I.plane = ABOVE_GAME_PLANE
+		I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
+		INVOKE_ASYNC(GLOBAL_PROC, /.proc/flick_overlay, I, speech_bubble_recipients, 30)
 
 /datum/game_mode/violence/proc/someone_has_died(datum/source, mob/living/dead, gibbed)
 	SIGNAL_HANDLER
