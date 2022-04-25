@@ -69,7 +69,7 @@
 				user.visible_message(span_notice("<b>[user]</b> обнимает <b>дакимакуру [custom_name]</b>."))
 				playsound(src.loc, "rustle", 50, 1, -5)
 			if(user.a_intent == "disarm")
-				user.visible_message(span_notice("<b>[user]</b>] целует <b>дакимакуру [custom_name]</b>."))
+				user.visible_message(span_notice("<b>[user]</b> целует <b>дакимакуру [custom_name]</b>."))
 				playsound(src.loc, "rustle", 50, 1, -5)
 			if(user.a_intent == "grab")
 				user.visible_message(span_warning("<b>[user]</b> вдерживает в <b>дакимакуру [custom_name]</b>!"))
