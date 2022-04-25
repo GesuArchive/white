@@ -68,6 +68,8 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	var/obj/item/paicard/pai = null
 
+	var/datum/action/item_action/toggle_computer_light/light_butt
+
 /obj/item/modular_computer/Initialize()
 	. = ..()
 
@@ -100,8 +102,16 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	if(istype(pai))
 		QDEL_NULL(pai)
+	if(istype(light_butt))
+		QDEL_NULL(light_butt)
 	physical = null
 	return ..()
+
+/obj/item/modular_computer/ui_action_click(mob/user, actiontype)
+	if(istype(actiontype, light_butt))
+		toggle_flashlight()
+	else
+		..()
 
 /obj/item/modular_computer/pre_attack_secondary(atom/A, mob/living/user, params)
 	if(active_program?.tap(A, user, params))
