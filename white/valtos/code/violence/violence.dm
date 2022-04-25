@@ -140,7 +140,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				H.ForceContractDisease(D, FALSE, TRUE)
 			else
 				// заставляем людей произносить рандомные реплики
-				if(prob(0.5))
+				if(prob(3))
 					random_speech(H)
 		// проверяем, умерли ли все после открытия ворот
 		if(round_started_at + 30 SECONDS < world.time)
