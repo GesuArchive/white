@@ -93,20 +93,20 @@ the new instance inside the host to be updated to the template's stats.
 /mob/camera/disease/get_status_tab_items()
 	. = ..()
 	if(freemove)
-		. += "Host Selection Time: [round((freemove_end - world.time)/10)]s"
+		. += "Время для выбора нулевого пациента: [round((freemove_end - world.time)/10)]s"
 	else
-		. += "Adaptation Points: [points]/[total_points]"
-		. += "Hosts: [disease_instances.len]"
+		. += "Очки адаптации: [points]/[total_points]"
+		. += "Заражённые: [disease_instances.len]"
 		var/adapt_ready = next_adaptation_time - world.time
 		if(adapt_ready > 0)
-			. += "Adaptation Ready: [round(adapt_ready/10, 0.1)]s"
+			. += "Готовность адаптации: [round(adapt_ready/10, 0.1)]s"
 
 
 /mob/camera/disease/examine(mob/user)
 	. = ..()
 	if(isobserver(user))
-		. += {"<hr><span class='notice'>[capitalize(src.name)] has [points]/[total_points] adaptation points.</span>\n
-		<span class='notice'>[capitalize(src.name)] has the following unlocked:</span>"}
+		. += {"<hr><span class='notice'>[capitalize(src.name)] имеет [points]/[total_points] очков адаптации.</span>\n
+		<span class='notice'>[capitalize(src.name)] и мутации:</span>"}
 		for(var/datum/disease_ability/ability in purchased_abilities)
 			. += "\n<span class='notice'>[ability.name]</span>"
 
@@ -337,12 +337,12 @@ the new instance inside the host to be updated to the template's stats.
 		for(var/entry in examining_ability.threshold_block)
 			dat += "<b>[entry]</b>: [examining_ability.threshold_block[entry]]<br>"
 	else
-		dat += "<h1>Disease Statistics</h1><br>\
-			Resistance: [DT.totalResistance()]<br>\
-			Stealth: [DT.totalStealth()]<br>\
-			Stage Speed: [DT.totalStageSpeed()]<br>\
-			Transmissibility: [DT.totalTransmittable()]<hr>\
-			Cure: [DT.cure_text]"
+		dat += "<h1>Статистика заболевания</h1><br>\
+			Сопротивление: [DT.totalResistance()]<br>\
+			Скрытность: [DT.totalStealth()]<br>\
+			Скорость заражения: [DT.totalStageSpeed()]<br>\
+			Способность к передаче: [DT.totalTransmittable()]<hr>\
+			Тяжесть: [DT.cure_text]"
 		dat += "<hr><h1>Adaptations</h1>\
 			Points: [points] / [total_points]\
 			<table border=1>\
@@ -354,15 +354,15 @@ the new instance inside the host to be updated to the template's stats.
 				if(A.CanBuy(src))
 					purchase_text = "<a href='byond://?src=[REF(src)];buy_ability=[REF(A)]'>Purchase</a>"
 				else
-					purchase_text = span_linkoff("Purchase")
+					purchase_text = span_linkoff("Адаптировать")
 			else
 				if(A.CanRefund(src))
 					purchase_text = "<a href='byond://?src=[REF(src)];refund_ability=[REF(A)]'>Refund</a>"
 				else
-					purchase_text = span_linkoff("Refund")
+					purchase_text = span_linkoff("Деградировать")
 			dat += "<tr><td>[A.cost]</td><td>[purchase_text]</td><td>[A.required_total_points]</td><td><a href='byond://?src=[REF(src)];examine_ability=[REF(A)]'>[A.name]</a></td><td>[A.category]</td><td>[A.short_desc]</td></tr>"
 
-		dat += "</table><br>Infect many hosts at once to gain adaptation points.<hr><h1>Infected Hosts</h1>"
+		dat += "</table><br>Заражайте больше носителей, чтобы получить очки адаптации.<hr><h1>Заражённые</h1>"
 		for(var/V in hosts)
 			var/mob/living/L = V
 			dat += "<br><a href='byond://?src=[REF(src)];follow_instance=[REF(L)]'>[L.real_name]</a>"
