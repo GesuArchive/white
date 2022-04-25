@@ -305,6 +305,17 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	else
 		turn_on(user)
 
+/obj/item/modular_computer/CtrlShiftClick(mob/user)
+	. = ..()
+	if(.)
+		return
+
+	var/obj/item/computer_hardware/hard_drive/role/ssd = all_components[MC_HDD_JOB]
+	if(!ssd)
+		return
+	if(uninstall_component(ssd, usr))
+		user.put_in_hands(ssd)
+
 /obj/item/modular_computer/proc/turn_on(mob/user)
 	var/issynth = issilicon(user) // Robots and AIs get different activation messages.
 	if(obj_integrity <= integrity_failure * max_integrity)
@@ -516,6 +527,9 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		set_light(comp_light_luminosity, 1, comp_light_color)
 	else
 		set_light(0)
+	update_appearance()
+	if(light_butt)
+		update_action_buttons(force = TRUE) // must force if just the overlays changed.
 	return TRUE
 
 /**
@@ -595,6 +609,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	// Insert new hardware
 	if(istype(W, /obj/item/computer_hardware) && upgradable)
 		if(install_component(W, user))
+			playsound(src, 'sound/machines/card_slide.ogg', 50)
 			return
 
 	if(W.tool_behaviour == TOOL_WRENCH)

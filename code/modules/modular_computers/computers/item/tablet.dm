@@ -59,6 +59,13 @@
 
 	remove_pen(user)
 
+/obj/item/modular_computer/tablet/CtrlClick(mob/user)
+	. = ..()
+	if(.)
+		return
+
+	remove_pen(user)
+
 /obj/item/modular_computer/tablet/proc/tab_no_detonate()
 	SIGNAL_HANDLER
 	return COMPONENT_TABLET_NO_DETONATE
@@ -244,6 +251,7 @@
 // Round start tablets
 
 /obj/item/modular_computer/tablet/pda
+	icon = 'icons/obj/modular_pda.dmi'
 	icon_state = "pda"
 
 	greyscale_config = /datum/greyscale_config/tablet

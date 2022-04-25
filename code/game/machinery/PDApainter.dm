@@ -150,6 +150,16 @@
 /obj/machinery/pdapainter/deconstruct(disassembled = TRUE)
 	obj_break()
 
+/obj/machinery/pdapainter/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return
+	if(stored_pda)
+		eject_pda(user)
+	else
+		eject_id_card(user)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
 /**
  * Insert a PDA into the machine.
  *

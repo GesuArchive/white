@@ -3,6 +3,7 @@
 	filedesc = "Direct Messenger"
 	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "command"
+	program_state = PROGRAM_STATE_BACKGROUND
 	extended_desc = "This program allows old-school communication with other modular devices."
 	size = 8
 	usage_flags = PROGRAM_TABLET
@@ -102,7 +103,7 @@
 
 	switch(action)
 		if("PDA_ringSet")
-			var/t = tgui_input_text(usr, "Enter a new tablet ID", "Computer ID", "", 20)
+			var/t = tgui_input_text(usr, "Enter a new ringtone", "Ringtone", "", 20)
 			var/mob/living/usr_mob = usr
 			if(in_range(computer, usr_mob) && computer.loc == usr_mob && t)
 				if(SEND_SIGNAL(computer, COMSIG_TABLET_CHANGE_ID, usr_mob, t) & COMPONENT_STOP_RINGTONE_CHANGE)
@@ -259,8 +260,8 @@
 	// If it didn't reach, note that fact
 	if (!signal.data["done"])
 		to_chat(user, span_notice("ERROR: Server isn't responding."))
-		//if(!silent)
-			//playsound(src, 'sound/machines/terminal_error.ogg', 15, TRUE)
+		if(ringer_status)
+			playsound(src, 'sound/machines/terminal_error.ogg', 15, TRUE)
 		return FALSE
 
 	if(allow_emojis)
@@ -271,13 +272,13 @@
 	var/list/message_data = list()
 	message_data["name"] = signal.data["name"]
 	message_data["job"] = signal.data["job"]
-	message_data["contents"] = html_decode(signal.data["message"])
+	message_data["contents"] = html_decode(signal.format_message())
 	message_data["outgoing"] = TRUE
 	message_data["ref"] = signal.data["ref"]
 	message_data["photo"] = signal.data["photo"]
 
 	// Show it to ghosts
-	var/ghost_message = span_name("[message_data["name"]] </span><span class='game say'>[rigged ? "Rigged" : ""] PDA Message</span> --> [span_name("[signal.format_target()]")]: <span class='message'>[signal.data["message"]]")
+	var/ghost_message = span_name("[message_data["name"]] </span><span class='game say'>[rigged ? "Rigged" : ""] PDA Message</span> --> [span_name("[signal.format_target()]")]: <span class='message'>[signal.format_message()]")
 	for(var/mob/M in GLOB.player_list)
 		if(isobserver(M) && (M.client?.prefs.chat_toggles & CHAT_GHOSTPDA))
 			to_chat(M, "[FOLLOW_LINK(M, user)] [ghost_message]")
@@ -286,7 +287,7 @@
 	user.log_talk(message, LOG_PDA, tag="[rigged ? "Rigged" : ""] PDA: [initial(message_data["name"])] to [signal.format_target()]")
 	if(rigged)
 		log_bomber(user, "sent a rigged PDA message (Name: [message_data["name"]]. Job: [message_data["job"]]) to [english_list(string_targets)] [!is_special_character(user) ? "(SENT BY NON-ANTAG)" : ""]")
-	to_chat(user, span_info("PDA message sent to [signal.format_target()]: [signal.data["message"]]"))
+	to_chat(user, span_info("PDA message sent to [signal.format_target()]: [signal.format_message()]"))
 
 	if (ringer_status)
 		computer.send_sound()
@@ -304,7 +305,7 @@
 	var/list/message_data = list()
 	message_data["name"] = signal.data["name"]
 	message_data["job"] = signal.data["job"]
-	message_data["contents"] = html_decode(signal.data["message"])
+	message_data["contents"] = signal.format_message()
 	message_data["outgoing"] = FALSE
 	message_data["ref"] = signal.data["ref"]
 	message_data["automated"] = signal.data["automated"]
@@ -312,11 +313,11 @@
 	messages += list(message_data)
 
 	var/mob/living/L = null
-	if(computer.loc && isliving(computer.loc))
-		L = computer.loc
+	if(holder.holder.loc && isliving(holder.holder.loc))
+		L = holder.holder.loc
 	//Maybe they are a pAI!
 	else
-		L = get(computer, /mob/living/silicon)
+		L = get(holder.holder, /mob/living/silicon)
 
 	if(L && (L.stat == CONSCIOUS || L.stat == SOFT_CRIT))
 		var/reply = "(<a href='byond://?src=[REF(src)];choice=[signal.data["rigged"] ? "Mess_us_up" : "Message"];skiprefresh=1;target=[signal.data["ref"]]'>Reply</a>)"
