@@ -189,6 +189,14 @@
 		"russian_officer": {
 			"total_positions": 0,
 			"spawn_positions": 0
+		},
+		"exploration_crew": {
+			"total_positions": 0,
+			"spawn_positions": 0
+		},
+		"hunter": {
+			"total_positions": 0,
+			"spawn_positions": 0
 		}
 	}
 }
