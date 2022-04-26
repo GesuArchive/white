@@ -11078,15 +11078,15 @@
 /area/science/server)
 "Nb" = (
 /obj/structure/table,
-/obj/item/computer_hardware/hard_drive/role/signal/toxins{
+/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
 	pixel_x = 4;
 	pixel_y = 6
 	},
-/obj/item/computer_hardware/hard_drive/role/signal/toxins{
+/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
 	pixel_x = -4;
 	pixel_y = 2
 	},
-/obj/item/computer_hardware/hard_drive/role/signal/toxins,
+/obj/item/computer_hardware/hard_drive/role/signal/ordnance,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/rd)
 "Nc" = (

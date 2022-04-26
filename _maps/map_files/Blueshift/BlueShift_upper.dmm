@@ -27182,13 +27182,13 @@
 /area/maintenance/fore/upper)
 "jqu" = (
 /obj/structure/table/glass,
-/obj/item/computer_hardware/hard_drive/role/signal/toxins{
+/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
 	pixel_x = -6
 	},
-/obj/item/computer_hardware/hard_drive/role/signal/toxins{
+/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
 	pixel_x = 6
 	},
-/obj/item/computer_hardware/hard_drive/role/signal/toxins{
+/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
 	pixel_y = 6
 	},
 /obj/effect/turf_decal/siding/purple{
