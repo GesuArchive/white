@@ -1506,6 +1506,15 @@
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/captain)
+"wi" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/xeno_spawn,
+/turf/open/floor/plasteel/monofloor,
+/area/engineering/main)
 "wn" = (
 /turf/open/floor/plasteel/monofloor,
 /area/ai_monitored/security/armory)
@@ -2021,6 +2030,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/dark,
 /area/cargo/office)
+"Fy" = (
+/obj/effect/landmark/carpspawn,
+/turf/open/openspace/airless,
+/area/space)
 "FM" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
@@ -2109,6 +2122,10 @@
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/main)
+"GL" = (
+/obj/effect/landmark/xeno_spawn,
+/turf/open/floor/circuit/telecomms/mainframe,
+/area/tcommsat/server)
 "GQ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -2442,6 +2459,10 @@
 "LY" = (
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/main)
+"Me" = (
+/obj/effect/landmark/carpspawn,
+/turf/open/space/basic,
+/area/space)
 "Mg" = (
 /obj/machinery/oven{
 	pixel_y = 10
@@ -2511,6 +2532,7 @@
 /area/security/prison/work)
 "Nb" = (
 /obj/machinery/atmospherics/components/binary/pump/on/layer4,
+/obj/effect/landmark/blobstart,
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/main)
 "Nc" = (
@@ -2628,6 +2650,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/ai_monitored/security/armory)
+"OR" = (
+/obj/effect/landmark/xeno_spawn,
+/turf/open/floor/engine/air,
+/area/engineering/main)
 "Pa" = (
 /obj/structure/cable,
 /obj/machinery/light/directional/west,
@@ -4324,7 +4350,7 @@ NX
 NX
 NX
 NX
-NX
+Me
 NX
 NX
 NX
@@ -5186,7 +5212,7 @@ lc
 jm
 Ja
 mJ
-mJ
+OR
 mJ
 jm
 jm
@@ -5203,7 +5229,7 @@ lc
 NX
 NX
 NX
-NX
+Me
 NX
 NX
 NX
@@ -5257,7 +5283,7 @@ jb
 jb
 jm
 xt
-Cj
+wi
 Om
 Fp
 dI
@@ -5424,7 +5450,7 @@ NX
 NX
 NX
 NX
-NX
+Me
 NX
 NX
 NX
@@ -5443,7 +5469,7 @@ jb
 ft
 jm
 HR
-Cj
+wi
 Om
 Fp
 dI
@@ -5496,7 +5522,7 @@ lc
 jm
 hm
 mJ
-mJ
+OR
 mJ
 jm
 jm
@@ -6309,7 +6335,7 @@ lc
 NX
 NX
 NX
-NX
+Me
 NX
 NX
 NX
@@ -7734,7 +7760,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -8949,7 +8975,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -9059,7 +9085,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -10397,7 +10423,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -11764,7 +11790,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -12680,7 +12706,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -12773,7 +12799,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -13813,7 +13839,7 @@ rF
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -15611,7 +15637,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -16494,7 +16520,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -16525,7 +16551,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -17408,7 +17434,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -19206,7 +19232,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -20245,7 +20271,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -20339,7 +20365,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -21196,7 +21222,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -22989,7 +23015,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -23781,7 +23807,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -24059,7 +24085,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -24787,7 +24813,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -26834,7 +26860,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -27503,7 +27529,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -27717,7 +27743,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -28389,7 +28415,7 @@ vL
 vL
 vL
 vL
-vL
+Fy
 vL
 vL
 vL
@@ -28798,7 +28824,7 @@ vL
 vL
 NV
 NV
-QR
+GL
 NV
 NV
 rF
