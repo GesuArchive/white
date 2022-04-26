@@ -138,12 +138,12 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				var/datum/disease/D = new /datum/disease/heart_failure()
 				D.stage = 5
 				H.ForceContractDisease(D, FALSE, TRUE)
-			else
-				// заставляем людей произносить рандомные реплики
-				if(prob(3))
-					random_speech(H)
 		// проверяем, умерли ли все после открытия ворот
 		if(round_started_at + 30 SECONDS < world.time)
+			// заставляем людей произносить рандомные реплики
+			for(var/mob/living/carbon/human/H in main_area)
+				if(prob(3) && H.stat == CONSCIOUS)
+					random_speech(H)
 			// обновляем таймер
 			update_timer()
 			if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_BOMBDEF)
@@ -190,6 +190,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		else
 			S = "white/valtos/sounds/ts/usec/[rand(1, 31)].ogg"
 	if(S)
+		H.visible_message("<b>[H]</b> выкрикивает что-то!", pick("Щас мы им!", "Засранец!", "Ну-ну, сволочь!"))
 		playsound(get_turf(H), S, 100)
 		var/list/speech_bubble_recipients = list()
 		for(var/mob/M in view(7, get_turf(H)))
