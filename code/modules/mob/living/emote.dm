@@ -326,22 +326,30 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!H.mind || !H.mind.miming)
-			if(user.gender == FEMALE)
-				return pick('white/valtos/sounds/emotes/laugh_female_1.ogg',\
-							'white/valtos/sounds/emotes/laugh_female_2.ogg',\
-							'white/valtos/sounds/emotes/laugh_female_3.ogg',\
-							'white/valtos/sounds/emotes/laugh_female_4.ogg',\
-							'white/valtos/sounds/emotes/laugh_female_5.ogg',\
-							'white/valtos/sounds/emotes/laugh_female_6.ogg',\
-							'white/valtos/sounds/emotes/laugh_female_7.ogg')
+			if(ismoth(H) || isflyperson(H))
+				return 'white/tapko4eb/sounds/emotes/mothlaugh.ogg' // bed rustle
+			if(isfelinid(H))
+				return pick('white/tapko4eb/sounds/emotes/nyaha.ogg',\
+							'white/tapko4eb/sounds/emotes/nyahaha1.ogg',\
+							'white/tapko4eb/sounds/emotes/nyahaha2.ogg',\
+							'white/tapko4eb/sounds/emotes/nyahehe.ogg')
 			else
-				return pick('white/valtos/sounds/emotes/laugh_male_1.ogg',\
-							'white/valtos/sounds/emotes/laugh_male_2.ogg',\
-							'white/valtos/sounds/emotes/laugh_male_3.ogg',\
-							'white/valtos/sounds/emotes/laugh_male_4.ogg',\
-							'white/valtos/sounds/emotes/laugh_male_5.ogg',\
-							'white/valtos/sounds/emotes/laugh_male_6.ogg',\
-							'white/valtos/sounds/emotes/laugh_male_7.ogg')
+				if(user.gender == FEMALE)
+					return pick('white/valtos/sounds/emotes/laugh_female_1.ogg',\
+								'white/valtos/sounds/emotes/laugh_female_2.ogg',\
+								'white/valtos/sounds/emotes/laugh_female_3.ogg',\
+								'white/valtos/sounds/emotes/laugh_female_4.ogg',\
+								'white/valtos/sounds/emotes/laugh_female_5.ogg',\
+								'white/valtos/sounds/emotes/laugh_female_6.ogg',\
+								'white/valtos/sounds/emotes/laugh_female_7.ogg')
+				else
+					return pick('white/valtos/sounds/emotes/laugh_male_1.ogg',\
+								'white/valtos/sounds/emotes/laugh_male_2.ogg',\
+								'white/valtos/sounds/emotes/laugh_male_3.ogg',\
+								'white/valtos/sounds/emotes/laugh_male_4.ogg',\
+								'white/valtos/sounds/emotes/laugh_male_5.ogg',\
+								'white/valtos/sounds/emotes/laugh_male_6.ogg',\
+								'white/valtos/sounds/emotes/laugh_male_7.ogg')
 
 /datum/emote/living/look
 	key = "look"
