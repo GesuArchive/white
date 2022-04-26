@@ -63,19 +63,19 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/melee/sabre
 	name = "Сабля"
-	cost = 125
+	cost = 225
 	items = list(/obj/item/melee/sabre/german)
 	allowed_themes = list("std")
 
 /datum/violence_gear/melee/katana
 	name = "Катана"
-	cost = 250
+	cost = 350
 	items = list(/obj/item/katana)
 	allowed_themes = list("katana")
 
 /datum/violence_gear/melee/ignis
 	name = "Ignis"
-	cost = 500
+	cost = 700
 	items = list(/obj/item/melee/energy/sword/ignis)
 
 /datum/violence_gear/pistol
@@ -119,7 +119,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/pistol/golden_eagle
 	name = "FTU PDH-6G"
-	cost = 300
+	cost = 1300
 	items = list(
 		/obj/item/gun/ballistic/automatic/pistol/golden_eagle,
 		/obj/item/ammo_box/magazine/mm12/saphe
@@ -167,7 +167,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/r37
 	name = "Xan-Jing R37"
-	cost = 450
+	cost = 1450
 	items = list(
 		/obj/item/gun/ballistic/automatic/pitbull/r37,
 		/obj/item/ammo_box/magazine/r37
@@ -176,7 +176,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/r40
 	name = "Xan-Jing R40"
-	cost = 550
+	cost = 1550
 	items = list(
 		/obj/item/gun/ballistic/automatic/pitbull/r40,
 		/obj/item/ammo_box/magazine/r40
@@ -193,6 +193,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		/obj/item/gun/breakopen/doublebarrel,
 		/obj/item/storage/box/lethalshot
 	)
+	allowed_themes = list("std", "warfare", "hotline")
 
 /datum/violence_gear/shotgun/combat
 	name = "Боевой дробовик"
@@ -233,6 +234,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		/obj/item/gun/ballistic/rifle/boltaction/hecate,
 		/obj/item/ammo_box/magazine/sniper_rounds/penetrator
 	)
+	allowed_themes = list("std", "warfare", "hotline")
 
 /datum/violence_gear/heavygun/rocketlauncher
 	name = "PML-9"
@@ -242,12 +244,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		/obj/item/ammo_casing/caseless/rocket
 	)
 	allowed_themes = list("std", "warfare")
-
-/datum/violence_gear/heavygun/xray
-	name = "X-Ray"
-	cost = 550
-	items = list(/obj/item/gun/energy/xray/violence)
-	allowed_themes = list("katana")
 
 /datum/violence_gear/heavygun/beam_rifle
 	name = "УЧВ"
@@ -263,6 +259,12 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		/obj/item/ammo_box/magazine/mm712x82
 	)
 	allowed_themes = list("std", "warfare")
+
+/datum/violence_gear/heavygun/xray
+	name = "X-Ray"
+	cost = 950
+	items = list(/obj/item/gun/energy/xray/violence)
+	allowed_themes = list("katana")
 
 /datum/violence_gear/armor
 	cat = "Броня"
@@ -396,12 +398,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	items = list(/obj/item/ammo_box/magazine/m50)
 	allowed_themes = list("std", "warfare", "hotline")
 
-/datum/violence_gear/ammo/saphe
-	name = "П. Обойма 12.7x35mm"
-	cost = 100
-	items = list(/obj/item/ammo_box/magazine/mm12/saphe)
-	allowed_themes = list("katana")
-
 /datum/violence_gear/ammo/smgm45
 	name = "А. Магазин .45"
 	cost = 125
@@ -420,14 +416,20 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	items = list(/obj/item/ammo_box/magazine/asval)
 	allowed_themes = list("std", "warfare", "hotline")
 
+/datum/violence_gear/ammo/saphe
+	name = "П. Обойма 12.7x35mm"
+	cost = 600
+	items = list(/obj/item/ammo_box/magazine/mm12/saphe)
+	allowed_themes = list("katana")
+
 /datum/violence_gear/ammo/r37
 	name = "А. Магазин 6.5mm"
-	cost = 230
+	cost = 630
 	items = list(/obj/item/ammo_box/magazine/r37)
 	allowed_themes = list("katana")
 
 /datum/violence_gear/ammo/r40
 	name = "А. Магазин 7.2mm"
-	cost = 300
+	cost = 700
 	items = list(/obj/item/ammo_box/magazine/r40)
 	allowed_themes = list("katana")
