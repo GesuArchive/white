@@ -451,12 +451,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/service)
-"abY" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/turf/open/floor/plasteel/white,
-/area/medical/medbay/central)
 "abZ" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/stripes/line,
@@ -6862,8 +6856,8 @@
 	},
 /turf/open/floor/plating{
 	initial_gas_mix = "o2=0.01;n2=0.01;TEMP=2.7";
-	luminosity = 2;
-	initial_temperature = 2.7
+	initial_temperature = 2.7;
+	luminosity = 2
 	},
 /area/security/prison)
 "aZN" = (
@@ -7352,8 +7346,8 @@
 	},
 /turf/open/floor/plating{
 	initial_gas_mix = "o2=0.01;n2=0.01;TEMP=2.7";
-	luminosity = 2;
-	initial_temperature = 2.7
+	initial_temperature = 2.7;
+	luminosity = 2
 	},
 /area/security/prison)
 "bde" = (
@@ -59072,18 +59066,6 @@
 	heat_capacity = 1e+006
 	},
 /area/commons/locker)
-"knM" = (
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/turf/open/floor/plasteel/white,
-/area/science/research)
 "knS" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/nitrogen_input{
 	dir = 8
@@ -91983,13 +91965,13 @@
 /area/cargo/miningoffice)
 "sNs" = (
 /obj/structure/table,
-/obj/item/computer_hardware/hard_drive/role/signal/toxins{
+/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
 	pixel_x = 6
 	},
-/obj/item/computer_hardware/hard_drive/role/signal/toxins{
+/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
 	pixel_x = -6
 	},
-/obj/item/computer_hardware/hard_drive/role/signal/toxins{
+/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
 	pixel_y = 6
 	},
 /obj/machinery/camera{
@@ -144070,7 +144052,7 @@ cXk
 dcs
 hBB
 dfd
-knM
+oay
 cQM
 djO
 cNq
@@ -146640,7 +146622,7 @@ daI
 dcx
 cSl
 pGU
-knM
+oay
 cQM
 cUe
 eui
@@ -157434,7 +157416,7 @@ mxt
 eDj
 mRh
 ovU
-abY
+cPv
 diz
 xvk
 cNz

@@ -2651,12 +2651,6 @@
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
-"ge" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
-/area/hallway/primary/starboard/low_level_service)
 "gf" = (
 /obj/machinery/door/airlock/external{
 	req_access_txt = "12"
@@ -5321,12 +5315,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/dark,
 /area/security/execution/transfer)
-"lO" = (
-/obj/effect/turf_decal/stripes/white/line{
-	dir = 1
-	},
-/turf/open/floor/wood,
-/area/hallway/secondary/service)
 "lP" = (
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
@@ -5990,13 +5978,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/research/abandoned)
-"nk" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel,
-/area/hallway/secondary/exit/departure_lounge/cryo)
 "nl" = (
 /obj/machinery/button/door{
 	id = "xenobio2";
@@ -7712,13 +7693,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel/monofloor/white,
 /area/security/prison)
-"qX" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/hallway/primary/central/low_level_eva)
 "qY" = (
 /obj/structure/table/wood/cataclysmdda,
 /obj/item/toy/plush/carpplushie{
@@ -15336,12 +15310,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/security/prison)
-"Hu" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 8
-	},
-/turf/open/floor/plasteel/monofloor/dark,
-/area/cargo/warehouse)
 "Hv" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/turf_decal/stripes/line{
@@ -44952,7 +44920,7 @@ ul
 bA
 RK
 Bb
-Hu
+Ve
 Ve
 RK
 tt
@@ -51608,7 +51576,7 @@ Xc
 Bt
 Bt
 SY
-qX
+xm
 zh
 Xc
 fF
@@ -60079,7 +60047,7 @@ HV
 Bt
 fF
 ka
-nk
+Qo
 OZ
 Br
 tU
@@ -61621,7 +61589,7 @@ fF
 oM
 sc
 Xc
-nk
+Qo
 nh
 eL
 Zm
@@ -62153,7 +62121,7 @@ KZ
 ga
 zU
 we
-lO
+TV
 hC
 Jy
 Qw
@@ -62652,7 +62620,7 @@ Gc
 Wj
 sJ
 hH
-ge
+mm
 mm
 vs
 qx
@@ -62661,14 +62629,14 @@ wc
 Kl
 YS
 YF
-ge
-ge
+mm
+mm
 iw
 hw
-ge
+mm
 Xu
-ge
-ge
+mm
+mm
 At
 DR
 DR

@@ -4242,10 +4242,6 @@
 "auI" = (
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
-"auJ" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel,
-/area/maintenance/department/electrical)
 "auL" = (
 /turf/open/floor/mech_bay_recharge_floor,
 /area/maintenance/department/electrical)
@@ -18804,15 +18800,15 @@
 /area/science/mixing/chamber)
 "bGY" = (
 /obj/structure/table,
-/obj/item/computer_hardware/hard_drive/role/signal/toxins{
+/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
 	pixel_x = 4;
 	pixel_y = 6
 	},
-/obj/item/computer_hardware/hard_drive/role/signal/toxins{
+/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
 	pixel_x = -4;
 	pixel_y = 2
 	},
-/obj/item/computer_hardware/hard_drive/role/signal/toxins,
+/obj/item/computer_hardware/hard_drive/role/signal/ordnance,
 /turf/open/floor/plasteel/cafeteria,
 /area/command/heads_quarters/rd)
 "bHc" = (
@@ -23940,14 +23936,6 @@
 	dir = 4
 	},
 /obj/structure/closet/firecloset,
-/turf/open/floor/plasteel/dark/corner{
-	dir = 1
-	},
-/area/engineering/break_room)
-"bYL" = (
-/obj/effect/turf_decal/tile/yellow{
-	dir = 4
-	},
 /turf/open/floor/plasteel/dark/corner{
 	dir = 1
 	},
@@ -81073,7 +81061,7 @@ bUH
 bVQ
 bWN
 bXM
-bYL
+kSG
 cew
 bTh
 bZy
@@ -96943,7 +96931,7 @@ arz
 asB
 atD
 avL
-auJ
+avL
 xeu
 auI
 kUA
@@ -97199,8 +97187,8 @@ aqC
 ary
 asB
 atC
-auJ
-auJ
+avL
+avL
 xeu
 auI
 cgt
@@ -97456,8 +97444,8 @@ alP
 alP
 asB
 atE
-auJ
-auJ
+avL
+avL
 xeu
 auI
 toG
@@ -97713,8 +97701,8 @@ anf
 anf
 asB
 dsk
-auJ
-auJ
+avL
+avL
 xeu
 auI
 auI
@@ -98227,8 +98215,8 @@ alP
 alP
 asB
 atF
-auJ
-auJ
+avL
+avL
 woU
 qtr
 xOY
@@ -98484,7 +98472,7 @@ awD
 aoQ
 asB
 atH
-auJ
+avL
 avO
 awU
 ccD
@@ -98741,8 +98729,8 @@ anf
 awF
 asB
 auL
-auJ
-auJ
+avL
+avL
 bUW
 pND
 fKT
