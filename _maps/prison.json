@@ -183,8 +183,8 @@
 			"spawn_positions": -1
 		},
 		"security_officer": {
-			"total_positions": 0,
-			"spawn_positions": 0
+			"total_positions": 6,
+			"spawn_positions": 6
 		},
 		"russian_officer": {
 			"total_positions": 0,
