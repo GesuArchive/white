@@ -5,16 +5,16 @@
 
 
 /obj/item/organ/brain/nightmare
-	name = "tumorous mass"
-	desc = "A fleshy growth that was dug out of the skull of a Nightmare."
+	name = "черная масса"
+	desc = "Сочащийся черным дегтем комок плоти, извлеченный из головы Кошмара."
 	icon_state = "brain-x-d"
 	var/obj/effect/proc_holder/spell/targeted/shadowwalk/shadowwalk
 
 /obj/item/organ/brain/nightmare/Insert(mob/living/carbon/M, special = FALSE)
 	. = ..()
-	if(M.dna.species.id != "nightmare")
+	if(M.dna.species.id != "Кошмар")
 		M.set_species(/datum/species/shadow/nightmare)
-		visible_message(span_warning("[M] thrashes as [src] takes root in [M.p_their()] body!"))
+		visible_message(span_warning("[M] бьется, когда [src] укореняется в теле [M.p_their()]!"))
 	var/obj/effect/proc_holder/spell/targeted/shadowwalk/SW = new
 	M.AddSpell(SW)
 	shadowwalk = SW
@@ -26,8 +26,8 @@
 
 
 /obj/item/organ/heart/nightmare
-	name = "heart of darkness"
-	desc = "An alien organ that twists and writhes when exposed to light."
+	name = "Сердце тьмы"
+	desc = "Чужеродный орган, который извивается и корчится под воздействием света."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "demon_heart-on"
 	color = "#1C1C1C"
@@ -45,14 +45,14 @@
 	if(M != user)
 		return ..()
 	user.visible_message(
-		span_warning("[user] raises [src] to [user.p_their()] mouth and tears into it with [user.p_their()] teeth!") ,
-		span_danger("[src] feels unnaturally cold in your hands. You raise [src] your mouth and devour it!")
+		span_warning("[user] подносит [src] ко рту [user.p_their()] и вгрызается в него зубами [user.p_their()]!") ,
+		span_danger("[src] кажется неестественно холодным в моих руках. Ты подносишь [src] к своему рту и пожираешь его!")
 	)
 	playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
 
 	user.visible_message(
-		span_warning("Blood erupts from [user]'s arm as it reforms into a weapon!") ,
-		span_userdanger("Icy blood pumps through your veins as your arm reforms itself!")
+		span_warning("Кровь извергается из руки [user], когда формируется меч!") ,
+		span_userdanger("У меня кровь стынет в жилах от зрелища, как моя рука неестественно искажается и перестраивается, формируя гротескный меч из плоти и костей!")
 	)
 	user.temporarilyRemoveItemFromInventory(src, TRUE)
 	Insert(user)
@@ -66,7 +66,7 @@
 /obj/item/organ/heart/nightmare/Remove(mob/living/carbon/M, special = FALSE)
 	respawn_progress = 0
 	if(blade && special != HEART_SPECIAL_SHADOWIFY)
-		M.visible_message(span_warning("\The [blade] disintegrates!"))
+		M.visible_message(span_warning("\The [blade] распадается!"))
 		QDEL_NULL(blade)
 	return ..()
 
@@ -91,9 +91,9 @@
 		Remove(owner, HEART_SPECIAL_SHADOWIFY)
 		old_owner.set_species(/datum/species/shadow)
 		Insert(old_owner, HEART_SPECIAL_SHADOWIFY)
-		to_chat(owner, span_userdanger("You feel the shadows invade your skin, leaping into the center of your chest! You're alive!"))
+		to_chat(owner, span_userdanger("Я чувствую, что тени обволакивают меня, они проникают в моё сердце и оно снова начинает биться! Тьма вернулась в этот мир!"))
 		SEND_SOUND(owner, sound('sound/effects/ghost.ogg'))
-	owner.visible_message(span_warning("[owner] staggers to [owner.p_their()] feet!"))
+	owner.visible_message(span_warning("[owner] поднимается на ноги!"))
 	playsound(owner, 'sound/hallucinations/far_noise.ogg', 50, TRUE)
 	respawn_progress = 0
 
