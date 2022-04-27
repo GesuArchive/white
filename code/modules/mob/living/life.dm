@@ -101,6 +101,21 @@
 	var/loc_temp = get_temperature(environment)
 	var/temp_delta = loc_temp - bodytemperature
 
+	if(last_temp_status != "normal" && loc_temp > BODYTEMP_COLD_DAMAGE_LIMIT && loc_temp < BODYTEMP_HEAT_DAMAGE_LIMIT)
+		last_temp_status = "normal"
+		remove_client_colour(/datum/client_colour/hot)
+		remove_client_colour(/datum/client_colour/cold)
+
+	if(loc_temp <= BODYTEMP_COLD_DAMAGE_LIMIT && last_temp_status != "cold")
+		last_temp_status = "cold"
+		remove_client_colour(/datum/client_colour/hot)
+		add_client_colour(/datum/client_colour/cold)
+
+	if(loc_temp >= BODYTEMP_HEAT_DAMAGE_LIMIT && last_temp_status != "hot")
+		last_temp_status = "hot"
+		remove_client_colour(/datum/client_colour/cold)
+		add_client_colour(/datum/client_colour/hot)
+
 	if(ismovable(loc))
 		var/atom/movable/occupied_space = loc
 		temp_delta *= (1 - occupied_space.contents_thermal_insulation)
