@@ -17,12 +17,12 @@
   *SHITCODE AHEAD. BE ADVISED. Also comment extravaganza
   */
 /mob/living/simple_animal/hostile/megafauna/legionold
-	name = "Legion"
+	name = "Легион"
 	health = 800
 	maxHealth = 800
 	icon_state = "legion"
 	icon_living = "legion"
-	desc = "One of many."
+	desc = "Один из многих."
 	icon = 'white/Wzzzz/disneyland/legion.dmi'
 	attack_sound = 'sound/magic/demon_attack1.ogg'
 	speak_emote = list("эхоирует")

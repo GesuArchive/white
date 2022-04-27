@@ -50,8 +50,8 @@
 		sharpness_on = active_sharpness, \
 		hitsound_on = active_hitsound, \
 		w_class_on = active_w_class, \
-		attack_verb_continuous_on = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts"), \
-		attack_verb_simple_on = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut"))
+		attack_verb_continuous_on = list("атакует", "разрезает", "колет", "режет", "рвет", "разрывает", "нарезает"), \
+		attack_verb_simple_on = list("атакует", "разрезает", "колет", "режет", "рвет", "разрывает", "нарезает"))
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
 
 /obj/item/melee/energy/suicide_act(mob/user)
@@ -120,8 +120,8 @@
 	lefthand_file = 'icons/mob/inhands/weapons/axes_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/axes_righthand.dmi'
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb_continuous = list("attacks", "chops", "cleaves", "tears", "lacerates", "cuts")
-	attack_verb_simple = list("attack", "chop", "cleave", "tear", "lacerate", "cut")
+	attack_verb_continuous = list("атакует", "рубит", "рассекает", "рвет", "разрывает", "нарезает")
+	attack_verb_simple = list("атакует", "рубит", "рассекает", "рвет", "разрывает", "нарезает")
 	force = 40
 	throwforce = 25
 	throw_speed = 3
@@ -264,8 +264,8 @@
 		return ..()
 
 /obj/item/melee/energy/sword/pirate
-	name = "energy cutlass"
-	desc = "Arrrr matey."
+	name = "энергетическая сабля"
+	desc = "Арррр, дружище."
 	icon_state = "e_cutlass"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
@@ -279,8 +279,8 @@
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	hitsound = 'sound/weapons/blade1.ogg'
-	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
-	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
+	attack_verb_continuous = list("атакует", "разрезает", "колет", "режет", "рвет", "разрывает", "нарезает")
+	attack_verb_simple = list("атакует", "разрезает", "колет", "режет", "рвет", "разрывает", "нарезает")
 	force = 30
 	throwforce = 1 // Throwing or dropping the item deletes it.
 	throw_speed = 3
