@@ -96,7 +96,7 @@
 /mob/living/proc/handle_random_events(delta_time, times_fired)
 	return
 
-// Base mob environment handler for body temperature
+// Base mob environment handler for body temperaturee
 /mob/living/proc/handle_environment(datum/gas_mixture/environment, delta_time, times_fired)
 	var/loc_temp = get_temperature(environment)
 	var/temp_delta = loc_temp - bodytemperature
