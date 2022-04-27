@@ -101,20 +101,8 @@
 	var/loc_temp = get_temperature(environment)
 	var/temp_delta = loc_temp - bodytemperature
 
-	if(last_temp_status != "normal" && loc_temp > BODYTEMP_COLD_DAMAGE_LIMIT && loc_temp < BODYTEMP_HEAT_DAMAGE_LIMIT)
-		last_temp_status = "normal"
-		remove_client_colour(/datum/client_colour/hot)
-		remove_client_colour(/datum/client_colour/cold)
-
-	if(loc_temp <= BODYTEMP_COLD_DAMAGE_LIMIT && last_temp_status != "cold")
-		last_temp_status = "cold"
-		remove_client_colour(/datum/client_colour/hot)
-		add_client_colour(/datum/client_colour/cold)
-
-	if(loc_temp >= BODYTEMP_HEAT_DAMAGE_LIMIT && last_temp_status != "hot")
-		last_temp_status = "hot"
-		remove_client_colour(/datum/client_colour/cold)
-		add_client_colour(/datum/client_colour/hot)
+	if(client)
+		handle_temp_color(loc_temp)
 
 	if(ismovable(loc))
 		var/atom/movable/occupied_space = loc
@@ -125,6 +113,22 @@
 			adjust_bodytemperature(max(max(temp_delta / BODYTEMP_DIVISOR, BODYTEMP_COOLING_MAX) * delta_time, temp_delta))
 	else // this is a hot place
 		adjust_bodytemperature(min(min(temp_delta / BODYTEMP_DIVISOR, BODYTEMP_HEATING_MAX) * delta_time, temp_delta))
+
+/mob/living/proc/handle_temp_color(cur_temp)
+	if(last_temp_status != "normal" && cur_temp > BODYTEMP_COLD_DAMAGE_LIMIT && cur_temp < BODYTEMP_HEAT_DAMAGE_LIMIT)
+		last_temp_status = "normal"
+		remove_client_colour(/datum/client_colour/hot)
+		remove_client_colour(/datum/client_colour/cold)
+
+	if(last_temp_status != "cold" && cur_temp <= BODYTEMP_COLD_DAMAGE_LIMIT)
+		last_temp_status = "cold"
+		remove_client_colour(/datum/client_colour/hot)
+		add_client_colour(/datum/client_colour/cold)
+
+	if(last_temp_status != "hot" && cur_temp >= BODYTEMP_HEAT_DAMAGE_LIMIT)
+		last_temp_status = "hot"
+		remove_client_colour(/datum/client_colour/cold)
+		add_client_colour(/datum/client_colour/hot)
 
 /mob/living/proc/handle_fire(delta_time, times_fired)
 	if(fire_stacks < 0) //If we've doused ourselves in water to avoid fire, dry off slowly

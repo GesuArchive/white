@@ -132,6 +132,11 @@
 
 /// Environment handlers for species
 /mob/living/carbon/human/handle_environment(datum/gas_mixture/environment, delta_time, times_fired)
+
+	if(client)
+		var/areatemp = get_temperature(environment)
+		handle_temp_color(areatemp)
+
 	// If we are in a cryo bed do not process life functions
 	if(istype(loc, /obj/machinery/atmospherics/components/unary/cryo_cell))
 		return

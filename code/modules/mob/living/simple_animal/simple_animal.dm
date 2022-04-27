@@ -379,6 +379,8 @@
 	if(isturf(A))
 		var/areatemp = get_temperature(environment)
 		var/temp_delta = areatemp - bodytemperature
+		if(client)
+			handle_temp_color(areatemp)
 		if(abs(temp_delta) > 5)
 			if(temp_delta < 0)
 				if(!on_fire)
