@@ -148,7 +148,7 @@
 	if(isspaceturf(exposed_turf))
 		return
 
-	var/obj/effect/decal/cleanable/cum/reagentdecal = new(exposed_turf)
+	var/obj/effect/decal/cleanable/cum/reagentdecal = new(exposed_turf,,FALSE)
 	reagentdecal = locate() in exposed_turf
 	if(reagentdecal)
 		reagentdecal.reagents.add_reagent(/datum/reagent/consumable/nutriment/protein/semen, reac_volume)

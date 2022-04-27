@@ -6,13 +6,19 @@
 	icon = 'white/valtos/icons/exrp/smetanka.dmi'
 	anchored = 1
 	random_icon_states = list("cum1", "cum3", "cum4", "cum5", "cum6", "cum7", "cum8", "cum9", "cum10", "cum11", "cum12")
-	mergeable_decal = FALSE
+	mergeable_decal = TRUE
 
-/obj/effect/decal/cleanable/cum/Initialize(mapload, list/datum/disease/diseases)
+/obj/effect/decal/cleanable/cum/Initialize(mapload, list/datum/disease/diseases, prereagented=TRUE)
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/nutriment/protein/semen, 5)
+	if(prereagented) // if we wanna to spawn it with some volume inside or not
+		reagents.add_reagent(/datum/reagent/consumable/nutriment/protein/semen, 5)
 	pixel_x = rand(-12, 12)
 	pixel_y = rand(-12, 12)
+
+/obj/effect/decal/cleanable/cum/replace_decal(obj/effect/decal/cleanable/cum/C)
+	reagents.trans_to(C, reagents.total_volume)
+	C.overlays += image(icon, src, pick(random_icon_states), pixel_x=rand(-12, 12), pixel_y=rand(-12, 12))
+	return ..()
 
 /obj/effect/decal/cleanable/cum/attack_hand(mob/user)
 	. = ..()
