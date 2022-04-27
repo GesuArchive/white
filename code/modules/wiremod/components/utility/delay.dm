@@ -25,8 +25,9 @@
 /obj/item/circuit_component/delay/populate_ports()
 	delay_amount = add_input_port("Задержка", PORT_TYPE_NUMBER, trigger = null)
 	trigger = add_input_port("Активация", PORT_TYPE_SIGNAL, trigger = .proc/trigger_delay)
-	interrupt = add_input_port("Результат", PORT_TYPE_SIGNAL, trigger = .proc/interrupt_timer)
+	interrupt = add_input_port("Прервать", PORT_TYPE_SIGNAL, trigger = .proc/interrupt_timer)
 
+	output = add_output_port("Результат", PORT_TYPE_SIGNAL)
 
 /obj/item/circuit_component/delay/proc/trigger_delay(datum/port/input/port)
 	CIRCUIT_TRIGGER
