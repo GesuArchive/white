@@ -126,7 +126,7 @@
 /datum/outfit/lavaland_syndicate
 	name = "Агент Синдиката в Лаваленде"
 	r_hand = /obj/item/gun/ballistic/automatic/sniper_rifle
-	uniform = /obj/item/clothing/under/utility/sci/syndicate
+	uniform = /obj/item/clothing/under/syndicate
 	suit = /obj/item/clothing/suit/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
@@ -161,7 +161,7 @@
 /datum/outfit/lavaland_syndicate/comms
 	name = "Связист Синдиката в Лаваленде"
 	r_hand = /obj/item/melee/energy/sword/saber
-	uniform = /obj/item/clothing/under/utility/sec/old/syndicate
+	uniform = /obj/item/clothing/under/syndicate
 	mask = /obj/item/clothing/mask/chameleon/gps
 	suit = /obj/item/clothing/suit/armor/vest
 

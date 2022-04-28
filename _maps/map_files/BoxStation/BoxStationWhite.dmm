@@ -1371,7 +1371,6 @@
 /area/ai_monitored/command/nuke_storage)
 "alv" = (
 /obj/structure/table/wood,
-/obj/item/ashtray,
 /turf/open/floor/wood,
 /area/maintenance/port/aft)
 "alF" = (
@@ -3419,7 +3418,6 @@
 /area/lawoffice)
 "asp" = (
 /obj/structure/table/wood,
-/obj/item/flashlight/lamp/lavalamp,
 /turf/open/floor/wood,
 /area/commons/dorms/cabin/one)
 "asq" = (
@@ -3606,7 +3604,6 @@
 	specialfunctions = 4
 	},
 /obj/item/bedsheet/dorms,
-/obj/item/toy/plush/bear,
 /turf/open/floor/carpet,
 /area/commons/dorms/cabin/two)
 "asM" = (
@@ -9594,7 +9591,6 @@
 /area/service/library/artgallery)
 "aNR" = (
 /obj/structure/table/wood,
-/obj/item/ashtray,
 /turf/open/floor/carpet,
 /area/hallway/primary/port/to_arrival)
 "aNT" = (
@@ -19389,7 +19385,7 @@
 	roundstart_template = /datum/map_template/shuttle/mining/large;
 	width = 7
 	},
-/turf/open/floor/engine/hull/oxy,
+/turf/open/floor/plating,
 /area/space/nearstation)
 "bJd" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -29267,7 +29263,7 @@
 	name = "NT SS13: Cargo Bay";
 	width = 12
 	},
-/turf/open/floor/engine/hull/oxy,
+/turf/open/floor/plating,
 /area/space/nearstation)
 "cyU" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -33590,10 +33586,6 @@
 	pixel_x = 7;
 	pixel_y = 7
 	},
-/obj/item/ashtray{
-	pixel_x = -7;
-	pixel_y = 1
-	},
 /obj/item/cigbutt/cigarbutt{
 	pixel_x = -4;
 	pixel_y = 6
@@ -34647,10 +34639,6 @@
 /area/service/chapel/main)
 "gyT" = (
 /obj/structure/table/wood,
-/obj/item/ashtray{
-	pixel_x = -4;
-	pixel_y = 3
-	},
 /obj/item/reagent_containers/food/drinks/soda_cans/lemon_lime{
 	pixel_x = 6;
 	pixel_y = 15
@@ -36465,7 +36453,7 @@
 /area/ai_monitored/turret_protected/ai)
 "ilp" = (
 /obj/structure/grille,
-/turf/open/floor/engine/hull/oxy,
+/turf/open/floor/plating,
 /area/space/nearstation)
 "ilT" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -40393,7 +40381,7 @@
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
-/turf/open/floor/engine/hull/oxy,
+/turf/open/floor/plating,
 /area/space/nearstation)
 "mRq" = (
 /obj/machinery/power/apc{
@@ -43078,7 +43066,7 @@
 /obj/machinery/camera/autoname{
 	dir = 5
 	},
-/turf/open/floor/engine/hull/oxy,
+/turf/open/floor/plating,
 /area/space/nearstation)
 "pDd" = (
 /obj/effect/turf_decal/stripes/line{
@@ -44520,7 +44508,7 @@
 /turf/open/floor/carpet,
 /area/service/library/upper)
 "rhJ" = (
-/turf/open/floor/engine/hull/oxy,
+/turf/open/floor/plating,
 /area/space/nearstation)
 "rhT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -44708,7 +44696,7 @@
 	set_cap = 1;
 	set_luminosity = 4
 	},
-/turf/open/floor/engine/hull/oxy,
+/turf/open/floor/plating,
 /area/space/nearstation)
 "rvy" = (
 /obj/structure/ladder,
@@ -48816,7 +48804,7 @@
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
-/turf/open/floor/engine/hull/oxy,
+/turf/open/floor/plating,
 /area/space/nearstation)
 "vXB" = (
 /obj/structure/cable,

@@ -66,13 +66,6 @@
 	subtype_path = /datum/gear/suit/jacket
 	cost = 120
 
-/datum/gear/suit/jacket/hoodie
-	subtype_path = /obj/item/clothing/suit/jacket/hoodie
-	cost = 150
-
-/datum/gear/suit/jacket/hoodie/grey
-	subtype_path = /obj/item/clothing/suit/jacket/hoodie/grey
-
 /datum/gear/suit/jacket/bomber
 	display_name = "куртка бомбер"
 	path = /obj/item/clothing/suit/jacket

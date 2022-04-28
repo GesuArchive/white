@@ -139,8 +139,6 @@
 	name = "старый шлем"
 	desc = "Стандартный защитный шлем. Предоставляет гораздо меньшую защиту, по сравнению с шлемами нового поколения."
 	icon_state = "helmet_old"
-	icon = 'white/rebolution228/icons/clothing/hats.dmi'
-	worn_icon = 'white/rebolution228/icons/clothing/mob/hats_mob.dmi'
 	armor = list(MELEE = 25, BULLET = 20, LASER = 10, ENERGY = 30, BOMB = 25, BIO = 0, RAD = 0, FIRE = 30, ACID = 30, WOUND = 10)
 
 

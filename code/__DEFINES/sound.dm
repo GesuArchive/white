@@ -92,11 +92,6 @@
 				'sound/ambience/ambireebe2.ogg',\
 				'sound/ambience/ambireebe3.ogg')
 
-#define CITY_SOUNDS list('white/rebolution228/sounds/ambience/daytime_1.ogg',\
-						'white/rebolution228/sounds/ambience/daytime_2.ogg',\
-						'white/rebolution228/sounds/ambience/daytime_3.ogg',\
-						'white/rebolution228/sounds/ambience/daytime_4.ogg',\
-						'white/rebolution228/sounds/ambience/daytime_5.ogg')
 
 #define CREEPY_SOUNDS list('sound/effects/ghost.ogg',\
 						'sound/effects/ghost2.ogg',\

@@ -147,24 +147,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	)
 	allowed_themes = list("std", "warfare", "hotline")
 
-/datum/violence_gear/rifle/ak74m
-	name = "АК-74m"
-	cost = 375
-	items = list(
-		/obj/item/gun/ballistic/automatic/ak74m,
-		/obj/item/ammo_box/magazine/ak74m
-	)
-	allowed_themes = list("std", "warfare", "hotline")
-
-/datum/violence_gear/rifle/asval
-	name = "Вал"
-	cost = 425
-	items = list(
-		/obj/item/gun/ballistic/automatic/asval,
-		/obj/item/ammo_box/magazine/asval
-	)
-	allowed_themes = list("std", "warfare", "hotline")
-
 /datum/violence_gear/rifle/r37
 	name = "Xan-Jing R37"
 	cost = 1450
@@ -210,16 +192,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	items = list(
 		/obj/item/gun/ballistic/shotgun/bulldog/unrestricted,
 		/obj/item/ammo_box/magazine/m12g,
-		/obj/item/storage/box/lethalshot
-	)
-	allowed_themes = list("std", "warfare", "hotline")
-
-/datum/violence_gear/shotgun/saiga
-	name = "Сайга"
-	cost = 250
-	items = list(
-		/obj/item/gun/ballistic/shotgun/saiga,
-		/obj/item/ammo_box/magazine/saiga,
 		/obj/item/storage/box/lethalshot
 	)
 	allowed_themes = list("std", "warfare", "hotline")
@@ -295,10 +267,10 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "Спецназ"
 	cost = 175
 	items = list(
-		/obj/item/clothing/head/helmet/maska/altyn,
+		/obj/item/clothing/head/helmet/swat/nanotrasen,
 		/obj/item/clothing/mask/gas/sechailer/swat,
-		/obj/item/clothing/suit/armor/opvest/sobr,
-		/obj/item/clothing/gloves/combat/sobr,
+		/obj/item/clothing/suit/armor/opvest,
+		/obj/item/clothing/gloves/combat,
 		/obj/item/clothing/shoes/combat
 	)
 	allowed_themes = list("std", "warfare")
@@ -402,18 +374,6 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "А. Магазин .45"
 	cost = 125
 	items = list(/obj/item/ammo_box/magazine/smgm45)
-	allowed_themes = list("std", "warfare", "hotline")
-
-/datum/violence_gear/ammo/ak74m
-	name = "А. Магазин 5.45"
-	cost = 145
-	items = list(/obj/item/ammo_box/magazine/ak74m)
-	allowed_themes = list("std", "warfare", "hotline")
-
-/datum/violence_gear/ammo/asval
-	name = "А. Магазин 9х39"
-	cost = 210
-	items = list(/obj/item/ammo_box/magazine/asval)
 	allowed_themes = list("std", "warfare", "hotline")
 
 /datum/violence_gear/ammo/saphe

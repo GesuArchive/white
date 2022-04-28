@@ -37,6 +37,69 @@
 		M.hallucination += 5
 	..()
 
+/datum/reagent/drug/cannabis
+	name = "Cannabis"
+	description = "A psychoactive drug from the Cannabis plant used for recreational purposes."
+	color = "#059033"
+	overdose_threshold = INFINITY
+	ph = 6
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	metabolization_rate = 0.125 * REAGENTS_METABOLISM
+
+/datum/reagent/drug/cannabis/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	M.apply_status_effect(/datum/status_effect/stoned)
+	if(DT_PROB(1, delta_time))
+		var/smoke_message = pick("You feel relaxed.","You feel calmed.","Your mouth feels dry.","You could use some water.","Your heart beats quickly.","You feel clumsy.","You crave junk food.","You notice you've been moving more slowly.")
+		to_chat(M, "<span class='notice'>[smoke_message]</span>")
+	if(DT_PROB(2, delta_time))
+		M.emote(pick("smile","laugh","giggle"))
+	M.adjust_nutrition(-1 * REM * delta_time) //munchies
+	if(DT_PROB(4, delta_time) && M.body_position == LYING_DOWN && !M.IsSleeping()) //chance to fall asleep if lying down
+		to_chat(M, "<span class='warning'>You doze off...</span>")
+		M.Sleeping(10 SECONDS)
+	if(DT_PROB(4, delta_time) && M.buckled && M.body_position != LYING_DOWN && !M.IsParalyzed()) //chance to be couchlocked if sitting
+		to_chat(M, "<span class='warning'>It's too comfy to move...</span>")
+		M.Paralyze(10 SECONDS)
+	return ..()
+
+/datum/status_effect/stoned
+	id = "stoned"
+	duration = 10 SECONDS
+	alert_type = /atom/movable/screen/alert/status_effect/stoned
+	status_type = STATUS_EFFECT_REFRESH
+	var/original_eye_color
+
+/datum/status_effect/stoned/on_apply()
+	if(!ishuman(owner))
+		CRASH("[type] status effect added to non-human owner: [owner ? owner.type : "null owner"]")
+	var/mob/living/carbon/human/human_owner = owner
+	original_eye_color = human_owner.eye_color
+	human_owner.add_movespeed_modifier(/datum/movespeed_modifier/reagent/cannabis) //slows you down
+	human_owner.eye_color = BLOODCULT_EYE //makes cult eyes less obvious
+	human_owner.update_body() //updates eye color
+	ADD_TRAIT(human_owner, TRAIT_BLOODSHOT_EYES, type) //dilates blood vessels in eyes
+	ADD_TRAIT(human_owner, TRAIT_CLUMSY, type) //impairs motor coordination
+	SEND_SIGNAL(human_owner, COMSIG_ADD_MOOD_EVENT, "stoned", /datum/mood_event/stoned) //improves mood
+	human_owner.sound_environment_override = SOUND_ENVIRONMENT_DRUGGED //not realistic but very immersive
+	return TRUE
+
+/datum/status_effect/stoned/on_remove()
+	if(!ishuman(owner))
+		stack_trace("[type] status effect being removed from non-human owner: [owner ? owner.type : "null owner"]")
+	var/mob/living/carbon/human/human_owner = owner
+	human_owner.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/cannabis)
+	human_owner.eye_color = original_eye_color
+	human_owner.update_body()
+	REMOVE_TRAIT(human_owner, TRAIT_BLOODSHOT_EYES, type)
+	REMOVE_TRAIT(human_owner, TRAIT_CLUMSY, type)
+	SEND_SIGNAL(human_owner, COMSIG_CLEAR_MOOD_EVENT, "stoned")
+	human_owner.sound_environment_override = SOUND_ENVIRONMENT_NONE
+
+/atom/movable/screen/alert/status_effect/stoned
+	name = "Stoned"
+	desc = "Cannabis is impairing your speed, motor skills, and mental cognition."
+	icon_state = "stoned"
+
 /datum/reagent/drug/nicotine
 	name = "Никотин"
 	enname = "Nicotine"

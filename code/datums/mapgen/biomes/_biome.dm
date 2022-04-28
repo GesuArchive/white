@@ -28,7 +28,7 @@
 	flora_density = 3
 
 /datum/biome/mudlands/normal
-	turf_type = /turf/open/floor/grass/cataclysmdda/dirt
+	turf_type = /turf/open/floor/grass
 	flora_types = list(/obj/structure/flora/tree/cataclysmdda/el/small, /obj/structure/flora/tree/cataclysmdda/ht)
 	flora_density = 3
 
@@ -38,9 +38,8 @@
 	flora_density = 15
 
 /datum/biome/plains/normal
-	turf_type = /turf/open/floor/grass/cataclysmdda
-	flora_types = list(/obj/structure/flora/cataclysmdda/decoration/nature,
-					/obj/structure/flora/tree/cataclysmdda/iva,
+	turf_type = /turf/open/floor/grass
+	flora_types = list(/obj/structure/flora/tree/cataclysmdda/iva,
 					/obj/structure/flora/tree/cataclysmdda/cash,
 					/obj/structure/flora/tree/cataclysmdda/dub,
 					/obj/structure/flora/tree/cataclysmdda/ht,
@@ -53,9 +52,8 @@
 	flora_density = 40
 
 /datum/biome/jungle/normal
-	turf_type = /turf/open/floor/grass/cataclysmdda
-	flora_types = list(/obj/structure/flora/cataclysmdda/decoration/nature,
-					/obj/structure/flora/tree/cataclysmdda/yabl,
+	turf_type = /turf/open/floor/grass
+	flora_types = list(/obj/structure/flora/tree/cataclysmdda/yabl,
 					/obj/structure/flora/tree/cataclysmdda/topol,
 					/obj/structure/flora/tree/cataclysmdda/el,
 					/obj/structure/flora/tree/cataclysmdda/oreh,
@@ -75,34 +73,33 @@
 	turf_type = /turf/open/floor/plating/dirt/jungle/wasteland
 
 /datum/biome/wasteland/normal
-	turf_type = /turf/open/floor/grass/cataclysmdda/dirt
+	turf_type = /turf/open/floor/plating/dirt
 
 /datum/biome/water
 	turf_type = /turf/open/water/jungle
 
 /datum/biome/water/normal
-	turf_type = /turf/open/water/cataclysmdda
-	flora_types = list(/obj/structure/flora/cataclysmdda/decoration/reed, /obj/structure/flora/cataclysmdda/decoration/jug)
+	turf_type = /turf/open/water/jungle
 	flora_density = 3
 
 /datum/biome/mountain
 	turf_type = /turf/closed/mineral/random/vietnam
 
 /datum/biome/snows
-	turf_type = /turf/open/floor/grass/snow/safe/oxy
+	turf_type = /turf/open/floor/grass/snow/safe
 	flora_types = list(/obj/structure/flora/grass/both, /obj/structure/flora/grass/brown, /obj/structure/flora/grass/green, /obj/structure/flora/rock/icy, /obj/structure/flora/tree/pine, /obj/structure/flora/tree/dead, /obj/structure/flora/rock/pile/icy)
 	flora_density = 10
 
 /datum/biome/icelands
-	turf_type = /turf/open/floor/plating/ice/smooth/oxy
+	turf_type = /turf/open/floor/plating/ice/smooth
 	flora_types = list(/obj/structure/flora/grass/both, /obj/structure/flora/grass/brown, /obj/structure/flora/grass/green, /obj/structure/flora/rock/icy, /obj/structure/flora/tree/pine, /obj/structure/flora/tree/dead, /obj/structure/flora/rock/pile/icy)
 	flora_density = 1
 
 /datum/biome/ice
-	turf_type = /turf/open/floor/plating/ice/smooth/oxy
+	turf_type = /turf/open/floor/plating/ice/smooth
 
 /datum/biome/snowforest
-	turf_type = /turf/open/floor/grass/snow/safe/oxy
+	turf_type = /turf/open/floor/grass/snow/safe
 	flora_types = list(/obj/structure/flora/grass/both, /obj/structure/flora/grass/brown, /obj/structure/flora/grass/green, /obj/structure/flora/tree/pine, /obj/structure/flora/tree/dead)
 	flora_density = 40
 
@@ -110,4 +107,4 @@
 	flora_density = 65
 
 /datum/biome/mountain/ice
-	turf_type = /turf/closed/mineral/snowmountain/cavern/oxy
+	turf_type = /turf/closed/mineral/snowmountain/cavern

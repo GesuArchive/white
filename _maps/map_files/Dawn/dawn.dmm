@@ -1319,9 +1319,6 @@
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/gun/ballistic/shotgun/spas12/rubber,
-/obj/item/gun/ballistic/shotgun/spas12/rubber,
-/obj/item/gun/ballistic/shotgun/spas12/rubber,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/security/armory)

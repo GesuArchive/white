@@ -131,7 +131,6 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/transport)
 "u" = (
-/obj/structure/sign/warning/securearea/ntsign,
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/transport)
 "v" = (

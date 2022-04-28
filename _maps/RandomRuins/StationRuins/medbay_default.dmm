@@ -7247,10 +7247,6 @@
 	pixel_x = 27
 	},
 /obj/item/reagent_containers/spray/cleaner,
-/obj/item/ashtray{
-	pixel_x = -9;
-	pixel_y = 3
-	},
 /turf/open/floor/plasteel/white,
 /area/medical/break_room)
 "Zc" = (

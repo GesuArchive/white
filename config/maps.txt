@@ -40,10 +40,6 @@ map crashsite
 	votable
 endmap
 
-map experro
-	votable
-endmap
-
 map deltastation
 	minplayers 50
 	votable

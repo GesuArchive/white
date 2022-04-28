@@ -2112,9 +2112,6 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/weather/side{
-	dir = 8
-	},
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "eU" = (
@@ -3431,10 +3428,6 @@
 	pixel_x = -6;
 	pixel_y = 9
 	},
-/obj/item/ashtray{
-	pixel_x = 6;
-	pixel_y = 8
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
@@ -4280,7 +4273,6 @@
 	dir = 8
 	},
 /obj/structure/table/wood/poker,
-/obj/item/ashtray,
 /obj/item/clothing/mask/cigarette/cigar,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
@@ -6666,7 +6658,6 @@
 /area/maintenance/starboard/aft)
 "oM" = (
 /obj/structure/bed/maint,
-/obj/item/toy/plush/bear,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "oN" = (
@@ -6866,7 +6857,6 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/effect/turf_decal/weather/side,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "pk" = (
@@ -6895,7 +6885,6 @@
 /area/maintenance/bottom_station_maints/south)
 "pn" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/thermos,
 /obj/machinery/light/small,
 /obj/machinery/camera/autoname{
 	dir = 1
@@ -7400,7 +7389,7 @@
 /area/maintenance/space_hut/plasmaman)
 "qp" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/wood/cataclysmdda,
+/obj/structure/table/wood,
 /obj/item/trash/plate{
 	pixel_y = 5
 	},
@@ -7694,7 +7683,7 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/security/prison)
 "qY" = (
-/obj/structure/table/wood/cataclysmdda,
+/obj/structure/table/wood,
 /obj/item/toy/plush/carpplushie{
 	pixel_y = 4
 	},
@@ -9487,7 +9476,6 @@
 /area/commons/dorms)
 "uL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/wood/cataclysmdda/desk,
 /obj/item/flashlight/lamp/green{
 	pixel_x = 3;
 	pixel_y = 11
@@ -9826,9 +9814,6 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
-/obj/effect/turf_decal/weather/side{
-	dir = 5
-	},
 /obj/machinery/light/small{
 	dir = 1;
 	pixel_y = 0
@@ -10032,9 +10017,6 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/weather/side{
-	dir = 8
-	},
 /obj/machinery/light/small{
 	dir = 1;
 	pixel_y = 0
@@ -10944,9 +10926,6 @@
 	},
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = -23
-	},
-/obj/item/reagent_containers/food/drinks/thermos{
 	pixel_x = 8;
 	pixel_y = 7
 	},
@@ -11951,7 +11930,6 @@
 	dir = 8
 	},
 /obj/structure/table/wood/fancy/royalblack,
-/obj/item/ashtray,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "zS" = (
@@ -13958,9 +13936,7 @@
 	dir = 8;
 	sortType = 6
 	},
-/turf/open/floor/plasteel/stairs/old/chilly/single{
-	dir = 8
-	},
+/turf/open/space/basic,
 /area/service/bar)
 "Et" = (
 /obj/effect/landmark/start/bomj,
@@ -14406,10 +14382,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
-"Fq" = (
-/obj/effect/turf_decal/weather/side,
-/turf/open/floor/plating,
-/area/maintenance/port/aft)
 "Fr" = (
 /obj/machinery/light{
 	pixel_y = 0
@@ -14419,7 +14391,7 @@
 /area/commons/fitness/kachalka)
 "Fs" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/wood/cataclysmdda,
+/obj/structure/table/wood,
 /obj/item/stack/sheet/mineral/bamboo{
 	amount = 30
 	},
@@ -15060,7 +15032,6 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/effect/turf_decal/weather/side,
 /obj/item/clothing/head/collectable/tophat,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
@@ -16078,7 +16049,6 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/weather/side/corner,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
@@ -16315,7 +16285,6 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/effect/turf_decal/weather/side,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "JC" = (
@@ -16587,19 +16556,6 @@
 /obj/effect/spawner/randomsnackvend,
 /turf/open/floor/circuit/green,
 /area/science/breakroom)
-"Kh" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/weather/side{
-	dir = 8
-	},
-/turf/open/floor/plasteel/dark,
-/area/service/bar)
 "Ki" = (
 /obj/structure/cable,
 /turf/open/floor/plating/rust,
@@ -19359,7 +19315,7 @@
 "Ql" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/firealarm/directional/west,
-/obj/structure/table/wood/cataclysmdda,
+/obj/structure/table/wood,
 /obj/item/toy/katana{
 	pixel_x = 4;
 	pixel_y = -2
@@ -19378,7 +19334,6 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/ashtray,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge/shop)
 "Qn" = (
@@ -19626,19 +19581,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/cargo/meeting_room)
-"QR" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/weather/side/corner{
-	dir = 1
-	},
-/turf/open/floor/plasteel/dark,
-/area/service/bar)
 "QS" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -19680,8 +19622,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/structure/table,
-/obj/item/melee/fan{
+/obj/structure/table{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -20670,7 +20611,7 @@
 	pixel_y = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/wood/cataclysmdda,
+/obj/structure/table/wood,
 /turf/open/floor/bamboo,
 /area/commons/vacant_room/commissary/third)
 "Tm" = (
@@ -21147,10 +21088,6 @@
 	dir = 8
 	},
 /obj/structure/table/wood/fancy/royalblack,
-/obj/item/ashtray{
-	pixel_x = -5;
-	pixel_y = -5
-	},
 /obj/item/food/grown/poppy/geranium{
 	pixel_y = 5
 	},
@@ -21194,9 +21131,6 @@
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
-	},
-/obj/effect/turf_decal/weather/side{
-	dir = 6
 	},
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/dark,
@@ -21836,7 +21770,7 @@
 /area/commons/fitness/kachalka)
 "VU" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/wood/cataclysmdda,
+/obj/structure/table/wood,
 /obj/item/seeds/bamboo{
 	pixel_y = 6
 	},
@@ -23649,7 +23583,7 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "ZT" = (
-/obj/structure/table/wood/cataclysmdda,
+/obj/structure/table/wood,
 /obj/effect/spawner/lootdrop/maintenance/three,
 /turf/open/floor/bamboo,
 /area/commons/vacant_room/commissary/third)
@@ -39534,7 +39468,7 @@ PG
 Zm
 kj
 dW
-Fq
+fV
 oS
 kj
 Zm
@@ -40562,7 +40496,7 @@ PG
 Zm
 kj
 Jm
-Fq
+fV
 vi
 kj
 PG
@@ -55924,7 +55858,7 @@ Xl
 NQ
 zj
 Qu
-Zm
+PG
 Zm
 PG
 Zm
@@ -56438,7 +56372,7 @@ Ob
 Oo
 Zz
 Qu
-Zm
+PG
 Zm
 PG
 Zm
@@ -57748,8 +57682,8 @@ Dy
 fx
 vU
 eT
-Kh
-QR
+Ow
+JI
 ls
 EA
 EA

@@ -864,16 +864,6 @@
 	assigned_icon_state = "assigned_syndicate"
 	wildcard_slots = WILDCARD_LIMIT_GOLD
 
-/obj/item/card/id/advanced/centcom/spetsnaz
-	icon_state = "card_black"
-	worn_icon_state = "card_black"
-	assigned_icon_state = "assigned_syndicate"
-	desc = "Эта карта явно принадлежит тому, кто может запросто творить военные преступления без последствий для себя."
-	trim = /datum/id_trim/centcom/spetsnaz
-
-/obj/item/card/id/advanced/centcom/spetsnaz/leader
-	trim = /datum/id_trim/centcom/spetsnaz/leader
-
 /obj/item/card/id/advanced/black/deathsquad
 	name = "ОТРЯД СМЕРТИ"
 	desc = "Карта офицера отряда смерти?"

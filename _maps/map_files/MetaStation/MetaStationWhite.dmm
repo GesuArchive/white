@@ -310,7 +310,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/item/ashtray,
 /turf/open/floor/wood,
 /area/service/bar)
 "aaN" = (
@@ -22999,7 +22998,6 @@
 /area/cargo/qm)
 "bgH" = (
 /obj/structure/table/wood,
-/obj/item/ashtray,
 /turf/open/floor/wood{
 	icon_state = "wood-broken6"
 	},
@@ -56669,7 +56667,6 @@
 "eOp" = (
 /obj/structure/table/wood/poker,
 /obj/item/toy/cards/deck,
-/obj/item/ashtray,
 /turf/open/floor/wood,
 /area/maintenance/port/aft)
 "eOy" = (
@@ -65099,7 +65096,6 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/table/wood,
 /obj/item/clothing/mask/cigarette/cigar,
-/obj/item/ashtray,
 /turf/open/floor/wood,
 /area/service/bar)
 "luf" = (
@@ -69423,7 +69419,6 @@
 /obj/item/toy/cards/deck,
 /obj/structure/table/wood/poker,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/ashtray,
 /turf/open/floor/wood,
 /area/maintenance/port/aft)
 "oLn" = (
@@ -75915,7 +75910,6 @@
 	dir = 4
 	},
 /obj/structure/table/wood,
-/obj/item/ashtray,
 /turf/open/floor/wood,
 /area/service/bar)
 "tyh" = (
@@ -77899,7 +77893,6 @@
 /area/medical/surgery)
 "uYi" = (
 /obj/structure/table/wood,
-/obj/item/ashtray,
 /turf/open/floor/wood,
 /area/maintenance/port/aft)
 "uYE" = (
@@ -79299,7 +79292,6 @@
 /area/maintenance/starboard/aft)
 "wcX" = (
 /obj/structure/table/wood/poker,
-/obj/item/ashtray,
 /turf/open/floor/wood,
 /area/service/bar)
 "wdc" = (

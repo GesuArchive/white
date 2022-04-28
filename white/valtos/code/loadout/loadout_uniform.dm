@@ -183,11 +183,6 @@
 
 //ASSISTANTS FORMALS
 
-/datum/gear/uniform/rank/assistant/utility
-	display_name = "утилитарная униформа"
-	path = /obj/item/clothing/under/utility
-	cost = 100
-	allowed_roles = list("Assistant")
 
 /datum/gear/uniform/rank/assistant
 	subtype_path = /datum/gear/uniform/rank/assistant
@@ -222,11 +217,6 @@
 	allowed_roles = list ("Shaft Miner", "Hunter")
 	cost = 100
 
-/datum/gear/uniform/rank/cargo/utility_cargo
-	display_name = "утилитарная униформа карготехника"
-	path = /obj/item/clothing/under/utility/cargo
-	cost = 100
-	allowed_roles = list("Quartermaster", "Cargo Technician")
 
 //MEDICAL ALT UNIS
 
@@ -247,16 +237,6 @@
 	display_name = "фиолетовый медицинский халат"
 	path = /obj/item/clothing/under/rank/medical/doctor/purple
 
-/datum/gear/uniform/rank/medical/utility_med
-	display_name = "утилитарная униформа медика"
-	path = /obj/item/clothing/under/utility/med
-	cost = 100
-
-/datum/gear/uniform/rank/medical/utility_para
-	display_name = "красная униформа парамедика"
-	path = /obj/item/clothing/under/utility/para_red
-	cost = 100
-	allowed_roles = list("Paramedic")
 
 //ENGINEERING ALT UNIS
 
@@ -268,20 +248,11 @@
 	display_name = "комбинезон инженера"
 	path = /obj/item/clothing/under/rank/engineering/engineer/hazard
 
-/datum/gear/uniform/rank/engineering/utility_eng
-	display_name = "утилитарная униформа инженера"
-	path = /obj/item/clothing/under/utility/eng
-	cost = 100
 
 //RND
 
 /datum/gear/uniform/rank/science
 	allowed_roles = list("Scientist", "Roboticist", "Research Director")
-
-/datum/gear/uniform/rank/science/utility_rnd
-	display_name = "утилитарная униформа учёного"
-	path = /obj/item/clothing/under/utility/sci
-	cost = 100
 
 
 
@@ -292,13 +263,6 @@
 	display_name = "шаровары"
 	path = /obj/item/clothing/under/costume/sharovari
 	cost = 500
-
-/datum/gear/uniform/security/utility_sec
-	display_name = "утилитарная униформа СБ"
-	path = /obj/item/clothing/under/utility/sec
-	cost = 100
-	allowed_roles = list("Warden", "Security Officer", "Head of Security")
-
 /datum/gear/uniform/wizgirl
 	display_name = "костюм волшебницы"
 	path = /obj/item/clothing/under/costume/wizgirl
@@ -332,11 +296,6 @@
 	cost = 600
 
 //
-/datum/gear/uniform/rank/heads/utility
-	display_name = "командная утилитарная униформа"
-	path = /obj/item/clothing/under/utility/com
-	cost = 100
-	allowed_roles = list("Head of Personnel", "Captain", "Head of Security", "Research Director","Chief Engineer")
 
 /datum/gear/uniform/chronos
 	display_name = "Военный костюм Новой Мекки"

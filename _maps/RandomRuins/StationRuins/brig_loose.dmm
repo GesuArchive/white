@@ -679,7 +679,6 @@
 /obj/item/radio/off,
 /obj/item/taperecorder,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/reagent_containers/food/drinks/flask/gold/soviet,
 /turf/open/floor/carpet,
 /area/command/heads_quarters/hos)
 "bU" = (

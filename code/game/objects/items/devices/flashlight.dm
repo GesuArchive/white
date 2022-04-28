@@ -334,7 +334,6 @@
 	// All good, turn it on.
 	if(.)
 		user.visible_message(span_notice("[user] зажигает [src.name].") , span_notice("Зажигаю [src.name]!"))
-		playsound(src, 'white/rebolution228/sounds/misc/flare.ogg', 100, TRUE)
 		force = on_damage
 		damtype = BURN
 		START_PROCESSING(SSobj, src)

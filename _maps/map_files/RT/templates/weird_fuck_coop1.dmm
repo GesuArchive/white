@@ -32,14 +32,14 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/ctf)
 "dB" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 1
 	},
 /obj/structure/railing,
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/ctf)
 "dS" = (
 /obj/effect/turf_decal/weather/side{
@@ -48,7 +48,7 @@
 /obj/structure/railing{
 	dir = 5
 	},
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/ctf)
 "eA" = (
 /obj/structure/fence/end{
@@ -63,7 +63,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 5
 	},
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/ctf)
 "jF" = (
 /turf/open/floor/wood,
@@ -79,7 +79,7 @@
 /turf/open/floor/plating/snowed/temperatre,
 /area/ctf)
 "lB" = (
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/ctf)
 "mK" = (
 /obj/structure/flora/rock/icy,
@@ -111,13 +111,13 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/ctf)
 "rY" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 1
 	},
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/ctf)
 "tW" = (
 /obj/effect/turf_decal/weather/side{
@@ -126,7 +126,7 @@
 /obj/structure/railing{
 	dir = 9
 	},
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/ctf)
 "uU" = (
 /obj/machinery/arena_spawn/green,
@@ -162,7 +162,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 8
 	},
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/ctf)
 "DU" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -198,7 +198,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 4
 	},
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/ctf)
 "IC" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -235,7 +235,7 @@
 /area/ctf)
 "Mc" = (
 /obj/effect/turf_decal/weather/side,
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/ctf)
 "MN" = (
 /turf/template_noop,
@@ -265,7 +265,7 @@
 /obj/structure/railing{
 	dir = 6
 	},
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/ctf)
 "Vk" = (
 /obj/structure/fence,
@@ -309,7 +309,7 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/ctf)
 
 (1,1,1) = {"

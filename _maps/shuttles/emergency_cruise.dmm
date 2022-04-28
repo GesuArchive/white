@@ -611,9 +611,6 @@
 /turf/open/floor/wood,
 /area/shuttle/escape)
 "qG" = (
-/turf/open/floor/plasteel/stairs/old/chilly/left{
-	dir = 1
-	},
 /area/shuttle/escape)
 "qI" = (
 /obj/structure/table/wood,
@@ -1639,9 +1636,6 @@
 /turf/open/floor/plasteel,
 /area/shuttle/escape)
 "Nh" = (
-/turf/open/floor/plasteel/stairs/old/chilly/right{
-	dir = 1
-	},
 /area/shuttle/escape)
 "NH" = (
 /obj/structure/chair/comfy/brown{

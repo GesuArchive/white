@@ -71,8 +71,6 @@
 /obj/item/clothing/under/color/grey/ancient
 	name = "древний комбинезон"
 	desc = "Ужасно оборванный и потрепанный серый комбинезон. Похоже, его не стирали уже больше десяти лет."
-	icon = 'white/rebolution228/icons/clothing/uniforms.dmi'
-	worn_icon = 'white/rebolution228/icons/clothing/mob/uniforms_mob.dmi'
 	icon_state = "grey_ancient"
 	inhand_icon_state = "gy_suit"
 	greyscale_config = null

@@ -314,11 +314,6 @@
 	desc = "Маленький флакон, содержащий ПротивоБиоВирусный Набор."
 	list_reagents = list(/datum/reagent/vaccine/fungal_tb = 30)
 
-/obj/item/reagent_containers/glass/bottle/cumvirus
-	name = "Флакон с Cumthiris+61"
-	desc = "Маленький флакон, содержащий Cumthiris+61."
-	spawned_disease = /datum/disease/cumvirus
-
 //Oldstation.dmm chemical storage bottles
 
 /obj/item/reagent_containers/glass/bottle/hydrogen

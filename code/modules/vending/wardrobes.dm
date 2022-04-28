@@ -30,7 +30,6 @@
 					/obj/item/clothing/under/rank/security/officer/skirt = 3,
 					/obj/item/clothing/under/rank/security/officer/grey = 3,
 					/obj/item/clothing/under/pants/khaki = 3,
-					/obj/item/clothing/under/utility/sec/old = 3,
 					/obj/item/clothing/under/rank/security/officer/blueshirt = 3)
 	premium = list(/obj/item/clothing/under/rank/security/officer/formal = 3,
 					/obj/item/clothing/suit/security/officer = 3,
@@ -69,8 +68,6 @@
 					/obj/item/clothing/head/beret/medical/paramedic = 4,
 					/obj/item/clothing/head/soft/paramedic = 4,
 					/obj/item/clothing/suit/apron/surgical = 4,
-					/obj/item/clothing/under/utility/med = 4,
-					/obj/item/clothing/under/utility/haz_white = 2,
 					/obj/item/clothing/mask/surgical = 4)
 	refill_canister = /obj/item/vending_refill/wardrobe/medi_wardrobe
 	payment_department = ACCOUNT_MED
@@ -96,8 +93,6 @@
 					/obj/item/clothing/shoes/workboots = 3,
 					/obj/item/clothing/head/beret/engi = 3,
 					/obj/item/clothing/head/hardhat = 3,
-					/obj/item/clothing/under/utility/eng = 3,
-					/obj/item/clothing/under/utility/haz_green = 3,
 					/obj/item/clothing/head/hardhat/weldhat = 3)
 	refill_canister = /obj/item/vending_refill/wardrobe/engi_wardrobe
 	payment_department = ACCOUNT_ENG
@@ -137,16 +132,11 @@
 	products = list(/obj/item/storage/bag/mail = 3,
 					/obj/item/clothing/suit/hooded/wintercoat/cargo = 3,
 					/obj/item/clothing/under/rank/cargo/tech = 3,
-					/obj/item/clothing/under/misc/cargo_long = 3,
-					/obj/item/clothing/under/utility/cargo/gorka = 3,
-					/obj/item/clothing/suit/gorka/supply = 3,
-					/obj/item/clothing/under/utility/cargo/turtleneck = 3,
 					/obj/item/clothing/under/rank/cargo/tech/skirt = 3,
 					/obj/item/clothing/shoes/sneakers/black = 3,
 					/obj/item/clothing/gloves/fingerless = 3,
 					/obj/item/clothing/head/beret/cargo = 3,
 					/obj/item/clothing/head/soft = 3,
-					/obj/item/clothing/under/utility/cargo = 3,
 					/obj/item/radio/headset/headset_cargo = 3)
 	premium = list(
 					/obj/item/clothing/under/rank/cargo/miner = 3,
@@ -170,7 +160,6 @@
 					/obj/item/clothing/suit/toggle/labcoat/roboticist = 2,
 					/obj/item/clothing/shoes/sneakers/black = 2,
 					/obj/item/clothing/gloves/fingerless = 2,
-					/obj/item/clothing/under/utility/robo_sleek = 2,
 					/obj/item/clothing/head/soft/black = 2,
 					/obj/item/clothing/mask/bandana/skull = 2)
 	contraband = list(/obj/item/clothing/suit/hooded/techpriest = 2,
@@ -197,7 +186,6 @@
 					/obj/item/clothing/under/rank/rnd/scientist/skirt = 3,
 					/obj/item/clothing/suit/toggle/labcoat/science = 3,
 					/obj/item/clothing/shoes/sneakers/white = 3,
-					/obj/item/clothing/under/utility/sci = 3,
 					/obj/item/radio/headset/headset_sci = 3,
 					/obj/item/clothing/mask/gas = 3)
 	refill_canister = /obj/item/vending_refill/wardrobe/science_wardrobe

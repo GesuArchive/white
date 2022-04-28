@@ -8,25 +8,6 @@
 	message = "плачет."
 	emote_type = EMOTE_AUDIBLE
 
-/datum/emote/living/carbon/human/cry/get_sound(mob/living/user)
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/H = user
-	if(H.mind?.miming)
-		return
-	if(ishumanbasic(H) || isfelinid(H) || ismoth(H) || islizard(H))
-		if(user.gender == FEMALE)
-			return pick('white/rebolution228/sounds/emotes/female_crying01.ogg',\
-						'white/rebolution228/sounds/emotes/female_crying02.ogg',\
-						'white/rebolution228/sounds/emotes/female_crying03.ogg',\
-						'white/rebolution228/sounds/emotes/female_crying04.ogg')
-		else
-			return pick('white/rebolution228/sounds/emotes/male_crying01.ogg',\
-						'white/rebolution228/sounds/emotes/male_crying02.ogg',\
-						'white/rebolution228/sounds/emotes/male_crying03.ogg',\
-						'white/rebolution228/sounds/emotes/male_crying04.ogg')
-	else if(ismonkey(user))
-		return
 
 /datum/emote/living/carbon/human/dap
 	key = "dap"

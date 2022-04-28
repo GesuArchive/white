@@ -1,24 +1,9 @@
 {
 	"version": 1,
-	"map_name": "WKilo Station",
-	"map_path": "map_files/KiloStation",
-	"space_ruin_levels": 4,
-	"map_file": [
-		"KiloStation_down.dmm",
-		"KiloStation_up.dmm"
-	],
-	"traits": [
-		{
-			"Up": 1,
-			"Baseturf": "/turf/open/space",
-			"Linkage": "Cross"
-		},
-		{
-			"Down": -1,
-			"Baseturf": "/turf/open/openspace",
-			"Linkage": "Cross"
-		}
-	],
+    "map_name": "Kilo Station",
+    "map_path": "map_files/KiloStation",
+    "map_file": "KiloStation.dmm",
+    "space_ruin_levels": 4,
     "shuttles": {
 	    "emergency": "emergency_kilo",
 	    "ferry": "ferry_kilo",

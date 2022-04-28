@@ -24,12 +24,12 @@
 	name = "Полевой медик"
 	jobtype = /datum/job/doctor/field_medic
 
-	head = /obj/item/clothing/head/soft/sec/fieldmedic
+	head = /obj/item/clothing/head/helmet
 	belt = /obj/item/defibrillator/compact/loaded
 	ears = /obj/item/radio/headset/headset_medsec
 	uniform = /obj/item/clothing/under/rank/medical/brigphys
 	shoes = /obj/item/clothing/shoes/jackboots
-	suit = /obj/item/clothing/suit/armor/vest/fieldmedic
+	suit = /obj/item/clothing/suit/armor
 	l_hand = /obj/item/storage/backpack/duffelbag/med/surgery
 	backpack_contents = list(/obj/item/storage/box/trackimp = 1, /obj/item/storage/firstaid/medical = 1, /obj/item/optable = 1, /obj/item/modular_computer/laptop/preset/medical = 1, /obj/item/storage/pill_bottle/soldier = 1, /obj/item/flashlight = 1)
 

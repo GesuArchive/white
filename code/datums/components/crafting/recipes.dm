@@ -106,17 +106,6 @@
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
 
-/datum/crafting_recipe/butterfly
-	name = "Butterfly Knife"
-	result = /obj/item/melee/butterfly
-	reqs = list(/obj/item/restraints/handcuffs/cable = 1,
-				/obj/item/scalpel = 1,
-				/obj/item/stack/sheet/plasteel = 6)
-	tool_paths = list(/obj/item/weldingtool, /obj/item/screwdriver, /obj/item/wirecutters)
-	time = 100
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
-
 /datum/crafting_recipe/teleprod
 	name = "Teleprod"
 	result = /obj/item/melee/baton/cattleprod/teleprod

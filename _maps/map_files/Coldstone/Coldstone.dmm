@@ -1471,7 +1471,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
 	},
-/turf/closed/mineral/snowmountain/cavern/oxy,
+/turf/closed/mineral/snowmountain/cavern,
 /area/partyhard/outdoors/unexplored)
 "es" = (
 /obj/machinery/door/airlock/research{
@@ -5533,7 +5533,7 @@
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "nQ" = (
-/turf/closed/mineral/snowmountain/cavern/oxy,
+/turf/closed/mineral/snowmountain/cavern,
 /area/partyhard/surface)
 "nR" = (
 /turf/closed/wall/rust,
@@ -5681,7 +5681,7 @@
 /turf/open/floor/plasteel/dark,
 /area/science/robotics/mechbay)
 "ov" = (
-/turf/closed/mineral/snowmountain/cavern/oxy,
+/turf/closed/mineral/snowmountain/cavern,
 /area/partyhard/outdoors/unexplored)
 "ow" = (
 /obj/structure/ladder,
@@ -6196,7 +6196,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
 	},
-/obj/item/reagent_containers/food/drinks/flask/gold/soviet,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/hos)
 "qM" = (
@@ -8811,7 +8810,7 @@
 /turf/open/floor/plating/rust,
 /area/partyhard/chetyre)
 "Dm" = (
-/turf/closed/mineral/snowmountain/cavern/oxy,
+/turf/closed/mineral/snowmountain/cavern,
 /area/command/gateway)
 "Do" = (
 /obj/effect/turf_decal/tile/neutral{

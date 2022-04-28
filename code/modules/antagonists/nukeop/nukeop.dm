@@ -34,7 +34,7 @@
 	return TRUE
 
 /datum/antagonist/nukeop/greet()
-	owner.current.playsound_local(get_turf(owner.current), 'white/rebolution228/sounds/nukeop.ogg',100,0, use_reverb = FALSE)
+	owner.current.playsound_local(get_turf(owner.current), 'white/govno.ogg',100,0, use_reverb = FALSE)
 	to_chat(owner, span_notice("Да я же оперативник Синдиката!"))
 	owner.announce_objectives()
 
@@ -166,7 +166,7 @@
 		owner.current.real_name = "Синдикатовец [title]"
 
 /datum/antagonist/nukeop/leader/greet()
-	owner.current.playsound_local(get_turf(owner.current), 'white/rebolution228/sounds/nukeop.ogg',100,0, use_reverb = FALSE)
+	owner.current.playsound_local(get_turf(owner.current), 'white/govno.ogg',100,0, use_reverb = FALSE)
 	to_chat(owner, "<B>Вы - лидер оперативников Синдиката. Вы отвечаете за руководство операцией, а так же лишь ваша ID-карточка способна открыть двери к вашему шаттлу.</B>")
 	to_chat(owner, "<B>Если вы считаете, что вы не являетесь идеальным кандидатом в качестве лидера - выдайте свою карту другому оперативнику.</B>")
 	if(!CONFIG_GET(flag/disable_warops))

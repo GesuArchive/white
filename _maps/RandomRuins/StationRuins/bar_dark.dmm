@@ -163,9 +163,6 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
-/obj/effect/turf_decal/weather/side{
-	dir = 5
-	},
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "as" = (
@@ -276,9 +273,6 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/weather/side{
-	dir = 8
-	},
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "aG" = (
@@ -299,9 +293,6 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 1
-	},
-/turf/open/floor/plasteel/stairs/old/chilly/single{
-	dir = 8
 	},
 /area/service/bar)
 "aI" = (
@@ -421,21 +412,6 @@
 	},
 /turf/open/floor/wood,
 /area/service/theater)
-"aX" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/weather/side{
-	dir = 6
-	},
-/turf/open/floor/plasteel/dark,
-/area/service/bar)
 "ba" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -521,33 +497,6 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/open/floor/plasteel/dark,
-/area/service/bar)
-"bj" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/weather/side/corner{
-	dir = 1
-	},
-/turf/open/floor/plasteel/dark,
-/area/service/bar)
-"bk" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/weather/side/corner,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "bm" = (
@@ -890,10 +839,6 @@
 	dir = 8
 	},
 /obj/structure/table/wood/fancy/royalblack,
-/obj/item/ashtray{
-	pixel_x = -5;
-	pixel_y = -5
-	},
 /obj/item/food/grown/poppy/geranium{
 	pixel_y = 5
 	},
@@ -1184,7 +1129,6 @@
 	dir = 8
 	},
 /obj/structure/table/wood/fancy/royalblack,
-/obj/item/ashtray,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "cV" = (
@@ -1258,7 +1202,6 @@
 /area/service/bar)
 "db" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/thermos,
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
@@ -1357,19 +1300,6 @@
 	dir = 1
 	},
 /area/hallway/primary/starboard)
-"eG" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/weather/side,
-/turf/open/floor/plasteel/dark,
-/area/service/bar)
 "eT" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -1458,7 +1388,6 @@
 	dir = 8
 	},
 /obj/structure/table/wood/poker,
-/obj/item/ashtray,
 /obj/item/clothing/mask/cigarette/cigar,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
@@ -1618,7 +1547,6 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/effect/turf_decal/weather/side,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "El" = (
@@ -1692,19 +1620,6 @@
 /obj/effect/turf_decal/siding/thinplating/dark,
 /turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/service/bar)
-"MR" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/weather/side{
-	dir = 8
-	},
-/turf/open/floor/plasteel/dark,
-/area/service/bar)
 "Ok" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -1741,7 +1656,6 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/effect/turf_decal/weather/side,
 /obj/item/clothing/head/collectable/tophat,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
@@ -1944,8 +1858,8 @@ aa
 aa
 aa
 aF
-MR
-bj
+cG
+JY
 JY
 Rp
 Rp
@@ -1962,7 +1876,7 @@ aD
 an
 Ri
 El
-eG
+BN
 Rp
 bE
 cG
@@ -1979,7 +1893,7 @@ ab
 ao
 XG
 aV
-eG
+BN
 TX
 bu
 bW
@@ -2029,8 +1943,8 @@ aa
 af
 ar
 aH
-aX
-bk
+BN
+cL
 Xy
 bu
 bZ

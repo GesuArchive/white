@@ -156,7 +156,6 @@
 /obj/structure/chair/stool{
 	pixel_y = 8
 	},
-/obj/item/ashtray,
 /turf/open/floor/mineral/plastitanium,
 /area/service/bar)
 "fR" = (
@@ -396,7 +395,6 @@
 /area/service/bar)
 "kS" = (
 /obj/structure/chair,
-/obj/item/ashtray,
 /turf/open/floor/mineral/plastitanium,
 /area/service/bar)
 "kX" = (
@@ -510,7 +508,6 @@
 "pQ" = (
 /obj/structure/table,
 /obj/item/clothing/mask/cigarette/cigar,
-/obj/item/ashtray,
 /turf/open/floor/mineral/plastitanium,
 /area/service/bar)
 "pW" = (
@@ -1188,7 +1185,6 @@
 	name = "bar shutters"
 	},
 /obj/machinery/door/firedoor,
-/obj/item/ashtray,
 /turf/open/floor/light,
 /area/service/bar)
 "PY" = (

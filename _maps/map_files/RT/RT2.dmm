@@ -3,13 +3,13 @@
 /turf/open/floor/rospilovo/plitka/full,
 /area/ctf)
 "cs" = (
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/awaymission/snowy)
 "cD" = (
 /obj/structure/railing{
 	dir = 10
 	},
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/awaymission/snowy)
 "dt" = (
 /obj/structure/railing{
@@ -84,7 +84,7 @@
 /area/awaymission/snowy)
 "oG" = (
 /obj/structure/railing,
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/awaymission/snowy)
 "oX" = (
 /turf/open/genturf,
@@ -99,7 +99,7 @@
 /obj/structure/railing/corner{
 	dir = 1
 	},
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/awaymission/snowy)
 "rj" = (
 /obj/structure/table/wood,
@@ -134,7 +134,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/awaymission/snowy)
 "vk" = (
 /obj/item/kirbyplants/random,
@@ -457,7 +457,7 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/open/floor/plating/ice/smooth/oxy,
+/turf/open/floor/plating/ice/smooth,
 /area/awaymission/snowy)
 "Yp" = (
 /obj/machinery/door/airlock/wood,

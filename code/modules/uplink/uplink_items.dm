@@ -1738,14 +1738,6 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 	surplus = 0
 
-/datum/uplink_item/role_restricted/cumvirus_kit
-	name = "Cumthiris Virus"
-	desc = "Экспериментальное биооружие, призванное выводить из строя членов экипажа. Симптомы включают в себя: возбуждение, непризвольная эякуляция, эйфория, половое влечение к людям и полную потерю рассудка. Тем не менее, легко лечится с помощью галоперидола и святой воды."
-	item = /obj/item/storage/box/syndie_kit/cumvirus
-	cost = 30
-	cant_discount = TRUE
-	restricted_roles = list("Medical Doctor", "Chief Medical Officer", "Virologist")
-
 /datum/uplink_item/role_restricted/ancient_jumpsuit
 	name = "Древний комбинезон"
 	desc = "Рваный старый комбинезон, который не принесет вам абсолютно никакой пользы."

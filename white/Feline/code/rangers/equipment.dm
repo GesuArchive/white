@@ -103,17 +103,9 @@
 			icon_state = "wt550"
 		if(istype(I,/obj/item/gun/ballistic/automatic/M41A))
 			icon_state = "m41a"
-		if(istype(I,/obj/item/gun/ballistic/automatic/m41a2))
-			icon_state = "m41a"
 		if(istype(I,/obj/item/gun/ballistic/automatic/ak))
 			icon_state = "ak"
 		if(istype(I,/obj/item/gun/ballistic/automatic/ak47))
-			icon_state = "ak"
-		if(istype(I,/obj/item/gun/ballistic/automatic/ak74m))
-			icon_state = "ak"
-		if(istype(I,/obj/item/gun/ballistic/automatic/ak74m/gp25))
-			icon_state = "ak"
-		if(istype(I,/obj/item/gun/ballistic/automatic/asval))
 			icon_state = "ak"
 		if(istype(I,/obj/item/gun/ballistic/automatic/assault_rifle))
 			icon_state = "ar"

@@ -90,6 +90,7 @@
 			else
 				message_admins("[Sender] не смог вызвать [teamname] с миссией: [msg]")
 				to_chat(Sender, span_alert("Не удалось найти свободные позиции для запроса. Средства не были потрачены."))
+
 		return TRUE
 	else
 		return FALSE
@@ -98,15 +99,13 @@
 	general_ert_request(input, "бригада уборщиков", "бригаду уборщиков", new /datum/antagonist/ert/janitor/heavy, new /datum/antagonist/ert/janitor, usr, cost)
 
 /proc/omon_ert_request(input, usr, cost)
-	general_ert_request(input, "ОМОН", "ОМОН", new /datum/antagonist/ert/omon/leader, new /datum/antagonist/ert/omon, usr, cost)
+	general_ert_request(input, "СОБР", "СОБР", new /datum/antagonist/ert/sobr/leader, new /datum/antagonist/ert/sobr, usr)
 
 /proc/engineer_ert_request(input, usr, cost)
-	general_ert_request(input, "Ремонтная бригада", "ремонтную бригаду", new /datum/antagonist/ert/engineer/red, new /datum/antagonist/ert/engineer, usr, cost)
+	general_ert_request(input, "Ремонтная бригада", "ремонтную бригаду", new /datum/antagonist/ert/engineer/red, new /datum/antagonist/ert/engineer, usr)
 
 /proc/deathsquad_request(input, cumshit)
 	general_ert_request(input, "Отряд смерти", "отряд смерти", new /datum/antagonist/ert/deathsquad/leader, new /datum/antagonist/ert/deathsquad, cumshit)
-
-
 
 /proc/getnoun(number, one, two, five)
 	var/n = abs(number)
