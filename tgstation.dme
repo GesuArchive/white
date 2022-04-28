@@ -4410,6 +4410,7 @@
 #include "white\valtos\code\mentor\pm.dm"
 #include "white\valtos\code\mentor\verbs.dm"
 #include "white\valtos\code\metacoin\metacoin.dm"
+#include "white\valtos\code\mg\frame.dm"
 #include "white\valtos\code\miners\miners.dm"
 #include "white\valtos\code\mining\deepcore.dm"
 #include "white\valtos\code\mining\mining_bluespace.dm"
