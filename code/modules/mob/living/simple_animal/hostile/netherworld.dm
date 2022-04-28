@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/netherworld
-	name = "creature"
-	desc = "A sanity-destroying otherthing from the netherworld."
+	name = "существо"
+	desc = "Мерзкая, противная всему живому тварь из-за изнанки мира."
 	icon_state = "otherthing"
 	icon_living = "otherthing"
 	icon_dead = "otherthing-dead"
@@ -38,8 +38,8 @@
 	background_icon_state = "bg_default"
 
 /datum/action/innate/creature/teleport
-	name = "Teleport"
-	desc = "Teleport to wherever you want, as long as you aren't seen."
+	name = "Телепорт"
+	desc = "Проход сквозь изнанку мира в любую точку в зоне видимости."
 
 /datum/action/innate/creature/teleport/Activate()
 	var/mob/living/simple_animal/hostile/netherworld/N = owner
@@ -90,8 +90,8 @@
 	return null
 
 /mob/living/simple_animal/hostile/netherworld/migo
-	name = "mi-go"
-	desc = "A pinkish, fungoid crustacean-like creature with numerous pairs of clawed appendages and a head covered with waving antennae."
+	name = "ми-го"
+	desc = "Розоватое грибовидное ракообразное существо с многочисленными когтистыми придатками и головой, покрытой колышущимися антеннами."
 	speak_emote = list("кричит", "щелкает", "бубнит", "лает", "стонет", "рычит", "мяукает", "реверберациирует", "ревёт", "скрипит", "грохочет", "восклицает", "замечает", "бормочет", "бормочет", "зубрит", "заикается", "заикается", "сидушит")
 	health = 80
 	maxHealth = 80
@@ -102,7 +102,7 @@
 	attack_verb_simple = "разрывает"
 	speed = -0.5
 	var/static/list/migo_sounds
-	deathmessage = "wails as its form turns into a pulpy mush."
+	deathmessage = "вопит, пока его форма растекается в мясистую кашицу."
 	deathsound = 'sound/voice/hiss6.ogg'
 	phaser = FALSE
 
@@ -126,8 +126,8 @@
 		playsound(src, chosen_sound, 50, TRUE)
 
 /mob/living/simple_animal/hostile/netherworld/blankbody
-	name = "blank body"
-	desc = "This looks human enough, but its flesh has an ashy texture, and it's face is featureless save an eerie smile."
+	name = "пустая оболочка"
+	desc = "Несмотря на внешнее сходство с гумманоидами, плоть этого существа имеет пепельную текстуру, а лицо, лишенное каких-либо человеческих черт, искажено жуткой улыбкой."
 	icon_state = "blank-body"
 	icon_living = "blank-body"
 	icon_dead = "blank-dead"
@@ -138,11 +138,11 @@
 	melee_damage_upper = 10
 	attack_verb_continuous = "бьёт"
 	attack_verb_simple = "бьёт"
-	deathmessage = "falls apart into a fine dust."
+	deathmessage = "рассыпается горсткой пепла."
 	phaser = FALSE
 
 /obj/structure/spawner/nether
-	name = "netherworld link"
+	name = "искаженное пространство"
 	desc = null //see examine()
 	icon_state = "nether"
 	max_integrity = 50

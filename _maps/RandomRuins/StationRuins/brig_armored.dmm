@@ -863,9 +863,6 @@
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/stack/sheet/plasteel_armor_plate{
-	amount = 6
-	},
 /obj/structure/window/reinforced{
 	dir = 1;
 	layer = 2.9
@@ -880,9 +877,9 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/stack/sheet/plasteel_armor_plate{
-	amount = 6
-	},
+/obj/item/stack/sheet/armor_plate/ablative/three,
+/obj/item/stack/sheet/armor_plate/ceramic/three,
+/obj/item/stack/sheet/armor_plate/plasteel/three,
 /obj/item/full_armor_upgrade,
 /obj/item/full_armor_upgrade,
 /turf/open/floor/plasteel/dark,

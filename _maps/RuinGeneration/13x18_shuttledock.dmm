@@ -32,7 +32,27 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "l" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
 /obj/structure/lattice,
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
+"n" = (
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
 /turf/open/floor/plating/asteroid/no_generation,
 /area/ruin/unpowered)
 "o" = (
@@ -70,6 +90,31 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
+"z" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
+"A" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
 "C" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -103,6 +148,41 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
+"K" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
+"M" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
+"N" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
 "O" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -112,6 +192,15 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Q" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/no_generation,
 /area/ruin/unpowered)
 "R" = (
 /turf/closed/wall/r_wall,
@@ -125,6 +214,16 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
+"V" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
 "W" = (
 /obj/effect/abstract/open_area_marker,
 /turf/open/floor/plasteel,
@@ -135,6 +234,16 @@
 	},
 /obj/structure/closet/firecloset,
 /turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Y" = (
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/no_generation,
 /area/ruin/unpowered)
 "Z" = (
 /turf/open/floor/plating/asteroid/no_generation,
@@ -162,6 +271,7 @@ I
 "}
 (2,1,1) = {"
 l
+z
 Z
 Z
 Z
@@ -171,8 +281,7 @@ Z
 Z
 Z
 Z
-Z
-Z
+V
 l
 R
 e
@@ -181,6 +290,7 @@ e
 I
 "}
 (3,1,1) = {"
+z
 Z
 Z
 Z
@@ -192,8 +302,7 @@ Z
 Z
 Z
 Z
-Z
-Z
+V
 o
 e
 e
@@ -208,7 +317,7 @@ Z
 Z
 Z
 Z
-Z
+n
 Z
 Z
 Z
@@ -226,10 +335,10 @@ Z
 Z
 Z
 Z
-Z
-Z
-Z
-Z
+A
+N
+N
+Q
 Z
 Z
 Z
@@ -248,7 +357,7 @@ Z
 Z
 Z
 Z
-Z
+M
 Z
 Z
 Z
@@ -261,6 +370,7 @@ e
 I
 "}
 (7,1,1) = {"
+K
 Z
 Z
 Z
@@ -272,8 +382,7 @@ Z
 Z
 Z
 Z
-Z
-Z
+Y
 o
 e
 e
@@ -282,6 +391,7 @@ I
 "}
 (8,1,1) = {"
 l
+K
 Z
 Z
 Z
@@ -291,8 +401,7 @@ Z
 Z
 Z
 Z
-Z
-Z
+Y
 l
 R
 e

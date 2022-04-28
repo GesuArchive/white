@@ -1,5 +1,5 @@
 /datum/generator_settings/blob
-	probability = 2
+	probability = 3
 	floor_break_prob = 8
 	structure_damage_prob = 6
 
@@ -14,8 +14,11 @@
 		/obj/effect/decal/cleanable/greenglow/filled = 1,
 		/obj/effect/spawner/lootdrop/glowstick = 4,
 		/obj/effect/spawner/lootdrop/maintenance = 3,
-		/mob/living/simple_animal/hostile/blob/blobspore = 2,
-		/mob/living/simple_animal/hostile/blob/blobbernaut/independent = 1,
+		/obj/effect/mob_spawn/human/corpse/assistant = 1,
+		/obj/effect/mob_spawn/human/corpse/cargo_tech = 1,
+		/obj/effect/mob_spawn/human/corpse/nanotrasensoldier = 1,
+		/mob/living/simple_animal/hostile/blob/blobspore/independent = 8,
+		/mob/living/simple_animal/hostile/blob/blobbernaut/independent = 2,
 		null = 90,
 	)
 	for(var/trash in subtypesof(/obj/item/trash))

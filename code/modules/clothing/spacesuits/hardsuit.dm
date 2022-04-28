@@ -30,7 +30,6 @@
 	soundloop = new(src, FALSE, TRUE)
 	soundloop.volume = 5
 	START_PROCESSING(SSobj, src)
-	AddComponent(/datum/component/armor_plate/plasteel)
 
 /obj/item/clothing/head/helmet/space/hardsuit/Destroy()
 	. = ..()
@@ -119,11 +118,11 @@
 	var/helmettype = /obj/item/clothing/head/helmet/space/hardsuit
 	var/obj/item/tank/jetpack/suit/jetpack = null
 	var/hardsuit_type
+	var/armor_plate_amount = 0
 
 /obj/item/clothing/suit/space/hardsuit/Initialize()
 	if(jetpack && ispath(jetpack))
 		jetpack = new jetpack(src)
-	AddComponent(/datum/component/armor_plate/plasteel)
 	. = ..()
 
 /obj/item/clothing/suit/space/hardsuit/attack_self(mob/user)
@@ -136,6 +135,38 @@
 		. += "\n<span class='notice'>Шлем [src] кажется неисправным. На нем нужно заменить лампочку.</span>"
 
 /obj/item/clothing/suit/space/hardsuit/attackby(obj/item/I, mob/user, params)
+	. = ..()
+// 	Модернизация бронепластинами
+	if(istype(I, /obj/item/stack/sheet/armor_plate))
+		if(armor_plate_amount < 3)
+			var/obj/item/stack/sheet/armor_plate/S = I
+			if(armor.getRating(S.armor_type) >= 70)
+				to_chat(user, span_warning("Все уязвимые места уже перекрыты, я не представляю как это можно дополнительно укрепить!"))
+				return
+			else
+				if(armor.getRating(S.armor_type) >= 20)
+					src.armor = src.armor.attachArmor(I.armor)
+					to_chat(user, span_notice("Закрепляю дополнительную бронепластину на [src]."))
+				else
+					if(armor.getRating(S.armor_type) >= 10)
+						src.armor = src.armor.attachArmor(I.armor)
+						src.armor = src.armor.attachArmor(I.armor)
+					else
+						src.armor = src.armor.attachArmor(I.armor)
+						src.armor = src.armor.attachArmor(I.armor)
+						src.armor = src.armor.attachArmor(I.armor)
+					to_chat(user, span_notice("Закрепляю основную бронепластину на груди [src]."))
+			armor_plate_amount = armor_plate_amount + 1
+			playsound(get_turf(src), 'white/Feline/sounds/molnia.ogg', 80)
+
+			if(S.amount > 1)
+				S.amount = S.amount - 1
+				S.update_icon()
+			else
+				qdel(I)
+		else
+			to_chat(user, span_warning("Все слоты дополнительного бронирования заняты!"))
+
 	if(istype(I, /obj/item/tank/jetpack/suit))
 		if(jetpack)
 			to_chat(user, span_warning("Джетпак [src] уже установлен."))

@@ -5402,16 +5402,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/plasteel,
 /area/medical/medbay/central)
-"ayi" = (
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/effect/turf_decal/caution/stand_clear,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/turf/open/floor/plasteel/dark,
-/area/security/brig)
 "ayj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
@@ -18490,6 +18480,7 @@
 	dir = 5
 	},
 /obj/structure/cable,
+/obj/structure/closet/secure_closet/hydroponics,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "bVH" = (
@@ -55364,6 +55355,9 @@
 	pixel_x = -6;
 	pixel_y = 6
 	},
+/obj/item/storage/bag/plants/portaseeder,
+/obj/item/storage/bag/plants/portaseeder,
+/obj/item/storage/bag/plants/portaseeder,
 /turf/open/floor/plasteel/dark,
 /area/service/hydroponics)
 "ngH" = (
@@ -57659,8 +57653,8 @@
 	},
 /obj/effect/turf_decal/tile/neutral,
 /obj/machinery/newscaster/directional/west,
-/obj/structure/closet/secure_closet/hydroponics,
 /obj/effect/turf_decal/bot,
+/obj/machinery/vending/wardrobe/hydro_wardrobe,
 /turf/open/floor/plasteel/dark,
 /area/service/hydroponics)
 "odG" = (
@@ -64138,8 +64132,15 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/machinery/vending/wardrobe/hydro_wardrobe,
 /obj/effect/turf_decal/bot,
+/obj/structure/table/glass,
+/obj/item/book/manual/hydroponics_pod_people{
+	pixel_y = 4
+	},
+/obj/item/paper/guides/jobs/hydroponics,
+/obj/item/reagent_containers/dropper,
+/obj/item/pen,
+/obj/machinery/smartfridge/disks,
 /turf/open/floor/plasteel/dark,
 /area/service/hydroponics)
 "quv" = (
@@ -69004,23 +69005,17 @@
 /turf/open/floor/plasteel/dark,
 /area/command/bridge)
 "sdU" = (
-/obj/structure/table/glass,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/item/book/manual/hydroponics_pod_people{
-	pixel_y = 4
-	},
-/obj/item/paper/guides/jobs/hydroponics,
-/obj/item/reagent_containers/dropper,
-/obj/item/pen,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera{
 	c_tag = "Hydroponics Pen";
 	dir = 4;
 	name = "hydroponics camera"
 	},
+/obj/machinery/chem_dispenser/botany,
 /turf/open/floor/plasteel/dark,
 /area/service/hydroponics)
 "sdY" = (
@@ -76369,16 +76364,6 @@
 /obj/effect/spawner/lootdrop/prison_contraband,
 /turf/open/floor/plasteel/cafeteria,
 /area/security/prison)
-"uXy" = (
-/obj/effect/turf_decal/tile/yellow{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/yellow{
-	dir = 1
-	},
-/obj/machinery/light/directional/north,
-/turf/open/floor/plasteel/showroomfloor,
-/area/medical/chemistry)
 "uXE" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -82359,10 +82344,10 @@
 /obj/item/storage/box/syringes{
 	pixel_y = 2
 	},
-/obj/item/hand_labeler,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
+/obj/item/hand_labeler,
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/plasteel/dark,
 /area/service/hydroponics)
@@ -98868,7 +98853,7 @@ amA
 amA
 sPa
 ahV
-uXy
+vUt
 cMd
 cvz
 cMd
@@ -106110,7 +106095,7 @@ syw
 wdH
 hPo
 aef
-ayi
+qFo
 jCj
 qFo
 aaj

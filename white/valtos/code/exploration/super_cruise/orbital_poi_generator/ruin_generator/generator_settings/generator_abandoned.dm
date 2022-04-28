@@ -1,11 +1,13 @@
 /datum/generator_settings/abandoned
-	probability = 6
+	probability = 4
 	floor_break_prob = 4
 	structure_damage_prob = 2
 
 /datum/generator_settings/abandoned/get_floortrash()
 	. = list(
 		/obj/effect/decal/cleanable/dirt = 6,
+		/obj/structure/spider/stickyweb/expand = 6,
+		/obj/structure/spider/stickyweb = 6,
 		/obj/effect/decal/cleanable/blood/old = 3,
 		/obj/effect/decal/cleanable/oil = 2,
 		/obj/effect/decal/cleanable/robot_debris/old = 1,
@@ -14,9 +16,12 @@
 		/obj/effect/decal/cleanable/greenglow/filled = 1,
 		/obj/effect/spawner/lootdrop/glowstick = 4,
 		/obj/effect/spawner/lootdrop/maintenance = 3,
-		/mob/living/simple_animal/hostile/poison/giant_spider/hunter = 1,
-		/mob/living/simple_animal/hostile/poison/giant_spider/nurse = 1,
-		null = 110,
+		/mob/living/simple_animal/hostile/poison/giant_spider/hunter = 2,
+		/mob/living/simple_animal/hostile/poison/giant_spider/nurse = 2,
+		/mob/living/simple_animal/hostile/poison/giant_spider = 1,
+		/mob/living/simple_animal/hostile/poison/giant_spider/tarantula = 1,
+		/mob/living/simple_animal/hostile/poison/giant_spider/viper = 1,
+		null = 180,
 	)
 	for(var/trash in subtypesof(/obj/item/trash))
 		.[trash] = 1

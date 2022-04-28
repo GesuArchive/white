@@ -34,8 +34,8 @@
  * All spiders can produce webbing.  Currently does not inject toxin into its target.
  */
 /mob/living/simple_animal/hostile/poison/giant_spider
-	name = "giant spider"
-	desc = "Furry and black, it makes you shudder to look at it. This one has deep red eyes."
+	name = "огромный паук"
+	desc = "Черный и пушистый, с огромными хелицерами и красными светящимися глазами, что то в нем заставляет испытывать первобытный страх."
 	icon_state = "guard"
 	icon_living = "guard"
 	icon_dead = "guard_dead"
@@ -89,14 +89,14 @@
 	if(poison_per_bite)
 		AddElement(/datum/element/venomous, poison_type, poison_per_bite)
 	AddElement(/datum/element/nerfed_pulling, GLOB.typecache_general_bad_things_to_easily_move)
-	AddElement(/datum/element/prevent_attacking_of_types, GLOB.typecache_general_bad_hostile_attack_targets, "this tastes awful!")
+	AddElement(/datum/element/prevent_attacking_of_types, GLOB.typecache_general_bad_hostile_attack_targets, "Мерзость! Оно плохо пахнет! Нехочу это есть или трогать!")
 
 /mob/living/simple_animal/hostile/poison/giant_spider/Login()
 	. = ..()
 	if(!. || !client)
 		return FALSE
 	if(directive)
-		to_chat(src, span_spider("Your mother left you a directive! Follow it at all costs."))
+		to_chat(src, span_spider("Королева отдала приказ! Его необходимо выполнить любой ценой!"))
 		to_chat(src, span_spider("<b>[directive]</b>"))
 		if(mind)
 			mind.store_memory(span_spider("<b>[directive]</b>"))
@@ -124,8 +124,8 @@
  * A subtype of the giant spider which is faster, has toxin injection, but less health.  This spider is only slightly slower than a human.
  */
 /mob/living/simple_animal/hostile/poison/giant_spider/hunter
-	name = "hunter spider"
-	desc = "Furry and black, it makes you shudder to look at it. This one has sparkling purple eyes."
+	name = "паук охотник"
+	desc = "Самый распространный вид космичесских пауков, это быстрый и весьма ядовитый паразит с фиолетовыми глазами."
 	icon_state = "hunter"
 	icon_living = "hunter"
 	icon_dead = "hunter_dead"
@@ -146,8 +146,8 @@
  * that other species can and can wrap other spiders' wounds, healing them.  Note that it cannot heal itself.
  */
 /mob/living/simple_animal/hostile/poison/giant_spider/nurse
-	name = "nurse spider"
-	desc = "Furry and black, it makes you shudder to look at it. This one has brilliant green eyes."
+	name = "паучья фрейлина"
+	desc = "Этих экземпляров редко можно увидеть вне гнезда, а в бою они обычно держатся позади, однако убивать их нужно в первую очередь, ведь именно они откладывают яйца и выхаживают раненых бойцов."
 	icon_state = "nurse"
 	icon_living = "nurse"
 	icon_dead = "nurse_dead"
@@ -174,17 +174,17 @@
 		return ..()
 	var/mob/living/simple_animal/hostile/poison/giant_spider/hurt_spider = target
 	if(hurt_spider == src)
-		to_chat(src, span_warning("You don't have the dexerity to wrap your own wounds."))
+		to_chat(src, span_warning("Не получается извернуться и дотянутся до своих собственных ран."))
 		return
 	if(hurt_spider.health >= hurt_spider.maxHealth)
-		to_chat(src, span_warning("You can't find any wounds to wrap up."))
+		to_chat(src, span_warning("Этот собрат цел."))
 		return
-	visible_message(span_notice("[src] begins wrapping the wounds of [hurt_spider].") ,span_notice("You begin wrapping the wounds of [hurt_spider]."))
+	visible_message(span_notice("[src] начинает залатывать раны [hurt_spider].") ,span_notice("Начинаю залатывать раны [hurt_spider]."))
 	is_busy = TRUE
 	if(do_after(src, 20, target = hurt_spider))
 		hurt_spider.heal_overall_damage(20, 20)
 		new /obj/effect/temp_visual/heal(get_turf(hurt_spider), "#80F5FF")
-		visible_message(span_notice("[src] wraps the wounds of [hurt_spider].") ,span_notice("You wrap the wounds of [hurt_spider]."))
+		visible_message(span_notice("[src] залатала раны [hurt_spider].") ,span_notice("Залатываю раны [hurt_spider]."))
 	is_busy = FALSE
 
 /**
@@ -196,8 +196,8 @@
  * to throw off attackers and possibly to stun them, allowing the tarantula to net an easy kill.
  */
 /mob/living/simple_animal/hostile/poison/giant_spider/tarantula
-	name = "tarantula"
-	desc = "Furry and black, it makes you shudder to look at it. This one has abyssal red eyes."
+	name = "тарантул"
+	desc = "Огромный даже для космического паука, невероятно сильный и живучий. Чаще всего их можно обнаружить на страже крупных гнезд, за их границами они чувствуют себя некомфортно."
 	icon_state = "tarantula"
 	icon_living = "tarantula"
 	icon_dead = "tarantula_dead"
@@ -244,8 +244,8 @@
  * but like the hunter has a limited amount of health.
  */
 /mob/living/simple_animal/hostile/poison/giant_spider/viper
-	name = "viper spider"
-	desc = "Furry and black, it makes you shudder to look at it. This one has effervescent purple eyes."
+	name = "черная вдова"
+	desc = "Крайне быстрая и ядовитая тварь с очень опасным токсином, слава богам встречается довольно редко."
 	icon_state = "viper"
 	icon_living = "viper"
 	icon_dead = "viper_dead"
@@ -270,8 +270,8 @@
  * of sending messages to all living spiders, being a communication line for the rest of the horde.
  */
 /mob/living/simple_animal/hostile/poison/giant_spider/midwife
-	name = "broodmother spider"
-	desc = "Furry and black, it makes you shudder to look at it. This one has scintillating green eyes. Might also be hiding a real knife somewhere."
+	name = "королева роя"
+	desc = "Редчайшая особь с зачатками интеллекта и псионическими способностями позволяющими ей контролировать других пауков, как правило королеву можно найти только в очень крупных гнездах, но даже одна особь может погубить станцию."
 	gender = FEMALE
 	icon_state = "midwife"
 	icon_living = "midwife"
@@ -322,19 +322,19 @@
 	if(stat == DEAD || !cocoon_target || cocoon_target.anchored)
 		return
 	if(cocoon_target == src)
-		to_chat(src, span_warning("You can't wrap yourself!"))
+		to_chat(src, span_warning("Зачем опутывать себя же?"))
 		return
 	if(istype(cocoon_target, /mob/living/simple_animal/hostile/poison/giant_spider))
-		to_chat(src, span_warning("You can't wrap other spiders!"))
+		to_chat(src, span_warning("Зачем опутывать собратьев?"))
 		return
 	if(!Adjacent(cocoon_target))
-		to_chat(src, span_warning("You can't reach [cocoon_target]!"))
+		to_chat(src, span_warning("[cocoon_target] слишком далеко!"))
 		return
 	if(is_busy)
-		to_chat(src, span_warning("You're already doing something else!"))
+		to_chat(src, span_warning("Я занята!"))
 		return
 	is_busy = TRUE
-	visible_message(span_notice("[src] begins to secrete a sticky substance around [cocoon_target].") ,span_notice("You begin wrapping [cocoon_target] into a cocoon."))
+	visible_message(span_notice("[src] выпускает липкую субстанцию и начинает опутывать [cocoon_target] в кокон.") ,span_notice("Начинаю опутывать [cocoon_target] в кокон."))
 	stop_automated_movement = TRUE
 	if(do_after(src, 50, target = cocoon_target))
 		if(is_busy)
@@ -345,10 +345,10 @@
 					consumed_mobs[living_target.tag] = TRUE
 					fed++
 					lay_eggs_enriched.UpdateButtonIcon(TRUE)
-					visible_message(span_danger("[src] sticks a proboscis into [living_target] and sucks a viscous substance out.") ,span_notice("You suck the nutriment out of [living_target], feeding you enough to lay a cluster of eggs."))
+					visible_message(span_danger("[src] опутывает [living_target] в кокон.") ,span_notice("[living_target] послужит хорошим кормом для потомства, осталось только отложить яйца."))
 					living_target.death() //you just ate them, they're dead.
 				else
-					to_chat(src, span_warning("[living_target] cannot sate your hunger!"))
+					to_chat(src, span_warning("[living_target] уже истощен и врятли сможет накормить новых паучат!"))
 			cocoon_target.forceMove(casing)
 			if(cocoon_target.density || ismob(cocoon_target))
 				casing.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
@@ -361,8 +361,8 @@
 	background_icon_state = "bg_alien"
 
 /datum/action/innate/spider/lay_web
-	name = "Spin Web"
-	desc = "Spin a web to slow down potential prey."
+	name = "Сплести паутину"
+	desc = "Хорошее средство для защиты гнезда, замедляет потенциальных недоброжелателей и не препятствует движению пауков."
 	check_flags = AB_CHECK_CONSCIOUS
 	button_icon_state = "lay_web"
 
@@ -377,12 +377,12 @@
 
 	var/obj/structure/spider/stickyweb/web = locate() in spider_turf
 	if(web)
-		to_chat(spider, span_warning("There's already a web here!"))
+		to_chat(spider, span_warning("Тут уже есть паутина!"))
 		return
 
 	if(!spider.is_busy)
 		spider.is_busy = TRUE
-		spider.visible_message(span_notice("[spider] begins to secrete a sticky substance.") ,span_notice("You begin to lay a web."))
+		spider.visible_message(span_notice("[spider] начинает выделять липкую субстанцию.") ,span_notice("Начинаю плести паутину..."))
 		spider.stop_automated_movement = TRUE
 		if(do_after(spider, 40 * spider.web_speed, target = spider_turf))
 			if(spider.is_busy && spider.loc == spider_turf)
@@ -390,12 +390,12 @@
 		spider.is_busy = FALSE
 		spider.stop_automated_movement = FALSE
 	else
-		to_chat(spider, span_warning("You're already doing something else!"))
+		to_chat(spider, span_warning("Я занята!"))
 
 /obj/effect/proc_holder/wrap
-	name = "Wrap"
+	name = "Опутать"
 	panel = "Spider"
-	desc = "Wrap something or someone in a cocoon. If it's a human or similar species, you'll also consume them, allowing you to lay enriched eggs."
+	desc = "Позволяет оплести жертву паутиной и тем самым подготовить ее в качестве пищи для паучат гвардейцев."
 	ranged_mousepointer = 'icons/effects/mouse_pointers/wrap_target.dmi'
 	action_icon = 'icons/mob/actions/actions_animal.dmi'
 	action_icon_state = "wrap_0"
@@ -416,10 +416,10 @@
 /obj/effect/proc_holder/wrap/proc/activate(mob/living/user)
 	var/message
 	if(active)
-		message = span_notice("You no longer prepare to wrap something in a cocoon.")
+		message = span_notice("Скрываю паутиновые железы.")
 		remove_ranged_ability(message)
 	else
-		message = span_notice("You prepare to wrap something in a cocoon. <B>Left-click your target to start wrapping!</B>")
+		message = span_notice("Подготавливаю паутиновые железы. <B>Left-click your target to start wrapping!</B>")
 		add_ranged_ability(user, message, TRUE)
 		return TRUE
 
@@ -445,11 +445,11 @@
 	remove_ranged_ability()
 
 /obj/effect/proc_holder/tarantula_charge
-	name = "Charge"
+	name = "Таран"
 	panel = "Spider"
 	active = FALSE
 	action = null
-	desc = "Charge at a target, knocking them down if you collide with them. Stuns yourself if you fail."
+	desc = "Прыжок всей своей массой на цель, оглушая ее при удачном попадании, оглушает вас при промахе."
 	ranged_mousepointer = 'icons/effects/mouse_pointers/wrap_target.dmi'
 	action_icon = 'icons/mob/actions/actions_animal.dmi'
 	action_icon_state = "wrap_0"
@@ -476,13 +476,13 @@
 	var/message
 	var/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/spider = user
 	if(active)
-		message = span_notice("You stop preparing to charge.")
+		message = span_notice("Успокаиваюсь.")
 		remove_ranged_ability(message)
 	else
 		if(!COOLDOWN_FINISHED(spider, charge_cooldown))
-			message = span_notice("Your charge is still on cooldown!</B>")
+			message = span_notice("Я еще не готов к повторному прыжку!</B>")
 			remove_ranged_ability(message)
-		message = span_notice("You prepare to charge. <B>Left-click your target to charge them!</B>")
+		message = span_notice("Готовлюсь к прыжку. <B>Left-click your target to charge them!</B>")
 		add_ranged_ability(user, message, TRUE)
 		return 1
 
@@ -503,8 +503,8 @@
 	remove_ranged_ability()
 
 /datum/action/innate/spider/lay_eggs
-	name = "Lay Eggs"
-	desc = "Lay a cluster of eggs, which will soon grow into a normal spider."
+	name = "Отложить паучью кладку"
+	desc = "Откладывает яйца, из которых вскоре вылупятся обычные паучата."
 	check_flags = AB_CHECK_CONSCIOUS
 	button_icon_state = "lay_eggs"
 	var/enriched = FALSE
@@ -527,12 +527,12 @@
 
 	var/obj/structure/spider/eggcluster/eggs = locate() in get_turf(spider)
 	if(eggs)
-		to_chat(spider, span_warning("There is already a cluster of eggs here!"))
+		to_chat(spider, span_warning("Это место уже занято!"))
 	else if(enriched && !spider.fed)
-		to_chat(spider, span_warning("You are too hungry to do this!"))
+		to_chat(spider, span_warning("Детенышам не хватит еды!"))
 	else if(!spider.is_busy)
 		spider.is_busy = TRUE
-		spider.visible_message(span_notice("[spider] begins to lay a cluster of eggs.") ,span_notice("You begin to lay a cluster of eggs."))
+		spider.visible_message(span_notice("[spider] начинает откладывать яйца.") ,span_notice("Начинаю откладывать яйца..."))
 		spider.stop_automated_movement = TRUE
 		if(do_after(spider, 100, target = get_turf(spider)))
 			if(spider.is_busy)
@@ -549,14 +549,14 @@
 		spider.stop_automated_movement = FALSE
 
 /datum/action/innate/spider/lay_eggs/enriched
-	name = "Lay Enriched Eggs"
-	desc = "Lay a cluster of eggs, which will soon grow into a greater spider. Requires you drain a human per cluster of these eggs."
+	name = "Отложить гвардейскую кладку"
+	desc = "Откладывает яйца, из которых вскоре вылупятся редкие элитные паучата. Требует по соседству кокон с опутанной жертвой для пропитания потомства."
 	button_icon_state = "lay_enriched_eggs"
 	enriched = TRUE
 
 /datum/action/innate/spider/set_directive
-	name = "Set Directive"
-	desc = "Set a directive for your children to follow."
+	name = "Установить директиву"
+	desc = "Установите директиву которой будут следовать ваши дети."
 	check_flags = AB_CHECK_CONSCIOUS
 	button_icon_state = "directive"
 
@@ -570,13 +570,13 @@
 	if(!istype(owner, /mob/living/simple_animal/hostile/poison/giant_spider/midwife))
 		return
 	var/mob/living/simple_animal/hostile/poison/giant_spider/midwife/spider = owner
-	spider.directive = stripped_input(spider, "Enter the new directive", "Create directive", "[spider.directive]")
-	message_admins("[ADMIN_LOOKUPFLW(owner)] set its directive to: '[spider.directive]'.")
-	log_game("[key_name(owner)] set its directive to: '[spider.directive]'.")
+	spider.directive = stripped_input(spider, "Установите новую директиву", "Создайте директиву", "[spider.directive]")
+	message_admins("[ADMIN_LOOKUPFLW(owner)] паукам была задана директива: '[spider.directive]'.")
+	log_game("[key_name(owner)] паукам была задана директива: '[spider.directive]'.")
 
 /datum/action/innate/spider/comm
-	name = "Command"
-	desc = "Send a command to all living spiders."
+	name = "Приказ"
+	desc = "Отдать приказ всем паукам."
 	button_icon_state = "command"
 
 /datum/action/innate/spider/comm/IsAvailable()
@@ -585,7 +585,7 @@
 	return TRUE
 
 /datum/action/innate/spider/comm/Trigger()
-	var/input = stripped_input(owner, "Input a command for your legions to follow.", "Command", "")
+	var/input = stripped_input(owner, "Введите приказ для вашего легиона.", "Приказ", "")
 	if(QDELETED(src) || !input || !IsAvailable())
 		return FALSE
 	spider_command(owner, input)
@@ -603,7 +603,7 @@
 	if(!message)
 		return
 	var/my_message
-	my_message = span_spider("<b>Command from [user]:</b> [message]")
+	my_message = span_spider("<b>Приказ от [user]:</b> [message]")
 	for(var/mob/living/simple_animal/hostile/poison/giant_spider/spider in GLOB.spidermobs)
 		to_chat(spider, my_message)
 	for(var/ghost in GLOB.dead_mob_list)
@@ -620,7 +620,7 @@
  * Currently unused in the game unless spawned by admins.
  */
 /mob/living/simple_animal/hostile/poison/giant_spider/ice
-	name = "giant ice spider"
+	name = "огромный морозный паук"
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = 1500
@@ -636,7 +636,7 @@
  * Same thing as the giant ice spider but mirrors the nurse subtype.  Also unused.
  */
 /mob/living/simple_animal/hostile/poison/giant_spider/nurse/ice
-	name = "giant ice spider"
+	name = "ледяная фрейлина"
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = 1500
@@ -651,7 +651,7 @@
  * Same thing as the giant ice spider but mirrors the hunter subtype.  Also unused.
  */
 /mob/living/simple_animal/hostile/poison/giant_spider/hunter/ice
-	name = "giant ice spider"
+	name = "морозный паук охотник"
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = 1500
@@ -668,7 +668,8 @@
  * They also produce web in 70% of the time of the base spider.  They also occasionally leave puddles of blood when they walk around.  Flavorful!
  */
 /mob/living/simple_animal/hostile/poison/giant_spider/hunter/flesh
-	desc = "A odd fleshy creature in the shape of a spider. Its eyes are pitch black and soulless."
+	name = "кровавый паук"
+	desc = "Маленькое мясистое существо в форме паука. Его глаза черны как смоль и горят ненавистью."
 	icon_state = "flesh_spider"
 	icon_living = "flesh_spider"
 	icon_dead = "flesh_spider_dead"
@@ -684,14 +685,14 @@
 		return
 	if(src == target)
 		if(health >= maxHealth)
-			to_chat(src, span_warning("You're not injured, there's no reason to heal."))
+			to_chat(src, span_warning("Мое тело в порядке и не нуждается в восстановлении."))
 			return
-		visible_message(span_notice("[src] begins mending themselves...") ,span_notice("You begin mending your wounds..."))
+		visible_message(span_notice("[src] заращивает на себе раны...") ,span_notice("Начинаю заращивать свои раны..."))
 		is_busy = TRUE
 		if(do_after(src, 20, target = src))
 			heal_overall_damage(50, 50)
 			new /obj/effect/temp_visual/heal(get_turf(src), "#80F5FF")
-			visible_message(span_notice("[src] wounds mend together.") ,span_notice("You mend your wounds together."))
+			visible_message(span_notice("[src] восстановился.") ,span_notice("Мне лучше."))
 		is_busy = FALSE
 		return
 	return ..()

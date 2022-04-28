@@ -1,7 +1,7 @@
 // This is to replace the previous datum/disease/alien_embryo for slightly improved handling and maintainability
 // It functions almost identically (see code/datums/diseases/alien_embryo.dm)
 /obj/item/organ/body_egg/alien_embryo
-	name = "alien embryo"
+	name = "чужеродный эмбрион"
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "larva0_dead"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/toxin/acid = 10)
@@ -19,9 +19,9 @@
 /obj/item/organ/body_egg/alien_embryo/on_find(mob/living/finder)
 	..()
 	if(stage < 5)
-		to_chat(finder, span_notice("It's small and weak, barely the size of a foetus."))
+		to_chat(finder, span_notice("Это маленький, слабый, слегка шевелящийся паразит."))
 	else
-		to_chat(finder, span_notice("It's grown quite large, and writhes slightly as you look at it."))
+		to_chat(finder, span_notice("Это довольно большой и пытающийся вырваться из ваших рук паразит."))
 		if(prob(10))
 			AttemptGrow(0)
 
@@ -34,24 +34,24 @@
 			if(DT_PROB(1, delta_time))
 				owner.emote("cough")
 			if(DT_PROB(1, delta_time))
-				to_chat(owner, span_danger("Your throat feels sore."))
+				to_chat(owner, span_danger("Очень болит горло."))
 			if(DT_PROB(1, delta_time))
-				to_chat(owner, span_danger("Mucous runs down the back of your throat."))
+				to_chat(owner, span_danger("Не могу перестать сглатывать огромное количество слизи застывшей в моем горле."))
 		if(5)
 			if(DT_PROB(1, delta_time))
 				owner.emote("sneeze")
 			if(DT_PROB(1, delta_time))
 				owner.emote("cough")
 			if(DT_PROB(2, delta_time))
-				to_chat(owner, span_danger("Your muscles ache."))
+				to_chat(owner, span_danger("Мышцы ноют."))
 				if(prob(20))
 					owner.take_bodypart_damage(1)
 			if(DT_PROB(2, delta_time))
-				to_chat(owner, span_danger("Your stomach hurts."))
+				to_chat(owner, span_danger("Очень болит грудь."))
 				if(prob(20))
 					owner.adjustToxLoss(1)
 		if(6)
-			to_chat(owner, span_danger("You feel something tearing its way out of your chest..."))
+			to_chat(owner, span_danger("Господи, оно шевелится... и кажется оно очень хочет наружу..."))
 			owner.adjustToxLoss(5 * delta_time) // Why is this [TOX]?
 
 /// Controls Xenomorph Embryo growth. If embryo is fully grown (or overgrown), stop the proc. If not, increase the stage by one and if it's not fully grown (stage 6), add a timer to do this proc again after however long the growth time variable is.
@@ -77,7 +77,7 @@
 
 	bursting = TRUE
 
-	var/list/candidates = poll_ghost_candidates("Do you want to play as an alien larva that will burst out of [owner.real_name]?", ROLE_ALIEN, null, 100, POLL_IGNORE_ALIEN_LARVA)
+	var/list/candidates = poll_ghost_candidates("Хотите играть за Лярву, которая вырвется из груди [owner.real_name]?", ROLE_ALIEN, null, 100, POLL_IGNORE_ALIEN_LARVA)
 
 	if(QDELETED(src) || QDELETED(owner))
 		return
@@ -115,10 +115,10 @@
 		new_xeno.invisibility = 0
 
 	if(gib_on_success)
-		new_xeno.visible_message(span_danger("[new_xeno] bursts out of [owner] in a shower of gore!") , span_userdanger("You exit [owner], your previous host.") , span_hear("You hear organic matter ripping and tearing!"))
+		new_xeno.visible_message(span_danger("[new_xeno] вырвется из груди [owner], разрывая своего носителя в фонтане крови!") , span_userdanger("Выбираюсь из груди своего предыдущего носителя.") , span_hear("Слышу крики боли и страшные звуки разрываемой плоти!"))
 		owner.gib(TRUE)
 	else
-		new_xeno.visible_message(span_danger("[new_xeno] wriggles out of [owner]!") , span_userdanger("You exit [owner], your previous host."))
+		new_xeno.visible_message(span_danger("[new_xeno] выскальзывает из груди [owner]!") , span_userdanger("Выбираюсь из груди своего предыдущего носителя."))
 		owner.adjustBruteLoss(40)
 		owner.cut_overlay(overlay)
 	qdel(src)

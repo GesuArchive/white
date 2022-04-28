@@ -1,5 +1,5 @@
 /mob/living/carbon/alien/humanoid/royal/praetorian
-	name = "alien praetorian"
+	name = "преторианец чужих"
 	caste = "p"
 	maxHealth = 250
 	health = 250
@@ -19,8 +19,8 @@
 	..()
 
 /obj/effect/proc_holder/alien/royal/praetorian/evolve
-	name = "Evolve"
-	desc = "Produce an internal egg sac capable of spawning children. Only one queen can exist at a time."
+	name = "Эволюционировать"
+	desc = "Развить внутренний яйцеклад, для создания потомства. Одновременно в улье может существовать только одна королева."
 	plasma_cost = 500
 
 	action_icon_state = "alien_evolve_praetorian"
@@ -28,15 +28,15 @@
 /obj/effect/proc_holder/alien/royal/praetorian/evolve/fire(mob/living/carbon/alien/humanoid/user)
 	var/obj/item/organ/alien/hivenode/node = user.getorgan(/obj/item/organ/alien/hivenode)
 	if(!node) //Just in case this particular Praetorian gets violated and kept by the RD as a replacement for Lamarr.
-		to_chat(user, span_warning("Without the hivemind, you would be unfit to rule as queen!"))
+		to_chat(user, span_warning("У меня нет псионического узла и я не смогу удержать власть, я не достоин!"))
 		return FALSE
 	if(node.recent_queen_death)
-		to_chat(user, span_warning("You are still too burdened with guilt to evolve into a queen."))
+		to_chat(user, span_warning("После гибели королевы мои мысли слишком спутаны и я не могу сконцентрироваться."))
 		return FALSE
 	if(!get_alien_type(/mob/living/carbon/alien/humanoid/royal/queen))
 		var/mob/living/carbon/alien/humanoid/royal/queen/new_xeno = new (user.loc)
 		user.alien_evolve(new_xeno)
 		return TRUE
 	else
-		to_chat(user, span_warning("We already have an alive queen!"))
+		to_chat(user, span_warning("В улье может быть только одна королева!"))
 		return FALSE

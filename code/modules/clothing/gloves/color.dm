@@ -4,7 +4,7 @@
 /obj/item/clothing/gloves/color/chief_engineer
 	desc = "Резиновые перчатки с прекрасной электро- и теплоизоляцией. Настолько тонкие, что я едва чувствую их."
 	//desc = "These gloves provide excellent heat and electric insulation. They are so thin you can barely feel them."
-	name = "резиновые перчатки старшего инженера"
+	name = "высококлассные изоляционные перчатки"
 	//name = "advanced insulated gloves"
 	icon_state = "ce_insuls"
 	inhand_icon_state = "lgloves"

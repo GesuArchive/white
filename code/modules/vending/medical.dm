@@ -50,25 +50,26 @@
 	req_access = list(ACCESS_MEDICAL)
 	products = list(/obj/item/reagent_containers/pill/patch/libital = 5,
 					/obj/item/reagent_containers/pill/patch/aiuri = 5,
-					/obj/item/reagent_containers/syringe/convermol = 2,
 					/obj/item/reagent_containers/pill/insulin = 5,
+					/obj/item/storage/pill_bottle/psicodine = 2,
+					/obj/item/storage/pill_bottle/sens = 2,
 					/obj/item/reagent_containers/glass/bottle/multiver = 2,
 					/obj/item/reagent_containers/glass/bottle/syriniver = 2,
 					/obj/item/reagent_containers/glass/bottle/epinephrine = 3,
 					/obj/item/reagent_containers/glass/bottle/morphine = 4,
-					/obj/item/reagent_containers/glass/bottle/potass_iodide = 1,
+					/obj/item/reagent_containers/glass/bottle/potass_iodide = 3,
 					/obj/item/reagent_containers/glass/bottle/salglu_solution = 3,
 					/obj/item/reagent_containers/glass/bottle/toxin = 3,
 					/obj/item/reagent_containers/syringe/antiviral = 6,
+					/obj/item/reagent_containers/syringe/convermol = 2,
 					/obj/item/reagent_containers/medigel/libital = 2,
 					/obj/item/reagent_containers/medigel/aiuri = 2,
-					/obj/item/reagent_containers/medigel/sterilizine = 1)
+					/obj/item/reagent_containers/medigel/sterilizine = 2,
+					/obj/item/reagent_containers/medigel/synthflesh = 2)
 	contraband = list(/obj/item/reagent_containers/pill/tox = 3,
 						/obj/item/reagent_containers/pill/morphine = 4,
 						/obj/item/reagent_containers/pill/multiver = 6)
-	premium = list(/obj/item/reagent_containers/medigel/synthflesh = 2,
-					/obj/item/storage/pill_bottle/psicodine = 2,
-					/obj/item/plunger/reinforced = 2)
+	premium = list(/obj/item/plunger/reinforced = 2)
 	default_price = CARGO_CRATE_VALUE * 5
 	extra_price = CARGO_CRATE_VALUE * 15
 	payment_department = ACCOUNT_MED

@@ -161,3 +161,15 @@
 	id = "old_med"
 	suffix = "medbay_old.dmm"
 	name = "Old Medbay"
+
+////	////	МЕТА	////	////
+
+/datum/map_template/ruin/station/meta/engine/tesla
+	id = "meta_engine_tesla"
+	suffix = "meta_engine_tesla.dmm"
+	name = "Meta Tesla"
+
+/datum/map_template/ruin/station/meta/engine/supermatter
+	id = "meta_engine_supermatter"
+	suffix = "meta_engine_supermatter.dmm"
+	name = "Meta Supermatter"

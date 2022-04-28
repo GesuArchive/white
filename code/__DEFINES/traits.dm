@@ -230,6 +230,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Can hear observers
 #define TRAIT_SIXTHSENSE "sixth_sense"
 #define TRAIT_FEARLESS "fearless"
+#define TRAIT_PARASITE_IMMUNE "parasite_immune"	// Иммунитет к паразитам
 /// These are used for brain-based paralysis, where replacing the limb won't fix it
 #define TRAIT_PARALYSIS_L_ARM "para-l-arm"
 #define TRAIT_PARALYSIS_R_ARM "para-r-arm"

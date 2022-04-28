@@ -142,7 +142,26 @@
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
-
+/datum/design/solnce
+	name = "МК-Солнце"
+	desc = "Многофункциональный медицинский комплекс \"Солнце\". Передовая военная разработка в области экстренной полевой медицины. Для начала работы необходимо нажать кнопку инициации выбора модуля, после чего установить соответствующие расходные материалы."
+	id = "solnce"
+	build_path = /obj/item/solnce
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000, /datum/material/gold = 4000, /datum/material/silver = 6000, /datum/material/titanium = 2000, /datum/material/uranium = 1000, /datum/material/diamond = 1000, /datum/material/plasma = 2000, /datum/material/bluespace = 2000, /datum/material/plastic = 4000)
+	category = list("Медицинское снаряжение")
+	sub_category = list("Экипировка")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+/*
+/datum/techweb_node/solnce
+	id = "solnce"
+	display_name = "МК-Солнце"
+	description = "Многофункциональный медицинский комплекс \"Солнце\". Передовая военная разработка в области экстренной полевой медицины. Для начала работы необходимо нажать кнопку инициации выбора модуля, после чего установить соответствующие расходные материалы."
+	prereq_ids = list("adv_biotech", "autodoc")
+	design_ids = list("solnce")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
+*/
 // Операции
 
 /*

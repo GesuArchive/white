@@ -349,10 +349,10 @@
 
 /datum/techweb_node/autodoc
 	id = "autodoc"
-	display_name = "Авто-Док МК IX"
-	description = "Автоматический хирургически комплекс специализированный на восстановительных и модернизирующих операциях."
+	display_name = "Автоматические медицинские комплексы"
+	description = "\"Авто-Док МК IX\" - автоматический хирургически комплекс специализированный на восстановительных и модернизирующих операциях. Многофункциональный медицинский комплекс \"Солнце\". Передовая военная разработка в области экстренной полевой медицины."
 	prereq_ids = list("exp_surgery", "bio_process", "adv_datatheory", "adv_engi", "high_efficiency")
-	design_ids = list("autodoc")
+	design_ids = list("autodoc", "solnce")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 15000)
 
 /datum/surgery_step/incise/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)

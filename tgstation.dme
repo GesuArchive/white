@@ -4102,6 +4102,7 @@
 #include "white\Feline\code\med\toxin_heal.dm"
 #include "white\Feline\code\rangers\designes.dm"
 #include "white\Feline\code\rangers\equipment.dm"
+#include "white\Feline\code\rangers\generator.dm"
 #include "white\Feline\code\rangers\voucher.dm"
 #include "white\fogmann\donations.dm"
 #include "white\fogmann\fogmann.dm"

@@ -1,5 +1,5 @@
 /mob/living/carbon/alien/humanoid
-	name = "alien"
+	name = "чужой"
 	icon_state = "alien"
 	pass_flags = PASSTABLE
 	butcher_results = list(/obj/item/food/meat/slab/xeno = 5, /obj/item/stack/sheet/animalhide/xeno = 1)
@@ -43,8 +43,8 @@ GLOBAL_LIST_INIT(strippable_alien_humanoid_items, create_strippable_list(list(
 
 /mob/living/carbon/alien/humanoid/resist_grab(moving_resist)
 	if(pulledby.grab_state)
-		visible_message(span_danger("[capitalize(src.name)] breaks free of [pulledby] grip!") , \
-						span_danger("You break free of [pulledby] grip!"))
+		visible_message(span_danger("[capitalize(src.name)] вырывается из захвата [pulledby]!") , \
+						span_danger("Вырываюсь из захвата [pulledby]!"))
 	pulledby.stop_pulling()
 	. = 0
 

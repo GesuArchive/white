@@ -158,18 +158,91 @@
 	if(do_after(user, 5 SECONDS, user))
 		return ..()
 
-
-
 // Препарат защищающий от заражения
-/*
-/datum/reagent/medicine/zed
-	name = "Спутник-М"
-	enname = "Zed-4"
-	description = "Когда то на заре космостроения этим препаратом пытались лечить космическую простуду, однако на удивление он довольно эффективно препятствует развитию космических паразитов."
+
+/datum/reagent/medicine/saver
+	name = "Спасатель"
+	enname = "saver"
+	description = "Сыворотка, разработанная для спецподразделений работающих в зонах подверженных ксеноугрозе. При применении мобилизует организм и препятствует развитию ксенопаразитов, однако не способна обратить заражение вспять."
 	reagent_state = LIQUID
-	color = "#610461"
-	metabolization_rate = 0.25 * REAGENTS_METABOLISM
-	taste_description = "смерть"
+	color = "#ee3608"
+	metabolization_rate = 0.085 * REAGENTS_METABOLISM
+	taste_description = "запах гари и решительность"
+	overdose_threshold = 15
 	ph = 10
-	chemical_flags = REAGENT_IGNORE_STASIS
-*/
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/medicine/saver/overdose_process(mob/living/M, delta_time, times_fired)
+	M.hallucination = clamp(M.hallucination + (5 * REM * delta_time), 0, 60)
+	M.adjustToxLoss(0.2 * REM * delta_time, 0)
+	..()
+	. = TRUE
+
+/datum/reagent/medicine/saver/on_mob_metabolize(mob/living/M, amount)
+	. = ..()
+	ADD_TRAIT(M, TRAIT_PARASITE_IMMUNE, name)
+	to_chat(M, span_notice(pick("Я должен...", "Никто кроме нас...", "Это мой долг...", "Теперь моя очередь...", "Сам погибай, но товарища выручай...")))
+
+/datum/reagent/medicine/saver/on_mob_end_metabolize(mob/living/M, amount)
+	. = ..()
+	REMOVE_TRAIT(M, TRAIT_PARASITE_IMMUNE, name)
+	to_chat(M, span_warning("Чувствую как флёр героизма меня покидает..."))
+
+/obj/item/reagent_containers/pill/saver
+	name = "таблетка спасателя"
+	desc = "Сыворотка, разработанная для спецподразделений работающих в зонах подверженных ксеноугрозе. При применении мобилизует организм и препятствует развитию ксенопаразитов, однако не способна обратить заражение вспять. По ребру таблетки выгравирована надпись \"Никто кроме нас...\""
+	icon_state = "pill13"
+	list_reagents = list(/datum/reagent/medicine/saver = 10)
+	rename_with_volume = TRUE
+
+/obj/item/storage/pill_bottle/saver
+	name = "баночка с таблетками спасателя"
+	desc = "Сыворотка, разработанная для спецподразделений работающих в зонах подверженных ксеноугрозе. При применении мобилизует организм и препятствует развитию ксенопаразитов, однако не способна обратить заражение вспять. ВНИМАНИЕ! Принимать не больше 1 таблетки раз в 10 минут."
+
+/obj/item/storage/pill_bottle/saver/PopulateContents()
+	for(var/i in 1 to 6)
+		new /obj/item/reagent_containers/pill/saver(src)
+
+// Сенсорика
+/obj/item/reagent_containers/pill/sens
+	name = "Cенс-2"
+	desc = "Витаминный комплекс помогающий при нарушении аудио-визуального восприятия."
+	icon_state = "pill23"
+	list_reagents = list(/datum/reagent/medicine/oculine = 10, /datum/reagent/medicine/inacusiate = 10)
+	rename_with_volume = TRUE
+
+/obj/item/storage/pill_bottle/sens
+	name = "Сенс-2"
+	desc = "Витаминный комплекс помогающий при нарушении аудио-визуального восприятия."
+
+/obj/item/storage/pill_bottle/sens/PopulateContents()
+	for(var/i in 1 to 6)
+		new /obj/item/reagent_containers/pill/sens(src)
+
+/datum/reagent/medicine/space_stab
+	name = "Пустотный стабилизатор"
+	enname = "space stab"
+	description = "Вызывает временную мутацию позволяющую безвредно находится в космосе."
+	reagent_state = LIQUID
+	color = "#410ea6"
+	metabolization_rate = 0.25 * REAGENTS_METABOLISM
+	taste_description = "пустота"
+	overdose_threshold = 15
+	ph = 10
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	var/static/mutable_appearance/space_overlay = mutable_appearance('icons/effects/genetics.dmi', "fire2", -MUTATIONS_LAYER)
+
+/datum/reagent/medicine/space_stab/on_mob_metabolize(mob/living/M, amount)
+	. = ..()
+	M.add_overlay(space_overlay)
+	ADD_TRAIT(M, TRAIT_RESISTLOWPRESSURE, name)
+	ADD_TRAIT(M, TRAIT_RESISTCOLD, name)
+	to_chat(M, span_notice(pick("Чувствую себя, немного озябшим")))
+
+/datum/reagent/medicine/space_stab/on_mob_end_metabolize(mob/living/M, amount)
+	. = ..()
+	M.cut_overlay(space_overlay)
+	REMOVE_TRAIT(M, TRAIT_RESISTLOWPRESSURE, name)
+	REMOVE_TRAIT(M, TRAIT_RESISTCOLD, name)
+	to_chat(M, span_warning("Холод ушел"))
+

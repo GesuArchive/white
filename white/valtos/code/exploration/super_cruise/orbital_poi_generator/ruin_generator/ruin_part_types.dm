@@ -439,6 +439,7 @@
 /datum/map_template/ruin_part/teleporter_two
 	file_name = "9x9_teleporter"
 	weight = 1
+	max_occurances = 1
 
 /datum/map_template/ruin_part/charliestation_mini
 	file_name = "17x17_charliecrew"
@@ -451,10 +452,12 @@
 /datum/map_template/ruin_part/abandonedzoo
 	file_name = "19x19_abandonedzoo"
 	weight = 3
+	max_occurances = 1
 
 /datum/map_template/ruin_part/bigderelict
 	file_name = "40x34_bigderelict"
 	weight = 3
+	max_occurances = 1
 
 /datum/map_template/ruin_part/corgasteroid
 	file_name = "41x41_corgasteroid"
@@ -492,7 +495,7 @@
 /datum/map_template/ruin_part/miner		//	Есть все виды ресурсов, но в виде руды и в небольших количествах
 	file_name = "9x9_minerroom"
 	weight = 3
-	max_occurances = 2
+	max_occurances = 1
 
 /datum/map_template/ruin_part/vault		//	Много Золота, Серебра и Алмазов
 	file_name = "11x11_vault"

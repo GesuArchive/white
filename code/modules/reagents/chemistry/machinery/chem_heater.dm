@@ -154,6 +154,9 @@
 	if(default_deconstruction_crowbar(I))
 		return
 
+	if(default_unfasten_wrench(user, I))
+		return
+
 	if(istype(I, /obj/item/reagent_containers) && !(I.item_flags & ABSTRACT) && I.is_open_container())
 		. = TRUE //no afterattack
 		var/obj/item/reagent_containers/B = I

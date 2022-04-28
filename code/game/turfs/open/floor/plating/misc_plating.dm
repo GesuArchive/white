@@ -10,6 +10,8 @@
 	icon_state = "plating"
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 
+/turf/open/floor/plating/no_generation	//	Турф без генерации
+
 /turf/open/floor/plating/abductor
 	name = "чужеродное покрытие"
 	icon_state = "alienpod1"

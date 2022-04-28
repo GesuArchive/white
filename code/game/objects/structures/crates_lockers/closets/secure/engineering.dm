@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet/engineering_chief
-	name = "\proper шкафчик главного инженера"
+	name = "шкафчик главного инженера"
 	req_access = list(ACCESS_CE)
 	icon_state = "ce"
 

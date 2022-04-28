@@ -2,7 +2,7 @@
 #define SYMPTOM_DETAILS 2
 
 /obj/machinery/computer/pandemic
-	name = "ПанД.Е.М.И.Я 2200"
+	name = "П.А.Н.Д.Е.М.И.К.А 2200"
 	desc = "Используется при работе с вирусами."
 	density = TRUE
 	icon = 'icons/obj/chemical.dmi'
@@ -131,9 +131,9 @@
 
 /obj/machinery/computer/pandemic/update_icon_state()
 	if(machine_stat & BROKEN)
-		icon_state = (beaker ? "mixer1_b" : "mixer0_b")
+		icon_state = (beaker ? "pandemic1_b" : "pandemic0_b")
 	else
-		icon_state = "mixer[(beaker) ? "1" : "0"][powered() ? "" : "_nopower"]"
+		icon_state = "pandemic[(beaker) ? "1" : "0"][powered() ? "" : "_nopower"]"
 
 /obj/machinery/computer/pandemic/update_overlays()
 	. = ..()

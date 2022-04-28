@@ -27,7 +27,7 @@
 
 
 /obj/item/organ/alien/plasmavessel
-	name = "plasma vessel"
+	name = "плазматический сосуд"
 	icon_state = "plasma"
 	w_class = WEIGHT_CLASS_NORMAL
 	zone = BODY_ZONE_CHEST
@@ -45,7 +45,7 @@
 	var/plasma_rate = 5
 
 /obj/item/organ/alien/plasmavessel/large
-	name = "large plasma vessel"
+	name = "большой плазматический сосуд"
 	icon_state = "plasma_large"
 	w_class = WEIGHT_CLASS_BULKY
 	storedPlasma = 200
@@ -53,10 +53,11 @@
 	plasma_rate = 7.5
 
 /obj/item/organ/alien/plasmavessel/large/queen
+	name = "огромный плазматический сосуд"
 	plasma_rate = 10
 
 /obj/item/organ/alien/plasmavessel/small
-	name = "small plasma vessel"
+	name = "малый плазматический сосуд"
 	icon_state = "plasma_small"
 	w_class = WEIGHT_CLASS_SMALL
 	storedPlasma = 100
@@ -64,7 +65,7 @@
 	plasma_rate = 2.5
 
 /obj/item/organ/alien/plasmavessel/small/tiny
-	name = "tiny plasma vessel"
+	name = "крошечный плазматический сосуд"
 	icon_state = "plasma_tiny"
 	w_class = WEIGHT_CLASS_TINY
 	max_plasma = 100
@@ -102,7 +103,7 @@
 #define QUEEN_DEATH_DEBUFF_DURATION 2400
 
 /obj/item/organ/alien/hivenode
-	name = "hive node"
+	name = "псионический узел"
 	icon_state = "hivenode"
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_XENO_HIVENODE
@@ -126,13 +127,13 @@
 	if(!owner|| owner.stat == DEAD)
 		return
 	if(isalien(owner)) //Different effects for aliens than humans
-		to_chat(owner, span_userdanger("Your Queen has been struck down!"))
-		to_chat(owner, span_danger("You are struck with overwhelming agony! You feel confused, and your connection to the hivemind is severed."))
+		to_chat(owner, span_userdanger("Королева-мать была повержена!"))
+		to_chat(owner, span_danger("Псионический канал искажен непреодолимой агонией! Мысли путаются, а связь с коллективным разумом разорвана."))
 		owner.emote("roar")
 		owner.Stun(200) //Actually just slows them down a bit.
 
 	else if(ishuman(owner)) //Humans, being more fragile, are more overwhelmed by the mental backlash.
-		to_chat(owner, span_danger("You feel a splitting pain in your head, and are struck with a wave of nausea. You cannot hear the hivemind anymore!"))
+		to_chat(owner, span_danger("Волна боли затапливает разум, псионический канал искажается от агонии погибшей королевы! После чего все затихает, а чувство единения с роем пропадает..."))
 		owner.emote("agony")
 		owner.Paralyze(100)
 
@@ -151,13 +152,13 @@
 	recent_queen_death = FALSE
 	if(!owner) //In case the xeno is butchered or subjected to surgery after death.
 		return
-	to_chat(owner, span_noticealien("The pain of the queen's death is easing. You begin to hear the hivemind again."))
+	to_chat(owner, span_noticealien("Боль от смерти королевы ослабевает. Я снова могу слышать коллективный разум."))
 	owner.clear_alert("alien_noqueen")
 
 #undef QUEEN_DEATH_DEBUFF_DURATION
 
 /obj/item/organ/alien/resinspinner
-	name = "resin spinner"
+	name = "смоляная железа"
 	icon_state = "stomach-x"
 	zone = BODY_ZONE_PRECISE_MOUTH
 	slot = ORGAN_SLOT_XENO_RESINSPINNER
@@ -165,7 +166,7 @@
 
 
 /obj/item/organ/alien/acid
-	name = "acid gland"
+	name = "кислотная железа"
 	icon_state = "acid"
 	zone = BODY_ZONE_PRECISE_MOUTH
 	slot = ORGAN_SLOT_XENO_ACIDGLAND
@@ -173,7 +174,7 @@
 
 
 /obj/item/organ/alien/neurotoxin
-	name = "neurotoxin gland"
+	name = "нейротоксичная железа"
 	icon_state = "neurotox"
 	zone = BODY_ZONE_PRECISE_MOUTH
 	slot = ORGAN_SLOT_XENO_NEUROTOXINGLAND
@@ -181,7 +182,7 @@
 
 
 /obj/item/organ/alien/eggsac
-	name = "egg sac"
+	name = "яйцеклад"
 	icon_state = "eggsac"
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_XENO_EGGSAC

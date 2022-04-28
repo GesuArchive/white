@@ -13,6 +13,8 @@
 		new /datum/data/vendor_equipment("Световой маячок 30 шт.",		/obj/item/stack/marker_beacon/thirty,								500),
 		new /datum/data/vendor_equipment("Чрезвычайный медипен",		/obj/item/reagent_containers/hypospray/medipen/survival,			1000),
 		new /datum/data/vendor_equipment("Элитный медипен",				/obj/item/reagent_containers/hypospray/medipen/survival/luxury,		2000),
+		new /datum/data/vendor_equipment("Препарат Спасатель",			/obj/item/storage/pill_bottle/saver,								2500),
+		new /datum/data/vendor_equipment("Препарат Сенс-2",				/obj/item/storage/pill_bottle/sens,									1500),
 	//	new /datum/data/vendor_equipment("Препарат Раккун-2",			/obj/item/reagent_containers/hypospray/medipen/raccoon,				2000),
 	//	new /datum/data/vendor_equipment("Препарат Ностромо-7",			/obj/item/reagent_containers/hypospray/medipen/nostromo,			2000),
 	//	new /datum/data/vendor_equipment("Препарат Спутник Лайт",		/obj/item/reagent_containers/hypospray/medipen/sputnik_lite,		5000),

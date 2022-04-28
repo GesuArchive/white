@@ -366,7 +366,7 @@
 	build_path = /obj/machinery/computer/operating
 
 /obj/item/circuitboard/computer/pandemic
-	name = "плата ПанД.Е.М.И.Я 2200"
+	name = "плата П.А.Н.Д.Е.М.И.К.А 2200"
 	desc = "Используется при работе с вирусами."
 	icon_state = "medical"
 	build_path = /obj/machinery/computer/pandemic

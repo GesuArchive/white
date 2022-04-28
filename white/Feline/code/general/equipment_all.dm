@@ -107,32 +107,73 @@
 
 /obj/item/armor_preassembly
 	name = "раскройка бронежилета"
-	desc = "Вырезанная из дюраткани раскройка будущего бронежилета, осталось добавить <b>бронепластины</b> и немного <b>проводов</b>."
+	desc = "Вырезанная из дюраткани раскройка будущего бронежилета, осталось добавить по <b>1 штуке всех видов бронепластин</b> и немного <b>проводов</b>."
 	icon = 'white/Feline/icons/armor_craft.dmi'
 	icon_state = "st1"
-	var/step2 = FALSE
+	var/ap_step2 = FALSE
+	var/ap_plasteel = FALSE
+	var/ap_ceramic = FALSE
+	var/ap_ablative = FALSE
+
+/obj/item/armor_preassembly/examine(mob/user)
+	. = ..()
+	if(ap_plasteel)
+		. += "<hr><span class='notice'><b>Пласталевая бронепластина </b> закреплена.</span>"
+	else
+		. += "<hr><span class='notice'>Пласталевая бронепластина не закреплена.</span>"
+	if(ap_ceramic)
+		. += "<hr><span class='notice'><b>Керамическая бронепластина </b> закреплена.</span>"
+	else
+		. += "<hr><span class='notice'>Керамическая бронепластина не закреплена.</span>"
+	if(ap_ablative)
+		. += "<hr><span class='notice'><b>Пластитановая бронепластина </b> закреплена.</span>"
+	else
+		. += "<hr><span class='notice'>Пластитановая бронепластина не закреплена.</span>"
+
+/obj/item/armor_preassembly/proc/ap_add(obj/item/W, mob/user)
+	var/obj/item/stack/sheet/armor_plate/plasteel/S = W
+	to_chat(user, span_notice("Закрепляю [S] на дюраткани."))
+	playsound(user, 'sound/items/handling/cloth_pickup.ogg', 100, TRUE)
+	if(!do_after(user, 2 SECONDS, src))
+		return TRUE
+	playsound(user, 'sound/items/handling/cloth_drop.ogg', 100, TRUE)
+	if(S.amount == 1)
+		qdel(S)
+	else
+		S.amount = S.amount - 1
+		S.update_icon()
 
 /obj/item/armor_preassembly/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/stack/sheet/plasteel_armor_plate))
-		var/obj/item/stack/sheet/plasteel_armor_plate/S = W
-		if(S.amount >= 3)
-			to_chat(user, span_notice("Закрепляю бронелисты на дюраткани."))
-			playsound(user, 'sound/items/handling/cloth_pickup.ogg', 100, TRUE)
-			if(!do_after(user, 2 SECONDS, src))
-				return TRUE
-			playsound(user, 'sound/items/handling/cloth_drop.ogg', 100, TRUE)
-			if(S.amount == 3)
-				qdel(S)
-			else
-				S.amount = S.amount - 3
-			step2 = TRUE
-			icon_state = "st2"
-			desc = "Вырезанная из дюраткани раскройка будущего бронежилета, осталось добавить немного <b>проводов</b>."
+
+	if(istype(W, /obj/item/stack/sheet/armor_plate/plasteel))
+		if(!ap_plasteel)
+			ap_add(W, user)
+			ap_plasteel = TRUE
 		else
-			to_chat(user, span_warning("Для создания заготовки бронежилета необходимо по крайней мере 3 бронелиста."))
+			to_chat(user, span_warning("На заготовке уже закреплена [W]."))
+
+	if(istype(W, /obj/item/stack/sheet/armor_plate/ceramic))
+		if(!ap_ceramic)
+			ap_add(W, user)
+			ap_ceramic = TRUE
+		else
+			to_chat(user, span_warning("На заготовке уже закреплена [W]."))
+
+	if(istype(W, /obj/item/stack/sheet/armor_plate/ablative))
+		if(!ap_ablative)
+			ap_add(W, user)
+			ap_ablative = TRUE
+		else
+			to_chat(user, span_warning("На заготовке уже закреплена [W]."))
+
+	if(ap_plasteel && ap_ceramic && ap_ablative)
+		ap_step2 = TRUE
+		icon_state = "st2"
+		desc = "Вырезанная из дюраткани раскройка будущего бронежилета, осталось добавить немного <b>проводов</b>."
+
 
 	if(istype(W, /obj/item/stack/cable_coil))
-		if(step2)
+		if(ap_step2)
 			var/obj/item/stack/cable_coil/S = W
 			if(S.amount >= 15)
 				to_chat(user, span_notice("Добавляю провода для скрепления конструкции."))
@@ -149,11 +190,11 @@
 			else
 				to_chat(user, span_warning("Для создания заготовки бронежилета необходимо по крайней мере 15 метров кабеля."))
 		else
-			to_chat(user, span_warning("Сначала необходимо закрепить бронелисты."))
+			to_chat(user, span_warning("Сначала необходимо закрепить все бронелисты."))
 
 /obj/item/armor_disassembly
 	name = "заготовка бронежилета"
-	desc = "Все застежки и швы расслаблены, в слоях дюраткани видны бронелисты. Теперь можно <b>кусачками</b> перерезать швы или присоединить к заготовке что то еще. А можно вообще ничего не добавлять и при помощи <b>отвертки</b> попытаться собрать стандартный образец. <hr><span class='info'>Для создания <b>пуленепробиваемого бронежилета</b> добавьте <b>бронепластину</b>.<hr>Для создания <b>брони антибунт</b> добавьте <b>дюраткань</b>.<hr>Для создания <b>лабораторной брони</b> добавьте <b>лабораторный халат</b>.</span>"
+	desc = "Все застежки и швы расслаблены, в слоях дюраткани видны бронелисты. Теперь можно <b>кусачками</b> перерезать швы или присоединить к заготовке что то еще. А можно вообще ничего не добавлять и при помощи <b>отвертки</b> попытаться собрать стандартный образец. <hr><span class='info'>Для создания <b>пуленепробиваемого бронежилета</b> добавьте <b>керамическую бронепластину</b>.<hr>Для создания <b>брони антибунт</b> добавьте <b>дюраткань</b>, а затем <b>пласталевую бронепластину</b>.<hr>Для создания <b>лабораторной брони</b> добавьте <b>лабораторный халат</b>.</span>"
 	icon = 'white/Feline/icons/armor_craft.dmi'
 	icon_state = "st3"
 
@@ -175,12 +216,14 @@
 			return TRUE
 		playsound(user, 'sound/items/handling/cloth_pickup.ogg', 100, TRUE)
 		new /obj/item/stack/cable_coil/fifteen(src.drop_location())
-		new /obj/item/stack/sheet/plasteel_armor_plate/three(src.drop_location())
+		new /obj/item/stack/sheet/armor_plate/plasteel(src.drop_location())
+		new /obj/item/stack/sheet/armor_plate/ceramic(src.drop_location())
+		new /obj/item/stack/sheet/armor_plate/ablative(src.drop_location())
 		new /obj/item/stack/sheet/durathread/ten(src.drop_location())
 		qdel(src)
-// 	Пуленепробиваемая броня - бронепластина
-	if(istype(W, /obj/item/stack/sheet/plasteel_armor_plate))
-		var/obj/item/stack/sheet/plasteel_armor_plate/S = W
+// 	Пуленепробиваемая броня - Керамическая
+	if(istype(W, /obj/item/stack/sheet/armor_plate/ceramic))
+		var/obj/item/stack/sheet/armor_plate/ceramic/S = W
 		to_chat(user, span_notice("Прикрепляю дополнительную бронепластину к раскройке и перераспределяю уже установленные, теперь бронежилет будет лучше защищать от пуль."))
 		playsound(user, 'sound/items/handling/toolbelt_pickup.ogg', 100, TRUE)
 		if(!do_after(user, 2 SECONDS, src))
@@ -188,11 +231,32 @@
 		playsound(user, 'sound/items/zip.ogg', 100, TRUE)
 		if(S.amount > 1)
 			S.amount = S.amount - 1
+			S.update_icon()
 		else
 			qdel(S)
 		new /obj/item/clothing/suit/armor/bulletproof(src.drop_location())
 		qdel(src)
-// 	Антибунт броня - Дюраткань
+// 	Антибунт броня - Дюраткань + Пласталевая
+	if(istype(W, /obj/item/stack/sheet/durathread))
+		var/obj/item/stack/sheet/durathread/S = W
+		if(S.amount >= 6)
+			to_chat(user, span_notice("Добавляю еще несколько слоев дюраткани, а так же распределяю бронепластины таким образом, чтобы они закрывали все тело, однако мне понадобится еще как минимум одна бронепластина."))
+			playsound(user, 'sound/items/handling/cloth_pickup.ogg', 100, TRUE)
+			if(!do_after(user, 2 SECONDS, src))
+				return TRUE
+			playsound(user, 'sound/items/zip.ogg', 100, TRUE)
+			if(S.amount == 6)
+				qdel(S)
+			else
+				S.amount = S.amount - 6
+	//		new /obj/item/armor_disassembly_riot(src.drop_location())
+			var/obj/item/armor_disassembly_riot/I = new()
+			user.put_in_hands(I)
+			qdel(src)
+		else
+			to_chat(user, span_warning("Для создания брони антибунт необходимо по крайней мере 6 отрезов дюраткани."))
+			/*
+// 	Зеркальная броня - Пласталь
 	if(istype(W, /obj/item/stack/sheet/durathread))
 		var/obj/item/stack/sheet/durathread/S = W
 		if(S.amount >= 6)
@@ -209,6 +273,7 @@
 			qdel(src)
 		else
 			to_chat(user, span_warning("Для создания брони антибунт необходимо по крайней мере 6 отрезов дюраткани."))
+			*/
 // 	Лабораторная броня
 	if(istype(W, /obj/item/clothing/suit/toggle/labcoat))
 		to_chat(user, span_notice("Прикрепляю дополнительную бронепластину к раскройке и перераспределяю уже установленные, теперь бронежилет будет лучше защищать от пуль."))
@@ -239,27 +304,52 @@
 
 	. = ..()
 
+// 	Риот броня 2 шаг
+/obj/item/armor_disassembly_riot
+	name = "заготовка брони антибунт"
+	desc = "Осталось закрепить пласталевую бронепластину"
+	icon = 'white/Feline/icons/armor_craft.dmi'
+	icon_state = "st3"
+
+/obj/item/armor_disassembly_riot/attackby(obj/item/W, mob/user, params)
+	if(istype(W, /obj/item/stack/sheet/armor_plate/plasteel))
+		var/obj/item/stack/sheet/armor_plate/plasteel/S = W
+		to_chat(user, span_notice("Прикрепляю дополнительную демпферную бронепластину, теперь бронежилет будет лучше защищать от ударов."))
+		playsound(user, 'sound/items/handling/toolbelt_pickup.ogg', 100, TRUE)
+		if(!do_after(user, 2 SECONDS, src))
+			return TRUE
+		playsound(user, 'sound/items/zip.ogg', 100, TRUE)
+		if(S.amount > 1)
+			S.amount = S.amount - 1
+			S.update_icon()
+		else
+			qdel(S)
+	//	new /obj/item/clothing/suit/armor/riot(src.drop_location())
+		var/obj/item/clothing/suit/armor/riot/I = new()
+		user.put_in_hands(I)
+		qdel(src)
+
 /datum/crafting_recipe/armor_default
 	name = "Стандартный бронежилет"
 	result = /obj/item/clothing/suit/armor/vest
-	time = 80
-	reqs = list(/obj/item/stack/sheet/plasteel_armor_plate = 3, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	time = 30 SECONDS
+	reqs = list(/obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
 /datum/crafting_recipe/armor_bulletproof
 	name = "Пуленепробиваемый бронежилет"
 	result = /obj/item/clothing/suit/armor/bulletproof
-	time = 80
-	reqs = list(/obj/item/stack/sheet/plasteel_armor_plate = 4, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	time = 30 SECONDS
+	reqs = list(/obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 2, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
 /datum/crafting_recipe/armor_riot
 	name = "Броня антибунт"
 	result = /obj/item/clothing/suit/armor/riot
-	time = 80
-	reqs = list(/obj/item/stack/sheet/plasteel_armor_plate = 3, /obj/item/stack/sheet/durathread = 16, /obj/item/stack/cable_coil = 15)
+	time = 30 SECONDS
+	reqs = list(/obj/item/stack/sheet/armor_plate/plasteel = 2, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 16, /obj/item/stack/cable_coil = 15)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -323,63 +413,146 @@
 	name = "Бронекуртка парамедика"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/paramedic
 	time = 80
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat/paramedic = 1, /obj/item/stack/sheet/plasteel_armor_plate = 3, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	reqs = list(/obj/item/clothing/suit/toggle/labcoat/paramedic = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
 /datum/crafting_recipe/lab_armor_med
 	name = "Лабораторный бронежилет врача"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/med
-	time = 80
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat = 1, /obj/item/stack/sheet/plasteel_armor_plate = 3, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	time = 30 SECONDS
+	reqs = list(/obj/item/clothing/suit/toggle/labcoat = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
 /datum/crafting_recipe/lab_armor_chemist
 	name = "Лабораторный бронежилет химика"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/chemist
-	time = 80
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat/chemist = 1, /obj/item/stack/sheet/plasteel_armor_plate = 3, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	time = 30 SECONDS
+	reqs = list(/obj/item/clothing/suit/toggle/labcoat/chemist = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
 /datum/crafting_recipe/lab_armor_virologist
 	name = "Лабораторный бронежилет вирусолога"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/virologist
-	time = 80
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat/virologist = 1, /obj/item/stack/sheet/plasteel_armor_plate = 3, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	time = 30 SECONDS
+	reqs = list(/obj/item/clothing/suit/toggle/labcoat/virologist = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
 /datum/crafting_recipe/lab_armor_cmo
 	name = "Лабораторный бронежилет главврача"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/cmo
-	time = 80
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat/cmo = 1, /obj/item/stack/sheet/plasteel_armor_plate = 3, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	time = 30 SECONDS
+	reqs = list(/obj/item/clothing/suit/toggle/labcoat/cmo = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
 /datum/crafting_recipe/lab_armor_science
 	name = "Лабораторный бронежилет ученого"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/science
-	time = 80
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat/science = 1, /obj/item/stack/sheet/plasteel_armor_plate = 3, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	time = 30 SECONDS
+	reqs = list(/obj/item/clothing/suit/toggle/labcoat/science = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
 /datum/crafting_recipe/lab_armor_roboticist
 	name = "Лабораторный бронежилет робототехника"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/roboticist
-	time = 80
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat/roboticist = 1, /obj/item/stack/sheet/plasteel_armor_plate = 3, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	time = 30 SECONDS
+	reqs = list(/obj/item/clothing/suit/toggle/labcoat/roboticist = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
 /datum/crafting_recipe/lab_armor_genetics
 	name = "Лабораторный бронежилет генетика"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/genetics
-	time = 80
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat/genetics = 1, /obj/item/stack/sheet/plasteel_armor_plate = 3, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	time = 30 SECONDS
+	reqs = list(/obj/item/clothing/suit/toggle/labcoat/genetics = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
+
+// 	Бронепластины
+
+/datum/crafting_recipe/plasteel_armor_plate
+	name = "Пласталевая бронепластина"
+	result =  /obj/item/stack/sheet/armor_plate/plasteel
+	time = 80
+	reqs = list(/obj/item/stack/sheet/plasteel = 10,
+				/obj/item/stack/sheet/mineral/titanium = 1)
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
+	category = CAT_ARMOR
+
+/datum/crafting_recipe/ceramic_armor_plate
+	name = "Керамическая бронепластина"
+	result =  /obj/item/stack/sheet/armor_plate/ceramic
+	time = 80
+	reqs = list(/obj/item/stack/sheet/plasmarglass = 10,
+				/obj/item/stack/sheet/iron = 10)
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
+	category = CAT_ARMOR
+
+/datum/crafting_recipe/ablative_armor_plate
+	name = "пластитановая бронепластина"
+	result =  /obj/item/stack/sheet/armor_plate/ablative
+	time = 80
+	reqs = list(/obj/item/stack/sheet/mineral/plastitanium = 10)
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
+	category = CAT_ARMOR
+
+/obj/item/stack/sheet/armor_plate
+	icon = 'white/Feline/icons/armor_plate.dmi'
+	max_amount = 3
+	merge_type = /obj/item/stack/sheet/armor_plate
+	var/armor_type = MELEE
+
+/obj/item/stack/sheet/armor_plate/plasteel
+	name = "пласталевая бронепластина"
+	singular_name = "пласталевая бронепластина"
+	desc = "Ударостойкий броневой лист с демпферным подбоем."
+	icon_state = "plasteel_armor_plate"
+	merge_type = /obj/item/stack/sheet/armor_plate/plasteel
+	armor = list(MELEE = 12, WOUND = 10)
+	armor_type = MELEE
+
+/obj/item/stack/sheet/armor_plate/ceramic
+	name = "керамическая бронепластина"
+	singular_name = "керамическая бронепластина"
+	desc = "Керамическая чешуя закрепленная на пуленепробиваемой основе."
+	icon_state = "ceramic_armor_plate"
+	merge_type = /obj/item/stack/sheet/armor_plate/ceramic
+	armor = list(BULLET = 10, BOMB = 10)
+	armor_type = BULLET
+
+/obj/item/stack/sheet/armor_plate/ablative
+	name = "пластитановая бронепластина"
+	singular_name = "пластитановая бронепластина"
+	desc = "Блестящая зеркальная рефракционная сетка с радиаторами."
+	icon_state = "ablative_armor_plate"
+	merge_type = /obj/item/stack/sheet/armor_plate/ablative
+	armor = list(LASER = 10, ENERGY = 13)
+	armor_type = LASER
+
+/obj/item/stack/sheet/armor_plate/plasteel/three
+	amount = 3
+
+/obj/item/stack/sheet/armor_plate/ceramic/three
+	amount = 3
+
+/obj/item/stack/sheet/armor_plate/ablative/three
+	amount = 3
+/datum/crafting_recipe/full_armor_upgrade
+	name = "Комплект защиты рук и ног"
+	result =  /obj/item/full_armor_upgrade
+	time = 80
+	reqs = list(/obj/item/stack/sheet/armor_plate/plasteel = 4, /obj/item/stack/sheet/durathread = 12, /obj/item/stack/sheet/cloth = 4, /obj/item/stack/cable_coil = 20)
+	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
+	category = CAT_ARMOR
+
+/obj/item/full_armor_upgrade
+	name = "комплект защиты рук и ног"
+	desc = "Набор из поножей, наручей, налокотников и наколенников для дополнительной защиты конечностей. Прикрепляется к бронежилетам."
+	icon = 'white/Feline/icons/armor_upgrade.dmi'
+	icon_state = "full_armor_upgrade"
 

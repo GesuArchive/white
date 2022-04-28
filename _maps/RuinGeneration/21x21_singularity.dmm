@@ -23,11 +23,11 @@
 /area/ruin)
 "l" = (
 /obj/machinery/the_singularitygen,
-/turf/open/floor/plating,
+/turf/open/floor/plating/no_generation,
 /area/template_noop)
 "o" = (
 /obj/machinery/field/generator,
-/turf/open/floor/plating,
+/turf/open/floor/plating/no_generation,
 /area/template_noop)
 "p" = (
 /obj/machinery/power/rad_collector,
@@ -82,7 +82,7 @@
 /turf/open/floor/plating,
 /area/ruin)
 "S" = (
-/turf/open/floor/plating,
+/turf/open/floor/plating/no_generation,
 /area/template_noop)
 "W" = (
 /obj/structure/chair/office{

@@ -88,61 +88,61 @@
 	return discover_after
 
 /obj/item/reagent_containers/pill/tox
-	name = "таблетка с токсинами"
-	desc = "Высокотоксичная."
+	name = "таблетка токсина"
+	desc = "Внимание! Опасно для жизни!"
 	icon_state = "pill5"
 	list_reagents = list(/datum/reagent/toxin = 50)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/cyanide
 	name = "таблетка цианида"
-	desc = "Не глотайте её."
+	desc = "Знамитый яд, известный за частое использование в убийствах. Вызывает токсичное отравление осложненное удушьем и потерей сознания."
 	icon_state = "pill5"
 	list_reagents = list(/datum/reagent/toxin/cyanide = 50)
 
 /obj/item/reagent_containers/pill/adminordrazine
 	name = "таблетка админодразина"
-	desc = "Это волшебство. Мы не должны объяснять это."
+	desc = "Вы что то слышали про панацею? Вот это она и есть."
 	icon_state = "pill16"
 	list_reagents = list(/datum/reagent/medicine/adminordrazine = 50)
 
 /obj/item/reagent_containers/pill/morphine
-	name = "таблетка морфина"
-	desc = "Обычно используется для лечения бессонницы."
+	name = "таблетка морфия"
+	desc = "Обезболивающее, позволяющее преодолевать боль и двигаться вперед даже при тяжелых травмах. В больших дозах вызывает сонливость, вплоть до потери сознания. Передозировка может вызвать тяжелые последствия, начиная от ломки и заканчивая летальным исходом."
 	icon_state = "pill8"
 	list_reagents = list(/datum/reagent/medicine/morphine = 30)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/stimulant
-	name = "таблетка со стимулятором"
-	desc = "Часто принимается перегруженными работой сотрудниками, спортсменами и опьяневшими людьми. Вы сразу же привлечете к себе внимание!"
+	name = "таблетка стимулятора"
+	desc = "Часто принимается перегруженными работой трудоголиками, спортсменами и алкоголиками. Мало чем поможет, однако внимание к себе вы точно привлечете!"
 	icon_state = "pill19"
 	list_reagents = list(/datum/reagent/medicine/ephedrine = 10, /datum/reagent/medicine/antihol = 10, /datum/reagent/consumable/coffee = 30)
 
 /obj/item/reagent_containers/pill/salbutamol
 	name = "таблетка сальбутамола"
-	desc = "Используется для лечения кислородного голодания."
+	desc = "Помогает быстро оправиться от удушья, а также в некоторой степени предотвращает последующие приступы."
 	icon_state = "pill16"
 	list_reagents = list(/datum/reagent/medicine/salbutamol = 30)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/multiver
 	name = "таблетка мультивера"
-	desc = "Нейтрализует токсины и масштабирует уникальные лекарства в системе. Разбавляется с гранибиталурием."
+	desc = "Выводит из крови химические вещества и нейтрализует токсины. Эффективность растет по мере того, как увеличвается количество нейтрализуемых вещество. Вызывает средние повреждения легких. Разбавлена гранибиталури."
 	icon_state = "pill17"
 	list_reagents = list(/datum/reagent/medicine/c2/multiver = 5, /datum/reagent/medicine/granibitaluri = 5)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/epinephrine
-	name = "таблетка эпинефрина"
-	desc = "Используется для стабилизации состояния пациентов."
+	name = "таблетка адреналин"
+	desc = "Стабилизирует пациентов находящихся в критическом состоянии, нейтрализует удушье и мобилизует организм к восстановлению при тяжелых повреждениях. Очень незначительно повышает скорость и стойкость к оглушению. Передозировка вызывает слабость и повреждение токсинами."
 	icon_state = "pill5"
 	list_reagents = list(/datum/reagent/medicine/epinephrine = 15)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/mannitol
 	name = "таблетка маннитола"
-	desc = "Используется для лечения повреждений головного мозга."
+	desc = "Витаминный комплекс для правильной работы мозга. Помогает справится с головными болями и исправления легких повреждений мозга."
 	icon_state = "pill17"
 	list_reagents = list(/datum/reagent/medicine/mannitol = 50)
 	rename_with_volume = TRUE
@@ -154,49 +154,49 @@
 
 /obj/item/reagent_containers/pill/mutadone
 	name = "таблетка мутадона"
-	desc = "Используется для лечения мутаций."
+	desc = "Устраняет генетические мутации и стабилизирует структуру ДНК."
 	icon_state = "pill20"
 	list_reagents = list(/datum/reagent/medicine/mutadone = 50)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/salicylic
 	name = "таблетка салициловой кислоты"
-	desc = "Используется для притупления боли."
+	desc = "Чрезвычайно эффективно заживляет сильные ушибы и раны, однако эффект заметно ослабевает при незначительных травмах. Передозировка вызывает образование новых опухолей и кровоподтеков."
 	icon_state = "pill9"
 	list_reagents = list(/datum/reagent/medicine/sal_acid = 24)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/oxandrolone
 	name = "таблетка оскандролона"
-	desc = "Используется для стимулирования заживления ожогов."
+	desc = "Чрезвычайно эффективно заживляет сильные ожоги и воспаления, однако эффект заметно ослабевает при незначительных травмах. Передозировка вызывает аллергическую реакцию с образованием новых ожогов."
 	icon_state = "pill11"
 	list_reagents = list(/datum/reagent/medicine/oxandrolone = 24)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/insulin
 	name = "таблетка инсулина"
-	desc = "Лечит гипергликемическую кому."
+	desc = "Помогает подавить гипергликемический приступ."
 	icon_state = "pill18"
 	list_reagents = list(/datum/reagent/medicine/insulin = 50)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/psicodine
 	name = "таблетка псикодина"
-	desc = "Восстанавливает ясность сознания, подавляет фобии и панические атаки."
+	desc = "Восстанавливает ясность сознания, подавляет фобии и панические атаки. Передозировка вызывает галюцинации и отравление."
 	list_reagents = list(/datum/reagent/medicine/psicodine = 10)
 	icon_state = "pill22"
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/penacid
-	name = "таблетка пентитовой кислоты"
-	desc = "Используется для выведения радиации и токсинов."
+	name = "таблетка пентетовой кислоты"
+	desc = "ДТПА, она же диэтилентриаминпентауксусная кислота. Вещество выводящее из тела токсины, радиацию и химикаты."
 	list_reagents = list(/datum/reagent/medicine/pen_acid = 10)
 	icon_state = "pill22"
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/neurine
 	name = "таблетка нейрина"
-	desc = "Используется для лечения легких психических травм."
+	desc = "Помогает при лечении легких церебральных травм."
 	list_reagents = list(/datum/reagent/medicine/neurine = 10)
 	icon_state = "pill22"
 	rename_with_volume = TRUE
@@ -218,14 +218,14 @@
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/paxpsych
-	name = "таблетка пацификации"
+	name = "таблетка седативов"
 	desc = "Используется для временного подавления агрессивного, гомицидального или суицидального поведения у пациентов."
 	list_reagents = list(/datum/reagent/pax = 5)
 	icon_state = "pill12"
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/lsdpsych
-	name = "антипсихотическая таблетка"
+	name = "таблетка галюциногена"
 	desc = "При ухудшении галлюцинаций или появлении новых галлюцинаций немедленно обратитесь к своему лечащему врачу."
 	list_reagents = list(/datum/reagent/toxin/mindbreaker = 5)
 	icon_state = "pill14"
@@ -240,8 +240,8 @@
 
 
 /obj/item/reagent_containers/pill/happy
-	name = "счастливая таблетка"
-	desc = "На них маленькие счастливые лица, и они пахнут фломастерами."
+	name = "улыбающаяся таблетка"
+	desc = "На них маленькие улыбающиеся мордашки, а еще они пахнут фломастерами."
 	list_reagents = list(/datum/reagent/consumable/sugar = 10, /datum/reagent/drug/space_drugs = 10)
 	icon_state = "pill_happy"
 
@@ -261,12 +261,12 @@
 
 ///Black and white pills that spawn in maintenance and have random reagent contents
 /obj/item/reagent_containers/pill/maintenance
-	name = "техническая таблетка"
-	desc = "Странная таблетка, найденная в глубинах технических тоннелей."
+	name = "подозрительная таблетка"
+	desc = "Странная таблетка без маркировки, найденная в весьма сомнительном месте."
 	icon_state = "pill21"
-	var/static/list/names = list("техническая таблетка", "таблетка с пола", "загадочная таблетка", "подозрительная таблетка", "странная таблетка", "таблетка везения", "зловещая таблетка", "жуткая таблетка")
-	var/static/list/descs = list("Ваше чувство говорит вам \"нет\", но....","Наркотики стоят дорого, вы не можете позволить себе не есть таблетки, которые найдете."\
-	, "Конечно, ничего не может пойти не так.", "Победители не употребляет нарк- о, что за черт!", "Бесплатные таблетки? Бесплатно, ведь мне нечего терять!")
+	var/static/list/names = list("самопальная таблетка", "подобранная с пола таблетка", "загадочная таблетка", "подозрительная таблетка", "странная таблетка", "интересная таблетка", "зловещая таблетка", "стремная таблетка")
+	var/static/list/descs = list("Ваш инстинкт самосохранения говорит вам \"нет\", но когда вы его слушали...","Наркотики стоят дорого, а вы не настолько богаты чтобы отвыкнуть от привычки тащить в рот все что найдете."\
+	, "Да ладно, ну что может пойти не так?", "О! Вкусняшка!", "Бесплатные таблетки? Как же мне сегодня везет!")
 
 /obj/item/reagent_containers/pill/maintenance/Initialize()
 	list_reagents = list(get_random_reagent_id() = rand(10,50)) //list_reagents is called before init, because init generates the reagents using list_reagents
@@ -281,22 +281,22 @@
 	M.client?.give_award(/datum/award/score/maintenance_pill, M)
 
 /obj/item/reagent_containers/pill/potassiodide
-	name = "таблетка йодистого калия"
-	desc = "Используется для снижения ущерба от радиоационного излучения."
+	name = "таблетка йодида калия"
+	desc = "Нейтрализует воздействие радиации на организм."
 	icon_state = "pill11"
-	list_reagents = list(/datum/reagent/medicine/potass_iodide = 15)
+	list_reagents = list(/datum/reagent/medicine/potass_iodide = 50)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/probital
 	name = "таблетка пробитала"
-	desc = "Используется для лечения физических повреждений различной тяжести. На резьбе в таблетке написано \"Поесть перед употреблением\". Вызывает усталость и разбавляется гранибиталурием."
+	desc = "Используется для лечения физических повреждений средней степени тяжести. Рекомендуется принимать с едой. Может вызывать утомление. Разбавлена гранибиталури."
 	icon_state = "pill12"
 	list_reagents = list(/datum/reagent/medicine/c2/probital = 5, /datum/reagent/medicine/granibitaluri = 10)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/iron
-	name = "таблетка с железом"
-	desc = "Используется для снижения кровопотери."
+	name = "таблетка крововосстанавливающего"
+	desc = "Содержит железо для стимуляции восстановления уровня крови в организме."
 	icon_state = "pill8"
-	list_reagents = list(/datum/reagent/iron = 15)
+	list_reagents = list(/datum/reagent/iron = 50)
 	rename_with_volume = TRUE

@@ -331,8 +331,8 @@ GLOBAL_LIST_INIT(titanium_recipes, list ( \
  * Plastitanium
  */
 /obj/item/stack/sheet/mineral/plastitanium
-	name = "пластитаниум"
-	desc = "Пластитаниум является сплавом титана и плазмы. Довольно крепкий, однако из за новизны ученые еще не спроектировали основные производственные чертежи."
+	name = "пластитан"
+	desc = "Пластитан является сплавом титана и плазмы. Довольно крепкий, однако из за новизны ученые еще не спроектировали основные производственные чертежи."
 	icon_state = "sheet-plastitanium"
 	inhand_icon_state = "sheet-plastitanium"
 	singular_name = "лист пластитаниума"

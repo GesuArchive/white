@@ -1,8 +1,8 @@
 //generic procs copied from obj/effect/alien
 /obj/structure/spider
-	name = "web"
+	name = "паутина"
 	icon = 'icons/effects/effects.dmi'
-	desc = "It's stringy and sticky."
+	desc = "Очень липкая и постоянно цепляется."
 	anchored = TRUE
 	density = FALSE
 	max_integrity = 15
@@ -34,7 +34,7 @@
 		return
 	if(!HAS_TRAIT(user,TRAIT_WEB_WEAVER))
 		return
-	user.visible_message(span_notice("[user] begins weaving [src] into cloth."), span_notice("You begin weaving [src] into cloth."))
+	user.visible_message(span_notice("[user] начинает создавать из паутины шелк."), span_notice("Начинаю создавать из паутины шелк."))
 	if(!do_after(user, 2 SECONDS))
 		return
 	qdel(src)
@@ -58,14 +58,14 @@
 		if(istype(mover.pulledby, /mob/living/simple_animal/hostile/poison/giant_spider))
 			return TRUE
 		if(prob(50))
-			to_chat(mover, span_danger("You get stuck in \the [src] for a moment."))
+			to_chat(mover, span_danger("На мгновение запутываюсь в паутине."))
 			return FALSE
 	else if(istype(mover, /obj/projectile))
 		return prob(30)
 
 /obj/structure/spider/stickyweb/sealed
-	name = "sealed web"
-	desc = "A solid thick wall of web, airtight enough to block air flow."
+	name = "плотная паутина"
+	desc = "Паутина достаточно плотная для того, чтобы задерживать воздушные потоки."
 	icon_state = "sealedweb"
 	sealed = TRUE
 	CanAtmosPass = ATMOS_PASS_NO
@@ -92,8 +92,8 @@
 		return prob(30)
 
 /obj/structure/spider/eggcluster
-	name = "egg cluster"
-	desc = "They seem to pulse slightly with an inner life."
+	name = "кладка паучьих яиц"
+	desc = "Кажется они немного пульсируют."
 	icon_state = "eggs"
 	/// Mob spawner handling the actual spawn of the spider
 	var/obj/effect/mob_spawn/spider/spawner
@@ -114,20 +114,20 @@
 	return ..()
 
 /obj/structure/spider/eggcluster/enriched
-	name = "enriched egg cluster"
+	name = "обогощенная паучья кладка"
 	color = rgb(148, 0, 211)
 
 /obj/structure/spider/eggcluster/bloody
-	name = "bloody egg cluster"
+	name = "кладка кровавых пауков"
 	color = rgb(255, 0, 0)
 
 /obj/structure/spider/eggcluster/midwife
-	name = "midwife egg cluster"
+	name = "королевская паучья кладка"
 
 /obj/effect/mob_spawn/spider
-	name = "egg cluster"
-	desc = "They seem to pulse slightly with an inner life."
-	mob_name = "a spider"
+	name = "кладка паучьих яиц"
+	desc = "Кажется они немного пульсируют."
+	mob_name = "паук"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "eggs"
 	roundstart = FALSE
@@ -136,8 +136,8 @@
 	density = FALSE
 	random = TRUE
 	show_flavour = FALSE
-	short_desc = "You are a spider."
-	important_info = "Follow your directives at all costs."
+	short_desc = "Вы паук."
+	important_info = "Защищайте гнездо и королеву, а так же следуйте ее приказам."
 	faction = list("spiders")
 	banType = ROLE_ALIEN
 	ready = FALSE
@@ -173,7 +173,7 @@
 	amount_grown += rand(0, 1) * delta_time
 	if(amount_grown >= 100 && !ready)
 		ready = TRUE
-		notify_ghosts("[src] is ready to hatch!", null, enter_link = "<a href=?src=[REF(src)];activate=1>(Click to play)</a>", source = src, action = NOTIFY_ORBIT, ignore_key = POLL_IGNORE_SPIDER)
+		notify_ghosts("[src] скоро вылупится!", null, enter_link = "<a href=?src=[REF(src)];activate=1>(Click to play)</a>", source = src, action = NOTIFY_ORBIT, ignore_key = POLL_IGNORE_SPIDER)
 		STOP_PROCESSING(SSobj, src)
 
 /obj/effect/mob_spawn/spider/Topic(href, href_list)
@@ -191,7 +191,7 @@
 	if(!.)
 		return FALSE
 	if(!ready)
-		to_chat(user, span_warning("\The [src] is not ready to hatch yet!"))
+		to_chat(user, span_warning("[src] еще недостаточно созрела!"))
 		return FALSE
 
 /obj/effect/mob_spawn/spider/equip(mob/living/simple_animal/hostile/poison/giant_spider/spawned_spider)
@@ -203,9 +203,9 @@
 	QDEL_NULL(egg)
 
 /obj/effect/mob_spawn/spider/enriched
-	name = "enriched egg cluster"
+	name = "обогощенная паучья кладка"
 	color = rgb(148, 0, 211)
-	short_desc = "You are an enriched spider."
+	short_desc = "Вы элитный паук! Охраняйте гнездо и королеву, а так же следуйте ее приказам."
 	cluster_type = /obj/structure/spider/eggcluster/enriched
 	potentialspawns = list(
 		/mob/living/simple_animal/hostile/poison/giant_spider/tarantula,
@@ -214,19 +214,19 @@
 	)
 
 /obj/effect/mob_spawn/spider/bloody
-	name = "bloody egg cluster"
+	name = "кладка кровавых пауков"
 	color = rgb(255, 0, 0)
-	short_desc = "You are a bloody spider."
-	directive = "You are the spawn of a vicious changeling. You have no ambitions except to wreak havoc and ensure your own survival. You are aggressive to all living beings outside of your species, including changelings."
+	short_desc = "Вы кровавый паук."
+	directive = "Ты - порождение генокрада. Ваша единственная цель это сеять хаос и обеспечивать свое собственное выживание. Вы агрессивны аболютно ко всем живым существам, кроме кровавых пауков, генокрад породивший вас является для вас врагом."
 	cluster_type = /obj/structure/spider/eggcluster/bloody
 	potentialspawns = list(
 		/mob/living/simple_animal/hostile/poison/giant_spider/hunter/flesh,
 	)
 
 /obj/effect/mob_spawn/spider/midwife
-	name = "midwife egg cluster"
-	short_desc = "You are a midwife spider."
-	directive = "Ensure the survival of the spider species and overtake whatever structure you find yourself in."
+	name = "королевская паучья кладка"
+	short_desc = "Вы Королева Роя."
+	directive = "Приведите свой Рой к победе и распространите свое гнездо на всю станцию."
 	cluster_type = /obj/structure/spider/eggcluster/midwife
 	potentialspawns = list(
 		/mob/living/simple_animal/hostile/poison/giant_spider/midwife,
@@ -260,8 +260,8 @@
 	return ..()
 
 /obj/structure/spider/spiderling
-	name = "spiderling"
-	desc = "It never stays still for long."
+	name = "паучонок"
+	desc = "Он никогда не замирает."
 	icon_state = "spiderling"
 	anchored = FALSE
 	layer = PROJECTILE_HIT_THRESHHOLD_LAYER
@@ -324,7 +324,7 @@
 		return
 
 	if(prob(50))
-		audible_message(span_hear("You hear something scampering through the ventilation ducts."))
+		audible_message(span_hear("Слышу шорох множества ножек, доносящийся из вентиляции."))
 
 	addtimer(CALLBACK(src, .proc/finish_vent_move, exit_vent), travel_time)
 
@@ -351,8 +351,8 @@
 				return
 			var/obj/machinery/atmospherics/components/unary/vent_pump/exit_vent = pick(vents)
 			if(prob(50))
-				visible_message("<B>[src] scrambles into the ventilation ducts!</B>", \
-								span_hear("You hear something scampering through the ventilation ducts."))
+				visible_message("<B>[src] протискивается в вентиляцию!</B>", \
+								span_hear("Слышу шорох множества ножек, доносящийся из вентиляции."))
 
 			addtimer(CALLBACK(src, .proc/vent_move, exit_vent), rand(20,60))
 
@@ -386,8 +386,8 @@
 			qdel(src)
 
 /obj/structure/spider/cocoon
-	name = "cocoon"
-	desc = "Something wrapped in silky spider web."
+	name = "кокон"
+	desc = "Кажется там кто-то есть..."
 	icon_state = "cocoon1"
 	max_integrity = 60
 
@@ -399,8 +399,8 @@
 	var/breakout_time = 600
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
-	to_chat(user, span_notice("You struggle against the tight bonds... (This will take about [DisplayTimeText(breakout_time)].)"))
-	visible_message(span_notice("You see something struggling and writhing in \the [src]!"))
+	to_chat(user, span_notice("Пытаюсь вырваться... (Это займет приблизительно [DisplayTimeText(breakout_time)].)"))
+	visible_message(span_notice("[src] шевелится и дергается, как будто кто-то пытается вырваться из него!"))
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src)
 			return
@@ -408,7 +408,7 @@
 
 /obj/structure/spider/cocoon/Destroy()
 	var/turf/T = get_turf(src)
-	src.visible_message(span_warning("\The [src] splits open."))
+	src.visible_message(span_warning("[src] рассыпается."))
 	for(var/atom/movable/A in contents)
 		A.forceMove(T)
 	return ..()

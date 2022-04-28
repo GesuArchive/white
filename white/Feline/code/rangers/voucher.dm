@@ -112,6 +112,8 @@
 	new /obj/item/inducer(src)
 	new /obj/item/stock_parts/cell/hyper(src)
 	new /obj/item/clothing/glasses/meson(src)
+	new /obj/item/clothing/gloves/color/chief_engineer(src)
+	new /obj/item/holosign_creator/atmos(src)
 	new /obj/item/sbeacondrop/exploration(src)
 	new /obj/item/research_disk_pinpointer(src)
 
@@ -144,7 +146,7 @@
 	new /obj/item/storage/belt/avangard_belt(src)
 	new /obj/item/forcefield_projector(src)
 	new /obj/item/clothing/glasses/night(src)
-	new /obj/item/storage/pill_bottle/psicodine(src)
+	new /obj/item/storage/pill_bottle/saver(src)
 	new /obj/item/shield/riot/tele(src)
 	new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
 
@@ -225,7 +227,6 @@
 			icon_state = "proton-on"
 			inhand_icon_state = "proton-on"
 			light_range = 3
-//			update_light()
 			playsound(user, 'white/Feline/sounds/proton_cutter.ogg', 100, TRUE)
 			user.visible_message(span_warning("Протонный резак в руках [user] выплескивает шквал искр!"), span_notice("Форсирую генератор гамма излучения. Протонный резак выплескивает шквал искр!"))
 			sparks.start()
@@ -238,7 +239,8 @@
 		playsound(user, 'white/Feline/sounds/proton_cutter_off.ogg', 100, TRUE)
 		to_chat(user, span_notice("Приглушаю генератор гамма излучения!"))
 
-#define isstunmob(A) (istype(A, /mob/living/simple_animal/hostile/zombie) || istype(A, /mob/living/simple_animal/hostile/alien) || istype(A, /mob/living/simple_animal/hostile/poison/giant_spider))
+// 	Список разрешенных мобов
+#define isstunmob(A) (istype(A, /mob/living/simple_animal/hostile/zombie) || istype(A, /mob/living/simple_animal/hostile/alien) || istype(A, /mob/living/simple_animal/hostile/poison/giant_spider) || istype(A, /mob/living/simple_animal/hostile/netherworld) || istype(A, /mob/living/simple_animal/hostile/blob) || istype(A, /mob/living/simple_animal/hostile/ratvar))
 
 /mob/living/simple_animal/proc/re_ai()
 	AIStatus = AI_ON
@@ -261,7 +263,7 @@
 
 
 /obj/item/melee/sabre/proton_cutter/attack(mob/living/M, mob/living/user)	// 	Атака
-	// 	Мобы
+// 	Мобы
 	if(!iscarbon(M) && !iscyborg(M))
 		if(amplification)
 
@@ -312,12 +314,7 @@
 				Z.AIStatus = AI_OFF
 				addtimer(CALLBACK(Z, /mob/living/simple_animal/proc/re_ai), 5 SECONDS)
 				addtimer(CALLBACK(M, /atom/proc/cut_overlay, stun_overlay), 5 SECONDS)
-/*			else
-				if(isstunmob(M))
-					var/mob/living/simple_animal/hostile/alien/Z = M
-					Z.AIStatus = AI_OFF
-					addtimer(CALLBACK(Z, /mob/living/simple_animal/proc/re_ai), 2 SECONDS)
-*/
+
 			if(!isalienroyal(M))
 				M.Paralyze(5 SECONDS, ignore_canstun = TRUE)
 			else
@@ -330,6 +327,11 @@
 			force = 30
 		..()
 		return
+
+/obj/item/melee/sabre/proton_cutter/attack_obj(obj/O, mob/living/user)
+	force = 20
+	..()
+	return
 
 /obj/item/storage/belt/avangard_belt
 	name = "пояс авангарда рейнджеров"
@@ -355,9 +357,9 @@
 	. = ..()
 	. += "<hr>"
 	if(length(contents))
-		. += span_notice("ПКМ, чтобы мгновенно выхватить резак.")
+		. += span_notice("ЛКМ, чтобы мгновенно выхватить резак. ПКМ, для доступа к кармашкам.")
 
-/obj/item/storage/belt/avangard_belt/attack_hand_secondary(mob/user, list/modifiers)
+/obj/item/storage/belt/avangard_belt/attack_hand(mob/user, list/modifiers)
 
 	if(loc == user)
 		if(user.get_item_by_slot(ITEM_SLOT_BELT) == src)
@@ -383,7 +385,9 @@
 	STR.set_holdable(list(
 		/obj/item/melee/sabre/proton_cutter,
 		/obj/item/melee/classic_baton,
-		/obj/item/gun/energy/e_gun/mini/exploration,
+		/obj/item/gun/ballistic/automatic/pistol,
+		/obj/item/gun/ballistic/revolver,
+		/obj/item/gun/energy/e_gun/mini,
 		/obj/item/kitchen/knife,
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing/shotgun,

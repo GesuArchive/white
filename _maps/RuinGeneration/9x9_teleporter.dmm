@@ -5,55 +5,55 @@
 "d" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/airless,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "e" = (
 /obj/structure/closet,
 /obj/item/gps/spaceruin,
 /turf/open/floor/mineral/plastitanium,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "g" = (
 /obj/effect/decal/cleanable/oil,
 /turf/open/floor/plating/airless,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "i" = (
 /obj/item/shard,
 /obj/item/electronics/apc,
 /turf/open/floor/plasteel{
 	icon_state = "damaged2"
 	},
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "k" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/open/floor/mineral/plastitanium,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "l" = (
 /turf/open/floor/plating/airless,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "m" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/open/floor/plating/airless,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "n" = (
 /obj/effect/abstract/doorway_marker{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "p" = (
 /obj/effect/decal/cleanable/robot_debris/old,
 /turf/open/floor/plating/airless,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "s" = (
 /obj/structure/frame/computer,
 /turf/open/floor/mineral/plastitanium,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "v" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "y" = (
 /turf/closed/wall/r_wall,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "z" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -61,7 +61,7 @@
 "A" = (
 /obj/machinery/teleport/hub,
 /turf/open/floor/mineral/plastitanium,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "C" = (
 /obj/structure/closet/crate,
 /obj/item/aicard,
@@ -70,80 +70,80 @@
 /obj/item/wrench,
 /obj/item/circuitboard/computer/teleporter,
 /turf/open/floor/mineral/plastitanium,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "D" = (
 /obj/item/stock_parts/cell,
 /turf/open/floor/plasteel{
 	icon_state = "damaged2"
 	},
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "E" = (
 /turf/open/floor/mineral/plastitanium,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "G" = (
 /turf/open/floor/plasteel{
 	icon_state = "damaged2"
 	},
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "H" = (
 /turf/open/floor/plasteel,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "I" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/flashlight,
 /turf/open/floor/plating/airless,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "J" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/beacon,
 /turf/open/floor/plasteel{
 	icon_state = "damaged2"
 	},
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "K" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plasteel,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "L" = (
 /obj/item/storage/toolbox/electrical{
 	pixel_x = 1;
 	pixel_y = -1
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "N" = (
 /obj/item/shard{
 	icon_state = "medium"
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "P" = (
 /obj/effect/abstract/doorway_marker{
 	dir = 4
 	},
 /turf/open/floor/plating/airless,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "Q" = (
 /obj/effect/abstract/doorway_marker,
 /turf/open/floor/plating/airless,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "S" = (
 /obj/machinery/teleport/station,
 /turf/open/floor/mineral/plastitanium,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "V" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/mineral/plastitanium,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "W" = (
 /obj/structure/rack,
 /obj/item/clothing/gloves/color/yellow,
 /turf/open/floor/mineral/plastitanium,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 "Z" = (
 /obj/effect/spawner/lootdrop/crate_spawner,
 /turf/open/floor/mineral/plastitanium,
-/area/ruin/space/abandoned_tele)
+/area/ruin)
 
 (1,1,1) = {"
 a

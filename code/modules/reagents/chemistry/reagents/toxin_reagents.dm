@@ -670,7 +670,7 @@
 /datum/reagent/toxin/cyanide
 	name = "Цианид"
 	enname = "Cyanide"
-	description = "Знамитый яд, известный за частое использование в убийствах. Наносит немного урона токсинами с маленьким шансом удушья или оглушения."
+	description = "Знамитый яд, известный за частое использование в убийствах. Вызывает токсичное отравление осложненное удушьем и потерей сознания."
 	reagent_state = LIQUID
 	color = "#00B4FF"
 	creation_purity = REAGENT_STANDARD_PURITY

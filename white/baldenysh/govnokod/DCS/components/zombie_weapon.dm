@@ -33,6 +33,8 @@
 	CHECK_DNA_AND_SPECIES(target)
 	if(NOZOMBIE in target.dna.species.species_traits)
 		return
+	if(HAS_TRAIT(target, TRAIT_PARASITE_IMMUNE))
+		return
 	var/obj/item/organ/zombie_infection/infection
 	infection = target.getorganslot(ORGAN_SLOT_ZOMBIE)
 	if(!infection)

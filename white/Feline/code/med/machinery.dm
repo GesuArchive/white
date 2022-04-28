@@ -58,7 +58,7 @@
 		if(occupant)
 			if(ishuman(occupant))
 				if(!handbeltsmod_active)
-					user.visible_message(span_alert("Пытается включить энергетические ремни, чтобы зафиксировать [skloname(victim.name, DATELNI, victim.gender)]!"),\
+					user.visible_message(span_alert("[user.name] тянется к кнопке включения энергетических ремней для фиксации [skloname(victim.name, VINITELNI, victim.gender)]!"),\
 										span_notice("Включаю энергетические ремни..."))
 					if(!do_after(user, 2 SECONDS, target = victim))
 						return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN

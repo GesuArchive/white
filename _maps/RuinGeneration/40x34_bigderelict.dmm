@@ -7,25 +7,25 @@
 	},
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "av" = (
 /obj/structure/alien/resin/membrane/creature,
 /turf/open/floor/plating/asteroid/airless,
-/area/ruin/unpowered)
+/area/ruin)
 "aB" = (
 /obj/structure/alien/weeds/creature,
 /mob/living/simple_animal/hostile/netherworld{
 	name = "Miss Tiggles"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "aC" = (
 /obj/structure/closet/crate,
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/iron/fifty,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "aD" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old{
@@ -37,7 +37,20 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
+"aU" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin)
 "bZ" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 5;
@@ -48,7 +61,7 @@
 /obj/structure/alien/weeds/creature,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "ce" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 4;
@@ -58,31 +71,31 @@
 /obj/structure/alien/weeds/creature,
 /obj/structure/glowshroom/single,
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "dq" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "dO" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/electrical,
 /obj/item/stack/cable_coil,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "dY" = (
 /obj/structure/table,
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "ea" = (
 /obj/machinery/power/terminal{
 	dir = 1
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "eb" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/glowshroom/single,
@@ -91,12 +104,12 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "eo" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/glowshroom/single,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "ev" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/cable,
@@ -106,7 +119,7 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "ew" = (
 /obj/structure/closet/crate,
 /obj/item/target/syndicate,
@@ -119,17 +132,17 @@
 	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "eH" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/glowshroom/single,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "eI" = (
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "fx" = (
 /obj/machinery/door/airlock/public/glass,
 /obj/machinery/door/poddoor{
@@ -139,11 +152,18 @@
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "fC" = (
 /obj/structure/table,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
+"fH" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow,
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin)
 "gh" = (
 /obj/effect/mob_spawn/human/corpse/nanotrasensoldier{
 	head = null;
@@ -156,26 +176,36 @@
 	pixel_x = -29
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "gk" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/glowshroom/single,
 /turf/open/floor/mineral/titanium/blue,
-/area/ruin/unpowered)
+/area/ruin)
 "gB" = (
 /turf/open/space/basic,
 /area/space)
+"hu" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin)
 "ik" = (
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/mineral/titanium/blue,
-/area/ruin/unpowered)
+/area/ruin)
 "in" = (
 /obj/structure/closet/crate/internals,
 /obj/item/storage/toolbox/emergency,
 /obj/item/clothing/mask/breath,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "iw" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old{
@@ -184,7 +214,7 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "iB" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/cable,
@@ -194,14 +224,14 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "iH" = (
 /obj/structure/closet/crate{
 	icon_state = "crateopen"
 	},
 /obj/effect/spawner/lootdrop/space/fancytool,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "iM" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/glowshroom/single,
@@ -211,27 +241,27 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "iQ" = (
 /obj/item/clothing/head/helmet,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "iT" = (
 /obj/structure/closet/crate/engineering/electrical,
 /obj/item/storage/toolbox/electrical,
 /obj/item/stack/cable_coil,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "jJ" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/mineral/titanium/blue,
-/area/ruin/unpowered)
+/area/ruin)
 "jN" = (
 /obj/structure/janitorialcart,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "ks" = (
 /obj/machinery/door/airlock/public/glass,
 /obj/machinery/door/poddoor{
@@ -246,7 +276,7 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "kF" = (
 /obj/structure/table,
 /obj/item/clothing/head/soft,
@@ -254,7 +284,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "kQ" = (
 /obj/structure/alien/weeds/creature,
 /obj/item/shard,
@@ -263,20 +293,20 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "kS" = (
 /obj/structure/table,
 /obj/item/stock_parts/cell/hyper,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "ll" = (
 /obj/structure/closet/crate{
 	icon_state = "crateopen"
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "lm" = (
 /obj/structure/alien/weeds/creature,
 /obj/item/ammo_box/magazine/m45,
@@ -284,7 +314,7 @@
 	spawnwithmagazine = 0
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "lB" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/cable,
@@ -293,7 +323,7 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "lI" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 9;
@@ -302,7 +332,7 @@
 	},
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "mm" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 10;
@@ -310,10 +340,10 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "mZ" = (
 /turf/closed/wall/mineral/titanium,
-/area/ruin/unpowered)
+/area/ruin)
 "na" = (
 /obj/structure/closet/crate{
 	icon_state = "crateopen"
@@ -321,12 +351,22 @@
 /obj/item/stack/sheet/plasteel/twenty,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "nL" = (
 /obj/item/shard,
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/mineral/titanium/blue,
-/area/ruin/unpowered)
+/area/ruin)
+"nP" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow,
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin)
 "oh" = (
 /obj/structure/closet/crate/internals,
 /obj/item/tank/internals/emergency_oxygen/engi,
@@ -334,7 +374,10 @@
 /obj/item/storage/firstaid/toxin,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
+"ov" = (
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin)
 "oz" = (
 /obj/structure/closet/crate/medical,
 /obj/item/storage/firstaid/regular{
@@ -344,7 +387,7 @@
 /obj/item/storage/firstaid/o2,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "oA" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -356,7 +399,7 @@
 	dir = 1
 	},
 /turf/open/floor/mineral/titanium/yellow,
-/area/ruin/unpowered)
+/area/ruin)
 "pA" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 4;
@@ -367,13 +410,13 @@
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "pK" = (
 /obj/structure/closet/crate/engineering/electrical,
 /obj/item/storage/toolbox/electrical,
 /obj/item/stock_parts/cell/hyper,
 /turf/open/floor/mineral/titanium/yellow,
-/area/ruin/unpowered)
+/area/ruin)
 "pL" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 10;
@@ -382,14 +425,14 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "pR" = (
 /obj/structure/alien/resin/membrane/creature,
 /turf/open/floor/plating{
 	icon_state = "wall_thermite";
 	name = "melted wall"
 	},
-/area/ruin/unpowered)
+/area/ruin)
 "qh" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old{
@@ -398,7 +441,7 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "qt" = (
 /obj/structure/grille/broken,
 /obj/structure/alien/weeds/creature,
@@ -407,12 +450,12 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "qy" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "qB" = (
 /mob/living/simple_animal/hostile/netherworld{
 	desc = "Awh its so sm-OH GOD WHAT THE FUCK.";
@@ -424,12 +467,12 @@
 /obj/structure/alien/weeds/creature,
 /obj/structure/glowshroom/single,
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "qV" = (
 /obj/machinery/power/smes,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "ri" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old{
@@ -437,11 +480,11 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "rp" = (
 /obj/effect/spawner/structure/window/shuttle,
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "rD" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 8;
@@ -450,7 +493,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "rH" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 8;
@@ -458,14 +501,14 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "rL" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "rU" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 4;
@@ -481,7 +524,7 @@
 	icon_state = "wall_thermite";
 	name = "melted wall"
 	},
-/area/ruin/unpowered)
+/area/ruin)
 "rX" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old{
@@ -490,7 +533,7 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "sp" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 8;
@@ -499,18 +542,18 @@
 	},
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "sr" = (
 /obj/structure/closet/crate,
 /obj/item/storage/pill_bottle/stimulant,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "sD" = (
 /obj/structure/alien/weeds/creature,
 /obj/machinery/light,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "sP" = (
 /obj/effect/decal/cleanable/blood/old{
 	icon_state = "trails_1";
@@ -518,26 +561,26 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "tg" = (
 /obj/structure/closet/crate,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "tz" = (
 /obj/structure/alien/weeds/creature,
 /obj/item/ammo_box/magazine/m45,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "tC" = (
 /obj/item/crowbar{
 	pixel_x = -16;
 	pixel_y = -6
 	},
 /turf/open/floor/engine,
-/area/ruin/unpowered)
+/area/ruin)
 "tV" = (
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/blood/old{
@@ -546,7 +589,7 @@
 	},
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "ub" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old{
@@ -555,11 +598,11 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "ug" = (
 /obj/machinery/door/airlock/engineering,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "vb" = (
 /obj/item/ammo_casing/c45{
 	caliber = null;
@@ -573,27 +616,18 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "vn" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "vB" = (
 /obj/machinery/door/poddoor/shutters{
 	id = "exploration_ex_cargo1"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
-"vG" = (
-/obj/machinery/power/apc{
-	name = "Tradepost APC";
-	pixel_y = -23;
-	start_charge = 0
-	},
-/obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "wp" = (
 /obj/structure/filingcabinet,
 /obj/machinery/light{
@@ -610,13 +644,13 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered)
+/area/ruin)
 "wq" = (
 /turf/closed/wall/r_wall,
-/area/ruin/unpowered)
+/area/ruin)
 "wu" = (
 /turf/open/floor/engine,
-/area/ruin/unpowered)
+/area/ruin)
 "wx" = (
 /obj/item/ammo_casing/c45{
 	caliber = null;
@@ -627,18 +661,18 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "wA" = (
 /obj/machinery/door/poddoor{
 	id = "bigderelictship"
 	},
 /turf/open/floor/mineral/titanium/yellow,
-/area/ruin/unpowered)
+/area/ruin)
 "wM" = (
 /obj/structure/closet/crate,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "wS" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 10;
@@ -647,7 +681,7 @@
 	},
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "xd" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old,
@@ -657,13 +691,13 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "xI" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "xV" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
@@ -680,7 +714,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered)
+/area/ruin)
 "xW" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -693,17 +727,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered)
-"yh" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "Cargo Bay APC";
-	pixel_x = 24;
-	start_charge = 0
-	},
-/obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "ym" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/glowshroom/single,
@@ -716,21 +740,21 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "yt" = (
 /obj/structure/table,
 /obj/item/clothing/gloves/fingerless,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "yx" = (
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "yC" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "yK" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 4;
@@ -741,17 +765,17 @@
 /obj/machinery/light,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "yZ" = (
 /turf/open/floor/mineral/titanium/blue,
-/area/ruin/unpowered)
+/area/ruin)
 "zH" = (
 /obj/structure/sign/warning/vacuum{
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "zR" = (
 /obj/machinery/door/poddoor{
 	id = "bigderelictshipdock"
@@ -763,14 +787,14 @@
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/engine,
-/area/ruin/unpowered)
+/area/ruin)
 "zV" = (
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "zX" = (
 /obj/structure/table_frame,
 /obj/item/stack/sheet/iron,
@@ -780,18 +804,18 @@
 	},
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/mineral/titanium/blue,
-/area/ruin/unpowered)
+/area/ruin)
 "Aj" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Br" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "Bw" = (
 /obj/structure/closet/crate/critter{
 	name = "critter crate - mr.tiggles";
@@ -800,14 +824,14 @@
 /obj/item/paper/crumpled/ruins/bigderelict1/manifest,
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/mineral/titanium/yellow,
-/area/ruin/unpowered)
+/area/ruin)
 "BQ" = (
 /obj/effect/decal/cleanable/blood/old{
 	icon_state = "trails_1";
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Cz" = (
 /obj/machinery/button/door{
 	id = "bigderelictship";
@@ -816,7 +840,7 @@
 	},
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/mineral/titanium/blue,
-/area/ruin/unpowered)
+/area/ruin)
 "CC" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 10;
@@ -826,12 +850,12 @@
 /obj/structure/alien/weeds/creature,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "CJ" = (
 /obj/machinery/door/airlock/external,
 /obj/structure/fans/tiny,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "CN" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old,
@@ -841,7 +865,7 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "Db" = (
 /obj/structure/closet/crate{
 	icon_state = "crateopen"
@@ -849,14 +873,14 @@
 /obj/item/stack/sheet/cardboard/fifty,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Dg" = (
 /obj/effect/decal/cleanable/xenoblood/xsplatter,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Dk" = (
 /turf/closed/wall,
-/area/ruin/unpowered)
+/area/ruin)
 "Ds" = (
 /obj/item/shard,
 /obj/item/stack/cable_coil{
@@ -877,23 +901,23 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered)
+/area/ruin)
 "DB" = (
 /obj/machinery/firealarm{
 	dir = 8;
 	pixel_x = -24
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "DM" = (
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "DO" = (
 /obj/structure/closet/crate/medical,
 /obj/item/storage/firstaid/o2,
 /turf/open/floor/mineral/titanium/yellow,
-/area/ruin/unpowered)
+/area/ruin)
 "DQ" = (
 /obj/machinery/door/airlock/security/glass{
 	id_tag = "innerbrig";
@@ -911,7 +935,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered)
+/area/ruin)
 "DS" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 4;
@@ -927,12 +951,12 @@
 	icon_state = "wall_thermite";
 	name = "melted wall"
 	},
-/area/ruin/unpowered)
+/area/ruin)
 "DY" = (
 /obj/effect/decal/cleanable/xenoblood/xsplatter,
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Er" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -944,7 +968,7 @@
 	dir = 1
 	},
 /turf/open/floor/mineral/titanium/yellow,
-/area/ruin/unpowered)
+/area/ruin)
 "Ez" = (
 /obj/effect/decal/cleanable/blood/old{
 	icon_state = "trails_1";
@@ -952,7 +976,7 @@
 	},
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/engine,
-/area/ruin/unpowered)
+/area/ruin)
 "EO" = (
 /obj/structure/alien/weeds/creature,
 /mob/living/simple_animal/hostile/netherworld{
@@ -963,7 +987,7 @@
 	resize = 0.85
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "ER" = (
 /obj/item/ammo_casing/c45{
 	caliber = null;
@@ -971,24 +995,24 @@
 	name = "spent bullet casing"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Fa" = (
 /obj/structure/closet/crate/radiation,
 /obj/item/clothing/head/radiation,
 /obj/item/clothing/suit/radiation,
 /obj/item/geiger_counter,
 /turf/open/floor/mineral/titanium/yellow,
-/area/ruin/unpowered)
+/area/ruin)
 "Fz" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "FG" = (
 /obj/structure/alien/resin/wall/creature,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Gb" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 1;
@@ -997,15 +1021,15 @@
 	},
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Gc" = (
 /obj/machinery/light,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Gh" = (
 /obj/item/gps/spaceruin,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Gq" = (
 /obj/structure/closet/crate/medical,
 /obj/item/storage/firstaid/regular{
@@ -1014,20 +1038,30 @@
 	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Gu" = (
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -24
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
+"GG" = (
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin)
 "Ha" = (
 /obj/machinery/computer{
 	dir = 1
 	},
 /turf/open/floor/mineral/titanium/blue,
-/area/ruin/unpowered)
+/area/ruin)
 "He" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 4;
@@ -1043,7 +1077,7 @@
 	resize = 0.85
 	},
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "Hp" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/blood/old{
@@ -1052,7 +1086,7 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "HH" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/blood/old{
@@ -1061,24 +1095,24 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "HI" = (
 /obj/structure/closet/crate/engineering/electrical,
 /obj/item/storage/toolbox/electrical,
 /obj/item/stock_parts/cell/hyper,
 /obj/item/stock_parts/cell/high,
 /turf/open/floor/mineral/titanium/yellow,
-/area/ruin/unpowered)
+/area/ruin)
 "HP" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Ig" = (
 /obj/effect/gibspawner/human,
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Ii" = (
 /obj/machinery/door/poddoor/shutters{
 	id = "exploration_ex_cargo1"
@@ -1091,21 +1125,25 @@
 	req_access_txt = "49"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "IG" = (
 /obj/structure/closet/crate,
 /obj/item/stack/sheet/cloth/ten,
 /obj/item/stack/sheet/cloth/ten,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "II" = (
 /turf/closed/mineral/random,
 /area/space)
 "IK" = (
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
+"Ji" = (
+/obj/structure/lattice,
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin)
 "Ju" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 5;
@@ -1114,19 +1152,19 @@
 	},
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/mineral/titanium/blue,
-/area/ruin/unpowered)
+/area/ruin)
 "Jx" = (
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "JB" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "JL" = (
 /obj/structure/alien/resin/membrane/creature,
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "Kg" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old{
@@ -1135,36 +1173,25 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
-"Kj" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "Power Storage APC";
-	pixel_x = 24;
-	pixel_y = 2;
-	start_charge = 0
-	},
-/obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Km" = (
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/engine,
-/area/ruin/unpowered)
+/area/ruin)
 "Ko" = (
 /turf/closed/mineral/random,
-/area/ruin/unpowered)
+/area/ruin)
 "KH" = (
 /obj/structure/closet/crate/secure/loot,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "KK" = (
 /obj/structure/shuttle/engine/propulsion/burst/right{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "Lh" = (
 /obj/structure/alien/weeds/creature,
 /mob/living/simple_animal/hostile/netherworld{
@@ -1175,17 +1202,7 @@
 	resize = 0.85
 	},
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
-"Ln" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "Cargo Storage APC";
-	pixel_x = 24;
-	start_charge = 0
-	},
-/obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Lp" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old{
@@ -1194,7 +1211,7 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "Lx" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 4;
@@ -1204,12 +1221,12 @@
 /obj/structure/alien/weeds/creature,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "LD" = (
 /obj/structure/closet/crate/engineering,
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "LF" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/machinery/button/door{
@@ -1230,12 +1247,12 @@
 	},
 /obj/item/ammo_box/magazine/m45,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered)
+/area/ruin)
 "LH" = (
 /obj/structure/table,
 /obj/item/clothing/head/soft,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "LK" = (
 /obj/item/chair,
 /obj/structure/alien/weeds/creature,
@@ -1250,11 +1267,11 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered)
+/area/ruin)
 "LL" = (
 /obj/structure/closet/crate/secure/loot,
 /turf/open/floor/mineral/titanium/yellow,
-/area/ruin/unpowered)
+/area/ruin)
 "LO" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/turf_decal/tile/red{
@@ -1268,7 +1285,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered)
+/area/ruin)
 "Ml" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/structure/alien/weeds/creature,
@@ -1278,7 +1295,7 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "Mn" = (
 /obj/machinery/door/poddoor{
 	id = "bigderelictshipdock"
@@ -1290,11 +1307,11 @@
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/engine,
-/area/ruin/unpowered)
+/area/ruin)
 "MO" = (
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "MQ" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 4;
@@ -1302,7 +1319,7 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "MV" = (
 /obj/item/shard,
 /obj/structure/alien/weeds/creature,
@@ -1317,10 +1334,20 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered)
+/area/ruin)
 "Nq" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
 /turf/open/floor/plating/asteroid/no_generation,
-/area/ruin/unpowered)
+/area/ruin)
 "NK" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 4;
@@ -1330,25 +1357,25 @@
 /obj/structure/alien/weeds/creature,
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "On" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "OR" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/glowshroom/single,
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "Ph" = (
 /obj/structure/closet/crate/medical,
 /obj/item/storage/firstaid/regular,
 /turf/open/floor/mineral/titanium/yellow,
-/area/ruin/unpowered)
+/area/ruin)
 "Pn" = (
 /obj/structure/table,
 /turf/open/floor/mineral/titanium/blue,
-/area/ruin/unpowered)
+/area/ruin)
 "Pu" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/glowshroom/single,
@@ -1356,12 +1383,12 @@
 /obj/machinery/door/airlock/public/glass,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "PB" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/engineering,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "PN" = (
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
@@ -1381,11 +1408,11 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered)
+/area/ruin)
 "Qj" = (
 /obj/machinery/light,
 /turf/closed/wall/r_wall,
-/area/ruin/unpowered)
+/area/ruin)
 "Qn" = (
 /obj/structure/closet/crate{
 	icon_state = "crateopen"
@@ -1394,12 +1421,12 @@
 /obj/effect/turf_decal/delivery,
 /obj/effect/spawner/lootdrop/space/fancytech,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Qt" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Qv" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 8;
@@ -1408,7 +1435,7 @@
 	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "QI" = (
 /obj/structure/closet/crate/internals,
 /obj/item/storage/toolbox/emergency,
@@ -1417,11 +1444,11 @@
 /obj/item/tank/internals/emergency_oxygen/engi,
 /obj/item/clothing/mask/breath,
 /turf/open/floor/mineral/titanium/yellow,
-/area/ruin/unpowered)
+/area/ruin)
 "QM" = (
 /obj/item/ammo_box/c45,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "QQ" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old{
@@ -1430,29 +1457,39 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "QS" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -24
 	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "QV" = (
 /obj/structure/alien/resin/wall/creature,
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "Rh" = (
 /obj/structure/closet/crate{
 	icon_state = "crateopen"
 	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Rx" = (
 /obj/structure/lattice,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
 /turf/open/floor/plating/asteroid/no_generation,
-/area/ruin/unpowered)
+/area/ruin)
 "RU" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 8;
@@ -1463,30 +1500,50 @@
 	icon_state = "wall_thermite";
 	name = "melted wall"
 	},
-/area/ruin/unpowered)
+/area/ruin)
 "SF" = (
 /obj/structure/closet/crate/engineering,
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/mineral/titanium/yellow,
-/area/ruin/unpowered)
+/area/ruin)
+"SK" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin)
 "SN" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old,
 /obj/structure/alien/gelpod,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "SQ" = (
 /obj/structure/closet/crate/engineering,
 /obj/item/multitool,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "SU" = (
 /obj/structure/alien/weeds/creature,
 /obj/item/mop,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
+"Tc" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin)
 "TK" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
@@ -1498,7 +1555,7 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "TT" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 5;
@@ -1507,17 +1564,17 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "TW" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "Ub" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -24
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Uf" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 4;
@@ -1525,26 +1582,26 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "Uh" = (
 /obj/structure/closet/crate/engineering,
 /obj/item/storage/toolbox/mechanical,
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/mineral/titanium/yellow,
-/area/ruin/unpowered)
+/area/ruin)
 "Un" = (
 /obj/structure/closet/crate/medical,
 /obj/item/storage/firstaid/regular,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Uo" = (
 /obj/item/shard,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Uq" = (
 /turf/closed/wall/mineral/titanium/interior,
-/area/ruin/unpowered)
+/area/ruin)
 "Ur" = (
 /turf/template_noop,
 /area/space)
@@ -1553,21 +1610,21 @@
 /obj/item/modular_computer/tablet/pda/clear,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "UP" = (
 /obj/machinery/door/poddoor{
 	id = "bigderelictshipdock"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/engine,
-/area/ruin/unpowered)
+/area/ruin)
 "UT" = (
 /obj/structure/table,
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "UU" = (
 /obj/structure/lattice,
 /turf/open/floor/plating/asteroid/airless,
@@ -1575,13 +1632,13 @@
 "Ve" = (
 /obj/structure/closet/wardrobe/cargotech,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Vf" = (
 /obj/effect/abstract/doorway_marker{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Vp" = (
 /obj/structure/table,
 /obj/machinery/light{
@@ -1589,7 +1646,7 @@
 	},
 /obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Vz" = (
 /obj/item/ammo_casing/c45{
 	caliber = null;
@@ -1598,13 +1655,13 @@
 	},
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "VO" = (
 /obj/structure/shuttle/engine/propulsion/burst/left{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "VY" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old{
@@ -1613,31 +1670,31 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "WF" = (
 /obj/item/chair,
 /obj/effect/decal/cleanable/blood/old,
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/mineral/titanium/blue,
-/area/ruin/unpowered)
+/area/ruin)
 "Xe" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/alien/gelpod,
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "XJ" = (
 /obj/structure/closet/crate/medical,
 /obj/item/storage/firstaid/brute,
 /obj/item/storage/firstaid/fire,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "XK" = (
 /obj/structure/sign/warning/vacuum{
 	pixel_y = 32
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "XO" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 4;
@@ -1646,7 +1703,7 @@
 	},
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "XP" = (
 /obj/effect/decal/cleanable/blood/old{
 	dir = 5;
@@ -1656,37 +1713,49 @@
 /obj/structure/alien/weeds/creature,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "XS" = (
 /obj/structure/closet/crate/medical,
 /obj/item/storage/firstaid/brute,
 /turf/open/floor/mineral/titanium/yellow,
-/area/ruin/unpowered)
+/area/ruin)
 "XY" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/alien/weeds/creature,
 /obj/item/ammo_box/c45,
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "Yd" = (
 /obj/machinery/door/airlock/public/glass,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Ym" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 32
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "Yp" = (
 /obj/structure/lattice/catwalk,
 /turf/open/floor/plating/asteroid/airless,
 /area/space)
+"YA" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin)
 "YG" = (
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "YK" = (
 /obj/structure/alien/weeds/creature,
 /obj/effect/decal/cleanable/blood/old{
@@ -1694,7 +1763,7 @@
 	name = "dried blood trail"
 	},
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "YT" = (
 /turf/open/floor/plating/asteroid/airless,
 /area/space)
@@ -1707,7 +1776,7 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/structure/alien/weeds/creature,
 /turf/open/floor/plating/asteroid,
-/area/ruin/unpowered)
+/area/ruin)
 "Zu" = (
 /obj/structure/door_assembly/door_assembly_mai{
 	density = 0;
@@ -1721,14 +1790,14 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin)
 "ZN" = (
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
+/area/ruin)
 "ZV" = (
 /obj/machinery/door/airlock/titanium,
 /turf/open/floor/mineral/titanium/blue,
-/area/ruin/unpowered)
+/area/ruin)
 
 (1,1,1) = {"
 Ur
@@ -1924,7 +1993,7 @@ Dk
 qV
 ea
 ZN
-Kj
+On
 On
 wq
 ER
@@ -2419,7 +2488,7 @@ YT
 Dk
 XK
 ZN
-yh
+On
 ZN
 kF
 yt
@@ -2438,7 +2507,7 @@ XO
 MO
 Dk
 oz
-Ln
+On
 On
 TT
 pL
@@ -2451,7 +2520,7 @@ YT
 YT
 "}
 (21,1,1) = {"
-YT
+UU
 Dk
 Dk
 Dk
@@ -2488,17 +2557,17 @@ YT
 "}
 (22,1,1) = {"
 Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
+YA
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+Tc
 Rx
 wq
 DQ
@@ -2523,19 +2592,19 @@ YT
 YT
 "}
 (23,1,1) = {"
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
+YA
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+Tc
 wq
 xW
 wp
@@ -2559,19 +2628,19 @@ YT
 YT
 "}
 (24,1,1) = {"
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Rx
+ov
+ov
+ov
+ov
+ov
+SK
+ov
+ov
+ov
+ov
+ov
+ov
+Ji
 TW
 xW
 MV
@@ -2595,19 +2664,19 @@ YT
 YT
 "}
 (25,1,1) = {"
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Rx
+ov
+ov
+ov
+ov
+fH
+aU
+aU
+aU
+ov
+ov
+ov
+ov
+Ji
 TW
 LO
 LK
@@ -2631,19 +2700,19 @@ YT
 Ur
 "}
 (26,1,1) = {"
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Rx
+ov
+ov
+ov
+ov
+ov
+nP
+ov
+ov
+ov
+ov
+ov
+ov
+Ji
 TW
 PY
 LF
@@ -2667,19 +2736,19 @@ Ur
 Ur
 "}
 (27,1,1) = {"
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
+hu
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+GG
 wq
 wq
 DS
@@ -2704,17 +2773,17 @@ Ur
 "}
 (28,1,1) = {"
 Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
+hu
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+ov
+GG
 Rx
 Dk
 Fz
@@ -2863,7 +2932,7 @@ Dk
 YG
 YG
 MQ
-vG
+On
 Dk
 FG
 FG

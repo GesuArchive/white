@@ -98,39 +98,5 @@
 		overlays += overlay_string
 
 /datum/component/armor_plate/plasteel
-	upgrade_item = /obj/item/stack/sheet/plasteel_armor_plate
-	added_armor = list(MELEE = 10, BULLET = 10, LASER = 10, ENERGY = 13, BOMB = 10)
-
-/datum/crafting_recipe/plasteel_armor_plate
-	name = "Бронепластина из пластали"
-	result =  /obj/item/stack/sheet/plasteel_armor_plate
-	time = 80
-	reqs = list(/obj/item/stack/sheet/plasteel = 10)
-	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
-
-/obj/item/stack/sheet/plasteel_armor_plate
-	name = "бронепластина из пластали"
-	singular_name = "бронепластина из пластали"
-	desc = "Самодельный броневой лист грубо вырезанный из листа пластали, напоминает поделки рейнджеров НКР"
-	icon = 'white/Feline/icons/armor_plate.dmi'
-	icon_state = "plasteel_armor_plate"
-	max_amount = 6
-	merge_type = /obj/item/stack/sheet/plasteel_armor_plate
-
-/obj/item/stack/sheet/plasteel_armor_plate/three
-	amount = 3
-
-/datum/crafting_recipe/full_armor_upgrade
-	name = "Комплект защиты рук и ног"
-	result =  /obj/item/full_armor_upgrade
-	time = 80
-	reqs = list(/obj/item/stack/sheet/plasteel_armor_plate = 4, /obj/item/stack/sheet/durathread = 12, /obj/item/stack/sheet/cloth = 4, /obj/item/stack/cable_coil = 20)
-	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
-
-/obj/item/full_armor_upgrade
-	name = "комплект защиты рук и ног"
-	desc = "Набор из поножей, наручей, налокотников и наколенников для дополнительной защиты конечностей. Прикрепляется к бронежилетам."
-	icon = 'white/Feline/icons/armor_upgrade.dmi'
-	icon_state = "full_armor_upgrade"
+	upgrade_item = /obj/item/stack/sheet/armor_plate/plasteel
+	added_armor = list(MELEE = 10, WOUND = 5)

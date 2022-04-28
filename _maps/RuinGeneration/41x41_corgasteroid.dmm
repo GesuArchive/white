@@ -40,6 +40,19 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
+"ed" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
 "eq" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -145,6 +158,28 @@
 	dir = 1
 	},
 /turf/open/floor/plating/asteroid,
+/area/ruin/unpowered)
+"lZ" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
+"ma" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/no_generation,
 /area/ruin/unpowered)
 "mf" = (
 /obj/machinery/light/small{
@@ -431,6 +466,16 @@
 /obj/structure/lattice,
 /turf/open/floor/plating/asteroid,
 /area/space)
+"EP" = (
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
 "Fv" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -463,6 +508,20 @@
 	req_access_txt = "12"
 	},
 /turf/open/floor/plating,
+/area/ruin/unpowered)
+"GV" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/open/floor/plating/asteroid/no_generation,
 /area/ruin/unpowered)
 "Hc" = (
 /obj/structure/cable,
@@ -546,6 +605,16 @@
 /obj/structure/ore_box,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
+"Lj" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
 "Ln" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -559,6 +628,16 @@
 "LM" = (
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Mk" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/turf/open/floor/plating/asteroid/no_generation,
 /area/ruin/unpowered)
 "Nz" = (
 /obj/structure/chair/comfy/black,
@@ -615,6 +694,13 @@
 /area/space)
 "Rq" = (
 /turf/open/floor/plating,
+/area/ruin/unpowered)
+"Rt" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow,
+/turf/open/floor/plating/asteroid/no_generation,
 /area/ruin/unpowered)
 "Rv" = (
 /obj/structure/lattice/catwalk,
@@ -699,6 +785,16 @@
 "VS" = (
 /turf/closed/mineral/random,
 /area/space)
+"WS" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/turf/open/floor/plating/asteroid/no_generation,
+/area/ruin/unpowered)
 "Xy" = (
 /obj/structure/transit_tube,
 /obj/structure/lattice,
@@ -1441,13 +1537,13 @@ vZ
 vZ
 "}
 (18,1,1) = {"
-zL
+GV
+ma
 to
 to
 to
-to
-to
-to
+Mk
+GV
 zL
 zL
 Ok
@@ -1484,13 +1580,13 @@ vZ
 vZ
 "}
 (19,1,1) = {"
-LG
+ma
 to
 to
 to
 to
 to
-to
+Mk
 zL
 zL
 jZ
@@ -1527,7 +1623,7 @@ vZ
 vZ
 "}
 (20,1,1) = {"
-LG
+to
 to
 to
 to
@@ -1570,7 +1666,7 @@ vZ
 vZ
 "}
 (21,1,1) = {"
-Pk
+to
 to
 to
 to
@@ -1613,10 +1709,10 @@ vZ
 vZ
 "}
 (22,1,1) = {"
-Pk
 to
 to
 to
+Rt
 to
 to
 to
@@ -1656,11 +1752,11 @@ vZ
 vZ
 "}
 (23,1,1) = {"
-Pk
 to
 to
-to
-to
+lZ
+ed
+WS
 to
 to
 FG
@@ -1699,10 +1795,10 @@ vZ
 vZ
 "}
 (24,1,1) = {"
-Pk
 to
 to
 to
+ed
 to
 to
 to
@@ -1742,10 +1838,10 @@ vZ
 vZ
 "}
 (25,1,1) = {"
-Pk
 to
 to
 to
+ed
 to
 to
 to
@@ -1785,7 +1881,7 @@ vZ
 vZ
 "}
 (26,1,1) = {"
-Pk
+to
 to
 to
 to
@@ -1828,7 +1924,7 @@ vZ
 vZ
 "}
 (27,1,1) = {"
-Pk
+to
 to
 to
 to
@@ -1871,7 +1967,7 @@ vZ
 vZ
 "}
 (28,1,1) = {"
-LG
+to
 to
 to
 to
@@ -1914,13 +2010,13 @@ vZ
 vZ
 "}
 (29,1,1) = {"
-LG
+Lj
 to
 to
 to
 to
 to
-to
+EP
 Fw
 jZ
 jZ
@@ -1957,13 +2053,13 @@ vZ
 vZ
 "}
 (30,1,1) = {"
-zL
+GV
+Lj
 to
 to
 to
-to
-to
-to
+EP
+GV
 zL
 jZ
 jZ

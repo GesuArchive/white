@@ -53,6 +53,8 @@
  * -----
 */
 
+////	////	БОКС	////	////
+
 /obj/effect/landmark/stationroom/bar/default
 	template_names = list("Default Bar" = 1)
 	icon_state = "bar_template"
@@ -96,8 +98,8 @@
 /obj/effect/landmark/stationroom/brig/random
 	template_names = list(
 		"Default Brig" = 10,
-		"Loose Brig" = 4,
-		"Armored Brig" = 3
+		"Loose Brig" = 1,
+		"Armored Brig" = 4
 	)
 	icon_state = "brig_template"
 
@@ -143,6 +145,16 @@
 	// icon_state = "rdm_landmark"
 */
 
+////	////	МЕТА	////	////
+
+/obj/effect/landmark/stationroom/meta/engine/random		// 	17 x 19
+	template_names = list(
+		"Meta Supermatter" = 4,
+		"Meta Tesla" = 5
+	)
+	icon_state = "rdm17x19"
+
+////	////	РАНДОМ		////	////
 
 /obj/effect/landmark/stationroom/maintenance/rdm3x3
 	template_names = list(

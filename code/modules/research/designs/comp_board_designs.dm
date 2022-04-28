@@ -85,7 +85,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/pandemic
-	name = "ПанД.Е.М.И.Я 2200"
+	name = "П.А.Н.Д.Е.М.И.К.А 2200"
 	desc = "Используется при работе с вирусами."
 	id = "pandemic"
 	build_type = IMPRINTER | PROTOLATHE | MECHFAB

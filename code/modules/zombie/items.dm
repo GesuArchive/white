@@ -50,6 +50,9 @@
 		// zombies)
 		return
 
+	if(HAS_TRAIT(target, TRAIT_PARASITE_IMMUNE))
+		return
+
 	var/obj/item/organ/zombie_infection/infection
 	infection = target.getorganslot(ORGAN_SLOT_ZOMBIE)
 	if(!infection)
@@ -62,6 +65,9 @@
 	if(NOZOMBIE in target.dna.species.species_traits)
 		// cannot infect any NOZOMBIE subspecies (such as high functioning
 		// zombies)
+		return
+
+	if(HAS_TRAIT(target, TRAIT_PARASITE_IMMUNE))
 		return
 
 	var/obj/item/organ/zombie_infection/mutant/infection

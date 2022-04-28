@@ -9,16 +9,27 @@
 	equip_delay_other = 40
 	max_integrity = 250
 	resistance_flags = NONE
+	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, RAD = 0, FIRE = 50, ACID = 50, WOUND = 10)
+
+	var/armor_plate_amount = 0
 	var/full_armor_flag = FALSE		//	Используется исключительно для проверки на возможность модернизации
 	var/disassembly_flag = FALSE	//	Проверка на возможность разборки при помощи инструментов
-	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, RAD = 0, FIRE = 50, ACID = 50, WOUND = 10)
 
 /obj/item/clothing/suit/armor/Initialize()
 	. = ..()
-	AddComponent(/datum/component/armor_plate/plasteel)
+//	AddComponent(/datum/component/armor_plate/plasteel)
 	if(!allowed)
 		allowed = GLOB.security_vest_allowed
 
+/obj/item/clothing/suit/armor/worn_overlays(isinhands)
+	. = ..()
+	if(!isinhands)
+		if(armor_plate_amount)
+			var/mutable_appearance/armor_overlay = mutable_appearance('icons/mob/clothing/suit.dmi', "armor_plasteel_[armor_plate_amount]")
+			. += armor_overlay
+
+
+/*
 /obj/item/clothing/suit/armor/worn_overlays(isinhands)
 	. = ..()
 	if(!isinhands)
@@ -26,9 +37,43 @@
 		if(ap?.amount)
 			var/mutable_appearance/armor_overlay = mutable_appearance('icons/mob/clothing/suit.dmi', "armor_plasteel_[ap.amount]")
 			. += armor_overlay
+*/
 
 /obj/item/clothing/suit/armor/attackby(obj/item/W, mob/user, params)
 	. = ..()
+// 	Модернизация бронепластинами
+	if(istype(W, /obj/item/stack/sheet/armor_plate))
+		if(armor_plate_amount < 3)
+			var/obj/item/stack/sheet/armor_plate/S = W
+			if(armor.getRating(S.armor_type) >= 70)
+				to_chat(user, span_warning("Все уязвимые места уже перекрыты, я не представляю как это можно дополнительно укрепить!"))
+				return
+			else
+				if(armor.getRating(S.armor_type) >= 20)
+					src.armor = src.armor.attachArmor(W.armor)
+					to_chat(user, span_notice("Закрепляю дополнительную бронепластину на [src]."))
+				else
+					if(armor.getRating(S.armor_type) >= 10)
+						src.armor = src.armor.attachArmor(W.armor)
+						src.armor = src.armor.attachArmor(W.armor)
+					else
+						src.armor = src.armor.attachArmor(W.armor)
+						src.armor = src.armor.attachArmor(W.armor)
+						src.armor = src.armor.attachArmor(W.armor)
+					to_chat(user, span_notice("Закрепляю основную бронепластину на груди [src]."))
+			armor_plate_amount = armor_plate_amount + 1
+			playsound(get_turf(src), 'white/Feline/sounds/molnia.ogg', 80)
+
+			if(S.amount > 1)
+				S.amount = S.amount - 1
+				S.update_icon()
+			else
+				qdel(W)
+		else
+			to_chat(user, span_warning("Все слоты дополнительного бронирования заняты!"))
+
+// 	Защита рук и ног
+
 	if(istype(W, /obj/item/full_armor_upgrade))
 		if(!full_armor_flag)
 			full_armor_flag = TRUE
@@ -42,7 +87,7 @@
 			to_chat(user, span_warning("Данная броня уже усилена дополнительными элементами защиты рук и ног."))
 
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
-
+/*
 		var/datum/component/armor_plate/plasteel/ap = GetComponent(/datum/component/armor_plate/plasteel)
 		if(ap?.amount)
 			to_chat(user, span_notice("Извлекаю внешние бронепластины..."))
@@ -51,32 +96,34 @@
 				return TRUE
 			playsound(user, 'sound/items/handling/toolbelt_pickup.ogg', 70, TRUE)
 			for(var/i in 1 to ap.amount)
-				new /obj/item/stack/sheet/plasteel_armor_plate(src.drop_location())
+				new /obj/item/stack/sheet/armor_plate/plasteel(src.drop_location())
 			ap.amount = 0
-
+*/
+// 	Разборка Пуленепробиваемой
 		if(disassembly_flag)
 			if(istype(src, /obj/item/clothing/suit/armor/bulletproof))
-				to_chat(user, span_notice("Извлекаю дополнительную бронепластину и перераспределяю оставшиеся по стандартной схеме..."))
+				to_chat(user, span_notice("Извлекаю дополнительную керамическую бронепластину и перераспределяю оставшиеся по стандартной схеме..."))
 				playsound(user, 'sound/items/screwdriver.ogg', 70, TRUE)
 				if(!do_after(user, 5 SECONDS, src))
 					return TRUE
 				playsound(user, 'sound/items/handling/crowbar_drop.ogg', 70, TRUE)
 				new /obj/item/clothing/suit/armor/vest(src.drop_location())
-				new /obj/item/stack/sheet/plasteel_armor_plate(src.drop_location())
+				new /obj/item/stack/sheet/armor_plate/ceramic(src.drop_location())
 				qdel(src)
 				return
-
+// 	Разборка Риот
 			if(istype(src, /obj/item/clothing/suit/armor/riot))
-				to_chat(user, span_notice("Снимаю дополнительные слои дюраткани и перераспределяю бронепластины по стандартной схеме..."))
+				to_chat(user, span_notice("Извлекаю дополнительную ударостойкую бронепластину и перераспределяю оставшиеся по стандартной схеме..."))
 				playsound(user, 'sound/items/screwdriver.ogg', 70, TRUE)
 				if(!do_after(user, 5 SECONDS, src))
 					return TRUE
 				playsound(user, 'sound/items/handling/cloth_pickup.ogg', 70, TRUE)
+				new /obj/item/clothing/suit/armor/vest(src.drop_location())
 				new /obj/item/stack/sheet/durathread/six(src.drop_location())
-				new /obj/item/stack/sheet/plasteel_armor_plate(src.drop_location())
+				new /obj/item/stack/sheet/armor_plate/plasteel(src.drop_location())
 				qdel(src)
 				return
-
+// 	Разборка Старого бронежилета
 			if(istype(src, /obj/item/clothing/suit/armor/vest/old))
 				to_chat(user, span_notice("Извлекаю заклепки и расслабляю шнуровку..."))
 				playsound(user, 'sound/items/screwdriver.ogg', 70, TRUE)
@@ -85,11 +132,15 @@
 				playsound(user, 'sound/items/handling/cloth_pickup.ogg', 70, TRUE)
 				to_chat(user, span_warning("Стоило мне отковырять пару заклепок и бронежилет развалился на части!"))
 				new /obj/item/stack/sheet/durathread/ten(src.drop_location())
-				new /obj/item/stack/sheet/plasteel_armor_plate(src.drop_location())
-				new /obj/item/stack/sheet/plasteel_armor_plate(src.drop_location())
+				if(prob(80))
+					new /obj/item/stack/sheet/armor_plate/plasteel(src.drop_location())
+				if(prob(80))
+					new /obj/item/stack/sheet/armor_plate/ceramic(src.drop_location())
+				if(prob(80))
+					new /obj/item/stack/sheet/armor_plate/ablative(src.drop_location())
 				qdel(src)
 				return
-
+// 	Разборка Стандартного бронежилета
 			if(istype(src, /obj/item/clothing/suit/armor/vest))
 				to_chat(user, span_notice("Извлекаю заклепки и расслабляю шнуровку..."))
 				playsound(user, 'sound/items/screwdriver.ogg', 70, TRUE)
@@ -102,6 +153,8 @@
 
 /obj/item/clothing/suit/armor/examine(mob/user)
 	. = ..()
+	. += "<hr><span class='notice'>Здесь есть крепления для дополнительных <b>броневых пластин</b>. На текущий момент закреплено <b>[armor_plate_amount]/3</b> бронепластин.</span>"
+
 	if(disassembly_flag)
 		. += "<hr><span class='notice'>Замечаю заклепки, я думаю их можно вытащить при помощи <b>отвертки</b>.</span>"
 
@@ -260,7 +313,7 @@
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	full_armor_flag	= TRUE
-	armor = list(MELEE = 50, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, RAD = 0, FIRE = 80, ACID = 80, WOUND = 20)
+	armor = list(MELEE = 60, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, RAD = 0, FIRE = 80, ACID = 80, WOUND = 20)
 	clothing_flags = BLOCKS_SHOVE_KNOCKDOWN
 	strip_delay = 80
 	equip_delay_other = 60
