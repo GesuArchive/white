@@ -46,12 +46,15 @@
 	shot_delay = 15
 	use_power = NO_POWER_USE
 	faction = list("silicon","turret")
+	var/def_area
 
 /obj/machinery/porta_turret/armory/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/element/empprotection, EMP_PROTECT_SELF | EMP_PROTECT_WIRES)
 
 /obj/machinery/porta_turret/armory/setup()
+	var/area/A = get_area(src)
+	def_area = A?.type
 	return
 
 /obj/machinery/porta_turret/armory/interact(mob/user)
@@ -59,7 +62,7 @@
 
 /obj/machinery/porta_turret/armory/assess_perp(mob/living/carbon/human/perp)
 	. = ..()
-	if(. && istype(get_area(perp), /area/ai_monitored/security/armory))
+	if(. && istype(get_area(perp), def_area))
 		return 10
 	return 0
 
