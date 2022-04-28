@@ -824,19 +824,11 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 	required_experiments = list(/datum/experiment/explosion/maxcap)
 
-/datum/techweb_node/ballistic_weapons
-	id = "ballistic_weapons"
-	display_name = "Ballistic Weaponry"
-	description = "This isn't research.. This is reverse-engineering!"
-	prereq_ids = list("weaponry")
-	design_ids = list("mag_oldsmg", "mag_oldsmg_ap", "mag_oldsmg_ic", "traumatic")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
-
 /datum/techweb_node/exotic_ammo
 	id = "exotic_ammo"
 	display_name = "Exotic Ammunition"
 	description = "They won't know what hit em."
-	prereq_ids = list("adv_weaponry")
+	prereq_ids = list("weaponry")
 	design_ids = list("techshotshell", "c38_hotshot", "c38_iceblox")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 /*
@@ -965,7 +957,7 @@
 	id = "mecha_tools"
 	display_name = "Тяжелая картечница \"Дуплет\""
 	description = "Оружие для боевых экзокостюмов. Стреляет шквалом крупной картечи."
-	prereq_ids = list("ballistic_weapons")
+	prereq_ids = list("exotic_ammo")
 	design_ids = list("mech_scattershot", "mech_scattershot_ammo")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
@@ -973,7 +965,7 @@
 	id = "mech_carbine"
 	display_name = "Легкий зажигательный карабин БК-БЗ \"Аид\""
 	description = "Оружие для боевых экзокостюмов. Стреляет зажигательными пулями."
-	prereq_ids = list("ballistic_weapons")
+	prereq_ids = list("exotic_ammo")
 	design_ids = list("mech_carbine", "mech_carbine_ammo")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
@@ -1061,7 +1053,7 @@
 	id = "mech_lmg"
 	display_name = "Легкий пулемет Ультра АК-2"
 	description = "Оружие для боевых экзокостюмов. Стреляет короткой очередью из трех выстрелов."
-	prereq_ids = list("ballistic_weapons")
+	prereq_ids = list("exotic_ammo")
 	design_ids = list("mech_lmg", "mech_lmg_ammo")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 

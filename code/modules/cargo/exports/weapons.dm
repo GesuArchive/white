@@ -36,10 +36,15 @@
 	unit_name = "Е-Ган"
 	export_types = list(/obj/item/gun/energy/e_gun)
 
-/datum/export/weapon/wt550
+/datum/export/weapon/inferno
 	cost = CARGO_CRATE_VALUE * 1.5
-	unit_name = "автоматическая винтовка WT-550"
-	export_types = list(/obj/item/gun/ballistic/automatic/wt550)
+	unit_name = "пиролучевой пистолет"
+	export_types = list(/obj/item/gun/energy/laser/thermal/inferno)
+
+/datum/export/weapon/cryo
+	cost = CARGO_CRATE_VALUE * 1.5
+	unit_name = "криолучевой пистолет"
+	export_types = list(/obj/item/gun/energy/laser/thermal/cryo)
 
 /datum/export/weapon/shotgun
 	cost = CARGO_CRATE_VALUE * 1.5
