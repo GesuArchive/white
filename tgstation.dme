@@ -4418,7 +4418,6 @@
 #include "white\valtos\code\outfits\bomj.dm"
 #include "white\valtos\code\outfits\fatass.dm"
 #include "white\valtos\code\outfits\hacker.dm"
-#include "white\valtos\code\outfits\russian.dm"
 #include "white\valtos\code\outfits\scarlet.dm"
 #include "white\valtos\code\outfits\trader.dm"
 #include "white\valtos\code\particles\exp_emitter.dm"

@@ -40,7 +40,7 @@
 	pda_slot = ITEM_SLOT_BELT
 	l_hand = /obj/item/clipboard
 
-	backpack_contents = list(/obj/item/modular_computer/tablet/preset/cheap=1, /obj/item/storage/pill_bottle/mannitol, /obj/item/storage/pill_bottle/psicodine, /obj/item/storage/pill_bottle/paxpsych, /obj/item/storage/pill_bottle/happinesspsych, /obj/item/storage/pill_bottle/lsdpsych, /obj/item/storage/pill_bottle/labebium)
+	backpack_contents = list(/obj/item/storage/pill_bottle/mannitol, /obj/item/storage/pill_bottle/psicodine, /obj/item/storage/pill_bottle/paxpsych, /obj/item/storage/pill_bottle/happinesspsych, /obj/item/storage/pill_bottle/lsdpsych, /obj/item/storage/pill_bottle/labebium)
 
 	skillchips = list(/obj/item/skillchip/job/psychology)
 

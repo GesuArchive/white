@@ -43,7 +43,6 @@
 	head = /obj/item/clothing/head/chefhat
 	mask = /obj/item/clothing/mask/fakemoustache/italian
 	backpack_contents = list(
-		/obj/item/modular_computer/tablet/preset/cheap = 1,
 		/obj/item/sharpener = 1,
 		/obj/item/choice_beacon/ingredient = 1
 		)
