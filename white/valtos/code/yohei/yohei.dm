@@ -116,7 +116,7 @@
 		animate(user, alpha = clamp(255 - charge, 0, 255), time = 10)
 
 /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
-	name = "пистолет Тиберия"
+	name = "пластмассовый пистолет"
 	desc = "Пистолет малой мощности и не сбывшихся надежд. Возможно последний экземпляр."
 	icon_state = "gosling"
 	inhand_icon_state = "devil"
@@ -297,7 +297,7 @@
 	uniform = /obj/item/clothing/under/syndicate/yohei/red
 	r_pocket = /obj/item/ammo_box/magazine/fallout/m9mm
 
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic/contractor_baton = 1, /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm = 1, /obj/item/restraints/handcuffs/energy = 2)
+	backpack_contents = list(/obj/item/melee/classic_baton/telescopic/contractor_baton = 1, /obj/item/restraints/handcuffs/energy = 2)
 
 /datum/outfit/yohei/breaker
 	name = "Йохей: Взломщик"
@@ -806,7 +806,7 @@
 					/obj/item/stack/medical/aloe = 5,
 					/obj/item/stack/medical/suture/medicated = 5)
 	premium = list(/obj/item/shadowcloak/yohei = 1,
-		           /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm = 3,
+		           /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm = 1,
 				   /obj/item/gun/ballistic/automatic/fallout/marksman/sniper = 1,
 		           /obj/item/pamk = 5,
 		           /obj/item/storage/belt/military/abductor/full = 1,
