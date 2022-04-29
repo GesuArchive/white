@@ -88,6 +88,7 @@
 	id = "lockdown";
 	name = "LOCKDOWN"
 	},
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /turf/open/floor/engine/hull,
 /area/tcommsat/server)
 "bq" = (
@@ -155,6 +156,10 @@
 /obj/machinery/light_switch/directional/west,
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
+"ci" = (
+/obj/machinery/recharge_station,
+/turf/open/floor/circuit/telecomms/mainframe,
+/area/tcommsat/server)
 "cj" = (
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/plasteel/white,
@@ -179,6 +184,10 @@
 "cB" = (
 /turf/closed/indestructible/black,
 /area/space)
+"cH" = (
+/obj/machinery/telecomms/bus/preset_one/birdstation,
+/turf/open/floor/circuit/telecomms/mainframe,
+/area/tcommsat/server)
 "cJ" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/cable/multilayer/multiz,
@@ -226,6 +235,7 @@
 	name = "LOCKDOWN"
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /turf/open/floor/engine/hull,
 /area/tcommsat/server)
 "dA" = (
@@ -543,6 +553,10 @@
 /obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/plasteel/dark,
 /area/cargo/office)
+"hD" = (
+/obj/machinery/telecomms/server/presets/common/birdstation,
+/turf/open/floor/circuit/telecomms/mainframe,
+/area/tcommsat/server)
 "hM" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/plasteel/cult,
@@ -630,6 +644,7 @@
 	cur_deck = 1;
 	pixel_y = 32
 	},
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "iI" = (
@@ -651,11 +666,8 @@
 /turf/open/openspace,
 /area/engineering/main)
 "je" = (
-/obj/machinery/telecomms/allinone/indestructable{
-	id = "aio";
-	network = "tcommsat"
-	},
 /obj/machinery/camera/motion/directional/south,
+/obj/machinery/telecomms/hub/preset,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/tcommsat/server)
 "jf" = (
@@ -682,6 +694,7 @@
 	name = "LOCKDOWN"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/effect/mapping_helpers/airlock/access/any/service/kitchen,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "jj" = (
@@ -709,11 +722,23 @@
 	id = "lockdown";
 	name = "LOCKDOWN"
 	},
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "jm" = (
 /turf/closed/wall/r_wall,
 /area/engineering/main)
+"jq" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/grunge,
+/obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/machinery/button/elevator{
+	id = "publicElevator";
+	pixel_x = -32
+	},
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
 "jw" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/brown,
@@ -775,6 +800,7 @@
 	cur_deck = 2;
 	pixel_y = 32
 	},
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "jT" = (
@@ -856,7 +882,6 @@
 "kX" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/grunge,
-/obj/effect/mapping_helpers/airlock/access/any/security/general,
 /obj/machinery/door/poddoor/preopen{
 	id = "lockdown";
 	name = "LOCKDOWN"
@@ -980,7 +1005,6 @@
 "mK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/grunge,
-/obj/effect/mapping_helpers/airlock/access/any/security/general,
 /obj/machinery/button/elevator{
 	id = "publicElevator";
 	pixel_y = 32
@@ -1040,6 +1064,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/red,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/plasteel/dark,
 /area/security/brig/upper)
 "nt" = (
@@ -1176,6 +1201,10 @@
 /obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/plasteel/cafeteria,
 /area/security/prison/mess)
+"oO" = (
+/obj/machinery/telecomms/receiver/preset_left/birdstation,
+/turf/open/floor/circuit/telecomms/mainframe,
+/area/tcommsat/server)
 "oS" = (
 /obj/structure/closet/crate,
 /obj/effect/turf_decal/bot,
@@ -1312,6 +1341,18 @@
 	pixel_y = 32
 	},
 /obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/effect/mapping_helpers/airlock/access/any/service/kitchen,
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
+"qq" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/grunge,
+/obj/machinery/door/poddoor/preopen{
+	id = "lockdown";
+	name = "LOCKDOWN"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/effect/mapping_helpers/airlock/access/any/science/general,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "qB" = (
@@ -1434,6 +1475,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/captain)
+"rX" = (
+/obj/structure/lattice/catwalk,
+/turf/open/openspace,
+/area/tcommsat/server)
 "rY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -1462,6 +1507,7 @@
 	id = "lockdown";
 	name = "LOCKDOWN"
 	},
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "sj" = (
@@ -1909,6 +1955,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/red,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/plasteel/dark,
 /area/security/brig/upper)
 "wK" = (
@@ -1983,6 +2030,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/morgue)
+"xD" = (
+/obj/machinery/telecomms/message_server,
+/turf/open/floor/circuit/telecomms/mainframe,
+/area/tcommsat/server)
 "xE" = (
 /obj/structure/closet/crate,
 /obj/effect/turf_decal/bot,
@@ -2033,9 +2084,16 @@
 /turf/closed/wall/r_wall,
 /area/medical/morgue)
 "yw" = (
-/obj/effect/landmark/latejoin,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/grunge,
+/obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/machinery/button/elevator{
+	id = "publicElevator";
+	pixel_y = 32
+	},
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /turf/open/floor/plasteel/dark,
-/area/cargo/office)
+/area/hallway/primary/central)
 "yC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -2408,6 +2466,12 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/lab)
+"Ez" = (
+/obj/machinery/computer/telecomms/monitor{
+	dir = 8
+	},
+/turf/open/floor/circuit/telecomms/mainframe,
+/area/tcommsat/server)
 "EB" = (
 /obj/machinery/camera/autoname/directional/north,
 /obj/structure/cable,
@@ -2517,6 +2581,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/grunge,
 /obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "FR" = (
@@ -2586,6 +2651,7 @@
 	name = "LOCKDOWN"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/effect/mapping_helpers/airlock/access/any/service/hydroponics,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "GB" = (
@@ -2594,7 +2660,6 @@
 "GD" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/grunge,
-/obj/effect/mapping_helpers/airlock/access/any/security/general,
 /obj/machinery/button/elevator{
 	id = "publicElevator";
 	pixel_x = 32
@@ -2726,6 +2791,13 @@
 	},
 /turf/open/floor/plasteel/checker,
 /area/service/kitchen)
+"IC" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/grunge,
+/obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/effect/mapping_helpers/airlock/access/any/supply/general,
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
 "ID" = (
 /obj/machinery/rnd/production/protolathe/department/security,
 /obj/machinery/light/directional/east,
@@ -2953,6 +3025,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
+"KY" = (
+/obj/machinery/blackbox_recorder,
+/turf/open/floor/circuit/telecomms/mainframe,
+/area/tcommsat/server)
 "Lb" = (
 /obj/structure/cable,
 /obj/machinery/light/directional/south,
@@ -3128,6 +3204,7 @@
 	name = "LOCKDOWN"
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "MC" = (
@@ -3375,6 +3452,14 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
+/obj/item/storage/box/ids{
+	pixel_x = 7;
+	pixel_y = 13
+	},
+/obj/item/storage/box/ids{
+	pixel_x = -9;
+	pixel_y = 13
+	},
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/captain)
 "PD" = (
@@ -3399,6 +3484,21 @@
 /obj/structure/ladder,
 /turf/open/openspace,
 /area/security/brig)
+"PW" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/grunge,
+/obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/machinery/button/elevator{
+	id = "publicElevator";
+	pixel_x = 32
+	},
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
+"Qb" = (
+/obj/machinery/telecomms/broadcaster/preset_left/birdstation,
+/turf/open/floor/circuit/telecomms/mainframe,
+/area/tcommsat/server)
 "Qc" = (
 /obj/structure/industrial_lift{
 	id = "publicElevator"
@@ -3409,6 +3509,17 @@
 /obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/plasteel/white,
 /area/medical/morgue)
+"Qv" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/grunge,
+/obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/machinery/button/elevator{
+	id = "publicElevator";
+	pixel_x = 32
+	},
+/obj/effect/mapping_helpers/airlock/access/any/supply/general,
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
 "Qw" = (
 /obj/machinery/light/directional/west,
 /obj/structure/railing/corner{
@@ -3435,6 +3546,7 @@
 	name = "LOCKDOWN"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/effect/mapping_helpers/airlock/access/any/science/general,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "QM" = (
@@ -3483,6 +3595,10 @@
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/captain)
 "QR" = (
+/obj/machinery/computer/message_monitor{
+	dir = 4
+	},
+/obj/item/paper/monitorkey,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/tcommsat/server)
 "QU" = (
@@ -3520,6 +3636,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "Rz" = (
@@ -3624,7 +3741,6 @@
 "SA" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/grunge,
-/obj/effect/mapping_helpers/airlock/access/any/security/general,
 /obj/machinery/door/poddoor/preopen{
 	id = "lockdown";
 	name = "LOCKDOWN"
@@ -3649,6 +3765,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/resin,
 /area/security/prison/safe)
+"SO" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/grunge,
+/obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
 "SU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/railing,
@@ -4102,6 +4225,17 @@
 "WZ" = (
 /turf/closed/wall/r_wall,
 /area/hallway/primary/central)
+"Xb" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/grunge,
+/obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/machinery/button/elevator{
+	id = "publicElevator";
+	pixel_y = -32
+	},
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
 "Xd" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/airalarm/directional/west,
@@ -4267,6 +4401,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/red,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/plasteel/dark,
 /area/security/brig/upper)
 "YQ" = (
@@ -4350,6 +4485,7 @@
 	id = "lockdown";
 	name = "LOCKDOWN"
 	},
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "Zo" = (
@@ -4382,6 +4518,7 @@
 	name = "LOCKDOWN"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/effect/mapping_helpers/airlock/access/any/service/hydroponics,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "ZE" = (
@@ -6104,8 +6241,8 @@ OR
 mJ
 WZ
 WZ
-Yh
-ZX
+yw
+SO
 WZ
 WZ
 MU
@@ -6415,7 +6552,7 @@ mJ
 WZ
 WZ
 ix
-rN
+Xb
 WZ
 WZ
 TM
@@ -9825,8 +9962,8 @@ dI
 Ku
 WZ
 WZ
-Yh
-ZX
+yw
+SO
 WZ
 WZ
 xw
@@ -9947,12 +10084,12 @@ Kz
 mr
 FQ
 Lz
-ZX
+SO
 Zg
 DP
 DP
 KX
-Wb
+jq
 ch
 FQ
 bV
@@ -10009,12 +10146,12 @@ Vf
 jT
 FQ
 fN
-YQ
+PW
 Ns
 DP
 DP
 KX
-ZX
+SO
 Lz
 FQ
 bV
@@ -10136,7 +10273,7 @@ Ku
 WZ
 WZ
 jR
-rN
+Xb
 WZ
 WZ
 Sc
@@ -11169,7 +11306,7 @@ vL
 vL
 NV
 ue
-QR
+rX
 ld
 NV
 vL
@@ -11231,7 +11368,7 @@ vL
 vL
 NV
 NV
-QR
+ci
 NV
 NV
 vL
@@ -13735,7 +13872,7 @@ aW
 Wa
 Wa
 KX
-ZD
+qq
 zL
 Vq
 Is
@@ -14828,7 +14965,7 @@ vL
 vL
 NV
 NV
-QR
+Qb
 NV
 NV
 rF
@@ -14890,7 +15027,7 @@ vL
 vL
 NV
 ue
-QR
+rX
 ld
 NV
 vL
@@ -14952,7 +15089,7 @@ vL
 vL
 NV
 NV
-QR
+Ez
 NV
 NV
 vL
@@ -18549,7 +18686,7 @@ vL
 vL
 NV
 NV
-QR
+cH
 NV
 NV
 vL
@@ -18611,7 +18748,7 @@ vL
 vL
 NV
 ue
-QR
+rX
 ld
 NV
 vL
@@ -18673,7 +18810,7 @@ vL
 vL
 NV
 NV
-QR
+oO
 NV
 NV
 vL
@@ -22270,7 +22407,7 @@ vL
 vL
 NV
 NV
-QR
+KY
 NV
 NV
 rF
@@ -22332,7 +22469,7 @@ vL
 vL
 NV
 ue
-QR
+rX
 ld
 NV
 vL
@@ -22394,7 +22531,7 @@ vL
 vL
 NV
 NV
-QR
+xD
 NV
 NV
 vL
@@ -25991,7 +26128,7 @@ vL
 vL
 NV
 NV
-QR
+hD
 NV
 NV
 vL
@@ -26053,7 +26190,7 @@ vL
 vL
 NV
 ue
-QR
+rX
 ld
 NV
 vL
@@ -27667,7 +27804,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -27729,7 +27866,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -27791,7 +27928,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -27853,7 +27990,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -27915,7 +28052,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -27977,14 +28114,14 @@ vL
 vL
 vL
 vL
+rF
 vL
 vL
 vL
 vL
 vL
 vL
-vL
-vL
+rF
 vL
 vL
 vL
@@ -28039,14 +28176,14 @@ vL
 vL
 vL
 vL
+rF
 vL
 vL
 vL
 vL
 vL
 vL
-vL
-vL
+rF
 vL
 vL
 vL
@@ -28072,7 +28209,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -28101,17 +28238,17 @@ vL
 vL
 vL
 vL
+rF
 vL
 vL
 vL
 vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
+rF
+rF
+rF
+rF
+rF
+rF
 GB
 GB
 nW
@@ -28125,17 +28262,17 @@ Fk
 YF
 LX
 GB
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
 vL
 vL
 vL
@@ -28163,14 +28300,14 @@ vL
 vL
 vL
 vL
+rF
 vL
 vL
 vL
 vL
 vL
 vL
-vL
-vL
+rF
 vL
 vL
 vL
@@ -28196,7 +28333,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -28225,14 +28362,14 @@ vL
 vL
 vL
 vL
+rF
 vL
 vL
 vL
 vL
 vL
 vL
-vL
-vL
+rF
 vL
 vL
 vL
@@ -28258,7 +28395,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -28287,14 +28424,14 @@ vL
 vL
 vL
 vL
+rF
 vL
 vL
 vL
 vL
 vL
 vL
-vL
-vL
+rF
 vL
 vL
 vL
@@ -28320,7 +28457,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -28345,21 +28482,21 @@ vL
 vL
 vL
 vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
 GB
 nW
 TN
@@ -28382,7 +28519,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -28411,14 +28548,14 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
 vL
 vL
 Fy
-vL
+rF
 vL
 vL
 vL
@@ -28444,7 +28581,7 @@ vE
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -28473,20 +28610,20 @@ vL
 vL
 vL
 vL
+rF
 vL
 vL
 vL
 vL
 vL
 vL
-vL
-vL
+rF
 vL
 vL
 vL
 lX
 BE
-yw
+DT
 JN
 uo
 gs
@@ -28503,10 +28640,10 @@ TY
 rs
 ir
 vE
-vL
-vL
-vL
-vL
+rF
+rF
+rF
+rF
 vL
 vL
 vL
@@ -28542,17 +28679,17 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 Or
 bt
 BE
-yw
+DT
 Xi
 gM
 tO
-ZX
+IC
 Zg
 Qc
 Qc
@@ -28568,7 +28705,7 @@ vE
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -28604,17 +28741,17 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
 bt
 BE
-yw
+DT
 DT
 uo
 tO
-YQ
+Qv
 Ns
 Qc
 Qc
@@ -28630,7 +28767,7 @@ vE
 vL
 vL
 vL
-vL
+rF
 Fy
 vL
 vL
@@ -28666,13 +28803,13 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
 lG
 BE
-yw
+DT
 SI
 uo
 Lb
@@ -28689,10 +28826,10 @@ rs
 rs
 nm
 vE
-vL
-vL
-vL
-vL
+rF
+rF
+rF
+rF
 vL
 vL
 vL
@@ -28728,7 +28865,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -28754,7 +28891,7 @@ vE
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -28816,7 +28953,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -28852,7 +28989,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -28878,7 +29015,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -28914,7 +29051,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -28940,7 +29077,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -28976,7 +29113,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -29002,7 +29139,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -29036,12 +29173,12 @@ vL
 vL
 vL
 vL
-vL
-vL
-vL
-vL
-vL
-vL
+rF
+rF
+rF
+rF
+rF
+rF
 GB
 GB
 nW
@@ -29055,17 +29192,17 @@ kY
 rW
 rp
 GB
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
-vL
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+rF
 vL
 vL
 vL
@@ -29100,7 +29237,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -29126,7 +29263,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -29162,7 +29299,7 @@ vL
 vL
 vL
 vL
-vL
+rF
 vL
 vL
 vL
@@ -29774,7 +29911,7 @@ vL
 vL
 NV
 je
-QR
+rX
 ld
 NV
 vL
