@@ -87,7 +87,7 @@
 	. = ..()
 	switch(blocks_emissive)
 		if(EMISSIVE_BLOCK_GENERIC)
-			var/mutable_appearance/gen_emissive_blocker = mutable_appearance(icon, icon_state, plane = EMISSIVE_PLANE)
+			var/mutable_appearance/gen_emissive_blocker = mutable_appearance(icon, icon_state, plane = EMISSIVE_PLANE, alpha = src.alpha)
 			gen_emissive_blocker.color = GLOB.em_block_color
 			gen_emissive_blocker.dir = dir
 			gen_emissive_blocker.appearance_flags |= appearance_flags
@@ -138,9 +138,6 @@
 			qdel(move_packet)
 		move_packet = null
 
-	// no reason not to do this unless you're a turf
-	vis_contents.Cut()
-
 	. = ..()
 
 	for(var/movable_content in contents)
@@ -154,6 +151,7 @@
 	//DO it after moveToNullspace so memes can be had
 	LAZYCLEARLIST(important_recursive_contents)
 
+	vis_locs = null //clears this atom out of all viscontents
 	vis_contents.Cut()
 
 
