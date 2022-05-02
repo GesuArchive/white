@@ -228,7 +228,7 @@
 		var/mob/living/carbon/human/humanoid = i
 		if(!trackable(humanoid))
 			continue
-		var/crewmember_name = "Unknown"
+		var/crewmember_name = "Неизвестный"
 		if(humanoid.wear_id)
 			var/obj/item/card/id/ID = humanoid.wear_id.GetID()
 			if(ID?.registered_name)

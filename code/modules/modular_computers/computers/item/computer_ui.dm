@@ -74,9 +74,9 @@
 		var/stored_name = saved_identification
 		var/stored_title = saved_job
 		if(!stored_name)
-			stored_name = "Unknown"
+			stored_name = "Неизвестный"
 		if(!stored_title)
-			stored_title = "Unknown"
+			stored_title = "Неизвестный"
 		data["login"] = list(
 			IDName = saved_identification,
 			IDJob = saved_job,

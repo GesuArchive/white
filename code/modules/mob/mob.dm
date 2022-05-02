@@ -1087,14 +1087,20 @@
  *
  * Calling this proc without an oldname will only update the mob and skip updating the pda, id and records ~Carn
  */
-/mob/proc/fully_replace_character_name(oldname,newname)
+/mob/proc/fully_replace_character_name(oldname, newname)
 	if(!newname)
 		log_message("[src] failed name change from [oldname] as no new name was specified", LOG_OWNERSHIP)
+		return FALSE
+	if(oldname == newname)
+		log_message("[src] failed name change as the new name was the same as the old one: [oldname]", LOG_OWNERSHIP)
+		return FALSE
+	if(!istext(newname) && !isnull(newname))
+		stack_trace("[src] attempted to change its name from [oldname] to the non string value [newname]")
 		return FALSE
 
 	log_message("[src] name changed from [oldname] to [newname]", LOG_OWNERSHIP)
 
-	log_played_names(ckey,newname)
+	log_played_names(ckey, newname)
 
 	real_name = newname
 	name = newname
@@ -1144,6 +1150,9 @@
 			var/obj/item/modular_computer/tablet/pda/PDA = A
 			if(PDA.saved_identification == oldname)
 				PDA.saved_identification = newname
+				var/obj/item/computer_hardware/identifier/display = PDA.all_components[MC_IDENTIFY]
+				if(display)
+					display.UpdateDisplay()
 				if(!search_id)
 					break
 				search_pda = 0

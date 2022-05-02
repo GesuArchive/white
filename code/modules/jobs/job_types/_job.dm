@@ -143,13 +143,6 @@
 		for(var/i in roundstart_experience)
 			experiencer.mind.adjust_experience(i, roundstart_experience[i], TRUE)
 
-	var/obj/item/modular_computer/tablet/pda/PDA = H.get_item_by_slot(ITEM_SLOT_BELT)
-	if(istype(PDA))
-		var/obj/item/computer_hardware/identifier/id = PDA.all_components[MC_IDENTIFY]
-
-		if(id)
-			id.UpdateDisplay()
-
 	if(istype(src, /datum/job/ai) || istype(src, /datum/job/cyborg))
 		return
 
@@ -407,6 +400,10 @@
 	if(istype(PDA))
 		PDA.saved_identification = C.registered_name
 		PDA.saved_job = C.assignment
+
+		var/obj/item/computer_hardware/identifier/id = PDA.all_components[MC_IDENTIFY]
+		if(id)
+			id.UpdateDisplay()
 
 	if(H.client?.prefs.playtime_reward_cloak)
 		neck = /obj/item/clothing/neck/cloak/skill_reward/playing
