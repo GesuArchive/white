@@ -1200,7 +1200,7 @@
 ///Can this mob read (is literate and not blind)
 /mob/proc/can_read(obj/O)
 	if(is_blind())
-		to_chat(src, span_warning("Пытаясь прочитать [O], но внезапно чувствую себя слишком тупым!"))
+		to_chat(src, span_warning("Пытаюсь прочитать [O], но внезапно чувствую себя слишком тупым!"))
 		return
 	if(!is_literate())
 		to_chat(src, span_notice("Пытаюсь прочитать [O], но внезапно понимаю, что не умею читать."))

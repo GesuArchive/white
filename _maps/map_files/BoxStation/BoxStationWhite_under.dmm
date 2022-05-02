@@ -13936,7 +13936,16 @@
 	dir = 8;
 	sortType = 6
 	},
-/turf/open/space/basic,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
 /area/service/bar)
 "Et" = (
 /obj/effect/landmark/start/bomj,
