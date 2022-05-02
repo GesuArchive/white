@@ -97,7 +97,7 @@
 		floorturf = T
 		if(floorturf.floor_tile)
 			new floorturf.floor_tile(T)
-		floorturf.make_plating()
+		floorturf.make_plating(TRUE)
 
 	if(direction)		// direction is specified
 		if(isspaceturf(T)) // if ended in space, then range is unlimited
@@ -151,6 +151,9 @@
 				transfer_fingerprints_to(stored)
 				stored.setDir(dir)
 				stored = null
+			if (contents.len > 1) // if there is actually something in the pipe
+				var/obj/structure/disposalholder/holder = locate() in src
+				expel(holder, loc, dir)
 		else
 			var/turf/T = get_turf(src)
 			for(var/D in GLOB.cardinals)
