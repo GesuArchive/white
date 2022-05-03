@@ -8810,7 +8810,7 @@
 /obj/structure/flora/ausbushes/reedbush{
 	pixel_y = 8
 	},
-/turf/open/floor/grass/cataclysmdda,
+/turf/open/floor/grass,
 /area/hallway/primary/central)
 "cRU" = (
 /obj/structure/cable,
@@ -33211,7 +33211,7 @@
 /area/security/main)
 "nhN" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/open/floor/grass/cataclysmdda,
+/turf/open/floor/grass,
 /area/hallway/primary/central)
 "nid" = (
 /obj/effect/turf_decal/tile/yellow{
@@ -36655,7 +36655,7 @@
 "oFn" = (
 /mob/living/simple_animal/crab/coffee,
 /obj/machinery/light/directional/west,
-/turf/open/floor/grass/cataclysmdda,
+/turf/open/floor/grass,
 /area/hallway/primary/central)
 "oFq" = (
 /obj/structure/lattice/catwalk,
@@ -37621,7 +37621,7 @@
 /area/maintenance/starboard/secondary)
 "oXZ" = (
 /obj/structure/flora/ausbushes/reedbush,
-/turf/open/floor/grass/cataclysmdda,
+/turf/open/floor/grass,
 /area/hallway/primary/central)
 "oYp" = (
 /obj/machinery/atmospherics/components/trinary/filter/flipped/critical{
@@ -38473,7 +38473,7 @@
 /obj/structure/flora/ausbushes/reedbush{
 	pixel_y = 8
 	},
-/turf/open/floor/grass/cataclysmdda,
+/turf/open/floor/grass,
 /area/hallway/primary/central)
 "prb" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
@@ -43260,7 +43260,7 @@
 /area/engineering/engine_smes)
 "rwn" = (
 /obj/structure/flora/ausbushes/grassybush,
-/turf/open/floor/grass/cataclysmdda,
+/turf/open/floor/grass,
 /area/hallway/primary/central)
 "rwJ" = (
 /obj/effect/turf_decal/tile/red{
@@ -43325,7 +43325,7 @@
 "rxK" = (
 /obj/machinery/light/directional/east,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/open/floor/grass/cataclysmdda,
+/turf/open/floor/grass,
 /area/hallway/primary/central)
 "rys" = (
 /obj/machinery/door/airlock/security{
@@ -51283,7 +51283,7 @@
 /area/command/heads_quarters/hos)
 "uMt" = (
 /obj/structure/flora/ausbushes/stalkybush,
-/turf/open/floor/grass/cataclysmdda,
+/turf/open/floor/grass,
 /area/hallway/primary/central)
 "uMK" = (
 /obj/structure/closet/toolcloset,
@@ -51902,7 +51902,7 @@
 "vaC" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/rock,
-/turf/open/floor/grass/cataclysmdda,
+/turf/open/floor/grass,
 /area/hallway/primary/central)
 "vaI" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -58869,7 +58869,7 @@
 /area/security/checkpoint/escape)
 "xJs" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/open/floor/grass/cataclysmdda,
+/turf/open/floor/grass,
 /area/hallway/primary/central)
 "xJw" = (
 /obj/effect/decal/cleanable/dirt,
