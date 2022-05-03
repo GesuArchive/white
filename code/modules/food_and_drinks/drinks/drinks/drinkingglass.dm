@@ -66,6 +66,7 @@
 	name = "шот"
 	desc = "A shot glass - the universal symbol for bad decisions."
 	icon_state = "shotglass"
+	base_icon_state = "shotglass"
 	gulp_size = 15
 	amount_per_transfer_from_this = 15
 	possible_transfer_amounts = list(15)
