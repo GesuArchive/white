@@ -32369,7 +32369,7 @@
 /area/maintenance/port/aft)
 "eZS" = (
 /obj/machinery/door/window{
-	atom_integrity = 300;
+	obj_integrity = 300;
 	base_state = "rightsecure";
 	dir = 4;
 	icon_state = "rightsecure";
@@ -41526,7 +41526,7 @@
 	pixel_x = 8
 	},
 /obj/machinery/door/window{
-	atom_integrity = 300;
+	obj_integrity = 300;
 	base_state = "leftsecure";
 	dir = 8;
 	icon_state = "leftsecure";
@@ -60885,7 +60885,7 @@
 	pixel_y = 28
 	},
 /obj/machinery/door/window{
-	atom_integrity = 300;
+	obj_integrity = 300;
 	base_state = "leftsecure";
 	dir = 8;
 	icon_state = "leftsecure";
@@ -76265,7 +76265,7 @@
 	pixel_x = -8
 	},
 /obj/machinery/door/window{
-	atom_integrity = 300;
+	obj_integrity = 300;
 	base_state = "rightsecure";
 	dir = 4;
 	icon_state = "rightsecure";
