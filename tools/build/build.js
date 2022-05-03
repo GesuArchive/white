@@ -49,6 +49,7 @@ export const DmMapsIncludeTarget = new Juke.Target({
       ...Juke.glob('_maps/shuttles/**/*.dmm'),
       ...Juke.glob('_maps/templates/**/*.dmm'),
       ...Juke.glob('_maps/RuinGeneration/*.dmm'),
+      ...Juke.glob('_maps/RandomRooms/*.dmm'),
     ];
     const content = folders
       .map((file) => file.replace('_maps/', ''))
@@ -296,7 +297,7 @@ export const CleanAllTarget = new Juke.Target({
  * Does not clean them up, as this is intended for TGS which
  * clones new copies anyway.
  */
- const prependDefines = (...defines) => {
+const prependDefines = (...defines) => {
   const dmeContents = fs.readFileSync(`${DME_NAME}.dme`);
   const textToWrite = defines.map(define => `#define ${define}\n`);
   fs.writeFileSync(`${DME_NAME}.dme`, `${textToWrite}\n${dmeContents}`);
