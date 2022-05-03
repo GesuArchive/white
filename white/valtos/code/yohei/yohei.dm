@@ -629,6 +629,7 @@
 	assignedrole = "Yohei"
 	req_sum = 1250
 	uses = 16
+	radial_based = TRUE
 
 /obj/effect/mob_spawn/human/donate/yohei/attack_ghost(mob/user)
 	if(GLOB.migger_alarm)
