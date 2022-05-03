@@ -13,10 +13,10 @@
 /obj/effect/turf_decal/weather/side/corner{
 	dir = 1
 	},
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/ctf)
 "bS" = (
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/ctf)
 "cs" = (
 /obj/structure/barricade/wooden/snowed,
@@ -54,7 +54,7 @@
 /obj/structure/fence/end{
 	dir = 1
 	},
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/ctf)
 "fg" = (
 /turf/open/floor/plating,
@@ -83,7 +83,7 @@
 /area/ctf)
 "mK" = (
 /obj/structure/flora/rock/icy,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/ctf)
 "na" = (
 /obj/effect/baseturf_helper/asteroid,
@@ -151,12 +151,12 @@
 /area/ctf)
 "xC" = (
 /obj/structure/statue/snow/snowlegion,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/ctf)
 "yC" = (
 /obj/effect/turf_decal/weather/side/corner,
 /obj/effect/turf_decal/weather/side/corner,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/ctf)
 "BV" = (
 /obj/effect/turf_decal/weather/side{
@@ -192,7 +192,7 @@
 /obj/effect/turf_decal/weather/side/corner{
 	dir = 4
 	},
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/ctf)
 "IB" = (
 /obj/effect/turf_decal/weather/side{
@@ -244,19 +244,19 @@
 /obj/effect/turf_decal/weather/side/corner{
 	dir = 8
 	},
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/ctf)
 "Pq" = (
 /obj/structure/fence,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/ctf)
 "Su" = (
 /obj/structure/statue/snow/snowman,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/ctf)
 "SY" = (
 /obj/structure/flora/rock/pile/icy,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/ctf)
 "Tf" = (
 /obj/effect/turf_decal/weather/side{
@@ -270,11 +270,11 @@
 "Vk" = (
 /obj/structure/fence,
 /obj/structure/fence/end,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/ctf)
 "VO" = (
 /obj/effect/turf_decal/weather/side/corner,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/ctf)
 "WA" = (
 /obj/effect/turf_decal/weather/snow/corner{

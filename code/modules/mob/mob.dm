@@ -1194,17 +1194,31 @@
 		client.mouse_pointer_icon = client.mouse_override_icon
 
 
-///This mob is abile to read books
+/// This mob is abile to read books
 /mob/proc/is_literate()
 	return FALSE
-///Can this mob read (is literate and not blind)
+
+/**
+ * Checks if there is enough light where the mob is located
+ *
+ * Args:
+ *  light_amount (optional) - A decimal amount between 1.0 through 0.0 (default is 0.2)
+**/
+/mob/proc/has_light_nearby(light_amount = LIGHTING_TILE_IS_DARK)
+	var/turf/mob_location = get_turf(src)
+	return mob_location.get_lumcount() > light_amount
+
+/// Can this mob read (is literate and not blind)
 /mob/proc/can_read(obj/O)
 	if(is_blind())
-		to_chat(src, span_warning("Пытаюсь прочитать [O], но внезапно чувствую себя слишком тупым!"))
-		return
+		to_chat(src, span_warning("Пытаюсь прочитать [O], но ничего не вижу!"))
+		return FALSE
 	if(!is_literate())
 		to_chat(src, span_notice("Пытаюсь прочитать [O], но внезапно понимаю, что не умею читать."))
-		return
+		return FALSE
+	if(!has_light_nearby() && !has_nightvision())
+		to_chat(src, span_warning("Слишком темно для чтения!"))
+		return FALSE
 	return TRUE
 
 /**

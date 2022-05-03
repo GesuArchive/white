@@ -14,10 +14,10 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/odin)
 "ac" = (
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/odin)
 "ad" = (
 /obj/structure/cable,
@@ -35,11 +35,11 @@
 /turf/open/floor/plasteel/dark,
 /area/medical/chemistry)
 "ak" = (
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/dva)
 "al" = (
 /obj/structure/ladder,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/dva)
 "am" = (
 /obj/structure/lattice,
@@ -52,13 +52,13 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "av" = (
 /obj/structure/railing/corner{
 	dir = 1
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "ay" = (
 /obj/machinery/light/small{
@@ -169,7 +169,7 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "aV" = (
 /turf/open/floor/plasteel/dark,
@@ -179,7 +179,7 @@
 	dir = 4;
 	icon_state = "camera"
 	},
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "aX" = (
 /obj/structure/cable,
@@ -189,7 +189,7 @@
 /area/engineering/atmos)
 "aY" = (
 /obj/machinery/light/small,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/dva)
 "aZ" = (
 /turf/open/floor/partyhard/steel/dotted,
@@ -202,7 +202,7 @@
 /obj/structure/railing{
 	dir = 5
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/chetyre)
 "bc" = (
 /turf/closed/wall/rust,
@@ -211,22 +211,22 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/chetyre)
 "be" = (
 /obj/structure/cable,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/chetyre)
 "bf" = (
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube"
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/dva)
 "bg" = (
 /obj/machinery/light,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/dva)
 "bi" = (
 /obj/machinery/camera{
@@ -255,21 +255,21 @@
 	dir = 1;
 	icon_state = "bulb"
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/dva)
 "bm" = (
 /obj/machinery/light/small{
 	dir = 4;
 	icon_state = "bulb"
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/dva)
 "bn" = (
 /obj/machinery/light/small{
 	dir = 8;
 	icon_state = "bulb"
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/dva)
 "bo" = (
 /obj/machinery/light/small{
@@ -277,7 +277,7 @@
 	icon_state = "bulb"
 	},
 /obj/structure/cable,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "bp" = (
 /obj/machinery/light/small{
@@ -291,7 +291,7 @@
 	icon_state = "bulb"
 	},
 /obj/structure/cable,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "br" = (
 /obj/item/storage/toolbox/mechanical,
@@ -317,12 +317,12 @@
 	icon_state = "camera"
 	},
 /obj/structure/cable,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "bu" = (
 /obj/machinery/light/small,
 /obj/structure/cable,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "bv" = (
 /obj/machinery/light{
@@ -330,21 +330,21 @@
 	icon_state = "tube"
 	},
 /obj/structure/cable,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "bw" = (
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube"
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "bx" = (
 /obj/machinery/light/small{
 	dir = 8;
 	icon_state = "bulb"
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "by" = (
 /obj/machinery/camera/autoname{
@@ -394,7 +394,7 @@
 	dir = 8
 	},
 /obj/structure/cable/multilayer/multiz,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/chetyre)
 "bE" = (
 /obj/machinery/light/small{
@@ -412,7 +412,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/chetyre)
 "bF" = (
 /obj/machinery/light/small{
@@ -467,7 +467,7 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Elevator Access"
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/shuttle/turbolift/primary)
 "bP" = (
 /turf/open/floor/partyhard/wood{
@@ -526,7 +526,7 @@
 /area/partyhard/tri)
 "cc" = (
 /obj/machinery/camera/autoname,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "cd" = (
 /obj/machinery/computer/cargo{
@@ -541,14 +541,14 @@
 	set_cap = 1;
 	set_luminosity = 4
 	},
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "ch" = (
 /obj/machinery/light/small{
 	brightness = 3;
 	dir = 8
 	},
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/tri)
 "ci" = (
 /turf/closed/wall/rust,
@@ -990,7 +990,7 @@
 /turf/open/floor/plasteel/dark,
 /area/partyhard/chetyre)
 "dj" = (
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "dk" = (
 /obj/machinery/camera/autoname{
@@ -1012,14 +1012,14 @@
 	icon_state = "bulb"
 	},
 /obj/machinery/camera/autoname,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/dva)
 "dn" = (
 /obj/machinery/camera/autoname,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/dva)
 "dp" = (
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "dq" = (
 /obj/effect/turf_decal/partyhard/lines,
@@ -1787,7 +1787,7 @@
 /area/science/xenobiology)
 "fb" = (
 /obj/effect/landmark/observer_start,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/dva)
 "fc" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -3450,7 +3450,7 @@
 /obj/item/clothing/shoes/winterboots,
 /obj/item/clothing/shoes/winterboots,
 /obj/structure/closet/supplypod,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "iF" = (
 /obj/effect/turf_decal/partyhard/lines{
@@ -3489,7 +3489,7 @@
 /turf/open/floor/plating/rust,
 /area/security/prison)
 "iM" = (
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/outdoors/unexplored)
 "iN" = (
 /obj/effect/turf_decal/partyhard/lines{
@@ -3525,7 +3525,7 @@
 	set_cap = 1;
 	set_luminosity = 4
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/dva)
 "iS" = (
 /obj/effect/turf_decal/partyhard/lines{
@@ -4559,7 +4559,7 @@
 /turf/open/floor/plasteel/dark,
 /area/service/kitchen)
 "lt" = (
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "lu" = (
 /obj/machinery/light{
@@ -5266,7 +5266,7 @@
 /area/partyhard/odin)
 "ni" = (
 /obj/structure/ladder,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/odin)
 "nj" = (
 /obj/machinery/light/small{
@@ -5618,7 +5618,7 @@
 /area/engineering/atmos)
 "oi" = (
 /obj/structure/ladder,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/surface)
 "oj" = (
 /turf/closed/wall/r_wall/rust,
@@ -5644,7 +5644,7 @@
 /turf/open/floor/plating/rust,
 /area/partyhard/pyat)
 "om" = (
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/surface)
 "on" = (
 /obj/effect/turf_decal/trimline/red/filled/corner,
@@ -5663,7 +5663,7 @@
 /area/partyhard/tri)
 "oq" = (
 /obj/structure/cable,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "or" = (
 /obj/machinery/door/airlock/maintenance,
@@ -5776,15 +5776,15 @@
 /turf/closed/wall/r_wall/rust,
 /area/partyhard/tri)
 "oO" = (
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/outdoors/unexplored)
 "oP" = (
 /obj/structure/ladder,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "oS" = (
 /obj/machinery/telecomms/relay/preset/station,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "oT" = (
 /obj/machinery/telecomms/relay/preset/station,
@@ -5931,7 +5931,7 @@
 /obj/structure/railing{
 	dir = 9
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "pI" = (
 /turf/closed/wall/ice,
@@ -6118,7 +6118,7 @@
 	},
 /obj/effect/landmark/latejoin,
 /obj/effect/landmark/start/station_engineer,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/hallway/secondary/entry)
 "qu" = (
 /obj/structure/table/glass,
@@ -6239,7 +6239,7 @@
 /obj/structure/railing{
 	dir = 6
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "qW" = (
 /obj/machinery/power/apc/auto_name/north,
@@ -6448,7 +6448,7 @@
 	dir = 8;
 	icon_state = "bulb"
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "so" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
@@ -6496,7 +6496,7 @@
 /obj/item/circuitboard/machine/chem_dispenser,
 /obj/item/circuitboard/machine/chem_dispenser,
 /obj/structure/closet/supplypod,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "sH" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -6573,7 +6573,7 @@
 /obj/structure/railing/corner{
 	dir = 4
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "td" = (
 /obj/machinery/rnd/production/techfab/department/cargo,
@@ -6727,7 +6727,7 @@
 	name = "NT SS13: Auxiliary Dock, Station-Port";
 	width = 35
 	},
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "tL" = (
 /obj/structure/table,
@@ -6983,7 +6983,7 @@
 	set_cap = 1;
 	set_luminosity = 4
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/surface)
 "uP" = (
 /obj/structure/table/reinforced,
@@ -7159,7 +7159,7 @@
 /obj/structure/railing{
 	dir = 10
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "vF" = (
 /obj/structure/cable,
@@ -7168,7 +7168,7 @@
 	set_cap = 1;
 	set_luminosity = 4
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/surface)
 "vI" = (
 /obj/structure/cable,
@@ -7423,7 +7423,7 @@
 "wP" = (
 /obj/structure/ladder,
 /obj/structure/cable,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "wQ" = (
 /obj/machinery/light{
@@ -7466,7 +7466,7 @@
 	icon_state = "camera"
 	},
 /obj/structure/cable,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "xa" = (
 /obj/structure/table,
@@ -7678,7 +7678,7 @@
 /obj/item/areaeditor/blueprints,
 /obj/structure/closet/crate,
 /obj/structure/closet/supplypod,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "yd" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -7844,7 +7844,7 @@
 	icon_state = "bulb"
 	},
 /obj/structure/cable,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "yN" = (
 /obj/effect/spawner/structure/window/survival_pod,
@@ -7889,7 +7889,7 @@
 /turf/open/floor/plating/rust,
 /area/command/heads_quarters/ce)
 "yX" = (
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/tri)
 "yZ" = (
 /obj/structure/table,
@@ -8055,7 +8055,7 @@
 /obj/structure/railing/corner{
 	dir = 4
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "zL" = (
 /obj/structure/cable,
@@ -8086,7 +8086,7 @@
 /obj/structure/railing/corner{
 	dir = 8
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "zT" = (
 /obj/item/construction/rcd/loaded,
@@ -8105,7 +8105,7 @@
 /obj/item/multitool,
 /obj/item/construction/rcd/arcd,
 /obj/structure/closet/supplypod,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "zU" = (
 /obj/item/stock_parts/micro_laser,
@@ -8124,7 +8124,7 @@
 /turf/open/floor/plating,
 /area/partyhard/surface)
 "zV" = (
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/command/gateway)
 "zW" = (
 /obj/effect/turf_decal/tile/yellow{
@@ -8244,7 +8244,7 @@
 /obj/structure/railing/corner{
 	dir = 8
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "At" = (
 /turf/open/floor/plating/rust,
@@ -8284,7 +8284,7 @@
 "AA" = (
 /obj/effect/landmark/event_spawn,
 /obj/structure/cable/multilayer/multiz,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "AC" = (
 /obj/machinery/computer/operating{
@@ -8407,7 +8407,7 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "AU" = (
 /obj/machinery/light_switch{
@@ -8483,7 +8483,7 @@
 	set_cap = 1;
 	set_luminosity = 4
 	},
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "Bn" = (
 /obj/machinery/computer/gateway_control,
@@ -8647,7 +8647,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "Cq" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -8976,7 +8976,7 @@
 	},
 /obj/effect/landmark/latejoin,
 /obj/effect/landmark/start/station_engineer,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/hallway/secondary/entry)
 "Ek" = (
 /obj/structure/cable,
@@ -9056,7 +9056,7 @@
 /area/science/robotics/mechbay)
 "EB" = (
 /obj/structure/railing/corner,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "EC" = (
 /obj/machinery/computer/station_alert{
@@ -9304,7 +9304,7 @@
 /obj/item/storage/box/monkeycubes,
 /obj/item/storage/box/monkeycubes,
 /obj/structure/closet/supplypod,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "Fv" = (
 /obj/machinery/airalarm{
@@ -9463,7 +9463,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "Gi" = (
 /mob/living/simple_animal/hostile/lizard{
@@ -9839,7 +9839,7 @@
 /area/tcommsat/server)
 "HV" = (
 /obj/structure/cable,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/surface)
 "HW" = (
 /obj/effect/turf_decal/stripes/line{
@@ -9853,7 +9853,7 @@
 "HY" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/maintenance/solars/port/aft)
 "Ia" = (
 /obj/structure/chair/office{
@@ -10010,7 +10010,7 @@
 /obj/item/reagent_containers/spray/cleaner,
 /obj/item/reagent_containers/spray/cleaner,
 /obj/structure/closet/supplypod,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "IL" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -10077,7 +10077,7 @@
 /area/cargo/office)
 "IW" = (
 /obj/structure/railing,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/chetyre)
 "IX" = (
 /obj/machinery/power/emitter/welded{
@@ -10687,7 +10687,7 @@
 /obj/item/card/id/departmental_budget/car,
 /obj/structure/closet/crate,
 /obj/structure/closet/supplypod,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "Lr" = (
 /turf/open/floor/plasteel/dark,
@@ -10743,7 +10743,7 @@
 	dir = 8;
 	icon_state = "camera"
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "LA" = (
 /obj/machinery/light/small{
@@ -10943,7 +10943,7 @@
 	icon_state = "bulb"
 	},
 /obj/structure/railing,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "Mp" = (
 /obj/machinery/power/apc/auto_name/south,
@@ -11026,7 +11026,7 @@
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/toxin,
 /obj/structure/closet/supplypod,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "MM" = (
 /obj/effect/spawner/structure/window/ice,
@@ -11044,7 +11044,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/chetyre)
 "MR" = (
 /obj/machinery/hydroponics/constructable,
@@ -11220,7 +11220,7 @@
 /obj/item/storage/box/flashbangs,
 /obj/structure/closet/crate/secure/gear,
 /obj/structure/closet/supplypod,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "NF" = (
 /obj/machinery/door/airlock/engineering{
@@ -11252,7 +11252,7 @@
 	pixel_x = 5
 	},
 /obj/structure/closet/supplypod,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "NJ" = (
 /turf/closed/wall/r_wall/rust,
@@ -11320,7 +11320,7 @@
 /area/science/robotics/mechbay)
 "NW" = (
 /obj/structure/cable/multilayer/multiz,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "NY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -11554,7 +11554,7 @@
 /area/medical/medbay)
 "Pa" = (
 /obj/structure/railing/corner,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "Pd" = (
 /turf/open/floor/plasteel/dark,
@@ -11908,7 +11908,7 @@
 /obj/structure/railing{
 	dir = 5
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "QU" = (
 /obj/machinery/portable_atmospherics/canister/air,
@@ -11981,7 +11981,7 @@
 /area/service/hydroponics)
 "Rq" = (
 /obj/item/fireaxe,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "Rr" = (
 /turf/closed/wall/ice,
@@ -12238,7 +12238,7 @@
 	name = "NT SS13: Port bay";
 	width = 5
 	},
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "So" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -12287,7 +12287,7 @@
 /obj/structure/sign/departments/engineering{
 	pixel_x = -32
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "St" = (
 /obj/machinery/autolathe,
@@ -12491,7 +12491,7 @@
 	dir = 1;
 	icon_state = "bulb"
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "Th" = (
 /obj/item/circuitboard/machine/techfab/department/service,
@@ -12509,7 +12509,7 @@
 /obj/item/circuitboard/machine/techfab,
 /obj/item/circuitboard/machine/techfab,
 /obj/structure/closet/supplypod,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "Ti" = (
 /obj/structure/cable,
@@ -12664,7 +12664,7 @@
 /turf/open/floor/plating/rust,
 /area/science/research)
 "TV" = (
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/dva)
 "TX" = (
 /obj/effect/turf_decal/tile/blue{
@@ -12683,7 +12683,7 @@
 /obj/structure/railing{
 	dir = 6
 	},
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/chetyre)
 "TZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -12800,7 +12800,7 @@
 	},
 /obj/effect/landmark/latejoin,
 /obj/effect/landmark/start/station_engineer,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/hallway/secondary/entry)
 "Uv" = (
 /obj/effect/turf_decal/tile/yellow{
@@ -13042,7 +13042,7 @@
 /area/command/heads_quarters/ce)
 "Vr" = (
 /obj/effect/spawner/structure/window/survival_pod,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "Vs" = (
 /turf/open/genturf,
@@ -13352,7 +13352,7 @@
 /obj/item/clothing/glasses/welding,
 /obj/item/clothing/glasses/welding,
 /obj/structure/closet/supplypod,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "WI" = (
 /turf/closed/wall/ice,
@@ -13427,7 +13427,7 @@
 	icon_state = "tube"
 	},
 /obj/structure/cable,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "Xa" = (
 /obj/effect/turf_decal/stripes/line,
@@ -13774,11 +13774,11 @@
 /area/command/heads_quarters/rd)
 "YZ" = (
 /obj/structure/railing,
-/turf/open/floor/plating/snowed/oxy,
+/turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "Zd" = (
 /obj/effect/spawner/structure/window/shuttle,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/hallway/secondary/entry)
 "Ze" = (
 /obj/structure/sign/departments/evac{
@@ -13869,7 +13869,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/storage/belt/utility,
 /obj/structure/closet/supplypod,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
 "ZJ" = (
 /obj/effect/turf_decal/stripes/line{

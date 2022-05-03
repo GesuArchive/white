@@ -84,7 +84,7 @@
 		. = span_notice("[user] притрагивается раскалённым концом [src.name] к [A.name].")
 
 /obj/item/gun/ballistic/revolver/detective
-	name = "\improper специальный кольт детектива"
+	name = "специальный кольт детектива"
 	desc = "Классическое, если не устаревшее, правоохранительное оружие. Использует .38 спецпатроны."
 	fire_sound = 'sound/weapons/gun/revolver/shot.ogg'
 	icon_state = "detective"
