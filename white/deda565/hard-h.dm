@@ -52,7 +52,7 @@
 
 /obj/item/hockeypack/proc/toggle_stick()
 	set name = "Get Stick"
-	set category = "Object"
+	set category = "Объект"
 	if (usr.get_item_by_slot(usr.getHockeypackSlot()) != src)
 		to_chat(usr, "<span class='warning'>Рюкзак надень!</span>")
 		return
@@ -198,6 +198,7 @@
 		var/atom/throw_target = get_edge_target_turf(O, get_dir(src, get_step_away(O, src)))
 		O.throw_at(throw_target, 10, 1, params = TRUE)	//Throws the target 10 tiles
 		playsound(loc, 'sound/weapons/resonator_blast.ogg', 50, 1)
+		QDEL_IN(O, 2 SECONDS)
 		return
 	else
 		return ..()
@@ -230,17 +231,12 @@
 	actions_types = list(/datum/action/item_action/make_puck)
 	var/recharge_time = 100
 	var/charged = TRUE
-	var/obj/item/holopuck/newpuck
 
 /obj/item/storage/belt/hippie/hockey/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 2
 	STR.can_hold = typecacheof(list(/obj/item/holopuck))
-
-/obj/item/storage/belt/hippie/hockey/Destroy()
-	QDEL_NULL(newpuck)
-	return ..()
 
 /obj/item/storage/belt/hippie/hockey/equipped(mob/user, slot)
 	. = ..()
@@ -257,7 +253,7 @@
 
 /obj/item/storage/belt/hippie/hockey/proc/make_puck()
 	set name = "Produce Puck"
-	set category = "Object"
+	set category = "Объект"
 	if (usr.get_item_by_slot(usr.getHockeybeltSlot()) != src)
 		to_chat(usr, "<span class='warning'>Пояс надень!</span>")
 		return
@@ -270,24 +266,22 @@
 		to_chat(user, "<span class='warning'>Пояс заряжается!</span>")
 		return
 
-	newpuck = build_puck()
-	addtimer(CALLBACK(src,.proc/reset_puck),recharge_time)
-	if(!user.put_in_hands(newpuck))
-		to_chat(user, "<span class='warning'>Тебе нужна свободная рука!</span>")
-		return
+	var/obj/item/holopuck/newpuck = new /obj/item/holopuck(get_turf(user))
 
 	charged = FALSE
+	addtimer(CALLBACK(src,.proc/reset_puck, user), recharge_time)
 
-/obj/item/storage/belt/hippie/hockey/proc/build_puck()
-	return new /obj/item/holopuck(src)
+	if(!user.put_in_hands(newpuck))
+		to_chat(user, "<span class='warning'>Шайба на полу!</span>")
+		return
 
 /mob/proc/getHockeybeltSlot()
 	return ITEM_SLOT_BELT
 
-/obj/item/storage/belt/hippie/hockey/proc/reset_puck()
+/obj/item/storage/belt/hippie/hockey/proc/reset_puck(mob/user)
 	charged = TRUE
-	var/mob/M = get(src, /mob)
-	to_chat(M, "<span class='notice'>Пояс готов произвести новую голошайбу!</span>")
+	if(user)
+		to_chat(user, "<span class='notice'>Пояс готов произвести новую голошайбу!</span>")
 
 /obj/item/holopuck
 	name = "Голошайба"
@@ -313,9 +307,9 @@
 /obj/item/holopuck/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE, quickstart = TRUE, params = FALSE)
 	. = ..()
 	if(params)
-		throwforce = 40
+		throwforce = 30
 	else
-		throwforce = 20
+		throwforce = 12
 	return
 
 /obj/item/clothing/suit/hippie/hockey

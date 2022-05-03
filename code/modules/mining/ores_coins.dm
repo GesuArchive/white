@@ -272,7 +272,7 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 
 /obj/item/gibtonite/attackby(obj/item/I, mob/user, params)
 	if(!wires && istype(I, /obj/item/assembly/igniter))
-		user.visible_message(span_notice("[user] attaches [I] to [src].") , span_notice("You attach [I] to [src]."))
+		user.visible_message(span_notice("[user] attaches [I] to [src]."), span_notice("You attach [I] to [src]."))
 		wires = new /datum/wires/explosive/gibtonite(src)
 		attacher = key_name(user)
 		qdel(I)
@@ -292,7 +292,7 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 			primed = FALSE
 			if(det_timer)
 				deltimer(det_timer)
-			user.visible_message(span_notice("The chain reaction stopped! ...The ore's quality looks diminished.") , span_notice("You stopped the chain reaction. ...The ore's quality looks diminished."))
+			user.visible_message(span_notice("The chain reaction stopped! ...The ore's quality looks diminished."), span_notice("You stopped the chain reaction. ...The ore's quality looks diminished."))
 			icon_state = "Gibtonite ore"
 			quality = GIBTONITE_QUALITY_LOW
 			return
@@ -351,9 +351,8 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	pixel_y = base_pixel_y + rand(0, 8) - 8
 
 /obj/item/stack/ore/ex_act(severity, target)
-	if (!severity || severity >= 2)
-		return
-	qdel(src)
+	if(severity >= EXPLODE_DEVASTATE)
+		qdel(src)
 
 
 /*****************************Coin********************************/

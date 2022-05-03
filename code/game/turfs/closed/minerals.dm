@@ -577,11 +577,12 @@
 			G.icon_state = "Gibtonite ore 2"
 
 	var/flags = NONE
-	if(defer_change)
+	var/old_type = type
+	if(defer_change) // TODO: make the defer change var a var for any changeturf flag
 		flags = CHANGETURF_DEFER_CHANGE
-	ScrapeAway(null, flags)
-	addtimer(CALLBACK(src, .proc/AfterChange), 1, TIMER_UNIQUE)
-
+	var/turf/open/mined = ScrapeAway(null, flags)
+	addtimer(CALLBACK(src, .proc/AfterChange, flags, old_type), 1, TIMER_UNIQUE)
+	mined.update_visuals()
 
 /turf/closed/mineral/gibtonite/volcanic
 	environment_type = "basalt"
