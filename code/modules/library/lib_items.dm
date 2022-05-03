@@ -225,7 +225,7 @@
 /obj/item/book/attack_self(mob/user)
 	if(!user.can_read(src))
 		return
-	user.visible_message(span_notice("[user] открывает \"[title]\" и начинает внимательно её изучать."))
+	user.visible_message(span_notice("[user] открывает \"[title ? title : name]\" и начинает внимательно её изучать."))
 	SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "book_nerd", /datum/mood_event/book_nerd)
 	on_read(user)
 
