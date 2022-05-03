@@ -776,7 +776,7 @@
 "aht" = (
 /obj/structure/aquarium,
 /obj/machinery/light/directional/west,
-/obj/machinery/bounty_board/directional/west,
+/obj/machinery/newscaster/directional/west,
 /turf/open/floor/carpet/green,
 /area/command/heads_quarters/captain/private)
 "ahx" = (
@@ -1359,8 +1359,7 @@
 "alo" = (
 /obj/machinery/door/airlock/external{
 	name = "Engineering External Access";
-	req_one_access_txt = "10;24";
-	space_dir = 8
+	req_one_access_txt = "10;24"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
@@ -1872,8 +1871,7 @@
 "aor" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 1
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/fans/tiny,
@@ -3111,7 +3109,7 @@
 	pixel_x = -7
 	},
 /obj/machinery/light/directional/west,
-/obj/machinery/bounty_board/directional/west,
+/obj/machinery/newscaster/directional/west,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
@@ -4645,13 +4643,13 @@
 /area/medical/chemistry)
 "beB" = (
 /obj/structure/table/glass,
-/obj/item/cartridge/medical{
+/obj/item/computer_hardware/hard_drive/role/medical{
 	pixel_x = 3
 	},
-/obj/item/cartridge/medical{
+/obj/item/computer_hardware/hard_drive/role/medical{
 	pixel_x = -3
 	},
-/obj/item/cartridge/chemistry{
+/obj/item/computer_hardware/hard_drive/role/chemistry{
 	pixel_y = 6
 	},
 /obj/machinery/light_switch/directional/north,
@@ -10605,8 +10603,7 @@
 /area/science/robotics)
 "dcB" = (
 /obj/machinery/door/airlock/external{
-	name = "External Docking Port";
-	space_dir = 8
+	name = "External Docking Port"
 	},
 /obj/effect/turf_decal/stripes{
 	dir = 8
@@ -11383,7 +11380,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
-/obj/machinery/bounty_board/directional/south,
+/obj/machinery/newscaster/directional/south,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/captain/private)
 "drC" = (
@@ -12041,8 +12038,7 @@
 "dDD" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 2
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -14175,8 +14171,7 @@
 "ewd" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 8
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
@@ -15559,8 +15554,7 @@
 "fbM" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 4
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -18906,7 +18900,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
-/obj/machinery/bounty_board/directional/east,
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/wood,
 /area/command/heads_quarters/hop)
 "gmd" = (
@@ -19820,8 +19814,7 @@
 "gGG" = (
 /obj/machinery/door/airlock/external{
 	name = "Engineering External Access";
-	req_one_access_txt = "10;24";
-	space_dir = 8
+	req_one_access_txt = "10;24"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -21203,8 +21196,7 @@
 "hkB" = (
 /obj/machinery/door/airlock/external{
 	name = "Engineering External Access";
-	req_one_access_txt = "10;24";
-	space_dir = 4
+	req_one_access_txt = "10;24"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -21392,8 +21384,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	name = "Solar Maintenance";
-	req_access_txt = "10; 13";
-	space_dir = 2
+	req_access_txt = "10; 13"
 	},
 /obj/structure/cable,
 /obj/structure/fans/tiny,
@@ -23128,8 +23119,7 @@
 "iao" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 4
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -23686,8 +23676,7 @@
 "ilU" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 4
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -24027,8 +24016,7 @@
 "isp" = (
 /obj/machinery/door/airlock/external{
 	name = "Engineering External Access";
-	req_one_access_txt = "10;24";
-	space_dir = 4
+	req_one_access_txt = "10;24"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -27109,8 +27097,7 @@
 "jBD" = (
 /obj/machinery/door/airlock/external{
 	name = "Solar Maintenance";
-	req_access_txt = "10; 13";
-	space_dir = 2
+	req_access_txt = "10; 13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -27951,7 +27938,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start/captain,
-/obj/machinery/bounty_board/directional/south,
+/obj/machinery/newscaster/directional/south,
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain)
 "jSp" = (
@@ -33804,8 +33791,7 @@
 "mcc" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 8
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
@@ -34708,8 +34694,7 @@
 "muB" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 4
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -34815,7 +34800,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/machinery/bounty_board/directional/north,
+/obj/machinery/newscaster/directional/north,
 /obj/machinery/light/directional/north,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -35247,8 +35232,7 @@
 "mHp" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 2
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -37237,7 +37221,7 @@
 /obj/structure/bookcase/random/reference,
 /obj/machinery/status_display/evac/directional/north,
 /obj/machinery/light/directional/west,
-/obj/machinery/bounty_board/directional/west,
+/obj/machinery/newscaster/directional/west,
 /turf/open/floor/wood,
 /area/command/heads_quarters/rd)
 "ntE" = (
@@ -46212,7 +46196,7 @@
 	name = "Command Chair";
 	req_access_txt = "19"
 	},
-/obj/machinery/bounty_board/directional/south,
+/obj/machinery/newscaster/directional/south,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
@@ -48394,8 +48378,7 @@
 "rRo" = (
 /obj/machinery/door/airlock/external{
 	name = "Solar Maintenance";
-	req_access_txt = "10; 13";
-	space_dir = 2
+	req_access_txt = "10; 13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -48594,8 +48577,7 @@
 "rUU" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 8
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
@@ -48616,8 +48598,7 @@
 "rVi" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 4
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -51480,7 +51461,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/obj/machinery/bounty_board/directional/south,
+/obj/machinery/newscaster/directional/south,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -51831,8 +51812,7 @@
 "tdL" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 2
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -54905,7 +54885,7 @@
 "upt" = (
 /obj/structure/table/wood,
 /obj/machinery/computer/med_data/laptop,
-/obj/machinery/bounty_board/directional/north,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/carpet/executive,
 /area/command)
 "upu" = (
@@ -59365,8 +59345,7 @@
 "vUF" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13;19";
-	space_dir = 8
+	req_access_txt = "13;19"
 	},
 /obj/structure/cable,
 /obj/structure/fans/tiny,

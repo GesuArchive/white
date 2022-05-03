@@ -108,7 +108,7 @@
 /obj/structure/chair{
 	dir = 1
 	},
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "adj" = (
 /obj/structure/cable,
@@ -1262,7 +1262,7 @@
 /area/service/bar/atrium)
 "aPM" = (
 /obj/item/clothing/head/cone,
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "aQd" = (
 /obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden,
@@ -2188,7 +2188,7 @@
 	},
 /area/ai_monitored/storage/eva)
 "bFy" = (
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "bFQ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2841,7 +2841,7 @@
 	roundstart_template = /datum/map_template/shuttle/exploration;
 	width = 13
 	},
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/boxplanet/surface)
 "ccJ" = (
 /obj/structure/chair/office{
@@ -4576,7 +4576,7 @@
 /area/service/bar/atrium)
 "dAx" = (
 /obj/item/pickaxe,
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "dAH" = (
 /obj/effect/turf_decal/stripes/line{
@@ -5110,7 +5110,7 @@
 /area/engineering/atmos)
 "eaM" = (
 /obj/structure/filingcabinet/chestdrawer,
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "eaV" = (
 /turf/open/floor/plasteel/stairs/right{
@@ -6105,7 +6105,7 @@
 "eXF" = (
 /obj/structure/table,
 /obj/machinery/microwave,
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "eXM" = (
 /obj/structure/window/reinforced{
@@ -7935,7 +7935,7 @@
 /obj/machinery/door/airlock{
 	name = "Dormitories"
 	},
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "grj" = (
 /obj/effect/turf_decal/stripes/red/line,
@@ -8562,7 +8562,7 @@
 /obj/item/stack/sheet/mineral/wood{
 	amount = 15
 	},
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "gPV" = (
 /obj/effect/turf_decal/trimline/red/filled/corner{
@@ -8602,7 +8602,7 @@
 /area/engineering/break_room)
 "gQE" = (
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "gQH" = (
 /obj/machinery/airalarm/directional/east,
@@ -9475,7 +9475,7 @@
 /obj/machinery/computer{
 	dir = 4
 	},
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "hra" = (
 /obj/effect/turf_decal/stripes/corner,
@@ -9874,7 +9874,7 @@
 /turf/open/floor/plasteel/white,
 /area/hallway/primary/aft)
 "hJL" = (
-/obj/structure/barricade/wooden/dark,
+/obj/structure/barricade/wooden,
 /turf/open/floor/plating/rust,
 /area/icemoon/surface/outdoors)
 "hJX" = (
@@ -12011,7 +12011,7 @@
 /area/engineering/atmos)
 "jtF" = (
 /obj/item/food/grown/ash_flora/cactus_fruit,
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/boxplanet/surface)
 "jtM" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
@@ -14077,7 +14077,7 @@
 	name = "northeast of NT SS13";
 	width = 23
 	},
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/boxplanet/surface)
 "liZ" = (
 /obj/structure/cable,
@@ -17483,7 +17483,7 @@
 /area/security/brig)
 "nQd" = (
 /obj/machinery/power/rtg,
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "nQQ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -24240,8 +24240,8 @@
 /turf/open/floor/plasteel,
 /area/science/robotics/lab)
 "tov" = (
-/obj/structure/barricade/wooden/dark,
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/obj/structure/barricade/wooden,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "toK" = (
 /obj/machinery/computer/atmos_control{
@@ -25398,7 +25398,7 @@
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
 "ufO" = (
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/boxplanet/surface)
 "ufX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -26554,7 +26554,7 @@
 /area/service/bar/atrium)
 "uVj" = (
 /obj/item/chair,
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "uVD" = (
 /obj/effect/turf_decal/trimline/yellow/line{
@@ -26840,7 +26840,7 @@
 "vhJ" = (
 /obj/structure/table,
 /obj/item/paper_bin,
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "vib" = (
 /obj/machinery/shower{
@@ -27643,7 +27643,7 @@
 /area/science/xenobiology)
 "vMA" = (
 /obj/structure/table,
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "vMC" = (
 /obj/structure/cable,
@@ -27694,7 +27694,7 @@
 	roundstart_template = /datum/map_template/shuttle/mining_common/meta;
 	width = 7
 	},
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "vNH" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -29992,7 +29992,7 @@
 "xoz" = (
 /obj/structure/barricade/wooden/crude/snow,
 /obj/structure/fans/tiny/invisible,
-/turf/open/floor/plating/beach/sand/cataclysmdda,
+/turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "xpe" = (
 /obj/machinery/rnd/production/techfab/department/cargo,

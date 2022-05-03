@@ -2,8 +2,7 @@
 "aaa" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 1
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/fans/tiny,
@@ -71,8 +70,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 1
+	req_access_txt = "13"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -150,8 +148,7 @@
 "adl" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 2
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -2834,8 +2831,7 @@
 "bmp" = (
 /obj/machinery/door/airlock/external{
 	name = "Observatory";
-	req_access_txt = "13";
-	space_dir = 2
+	req_access_txt = "13"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -4894,7 +4890,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/maintenance/port)
 "crZ" = (
-/obj/machinery/bounty_board,
+/obj/machinery/newscaster,
 /obj/machinery/disposal/bin,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/brown{
@@ -4947,8 +4943,7 @@
 "csV" = (
 /obj/machinery/door/airlock/external{
 	name = "Atmospherics External Airlock";
-	req_access_txt = "24";
-	space_dir = 4
+	req_access_txt = "24"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -5566,8 +5561,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/door/airlock/external{
 	name = "Atmospherics External Airlock";
-	req_access_txt = "24";
-	space_dir = 1
+	req_access_txt = "24"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -7119,8 +7113,7 @@
 "eep" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 1
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/fans/tiny,
@@ -7583,7 +7576,7 @@
 /obj/effect/turf_decal/bot,
 /obj/machinery/modular_computer/console/preset/engineering,
 /obj/machinery/light/directional/north,
-/obj/machinery/bounty_board/directional/north,
+/obj/machinery/newscaster/directional/north,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -9604,8 +9597,7 @@
 /obj/structure/cable,
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 8
+	req_access_txt = "13"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -11250,8 +11242,7 @@
 "hAq" = (
 /obj/machinery/door/airlock/external{
 	name = "Atmospherics External Airlock";
-	req_access_txt = "24";
-	space_dir = 1
+	req_access_txt = "24"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/fans/tiny,
@@ -12060,8 +12051,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/external{
-	name = "Common Mining Shuttle Bay";
-	space_dir = 1
+	name = "Common Mining Shuttle Bay"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/fans/tiny,
@@ -12564,8 +12554,7 @@
 "iFo" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 4
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -12692,8 +12681,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/external{
-	name = "Escape Pod 3";
-	space_dir = 8
+	name = "Escape Pod 3"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark/side{
@@ -20952,8 +20940,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/external{
-	name = "Escape Pod 2";
-	space_dir = 8
+	name = "Escape Pod 2"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark/side{
@@ -21729,8 +21716,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 8
+	req_access_txt = "13"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -25282,8 +25268,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible,
 /obj/machinery/door/airlock/external{
 	name = "Atmospherics External Airlock";
-	req_access_txt = "24";
-	space_dir = 1
+	req_access_txt = "24"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating,
@@ -26446,8 +26431,7 @@
 "tLb" = (
 /obj/machinery/door/airlock/external{
 	name = "Atmospherics External Airlock";
-	req_access_txt = "24";
-	space_dir = 2
+	req_access_txt = "24"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -28035,8 +28019,7 @@
 "viM" = (
 /obj/machinery/door/airlock/external{
 	name = "Atmospherics External Airlock";
-	req_access_txt = "24";
-	space_dir = 2
+	req_access_txt = "24"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -30760,8 +30743,7 @@
 /obj/structure/cable,
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 4
+	req_access_txt = "13"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -31147,8 +31129,7 @@
 /area/hallway/secondary/entry)
 "xuj" = (
 /obj/machinery/door/airlock/external{
-	name = "Escape Pod 1";
-	space_dir = 8
+	name = "Escape Pod 1"
 	},
 /obj/effect/turf_decal/delivery,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -31962,8 +31943,7 @@
 /obj/structure/fans/tiny,
 /obj/machinery/door/airlock/external{
 	name = "Atmospherics External Airlock";
-	req_access_txt = "24";
-	space_dir = 1
+	req_access_txt = "24"
 	},
 /turf/open/floor/plating,
 /area/engineering/atmos)

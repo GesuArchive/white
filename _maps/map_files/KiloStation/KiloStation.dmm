@@ -3339,7 +3339,7 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/east,
-/obj/machinery/bounty_board/directional/north,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/science/research)
 "aox" = (
@@ -30119,7 +30119,7 @@
 	pixel_x = 5
 	},
 /obj/structure/table,
-/obj/item/cartridge/lawyer,
+/obj/item/computer_hardware/hard_drive/role/lawyer,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/north,
 /turf/open/floor/plasteel/dark,
@@ -32896,7 +32896,7 @@
 	},
 /obj/machinery/portable_atmospherics/pump,
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
-/obj/machinery/bounty_board/directional/north,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel/showroomfloor,
 /area/engineering/atmos)
 "fmM" = (
@@ -33569,7 +33569,7 @@
 	pixel_y = 5
 	},
 /obj/machinery/light/directional/east,
-/obj/machinery/bounty_board/directional/east,
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/plasteel/dark,
 /area/service/library)
 "fyC" = (
@@ -36739,9 +36739,9 @@
 	},
 /obj/item/clipboard,
 /obj/item/folder/yellow,
-/obj/item/cartridge/quartermaster,
-/obj/item/cartridge/quartermaster,
-/obj/item/cartridge/quartermaster,
+/obj/item/computer_hardware/hard_drive/role/quartermaster,
+/obj/item/computer_hardware/hard_drive/role/quartermaster,
+/obj/item/computer_hardware/hard_drive/role/quartermaster,
 /turf/open/floor/plasteel,
 /area/cargo/qm)
 "gQN" = (
@@ -38350,7 +38350,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/bounty_board/directional/north,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/medical/storage)
 "hwx" = (
@@ -47887,18 +47887,18 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/item/cartridge/medical{
+/obj/item/computer_hardware/hard_drive/role/medical{
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/cartridge/medical{
+/obj/item/computer_hardware/hard_drive/role/medical{
 	pixel_x = 5;
 	pixel_y = 1
 	},
-/obj/item/cartridge/medical{
+/obj/item/computer_hardware/hard_drive/role/medical{
 	pixel_x = 4
 	},
-/obj/item/cartridge/chemistry{
+/obj/item/computer_hardware/hard_drive/role/chemistry{
 	pixel_x = -6;
 	pixel_y = 8
 	},
@@ -50987,7 +50987,7 @@
 	},
 /obj/structure/table,
 /obj/item/clipboard,
-/obj/item/cartridge/roboticist{
+/obj/item/computer_hardware/hard_drive/role/roboticist{
 	pixel_x = -3
 	},
 /obj/item/circuitboard/aicore{
@@ -60037,7 +60037,7 @@
 	dir = 8
 	},
 /obj/machinery/light/directional/west,
-/obj/machinery/bounty_board/directional/west,
+/obj/machinery/newscaster/directional/west,
 /turf/open/floor/plasteel,
 /area/command/bridge)
 "pET" = (
@@ -62670,7 +62670,7 @@
 "qFo" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/caution/stand_clear,
-/obj/machinery/bounty_board/directional/south,
+/obj/machinery/newscaster/directional/south,
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "qFp" = (
@@ -63850,7 +63850,7 @@
 /area/science/mixing)
 "rcj" = (
 /obj/machinery/firealarm/directional/south,
-/obj/machinery/bounty_board/directional/south{
+/obj/machinery/newscaster/directional/south{
 	pixel_x = 32
 	},
 /obj/machinery/rnd/bepis,
@@ -68809,14 +68809,14 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/cartridge/engineering{
+/obj/item/computer_hardware/hard_drive/role/engineering{
 	pixel_x = 6;
 	pixel_y = 6
 	},
-/obj/item/cartridge/engineering{
+/obj/item/computer_hardware/hard_drive/role/engineering{
 	pixel_x = 8
 	},
-/obj/item/cartridge/atmos{
+/obj/item/computer_hardware/hard_drive/role/atmos{
 	pixel_x = -6;
 	pixel_y = 4
 	},
@@ -76571,7 +76571,7 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/north,
-/obj/machinery/bounty_board/directional/north,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel/showroomfloor,
 /area/medical/chemistry)
 "vVq" = (
@@ -80968,7 +80968,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/machinery/bounty_board/directional/north,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "xDO" = (
@@ -81745,7 +81745,7 @@
 /obj/effect/turf_decal/tile/neutral,
 /obj/item/storage/belt/utility,
 /obj/item/crowbar/red,
-/obj/machinery/bounty_board/directional/west,
+/obj/machinery/newscaster/directional/west,
 /turf/open/floor/plasteel/dark,
 /area/commons/storage/primary)
 "xUy" = (

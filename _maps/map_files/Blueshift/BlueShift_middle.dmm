@@ -296,8 +296,7 @@
 /obj/effect/turf_decal/caution/stand_clear,
 /obj/machinery/door/airlock/external{
 	name = "External Docking Port";
-	req_access_txt = "63";
-	space_dir = 8
+	req_access_txt = "63"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
@@ -4513,7 +4512,7 @@
 /obj/item/storage/firstaid/regular,
 /obj/effect/turf_decal/tile/brown,
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/bounty_board/directional/west,
+/obj/machinery/newscaster/directional/west,
 /obj/machinery/light_switch/directional/north{
 	pixel_x = -16
 	},
@@ -7320,8 +7319,7 @@
 "cna" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 4
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -8395,18 +8393,18 @@
 /area/maintenance/port/aft)
 "cIv" = (
 /obj/structure/table/reinforced,
-/obj/item/cartridge/engineering{
+/obj/item/computer_hardware/hard_drive/role/engineering{
 	pixel_y = 6
 	},
-/obj/item/cartridge/engineering{
+/obj/item/computer_hardware/hard_drive/role/engineering{
 	pixel_y = 6
 	},
-/obj/item/cartridge/engineering{
+/obj/item/computer_hardware/hard_drive/role/engineering{
 	pixel_y = 6
 	},
-/obj/item/cartridge/atmos,
-/obj/item/cartridge/atmos,
-/obj/item/cartridge/atmos,
+/obj/item/computer_hardware/hard_drive/role/atmos,
+/obj/item/computer_hardware/hard_drive/role/atmos,
+/obj/item/computer_hardware/hard_drive/role/atmos,
 /obj/item/reagent_containers/pill/patch/aiuri,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -9402,8 +9400,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 1
+	req_access_txt = "13"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -9434,8 +9431,7 @@
 	},
 /obj/effect/turf_decal/caution/stand_clear,
 /obj/machinery/door/airlock/external{
-	name = "External Docking Port";
-	space_dir = 8
+	name = "External Docking Port"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
@@ -14054,8 +14050,7 @@
 /area/engineering/main)
 "fgl" = (
 /obj/machinery/door/airlock/external{
-	name = "Construction Zone";
-	space_dir = 8
+	name = "Construction Zone"
 	},
 /turf/open/floor/plating,
 /area/construction/mining/aux_base)
@@ -16122,8 +16117,7 @@
 "fXU" = (
 /obj/machinery/door/airlock/external{
 	name = "Escape Pod 4";
-	req_access_txt = "32";
-	space_dir = 4
+	req_access_txt = "32"
 	},
 /obj/effect/turf_decal/delivery,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -23490,8 +23484,7 @@
 "jay" = (
 /obj/machinery/door/airlock/external{
 	name = "Engineering External Access";
-	req_one_access_txt = "10;24";
-	space_dir = 1
+	req_one_access_txt = "10;24"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/fans/tiny,
@@ -25561,8 +25554,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	name = "Engineering External Access";
-	req_one_access_txt = "10;24";
-	space_dir = 4
+	req_one_access_txt = "10;24"
 	},
 /obj/structure/fans/tiny,
 /obj/structure/cable,
@@ -28262,8 +28254,7 @@
 "kXK" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 4
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -31276,8 +31267,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
 /obj/machinery/door/airlock/external{
 	name = "Engineering External Access";
-	req_one_access_txt = "10;24";
-	space_dir = 2
+	req_one_access_txt = "10;24"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -32762,7 +32752,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
-/obj/machinery/bounty_board/directional/south,
+/obj/machinery/newscaster/directional/south,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/ce)
 "mYl" = (
@@ -34758,7 +34748,7 @@
 /obj/machinery/rnd/production/techfab/department/service,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/stripes,
-/obj/machinery/bounty_board/directional/north,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/service)
 "nQv" = (
@@ -35071,8 +35061,7 @@
 "nVy" = (
 /obj/machinery/door/airlock/external{
 	name = "Engineering External Access";
-	req_one_access_txt = "10;24";
-	space_dir = 2
+	req_one_access_txt = "10;24"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -35142,8 +35131,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	name = "External Docking Port";
-	req_access_txt = "63";
-	space_dir = 8
+	req_access_txt = "63"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
@@ -35684,7 +35672,7 @@
 /area/maintenance/starboard/fore)
 "oko" = (
 /obj/machinery/light/directional/east,
-/obj/machinery/bounty_board/directional/east,
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/plasteel/dark/side{
 	dir = 4
 	},
@@ -40815,15 +40803,15 @@
 /obj/item/folder/red{
 	pixel_x = -7
 	},
-/obj/item/cartridge/detective{
+/obj/item/computer_hardware/hard_drive/role/detective{
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/cartridge/detective{
+/obj/item/computer_hardware/hard_drive/role/detective{
 	pixel_x = 7;
 	pixel_y = 4
 	},
-/obj/item/cartridge/detective{
+/obj/item/computer_hardware/hard_drive/role/detective{
 	pixel_x = 7
 	},
 /obj/structure/noticeboard/hos{
@@ -42818,8 +42806,7 @@
 "rkE" = (
 /obj/machinery/door/airlock/external{
 	name = "Engineering External Access";
-	req_one_access_txt = "10;24";
-	space_dir = 2
+	req_one_access_txt = "10;24"
 	},
 /obj/structure/cable,
 /obj/structure/fans/tiny,
@@ -43154,9 +43141,9 @@
 	dir = 10
 	},
 /obj/structure/table/wood,
-/obj/item/cartridge/quartermaster,
-/obj/item/cartridge/quartermaster,
-/obj/item/cartridge/quartermaster,
+/obj/item/computer_hardware/hard_drive/role/quartermaster,
+/obj/item/computer_hardware/hard_drive/role/quartermaster,
+/obj/item/computer_hardware/hard_drive/role/quartermaster,
 /obj/item/coin/gold,
 /obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{
 	pixel_x = -4;
@@ -47358,8 +47345,8 @@
 "tiE" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/civilian,
-/obj/item/cartridge/lawyer,
-/obj/item/cartridge/lawyer,
+/obj/item/computer_hardware/hard_drive/role/lawyer,
+/obj/item/computer_hardware/hard_drive/role/lawyer,
 /turf/open/floor/carpet/blue,
 /area/lawoffice)
 "tiG" = (
@@ -48165,8 +48152,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	name = "Engineering External Access";
-	req_one_access_txt = "10;24";
-	space_dir = 8
+	req_one_access_txt = "10;24"
 	},
 /obj/structure/fans/tiny,
 /obj/structure/cable,
@@ -48199,8 +48185,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/external{
-	name = "External Docking Port";
-	space_dir = 8
+	name = "External Docking Port"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
@@ -49271,7 +49256,7 @@
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/hos)
 "tVa" = (
-/obj/machinery/bounty_board/directional/west,
+/obj/machinery/newscaster/directional/west,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -52868,8 +52853,7 @@
 "vwe" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 2
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -54605,8 +54589,7 @@
 "wcc" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 1
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/fans/tiny,
@@ -55491,7 +55474,7 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/north,
-/obj/machinery/bounty_board/directional/north,
+/obj/machinery/newscaster/directional/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
@@ -57777,8 +57760,7 @@
 "xqe" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 2
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -58541,8 +58523,7 @@
 "xCR" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock";
-	req_access_txt = "13";
-	space_dir = 2
+	req_access_txt = "13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
