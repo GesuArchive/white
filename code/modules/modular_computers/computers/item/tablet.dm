@@ -149,8 +149,8 @@
 	has_light = FALSE //tablet light button actually enables/disables the borg lamp
 	comp_light_luminosity = 0
 	has_variants = FALSE
-	///Ref to the borg we're installed in. Set by the borg during our creation.
-	var/mob/living/silicon/robot/borgo
+	///Ref to the silicon we're installed in. Set by the borg during our creation.
+	var/mob/living/silicon/borgo
 	///Ref to the RoboTact app. Important enough to borgs to deserve a ref.
 	var/datum/computer_file/program/robotact/robotact
 	///IC log that borgs can view in their personal management app
@@ -243,7 +243,7 @@
 	device_theme = "syndicate"
 
 
-/obj/item/modular_computer/tablet/integrated/syndicate/Initialize()
+/obj/item/modular_computer/tablet/integrated/syndicate/Initialize(mapload)
 	. = ..()
 	if(istype(borgo, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/robo = borgo

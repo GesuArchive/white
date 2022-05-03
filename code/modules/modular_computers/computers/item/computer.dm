@@ -342,9 +342,9 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	if(all_components[MC_CPU] && use_power()) // use_power() checks if the PC is powered
 		if(issynth)
-			to_chat(user, span_notice("Посылаю сигнал активации<b>[src.name]</b>, включая его."))
+			to_chat(user, span_notice("Посылаю сигнал активации <b>[src.name]</b>, включая его."))
 		else
-			to_chat(user, span_notice("Нажимаю кнопку питания и запускаете <b>[src.name]</b>."))
+			to_chat(user, span_notice("Нажимаю кнопку питания включая <b>[src.name]</b>."))
 		if(looping_sound)
 			soundloop.start()
 		enabled = 1
@@ -353,9 +353,9 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		return TRUE
 	else // Unpowered
 		if(issynth)
-			to_chat(user, span_warning("Посылаю сигнал активации<b>[src.name]</b>, но тот не отвечает."))
+			to_chat(user, span_warning("Посылаю сигнал активации <b>[src.name]</b>, но тот не отвечает."))
 		else
-			to_chat(user, span_warning("Нажимаю кнопку питания <b>[src.name]</b>, но тот не отвечает.."))
+			to_chat(user, span_warning("Нажимаю кнопку питания <b>[src.name]</b>, но тот не отвечает."))
 		return FALSE
 
 // Process currently calls handle_power(), may be expanded in future if more things are added.
