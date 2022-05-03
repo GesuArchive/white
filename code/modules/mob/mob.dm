@@ -1216,7 +1216,7 @@
 	if(!is_literate())
 		to_chat(src, span_notice("Пытаюсь прочитать [O], но внезапно понимаю, что не умею читать."))
 		return FALSE
-	if(!has_light_nearby() && !has_nightvision())
+	if(!has_light_nearby() && !HAS_TRAIT(src, TRAIT_NIGHT_VISION))
 		to_chat(src, span_warning("Слишком темно для чтения!"))
 		return FALSE
 	return TRUE
