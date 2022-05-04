@@ -121,7 +121,7 @@
 			var/final_block_chance = I.block_chance - (clamp((armour_penetration-I.armour_penetration)/2,0,100)) + block_chance_modifier //So armour piercing blades can still be parried by other blades, for example
 			if(I.hit_reaction(src, AM, attack_text, final_block_chance, damage, attack_type))
 				if(attack_type == MELEE_ATTACK && a_intent == INTENT_HARM)
-					spawn(1)
+					spawn(5)
 						try_counterattack(AM, I)
 				playsound(get_turf(src), pick(I.block_sounds), 100, TRUE)
 				return TRUE
@@ -148,7 +148,7 @@
 		return
 	var/mob/living/L = AM.loc
 	I.attack(L, src)
-	changeNext_move(CLICK_CD_MELEE)
+	changeNext_move(CLICK_CD_MELEE * 2)
 
 /mob/living/carbon/human/proc/check_block()
 	if(mind)
