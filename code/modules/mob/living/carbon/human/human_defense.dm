@@ -147,7 +147,7 @@
 	if(next_move > world.time || !AM?.loc || !I || !isliving(AM.loc) || !(I in held_items))
 		return
 	var/mob/living/L = AM.loc
-	L.attacked_by(I, src)
+	I.attack(L, src)
 	changeNext_move(CLICK_CD_MELEE)
 
 /mob/living/carbon/human/proc/check_block()
