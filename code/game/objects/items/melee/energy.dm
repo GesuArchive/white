@@ -167,7 +167,9 @@
 
 /obj/item/melee/energy/sword/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(blade_active)
-		return ..()
+		if(..())
+			playsound(owner, 'sound/weapons/bladeb.ogg', 100, TRUE)
+			return TRUE
 	return FALSE
 
 /obj/item/melee/energy/sword/cyborg

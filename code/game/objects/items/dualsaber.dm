@@ -50,7 +50,7 @@
 			return COMPONENT_TWOHANDED_BLOCK_WIELD
 	wielded = TRUE
 	w_class = w_class_on
-	hitsound = 'sound/weapons/blade1.ogg'
+	hitsound = 'sound/weapons/blade2.ogg'
 	START_PROCESSING(SSobj, src)
 	set_light_on(TRUE)
 
@@ -146,8 +146,10 @@
 
 /obj/item/dualsaber/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(wielded)
-		return ..()
-	return 0
+		if(..())
+			playsound(owner, 'sound/weapons/bladeb.ogg', 100, TRUE)
+			return TRUE
+	return FALSE
 
 /obj/item/dualsaber/process()
 	if(wielded)
