@@ -4110,6 +4110,7 @@
 #include "white\fogmann\fogmann.dm"
 #include "white\fogmann\fogmann2.dm"
 #include "white\fogmann\funmote.dm"
+#include "white\fogmann\Weaps.dm"
 #include "white\Gargule\ability.dm"
 #include "white\Gargule\backdoors.dm"
 #include "white\Gargule\items.dm"
