@@ -9,8 +9,6 @@
 	drag_slowdown = 100
 	recoil = 16
 	slot_flags = ITEM_SLOT_BACK
-	zoomable = TRUE
-	zoom_amt = 10
 	item_flags = SLOWS_WHILE_IN_HAND
 	fire_delay = 30
 	w_class = WEIGHT_CLASS_HUGE
@@ -22,6 +20,10 @@
 	extra_penetration = 100 //огромное ПТР не может пробить больше одной стенки????????
 	inhand_x_dimension = 1
 	inhand_y_dimension = 1
+
+/obj/item/ammo_box/magazine/internal/boltaction/hecate/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/scope, range_modifier = 2)
 
 /obj/item/ammo_box/magazine/internal/boltaction/hecate
 	max_ammo = 1

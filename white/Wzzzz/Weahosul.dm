@@ -119,9 +119,11 @@
 	desc = "Настолько старая, что даже порох в патронах успевает быстро устаревать, пока находится в ней. Эта имеет оптический прицел."
 	icon_state = "kar98k_scope"
 	inhand_icon_state = "kar98k_scope"
-	zoomable = TRUE
-	zoom_amt = 7
 	actions_types = list()
+
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/scope, range_modifier = 2.5)
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/update_icon(var/add_scope = FALSE)
 	if (bolt_locked == FALSE)

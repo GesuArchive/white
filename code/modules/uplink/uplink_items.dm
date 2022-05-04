@@ -831,6 +831,12 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	item = /obj/item/ammo_box/magazine/sniper_rounds/soporific
 	cost = 6
 
+/datum/uplink_item/ammo/sniper/marksman
+	name = "Снайперский магазин .50 калибра"
+	desc = "Пятизарядный магазин созданный специально для снайперской винтовки. Один выстрел - одно убийство!"
+	item = /obj/item/ammo_box/magazine/sniper_rounds/marksman
+	cost = 5
+
 /datum/uplink_item/ammo/carbine
 	name = "Верхний магазин 5.56 калибра"
 	desc = "Магазин на 30 патронов калибра 5,56 мм для использования с карабином M-90gl. \

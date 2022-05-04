@@ -111,10 +111,12 @@
 	can_unsuppress = FALSE
 	extra_damage = 20
 	extra_penetration = 0
-	zoomable = TRUE
-	zoom_amt = 10
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	spread = 6
+
+/obj/item/gun/ballistic/automatic/fallout/assaultrifle/infiltrator/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/scope, range_modifier = 2)
 
 /obj/item/gun/ballistic/automatic/fallout/assaultrifle/chinese
 	name = "Chinese assault rifle"
@@ -146,9 +148,11 @@
 	burst_size = 1
 	extra_damage = 35
 	extra_penetration = 10
-	zoomable = TRUE
-	zoom_amt = 10
 	weapon_weight = WEAPON_HEAVY
+
+/obj/item/gun/ballistic/automatic/fallout/marksman/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/scope, range_modifier = 2)
 
 /obj/item/gun/ballistic/automatic/fallout/marksman/american
 	name = "All-American"
@@ -166,7 +170,6 @@
 	fire_delay = 4
 	extra_damage = 25
 	extra_penetration = 5
-	zoomable = FALSE
 
 /obj/item/gun/ballistic/automatic/fallout/marksman/service/survival
 	name = "Survivalist rifle"

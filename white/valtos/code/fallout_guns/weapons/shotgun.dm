@@ -96,8 +96,10 @@
 	icon_state = "scoped_sks"
 	inhand_icon_state = "scoped_sks"
 	extra_penetration = 15
-	zoomable = TRUE
-	zoom_amt = 10
+
+/obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks/scoped/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/scope, range_modifier = 2)
 
 //Magazines
 /obj/item/ammo_box/magazine/internal/shot/tube4570

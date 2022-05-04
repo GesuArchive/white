@@ -9,12 +9,14 @@
 	inhand_icon_state = "sniper"
 	w_class = WEIGHT_CLASS_BULKY
 	force = 4
-	zoomable = TRUE
-	zoom_amt = 10
 	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/internal/shot
 	casing_ejector = FALSE
 	weapon_weight = WEAPON_MEDIUM
+
+/obj/item/gun/ballistic/shotgun/sniper/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/scope, range_modifier = 2)
 
 /obj/item/ammo_casing/shotgun/dart/sleeping
 	name = "shotgun dart"

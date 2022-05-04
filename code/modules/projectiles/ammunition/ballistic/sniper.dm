@@ -18,3 +18,8 @@
 	name = ".50 бронебойная гильза"
 	desc = "Патрон .50 бронебойный."
 	projectile_type = /obj/projectile/bullet/p50/penetrator
+
+/obj/item/ammo_casing/p50/marksman
+	name = ".50 снайперская гильза"
+	desc = "Патрон .50 высокоточный."
+	projectile_type = /obj/projectile/bullet/p50/marksman

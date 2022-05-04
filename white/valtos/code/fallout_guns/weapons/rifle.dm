@@ -18,8 +18,10 @@
 	icon_state = "scoped_hunting"
 	inhand_icon_state = "scoped_hunting"
 	extra_penetration = 20
-	zoomable = TRUE
-	zoom_amt = 10
+
+/obj/item/gun/ballistic/rifle/fallout/hunting/scoped/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/scope, range_modifier = 2)
 
 /obj/item/gun/ballistic/rifle/fallout/varmint
 	name = "varmint rifle"
@@ -42,10 +44,12 @@
 	extra_damage = 35
 	extra_penetration = 10
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
-	zoomable = TRUE
-	zoom_amt = 10
 	suppressed = TRUE
 	can_unsuppress = FALSE
+
+/obj/item/gun/ballistic/rifle/fallout/varmint/ratslayer/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/scope, range_modifier = 2)
 
 /obj/item/gun/ballistic/rifle/fallout/hunting/scoped/amr
 	name = "anti-material rifle"

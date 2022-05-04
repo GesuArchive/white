@@ -9,9 +9,11 @@
 	can_suppress = FALSE
 	icon = 'white/Wzzzz/icons/Weea.dmi'
 	burst_size = 3
-	zoomable = TRUE
-	zoom_amt = 8
 	fire_delay = 2
+
+/obj/item/gun/ballistic/automatic/ar/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/scope, range_modifier = 2)
 
 /obj/item/ammo_box/magazine/m556/arg
 	name = "arg magazine (5.56mm)"
