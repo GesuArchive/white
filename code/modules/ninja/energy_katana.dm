@@ -22,7 +22,8 @@
 	block_chance = 50
 	armour_penetration = 50
 	w_class = WEIGHT_CLASS_NORMAL
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/blade1.ogg'
+	block_sounds = list('sound/weapons/bladeb.ogg')
 	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT

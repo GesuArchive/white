@@ -65,6 +65,7 @@
 	wound_bonus = -50
 	bare_wound_bonus = 20
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрубает", "нарезает", "культирует")
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрубает", "нарезает", "культирует")
 
@@ -130,6 +131,7 @@
 	icon_state = "cultbastard"
 	inhand_icon_state = "cultbastard"
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 	lefthand_file = 'icons/mob/inhands/64x64_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/64x64_righthand.dmi'
 	inhand_x_dimension = 64

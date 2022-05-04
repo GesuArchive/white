@@ -71,6 +71,7 @@
 	attack_verb_continuous = list("разрезает", "нарезает")
 	attack_verb_simple = list("разрезает", "нарезает")
 	hitsound = 'sound/weapons/rapierhit.ogg'
+	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 	custom_materials = list(/datum/material/iron = 1000)
 	wound_bonus = 30
 	bare_wound_bonus = 55
@@ -156,6 +157,7 @@
 	attack_verb_continuous = list("slashes", "stings", "prickles", "pokes")
 	attack_verb_simple = list("slash", "sting", "prickle", "poke")
 	hitsound = 'sound/weapons/rapierhit.ogg'
+	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 
 /obj/item/melee/beesword/afterattack(atom/target, mob/user, proximity)
 	. = ..()

@@ -1559,7 +1559,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		H.visible_message(span_warning("[M] пытается дотронуться до [H]!") , \
 						span_userdanger("[M] пытается дотронуться до меня!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, M)
 		to_chat(M, span_warning("Пытаюсь дотронуться до [H]!"))
-		playsound(get_turf(H), 'white/valtos/sounds/block_hand.ogg', 100)
 		return
 
 	SEND_SIGNAL(M, COMSIG_MOB_ATTACK_HAND, M, H, attacker_style)

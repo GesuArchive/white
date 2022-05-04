@@ -364,6 +364,7 @@
 	block_chance = 30
 	sharpness = SHARP_EDGED
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 	attack_verb_continuous = list("атакует", "рубит", "кромсает", "разрывает", "протыкает", "колбасит", "делит", "режет")
 	attack_verb_simple = list("атакует", "рубит", "кромсает", "разрывает", "протыкает", "колбасит", "делит", "режет")
 

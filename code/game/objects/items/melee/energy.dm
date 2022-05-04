@@ -164,12 +164,11 @@
 	armour_penetration = 35
 	block_chance = 50
 	embedding = list("embed_chance" = 75, "impact_pain_mult" = 10)
+	block_sounds = list('sound/weapons/bladeb.ogg')
 
 /obj/item/melee/energy/sword/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(blade_active)
-		if(..())
-			playsound(owner, 'sound/weapons/bladeb.ogg', 100, TRUE)
-			return TRUE
+		return ..()
 	return FALSE
 
 /obj/item/melee/energy/sword/cyborg

@@ -34,6 +34,7 @@
 	var/hacked = FALSE
 	var/list/possible_colors = list("red", "blue", "green", "purple")
 	var/wielded = FALSE // track wielded status on item
+	block_sounds = list('sound/weapons/bladeb.ogg')
 
 /obj/item/dualsaber/ComponentInitialize()
 	. = ..()
@@ -146,9 +147,7 @@
 
 /obj/item/dualsaber/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(wielded)
-		if(..())
-			playsound(owner, 'sound/weapons/bladeb.ogg', 100, TRUE)
-			return TRUE
+		return ..()
 	return FALSE
 
 /obj/item/dualsaber/process()

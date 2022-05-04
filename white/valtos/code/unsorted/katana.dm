@@ -169,7 +169,6 @@
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		if(H.check_shields(src, 0, "[user] [name]", MELEE_ATTACK)) //No message; check_shields() handles that
-			playsound(H, 'sound/weapons/rapierhit.ogg', 50, TRUE)
 			return TRUE
 	return FALSE
 

@@ -88,7 +88,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	///Whether or not we use stealthy audio levels for this item's attack sounds
 	var/stealthy_audio = FALSE
 
-	var/list/block_sounds = list('white/valtos/sounds/block_sword.ogg')
+	var/list/block_sounds = list('white/valtos/sounds/itemblock.ogg')
 
 	///How large is the object, used for stuff like whether it can fit in backpacks or not
 	var/w_class = WEIGHT_CLASS_NORMAL

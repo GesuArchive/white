@@ -68,6 +68,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	attack_verb_continuous = list("атакует", "рубит", "втыкает", "прорезает", "кромсает", "подрезает", "нарезает", "режет")
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "прорезает", "кромсает", "подрезает", "нарезает", "режет")
 	block_chance = 50
+	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 	sharpness = SHARP_EDGED
 	max_integrity = 200
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 50)
@@ -254,6 +255,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	throwforce = 10
 	w_class = WEIGHT_CLASS_HUGE
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
 	block_chance = 50
@@ -840,6 +842,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 	var/wielded = FALSE // track wielded status on item
 
 /obj/item/vibro_weapon/Initialize()
@@ -896,6 +899,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	force = 14
 	throwforce = 12
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 
