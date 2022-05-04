@@ -544,5 +544,9 @@
 	recoil = 8
 	projectile_damage = 100
 
+/obj/item/gun/energy/beam_rifle/violence/Initialize()
+	. = ..()
+	AddComponent(/datum/component/scope, range_modifier = 2)
+
 /obj/item/gun/energy/beam_rifle/violence/handle_zooming()
 	return

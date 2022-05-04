@@ -110,4 +110,4 @@
 					S = 'white/valtos/sounds/tar5.ogg'
 
 	if(S)
-		SEND_SOUND(L, sound(S, repeat = 1, wait = 0, volume = 25, channel = CHANNEL_VIOLENCE_MODE))
+		SEND_SOUND(L, sound(S, repeat = 1, wait = 0, volume = 10, channel = CHANNEL_VIOLENCE_MODE))
