@@ -285,7 +285,7 @@
 
 /mob/living/attack_larva(mob/living/carbon/alien/larva/L)
 	switch(L.a_intent)
-		if("help")
+		if(INTENT_HELP)
 			visible_message(span_notice("<b>[L.name]</b> трётся своей головой о <b>[skloname(name, VINITELNI, gender)]</b>.") , \
 							span_notice("<b>[L.name]</b> трётся своей головой о меня.") , null, null, L)
 			to_chat(L, span_notice("Тру свою голову о [skloname(name, VINITELNI, gender)]."))
@@ -312,21 +312,21 @@
 
 /mob/living/attack_alien(mob/living/carbon/alien/humanoid/M)
 	switch(M.a_intent)
-		if ("help")
-			visible_message(span_notice("<b>[M]</b> cобнимает <b>[skloname(name, VINITELNI, gender)]</b> своей клешнёй.") , \
+		if (INTENT_HELP)
+			visible_message(span_notice("<b>[M]</b> обнимает <b>[skloname(name, VINITELNI, gender)]</b> своей клешнёй.") , \
 				span_notice("<b>[M]</b> обнимает меня своей клешнёй.") , null, null, M)
 			to_chat(M, span_notice("Обнимаю [skloname(name, VINITELNI, gender)] своей клешнёй."))
 			return FALSE
-		if ("grab")
+		if (INTENT_GRAB)
 			grabbedby(M)
 			return FALSE
-		if("harm")
+		if(INTENT_HARM)
 			if(HAS_TRAIT(M, TRAIT_PACIFISM))
 				to_chat(M, span_warning("Не хочу вредить!"))
 				return FALSE
 			M.do_attack_animation(src)
 			return TRUE
-		if("disarm")
+		if(INTENT_DISARM)
 			M.do_attack_animation(src, ATTACK_EFFECT_DISARM)
 			return TRUE
 

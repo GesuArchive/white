@@ -1,6 +1,6 @@
 /client/verb/mentorhelp(msg as text)
 	set category = "Адм"
-	set name = "Помощь знатока"
+	set name = "Получить подсказку"
 
 	//clean the input msg
 	if(!msg)

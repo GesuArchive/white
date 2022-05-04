@@ -5,7 +5,7 @@
 	if (..())
 		return TRUE
 	switch(M.a_intent)
-		if("help")
+		if(INTENT_HELP)
 			if (stat == DEAD)
 				return
 			visible_message(span_notice("[M] [response_help_continuous] [skloname(name, VINITELNI, gender)].") , \
@@ -15,10 +15,10 @@
 			if(pet_bonus)
 				funpet(M)
 
-		if("grab")
+		if(INTENT_GRAB)
 			grabbedby(M)
 
-		if("disarm")
+		if(INTENT_DISARM)
 			M.do_attack_animation(src, ATTACK_EFFECT_DISARM)
 			playsound(src, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 			var/shove_dir = get_dir(M, src)
@@ -34,7 +34,7 @@
 			to_chat(src, span_userdanger("Меня толкает [name]!"))
 			return TRUE
 
-		if("harm")
+		if(INTENT_HARM)
 			if(HAS_TRAIT(M, TRAIT_PACIFISM))
 				to_chat(M, span_warning("Не хочу вредить [skloname(name, VINITELNI, gender)]!"))
 				return

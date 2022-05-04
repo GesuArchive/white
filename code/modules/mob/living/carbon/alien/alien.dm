@@ -80,7 +80,8 @@
 
 /mob/living/carbon/alien/get_status_tab_items()
 	. = ..()
-	. += "Взаимодействие: [a_intent]"
+	. += ""
+	. += "Взаимодействие: [capitalize(ru_intent(a_intent))]"
 
 /mob/living/carbon/alien/getTrail()
 	if(getBruteLoss() < 200)

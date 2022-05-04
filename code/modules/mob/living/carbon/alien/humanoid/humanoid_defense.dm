@@ -17,7 +17,7 @@
 /mob/living/carbon/alien/humanoid/attack_hand(mob/living/carbon/human/M)
 	if(..())
 		switch(M.a_intent)
-			if ("harm")
+			if (INTENT_HARM)
 				var/damage = rand(1, 9)
 				if (prob(90))
 					playsound(loc, "punch", 25, TRUE, -1)
@@ -38,7 +38,7 @@
 									span_danger("You avoid [M] punch!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, M)
 					to_chat(M, span_warning("Your punch misses [src]!"))
 
-			if ("disarm")
+			if (INTENT_DISARM)
 				if (body_position == STANDING_UP)
 					if (prob(5))
 						Unconscious(40)

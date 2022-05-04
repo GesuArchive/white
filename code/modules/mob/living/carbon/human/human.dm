@@ -77,8 +77,9 @@
 
 /mob/living/carbon/human/get_status_tab_items()
 	. = ..()
-	. += "Взаимодействие: [a_intent]"
-	. += "Режим перемещения: [m_intent]"
+	. += ""
+	. += "Взаимодействие: [capitalize(ru_intent(a_intent))]"
+	. += "Режим перемещения: [m_intent == MOVE_INTENT_RUN ? "Бег" : "Шаг"]"
 	if (internal)
 		if (!internal.air_contents)
 			qdel(internal)

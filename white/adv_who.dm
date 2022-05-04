@@ -120,7 +120,7 @@
 
 /client/verb/adminwho()
 	set category = "Адм"
-	set name = "Adminwho"
+	set name = "Администраторы"
 
 	var/msg = "<b>Педали:</b>\n"
 	if(holder)

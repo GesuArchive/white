@@ -95,7 +95,7 @@
 
 /mob/living/simple_animal/hostile/tree/festivus/attack_hand(mob/living/carbon/human/M)
 	. = ..()
-	if(M.a_intent == "help")
+	if(M.a_intent == INTENT_HELP)
 		visible_message(span_warning("[capitalize(src.name)] crackles with static electricity!"))
 		for(var/obj/item/stock_parts/cell/C in range(2, get_turf(src)))
 			C.give(75)

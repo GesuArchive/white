@@ -35,82 +35,13 @@
 	new /datum/chat_settings_panel(usr)
 
 /datum/verbs/menu/settings/verb/stop_client_sounds()
-	set name = "❌ Остановить звуки"
+	set name = "ПОЧИНИТЬ ЗВУК"
 	set category = "Особенное"
 	set desc = "Остановить звуки"
 	SEND_SOUND(usr, sound(null))
 	var/client/C = usr.client
 	C?.tgui_panel?.stop_music()
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Stop Self Sounds")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-GLOBAL_LIST_INIT(ghost_forms, sort_list(list("ghost","ghostking","ghostian2","skeleghost","ghost_red","ghost_black", \
-							"ghost_blue","ghost_yellow","ghost_green","ghost_pink", \
-							"ghost_cyan","ghost_dblue","ghost_dred","ghost_dgreen", \
-							"ghost_dcyan","ghost_grey","ghost_dyellow","ghost_dpink", "ghost_purpleswirl","ghost_funkypurp","ghost_pinksherbert","ghost_blazeit",\
-							"ghost_mellow","ghost_rainbow","ghost_camo","ghost_fire", "catghost")))
-/client/proc/pick_form()
-	var/new_form = input(src, "Choose your ghostly form:","Thanks for supporting BYOND",null) as null|anything in GLOB.ghost_forms
-	if(new_form)
-		prefs.ghost_form = new_form
-		prefs.save_preferences()
-		if(isobserver(mob))
-			var/mob/dead/observer/O = mob
-			O.update_icon(new_form)
-
-GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOST_ORBIT_SQUARE,GHOST_ORBIT_HEXAGON,GHOST_ORBIT_PENTAGON))
-
-/client/proc/pick_ghost_orbit()
-	var/new_orbit = input(src, "Choose your ghostly orbit:","Thanks for supporting BYOND",null) as null|anything in GLOB.ghost_orbits
-	if(new_orbit)
-		prefs.ghost_orbit = new_orbit
-		prefs.save_preferences()
-		if(isobserver(mob))
-			var/mob/dead/observer/O = mob
-			O.ghost_orbit = new_orbit
-
-/client/proc/pick_ghost_accs()
-	var/new_ghost_accs = tgui_alert(usr,"Do you want your ghost to show full accessories where possible, hide accessories but still use the directional sprites where possible, or also ignore the directions and stick to the default sprites?",,list("full accessories", "only directional sprites", "default sprites"))
-	if(new_ghost_accs)
-		switch(new_ghost_accs)
-			if("full accessories")
-				prefs.ghost_accs = GHOST_ACCS_FULL
-			if("only directional sprites")
-				prefs.ghost_accs = GHOST_ACCS_DIR
-			if("default sprites")
-				prefs.ghost_accs = GHOST_ACCS_NONE
-		prefs.save_preferences()
-		if(isobserver(mob))
-			var/mob/dead/observer/O = mob
-			O.update_icon()
-
-/client/verb/pick_ghost_customization()
-	set name = "Настройка призрака"
-	set category = "Призрак"
-	switch(tgui_alert("Что хотим сменить?",,list("Форма","Тип орбиты","Побрякушки")))
-		if("Форма")
-			pick_form()
-		if("Тип орбиты")
-			pick_ghost_orbit()
-		if("Побрякушки")
-			pick_ghost_accs()
-
-/client/verb/pick_ghost_others()
-	set name = "Вид других призраков"
-	set category = null
-	set desc = "Change display settings for the ghosts of other players."
-	var/new_ghost_others = tgui_alert(usr, "Хочешь изменить других призраков или же просто убрать их побрякушки?",,list("Их настройки", "Стандартные спрайты", "Белые призраки"))
-	if(new_ghost_others)
-		switch(new_ghost_others)
-			if("Их настройки")
-				prefs.ghost_others = GHOST_OTHERS_THEIR_SETTING
-			if("Стандартные спрайты")
-				prefs.ghost_others = GHOST_OTHERS_DEFAULT_SPRITE
-			if("Белые призраки")
-				prefs.ghost_others = GHOST_OTHERS_SIMPLE
-		prefs.save_preferences()
-		if(isobserver(mob))
-			var/mob/dead/observer/O = mob
-			O.update_sight()
 
 /client/verb/toggle_intent_style()
 	set name = "🔄 Метод выбора интентов"
@@ -120,29 +51,6 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	to_chat(src, "[(prefs.toggles & INTENT_STYLE) ? "Нажатие на тип взаимодействия теперь выбирает его." : "Нажатие на любой тип взаимодействия будет сменять их по часовой стрелке."]")
 	prefs.save_preferences()
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Intent Selection", "[prefs.toggles & INTENT_STYLE ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/verb/toggle_ghost_hud_pref()
-	set name = "🔄 HUD призрака"
-	set category = "Призрак"
-
-	prefs.ghost_hud = !prefs.ghost_hud
-	to_chat(src, "Призрачный HUD теперь [prefs.ghost_hud ? "виден" : "не виден"].")
-	prefs.save_preferences()
-	if(isobserver(mob))
-		mob.hud_used.show_hud()
-	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Ghost HUD", "[prefs.ghost_hud ? "Enabled" : "Disabled"]"))
-
-/client/verb/toggle_inquisition() // warning: unexpected inquisition
-	set name = "🔄 Изучение при клике"
-	set category = "Призрак"
-
-	prefs.inquisitive_ghost = !prefs.inquisitive_ghost
-	prefs.save_preferences()
-	if(prefs.inquisitive_ghost)
-		to_chat(src, span_notice("Буду изучать все, на что нажимаю."))
-	else
-		to_chat(src, span_notice("Больше не будешь изучать то, на что нажимаю."))
-	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Ghost Inquisitiveness", "[prefs.inquisitive_ghost ? "Enabled" : "Disabled"]"))
 
 //Admin Preferences
 /client/proc/toggleadminhelpsound()

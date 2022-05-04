@@ -673,6 +673,19 @@ Turf and target are separate in case you want to teleport some distance from a t
 	else
 		return zone
 
+/proc/ru_intent(intent)
+	switch(intent)
+		if (INTENT_HELP)
+			return "помогать"
+		if (INTENT_GRAB)
+			return "хватать"
+		if (INTENT_DISARM)
+			return "толкать"
+		if (INTENT_HARM)
+			return "вредить"
+		else
+			return intent
+
 // FUCK?
 /proc/ru_job_parse(job)
 	if (job == "Assistant")

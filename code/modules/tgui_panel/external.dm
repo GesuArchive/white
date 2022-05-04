@@ -9,7 +9,7 @@
  * tgui panel / chat troubleshooting verb
  */
 /client/verb/fix_tgui_panel()
-	set name = " ❗ Починить чат"
+	set name = "ПОЧИНИТЬ ЧАТ"
 	set category = "Особенное"
 	var/action
 	log_tgui(src, "Started fixing.", context = "verb/fix_tgui_panel")

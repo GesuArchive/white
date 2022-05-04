@@ -65,12 +65,12 @@
 	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND, M) & COMPONENT_CANCEL_ATTACK_CHAIN)
 		. = TRUE
 	switch(M.a_intent)
-		if ("help")
+		if (INTENT_HELP)
 			visible_message(span_notice("[M] pets [src].") , \
 							span_notice("[M] pets you.") , null, null, M)
 			to_chat(M, span_notice("You pet [src]."))
 			SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT_RND, "pet_borg", /datum/mood_event/pet_borg)
-		if("grab")
+		if(INTENT_GRAB)
 			grabbedby(M)
 		else
 			M.do_attack_animation(src, ATTACK_EFFECT_PUNCH)

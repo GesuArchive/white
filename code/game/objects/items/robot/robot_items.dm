@@ -910,7 +910,7 @@
 	. += arm
 
 /obj/item/borg/apparatus/beaker/attack_self(mob/living/silicon/robot/user)
-	if(stored && !user.client?.keys_held["Alt"] && user.a_intent != "help")
+	if(stored && !user.client?.keys_held["Alt"] && user.a_intent != INTENT_HELP)
 		var/obj/item/reagent_containers/C = stored
 		C.SplashReagents(get_turf(user))
 		loc.visible_message(span_notice("[user] spills the contents of the [C] all over the floor."))

@@ -379,7 +379,7 @@ GLOBAL_LIST_INIT(alko_list, list("zarri", "maxsc", "nfogmann", "unitazik", "sran
 	SSticker.show_roundend_report(src, report_type = SERVER_LAST_ROUND)
 
 /client/verb/fit_viewport()
-	set name = "❗ Подстроить экран"
+	set name = "ПОЧИНИТЬ ЭКРАН"
 	set category = "Особенное"
 	set desc = "Fit the width of the map window to match the viewport"
 
@@ -467,7 +467,7 @@ GLOBAL_LIST_INIT(alko_list, list("zarri", "maxsc", "nfogmann", "unitazik", "sran
 /client/verb/policy()
 	set name = "📘 Показать политику"
 	set desc = "Show special server rules related to your current character."
-	set category = "OOC"
+	set category = null
 
 	//Collect keywords
 	var/list/keywords = mob.get_policy_keywords()
