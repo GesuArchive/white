@@ -143,7 +143,7 @@
 			return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/try_counterattack(atom/AM, var/obj/item/I)
+/mob/living/carbon/human/proc/try_counterattack(atom/AM, obj/item/I)
 	if(next_move > world.time || !AM?.loc || !I || !isliving(AM.loc) || !(I in held_items))
 		return
 	var/mob/living/L = AM.loc

@@ -540,13 +540,9 @@
 /obj/item/gun/energy/beam_rifle/violence
 	delay = 75
 	cell_type = /obj/item/stock_parts/cell/infinite
-	aiming_time = 3
+	aiming_time = 7
 	recoil = 8
 	projectile_damage = 100
-
-/obj/item/gun/energy/beam_rifle/violence/Initialize()
-	. = ..()
-	AddComponent(/datum/component/scope, range_modifier = 2)
 
 /obj/item/gun/energy/beam_rifle/violence/handle_zooming()
 	return
