@@ -19143,9 +19143,6 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
-	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/aft)
 "bIg" = (
@@ -70276,8 +70273,8 @@ bCq
 bCq
 cbj
 wIB
-gXs
-gXs
+wIB
+wIB
 wIB
 bCq
 bCq
@@ -76436,9 +76433,9 @@ gXs
 aaa
 gXs
 aaa
-aaa
-aaa
-aaa
+wIB
+wIB
+wIB
 bCq
 bHE
 grb
@@ -76693,9 +76690,9 @@ bEU
 aaa
 gXs
 aaa
-aaa
-gXs
-gXs
+wIB
+nWq
+wIB
 bCq
 pYD
 cay
@@ -76950,7 +76947,7 @@ bEU
 gXs
 gXs
 aaa
-aaa
+wIB
 mra
 mra
 bCq
@@ -77207,7 +77204,7 @@ bEU
 aaa
 gXs
 gXs
-gXs
+wIB
 mra
 ljG
 jfp
@@ -80029,9 +80026,9 @@ cav
 cav
 cav
 bFj
-cav
-cav
-cav
+bLI
+bLI
+bLI
 bIe
 vun
 bJz

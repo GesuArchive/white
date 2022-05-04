@@ -43,7 +43,7 @@
 /area/maintenance/port/aft)
 "l" = (
 /obj/item/stack/tile/plasteel,
-/turf/template_noop,
+/turf/open/floor/engine/hull,
 /area/template_noop)
 "n" = (
 /turf/open/floor/plating/airless,
@@ -66,6 +66,17 @@
 /obj/item/clothing/head/hardhat,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
+"A" = (
+/turf/open/floor/engine/hull,
+/area/template_noop)
+"O" = (
+/obj/effect/light_emitter{
+	light_range = 3;
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/floor/engine/hull,
+/area/template_noop)
 
 (1,1,1) = {"
 a
@@ -119,10 +130,10 @@ c
 b
 f
 c
-i
-i
-i
-i
+A
+A
+A
+A
 i
 i
 i
@@ -135,9 +146,9 @@ c
 a
 f
 c
-i
-i
-i
+A
+A
+A
 l
 j
 n
@@ -151,10 +162,10 @@ c
 a
 f
 c
-j
-j
-i
-i
+A
+A
+A
+A
 n
 p
 n
@@ -167,10 +178,10 @@ c
 a
 f
 c
-i
-i
-i
-i
+A
+O
+A
+A
 o
 q
 n
@@ -183,10 +194,10 @@ c
 c
 f
 c
-i
-i
-i
-i
+A
+A
+A
+A
 i
 n
 j
@@ -199,10 +210,10 @@ c
 c
 f
 c
-j
-j
-i
-i
+A
+A
+A
+A
 i
 n
 i
@@ -215,10 +226,10 @@ a
 c
 f
 c
-i
-i
-i
-i
+A
+A
+A
+A
 i
 j
 i
