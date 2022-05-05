@@ -79,10 +79,10 @@ SUBSYSTEM_DEF(spm)
 	if(contents.len)
 		. += "<hr><span class='notice'>Внутри можно заметить:</span>"
 		for(var/obj/item/mining_thing/MT in contents)
-			. += "\n<span class='notice'>[icon2html(MT, user)] [MT.tech_name] \[[MT.hashrate + MT.overclock] Sols/s]</span>"
+			. += span_notice("\n[icon2html(MT, user)] [MT.tech_name] \[[MT.hashrate + MT.overclock] Sols/s]")
 	. += "<hr><span class='notice'>Общая скорость: <b>[hashrate_total] Sols/s</b>.</span>"
-	. += "\n<span class='notice'>Сложность сети: <b>[SSspm.diff]</b>.</span>"
-	. += "\n<span class='notice'>Привязанный аккаунт: <b>[linked_account.account_holder]</b>.</span>"
+	. += span_notice("\nСложность сети: <b>[SSspm.diff]</b>.")
+	. += span_notice("\nПривязанный аккаунт: <b>[linked_account.account_holder]</b>.")
 
 /obj/machinery/power/mining_rack/proc/get_env_temp()
 	var/datum/gas_mixture/env = loc.return_air()

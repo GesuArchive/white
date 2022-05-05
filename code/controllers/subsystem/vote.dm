@@ -109,7 +109,7 @@ SUBSYSTEM_DEF(vote)
 		text += "<b>Результат: ЕДИНАЯ РОССИЯ!</b>"
 	log_vote(text)
 	remove_action_buttons()
-	to_chat(world, "\n<span class='purple'>[text]</span>")
+	to_chat(world, span_purple("\n[text]"))
 	return .
 
 /datum/controller/subsystem/vote/proc/result()

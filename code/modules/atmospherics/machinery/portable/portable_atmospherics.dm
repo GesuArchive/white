@@ -99,7 +99,7 @@
 	. = ..()
 	if(holding)
 		. += "<hr><span class='notice'>[capitalize(src.name)] содержит [holding]. ПКМ [src] для быстрого изъятия.</span>"+\
-			"\n<span class='notice'>Нажми на [src.name] держа бак в руке для горячей замены [holding].</span>"
+			span_notice("\nНажми на [src.name] держа бак в руке для горячей замены [holding].")
 
 /obj/machinery/portable_atmospherics/proc/replace_tank(mob/living/user, close_valve, obj/item/tank/new_tank)
 	if(!user)

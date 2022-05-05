@@ -1139,7 +1139,7 @@
 /obj/item/circuitboard/machine/dish_drive/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'>Its suction function is [suction ? "enabled" : "disabled"]. Use it in-hand to switch.</span>"
-	. += "\n<span class='notice'>Its disposal auto-transmit function is [transmit ? "enabled" : "disabled"]. ПКМ it to switch.</span>"
+	. += span_notice("\nIts disposal auto-transmit function is [transmit ? "enabled" : "disabled"]. ПКМ it to switch.")
 
 /obj/item/circuitboard/machine/dish_drive/attack_self(mob/living/user)
 	suction = !suction

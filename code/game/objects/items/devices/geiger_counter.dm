@@ -64,7 +64,7 @@
 		return
 	. += "<hr><span class='info'>ПКМ для очистки показателей.</span>"
 	if(obj_flags & EMAGGED)
-		. += "\n<span class='warning'>Дисплей выдаёт ересь.</span>"
+		. += span_warning("\nДисплей выдаёт ересь.")
 		return
 	. += "<hr>"
 	switch(radiation_count)
@@ -81,7 +81,7 @@
 		if(RAD_LEVEL_CRITICAL + 1 to INFINITY)
 			. += span_boldannounce("Уровни внешней радиации выше критического уровня!")
 
-	. += "\n<span class='notice'>Последнее обнаруженное количество радиации было [last_tick_amount]</span>"
+	. += span_notice("\nПоследнее обнаруженное количество радиации было [last_tick_amount]")
 
 /obj/item/geiger_counter/update_icon_state()
 	if(!scanning)

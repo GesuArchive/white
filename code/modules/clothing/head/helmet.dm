@@ -441,11 +441,11 @@
 /obj/item/clothing/head/helmet/monkey_sentience/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='boldwarning'>---ВНИМАНИЕ: УДАЛЕНИЕ ШЛЕМА С СУБЪЕКТА МОЖЕТ ПРИВЕСТИ К:---</span>"
-	. += "\n<span class='warning'>ЖАЖДЕ КРОВИ</span>"
-	. += "\n<span class='warning'>СМЕРТИ МОЗГА</span>"
-	. += "\n<span class='warning'>АКТИВАЦИИ ПЕРВОБЫТНОГО ГЕНА</span>"
-	. += "\n<span class='warning'>МАССОВОЙ УСТОЙЧИВОСТИ ГЕНЕТИЧЕСКОГО СОСТАВА</span>"
-	. += "\n<span class='boldnotice'>Перед применением устройства проконсультируйтесь с вашим главным врачом.</span>"
+	. += span_warning("\nЖАЖДЕ КРОВИ")
+	. += span_warning("\nСМЕРТИ МОЗГА")
+	. += span_warning("\nАКТИВАЦИИ ПЕРВОБЫТНОГО ГЕНА")
+	. += span_warning("\nМАССОВОЙ УСТОЙЧИВОСТИ ГЕНЕТИЧЕСКОГО СОСТАВА")
+	. += span_boldnotice("\nПеред применением устройства проконсультируйтесь с вашим главным врачом.")
 
 /obj/item/clothing/head/helmet/monkey_sentience/update_icon_state()
 	icon_state = "[initial(icon_state)][light_colors][magnification ? "up" : ""]"

@@ -104,12 +104,12 @@
 
 	if(in_range(user, src) || isobserver(user))
 		if(!active)
-			. += "\n<span class='notice'>Его индикатор состояния в настоящее время выключен.</span>"
+			. += span_notice("\nЕго индикатор состояния в настоящее время выключен.")
 		else if(!powered)
-			. += "\n<span class='notice'>Его индикатор состояния слабо светится.</span>"
+			. += span_notice("\nЕго индикатор состояния слабо светится.")
 		else
-			. += "\n<span class='notice'>Его индикатор состояния показывает: излучение каждые <b>[DisplayTimeText(fire_delay)]</b>.</span>"
-			. += "\n<span class='notice'>Потребление энергии: <b>[DisplayPower(active_power_usage)]</b>.</span>"
+			. += span_notice("\nЕго индикатор состояния показывает: излучение каждые <b>[DisplayTimeText(fire_delay)]</b>.")
+			. += span_notice("\nПотребление энергии: <b>[DisplayPower(active_power_usage)]</b>.")
 
 /obj/machinery/power/emitter/ComponentInitialize()
 	. = ..()

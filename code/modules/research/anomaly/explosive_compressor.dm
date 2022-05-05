@@ -24,7 +24,7 @@
 /obj/machinery/research/explosive_compressor/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'>Ctrl-Click to remove an inserted core.</span>"
-	. += "\n<span class='notice'>Click with an empty hand to gather information about the required radius of an inserted core. Insert a ready TTV to start the implosion process if a core is inserted.</span>"
+	. += span_notice("\nClick with an empty hand to gather information about the required radius of an inserted core. Insert a ready TTV to start the implosion process if a core is inserted.")
 
 /obj/machinery/research/explosive_compressor/attack_hand(mob/living/user)
 	. = ..()

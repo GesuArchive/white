@@ -22,8 +22,8 @@
 /obj/item/discovery_scanner/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'>Левый клик по чему угодно для начала исследований.</span>"
-	. += "\n<span class='notice'>[capitalize(src.name)] имеет безлимитный радиус, можете сканировать хоть через камеры.</span>"
-	. += "\n<span class='notice'>Научные очки помогут узнать что может оказаться полезным.</span>"
+	. += span_notice("\n[capitalize(src.name)] имеет безлимитный радиус, можете сканировать хоть через камеры.")
+	. += span_notice("\nНаучные очки помогут узнать что может оказаться полезным.")
 
 /obj/item/discovery_scanner/attack_obj(obj/O, mob/living/user)
 	if(istype(O, /obj/machinery/computer/rdconsole))

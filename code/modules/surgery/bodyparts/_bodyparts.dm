@@ -127,13 +127,13 @@
 		. += span_warning("Конечность имеет [burn_dam > 30 ? "серьёзные" : "незначительные"] ожоги.")
 
 	if(locate(/datum/wound/blunt) in wounds)
-		. += "\n<span class='warning'>Кости этой кончености выглядят сильно потрескавшимися.</span>"
+		. += span_warning("\nКости этой кончености выглядят сильно потрескавшимися.")
 	if(locate(/datum/wound/slash) in wounds)
-		. += "\n<span class='warning'>Плоть этой конечности выглядит сильно порванной.</span>"
+		. += span_warning("\nПлоть этой конечности выглядит сильно порванной.")
 	if(locate(/datum/wound/pierce) in wounds)
-		. += "\n<span class='warning'>Плоть этой конечности выглядит сильно префорированной.</span>"
+		. += span_warning("\nПлоть этой конечности выглядит сильно префорированной.")
 	if(locate(/datum/wound/burn) in wounds)
-		. += "\n<span class='warning'>Плоть этой конечности выглядит сильно обгоревшей.</span>"
+		. += span_warning("\nПлоть этой конечности выглядит сильно обгоревшей.")
 
 /obj/item/bodypart/blob_act()
 	take_damage(max_damage)

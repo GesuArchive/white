@@ -253,7 +253,7 @@
 			<span class='info'>В нем есть еще один свободный разъем под <b>вспышку</b>.</span>"}
 		else
 			. += "<hr>Оба глазных разъема заняты вспышками."
-		. += "\n<span class='notice'>Можно извлечь установленную [single_flash ? "вспышку":"вспышки"] при помощи <b>ломика</b>.</span>"
+		. += span_notice("\nМожно извлечь установленную [single_flash ? "вспышку":"вспышки"] при помощи <b>ломика</b>.")
 
 /obj/item/bodypart/head/robot/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/assembly/flash/handheld))

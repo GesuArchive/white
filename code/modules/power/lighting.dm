@@ -88,7 +88,7 @@
 		else
 			. += "\nВ корпусе нет батарейки для резервного питания."
 	else
-		. += "\n<span class='danger'>Этот корпус не поддерживает батарейки для резервного питания.</span>"
+		. += span_danger("\nЭтот корпус не поддерживает батарейки для резервного питания.")
 
 /obj/structure/light_construct/attack_hand(mob/user)
 	if(cell)

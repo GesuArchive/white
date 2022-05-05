@@ -97,7 +97,7 @@
 	. = ..()
 	. += "<hr><span class='notice'><b>[src.name]</b> can be attached to a uniform. ПКМ to remove it once attached.</span>"
 	if(initial(above_suit))
-		. += "\n<span class='notice'><b>[src.name]</b> can be worn above or below your suit. ПКМ to toggle.</span>"
+		. += span_notice("\n<b>[src.name]</b> can be worn above or below your suit. ПКМ to toggle.")
 
 /obj/item/clothing/accessory/waistcoat
 	name = "waistcoat"

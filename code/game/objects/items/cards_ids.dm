@@ -564,15 +564,15 @@
 			var/datum/bank_account/D = SSeconomy.get_dep_account(registered_account.account_job.paycheck_department)
 			if(D)
 				msg += "\nБаланс [D.account_holder] составляет <b>[D.account_balance] кредит[get_num_string(D.account_balance)]."
-		msg += "\n<span class='info'>ПКМ на ID-карте для снятия денег.</span>"
-		msg += "\n<span class='info'>Похоже сюда можно вставлять голо-чипы, монетки и прочую валюту.</span>"
+		msg += span_info("\nПКМ на ID-карте для снятия денег.")
+		msg += span_info("\nПохоже сюда можно вставлять голо-чипы, монетки и прочую валюту.")
 		if(registered_account.civilian_bounty)
 			msg += "\n<span class='info'><b>Есть активный гражданский заказ.</b>"
-			msg += "\n<span class='info'><i>[registered_account.bounty_text()]</i></span>"
-			msg += "\n<span class='info'>Количество: [registered_account.bounty_num()]</span>"
-			msg += "\n<span class='info'>Награда: [registered_account.bounty_value()]</span>"
+			msg += span_info("\n<i>[registered_account.bounty_text()]</i>")
+			msg += span_info("\nКоличество: [registered_account.bounty_num()]")
+			msg += span_info("\nНаграда: [registered_account.bounty_value()]")
 		if(registered_account.account_holder == user.real_name)
-			msg += "\n<span class='boldnotice'>Если ты потеряешь эту ID-карту, ты можешь запросто переподключить свой счёт используя ПКМ на своей новой карте.</span>"
+			msg += span_boldnotice("\nЕсли ты потеряешь эту ID-карту, ты можешь запросто переподключить свой счёт используя ПКМ на своей новой карте.")
 	else
 		msg += span_info("Похоже здесь не привязан аккаунт. ПКМ для привязки аккаунта поможет.")
 

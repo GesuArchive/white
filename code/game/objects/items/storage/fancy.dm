@@ -216,7 +216,7 @@
 
 	. += "<hr><span class='notice'>ПКМ чтобы извлечь содержимое.</span>"
 	if(spawn_coupon)
-		. += "\n<span class='notice'>На обратной стороне упаковки есть купон! Можно оторвать его, когда содержимое пачки станет пустым.</span>"
+		. += span_notice("\nНа обратной стороне упаковки есть купон! Можно оторвать его, когда содержимое пачки станет пустым.")
 
 /obj/item/storage/fancy/cigarettes/AltClick(mob/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))

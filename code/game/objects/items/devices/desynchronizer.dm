@@ -30,7 +30,7 @@
 	if(world.time < next_use)
 		. += "<hr><span class='warning'>Time left to recharge: [DisplayTimeText(next_use - world.time)]</span>"
 	. += "<hr><span class='notice'>ПКМ to customize the duration. Current duration: [DisplayTimeText(duration)].</span>"
-	. += "\n<span class='notice'>Can be used again to interrupt the effect early. The recharge time is the same as the time spent in desync.</span>"
+	. += span_notice("\nCan be used again to interrupt the effect early. The recharge time is the same as the time spent in desync.")
 
 /obj/item/desynchronizer/AltClick(mob/living/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))

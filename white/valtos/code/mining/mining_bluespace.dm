@@ -95,9 +95,9 @@
 	. += "<hr>"
 	. += span_notice("Скорость сбора ресурсов [mine_rate]")
 	if(!materials?.silo)
-		. += "\n<span class='notice'>Бункер для руды не подключен. Используйте многофункциональный инструмент, чтобы связать бункер для руды с этой машиной.</span>"
+		. += span_notice("\nБункер для руды не подключен. Используйте многофункциональный инструмент, чтобы связать бункер для руды с этой машиной.")
 	else if(materials?.on_hold())
-		. += "\n<span class='warning'>Доступ к рудным бункерам заблокирован, обратитесь к завхозу.</span>"
+		. += span_warning("\nДоступ к рудным бункерам заблокирован, обратитесь к завхозу.")
 
 /obj/machinery/bluespace_miner/attackby(obj/item/O, mob/user, params)
 	if(user.a_intent == INTENT_HARM)

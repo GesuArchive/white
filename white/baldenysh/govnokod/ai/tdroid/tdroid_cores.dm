@@ -40,7 +40,7 @@
 /obj/item/organ/tactical_core/examine(mob/user)
 	. = ..()
 	if(commander_mob)
-		. += "\n<span class='notice'>Коммандир: [commander_mob.name]</span>" //ваще надо на строчку днк заменить но пока похуй
+		. += span_notice("\nКоммандир: [commander_mob.name]") //ваще надо на строчку днк заменить но пока похуй
 
 /obj/item/organ/tactical_core/attack_self(mob/user)
 	. = ..()

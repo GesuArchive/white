@@ -108,7 +108,7 @@ the new instance inside the host to be updated to the template's stats.
 		. += {"<hr><span class='notice'>[capitalize(src.name)] имеет [points]/[total_points] очков адаптации.</span>\n
 		<span class='notice'>[capitalize(src.name)] и мутации:</span>"}
 		for(var/datum/disease_ability/ability in purchased_abilities)
-			. += "\n<span class='notice'>[ability.name]</span>"
+			. += span_notice("\n[ability.name]")
 
 /mob/camera/disease/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
 	return

@@ -86,13 +86,13 @@
 			. += span_info("Эта штука неподвижна.")
 
 		if(!eyes)
-			. += "\n<span class='info'>Глаза [real_name] отсутствуют.</span>"
+			. += span_info("\nГлаза [real_name] отсутствуют.")
 
 		if(!ears)
-			. += "\n<span class='info'>Уши [real_name] отсутствуют.</span>"
+			. += span_info("\nУши [real_name] отсутствуют.")
 
 		if(!tongue)
-			. += "\n<span class='info'>Язык [real_name] отсутствует.</span>"
+			. += span_info("\nЯзык [real_name] отсутствует.")
 
 
 /obj/item/bodypart/head/can_dismember(obj/item/I)

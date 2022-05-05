@@ -178,7 +178,7 @@
 		var/datum/reagent/reagent  = _reagent
 		var/amount = reagent.volume
 		chem_cap += reagent.volume
-		reagents_text += "\n<span class='info'>- [reagent.name]: [amount]</span>"
+		reagents_text += span_info("\n- [reagent.name]: [amount]")
 	if(chem_cap > 100)
 		text += "<br><span class='warning'>- Производство реагентов 100%</span></br>"
 

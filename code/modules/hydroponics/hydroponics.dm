@@ -356,18 +356,18 @@
 	if(myseed)
 		. += span_info("Здесь <span class='name'>[myseed.plantname]</span> посажен.")
 		if (dead)
-			. += "\n<span class='warning'>Оно мертво!</span>"
+			. += span_warning("\nОно мертво!")
 		else if (harvest)
-			. += "\n<span class='info'>Оно готово к сбору.</span>"
+			. += span_info("\nОно готово к сбору.")
 		else if (plant_health <= (myseed.endurance / 2))
-			. += "\n<span class='warning'>Оно выглядит нездорово.</span>"
+			. += span_warning("\nОно выглядит нездорово.")
 	else
 		. += span_info("Тут пусто.")
 
-	. += "\n<span class='info'>Вода: [waterlevel]/[maxwater].</span>"
-	. += "\n<span class='info'>Питание: [reagents.total_volume]/[maxnutri].</span>"
+	. += span_info("\nВода: [waterlevel]/[maxwater].")
+	. += span_info("\nПитание: [reagents.total_volume]/[maxnutri].")
 	if(self_sustaining)
-		. += "\n<span class='info'>Авторост лотка активен, теперь лоток защищает растение от мутаций, сорняков и паразитов.</span>"
+		. += span_info("\nАвторост лотка активен, теперь лоток защищает растение от мутаций, сорняков и паразитов.")
 
 	if(weedlevel >= 5)
 		. += span_warning("Оно всё в сорняках!")

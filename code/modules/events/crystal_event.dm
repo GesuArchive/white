@@ -407,9 +407,9 @@ This section is for the destabilized SM
 	. = ..()
 	. += "<hr><span class='notice'>The Crystal appears to be heavily destabilized. Maybe it can be fixed by injecting it with something from another world.</span>"
 	if(length(GLOB.huge_crystal_portals) > 0)
-		. += "\n<span class='notice'>Дестабилизированный Кристалл защищен неким щитом.</span>"
+		. += span_notice("\nДестабилизированный Кристалл защищен неким щитом.")
 	else
-		. += "\n<span class='notice'>Щита, что защищает кристалл, больше нет, время восстановить кристалл.</span>"
+		. += span_notice("\nЩита, что защищает кристалл, больше нет, время восстановить кристалл.")
 
 /obj/machinery/destabilized_crystal/Bumped(atom/movable/movable_atom)
 	if(!isliving(movable_atom))
@@ -454,9 +454,9 @@ This section is for the crystal stabilizer item and the crystal from the closed 
 	. = ..()
 	. += "<hr><span class='notice'>There is a compartment for something small... like a crystal...</span>"
 	if(!filled)
-		. += "\n<span class='notice'>The [src] is empty.</span>"
+		. += span_notice("\nThe [src] is empty.")
 	else
-		. += "\n<span class='notice'>[src] полон и может быть использован для стабилизации Суперматерии.</span>"
+		. += span_notice("\n[src] полон и может быть использован для стабилизации Суперматерии.")
 
 /obj/item/crystal_stabilizer/attackby(obj/item/W, mob/living/user, params)
 	. = ..()

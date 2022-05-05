@@ -335,7 +335,7 @@
 /obj/machinery/button/elevator/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'>There's a small inscription on the button...</span>"
-	. += "\n<span class='notice'>THIS CALLS THE ELEVATOR! IT DOES NOT OPERATE IT! Interact with the elevator itself to use it!</span>"
+	. += span_notice("\nTHIS CALLS THE ELEVATOR! IT DOES NOT OPERATE IT! Interact with the elevator itself to use it!")
 
 /obj/machinery/button/tram
 	name = "вызов трамвая"
@@ -354,4 +354,4 @@
 /obj/machinery/button/elevator/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'>Здесь есть закорючки на кнопке...</span>"
-	. += "\n<span class='notice'>ЭТО ВЫЗЫВАЕТ ТРАМВАЙ! ЭТО НЕ УПРАВЛЯЕТ ИМ! Управляйте трамваем изнутри, если хотите!</span>"
+	. += span_notice("\nЭТО ВЫЗЫВАЕТ ТРАМВАЙ! ЭТО НЕ УПРАВЛЯЕТ ИМ! Управляйте трамваем изнутри, если хотите!")

@@ -7,7 +7,7 @@
 
 ///Returns a short description of the cell line
 /datum/micro_organism/proc/get_details(show_details)
-	return "\n<span class='notice'>[desc]</span>"
+	return span_notice("\n[desc]")
 
 ///A "mob" cell. Can grow into a mob in a growing vat.
 /datum/micro_organism/cell_line

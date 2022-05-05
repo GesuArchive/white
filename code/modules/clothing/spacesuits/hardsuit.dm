@@ -132,7 +132,7 @@
 /obj/item/clothing/suit/space/hardsuit/examine(mob/user)
 	. = ..()
 	if(!helmet && helmettype)
-		. += "\n<span class='notice'>Шлем [src] кажется неисправным. На нем нужно заменить лампочку.</span>"
+		. += span_notice("\nШлем [src] кажется неисправным. На нем нужно заменить лампочку.")
 
 /obj/item/clothing/suit/space/hardsuit/attackby(obj/item/I, mob/user, params)
 	. = ..()

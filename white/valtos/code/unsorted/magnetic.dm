@@ -136,15 +136,15 @@
 	. = ..()
 	. += "<hr><span class='notice'><b>Режим:</b> [asteroid_mode ? "АСТЕРОИДЫ" : "МЕТЕОРЫ"].</span>"
 	if(asteroid_mode)
-		. += "\n<span class='notice'>Ловит объекты размером максимум <b>[catch_power] метров</b>.</span>"
+		. += span_notice("\nЛовит объекты размером максимум <b>[catch_power] метров</b>.")
 		if(asteroid_catching)
 			if(!asteroid_catched)
-				. += "\n<span class='notice'>Время до прилёта объекта <b>[DisplayTimeText(asteroid_catch_time / catch_power)]</b>.</span>"
+				. += span_notice("\nВремя до прилёта объекта <b>[DisplayTimeText(asteroid_catch_time / catch_power)]</b>.")
 			else
-				. += "\n<span class='notice'>Время до отправки объекта <b>[DisplayTimeText(asteroid_catch_time / catch_power)]</b>.</span>"
-		. += "\n<span class='notice'><b>Последняя ошибка:</b> [last_err].</span>"
+				. += span_notice("\nВремя до отправки объекта <b>[DisplayTimeText(asteroid_catch_time / catch_power)]</b>.")
+		. += span_notice("\n<b>Последняя ошибка:</b> [last_err].")
 	else
-		. += "\n<span class='notice'>Ловит максимум <b>[catch_power] метеоров</b>.</span>"
+		. += span_notice("\nЛовит максимум <b>[catch_power] метеоров</b>.")
 
 
 /obj/machinery/meteor_catcher/RefreshParts()

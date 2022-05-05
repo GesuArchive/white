@@ -106,7 +106,7 @@
 	if(open)
 		if(cell)
 			. += "<hr><span class='notice'>Внутри установлена [cell].</span>"
-			. += "\n<span class='info'>Можно использовать <b>ломик</b> для изъятия.</span>"
+			. += span_info("\nМожно использовать <b>ломик</b> для изъятия.")
 		else
 			. += "<hr><span class='notice'>Внутри отсутствует <b>батарейка</b>.</span>"
 	if(load) //observer check is so we don't show the name of the ghost that's sitting on it to prevent metagaming who's ded.

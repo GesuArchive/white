@@ -283,8 +283,8 @@
 /obj/structure/punching_bag/pizdul/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'>Производительность: <b>[tier]</b></span>"
-	. += "\n<span class='notice'>Опыт: <b>[exp]</b></span>"
-	. += "\n<span class='notice'>Привязанный аккаунт: <b>[linked_account.account_holder]</b>.</span>"
+	. += span_notice("\nОпыт: <b>[exp]</b>")
+	. += span_notice("\nПривязанный аккаунт: <b>[linked_account.account_holder]</b>.")
 
 /obj/structure/punching_bag/pizdul/attack_hand(mob/user as mob)
 	. = ..()

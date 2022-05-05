@@ -137,7 +137,7 @@ Borg Hypospray
 	. += DescribeContents()	//Because using the standardized reagents datum was just too cool for whatever fuckwit wrote this
 	var/datum/reagent/loaded = modes[mode]
 	. += "<hr>Currently loaded: [initial(loaded.name)]. [initial(loaded.description)]"
-	. += "\n<span class='notice'><i>Alt+ЛКМ</i> чтобы изменить вводимое количество. На данный момент установлена [amount_per_transfer_from_this == 5 ? "обычная доза (5ед)" : "микроскопическая доза (2ед)"].</span>"
+	. += span_notice("\n<i>Alt+ЛКМ</i> чтобы изменить вводимое количество. На данный момент установлена [amount_per_transfer_from_this == 5 ? "обычная доза (5ед)" : "микроскопическая доза (2ед)"].")
 
 /obj/item/reagent_containers/borghypo/proc/DescribeContents()
 	. = list()
@@ -148,7 +148,7 @@ Borg Hypospray
 	for(var/datum/reagents/RS in reagent_list)
 		var/datum/reagent/R = locate() in RS.reagent_list
 		if(R)
-			. += "\n<span class='notice'>На данный момент внутри [R.volume] единиц [R.name].</span>"
+			. += span_notice("\nНа данный момент внутри [R.volume] единиц [R.name].")
 			empty = FALSE
 
 	if(empty)

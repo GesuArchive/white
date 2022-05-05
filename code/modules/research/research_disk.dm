@@ -9,7 +9,7 @@
 /obj/item/disk/tech_disk/examine(mob/user)
 	. = ..()
 	if(user.research_scanner)
-		. += "\n<span class='purple'>Технологии:</span>"
+		. += span_purple("\nТехнологии:")
 		for(var/id in stored_research.researched_nodes)
 			var/datum/techweb_node/tn = SSresearch.techweb_node_by_id(id)
 			. += "\n\t[tn?.display_name]"

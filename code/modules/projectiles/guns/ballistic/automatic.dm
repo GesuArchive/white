@@ -288,7 +288,7 @@
 	. = ..()
 	. += "<hr><b>ALT + клик</b>, чтобы [cover_open ? "открыть" : "закрыть"] противопылевой чехол."
 	if(cover_open && magazine)
-		. += "\n<span class='notice'>Можно использовать <b>пустую руку</b> для извлечения магазина.</span>"
+		. += span_notice("\nМожно использовать <b>пустую руку</b> для извлечения магазина.")
 
 
 /obj/item/gun/ballistic/automatic/l6_saw/AltClick(mob/user)

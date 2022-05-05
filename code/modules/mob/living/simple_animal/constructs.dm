@@ -86,9 +86,9 @@
 	. = list("<hr><span class='cult'>Это же [icon2html(src, user)] <b>[src]</b>!\n[desc]")
 	if(health < maxHealth)
 		if(health >= maxHealth/2)
-			. += "\n<span class='warning'>[t_on] немного повреждён.</span>"
+			. += span_warning("\n[t_on] немного повреждён.")
 		else
-			. += "\n<span class='warning'><b>[t_on] сильно повреждён!</b></span>"
+			. += span_warning("\n<b>[t_on] сильно повреждён!</b>")
 	. += "</span>"
 
 /mob/living/simple_animal/hostile/construct/attack_animal(mob/living/simple_animal/M)

@@ -64,7 +64,7 @@
 	if (owner)
 		SEND_SOUND(owner, sound('sound/effects/adminhelp.ogg'))
 		to_chat(owner, "<font color='red' size='4'><b>-- Interview Update --</b></font>" \
-			+ "\n<span class='adminsay'>Your interview was approved, you will now be reconnected in 5 seconds.</span>")
+			+ span_adminsay("\nYour interview was approved, you will now be reconnected in 5 seconds."))
 		addtimer(CALLBACK(src, .proc/reconnect_owner), 50)
 
 /**

@@ -167,7 +167,7 @@
 /obj/item/pamk/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'><b>ЗАРЯД:</b></span> [charge_left]/100.</span>"
-	. += "\n<span class='notice'><b>РЕЖИМ:</b></span> [uppertext(current_mode)].</span>"
+	. += span_notice("\n<b>РЕЖИМ:</b></span> [uppertext(current_mode)].")
 
 /obj/item/pamk/attack_self(mob/user)
 	. = ..()
@@ -450,8 +450,8 @@
 	if(current_task)
 		. += "<hr>"
 		. += span_notice("<b>Задание:</b> [current_task.desc]")
-		. += "\n<span class='notice'><b>Награда:</b> [current_task.prize]</span>"
-		. += "\n<span class='notice'><b>Исполнители:</b> [english_list(action_guys)]</span>"
+		. += span_notice("\n<b>Награда:</b> [current_task.prize]")
+		. += span_notice("\n<b>Исполнители:</b> [english_list(action_guys)]")
 
 /datum/yohei_task
 	var/desc = null

@@ -132,16 +132,16 @@
 	if(half_bee && (bees.len >= half_bee))
 		. += "<hr><span class='notice'>This place is aBUZZ with activity... there are lots of bees!</span>"
 
-	. += "\n<span class='notice'>[bee_resources]/100 resource supply.</span>"
-	. += "\n<span class='notice'>[bee_resources]% towards a new honeycomb.</span>"
-	. += "\n<span class='notice'>[bee_resources*2]% towards a new bee.</span>"
+	. += span_notice("\n[bee_resources]/100 resource supply.")
+	. += span_notice("\n[bee_resources]% towards a new honeycomb.")
+	. += span_notice("\n[bee_resources*2]% towards a new bee.")
 
 	if(honeycombs.len)
 		var/plural = honeycombs.len > 1
-		. += "\n<span class='notice'>There [plural? "are" : "is"] [honeycombs.len] uncollected honeycomb[plural ? "s":""] in the apiary.</span>"
+		. += span_notice("\nThere [plural? "are" : "is"] [honeycombs.len] uncollected honeycomb[plural ? "s":""] in the apiary.")
 
 	if(honeycombs.len >= get_max_honeycomb())
-		. += "\n<span class='warning'>There's no room for more honeycomb!</span>"
+		. += span_warning("\nThere's no room for more honeycomb!")
 
 
 /obj/structure/beebox/attackby(obj/item/I, mob/user, params)

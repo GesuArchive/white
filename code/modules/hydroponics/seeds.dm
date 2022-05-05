@@ -101,9 +101,9 @@
 	. = ..()
 	. += "<hr><span class='notice'>Use a pen on it to rename it or change its description.</span>"
 	if(reagents_add && user.can_see_reagents())
-		. += "\n<span class='notice'>- Plant Reagents -</span>"
+		. += span_notice("\n- Plant Reagents -")
 		for(var/datum/plant_gene/reagent/G in genes)
-			. += "\n<span class='notice'>- [G.get_name()] -</span>"
+			. += span_notice("\n- [G.get_name()] -")
 
 /obj/item/seeds/proc/Copy()
 	var/obj/item/seeds/S = new type(null, 1)

@@ -32,8 +32,8 @@
 	. = ..()
 	. += "<hr>"
 	. += span_notice("ПКМ для сброса поля к изначальному варианту.")
-	. += "\n<span class='notice'>Ctrl-Shift-клик по доске, чтобы её свернуть.</span>"
-	. += "\n<span class='notice'>СКМ по шашке, чтобы её перевернуть.</span>"
+	. += span_notice("\nCtrl-Shift-клик по доске, чтобы её свернуть.")
+	. += span_notice("\nСКМ по шашке, чтобы её перевернуть.")
 
 /obj/checkered_table/Initialize()
 	..()

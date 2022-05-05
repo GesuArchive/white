@@ -255,10 +255,10 @@
 	. = ..()
 	. += "<hr><span class='notice'>This toy's special attack is [special_attack_cry], [special_attack_type_message] </span>"
 	if(in_combat)
-		. += "\n<span class='notice'>This toy has a maximum health of [max_combat_health]. Currently, it's [combat_health].</span>"
-		. += "\n<span class='notice'>Its special move light is [special_attack_cooldown? "flashing red." : "green and is ready!"]</span>"
+		. += span_notice("\nThis toy has a maximum health of [max_combat_health]. Currently, it's [combat_health].")
+		. += span_notice("\nIts special move light is [special_attack_cooldown? "flashing red." : "green and is ready!"]")
 	else
-		. += "\n<span class='notice'>This toy has a maximum health of [max_combat_health].</span>"
+		. += span_notice("\nThis toy has a maximum health of [max_combat_health].")
 
 	if(wins || losses)
 		. += "<hr><span class='notice'>This toy has [wins] wins, and [losses] losses.</span>"

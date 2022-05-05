@@ -39,9 +39,9 @@
 			. += "<hr><span class='notice'>You scan the grenade and detect the following reagents:</span>"
 			for(var/obj/item/reagent_containers/glass/G in beakers)
 				for(var/datum/reagent/R in G.reagents.reagent_list)
-					. += "\n<span class='notice'>[R.volume] units of [R.name] in the [G.name].</span>"
+					. += span_notice("\n[R.volume] units of [R.name] in the [G.name].")
 			if(beakers.len == 1)
-				. += "\n<span class='notice'>You detect no second beaker in the grenade.</span>"
+				. += span_notice("\nYou detect no second beaker in the grenade.")
 		else
 			. += "<hr><span class='notice'>You scan the grenade, but detect nothing.</span>"
 	else if(stage != GRENADE_READY && beakers.len)
@@ -49,7 +49,7 @@
 			. += "<hr><span class='notice'>You see two [beakers[1].name]s inside the grenade.</span>"
 		else
 			for(var/obj/item/reagent_containers/glass/G in beakers)
-				. += "\n<span class='notice'>You see a [G.name] inside the grenade.</span>"
+				. += span_notice("\nYou see a [G.name] inside the grenade.")
 
 /obj/item/grenade/chem_grenade/attack_self(mob/user)
 	if(stage == GRENADE_READY && !active)

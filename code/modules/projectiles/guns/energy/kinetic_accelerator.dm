@@ -37,7 +37,7 @@
 		. += "\n<span class='info'>Можно использовать <b>ломик</b> для изъятия модификаций.</span><hr>"
 		for(var/A in modkits)
 			var/obj/item/borg/upgrade/modkit/M = A
-			. += "\n<span class='notice'>Здесь установлен [M.name]. Использует <b>[M.cost]%</b> мощности.</span>"
+			. += span_notice("\nЗдесь установлен [M.name]. Использует <b>[M.cost]%</b> мощности.")
 
 /obj/item/gun/energy/kinetic_accelerator/crowbar_act(mob/living/user, obj/item/I)
 	. = TRUE

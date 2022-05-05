@@ -820,9 +820,9 @@ GENE SCANNER
 					\n<span class='notice'>[T.colour] [T.is_adult ? "взрослый" : "молодой"] слайм</span>\
 					\nНасыщенность: [T.nutrition]/[T.get_max_nutrition()]"
 	if (T.nutrition < T.get_starve_nutrition())
-		to_render += "\n<span class='warning'>Внимание: слайм голодает!</span>"
+		to_render += span_warning("\nВнимание: слайм голодает!")
 	else if (T.nutrition < T.get_hunger_nutrition())
-		to_render += "\n<span class='warning'>Внимание: слайм хочет кушать</span>"
+		to_render += span_warning("\nВнимание: слайм хочет кушать")
 	to_render += "\nШанс электрошока: [T.powerlevel]\nЗдоровье: [round(T.health/T.maxHealth,0.01)*100]%"
 	if (T.slime_mutation[4] == T.colour)
 		to_render += "\nЭтот слайм больше не хочет развиваться."
