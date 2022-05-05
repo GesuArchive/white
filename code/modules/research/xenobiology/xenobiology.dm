@@ -482,7 +482,7 @@
 /obj/item/slime_extract/adamantine
 	name = "adamantine slime extract"
 	icon_state = "adamantine slime extract"
-	effectmod = "crystalline"
+	effectmod = "crystalized"
 	color_slime = "adamantine"
 	activate_reagents = list(/datum/reagent/toxin/plasma)
 

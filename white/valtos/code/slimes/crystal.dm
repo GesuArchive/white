@@ -652,7 +652,7 @@
 /obj/item/slimecross/crystalized
 	name = "crystalized extract"
 	desc = "It's crystalline,"
-	effect = "adamantine"
+	effect = "crystalized"
 	icon = 'white/valtos/icons/slimecrossing.dmi'
 	icon_state = "crystalline"
 	var/obj/structure/slime_crystal/crystal_type
