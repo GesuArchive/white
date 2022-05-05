@@ -25,7 +25,7 @@
 		. += "<span class='info'>Это же <EM>[!obscure_name ? name : "Неизвестный"]</EM>, [racetext ? "<big class='interface'>[racetext]</big>" : "[get_age_text()]"]!<hr>"
 
 	if(user?.stat == CONSCIOUS && ishuman(user))
-		user.visible_message(span_small("<b>[user]</b> смотрит на <b>[!obscure_name ? name : "Неизвестный"]</b>.") , span_small("Смотрю на <b>[!obscure_name ? name : "Неизвестный"]</b>.") , null, COMBAT_MESSAGE_RANGE)
+		user.visible_message(span_small("<b>[user]</b> смотрит на <b>[!obscure_name ? name : "Неизвестного"]</b>.") , span_small("Смотрю на <b>[!obscure_name ? name : "Неизвестного"]</b>.") , null, COMBAT_MESSAGE_RANGE)
 
 	var/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))

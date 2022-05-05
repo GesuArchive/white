@@ -653,9 +653,10 @@
 			else
 				. += span_danger("Он пуст.")
 
-	if(ishuman(user))
-		if(user.stat == CONSCIOUS && !user.eye_blind)
-			user.visible_message(span_small("<b>[user]</b> смотрит на <b>[skloname(name, VINITELNI, gender)]</b>.") , span_small("Смотрю на <b>[src.name]</b>.") , null, COMBAT_MESSAGE_RANGE)
+	if(iscarbon(user))
+		var/mob/living/carbon/C = user
+		if(C.stat == CONSCIOUS && !C.eye_blind && !C.is_eyes_covered())
+			C.visible_message(span_small("<b>[C]</b> смотрит на <b>[skloname(name, VINITELNI, gender)]</b>."), span_small("Смотрю на <b>[src.name]</b>."), null, COMBAT_MESSAGE_RANGE)
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
