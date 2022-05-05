@@ -33,7 +33,7 @@
 	announce_text += "<center><i>Капитану или любому другому доверенному лицу на станции.</i></center>"
 	announce_text += "<center><h3>Информация</h3></center>"
 	announce_text += "<br>Для борьбы с Синдикатом нам требуется ваша помощь. "
-	announce_text += "Необходимо собрать <b>следующие материалы</b> и отгрузить их на грузовой шаттл: "
+	announce_text += "Необходимо собрать <b>следующие материалы</b> на грузовом шаттле и нажать <b>специальную кнопку</b> для отправки груза: "
 	for(var/i in 1 to rand(3, 6) step 1)
 		var/thing_to_collect = pick(possbile_things)
 		need_to_collect[thing_to_collect] = rand(1, possbile_things[thing_to_collect])
@@ -51,30 +51,38 @@
 	var/area/arr = GLOB.areas_by_type[/area/shuttle/supply]
 	if(!arr)
 		return FALSE
-	var/list/temp_list_to_collect = need_to_collect
+	var/list/temp_list_to_collect = LAZYCOPY(need_to_collect)
 	var/list/things_to_remove_after = list()
-	for(var/atom/A in need_to_collect)
-		for(var/atom/B in arr.contents)
-			if(B?.contents?.len)
-				for(var/atom/C in B.contents)
-					if(istype(C, A))
-						temp_list_to_collect[A.type] -= 1
-						things_to_remove_after += C
-			if(istype(B, A))
-				temp_list_to_collect[A.type] -= 1
-				things_to_remove_after += B
+	for(var/atom/A in arr)
+		if(A?.contents?.len)
+			for(var/atom/B in A.contents)
+				if(temp_list_to_collect[B?.type])
+					temp_list_to_collect[B?.type] -= 1
+					things_to_remove_after += B
+		if(temp_list_to_collect[A?.type])
+			temp_list_to_collect[A?.type] -= 1
+			things_to_remove_after += A
 	for(var/i in temp_list_to_collect)
 		if(temp_list_to_collect[i] >= 1)
+			var/list/text_reqs = list()
+			for(var/B in temp_list_to_collect)
+				var/atom/A = B
+				if(!ispath(A))
+					continue
+				if(temp_list_to_collect[A] >= 1)
+					text_reqs += list("[temp_list_to_collect[A]] [initial(A.name)]")
+			priority_announce("Ошибка отправки, собран не весь груз. Осталось собрать: [english_list(text_reqs)]", "Центральное Командование", 'sound/ai/announcer/alert.ogg')
 			return FALSE
 	QDEL_LIST(things_to_remove_after)
 	is_done = TRUE
+	SSshuttle.moveShuttle("supply", "supply_away", TRUE)
 	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
 	if(D)
-		D.adjust_money(125000)
+		D.adjust_money(500000)
 	for(var/mob/M in GLOB.joined_player_list)
-		if(isliving(M) && M.client)
-			inc_metabalance(M, 125, reason="Задание выполнено!")
-	priority_announce("Задание успешно выполнено, на счёт снабжения была переведена награда в размере 125000 кредитов. Можете вернуться к своим основным обязанностям.", "Центральное Командование", 'sound/ai/announcer/alert.ogg')
+		if(isliving(M) && M.client && is_station_level(M.z))
+			inc_metabalance(M, 250, reason="Задание выполнено!")
+	priority_announce("Задание успешно выполнено, на счёт снабжения была переведена награда в размере 500000 кредитов. Можете вернуться к своим основным обязанностям.", "Центральное Командование", 'sound/ai/announcer/alert.ogg')
 	return TRUE
 
 /datum/major_mode/collect_items/fail_completion()
