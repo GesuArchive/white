@@ -21,18 +21,18 @@
 	. = ..()
 	if(our_powercell)
 		. += "<hr>"
-		. += span_notice("ПКМ для переключения.")
 		. += span_notice("<b>ЗАРЯД:</b> [our_powercell.percent()]%")
 
 /obj/item/kinetic_shield/proc/update_charges()
 	if(ison && our_powercell)
 		if(!our_shield_component)
-			our_shield_component = AddComponent(/datum/component/shielded, max_charges = FLOOR(our_powercell.charge/250, 1), recharge_start_delay = 0, lose_multiple_charges = TRUE, shield_inhand = TRUE, run_hit_callback = CALLBACK(src, .proc/shield_damaged))
+			our_shield_component = AddComponent(/datum/component/shielded, max_charges = FLOOR(our_powercell.charge/250, 1), recharge_start_delay = 0, lose_multiple_charges = TRUE, run_hit_callback = CALLBACK(src, .proc/shield_damaged))
 		else
 			our_shield_component?.current_charges = FLOOR(our_powercell.charge/250, 1)
 	else
 		ison = FALSE
 		qdel(our_shield_component)
+		our_shield_component = null
 
 /obj/item/kinetic_shield/proc/shield_damaged(mob/living/wearer, attack_text, new_current_charges)
 	our_powercell.use(our_shield_component?.current_charges - new_current_charges)
@@ -57,20 +57,25 @@
 			our_powercell.forceMove(T)
 			to_chat(user, span_notice("Достаю батарею."))
 
-/obj/item/kinetic_shield/attack_self_secondary(mob/user, modifiers)
-	. = ..()
+/obj/item/kinetic_shield/attack_hand(mob/user)
 	if(loc == user)
 		toggle()
+		return
+	. = ..()
 
 /obj/item/kinetic_shield/equipped(mob/user, slot, initial)
 	. = ..()
 	RegisterSignal(user, COMSIG_MOB_FIRED_GUN, .proc/check_genius)
 
+// this is fucking dumb
 /obj/item/kinetic_shield/proc/check_genius(mob/user, obj/item/gun/gun_fired, target, params, zone_override)
 	SIGNAL_HANDLER
 	if(!ison)
 		return
-	target = user // lmao
+	if(target == user)
+		return
+	INVOKE_ASYNC(gun_fired, /obj/item/gun.proc/process_fire, user, user, TRUE, params, zone_override)
+	return COMSIG_GUN_FIRED_CANCEL
 
 /obj/item/kinetic_shield/dropped(mob/user, silent)
 	if(ison)

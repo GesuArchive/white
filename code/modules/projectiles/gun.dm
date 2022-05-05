@@ -334,7 +334,8 @@
 
 /obj/item/gun/proc/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
 	if(user)
-		SEND_SIGNAL(user, COMSIG_MOB_FIRED_GUN, src, target, params, zone_override)
+		if(SEND_SIGNAL(user, COMSIG_MOB_FIRED_GUN, src, target, params, zone_override) & COMSIG_GUN_FIRED_CANCEL)
+			return
 
 	if(SEND_SIGNAL(src, COMSIG_GUN_FIRED, user, target, params, zone_override) & COMSIG_GUN_FIRED_CANCEL)
 		return
