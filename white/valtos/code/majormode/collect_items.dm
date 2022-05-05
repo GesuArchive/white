@@ -34,15 +34,12 @@
 	announce_text += "<center><h3>Информация</h3></center>"
 	announce_text += "<br>Для борьбы с Синдикатом нам требуется ваша помощь. "
 	announce_text += "Необходимо собрать <b>следующие материалы</b> на грузовом шаттле и нажать <b>специальную кнопку</b> для отправки груза: "
-	for(var/i in 1 to rand(3, 6) step 1)
-		var/thing_to_collect = pick(possbile_things)
-		need_to_collect[thing_to_collect] = rand(1, possbile_things[thing_to_collect])
 	var/list/text_reqs = list()
-	for(var/B in need_to_collect)
-		var/atom/A = B
-		if(!ispath(A))
-			continue
-		text_reqs += list("[need_to_collect[A]] [initial(A.name)]")
+	for(var/i in 1 to rand(4, 6))
+		var/atom/thing_to_collect = pick(possbile_things)
+		var/amt = rand(1, possbile_things[thing_to_collect])
+		LAZYADD(need_to_collect, list("name" = initial(thing_to_collect.name), "type" = thing_to_collect, "amount" = amt))
+		LAZYADD(text_reqs, "[amt] [initial(thing_to_collect.name)]")
 	announce_text += "<u>[english_list(text_reqs)]</u>."
 	announce_text += "<br><br><i>У вас <b>один час</b> на выполнение данного поручения, в случае невыполнения ваша станция будет признана подрывающей работу и будет уничтожена.</i>"
 	return
@@ -56,21 +53,23 @@
 	for(var/atom/A in arr)
 		if(A?.contents?.len)
 			for(var/atom/B in A.contents)
-				if(temp_list_to_collect[B?.type])
-					temp_list_to_collect[B?.type] -= 1
-					things_to_remove_after += B
+				for(var/list/thing in temp_list_to_collect)
+					if(istype(B.type, thing["type"]))
+						thing["amount"] -= 1
+						things_to_remove_after += B
+						continue
 		if(temp_list_to_collect[A?.type])
-			temp_list_to_collect[A?.type] -= 1
-			things_to_remove_after += A
+			for(var/list/thing in temp_list_to_collect)
+				if(istype(A.type, thing["type"]))
+					thing["amount"] -= 1
+					things_to_remove_after += A
+					continue
 	for(var/i in temp_list_to_collect)
 		if(temp_list_to_collect[i] >= 1)
 			var/list/text_reqs = list()
-			for(var/B in temp_list_to_collect)
-				var/atom/A = B
-				if(!ispath(A))
-					continue
-				if(temp_list_to_collect[A] >= 1)
-					text_reqs += list("[temp_list_to_collect[A]] [initial(A.name)]")
+			for(var/list/thing in temp_list_to_collect)
+				if(thing["amount"] >= 1)
+					text_reqs += list("[thing["amount"]] [thing["name"]]")
 			priority_announce("Ошибка отправки, собран не весь груз. Осталось собрать: [english_list(text_reqs)]", "Центральное Командование", 'sound/ai/announcer/alert.ogg')
 			return FALSE
 	QDEL_LIST(things_to_remove_after)
