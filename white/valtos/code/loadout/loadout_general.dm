@@ -107,3 +107,9 @@
 	description = "Объёмный вклад своих органов в будущее станции."
 	path = /obj/item/stack/spacecash/c10000
 	cost = 5250
+
+/datum/gear/kinetic_shield
+	display_name = "Кинетический щит"
+	path = /obj/item/kinetic_shield
+	allowed_roles = list("Captain", "Head of Security", "Chief Engineer", "Chief Medical Officer", "Head of Personnel", "Research Director")
+	cost = 1500

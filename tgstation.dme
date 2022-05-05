@@ -4386,6 +4386,7 @@
 #include "white\valtos\code\jobs\medic.dm"
 #include "white\valtos\code\jobs\russian.dm"
 #include "white\valtos\code\jobs\trader.dm"
+#include "white\valtos\code\kineticshield\kineticshield.dm"
 #include "white\valtos\code\loadout\loadout.dm"
 #include "white\valtos\code\loadout\loadout_accessories.dm"
 #include "white\valtos\code\loadout\loadout_general.dm"
