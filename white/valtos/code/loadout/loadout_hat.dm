@@ -46,7 +46,7 @@
 /datum/gear/hat/karabakh
 	display_name = "шлем рейнджера Карабаха"
 	path = /obj/item/clothing/head/helmet/alt/ranger
-	cost = 2499
+	cost = 4000
 
 /datum/gear/hat/kabuto
 	display_name = "кабуто"
@@ -65,4 +65,4 @@
 /datum/gear/hat/chronos
 	display_name = "Военный берет Новой Мекки"
 	path = /obj/item/clothing/head/beret/chronos
-	cost = 500
+	cost = 7500

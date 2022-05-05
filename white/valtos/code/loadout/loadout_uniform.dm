@@ -262,7 +262,7 @@
 /datum/gear/uniform/sharovari
 	display_name = "шаровары"
 	path = /obj/item/clothing/under/costume/sharovari
-	cost = 500
+	cost = 5000
 /datum/gear/uniform/wizgirl
 	display_name = "костюм волшебницы"
 	path = /obj/item/clothing/under/costume/wizgirl
@@ -300,4 +300,4 @@
 /datum/gear/uniform/chronos
 	display_name = "Военный костюм Новой Мекки"
 	path = /obj/item/clothing/under/chronos
-	cost = 500
+	cost = 7500

@@ -97,7 +97,7 @@
 
 /obj/item/gun/ballistic/automatic/wt550
 	name = "автоматическая винтовка службы безопасности"
-	desc = "Устаревшее оружие личной обороны., именуемое как \"WT-550 Automatic Rifle\". Использует патроны 4.6x30mm калибра."
+	desc = "Устаревшее оружие личной обороны, именуемое как \"WT-550 Automatic Rifle\". Использует патроны 4.6x30mm калибра. На данный момент снято с вооружения."
 	icon_state = "wt550"
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "arg"

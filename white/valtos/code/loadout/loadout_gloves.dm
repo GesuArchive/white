@@ -26,7 +26,7 @@
 /datum/gear/gloves/fingerless
 	display_name = "Беспалые перчатки"
 	path = /obj/item/clothing/gloves/fingerless
-	cost = 50
+	cost = 500
 
 /datum/gear/gloves/insulated
 	display_name = "Изоляшки"

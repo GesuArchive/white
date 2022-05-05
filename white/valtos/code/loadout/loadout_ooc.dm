@@ -5,7 +5,7 @@
 	display_name = "Ещё один слот персонажа"
 	sort_category = "OOC"
 	description = "Дополнительный слот. Что тут ещё сказать, а? Максимум 20 слотов."
-	cost = 500
+	cost = 1000
 
 /datum/gear/ooc/char_slot/purchase(client/C)
 	C?.prefs?.max_slots += 1
@@ -16,7 +16,7 @@
 	display_name = "Выбрать аспект"
 	sort_category = "OOC"
 	description = "Заставляет запуститься любой аспект на ваш выбор. Доступно только перед началом раунда, когда сервер прогрузился, но ещё в лобби."
-	cost = 500
+	cost = 1000
 
 /datum/gear/ooc/force_aspect/purchase(client/C)
 	if(IsAdminAdvancedProcCall())
@@ -41,7 +41,7 @@
 	display_name = "Фатальный сброс"
 	sort_category = "OOC"
 	description = "Сбрасывает метакэш до нуля. Всем."
-	cost = 100500
+	cost = 99999
 
 /datum/gear/ooc/purge_this_shit/purchase(client/C)
 	if(IsAdminAdvancedProcCall())

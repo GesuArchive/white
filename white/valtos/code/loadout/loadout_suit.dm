@@ -57,7 +57,7 @@
 /datum/gear/suit/karabakh
 	display_name = "куртка рейнджера Карабаха"
 	path = /obj/item/clothing/suit/armor/hos/ranger
-	cost = 2099
+	cost = 4500
 
 
 //JACKETS
