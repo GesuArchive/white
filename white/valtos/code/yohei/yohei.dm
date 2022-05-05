@@ -521,7 +521,30 @@
 		var/area/A = get_area(target)
 		if(A.type != /area/ruin/powered/yohei_base)
 			return FALSE
-		target.Knockdown(5 SECONDS)
+		target.Unconscious(60 SECONDS)
+		var/obj/structure/closet/supplypod/return_pod = new()
+		return_pod.bluespace = TRUE
+		return_pod.explosionSize = list(0,0,0,0)
+		return_pod.style = STYLE_SYNDICATE
+
+		do_sparks(8, FALSE, target)
+		target.visible_message(span_notice("<b>[target]</b> исчезает..."))
+
+		for(var/obj/item/W in target)
+			if (ishuman(target))
+				var/mob/living/carbon/human/H = target
+				if(W == H.w_uniform)
+					continue //So all they're left with are shoes and uniform.
+				if(W == H.shoes)
+					continue
+			target.dropItemToGround(W)
+
+		target.forceMove(return_pod)
+
+		target.blur_eyes(30)
+		target.Dizzy(35)
+
+		new /obj/effect/pod_landingzone(find_safe_turf(zlevels = SSmapping.levels_by_trait(ZTRAIT_STATION)), return_pod)
 		if(prob(99))
 			if(prob(10))
 				target.gib()
