@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/automatic/HK416
 	name = "Heckler & Koch HK416"
-	desc = "Пост-бундесверовский автомат под калибр 5.56"
+	desc = "РџРѕСЃС‚-Р±СѓРЅРґРµСЃРІРµСЂРѕРІСЃРєРёР№ Р°РІС‚РѕРјР°С‚ РїРѕРґ РєР°Р»РёР±СЂ 5.56"
 	icon = 'white/fogmann/sprites/hk416.dmi'
 	icon_state = "hk416"
 	inhand_icon_state = "416"
@@ -34,53 +34,43 @@
 /obj/item/gun/ballistic/automatic/HK416/update_icon_state()
 	inhand_icon_state = "[initial(icon_state)][magazine ? "":"_e"]"
 
-
-//                      МАГАЗИНЫ
-
-// ОТДЕЛЬНО МАГАЗИНЫ, ОТДЕЛЬНО ОРУЖИЕ
-
-
 //hk416
 /obj/item/ammo_box/magazine/HK416
-	name = "stanag магазин с патронами M856"
+	name = "stanag РјР°РіР°Р·РёРЅ СЃ РїР°С‚СЂРѕРЅР°РјРё M856"
 	icon = 'white/fogmann/sprites/hk416.dmi'
 	icon_state = "stanag"
 	ammo_type = /obj/item/ammo_casing/m856x556
 	caliber = "5.56"
 	max_ammo = 30
 
-obj/item/ammo_box/magazine/HK416/ap
-	name = "stanag магазин с патронами M995"
+/obj/item/ammo_box/magazine/HK416/ap
+	name = "stanag РјР°РіР°Р·РёРЅ СЃ РїР°С‚СЂРѕРЅР°РјРё M995"
 	icon = 'white/fogmann/sprites/hk416.dmi'
 	icon_state = "stanag"
 	ammo_type = /obj/item/ammo_casing/m995x556
 	caliber = "5.56"
 	max_ammo = 30
 
-
-
-// ПАТРОНЧИКИ ПАТРОНЫ
-
 //5.56
 /obj/item/ammo_casing/m856x556
-	name = "гильза 5.56 m856"
+	name = "РіРёР»СЊР·Р° 5.56 m856"
 	caliber = "5.56"
 	projectile_type = /obj/projectile/bullet/m856x556
 
 /obj/item/ammo_casing/m995x556
-	name = "гильза 5.56 m995"
+	name = "РіРёР»СЊР·Р° 5.56 m995"
 	caliber = "5.56"
 	projectile_type = /obj/projectile/bullet/m995x556
 
 
 /obj/projectile/bullet/m856x556
-	name = "пуля"
+	name = "РїСѓР»СЏ"
 	damage = 23
 	armour_penetration = 20
 	wound_bonus = 4
 
 /obj/projectile/bullet/m995x556
-	name = "пуля"
+	name = "РїСѓР»СЏ"
 	damage = 20
 	armour_penetration = 60
 	wound_bonus = -5
