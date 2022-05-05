@@ -59,9 +59,21 @@
 
 /obj/item/kinetic_shield/attack_hand(mob/user)
 	if(loc == user)
-		toggle()
+		toggle(user)
 		return
 	. = ..()
+
+/obj/item/kinetic_shield/MouseDrop(atom/over_object)
+	. = ..()
+	var/mob/M = usr
+
+	if(ismecha(M.loc))
+		return
+
+	if(!M.incapacitated() && loc == M && istype(over_object, /atom/movable/screen/inventory/hand))
+		var/atom/movable/screen/inventory/hand/H = over_object
+		if(M.putItemFromInventoryInHandIfPossible(src, H.held_index))
+			add_fingerprint(usr)
 
 /obj/item/kinetic_shield/equipped(mob/user, slot, initial)
 	. = ..()
@@ -70,22 +82,21 @@
 // this is fucking dumb
 /obj/item/kinetic_shield/proc/check_genius(mob/user, obj/item/gun/gun_fired, target, params, zone_override)
 	SIGNAL_HANDLER
-	if(!ison)
-		return
-	if(target == user)
+	if(!ison || our_powercell?.charge < 250 || target == user)
 		return
 	INVOKE_ASYNC(gun_fired, /obj/item/gun.proc/process_fire, user, user, TRUE, params, zone_override)
 	return COMSIG_GUN_FIRED_CANCEL
 
 /obj/item/kinetic_shield/dropped(mob/user, silent)
-	if(ison)
-		toggle()
 	. = ..()
 	UnregisterSignal(user, COMSIG_MOB_FIRED_GUN)
 
-/obj/item/kinetic_shield/proc/toggle()
+/obj/item/kinetic_shield/proc/toggle(mob/user)
 	ison = !ison
+	icon_state = "[base_icon_state][ison]"
 	update_charges()
+	if(ison && user)
+		SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, ITEM_SLOT_BELT)
 
 /obj/item/kinetic_shield/get_cell()
 	return our_powercell
