@@ -277,6 +277,7 @@
 	spawn(1 SECONDS) // fucking
 		var/obj/item/card/id/yohei/Y = H.get_idcard(FALSE)
 		H.mind?.adjust_experience(/datum/skill/ranged, SKILL_EXP_MASTER)
+		H.mind?.adjust_experience(/datum/skill/parry, SKILL_EXP_MASTER)
 		if(Y && H.mind)
 			Y.assigned_to = H.mind
 

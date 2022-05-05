@@ -148,7 +148,8 @@
 		return
 	var/mob/living/L = AM.loc
 	I.attack(L, src)
-	changeNext_move(CLICK_CD_MELEE * 2)
+	changeNext_move(mind?.get_skill_modifier(/datum/skill/parry, SKILL_SPEED_MODIFIER))
+	mind?.adjust_experience(/datum/skill/parry, 50)
 
 /mob/living/carbon/human/proc/check_block()
 	if(mind)
