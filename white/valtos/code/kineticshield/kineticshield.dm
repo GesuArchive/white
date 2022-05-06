@@ -27,7 +27,8 @@
 		if(!our_shield_component)
 			our_shield_component = AddComponent(/datum/component/shielded, max_charges = FLOOR(our_powercell.charge/250, 1), recharge_start_delay = 0, lose_multiple_charges = TRUE, shield_inhand = TRUE)
 			RegisterSignal(user, COMSIG_MOB_FIRED_GUN, .proc/check_genius)
-			RegisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS, .proc/shield_reaction)
+			RegisterSignal(user, COMSIG_PROJECTILE_ON_HIT, .proc/on_projectile_hit)
+			//RegisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS, .proc/shield_reaction)
 		else
 			our_shield_component?.current_charges = FLOOR(our_powercell.charge/250, 1)
 	else
@@ -37,7 +38,8 @@
 		qdel(our_shield_component)
 		our_shield_component = null
 		UnregisterSignal(user, COMSIG_MOB_FIRED_GUN)
-		UnregisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS)
+		UnregisterSignal(user, COMSIG_PROJECTILE_ON_HIT)
+		//UnregisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS)
 		user.update_appearance()
 
 /obj/item/kinetic_shield/attackby(obj/item/attacking_item, mob/user, params)
@@ -94,6 +96,15 @@
 	update_charges(user)
 	if(ison && user)
 		SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, ITEM_SLOT_BELT)
+
+/obj/item/kinetic_shield/proc/on_projectile_hit(mob/living/A, obj/projectile/P, def_zone)
+	SIGNAL_HANDLER
+	if(P.firer = A)
+		return BULLET_ACT_HIT
+	A.visible_message(span_danger("<b>[A]</b> отражает снаряд щитом!") , span_userdanger("Отражаю щитом!"))
+	P.firer = A
+	P.set_angle(rand(0, 360))
+	return BULLET_ACT_FORCE_PIERCE
 
 /obj/item/kinetic_shield/proc/shield_reaction(mob/living/carbon/human/owner, atom/movable/hitby, damage = 0, attack_text = "атаку", attack_type = MELEE_ATTACK, armour_penetration = 0)
 	if(SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, owner, hitby, attack_text, 0, damage, attack_type) & COMPONENT_HIT_REACTION_BLOCK)
