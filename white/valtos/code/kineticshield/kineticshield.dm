@@ -38,6 +38,7 @@
 		our_shield_component = null
 		UnregisterSignal(user, COMSIG_MOB_FIRED_GUN)
 		UnregisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS)
+		user.update_appearance()
 
 /obj/item/kinetic_shield/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
@@ -93,8 +94,6 @@
 	update_charges(user)
 	if(ison && user)
 		SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, ITEM_SLOT_BELT)
-	else
-		SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
 
 /obj/item/kinetic_shield/proc/shield_reaction(mob/living/carbon/human/owner, atom/movable/hitby, damage = 0, attack_text = "атаку", attack_type = MELEE_ATTACK, armour_penetration = 0)
 	if(SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, owner, hitby, attack_text, 0, damage, attack_type) & COMPONENT_HIT_REACTION_BLOCK)
