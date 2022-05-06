@@ -104,6 +104,8 @@
 	A.visible_message(span_danger("<b>[A]</b> отражает снаряд щитом!") , span_userdanger("Отражаю щитом!"))
 	P.firer = A
 	P.set_angle(rand(0, 360))
+	our_powercell?.use(P.damage * 250)
+	update_charges(A)
 	return BULLET_ACT_FORCE_PIERCE
 
 /obj/item/kinetic_shield/proc/shield_reaction(mob/living/carbon/human/owner, atom/movable/hitby, damage = 0, attack_text = "атаку", attack_type = MELEE_ATTACK, armour_penetration = 0)
