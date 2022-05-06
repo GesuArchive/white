@@ -107,16 +107,6 @@ GLOBAL_VAR(clockcult_eminence)
 /datum/game_mode/clockcult/proc/check_cult_victory()
 	return GLOB.ratvar_risen
 
-/datum/game_mode/proc/update_clockcult_icons_added(datum/mind/cult_mind)
-	var/datum/atom_hud/antag/culthud = GLOB.huds[ANTAG_HUD_CLOCKWORK]
-	culthud.join_hud(cult_mind.current)
-	set_antag_hud(cult_mind.current, "clockwork")
-
-/datum/game_mode/proc/update_clockcult_icons_removed(datum/mind/cult_mind)
-	var/datum/atom_hud/antag/culthud = GLOB.huds[ANTAG_HUD_CLOCKWORK]
-	culthud.leave_hud(cult_mind.current)
-	set_antag_hud(cult_mind.current, null)
-
 //==========================
 //==== Clock cult procs ====
 //==========================

@@ -13,18 +13,8 @@
 /datum/antagonist/combatant
 	name = "Боевик белых"
 
-// добавляем худ в зависимости от команды
-/datum/antagonist/combatant/apply_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	add_antag_hud(antag_hud_type, antag_hud_name, M)
-
-/datum/antagonist/combatant/remove_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	remove_antag_hud(antag_hud_type, M)
-
 /datum/antagonist/combatant/red
 	name = "Боевик красных"
-	antag_hud_type = ANTAG_HUD_CULT
 	antag_hud_name = "hog-red-2"
 
 /datum/antagonist/combatant/red/get_team()
@@ -39,7 +29,6 @@
 
 /datum/antagonist/combatant/blue
 	name = "Боевик синих"
-	antag_hud_type = ANTAG_HUD_CLOCKWORK
 	antag_hud_name = "hog-blue-2"
 
 /datum/antagonist/combatant/blue/get_team()

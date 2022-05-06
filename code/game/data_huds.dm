@@ -240,11 +240,11 @@ FAN HUDs! For identifying other fans on-sight.
 		set_hud_image_inactive(FAN_HUD)
 		return
 
-	if(istype(U.attached_accessory, /obj/item/clothing/accessory/mime_fan_pin))
-		holder.icon_state = "mime_fan_pin"
+	if(istype(U.attached_accessory, /obj/item/clothing/accessory/fan_mime_pin))
+		holder.icon_state = "fan_mime_pin"
 
-	else if(istype(U.attached_accessory, /obj/item/clothing/accessory/clown_enjoyer_pin))
-		holder.icon_state = "clown_enjoyer_pin"
+	else if(istype(U.attached_accessory, /obj/item/clothing/accessory/fan_clown_pin))
+		holder.icon_state = "fan_clown_pin"
 	set_hud_image_active(FAN_HUD)
 	return
 

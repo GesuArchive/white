@@ -28,8 +28,8 @@
 
 /datum/team/mutant_zombies
 	name = "Зомби"
-	var/datum/atom_hud/antag/hidden/zombies_hud = new
-	var/datum/atom_hud/antag/infected_hud = new
+	var/datum/atom_hud/alternate_appearance/basic/zombies_hud = new
+	var/datum/atom_hud/alternate_appearance/infected_hud = new
 
 /datum/team/mutant_zombies/proc/add_zombie_to_hud(mob/living/carbon/C)
 	var/image/holder = C.hud_list[ANTAG_HUD]

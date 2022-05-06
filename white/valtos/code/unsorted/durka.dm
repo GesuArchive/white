@@ -45,18 +45,9 @@
 	silent = TRUE
 	show_in_antagpanel = FALSE
 	prevent_roundtype_conversion = FALSE
-	antag_hud_type = ANTAG_HUD_FUGITIVE
 	antag_hud_name = "fugitive_hunter"
 	var/datum/team/shizoid_team/shizoid_team
 	greentext_reward = 10
-
-/datum/antagonist/shizoid/apply_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	add_antag_hud(antag_hud_type, antag_hud_name, M)
-
-/datum/antagonist/shizoid/remove_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	remove_antag_hud(antag_hud_type, M)
 
 /datum/antagonist/shizoid/proc/forge_objectives()
 	var/datum/objective/escape/escape = new

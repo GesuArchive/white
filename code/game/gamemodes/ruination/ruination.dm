@@ -286,7 +286,6 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 	name = "Смертник"
 	give_objectives = FALSE
 	greentext_reward = 150
-	antag_hud_type = ANTAG_HUD_OPS
 	antag_hud_name = "hog-red-2"
 	antag_moodlet = /datum/mood_event/focused
 	job_rank = ROLE_OPERATIVE

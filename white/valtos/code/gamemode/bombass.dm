@@ -81,18 +81,9 @@
 	silent = TRUE //greet called by the spawn
 	show_in_antagpanel = FALSE
 	prevent_roundtype_conversion = FALSE
-	antag_hud_type = ANTAG_HUD_FUGITIVE
 	antag_hud_name = "fugitive_hunter"
 	var/datum/team/bombmeat/bombmeat_team
 	greentext_reward = 10
-
-/datum/antagonist/bombmeat/apply_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	add_antag_hud(antag_hud_type, antag_hud_name, M)
-
-/datum/antagonist/bombmeat/remove_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	remove_antag_hud(antag_hud_type, M)
 
 /datum/antagonist/bombmeat/create_team(datum/team/bombmeat/new_team)
 	if(!new_team)

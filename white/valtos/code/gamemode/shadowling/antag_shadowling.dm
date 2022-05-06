@@ -9,7 +9,6 @@
 
 /datum/antagonist/shadowling/on_gain()
 	. = ..()
-	SSticker.mode.update_shadow_icons_added(owner)
 	SSticker.mode.shadows += owner
 	owner.special_role = "Shadowling"
 	log_game("[key_name(owner.current)] was made into a shadowling!")
@@ -29,7 +28,6 @@
 /datum/antagonist/shadowling/on_removal()
 	for(var/O in objectives_given)
 		objectives -= O
-	SSticker.mode.update_shadow_icons_removed(owner)
 	SSticker.mode.shadows -= owner
 	message_admins("[key_name_admin(owner.current)] was de-shadowlinged!")
 	log_game("[key_name(owner.current)] was de-shadowlinged!")

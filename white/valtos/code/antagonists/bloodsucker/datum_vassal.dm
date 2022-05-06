@@ -49,9 +49,6 @@
 	objectives += vassal_objective
 	objectives_given += vassal_objective
 
-	// Add Antag HUD
-	update_vassal_icons_added(owner.current, "vassal")
-
 	. = ..()
 
 /datum/antagonist/vassal/on_removal()
@@ -78,10 +75,6 @@
 		objectives -= O
 		qdel(O)
 	objectives_given = list()
-
-
-	// Clear Antag HUD
-	update_vassal_icons_removed(owner.current)
 
 	. = ..()
 
@@ -134,20 +127,6 @@
 
 	//scan_target = null
 	//if(owner?.mind)
-
-
-/datum/antagonist/vassal/proc/update_vassal_icons_added(mob/living/vassal, icontype="vassal")
-	var/datum/atom_hud/antag/bloodsucker/hud = GLOB.huds[ANTAG_HUD_BLOODSUCKER]// ANTAG_HUD_DEVIL
-	hud.join_hud(vassal)
-	set_antag_hud(vassal, icontype) // Located in icons/mob/hud.dmi
-	owner.current.hud_list[ANTAG_HUD].icon = image('white/valtos/icons/bloodsucker/fulphud.dmi', owner.current, "bloodsucker")	// FULP ADDITION! Check prepare_huds in mob.dm to see why.
-
-/datum/antagonist/vassal/proc/update_vassal_icons_removed(mob/living/vassal)
-	var/datum/atom_hud/antag/hud = GLOB.huds[ANTAG_HUD_BLOODSUCKER]//ANTAG_HUD_BLOODSUCKER]
-	hud.leave_hud(vassal)
-	set_antag_hud(vassal, null)
-
-
 
 //Displayed at the start of roundend_category section, default to roundend_category header
 /datum/antagonist/vassal/roundend_report_header()

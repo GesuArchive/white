@@ -8,7 +8,6 @@
 
 /datum/antagonist/thrall/on_gain()
 	. = ..()
-	SSticker.mode.update_shadow_icons_added(owner)
 	SSticker.mode.thralls += owner
 	owner.special_role = "thrall"
 	message_admins("[key_name_admin(owner.current)] was enthralled by a shadowling!")
@@ -19,7 +18,6 @@
 	owner.AddSpell(new /obj/effect/proc_holder/spell/self/thrall_night_vision(null))
 
 /datum/antagonist/thrall/on_removal()
-	SSticker.mode.update_shadow_icons_removed(owner)
 	SSticker.mode.thralls -= owner
 	message_admins("[key_name_admin(owner.current)] was dethralled!")
 	log_game("[key_name(owner.current)] was dethralled!")

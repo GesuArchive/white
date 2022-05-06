@@ -10,7 +10,6 @@
 	name = "sintouched"
 	roundend_category = "sintouched"
 	antagpanel_category = "Devil"
-	antag_hud_type = ANTAG_HUD_SINTOUCHED
 	antag_hud_name = "sintouched"
 	var/sin
 	greentext_reward = 5
@@ -58,15 +57,6 @@
 	if(chosen_sin in sins)
 		sin = chosen_sin
 	. = ..()
-
-/datum/antagonist/sintouched/apply_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	add_antag_hud(antag_hud_type, antag_hud_name, M)
-
-/datum/antagonist/sintouched/remove_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	remove_antag_hud(antag_hud_type, M)
-
 
 #undef SIN_ACEDIA
 #undef SIN_ENVY
