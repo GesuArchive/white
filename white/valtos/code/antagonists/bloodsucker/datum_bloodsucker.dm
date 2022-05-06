@@ -689,7 +689,7 @@
 /datum/atom_hud/antag/bloodsucker  // from hud.dm in /datums/   Also see data_huds.dm + antag_hud.dm
 
 
-/datum/atom_hud/antag/bloodsucker/add_to_single_hud(mob/M, atom/A)
+/datum/atom_hud/antag/bloodsucker/add_atom_to_single_mob_hud(mob/M, atom/A)
 	if (!check_valid_hud_user(M,A)) 	// FULP: This checks if the Mob is a Vassal, and if the Atom is his master OR on his team.
 		return
 	..()

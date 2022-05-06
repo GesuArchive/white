@@ -887,9 +887,9 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	for(var/hudtype in list(DATA_HUD_SECURITY_ADVANCED, DATA_HUD_MEDICAL_ADVANCED, DATA_HUD_DIAGNOSTIC_ADVANCED)) // add data huds
 		var/datum/atom_hud/H = GLOB.huds[hudtype]
-		(adding_hud) ? H.add_hud_to(usr) : H.remove_hud_from(usr)
+		(adding_hud) ? H.show_to(usr) : H.hide_from(usr)
 	for(var/datum/atom_hud/antag/H in GLOB.huds) // add antag huds
-		(adding_hud) ? H.add_hud_to(usr) : H.remove_hud_from(usr)
+		(adding_hud) ? H.show_to(usr) : H.hide_from(usr)
 
 	if(prefs.toggles & COMBOHUD_LIGHTING)
 		if(adding_hud)
@@ -907,7 +907,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 /client/proc/has_antag_hud()
 	var/datum/atom_hud/A = GLOB.huds[ANTAG_HUD_TRAITOR]
-	return A.hudusers[mob]
+	return A.hud_users[mob]
 
 
 /client/proc/run_weather()

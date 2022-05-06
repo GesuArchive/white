@@ -24,7 +24,7 @@
 	if(!src)
 		return
 	var/datum/atom_hud/hacker/hhud = GLOB.huds[DATA_HUD_HACKER]
-	hhud.add_to_hud(src)
+	hhud.add_atom_to_hud(src)
 	hud_list[HACKER_HUD].icon = image('white/valtos/icons/dz-031.dmi', src)
 	hud_list[HACKER_HUD].icon_state = "node"
 
@@ -39,7 +39,7 @@
 		if(HAS_TRAIT(H, TRAIT_HACKER))
 			prepare_huds()
 			var/datum/atom_hud/hacker/hhud = GLOB.huds[DATA_HUD_HACKER]
-			hhud.add_to_hud(src)
+			hhud.add_atom_to_hud(src)
 			hud_list[HACKER_HUD].icon = image('white/valtos/icons/dz-031.dmi', src)
 			hud_list[HACKER_HUD].icon_state = "node_weapon"
 
@@ -107,7 +107,7 @@
 	if(ishuman(user))
 		for(var/hud in hudlist)
 			var/datum/atom_hud/H = GLOB.huds[hud]
-			H.add_hud_to(user)
+			H.show_to(user)
 		ADD_TRAIT(user, TRAIT_MEDICAL_HUD, GLASSES_TRAIT)
 		ADD_TRAIT(user, TRAIT_SECURITY_HUD, GLASSES_TRAIT)
 
@@ -118,7 +118,7 @@
 	if(ishuman(user))
 		for(var/hud in hudlist)
 			var/datum/atom_hud/H = GLOB.huds[hud]
-			H.remove_hud_from(user)
+			H.hide_from(user)
 
 /obj/item/clothing/glasses/hud/hacker_rig/emp_act(severity)
 	. = ..()

@@ -14,9 +14,9 @@
 		M.mind.antag_hud.leave_hud(M)
 
 	if(ANTAG_HUD in M.hud_possible) //Current mob does not support antag huds ie newplayer
-		add_to_hud(M)
+		add_atom_to_hud(M)
 		if(self_visible)
-			add_hud_to(M)
+			show_to(M)
 
 	M.mind.antag_hud = src
 
@@ -25,8 +25,8 @@
 		return
 	if(!istype(M))
 		CRASH("leave_hud(): [M] ([M.type]) is not a mob!")
-	remove_from_hud(M)
-	remove_hud_from(M)
+	remove_atom_from_hud(M)
+	hide_from(M)
 	if(M.mind)
 		M.mind.antag_hud = null
 
@@ -54,5 +54,5 @@
 
 /datum/mind/proc/leave_all_antag_huds()
 	for(var/datum/atom_hud/antag/hud in GLOB.huds)
-		if(hud.hudusers[current])
+		if(hud.hud_users[current])
 			hud.leave_hud(current)

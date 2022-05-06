@@ -19,14 +19,14 @@
 	..()
 	if(HUD_type)
 		var/datum/atom_hud/H = GLOB.huds[HUD_type]
-		H.add_hud_to(M)
+		H.show_to(M)
 	if(HUD_trait)
 		ADD_TRAIT(M, HUD_trait, ORGAN_TRAIT)
 
 /obj/item/organ/cyberimp/eyes/hud/Remove(mob/living/carbon/M, special = 0)
 	if(HUD_type)
 		var/datum/atom_hud/H = GLOB.huds[HUD_type]
-		H.remove_hud_from(M)
+		H.hide_from(M)
 	if(HUD_trait)
 		REMOVE_TRAIT(M, HUD_trait, ORGAN_TRAIT)
 	..()

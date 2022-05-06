@@ -739,14 +739,14 @@
 	to_chat(user, "Включено тактическое зрение.")
 	ADD_TRAIT(user, TRAIT_SECURITY_HUD, HELMET_TRAIT)
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
-	H.add_hud_to(user)
+	H.show_to(user)
 
 /obj/item/clothing/head/hooded/ablative/dropped(mob/living/carbon/human/user)
 	..()
 	to_chat(user, "Тактическое зрение отключено.")
 	REMOVE_TRAIT(user, TRAIT_SECURITY_HUD, HELMET_TRAIT)
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
-	H.remove_hud_from(user)
+	H.hide_from(user)
 
 /obj/item/clothing/head/hooded/ablative/IsReflect(def_zone)
 	if(def_zone != BODY_ZONE_HEAD) //If not shot where ablative is covering you, you don't get the reflection bonus!

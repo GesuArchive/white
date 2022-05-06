@@ -54,5 +54,5 @@
 	if(visualsOnly)
 		return
 	var/datum/atom_hud/hud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
-	hud.add_hud_to(H)
+	hud.show_to(H)
 	ADD_TRAIT(H, TRAIT_MEDICAL_HUD, ORGAN_TRAIT)

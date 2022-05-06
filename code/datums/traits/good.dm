@@ -77,7 +77,7 @@
 	)
 	H.equip_in_one_of_slots(B, slots , qdel_on_fail = TRUE)
 	var/datum/atom_hud/fan = GLOB.huds[DATA_HUD_FAN]
-	fan.add_hud_to(H)
+	fan.show_to(H)
 
 /datum/quirk/fan_mime
 	name = "Фанат мимов"
@@ -97,7 +97,7 @@
 	)
 	H.equip_in_one_of_slots(B, slots , qdel_on_fail = TRUE)
 	var/datum/atom_hud/fan = GLOB.huds[DATA_HUD_FAN]
-	fan.add_hud_to(H)
+	fan.show_to(H)
 
 /datum/quirk/freerunning
 	name = "Паркурист"

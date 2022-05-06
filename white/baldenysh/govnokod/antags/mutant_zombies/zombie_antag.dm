@@ -34,28 +34,28 @@
 /datum/team/mutant_zombies/proc/add_zombie_to_hud(mob/living/carbon/C)
 	var/image/holder = C.hud_list[ANTAG_HUD]
 	holder.icon_state = "zed"
-	zombies_hud.add_to_hud(C)
+	zombies_hud.add_atom_to_hud(C)
 
-	zombies_hud.add_hud_to(C)
-	infected_hud.add_hud_to(C)
+	zombies_hud.show_to(C)
+	infected_hud.show_to(C)
 
 /datum/team/mutant_zombies/proc/remove_zombie_from_hud(mob/living/carbon/C)
 	var/image/holder = C.hud_list[ANTAG_HUD]
 	holder.icon_state = null
-	zombies_hud.remove_from_hud(C)
+	zombies_hud.remove_atom_from_hud(C)
 
-	zombies_hud.remove_hud_from(C)
-	infected_hud.remove_hud_from(C)
+	zombies_hud.hide_from(C)
+	infected_hud.hide_from(C)
 
 /datum/team/mutant_zombies/proc/add_infected_to_hud(mob/living/carbon/C)
 	var/image/holder = C.hud_list[ANTAG_HUD]
 	holder.icon_state = "infected"
-	infected_hud.add_to_hud(C)
+	infected_hud.add_atom_to_hud(C)
 
 /datum/team/mutant_zombies/proc/remove_infected_from_hud(mob/living/carbon/C)
 	var/image/holder = C.hud_list[ANTAG_HUD]
 	holder.icon_state = null
-	infected_hud.remove_from_hud(C)
+	infected_hud.remove_atom_from_hud(C)
 
 
 /*

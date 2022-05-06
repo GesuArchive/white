@@ -79,7 +79,7 @@
 	if(starter_gangster)
 		equip_gangster_in_inventory()
 	var/datum/atom_hud/gang_hud = GLOB.huds[ANTAG_HUD_GANGSTER]
-	gang_hud.add_hud_to(owner.current)
+	gang_hud.show_to(owner.current)
 	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/thatshowfamiliesworks.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 	..()
 
@@ -94,7 +94,7 @@
 		just in the team datum itself, and there were different types of teams instead of different types of gangster
 		that imprint on generic teams, but i'm too lazy to refactor THAT too */
 	var/datum/atom_hud/gang_hud = GLOB.huds[ANTAG_HUD_GANGSTER]
-	gang_hud.remove_hud_from(owner.current)
+	gang_hud.hide_from(owner.current)
 	..()
 
 /datum/antagonist/gang/apply_innate_effects(mob/living/mob_override)
