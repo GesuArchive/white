@@ -96,6 +96,7 @@
 /obj/item/kinetic_shield/proc/shield_reaction(mob/living/carbon/human/owner, atom/movable/hitby, damage = 0, attack_text = "атаку", attack_type = MELEE_ATTACK, armour_penetration = 0)
 	if(SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, owner, hitby, attack_text, 0, damage, attack_type) & COMPONENT_HIT_REACTION_BLOCK)
 		our_powercell?.use(damage * 250)
+		update_charges(owner)
 		return SHIELD_BLOCK
 	return NONE
 
