@@ -1,5 +1,5 @@
 /**
- * The shielded component causes the parent item to nullify a certain number of attacks against the wearer, see: shielded hardsuits.
+ * The shielded component causes the parent item to nullify a certain number of attacks against the wearer, see: shielded vests.
  */
 
 /datum/component/shielded
@@ -30,7 +30,7 @@
 	/// A callback for the sparks/message that play when a charge is used, see [/datum/component/shielded/proc/default_run_hit_callback]
 	var/datum/callback/on_hit_effects
 
-/datum/component/shielded/Initialize(max_charges = 3, recharge_start_delay = 20 SECONDS, charge_increment_delay = 1 SECONDS, charge_recovery = 1, lose_multiple_charges = FALSE, shield_icon_file = 'icons/effects/effects.dmi', shield_icon = "shield-old", shield_inhand = FALSE, run_hit_callback)
+/datum/component/shielded/Initialize(max_charges = 3, recharge_start_delay = 20 SECONDS, charge_increment_delay = 1 SECONDS, charge_recovery = 1, lose_multiple_charges = FALSE, starting_charges = null, shield_icon_file = 'icons/effects/effects.dmi', shield_icon = "shield-old", shield_inhand = FALSE, run_hit_callback)
 	if(!isitem(parent) || max_charges <= 0)
 		return COMPONENT_INCOMPATIBLE
 
@@ -43,8 +43,10 @@
 	src.shield_icon = shield_icon
 	src.shield_inhand = shield_inhand
 	src.on_hit_effects = run_hit_callback || CALLBACK(src, .proc/default_run_hit_callback)
-
-	current_charges = max_charges
+	if(isnull(starting_charges))
+		current_charges = max_charges
+	else
+		current_charges = starting_charges
 	if(recharge_start_delay)
 		START_PROCESSING(SSdcs, src)
 
@@ -52,7 +54,7 @@
 	if(wearer)
 		shield_icon = "broken"
 		UnregisterSignal(wearer, COMSIG_ATOM_UPDATE_OVERLAYS)
-		wearer.update_icon(UPDATE_ICON)
+		wearer.update_appearance(UPDATE_ICON)
 		wearer = null
 	QDEL_NULL(on_hit_effects)
 	return ..()
@@ -62,9 +64,18 @@
 	RegisterSignal(parent, COMSIG_ITEM_DROPPED, .proc/lost_wearer)
 	RegisterSignal(parent, COMSIG_ITEM_HIT_REACT, .proc/on_hit_react)
 	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, .proc/check_recharge_rune)
+	var/atom/shield = parent
+	if(ismob(shield.loc))
+		var/mob/holder = shield.loc
+		if(holder.is_holding(parent) && !shield_inhand)
+			return
+		set_wearer(holder)
 
 /datum/component/shielded/UnregisterFromParent()
 	UnregisterSignal(parent, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_DROPPED, COMSIG_ITEM_HIT_REACT, COMSIG_PARENT_ATTACKBY))
+	var/atom/shield = parent
+	if(shield.loc == wearer)
+		lost_wearer(src, wearer)
 
 // Handle recharging, if we want to
 /datum/component/shielded/process(delta_time)
@@ -87,7 +98,7 @@
 /datum/component/shielded/proc/adjust_charge(change)
 	current_charges = clamp(current_charges + change, 0, max_charges)
 	if(wearer)
-		wearer.update_icon(UPDATE_ICON)
+		wearer.update_appearance(UPDATE_ICON)
 
 /// Check if we've been equipped to a valid slot to shield
 /datum/component/shielded/proc/on_equipped(datum/source, mob/user, slot)
@@ -96,12 +107,7 @@
 	if(slot == ITEM_SLOT_HANDS && !shield_inhand)
 		lost_wearer(source, user)
 		return
-
-	wearer = user
-	RegisterSignal(wearer, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/on_update_overlays)
-	RegisterSignal(wearer, COMSIG_PARENT_QDELETING, .proc/lost_wearer)
-	if(current_charges)
-		wearer.update_icon(UPDATE_ICON)
+	set_wearer(source, user)
 
 /// Either we've been dropped or our wearer has been QDEL'd. Either way, they're no longer our problem
 /datum/component/shielded/proc/lost_wearer(datum/source, mob/user)
@@ -109,8 +115,15 @@
 
 	if(wearer)
 		UnregisterSignal(wearer, list(COMSIG_ATOM_UPDATE_OVERLAYS, COMSIG_PARENT_QDELETING))
-		wearer.update_icon(UPDATE_ICON)
+		wearer.update_appearance(UPDATE_ICON)
 		wearer = null
+
+/datum/component/shielded/proc/set_wearer(mob/user)
+	wearer = user
+	RegisterSignal(wearer, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/on_update_overlays)
+	RegisterSignal(wearer, COMSIG_PARENT_QDELETING, .proc/lost_wearer)
+	if(current_charges)
+		wearer.update_appearance(UPDATE_ICON)
 
 /// Used to draw the shield overlay on the wearer
 /datum/component/shielded/proc/on_update_overlays(atom/parent_atom, list/overlays)
@@ -141,8 +154,6 @@
 	INVOKE_ASYNC(src, .proc/actually_run_hit_callback, owner, attack_text, current_charges)
 
 	if(!recharge_start_delay) // if recharge_start_delay is 0, we don't recharge
-		if(!current_charges) // obviously if someone ever adds a manual way to replenish charges, change this
-			qdel(src)
 		return
 
 	START_PROCESSING(SSdcs, src) // if we DO recharge, start processing so we can do that

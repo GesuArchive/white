@@ -26,20 +26,13 @@
 /obj/item/kinetic_shield/proc/update_charges()
 	if(ison && our_powercell)
 		if(!our_shield_component)
-			our_shield_component = AddComponent(/datum/component/shielded, max_charges = FLOOR(our_powercell.charge/250, 1), recharge_start_delay = 0, lose_multiple_charges = TRUE, run_hit_callback = CALLBACK(src, .proc/shield_damaged))
+			our_shield_component = AddComponent(/datum/component/shielded, max_charges = FLOOR(our_powercell.charge/250, 1), recharge_start_delay = 0, lose_multiple_charges = TRUE, shield_inhand = TRUE)
 		else
 			our_shield_component?.current_charges = FLOOR(our_powercell.charge/250, 1)
 	else
 		ison = FALSE
 		qdel(our_shield_component)
 		our_shield_component = null
-
-/obj/item/kinetic_shield/proc/shield_damaged(mob/living/wearer, attack_text, new_current_charges)
-	our_powercell.use(our_shield_component?.current_charges - new_current_charges)
-	update_charges()
-	wearer.visible_message(span_danger("Кинетический щит [wearer] отражает [attack_text]!"))
-	if(new_current_charges <= 0)
-		wearer.visible_message(span_danger("Кинетический щит [wearer] отключается!"))
 
 /obj/item/kinetic_shield/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
@@ -90,6 +83,7 @@
 /obj/item/kinetic_shield/dropped(mob/user, silent)
 	. = ..()
 	UnregisterSignal(user, COMSIG_MOB_FIRED_GUN)
+	UnregisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS)
 
 /obj/item/kinetic_shield/proc/toggle(mob/user)
 	ison = !ison
@@ -97,6 +91,15 @@
 	update_charges()
 	if(ison && user)
 		SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, ITEM_SLOT_BELT)
+		RegisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS, .proc/shield_reaction)
+	else
+		UnregisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS)
+
+/obj/item/kinetic_shield/proc/shield_reaction(mob/living/carbon/human/owner, atom/movable/hitby, damage = 0, attack_text = "атаку", attack_type = MELEE_ATTACK, armour_penetration = 0)
+	if(SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, owner, hitby, attack_text, 0, damage, attack_type) & COMPONENT_HIT_REACTION_BLOCK)
+		our_powercell?.use(damage * 250)
+		return SHIELD_BLOCK
+	return NONE
 
 /obj/item/kinetic_shield/get_cell()
 	return our_powercell
