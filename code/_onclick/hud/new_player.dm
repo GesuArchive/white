@@ -33,7 +33,7 @@
 
 /atom/movable/screen/lobby/button/New(loc, ...)
 	. = ..()
-	add_filter(drop_shadow_filter(0, 0, 12, 5, "#300030"))
+	add_filter("lobby", 1, drop_shadow_filter(0, 0, 12, 5, "#300030"))
 
 /atom/movable/screen/lobby/button/Click(location, control, params)
 	if(owner != REF(usr))
