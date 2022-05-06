@@ -31,6 +31,7 @@
 		else
 			our_shield_component?.current_charges = FLOOR(our_powercell.charge/250, 1)
 	else
+		SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
 		ison = FALSE
 		icon_state = "[base_icon_state][ison]"
 		qdel(our_shield_component)
@@ -92,6 +93,8 @@
 	update_charges(user)
 	if(ison && user)
 		SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, ITEM_SLOT_BELT)
+	else
+		SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
 
 /obj/item/kinetic_shield/proc/shield_reaction(mob/living/carbon/human/owner, atom/movable/hitby, damage = 0, attack_text = "атаку", attack_type = MELEE_ATTACK, armour_penetration = 0)
 	if(SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, owner, hitby, attack_text, 0, damage, attack_type) & COMPONENT_HIT_REACTION_BLOCK)
