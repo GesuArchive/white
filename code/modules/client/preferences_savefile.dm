@@ -71,9 +71,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	if(current_version < 54)
 		if("0474cf4afd90f3bd6ed0fc294e3e71f4" in purchased_gear)
-			purchased_gear += /datum/gear/auvtomat
+			purchased_gear += "b77fc4971b9920d93a5c1cab1aa490ed"
 		if("4d4919a746a01f2d0c17740fdbbd83ea" in purchased_gear)
-			purchased_gear += /datum/gear/assault_rifle
+			purchased_gear += "6355ec980b834b9c956ad064bde6657a"
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	return
