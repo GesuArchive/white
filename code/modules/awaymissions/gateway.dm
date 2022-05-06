@@ -322,7 +322,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 			if(!GLOB.isGatewayLoaded)
 				message_admins("[ADMIN_LOOKUPFLW(usr)] активирует врата.")
 				log_game("[key_name(usr)] активирует врата.")
-				priority_announce("Началась операция по поиску новых врат в отдалённых секторах. Это займёт некоторое время.", "Звёздные врата", 'white/valtos/sounds/trevoga4.ogg')
+				priority_announce("Началась операция по поиску новых врат в отдалённых секторах. Это займёт некоторое время.", "Звёздные врата", sound('white/valtos/sounds/trevoga4.ogg'))
 				GLOB.isGatewayLoaded = TRUE
 				createRandomZlevel()
 			return TRUE

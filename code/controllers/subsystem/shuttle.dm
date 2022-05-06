@@ -165,7 +165,7 @@ SUBSYSTEM_DEF(shuttle)
 
 /datum/controller/subsystem/shuttle/proc/block_recall(lockout_timer)
 	if(adminEmergencyNoRecall)
-		priority_announce("Ошибка!", "Блокировка приёмника шаттла", 'white/valtos/sounds/trevoga2.ogg')
+		priority_announce("Ошибка!", "Блокировка приёмника шаттла", sound('white/valtos/sounds/trevoga2.ogg'))
 		addtimer(CALLBACK(src, .proc/unblock_recall), lockout_timer)
 		return
 	emergencyNoRecall = TRUE
@@ -173,7 +173,7 @@ SUBSYSTEM_DEF(shuttle)
 
 /datum/controller/subsystem/shuttle/proc/unblock_recall()
 	if(adminEmergencyNoRecall)
-		priority_announce("Ошибка!", "Блокировка приёмника шаттла", 'white/valtos/sounds/trevoga2.ogg')
+		priority_announce("Ошибка!", "Блокировка приёмника шаттла", sound('white/valtos/sounds/trevoga2.ogg'))
 		return
 	emergencyNoRecall = FALSE
 

@@ -764,7 +764,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	SSshuttle.adminEmergencyNoRecall = TRUE
 	SSshuttle.emergency.setTimer(0)
 	SSshuttle.emergency.mode = SHUTTLE_DISABLED
-	priority_announce("Внимание: эвакуационный шаттл был заблокирован.", "Сбой эвакуационного шаттла", 'white/valtos/sounds/trevoga2.ogg')
+	priority_announce("Внимание: эвакуационный шаттл был заблокирован.", "Сбой эвакуационного шаттла", sound('white/valtos/sounds/trevoga2.ogg'))
 
 /client/proc/admin_enable_shuttle()
 	set category = "Адм.События"
@@ -790,7 +790,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(SSshuttle.lastCallTime < 10 SECONDS && SSshuttle.lastMode != SHUTTLE_IDLE)
 		SSshuttle.lastCallTime = 10 SECONDS //Make sure no insta departures.
 	SSshuttle.emergency.setTimer(SSshuttle.lastCallTime)
-	priority_announce("Warning: Emergency Shuttle uplink reestablished, shuttle enabled.", "Emergency Shuttle Uplink Alert", 'white/valtos/sounds/trevoga2.ogg')
+	priority_announce("Warning: Emergency Shuttle uplink reestablished, shuttle enabled.", "Emergency Shuttle Uplink Alert", sound('white/valtos/sounds/trevoga2.ogg'))
 
 /client/proc/everyone_random()
 	set category = "Адм.Веселье"
