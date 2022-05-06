@@ -5,7 +5,7 @@
 // You do not need to raise this if you are adding new values that have sane defaults.
 // Only raise this value when changing the meaning/format/name/layout of an existing value
 // where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX 53
+#define SAVEFILE_VERSION_MAX 54
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -68,6 +68,12 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	if(current_version < 53)
 		widescreenwidth = 19
+
+	if(current_version < 54)
+		if("0474cf4afd90f3bd6ed0fc294e3e71f4" in purchased_gear)
+			purchased_gear += /datum/gear/auvtomat
+		if("4d4919a746a01f2d0c17740fdbbd83ea" in purchased_gear)
+			purchased_gear += /datum/gear/assault_rifle
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	return
