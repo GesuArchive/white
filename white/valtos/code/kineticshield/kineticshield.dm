@@ -15,7 +15,6 @@
 /obj/item/kinetic_shield/Initialize()
 	. = ..()
 	our_powercell = new /obj/item/stock_parts/cell/high(src)
-	update_charges()
 
 /obj/item/kinetic_shield/examine(mob/user)
 	. = ..()
@@ -23,16 +22,21 @@
 		. += "<hr>"
 		. += span_notice("<b>ЗАРЯД:</b> [our_powercell.percent()]%")
 
-/obj/item/kinetic_shield/proc/update_charges()
-	if(ison && our_powercell)
+/obj/item/kinetic_shield/proc/update_charges(mob/user)
+	if(ison && FLOOR(our_powercell?.charge/250, 1))
 		if(!our_shield_component)
 			our_shield_component = AddComponent(/datum/component/shielded, max_charges = FLOOR(our_powercell.charge/250, 1), recharge_start_delay = 0, lose_multiple_charges = TRUE, shield_inhand = TRUE)
+			RegisterSignal(user, COMSIG_MOB_FIRED_GUN, .proc/check_genius)
+			RegisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS, .proc/shield_reaction)
 		else
 			our_shield_component?.current_charges = FLOOR(our_powercell.charge/250, 1)
 	else
 		ison = FALSE
+		icon_state = "[base_icon_state][ison]"
 		qdel(our_shield_component)
 		our_shield_component = null
+		UnregisterSignal(user, COMSIG_MOB_FIRED_GUN)
+		UnregisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS)
 
 /obj/item/kinetic_shield/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
@@ -42,13 +46,14 @@
 			our_powercell.forceMove(T)
 		attacking_item.forceMove(src)
 		our_powercell = attacking_item
-		update_charges()
+		update_charges(user)
 		to_chat(user, span_notice("Тактически заменяю батарею."))
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(our_powercell)
 			var/turf/T = get_turf(src)
 			our_powercell.forceMove(T)
 			to_chat(user, span_notice("Достаю батарею."))
+			update_charges(user)
 
 /obj/item/kinetic_shield/attack_hand(mob/user)
 	if(loc == user)
@@ -68,10 +73,6 @@
 		if(M.putItemFromInventoryInHandIfPossible(src, H.held_index))
 			add_fingerprint(usr)
 
-/obj/item/kinetic_shield/equipped(mob/user, slot, initial)
-	. = ..()
-	RegisterSignal(user, COMSIG_MOB_FIRED_GUN, .proc/check_genius)
-
 // this is fucking dumb
 /obj/item/kinetic_shield/proc/check_genius(mob/user, obj/item/gun/gun_fired, target, params, zone_override)
 	SIGNAL_HANDLER
@@ -82,18 +83,15 @@
 
 /obj/item/kinetic_shield/dropped(mob/user, silent)
 	. = ..()
-	UnregisterSignal(user, COMSIG_MOB_FIRED_GUN)
-	UnregisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS)
+	ison = FALSE
+	update_charges(user)
 
 /obj/item/kinetic_shield/proc/toggle(mob/user)
 	ison = !ison
 	icon_state = "[base_icon_state][ison]"
-	update_charges()
+	update_charges(user)
 	if(ison && user)
 		SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, ITEM_SLOT_BELT)
-		RegisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS, .proc/shield_reaction)
-	else
-		UnregisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS)
 
 /obj/item/kinetic_shield/proc/shield_reaction(mob/living/carbon/human/owner, atom/movable/hitby, damage = 0, attack_text = "атаку", attack_type = MELEE_ATTACK, armour_penetration = 0)
 	if(SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, owner, hitby, attack_text, 0, damage, attack_type) & COMPONENT_HIT_REACTION_BLOCK)

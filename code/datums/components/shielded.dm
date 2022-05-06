@@ -154,6 +154,8 @@
 	INVOKE_ASYNC(src, .proc/actually_run_hit_callback, owner, attack_text, current_charges)
 
 	if(!recharge_start_delay) // if recharge_start_delay is 0, we don't recharge
+		if(!current_charges) // obviously if someone ever adds a manual way to replenish charges, change this
+			qdel(src)
 		return
 
 	START_PROCESSING(SSdcs, src) // if we DO recharge, start processing so we can do that
