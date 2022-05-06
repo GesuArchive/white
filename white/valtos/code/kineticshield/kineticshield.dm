@@ -99,7 +99,7 @@
 
 /obj/item/kinetic_shield/proc/on_projectile_hit(mob/living/A, obj/projectile/P, def_zone)
 	SIGNAL_HANDLER
-	if(P.firer = A)
+	if(P.firer == A)
 		return BULLET_ACT_HIT
 	A.visible_message(span_danger("<b>[A]</b> отражает снаряд щитом!") , span_userdanger("Отражаю щитом!"))
 	P.firer = A
