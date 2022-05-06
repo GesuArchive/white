@@ -59,7 +59,8 @@
 	if(loc == user)
 		playsound(src, 'sound/magic/charge.ogg', 50, TRUE)
 		ison = !ison
-		update_icon(UPDATE_ICON)
+		update_appearance(UPDATE_ICON)
+		user.update_appearance(UPDATE_ICON)
 		if(ison)
 			START_PROCESSING(SSobj, src)
 		return
@@ -100,11 +101,11 @@
 	our_powercell?.use(10)
 	check_charge()
 
-/obj/item/kinetic_shield/proc/on_shields(mob/living/A, atom/movable/A, damage)
+/obj/item/kinetic_shield/proc/on_shields(atom/movable/A, damage)
 	SIGNAL_HANDLER
 	if(ison && isprojectile(A) && our_powercell?.charge >= 250)
 		var/obj/projectile/P = A
-		A.visible_message(span_danger("Щит <b>[A]</b> отражает снаряд!"), span_userdanger("Щит отражает снаряд!"))
+		A.visible_message(span_danger("Щит <b>[loc]</b> отражает [A.name]!"), span_userdanger("Щит отражает [A.name]!"))
 		P.firer = A
 		P.set_angle(P.Angle + rand(120, 240))
 		our_powercell?.use(damage * 250)
