@@ -185,13 +185,13 @@
 			set_station_name(new_name)
 			log_admin("[key_name(holder)] renamed the station to \"[new_name]\".")
 			message_admins(span_adminnotice("[key_name_admin(holder)] renamed the station to: [new_name]."))
-			priority_announce("[command_name()] has renamed the station to \"[new_name]\".")
+			priority_announce("[command_name()] переименовывает станцию в \"[new_name]\".")
 		if("reset_name")
 			var/new_name = new_station_name()
 			set_station_name(new_name)
 			log_admin("[key_name(holder)] reset the station name.")
 			message_admins(span_adminnotice("[key_name_admin(holder)] reset the station name."))
-			priority_announce("[command_name()] has renamed the station to \"[new_name]\".")
+			priority_announce("[command_name()] переименовывает станцию в \"[new_name]\".")
 		if("night_shift_set")
 			var/val = tgui_alert(holder, "What do you want to set night shift to? This will override the automatic system until set to automatic again.", "Night Shift", list("On", "Off", "Automatic"))
 			switch(val)
@@ -345,7 +345,7 @@
 				if(is_station_level(W.z) && !istype(get_area(W), /area/command) && !istype(get_area(W), /area/commons) && !istype(get_area(W), /area/security/prison))
 					W.req_access = list()
 			message_admins("[key_name_admin(holder)] activated Egalitarian Station mode")
-			priority_announce("CentCom airlock control override activated. Please take this time to get acquainted with your coworkers.", null, SSstation.announcer.get_rand_report_sound())
+			priority_announce("Перенастройка протоколов доступа к шлюзам запущена. Пожалуйста, отнеситесь с пониманием к вашим коллегам.", null, SSstation.announcer.get_rand_report_sound())
 		if("ancap")
 			if(!is_funmin)
 				return
@@ -353,9 +353,9 @@
 			SSeconomy.full_ancap = !SSeconomy.full_ancap
 			message_admins("[key_name_admin(holder)] toggled Anarcho-capitalist mode")
 			if(SSeconomy.full_ancap)
-				priority_announce("The NAP is now in full effect.", null, SSstation.announcer.get_rand_report_sound())
+				priority_announce("Анкап объявлен на вашей станции.", null, SSstation.announcer.get_rand_report_sound())
 			else
-				priority_announce("The NAP has been revoked.", null, SSstation.announcer.get_rand_report_sound())
+				priority_announce("Анкап был запрещён на вашей станции.", null, SSstation.announcer.get_rand_report_sound())
 		if("blackout")
 			if(!is_funmin)
 				return

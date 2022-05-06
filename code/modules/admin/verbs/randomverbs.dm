@@ -790,7 +790,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(SSshuttle.lastCallTime < 10 SECONDS && SSshuttle.lastMode != SHUTTLE_IDLE)
 		SSshuttle.lastCallTime = 10 SECONDS //Make sure no insta departures.
 	SSshuttle.emergency.setTimer(SSshuttle.lastCallTime)
-	priority_announce("Warning: Emergency Shuttle uplink reestablished, shuttle enabled.", "Emergency Shuttle Uplink Alert", sound('white/valtos/sounds/trevoga2.ogg'))
+	priority_announce("Внимание: связь с эвакуационным шаттлом восстановлена, шаттл снова работает.", "Сбой эвакуационного шаттла", sound('white/valtos/sounds/trevoga2.ogg'))
 
 /client/proc/everyone_random()
 	set category = "Адм.Веселье"

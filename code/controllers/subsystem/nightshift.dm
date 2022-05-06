@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(nightshift)
 
 /datum/controller/subsystem/nightshift/proc/announce(message)
 	spawn(10 SECONDS)
-		priority_announce(message, sound='sound/misc/notice2.ogg', sender_override="Автоматизированная Система Света")
+		priority_announce(message, sound=sound('sound/misc/notice2.ogg'), sender_override="Автоматизированная Система Света")
 
 /datum/controller/subsystem/nightshift/proc/check_nightshift()
 	var/emergency = SSsecurity_level.current_level >= SEC_LEVEL_RED

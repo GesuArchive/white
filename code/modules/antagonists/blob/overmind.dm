@@ -128,7 +128,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 			qdel(src)
 	else if(!victory_in_progress && (blobs_legit.len >= blobwincount))
 		victory_in_progress = TRUE
-		priority_announce("Угроза достигла критической массы. Station loss is imminent.", "Биологическая тревога")
+		priority_announce("Угроза достигла критической массы. Потеря станции неизбежна.", "Биологическая тревога")
 		set_security_level("delta")
 		max_blob_points = INFINITY
 		blob_points = INFINITY

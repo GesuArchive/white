@@ -83,7 +83,7 @@
 		to_chat(usr, span_warning("Invalid war declaration."))
 		return
 
-	priority_announce(war_declaration, title = "Declaration of War", sound = 'sound/machines/alarm.ogg', has_important_message = TRUE)
+	priority_announce(war_declaration, title = "Объявление войны", sound = sound('sound/machines/alarm.ogg'), has_important_message = TRUE)
 
 	for(var/V in GLOB.syndicate_shuttle_boards)
 		var/obj/item/circuitboard/computer/syndicate_shuttle/board = V
