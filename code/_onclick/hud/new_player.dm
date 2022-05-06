@@ -31,6 +31,10 @@
 	/// The ref of the mob that owns this button. Only the owner can click on it.
 	var/owner
 
+/atom/movable/screen/lobby/button/New(loc, ...)
+	. = ..()
+	add_filter(drop_shadow_filter(0, 0, 12, 5, "#300030"))
+
 /atom/movable/screen/lobby/button/Click(location, control, params)
 	if(owner != REF(usr))
 		return
