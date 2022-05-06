@@ -101,7 +101,7 @@
 		update_charges(owner)
 		if(isprojectile(hitby))
 			var/obj/projectile/P = hitby
-			P.firer = A
+			P.firer = owner
 			P.set_angle(rand(0, 360))
 		return SHIELD_BLOCK
 	return NONE
