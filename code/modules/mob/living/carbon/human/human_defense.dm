@@ -66,7 +66,7 @@
 			if(!(martial_art_result == BULLET_ACT_HIT))
 				return martial_art_result
 
-	SEND_SIGNAL(src, COMSIG_HUMAN_CHECK_SHIELDS, P)
+	SEND_SIGNAL(src, COMSIG_HUMAN_CHECK_SHIELDS, src, P)
 
 	if(!(P.original == src && P.firer == src)) //can't block or reflect when shooting yourself
 		if(P.reflectable & REFLECT_NORMAL)

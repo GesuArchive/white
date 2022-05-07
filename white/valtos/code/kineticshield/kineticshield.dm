@@ -53,8 +53,6 @@
 	if(loc == user)
 		playsound(src, 'sound/magic/charge.ogg', 50, TRUE)
 		ison = !ison
-		update_appearance(UPDATE_ICON)
-		user.update_appearance(UPDATE_ICON)
 		if(ison)
 			RegisterSignal(user, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/on_update_overlays)
 			RegisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS,  .proc/on_shields)
@@ -62,6 +60,8 @@
 			START_PROCESSING(SSobj, src)
 		else
 			UnregisterSignal(user, list(COMSIG_ATOM_UPDATE_OVERLAYS, COMSIG_HUMAN_CHECK_SHIELDS, COMSIG_MOB_FIRED_GUN))
+		update_appearance(UPDATE_ICON)
+		user.update_appearance(UPDATE_ICON)
 		return
 	. = ..()
 
@@ -101,11 +101,11 @@
 	our_powercell?.use(10)
 	check_charge()
 
-/obj/item/kinetic_shield/proc/on_shields(obj/projectile/P)
+/obj/item/kinetic_shield/proc/on_shields(mob/M, obj/projectile/P)
 	SIGNAL_HANDLER
 	if(ison && our_powercell?.charge >= 250)
-		visible_message(span_danger("Щит <b>[loc]</b> отражает [P.name]!"), span_userdanger("Щит отражает [P.name]!"))
-		P.firer = loc
+		visible_message(span_danger("Щит <b>[M]</b> отражает [P.name]!"), span_userdanger("Щит отражает [P.name]!"))
+		P.firer = M
 		P.set_angle(P.Angle + rand(120, 240))
 		our_powercell?.use(P.damage * 250)
 		check_charge()
