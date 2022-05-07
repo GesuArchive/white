@@ -13,6 +13,10 @@
 /datum/antagonist/combatant
 	name = "Боевик белых"
 
+// добавляем худ в зависимости от команды
+/datum/antagonist/combatant/apply_innate_effects(mob/living/mob_override)
+	add_team_hud(mob_override || owner.current)
+
 /datum/antagonist/combatant/red
 	name = "Боевик красных"
 	antag_hud_name = "hog-red-2"
