@@ -105,8 +105,8 @@
 	SIGNAL_HANDLER
 	if(ison && isprojectile(A) && our_powercell?.charge >= 250)
 		var/obj/projectile/P = A
-		A.visible_message(span_danger("Щит <b>[loc]</b> отражает [A.name]!"), span_userdanger("Щит отражает [A.name]!"))
-		P.firer = A
+		visible_message(span_danger("Щит <b>[loc]</b> отражает [A.name]!"), span_userdanger("Щит отражает [A.name]!"))
+		P.firer = loc
 		P.set_angle(P.Angle + rand(120, 240))
 		our_powercell?.use(damage * 250)
 		check_charge()
