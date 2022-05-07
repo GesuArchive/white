@@ -240,7 +240,7 @@ Made by Xhuis
 	if(!istype(mind))
 		return FALSE
 	return mind.remove_antag_datum(ANTAG_DATUM_SLING)
-/*
+
 /datum/antagonist/shadowling/roundend_report()
 	var/list/round_credits = list()
 	var/len_before_addition
@@ -255,7 +255,7 @@ Made by Xhuis
 
 	round_credits += ..()
 	return round_credits
-*/
+
 ////////////////////
 /////BODYPARTS/////
 ////////////////////
