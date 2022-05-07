@@ -210,13 +210,6 @@ at the cost of risking a vicious bite.**/
 	addtimer(CALLBACK(src, /atom.proc/update_icon), 1 MINUTES + 0.1 SECONDS)
 	update_icon()
 
-/obj/structure/destructible/cult/pants_altar/proc/check_menu(mob/user)
-	if(!istype(user))
-		return FALSE
-	if(user.incapacitated() || !user.Adjacent(src))
-		return FALSE
-	return TRUE
-
 /obj/item/clothing/under/pants/altar
 	name = "strange pants"
 	desc = "A pair of pants. They do not look natural. They smell like fresh blood."
