@@ -109,6 +109,7 @@
 		P.set_angle(P.Angle + rand(120, 240))
 		our_powercell?.use(P.damage * 250)
 		check_charge()
+		return SHIELD_BLOCK
 
 /obj/item/kinetic_shield/proc/check_charge()
 	if(ison && our_powercell?.charge <= 50)
