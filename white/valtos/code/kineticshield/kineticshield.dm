@@ -85,6 +85,7 @@
 			our_powercell.forceMove(T)
 		attacking_item.forceMove(src)
 		our_powercell = attacking_item
+		playsound(src.loc, 'sound/weapons/kenetic_reload.ogg', 60, TRUE)
 		to_chat(user, span_notice("Тактически заменяю батарею."))
 		check_charge()
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
