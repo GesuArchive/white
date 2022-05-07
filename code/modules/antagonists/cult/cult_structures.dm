@@ -8,6 +8,12 @@
 	debris = list(/obj/item/stack/sheet/runed_metal = 1)
 	///if you want to add a special, non-default part of the description that only cultists and observers can see, store it in this variable
 	var/cultist_examine_message
+	/// Length of the cooldown between uses.
+	var/use_cooldown_duration = 5 MINUTES
+	/// If provided, a bonus tip displayed to cultists on examined.
+	var/cult_examine_tip
+	/// The cooldown for when items can be dispensed.
+	COOLDOWN_DECLARE(use_cooldown)
 
 /obj/structure/destructible/cult/proc/conceal() //for spells that hide cult presence
 	set_density(FALSE)
@@ -36,7 +42,7 @@
 	if(iscultist(user) || isobserver(user))
 		if(cultist_examine_message)
 			. += "<hr><span class='cult'>[cultist_examine_message]</span>"
-		if(cooldowntime > world.time)
+		if(!COOLDOWN_FINISHED(src, use_cooldown_duration))
 			. += "<hr><span class='cult italic'>The magic in [src] is too weak, [ru_who()] will be ready to use again in [DisplayTimeText(cooldowntime - world.time)].</span>"
 
 /obj/structure/destructible/cult/examine_status(mob/user)

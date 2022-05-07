@@ -101,3 +101,129 @@ at the cost of risking a vicious bite.**/
 		return
 	hidden_item = I
 	to_chat(user, span_notice("You hide [I] inside the basin."))
+
+#define ALTAR_INACTIVE 0
+#define ALTAR_STAGEONE 1
+#define ALTAR_STAGETWO 2
+#define ALTAR_STAGETHREE 3
+#define ALTAR_TIME 9.5 SECONDS
+
+/obj/structure/destructible/cult/pants_altar
+	name = "strange structure"
+	desc = "What is this? Who put it on this station? And why does it emanate <span class='hypnophrase'>strange energy?</span>"
+	icon_state = "altar"
+	cult_examine_tip = "Even you don't understand the eldritch magic behind this."
+	break_message = "<span class='warning'>The structure shatters, leaving only a demonic screech!</span>"
+	break_sound = 'sound/magic/demon_dies.ogg'
+	light_color = LIGHT_COLOR_BLOOD_MAGIC
+	light_range = 2
+	use_cooldown_duration = 1 MINUTES
+	/// Color of the pants that will come out
+	var/pants_color = COLOR_WHITE
+	/// Stage of the pants making process
+	var/status = ALTAR_INACTIVE
+
+/obj/structure/destructible/cult/pants_altar/attackby(obj/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/melee/cultblade/dagger) && IS_CULTIST(user) && status)
+		to_chat(user, "<span class='notice'>[src] is creating something, you can't move it!</span>")
+		return
+	return ..()
+
+/obj/structure/destructible/cult/pants_altar/attack_hand(mob/living/user, list/modifiers)
+	. = ..()
+	if(.)
+		return
+	var/list/altar_options = list(
+		"Change Color" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_recolor"),
+		"Create Artefact" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_create")
+	)
+	var/altar_result = show_radial_menu(user, src, altar_options, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
+	switch(altar_result)
+		if("Change Color")
+			var/chosen_color = input(usr, "", "Choose Color", pants_color) as color|null
+			if(!isnull(chosen_color) && user.canUseTopic(src, BE_CLOSE))
+				pants_color = chosen_color
+		if("Create Artefact")
+			if(!COOLDOWN_FINISHED(src, use_cooldown_duration))
+				to_chat(usr, "<span class='warning'>[src] is not ready to create something new yet...</span>")
+				return
+			pants_stageone()
+	return TRUE
+
+/obj/structure/destructible/cult/pants_altar/update_icon_state()
+	. = ..()
+	if(!COOLDOWN_FINISHED(src, use_cooldown))
+		icon_state = "altar_off"
+	else
+		icon_state = "altar"
+
+/obj/structure/destructible/cult/pants_altar/update_overlays()
+	. = ..()
+	var/overlayicon
+	switch(status)
+		if(ALTAR_INACTIVE)
+			return
+		if(ALTAR_STAGEONE)
+			overlayicon = "altar_pants1"
+		if(ALTAR_STAGETWO)
+			overlayicon = "altar_pants2"
+		if(ALTAR_STAGETHREE)
+			overlayicon = "altar_pants3"
+	var/mutable_appearance/pants_overlay = mutable_appearance(icon, overlayicon)
+	pants_overlay.appearance_flags = RESET_COLOR
+	pants_overlay.color = pants_color
+	. += pants_overlay
+
+/obj/structure/destructible/cult/pants_altar/proc/pants_stageone()
+	status = ALTAR_STAGEONE
+	update_icon()
+	visible_message("<span class='warning'>[src] starts creating something...</span>")
+	playsound(src, 'sound/magic/pantsaltar.ogg', 60)
+	addtimer(CALLBACK(src, .proc/pants_stagetwo), ALTAR_TIME)
+
+/obj/structure/destructible/cult/pants_altar/proc/pants_stagetwo()
+	status = ALTAR_STAGETWO
+	update_icon()
+	visible_message("<span class='warning'>You start feeling nauseous...</span>")
+	for(var/mob/living/mob in viewers(7, src))
+		mob.blur_eyes(10)
+		mob.add_confusion(10)
+	addtimer(CALLBACK(src, .proc/pants_stagethree), ALTAR_TIME)
+
+/obj/structure/destructible/cult/pants_altar/proc/pants_stagethree()
+	status = ALTAR_STAGETHREE
+	update_icon()
+	visible_message("<span class='warning'>You start feeling horrible...</span>")
+	for(var/mob/living/mob in viewers(7, src))
+		mob.set_dizziness(200)
+	addtimer(CALLBACK(src, .proc/pants_create), ALTAR_TIME)
+
+/obj/structure/destructible/cult/pants_altar/proc/pants_create()
+	status = ALTAR_INACTIVE
+	update_icon()
+	visible_message("<span class='warning'>[src] emits a flash of light and creates... pants?</span>")
+	for(var/mob/living/mob in viewers(7, src))
+		mob.flash_act()
+	var/obj/item/clothing/under/pants/altar/pants = new(get_turf(src))
+	pants.add_atom_colour(pants_color, ADMIN_COLOUR_PRIORITY)
+	COOLDOWN_START(src, use_cooldown, use_cooldown_duration)
+	addtimer(CALLBACK(src, /atom.proc/update_icon), 1 MINUTES + 0.1 SECONDS)
+	update_icon()
+
+/obj/structure/destructible/cult/pants_altar/proc/check_menu(mob/user)
+	if(!istype(user))
+		return FALSE
+	if(user.incapacitated() || !user.Adjacent(src))
+		return FALSE
+	return TRUE
+
+/obj/item/clothing/under/pants/altar
+	name = "strange pants"
+	desc = "A pair of pants. They do not look natural. They smell like fresh blood."
+	icon_state = "whitepants"
+
+#undef ALTAR_INACTIVE
+#undef ALTAR_STAGEONE
+#undef ALTAR_STAGETWO
+#undef ALTAR_STAGETHREE
+#undef ALTAR_TIME

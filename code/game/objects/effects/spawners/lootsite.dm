@@ -9,7 +9,8 @@
 							/obj/effect/spawner/bundle/hobo_squat = 30,
 							/obj/structure/closet/mini_fridge = 35,
 							/obj/effect/spawner/lootdrop/gross_decal_spawner = 30,
-							/obj/structure/closet/crate/decorations = 15)
+							/obj/structure/closet/crate/decorations = 15,
+							/obj/structure/destructible/cult/pants_altar = 10)
 
 
 /obj/effect/loot_site_spawner/Initialize()
