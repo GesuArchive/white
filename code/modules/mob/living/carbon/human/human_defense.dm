@@ -66,6 +66,8 @@
 			if(!(martial_art_result == BULLET_ACT_HIT))
 				return martial_art_result
 
+	SEND_SIGNAL(src, COMSIG_HUMAN_CHECK_SHIELDS, P)
+
 	if(!(P.original == src && P.firer == src)) //can't block or reflect when shooting yourself
 		if(P.reflectable & REFLECT_NORMAL)
 			if(check_reflect(def_zone)) // Checks if you've passed a reflection% check
@@ -141,8 +143,6 @@
 		var/final_block_chance = head.block_chance - (clamp((armour_penetration-head.armour_penetration)/2,0,100)) + block_chance_modifier
 		if(head.hit_reaction(src, AM, attack_text, final_block_chance, damage, attack_type))
 			return TRUE
-	if(SEND_SIGNAL(src, COMSIG_HUMAN_CHECK_SHIELDS, AM, damage, attack_text, attack_type, armour_penetration) & SHIELD_BLOCK)
-		return TRUE
 	return FALSE
 
 /mob/living/carbon/human/proc/try_counterattack(atom/AM, obj/item/I)

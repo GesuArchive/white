@@ -23,20 +23,14 @@
 
 /obj/item/kinetic_shield/equipped(mob/user, slot, initial)
 	. = ..()
-	RegisterSignal(user, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/on_update_overlays)
-	RegisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS,  .proc/on_shields)
-	RegisterSignal(user, COMSIG_MOB_FIRED_GUN, 		  .proc/on_gun_fired)
-
 	update_appearance(UPDATE_ICON)
 	user.update_appearance(UPDATE_ICON)
 
 /obj/item/kinetic_shield/dropped(mob/user, silent)
 	. = ..()
 	ison = FALSE
-
 	update_appearance(UPDATE_ICON)
 	user.update_appearance(UPDATE_ICON)
-
 	UnregisterSignal(user, list(COMSIG_ATOM_UPDATE_OVERLAYS, COMSIG_HUMAN_CHECK_SHIELDS, COMSIG_MOB_FIRED_GUN))
 
 /obj/item/kinetic_shield/update_icon_state()
@@ -62,7 +56,12 @@
 		update_appearance(UPDATE_ICON)
 		user.update_appearance(UPDATE_ICON)
 		if(ison)
+			RegisterSignal(user, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/on_update_overlays)
+			RegisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS,  .proc/on_shields)
+			RegisterSignal(user, COMSIG_MOB_FIRED_GUN, 		  .proc/on_gun_fired)
 			START_PROCESSING(SSobj, src)
+		else
+			UnregisterSignal(user, list(COMSIG_ATOM_UPDATE_OVERLAYS, COMSIG_HUMAN_CHECK_SHIELDS, COMSIG_MOB_FIRED_GUN))
 		return
 	. = ..()
 
@@ -101,14 +100,13 @@
 	our_powercell?.use(10)
 	check_charge()
 
-/obj/item/kinetic_shield/proc/on_shields(atom/movable/A, damage)
+/obj/item/kinetic_shield/proc/on_shields(obj/projectile/P)
 	SIGNAL_HANDLER
-	if(ison && isprojectile(A) && our_powercell?.charge >= 250)
-		var/obj/projectile/P = A
-		visible_message(span_danger("Щит <b>[loc]</b> отражает [A.name]!"), span_userdanger("Щит отражает [A.name]!"))
+	if(ison && our_powercell?.charge >= 250)
+		visible_message(span_danger("Щит <b>[loc]</b> отражает [P.name]!"), span_userdanger("Щит отражает [P.name]!"))
 		P.firer = loc
 		P.set_angle(P.Angle + rand(120, 240))
-		our_powercell?.use(damage * 250)
+		our_powercell?.use(P.damage * 250)
 		check_charge()
 
 /obj/item/kinetic_shield/proc/check_charge()
