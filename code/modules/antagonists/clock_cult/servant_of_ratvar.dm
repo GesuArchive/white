@@ -65,6 +65,7 @@
 	owner.current.throw_alert("clockinfo", /atom/movable/screen/alert/clockwork/clocksense)
 	var/datum/language_holder/LH = owner.current.get_language_holder()
 	LH.grant_language(/datum/language/ratvar, TRUE, TRUE, LANGUAGE_CULTIST)
+	add_team_hud(current)
 
 /datum/antagonist/servant_of_ratvar/remove_innate_effects(mob/living/M)
 	owner.current.faction -= "ratvar"
