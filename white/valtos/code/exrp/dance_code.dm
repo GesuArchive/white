@@ -109,8 +109,10 @@
 	if(multidances == 1)
 		log_combat(partner, src, "danced on")
 
+	flash_act(1, TRUE, FALSE, TRUE)
+
 	if(multidances > (dancing_potency/3))
-		dancing_period = 100 //sex cooldown
+		dancing_period = 100 //dance cooldown
 		adjust_drugginess(35)
 	else
 		dancing_period = 100
@@ -130,7 +132,8 @@
 
 /mob/living/carbon/human/proc/do_dance(mob/living/carbon/human/partner, action_to_do)
 
-	if(stat != CONSCIOUS) return
+	if(stat != CONSCIOUS)
+		return
 
 	var/message = "пританцовывает"
 	var/dancing_increase = 0

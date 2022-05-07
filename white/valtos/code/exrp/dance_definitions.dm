@@ -30,6 +30,7 @@
 /datum/interaction/dancero/dancejob
 	command = "dancejob"
 	description = "Отполировать огурец"
+	require_target_danceress = FALSE
 	require_target_dancer = TRUE
 	target_not_tired = TRUE
 	write_log_user = "dancejobed"

@@ -75,7 +75,7 @@
 		return FALSE
 	if(target_not_tired && target.dancing_period)
 		if(!silent)
-			to_chat(user, span_warning("Вашей цели не хочется."))
+			to_chat(user, span_warning("Цели не хочется."))
 		return FALSE
 	if(require_target_naked && !target.is_literally_ready_to_dance())
 		if(!silent)
