@@ -8,7 +8,7 @@
 	plane = GAME_PLANE_FOV_HIDDEN
 	density = TRUE
 	var/engine_power = 0
-	var/minimum_power = 15
+	var/minimum_power = 25
 	var/engine_active = FALSE
 	var/datum/looping_sound/pulse_engine/soundloop
 
@@ -52,9 +52,7 @@
 			soundloop.start()
 			START_PROCESSING(SSmachines, src)
 			priority_announce("Был обнаружен импульсный двигатель в локации [get_area_name(src, TRUE)].", null, sound('white/valtos/sounds/trevoga2.ogg'), "Priority")
-			light_color = "#f79947"
-			light_range = 8
-			update_light()
+			set_light(8, 2, "#f79947")
 		to_chat(user, span_notice("Включаю двигатель."))
 
 /obj/structure/pulse_engine/attackby(obj/item/I, mob/living/user, params)
@@ -68,4 +66,4 @@
 			engine_power = max(engine_power, minimum_power)
 
 /obj/structure/pulse_engine/process(delta_time)
-	engine_power = max(engine_power - 2, minimum_power)
+	engine_power = max(engine_power - 1, minimum_power)
