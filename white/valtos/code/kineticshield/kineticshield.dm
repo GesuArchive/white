@@ -40,7 +40,7 @@
 /obj/item/kinetic_shield/proc/on_update_overlays(atom/parent_atom, list/overlays)
 	SIGNAL_HANDLER
 	if(ison)
-		overlays += mutable_appearance('icons/effects/effects.dmi', "shield-old", MOB_SHIELD_LAYER)
+		overlays += mutable_appearance('icons/effects/effects.dmi', "shield-grey", MOB_SHIELD_LAYER)
 
 /obj/item/kinetic_shield/proc/on_gun_fired(mob/user, obj/item/gun/gun_fired, target, params, zone_override)
 	SIGNAL_HANDLER
