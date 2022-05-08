@@ -103,7 +103,7 @@
 
 	switch(action)
 		if("PDA_ringSet")
-			var/t = tgui_input_text(usr, "Enter a new ringtone", "Ringtone", "", 20)
+			var/t = tgui_input_text(usr, "Введи новый рингтон", "Рингтон", "", 20)
 			var/mob/living/usr_mob = usr
 			if(in_range(computer, usr_mob) && computer.loc == usr_mob && t)
 				if(SEND_SIGNAL(computer, COMSIG_TABLET_CHANGE_ID, usr_mob, t) & COMPONENT_STOP_RINGTONE_CHANGE)
@@ -278,7 +278,7 @@
 	message_data["photo"] = signal.data["photo"]
 
 	// Show it to ghosts
-	var/ghost_message = span_name("[message_data["name"]] </span><span class='game say'>[rigged ? "Rigged" : ""] PDA Message</span> --> [span_name("[signal.format_target()]")]: <span class='message'>[signal.format_message()]")
+	var/ghost_message = span_name("[message_data["name"]] </span><span class='game say'>[rigged ? "Взрывное " : ""]Сообщение ПДА</span> --> [span_name("[signal.format_target()]")]: <span class='message'>[signal.format_message()]")
 	for(var/mob/M in GLOB.player_list)
 		if(isobserver(M) && (M.client?.prefs.chat_toggles & CHAT_GHOSTPDA))
 			to_chat(M, "[FOLLOW_LINK(M, user)] [ghost_message]")
