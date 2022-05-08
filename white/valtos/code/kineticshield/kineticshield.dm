@@ -51,7 +51,7 @@
 
 /obj/item/kinetic_shield/attack_hand(mob/user)
 	if(loc == user)
-		playsound(src, 'sound/magic/charge.ogg', 50, TRUE)
+		playsound(loc, 'sound/magic/charge.ogg', 50, TRUE)
 		ison = !ison
 		if(ison)
 			RegisterSignal(user, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/on_update_overlays)
@@ -91,7 +91,7 @@
 			our_powercell.forceMove(T)
 		attacking_item.forceMove(src)
 		our_powercell = attacking_item
-		playsound(src.loc, 'sound/weapons/kenetic_reload.ogg', 60, TRUE)
+		playsound(loc, 'sound/weapons/kenetic_reload.ogg', 60, TRUE)
 		to_chat(user, span_notice("Тактически заменяю батарею."))
 		check_charge()
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
@@ -104,21 +104,36 @@
 /obj/item/kinetic_shield/process(delta_time)
 	if(!ison)
 		return PROCESS_KILL
-	our_powercell?.use(10)
 	check_charge()
 
-/obj/item/kinetic_shield/proc/on_shields(datum/source, mob/M, obj/projectile/P)
+/obj/item/kinetic_shield/proc/on_shields(datum/source, mob/M, atom/movable/AM)
 	SIGNAL_HANDLER
-	if(ison && our_powercell?.charge >= 250)
-		visible_message(span_danger("Щит <b>[M]</b> отражает [P.name]!"), span_userdanger("Щит отражает [P.name]!"))
+
+	if(!ison)
+		return FALSE
+
+	var/calculated_damage = AM.throwforce
+	var/obj/projectile/P
+	if(isprojectile(AM))
+		P = AM
+		calculated_damage = P.damage
+
+	if(!our_powercell?.use(calculated_damage * 250))
+		return FALSE
+
+	if(P)
 		P.firer = M
-		P.set_angle(P.Angle + rand(120, 240))
-		our_powercell?.use(P.damage * 250)
-		check_charge()
-		return SHIELD_BLOCK
+		P.set_angle(P.Angle + rand(60, -60))
+	else
+		AM.throw_at(get_distant_turf(get_turf(AM), REVERSE_DIR(AM.dir), 3), 3, 4)
+
+	visible_message(span_danger("Щит <b>[M]</b> отражает [AM.name]!"), span_userdanger("Щит отражает [AM.name]!"))
+	playsound(loc, 'sound/effects/empulse.ogg', 75, TRUE)
+	check_charge()
+	return SHIELD_BLOCK
 
 /obj/item/kinetic_shield/proc/check_charge()
-	if(ison && our_powercell?.charge <= 50)
+	if(ison && !our_powercell?.use(10))
 		ison = FALSE
 		update_appearance(UPDATE_ICON)
 		if(loc && ismob(loc))

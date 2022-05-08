@@ -173,7 +173,7 @@
 		throwpower = I.throwforce
 		if(I.thrownby == WEAKREF(src)) //No throwing stuff at yourself to trigger hit reactions
 			return ..()
-	if(check_shields(AM, throwpower, "[AM.name]", THROWN_PROJECTILE_ATTACK))
+	if(check_shields(AM, throwpower, "[AM.name]", THROWN_PROJECTILE_ATTACK) || (SEND_SIGNAL(src, COMSIG_HUMAN_CHECK_SHIELDS, src, AM) & SHIELD_BLOCK))
 		hitpush = FALSE
 		skipcatch = TRUE
 		blocked = TRUE
