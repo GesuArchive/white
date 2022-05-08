@@ -101,7 +101,7 @@
 	our_powercell?.use(10)
 	check_charge()
 
-/obj/item/kinetic_shield/proc/on_shields(mob/M, obj/projectile/P)
+/obj/item/kinetic_shield/proc/on_shields(datum/source, mob/M, obj/projectile/P)
 	SIGNAL_HANDLER
 	if(ison && our_powercell?.charge >= 250)
 		visible_message(span_danger("Щит <b>[M]</b> отражает [P.name]!"), span_userdanger("Щит отражает [P.name]!"))
