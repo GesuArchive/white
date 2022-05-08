@@ -58,6 +58,12 @@
 			RegisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS,  .proc/on_shields)
 			RegisterSignal(user, COMSIG_MOB_FIRED_GUN, 		  .proc/on_gun_fired)
 			START_PROCESSING(SSobj, src)
+			for(var/obj/item/kinetic_shield/KS in user.contents)
+				if(KS != src && KS.ison == TRUE)
+					to_chat(user, span_userdanger("Щиты перегружаются!"))
+					explosion(user, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 4, flame_range = 5, flash_range = 10)
+					qdel(src)
+					qdel(KS)
 		else
 			UnregisterSignal(user, list(COMSIG_ATOM_UPDATE_OVERLAYS, COMSIG_HUMAN_CHECK_SHIELDS, COMSIG_MOB_FIRED_GUN))
 		update_appearance(UPDATE_ICON)
