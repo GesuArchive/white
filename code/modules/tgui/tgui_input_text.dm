@@ -10,11 +10,12 @@
  * * message - The content of the textbox, shown in the body of the TGUI window.
  * * title - The title of the textbox modal, shown on the top of the TGUI window.
  * * default - The default (or current) value, shown as a placeholder.
- * * max_length - Specifies a max length for input.
+ * * max_length - Specifies a max length for input. MAX_MESSAGE_LEN is default (1024)
  * * multiline -  Bool that determines if the input box is much larger. Good for large messages, laws, etc.
+ * * encode - Toggling this determines if input is filtered via html_encode. Setting this to FALSE gives raw input.
  * * timeout - The timeout of the textbox, after which the modal will close and qdel itself. Set to zero for no timeout.
  */
-/proc/tgui_input_text(mob/user, message = null, title = "Text Input", default = null, max_length = null, multiline = FALSE, timeout = 0)
+/proc/tgui_input_text(mob/user, message = null, title = "Text Input", default = null, max_length = MAX_MESSAGE_LEN, multiline = FALSE, encode = TRUE, timeout = 0)
 	if (!user)
 		user = usr
 	if (!istype(user))
@@ -23,7 +24,7 @@
 			user = client.mob
 		else
 			return
-	var/datum/tgui_input_text/textbox = new(user, message, title, default, max_length, multiline, timeout)
+	var/datum/tgui_input_text/textbox = new(user, message, title, default, max_length, multiline, encode, timeout)
 	textbox.ui_interact(user)
 	textbox.wait()
 	if (textbox)
@@ -41,10 +42,11 @@
  * * default - The default (or current) value, shown as a placeholder.
  * * max_length - Specifies a max length for input.
  * * multiline -  Bool that determines if the input box is much larger. Good for large messages, laws, etc.
+ * * encode - If toggled, input is filtered via html_encode. Setting this to FALSE gives raw input.
  * * callback - The callback to be invoked when a choice is made.
  * * timeout - The timeout of the textbox, after which the modal will close and qdel itself. Disabled by default, can be set to seconds otherwise.
  */
-/proc/tgui_input_text_async(mob/user, message = null, title = "Text Input", default = null, max_length = null, multiline = FALSE, datum/callback/callback, timeout = 0)
+/proc/tgui_input_text_async(mob/user, message = null, title = "Text Input", default = null, max_length = null, multiline = FALSE, encode = TRUE, datum/callback/callback, timeout = 0)
 	if (!user)
 		user = usr
 	if (!istype(user))
@@ -53,7 +55,7 @@
 			user = client.mob
 		else
 			return
-	var/datum/tgui_input_text/async/textbox = new(user, message, title, default, max_length, multiline, callback, timeout)
+	var/datum/tgui_input_text/async/textbox = new(user, message, title, default, max_length, multiline, encode, callback, timeout)
 	textbox.ui_interact(user)
 
 /**
@@ -67,6 +69,8 @@
 	var/closed
 	/// The default (or current) value, shown as a default.
 	var/default
+	/// Whether the input should be stripped using html_encode
+	var/encode
 	/// The entry that the user has return_typed in.
 	var/entry
 	/// The maximum length for text entry
@@ -83,8 +87,9 @@
 	var/title
 
 
-/datum/tgui_input_text/New(mob/user, message, title, default, max_length, multiline, timeout)
+/datum/tgui_input_text/New(mob/user, message, title, default, max_length, multiline, encode, timeout)
 	src.default = default
+	src.encode = encode
 	src.max_length = max_length
 	src.message = message
 	src.multiline = multiline
@@ -136,8 +141,11 @@
 		return
 	switch(action)
 		if("choose")
-			if(max_length && (length(params["choice"]) > max_length))
-				return FALSE
+			if(max_length)
+				if(length(params["choice"]) > max_length)
+					return FALSE
+				if(encode && (length(html_encode(params["choice"])) > max_length))
+					to_chat(usr, span_notice("Слишком длинное сообщение."))
 			set_entry(params["choice"])
 			SStgui.close_uis(src)
 			return TRUE
@@ -147,7 +155,8 @@
 			return TRUE
 
 /datum/tgui_input_text/proc/set_entry(entry)
-		src.entry = entry
+	var/converted_entry = encode ? html_encode(entry) : entry
+	src.entry = trim(converted_entry, max_length)
 
 /**
  * # async tgui_input_text
@@ -158,8 +167,8 @@
 	/// The callback to be invoked by the tgui_input_text upon having a choice made.
 	var/datum/callback/callback
 
-/datum/tgui_input_text/async/New(mob/user, message, title, default, max_length, multiline, callback, timeout)
-	..(user, message, title, default, max_length, multiline, timeout)
+/datum/tgui_input_text/async/New(mob/user, message, title, default, max_length, multiline, encode, callback, timeout)
+	..(user, message, title, default, max_length, multiline, encode, timeout)
 	src.callback = callback
 
 /datum/tgui_input_text/async/Destroy(force, ...)

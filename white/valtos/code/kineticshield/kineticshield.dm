@@ -44,7 +44,7 @@
 
 /obj/item/kinetic_shield/proc/on_gun_fired(mob/user, obj/item/gun/gun_fired, target, params, zone_override)
 	SIGNAL_HANDLER
-	if(!ison || our_powercell?.charge < 250 || target == user)
+	if(!ison || our_powercell?.charge < 200 || target == user)
 		return
 	INVOKE_ASYNC(gun_fired, /obj/item/gun.proc/process_fire, user, user, TRUE, params, zone_override)
 	return COMSIG_GUN_FIRED_CANCEL
@@ -118,7 +118,9 @@
 		P = AM
 		calculated_damage = P.damage
 
-	if(!our_powercell?.use(calculated_damage * 250))
+	if(!our_powercell?.use(calculated_damage * 200))
+		ison = FALSE
+		check_charge()
 		return FALSE
 
 	if(P)

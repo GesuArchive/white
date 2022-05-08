@@ -128,7 +128,7 @@
 			return(UI_UPDATE)
 		if("PDA_sendEveryone")
 			if(!sending_and_receiving)
-				to_chat(usr, span_notice("ERROR: Device has sending disabled."))
+				to_chat(usr, span_notice("ОШИБКА: Отправка отключена."))
 				return
 
 			var/list/targets = list()
@@ -142,20 +142,20 @@
 			return(UI_UPDATE)
 		if("PDA_sendMessage")
 			if(!sending_and_receiving)
-				to_chat(usr, span_notice("ERROR: Device has sending disabled."))
+				to_chat(usr, span_notice("ОШИБКА: Отправка отключена."))
 				return
 			var/obj/item/modular_computer/target = locate(params["ref"])
 			if(!target)
 				return // we don't want tommy sending his messages to nullspace
 			if(!(target.saved_identification == params["name"] && target.saved_job == params["job"]))
-				to_chat(usr, span_notice("ERROR: User no longer exists."))
+				to_chat(usr, span_notice("ОШИБКА: Пользователь не существует."))
 				return
 
 			var/obj/item/computer_hardware/hard_drive/drive = target.all_components[MC_HDD]
 
 			for(var/datum/computer_file/program/messenger/app in drive.stored_files)
 				if(!app.sending_and_receiving && !sending_virus)
-					to_chat(usr, span_notice("ERROR: Device has receiving disabled."))
+					to_chat(usr, span_notice("ОШИБКА: Отправка отключена."))
 					return
 				if(sending_virus)
 					var/obj/item/computer_hardware/hard_drive/role/virus/disk = computer.all_components[MC_HDD_JOB]
@@ -207,9 +207,9 @@
 	var/t = null
 
 	if(mime_mode)
-		t = emoji_sanitize(tgui_input_text(U, "Enter emojis", "NT Messaging"))
+		t = emoji_sanitize(tgui_input_text(U, "Введи эмоции", "Мессенджер НТ"))
 	else
-		t = tgui_input_text(U, "Enter a message", "NT Messaging")
+		t = tgui_input_text(U, "Введи сообщение", "Мессенджер НТ")
 
 	if (!t || !sending_and_receiving)
 		return
@@ -259,7 +259,7 @@
 
 	// If it didn't reach, note that fact
 	if (!signal.data["done"])
-		to_chat(user, span_notice("ERROR: Server isn't responding."))
+		to_chat(user, span_notice("ОШИБКА: Сервер не отвечает."))
 		if(ringer_status)
 			playsound(src, 'sound/machines/terminal_error.ogg', 15, TRUE)
 		return FALSE
@@ -287,7 +287,7 @@
 	user.log_talk(message, LOG_PDA, tag="[rigged ? "Rigged" : ""] PDA: [initial(message_data["name"])] to [signal.format_target()]")
 	if(rigged)
 		log_bomber(user, "sent a rigged PDA message (Name: [message_data["name"]]. Job: [message_data["job"]]) to [english_list(string_targets)] [!is_special_character(user) ? "(SENT BY NON-ANTAG)" : ""]")
-	to_chat(user, span_info("PDA message sent to [signal.format_target()]: [signal.format_message()]"))
+	to_chat(user, span_info("Сообщение отправлено [signal.format_target()]: [signal.format_message()]"))
 
 	if (ringer_status)
 		computer.send_sound()
@@ -320,7 +320,7 @@
 		L = get(holder.holder, /mob/living/silicon)
 
 	if(L && (L.stat == CONSCIOUS || L.stat == SOFT_CRIT))
-		var/reply = "(<a href='byond://?src=[REF(src)];choice=[signal.data["rigged"] ? "Mess_us_up" : "Message"];skiprefresh=1;target=[signal.data["ref"]]'>Reply</a>)"
+		var/reply = "(<a href='byond://?src=[REF(src)];choice=[signal.data["rigged"] ? "Mess_us_up" : "Message"];skiprefresh=1;target=[signal.data["ref"]]'>Ответить</a>)"
 		var/hrefstart
 		var/hrefend
 		if (isAI(L))
@@ -328,14 +328,14 @@
 			hrefend = "</a>"
 
 		if(signal.data["automated"])
-			reply = "\[Automated Message\]"
+			reply = "\[Автоматическое Сообщение\]"
 
 		var/inbound_message = signal.format_message()
 		if(signal.data["emojis"] == TRUE)//so will not parse emojis as such from pdas that don't send emojis
 			inbound_message = emoji_parse(inbound_message)
 
 		if(ringer_status)
-			to_chat(L, "<span class='infoplain'>[icon2html(src)] <b>PDA message from [hrefstart][signal.data["name"]] ([signal.data["job"]])[hrefend], </b>[inbound_message] [reply]</span>")
+			to_chat(L, "<span class='infoplain'>[icon2html(src)] <b>Сообщение от [hrefstart][signal.data["name"]] ([signal.data["job"]])[hrefend], </b>[inbound_message] [reply]</span>")
 
 
 	if (ringer_status)
