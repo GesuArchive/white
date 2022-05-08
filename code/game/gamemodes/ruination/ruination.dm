@@ -14,7 +14,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 	config_tag = "ruination"
 	report_type = "ruination"
 	false_report_weight = 1
-	required_players = 30
+	required_players = 24
 	required_enemies = 4
 	recommended_enemies = 4
 	reroll_friendly = 1
@@ -187,7 +187,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 				var/mob/M = m
 				if(M.hud_used)
 					M?.hud_used?.update_parallax_pref(M)
-					shake_camera(M, 1, 7)
+					shake_camera(M, 7, 3)
 
 /datum/game_mode/ruination/check_finished()
 	if(current_stage == 1)
@@ -331,12 +331,16 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 		"правый карман" = ITEM_SLOT_RPOCKET
 	)
 
+	add_team_hud(owner)
+
+	winset(owner, "info", "left=outputwindow;right=statwindow")
+
 	var/T = new /obj/item/sbeacondrop/pulse_engine(H)
 	var/where = H.equip_in_one_of_slots(T, slots)
 	if(!where)
 		return
 	else
-		to_chat(H, span_danger("Мне подкинули маяк в [where]."))
+		to_chat(H, span_userdanger("Мне подкинули маяк в [where]. При активации двигателей они выдадут своё местоположение."))
 		if(where == "сумку")
 			SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 
