@@ -120,11 +120,61 @@
 		destination = tank
 	..()
 
-/obj/item/morozko_nuzzle/proc/line_target(offset, range, atom/A)
-	if(!A)
-		return
-	var/turf/T = get_ranged_target_turf_direct(get_turf(src), A, range, offset)
-	return (get_line(get_turf(src), T) - get_turf(src))
+///This proc creates a list of turfs that are hit by the cone
+/obj/item/morozko_nuzzle/proc/cone_helper(turf/starter_turf, dir_to_use, cone_levels = 7)
+	var/list/turfs_to_return = list()
+	var/turf/turf_to_use = starter_turf
+	var/turf/left_turf
+	var/turf/right_turf
+	var/right_dir
+	var/left_dir
+	switch(dir_to_use)
+		if(NORTH)
+			left_dir = WEST
+			right_dir = EAST
+		if(SOUTH)
+			left_dir = EAST
+			right_dir = WEST
+		if(EAST)
+			left_dir = NORTH
+			right_dir = SOUTH
+		if(WEST)
+			left_dir = SOUTH
+			right_dir = NORTH
+
+
+	for(var/i in 1 to cone_levels)
+		var/list/level_turfs = list()
+		turf_to_use = get_step(turf_to_use, dir_to_use)
+		level_turfs += turf_to_use
+		if(i != 1)
+			left_turf = get_step(turf_to_use, left_dir)
+			level_turfs += left_turf
+			right_turf = get_step(turf_to_use, right_dir)
+			level_turfs += right_turf
+			for(var/left_i in 1 to i -calculate_cone_shape(i))
+				if(left_turf.density)
+					break
+				left_turf = get_step(left_turf, left_dir)
+				level_turfs += left_turf
+			for(var/right_i in 1 to i -calculate_cone_shape(i))
+				if(right_turf.density)
+					break
+				right_turf = get_step(right_turf, right_dir)
+				level_turfs += right_turf
+		turfs_to_return += list(level_turfs)
+		if(i == cone_levels)
+			continue
+		if(turf_to_use.density)
+			break
+	return turfs_to_return
+
+/obj/item/morozko_nuzzle/proc/calculate_cone_shape(current_level)
+	var/end_taper_start = 6
+	if(current_level > end_taper_start)
+		return (current_level % end_taper_start) * 2 //someone more talented and probably come up with a better formula.
+	else
+		return 2
 
 /obj/item/morozko_nuzzle/afterattack(atom/A, mob/user, proximity)
 	if(A.loc == loc)
@@ -132,11 +182,7 @@
 
 	. = ..()
 
-	var/list/turfs = list()
-
-	turfs += line_target(-20, 6, A)
-	turfs += line_target(  0, 7, A)
-	turfs += line_target( 20, 6, A)
+	var/list/turfs = cone_helper(get_turf(src), user.dir)
 
 	for(var/turf/T in turfs)
 		if(istype(T, /turf/closed))
