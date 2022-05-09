@@ -194,6 +194,7 @@
 		AddComponent(/datum/component/personal_crafting)
 		ADD_TRAIT(src, TRAIT_ADVANCEDTOOLUSER, ROUNDSTART_TRAIT)
 		ADD_TRAIT(src, TRAIT_CAN_STRIP, ROUNDSTART_TRAIT)
+	ADD_TRAIT(src, TRAIT_NOFIRE_SPREAD, ROUNDSTART_TRAIT)
 	if(discovery_points)
 		AddComponent(/datum/component/discoverable, discovery_points)
 
@@ -517,10 +518,7 @@
 			return FALSE
 	return TRUE
 
-/mob/living/simple_animal/handle_fire(delta_time, times_fired)
-	return TRUE
-
-/mob/living/simple_animal/IgniteMob()
+/mob/living/simple_animal/ignite_mob()
 	return FALSE
 
 /mob/living/simple_animal/extinguish_mob()

@@ -96,9 +96,9 @@
 	if(HAS_TRAIT(src, TRAIT_DUMB))
 		msg += "[t_on] имеет глупое выражение лица.\n"
 
-	if(fire_stacks > 0)
+	if(has_status_effect(/datum/status_effect/fire_handler/fire_stacks))
 		msg += "[t_on] в чем-то горючем.\n"
-	if(fire_stacks < 0)
+	if(has_status_effect(/datum/status_effect/fire_handler/wet_stacks))
 		msg += "[t_on] выглядит мокро.\n"
 
 	if(pulledby?.grab_state)

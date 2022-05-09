@@ -72,8 +72,6 @@
 		if(check_for_assblast(client, "bad_connection") && DT_PROB(0.075,delta_time) && lowertext(client.ckey) != "redfoxiv")
 			qdel(client) // have you tried reconnecting
 
-	handle_fire(delta_time, times_fired)
-
 	if(machine)
 		machine.check_eye(src)
 
@@ -129,23 +127,6 @@
 		last_temp_status = "hot"
 		remove_client_colour(/datum/client_colour/cold)
 		add_client_colour(/datum/client_colour/hot)
-
-/mob/living/proc/handle_fire(delta_time, times_fired)
-	if(fire_stacks < 0) //If we've doused ourselves in water to avoid fire, dry off slowly
-		set_fire_stacks(min(0, fire_stacks + (0.5 * delta_time))) //So we dry ourselves back to default, nonflammable.
-	if(!on_fire)
-		return TRUE //the mob is no longer on fire, no need to do the rest.
-	if(fire_stacks > 0)
-		adjust_fire_stacks(-0.05 * delta_time) //the fire is slowly consumed
-	else
-		extinguish_mob()
-		return TRUE //mob was put out, on_fire = FALSE via extinguish_mob(), no need to update everything down the chain.
-	var/datum/gas_mixture/G = loc.return_air() // Check if we're standing in an oxygenless environment
-	if(G.get_moles(GAS_O2) < 1)
-		extinguish_mob() //If there's no oxygen in the tile we're on, put out the fire
-		return TRUE
-	var/turf/location = get_turf(src)
-	location.hotspot_expose(700, 25 * delta_time, TRUE)
 
 /**
  * Get the fullness of the mob

@@ -292,7 +292,7 @@
 	if(isliving(M))
 		to_chat(M, span_danger("Горю, словно в огне от интенсивного жара [name]!"))
 		M.adjust_fire_stacks(seed.potency / 20)
-		if(M.IgniteMob())
+		if(M.ignite_mob())
 			message_admins("[ADMIN_LOOKUPFLW(user)] set [ADMIN_LOOKUPFLW(M)] on fire with [src] at [AREACOORD(user)]")
 			log_game("[key_name(user)] set [key_name(M)] on fire with [src] at [AREACOORD(user)]")
 

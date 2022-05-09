@@ -218,7 +218,7 @@
 		var/mob/living/carbon/human/humi = M
 		humi.adjust_coretemperature(rand(-25,-5) * TEMPERATURE_DAMAGE_COEFFICIENT * REM * delta_time, 50)
 	M.reagents?.chem_temp += (-10 * REM * delta_time)
-	M.adjust_fire_stacks(-1 * REM * delta_time)
+	M.adjust_wet_stacks(1 * REM * delta_time)
 	..()
 	. = TRUE
 
@@ -228,7 +228,7 @@
 		return
 
 	exposed_mob.adjust_bodytemperature(-reac_volume * TEMPERATURE_DAMAGE_COEFFICIENT, 50)
-	exposed_mob.adjust_fire_stacks(-reac_volume / 2)
+	exposed_mob.adjust_wet_stacks(reac_volume / -2)
 	if(reac_volume >= metabolization_rate)
 		exposed_mob.extinguish_mob()
 

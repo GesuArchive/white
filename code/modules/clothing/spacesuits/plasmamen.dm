@@ -23,7 +23,7 @@
 	if(!istype(H))
 		return
 
-	if(H.fire_stacks)
+	if(H.fire_stacks > 0)
 		if(extinguishes_left)
 			if(next_extinguish > world.time)
 				return

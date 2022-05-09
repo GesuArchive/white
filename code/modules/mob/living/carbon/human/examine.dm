@@ -237,9 +237,9 @@
 				msg += "<b>[t_on] имеет тело состоящее из кусков свисающей плоти!</b>\n"
 
 
-	if(fire_stacks > 0)
+	if(has_status_effect(/datum/status_effect/fire_handler/fire_stacks))
 		msg += "[t_on] в чем-то горючем.\n"
-	if(fire_stacks < 0)
+	if(has_status_effect(/datum/status_effect/fire_handler/wet_stacks))
 		msg += "[t_on] выглядит мокро.\n"
 
 

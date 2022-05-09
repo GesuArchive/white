@@ -248,7 +248,7 @@
 		buckled.user_unbuckle_mob(src,src)
 
 /mob/living/carbon/resist_fire()
-	adjust_fire_stacks(-5)
+	adjust_wet_stacks(5)
 	Paralyze(60, ignore_canstun = TRUE)
 	spin(32,2)
 	visible_message(span_danger("[capitalize(src.name)] катается по полу пытаясь сбросить пламя!") , \
@@ -257,7 +257,6 @@
 	if(fire_stacks <= 0 && !QDELETED(src))
 		visible_message(span_danger("[capitalize(src.name)] успешно тушит себя!") , \
 			span_notice("Фух! Мне удалось потушить себя."))
-		extinguish_mob()
 	return
 
 /mob/living/carbon/resist_restraints()
@@ -936,16 +935,6 @@
 		I.wash(CLEAN_TYPE_ACID) //washes off the acid on our clothes
 		I.extinguish() //extinguishes our clothes
 	..()
-
-/mob/living/carbon/fakefire(fire_icon = "Generic_mob_burning")
-	var/mutable_appearance/new_fire_overlay = mutable_appearance('icons/mob/OnFire.dmi', fire_icon, -FIRE_LAYER)
-	new_fire_overlay.appearance_flags = RESET_COLOR
-	overlays_standing[FIRE_LAYER] = new_fire_overlay
-	apply_overlay(FIRE_LAYER)
-
-/mob/living/carbon/fakefireextinguish()
-	remove_overlay(FIRE_LAYER)
-
 
 /mob/living/carbon/proc/create_bodyparts()
 	var/l_arm_index_next = -1

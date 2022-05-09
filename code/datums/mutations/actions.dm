@@ -134,7 +134,7 @@
 		var/mob/living/carbon/C = usr
 		if(C.is_mouth_covered())
 			C.adjust_fire_stacks(2)
-			C.IgniteMob()
+			C.ignite_mob()
 			to_chat(C,span_warning("Гори!"))
 			return FALSE
 

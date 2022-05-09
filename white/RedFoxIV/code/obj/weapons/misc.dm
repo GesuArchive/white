@@ -47,7 +47,7 @@
 			else
 				L.adjustFireLoss(firedamage)
 			L.adjust_fire_stacks(max(0, 2 - L.fire_stacks)) //sets L.fire_stacks to 2 if it's less than 2, doesn't do anything if L.fire_stacks is 3 or more.
-			L.IgniteMob()
+			L.ignite_mob()
 
 	. = ..()
 

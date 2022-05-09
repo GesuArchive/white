@@ -199,7 +199,7 @@
 		playsound(get_turf(owner), 'sound/weapons/flashbang.ogg', 100, TRUE)
 		to_chat(owner, span_userdanger("Чувствую взрыв в моей [zone == BODY_ZONE_R_ARM ? "правой" : "левой"] руке, сломался имплант!"))
 		owner.adjust_fire_stacks(20)
-		owner.IgniteMob()
+		owner.ignite_mob()
 		owner.adjustFireLoss(25)
 		organ_flags |= ORGAN_FAILING
 

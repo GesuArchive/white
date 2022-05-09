@@ -151,7 +151,7 @@
 				M.current.fire_stacks = 0
 			if (bloodsuckerdatum.vamplevel > 0)
 				M.current.adjust_fire_stacks(0.2 + bloodsuckerdatum.vamplevel / 10)
-				M.current.IgniteMob()
+				M.current.ignite_mob()
 			M.current.adjustFireLoss(2 + bloodsuckerdatum.vamplevel) // M.current.fireloss += 2 + bloodsuckerdatum.vamplevel   //  Do DIRECT damage. Being spaced was causing this to not occur.  //setFireLoss(2 + bloodsuckerdatum.vamplevel)
 			M.current.updatehealth()
 			SEND_SIGNAL(M.current, COMSIG_ADD_MOOD_EVENT, "vampsleep", /datum/mood_event/daylight_2)

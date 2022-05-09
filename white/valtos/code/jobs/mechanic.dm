@@ -263,7 +263,7 @@
 		for(var/mob/living/L in get_turf(src))
 			L.adjustFireLoss(10*delta_time)
 			L.set_fire_stacks(5)
-			L.IgniteMob()
+			L.ignite_mob()
 			playsound(L, 'sound/machines/shower/shower_mid1.ogg', 90, TRUE)
 
 /obj/machinery/copytech_platform/proc/update_cable()
@@ -290,7 +290,7 @@
 		var/mob/living/L = AM
 		L.adjustFireLoss(20)
 		L.set_fire_stacks(5)
-		L.IgniteMob()
+		L.ignite_mob()
 		L.visible_message(span_danger("<b>[L]</b> прожаривается!"))
 		playsound(L, 'sound/machines/shower/shower_mid1.ogg', 90, TRUE)
 

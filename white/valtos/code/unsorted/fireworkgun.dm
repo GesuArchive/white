@@ -28,7 +28,7 @@
 		var/mob/living/L = target
 		L.adjust_fire_stacks(1)
 		L.adjustFireLoss(5)
-		L.IgniteMob()
+		L.ignite_mob()
 
 /obj/effect/fireworkgun_main
 	name = "искорка"

@@ -203,7 +203,7 @@
 		user.visible_message("<span class='danger'>Концетрированная плазма разряжается из [src] в [user], поджигая [user.ru_ego()]!</span>")
 		to_chat(user, "<span class='userdanger'>[src] дает сбой, извергая на меня горящую, концетрированную плазму!</span>")
 		user.adjust_fire_stacks(4)
-		user.IgniteMob()
+		user.ignite_mob()
 		user.emote("agony")
 
 /obj/item/gun/energy/wormhole_projector

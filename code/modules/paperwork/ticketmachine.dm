@@ -209,7 +209,7 @@
 		theirticket.fire_act()
 		user.dropItemToGround(theirticket)
 		user.adjust_fire_stacks(1)
-		user.IgniteMob()
+		user.ignite_mob()
 		return
 
 /obj/item/ticket_machine_ticket

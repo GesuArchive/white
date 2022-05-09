@@ -139,7 +139,7 @@
 			to_chat(owner, span_notice("Поджёг себя!"))
 		else
 			to_chat(owner, span_warning("Пытаюсь поджечь себя, но моя затея не удалась..."))
-		H.IgniteMob() //firestacks are already there passively
+		H.ignite_mob() //firestacks are already there passively
 
 //Harder to hurt
 /datum/species/golem/diamond

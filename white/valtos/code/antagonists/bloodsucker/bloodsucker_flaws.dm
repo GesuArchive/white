@@ -77,7 +77,7 @@
 // How to Burn Vamps:
 //		C.adjustFireLoss(20)
 //		C.adjust_fire_stacks(6)
-//		C.IgniteMob()
+//		C.ignite_mob()
 
 
 /datum/antagonist/bloodsucker/proc/AssignRandomBane()

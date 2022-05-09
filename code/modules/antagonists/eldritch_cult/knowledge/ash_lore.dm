@@ -109,7 +109,7 @@
 	if(iscarbon(target))
 		var/mob/living/carbon/C = target
 		C.adjust_fire_stacks(1)
-		C.IgniteMob()
+		C.ignite_mob()
 
 /datum/eldritch_knowledge/curse/corrosion
 	name = "Проклятие Разложения"

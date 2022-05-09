@@ -456,7 +456,7 @@
 		C.visible_message(span_warning("Кожа <b>[C]</b> воспламеняется!") , \
 						  span_userdanger("Чувствую, что я сейчас <b>ГОРЮ</b>!"))
 		C.adjust_fire_stacks(5)
-		C.IgniteMob()
+		C.ignite_mob()
 	return
 
 
