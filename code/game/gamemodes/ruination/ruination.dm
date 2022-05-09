@@ -4,6 +4,8 @@
 #define HEIGHT_DEADEND 	100000
 #define HEIGHT_CRASH 	0
 
+#define METEORS_TO_DEPLOY 20
+
 GLOBAL_LIST_EMPTY(pulse_engines)
 GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
 GLOBAL_VAR_INIT(station_orbit_speed, 0)
@@ -37,6 +39,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 	var/started_at = 0
 	var/announce_stage = 0
 	var/display_hud = FALSE
+	var/meteors_deployed = 0
 
 	var/current_stage = 0
 
@@ -105,6 +108,11 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 	WRITE_FILE(json_file, json_encode(file_data))
 
 /datum/game_mode/ruination/process()
+	if(meteors_deployed <= METEORS_TO_DEPLOY && current_stage == 1 && prob(1.001))
+		var/turf/T = locate(rand(25, 225), rand(25, 225), 6)
+		if(T)
+			new /obj/effect/falling_meteor(T, GLOB.meteors_normal)
+			meteors_deployed++
 	if(!started_at && GLOB.pulse_engines.len)
 		for(var/obj/structure/pulse_engine/PE in GLOB.pulse_engines)
 			if(PE.engine_active)
@@ -348,6 +356,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 		if(where == "сумку")
 			SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 
+#undef METEORS_TO_DEPLOY
 
 #undef HEIGHT_OPTIMAL
 #undef HEIGHT_DANGER

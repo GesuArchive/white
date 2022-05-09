@@ -19,7 +19,7 @@
 	. = ..()
 	if(our_powercell)
 		. += "<hr>"
-		. += span_notice("<b>ЗАРЯД:</b> [our_powercell.percent()]%")
+		. += span_notice("<b>[uppertext(our_powercell.name)]:</b> [our_powercell.percent()]%")
 
 /obj/item/kinetic_shield/equipped(mob/user, slot, initial)
 	. = ..()
