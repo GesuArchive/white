@@ -132,7 +132,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 			announce_stage = 1
 			sound_to_playing_players('white/valtos/sounds/rp6.ogg', 25, FALSE, channel = CHANNEL_RUINATION_OST)
 			priority_announce("Осталось 15 минут до активации блюспейс-транслокатора.", null, sound('white/valtos/sounds/trevoga2.ogg'), sender_override = "Синдикат")
-			general_ert_request("Помешать террористам, мешающим работе невероятно важного оборудования на станции в виде импульсных двигателей.")
+			omon_ert_request("Помешать террористам, мешающим работе невероятно важного оборудования на станции в виде импульсных двигателей.")
 		if((started_at + (win_time - 10 MINUTES)) < world.time && announce_stage == 1)
 			announce_stage = 2
 			sound_to_playing_players('white/valtos/sounds/rp7.ogg', 35, FALSE, channel = CHANNEL_RUINATION_OST)
