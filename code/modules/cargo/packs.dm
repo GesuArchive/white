@@ -671,6 +671,14 @@
 					/obj/item/storage/belt/holster/thermal)
 	crate_name = "thermal pistol crate"
 
+/datum/supply_pack/security/armory/kinetic_shields
+	name = "Кинетические щиты"
+	desc = "Содержит три кинетических щита, которые способны отражать снаряды летящие с большой скоростью. ВНИМАНИЕ! Не включать одновременно два и более щита. Только для службы безопасности."
+	cost = CARGO_CRATE_VALUE * 20
+	contains = list(/obj/item/kinetic_shield,
+					/obj/item/kinetic_shield,
+					/obj/item/kinetic_shield)
+	crate_name = "ящик с кинетическими щитами"
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Engineering /////////////////////////////////////
