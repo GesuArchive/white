@@ -119,7 +119,7 @@
 		calculated_damage = P.damage
 
 	if(!our_powercell?.use(calculated_damage * 200))
-		ison = FALSE
+		our_powercell?.use(our_powercell?.charge)
 		check_charge()
 		return FALSE
 
