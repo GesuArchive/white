@@ -36,6 +36,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 	var/result = 0
 	var/started_at = 0
 	var/announce_stage = 0
+	var/display_hud = FALSE
 
 	var/current_stage = 0
 
@@ -124,21 +125,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 					priority_announce("Внимание, сотрудники NanoTrasen, спешим сообщить вам, что корпорация вас снова обманывает. Они дошли до такого уровня маразма, что ради прибыли готовы утилизировать станцию вместе с вами. Мы перехватили данные сообщающие о том, что на вашей станции на данный момент находится 4 агента NanoTrasen под прикрытием. Постарайтесь им помешать, пока мы готовим блюспейс-транслокатор для перемещения вашей станции. Это займёт примерно 20 минут.", null, sound('white/valtos/sounds/trevoga2.ogg'), sender_override = "Синдикат")
 					spawn(150)
 						priority_announce("Вы в курсе, что большая часть сотрудников NanoTrasen имеют встроенный в их черепную коробку, при клонировании, HUD? Показываем как он работает.", null, sound('white/valtos/sounds/trevoga2.ogg'), sender_override = "Синдикат")
-						for(var/m in GLOB.player_list)
-							if(ismob(m) && !isnewplayer(m))
-								var/mob/M = m
-								if(M.hud_used)
-									var/datum/hud/H = M.hud_used
-									var/atom/movable/screen/station_height/sh = new /atom/movable/screen/station_height()
-									var/atom/movable/screen/station_height_bg/shbg = new /atom/movable/screen/station_height_bg()
-									H.station_height = sh
-									H.station_height_bg = shbg
-									sh.hud = H
-									shbg.hud = H
-									H.infodisplay += sh
-									H.infodisplay += shbg
-									H.mymob.client.screen += sh
-									H.mymob.client.screen += shbg
+						display_hud = TRUE
 				break
 	if(started_at)
 		if((started_at + (win_time - 16 MINUTES)) < world.time && announce_stage == 0)
@@ -159,13 +146,25 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 		for(var/obj/structure/pulse_engine/PE in GLOB.pulse_engines)
 			total_speed += PE.engine_power * 5
 		GLOB.station_orbit_height -= total_speed
-		for(var/i in GLOB.player_list)
-			var/mob/M = i
-			if(!M.hud_used?.station_height)
-				continue
-			var/datum/hud/H = M.hud_used
-			H.station_height.update_height()
 		GLOB.station_orbit_speed = total_speed
+		if(display_hud)
+			for(var/i in GLOB.player_list)
+				var/mob/M = i
+				if(!M.hud_used?.station_height && !isnewplayer(M))
+					var/datum/hud/H = M.hud_used
+					var/atom/movable/screen/station_height/sh = new /atom/movable/screen/station_height()
+					var/atom/movable/screen/station_height_bg/shbg = new /atom/movable/screen/station_height_bg()
+					H.station_height = sh
+					H.station_height_bg = shbg
+					sh.hud = H
+					shbg.hud = H
+					H.infodisplay += sh
+					H.infodisplay += shbg
+					H.mymob.client.screen += sh
+					H.mymob.client.screen += shbg
+					continue
+				var/datum/hud/H = M.hud_used
+				H.station_height.update_height()
 
 	var/cur_height = GLOB.station_orbit_parallax_type
 
@@ -188,6 +187,11 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 				if(M.hud_used)
 					M?.hud_used?.update_parallax_pref(M)
 					shake_camera(M, 7, 3)
+		if(cur_height == 2)
+			for(var/turf/T in world)
+				if(!is_station_level(T.z) || !(isspaceturf(T) || istype(T, /turf/open/openspace/airless)))
+					continue
+				T.AddComponent(/datum/component/chasm, SSmapping.get_turf_above(T))
 
 /datum/game_mode/ruination/check_finished()
 	if(current_stage == 1)
