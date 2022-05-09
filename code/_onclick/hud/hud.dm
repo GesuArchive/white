@@ -6,8 +6,9 @@
 
 // The default UI style is the first one in the list
 GLOBAL_LIST_INIT(available_ui_styles, list(
-	"Glory" = 'icons/hud/screen_glory.dmi',
 	"Oxide" = 'icons/hud/screen_oxide.dmi',
+	"Rexide" = 'icons/hud/screen_rexide.dmi',
+	"Glory" = 'icons/hud/screen_glory.dmi',
 	"Cyberspess" = 'icons/hud/screen_cyberspess.dmi',
 	"Tetramon" = 'icons/hud/screen_tetramon.dmi',
 	"Bassboosted" = 'icons/hud/screen_bassboosted.dmi',
