@@ -158,7 +158,9 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 		if(display_hud)
 			for(var/i in GLOB.player_list)
 				var/mob/M = i
-				if(!M.hud_used?.station_height && !isnewplayer(M))
+				if(isnewplayer(M))
+					continue
+				if(!M.hud_used?.station_height && !isnewplayer(M) && !issilicon(M))
 					var/datum/hud/H = M.hud_used
 					var/atom/movable/screen/station_height/sh = new /atom/movable/screen/station_height()
 					var/atom/movable/screen/station_height_bg/shbg = new /atom/movable/screen/station_height_bg()
@@ -170,9 +172,8 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 					H.infodisplay += shbg
 					H.mymob.client.screen += sh
 					H.mymob.client.screen += shbg
-					continue
-				var/datum/hud/H = M.hud_used
-				H.station_height.update_height()
+				var/datum/hud/H = M?.hud_used
+				H?.station_height?.update_height()
 
 	var/cur_height = GLOB.station_orbit_parallax_type
 
