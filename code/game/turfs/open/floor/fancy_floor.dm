@@ -204,6 +204,7 @@
 
 /turf/open/floor/grass/snow/safe
 	slowdown = 1.5
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = FALSE
 
 /turf/open/floor/grass/snow/actually_safe

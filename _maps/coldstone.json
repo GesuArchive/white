@@ -9,7 +9,7 @@
 	"traits": [
 		{
 			"Up": 1,
-			"Baseturf": "/turf/open/floor/grass/snow/safe/oxy",
+			"Baseturf": "/turf/open/floor/grass/snow/safe",
 			"Linkage": null,
 			"Gravity": true
 		},
