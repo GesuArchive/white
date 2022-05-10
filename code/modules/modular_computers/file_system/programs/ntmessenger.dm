@@ -103,7 +103,7 @@
 
 	switch(action)
 		if("PDA_ringSet")
-			var/t = tgui_input_text(usr, "Введи новый рингтон", "Рингтон", "", 20)
+			var/t = tgui_input_text(usr, "Введи новый рингтон", "Рингтон", "", 40)
 			var/mob/living/usr_mob = usr
 			if(in_range(computer, usr_mob) && computer.loc == usr_mob && t)
 				if(SEND_SIGNAL(computer, COMSIG_TABLET_CHANGE_ID, usr_mob, t) & COMPONENT_STOP_RINGTONE_CHANGE)
