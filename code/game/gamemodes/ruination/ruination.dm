@@ -118,7 +118,6 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 			if(PE.engine_active)
 				started_at = world.time
 				priority_announce("На вашей станции был обнаружен запуск одного или нескольких импульсных двигателей. Не паникуйте, это всего лишь запланированное перемещение вашей станции на новую орбиту.", null, sound('white/valtos/sounds/trevoga2.ogg'), "Priority")
-				sound_to_playing_players('white/valtos/sounds/rp0.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
 				spawn(300)
 					SSshuttle.lastMode = SSshuttle.emergency.mode
 					SSshuttle.lastCallTime = SSshuttle.emergency.timeLeft(1)
@@ -138,16 +137,16 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 	if(started_at)
 		if((started_at + (win_time - 16 MINUTES)) < world.time && announce_stage == 0)
 			announce_stage = 1
-			sound_to_playing_players('white/valtos/sounds/rp6.ogg', 25, FALSE, channel = CHANNEL_RUINATION_OST)
+			sound_to_playing_players('white/valtos/sounds/rp6.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
 			priority_announce("Осталось 15 минут до активации блюспейс-транслокатора.", null, sound('white/valtos/sounds/trevoga2.ogg'), sender_override = "Синдикат")
 			omon_ert_request("Помешать террористам, мешающим работе невероятно важного оборудования на станции в виде импульсных двигателей.")
 		if((started_at + (win_time - 10 MINUTES)) < world.time && announce_stage == 1)
 			announce_stage = 2
-			sound_to_playing_players('white/valtos/sounds/rp7.ogg', 35, FALSE, channel = CHANNEL_RUINATION_OST)
+			sound_to_playing_players('white/valtos/sounds/rp7.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
 			priority_announce("Осталось 10 минут до активации блюспейс-транслокатора.", null, sound('white/valtos/sounds/trevoga2.ogg'), sender_override = "Синдикат")
 		if((started_at + (win_time - 5 MINUTES)) < world.time && announce_stage == 2)
 			announce_stage = 3
-			sound_to_playing_players('white/valtos/sounds/rp5.ogg', 45, FALSE, channel = CHANNEL_RUINATION_OST)
+			sound_to_playing_players('white/valtos/sounds/rp5.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
 			priority_announce("Осталось 5 минут до активации блюспейс-транслокатора. Держитесь.", null, sound('white/valtos/sounds/trevoga2.ogg'), sender_override = "Синдикат")
 			deathsquad_request("Уничтожить свидетелей.")
 		var/total_speed = 0
