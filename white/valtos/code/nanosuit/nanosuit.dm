@@ -668,7 +668,7 @@
 	icon_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"
 
-/datum/action/item_action/nanosuit/zoom/Trigger()
+/datum/action/item_action/nanosuit/zoom/Trigger(trigger_flags)
 	var/obj/item/clothing/head/helmet/space/hardsuit/nano/NS = target
 	if(istype(NS))
 		NS.toggle_zoom(owner)

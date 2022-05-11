@@ -614,6 +614,8 @@
 #define COMSIG_LIVING_SET_BODY_POSITION  "living_set_body_position"
 ///From post-can inject check of syringe after attack (mob/user)
 #define COMSIG_LIVING_TRY_SYRINGE "living_try_syringe"
+///From living/Life(). (deltatime, times_fired)
+#define COMSIG_LIVING_LIFE "living_life"
 
 ///Sent when bloodcrawl ends in mob/living/phasein(): (phasein_decal)
 #define COMSIG_LIVING_AFTERPHASEIN "living_phasein"
@@ -903,6 +905,8 @@
 #define COMSIG_ITEM_OFFER_TAKEN "item_offer_taken"
 	///Interrupts the offer acceptance
 	#define COMPONENT_OFFER_TAKE_INTERRUPT (1<<0)
+/// sent from obj/effect/attackby(): (/obj/effect/hit_effect, /mob/living/attacker, params)
+#define COMSIG_ITEM_ATTACK_EFFECT "item_effect_attacked"
 
 ///from base of [/obj/item/proc/tool_check_callback]: (mob/living/user)
 #define COMSIG_TOOL_IN_USE "tool_in_use"
@@ -1026,6 +1030,10 @@
 
 // /obj/effect/proc_holder/spell signals
 
+///called from /obj/effect/proc_holder/spell/cast_check (src)
+#define COMSIG_MOB_PRE_CAST_SPELL "mob_cast_spell"
+	/// Return to cancel the cast from beginning.
+	#define COMPONENT_CANCEL_SPELL (1<<0)
 ///called from /obj/effect/proc_holder/spell/perform (src)
 #define COMSIG_MOB_CAST_SPELL "mob_cast_spell"
 
@@ -1566,3 +1574,22 @@
 
 /// Called on the mind when an antagonist is being removed, after the antagonist list has updated (datum/antagonist/antagonist)
 #define COMSIG_ANTAGONIST_REMOVED "antagonist_removed"
+
+/// Heretic signals
+
+/// From /obj/item/clothing/mask/madness_mask/process : (amount)
+#define COMSIG_HERETIC_MASK_ACT "void_mask_act"
+
+/// From /obj/item/melee/touch_attack/mansus_fist/on_mob_hit : (mob/living/source, mob/living/target)
+#define COMSIG_HERETIC_MANSUS_GRASP_ATTACK "mansus_grasp_attack"
+	/// Default behavior is to use a charge, so return this to blocks the mansus fist from being consumed after use.
+	#define COMPONENT_BLOCK_CHARGE_USE (1<<0)
+/// From /obj/item/melee/touch_attack/mansus_fist/afterattack_secondary : (mob/living/source, atom/target)
+#define COMSIG_HERETIC_MANSUS_GRASP_ATTACK_SECONDARY "mansus_grasp_attack_secondary"
+	/// Default behavior is to continue attack chain and do nothing else, so return this to use up a charge after use.
+	#define COMPONENT_USE_CHARGE (1<<0)
+
+/// From /obj/item/melee/sickly_blade/afterattack (with proximity) : (mob/living/source, mob/living/target)
+#define COMSIG_HERETIC_BLADE_ATTACK "blade_attack"
+/// From /obj/item/melee/sickly_blade/afterattack (without proximity) : (mob/living/source, mob/living/target)
+#define COMSIG_HERETIC_RANGED_BLADE_ATTACK "ranged_blade_attack"

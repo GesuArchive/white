@@ -37,7 +37,7 @@
 	name = "Дым"
 	button_icon_state = "mech_smoke"
 
-/datum/action/vehicle/sealed/mecha/mech_smoke/Trigger()
+/datum/action/vehicle/sealed/mecha/mech_smoke/Trigger(trigger_flags)
 	if(!owner || !chassis || !(owner in chassis.occupants))
 		return
 	if(!TIMER_COOLDOWN_CHECK(src, COOLDOWN_MECHA_SMOKE) && chassis.smoke_charges>0)
@@ -49,7 +49,7 @@
 	name = "Зум"
 	button_icon_state = "mech_zoom_off"
 
-/datum/action/vehicle/sealed/mecha/mech_zoom/Trigger()
+/datum/action/vehicle/sealed/mecha/mech_zoom/Trigger(trigger_flags)
 	if(!owner || !chassis || !(owner in chassis.occupants))
 		return
 	if(owner.client)

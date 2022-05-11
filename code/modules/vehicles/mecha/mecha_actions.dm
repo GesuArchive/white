@@ -19,7 +19,7 @@
 	name = "Выход из меха"
 	button_icon_state = "mech_eject"
 
-/datum/action/vehicle/sealed/mecha/mech_eject/Trigger()
+/datum/action/vehicle/sealed/mecha/mech_eject/Trigger(trigger_flags)
 	if(!owner)
 		return
 	if(!chassis || !(owner in chassis.occupants))
@@ -30,7 +30,7 @@
 	name = "Переключить использование внутреннего бака"
 	button_icon_state = "mech_internals_off"
 
-/datum/action/vehicle/sealed/mecha/mech_toggle_internals/Trigger()
+/datum/action/vehicle/sealed/mecha/mech_toggle_internals/Trigger(trigger_flags)
 	if(!owner || !chassis || !(owner in chassis.occupants))
 		return
 	chassis.use_internal_tank = !chassis.use_internal_tank
@@ -43,7 +43,7 @@
 	name = "Переключить свет"
 	button_icon_state = "mech_lights_off"
 
-/datum/action/vehicle/sealed/mecha/mech_toggle_lights/Trigger()
+/datum/action/vehicle/sealed/mecha/mech_toggle_lights/Trigger(trigger_flags)
 	if(!owner || !chassis || !(owner in chassis.occupants))
 		return
 	if(!(chassis.mecha_flags & HAS_LIGHTS))
@@ -63,7 +63,7 @@
 	name = "Состояние"
 	button_icon_state = "mech_view_stats"
 
-/datum/action/vehicle/sealed/mecha/mech_view_stats/Trigger()
+/datum/action/vehicle/sealed/mecha/mech_view_stats/Trigger(trigger_flags)
 	if(!owner || !chassis || !(owner in chassis.occupants))
 		return
 
@@ -74,7 +74,7 @@
 	name = "Переключить стрейф. Отключается, когда зажат Alt."
 	button_icon_state = "strafe"
 
-/datum/action/vehicle/sealed/mecha/strafe/Trigger()
+/datum/action/vehicle/sealed/mecha/strafe/Trigger(trigger_flags)
 	if(!owner || !chassis || !(owner in chassis.occupants))
 		return
 
@@ -111,7 +111,7 @@
 	name = "Сменить место"
 	button_icon_state = "mech_seat_swap"
 
-/datum/action/vehicle/sealed/mecha/swap_seat/Trigger()
+/datum/action/vehicle/sealed/mecha/swap_seat/Trigger(trigger_flags)
 	if(!owner || !chassis || !(owner in chassis.occupants))
 		return
 

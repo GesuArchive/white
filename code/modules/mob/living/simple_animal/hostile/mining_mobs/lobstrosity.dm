@@ -28,12 +28,26 @@
 	weather_immunities = list(TRAIT_ASHSTORM_IMMUNE)
 	vision_range = 5
 	aggro_vision_range = 7
-	charger = TRUE
-	charge_distance = 4
 	butcher_results = list(/obj/item/food/meat/crab = 2, /obj/item/stack/sheet/bone = 2)
 	robust_searching = TRUE
 	footstep_type = FOOTSTEP_MOB_CLAW
 	crusher_loot = /obj/item/crusher_trophy/lobster_claw
+	/// Charging ability
+	var/datum/action/cooldown/mob_cooldown/charge/basic_charge/charge
+
+/mob/living/simple_animal/hostile/asteroid/lobstrosity/Initialize(mapload)
+	. = ..()
+	charge = new /datum/action/cooldown/mob_cooldown/charge/basic_charge()
+	charge.Grant(src)
+
+/mob/living/simple_animal/hostile/asteroid/lobstrosity/Destroy()
+	QDEL_NULL(charge)
+	return ..()
+
+/mob/living/simple_animal/hostile/asteroid/lobstrosity/OpenFire()
+	if(client)
+		return
+	charge.Trigger(target)
 
 /mob/living/simple_animal/hostile/asteroid/lobstrosity/lava
 	name = "tropical lobstrosity"

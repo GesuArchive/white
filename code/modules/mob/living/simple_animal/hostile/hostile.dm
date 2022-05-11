@@ -53,19 +53,6 @@
 	var/lose_patience_timer_id //id for a timer to call LoseTarget(), used to stop mobs fixating on a target they can't reach
 	var/lose_patience_timeout = 300 //30 seconds by default, so there's no major changes to AI behaviour, beyond actually bailing if stuck forever
 
-	///When a target is found, will the mob attempt to charge at it's target?
-	var/charger = FALSE
-	///Tracks if the target is actively charging.
-	var/charge_state = FALSE
-	///In a charge, how many tiles will the charger travel?
-	var/charge_distance = 3
-	///How often can the charging mob actually charge? Effects the cooldown between charges.
-	var/charge_frequency = 6 SECONDS
-	///If the mob is charging, how long will it stun it's target on success, and itself on failure?
-	var/knockdown_time = 3 SECONDS
-	///Declares a cooldown for potential charges right off the bat.
-	COOLDOWN_DECLARE(charge_cooldown)
-
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
 	wanted_objects = typecacheof(wanted_objects)
@@ -294,9 +281,6 @@
 		if(ranged) //We ranged? Shoot at em
 			if(!target.Adjacent(target_from) && ranged_cooldown <= world.time) //But make sure they're not in range for a melee attack and our range attack is off cooldown
 				OpenFire(target)
-		if(charger && (target_distance > minimum_distance) && (target_distance <= charge_distance))//Attempt to close the distance with a charge.
-			enter_charge(target)
-			return TRUE
 		if(!Process_Spacemove()) //Drifting
 			SSmove_manager.stop_looping(src)
 			return 1
@@ -606,62 +590,6 @@
 		var/mob/living/fren = whomst
 		friends = fren
 		faction = fren.faction.Copy()
-
-/**
- * Proc that handles a charge attack windup for a mob.
- */
-/mob/living/simple_animal/hostile/proc/enter_charge(atom/target)
-	if(charge_state || body_position == LYING_DOWN || HAS_TRAIT(src, TRAIT_IMMOBILIZED))
-		return FALSE
-
-	if(!(COOLDOWN_FINISHED(src, charge_cooldown)) || !has_gravity() || !target.has_gravity())
-		return FALSE
-	Shake(15, 15, 1 SECONDS)
-	addtimer(CALLBACK(src, .proc/handle_charge_target, target), 1.5 SECONDS, TIMER_STOPPABLE)
-
-/**
- * Proc that throws the mob at the target after the windup.
- */
-/mob/living/simple_animal/hostile/proc/handle_charge_target(atom/target)
-	charge_state = TRUE
-	throw_at(target, charge_distance, 1, src, FALSE, TRUE, callback = CALLBACK(src, .proc/charge_end))
-	COOLDOWN_START(src, charge_cooldown, charge_frequency)
-	return TRUE
-
-/**
- * Proc that handles a charge attack after it's concluded.
- */
-/mob/living/simple_animal/hostile/proc/charge_end()
-	charge_state = FALSE
-
-/**
- * Proc that handles the charge impact of the charging mob.
- */
-/mob/living/simple_animal/hostile/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	if(!charge_state)
-		return ..()
-
-	if(hit_atom)
-		if(isliving(hit_atom))
-			var/mob/living/L = hit_atom
-			var/blocked = FALSE
-			if(ishuman(hit_atom))
-				var/mob/living/carbon/human/H = hit_atom
-				if(H.check_shields(src, 0, "the [name]", attack_type = LEAP_ATTACK))
-					blocked = TRUE
-			if(!blocked)
-				L.visible_message(span_danger("[capitalize(src.name)] charges on [L]!") , span_userdanger("[capitalize(src.name)] charges into you!"))
-				L.Knockdown(knockdown_time)
-			else
-				Stun((knockdown_time * 2), ignore_canstun = TRUE)
-			charge_end()
-		else if(hit_atom.density && !hit_atom.CanPass(src, get_dir(hit_atom, src)))
-			visible_message(span_danger("[src] smashes into [hit_atom]!"))
-			Stun((knockdown_time * 2), ignore_canstun = TRUE)
-
-		if(charge_state)
-			charge_state = FALSE
-			update_icons()
 
 /mob/living/simple_animal/hostile/proc/get_targets_from()
 	var/atom/target_from = targets_from.resolve()

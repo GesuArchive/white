@@ -213,17 +213,24 @@
 	status_flags = NONE
 	mob_size = MOB_SIZE_LARGE
 	gold_core_spawnable = NO_SPAWN
-	charger = TRUE
-	charge_distance = 4
 	///Whether or not the tarantula is currently walking on webbing.
 	var/silk_walking = TRUE
-	///The spider's charge ability
-	var/obj/effect/proc_holder/tarantula_charge/charge
+	/// Charging ability
+	var/datum/action/cooldown/mob_cooldown/charge/basic_charge/charge
 
-/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/Initialize()
+/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/Initialize(mapload)
 	. = ..()
-	charge = new
-	AddAbility(charge)
+	charge = new /datum/action/cooldown/mob_cooldown/charge/basic_charge()
+	charge.Grant(src)
+
+/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/Destroy()
+	QDEL_NULL(charge)
+	return ..()
+
+/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/OpenFire()
+	if(client)
+		return
+	charge.Trigger(target)
 
 /mob/living/simple_animal/hostile/poison/giant_spider/tarantula/Moved(atom/oldloc, dir)
 	. = ..()
@@ -444,64 +451,6 @@
 /obj/effect/proc_holder/wrap/on_lose(mob/living/carbon/user)
 	remove_ranged_ability()
 
-/obj/effect/proc_holder/tarantula_charge
-	name = "Таран"
-	panel = "Spider"
-	active = FALSE
-	action = null
-	desc = "Прыжок всей своей массой на цель, оглушая ее при удачном попадании, оглушает вас при промахе."
-	ranged_mousepointer = 'icons/effects/mouse_pointers/wrap_target.dmi'
-	action_icon = 'icons/mob/actions/actions_animal.dmi'
-	action_icon_state = "wrap_0"
-	action_background_icon_state = "bg_alien"
-	//Set this to false since we're our own action, for some reason
-	has_action = FALSE
-
-/obj/effect/proc_holder/tarantula_charge/Initialize()
-	. = ..()
-	action = new(src)
-
-/obj/effect/proc_holder/tarantula_charge/update_icon()
-	action.button_icon_state = "wrap_[active]"
-	action.UpdateButtonIcon()
-
-/obj/effect/proc_holder/tarantula_charge/Click()
-	if(!istype(usr, /mob/living/simple_animal/hostile/poison/giant_spider/tarantula))
-		return TRUE
-	var/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/user = usr
-	activate(user)
-	return TRUE
-
-/obj/effect/proc_holder/tarantula_charge/proc/activate(mob/living/user)
-	var/message
-	var/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/spider = user
-	if(active)
-		message = span_notice("Успокаиваюсь.")
-		remove_ranged_ability(message)
-	else
-		if(!COOLDOWN_FINISHED(spider, charge_cooldown))
-			message = span_notice("Я еще не готов к повторному прыжку!</B>")
-			remove_ranged_ability(message)
-		message = span_notice("Готовлюсь к прыжку. <B>Left-click your target to charge them!</B>")
-		add_ranged_ability(user, message, TRUE)
-		return 1
-
-/obj/effect/proc_holder/tarantula_charge/InterceptClickOn(mob/living/caller, params, atom/target)
-	if(..())
-		return
-	if(ranged_ability_user.incapacitated() || !istype(ranged_ability_user, /mob/living/simple_animal/hostile/poison/giant_spider/tarantula))
-		remove_ranged_ability()
-		return
-
-	var/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/user = ranged_ability_user
-
-	INVOKE_ASYNC(user, /mob/living/simple_animal/hostile/.proc/enter_charge, target)
-	remove_ranged_ability()
-	return TRUE
-
-/obj/effect/proc_holder/tarantula_charge/on_lose(mob/living/carbon/user)
-	remove_ranged_ability()
-
 /datum/action/innate/spider/lay_eggs
 	name = "Отложить паучью кладку"
 	desc = "Откладывает яйца, из которых вскоре вылупятся обычные паучата."
@@ -584,7 +533,7 @@
 		return FALSE
 	return TRUE
 
-/datum/action/innate/spider/comm/Trigger()
+/datum/action/innate/spider/comm/Trigger(trigger_flags)
 	var/input = stripped_input(owner, "Введите приказ для вашего легиона.", "Приказ", "")
 	if(QDELETED(src) || !input || !IsAvailable())
 		return FALSE

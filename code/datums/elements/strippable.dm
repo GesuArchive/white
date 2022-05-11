@@ -150,6 +150,9 @@
 	if (isnull(item))
 		return FALSE
 
+	if (HAS_TRAIT(item, TRAIT_NO_STRIP))
+		return FALSE
+
 	source.visible_message(
 		span_warning("<b>[user]</b> пытается снять <b>[item]</b> с <b>[source]</b>.") ,
 		span_userdanger("<b>[user]</b> пытается снять <b>[item]</b>.") ,

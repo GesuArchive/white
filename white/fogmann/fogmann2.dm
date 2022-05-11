@@ -32,7 +32,7 @@
 	name = "Уаткнуть (с захватом) - Уаткнуть очкушника в землю."
 	button_icon_state = "wrassle_slam"
 
-/datum/action/uatknut/Trigger()
+/datum/action/uatknut/Trigger(trigger_flags)
 	if(owner.incapacitated())
 		to_chat(owner, span_warning("Ты не можешь уаткнуть уже уоткнутого."))
 		return
@@ -44,7 +44,7 @@
 	name = "Прогиб (с захватом) - кинуть чмошь на прогиб."
 	button_icon_state = "wrassle_throw"
 
-/datum/action/progib/Trigger()
+/datum/action/progib/Trigger(trigger_flags)
 	if(owner.incapacitated())
 		to_chat(owner, span_warning("Ты не можешь кинуть на прогиб лежачего."))
 		return
@@ -56,7 +56,7 @@
 	name = "ТАА - Сейчас вы уебете кого-то макасином по лицу."
 	button_icon_state = "wrassle_kick"
 
-/datum/action/taa/Trigger()
+/datum/action/taa/Trigger(trigger_flags)
 
 	owner.visible_message(span_danger("[owner] орет ТАА!") , "<b><i>Сейчас вы уебете кого-то макасином по лицу.</i></b>")
 	var/mob/living/carbon/human/H = owner
@@ -66,7 +66,7 @@
 	name = "ШАА - дать чапалаха уцику."
 	button_icon_state = "wrassle_strike"
 
-/datum/action/shaa/Trigger()
+/datum/action/shaa/Trigger(trigger_flags)
 	owner.visible_message(span_danger("[owner] готов отвесить ЧАПАЛАХ!") , "<b><i>Твой следующий удар - ЧАПАЛАХ.</i></b>")
 	var/mob/living/carbon/human/H = owner
 	H.mind.martial_art.streak = "shaa"

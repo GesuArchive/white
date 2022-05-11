@@ -98,7 +98,7 @@
 	name = "Переключить перспективу"
 	desc = "Переключиться между зрением головы, или слепым тела."
 
-/datum/action/item_action/organ_action/dullahan/Trigger()
+/datum/action/item_action/organ_action/dullahan/Trigger(trigger_flags)
 	. = ..()
 	var/obj/item/organ/eyes/dullahan/DE = target
 	if(DE.tint)

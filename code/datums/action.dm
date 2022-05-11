@@ -1,8 +1,3 @@
-#define AB_CHECK_HANDS_BLOCKED (1<<0)
-#define AB_CHECK_IMMOBILE (1<<1)
-#define AB_CHECK_LYING (1<<2)
-#define AB_CHECK_CONSCIOUS (1<<3)
-
 /datum/action
 	var/name = "Generic Action"
 	var/desc = null
@@ -83,7 +78,7 @@
 	button.locked = FALSE
 	button.id = null
 
-/datum/action/proc/Trigger()
+/datum/action/proc/Trigger(trigger_flags)
 	if(!IsAvailable())
 		return FALSE
 	if(SEND_SIGNAL(src, COMSIG_ACTION_TRIGGER, src) & COMPONENT_ACTION_BLOCK_TRIGGER)
@@ -105,7 +100,6 @@
 	if((check_flags & AB_CHECK_CONSCIOUS) && owner.stat != CONSCIOUS)
 		return FALSE
 	return TRUE
-
 
 /datum/action/proc/UpdateButtonIcon(status_only = FALSE, force = FALSE)
 	if(button)
@@ -130,7 +124,7 @@
 			button.color = transparent_when_unavailable ? rgb(128,0,0,128) : rgb(128,0,0)
 		else
 			button.color = rgb(255,255,255,255)
-			return 1
+			return TRUE
 
 /datum/action/proc/ApplyIcon(atom/movable/screen/movable/action_button/current_button, force = FALSE)
 	if(icon_icon && button_icon_state && ((current_button.button_icon_state != button_icon_state) || force))
@@ -162,7 +156,7 @@
 	UNSETEMPTY(I.actions)
 	return ..()
 
-/datum/action/item_action/Trigger()
+/datum/action/item_action/Trigger(trigger_flags)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -191,7 +185,7 @@
 /datum/action/item_action/toggle_light
 	name = "Toggle Light"
 
-/datum/action/item_action/toggle_light/Trigger()
+/datum/action/item_action/toggle_light/Trigger(trigger_flags)
 	if(istype(target, /obj/item/modular_computer))
 		var/obj/item/modular_computer/mc = target
 		mc.toggle_flashlight()
@@ -263,7 +257,7 @@
 /datum/action/item_action/toggle_welding_screen
 	name = "Переключить сварочный экран"
 
-/datum/action/item_action/toggle_welding_screen/Trigger()
+/datum/action/item_action/toggle_welding_screen/Trigger(trigger_flags)
 	var/obj/item/clothing/head/hardhat/weldhat/H = target
 	if(istype(H))
 		H.toggle_welding_screen(owner)
@@ -271,7 +265,7 @@
 /datum/action/item_action/toggle_welding_screen/plasmaman
 	name = "Переключить сварочный экран"
 
-/datum/action/item_action/toggle_welding_screen/plasmaman/Trigger()
+/datum/action/item_action/toggle_welding_screen/plasmaman/Trigger(trigger_flags)
 	var/obj/item/clothing/head/helmet/space/plasmaman/H = target
 	if(istype(H))
 		H.toggle_welding_screen(owner)
@@ -289,7 +283,7 @@
 	UnregisterSignal(target, COMSIG_SUIT_SPACE_TOGGLE)
 	return ..()
 
-/datum/action/item_action/toggle_spacesuit/Trigger()
+/datum/action/item_action/toggle_spacesuit/Trigger(trigger_flags)
 	var/obj/item/clothing/suit/space/suit = target
 	if(!istype(suit))
 		return
@@ -326,7 +320,7 @@
 	button_icon_state = "berserk_mode"
 	background_icon_state = "bg_demon"
 
-/datum/action/item_action/berserk_mode/Trigger()
+/datum/action/item_action/berserk_mode/Trigger(trigger_flags)
 	if(istype(target, /obj/item/clothing/head/helmet/space/hardsuit/berserker))
 		var/obj/item/clothing/head/helmet/space/hardsuit/berserker/berzerk = target
 		if(berzerk.berserk_active)
@@ -373,7 +367,7 @@
 	if(istype(Target, /obj/item/picket_sign))
 		S = Target
 
-/datum/action/item_action/nano_picket_sign/Trigger()
+/datum/action/item_action/nano_picket_sign/Trigger(trigger_flags)
 	if(istype(S))
 		S.retext(owner)
 
@@ -427,7 +421,7 @@
 	button_icon_state = "scan_mode"
 	var/active = FALSE
 
-/datum/action/item_action/toggle_research_scanner/Trigger()
+/datum/action/item_action/toggle_research_scanner/Trigger(trigger_flags)
 	if(IsAvailable())
 		active = !active
 		if(active)
@@ -447,7 +441,7 @@
 	name = "Use Instrument"
 	desc = "Use the instrument specified"
 
-/datum/action/item_action/instrument/Trigger()
+/datum/action/item_action/instrument/Trigger(trigger_flags)
 	if(istype(target, /obj/item/instrument))
 		var/obj/item/instrument/I = target
 		I.interact(usr)
@@ -494,7 +488,7 @@
 		Remove(owner)
 
 
-/datum/action/item_action/cult_dagger/Trigger()
+/datum/action/item_action/cult_dagger/Trigger(trigger_flags)
 	for(var/obj/item/H in owner.held_items) //In case we were already holding another dagger
 		if(istype(H, /obj/item/melee/cultblade/dagger))
 			H.attack_self(owner)
@@ -528,7 +522,7 @@
 	COOLDOWN_DECLARE(box_cooldown)
 
 ///Handles opening and closing the box.
-/datum/action/item_action/agent_box/Trigger()
+/datum/action/item_action/agent_box/Trigger(trigger_flags)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -569,7 +563,7 @@
 	S.action = null
 	return ..()
 
-/datum/action/spell_action/Trigger()
+/datum/action/spell_action/Trigger(trigger_flags)
 	if(!..())
 		return FALSE
 	if(target)
@@ -609,7 +603,7 @@
 	check_flags = NONE
 	var/active = 0
 
-/datum/action/innate/Trigger()
+/datum/action/innate/Trigger(trigger_flags)
 	if(!..())
 		return FALSE
 	if(!active)
@@ -629,8 +623,16 @@
 /datum/action/cooldown
 	check_flags = NONE
 	transparent_when_unavailable = FALSE
+	// The default cooldown applied when StartCooldown() is called
 	var/cooldown_time = 0
+	// The actual next time this ability can be used
 	var/next_use_time = 0
+	// Whether or not you want the cooldown for the ability to display in text form
+	var/text_cooldown = TRUE
+	// Setting for intercepting clicks before activating the ability
+	var/click_to_activate = FALSE
+	// Shares cooldowns with other cooldown abilities of the same value, not active if null
+	var/shared_cooldown
 
 /datum/action/cooldown/New()
 	..()
@@ -641,25 +643,84 @@
 	button.maptext_height = 12
 
 /datum/action/cooldown/IsAvailable()
-	return next_use_time <= world.time
+	return ..() && (next_use_time <= world.time)
 
-/datum/action/cooldown/proc/StartCooldown()
-	next_use_time = world.time + cooldown_time
-	button.maptext = MAPTEXT("<b>[round(cooldown_time/10, 0.1)]</b>")
+/// Starts a cooldown time to be shared with similar abilities, will use default cooldown time if an override is not specified
+/datum/action/cooldown/proc/StartCooldown(override_cooldown_time)
+	if(shared_cooldown)
+		for(var/datum/action/cooldown/shared_ability in owner.actions - src)
+			if(shared_cooldown == shared_ability.shared_cooldown)
+				if(isnum(override_cooldown_time))
+					shared_ability.StartCooldownSelf(override_cooldown_time)
+				else
+					shared_ability.StartCooldownSelf(cooldown_time)
+	StartCooldownSelf(override_cooldown_time)
+
+/// Starts a cooldown time for this ability only, will use default cooldown time if an override is not specified
+/datum/action/cooldown/proc/StartCooldownSelf(override_cooldown_time)
+	if(isnum(override_cooldown_time))
+		next_use_time = world.time + override_cooldown_time
+	else
+		next_use_time = world.time + cooldown_time
 	UpdateButtonIcon()
 	START_PROCESSING(SSfastprocess, src)
 
-/datum/action/cooldown/process()
+/datum/action/cooldown/Trigger(trigger_flags, atom/target)
+	. = ..()
+	if(!.)
+		return
 	if(!owner)
+		return FALSE
+	if(click_to_activate)
+		if(target)
+			// For automatic / mob handling
+			return InterceptClickOn(owner, null, target)
+		if(owner.click_intercept == src)
+			owner.click_intercept = null
+		else
+			owner.click_intercept = src
+		for(var/datum/action/cooldown/ability in owner.actions)
+			ability.UpdateButtonIcon()
+		return TRUE
+	return PreActivate(owner)
+
+/// Intercepts client owner clicks to activate the ability
+/datum/action/cooldown/proc/InterceptClickOn(mob/living/caller, params, atom/target)
+	if(!IsAvailable())
+		return FALSE
+	if(!target)
+		return FALSE
+	PreActivate(target)
+	caller.click_intercept = null
+	return TRUE
+
+/// For signal calling
+/datum/action/cooldown/proc/PreActivate(atom/target)
+	if(SEND_SIGNAL(owner, COMSIG_ABILITY_STARTED, src) & COMPONENT_BLOCK_ABILITY_START)
+		return
+	. = Activate(target)
+	SEND_SIGNAL(owner, COMSIG_ABILITY_FINISHED, src)
+
+/// To be implemented by subtypes
+/datum/action/cooldown/proc/Activate(atom/target)
+	return
+
+/datum/action/cooldown/UpdateButtonIcon(status_only = FALSE, force = FALSE)
+	. = ..()
+	var/time_left = max(next_use_time - world.time, 0)
+	if(button)
+		if(text_cooldown)
+			button.maptext = MAPTEXT("<b>[round(time_left/10, 0.1)]</b>")
+	if(!owner || time_left == 0)
 		button.maptext = ""
+	if(IsAvailable() && owner.click_intercept == src)
+		button.color = COLOR_GREEN
+
+/datum/action/cooldown/process()
+	var/time_left = max(next_use_time - world.time, 0)
+	if(!owner || time_left == 0)
 		STOP_PROCESSING(SSfastprocess, src)
-	var/timeleft = max(next_use_time - world.time, 0)
-	if(timeleft == 0)
-		button.maptext = ""
-		UpdateButtonIcon()
-		STOP_PROCESSING(SSfastprocess, src)
-	else
-		button.maptext = MAPTEXT("<b>[round(timeleft/10, 0.1)]</b>")
+	UpdateButtonIcon()
 
 /datum/action/cooldown/Grant(mob/M)
 	..()
@@ -668,6 +729,27 @@
 		if(next_use_time > world.time)
 			START_PROCESSING(SSfastprocess, src)
 
+///Like a cooldown action, but with an associated proc holder.
+/datum/action/cooldown/spell_like
+
+/datum/action/cooldown/spell_like/New(Target)
+	..()
+	var/obj/effect/proc_holder/our_proc_holder = target
+	our_proc_holder.action = src
+	name = our_proc_holder.name
+	desc = our_proc_holder.desc
+	icon_icon = our_proc_holder.action_icon
+	button_icon_state = our_proc_holder.action_icon_state
+	background_icon_state = our_proc_holder.action_background_icon_state
+	button.name = name
+
+/datum/action/cooldown/spell_like/Trigger(trigger_flags)
+	if(!..())
+		return FALSE
+	if(target)
+		var/obj/effect/proc_holder/our_proc_holder = target
+		our_proc_holder.Click()
+		return TRUE
 
 //Stickmemes
 /datum/action/item_action/stickmen
@@ -693,7 +775,7 @@
 	button_icon_state = "language_menu"
 	check_flags = NONE
 
-/datum/action/language_menu/Trigger()
+/datum/action/language_menu/Trigger(trigger_flags)
 	if(!..())
 		return FALSE
 	if(ismob(owner))
@@ -746,7 +828,7 @@
 /datum/action/small_sprite/megafauna/legion
 	small_icon_state = "mega_legion"
 
-/datum/action/small_sprite/Trigger()
+/datum/action/small_sprite/Trigger(trigger_flags)
 	..()
 	if(!small)
 		var/image/I = image(icon = small_icon, icon_state = small_icon_state, loc = owner)

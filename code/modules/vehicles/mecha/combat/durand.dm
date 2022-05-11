@@ -130,7 +130,7 @@ Expects a turf. Returns true if the attack should be blocked, false if not.*/
 	name = "Переключить фронтальный энергощит"
 	button_icon_state = "mech_defense_mode_off"
 
-/datum/action/vehicle/sealed/mecha/mech_defense_mode/Trigger(forced_state = FALSE)
+/datum/action/vehicle/sealed/mecha/mech_defense_mode/Trigger(trigger_flags, forced_state = FALSE)
 	SEND_SIGNAL(chassis, COMSIG_MECHA_ACTION_TRIGGER, owner, args) //Signal sent to the mech, to be handed to the shield. See durand.dm for more details
 
 ////////////////////////////

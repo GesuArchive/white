@@ -111,6 +111,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/show_tip,
 	/client/proc/smite,
 	/client/proc/admin_away,
+	/client/proc/add_mob_ability,
 	/client/proc/toggle_prikol,
 	/client/proc/anime_voiceover,
 	/client/proc/centcom_podlauncher, /*Open a window to launch a Supplypod and configure it or it's contents*/
@@ -919,3 +920,28 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	set category = "Дбг"
 
 	src << link("?debug=profile&type=sendmaps&window=test")
+
+/client/proc/add_mob_ability()
+	set category = "Адм.События"
+	set name = "Add Mob Ability"
+	set desc = "Adds an ability to a marked mob."
+
+	if(!holder)
+		return
+
+	if(!holder.marked_datum || !istype(holder.marked_datum, /mob/living))
+		return
+
+	var/mob/living/marked_mob = holder.marked_datum
+
+	var/ability_type = input("Choose an ability", "Ability")  as null|anything in sort_list(subtypesof(/datum/action/cooldown/mob_cooldown), /proc/cmp_typepaths_asc)
+
+	if(!ability_type)
+		return
+
+	var/datum/action/cooldown/mob_cooldown/add_ability = new ability_type()
+	add_ability.Grant(marked_mob)
+
+	message_admins("[key_name_admin(usr)] added mob ability [ability_type] to mob [marked_mob].")
+	log_admin("[key_name(usr)] added mob ability [ability_type] to mob [marked_mob].")
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Add Mob Ability") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

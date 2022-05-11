@@ -33,7 +33,7 @@
 /datum/action/item_action/hands_free/activate_pill
 	name = "Активировать пилюлю"
 
-/datum/action/item_action/hands_free/activate_pill/Trigger()
+/datum/action/item_action/hands_free/activate_pill/Trigger(trigger_flags)
 	if(!..())
 		return FALSE
 	to_chat(owner, span_notice("Сжимаю зубы и разжёвываю имплант [target.name]!"))

@@ -97,6 +97,12 @@
 		hands++
 	. = ..()
 
+/datum/reagent/inverse/helgrasp/heretic
+	name = "Grasp of the Mansus"
+	description = "The Hand of the Mansus is at your neck."
+	metabolization_rate = 1 * REM
+	tox_damage = 0
+
 //libital
 //Impure
 //Simply reduces your alcohol tolerance, kinda simular to prohol

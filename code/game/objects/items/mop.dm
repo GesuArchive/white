@@ -70,8 +70,11 @@
 			clean(T, user)
 
 
-/obj/effect/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/mop) || istype(I, /obj/item/soap))
+/obj/effect/attackby(obj/item/weapon, mob/user, params)
+	if(SEND_SIGNAL(weapon, COMSIG_ITEM_ATTACK_EFFECT, src, user, params) & COMPONENT_NO_AFTERATTACK)
+		return TRUE
+
+	if(istype(weapon, /obj/item/mop) || istype(weapon, /obj/item/soap))
 		return
 	else
 		return ..()

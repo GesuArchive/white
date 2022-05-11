@@ -128,6 +128,6 @@
 	desc = "Вжжжжжжжжжжжжжжжжжжжж!"
 	button_icon_state = "skateboard_ollie"
 
-/datum/action/vehicle/forkmove/Trigger()
+/datum/action/vehicle/forkmove/Trigger(trigger_flags)
 	var/obj/vehicle/ridden/forklift/FL = vehicle_target
 	FL.toggle_fork()

@@ -168,7 +168,7 @@
 	return (ooze.ooze_nutrition >= nutrition_cost && !active)
 
 ///Give the mob a speed boost, heat it up every second, and end the ability in 6 seconds
-/datum/action/cooldown/metabolicboost/Trigger()
+/datum/action/cooldown/metabolicboost/Trigger(trigger_flags)
 	. = ..()
 	if(!.)
 		return
@@ -216,7 +216,7 @@
 	stop_consuming() //Shit out the vored mob before u go go
 
 ///Try to consume the pulled mob
-/datum/action/consume/Trigger()
+/datum/action/consume/Trigger(trigger_flags)
 	. = ..()
 	if(!.)
 		return
@@ -433,7 +433,7 @@
 	cooldown_time = 10 SECONDS
 
 ///Try to put the pulled mob in a cocoon
-/datum/action/cooldown/gel_cocoon/Trigger()
+/datum/action/cooldown/gel_cocoon/Trigger(trigger_flags)
 	. = ..()
 	if(!.)
 		return

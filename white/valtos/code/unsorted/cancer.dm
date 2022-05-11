@@ -449,7 +449,7 @@
 	ranged_cooldown = world.time + max(5, 60 - anger_modifier * 0.75)
 	var/oldcolor = color
 	animate(src, color = "#ff9955", time = 6)
-	SLEEP_CHECK_DEATH(6)
+	SLEEP_CHECK_DEATH(6, src)
 	var/list/targets = ListTargets()
 	var/list/cardinal_copy = GLOB.cardinals.Copy()
 	while(targets.len && cardinal_copy.len)
@@ -463,10 +463,10 @@
 		var/obj/effect/temp_visual/hierophant/chaser/sans/C = new(loc, src, pickedtarget, phase, FALSE)
 		C.moving = 3
 		C.moving_dir = pick_n_take(cardinal_copy)
-		SLEEP_CHECK_DEATH(8)
+		SLEEP_CHECK_DEATH(8, src)
 	animate(src, color = oldcolor, time = 8)
 	addtimer(CALLBACK(src, /atom/proc/update_atom_colour), 8)
-	SLEEP_CHECK_DEATH(8)
+	SLEEP_CHECK_DEATH(8, src)
 
 /obj/effect/temp_visual/hierophant/chaser/sans
 	icon = 'white/valtos/icons/undertale/SANESSS.dmi'
