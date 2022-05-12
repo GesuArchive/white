@@ -121,6 +121,7 @@
 	},
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
+/obj/effect/mapping_helpers/airlock/access/any/science/xenobio,
 /turf/open/floor/plating,
 /area/science/cytology)
 "ahx" = (
