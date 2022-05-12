@@ -1038,10 +1038,10 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	var/bugged_shit = "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head>"
 	for(var/test_obj in subtypesof(/obj/item))
 		var/obj/item/sprite = new test_obj
-		if(sprite?.icon)
+		if(sprite?.icon && isicon(sprite?.icon))
 			if(!(sprite.icon_state in icon_states(sprite.icon)))
 				bugged_shit += "icon: [sprite.slot_flags] [sprite.type]: [sprite.icon_state]\n"
-		if(sprite?.worn_icon)
+		if(sprite?.worn_icon && isicon(sprite?.worn_icon))
 			if(!(sprite.worn_icon_state in icon_states(sprite.worn_icon)))
 				bugged_shit += "worn icon: [sprite.slot_flags] [sprite.type]: [sprite.worn_icon_state]\n"
 
