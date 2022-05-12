@@ -8,6 +8,7 @@
 	open_sound_volume = 30
 	close_sound_volume = 50
 	max_integrity = 70
+	door_anim_time = 0 // no animation
 
 /obj/structure/closet/acloset
 	name = "странный шкаф"
