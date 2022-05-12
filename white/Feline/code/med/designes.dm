@@ -34,6 +34,8 @@
 	sub_category = list("Протезирование")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
+// 	Плохие конечности
+
 /datum/design/robot_low_arm_left
 	name = "Бюджетный протез левой руки"
 	desc = "Скелетообразная кибер-конечность. Устаревшая и хрупкая, но всё же лучше чем ничего."
@@ -78,6 +80,56 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 60
 	materials = list(/datum/material/iron = 8000, /datum/material/glass = 1000)
+	category = list("Кибернетика", "Медицинские разработки")
+	sub_category = list("Протезирование")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
+// 	Хорошие конечности
+
+/datum/design/robot_good_arm_left
+	name = "Продвинутый протез левой руки"
+	desc = "Металлическая кибер-конечность. По физическим показателям она явно превосходит органику."
+	id = "robot_good_arm_left"
+	build_path = /obj/item/bodypart/l_arm/robot
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 100
+	materials = list(/datum/material/iron=10000)
+	category = list("Кибернетика", "Медицинские разработки")
+	sub_category = list("Протезирование")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
+/datum/design/robot_good_arm_right
+	name = "Продвинутый протез правой руки"
+	desc = "Металлическая кибер-конечность. По физическим показателям она явно превосходит органику."
+	id = "robot_good_arm_right"
+	build_path = /obj/item/bodypart/r_arm/robot
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 100
+	materials = list(/datum/material/iron=10000)
+	category = list("Кибернетика", "Медицинские разработки")
+	sub_category = list("Протезирование")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
+/datum/design/robot_good_leg_left
+	name = "Продвинутый протез левой ноги"
+	desc = "Металлическая кибер-конечность. По физическим показателям она явно превосходит органику."
+	id = "robot_good_leg_left"
+	build_path = /obj/item/bodypart/l_leg/robot
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 100
+	materials = list(/datum/material/iron=10000)
+	category = list("Кибернетика", "Медицинские разработки")
+	sub_category = list("Протезирование")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
+/datum/design/robot_good_leg_right
+	name = "Продвинутый протез правой ноги"
+	desc = "Металлическая кибер-конечность. По физическим показателям она явно превосходит органику."
+	id = "robot_good_leg_right"
+	build_path = /obj/item/bodypart/r_leg/robot
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 100
+	materials = list(/datum/material/iron=10000)
 	category = list("Кибернетика", "Медицинские разработки")
 	sub_category = list("Протезирование")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
@@ -153,6 +205,19 @@
 	category = list("Медицинское снаряжение")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
+/datum/design/biomonitor
+	name = "Имплант биомонитора"
+	desc = "Этот кибернетический мозговой имплант подключается к кровеносной и нервной системе носителя для определения его физического состояния и химанализа крови. Для активации необходимо мысленно <b>ОСМОТРЕТЬ СЕБЯ</b>."
+	id = "ci-biomonitor"
+	build_path = /obj/item/organ/cyberimp/brain/biomonitor
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 60
+	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 400)
+	category = list("Импланты", "Медицинские разработки")
+	sub_category = list("Кибер Импланты")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
 /*
 /datum/techweb_node/solnce
 	id = "solnce"

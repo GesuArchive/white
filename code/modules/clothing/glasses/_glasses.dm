@@ -150,6 +150,22 @@
 	if(slot == ITEM_SLOT_EYES)
 		return 1
 
+/obj/item/clothing/glasses/science/night
+	name = "научный HUD с ПНВ"
+	desc = "Научный интерфейс химиков и ученых со встроенной подсветкой."
+	icon_state = "scihudnight"
+	inhand_icon_state = "glasses"
+	darkness_view = 8
+	flash_protect = FLASH_PROTECTION_SENSITIVE
+	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
+	glass_colour_type = /datum/client_colour/glass_colour/green
+
+/obj/item/clothing/glasses/sunglasses/chemical
+	name = "тактические научные очки"
+	desc = "Тактические очки с научным интерфейсом и встроенным светофильтром, защищающим глаза от ярких вспышек."
+	icon_state = "sunhudsci"
+	clothing_flags = SCAN_REAGENTS
+
 /obj/item/clothing/glasses/science/prescription
 	name = "научные очки по рецепту"
 	desc = "Странная комбинация из обычных очков и научного сканера."
@@ -257,12 +273,6 @@
 	desc = "Пара солнцезащитных очков оснащена аппаратом для сканирования реагентов, а также обеспечивает врожденное понимание вязкости жидкости во время движения."
 	clothing_flags = SCAN_REAGENTS
 	clothing_traits = list(TRAIT_BOOZE_SLIDER)
-
-/obj/item/clothing/glasses/sunglasses/chemical
-	name = "Тактические научные очки"
-	desc = "Тактические очки с научным интерфейсом и встроенным светофильтром, защищающим глаза от ярких вспышек."
-	icon_state = "sunhudsci"
-	clothing_flags = SCAN_REAGENTS
 
 /obj/item/clothing/glasses/sunglasses/garb
 	name = "чёрные гар очки"

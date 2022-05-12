@@ -61,6 +61,8 @@
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 7
+	juice_results = list(/datum/reagent/medicine/coagulant/banana_peel = 10)
+	grind_results = list(/datum/reagent/medicine/coagulant/banana_peel = 10)
 
 /obj/item/grown/bananapeel/Initialize(mapload)
 	. = ..()

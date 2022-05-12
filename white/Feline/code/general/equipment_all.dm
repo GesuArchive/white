@@ -276,7 +276,7 @@
 			*/
 // 	Лабораторная броня
 	if(istype(W, /obj/item/clothing/suit/toggle/labcoat))
-		to_chat(user, span_notice("Прикрепляю дополнительную бронепластину к раскройке и перераспределяю уже установленные, теперь бронежилет будет лучше защищать от пуль."))
+		to_chat(user, span_notice("Закрепляю раскройку на лабораторном халате. Теперь у бронежилета повышеная защита от кислот и биоугроз, а так же есть крепления как для боевого снаряжения, так и медицинского."))
 		playsound(user, 'sound/items/equip/toolbelt_equip.ogg', 100, TRUE)
 		if(!do_after(user, 2 SECONDS, src))
 			return TRUE
@@ -353,9 +353,22 @@
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
+/obj/item/clothing/suit/armor/vest/fieldmedic
+	name = "бронекуртка полевого медика"
+	desc = "Бронированный лабораторный халат полевого врача фронтира. Тот кто по настоящему желает спасать жизни не сидит в госпитале, а работает на поле боя. Но иногда единственный способ спасти жизнь -  это забрать другую."
+	icon = 'white/Feline/icons/lab_armor_front.dmi'
+	worn_icon = 'white/Feline/icons/lab_armor_body.dmi'
+	icon_state = "fieldmed"
+	allowed = list(/obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/flashlight, /obj/item/gun/ballistic, /obj/item/gun/energy,
+			/obj/item/kitchen/knife/combat, /obj/item/melee/baton, /obj/item/melee/classic_baton, /obj/item/reagent_containers/spray/pepper,
+			/obj/item/restraints/handcuffs, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman,
+			/obj/item/storage/belt/holster/detective, /obj/item/storage/belt/holster/thermal, /obj/item/storage/belt/holster/nukie,
+			/obj/item/tank/internals/emergency_oxygen, /obj/item/healthanalyzer, /obj/item/medbot_carrier, /obj/item/gun/syringe, /obj/item/solnce)
+	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 70, RAD = 30, FIRE = 50, ACID = 70, WOUND = 20)
+
 /obj/item/clothing/suit/armor/vest/fieldmedic/med
 	name = "лабораторный бронежилет врача"
-	desc = "Бронированный лабораторный халат полевого врача фронтира. Оперировать под свистом пуль ваша ежедневная рутина. Лекарства закончились, инструменты потеряны, раненный истекает кровью, но все же он везунчик, ведь его закрывает собой врач."
+	desc = "Бронированный лабораторный халат военного врача фронтира. Оперировать под свистом пуль ваша ежедневная рутина. Лекарства закончились, инструменты потеряны, раненный истекает кровью, но все же он везунчик, ведь его закрывает собой врач."
 	icon = 'white/Feline/icons/lab_armor_front.dmi'
 	worn_icon = 'white/Feline/icons/lab_armor_body.dmi'
 	icon_state = "med"
@@ -369,7 +382,7 @@
 
 /obj/item/clothing/suit/armor/vest/fieldmedic/chemist
 	name = "лабораторный бронежилет химика"
-	desc = "Бронированный лабораторный халат подпольного химика фронтира. Кислотные подпалены беспорядочно обрамлены осколками взрывов. И греет мятежную душу последний подарок врагу, месть в облике пламенной смерти и сердце держит чеку."
+	desc = "Бронированный лабораторный халат подпольного химика фронтира. Кислотные подпалены беспорядочно обрамлены осколками взрывов. <BR>И греет мятежную душу<BR> последний подарок врагу,<BR> месть в облике пламенной смерти<BR> и сердце держит чеку."
 	icon = 'white/Feline/icons/lab_armor_front.dmi'
 	worn_icon = 'white/Feline/icons/lab_armor_body.dmi'
 	icon_state = "chemist"

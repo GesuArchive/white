@@ -17,9 +17,9 @@
 	return TRUE
 
 /datum/reagent/reaction_agent/acidic_buffer
-	name = "Strong acidic buffer"
+	name = "Кислотный буфер"
 	enname = "Strong acidic buffer"
-	description = "This reagent will consume itself and move the pH of a beaker towards acidity when added to another."
+	description = "При добавлении к составу сместит ПШ баланс в сторону кислотности."
 	color = "#fbc314"
 	ph = 0
 	impure_chem = null
@@ -34,20 +34,20 @@
 	if(!.)
 		return
 	if(target.ph <= ph)
-		target.my_atom.audible_message(span_warning("The beaker froths as the buffer is added, to no effect."))
+		target.my_atom.audible_message(span_warning("В результате реакции образуется много пены, однако кажется безрезультатно."))
 		playsound(target.my_atom, 'sound/chemistry/bufferadd.ogg', 50, TRUE)
 		holder.remove_reagent(type, amount)//Remove from holder because it's not transfered
 		return
 	var/ph_change = -((amount/target.total_volume)*strength)
 	target.adjust_all_reagents_ph(ph_change, ph, 14)
-	target.my_atom.audible_message(span_warning("The beaker fizzes as the ph changes!"))
+	target.my_atom.audible_message(span_warning("Химикаты бурлят при реакции с буфером!"))
 	playsound(target.my_atom, 'sound/chemistry/bufferadd.ogg', 50, TRUE)
 	holder.remove_reagent(type, amount)
 
 /datum/reagent/reaction_agent/basic_buffer
-	name = "Strong basic buffer"
+	name = "Щелочный буфер"
 	enname = "Strong basic buffer"
-	description = "This reagent will consume itself and move the pH of a beaker towards alkalinity when added to another."
+	description = "При добавлении к составу сместит ПШ баланс в сторону щелочности."
 	color = "#3853a4"
 	ph = 14
 	impure_chem = null
@@ -61,13 +61,13 @@
 	if(!.)
 		return
 	if(target.ph >= ph)
-		target.my_atom.audible_message(span_warning("The beaker froths as the buffer is added, to no effect."))
+		target.my_atom.audible_message(span_warning("В результате реакции образуется много пены, однако кажется безрезультатно."))
 		playsound(target.my_atom, 'sound/chemistry/bufferadd.ogg', 50, TRUE)
 		holder.remove_reagent(type, amount)//Remove from holder because it's not transfered
 		return
 	var/ph_change = (amount/target.total_volume)*strength
 	target.adjust_all_reagents_ph(ph_change, 0, ph)
-	target.my_atom.audible_message(span_warning("The beaker froths as the ph changes!"))
+	target.my_atom.audible_message(span_warning("Химикаты бурлят при реакции с буфером!"))
 	playsound(target.my_atom, 'sound/chemistry/bufferadd.ogg', 50, TRUE)
 	holder.remove_reagent(type, amount)
 

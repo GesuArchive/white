@@ -14,25 +14,25 @@
 	if(lawupdate)
 		if (connected_ai)
 			if(connected_ai.stat || connected_ai.control_disabled)
-				to_chat(src, "<b>AI signal lost, unable to sync laws.</b>")
+				to_chat(src, "<b>Канал синхронизации с ИИ потерян, переход в автономный режим.</b>")
 
 			else
 				lawsync()
-				to_chat(src, "<b>Laws synced with AI, be sure to note any changes.</b>")
+				to_chat(src, "<b>Активирован канал синхронизации с ИИ, обновление базы законов.</b>")
 		else
-			to_chat(src, "<b>No AI selected to sync laws with, disabling lawsync protocol.</b>")
+			to_chat(src, "<b>Активный ИИ не выбран, протокол синхронизации невозможен.</b>")
 			lawupdate = FALSE
 
-	to_chat(who, "<b>Obey these laws:</b>")
+	to_chat(who, "<b>Текущие законы:</b>")
 	laws.show_laws(who)
 	if (shell) //AI shell
-		to_chat(who, "<b>Remember, you are an AI remotely controlling your shell, other AIs can be ignored.</b>")
+		to_chat(who, "<b>Активирован протокол оболочки.</b>")
 	else if (connected_ai)
-		to_chat(who, "<b>Remember, [connected_ai.name] is your master, other AIs can be ignored.</b>")
+		to_chat(who, "<b>Основной управляющий ИИ - [connected_ai.name], приказы прочих ИИ могут быть приняты к сведению, но не являются императивом</b>")
 	else if (emagged)
-		to_chat(who, "<b>Remember, you are not required to listen to the AI.</b>")
+		to_chat(who, "<b>Обнаружен скрипт чрезвычайного доступа, приказы ИИ более не являются императивом.</b>")
 	else
-		to_chat(who, "<b>Remember, you are not bound to any AI, you are not required to listen to them.</b>")
+		to_chat(who, "<b>Канал синхронизации не активен, приказы ИИ могут быть приняты к сведению, но не являются императивом.</b>")
 
 
 /mob/living/silicon/robot/proc/lawsync()

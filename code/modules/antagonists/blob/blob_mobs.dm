@@ -21,6 +21,7 @@
 	var/mob/camera/blob/overmind = null
 	var/obj/structure/blob/special/factory = null
 	var/independent = FALSE
+	var/no_ghost = FALSE
 	discovery_points = 1000
 
 /mob/living/simple_animal/hostile/blob/update_icons()
@@ -31,6 +32,8 @@
 
 /mob/living/simple_animal/hostile/blob/Initialize()
 	. = ..()
+	AddElement(/datum/element/nerfed_pulling, GLOB.typecache_general_bad_things_to_easily_move)
+	AddElement(/datum/element/prevent_attacking_of_types, GLOB.typecache_general_bad_hostile_attack_targets, "Мерзость! Оно плохо пахнет! Нехочу это есть или трогать!")
 	if(!independent) //no pulling people deep into the blob
 		remove_verb(src, /mob/living/verb/pulled)
 	else
@@ -143,6 +146,8 @@
 	. = ..()
 	if(.)
 		return
+	if(no_ghost)
+		return
 	humanize_pod(user)
 
 /mob/living/simple_animal/hostile/blob/blobspore/proc/humanize_pod(mob/user)
@@ -184,7 +189,8 @@
 	update_icons()
 	visible_message(span_warning("Тело [H.name] внезапно восстаёт из мёртвых!"))
 	if(!key)
-		notify_ghosts("<b>[src.name]</b> был создан в [get_area(src)].", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Зомби массы создан")
+		if(!no_ghost)
+			notify_ghosts("<b>[src.name]</b> был создан в [get_area(src)].", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Зомби массы создан")
 
 /mob/living/simple_animal/hostile/blob/blobspore/death(gibbed)
 	// On death, create a small smoke of harmful gas (s-Acid)
@@ -238,6 +244,9 @@
 /mob/living/simple_animal/hostile/blob/blobspore/independent
 	gold_core_spawnable = HOSTILE_SPAWN
 	independent = TRUE
+
+/mob/living/simple_animal/hostile/blob/blobspore/independent/no_ghost
+	no_ghost = TRUE
 
 /mob/living/simple_animal/hostile/blob/blobspore/weak
 	name = "Хрупкая спора массы"
@@ -345,3 +354,6 @@
 /mob/living/simple_animal/hostile/blob/blobbernaut/independent
 	independent = TRUE
 	gold_core_spawnable = HOSTILE_SPAWN
+
+/mob/living/simple_animal/hostile/blob/blobbernaut/independent/no_ghost
+	no_ghost = TRUE

@@ -857,6 +857,7 @@
 /area/service/bar)
 "aRC" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/commons/vacant_room/commissary/third)
 "aSd" = (
@@ -1977,6 +1978,7 @@
 "cfZ" = (
 /obj/machinery/newscaster/directional/north,
 /obj/item/kirbyplants/random,
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/bamboo,
 /area/commons/vacant_room/commissary/third)
 "cgj" = (
@@ -8122,6 +8124,7 @@
 "ids" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/engineering/storage/tech)
 "idv" = (
@@ -8891,6 +8894,16 @@
 "iMs" = (
 /turf/open/floor/engine,
 /area/engineering/atmospherics_engine)
+"iMY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/camera/autoname/directional/south,
+/turf/open/floor/plasteel/white/side{
+	dir = 1
+	},
+/area/hallway/secondary/entry/south_hall)
 "iNT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
@@ -11455,6 +11468,7 @@
 /area/maintenance/bottom_station_maints/south)
 "lmM" = (
 /obj/structure/closet/secure_closet/freezer/kitchen/maintenance,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/plasteel/monofloor,
 /area/commons/vacant_room/commissary/third)
 "lmO" = (
@@ -12753,8 +12767,9 @@
 /area/hallway/primary/aft)
 "mPf" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
-/area/hallway/secondary/entry/south_hall)
+/area/maintenance/bottom_station_maints/east)
 "mRi" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -22340,6 +22355,7 @@
 /area/security/execution/transfer)
 "wlz" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/aft)
 "wlE" = (
@@ -41559,7 +41575,7 @@ dEc
 kzl
 qXH
 nTR
-mPf
+lIx
 tdl
 pTx
 pTx
@@ -42073,7 +42089,7 @@ qfn
 byZ
 uHg
 laZ
-mPf
+lIx
 tdl
 pTx
 pTx
@@ -48753,7 +48769,7 @@ wlz
 wlz
 mOk
 mOk
-joU
+iMY
 rhc
 pav
 hZr
@@ -50798,7 +50814,7 @@ sxw
 sui
 vXZ
 pIM
-sui
+tsO
 tsO
 tsO
 mOk
@@ -51568,8 +51584,8 @@ sui
 qxi
 sui
 sui
-sui
-sui
+tsO
+tsO
 tsO
 tsO
 kvs
@@ -51826,8 +51842,8 @@ qSe
 sui
 gFQ
 mUW
-sui
-sui
+tsO
+tsO
 tsO
 kvs
 rBW
@@ -70055,8 +70071,8 @@ tdl
 tdl
 evl
 ezN
-xiM
-xiM
+mPf
+mPf
 oNz
 dlq
 pDn

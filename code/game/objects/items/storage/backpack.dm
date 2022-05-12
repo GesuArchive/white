@@ -380,11 +380,27 @@
 	tool_behaviors = list(TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_CLOTHING
 
+/obj/item/storage/backpack/duffelbag/c4_no_slowdown
+	name = "удобная сумка"
+	desc = "Это очень большая и удобная сумка для хранения вещей, в нее явно влезет больше вещей чем в обычную, и это не замедлит меня."
+	icon_state = "duffel-drone"
+	inhand_icon_state = "duffel-drone"
+	slowdown = 0
+
+/obj/item/storage/backpack/duffelbag/c4_no_slowdown/Initialize()
+	. = ..()
+	add_overlay(duffel_anti_slow_overlay)
+
+
+/obj/item/storage/backpack/duffelbag/c4_no_slowdown/PopulateContents()
+	for(var/i in 1 to 3)
+		new /obj/item/grenade/c4/x4(src)
+
 ////	////	////	////	////
 
 /obj/item/storage/backpack/duffelbag/cursed
-	name = "living duffel bag"
-	desc = "A cursed clown duffel bag that hungers for food of any kind. Putting some food for it to eat inside of it should distract it from eating you for a while. A warning label on one of the duffel bag's sides cautions against feeding your \"new pet\" anything poisonous..."
+	name = "живая сумка"
+	desc = "Огромная, проклятая, всеядная и весьма голодная сумка. Если такая цапнет то уже не отпустит. Кажется если ее кормить то она ненадолго успокаивается. Тут сбоку есть этикетка и на ней написано \"Не смейте кормить мою прелесть всякой гадостью, ее от этого тошнит. Она предпочитает мясные блюда, желательно из ассистентов.\""
 	icon_state = "duffel-curse"
 	inhand_icon_state = "duffel-curse"
 	slowdown = 1.3

@@ -625,70 +625,70 @@
 	display_name = "Night Vision Technology"
 	description = "Allows seeing in the dark without actual light!"
 	prereq_ids = list("integrated_HUDs", "adv_engi", "emp_adv")
-	design_ids = list("health_hud_night", "security_hud_night", "diagnostic_hud_night", "night_visision_goggles", "nvgmesons")
+	design_ids = list("health_hud_night", "security_hud_night", "diagnostic_hud_night", "sci_goggles_night", "night_visision_goggles", "nvgmesons")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 
 ////////////////////////Medical////////////////////////
 /datum/techweb_node/genetics
 	id = "genetics"
-	display_name = "Genetic Engineering"
-	description = "We have the technology to change him."
+	display_name = "Генная инженерия"
+	description = "Вы никогда не задавались вопросом: почему у человека 23 пары хромосом, а у обезьяны 24? И кто же тогда более совершенен?"
 	prereq_ids = list("biotech")
 	design_ids = list("dnascanner", "scan_console", "dna_disk")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/cryotech
 	id = "cryotech"
-	display_name = "Cryostasis Technology"
-	description = "Smart freezing of objects to preserve them!"
+	display_name = "Криостазис"
+	description = "Технология остановки химических и биологических процессов."
 	prereq_ids = list("adv_engi", "biotech")
 	design_ids = list("splitbeaker", "cryotube", "cryo_Grenade", "stasis")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2000)
 
 /datum/techweb_node/subdermal_implants
 	id = "subdermal_implants"
-	display_name = "Subdermal Implants"
-	description = "Electronic implants buried beneath the skin."
+	display_name = "Микроимпланты"
+	description = "Крошечные подкожные импланты вводимые посредством инъекции."
 	prereq_ids = list("biotech")
 	design_ids = list("implanter", "implantcase", "implant_chem", "implant_tracking", "locator", "c38_trac")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/cyber_organs
 	id = "cyber_organs"
-	display_name = "Cybernetic Organs"
-	description = "We have the technology to rebuild him."
+	display_name = "Кибернетические органы"
+	description = "Когда органика не справляется."
 	prereq_ids = list("biotech")
-	design_ids = list("cybernetic_ears", "cybernetic_heart_tier2", "cybernetic_liver_tier2", "cybernetic_lungs_tier2", "cybernetic_stomach_tier2")
+	design_ids = list("cybernetic_ears", "cybernetic_heart_tier2", "cybernetic_liver_tier2", "cybernetic_lungs_tier2", "cybernetic_stomach_tier2", "robot_good_arm_left", "robot_good_arm_right", "robot_good_leg_left", "robot_good_leg_right")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000)
 
 /datum/techweb_node/cyber_organs_upgraded
 	id = "cyber_organs_upgraded"
-	display_name = "Upgraded Cybernetic Organs"
-	description = "We have the technology to upgrade him."
+	display_name = "Продвинутые кибернетические органы"
+	description = "Когда слабость плоти вызывает отвращение."
 	prereq_ids = list("adv_biotech", "cyber_organs")
 	design_ids = list("cybernetic_ears_u", "cybernetic_heart_tier3", "cybernetic_liver_tier3", "cybernetic_lungs_tier3", "cybernetic_stomach_tier3")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1500)
 
 /datum/techweb_node/cyber_implants
 	id = "cyber_implants"
-	display_name = "Cybernetic Implants"
-	description = "Electronic implants that improve humans."
+	display_name = "Кибернетические импланты"
+	description = "Начало пути симбиоза человека и машины."
 	prereq_ids = list("adv_biotech", "datatheory")
 	design_ids = list("ci-nutriment", "ci-breather", "ci-gloweyes", "ci-welding", "ci-medhud", "ci-sechud", "ci-diaghud")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/adv_cyber_implants
 	id = "adv_cyber_implants"
-	display_name = "Advanced Cybernetic Implants"
-	description = "Upgraded and more powerful cybernetic implants."
+	display_name = "Продвинутые кибернетические импланты"
+	description = "У нас есть 2077 причин преимущества машины перед органикой."
 	prereq_ids = list("neural_programming", "cyber_implants","integrated_HUDs")
-	design_ids = list("ci-toolset", "ci-surgery", "ci-reviver", "ci-nutrimentplus")
+	design_ids = list("ci-toolset", "ci-surgery", "ci-reviver", "ci-nutrimentplus", "ci-biomonitor")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/combat_cyber_implants
 	id = "combat_cyber_implants"
-	display_name = "Combat Cybernetic Implants"
-	description = "Military grade combat implants to improve performance."
+	display_name = "Военные кибернетические импланты"
+	description = "Передовые разработки Нано Трейзен, компания вложила более 40 тысяч кредитов в этот проект."
 	prereq_ids = list("adv_cyber_implants","weaponry","NVGtech","high_efficiency")
 	design_ids = list("ci-xray", "ci-thermals", "ci-antidrop", "ci-antistun", "ci-thrusters")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)

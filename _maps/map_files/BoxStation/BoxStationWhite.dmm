@@ -31685,7 +31685,8 @@
 	dir = 10
 	},
 /obj/structure/table,
-/obj/item/ai_module/core,
+/obj/item/storage/secure/briefcase,
+/obj/item/circuitboard/aicore,
 /turf/open/floor/plasteel,
 /area/command/heads_quarters/rd)
 "dsi" = (
@@ -32314,7 +32315,6 @@
 	pixel_x = 6;
 	pixel_y = -28
 	},
-/obj/item/storage/secure/briefcase,
 /turf/open/floor/plasteel,
 /area/command/heads_quarters/rd)
 "dZy" = (
@@ -33455,6 +33455,10 @@
 	},
 /obj/item/raw_anomaly_core/random{
 	pixel_y = -2
+	},
+/obj/item/raw_anomaly_core/random{
+	pixel_x = 3;
+	pixel_y = 5
 	},
 /turf/open/floor/plasteel/white,
 /area/science/mixing)
@@ -37159,6 +37163,11 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/cargo/storage)
+"iYT" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/camera/autoname,
+/turf/open/openspace/airless,
+/area/space/nearstation)
 "iZT" = (
 /obj/machinery/light{
 	dir = 4
@@ -92652,7 +92661,7 @@ bAw
 mSR
 bAw
 xhW
-nXv
+iYT
 gXs
 gXs
 gXs

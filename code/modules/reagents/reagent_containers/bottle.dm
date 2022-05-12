@@ -98,6 +98,26 @@
 	desc = "Маленький флакон. Содержит небольшое количество фтористоводородной кислоты."
 	list_reagents = list(/datum/reagent/toxin/acid/fluacid = 30)
 
+/obj/item/reagent_containers/glass/bottle/penacid
+	name = "Пентетовая кислота"
+	desc = "Небольшая бутылка кислоты, способной выводить токсины и радиацию."
+	list_reagents = list(/datum/reagent/medicine/pen_acid = 30)
+
+/obj/item/reagent_containers/glass/bottle/sal_acid
+	name = "Салициловая кислота"
+	desc = "Небольшая бутылка со средством для лечения побоев и ушибов."
+	list_reagents = list(/datum/reagent/medicine/sal_acid = 30)
+
+/obj/item/reagent_containers/glass/bottle/oxandrolone
+	name = "Оксандролон"
+	desc = "Небольшая бутылка со средством для лечения ожогов."
+	list_reagents = list(/datum/reagent/medicine/oxandrolone = 30)
+
+/obj/item/reagent_containers/glass/bottle/synthflesh
+	name = "Синтеплоть"
+	desc = "Небольшая бутылка со средством для лечения ожогов и ушибов ценой интоксикации. Перед использованием поместить в пластырь или распылитель."
+	list_reagents = list(/datum/reagent/medicine/c2/synthflesh = 30)
+
 /obj/item/reagent_containers/glass/bottle/adminordrazine
 	name = "Флакон с Админордразином"
 	desc = "Маленький флакон. Содержит жидкую эссенцию богов."
@@ -208,28 +228,28 @@
 	list_reagents = list(/datum/reagent/medicine/atropine = 30)
 
 /obj/item/reagent_containers/glass/bottle/random_buffer
-	name = "Buffer bottle"
-	desc = "A small bottle of chemical buffer."
+	name = "щелочной буфер"
+	desc = "Небольшая бутылочка на 30 единиц. Содержит щелочной буфер."
 
 /obj/item/reagent_containers/glass/bottle/random_buffer/Initialize()
 	. = ..()
 	if(prob(50))
-		name = "Acidic buffer bottle"
-		desc = "A small bottle of acidic buffer."
+		name = "кислотный буфер"
+		desc = "Небольшая бутылочка на 30 единиц. Содержит кислотный буфер."
 		reagents.add_reagent(/datum/reagent/reaction_agent/acidic_buffer, 30)
 	else
-		name = "Basic buffer bottle"
-		desc = "A small bottle of basic buffer."
+		name = "щелочной буфер"
+		desc = "Небольшая бутылочка на 30 единиц. Содержит щелочной буфер."
 		reagents.add_reagent(/datum/reagent/reaction_agent/basic_buffer, 30)
 
 /obj/item/reagent_containers/glass/bottle/acidic_buffer
-	name = "Acidic buffer bottle"
-	desc = "A small bottle of acidic buffer."
+	name = "кислотный буфер"
+	desc = "Небольшая бутылочка на 30 единиц. Содержит кислотный буфер."
 	list_reagents = list(/datum/reagent/reaction_agent/acidic_buffer = 30)
 
 /obj/item/reagent_containers/glass/bottle/basic_buffer
-	name = "Basic buffer bottle"
-	desc = "A small bottle of basic buffer."
+	name = "щелочной буфер"
+	desc = "Небольшая бутылочка на 30 единиц. Содержит щелочной буфер."
 	list_reagents = list(/datum/reagent/reaction_agent/basic_buffer = 30)
 
 /obj/item/reagent_containers/glass/bottle/romerol

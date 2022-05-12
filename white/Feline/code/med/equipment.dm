@@ -313,7 +313,7 @@
 				name = "МК-Юпитер"
 				desc = "Многофункциональный медицинский комплекс \"Солнце\", модель \"Юпитер\". При активации встроенный автохирург подключается к кровеносной системе и, автоматически определяя группу крови пострадавшего, восстанавливает уровень крови из внутренних запасов устройства."
 				blank_item_1 = /obj/item/scalpel
-				blank_item_2 = /obj/item/reagent_containers/syringe
+				blank_item_2 = /obj/item/retractor
 				blank_chem_1 = /datum/reagent/medicine/salglu_solution
 				blank_chem_2 = /datum/reagent/toxin/mutagen
 			if("Сатурн")
@@ -474,3 +474,10 @@
 #undef BLANK_STEP_4
 #undef BLANK_STEP_5
 #undef BLANK_STEP_6
+
+/obj/item/storage/box/med
+	name = "медицинская коробка"
+	desc = "Коробка стерильно-белого цвета. Изначально использовалась как контейнер для радиоактивных веществ, однако наши ученые выяснили, что радиация неплохо уничтожает микробов!"
+	icon = 'white/Feline/icons/med_items.dmi'
+	icon_state = "med_box"
+

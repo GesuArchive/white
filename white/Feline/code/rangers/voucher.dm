@@ -64,7 +64,7 @@
 	new /obj/item/pinpointer/crew(src)
 	new /obj/item/sensor_device(src)
 	new /obj/item/clothing/glasses/hud/health(src)
-	new /obj/item/healthanalyzer(src)
+	new /obj/item/reagent_containers/medigel/sterilizine(src)
 	new /obj/item/reagent_containers/medigel/libital(src)
 	new /obj/item/storage/belt/medipenal/rangers(src)
 
@@ -82,7 +82,6 @@
 		/obj/item/stack/medical/suture/medicated = 1,
 		/obj/item/stack/medical/mesh/advanced = 1,
 		/obj/item/reagent_containers/hypospray/medipen = 1,
-		/obj/item/reagent_containers/medigel/sterilizine = 1,
 		/obj/item/surgical_drapes = 1,
 		/obj/item/scalpel = 1,
 		/obj/item/hemostat = 1,
@@ -90,7 +89,8 @@
 		/obj/item/circular_saw = 1,
 		/obj/item/bonesetter = 1,
 		/obj/item/blood_filter = 1,
-		/obj/item/cautery = 1)
+		/obj/item/cautery = 1,
+		/obj/item/healthanalyzer = 1)
 	generate_items_inside(items_inside,src)
 
 //Инженерный Набор
@@ -295,13 +295,20 @@
 // 	Космонавтики
 	if(iscarbon(M) && !isalien(M))
 		if(amplification)
-			force = 25
-			M.add_movespeed_modifier(/datum/movespeed_modifier/proton_cutter)
-			addtimer(CALLBACK(M, /mob/proc/remove_movespeed_modifier, /datum/movespeed_modifier/proton_cutter), 5 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+			if(iszombie(M))
+				force = 60
+				M.Paralyze(5 SECONDS, ignore_canstun = TRUE)
+			else
+				force = 25
+				M.add_movespeed_modifier(/datum/movespeed_modifier/proton_cutter)
+				addtimer(CALLBACK(M, /mob/proc/remove_movespeed_modifier, /datum/movespeed_modifier/proton_cutter), 5 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 			proton_off()
 			proton_attack(M, user, 5)
 		else
-			force = 15
+			if(iszombie(M))
+				force = 30
+			else
+				force = 15
 		..()
 		return
 // 	Чужие

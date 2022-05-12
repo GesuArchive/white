@@ -161,11 +161,12 @@
 	file_name = "13x13_supermatter_containment"
 	weight = 4
 	max_occurances = 1
-
-/datum/map_template/ruin_part/gateway
+/*
+/datum/map_template/ruin_part/gateway	// Потенциальный способ заражения станции
 	file_name = "5x9_gateway"
 	weight = 1
 	max_occurances = 1
+*/
 
 /datum/map_template/ruin_part/shower
 	file_name = "5x5_shower"
@@ -412,6 +413,12 @@
 
 /datum/map_template/ruin_part/hilberttest
 	file_name = "13x13_hilberttest"
+	weight = 5
+	loot_room = TRUE
+	max_occurances = 1
+
+/datum/map_template/ruin_part/medlab
+	file_name = "13x13_medlab"
 	weight = 5
 	loot_room = TRUE
 	max_occurances = 1

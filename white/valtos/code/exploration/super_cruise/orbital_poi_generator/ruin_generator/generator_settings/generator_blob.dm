@@ -17,8 +17,8 @@
 		/obj/effect/mob_spawn/human/corpse/assistant = 1,
 		/obj/effect/mob_spawn/human/corpse/cargo_tech = 1,
 		/obj/effect/mob_spawn/human/corpse/nanotrasensoldier = 1,
-		/mob/living/simple_animal/hostile/blob/blobspore/independent = 8,
-		/mob/living/simple_animal/hostile/blob/blobbernaut/independent = 2,
+		/mob/living/simple_animal/hostile/blob/blobspore/independent/no_ghost = 8,
+		/mob/living/simple_animal/hostile/blob/blobbernaut/independent/no_ghost = 2,
 		null = 90,
 	)
 	for(var/trash in subtypesof(/obj/item/trash))

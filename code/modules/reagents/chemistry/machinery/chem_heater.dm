@@ -435,7 +435,7 @@
 		if(volume < 0)
 			var/datum/reagent/basic_reagent = beaker.reagents.get_reagent(/datum/reagent/reaction_agent/basic_buffer)
 			if(!basic_reagent)
-				say("Невозможно найти основной буфер в пробирке! Пожалуйста, вставьте стакан с основным буфером.")
+				say("Невозможно найти щелочной буфер в пробирке! Пожалуйста, вставьте стакан с щелочным буфером.")
 				return
 			var/datum/reagent/basic_reagent_heater = reagents.get_reagent(/datum/reagent/reaction_agent/basic_buffer)
 			var/cur_vol = 0

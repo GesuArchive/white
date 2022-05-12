@@ -75,6 +75,30 @@
 	sub_category = list("Диагностика и мониторинг")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
+/datum/design/sci_goggles
+	name = "Научные очки"
+	desc = "Пара шикарных очков, используемых для защиты от химических разливов. Оснащен анализатором для сканирования предметов и реагентов."
+	id = "scigoggles"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
+	build_path = /obj/item/clothing/glasses/science
+	category = list("Снаряжение", "Медицинское снаряжение")
+	sub_category = list("Диагностика и мониторинг")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
+
+/datum/design/sci_goggles_night
+	name = "Научные очки с ПНВ"
+	desc = "Диагностический интерфейс робототехника со встроенной подсветкой."
+	id = "sci_goggles_night"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/uranium = 1000, /datum/material/plasma = 300)
+	build_path = /obj/item/clothing/glasses/science/night
+	category = list("Снаряжение", "Инженерное снаряжение")
+	sub_category = list("Диагностика и мониторинг")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
+
 /////////////////////////////////////////
 //////////////////Misc///////////////////
 /////////////////////////////////////////
@@ -92,7 +116,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/welding_mask
-	name = "Сварочная маска"
+	name = "Продвинутая сварочная маска"
 	desc = "Противогаз со встроенными сварочными очками и защитной маской. Выглядит как череп разработанный задротом."
 	id = "weldingmask"
 	build_type = PROTOLATHE | MECHFAB
@@ -231,18 +255,6 @@
 	category = list("Снаряжение", "Инженерное снаряжение")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
-
-/datum/design/sci_goggles
-	name = "Научные очки"
-	desc = "Пара шикарных очков, используемых для защиты от химических разливов. Оснащен анализатором для сканирования предметов и реагентов."
-	id = "scigoggles"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
-	build_path = /obj/item/clothing/glasses/science
-	category = list("Снаряжение", "Медицинское снаряжение")
-	sub_category = list("Диагностика и мониторинг")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/diskplantgene
 	name = "Диск с ботаническими данными"

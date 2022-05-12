@@ -442,6 +442,7 @@ GLOBAL_LIST_INIT(durathread_recipes, list ( \
  */
 GLOBAL_LIST_INIT(cardboard_recipes, list (																				 \
 	new/datum/stack_recipe("коробка", /obj/item/storage/box),															 \
+	new/datum/stack_recipe("медицинская коробка", /obj/item/storage/box/med),											 \
 	new/datum/stack_recipe("костюм картонного киборга", /obj/item/clothing/suit/cardborg, 3),					  		 \
 	new/datum/stack_recipe("шлем картонного киборга", /obj/item/clothing/head/cardborg),								 \
 	new/datum/stack_recipe("большая коробка", /obj/structure/closet/cardboard, 4, one_per_turf = TRUE, on_floor = TRUE), \

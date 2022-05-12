@@ -4,7 +4,6 @@
 /area/ruin/unpowered)
 "d" = (
 /obj/structure/table/wood,
-/obj/item/storage/blister/twocap/stimulant,
 /turf/open/floor/wood,
 /area/ruin/unpowered)
 "e" = (
@@ -70,9 +69,7 @@
 /turf/open/floor/wood,
 /area/ruin/unpowered)
 "K" = (
-/obj/item/storage/backpack/duffelbag/syndie/x4{
-	pixel_x = 7
-	},
+/obj/item/storage/backpack/duffelbag/c4_no_slowdown,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "M" = (

@@ -148,12 +148,13 @@ GENE SCANNER
 
 // Used by the PDA medical scanner too
 /proc/healthscan(mob/user, mob/living/M, mode = SCANNER_VERBOSE, advanced = FALSE, tochat = TRUE)
-	if(user.incapacitated())
-		return
+	if(!M.getorganslot(ORGAN_SLOT_BRAIN_BIOMONITOR))
+		if(user.incapacitated())
+			return
 
-	if(user.is_blind())
-		to_chat(user, span_warning("You realize that your scanner has no accessibility support for the blind!"))
-		return
+		if(user.is_blind())
+			to_chat(user, span_warning("Этот сканер не адаптирован для слепых! Я буду жаловаться в профсоюз!"))
+			return
 
 	// the final list of strings to render
 	var/render_list = list()

@@ -28,10 +28,10 @@
 	belt = /obj/item/defibrillator/compact/loaded
 	ears = /obj/item/radio/headset/headset_medsec
 	uniform = /obj/item/clothing/under/rank/medical/brigphys
+	gloves = /obj/item/clothing/gloves/color/latex/nitrile
 	shoes = /obj/item/clothing/shoes/jackboots
-	suit = /obj/item/clothing/suit/armor
-	l_hand = /obj/item/storage/backpack/duffelbag/med/surgery
-	backpack_contents = list(/obj/item/storage/box/trackimp = 1, /obj/item/storage/firstaid/medical = 1, /obj/item/optable = 1, /obj/item/modular_computer/laptop/preset/medical = 1, /obj/item/storage/pill_bottle/soldier = 1, /obj/item/flashlight = 1)
+	suit = /obj/item/clothing/suit/armor/vest/fieldmedic
+	backpack_contents = list(/obj/item/storage/box/trackimp = 1, /obj/item/storage/firstaid/medical/field_surgery = 1, /obj/item/optable = 1, /obj/item/modular_computer/laptop/preset/medical = 1, /obj/item/storage/pill_bottle/soldier = 1, /obj/item/flashlight = 1)
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med

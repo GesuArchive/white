@@ -75,7 +75,7 @@
 /obj/item/gun/ballistic/revolver/examine(mob/user)
 	. = ..()
 	var/live_ammo = get_ammo(FALSE, FALSE)
-	. += "<hr>[live_ammo ? live_ammo : "Нет"] живых патронов."
+	. += "<hr>[live_ammo ? "Осталось [live_ammo]" : "Не осталось"] нестреляных патронов."
 	if (current_skin)
 		. += "\nЕго можно покрутить используя <b>Alt+клик</b>"
 

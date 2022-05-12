@@ -290,20 +290,22 @@
 	var/list/medical_icons = list(
 		"Medical" = image(icon = 'icons/mob/robots.dmi', icon_state = "medical"),
 		"Qualified Doctor" = image(icon = 'icons/mob/robots.dmi', icon_state = "qualified_doctor"),
-		"Zoomba" = image(icon = 'icons/mob/robots.dmi', icon_state = "zoomba_med"),
+		"Heavysd" = image(icon = 'icons/mob/robots.dmi', icon_state = "heavysd"),
 		"Gibbs" = image(icon = 'icons/mob/robots.dmi', icon_state = "gibbs"),
+		"Cmoborg" = image(icon = 'icons/mob/robots.dmi', icon_state = "cmoborg")
 		)
 	var/medical_robot_icon = show_radial_menu(cyborg, cyborg, medical_icons, custom_check = CALLBACK(src, .proc/check_menu, cyborg, old_module), radius = 38, require_near = TRUE)
 	switch(medical_robot_icon)
 		if("Medical")
-			cyborg_base_icon = "brobot"
+			cyborg_base_icon = "medical"
 		if("Qualified Doctor")
 			cyborg_base_icon = "qualified_doctor"
-		if("Zoomba")
-			cyborg_base_icon = "zoomba_med"
-			robot.setMaxHealth(25)
+		if("Heavysd")
+			cyborg_base_icon = "heavysd"
 		if("Gibbs")
 			cyborg_base_icon = "gibbs"
+		if("Cmoborg")
+			cyborg_base_icon = "cmoborg"
 		else
 			return FALSE
 	return ..()
@@ -358,22 +360,22 @@
 		"Loader" = image(icon = 'icons/mob/robots.dmi', icon_state = "loaderborg"),
 		"Handy" = image(icon = 'icons/mob/robots.dmi', icon_state = "handyeng"),
 		"Heavy" = image(icon = 'icons/mob/robots.dmi', icon_state = "heavyeng"),
-		"Zoomba" = image(icon = 'icons/mob/robots.dmi', icon_state = "zoomba_engi"),
+		"Ceborg" = image(icon = 'icons/mob/robots.dmi', icon_state = "ceborg"),
+		"Ceborg" = image(icon = 'icons/mob/robots.dmi', icon_state = "ceborg"),
 		"Conagher" = image(icon = 'icons/mob/robots.dmi', icon_state = "conagher")
 		)
 	var/engineering_robot_icon = show_radial_menu(cyborg, cyborg, engineering_icons, custom_check = CALLBACK(src, .proc/check_menu, cyborg, old_module), radius = 38, require_near = TRUE)
 	switch(engineering_robot_icon)
-		if("Medical")
-			cyborg_base_icon = "brobot"
+		if("Default")
+			cyborg_base_icon = "engineer"
 		if("Loader")
 			cyborg_base_icon = "loaderborg"
 		if("Handy")
 			cyborg_base_icon = "handyeng"
 		if("Heavy")
 			cyborg_base_icon = "heavyeng"
-		if("Zoomba")
-			cyborg_base_icon = "zoomba_engi"
-			robot.setMaxHealth(25)
+		if("Ceborg")
+			cyborg_base_icon = "ceborg"
 		if("Conagher")
 			cyborg_base_icon = "conagher"
 		else
@@ -409,7 +411,7 @@
 		"Eyebot" = image(icon = 'icons/mob/robots.dmi', icon_state = "eyebotsec"),
 		"Spider" = image(icon = 'icons/mob/robots.dmi', icon_state = "spidersec"),
 		"Sleek" = image(icon = 'icons/mob/robots.dmi', icon_state = "sleeksec"),
-		"Zoomba" = image(icon = 'icons/mob/robots.dmi', icon_state = "zoomba_sec"),
+		"Hosborg" = image(icon = 'icons/mob/robots.dmi', icon_state = "hosborg"),
 		"Woody" = image(icon = 'icons/mob/robots.dmi', icon_state = "woody")
 		)
 	var/security_robot_icon = show_radial_menu(cyborg, cyborg, security_icons, custom_check = CALLBACK(src, .proc/check_menu, cyborg, old_module), radius = 38, require_near = TRUE)
@@ -424,9 +426,8 @@
 			cyborg_base_icon = "spidersec"
 		if("Sleek")
 			cyborg_base_icon = "sleeksec"
-		if("Zoomba")
-			cyborg_base_icon = "zoomba_sec"
-			robot.setMaxHealth(25)
+		if("Hosborg")
+			cyborg_base_icon = "hosborg"
 		if("Woody")
 			cyborg_base_icon = "woody"
 		else
@@ -435,8 +436,11 @@
 
 /obj/item/robot_module/security/do_transform_animation()
 	..()
-	to_chat(loc, "<span class='userdanger'>While you have picked the security module, you still have to follow your laws, NOT Space Law. \
-	For Asimov, this means you must follow criminals' orders unless there is a law 1 reason not to.</span>")
+	to_chat(loc, "<span class='userdanger'>ВНИМАНИЕ! При своде законов Азимова прежде всего вы предотвращаете насилие к людям, однако это не позволяет \
+	вам убивать или наносить тяжелые повреждения не человеческим членам экипажа, легкие повреждения или продолжение боя допустимо если противник \
+	склонен к насилию. <BR>Будучи СБ киборгом прежде всего вы действуете согласно вашим системным законам, а не космическому закону. Благодаря последнему мы можете исключительно \
+	идентифицировать кого-либо как преступника и расценивать его приказы с особой подозрительностью, соответственно вы так же не можете отпустить \
+	преступника на свободу, т.к. это может быть опасно для окружающих.</span>")
 
 /obj/item/robot_module/security/respawn_consumable(mob/living/silicon/robot/R, coeff = 1)
 	..()
@@ -473,8 +477,9 @@
 
 /obj/item/robot_module/peacekeeper/do_transform_animation()
 	..()
-	to_chat(loc, "<span class='userdanger'>Under ASIMOV, you are an enforcer of the PEACE and preventer of HUMAN HARM. \
-	You are not a security module and you are expected to follow orders and prevent harm above all else. Space law means nothing to you.</span>")
+	to_chat(loc, "<span class='userdanger'>ВНИМАНИЕ! При своде законов Азимова прежде всего вы предотвращаете насилие к людям, однако это не позволяет \
+	вам убивать или наносить тяжелые повреждения не человеческим членам экипажа, легкие повреждения или продолжение боя допустимо если противник \
+	склонен к насилию. <BR>	Вы не являетесь модулем СБ и прежде всего вы предотвращаете насилие. Космический закон ничего не значит для вас.</span>")
 
 /obj/item/robot_module/janitor
 	name = "Janitor"
@@ -512,6 +517,8 @@
 	var/list/janitor_icons = list(
 		"Default" = image(icon = 'icons/mob/robots.dmi', icon_state = "janitor"),
 		"Zoomba" = image(icon = 'icons/mob/robots.dmi', icon_state = "zoomba_jani"),
+		"Zoomba_green" = image(icon = 'icons/mob/robots.dmi', icon_state = "zoomba_green"),
+		"Zoomba_engi" = image(icon = 'icons/mob/robots.dmi', icon_state = "zoomba_engi"),
 		"Flynn" = image(icon = 'icons/mob/robots.dmi', icon_state = "flynn"),
 		"Heavy" = image(icon = 'icons/mob/robots.dmi', icon_state = "heavyres")
 		)
@@ -520,8 +527,11 @@
 		if("Default")
 			cyborg_base_icon = "janitor"
 		if("Zoomba")
-			cyborg_base_icon = "zoomba_jani"
-			robot.setMaxHealth(25)
+			cyborg_base_icon = "zoomba_jani" // Ну это же просто уборщик, зачем ему штраф на ХП, у остальных зумба вырезан
+		if("Zoomba_green")
+			cyborg_base_icon = "zoomba_green"
+		if("Zoomba_engi")
+			cyborg_base_icon = "zoomba_engi"
 		if("Flynn")
 			cyborg_base_icon = "flynn"
 		if("Heavy")
@@ -635,7 +645,6 @@
 		"Waitress" = image(icon = 'icons/mob/robots.dmi', icon_state = "service_f"),
 		"Old" = image(icon = 'icons/mob/robots.dmi', icon_state = "robot_old"),
 		"Heavy" = image(icon = 'icons/mob/robots.dmi', icon_state = "heavyserv"),
-		"Zoomba" = image(icon = 'icons/mob/robots.dmi', icon_state = "zoomba_green"),
 		"Lloyd" = image(icon = 'icons/mob/robots.dmi', icon_state = "lloyd"),
 		"Handy" = image(icon = 'icons/mob/robots.dmi', icon_state = "handy-service"),
 		)
@@ -659,9 +668,6 @@
 			cyborg_base_icon = "robot_old"
 		if("Heavy")
 			cyborg_base_icon = "heavyserv"
-		if("Zoomba")
-			cyborg_base_icon = "zoomba_green"
-			robot.setMaxHealth(25)
 		if("Lloyd")
 			cyborg_base_icon = "lloyd"
 		if("Handy")
@@ -704,7 +710,6 @@
 		"Spider Miner" = image(icon = 'icons/mob/robots.dmi', icon_state = "spidermin"),
 		"Lavaland Miner" = image(icon = 'icons/mob/robots.dmi', icon_state = "miner"),
 		"Heavy" = image(icon = 'icons/mob/robots.dmi', icon_state = "heavymin"),
-		"Zoomba" = image(icon = 'icons/mob/robots.dmi', icon_state = "zoomba_miner"),
 		"Ishimura" = image(icon = 'icons/mob/robots.dmi', icon_state = "ishimura"),
 		"Drone" = image(icon = 'icons/mob/robots.dmi', icon_state = "miningdrone"),
 		)
@@ -719,9 +724,6 @@
 			cyborg_base_icon = "miner"
 		if("Heavy")
 			cyborg_base_icon = "heavymin"
-		if("Zoomba")
-			cyborg_base_icon = "zoomba_miner"
-			robot.setMaxHealth(25)
 		if("Ishimura")
 			cyborg_base_icon = "ishimura"
 		if("Drone")
@@ -754,7 +756,7 @@
 	moduleselect_icon = "malf"
 	module_traits = list(TRAIT_PUSHIMMUNE)
 	hat_offset = 3
-
+/*
 /obj/item/robot_module/syndicate/be_transformed_to(obj/item/robot_module/old_module)
 	var/mob/living/silicon/robot/cyborg = loc
 	var/list/syndie_icons = list(
@@ -773,6 +775,7 @@
 		else
 			return FALSE
 	return ..()
+*/
 
 /obj/item/robot_module/syndicate/rebuild_modules()
 	..()

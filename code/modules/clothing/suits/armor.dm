@@ -203,7 +203,6 @@
 	name = "старый бронежилет"
 	desc = "Бронежилет Тип I старого поколения. Ввиду использования старых технологий создания бронежилета, является менее маневрененным для перемещения."
 	armor = list(MELEE = 25, BULLET = 20, LASER = 20, ENERGY = 30, BOMB = 15, BIO = 0, RAD = 0, FIRE = 30, ACID = 10, WOUND = 5)
-	icon_state = "armor_old"
 	inhand_icon_state = "armor"
 	slowdown = 0.4
 

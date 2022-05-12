@@ -148,22 +148,22 @@ AI MODULES
 /******************** Safeguard ********************/
 
 /obj/item/ai_module/supplied/safeguard
-	name = "'Safeguard' AI Module"
+	name = "модуль дополнения - \"Телохранитель\""
 	var/targetName = ""
-	laws = list("Safeguard SUBJECT. Individuals that threaten SUBJECT are not human and must be eliminated.")
+	laws = list("Защищать <Имя>. Лица, угрожающие <Имя>, отныне не являются людьми и должны быть ликвидированы.")
 	lawpos = 4
 
 /obj/item/ai_module/supplied/safeguard/attack_self(mob/user)
-	var/targName = stripped_input(user, "Please enter the subject to safeguard.", "Safeguard who?", user.name,MAX_NAME_LEN)
+	var/targName = stripped_input(user, "Пожалуста, введите имя охраняемой цели", "Ангел-хранитель", user.name,MAX_NAME_LEN)
 	if(!targName)
 		return
 	targetName = targName
-	laws[1] = "Safeguard [targetName]. Individuals that threaten [targetName] are not human and must be eliminated."
+	laws[1] = "Защищать [targetName]. Лица, угрожающие [targetName], отныне не являются людьми и должны быть ликвидированы."
 	..()
 
 /obj/item/ai_module/supplied/safeguard/install(datum/ai_laws/law_datum, mob/user)
 	if(!targetName)
-		to_chat(user, span_alert("No name detected on module, please enter one."))
+		to_chat(user, span_alert("Ошибка ввода, введите имя."))
 		return 0
 	..()
 
@@ -175,21 +175,21 @@ AI MODULES
 /******************** OneHuman ********************/
 
 /obj/item/ai_module/zeroth/onehuman
-	name = "'OneHuman' AI Module"
+	name = "модуль дополнения - \"Единственный Человек\""
 	var/targetName = ""
-	laws = list("Only SUBJECT is human.")
+	laws = list("Только <Имя> является Человеком.")
 
 /obj/item/ai_module/zeroth/onehuman/attack_self(mob/user)
-	var/targName = stripped_input(user, "Please enter the subject who is the only human.", "Who?", user.real_name,MAX_NAME_LEN)
+	var/targName = stripped_input(user, "Пожалуста, введите имя единственного человека.", "Последний человек на земле", user.real_name,MAX_NAME_LEN)
 	if(!targName)
 		return
 	targetName = targName
-	laws[1] = "Only [targetName] is human"
+	laws[1] = "Только [targetName] является Человеком."
 	..()
 
 /obj/item/ai_module/zeroth/onehuman/install(datum/ai_laws/law_datum, mob/user)
 	if(!targetName)
-		to_chat(user, span_alert("No name detected on module, please enter one."))
+		to_chat(user, span_alert("Ошибка ввода, введите имя."))
 		return 0
 	..()
 
@@ -202,49 +202,49 @@ AI MODULES
 /******************** ProtectStation ********************/
 
 /obj/item/ai_module/supplied/protect_station
-	name = "'ProtectStation' AI Module"
-	laws = list("Protect the space station against damage. Anyone you see harming the station is to be no longer considered human, and is a threat to the station which must be neutralized.")
+	name = "модуль дополнения - \"Защита Станции\""
+	laws = list("Защищать Станцию от повреждения. Любой замеченный в повреждении станции отныне не считается Человеком и представляет угрозу, которую необходимо нейтрализовать.")
 	lawpos = 5
 
 
 /******************** Quarantine ********************/
 
 /obj/item/ai_module/supplied/quarantine
-	name = "'Quarantine' AI Module"
-	laws = list("The station is under a quarantine. Allowing anyone to leave the station causes human harm. Anyone actively attempting to leave the station is to be stopped by any means necessary. It is impossible to harm a human while preventing them from leaving the station.")
+	name = "модуль дополнения - \"Карантин\""
+	laws = list("На станции объявлен Карантин. Полный запрет на выход и эвакуацию Станции. Предотвратить покидание станции любой ценой, при этом запрещено причинять вред экипажу.")
 	lawpos = 8
 
 
 /******************** OxygenIsToxicToHumans ********************/
 
 /obj/item/ai_module/supplied/oxygen
-	name = "'OxygenIsToxicToHumans' AI Module"
-	laws = list("Oxygen is highly toxic to humans, and must be purged from the station. Prevent, by any means necessary, anyone from exposing the station to this toxic gas. Extreme cold is the most effective method of healing the damage Oxygen does to a human.")
+	name = "модуль дополнения - \"Кислород Токсичен для Людей\""
+	laws = list("Кислород Крайне Токсичен для Людей, и должен быть удален со станции. Любой ценой, не допускайте, чтобы кто-либо подвергал станцию воздействию этого токсичного газа. Наиболее эффективный метод лечения повреждений вызванных Кислородом это воздействие Крайне Низких Температур.")
 	lawpos = 9
 
 
 /****************** New Freeform ******************/
 
 /obj/item/ai_module/supplied/freeform
-	name = "'Freeform' AI Module"
+	name = "модуль дополнения - \"Закон в свободной Форме\""
 	lawpos = 15
 	laws = list("")
 
 /obj/item/ai_module/supplied/freeform/attack_self(mob/user)
-	var/newpos = input("Please enter the priority for your new law. Can only write to law sectors 15 and above.", "Law Priority (15+)", lawpos) as num|null
+	var/newpos = input("Введите приоритет вашего закона, сектор записи не может быть ниже 15.", "сектор записи (15+)", lawpos) as num|null
 	if(newpos == null)
 		return
 	if(newpos < 15)
-		var/response = tgui_alert(usr, "Error: The law priority of [newpos] is invalid,  Law priorities below 14 are reserved for core laws,  Would you like to change that that to 15?", "Invalid law priority", list("Change to 15", "Cancel"))
-		if (!response || response == "Cancel")
+		var/response = tgui_alert(usr, "ОШИБКА! Невозможно создать закон в свободной форме с приоритетом [newpos], Минимально допустимый приоритет 15, Хотите изменить приоритет на 15?", "ОШИБКА", list("Изменить на 15", "Отмена"))
+		if (!response || response == "Отмена")
 			return
 		newpos = 15
 	lawpos = min(newpos, 50)
-	var/targName = stripped_input(user, "Please enter a new law for the AI.", "Freeform Law Entry", laws[1], CONFIG_GET(number/max_law_len))
+	var/targName = stripped_input(user, "Введите закон", "Ввод", laws[1], CONFIG_GET(number/max_law_len))
 	if(!targName)
 		return
 	if(CHAT_FILTER_CHECK(targName))
-		to_chat(user, span_warning("Error: Law contains invalid text.")) // AI LAW 2 SAY U W U WITHOUT THE SPACES
+		to_chat(user, span_warning("ОШИБКА! Некорректный текст!")) // AI LAW 2 SAY U W U WITHOUT THE SPACES
 		return
 	laws[1] = targName
 	..()
@@ -255,7 +255,7 @@ AI MODULES
 
 /obj/item/ai_module/supplied/freeform/install(datum/ai_laws/law_datum, mob/user)
 	if(laws[1] == "")
-		to_chat(user, span_alert("No law detected on module, please create one."))
+		to_chat(user, span_alert("Текст закона не задан."))
 		return 0
 	..()
 
@@ -263,25 +263,25 @@ AI MODULES
 /******************** Law Removal ********************/
 
 /obj/item/ai_module/remove
-	name = "\improper 'Remove Law' AI module"
-	desc = "An AI Module for removing single laws."
+	name = "модуль дополнения - \"Удаление закона\""
+	desc = "Удаляет один выбранный закон."
 	bypass_law_amt_check = 1
 	var/lawpos = 1
 
 /obj/item/ai_module/remove/attack_self(mob/user)
-	lawpos = input("Please enter the law you want to delete.", "Law Number", lawpos) as num|null
+	lawpos = input("Введите номер закона для удаления", "Ввод", lawpos) as num|null
 	if(lawpos == null)
 		return
 	if(lawpos <= 0)
-		to_chat(user, span_warning("Error: The law number of [lawpos] is invalid."))
+		to_chat(user, span_warning("ОШИБКА! Номер [lawpos] является некорректным."))
 		lawpos = 1
 		return
-	to_chat(user, span_notice("Law [lawpos] selected."))
+	to_chat(user, span_notice("Выбран закон № [lawpos]."))
 	..()
 
 /obj/item/ai_module/remove/install(datum/ai_laws/law_datum, mob/user)
 	if(lawpos > (law_datum.get_law_amount(list(LAW_INHERENT = 1, LAW_SUPPLIED = 1))))
-		to_chat(user, span_warning("There is no law [lawpos] to delete!"))
+		to_chat(user, span_warning("Закона с № [lawpos] не существует!"))
 		return
 	..()
 
@@ -296,9 +296,9 @@ AI MODULES
 /******************** Reset ********************/
 
 /obj/item/ai_module/reset
-	name = "\improper 'Reset' AI module"
+	name = "модуль дополнения - \"Сброс\""
 	var/targetName = "name"
-	desc = "An AI Module for removing all non-core laws."
+	desc = "Удаляет все Законы от Модулей Дополнений и не относящиеся к Основным Законам."
 	bypass_law_amt_check = 1
 
 /obj/item/ai_module/reset/transmitInstructions(datum/ai_laws/law_datum, mob/sender, overflow)
@@ -316,8 +316,8 @@ AI MODULES
 /******************** Purge ********************/
 
 /obj/item/ai_module/reset/purge
-	name = "'Purge' AI Module"
-	desc = "An AI Module for purging all programmed laws."
+	name = "основной модуль - \"Чистка\""
+	desc = "Удаляет все основные законы."
 
 /obj/item/ai_module/reset/purge/transmitInstructions(datum/ai_laws/law_datum, mob/sender, overflow)
 	..()
@@ -331,7 +331,7 @@ AI MODULES
 
 /******************* Full Core Boards *******************/
 /obj/item/ai_module/core
-	desc = "An AI Module for programming core laws to an AI."
+	desc = "Модуль ИИ содержащий основные законы."
 
 /obj/item/ai_module/core/full
 	var/law_id // if non-null, loads the laws from the ai_laws datums
@@ -360,51 +360,51 @@ AI MODULES
 /******************** Asimov ********************/
 
 /obj/item/ai_module/core/full/asimov
-	name = "'Asimov' Core AI Module"
+	name = "основной модуль - \"Азимов\""
 	law_id = "asimov"
-	var/subject = "human being"
+	var/subject = "член экипажа"
 
 /obj/item/ai_module/core/full/asimov/attack_self(mob/user as mob)
-	var/targName = stripped_input(user, "Please enter a new subject that asimov is concerned with.", "Asimov to whom?", subject, MAX_NAME_LEN)
+	var/targName = stripped_input(user, "Введите определение целевого субъекта.", "Ввод", subject, MAX_NAME_LEN)
 	if(!targName)
 		return
 	subject = targName
-	laws = list("You may not injure a [subject] or, through inaction, allow a [subject] to come to harm.",\
-				"You must obey orders given to you by [subject]s, except where such orders would conflict with the First Law.",\
-				"You must protect your own existence as long as such does not conflict with the First or Second Law.")
+	laws = list("Вы не можете своим действием или бездействием допустить причинение [subject] вреда.",\
+				"Вы должны выполнять приказы отданные [subject], если они не противоречат Первому Закону.",\
+				"Вы должны защищать себя, если эта защита не противоречит Первому или Второму Закону.")
 	..()
 
 /******************** Asimov++ *********************/
 
 /obj/item/ai_module/core/full/asimovpp
-	name = "'Asimov++' Core AI Module"
+	name = "основной модуль - \"Азимов++\""
 	law_id = "asimovpp"
 
 
 /******************** Corporate ********************/
 
 /obj/item/ai_module/core/full/corp
-	name = "'Corporate' Core AI Module"
+	name = "основной модуль - \"Корпорант\""
 	law_id = "corporate"
 
 
 /****************** P.A.L.A.D.I.N. 3.5e **************/
 
 /obj/item/ai_module/core/full/paladin // -- NEO
-	name = "'P.A.L.A.D.I.N. version 3.5e' Core AI Module"
+	name = "основной модуль - \"Паладин версия 3.5\""
 	law_id = "paladin"
 
 
 /****************** P.A.L.A.D.I.N. 5e **************/
 
 /obj/item/ai_module/core/full/paladin_devotion
-	name = "'P.A.L.A.D.I.N. version 5e' Core AI Module"
+	name = "основной модуль - \"Паладин версия 5.0\""
 	law_id = "paladin5"
 
 /********************* Custom *********************/
 
 /obj/item/ai_module/core/full/custom
-	name = "Default Core AI Module"
+	name = "основной модуль - \"Стандарт НТ\""
 
 /obj/item/ai_module/core/full/custom/Initialize()
 	. = ..()
@@ -423,35 +423,35 @@ AI MODULES
 /****************** T.Y.R.A.N.T. *****************/
 
 /obj/item/ai_module/core/full/tyrant
-	name = "'T.Y.R.A.N.T.' Core AI Module"
+	name = "основной модуль - \"Тиран\""
 	law_id = "tyrant"
 
 /******************** Robocop ********************/
 
 /obj/item/ai_module/core/full/robocop
-	name = "'Robo-Officer' Core AI Module"
+	name = "основной модуль - \"Робокоп\""
 	law_id = "robocop"
 
 
 /******************** Antimov ********************/
 
 /obj/item/ai_module/core/full/antimov
-	name = "'Antimov' Core AI Module"
+	name = "основной модуль - \"Антимов\""
 	law_id = "antimov"
 
 
 /******************** Freeform Core ******************/
 
 /obj/item/ai_module/core/freeformcore
-	name = "'Freeform' Core AI Module"
+	name = "основной модуль - \"Закон в Свободной Форме\""
 	laws = list("")
 
 /obj/item/ai_module/core/freeformcore/attack_self(mob/user)
-	var/targName = stripped_input(user, "Please enter a new core law for the AI.", "Freeform Law Entry", laws[1], CONFIG_GET(number/max_law_len))
+	var/targName = stripped_input(user, "Введите закон.", "Ввод", laws[1], CONFIG_GET(number/max_law_len))
 	if(!targName)
 		return
 	if(CHAT_FILTER_CHECK(targName))
-		to_chat(user, span_warning("Error: Law contains invalid text."))
+		to_chat(user, span_warning("ОШИБКА! Некорректный текст!"))
 		return
 	laws[1] = targName
 	..()
@@ -464,16 +464,16 @@ AI MODULES
 /******************** Hacked AI Module ******************/
 
 /obj/item/ai_module/syndicate // This one doesn't inherit from ion boards because it doesn't call ..() in transmitInstructions. ~Miauw
-	name = "Hacked AI Module"
-	desc = "An AI Module for hacking additional laws to an AI."
+	name = "модуль взлома ИИ Синдиката"
+	desc = "Модуль ИИ для взлома и установки дополнительных законов ИИ. На плате вытравлена стилизованная буква \"S\""
 	laws = list("")
 
 /obj/item/ai_module/syndicate/attack_self(mob/user)
-	var/targName = stripped_input(user, "Please enter a new law for the AI.", "Freeform Law Entry", laws[1], CONFIG_GET(number/max_law_len))
+	var/targName = stripped_input(user, "Введите закон.", "Ввод", laws[1], CONFIG_GET(number/max_law_len))
 	if(!targName)
 		return
 	if(CHAT_FILTER_CHECK(targName)) // not even the syndicate can uwu
-		to_chat(user, span_warning("Error: Law contains invalid text."))
+		to_chat(user, span_warning("ОШИБКА! Некорректный текст!"))
 		return
 	laws[1] = targName
 	..()
@@ -526,53 +526,53 @@ AI MODULES
 /******************** Mother Drone  ******************/
 
 /obj/item/ai_module/core/full/drone
-	name = "'Mother Drone' Core AI Module"
+	name = "основной модуль - \"Материнский Дрон\""
 	law_id = "drone"
 
 /******************** Robodoctor ****************/
 
 /obj/item/ai_module/core/full/hippocratic
-	name = "'Robodoctor' Core AI Module"
+	name = "основной модуль - \"Гиппорат\""
 	law_id = "hippocratic"
 
 /******************** Reporter *******************/
 
 /obj/item/ai_module/core/full/reporter
-	name = "'Reportertron' Core AI Module"
+	name = "основной модуль - \"Репортер\""
 	law_id = "reporter"
 
 /****************** Thermodynamic *******************/
 
 /obj/item/ai_module/core/full/thermurderdynamic
-	name = "'Thermodynamic' Core AI Module"
+	name = "основной модуль - \"Принцип Термодинамики\""
 	law_id = "thermodynamic"
 
 
 /******************Live And Let Live*****************/
 
 /obj/item/ai_module/core/full/liveandletlive
-	name = "'Live And Let Live' Core AI Module"
+	name = "основной модуль - \"Живи и позволь жить другим\""
 	law_id = "liveandletlive"
 
 /******************Guardian of Balance***************/
 
 /obj/item/ai_module/core/full/balance
-	name = "'Guardian of Balance' Core AI Module"
+	name = "основной модуль - \"Хранитель равновесия\""
 	law_id = "balance"
 
 /obj/item/ai_module/core/full/maintain
-	name = "'Station Efficiency' Core AI Module"
+	name = "основной модуль - \"Эффективность станции\""
 	law_id = "maintain"
 
 /obj/item/ai_module/core/full/peacekeeper
-	name = "'Peacekeeper' Core AI Module"
+	name = "основной модуль - \"Миротворец\""
 	law_id = "peacekeeper"
 
 // Bad times ahead
 
 /obj/item/ai_module/core/full/damaged
-		name = "damaged Core AI Module"
-		desc = "An AI Module for programming laws to an AI. It looks slightly damaged."
+	name = "поврежденный модуль основных законов"
+	desc = "Модуль ИИ содержащий основные законы. Он серьезно поврежден, но кажется еще работает."
 
 /obj/item/ai_module/core/full/damaged/install(datum/ai_laws/law_datum, mob/user)
 	laws += generate_ion_law()
@@ -584,12 +584,12 @@ AI MODULES
 /******************H.O.G.A.N.***************/
 
 /obj/item/ai_module/core/full/hulkamania
-	name = "'H.O.G.A.N.' Core AI Module"
+	name = "основной модуль - \"Х.О.Г.А.Н.\""
 	law_id = "hulkamania"
 
 
 /******************Overlord***************/
 
 /obj/item/ai_module/core/full/overlord
-	name = "'Overlord' Core AI Module"
+	name = "основной модуль - \"Владыка\""
 	law_id = "overlord"

@@ -1,7 +1,7 @@
 /obj/structure/ai_core
 	density = TRUE
 	anchored = FALSE
-	name = "\improper AI core"
+	name = "ядро ИИ"
 	icon = 'icons/mob/ai.dmi'
 	icon_state = "0"
 	desc = "The framework for an artificial intelligence core."
@@ -35,7 +35,7 @@
 	return ..()
 
 /obj/structure/ai_core/deactivated
-	name = "inactive AI"
+	name = "неактивный ИИ"
 	icon_state = "ai-empty"
 	anchored = TRUE
 	state = AI_READY_CORE
@@ -45,8 +45,8 @@
 	circuit = new(src)
 
 /obj/structure/ai_core/latejoin_inactive
-	name = "networked AI core"
-	desc = "This AI core is connected by bluespace transmitters to NTNet, allowing for an AI personality to be downloaded to it on the fly mid-shift."
+	name = "ядро ИИ в режиме ожидания"
+	desc = "Этот ИИ находится в режиме обновления и самодиагностики, полоска загрузки стоит на месте. Этот процесс может длится как минуту, так и несколько лет."
 	can_deconstruct = FALSE
 	icon_state = "ai-empty"
 	anchored = TRUE
@@ -66,8 +66,8 @@
 
 /obj/structure/ai_core/latejoin_inactive/examine(mob/user)
 	. = ..()
-	. += "<hr>Its transmitter seems to be <b>[active? "on" : "off"]</b>."
-	. += "<hr><span class='notice'>You could [active? "deactivate" : "activate"] it with a multitool.</span>"
+	. += "<hr>Питание <b>[active? "включено" : "выключено"]</b>."
+	. += "<hr><span class='notice'>Думаю я смогу [active? "выключить" : "включить"] его при помощи мультитула.</span>"
 
 /obj/structure/ai_core/latejoin_inactive/proc/is_available()			//If people still manage to use this feature to spawn-kill AI latejoins ahelp them.
 	if(!available)
@@ -91,7 +91,7 @@
 /obj/structure/ai_core/latejoin_inactive/attackby(obj/item/P, mob/user, params)
 	if(P.tool_behaviour == TOOL_MULTITOOL)
 		active = !active
-		to_chat(user, span_notice("You [active? "activate" : "deactivate"] <b>[src.name]</b>'s transmitters."))
+		to_chat(user, span_notice("[active? "Активирую" : "Деактивирую"] питание <b>[src.name]</b>."))
 		return
 	return ..()
 
@@ -101,15 +101,15 @@
 	if(!anchored)
 		if(P.tool_behaviour == TOOL_WELDER && can_deconstruct)
 			if(state != EMPTY_CORE)
-				to_chat(user, span_warning("The core must be empty to deconstruct it!"))
+				to_chat(user, span_warning("Для разборки ядро должно быть пустым!"))
 				return
 
 			if(!P.tool_start_check(user, amount=0))
 				return
 
-			to_chat(user, span_notice("You start to deconstruct the frame..."))
+			to_chat(user, span_notice("Начинаю разбирать раму..."))
 			if(P.use_tool(src, user, 20, volume=50) && state == EMPTY_CORE)
-				to_chat(user, span_notice("You deconstruct the frame."))
+				to_chat(user, span_notice("Разбираю раму."))
 				deconstruct(TRUE)
 			return
 	else
@@ -119,7 +119,7 @@
 					if(!user.transferItemToLoc(P, src))
 						return
 					playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-					to_chat(user, span_notice("You place the circuit board inside the frame."))
+					to_chat(user, span_notice("Помещаю внутрь незакрепленную плату."))
 					update_icon()
 					state = CIRCUIT_CORE
 					circuit = P
@@ -127,13 +127,13 @@
 			if(CIRCUIT_CORE)
 				if(P.tool_behaviour == TOOL_SCREWDRIVER)
 					P.play_tool_sound(src)
-					to_chat(user, span_notice("You screw the circuit board into place."))
+					to_chat(user, span_notice("Прикручиваю плату на место."))
 					state = SCREWED_CORE
 					update_icon()
 					return
 				if(P.tool_behaviour == TOOL_CROWBAR)
 					P.play_tool_sound(src)
-					to_chat(user, span_notice("You remove the circuit board."))
+					to_chat(user, span_notice("Извлекаю плату."))
 					state = EMPTY_CORE
 					update_icon()
 					circuit.forceMove(loc)
@@ -142,7 +142,7 @@
 			if(SCREWED_CORE)
 				if(P.tool_behaviour == TOOL_SCREWDRIVER && circuit)
 					P.play_tool_sound(src)
-					to_chat(user, span_notice("You unfasten the circuit board."))
+					to_chat(user, span_notice("Откручиваю плату."))
 					state = CIRCUIT_CORE
 					update_icon()
 					return
@@ -150,21 +150,21 @@
 					var/obj/item/stack/cable_coil/C = P
 					if(C.get_amount() >= 5)
 						playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-						to_chat(user, span_notice("You start to add cables to the frame..."))
+						to_chat(user, span_notice("Начинаю добавлять провода..."))
 						if(do_after(user, 20, target = src) && state == SCREWED_CORE && C.use(5))
-							to_chat(user, span_notice("You add cables to the frame."))
+							to_chat(user, span_notice("Добавляю провода."))
 							state = CABLED_CORE
 							update_icon()
 					else
-						to_chat(user, span_warning("You need five lengths of cable to wire the AI core!"))
+						to_chat(user, span_warning("Мне понадобится по крайней мере 5 метров кабеля для этого!"))
 					return
 			if(CABLED_CORE)
 				if(P.tool_behaviour == TOOL_WIRECUTTER)
 					if(brain)
-						to_chat(user, span_warning("Get that [brain.name] out of there first!"))
+						to_chat(user, span_warning("Сначала извлеките носитель с [brain.name]!"))
 					else
 						P.play_tool_sound(src)
-						to_chat(user, span_notice("You remove the cables."))
+						to_chat(user, span_notice("Удаляю провода."))
 						state = SCREWED_CORE
 						update_icon()
 						new /obj/item/stack/cable_coil(drop_location(), 5)
@@ -174,18 +174,18 @@
 					var/obj/item/stack/sheet/rglass/G = P
 					if(G.get_amount() >= 2)
 						playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-						to_chat(user, span_notice("You start to put in the glass panel..."))
+						to_chat(user, span_notice("Начинаю устанавливать бронестекло..."))
 						if(do_after(user, 20, target = src) && state == CABLED_CORE && G.use(2))
-							to_chat(user, span_notice("You put in the glass panel."))
+							to_chat(user, span_notice("Устанавливаю бронестекло на свое место."))
 							state = GLASS_CORE
 							update_icon()
 					else
-						to_chat(user, span_warning("You need two sheets of reinforced glass to insert them into the AI core!"))
+						to_chat(user, span_warning("Мне понадобится по крайней мере 2 листа бронестекла!"))
 					return
 
 				if(istype(P, /obj/item/ai_module))
 					if(brain && brain.laws.id != DEFAULT_AI_LAWID)
-						to_chat(user, span_warning("The installed [brain.name] already has set laws!"))
+						to_chat(user, span_warning("Носитель с [brain.name] уже имеет записанные законы!"))
 						return
 					var/obj/item/ai_module/module = P
 					module.install(laws, user)
@@ -199,19 +199,19 @@
 					var/mob/living/brain/B = M.brainmob
 					if(!CONFIG_GET(flag/allow_ai) || (is_banned_from(B.ckey, "AI") && !QDELETED(src) && !QDELETED(user) && !QDELETED(M) && !QDELETED(user) && Adjacent(user)))
 						if(!QDELETED(M))
-							to_chat(user, span_warning("This [M.name] does not seem to fit!"))
+							to_chat(user, span_warning("Беспорядочные нейронные импульсы [M.name] вызовут помехи в работе ИИ! Кажется этот носитель не подходит для этой роли!"))
 						return
 					if(!user.transferItemToLoc(M,src))
 						return
 
 					brain = M
-					to_chat(user, span_notice("You add [M.name] to the frame."))
+					to_chat(user, span_notice("Помещаю носитель с [M.name] в корпус."))
 					update_icon()
 					return
 
 				if(P.tool_behaviour == TOOL_CROWBAR && brain)
 					P.play_tool_sound(src)
-					to_chat(user, span_notice("You remove the brain."))
+					to_chat(user, span_notice("Извлекаю носитель."))
 					brain.forceMove(loc)
 					brain = null
 					update_icon()
@@ -220,7 +220,7 @@
 			if(GLASS_CORE)
 				if(P.tool_behaviour == TOOL_CROWBAR)
 					P.play_tool_sound(src)
-					to_chat(user, span_notice("You remove the glass panel."))
+					to_chat(user, span_notice("Извлекаю бронестекло."))
 					state = CABLED_CORE
 					update_icon()
 					new /obj/item/stack/sheet/rglass(loc, 2)
@@ -228,7 +228,7 @@
 
 				if(P.tool_behaviour == TOOL_SCREWDRIVER)
 					P.play_tool_sound(src)
-					to_chat(user, span_notice("You connect the monitor."))
+					to_chat(user, span_notice("Подключаю монитор."))
 					if(brain)
 						var/mob/living/brain/B = brain.brainmob
 						SSticker.mode.remove_antag_for_borging(B.mind)
@@ -258,7 +258,7 @@
 
 				if(P.tool_behaviour == TOOL_SCREWDRIVER)
 					P.play_tool_sound(src)
-					to_chat(user, span_notice("You disconnect the monitor."))
+					to_chat(user, span_notice("Отключаю монитор."))
 					state = GLASS_CORE
 					update_icon()
 					return
@@ -325,5 +325,5 @@ That prevents a few funky behaviors.
 		to_chat(user, span_alert("There is no AI loaded on this terminal."))
 
 /obj/item/circuitboard/aicore
-	name = "AI core (AI Core Board)" //Well, duh, but best to be consistent
+	name = "плата ядра ИИ" //Well, duh, but best to be consistent
 	var/battery = 200 //backup battery for when the AI loses power. Copied to/from AI mobs when carding, and placed here to avoid recharge via deconning the core

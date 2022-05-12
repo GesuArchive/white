@@ -2,8 +2,8 @@
 #define IV_INJECTING 1
 ///Universal IV that can drain blood or feed reagents over a period of time from or to a replaceable container
 /obj/machinery/iv_drip
-	name = "\improper IV drip"
-	desc = "An IV drip with an advanced infusion pump that can both drain blood into and inject liquids from attached containers. Blood packs are processed at an accelerated rate. Right-Click to change the transfer rate."
+	name = "капельница"
+	desc = "Капельница для внутривенного вливания с усовершенствованным инфузионным насосом, который позволяет как сливать кровь, так и вводить жидкости из прикрепленных контейнеров. Пакеты с кровью вводятся в ускоренном темпе. ПКМ для изменения скорости потока."
 	icon = 'icons/obj/iv_drip.dmi'
 	icon_state = "iv_drip"
 	base_icon_state = "iv_drip"
@@ -255,20 +255,20 @@
 
 	if(reagent_container)
 		if(reagent_container.reagents && reagent_container.reagents.reagent_list.len)
-			. += span_notice("<hr>Attached is \a [reagent_container] with [reagent_container.reagents.total_volume] units of liquid.")
+			. += span_notice("<hr>Здесь закреплен [reagent_container] и в нем осталось [reagent_container.reagents.total_volume] единиц раствора.")
 		else
-			. += "<hr><span class='notice'>Attached is an empty [reagent_container.name].</span>"
+			. += "<hr><span class='notice'>Здесь закреплен пустой [reagent_container.name].</span>"
 	else if(use_internal_storage)
-		. += "<hr><span class='notice'>It has an internal chemical storage.</span>"
+		. += "<hr><span class='notice'>Здесь встроенное хранилище.</span>"
 	else
-		. += "<hr><span class='notice'>No chemicals are attached.</span>"
+		. += "<hr><span class='notice'>Бак пуст.</span>"
 
-	. += "<hr><span class='notice'>[attached ? attached : "No one"] is attached.</span>"
+	. += "<hr><span class='notice'>[attached ? attached : "Не"] подключена.</span>"
 
 
 /obj/machinery/iv_drip/saline
-	name = "saline drip"
-	desc = "An all-you-can-drip saline canister designed to supply a hospital without running out, with a scary looking pump rigged to inject saline into containers, but filling people directly might be a bad idea."
+	name = "бак с физраствором"
+	desc = "Канистра с физиологическим раствором, предназначенная для снабжения целого госпиталя, с устрашающего вида насосом, приспособленным для впрыскивания физиологического раствора в контейнеры. Подключать людей к нему напрямую явно не стоит."
 	icon_state = "saline"
 	base_icon_state = "saline"
 	density = TRUE
@@ -290,7 +290,7 @@
 ///modified IV that can be anchored and takes plumbing in- and output
 /obj/machinery/iv_drip/plumbing
 	name = "автоматическая капельница"
-	desc = "Модифицированная капельница с водопроводными соединениями. Реагенты, получаемые через штуцер, вводятся непосредственно в кровоток, а забираемая кровь поступает во внутреннее хранилище."
+	desc = "Модифицированная капельница с химфаб соединениями. Реагенты, получаемые через штуцер, вводятся непосредственно в кровоток, а забираемая кровь поступает во внутреннее хранилище."
 	icon_state = "plumb"
 	base_icon_state = "plumb"
 

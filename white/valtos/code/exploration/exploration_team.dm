@@ -41,6 +41,7 @@
 	duffelbag = /obj/item/storage/backpack/duffelbag/rangers
 
 	id_trim = /datum/id_trim/job/exploration
+	implants = list(/obj/item/implant/mindshield)
 
 	chameleon_extras = /obj/item/gun/energy/e_gun/mini/exploration
 

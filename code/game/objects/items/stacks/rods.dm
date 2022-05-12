@@ -58,6 +58,17 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 		icon_state = "rods"
 
 /obj/item/stack/rods/attackby(obj/item/W, mob/user, params)
+
+	if(istype(W, /obj/item/gun/ballistic/automatic/pistol/nail_gun))	// 	Боеприпасы для гвоздомета
+		playsound(user, 'white/Feline/sounds/nail_drop.ogg', 100, TRUE)
+		if(amount > 1)
+			amount = amount - 1
+			update_icon()
+		else
+			qdel(src)
+		new /obj/item/ammo_casing/nail(user.drop_location())
+		new /obj/item/ammo_casing/nail(user.drop_location())
+
 	if(W.tool_behaviour == TOOL_WELDER)
 		if(get_amount() < 2)
 			to_chat(user, span_warning("Мне потребуется как минимум два стержня для этого!"))

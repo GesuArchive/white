@@ -25,6 +25,7 @@
 	gunlight_state = "mini-light"
 	flight_x_offset = 19
 	flight_y_offset = 13
+	dual_wield_spread = 10
 
 /obj/item/gun/energy/e_gun/mini/Initialize()
 	set_gun_light(new /obj/item/flashlight/seclite(src))

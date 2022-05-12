@@ -67,6 +67,11 @@
 	new /obj/item/gun/energy/e_gun/stun(src)
 	update_appearance()
 
+/obj/item/tank/internals/tactical/nail_gun/Initialize()	//VIP Инженер
+	. = ..()
+	new /obj/item/gun/ballistic/automatic/pistol/nail_gun(src)
+	update_appearance()
+
 //Быстрое извлечение через ЛКМ, быстрое разоружение через "E" тут code\modules\mob\inventory.dm
 /obj/item/tank/internals/tactical/attack_hand(mob/user)
 	if(loc == user)
@@ -97,6 +102,8 @@
 			icon_state = "box"
 		if(istype(I,/obj/item/gun/ballistic/automatic/pistol))
 			icon_state = "pistol"
+		if(istype(I,/obj/item/gun/ballistic/automatic/pistol/nail_gun))
+			icon_state = "nail_gun"
 		if(istype(I,/obj/item/gun/ballistic/revolver))
 			icon_state = "pistol"
 		if(istype(I,/obj/item/gun/ballistic/automatic/wt550))
@@ -166,3 +173,108 @@
 	name = "отказ от претензий"
 	info = "<center>Инструкция по применению</center><BR><BR>Перед использованием препаратов Раккун-2 и Ностромо-7 рекомендуется:<BR>1) Составить завещание<BR>* Решить вопросы опекунства над детьми (при их наличии)<BR>* Решить вопросы наследования<BR>2) Надежно зафиксировать пациента любыми доступными способами, рекомендуется смирительная рубашка и кляп<BR>* Вколоть пациенту обезболивающее<BR>* Вколоть пациенту седативные средства<BR>* Вколоть пациенту противошоковое<BR>3) Произнести молитву о здравии и за упокой души пациента любому богу из одобренного компанией списка. Список одобренных богов:<BR>* Нанотрейзен<BR>* Космический Иисус<BR>* Верховная Кошка<BR>* Великий Ящер<BR>* <font color=#006699><i>Капитан</i></font><BR>Компания Нанотрейзен не несет никакой ответственности за последствия использования препарата<BR>В случае получения в процессе необратимых случайных мутаций каких либо сверхъестественных сил, вы ОБЯЗАНЫ составить рапорт и самолично явиться в лабораторию для продления текущего контракта до пожизненного статуса.<BR><BR> Удачной миссии! Компания Нанотрейзен всегда готова поддержать вас в трудную минуту!"
 
+
+/obj/item/gun/ballistic/automatic/pistol/nail_gun
+	name = "гвоздомет"
+	desc = "Промышленный гвоздомет для монтажа всего до чего дотянутся очумелые ручки. Оснащен специальным формовщиком для производства <B>гвоздей</B> из <B>металических стержней</B>. Ударная пружина заменена на более мощную, при выстрелах лягается как мул и его приходится <B>держать двумя руками</B> - это немного не соответствует техники безопасности, однако теперь возвращаться по техам в каюту после смены не так страшно."
+	icon_state = "m1911"
+	icon = 'white/Feline/icons/nail_gun.dmi'
+	icon_state = "nail_gun"
+	w_class = WEIGHT_CLASS_BULKY
+	mag_type = /obj/item/ammo_box/magazine/nails
+	can_suppress = FALSE
+	fire_sound = 'white/Feline/sounds/nail_gun_2.ogg'
+	rack_sound = 'sound/weapons/gun/sniper/rack.ogg'
+	lock_back_sound = 'sound/weapons/gun/pistol/slide_lock.ogg'
+	bolt_drop_sound = 'sound/weapons/gun/general/bolt_drop.ogg'
+
+/obj/item/ammo_box/magazine/nails
+	name = "магазин гвоздомета"
+	desc = "Жесткий коробчатый магазин для промышленного инструмента, вмещает до 16 крупных гвоздей."
+	icon = 'white/Feline/icons/nail_gun.dmi'
+	icon_state = "nail_gun_magasine"
+	ammo_type = /obj/item/ammo_casing/nail
+	caliber = "100x4"
+	max_ammo = 16
+
+/obj/item/ammo_box/magazine/nails/pve
+	name = "магазин гвоздомета"
+	desc = "Жесткий коробчатый магазин для промышленного инструмента, вмещает до 16 крупных гвоздей. Внутри находятся гвозди из странного синего металла."
+	ammo_type = /obj/item/ammo_casing/nail/pve
+
+/obj/item/ammo_box/nail
+	name = "коробка гвоздей"
+	desc = "Коробка вмещающая приличное количество самых обычных строительных гвоздей."
+	icon = 'white/Feline/icons/nail_gun.dmi'
+	icon_state = "nail_box"
+	ammo_type = /obj/item/ammo_casing/nail
+	max_ammo = 64
+
+/obj/item/ammo_box/nail/pve
+	name = "коробка синих гвоздей"
+	desc = "Внутри находятся гвозди из странного синего металла, кажется примитивным тварям он не очень нравится."
+	icon = 'white/Feline/icons/nail_gun.dmi'
+	icon_state = "nail_box"
+	ammo_type = /obj/item/ammo_casing/nail/pve
+	max_ammo = 64
+
+/obj/item/ammo_casing/nail
+	name = "гвоздь"
+	desc = "Гвоздь сотка. Насколько бы далеко не зашел технологический прогресс, держаться он будет только на гвоздях, изоленте и честном слове."
+	icon = 'white/Feline/icons/nail_gun.dmi'
+	icon_state = "nail"
+	caliber = "100x4"
+	projectile_type = /obj/projectile/bullet/nail
+
+/obj/projectile/bullet/nail
+	name = "гвоздь"
+	damage = 7
+	wound_bonus = -10
+	wound_falloff_tile = -10
+
+/obj/item/ammo_casing/nail/update_icon()
+	. = ..()
+	if(!loaded_projectile)
+		qdel(src)
+
+/obj/item/ammo_casing/nail/pve
+	name = "синий гвоздь"
+	desc = "Странный гвоздь из металла синего цвета. Созданный от безвыходности, он оказывает на удивление убойный эффект на примитивных тварей, что тут обитают."
+	icon = 'white/Feline/icons/nail_gun.dmi'
+	icon_state = "nail_blue"
+	caliber = "100x4"
+	projectile_type = /obj/projectile/bullet/nail/pve
+
+/obj/projectile/bullet/nail/pve
+	name = "синий гвоздь"
+	damage = 20
+
+/obj/projectile/bullet/nail/pve/on_hit(atom/target, blocked = FALSE)
+	if(iscarbon(target))
+		damage = 7
+	if(issilicon(target))
+		damage = 7
+	if(isalienadult(target))
+		damage = 20
+
+// 	Протонник
+
+/obj/item/gun/energy/laser/rangers/sci
+	name = "протонный пистолет"
+	desc = "Прототип оружия с протоплазменной батареей. Он довольно эффективно проявил себя в отстреле тварей с полигона, однако расчеты показывают, что против людей он будет заметно слабее."
+	icon = 'white/Feline/icons/weapon_rangers.dmi'
+	icon_state = "proton_pistol"
+	pin = /obj/item/firing_pin
+	ammo_type = list(/obj/item/ammo_casing/energy/laser/pve)
+
+	w_class = WEIGHT_CLASS_SMALL
+	cell_type = /obj/item/stock_parts/cell/mini_egun
+	charge_sections = 3
+	can_flashlight = FALSE
+	gunlight_state = "mini-light"
+	flight_x_offset = 19
+	flight_y_offset = 13
+	dual_wield_spread = 10
+
+	ammo_x_offset = 1
+	shaded_charge = 1
