@@ -146,16 +146,18 @@
 	var/list/modelCache = build_cache(no_changeturf)
 	var/space_key = modelCache[SPACE_KEY]
 	var/list/bounds
-	var/did_expand = FALSE
 	src.bounds = bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
 
-	for(var/I in gridSets)
-		var/datum/grid_set/gset = I
+	//used for sending the maxx and maxy expanded global signals at the end of this proc
+	var/has_expanded_world_maxx = FALSE
+	var/has_expanded_world_maxy = FALSE
+
+	for(var/datum/grid_set/gset as anything in gridSets)
 		var/ycrd = gset.ycrd + y_offset - 1
 		var/zcrd = gset.zcrd + z_offset - 1
 		if(!cropMap && ycrd > world.maxy)
 			world.maxy = ycrd // Expand Y here.  X is expanded in the loop below
-			did_expand = TRUE
+			has_expanded_world_maxy = TRUE
 		var/zexpansion = zcrd > world.maxz
 		if(zexpansion)
 			if(cropMap)
@@ -163,7 +165,6 @@
 			else
 				while (zcrd > world.maxz) //create a new z_level if needed
 					world.incrementMaxZ()
-					did_expand = FALSE
 			if(!no_changeturf)
 				WARNING("Z-level expansion occurred without no_changeturf set, this may cause problems when /turf/AfterChange is called")
 
@@ -182,7 +183,7 @@
 							break
 						else
 							world.maxx = xcrd
-							did_expand = TRUE
+							has_expanded_world_maxx = TRUE
 
 					if(xcrd >= 1)
 						var/model_key = copytext(line, tpos, tpos + key_len)
@@ -211,18 +212,18 @@
 		CHECK_TICK
 
 	if(!no_changeturf)
-		for(var/t in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]), locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
-			var/turf/T = t
+		for(var/turf/T as anything in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]), locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
 			//we do this after we load everything in. if we don't; we'll have weird atmos bugs regarding atmos adjacent turfs
 			T.AfterChange(CHANGETURF_IGNORE_AIR)
+
+	if(has_expanded_world_maxx || has_expanded_world_maxy)
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, has_expanded_world_maxx, has_expanded_world_maxy)
+		world.refresh_atmos_grid()
 
 	#ifdef TESTING
 	if(turfsSkipped)
 		testing("Skipped loading [turfsSkipped] default turfs")
 	#endif
-
-	if(did_expand)
-		world.refresh_atmos_grid()
 
 	return TRUE
 

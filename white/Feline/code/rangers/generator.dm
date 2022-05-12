@@ -50,7 +50,7 @@
 
 /obj/structure/spider/stickyweb/expand/Initialize()
 	. = ..()
-	for(var/T in circleviewturfs(src, 1))
+	for(var/T in circle_view_turfs(src, 1))
 		if(!isclosedturf(T))
 			new /obj/structure/spider/stickyweb(T)
 

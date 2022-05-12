@@ -359,7 +359,7 @@
 	GLOB.yohei_main_controller = src
 
 	internal_radio = new /obj/item/radio(src)
-	internal_radio.listening = 0
+	internal_radio.set_listening(FALSE)
 	internal_radio.independent = TRUE
 	internal_radio.set_frequency(FREQ_YOHEI)
 

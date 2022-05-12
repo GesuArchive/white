@@ -66,7 +66,7 @@
 
 	var/rss = input("Ka-Boom range (Tiles):") as num
 
-	var/list/AT = circlerange(where, rss)
+	var/list/AT = circle_range(where, rss)
 
 	var/x0 = where.x
 	var/y0 = where.y

@@ -258,7 +258,7 @@
 					last_err = "ЧТО-ТО МАССИВНОЕ НА ПУТИ. ОТМЕНА"
 					return PROCESS_KILL
 			valid_turfs.Cut()
-			for(var/T in circleviewturfs(point, round(catch_power * 0.75)))
+			for(var/T in circle_view_turfs(point, round(catch_power * 0.75)))
 				if(isopenspace(T) || isspaceturf(T))
 					valid_turfs += T
 				else

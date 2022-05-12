@@ -10,6 +10,7 @@
 	name = "Процессорный блок"
 	icon_state = "processor"
 	desc = "Эта машина используется для обработки больших объемов информации."
+	telecomms_type = /obj/machinery/telecomms/processor
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 30

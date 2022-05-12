@@ -10,6 +10,7 @@
 	name = "Телекоммуникационный ретранслятор"
 	icon_state = "relay"
 	desc = "Мощное аппаратное обеспечение, используемое для передачи огромных объемов данных на огромное расстояние."
+	telecomms_type = /obj/machinery/telecomms/relay
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 30

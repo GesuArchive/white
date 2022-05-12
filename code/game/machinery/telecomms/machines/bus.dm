@@ -12,6 +12,7 @@
 	name = "мэйнфрейм шины"
 	icon_state = "bus"
 	desc = "Мощное аппаратное обеспечение, используемое для быстрой передачи огромных объемов данных и связывание машин в общую сеть."
+	telecomms_type = /obj/machinery/telecomms/bus
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 50

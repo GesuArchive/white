@@ -77,7 +77,7 @@
 	icon_type = "donut"
 	spawn_type = /obj/item/food/donut
 	fancy_open = TRUE
-	appearance_flags = KEEP_TOGETHER
+	appearance_flags = KEEP_TOGETHER|LONG_GLIDE
 	custom_premium_price = PAYCHECK_HARD * 1.75
 
 /obj/item/storage/fancy/donut_box/ComponentInitialize()

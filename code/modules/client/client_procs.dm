@@ -493,6 +493,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		var/announce_join = mob.client?.prefs?.broadcast_login_logout
 		if (!stealth_admin)
 			deadchat_broadcast(" отключается.", "<b>[mob][mob.get_realname_string()]</b>", follow_target = mob, turf_target = get_turf(mob), message_type = DEADCHAT_LOGIN_LOGOUT, admin_only=!announce_join)
+		mob.become_uncliented()
 
 	GLOB.clients -= src
 	GLOB.directory -= ckey
@@ -528,8 +529,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			//send2adminchat("Server", "[cheesy_message] (No admins online)")
 	QDEL_LIST_ASSOC_VAL(char_render_holders)
 	if(movingmob != null)
-		movingmob.client_mobs_in_contents -= mob
-		UNSETEMPTY(movingmob.client_mobs_in_contents)
+		LAZYREMOVE(movingmob.client_mobs_in_contents, mob)
 		movingmob = null
 	active_mousedown_item = null
 	SSambience.remove_ambience_client(src)
@@ -1015,6 +1015,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		new_size = CONFIG_GET(string/default_view_square)
 
 	view = new_size
+	SEND_SIGNAL(src, COMSIG_VIEW_SET, new_size)
 	apply_clickcatcher()
 	mob.reload_fullscreen()
 	if (isliving(mob))

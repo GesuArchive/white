@@ -9,6 +9,7 @@
 	name = "Телекоммуникационный сервер"
 	icon_state = "comm_server"
 	desc = "Машина, используемая для хранения данных и сетевой статистики."
+	telecomms_type = /obj/machinery/telecomms/server
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 15

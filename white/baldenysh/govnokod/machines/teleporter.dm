@@ -131,7 +131,7 @@
 		return FALSE
 
 	var/currange = get_dist_euclidian(get_step(src, dir), get_pointer())
-	var/list/radius = circleviewturfs(pointer, currange)
+	var/list/radius = circle_view_turfs(pointer, currange)
 
 	for(var/turf/open/T in radius)
 		if(T in active_tiles)

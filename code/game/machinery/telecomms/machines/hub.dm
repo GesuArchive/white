@@ -12,6 +12,7 @@
 	name = "Телекоммуникационный узел"
 	icon_state = "hub"
 	desc = "Мощное аппаратное обеспечение, используемое для отправки / приема огромных объемов данных."
+	telecomms_type = /obj/machinery/telecomms/hub
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 80

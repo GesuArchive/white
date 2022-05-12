@@ -10,6 +10,7 @@
 	name = "подпространственный приемник"
 	icon_state = "broadcast receiver"
 	desc = "Эта машина имеет форму тарелкообразной приемной антенны и зеленые огоньки. Предназначена для приема и обработки подпространственного радиосигнала."
+	telecomms_type = /obj/machinery/telecomms/receiver
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 30

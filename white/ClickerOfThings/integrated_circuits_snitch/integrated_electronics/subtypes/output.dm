@@ -413,7 +413,7 @@
 /obj/item/integrated_circuit_old/output/text_to_radio/Initialize()
 	. = ..()
 	radio = new(src)
-	radio.frequency = FREQ_COMMON
+	radio.set_frequency(FREQ_COMMON)
 	GLOB.ic_speakers += src
 
 /obj/item/integrated_circuit_old/output/text_to_radio/Destroy()

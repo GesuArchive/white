@@ -78,6 +78,7 @@
 	icon_state = "message_server"
 	name = "Сервер месенджера"
 	desc = "Машина, которая обрабатывает и маршрутизирует сообщения КПК и запрашивает консольные сообщения."
+	telecomms_type = /obj/machinery/telecomms/message_server
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 100

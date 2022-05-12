@@ -20,7 +20,6 @@
 /datum/controller/subsystem/mapping/proc/add_new_zlevel(name, traits = list(), z_type = /datum/space_level, orbital_body_type)
 	UNTIL(!adding_new_zlevel)
 	adding_new_zlevel = TRUE
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, args)
 	var/new_z = z_list.len + 1
 	if (world.maxz < new_z)
 		world.incrementMaxZ()
@@ -29,6 +28,7 @@
 	var/datum/space_level/S = new z_type(new_z, name, traits, orbital_body_type)
 	z_list += S
 	adding_new_zlevel = FALSE
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, S)
 	return S
 
 /datum/controller/subsystem/mapping/proc/get_level(z)
