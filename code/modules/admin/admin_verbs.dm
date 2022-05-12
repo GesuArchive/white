@@ -198,8 +198,8 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/create_orbital_objective,
 	/client/proc/mark_datum_mapview,
 	/client/proc/debugstatpanel,
-	#ifdef TESTING
 	/client/proc/check_missing_sprites,
+	#ifdef TESTING
 	/client/proc/export_dynamic_json,
 	/client/proc/run_dynamic_simulations,
 	#endif
