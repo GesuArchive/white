@@ -18146,6 +18146,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/closet/l3closet/scientist,
 /turf/open/floor/plasteel/cafeteria,
 /area/command/heads_quarters/rd)
 "bEo" = (
@@ -73378,7 +73379,7 @@ aaa
 aaa
 cQm
 bLv
-kli
+bHE
 bLv
 bHE
 bHE

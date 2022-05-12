@@ -22,13 +22,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
-"i" = (
-/turf/template_noop,
-/area/template_noop)
-"j" = (
-/obj/structure/lattice,
-/turf/template_noop,
-/area/space/nearstation)
 "k" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
@@ -43,40 +36,29 @@
 /area/maintenance/port/aft)
 "l" = (
 /obj/item/stack/tile/plasteel,
-/turf/open/floor/engine/hull,
-/area/template_noop)
-"n" = (
 /turf/open/floor/plating/airless,
-/area/space/nearstation)
+/area/maintenance/port/aft)
 "o" = (
 /obj/item/weldingtool,
 /turf/open/floor/plating/airless,
-/area/space/nearstation)
+/area/maintenance/port/aft)
 "p" = (
 /obj/item/stack/sheet/iron,
 /turf/open/floor/plating/airless,
-/area/space/nearstation)
+/area/maintenance/port/aft)
 "q" = (
 /obj/item/stack/cable_coil{
 	amount = 5
 	},
 /turf/open/floor/plating/airless,
-/area/space/nearstation)
+/area/maintenance/port/aft)
 "r" = (
 /obj/item/clothing/head/hardhat,
 /turf/open/floor/plating/airless,
-/area/space/nearstation)
-"A" = (
-/turf/open/floor/engine/hull,
-/area/template_noop)
+/area/maintenance/port/aft)
 "O" = (
-/obj/effect/light_emitter{
-	light_range = 3;
-	set_cap = 1;
-	set_luminosity = 4
-	},
-/turf/open/floor/engine/hull,
-/area/template_noop)
+/turf/open/floor/plating/airless,
+/area/maintenance/port/aft)
 
 (1,1,1) = {"
 a
@@ -101,146 +83,146 @@ g
 f
 f
 f
-c
-j
-i
-i
-i
-i
-i
+f
+O
+O
+O
+O
+O
+O
 c
 "}
 (3,1,1) = {"
 a
 f
-c
-c
-c
-c
-c
-i
-i
-i
-i
-i
-j
+f
+f
+f
+f
+f
+O
+O
+O
+O
+O
+O
 c
 "}
 (4,1,1) = {"
 b
 f
-c
-A
-A
-A
-A
-i
-i
-i
-i
-i
-i
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
 c
 "}
 (5,1,1) = {"
 a
 f
-c
-A
-A
-A
+f
+O
+O
+O
 l
-j
-n
+O
+O
 r
-i
-i
-i
+O
+O
+O
 c
 "}
 (6,1,1) = {"
 a
 f
-c
-A
-A
-A
-A
-n
+f
+O
+O
+O
+O
+O
 p
-n
-j
-j
-j
+O
+O
+O
+O
 c
 "}
 (7,1,1) = {"
 a
 f
-c
-A
+f
 O
-A
-A
+O
+O
+O
 o
 q
-n
-i
-i
-i
+O
+O
+O
+O
 c
 "}
 (8,1,1) = {"
 c
 f
-c
-A
-A
-A
-A
-i
-n
-j
-i
-i
-i
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
 c
 "}
 (9,1,1) = {"
 c
 f
-c
-A
-A
-A
-A
-i
-n
-i
-i
-j
-j
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
 a
 "}
 (10,1,1) = {"
 c
 f
-c
-A
-A
-A
-A
-i
-j
-i
-i
-i
-i
+f
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
 a
 "}
 (11,1,1) = {"
 a
-f
+b
 a
 a
 a
