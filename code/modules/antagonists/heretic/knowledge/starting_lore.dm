@@ -88,7 +88,7 @@ GLOBAL_LIST_INIT(heretic_start_knowledge, initialize_starting_knowledge())
 
 /datum/heretic_knowledge/living_heart/on_lose(mob/user)
 	var/datum/antagonist/heretic/our_heretic = IS_HERETIC(user)
-	var/obj/item/organ/our_living_heart = user.getorganslot(our_heretic.living_heart_organ_slot)
+	var/obj/item/organ/our_living_heart = user?.getorganslot(our_heretic?.living_heart_organ_slot)
 	if(our_living_heart)
 		qdel(our_living_heart.GetComponent(/datum/component/living_heart))
 

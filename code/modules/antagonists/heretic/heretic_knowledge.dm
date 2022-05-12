@@ -181,10 +181,10 @@
 	return ..()
 
 /datum/heretic_knowledge/spell/on_gain(mob/user)
-	user.mind.AddSpell(spell_to_add)
+	user?.mind?.AddSpell(spell_to_add)
 
 /datum/heretic_knowledge/spell/on_lose(mob/user)
-	user.mind.RemoveSpell(spell_to_add)
+	user?.mind?.RemoveSpell(spell_to_add)
 
 /*
  * A knowledge subtype for knowledge that can only
