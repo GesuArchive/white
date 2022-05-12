@@ -172,6 +172,8 @@
 	icon_state = "yellow"
 	requires_power = FALSE
 	area_flags = UNIQUE_AREA | NOTELEPORT
+
+	static_lighting = FALSE
 	base_lighting_color = COLOR_WHITE
 	base_lighting_alpha = 255
 	has_gravity = STANDARD_GRAVITY
