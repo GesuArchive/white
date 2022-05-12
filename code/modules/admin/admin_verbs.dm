@@ -199,6 +199,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/mark_datum_mapview,
 	/client/proc/debugstatpanel,
 	/client/proc/check_missing_sprites,
+	/client/proc/check_missing_states,
 	#ifdef TESTING
 	/client/proc/export_dynamic_json,
 	/client/proc/run_dynamic_simulations,
