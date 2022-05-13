@@ -303,7 +303,7 @@
 	install_component(new /obj/item/computer_hardware/sensorpackage)
 
 	if(!isnull(default_applications))
-		var/obj/item/computer_hardware/hard_drive/small/hard_drive = find_hardware_by_name("solid state drive")
+		var/obj/item/computer_hardware/hard_drive/small/hard_drive = find_hardware_by_name("твердотельный накопитель")
 		for(var/datum/computer_file/program/default_programs as anything in default_applications)
 			hard_drive.store_file(new default_programs)
 
