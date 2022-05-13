@@ -346,17 +346,6 @@
 	greyscale_colors = null
 	icon_state = "pda-library"
 	insert_type = /obj/item/pen/fountain
-	default_applications = list(
-		/datum/computer_file/program/newscaster,
-	)
-
-/obj/item/modular_computer/tablet/pda/curator/Initialize(mapload)
-	. = ..()
-	var/obj/item/computer_hardware/hard_drive/hdd = all_components[MC_HDD]
-
-	if(hdd)
-		for(var/datum/computer_file/program/messenger/msg in hdd.stored_files)
-			msg.allow_emojis = TRUE
 
 /**
  * Non-roles
