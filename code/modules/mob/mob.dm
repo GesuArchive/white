@@ -1520,6 +1520,7 @@
 		x_offset = distance*world.icon_size
 	if(direction & WEST)
 		x_offset = -distance*world.icon_size
+	animate(client, pixel_x = pixel_x + x_offset, pixel_y = pixel_y + y_offset, time = 2)
 	client.pixel_x += x_offset
 	client.pixel_y += y_offset
 
