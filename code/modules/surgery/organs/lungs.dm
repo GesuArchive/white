@@ -446,6 +446,14 @@
 	icon_state = "lungs-plasma"
 	breathing_class = BREATH_PLASMA
 
+	gas_damage = list(
+		"default" = list(
+			min = MIN_TOXIC_GAS_DAMAGE,
+			max = MAX_TOXIC_GAS_DAMAGE,
+			damage_type = OXY
+		)
+	)
+
 /obj/item/organ/lungs/slime
 	name = "вакуоль"
 	desc = "Большая органелла, предназначенная для хранения кислорода и других важных газов."

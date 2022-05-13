@@ -4,10 +4,9 @@
 	say_mod = "костлявит"
 	sexes = 0
 	meat = /obj/item/stack/sheet/mineral/plasma
-	species_traits = list(NOBLOOD,NOTRANSSTING, HAS_BONE)
+	species_traits = list(NOBLOOD, NOTRANSSTING, HAS_BONE)
 	// plasmemes get hard to wound since they only need a severe bone wound to dismember, but unlike skellies, they can't pop their bones back into place
-	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_RESISTCOLD, TRAIT_RADIMMUNE, TRAIT_GENELESS, TRAIT_NOHUNGER, TRAIT_HARDLY_WOUNDED,TRAIT_CAN_STRIP,TRAIT_NOHYDRATION)
-
+	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER, TRAIT_RESISTCOLD, TRAIT_RADIMMUNE, TRAIT_GENELESS, TRAIT_NOHUNGER, TRAIT_HARDLY_WOUNDED, TRAIT_CAN_STRIP, TRAIT_NOHYDRATION)
 	inherent_biotypes = MOB_HUMANOID|MOB_MINERAL
 	mutantlungs = /obj/item/organ/lungs/plasmaman
 	mutanttongue = /obj/item/organ/tongue/bone/plasmaman
