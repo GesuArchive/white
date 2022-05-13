@@ -11,15 +11,18 @@
 
 /obj/item/encryptionkey/Initialize()
 	. = ..()
-	if(!channels.len)
-		desc = "Ключ шифрования радиогарнитуры. Никаких специальных кодов в нем нет. Вы, наверное, должны сказать кодеру!"
+	if(!channels.len && !translate_binary)
+		desc += "Никаких специальных кодов в нем нет. Вы, наверное, должны сказать кодеру!"
 
 /obj/item/encryptionkey/examine(mob/user)
 	. = ..()
-	if(LAZYLEN(channels))
+	if(LAZYLEN(channels) || translate_binary)
 		var/list/examine_text_list = list()
 		for(var/i in channels)
 			examine_text_list += "[GLOB.channel_tokens[i]] - [lowertext(i)]"
+
+		if(translate_binary)
+			examine_text_list += "[GLOB.channel_tokens[MODE_BINARY]] - [MODE_BINARY]"
 
 		. += "<hr><span class='notice'>Имеет доступ к следующим каналам; [jointext(examine_text_list, ", ")].</span>"
 
