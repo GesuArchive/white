@@ -11,7 +11,7 @@
 		span_notice("[user] начинает делать надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
 		span_notice("[user] начинает делать надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 		playsound(get_turf(target), 'sound/surgery/scalpel1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-	display_pain(target, "Чувствую надрез в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, DATELNI, target.gender)].")
+	display_pain(target, "Чувствую надрез в [ru_gde_zone(parse_zone(target_zone))].")
 
 /datum/surgery_step/incise/tool_check(mob/user, obj/item/tool)
 	if(implement_type == /obj/item && !tool.get_sharpness())

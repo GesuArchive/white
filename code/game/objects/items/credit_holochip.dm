@@ -1,6 +1,6 @@
 /obj/item/holochip
-	name = "credit holochip"
-	desc = "A hard-light chip encoded with an amount of credits. It is a modern replacement for physical money that can be directly converted to virtual currency and viceversa. Keep away from magnets."
+	name = "голочип с кредитами"
+	desc = "Чип, на котором хранится определенная сумма кредитов. Это современная замена физических монет и купюр. Их также можно конвертировать в виртуальную валюту и наоборот. Держать подальше от магнитов."
 	icon = 'icons/obj/economy.dmi'
 	icon_state = "holochip"
 	throwforce = 0
@@ -23,7 +23,7 @@
 	return credits
 
 /obj/item/holochip/update_icon()
-	name = "\improper [credits] credit holochip"
+	name = "\improper голочип с [credits] кредитами"
 	var/rounded_credits = credits
 	switch(credits)
 		if(1 to 999)
@@ -78,14 +78,14 @@
 	if(istype(I, /obj/item/holochip))
 		var/obj/item/holochip/H = I
 		credits += H.credits
-		to_chat(user, span_notice("You insert the credits into [src]."))
+		to_chat(user, span_notice("Вставляю кредиты в [src]."))
 		update_icon()
 		qdel(H)
 
 /obj/item/holochip/AltClick(mob/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return
-	var/split_amount = round(input(user,"How many credits do you want to extract from the holochip?") as null|num)
+	var/split_amount = round(input(user,"Сколько кредитов вы хотите изъять из голочипа?") as null|num)
 	if(split_amount == null || split_amount <= 0 || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return
 	else
@@ -96,7 +96,7 @@
 				H.forceMove(user.drop_location())
 			add_fingerprint(user)
 		H.add_fingerprint(user)
-		to_chat(user, span_notice("You extract [split_amount] credits into a new holochip."))
+		to_chat(user, span_notice("Извлек [split_amount] кредитов, формируя новый голочип."))
 
 /obj/item/holochip/emp_act(severity)
 	. = ..()

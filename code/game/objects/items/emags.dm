@@ -39,8 +39,8 @@
 	icon_state = "hack_o_lantern"
 
 /obj/item/card/emagfake
-	desc = "It's a card with a magnetic strip attached to some circuitry. Closer inspection shows that this card is a poorly made replica, with a \"DonkCo\" logo stamped on the back."
-	name = "cryptographic sequencer"
+	desc = "Это карта с магнитной полосой, прикрепленной к какой-то схеме. При ближайшем рассмотрении оказывается, что эта карта - реплика, с логотипом \"DonkCo\" на обратной стороне."
+	name = "криптографический секвенсор"
 	icon_state = "emag"
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
