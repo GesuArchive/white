@@ -239,7 +239,6 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/low_level_centre)
 "fT" = (
@@ -361,7 +360,6 @@
 /area/command/meeting_room)
 "id" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/command/meeting_room)
 "il" = (
@@ -945,7 +943,6 @@
 /area/command)
 "tw" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "tF" = (
@@ -1990,7 +1987,6 @@
 /area/space/nearstation)
 "Pa" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "Pe" = (
@@ -2441,7 +2437,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/low_level_centre)
 "ZQ" = (

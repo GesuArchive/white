@@ -797,7 +797,6 @@
 /area/maintenance/bottom_station_maints/south)
 "aNu" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/solars/starboard/aft)
 "aNv" = (
@@ -896,7 +895,6 @@
 /area/service/bar)
 "aRC" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/commons/vacant_room/commissary/third)
 "aSd" = (
@@ -1244,7 +1242,6 @@
 /area/maintenance/bottom_station_maints)
 "bjD" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/service/theater)
 "bkd" = (
@@ -1645,7 +1642,6 @@
 	id = "xenobiomain";
 	name = "containment blast door"
 	},
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/science/xenobiology)
 "bGt" = (
@@ -1860,7 +1856,6 @@
 /area/hallway/secondary/entry/south_hall)
 "bTU" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/cargo/meeting_room)
 "bUb" = (
@@ -2488,7 +2483,6 @@
 /area/service/library)
 "cGd" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/cargo/exploration_prep)
 "cGn" = (
@@ -2653,7 +2647,6 @@
 /area/security/prison)
 "cOa" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/security/prison)
 "cOl" = (
@@ -4305,7 +4298,6 @@
 /area/maintenance/port/fore)
 "eoq" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/service/library)
 "eoB" = (
@@ -4547,7 +4539,6 @@
 /area/service/library)
 "eyu" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/security/execution/transfer)
 "eyI" = (
@@ -4960,7 +4951,6 @@
 /area/ai_monitored/storage/eva)
 "eRf" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/commons/fitness/kachalka)
 "eRw" = (
@@ -5747,7 +5737,6 @@
 "fCV" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/tcommsat/server/upper)
 "fDJ" = (
@@ -6042,7 +6031,6 @@
 	id = "xenobio1";
 	name = "Xenobio Pen 1 Blast Door"
 	},
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/science/xenobiology)
 "fQV" = (
@@ -6783,7 +6771,6 @@
 /area/cargo/warehouse)
 "gBi" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 1;
 	id = "cyto"
@@ -7614,7 +7601,6 @@
 /area/maintenance/bottom_station_maints/east)
 "htK" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/cargo/exploration_dock)
 "hua" = (
@@ -7646,7 +7632,6 @@
 	id = "barmanprivate";
 	name = "barman privacy shutters"
 	},
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/service/bar)
 "hwv" = (
@@ -7793,7 +7778,6 @@
 	id = "xenobio6";
 	name = "Xenobio Pen 6 Blast Door"
 	},
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/science/xenobiology)
 "hDd" = (
@@ -8332,7 +8316,6 @@
 "ids" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/engineering/storage/tech)
 "idv" = (
@@ -8557,7 +8540,6 @@
 /area/commons/cryopods)
 "iok" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/secondary/exit/departure_lounge/shop)
 "ipf" = (
@@ -9788,7 +9770,6 @@
 /area/security/prison)
 "jAi" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "jAv" = (
@@ -10390,7 +10371,6 @@
 /area/security/prison)
 "keu" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/solars/port/fore)
 "kfU" = (
@@ -10410,7 +10390,6 @@
 /area/space/nearstation)
 "kge" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/service/hydroponics)
 "kgl" = (
@@ -10770,7 +10749,6 @@
 "kvg" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/security/prison)
 "kvs" = (
@@ -10901,7 +10879,6 @@
 "kzq" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/ai_monitored/storage/eva)
 "kzz" = (
@@ -12211,7 +12188,6 @@
 /area/hallway/secondary/entry)
 "lIx" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry/south_hall)
 "lIA" = (
@@ -13184,7 +13160,6 @@
 /area/hallway/primary/aft)
 "mPf" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "mRi" = (
@@ -14335,7 +14310,6 @@
 /area/hallway/secondary/entry)
 "nZq" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/science/research/abandoned)
@@ -14482,7 +14456,6 @@
 "ofg" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/service/hydroponics)
 "ofr" = (
@@ -15853,7 +15826,6 @@
 /area/commons/vacant_room/commissary/third)
 "ptN" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/secondary/exit/departure_lounge/cryo)
 "ptR" = (
@@ -16025,7 +15997,6 @@
 /area/engineering/atmospherics_engine)
 "pBr" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/cargo/qm/perch)
 "pBY" = (
@@ -16563,7 +16534,6 @@
 /area/service/hydroponics)
 "qaD" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/low_level_eva)
 "qbO" = (
@@ -17460,7 +17430,6 @@
 /area/security/prison)
 "qRQ" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/west)
 "qRW" = (
@@ -17570,7 +17539,6 @@
 /area/commons/fitness/kachalka)
 "qVM" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/cargo/warehouse)
 "qVO" = (
@@ -18747,7 +18715,6 @@
 /area/commons/cryopods)
 "sgI" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/science/research/abandoned)
 "shI" = (
@@ -19497,7 +19464,6 @@
 /area/ai_monitored/storage/eva)
 "sTM" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/commons/cryopods)
 "sUn" = (
@@ -20489,7 +20455,6 @@
 /area/engineering/storage/tech)
 "tQb" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/secondary/exit/departure_lounge)
 "tQq" = (
@@ -20616,7 +20581,6 @@
 /area/commons/fitness/kachalka)
 "tUC" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/solars/starboard/fore)
 "tUH" = (
@@ -22760,7 +22724,6 @@
 /area/maintenance/port/aft)
 "vSR" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "vTd" = (
@@ -22783,7 +22746,6 @@
 /area/commons/fitness/kachalka)
 "vUI" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "vWx" = (
@@ -23083,7 +23045,6 @@
 /area/security/execution/transfer)
 "wlz" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/aft)
 "wlE" = (
@@ -23322,7 +23283,6 @@
 /area/commons/fitness/kachalka)
 "wwv" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/solars/port/aft)
 "www" = (
@@ -23978,7 +23938,6 @@
 /area/hallway/secondary/service)
 "wYP" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/maintenance/disposal)
 "wZg" = (

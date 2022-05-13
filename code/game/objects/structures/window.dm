@@ -643,31 +643,6 @@
 	canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_WALLS)
 	glass_amount = 2
 
-/obj/structure/window/fulltile/attackby(obj/item/W, mob/user, params)
-	if(is_glass_sheet(W))
-		var/obj/item/stack/ST = W
-		if (ST.get_amount() < 2)
-			to_chat(user, span_warning("Надо бы хотя бы парочку листов стекла!"))
-			return
-		if(!anchored)
-			to_chat(user, span_warning("Надо бы прикрутить [src] к полу!"))
-			return
-		for(var/obj/machinery/door/firedoor/window/FD in loc)
-			to_chat(user, span_warning("Здесь уже есть окно!"))
-			return
-		to_chat(user, span_notice("Начинаю ставить запасное окно..."))
-		if(do_after(user,30, target = src))
-			if(!src.loc || !anchored)
-				return
-			for(var/obj/machinery/door/firedoor/window/FD in loc)
-				to_chat(user, span_warning("Здесь уже есть запасное окно!"))
-				return
-			new/obj/machinery/door/firedoor/window(drop_location())
-			ST.use(2)
-			to_chat(user, span_notice("Ставлю запасное окно на [src]."))
-		return
-	. = ..()
-
 /obj/structure/window/fulltile/unanchored
 	anchored = FALSE
 
@@ -701,31 +676,6 @@
 	canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_WALLS)
 	glass_amount = 2
 
-/obj/structure/window/plasma/reinforced/fulltile/attackby(obj/item/W, mob/user, params)
-	if(is_glass_sheet(W))
-		var/obj/item/stack/ST = W
-		if (ST.get_amount() < 2)
-			to_chat(user, span_warning("Надо бы хотя бы парочку листов стекла!"))
-			return
-		if(!anchored)
-			to_chat(user, span_warning("Надо бы прикрутить [src] к полу!"))
-			return
-		for(var/obj/machinery/door/firedoor/window/FD in loc)
-			to_chat(user, span_warning("Здесь уже есть окно!"))
-			return
-		to_chat(user, span_notice("Начинаю ставить запасное окно..."))
-		if(do_after(user,30, target = src))
-			if(!src.loc || !anchored)
-				return
-			for(var/obj/machinery/door/firedoor/window/FD in loc)
-				to_chat(user, span_warning("Здесь уже есть запасное окно!"))
-				return
-			new/obj/machinery/door/firedoor/window(drop_location())
-			ST.use(2)
-			to_chat(user, span_notice("Ставлю запасное окно на [src]."))
-		return
-	. = ..()
-
 /obj/structure/window/plasma/reinforced/fulltile/unanchored
 	anchored = FALSE
 	state = WINDOW_OUT_OF_FRAME
@@ -743,31 +693,6 @@
 	smoothing_groups = list(SMOOTH_GROUP_WINDOW_FULLTILE)
 	canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_WALLS)
 	glass_amount = 2
-
-/obj/structure/window/reinforced/fulltile/attackby(obj/item/W, mob/user, params)
-	if(is_glass_sheet(W))
-		var/obj/item/stack/ST = W
-		if (ST.get_amount() < 2)
-			to_chat(user, span_warning("Надо бы хотя бы парочку листов стекла!"))
-			return
-		if(!anchored)
-			to_chat(user, span_warning("Надо бы прикрутить [src] к полу!"))
-			return
-		for(var/obj/machinery/door/firedoor/window/FD in loc)
-			to_chat(user, span_warning("Здесь уже есть окно!"))
-			return
-		to_chat(user, span_notice("Начинаю ставить запасное окно..."))
-		if(do_after(user,30, target = src))
-			if(!src.loc || !anchored)
-				return
-			for(var/obj/machinery/door/firedoor/window/FD in loc)
-				to_chat(user, span_warning("Здесь уже есть запасное окно!"))
-				return
-			new/obj/machinery/door/firedoor/window(drop_location())
-			ST.use(2)
-			to_chat(user, span_notice("Ставлю запасное окно на [src]."))
-		return
-	. = ..()
 
 /obj/structure/window/reinforced/fulltile/unanchored
 	anchored = FALSE

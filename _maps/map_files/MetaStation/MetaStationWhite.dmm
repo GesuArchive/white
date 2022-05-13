@@ -21042,7 +21042,6 @@
 /area/maintenance/central)
 "bci" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central)
 "bcj" = (
@@ -22529,7 +22528,6 @@
 	name = "bridge blast door"
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/command)
 "bfv" = (
@@ -30946,7 +30944,6 @@
 	name = "Council Blast Doors"
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/command)
 "bBM" = (

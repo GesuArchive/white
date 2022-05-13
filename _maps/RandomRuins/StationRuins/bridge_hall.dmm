@@ -192,7 +192,6 @@
 /area/hallway/primary/central/south)
 "cw" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -331,7 +330,6 @@
 /area/hallway/primary/central/east)
 "er" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -437,7 +435,6 @@
 /area/hallway/primary/central/west)
 "fl" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -640,7 +637,6 @@
 /turf/closed/wall/r_wall,
 /area/hallway/primary/central/south)
 "im" = (
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -861,7 +857,6 @@
 /area/command/teleporter)
 "lo" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -898,7 +893,6 @@
 /area/hallway/primary/central/low_level_centre)
 "lT" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -923,7 +917,6 @@
 /area/ai_monitored/turret_protected/ai_upload)
 "ml" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -964,7 +957,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/west)
 "mw" = (
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -1181,7 +1173,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/north)
 "pn" = (
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -1333,7 +1324,6 @@
 /area/hallway/primary/central/south)
 "qx" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -1666,7 +1656,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/south)
 "uM" = (
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -1680,7 +1669,6 @@
 /area/command)
 "uP" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/shutters{
 	id = "aquaprivacy";
 	name = "Privacy Shutters"
@@ -1936,7 +1924,6 @@
 /area/hallway/primary/central/east)
 "xG" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -2104,7 +2091,6 @@
 /area/ai_monitored/turret_protected/ai_upload)
 "zj" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -2144,7 +2130,6 @@
 /area/hallway/primary/central/west)
 "Ao" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
@@ -2339,7 +2324,6 @@
 /area/hallway/primary/central/south)
 "CO" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/shutters{
 	dir = 4;
 	id = "aquaprivacy";
@@ -2357,7 +2341,6 @@
 /area/hallway/primary/central/south)
 "CZ" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -2746,7 +2729,6 @@
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain)
 "Ir" = (
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor{
 	id = "capblast";
 	name = "captains blast door"
@@ -2849,7 +2831,6 @@
 /area/hallway/primary/central/east)
 "JL" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -3342,7 +3323,6 @@
 /area/command/heads_quarters/captain)
 "QD" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -3581,7 +3561,6 @@
 /area/hallway/primary/central/south)
 "Tk" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
@@ -3612,7 +3591,6 @@
 /area/hallway/primary/central/west)
 "Ui" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/north)
 "Un" = (
@@ -3690,7 +3668,6 @@
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
 "WH" = (
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"

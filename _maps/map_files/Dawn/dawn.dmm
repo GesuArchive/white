@@ -4691,7 +4691,6 @@
 /turf/open/floor/plasteel,
 /area/service/janitor)
 "mK" = (
-/obj/machinery/door/firedoor/window,
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/medical/medbay)
@@ -5477,7 +5476,6 @@
 /area/medical/medbay)
 "oI" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/firedoor/window,
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/medical/medbay)
@@ -11712,7 +11710,6 @@
 /area/engineering/engine_smes)
 "OI" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/medical/medbay)
 "OQ" = (

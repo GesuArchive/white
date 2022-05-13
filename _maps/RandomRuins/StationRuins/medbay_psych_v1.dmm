@@ -1,7 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "af" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/medical/medbay/central)
@@ -1016,7 +1015,6 @@
 /area/template_noop)
 "gP" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/medical/pharmacy)
@@ -3838,7 +3836,6 @@
 /area/medical/medbay/zone2)
 "Mq" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/medical/virology)

@@ -1258,7 +1258,6 @@
 /area/command/heads_quarters/hop)
 "tX" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
@@ -1455,7 +1454,6 @@
 /area/command/meeting_room/council)
 "wr" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/engineering/gravity_generator)
@@ -3088,7 +3086,6 @@
 /area/command/heads_quarters/captain)
 "Xw" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/command/meeting_room/council)
 "XB" = (

@@ -478,7 +478,6 @@
 "bg" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/command/heads_quarters/captain)
 "bh" = (
@@ -1036,7 +1035,6 @@
 /area/command/meeting_room)
 "cl" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/command/heads_quarters/captain)
 "cm" = (
@@ -1660,7 +1658,6 @@
 /area/command/heads_quarters/hop)
 "dC" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/command/heads_quarters/hop)
 "dD" = (
@@ -2798,7 +2795,6 @@
 /area/hallway/primary/central/west)
 "mB" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/north)
 "mI" = (
@@ -2967,7 +2963,6 @@
 	id = "bridge blast";
 	name = "bridge blast door"
 	},
-/obj/machinery/door/firedoor/window,
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/command)
@@ -3137,7 +3132,6 @@
 /area/hallway/primary/central/north)
 "nU" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/command)
 "nV" = (
@@ -3964,7 +3958,6 @@
 	name = "bridge blast door"
 	},
 /obj/machinery/status_display/evac,
-/obj/machinery/door/firedoor/window,
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/command)
@@ -4716,7 +4709,6 @@
 /area/hallway/primary/central/south)
 "zp" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/shutters{
 	dir = 4;
 	id = "aquaprivacy";
@@ -4966,7 +4958,6 @@
 /area/hallway/primary/central/south)
 "Mt" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/south)
 "MF" = (
@@ -5095,7 +5086,6 @@
 /area/hallway/primary/central/north)
 "QJ" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/shutters{
 	id = "aquaprivacy";
 	name = "Privacy Shutters"
@@ -5249,7 +5239,6 @@
 /area/hallway/primary/central/south)
 "VG" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/west)
 "WR" = (

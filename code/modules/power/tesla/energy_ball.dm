@@ -254,8 +254,7 @@
 										/obj/machinery/gateway,
 										/obj/structure/lattice,
 										/obj/structure/grille,
-										/obj/structure/frame/machine,
-										/obj/machinery/door/firedoor/window))
+										/obj/structure/frame/machine))
 
 	//Ok so we are making an assumption here. We assume that view() still calculates from the center out.
 	//This means that if we find an object we can assume it is the closest one of its type. This is somewhat of a speed increase.

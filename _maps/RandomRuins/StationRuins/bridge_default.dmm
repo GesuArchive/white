@@ -65,7 +65,6 @@
 /area/hallway/primary/central/north)
 "aD" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/east)
 "aE" = (
@@ -277,7 +276,6 @@
 /area/hallway/primary/central/north)
 "bl" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/shutters{
 	dir = 4;
 	id = "aquaprivacy";
@@ -4866,7 +4864,6 @@
 /area/hallway/primary/central/west)
 "zX" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/south)
 "Af" = (
@@ -5060,7 +5057,6 @@
 /area/hallway/primary/central/south)
 "Oe" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/shutters{
 	id = "aquaprivacy";
 	name = "Privacy Shutters"
@@ -5118,7 +5114,6 @@
 /area/hallway/primary/central/east)
 "Qt" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/north)
 "QR" = (
@@ -5322,7 +5317,6 @@
 /area/hallway/primary/central/west)
 "ZG" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/west)
 "ZH" = (

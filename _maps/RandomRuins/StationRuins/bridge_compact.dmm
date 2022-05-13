@@ -84,7 +84,6 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/north)
 "ap" = (
-/obj/machinery/door/firedoor/window,
 /obj/structure/cable,
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -187,7 +186,6 @@
 "aK" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/north)
 "aL" = (
@@ -302,7 +300,6 @@
 "ba" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/west)
 "bc" = (
@@ -1723,7 +1720,6 @@
 /area/command/heads_quarters/hop)
 "eU" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/shutters{
 	dir = 4;
 	id = "aquaprivacy";
@@ -2892,7 +2888,6 @@
 "jV" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/low_level_centre)
 "jW" = (
@@ -3198,7 +3193,6 @@
 /area/hallway/primary/central/north)
 "nd" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/shutters{
 	id = "aquaprivacy";
 	name = "Privacy Shutters"
@@ -3705,7 +3699,6 @@
 /area/hallway/primary/central/north)
 "xG" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/north)
 "xQ" = (
@@ -3751,7 +3744,6 @@
 /area/hallway/primary/central/north)
 "zb" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/central)
@@ -4860,7 +4852,6 @@
 "Xn" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/hallway/primary/central/south)
 "XK" = (

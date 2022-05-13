@@ -756,7 +756,6 @@
 	name = "privacy shutters"
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/command/heads_quarters/hos)
 "dv" = (
@@ -1482,7 +1481,6 @@
 	name = "space shutters"
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/command/heads_quarters/hos)
 "fo" = (
@@ -1492,7 +1490,6 @@
 /area/security/main)
 "fq" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/security/main)
 "fr" = (
@@ -3506,7 +3503,6 @@
 "Oi" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /obj/machinery/door/poddoor/preopen{
 	id = "hosspace";
 	name = "space shutters"

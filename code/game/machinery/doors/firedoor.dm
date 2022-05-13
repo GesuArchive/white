@@ -623,6 +623,11 @@
 
 /obj/machinery/door/firedoor/border_only/Initialize(mapload)
 	. = ..()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_EXIT = .proc/on_exit,
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
 	adjust_lights_starting_offset()
 
 /obj/machinery/door/firedoor/border_only/adjust_lights_starting_offset()
@@ -675,21 +680,6 @@
 	explosion_block = 2
 	assemblytype = /obj/structure/firelock_frame/heavy
 	max_integrity = 550
-
-/obj/machinery/door/firedoor/window
-	name = "запасное окно"
-	icon = 'white/valtos/icons/doorfirewindow.dmi'
-	desc = "Автоматически закрывается при повреждении основного окна. Гениальная разработка наших инженеров."
-	glass = TRUE
-	explosion_block = 0
-	max_integrity = 50
-	resistance_flags = 0 // not fireproof
-	heat_proof = FALSE
-	assemblytype = /obj/item/shard // yeah
-
-/obj/machinery/door/firedoor/window/deconstruct(disassembled = TRUE)
-	new assemblytype(get_turf(src))
-	qdel(src)
 
 /obj/item/electronics/firelock
 	name = "микросхема пожарного шлюза"
@@ -870,9 +860,6 @@
 	if((status1 == 1 && status2 == -1) || (status1 == -1 && status2 == 1))
 		to_chat(user, "<span class='warning'>Доступ запрещён.</span>")
 		return FALSE
-	return TRUE
-
-/obj/machinery/door/firedoor/window/allow_hand_open()
 	return TRUE
 
 /obj/machinery/door/firedoor/border_only/proc/check_door_side(turf/open/start_point)

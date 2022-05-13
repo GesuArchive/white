@@ -68,7 +68,6 @@
 	id = "hosspace";
 	name = "space shutters"
 	},
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/engine,
 /area/security/main)
 "bn" = (
@@ -169,7 +168,6 @@
 	name = "space shutters"
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/engine,
 /area/command/heads_quarters/hos)
 "bL" = (

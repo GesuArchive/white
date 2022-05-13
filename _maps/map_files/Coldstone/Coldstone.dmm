@@ -6416,7 +6416,6 @@
 /area/ai_monitored/command/nuke_storage)
 "si" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/firedoor/window,
 /obj/effect/spawner/structure/window/survival_pod,
 /turf/open/floor/plating,
 /area/medical/medbay)
@@ -9824,7 +9823,6 @@
 "HP" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/firedoor/window,
 /turf/open/floor/plating,
 /area/partyhard/surface)
 "HS" = (
@@ -12963,7 +12961,6 @@
 /turf/open/floor/plasteel/dark,
 /area/science/robotics/mechbay)
 "Vg" = (
-/obj/machinery/door/firedoor/window,
 /obj/effect/spawner/structure/window/survival_pod,
 /turf/open/floor/plating,
 /area/medical/medbay)
