@@ -1512,6 +1512,9 @@
 #define COMSIG_ALARM_TRIGGERED "comsig_alarm_triggered"
 ///Send when an alarm source is cleared (alarm_type, area/source_area)
 #define COMSIG_ALARM_CLEARED "comsig_alarm_clear"
+// Area fire signals
+/// Sent when an area's fire var changes: (fire_value)
+#define COMSIG_AREA_FIRE_CHANGED "area_fire_set"
 // Vacuum signals
 /// Called on a bag being attached to a vacuum parent
 #define COMSIG_VACUUM_BAG_ATTACH "comsig_vacuum_bag_attach"
