@@ -30119,7 +30119,7 @@
 	pixel_x = 5
 	},
 /obj/structure/table,
-/obj/item/computer_hardware/hard_drive/role/lawyer,
+@DELETE,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/north,
 /turf/open/floor/plasteel/dark,
@@ -36739,9 +36739,9 @@
 	},
 /obj/item/clipboard,
 /obj/item/folder/yellow,
-/obj/item/computer_hardware/hard_drive/role/quartermaster,
-/obj/item/computer_hardware/hard_drive/role/quartermaster,
-/obj/item/computer_hardware/hard_drive/role/quartermaster,
+/obj/item/computer_hardware/hard_drive/portable/quartermaster,
+/obj/item/computer_hardware/hard_drive/portable/quartermaster,
+/obj/item/computer_hardware/hard_drive/portable/quartermaster,
 /turf/open/floor/plasteel,
 /area/cargo/qm)
 "gQN" = (
@@ -47887,21 +47887,10 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/item/computer_hardware/hard_drive/role/medical{
-	pixel_x = 6;
-	pixel_y = 2
-	},
-/obj/item/computer_hardware/hard_drive/role/medical{
-	pixel_x = 5;
-	pixel_y = 1
-	},
-/obj/item/computer_hardware/hard_drive/role/medical{
-	pixel_x = 4
-	},
-/obj/item/computer_hardware/hard_drive/role/chemistry{
-	pixel_x = -6;
-	pixel_y = 8
-	},
+/obj/item/computer_hardware/hard_drive/portable/medical,
+/obj/item/computer_hardware/hard_drive/portable/medical,
+/obj/item/computer_hardware/hard_drive/portable/medical,
+/obj/item/computer_hardware/hard_drive/portable/chemistry,
 /obj/item/clothing/neck/stethoscope{
 	pixel_y = 5
 	},
@@ -50987,9 +50976,7 @@
 	},
 /obj/structure/table,
 /obj/item/clipboard,
-/obj/item/computer_hardware/hard_drive/role/roboticist{
-	pixel_x = -3
-	},
+@DELETE,
 /obj/item/circuitboard/aicore{
 	pixel_y = 5
 	},
@@ -68809,17 +68796,9 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/computer_hardware/hard_drive/role/engineering{
-	pixel_x = 6;
-	pixel_y = 6
-	},
-/obj/item/computer_hardware/hard_drive/role/engineering{
-	pixel_x = 8
-	},
-/obj/item/computer_hardware/hard_drive/role/atmos{
-	pixel_x = -6;
-	pixel_y = 4
-	},
+/obj/item/computer_hardware/hard_drive/portable/engineering,
+/obj/item/computer_hardware/hard_drive/portable/engineering,
+/obj/item/computer_hardware/hard_drive/portable/atmos,
 /obj/item/folder,
 /obj/item/stamp/ce,
 /turf/open/floor/plasteel/dark,
@@ -106820,171 +106799,6 @@ aeu
 aeu
 aeu
 aeu
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aeU
-aeu
-aeu
-aeu
-adH
-aea
-czi
-adQ
-cAF
-pgy
-adH
-adQ
-adH
-adH
-ejz
-kYL
-wWK
-tZe
-hqN
-tZe
-ncR
-tpU
-duZ
-sjJ
-tZe
-fhq
-aKK
-buD
-wAO
-wAO
-dJZ
-fiu
-wdE
-duf
-nEu
-gUd
-thp
-vtN
-rZe
-iRt
-oIr
-eyj
-sim
-jId
-pHZ
-dfF
-sim
-bDk
-mSA
-mSA
-qCt
-mSA
-qKT
-fZF
-bEB
-bpH
-bHk
-bHI
-oAl
-ajd
-ajd
-tER
-byB
-cea
-ceR
-cgi
-cgI
-cho
-chZ
-chZ
-chZ
-ato
-coO
-cnF
-sMk
-aIS
-bIi
-hpX
-bIu
-qdK
-bFa
-bFa
-bFa
-dAV
-bGS
-iBa
-cno
-anh
-anh
-anh
-aaa
-aaa
-aaa
-aaa
-aaa
-acm
-aFI
-amY
-sIT
-vRn
-vZl
-mqF
-hzc
-njj
-ygB
-ygB
-iLk
-aFI
-aeu
-aeu
-aeu
-cry
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aaa
 aaa
 aaa

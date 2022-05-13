@@ -1923,9 +1923,6 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/command/heads_quarters/cmo)
-"tv" = (
-/turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay)
 "tD" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -2567,11 +2564,6 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/command/heads_quarters/cmo)
-"zd" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plasteel/monofloor/white,
-/area/medical/medbay/aft)
 "zf" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -3771,18 +3763,10 @@
 /area/medical/virology)
 "Jh" = (
 /obj/structure/table,
-/obj/item/computer_hardware/hard_drive/role/medical{
-	pixel_x = -2;
-	pixel_y = 6
-	},
-/obj/item/computer_hardware/hard_drive/role/medical{
-	pixel_x = 6;
-	pixel_y = 3
-	},
-/obj/item/computer_hardware/hard_drive/role/medical,
-/obj/item/computer_hardware/hard_drive/role/chemistry{
-	pixel_y = 2
-	},
+/obj/item/computer_hardware/hard_drive/portable/medical,
+/obj/item/computer_hardware/hard_drive/portable/medical,
+/obj/item/computer_hardware/hard_drive/portable/medical,
+/obj/item/computer_hardware/hard_drive/portable/chemistry,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
@@ -6347,7 +6331,7 @@ Gt
 WB
 oT
 vg
-tv
+oT
 cl
 cl
 Dq
@@ -6653,7 +6637,7 @@ LT
 LT
 cz
 kd
-zd
+vA
 hd
 jL
 Ig

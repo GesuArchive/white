@@ -667,17 +667,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/freezer,
 /area/ruin/powered/seedvault)
-"qQ" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/turf/open/floor/plasteel/freezer,
-/area/ruin/powered/seedvault)
 "sv" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/vault,
-/area/ruin/powered/seedvault)
-"Bb" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/turf/open/floor/plasteel/freezer,
 /area/ruin/powered/seedvault)
 "DA" = (
 /obj/effect/decal/cleanable/dirt,
@@ -842,8 +834,8 @@ aa
 ac
 ap
 Vn
-Bb
-Bb
+pW
+pW
 ah
 av
 am
@@ -952,13 +944,13 @@ ac
 ae
 al
 Vn
-Bb
-Bb
-Bb
-Bb
-Bb
+pW
+pW
+pW
+pW
+pW
 aH
-Bb
+pW
 DA
 Uz
 aV
@@ -1040,8 +1032,8 @@ ac
 ai
 al
 Vn
-Bb
-Bb
+pW
+pW
 ah
 aF
 ac

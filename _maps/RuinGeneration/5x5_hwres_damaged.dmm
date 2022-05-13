@@ -22,10 +22,6 @@
 "C" = (
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
-"D" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/ruin/unpowered)
 "F" = (
 /turf/closed/wall,
 /area/ruin/unpowered)
@@ -45,7 +41,7 @@ F
 "}
 (2,1,1) = {"
 m
-D
+t
 d
 C
 F
@@ -53,7 +49,7 @@ F
 (3,1,1) = {"
 m
 m
-D
+t
 d
 p
 "}

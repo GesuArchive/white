@@ -130,9 +130,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/transport)
-"u" = (
-/turf/closed/wall/mineral/titanium,
-/area/shuttle/transport)
 "v" = (
 /obj/structure/rack,
 /obj/item/radio,
@@ -229,11 +226,11 @@ p
 c
 "}
 (8,1,1) = {"
-u
+b
 h
 t
 v
-u
+b
 "}
 (9,1,1) = {"
 d
@@ -243,11 +240,11 @@ E
 r
 "}
 (10,1,1) = {"
-u
+b
 D
 t
 q
-u
+b
 "}
 (11,1,1) = {"
 b

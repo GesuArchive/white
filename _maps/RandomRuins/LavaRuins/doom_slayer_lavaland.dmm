@@ -12,9 +12,6 @@
 /obj/item/storage/box/lethalshot,
 /turf/open/floor/pod/dark,
 /area/ruin/powered)
-"e" = (
-/turf/open/floor/pod/dark,
-/area/ruin/powered)
 "f" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/floor/pod/dark,
@@ -43,9 +40,6 @@
 /area/ruin/powered)
 "l" = (
 /obj/item/gun/energy/kinetic_accelerator,
-/turf/open/floor/pod/dark,
-/area/ruin/powered)
-"m" = (
 /turf/open/floor/pod/dark,
 /area/ruin/powered)
 "n" = (
@@ -251,7 +245,7 @@ a
 a
 b
 M
-e
+c
 d
 b
 c
@@ -742,7 +736,7 @@ c
 c
 c
 l
-m
+c
 n
 o
 c

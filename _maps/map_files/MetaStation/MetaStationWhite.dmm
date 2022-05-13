@@ -15119,7 +15119,7 @@
 	},
 /obj/item/pen,
 /obj/item/taperecorder,
-/obj/item/computer_hardware/hard_drive/role/lawyer,
+@DELETE,
 /turf/open/floor/wood,
 /area/lawoffice)
 "aOo" = (
@@ -20761,19 +20761,11 @@
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/ce)
 "bbt" = (
-/obj/item/computer_hardware/hard_drive/role/engineering{
-	pixel_x = 4;
-	pixel_y = 5
-	},
-/obj/item/computer_hardware/hard_drive/role/engineering{
-	pixel_x = -3;
-	pixel_y = 2
-	},
-/obj/item/computer_hardware/hard_drive/role/engineering{
-	pixel_x = 3
-	},
+/obj/item/computer_hardware/hard_drive/portable/engineering,
+/obj/item/computer_hardware/hard_drive/portable/engineering,
+/obj/item/computer_hardware/hard_drive/portable/engineering,
 /obj/structure/table/reinforced,
-/obj/item/computer_hardware/hard_drive/role/atmos,
+/obj/item/computer_hardware/hard_drive/portable/atmos,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -22977,17 +22969,9 @@
 	pixel_x = -10;
 	pixel_y = 9
 	},
-/obj/item/computer_hardware/hard_drive/role/quartermaster{
-	pixel_x = 9
-	},
-/obj/item/computer_hardware/hard_drive/role/quartermaster{
-	pixel_x = 5;
-	pixel_y = 11
-	},
-/obj/item/computer_hardware/hard_drive/role/quartermaster{
-	pixel_x = 8;
-	pixel_y = 4
-	},
+/obj/item/computer_hardware/hard_drive/portable/quartermaster,
+/obj/item/computer_hardware/hard_drive/portable/quartermaster,
+/obj/item/computer_hardware/hard_drive/portable/quartermaster,
 /turf/open/floor/wood,
 /area/cargo/qm)
 "bgG" = (
@@ -44359,15 +44343,9 @@
 /area/medical/medbay/central)
 "cnC" = (
 /obj/structure/table/glass,
-/obj/item/computer_hardware/hard_drive/role/medical{
-	pixel_x = -3
-	},
-/obj/item/computer_hardware/hard_drive/role/medical{
-	pixel_x = 3
-	},
-/obj/item/computer_hardware/hard_drive/role/chemistry{
-	pixel_y = 6
-	},
+/obj/item/computer_hardware/hard_drive/portable/medical,
+/obj/item/computer_hardware/hard_drive/portable/medical,
+/obj/item/computer_hardware/hard_drive/portable/chemistry,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
@@ -70206,10 +70184,7 @@
 "poP" = (
 /obj/machinery/power/apc/auto_name/east,
 /obj/structure/table/wood,
-/obj/item/computer_hardware/hard_drive/role/detective{
-	pixel_x = 7;
-	pixel_y = 8
-	},
+@DELETE,
 /obj/item/folder/red{
 	pixel_x = -7;
 	pixel_y = 6
@@ -70217,13 +70192,8 @@
 /obj/item/folder/red{
 	pixel_x = -7
 	},
-/obj/item/computer_hardware/hard_drive/role/detective{
-	pixel_x = 7;
-	pixel_y = 4
-	},
-/obj/item/computer_hardware/hard_drive/role/detective{
-	pixel_x = 7
-	},
+@DELETE,
+@DELETE,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/hos)
@@ -72476,15 +72446,9 @@
 /obj/effect/turf_decal/siding{
 	dir = 4
 	},
-/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
-	pixel_x = 6
-	},
-/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
-	pixel_x = -6
-	},
-/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
-	pixel_y = 6
-	},
+/obj/item/computer_hardware/hard_drive/portable/ordnance,
+/obj/item/computer_hardware/hard_drive/portable/ordnance,
+/obj/item/computer_hardware/hard_drive/portable/ordnance,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/rd)
 "qQP" = (
@@ -77888,10 +77852,6 @@
 /obj/item/stack/cable_coil/five,
 /turf/open/floor/plasteel/white,
 /area/medical/surgery)
-"uYi" = (
-/obj/structure/table/wood,
-/turf/open/floor/wood,
-/area/maintenance/port/aft)
 "uYE" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -96259,7 +96219,7 @@ aob
 sMV
 dux
 cjs
-uYi
+tOc
 tOc
 ckR
 cmh

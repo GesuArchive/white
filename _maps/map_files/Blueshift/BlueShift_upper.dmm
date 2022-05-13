@@ -4643,15 +4643,9 @@
 /area/medical/chemistry)
 "beB" = (
 /obj/structure/table/glass,
-/obj/item/computer_hardware/hard_drive/role/medical{
-	pixel_x = 3
-	},
-/obj/item/computer_hardware/hard_drive/role/medical{
-	pixel_x = -3
-	},
-/obj/item/computer_hardware/hard_drive/role/chemistry{
-	pixel_y = 6
-	},
+/obj/item/computer_hardware/hard_drive/portable/medical,
+/obj/item/computer_hardware/hard_drive/portable/medical,
+/obj/item/computer_hardware/hard_drive/portable/chemistry,
 /obj/machinery/light_switch/directional/north,
 /obj/machinery/light/directional/north,
 /turf/open/floor/plasteel/white,
@@ -33787,16 +33781,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
 /area/medical/cryo)
-"mcc" = (
-/obj/machinery/door/airlock/external{
-	name = "External Airlock";
-	req_access_txt = "13"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/maintenance/fore/upper)
 "mcj" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/airalarm/directional/south,
@@ -44873,16 +44857,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/science/cytology)
-"qAH" = (
-/obj/machinery/door/airlock/external{
-	name = "External Airlock";
-	req_access_txt = "13"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/maintenance/aft/upper)
 "qAJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
@@ -84195,7 +84169,7 @@ tIB
 tIB
 tIB
 tIB
-mcc
+aEo
 tIB
 vDD
 twI
@@ -85786,7 +85760,7 @@ wWm
 keu
 yhe
 yhe
-qAH
+fbM
 yhe
 yhe
 xNt

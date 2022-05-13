@@ -899,12 +899,6 @@
 	},
 /turf/open/floor/wood,
 /area/medical/medbay/aft)
-"fx" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 9
-	},
-/turf/open/floor/plasteel/white,
-/area/medical/medbay)
 "fF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -6088,7 +6082,7 @@ tJ
 YJ
 uS
 uS
-fx
+eo
 iT
 BV
 xq

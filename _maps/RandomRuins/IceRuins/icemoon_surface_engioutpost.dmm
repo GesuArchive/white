@@ -491,7 +491,7 @@
 	},
 /obj/machinery/power/apc/unlocked{
 	dir = 4;
-	pixel_x = 26
+	pixel_x = 24
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/icemoon,
@@ -540,11 +540,6 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 8
 	},
-/obj/structure/cable,
-/turf/open/floor/plasteel/icemoon,
-/area/icemoon/surface/outdoors)
-"bF" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/structure/cable,
 /turf/open/floor/plasteel/icemoon,
 /area/icemoon/surface/outdoors)
@@ -844,10 +839,6 @@
 /turf/open/floor/plasteel/icemoon,
 /area/icemoon/surface/outdoors)
 "cx" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
-/turf/open/floor/plasteel/icemoon,
-/area/icemoon/surface/outdoors)
-"cy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /turf/open/floor/plasteel/icemoon,
 /area/icemoon/surface/outdoors)
@@ -1716,7 +1707,7 @@ aj
 aj
 aj
 aU
-bF
+bp
 aj
 bX
 ck
@@ -1738,10 +1729,10 @@ aj
 aj
 aj
 bq
-bF
+bp
 bY
-bF
-bF
+bp
+bp
 cL
 cX
 di

@@ -567,15 +567,9 @@
 /area/commons/dorms)
 "aon" = (
 /obj/structure/table/glass,
-/obj/item/computer_hardware/hard_drive/role/chemistry{
-	pixel_y = 6
-	},
-/obj/item/computer_hardware/hard_drive/role/medical{
-	pixel_x = 3
-	},
-/obj/item/computer_hardware/hard_drive/role/medical{
-	pixel_x = -3
-	},
+/obj/item/computer_hardware/hard_drive/portable/chemistry,
+/obj/item/computer_hardware/hard_drive/portable/medical,
+/obj/item/computer_hardware/hard_drive/portable/medical,
 /obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -6788,8 +6782,8 @@
 /obj/item/storage/secure/briefcase{
 	pixel_x = -2
 	},
-/obj/item/computer_hardware/hard_drive/role/detective,
-/obj/item/computer_hardware/hard_drive/role/detective,
+@DELETE,
+@DELETE,
 /obj/item/book/manual/wiki/security_space_law,
 /obj/machinery/light{
 	dir = 4
@@ -8672,15 +8666,9 @@
 /area/hallway/primary/aft)
 "gSK" = (
 /obj/structure/table/reinforced,
-/obj/item/computer_hardware/hard_drive/role/engineering{
-	pixel_y = 6
-	},
-/obj/item/computer_hardware/hard_drive/role/engineering{
-	pixel_x = 6
-	},
-/obj/item/computer_hardware/hard_drive/role/engineering{
-	pixel_x = -6
-	},
+/obj/item/computer_hardware/hard_drive/portable/engineering,
+/obj/item/computer_hardware/hard_drive/portable/engineering,
+/obj/item/computer_hardware/hard_drive/portable/engineering,
 /obj/item/reagent_containers/pill/patch/aiuri,
 /obj/machinery/airalarm/directional/east,
 /turf/open/floor/plasteel/dark/side,
@@ -9347,9 +9335,9 @@
 "hoc" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/yellow,
-/obj/item/computer_hardware/hard_drive/role/atmos,
-/obj/item/computer_hardware/hard_drive/role/atmos,
-/obj/item/computer_hardware/hard_drive/role/atmos,
+/obj/item/computer_hardware/hard_drive/portable/atmos,
+/obj/item/computer_hardware/hard_drive/portable/atmos,
+/obj/item/computer_hardware/hard_drive/portable/atmos,
 /obj/item/stamp/ce,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/ce)
@@ -9986,15 +9974,9 @@
 "hNE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
-/obj/item/computer_hardware/hard_drive/role/quartermaster{
-	pixel_y = 6
-	},
-/obj/item/computer_hardware/hard_drive/role/quartermaster{
-	pixel_x = -6
-	},
-/obj/item/computer_hardware/hard_drive/role/quartermaster{
-	pixel_x = 6
-	},
+/obj/item/computer_hardware/hard_drive/portable/quartermaster,
+/obj/item/computer_hardware/hard_drive/portable/quartermaster,
+/obj/item/computer_hardware/hard_drive/portable/quartermaster,
 /obj/item/gps/mining,
 /obj/machinery/camera/autoname,
 /turf/open/floor/carpet/black,
@@ -14785,7 +14767,7 @@
 	pixel_y = 7
 	},
 /obj/item/taperecorder,
-/obj/item/computer_hardware/hard_drive/role/lawyer,
+@DELETE,
 /obj/effect/turf_decal/delivery/red,
 /obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable,
@@ -29343,10 +29325,6 @@
 /obj/item/clothing/mask/breath/cheap,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/aft)
-"wQE" = (
-/obj/structure/barricade/wooden,
-/turf/open/floor/plating/rust,
-/area/icemoon/surface/outdoors)
 "wQO" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -48135,9 +48113,9 @@ bFy
 bFy
 xYd
 xYd
-wQE
-wQE
-wQE
+hJL
+hJL
+hJL
 xYd
 bFy
 bFy
@@ -48395,7 +48373,7 @@ xux
 lQu
 lQu
 lQu
-wQE
+hJL
 bFy
 bFy
 bFy
@@ -48652,7 +48630,7 @@ owT
 aJW
 lQu
 lQu
-wQE
+hJL
 bFy
 bFy
 hzZ

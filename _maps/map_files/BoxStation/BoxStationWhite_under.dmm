@@ -3958,7 +3958,6 @@
 	req_access_txt = "12"
 	},
 /obj/machinery/door/firedoor,
-/turf/open/floor/plating,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/maintenance/bottom_station_maints)
 "dZm" = (
@@ -7846,10 +7845,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/low_level_eva)
-"hHF" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/security/prison)
 "hIb" = (
 /turf/closed/wall,
 /area/maintenance/bottom_station_maints/north)
@@ -8198,15 +8193,6 @@
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/research/abandoned)
-"hWp" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/obj/machinery/door/poddoor/preopen{
-	id = "xenobio1";
-	name = "Xenobio Pen 1 Blast Door"
-	},
-/turf/open/floor/plating,
-/area/science/xenobiology)
 "hWN" = (
 /obj/structure/sign/painting/library{
 	pixel_x = 32
@@ -9045,7 +9031,7 @@
 	areastring = "/area/cargo/warehouse";
 	dir = 8;
 	name = "Cargo Warehouse APC";
-	pixel_x = -24
+	pixel_x = -25
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/bot,
@@ -10876,11 +10862,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/carpet,
 /area/service/bar)
-"kzq" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/ai_monitored/storage/eva)
 "kzz" = (
 /obj/structure/bed,
 /obj/machinery/button/door{
@@ -22722,10 +22703,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
-"vSR" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/south)
 "vTd" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -22744,10 +22721,6 @@
 /obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/commons/fitness/kachalka)
-"vUI" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints)
 "vWx" = (
 /turf/closed/wall/r_wall,
 /area/cargo/exploration_dock)
@@ -23936,10 +23909,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/service)
-"wYP" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/maintenance/disposal)
 "wZg" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -24128,10 +24097,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engineering/atmospherics_engine)
-"xiM" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/east)
 "xjj" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/light/small,
@@ -38694,7 +38659,7 @@ oed
 rmx
 oed
 rmx
-wYP
+rmx
 pTx
 pTx
 qhW
@@ -38951,7 +38916,7 @@ mir
 vlk
 tre
 gko
-wYP
+rmx
 qhW
 qhW
 qhW
@@ -39208,7 +39173,7 @@ wBY
 efe
 wZG
 xrf
-wYP
+rmx
 pTx
 pTx
 tdl
@@ -44640,7 +44605,7 @@ byZ
 vJm
 kUB
 wPb
-vSR
+hZr
 pTx
 qhW
 wwv
@@ -44897,7 +44862,7 @@ byZ
 byZ
 vJm
 oGq
-vSR
+hZr
 pTx
 tdl
 hXk
@@ -45154,7 +45119,7 @@ dBm
 byZ
 vJm
 oGq
-vSR
+hZr
 tdl
 tdl
 hXk
@@ -45672,9 +45637,9 @@ ujw
 ckD
 ujw
 ujw
-vSR
-vSR
-vSR
+hZr
+hZr
+hZr
 ujw
 ujw
 ujw
@@ -45937,7 +45902,7 @@ wPb
 rEp
 eQU
 vJm
-vSR
+hZr
 pTx
 pTx
 tdl
@@ -47226,7 +47191,7 @@ rEp
 rEp
 rEp
 txU
-vSR
+hZr
 pTx
 pTx
 pTx
@@ -47483,7 +47448,7 @@ oGq
 iEk
 rEp
 txU
-vSR
+hZr
 pTx
 pTx
 pTx
@@ -47740,7 +47705,7 @@ oGq
 oGq
 rEp
 txU
-vSR
+hZr
 tdl
 tdl
 tdl
@@ -47997,7 +47962,7 @@ oGq
 oGq
 ucY
 txU
-vSR
+hZr
 pTx
 pTx
 pTx
@@ -48254,7 +48219,7 @@ oGq
 oGq
 rEp
 oGq
-vSR
+hZr
 qhW
 qhW
 qhW
@@ -49210,8 +49175,8 @@ fcV
 rwP
 fcV
 fcV
-kzq
-kzq
+cGn
+cGn
 fcV
 tdl
 pTx
@@ -49791,7 +49756,7 @@ rEp
 oGq
 txU
 txU
-vSR
+hZr
 pTx
 pTx
 pTx
@@ -51845,7 +51810,7 @@ oGq
 oGq
 ucY
 jEa
-vSR
+hZr
 tdl
 pTx
 pTx
@@ -55081,7 +55046,7 @@ ttl
 vHT
 dkp
 fnl
-hHF
+cOa
 oHs
 kok
 kmf
@@ -55338,7 +55303,7 @@ ttl
 jzq
 ihw
 wyr
-hHF
+cOa
 hAD
 wUI
 wUI
@@ -55595,7 +55560,7 @@ ttl
 ttl
 nnk
 wyr
-hHF
+cOa
 hAD
 fLS
 ahS
@@ -56109,7 +56074,7 @@ pTx
 ttl
 eGT
 wyr
-hHF
+cOa
 hje
 ftz
 vpH
@@ -56366,7 +56331,7 @@ pTx
 ttl
 nnk
 kvR
-hHF
+cOa
 tSw
 geZ
 dhi
@@ -56623,7 +56588,7 @@ tdl
 ttl
 jzq
 bwy
-hHF
+cOa
 ltJ
 krW
 mSg
@@ -60067,7 +60032,7 @@ uZp
 vgn
 dvC
 tfL
-vUI
+uSo
 tfL
 tdl
 pTx
@@ -60581,7 +60546,7 @@ xTx
 vgn
 mmw
 tfL
-vUI
+uSo
 tfL
 bsi
 pTx
@@ -63667,7 +63632,7 @@ pDn
 pDn
 pDn
 pDn
-xiM
+mPf
 pTx
 pTx
 pTx
@@ -63924,7 +63889,7 @@ jSq
 pDn
 pDn
 pDn
-xiM
+mPf
 pTx
 pTx
 pTx
@@ -65470,7 +65435,7 @@ pDn
 pDn
 pDn
 pDn
-xiM
+mPf
 pTx
 pTx
 tdl
@@ -65727,7 +65692,7 @@ pDn
 pDn
 pDn
 pDn
-xiM
+mPf
 pTx
 pTx
 tdl
@@ -68546,7 +68511,7 @@ aTz
 wUV
 bdV
 dOd
-hWp
+fQP
 aCE
 gXO
 ezN
@@ -69321,7 +69286,7 @@ wOT
 vru
 gXO
 ibP
-xiM
+mPf
 pTx
 pTx
 pTx
@@ -70042,10 +70007,10 @@ lWC
 tdl
 ezN
 ezN
-xiM
+mPf
 ezN
 ezN
-xiM
+mPf
 jSq
 pDn
 pDn
@@ -70304,9 +70269,9 @@ tdl
 tdl
 tdl
 ezN
-xiM
-xiM
-xiM
+mPf
+mPf
+mPf
 jSq
 dlq
 pDn
@@ -70564,7 +70529,7 @@ tdl
 tdl
 tdl
 tdl
-xiM
+mPf
 dlq
 pDn
 pDn
@@ -71616,17 +71581,17 @@ ezN
 ezN
 ezN
 ezN
-xiM
+mPf
 ezN
-xiM
-ezN
-ezN
+mPf
 ezN
 ezN
 ezN
 ezN
 ezN
-xiM
+ezN
+ezN
+mPf
 ezN
 ezN
 pDn

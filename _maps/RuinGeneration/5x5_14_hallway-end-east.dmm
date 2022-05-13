@@ -19,10 +19,6 @@
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
-"Q" = (
-/obj/effect/spawner/structure/window,
-/turf/open/floor/plating,
-/area/ruin/unpowered)
 "R" = (
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
@@ -43,8 +39,8 @@ a
 "}
 (3,1,1) = {"
 a
-Q
-Q
+M
+M
 M
 a
 "}

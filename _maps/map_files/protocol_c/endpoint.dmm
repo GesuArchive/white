@@ -1157,6 +1157,7 @@
 /obj/machinery/door/poddoor/shuttledock{
 	name = "syndicate blast door";
 	turftype = /turf/open/floor/grass/snow/safe;
+	
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,

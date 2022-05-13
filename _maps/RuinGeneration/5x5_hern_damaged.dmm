@@ -29,9 +29,6 @@
 "S" = (
 /turf/closed/wall,
 /area/ruin/unpowered)
-"V" = (
-/turf/open/floor/plating,
-/area/ruin/unpowered)
 "W" = (
 /obj/effect/abstract/doorway_marker{
 	dir = 1
@@ -49,7 +46,7 @@ S
 (2,1,1) = {"
 S
 k
-V
+u
 D
 S
 "}

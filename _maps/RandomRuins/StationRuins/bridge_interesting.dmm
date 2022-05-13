@@ -5237,10 +5237,6 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central/south)
-"VG" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/hallway/primary/central/west)
 "WR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -5661,20 +5657,20 @@ WR
 nT
 rb
 rb
-VG
-VG
+af
+af
 rb
 rb
-VG
-VG
+af
+af
 rb
 eP
 os
 pP
 em
 rb
-VG
-VG
+af
+af
 kP
 kP
 cI
@@ -5697,7 +5693,7 @@ ab
 ob
 WR
 jo
-VG
+af
 ab
 bi
 bi
@@ -5735,7 +5731,7 @@ ab
 ob
 WR
 jo
-VG
+af
 ab
 bi
 bi

@@ -1635,8 +1635,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/shuttle/escape)
-"Nh" = (
-/area/shuttle/escape)
 "NH" = (
 /obj/structure/chair/comfy/brown{
 	dir = 1
@@ -2704,7 +2702,7 @@ VQ
 PN
 pE
 YA
-Nh
+qG
 AI
 Ee
 rt

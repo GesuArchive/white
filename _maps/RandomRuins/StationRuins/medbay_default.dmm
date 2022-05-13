@@ -1722,7 +1722,7 @@
 	areastring = "/area/medical/medbay/lobby";
 	dir = 4;
 	name = "Medbay Lobby APC";
-	pixel_x = 25
+	pixel_x = 24
 	},
 /obj/structure/table,
 /obj/item/paper_bin{

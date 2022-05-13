@@ -6609,18 +6609,10 @@
 /area/service/hydroponics)
 "tj" = (
 /obj/structure/table/reinforced,
-/obj/item/computer_hardware/hard_drive/role/engineering{
-	pixel_x = 4;
-	pixel_y = 5
-	},
-/obj/item/computer_hardware/hard_drive/role/engineering{
-	pixel_x = -3;
-	pixel_y = 2
-	},
-/obj/item/computer_hardware/hard_drive/role/engineering{
-	pixel_x = 3
-	},
-/obj/item/computer_hardware/hard_drive/role/atmos,
+/obj/item/computer_hardware/hard_drive/portable/engineering,
+/obj/item/computer_hardware/hard_drive/portable/engineering,
+/obj/item/computer_hardware/hard_drive/portable/engineering,
+/obj/item/computer_hardware/hard_drive/portable/atmos,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/ce)
 "tk" = (
@@ -7774,13 +7766,8 @@
 /obj/structure/table,
 /obj/structure/table/glass,
 /obj/machinery/recharger,
-/obj/item/computer_hardware/hard_drive/role/chemistry{
-	pixel_x = -6;
-	pixel_y = 8
-	},
-/obj/item/computer_hardware/hard_drive/role/medical{
-	pixel_x = 4
-	},
+/obj/item/computer_hardware/hard_drive/portable/chemistry,
+/obj/item/computer_hardware/hard_drive/portable/medical,
 /obj/item/clothing/neck/stethoscope{
 	pixel_y = 5
 	},
@@ -9731,7 +9718,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc{
 	dir = 1;
-	pixel_y = 24
+	pixel_y = 23
 	},
 /obj/machinery/light{
 	dir = 4
@@ -11075,15 +11062,9 @@
 /area/science/server)
 "Nb" = (
 /obj/structure/table,
-/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
-	pixel_x = 4;
-	pixel_y = 6
-	},
-/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
-	pixel_x = -4;
-	pixel_y = 2
-	},
-/obj/item/computer_hardware/hard_drive/role/signal/ordnance,
+/obj/item/computer_hardware/hard_drive/portable/ordnance,
+/obj/item/computer_hardware/hard_drive/portable/ordnance,
+/obj/item/computer_hardware/hard_drive/portable/ordnance,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/rd)
 "Nc" = (

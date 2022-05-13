@@ -2432,7 +2432,8 @@
 	cell_type = /obj/item/stock_parts/cell/high/plus;
 	dir = 8;
 	name = "Prison APC";
-	pixel_y = 24
+	pixel_y = 24;
+	pixel_x = -25
 	},
 /obj/structure/cable,
 /turf/open/floor/beton,

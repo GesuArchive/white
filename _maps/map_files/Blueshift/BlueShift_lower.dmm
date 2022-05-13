@@ -12551,16 +12551,6 @@
 /obj/machinery/power/floodlight,
 /turf/open/floor/plasteel/dark,
 /area/cargo/storage)
-"iFo" = (
-/obj/machinery/door/airlock/external{
-	name = "External Airlock";
-	req_access_txt = "13"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/maintenance/fore)
 "iFH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -59570,7 +59560,7 @@ xap
 nrO
 ayE
 ayE
-iFo
+fQu
 ayE
 ayE
 xap

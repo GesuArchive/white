@@ -89,7 +89,8 @@
 "fo" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/highcap/ten_k{
-	dir = 8
+	dir = 8;
+	pixel_x = -25
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bseruin/backyard)

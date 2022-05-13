@@ -1178,15 +1178,6 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/service/bar)
-"PL" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "barmanpriv";
-	name = "bar shutters"
-	},
-/obj/machinery/door/firedoor,
-/turf/open/floor/light,
-/area/service/bar)
 "PY" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -1391,12 +1382,6 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/wood,
 /area/hallway/secondary/service)
-"Xh" = (
-/obj/structure/chair/stool{
-	pixel_y = 8
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/service/bar)
 "Xj" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -1509,7 +1494,7 @@ dO
 xo
 zF
 zF
-PL
+sC
 tf
 fQ
 rU
@@ -1778,7 +1763,7 @@ ln
 Nr
 Cj
 Ey
-Xh
+fQ
 rJ
 rJ
 sG

@@ -40401,15 +40401,9 @@
 /area/engineering/atmos)
 "eVw" = (
 /obj/structure/table/reinforced,
-/obj/item/computer_hardware/hard_drive/role/quartermaster{
-	pixel_x = -6
-	},
-/obj/item/computer_hardware/hard_drive/role/quartermaster{
-	pixel_x = 6
-	},
-/obj/item/computer_hardware/hard_drive/role/quartermaster{
-	pixel_y = 6
-	},
+/obj/item/computer_hardware/hard_drive/portable/quartermaster,
+/obj/item/computer_hardware/hard_drive/portable/quartermaster,
+/obj/item/computer_hardware/hard_drive/portable/quartermaster,
 /obj/item/gps/mining,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -50898,15 +50892,9 @@
 "hYe" = (
 /obj/structure/table/glass,
 /obj/item/folder/blue,
-/obj/item/computer_hardware/hard_drive/role/medical{
-	pixel_x = -3
-	},
-/obj/item/computer_hardware/hard_drive/role/medical{
-	pixel_x = 3
-	},
-/obj/item/computer_hardware/hard_drive/role/chemistry{
-	pixel_y = 6
-	},
+/obj/item/computer_hardware/hard_drive/portable/medical,
+/obj/item/computer_hardware/hard_drive/portable/medical,
+/obj/item/computer_hardware/hard_drive/portable/chemistry,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
@@ -75427,9 +75415,9 @@
 "oyd" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/yellow,
-/obj/item/computer_hardware/hard_drive/role/atmos,
-/obj/item/computer_hardware/hard_drive/role/atmos,
-/obj/item/computer_hardware/hard_drive/role/atmos,
+/obj/item/computer_hardware/hard_drive/portable/atmos,
+/obj/item/computer_hardware/hard_drive/portable/atmos,
+/obj/item/computer_hardware/hard_drive/portable/atmos,
 /obj/item/stamp/ce,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -80641,15 +80629,9 @@
 /area/service/abandoned_gambling_den)
 "pSK" = (
 /obj/structure/table/reinforced,
-/obj/item/computer_hardware/hard_drive/role/engineering{
-	pixel_x = 6
-	},
-/obj/item/computer_hardware/hard_drive/role/engineering{
-	pixel_x = -6
-	},
-/obj/item/computer_hardware/hard_drive/role/engineering{
-	pixel_y = 6
-	},
+/obj/item/computer_hardware/hard_drive/portable/engineering,
+/obj/item/computer_hardware/hard_drive/portable/engineering,
+/obj/item/computer_hardware/hard_drive/portable/engineering,
 /obj/item/reagent_containers/pill/patch/aiuri,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -91965,15 +91947,9 @@
 /area/cargo/miningoffice)
 "sNs" = (
 /obj/structure/table,
-/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
-	pixel_x = 6
-	},
-/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
-	pixel_x = -6
-	},
-/obj/item/computer_hardware/hard_drive/role/signal/ordnance{
-	pixel_y = 6
-	},
+/obj/item/computer_hardware/hard_drive/portable/ordnance,
+/obj/item/computer_hardware/hard_drive/portable/ordnance,
+/obj/item/computer_hardware/hard_drive/portable/ordnance,
 /obj/machinery/camera{
 	c_tag = "Science - Research Director's Office";
 	dir = 8;

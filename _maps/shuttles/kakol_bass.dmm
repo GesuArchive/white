@@ -82,9 +82,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle)
-"G" = (
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle)
 "H" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -168,7 +165,7 @@ A
 A
 h
 A
-G
+A
 p
 D
 D

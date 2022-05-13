@@ -744,15 +744,6 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plasteel,
 /area/mine/production)
-"ck" = (
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 8
-	},
-/turf/open/floor/plasteel,
-/area/mine/production)
 "cl" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -20130,7 +20121,7 @@ ps
 bn
 br
 bO
-ck
+ax
 NS
 br
 bq
