@@ -5,6 +5,7 @@
 	damage_type = BURN
 	nodamage = FALSE
 	flag = ENERGY
+	aim_mod = 1.25
 	var/temperature = -50 // reduce the body temperature by 50 points
 
 /obj/projectile/temp/on_hit(atom/target, blocked = 0)

@@ -11,6 +11,7 @@
 	embedding = null
 	hitsound = 'sound/effects/meteorimpact.ogg'
 	hitsound_wall = 'sound/weapons/sonic_jackhammer.ogg'
+	nomiss = TRUE
 
 /obj/projectile/bullet/cannonball/on_hit(atom/target, blocked = FALSE)
 	damage -= 10

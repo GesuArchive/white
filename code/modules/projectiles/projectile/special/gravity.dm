@@ -6,6 +6,7 @@
 	damage = 0
 	damage_type = BRUTE
 	nodamage = TRUE
+	nomiss = TRUE //Как ты увернешься от гравитации?
 	color = "#33CCFF"
 	var/turf/T
 	var/power = 4

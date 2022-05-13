@@ -14,6 +14,7 @@
 	paralyze = 20
 	speed = 2
 	range = 16
+	nomiss = TRUE
 	var/datum/beam/arm
 	var/handedness = 0
 

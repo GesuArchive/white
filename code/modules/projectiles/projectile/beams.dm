@@ -18,6 +18,7 @@
 	reflectable = REFLECT_NORMAL
 	wound_bonus = -20
 	bare_wound_bonus = 10
+	aim_mod = 1.25
 
 
 /obj/projectile/beam/laser
@@ -42,6 +43,7 @@
 	name = "тяжелый луч"
 	icon_state = "heavylaser"
 	damage = 40
+	aim_mod = 2
 	tracer_type = /obj/effect/projectile/tracer/heavy_laser
 	muzzle_type = /obj/effect/projectile/muzzle/heavy_laser
 	impact_type = /obj/effect/projectile/impact/heavy_laser
@@ -109,6 +111,7 @@
 	muzzle_type = /obj/effect/projectile/muzzle/pulse
 	impact_type = /obj/effect/projectile/impact/pulse
 	wound_bonus = 10
+	aim_mod = 3 //ПУЛЬСАЧ БЬЕТ ЧЕРЕЗ 3 ЭКРАНА.
 
 /obj/projectile/beam/pulse/on_hit(atom/target, blocked = FALSE)
 	. = ..()
@@ -141,6 +144,7 @@
 	light_color = LIGHT_COLOR_GREEN
 	wound_bonus = -40
 	bare_wound_bonus = 70
+	nomiss = TRUE
 
 /obj/projectile/beam/emitter/singularity_pull()
 	return //don't want the emitters to miss
@@ -193,6 +197,7 @@
 	damage_type = BURN
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/purple_laser
 	light_color = LIGHT_COLOR_PURPLE
+	nomiss = TRUE
 
 /obj/projectile/beam/instakill/blue
 	icon_state = "blue_laser"
