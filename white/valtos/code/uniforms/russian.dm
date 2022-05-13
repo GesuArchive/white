@@ -84,7 +84,7 @@
 	name = "дырявый противогаз"
 	desc = "Данный образец был найден при раскопках на \"дырявом\" астероиде."
 	icon_state = "gp5_mask"
-	armor = list(MELEE = 5, BULLET = 5, LASER = 5, ENERGY = 5, BOMB = 10, BIO = 25, RAD = 25, FIRE = 25, ACID = 35)
+	armor = list(MELEE = 40, BULLET = 60, LASER = 40, ENERGY = 50, BOMB = 10, BIO = 25, RAD = 25, FIRE = 100, ACID = 100)
 
 /obj/item/clothing/mask/gas/heavy/gp5
 	name = "GP-5"

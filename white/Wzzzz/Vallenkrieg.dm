@@ -57,7 +57,7 @@
 	worn_icon = 'white/Wzzzz/Valya/clothing/mob/suit.dmi'
 	icon = 'white/Wzzzz/Valya/clothing/suits.dmi'
 	icon_state = "opvest"
-	armor = list("melee" = 40, "bullet" = 35, "laser" = 40,"energy" = 35, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 30)
+	armor = list("melee" = 40, "bullet" = 75, "laser" = 70,"energy" = 75, "bomb" = 70, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 30)
 
 /obj/item/clothing/suit/armor/vest/arbiter
 	icon_state = "arbiter"

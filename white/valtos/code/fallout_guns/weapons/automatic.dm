@@ -87,7 +87,7 @@
 	spread = 10
 
 /obj/item/gun/ballistic/automatic/fallout/assaultrifle
-	name = "assault rifle"
+	name = "штурмовая винтовка"
 	desc = "A general purpose, standard automatic assault rifle chambered in 5.56. Commonly used by pre-war US military forces."
 	icon_state = "assaultrifle"
 	inhand_icon_state = "assaultrifle"

@@ -147,6 +147,15 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	)
 	allowed_themes = list("std", "warfare", "hotline")
 
+/datum/violence_gear/rifle/assaultrifle
+	name = "Штурмовая винтовка"
+	cost = 450
+	items = list(
+		/obj/item/gun/ballistic/automatic/fallout/assaultrifle,
+		/obj/item/ammo_box/magazine/fallout/r20
+	)
+	allowed_themes = list("std", "warfare", "hotline")
+
 /datum/violence_gear/rifle/r37
 	name = "Xan-Jing R37"
 	cost = 1450
@@ -257,7 +266,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 125
 	items = list(
 		/obj/item/clothing/suit/armor/bulletproof,
-		/obj/item/clothing/mask/gas/sechailer,
+		/obj/item/clothing/mask/gas/heavy/gp5,
 		/obj/item/clothing/head/helmet/alt,
 		/obj/item/clothing/gloves/combat
 	)
@@ -268,7 +277,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 175
 	items = list(
 		/obj/item/clothing/head/helmet/swat/nanotrasen,
-		/obj/item/clothing/mask/gas/sechailer/swat,
+		/obj/item/clothing/mask/gas/heavy/gp7,
 		/obj/item/clothing/suit/armor/opvest,
 		/obj/item/clothing/gloves/combat,
 		/obj/item/clothing/shoes/combat
@@ -374,6 +383,12 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "А. Магазин .45"
 	cost = 125
 	items = list(/obj/item/ammo_box/magazine/smgm45)
+	allowed_themes = list("std", "warfare", "hotline")
+
+/datum/violence_gear/ammo/r20
+	name = "А. Магазин 5.56mm"
+	cost = 225
+	items = list(/obj/item/ammo_box/magazine/fallout/r20)
 	allowed_themes = list("std", "warfare", "hotline")
 
 /datum/violence_gear/ammo/saphe
