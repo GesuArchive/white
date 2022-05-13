@@ -96,3 +96,21 @@
 	unit_name = "компьютерный слот для intellicard"
 	export_types = list(/obj/item/computer_hardware/ai_slot)
 	include_subtypes = TRUE
+
+/datum/export/modular_part/miniprinter
+	cost = CARGO_CRATE_VALUE * 0.2
+	unit_name = "miniprinter"
+	export_types = list(/obj/item/computer_hardware/printer/mini)
+	include_subtypes = TRUE
+
+/datum/export/modular_part/sensorpackage
+	cost = CARGO_CRATE_VALUE * 0.2
+	unit_name = "sensor package"
+	export_types = list(/obj/item/computer_hardware/sensorpackage)
+	include_subtypes = TRUE
+
+/datum/export/modular_part/misc
+	cost = CARGO_CRATE_VALUE * 0.1
+	unit_name = "miscellaneous computer part"
+	export_types = list(/obj/item/computer_hardware)
+	include_subtypes = TRUE

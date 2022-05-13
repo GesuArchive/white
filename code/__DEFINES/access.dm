@@ -489,7 +489,7 @@
 	/obj/item/modular_computer/tablet/pda/detective = list(REGION_SECURITY), \
 	/obj/item/modular_computer/tablet/pda/warden = list(REGION_SECURITY), \
 	/obj/item/modular_computer/tablet/pda/janitor = list(REGION_GENERAL), \
-	/obj/item/modular_computer/tablet/pda/toxins = list(REGION_RESEARCH), \
+	/obj/item/modular_computer/tablet/pda/science = list(REGION_RESEARCH), \
 	/obj/item/modular_computer/tablet/pda/heads/hop = list(REGION_COMMAND), \
 	/obj/item/modular_computer/tablet/pda/heads/hos = list(REGION_COMMAND), \
 	/obj/item/modular_computer/tablet/pda/heads/cmo = list(REGION_COMMAND), \

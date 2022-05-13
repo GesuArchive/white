@@ -7,7 +7,7 @@
 	extended_desc = "A remote controller used for giving basic commands to non-sentient robots."
 	transfer_access = null
 	requires_ntnet = TRUE
-	size = 12
+	size = 6
 	tgui_id = "NtosRoboControl"
 	program_icon = "robot"
 	///Number of simple robots on-station.
@@ -26,14 +26,11 @@
 	var/list/botlist = list()
 	var/list/mulelist = list()
 
-	var/obj/item/computer_hardware/hard_drive/role/job_disk = computer ? computer.all_components[MC_HDD_JOB] : null
 	var/obj/item/computer_hardware/card_slot/card_slot = computer ? computer.all_components[MC_CARD] : null
 	data["have_id_slot"] = !!card_slot
 	if(computer)
 		var/obj/item/card/id/id_card = card_slot ? card_slot.stored_card : ""
 		data["id_owner"] = id_card
-	if(cart_mode && job_disk)
-		data["id_owner"] = "JOB DISK OVERRIDE"
 
 	botcount = 0
 	current_user = user

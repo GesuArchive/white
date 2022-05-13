@@ -333,16 +333,3 @@
 	category = list("Компьютерные запчасти", "Персональные компьютеры")
 	sub_category = list("Утилитарные модули")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
-
-/datum/design/signalpackage
-	name = "Сигнальный пакет"
-	desc = "Интегрированный узел сигналера для компьютеров, отправляет модулируемый радиосигнал. Используется некоторыми программами."
-	id = "signalpackage"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/iron = 200, /datum/material/glass = 100, /datum/material/gold = 50, /datum/material/silver = 50)
-	build_path = /obj/item/computer_hardware/radio_card
-	category = list("Компьютерные запчасти", "Персональные компьютеры")
-	sub_category = list("Утилитарные модули")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
-

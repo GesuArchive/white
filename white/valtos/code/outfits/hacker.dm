@@ -3,7 +3,7 @@
 	jobtype = /datum/job/hacker
 
 	belt = /obj/item/storage/belt/utility/full
-	l_pocket = /obj/item/modular_computer/tablet/pda/toxins
+	l_pocket = /obj/item/modular_computer/tablet/pda/science
 	ears = /obj/item/radio/headset/headset_sci
 	glasses = /obj/item/clothing/glasses/hud/hacker_rig
 	uniform = /obj/item/clothing/under/color/grey

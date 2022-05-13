@@ -1017,7 +1017,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	desc = "При установке в планшет этот картридж дает вам четыре заряда \
 			для детонации планшетов остальных членов экипажа, у которых включена передача сообщений. \
 			Заряд взорвет планшет получателя и выведет из строя его пользователя на короткое время, оглушив его."
-	item = /obj/item/computer_hardware/hard_drive/role/virus/deto
+	item = /obj/item/computer_hardware/hard_drive/portable/virus/deto
 	cost = 6
 	restricted = TRUE
 
@@ -1434,7 +1434,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			при использовании заставляют целевой планшет стать новым аплинком с нулевым ТК, и немедленно разблокируется. \
 			Вы получите код разблокировки после активации вируса, и новый аплинк может быть заряжен \
 			телекристаллами в обычном режиме. Так же является хорошим выбором для подставы кого-то из членов экипажа."
-	item = /obj/item/computer_hardware/hard_drive/role/virus/frame
+	item = /obj/item/computer_hardware/hard_drive/portable/virus/frame
 	cost = 4
 	restricted = TRUE
 

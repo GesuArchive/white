@@ -10,9 +10,10 @@
 	transfer_access = ACCESS_ENGINE
 	usage_flags = PROGRAM_CONSOLE
 	requires_ntnet = 0
-	size = 9
+	size = 8
 	tgui_id = "NtosPowerMonitor"
 	program_icon = "plug"
+	detomatix_resistance = DETOMATIX_RESIST_MINOR
 
 	var/has_alert = 0
 	var/obj/structure/cable/attached_wire

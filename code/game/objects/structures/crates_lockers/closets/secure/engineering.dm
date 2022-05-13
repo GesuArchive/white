@@ -13,7 +13,7 @@
 	new /obj/item/clothing/gloves/color/chief_engineer(src)
 	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/tank/jetpack/suit(src)
-	new /obj/item/computer_hardware/hard_drive/role/ce(src)
+	new /obj/item/computer_hardware/hard_drive/portable/command/ce(src)
 	new /obj/item/radio/headset/heads/ce(src)
 	new /obj/item/megaphone/command(src)
 	new /obj/item/areaeditor/blueprints(src)

@@ -6,12 +6,3 @@
 	w_class = WEIGHT_CLASS_TINY
 	device_type = MC_SENSORS
 	expansion_hw = TRUE
-
-/obj/item/computer_hardware/radio_card
-	name = "Сигнальный пакет"
-	desc = "Интегрированный узел сигналера для компьютеров, отправляет модулируемый радиосигнал. Используется некоторыми программами."
-	icon_state = "servo"
-	w_class = WEIGHT_CLASS_TINY
-	device_type = MC_SIGNALER
-	expansion_hw = TRUE
-	power_usage = 10

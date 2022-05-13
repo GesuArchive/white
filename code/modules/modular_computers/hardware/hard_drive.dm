@@ -182,7 +182,7 @@
 	store_file(messenger)
 
 // Syndicate variant - very slight better
-/obj/item/computer_hardware/hard_drive/small/syndicate
+/obj/item/computer_hardware/hard_drive/portable/syndicate
 	desc = "Эффективный твердотельный накопитель для портативных устройств, разработанный конкурирующей организацией."
 	power_usage = 8
 	max_capacity = 70

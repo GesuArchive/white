@@ -108,7 +108,7 @@
 		/obj/item/inducer/sci = 3,
 		/obj/item/megaphone = 1,
 		/obj/item/modular_computer/tablet/pda/roboticist = 3,
-		/obj/item/modular_computer/tablet/pda/toxins = 3,
+		/obj/item/modular_computer/tablet/pda/science = 3,
 		/obj/item/pinpointer/crew = 4,
 		/obj/item/reactive_armour_shell = 1,
 		/obj/item/anomaly_neutralizer = 1,

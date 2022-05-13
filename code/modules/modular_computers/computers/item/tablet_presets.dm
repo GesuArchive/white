@@ -28,8 +28,7 @@
 	install_component(hard_drive)
 	install_component(new /obj/item/computer_hardware/card_slot)
 	install_component(new /obj/item/computer_hardware/network_card)
-	install_component(new /obj/item/computer_hardware/radio_card)
-	hard_drive.store_file(new /datum/computer_file/program/signaler)
+	hard_drive.store_file(new /datum/computer_file/program/signal_commander)
 
 /obj/item/modular_computer/tablet/preset/cargo/Initialize()
 	. = ..()
@@ -77,7 +76,7 @@
 /// Given by the syndicate as part of the contract uplink bundle - loads in the Contractor Uplink.
 /obj/item/modular_computer/tablet/syndicate_contract_uplink/preset/uplink/Initialize()
 	. = ..()
-	var/obj/item/computer_hardware/hard_drive/small/syndicate/hard_drive = new
+	var/obj/item/computer_hardware/hard_drive/portable/syndicate/hard_drive = new
 	var/datum/computer_file/program/contract_uplink/uplink = new
 
 	active_program = uplink

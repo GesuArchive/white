@@ -18,7 +18,7 @@
 	new /obj/item/clothing/under/rank/rnd/research_director/turtleneck/skirt(src)
 	new /obj/item/clothing/head/beret/science(src)
 	new /obj/item/clothing/shoes/sneakers/brown(src)
-	new /obj/item/computer_hardware/hard_drive/role/rd(src)
+	new /obj/item/computer_hardware/hard_drive/portable/command/rd(src)
 	new /obj/item/radio/headset/heads/rd(src)
 	new /obj/item/megaphone/command(src)
 	new /obj/item/storage/lockbox/medal/sci(src)
