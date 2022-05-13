@@ -1521,8 +1521,6 @@
 	if(direction & WEST)
 		x_offset = -distance*world.icon_size
 	animate(client, pixel_x = pixel_x + x_offset, pixel_y = pixel_y + y_offset, time = 10)
-	client.pixel_x += x_offset
-	client.pixel_y += y_offset
 
 /mob/proc/unperform_zoom(atom/A, params, silent = FALSE)
 	REMOVE_TRAIT(src, TRAIT_LOOKING_INTO_DISTANCE, "verb")
@@ -1531,8 +1529,6 @@
 	UnregisterSignal(src, COMSIG_MOB_LOGOUT)
 	if(client)
 		animate(client, pixel_x = initial(client.pixel_x), pixel_y = initial(client.pixel_y), time = 10)
-		client.pixel_x = initial(client.pixel_x)
-		client.pixel_y = initial(client.pixel_y)
 
 /mob/proc/kill_zoom(mob/living/source)
 	SIGNAL_HANDLER
