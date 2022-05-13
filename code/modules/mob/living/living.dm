@@ -1215,7 +1215,7 @@
 	if(!(mobility_flags & MOBILITY_UI) && !floor_okay)
 		to_chat(src, span_warning("Не хочу это делать прямо сейчас!"))
 		return FALSE
-	if(be_close && !Adjacent(M) && (M.loc != src))
+	if(be_close && !Adjacent(M) && (M?.loc != src))
 		if(no_tk)
 			to_chat(src, span_warning("Слишком далеко!"))
 			return FALSE

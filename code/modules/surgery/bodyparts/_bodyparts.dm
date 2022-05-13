@@ -249,7 +249,7 @@
 	var/wounding_dmg = max(brute, burn)
 
 	var/mangled_state = get_mangled_state()
-	var/bio_state = owner.get_biological_state()
+	var/bio_state = owner?.get_biological_state()
 	var/easy_dismember = HAS_TRAIT(owner, TRAIT_EASYDISMEMBER) // if we have easydismember, we don't reduce damage when redirecting damage to different types (slashing weapons on mangled/skinless limbs attack at 100% instead of 50%)
 
 	if(wounding_type == WOUND_BLUNT && sharpness)

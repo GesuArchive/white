@@ -114,6 +114,8 @@
 		var/animate_time = 0
 		for(var/thing in C.parallax_layers)
 			var/atom/movable/screen/parallax_layer/L = thing
+			if(!L)
+				continue
 			L.icon_state = initial(L.icon_state)
 			L.update_o(C.view)
 			var/T = PARALLAX_LOOP_TIME / L.speed
@@ -212,6 +214,8 @@
 	var/run_parralax = (C.do_parallax_animations && glide_rate && !areaobj.parallax_movedir && C.dont_animate_parallax <= world.time && largest_change <= max_allowed_dist)
 
 	for(var/atom/movable/screen/parallax_layer/parallax_layer as anything in C.parallax_layers)
+		if(!parallax_layer)
+			continue
 		var/our_speed = parallax_layer.speed
 		var/change_x
 		var/change_y
