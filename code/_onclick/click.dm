@@ -91,15 +91,16 @@
 		MiddleClickOn(A, params)
 		return
 	if(LAZYACCESS(modifiers, ALT_CLICK)) // alt and alt-gr (rightalt)
-		if(LAZYACCESS(modifiers, MIDDLE_CLICK))
-			alt_click_on_tertiary(A)
-		else if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		if(LAZYACCESS(modifiers, RIGHT_CLICK))
 			alt_click_on_secondary(A)
 		else
 			AltClickOn(A)
 		return
 	if(LAZYACCESS(modifiers, CTRL_CLICK))
-		CtrlClickOn(A)
+		if(LAZYACCESS(modifiers, RIGHT_CLICK))
+			ctrl_click_on_secondary(A)
+		else
+			CtrlClickOn(A)
 		return
 
 	if(incapacitated(IGNORE_RESTRAINTS|IGNORE_STASIS))
@@ -540,5 +541,5 @@
 
 	return FALSE
 
-/mob/proc/alt_click_on_tertiary(atom/A, params)
+/mob/proc/ctrl_click_on_secondary(atom/A, params)
 	return look_into_distance(A, params)
