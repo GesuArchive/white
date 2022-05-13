@@ -212,7 +212,7 @@
 	var/run_parralax = (C.do_parallax_animations && glide_rate && !areaobj.parallax_movedir && C.dont_animate_parallax <= world.time && largest_change <= max_allowed_dist)
 
 	for(var/atom/movable/screen/parallax_layer/parallax_layer as anything in C.parallax_layers)
-		var/our_speed = parallax_layer.speed
+		var/our_speed = parallax_layer?.speed
 		var/change_x
 		var/change_y
 		if(parallax_layer.absolute)
@@ -384,7 +384,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 /atom/movable/screen/parallax_layer/planet/proc/on_mob_logout(mob/source)
 	SIGNAL_HANDLER
 	var/client/boss = source.canon_client
-	on_z_change(boss.mob)
+	on_z_change(boss?.mob)
 
 /atom/movable/screen/parallax_layer/planet/proc/on_z_change(mob/source)
 	SIGNAL_HANDLER
