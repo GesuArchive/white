@@ -155,8 +155,6 @@
 
 /obj/effect/turf_decal/weather/side // запилите сами мне похуй
 	name = "side"
-//	icon = 'white/rebolution228/map_sprites.dmi'
-//	icon_state = "side"
 	mouse_opacity = 0
 
 /obj/effect/turf_decal/weather/side/corner
@@ -164,6 +162,4 @@
 
 /obj/effect/turf_decal/dust
 	name = "dust"
-//	icon = 'white/rebolution228/map_sprites.dmi'
-//	icon_state = "dirty"
-	mouse_opacity = 0	
+	mouse_opacity = 0
