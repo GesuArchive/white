@@ -77,14 +77,14 @@
 	greyscale_colors = "#FAFAFA#000099#B347BC"
 	insert_type = /obj/item/pen/fountain
 
-/obj/item/modular_computer/tablet/pda/captain
+/obj/item/modular_computer/tablet/pda/heads/captain
 	name = "captain PDA"
 	default_disk = /obj/item/computer_hardware/hard_drive/role/captain
 	greyscale_config = /datum/greyscale_config/tablet/captain
 	greyscale_colors = "#2C7CB2#FF0000#FFFFFF#FFD55B"
 	insert_type = /obj/item/pen/fountain
 
-/obj/item/modular_computer/tablet/pda/captain/Initialize(mapload)
+/obj/item/modular_computer/tablet/pda/heads/captain/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_TABLET_CHECK_DETONATE, .proc/tab_no_detonate)
 

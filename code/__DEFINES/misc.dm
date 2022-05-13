@@ -426,8 +426,8 @@ GLOBAL_LIST_INIT(pda_styles, sort_list(list(MONO, VT, ORBITRON, SHARE)))
 #define RIDING_OFFSET_ALL "ALL"
 
 //stack recipe placement check types
-#define STACK_CHECK_CARDINALS "cardinals" //checks if there is an object of the result type in any of the cardinal directions
-#define STACK_CHECK_ADJACENT "adjacent" //checks if there is an object of the result type within one tile
+#define STACK_CHECK_CARDINALS (1<<0) //checks if there is an object of the result type in any of the cardinal directions
+#define STACK_CHECK_ADJACENT (1<<1) //checks if there is an object of the result type within one tile
 
 //text files
 #define BRAIN_DAMAGE_FILE "traumas.json"

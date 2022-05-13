@@ -536,58 +536,6 @@ GLOBAL_LIST_INIT(cardboard_recipes, list (																				 \
 	else
 		. = ..()
 
-
-/*
- * Runed Metal
- */
-
-GLOBAL_LIST_INIT(runed_metal_recipes, list ( \
-	new /datum/stack_recipe("руническая дверь (не слишком прочная дверь, оглушает коснувшихся не культистов))", /obj/machinery/door/airlock/cult, 1, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("руническая балка (не рекомендованное использование рунного металла)", /obj/structure/girder/cult, 1, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("пилон (лечит (и регенерирует кровь) находящихся поблизости кровавых культистов и конструктов, но также превращает полы поблизости в гравированные)", /obj/structure/destructible/cult/pylon, 4, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("демоническая кузня (можно создать защищенные робы, робы флагелянтов и зеркальные щиты)", /obj/structure/destructible/cult/forge, 3, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("архивы (можно создать глазные повязки фанатиков, сферы проклятия шатлов, и оборудование идущего по завесе)", /obj/structure/destructible/cult/tome, 3, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("алтарь (можно создать жуткие точильные камни, оболочки конструктов и фляги с несвятой водой)", /obj/structure/destructible/cult/talisman, 3, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	))
-
-/obj/item/stack/sheet/runed_metal
-	name = "рунический металл"
-	desc = "Листы холодного, покрытого меняющимися надписями, металла."
-	singular_name = "лист рунического металла"
-	icon_state = "sheet-runed"
-	inhand_icon_state = "sheet-runed"
-	icon = 'icons/obj/stack_objects.dmi'
-	mats_per_unit = list(/datum/material/runedmetal = MINERAL_MATERIAL_AMOUNT)
-	sheettype = "runed"
-	merge_type = /obj/item/stack/sheet/runed_metal
-	novariants = TRUE
-	grind_results = list(/datum/reagent/iron = 5, /datum/reagent/blood = 15)
-	material_type = /datum/material/runedmetal
-
-/obj/item/stack/sheet/runed_metal/attack_self(mob/living/user)
-	if(!iscultist(user))
-		to_chat(user, span_warning("Только обладающий запретными знаниями имеет шанс поработать с этим металлом.	"))
-		return
-	var/turf/T = get_turf(user) //we may have moved. adjust as needed...
-	var/area/A = get_area(user)
-	if((!is_station_level(T.z) && !is_mining_level(T.z)) || (A && !(A.area_flags & CULT_PERMITTED)))
-		to_chat(user, span_warning("Завеса здесь недостаточно слабая."))
-		return FALSE
-	return ..()
-
-/obj/item/stack/sheet/runed_metal/get_main_recipes()
-	. = ..()
-	. += GLOB.runed_metal_recipes
-
-/obj/item/stack/sheet/runed_metal/fifty
-	amount = 50
-
-/obj/item/stack/sheet/runed_metal/ten
-	amount = 10
-
-/obj/item/stack/sheet/runed_metal/five
-	amount = 5
-
 /*
  * Bronze
  */
