@@ -40797,9 +40797,6 @@
 /obj/item/folder/red{
 	pixel_x = -7
 	},
-@DELETE,
-@DELETE,
-@DELETE,
 /obj/structure/noticeboard/hos{
 	dir = 4;
 	pixel_x = -28
@@ -47327,8 +47324,6 @@
 "tiE" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/civilian,
-@DELETE,
-@DELETE,
 /turf/open/floor/carpet/blue,
 /area/lawoffice)
 "tiG" = (

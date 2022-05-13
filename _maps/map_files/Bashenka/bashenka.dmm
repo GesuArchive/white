@@ -6782,8 +6782,6 @@
 /obj/item/storage/secure/briefcase{
 	pixel_x = -2
 	},
-@DELETE,
-@DELETE,
 /obj/item/book/manual/wiki/security_space_law,
 /obj/machinery/light{
 	dir = 4
@@ -14767,7 +14765,6 @@
 	pixel_y = 7
 	},
 /obj/item/taperecorder,
-@DELETE,
 /obj/effect/turf_decal/delivery/red,
 /obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable,

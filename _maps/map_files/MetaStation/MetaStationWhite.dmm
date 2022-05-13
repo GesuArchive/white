@@ -15119,7 +15119,6 @@
 	},
 /obj/item/pen,
 /obj/item/taperecorder,
-@DELETE,
 /turf/open/floor/wood,
 /area/lawoffice)
 "aOo" = (
@@ -70184,7 +70183,6 @@
 "poP" = (
 /obj/machinery/power/apc/auto_name/east,
 /obj/structure/table/wood,
-@DELETE,
 /obj/item/folder/red{
 	pixel_x = -7;
 	pixel_y = 6
@@ -70192,8 +70190,6 @@
 /obj/item/folder/red{
 	pixel_x = -7
 	},
-@DELETE,
-@DELETE,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/hos)

@@ -128,7 +128,6 @@
 	pixel_x = -2
 	},
 /obj/item/book/manual/wiki/security_space_law,
-@DELETE,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/hos)

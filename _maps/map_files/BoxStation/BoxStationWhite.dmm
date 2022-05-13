@@ -4061,7 +4061,6 @@
 "auh" = (
 /obj/structure/table/wood,
 /obj/item/taperecorder,
-@DELETE,
 /turf/open/floor/wood,
 /area/lawoffice)
 "aui" = (

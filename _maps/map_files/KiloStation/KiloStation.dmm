@@ -30119,7 +30119,6 @@
 	pixel_x = 5
 	},
 /obj/structure/table,
-@DELETE,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/north,
 /turf/open/floor/plasteel/dark,
@@ -50976,7 +50975,6 @@
 	},
 /obj/structure/table,
 /obj/item/clipboard,
-@DELETE,
 /obj/item/circuitboard/aicore{
 	pixel_y = 5
 	},
