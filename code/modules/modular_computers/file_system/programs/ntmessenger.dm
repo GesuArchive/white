@@ -339,7 +339,7 @@
 
 
 	if (ringer_status)
-		computer.ring(ringtone)
+		computer?.ring(ringtone)
 
 /datum/computer_file/program/messenger/Topic(href, href_list)
 	..()
