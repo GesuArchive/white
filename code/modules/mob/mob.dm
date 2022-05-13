@@ -1520,7 +1520,7 @@
 		x_offset = distance*world.icon_size
 	if(direction & WEST)
 		x_offset = -distance*world.icon_size
-	animate(client, pixel_x = pixel_x + x_offset, pixel_y = pixel_y + y_offset, time = 2)
+	animate(client, pixel_x = pixel_x + x_offset, pixel_y = pixel_y + y_offset, time = 10)
 	client.pixel_x += x_offset
 	client.pixel_y += y_offset
 
@@ -1530,6 +1530,7 @@
 	SEND_SIGNAL(src, COMSIG_FIXEYE_DISABLE, TRUE, TRUE)
 	UnregisterSignal(src, COMSIG_MOB_LOGOUT)
 	if(client)
+		animate(client, pixel_x = initial(client.pixel_x), pixel_y = initial(client.pixel_y), time = 10)
 		client.pixel_x = initial(client.pixel_x)
 		client.pixel_y = initial(client.pixel_y)
 
