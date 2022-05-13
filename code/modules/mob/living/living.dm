@@ -1768,7 +1768,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 
 //Checks if the user is incapacitated or on cooldown.
 /mob/living/proc/can_look_up()
-	return !(incapacitated(IGNORE_RESTRAINTS))
+	return !(incapacitated(IGNORE_RESTRAINTS) || HAS_TRAIT(src, TRAIT_LOOKING_INTO_DISTANCE))
 
 /**
  * look_up Changes the perspective of the mob to any openspace turf above the mob

@@ -46,6 +46,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 	var/atom/movable/screen/devil/soul_counter/devilsouldisplay
 
+	var/atom/movable/screen/fixeye/fixeye
 
 	var/atom/movable/screen/action_intent
 	var/atom/movable/screen/zone_select
@@ -126,6 +127,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	QDEL_NULL(hide_actions_toggle)
 	QDEL_NULL(module_store_icon)
 	QDEL_LIST(static_inventory)
+	QDEL_NULL(fixeye)
 
 	inv_slots.Cut()
 	action_intent = null

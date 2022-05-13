@@ -121,3 +121,18 @@
 	var/mob/living/carbon/carbon_user = user.mob
 	carbon_user.give()
 	return TRUE
+
+/datum/keybinding/carbon/fixeye
+	hotkey_keys = list("F")
+	name = "fixeye"
+	full_name = "Смотреть прямо"
+	description = "Зафиксировать взгляд в текущую сторону."
+	category = CATEGORY_MOVEMENT
+	keybind_signal = COMSIG_KB_FIXEYE_DOWN
+
+/datum/keybinding/carbon/fixeye/down(client/user)
+	. = ..()
+	var/mob/living/living_user = user.mob
+	if(istype(living_user))
+		SEND_SIGNAL(living_user, COMSIG_FIXEYE_TOGGLE)
+	return TRUE

@@ -1612,3 +1612,24 @@
 
 /// sent after world.maxx and/or world.maxy are expanded: (has_exapnded_world_maxx, has_expanded_world_maxy)
 #define COMSIG_GLOB_EXPANDED_WORLD_BOUNDS "!expanded_world_bounds"
+
+// ~fix eye component
+///from base of datum/component/fixeye/user_toggle_fixeye(): (mob/living/source, silent, forced)
+#define COMSIG_FIXEYE_TOGGLE "fixeye_toggle"
+///from base of datum/component/fixeye/check_flags(): (mob/living/source, flags)
+#define COMSIG_FIXEYE_CHECK	"fixeye_check"
+///from base of datum/component/fixeye/safe_enable_fixeye(): (mob/living/source, silent, forced)
+#define COMSIG_FIXEYE_ENABLE "fixeye_enable"
+///from base of datum/component/fixeye/safe_disable_fixeye(): (mob/living/source, silent, forced)
+#define COMSIG_FIXEYE_DISABLE "fixeye_disable"
+///from base of datum/component/fixeye/lock_fixeye(): (mob/living/source, silent, forced)
+#define COMSIG_FIXEYE_LOCK "fixeye_lock"
+///from base of datum/component/fixeye/unlock_fixeye(): (mob/living/source)
+#define COMSIG_FIXEYE_UNLOCK "fixeye_unlock"
+///from base of datum/component/fixeye/enable_fixeye(): (mob/living/source, silent, forced)
+#define COMSIG_LIVING_FIXEYE_ENABLED "fixeye_enabled"
+///from base of datum/component/fixeye/disable_fixeye(): (mob/living/source, silent, forced)
+#define COMSIG_LIVING_FIXEYE_DISABLED "fixeye_disabled"
+
+///from base of atom/setDir(): (old_dir, new_dir). Called before the direction changes.
+#define COMPONENT_NO_DIR_CHANGE 1
