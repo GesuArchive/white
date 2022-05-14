@@ -132,12 +132,14 @@
 	magic.Remove(current)
 	current.clear_alert("bloodsense")
 	if(ishuman(current))
-		var/mob/living/carbon/human/H = current
-		H.eye_color = initial(H.eye_color)
-		H.dna.update_ui_block(DNA_EYE_COLOR_BLOCK)
-		REMOVE_TRAIT(H, TRAIT_CULT_EYES, CULT_TRAIT)
-		H.remove_overlay(HALO_LAYER)
-		H.update_body()
+		var/mob/living/carbon/human/human_parent = current
+		human_parent.eye_color_left = initial(human_parent.eye_color_left)
+		human_parent.eye_color_right = initial(human_parent.eye_color_right)
+		human_parent.dna.update_ui_block(DNA_EYE_COLOR_LEFT_BLOCK)
+		human_parent.dna.update_ui_block(DNA_EYE_COLOR_RIGHT_BLOCK)
+		REMOVE_TRAIT(human_parent, TRAIT_CULT_EYES, null)
+		human_parent.remove_overlay(HALO_LAYER)
+		human_parent.update_body()
 
 /datum/antagonist/cult/on_removal()
 	SSticker.mode.cult -= owner
@@ -229,12 +231,14 @@
 	current.remove_status_effect(/datum/status_effect/cult_master)
 
 	if(ishuman(current))
-		var/mob/living/carbon/human/H = current
-		H.eye_color = initial(H.eye_color)
-		H.dna.update_ui_block(DNA_EYE_COLOR_BLOCK)
-		REMOVE_TRAIT(H, TRAIT_CULT_EYES, null)
-		H.remove_overlay(HALO_LAYER)
-		H.update_body()
+		var/mob/living/carbon/human/human_parent = current
+		human_parent.eye_color_left = initial(human_parent.eye_color_left)
+		human_parent.eye_color_right = initial(human_parent.eye_color_right)
+		human_parent.dna.update_ui_block(DNA_EYE_COLOR_LEFT_BLOCK)
+		human_parent.dna.update_ui_block(DNA_EYE_COLOR_RIGHT_BLOCK)
+		REMOVE_TRAIT(human_parent, TRAIT_CULT_EYES, null)
+		human_parent.remove_overlay(HALO_LAYER)
+		human_parent.update_body()
 
 /datum/team/cult
 	name = "Cult"
@@ -281,11 +285,13 @@
 
 /datum/team/cult/proc/rise(cultist)
 	if(ishuman(cultist))
-		var/mob/living/carbon/human/H = cultist
-		H.eye_color = "f00"
-		H.dna.update_ui_block(DNA_EYE_COLOR_BLOCK)
-		ADD_TRAIT(H, CULT_EYES, CULT_TRAIT)
-		H.update_body()
+		var/mob/living/carbon/human/human_parent = cultist
+		human_parent.eye_color_left = BLOODCULT_EYE
+		human_parent.eye_color_right = BLOODCULT_EYE
+		human_parent.dna.update_ui_block(DNA_EYE_COLOR_LEFT_BLOCK)
+		human_parent.dna.update_ui_block(DNA_EYE_COLOR_RIGHT_BLOCK)
+		ADD_TRAIT(human_parent, CULT_EYES, CULT_TRAIT)
+		human_parent.update_body()
 
 /datum/team/cult/proc/ascend(cultist)
 	if(ishuman(cultist))

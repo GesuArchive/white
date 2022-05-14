@@ -47,7 +47,7 @@
 	if(!(obscured & ITEM_SLOT_EYES) )
 		if(glasses  && !(glasses.item_flags & EXAMINE_SKIP))
 			. += "Также на [t_na] [glasses.get_examine_string(user)].\n"
-		else if(eye_color == BLOODCULT_EYE)
+		else if(eye_color_left == BLOODCULT_EYE)
 			if(IS_CULTIST(src) && HAS_TRAIT(src, TRAIT_CULT_EYES))
 				. += "<span class='warning'><B>[ru_ego(TRUE)] глаза ярко-красные и они горят!</B></span>\n"
 			else if(HAS_TRAIT(src, TRAIT_BLOODSHOT_EYES))

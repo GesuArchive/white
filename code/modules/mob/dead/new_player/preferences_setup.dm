@@ -34,7 +34,9 @@
 	if(randomise[RANDOM_SKIN_TONE])
 		skin_tone = random_skin_tone()
 	if(randomise[RANDOM_EYE_COLOR])
-		eye_color = random_eye_color()
+		var/random_eye_color = random_eye_color()
+		eye_color_left = random_eye_color
+		eye_color_right = random_eye_color
 	if(!pref_species)
 		var/rando_race = pick(GLOB.roundstart_races)
 		pref_species = new rando_race()

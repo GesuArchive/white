@@ -46,7 +46,7 @@
  //эту фегню надо дальше допиливать, но я заебался и вообще похуй, по итогу прикол почти никому не зашел
 /proc/human2tags(mob/living/carbon/human/H)
 	var/hairHex = findtext(H.hair_color, "#") ? H.hair_color :"#[H.hair_color]"
-	var/eyeHex = findtext(H.eye_color, "#") ? H.eye_color :"#[H.eye_color]"
+	var/eyeHex = findtext(H.eye_color_left, "#") ? H.eye_color_left :"#[H.eye_color_left]"
 	return "[hairColor2tag(hairHex)]+[eyeColor2tag(eyeHex)]"
 
 /proc/hairColor2tag(hairColor)

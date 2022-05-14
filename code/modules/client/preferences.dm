@@ -83,7 +83,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/facial_grad_style = "None"
 	var/facial_grad_color = "000"
 	var/skin_tone = "caucasian1"		//Skin color
-	var/eye_color = "000"				//Eye color
+	var/eye_color_left = "000"
+	var/eye_color_right = "000"
+	var/heterochromia = FALSE
 	var/datum/species/pref_species = new /datum/species/human()	//Mutant race
 	var/list/features = list("mcolor" = "FFF", "ethcolor" = "9c3030", "tail_lizard" = "Smooth", "tail_human" = "None", "snout" = "Round", "horns" = "None", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "None", "body_markings" = "None", "legs" = "Normal Legs", "moth_wings" = "Plain", "moth_antennae" = "Plain", "moth_markings" = "None")
 	var/list/randomise = list(RANDOM_UNDERWEAR = TRUE, RANDOM_UNDERWEAR_COLOR = TRUE, RANDOM_UNDERSHIRT = TRUE, RANDOM_SOCKS = TRUE, RANDOM_BACKPACK = TRUE, RANDOM_JUMPSUIT_STYLE = TRUE, RANDOM_HAIRSTYLE = TRUE, RANDOM_HAIR_COLOR = TRUE, RANDOM_FACIAL_HAIRSTYLE = TRUE, RANDOM_FACIAL_HAIR_COLOR = TRUE, RANDOM_SKIN_TONE = TRUE, RANDOM_EYE_COLOR = TRUE)
@@ -337,7 +339,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<div class='csetup_header'>Подробное</div>"
 
 			//Adds a thing to select which phobia because I can't be assed to put that in the quirks window
-			if("Phobia" in all_quirks)
+			if("Фобия" in all_quirks)
 				dat += SETUP_NODE_INPUT("Фобия", "phobia", phobia)
 
 			if((HAS_FLESH in pref_species.species_traits) || (HAS_BONE in pref_species.species_traits))
@@ -357,7 +359,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += SETUP_NODE_COLOR("Цвет эфира", "color_ethereal", features["ethcolor"], null)
 
 			if((EYECOLOR in pref_species.species_traits) && !(NOEYESPRITES in pref_species.species_traits))
-				dat += SETUP_NODE_COLOR("Цвет глаз", "eyes", eye_color, RANDOM_EYE_COLOR)
+				if("Гетерохромия" in all_quirks)
+					dat += SETUP_NODE_COLOR("Цвет левого глаза", "left_eye", eye_color_left, RANDOM_EYE_COLOR)
+					dat += SETUP_NODE_COLOR("Цвет правого глаза", "right_eye", eye_color_right, RANDOM_EYE_COLOR)
+				else
+					dat += SETUP_NODE_COLOR("Цвет глаз", "eyes", eye_color_left, RANDOM_EYE_COLOR)
 
 			if(HAIR in pref_species.species_traits)
 				dat += SETUP_NODE_INPUT_RANDOM("Причёска", "hairstyle", hairstyle, RANDOM_HAIRSTYLE)
@@ -1190,7 +1196,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("socks")
 					socks = random_socks()
 				if(BODY_ZONE_PRECISE_EYES)
-					eye_color = random_eye_color()
+					var/random_eye_color = random_eye_color()
+					eye_color_left = random_eye_color
+					eye_color_right = random_eye_color
 				if("s_tone")
 					skin_tone = random_skin_tone()
 				if("species")
@@ -1428,9 +1436,20 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						socks = new_socks
 
 				if("eyes")
-					var/new_eyes = input(user, "Choose your character's eye colour:", "Character Preference","#"+eye_color) as color|null
+					var/new_eyes = input(user, "Choose your character's eye colour:", "Character Preference","#"+eye_color_left) as color|null
 					if(new_eyes)
-						eye_color = sanitize_hexcolor(new_eyes)
+						eye_color_left = sanitize_hexcolor(new_eyes)
+						eye_color_right = sanitize_hexcolor(new_eyes)
+
+				if("left_eye")
+					var/new_eyes = input(user, "Выбери цвет левого глаза:", "Character Preference","#"+eye_color_left) as color|null
+					if(new_eyes)
+						eye_color_left = sanitize_hexcolor(new_eyes)
+
+				if("right_eye")
+					var/new_eyes = input(user, "Выбери цвет правого глаза:", "Character Preference","#"+eye_color_right) as color|null
+					if(new_eyes)
+						eye_color_right = sanitize_hexcolor(new_eyes)
 
 				if("species")
 
@@ -2022,12 +2041,20 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	else
 		character.body_type = body_type
 
-	character.eye_color = eye_color
-	var/obj/item/organ/eyes/organ_eyes = character.getorgan(/obj/item/organ/eyes)
-	if(organ_eyes)
-		if(!initial(organ_eyes.eye_color))
-			organ_eyes.eye_color = eye_color
-		organ_eyes.old_eye_color = eye_color
+	var/hetero = character.eye_color_heterochromatic
+	character.eye_color_left = eye_color_left
+	if(!hetero)
+		character.eye_color_right = eye_color_left
+	var/obj/item/organ/eyes/eyes_organ = character.getorgan(/obj/item/organ/eyes)
+	if (eyes_organ && istype(eyes_organ))
+		if (!initial(eyes_organ.eye_color_left))
+			eyes_organ.eye_color_left = eye_color_left
+		eyes_organ.old_eye_color_left = eye_color_left
+		if(!hetero)
+			if (!initial(eyes_organ.eye_color_right))
+				eyes_organ.eye_color_right = eye_color_left
+			eyes_organ.old_eye_color_right = eye_color_left
+
 	character.hair_color = hair_color
 	character.facial_hair_color = facial_hair_color
 

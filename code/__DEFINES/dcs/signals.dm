@@ -1633,3 +1633,6 @@
 
 ///from base of atom/setDir(): (old_dir, new_dir). Called before the direction changes.
 #define COMPONENT_NO_DIR_CHANGE 1
+
+///from base of /item/proc/set_painting_tool_color(): (chosen_color)
+#define COMSIG_PAINTING_TOOL_SET_COLOR "painting_tool_set_color"
