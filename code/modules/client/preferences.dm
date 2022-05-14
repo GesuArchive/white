@@ -2040,9 +2040,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	else
 		character.body_type = body_type
 
-	var/hetero = FALSE
-	if("Гетерохромия" in all_quirks)
-		hetero = TRUE
 	character.eye_color_left = eye_color_left
 	character.eye_color_right = eye_color_right
 	var/obj/item/organ/eyes/eyes_organ = character.getorgan(/obj/item/organ/eyes)
