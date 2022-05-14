@@ -248,7 +248,7 @@
 		buckled.user_unbuckle_mob(src,src)
 
 /mob/living/carbon/resist_fire()
-	adjust_wet_stacks(5)
+	adjust_fire_stacks(-5)
 	Paralyze(60, ignore_canstun = TRUE)
 	spin(32,2)
 	visible_message(span_danger("[capitalize(src.name)] катается по полу пытаясь сбросить пламя!") , \
