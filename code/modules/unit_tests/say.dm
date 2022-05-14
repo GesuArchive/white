@@ -20,4 +20,4 @@
 		expected_mods -= mod_key
 
 	if (expected_mods.len)
-		Fail("Some message mods were expected, but were not returned by get_message_mods: [json_encode(expected_mods)]. Message: [message]")
+		TEST_FAIL("Some message mods were expected, but were not returned by get_message_mods: [json_encode(expected_mods)]. Message: [message]")
