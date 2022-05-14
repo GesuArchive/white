@@ -1517,7 +1517,7 @@
 	description = "Ancient Clown Lore says that pulped banana peels are good for your blood, but are you really going to take medical advice from a clown about bananas?"
 	color = "#50531a" // rgb: 175, 175, 0
 	taste_description = "horribly stringy, bitter pulp"
-	glass_name = "glass of banana peel pulp"
+	glass_name = "стакан banana peel pulp"
 	glass_desc = "Ancient Clown Lore says that pulped banana peels are good for your blood, but are you really going to take medical advice from a clown about bananas?"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	clot_rate = 0.2

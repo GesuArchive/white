@@ -2,7 +2,7 @@
 
 /obj/item/reagent_containers/food/drinks/drinkingglass
 	name = "стакан"
-	desc = "Your standard drinking glass."
+	desc = "Самый обычный."
 	icon_state = "glass_empty"
 	base_icon_state = "glass_empty"
 	amount_per_transfer_from_this = 10
@@ -64,7 +64,7 @@
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/shotglass
 	name = "шот"
-	desc = "A shot glass - the universal symbol for bad decisions."
+	desc = "Универсальных символ плохого выбора"
 	icon_state = "shotglass"
 	base_icon_state = "shotglass"
 	gulp_size = 15
@@ -78,12 +78,12 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/shotglass/on_reagent_change(datum/reagents/holder, ...)
 	. = ..()
 	if(!length(reagents.reagent_list))
-		name = "shot glass"
-		desc = "A shot glass - the universal symbol for bad decisions."
+		name = "шот"
+		desc = "Универсальных символ плохого выбора"
 		return
 
-	name = "filled shot glass"
-	desc = "The challenge is not taking as many as you can, but guessing what it is before you pass out."
+	name = "заполненный шот"
+	desc = "Задача здесь состоит в том, что Вы не принимаете столько, сколько сможете, а в том, что угадаете ли Вы, когда надо остановиться?"
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/shotglass/get_glass_icon(datum/reagent/largest_reagent)
 	return largest_reagent?.shot_glass_icon_state
@@ -105,9 +105,9 @@
 		var/obj/item/food/egg/E = I
 		if(reagents)
 			if(reagents.total_volume >= reagents.maximum_volume)
-				to_chat(user, span_notice("[capitalize(src.name)] is full."))
+				to_chat(user, span_notice("[capitalize(src.name)] полон."))
 			else
-				to_chat(user, span_notice("You break [E] in [src]."))
+				to_chat(user, span_notice("Ломаю [E] в [src]."))
 				reagents.add_reagent(/datum/reagent/consumable/eggyolk, 5)
 				qdel(E)
 			return
@@ -116,8 +116,8 @@
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/attack(obj/target, mob/user)
 	if(user.a_intent == INTENT_HARM && ismob(target) && target.reagents && reagents.total_volume)
-		target.visible_message(span_danger("[user] splashes the contents of [src] onto [target]!") , \
-						span_userdanger("[user] splashes the contents of [src] onto you!"))
+		target.visible_message(span_danger("[user] проливает содержимое [src] на [target]!") , \
+						span_userdanger("[user] проливает содержимое [src] на меня!"))
 		log_combat(user, target, "splashed", src)
 		reagents.expose(target, TOUCH)
 		reagents.clear_reagents()
@@ -130,8 +130,8 @@
 		return
 
 	else if(reagents.total_volume && user.a_intent == INTENT_HARM)
-		user.visible_message(span_danger("[user] splashes the contents of [src] onto [target]!") , \
-							span_notice("You splash the contents of [src] onto [target]."))
+		user.visible_message(span_danger("[user] проливает содержимое [src] на [target]!") , \
+							span_notice("Проливаю содержимое [src] на [target]."))
 		reagents.expose(target, TOUCH)
 		reagents.clear_reagents()
 		return

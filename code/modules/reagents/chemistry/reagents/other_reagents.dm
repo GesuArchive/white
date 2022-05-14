@@ -7,7 +7,7 @@
 	taste_description = "железо"
 	taste_mult = 1.3
 	glass_icon_state = "glass_red"
-	glass_name = "glass of tomato juice"
+	glass_name = "стакан tomato juice"
 	glass_desc = "Are you sure this is tomato juice?"
 	shot_glass_icon_state = "shotglassred"
 	penetrates_skin = NONE
@@ -162,7 +162,7 @@
 	taste_description = "вода"
 	var/cooling_temperature = 2
 	glass_icon_state = "glass_clear"
-	glass_name = "glass of water"
+	glass_name = "стакан water"
 	glass_desc = "The father of all refreshments."
 	shot_glass_icon_state = "shotglassclear"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -246,7 +246,7 @@
 	special_sound = 'white/valtos/sounds/drink/hallelujah.ogg'
 	color = "#E0E8EF" // rgb: 224, 232, 239
 	glass_icon_state  = "glass_clear"
-	glass_name = "glass of holy water"
+	glass_name = "стакан holy water"
 	glass_desc = "A glass of holy water."
 	self_consuming = TRUE //divine intervention won't be limited by the lack of a liver
 	ph = 7.5 //God is alkaline
@@ -353,7 +353,7 @@
 	taste_description = "горящая вода"
 	var/cooling_temperature = 2
 	glass_icon_state = "glass_clear"
-	glass_name = "glass of oxygenated water"
+	glass_name = "стакан oxygenated water"
 	glass_desc = "The father of all refreshments. Surely it tastes great, right?"
 	shot_glass_icon_state = "shotglassclear"
 	ph = 6.2
@@ -1242,7 +1242,7 @@
 	color = "#660000" // rgb: 102, 0, 0
 	taste_description = "валовой металл"
 	glass_icon_state = "dr_gibb_glass"
-	glass_name = "glass of welder fuel"
+	glass_name = "стакан welder fuel"
 	glass_desc = "Unless you're an industrial tool, this is probably not safe for consumption."
 	penetrates_skin = NONE
 	ph = 4
@@ -2641,7 +2641,7 @@
 	name = "Органическая Жижа"
 	enname = "Organic Slurry"
 	description = "A mixture of various colors of fluid. Induces vomiting."
-	glass_name = "glass of ...yuck!"
+	glass_name = "стакан ...yuck!"
 	glass_desc = "It smells like a carcass, and doesn't look much better."
 	color = "#545000"
 	taste_description = "внутренности"
@@ -2882,7 +2882,7 @@
 	taste_mult = 1.3
 	taste_description = "tiny legs scuttling down the back of your throat."
 	metabolization_rate = 5 * REAGENTS_METABOLISM //1u per second
-	glass_name = "glass of ants"
+	glass_name = "стакан ants"
 	glass_desc = "Bottoms up...?"
 	ph = 4.6 // Ants contain Formic Acid
 	/// How much damage the ants are going to be doing (rises with each tick the ants are in someone's body)

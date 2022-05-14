@@ -185,7 +185,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	boozepwr = 75
 	taste_description = "меласса"
 	glass_icon_state = "whiskeyglass"
-	glass_name = "glass of whiskey"
+	glass_name = "стакан whiskey"
 	glass_desc = "The silky, smokey whiskey goodness inside the glass makes the drink look very classy."
 	shot_glass_icon_state = "shotglassbrown"
 	ph = 4.5
@@ -197,7 +197,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	description = "Makes You Go Ape!&#174;"
 	color = "#332100" // rgb: 51, 33, 0
 	taste_description = "хватка гигантской обезьяны"
-	glass_name = "glass of Kong"
+	glass_name = "стакан Kong"
 	glass_desc = "Makes You Go Ape!&#174;"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 /datum/reagent/consumable/ethanol/whiskey/candycorn
@@ -205,7 +205,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	description = "Like they drank in 2D speakeasies."
 	color = "#ccb800" // rgb: 204, 184, 0
 	taste_description = "блинный сироп"
-	glass_name = "glass of candy corn liquor"
+	glass_name = "стакан candy corn liquor"
 	glass_desc = "Good for your Imagination."
 	var/hal_amt = 4
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -225,7 +225,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	overdose_threshold = 60
 	taste_description = "дрожь и смерть"
 	glass_icon_state = "thirteen_loko_glass"
-	glass_name = "glass of Thirteen Loko"
+	glass_name = "стакан Thirteen Loko"
 	glass_desc = "This is a glass of Thirteen Loko, it appears to be of the highest quality. The drink, not the glass."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -285,7 +285,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	boozepwr = 65
 	taste_description = "зерновой спирт"
 	glass_icon_state = "ginvodkaglass"
-	glass_name = "glass of vodka"
+	glass_name = "стакан vodka"
 	glass_desc = "The glass contain wodka. Xynta."
 	shot_glass_icon_state = "shotglassclear"
 	ph = 8.1
@@ -303,7 +303,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	boozepwr = 15
 	taste_description = "отчаяние и лактат"
 	glass_icon_state = "glass_brown"
-	glass_name = "glass of bilk"
+	glass_name = "стакан bilk"
 	glass_desc = "A brew of milk and beer. For those alcoholics who fear osteoporosis."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -337,7 +337,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	boozepwr = 45
 	taste_description = "алкогольная рождественская елка"
 	glass_icon_state = "ginvodkaglass"
-	glass_name = "glass of gin"
+	glass_name = "стакан gin"
 	glass_desc = "A crystal clear glass of Griffeater gin."
 	ph = 6.9
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -350,7 +350,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	boozepwr = 60
 	taste_description = "колючие ириски"
 	glass_icon_state = "rumglass"
-	glass_name = "glass of rum"
+	glass_name = "стакан rum"
 	glass_desc = "Now you want to Pray for a pirate suit, don't you?"
 	shot_glass_icon_state = "shotglassbrown"
 	ph = 6.5
@@ -363,7 +363,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	boozepwr = 70
 	taste_description = "растворитель"
 	glass_icon_state = "tequilaglass"
-	glass_name = "glass of tequila"
+	glass_name = "стакан tequila"
 	glass_desc = "Now all that's missing is the weird colored shades!"
 	shot_glass_icon_state = "shotglassgold"
 	ph = 4
@@ -377,7 +377,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	boozepwr = 45
 	taste_description = "сухой алкоголь"
 	glass_icon_state = "vermouthglass"
-	glass_name = "glass of vermouth"
+	glass_name = "стакан vermouth"
 	glass_desc = "You wonder why you're even drinking this straight."
 	shot_glass_icon_state = "shotglassclear"
 	ph = 3.25
@@ -390,7 +390,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	boozepwr = 35
 	taste_description = "горькая сладость"
 	glass_icon_state = "wineglass"
-	glass_name = "glass of wine"
+	glass_name = "стакан wine"
 	glass_desc = "A very classy looking drink."
 	shot_glass_icon_state = "shotglassred"
 	ph = 3.45
@@ -426,7 +426,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	boozepwr = 60
 	taste_description = "классная горькая сладость"
 	glass_icon_state = "grappa"
-	glass_name = "glass of grappa"
+	glass_name = "стакан grappa"
 	glass_desc = "A fine drink originally made to prevent waste by using the leftovers from winemaking."
 	ph = 3.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -438,7 +438,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	boozepwr = 25
 	taste_description = "fruity and nutty sweetness"
 	glass_icon_state = "amarettoglass"
-	glass_name = "glass of amaretto"
+	glass_name = "стакан amaretto"
 	glass_desc = "A sweet and syrupy looking drink."
 	shot_glass_icon_state = "shotglassgold"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -450,7 +450,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	boozepwr = 75
 	taste_description = "ирландская злость"
 	glass_icon_state = "cognacglass"
-	glass_name = "glass of cognac"
+	glass_name = "стакан cognac"
 	glass_desc = "Damn, you feel like some kind of French aristocrat just by holding this."
 	shot_glass_icon_state = "shotglassbrown"
 	ph = 3.5
@@ -463,7 +463,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	boozepwr = 80 //Very strong even by default
 	taste_description = "смерть и солодка"
 	glass_icon_state = "absinthe"
-	glass_name = "glass of absinthe"
+	glass_name = "стакан absinthe"
 	glass_desc = "It's as strong as it smells."
 	shot_glass_icon_state = "shotglassgreen"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -499,7 +499,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	boozepwr = 65
 	taste_description = "сытный ячменный эль"
 	glass_icon_state = "aleglass"
-	glass_name = "glass of ale"
+	glass_name = "стакан ale"
 	glass_desc = "A freezing pint of delicious Ale."
 	ph = 4.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -512,7 +512,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	quality = DRINK_VERYGOOD
 	taste_description = "горящая корица"
 	glass_icon_state = "goldschlagerglass"
-	glass_name = "glass of goldschlager"
+	glass_name = "стакан goldschlager"
 	glass_desc = "100% proof that teen girls will drink anything with gold in it."
 	shot_glass_icon_state = "shotglassgold"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -562,7 +562,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	quality = DRINK_VERYGOOD
 	taste_description = "дорогой металл"
 	glass_icon_state = "patronglass"
-	glass_name = "glass of patron"
+	glass_name = "стакан patron"
 	glass_desc = "Drinking patron in the bar, with all the subpar ladies."
 	shot_glass_icon_state = "shotglassclear"
 	ph = 4.5
@@ -2042,7 +2042,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	color = "#1B2E24" // rgb: 27, 46, 36
 	boozepwr = 80
 	taste_description = "полная горечь"
-	glass_name = "glass of fernet"
+	glass_name = "стакан fernet"
 	glass_desc = "A glass of pure Fernet. Only an absolute madman would drink this alone." //Hi Kevum
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -2061,7 +2061,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	quality = DRINK_NICE
 	taste_description = "сладкое облегчение"
 	glass_icon_state = "godlyblend"
-	glass_name = "glass of fernet cola"
+	glass_name = "стакан fernet cola"
 	glass_desc = "A sawed-off cola bottle filled with Fernet Cola. Nothing better after eating like a lardass."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -2081,7 +2081,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	quality = DRINK_NICE
 	taste_description = "сладкая отрезвляющая смесь"
 	glass_icon_state = "fanciulli"
-	glass_name = "glass of fanciulli"
+	glass_name = "стакан fanciulli"
 	glass_desc = "A glass of Fanciulli. It's just Manhattan with Fernet."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_HIGH
@@ -2106,7 +2106,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	quality = DRINK_GOOD
 	taste_description = "горькая свежесть"
 	glass_icon_state= "minted_fernet"
-	glass_name = "glass of branca menta"
+	glass_name = "стакан branca menta"
 	glass_desc = "A glass of Branca Menta, perfect for those lazy and hot Sunday summer afternoons." //Get lazy literally by drinking this
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_MEDIUM
@@ -2131,7 +2131,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	quality = DRINK_GOOD
 	taste_description = "возможность пузырения"
 	glass_icon_state = "blank_paper"
-	glass_name = "glass of blank paper"
+	glass_name = "стакан blank paper"
 	glass_desc = "A fizzy cocktail for those looking to start fresh."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -2187,7 +2187,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	var/minimum_percent = 0.15 //Percentages measured between 0 and 1.
 	var/list/primary_tastes = list()
 	var/list/secondary_tastes = list()
-	glass_name = "glass of [name]"
+	glass_name = "стакан [name]"
 	glass_desc = description
 	for(var/taste in tastes)
 		switch(tastes[taste])
@@ -2513,7 +2513,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	boozepwr = 85
 	taste_description = "мои вкусовые рецепторы индивидуально отшлифованы"
 	glass_icon_state = "glass_orange"
-	glass_name = "glass of pruno"
+	glass_name = "стакан pruno"
 	glass_desc = "Fermented prison wine made from fruit, sugar, and despair. Security loves to confiscate this, which is the only kind thing Security has ever done."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -2579,7 +2579,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	quality = DRINK_NICE
 	taste_description = "blue orange"
 	glass_icon_state = "curacao"
-	glass_name = "glass of curaçao"
+	glass_name = "стакан curaçao"
 	glass_desc = "It's blue, da ba dee."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -2591,7 +2591,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	quality = DRINK_NICE
 	taste_description = "a life on the waves"
 	glass_icon_state = "ginvodkaglass"
-	glass_name = "glass of navy rum"
+	glass_name = "стакан navy rum"
 	glass_desc = "Splice the mainbrace, and God save the King."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -2603,7 +2603,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	quality = DRINK_NICE
 	taste_description = "spiced alcohol"
 	glass_icon_state = "bitters"
-	glass_name = "glass of bitters"
+	glass_name = "стакан bitters"
 	glass_desc = "Typically you'd want to mix this with something- but you do you."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -2687,7 +2687,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	quality = DRINK_NICE
 	taste_description = "sour cheesy yoghurt"
 	glass_icon_state = "tiltaellen"
-	glass_name = "glass of tiltällen"
+	glass_name = "стакан tiltällen"
 	glass_desc = "Eww... it's curdled."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
