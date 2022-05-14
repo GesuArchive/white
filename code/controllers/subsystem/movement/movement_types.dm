@@ -89,7 +89,7 @@
 		qdel(src)
 		return
 
-	var/visual_delay = controller.visual_delay
+	var/visual_delay = controller?.visual_delay
 	var/success = move()
 
 	SEND_SIGNAL(src, COMSIG_MOVELOOP_POSTPROCESS, success, delay * visual_delay)
