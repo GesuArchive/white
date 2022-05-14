@@ -86,8 +86,8 @@
 			return
 
 	var/mob/user = usr
-	var/obj/item/card/id/user_id_card = card_slot.stored_card
-	var/obj/item/card/id/target_id_card = card_slot2.stored_card
+	var/obj/item/card/id/user_id_card = card_slot?.stored_card
+	var/obj/item/card/id/target_id_card = card_slot2?.stored_card
 
 	switch(action)
 		// Log in.

@@ -46,10 +46,13 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 	qdel(src)
 
 	var/obj/item/I = new contains_type(get_turf(M))
-	M.visible_message(span_notice("[M] разворачивает <b>[src.name]</b>, находя [I] внутри!"))
-	I.investigate_log("([I.type]) was found in a present by [key_name(M)].", INVESTIGATE_PRESENTS)
-	M.put_in_hands(I)
-	I.add_fingerprint(M)
+	if (!QDELETED(I)) //might contain something like metal rods that might merge with a stack on the ground
+		M.visible_message(span_notice("[M] разворачивает <b>[src.name]</b>, находя [I] внутри!"))
+		I.investigate_log("([I.type]) was found in a present by [key_name(M)].", INVESTIGATE_PRESENTS)
+		M.put_in_hands(I)
+		I.add_fingerprint(M)
+	else
+		M.visible_message(span_danger("О нет! Подарок, который открывал [M], был пустой!"))
 
 /obj/item/a_gift/proc/get_gift_type()
 	var/gift_type_list = list(/obj/item/sord,

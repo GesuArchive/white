@@ -12,9 +12,6 @@
 	desc = "Пол, который показывает своё содержимое. Инженерам это определённо понравится!"
 	baseturfs = /turf/open/floor/plating
 	footstep = FOOTSTEP_CATWALK
-	barefootstep = FOOTSTEP_CATWALK
-	clawfootstep = FOOTSTEP_CATWALK
-	heavyfootstep = FOOTSTEP_CATWALK
 	var/covered = TRUE
 
 /turf/open/floor/plasteel/catwalk_floor/Initialize()

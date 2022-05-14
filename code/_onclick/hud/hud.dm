@@ -91,8 +91,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 	hide_actions_toggle = new
 	hide_actions_toggle.InitialiseIcon(src)
-	if(mymob?.client && hide_actions_toggle)
-		hide_actions_toggle.locked = mymob.client.prefs?.buttons_locked
+	if(mymob?.client?.prefs && hide_actions_toggle)
+		hide_actions_toggle.locked = mymob.client.prefs.buttons_locked
 
 	hand_slots = list()
 
