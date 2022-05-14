@@ -9,6 +9,7 @@
 	var/obj/item/gun/test_gun = allocate(/obj/item/gun/ballistic/automatic/pistol)
 	var/mob/living/carbon/human/victim = allocate(/mob/living/carbon/human)
 	var/mob/living/carbon/human/gunner = allocate(/mob/living/carbon/human)
+	ADD_TRAIT(victim, TRAIT_PIERCEIMMUNE, INNATE_TRAIT) // So the human isn't randomly affected by shrapnel
 
 	ADD_TRAIT(victim, TRAIT_RESISTLOWPRESSURE, INNATE_TRAIT) // so pressure damage doesn't throw off our damage check
 
