@@ -22,10 +22,10 @@ export const Adminhelp = (props, context) => {
   const [currentlyInputting, setCurrentlyInputting] = useLocalState(context, "confirm_request", false);
   const [ahelpMessage, setAhelpMessage] = useLocalState(context, "ahelp_message", "");
 
-  const confirmationText = "alert admins";
+  const confirmationText = "предупредить";
   return (
     <Window
-      title="Create Adminhelp"
+      title="Запросить помощь"
       theme="admin"
       height={300}
       width={500}>
@@ -38,7 +38,7 @@ export const Adminhelp = (props, context) => {
               autoFocus
               height="100%"
               value={ahelpMessage}
-              placeholder="Admin help"
+              placeholder="Помощь администратора"
               onChange={(e, value) => setAhelpMessage(value)}
             />
           </Stack.Item>
@@ -56,7 +56,7 @@ export const Adminhelp = (props, context) => {
                       "font-style": "normal",
                     }}
                   >
-                    Input &apos;{confirmationText}&apos; to proceed.
+                    Введи &apos;{confirmationText}&apos; для продолжения.
                     <Input
                       placeholder="Confirmation Prompt"
                       autoFocus
@@ -72,7 +72,7 @@ export const Adminhelp = (props, context) => {
                 ) || (
                   <Button
                     mt={1}
-                    content="Alert admins?"
+                    content="Предупредить?"
                     onClick={() => {
                       if (requestForAdmin) {
                         setRequestForAdmin(false);
@@ -83,7 +83,7 @@ export const Adminhelp = (props, context) => {
                     color={requestForAdmin ? "orange" : "blue"}
                     icon={requestForAdmin ? "check-square-o" : "square-o"}
                     disabled={bannedFromUrgentAhelp}
-                    tooltip={bannedFromUrgentAhelp ? "You are banned from using urgent ahelps." : null}
+                    tooltip={bannedFromUrgentAhelp ? "Нельзя тебе." : null}
                     fluid
                     textAlign="center"
                   />
@@ -95,7 +95,7 @@ export const Adminhelp = (props, context) => {
             <Button
               color="good"
               fluid
-              content="Submit"
+              content="Отправить"
               textAlign="center"
               onClick={() => act("ahelp", {
                 urgent: requestForAdmin,
