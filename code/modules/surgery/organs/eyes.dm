@@ -108,8 +108,8 @@
 	var/mutable_appearance/eye_right = mutable_appearance('icons/mob/human_face.dmi', "[eye_icon_state]_r", -BODY_LAYER)
 
 	if(EYECOLOR in parent.dna?.species.species_traits)
-		eye_right.color = eye_color_right
-		eye_left.color = eye_color_left
+		eye_right.color = "#[eye_color_right]"
+		eye_left.color = "#[eye_color_left]"
 
 	if(OFFSET_FACE in parent.dna?.species.offset_features)
 		var/offset = parent.dna.species.offset_features[OFFSET_FACE]
