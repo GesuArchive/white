@@ -2040,19 +2040,19 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	else
 		character.body_type = body_type
 
-	var/hetero = character.eye_color_heterochromatic
+	var/hetero = FALSE
+	if("Гетерохромия" in all_quirks)
+		hetero = TRUE
 	character.eye_color_left = eye_color_left
-	if(!hetero)
-		character.eye_color_right = eye_color_left
+	character.eye_color_right = eye_color_right
 	var/obj/item/organ/eyes/eyes_organ = character.getorgan(/obj/item/organ/eyes)
-	if (eyes_organ && istype(eyes_organ))
-		if (!initial(eyes_organ.eye_color_left))
+	if(eyes_organ && istype(eyes_organ))
+		if(!initial(eyes_organ.eye_color_left))
 			eyes_organ.eye_color_left = eye_color_left
 		eyes_organ.old_eye_color_left = eye_color_left
-		if(!hetero)
-			if (!initial(eyes_organ.eye_color_right))
-				eyes_organ.eye_color_right = eye_color_left
-			eyes_organ.old_eye_color_right = eye_color_left
+		if(!initial(eyes_organ.eye_color_right))
+			eyes_organ.eye_color_right = eye_color_right
+		eyes_organ.old_eye_color_right = eye_color_right
 
 	character.hair_color = hair_color
 	character.facial_hair_color = facial_hair_color
