@@ -407,10 +407,16 @@
 /mob/living/pointed(atom/A as mob|obj|turf in view(client.view, src))
 	if(incapacitated())
 		return FALSE
+
+	if(next_move > world.time)
+		return FALSE
+
 	if(!..())
 		return FALSE
+
 	visible_message(span_name("[capitalize(src.name)]</span> показывает на <b>[skloname(A.name, VINITELNI, A.gender)]</b>."),
 					span_notice("Показываю на <b>[skloname(A.name, VINITELNI, A.gender)]</b>."))
+	changeNext_move(1 SECONDS)
 	return TRUE
 
 
