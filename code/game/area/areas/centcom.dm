@@ -43,7 +43,15 @@
 	name = "ЦК: Дебаг"
 
 /area/centcom/scp
-	name = "ЦК: SCP"
+	name = "SCP"
+
+/area/centcom/scp/labyrinth
+	name = "SCP: Лабиринт"
+	map_generator = /datum/map_generator/labyrinth
+
+/area/centcom/scp/labyrinth/Initialize(mapload)
+	. = ..()
+	RunGeneration()
 
 /area/centcom/brief
 	name = "ЦК: Брифинг"
