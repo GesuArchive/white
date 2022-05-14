@@ -318,7 +318,8 @@
 	var/color
 
 /datum/quirk/heterochromatic/add()
-	color = color || quirk_holder.client?.prefs?.heterochromia
+	var/mob/living/carbon/human/H = quirk_holder
+	color = color || H.eye_color_heterochromatic
 	if(!color)
 		return
 
@@ -328,7 +329,8 @@
 	if(color)
 		return
 
-	color = quirk_holder.client?.prefs?.heterochromia
+	var/mob/living/carbon/human/H = quirk_holder
+	color = H.eye_color_heterochromatic
 	if(!color)
 		return
 
