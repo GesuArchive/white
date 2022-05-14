@@ -9,7 +9,6 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	icon_state = "black"
 	plane = OPENSPACE_BACKDROP_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	pathing_pass_method = TURF_PATHING_PASS_PROC
 	vis_flags = VIS_INHERIT_ID
 	alpha = 0
 
@@ -25,6 +24,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	baseturfs = /turf/open/openspace
 	CanAtmosPassVertical = ATMOS_PASS_YES
 	intact = FALSE //this means wires go on top
+	pathing_pass_method = TURF_PATHING_PASS_PROC
 	//mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/can_cover_up = TRUE
 	var/can_build_on = TRUE
