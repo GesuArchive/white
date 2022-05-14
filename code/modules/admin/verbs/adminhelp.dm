@@ -630,10 +630,6 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 		user_client.current_ticket.MessageNoRecipient(message, urgent)
 		return
 
-	if(user_client.ckey in GLOB.petushiniy_list)
-		to_chat(user_client, span_notice("Сообщение для <b>администраторов</b>: <span class='linkify'>[message]</span>"))
-		return
-
 	new /datum/admin_help(message, user_client, FALSE, urgent)
 
 /client/verb/no_tgui_adminhelp(message as message)
@@ -641,10 +637,6 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 	set hidden = TRUE
 
 	if(adminhelptimerid)
-		return
-
-	if(ckey in GLOB.petushiniy_list)
-		to_chat(src, span_notice("Сообщение для <b>администраторов</b>: <span class='linkify'>[message]</span>"))
 		return
 
 	message = trim(message)

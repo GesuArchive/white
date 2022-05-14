@@ -12,10 +12,6 @@
 	SSpoints_of_interest.make_point_of_interest(src)
 	update_fov()
 
-	spawn(5 SECONDS)
-		if(ckey in GLOB.pacifist_list)
-			ADD_TRAIT(src, TRAIT_PACIFISM, "sosi")
-
 	add_client_colour(/datum/client_colour/correction)
 
 	if(client?.prefs?.btprefsnew)
