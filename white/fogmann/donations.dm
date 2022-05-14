@@ -536,8 +536,14 @@ GLOBAL_PROTECT(ohshitfuck)
 					LAZYADDASSOC(lte_nuclear_war, ckey(fucktorio[1]), text2num(fucktorio[2]))
 				message_admins("[key_name_admin(src)] устанавливает [fucktorio[1]] количество перерождений на [fucktorio[2]].")
 			else
-				LAZYADDASSOCLIST(lte_nuclear_war, ckey(fucktorio[1]), fucktorio[2])
-				message_admins("[key_name_admin(src)] открывает [fucktorio[1]] доступ к [fucktorio[2]].")
+				if(fucktorio[2] == "all")
+					var/list/roles_to_add = list("fly", "felinid", "moth", "ipc", "plasmaman", "lizard", "android", "ethereal", "pigman")
+					for(var/role in roles_to_add)
+						LAZYADDASSOCLIST(lte_nuclear_war, ckey(fucktorio[1]), role)
+					message_admins("[key_name_admin(src)] открывает [fucktorio[1]] доступ к [english_list(roles_to_add)].")
+				else
+					LAZYADDASSOCLIST(lte_nuclear_war, ckey(fucktorio[1]), fucktorio[2])
+					message_admins("[key_name_admin(src)] открывает [fucktorio[1]] доступ к [fucktorio[2]].")
 	else
 		if(which_one == "phoenix")
 			var/list/temp_list = list()
