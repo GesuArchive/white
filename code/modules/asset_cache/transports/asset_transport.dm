@@ -84,8 +84,7 @@
 			else //no stacktrace because this will mainly happen because the client went away
 				return
 		else
-			return
-			//CRASH("Invalid argument: client: `[client]`")
+			CRASH("Invalid argument: client: `[client]`")
 	if (!islist(asset_list))
 		asset_list = list(asset_list)
 	var/list/unreceived = list()
@@ -116,7 +115,7 @@
 
 	if (unreceived.len)
 		if (unreceived.len >= ASSET_CACHE_TELL_CLIENT_AMOUNT)
-			to_chat(client, "Sending Resources...")
+			to_chat(client, "<span class='infoplain'>Отправляем ресурсы...</span>")
 
 		for (var/asset_name in unreceived)
 			var/new_asset_name = asset_name
@@ -138,7 +137,7 @@
 
 
 /// Precache files without clogging up the browse() queue, used for passively sending files on connection start.
-/datum/asset_transport/proc/send_assets_slow(client/client, list/files, filerate = 3)
+/datum/asset_transport/proc/send_assets_slow(client/client, list/files, filerate = 6)
 	var/startingfilerate = filerate
 	for (var/file in files)
 		if (!client)
