@@ -169,6 +169,8 @@
 	desc = "A pod containing a sleeping experiment, peering through the frost reveals a sleeping human."
 	mob_name = "Lobotomite"
 	density = TRUE
+	roundstart = FALSE
+	death = FALSE
 	mob_species = /datum/species/human
 	outfit = /datum/outfit/lobotomite
 	short_desc = "You are a lobotomite, an experiment of those who took you away from... why can't you remember?"
