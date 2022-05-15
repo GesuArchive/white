@@ -489,7 +489,7 @@
 				/obj/item/gun/ballistic/automatic/pistol/aps = 20,
 				/obj/item/gun/ballistic/automatic/pistol/deagle/gold = 5,
 				/obj/item/gun/ballistic/automatic/pistol/deagle = 20,
-				/obj/item/clothing/suit/armor/vest/warden/peacekeeper = 25,
+				/obj/item/clothing/suit/armor/vest/warden = 25,
 				/obj/item/clothing/gloves/krav_maga/combatglovesplus = 5,
 				/obj/item/kitchen/knife/rainbowknife = 15,
 				/obj/item/clothing/suit/space/hardsuit/swat = 5,
@@ -546,7 +546,7 @@
 	name = "Scalamov Guard"
 	uniform = /obj/item/clothing/under/scalamovguard
 	shoes = /obj/item/clothing/shoes/combat
-	back = /obj/item/storage/backpack/satchel/sec/peacekeeper
+	back = /obj/item/storage/backpack/satchel/sec
 	gloves = /obj/item/clothing/gloves/combat
 	mask = /obj/item/clothing/mask/gas/sechailer/swat/spacepol
 
@@ -641,7 +641,6 @@
 	attack_verb_simple = "attacks"
 	attack_sound = 'sound/weapons/sonic_jackhammer.ogg'
 	mouse_opacity = MOUSE_OPACITY_ICON
-	deathsound = 'sound/creatures/space_dragon_roar.ogg'
 	deathmessage = "begins to explode into chunks before he collapses into a pile of gore.."
 	gps_name = "Warden's Signal"
 	resize = 2.5
