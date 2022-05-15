@@ -35,6 +35,7 @@
 /turf/open/water/beach/xen
 	desc = "It's mirky and filled with strange organisms."
 	name = "xen water"
+	icon_state = "water"
 	icon = 'white/valtos/icons/black_mesa/xen_turfs.dmi'
 	baseturfs = /turf/open/water/beach/xen
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
