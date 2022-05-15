@@ -530,6 +530,8 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 			else
 				return
 
+	GLOB.isGatewayLoaded = TRUE
+
 	message_admins("Admin [key_name_admin(usr)] has loaded [away_name] away mission.")
 	log_admin("Admin [key_name(usr)] has loaded [away_name] away mission.")
 	if(!away_level)
