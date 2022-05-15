@@ -557,6 +557,9 @@
 "ahg" = (
 /turf/closed/indestructible/rock/xen,
 /area/awaymission/black_mesa/xen/nihilanth_hallway)
+"ahk" = (
+/turf/closed/wall/r_wall/rust,
+/area/awaymission/black_mesa/xen/acid_lake_building)
 "ahp" = (
 /turf/open/floor/plasteel,
 /area/awaymission/black_mesa/cryo_hallway)
@@ -2398,6 +2401,7 @@
 "aGB" = (
 /obj/structure/table,
 /obj/structure/alien/weeds/xen,
+/obj/item/gun/ballistic/automatic/pistol/tanner,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/black_mesa/entrance_lobby)
 "aGE" = (
@@ -4215,6 +4219,7 @@
 /obj/structure/window/reinforced/spawner{
 	dir = 4
 	},
+/obj/machinery/armament_station/hecu,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/black_mesa/hecu_zone_camp)
 "bOt" = (
@@ -4869,6 +4874,7 @@
 "djQ" = (
 /obj/structure/railing,
 /obj/structure/table,
+/obj/item/ammo_box/magazine/mp5,
 /turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/equipment_room)
 "dlk" = (
@@ -5795,6 +5801,7 @@
 "foy" = (
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/structure/alien/weeds/xen,
+/obj/machinery/door/airlock/science,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/black_mesa/genetics_elevator)
 "fpS" = (
@@ -6249,6 +6256,7 @@
 /area/awaymission/black_mesa/xen/lost_camp)
 "gIf" = (
 /obj/structure/table,
+/obj/item/gun/ballistic/automatic/mp5,
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/equipment_room)
 "gIr" = (
@@ -6750,7 +6758,7 @@
 /turf/open/floor/plating/dirt/planet/xen,
 /area/awaymission/black_mesa/xen/vortigaunt_village)
 "hOG" = (
-/obj/machinery/door/airlock/public,
+/obj/machinery/door/airlock/public/glass,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/black_mesa/hecu_zone_camp)
 "hOT" = (
@@ -7580,6 +7588,7 @@
 /area/awaymission/black_mesa/black_ops_downstairs_atrium)
 "jRB" = (
 /obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/door/airlock/science/glass,
 /turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/deep_sci_turret)
 "jRP" = (
@@ -8424,9 +8433,10 @@
 /turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/high_security_emitter)
 "lSH" = (
-/obj/machinery/armament_station/hecu,
-/turf/open/floor/plasteel/dark,
-/area/awaymission/black_mesa/hecu_zone_camp)
+/obj/machinery/door/airlock/science/glass,
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/plasteel/monofloor,
+/area/awaymission/black_mesa/deep_sci_turret)
 "lSV" = (
 /obj/structure/chair/office{
 	dir = 4
@@ -8701,7 +8711,7 @@
 /area/awaymission/black_mesa/deep_sci_medbay)
 "myU" = (
 /obj/effect/decal/cleanable/blood/tracks,
-/obj/machinery/door/airlock/public,
+/obj/machinery/door/airlock/public/glass,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/black_mesa/hecu_zone_camp)
 "mzJ" = (
@@ -8824,11 +8834,12 @@
 	dir = 1
 	},
 /obj/structure/table,
+/obj/item/gun/ballistic/automatic/mp5,
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/equipment_room)
 "mWj" = (
 /obj/effect/baseturf_helper/black_mesa_xen,
-/turf/open/floor/plasteel/dark,
+/turf/closed/wall/r_wall/rust,
 /area/awaymission/black_mesa/xen/acid_lake_building)
 "mWI" = (
 /obj/structure/closet/crate/bin,
@@ -9605,6 +9616,10 @@
 /obj/item/storage/toolbox/emergency/turret/mesa,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/black_mesa/hecu_zone_camp)
+"oIw" = (
+/obj/item/armament_points_card/hecu,
+/turf/open/floor/plasteel,
+/area/awaymission/black_mesa/deep_sci_feesh)
 "oKh" = (
 /turf/open/floor/plasteel/stairs/medium,
 /area/awaymission/black_mesa/hecu_zone_atrium)
@@ -10186,6 +10201,10 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/employee_dorm_room)
+"qfs" = (
+/obj/machinery/door/airlock/public/glass,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/black_mesa/xen/acid_lake_building)
 "qgp" = (
 /obj/structure/railing{
 	dir = 5
@@ -13545,6 +13564,8 @@
 /area/awaymission/black_mesa/high_security_servers)
 "xNT" = (
 /obj/structure/alien/weeds/xen,
+/obj/machinery/door/airlock/science,
+/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/black_mesa/genetics_elevator)
 "xOE" = (
@@ -13652,7 +13673,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/deep_sci_turret)
 "xYp" = (
-/turf/open/floor/plasteel/dark,
+/turf/closed/wall/r_wall/rust,
 /area/awaymission/black_mesa/xen/acid_lake)
 "xZk" = (
 /obj/structure/marker_beacon/burgundy,
@@ -13765,7 +13786,9 @@
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/scientist_hall)
 "yiT" = (
-/turf/open/floor/plasteel/stairs/medium,
+/turf/open/floor/plasteel/stairs/medium{
+	dir = 8
+	},
 /area/awaymission/black_mesa/black_ops_downstairs_atrium)
 "yjH" = (
 /obj/item/assembly/shock_kit,
@@ -26499,14 +26522,14 @@ qiS
 qiS
 qiS
 qiS
-vIy
-vIy
-vIy
-vIy
-vIy
-vIy
-vIy
-vIy
+ahk
+ahk
+ahk
+ahk
+ahk
+ahk
+qfs
+qfs
 mWj
 qiS
 rIg
@@ -26752,19 +26775,19 @@ rIg
 rIg
 rIg
 qiS
+ahk
+ahk
+ahk
+ahk
+ahk
 vIy
 vIy
-vIy
-vIy
-vIy
-vIy
-vIy
-vIy
+ahk
 qqt
 vIy
 vIy
 vIy
-vIy
+ahk
 qiS
 rIg
 rIg
@@ -27009,19 +27032,19 @@ rIg
 rIg
 qiS
 qiS
-vIy
+ahk
 fYD
 vIy
 nLL
 vIy
 vIy
 mcx
-vIy
+ahk
 qqt
 vIy
 vIy
 mcx
-vIy
+ahk
 qiS
 rIg
 rIg
@@ -27266,19 +27289,19 @@ rIg
 rIg
 sya
 qiS
-vIy
+ahk
 vsF
 lBD
 nMS
 gvI
 vIy
 vIy
-vIy
+ahk
 qqt
 vIy
 vIy
 gCt
-vIy
+ahk
 qiS
 rIg
 rIg
@@ -27523,19 +27546,19 @@ rIg
 rIg
 wmF
 qiS
-vIy
+ahk
 vsF
 qTQ
 xEL
 gvI
 vIy
 vIy
-vIy
+ahk
 vIy
 vIy
 vIy
 gCt
-vIy
+ahk
 qiS
 qiS
 rIg
@@ -27780,20 +27803,20 @@ eaL
 rIg
 qiS
 qiS
-vIy
+ahk
 vsF
 gGU
 qTQ
 gvI
 vIy
 vIy
+ahk
 vIy
 vIy
-vIy
-vIy
-vIy
-vIy
-vIy
+ahk
+ahk
+ahk
+ahk
 qiS
 rIg
 rIg
@@ -28037,20 +28060,20 @@ eaL
 rIg
 rIg
 qiS
-vIy
+ahk
 fYD
 vIy
 vIy
 vIy
 vIy
 mcx
-vIy
+ahk
 vIy
 mcx
-vIy
+ahk
 phR
 bHE
-vIy
+ahk
 qiS
 rIg
 rIg
@@ -28294,6 +28317,8 @@ rIg
 rIg
 rIg
 qiS
+ahk
+ahk
 vIy
 vIy
 vIy
@@ -28302,12 +28327,10 @@ vIy
 vIy
 vIy
 vIy
-vIy
-vIy
-vIy
+ahk
 nmp
 qpw
-vIy
+ahk
 qiS
 rIg
 rIg
@@ -28552,7 +28575,7 @@ rIg
 rIg
 qiS
 qiS
-vIy
+ahk
 lZj
 vIy
 vIy
@@ -28561,10 +28584,10 @@ vIy
 ckA
 vIy
 vIy
-vIy
+ahk
 uWO
 nmp
-vIy
+ahk
 qiS
 rIg
 rIg
@@ -28809,19 +28832,19 @@ rIg
 rIg
 rIg
 byl
-vIy
+ahk
 lBD
 wmp
 lZj
 cyy
+ahk
+ahk
 vIy
 vIy
-vIy
-vIy
-vIy
+ahk
 nmp
 nmp
-vIy
+ahk
 qiS
 rIg
 rIg
@@ -29071,14 +29094,14 @@ nrw
 eTC
 vIy
 vIy
-vIy
+ahk
 dcv
 nmp
 nmp
 qOM
 rRc
 nmp
-vIy
+ahk
 qiS
 rIg
 rIg
@@ -29328,14 +29351,14 @@ iro
 eTC
 lZj
 vIy
-vIy
+ahk
 nmp
 nmp
 nmp
 nmp
 nmp
 nmp
-vIy
+ahk
 qiS
 rIg
 rIg
@@ -29585,14 +29608,14 @@ rIg
 nrw
 vIy
 vIy
-vIy
+ahk
 dIL
 nmp
 nmp
 nmp
 nmp
 xhr
-vIy
+ahk
 qiS
 rIg
 rIg
@@ -29837,19 +29860,19 @@ rIg
 rIg
 rIg
 byl
-vIy
+ahk
 xgz
 lZj
 vIy
 cyy
-vIy
+ahk
 eyI
 cch
 saO
 cch
 bHE
 pUY
-vIy
+ahk
 qiS
 rIg
 rIg
@@ -30094,19 +30117,19 @@ rIg
 rIg
 rIg
 qiS
-vIy
-vIy
-vIy
-vIy
-vIy
-vIy
-vIy
-vIy
-vIy
-vIy
-vIy
-vIy
-vIy
+ahk
+ahk
+ahk
+qfs
+qfs
+ahk
+ahk
+ahk
+ahk
+ahk
+ahk
+ahk
+ahk
 qiS
 rIg
 rIg
@@ -42398,7 +42421,7 @@ dVo
 lXv
 lXv
 lXv
-lSH
+lXv
 eNi
 gdr
 oag
@@ -54249,7 +54272,7 @@ kSV
 kSV
 kSV
 kSV
-jrH
+lSH
 jRB
 kSV
 kSV
@@ -58121,7 +58144,7 @@ fQk
 jkj
 eZs
 jkj
-jkj
+oIw
 jkj
 mOq
 jkj

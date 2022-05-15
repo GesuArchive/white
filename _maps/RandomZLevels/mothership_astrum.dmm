@@ -3446,7 +3446,7 @@
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "VG" = (
-/turf/open/water,
+/turf/open/floor/plating/beach/water,
 /area/awaymission/mothership_astrum/deck5)
 "VJ" = (
 /obj/structure/table/abductor,
