@@ -170,7 +170,8 @@
 		/obj/item/storage/firstaid/emergency,
 		/obj/item/storage/box/hecu_rations,
 		/obj/item/kitchen/knife/combat,
-		/obj/item/book/granter/martial/cqc
+		/obj/item/book/granter/martial/cqc,
+		/obj/item/armament_points_card/hecu
 	)
 	id = /obj/item/card/id
 	id_trim = /datum/id_trim/hecu_leader

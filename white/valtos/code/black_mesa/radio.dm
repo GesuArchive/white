@@ -10,6 +10,10 @@
 	icon_state = "cargo_headset"
 	keyslot = new /obj/item/encryptionkey/headset_faction
 
+/obj/item/radio/headset/headset_faction/Initialize()
+	. = ..()
+	set_frequency(FREQ_FACTION)
+
 /obj/item/radio/headset/headset_faction/bowman
 	name = "faction bowman headset"
 	desc = "Headset used by the faction. Protects ears from flashbangs."
