@@ -40,11 +40,6 @@
 	max_purchase = 1
 	cost = 4
 
-/datum/armament_entry/hecu/medical/medkit/expeditionary
-	item_type = /obj/item/storage/firstaid/expeditionary
-	max_purchase = 1
-	cost = 5
-
 /datum/armament_entry/hecu/medical/injector
 	subcategory = ARMAMENT_SUBCATEGORY_INJECTOR
 
@@ -74,6 +69,6 @@
 	cost = 4
 
 /datum/armament_entry/hecu/medical/injector/bag
-	item_type = /obj/item/storage/bag/medpens
+	item_type = /obj/item/storage/box/medipens
 	max_purchase = 2
 	cost = 5

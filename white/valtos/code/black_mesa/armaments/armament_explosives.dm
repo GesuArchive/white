@@ -1,3 +1,7 @@
+// EXPLOSIVES
+#define ARMAMENT_CATEGORY_EXPLOSIVES "Explosives"
+#define ARMAMENT_CATEGORY_EXPLOSIVESLIMIT 4
+
 /datum/armament_entry/hecu/explosives
 	category = ARMAMENT_CATEGORY_EXPLOSIVES
 	category_item_limit = 8

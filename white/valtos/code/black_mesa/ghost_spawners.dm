@@ -116,7 +116,7 @@
 	mask = /obj/item/clothing/mask/gas/heavy/m40
 	gloves = /obj/item/clothing/gloves/combat
 	belt = /obj/item/storage/belt/military/assault/hecu
-	ears = /obj/item/radio/headset
+	ears = /obj/item/radio/headset/headset_faction
 	shoes = /obj/item/clothing/shoes/combat
 	l_pocket = /obj/item/reagent_containers/food/drinks/flask
 	r_pocket = /obj/item/flashlight/flare
@@ -125,7 +125,8 @@
 		/obj/item/storage/box/survival/radio,
 		/obj/item/storage/firstaid/emergency,
 		/obj/item/storage/box/hecu_rations,
-		/obj/item/kitchen/knife/combat
+		/obj/item/kitchen/knife/combat,
+		/obj/item/armament_points_card/hecu
 	)
 	id = /obj/item/card/id
 	id_trim = /datum/id_trim/hecu
@@ -159,7 +160,7 @@
 	mask = /obj/item/clothing/mask/gas/heavy/m40
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	belt = /obj/item/storage/belt/military/assault/hecu
-	ears = /obj/item/radio/headset
+	ears = /obj/item/radio/headset/headset_faction/bowman/captain
 	shoes = /obj/item/clothing/shoes/combat
 	l_pocket = /obj/item/grenade/smokebomb
 	r_pocket = /obj/item/binoculars

@@ -13,7 +13,7 @@
 	max_purchase = 4
 
 /datum/armament_entry/hecu/secondary/pistol/glock
-	item_type = /obj/item/gun/ballistic/automatic/pistol/g17/mesa
+	item_type = /obj/item/gun/ballistic/automatic/pistol/tanner
 	max_purchase = 4
 	mags_to_spawn = 3
 

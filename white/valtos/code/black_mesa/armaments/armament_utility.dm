@@ -1,19 +1,13 @@
+#define ARMAMENT_CATEGORY_UTILITY "Utility Supplies"
+#define ARMAMENT_CATEGORY_UTILITY_LIMIT 8
+#define ARMAMENT_SUBCATEGORY_UTILITY_ARMOR "Armor"
+
 /datum/armament_entry/hecu/utility
 	category = ARMAMENT_CATEGORY_UTILITY
 	category_item_limit = 20
 
 /datum/armament_entry/hecu/utility/survival_pack
 	item_type = /obj/item/storage/box/nri_survival_pack
-	max_purchase = 4
-	cost = 3
-
-/datum/armament_entry/hecu/utility/pouch
-	item_type = /obj/item/storage/bag/ammo
-	max_purchase = 8
-	cost = 1
-
-/datum/armament_entry/hecu/utility/pouch_knives
-	item_type = /obj/item/storage/bag/ammo/marksman
 	max_purchase = 4
 	cost = 3
 
@@ -25,7 +19,7 @@
 /datum/armament_entry/hecu/utility/advanced_tools
 	name = "Powertoolbelt"
 	description = "Tool belt full of power-ful tools."
-	item_type = /obj/item/storage/belt/utility/full/powertools
+	item_type = /obj/item/storage/belt/utility/full/engi
 	max_purchase = 1
 	cost = 4
 
@@ -65,8 +59,3 @@
 	item_type = /obj/item/suppressor
 	max_purchase = 4
 	cost = 2
-
-/datum/armament_entry/hecu/utility/bowman
-	item_type = /obj/item/radio/headset/bowman
-	max_purchase = 3
-	cost = 4

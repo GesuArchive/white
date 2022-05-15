@@ -8,8 +8,8 @@
 	subcategory = ARMAMENT_SUBCATEGORY_SUBMACHINEGUN
 	mags_to_spawn = 4
 
-/datum/armament_entry/hecu/primary/submachinegun/p90
-	item_type = /obj/item/gun/ballistic/automatic/p90
+/datum/armament_entry/hecu/primary/submachinegun/smg9mm
+	item_type = /obj/item/gun/ballistic/automatic/fallout/smg9mm
 	max_purchase = 4
 	cost = 7
 
@@ -22,25 +22,25 @@
 	subcategory = ARMAMENT_SUBCATEGORY_ASSAULTRIFLE
 	mags_to_spawn = 3
 
-/datum/armament_entry/hecu/primary/assaultrifle/m16
-	item_type = /obj/item/gun/ballistic/automatic/m16
+/datum/armament_entry/hecu/primary/assaultrifle/ak47
+	item_type = /obj/item/gun/ballistic/automatic/ak47
 	max_purchase = 1
 	cost = 14
-	magazine = /obj/item/ammo_box/magazine/m16
+	magazine = /obj/item/ammo_box/magazine/ak47mag
 
 /datum/armament_entry/hecu/primary/shotgun
 	subcategory = ARMAMENT_SUBCATEGORY_SHOTGUN
 	mags_to_spawn = 1
 
 /datum/armament_entry/hecu/primary/shotgun/shotgun_highcap
-	item_type = /obj/item/gun/ballistic/shotgun/m23
+	item_type = /obj/item/gun/ballistic/shotgun/lethal
 	max_purchase = 2
 	cost = 5
 	magazine = /obj/item/storage/box/ammo_box/shotgun_12g
 	magazine_cost = 4
 
 /datum/armament_entry/hecu/primary/shotgun/autoshotgun_pump
-	item_type = /obj/item/gun/ballistic/shotgun/automatic/as2
+	item_type = /obj/item/gun/ballistic/shotgun/automatic/combat
 	max_purchase = 1
 	cost = 7
 	magazine = /obj/item/storage/box/ammo_box/shotgun_12g
@@ -51,15 +51,14 @@
 	mags_to_spawn = 2
 
 /datum/armament_entry/hecu/primary/special/sniper_rifle
-	item_type = /obj/item/gun/ballistic/automatic/cfa_rifle
+	item_type = /obj/item/gun/ballistic/automatic/sniper_rifle
 	max_purchase = 1
 	cost = 16
 
 /datum/armament_entry/hecu/primary/special/hmg
-	item_type = /obj/item/mounted_machine_gun_folded
+	item_type = /obj/item/deployable_turret_folded
 	max_purchase = 1
 	cost = 20
-	magazine = /obj/item/ammo_box/magazine/mmg_box
 	mags_to_spawn = 1
 	magazine_cost = 2
 
