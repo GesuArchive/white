@@ -1,17 +1,17 @@
 /turf/closed/mineral/black_mesa
-	turf_type = /turf/open/misc/ironsand/black_mesa
-	baseturfs = /turf/open/misc/ironsand/black_mesa
+	turf_type = /turf/open/floor/plating/ironsand/black_mesa
+	baseturfs = /turf/open/floor/plating/ironsand/black_mesa
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 
 //Floors that no longer lead into space (innovative!)
-/turf/open/misc/ironsand/black_mesa
-	baseturfs = /turf/open/misc/ironsand/black_mesa
+/turf/open/floor/plating/ironsand/black_mesa
+	baseturfs = /turf/open/floor/plating/ironsand/black_mesa
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 
 /obj/effect/baseturf_helper/black_mesa
 	name = "black mesa sand baseturf editor"
-	baseturf = /turf/open/misc/ironsand/black_mesa
+	baseturf = /turf/open/floor/plating/ironsand/black_mesa
 
 /obj/effect/baseturf_helper/black_mesa_xen
 	name = "xen baseturf editor"
@@ -22,12 +22,12 @@
 	color = "#ac3b06"
 	baseturfs = /turf/closed/indestructible/rock/xen
 
-/turf/open/misc/xen
+/turf/open/floor/plating/xen
 	name = "strange weeds"
 	desc = "It feels soft to the touch, like a carpet... only... wet."
 	icon = 'white/valtos/icons/black_mesa/xen_turfs.dmi'
 	icon_state = "xen_turf"
-	baseturfs = /turf/open/misc/xen
+	baseturfs = /turf/open/floor/plating/xen
 	footstep = FOOTSTEP_GRASS
 	barefootstep = FOOTSTEP_GRASS
 	planetary_atmos = TRUE
@@ -40,34 +40,34 @@
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 
-/turf/open/misc/beach/coastline_t/xen
+/turf/open/floor/plating/beach/coastline_t/xen
 	desc = "It's mirky and filled with strange organisms."
 	name = "xen water"
 	icon = 'white/valtos/icons/black_mesa/xen_turfs.dmi'
-	baseturfs = /turf/open/misc/beach/coastline_t/xen
+	baseturfs = /turf/open/floor/plating/beach/coastline_t/xen
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 
-/turf/open/misc/beach/coastline_t/sandwater_inner/xen
+/turf/open/floor/plating/beach/coastline_t/sandwater_inner/xen
 	desc = "It's mirky and filled with strange organisms."
 	name = "xen water"
 	icon = 'white/valtos/icons/black_mesa/xen_turfs.dmi'
-	baseturfs = /turf/open/misc/beach/coastline_t/sandwater_inner/xen
+	baseturfs = /turf/open/floor/plating/beach/coastline_t/sandwater_inner/xen
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 
-/turf/open/misc/beach/coastline_b/xen
+/turf/open/floor/plating/beach/coastline_b/xen
 	name = "xen water"
 	desc = "It's mirky and filled with strange organisms."
 	icon = 'white/valtos/icons/black_mesa/xen_turfs.dmi'
-	baseturfs = /turf/open/misc/beach/coastline_b/xen
+	baseturfs = /turf/open/floor/plating/beach/coastline_b/xen
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 
-/turf/open/misc/dirt/planet/xen
+/turf/open/floor/plating/dirt/planet/xen
 	name = "strange path"
 	color = "#ee5f1c"
-	baseturfs = /turf/open/misc/dirt/planet/xen
+	baseturfs = /turf/open/floor/plating/dirt/planet/xen
 	planetary_atmos = TRUE
 
 /turf/open/water/xen_acid
