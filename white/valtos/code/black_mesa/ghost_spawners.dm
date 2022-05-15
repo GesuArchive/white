@@ -2,6 +2,9 @@
 	name = "Research Facility Science Team"
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper_s"
+	density = TRUE
+	roundstart = FALSE
+	death = FALSE
 	outfit = /datum/outfit/science_team
 	short_desc = "You are a scientist in a top secret government facility. You blacked out. Now, you have woken up to the horrors that lay within."
 	flavour_text = "You are a scientist in a top secret government facility. You blacked out. Now, you have woken up to the horrors that lay within."
