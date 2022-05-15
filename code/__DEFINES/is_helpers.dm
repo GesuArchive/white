@@ -256,3 +256,6 @@ GLOBAL_LIST_INIT(book_types, typecacheof(list(
 #define isandroid(A) (is_species(A, /datum/species/android))
 
 #define isspacepod(A) (istype(A, /obj/spacepod))
+
+// Xen mobs
+#define isxenmob(A) (istype(A, /mob/living/simple_animal/hostile/blackmesa/xen))

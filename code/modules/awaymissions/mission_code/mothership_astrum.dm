@@ -204,7 +204,7 @@
 
 /obj/effect/spawner/lootdrop/astrum/mid
 	name = "astrum mid"
-	loot = list(/obj/item/storage/firstaid/expeditionary = 20,
+	loot = list(/obj/item/storage/firstaid = 20,
 				/obj/item/shield/riot/tele = 12,
 				/obj/item/dnainjector/shock = 10,
 				/obj/item/book/granter/spell/summonitem = 20,

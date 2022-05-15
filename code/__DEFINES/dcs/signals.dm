@@ -1636,3 +1636,18 @@
 
 ///from base of /item/proc/set_painting_tool_color(): (chosen_color)
 #define COMSIG_PAINTING_TOOL_SET_COLOR "painting_tool_set_color"
+
+/// When a hostile simple mob loses it's target.
+#define COMSIG_HOSTILE_MOB_LOST_TARGET "hostile_mob_lost_target"
+
+/// /mob/living/proc/updatehealth()
+#define COMSIG_MOB_RUN_ARMOR "mob_run_armor"
+
+// Power signals
+/// Sent when an obj/item calls item_use_power: (use_amount, user, check_only)
+#define COMSIG_ITEM_POWER_USE "item_use_power"
+	#define NO_COMPONENT NONE
+	#define COMPONENT_POWER_SUCCESS (1<<0)
+	#define COMPONENT_NO_CELL  (1<<1)
+	#define COMPONENT_NO_CHARGE (1<<2)
+
