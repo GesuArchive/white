@@ -192,7 +192,7 @@
 
 /obj/effect/spawner/lootdrop/astrum
 	name = "astrum low"
-	loot = list(/obj/item/storage/medkit/regular = 10,
+	loot = list(/obj/item/storage/firstaid/regular = 10,
 				/obj/item/reagent_containers/syringe/penacid = 5,
 				/obj/item/reagent_containers/syringe/salacid = 20,
 				/obj/item/reagent_containers/syringe/oxandrolone = 20,
@@ -204,13 +204,13 @@
 
 /obj/effect/spawner/lootdrop/astrum/mid
 	name = "astrum mid"
-	loot = list(/obj/item/storage/medkit/expeditionary = 20,
+	loot = list(/obj/item/storage/firstaid/expeditionary = 20,
 				/obj/item/shield/riot/tele = 12,
 				/obj/item/dnainjector/shock = 10,
 				/obj/item/book/granter/spell/summonitem = 20,
 				/obj/item/storage/backpack/holding = 12,
 				/obj/item/dnainjector/thermal = 5,
-				/obj/item/melee/baton/telescopic = 12)
+				/obj/item/melee/classic_baton/telescopic = 12)
 
 /obj/effect/spawner/lootdrop/astrum/sciloot
 	name = "abductor scientist loot"
@@ -233,7 +233,6 @@
 	loot = list(/obj/item/organ/heart/cybernetic/tier3 = 10,
 				/obj/item/clothing/suit/armor/abductor/astrum = 10,
 				/obj/item/clothing/head/helmet/astrum = 10,
-				/obj/item/organ/cyberimp/arm/armblade = 5,
 				/obj/effect/gibspawner/generic = 10,
 				/obj/item/organ/eyes/night_vision/alien = 5
 				)
@@ -274,7 +273,7 @@
 		/obj/item/ammo_casing,
 		/obj/item/flashlight,
 		/obj/item/gun,
-		/obj/item/knife,
+		/obj/item/kitchen/knife,
 		/obj/item/reagent_containers,
 		/obj/item/restraints/handcuffs,
 		/obj/item/tank/internals/emergency_oxygen,
