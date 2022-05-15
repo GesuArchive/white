@@ -1410,7 +1410,9 @@
 /turf/open/indestructible/permalube,
 /area/awaymission/black_mesa/gas_emitter_chamber)
 "asJ" = (
-/obj/machinery/gateway/away,
+/obj/machinery/gateway/away{
+	calibrated = 0
+	},
 /turf/open/floor/plasteel/rockvault/alien,
 /area/awaymission/black_mesa/xen/nihilanth_arena)
 "asO" = (
