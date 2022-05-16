@@ -155,6 +155,8 @@
 	name = "Prison"
 	icon_state = "away"
 	requires_power = FALSE
+	base_lighting_alpha = 255
+	base_lighting_color = COLOR_WHITE
 
 /area/awaymission/prison/start
 	name = "Prison Entrance"
