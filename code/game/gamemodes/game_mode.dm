@@ -339,7 +339,7 @@
 		p_ckey = ckey(mind.key)
 		total_tickets += min(SSpersistence.antag_rep[p_ckey] + DEFAULT_ANTAG_TICKETS, MAX_TICKETS_PER_ROLL)
 
-	var/antag_select = rand(1,total_tickets)
+	var/antag_select = rand(1, total_tickets)
 	var/current = 1
 
 	for(var/datum/mind/mind in candidates)

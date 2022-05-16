@@ -63,13 +63,15 @@
 		var/rep = 0
 		rep += SSpersistence.antag_rep[M.ckey]
 		body += "<br><b>Антаг-репа:</b> [rep] "
-		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=add;mob=[REF(M)]'>+</a> "
-		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=subtract;mob=[REF(M)]'>-</a> "
-		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=set;mob=[REF(M)]'>=</a> "
-		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=zero;mob=[REF(M)]'>0</a>"
+		if(check_rights(R_SECURED, show_msg = FALSE))
+			body += "<a href='?_src_=holder;[HrefToken()];modantagrep=add;mob=[REF(M)]'>+</a> "
+			body += "<a href='?_src_=holder;[HrefToken()];modantagrep=subtract;mob=[REF(M)]'>-</a> "
+			body += "<a href='?_src_=holder;[HrefToken()];modantagrep=set;mob=[REF(M)]'>=</a> "
+			body += "<a href='?_src_=holder;[HrefToken()];modantagrep=zero;mob=[REF(M)]'>0</a>"
 		var/metabalance = M.client.get_metabalance()
-		if(check_donations(M.client.ckey))
-			body += "<br><b>Донатер:</b> [check_donations(M.client.ckey)] р."
+		if(check_rights(R_SECURED, show_msg = FALSE))
+			if(check_donations(M.client.ckey))
+				body += "<br><b>Донатер:</b> [check_donations(M.client.ckey)] р."
 		body += "<br><b>Метакэш</b>: [metabalance]"
 		if(check_rights(R_SECURED, show_msg = FALSE))
 			body += " <a href='?_src_=holder;[HrefToken()];changemetacash=[REF(M)]'>\[???\]</a>"
