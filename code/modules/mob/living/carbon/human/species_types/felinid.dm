@@ -64,6 +64,7 @@
 			tail.Insert(H, drop_if_replaced = FALSE)
 		else
 			mutant_organs = list()
+		H.AddComponent(/datum/component/tackler, stamina_cost = 35, base_knockdown = 0.5 SECONDS, range = 5, speed = 2, skill_mod = -2, min_distance = 2)
 	return ..()
 
 /datum/species/human/felinid/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/M)
