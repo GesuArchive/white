@@ -70,7 +70,7 @@
 	var/client/C = screenmob.client
 	// Default to HIGH
 	var/parallax_selection = PARALLAX_HIGH
-	if(C.prefs)
+	if(C?.prefs)
 		parallax_selection = C.prefs.parallax
 		if (!parallax_selection)
 			parallax_selection = PARALLAX_HIGH

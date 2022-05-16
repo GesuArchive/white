@@ -6,7 +6,7 @@
 
 /datum/round_event/ghost_role/nightmare
 	minimum_required = 1
-	role_name = "nightmare"
+	role_name = "Кошмар"
 	fakeable = FALSE
 
 /datum/round_event/ghost_role/nightmare/spawn_role()
@@ -32,8 +32,8 @@
 
 	var/mob/living/carbon/human/S = new ((pick(spawn_locs)))
 	player_mind.transfer_to(S)
-	player_mind.assigned_role = "Nightmare"
-	player_mind.special_role = "Nightmare"
+	player_mind.assigned_role = "Кошмар"
+	player_mind.special_role = "Кошмар"
 	player_mind.add_antag_datum(/datum/antagonist/nightmare)
 	S.set_species(/datum/species/shadow/nightmare)
 	playsound(S, 'sound/magic/ethereal_exit.ogg', 50, TRUE, -1)

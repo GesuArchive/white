@@ -560,8 +560,8 @@
 
 	var/mob/living/carbon/human/S = new (pick(spawn_locs))
 	player_mind.transfer_to(S)
-	player_mind.assigned_role = "Nightmare"
-	player_mind.special_role = "Nightmare"
+	player_mind.assigned_role = "Кошмар"
+	player_mind.special_role = "Кошмар"
 	player_mind.add_antag_datum(/datum/antagonist/nightmare)
 	S.set_species(/datum/species/shadow/nightmare)
 

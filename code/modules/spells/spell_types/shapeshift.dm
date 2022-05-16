@@ -198,6 +198,8 @@
 	UnregisterSignal(shape, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH))
 	UnregisterSignal(stored, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH))
 	restoring = TRUE
+	if(QDELETED(stored))
+		return
 	if(shape?.loc)
 		stored.forceMove(shape.loc)
 	else
