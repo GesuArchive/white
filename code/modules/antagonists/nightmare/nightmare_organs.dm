@@ -12,7 +12,7 @@
 
 /obj/item/organ/brain/nightmare/Insert(mob/living/carbon/M, special = FALSE)
 	. = ..()
-	if(M.dna.species.id != "Кошмар")
+	if(M.dna.species.id != "nightmare")
 		M.set_species(/datum/species/shadow/nightmare)
 		visible_message(span_warning("[M] бьется, когда [src] укореняется в теле [M.p_their()]!"))
 	var/obj/effect/proc_holder/spell/targeted/shadowwalk/SW = new
