@@ -14,7 +14,8 @@
 	"minetype": "none",
 	"traits": [
 		{
-			"Linkage": "Self"
+			"Linkage": "Self",
+			"No Parallax": true
 		}
 	],
 	"job_changes": {

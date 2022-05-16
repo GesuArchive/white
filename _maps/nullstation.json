@@ -15,7 +15,8 @@
 	"traits": [
 		{
 			"Linkage": "Self",
-			"Gravity": true
+			"Gravity": true,
+			"No Parallax": true
 		}
 	]
 }

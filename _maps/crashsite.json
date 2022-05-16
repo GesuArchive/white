@@ -17,7 +17,8 @@
 			"Mining": true,
 			"Gravity": true,
 			"Linkage": null,
-			"Baseturf": "/turf/open/floor/plating/asteroid/airless"
+			"Baseturf": "/turf/open/floor/plating/asteroid/airless",
+			"No Parallax": true
 		}
 	],
 	"job_changes": {

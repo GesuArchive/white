@@ -12,15 +12,15 @@
 	"space_ruin_levels": 0,
 	"space_empty_levels": 0,
     "traits":[
-       {"Up": 1,			 "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/lava/plasma/ice_moon"},
-       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace"},
-       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace"},
-       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace"},
-       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace"},
-       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace"},
-       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace"},
-       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace"},
-       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace"},
-       {"Down": -1,			 "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace"}
+       {"Up": 1,			 "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/lava/plasma/ice_moon", "No Parallax": true},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace", "No Parallax": true},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace", "No Parallax": true},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace", "No Parallax": true},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace", "No Parallax": true},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace", "No Parallax": true},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace", "No Parallax": true},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace", "No Parallax": true},
+       {"Up": 1, "Down": -1, "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace", "No Parallax": true},
+       {"Down": -1,			 "Linkage": null, "Gravity": true, "Baseturf": "/turf/open/openspace", "No Parallax": true}
     ]
 }

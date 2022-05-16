@@ -10,7 +10,8 @@
 		{
 			"Gravity": true,
 			"Linkage": null,
-			"Baseturf": "/turf/open/floor/plating/asteroid"
+			"Baseturf": "/turf/open/floor/plating/asteroid",
+			"No Parallax": true
 		}
 	],
 	"shuttles": {

@@ -2,6 +2,8 @@
 /datum/hud/proc/create_parallax(mob/viewmob, forced_parallax = 0)
 	var/mob/screenmob = viewmob || mymob
 	var/client/C = screenmob.client
+	if(SSmapping.level_trait(screenmob.z, ZTRAIT_NOPARALLAX))
+		return FALSE
 	if (!apply_parallax_pref(viewmob)) //don't want shit computers to crash when specing someone with insane parallax, so use the viewer's pref
 		return
 

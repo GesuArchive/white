@@ -70,37 +70,23 @@ require only minor tweaks.
 // string - type path of the z-level's baseturf (defaults to space)
 #define ZTRAIT_BASETURF "Baseturf"
 
+///boolean - does this z disable parallax?
+#define ZTRAIT_NOPARALLAX "No Parallax"
+
 // default trait definitions, used by SSmapping
-#define ZTRAITS_CENTCOM list(ZTRAIT_CENTCOM = TRUE)
+#define ZTRAITS_CENTCOM list(ZTRAIT_CENTCOM = TRUE, ZTRAIT_NOPARALLAX = TRUE)
 #define ZTRAITS_STATION list(ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_STATION = TRUE)
 #define ZTRAITS_SPACE list(ZTRAIT_LINKAGE = SELFLOOPING, ZTRAIT_DYNAMIC_LEVEL = TRUE)
 #define ZTRAITS_NEAR_SPACE list(ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_NEAR_SPACE_LEVEL = TRUE)
 #define ZTRAITS_LAVALAND list(\
 	ZTRAIT_MINING = TRUE, \
+	ZTRAIT_NOPARALLAX = TRUE, \
 	ZTRAIT_ASHSTORM = TRUE, \
 	ZTRAIT_LAVA_RUINS = TRUE, \
 	ZTRAIT_BOMBCAP_MULTIPLIER = 8, \
 	ZTRAIT_BASETURF = /turf/open/lava/smooth/lava_land_surface)
-#define ZTRAITS_GENSOKYO list(\
-	ZTRAIT_MINING = TRUE, \
-	ZTRAIT_GENSOKYO_RUINS = TRUE, \
-	ZTRAIT_BOMBCAP_MULTIPLIER = 8, \
-	ZTRAIT_BASETURF = /turf/open/floor/grass/gensgrass)
-#define ZTRAITS_ICEMOON list(\
-	ZTRAIT_MINING = TRUE, \
-	ZTRAIT_SNOWSTORM = TRUE, \
-	ZTRAIT_ICE_RUINS = TRUE, \
-	ZTRAIT_BOMBCAP_MULTIPLIER = 8, \
-	ZTRAIT_DOWN = -1, \
-	ZTRAIT_BASETURF = /turf/open/floor/plating/asteroid/snow/ice)
-#define ZTRAITS_ICEMOON_UNDERGROUND list(\
-	ZTRAIT_MINING = TRUE, \
-	ZTRAIT_ICE_RUINS_UNDERGROUND = TRUE, \
-	ZTRAIT_BOMBCAP_MULTIPLIER = 8, \
-	ZTRAIT_UP = 1, \
-	ZTRAIT_BASETURF = /turf/open/lava/plasma/ice_moon)
 
-#define ZTRAITS_REEBE list(ZTRAIT_REEBE = TRUE, ZTRAIT_BOMBCAP_MULTIPLIER = 0.5)
+#define ZTRAITS_REEBE list(ZTRAIT_REEBE = TRUE, ZTRAIT_BOMBCAP_MULTIPLIER = 0.5, ZTRAIT_NOPARALLAX = TRUE)
 #define DL_NAME "name"
 #define DL_TRAITS "traits"
 #define DECLARE_LEVEL(NAME, TRAITS) list(DL_NAME = NAME, DL_TRAITS = TRAITS)
