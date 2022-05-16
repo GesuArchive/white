@@ -1,4 +1,9 @@
 ///// AREAS, None of these should need power or lighting. I'd sooner die than hand-light this entire map
+/area/awaymission/mothership_astrum
+	static_lighting = FALSE
+	base_lighting_alpha = 255
+	base_lighting_color = COLOR_WHITE
+
 /area/awaymission/mothership_astrum/halls
 	name = "Mothership Astrum Hallways"
 	icon_state = "away1"
