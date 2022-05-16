@@ -4349,6 +4349,7 @@
 #include "white\valtos\code\black_mesa\guns.dm"
 #include "white\valtos\code\black_mesa\healing_puddle.dm"
 #include "white\valtos\code\black_mesa\hev_suit.dm"
+#include "white\valtos\code\black_mesa\key.dm"
 #include "white\valtos\code\black_mesa\lambda_teleporter.dm"
 #include "white\valtos\code\black_mesa\mapping_fluff.dm"
 #include "white\valtos\code\black_mesa\objects.dm"

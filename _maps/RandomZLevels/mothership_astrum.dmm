@@ -2143,7 +2143,7 @@
 /turf/open/floor/wood,
 /area/awaymission/mothership_astrum/deck1)
 "GX" = (
-/obj/machinery/gateway/away{
+/obj/machinery/gateway/away/required_key{
 	calibrated = 0
 	},
 /turf/open/floor/mineral/abductor,

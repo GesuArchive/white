@@ -177,6 +177,17 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	/// Visual object for handling the viscontents
 	var/obj/effect/gateway_portal_effect/portal_visuals
 
+	var/requires_key = FALSE
+	var/key_used = FALSE
+
+/obj/machinery/gateway/attacked_by(obj/item/I, mob/living/user)
+	. = ..()
+	if(istype(I, /obj/item/key/gateway) && requires_key)
+		to_chat(user, "<span class='notice'>Вставляю [src] в замочную скважину, врата разблокированы!</span>")
+		key_used = TRUE
+		qdel(I)
+		return
+
 /obj/machinery/gateway/Initialize()
 	generate_destination()
 	update_icon()
@@ -219,6 +230,8 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /obj/machinery/gateway/proc/activate(datum/gateway_destination/D)
 	if(!powered() || target)
+		return
+	if(requires_key && !key_used)
 		return
 	target = D
 	target.activate(destination)

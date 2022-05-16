@@ -29,7 +29,7 @@
 	status_flags = NONE
 	del_on_death = TRUE
 	wander = TRUE
-	loot = list(/obj/effect/gibspawner/xeno, /obj/item/stack/sheet/bluespace_crystal/fifty, /obj/item/uber_teleporter)
+	loot = list(/obj/effect/gibspawner/xeno, /obj/item/stack/sheet/bluespace_crystal/fifty, /obj/item/key/gateway, /obj/item/uber_teleporter)
 	movement_type = FLYING
 
 /obj/item/stack/sheet/bluespace_crystal/fifty

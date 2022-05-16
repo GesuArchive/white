@@ -318,5 +318,6 @@
 /mob/living/simple_animal/hostile/megafauna/hierophant/astrum/death(gibbed)
 	spawn_gibs()
 	spawn_gibs()
+	new /obj/item/key/gateway(src.loc)
 	new/obj/item/gun/energy/alien/zeta(src.loc)
 	qdel(src)
