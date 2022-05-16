@@ -7,6 +7,7 @@ GLOBAL_VAR_INIT(isGatewayLoaded, FALSE)
 		to_chat(world, span_boldannounce("Загружаем дальнюю миссию..."))
 		var/map = pick(GLOB.potentialRandomZlevels)
 		var/lev = load_new_z_level(map, "Away Mission")
+		SSmapping.run_map_generation_in_z(lev)
 		message_admins(span_boldannounce("Дальняя миссия загружена на уровне: [lev]."))
 
 /obj/effect/landmark/awaystart

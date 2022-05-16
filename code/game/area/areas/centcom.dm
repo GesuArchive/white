@@ -49,10 +49,6 @@
 	name = "SCP: Лабиринт"
 	map_generator = /datum/map_generator/labyrinth
 
-/area/centcom/scp/labyrinth/Initialize(mapload)
-	. = ..()
-	RunGeneration()
-
 /area/centcom/brief
 	name = "ЦК: Брифинг"
 
