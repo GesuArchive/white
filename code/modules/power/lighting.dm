@@ -342,11 +342,6 @@
 	brightness = 1
 	bulb_power = 0.9
 
-/obj/machinery/light/Move()
-	if(status != LIGHT_BROKEN)
-		break_light_tube(1)
-	return ..()
-
 // create a new lighting fixture
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
