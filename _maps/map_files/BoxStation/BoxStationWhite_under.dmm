@@ -2044,10 +2044,6 @@
 	name = "Prison Wing";
 	req_access_txt = "2"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/turbolift/primary)
 "cfG" = (
@@ -13224,6 +13220,9 @@
 /obj/structure/ladder,
 /turf/open/floor/carpet,
 /area/service/bar)
+"mTx" = (
+/turf/open/floor/plating,
+/area/hallway/secondary/entry/south_hall)
 "mTK" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -17130,6 +17129,12 @@
 /obj/machinery/light,
 /turf/open/floor/plasteel/freezer,
 /area/commons/locker)
+"qBG" = (
+/obj/machinery/door/airlock/external{
+	req_access_txt = "49"
+	},
+/turf/open/floor/plating,
+/area/hallway/secondary/entry/south_hall)
 "qCl" = (
 /obj/machinery/button/door{
 	id = "xenobio4";
@@ -24004,6 +24009,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/prison/safe)
+"xdF" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/south)
 "xdH" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -24576,6 +24588,13 @@
 /obj/structure/table/wood,
 /turf/open/floor/wood/parquet,
 /area/service/library)
+"xGK" = (
+/obj/machinery/door/airlock/external{
+	req_access_txt = "49"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/hallway/secondary/entry/south_hall)
 "xHP" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green,
@@ -24932,6 +24951,12 @@
 	},
 /turf/open/floor/plating,
 /area/service/hydroponics)
+"ybU" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/hallway/secondary/entry/south_hall)
 "ycp" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -41774,7 +41799,7 @@ hRh
 hRh
 byZ
 qza
-byZ
+pav
 tdl
 pTx
 pTx
@@ -44080,7 +44105,7 @@ tdl
 tdl
 tdl
 tdl
-csb
+nyG
 nyG
 nyG
 pav
@@ -44852,10 +44877,10 @@ pTx
 pTx
 pTx
 pTx
-pTx
-pTx
-tdl
-lIx
+pav
+pav
+pav
+pav
 hTO
 qrb
 byZ
@@ -45109,10 +45134,10 @@ pTx
 pTx
 pTx
 pTx
-pTx
-pTx
-tdl
-lIx
+xGK
+mTx
+mTx
+qBG
 joU
 qrb
 dBm
@@ -45366,10 +45391,10 @@ pTx
 pTx
 pTx
 pTx
-pTx
-pTx
-tdl
-lIx
+xGK
+mTx
+ybU
+qBG
 joU
 suf
 qNC
@@ -45623,9 +45648,9 @@ pTx
 pTx
 pTx
 pTx
-pTx
-pTx
-tdl
+pav
+pav
+pav
 pav
 fyO
 iDo
@@ -47933,12 +47958,12 @@ tdl
 pTx
 pTx
 pTx
-tdl
-pTx
-pTx
-pTx
-pTx
-tdl
+qhW
+qhW
+qhW
+qhW
+qhW
+qhW
 lIx
 joU
 kvY
@@ -48187,16 +48212,16 @@ pTx
 pTx
 pTx
 tdl
-pTx
-pTx
-pTx
-qhW
-qhW
-qhW
-qhW
-qhW
-qhW
-pav
+ujw
+ujw
+ujw
+ujw
+ujw
+hZr
+hZr
+hZr
+ujw
+ujw
 azP
 kRK
 qrs
@@ -48444,16 +48469,16 @@ pTx
 pTx
 pTx
 tdl
-pTx
-pTx
-pTx
-tdl
-pTx
-pTx
-pTx
-pTx
-tdl
-lIx
+ujw
+txU
+txU
+txU
+txU
+txU
+txU
+txU
+txU
+rEp
 joU
 rGe
 yjk
@@ -48701,16 +48726,16 @@ pTx
 pTx
 pTx
 tdl
-pTx
-pTx
-pTx
-tdl
-pTx
-pTx
-pTx
-pTx
-tdl
-lIx
+hZr
+txU
+txU
+txU
+txU
+txU
+txU
+txU
+txU
+rEp
 hTO
 tRi
 gBi
@@ -48958,16 +48983,16 @@ pTx
 pTx
 pTx
 qhW
-pTx
-pTx
-pTx
-tdl
-pTx
-gin
-pTx
-pTx
-tdl
-lIx
+hZr
+txU
+txU
+txU
+txU
+txU
+txU
+txU
+txU
+rEp
 joU
 tRi
 gBi
@@ -49215,16 +49240,16 @@ pTx
 pTx
 pTx
 tdl
-pTx
-pTx
-pTx
-tdl
-pTx
-pTx
-pTx
-pTx
-tdl
-lIx
+ujw
+txU
+txU
+txU
+txU
+txU
+txU
+txU
+txU
+rEp
 joU
 tRi
 yjk
@@ -49473,15 +49498,15 @@ tdl
 tdl
 nvQ
 ujw
-ujw
-mOk
-mOk
-mOk
-wlz
-wlz
-wlz
-mOk
-mOk
+xdF
+rEp
+rEp
+rEp
+rEp
+rEp
+rEp
+rEp
+rEp
 iMY
 rhc
 yjk

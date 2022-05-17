@@ -283,7 +283,6 @@
 	name = "Medbay Desk";
 	req_access_txt = "69"
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/fans/tiny,
 /obj/machinery/door/poddoor/preopen{
 	id = "durka_hub";
