@@ -519,6 +519,10 @@
 
 	var/mob/living/living_user = user
 
+	if(check_for_assblast(user, ASSBLAST_SHOCKING))
+		if(prob(25))
+			living_user.electrocute_act(10, src, flags = SHOCK_TESLA)
+
 	var/is_dextrous = FALSE
 	if(isanimal(user))
 		var/mob/living/simple_animal/user_as_animal = user

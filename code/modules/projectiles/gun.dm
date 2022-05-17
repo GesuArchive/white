@@ -358,7 +358,7 @@
 		randomized_gun_spread =	rand(0,spread)
 	var/randomized_bonus_spread = rand(base_bonus_spread, bonus_spread)
 
-	if(check_for_assblast(user, "R_U_A_WIZARD?")) //nice shootin' tex nice shootin' tex nice shootin' tex nice shootin' tex
+	if(check_for_assblast(user, ASSBLAST_WIZARD)) //nice shootin' tex nice shootin' tex nice shootin' tex nice shootin' tex
 		user.emote("spin")
 		randomized_gun_spread = 360
 		randomized_bonus_spread = 0

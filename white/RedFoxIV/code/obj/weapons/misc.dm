@@ -1158,14 +1158,11 @@ SUBSYSTEM_DEF(df_gamemaster)
 	. = ..()
 */
 
-#define ASSBLAST_CUMJAR "cumjar"
-#define ASSBLAST_SHOCKING "shocking_incompetence"
-#define ASSBLAST_WIZARD "R_U_A_WIZARD?"
-#define ASSBLAST_BAD_CONNECTION "bad_connection"
 GLOBAL_LIST_INIT(assblasts, list(ASSBLAST_CUMJAR = "Puts people in a cum jar on admin command.",\
 								ASSBLAST_SHOCKING = "Patient shows SHOCKING incompetence around machines.",\
 								ASSBLAST_WIZARD = "What do you do when you can't aim properly? You spin, spray and pray.",\
-								ASSBLAST_BAD_CONNECTION = "I selled my wife for internet connection for play \"spac station 13\" and i want to become the robustest player"))
+								ASSBLAST_BAD_CONNECTION = "I selled my wife for internet connection for play \"spac station 13\" and i want to become the robustest player",\
+								ASSBLAST_LIFEWEB = "Why does Rendi Sendi not give me access to LifeWeb, am I oldfeg from 201x???"))
 
 GLOBAL_LIST_EMPTY(assblasted_people)
 
@@ -1173,6 +1170,7 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 	if(GLOB.assblasted_people?[ckey])
 		return splittext(GLOB.assblasted_people[ckey], "|")
 	return list()
+
 /proc/check_for_assblast(user, assblast_type)
 	var/ckey
 	if(istext(user))

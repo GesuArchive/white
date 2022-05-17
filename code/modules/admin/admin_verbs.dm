@@ -606,7 +606,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		to_chat(usr, span_alert("Enforcing containment protocols..."))
 		for(var/Ct in GLOB.clients)
 			var/client/C = Ct
-			if(check_for_assblast(C.ckey, "cumjar")) // ASSBLAST_CUMJAR define can't be resolved here by compiler for some ungodly reason. i fucking hate byond
+			if(check_for_assblast(C.ckey, ASSBLAST_CUMJAR)) // ASSBLAST_CUMJAR define can't be resolved here by compiler for some ungodly reason. i fucking hate byond
 				if(!isliving(C.mob))
 					continue
 				if(istype(C.mob.loc, /obj/item/cum_jar))
