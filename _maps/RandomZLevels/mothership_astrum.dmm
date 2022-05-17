@@ -1751,8 +1751,7 @@
 /area/awaymission/mothership_astrum/deck5)
 "CU" = (
 /mob/living/simple_animal/hostile/pirate/melee{
-	faction = list("Abductor");
-	loot = list(/obj/effect/mob_spawn/corpse/human/pirate)
+	faction = list("Abductor")
 	},
 /turf/open/floor/plating/beach/sand,
 /area/awaymission/mothership_astrum/deck5)

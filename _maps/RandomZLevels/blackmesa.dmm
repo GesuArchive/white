@@ -3756,9 +3756,7 @@
 /area/awaymission/black_mesa/security_outpost)
 "aYe" = (
 /obj/structure/rack,
-/obj/item/gun/ballistic/revolver/mateba{
-	fire_select_modes = list(1,2)
-	},
+/obj/item/gun/ballistic/revolver/mateba,
 /turf/open/floor/plating{
 	icon_state = "platingdmg2"
 	},
