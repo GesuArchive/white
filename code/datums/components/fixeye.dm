@@ -149,7 +149,7 @@
 	SIGNAL_HANDLER
 
 	if(oldloc != newloc && (direction & REVERSE_DIR(source.dir)))
-		client.move_delay += added_delay*0.5
+		client.move_delay += added_delay*0.75
 
 //Keep that fucking face right onwards
 /datum/component/fixeye/proc/on_dir_change(mob/living/source, dir, newdir)
