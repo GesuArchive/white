@@ -119,7 +119,7 @@ GLOBAL_DATUM_INIT(maploader, /datum/dmm_suite, new())
 
 	var/list/key_map = list()
 	var/z_pos = 1
-	while(TRUE)
+	for(;;)
 		if(z_pos >= length(template_buffer_text))
 			break
 
@@ -130,7 +130,7 @@ GLOBAL_DATUM_INIT(maploader, /datum/dmm_suite, new())
 
 		var/z_block = copytext(template_buffer_text, z_pos, findtext(template_buffer_text, ".", z_pos))
 		var/y_pos = 1
-		while(TRUE)
+		for(;;)
 			if(y_pos >= length(z_block))
 				break
 
@@ -138,7 +138,7 @@ GLOBAL_DATUM_INIT(maploader, /datum/dmm_suite, new())
 			// A row of keys
 			y_pos = findtext(z_block, ";", y_pos) + 1
 			var/x_pos = 1
-			while(TRUE)
+			for(;;)
 				if(x_pos >= length(y_block))
 					break
 

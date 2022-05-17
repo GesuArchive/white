@@ -122,7 +122,7 @@
 /proc/disease_air_spread_walk(turf/start, turf/end)
 	if(!start || !end)
 		return FALSE
-	while(TRUE)
+	for(;;)
 		if(end == start)
 			return TRUE
 		var/turf/Temp = get_step_towards(end, start)

@@ -99,7 +99,7 @@
 	var/hub_url = replacetext(hub_address,".","/")
 	var/list/medal_data = list()
 	var/regex/datepart_regex = regex(@"[/\s]")
-	while(1)
+	for(;;)
 		world << "Fetching page [requested_page]"
 		var/list/result = world.Export("http://www.byond.com/games/[hub_url]?format=text&command=view_medals&per_page=[perpage]&page=[requested_page]")
 		if(!result)
@@ -130,7 +130,7 @@
 	var/list/scores_data = list()
 	for(var/score in valid_scores)
 		var/recieved_count = 0
-		while(1)
+		for(;;)
 			world << "Fetching [score] scores, offset :[recieved_count] of [score]"
 			var/list/batch = params2list(world.GetScores(giant_list_of_ckeys.len,recieved_count,score,hub_address,hub_password))
 			world << "Fetched [batch.len] scores for [score]."

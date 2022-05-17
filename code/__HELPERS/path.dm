@@ -246,7 +246,7 @@
 	var/turf/current_turf = original_turf
 	var/turf/lag_turf = original_turf
 
-	while(TRUE)
+	for(;;)
 		if(path)
 			return
 		lag_turf = current_turf
@@ -307,7 +307,7 @@
 	var/turf/current_turf = original_turf
 	var/turf/lag_turf = original_turf
 
-	while(TRUE)
+	for(;;)
 		if(path)
 			return
 		lag_turf = current_turf

@@ -384,7 +384,7 @@ GLOBAL_DATUM_INIT(sortInstance, /datum/sort_instance, new())
 	--len2
 
 	outer:
-		while(1)
+		for(;;)
 			var/count1 = 0	//# of times in a row that first run won
 			var/count2 = 0	//	"	"	"	"	"	"  second run won
 
@@ -484,7 +484,7 @@ GLOBAL_DATUM_INIT(sortInstance, /datum/sort_instance, new())
 	--len1
 
 	outer:
-		while(1)
+		for(;;)
 			var/count1 = 0	//# of times in a row that first run won
 			var/count2 = 0	//	"	"	"	"	"	"  second run won
 
@@ -619,7 +619,7 @@ GLOBAL_DATUM_INIT(sortInstance, /datum/sort_instance, new())
 	var/val1 = fetchElement(L,cursor1)
 	var/val2 = fetchElement(L,cursor2)
 
-	while(1)
+	for(;;)
 		if(call(cmp)(val1,val2) <= 0)
 			if(++cursor1 >= end1)
 				break

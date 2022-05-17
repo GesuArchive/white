@@ -28,7 +28,7 @@
 	to_chat(c, span_notice("***********************************************************"))
 
 /datum/buildmode_mode/spawnandthrow/change_settings(client/c)
-	while(TRUE) // i am so glad we don't have qc
+	for(;;) // i am so glad we don't have qc
 		var/list/options = list("typepath \[[!isnull(objholder) ? objholder : "null"]]",\
 		"force \[[force]]",\
 		"speed \[[speed]]",\

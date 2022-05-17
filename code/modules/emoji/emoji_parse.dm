@@ -7,7 +7,7 @@
 	var/pos = 1
 	var/search = 0
 	var/emoji = ""
-	while(1)
+	for(;;)
 		search = findtext(text, ":", pos)
 		parsed += copytext(text, pos, search)
 		if(search)
@@ -38,7 +38,7 @@
 	var/final = "" //only tags are added to this
 	var/pos = 1
 	var/search = 0
-	while(1)
+	for(;;)
 		search = findtext(text, ":", pos)
 		if(search)
 			pos = search
