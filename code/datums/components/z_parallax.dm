@@ -50,7 +50,7 @@
 
 	RegisterSignal(client_mob, COMSIG_MOB_LOGOUT, .proc/mob_change)
 	RegisterSignal(client_mob, COMSIG_MOVABLE_Z_CHANGED, .proc/ztrait_checks)
-	RegisterSignal(client_mob, COMSIG_MOB_LOGIN, .proc/refresh_client)
+	RegisterSignal(client_mob, COMSIG_MOB_LOGIN, .proc/refresh_client, override = TRUE)
 
 /datum/component/zparallax/proc/ztrait_checks()
 	SIGNAL_HANDLER

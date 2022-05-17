@@ -369,11 +369,13 @@ DEFINE_BITFIELD(smoothing_junction, list(
 					var/turned_adjacency = REVERSE_DIR(junction_dir)
 					var/turf/neighbor_turf = get_step(src, turned_adjacency & (NORTH|SOUTH))
 					var/mutable_appearance/underlay_appearance = mutable_appearance(layer = TURF_LAYER, plane = FLOOR_PLANE)
-					if(!neighbor_turf.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
+					if(!neighbor_turf?.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
 						neighbor_turf = get_step(src, turned_adjacency & (EAST|WEST))
-						if(!neighbor_turf.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
+
+						if(!neighbor_turf?.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
 							neighbor_turf = get_step(src, turned_adjacency)
-							if(!neighbor_turf.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
+
+							if(!neighbor_turf?.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
 								if(!get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency)) //if all else fails, ask our own turf
 									underlay_appearance.icon = DEFAULT_UNDERLAY_ICON
 									underlay_appearance.icon_state = DEFAULT_UNDERLAY_ICON_STATE

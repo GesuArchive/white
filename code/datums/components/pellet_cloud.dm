@@ -360,7 +360,8 @@
 /datum/component/pellet_cloud/proc/grenade_uncrossed(datum/source, atom/movable/gone, direction)
 	SIGNAL_HANDLER
 
-	bodies -= gone
+	if(!isnull(bodies))
+		bodies -= gone
 
 /// Our grenade or landmine or caseless shell or whatever tried deleting itself, so we intervene and nullspace it until we're done here
 /datum/component/pellet_cloud/proc/nullspace_parent()
