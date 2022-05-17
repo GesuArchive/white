@@ -29,11 +29,6 @@
 		if(2 to INFINITY)
 			inc_metabalance(mob, reward, reason="Задачи выполнены!")
 
-/client/proc/process_ten_minute_living()
-	if(IsAdminAdvancedProcCall())
-		return
-	inc_metabalance(mob, METACOIN_TENMINUTELIVING_REWARD, FALSE)
-
 /client/proc/get_metabalance()
 	var/datum/db_query/query_get_metacoins = SSdbcore.NewQuery(
 		"SELECT round(metacoins) FROM player WHERE ckey = :ckey",

@@ -4,7 +4,6 @@
 #define METACOIN_ESCAPE_REWARD           15 // за побег со станции
 #define METACOIN_SURVIVE_REWARD          9  // за выживание в раунде
 #define METACOIN_NOTSURVIVE_REWARD       5  // за смерть, если дождался конца раунда
-#define METACOIN_TENMINUTELIVING_REWARD  1  // за каждые 10 минут жизни
 
 // Награды за заказы в гражданском терминале заказов
 #define METACOIN_BOUNTY_REWARD_HARD		 rand(10, 15)  	// за сложный выполненный заказ
