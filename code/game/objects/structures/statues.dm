@@ -3,6 +3,7 @@
 	desc = "Placeholder. Yell at Firecage if you SOMEHOW see this."
 	icon = 'icons/obj/statue.dmi'
 	icon_state = ""
+	plane = ABOVE_GAME_PLANE
 	density = TRUE
 	anchored = FALSE
 	max_integrity = 100
