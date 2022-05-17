@@ -2114,9 +2114,7 @@
 "GK" = (
 /obj/machinery/porta_turret/syndicate/pod{
 	faction = list("Abductor");
-	lethal_projectile = /obj/projectile/bullet/c14mm;
 	max_integrity = 120;
-	stun_projectile = /obj/projectile/bullet/c14mm
 	},
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/halls)
