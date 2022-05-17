@@ -83,6 +83,8 @@
 	query_inc_metacoins.warn_execute()
 	qdel(query_inc_metacoins)
 
+	WRITE_LOG("data/metacoin.log", "[GLOB.round_id] - [M?.ckey] > [mc_count] < [reason]")
+
 	if(!M.client || !M)
 		return
 	M.client.update_metabalance_cache()
