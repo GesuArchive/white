@@ -52,9 +52,11 @@
 	RegisterSignal(client_mob, COMSIG_MOVABLE_Z_CHANGED, .proc/ztrait_checks)
 	RegisterSignal(client_mob, COMSIG_MOB_LOGIN, .proc/refresh_client, override = TRUE)
 
-/datum/component/zparallax/proc/ztrait_checks()
+/datum/component/zparallax/proc/ztrait_checks(datum/source, old_z, new_z)
 	SIGNAL_HANDLER
 
 	var/datum/hud/hud = client_mob.hud_used
 
+	if(is_station_level(old_z) && is_station_level(new_z))
+		return
 	hud.update_parallax_pref(client_mob)
