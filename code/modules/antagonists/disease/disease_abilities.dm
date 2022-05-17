@@ -171,6 +171,7 @@ new /datum/disease_ability/symptom/powerful/youth
 	button_icon_state = "cough"
 	desc = "Заставьте носителя, за которым вы следите, кашлять с особой силой, распространяя вашу инфекцию на тех, кто находится в радиусе двух метров от вашего зараженного, даже при низкой степени вирулентности.<br>Перезарядка: 10 секунд"
 	cooldown_time = 100
+	click_to_activate = TRUE
 
 /datum/action/cooldown/disease_cough/Trigger(trigger_flags)
 	if(!..())
@@ -205,6 +206,7 @@ new /datum/disease_ability/symptom/powerful/youth
 	button_icon_state = "sneeze"
 	desc = "Заставьте заражённого, за которым вы следуете, чихать с особой силой, распространяя вашу инфекцию на множество жертв в 4-метровом конусе перед вашим носителем, даже при низкой степени вирулентности.<br>Перезарядка: 20 секунд"
 	cooldown_time = 200
+	click_to_activate = TRUE
 
 /datum/action/cooldown/disease_sneeze/Trigger(trigger_flags)
 	if(!..())
@@ -243,6 +245,7 @@ new /datum/disease_ability/symptom/powerful/youth
 	button_icon_state = "infect"
 	desc = "Заставьте носителя, за которым вы следите, выделять инфекционное вещество из своих пор, в результате чего все предметы, соприкасающиеся с их кожей, передадут вашу инфекцию любому, кто прикоснется к ним в течение следующих 30 секунд.<br>Перезарядка: 40 секунд"
 	cooldown_time = 400
+	click_to_activate = TRUE
 
 /datum/action/cooldown/disease_infect/Trigger(trigger_flags)
 	if(!..())
