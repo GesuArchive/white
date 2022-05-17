@@ -160,7 +160,7 @@
 			affected_turf.air_update_turf(TRUE)
 			affected_turf.levelupdate()
 
-/datum/map_template/proc/load_new_z(orbital_body_type, list/level_traits = list(ZTRAIT_AWAY = TRUE))
+/datum/map_template/proc/load_new_z(orbital_body_type, list/level_traits = list(ZTRAIT_AWAY = TRUE, ZTRAIT_NOPARALLAX = TRUE))
 	var/x = round((world.maxx - width) * 0.5) + 1
 	var/y = round((world.maxy - height) * 0.5) + 1
 
