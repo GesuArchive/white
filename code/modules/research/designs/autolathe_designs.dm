@@ -267,7 +267,7 @@
 	category = list("initial", "Разное")
 
 /datum/design/earmuffs
-	name = "Беруши"
+	name = "Защитные наушники"
 	id = "earmuffs"
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)

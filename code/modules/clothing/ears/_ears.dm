@@ -8,8 +8,8 @@
 	resistance_flags = NONE
 
 /obj/item/clothing/ears/earmuffs
-	name = "беруши"
-	desc = "Защищают владельца от нытья из внешнего мира."
+	name = "защитные наушники"
+	desc = "Изолируют от громих и тихих звуков этого мира. Способствуют восстановлению поврежденного слуха"
 	icon_state = "earmuffs"
 	inhand_icon_state = "earmuffs"
 	clothing_traits = list(TRAIT_DEAF)

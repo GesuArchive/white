@@ -34,8 +34,8 @@
 	wanted_types = list(/obj/item/stack/license_plates/filled)
 
 /datum/bounty/item/security/earmuffs
-	name = "Наушники"
-	description = "Центральное Командование устало от сообщений вашей станции. Они приказали вам отправить наушники, чтобы уменьшить раздражение."
+	name = "Защитные наушники"
+	description = "Центральное Командование устало от сообщений вашей станции. Они приказали вам отправить защитные наушники, чтобы уменьшить раздражение."
 	reward = CARGO_CRATE_VALUE * 2
 	wanted_types = list(/obj/item/clothing/ears/earmuffs)
 

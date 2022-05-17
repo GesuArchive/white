@@ -404,7 +404,7 @@
 		. += "\n[src] похоже он управляется сам по себе..."
 	else
 		for(var/occupante in occupants)
-			. += "\nНе могу увидеть [occupante] внутри."
+			. += "\nВижу [occupante] внутри."
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			for(var/held_item in H.held_items)
