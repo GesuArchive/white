@@ -373,19 +373,22 @@
 	return BRUTELOSS
 
 /obj/item/dest_tagger/proc/openwindow(mob/user)
-	var/dat = "<tt><center><h1><b>ТэгМастер 2.2</b></h1></center>"
+	var/body = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>ТэгМастер 2.2</title></head>"
 
-	dat += "<table style='width:100%; padding:4px;'><tr>"
+	body += "<table style='width:100%; padding:4px;'><tr>"
 	for (var/i = 1, i <= GLOB.TAGGERLOCATIONS.len, i++)
-		dat += "<td><a href='?src=[REF(src)];nextTag=[i]'>[GLOB.TAGGERLOCATIONS[i]]</a></td>"
+		body += "<td><a href='?src=[REF(src)];nextTag=[i]'>[GLOB.TAGGERLOCATIONS[i]]</a></td>"
 
 		if(i%4==0)
-			dat += "</tr><tr>"
+			body += "</tr><tr>"
 
-	dat += "</tr></table><br>Текущий выбор: [currTag ? GLOB.TAGGERLOCATIONS[currTag] : "Ничего"]</tt>"
+	body += "</tr></table><br>Текущий выбор: [currTag ? GLOB.TAGGERLOCATIONS[currTag] : "Ничего"]</tt>"
 
-	user << browse(dat, "window=destTagScreen;size=450x350")
-	onclose(user, "destTagScreen")
+	body += "</body></html>"
+
+	var/datum/browser/popup = new(user, "destTagScreen", "[src.name]", 450, 350)
+	popup.set_content(body)
+	popup.open()
 
 /obj/item/dest_tagger/attack_self(mob/user)
 	if(!locked_destination)

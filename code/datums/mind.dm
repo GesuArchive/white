@@ -479,8 +479,9 @@
 		recipient = current
 	var/output = ""
 	if(window)
-		output += "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head>"
-	output += "<B>Воспоминания [current.real_name]:</B><br>"
+		output += "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>Воспоминания [current.real_name]</title></head>"
+	else
+		output += "<B>Воспоминания [current.real_name]:</B><br>"
 	output += memory
 
 
@@ -490,7 +491,7 @@
 		all_objectives |= A.objectives
 
 	if(all_objectives.len)
-		output += "<B>Мои цели:</B>"
+		output += "<B>Цели:</B>"
 		var/obj_count = 1
 		for(var/datum/objective/objective in all_objectives)
 			output += "<br><B>Цель #[obj_count++]</B>: [objective.explanation_text]"
@@ -502,7 +503,10 @@
 				output += "</ul>"
 
 	if(window)
-		recipient << browse(output,"window=memory")
+		output += "</body></html>"
+		var/datum/browser/popup = new(recipient, "memory", "Воспоминания [current.real_name]", 350, 350)
+		popup.set_content(output)
+		popup.open()
 	else if(all_objectives.len || memory)
 		to_chat(recipient, "<i>[output]</i>")
 
