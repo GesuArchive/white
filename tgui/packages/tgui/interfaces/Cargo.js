@@ -355,18 +355,26 @@ const CargoCart = (props, context) => {
                   <b>[Оплачено с карты]</b>
                 )}
               </Table.Cell>
-              <Table.Cell collapsing textAlign="right">
-                {formatMoney(entry.cost)} кредитов
-              </Table.Cell>
-              <Table.Cell collapsing>
-                {can_send &&(
-                  <Button
-                    icon="minus"
-                    onClick={() => act('remove', {
-                      id: entry.id,
-                    })} />
-                )}
-              </Table.Cell>
+              {entry.dep_order && (
+                <Table.Cell collapsing textAlign="right">
+                  {formatMoney(entry.cost)} кредитов заработано на доставке
+                </Table.Cell>
+              ) || (
+                <>
+                  <Table.Cell collapsing textAlign="right">
+                    {formatMoney(entry.cost)} кредитов
+                  </Table.Cell>
+                  <Table.Cell collapsing>
+                    {can_send &&(
+                      <Button
+                        icon="minus"
+                        onClick={() => act('remove', {
+                          id: entry.id,
+                        })} />
+                    )}
+                  </Table.Cell>
+                </>
+              )}
             </Table.Row>
           ))}
         </Table>

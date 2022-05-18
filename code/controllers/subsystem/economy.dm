@@ -54,9 +54,13 @@ SUBSYSTEM_DEF(economy)
 	var/mail_waiting = 0
 
 /datum/controller/subsystem/economy/Initialize(timeofday)
-	var/budget_to_hand_out = round(budget_pool / department_accounts.len)
-	for(var/A in department_accounts)
-		new /datum/bank_account/department(A, budget_to_hand_out)
+	//removes cargo from the split
+	var/budget_to_hand_out = round(budget_pool / department_accounts.len -1)
+	for(var/dep_id in department_accounts)
+		if(dep_id == ACCOUNT_CAR) //cargo starts with NOTHING
+			new /datum/bank_account/department(dep_id, 0)
+			continue
+		new /datum/bank_account/department(dep_id, budget_to_hand_out)
 	return ..()
 
 /datum/controller/subsystem/economy/Recover()

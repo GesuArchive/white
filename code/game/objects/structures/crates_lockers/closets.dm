@@ -316,6 +316,8 @@
 		return
 	if(opened)
 		return
+	if(SEND_SIGNAL(src, COMSIG_CLOSET_PRE_OPEN, user, force) & BLOCK_OPEN)
+		return
 	welded = FALSE
 	locked = FALSE
 	playsound(loc, open_sound, open_sound_volume, TRUE, -3)
@@ -327,6 +329,7 @@
 	update_icon()
 	update_airtightness()
 	after_open(user, force)
+	SEND_SIGNAL(src, COMSIG_CLOSET_POST_OPEN, force)
 	return TRUE
 
 ///Proc to override for effects after opening a door

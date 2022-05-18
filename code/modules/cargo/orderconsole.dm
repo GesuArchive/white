@@ -111,7 +111,8 @@
 			"cost" = SO.pack.get_cost(),
 			"id" = SO.id,
 			"orderer" = SO.orderer,
-			"paid" = !isnull(SO.paying_account) //paid by requester
+			"paid" = !isnull(SO.paying_account), //paid by requester
+			"dep_order" = SO.department_destination ? TRUE : FALSE
 		))
 
 	data["requests"] = list()
@@ -128,7 +129,6 @@
 
 /obj/machinery/computer/cargo/ui_static_data(mob/user)
 	var/list/data = list()
-	data["requestonly"] = requestonly
 	data["supplies"] = list()
 	for(var/pack in SSshuttle.supply_packs)
 		var/datum/supply_pack/P = SSshuttle.supply_packs[pack]
@@ -244,7 +244,7 @@
 					break
 
 			var/turf/T = get_turf(src)
-			var/datum/supply_order/SO = new(pack, name, rank, ckey, reason, account, applied_coupon)
+			var/datum/supply_order/SO = new(pack, name, rank, ckey, reason, account, null, applied_coupon)
 			SO.generateRequisition(T)
 			if(requestonly && !self_paid)
 				SSshuttle.requestlist += SO
@@ -259,15 +259,22 @@
 		if("remove")
 			var/id = text2num(params["id"])
 			for(var/datum/supply_order/SO in SSshuttle.shoppinglist)
-				if(SO.id == id)
-					if(SO.applied_coupon)
-						say("Купон возвращен.")
-						SO.applied_coupon.forceMove(get_turf(src))
-					SSshuttle.shoppinglist -= SO
-					. = TRUE
-					break
+				if(SO.id != id)
+					continue
+				if(SO.department_destination)
+					say("Только отдел заказавший это, может отменить заказ.")
+					return
+				if(SO.applied_coupon)
+					say("Купон возвращён.")
+					SO.applied_coupon.forceMove(get_turf(src))
+				SSshuttle.shoppinglist -= SO
+				. = TRUE
+				break
 		if("clear")
-			SSshuttle.shoppinglist.Cut()
+			for(var/datum/supply_order/cancelled_order in SSshuttle.shoppinglist)
+				if(cancelled_order.department_destination)
+					continue //don't cancel other department's orders
+				SSshuttle.shoppinglist -= cancelled_order
 			. = TRUE
 		if("approve")
 			var/id = text2num(params["id"])

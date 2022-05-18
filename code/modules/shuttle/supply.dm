@@ -89,6 +89,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		sell()
 
 /obj/docking_port/mobile/supply/proc/buy()
+	SEND_SIGNAL(SSshuttle, COMSIG_SUPPLY_SHUTTLE_BUY)
 	var/list/obj/miscboxes = list() //miscboxes are combo boxes that contain all goody orders grouped
 	var/list/misc_order_num = list() //list of strings of order numbers, so that the manifest can show all orders in a box
 	var/list/misc_contents = list() //list of lists of items that each box will contain
@@ -120,50 +121,56 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	var/purchases = 0
 	var/list/goodies_by_buyer = list() // if someone orders more than GOODY_FREE_SHIPPING_MAX goodies, we upcharge to a normal crate so they can't carry around 20 combat shotties
 
-	for(var/datum/supply_order/SO in SSshuttle.shoppinglist)
+	for(var/datum/supply_order/spawning_order in SSshuttle.shoppinglist)
 		if(!empty_turfs.len)
 			break
-		var/price = SO.pack.get_cost()
-		if(SO.applied_coupon)
-			price *= (1 - SO.applied_coupon.discount_pct_off)
+		var/price = spawning_order.pack.get_cost()
+		if(spawning_order.applied_coupon)
+			price *= (1 - spawning_order.applied_coupon.discount_pct_off)
 
-		var/datum/bank_account/D
-		if(SO.paying_account) //Someone paid out of pocket
-			D = SO.paying_account
-			var/list/current_buyer_orders = goodies_by_buyer[SO.paying_account] // so we can access the length a few lines down
-			if(!SO.pack.goody)
-				price *= 1.1 //TODO make this customizable by the quartermaster
+		var/datum/bank_account/paying_for_this
 
-			// note this is before we increment, so this is the GOODY_FREE_SHIPPING_MAX + 1th goody to ship. also note we only increment off this step if they successfully pay the fee, so there's no way around it
-			else if(LAZYLEN(current_buyer_orders) == GOODY_FREE_SHIPPING_MAX)
-				price += CRATE_TAX
-				D.bank_card_talk("Размер ящика превышает ограничение на бесплатную доставку: взимается комиссия за S&H в размере [CRATE_TAX].")
-		else
-			D = SSeconomy.get_dep_account(ACCOUNT_CAR)
-		if(D)
-			if(!D.adjust_money(-price))
-				if(SO.paying_account)
-					D.bank_card_talk("Заказ на груз №[SO.id] отклонен из-за нехватки средств. Требуются кредиты: [price]")
-				continue
+		//department orders EARN money for cargo, not the other way around
+		if(!spawning_order.department_destination)
+			if(spawning_order.paying_account) //Someone paid out of pocket
+				paying_for_this = spawning_order.paying_account
+				var/list/current_buyer_orders = goodies_by_buyer[spawning_order.paying_account] // so we can access the length a few lines down
+				if(!spawning_order.pack.goody)
+					price *= 1.1 //TODO make this customizable by the quartermaster
 
-		if(SO.paying_account)
-			if(SO.pack.goody)
-				LAZYADD(goodies_by_buyer[SO.paying_account], SO)
-			D.bank_card_talk("Заказ на груз №[SO.id] отправлен. [price] кредит[get_num_string(price)] были списаны с банковского счета.")
+				// note this is before we increment, so this is the GOODY_FREE_SHIPPING_MAX + 1th goody to ship. also note we only increment off this step if they successfully pay the fee, so there's no way around it
+				else if(LAZYLEN(current_buyer_orders) == GOODY_FREE_SHIPPING_MAX)
+					price += CRATE_TAX
+					paying_for_this.bank_card_talk("Размер ящика превышает ограничение на бесплатную доставку: взимается комиссия за S&H в размере [CRATE_TAX].")
+			else
+				paying_for_this = SSeconomy.get_dep_account(ACCOUNT_CAR)
+			if(paying_for_this)
+				if(!paying_for_this.adjust_money(-price))
+					if(spawning_order.paying_account)
+						paying_for_this.bank_card_talk("Заказ на груз №[spawning_order.id] отклонен из-за нехватки средств. Требуются кредиты: [price]")
+					continue
+
+		if(spawning_order.paying_account)
+			if(spawning_order.pack.goody)
+				LAZYADD(goodies_by_buyer[spawning_order.paying_account], spawning_order)
+				paying_for_this.bank_card_talk("Заказ на груз №[spawning_order.id] отправлен. [price] кредит[get_num_string(price)] были списаны с банковского счета.")
 			var/datum/bank_account/department/cargo = SSeconomy.get_dep_account(ACCOUNT_CAR)
-			cargo.adjust_money(price - SO.pack.get_cost()) //Cargo gets the handling fee
-		value += SO.pack.get_cost()
-		SSshuttle.shoppinglist -= SO
-		SSshuttle.orderhistory += SO
-		QDEL_NULL(SO.applied_coupon)
+			cargo.adjust_money(price - spawning_order.pack.get_cost()) //Cargo gets the handling fee
+		value += spawning_order.pack.get_cost()
+		SSshuttle.shoppinglist -= spawning_order
+		SSshuttle.orderhistory += spawning_order
+		QDEL_NULL(spawning_order.applied_coupon)
 
-		if(!SO.pack.goody) //we handle goody crates below
-			SO.generate(pick_n_take(empty_turfs))
+		if(!spawning_order.pack.goody) //we handle goody crates below
+			spawning_order.generate(pick_n_take(empty_turfs))
 
-		SSblackbox.record_feedback("nested tally", "cargo_imports", 1, list("[SO.pack.cost]", "[SO.pack.name]"))
-		investigate_log("Заказ № [SO.id] ([SO.pack.name], размещенный [key_name (SO.orderer_ckey)]), оплаченный [D.account_holder], отправлен.", INVESTIGATE_CARGO)
-		if(SO.pack.dangerous)
-			message_admins("[SO.pack.name], заказанный [ADMIN_LOOKUPFLW (SO.orderer_ckey)], оплаченный [D.account_holder], отправлен.")
+		SSblackbox.record_feedback("nested tally", "cargo_imports", 1, list("[spawning_order.pack.get_cost()]", "[spawning_order.pack.name]"))
+
+		var/from_whom = paying_for_this?.account_holder || "никем (заказ отдела)"
+
+		investigate_log("Заказ № [spawning_order.id] ([spawning_order.pack.name], размещенный [key_name (spawning_order.orderer_ckey)]), оплаченный [from_whom], отправлен.", INVESTIGATE_CARGO)
+		if(spawning_order.pack.dangerous)
+			message_admins("[spawning_order.pack.name], заказанный [ADMIN_LOOKUPFLW (spawning_order.orderer_ckey)], оплаченный [from_whom], отправлен.")
 		purchases++
 
 	// we handle packing all the goodies last, since the type of crate we use depends on how many goodies they ordered. If it's more than GOODY_FREE_SHIPPING_MAX
