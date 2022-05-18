@@ -93,16 +93,16 @@
 	var/eject_range = 5
 	var/turf/open/floor/floorturf
 
-	if(isfloorturf(T)) //intact floor, pop the tile
+	if(isfloorturf(T) && T.intact) // pop the tile if present
 		floorturf = T
 		if(floorturf.floor_tile)
 			new floorturf.floor_tile(T)
 		floorturf.make_plating(TRUE)
 
-	if(direction)		// direction is specified
+	if(direction) // direction is specified
 		if(isspaceturf(T)) // if ended in space, then range is unlimited
 			target = get_edge_target_turf(T, direction)
-		else						// otherwise limit to 10 tiles
+		else // otherwise limit to 10 tiles
 			target = get_ranged_target_turf(T, direction, 10)
 
 		eject_range = 10
@@ -119,8 +119,7 @@
 // pipe affected by explosion
 /obj/structure/disposalpipe/contents_explosion(severity, target)
 	var/obj/structure/disposalholder/H = locate() in src
-	if(H)
-		H.contents_explosion(severity, target)
+	H?.contents_explosion(severity, target)
 
 
 //welding tool: unfasten and convert to obj/disposalconstruct
@@ -186,11 +185,11 @@
 // if coming in from primary dir, then next is equal chance of other dirs
 /obj/structure/disposalpipe/junction/nextdir(obj/structure/disposalholder/H)
 	var/flipdir = turn(H.dir, 180)
-	if(flipdir != dir)	// came from secondary dir, so exit through primary
+	if(flipdir != dir) // came from secondary dir, so exit through primary
 		return dir
 
-	else	// came from primary, so need to choose a secondary exit
-		var/mask = dpdir & (~dir)	// get a mask of secondary dirs
+	else // came from primary, so need to choose a secondary exit
+		var/mask = dpdir & (~dir) // get a mask of secondary dirs
 
 		// find one secondary dir in mask
 		var/secdir = NONE
@@ -199,9 +198,9 @@
 				secdir = D
 				break
 
-		if(prob(50))	// 50% chance to choose the found secondary dir
+		if(prob(50)) // 50% chance to choose the found secondary dir
 			return secdir
-		else			// or the other one
+		else // or the other one
 			return mask & (~secdir)
 
 /obj/structure/disposalpipe/junction/flip
@@ -218,9 +217,9 @@
 //a trunk joining to a disposal bin or outlet on the same turf
 /obj/structure/disposalpipe/trunk
 	icon_state = "pipe-t"
-	var/obj/linked 	// the linked obj/machinery/disposal or obj/disposaloutlet
+	var/obj/linked // the linked obj/machinery/disposal or obj/disposaloutlet
 
-/obj/structure/disposalpipe/trunk/Initialize()
+/obj/structure/disposalpipe/trunk/Initialize(mapload)
 	. = ..()
 	getlinked()
 
@@ -258,16 +257,16 @@
 // if not entering from disposal bin,
 // transfer to linked object (outlet or bin)
 /obj/structure/disposalpipe/trunk/transfer(obj/structure/disposalholder/H)
-	if(H.dir == DOWN)		// we just entered from a disposer
-		return ..()		// so do base transfer proc
+	if(H.dir == DOWN) // we just entered from a disposer
+		return ..() // so do base transfer proc
 	// otherwise, go to the linked object
 	if(linked)
 		var/obj/structure/disposaloutlet/O = linked
 		if(istype(O))
-			O.expel(H)	// expel at outlet
+			O.expel(H) // expel at outlet
 		else
 			var/obj/machinery/disposal/D = linked
-			D.expel(H)	// expel at disposal
+			D.expel(H) // expel at disposal
 
 	// Returning null without expelling holder makes the holder expell itself
 	return null
