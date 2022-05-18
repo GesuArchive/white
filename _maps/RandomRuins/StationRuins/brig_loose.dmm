@@ -2587,6 +2587,9 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/department_orders/security{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "ge" = (

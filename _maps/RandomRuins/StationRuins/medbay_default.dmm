@@ -791,6 +791,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/holopad,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/cmo)
 "ey" = (
@@ -2705,9 +2706,11 @@
 /area/medical/medbay)
 "sN" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
+	},
+/obj/machinery/computer/department_orders/medical{
+	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/cmo)

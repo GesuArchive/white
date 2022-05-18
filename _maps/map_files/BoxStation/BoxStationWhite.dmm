@@ -20181,6 +20181,7 @@
 	pixel_y = 30;
 	receive_ore_updates = 1
 	},
+/obj/machinery/computer/department_orders/science,
 /turf/open/floor/plasteel/cafeteria,
 /area/command/heads_quarters/rd)
 "bMi" = (
@@ -49221,6 +49222,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/rust,
 /area/maintenance/space_hut/plasmaman)
+"wll" = (
+/obj/machinery/computer/department_orders/engineering{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/engineering/manufactory)
 "wlp" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -85617,7 +85624,7 @@ dkY
 dkY
 eCj
 inR
-tJL
+wll
 fQI
 kOd
 icX

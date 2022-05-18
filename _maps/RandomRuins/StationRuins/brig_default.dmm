@@ -1980,6 +1980,9 @@
 /obj/structure/sign/picture_frame/showroom/four{
 	pixel_y = -32
 	},
+/obj/machinery/computer/department_orders/security{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "gq" = (

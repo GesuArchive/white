@@ -18922,6 +18922,9 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 1
 	},
+/obj/machinery/computer/department_orders/service{
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/hallway/secondary/service)
 "sva" = (

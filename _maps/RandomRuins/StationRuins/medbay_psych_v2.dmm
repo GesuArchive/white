@@ -789,6 +789,8 @@
 	},
 /obj/structure/cable,
 /obj/structure/extinguisher_cabinet/directional/north,
+/obj/structure/bed/dogbed/runtime,
+/mob/living/simple_animal/pet/cat/runtime,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/heads_quarters/cmo)
 "jE" = (
@@ -1384,6 +1386,9 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
+	},
+/obj/machinery/computer/department_orders/medical{
+	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/cmo)
@@ -3431,11 +3436,6 @@
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/surgery)
-"TE" = (
-/obj/structure/bed/dogbed/runtime,
-/mob/living/simple_animal/pet/cat/runtime,
-/turf/open/floor/plasteel/monofloor/dark,
-/area/command/heads_quarters/cmo)
 "TS" = (
 /obj/machinery/requests_console{
 	department = "Medbay";
@@ -4777,7 +4777,7 @@ Sw
 SU
 xa
 RN
-TE
+QQ
 rJ
 pI
 fA

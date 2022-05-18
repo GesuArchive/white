@@ -2198,6 +2198,9 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/hex/red,
+/obj/machinery/computer/department_orders/security{
+	dir = 1
+	},
 /turf/open/floor/engine,
 /area/security/main)
 "he" = (
