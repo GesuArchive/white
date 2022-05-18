@@ -37,7 +37,7 @@ const CooldownEstimate = (props) => {
   || "short";
   return (
     <Box as="span" textColor={cooldownColor}>
-      {cooldownText} cooldown.
+      {cooldownText} задержка.
     </Box>
   );
 };
@@ -49,7 +49,7 @@ export const DepartmentOrders = (props, context) => {
   } = data;
   return (
     <Window
-      title="Department Orders"
+      title="Заказы отдела"
       width={620}
       height={580} >
       <Window.Content>
@@ -61,11 +61,11 @@ export const DepartmentOrders = (props, context) => {
                 <Stack fill vertical>
                   <Stack.Item>
                     <NoticeBox info>
-                      As employees of Nanotrasen, the selection of orders
-                      here are completely free of charge, only incurring
-                      a cooldown on the service. Cheaper items will make
-                      you wait for less time before Nanotrasen allows
-                      another purchase, to encourage tasteful spending.
+                      Для сотрудников Нанотрейзен, покупка товаров здесь
+                      полностью бесплатна, однако существует проблема с
+                      изготовлением, поэтому, чем дешевле заказ, тем
+                      меньше придётся ждать, перед заказом нового товара,
+                      дабы уменьшить вероятность лишнего заказа.
                     </NoticeBox>
                   </Stack.Item>
                   <Stack.Item grow>
@@ -97,21 +97,21 @@ const CooldownDimmer = (props, context) => {
           />
         </Stack.Item>
         <Stack.Item fontSize="18px" color="orange">
-          Ready for another order in {time_left}...
+          Готовы к следующему заказу через {time_left}...
         </Stack.Item>
         <Stack.Item textAlign="center" color="orange">
           <Button
             width="300px"
             lineHeight={2}
             tooltip={!!can_override
-              && "This action requires Head of Staff access!"
-              || "Crate already shipped! No cancelling now!"}
+              && "Это действие требует доступ главы!"
+              || "Товар уже отправлен! Никаких отмен!"}
             fontSize="14px"
             color="red"
             disabled={!can_override}
             onClick={() => act("override_order")}>
             <Box fontSize="22px">
-              Override
+              Отменить
             </Box>
           </Button>
         </Stack.Item>
@@ -165,7 +165,7 @@ const DepartmentCatalog = (props, context) => {
                       onClick={() => act("order", {
                         id: pack.id,
                       })}>
-                      Order
+                      Заказать
                     </Button>
                   </Stack.Item>
                 </Stack>

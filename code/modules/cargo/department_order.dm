@@ -147,32 +147,32 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 	department_delivery_area = /area/hallway/secondary/service
 	override_access = ACCESS_HOP
 	req_one_access = list(ACCESS_KITCHEN, ACCESS_BAR, ACCESS_HYDROPONICS, ACCESS_JANITOR)
-	dep_groups = list("Service", "Food & Hydroponics", "Livestock", "Costumes & Toys")
+	dep_groups = list("Сервис", "Еда и Гидропоника", "Живность", "Костюмы и игрушки")
 
 /obj/machinery/computer/department_orders/engineering
 	name = "engineering order console"
 	department_delivery_area = /area/engineering/main
 	override_access = ACCESS_CE
 	req_one_access = REGION_ACCESS_ENGINEERING
-	dep_groups = list("Engineering", "Engine Construction", "Canisters & Materials")
+	dep_groups = list("Инженерная", "Создание генератора", "Канистры и материалы")
 
 /obj/machinery/computer/department_orders/science
 	name = "science order console"
 	department_delivery_area = /area/science/research
 	override_access = ACCESS_RD
 	req_one_access = REGION_ACCESS_RESEARCH
-	dep_groups = list("Science", "Livestock")
+	dep_groups = list("Наука", "Живность")
 
 /obj/machinery/computer/department_orders/security
 	name = "security order console"
 	department_delivery_area = /area/security/brig
 	override_access = ACCESS_HOS
 	req_one_access = REGION_ACCESS_SECURITY
-	dep_groups = list("Security", "Armory")
+	dep_groups = list("Охрана", "Арсенал")
 
 /obj/machinery/computer/department_orders/medical
 	name = "medical order console"
 	department_delivery_area = /area/medical/medbay/central
 	override_access = ACCESS_CMO
 	req_one_access = REGION_ACCESS_MEDBAY
-	dep_groups = list("Medical")
+	dep_groups = list("Медицина")
