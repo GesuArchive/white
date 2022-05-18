@@ -25,7 +25,7 @@
 	return TRUE
 
 /datum/antagonist/nukeop/greet()
-	owner.current.playsound_local(get_turf(owner.current), 'white/govno.ogg',100,0, use_reverb = FALSE)
+	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ops.ogg', 100, 0, use_reverb = FALSE)
 	to_chat(owner, span_notice("Да я же оперативник Синдиката!"))
 	owner.announce_objectives()
 

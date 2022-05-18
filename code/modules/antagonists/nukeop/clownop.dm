@@ -6,6 +6,11 @@
 	nukeop_outfit = /datum/outfit/syndicate/clownop
 	greentext_reward = 50
 
+/datum/antagonist/nukeop/clownop/greet()
+	owner.current.playsound_local(get_turf(owner.current), 'white/govno.ogg', 100, 0, use_reverb = FALSE)
+	to_chat(owner, span_notice("Да я же клоун-оперативник Синдиката!"))
+	owner.announce_objectives()
+
 /datum/antagonist/nukeop/clownop/admin_add(datum/mind/new_owner,mob/admin)
 	new_owner.assigned_role = "Клоун-оперативник"
 	new_owner.add_antag_datum(src)
