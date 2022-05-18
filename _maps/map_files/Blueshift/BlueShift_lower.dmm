@@ -260,6 +260,7 @@
 /area/space/nearstation)
 "agM" = (
 /obj/machinery/light/directional/west,
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel,
 /area/cargo/storage)
 "agQ" = (
@@ -6727,6 +6728,10 @@
 /obj/structure/window/reinforced/fulltile,
 /turf/open/floor/grass,
 /area/hallway/secondary/entry)
+"dMM" = (
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plasteel,
+/area/cargo/exploration_mission)
 "dNr" = (
 /turf/open/floor/plasteel,
 /area/engineering/atmos/upper)
@@ -9255,6 +9260,9 @@
 	name = "cargo camera"
 	},
 /obj/machinery/vendor/exploration,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/cargo/storage)
 "fRc" = (
@@ -11277,6 +11285,15 @@
 	dir = 1
 	},
 /area/engineering/engine_room)
+"hBG" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/cargo/storage)
 "hBQ" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -19977,6 +19994,9 @@
 	dir = 10
 	},
 /obj/effect/landmark/start/exploration,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/cargo/storage)
 "oqe" = (
@@ -20496,6 +20516,9 @@
 /area/cargo/storage)
 "oNc" = (
 /obj/effect/landmark/start/exploration,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/cargo/storage)
 "oNm" = (
@@ -30345,6 +30368,13 @@
 	dir = 1
 	},
 /area/hallway/secondary/entry)
+"wRW" = (
+/obj/effect/landmark/start/exploration,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/cargo/storage)
 "wSd" = (
 /obj/effect/turf_decal/delivery,
 /obj/structure/fermenting_barrel,
@@ -73986,7 +74016,7 @@ xZF
 vHs
 tlm
 fQC
-xPI
+xVr
 qqN
 aue
 csQ
@@ -74242,8 +74272,8 @@ xPI
 eAr
 vHs
 agM
-xPI
-biE
+dMM
+hBG
 slG
 uTG
 ijj
@@ -74499,7 +74529,7 @@ jXL
 orR
 czo
 oNc
-oNc
+wRW
 oqc
 gLO
 gLO

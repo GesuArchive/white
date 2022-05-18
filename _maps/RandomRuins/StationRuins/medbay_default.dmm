@@ -4943,6 +4943,8 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/item/crowbar/large,
 /obj/machinery/camera/autoname,
+/obj/item/multitool,
+/obj/item/stack/cable_coil,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/zone2)
 "IM" = (

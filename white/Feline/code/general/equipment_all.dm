@@ -126,9 +126,9 @@
 	else
 		. += "<hr><span class='notice'>Керамическая бронепластина не закреплена.</span>"
 	if(ap_ablative)
-		. += "<hr><span class='notice'><b>Пластитановая бронепластина </b> закреплена.</span>"
+		. += "<hr><span class='notice'><b>Зеркальная бронепластина </b> закреплена.</span>"
 	else
-		. += "<hr><span class='notice'>Пластитановая бронепластина не закреплена.</span>"
+		. += "<hr><span class='notice'>Зеркальная бронепластина не закреплена.</span>"
 
 /obj/item/armor_preassembly/proc/ap_add(obj/item/W, mob/user)
 	var/obj/item/stack/sheet/armor_plate/plasteel/S = W
@@ -507,7 +507,7 @@
 	category = CAT_ARMOR
 
 /datum/crafting_recipe/ablative_armor_plate
-	name = "пластитановая бронепластина"
+	name = "зеркальная бронепластина"
 	result =  /obj/item/stack/sheet/armor_plate/ablative
 	time = 80
 	reqs = list(/obj/item/stack/sheet/mineral/plastitanium = 10)
@@ -523,7 +523,7 @@
 /obj/item/stack/sheet/armor_plate/plasteel
 	name = "пласталевая бронепластина"
 	singular_name = "пласталевая бронепластина"
-	desc = "Ударостойкий броневой лист с демпферным подбоем."
+	desc = "Ударостойкий броневой лист с демпферным подбоем. При закреплении на <B>бронежилетах</B> или <B>скафандрах</B> предоставляет дополнительную защиту от атак в <B>ближнем бою</B>. Особо эффективна на слабозащищенных комплектах."
 	icon_state = "plasteel_armor_plate"
 	merge_type = /obj/item/stack/sheet/armor_plate/plasteel
 	armor = list(MELEE = 12, WOUND = 10)
@@ -532,16 +532,16 @@
 /obj/item/stack/sheet/armor_plate/ceramic
 	name = "керамическая бронепластина"
 	singular_name = "керамическая бронепластина"
-	desc = "Керамическая чешуя закрепленная на пуленепробиваемой основе."
+	desc = "Керамическая чешуя закрепленная на пуленепробиваемой основе. При закреплении на <B>бронежилетах</B> или <B>скафандрах</B> предоставляет дополнительную защиту от <B>пуль и взрывов</B>. Особо эффективна на слабозащищенных комплектах."
 	icon_state = "ceramic_armor_plate"
 	merge_type = /obj/item/stack/sheet/armor_plate/ceramic
 	armor = list(BULLET = 10, BOMB = 10)
 	armor_type = BULLET
 
 /obj/item/stack/sheet/armor_plate/ablative
-	name = "пластитановая бронепластина"
-	singular_name = "пластитановая бронепластина"
-	desc = "Блестящая зеркальная рефракционная сетка с радиаторами."
+	name = "зеркальная бронепластина"
+	singular_name = "зеркальная бронепластина"
+	desc = "Блестящая зеркальная рефракционная сетка с радиаторами. При закреплении на <B>бронежилетах</B> или <B>скафандрах</B> предоставляет дополнительную защиту от <B>лазеров и парализаторов</B>. Особо эффективна на слабозащищенных комплектах."
 	icon_state = "ablative_armor_plate"
 	merge_type = /obj/item/stack/sheet/armor_plate/ablative
 	armor = list(LASER = 10, ENERGY = 13)

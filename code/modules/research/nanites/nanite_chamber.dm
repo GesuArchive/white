@@ -1,6 +1,6 @@
 /obj/machinery/nanite_chamber
-	name = "nanite chamber"
-	desc = "A device that can scan, reprogram, and inject nanites."
+	name = "нанитная камера"
+	desc = "Устройство для инъекции, мониторинга и базовой настройки нанитных облаков."
 	circuit = /obj/item/circuitboard/machine/nanite_chamber
 	icon = 'icons/obj/machines/nanite_chamber.dmi'
 	icon_state = "nanite_chamber"
@@ -61,11 +61,11 @@
 	locked = TRUE
 
 	//TODO OMINOUS MACHINE SOUNDS
-	set_busy(TRUE, "Initializing injection protocol...", "[initial(icon_state)]_raising")
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Analyzing host bio-structure...", "[initial(icon_state)]_active"),20)
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Priming nanites...", "[initial(icon_state)]_active"),40)
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Injecting...", "[initial(icon_state)]_active"),70)
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Activating nanites...", "[initial(icon_state)]_falling"),110)
+	set_busy(TRUE, "Инициация протокола ввода нанитов...", "[initial(icon_state)]_raising")
+	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Анализ биоструктуры носителя...", "[initial(icon_state)]_active"),20)
+	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Подготовка нанитов...", "[initial(icon_state)]_active"),40)
+	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Ввод нанитов...", "[initial(icon_state)]_active"),70)
+	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Активация нанитов...", "[initial(icon_state)]_falling"),110)
 	addtimer(CALLBACK(src, .proc/complete_injection, locked_state),130)
 
 /obj/machinery/nanite_chamber/proc/complete_injection(locked_state)
@@ -88,11 +88,11 @@
 	locked = TRUE
 
 	//TODO OMINOUS MACHINE SOUNDS
-	set_busy(TRUE, "Initializing cleanup protocol...", "[initial(icon_state)]_raising")
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Analyzing host bio-structure...", "[initial(icon_state)]_active"),20)
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Pinging nanites...", "[initial(icon_state)]_active"),40)
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Initiating graceful self-destruct sequence...", "[initial(icon_state)]_active"),70)
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Removing debris...", "[initial(icon_state)]_falling"),110)
+	set_busy(TRUE, "Инициация протокола извлечения нанитов...", "[initial(icon_state)]_raising")
+	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Анализ биоструктуры носителя...", "[initial(icon_state)]_active"),20)
+	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Трассировка нанитов...", "[initial(icon_state)]_active"),40)
+	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Запуск последовательности самоуничтожения...", "[initial(icon_state)]_active"),70)
+	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Промывка кровеносной системы...", "[initial(icon_state)]_falling"),110)
 	addtimer(CALLBACK(src, .proc/complete_removal, locked_state),130)
 
 /obj/machinery/nanite_chamber/proc/complete_removal(locked_state)
@@ -130,7 +130,7 @@
 
 /obj/machinery/nanite_chamber/proc/toggle_open(mob/user)
 	if(panel_open)
-		to_chat(user, span_notice("Close the maintenance panel first."))
+		to_chat(user, span_notice("Сначала необходимо закрыть панель обслуживания."))
 		return
 
 	if(state_open)
@@ -138,7 +138,7 @@
 		return
 
 	else if(locked)
-		to_chat(user, span_notice("The bolts are locked down, securing the door shut."))
+		to_chat(user, span_notice("Болты опущены, надежно фиксируя капсулу."))
 		return
 
 	open_machine()
@@ -151,15 +151,15 @@
 		return
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
-	user.visible_message(span_notice("You see [user] kicking against the door of [src]!") , \
-		span_notice("You lean on the back of [src] and start pushing the door open... (this will take about [DisplayTimeText(breakout_time)].)") , \
-		span_hear("You hear a metallic creaking from [src]."))
+	user.visible_message(span_notice("Я вижу как [user] истерично долбится в дверь нанитной камеры, пытаясь выбраться!") , \
+		span_notice("Упираюсь спиной о борт нанитной камеры и пытаюсь выбить дверь ногой... (это займет у меня [DisplayTimeText(breakout_time)].)") , \
+		span_hear("Я слышу металический шум из нанитной камеры."))
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src || state_open || !locked || busy)
 			return
 		locked = FALSE
-		user.visible_message(span_warning("[user] successfully broke out of [src]!") , \
-			span_notice("You successfully break out of [src]!"))
+		user.visible_message(span_warning("[user] с судорожным вздохом выбирается из нанитной камеры!") , \
+			span_notice("У меня получилось выбраться из нанитной камеры!"))
 		open_machine()
 
 /obj/machinery/nanite_chamber/close_machine(mob/living/carbon/user)

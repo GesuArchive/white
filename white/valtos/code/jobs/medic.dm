@@ -1,12 +1,15 @@
 /datum/job/doctor/field_medic
 	title = "Field Medic"
-	ru_title = "Полевой Врач"
+	ru_title = "Полевой Медик"
 	total_positions = 1
 	spawn_positions = 1
 	exp_requirements = 1200
 	exp_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/field_medic
+
+	skills = list(/datum/skill/surgery = SKILL_EXP_EXPERT, /datum/skill/ranged = SKILL_EXP_JOURNEYMAN)
+	minimal_skills = list(/datum/skill/surgery = SKILL_EXP_EXPERT, /datum/skill/ranged = SKILL_EXP_JOURNEYMAN)
 
 	paycheck = PAYCHECK_HARD
 	metalocked = TRUE
@@ -31,6 +34,7 @@
 	gloves = /obj/item/clothing/gloves/color/latex/nitrile
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/armor/vest/fieldmedic
+	suit_store = /obj/item/gun/energy/disabler
 	backpack_contents = list(/obj/item/storage/box/trackimp = 1, /obj/item/storage/firstaid/medical/field_surgery = 1, /obj/item/optable = 1, /obj/item/modular_computer/laptop/preset/medical = 1, /obj/item/storage/pill_bottle/soldier = 1, /obj/item/flashlight = 1)
 
 	backpack = /obj/item/storage/backpack/medic

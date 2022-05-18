@@ -269,6 +269,8 @@
 /obj/item/construction/plumbing{
 	pixel_y = -10
 	},
+/obj/item/stack/cable_coil,
+/obj/item/multitool,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "vY" = (

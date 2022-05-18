@@ -65,49 +65,65 @@
 
 //Rod of Asclepius
 /obj/item/rod_of_asclepius
-	name = "\improper Rod of Asclepius"
-	desc = "A wooden rod about the size of your forearm with a snake carved around it, winding its way up the sides of the rod. Something about it seems to inspire in you the responsibilty and duty to help others."
+	name = "жезл асклепия"
+	desc = "Небольшой деревянный жезл с обвившейся вокруг него змеей. Весь его вид, внушает вам чувство долга и нужду помогать страждущим."
 	icon = 'icons/obj/lavaland/artefacts.dmi'
 	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
 	icon_state = "asclepius_dormant"
 	var/activated = FALSE
 	var/usedHand
+	var/last_used_peace = 0
 
 /obj/item/rod_of_asclepius/attack_self(mob/user)
 	if(activated)
 		return
 	if(!iscarbon(user))
-		to_chat(user, span_warning("The snake carving seems to come alive, if only for a moment, before returning to its dormant state, almost as if it finds you incapable of holding its oath."))
+		to_chat(user, span_warning("Змея на жезле на мгновение оживает и смотрит на меня, но через мгновение разочаровано отворачивается и снова замирает, как будто она знает, что я неспособен сдержать свою клятву."))
 		return
 	var/mob/living/carbon/itemUser = user
 	usedHand = itemUser.get_held_index_of_item(src)
 	if(itemUser.has_status_effect(STATUS_EFFECT_HIPPOCRATIC_OATH))
-		to_chat(user, span_warning("You can't possibly handle the responsibility of more than one rod!"))
+		to_chat(user, span_warning("Не в моих силах нести больше ответственности, чем я могу на себя принять!"))
 		return
-	var/failText = span_warning("The snake seems unsatisfied with your incomplete oath and returns to its previous place on the rod, returning to its dormant, wooden state. You must stand still while completing your oath!")
-	to_chat(itemUser, span_notice("The wooden snake that was carved into the rod seems to suddenly come alive and begins to slither down your arm! The compulsion to help others grows abnormally strong..."))
+	var/failText = span_warning("Змея, похоже, недовольна моей неполной клятвой и вновь замирает, возвращаясь в свое спящее, деревянное состояние. Я должен подойти к этому дело ответственно и стоять неподвижно во время принесения торжественной клятвы!")
+	to_chat(itemUser, span_notice("Деревянная змея, вырезанная на жезле, внезапно оживает и обвивает мою руку! У меня проявляется необычайно сильное желание помогать другим..."))
 	if(do_after(itemUser, 40, target = itemUser))
-		itemUser.say("I swear to fulfill, to the best of my ability and judgment, this covenant:", forced = "hippocratic oath")
+		itemUser.say("Получая высокое звание врача и приступая к профессиональной деятельности, я торжественно клянусь:", forced = "hippocratic oath")
+	else
+		to_chat(itemUser, failText)
+		return
+	if(do_after(itemUser, 30, target = itemUser))
+		itemUser.say("Честно исполнять свой врачебный долг, посвятить свои знания и умения предупреждению и лечению заболеваний, сохранению и укреплению здоровья человека", forced = "hippocratic oath")
+	else
+		to_chat(itemUser, failText)
+		return
+	if(do_after(itemUser, 50, target = itemUser))
+		itemUser.say("Быть всегда готовым оказать медицинскую помощь, хранить врачебную тайну, внимательно и заботливо относиться к пациенту, действовать исключительно в его интересах независимо от пола, расы, национальности, языка, происхождения, имущественного и должностного положения, места жительства, отношения к религии, убеждений, принадлежности к общественным объединениям, а также других обстоятельств", forced = "hippocratic oath")
 	else
 		to_chat(itemUser, failText)
 		return
 	if(do_after(itemUser, 20, target = itemUser))
-		itemUser.say("I will apply, for the benefit of the sick, all measures that are required, avoiding those twin traps of overtreatment and therapeutic nihilism.", forced = "hippocratic oath")
+		itemUser.say("Проявлять высочайшее уважение к жизни человека, никогда не прибегать к осуществлению эвтаназии", forced = "hippocratic oath")
+	else
+		to_chat(itemUser, failText)
+		return
+	if(do_after(itemUser, 20, target = itemUser))
+		itemUser.say("Хранить благодарность и уважение к своим учителям, быть требовательным и справедливым к своим ученикам, способствовать их профессиональному росту", forced = "hippocratic oath")
 	else
 		to_chat(itemUser, failText)
 		return
 	if(do_after(itemUser, 30, target = itemUser))
-		itemUser.say("I will remember that I remain a member of society, with special obligations to all my fellow human beings, those sound of mind and body as well as the infirm.", forced = "hippocratic oath")
+		itemUser.say("Доброжелательно относиться к коллегам, обращаться к ним за помощью и советом, если этого требуют интересы пациента, и самому никогда не отказывать коллегам в помощи и совете", forced = "hippocratic oath")
 	else
 		to_chat(itemUser, failText)
 		return
-	if(do_after(itemUser, 30, target = itemUser))
-		itemUser.say("If I do not violate this oath, may I enjoy life and art, respected while I live and remembered with affection thereafter. May I always act so as to preserve the finest traditions of my calling and may I long experience the joy of healing those who seek my help.", forced = "hippocratic oath")
+	if(do_after(itemUser, 20, target = itemUser))
+		itemUser.say("Постоянно совершенствовать свое профессиональное мастерство, беречь и развивать благородные традиции медицины.", forced = "hippocratic oath")
 	else
 		to_chat(itemUser, failText)
 		return
-	to_chat(itemUser, span_notice("The snake, satisfied with your oath, attaches itself and the rod to your forearm with an inseparable grip. Your thoughts seem to only revolve around the core idea of helping others, and harm is nothing more than a distant, wicked memory..."))
+	to_chat(itemUser, span_notice("Змея, удовлетворенная моей клятвой, обвивает мою руку и жезл, теперь я не смогу отпустить его, даже если захочу. Мои мысли, сконцентрированы исключительно на помощи страждущим, а в голове запечетлелась фраза: \"Не навреди\"..."))
 	var/datum/status_effect/hippocratic_oath/effect = itemUser.apply_status_effect(STATUS_EFFECT_HIPPOCRATIC_OATH)
 	effect.hand = usedHand
 	activated()
@@ -115,14 +131,48 @@
 /obj/item/rod_of_asclepius/proc/activated()
 	item_flags = DROPDEL
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT(type))
-	desc = "A short wooden rod with a mystical snake inseparably gripping itself and the rod to your forearm. It flows with a healing energy that disperses amongst yourself and those around you. "
+	desc = "Небольшой деревянный жезл с мистической змеей, обвившей жезл и мою руку. Он источает целительную энергию, которая окутывает меня и всех окружающих. Я чувствую, что способен одним только косанием поднять мертвеца!"
 	icon_state = "asclepius_active"
 	activated = TRUE
 
+/obj/item/rod_of_asclepius/attack(mob/living/M, mob/living/user)
+	if(activated)
+		if(M.stat == DEAD)
+			to_chat(user, span_notice("Начинаю ритуал воскрешения [M]"))
+			playsound(user, 'white/Feline/sounds/resurect_cast.ogg', 100, TRUE)
+			if(do_after(user, 100, target = M))
+				to_chat(user, span_warning("Жезл расцветает крохотными листиками!"))
+			else
+				to_chat(user, span_warning("Ритуал прерван!"))
+				return
+
+			if(M.suiciding || M.hellbound)
+				M.visible_message(span_warning("[user] отрывает крохотный листик от жезла и помещает в рот [M], однако тело не реагирует..."))
+				return
+			if(M.getBruteLoss()+M.getFireLoss() >= 200 || HAS_TRAIT(M, TRAIT_HUSK))
+				M.visible_message(span_warning("[user] отрывает крохотный листик от жезла и помещает в рот [M], тело недолго бьется в конвульсиях, а затем вновь замирает."))
+				M.do_jitter_animation(10)
+				return
+			M.visible_message(span_warning("[user] отрывает крохотный листик от жезла и помещает в рот [M], тело начинает биться в конвульсиях!"))
+			M.do_jitter_animation(10)
+			addtimer(CALLBACK(M, /mob/living/carbon.proc/do_jitter_animation, 10), 40)
+			addtimer(CALLBACK(M, /mob/living/carbon.proc/do_jitter_animation, 10), 80)
+			addtimer(CALLBACK(M, /mob/living.proc/revive, FALSE, FALSE, 10), 79)
+			..()
+		else
+			if(last_used_peace + 100 < world.time)
+				user.visible_message(span_warning("Змея обвивающая руку [user] производит короткий рывок и кусает [M]! Лицо жертвы мгновенно расплывается в глуповатой, но очень миролюбивой физиономии!"))
+				playsound(user, 'white/Feline/sounds/snake_shhh.ogg', 100, TRUE)
+				M.reagents.add_reagent(/datum/reagent/pax/peaceborg,3)
+				last_used_peace = world.time
+			return ..()
+	else
+		return ..()
+
 //Memento Mori
 /obj/item/clothing/neck/necklace/memento_mori
-	name = "Memento Mori"
-	desc = "A mysterious pendant. An inscription on it says: \"Certain death tomorrow means certain life today.\""
+	name = "память о смерти"
+	desc = "Мистический талисман. На нем выгравирована надпись: \"Momento mori - Верная смерть завтра означает верную жизнь сегодня.\""
 	icon = 'icons/obj/lavaland/artefacts.dmi'
 	icon_state = "memento_mori"
 	worn_icon_state = "memento"

@@ -3,16 +3,16 @@
 
 //Last stop of the error train
 /datum/nanite_program/glitch
-	name = "Glitch"
-	desc = "A heavy software corruption that causes nanites to gradually break down."
+	name = "Сбой"
+	desc = "Сильное повреждение программы, вызывающее стремительное разрушение нанитов."
 	use_rate = 1.5
 	unique = FALSE
 	rogue_types = list()
 
 //Generic body-affecting programs will decay into this
 /datum/nanite_program/necrotic
-	name = "Necrosis"
-	desc = "The nanites attack internal tissues indiscriminately, causing widespread damage."
+	name = "Некроз"
+	desc = "Наниты атакуют внутренние ткани организма, вызывая сильный и распространенный по всему телу урон."
 	use_rate = 0.75
 	unique = FALSE
 	rogue_types = list(/datum/nanite_program/glitch)
@@ -24,8 +24,8 @@
 
 //Programs that don't directly interact with the body will decay into this
 /datum/nanite_program/toxic
-	name = "Toxin Buildup"
-	desc = "The nanites cause a slow but constant toxin buildup inside the host."
+	name = "Интоксикация"
+	desc = "Наниты начинают медленное, но непрерывное создание токсинов в организме носителя."
 	use_rate = 0.25
 	unique = FALSE
 	rogue_types = list(/datum/nanite_program/glitch)
@@ -37,8 +37,8 @@
 
 //Generic blood-affecting programs will decay into this
 /datum/nanite_program/suffocating
-	name = "Hypoxemia"
-	desc = "The nanites prevent the host's blood from absorbing oxygen efficiently."
+	name = "Гипоксия"
+	desc = "Наниты нарушают естественное усваивание кислорода в организме носителя."
 	use_rate = 0.75
 	unique = FALSE
 	rogue_types = list(/datum/nanite_program/glitch)
@@ -46,12 +46,12 @@
 /datum/nanite_program/suffocating/active_effect()
 	host_mob.adjustOxyLoss(3, 0)
 	if(prob(1))
-		to_chat(host_mob, span_warning("You feel short of breath."))
+		to_chat(host_mob, span_warning("Я задыхаюсь!"))
 
 //Generic brain-affecting programs will decay into this
 /datum/nanite_program/brain_decay
-	name = "Neuro-Necrosis"
-	desc = "The nanites seek and attack brain cells, causing extensive neural damage to the host."
+	name = "Нейро-Некроз"
+	desc = "Наниты ищут и атакуют клетки мозга, вызывая масштабный урон мозгу."
 	use_rate = 0.75
 	unique = FALSE
 	rogue_types = list(/datum/nanite_program/necrotic)
@@ -63,8 +63,8 @@
 
 //Generic brain-affecting programs can also decay into this
 /datum/nanite_program/brain_misfire
-	name = "Brain Misfire"
-	desc = "The nanites interfere with neural pathways, causing minor psychological disturbances."
+	name = "Церебральный сбой"
+	desc = "Наниты вмешиваются в нейронные соединения, вызывая небольшие психические расстройства.."
 	use_rate = 0.50
 	unique = FALSE
 	rogue_types = list(/datum/nanite_program/brain_decay)
@@ -83,8 +83,8 @@
 
 //Generic skin-affecting programs will decay into this
 /datum/nanite_program/skin_decay
-	name = "Dermalysis"
-	desc = "The nanites attack skin cells, causing irritation, rashes, and minor damage."
+	name = "Дермализис"
+	desc = "Наниты атакуют клетки кожи, вызывая раздражение, сыпь и небольшой урон."
 	use_rate = 0.25
 	unique = FALSE
 	rogue_types = list(/datum/nanite_program/necrotic)
@@ -96,24 +96,24 @@
 		var/obj/item/bodypart/bodypart = host_mob.get_bodypart(picked_bodypart)
 		var/can_scratch = !host_mob.incapacitated() && get_location_accessible(host_mob, picked_bodypart)
 
-		host_mob.visible_message("[can_scratch ? span_warning("[host_mob] scratches [host_mob.ru_ego()] [bodypart.name].")  : ""]",\
-		span_warning("Your [bodypart.name] itches. [can_scratch ? " You scratch it." : ""]"))
+		host_mob.visible_message("[can_scratch ? span_warning("[host_mob] чешет [host_mob.ru_ego()] [bodypart.name].")  : ""]",\
+		span_warning("Моя [bodypart.name] чешется. [can_scratch ? " Я чешусь." : ""]"))
 
 //Generic nerve-affecting programs will decay into this
 /datum/nanite_program/nerve_decay
-	name = "Nerve Decay"
-	desc = "The nanites attack the host's nerves, causing lack of coordination and short bursts of paralysis."
+	name = "Разрушение нервов"
+	desc = "Наниты разрушают нервы носителя, вызывая проблемы с координацией и небольшие приступы паралича."
 	use_rate = 1
 	unique = FALSE
 	rogue_types = list(/datum/nanite_program/necrotic)
 
 /datum/nanite_program/nerve_decay/active_effect()
 	if(prob(5))
-		to_chat(host_mob, span_warning("You feel unbalanced!"))
+		to_chat(host_mob, span_warning("Голова кружится!"))
 		host_mob.add_confusion(10)
 	else if(prob(4))
-		to_chat(host_mob, span_warning("You can't feel your hands!"))
+		to_chat(host_mob, span_warning("Не чувствую рук!"))
 		host_mob.drop_all_held_items()
 	else if(prob(4))
-		to_chat(host_mob, span_warning("You can't feel your legs!"))
+		to_chat(host_mob, span_warning("Не чувствую ног!"))
 		host_mob.Paralyze(30)

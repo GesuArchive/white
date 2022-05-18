@@ -153,6 +153,8 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define iscogscarab(A) (istype(A, /mob/living/simple_animal/drone/cogscarab))
 
+#define isstunmob(A) (istype(A, /mob/living/simple_animal/hostile/zombie) || istype(A, /mob/living/simple_animal/hostile/alien) || istype(A, /mob/living/simple_animal/hostile/poison/giant_spider) || istype(A, /mob/living/simple_animal/hostile/clown) || istype(A, /mob/living/simple_animal/hostile/netherworld) || istype(A, /mob/living/simple_animal/hostile/blob) || istype(A, /mob/living/simple_animal/hostile/ratvar))
+
 //Misc mobs
 #define isobserver(A) (istype(A, /mob/dead/observer))
 

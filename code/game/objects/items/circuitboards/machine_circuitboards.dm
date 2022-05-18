@@ -916,7 +916,8 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/nanite_chamber
-	name = "Nanite Chamber (Оборудование)"
+	name = "Нанитная камера"
+	desc = "Устройство для инъекции, мониторинга и базовой настройки нанитных облаков."
 	icon_state = "science"
 	build_path = /obj/machinery/nanite_chamber
 	req_components = list(
@@ -925,7 +926,8 @@
 		/obj/item/stock_parts/manipulator = 1)
 
 /obj/item/circuitboard/machine/nanite_program_hub
-	name = "Nanite Program Hub (Оборудование)"
+	name = "Программный центр нанитов"
+	desc = "Компилирует нанитные программы с веб-серверов и записывает их на диски."
 	icon_state = "science"
 	build_path = /obj/machinery/nanite_program_hub
 	req_components = list(
@@ -933,7 +935,8 @@
 		/obj/item/stock_parts/manipulator = 1)
 
 /obj/item/circuitboard/machine/nanite_programmer
-	name = "Nanite Programmer (Оборудование)"
+	name = "Программатор нанитов"
+	desc = "Устройство для изменения настроек нанитных программ хранимых на дисках."
 	icon_state = "science"
 	build_path = /obj/machinery/nanite_programmer
 	req_components = list(
@@ -952,7 +955,8 @@
 	build_path = /obj/machinery/rnd/production/protolathe/department/science
 
 /obj/item/circuitboard/machine/public_nanite_chamber
-	name = "Public Nanite Chamber (Оборудование)"
+	name = "Публичная нанитная камера"
+	desc = "Устройство для автоматической инъекции нанитного облака с заданым номером. Объем вводимых нанитов значительно ниже чем у стандартной камеры."
 	icon_state = "science"
 	build_path = /obj/machinery/public_nanite_chamber
 	var/cloud_id = 1
@@ -962,15 +966,15 @@
 
 /obj/item/circuitboard/machine/public_nanite_chamber/multitool_act(mob/living/user)
 	. = ..()
-	var/new_cloud = input("Set the public nanite chamber's Cloud ID (1-100).", "Cloud ID", cloud_id) as num|null
+	var/new_cloud = input("Введите номер нанитного облака в диапазоне (1-100).", "Номер облака", cloud_id) as num|null
 	if(!new_cloud || (loc != user))
-		to_chat(user, span_warning("You must hold the circuitboard to change its Cloud ID!"))
+		to_chat(user, span_warning("Я должен держать плату в руках для изменения номера облака!"))
 		return
 	cloud_id = clamp(round(new_cloud, 1), 1, 100)
 
 /obj/item/circuitboard/machine/public_nanite_chamber/examine(mob/user)
 	. = ..()
-	. += "<hr>Cloud ID is currently set to [cloud_id]."
+	. += "<hr>Текущий номер облака \"[cloud_id]\"."
 
 /obj/item/circuitboard/machine/quantumpad
 	name = "Квантовый телепад"

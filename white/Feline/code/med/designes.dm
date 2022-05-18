@@ -201,7 +201,7 @@
 	build_path = /obj/item/solnce
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
-	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000, /datum/material/gold = 4000, /datum/material/silver = 6000, /datum/material/titanium = 2000, /datum/material/uranium = 1000, /datum/material/diamond = 1000, /datum/material/plasma = 2000, /datum/material/bluespace = 2000, /datum/material/plastic = 4000)
+	materials = list(/datum/material/iron = 5000, /datum/material/glass = 2000, /datum/material/gold = 2000, /datum/material/silver = 3000, /datum/material/titanium = 1000, /datum/material/uranium = 500, /datum/material/diamond = 500, /datum/material/plasma = 1000, /datum/material/bluespace = 1000, /datum/material/plastic = 2000)
 	category = list("Медицинское снаряжение")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL

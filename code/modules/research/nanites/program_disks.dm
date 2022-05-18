@@ -2,8 +2,8 @@
 //This also means that you can give flesh melting nanites to your victims if you feel like it
 
 /obj/item/disk/nanite_program
-	name = "Диск для записи нанитных программ"
-	desc = "Диск, способный хранить программы нанитов. Может быть настроен с помощью консоли программирования нанитов."
+	name = "диск для записи нанитных программ"
+	desc = "Диск, способный хранить программы нанитов. Может быть настроен с помощью программатора нанитов."
 	var/program_type
 	var/datum/nanite_program/program
 

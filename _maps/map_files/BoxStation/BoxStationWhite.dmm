@@ -645,6 +645,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 10
 	},
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
 "aic" = (
@@ -2028,7 +2031,8 @@
 /obj/machinery/door/airlock/security{
 	id_tag = "laborexit";
 	name = "Labor Shuttle";
-	req_access_txt = "63"
+	req_access_txt = "63";
+	security_level = 6
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
@@ -2506,7 +2510,8 @@
 "apc" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Security Maintenance";
-	req_access_txt = "2"
+	req_access_txt = "2";
+	security_level = 6
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
@@ -3851,7 +3856,7 @@
 	amount = 5
 	},
 /obj/item/stack/sheet/mineral/plasma{
-	amount = 10
+	amount = 30
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
@@ -4682,6 +4687,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/light/small,
 /turf/open/floor/plating,
 /area/maintenance/fore)
 "awj" = (
@@ -4757,6 +4763,9 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
 "awo" = (
@@ -8923,6 +8932,10 @@
 /obj/structure/disposalpipe/sorting/mail{
 	dir = 4;
 	sortType = 21
+	},
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 0
 	},
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
@@ -26050,12 +26063,6 @@
 /area/maintenance/port/aft)
 "cgO" = (
 /obj/structure/rack,
-/obj/item/lighter,
-/obj/item/clothing/glasses/meson{
-	pixel_y = 4
-	},
-/obj/item/stock_parts/cell/high/plus,
-/obj/item/reagent_containers/pill/patch/aiuri,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -26066,6 +26073,13 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/item/storage/firstaid/fire,
+/obj/item/stock_parts/cell/hyper,
+/obj/item/stock_parts/cell/hyper,
+/obj/item/clothing/glasses/meson{
+	pixel_y = 4
+	},
+/obj/item/lighter,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/ce)
 "cgR" = (
@@ -29446,7 +29460,7 @@
 	dir = 4;
 	name = "Security Maintenance";
 	req_access_txt = "1";
-	security_level = 0
+	security_level = 6
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -30044,6 +30058,12 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/research)
+"cCR" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/fore)
 "cCS" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 1;
@@ -41280,6 +41300,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/light/small,
 /turf/open/floor/plating,
 /area/maintenance/fore)
 "nGR" = (
@@ -41346,6 +41367,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/disposal)
+"nIA" = (
+/obj/machinery/light/small,
+/turf/open/floor/plating,
+/area/maintenance/fore)
 "nJo" = (
 /obj/structure/ladder,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -41443,13 +41468,10 @@
 /turf/open/openspace,
 /area/engineering/atmospherics_engine)
 "nOx" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+/obj/structure/disposalpipe/segment,
+/obj/machinery/camera/autoname{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
 "nOS" = (
@@ -43490,6 +43512,17 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port)
+"pQG" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/small{
+	brightness = 3;
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/fore/secondary)
 "pRK" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -45415,6 +45448,17 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/construction/mining/aux_base)
+"sci" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 0
+	},
+/turf/open/floor/plating,
+/area/maintenance/fore/secondary)
 "scI" = (
 /obj/structure/cable,
 /obj/machinery/power/terminal{
@@ -45956,6 +46000,13 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/commons/storage/primary)
+"sIZ" = (
+/obj/machinery/camera/autoname{
+	dir = 8;
+	start_active = 1
+	},
+/turf/open/floor/plating,
+/area/maintenance/fore)
 "sJy" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -74231,7 +74282,7 @@ aaa
 arP
 asQ
 aqR
-aqR
+nIA
 arP
 axt
 ayG
@@ -76025,8 +76076,8 @@ anu
 hzx
 aot
 apc
-aqR
-aqR
+sIZ
+cCR
 aqR
 afm
 apS
@@ -80916,13 +80967,13 @@ wLh
 wLh
 awn
 edu
-nOx
 edu
 edu
 edu
 edu
 edu
 edu
+pQG
 aoa
 aaa
 aaa
@@ -82453,7 +82504,7 @@ asg
 nFu
 asg
 asg
-aqg
+sci
 tKB
 aAX
 ohj
@@ -85777,7 +85828,7 @@ aaa
 aaa
 aaa
 ahk
-aoJ
+nOx
 aib
 aif
 aif

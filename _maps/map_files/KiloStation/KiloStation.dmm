@@ -32368,11 +32368,11 @@
 /area/maintenance/port/aft)
 "eZS" = (
 /obj/machinery/door/window{
-	obj_integrity = 300;
 	base_state = "rightsecure";
 	dir = 4;
 	icon_state = "rightsecure";
 	name = "Primary AI Core Access";
+	obj_integrity = 300;
 	req_access_txt = "16"
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -35592,7 +35592,6 @@
 	},
 /obj/machinery/firealarm/directional/south,
 /obj/structure/extinguisher_cabinet/directional/west,
-/obj/item/gun/energy/e_gun/mini,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/cmo)
 "gsn" = (
@@ -37502,7 +37501,6 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/neutral,
-/obj/item/gun/energy/e_gun/mini,
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/machinery/camera{
 	c_tag = "Research Director's Office";
@@ -41525,12 +41523,12 @@
 	pixel_x = 8
 	},
 /obj/machinery/door/window{
-	obj_integrity = 300;
 	base_state = "leftsecure";
 	dir = 8;
 	icon_state = "leftsecure";
 	layer = 4.1;
 	name = "Tertiary AI Core Access";
+	obj_integrity = 300;
 	pixel_x = -3;
 	req_access_txt = "16"
 	},
@@ -45063,7 +45061,6 @@
 "jZl" = (
 /obj/structure/closet/secure_closet/engineering_chief,
 /obj/effect/turf_decal/delivery,
-/obj/item/gun/energy/e_gun/mini,
 /obj/structure/extinguisher_cabinet/directional/east,
 /obj/machinery/light/directional/south,
 /obj/effect/turf_decal/tile/neutral{
@@ -60870,11 +60867,11 @@
 	pixel_y = 28
 	},
 /obj/machinery/door/window{
-	obj_integrity = 300;
 	base_state = "leftsecure";
 	dir = 8;
 	icon_state = "leftsecure";
 	name = "Primary AI Core Access";
+	obj_integrity = 300;
 	req_access_txt = "16"
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -76242,12 +76239,12 @@
 	pixel_x = -8
 	},
 /obj/machinery/door/window{
-	obj_integrity = 300;
 	base_state = "rightsecure";
 	dir = 4;
 	icon_state = "rightsecure";
 	layer = 4.1;
 	name = "Secondary AI Core Access";
+	obj_integrity = 300;
 	pixel_x = 4;
 	req_access_txt = "16"
 	},

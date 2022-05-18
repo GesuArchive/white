@@ -28,6 +28,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
+/obj/item/storage/backpack/duffelbag/med,
 /turf/open/floor/plasteel/freezer,
 /area/ruin/unpowered)
 "ca" = (
@@ -107,22 +108,18 @@
 "gh" = (
 /obj/structure/table/glass,
 /obj/item/circular_saw{
-	pixel_y = 7
+	pixel_y = 15
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
 	},
+/obj/item/storage/backpack/duffelbag/med/surgery,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "gi" = (
-/obj/machinery/door/airlock/vault{
-	name = "secured door";
-	req_access = 207
-	},
 /obj/effect/abstract/doorway_marker{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plasteel/monofloor/white,
 /area/ruin/unpowered)
 "gV" = (
@@ -245,6 +242,10 @@
 	},
 /obj/item/folder/white{
 	pixel_x = 3
+	},
+/obj/item/healthanalyzer{
+	pixel_x = -4;
+	pixel_y = 6
 	},
 /obj/item/reagent_containers/syringe{
 	pixel_x = -10

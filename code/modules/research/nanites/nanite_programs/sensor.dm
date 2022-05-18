@@ -1,6 +1,6 @@
 /datum/nanite_program/sensor
-	name = "Sensor Nanites"
-	desc = "These nanites send a signal code when a certain condition is met."
+	name = "Сенсор нанитов"
+	desc = "Наниты отпраляют сигнал, когда выполняется определенное условие."
 	unique = FALSE
 	var/can_rule = FALSE
 
@@ -23,8 +23,8 @@
 	return
 
 /datum/nanite_program/sensor/repeat
-	name = "Signal Repeater"
-	desc = "When triggered, sends another signal to the nanites, optionally with a delay."
+	name = "Ретранслятор сигнала"
+	desc = "При активации отправляет носителю сигнал, с настраиваемой задержкой. Используется при отправке нескольких кодов в одной программе."
 	can_trigger = TRUE
 	trigger_cost = 0
 	trigger_cooldown = 10
@@ -39,8 +39,8 @@
 	addtimer(CALLBACK(src, .proc/send_code), ES.get_value() * 10)
 
 /datum/nanite_program/sensor/relay_repeat
-	name = "Relay Signal Repeater"
-	desc = "When triggered, sends another signal to a relay channel, optionally with a delay."
+	name = "Ретранслятор - передатчик"
+	desc = "При активации отправляет сигнал вовне по каналу передатчика, с настраиваемой задержкой."
 	can_trigger = TRUE
 	trigger_cost = 0
 	trigger_cooldown = 10
@@ -64,8 +64,8 @@
 			N.relay_signal(code.get_value(), relay.get_value(), "a [name] program")
 
 /datum/nanite_program/sensor/health
-	name = "Health Sensor"
-	desc = "The nanites receive a signal when the host's health is above/below a target percentage."
+	name = "Сенсор здоровья"
+	desc = "Наниты отправляют сигнал, когда здоровье носителя выше или ниже установленного процента (носитель в критическом состоянии расценивается как 0%)."
 	can_rule = TRUE
 	var/spent = FALSE
 
@@ -104,8 +104,8 @@
 	return rule
 
 /datum/nanite_program/sensor/crit
-	name = "Critical Health Sensor"
-	desc = "The nanites receive a signal when the host first reaches critical health."
+	name = "Сенсор критического состояния"
+	desc = "Наниты отправляют сигнал, когда здоровье носителя достигает критического состояния."
 	can_rule = TRUE
 	var/spent = FALSE
 
@@ -124,8 +124,8 @@
 	return rule
 
 /datum/nanite_program/sensor/death
-	name = "Death Sensor"
-	desc = "The nanites receive a signal when they detect the host is dead."
+	name = "Сенсор смерти"
+	desc = "Наниты отправляют сигнал при смерти носителя."
 	can_rule = TRUE
 	var/spent = FALSE
 
@@ -137,8 +137,8 @@
 	return rule
 
 /datum/nanite_program/sensor/nanite_volume
-	name = "Nanite Volume Sensor"
-	desc = "The nanites receive a signal when the nanite supply is above/below a certain percentage."
+	name = "Сенсор количества нанитов"
+	desc = "Наниты отпраляют сигнал, когда их количество становится выше или ниже заданного процента, за 0% взят заданный порог безопасности."
 	can_rule = TRUE
 	var/spent = FALSE
 
@@ -177,8 +177,8 @@
 	return rule
 
 /datum/nanite_program/sensor/damage
-	name = "Damage Sensor"
-	desc = "The nanites receive a signal when a host's specific damage type is above/below a target value."
+	name = "Сенсор урона"
+	desc = "Наниты отправляют сигнал, когда количество определенного типа уровна становится выше или ниже заданного значения."
 	can_rule = TRUE
 	var/spent = FALSE
 
@@ -234,8 +234,8 @@
 	return rule
 
 /datum/nanite_program/sensor/voice
-	name = "Voice Sensor"
-	desc = "Sends a signal when the nanites hear a determined word or sentence."
+	name = "Сенсор голоса"
+	desc = "Отправляет сигнал, когда наниты слышат заданную фразу или слово."
 
 /datum/nanite_program/sensor/voice/register_extra_settings()
 	. = ..()
@@ -262,21 +262,21 @@
 			send_code()
 
 /datum/nanite_program/sensor/species
-	name = "Species Sensor"
-	desc = "When triggered, the nanites scan the host to determine their species and output a signal depending on the conditions set in the settings."
+	name = "Сенсор вида"
+	desc = "При активации, наниты сканируют носителя и отправляют сигнал, если вид носителя соответствует заданному в настройках."
 	can_trigger = TRUE
 	trigger_cost = 0
 	trigger_cooldown = 5
 
 	var/list/static/allowed_species = list(
-		"Human" = /datum/species/human,
-		"Lizard" = /datum/species/lizard,
-		"Moth" = /datum/species/moth,
-		"Ethereal" = /datum/species/ethereal,
-		"Pod" = /datum/species/pod,
-		"Fly" = /datum/species/fly,
-		"Felinid" = /datum/species/human/felinid,
-		"Jelly" = /datum/species/jelly,
+		"Люди" = /datum/species/human,
+		"Ящеры" = /datum/species/lizard,
+		"Моли" = /datum/species/moth,
+		"Этериалы" = /datum/species/ethereal,
+		"Дендроиды" = /datum/species/pod,
+		"Мухолюди" = /datum/species/fly,
+		"Фелиниды" = /datum/species/human/felinid,
+		"Слаймолюди" = /datum/species/jelly,
 	)
 
 /datum/nanite_program/sensor/species/register_extra_settings()

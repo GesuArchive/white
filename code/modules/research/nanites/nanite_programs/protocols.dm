@@ -1,7 +1,7 @@
 //Replication Protocols
 /datum/nanite_program/protocol/kickstart
-	name = "Kickstart Protocol"
-	desc = "Replication Protocol: the nanites focus on early growth, heavily boosting replication rate for a few minutes after the initial implantation."
+	name = "Протокол репликации: Быстрый старт"
+	desc = "Наниты сосредатачиваются на репликации, сильно повышая темп прироста на +3.5 единиц в первые две минуты после внедрения роя."
 	use_rate = 0
 	rogue_types = list(/datum/nanite_program/necrotic)
 	protocol_class = NANITE_PROTOCOL_REPLICATION
@@ -16,9 +16,8 @@
 	nanites.adjust_nanites(null, 3.5)
 
 /datum/nanite_program/protocol/factory
-	name = "Factory Protocol"
-	desc = "Replication Protocol: the nanites build a factory matrix within the host, gradually increasing replication speed over time. \
-	The factory decays if the protocol is not active, or if the nanites are disrupted by shocks or EMPs."
+	name = "Протокол репликации: Фабрика"
+	desc = "Наниты создают матрицу фабрики репликации внутри носителя, медленно увеличивая скорость репликации. Фабрика выходит на максимальную мощность в +2 единиц через 16,4 минут. Фабрика распадается если протокол отключается, а так же может быть повреждена ЭМИ и ударами тока."
 	use_rate = 0
 	rogue_types = list(/datum/nanite_program/necrotic)
 	protocol_class = NANITE_PROTOCOL_REPLICATION
@@ -47,8 +46,8 @@
 	nanites.adjust_nanites(null, round(0.002 * factory_efficiency, 0.1))
 
 /datum/nanite_program/protocol/pyramid
-	name = "Pyramid Protocol"
-	desc = "Replication Protocol: the nanites implement an alternate cooperative replication protocol that is more efficient as long as the saturation level is above 80%."
+	name = "Протокол репликации: Пирамида"
+	desc = "Наниты реализуют альтернативный протокол совместной репликации, который является более эффективным, пока уровень насыщения превышает 80% ускоряет репликацию на +1,2 единиц."
 	use_rate = 0
 	rogue_types = list(/datum/nanite_program/necrotic)
 	protocol_class = NANITE_PROTOCOL_REPLICATION
@@ -64,8 +63,8 @@
 	nanites.adjust_nanites(null, boost)
 
 /datum/nanite_program/protocol/offline
-	name = "Eclipse Protocol"
-	desc = "Replication Protocol: while the host is asleep or otherwise unconcious, the nanites exploit the reduced interference to replicate more quickly."
+	name = "Протокол репликации: Затмение"
+	desc = "Пока носитель спит или находится без сознания, использует освободившиеся ресурсы мозга для ускорения репликации на +3 единицы."
 	use_rate = 0
 	rogue_types = list(/datum/nanite_program/necrotic)
 	protocol_class = NANITE_PROTOCOL_REPLICATION
@@ -82,8 +81,8 @@
 	nanites.adjust_nanites(null, boost)
 
 /datum/nanite_program/protocol/hive
-	name = "Hive Protocol"
-	desc = "Storage Protocol: the nanites use a more efficient grid arrangment for volume storage, increasing maximum volume in a host."
+	name = "Протокол хранения: Улей"
+	desc = "Наниты реорганизуются в более упорядоченную структуру, увеличивая свою максимальную численность на +250 единиц, без каких либо негативных последствий."
 	use_rate = 0
 	rogue_types = list(/datum/nanite_program/necrotic)
 	protocol_class = NANITE_PROTOCOL_STORAGE
@@ -98,8 +97,8 @@
 	nanites.set_max_volume(null, nanites.max_nanites - extra_volume)
 
 /datum/nanite_program/protocol/zip
-	name = "Zip Protocol"
-	desc = "Storage Protocol: the nanites are disassembled and compacted when unused, greatly increasing the maximum volume while in a host. However, the process slows down the replication rate slightly."
+	name = "Протокол хранения: Архивация"
+	desc = "Наниты уплотняются до более крупных массивов, тем самым увеличивая свою максимальную численность на +500 единиц, однако всвязи с сложностью процесса замедляют репликацию на -0.2 единиц."
 	use_rate = 0.2
 	rogue_types = list(/datum/nanite_program/necrotic)
 	protocol_class = NANITE_PROTOCOL_STORAGE
@@ -114,8 +113,8 @@
 	nanites.set_max_volume(null, nanites.max_nanites - extra_volume)
 
 /datum/nanite_program/protocol/free_range
-	name = "Free-range Protocol"
-	desc = "Storage Protocol: the nanites discard their default storage protocols in favour of a cheaper and more organic approach. Reduces maximum volume, but increases the replication rate."
+	name = "Протокол хранения: Упрощение"
+	desc = "Наниты отключают стандартные параметры структуризации, тем самым уменьшая свою максимальную численность на -250 единиц, однако увеличивая скорость репликации на +0.5 единиц."
 	use_rate = 0
 	rogue_types = list(/datum/nanite_program/necrotic)
 	protocol_class = NANITE_PROTOCOL_STORAGE
@@ -134,9 +133,8 @@
 	nanites.adjust_nanites(null, boost)
 
 /datum/nanite_program/protocol/unsafe_storage
-	name = "S.L.O. Protocol"
-	desc = "Storage Protocol: 'S.L.O.P.', or Storage Level Override Protocol, completely disables the safety measures normally present in nanites,\
-		allowing them to reach much higher saturation levels, but at the risk of causing internal damage to the host."
+	name = "Протокол хранения: Опасность"
+	desc = "Наниты полностью отключают протоколы безопасности, тем самым увеличивая свою максимальную численность на +1500 единиц, однако это может оказывать серьезный вред внутренним органам носителя."
 	use_rate = 0
 	rogue_types = list(/datum/nanite_program/necrotic)
 	protocol_class = NANITE_PROTOCOL_STORAGE
@@ -144,33 +142,33 @@
 	var/next_warning = 0
 	var/min_warning_cooldown = 120
 	var/max_warning_cooldown = 350
-	var/volume_warnings_stage_1 = list("You feel a dull pain in your abdomen.",
-									"You feel a tickling sensation in your abdomen.")
-	var/volume_warnings_stage_2 = list("You feel a dull pain in your stomach.",
-									"You feel a dull pain when breathing.",
-									"Your stomach grumbles.",
-									"You feel a tickling sensation in your throat.",
-									"You feel a tickling sensation in your lungs.",
-									"You feel a tickling sensation in your stomach.",
-									"Your lungs feel stiff.")
-	var/volume_warnings_stage_3 = list("You feel a dull pain in your chest.",
-									"You hear a faint buzzing coming from nowhere.",
-									"You hear a faint buzzing inside your head.",
-									"Your head aches.")
-	var/volume_warnings_stage_4 = list("You feel a dull pain in your ears.",
-									"You feel a dull pain behind your eyes.",
-									"You hear a loud, echoing buzz inside your ears.",
-									"You feel dizzy.",
-									"You feel an itch coming from behind your eyes.",
-									"Your eardrums itch.",
-									"You see tiny grey motes drifting in your field of view.")
+	var/volume_warnings_stage_1 = list("Чувствую тупую боль в правом боку.",
+									"Испытываю дискомфорт в правом боку.")
+	var/volume_warnings_stage_2 = list("Чувствую резкую боль в животе.",
+									"Больно дышать.",
+									"Живот болит.",
+									"Испытываю дискомфорт в горле.",
+									"Испытываю дискомфорт в животе.",
+									"Испытываю дискомфорт в легких.",
+									"Дыхание затруднено.")
+	var/volume_warnings_stage_3 = list("Чувствую резкую боль в груди.",
+									"Слышу звон в ушах.",
+									"В голове непрекращающийся звон.",
+									"Голова раскалывается.")
+	var/volume_warnings_stage_4 = list("Чувствую резкую боль в глазах.",
+									"Глаза режет.",
+									"В ушах чудовищное эхо.",
+									"Меня трясет.",
+									"Глаза слезятся.",
+									"Уши болят.",
+									"Перед глазами какая-то серая пыль.")
 	var/volume_warnings_stage_5 = list("Мне плохо.",
-									"You feel a dull pain from every part of your body.",
-									"You feel nauseous.")
-	var/volume_warnings_stage_6 = list("Your skin itches and burns.",
-									"Your muscles ache.",
-									"You feel tired.",
-									"You feel something skittering under your skin.",)
+									"Каждая клеточка моего тела ноет от боли.",
+									"Меня сейчас вырвет.")
+	var/volume_warnings_stage_6 = list("Кожа чешется и горит.",
+									"Мышцы болят.",
+									"Я очень, очень устал.",
+									"Такое ощущение, что под моей кожей что-то шевелится.",)
 
 /datum/nanite_program/protocol/unsafe_storage/enable_passive_effect()
 	. = ..()

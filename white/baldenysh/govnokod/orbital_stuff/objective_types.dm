@@ -15,7 +15,7 @@
 			Задание будет провалено в случае побега преступника со станции живым и без наручников, или в случае уничтожения его тела!"
 
 /datum/orbital_objective/headhunt/on_assign(obj/machinery/computer/objective/objective_computer)
-	var/area/A = GLOB.areas_by_type[/area/command]
+	var/area/A = GLOB.areas_by_type[/area/cargo/exploration_mission]
 	//var/obj/machinery/atmospherics/components/unary/infactiveseenhimvent = locate() in shuffle(A.contents)
 	var/turf/open/T = pick(A.get_unobstructed_turfs())
 	if(!T)

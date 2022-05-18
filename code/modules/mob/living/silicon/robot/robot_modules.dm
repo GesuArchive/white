@@ -685,6 +685,7 @@
 		/obj/item/pickaxe/drill/cyborg,
 		/obj/item/shovel,
 		/obj/item/crowbar/cyborg,
+		/obj/item/wrench/cyborg,
 		/obj/item/weldingtool/mini,
 		/obj/item/extinguisher/mini,
 		/obj/item/storage/bag/sheetsnatcher/borg,

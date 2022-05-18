@@ -1607,6 +1607,15 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/science/research/abandoned)
+"bDB" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/thermomachine/heater{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/engineering/atmospherics_engine)
 "bET" = (
 /obj/effect/landmark/xeno_spawn,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -8118,6 +8127,11 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge/cryo)
+"hTj" = (
+/obj/structure/lattice,
+/obj/structure/statue/uranium/nuke,
+/turf/open/space/basic,
+/area/space/nearstation)
 "hTn" = (
 /obj/machinery/button/door{
 	id = "misclab";
@@ -12322,6 +12336,15 @@
 /obj/effect/loot_site_spawner,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
+"lQz" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/engineering/atmospherics_engine)
 "lQW" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -14834,7 +14857,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "ozH" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced,
 /turf/open/floor/plating,
 /area/ai_monitored/command/nuke_storage)
 "ozO" = (
@@ -46113,7 +46136,7 @@ uKc
 gLm
 ozH
 tdl
-tdl
+hTj
 tdl
 ozH
 uVo
@@ -60553,7 +60576,7 @@ xTx
 tDV
 dDe
 rVB
-rVB
+lQz
 rVB
 sMg
 szi
@@ -61581,7 +61604,7 @@ xTx
 tDV
 uFR
 kEP
-kEP
+bDB
 kEP
 jVy
 jnk

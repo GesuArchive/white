@@ -1627,9 +1627,6 @@
 /turf/open/floor/engine,
 /area/security/warden)
 "fW" = (
-/obj/item/clothing/gloves/color/latex,
-/obj/item/clothing/mask/surgical,
-/obj/item/reagent_containers/spray/cleaner,
 /obj/structure/table/glass,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 1
@@ -1640,20 +1637,33 @@
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 8
 	},
+/obj/item/clothing/suit/straight_jacket,
+/obj/item/clothing/suit/straight_jacket,
+/obj/item/clothing/suit/straight_jacket,
+/obj/item/clothing/gloves/color/latex,
+/obj/item/clothing/mask/surgical,
+/obj/item/reagent_containers/spray/cleaner,
 /turf/open/floor/engine,
 /area/security/brig)
 "fX" = (
 /obj/item/storage/firstaid/regular{
-	pixel_x = 3;
-	pixel_y = 3
+	pixel_x = -19;
+	pixel_y = 13
 	},
-/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular{
+	pixel_x = -16;
+	pixel_y = 7
+	},
 /obj/structure/table/glass,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 4
+	},
+/obj/machinery/computer/med_data/laptop{
+	pixel_x = 3;
+	pixel_y = 4
 	},
 /turf/open/floor/engine,
 /area/security/brig)
@@ -1661,22 +1671,25 @@
 /obj/item/radio/intercom{
 	pixel_y = 24
 	},
-/obj/structure/table/glass,
-/obj/machinery/computer/med_data/laptop,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 4
 	},
+/obj/machinery/iv_drip,
+/obj/item/reagent_containers/blood/o_minus,
+/obj/item/reagent_containers/blood/o_minus,
+/obj/item/reagent_containers/blood/universal,
+/obj/item/reagent_containers/blood/universal,
+/obj/item/reagent_containers/blood/ethereal,
+/obj/item/reagent_containers/blood/lizard,
 /turf/open/floor/engine,
 /area/security/brig)
 "fZ" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/iv_drip,
-/obj/item/reagent_containers/blood,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 1
 	},
@@ -1890,15 +1903,20 @@
 /turf/open/floor/engine,
 /area/security/main)
 "gz" = (
-/obj/item/storage/box/bodybags,
+/obj/item/storage/box/bodybags{
+	pixel_x = -8;
+	pixel_y = 17
+	},
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -27
 	},
-/obj/item/reagent_containers/syringe{
-	name = "steel point"
+/obj/item/reagent_containers/glass/bottle/multiver{
+	pixel_x = -7;
+	pixel_y = 7
 	},
-/obj/item/reagent_containers/glass/bottle/multiver,
-/obj/item/reagent_containers/glass/bottle/epinephrine,
+/obj/item/reagent_containers/glass/bottle/epinephrine{
+	pixel_x = -10
+	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -1910,6 +1928,12 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/hex/red,
+/obj/item/reagent_containers/glass/bottle/formaldehyde{
+	pixel_x = -1
+	},
+/obj/item/reagent_containers/syringe{
+	name = "steel point"
+	},
 /turf/open/floor/engine,
 /area/security/brig)
 "gA" = (
@@ -2420,20 +2444,19 @@
 /turf/open/floor/engine,
 /area/security/brig)
 "hy" = (
-/obj/structure/bed,
-/obj/item/clothing/suit/straight_jacket,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/hex/red,
+/obj/machinery/stasis{
+	handbeltsmod = 1
+	},
 /turf/open/floor/engine,
 /area/security/brig)
 "hz" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/bed,
-/obj/item/clothing/suit/straight_jacket,
 /obj/effect/turf_decal/tile/hex/red,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 4
@@ -2443,6 +2466,9 @@
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
+	},
+/obj/machinery/computer/operating{
+	dir = 1
 	},
 /turf/open/floor/engine,
 /area/security/brig)

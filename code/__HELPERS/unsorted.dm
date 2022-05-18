@@ -731,7 +731,7 @@ Turf and target are separate in case you want to teleport some distance from a t
 	else if (job == "Chemist")
 		return "Химик"
 	else if (job == "Field Medic")
-		return "Полевой Врач"
+		return "Полевой Медик"
 	else if (job == "Research Director")
 		return "Научный Руководитель"
 	else if (job == "Scientist")

@@ -258,11 +258,11 @@
 							qdel(L)
 							consume_owner() //see above comment
 							return
-					to_chat(itemUser, span_notice("Your arm suddenly grows back with the Rod of Asclepius still attached!"))
+					to_chat(itemUser, span_notice("Моя рука мгновенно отрастает и в ней появляется жезл Асклепия!"))
 				else
 					//Otherwise get rid of whatever else is in their hand and return the rod to said hand
 					itemUser.put_in_hand(newRod, hand, forced = TRUE)
-					to_chat(itemUser, span_notice("The Rod of Asclepius suddenly grows back out of your arm!"))
+					to_chat(itemUser, span_notice("Посох Асклепия возвращается в мою руку!"))
 			//Because a servant of medicines stops at nothing to help others, lets keep them on their toes and give them an additional boost.
 			if(itemUser.health < itemUser.maxHealth)
 				new /obj/effect/temp_visual/heal(get_turf(itemUser), "#375637")
@@ -275,31 +275,50 @@
 			itemUser.adjustCloneLoss(-0.5) //Becasue apparently clone damage is the bastion of all health
 		//Heal all those around you, unbiased
 		for(var/mob/living/L in view(7, owner))
-			if(L.health < L.maxHealth)
-				new /obj/effect/temp_visual/heal(get_turf(L), "#375637")
-			if(iscarbon(L))
-				L.adjustBruteLoss(-3.5)
-				L.adjustFireLoss(-3.5)
-				L.adjustToxLoss(-3.5, forced = TRUE) //Because Slime People are people too
-				L.adjustOxyLoss(-3.5)
-				L.adjustStaminaLoss(-3.5)
-				L.adjustOrganLoss(ORGAN_SLOT_BRAIN, -3.5)
-				L.adjustCloneLoss(-1) //Becasue apparently clone damage is the bastion of all health
-			else if(issilicon(L))
-				L.adjustBruteLoss(-3.5)
-				L.adjustFireLoss(-3.5)
-			else if(isanimal(L))
-				var/mob/living/simple_animal/SM = L
-				SM.adjustHealth(-3.5, forced = TRUE)
+			if(L.stat == DEAD)
+				if(L.health < L.maxHealth)
+					new /obj/effect/temp_visual/heal(get_turf(L), "#d21818")
+				if(iscarbon(L))
+					L.adjustBruteLoss(-1.5)
+					L.adjustFireLoss(-1.5)
+					L.adjustToxLoss(-1.5, forced = TRUE) //Because Slime People are people too
+					L.adjustOxyLoss(-1.5)
+					L.adjustStaminaLoss(-1.5)
+					L.adjustOrganLoss(ORGAN_SLOT_BRAIN, -1.5)
+					L.adjustCloneLoss(-1) //Becasue apparently clone damage is the bastion of all health
+				else if(issilicon(L))
+					L.adjustBruteLoss(-1.5)
+					L.adjustFireLoss(-1.5)
+				else if(isanimal(L))
+					var/mob/living/simple_animal/SM = L
+					SM.adjustHealth(-1.5, forced = TRUE)
+			else
+				if(L.health < L.maxHealth)
+					new /obj/effect/temp_visual/heal(get_turf(L), "#375637")
+				if(iscarbon(L))
+					L.adjustBruteLoss(-3.5)
+					L.adjustFireLoss(-3.5)
+					L.adjustToxLoss(-3.5, forced = TRUE) //Because Slime People are people too
+					L.adjustOxyLoss(-3.5)
+					L.adjustStaminaLoss(-3.5)
+					L.adjustOrganLoss(ORGAN_SLOT_BRAIN, -3.5)
+					L.adjustCloneLoss(-1) //Becasue apparently clone damage is the bastion of all health
+				else if(issilicon(L))
+					L.adjustBruteLoss(-3.5)
+					L.adjustFireLoss(-3.5)
+				else if(isanimal(L))
+					var/mob/living/simple_animal/SM = L
+					SM.adjustHealth(-3.5, forced = TRUE)
 
 /datum/status_effect/hippocratic_oath/proc/consume_owner()
 	owner.visible_message(span_notice("[owner] soul is absorbed into the rod, relieving the previous snake of its duty."))
 	var/mob/living/simple_animal/hostile/retaliate/poison/snake/healSnake = new(owner.loc)
-	var/list/chems = list(/datum/reagent/medicine/sal_acid, /datum/reagent/medicine/c2/convermol, /datum/reagent/medicine/oxandrolone)
+	var/list/chems = list(/datum/reagent/medicine/sal_acid, /datum/reagent/medicine/salbutamol, /datum/reagent/medicine/oxandrolone)
 	healSnake.poison_type = pick(chems)
 	healSnake.name = "Змея Асклепия"
 	healSnake.real_name = "Змея Асклепия"
-	healSnake.desc = "A mystical snake previously trapped upon the Rod of Asclepius, now freed of its burden. Unlike the average snake, its bites contain chemicals with minor healing properties."
+	healSnake.maxHealth = 200
+	healSnake.desc = "Мистическая змея обвивавшая до этого жезл Асклепия. В отличии от обычных змей при укусе она вводит лекарственные вещества."
 	new /obj/effect/decal/cleanable/ash(owner.loc)
 	new /obj/item/rod_of_asclepius(owner.loc)
 	qdel(owner)

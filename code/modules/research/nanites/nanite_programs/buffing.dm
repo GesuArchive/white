@@ -1,8 +1,8 @@
 //Programs that buff the host in generally passive ways.
 
 /datum/nanite_program/nervous
-	name = "Nerve Support"
-	desc = "The nanites act as a secondary nervous system, reducing the amount of time the host is stunned."
+	name = "Поддержка нервов"
+	desc = "Наниты действуют как вторичная нервная система, сокращая время оглушения носителя в два раза."
 	use_rate = 1.5
 	rogue_types = list(/datum/nanite_program/nerve_decay)
 
@@ -19,8 +19,8 @@
 		H.physiology.stun_mod *= 2
 
 /datum/nanite_program/adrenaline
-	name = "Adrenaline Burst"
-	desc = "The nanites cause a burst of adrenaline when triggered, allowing the user to push their body past its normal limits."
+	name = "Всплеск адреналина"
+	desc = "Наниты вызывают всплеск адреналина при активации, вкалывая 3 единицы Экспериментальных стимуляторов, пробуждая носителя и временно ускоряя его, из-за чего он может уронить вещи из рук."
 	can_trigger = TRUE
 	trigger_cost = 25
 	trigger_cooldown = 1200
@@ -32,8 +32,8 @@
 	host_mob.reagents.add_reagent(/datum/reagent/medicine/badstims, 3)
 
 /datum/nanite_program/hardening
-	name = "Dermal Hardening"
-	desc = "The nanites form a mesh under the host's skin, protecting them from melee and bullet impacts."
+	name = "Укрепление кожи"
+	desc = "Наниты формируют сеть под кожей носителя, защищая его от пулевых ранений и ранений от холодного оружия. Дает 25 брони от холодного оружия и 20 брони от пуль."
 	use_rate = 0.5
 	rogue_types = list(/datum/nanite_program/skin_decay)
 
@@ -54,8 +54,8 @@
 		H.physiology.armor.bullet -= 20
 
 /datum/nanite_program/refractive
-	name = "Dermal Refractive Surface"
-	desc = "The nanites form a membrane above the host's skin, reducing the effect of laser and energy impacts."
+	name = "Отражающая кожа"
+	desc = "Наниты формируют мембрану под кожей носителя, уменьшая урон от лазеров и энергетического оружия. Добавляет 25 лазерной и 20 энергетической брони."
 	use_rate = 0.50
 	rogue_types = list(/datum/nanite_program/skin_decay)
 
@@ -74,8 +74,8 @@
 		H.physiology.armor.energy -= 20
 
 /datum/nanite_program/coagulating
-	name = "Vein Repressurization"
-	desc = "The nanites re-route circulating blood away from open wounds, dramatically reducing bleeding rate."
+	name = "Ускоренное свертывание"
+	desc = "Наниты вызывают быстрое свертывание крови при ранении носителя, невероятно сильно снижая шансы истечь кровью."
 	use_rate = 0.20
 	rogue_types = list(/datum/nanite_program/suffocating)
 
@@ -92,8 +92,8 @@
 		H.physiology.bleed_mod *= 2
 
 /datum/nanite_program/conductive
-	name = "Electric Conduction"
-	desc = "The nanites act as a grounding rod for electric shocks, protecting the host. Shocks can still damage the nanites themselves."
+	name = "Электропроводимость"
+	desc = "Наниты действуют как заземлитель для тока, защищая носителя. Однако удары током повреждают самих нанитов."
 	use_rate = 0.20
 	program_flags = NANITE_SHOCK_IMMUNE
 	rogue_types = list(/datum/nanite_program/nerve_decay)
@@ -107,9 +107,9 @@
 	REMOVE_TRAIT(host_mob, TRAIT_SHOCKIMMUNE, "nanites")
 
 /datum/nanite_program/mindshield
-	name = "Mental Barrier"
-	desc = "The nanites form a protective membrane around the host's brain, shielding them from abnormal influences while they're active."
-	use_rate = 0.40
+	name = "Ментальный барьер"
+	desc = "Наниты формируют защитную оболочку вокруг мозга носителя, защищая его от аномального влияния, аналогично импланту щита разума."
+	use_rate = 0.10
 	rogue_types = list(/datum/nanite_program/brain_decay, /datum/nanite_program/brain_misfire)
 
 /datum/nanite_program/mindshield/enable_passive_effect()

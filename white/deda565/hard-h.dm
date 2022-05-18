@@ -334,6 +334,8 @@
 	. = ..()
 	if(slot == ITEM_SLOT_OCLOTHING)
 		ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
+		var/area/A = get_area(user)
+		priority_announce("ВНИМАНИЕ! На нашей станции стартовал полуфинал Канадского хоккейного турнира! Приглашенная звезда матча [user] открыла сезон в [A.name]!", "Экстренные новости!", sound('white/Feline/sounds/hokkey.ogg'))
 
 /obj/item/clothing/shoes/hippie/hockey
 	name = "Канадские коньки"

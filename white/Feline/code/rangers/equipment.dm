@@ -188,6 +188,19 @@
 	lock_back_sound = 'sound/weapons/gun/pistol/slide_lock.ogg'
 	bolt_drop_sound = 'sound/weapons/gun/general/bolt_drop.ogg'
 
+/obj/item/gun/ballistic/automatic/pistol/nail_gun/attackby(obj/item/W, mob/user, params)
+	if(istype(W, /obj/item/stack/rods))	// 	Боеприпасы для гвоздомета
+		var/obj/item/stack/rods/R = W
+		playsound(user, 'white/Feline/sounds/nail_drop.ogg', 100, TRUE)
+		if(R.amount > 1)
+			R.amount = R.amount - 1
+			update_icon()
+		else
+			qdel(W)
+		new /obj/item/ammo_casing/nail(user.drop_location())
+		new /obj/item/ammo_casing/nail(user.drop_location())
+	. = ..()
+
 /obj/item/ammo_box/magazine/nails
 	name = "магазин гвоздомета"
 	desc = "Жесткий коробчатый магазин для промышленного инструмента, вмещает до 16 крупных гвоздей."
@@ -228,7 +241,7 @@
 
 /obj/projectile/bullet/nail
 	name = "гвоздь"
-	damage = 7
+	damage = 20
 	wound_bonus = -10
 	wound_falloff_tile = -10
 
@@ -247,9 +260,9 @@
 
 /obj/projectile/bullet/nail/pve
 	name = "синий гвоздь"
-	damage = 20
 
-/obj/projectile/bullet/nail/pve/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/bullet/nail/on_hit(atom/target, blocked = FALSE)
+
 	if(iscarbon(target))
 		damage = 7
 	if(issilicon(target))
@@ -257,6 +270,20 @@
 	if(isalienadult(target))
 		damage = 20
 
+/obj/projectile/bullet/nail/pve/on_hit(atom/target, blocked = FALSE)
+
+	if(iscarbon(target))
+		damage = 7
+	if(issilicon(target))
+		damage = 7
+	if(isalienadult(target))
+		damage = 25
+/*
+	if(isstunmob(target))
+		var/mob/living/simple_animal/Z = target
+		Z.AIStatus = AI_OFF
+		addtimer(CALLBACK(Z, /mob/living/simple_animal/proc/re_ai), 1 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+*/
 // 	Протонник
 
 /obj/item/gun/energy/laser/rangers/sci

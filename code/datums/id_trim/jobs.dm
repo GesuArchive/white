@@ -471,8 +471,8 @@
 /datum/id_trim/job/exploration
 	assignment = "Exploration Crew"
 	trim_state = "trim_explorationcrew"
-	full_access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_QM, ACCESS_RESEARCH, ACCESS_EXPLORATION)
-	minimal_access = list(ACCESS_MAILSORTING, ACCESS_EXPLORATION)
+	full_access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_QM, ACCESS_RESEARCH, ACCESS_EXPLORATION, ACCESS_GATEWAY)
+	minimal_access = list(ACCESS_MAILSORTING, ACCESS_EXPLORATION, ACCESS_CARGO, ACCESS_GATEWAY)
 	config_job = "exploration"
 	template_access = list(ACCESS_CAPTAIN, ACCESS_HOP, ACCESS_CHANGE_IDS)
 

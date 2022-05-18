@@ -1,8 +1,8 @@
 //Programs that heal the host in some way.
 
 /datum/nanite_program/regenerative
-	name = "Accelerated Regeneration"
-	desc = "The nanites boost the host's natural regeneration, increasing their healing speed. Does not consume nanites if the host is unharmed."
+	name = "Ускоренная регенерация"
+	desc = "Наниты ускоряют естественную регенерацию носителя, медленно исцеляя его (0.5 физического и термического урона). Не потребляет наниты, пока носитель не ранен."
 	use_rate = 0.5
 	rogue_types = list(/datum/nanite_program/necrotic)
 
@@ -30,8 +30,8 @@
 		host_mob.adjustFireLoss(-0.5, TRUE)
 
 /datum/nanite_program/temperature
-	name = "Temperature Adjustment"
-	desc = "The nanites adjust the host's internal temperature to an ideal level."
+	name = "Регулировка температуры"
+	desc = "Наниты регулируют температуру тела носителя до идеального уровня. Не потребляет наниты, пока температура на идеальном уровне."
 	use_rate = 3.5
 	rogue_types = list(/datum/nanite_program/skin_decay)
 
@@ -48,8 +48,8 @@
 		host_mob.adjust_bodytemperature(40 * TEMPERATURE_DAMAGE_COEFFICIENT, 0, target_temp)
 
 /datum/nanite_program/purging
-	name = "Blood Purification"
-	desc = "The nanites purge toxins and chemicals from the host's bloodstream. Consumes nanites even if it has no effect."
+	name = "Очистка крови"
+	desc = "Наниты очищают кровь носителя на 1 единицу токсического урона и на 1 единицу всех химикатов в крови. Непрерывно расходует наниты пока включена."
 	use_rate = 1
 	rogue_types = list(/datum/nanite_program/suffocating, /datum/nanite_program/necrotic)
 
@@ -64,8 +64,8 @@
 		host_mob.reagents.remove_reagent(R.type,1)
 
 /datum/nanite_program/brain_heal
-	name = "Neural Regeneration"
-	desc = "The nanites fix neural connections in the host's brain, reversing brain damage and minor traumas."
+	name = "Восстановление нейронов"
+	desc = "Наниты исправляют нейронные соединения в мозге носителя, излечивая повреждения мозга и легкие мозговые травмы. Лечит 1 единицу повреждений мозга и имеет 10% шанс на исцеление небольших травм мозга. Не потребляет наниты, если мозг носителя цел."
 	use_rate = 1.5
 	rogue_types = list(/datum/nanite_program/brain_decay)
 
@@ -85,8 +85,8 @@
 		C.cure_trauma_type(resilience = TRAUMA_RESILIENCE_BASIC)
 
 /datum/nanite_program/blood_restoring
-	name = "Blood Regeneration"
-	desc = "The nanites stimulate and boost blood cell production in the host."
+	name = "Восстановление крови"
+	desc = "Наниты ускоряют процесс создания кровяных клеток в организме носителя. Не потребляет наниты, если крови в теле носителя достаточно."
 	use_rate = 1
 	rogue_types = list(/datum/nanite_program/suffocating)
 
@@ -105,8 +105,8 @@
 		C.blood_volume += 2
 
 /datum/nanite_program/repairing
-	name = "Mechanical Repair"
-	desc = "The nanites fix damage in the host's mechanical limbs."
+	name = "Реконструкция механики"
+	desc = "Наниты чинят механические части тела носителя. Чинит 1 единицу физического и термического урона равномерно во всех конечностях. Не потребляет наниты, если конечности не повреждены."
 	use_rate = 0.5
 	rogue_types = list(/datum/nanite_program/necrotic)
 
@@ -141,9 +141,8 @@
 		host_mob.adjustFireLoss(-1, TRUE)
 
 /datum/nanite_program/purging_advanced
-	name = "Selective Blood Purification"
-	desc = "The nanites purge toxins and dangerous chemicals from the host's bloodstream, while ignoring beneficial chemicals. \
-			The added processing power required to analyze the chemicals severely increases the nanite consumption rate. Consumes nanites even if it has no effect."
+	name = "Выборочная очистка крови"
+	desc = "Наниты лечат 1 единицу токсического урона и выводят 1 единицу токсичных реагентов из крови носителя, игнорируя нетоксичные вещества. Для анализа состава крови требуется дополнительная вычислительная мощность, что сильно повышает потребление нанитов."
 	use_rate = 2
 	rogue_types = list(/datum/nanite_program/suffocating, /datum/nanite_program/necrotic)
 
@@ -158,9 +157,8 @@
 		host_mob.reagents.remove_reagent(R.type,1)
 
 /datum/nanite_program/regenerative_advanced
-	name = "Bio-Reconstruction"
-	desc = "The nanites manually repair and replace organic cells, acting much faster than normal regeneration. \
-			However, this program cannot detect the difference between harmed and unharmed, causing it to consume nanites even if it has no effect."
+	name = "Био-реконструкция"
+	desc = "Наниты вручную восстанавливают и заменяют клетки тела, делая это гораздо быстрее обычной регенерации. Лечит 2 физического и термического урона. Однако, эта программа не может отличить поврежденные клетки от неповрежденных, используя наниты, даже если организм цел."
 	use_rate = 5.5
 	rogue_types = list(/datum/nanite_program/suffocating, /datum/nanite_program/necrotic)
 
@@ -181,8 +179,8 @@
 		host_mob.adjustFireLoss(-2, TRUE)
 
 /datum/nanite_program/brain_heal_advanced
-	name = "Neural Reimaging"
-	desc = "The nanites are able to backup and restore the host's neural connections, potentially replacing entire chunks of missing or damaged brain matter. Consumes nanites even if it has no effect."
+	name = "Нейронная пересборка"
+	desc = "Наниты становятся способны сохранять и восстанавливать нейронные соединения, теоретически даже восстанавливая отсутствующие или поврежденные участки мозга. Лечит 2 единицы урона мозгу и с 10% шансом могут исцелить даже самые тяжелые травмы мозга. Непрерывно расходует наниты пока включена."
 	use_rate = 3
 	rogue_types = list(/datum/nanite_program/brain_decay, /datum/nanite_program/brain_misfire)
 
@@ -193,15 +191,15 @@
 		C.cure_trauma_type(resilience = TRAUMA_RESILIENCE_LOBOTOMY)
 
 /datum/nanite_program/defib
-	name = "Defibrillation"
-	desc = "The nanites shock the host's heart when triggered, bringing them back to life if the body can sustain it."
+	name = "Дефибрилляция"
+	desc = "При активации дает разряд тока в сердце носителя, запуская его, если тело может это выдержать. Реанимация такого плана имеет такие же требования, как и обычная дефибрилляция. Не вызывает удушье."
 	can_trigger = TRUE
 	trigger_cost = 25
 	trigger_cooldown = 120
 	rogue_types = list(/datum/nanite_program/shocking)
 
 /datum/nanite_program/defib/on_trigger(comm_message)
-	host_mob.notify_ghost_cloning("Your heart is being defibrillated by nanites. Re-enter your corpse if you want to be revived!")
+	host_mob.notify_ghost_cloning("Мое сердце было запущено благодаря нанитам! Необходимо срочно вернуться в тело!")
 	addtimer(CALLBACK(src, .proc/zap), 50)
 
 /datum/nanite_program/defib/proc/check_revivable()

@@ -1,5 +1,5 @@
 /mob/living/carbon/alien
-	name = "alien"
+	name = "чужой"
 	icon = 'icons/mob/alien.dmi'
 	gender = FEMALE //All xenos are girls!!
 	dna = null
@@ -25,7 +25,7 @@
 	gib_type = /obj/effect/decal/cleanable/xenoblood/xgibs
 	unique_name = TRUE
 
-	var/static/regex/alien_name_regex = new("alien (larva|sentinel|drone|hunter|praetorian|queen)( \\(\\d+\\))?")
+	var/static/regex/alien_name_regex = new("(лярва|страж|трутень|охотник|преторианец|королева) чужих ( \\(\\d+\\))?")
 
 /mob/living/carbon/alien/Initialize(mapload)
 	add_verb(src, /mob/living/proc/mob_sleep)
@@ -122,8 +122,8 @@ Des: Removes all infected images from the alien.
 	return TRUE
 
 /mob/living/carbon/alien/proc/alien_evolve(mob/living/carbon/alien/new_xeno)
-	to_chat(src, span_noticealien("You begin to evolve!"))
-	visible_message(span_alertalien("[capitalize(src.name)] begins to twist and contort!"))
+	to_chat(src, span_noticealien("Начинаю эволюционировать!"))
+	visible_message(span_alertalien("[capitalize(src.name)] начинает искажаться и увеличиваться!"))
 	new_xeno.setDir(dir)
 	if(numba && unique_name)
 		new_xeno.numba = numba

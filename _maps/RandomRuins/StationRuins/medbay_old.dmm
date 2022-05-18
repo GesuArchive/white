@@ -2630,6 +2630,8 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/item/clothing/head/welding,
 /obj/effect/turf_decal/tile/yellow,
+/obj/item/multitool,
+/obj/item/stack/cable_coil,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "zC" = (
