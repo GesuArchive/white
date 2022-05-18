@@ -36,7 +36,7 @@
 	// This screen simply lists available programs and user may select them.
 	var/obj/item/computer_hardware/hard_drive/hard_drive = all_components[MC_HDD]
 	if(!hard_drive || !hard_drive.stored_files || !hard_drive.stored_files.len)
-		to_chat(user, span_danger("<b>[src.name]</b>издает три звуковых сигнала, на экране отображается предупреждение \"ОШИБКА ДИСКА\"."))
+		to_chat(user, span_danger("<b>[src.name]</b> издает три звуковых сигнала, на экране отображается предупреждение \"ОШИБКА ДИСКА\"."))
 		return // No HDD, No HDD files list or no stored files. Something is very broken.
 
 	if(honkamnt > 0) // EXTRA annoying, huh!
