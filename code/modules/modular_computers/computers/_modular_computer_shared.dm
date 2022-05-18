@@ -65,4 +65,4 @@
 	if(printer_slot)
 		. += "<hr>Здесь есть принтер."
 		if(user_is_adjacent)
-			. += "\nУровень краски: [printer_slot.stored_paper]/[printer_slot.max_paper].</span>]"
+			. += "\nУровень краски: [printer_slot.stored_paper]/[printer_slot.max_paper].</span>"
