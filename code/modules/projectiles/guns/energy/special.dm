@@ -194,6 +194,13 @@
 	force = 15
 	ammo_type = list(/obj/item/ammo_casing/energy/plasma/adv)
 
+/obj/item/gun/energy/plasmacutter/adv/mega
+	name = "мега продвинутый плазморез"
+	icon_state = "adv_plasmacutter_m"
+	inhand_icon_state = "plasmacutter_mega"
+	desc = "Инструмент добычи, способный стрелять концентрированными всплесками плазмы. Можно использовать его, чтобы отрезать конечности ксеносов! Этот был улучшен с плазменным магмитом."
+	ammo_type = list(/obj/item/ammo_casing/energy/plasma/adv/mega)
+
 /obj/item/gun/energy/plasmacutter/emp_act(severity)
 	if(!cell.charge)
 		return

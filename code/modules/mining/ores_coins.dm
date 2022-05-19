@@ -354,6 +354,13 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	if(severity >= EXPLODE_DEVASTATE)
 		qdel(src)
 
+//plasa magmite functions like an ore in the way it's mined, but we don't want to be redeeming this. Since Gibtonite is stuck with other ores it's okay to put it here.
+/obj/item/magmite
+	name = "плазменный магмит"
+	desc = "Кусок плазменного магмита, кристаллизованный глубоко под поверхностью Лаваленда. Его сила, кажется, колеблется в зависимости от расстояния до планеты."
+	icon = 'icons/obj/mining.dmi'
+	icon_state = "Magmite ore"
+	w_class = WEIGHT_CLASS_NORMAL
 
 /*****************************Coin********************************/
 

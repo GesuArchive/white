@@ -314,7 +314,7 @@
 	sleep(duration)
 	if(ismineralturf(T))
 		var/turf/closed/mineral/M = T
-		M.gets_drilled()
+		M.attempt_drill()
 	playsound(T, "explosion", 80, TRUE)
 	new /obj/effect/hotspot(T)
 	T.hotspot_expose(DRAKE_FIRE_TEMP, DRAKE_FIRE_EXPOSURE, 1)

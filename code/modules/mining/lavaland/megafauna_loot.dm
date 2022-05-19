@@ -455,7 +455,7 @@
 	reset_spin()
 	if(ismineralturf(hit_atom))
 		var/turf/closed/mineral/hit_rock = hit_atom
-		hit_rock.gets_drilled()
+		hit_rock.attempt_drill()
 	if(isliving(hit_atom))
 		var/mob/living/hit_mob = hit_atom
 		if(hit_mob.stat != DEAD)

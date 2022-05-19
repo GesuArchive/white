@@ -137,6 +137,7 @@
 		new /datum/data/vendor_equipment("Stabilizing Serum",			/obj/item/hivelordstabilizer,										400),
 		new /datum/data/vendor_equipment("Fulton Beacon",				/obj/item/fulton_core,												400),
 		new /datum/data/vendor_equipment("Shelter Capsule",				/obj/item/survivalcapsule,											400),
+		new /datum/data/vendor_equipment("Mining Charge",				/obj/item/grenade/c4/miningcharge,									500),
 		new /datum/data/vendor_equipment("GAR Meson Scanners",			/obj/item/clothing/glasses/meson/gar,								500),
 		new /datum/data/vendor_equipment("Explorer's Webbing",			/obj/item/storage/belt/mining,										500),
 		new /datum/data/vendor_equipment("Point Transfer Card",			/obj/item/card/mining_point_card,									500),
@@ -179,6 +180,7 @@
 		new /datum/data/vendor_equipment("KA Range Increase",			/obj/item/borg/upgrade/modkit/range,								1000),
 		new /datum/data/vendor_equipment("KA Damage Increase",			/obj/item/borg/upgrade/modkit/damage,								1000),
 		new /datum/data/vendor_equipment("KA Cooldown Decrease",		/obj/item/borg/upgrade/modkit/cooldown,								1000),
+		new /datum/data/vendor_equipment("KA Hardness Increase",		/obj/item/borg/upgrade/modkit/hardness,								1200),
 		new /datum/data/vendor_equipment("KA AoE Damage",				/obj/item/borg/upgrade/modkit/aoe/mobs,								2000)
 	)
 /datum/data/vendor_equipment

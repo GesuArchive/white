@@ -18,6 +18,7 @@
 	var/aim_dir = NORTH
 	var/boom_sizes = list(0, 0, 3)
 	var/full_damage_on_mobs = FALSE
+	var/alert_admins = TRUE
 
 /obj/item/grenade/c4/Initialize(mapload)
 	. = ..()
@@ -78,7 +79,7 @@
 		det_time = newtime
 		to_chat(user, "Timer set for [det_time] seconds.")
 
-/obj/item/grenade/c4/afterattack(atom/movable/bomb_target, mob/user, flag)
+/obj/item/grenade/c4/afterattack(atom/movable/bomb_target, mob/user, flag, notify_ghosts = TRUE)
 	. = ..()
 	aim_dir = get_dir(user,bomb_target)
 	if(!flag)
@@ -91,10 +92,12 @@
 			return
 		target = bomb_target
 
-		message_admins("[ADMIN_LOOKUPFLW(user)] planted [name] on [target.name] at [ADMIN_VERBOSEJMP(target)] with [det_time] second fuse")
+		if(alert_admins)
+			message_admins("[ADMIN_LOOKUPFLW(user)] planted [name] on [target.name] at [ADMIN_VERBOSEJMP(target)] with [det_time] second fuse")
 		log_game("[key_name(user)] planted [name] on [target.name] at [AREACOORD(user)] with a [det_time] second fuse")
 
-		notify_ghosts("[user] has planted <b>[src.name]</b> on [target] with a [det_time] second fuse!", source = target, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Explosive Planted")
+		if(notify_ghosts)
+			notify_ghosts("[user] has planted <b>[src.name]</b> on [target] with a [det_time] second fuse!", source = target, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Explosive Planted")
 
 		moveToNullspace()	//Yep
 

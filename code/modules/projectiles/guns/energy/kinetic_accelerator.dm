@@ -159,6 +159,13 @@
 	if(!can_shoot())
 		. += "[icon_state]_empty"
 
+/obj/item/gun/energy/kinetic_accelerator/mega
+	name = "мега протокинетический ускоритель"
+	icon_state = "kineticgun_m"
+	inhand_icon_state = "kineticgun_mega"
+	desc = "Самозарядный, дальнобойный инструмент, наносящий повышенный урон при низком давлении. Этот был улучшен с плазменным магмитом."
+	max_mod_capacity = 120
+
 //Casing
 /obj/item/ammo_casing/energy/kinetic
 	projectile_type = /obj/projectile/kinetic
@@ -181,6 +188,7 @@
 	flag = BOMB
 	range = 3
 	log_override = TRUE
+	var/power = 1
 
 	var/pressure_decrease_active = FALSE
 	var/pressure_decrease = 0.25
@@ -223,7 +231,7 @@
 			M.projectile_strike(src, target_turf, target, kinetic_gun)
 	if(ismineralturf(target_turf))
 		var/turf/closed/mineral/M = target_turf
-		M.gets_drilled(firer, TRUE)
+		M.attempt_drill(firer, FALSE, power)
 		if(iscarbon(firer))
 			var/mob/living/carbon/carbon_firer = firer
 			var/skill_modifier = 1
@@ -349,16 +357,16 @@
 /obj/item/borg/upgrade/modkit/cooldown
 	name = "уменьшение времени перезарядки"
 	desc = "Уменьшает время восстановления кинетического ускорителя. Не рассчитано на использование шахтёрском роботе."
-	modifier = 3.2
+	modifier = 0.745
 	minebot_upgrade = FALSE
 
 /obj/item/borg/upgrade/modkit/cooldown/install(obj/item/gun/energy/kinetic_accelerator/KA, mob/user)
 	. = ..()
 	if(.)
-		KA.overheat_time -= modifier
+		KA.overheat_time += modifier
 
 /obj/item/borg/upgrade/modkit/cooldown/uninstall(obj/item/gun/energy/kinetic_accelerator/KA)
-	KA.overheat_time += modifier
+	KA.overheat_time /= modifier
 	..()
 
 /obj/item/borg/upgrade/modkit/cooldown/minebot
@@ -367,11 +375,19 @@
 	icon_state = "door_electronics"
 	icon = 'icons/obj/module.dmi'
 	denied_type = /obj/item/borg/upgrade/modkit/cooldown/minebot
-	modifier = 10
+	modifier = 0.5
 	cost = 0
 	minebot_upgrade = TRUE
 	minebot_exclusive = TRUE
 
+//Hardness
+/obj/item/borg/upgrade/modkit/hardness
+	name = "hardness increase"
+	desc = "Increases the maximum piercing power of a kinetic accelerator when installed."
+	cost = 10
+
+/obj/item/borg/upgrade/modkit/hardness/modify_projectile(obj/projectile/kinetic/K)
+	K.power += modifier
 
 //AoE blasts
 /obj/item/borg/upgrade/modkit/aoe
@@ -408,7 +424,7 @@
 		for(var/T in RANGE_TURFS(1, target_turf) - target_turf)
 			if(ismineralturf(T))
 				var/turf/closed/mineral/M = T
-				M.gets_drilled(K.firer, TRUE)
+				M.attempt_drill(K.firer, TRUE)
 	if(modifier)
 		for(var/mob/living/L in range(1, target_turf) - K.firer - target)
 			var/armor = L.run_armor_check(K.def_zone, K.flag, "", "", K.armour_penetration)
