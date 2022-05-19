@@ -49,6 +49,22 @@
 	challengeitem = /obj/item/nuclear_challenge/clownops
 	greentext_reward = 60
 
+/datum/antagonist/nukeop/leader/clownop/greet()
+	owner.current.playsound_local(get_turf(owner.current), 'white/govno.ogg',100,0, use_reverb = FALSE)
+	to_chat(owner, "<B>Вы - лидер клоунов-оперативников Синдиката! Вы отвечаете за руководство операцией, а так же лишь ваша ID-карточка способна открыть двери к вашему шаттлу.</B>")
+	to_chat(owner, "<B>Если вы считаете, что вы не являетесь самым крутым клоуном этого великого отряда - выдайте свою карту другому клоуну!</B>")
+	if(!CONFIG_GET(flag/disable_warops))
+		to_chat(owner, "<B>В вашей руке есть специальное устройство, которое может объявить станции войну, в обмен на бонусные телекристаллы. Внимательно осмотрите его и проконсультируйтесь с другими оперативниками, прежде чем активировать это.</B>")
+		var/obj/item/dukinuki = new challengeitem
+		var/mob/living/carbon/human/H = owner.current
+		if(!istype(H))
+			dukinuki.forceMove(H.drop_location())
+		else
+			H.put_in_hands(dukinuki, TRUE)
+		nuke_team.war_button_ref = WEAKREF(dukinuki)
+	owner.announce_objectives()
+	addtimer(CALLBACK(src, .proc/nuketeam_name_assign), 1)
+
 /datum/antagonist/nukeop/leader/clownop/apply_innate_effects(mob/living/mob_override)
 	. = ..()
 	var/mob/living/L = owner.current || mob_override
