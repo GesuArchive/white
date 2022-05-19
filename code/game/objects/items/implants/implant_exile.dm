@@ -24,7 +24,6 @@
 			var/obj/item/bodypart/limb = _limb
 			var/type_wound = pick(list(/datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/moderate))
 			limb.force_wound_upwards(type_wound, smited = TRUE)
-			sleep(1)
 
 ///Used to help the staff of the space hotel resist the urge to use the space hotel's incredibly alluring roundstart teleporter to ignore their flavor/greeting text and come to the station.
 /obj/item/implant/exile/noteleport

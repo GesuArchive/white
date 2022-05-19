@@ -1,0 +1,284 @@
+body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 13px !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	overflow-x: hidden;
+	background: #ffffff;
+	color: #000;
+
+	scrollbar-face-color: #242424;
+	scrollbar-arrow-color: #242424;
+	scrollbar-track-color: #090909;
+	scrollbar-3dlight-color: #080808;
+	scrollbar-darkshadow-Color: #080808;
+}
+
+::-webkit-scrollbar {
+	width: 4px;
+}
+
+body.dark {
+	background-color: #090909;
+	color: #aaaaaa;
+}
+
+body.cyber {
+	background-color: #000306;
+	color: #aaaaaa;
+}
+
+#menu {
+	background-color: #F0F0F0;
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+}
+
+.dark #menu, .dark #menu {
+	background-color: #050505;
+}
+
+.cyber #menu, .cyber #menu {
+	background-color: #000306;
+}
+
+#statcontent {
+	padding: 2px 2px 2px 2px;
+}
+
+a {
+	color: black;
+	text-decoration: none
+}
+
+.dark a {
+	color: #d6d6d6;
+}
+
+.cyber a {
+	color: #abc6ec;
+}
+
+a:hover, .dark a:hover, .cyber a:hover {
+	text-decoration: underline;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background-color: #333;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover:not(.active) {
+	background-color: #111;
+}
+
+.button-container {
+	display: inline-flex;
+	flex-wrap: wrap-reverse;
+	flex-direction: row;
+	align-items: flex-start;
+	overflow-x: hidden;
+	white-space: pre-wrap;
+	padding: 0 2px;
+}
+
+.button {
+	background-color: #dfdfdf;
+	border-color: #cecece;
+	border-width: 1px;
+	border-style: solid;
+	color: rgba(0, 0, 0, 0.7);
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	font-size: 13px;
+	margin: 0 1px;
+	cursor: pointer;
+	transition-duration: 0.25s;
+	order: 3;
+	min-width: 0px;
+}
+
+.dark button {
+	background-color: #000000;
+	border-color: #343434;
+	color: #d6d6d6;
+}
+
+.cyber button {
+	background-color: #000000;
+	border-color: #343434;
+	color: #abc6ec;
+}
+
+.button:hover {
+	background-color: #ececec;
+	transition-duration: 0;
+}
+
+.dark button:hover {
+	background-color:  #d6d6d6;
+	color: #080808;
+}
+
+.cyber button:hover {
+	background-color:  #abc6ec;
+	color: #080808;
+}
+
+.button:active, .button.active {
+	background-color: #ffffff;
+	color: black;
+	font-weight: bold;
+	border-top: 1px solid #cecece;
+	border-left: 1px solid #cecece;
+	border-right: 1px solid #cecece;
+	border-bottom: 1px solid #ffffff;
+}
+
+.dark .button:active, .dark .button.active {
+	background-color: #080808;
+	color: #d6d6d6;
+	border-top: 1px solid #343434;
+	border-left: 1px solid #343434;
+	border-right: 1px solid #343434;
+	border-bottom: 1px solid #080808;
+}
+
+.cyber .button:active, .cyber .button.active {
+	background-color: #000306;
+	color: #abc6ec;
+	border-top: 1px solid #343434;
+	border-left: 1px solid #343434;
+	border-right: 1px solid #343434;
+	border-bottom: 1px solid #080808;
+}
+
+.grid-container {
+	margin: -2px;
+	margin-right: -15px;
+}
+
+.grid-item {
+	position: relative;
+	display: inline-block;
+	width: 140px;
+	font-size: 11px;
+	white-space: pre-wrap;
+	padding: 3px 3px;
+	margin: 1px;
+	text-decoration: none;
+	overflow: visible;
+	border: 1px solid rgba(0, 0, 0, 0.7);
+	border-radius: 3px;
+}
+
+@media only screen and (min-width: 620px) {
+	.grid-item {
+		width: 195px;
+	}
+}
+
+.grid-item:hover {
+	z-index: 1;
+}
+
+.grid-item:hover .grid-item-text {
+	background: #000;
+	width: auto;
+}
+
+.dark .grid-item:hover .grid-item-text {
+	background: #d6d6d6;
+}
+
+.cyber .grid-item:hover .grid-item-text {
+	background: #abc6ec;
+}
+
+.grid-item-text {
+	display: inline-block;
+	width: 100%;
+	margin: 0 -6px;
+	padding: 0 6px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	pointer-events: none;
+}
+
+.grid-item:hover {
+	background: #000;
+	color: #fff;
+	text-decoration: none;
+}
+
+.dark .grid-item {
+	background: #090909;
+	border: 1px solid #202020;
+}
+
+.dark .grid-item:hover {
+	background: #d6d6d6;
+	color: #080808;
+	text-decoration: none;
+}
+
+.cyber .grid-item {
+	background: rgba(50, 160, 255, 0.05);
+	border: 1px solid rgba(50, 160, 255, 0.2);
+}
+
+.cyber .grid-item:hover {
+	background: #abc6ec;
+	color: #080808;
+	text-decoration: none;
+}
+
+.link {
+	display: inline;
+	background: none;
+	border: none;
+	padding: 7px 14px;
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 13px;
+	margin: 2px 2px;
+}
+
+.dark .link {
+	color: #d6d6d6;
+}
+
+.cyber .link {
+	color: #abc6ec;
+}
+
+.link:hover {
+	text-decoration: underline;
+}
+
+img {
+	-ms-interpolation-mode: nearest-neighbor;
+	image-rendering: pixelated;
+}
+
+.interview_panel_controls, .interview_panel_stats {
+	margin-bottom: 10px;
+}

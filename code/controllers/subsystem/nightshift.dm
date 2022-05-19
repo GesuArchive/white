@@ -53,4 +53,5 @@ SUBSYSTEM_DEF(nightshift)
 		var/obj/machinery/power/apc/APC = A
 		if (APC.area && (APC.area.type in GLOB.the_station_areas))
 			APC.set_nightshift(active)
-			CHECK_TICK
+		if(MC_TICK_CHECK)
+			return
