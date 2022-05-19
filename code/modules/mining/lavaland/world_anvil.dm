@@ -73,7 +73,7 @@
 				gun.remove_gun_attachment(item_to_remove = gun.gun_light)
 			for(var/obj/item/borg/upgrade/modkit/kit in gun.modkits)
 				kit.uninstall(gun)
-			var/obj/item/gun/energy/kinetic_accelerator/mega/newgun = new(src)
+			var/obj/item/gun/energy/kinetic_accelerator/mega/newgun = new(get_turf(src))
 			newgun.throw_at(user, 7, 7)
 			ItemMoved(gun)
 			qdel(gun)

@@ -2,7 +2,7 @@
 	name = "super proto-kinetic accelerator"
 	desc = "A self recharging, ranged mining tool that does increased damage in low pressure, now with more mod capacity! But without damage..."
 	ammo_type = list(/obj/item/ammo_casing/energy/kinetic/no_damage)
-	max_mod_capacity = 250
+	max_mod_capacity = 150
 
 	// add here mods that CAN be attached
 	var/accept_mods = list(/obj/item/borg/upgrade/modkit/aoe/turfs,

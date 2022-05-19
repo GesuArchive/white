@@ -164,7 +164,7 @@
 	icon_state = "kineticgun_m"
 	inhand_icon_state = "kineticgun_mega"
 	desc = "Самозарядный, дальнобойный инструмент, наносящий повышенный урон при низком давлении. Этот был улучшен с плазменным магмитом."
-	max_mod_capacity = 120
+	max_mod_capacity = 200
 
 //Casing
 /obj/item/ammo_casing/energy/kinetic
