@@ -218,6 +218,11 @@
 				else
 					new_character.mind.add_antag_datum(/datum/antagonist/nukeop,nuke_team)
 		if(choice == "HONK!")
+			for(var/obj/machinery/nuclearbomb/syndicate/S in GLOB.nuke_list)
+				var/turf/T = get_turf(S)
+				if(T)
+					qdel(S)
+					new /obj/machinery/nuclearbomb/syndicate/bananium(T)
 			for(var/mob/c in chosen)
 				var/mob/living/carbon/human/new_character=makeBody(c)
 				if(!leader_chosen)
@@ -226,11 +231,6 @@
 					nuke_team = N.nuke_team
 				else
 					new_character.mind.add_antag_datum(/datum/antagonist/nukeop/clownop,nuke_team)
-			for(var/obj/machinery/nuclearbomb/syndicate/S in GLOB.nuke_list)
-				var/turf/T = get_turf(S)
-				if(T)
-					qdel(S)
-					new /obj/machinery/nuclearbomb/syndicate/bananium(T)
 
 		return TRUE
 	else
