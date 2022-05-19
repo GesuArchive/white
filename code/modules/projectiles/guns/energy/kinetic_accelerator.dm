@@ -428,7 +428,10 @@
 	if(modifier)
 		for(var/mob/living/L in range(1, target_turf) - K.firer - target)
 			var/armor = L.run_armor_check(K.def_zone, K.flag, "", "", K.armour_penetration)
-			L.apply_damage(K.damage*modifier, K.damage_type, K.def_zone, armor)
+			var/effective_modifier = modifier
+			if(K.pressure_decrease_active)
+				effective_modifier *= K.pressure_decrease
+			L.apply_damage(K.damage*effective_modifier, K.damage_type, K.def_zone, armor)
 			to_chat(L, span_userdanger("В меня попадает [K.name]!"))
 
 /obj/item/borg/upgrade/modkit/aoe/turfs
@@ -459,7 +462,7 @@
 	name = "быстрый ретранслятор"
 	desc = "Четвертирует время восстановления кинетического ускорителя при попадании в живую цель, но значительно увеличивает базовое время восстановления."
 	denied_type = /obj/item/borg/upgrade/modkit/cooldown/repeater
-	modifier = -14 //Makes the cooldown 3 seconds(with no cooldown mods) if you miss. Don't miss.
+	modifier = 1.875 //Makes the cooldown 3 seconds(with no cooldown mods) if you miss. Don't miss.
 	cost = 50
 
 /obj/item/borg/upgrade/modkit/cooldown/repeater/projectile_strike_predamage(obj/projectile/kinetic/K, turf/target_turf, atom/target, obj/item/gun/energy/kinetic_accelerator/KA)
