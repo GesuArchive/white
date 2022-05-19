@@ -87,15 +87,12 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	Add_Messenger()
 
 /obj/item/modular_computer/Destroy()
-	kill_program(forced = TRUE)
+	wipe_program(forced = TRUE)
 	STOP_PROCESSING(SSobj, src)
-	for(var/H in all_components)
-		var/obj/item/computer_hardware/CH = all_components[H]
-		if(CH.holder == src)
-			CH.on_remove(src)
-			CH.holder = null
-			all_components.Remove(CH.device_type)
-			qdel(CH)
+	for(var/port in all_components)
+		var/obj/item/computer_hardware/component = all_components[port]
+		qdel(component)
+	all_components.Cut() //Die demon die
 	//Some components will actually try and interact with this, so let's do it later
 	QDEL_NULL(soundloop)
 	Remove_Messenger()
@@ -487,14 +484,20 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	data["PC_showexitprogram"] = active_program ? 1 : 0 // Hides "Exit Program" button on mainscreen
 	return data
 
+///Wipes the computer's current program. Doesn't handle any of the niceties around doing this
+/obj/item/modular_computer/proc/wipe_program(forced)
+	if(!active_program)
+		return
+	active_program.kill_program(forced)
+	active_program = null
+
 // Relays kill program request to currently active program. Use this to quit current program.
 /obj/item/modular_computer/proc/kill_program(forced = FALSE)
-	if(active_program)
-		active_program.kill_program(forced)
-		active_program = null
+	wipe_program(forced)
 	var/mob/user = usr
 	if(user && istype(user))
-		ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
+		//Here to prevent programs sleeping in destroy
+		INVOKE_ASYNC(src, /datum/proc/ui_interact, user) // Re-open the UI on this computer. It should show the main screen now.
 	update_icon()
 
 // Returns 0 for No Signal, 1 for Low Signal and 2 for Good Signal. 3 is for wired connection (always-on)

@@ -78,7 +78,7 @@
 	M.adjustBruteLoss(30)
 	M.visible_message(span_danger("[M] falls free of [src]!"))
 	unbuckle_mob(M,force=1)
-	M.emote("agony")
+	INVOKE_ASYNC(M, /mob.proc/emote, "agony")
 	M.AdjustParalyzed(20)
 
 /obj/structure/wall_stuck_thing/Destroy()
