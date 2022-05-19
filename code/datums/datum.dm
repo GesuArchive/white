@@ -19,7 +19,7 @@
 
 	/// Active timers with this datum as the target
 	var/list/active_timers
-	/// Status traits attached to this datum
+	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
 	var/list/status_traits
 
 	/**
@@ -91,6 +91,7 @@
  */
 /datum/proc/Destroy(force=FALSE, ...)
 	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
 	tag = null
 	datum_flags &= ~DF_USE_TAG //In case something tries to REF us
 	weak_reference = null //ensure prompt GCing of weakref.
