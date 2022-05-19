@@ -278,6 +278,7 @@
 	name = "твёрдый базальт"
 	icon_state = "rock_hard"
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
+	smoothing_flags = SMOOTH_CORNERS
 	mineralChance = 15
 	hardness = 2
 
@@ -367,6 +368,7 @@
 
 /turf/closed/mineral/iron/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
+	smoothing_flags = SMOOTH_CORNERS
 	hardness = 2
 
 /turf/closed/mineral/iron/ice
@@ -382,6 +384,7 @@
 
 /turf/closed/mineral/uranium/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
+	smoothing_flags = SMOOTH_CORNERS
 	hardness = 2
 
 /turf/closed/mineral/uranium
@@ -390,6 +393,7 @@
 
 /turf/closed/mineral/diamond/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
+	smoothing_flags = SMOOTH_CORNERS
 	hardness = 2
 
 /turf/closed/mineral/diamond
@@ -409,6 +413,7 @@
 
 /turf/closed/mineral/gold/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
+	smoothing_flags = SMOOTH_CORNERS
 	hardness = 2
 
 /turf/closed/mineral/gold
@@ -424,6 +429,7 @@
 
 /turf/closed/mineral/silver/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
+	smoothing_flags = SMOOTH_CORNERS
 	hardness = 2
 
 /turf/closed/mineral/silver
@@ -437,6 +443,7 @@
 
 /turf/closed/mineral/titanium/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
+	smoothing_flags = SMOOTH_CORNERS
 	hardness = 2
 
 /turf/closed/mineral/titanium
@@ -445,6 +452,7 @@
 
 /turf/closed/mineral/plasma/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
+	smoothing_flags = SMOOTH_CORNERS
 	hardness = 2
 
 /turf/closed/mineral/plasma
@@ -469,6 +477,7 @@
 
 /turf/closed/mineral/bscrystal/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
+	smoothing_flags = SMOOTH_CORNERS
 	hardness = 2
 
 /turf/closed/mineral/bscrystal
@@ -497,6 +506,7 @@
 
 /turf/closed/mineral/volcanic/lava_land_surface/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
+	smoothing_flags = SMOOTH_CORNERS
 
 /turf/closed/mineral/ash_rock //wall piece
 	name = "камень"
@@ -662,6 +672,7 @@
 
 /turf/closed/mineral/gibtonite/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
+	smoothing_flags = SMOOTH_CORNERS
 	hardness = 2
 
 /turf/closed/mineral/gibtonite/ice
@@ -698,6 +709,7 @@
 
 /turf/closed/mineral/magmite/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
+	smoothing_flags = SMOOTH_CORNERS
 	hardness = 2
 
 /turf/closed/mineral/strong
