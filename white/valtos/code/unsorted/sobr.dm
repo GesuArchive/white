@@ -79,7 +79,7 @@
 	belt = /obj/item/storage/belt/military/army/sobr
 	id = /obj/item/card/id/advanced/centcom
 
-	implants = list(/obj/item/implant/sound_implant)
+	implants = list(/obj/item/implant/sound_implant, /obj/item/implant/mindshield)
 
 /datum/outfit/sobr/leader/pre_equip(mob/living/carbon/human/H)
 	back = /obj/item/gun/ballistic/automatic/ak47
