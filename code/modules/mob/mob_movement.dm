@@ -531,6 +531,10 @@
 	var/turf/current_turf = get_turf(src)
 	var/turf/above_turf = SSmapping.get_turf_above(current_turf)
 
+	if(!isturf(loc))
+		to_chat(src, span_userdanger("Это очень глупая идея."))
+		return
+
 	if(!above_turf)
 		to_chat(src, span_warning("НЕКУДА!"))
 		return
@@ -549,6 +553,10 @@
 /mob/verb/down()
 	set name = "Ниже"
 	set category = null
+
+	if(!isturf(loc))
+		to_chat(src, span_userdanger("Это очень глупая идея."))
+		return
 
 	if(zMove(DOWN, z_move_flags = ZMOVE_FLIGHT_FLAGS|ZMOVE_FEEDBACK))
 		to_chat(src, span_notice("Спускаюсь вниз."))
