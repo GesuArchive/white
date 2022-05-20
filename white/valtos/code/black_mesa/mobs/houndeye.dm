@@ -49,4 +49,4 @@
 /mob/living/simple_animal/hostile/blackmesa/xen/houndeye/OpenFire()
 	if(client)
 		return
-	charge.Trigger(target)
+	charge.Trigger(target = target)

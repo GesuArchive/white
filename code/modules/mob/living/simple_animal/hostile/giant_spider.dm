@@ -230,7 +230,7 @@
 /mob/living/simple_animal/hostile/poison/giant_spider/tarantula/OpenFire()
 	if(client)
 		return
-	charge.Trigger(target)
+	charge.Trigger(target = target)
 
 /mob/living/simple_animal/hostile/poison/giant_spider/tarantula/Moved(atom/oldloc, dir)
 	. = ..()
