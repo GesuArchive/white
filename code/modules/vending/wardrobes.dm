@@ -155,6 +155,8 @@
 	product_ads = "Вы превращаете меня в ИСТИНУ, используя определения!;0110001101101100011011110111010001101000011001010111001101101000011001010111001001100101"
 	vend_reply = "Спасибо за использование RoboDrobe!"
 	products = list(/obj/item/clothing/glasses/hud/diagnostic = 2,
+					/obj/item/storage/belt = 2,
+					/obj/item/storage/belt/utility = 2,
 					/obj/item/clothing/under/rank/rnd/roboticist = 2,
 					/obj/item/clothing/under/rank/rnd/roboticist/skirt = 2,
 					/obj/item/clothing/suit/toggle/labcoat/roboticist = 2,

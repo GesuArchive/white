@@ -13,14 +13,14 @@
 	var/current_category = "Main"
 	var/detail_view = TRUE
 	var/categories = list(
-		list(name = "Сервис"),
-		list(name = "Медицина"),
-		list(name = "Сенсоры"),
-		list(name = "Аугментация"),
-		list(name = "Подавление"),
-		list(name = "Военные"),
-		list(name = "Репликация"),
-		list(name = "Хранение"),
+		list(name = "Сервисные программы"),
+		list(name = "Медицинские программы"),
+		list(name = "Сенсорные программы"),
+		list(name = "Программы аугментации"),
+		list(name = "Программы подавления"),
+		list(name = "Военные программы"),
+		list(name = "Протоколы репликации"),
+		list(name = "Протоколы хранения"),
 	)
 
 /obj/machinery/nanite_program_hub/Initialize()

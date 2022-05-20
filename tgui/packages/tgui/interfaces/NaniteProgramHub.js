@@ -75,14 +75,14 @@ export const NaniteProgramHub = (props, context) => {
           )}>
           {programs !== null ? (
             <Flex>
-              <Flex.Item minWidth="110px">
+              <Flex.Item minWidth="150px">
                 <Tabs vertical>
                   {map((cat_contents, category) => {
                     const progs = cat_contents || [];
                     // Backend was sending stupid data that would have been
                     // annoying to fix
                     const tabLabel = category
-                      .substring(0, category.length - 8);
+                      .substring(0, category.length);
                     return (
                       <Tabs.Tab
                         key={category}

@@ -1,6 +1,6 @@
 /obj/item/storage/belt
-	name = "пояс"
-	desc = "Может хранить разные штуки."
+	name = "универсальный пояс"
+	desc = "Может хранить любые предметы маленького размера."
 	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "utility"
 	inhand_icon_state = "utility"
