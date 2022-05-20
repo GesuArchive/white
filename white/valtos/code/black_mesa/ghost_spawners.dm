@@ -43,13 +43,13 @@
 	spawned_human.grant_language(/datum/language/uncommon, TRUE, TRUE, LANGUAGE_MIND)
 	spawned_human.remove_language(/datum/language/common)
 
-/obj/item/clothing/under/rank/security/peacekeeper/sol/traffic/blackmesa
+/obj/item/clothing/under/rank/security
 	name = "security guard uniform"
 	desc = "About that beer I owe'd ya!"
 
 /datum/outfit/security_guard
 	name = "Security Guard"
-	uniform = /obj/item/clothing/under/rank/security/peacekeeper/sol/traffic/blackmesa
+	uniform = /obj/item/clothing/under/rank/security
 	head = /obj/item/clothing/head/helmet/blueshirt
 	gloves = /obj/item/clothing/gloves/color/black
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt
