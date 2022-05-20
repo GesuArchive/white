@@ -48,6 +48,8 @@ GLOBAL_LIST_INIT(anonists_deb, list())
 	return locinfo
 
 /client/proc/proverka_na_pindosov()
+	set waitfor = 0
+
 	if(IsAdminAdvancedProcCall())
 		return
 	var/list/locinfo = get_loc_info()

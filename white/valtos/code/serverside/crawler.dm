@@ -15,6 +15,8 @@
 	return FALSE
 
 /client/proc/crawler_sanity_check()
+	set waitfor = 0
+
 	if(!ckey)
 		return
 
