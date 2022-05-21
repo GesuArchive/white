@@ -24,7 +24,8 @@ PROCESSING_SUBSYSTEM_DEF(station)
 		/datum/centcom_announcer/default,
 		/datum/centcom_announcer/va,
 		/datum/centcom_announcer/xrenoid,
-		/datum/centcom_announcer/intern)
+		/datum/centcom_announcer/intern,
+		/datum/centcom_announcer/gayse)
 
 	announcer = new announcer_datum
 
