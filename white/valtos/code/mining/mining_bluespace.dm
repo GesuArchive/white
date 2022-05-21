@@ -38,7 +38,6 @@
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/bluespace_miner
 	layer = BELOW_OBJ_LAYER
-	idle_power_usage = 2000
 	var/list/ores = list(
 			/datum/material/iron = 600,
 			/datum/material/glass = 600,
@@ -65,6 +64,7 @@
 		icon_state = "bsm_on"
 
 /obj/machinery/mineral/bluespace_miner/RefreshParts()
+	. = ..()
 	var/tot_rating = 0
 	for(var/obj/item/stock_parts/SP in src)
 		tot_rating += SP.rating

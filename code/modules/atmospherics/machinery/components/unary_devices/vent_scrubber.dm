@@ -7,8 +7,8 @@
 	name = "фильтр"
 	desc = "К нему прикручены вентиль и помпа."
 	use_power = IDLE_POWER_USE
-	idle_power_usage = 100
-	active_power_usage = 600
+	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.1
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.15
 	can_unwrench = TRUE
 	welded = FALSE
 	layer = GAS_SCRUBBER_LAYER

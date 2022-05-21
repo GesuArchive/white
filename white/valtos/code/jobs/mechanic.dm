@@ -201,6 +201,7 @@
 
 
 /obj/machinery/copytech/RefreshParts()
+	. = ..()
 	var/T = 0
 	for(var/obj/item/stock_parts/micro_laser/M in component_parts)
 		T += M.rating
@@ -277,6 +278,7 @@
 		siphoned_power += surpluspower
 
 /obj/machinery/copytech_platform/RefreshParts()
+	. = ..()
 	var/T = 0
 	for(var/obj/item/stock_parts/micro_laser/M in component_parts)
 		T += M.rating

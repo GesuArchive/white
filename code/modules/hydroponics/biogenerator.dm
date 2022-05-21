@@ -4,8 +4,6 @@
 	icon = 'icons/obj/machines/biogenerator.dmi'
 	icon_state = "biogen-empty"
 	density = TRUE
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 40
 	circuit = /obj/item/circuitboard/machine/biogenerator
 	var/processing = FALSE
 	var/obj/item/reagent_containers/glass/beaker = null
@@ -44,6 +42,7 @@
 		update_icon()
 
 /obj/machinery/biogenerator/RefreshParts()
+	. = ..()
 	var/E = 0
 	var/P = 0
 	var/max_storage = 40
@@ -182,7 +181,7 @@
 		processing = TRUE
 		update_icon()
 		playsound(loc, 'sound/machines/blender.ogg', 50, TRUE)
-		use_power(S * 30)
+		use_power(S * active_power_usage)
 		sleep(S + 15 / productivity)
 		processing = FALSE
 		update_icon()

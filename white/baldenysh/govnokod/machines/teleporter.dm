@@ -7,9 +7,7 @@
 	anchored = TRUE
 	density = TRUE
 
-	use_power = NO_POWER_USE
-	idle_power_usage = 10
-	active_power_usage = 15000
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 15
 	var/cur_load = 0
 	var/optimization_mod = 1
 

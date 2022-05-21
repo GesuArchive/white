@@ -10,8 +10,6 @@
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 100, "rad" = 100, "fire" = 80, "acid" = 10)
 	//circuit = /obj/item/circuitboard/machine/electrolyzer
 	use_power = NO_POWER_USE
-	idle_power_usage = 100
-	active_power_usage = 200
 
 	var/synth_type = /obj/item/stack/sheet/cotton
 	var/list/gas_moles_per_synth = list(

@@ -41,6 +41,7 @@
 	update_viewer_statics()
 
 /obj/machinery/rnd/production/RefreshParts()
+	. = ..()
 	calculate_efficiency()
 	update_viewer_statics()
 
@@ -301,11 +302,11 @@
 		playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
 		say("Доступ к минералам приостановлен, обратитесь к завхозу.")
 		return FALSE
-	var/power = 1000
+	var/power = active_power_usage
 	amount = clamp(amount, 1, 10)
 	for(var/M in D.materials)
 		power += round(D.materials[M] * amount / 35)
-	power = min(3000, power)
+	power = min(active_power_usage, power)
 	use_power(power)
 	var/coeff = efficient_with(D.build_path) ? efficiency_coeff : 1
 	var/list/efficient_mats = list()

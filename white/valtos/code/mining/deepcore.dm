@@ -121,6 +121,7 @@
 		return FALSE
 
 /obj/machinery/deepcore/drill/RefreshParts()
+	. = ..()
 	var/MM_value = 0
 	var/MM_amount = 0
 	for(var/obj/item/stock_parts/manipulator/MM in component_parts)
@@ -398,8 +399,8 @@
 	desc = "A machine designed to recieve the output of any connected bluespace drills."
 	icon_state = "hopper_off"
 	density = TRUE
-	idle_power_usage = 500
-	active_power_usage = 5000
+	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 2
+	active_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 10
 	anchored = FALSE
 	circuit = /obj/item/circuitboard/machine/deepcore/hopper
 
@@ -422,6 +423,7 @@
 	var/ejecting = FALSE
 
 /obj/machinery/deepcore/hopper/RefreshParts()
+	. = ..()
 	var/MM_value = 0
 	var/MM_amount = 0
 	for(var/obj/item/stock_parts/manipulator/MM in component_parts)

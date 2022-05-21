@@ -5,8 +5,7 @@
 	Or you can just drop your plates on the floor, like civilized folk."
 	icon = 'goon/icons/obj/kitchen.dmi'
 	icon_state = "synthesizer"
-	idle_power_usage = 800 //5 with default parts
-	active_power_usage = 1300 //10 with default parts
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.04
 	density = FALSE
 	circuit = /obj/item/circuitboard/machine/dish_drive
 	pass_flags = PASSTABLE
@@ -66,6 +65,7 @@
 	..()
 
 /obj/machinery/dish_drive/RefreshParts()
+	. = ..()
 	var/total_rating = 0
 	for(var/obj/item/stock_parts/S in component_parts)
 		total_rating += S.rating

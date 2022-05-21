@@ -54,8 +54,6 @@ That's it, ok bye!
 	verb_say = "бипает"
 	verb_ask = "бипает"
 	verb_exclaim = "бипает"
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 2
 	var/obj/machinery/lazylift/lift = null //Pointer to the lift controller in our area on this deck, we then ask its master to path the lift to us, assuming it isn't busy or anything.
 
 /obj/machinery/lazylift_button/attack_robot(mob/user)

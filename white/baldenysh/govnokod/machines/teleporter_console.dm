@@ -17,6 +17,7 @@
 		BSE = locate(/obj/machinery/power/bs_emitter) in range(7, src)
 
 /obj/machinery/computer/bs_emitter/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "BSEmitter", name)

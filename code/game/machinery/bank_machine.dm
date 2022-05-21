@@ -2,7 +2,6 @@
 	name = "bank machine"
 	desc = "A machine used to deposit and withdraw station funds."
 	icon = 'goon/icons/obj/goon_terminals.dmi'
-	idle_power_usage = 100
 
 	var/siphoning = FALSE
 	var/next_warning = 0
@@ -63,6 +62,7 @@
 			next_warning = world.time + minimum_time_between_warnings
 
 /obj/machinery/computer/bank_machine/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "BankMachine", name)

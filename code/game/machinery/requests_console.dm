@@ -29,6 +29,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 	desc = "Консоль предназначенная для отправки запросов в различные отделы на станции."
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "req_comp0"
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.15
 	var/department = "Unknown" //The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/list/messages = list() //List of all messages
 	var/departmentType = 0 //bitflag

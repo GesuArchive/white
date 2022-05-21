@@ -10,7 +10,6 @@
 	max_integrity = 250
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "burst_plasma"
-	idle_power_usage = 150
 	circuit = /obj/item/circuitboard/machine/shuttle/engine
 	var/thrust = 0
 	var/fuel_use = 0
@@ -26,7 +25,7 @@
 	icon_state = "burst_plasma"
 	icon_state_off = "burst_plasma_off"
 
-	idle_power_usage = 0
+	use_power = NO_POWER_USE
 	circuit = /obj/item/circuitboard/machine/shuttle/engine/plasma
 	thrust = 25
 	fuel_use = 0.24
@@ -40,7 +39,7 @@
 	icon_state_off = "burst_void"
 	icon_state_closed = "burst_void"
 	icon_state_open = "burst_void_open"
-	idle_power_usage = 0
+	use_power = NO_POWER_USE
 	circuit = /obj/item/circuitboard/machine/shuttle/engine/void
 	thrust = 400
 	fuel_use = 0

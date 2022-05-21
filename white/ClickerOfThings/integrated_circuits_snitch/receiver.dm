@@ -33,7 +33,7 @@
 //makeshift receiver used for the circuit, so that we don't
 //have to edit radio.dm and other shit
 /obj/machinery/telecomms/receiver/circuit
-	idle_power_usage = 0
+	use_power = NO_POWER_USE
 	var/obj/item/integrated_circuit_old/input/tcomm_interceptor/holder
 
 /obj/machinery/telecomms/receiver/circuit/receive_signal(datum/signal/signal)

@@ -5,11 +5,9 @@
 	icon = 'icons/obj/machines/nanite_chamber.dmi'
 	icon_state = "nanite_chamber"
 	layer = ABOVE_WINDOW_LAYER
-	use_power = IDLE_POWER_USE
 	anchored = TRUE
 	density = TRUE
-	idle_power_usage = 5000
-	active_power_usage = 30000
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 10
 
 	var/locked = FALSE
 	var/breakout_time = 1200
@@ -24,6 +22,7 @@
 	occupant_typecache = GLOB.typecache_living
 
 /obj/machinery/nanite_chamber/RefreshParts()
+	. = ..()
 	scan_level = 0
 	for(var/obj/item/stock_parts/scanning_module/P in component_parts)
 		scan_level += P.rating
@@ -67,6 +66,7 @@
 	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Ввод нанитов...", "[initial(icon_state)]_active"),70)
 	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Активация нанитов...", "[initial(icon_state)]_falling"),110)
 	addtimer(CALLBACK(src, .proc/complete_injection, locked_state),130)
+	use_power(active_power_usage)
 
 /obj/machinery/nanite_chamber/proc/complete_injection(locked_state)
 	//TODO MACHINE DING

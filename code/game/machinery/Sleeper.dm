@@ -35,6 +35,7 @@
 	reset_chem_buttons()
 
 /obj/machinery/sleeper/RefreshParts()
+	. = ..()
 	var/E
 	for(var/obj/item/stock_parts/matter_bin/B in component_parts)
 		E += B.rating
@@ -155,6 +156,7 @@
 /obj/machinery/sleeper/process()
 	..()
 	check_nap_violations()
+	use_power(active_power_usage)
 
 /obj/machinery/sleeper/nap_violation(mob/violator)
 	open_machine()

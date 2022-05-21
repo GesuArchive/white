@@ -166,6 +166,7 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 	icon = 'white/valtos/icons/stock_parts.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	var/rating = 1
+	var/energy_rating = 1
 
 /obj/item/stock_parts/Initialize()
 	. = ..()
@@ -213,30 +214,35 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 	name = "продвинутый конденсатор"
 	icon_state = "adv_capacitor"
 	rating = 2
+	energy_rating = 3
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=50)
 
 /obj/item/stock_parts/scanning_module/adv
 	name = "продвинутый модуль сканирования"
 	icon_state = "adv_scan_module"
 	rating = 2
+	energy_rating = 3
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=20)
 
 /obj/item/stock_parts/manipulator/nano
 	name = "продвинутый наноманипулятор"
 	icon_state = "nano_mani"
 	rating = 2
+	energy_rating = 3
 	custom_materials = list(/datum/material/iron=30)
 
 /obj/item/stock_parts/micro_laser/high
 	name = "продвинутый мощный микролазер"
 	icon_state = "high_micro_laser"
 	rating = 2
+	energy_rating = 3
 	custom_materials = list(/datum/material/iron=10, /datum/material/glass=20)
 
 /obj/item/stock_parts/matter_bin/adv
 	name = "продвинутый резервуар материи"
 	icon_state = "advanced_matter_bin"
 	rating = 2
+	energy_rating = 3
 	custom_materials = list(/datum/material/iron=80)
 
 //	3 ранг
@@ -245,30 +251,35 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 	name = "супер конденсатор"
 	icon_state = "super_capacitor"
 	rating = 3
+	energy_rating = 5
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=50)
 
 /obj/item/stock_parts/scanning_module/phasic
 	name = "супер фазированный модуль сканирования"
 	icon_state = "super_scan_module"
 	rating = 3
+	energy_rating = 5
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=20)
 
 /obj/item/stock_parts/manipulator/pico
 	name = "супер пикоманипулятор"
 	icon_state = "pico_mani"
 	rating = 3
+	energy_rating = 5
 	custom_materials = list(/datum/material/iron=30)
 
 /obj/item/stock_parts/micro_laser/ultra
 	name = "супер высокомощный микролазер"
 	icon_state = "ultra_high_micro_laser"
 	rating = 3
+	energy_rating = 5
 	custom_materials = list(/datum/material/iron=10, /datum/material/glass=20)
 
 /obj/item/stock_parts/matter_bin/super
 	name = "супер резервуар материи"
 	icon_state = "super_matter_bin"
 	rating = 3
+	energy_rating = 5
 	custom_materials = list(/datum/material/iron=80)
 
 //	4 ранг
@@ -277,30 +288,35 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 	name = "ультра конденсатор"
 	icon_state = "quadratic_capacitor"
 	rating = 4
+	energy_rating = 10
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=50)
 
 /obj/item/stock_parts/scanning_module/triphasic
 	name = "ультра трифазированный модуль сканирования"
 	icon_state = "triphasic_scan_module"
 	rating = 4
+	energy_rating = 10
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=20)
 
 /obj/item/stock_parts/manipulator/femto
 	name = "ультра фемтоманипулятор"
 	icon_state = "femto_mani"
 	rating = 4
+	energy_rating = 10
 	custom_materials = list(/datum/material/iron=30)
 
 /obj/item/stock_parts/micro_laser/quadultra
 	name = "ультра квадромощный микролазер"
 	icon_state = "quadultra_micro_laser"
 	rating = 4
+	energy_rating = 10
 	custom_materials = list(/datum/material/iron=10, /datum/material/glass=20)
 
 /obj/item/stock_parts/matter_bin/bluespace
 	name = "ультра блюспейс резервуар материи"
 	icon_state = "bluespace_matter_bin"
 	rating = 4
+	energy_rating = 10
 	custom_materials = list(/datum/material/iron=80)
 
 //	5 ранг
@@ -309,6 +325,7 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 	name = "неевклидовый конденсатор"
 	icon_state = "quadratic_capacitor"
 	rating = 5
+	energy_rating = 20
 	custom_materials = list(/datum/material/iron=1, /datum/material/glass=1)
 	color = "#ff3333"
 
@@ -316,6 +333,7 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 	name = "неевклидовый модуль сканирования"
 	icon_state = "triphasic_scan_module"
 	rating = 5
+	energy_rating = 20
 	custom_materials = list(/datum/material/iron=1, /datum/material/glass=1)
 	color = "#ff3333"
 
@@ -323,6 +341,7 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 	name = "неевклидовый манипулятор"
 	icon_state = "femto_mani"
 	rating = 5
+	energy_rating = 20
 	custom_materials = list(/datum/material/iron=1)
 	color = "#ff3333"
 
@@ -330,6 +349,7 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 	name = "неевклидовый микролазер"
 	icon_state = "quadultra_micro_laser"
 	rating = 5
+	energy_rating = 20
 	custom_materials = list(/datum/material/iron=1, /datum/material/glass=1)
 	color = "#ff3333"
 
@@ -337,6 +357,7 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 	name = "неевклидовый резервуар материи"
 	icon_state = "bluespace_matter_bin"
 	rating = 5
+	energy_rating = 20
 	custom_materials = list(/datum/material/iron=1)
 	color = "#ff3333"
 

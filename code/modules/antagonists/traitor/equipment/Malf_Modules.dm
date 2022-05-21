@@ -283,6 +283,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	desc = "Оружие дезинтегрирующее всю органическую жизнь в большой области."
 	density = TRUE
 	verb_exclaim = "вспыхивает"
+	use_power = NO_POWER_USE
 	var/timing = FALSE
 	var/obj/effect/countdown/doomsday/countdown
 	var/detonation_timer

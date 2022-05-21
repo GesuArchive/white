@@ -31,6 +31,7 @@
 		. += "<hr><span class='notice'><b>Энергия:</b> [hooked_singulo.energy].</span>"
 
 /obj/machinery/magnetic_concentrator/RefreshParts()
+	. = ..()
 	var/t = 0
 	for(var/obj/item/stock_parts/L in component_parts)
 		t += L.rating * 20
@@ -148,6 +149,7 @@
 
 
 /obj/machinery/meteor_catcher/RefreshParts()
+	. = ..()
 	var/t = 0
 	for(var/obj/item/stock_parts/L in component_parts)
 		t += L.rating

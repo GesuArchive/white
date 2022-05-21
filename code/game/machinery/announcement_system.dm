@@ -11,8 +11,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	verb_ask = "запрашивает"
 	verb_exclaim = "тревожит"
 
-	idle_power_usage = 2000
-	active_power_usage = 5000
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.05
 
 	circuit = /obj/item/circuitboard/machine/announcement_system
 
@@ -94,6 +93,8 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 			var/turf/T = get_turf(M)
 			if(!isnewplayer(M) && M.can_hear() && (is_station_level(T.z) || is_mining_level(T.z) || is_centcom_level(T.z)))
 				SEND_SOUND(M, 'white/valtos/sounds/newmate.ogg')
+
+	use_power(active_power_usage)
 
 	if(channels.len == 0)
 		radio.talk_into(src, message, null)

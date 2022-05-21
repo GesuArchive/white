@@ -68,6 +68,7 @@
 	if(!authed)
 		to_chat(user, span_warning("Консоль заблокирована!"))
 		return
+	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "EconomyController", name)

@@ -39,6 +39,7 @@
 	recharging_turf = get_step(loc, dir)
 
 /obj/machinery/mech_bay_recharge_port/RefreshParts()
+	. = ..()
 	var/MC
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		MC += C.rating
@@ -60,7 +61,7 @@
 		if(recharging_mech.cell.charge < recharging_mech.cell.maxcharge)
 			var/delta = min(recharge_power * delta_time, recharging_mech.cell.maxcharge - recharging_mech.cell.charge)
 			recharging_mech.give_power(delta)
-			use_power(delta*150)
+			use_power(delta + active_power_usage)
 		else
 			recharge_console.update_icon()
 		if(recharging_mech.loc != recharging_turf)
@@ -90,6 +91,7 @@
 	var/obj/machinery/mech_bay_recharge_port/recharge_port
 
 /obj/machinery/computer/mech_bay_power_console/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "MechBayPowerConsole", name)

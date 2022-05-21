@@ -563,8 +563,7 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "pain_machine"
 	max_integrity = 5000
-	idle_power_usage = 200
-	active_power_usage = 4000
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 5
 	anchored = TRUE
 	can_buckle = TRUE
 	buckle_lying = 0 //you sit in a chair, not lay
@@ -608,6 +607,7 @@
 			L_occupant.emote("agony")
 			addtimer(CALLBACK(L_occupant, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
 			charge += 1
+			use_power(active_power_usage)
 			sleep(30)
 			if (charge == 6)
 				new /obj/item/ammo_casing/caseless/pissball(src.loc)

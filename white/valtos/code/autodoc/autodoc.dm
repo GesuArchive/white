@@ -14,9 +14,7 @@
 	density = FALSE
 	anchored = TRUE
 	layer = ABOVE_WINDOW_LAYER
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 5000
-	active_power_usage = 300000
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 10
 	pixel_x = -16
 	var/speed_mult = 1
 	var/list/valid_surgeries = list()
@@ -59,6 +57,7 @@
 			valid_surgeries += S
 
 /obj/machinery/autodoc/RefreshParts()
+	. = ..()
 	var/list/P = list()
 	var/avg = 1
 	for(var/obj/item/stock_parts/manipulator/M in component_parts)
@@ -229,6 +228,7 @@
 	if(!state_open)
 		open_machine()
 	update_icon()
+	use_power(active_power_usage)
 
 /obj/machinery/autodoc/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

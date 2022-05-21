@@ -24,6 +24,7 @@
 	AddElement(/datum/element/empprotection, EMP_PROTECT_SELF | EMP_PROTECT_WIRES | EMP_PROTECT_CONTENTS)
 
 /obj/machinery/computer/enernet_control/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "EnerNet", name)
@@ -123,6 +124,7 @@
 	return ..()
 
 /obj/machinery/enernet_coil/RefreshParts()
+	. = ..()
 	var/calc_things = 0
 	for(var/obj/item/stock_parts/capacitor/cap in component_parts)
 		calc_things += cap.rating

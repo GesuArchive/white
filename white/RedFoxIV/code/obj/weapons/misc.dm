@@ -332,7 +332,6 @@
 	var/icon_deny = "chem_seller_deny"
 	var/icon_nopower = "chem_seller_nopower"
 	use_power = IDLE_POWER_USE
-	idle_power_usage = 50
 	var/dispense_power_usage = 250
 	/*
 	var/global/list/users_interacted = list() //сбор данных гуглом

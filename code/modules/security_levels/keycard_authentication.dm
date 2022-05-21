@@ -10,9 +10,6 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 	desc = "Используется для запуска функций станции, для аутентификации которых требуется более одной идентификационной карты."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "auth_off"
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 20
-	active_power_usage = 600
 	power_channel = AREA_USAGE_ENVIRON
 	req_access = list(ACCESS_KEYCARD_AUTH)
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF

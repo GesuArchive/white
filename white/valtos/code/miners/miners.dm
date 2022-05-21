@@ -177,7 +177,7 @@ SUBSYSTEM_DEF(spm)
 		if(!hashrate_total * 10 || surplus() >= hashrate_total * 10)
 			add_load(hashrate_total * 10)
 		else
-			idle_power_usage = 40
+			idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION
 			mining = FALSE
 			return
 

@@ -6,12 +6,13 @@
 	icon_state = "pad-idle"
 	anchored = 1
 	use_power = 1
-	idle_power_usage = 200
-	active_power_usage = 5000
+	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 2
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 2
 	circuit = /obj/item/circuitboard/machine/telesci_pad
 	var/efficiency
 
 /obj/machinery/telepad/RefreshParts()
+	. = ..()
 	var/E
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		E += C.rating

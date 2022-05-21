@@ -6,9 +6,6 @@
 	icon_state = "processor1"
 	layer = BELOW_OBJ_LAYER
 	density = TRUE
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 500
-	active_power_usage = 5000
 	circuit = /obj/item/circuitboard/machine/processor
 	var/broken = FALSE
 	var/processing = FALSE
@@ -17,6 +14,7 @@
 	var/list/processor_contents
 
 /obj/machinery/processor/RefreshParts()
+	. = ..()
 	for(var/obj/item/stock_parts/matter_bin/B in component_parts)
 		rating_amount = B.rating
 	for(var/obj/item/stock_parts/manipulator/M in component_parts)
@@ -118,7 +116,7 @@
 		span_notice("Включаю [src].") , \
 		span_hear("Слышу рёв металла."))
 	playsound(src.loc, 'sound/machines/blender.ogg', 50, TRUE)
-	use_power(500)
+	use_power(active_power_usage)
 	var/total_time = 0
 	for(var/O in processor_contents)
 		var/datum/food_processor_process/P = select_recipe(O)

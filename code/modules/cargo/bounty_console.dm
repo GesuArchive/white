@@ -33,6 +33,7 @@
 		<li>Выполнено: [B.completion_string()]</li></ul>"}
 
 /obj/machinery/computer/bounty/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
 	if(!GLOB.bounties_list.len)
 		setup_bounties()
 	ui = SStgui.try_update_ui(user, src, ui)

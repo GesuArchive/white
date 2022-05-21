@@ -5,9 +5,6 @@
 	name = "фабрикатор экзоскелетов"
 	desc = "Ничего не создаётся."
 	density = TRUE
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 20
-	active_power_usage = 5000
 	req_access = list(ACCESS_ROBOTICS)
 	circuit = /obj/item/circuitboard/machine/mechfab
 	processing_flags = START_PROCESSING_MANUALLY
@@ -75,6 +72,7 @@
 	return ..()
 
 /obj/machinery/mecha_part_fabricator/RefreshParts()
+	. = ..()
 	var/T = 0
 
 	//maximum stocking amount (default 300000, 600000 at T4)

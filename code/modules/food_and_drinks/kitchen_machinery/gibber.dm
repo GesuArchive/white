@@ -4,9 +4,6 @@
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "grinder"
 	density = TRUE
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 20
-	active_power_usage = 5000
 	circuit = /obj/item/circuitboard/machine/gibber
 
 	var/operating = FALSE //Is it on?
@@ -21,6 +18,7 @@
 	add_overlay("grjam")
 
 /obj/machinery/gibber/RefreshParts()
+	. = ..()
 	gibtime = 40
 	meat_produced = 0
 	for(var/obj/item/stock_parts/matter_bin/B in component_parts)
@@ -140,7 +138,7 @@
 		audible_message(span_hear("You hear a loud metallic grinding sound."))
 		return
 
-	use_power(1000)
+	use_power(active_power_usage)
 	audible_message(span_hear("You hear a loud squelchy grinding sound."))
 	playsound(loc, 'sound/machines/juicer.ogg', 50, TRUE)
 	operating = TRUE

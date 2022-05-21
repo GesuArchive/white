@@ -26,8 +26,6 @@ GLOBAL_VAR_INIT(display_font_color, pick("#09f", "#f90", "#5f5", "#fff", "#f55",
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
 	density = FALSE
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 10
 
 	layer = SIGN_LAYER
 

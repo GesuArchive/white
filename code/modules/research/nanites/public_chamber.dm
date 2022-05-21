@@ -5,11 +5,9 @@
 	icon = 'icons/obj/machines/nanite_chamber.dmi'
 	icon_state = "nanite_chamber"
 	layer = ABOVE_WINDOW_LAYER
-	use_power = IDLE_POWER_USE
 	anchored = TRUE
 	density = TRUE
-	idle_power_usage = 5000
-	active_power_usage = 30000
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 10
 
 	var/cloud_id = 1
 	var/locked = FALSE
@@ -23,6 +21,7 @@
 	occupant_typecache = GLOB.typecache_living
 
 /obj/machinery/public_nanite_chamber/RefreshParts()
+	. = ..()
 	var/obj/item/circuitboard/machine/public_nanite_chamber/board = circuit
 	if(board)
 		cloud_id = board.cloud_id
@@ -48,6 +47,7 @@
 	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "[initial(icon_state)]_active"),20)
 	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "[initial(icon_state)]_falling"),60)
 	addtimer(CALLBACK(src, .proc/complete_injection, locked_state, attacker),80)
+	use_power(active_power_usage)
 
 /obj/machinery/public_nanite_chamber/proc/complete_injection(locked_state, mob/living/attacker)
 	//TODO MACHINE DING

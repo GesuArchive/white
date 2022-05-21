@@ -12,8 +12,7 @@
 	desc = "Мощное аппаратное обеспечение, используемое для передачи огромных объемов данных на огромное расстояние."
 	telecomms_type = /obj/machinery/telecomms/relay
 	density = TRUE
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 30
+	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.01
 	netspeed = 5
 	long_range_link = 1
 	circuit = /obj/item/circuitboard/machine/telecomms/relay
@@ -30,6 +29,8 @@
 				signal.levels |= z
 		else
 			signal.levels |= relay_turf.z
+
+	use_power(idle_power_usage)
 
 // Checks to see if it can send/receive.
 

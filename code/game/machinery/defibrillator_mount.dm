@@ -208,7 +208,6 @@
 	desc = "Рама для закрепления дефибриллятора на стене. Подключает устройство к станционной энергосети."
 	icon_state = "penlite_mount"
 	use_power = IDLE_POWER_USE
-	idle_power_usage = 1
 	wallframe_type = /obj/item/wallframe/defib_mount/charging
 
 
@@ -230,7 +229,7 @@
 	if(!C || !is_operational)
 		return PROCESS_KILL
 	if(C.charge < C.maxcharge)
-		use_power(50 * delta_time)
+		use_power(active_power_usage * delta_time)
 		C.give(40 * delta_time)
 		update_icon()
 

@@ -176,7 +176,6 @@
 	max_integrity = 250
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "burst_plasma"
-	idle_power_usage = 150
 	circuit = /obj/item/circuitboard/machine/shuttle/engine
 	var/icon_state_closed = "burst_plasma"
 	var/icon_state_open = "burst_plasma_open"

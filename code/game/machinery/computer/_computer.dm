@@ -3,9 +3,6 @@
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "computer"
 	density = TRUE
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 300
-	active_power_usage = 3000
 	max_integrity = 200
 	integrity_failure = 0.5
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 40, ACID = 20)
@@ -217,3 +214,13 @@
 		var/datum/tgui/ui = new(user, src, "DreamerCorruption", IS_DREAMER(user) ? "ШЕДЕВР" : "УЖАС! УЖАС! УЖАС!")
 		ui.open()
 	. = ..()
+
+/obj/machinery/computer/ui_interact(mob/user, datum/tgui/ui)
+	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
+	update_use_power(ACTIVE_POWER_USE)
+
+/obj/machinery/computer/ui_close(mob/user)
+	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
+	update_use_power(IDLE_POWER_USE)

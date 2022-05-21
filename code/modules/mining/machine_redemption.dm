@@ -36,6 +36,7 @@
 	return ..()
 
 /obj/machinery/mineral/ore_redemption/RefreshParts()
+	. = ..()
 	var/point_upgrade_temp = 1
 	var/ore_multiplier_temp = 1
 	for(var/obj/item/stock_parts/matter_bin/B in component_parts)

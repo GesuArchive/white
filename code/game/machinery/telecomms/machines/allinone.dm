@@ -45,7 +45,6 @@
 
 /obj/machinery/telecomms/allinone/exploration
 	name = "мейнфрейм рейнджеров"
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 50
+	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.02
 	freq_listening = list(FREQ_EXPLORATION)
 	autolinkers = list("exp_relay")

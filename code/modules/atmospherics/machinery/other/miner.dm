@@ -26,8 +26,8 @@
 	var/power_draw_dynamic_kpa_coeff = 0.5
 	var/broken = FALSE
 	var/broken_message = "АШЫПКА"
-	idle_power_usage = 1500
-	active_power_usage = 9000
+	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 1.5
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 2
 
 /obj/machinery/atmospherics/miner/Initialize()
 	. = ..()

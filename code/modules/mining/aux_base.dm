@@ -53,6 +53,7 @@
 	AddComponent(/datum/component/gps, "NT_AUX")
 
 /obj/machinery/computer/auxiliary_base/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "AuxBaseConsole", name)

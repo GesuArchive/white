@@ -42,9 +42,6 @@
 	density = TRUE
 	circuit = /obj/item/circuitboard/computer/scan_consolenew
 
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 100
-	active_power_usage = 4000
 	light_color = LIGHT_COLOR_BLUE
 
 	/// Link to the techweb's stored research. Used to retrieve stored mutations
@@ -213,6 +210,7 @@
 	stored_research = SSresearch.science_tech
 
 /obj/machinery/computer/scan_consolenew/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
 	// Most of ui_interact is spent setting variables for passing to the tgui
 	//  interface.
 	// We can also do some general state processing here too as it's a good
@@ -403,6 +401,7 @@
 			scrambleready = world.time + SCRAMBLE_TIMEOUT
 			to_chat(usr,span_notice("DNA scrambled."))
 			scanner_occupant.radiation += RADIATION_STRENGTH_MULTIPLIER*50/(connected_scanner.damage_coeff ** 2)
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Check whether a specific mutation is eligible for discovery within the
@@ -527,6 +526,7 @@
 			// Check if we cracked a mutation
 			check_discovery(alias)
 
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Apply a chromosome to a specific mutation.
@@ -561,6 +561,7 @@
 					stored_chromosomes -= CM
 					CM.apply(HM)
 
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Attempt overwriting Base DNA : The pairs are instead the top row vs the top row of the new code.
@@ -696,7 +697,7 @@
 				//Not sure what this does but it seems to be a sanity check and this needs a sanity check
 				scanner_occupant.domutcheck()
 
-
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 
@@ -777,6 +778,7 @@
 				else
 					injectorready = world.time + INJECTOR_TIMEOUT * 5
 
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Save a mutation to the console's storage buffer.
@@ -811,6 +813,7 @@
 			A.copy_mutation(HM)
 			stored_mutations += A
 			to_chat(usr,span_notice("Mutation successfully stored."))
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Save a mutation to the diskette's storage buffer.
@@ -861,6 +864,7 @@
 			A.copy_mutation(HM)
 			diskette.mutations += A
 			to_chat(usr,span_notice("Mutation successfully stored to disk."))
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Completely removes a MUT_EXTRA mutation or mutation with corrupt gene
@@ -886,6 +890,7 @@
 				return
 
 			scanner_occupant.dna.remove_mutation(HM.type)
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Deletes saved mutation from console buffer.
@@ -899,6 +904,7 @@
 				stored_mutations.Remove(HM)
 				qdel(HM)
 
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Deletes saved mutation from disk buffer.
@@ -923,6 +929,7 @@
 				diskette.mutations.Remove(HM)
 				qdel(HM)
 
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Ejects a stored chromosome from the DNA Console
@@ -938,6 +945,7 @@
 					stored_chromosomes -= CM
 					return
 
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Combines two mutations from the console to try and create a new mutation
@@ -984,6 +992,7 @@
 			var/datum/mutation/human/HM = GET_INITIALIZED_MUTATION(result_path)
 			stored_research.discovered_mutations += result_path
 			say("Successfully mutated [HM.name].")
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Combines two mutations from the disk to try and create a new mutation
@@ -1046,6 +1055,7 @@
 			var/datum/mutation/human/HM = GET_INITIALIZED_MUTATION(result_path)
 			stored_research.discovered_mutations += result_path
 			say("Successfully mutated [HM.name].")
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Sets the Genetic Makeup pulse strength.
@@ -1055,6 +1065,7 @@
 		if("set_pulse_strength")
 			var/value = round(text2num(params["val"]))
 			radstrength = WRAP(value, 1, RADIATION_STRENGTH_MAX+1)
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Sets the Genetic Makeup pulse duration
@@ -1064,6 +1075,7 @@
 		if("set_pulse_duration")
 			var/value = round(text2num(params["val"]))
 			radduration = WRAP(value, 1, RADIATION_DURATION_MAX+1)
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Saves Genetic Makeup information to disk
@@ -1094,6 +1106,7 @@
 				return
 
 			diskette.genetic_makeup_buffer = buffer_slot.Copy()
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Loads Genetic Makeup from disk to a console buffer
@@ -1116,6 +1129,7 @@
 			var/buffer_index = text2num(params["index"])
 			buffer_index = clamp(buffer_index, 1, NUMBER_OF_BUFFERS)
 			genetic_makeup_buffer[buffer_index] = diskette.genetic_makeup_buffer.Copy()
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Deletes genetic makeup buffer from the inserted diskette
@@ -1132,6 +1146,7 @@
 				return
 
 			diskette.genetic_makeup_buffer.Cut()
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Saves the scanner occupant's genetic makeup to a given console buffer
@@ -1158,6 +1173,7 @@
 				"name"=scanner_occupant.real_name,
 				"blood_type"=scanner_occupant.dna.blood_type)
 
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Deleted genetic makeup data from a console buffer slot
@@ -1178,11 +1194,13 @@
 				return
 
 			genetic_makeup_buffer[buffer_index] = null
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Eject stored diskette from console
 		if("eject_disk")
 			eject_disk(usr)
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Create a Genetic Makeup injector. These injectors are timed and thus are
@@ -1263,6 +1281,7 @@
 			if(I)
 				injectorready = world.time + INJECTOR_TIMEOUT
 
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Applies a genetic makeup buffer to the scanner occupant
@@ -1295,6 +1314,7 @@
 			var/type = params["type"]
 
 			apply_genetic_makeup(type, buffer_slot)
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Applies a genetic makeup buffer to the next scanner occupant. This sets
@@ -1329,6 +1349,7 @@
 			// Set the delayed action. The next time the scanner door is closed,
 			//  unless this is cancelled in the UI, the action will happen
 			delayed_action = list("type" = type, "buffer_slot" = buffer_slot)
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Attempts to modify the indexed element of the Unique Identity string
@@ -1348,6 +1369,7 @@
 			rad_pulse_timer = world.time + (radduration*10)
 			rad_pulse_index = WRAP(text2num(params["index"]), 1, len+1)
 			begin_processing()
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Cancels the delayed action - In this context it is not the radiation
@@ -1355,6 +1377,7 @@
 		//  the delayed genetic transfer from "makeup_delay"
 		if("cancel_delay")
 			delayed_action = null
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Creates a new advanced injector storage buffer in the console
@@ -1379,6 +1402,7 @@
 				return
 
 			injector_selection[inj_name] = list()
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Deleted an advanced injector storage buffer from the console
@@ -1395,6 +1419,7 @@
 				return
 
 			injector_selection.Remove(inj_name)
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Creates an injector from an advanced injector buffer
@@ -1439,6 +1464,7 @@
 			else
 				injectorready = world.time + INJECTOR_TIMEOUT * 8
 
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Adds a mutation to an advanced injector
@@ -1508,6 +1534,7 @@
 			A.copy_mutation(HM)
 			injector_selection[adv_inj] += A
 			to_chat(usr,span_notice("Mutation successfully added to advanced injector."))
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Deletes a mutation from an advanced injector
@@ -1528,6 +1555,7 @@
 					qdel(HM)
 					return
 
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Sets a new tgui view state

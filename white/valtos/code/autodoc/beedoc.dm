@@ -6,7 +6,7 @@
 	icon = 'white/valtos/icons/64x64_autodoc.dmi'
 	icon_state = "autodoc_machine"
 	verb_say = "констатирует"
-	idle_power_usage = 500
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 10
 	circuit = /obj/item/circuitboard/machine/organdoc
 	var/obj/item/organ/storedorgan
 	var/organ_type = /obj/item/organ
@@ -18,6 +18,7 @@
 	update_icon()
 
 /obj/machinery/organdoc/RefreshParts()
+	. = ..()
 	var/max_time = 350
 	for(var/obj/item/stock_parts/L in component_parts)
 		max_time -= (L.rating*10)
@@ -81,7 +82,7 @@
 		occupant.visible_message(span_notice("Органдок завершает хирургическую процедуру") , span_notice("Органдок вставляет орган в моё тело."))
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, 0)
 	processing = FALSE
-	use_power(5000)
+	use_power(active_power_usage)
 	open_machine()
 
 /obj/machinery/organdoc/open_machine(mob/user)

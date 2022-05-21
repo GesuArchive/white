@@ -14,8 +14,6 @@
 	icon = 'icons/obj/machines/kitchenmachines.dmi'
 	icon_state = "oven_off"
 	density = TRUE
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 5
 	layer = BELOW_OBJ_LAYER
 	circuit = /obj/item/circuitboard/machine/oven
 	processing_flags = START_PROCESSING_MANUALLY
@@ -82,7 +80,7 @@
 			visible_message(span_danger("Веет чем-то сгоревшим со стороны [src.name]!"))
 	set_smoke_state(worst_cooked_food_state)
 	update_icon()
-
+	use_power(active_power_usage)
 
 /obj/machinery/oven/attackby(obj/item/I, mob/user, params)
 	if(open && !used_tray && istype(I, /obj/item/plate/oven_tray))

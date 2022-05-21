@@ -67,9 +67,8 @@
 	desc = "Устройство, которое управляет атмосферой в отсеке."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "alarm0"
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 400
-	active_power_usage = 8000
+	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.05
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.02
 	power_channel = AREA_USAGE_ENVIRON
 	req_access = list(ACCESS_ATMOSPHERICS)
 	max_integrity = 250

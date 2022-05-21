@@ -86,6 +86,7 @@
 		say("Пошёл нахуй, ящер ёбаный.")
 		//to_chat(user, span_warning("Пошёл на хуй, ящер ёбаный."))
 		return
+	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "OrbitalMap")
@@ -94,6 +95,7 @@
 	ui.set_autoupdate(FALSE)
 
 /obj/machinery/computer/shuttle_flight/ui_close(mob/user, datum/tgui/tgui)
+	. = ..()
 	SSorbits.open_orbital_maps -= tgui
 
 /obj/machinery/computer/shuttle_flight/ui_static_data(mob/user)

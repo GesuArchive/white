@@ -4,9 +4,6 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "recharger"
 	base_icon_state = "recharger"
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 400
-	active_power_usage = 25000
 	circuit = /obj/item/circuitboard/machine/recharger
 	pass_flags = PASSTABLE
 	var/obj/item/charging = null
@@ -22,6 +19,7 @@
 		/obj/item/kinetic_shield))
 
 /obj/machinery/recharger/RefreshParts()
+	. = ..()
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		recharge_coeff = C.rating
 
@@ -137,7 +135,7 @@
 		if(C)
 			if(C.charge < C.maxcharge)
 				C.give(C.chargerate * recharge_coeff * delta_time / 2)
-				use_power(1250 * recharge_coeff * delta_time)
+				use_power(active_power_usage * recharge_coeff * delta_time)
 				using_power = TRUE
 			update_icon()
 
@@ -145,7 +143,7 @@
 			var/obj/item/ammo_box/magazine/recharge/R = charging
 			if(R.stored_ammo.len < R.max_ammo)
 				R.stored_ammo += new R.ammo_type(R)
-				use_power(1000 * recharge_coeff * delta_time)
+				use_power(active_power_usage * recharge_coeff * delta_time)
 				using_power = TRUE
 			update_icon()
 			return

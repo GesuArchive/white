@@ -20,6 +20,8 @@
 	construction_type = /obj/item/pipe/directional
 	pipe_state = "pvalve"
 
+	use_power = NO_POWER_USE
+
 /obj/machinery/atmospherics/components/binary/pressure_valve/CtrlClick(mob/user)
 	if(can_interact(user))
 		on = !on

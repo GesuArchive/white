@@ -16,8 +16,6 @@
 	density = TRUE
 	layer = ABOVE_MOB_LAYER
 	plane = GAME_PLANE_UPPER
-	use_power = IDLE_POWER_USE
-	active_power_usage = 15000
 	circuit = /obj/item/circuitboard/machine/bepis
 
 	var/banking_amount = 100
@@ -74,6 +72,7 @@
 	return ..()
 
 /obj/machinery/rnd/bepis/RefreshParts()
+	. = ..()
 	var/C = 0
 	var/M = 0
 	var/L = 0

@@ -30,8 +30,6 @@ and clear when youre done! if you dont i will use :newspaper2: on you
 	name = "консоль управления голодеком"
 	desc = "Компьютер, который использется для управления ближайшим голодеком."
 	icon_screen = "holocontrol"
-	idle_power_usage = 1000
-	active_power_usage = 5000
 
 	//new vars
 	///what area type this holodeck loads into. linked turns into the nearest instance of this area
@@ -125,6 +123,7 @@ and clear when youre done! if you dont i will use :newspaper2: on you
 			LAZYADD(program_cache, list(info_this))
 
 /obj/machinery/computer/holodeck/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Holodeck", name)
@@ -339,7 +338,7 @@ and clear when youre done! if you dont i will use :newspaper2: on you
 	for(var/_effect in effects)
 		var/obj/effect/holodeck_effect/holo_effect = _effect
 		holo_effect.tick()
-	update_mode_power_usage(ACTIVE_POWER_USE, 50 + spawned.len * 3 + effects.len * 5)
+	update_mode_power_usage(ACTIVE_POWER_USE, active_power_usage + spawned.len * 3 + effects.len * 5)
 
 /obj/machinery/computer/holodeck/proc/toggle_power(toggleOn = FALSE)
 	if(active == toggleOn)

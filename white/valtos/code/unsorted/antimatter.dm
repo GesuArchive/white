@@ -87,9 +87,6 @@
 	icon_state = "control"
 	anchored = FALSE
 	density = TRUE
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 100
-	active_power_usage = 1000
 
 	interaction_flags_atom = INTERACT_ATOM_ATTACK_HAND | INTERACT_ATOM_UI_INTERACT | INTERACT_ATOM_REQUIRES_ANCHORED
 
@@ -428,8 +425,6 @@
 	density = TRUE
 	dir = NORTH
 	use_power = NO_POWER_USE//Living things generally dont use power
-	idle_power_usage = 0
-	active_power_usage = 0
 
 	var/obj/machinery/power/am_control_unit/control_unit = null
 	var/processing = FALSE//To track if we are in the update list or not, we need to be when we are damaged and if we ever

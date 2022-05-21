@@ -17,7 +17,6 @@
 	var/icon_state_closed = "heater_pipe"
 	var/icon_state_open = "heater_pipe_open"
 	var/icon_state_off = "heater_pipe"
-	idle_power_usage = 50
 	circuit = /obj/item/circuitboard/machine/shuttle/heater
 
 	density = TRUE
@@ -70,6 +69,7 @@
 	return TRUE
 
 /obj/machinery/atmospherics/components/unary/shuttle/heater/RefreshParts()
+	. = ..()
 	var/cap = 0
 	var/eff = 0
 	for(var/obj/item/stock_parts/matter_bin/M in component_parts)

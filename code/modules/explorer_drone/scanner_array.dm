@@ -196,8 +196,6 @@ GLOBAL_LIST_INIT(scan_conditions,init_scan_conditions())
 	desc = "Сложная сканирующая матрица. Уязвима к воздействию окружающей среды."
 	icon = 'icons/obj/exploration.dmi'
 	icon_state = "scanner_off"
-	idle_power_usage = 0
-	active_power_usage = 5000
 
 /obj/machinery/exoscanner/Initialize()
 	. = ..()
