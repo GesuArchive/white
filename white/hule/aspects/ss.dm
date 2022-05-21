@@ -8,6 +8,7 @@ SUBSYSTEM_DEF(aspects)
 
 	var/ca_name = "LOBBY"
 	var/ca_desc = "Секрет."
+	var/shown_desc = "Кря!" //Показываемое игрокам описание. Нужно только для того, чтобы в конце раунда показывалось нормальное описание
 
 	var/list/aspects = list()
 	var/list/forced_aspects = list()
@@ -40,7 +41,10 @@ SUBSYSTEM_DEF(aspects)
 		current_aspect.run_aspect()
 		ca_name = current_aspect.name
 		ca_desc = current_aspect.desc
+		shown_desc = ca_desc
+		if((current_aspect.hidden && prob(80)) || (current_aspect.high_impact && prob(40)) || prob(5))
+			shown_desc = "Меня ждет сюрприз!"
 
 	for(var/P in GLOB.mob_living_list)
 		spawn(5 SECONDS)
-			to_chat(P, "\n<span class='notice'><B>[gvorno(TRUE)]:</B> [ca_desc]</span>\n")
+			to_chat(P, "\n<span class='notice'><B>[gvorno(TRUE)]:</B> [shown_desc]</span>\n")

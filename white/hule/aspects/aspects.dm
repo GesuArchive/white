@@ -3,6 +3,8 @@
 	var/desc = "Ничего."
 	var/weight = 150
 	var/forbidden = FALSE
+	var/high_impact = FALSE
+	var/hidden = FALSE //Не палим аспект в начале раунда для большей ржомбы
 
 /datum/round_aspect/proc/run_aspect()
 	SSblackbox.record_feedback("tally", "aspect", 1, name) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -21,6 +23,7 @@
 	name = "Bombass"
 	desc = "Кто-то заложил мины на станции!"
 	weight = 14
+	high_impact = TRUE
 
 /datum/round_aspect/bom_bass/run_aspect()
 	for(var/turf/X in GLOB.xeno_spawn)
@@ -53,6 +56,7 @@
 	name = "Airunlock"
 	desc = "Кого волнует безопасность? Экипаж свободно может ходить по всем отсекам, ведь все шлюзы теперь для них доступны."
 	weight = 30
+	high_impact = TRUE
 
 /datum/round_aspect/airunlock/run_aspect()
 	for(var/obj/machinery/door/D in GLOB.machines)
@@ -276,6 +280,7 @@
 	desc = "Люди спешат и не важно куда."
 	weight = 9
 	forbidden = TRUE
+	high_impact = TRUE
 
 /datum/round_aspect/fast_and_furious/run_aspect()
 	CONFIG_SET(number/movedelay/run_delay, 1)
@@ -284,8 +289,9 @@
 /datum/round_aspect/weak
 	name = "Weak"
 	desc = "Удары стали слабее. Пули мягче. К чему это приведёт?"
-	weight = 6
+	weight = 3
 	forbidden = TRUE
+	high_impact = TRUE
 
 /datum/round_aspect/weak/run_aspect()
 	CONFIG_SET(number/damage_multiplier, 0.5)
@@ -296,6 +302,7 @@
 	desc = "Шахтёры притащили неизвестный артефакт дарующий бессмертие и активировали его на станции. Никто не сможет получить достаточных травм, чтобы погибнуть. Наверное."
 	weight = 1
 	forbidden = TRUE
+	hidden =  TRUE
 
 /datum/round_aspect/immortality/run_aspect()
 	CONFIG_SET(number/damage_multiplier, 0)
@@ -304,8 +311,9 @@
 /datum/round_aspect/bloody
 	name = "Bloody"
 	desc = "В эту смену любая незначительная травма может оказаться летальной."
-	weight = 6
+	weight = 2
 	forbidden = TRUE
+	high_impact = TRUE
 
 /datum/round_aspect/bloody/run_aspect()
 	CONFIG_SET(number/damage_multiplier, 3)
@@ -316,6 +324,7 @@
 	desc = "Критическая масса ассистентов увеличивается с каждой минутой. ЦК решило перенаправить эту нагрузку и на вашу станцию."
 	weight = 9
 	forbidden = TRUE
+	high_impact = TRUE
 
 /datum/controller/subsystem/job/proc/DisableJobsButThis(job_path)
 	for(var/I in occupations)
@@ -360,6 +369,7 @@
 	weight = 8
 	forbidden = TRUE
 
+
 /datum/round_aspect/battled/run_aspect()
 	SSbtension.forced_tension = TRUE
 	spawn(5 SECONDS)
@@ -390,6 +400,7 @@
 	name = "Unlimited"
 	desc = "Из-за бюрократической ошибки станция позволяет удерживать в себе неограниченное количество людей на любой должности."
 	weight = 5
+	high_impact = TRUE
 
 /datum/round_aspect/who_is_the_king/run_aspect()
 	SSjob.AllowAllJobs()
@@ -475,6 +486,7 @@
 	name = "Random DMG"
 	desc = "Везёт же некоторым, а может и не везёт. Наше восприятие искажено до такой степени, что мы можем прожечь себе руку холодным ножом."
 	weight = 15
+	high_impact = TRUE
 
 /datum/round_aspect/rdmg/run_aspect()
 	GLOB.random_damage_goes_on = TRUE
@@ -504,8 +516,9 @@
 /datum/round_aspect/hungry_bin
 	name = "Hungry Bin"
 	desc = "Мусорки проголодались!"
-	weight = 5
+	weight = 1
 	forbidden = TRUE
+	hidden = TRUE
 
 /datum/round_aspect/hungry_bin/run_aspect()
 	GLOB.disposals_are_hungry = TRUE
@@ -578,15 +591,49 @@
 /datum/round_aspect/traitored
 	name = "Traitored"
 	desc = "Кто-то сдал всех предателей!"
-	weight = 15
+	weight = 4
+	forbidden = TRUE
+	hidden = TRUE
 
 /datum/round_aspect/traitored/run_aspect()
-	spawn(30 SECONDS)
+	spawn(40 SECONDS)
+		//var/list/uplinks = list()
+		var/list/tators = list()
+
+		for(var/datum/mind/baddie in get_antag_minds(/datum/antagonist/traitor))
+			//uplinks += baddie.find_syndicate_uplink()
+			tators += baddie
+
+
+		for(var/mob/living/syndie in tators)
+			to_chat(syndie, span_alert("Внимание, коммуникации синдиката перехвачены, вас раскрыли!"))
+			syndie.playsound_local(get_turf(syndie), 'white/alexs410/sound/palevo.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
+
+	spawn(rand(20, 300) SECONDS)
 		var/list/our_pussies = list()
+		var/list/no_announce = list(/datum/antagonist/nukeop,
+									/datum/antagonist/wizard,
+									/datum/antagonist/wizard_minion,
+									/datum/antagonist/nightmare,
+									/datum/antagonist/ashwalker,
+									/datum/antagonist/rev,
+									/datum/antagonist/revenant
+									) //Эти антаги не раскрываются
+		var/list/sneaky = list(/datum/antagonist/heretic,
+								/datum/antagonist/rev/head,
+								/datum/antagonist/cult
+								) //Эти антаги имеют шанс на НЕРАСКРЫТИЕ
 		for(var/D in GLOB.antagonists)
 			var/datum/antagonist/A = D
+
+			if(A in no_announce)
+				continue
+			if(A in sneaky && prob(66))
+				continue
 			if(A?.name && A?.owner)
+
 				our_pussies += "[A.name] - [A.owner.name] под видом [A.owner.assigned_role][prob(1) ? ". УБЕЙТЕ ЕГО НАХУЙ!" : ""]"
+
 		priority_announce("Прива, я тут немного собрал для вас имён интересных, надеюсь, они вам понадобятся! Список психов: [english_list(our_pussies)]", sender_override = "Апегио Крысус")
 	..()
 
