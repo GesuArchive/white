@@ -237,6 +237,8 @@
 										/obj/machinery/portable_atmospherics,
 										/obj/machinery/power/emitter,
 										/obj/machinery/field/generator,
+										/obj/machinery/power/generator,
+										/obj/machinery/atmospherics/components/binary/circulator,
 										/mob/living/simple_animal,
 										/obj/machinery/particle_accelerator/control_box,
 										/obj/structure/particle_accelerator/fuel_chamber,

@@ -1,6 +1,6 @@
 /obj/machinery/power/generator
-	name = "термоэлектрический генератор (ТЭГ)"
-	desc = "Высокоэффективный газовый термоэлектрический генератор."
+	name = "термоэлектрический генератор"
+	desc = "Высокоэффективный газовый термоэлектрический генератор. Может быть нестабилен, если разогнан слишком сильно."
 	icon = 'white/valtos/icons/teg.dmi'
 	icon_state = "teg-unassembled"
 	density = TRUE
@@ -101,6 +101,14 @@
 	add_avail(power_output)
 	lastgenlev = power_output
 	lastgen -= power_output
+	switch(lastgenlev)
+		if(1000000 to 3000000)
+			tesla_zap(src, 3, lastgenlev * 0.01)
+		if(3000001 to 5000000)
+			tesla_zap(src, 7, lastgenlev * 0.1)
+		if(5000001 to INFINITY)
+			explosion(src, devastation_range = 3, heavy_impact_range = 6, light_impact_range = 12)
+			return PROCESS_KILL
 	..()
 
 /obj/machinery/power/generator/proc/get_menu(include_link = TRUE)
