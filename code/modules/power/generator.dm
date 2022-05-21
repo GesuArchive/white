@@ -103,12 +103,15 @@
 	lastgen -= power_output
 	switch(lastgenlev)
 		if(1000000 to 3000000)
-			tesla_zap(src, 3, lastgenlev * 0.01)
+			if(prob(50))
+				tesla_zap(src, 3, lastgenlev * 0.01)
 		if(3000001 to 5000000)
-			tesla_zap(src, 7, lastgenlev * 0.1)
+			if(prob(75))
+				tesla_zap(src, 7, lastgenlev * 0.1)
 		if(5000001 to INFINITY)
-			explosion(src, devastation_range = 3, heavy_impact_range = 6, light_impact_range = 12)
-			return PROCESS_KILL
+			if(prob(5))
+				explosion(src, devastation_range = 3, heavy_impact_range = 6, light_impact_range = 12)
+				return PROCESS_KILL
 	..()
 
 /obj/machinery/power/generator/proc/get_menu(include_link = TRUE)
