@@ -713,7 +713,13 @@ GLOBAL_LIST_EMPTY(emergency_storages)
 /obj/item/storage/pod/attack_hand(mob/user)
 	if (can_interact(user))
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SHOW, user)
-	return TRUE
+		return TRUE
+	return FALSE
+
+/obj/item/storage/pod/attack_hand_secondary(mob/user, list/modifiers)
+	if(!can_interact(user))
+		return
+	..()
 
 /obj/item/storage/pod/MouseDrop(over_object, src_location, over_location)
 	if(can_interact(usr))
