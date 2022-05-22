@@ -163,6 +163,11 @@
 	name = "инженерный гардероб"
 	icon_door = "yellow"
 
+/obj/structure/closet/wardrobe/engineering_yellow/Initialize(mapload)
+	. = ..()
+	if(prob(10))
+		name = "гардероб инженегров"
+
 /obj/structure/closet/wardrobe/engineering_yellow/PopulateContents()
 	var/static/items_inside = list(
 		/obj/item/clothing/accessory/pocketprotector = 1,
