@@ -144,7 +144,7 @@
 	generate_items_inside(items_inside,src)
 
 /obj/structure/closet/wardrobe/atmospherics_yellow
-	name = "гардероб атмосферников"
+	name = "атмосферный гардероб"
 	icon_door = "atmos_wardrobe"
 
 /obj/structure/closet/wardrobe/atmospherics_yellow/PopulateContents()
@@ -160,7 +160,7 @@
 	return
 
 /obj/structure/closet/wardrobe/engineering_yellow
-	name = "гардероб инженегров"
+	name = "инженерный гардероб"
 	icon_door = "yellow"
 
 /obj/structure/closet/wardrobe/engineering_yellow/PopulateContents()
@@ -178,7 +178,7 @@
 	return
 
 /obj/structure/closet/wardrobe/white/medical
-	name = "гардероб медиков"
+	name = "медицинский гардероб"
 
 /obj/structure/closet/wardrobe/white/medical/PopulateContents()
 	var/static/items_inside = list(
@@ -221,7 +221,7 @@
 
 
 /obj/structure/closet/wardrobe/chemistry_white
-	name = "гардероб химиков"
+	name = "гардероб химии"
 	icon_door = "white"
 
 /obj/structure/closet/wardrobe/chemistry_white/PopulateContents()
@@ -285,7 +285,7 @@
 	return
 
 /obj/structure/closet/wardrobe/botanist
-	name = "гардероб ботаника"
+	name = "гардероб ботаники"
 	icon_door = "green"
 
 /obj/structure/closet/wardrobe/botanist/PopulateContents()
