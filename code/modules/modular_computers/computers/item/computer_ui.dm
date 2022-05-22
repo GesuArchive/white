@@ -61,15 +61,16 @@
 /obj/item/modular_computer/ui_data(mob/user)
 	var/list/data = get_header_data()
 	data["device_theme"] = device_theme
-
 	data["login"] = list()
 
 	data["disk"] = null
 
 	var/obj/item/computer_hardware/card_slot/cardholder = all_components[MC_CARD]
 	data["cardholder"] = FALSE
+
 	if(cardholder)
 		data["cardholder"] = TRUE
+
 		var/stored_name = saved_identification
 		var/stored_title = saved_job
 		if(!stored_name)
