@@ -97,6 +97,10 @@ Medical HUD! Basic mode needs suit sensors on.
 /mob/living/carbon/proc/check_virus()
 	var/threat
 	var/severity
+	if(HAS_TRAIT(src, TRAIT_DISEASELIKE_SEVERITY_MEDIUM))
+		severity = DISEASE_SEVERITY_MEDIUM
+		threat = get_disease_severity_value(severity)
+
 	for(var/thing in diseases)
 		var/datum/disease/D = thing
 		if(!(D.visibility_flags & HIDDEN_SCANNER))
@@ -165,12 +169,9 @@ Medical HUD! Basic mode needs suit sensors on.
 //called when a living mob changes health
 /mob/living/proc/med_hud_set_health()
 	var/image/holder = hud_list[HEALTH_HUD]
-	if(holder)
-		holder.icon_state = "hud[RoundHealth(src)]"
-		var/icon/I = icon(icon, icon_state, dir)
-		holder.pixel_y = I.Height() - world.icon_size
-	else
-		stack_trace("[src] does not have a HEALTH_HUD but updates it!")
+	holder.icon_state = "hud[RoundHealth(src)]"
+	var/icon/I = icon(icon, icon_state, dir)
+	holder.pixel_y = I.Height() - world.icon_size
 
 //for carbon suit sensors
 /mob/living/carbon/med_hud_set_health()
@@ -179,49 +180,43 @@ Medical HUD! Basic mode needs suit sensors on.
 //called when a carbon changes stat, virus or XENO_HOST
 /mob/living/proc/med_hud_set_status()
 	var/image/holder = hud_list[STATUS_HUD]
-	if(holder)
-		var/icon/I = icon(icon, icon_state, dir)
-		holder.pixel_y = I.Height() - world.icon_size
-		if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
-			holder.icon_state = "huddead"
-		else
-			holder.icon_state = "hudhealthy"
+	var/icon/I = icon(icon, icon_state, dir)
+	holder.pixel_y = I.Height() - world.icon_size
+	if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
+		holder.icon_state = "huddead"
 	else
-		stack_trace("[src] does not have a HEALTH_HUD but updates it!")
+		holder.icon_state = "hudhealthy"
 
 /mob/living/carbon/med_hud_set_status()
 	var/image/holder = hud_list[STATUS_HUD]
-	if(holder)
-		var/icon/I = icon(icon, icon_state, dir)
-		var/virus_threat = check_virus()
-		holder.pixel_y = I.Height() - world.icon_size
-		if(HAS_TRAIT(src, TRAIT_XENO_HOST))
-			holder.icon_state = "hudxeno"
-		else if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
-			if((key || get_ghost(FALSE, TRUE)) && (can_defib() & DEFIB_REVIVABLE_STATES))
-				holder.icon_state = "huddefib"
-			else
-				holder.icon_state = "huddead"
+	var/icon/I = icon(icon, icon_state, dir)
+	var/virus_threat = check_virus()
+	holder.pixel_y = I.Height() - world.icon_size
+	if(HAS_TRAIT(src, TRAIT_XENO_HOST))
+		holder.icon_state = "hudxeno"
+	else if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
+		if((key || get_ghost(FALSE, TRUE)) && (can_defib() & DEFIB_REVIVABLE_STATES))
+			holder.icon_state = "huddefib"
 		else
-			switch(virus_threat)
-				if(DISEASE_SEVERITY_BIOHAZARD)
-					holder.icon_state = "hudill5"
-				if(DISEASE_SEVERITY_DANGEROUS)
-					holder.icon_state = "hudill4"
-				if(DISEASE_SEVERITY_HARMFUL)
-					holder.icon_state = "hudill3"
-				if(DISEASE_SEVERITY_MEDIUM)
-					holder.icon_state = "hudill2"
-				if(DISEASE_SEVERITY_MINOR)
-					holder.icon_state = "hudill1"
-				if(DISEASE_SEVERITY_NONTHREAT)
-					holder.icon_state = "hudill0"
-				if(DISEASE_SEVERITY_POSITIVE)
-					holder.icon_state = "hudbuff"
-				if(null)
-					holder.icon_state = "hudhealthy"
+			holder.icon_state = "huddead"
 	else
-		stack_trace("[src] does not have a HEALTH_HUD but updates it!")
+		switch(virus_threat)
+			if(DISEASE_SEVERITY_BIOHAZARD)
+				holder.icon_state = "hudill5"
+			if(DISEASE_SEVERITY_DANGEROUS)
+				holder.icon_state = "hudill4"
+			if(DISEASE_SEVERITY_HARMFUL)
+				holder.icon_state = "hudill3"
+			if(DISEASE_SEVERITY_MEDIUM)
+				holder.icon_state = "hudill2"
+			if(DISEASE_SEVERITY_MINOR)
+				holder.icon_state = "hudill1"
+			if(DISEASE_SEVERITY_NONTHREAT)
+				holder.icon_state = "hudill0"
+			if(DISEASE_SEVERITY_POSITIVE)
+				holder.icon_state = "hudbuff"
+			if(null)
+				holder.icon_state = "hudhealthy"
 
 
 /***********************************************
@@ -274,6 +269,7 @@ Security HUDs! Basic mode shows only the job.
 		holder = hud_list[i]
 		holder.icon_state = null
 		set_hud_image_inactive(i)
+
 	for(var/obj/item/implant/I in implants)
 		if(istype(I, /obj/item/implant/tracking))
 			holder = hud_list[IMPTRACK_HUD]
@@ -281,12 +277,14 @@ Security HUDs! Basic mode shows only the job.
 			holder.pixel_y = IC.Height() - world.icon_size
 			holder.icon_state = "hud_imp_tracking"
 			set_hud_image_active(IMPTRACK_HUD)
+
 		else if(istype(I, /obj/item/implant/chem))
 			holder = hud_list[IMPCHEM_HUD]
 			var/icon/IC = icon(icon, icon_state, dir)
 			holder.pixel_y = IC.Height() - world.icon_size
 			holder.icon_state = "hud_imp_chem"
 			set_hud_image_active(IMPCHEM_HUD)
+
 	if(HAS_TRAIT(src, TRAIT_MINDSHIELD))
 		holder = hud_list[IMPLOYAL_HUD]
 		var/icon/IC = icon(icon, icon_state, dir)
@@ -317,6 +315,7 @@ Security HUDs! Basic mode shows only the job.
 			if(has_criminal_entry)
 				set_hud_image_active(WANTED_HUD)
 				return
+
 	holder.icon_state = null
 	set_hud_image_inactive(WANTED_HUD)
 
@@ -394,7 +393,7 @@ Diagnostic HUDs!
 		return
 	else if(deployed) //AI shell in use by an AI
 		holder.icon_state = "hudtrackingai"
-	else	//Empty AI shell
+	else //Empty AI shell
 		holder.icon_state = "hudtracking"
 	set_hud_image_active(DIAG_TRACK_HUD)
 

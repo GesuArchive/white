@@ -105,6 +105,7 @@ GLOBAL_LIST_INIT(huds, list(
 			. += hud_atoms[z_level]
 			max_number_of_linked_z_levels_i_care_to_support_here--
 			continue
+
 		else
 			break
 
@@ -151,6 +152,7 @@ GLOBAL_LIST_INIT(huds, list(
 			if(!queued_to_see[new_viewer])
 				addtimer(CALLBACK(src, .proc/show_hud_images_after_cooldown, new_viewer), next_time_allowed[new_viewer] - world.time)
 				queued_to_see[new_viewer] = TRUE
+
 		else
 			next_time_allowed[new_viewer] = world.time + ADD_HUD_TO_COOLDOWN
 			for(var/atom/hud_atom_to_add as anything in get_hud_atoms_for_z_level(their_turf.z))
@@ -275,6 +277,7 @@ GLOBAL_LIST_INIT(huds, list(
 ///because of how signals work we need the same proc to handle both use cases because being a hud atom and being a hud user arent mutually exclusive
 /datum/atom_hud/proc/on_atom_or_user_z_level_changed(atom/movable/moved_atom, turf/old_turf, turf/new_turf)
 	SIGNAL_HANDLER
+
 	if(old_turf)
 		if(hud_users_all_z_levels[moved_atom])
 			hud_users[old_turf.z] -= moved_atom

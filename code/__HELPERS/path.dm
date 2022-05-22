@@ -382,7 +382,7 @@
 
 		for(var/first_step_direction in list(first_step_direction_a,first_step_direction_b))
 			var/turf/midstep_turf = get_step(destination_turf,first_step_direction)
-			var/way_blocked = LinkBlockedWithAccess(midstep_turf,caller,ID) || midstep_turf.LinkBlockedWithAccess(destination_turf,caller,ID)
+			var/way_blocked = midstep_turf.density || LinkBlockedWithAccess(midstep_turf,caller,ID) || midstep_turf.LinkBlockedWithAccess(destination_turf,caller,ID)
 			if(!way_blocked)
 				return FALSE
 		return TRUE
