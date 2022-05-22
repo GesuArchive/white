@@ -211,7 +211,7 @@
 		if ("do_dancor")
 			dancing_increase = 10
 			dancing_target = DANCE_TARGET_DANCOR
-			sound_to_play = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
+			sound_to_play = "white/valtos/sounds/exrp/interactions/dance[rand(1, 3)].ogg"
 			if(is_dancing(partner, DANCE_TARGET_DANCOR))
 				message = pick("исследует [partner] в шоколадницу",\
 								"нежно исследует пещеру [partner]",\
@@ -224,7 +224,7 @@
 		if ("do_dance")
 			dancing_increase = 10
 			dancing_target = DANCE_TARGET_DANCERESS
-			sound_to_play = "white/valtos/sounds/exrp/interactions/champ[rand(1, 2)].ogg"
+			sound_to_play = "white/valtos/sounds/exrp/interactions/dance[rand(1, 2)].ogg"
 			if(is_dancing(partner, DANCE_TARGET_DANCERESS))
 				message = "проникает в пельмешек [partner]"
 			else
@@ -234,7 +234,7 @@
 		if ("do_mount")
 			dancing_increase = 10
 			dancing_target = DANCE_TARGET_DANCERESS
-			sound_to_play = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
+			sound_to_play = "white/valtos/sounds/exrp/interactions/dance[rand(1, 3)].ogg"
 			if(partner.is_dancing(src, DANCE_TARGET_DANCERESS))
 				message = "скачет на стан-батоне [partner]"
 			else
@@ -244,7 +244,7 @@
 		if ("do_assdance")
 			dancing_increase = 10
 			dancing_target = DANCE_TARGET_DANCOR
-			sound_to_play = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
+			sound_to_play = "white/valtos/sounds/exrp/interactions/dance[rand(1, 3)].ogg"
 			if(partner.is_dancing(src, DANCE_TARGET_DANCOR))
 				message = "по-сербски прыгает на стан-батоне [partner]"
 			else
@@ -293,7 +293,7 @@
 			dancing_increase = 10
 			dancing_target = DANCE_TARGET_CHEST
 			dancing_which = ACTOR_DANCER
-			sound_to_play = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
+			sound_to_play = "white/valtos/sounds/exrp/interactions/dance[rand(1, 3)].ogg"
 			if(is_dancing(partner, DANCE_TARGET_CHEST))
 				message = pick(list("исследует [partner] между горок", \
 									"прокатывается у [partner] между горок"))
