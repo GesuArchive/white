@@ -372,35 +372,44 @@
 	playsound(src, 'sound/machines/twobeep_high.ogg', 100, TRUE)
 	return BRUTELOSS
 
-/obj/item/dest_tagger/proc/openwindow(mob/user)
-	var/body = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>ТэгМастер 2.2</title></head>"
+/** Standard TGUI actions */
+/obj/item/dest_tagger/ui_interact(mob/user, datum/tgui/ui)
+	add_fingerprint(user)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "DestinationTagger", name)
+		ui.set_autoupdate(FALSE)
+		ui.open()
 
-	body += "<table style='width:100%; padding:4px;'><tr>"
-	for (var/i = 1, i <= GLOB.TAGGERLOCATIONS.len, i++)
-		body += "<td><a href='?src=[REF(src)];nextTag=[i]'>[GLOB.TAGGERLOCATIONS[i]]</a></td>"
+/** If the user dropped the tagger */
+/obj/item/dest_tagger/ui_state(mob/user)
+	return GLOB.inventory_state
 
-		if(i%4==0)
-			body += "</tr><tr>"
-
-	body += "</tr></table><br>Текущий выбор: [currTag ? GLOB.TAGGERLOCATIONS[currTag] : "Ничего"]</tt>"
-
-	body += "</body></html>"
-
-	var/datum/browser/popup = new(user, "destTagScreen", "[src.name]", 450, 350)
-	popup.set_content(body)
-	popup.open()
-
+/** User activates in hand */
 /obj/item/dest_tagger/attack_self(mob/user)
 	if(!locked_destination)
-		openwindow(user)
+		ui_interact(user)
 		return
 
-/obj/item/dest_tagger/Topic(href, href_list)
-	add_fingerprint(usr)
-	if(href_list["nextTag"])
-		var/n = text2num(href_list["nextTag"])
-		currTag = n
-	openwindow(usr)
+/** Data sent to TGUI window */
+/obj/item/dest_tagger/ui_data(mob/user)
+	var/list/data = list()
+	data["locations"] = GLOB.TAGGERLOCATIONS
+	data["currentTag"] = currTag
+	return data
+
+/** User clicks a button on the tagger */
+/obj/item/dest_tagger/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
+	switch(action)
+		if("change")
+			var/new_tag = round(text2num(params["index"]))
+			if(new_tag == currTag || new_tag < 1 || new_tag > length(GLOB.TAGGERLOCATIONS))
+				return
+			currTag = new_tag
+	return TRUE
 
 /obj/item/sales_tagger
 	name = "Этикеровщик цен"
