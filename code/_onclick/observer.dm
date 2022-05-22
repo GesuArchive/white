@@ -64,7 +64,7 @@
 		healthscan(user, src, 1, TRUE)
 	if(user.client && user.chem_scan)
 		chemscan(user, src)
-	if(!isslimeperson(src) && HAS_TRAIT(src, TRAIT_CLIENT_LEAVED) && !is_banned_from(user.key, ROLE_ICECREAM))
+	if(!isjellyperson(src) && HAS_TRAIT(src, TRAIT_CLIENT_LEAVED) && !is_banned_from(user.key, ROLE_ICECREAM))
 		var/ghost_role = tgui_alert(user, "Точно хочешь занять это тело? (Больше не сможешь вернуться в своё прошлое тело!)",,list("Да","Нет"))
 		if(ghost_role != "Да" || !user.loc || QDELETED(user))
 			return

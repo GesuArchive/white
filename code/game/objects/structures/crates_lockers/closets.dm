@@ -619,6 +619,11 @@
 	if(!toggle(user))
 		togglelock(user)
 
+/obj/structure/closet/attack_ghost(mob/user)
+	var/mob/living/carbon/human/possible_human = locate(/mob/living/carbon/human) in contents
+	if(possible_human && HAS_TRAIT(possible_human, TRAIT_CLIENT_LEAVED))
+		return possible_human.attack_ghost(user)
+	. = ..()
 
 /obj/structure/closet/attack_paw(mob/user)
 	return attack_hand(user)
