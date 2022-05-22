@@ -845,7 +845,10 @@
 
 
 /datum/component/storage/proc/open_storage(mob/user)
-	if(!isliving(user) || !user.CanReach(parent) || user.incapacitated())
+	if(!user.CanReach(parent))
+		user.balloon_alert(user, "can't reach!")
+		return FALSE
+	if(!isliving(user) || user.incapacitated())
 		return FALSE
 	if(locked)
 		to_chat(user, span_warning("Похоже <b>[parent]</b> заблокирован!"))
@@ -870,6 +873,8 @@
 
 	if(open_storage(user))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		return COMPONENT_SECONDARY_CANCEL_ATTACK_CHAIN
 
 /datum/component/storage/proc/on_open_storage_attackby(datum/source, obj/item/weapon, mob/user, params)
 	SIGNAL_HANDLER
