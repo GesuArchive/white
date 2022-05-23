@@ -832,7 +832,6 @@
 					/obj/item/stack/medical/suture/medicated = 5)
 	premium = list(/obj/item/shadowcloak/yohei = 1,
 		           /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm = 1,
-				   /obj/item/gun/ballistic/automatic/fallout/marksman/sniper = 1,
 		           /obj/item/pamk = 5,
 		           /obj/item/storage/belt/military/abductor/full = 1,
 				   /obj/item/storage/firstaid/tactical = 3)

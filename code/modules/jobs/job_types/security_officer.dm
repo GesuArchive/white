@@ -135,6 +135,7 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld
+	suit_store = /obj/item/gun/energy/disabler
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec
@@ -148,12 +149,6 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 
 	id_trim = /datum/id_trim/job/security_officer
 
-/datum/outfit/job/security/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(prob(10))
-		suit_store = /obj/item/gun/energy/e_gun/advtaser
-	else
-		suit_store = /obj/item/gun/energy/disabler
 
 /obj/item/radio/headset/headset_sec/alt/department/Initialize()
 	. = ..()
