@@ -133,6 +133,7 @@ export const NtosMain = (props, context) => {
                 <Table.Cell>
                   <Button
                     fluid
+                    mb={1}
                     color={program.alert ? 'yellow' : 'transparent'}
                     icon={program.icon}
                     content={program.desc}
@@ -146,7 +147,7 @@ export const NtosMain = (props, context) => {
                     <Button
                       color="transparent"
                       icon="times"
-                      tooltip="Close program"
+                      tooltip="Закрыть"
                       tooltipPosition="left"
                       onClick={() => act('PC_killprogram', {
                         name: program.name,

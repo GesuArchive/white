@@ -11,7 +11,7 @@ export const AirAlarm = (props, context) => {
   const locked = data.locked && !data.siliconUser;
   return (
     <Window
-      width={440}
+      width={450}
       height={!locked ? 515 : 285}>
       <Window.Content scrollable>
         <InterfaceLockNoticeBox />
