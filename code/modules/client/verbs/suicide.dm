@@ -261,8 +261,4 @@
 	if(!(mobility_flags & MOBILITY_USE))	//just while I finish up the new 'fun' suiciding verb. This is to prevent metagaming via suicide
 		to_chat(src, span_warning("Говорят, что большая часть суицидов происходит под диким давлением. Да?"))
 		return
-	var/datum/component/mood/M = GetComponent(/datum/component/mood)
-	if(M.sanity >= SANITY_DISTURBED)
-		to_chat(src, span_warning("Зачем? У меня же всё в полном порядке!"))
-		return
 	return TRUE
