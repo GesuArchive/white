@@ -611,7 +611,8 @@
 	where_drug = H.equip_in_one_of_slots(drug_instance, slots, FALSE) || "у моих ног"
 	if (accessory_instance)
 		where_accessory = H.equip_in_one_of_slots(accessory_instance, slots, FALSE) || "у моих ног"
-	announce_drugs()
+	spawn(1 SECONDS)
+		announce_drugs()
 
 /datum/quirk/junkie/post_add()
 	if(where_drug == LOCATION_BACKPACK || where_accessory == LOCATION_BACKPACK)
@@ -640,7 +641,7 @@
 		if(deleted || missing_addiction)
 			if(deleted)
 				reagent_instance = new reagent_type()
-			to_chat(quirk_holder, span_danger("Надо бахнуть.."))
+			to_chat(quirk_holder, span_danger("Хочу [reagent_instance?.name].."))
 			if(H?.mind)
 				for(var/addiction in reagent_instance.addiction_types)
 					H.mind.add_addiction_points(addiction, 1000) ///Max that shit out
