@@ -24,7 +24,6 @@
 
 /obj/item/camera/siliconcam/proc/selectpicture(mob/user)
 	var/list/nametemp = list()
-	var/find
 	if(!stored.len)
 		to_chat(usr, span_boldannounce("Не сохранено изображений"))
 		return
@@ -33,8 +32,10 @@
 		var/datum/picture/p = i
 		nametemp += p.picture_name
 		temp[p.picture_name] = p
-	find = input(user, "Выбрать изображение") in nametemp|null
-	if(!find)
+	var/find = tgui_input_list(user, "Выберите изображение", "Хранилище", nametemp)
+	if(isnull(find))
+		return
+	if(isnull(temp[find]))
 		return
 	return temp[find]
 

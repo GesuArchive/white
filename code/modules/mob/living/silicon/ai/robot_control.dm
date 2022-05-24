@@ -10,7 +10,7 @@
 	if(user != owner || owner.incapacitated())
 		return FALSE
 	if(owner.control_disabled)
-		to_chat(user, span_warning("Wireless control is disabled."))
+		to_chat(user, span_warning("Беспроводное управление отключено."))
 		return FALSE
 	return TRUE
 
@@ -61,13 +61,13 @@
 	switch(action)
 		if("callbot") //Command a bot to move to a selected location.
 			if(owner.call_bot_cooldown > world.time)
-				to_chat(usr, span_danger("Error: Your last call bot command is still processing, please wait for the bot to finish calculating a route."))
+				to_chat(usr, span_danger("Ошибка: Ваша последняя команда всё ещё в процессе. Пожалуйста, дождитесь когда бот закончит просчёт маршрута."))
 				return
 			owner.Bot = locate(params["ref"]) in GLOB.bots_list
 			if(!owner.Bot || owner.Bot.remote_disabled || owner.control_disabled)
 				return
 			owner.waypoint_mode = TRUE
-			to_chat(usr, span_notice("Set your waypoint by clicking on a valid location free of obstructions."))
+			to_chat(usr, span_notice("Установите точку маршрута, нажав на место свободное от препятствий."))
 			. = TRUE
 		if("interface") //Remotely connect to a bot!
 			owner.Bot = locate(params["ref"]) in GLOB.bots_list

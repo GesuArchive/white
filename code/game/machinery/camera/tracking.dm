@@ -9,14 +9,18 @@
 
 	for (var/obj/machinery/camera/C in L)
 		var/list/tempnetwork = C.network&src.network
-		if (tempnetwork.len)
-			T[text("[][]", C.c_tag, (C.can_use() ? null : " (Deactivated)"))] = C
+		if (length(tempnetwork))
+			T[text("[][]", C.c_tag, (C.can_use() ? null : " (Отключена)"))] = C
 
 	return T
 
 /mob/living/silicon/ai/proc/show_camera_list()
 	var/list/cameras = get_camera_list()
-	var/camera = input(src, "Choose which camera you want to view", "Cameras") as null|anything in cameras
+	var/camera = tgui_input_list(src, "Выберите камеру наблюдения", "Камеры", cameras)
+	if(isnull(camera))
+		return
+	if(isnull(cameras[camera]))
+		return
 	switchCamera(cameras[camera])
 
 /datum/trackable
@@ -81,11 +85,11 @@
 	U.tracking = 1
 
 	if(!target || !target.can_track(usr))
-		to_chat(U, span_warning("Target is not near any active cameras."))
+		to_chat(U, span_warning("Цель не видна на активных камерах."))
 		U.cameraFollow = null
 		return
 
-	to_chat(U, span_notice("Now tracking [target.get_visible_name()] on camera."))
+	to_chat(U, span_notice("Теперь следим за [target.get_visible_name()]."))
 
 	INVOKE_ASYNC(src, .proc/do_track, target, U)
 
@@ -99,11 +103,11 @@
 		if(!target.can_track(usr))
 			U.tracking = TRUE
 			if(!cameraticks)
-				to_chat(U, span_warning("Target is not near any active cameras. Attempting to reacquire..."))
+				to_chat(U, span_warning("Цель не видна на активных камерах. Пытаемся найти снова..."))
 			cameraticks++
 			if(cameraticks > 9)
 				U.cameraFollow = null
-				to_chat(U, span_warning("Unable to reacquire, cancelling track..."))
+				to_chat(U, span_warning("Не смогли найти цель, отменяем слежку..."))
 				tracking = FALSE
 				return
 			else
@@ -146,7 +150,7 @@
 	var/obj/machinery/camera/a
 	var/obj/machinery/camera/b
 
-	for (var/i = L.len, i > 0, i--)
+	for (var/i = length(L), i > 0, i--)
 		for (var/j = 1 to i - 1)
 			a = L[j]
 			b = L[j + 1]

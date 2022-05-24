@@ -1,3 +1,64 @@
+/*
+                     .~YGBPYYY5G#PY5555555YY55555555555555555555555555555555555555555555PPP55555555PB&@@@@@@@@@@@@@@@@@@
+                   .~?J5P5YYYYYY555YYYY555YY5555555555555555555555555555555555555555555555555555555555B@@@@@@@@@@@@@@@#G
+                  ^7?JYYYY555YYYYYYYYYYY555555555555555555555555555555555555555555555555555555555555555P#&@@@@@@@@@&BP55
+               .^?JJJYYYYYYYYYYYYYYY555Y5555555555555555555555555555555555555555555555555555555555555555PB&@@@@@@@#5Y555
+             .~?JJYYYYYYYYYYYYYYYYYYY5PP5YYYYYYYYYYYY5555555555555555555555555555555555555555555555555P55G##@@@@&G555555
+           .~?JYYYYYYYYYYYYYYYYYYYYYY55PG5Y55YYYYYYYY55YY5555P5555555555555555555555555555555555555555GG55GBB@@@P55555PG
+         .~?JJYYYYYYYYYYYYYYYYYYYY55555YP#B5555YYYY55Y5PGGGGBBBBBGGGPP555555555555555555555555555555555GGP5P&@@&555GBGGP
+        ^?JJJYYYYYYYYYYYYYYYYYYYYY555555YG&G555555Y5PB#BG555555555PPGGBBBGGPP55555555555555555555555555PPGPB@&&@PP##GPPP
+...... ~JJJYYYYYYYYYYYYYYYYYYYYYYYY55Y5555GG5555Y5GB#G5555555555555555555PPGBBBGGP55555555555555555555555PP&@&&@&&G55555
+......!JJYYYYYYYYYYYYYYYYYYYYYYYYYY55YY55555555PB#B5YY5555555555555555555555555PPGBBGGP5555555555555555555G@&&&@@G555555
+... .7JJYYYYYYYYYYYYYYYYYYYYY55YY55YYYY55555YP##G5Y555555555555555555555555555555555PGBBG55555555555555555G@&&&&@#555555
+    !JJYYYYYYYYYYYYYYYYYYYYY5B#BP5YY555555555#G55GB#&&#G55Y55555555555555555555555555555#B555555555PGP55555&@&&&@@#55555
+   ^JJYYYYYYYYYYYYYYYYYYYY5B#&&@&&BPYYY55555PGG#&@@@@@&&&#GP55555555555555555555555555555##555555555BB55555G&@&&@@@G5555
+.  !JYYYYYYYYYYYYYYYYYYYY5#&&###&&&&#P555555GG#&&@&@&&&&&&@&&BP5Y5555555555555555555555555#B55555555B&G555555G#&@@@&5555
+.  7YYYYYYYYYYYYYYYYYYY55G&&&#####&&&&BPP555GG&&&&&&@@&&&&&&&&&&#G555555555555555555555555P&G5555555P#B555555555G#&@B555
+. .?5YYYYYYYYYYYY55YYYYGBB&&@@@&&&&#&&&#GPY5PG&&&&&&&&&&&&&&#######G5555555555555555555555P##55555555B#P555555555PB&#555
+...?P5YYYYYYYYYYYYYYYY5GG&&#&&&&&&&&&&&&#BG55B&#&@@@&##BPYJJ??????YBB555555555555555555555P#&B5555555PBG555555555G#&&555
+   ?G#YYYYYYYYYYYYYY5YPG&#BB##&&&&&&@&&&&##5YB&&#@&G5J????????JJ????P#GP555555555555555555G#&#55555555PB555555555G&&&555
+   ^5&GYYYYYYYYYYYYYY5G&G?????J5GB##&&#5G&#PYG#YJGJ??????????????????5&B555555555555555555G###55555555PBP555555555#&&555
+..  !P&PYYYYYYYYYYYYY5#B????????????J5PJ?YPYJYJ???????????????????????G#G555555555555555555B#P555555555BP55555555PB#&P55
+.. ..7B#5YYYYYYYYYYYYP#J???????????????????????????????????????????JJ?JB#G55555555555555555B#5555555555BP55555555PB#&P55
+....~:?GBPYYYYYYYYY55#5??????????????????????????????????????????????J?5#&B555555555555555P&P5555555555BG55555555PG#&P55
+....7!:7GGPYYYYYYYYYG#J????????????????????????????????????????????????JB#B555555555555555##P5555555555BB55555555PP#@P55
+... ^J?^!YB#5Y5YYYY5B5??????????????????????????????????????????????????5#P5B&B#555555555BB555555555555BB5555555555&@P55
+  . :?JJ~!YGB5YYYYYPB???????????????????????????????????????????????????JBGBGP##G5555555B&&P55555555555BG555555555P@@P55
+555J.7JJJ?7Y55YY55YBP???????????????????????????????????????????JJJY5YJ??5&G??B#BG55555#@#&P55555555555GP555555555G@@G55
+@@@@~:JJJJJJY5YY555&P???????????????????????????????????????JYPGBBBBG5JJ?JY?J?Y&BGP55G##&##55555555555PG5555555555G@@B55
+@@@@P.7JJJJJ5BB5YY5&5?????????????????????????????????????JP#BGGP5J???JJJ??JJJ?B#PPG#BY5&B#55555555555PG5555555555B@@B55
+@@@@@~.?JJJJB&@&GYP#J????????????????????????????????????JB#PYJ???JJJJJJJJJJJJ?5&GBB5J?P&BB55555555555GP5555555555#@@#55
+@@@@@#..?JJYP#&BG###???????JJYYY55YJJ????????????????????55J???JJJJJJJJJJJ???J5B&BPJJJ?P&GG55555555555BP555555555P&@@&55
+@@@@@@B:.!JJ5G#&JY#B?????JY5PGGGGGBB#BPYJ??????????????????????J????JJJ???J5B&&&BP5YJJ?P#PP5555555555PBPP55555555G@@@&55
+&@@@@@@&7.^JY5B&B??J??????????????JJJYY5J??????????????????????JJY555YJ5G&@@@#Y??JJJJJJBGGP5555555555GGGP55555555B@@@&P5
+G&@@@@@@@#7:!J5G&BJ??????????????????????????????????????????J55PP5PB#&@@&BP5YJJJJJJJ?Y#GB55555555555BPGP55555555#@@@@P5
+P&@@@@@@@@@#?~!J5##Y????????????????????????????????????????JJY5PB##BGPYJ?????JJJJJJJ?G&BG5555555555PBP&B55555555&@@@@P5
+P&@@@@@@@@@@@#!^7YB#P?????????????JJJJJJJJ???????????????????JJYYJJ??????JJJJJJJJJJJJJ#&G55555555555GBG@B5555555P&@@@@P5
+P&@@@@@@@@@@@@@G~7PG##5JGBGP5YYJJY5PPPPPPP5YJ???????????????J???????????JJJJJJJJJJJJ?5&B555555555555BG##55555555G@@@@@P5
+P&@@@@@@@@@@@@@@G.7&#&&&B###&@@@@&&&&&#BGP5YJ?????????????JJJJJ??????JJJJJJJJJJJJJJJ?B#555555555555PBB&P55555555B@@@@@P5
+P&@@@@@@@@@@@@@@P :#BP&@&57?YG55YYYJJJ???????????????????JJJJJJJJJJJJJJJJJJJJJJJJJJJ5&G555555555555GB#B555555555G@@@@@G5
+P&@@@@@@@@@@@@@@Y 7GBYB##@BY??????????????????????????JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ&#5555555555555BBG5555555555P@@@@@B5
+P&@@@@@@@@@@@@@@7^B5P5BGYP#&GJ????????????????????????JJJJJJJJJJJJJJJJJJJJJJJJJJJJ?G&5555555555555P#G5555555555PP@@@@@G5
+P&@@@@@@@@@@@@@&^?@55PPP55YPB#P????????????????????JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ?5&P5555555555555B#P555555555PBG@@@@@G5
+P&@@@@@@@@@@@@@B.P@GYPPP5555YP##5????????????????JJJJJJJJJJJJJJ??JJJJJJJJJJJJJJJ?Y&B5555555555555P#G5555555555G#G@@@@@B5
+P&@@@@@@@@@@@@@J.&@#JPG55555555G&#Y?????JJ???????JJJJJJJJJJJJJJYPP5JJJJJJJJJJJ??Y&#55555555555555GB55555555555B&G@@@@@#P
+P&@@@@@@@@@@@@&:!@@&YPB55555555YP@@GJ??????JJJJJJJJJJJJJJJY5PPP55JJJJJJJJJJJ?JP#@&P55555555555555#G5P555555555#&G@@@@@#G
+P&@@@@@@@@@@@@#.J@@@PP#555555555P#@@&GY?????JJJJJJJJJJJJJJYYJJJJJJJJJJJJJJJ5G#&&&GGP555555555555P#P5P555555555B&B@@@@@##
+P&@@@@@@@@@@@@B.G@@@B5B555555555GB##&#&#BG5YJ??JJJJJJJJJJJJJJJJJJJJJJJJJJJB#GPB&GPP5555555PPPPP5B&GP55555555PPP##@@@@&&#
+P&@@@@@@@@@&&@5:&@@@#5B555555555GB###55PG#&&&#G5YJJJJ????JJJJJJJ??JYPG5JJG&P5P##PG55555555PPPPPP#&G555555555PPGBB&@@@#&G
+P&@@@@@@@@@@@@J~@@@@&5P555555555GG#BB555555PP#&&&&##BGGP55555YYPG#&#GYJJJ&@BBP#GBP5555555PPPP55G&&G5PPP555555PGGG&@@@#B5
+P&@@@@@@@@@@@@?J@@@@&55555555555G5BGBP5555555GB#&#5PPGGB#&#&&@@@&B5JJY5PPG5Y#&BG#P55PPPPPPPPPGG#&&GPPPP5555555GP5#@@&BP5
+P&@@@@@@@@@@@&!G@@@@&5555555555555BGG555555555B##P555555G#GB##&GJY5PGGP5JJJJP#G#G5PP55555555PBG&&BPPPP55555555PP5G@@#P5P
+P&@@@@@@@@@@@P~&@@@@B5555555555555BGP55555555B&GP555PP5P#B#B#&#GBBBPYYJJJJJYBG##PPPPP55555P5BBB&#GPPPPPPPPPPPPPP5G@&PPPP
+P&@@@@@@@@@@@!5@@@@@B5555555555555BG55555555B&P5555555PBBBB&@@@#P5JJJJJJJY5BBB&P5PPPPPPPPPPP#G&&BBPPPPPPPPPPPPPP5G@B555P
+P&@@@@@@@@@@&7&@@@@@B5555555555555BP555555P##P5PPGBB#&@&&&&&&&&@GJJJJJY5PB&&B&GPPPPPPPPPPPPPBB#G#GPPPPPPPPPPPPPP5##55P#@
+P&@@@@@@@@@@G?@@@@@@P5555555555555BP55555P#BGGB##&&&#@@@&&&&&&&&@#PPGGGGB#&B#GPPPPPPPPPPPPPPG&&BBPPPPPPPPPPPPPPPB#PG&@@@
+G&@@@@@@@@@@YP@@@@@&5555555555555PBP555PB##GGPG#&&##&@@@@@@@@@&&B#&#&&@@@@BBG5PPPPPPPPPPPPP5#&G##PPPPPPPPPPPPPPB&&&@@@@@
+G&@@@@@@@@@&J&@@@@@GPP55555555555GB55G##BGB#&&&&&&&&&&&@@@&####B#&@@@@@@@BGPPPPPPPPPPPPPPPPP&#PGB&GPPPPPPPPPPPG&#GP&@@@@
+G&@@@@@@@@@#5@@@@@&PBP555555555PGGBP&@&&@@@@@@&&&&&&&&@&#BGB&@@@@@@@@@@@#GPPPPPPPPPPPPPPPPP##&GPPG#PPPPPPPPPPPPP5PPB@@@@
+#&@@@@@@@@@GB@@@@@BP#G555555555#&#&@@@@@@@@&&&&&&&&&&#&&&@@@@@@@@@@@@@@&PPPPPPPPPPPPPPPPPPP&PP#YG5&BPPPPPPPPPPPPPPGP&@@@
+*/
+
 #define CALL_BOT_COOLDOWN 900
 
 //Not sure why this is necessary...
@@ -334,7 +395,7 @@
 		to_chat(usr, span_alert("[can_evac_or_fail_reason]"))
 		return
 
-	var/reason = input(src, "What is the nature of your emergency? ([CALL_SHUTTLE_REASON_LENGTH] characters required.)", "Confirm Shuttle Call") as null|text
+	var/reason = tgui_input_text(src, "Что послужило причиной вызова шаттла? (Минимум [CALL_SHUTTLE_REASON_LENGTH] символов.)", "Подтверждение Вызова Шаттла")
 
 	if(incapacitated())
 		return
@@ -591,7 +652,7 @@
 			for(var/i in C.network)
 				cameralist[i] = i
 	var/old_network = network
-	network = input(U, "Which network would you like to view?") as null|anything in sort_list(cameralist)
+	network = tgui_input_list(U, "Какую сеть желаете просмотреть?", "Камерные Сети", sort_list(cameralist))
 
 	if(!U.eyeobj)
 		U.view_core()
@@ -606,7 +667,7 @@
 			if(network in C.network)
 				U.eyeobj.setLoc(get_turf(C))
 				break
-	to_chat(src, span_notice("Switched to the \"[uppertext(network)]\" camera network."))
+	to_chat(src, span_notice("Переключаемся на сеть \"[uppertext(network)]\"."))
 //End of code by Mord_Sith
 
 /mob/living/silicon/ai/proc/ai_statuschange()
@@ -616,7 +677,7 @@
 	if(incapacitated())
 		return
 	var/list/ai_emotions = list("Very Happy", "Happy", "Neutral", "Unsure", "Confused", "Sad", "BSOD", "Blank", "Problems?", "Awesome", "Facepalm", "Thinking", "Friend Computer", "Dorfy", "Blue Glow", "Red Glow")
-	var/emote = input("Please, select a status!", "AI Status", null, null) in sort_list(ai_emotions)
+	var/emote = tgui_input_list(usr, "Пожалуйста, выберите статус!", "Статус ИИ", sort_list(ai_emotions))
 	for (var/each in GLOB.ai_status_displays) //change status of displays
 		var/obj/machinery/status_display/ai/M = each
 		M.emotion = emote
@@ -648,7 +709,7 @@
 				personnel_list["[t.fields["name"]]: [t.fields["rank"]]"] = t.fields["image"]//Pull names, rank, and image.
 
 			if(personnel_list.len)
-				input = input("Select a crew member:") as null|anything in sort_list(personnel_list)
+				input = tgui_input_list(usr, "Выберите члена экипажа", "Члены Экипажа", sort_list(personnel_list))
 				var/icon/character_icon = personnel_list[input]
 				if(character_icon)
 					qdel(holo_icon)//Clear old icon so we're not storing it in memory.
@@ -673,18 +734,21 @@
 			"spider" = 'icons/mob/animal.dmi'
 			)
 
-			input = input("Please select a hologram:") as null|anything in sort_list(icon_list)
-			if(input)
-				qdel(holo_icon)
-				switch(input)
-					if("poly")
-						holo_icon = getHologramIcon(icon(icon_list[input],"parrot_fly"))
-					if("chicken")
-						holo_icon = getHologramIcon(icon(icon_list[input],"chicken_brown"))
-					if("spider")
-						holo_icon = getHologramIcon(icon(icon_list[input],"guard"))
-					else
-						holo_icon = getHologramIcon(icon(icon_list[input], input))
+			input = tgui_input_list(usr, "Выберите голограмму", "Голограммы", sort_list(icon_list))
+			if(isnull(input))
+				return
+			if(isnull(icon_list[input]))
+				return
+			qdel(holo_icon)
+			switch(input)
+				if("poly")
+					holo_icon = getHologramIcon(icon(icon_list[input],"parrot_fly"))
+				if("chicken")
+					holo_icon = getHologramIcon(icon(icon_list[input],"chicken_brown"))
+				if("spider")
+					holo_icon = getHologramIcon(icon(icon_list[input],"guard"))
+				else
+					holo_icon = getHologramIcon(icon(icon_list[input], input))
 		else
 			var/list/icon_list = list(
 				"default" = 'icons/mob/ai.dmi',
@@ -694,14 +758,17 @@
 				"clock" = 'icons/mob/ai.dmi'
 				)
 
-			input = input("Please select a hologram:") as null|anything in sort_list(icon_list)
-			if(input)
-				qdel(holo_icon)
-				switch(input)
-					if("xeno queen")
-						holo_icon = getHologramIcon(icon(icon_list[input],"alienq"))
-					else
-						holo_icon = getHologramIcon(icon(icon_list[input], input))
+			input = tgui_input_list(usr, "Выберите голограмму", "Голограммы", sort_list(icon_list))
+			if(isnull(input))
+				return
+			if(isnull(icon_list[input]))
+				return
+			qdel(holo_icon)
+			switch(input)
+				if("xeno queen")
+					holo_icon = getHologramIcon(icon(icon_list[input],"alienq"))
+				else
+					holo_icon = getHologramIcon(icon(icon_list[input], input))
 	return
 
 /datum/action/innate/core_return
@@ -953,7 +1020,7 @@
 		to_chat(src, "No usable AI shell beacons detected.")
 
 	if(!target || !(target in possible)) //If the AI is looking for a new shell, or its pre-selected shell is no longer valid
-		target = input(src, "Which body to control?") as null|anything in sortNames(possible)
+		target = tgui_input_list(src, "Какую оболочку хотите контролировать?", "Прямое Управление", sortNames(possible))
 
 	if (!target || target.stat == DEAD || target.deployed || !(!target.connected_ai ||(target.connected_ai == src)) || (target.ratvar && !is_servant_of_ratvar(src)))
 		return
