@@ -295,7 +295,7 @@ SUBSYSTEM_DEF(ticker)
 		for (var/datum/game_mode/M in runnable_modes)
 			modes += M.name
 		modes = sort_list(modes)
-		to_chat(world, "<b>Режим: секрет!\nВозможные режимы:</B> [english_list(modes)]")
+		to_chat(world, "<b>Возможный режим:</B> [english_list(modes)]")
 	else
 		mode.announce()
 
