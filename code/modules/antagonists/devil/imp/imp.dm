@@ -1,16 +1,16 @@
 //////////////////Imp
 
 /mob/living/simple_animal/hostile/imp
-	name = "imp"
+	name = "Имп"
 	real_name = "imp"
 	unique_name = TRUE
-	desc = "A large, menacing creature covered in armored black scales."
+	desc = "Крупное страшное, мерзкое существо, покрытое угольно-чёрной крепкой чешуей."
 	speak_emote = list("кудахчет")
 	emote_hear = list("кудахчет","визжит")
-	response_help_continuous = "thinks better of touching"
-	response_help_simple = "think better of touching"
-	response_disarm_continuous = "flails at"
-	response_disarm_simple = "flail at"
+	response_help_continuous = "прикасается"
+	response_help_simple = "прикасается"
+	response_disarm_continuous = "цепляется"
+	response_disarm_simple = "цепляется"
 	response_harm_continuous = "бьёт"
 	response_harm_simple = "бьёт"
 	icon = 'icons/mob/mob.dmi'
@@ -37,15 +37,15 @@
 	see_in_dark = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	del_on_death = TRUE
-	deathmessage = "screams in agony as it sublimates into a sulfurous smoke."
+	deathmessage = "издаёт ужасный рёв, когда он распадается на серый дым."
 	deathsound = 'sound/magic/demon_dies.ogg'
-	var/playstyle_string = "<span class='big bold'>You are an imp,</span><B> a mischievous creature from hell. You are the lowest rank on the hellish totem pole \
-							Though you are not obligated to help, perhaps by aiding a higher ranking devil, you might just get a promotion. However, you are incapable	\
-							of intentionally harming a fellow devil.</B>"
+	var/playstyle_string = "<span class='big bold'>Ты Имп,</span><B> ужасное исчадие из ада. У тебя самый низкий ранг в аду \
+							Хотя вы и не обязаны помогать, возможно, помогая дьяволу более высокого ранга, вы могли бы запросто получить повышение. Хотя вы не способны	\
+							умышленно причинить вред другому дьяволу.</B>"
 	discovery_points = 10000
 
 /datum/antagonist/imp
-	name = "Imp"
+	name = "Имп"
 	antagpanel_category = "Devil"
 	show_in_roundend = FALSE
 	greentext_reward = 5
@@ -56,6 +56,6 @@
 
 /datum/antagonist/imp/proc/give_objectives()
 	var/datum/objective/newobjective = new
-	newobjective.explanation_text = "Try to get a promotion to a higher devilic rank."
+	newobjective.explanation_text = "Хочу повышение! Мне надо выслужиться! И я буду самым главным! Все-все будет моим!"
 	newobjective.owner = owner
 	objectives += newobjective

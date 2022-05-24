@@ -23,10 +23,10 @@
 						/obj/item/clothing/under/misc/burial = 1
 					)
 					if(U && whiteness[U.type])
-						src.visible_message(span_warning("[src] seems to have been harmed by the purity of [attacker]'s clothes.") , span_notice("Unsullied white clothing is disrupting your form."))
+						src.visible_message(span_warning("[src], похоже, страдает из-за чистоты одежды [attacker].") , span_notice("Безупречно белая одежда портит ваш вид."))
 						return whiteness[U.type] + 1
 		if(BANE_TOOLBOX)
 			if(istype(weapon, /obj/item/storage/toolbox))
-				src.visible_message(span_warning("The [weapon] seems unusually robust this time.") , span_notice("The [weapon] is your unmaking!"))
+				src.visible_message(span_warning("[weapon] кажется необычайно надежным.") , span_notice("[weapon] - это ваша смерть!"))
 				return 2.5 // Will take four hits with a normal toolbox to crit.
 	return 1

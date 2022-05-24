@@ -1,13 +1,13 @@
-#define SIN_ACEDIA "acedia"
-#define SIN_GLUTTONY "gluttony"
-#define SIN_GREED "greed"
-#define SIN_SLOTH "sloth"
-#define SIN_WRATH "wrath"
-#define SIN_ENVY "envy"
-#define SIN_PRIDE "pride"
+#define SIN_ACEDIA "апатия"
+#define SIN_GLUTTONY "голод"
+#define SIN_GREED "жадность"
+#define SIN_SLOTH "лень"
+#define SIN_WRATH "гнев"
+#define SIN_ENVY "зависть"
+#define SIN_PRIDE "гордыня"
 
 /datum/antagonist/sintouched
-	name = "sintouched"
+	name = "грешник"
 	roundend_category = "sintouched"
 	antagpanel_category = "Devil"
 	antag_hud_name = "sintouched"
@@ -50,8 +50,8 @@
 	return printplayer(owner)
 
 /datum/antagonist/sintouched/admin_add(datum/mind/new_owner,mob/admin)
-	var/choices = sins + "Random"
-	var/chosen_sin = input(admin,"What kind ?","Sin kind") as null|anything in sort_list(choices)
+	var/choices = sins + "Случайно"
+	var/chosen_sin = input(admin,"Какой вид?","Вид греха") as null|anything in sort_list(choices)
 	if(!chosen_sin)
 		return
 	if(chosen_sin in sins)
