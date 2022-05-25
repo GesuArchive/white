@@ -510,10 +510,11 @@ Diagnostic HUDs!
 	Airlocks!
 ~~~~~~~~~~~~~*/
 /obj/machinery/door/airlock/proc/diag_hud_set_electrified()
+	var/image/holder = hud_list[DIAG_AIRLOCK_HUD]
 	if(secondsElectrified == MACHINE_NOT_ELECTRIFIED)
+		holder.icon_state = "" // this thing looks horribly wrong in my mind but FUCK it's works. TODO: valera please check out where you nasral in https://github.com/frosty-dev/white/commit/27e36d9d5b9ec5d0b68c933ca5377055846cbd9f that it gone broken af
 		set_hud_image_inactive(DIAG_AIRLOCK_HUD)
 		return
 
-	var/image/holder = hud_list[DIAG_AIRLOCK_HUD]
 	holder.icon_state = "electrified"
 	set_hud_image_active(DIAG_AIRLOCK_HUD)
