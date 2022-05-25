@@ -4285,6 +4285,7 @@
 #include "white\shruman\code\occult.dm"
 #include "white\shruman\code\clowns\clownmobs.dm"
 #include "white\shruman\code\clowns\clownstructures.dm"
+#include "white\tapko4eb\sounds\emotes\code\AI_tracking.dm"
 #include "white\valtos\protocol_C.dm"
 #include "white\valtos\code\__DEFINES\bloodsucker.dm"
 #include "white\valtos\code\__DEFINES\dance.dm"

@@ -32,11 +32,7 @@
 /atom/movable/screen/ai/camera_track/Click()
 	if(..())
 		return
-	var/mob/living/silicon/ai/AI = usr
-	var/target_name = tgui_input_list(AI, "Select a target", "Tracking", AI.trackable_mobs())
-	if(isnull(target_name))
-		return
-	AI.ai_camera_track(target_name)
+	GLOB.AI_track_menu.show(usr)
 
 /atom/movable/screen/ai/camera_light
 	name = "Toggle Camera Light"

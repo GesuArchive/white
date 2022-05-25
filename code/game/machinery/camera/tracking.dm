@@ -30,12 +30,15 @@
 	var/list/humans = list()
 	var/list/others = list()
 
-/mob/living/silicon/ai/proc/trackable_mobs()
+/mob/living/silicon/ai/proc/trackable_mobs(mob/user)
 	track.initialized = TRUE
 	track.names.Cut()
 	track.namecounts.Cut()
 	track.humans.Cut()
 	track.others.Cut()
+
+	if(!usr)
+		usr = user // just in case
 
 	if(usr.stat == DEAD)
 		return list()
