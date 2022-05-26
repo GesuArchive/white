@@ -2,6 +2,7 @@ GLOBAL_DATUM_INIT(AI_track_menu, /datum/ai_track_menu, new)
 
 /datum/ai_track_menu
 	var/list/humans = list()
+	var/list/others = list()
 
 /datum/ai_track_menu/ui_state(mob/user)
 	return GLOB.not_incapacitated_state
@@ -35,25 +36,29 @@ GLOBAL_DATUM_INIT(AI_track_menu, /datum/ai_track_menu, new)
 	update_targets_list(user)
 
 	data["humans"] = humans
+	data["others"] = others
 
 	return data
-
-/datum/ai_track_menu/ui_assets()
-	return list(
-		get_asset_datum(/datum/asset/simple/orbit),
-	)
 
 /datum/ai_track_menu/proc/update_targets_list(mob/user)
 	var/mob/living/silicon/ai/AI = user
 
-	var/list/trackable_targets = AI.trackable_mobs(user)
 	humans.Cut()
+	others.Cut()
 
-	for(var/name in trackable_targets)
+	AI.trackable_mobs(user) // actually update /datum/trackable
+
+	for(var/name in AI.track.humans)
 		var/list/serialized = list()
 
 		serialized["name"] = name
 		humans += list(serialized)
+
+	for(var/name in AI.track.others)
+		var/list/serialized = list()
+
+		serialized["name"] = name
+		others += list(serialized)
 
 /// Shows the UI to the specified user.
 /datum/ai_track_menu/proc/show(mob/user)

@@ -33,6 +33,26 @@ const compareNumberedText = (a, b) => {
   return compareString(aName, bName);
 };
 
+const BasicSection = (props, context) => {
+  const { act } = useBackend(context);
+  const { searchText, source, title } = props;
+
+  const things = source.filter(searchFor(searchText));
+  things.sort(compareNumberedText);
+  return source.length > 0 && (
+    <Section title={`${title} - (${source.length})`}>
+      {things.map(thing => (
+        <Button
+          key={thing.name}
+          content={thing.name}
+          onClick={() => act("follow", {
+            target_name: thing.name,
+          })} />
+      ))}
+    </Section>
+  );
+};
+
 const OrbitedButton = (props, context) => {
   const { act } = useBackend(context);
   const { color, thing } = props;
@@ -52,13 +72,14 @@ export const AI_Tracking = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     humans,
+    others,
   } = data;
 
   const [searchText, setSearchText] = useLocalState(context, "searchText", "");
 
   const orbitMostRelevant = searchText => {
     for (const source of [
-      humans,
+      humans, others,
     ]) {
       const member = source
         .filter(searchFor(searchText))
@@ -97,7 +118,7 @@ export const AI_Tracking = (props, context) => {
           </Flex>
         </Section>
 
-        <Section title={`Цели - (${humans.length})`}>
+        <Section title={`Люди - (${humans.length})`}>
           {humans
             .filter(searchFor(searchText))
             .sort(compareNumberedText)
@@ -108,6 +129,12 @@ export const AI_Tracking = (props, context) => {
                 thing={thing} />
             ))}
         </Section>
+
+        <BasicSection
+          title="Другие"
+          source={others}
+          searchText={searchText}
+        />
 
       </Window.Content>
     </Window>
