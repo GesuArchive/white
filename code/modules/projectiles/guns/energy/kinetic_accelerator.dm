@@ -271,7 +271,7 @@
 
 
 /obj/item/borg/upgrade/modkit/attackby(obj/item/A, mob/user)
-	if(istype(A, /obj/item/gun/energy/kinetic_accelerator) && !issilicon(user))
+	if(istype(A, /obj/item/gun/energy/kinetic_accelerator) && !issilicon(user) && (!istype(A, /obj/item/gun/energy/kinetic_accelerator/super_kinetic_accelerator))) //Супер кинетик идет в дупу
 		install(A, user)
 	else
 		..()
