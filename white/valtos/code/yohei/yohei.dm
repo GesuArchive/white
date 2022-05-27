@@ -261,6 +261,8 @@
 
 	suit_store = /obj/item/cat_hook
 
+	r_hand = /obj/item/book/yohei_codex
+
 	r_pocket = /obj/item/flashlight/seclite
 	l_pocket = /obj/item/pamk
 
@@ -280,6 +282,8 @@
 		H.mind?.adjust_experience(/datum/skill/parry, SKILL_EXP_MASTER)
 		if(Y && H.mind)
 			Y.assigned_to = H.mind
+		var/obj/item/book/B = locate(/obj/item/book/yohei_codex) in H
+		B?.on_read(H)
 
 /datum/outfit/yohei/medic
 	name = "Йохей: Медик"
