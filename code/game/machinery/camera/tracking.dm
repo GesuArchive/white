@@ -37,15 +37,15 @@
 	track.humans.Cut()
 	track.others.Cut()
 
-	if(!usr)
-		usr = user // just in case
+	if(!user)
+		user = usr
 
-	if(usr.stat == DEAD)
+	if(user.stat == DEAD)
 		return list()
 
 	for(var/i in GLOB.mob_living_list)
 		var/mob/living/L = i
-		if(!L.can_track(usr))
+		if(!L.can_track(user))
 			continue
 
 		var/name = L.name
@@ -64,7 +64,7 @@
 
 	return targets
 
-/mob/living/silicon/ai/verb/ai_camera_track(target_name in trackable_mobs())
+/mob/living/silicon/ai/verb/ai_camera_track(target_name in trackable_mobs(src))
 	set name = "track"
 	set hidden = TRUE //Don't display it on the verb lists. This verb exists purely so you can type "track Oldman Robustin" and follow his ass
 
@@ -72,22 +72,34 @@
 		return
 
 	if(!track.initialized)
-		trackable_mobs()
+		trackable_mobs(src)
 
 	var/datum/weakref/target = (isnull(track.humans[target_name]) ? track.others[target_name] : track.humans[target_name])
 
 	if(target)
 		ai_actual_track(target.resolve())
 
+/mob/living/silicon/robot/shell/proc/ai_camera_track(target_name) // for the case if we still have tracking panel still open
+	var/mob/living/silicon/ai/AI = mainframe
+
+	undeploy()
+	AI.ai_camera_track(target_name)
+
+/mob/living/silicon/robot/shell/proc/ai_actual_track(mob/living/target)
+	var/mob/living/silicon/ai/AI = mainframe
+
+	undeploy()
+	AI.ai_actual_track(target)
+
 /mob/living/silicon/ai/proc/ai_actual_track(mob/living/target)
 	if(!istype(target))
 		return
-	var/mob/living/silicon/ai/U = usr
+	var/mob/living/silicon/ai/U = src
 
 	U.cameraFollow = target
 	U.tracking = 1
 
-	if(!target || !target.can_track(usr))
+	if(!target || !target.can_track(src))
 		to_chat(U, span_warning("Цель не видна на активных камерах."))
 		U.cameraFollow = null
 		return

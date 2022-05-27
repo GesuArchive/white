@@ -22,12 +22,17 @@ GLOBAL_DATUM_INIT(AI_track_menu, /datum/ai_track_menu, new)
 	switch(action)
 		if("follow")
 			var/target_name = params["target_name"]
-			var/mob/living/silicon/ai/AI = usr
 
 			if(isnull(target_name))
 				return FALSE
 
-			AI.ai_camera_track(target_name)
+			if(istype(usr, /mob/living/silicon/robot/shell))
+				var/mob/living/silicon/robot/shell/S = usr
+				S.ai_camera_track(target_name)
+			else
+				var/mob/living/silicon/ai/AI = usr
+				AI.ai_camera_track(target_name)
+
 			return TRUE
 
 /datum/ai_track_menu/ui_data(mob/user)
@@ -41,7 +46,12 @@ GLOBAL_DATUM_INIT(AI_track_menu, /datum/ai_track_menu, new)
 	return data
 
 /datum/ai_track_menu/proc/update_targets_list(mob/user)
-	var/mob/living/silicon/ai/AI = user
+	var/mob/living/silicon/ai/AI
+	if(istype(user, /mob/living/silicon/robot/shell))
+		var/mob/living/silicon/robot/shell/S = user
+		AI = S.mainframe
+	else
+		AI = user
 
 	humans.Cut()
 	others.Cut()

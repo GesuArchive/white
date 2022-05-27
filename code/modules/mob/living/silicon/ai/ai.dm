@@ -460,7 +460,7 @@ G&@@@@@@@@@#5@@@@@&PBP555555555PGGBP&@&&@@@@@@&&&&&&&&@&#BGB&@@@@@@@@@@@#GPPPPPP
 
 /mob/living/silicon/ai/Topic(href, href_list)
 	..()
-	if(usr != src)
+	if(usr != src && !istype(usr, /mob/living/silicon/robot/shell))
 		return
 
 	if(href_list["emergencyAPC"]) //This check comes before incapacitated() because the only time it would be useful is when we have no power.
@@ -500,7 +500,7 @@ G&@@@@@@@@@#5@@@@@&PBP555555555PGGBP&@&&@@@@@@&&&&&&&&@&#BGB&@@@@@@@@@@@#GPPPPPP
 			to_chat(src, span_notice("Unable to locate the holopad."))
 	if(href_list["track"])
 		var/string = href_list["track"]
-		trackable_mobs()
+		trackable_mobs(src)
 		var/list/trackeable = list()
 		trackeable += track.humans + track.others
 		var/list/target = list()
@@ -512,10 +512,14 @@ G&@@@@@@@@@#5@@@@@&PBP555555555PGGBP&@&&@@@@@@&&&&&&&&@&#BGB&@@@@@@@@@@@#GPPPPPP
 			target += to_track
 		if(name == string)
 			target += src
-		if(target.len)
-			ai_actual_track(pick(target))
+		if(length(target))
+			if(istype(usr, /mob/living/silicon/robot/shell))
+				var/mob/living/silicon/robot/shell/S = usr
+				S.ai_actual_track(pick(target))
+			else
+				ai_actual_track(pick(target))
 		else
-			to_chat(src, "Target is not on or near any active cameras on the station.")
+			to_chat(src, "Цель не видна на активных камерах.")
 		return
 	if (href_list["ai_take_control"]) //Mech domination
 		var/obj/vehicle/sealed/mecha/M = locate(href_list["ai_take_control"]) in GLOB.mechas_list

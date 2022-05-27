@@ -571,7 +571,7 @@
 	if(!SScommunications.can_announce(user, is_ai))
 		to_chat(user, span_alert("Подзарядка интеркомов. Подождите, пожалуйста."))
 		return
-	var/input = stripped_input(user, "Введите сообщение для станции.", "ЧЕ?")
+	var/input = tgui_input_text(user, "Введите сообщение для станции.", "ЧЕ?")
 	if(!input || !user.canUseTopic(src, !issilicon(usr)))
 		return
 	if(!(user.can_speak())) //No more cheating, mime/random mute guy!

@@ -246,6 +246,17 @@
 	if (href_list["showalerts"])
 		robot_alerts()
 
+/mob/living/silicon/robot/shell/Topic(href, href_list)
+	. = ..()
+	if (href_list["track"])
+		if(mainframe)
+			var/mob/living/silicon/ai/AI = mainframe
+			AI.Topic(href, href_list) // Spagetti!
+		else if(connected_ai) // when you not in borg but still wanna follow
+			var/mob/living/silicon/ai/AI = connected_ai
+			AI.Topic(href, href_list) // More spagetti!
+	return
+
 /mob/living/silicon/robot/proc/pick_module()
 	if(module.type != /obj/item/robot_module)
 		return
