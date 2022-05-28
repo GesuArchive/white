@@ -443,7 +443,7 @@
 	icon_state = "hornet"
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
 	caliber = "shotgun"
-	max_ammo = 24
+	max_ammo = 3
 
 /obj/item/ammo_box/magazine/evgenii/fuckyou
 	max_ammo = 500
