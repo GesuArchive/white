@@ -44,6 +44,8 @@
 	. = ..()
 
 	if(is_type_in_list(W, contained_item))
+		if(W.w_class >= WEIGHT_CLASS_SMALL) // Anything equal to or larger than small won't work
+			return
 		if(inserted_item)
 			to_chat(user, span_warning("There is already \a [inserted_item] in \the [src]!"))
 		else
@@ -52,6 +54,12 @@
 			to_chat(user, span_notice("You insert \the [W] into \the [src]."))
 			inserted_item = W
 			playsound(src, 'sound/machines/pda_button1.ogg', 50, TRUE)
+
+	if(istype(W, /obj/item/paper))
+		var/obj/item/paper/paper = W
+
+		to_chat(user, span_notice("You scan \the [W] into \the [src]."))
+		note = paper.info
 
 /obj/item/modular_computer/tablet/AltClick(mob/user)
 	. = ..()

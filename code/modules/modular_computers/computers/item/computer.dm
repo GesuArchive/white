@@ -235,7 +235,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 				human_wearer.sec_hud_set_ID()
 		update_icon()
 		update_slot_icon()
-	return FALSE
+	return TRUE
 
 /obj/item/modular_computer/MouseDrop(obj/over_object, src_location, over_location)
 	var/mob/M = usr

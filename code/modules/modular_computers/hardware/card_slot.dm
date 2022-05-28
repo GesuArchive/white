@@ -35,7 +35,7 @@
 	return ..()
 
 /obj/item/computer_hardware/card_slot/GetAccess()
-	var/list/total_access
+	var/list/total_access = list()
 	if(stored_card)
 		total_access = stored_card.GetAccess()
 	var/obj/item/computer_hardware/card_slot/card_slot2 = holder?.all_components[MC_CARD2] //Best of both worlds
