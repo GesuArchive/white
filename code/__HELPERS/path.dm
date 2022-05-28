@@ -16,9 +16,10 @@
  * * id: An ID card representing what access we have and what doors we can open. Its location relative to the pathing atom is irrelevant
  * * simulated_only: Whether we consider turfs without atmos simulation (AKA do we want to ignore space)
  * * exclude: If we want to avoid a specific turf, like if we're a mulebot who already got blocked by some turf
+ * * skip_first: Whether or not to delete the first item in the path. This would be done because the first item is the starting tile, which can break movement for some creatures.
  * * diagonal_safety: ensures diagonal moves won't use invalid midstep turfs by splitting them into two orthogonal moves if necessary
  */
-/proc/get_path_to(caller, end, max_distance = 30, mintargetdist, id=null, simulated_only = TRUE, turf/exclude, diagonal_safety=TRUE)
+/proc/get_path_to(caller, end, max_distance = 30, mintargetdist, id=null, simulated_only = TRUE, turf/exclude, skip_first=TRUE, diagonal_safety=TRUE)
 	if(!caller || !get_turf(end))
 		return
 
@@ -35,6 +36,8 @@
 	SSpathfinder.mobs.found(l)
 	if(!path)
 		path = list()
+	if(length(path) > 0 && skip_first)
+		path.Cut(1,2)
 	return path
 
 /**
@@ -246,7 +249,7 @@
 	var/turf/current_turf = original_turf
 	var/turf/lag_turf = original_turf
 
-	for(;;)
+	while(TRUE)
 		if(path)
 			return
 		lag_turf = current_turf
@@ -307,7 +310,7 @@
 	var/turf/current_turf = original_turf
 	var/turf/lag_turf = original_turf
 
-	for(;;)
+	while(TRUE)
 		if(path)
 			return
 		lag_turf = current_turf
@@ -377,8 +380,8 @@
 /turf/proc/LinkBlockedWithAccess(turf/destination_turf, caller, ID)
 	if(destination_turf.x != x && destination_turf.y != y) //diagonal
 		var/in_dir = get_dir(destination_turf,src) // eg. northwest (1+8) = 9 (00001001)
-		var/first_step_direction_a = in_dir & 3      // eg. north   (1+8)&3 (0000 0011) = 1 (0000 0001)
-		var/first_step_direction_b = in_dir & 12  // eg. west   (1+8)&12 (0000 1100) = 8 (0000 1000)
+		var/first_step_direction_a = in_dir & 3 // eg. north   (1+8)&3 (0000 0011) = 1 (0000 0001)
+		var/first_step_direction_b = in_dir & 12 // eg. west   (1+8)&12 (0000 1100) = 8 (0000 1000)
 
 		for(var/first_step_direction in list(first_step_direction_a,first_step_direction_b))
 			var/turf/midstep_turf = get_step(destination_turf,first_step_direction)
@@ -408,6 +411,10 @@
 
 	for(var/obj/machinery/door/window/iter_windoor in src)
 		if(!iter_windoor.CanAStarPass(ID, actual_dir))
+			return TRUE
+
+	for(var/obj/structure/railing/iter_rail in src)
+		if(!iter_rail.CanAStarPass(ID, actual_dir))
 			return TRUE
 
 	for(var/obj/machinery/door/firedoor/border_only/firedoor in src)
