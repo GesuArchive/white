@@ -265,13 +265,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
-"aou" = (
-/obj/effect/turf_decal/siding/purple{
-	dir = 1
-	},
-/mob/living/simple_animal/bot/atmosbot,
-/turf/open/floor/engine,
-/area/science/research/abandoned)
 "aoA" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -5334,17 +5327,6 @@
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge/shop)
-"fkX" = (
-/obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 4
-	},
-/obj/structure/cable,
-/mob/living/simple_animal/bot/atmosbot,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 10
-	},
-/turf/open/floor/plasteel,
-/area/service/hydroponics)
 "flL" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
@@ -6463,7 +6445,6 @@
 "gkz" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/holopad,
-/mob/living/simple_animal/bot/atmosbot,
 /turf/open/floor/plasteel/monofloor,
 /area/cargo/warehouse)
 "glk" = (
@@ -6696,9 +6677,6 @@
 /area/commons/dorms)
 "gyX" = (
 /obj/effect/turf_decal/stripes/line,
-/mob/living/simple_animal/bot/atmosbot{
-	auto_patrol = 0
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/sign/picture_frame{
@@ -10775,7 +10753,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/mob/living/simple_animal/bot/atmosbot,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "kvU" = (
@@ -14880,9 +14857,6 @@
 "ozQ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
-	},
-/mob/living/simple_animal/bot/atmosbot{
-	auto_patrol = 0
 	},
 /obj/structure/sign/picture_frame{
 	pixel_y = 32
@@ -21732,7 +21706,6 @@
 /area/maintenance/bottom_station_maints/west)
 "vgd" = (
 /obj/structure/ladder,
-/mob/living/simple_animal/bot/atmosbot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/tcommsat/server/upper)
 "vgn" = (
@@ -66192,7 +66165,7 @@ nHQ
 nhj
 wyy
 vGw
-fkX
+vXz
 lkx
 cYG
 plK
@@ -72903,7 +72876,7 @@ pMs
 lFC
 iRS
 qfW
-aou
+xFi
 lJM
 lJM
 lJM

@@ -11932,7 +11932,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/mob/living/simple_animal/bot/atmosbot,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/exit)
 "aZl" = (
@@ -24757,13 +24756,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
-"cbz" = (
-/mob/living/simple_animal/bot/atmosbot,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
-/turf/open/floor/plasteel/monofloor,
-/area/engineering/atmos/upper)
 "cbA" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
@@ -32577,10 +32569,6 @@
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/xenobiology)
-"emH" = (
-/mob/living/simple_animal/bot/atmosbot,
-/turf/open/floor/plasteel/monofloor,
-/area/engineering/main)
 "enf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -43288,9 +43276,6 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/structure/cable,
-/mob/living/simple_animal/bot/atmosbot{
-	auto_patrol = 0
-	},
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "pIc" = (
@@ -44331,9 +44316,6 @@
 /turf/open/floor/plating,
 /area/hallway/primary/central/low_level_eva)
 "qOF" = (
-/mob/living/simple_animal/bot/atmosbot{
-	auto_patrol = 0
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/tile/blue{
@@ -76164,7 +76146,7 @@ bHE
 ccw
 ccw
 chB
-emH
+wuB
 cpW
 sgn
 cqN
@@ -86427,7 +86409,7 @@ hit
 rVk
 bUS
 bZK
-cbz
+xNU
 aLE
 rVk
 rVk
