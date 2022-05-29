@@ -4,8 +4,8 @@
 
 
 /mob/living/carbon/true_devil
-	name = "True Devil"
-	desc = "A pile of infernal energy, taking a vaguely humanoid form."
+	name = "Истинный дьявол"
+	desc = "Адская энергия, принявшая гуманойдную форму."
 	icon = 'icons/mob/32x64.dmi'
 	icon_state = "true_devil"
 	gender = NEUTER
@@ -72,32 +72,32 @@
 
 
 /mob/living/carbon/true_devil/examine(mob/user)
-	. = list("<span class='info'>*---------*\nThis is [icon2html(src, user)] <b>[src]</b>!")
+	. = list("<span class='info'>*---------*\nЭто [icon2html(src, user)] <b>[src]</b>!")
 
 	//Left hand items
 	for(var/obj/item/I in held_items)
 		if(!(I.item_flags & ABSTRACT))
-			. += "It is holding [I.get_examine_string(user)] in its [get_held_index_name(get_held_index_of_item(I))]."
+			. += "Он держит [I.get_examine_string(user)] в его [get_held_index_name(get_held_index_of_item(I))]."
 
 	//Braindead
 	if(!client && stat != DEAD)
-		. += "The devil seems to be in deep contemplation."
+		. += "Дьявол погружён в состояние апатии."
 
 	//Damaged
 	if(stat == DEAD)
-		. += span_deadsay("The hellfire seems to have been extinguished, for now at least.")
+		. += span_deadsay("Адский огонь потушен, по крайней мере на данный момент.")
 	else if(health < (maxHealth/10))
-		. += span_warning("You can see hellfire inside its gaping wounds.")
+		. += span_warning("Я вижу как адский огонь выходит из его ран.")
 	else if(health < (maxHealth/2))
-		. += span_warning("You can see hellfire inside its wounds.")
+		. += span_warning("Я вижу адский огонь внутри его ран.")
 	. += "*---------*</span>"
 
 
 /mob/living/carbon/true_devil/resist_buckle()
 	if(buckled)
 		buckled.user_unbuckle_mob(src,src)
-		visible_message(span_warning("[src] easily breaks out of [p_their()] handcuffs!") , \
-					span_notice("With just a thought your handcuffs fall off."))
+		visible_message(span_warning("[src] запросто вырывается из [p_their()] наручников!") , \
+					span_notice("Мои наручники соскальзывают с меня от одной моей мысли."))
 
 /mob/living/carbon/true_devil/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
 	if(incapacitated())
@@ -130,13 +130,13 @@
 	if(length(I.attack_verb_continuous))
 		message_verb = "[pick(I.attack_verb_continuous)]"
 	else if(I.force)
-		message_verb = "attacked"
+		message_verb = "атакован"
 
-	var/attack_message = "[src] has been [message_verb] with [I]."
+	var/attack_message = "[src] был [message_verb] при помощи [I]."
 	if(user)
 		user.do_attack_animation(src)
 		if(user in viewers(src, null))
-			attack_message = "[user] has [message_verb] [src] with [I]!"
+			attack_message = "[user] [message_verb] [src] при помощи [I]!"
 	if(message_verb)
 		visible_message(span_danger("[attack_message]") ,
 		span_userdanger("[attack_message]") , null, COMBAT_MESSAGE_RANGE)
@@ -169,8 +169,8 @@
 			if (INTENT_HARM)
 				var/damage = rand(1, 5)
 				playsound(loc, "punch", 25, TRUE, -1)
-				visible_message(span_danger("[M] punches [src]!") , \
-						span_userdanger("[M] punches you!"))
+				visible_message(span_danger("[M] вмазывает [src]!") , \
+						span_userdanger("[M] ударяет меня!"))
 				adjustBruteLoss(damage)
 				log_combat(M, src, "attacked")
 				updatehealth()
@@ -179,19 +179,19 @@
 					if (prob(5))
 						Unconscious(40)
 						playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
-						log_combat(M, src, "pushed")
-						visible_message(span_danger("[M] pushes [src] down!") , \
-							span_userdanger("[M] pushes you down!"))
+						log_combat(M, src, "толкает")
+						visible_message(span_danger("[M] толкает [src]!") , \
+							span_userdanger("[M] толкает меня!"))
 					else
 						if (prob(25))
 							dropItemToGround(get_active_held_item())
 							playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
-							visible_message(span_danger("[M] disarms [src]!") , \
-							span_userdanger("[M] disarms you!"))
+							visible_message(span_danger("[M] обезоруживает [src]!") , \
+							span_userdanger("[M] обезоруживает меня!"))
 						else
 							playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
-							visible_message(span_danger("[M] fails to disarm [src]!") , \
-							span_userdanger("[M] fails to disarm you!"))
+							visible_message(span_danger("[M] пытается обезоружить [src]!") , \
+							span_userdanger("[M] не удалось обезоружить меня!"))
 
 /mob/living/carbon/true_devil/handle_breathing()
 	// devils do not need to breathe
