@@ -18,6 +18,7 @@
 	warmup_time = 3 SECONDS
 	var/obj/item/card/id/inserted_scan_id
 	circuit = /obj/item/circuitboard/computer/bountypad
+	interface_name = "CivCargoHoldTerminal"
 
 /obj/machinery/computer/piratepad_control/civilian/Initialize()
 	. = ..()
@@ -150,14 +151,6 @@
 	. = ..()
 	if(!user.canUseTopic(src, !issilicon(user)) || !is_operational)
 		id_eject(user, inserted_scan_id)
-
-/obj/machinery/computer/piratepad_control/civilian/ui_interact(mob/user, datum/tgui/ui)
-	. = ..()
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "CivCargoHoldTerminal", name)
-		ui.open()
-
 
 /obj/machinery/computer/piratepad_control/civilian/ui_data(mob/user)
 	var/list/data = list()

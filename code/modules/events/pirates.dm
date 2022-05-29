@@ -277,6 +277,7 @@
 	var/datum/export_report/total_report
 	var/sending_timer
 	var/cargo_hold_id
+	var/interface_name = "CargoHoldTerminal"
 
 /obj/machinery/computer/piratepad_control/Initialize()
 	..()
@@ -303,7 +304,7 @@
 	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "CargoHoldTerminal", name)
+		ui = new(user, src, interface_name, name)
 		ui.open()
 
 /obj/machinery/computer/piratepad_control/ui_data(mob/user)
