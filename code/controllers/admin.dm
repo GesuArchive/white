@@ -62,3 +62,23 @@ INITIALIZE_IMMEDIATE(/obj/effect/statclick)
 			SSblackbox.record_feedback("tally", "admin_verb", 1, "Restart Failsafe Controller")
 
 	message_admins("Admin [key_name_admin(usr)] has restarted the [controller] controller.")
+
+/client/proc/nullify_garbage_list()
+	set category = "Дбг"
+	set name = "Nullify Garbage List"
+	set desc = "Pizdos"
+
+	if(!holder)
+		return
+
+	SSgarbage.items = list()
+
+	message_admins("[key_name_admin(usr)] очищает очередь мусорщика.")
+
+	if(tgui_alert(usr, "Помогло?", "#1", list("Да", "Нет")) == "Да")
+		return
+
+	SSgarbage.queues = null
+	SSgarbage.InitQueues()
+
+	message_admins("[key_name_admin(usr)] СЕРЬЁЗНО очищает очередь мусорщика. Возможно это создаст непредсказуемые проблемы, будьте осторожны.")
