@@ -185,9 +185,9 @@
 /obj/machinery/door/firedoor/proc/check_atmos(turf/checked_turf)
 	var/datum/gas_mixture/environment = checked_turf.return_air()
 
-	if(environment?.return_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST || environment?.return_pressure() >= 350)
+	if(environment?.return_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		return FIRELOCK_ALARM_TYPE_HOT
-	if(environment?.return_temperature() <= BODYTEMP_COLD_DAMAGE_LIMIT || environment?.return_pressure() <= 20)
+	if(environment?.return_temperature() <= BODYTEMP_COLD_DAMAGE_LIMIT)
 		return FIRELOCK_ALARM_TYPE_COLD
 	return
 
