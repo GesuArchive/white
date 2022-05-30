@@ -199,7 +199,6 @@ GLOBAL_LIST_EMPTY(antagonists)
 
 /datum/antagonist/proc/set_antag_skills()
 	owner.set_experience(/datum/skill/ranged,  SKILL_EXP_MASTER, FALSE)
-	owner.set_experience(/datum/skill/parry,  SKILL_EXP_MASTER, FALSE)
 	owner.set_experience(/datum/skill/surgery, SKILL_EXP_EXPERT, FALSE)
 
 /datum/antagonist/proc/give_antag_moodies()
