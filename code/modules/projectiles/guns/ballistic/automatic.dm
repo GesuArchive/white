@@ -13,6 +13,13 @@
 	var/select = 1 ///fire selector position. 1 = semi, 2 = burst. anything past that can vary between guns.
 	var/selector_switch_icon = FALSE ///if it has an icon for a selector switch indicating current firemode.
 
+/obj/item/gun/ballistic/automatic/Initialize()
+	. = ..()
+	make_auto()
+
+/obj/item/gun/ballistic/automatic/proc/make_auto()
+	AddComponent(/datum/component/automatic_fire, fire_delay)
+
 /obj/item/gun/ballistic/automatic/update_overlays()
 	. = ..()
 	if(!selector_switch_icon)
