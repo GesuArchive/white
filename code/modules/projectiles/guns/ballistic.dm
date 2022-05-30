@@ -107,10 +107,14 @@
 	else
 		chamber_round(replace_new_round = TRUE)
 	update_icon()
+	make_auto()
 	//RegisterSignal(src, COMSIG_ITEM_RECHARGED, .proc/instant_reload)
 
 /obj/item/gun/ballistic/make_jamming()
 	AddElement(/datum/element/jamming, 0.5)
+
+/obj/item/gun/ballistic/proc/make_auto()
+	AddComponent(/datum/component/automatic_fire, fire_delay)
 
 /obj/item/gun/ballistic/add_weapon_description()
 	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_ballistic)

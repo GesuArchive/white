@@ -145,7 +145,6 @@
 	fire_sound = 'white/valtos/sounds/fallout/gunsounds/marksman/marksman2.ogg'
 	can_suppress = FALSE
 	fire_delay = 6
-	burst_size = 1
 	extra_damage = 35
 	extra_penetration = 10
 	weapon_weight = WEAPON_HEAVY
